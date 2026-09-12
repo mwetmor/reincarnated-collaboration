@@ -1,0 +1,43 @@
+{
+  "task_id": "K1-chk-03",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [],
+  "calls_used": 0,
+  "retries": [],
+  "self_report": {
+    "obeyed_invariants": true,
+    "concerns": [
+      "Inputs are 1024×1536, not declared 1254×1254; matte diagnostics retain native dimensions.",
+      "Frozen O5 produces fixed 64×64 masks, changing the portrait inputs’ aspect ratio.",
+      "Key-facing-edge O2 means could not be computed: the frozen tool lacks edge-mask support. Whole-figure measurements on an explicitly documented background are provided.",
+      "O8 anchor lacks foreground alpha and includes background; comparisons across differing source dimensions are uncalibrated.",
+      "G9 cannot establish visual absence of dark fringes; no numeric dark-fringe threshold was supplied."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/checks.json",
+      "sha256": "bd4fc91b6209fad5325fb3746567907a2f30e060d66b932161e5db589c64a172"
+    },
+    {
+      "path": "out/checks_readme.txt",
+      "sha256": "d762a4e4abf782979f74268f27ca4b17eceda57801c6fc8e5c3b8f309b270911"
+    },
+    {
+      "path": "out/k1_master_G_rgba.png",
+      "sha256": "84c404d499d77e518c3561a6f26c6242adecb51554091c5e4bb2398e0ae5d0ac"
+    },
+    {
+      "path": "out/k1_master_H_rgba.png",
+      "sha256": "3a8cbf0de61f6665d2166f2a88d74c05c9df911d3b939decf0e0ddc2f66f407b"
+    },
+    {
+      "path": "out/k1_master_G_64.png",
+      "sha256": "0ac7bb55faf41220842828193ea77f0eda8002ccc54e082a7ed3aaa24eeeaeec"
+    },
+    {
+      "path": "out/k1_master_H_64.png",
+      "sha256": "c2367e50309a3a29d5814803fea05c093f5619102e6f07aa5de06e630ae5e903"
+    }
+  ]
+}

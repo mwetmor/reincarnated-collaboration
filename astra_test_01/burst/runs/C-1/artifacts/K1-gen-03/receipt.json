@@ -1,0 +1,51 @@
+{
+  "task_id": "K1-gen-03",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "k1_master_G.png",
+      "path": "out/k1_master_G.png",
+      "sha256": "2279c86c78c2053c5f6f43c5e38f74d46a0605c27b74a23630fee3fe2a2ccddf",
+      "prompt": "Keeper of Hours — STARTER identity master, v4 (chin fix). One full-body figure, facing the camera (direction S), projection C (elevated three-quarter), standing, feet visible, weight even, arms relaxed, a plain wooden staff held upright in the RIGHT hand. Identity: a YOUNG WOMAN, early 20s, dark curly hair tied back, sun-browned skin, face fully visible, no helmet. FACE: a smooth, softly rounded chin with NO cleft and NO dimple; a soft feminine jawline; otherwise the same face as Image 1. Costume (every item is an instrument or carries one): ivory linen shirt with rolled sleeves under a navy wool sleeveless tabard whose chest is PLAIN — no emblem, no ring, no shape of any kind; ONE chestnut leather harness strap running from the right shoulder diagonally to the LEFT hip where it carries an olive waxed-canvas satchel with brass corners; ONE chestnut leather waist belt whose buckle closes the tabard; chestnut leather laced bracers on both forearms; navy wool trousers; chestnut leather buckled boots. Staff: a plain dark walnut shaft with small brass ferrules at the foot and the tip — NO ring, NO head-piece, NO shape atop it. NO insignia anywhere on the character: every surface is plain and undecorated — no trim, no edge ornament, no sigils, no compass diagrams, no studs. Register: painted 2D, illustrated, clean material planes, restrained surface texture, no conspicuous brush or pixel grain. Light: single key from SCREEN UPPER-LEFT, deep cool low-value ambient, readable shadows never pure black, slight rim on the key-facing edge; no spell glow; NO floor shadow. Flat uniform pure #00ff00 background covering the whole canvas; do not matte. Image 1 is the IDENTITY REFERENCE: keep the face, hair mass, skin, costume, materials, pose, framing and register EXACTLY — change ONE thing only: remove the cleft from the chin and soften the chin and jaw into a smooth, rounded feminine line. Nothing else changes; no insignia anywhere; the staff stays plain with brass ferrules.",
+      "references": [
+        {
+          "role": "IDENTITY REFERENCE (master E)",
+          "path": "in/01_k1_master_E.png"
+        }
+      ],
+      "elapsed_s": 42.728
+    },
+    {
+      "name": "k1_master_H.png",
+      "path": "out/k1_master_H.png",
+      "sha256": "7c170a5348705dd71266ebc1886bc0fc98271ac8553e038bd19828a2d2a48f3f",
+      "prompt": "Keeper of Hours — STARTER identity master, v4 (chin fix). One full-body figure, facing the camera (direction S), projection C (elevated three-quarter), standing, feet visible, weight even, arms relaxed, a plain wooden staff held upright in the RIGHT hand. Identity: a YOUNG WOMAN, early 20s, dark curly hair tied back, sun-browned skin, face fully visible, no helmet. FACE: a smooth, softly rounded chin with NO cleft and NO dimple; a soft feminine jawline; otherwise the same face as Image 1. Costume (every item is an instrument or carries one): ivory linen shirt with rolled sleeves under a navy wool sleeveless tabard whose chest is PLAIN — no emblem, no ring, no shape of any kind; ONE chestnut leather harness strap running from the right shoulder diagonally to the LEFT hip where it carries an olive waxed-canvas satchel with brass corners; ONE chestnut leather waist belt whose buckle closes the tabard; chestnut leather laced bracers on both forearms; navy wool trousers; chestnut leather buckled boots. Staff: a plain dark walnut shaft with small brass ferrules at the foot and the tip — NO ring, NO head-piece, NO shape atop it. NO insignia anywhere on the character: every surface is plain and undecorated — no trim, no edge ornament, no sigils, no compass diagrams, no studs. Register: painted 2D, illustrated, clean material planes, restrained surface texture, no conspicuous brush or pixel grain. Light: single key from SCREEN UPPER-LEFT, deep cool low-value ambient, readable shadows never pure black, slight rim on the key-facing edge; no spell glow; NO floor shadow. Flat uniform pure #00ff00 background covering the whole canvas; do not matte. Image 1 is the IDENTITY REFERENCE: keep the face, hair mass, skin, costume, materials, pose, framing and register EXACTLY — change ONE thing only: remove the cleft from the chin and soften the chin and jaw into a smooth, rounded feminine line. Nothing else changes; no insignia anywhere; the staff stays plain with brass ferrules.",
+      "references": [
+        {
+          "role": "IDENTITY REFERENCE (master E)",
+          "path": "in/01_k1_master_E.png"
+        }
+      ],
+      "elapsed_s": 39.071
+    }
+  ],
+  "calls_used": 2,
+  "retries": [],
+  "self_report": {
+    "obeyed_invariants": false,
+    "concerns": [
+      "Both outputs are 1024×1536 single-figure identity masters matching the task's reference framing, rather than the register card's 2×2 sheets and registered 512×512 frames.",
+      "Exact preservation outside the chin and exact background RGB uniformity were not quantitatively verified."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/k1_master_G.png",
+      "sha256": "2279c86c78c2053c5f6f43c5e38f74d46a0605c27b74a23630fee3fe2a2ccddf"
+    },
+    {
+      "path": "out/k1_master_H.png",
+      "sha256": "7c170a5348705dd71266ebc1886bc0fc98271ac8553e038bd19828a2d2a48f3f"
+    }
+  ]
+}
