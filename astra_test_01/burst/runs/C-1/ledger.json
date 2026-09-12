@@ -6127,9 +6127,301 @@
       "codex_version": "codex-cli 0.153.4",
       "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
       "exit": 0
+    },
+    {
+      "id": "K6-H1-hades",
+      "type": "GENERATE",
+      "experiment": "K6",
+      "brief_sha256": "99bb1f485a55102096b4f7a8b50a2104cc8d710de6667a4e4f1a07a7fb6a7f6e",
+      "started": "2026-09-12T20:01:53.720719+00:00",
+      "ended": "2026-09-12T20:04:51.805919+00:00",
+      "minutes": 2.968088765283331,
+      "image_calls": 2,
+      "tool_calls": 2,
+      "audit": {
+        "violations": [],
+        "image_calls": 2,
+        "tool_calls": 2,
+        "tools_seen": {
+          "command_execution": 2
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a09736-4ed5-7b20-9bb3-6e515d91414f/exec-7dda4d2f-6646-44da-8dce-6372e63e8908.png",
+            "sha256": "b1d24b386ab274e26cb1c5a45612f147aa23581bb183e88947cf5afd56eafb7a"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a09736-4ed5-7b20-9bb3-6e515d91414f/exec-c14021be-8921-4f15-b341-6850c21dd4d9.png",
+            "sha256": "1546d131dff6498c2870362c913d2ab8a298a47fdf7561d161645b123b82fe99"
+          }
+        ]
+      },
+      "receipt_sha256": "020bfedfe4bfb3f47929b58014274c845c5d4aa3a10ba8d2f7529748cee9c945",
+      "artifacts": [
+        {
+          "name": "k6_H1_hades_1.png",
+          "sha256": "1546d131dff6498c2870362c913d2ab8a298a47fdf7561d161645b123b82fe99"
+        },
+        {
+          "name": "k6_H1_hades_2.png",
+          "sha256": "b1d24b386ab274e26cb1c5a45612f147aa23581bb183e88947cf5afd56eafb7a"
+        },
+        {
+          "name": "exec-7dda4d2f-6646-44da-8dce-6372e63e8908.provenance.json",
+          "sha256": "eab920eec0809438fae529f178040f0a66600d3e190abb96c214a296e5eed00b"
+        },
+        {
+          "name": "exec-c14021be-8921-4f15-b341-6850c21dd4d9.provenance.json",
+          "sha256": "21b3839133cf5d57cd9429c3ba3f94a73a22839db66be1f562b78c0e36a8beea"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a09736-4ed5-7b20-9bb3-6e515d91414f/exec-7dda4d2f-6646-44da-8dce-6372e63e8908.png",
+          "sha256": "b1d24b386ab274e26cb1c5a45612f147aa23581bb183e88947cf5afd56eafb7a"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a09736-4ed5-7b20-9bb3-6e515d91414f/exec-c14021be-8921-4f15-b341-6850c21dd4d9.png",
+          "sha256": "1546d131dff6498c2870362c913d2ab8a298a47fdf7561d161645b123b82fe99"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
+    },
+    {
+      "id": "K6-H2-arpg",
+      "type": "GENERATE",
+      "experiment": "K6",
+      "brief_sha256": "39faaba1436621eaa276a36a3ac1afeb9f196e6df783d47a71a828d066b634c2",
+      "started": "2026-09-12T20:01:53.720910+00:00",
+      "ended": "2026-09-12T20:05:01.870615+00:00",
+      "minutes": 3.1358232986166663,
+      "image_calls": 2,
+      "tool_calls": 2,
+      "audit": {
+        "violations": [],
+        "image_calls": 2,
+        "tool_calls": 2,
+        "tools_seen": {
+          "command_execution": 2
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a09736-4ed5-7111-a167-4a71e65821df/exec-6b1b7620-2956-4a39-86a0-024a99b5868f.png",
+            "sha256": "fd75f0765dc0efbcf79508ca632fd04f2247da12a0fe98a007a325f361ac2235"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a09736-4ed5-7111-a167-4a71e65821df/exec-90f11385-f3ee-40f0-9237-9cbeaf61a89a.png",
+            "sha256": "dba1c5d57ececa873b6ee3ee0465d15a952a3ddc4a222716f564e103caa65660"
+          }
+        ]
+      },
+      "receipt_sha256": "3cc681e63d263c464889e1043f958b8318384d4f980d6e0a8c83255ddfa7702f",
+      "artifacts": [
+        {
+          "name": "k6_H2_arpg_1.png",
+          "sha256": "dba1c5d57ececa873b6ee3ee0465d15a952a3ddc4a222716f564e103caa65660"
+        },
+        {
+          "name": "k6_H2_arpg_2.png",
+          "sha256": "fd75f0765dc0efbcf79508ca632fd04f2247da12a0fe98a007a325f361ac2235"
+        },
+        {
+          "name": "exec-6b1b7620-2956-4a39-86a0-024a99b5868f.provenance.json",
+          "sha256": "dacb00f1bfd56ca23d916e023f062d1736ae2d410025480b2bd1d4bdb51a88cf"
+        },
+        {
+          "name": "exec-90f11385-f3ee-40f0-9237-9cbeaf61a89a.provenance.json",
+          "sha256": "a8ddd5478c11a03d81d0e3616af6973cce152493bcef0362a35a80a6a612d3a8"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a09736-4ed5-7111-a167-4a71e65821df/exec-6b1b7620-2956-4a39-86a0-024a99b5868f.png",
+          "sha256": "fd75f0765dc0efbcf79508ca632fd04f2247da12a0fe98a007a325f361ac2235"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a09736-4ed5-7111-a167-4a71e65821df/exec-90f11385-f3ee-40f0-9237-9cbeaf61a89a.png",
+          "sha256": "dba1c5d57ececa873b6ee3ee0465d15a952a3ddc4a222716f564e103caa65660"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
+    },
+    {
+      "id": "K6-H2-hades",
+      "type": "GENERATE",
+      "experiment": "K6",
+      "brief_sha256": "da7de6cc3d0570f52ccda3dab712ffa5e2b1c64fa5a5e15955e3c2d80151d7be",
+      "started": "2026-09-12T20:01:53.720717+00:00",
+      "ended": "2026-09-12T20:05:29.417351+00:00",
+      "minutes": 3.594946454166666,
+      "image_calls": 2,
+      "tool_calls": 2,
+      "audit": {
+        "violations": [],
+        "image_calls": 2,
+        "tool_calls": 2,
+        "tools_seen": {
+          "command_execution": 2
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a09736-4ed5-7172-90f8-2bc8b0fc3635/exec-b7433d7b-fad1-4728-b388-940aa0bfdd05.png",
+            "sha256": "418f6311e60e1ae08987d7720754029ee7c237dc746b735b1c628bd4f8192b50"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a09736-4ed5-7172-90f8-2bc8b0fc3635/exec-db1ef40a-1287-4ffe-97e1-d5bd5253b0e4.png",
+            "sha256": "114061d5ac4fe6915c9debe1d674978e3d4a7e68c126570aad78fe29448a5c58"
+          }
+        ]
+      },
+      "receipt_sha256": "014d0518fa1ea9bb23f0c3b8b1deda4b6fa9b456b7154a5fcf211b6d4042484b",
+      "artifacts": [
+        {
+          "name": "k6_H2_hades_1.png",
+          "sha256": "114061d5ac4fe6915c9debe1d674978e3d4a7e68c126570aad78fe29448a5c58"
+        },
+        {
+          "name": "k6_H2_hades_2.png",
+          "sha256": "418f6311e60e1ae08987d7720754029ee7c237dc746b735b1c628bd4f8192b50"
+        },
+        {
+          "name": "exec-b7433d7b-fad1-4728-b388-940aa0bfdd05.provenance.json",
+          "sha256": "d475fb926995d4ba029eeefedc6036799b059742a1192ff20666771265c0a9f9"
+        },
+        {
+          "name": "exec-db1ef40a-1287-4ffe-97e1-d5bd5253b0e4.provenance.json",
+          "sha256": "1008d0d7da34da79e15d3aa455797afd98a52522c86c961c4d7336db3abd320e"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a09736-4ed5-7172-90f8-2bc8b0fc3635/exec-b7433d7b-fad1-4728-b388-940aa0bfdd05.png",
+          "sha256": "418f6311e60e1ae08987d7720754029ee7c237dc746b735b1c628bd4f8192b50"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a09736-4ed5-7172-90f8-2bc8b0fc3635/exec-db1ef40a-1287-4ffe-97e1-d5bd5253b0e4.png",
+          "sha256": "114061d5ac4fe6915c9debe1d674978e3d4a7e68c126570aad78fe29448a5c58"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
+    },
+    {
+      "id": "K6-H1-arpg",
+      "type": "GENERATE",
+      "experiment": "K6",
+      "brief_sha256": "b3927f3ded3cc93fb83d0fdf29eaa7f30a85749a7777125f5a75a8fe428e0bb8",
+      "started": "2026-09-12T20:01:53.720720+00:00",
+      "ended": "2026-09-12T20:06:05.815027+00:00",
+      "minutes": 4.201577454166666,
+      "image_calls": 2,
+      "tool_calls": 2,
+      "audit": {
+        "violations": [],
+        "image_calls": 2,
+        "tool_calls": 2,
+        "tools_seen": {
+          "command_execution": 2
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a09736-4ed5-7d73-bf3a-9303a3244c1c/exec-14f777f7-57cb-4b3c-a98d-75eabfe41335.png",
+            "sha256": "7a300388159b697f6b7f03465dc2afd33b8000ddb538a664e4e9c1f71517be8e"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a09736-4ed5-7d73-bf3a-9303a3244c1c/exec-5a0c52dc-de49-4162-bb7e-81711223ed15.png",
+            "sha256": "17f5a335ac19a90f15dc338219be3a94f6d06f14b96784c4b48067d139f586f3"
+          }
+        ]
+      },
+      "receipt_sha256": "2f932f96ee4581d0e58f620d752a23fae9b18a222dbae7acb17cacabe1ea058c",
+      "artifacts": [
+        {
+          "name": "k6_H1_arpg_1.png",
+          "sha256": "17f5a335ac19a90f15dc338219be3a94f6d06f14b96784c4b48067d139f586f3"
+        },
+        {
+          "name": "k6_H1_arpg_2.png",
+          "sha256": "7a300388159b697f6b7f03465dc2afd33b8000ddb538a664e4e9c1f71517be8e"
+        },
+        {
+          "name": "exec-14f777f7-57cb-4b3c-a98d-75eabfe41335.provenance.json",
+          "sha256": "ef0d95f9e51fca497c56514f22c7d99e7bf34ec9dfcc06d97e69a9ca8e4a6875"
+        },
+        {
+          "name": "exec-5a0c52dc-de49-4162-bb7e-81711223ed15.provenance.json",
+          "sha256": "c84dbebcd88204113ffcd1f342286cf2d81eb23301c5932598593a132b75ae5f"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a09736-4ed5-7d73-bf3a-9303a3244c1c/exec-14f777f7-57cb-4b3c-a98d-75eabfe41335.png",
+          "sha256": "7a300388159b697f6b7f03465dc2afd33b8000ddb538a664e4e9c1f71517be8e"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a09736-4ed5-7d73-bf3a-9303a3244c1c/exec-5a0c52dc-de49-4162-bb7e-81711223ed15.png",
+          "sha256": "17f5a335ac19a90f15dc338219be3a94f6d06f14b96784c4b48067d139f586f3"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
     }
   ],
-  "images_used": 50,
+  "images_used": 58,
   "images_cap": 250,
   "experiments": {
     "T0": {
@@ -6282,6 +6574,17 @@
       "images": 4,
       "packet": "~/Desktop/Astra Burst Review - 2026-09-11/08 K5 in-scene register probe (Q74)/",
       "corpus": "legolas 2026-09-12-corpus-register-stills (press kits, class D) pending"
+    },
+    "K6": {
+      "status": "DELIVERED \u2014 in-world register study for Q74 (Matt rules): male end-game Keeper in H1/H2 \u00d7 ARPG/Hades worlds, 8 images",
+      "bursts": [
+        "K6-H1-arpg",
+        "K6-H1-hades",
+        "K6-H2-arpg",
+        "K6-H2-hades"
+      ],
+      "images": 8,
+      "packet": "~/Desktop/Astra Burst Review - 2026-09-11/09 K6 in-world register study (Q74)/"
     }
   },
   "milestones": [

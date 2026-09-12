@@ -1,0 +1,45 @@
+{
+  "task_id": "K6-H2-hades",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "k6_H2_hades_1.png",
+      "path": "out/k6_H2_hades_1.png",
+      "sha256": "114061d5ac4fe6915c9debe1d674978e3d4a7e68c126570aad78fe29448a5c58",
+      "prompt": "Keeper of Hours — IN-WORLD register study (H2 character in a HADES-language world). LANDSCAPE 1536×1024, one full scene with ONE character in it; NO text, NO UI, NO other figures. THE CHARACTER — Keeper of Hours, ADVANCED (end-game) set, a MAN in his late thirties: weathered sun-browned face, cropped dark beard, dark hair cut short, a scar through one eyebrow, a calm hard-won authority; broad shoulders, a man's proportions. Gear (every item an instrument or carries one): ivory linen shirt under a navy wool tabard, over it a chestnut leather cuirass with brass edge-trim closed at the chest by a BRASS RING bearing a single HOUR-MARK (the Keepers' advanced sigil — the only emblem on him, repeated once as the staff head); a hooded navy wool mantle thrown back; heavy chestnut leather bracers with brass studs; a chestnut harness strap from the right shoulder to the LEFT hip carrying an olive waxed-canvas satchel with brass corners and a brass-capped ledger case; chestnut belt with a brass buckle; navy trousers; chestnut boots with brass-buckled greaves. Staff: dark walnut shaft, brass ferrule at the foot, and at the head a BRASS RING with an hour-mark cradling a small hour-glass crystal that gives off a faint COLD blue-white glow — the only spell light in the scene. He stands in a ready stance, weight on the back foot, staff planted, facing the camera three-quarters (direction S-SE), full body visible, feet on the ground with a contact shadow. WORLD in the language of Hades: a TIGHT interior chamber of the Keepers' undercroft — a bold geometric ground pattern (brass hour-rings inlaid in dark slate), stone plinths with lit braziers, hanging chains, a locked brass door at the top edge; STEEP elevated camera (about 60°, looking well down), the room framed as a single arena; saturated jewel-toned light — teal brazier fire and a violet glow from the door seams — strong graphic shadows; the figure stands at about 14 % of the frame height, centred, the room built to his scale (ring inlays two strides wide, plinths chest-high). Light: key from SCREEN UPPER-LEFT, dark low-value ambient, readable shadows never pure black; the staff crystal cold blue-white. Register: HAND-DRAWN painted 2D — bold inked contour of even, heavy weight around the silhouette with thinner interior lines, cel-style two-tone shading with painterly texture inside the flats, strong graphic silhouette; a frame that could sit inside a hand-animated cycle with slight drawing variation between frames. The character and the world are drawn in the SAME register. Fill the whole canvas; no border, no vignette.",
+      "references": [],
+      "elapsed_s": 39.951
+    },
+    {
+      "name": "k6_H2_hades_2.png",
+      "path": "out/k6_H2_hades_2.png",
+      "sha256": "418f6311e60e1ae08987d7720754029ee7c237dc746b735b1c628bd4f8192b50",
+      "prompt": "Keeper of Hours — IN-WORLD register study (H2 character in a HADES-language world). LANDSCAPE 1536×1024, one full scene with ONE character in it; NO text, NO UI, NO other figures. THE CHARACTER — Keeper of Hours, ADVANCED (end-game) set, a MAN in his late thirties: weathered sun-browned face, cropped dark beard, dark hair cut short, a scar through one eyebrow, a calm hard-won authority; broad shoulders, a man's proportions. Gear (every item an instrument or carries one): ivory linen shirt under a navy wool tabard, over it a chestnut leather cuirass with brass edge-trim closed at the chest by a BRASS RING bearing a single HOUR-MARK (the Keepers' advanced sigil — the only emblem on him, repeated once as the staff head); a hooded navy wool mantle thrown back; heavy chestnut leather bracers with brass studs; a chestnut harness strap from the right shoulder to the LEFT hip carrying an olive waxed-canvas satchel with brass corners and a brass-capped ledger case; chestnut belt with a brass buckle; navy trousers; chestnut boots with brass-buckled greaves. Staff: dark walnut shaft, brass ferrule at the foot, and at the head a BRASS RING with an hour-mark cradling a small hour-glass crystal that gives off a faint COLD blue-white glow — the only spell light in the scene. He stands in a ready stance, weight on the back foot, staff planted, facing the camera three-quarters (direction S-SE), full body visible, feet on the ground with a contact shadow. WORLD in the language of Hades: a TIGHT interior chamber of the Keepers' undercroft — a bold geometric ground pattern (brass hour-rings inlaid in dark slate), stone plinths with lit braziers, hanging chains, a locked brass door at the top edge; STEEP elevated camera (about 60°, looking well down), the room framed as a single arena; saturated jewel-toned light — teal brazier fire and a violet glow from the door seams — strong graphic shadows; the figure stands at about 14 % of the frame height, centred, the room built to his scale (ring inlays two strides wide, plinths chest-high). Light: key from SCREEN UPPER-LEFT, dark low-value ambient, readable shadows never pure black; the staff crystal cold blue-white. Register: HAND-DRAWN painted 2D — bold inked contour of even, heavy weight around the silhouette with thinner interior lines, cel-style two-tone shading with painterly texture inside the flats, strong graphic silhouette; a frame that could sit inside a hand-animated cycle with slight drawing variation between frames. The character and the world are drawn in the SAME register. Fill the whole canvas; no border, no vignette.",
+      "references": [],
+      "elapsed_s": 77.923
+    }
+  ],
+  "calls_used": 2,
+  "retries": [],
+  "self_report": {
+    "obeyed_invariants": false,
+    "concerns": [
+      "Followed the task's verbatim description where it conflicts with the frozen register: franchise naming, shading and texture, saturated environmental lights, camera specification, landscape scenes instead of registered sprite sheets, and no green plate.",
+      "Character height is visually approximately 47% and 44% of frame height, respectively, rather than the requested 14%.",
+      "Compositions differ in environmental details but retain similar central framing.",
+      "Character equipment and sigil details vary between images; image 1 substitutes an hourglass emblem for the single hour-mark.",
+      "Image 1 includes background humanoid stone statues despite the request for no other figures.",
+      "Uniform heavy contours and strict two-tone shading are not consistently achieved."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/k6_H2_hades_1.png",
+      "sha256": "114061d5ac4fe6915c9debe1d674978e3d4a7e68c126570aad78fe29448a5c58"
+    },
+    {
+      "path": "out/k6_H2_hades_2.png",
+      "sha256": "418f6311e60e1ae08987d7720754029ee7c237dc746b735b1c628bd4f8192b50"
+    }
+  ]
+}
