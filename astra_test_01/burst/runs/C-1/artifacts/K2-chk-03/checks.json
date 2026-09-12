@@ -1,0 +1,1706 @@
+[
+  {
+    "id": "registered_rgba_output",
+    "subject": "K2/S",
+    "passed": null,
+    "value": null,
+    "threshold": null,
+    "op": "<=",
+    "unit": "",
+    "evidence": [],
+    "notes": "Not produced: source is 1024x1536; no reviewed registration annotations or locked common scale supplied, and frozen registration requires square input. Native matte measured in memory only."
+  },
+  {
+    "id": "matte",
+    "subject": "K2/S",
+    "passed": null,
+    "value": null,
+    "threshold": null,
+    "op": "<=",
+    "unit": "",
+    "evidence": [
+      "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K1-gen-04/k1_master_L.png"
+    ],
+    "notes": "{\"input\": \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K1-gen-04/k1_master_L.png\", \"canvas\": [1024, 1536], \"extraction\": {\"method\": \"green excess matte + inverse straight-alpha compositing\", \"removed_background_or_detached_alpha_dust_pixels\": 120, \"native_input_alpha\": false, \"alpha_floor\": 40, \"alpha_floor_removed_pixels\": 1131915}}"
+  },
+  {
+    "id": "g1_height",
+    "subject": "K2/S",
+    "passed": true,
+    "value": 1.0,
+    "threshold": [
+      0.97,
+      1.03
+    ],
+    "op": "within_inclusive",
+    "unit": "ratio",
+    "evidence": [],
+    "notes": "{\"literal_tool_result\": {\"id\": \"g1_height\", \"subject\": \"K2/S\", \"passed\": true, \"value\": 0.0, \"threshold\": 0.03, \"op\": \"<=\", \"unit\": \"fraction\", \"evidence\": [], \"notes\": \"height_px=1461; master_height_px=1461\"}, \"height_px\": 1461, \"master_height_px\": 1461, \"ratio_interval_inclusive\": [0.97, 1.03], \"measurement_space\": \"native matte; no registration performed\"}"
+  },
+  {
+    "id": "g2_pivot",
+    "subject": "K2/S",
+    "passed": null,
+    "value": null,
+    "threshold": 4,
+    "op": "<=",
+    "unit": "px",
+    "evidence": [],
+    "notes": "UNEVALUABLE: independent reviewed root anchor required; sole midpoint is separate"
+  },
+  {
+    "id": "g3_light",
+    "subject": "K2/S",
+    "passed": true,
+    "value": -0.25608070757323276,
+    "threshold": 0,
+    "op": "<",
+    "unit": "px",
+    "evidence": [],
+    "notes": "{\"valid\": true, \"bbox\": [247, 29, 785, 1490], \"height\": 1461, \"transparent_fraction\": 0.7204322814941406, \"border_alpha_max\": 0, \"light_centroid\": [515.2439192924268, 412.03980099502485], \"silhouette_center\": [515.5, 759.0], \"light_pass\": true, \"brightest_5pct_pixels\": 21708, \"partial_alpha_pixels\": 13292, \"edge_mean_rgb_value\": 74.55898284682516, \"green_contaminated_pixels\": 0}"
+  },
+  {
+    "id": "silhouette64",
+    "subject": "K2/S",
+    "passed": null,
+    "value": 0.0,
+    "threshold": null,
+    "op": "<=",
+    "unit": "1-iou",
+    "evidence": [
+      "out/k2_S_64.png",
+      "out/k2_S_64.png"
+    ],
+    "notes": "UNEVALUABLE verdict: no calibrated threshold supplied; {\"aligned_iou\": 1.0, \"contour_distance\": 0.0, \"hu_a\": [0.24631606061623298, 0.019655379461072355, 9.417417746213143e-05, 0.0003335989049148237, -1.5144831848334708e-08, 4.675156308259643e-05, -5.7156888231747094e-08], \"hu_b\": [0.24631606061623298, 0.019655379461072355, 9.417417746213143e-05, 0.0003335989049148237, -1.5144831848334708e-08, 4.675156308259643e-05, -5.7156888231747094e-08]}; Native 1024x1536 alpha is resized to 64x64 by the frozen descriptor; analytical instrument only, not registered artwork."
+  },
+  {
+    "id": "plate_uniformity",
+    "subject": "K2/S",
+    "passed": null,
+    "value": 0.986420717999157,
+    "threshold": null,
+    "op": ">=",
+    "unit": "fraction",
+    "evidence": [],
+    "notes": "{\"metrics\": {\"non_subject_pixels\": 1138720, \"plate_mean_rgb\": [3.4988522200365324, 249.11409477307853, 2.718358332162428], \"plate_sd_rgb\": [2.219118254171509, 3.6228735870317004, 1.777592993653714], \"subject_support\": \"supplied subject alpha >=128\", \"tol\": 8}, \"reason\": \"No min_fraction declared; X1 observations are not a threshold\"}"
+  },
+  {
+    "id": "g9_alpha",
+    "subject": "K2/S",
+    "passed": true,
+    "value": 0,
+    "threshold": 0,
+    "op": "<=",
+    "unit": "alpha",
+    "evidence": [],
+    "notes": "Canvas-border clipping"
+  },
+  {
+    "id": "g9_green",
+    "subject": "K2/S",
+    "passed": true,
+    "value": 0,
+    "threshold": 0,
+    "op": "<=",
+    "unit": "pixels",
+    "evidence": [],
+    "notes": "Partial alpha and green excess >20"
+  },
+  {
+    "id": "g9_edge_mean",
+    "subject": "K2/S",
+    "passed": null,
+    "value": 74.55898284682516,
+    "threshold": null,
+    "op": "<=",
+    "unit": "rgb",
+    "evidence": [],
+    "notes": "Mean RGB over 0<alpha<255; measurement only"
+  },
+  {
+    "id": "g9_dark_fringe",
+    "subject": "K2/S",
+    "passed": null,
+    "value": 74.55898284682516,
+    "threshold": null,
+    "op": ">=",
+    "unit": "rgb",
+    "evidence": [],
+    "notes": "UNEVALUABLE: source defines visual inspection, no numeric threshold"
+  },
+  {
+    "id": "O7",
+    "subject": "K2/S",
+    "passed": null,
+    "value": 15.609745333240085,
+    "threshold": null,
+    "op": "<=",
+    "unit": "degrees",
+    "evidence": [],
+    "notes": "{\"metrics\": {\"azimuth_deg\": 150.60974533324008, \"dispersion\": 0.961853494984515, \"resultant\": 0.03814650501548495}, \"reason\": \"\"}"
+  },
+  {
+    "id": "O3b_raw",
+    "subject": "K2/S",
+    "passed": null,
+    "value": 6,
+    "threshold": null,
+    "op": "<=",
+    "unit": "instances",
+    "evidence": [],
+    "notes": "{\"metrics\": {\"alignment_cosine\": 0.9, \"angular_samples\": 48, \"annulus_rejected\": 0, \"family\": \"ring\", \"gradient_floor\": 0.02, \"hollow_min\": 0, \"inside\": 0, \"max_radius_px\": 30, \"min_angular_support\": 0.75, \"min_radius_px\": 8, \"nms_radius_fraction\": 0.8, \"outside\": 6, \"peaks\": [{\"angular_support\": 0.7916666666666666, \"center\": [304.0, 388.0], \"hollow_score\": 0.20833333333333334, \"inner_opposed_support\": 0.20833333333333334, \"inside\": false, \"lab_band_surround\": 7.303473834300511, \"lab_center_band\": 28.710878392373058, \"lab_center_surround\": 34.937610022135594, \"lab_color_return\": 0.0, \"radius\": 8.0, \"score\": 0.8241411171130127}, {\"angular_support\": 0.7916666666666666, \"center\": [684.0, 572.0], \"hollow_score\": 0.1875, \"inner_opposed_support\": 0.1875, \"inside\": false, \"lab_band_surround\": 21.905745099995645, \"lab_center_band\": 26.61086873070626, \"lab_center_surround\": 44.90880239180055, \"lab_color_return\": 0.0, \"radius\": 30.0, \"score\": 0.7992057151421812}, {\"angular_support\": 0.8125, \"center\": [275.0, 416.0], \"hollow_score\": 0.4583333333333333, \"inner_opposed_support\": 0.4583333333333333, \"inside\": false, \"lab_band_surround\": 25.956146580437665, \"lab_center_band\": 15.345240074569515, \"lab_center_surround\": 41.16379976693377, \"lab_color_return\": 0.0, \"radius\": 30.0, \"score\": 0.7771007273039365}, {\"angular_support\": 0.8125, \"center\": [500.0, 157.0], \"hollow_score\": 0.4583333333333333, \"inner_opposed_support\": 0.4583333333333333, \"inside\": false, \"lab_band_surround\": 11.82413004870069, \"lab_center_band\": 12.424121935312517, \"lab_center_surround\": 18.487112485152277, \"lab_color_return\": 0.0, \"radius\": 9.0, \"score\": 0.5932413188478388}, {\"angular_support\": 0.75, \"center\": [431.0, 151.0], \"hollow_score\": 0.4583333333333333, \"inner_opposed_support\": 0.4583333333333333, \"inside\": false, \"lab_band_surround\": 11.02969482696902, \"lab_center_band\": 11.419505462591156, \"lab_center_surround\": 22.441293048213524, \"lab_color_return\": 0.0, \"radius\": 9.0, \"score\": 0.5147230879408702}, {\"angular_support\": 0.75, \"center\": [567.0, 177.0], \"hollow_score\": 0.020833333333333332, \"inner_opposed_support\": 0.020833333333333332, \"inside\": false, \"lab_band_surround\": 15.015810150249678, \"lab_center_band\": 5.577641917150362, \"lab_center_surround\": 20.572155720767515, \"lab_color_return\": 0.0, \"radius\": 8.0, \"score\": 0.5072893446425789}], \"radial_tolerance_fraction\": 0.15, \"smooth_fraction\": 0.08, \"vote_thresh\": 0.5}, \"reason\": \"\"}"
+  },
+  {
+    "id": "O3b_annulus",
+    "subject": "K2/S",
+    "passed": null,
+    "value": 0,
+    "threshold": null,
+    "op": "<=",
+    "unit": "instances",
+    "evidence": [],
+    "notes": "{\"metrics\": {\"alignment_cosine\": 0.9, \"angular_samples\": 48, \"annulus_rejected\": 6, \"family\": \"ring\", \"gradient_floor\": 0.02, \"hollow_min\": 0.5, \"inside\": 0, \"max_radius_px\": 30, \"min_angular_support\": 0.75, \"min_radius_px\": 8, \"nms_radius_fraction\": 0.8, \"outside\": 0, \"peaks\": [{\"angular_support\": 0.7916666666666666, \"center\": [304.0, 388.0], \"hollow_score\": 0.20833333333333334, \"inner_opposed_support\": 0.20833333333333334, \"inside\": false, \"lab_band_surround\": 7.303473834300511, \"lab_center_band\": 28.710878392373058, \"lab_center_surround\": 34.937610022135594, \"lab_color_return\": 0.0, \"radius\": 8.0, \"rejected\": \"not_annulus\", \"score\": 0.8241411171130127}, {\"angular_support\": 0.7916666666666666, \"center\": [684.0, 572.0], \"hollow_score\": 0.1875, \"inner_opposed_support\": 0.1875, \"inside\": false, \"lab_band_surround\": 21.905745099995645, \"lab_center_band\": 26.61086873070626, \"lab_center_surround\": 44.90880239180055, \"lab_color_return\": 0.0, \"radius\": 30.0, \"rejected\": \"not_annulus\", \"score\": 0.7992057151421812}, {\"angular_support\": 0.8125, \"center\": [275.0, 416.0], \"hollow_score\": 0.4583333333333333, \"inner_opposed_support\": 0.4583333333333333, \"inside\": false, \"lab_band_surround\": 25.956146580437665, \"lab_center_band\": 15.345240074569515, \"lab_center_surround\": 41.16379976693377, \"lab_color_return\": 0.0, \"radius\": 30.0, \"rejected\": \"not_annulus\", \"score\": 0.7771007273039365}, {\"angular_support\": 0.8125, \"center\": [500.0, 157.0], \"hollow_score\": 0.4583333333333333, \"inner_opposed_support\": 0.4583333333333333, \"inside\": false, \"lab_band_surround\": 11.82413004870069, \"lab_center_band\": 12.424121935312517, \"lab_center_surround\": 18.487112485152277, \"lab_color_return\": 0.0, \"radius\": 9.0, \"rejected\": \"not_annulus\", \"score\": 0.5932413188478388}, {\"angular_support\": 0.75, \"center\": [431.0, 151.0], \"hollow_score\": 0.4583333333333333, \"inner_opposed_support\": 0.4583333333333333, \"inside\": false, \"lab_band_surround\": 11.02969482696902, \"lab_center_band\": 11.419505462591156, \"lab_center_surround\": 22.441293048213524, \"lab_color_return\": 0.0, \"radius\": 9.0, \"rejected\": \"not_annulus\", \"score\": 0.5147230879408702}, {\"angular_support\": 0.75, \"center\": [567.0, 177.0], \"hollow_score\": 0.020833333333333332, \"inner_opposed_support\": 0.020833333333333332, \"inside\": false, \"lab_band_surround\": 15.015810150249678, \"lab_center_band\": 5.577641917150362, \"lab_center_surround\": 20.572155720767515, \"lab_color_return\": 0.0, \"radius\": 8.0, \"rejected\": \"not_annulus\", \"score\": 0.5072893446425789}], \"radial_tolerance_fraction\": 0.15, \"smooth_fraction\": 0.08, \"vote_thresh\": 0.5}, \"reason\": \"\"}"
+  },
+  {
+    "id": "alpha_bbox_px",
+    "subject": "K2/S",
+    "passed": null,
+    "value": [
+      247,
+      29,
+      785,
+      1490
+    ],
+    "threshold": null,
+    "op": "<=",
+    "unit": "px_xyxy_exclusive",
+    "evidence": [
+      "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K1-gen-04/k1_master_L.png"
+    ],
+    "notes": "Alpha >=128; measurement only"
+  },
+  {
+    "id": "alpha_bbox_canvas_fraction",
+    "subject": "K2/S",
+    "passed": null,
+    "value": 0.4997367858886719,
+    "threshold": null,
+    "op": "<=",
+    "unit": "fraction",
+    "evidence": [],
+    "notes": "Bounding rectangle area / canvas area; alpha >=128; measurement only"
+  },
+  {
+    "id": "alpha_support_canvas_fraction",
+    "subject": "K2/S",
+    "passed": null,
+    "value": 0.2760213216145833,
+    "threshold": null,
+    "op": "<=",
+    "unit": "fraction",
+    "evidence": [],
+    "notes": "Opaque alpha support area / canvas area; measurement only"
+  },
+  {
+    "id": "bleed_index",
+    "subject": "K2/S",
+    "passed": null,
+    "value": null,
+    "threshold": null,
+    "op": "<=",
+    "unit": "",
+    "evidence": [],
+    "notes": "UNEVALUABLE: no frozen bleed-index formula or reviewed allowed motif regions supplied. O3b_raw and O3b_annulus report unmasked full-canvas counts, not verified ornament bleed. G9 separately reports partial-alpha green contamination."
+  },
+  {
+    "id": "registered_rgba_output",
+    "subject": "K2/SW",
+    "passed": null,
+    "value": null,
+    "threshold": null,
+    "op": "<=",
+    "unit": "",
+    "evidence": [],
+    "notes": "Not produced: source is 1024x1536; no reviewed registration annotations or locked common scale supplied, and frozen registration requires square input. Native matte measured in memory only."
+  },
+  {
+    "id": "matte",
+    "subject": "K2/SW",
+    "passed": null,
+    "value": null,
+    "threshold": null,
+    "op": "<=",
+    "unit": "",
+    "evidence": [
+      "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K2-gen-SW-c1/k2_SW.png"
+    ],
+    "notes": "{\"input\": \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K2-gen-SW-c1/k2_SW.png\", \"canvas\": [1024, 1536], \"extraction\": {\"method\": \"green excess matte + inverse straight-alpha compositing\", \"removed_background_or_detached_alpha_dust_pixels\": 129, \"native_input_alpha\": false, \"alpha_floor\": 40, \"alpha_floor_removed_pixels\": 1184811}}"
+  },
+  {
+    "id": "g1_height",
+    "subject": "K2/SW",
+    "passed": true,
+    "value": 1.002737850787132,
+    "threshold": [
+      0.97,
+      1.03
+    ],
+    "op": "within_inclusive",
+    "unit": "ratio",
+    "evidence": [],
+    "notes": "{\"literal_tool_result\": {\"id\": \"g1_height\", \"subject\": \"K2/SW\", \"passed\": true, \"value\": 0.002737850787132068, \"threshold\": 0.03, \"op\": \"<=\", \"unit\": \"fraction\", \"evidence\": [], \"notes\": \"height_px=1465; master_height_px=1461\"}, \"height_px\": 1465, \"master_height_px\": 1461, \"ratio_interval_inclusive\": [0.97, 1.03], \"measurement_space\": \"native matte; no registration performed\"}"
+  },
+  {
+    "id": "g2_pivot",
+    "subject": "K2/SW",
+    "passed": null,
+    "value": null,
+    "threshold": 4,
+    "op": "<=",
+    "unit": "px",
+    "evidence": [],
+    "notes": "UNEVALUABLE: independent reviewed root anchor required; sole midpoint is separate"
+  },
+  {
+    "id": "g3_light",
+    "subject": "K2/SW",
+    "passed": false,
+    "value": 50.574028554991855,
+    "threshold": 0,
+    "op": "<",
+    "unit": "px",
+    "evidence": [],
+    "notes": "{\"valid\": true, \"bbox\": [305, 29, 736, 1494], \"height\": 1465, \"transparent_fraction\": 0.7537027994791666, \"border_alpha_max\": 0, \"light_centroid\": [570.5740285549919, 417.3611735787877], \"silhouette_center\": [520.0, 761.0], \"light_pass\": false, \"brightest_5pct_pixels\": 19121, \"partial_alpha_pixels\": 12044, \"edge_mean_rgb_value\": 74.83618399202922, \"green_contaminated_pixels\": 0}"
+  },
+  {
+    "id": "silhouette64",
+    "subject": "K2/SW",
+    "passed": null,
+    "value": 0.3092436974789916,
+    "threshold": null,
+    "op": "<=",
+    "unit": "1-iou",
+    "evidence": [
+      "out/k2_SW_64.png",
+      "out/k2_S_64.png"
+    ],
+    "notes": "UNEVALUABLE verdict: no calibrated threshold supplied; {\"aligned_iou\": 0.6907563025210084, \"contour_distance\": 1.0765438043474411, \"hu_a\": [0.26790838049576343, 0.0362376027303228, 0.00018613229420466447, 0.00018636362699805899, 1.7564936069905836e-08, 3.218039807635617e-05, -2.9937366750646967e-08], \"hu_b\": [0.24631606061623298, 0.019655379461072355, 9.417417746213143e-05, 0.0003335989049148237, -1.5144831848334708e-08, 4.675156308259643e-05, -5.7156888231747094e-08]}; Native 1024x1536 alpha is resized to 64x64 by the frozen descriptor; analytical instrument only, not registered artwork."
+  },
+  {
+    "id": "plate_uniformity",
+    "subject": "K2/SW",
+    "passed": null,
+    "value": 0.3791940755624511,
+    "threshold": null,
+    "op": ">=",
+    "unit": "fraction",
+    "evidence": [],
+    "notes": "{\"metrics\": {\"non_subject_pixels\": 1190459, \"plate_mean_rgb\": [3.709430564177347, 247.25726043484067, 9.153491216413165], \"plate_sd_rgb\": [2.0318859117857664, 3.211036547851404, 2.873263155047662], \"subject_support\": \"supplied subject alpha >=128\", \"tol\": 8}, \"reason\": \"No min_fraction declared; X1 observations are not a threshold\"}"
+  },
+  {
+    "id": "g9_alpha",
+    "subject": "K2/SW",
+    "passed": true,
+    "value": 0,
+    "threshold": 0,
+    "op": "<=",
+    "unit": "alpha",
+    "evidence": [],
+    "notes": "Canvas-border clipping"
+  },
+  {
+    "id": "g9_green",
+    "subject": "K2/SW",
+    "passed": true,
+    "value": 0,
+    "threshold": 0,
+    "op": "<=",
+    "unit": "pixels",
+    "evidence": [],
+    "notes": "Partial alpha and green excess >20"
+  },
+  {
+    "id": "g9_edge_mean",
+    "subject": "K2/SW",
+    "passed": null,
+    "value": 74.83618399202922,
+    "threshold": null,
+    "op": "<=",
+    "unit": "rgb",
+    "evidence": [],
+    "notes": "Mean RGB over 0<alpha<255; measurement only"
+  },
+  {
+    "id": "g9_dark_fringe",
+    "subject": "K2/SW",
+    "passed": null,
+    "value": 74.83618399202922,
+    "threshold": null,
+    "op": ">=",
+    "unit": "rgb",
+    "evidence": [],
+    "notes": "UNEVALUABLE: source defines visual inspection, no numeric threshold"
+  },
+  {
+    "id": "O7",
+    "subject": "K2/SW",
+    "passed": null,
+    "value": 15.631149640983466,
+    "threshold": null,
+    "op": "<=",
+    "unit": "degrees",
+    "evidence": [],
+    "notes": "{\"metrics\": {\"azimuth_deg\": 150.63114964098347, \"dispersion\": 0.961125024673204, \"resultant\": 0.03887497532679593}, \"reason\": \"\"}"
+  },
+  {
+    "id": "O3b_raw",
+    "subject": "K2/SW",
+    "passed": null,
+    "value": 10,
+    "threshold": null,
+    "op": "<=",
+    "unit": "instances",
+    "evidence": [],
+    "notes": "{\"metrics\": {\"alignment_cosine\": 0.9, \"angular_samples\": 48, \"annulus_rejected\": 0, \"family\": \"ring\", \"gradient_floor\": 0.02, \"hollow_min\": 0, \"inside\": 0, \"max_radius_px\": 30, \"min_angular_support\": 0.75, \"min_radius_px\": 8, \"nms_radius_fraction\": 0.8, \"outside\": 10, \"peaks\": [{\"angular_support\": 0.9375, \"center\": [357.0, 377.0], \"hollow_score\": 0.10416666666666667, \"inner_opposed_support\": 0.10416666666666667, \"inside\": false, \"lab_band_surround\": 24.38938245466647, \"lab_center_band\": 32.216924443673356, \"lab_center_surround\": 52.62024854894245, \"lab_color_return\": 0.0, \"radius\": 8.0, \"score\": 1.0505284650661846}, {\"angular_support\": 0.75, \"center\": [439.0, 243.0], \"hollow_score\": 0.43070872122121945, \"inner_opposed_support\": 0.3958333333333333, \"inside\": false, \"lab_band_surround\": 16.894274576811764, \"lab_center_band\": 13.25238610520949, \"lab_center_surround\": 5.975874706270737, \"lab_color_return\": 0.43070872122121945, \"radius\": 8.0, \"score\": 0.8491286905535566}, {\"angular_support\": 0.8125, \"center\": [446.0, 152.0], \"hollow_score\": 0.5, \"inner_opposed_support\": 0.5, \"inside\": false, \"lab_band_surround\": 28.1679722908041, \"lab_center_band\": 8.357575537935329, \"lab_center_surround\": 24.373967063796847, \"lab_color_return\": 0.0, \"radius\": 8.0, \"score\": 0.7305205158045983}, {\"angular_support\": 0.8125, \"center\": [331.0, 403.0], \"hollow_score\": 0.4583333333333333, \"inner_opposed_support\": 0.4583333333333333, \"inside\": false, \"lab_band_surround\": 33.6538288919758, \"lab_center_band\": 22.642928192058505, \"lab_center_surround\": 56.192036572777404, \"lab_color_return\": 0.0, \"radius\": 29.0, \"score\": 0.7259321212024574}, {\"angular_support\": 0.7916666666666666, \"center\": [567.0, 165.0], \"hollow_score\": 0.08333333333333333, \"inner_opposed_support\": 0.08333333333333333, \"inside\": false, \"lab_band_surround\": 5.030299690309866, \"lab_center_band\": 15.912900696028156, \"lab_center_surround\": 20.405386624289797, \"lab_color_return\": 0.0, \"radius\": 8.0, \"score\": 0.7175657176523914}, {\"angular_support\": 0.9791666666666666, \"center\": [519.0, 161.0], \"hollow_score\": 0.0, \"inner_opposed_support\": 0.0, \"inside\": false, \"lab_band_surround\": 12.02126018791103, \"lab_center_band\": 22.87151441115264, \"lab_center_surround\": 34.538229997657716, \"lab_color_return\": 0.0, \"radius\": 8.0, \"score\": 0.7107407986303332}, {\"angular_support\": 0.7708333333333334, \"center\": [658.0, 576.0], \"hollow_score\": 0.1875, \"inner_opposed_support\": 0.1875, \"inside\": false, \"lab_band_surround\": 22.718214657236306, \"lab_center_band\": 24.971147977940113, \"lab_center_surround\": 42.10152638413916, \"lab_color_return\": 0.0, \"radius\": 28.0, \"score\": 0.6826519351869177}, {\"angular_support\": 0.7708333333333334, \"center\": [382.0, 434.0], \"hollow_score\": 0.20833333333333334, \"inner_opposed_support\": 0.20833333333333334, \"inside\": false, \"lab_band_surround\": 28.249712999322902, \"lab_center_band\": 3.1682618355063936, \"lab_center_surround\": 30.743556839165496, \"lab_color_return\": 0.0, \"radius\": 9.0, \"score\": 0.6346271325642118}, {\"angular_support\": 0.7916666666666666, \"center\": [396.0, 90.0], \"hollow_score\": 0.6041666666666666, \"inner_opposed_support\": 0.6041666666666666, \"inside\": false, \"lab_band_surround\": 17.55448921837771, \"lab_center_band\": 4.579445872309475, \"lab_center_surround\": 20.675664262701602, \"lab_color_return\": 0.0, \"radius\": 17.0, \"score\": 0.6139118719481159}, {\"angular_support\": 0.7708333333333334, \"center\": [525.0, 689.0], \"hollow_score\": 0.25, \"inner_opposed_support\": 0.25, \"inside\": false, \"lab_band_surround\": 9.901028762917296, \"lab_center_band\": 6.525134357630156, \"lab_center_surround\": 15.994466799610091, \"lab_color_return\": 0.0, \"radius\": 9.0, \"score\": 0.510445369459331}], \"radial_tolerance_fraction\": 0.15, \"smooth_fraction\": 0.08, \"vote_thresh\": 0.5}, \"reason\": \"\"}"
+  },
+  {
+    "id": "O3b_annulus",
+    "subject": "K2/SW",
+    "passed": null,
+    "value": 2,
+    "threshold": null,
+    "op": "<=",
+    "unit": "instances",
+    "evidence": [],
+    "notes": "{\"metrics\": {\"alignment_cosine\": 0.9, \"angular_samples\": 48, \"annulus_rejected\": 8, \"family\": \"ring\", \"gradient_floor\": 0.02, \"hollow_min\": 0.5, \"inside\": 0, \"max_radius_px\": 30, \"min_angular_support\": 0.75, \"min_radius_px\": 8, \"nms_radius_fraction\": 0.8, \"outside\": 2, \"peaks\": [{\"angular_support\": 0.9375, \"center\": [357.0, 377.0], \"hollow_score\": 0.10416666666666667, \"inner_opposed_support\": 0.10416666666666667, \"inside\": false, \"lab_band_surround\": 24.38938245466647, \"lab_center_band\": 32.216924443673356, \"lab_center_surround\": 52.62024854894245, \"lab_color_return\": 0.0, \"radius\": 8.0, \"rejected\": \"not_annulus\", \"score\": 1.0505284650661846}, {\"angular_support\": 0.75, \"center\": [439.0, 243.0], \"hollow_score\": 0.43070872122121945, \"inner_opposed_support\": 0.3958333333333333, \"inside\": false, \"lab_band_surround\": 16.894274576811764, \"lab_center_band\": 13.25238610520949, \"lab_center_surround\": 5.975874706270737, \"lab_color_return\": 0.43070872122121945, \"radius\": 8.0, \"rejected\": \"not_annulus\", \"score\": 0.8491286905535566}, {\"angular_support\": 0.8125, \"center\": [446.0, 152.0], \"hollow_score\": 0.5, \"inner_opposed_support\": 0.5, \"inside\": false, \"lab_band_surround\": 28.1679722908041, \"lab_center_band\": 8.357575537935329, \"lab_center_surround\": 24.373967063796847, \"lab_color_return\": 0.0, \"radius\": 8.0, \"score\": 0.7305205158045983}, {\"angular_support\": 0.8125, \"center\": [331.0, 403.0], \"hollow_score\": 0.4583333333333333, \"inner_opposed_support\": 0.4583333333333333, \"inside\": false, \"lab_band_surround\": 33.6538288919758, \"lab_center_band\": 22.642928192058505, \"lab_center_surround\": 56.192036572777404, \"lab_color_return\": 0.0, \"radius\": 29.0, \"rejected\": \"not_annulus\", \"score\": 0.7259321212024574}, {\"angular_support\": 0.7916666666666666, \"center\": [567.0, 165.0], \"hollow_score\": 0.08333333333333333, \"inner_opposed_support\": 0.08333333333333333, \"inside\": false, \"lab_band_surround\": 5.030299690309866, \"lab_center_band\": 15.912900696028156, \"lab_center_surround\": 20.405386624289797, \"lab_color_return\": 0.0, \"radius\": 8.0, \"rejected\": \"not_annulus\", \"score\": 0.7175657176523914}, {\"angular_support\": 0.9791666666666666, \"center\": [519.0, 161.0], \"hollow_score\": 0.0, \"inner_opposed_support\": 0.0, \"inside\": false, \"lab_band_surround\": 12.02126018791103, \"lab_center_band\": 22.87151441115264, \"lab_center_surround\": 34.538229997657716, \"lab_color_return\": 0.0, \"radius\": 8.0, \"rejected\": \"not_annulus\", \"score\": 0.7107407986303332}, {\"angular_support\": 0.7708333333333334, \"center\": [658.0, 576.0], \"hollow_score\": 0.1875, \"inner_opposed_support\": 0.1875, \"inside\": false, \"lab_band_surround\": 22.718214657236306, \"lab_center_band\": 24.971147977940113, \"lab_center_surround\": 42.10152638413916, \"lab_color_return\": 0.0, \"radius\": 28.0, \"rejected\": \"not_annulus\", \"score\": 0.6826519351869177}, {\"angular_support\": 0.7708333333333334, \"center\": [382.0, 434.0], \"hollow_score\": 0.20833333333333334, \"inner_opposed_support\": 0.20833333333333334, \"inside\": false, \"lab_band_surround\": 28.249712999322902, \"lab_center_band\": 3.1682618355063936, \"lab_center_surround\": 30.743556839165496, \"lab_color_return\": 0.0, \"radius\": 9.0, \"rejected\": \"not_annulus\", \"score\": 0.6346271325642118}, {\"angular_support\": 0.7916666666666666, \"center\": [396.0, 90.0], \"hollow_score\": 0.6041666666666666, \"inner_opposed_support\": 0.6041666666666666, \"inside\": false, \"lab_band_surround\": 17.55448921837771, \"lab_center_band\": 4.579445872309475, \"lab_center_surround\": 20.675664262701602, \"lab_color_return\": 0.0, \"radius\": 17.0, \"score\": 0.6139118719481159}, {\"angular_support\": 0.7708333333333334, \"center\": [525.0, 689.0], \"hollow_score\": 0.25, \"inner_opposed_support\": 0.25, \"inside\": false, \"lab_band_surround\": 9.901028762917296, \"lab_center_band\": 6.525134357630156, \"lab_center_surround\": 15.994466799610091, \"lab_color_return\": 0.0, \"radius\": 9.0, \"rejected\": \"not_annulus\", \"score\": 0.510445369459331}], \"radial_tolerance_fraction\": 0.15, \"smooth_fraction\": 0.08, \"vote_thresh\": 0.5}, \"reason\": \"\"}"
+  },
+  {
+    "id": "alpha_bbox_px",
+    "subject": "K2/SW",
+    "passed": null,
+    "value": [
+      305,
+      29,
+      736,
+      1494
+    ],
+    "threshold": null,
+    "op": "<=",
+    "unit": "px_xyxy_exclusive",
+    "evidence": [
+      "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K2-gen-SW-c1/k2_SW.png"
+    ],
+    "notes": "Alpha >=128; measurement only"
+  },
+  {
+    "id": "alpha_bbox_canvas_fraction",
+    "subject": "K2/SW",
+    "passed": null,
+    "value": 0.4014428456624349,
+    "threshold": null,
+    "op": "<=",
+    "unit": "fraction",
+    "evidence": [],
+    "notes": "Bounding rectangle area / canvas area; alpha >=128; measurement only"
+  },
+  {
+    "id": "alpha_support_canvas_fraction",
+    "subject": "K2/SW",
+    "passed": null,
+    "value": 0.24312655131022134,
+    "threshold": null,
+    "op": "<=",
+    "unit": "fraction",
+    "evidence": [],
+    "notes": "Opaque alpha support area / canvas area; measurement only"
+  },
+  {
+    "id": "bleed_index",
+    "subject": "K2/SW",
+    "passed": null,
+    "value": null,
+    "threshold": null,
+    "op": "<=",
+    "unit": "",
+    "evidence": [],
+    "notes": "UNEVALUABLE: no frozen bleed-index formula or reviewed allowed motif regions supplied. O3b_raw and O3b_annulus report unmasked full-canvas counts, not verified ornament bleed. G9 separately reports partial-alpha green contamination."
+  },
+  {
+    "id": "registered_rgba_output",
+    "subject": "K2/W",
+    "passed": null,
+    "value": null,
+    "threshold": null,
+    "op": "<=",
+    "unit": "",
+    "evidence": [],
+    "notes": "Not produced: source is 1024x1536; no reviewed registration annotations or locked common scale supplied, and frozen registration requires square input. Native matte measured in memory only."
+  },
+  {
+    "id": "matte",
+    "subject": "K2/W",
+    "passed": null,
+    "value": null,
+    "threshold": null,
+    "op": "<=",
+    "unit": "",
+    "evidence": [
+      "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K2-gen-W-c1/k2_W.png"
+    ],
+    "notes": "{\"input\": \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K2-gen-W-c1/k2_W.png\", \"canvas\": [1024, 1536], \"extraction\": {\"method\": \"green excess matte + inverse straight-alpha compositing\", \"removed_background_or_detached_alpha_dust_pixels\": 241, \"native_input_alpha\": false, \"alpha_floor\": 40, \"alpha_floor_removed_pixels\": 1268422}}"
+  },
+  {
+    "id": "g1_height",
+    "subject": "K2/W",
+    "passed": true,
+    "value": 0.9890485968514716,
+    "threshold": [
+      0.97,
+      1.03
+    ],
+    "op": "within_inclusive",
+    "unit": "ratio",
+    "evidence": [],
+    "notes": "{\"literal_tool_result\": {\"id\": \"g1_height\", \"subject\": \"K2/W\", \"passed\": true, \"value\": 0.010951403148528382, \"threshold\": 0.03, \"op\": \"<=\", \"unit\": \"fraction\", \"evidence\": [], \"notes\": \"height_px=1445; master_height_px=1461\"}, \"height_px\": 1445, \"master_height_px\": 1461, \"ratio_interval_inclusive\": [0.97, 1.03], \"measurement_space\": \"native matte; no registration performed\"}"
+  },
+  {
+    "id": "g2_pivot",
+    "subject": "K2/W",
+    "passed": null,
+    "value": null,
+    "threshold": 4,
+    "op": "<=",
+    "unit": "px",
+    "evidence": [],
+    "notes": "UNEVALUABLE: independent reviewed root anchor required; sole midpoint is separate"
+  },
+  {
+    "id": "g3_light",
+    "subject": "K2/W",
+    "passed": false,
+    "value": 22.753390793078097,
+    "threshold": 0,
+    "op": "<",
+    "unit": "px",
+    "evidence": [],
+    "notes": "{\"valid\": true, \"bbox\": [347, 27, 660, 1472], \"height\": 1445, \"transparent_fraction\": 0.8066959381103516, \"border_alpha_max\": 0, \"light_centroid\": [525.7533907930781, 399.626311218013], \"silhouette_center\": [503.0, 749.0], \"light_pass\": false, \"brightest_5pct_pixels\": 14967, \"partial_alpha_pixels\": 10707, \"edge_mean_rgb_value\": 74.98278384857258, \"green_contaminated_pixels\": 0}"
+  },
+  {
+    "id": "silhouette64",
+    "subject": "K2/W",
+    "passed": null,
+    "value": 0.5142857142857142,
+    "threshold": null,
+    "op": "<=",
+    "unit": "1-iou",
+    "evidence": [
+      "out/k2_W_64.png",
+      "out/k2_S_64.png"
+    ],
+    "notes": "UNEVALUABLE verdict: no calibrated threshold supplied; {\"aligned_iou\": 0.4857142857142857, \"contour_distance\": 1.9132109832869908, \"hu_a\": [0.3609744448228745, 0.09751896772232498, 0.0008503232340710077, 8.244652469685362e-05, -1.8588759162478056e-08, -2.297782822293411e-05, -1.1445520947578697e-08], \"hu_b\": [0.24631606061623298, 0.019655379461072355, 9.417417746213143e-05, 0.0003335989049148237, -1.5144831848334708e-08, 4.675156308259643e-05, -5.7156888231747094e-08]}; Native 1024x1536 alpha is resized to 64x64 by the frozen descriptor; analytical instrument only, not registered artwork."
+  },
+  {
+    "id": "plate_uniformity",
+    "subject": "K2/W",
+    "passed": null,
+    "value": 0.0047733127921484935,
+    "threshold": null,
+    "op": ">=",
+    "unit": "fraction",
+    "evidence": [],
+    "notes": "{\"metrics\": {\"non_subject_pixels\": 1273539, \"plate_mean_rgb\": [3.8210239340923207, 248.38782714938452, 14.168554712498008], \"plate_sd_rgb\": [1.7749811185819853, 3.204473420560236, 1.9679975591583903], \"subject_support\": \"supplied subject alpha >=128\", \"tol\": 8}, \"reason\": \"No min_fraction declared; X1 observations are not a threshold\"}"
+  },
+  {
+    "id": "g9_alpha",
+    "subject": "K2/W",
+    "passed": true,
+    "value": 0,
+    "threshold": 0,
+    "op": "<=",
+    "unit": "alpha",
+    "evidence": [],
+    "notes": "Canvas-border clipping"
+  },
+  {
+    "id": "g9_green",
+    "subject": "K2/W",
+    "passed": true,
+    "value": 0,
+    "threshold": 0,
+    "op": "<=",
+    "unit": "pixels",
+    "evidence": [],
+    "notes": "Partial alpha and green excess >20"
+  },
+  {
+    "id": "g9_edge_mean",
+    "subject": "K2/W",
+    "passed": null,
+    "value": 74.98278384857258,
+    "threshold": null,
+    "op": "<=",
+    "unit": "rgb",
+    "evidence": [],
+    "notes": "Mean RGB over 0<alpha<255; measurement only"
+  },
+  {
+    "id": "g9_dark_fringe",
+    "subject": "K2/W",
+    "passed": null,
+    "value": 74.98278384857258,
+    "threshold": null,
+    "op": ">=",
+    "unit": "rgb",
+    "evidence": [],
+    "notes": "UNEVALUABLE: source defines visual inspection, no numeric threshold"
+  },
+  {
+    "id": "O7",
+    "subject": "K2/W",
+    "passed": null,
+    "value": 16.167282485545968,
+    "threshold": null,
+    "op": "<=",
+    "unit": "degrees",
+    "evidence": [],
+    "notes": "{\"metrics\": {\"azimuth_deg\": 151.16728248554597, \"dispersion\": 0.9634907873794141, \"resultant\": 0.03650921262058596}, \"reason\": \"\"}"
+  },
+  {
+    "id": "O3b_raw",
+    "subject": "K2/W",
+    "passed": null,
+    "value": 7,
+    "threshold": null,
+    "op": "<=",
+    "unit": "instances",
+    "evidence": [],
+    "notes": "{\"metrics\": {\"alignment_cosine\": 0.9, \"angular_samples\": 48, \"annulus_rejected\": 0, \"family\": \"ring\", \"gradient_floor\": 0.02, \"hollow_min\": 0, \"inside\": 0, \"max_radius_px\": 30, \"min_angular_support\": 0.75, \"min_radius_px\": 8, \"nms_radius_fraction\": 0.8, \"outside\": 7, \"peaks\": [{\"angular_support\": 0.7916666666666666, \"center\": [556.0, 573.0], \"hollow_score\": 0.020833333333333332, \"inner_opposed_support\": 0.020833333333333332, \"inside\": false, \"lab_band_surround\": 22.266663224390765, \"lab_center_band\": 17.68838835509413, \"lab_center_surround\": 38.02098862212419, \"lab_color_return\": 0.0, \"radius\": 25.0, \"score\": 0.866726332294819}, {\"angular_support\": 0.8541666666666666, \"center\": [482.0, 178.0], \"hollow_score\": 0.3333333333333333, \"inner_opposed_support\": 0.3333333333333333, \"inside\": false, \"lab_band_surround\": 20.981049830962466, \"lab_center_band\": 2.116727743752184, \"lab_center_surround\": 19.010489505886877, \"lab_color_return\": 0.0, \"radius\": 8.0, \"score\": 0.8341057036131351}, {\"angular_support\": 0.75, \"center\": [549.0, 771.0], \"hollow_score\": 0.041666666666666664, \"inner_opposed_support\": 0.041666666666666664, \"inside\": false, \"lab_band_surround\": 26.05225671624103, \"lab_center_band\": 12.271713261354755, \"lab_center_surround\": 36.54006377540931, \"lab_color_return\": 0.0, \"radius\": 30.0, \"score\": 0.7558784698654029}, {\"angular_support\": 0.7916666666666666, \"center\": [594.0, 80.0], \"hollow_score\": 0.20833333333333334, \"inner_opposed_support\": 0.20833333333333334, \"inside\": false, \"lab_band_surround\": 7.903589103322566, \"lab_center_band\": 3.585544872336628, \"lab_center_surround\": 11.389461341258551, \"lab_color_return\": 0.0, \"radius\": 8.0, \"score\": 0.6582340240483897}, {\"angular_support\": 0.8125, \"center\": [551.0, 732.0], \"hollow_score\": 0.14583333333333334, \"inner_opposed_support\": 0.14583333333333334, \"inside\": false, \"lab_band_surround\": 7.738947361169019, \"lab_center_band\": 8.654267204318815, \"lab_center_surround\": 16.374468946294325, \"lab_color_return\": 0.0, \"radius\": 8.0, \"score\": 0.6225294192025009}, {\"angular_support\": 0.8541666666666666, \"center\": [449.0, 622.0], \"hollow_score\": 0.0625, \"inner_opposed_support\": 0.0625, \"inside\": false, \"lab_band_surround\": 30.185909627790476, \"lab_center_band\": 18.5295055400838, \"lab_center_surround\": 48.348407609582644, \"lab_color_return\": 0.0, \"radius\": 9.0, \"score\": 0.6145697765209586}, {\"angular_support\": 0.75, \"center\": [472.0, 207.0], \"hollow_score\": 0.2916666666666667, \"inner_opposed_support\": 0.2916666666666667, \"inside\": false, \"lab_band_surround\": 2.4663449708905127, \"lab_center_band\": 10.720032318861088, \"lab_center_surround\": 12.211340979210192, \"lab_color_return\": 0.0, \"radius\": 8.0, \"score\": 0.6129058918314196}], \"radial_tolerance_fraction\": 0.15, \"smooth_fraction\": 0.08, \"vote_thresh\": 0.5}, \"reason\": \"\"}"
+  },
+  {
+    "id": "O3b_annulus",
+    "subject": "K2/W",
+    "passed": null,
+    "value": 0,
+    "threshold": null,
+    "op": "<=",
+    "unit": "instances",
+    "evidence": [],
+    "notes": "{\"metrics\": {\"alignment_cosine\": 0.9, \"angular_samples\": 48, \"annulus_rejected\": 7, \"family\": \"ring\", \"gradient_floor\": 0.02, \"hollow_min\": 0.5, \"inside\": 0, \"max_radius_px\": 30, \"min_angular_support\": 0.75, \"min_radius_px\": 8, \"nms_radius_fraction\": 0.8, \"outside\": 0, \"peaks\": [{\"angular_support\": 0.7916666666666666, \"center\": [556.0, 573.0], \"hollow_score\": 0.020833333333333332, \"inner_opposed_support\": 0.020833333333333332, \"inside\": false, \"lab_band_surround\": 22.266663224390765, \"lab_center_band\": 17.68838835509413, \"lab_center_surround\": 38.02098862212419, \"lab_color_return\": 0.0, \"radius\": 25.0, \"rejected\": \"not_annulus\", \"score\": 0.866726332294819}, {\"angular_support\": 0.8541666666666666, \"center\": [482.0, 178.0], \"hollow_score\": 0.3333333333333333, \"inner_opposed_support\": 0.3333333333333333, \"inside\": false, \"lab_band_surround\": 20.981049830962466, \"lab_center_band\": 2.116727743752184, \"lab_center_surround\": 19.010489505886877, \"lab_color_return\": 0.0, \"radius\": 8.0, \"rejected\": \"not_annulus\", \"score\": 0.8341057036131351}, {\"angular_support\": 0.75, \"center\": [549.0, 771.0], \"hollow_score\": 0.041666666666666664, \"inner_opposed_support\": 0.041666666666666664, \"inside\": false, \"lab_band_surround\": 26.05225671624103, \"lab_center_band\": 12.271713261354755, \"lab_center_surround\": 36.54006377540931, \"lab_color_return\": 0.0, \"radius\": 30.0, \"rejected\": \"not_annulus\", \"score\": 0.7558784698654029}, {\"angular_support\": 0.7916666666666666, \"center\": [594.0, 80.0], \"hollow_score\": 0.20833333333333334, \"inner_opposed_support\": 0.20833333333333334, \"inside\": false, \"lab_band_surround\": 7.903589103322566, \"lab_center_band\": 3.585544872336628, \"lab_center_surround\": 11.389461341258551, \"lab_color_return\": 0.0, \"radius\": 8.0, \"rejected\": \"not_annulus\", \"score\": 0.6582340240483897}, {\"angular_support\": 0.8125, \"center\": [551.0, 732.0], \"hollow_score\": 0.14583333333333334, \"inner_opposed_support\": 0.14583333333333334, \"inside\": false, \"lab_band_surround\": 7.738947361169019, \"lab_center_band\": 8.654267204318815, \"lab_center_surround\": 16.374468946294325, \"lab_color_return\": 0.0, \"radius\": 8.0, \"rejected\": \"not_annulus\", \"score\": 0.6225294192025009}, {\"angular_support\": 0.8541666666666666, \"center\": [449.0, 622.0], \"hollow_score\": 0.0625, \"inner_opposed_support\": 0.0625, \"inside\": false, \"lab_band_surround\": 30.185909627790476, \"lab_center_band\": 18.5295055400838, \"lab_center_surround\": 48.348407609582644, \"lab_color_return\": 0.0, \"radius\": 9.0, \"rejected\": \"not_annulus\", \"score\": 0.6145697765209586}, {\"angular_support\": 0.75, \"center\": [472.0, 207.0], \"hollow_score\": 0.2916666666666667, \"inner_opposed_support\": 0.2916666666666667, \"inside\": false, \"lab_band_surround\": 2.4663449708905127, \"lab_center_band\": 10.720032318861088, \"lab_center_surround\": 12.211340979210192, \"lab_color_return\": 0.0, \"radius\": 8.0, \"rejected\": \"not_annulus\", \"score\": 0.6129058918314196}], \"radial_tolerance_fraction\": 0.15, \"smooth_fraction\": 0.08, \"vote_thresh\": 0.5}, \"reason\": \"\"}"
+  },
+  {
+    "id": "alpha_bbox_px",
+    "subject": "K2/W",
+    "passed": null,
+    "value": [
+      347,
+      27,
+      660,
+      1472
+    ],
+    "threshold": null,
+    "op": "<=",
+    "unit": "px_xyxy_exclusive",
+    "evidence": [
+      "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K2-gen-W-c1/k2_W.png"
+    ],
+    "notes": "Alpha >=128; measurement only"
+  },
+  {
+    "id": "alpha_bbox_canvas_fraction",
+    "subject": "K2/W",
+    "passed": null,
+    "value": 0.2875550587972005,
+    "threshold": null,
+    "op": "<=",
+    "unit": "fraction",
+    "evidence": [],
+    "notes": "Bounding rectangle area / canvas area; alpha >=128; measurement only"
+  },
+  {
+    "id": "alpha_support_canvas_fraction",
+    "subject": "K2/W",
+    "passed": null,
+    "value": 0.1903057098388672,
+    "threshold": null,
+    "op": "<=",
+    "unit": "fraction",
+    "evidence": [],
+    "notes": "Opaque alpha support area / canvas area; measurement only"
+  },
+  {
+    "id": "bleed_index",
+    "subject": "K2/W",
+    "passed": null,
+    "value": null,
+    "threshold": null,
+    "op": "<=",
+    "unit": "",
+    "evidence": [],
+    "notes": "UNEVALUABLE: no frozen bleed-index formula or reviewed allowed motif regions supplied. O3b_raw and O3b_annulus report unmasked full-canvas counts, not verified ornament bleed. G9 separately reports partial-alpha green contamination."
+  },
+  {
+    "id": "registered_rgba_output",
+    "subject": "K2/NW",
+    "passed": null,
+    "value": null,
+    "threshold": null,
+    "op": "<=",
+    "unit": "",
+    "evidence": [],
+    "notes": "Not produced: source is 1024x1536; no reviewed registration annotations or locked common scale supplied, and frozen registration requires square input. Native matte measured in memory only."
+  },
+  {
+    "id": "matte",
+    "subject": "K2/NW",
+    "passed": null,
+    "value": null,
+    "threshold": null,
+    "op": "<=",
+    "unit": "",
+    "evidence": [
+      "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K2-gen-NW-c1/k2_NW.png"
+    ],
+    "notes": "{\"input\": \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K2-gen-NW-c1/k2_NW.png\", \"canvas\": [1024, 1536], \"extraction\": {\"method\": \"green excess matte + inverse straight-alpha compositing\", \"removed_background_or_detached_alpha_dust_pixels\": 219, \"native_input_alpha\": false, \"alpha_floor\": 40, \"alpha_floor_removed_pixels\": 1171878}}"
+  },
+  {
+    "id": "g1_height",
+    "subject": "K2/NW",
+    "passed": true,
+    "value": 0.972621492128679,
+    "threshold": [
+      0.97,
+      1.03
+    ],
+    "op": "within_inclusive",
+    "unit": "ratio",
+    "evidence": [],
+    "notes": "{\"literal_tool_result\": {\"id\": \"g1_height\", \"subject\": \"K2/NW\", \"passed\": true, \"value\": 0.02737850787132101, \"threshold\": 0.03, \"op\": \"<=\", \"unit\": \"fraction\", \"evidence\": [], \"notes\": \"height_px=1421; master_height_px=1461\"}, \"height_px\": 1421, \"master_height_px\": 1461, \"ratio_interval_inclusive\": [0.97, 1.03], \"measurement_space\": \"native matte; no registration performed\"}"
+  },
+  {
+    "id": "g2_pivot",
+    "subject": "K2/NW",
+    "passed": null,
+    "value": null,
+    "threshold": 4,
+    "op": "<=",
+    "unit": "px",
+    "evidence": [],
+    "notes": "UNEVALUABLE: independent reviewed root anchor required; sole midpoint is separate"
+  },
+  {
+    "id": "g3_light",
+    "subject": "K2/NW",
+    "passed": true,
+    "value": -41.238802941922415,
+    "threshold": 0,
+    "op": "<",
+    "unit": "px",
+    "evidence": [],
+    "notes": "{\"valid\": true, \"bbox\": [254, 27, 717, 1448], \"height\": 1421, \"transparent_fraction\": 0.7458445231119791, \"border_alpha_max\": 0, \"light_centroid\": [443.7611970580776, 415.80502155718995], \"silhouette_center\": [485.0, 737.0], \"light_pass\": true, \"brightest_5pct_pixels\": 19715, \"partial_alpha_pixels\": 12653, \"edge_mean_rgb_value\": 76.71042440527938, \"green_contaminated_pixels\": 0}"
+  },
+  {
+    "id": "silhouette64",
+    "subject": "K2/NW",
+    "passed": null,
+    "value": 0.37060702875399365,
+    "threshold": null,
+    "op": "<=",
+    "unit": "1-iou",
+    "evidence": [
+      "out/k2_NW_64.png",
+      "out/k2_S_64.png"
+    ],
+    "notes": "UNEVALUABLE verdict: no calibrated threshold supplied; {\"aligned_iou\": 0.6293929712460063, \"contour_distance\": 1.1858365756398042, \"hu_a\": [0.2594143980733828, 0.029038106207810423, 0.0001549436365114459, 0.000146161805728331, -1.467489150347894e-08, 2.4538984530136356e-05, 1.6384695036315174e-08], \"hu_b\": [0.24631606061623298, 0.019655379461072355, 9.417417746213143e-05, 0.0003335989049148237, -1.5144831848334708e-08, 4.675156308259643e-05, -5.7156888231747094e-08]}; Native 1024x1536 alpha is resized to 64x64 by the frozen descriptor; analytical instrument only, not registered artwork."
+  },
+  {
+    "id": "plate_uniformity",
+    "subject": "K2/NW",
+    "passed": null,
+    "value": 0.98646760208692,
+    "threshold": null,
+    "op": ">=",
+    "unit": "fraction",
+    "evidence": [],
+    "notes": "{\"metrics\": {\"non_subject_pixels\": 1178579, \"plate_mean_rgb\": [3.1992280534440205, 248.91570357184372, 4.214171472595388], \"plate_sd_rgb\": [2.2048848452822036, 3.7774376402272294, 1.8396597012789384], \"subject_support\": \"supplied subject alpha >=128\", \"tol\": 8}, \"reason\": \"No min_fraction declared; X1 observations are not a threshold\"}"
+  },
+  {
+    "id": "g9_alpha",
+    "subject": "K2/NW",
+    "passed": true,
+    "value": 0,
+    "threshold": 0,
+    "op": "<=",
+    "unit": "alpha",
+    "evidence": [],
+    "notes": "Canvas-border clipping"
+  },
+  {
+    "id": "g9_green",
+    "subject": "K2/NW",
+    "passed": true,
+    "value": 0,
+    "threshold": 0,
+    "op": "<=",
+    "unit": "pixels",
+    "evidence": [],
+    "notes": "Partial alpha and green excess >20"
+  },
+  {
+    "id": "g9_edge_mean",
+    "subject": "K2/NW",
+    "passed": null,
+    "value": 76.71042440527938,
+    "threshold": null,
+    "op": "<=",
+    "unit": "rgb",
+    "evidence": [],
+    "notes": "Mean RGB over 0<alpha<255; measurement only"
+  },
+  {
+    "id": "g9_dark_fringe",
+    "subject": "K2/NW",
+    "passed": null,
+    "value": 76.71042440527938,
+    "threshold": null,
+    "op": ">=",
+    "unit": "rgb",
+    "evidence": [],
+    "notes": "UNEVALUABLE: source defines visual inspection, no numeric threshold"
+  },
+  {
+    "id": "O7",
+    "subject": "K2/NW",
+    "passed": null,
+    "value": 20.702307251199585,
+    "threshold": null,
+    "op": "<=",
+    "unit": "degrees",
+    "evidence": [],
+    "notes": "{\"metrics\": {\"azimuth_deg\": 155.70230725119958, \"dispersion\": 0.9454265715840111, \"resultant\": 0.05457342841598888}, \"reason\": \"\"}"
+  },
+  {
+    "id": "O3b_raw",
+    "subject": "K2/NW",
+    "passed": null,
+    "value": 2,
+    "threshold": null,
+    "op": "<=",
+    "unit": "instances",
+    "evidence": [],
+    "notes": "{\"metrics\": {\"alignment_cosine\": 0.9, \"angular_samples\": 48, \"annulus_rejected\": 0, \"family\": \"ring\", \"gradient_floor\": 0.02, \"hollow_min\": 0, \"inside\": 0, \"max_radius_px\": 30, \"min_angular_support\": 0.75, \"min_radius_px\": 8, \"nms_radius_fraction\": 0.8, \"outside\": 2, \"peaks\": [{\"angular_support\": 0.8125, \"center\": [359.0, 561.0], \"hollow_score\": 0.14583333333333334, \"inner_opposed_support\": 0.14583333333333334, \"inside\": false, \"lab_band_surround\": 30.81263680808769, \"lab_center_band\": 15.065345608970606, \"lab_center_surround\": 44.08913487060158, \"lab_color_return\": 0.0, \"radius\": 30.0, \"score\": 0.7351531387172799}, {\"angular_support\": 0.7916666666666666, \"center\": [301.0, 709.0], \"hollow_score\": 0.2708333333333333, \"inner_opposed_support\": 0.2708333333333333, \"inside\": false, \"lab_band_surround\": 6.7873016315577654, \"lab_center_band\": 9.046774373905182, \"lab_center_surround\": 15.536215517628651, \"lab_color_return\": 0.0, \"radius\": 8.0, \"score\": 0.5241942941295357}], \"radial_tolerance_fraction\": 0.15, \"smooth_fraction\": 0.08, \"vote_thresh\": 0.5}, \"reason\": \"\"}"
+  },
+  {
+    "id": "O3b_annulus",
+    "subject": "K2/NW",
+    "passed": null,
+    "value": 0,
+    "threshold": null,
+    "op": "<=",
+    "unit": "instances",
+    "evidence": [],
+    "notes": "{\"metrics\": {\"alignment_cosine\": 0.9, \"angular_samples\": 48, \"annulus_rejected\": 2, \"family\": \"ring\", \"gradient_floor\": 0.02, \"hollow_min\": 0.5, \"inside\": 0, \"max_radius_px\": 30, \"min_angular_support\": 0.75, \"min_radius_px\": 8, \"nms_radius_fraction\": 0.8, \"outside\": 0, \"peaks\": [{\"angular_support\": 0.8125, \"center\": [359.0, 561.0], \"hollow_score\": 0.14583333333333334, \"inner_opposed_support\": 0.14583333333333334, \"inside\": false, \"lab_band_surround\": 30.81263680808769, \"lab_center_band\": 15.065345608970606, \"lab_center_surround\": 44.08913487060158, \"lab_color_return\": 0.0, \"radius\": 30.0, \"rejected\": \"not_annulus\", \"score\": 0.7351531387172799}, {\"angular_support\": 0.7916666666666666, \"center\": [301.0, 709.0], \"hollow_score\": 0.2708333333333333, \"inner_opposed_support\": 0.2708333333333333, \"inside\": false, \"lab_band_surround\": 6.7873016315577654, \"lab_center_band\": 9.046774373905182, \"lab_center_surround\": 15.536215517628651, \"lab_color_return\": 0.0, \"radius\": 8.0, \"rejected\": \"not_annulus\", \"score\": 0.5241942941295357}], \"radial_tolerance_fraction\": 0.15, \"smooth_fraction\": 0.08, \"vote_thresh\": 0.5}, \"reason\": \"\"}"
+  },
+  {
+    "id": "alpha_bbox_px",
+    "subject": "K2/NW",
+    "passed": null,
+    "value": [
+      254,
+      27,
+      717,
+      1448
+    ],
+    "threshold": null,
+    "op": "<=",
+    "unit": "px_xyxy_exclusive",
+    "evidence": [
+      "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K2-gen-NW-c1/k2_NW.png"
+    ],
+    "notes": "Alpha >=128; measurement only"
+  },
+  {
+    "id": "alpha_bbox_canvas_fraction",
+    "subject": "K2/NW",
+    "passed": null,
+    "value": 0.4182961781819661,
+    "threshold": null,
+    "op": "<=",
+    "unit": "fraction",
+    "evidence": [],
+    "notes": "Bounding rectangle area / canvas area; alpha >=128; measurement only"
+  },
+  {
+    "id": "alpha_support_canvas_fraction",
+    "subject": "K2/NW",
+    "passed": null,
+    "value": 0.2506796518961589,
+    "threshold": null,
+    "op": "<=",
+    "unit": "fraction",
+    "evidence": [],
+    "notes": "Opaque alpha support area / canvas area; measurement only"
+  },
+  {
+    "id": "bleed_index",
+    "subject": "K2/NW",
+    "passed": null,
+    "value": null,
+    "threshold": null,
+    "op": "<=",
+    "unit": "",
+    "evidence": [],
+    "notes": "UNEVALUABLE: no frozen bleed-index formula or reviewed allowed motif regions supplied. O3b_raw and O3b_annulus report unmasked full-canvas counts, not verified ornament bleed. G9 separately reports partial-alpha green contamination."
+  },
+  {
+    "id": "registered_rgba_output",
+    "subject": "K2/N",
+    "passed": null,
+    "value": null,
+    "threshold": null,
+    "op": "<=",
+    "unit": "",
+    "evidence": [],
+    "notes": "Not produced: source is 1024x1536; no reviewed registration annotations or locked common scale supplied, and frozen registration requires square input. Native matte measured in memory only."
+  },
+  {
+    "id": "matte",
+    "subject": "K2/N",
+    "passed": null,
+    "value": null,
+    "threshold": null,
+    "op": "<=",
+    "unit": "",
+    "evidence": [
+      "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K2-gen-N/k2_N.png"
+    ],
+    "notes": "{\"input\": \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K2-gen-N/k2_N.png\", \"canvas\": [1024, 1536], \"extraction\": {\"method\": \"green excess matte + inverse straight-alpha compositing\", \"removed_background_or_detached_alpha_dust_pixels\": 256, \"native_input_alpha\": false, \"alpha_floor\": 40, \"alpha_floor_removed_pixels\": 1135212}}"
+  },
+  {
+    "id": "g1_height",
+    "subject": "K2/N",
+    "passed": true,
+    "value": 0.973990417522245,
+    "threshold": [
+      0.97,
+      1.03
+    ],
+    "op": "within_inclusive",
+    "unit": "ratio",
+    "evidence": [],
+    "notes": "{\"literal_tool_result\": {\"id\": \"g1_height\", \"subject\": \"K2/N\", \"passed\": true, \"value\": 0.026009582477754978, \"threshold\": 0.03, \"op\": \"<=\", \"unit\": \"fraction\", \"evidence\": [], \"notes\": \"height_px=1423; master_height_px=1461\"}, \"height_px\": 1423, \"master_height_px\": 1461, \"ratio_interval_inclusive\": [0.97, 1.03], \"measurement_space\": \"native matte; no registration performed\"}"
+  },
+  {
+    "id": "g2_pivot",
+    "subject": "K2/N",
+    "passed": null,
+    "value": null,
+    "threshold": 4,
+    "op": "<=",
+    "unit": "px",
+    "evidence": [],
+    "notes": "UNEVALUABLE: independent reviewed root anchor required; sole midpoint is separate"
+  },
+  {
+    "id": "g3_light",
+    "subject": "K2/N",
+    "passed": true,
+    "value": -59.2038189927523,
+    "threshold": 0,
+    "op": "<",
+    "unit": "px",
+    "evidence": [],
+    "notes": "{\"valid\": true, \"bbox\": [239, 30, 778, 1453], \"height\": 1423, \"transparent_fraction\": 0.7225329081217448, \"border_alpha_max\": 0, \"light_centroid\": [448.7961810072477, 440.0895744285449], \"silhouette_center\": [508.0, 741.0], \"light_pass\": true, \"brightest_5pct_pixels\": 21524, \"partial_alpha_pixels\": 13524, \"edge_mean_rgb_value\": 76.32256235827664, \"green_contaminated_pixels\": 0}"
+  },
+  {
+    "id": "silhouette64",
+    "subject": "K2/N",
+    "passed": null,
+    "value": 0.3900928792569659,
+    "threshold": null,
+    "op": "<=",
+    "unit": "1-iou",
+    "evidence": [
+      "out/k2_N_64.png",
+      "out/k2_S_64.png"
+    ],
+    "notes": "UNEVALUABLE verdict: no calibrated threshold supplied; {\"aligned_iou\": 0.6099071207430341, \"contour_distance\": 1.0912352737613258, \"hu_a\": [0.2419138332081142, 0.016942504184942274, 7.889967765317867e-05, 0.0001908879881605131, 1.9846513539624586e-08, 1.829338116555534e-05, -1.2446365697754417e-08], \"hu_b\": [0.24631606061623298, 0.019655379461072355, 9.417417746213143e-05, 0.0003335989049148237, -1.5144831848334708e-08, 4.675156308259643e-05, -5.7156888231747094e-08]}; Native 1024x1536 alpha is resized to 64x64 by the frozen descriptor; analytical instrument only, not registered artwork."
+  },
+  {
+    "id": "plate_uniformity",
+    "subject": "K2/N",
+    "passed": null,
+    "value": 0.984216603072646,
+    "threshold": null,
+    "op": ">=",
+    "unit": "fraction",
+    "evidence": [],
+    "notes": "{\"metrics\": {\"non_subject_pixels\": 1142403, \"plate_mean_rgb\": [3.5660716927389022, 248.42492010262578, 3.5570170946679935], \"plate_sd_rgb\": [2.2786715933073656, 3.7682801918833753, 1.9351653326447182], \"subject_support\": \"supplied subject alpha >=128\", \"tol\": 8}, \"reason\": \"No min_fraction declared; X1 observations are not a threshold\"}"
+  },
+  {
+    "id": "g9_alpha",
+    "subject": "K2/N",
+    "passed": true,
+    "value": 0,
+    "threshold": 0,
+    "op": "<=",
+    "unit": "alpha",
+    "evidence": [],
+    "notes": "Canvas-border clipping"
+  },
+  {
+    "id": "g9_green",
+    "subject": "K2/N",
+    "passed": true,
+    "value": 0,
+    "threshold": 0,
+    "op": "<=",
+    "unit": "pixels",
+    "evidence": [],
+    "notes": "Partial alpha and green excess >20"
+  },
+  {
+    "id": "g9_edge_mean",
+    "subject": "K2/N",
+    "passed": null,
+    "value": 76.32256235827664,
+    "threshold": null,
+    "op": "<=",
+    "unit": "rgb",
+    "evidence": [],
+    "notes": "Mean RGB over 0<alpha<255; measurement only"
+  },
+  {
+    "id": "g9_dark_fringe",
+    "subject": "K2/N",
+    "passed": null,
+    "value": 76.32256235827664,
+    "threshold": null,
+    "op": ">=",
+    "unit": "rgb",
+    "evidence": [],
+    "notes": "UNEVALUABLE: source defines visual inspection, no numeric threshold"
+  },
+  {
+    "id": "O7",
+    "subject": "K2/N",
+    "passed": null,
+    "value": 14.166807128150879,
+    "threshold": null,
+    "op": "<=",
+    "unit": "degrees",
+    "evidence": [],
+    "notes": "{\"metrics\": {\"azimuth_deg\": 149.16680712815088, \"dispersion\": 0.9479527251869734, \"resultant\": 0.05204727481302659}, \"reason\": \"\"}"
+  },
+  {
+    "id": "O3b_raw",
+    "subject": "K2/N",
+    "passed": null,
+    "value": 2,
+    "threshold": null,
+    "op": "<=",
+    "unit": "instances",
+    "evidence": [],
+    "notes": "{\"metrics\": {\"alignment_cosine\": 0.9, \"angular_samples\": 48, \"annulus_rejected\": 0, \"family\": \"ring\", \"gradient_floor\": 0.02, \"hollow_min\": 0, \"inside\": 0, \"max_radius_px\": 30, \"min_angular_support\": 0.75, \"min_radius_px\": 8, \"nms_radius_fraction\": 0.8, \"outside\": 2, \"peaks\": [{\"angular_support\": 0.7916666666666666, \"center\": [307.0, 585.0], \"hollow_score\": 0.14583333333333334, \"inner_opposed_support\": 0.14583333333333334, \"inside\": false, \"lab_band_surround\": 27.16063487388888, \"lab_center_band\": 14.67003559761238, \"lab_center_surround\": 36.336165328222876, \"lab_color_return\": 0.0, \"radius\": 30.0, \"score\": 0.8482677443135481}, {\"angular_support\": 0.7708333333333334, \"center\": [475.0, 188.0], \"hollow_score\": 0.0625, \"inner_opposed_support\": 0.0625, \"inside\": false, \"lab_band_surround\": 15.281957619859577, \"lab_center_band\": 1.9287914705196239, \"lab_center_surround\": 16.763186461219732, \"lab_color_return\": 0.0, \"radius\": 10.0, \"score\": 0.7268927336081317}], \"radial_tolerance_fraction\": 0.15, \"smooth_fraction\": 0.08, \"vote_thresh\": 0.5}, \"reason\": \"\"}"
+  },
+  {
+    "id": "O3b_annulus",
+    "subject": "K2/N",
+    "passed": null,
+    "value": 0,
+    "threshold": null,
+    "op": "<=",
+    "unit": "instances",
+    "evidence": [],
+    "notes": "{\"metrics\": {\"alignment_cosine\": 0.9, \"angular_samples\": 48, \"annulus_rejected\": 2, \"family\": \"ring\", \"gradient_floor\": 0.02, \"hollow_min\": 0.5, \"inside\": 0, \"max_radius_px\": 30, \"min_angular_support\": 0.75, \"min_radius_px\": 8, \"nms_radius_fraction\": 0.8, \"outside\": 0, \"peaks\": [{\"angular_support\": 0.7916666666666666, \"center\": [307.0, 585.0], \"hollow_score\": 0.14583333333333334, \"inner_opposed_support\": 0.14583333333333334, \"inside\": false, \"lab_band_surround\": 27.16063487388888, \"lab_center_band\": 14.67003559761238, \"lab_center_surround\": 36.336165328222876, \"lab_color_return\": 0.0, \"radius\": 30.0, \"rejected\": \"not_annulus\", \"score\": 0.8482677443135481}, {\"angular_support\": 0.7708333333333334, \"center\": [475.0, 188.0], \"hollow_score\": 0.0625, \"inner_opposed_support\": 0.0625, \"inside\": false, \"lab_band_surround\": 15.281957619859577, \"lab_center_band\": 1.9287914705196239, \"lab_center_surround\": 16.763186461219732, \"lab_color_return\": 0.0, \"radius\": 10.0, \"rejected\": \"not_annulus\", \"score\": 0.7268927336081317}], \"radial_tolerance_fraction\": 0.15, \"smooth_fraction\": 0.08, \"vote_thresh\": 0.5}, \"reason\": \"\"}"
+  },
+  {
+    "id": "alpha_bbox_px",
+    "subject": "K2/N",
+    "passed": null,
+    "value": [
+      239,
+      30,
+      778,
+      1453
+    ],
+    "threshold": null,
+    "op": "<=",
+    "unit": "px_xyxy_exclusive",
+    "evidence": [
+      "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K2-gen-N/k2_N.png"
+    ],
+    "notes": "Alpha >=128; measurement only"
+  },
+  {
+    "id": "alpha_bbox_canvas_fraction",
+    "subject": "K2/N",
+    "passed": null,
+    "value": 0.487643559773763,
+    "threshold": null,
+    "op": "<=",
+    "unit": "fraction",
+    "evidence": [],
+    "notes": "Bounding rectangle area / canvas area; alpha >=128; measurement only"
+  },
+  {
+    "id": "alpha_support_canvas_fraction",
+    "subject": "K2/N",
+    "passed": null,
+    "value": 0.2736797332763672,
+    "threshold": null,
+    "op": "<=",
+    "unit": "fraction",
+    "evidence": [],
+    "notes": "Opaque alpha support area / canvas area; measurement only"
+  },
+  {
+    "id": "bleed_index",
+    "subject": "K2/N",
+    "passed": null,
+    "value": null,
+    "threshold": null,
+    "op": "<=",
+    "unit": "",
+    "evidence": [],
+    "notes": "UNEVALUABLE: no frozen bleed-index formula or reviewed allowed motif regions supplied. O3b_raw and O3b_annulus report unmasked full-canvas counts, not verified ornament bleed. G9 separately reports partial-alpha green contamination."
+  },
+  {
+    "id": "registered_rgba_output",
+    "subject": "K2/NE",
+    "passed": null,
+    "value": null,
+    "threshold": null,
+    "op": "<=",
+    "unit": "",
+    "evidence": [],
+    "notes": "Not produced: source is 1024x1536; no reviewed registration annotations or locked common scale supplied, and frozen registration requires square input. Native matte measured in memory only."
+  },
+  {
+    "id": "matte",
+    "subject": "K2/NE",
+    "passed": null,
+    "value": null,
+    "threshold": null,
+    "op": "<=",
+    "unit": "",
+    "evidence": [
+      "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K2-gen-NE-c1/k2_NE.png"
+    ],
+    "notes": "{\"input\": \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K2-gen-NE-c1/k2_NE.png\", \"canvas\": [1024, 1536], \"extraction\": {\"method\": \"green excess matte + inverse straight-alpha compositing\", \"removed_background_or_detached_alpha_dust_pixels\": 207, \"native_input_alpha\": false, \"alpha_floor\": 40, \"alpha_floor_removed_pixels\": 1171883}}"
+  },
+  {
+    "id": "g1_height",
+    "subject": "K2/NE",
+    "passed": true,
+    "value": 0.971252566735113,
+    "threshold": [
+      0.97,
+      1.03
+    ],
+    "op": "within_inclusive",
+    "unit": "ratio",
+    "evidence": [],
+    "notes": "{\"literal_tool_result\": {\"id\": \"g1_height\", \"subject\": \"K2/NE\", \"passed\": true, \"value\": 0.028747433264887046, \"threshold\": 0.03, \"op\": \"<=\", \"unit\": \"fraction\", \"evidence\": [], \"notes\": \"height_px=1419; master_height_px=1461\"}, \"height_px\": 1419, \"master_height_px\": 1461, \"ratio_interval_inclusive\": [0.97, 1.03], \"measurement_space\": \"native matte; no registration performed\"}"
+  },
+  {
+    "id": "g2_pivot",
+    "subject": "K2/NE",
+    "passed": null,
+    "value": null,
+    "threshold": 4,
+    "op": "<=",
+    "unit": "px",
+    "evidence": [],
+    "notes": "UNEVALUABLE: independent reviewed root anchor required; sole midpoint is separate"
+  },
+  {
+    "id": "g3_light",
+    "subject": "K2/NE",
+    "passed": true,
+    "value": -26.842801398672293,
+    "threshold": 0,
+    "op": "<",
+    "unit": "px",
+    "evidence": [],
+    "notes": "{\"valid\": true, \"bbox\": [289, 29, 768, 1448], \"height\": 1419, \"transparent_fraction\": 0.7454833984375, \"border_alpha_max\": 0, \"light_centroid\": [501.1571986013277, 425.277200628389], \"silhouette_center\": [528.0, 738.0], \"light_pass\": true, \"brightest_5pct_pixels\": 19733, \"partial_alpha_pixels\": 14373, \"edge_mean_rgb_value\": 74.13963681903569, \"green_contaminated_pixels\": 0}"
+  },
+  {
+    "id": "silhouette64",
+    "subject": "K2/NE",
+    "passed": null,
+    "value": 0.4863701578192252,
+    "threshold": null,
+    "op": "<=",
+    "unit": "1-iou",
+    "evidence": [
+      "out/k2_NE_64.png",
+      "out/k2_S_64.png"
+    ],
+    "notes": "UNEVALUABLE verdict: no calibrated threshold supplied; {\"aligned_iou\": 0.5136298421807748, \"contour_distance\": 1.2595937788213347, \"hu_a\": [0.266886738176499, 0.02674278918327077, 1.3846311356246635e-05, 0.000165773092325709, -3.765941127390961e-09, 2.029258321910842e-05, -6.992527424595469e-09], \"hu_b\": [0.24631606061623298, 0.019655379461072355, 9.417417746213143e-05, 0.0003335989049148237, -1.5144831848334708e-08, 4.675156308259643e-05, -5.7156888231747094e-08]}; Native 1024x1536 alpha is resized to 64x64 by the frozen descriptor; analytical instrument only, not registered artwork."
+  },
+  {
+    "id": "plate_uniformity",
+    "subject": "K2/NE",
+    "passed": null,
+    "value": 0.559154441845385,
+    "threshold": null,
+    "op": ">=",
+    "unit": "fraction",
+    "evidence": [],
+    "notes": "{\"metrics\": {\"non_subject_pixels\": 1178204, \"plate_mean_rgb\": [3.5087005306381576, 247.83264273419545, 7.815666047645399], \"plate_sd_rgb\": [2.283671633180335, 3.610732880513351, 2.9259599016947813], \"subject_support\": \"supplied subject alpha >=128\", \"tol\": 8}, \"reason\": \"No min_fraction declared; X1 observations are not a threshold\"}"
+  },
+  {
+    "id": "g9_alpha",
+    "subject": "K2/NE",
+    "passed": true,
+    "value": 0,
+    "threshold": 0,
+    "op": "<=",
+    "unit": "alpha",
+    "evidence": [],
+    "notes": "Canvas-border clipping"
+  },
+  {
+    "id": "g9_green",
+    "subject": "K2/NE",
+    "passed": true,
+    "value": 0,
+    "threshold": 0,
+    "op": "<=",
+    "unit": "pixels",
+    "evidence": [],
+    "notes": "Partial alpha and green excess >20"
+  },
+  {
+    "id": "g9_edge_mean",
+    "subject": "K2/NE",
+    "passed": null,
+    "value": 74.13963681903569,
+    "threshold": null,
+    "op": "<=",
+    "unit": "rgb",
+    "evidence": [],
+    "notes": "Mean RGB over 0<alpha<255; measurement only"
+  },
+  {
+    "id": "g9_dark_fringe",
+    "subject": "K2/NE",
+    "passed": null,
+    "value": 74.13963681903569,
+    "threshold": null,
+    "op": ">=",
+    "unit": "rgb",
+    "evidence": [],
+    "notes": "UNEVALUABLE: source defines visual inspection, no numeric threshold"
+  },
+  {
+    "id": "O7",
+    "subject": "K2/NE",
+    "passed": null,
+    "value": 14.594904141388696,
+    "threshold": null,
+    "op": "<=",
+    "unit": "degrees",
+    "evidence": [],
+    "notes": "{\"metrics\": {\"azimuth_deg\": 149.5949041413887, \"dispersion\": 0.9475393178203172, \"resultant\": 0.052460682179682805}, \"reason\": \"\"}"
+  },
+  {
+    "id": "O3b_raw",
+    "subject": "K2/NE",
+    "passed": null,
+    "value": 5,
+    "threshold": null,
+    "op": "<=",
+    "unit": "instances",
+    "evidence": [],
+    "notes": "{\"metrics\": {\"alignment_cosine\": 0.9, \"angular_samples\": 48, \"annulus_rejected\": 0, \"family\": \"ring\", \"gradient_floor\": 0.02, \"hollow_min\": 0, \"inside\": 0, \"max_radius_px\": 30, \"min_angular_support\": 0.75, \"min_radius_px\": 8, \"nms_radius_fraction\": 0.8, \"outside\": 5, \"peaks\": [{\"angular_support\": 0.7708333333333334, \"center\": [333.0, 560.0], \"hollow_score\": 0.20833333333333334, \"inner_opposed_support\": 0.20833333333333334, \"inside\": false, \"lab_band_surround\": 22.850157583147, \"lab_center_band\": 18.035580334176924, \"lab_center_surround\": 38.88310603208117, \"lab_color_return\": 0.0, \"radius\": 28.0, \"score\": 0.9248296702798788}, {\"angular_support\": 0.75, \"center\": [369.0, 98.0], \"hollow_score\": 0.5416666666666666, \"inner_opposed_support\": 0.5416666666666666, \"inside\": false, \"lab_band_surround\": 17.891424994386934, \"lab_center_band\": 3.5616503523539667, \"lab_center_surround\": 20.380331907392254, \"lab_color_return\": 0.0, \"radius\": 16.0, \"score\": 0.5732619872835495}, {\"angular_support\": 0.75, \"center\": [588.0, 538.0], \"hollow_score\": 0.2708333333333333, \"inner_opposed_support\": 0.2708333333333333, \"inside\": false, \"lab_band_surround\": 6.350087756187003, \"lab_center_band\": 0.878695458223833, \"lab_center_surround\": 5.909935587126957, \"lab_color_return\": 0.0, \"radius\": 8.0, \"score\": 0.5646063365396163}, {\"angular_support\": 0.75, \"center\": [379.0, 223.0], \"hollow_score\": 0.041666666666666664, \"inner_opposed_support\": 0.041666666666666664, \"inside\": false, \"lab_band_surround\": 12.653450459788898, \"lab_center_band\": 19.394975728918904, \"lab_center_surround\": 31.589603081123023, \"lab_color_return\": 0.0, \"radius\": 8.0, \"score\": 0.5523855969269083}, {\"angular_support\": 0.7708333333333334, \"center\": [410.0, 50.0], \"hollow_score\": 0.2916666666666667, \"inner_opposed_support\": 0.2916666666666667, \"inside\": false, \"lab_band_surround\": 11.811777787563816, \"lab_center_band\": 8.228121629348182, \"lab_center_surround\": 12.579442104771305, \"lab_color_return\": 0.0, \"radius\": 8.0, \"score\": 0.5514852835944123}], \"radial_tolerance_fraction\": 0.15, \"smooth_fraction\": 0.08, \"vote_thresh\": 0.5}, \"reason\": \"\"}"
+  },
+  {
+    "id": "O3b_annulus",
+    "subject": "K2/NE",
+    "passed": null,
+    "value": 1,
+    "threshold": null,
+    "op": "<=",
+    "unit": "instances",
+    "evidence": [],
+    "notes": "{\"metrics\": {\"alignment_cosine\": 0.9, \"angular_samples\": 48, \"annulus_rejected\": 4, \"family\": \"ring\", \"gradient_floor\": 0.02, \"hollow_min\": 0.5, \"inside\": 0, \"max_radius_px\": 30, \"min_angular_support\": 0.75, \"min_radius_px\": 8, \"nms_radius_fraction\": 0.8, \"outside\": 1, \"peaks\": [{\"angular_support\": 0.7708333333333334, \"center\": [333.0, 560.0], \"hollow_score\": 0.20833333333333334, \"inner_opposed_support\": 0.20833333333333334, \"inside\": false, \"lab_band_surround\": 22.850157583147, \"lab_center_band\": 18.035580334176924, \"lab_center_surround\": 38.88310603208117, \"lab_color_return\": 0.0, \"radius\": 28.0, \"rejected\": \"not_annulus\", \"score\": 0.9248296702798788}, {\"angular_support\": 0.75, \"center\": [369.0, 98.0], \"hollow_score\": 0.5416666666666666, \"inner_opposed_support\": 0.5416666666666666, \"inside\": false, \"lab_band_surround\": 17.891424994386934, \"lab_center_band\": 3.5616503523539667, \"lab_center_surround\": 20.380331907392254, \"lab_color_return\": 0.0, \"radius\": 16.0, \"score\": 0.5732619872835495}, {\"angular_support\": 0.75, \"center\": [588.0, 538.0], \"hollow_score\": 0.2708333333333333, \"inner_opposed_support\": 0.2708333333333333, \"inside\": false, \"lab_band_surround\": 6.350087756187003, \"lab_center_band\": 0.878695458223833, \"lab_center_surround\": 5.909935587126957, \"lab_color_return\": 0.0, \"radius\": 8.0, \"rejected\": \"not_annulus\", \"score\": 0.5646063365396163}, {\"angular_support\": 0.75, \"center\": [379.0, 223.0], \"hollow_score\": 0.041666666666666664, \"inner_opposed_support\": 0.041666666666666664, \"inside\": false, \"lab_band_surround\": 12.653450459788898, \"lab_center_band\": 19.394975728918904, \"lab_center_surround\": 31.589603081123023, \"lab_color_return\": 0.0, \"radius\": 8.0, \"rejected\": \"not_annulus\", \"score\": 0.5523855969269083}, {\"angular_support\": 0.7708333333333334, \"center\": [410.0, 50.0], \"hollow_score\": 0.2916666666666667, \"inner_opposed_support\": 0.2916666666666667, \"inside\": false, \"lab_band_surround\": 11.811777787563816, \"lab_center_band\": 8.228121629348182, \"lab_center_surround\": 12.579442104771305, \"lab_color_return\": 0.0, \"radius\": 8.0, \"rejected\": \"not_annulus\", \"score\": 0.5514852835944123}], \"radial_tolerance_fraction\": 0.15, \"smooth_fraction\": 0.08, \"vote_thresh\": 0.5}, \"reason\": \"\"}"
+  },
+  {
+    "id": "alpha_bbox_px",
+    "subject": "K2/NE",
+    "passed": null,
+    "value": [
+      289,
+      29,
+      768,
+      1448
+    ],
+    "threshold": null,
+    "op": "<=",
+    "unit": "px_xyxy_exclusive",
+    "evidence": [
+      "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K2-gen-NE-c1/k2_NE.png"
+    ],
+    "notes": "Alpha >=128; measurement only"
+  },
+  {
+    "id": "alpha_bbox_canvas_fraction",
+    "subject": "K2/NE",
+    "passed": null,
+    "value": 0.4321422576904297,
+    "threshold": null,
+    "op": "<=",
+    "unit": "fraction",
+    "evidence": [],
+    "notes": "Bounding rectangle area / canvas area; alpha >=128; measurement only"
+  },
+  {
+    "id": "alpha_support_canvas_fraction",
+    "subject": "K2/NE",
+    "passed": null,
+    "value": 0.25091807047526044,
+    "threshold": null,
+    "op": "<=",
+    "unit": "fraction",
+    "evidence": [],
+    "notes": "Opaque alpha support area / canvas area; measurement only"
+  },
+  {
+    "id": "bleed_index",
+    "subject": "K2/NE",
+    "passed": null,
+    "value": null,
+    "threshold": null,
+    "op": "<=",
+    "unit": "",
+    "evidence": [],
+    "notes": "UNEVALUABLE: no frozen bleed-index formula or reviewed allowed motif regions supplied. O3b_raw and O3b_annulus report unmasked full-canvas counts, not verified ornament bleed. G9 separately reports partial-alpha green contamination."
+  },
+  {
+    "id": "registered_rgba_output",
+    "subject": "K2/E",
+    "passed": null,
+    "value": null,
+    "threshold": null,
+    "op": "<=",
+    "unit": "",
+    "evidence": [],
+    "notes": "Not produced: source is 1024x1536; no reviewed registration annotations or locked common scale supplied, and frozen registration requires square input. Native matte measured in memory only."
+  },
+  {
+    "id": "matte",
+    "subject": "K2/E",
+    "passed": null,
+    "value": null,
+    "threshold": null,
+    "op": "<=",
+    "unit": "",
+    "evidence": [
+      "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K2-gen-E-c1/k2_E.png"
+    ],
+    "notes": "{\"input\": \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K2-gen-E-c1/k2_E.png\", \"canvas\": [1024, 1536], \"extraction\": {\"method\": \"green excess matte + inverse straight-alpha compositing\", \"removed_background_or_detached_alpha_dust_pixels\": 149, \"native_input_alpha\": false, \"alpha_floor\": 40, \"alpha_floor_removed_pixels\": 1274782}}"
+  },
+  {
+    "id": "g1_height",
+    "subject": "K2/E",
+    "passed": true,
+    "value": 0.973305954825462,
+    "threshold": [
+      0.97,
+      1.03
+    ],
+    "op": "within_inclusive",
+    "unit": "ratio",
+    "evidence": [],
+    "notes": "{\"literal_tool_result\": {\"id\": \"g1_height\", \"subject\": \"K2/E\", \"passed\": true, \"value\": 0.026694045174537995, \"threshold\": 0.03, \"op\": \"<=\", \"unit\": \"fraction\", \"evidence\": [], \"notes\": \"height_px=1422; master_height_px=1461\"}, \"height_px\": 1422, \"master_height_px\": 1461, \"ratio_interval_inclusive\": [0.97, 1.03], \"measurement_space\": \"native matte; no registration performed\"}"
+  },
+  {
+    "id": "g2_pivot",
+    "subject": "K2/E",
+    "passed": null,
+    "value": null,
+    "threshold": 4,
+    "op": "<=",
+    "unit": "px",
+    "evidence": [],
+    "notes": "UNEVALUABLE: independent reviewed root anchor required; sole midpoint is separate"
+  },
+  {
+    "id": "g3_light",
+    "subject": "K2/E",
+    "passed": true,
+    "value": -50.711206896551744,
+    "threshold": 0,
+    "op": "<",
+    "unit": "px",
+    "evidence": [],
+    "notes": "{\"valid\": true, \"bbox\": [319, 28, 660, 1450], \"height\": 1422, \"transparent_fraction\": 0.8107725779215494, \"border_alpha_max\": 0, \"light_centroid\": [438.28879310344826, 383.63813628899834], \"silhouette_center\": [489.0, 738.5], \"light_pass\": true, \"brightest_5pct_pixels\": 14616, \"partial_alpha_pixels\": 12441, \"edge_mean_rgb_value\": 80.70243549553895, \"green_contaminated_pixels\": 0}"
+  },
+  {
+    "id": "silhouette64",
+    "subject": "K2/E",
+    "passed": null,
+    "value": 0.477810650887574,
+    "threshold": null,
+    "op": "<=",
+    "unit": "1-iou",
+    "evidence": [
+      "out/k2_E_64.png",
+      "out/k2_S_64.png"
+    ],
+    "notes": "UNEVALUABLE verdict: no calibrated threshold supplied; {\"aligned_iou\": 0.522189349112426, \"contour_distance\": 1.8168783097760994, \"hu_a\": [0.3700476787215855, 0.09791754911104775, 0.00020823445116306607, 0.00017577653042366546, 3.0234716336850056e-08, 5.196173482507184e-05, 1.4723813433396393e-08], \"hu_b\": [0.24631606061623298, 0.019655379461072355, 9.417417746213143e-05, 0.0003335989049148237, -1.5144831848334708e-08, 4.675156308259643e-05, -5.7156888231747094e-08]}; Native 1024x1536 alpha is resized to 64x64 by the frozen descriptor; analytical instrument only, not registered artwork."
+  },
+  {
+    "id": "plate_uniformity",
+    "subject": "K2/E",
+    "passed": null,
+    "value": 0.538733956187781,
+    "threshold": null,
+    "op": ">=",
+    "unit": "fraction",
+    "evidence": [],
+    "notes": "{\"metrics\": {\"non_subject_pixels\": 1280556, \"plate_mean_rgb\": [3.471549858030418, 247.7187760628977, 8.248249978915409], \"plate_sd_rgb\": [1.9677838058023889, 3.12757233656529, 2.0978256866904865], \"subject_support\": \"supplied subject alpha >=128\", \"tol\": 8}, \"reason\": \"No min_fraction declared; X1 observations are not a threshold\"}"
+  },
+  {
+    "id": "g9_alpha",
+    "subject": "K2/E",
+    "passed": true,
+    "value": 0,
+    "threshold": 0,
+    "op": "<=",
+    "unit": "alpha",
+    "evidence": [],
+    "notes": "Canvas-border clipping"
+  },
+  {
+    "id": "g9_green",
+    "subject": "K2/E",
+    "passed": true,
+    "value": 0,
+    "threshold": 0,
+    "op": "<=",
+    "unit": "pixels",
+    "evidence": [],
+    "notes": "Partial alpha and green excess >20"
+  },
+  {
+    "id": "g9_edge_mean",
+    "subject": "K2/E",
+    "passed": null,
+    "value": 80.70243549553895,
+    "threshold": null,
+    "op": "<=",
+    "unit": "rgb",
+    "evidence": [],
+    "notes": "Mean RGB over 0<alpha<255; measurement only"
+  },
+  {
+    "id": "g9_dark_fringe",
+    "subject": "K2/E",
+    "passed": null,
+    "value": 80.70243549553895,
+    "threshold": null,
+    "op": ">=",
+    "unit": "rgb",
+    "evidence": [],
+    "notes": "UNEVALUABLE: source defines visual inspection, no numeric threshold"
+  },
+  {
+    "id": "O7",
+    "subject": "K2/E",
+    "passed": null,
+    "value": 20.013557903346594,
+    "threshold": null,
+    "op": "<=",
+    "unit": "degrees",
+    "evidence": [],
+    "notes": "{\"metrics\": {\"azimuth_deg\": 155.0135579033466, \"dispersion\": 0.9572306800753917, \"resultant\": 0.04276931992460826}, \"reason\": \"\"}"
+  },
+  {
+    "id": "O3b_raw",
+    "subject": "K2/E",
+    "passed": null,
+    "value": 2,
+    "threshold": null,
+    "op": "<=",
+    "unit": "instances",
+    "evidence": [],
+    "notes": "{\"metrics\": {\"alignment_cosine\": 0.9, \"angular_samples\": 48, \"annulus_rejected\": 0, \"family\": \"ring\", \"gradient_floor\": 0.02, \"hollow_min\": 0, \"inside\": 0, \"max_radius_px\": 30, \"min_angular_support\": 0.75, \"min_radius_px\": 8, \"nms_radius_fraction\": 0.8, \"outside\": 2, \"peaks\": [{\"angular_support\": 0.75, \"center\": [344.0, 97.0], \"hollow_score\": 0.5, \"inner_opposed_support\": 0.5, \"inside\": false, \"lab_band_surround\": 20.143257867420242, \"lab_center_band\": 10.768649127274001, \"lab_center_surround\": 27.988982292566938, \"lab_color_return\": 0.0, \"radius\": 18.0, \"score\": 0.5307899424824413}, {\"angular_support\": 0.8541666666666666, \"center\": [427.0, 1165.0], \"hollow_score\": 0.8255686136257033, \"inner_opposed_support\": 0.375, \"inside\": false, \"lab_band_surround\": 14.823876459709686, \"lab_center_band\": 16.538815061124744, \"lab_center_surround\": 4.300687923723519, \"lab_color_return\": 0.8255686136257033, \"radius\": 15.0, \"score\": 0.512910203638652}], \"radial_tolerance_fraction\": 0.15, \"smooth_fraction\": 0.08, \"vote_thresh\": 0.5}, \"reason\": \"\"}"
+  },
+  {
+    "id": "O3b_annulus",
+    "subject": "K2/E",
+    "passed": null,
+    "value": 2,
+    "threshold": null,
+    "op": "<=",
+    "unit": "instances",
+    "evidence": [],
+    "notes": "{\"metrics\": {\"alignment_cosine\": 0.9, \"angular_samples\": 48, \"annulus_rejected\": 0, \"family\": \"ring\", \"gradient_floor\": 0.02, \"hollow_min\": 0.5, \"inside\": 0, \"max_radius_px\": 30, \"min_angular_support\": 0.75, \"min_radius_px\": 8, \"nms_radius_fraction\": 0.8, \"outside\": 2, \"peaks\": [{\"angular_support\": 0.75, \"center\": [344.0, 97.0], \"hollow_score\": 0.5, \"inner_opposed_support\": 0.5, \"inside\": false, \"lab_band_surround\": 20.143257867420242, \"lab_center_band\": 10.768649127274001, \"lab_center_surround\": 27.988982292566938, \"lab_color_return\": 0.0, \"radius\": 18.0, \"score\": 0.5307899424824413}, {\"angular_support\": 0.8541666666666666, \"center\": [427.0, 1165.0], \"hollow_score\": 0.8255686136257033, \"inner_opposed_support\": 0.375, \"inside\": false, \"lab_band_surround\": 14.823876459709686, \"lab_center_band\": 16.538815061124744, \"lab_center_surround\": 4.300687923723519, \"lab_color_return\": 0.8255686136257033, \"radius\": 15.0, \"score\": 0.512910203638652}], \"radial_tolerance_fraction\": 0.15, \"smooth_fraction\": 0.08, \"vote_thresh\": 0.5}, \"reason\": \"\"}"
+  },
+  {
+    "id": "alpha_bbox_px",
+    "subject": "K2/E",
+    "passed": null,
+    "value": [
+      319,
+      28,
+      660,
+      1450
+    ],
+    "threshold": null,
+    "op": "<=",
+    "unit": "px_xyxy_exclusive",
+    "evidence": [
+      "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K2-gen-E-c1/k2_E.png"
+    ],
+    "notes": "Alpha >=128; measurement only"
+  },
+  {
+    "id": "alpha_bbox_canvas_fraction",
+    "subject": "K2/E",
+    "passed": null,
+    "value": 0.3082923889160156,
+    "threshold": null,
+    "op": "<=",
+    "unit": "fraction",
+    "evidence": [],
+    "notes": "Bounding rectangle area / canvas area; alpha >=128; measurement only"
+  },
+  {
+    "id": "alpha_support_canvas_fraction",
+    "subject": "K2/E",
+    "passed": null,
+    "value": 0.18584442138671875,
+    "threshold": null,
+    "op": "<=",
+    "unit": "fraction",
+    "evidence": [],
+    "notes": "Opaque alpha support area / canvas area; measurement only"
+  },
+  {
+    "id": "bleed_index",
+    "subject": "K2/E",
+    "passed": null,
+    "value": null,
+    "threshold": null,
+    "op": "<=",
+    "unit": "",
+    "evidence": [],
+    "notes": "UNEVALUABLE: no frozen bleed-index formula or reviewed allowed motif regions supplied. O3b_raw and O3b_annulus report unmasked full-canvas counts, not verified ornament bleed. G9 separately reports partial-alpha green contamination."
+  },
+  {
+    "id": "registered_rgba_output",
+    "subject": "K2/SE",
+    "passed": null,
+    "value": null,
+    "threshold": null,
+    "op": "<=",
+    "unit": "",
+    "evidence": [],
+    "notes": "Not produced: source is 1024x1536; no reviewed registration annotations or locked common scale supplied, and frozen registration requires square input. Native matte measured in memory only."
+  },
+  {
+    "id": "matte",
+    "subject": "K2/SE",
+    "passed": null,
+    "value": null,
+    "threshold": null,
+    "op": "<=",
+    "unit": "",
+    "evidence": [
+      "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K2-gen-SE-c1/k2_SE.png"
+    ],
+    "notes": "{\"input\": \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K2-gen-SE-c1/k2_SE.png\", \"canvas\": [1024, 1536], \"extraction\": {\"method\": \"green excess matte + inverse straight-alpha compositing\", \"removed_background_or_detached_alpha_dust_pixels\": 192, \"native_input_alpha\": false, \"alpha_floor\": 40, \"alpha_floor_removed_pixels\": 1164505}}"
+  },
+  {
+    "id": "g1_height",
+    "subject": "K2/SE",
+    "passed": true,
+    "value": 0.9787816563997263,
+    "threshold": [
+      0.97,
+      1.03
+    ],
+    "op": "within_inclusive",
+    "unit": "ratio",
+    "evidence": [],
+    "notes": "{\"literal_tool_result\": {\"id\": \"g1_height\", \"subject\": \"K2/SE\", \"passed\": true, \"value\": 0.021218343600273748, \"threshold\": 0.03, \"op\": \"<=\", \"unit\": \"fraction\", \"evidence\": [], \"notes\": \"height_px=1430; master_height_px=1461\"}, \"height_px\": 1430, \"master_height_px\": 1461, \"ratio_interval_inclusive\": [0.97, 1.03], \"measurement_space\": \"native matte; no registration performed\"}"
+  },
+  {
+    "id": "g2_pivot",
+    "subject": "K2/SE",
+    "passed": null,
+    "value": null,
+    "threshold": 4,
+    "op": "<=",
+    "unit": "px",
+    "evidence": [],
+    "notes": "UNEVALUABLE: independent reviewed root anchor required; sole midpoint is separate"
+  },
+  {
+    "id": "g3_light",
+    "subject": "K2/SE",
+    "passed": true,
+    "value": -92.50527205809209,
+    "threshold": 0,
+    "op": "<",
+    "unit": "px",
+    "evidence": [],
+    "notes": "{\"valid\": true, \"bbox\": [254, 27, 820, 1457], \"height\": 1430, \"transparent_fraction\": 0.7407131195068359, \"border_alpha_max\": 0, \"light_centroid\": [443.9947279419079, 398.4489704565801], \"silhouette_center\": [536.5, 741.5], \"light_pass\": true, \"brightest_5pct_pixels\": 20106, \"partial_alpha_pixels\": 13070, \"edge_mean_rgb_value\": 84.5301453710788, \"green_contaminated_pixels\": 0}"
+  },
+  {
+    "id": "silhouette64",
+    "subject": "K2/SE",
+    "passed": null,
+    "value": 0.27627118644067794,
+    "threshold": null,
+    "op": "<=",
+    "unit": "1-iou",
+    "evidence": [
+      "out/k2_SE_64.png",
+      "out/k2_S_64.png"
+    ],
+    "notes": "UNEVALUABLE verdict: no calibrated threshold supplied; {\"aligned_iou\": 0.7237288135593221, \"contour_distance\": 0.8464911245833819, \"hu_a\": [0.26079812421340476, 0.027653017149475864, 0.00023630585978643722, 0.00018102604154823752, -3.6945908168108236e-08, 2.999661893408136e-05, 6.069375008378252e-09], \"hu_b\": [0.24631606061623298, 0.019655379461072355, 9.417417746213143e-05, 0.0003335989049148237, -1.5144831848334708e-08, 4.675156308259643e-05, -5.7156888231747094e-08]}; Native 1024x1536 alpha is resized to 64x64 by the frozen descriptor; analytical instrument only, not registered artwork."
+  },
+  {
+    "id": "plate_uniformity",
+    "subject": "K2/SE",
+    "passed": null,
+    "value": 0.8968570069262524,
+    "threshold": null,
+    "op": ">=",
+    "unit": "fraction",
+    "evidence": [],
+    "notes": "{\"metrics\": {\"non_subject_pixels\": 1170763, \"plate_mean_rgb\": [4.1072129884528294, 247.985511158108, 6.534835829283979], \"plate_sd_rgb\": [2.2911021528667503, 3.363791842863575, 2.195408274895134], \"subject_support\": \"supplied subject alpha >=128\", \"tol\": 8}, \"reason\": \"No min_fraction declared; X1 observations are not a threshold\"}"
+  },
+  {
+    "id": "g9_alpha",
+    "subject": "K2/SE",
+    "passed": true,
+    "value": 0,
+    "threshold": 0,
+    "op": "<=",
+    "unit": "alpha",
+    "evidence": [],
+    "notes": "Canvas-border clipping"
+  },
+  {
+    "id": "g9_green",
+    "subject": "K2/SE",
+    "passed": true,
+    "value": 0,
+    "threshold": 0,
+    "op": "<=",
+    "unit": "pixels",
+    "evidence": [],
+    "notes": "Partial alpha and green excess >20"
+  },
+  {
+    "id": "g9_edge_mean",
+    "subject": "K2/SE",
+    "passed": null,
+    "value": 84.5301453710788,
+    "threshold": null,
+    "op": "<=",
+    "unit": "rgb",
+    "evidence": [],
+    "notes": "Mean RGB over 0<alpha<255; measurement only"
+  },
+  {
+    "id": "g9_dark_fringe",
+    "subject": "K2/SE",
+    "passed": null,
+    "value": 84.5301453710788,
+    "threshold": null,
+    "op": ">=",
+    "unit": "rgb",
+    "evidence": [],
+    "notes": "UNEVALUABLE: source defines visual inspection, no numeric threshold"
+  },
+  {
+    "id": "O7",
+    "subject": "K2/SE",
+    "passed": null,
+    "value": 16.36087636875854,
+    "threshold": null,
+    "op": "<=",
+    "unit": "degrees",
+    "evidence": [],
+    "notes": "{\"metrics\": {\"azimuth_deg\": 151.36087636875854, \"dispersion\": 0.9570603475252607, \"resultant\": 0.04293965247473932}, \"reason\": \"\"}"
+  },
+  {
+    "id": "O3b_raw",
+    "subject": "K2/SE",
+    "passed": null,
+    "value": 10,
+    "threshold": null,
+    "op": "<=",
+    "unit": "instances",
+    "evidence": [],
+    "notes": "{\"metrics\": {\"alignment_cosine\": 0.9, \"angular_samples\": 48, \"annulus_rejected\": 0, \"family\": \"ring\", \"gradient_floor\": 0.02, \"hollow_min\": 0, \"inside\": 0, \"max_radius_px\": 30, \"min_angular_support\": 0.75, \"min_radius_px\": 8, \"nms_radius_fraction\": 0.8, \"outside\": 10, \"peaks\": [{\"angular_support\": 0.75, \"center\": [441.0, 156.0], \"hollow_score\": 0.4583333333333333, \"inner_opposed_support\": 0.4583333333333333, \"inside\": false, \"lab_band_surround\": 32.521578211017356, \"lab_center_band\": 8.343785043485537, \"lab_center_surround\": 29.18874621402947, \"lab_color_return\": 0.0, \"radius\": 8.0, \"score\": 0.8777487600293981}, {\"angular_support\": 0.75, \"center\": [546.0, 133.0], \"hollow_score\": 0.1875, \"inner_opposed_support\": 0.1875, \"inside\": false, \"lab_band_surround\": 25.538730745990158, \"lab_center_band\": 21.784286588669058, \"lab_center_surround\": 47.097297876252924, \"lab_color_return\": 0.0, \"radius\": 24.0, \"score\": 0.7840808356732257}, {\"angular_support\": 0.7708333333333334, \"center\": [303.0, 523.0], \"hollow_score\": 0.22916666666666666, \"inner_opposed_support\": 0.22916666666666666, \"inside\": false, \"lab_band_surround\": 19.953363469704122, \"lab_center_band\": 10.442820603812299, \"lab_center_surround\": 29.158849618786274, \"lab_color_return\": 0.0, \"radius\": 29.0, \"score\": 0.7045813561405957}, {\"angular_support\": 0.75, \"center\": [521.0, 171.0], \"hollow_score\": 0.14583333333333334, \"inner_opposed_support\": 0.14583333333333334, \"inside\": false, \"lab_band_surround\": 10.88837763495211, \"lab_center_band\": 18.70431998836193, \"lab_center_surround\": 29.192876202808996, \"lab_color_return\": 0.0, \"radius\": 9.0, \"score\": 0.6946206115647902}, {\"angular_support\": 0.7708333333333334, \"center\": [656.0, 559.0], \"hollow_score\": 0.020833333333333332, \"inner_opposed_support\": 0.020833333333333332, \"inside\": false, \"lab_band_surround\": 17.490000486301486, \"lab_center_band\": 17.12563502250353, \"lab_center_surround\": 33.10242022269874, \"lab_color_return\": 0.0, \"radius\": 22.0, \"score\": 0.6824520397815149}, {\"angular_support\": 0.7916666666666666, \"center\": [562.0, 172.0], \"hollow_score\": 0.08333333333333333, \"inner_opposed_support\": 0.08333333333333333, \"inside\": false, \"lab_band_surround\": 2.938651517579094, \"lab_center_band\": 6.740235096022595, \"lab_center_surround\": 8.937123051921438, \"lab_color_return\": 0.0, \"radius\": 8.0, \"score\": 0.6770458325057568}, {\"angular_support\": 0.8333333333333334, \"center\": [639.0, 665.0], \"hollow_score\": 0.041666666666666664, \"inner_opposed_support\": 0.041666666666666664, \"inside\": false, \"lab_band_surround\": 11.11561642238262, \"lab_center_band\": 5.940948615138115, \"lab_center_surround\": 16.73219332812059, \"lab_color_return\": 0.0, \"radius\": 8.0, \"score\": 0.597343742624226}, {\"angular_support\": 0.75, \"center\": [381.0, 433.0], \"hollow_score\": 0.041666666666666664, \"inner_opposed_support\": 0.041666666666666664, \"inside\": false, \"lab_band_surround\": 18.853934365878636, \"lab_center_band\": 8.231020954125556, \"lab_center_surround\": 26.886105182844744, \"lab_color_return\": 0.0, \"radius\": 12.0, \"score\": 0.5656136374149628}, {\"angular_support\": 0.7708333333333334, \"center\": [429.0, 110.0], \"hollow_score\": 0.0, \"inner_opposed_support\": 0.0, \"inside\": false, \"lab_band_surround\": 11.212559038290907, \"lab_center_band\": 22.7508697017944, \"lab_center_surround\": 33.69057115393206, \"lab_color_return\": 0.0, \"radius\": 8.0, \"score\": 0.5537482343762927}, {\"angular_support\": 0.75, \"center\": [424.0, 131.0], \"hollow_score\": 0.4389454375839774, \"inner_opposed_support\": 0.3958333333333333, \"inside\": false, \"lab_band_surround\": 9.779168218627309, \"lab_center_band\": 7.522860492077053, \"lab_center_surround\": 3.230339219144365, \"lab_color_return\": 0.4389454375839774, \"radius\": 8.0, \"score\": 0.5515178098932768}], \"radial_tolerance_fraction\": 0.15, \"smooth_fraction\": 0.08, \"vote_thresh\": 0.5}, \"reason\": \"\"}"
+  },
+  {
+    "id": "O3b_annulus",
+    "subject": "K2/SE",
+    "passed": null,
+    "value": 0,
+    "threshold": null,
+    "op": "<=",
+    "unit": "instances",
+    "evidence": [],
+    "notes": "{\"metrics\": {\"alignment_cosine\": 0.9, \"angular_samples\": 48, \"annulus_rejected\": 10, \"family\": \"ring\", \"gradient_floor\": 0.02, \"hollow_min\": 0.5, \"inside\": 0, \"max_radius_px\": 30, \"min_angular_support\": 0.75, \"min_radius_px\": 8, \"nms_radius_fraction\": 0.8, \"outside\": 0, \"peaks\": [{\"angular_support\": 0.75, \"center\": [441.0, 156.0], \"hollow_score\": 0.4583333333333333, \"inner_opposed_support\": 0.4583333333333333, \"inside\": false, \"lab_band_surround\": 32.521578211017356, \"lab_center_band\": 8.343785043485537, \"lab_center_surround\": 29.18874621402947, \"lab_color_return\": 0.0, \"radius\": 8.0, \"rejected\": \"not_annulus\", \"score\": 0.8777487600293981}, {\"angular_support\": 0.75, \"center\": [546.0, 133.0], \"hollow_score\": 0.1875, \"inner_opposed_support\": 0.1875, \"inside\": false, \"lab_band_surround\": 25.538730745990158, \"lab_center_band\": 21.784286588669058, \"lab_center_surround\": 47.097297876252924, \"lab_color_return\": 0.0, \"radius\": 24.0, \"rejected\": \"not_annulus\", \"score\": 0.7840808356732257}, {\"angular_support\": 0.7708333333333334, \"center\": [303.0, 523.0], \"hollow_score\": 0.22916666666666666, \"inner_opposed_support\": 0.22916666666666666, \"inside\": false, \"lab_band_surround\": 19.953363469704122, \"lab_center_band\": 10.442820603812299, \"lab_center_surround\": 29.158849618786274, \"lab_color_return\": 0.0, \"radius\": 29.0, \"rejected\": \"not_annulus\", \"score\": 0.7045813561405957}, {\"angular_support\": 0.75, \"center\": [521.0, 171.0], \"hollow_score\": 0.14583333333333334, \"inner_opposed_support\": 0.14583333333333334, \"inside\": false, \"lab_band_surround\": 10.88837763495211, \"lab_center_band\": 18.70431998836193, \"lab_center_surround\": 29.192876202808996, \"lab_color_return\": 0.0, \"radius\": 9.0, \"rejected\": \"not_annulus\", \"score\": 0.6946206115647902}, {\"angular_support\": 0.7708333333333334, \"center\": [656.0, 559.0], \"hollow_score\": 0.020833333333333332, \"inner_opposed_support\": 0.020833333333333332, \"inside\": false, \"lab_band_surround\": 17.490000486301486, \"lab_center_band\": 17.12563502250353, \"lab_center_surround\": 33.10242022269874, \"lab_color_return\": 0.0, \"radius\": 22.0, \"rejected\": \"not_annulus\", \"score\": 0.6824520397815149}, {\"angular_support\": 0.7916666666666666, \"center\": [562.0, 172.0], \"hollow_score\": 0.08333333333333333, \"inner_opposed_support\": 0.08333333333333333, \"inside\": false, \"lab_band_surround\": 2.938651517579094, \"lab_center_band\": 6.740235096022595, \"lab_center_surround\": 8.937123051921438, \"lab_color_return\": 0.0, \"radius\": 8.0, \"rejected\": \"not_annulus\", \"score\": 0.6770458325057568}, {\"angular_support\": 0.8333333333333334, \"center\": [639.0, 665.0], \"hollow_score\": 0.041666666666666664, \"inner_opposed_support\": 0.041666666666666664, \"inside\": false, \"lab_band_surround\": 11.11561642238262, \"lab_center_band\": 5.940948615138115, \"lab_center_surround\": 16.73219332812059, \"lab_color_return\": 0.0, \"radius\": 8.0, \"rejected\": \"not_annulus\", \"score\": 0.597343742624226}, {\"angular_support\": 0.75, \"center\": [381.0, 433.0], \"hollow_score\": 0.041666666666666664, \"inner_opposed_support\": 0.041666666666666664, \"inside\": false, \"lab_band_surround\": 18.853934365878636, \"lab_center_band\": 8.231020954125556, \"lab_center_surround\": 26.886105182844744, \"lab_color_return\": 0.0, \"radius\": 12.0, \"rejected\": \"not_annulus\", \"score\": 0.5656136374149628}, {\"angular_support\": 0.7708333333333334, \"center\": [429.0, 110.0], \"hollow_score\": 0.0, \"inner_opposed_support\": 0.0, \"inside\": false, \"lab_band_surround\": 11.212559038290907, \"lab_center_band\": 22.7508697017944, \"lab_center_surround\": 33.69057115393206, \"lab_color_return\": 0.0, \"radius\": 8.0, \"rejected\": \"not_annulus\", \"score\": 0.5537482343762927}, {\"angular_support\": 0.75, \"center\": [424.0, 131.0], \"hollow_score\": 0.4389454375839774, \"inner_opposed_support\": 0.3958333333333333, \"inside\": false, \"lab_band_surround\": 9.779168218627309, \"lab_center_band\": 7.522860492077053, \"lab_center_surround\": 3.230339219144365, \"lab_color_return\": 0.4389454375839774, \"radius\": 8.0, \"rejected\": \"not_annulus\", \"score\": 0.5515178098932768}], \"radial_tolerance_fraction\": 0.15, \"smooth_fraction\": 0.08, \"vote_thresh\": 0.5}, \"reason\": \"\"}"
+  },
+  {
+    "id": "alpha_bbox_px",
+    "subject": "K2/SE",
+    "passed": null,
+    "value": [
+      254,
+      27,
+      820,
+      1457
+    ],
+    "threshold": null,
+    "op": "<=",
+    "unit": "px_xyxy_exclusive",
+    "evidence": [
+      "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K2-gen-SE-c1/k2_SE.png"
+    ],
+    "notes": "Alpha >=128; measurement only"
+  },
+  {
+    "id": "alpha_bbox_canvas_fraction",
+    "subject": "K2/SE",
+    "passed": null,
+    "value": 0.5145899454752604,
+    "threshold": null,
+    "op": "<=",
+    "unit": "fraction",
+    "evidence": [],
+    "notes": "Bounding rectangle area / canvas area; alpha >=128; measurement only"
+  },
+  {
+    "id": "alpha_support_canvas_fraction",
+    "subject": "K2/SE",
+    "passed": null,
+    "value": 0.255648930867513,
+    "threshold": null,
+    "op": "<=",
+    "unit": "fraction",
+    "evidence": [],
+    "notes": "Opaque alpha support area / canvas area; measurement only"
+  },
+  {
+    "id": "bleed_index",
+    "subject": "K2/SE",
+    "passed": null,
+    "value": null,
+    "threshold": null,
+    "op": "<=",
+    "unit": "",
+    "evidence": [],
+    "notes": "UNEVALUABLE: no frozen bleed-index formula or reviewed allowed motif regions supplied. O3b_raw and O3b_annulus report unmasked full-canvas counts, not verified ornament bleed. G9 separately reports partial-alpha green contamination."
+  }
+]

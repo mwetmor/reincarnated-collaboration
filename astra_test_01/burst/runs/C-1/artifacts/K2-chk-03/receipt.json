@@ -1,0 +1,64 @@
+{
+  "task_id": "K2-chk-03",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [],
+  "calls_used": 0,
+  "retries": [
+    {
+      "reason": "Initial validation discovered that the S master is 1024×1536, not 512×512; subsequent inspection confirmed all eight inputs have that size.",
+      "change": "Computed native-resolution checks and analytical silhouettes; omitted registered RGBA outputs without changing thresholds."
+    }
+  ],
+  "self_report": {
+    "obeyed_invariants": true,
+    "concerns": [
+      "Eight requested RGBA files could not be produced compliantly: inputs are 1024×1536, registration annotations and locked scale were not supplied, and the frozen registration tool requires square inputs.",
+      "G2-root is null because independent reviewed root anchors were not supplied.",
+      "Bleed index is null because no frozen definition or reviewed allowed regions were supplied; raw and annulus-filtered O3b counts are reported.",
+      "Measurements use native mattes. The frozen silhouette instrument resizes native alpha to 64×64, changing aspect ratio; these outputs are analytical masks.",
+      "Plate uniformity, O7, silhouette distance, and numeric dark-fringe judgments remain null where no calibrated threshold was supplied."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/checks.json",
+      "sha256": "155409521ba88c8127f2d3287ccbc086cdc16ca9d550f8a41fa21f7d0099ea5e"
+    },
+    {
+      "path": "out/checks_readme.txt",
+      "sha256": "f0c4c67f9352af00dc393ae7246082cb24f87a0790104c013b7db833b50ecb03"
+    },
+    {
+      "path": "out/k2_S_64.png",
+      "sha256": "70539aecff4f7e75a5d1d1c5cd1b5458006d5fb5661260e3425af923b6b5804d"
+    },
+    {
+      "path": "out/k2_SW_64.png",
+      "sha256": "e84dcb9dc16f37044080dc9390e05443acc2e51eb6201e1b5dbfdfc76eda86cc"
+    },
+    {
+      "path": "out/k2_W_64.png",
+      "sha256": "4388dc73ce27ee2f9e0da6a0eeeabccbda7b798a23df1332e3d51960304b4ce3"
+    },
+    {
+      "path": "out/k2_NW_64.png",
+      "sha256": "cdd54831a7aca909de30004f530911c6c5b760853630d8e907b60843cdedb767"
+    },
+    {
+      "path": "out/k2_N_64.png",
+      "sha256": "543d1ac8b9c8f1ecb2b191a3d01f7a0bc9fb2566af80749397a2c0020c54ea6f"
+    },
+    {
+      "path": "out/k2_NE_64.png",
+      "sha256": "7766a3f850daa7832dbba894653840a2b313ab5bb2c9df0b80abfd2f6ed1e4f7"
+    },
+    {
+      "path": "out/k2_E_64.png",
+      "sha256": "5ec24a4f7367f44abe6c5fd2e343a4f8ba0594912be5c279a2152e3dcb0d56bd"
+    },
+    {
+      "path": "out/k2_SE_64.png",
+      "sha256": "5b12602dd68958a25d239caf4d5fd26ccdbbdf12228576cb4282dde1ffb09933"
+    }
+  ]
+}

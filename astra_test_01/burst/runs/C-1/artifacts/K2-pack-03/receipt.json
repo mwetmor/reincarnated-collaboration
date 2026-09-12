@@ -1,0 +1,67 @@
+{
+  "task_id": "K2-pack-03",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [],
+  "calls_used": 0,
+  "retries": [],
+  "self_report": {
+    "obeyed_invariants": true,
+    "concerns": [
+      "S has no JUDGE scores; unavailable fields are marked explicitly.",
+      "JUDGE flags W/NW/E mirrored, NW seen as NE, and SE seen as S. CHECK records G3 passed=false for SW/W/SE.",
+      "Registration uses alpha-bbox alignment; reviewed anatomical root and planted-sole anchors remain unavailable.",
+      "Source images are 1024×1536; generation-sheet compliance is not established by this packet.",
+      "File hashes cover all packet artifacts; wrapper-owned live logs are excluded."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/data/checks.json",
+      "sha256": "95196e07d1e0bbf888af81ad8856e015f30e4e67a229c2284163146be45be91d"
+    },
+    {
+      "path": "out/data/f04-keepers.json",
+      "sha256": "9d7720c4aecd4f67c9656a1b1ce9a3ac2ebdcd7e9e00b0f16cf5e26a51cc6bdc"
+    },
+    {
+      "path": "out/data/judgment.json",
+      "sha256": "3846d076c6f49411bf45fbdc977af519c39cdcc69d08ef6ba3d36d953f6a3dbb"
+    },
+    {
+      "path": "out/img/turnaround_64px.png",
+      "sha256": "3c2fc08bb6bd7916578c3fbd96111c518d3f9d83ede3c6f8ac2363d2dcc4295f"
+    },
+    {
+      "path": "out/img/turnaround_sheet.png",
+      "sha256": "06ef0a318be045c474cd76efc3d748f9090c9752f48a72329741e386ab481571"
+    },
+    {
+      "path": "out/img/turnaround_sheet_green.png",
+      "sha256": "d24087ff642b7b741cd2941c54f8eb3255c3b95f36dcd05072cef5bc48d806f3"
+    },
+    {
+      "path": "out/registration.json",
+      "sha256": "ba828434a13efc223246a4e69b009550003185662b43d842807dc423de2756e6"
+    },
+    {
+      "path": "out/review.html",
+      "sha256": "df5fcc89cbfd0f1a23b4854990367bda098b58442a10a23cfc4ddbe35b7d259f"
+    },
+    {
+      "path": "out/summary.txt",
+      "sha256": "673f74b9e0fcfcd88ede109426cde039187aad6d0df3715f6057c99b29494f33"
+    },
+    {
+      "path": "out/turnaround_64px.png",
+      "sha256": "3c2fc08bb6bd7916578c3fbd96111c518d3f9d83ede3c6f8ac2363d2dcc4295f"
+    },
+    {
+      "path": "out/turnaround_sheet.png",
+      "sha256": "06ef0a318be045c474cd76efc3d748f9090c9752f48a72329741e386ab481571"
+    },
+    {
+      "path": "out/turnaround_sheet_green.png",
+      "sha256": "d24087ff642b7b741cd2941c54f8eb3255c3b95f36dcd05072cef5bc48d806f3"
+    }
+  ]
+}

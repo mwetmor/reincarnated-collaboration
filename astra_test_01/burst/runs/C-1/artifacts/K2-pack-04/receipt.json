@@ -1,0 +1,38 @@
+{
+  "task_id": "K2-pack-04",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [],
+  "calls_used": 0,
+  "retries": [],
+  "self_report": {
+    "obeyed_invariants": true,
+    "concerns": [
+      "CHECK RGBA inputs were absent; used the permitted frozen matte tool on originals.",
+      "S has no supplied candidate JUDGE scores or observation flags.",
+      "SW facing_match is false; supplied G3 booleans are false for SW and W.",
+      "Reviewed root anchors are unavailable; presentation alignment does not validate G2.",
+      "Original inputs are 1024×1536 individual plates, not registered native generation sheets.",
+      "O7, silhouette and plate thresholds are uncalibrated; O3b is advisory; bleed index is unavailable.",
+      "Wrapper-owned hidden logs are excluded from the deliverable file census."
+    ]
+  },
+  "files": [
+    {"path":"out/img/E_rgba.png","sha256":"c1fa0023ee88163ff0689894122aaf52078b5a85617c99a00fe92b8064ae3ced"},
+    {"path":"out/img/NE_rgba.png","sha256":"d9209325738e5a1955213e385d9b8a7e20e8ea818c75128e64008c95ca8dc6d1"},
+    {"path":"out/img/NW_rgba.png","sha256":"17a1825c2a5d4a8843c54752ba3fb8fddccd3ad192ddb0328eecf7b41a76219f"},
+    {"path":"out/img/N_rgba.png","sha256":"7b81e829b3830d939f52023aed73312521e9d22d74eb78855edc8eaad17247a8"},
+    {"path":"out/img/SE_rgba.png","sha256":"91e815ac6370cd46a5551885cf93dd054cdb2f1037fc003fb49482806ca29237"},
+    {"path":"out/img/SW_rgba.png","sha256":"59d4aacad588316b9179ac06a1f6a64a5a12d49b81d79150a0a674328fe3f689"},
+    {"path":"out/img/S_rgba.png","sha256":"eab2a7e86a5d7cb31f49e8668a8481ce7e5432a02b31053572fd1d2b2a4e5b23"},
+    {"path":"out/img/W_rgba.png","sha256":"b5d0392c98ce140b070d44c598ea0326c653655f19a3b58a8bb09101af0e3175"},
+    {"path":"out/img/turnaround_64px.png","sha256":"6a22f42e57884f0e4695f58b5bbe98e1cfb1b6e084c720af03b40232bd7c4e38"},
+    {"path":"out/img/turnaround_sheet.png","sha256":"5073504e920f58b5e66a9610ce42c0a4ddf856e5e63ae75a606c6d6add8b80ff"},
+    {"path":"out/img/turnaround_sheet_green.png","sha256":"98836c3edf9620b62bf381e0dfd1348ffb88325528721a07c19d6eb607164528"},
+    {"path":"out/packing.json","sha256":"1b52b185f93561f694863d9fb7cb1caa24e2052d8375236e84b7aa03aac33b9a"},
+    {"path":"out/review.html","sha256":"c8ed2765c53ce4922b9039863b0fcc068fac2a81ea748f2d6e17d99b8a576a2c"},
+    {"path":"out/summary.txt","sha256":"5cdfcf39007757822237f7436678a86f78a35db8e98344ea5abc2fbd4922a8a8"},
+    {"path":"out/turnaround_64px.png","sha256":"6a22f42e57884f0e4695f58b5bbe98e1cfb1b6e084c720af03b40232bd7c4e38"},
+    {"path":"out/turnaround_sheet.png","sha256":"5073504e920f58b5e66a9610ce42c0a4ddf856e5e63ae75a606c6d6add8b80ff"},
+    {"path":"out/turnaround_sheet_green.png","sha256":"98836c3edf9620b62bf381e0dfd1348ffb88325528721a07c19d6eb607164528"}
+  ]
+}
