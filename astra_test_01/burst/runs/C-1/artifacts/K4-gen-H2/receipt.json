@@ -1,0 +1,44 @@
+{
+  "task_id": "K4-gen-H2",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "k4_H2_1.png",
+      "path": "out/k4_H2_1.png",
+      "sha256": "ac304b7c8f16b58c92946803408e3ca6c17f693d8ded496fa44103978763bb3f",
+      "prompt": "Keeper of Hours — STARTER identity master, v5. A YOUNG WOMAN, early twenties — read unmistakably as a woman in face and build: a smooth, softly rounded chin with NO cleft and NO dimple, a soft jawline, feminine features, slender neck, a woman's proportions under practical clothing — dark curly hair tied back, sun-browned skin, face fully visible, no helmet, a calm practical archivist's bearing. One full-body figure, facing the camera (direction S), projection C (elevated three-quarter), standing, feet visible, weight even, arms relaxed, a plain wooden staff held upright in the RIGHT hand. Costume (every item is an instrument or carries one): ivory linen shirt with rolled sleeves under a navy wool sleeveless tabard whose chest is PLAIN — no emblem, no ring, no shape of any kind; ONE chestnut leather harness strap running from the right shoulder diagonally to the LEFT hip where it carries an olive waxed-canvas satchel with brass corners; ONE chestnut leather waist belt whose buckle closes the tabard; chestnut leather laced bracers on both forearms; navy wool trousers; chestnut leather buckled boots. Staff: a plain dark walnut shaft with small brass ferrules at the foot and the tip — NO ring, NO head-piece, NO shape atop it. NO insignia anywhere on the character: every surface is plain and undecorated — no trim, no edge ornament, no sigils, no compass diagrams, no studs. Register: HAND-DRAWN painted 2D — bold inked contour of even, heavy weight around the silhouette with thinner interior lines, cel-style two-tone shading with painterly texture inside the flats, strong graphic silhouette; a frame that could sit inside a hand-animated cycle with slight drawing variation between frames. Light: single key from SCREEN UPPER-LEFT, deep cool low-value ambient, readable shadows never pure black, slight rim on the key-facing edge; no spell glow; NO floor shadow. Flat uniform pure #00ff00 background covering the whole canvas; do not matte.",
+      "references": [],
+      "elapsed_s": 80.754
+    },
+    {
+      "name": "k4_H2_2.png",
+      "path": "out/k4_H2_2.png",
+      "sha256": "8460cfc47bd10169b9a5f93b94fd12a81030b70edb6eb7b251efe8dd41d8e2ef",
+      "prompt": "Keeper of Hours — STARTER identity master, v5. A YOUNG WOMAN, early twenties — read unmistakably as a woman in face and build: a smooth, softly rounded chin with NO cleft and NO dimple, a soft jawline, feminine features, slender neck, a woman's proportions under practical clothing — dark curly hair tied back, sun-browned skin, face fully visible, no helmet, a calm practical archivist's bearing. One full-body figure, facing the camera (direction S), projection C (elevated three-quarter), standing, feet visible, weight even, arms relaxed, a plain wooden staff held upright in the RIGHT hand. Costume (every item is an instrument or carries one): ivory linen shirt with rolled sleeves under a navy wool sleeveless tabard whose chest is PLAIN — no emblem, no ring, no shape of any kind; ONE chestnut leather harness strap running from the right shoulder diagonally to the LEFT hip where it carries an olive waxed-canvas satchel with brass corners; ONE chestnut leather waist belt whose buckle closes the tabard; chestnut leather laced bracers on both forearms; navy wool trousers; chestnut leather buckled boots. Staff: a plain dark walnut shaft with small brass ferrules at the foot and the tip — NO ring, NO head-piece, NO shape atop it. NO insignia anywhere on the character: every surface is plain and undecorated — no trim, no edge ornament, no sigils, no compass diagrams, no studs. Register: HAND-DRAWN painted 2D — bold inked contour of even, heavy weight around the silhouette with thinner interior lines, cel-style two-tone shading with painterly texture inside the flats, strong graphic silhouette; a frame that could sit inside a hand-animated cycle with slight drawing variation between frames. Light: single key from SCREEN UPPER-LEFT, deep cool low-value ambient, readable shadows never pure black, slight rim on the key-facing edge; no spell glow; NO floor shadow. Flat uniform pure #00ff00 background covering the whole canvas; do not matte.",
+      "references": [],
+      "elapsed_s": 40.771
+    }
+  ],
+  "calls_used": 2,
+  "retries": [],
+  "self_report": {
+    "obeyed_invariants": false,
+    "concerns": [
+      "Used the task's verbatim register override, which conflicts with the frozen card's shading and texture restrictions.",
+      "Both outputs are native 1024×1536 single-figure images, not 1254×1254 sheets or registered 512×512 frames; copied without modification as requested.",
+      "Camera appears closer to frontal than elevated three-quarter; exact projection C constants were not supplied.",
+      "Independent generations vary in facial, hair, garment and satchel details despite identical prompts.",
+      "Warm highlights, visible surface texture and small hardware details may depart from the lighting and plain-surface constraints; exact background RGB uniformity was not measured."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/k4_H2_1.png",
+      "sha256": "ac304b7c8f16b58c92946803408e3ca6c17f693d8ded496fa44103978763bb3f"
+    },
+    {
+      "path": "out/k4_H2_2.png",
+      "sha256": "8460cfc47bd10169b9a5f93b94fd12a81030b70edb6eb7b251efe8dd41d8e2ef"
+    }
+  ]
+}

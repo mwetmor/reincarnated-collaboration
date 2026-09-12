@@ -1,0 +1,43 @@
+{
+  "task_id": "K4-gen-K1",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "k4_K1_1.png",
+      "path": "out/k4_K1_1.png",
+      "sha256": "3dc6dce43227df998631407bd80cfe151c36edb1bb7105cddbac8ab2e8d73949",
+      "prompt": "Keeper of Hours — STARTER identity master, v5. A YOUNG WOMAN, early twenties — read unmistakably as a woman in face and build: a smooth, softly rounded chin with NO cleft and NO dimple, a soft jawline, feminine features, slender neck, a woman's proportions under practical clothing — dark curly hair tied back, sun-browned skin, face fully visible, no helmet, a calm practical archivist's bearing. One full-body figure, facing the camera (direction S), projection C (elevated three-quarter), standing, feet visible, weight even, arms relaxed, a plain wooden staff held upright in the RIGHT hand. Costume (every item is an instrument or carries one): ivory linen shirt with rolled sleeves under a navy wool sleeveless tabard whose chest is PLAIN — no emblem, no ring, no shape of any kind; ONE chestnut leather harness strap running from the right shoulder diagonally to the LEFT hip where it carries an olive waxed-canvas satchel with brass corners; ONE chestnut leather waist belt whose buckle closes the tabard; chestnut leather laced bracers on both forearms; navy wool trousers; chestnut leather buckled boots. Staff: a plain dark walnut shaft with small brass ferrules at the foot and the tip — NO ring, NO head-piece, NO shape atop it. NO insignia anywhere on the character: every surface is plain and undecorated — no trim, no edge ornament, no sigils, no compass diagrams, no studs. Register: FLAT INK-AND-WASH 2D — clean uniform ink outline, flat colour fills with at most one wash of shadow, no painted texture, no gradients, muted palette, graphic and minimal; a frame of hand-drawn cel animation. Light: single key from SCREEN UPPER-LEFT, deep cool low-value ambient, readable shadows never pure black, slight rim on the key-facing edge; no spell glow; NO floor shadow. Flat uniform pure #00ff00 background covering the whole canvas; do not matte.",
+      "references": [],
+      "elapsed_s": 36.769
+    },
+    {
+      "name": "k4_K1_2.png",
+      "path": "out/k4_K1_2.png",
+      "sha256": "1091c6dd4033f6fd760809cd007709ea324a553feb6c91c1b92877ee73d952ad",
+      "prompt": "Keeper of Hours — STARTER identity master, v5. A YOUNG WOMAN, early twenties — read unmistakably as a woman in face and build: a smooth, softly rounded chin with NO cleft and NO dimple, a soft jawline, feminine features, slender neck, a woman's proportions under practical clothing — dark curly hair tied back, sun-browned skin, face fully visible, no helmet, a calm practical archivist's bearing. One full-body figure, facing the camera (direction S), projection C (elevated three-quarter), standing, feet visible, weight even, arms relaxed, a plain wooden staff held upright in the RIGHT hand. Costume (every item is an instrument or carries one): ivory linen shirt with rolled sleeves under a navy wool sleeveless tabard whose chest is PLAIN — no emblem, no ring, no shape of any kind; ONE chestnut leather harness strap running from the right shoulder diagonally to the LEFT hip where it carries an olive waxed-canvas satchel with brass corners; ONE chestnut leather waist belt whose buckle closes the tabard; chestnut leather laced bracers on both forearms; navy wool trousers; chestnut leather buckled boots. Staff: a plain dark walnut shaft with small brass ferrules at the foot and the tip — NO ring, NO head-piece, NO shape atop it. NO insignia anywhere on the character: every surface is plain and undecorated — no trim, no edge ornament, no sigils, no compass diagrams, no studs. Register: FLAT INK-AND-WASH 2D — clean uniform ink outline, flat colour fills with at most one wash of shadow, no painted texture, no gradients, muted palette, graphic and minimal; a frame of hand-drawn cel animation. Light: single key from SCREEN UPPER-LEFT, deep cool low-value ambient, readable shadows never pure black, slight rim on the key-facing edge; no spell glow; NO floor shadow. Flat uniform pure #00ff00 background covering the whole canvas; do not matte.",
+      "references": [],
+      "elapsed_s": 76.71
+    }
+  ],
+  "calls_used": 2,
+  "retries": [],
+  "self_report": {
+    "obeyed_invariants": false,
+    "concerns": [
+      "The verbatim task prompt requests one figure and overrides the register's painted style; it omits sheet dimensions and registration instructions. Outputs are 1024×1536 portraits, not 1254×1254 sheets or registered 512×512 frames.",
+      "Both candidates contain visible surface texture and tonal gradients beyond the requested flat fills and single shadow wash.",
+      "Independent generations show minor costume and facial differences despite identical prompts.",
+      "Exact projection C, deep cool ambient lighting, and literal #00ff00 background values were not verified."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/k4_K1_1.png",
+      "sha256": "3dc6dce43227df998631407bd80cfe151c36edb1bb7105cddbac8ab2e8d73949"
+    },
+    {
+      "path": "out/k4_K1_2.png",
+      "sha256": "1091c6dd4033f6fd760809cd007709ea324a553feb6c91c1b92877ee73d952ad"
+    }
+  ]
+}
