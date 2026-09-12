@@ -24,3 +24,8 @@ Find and grade, with licence and provenance recorded for each:
 3. **Derivations:** (a) a per-phase foot/sole table → our own numbered-foot pose guide (first-party by construction); (b) threshold RANGES for the T1 gait gates (vertical bob amplitude, lateral head sway, arm counter-swing amplitude incl. the reduced weapon-arm case, planted-sole slip tolerance, breath amplitude/period for idle); (c) the DSG-shaped judge questions for a cycle.
 
 **Provenance rule (unchanged, restated):** third-party pixels never condition a mint (`lane/ref_provenance.py`). Whether a licensed reference may serve as a JUDGE ANCHOR (not a generation reference) is a refinement for Matt's ruling — list the candidate and its licence; do not assume.
+
+## R10b addendum (Matt 2026-09-12, relayed to the running agent)
+- **Every oracle candidate in BOTH forms — a frame sheet AND a video** Matt can reference side by side (sourced as such, or derivable: video → frames at a stated fps; sheet → assembled loop; extraction/assembly is conductor ffmpeg work, not research). Record per candidate: URLs, licence, fps / frame count, resolution, camera angle, form (sheet / video / both).
+- **Alternative sourcing path, first-class:** painted-2D character animation VIDEOS (idle, walk, other animations, VFX) split into frames as the oracle — showcase reels, gameplay captures, animator breakdowns, CC-licensed assets with video previews — each with licence + SOURCING CLASS aligned to the open queue row on frame extraction from video (2026-08-25); measurement-only vs showable-reference noted; no ruling assumed.
+- Muybridge stays the first-choice measurement oracle; at least one painted-register candidate must be delivered in both forms; prefer elevated three-quarter or profile.
