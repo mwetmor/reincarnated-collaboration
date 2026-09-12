@@ -47,12 +47,12 @@ reading files:
   `~/Games/reincarnated-engine/design/working-agreement/engineering-disciplines.md` (per the
   `CLAUDE.md` where-to-find-things table).
 
-### Painted character, animation and VFX work
+### Painted 2D / Astra work — the burst lane (SUPERSEDES the painted-character-vfx skill pointer, 2026-09-11)
 
-For painted characters, gear, animation, VFX, floors/environment interactions, or
-ASTRA tests, read [painted-character-vfx](.agents/skills/painted-character-vfx/SKILL.md).
-That file is the maintained workflow source; its references carry measured lessons
-and active-run state. Keep this entry a pointer rather than copying its procedure.
+**Read:** `canonical/reap-die-rise-game/painted-2d-pipeline/mechanical-process.md` (agent-facing) — and its human twin `00-system.md` for the flow. **Binding for any Codex session in this repo:**
+- Painted assets are generated **only** through the lane: `astra_test_01/burst/lane/run_burst.py` (typed, capped, audited bursts with a strict receipt). An interactive session does not call `image_gen` for project assets; it prepares a task and hands it to the conductor (gandalf) or runs the wrapper itself.
+- `astra_test_01/design/` (the "ASTRA TEST 02 painted-world suite") is **HISTORICAL** (Matt F8, 2026-09-11): do not resume its `PROGRESS.json`, `START_HERE.md` or any experiment; do not reopen the Blender rig or the Pixi chamber. `astra_test_01/run_0{1,2,3}/` are immutable evidence; their tooling is harvested into `astra_test_01/burst/`.
+- The rules a burst runs under are `astra_test_01/burst/{REGISTER_CARD,BURST_RULES,JUDGE_RUBRIC}.md` + `receipt.schema.json`. No receipt says PASS. No burst edits the ledger, the card, or the bible.
 
 ## 3. Codex-lane standing provisions (durable home — previously per-session prompt text)
 

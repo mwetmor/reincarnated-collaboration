@@ -27,3 +27,7 @@ The **playable-product specs** — the third spec home beside `reap-die-rise-sto
 **Discipline:** this folder holds *product/presentation END-STATE* docs. Presentation grammar rulings live in the game tracker's PART A; open build questions in its PART B. Do not duplicate the tracker here.
 
 **Author:** gandalf, 2026-07-02.
+
+## Painted-2D art pipeline (born 2026-09-11)
+
+`painted-2d-pipeline/00-system.md` (human-readable system description, FLOW-declared, hash-synced) + `painted-2d-pipeline/mechanical-process.md` (agent-facing twin: invariants, burst recipe, enforcement, drift alarms). The Astra burst lane that tests — and, if it passes, produces — painted-2D characters, VFX and scene plates 100 % via Astra (Matt rulings F1–F10, 2026-09-11). The 3D register lock stands until X2–X6 evidence.

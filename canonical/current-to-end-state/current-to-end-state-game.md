@@ -38,6 +38,8 @@
 
 **⟶ RULED same session (ELICITOR grill, three passes):** F1 = (i) full painted 2D, no hedge (X7 struck; **the 3D lock still stands** — only X2–X6 evidence moves it) · F2 = projection C · F3 = fixed upper-left key, no mirroring · F6 = finite painted plate library + procedural assembly · F4 = built-in only (API parity deferred to the non-Astra path; T25 withdrawn) · F7 = gandalf conducts, 100 % Astra labour in typed bursts, separate Astra instance judges, no extra team infrastructure during testing · F7c = Pixi viewer-only, no-runtime rule · F8 = HISTORICAL + harvest + retire pointer · milestones per stage + any FAIL. Q70/Q71 swept to RESOLVED. Charter authored + ARCHITECT gate CLEAN same session (`gandalf/notes/2026-09-11-astra-burst-lane-run-charter.md`); awaiting Matt's GO.
 
+**⟶ CANON HOME BORN (same session):** `canonical/reap-die-rise-game/painted-2d-pipeline/{00-system,mechanical-process}.md` — human twin (FLOW + hash-synced SYNC table) + agent twin (invariants, enforcement); root `AGENTS.md` routes Codex sessions to the lane; the painted-character-vfx skill pointer retired (F8). T0-a DELIVERED (lane runtime); T0-b in flight; legolas R6–R8 returned (O1–O9 oracles; transcriber contract), R9 in flight.
+
 **Presentation-grammar keepers regardless of F1:** the doorway-side acceptance rule (declare interior/exterior + threshold normal + leaf sweep before painting; `E07V/FEEDBACK_2026-09-11.md`); the four portability constraints (`E04/NEUTRAL_CONTRACT.md`); painted local glow on floors/walls = 2D normal maps + `PointLight2D` in Godot 2D. **Retired as a harness:** Pixi/Phaser — Godot is harness *and* target.
 
 ---

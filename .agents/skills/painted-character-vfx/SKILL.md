@@ -3,6 +3,8 @@ name: painted-character-vfx
 description: Plan, produce and verify painted game characters, modular gear, animation, VFX and interactive painted environments. Use for ASTRA asset tests and the painted-world suite, with measured gates and engine-ready packaging.
 ---
 
+> **RETIRED AS A CAMPAIGN POINTER — 2026-09-11 (Matt F8).** The painted-world suite under `astra_test_01/design/` is HISTORICAL; do not resume it. Painted-2D work now runs through the **burst lane**: read `canonical/reap-die-rise-game/painted-2d-pipeline/mechanical-process.md` and the root `AGENTS.md` § "Painted 2D / Astra work". The production guidance below is retained as measured lineage (its lessons were harvested into `astra_test_01/burst/SPEC.md`).
+
 # Painted characters and animated VFX
 
 Read the user's asset brief and [measured lessons](references/measured-lessons.md).
