@@ -1,0 +1,388 @@
+{
+  "assumptions": [],
+  "committed": false,
+  "conflicts": [
+    "W1 target exceeds ceiling; target retained without clamping"
+  ],
+  "coordinate_system": "x relative to torso; height above ground; units H",
+  "frames": [
+    {
+      "arm_opposition": {
+        "far": true,
+        "near": true
+      },
+      "arm_x_H": {
+        "far": -0.03531918770763894,
+        "near": 0.023665218049940453
+      },
+      "frame": 0,
+      "head_height_H": 0.9759706589098265,
+      "phase": "DOWN",
+      "planted_feet": [
+        "far"
+      ],
+      "soles": {
+        "far": {
+          "height_H": 0.0030352851903376757,
+          "planted": true,
+          "x_H": 0.13051726318452006
+        },
+        "near": {
+          "height_H": 0.04856456304540281,
+          "planted": false,
+          "x_H": -0.15024661692171495
+        }
+      },
+      "swing_foot_x_H": {
+        "near": -0.15024661692171495
+      }
+    },
+    {
+      "arm_opposition": {
+        "far": true,
+        "near": true
+      },
+      "arm_x_H": {
+        "far": -0.022998540832881168,
+        "near": 0.005019894737866155
+      },
+      "frame": 1,
+      "head_height_H": 0.9972176552421901,
+      "phase": "PASSING",
+      "planted_feet": [
+        "far"
+      ],
+      "soles": {
+        "far": {
+          "height_H": 0.004552927785506513,
+          "planted": true,
+          "x_H": 0.08498798532945492
+        },
+        "near": {
+          "height_H": 0.040976350069558624,
+          "planted": false,
+          "x_H": -0.03187049449854559
+        }
+      },
+      "swing_foot_x_H": {
+        "near": -0.03187049449854559
+      }
+    },
+    {
+      "arm_opposition": {
+        "far": true,
+        "near": true
+      },
+      "arm_x_H": {
+        "far": -0.0004106882291585923,
+        "near": -0.018645323312074292
+      },
+      "frame": 2,
+      "head_height_H": 1.0518527886682683,
+      "phase": "UP",
+      "planted_feet": [
+        "far"
+      ],
+      "soles": {
+        "far": {
+          "height_H": 0.004552927785506513,
+          "planted": true,
+          "x_H": 0.0015176425951688379
+        },
+        "near": {
+          "height_H": 0.007588212975844189,
+          "planted": false,
+          "x_H": 0.11837612242316935
+        }
+      },
+      "swing_foot_x_H": {
+        "near": 0.11837612242316935
+      }
+    },
+    {
+      "arm_opposition": {
+        "far": true,
+        "near": true
+      },
+      "arm_x_H": {
+        "far": 0.013963399791392139,
+        "near": -0.038963944870103975
+      },
+      "frame": 3,
+      "head_height_H": 1.0427469330972552,
+      "phase": "UP",
+      "planted_feet": [
+        "far"
+      ],
+      "soles": {
+        "far": {
+          "height_H": 0.004552927785506513,
+          "planted": true,
+          "x_H": -0.051599848235740486
+        },
+        "near": {
+          "height_H": 0.025799924117870243,
+          "planted": false,
+          "x_H": 0.24737574301252058
+        }
+      },
+      "swing_foot_x_H": {
+        "near": 0.24737574301252058
+      }
+    },
+    {
+      "arm_opposition": {
+        "far": true,
+        "near": true
+      },
+      "arm_x_H": {
+        "far": 0.03408712302016316,
+        "near": -0.03752968923071364
+      },
+      "frame": 4,
+      "head_height_H": 1.0214999367648914,
+      "phase": "CONTACT",
+      "planted_feet": [
+        "near"
+      ],
+      "soles": {
+        "far": {
+          "height_H": 0.02276463892753257,
+          "planted": false,
+          "x_H": -0.12596433539901353
+        },
+        "near": {
+          "height_H": 0.0060705703806753514,
+          "planted": true,
+          "x_H": 0.23826988744150754
+        }
+      },
+      "swing_foot_x_H": {
+        "far": -0.12596433539901353
+      }
+    },
+    {
+      "arm_opposition": {
+        "far": true,
+        "near": true
+      },
+      "arm_x_H": {
+        "far": 0.041890199374176415,
+        "near": -0.029163198000936714
+      },
+      "frame": 5,
+      "head_height_H": 1.0306057923359044,
+      "phase": "DOWN",
+      "planted_feet": [
+        "near"
+      ],
+      "soles": {
+        "far": {
+          "height_H": 0.04249399266472746,
+          "planted": false,
+          "x_H": -0.15479954470722146
+        },
+        "near": {
+          "height_H": 0.004552927785506513,
+          "planted": true,
+          "x_H": 0.1851523966105982
+        }
+      },
+      "swing_foot_x_H": {
+        "far": -0.15479954470722146
+      }
+    },
+    {
+      "arm_opposition": {
+        "far": true,
+        "near": true
+      },
+      "arm_x_H": {
+        "far": 0.019713034999612432,
+        "near": -0.01745011027924902
+      },
+      "frame": 6,
+      "head_height_H": 0.9820412292905019,
+      "phase": "DOWN",
+      "planted_feet": [
+        "near"
+      ],
+      "soles": {
+        "far": {
+          "height_H": 0.0682939167825977,
+          "planted": false,
+          "x_H": -0.07284684456810421
+        },
+        "near": {
+          "height_H": 0.004552927785506513,
+          "planted": true,
+          "x_H": 0.11078790944732517
+        }
+      },
+      "swing_foot_x_H": {
+        "far": -0.07284684456810421
+      }
+    },
+    {
+      "arm_opposition": {
+        "far": true,
+        "near": true
+      },
+      "arm_x_H": {
+        "far": 0.0004106882291585923,
+        "near": -0.00908361904947209
+      },
+      "frame": 7,
+      "head_height_H": 0.9941823700518524,
+      "phase": "PASSING",
+      "planted_feet": [
+        "near"
+      ],
+      "soles": {
+        "far": {
+          "height_H": 0.06677627418742886,
+          "planted": false,
+          "x_H": -0.0015176425951688379
+        },
+        "near": {
+          "height_H": 0.0060705703806753514,
+          "planted": true,
+          "x_H": 0.057670418616415836
+        }
+      },
+      "swing_foot_x_H": {
+        "far": -0.0015176425951688379
+      }
+    },
+    {
+      "arm_opposition": {
+        "far": true,
+        "near": true
+      },
+      "arm_x_H": {
+        "far": -0.05010396395734826,
+        "near": -0.00023904260656505504
+      },
+      "frame": 8,
+      "head_height_H": 0.9820412292905019,
+      "phase": "UP",
+      "planted_feet": [
+        "near"
+      ],
+      "soles": {
+        "far": {
+          "height_H": 0.030352851903376755,
+          "planted": false,
+          "x_H": 0.1851523966105982
+        },
+        "near": {
+          "height_H": 0.007588212975844189,
+          "planted": true,
+          "x_H": 0.0015176425951688379
+        }
+      },
+      "swing_foot_x_H": {
+        "far": 0.1851523966105982
+      }
+    },
+    {
+      "arm_opposition": {
+        "far": true,
+        "near": true
+      },
+      "arm_x_H": {
+        "far": -0.07269181656107084,
+        "near": 0.010517874688862422
+      },
+      "frame": 9,
+      "head_height_H": 0.9729353737194888,
+      "phase": "UP",
+      "planted_feet": [
+        "near"
+      ],
+      "soles": {
+        "far": {
+          "height_H": 0.047046920450233974,
+          "planted": false,
+          "x_H": 0.2686227393448843
+        },
+        "near": {
+          "height_H": 0.010623498166181865,
+          "planted": true,
+          "x_H": -0.06677627418742886
+        }
+      },
+      "swing_foot_x_H": {
+        "far": 0.2686227393448843
+      }
+    },
+    {
+      "arm_opposition": {
+        "far": true,
+        "near": true
+      },
+      "arm_x_H": {
+        "far": -0.05996048145715448,
+        "near": 0.01888436591863935
+      },
+      "frame": 10,
+      "head_height_H": 0.9759706589098265,
+      "phase": "CONTACT",
+      "planted_feet": [
+        "far"
+      ],
+      "soles": {
+        "far": {
+          "height_H": 0.016694068546857215,
+          "planted": true,
+          "x_H": 0.22157581889465033
+        },
+        "near": {
+          "height_H": 0.024282281522701406,
+          "planted": false,
+          "x_H": -0.11989376501833819
+        }
+      },
+      "swing_foot_x_H": {
+        "near": -0.11989376501833819
+      }
+    },
+    {
+      "arm_opposition": {
+        "far": true,
+        "near": true
+      },
+      "arm_x_H": {
+        "far": -0.042711575832493597,
+        "near": 0.02629468672215606
+      },
+      "frame": 11,
+      "head_height_H": 0.9729353737194888,
+      "phase": "DOWN",
+      "planted_feet": [
+        "far"
+      ],
+      "soles": {
+        "far": {
+          "height_H": 0.016694068546857215,
+          "planted": true,
+          "x_H": 0.15783482989755912
+        },
+        "near": {
+          "height_H": 0.057670418616415836,
+          "planted": false,
+          "x_H": -0.16694068546857216
+        }
+      },
+      "swing_foot_x_H": {
+        "near": -0.16694068546857216
+      }
+    }
+  ],
+  "head_amplitude_H": 0.07891741494877956,
+  "k_vert": 2.0,
+  "kind": "walk",
+  "n_frames": 12,
+  "prompt_text": "INTENT CONFLICT: W1 target exceeds ceiling; target retained without clamping.\nframe 1 \u2014 DOWN: head height 0.975971 H; near sole x -0.150247 H, height 0.048565 H, swing; far sole x +0.130517 H, height 0.003035 H, planted; near arm x +0.023665 H, opposing same-side sole; far arm x -0.035319 H, opposing same-side sole.\nframe 2 \u2014 PASSING: head height 0.997218 H; near sole x -0.031870 H, height 0.040976 H, swing; far sole x +0.084988 H, height 0.004553 H, planted; near arm x +0.005020 H, opposing same-side sole; far arm x -0.022999 H, opposing same-side sole.\nframe 3 \u2014 UP: head height 1.051853 H; near sole x +0.118376 H, height 0.007588 H, swing; far sole x +0.001518 H, height 0.004553 H, planted; near arm x -0.018645 H, opposing same-side sole; far arm x -0.000411 H, opposing same-side sole.\nframe 4 \u2014 UP: head height 1.042747 H; near sole x +0.247376 H, height 0.025800 H, swing; far sole x -0.051600 H, height 0.004553 H, planted; near arm x -0.038964 H, opposing same-side sole; far arm x +0.013963 H, opposing same-side sole.\nframe 5 \u2014 CONTACT: head height 1.021500 H; near sole x +0.238270 H, height 0.006071 H, planted; far sole x -0.125964 H, height 0.022765 H, swing; near arm x -0.037530 H, opposing same-side sole; far arm x +0.034087 H, opposing same-side sole.\nframe 6 \u2014 DOWN: head height 1.030606 H; near sole x +0.185152 H, height 0.004553 H, planted; far sole x -0.154800 H, height 0.042494 H, swing; near arm x -0.029163 H, opposing same-side sole; far arm x +0.041890 H, opposing same-side sole.\nframe 7 \u2014 DOWN: head height 0.982041 H; near sole x +0.110788 H, height 0.004553 H, planted; far sole x -0.072847 H, height 0.068294 H, swing; near arm x -0.017450 H, opposing same-side sole; far arm x +0.019713 H, opposing same-side sole.\nframe 8 \u2014 PASSING: head height 0.994182 H; near sole x +0.057670 H, height 0.006071 H, planted; far sole x -0.001518 H, height 0.066776 H, swing; near arm x -0.009084 H, opposing same-side sole; far arm x +0.000411 H, opposing same-side sole.\nframe 9 \u2014 UP: head height 0.982041 H; near sole x +0.001518 H, height 0.007588 H, planted; far sole x +0.185152 H, height 0.030353 H, swing; near arm x -0.000239 H, opposing same-side sole; far arm x -0.050104 H, opposing same-side sole.\nframe 10 \u2014 UP: head height 0.972935 H; near sole x -0.066776 H, height 0.010623 H, planted; far sole x +0.268623 H, height 0.047047 H, swing; near arm x +0.010518 H, opposing same-side sole; far arm x -0.072692 H, opposing same-side sole.\nframe 11 \u2014 CONTACT: head height 0.975971 H; near sole x -0.119894 H, height 0.024282 H, swing; far sole x +0.221576 H, height 0.016694 H, planted; near arm x +0.018884 H, opposing same-side sole; far arm x -0.059960 H, opposing same-side sole.\nframe 12 \u2014 DOWN: head height 0.972935 H; near sole x -0.166941 H, height 0.057670 H, swing; far sole x +0.157835 H, height 0.016694 H, planted; near arm x +0.026295 H, opposing same-side sole; far arm x -0.042712 H, opposing same-side sole.",
+  "trajectory_source": "source numeric landmarks, normalized; head amplitude scaled"
+}

@@ -1,0 +1,2004 @@
+{
+  "plain": {
+    "summary": {
+      "W1": 0.029045643153526972,
+      "W2": {
+        "min": [
+          {
+            "frame": 1,
+            "phase": "DOWN"
+          },
+          {
+            "frame": 2,
+            "phase": "DOWN"
+          },
+          {
+            "frame": 7,
+            "phase": "DOWN"
+          },
+          {
+            "frame": 8,
+            "phase": "DOWN"
+          }
+        ],
+        "max": [
+          {
+            "frame": 4,
+            "phase": "PASSING"
+          },
+          {
+            "frame": 5,
+            "phase": "UP"
+          },
+          {
+            "frame": 10,
+            "phase": "PASSING"
+          },
+          {
+            "frame": 11,
+            "phase": "UP"
+          }
+        ],
+        "coordinate": "Cartesian up; negative image y"
+      },
+      "W4": 2,
+      "minima_frames": [
+        1,
+        7
+      ],
+      "W3a": 0.7605325445493843,
+      "W3b": 0.03510816859380817,
+      "W3c": 2,
+      "signed_area_px2": 1.4412532637075661,
+      "head_ref_bob": {
+        "W1": 0.2074688796680498,
+        "W2": {
+          "min": [
+            {
+              "frame": 1,
+              "phase": "DOWN"
+            },
+            {
+              "frame": 2,
+              "phase": "DOWN"
+            },
+            {
+              "frame": 7,
+              "phase": "DOWN"
+            },
+            {
+              "frame": 8,
+              "phase": "DOWN"
+            }
+          ],
+          "max": [
+            {
+              "frame": 4,
+              "phase": "PASSING"
+            },
+            {
+              "frame": 5,
+              "phase": "UP"
+            },
+            {
+              "frame": 10,
+              "phase": "PASSING"
+            },
+            {
+              "frame": 11,
+              "phase": "UP"
+            }
+          ],
+          "coordinate": "Cartesian up; negative image y"
+        },
+        "W4": 2,
+        "minima_frames": [
+          1,
+          7
+        ]
+      },
+      "W5": {
+        "L": 0.11410788381742738,
+        "R": 0.11410788381742738
+      },
+      "W6": 1.0,
+      "W6_per_arm": {
+        "L": 1.0,
+        "R": 1.0
+      },
+      "valid_frames_per_arm": {
+        "L": 12,
+        "R": 12
+      },
+      "identity_note": "projected track opposition, not independently established anatomical same-side identity",
+      "sole_scroll": {
+        "L": {
+          "planted_x_px": [
+            115.0,
+            111.0,
+            107.0,
+            103.0,
+            99.0,
+            95.0,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          "delta_px_per_frame": [
+            -4.0,
+            -4.0,
+            -4.0,
+            -4.0,
+            -4.0,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          "mean_scroll_px_per_frame": -4.0,
+          "slip_px_per_frame": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          "slip_rms_px_per_frame": 0.0
+        },
+        "R": {
+          "planted_x_px": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            209.0,
+            205.0,
+            201.0,
+            197.0,
+            193.0,
+            189.0
+          ],
+          "delta_px_per_frame": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            -4.0,
+            -4.0,
+            -4.0,
+            -4.0,
+            -4.0,
+            null
+          ],
+          "mean_scroll_px_per_frame": -4.0,
+          "slip_px_per_frame": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            null
+          ],
+          "slip_rms_px_per_frame": 0.0
+        },
+        "mean_scroll_px_per_frame": -4.0,
+        "slip_rms_px_per_frame": 0.0
+      },
+      "H_median": 241.0
+    },
+    "landmarks": [
+      {
+        "valid": true,
+        "mask_area": 9310,
+        "mask_area_per_H": 38.63070539419087,
+        "head_top_y": 60,
+        "head_top_thin": false,
+        "head_ref_y": 108,
+        "sole_line_y": 300,
+        "H": 241,
+        "head_cx": 150.0,
+        "torso_cx": 150.0,
+        "torso_width": 43.0,
+        "wrist_ext_L": 39.5,
+        "wrist_ext_R": 35.5,
+        "foot_components": 2,
+        "feet_merged": false,
+        "ground_line_y": 300,
+        "foot_identity": "initial image x order; tracked over time, not anatomical",
+        "foot_L_x": 115.0,
+        "foot_L_y": 300,
+        "planted_L": true,
+        "foot_R_x": 189.0,
+        "foot_R_y": 290,
+        "planted_R": false,
+        "planted": {
+          "L": true,
+          "R": false
+        },
+        "head_top_y_H": 0.24896265560165975,
+        "head_ref_y_H": 0.44813278008298757,
+        "sole_line_y_H": 1.2448132780082988,
+        "head_cx_H": 0.6224066390041494,
+        "torso_cx_H": 0.6224066390041494,
+        "torso_width_H": 0.17842323651452283,
+        "wrist_ext_L_H": 0.16390041493775934,
+        "wrist_ext_R_H": 0.14730290456431536,
+        "ground_line_y_H": 1.2448132780082988,
+        "foot_L_x_H": 0.47717842323651455,
+        "foot_L_y_H": 1.2448132780082988,
+        "foot_R_x_H": 0.7842323651452282,
+        "foot_R_y_H": 1.2033195020746887,
+        "identity_ambiguous": false
+      },
+      {
+        "valid": true,
+        "mask_area": 9200,
+        "mask_area_per_H": 38.81856540084388,
+        "head_top_y": 64,
+        "head_top_thin": false,
+        "head_ref_y": 110,
+        "sole_line_y": 300,
+        "H": 237,
+        "head_cx": 150.97742363877822,
+        "torso_cx": 150.0,
+        "torso_width": 43.0,
+        "wrist_ext_L": 35.5,
+        "wrist_ext_R": 31.5,
+        "foot_components": 2,
+        "feet_merged": false,
+        "ground_line_y": 300,
+        "foot_identity": "initial image x order; tracked over time, not anatomical",
+        "foot_L_x": 111.0,
+        "foot_L_y": 300,
+        "planted_L": true,
+        "foot_R_x": 193.0,
+        "foot_R_y": 290,
+        "planted_R": false,
+        "planted": {
+          "L": true,
+          "R": false
+        },
+        "head_top_y_H": 0.270042194092827,
+        "head_ref_y_H": 0.4641350210970464,
+        "sole_line_y_H": 1.2658227848101267,
+        "head_cx_H": 0.6370355427796549,
+        "torso_cx_H": 0.6329113924050633,
+        "torso_width_H": 0.18143459915611815,
+        "wrist_ext_L_H": 0.14978902953586498,
+        "wrist_ext_R_H": 0.13291139240506328,
+        "ground_line_y_H": 1.2658227848101267,
+        "foot_L_x_H": 0.46835443037974683,
+        "foot_L_y_H": 1.2658227848101267,
+        "foot_R_x_H": 0.8143459915611815,
+        "foot_R_y_H": 1.2236286919831223,
+        "identity_ambiguous": false
+      },
+      {
+        "valid": true,
+        "mask_area": 9236,
+        "mask_area_per_H": 38.970464135021096,
+        "head_top_y": 64,
+        "head_top_thin": false,
+        "head_ref_y": 110,
+        "sole_line_y": 300,
+        "H": 237,
+        "head_cx": 152.93227091633466,
+        "torso_cx": 150.0,
+        "torso_width": 43.0,
+        "wrist_ext_L": 31.5,
+        "wrist_ext_R": 27.5,
+        "foot_components": 2,
+        "feet_merged": false,
+        "ground_line_y": 300,
+        "foot_identity": "initial image x order; tracked over time, not anatomical",
+        "foot_L_x": 107.0,
+        "foot_L_y": 300,
+        "planted_L": true,
+        "foot_R_x": 197.0,
+        "foot_R_y": 290,
+        "planted_R": false,
+        "planted": {
+          "L": true,
+          "R": false
+        },
+        "head_top_y_H": 0.270042194092827,
+        "head_ref_y_H": 0.4641350210970464,
+        "sole_line_y_H": 1.2658227848101267,
+        "head_cx_H": 0.6452838435288383,
+        "torso_cx_H": 0.6329113924050633,
+        "torso_width_H": 0.18143459915611815,
+        "wrist_ext_L_H": 0.13291139240506328,
+        "wrist_ext_R_H": 0.1160337552742616,
+        "ground_line_y_H": 1.2658227848101267,
+        "foot_L_x_H": 0.45147679324894513,
+        "foot_L_y_H": 1.2658227848101267,
+        "foot_R_x_H": 0.8312236286919831,
+        "foot_R_y_H": 1.2236286919831223,
+        "identity_ambiguous": false
+      },
+      {
+        "valid": true,
+        "mask_area": 9388,
+        "mask_area_per_H": 38.954356846473026,
+        "head_top_y": 60,
+        "head_top_thin": false,
+        "head_ref_y": 108,
+        "sole_line_y": 300,
+        "H": 241,
+        "head_cx": 152.93227091633466,
+        "torso_cx": 150.0,
+        "torso_width": 43.0,
+        "wrist_ext_L": 27.5,
+        "wrist_ext_R": 23.5,
+        "foot_components": 2,
+        "feet_merged": false,
+        "ground_line_y": 300,
+        "foot_identity": "initial image x order; tracked over time, not anatomical",
+        "foot_L_x": 103.0,
+        "foot_L_y": 300,
+        "planted_L": true,
+        "foot_R_x": 201.0,
+        "foot_R_y": 290,
+        "planted_R": false,
+        "planted": {
+          "L": true,
+          "R": false
+        },
+        "head_top_y_H": 0.24896265560165975,
+        "head_ref_y_H": 0.44813278008298757,
+        "sole_line_y_H": 1.2448132780082988,
+        "head_cx_H": 0.6345737382420525,
+        "torso_cx_H": 0.6224066390041494,
+        "torso_width_H": 0.17842323651452283,
+        "wrist_ext_L_H": 0.11410788381742738,
+        "wrist_ext_R_H": 0.0975103734439834,
+        "ground_line_y_H": 1.2448132780082988,
+        "foot_L_x_H": 0.42738589211618255,
+        "foot_L_y_H": 1.2448132780082988,
+        "foot_R_x_H": 0.8340248962655602,
+        "foot_R_y_H": 1.2033195020746887,
+        "identity_ambiguous": false
+      },
+      {
+        "valid": true,
+        "mask_area": 9449,
+        "mask_area_per_H": 38.72540983606557,
+        "head_top_y": 57,
+        "head_top_thin": false,
+        "head_ref_y": 60,
+        "sole_line_y": 300,
+        "H": 244,
+        "head_cx": 152.88250652741513,
+        "torso_cx": 150.0,
+        "torso_width": 43.0,
+        "wrist_ext_L": 23.5,
+        "wrist_ext_R": 19.5,
+        "foot_components": 2,
+        "feet_merged": false,
+        "ground_line_y": 300,
+        "foot_identity": "initial image x order; tracked over time, not anatomical",
+        "foot_L_x": 99.0,
+        "foot_L_y": 300,
+        "planted_L": true,
+        "foot_R_x": 205.0,
+        "foot_R_y": 290,
+        "planted_R": false,
+        "planted": {
+          "L": true,
+          "R": false
+        },
+        "head_top_y_H": 0.2336065573770492,
+        "head_ref_y_H": 0.2459016393442623,
+        "sole_line_y_H": 1.2295081967213115,
+        "head_cx_H": 0.626567649702521,
+        "torso_cx_H": 0.6147540983606558,
+        "torso_width_H": 0.1762295081967213,
+        "wrist_ext_L_H": 0.09631147540983606,
+        "wrist_ext_R_H": 0.07991803278688525,
+        "ground_line_y_H": 1.2295081967213115,
+        "foot_L_x_H": 0.4057377049180328,
+        "foot_L_y_H": 1.2295081967213115,
+        "foot_R_x_H": 0.8401639344262295,
+        "foot_R_y_H": 1.1885245901639345,
+        "identity_ambiguous": false
+      },
+      {
+        "valid": true,
+        "mask_area": 9523,
+        "mask_area_per_H": 39.028688524590166,
+        "head_top_y": 57,
+        "head_top_thin": false,
+        "head_ref_y": 60,
+        "sole_line_y": 300,
+        "H": 244,
+        "head_cx": 150.96083550913838,
+        "torso_cx": 150.0,
+        "torso_width": 58.0,
+        "wrist_ext_L": 12.0,
+        "wrist_ext_R": 8.0,
+        "foot_components": 2,
+        "feet_merged": false,
+        "ground_line_y": 300,
+        "foot_identity": "initial image x order; tracked over time, not anatomical",
+        "foot_L_x": 95.0,
+        "foot_L_y": 300,
+        "planted_L": true,
+        "foot_R_x": 209.0,
+        "foot_R_y": 290,
+        "planted_R": false,
+        "planted": {
+          "L": true,
+          "R": false
+        },
+        "head_top_y_H": 0.2336065573770492,
+        "head_ref_y_H": 0.2459016393442623,
+        "sole_line_y_H": 1.2295081967213115,
+        "head_cx_H": 0.6186919488079442,
+        "torso_cx_H": 0.6147540983606558,
+        "torso_width_H": 0.23770491803278687,
+        "wrist_ext_L_H": 0.04918032786885246,
+        "wrist_ext_R_H": 0.03278688524590164,
+        "ground_line_y_H": 1.2295081967213115,
+        "foot_L_x_H": 0.38934426229508196,
+        "foot_L_y_H": 1.2295081967213115,
+        "foot_R_x_H": 0.8565573770491803,
+        "foot_R_y_H": 1.1885245901639345,
+        "identity_ambiguous": false
+      },
+      {
+        "valid": true,
+        "mask_area": 9490,
+        "mask_area_per_H": 39.37759336099585,
+        "head_top_y": 60,
+        "head_top_thin": false,
+        "head_ref_y": 108,
+        "sole_line_y": 300,
+        "H": 241,
+        "head_cx": 150.0,
+        "torso_cx": 150.0,
+        "torso_width": 58.0,
+        "wrist_ext_L": 12.0,
+        "wrist_ext_R": 8.0,
+        "foot_components": 2,
+        "feet_merged": false,
+        "ground_line_y": 300,
+        "foot_identity": "initial image x order; tracked over time, not anatomical",
+        "foot_L_x": 95.0,
+        "foot_L_y": 290,
+        "planted_L": false,
+        "foot_R_x": 209.0,
+        "foot_R_y": 300,
+        "planted_R": true,
+        "planted": {
+          "L": false,
+          "R": true
+        },
+        "head_top_y_H": 0.24896265560165975,
+        "head_ref_y_H": 0.44813278008298757,
+        "sole_line_y_H": 1.2448132780082988,
+        "head_cx_H": 0.6224066390041494,
+        "torso_cx_H": 0.6224066390041494,
+        "torso_width_H": 0.24066390041493776,
+        "wrist_ext_L_H": 0.04979253112033195,
+        "wrist_ext_R_H": 0.03319502074688797,
+        "ground_line_y_H": 1.2448132780082988,
+        "foot_L_x_H": 0.3941908713692946,
+        "foot_L_y_H": 1.2033195020746887,
+        "foot_R_x_H": 0.8672199170124482,
+        "foot_R_y_H": 1.2448132780082988,
+        "identity_ambiguous": false
+      },
+      {
+        "valid": true,
+        "mask_area": 9372,
+        "mask_area_per_H": 39.54430379746835,
+        "head_top_y": 64,
+        "head_top_thin": false,
+        "head_ref_y": 110,
+        "sole_line_y": 300,
+        "H": 237,
+        "head_cx": 149.02257636122178,
+        "torso_cx": 150.0,
+        "torso_width": 43.0,
+        "wrist_ext_L": 23.5,
+        "wrist_ext_R": 19.5,
+        "foot_components": 2,
+        "feet_merged": false,
+        "ground_line_y": 300,
+        "foot_identity": "initial image x order; tracked over time, not anatomical",
+        "foot_L_x": 99.0,
+        "foot_L_y": 290,
+        "planted_L": false,
+        "foot_R_x": 205.0,
+        "foot_R_y": 300,
+        "planted_R": true,
+        "planted": {
+          "L": false,
+          "R": true
+        },
+        "head_top_y_H": 0.270042194092827,
+        "head_ref_y_H": 0.4641350210970464,
+        "sole_line_y_H": 1.2658227848101267,
+        "head_cx_H": 0.6287872420304716,
+        "torso_cx_H": 0.6329113924050633,
+        "torso_width_H": 0.18143459915611815,
+        "wrist_ext_L_H": 0.09915611814345991,
+        "wrist_ext_R_H": 0.08227848101265822,
+        "ground_line_y_H": 1.2658227848101267,
+        "foot_L_x_H": 0.4177215189873418,
+        "foot_L_y_H": 1.2236286919831223,
+        "foot_R_x_H": 0.8649789029535865,
+        "foot_R_y_H": 1.2658227848101267,
+        "identity_ambiguous": false
+      },
+      {
+        "valid": true,
+        "mask_area": 9344,
+        "mask_area_per_H": 39.426160337552744,
+        "head_top_y": 64,
+        "head_top_thin": false,
+        "head_ref_y": 110,
+        "sole_line_y": 300,
+        "H": 237,
+        "head_cx": 147.06772908366534,
+        "torso_cx": 150.0,
+        "torso_width": 43.0,
+        "wrist_ext_L": 27.5,
+        "wrist_ext_R": 23.5,
+        "foot_components": 2,
+        "feet_merged": false,
+        "ground_line_y": 300,
+        "foot_identity": "initial image x order; tracked over time, not anatomical",
+        "foot_L_x": 103.0,
+        "foot_L_y": 290,
+        "planted_L": false,
+        "foot_R_x": 201.0,
+        "foot_R_y": 300,
+        "planted_R": true,
+        "planted": {
+          "L": false,
+          "R": true
+        },
+        "head_top_y_H": 0.270042194092827,
+        "head_ref_y_H": 0.4641350210970464,
+        "sole_line_y_H": 1.2658227848101267,
+        "head_cx_H": 0.6205389412812884,
+        "torso_cx_H": 0.6329113924050633,
+        "torso_width_H": 0.18143459915611815,
+        "wrist_ext_L_H": 0.1160337552742616,
+        "wrist_ext_R_H": 0.09915611814345991,
+        "ground_line_y_H": 1.2658227848101267,
+        "foot_L_x_H": 0.4345991561181435,
+        "foot_L_y_H": 1.2236286919831223,
+        "foot_R_x_H": 0.8481012658227848,
+        "foot_R_y_H": 1.2658227848101267,
+        "identity_ambiguous": false
+      },
+      {
+        "valid": true,
+        "mask_area": 9280,
+        "mask_area_per_H": 38.50622406639004,
+        "head_top_y": 60,
+        "head_top_thin": false,
+        "head_ref_y": 108,
+        "sole_line_y": 300,
+        "H": 241,
+        "head_cx": 147.06772908366534,
+        "torso_cx": 150.0,
+        "torso_width": 43.0,
+        "wrist_ext_L": 31.5,
+        "wrist_ext_R": 27.5,
+        "foot_components": 2,
+        "feet_merged": false,
+        "ground_line_y": 300,
+        "foot_identity": "initial image x order; tracked over time, not anatomical",
+        "foot_L_x": 107.0,
+        "foot_L_y": 290,
+        "planted_L": false,
+        "foot_R_x": 197.0,
+        "foot_R_y": 300,
+        "planted_R": true,
+        "planted": {
+          "L": false,
+          "R": true
+        },
+        "head_top_y_H": 0.24896265560165975,
+        "head_ref_y_H": 0.44813278008298757,
+        "sole_line_y_H": 1.2448132780082988,
+        "head_cx_H": 0.6102395397662462,
+        "torso_cx_H": 0.6224066390041494,
+        "torso_width_H": 0.17842323651452283,
+        "wrist_ext_L_H": 0.13070539419087138,
+        "wrist_ext_R_H": 0.11410788381742738,
+        "ground_line_y_H": 1.2448132780082988,
+        "foot_L_x_H": 0.44398340248962653,
+        "foot_L_y_H": 1.2033195020746887,
+        "foot_R_x_H": 0.8174273858921162,
+        "foot_R_y_H": 1.2448132780082988,
+        "identity_ambiguous": false
+      },
+      {
+        "valid": true,
+        "mask_area": 9277,
+        "mask_area_per_H": 38.02049180327869,
+        "head_top_y": 57,
+        "head_top_thin": false,
+        "head_ref_y": 60,
+        "sole_line_y": 300,
+        "H": 244,
+        "head_cx": 147.11749347258487,
+        "torso_cx": 150.0,
+        "torso_width": 43.0,
+        "wrist_ext_L": 35.5,
+        "wrist_ext_R": 31.5,
+        "foot_components": 2,
+        "feet_merged": false,
+        "ground_line_y": 300,
+        "foot_identity": "initial image x order; tracked over time, not anatomical",
+        "foot_L_x": 111.0,
+        "foot_L_y": 290,
+        "planted_L": false,
+        "foot_R_x": 193.0,
+        "foot_R_y": 300,
+        "planted_R": true,
+        "planted": {
+          "L": false,
+          "R": true
+        },
+        "head_top_y_H": 0.2336065573770492,
+        "head_ref_y_H": 0.2459016393442623,
+        "sole_line_y_H": 1.2295081967213115,
+        "head_cx_H": 0.6029405470187904,
+        "torso_cx_H": 0.6147540983606558,
+        "torso_width_H": 0.1762295081967213,
+        "wrist_ext_L_H": 0.14549180327868852,
+        "wrist_ext_R_H": 0.1290983606557377,
+        "ground_line_y_H": 1.2295081967213115,
+        "foot_L_x_H": 0.45491803278688525,
+        "foot_L_y_H": 1.1885245901639345,
+        "foot_R_x_H": 0.7909836065573771,
+        "foot_R_y_H": 1.2295081967213115,
+        "identity_ambiguous": false
+      },
+      {
+        "valid": true,
+        "mask_area": 9343,
+        "mask_area_per_H": 38.290983606557376,
+        "head_top_y": 57,
+        "head_top_thin": false,
+        "head_ref_y": 60,
+        "sole_line_y": 300,
+        "H": 244,
+        "head_cx": 148.07832898172325,
+        "torso_cx": 150.0,
+        "torso_width": 43.0,
+        "wrist_ext_L": 39.5,
+        "wrist_ext_R": 35.5,
+        "foot_components": 2,
+        "feet_merged": false,
+        "ground_line_y": 300,
+        "foot_identity": "initial image x order; tracked over time, not anatomical",
+        "foot_L_x": 115.0,
+        "foot_L_y": 290,
+        "planted_L": false,
+        "foot_R_x": 189.0,
+        "foot_R_y": 300,
+        "planted_R": true,
+        "planted": {
+          "L": false,
+          "R": true
+        },
+        "head_top_y_H": 0.2336065573770492,
+        "head_ref_y_H": 0.2459016393442623,
+        "sole_line_y_H": 1.2295081967213115,
+        "head_cx_H": 0.6068783974660789,
+        "torso_cx_H": 0.6147540983606558,
+        "torso_width_H": 0.1762295081967213,
+        "wrist_ext_L_H": 0.16188524590163936,
+        "wrist_ext_R_H": 0.14549180327868852,
+        "ground_line_y_H": 1.2295081967213115,
+        "foot_L_x_H": 0.4713114754098361,
+        "foot_L_y_H": 1.1885245901639345,
+        "foot_R_x_H": 0.7745901639344263,
+        "foot_R_y_H": 1.2295081967213115,
+        "identity_ambiguous": false
+      }
+    ],
+    "phase_table": [
+      {
+        "frame": 0,
+        "printed_phase": 1,
+        "phase": "CONTACT",
+        "contact": true,
+        "lead_track": "L",
+        "planted": {
+          "L": true,
+          "R": false
+        },
+        "reason": null
+      },
+      {
+        "frame": 1,
+        "printed_phase": 2,
+        "phase": "DOWN",
+        "contact": false,
+        "lead_track": "L",
+        "planted": {
+          "L": true,
+          "R": false
+        },
+        "reason": null
+      },
+      {
+        "frame": 2,
+        "printed_phase": 3,
+        "phase": "DOWN",
+        "contact": false,
+        "lead_track": "L",
+        "planted": {
+          "L": true,
+          "R": false
+        },
+        "reason": null
+      },
+      {
+        "frame": 3,
+        "printed_phase": 4,
+        "phase": "PASSING",
+        "contact": false,
+        "lead_track": "L",
+        "planted": {
+          "L": true,
+          "R": false
+        },
+        "reason": null
+      },
+      {
+        "frame": 4,
+        "printed_phase": 5,
+        "phase": "PASSING",
+        "contact": false,
+        "lead_track": "L",
+        "planted": {
+          "L": true,
+          "R": false
+        },
+        "reason": null
+      },
+      {
+        "frame": 5,
+        "printed_phase": 6,
+        "phase": "UP",
+        "contact": false,
+        "lead_track": "L",
+        "planted": {
+          "L": true,
+          "R": false
+        },
+        "reason": null
+      },
+      {
+        "frame": 6,
+        "printed_phase": 7,
+        "phase": "CONTACT",
+        "contact": true,
+        "lead_track": "R",
+        "planted": {
+          "L": false,
+          "R": true
+        },
+        "reason": null
+      },
+      {
+        "frame": 7,
+        "printed_phase": 8,
+        "phase": "DOWN",
+        "contact": false,
+        "lead_track": "R",
+        "planted": {
+          "L": false,
+          "R": true
+        },
+        "reason": null
+      },
+      {
+        "frame": 8,
+        "printed_phase": 9,
+        "phase": "DOWN",
+        "contact": false,
+        "lead_track": "R",
+        "planted": {
+          "L": false,
+          "R": true
+        },
+        "reason": null
+      },
+      {
+        "frame": 9,
+        "printed_phase": 10,
+        "phase": "PASSING",
+        "contact": false,
+        "lead_track": "R",
+        "planted": {
+          "L": false,
+          "R": true
+        },
+        "reason": null
+      },
+      {
+        "frame": 10,
+        "printed_phase": 11,
+        "phase": "PASSING",
+        "contact": false,
+        "lead_track": "R",
+        "planted": {
+          "L": false,
+          "R": true
+        },
+        "reason": null
+      },
+      {
+        "frame": 11,
+        "printed_phase": 12,
+        "phase": "UP",
+        "contact": false,
+        "lead_track": "R",
+        "planted": {
+          "L": false,
+          "R": true
+        },
+        "reason": null
+      }
+    ],
+    "results": [
+      {
+        "id": "W1_floor",
+        "subject": "walk",
+        "passed": null,
+        "value": 0.029045643153526972,
+        "threshold": null,
+        "op": ">=",
+        "unit": "fraction_H",
+        "evidence": [],
+        "notes": "no committed floor"
+      },
+      {
+        "id": "W1",
+        "subject": "walk",
+        "passed": true,
+        "value": 0.029045643153526972,
+        "threshold": 0.07,
+        "op": "<=",
+        "unit": "",
+        "evidence": [],
+        "notes": "SPEC descriptive screen; not a shipping verdict"
+      },
+      {
+        "id": "W3a",
+        "subject": "walk",
+        "passed": false,
+        "value": 0.7605325445493843,
+        "threshold": 0.35,
+        "op": "<=",
+        "unit": "",
+        "evidence": [],
+        "notes": "SPEC descriptive screen; not a shipping verdict"
+      },
+      {
+        "id": "W4",
+        "subject": "walk",
+        "passed": true,
+        "value": 2,
+        "threshold": 2,
+        "op": "==",
+        "unit": "",
+        "evidence": [],
+        "notes": "SPEC descriptive screen; not a shipping verdict"
+      },
+      {
+        "id": "W6",
+        "subject": "walk",
+        "passed": true,
+        "value": 1.0,
+        "threshold": 0.75,
+        "op": ">=",
+        "unit": "",
+        "evidence": [],
+        "notes": "SPEC descriptive screen; not a shipping verdict"
+      }
+    ],
+    "notes": [
+      "H normalization uses clip median inclusive silhouette height; no per-frame rescaling",
+      "Head-top thin proxy cannot detect all missing dark hair; inspect mask plot",
+      "W5 is a silhouette extent at 0.45H, not an identified wrist"
+    ]
+  },
+  "grid": {
+    "summary": {
+      "W1": 0.028925619834710745,
+      "W2": {
+        "min": [
+          {
+            "frame": 1,
+            "phase": "DOWN"
+          },
+          {
+            "frame": 2,
+            "phase": "DOWN"
+          },
+          {
+            "frame": 7,
+            "phase": "DOWN"
+          },
+          {
+            "frame": 8,
+            "phase": "DOWN"
+          }
+        ],
+        "max": [
+          {
+            "frame": 4,
+            "phase": "PASSING"
+          },
+          {
+            "frame": 5,
+            "phase": "UP"
+          },
+          {
+            "frame": 10,
+            "phase": "PASSING"
+          },
+          {
+            "frame": 11,
+            "phase": "UP"
+          }
+        ],
+        "coordinate": "Cartesian up; negative image y"
+      },
+      "W4": 2,
+      "minima_frames": [
+        1,
+        7
+      ],
+      "W3a": 0.768346807609291,
+      "W3b": 0.16467410799813573,
+      "W3c": 2,
+      "signed_area_px2": 6.92650070674483,
+      "head_ref_bob": {
+        "W1": 0.1859504132231405,
+        "W2": {
+          "min": [
+            {
+              "frame": 1,
+              "phase": "DOWN"
+            },
+            {
+              "frame": 2,
+              "phase": "DOWN"
+            },
+            {
+              "frame": 7,
+              "phase": "DOWN"
+            },
+            {
+              "frame": 8,
+              "phase": "DOWN"
+            }
+          ],
+          "max": [
+            {
+              "frame": 4,
+              "phase": "PASSING"
+            },
+            {
+              "frame": 5,
+              "phase": "UP"
+            },
+            {
+              "frame": 10,
+              "phase": "PASSING"
+            },
+            {
+              "frame": 11,
+              "phase": "UP"
+            }
+          ],
+          "coordinate": "Cartesian up; negative image y"
+        },
+        "W4": 2,
+        "minima_frames": [
+          1,
+          7
+        ]
+      },
+      "W5": {
+        "L": 0.11983471074380166,
+        "R": 0.11570247933884298
+      },
+      "W6": 1.0,
+      "W6_per_arm": {
+        "L": 1.0,
+        "R": 1.0
+      },
+      "valid_frames_per_arm": {
+        "L": 12,
+        "R": 12
+      },
+      "identity_note": "projected track opposition, not independently established anatomical same-side identity",
+      "sole_scroll": {
+        "L": {
+          "planted_x_px": [
+            115.0,
+            111.0,
+            107.0,
+            103.0,
+            100.0,
+            95.0,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          "delta_px_per_frame": [
+            -4.0,
+            -4.0,
+            -4.0,
+            -3.0,
+            -5.0,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          "mean_scroll_px_per_frame": -4.0,
+          "slip_px_per_frame": [
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            -1.0,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          "slip_rms_px_per_frame": 0.6324555320336759
+        },
+        "R": {
+          "planted_x_px": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            209.0,
+            205.0,
+            202.0,
+            197.0,
+            193.0,
+            188.0
+          ],
+          "delta_px_per_frame": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            -4.0,
+            -3.0,
+            -5.0,
+            -4.0,
+            -5.0,
+            null
+          ],
+          "mean_scroll_px_per_frame": -4.2,
+          "slip_px_per_frame": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            0.20000000000000018,
+            1.2000000000000002,
+            -0.7999999999999998,
+            0.20000000000000018,
+            -0.7999999999999998,
+            null
+          ],
+          "slip_rms_px_per_frame": 0.7483314773547882
+        },
+        "mean_scroll_px_per_frame": -4.1,
+        "slip_rms_px_per_frame": 0.7000000000000001
+      },
+      "H_median": 242.0
+    },
+    "landmarks": [
+      {
+        "valid": true,
+        "mask_area": 9760,
+        "mask_area_per_H": 40.33057851239669,
+        "head_top_y": 59,
+        "head_top_thin": false,
+        "head_ref_y": 107,
+        "sole_line_y": 300,
+        "H": 242,
+        "head_cx": 149.4777777777778,
+        "torso_cx": 150.0,
+        "torso_width": 45.0,
+        "wrist_ext_L": 40.5,
+        "wrist_ext_R": 35.5,
+        "foot_components": 2,
+        "feet_merged": false,
+        "ground_line_y": 301,
+        "foot_identity": "initial image x order; tracked over time, not anatomical",
+        "foot_L_x": 115.0,
+        "foot_L_y": 300,
+        "planted_L": true,
+        "foot_R_x": 188.5,
+        "foot_R_y": 291,
+        "planted_R": false,
+        "planted": {
+          "L": true,
+          "R": false
+        },
+        "head_top_y_H": 0.24380165289256198,
+        "head_ref_y_H": 0.44214876033057854,
+        "sole_line_y_H": 1.2396694214876034,
+        "head_cx_H": 0.6176767676767677,
+        "torso_cx_H": 0.6198347107438017,
+        "torso_width_H": 0.1859504132231405,
+        "wrist_ext_L_H": 0.16735537190082644,
+        "wrist_ext_R_H": 0.14669421487603307,
+        "ground_line_y_H": 1.243801652892562,
+        "foot_L_x_H": 0.47520661157024796,
+        "foot_L_y_H": 1.2396694214876034,
+        "foot_R_x_H": 0.7789256198347108,
+        "foot_R_y_H": 1.2024793388429753,
+        "identity_ambiguous": false
+      },
+      {
+        "valid": true,
+        "mask_area": 9714,
+        "mask_area_per_H": 40.81512605042017,
+        "head_top_y": 63,
+        "head_top_thin": false,
+        "head_ref_y": 110,
+        "sole_line_y": 300,
+        "H": 238,
+        "head_cx": 150.51442910915935,
+        "torso_cx": 150.0,
+        "torso_width": 45.0,
+        "wrist_ext_L": 35.5,
+        "wrist_ext_R": 32.5,
+        "foot_components": 2,
+        "feet_merged": false,
+        "ground_line_y": 301,
+        "foot_identity": "initial image x order; tracked over time, not anatomical",
+        "foot_L_x": 111.0,
+        "foot_L_y": 300,
+        "planted_L": true,
+        "foot_R_x": 193.0,
+        "foot_R_y": 290,
+        "planted_R": false,
+        "planted": {
+          "L": true,
+          "R": false
+        },
+        "head_top_y_H": 0.2647058823529412,
+        "head_ref_y_H": 0.46218487394957986,
+        "sole_line_y_H": 1.2605042016806722,
+        "head_cx_H": 0.6324135676855435,
+        "torso_cx_H": 0.6302521008403361,
+        "torso_width_H": 0.18907563025210083,
+        "wrist_ext_L_H": 0.14915966386554622,
+        "wrist_ext_R_H": 0.13655462184873948,
+        "ground_line_y_H": 1.2647058823529411,
+        "foot_L_x_H": 0.46638655462184875,
+        "foot_L_y_H": 1.2605042016806722,
+        "foot_R_x_H": 0.8109243697478992,
+        "foot_R_y_H": 1.218487394957983,
+        "identity_ambiguous": false
+      },
+      {
+        "valid": true,
+        "mask_area": 9734,
+        "mask_area_per_H": 40.89915966386555,
+        "head_top_y": 63,
+        "head_top_thin": false,
+        "head_ref_y": 110,
+        "sole_line_y": 300,
+        "H": 238,
+        "head_cx": 152.98651960784315,
+        "torso_cx": 150.0,
+        "torso_width": 45.0,
+        "wrist_ext_L": 31.5,
+        "wrist_ext_R": 28.5,
+        "foot_components": 2,
+        "feet_merged": false,
+        "ground_line_y": 301,
+        "foot_identity": "initial image x order; tracked over time, not anatomical",
+        "foot_L_x": 107.0,
+        "foot_L_y": 300,
+        "planted_L": true,
+        "foot_R_x": 197.0,
+        "foot_R_y": 290,
+        "planted_R": false,
+        "planted": {
+          "L": true,
+          "R": false
+        },
+        "head_top_y_H": 0.2647058823529412,
+        "head_ref_y_H": 0.46218487394957986,
+        "sole_line_y_H": 1.2605042016806722,
+        "head_cx_H": 0.6428005025539628,
+        "torso_cx_H": 0.6302521008403361,
+        "torso_width_H": 0.18907563025210083,
+        "wrist_ext_L_H": 0.1323529411764706,
+        "wrist_ext_R_H": 0.11974789915966387,
+        "ground_line_y_H": 1.2647058823529411,
+        "foot_L_x_H": 0.4495798319327731,
+        "foot_L_y_H": 1.2605042016806722,
+        "foot_R_x_H": 0.8277310924369747,
+        "foot_R_y_H": 1.218487394957983,
+        "identity_ambiguous": false
+      },
+      {
+        "valid": true,
+        "mask_area": 9838,
+        "mask_area_per_H": 40.48559670781893,
+        "head_top_y": 59,
+        "head_top_thin": false,
+        "head_ref_y": 107,
+        "sole_line_y": 301,
+        "H": 243,
+        "head_cx": 152.95139732685297,
+        "torso_cx": 150.0,
+        "torso_width": 45.0,
+        "wrist_ext_L": 27.5,
+        "wrist_ext_R": 23.5,
+        "foot_components": 2,
+        "feet_merged": false,
+        "ground_line_y": 301,
+        "foot_identity": "initial image x order; tracked over time, not anatomical",
+        "foot_L_x": 103.0,
+        "foot_L_y": 301,
+        "planted_L": true,
+        "foot_R_x": 202.0,
+        "foot_R_y": 291,
+        "planted_R": false,
+        "planted": {
+          "L": true,
+          "R": false
+        },
+        "head_top_y_H": 0.24279835390946503,
+        "head_ref_y_H": 0.4403292181069959,
+        "sole_line_y_H": 1.2386831275720165,
+        "head_cx_H": 0.6294296186290246,
+        "torso_cx_H": 0.6172839506172839,
+        "torso_width_H": 0.18518518518518517,
+        "wrist_ext_L_H": 0.11316872427983539,
+        "wrist_ext_R_H": 0.09670781893004116,
+        "ground_line_y_H": 1.2386831275720165,
+        "foot_L_x_H": 0.42386831275720166,
+        "foot_L_y_H": 1.2386831275720165,
+        "foot_R_x_H": 0.831275720164609,
+        "foot_R_y_H": 1.1975308641975309,
+        "identity_ambiguous": false
+      },
+      {
+        "valid": true,
+        "mask_area": 9918,
+        "mask_area_per_H": 40.31707317073171,
+        "head_top_y": 56,
+        "head_top_thin": false,
+        "head_ref_y": 65,
+        "sole_line_y": 301,
+        "H": 246,
+        "head_cx": 153.0,
+        "torso_cx": 150.0,
+        "torso_width": 45.0,
+        "wrist_ext_L": 23.5,
+        "wrist_ext_R": 18.5,
+        "foot_components": 2,
+        "feet_merged": false,
+        "ground_line_y": 301,
+        "foot_identity": "initial image x order; tracked over time, not anatomical",
+        "foot_L_x": 100.0,
+        "foot_L_y": 301,
+        "planted_L": true,
+        "foot_R_x": 205.0,
+        "foot_R_y": 291,
+        "planted_R": false,
+        "planted": {
+          "L": true,
+          "R": false
+        },
+        "head_top_y_H": 0.22764227642276422,
+        "head_ref_y_H": 0.26422764227642276,
+        "sole_line_y_H": 1.2235772357723578,
+        "head_cx_H": 0.6219512195121951,
+        "torso_cx_H": 0.6097560975609756,
+        "torso_width_H": 0.18292682926829268,
+        "wrist_ext_L_H": 0.09552845528455285,
+        "wrist_ext_R_H": 0.07520325203252033,
+        "ground_line_y_H": 1.2235772357723578,
+        "foot_L_x_H": 0.4065040650406504,
+        "foot_L_y_H": 1.2235772357723578,
+        "foot_R_x_H": 0.8333333333333334,
+        "foot_R_y_H": 1.1829268292682926,
+        "identity_ambiguous": false
+      },
+      {
+        "valid": true,
+        "mask_area": 9928,
+        "mask_area_per_H": 40.522448979591836,
+        "head_top_y": 56,
+        "head_top_thin": false,
+        "head_ref_y": 65,
+        "sole_line_y": 300,
+        "H": 245,
+        "head_cx": 150.4859584859585,
+        "torso_cx": 150.0,
+        "torso_width": 59.0,
+        "wrist_ext_L": 11.5,
+        "wrist_ext_R": 7.5,
+        "foot_components": 2,
+        "feet_merged": false,
+        "ground_line_y": 301,
+        "foot_identity": "initial image x order; tracked over time, not anatomical",
+        "foot_L_x": 95.0,
+        "foot_L_y": 300,
+        "planted_L": true,
+        "foot_R_x": 209.0,
+        "foot_R_y": 290,
+        "planted_R": false,
+        "planted": {
+          "L": true,
+          "R": false
+        },
+        "head_top_y_H": 0.22857142857142856,
+        "head_ref_y_H": 0.2653061224489796,
+        "sole_line_y_H": 1.2244897959183674,
+        "head_cx_H": 0.614228401983504,
+        "torso_cx_H": 0.6122448979591837,
+        "torso_width_H": 0.24081632653061225,
+        "wrist_ext_L_H": 0.04693877551020408,
+        "wrist_ext_R_H": 0.030612244897959183,
+        "ground_line_y_H": 1.2285714285714286,
+        "foot_L_x_H": 0.3877551020408163,
+        "foot_L_y_H": 1.2244897959183674,
+        "foot_R_x_H": 0.8530612244897959,
+        "foot_R_y_H": 1.183673469387755,
+        "identity_ambiguous": false
+      },
+      {
+        "valid": true,
+        "mask_area": 9877,
+        "mask_area_per_H": 40.81404958677686,
+        "head_top_y": 59,
+        "head_top_thin": false,
+        "head_ref_y": 107,
+        "sole_line_y": 300,
+        "H": 242,
+        "head_cx": 149.4777777777778,
+        "torso_cx": 150.0,
+        "torso_width": 59.0,
+        "wrist_ext_L": 12.5,
+        "wrist_ext_R": 8.5,
+        "foot_components": 2,
+        "feet_merged": false,
+        "ground_line_y": 301,
+        "foot_identity": "initial image x order; tracked over time, not anatomical",
+        "foot_L_x": 95.0,
+        "foot_L_y": 290,
+        "planted_L": false,
+        "foot_R_x": 209.0,
+        "foot_R_y": 300,
+        "planted_R": true,
+        "planted": {
+          "L": false,
+          "R": true
+        },
+        "head_top_y_H": 0.24380165289256198,
+        "head_ref_y_H": 0.44214876033057854,
+        "sole_line_y_H": 1.2396694214876034,
+        "head_cx_H": 0.6176767676767677,
+        "torso_cx_H": 0.6198347107438017,
+        "torso_width_H": 0.24380165289256198,
+        "wrist_ext_L_H": 0.05165289256198347,
+        "wrist_ext_R_H": 0.03512396694214876,
+        "ground_line_y_H": 1.243801652892562,
+        "foot_L_x_H": 0.3925619834710744,
+        "foot_L_y_H": 1.1983471074380165,
+        "foot_R_x_H": 0.8636363636363636,
+        "foot_R_y_H": 1.2396694214876034,
+        "identity_ambiguous": false
+      },
+      {
+        "valid": true,
+        "mask_area": 9798,
+        "mask_area_per_H": 40.99581589958159,
+        "head_top_y": 63,
+        "head_top_thin": false,
+        "head_ref_y": 110,
+        "sole_line_y": 301,
+        "H": 239,
+        "head_cx": 148.97412677878395,
+        "torso_cx": 150.0,
+        "torso_width": 45.0,
+        "wrist_ext_L": 24.5,
+        "wrist_ext_R": 19.5,
+        "foot_components": 2,
+        "feet_merged": false,
+        "ground_line_y": 301,
+        "foot_identity": "initial image x order; tracked over time, not anatomical",
+        "foot_L_x": 100.0,
+        "foot_L_y": 291,
+        "planted_L": false,
+        "foot_R_x": 205.0,
+        "foot_R_y": 301,
+        "planted_R": true,
+        "planted": {
+          "L": false,
+          "R": true
+        },
+        "head_top_y_H": 0.26359832635983266,
+        "head_ref_y_H": 0.4602510460251046,
+        "sole_line_y_H": 1.2594142259414225,
+        "head_cx_H": 0.6233227061873806,
+        "torso_cx_H": 0.6276150627615062,
+        "torso_width_H": 0.18828451882845187,
+        "wrist_ext_L_H": 0.10251046025104603,
+        "wrist_ext_R_H": 0.08158995815899582,
+        "ground_line_y_H": 1.2594142259414225,
+        "foot_L_x_H": 0.41841004184100417,
+        "foot_L_y_H": 1.217573221757322,
+        "foot_R_x_H": 0.8577405857740585,
+        "foot_R_y_H": 1.2594142259414225,
+        "identity_ambiguous": false
+      },
+      {
+        "valid": true,
+        "mask_area": 9769,
+        "mask_area_per_H": 40.8744769874477,
+        "head_top_y": 63,
+        "head_top_thin": false,
+        "head_ref_y": 110,
+        "sole_line_y": 301,
+        "H": 239,
+        "head_cx": 147.0064599483204,
+        "torso_cx": 150.0,
+        "torso_width": 45.0,
+        "wrist_ext_L": 27.5,
+        "wrist_ext_R": 23.5,
+        "foot_components": 2,
+        "feet_merged": false,
+        "ground_line_y": 301,
+        "foot_identity": "initial image x order; tracked over time, not anatomical",
+        "foot_L_x": 103.0,
+        "foot_L_y": 291,
+        "planted_L": false,
+        "foot_R_x": 202.0,
+        "foot_R_y": 301,
+        "planted_R": true,
+        "planted": {
+          "L": false,
+          "R": true
+        },
+        "head_top_y_H": 0.26359832635983266,
+        "head_ref_y_H": 0.4602510460251046,
+        "sole_line_y_H": 1.2594142259414225,
+        "head_cx_H": 0.6150897905787465,
+        "torso_cx_H": 0.6276150627615062,
+        "torso_width_H": 0.18828451882845187,
+        "wrist_ext_L_H": 0.11506276150627615,
+        "wrist_ext_R_H": 0.09832635983263599,
+        "ground_line_y_H": 1.2594142259414225,
+        "foot_L_x_H": 0.4309623430962343,
+        "foot_L_y_H": 1.217573221757322,
+        "foot_R_x_H": 0.8451882845188284,
+        "foot_R_y_H": 1.2594142259414225,
+        "identity_ambiguous": false
+      },
+      {
+        "valid": true,
+        "mask_area": 9722,
+        "mask_area_per_H": 40.17355371900826,
+        "head_top_y": 59,
+        "head_top_thin": false,
+        "head_ref_y": 107,
+        "sole_line_y": 300,
+        "H": 242,
+        "head_cx": 147.04225352112675,
+        "torso_cx": 150.0,
+        "torso_width": 45.0,
+        "wrist_ext_L": 31.5,
+        "wrist_ext_R": 28.5,
+        "foot_components": 2,
+        "feet_merged": false,
+        "ground_line_y": 301,
+        "foot_identity": "initial image x order; tracked over time, not anatomical",
+        "foot_L_x": 107.0,
+        "foot_L_y": 290,
+        "planted_L": false,
+        "foot_R_x": 197.0,
+        "foot_R_y": 300,
+        "planted_R": true,
+        "planted": {
+          "L": false,
+          "R": true
+        },
+        "head_top_y_H": 0.24380165289256198,
+        "head_ref_y_H": 0.44214876033057854,
+        "sole_line_y_H": 1.2396694214876034,
+        "head_cx_H": 0.6076126178558957,
+        "torso_cx_H": 0.6198347107438017,
+        "torso_width_H": 0.1859504132231405,
+        "wrist_ext_L_H": 0.13016528925619836,
+        "wrist_ext_R_H": 0.11776859504132231,
+        "ground_line_y_H": 1.243801652892562,
+        "foot_L_x_H": 0.44214876033057854,
+        "foot_L_y_H": 1.1983471074380165,
+        "foot_R_x_H": 0.8140495867768595,
+        "foot_R_y_H": 1.2396694214876034,
+        "identity_ambiguous": false
+      },
+      {
+        "valid": true,
+        "mask_area": 9757,
+        "mask_area_per_H": 39.82448979591837,
+        "head_top_y": 56,
+        "head_top_thin": false,
+        "head_ref_y": 65,
+        "sole_line_y": 300,
+        "H": 245,
+        "head_cx": 146.9911616161616,
+        "torso_cx": 150.0,
+        "torso_width": 45.0,
+        "wrist_ext_L": 34.5,
+        "wrist_ext_R": 31.5,
+        "foot_components": 2,
+        "feet_merged": false,
+        "ground_line_y": 301,
+        "foot_identity": "initial image x order; tracked over time, not anatomical",
+        "foot_L_x": 111.0,
+        "foot_L_y": 290,
+        "planted_L": false,
+        "foot_R_x": 193.0,
+        "foot_R_y": 300,
+        "planted_R": true,
+        "planted": {
+          "L": false,
+          "R": true
+        },
+        "head_top_y_H": 0.22857142857142856,
+        "head_ref_y_H": 0.2653061224489796,
+        "sole_line_y_H": 1.2244897959183674,
+        "head_cx_H": 0.5999639249639249,
+        "torso_cx_H": 0.6122448979591837,
+        "torso_width_H": 0.1836734693877551,
+        "wrist_ext_L_H": 0.14081632653061224,
+        "wrist_ext_R_H": 0.12857142857142856,
+        "ground_line_y_H": 1.2285714285714286,
+        "foot_L_x_H": 0.4530612244897959,
+        "foot_L_y_H": 1.183673469387755,
+        "foot_R_x_H": 0.7877551020408163,
+        "foot_R_y_H": 1.2244897959183674,
+        "identity_ambiguous": false
+      },
+      {
+        "valid": true,
+        "mask_area": 9782,
+        "mask_area_per_H": 39.764227642276424,
+        "head_top_y": 56,
+        "head_top_thin": false,
+        "head_ref_y": 65,
+        "sole_line_y": 301,
+        "H": 246,
+        "head_cx": 147.98232323232324,
+        "torso_cx": 150.0,
+        "torso_width": 45.0,
+        "wrist_ext_L": 39.5,
+        "wrist_ext_R": 34.5,
+        "foot_components": 2,
+        "feet_merged": false,
+        "ground_line_y": 301,
+        "foot_identity": "initial image x order; tracked over time, not anatomical",
+        "foot_L_x": 115.0,
+        "foot_L_y": 290,
+        "planted_L": false,
+        "foot_R_x": 188.0,
+        "foot_R_y": 301,
+        "planted_R": true,
+        "planted": {
+          "L": false,
+          "R": true
+        },
+        "head_top_y_H": 0.22764227642276422,
+        "head_ref_y_H": 0.26422764227642276,
+        "sole_line_y_H": 1.2235772357723578,
+        "head_cx_H": 0.6015541594809888,
+        "torso_cx_H": 0.6097560975609756,
+        "torso_width_H": 0.18292682926829268,
+        "wrist_ext_L_H": 0.16056910569105692,
+        "wrist_ext_R_H": 0.1402439024390244,
+        "ground_line_y_H": 1.2235772357723578,
+        "foot_L_x_H": 0.46747967479674796,
+        "foot_L_y_H": 1.1788617886178863,
+        "foot_R_x_H": 0.7642276422764228,
+        "foot_R_y_H": 1.2235772357723578,
+        "identity_ambiguous": false
+      }
+    ],
+    "phase_table": [
+      {
+        "frame": 0,
+        "printed_phase": 1,
+        "phase": "CONTACT",
+        "contact": true,
+        "lead_track": "L",
+        "planted": {
+          "L": true,
+          "R": false
+        },
+        "reason": null
+      },
+      {
+        "frame": 1,
+        "printed_phase": 2,
+        "phase": "DOWN",
+        "contact": false,
+        "lead_track": "L",
+        "planted": {
+          "L": true,
+          "R": false
+        },
+        "reason": null
+      },
+      {
+        "frame": 2,
+        "printed_phase": 3,
+        "phase": "DOWN",
+        "contact": false,
+        "lead_track": "L",
+        "planted": {
+          "L": true,
+          "R": false
+        },
+        "reason": null
+      },
+      {
+        "frame": 3,
+        "printed_phase": 4,
+        "phase": "PASSING",
+        "contact": false,
+        "lead_track": "L",
+        "planted": {
+          "L": true,
+          "R": false
+        },
+        "reason": null
+      },
+      {
+        "frame": 4,
+        "printed_phase": 5,
+        "phase": "PASSING",
+        "contact": false,
+        "lead_track": "L",
+        "planted": {
+          "L": true,
+          "R": false
+        },
+        "reason": null
+      },
+      {
+        "frame": 5,
+        "printed_phase": 6,
+        "phase": "UP",
+        "contact": false,
+        "lead_track": "L",
+        "planted": {
+          "L": true,
+          "R": false
+        },
+        "reason": null
+      },
+      {
+        "frame": 6,
+        "printed_phase": 7,
+        "phase": "CONTACT",
+        "contact": true,
+        "lead_track": "R",
+        "planted": {
+          "L": false,
+          "R": true
+        },
+        "reason": null
+      },
+      {
+        "frame": 7,
+        "printed_phase": 8,
+        "phase": "DOWN",
+        "contact": false,
+        "lead_track": "R",
+        "planted": {
+          "L": false,
+          "R": true
+        },
+        "reason": null
+      },
+      {
+        "frame": 8,
+        "printed_phase": 9,
+        "phase": "DOWN",
+        "contact": false,
+        "lead_track": "R",
+        "planted": {
+          "L": false,
+          "R": true
+        },
+        "reason": null
+      },
+      {
+        "frame": 9,
+        "printed_phase": 10,
+        "phase": "PASSING",
+        "contact": false,
+        "lead_track": "R",
+        "planted": {
+          "L": false,
+          "R": true
+        },
+        "reason": null
+      },
+      {
+        "frame": 10,
+        "printed_phase": 11,
+        "phase": "PASSING",
+        "contact": false,
+        "lead_track": "R",
+        "planted": {
+          "L": false,
+          "R": true
+        },
+        "reason": null
+      },
+      {
+        "frame": 11,
+        "printed_phase": 12,
+        "phase": "UP",
+        "contact": false,
+        "lead_track": "R",
+        "planted": {
+          "L": false,
+          "R": true
+        },
+        "reason": null
+      }
+    ],
+    "results": [
+      {
+        "id": "W1_floor",
+        "subject": "walk",
+        "passed": null,
+        "value": 0.028925619834710745,
+        "threshold": null,
+        "op": ">=",
+        "unit": "fraction_H",
+        "evidence": [],
+        "notes": "no committed floor"
+      },
+      {
+        "id": "W1",
+        "subject": "walk",
+        "passed": true,
+        "value": 0.028925619834710745,
+        "threshold": 0.07,
+        "op": "<=",
+        "unit": "",
+        "evidence": [],
+        "notes": "SPEC descriptive screen; not a shipping verdict"
+      },
+      {
+        "id": "W3a",
+        "subject": "walk",
+        "passed": false,
+        "value": 0.768346807609291,
+        "threshold": 0.35,
+        "op": "<=",
+        "unit": "",
+        "evidence": [],
+        "notes": "SPEC descriptive screen; not a shipping verdict"
+      },
+      {
+        "id": "W4",
+        "subject": "walk",
+        "passed": true,
+        "value": 2,
+        "threshold": 2,
+        "op": "==",
+        "unit": "",
+        "evidence": [],
+        "notes": "SPEC descriptive screen; not a shipping verdict"
+      },
+      {
+        "id": "W6",
+        "subject": "walk",
+        "passed": true,
+        "value": 1.0,
+        "threshold": 0.75,
+        "op": ">=",
+        "unit": "",
+        "evidence": [],
+        "notes": "SPEC descriptive screen; not a shipping verdict"
+      }
+    ],
+    "notes": [
+      "H normalization uses clip median inclusive silhouette height; no per-frame rescaling",
+      "Head-top thin proxy cannot detect all missing dark hair; inspect mask plot",
+      "W5 is a silhouette extent at 0.45H, not an identified wrist"
+    ]
+  },
+  "absolute_grid_differences_px": {
+    "head_top_y": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "head_ref_y": [
+      1,
+      0,
+      0,
+      1,
+      5,
+      5,
+      1,
+      0,
+      0,
+      1,
+      5,
+      5
+    ],
+    "head_cx": [
+      0.5222222222222115,
+      0.462994529618868,
+      0.054248691508490765,
+      0.019126410518310877,
+      0.11749347258486864,
+      0.4748770231798858,
+      0.5222222222222115,
+      0.04844958243782571,
+      0.06126913534492928,
+      0.025475562538588292,
+      0.1263318564232634,
+      0.09600574940000683
+    ],
+    "sole_line_y": [
+      0,
+      0,
+      0,
+      1,
+      1,
+      0,
+      0,
+      1,
+      1,
+      0,
+      0,
+      1
+    ],
+    "torso_cx": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "foot_L_x": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      1.0,
+      0.0,
+      0.0,
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "foot_R_x": [
+      0.5,
+      0.0,
+      0.0,
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      1.0,
+      0.0,
+      0.0,
+      1.0
+    ],
+    "wrist_ext_L": [
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.5,
+      0.5,
+      1.0,
+      0.0,
+      0.0,
+      1.0,
+      0.0
+    ],
+    "wrist_ext_R": [
+      0.0,
+      1.0,
+      1.0,
+      0.0,
+      1.0,
+      0.5,
+      0.5,
+      0.0,
+      0.0,
+      1.0,
+      0.0,
+      1.0
+    ]
+  }
+}

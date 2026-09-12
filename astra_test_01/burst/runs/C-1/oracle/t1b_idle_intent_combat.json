@@ -1,0 +1,267 @@
+{
+  "evidence": [],
+  "id": "idle_intent",
+  "notes": "uncommitted reference row; report only",
+  "op": "<=",
+  "passed": null,
+  "subject": "combat",
+  "threshold": null,
+  "unit": "fraction_H",
+  "value": {
+    "box": [
+      209,
+      159,
+      301,
+      400
+    ],
+    "breath": {
+      "below_floor": true,
+      "ceiling": 0.09791910999995755,
+      "floor": 0.03916764399998302,
+      "panting": false,
+      "target": 0.06527940666663837,
+      "value": 0.0046705182622578945
+    },
+    "checks": [
+      {
+        "evidence": [],
+        "id": "breath_minimum",
+        "notes": "; uncommitted reference row; report only",
+        "op": ">=",
+        "passed": null,
+        "subject": "combat",
+        "threshold": 0.03916764399998302,
+        "unit": "fraction_H",
+        "value": 0.0046705182622578945
+      },
+      {
+        "evidence": [],
+        "id": "breath_maximum",
+        "notes": "panting above ceiling; uncommitted reference row; report only",
+        "op": "<=",
+        "passed": null,
+        "subject": "combat",
+        "threshold": 0.09791910999995755,
+        "unit": "fraction_H",
+        "value": 0.0046705182622578945
+      },
+      {
+        "evidence": [],
+        "id": "head_bob_minimum",
+        "notes": "; uncommitted reference row; report only",
+        "op": ">=",
+        "passed": null,
+        "subject": "combat",
+        "threshold": 0.03279878164982141,
+        "unit": "fraction_H",
+        "value": 0.0021485987550389435
+      },
+      {
+        "evidence": [],
+        "id": "head_bob_maximum",
+        "notes": "panting above ceiling; uncommitted reference row; report only",
+        "op": "<=",
+        "passed": null,
+        "subject": "combat",
+        "threshold": 0.08199695412455353,
+        "unit": "fraction_H",
+        "value": 0.0021485987550389435
+      },
+      {
+        "evidence": [],
+        "id": "idle_regions",
+        "notes": "{\"expected_LOCK\": [\"head\", \"shoulders_chest\", \"hips\", \"legs\", \"feet\", \"arms_left\", \"arms_right\"], \"expected_MOTION\": [], \"mismatches\": [\"head\", \"shoulders_chest\", \"hips\", \"legs\", \"feet\", \"arms_left\", \"arms_right\"]}",
+        "op": "==",
+        "passed": null,
+        "subject": "combat",
+        "threshold": 0,
+        "unit": "regions",
+        "value": 7
+      },
+      {
+        "evidence": [],
+        "id": "idle_feet_lock",
+        "notes": "maximum pairwise sole-band mask distance; mandatory I-1; uncommitted reference row; report only",
+        "op": "<=",
+        "passed": null,
+        "subject": "combat",
+        "threshold": 0.0025,
+        "unit": "fraction_H",
+        "value": 0.012448132780082987
+      }
+    ],
+    "classification": {
+      "LOCK": [],
+      "MOTION": [
+        "head",
+        "shoulders_chest",
+        "hips",
+        "legs",
+        "feet",
+        "arms_left",
+        "arms_right"
+      ],
+      "UNEVALUABLE": []
+    },
+    "contamination": 0.0,
+    "figure_drift_px": [
+      [
+        -0.07517372367574998,
+        -0.10180345224201055
+      ],
+      [
+        -0.07517372367574998,
+        -0.10180345224201055
+      ],
+      [
+        0.02265595319139208,
+        -0.20409822926736668
+      ],
+      [
+        -0.05045109801276355,
+        0.0025594263555217016
+      ],
+      [
+        -1.9535069746556197,
+        -0.07939937503033893
+      ],
+      [
+        1.8683140510985032,
+        -0.01997805134181857
+      ],
+      [
+        -1.9336985922384355,
+        0.004289695994982596
+      ],
+      [
+        2.085861496976229,
+        0.6559119177786724
+      ]
+    ],
+    "head_bob": {
+      "below_floor": true,
+      "ceiling": 0.08199695412455353,
+      "floor": 0.03279878164982141,
+      "panting": false,
+      "target": 0.054664636083035685,
+      "value": 0.0021485987550389435
+    },
+    "height_px": 241,
+    "lock_eps_H": 0.004,
+    "regions": {
+      "arms_left": {
+        "classification": "MOTION",
+        "displacement_H": 0.005577304499429571,
+        "dy_p2p_H": 0.005577304499429571,
+        "left_p2p_H": 0.00453878237437777,
+        "right_p2p_H": 0.005144028152611502,
+        "search_limit_frames": {
+          "horizontal": {
+            "left": [
+              4,
+              5,
+              6
+            ],
+            "right": [
+              4,
+              5,
+              6
+            ]
+          },
+          "vertical": []
+        }
+      },
+      "arms_right": {
+        "classification": "MOTION",
+        "displacement_H": 0.008298755186722184,
+        "dy_p2p_H": 0.004867334144915161,
+        "left_p2p_H": 0.005962603651155751,
+        "right_p2p_H": 0.008298755186722184,
+        "search_limit_frames": {
+          "horizontal": {
+            "left": [
+              4,
+              6
+            ],
+            "right": [
+              5,
+              6
+            ]
+          },
+          "vertical": []
+        }
+      },
+      "feet": {
+        "classification": "MOTION",
+        "displacement_H": 0.009485461132072381,
+        "dy_p2p_H": 0.002558943451140162,
+        "left_p2p_H": 0.009485461132072381,
+        "right_p2p_H": 0.008886283967161512,
+        "search_limit_frames": {
+          "horizontal": {
+            "left": [],
+            "right": []
+          },
+          "vertical": []
+        }
+      },
+      "head": {
+        "classification": "MOTION",
+        "displacement_H": 0.008419799848899734,
+        "dy_p2p_H": 0.002226635431892385,
+        "left_p2p_H": 0.008419799848899734,
+        "right_p2p_H": 0.00831053005150606,
+        "search_limit_frames": {
+          "horizontal": {
+            "left": [],
+            "right": []
+          },
+          "vertical": []
+        }
+      },
+      "hips": {
+        "classification": "MOTION",
+        "displacement_H": 0.011550948242146752,
+        "dy_p2p_H": 0.003825314454779146,
+        "left_p2p_H": 0.011550948242146752,
+        "right_p2p_H": 0.008803941018298289,
+        "search_limit_frames": {
+          "horizontal": {
+            "left": [],
+            "right": []
+          },
+          "vertical": []
+        }
+      },
+      "legs": {
+        "classification": "MOTION",
+        "displacement_H": 0.010818218305883032,
+        "dy_p2p_H": 0.003958282361315342,
+        "left_p2p_H": 0.010818218305883032,
+        "right_p2p_H": 0.008508104215787737,
+        "search_limit_frames": {
+          "horizontal": {
+            "left": [],
+            "right": []
+          },
+          "vertical": []
+        }
+      },
+      "shoulders_chest": {
+        "classification": "MOTION",
+        "displacement_H": 0.011965475861576147,
+        "dy_p2p_H": 0.004866848518926176,
+        "left_p2p_H": 0.011965475861576147,
+        "right_p2p_H": 0.009071141713757891,
+        "search_limit_frames": {
+          "horizontal": {
+            "left": [],
+            "right": []
+          },
+          "vertical": []
+        }
+      }
+    },
+    "sole_displacement_H": 0.012448132780082987
+  }
+}

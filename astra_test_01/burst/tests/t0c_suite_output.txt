@@ -32,6 +32,12 @@ test_template_count_crosscheck (test_compare.Tests.test_template_count_crosschec
 test_cycle_and_invalid_are_atomic (test_deps_ledger.Tests.test_cycle_and_invalid_are_atomic) ... ok
 test_human_protection (test_deps_ledger.Tests.test_human_protection) ... ok
 test_transitive_diamond_slot_and_unrelated (test_deps_ledger.Tests.test_transitive_diamond_slot_and_unrelated) ... ok
+test_idle_roundtrip_target_sine (test_dope_sheet.Tests.test_idle_roundtrip_target_sine) ... ok
+test_invalid_and_conflicts_not_repaired (test_dope_sheet.Tests.test_invalid_and_conflicts_not_repaired) ... ok
+test_walk_roundtrip_source_positions_and_amplitude (test_dope_sheet.Tests.test_walk_roundtrip_source_positions_and_amplitude) ... ok
+test_all_w_quantities_evaluated (test_gait_intent.Tests.test_all_w_quantities_evaluated) ... ok
+test_bad_bob_phase_and_provisional (test_gait_intent.Tests.test_bad_bob_phase_and_provisional) ... ok
+test_unassigned_role_and_slip_threshold_are_null (test_gait_intent.Tests.test_unassigned_role_and_slip_threshold_are_null) ... ok
 test_script_injection_is_escaped (test_gates_build_review.Tests.test_script_injection_is_escaped) ... ok
 test_template_and_invalid_atlas (test_gates_build_review.Tests.test_template_and_invalid_atlas) ... ok
 test_empty_and_changed (test_gates_common.Tests.test_empty_and_changed) ... ok
@@ -44,6 +50,8 @@ test_wrong_side_and_clipping_detection (test_gates_g3_light.Tests.test_wrong_sid
 test_wrong_side_light (test_gates_g3_light.Tests.test_wrong_side_light) ... ok
 test_excessive_drift_and_missing_comparator (test_gates_g5_drift.Tests.test_excessive_drift_and_missing_comparator) ... ok
 test_bad_closure_and_distinct_comparators (test_gates_g6_seam.Tests.test_bad_closure_and_distinct_comparators) ... ok
+test_g6c_idle_zero_and_invalid (test_gates_g6_seam.Tests.test_g6c_idle_zero_and_invalid) ... ok
+test_half_cycle_homologue_and_broken_seam (test_gates_g6_seam.Tests.test_half_cycle_homologue_and_broken_seam) ... ok
 test_dark_fringe_and_green (test_gates_g9_alpha.Tests.test_dark_fringe_and_green) ... ok
 test_numeric_C_and_legacy (test_gates_guides.Tests.test_numeric_C_and_legacy) ... ok
 test_audit_observed_tool_overrun (test_gates_lane_caps.Tests.test_audit_observed_tool_overrun) ... ok
@@ -80,6 +88,11 @@ test_empty_sequence_not_silent_success (test_gates_run_gates.Tests.test_empty_se
 test_regression_comparator_detects_mutation (test_gates_run_gates.Tests.test_regression_comparator_detects_mutation) ... ok
 test_real_mirror_vs_idle (test_gates_silhouette64.Tests.test_real_mirror_vs_idle) ... ok
 test_swollen_bag_and_shift_alignment (test_gates_silhouette64.Tests.test_swollen_bag_and_shift_alignment) ... ok
+test_frozen_narrow_box_search_limit_reported (test_idle_intent.Tests.test_frozen_narrow_box_search_limit_reported) ... ok
+test_k3_combat_report_only (test_idle_intent.Tests.test_k3_combat_report_only) ... ok
+test_sole_slide_and_panting (test_idle_intent.Tests.test_sole_slide_and_panting) ... ok
+test_static_below_floor_and_provisional (test_idle_intent.Tests.test_static_below_floor_and_provisional) ... ok
+test_target_and_displacement_regions (test_idle_intent.Tests.test_target_and_displacement_regions) ... ok
 test_artifact_hash_escape_and_symlink (test_lane.LaneTests.test_artifact_hash_escape_and_symlink) ... ok
 test_audit_planted_events (test_lane.LaneTests.test_audit_planted_events) ... ok
 test_clean_and_malformed_events (test_lane.LaneTests.test_clean_and_malformed_events) ... ok
@@ -142,6 +155,8 @@ test_metrics_and_known_bad (test_parts.Tests.test_metrics_and_known_bad) ... ok
 test_three_part_antialiased_iou_and_health (test_parts.Tests.test_three_part_antialiased_iou_and_health) ... ok
 test_empty_background (test_plate_uniformity.Tests.test_empty_background) ... ok
 test_per_channel_fraction_and_threshold (test_plate_uniformity.Tests.test_per_channel_fraction_and_threshold) ... ok
+test_idle_overlay_extremes_and_input_unchanged (test_pose_guide.Tests.test_idle_overlay_extremes_and_input_unchanged) ... ok
+test_twelve_pngs_exact_sole_pixels (test_pose_guide.Tests.test_twelve_pngs_exact_sole_pixels) ... ok
 test_bare_and_unreadable (test_provenance_capture.Tests.test_bare_and_unreadable) ... ok
 test_text_itxt_ztxt_xmp_and_c2pa (test_provenance_capture.Tests.test_text_itxt_ztxt_xmp_and_c2pa) ... ok
 test_four_hz_white_and_one_hz (test_pse_check.Tests.test_four_hz_white_and_one_hz) ... ok
@@ -204,6 +219,6 @@ Traceback (most recent call last):
 AssertionError: 'rejected' unexpectedly found in {'angular_support': 0.8333333333333334, 'center': [170.0, 253.0], 'hollow_score': 0.08333333333333333, 'inner_opposed_support': 0.08333333333333333, 'inside': False, 'lab_band_surround': 12.987929666149537, 'lab_center_band': 18.508563966712764, 'lab_center_surround': 30.467977867785994, 'lab_color_return': 0.0, 'radius': 8.0, 'rejected': 'not_annulus', 'score': 0.6366616733180586}
 
 ----------------------------------------------------------------------
-Ran 154 tests in 71.823s
+Ran 169 tests in 79.799s
 
 FAILED (failures=5)

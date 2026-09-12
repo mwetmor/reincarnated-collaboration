@@ -1,0 +1,151 @@
+{
+  "amplitudes_H": {
+    "head": 0.054664636083035685,
+    "shoulders_chest": 0.06527940666663837
+  },
+  "assertions": [
+    "LOCK head: displacement <= 0.004 H.",
+    "LOCK shoulders_chest: displacement <= 0.004 H.",
+    "LOCK hips: displacement <= 0.004 H.",
+    "LOCK legs: displacement <= 0.004 H.",
+    "LOCK feet: displacement <= 0.004 H.",
+    "LOCK arms_left: displacement <= 0.004 H.",
+    "LOCK arms_right: displacement <= 0.004 H."
+  ],
+  "committed": false,
+  "conflicts": [
+    "head is LOCK but has nonzero amplitude target 0.054664636083035685 H",
+    "shoulders_chest is LOCK but has nonzero amplitude target 0.06527940666663837 H"
+  ],
+  "fps": 8.0,
+  "frames": [
+    {
+      "chest_dw_H": 0.0,
+      "frame": 0,
+      "head_dy_H": 0.0,
+      "phase_radians": 0.0,
+      "time_s": 0.0
+    },
+    {
+      "chest_dw_H": 0.012490673702972847,
+      "frame": 1,
+      "head_dy_H": 0.010459625282622316,
+      "phase_radians": 0.39269908169872414,
+      "time_s": 0.125
+    },
+    {
+      "chest_dw_H": 0.023079755562907152,
+      "frame": 2,
+      "head_dy_H": 0.019326867432704682,
+      "phase_radians": 0.7853981633974483,
+      "time_s": 0.25
+    },
+    {
+      "chest_dw_H": 0.030155153856894015,
+      "frame": 3,
+      "head_dy_H": 0.025251769214647314,
+      "phase_radians": 1.1780972450961724,
+      "time_s": 0.375
+    },
+    {
+      "chest_dw_H": 0.032639703333319184,
+      "frame": 4,
+      "head_dy_H": 0.027332318041517843,
+      "phase_radians": 1.5707963267948966,
+      "time_s": 0.5
+    },
+    {
+      "chest_dw_H": 0.030155153856894015,
+      "frame": 5,
+      "head_dy_H": 0.025251769214647314,
+      "phase_radians": 1.9634954084936207,
+      "time_s": 0.625
+    },
+    {
+      "chest_dw_H": 0.023079755562907155,
+      "frame": 6,
+      "head_dy_H": 0.019326867432704682,
+      "phase_radians": 2.356194490192345,
+      "time_s": 0.75
+    },
+    {
+      "chest_dw_H": 0.01249067370297285,
+      "frame": 7,
+      "head_dy_H": 0.01045962528262232,
+      "phase_radians": 2.748893571891069,
+      "time_s": 0.875
+    },
+    {
+      "chest_dw_H": 3.997210821226853e-18,
+      "frame": 8,
+      "head_dy_H": 3.347243580282228e-18,
+      "phase_radians": 3.141592653589793,
+      "time_s": 1.0
+    },
+    {
+      "chest_dw_H": -0.012490673702972844,
+      "frame": 9,
+      "head_dy_H": -0.010459625282622313,
+      "phase_radians": 3.5342917352885173,
+      "time_s": 1.125
+    },
+    {
+      "chest_dw_H": -0.023079755562907152,
+      "frame": 10,
+      "head_dy_H": -0.019326867432704682,
+      "phase_radians": 3.9269908169872414,
+      "time_s": 1.25
+    },
+    {
+      "chest_dw_H": -0.030155153856894008,
+      "frame": 11,
+      "head_dy_H": -0.025251769214647307,
+      "phase_radians": 4.319689898685965,
+      "time_s": 1.375
+    },
+    {
+      "chest_dw_H": -0.032639703333319184,
+      "frame": 12,
+      "head_dy_H": -0.027332318041517843,
+      "phase_radians": 4.71238898038469,
+      "time_s": 1.5
+    },
+    {
+      "chest_dw_H": -0.03015515385689401,
+      "frame": 13,
+      "head_dy_H": -0.02525176921464731,
+      "phase_radians": 5.105088062083414,
+      "time_s": 1.625
+    },
+    {
+      "chest_dw_H": -0.02307975556290716,
+      "frame": 14,
+      "head_dy_H": -0.019326867432704686,
+      "phase_radians": 5.497787143782138,
+      "time_s": 1.75
+    },
+    {
+      "chest_dw_H": -0.012490673702972868,
+      "frame": 15,
+      "head_dy_H": -0.010459625282622334,
+      "phase_radians": 5.890486225480862,
+      "time_s": 1.875
+    }
+  ],
+  "kind": "idle",
+  "lock_regions": [
+    "head",
+    "shoulders_chest",
+    "hips",
+    "legs",
+    "feet",
+    "arms_left",
+    "arms_right"
+  ],
+  "motion_amplitudes_H": {},
+  "motion_regions": [],
+  "n_frames": 16,
+  "period_s": 2.0,
+  "period_source": "clip_duration",
+  "prompt_text": "LOCK head: displacement <= 0.004 H.\nLOCK shoulders_chest: displacement <= 0.004 H.\nLOCK hips: displacement <= 0.004 H.\nLOCK legs: displacement <= 0.004 H.\nLOCK feet: displacement <= 0.004 H.\nLOCK arms_left: displacement <= 0.004 H.\nLOCK arms_right: displacement <= 0.004 H.\nINTENT CONFLICT: head is LOCK but has nonzero amplitude target 0.054664636083035685 H.\nINTENT CONFLICT: shoulders_chest is LOCK but has nonzero amplitude target 0.06527940666663837 H.\nframe 1 \u2014 head delta y +0.000000 H (image-down), chest delta width +0.000000 H.\nframe 2 \u2014 head delta y +0.010460 H (image-down), chest delta width +0.012491 H.\nframe 3 \u2014 head delta y +0.019327 H (image-down), chest delta width +0.023080 H.\nframe 4 \u2014 head delta y +0.025252 H (image-down), chest delta width +0.030155 H.\nframe 5 \u2014 head delta y +0.027332 H (image-down), chest delta width +0.032640 H.\nframe 6 \u2014 head delta y +0.025252 H (image-down), chest delta width +0.030155 H.\nframe 7 \u2014 head delta y +0.019327 H (image-down), chest delta width +0.023080 H.\nframe 8 \u2014 head delta y +0.010460 H (image-down), chest delta width +0.012491 H.\nframe 9 \u2014 head delta y +0.000000 H (image-down), chest delta width +0.000000 H.\nframe 10 \u2014 head delta y -0.010460 H (image-down), chest delta width -0.012491 H.\nframe 11 \u2014 head delta y -0.019327 H (image-down), chest delta width -0.023080 H.\nframe 12 \u2014 head delta y -0.025252 H (image-down), chest delta width -0.030155 H.\nframe 13 \u2014 head delta y -0.027332 H (image-down), chest delta width -0.032640 H.\nframe 14 \u2014 head delta y -0.025252 H (image-down), chest delta width -0.030155 H.\nframe 15 \u2014 head delta y -0.019327 H (image-down), chest delta width -0.023080 H.\nframe 16 \u2014 head delta y -0.010460 H (image-down), chest delta width -0.012491 H."
+}
