@@ -2787,6 +2787,145 @@
       "codex_version": "codex-cli 0.153.4",
       "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
       "exit": 0
+    },
+    {
+      "id": "K1-tr-K",
+      "type": "TRANSCRIBE",
+      "experiment": "K1",
+      "brief_sha256": "6da823b008fe50311765fe302fede1b31e3a70f01dd5cec5b0dc57287534812c",
+      "started": "2026-09-12T16:05:06.748338+00:00",
+      "ended": "2026-09-12T16:06:01.059364+00:00",
+      "minutes": 0.9052346687501995,
+      "image_calls": 0,
+      "tool_calls": 3,
+      "audit": {
+        "violations": [],
+        "image_calls": 0,
+        "tool_calls": 3,
+        "tools_seen": {
+          "command_execution": 3
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": []
+      },
+      "receipt_sha256": "3e7d9260994a2698f9dc6a5861f907fab33e244d29e1500f276609afb6348d0a",
+      "artifacts": [
+        {
+          "name": "inventory.json",
+          "sha256": "871b40f0d5ced0f5d39abd619144036609e2707e0cedf7336641ba5b04309f4b"
+        },
+        {
+          "name": "notes.txt",
+          "sha256": "0b7baf30237d7a310655c72d1d2c14759dc6b3484d63b13f4db95ca3169ae695"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
+    },
+    {
+      "id": "K1-tr-L",
+      "type": "TRANSCRIBE",
+      "experiment": "K1",
+      "brief_sha256": "8872dc916661395f2af3025ed4934a38d32f049cd0d0087ac616947475911e6f",
+      "started": "2026-09-12T16:06:01.227405+00:00",
+      "ended": "2026-09-12T16:07:08.197370+00:00",
+      "minutes": 1.116203366666256,
+      "image_calls": 0,
+      "tool_calls": 6,
+      "audit": {
+        "violations": [],
+        "image_calls": 0,
+        "tool_calls": 6,
+        "tools_seen": {
+          "command_execution": 5,
+          "file_change": 1
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": []
+      },
+      "receipt_sha256": "16435800531621d21d949a9200cbae7a3e80ec8c825e7b48ed9879c875ea0067",
+      "artifacts": [
+        {
+          "name": "inventory.json",
+          "sha256": "871b40f0d5ced0f5d39abd619144036609e2707e0cedf7336641ba5b04309f4b"
+        },
+        {
+          "name": "notes.txt",
+          "sha256": "740a626a2aeb0964c6fe3b474b4e8880e841a2df0eb0afc9b25a13e8151c6d8b"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
+    },
+    {
+      "id": "K1-jdg-04",
+      "type": "JUDGE",
+      "experiment": "K1",
+      "brief_sha256": "33d836c3c67acc0e5491c0ab041c718f5b275350a1387d9d8a843989ab8e5637",
+      "started": "2026-09-12T16:07:08.376228+00:00",
+      "ended": "2026-09-12T16:09:51.238153+00:00",
+      "minutes": 2.714470454867114,
+      "image_calls": 0,
+      "tool_calls": 3,
+      "audit": {
+        "violations": [],
+        "image_calls": 0,
+        "tool_calls": 3,
+        "tools_seen": {
+          "file_change": 1,
+          "command_execution": 2
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": []
+      },
+      "receipt_sha256": "2570768f679b9f2943d87351bbfe3b263bee4e0e0c5ee157e953d42351b3d9c1",
+      "artifacts": [
+        {
+          "name": "judgment.json",
+          "sha256": "ce66e3da633b2361460d32b5ae771893f88553dfcd141fe5d8050c5522f1325a"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
     }
   ],
   "images_used": 15,
@@ -2885,7 +3024,8 @@
       "matt_ruling": "B chosen as base; starter carries NO insignia (chest plain; ring head removed from the staff); character is FEMININE; treat as a STARTING character",
       "approved_master": {
         "path": "runs/C-1/artifacts/K1-gen-04/k1_master_L.png",
-        "sha256": "b3f259fa772dc300d97d99a4b632c95bb70e9dfc8caa550283921fd7fcc7302e"
+        "sha256": "b3f259fa772dc300d97d99a4b632c95bb70e9dfc8caa550283921fd7fcc7302e",
+        "judge": "K1-jdg-04: L 4\u00b74\u00b74\u00b74\u00b74 (4.0) \u2014 reads as a young woman, 'no visible chin cleft/dimple', no chest or harness sigil; axis 4 back to 4 (tall staff line). J: chin dimple + shaped satchel plates (3.8). K: a small spiral mark on the harness \u2014 a real bleed (3.8). Control (mirror K): axis 3 = 2, axis 2 = 2 (LEFT hand / RIGHT hip) \u2192 batch VALID. The only ornament the judge lists on L is the satchel's brass corner plates \u2014 ruled hardware (V2)."
       }
     }
   ],
