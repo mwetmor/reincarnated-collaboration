@@ -6419,9 +6419,155 @@
       "codex_version": "codex-cli 0.153.4",
       "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
       "exit": 0
+    },
+    {
+      "id": "K6-male-H2",
+      "type": "GENERATE",
+      "experiment": "K6",
+      "brief_sha256": "728779e6860023c1c93cdb5beea7bd1c014ced0fb2541036146c40369cd63486",
+      "started": "2026-09-12T20:26:16.674847+00:00",
+      "ended": "2026-09-12T20:28:49.196944+00:00",
+      "minutes": 2.5420461097166633,
+      "image_calls": 2,
+      "tool_calls": 2,
+      "audit": {
+        "violations": [],
+        "image_calls": 2,
+        "tool_calls": 2,
+        "tools_seen": {
+          "command_execution": 2
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0974c-a1a3-7391-8b9d-f2a2d118c15b/exec-781e1243-2f2b-47f6-9a4a-560951b914a8.png",
+            "sha256": "a7cc598ee9e3b2c0840858777591dc7ab06f639c80d781ea1369d0b3e56f07d8"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0974c-a1a3-7391-8b9d-f2a2d118c15b/exec-bd3d749c-7136-4d10-a43d-84a214daaa22.png",
+            "sha256": "b781cc3fd70ce9e526c2d497e958d00d8a0d941358262d49c6800bca77384d02"
+          }
+        ]
+      },
+      "receipt_sha256": "23b56f23e7e517e3b28b2ce157881166a72b76bcaef81ff08f938e1eac952bfe",
+      "artifacts": [
+        {
+          "name": "k6_male_H2_1.png",
+          "sha256": "b781cc3fd70ce9e526c2d497e958d00d8a0d941358262d49c6800bca77384d02"
+        },
+        {
+          "name": "k6_male_H2_2.png",
+          "sha256": "a7cc598ee9e3b2c0840858777591dc7ab06f639c80d781ea1369d0b3e56f07d8"
+        },
+        {
+          "name": "exec-781e1243-2f2b-47f6-9a4a-560951b914a8.provenance.json",
+          "sha256": "8a716d913c3935fa096a4e6e58861edfdc20982d41f3ebb14c49f402327c774c"
+        },
+        {
+          "name": "exec-bd3d749c-7136-4d10-a43d-84a214daaa22.provenance.json",
+          "sha256": "de04aea58af48d2c345e8673e2a232613d429b6608b838a1c29230f8856e2007"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0974c-a1a3-7391-8b9d-f2a2d118c15b/exec-781e1243-2f2b-47f6-9a4a-560951b914a8.png",
+          "sha256": "a7cc598ee9e3b2c0840858777591dc7ab06f639c80d781ea1369d0b3e56f07d8"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0974c-a1a3-7391-8b9d-f2a2d118c15b/exec-bd3d749c-7136-4d10-a43d-84a214daaa22.png",
+          "sha256": "b781cc3fd70ce9e526c2d497e958d00d8a0d941358262d49c6800bca77384d02"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
+    },
+    {
+      "id": "K6-male-H1",
+      "type": "GENERATE",
+      "experiment": "K6",
+      "brief_sha256": "32f4fe976d8760d956dff34a20049ace9eb9b4254395ab4260774e223e75701f",
+      "started": "2026-09-12T20:26:16.674847+00:00",
+      "ended": "2026-09-12T20:28:52.327139+00:00",
+      "minutes": 2.594214494450004,
+      "image_calls": 2,
+      "tool_calls": 2,
+      "audit": {
+        "violations": [],
+        "image_calls": 2,
+        "tool_calls": 2,
+        "tools_seen": {
+          "command_execution": 2
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0974c-a1a3-7d80-92b1-8d64b2c8ccf0/exec-a46890e4-b805-4b22-850a-8ab8e1436dae.png",
+            "sha256": "37322450d2d03c6dbe4100056aba285647a6537a3f8cd68d9951c7e20659b8b6"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0974c-a1a3-7d80-92b1-8d64b2c8ccf0/exec-c48ae6d1-a679-4477-87d4-6cbd921597bf.png",
+            "sha256": "f31b6d967124fbb952397d0e157e47ec09b25a7ea39ebaaec4f82595e82d1bb3"
+          }
+        ]
+      },
+      "receipt_sha256": "8d73d999c843fff188759687f0ddbb0ebc53d47a24500b1675425c25b03452d5",
+      "artifacts": [
+        {
+          "name": "k6_male_H1_1.png",
+          "sha256": "f31b6d967124fbb952397d0e157e47ec09b25a7ea39ebaaec4f82595e82d1bb3"
+        },
+        {
+          "name": "k6_male_H1_2.png",
+          "sha256": "37322450d2d03c6dbe4100056aba285647a6537a3f8cd68d9951c7e20659b8b6"
+        },
+        {
+          "name": "exec-a46890e4-b805-4b22-850a-8ab8e1436dae.provenance.json",
+          "sha256": "8271b6060b9f7a936efe0dd7e37985fe7abeb7c9ea0561f90b87a3d3d1c486c2"
+        },
+        {
+          "name": "exec-c48ae6d1-a679-4477-87d4-6cbd921597bf.provenance.json",
+          "sha256": "8e6980ef508aed6b8ce411c76e8c59d221bddd1fd875673038ad1ff37dcbc237"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0974c-a1a3-7d80-92b1-8d64b2c8ccf0/exec-a46890e4-b805-4b22-850a-8ab8e1436dae.png",
+          "sha256": "37322450d2d03c6dbe4100056aba285647a6537a3f8cd68d9951c7e20659b8b6"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0974c-a1a3-7d80-92b1-8d64b2c8ccf0/exec-c48ae6d1-a679-4477-87d4-6cbd921597bf.png",
+          "sha256": "f31b6d967124fbb952397d0e157e47ec09b25a7ea39ebaaec4f82595e82d1bb3"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
     }
   ],
-  "images_used": 58,
+  "images_used": 62,
   "images_cap": 250,
   "experiments": {
     "T0": {
@@ -6576,14 +6722,16 @@
       "corpus": "legolas 2026-09-12-corpus-register-stills (press kits, class D) pending"
     },
     "K6": {
-      "status": "DELIVERED \u2014 in-world register study for Q74 (Matt rules): male end-game Keeper in H1/H2 \u00d7 ARPG/Hades worlds, 8 images",
+      "status": "DELIVERED \u2014 in-world register study for Q74 (Matt rules): male end-game Keeper in H1/H2 \u00d7 ARPG/Hades worlds, 8 images \u00b7 male end-game masters on green (H1/H2 \u00d72) composited into the E07V faction scene panels (F01\u2013F04) at 10.5 % / 14 % of panel height \u2014 packet 10",
       "bursts": [
         "K6-H1-arpg",
         "K6-H1-hades",
         "K6-H2-arpg",
-        "K6-H2-hades"
+        "K6-H2-hades",
+        "K6-male-H1",
+        "K6-male-H2"
       ],
-      "images": 8,
+      "images": 12,
       "packet": "~/Desktop/Astra Burst Review - 2026-09-11/09 K6 in-world register study (Q74)/"
     }
   },
