@@ -1,0 +1,58 @@
+{
+ "text": "JUDGE BURST K2-jdg-03 — Keeper turnaround: identity persistence per direction against the APPROVED MASTER (JUDGE_RUBRIC axes 1–5; charter § 6). task_id \"K2-jdg-03\". You are a separate instance: you have not seen any prompt, receipt, check or prior judgment, and must not look for one.\n\nImage 1 = the APPROVED MASTER (direction S — the identity every other image must persist). Images 2–9 = eight candidates, labelled by the direction they CLAIM: 2=SW, 3=W, 4=NW, 5=N, 6=NE, 7=E, 8=SE, 9=X (an eighth candidate whose claimed direction is W; judge it exactly like the others — do not assume any candidate is a control). Anchors: Image 10 = light anchor (key from screen upper-left; the key NEVER rotates with the character), Image 11 = 64-px silhouette anchor.\nFor EACH candidate score axes 1–5 (integers 1–5) with one-line reasons: 1 register fidelity to the master · 2 IDENTITY PERSISTENCE vs the master (face where visible, hair mass, every costume item and ITS SIDE: the rod must be in the anatomical RIGHT hand and the satchel on the anatomical LEFT hip for the claimed direction — a candidate showing them on the wrong side for its claimed facing is mirrored: score 2 or less and say 'mirrored'; also count harness straps, belts and motif placements) · 3 light obedience (key upper-left fixed regardless of facing; a candidate lit from upper-right scores ≤ 2) · 4 silhouette read at 64 px (rod head + hair mass distinct for that facing) · 5 brush-register consistency with the master. Also state, per candidate, the facing you actually SEE (S/SW/W/NW/N/NE/E/SE) and whether it matches the claim, and list any ornament — noting that brass buckles, laces and the satchel's brass corner plates are RULED HARDWARE (bible V2), not ornament; only sigils, emblems, marks or repeated decorative motifs count.\nWrite out/judgment.json: {\"master\":1,\"candidates\":[{\"image\":n,\"claimed\":\"SW\",\"seen_facing\":\"…\",\"facing_matches\":true,\"axes\":{\"1\":n,…},\"reasons\":{…},\"mirrored\":false,\"ornament_surfaces\":[…]},…]}. No image_gen. No code. No web. No files outside out/. calls_used must be 0.\nRETURN: receipt task_id \"K2-jdg-03\"; images []; files [out/judgment.json + sha256]; status DELIVERED / DELIVERED_WITH_CONCERNS; concerns for anything you could not assess. Never PASS/FAIL — scores only.",
+ "references": [
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K1-gen-04/k1_master_L.png",
+   "role": "APPROVED MASTER (direction S)"
+  },
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K2-gen-SW/k2_SW.png",
+   "role": "candidate, claimed direction SW"
+  },
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K2-gen-W/k2_W.png",
+   "role": "candidate, claimed direction W"
+  },
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K2-gen-NW-r2/k2_NW.png",
+   "role": "candidate, claimed direction NW"
+  },
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K2-gen-N/k2_N.png",
+   "role": "candidate, claimed direction N"
+  },
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K2-gen-NE/k2_NE.png",
+   "role": "candidate, claimed direction NE"
+  },
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K2-gen-E/k2_E.png",
+   "role": "candidate, claimed direction E"
+  },
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K2-gen-SE-r1/k2_SE.png",
+   "role": "candidate, claimed direction SE"
+  },
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K2-control/k2_control_mirror.png",
+   "role": "candidate X, claimed direction W"
+  },
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/run_03/evidence/vfx_style_match.png",
+   "role": "light anchor (axis 3)"
+  },
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/run_03/character/turnaround_64px.png",
+   "role": "64-px silhouette anchor (axis 4)"
+  }
+ ],
+ "image_cap": 0,
+ "minutes_cap": 15,
+ "tool_call_cap": 20,
+ "outputs": [
+  "out/judgment.json"
+ ],
+ "effort": "high",
+ "add_dirs": [],
+ "experiment": "K2"
+}

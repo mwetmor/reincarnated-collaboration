@@ -1,0 +1,23 @@
+{
+ "text": "PACK BURST K3-reg-02 — re-register the Keeper IDLE-S loop with per-frame sole alignment (register card: uniform downscale + TRANSLATION only — the translation is per frame, the scale is not). task_id \"K3-reg-02\".\n\nInputs (read-only): the first registration's idle frames /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3-reg-01/frames/idle/S/idle_S_00.png … idle_S_07.png (512×512 RGBA, one fixed transform; measured sole lines 402,402,401,402,402,399,399,402 at alpha>0 — frames 5–6 sit 3 px high) and /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3-reg-01/registration.json. Frozen tools: gates/common.py, gates/register.py (read its docstring: sole_contacts / measured_anchor / register_reviewed; if a reviewed-regions input is mandatory, derive the sole line yourself as the bottom-most row with alpha ≥ 128 and say so). PIL is a frozen library: only integer translations (no resampling, no scale).\n\nFor every frame: measure the sole line (bottom-most row with alpha ≥ 128), translate the frame VERTICALLY by an integer so that row lands at y = 399 (the frame-0 value at alpha ≥ 128) — horizontal translation ONLY if the alpha-bbox centre-x differs from frame 0 by more than 2 px, and then by the integer difference; report every offset. Frame 7 must remain byte-identical to frame 0. Write out/frames/idle/S/idle_S_00.png … 07.png, out/sheets/idle_S_strip.png (8 frames on #3a3f4a with numbers), out/registration.json (per frame: sole line before/after, offsets applied, alpha-bbox height, bbox centre-x), out/readme.txt with exact commands. No image_gen. No writes outside out/. calls_used must be 0.\nRETURN: receipt task_id \"K3-reg-02\"; images []; files: every out/ file with sha256; status DELIVERED / DELIVERED_WITH_CONCERNS; concerns for any frame needing more than 6 px of translation. Never PASS/FAIL.",
+ "references": [],
+ "image_cap": 0,
+ "minutes_cap": 15,
+ "tool_call_cap": 20,
+ "outputs": [
+  "out/registration.json",
+  "out/readme.txt",
+  "out/sheets/idle_S_strip.png",
+  "out/frames/idle/S/idle_S_00.png",
+  "out/frames/idle/S/idle_S_01.png",
+  "out/frames/idle/S/idle_S_02.png",
+  "out/frames/idle/S/idle_S_03.png",
+  "out/frames/idle/S/idle_S_04.png",
+  "out/frames/idle/S/idle_S_05.png",
+  "out/frames/idle/S/idle_S_06.png",
+  "out/frames/idle/S/idle_S_07.png"
+ ],
+ "effort": "high",
+ "add_dirs": [],
+ "experiment": "K3"
+}

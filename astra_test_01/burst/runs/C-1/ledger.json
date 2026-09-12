@@ -4581,9 +4581,66 @@
       "codex_version": "codex-cli 0.153.4",
       "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
       "exit": 0
+    },
+    {
+      "id": "K2-gen-NW-r2",
+      "type": "GENERATE",
+      "experiment": "K2",
+      "brief_sha256": "e2b42de989967a43e8b1d8c2ea037916e77d34822f9460c80f3b817ec3e88797",
+      "started": "2026-09-12T17:25:19.424541+00:00",
+      "ended": "2026-09-12T17:29:44.772377+00:00",
+      "minutes": 4.422635950683616,
+      "image_calls": 1,
+      "tool_calls": 2,
+      "audit": {
+        "violations": [],
+        "image_calls": 1,
+        "tool_calls": 2,
+        "tools_seen": {
+          "command_execution": 2
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a096a6-f5f3-7382-b4fe-dbd7fb32460c/exec-ff8eb6e2-eccb-46d9-90e9-765739b013bb.png",
+            "sha256": "454d24c15e2a800de5004a3c4514b7f865670fb8b277a3746b31029655b8cecb"
+          }
+        ]
+      },
+      "receipt_sha256": "58e584411aca129a7334a4c730736db878fd4bf63be9e73736310dd17041e634",
+      "artifacts": [
+        {
+          "name": "k2_NW.png",
+          "sha256": "454d24c15e2a800de5004a3c4514b7f865670fb8b277a3746b31029655b8cecb"
+        },
+        {
+          "name": "exec-ff8eb6e2-eccb-46d9-90e9-765739b013bb.provenance.json",
+          "sha256": "57107f8348ad35e3c8be13258091e5820b57376e0116e7f34d3a2919793ce7da"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a096a6-f5f3-7382-b4fe-dbd7fb32460c/exec-ff8eb6e2-eccb-46d9-90e9-765739b013bb.png",
+          "sha256": "454d24c15e2a800de5004a3c4514b7f865670fb8b277a3746b31029655b8cecb"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
     }
   ],
-  "images_used": 31,
+  "images_used": 32,
   "images_cap": 250,
   "experiments": {
     "T0": {
@@ -4663,7 +4720,7 @@
       "packet": "~/Desktop/Astra Burst Review - 2026-09-11/01 K1 identity masters/packet/review.html"
     },
     "K2": {
-      "status": "v2 DELIVERED \u2014 SE repaired (seen SE, G1 1.004); NW still read as NE after its diagnosed retry (height fixed 0.979) \u2192 conductor METHOD CHANGE within the hypothesis: bracketing references (N + W frames) \u2192 K2-gen-NW-r2; 6/7 facings match; control caught both rounds",
+      "status": "HALT-class conductor error (R-15): v1\u2013v3 SW/W/NE/E/SE mirrored bodies from an inverted near/far table; six directions regenerating with the derived table (K2 cap 16 reached exactly)",
       "bursts": [
         "K2-gen-SW",
         "K2-gen-W",
@@ -4857,6 +4914,14 @@
       "boundary": "reasoning",
       "burst": "K2-gen-NW-r2",
       "ruling": "K2 NW: two text-only attempts (original + diagnosed retry with sharpened screen-side facts) were both read as NE by the judge; height repaired on the retry. Charter \u00a7 4 two-attempt rule \u2192 conductor changes METHOD within the hypothesis (reference set): the N and W frames bracket the NW pose ('halfway between'), identity master retained. One image. Finding for the overnight charter: back-three-quarter left/right is the hard facing for text alone; bracketing references are the standing method for NW/NE-class views.",
+      "veto": "open to Matt"
+    },
+    {
+      "id": "R-15",
+      "date": "2026-09-12",
+      "boundary": "reasoning (conductor error, self-caught)",
+      "burst": "K2 v1\u2013v3",
+      "ruling": "CONDUCTOR ERROR: the K2 screen-side facing table asserted in the direction briefs had NEAR/FAR inverted for every non-cardinal facing (E/W and the four diagonals). Derived from the master (facing S, her right hand is on screen-left): facing E her RIGHT side faces the viewer (staff nearest, satchel hidden); facing W her LEFT side faces the viewer (satchel nearest, staff behind); diagonals accordingly. Consequence: K2 v1\u2013v3 SW, W, NE, E, SE are MIRRORED BODIES (staff in the left hand, satchel on the right hip; light correct) and NW kept coming out as the TRUE geometry against the wrong instruction \u2014 hence the judge's persistent 'NW seen as NE'. The judge, primed with the same wrong facts, confirmed the mirrored frames; only the light tell (mirrored-E control) was independent. Disposition: six directions regenerated with the DERIVED table (near side / far side / handedness explicit), one homogeneous wave of six at image_cap 1 \u2192 K2 reaches its 16-image cap exactly; judge instructed to verify handedness by near-side geometry as well as light; sheet v4. RULE for the charter: a screen-side table is DERIVED from the master and recorded as data (runs/C-1/k2_facing_table_derived.json), never asserted from memory; the judge must be given the derivation, not the claim.",
       "veto": "open to Matt"
     }
   ]

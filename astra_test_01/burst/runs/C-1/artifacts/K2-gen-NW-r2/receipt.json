@@ -1,0 +1,45 @@
+{
+  "task_id": "K2-gen-NW-r2",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "k2_NW.png",
+      "path": "out/k2_NW.png",
+      "sha256": "454d24c15e2a800de5004a3c4514b7f865670fb8b277a3746b31029655b8cecb",
+      "prompt": "Use case: stylized-concept. Generate exactly ONE full-body portrait illustration, 1024x1536, of the SAME young woman in reference Image 1, now facing NW, exactly halfway between reference Image 2 (rear N view) and reference Image 3 (left-facing W profile). Image 1 is the approved identity and framing master; Image 2 is pose bracket A; Image 3 is pose bracket B. Rotate the CHARACTER from Image 2 45 degrees toward Image 3; keep the camera fixed. The viewer sees her BACK and her anatomical RIGHT side. Her RIGHT shoulder, RIGHT bracer and RIGHT hand holding the staff are closest to the camera on SCREEN-RIGHT. The back of her head faces the viewer; her head and feet point AWAY toward SCREEN UPPER-LEFT. Her face is NOT visible. This is a rear three-quarter view facing upper-left. The staff is vertical on SCREEN-RIGHT in her anatomical RIGHT hand. The satchel on her anatomical LEFT hip is on the far side and mostly hidden by the body. Do not mirror any reference. The single harness strap passes over her RIGHT shoulder and diagonally down her back toward her LEFT hip. Preserve identity, outfit, anatomy, proportions and equipment exactly: young woman early 20s, sun-browned skin, dark curly hair tied back, ivory linen shirt with rolled sleeves, navy sleeveless long split tabard with plain surfaces, ONE chestnut diagonal harness strap carrying ONE olive canvas satchel at LEFT hip, ONE waist belt, chestnut laced bracers, navy trousers, chestnut buckled boots. ONE plain straight dark walnut staff with small brass ferrules at tip and foot; no staff ornament or head-piece. No helmet, insignia, emblem, extra objects, text or watermark. Painted 2D illustration, high resolution, clean material planes, restrained surface texture, readable small silhouette, no conspicuous brush or grain texture. Blue, ivory and brass palette. Elevated three-quarter pinhole camera about 53 degrees above the ground plane, fixed for all directions. Match Image 1's portrait framing and full-body standing height: centered, hair and both feet fully inside canvas with margins. Single key light from SCREEN UPPER-LEFT, fixed in screen space, deep cool low-value ambient with readable shadows, never pure black, slight rim on the screen-upper-left key-facing silhouette. No spell glow. NO floor shadow. Entire background flat uniform pure #00ff00 green, edge to edge; opaque green plate, do not matte. Deliver this single NW character portrait.",
+      "references": [
+        {
+          "role": "APPROVED IDENTITY MASTER — direction S",
+          "path": "in/01_k1_master_L.png"
+        },
+        {
+          "role": "Pose bracket A — rear direction N",
+          "path": "in/02_k2_N.png"
+        },
+        {
+          "role": "Pose bracket B — left profile direction W",
+          "path": "in/03_k2_W.png"
+        }
+      ],
+      "elapsed_s": 188.648
+    }
+  ],
+  "calls_used": 1,
+  "retries": [],
+  "self_report": {
+    "obeyed_invariants": false,
+    "concerns": [
+      "Generated head and feet point screen-right, reading as NE rather than the requested NW. Direction alone is not an authorized retry reason.",
+      "Part of the cheek is visible; the satchel remains visibly exposed.",
+      "Faint ornamental fabric pattern appears despite the plain-surface requirement.",
+      "Delivered the task-specific 1024×1536 portrait; the register's 2×2 sheet and 512×512 registration requirements were not applied.",
+      "Exact camera elevation and background RGB uniformity were not measured."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/k2_NW.png",
+      "sha256": "454d24c15e2a800de5004a3c4514b7f865670fb8b277a3746b31029655b8cecb"
+    }
+  ]
+}

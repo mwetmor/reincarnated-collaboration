@@ -1,0 +1,54 @@
+{
+ "text": "JUDGE BURST K2-jdg-04 — Keeper turnaround, corrected set: identity persistence per direction against the APPROVED MASTER, with handedness verified by geometry (JUDGE_RUBRIC axes 1–5; charter § 6). task_id \"K2-jdg-04\". You are a separate instance: you have not seen any prompt, receipt, check or prior judgment, and must not look for one.\n\nImage 1 = the APPROVED MASTER (direction S). Images 2–9 = eight candidates labelled by the direction they CLAIM: 2=SW, 3=W, 4=NW, 5=N, 6=NE, 7=E, 8=SE, 9=X (claims W; judge it exactly like the others — do not assume any candidate is a control). Image 10 = light anchor (key from screen upper-left; the key NEVER rotates with the character).\nDERIVED GEOMETRY (from the master: facing the viewer, her RIGHT hand is on SCREEN-LEFT; verify handedness by WHICH SIDE IS NEARER THE CAMERA, never by the claim): SW: she faces the viewer's LOWER-LEFT (turned 45° toward screen-left from the S pose). Her LEFT side is the side nearer the camera: the satchel on her LEFT hip hangs in FRONT, on the screen-right of her body, nearest the camera; her RIGHT arm and the staff are on the FAR side, on the screen-left of her body, partly behind her, the staff tip rising above her far shoulder. Her face is visible, looking toward the screen's lower-left. · W: full LEFT profile — she faces screen-left. The side toward the camera is her LEFT side: the satchel on her left hip is in FRONT, nearest the camera, at her hip; her RIGHT arm and the staff are on the FAR side, behind her body — the staff shaft mostly hidden behind her, its tip rising above her far shoulder and its foot showing beside her far boot. Face in left profile. · NW: she faces the viewer's UPPER-LEFT (a back-three-quarter view, turned 135° from the S pose). Her BACK and her LEFT side are visible; her LEFT side is nearer the camera: the satchel on her left hip is on the SCREEN-LEFT, nearest the camera; her RIGHT arm and the staff are on the FAR side, on the SCREEN-RIGHT, behind her, the staff tip above her far shoulder. Her head is turned AWAY toward the UPPER-LEFT — the face is NOT visible. · NE: she faces the viewer's UPPER-RIGHT (a back-three-quarter view, turned 135° the other way). Her BACK and her RIGHT side are visible; her RIGHT side is nearer the camera: her RIGHT arm and the staff are on the SCREEN-RIGHT, nearest the camera; the satchel on her left hip is on the FAR side, on the screen-left, mostly hidden behind her. Her head is turned AWAY toward the UPPER-RIGHT — the face is NOT visible. · E: full RIGHT profile — she faces screen-right. The side toward the camera is her RIGHT side: her RIGHT arm and the staff are in FRONT, nearest the camera, the staff upright beside her; the satchel on her left hip is on the FAR side, hidden behind her body. Face in right profile. · SE: she faces the viewer's LOWER-RIGHT (turned 45° toward screen-right from the S pose). Her RIGHT side is the side nearer the camera: her RIGHT arm and the staff are in FRONT, on the screen-left of her body, nearest the camera; the satchel on her LEFT hip is on the FAR side, on the screen-right of her body, partly behind her. Her face is visible, looking toward the screen's lower-right. · N: back to the viewer, staff on screen-right, satchel on screen-left. A candidate whose staff/satchel sit on the wrong near/far side for its facing is a MIRRORED BODY even if its light is correct — score axis 2 ≤ 2 and say 'mirrored'.\nFor EACH candidate: state the facing you SEE; state which of her sides is nearer the camera and where the staff and the satchel sit (near/far, screen-left/right); decide mirrored true/false from the geometry; then score axes 1–5 (integers) with one-line reasons: 1 register fidelity to the master · 2 identity persistence incl. handedness (mirrored → ≤ 2) · 3 light obedience (key upper-left regardless of facing; upper-right → ≤ 2) · 4 silhouette read at 64 px · 5 brush-register consistency. Also list any ornament — brass buckles, laces and the satchel's brass corners are RULED HARDWARE, not ornament.\nWrite out/judgment.json: {\"master\":1,\"candidates\":[{\"image\":n,\"claimed\":\"SW\",\"seen_facing\":\"…\",\"near_side\":\"left|right|back|front\",\"staff_position\":\"…\",\"satchel_position\":\"…\",\"facing_matches\":true,\"mirrored\":false,\"axes\":{…},\"reasons\":{…},\"ornament_surfaces\":[…]},…]}. No image_gen. No code. No web. No files outside out/. calls_used must be 0.\nRETURN: receipt task_id \"K2-jdg-04\"; images []; files [out/judgment.json + sha256]; status DELIVERED / DELIVERED_WITH_CONCERNS; concerns for anything you could not assess. Never PASS/FAIL — scores only.",
+ "references": [
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K1-gen-04/k1_master_L.png",
+   "role": "APPROVED MASTER (direction S)"
+  },
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K2-gen-SW-c1/k2_SW.png",
+   "role": "candidate, claimed direction SW"
+  },
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K2-gen-W-c1/k2_W.png",
+   "role": "candidate, claimed direction W"
+  },
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K2-gen-NW-c1/k2_NW.png",
+   "role": "candidate, claimed direction NW"
+  },
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K2-gen-N/k2_N.png",
+   "role": "candidate, claimed direction N"
+  },
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K2-gen-NE-c1/k2_NE.png",
+   "role": "candidate, claimed direction NE"
+  },
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K2-gen-E-c1/k2_E.png",
+   "role": "candidate, claimed direction E"
+  },
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K2-gen-SE-c1/k2_SE.png",
+   "role": "candidate, claimed direction SE"
+  },
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K2-control/k2_control_mirror_c1.png",
+   "role": "candidate X, claimed direction W"
+  },
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/run_03/evidence/vfx_style_match.png",
+   "role": "light anchor (axis 3)"
+  }
+ ],
+ "image_cap": 0,
+ "minutes_cap": 15,
+ "tool_call_cap": 20,
+ "outputs": [
+  "out/judgment.json"
+ ],
+ "effort": "high",
+ "add_dirs": [],
+ "experiment": "K2"
+}
