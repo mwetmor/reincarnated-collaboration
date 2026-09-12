@@ -126,7 +126,7 @@ PACK bursts write sheets, `atlas.json`, the engine-neutral manifest (frames, fps
 
 ## 6. Current state
 
-Live truth: `astra_test_01/burst/runs/C-1/ledger.json`. As of this doc's authoring: T0-a/b/c DELIVERED and frozen (lane runtime; gate library; oracles O1–O9 + parts + comparator + transcription contract — 69 tests, 2 named-red acceptance cases: O3 template mode cannot see primitive-family bleed → O3b owed in T0-d, with two audit fixes); **X1 done: art ✓ (satchel + staff head, clean matte), lane VOID on five audit/gate defects (ledger R-2) — all T0-d acceptance criteria; T0-d is HITL step 0.** 2 images used of 250. Session closed 2026-09-11 at the HITL run start (`gandalf/notes/2026-09-11-astra-burst-lane-hitl-run-plan.md`) (oracles + comparator); X1 smoke in flight (first GENERATE through the wrapper); T0-d (audit fixes + O3b + O9 part-controls + resolved-model-per-burst + R9 extensions) is HITL step 0; K1 (pilot identity) **paused** on Faction Bible v0 + Matt's vocabulary rulings; legolas R9 in flight. Rulings F1–F10: charter § 10.
+Live truth: `astra_test_01/burst/runs/C-1/ledger.json`. As of this doc's authoring: T0-a/b/c DELIVERED and frozen (lane runtime; gate library; oracles O1–O9 + parts + comparator + transcription contract — 69 tests, 2 named-red acceptance cases: O3 template mode cannot see primitive-family bleed → O3b owed in T0-d, with two audit fixes); **X1 done: art ✓ (satchel + staff head, clean matte), lane VOID on five audit/gate defects (ledger R-2) — all T0-d acceptance criteria; T0-d is HITL step 0.** 2 images used of 250. Session closed 2026-09-11 at the HITL run start (`gandalf/notes/2026-09-11-astra-burst-lane-hitl-run-plan.md`) (oracles + comparator); X1 smoke in flight (first GENERATE through the wrapper); T0-d (audit fixes + O3b + O9 part-controls + resolved-model-per-burst + R9 extensions) is HITL step 0; K1 (pilot identity) **paused** on Faction Bible v0 + Matt's vocabulary rulings; legolas R9 in flight. Rulings F1–F10: charter § 10. **HITL session opened (Run C-1 step 1):** P1–P6 verified — P1 one stale MANIFEST row (SPEC.md; doc drift, ruling R-3), P2 open → T0-d, P3 ✓ (10/10 SYNC), P4 ✓, P5 ✓ (MP4 path proven), P6 ✓ (codex-cli 0.153.4); **T0-d split into T0-d1 (lane/audit fixes + check_sync, old wrapper) → re-freeze → T0-d2 (O3b · O9 controls · F-5 gates · R9 extensions, fixed wrapper)** — ledger R-3; F-4 twin-edited into BURST_RULES + charter § 4.
 
 ## 7. SYNC — the two process documents and their sources (same-commit rule)
 
@@ -134,9 +134,9 @@ Live truth: `astra_test_01/burst/runs/C-1/ledger.json`. As of this doc's authori
 
 | Source | Role | sha256[:12] | Reconciled |
 |---|---|---|---|
-| `agentic_orchestration/gandalf/notes/2026-09-11-astra-burst-lane-run-charter.md` | rules of the run | 65a7d948095b | 2026-09-11 |
-| `astra_test_01/burst/SPEC.md` | build contract | d15654c052fa | 2026-09-11 |
-| `astra_test_01/burst/BURST_RULES.md` | executable burst rules | 1a96e8aa0ad6 | 2026-09-11 |
+| `agentic_orchestration/gandalf/notes/2026-09-11-astra-burst-lane-run-charter.md` | rules of the run | f88c9e03a242 | 2026-09-11 |
+| `astra_test_01/burst/SPEC.md` | build contract | cd1791660ca6 | 2026-09-11 |
+| `astra_test_01/burst/BURST_RULES.md` | executable burst rules | 8e78d26a22ae | 2026-09-11 |
 | `astra_test_01/burst/REGISTER_CARD.md` | executable register | bc3ce44dee71 | 2026-09-11 |
 | `astra_test_01/burst/JUDGE_RUBRIC.md` | executable rubric | 67b1e22ca361 | 2026-09-11 |
 | `astra_test_01/burst/receipt.schema.json` | receipt contract | e2afcbc22e8d | 2026-09-11 |
