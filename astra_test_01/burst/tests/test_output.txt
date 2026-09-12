@@ -1,0 +1,20 @@
+test_missing_event_log (test_audit.ModuleTests.test_missing_event_log) ... ok
+test_artifact_hash_escape_and_symlink (test_lane.LaneTests.test_artifact_hash_escape_and_symlink) ... ok
+test_audit_planted_events (test_lane.LaneTests.test_audit_planted_events) ... ok
+test_clean_and_malformed_events (test_lane.LaneTests.test_clean_and_malformed_events) ... ok
+test_exact_command_and_dry_run (test_lane.LaneTests.test_exact_command_and_dry_run) ... ok
+test_filesystem_diff_new_modified_deleted_and_allowed (test_lane.LaneTests.test_filesystem_diff_new_modified_deleted_and_allowed) ... ok
+test_ledger_atomic_replacement_and_rollback (test_lane.LaneTests.test_ledger_atomic_replacement_and_rollback) ... ok
+test_render_deterministic_and_ordered (test_lane.LaneTests.test_render_deterministic_and_ordered) ... ok
+test_schema_known_bad_and_strict_objects (test_lane.LaneTests.test_schema_known_bad_and_strict_objects) ... ok
+test_task_caps (test_lane.LaneTests.test_task_caps) ... ok
+test_wrapper_roundtrip_error_timeout_and_void (test_lane.LaneTests.test_wrapper_roundtrip_error_timeout_and_void) ... ok
+test_empty_budget (test_ledger.ModuleTests.test_empty_budget) ... ok
+test_missing_type_rules (test_render_brief.ModuleTests.test_missing_type_rules) ... ok
+test_incomplete_task_rejected (test_run_burst.ModuleTests.test_incomplete_task_rejected) ... ok
+test_missing_receipt (test_schema_check.ModuleTests.test_missing_receipt) ... ok
+
+----------------------------------------------------------------------
+Ran 15 tests in 0.031s
+
+OK

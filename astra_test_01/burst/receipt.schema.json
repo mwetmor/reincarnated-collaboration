@@ -1,137 +1,137 @@
 {
- "type": "object",
- "properties": {
-  "task_id": {
-   "type": "string"
-  },
-  "status": {
-   "type": "string",
-   "enum": [
-    "DELIVERED",
-    "DELIVERED_WITH_CONCERNS",
-    "FAILED"
-   ]
-  },
-  "images": {
-   "type": "array",
-   "items": {
-    "type": "object",
-    "properties": {
-     "name": {
+  "type": "object",
+  "properties": {
+    "task_id": {
       "type": "string"
-     },
-     "path": {
-      "type": "string"
-     },
-     "sha256": {
-      "type": "string"
-     },
-     "prompt": {
-      "type": "string"
-     },
-     "references": {
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "DELIVERED",
+        "DELIVERED_WITH_CONCERNS",
+        "FAILED"
+      ]
+    },
+    "images": {
       "type": "array",
       "items": {
-       "type": "object",
-       "properties": {
-        "role": {
-         "type": "string"
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "path": {
+            "type": "string"
+          },
+          "sha256": {
+            "type": "string"
+          },
+          "prompt": {
+            "type": "string"
+          },
+          "references": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "role": {
+                  "type": "string"
+                },
+                "path": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "role",
+                "path"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "elapsed_s": {
+            "type": "number"
+          }
         },
-        "path": {
-         "type": "string"
-        }
-       },
-       "required": [
-        "role",
-        "path"
-       ],
-       "additionalProperties": false
+        "required": [
+          "name",
+          "path",
+          "sha256",
+          "prompt",
+          "references",
+          "elapsed_s"
+        ],
+        "additionalProperties": false
       }
-     },
-     "elapsed_s": {
-      "type": "number"
-     }
     },
-    "required": [
-     "name",
-     "path",
-     "sha256",
-     "prompt",
-     "references",
-     "elapsed_s"
-    ],
-    "additionalProperties": false
-   }
-  },
-  "calls_used": {
-   "type": "integer"
-  },
-  "retries": {
-   "type": "array",
-   "items": {
-    "type": "object",
-    "properties": {
-     "reason": {
-      "type": "string"
-     },
-     "change": {
-      "type": "string"
-     }
+    "calls_used": {
+      "type": "integer"
     },
-    "required": [
-     "reason",
-     "change"
-    ],
-    "additionalProperties": false
-   }
-  },
-  "self_report": {
-   "type": "object",
-   "properties": {
-    "obeyed_invariants": {
-     "type": "boolean"
+    "retries": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "reason": {
+            "type": "string"
+          },
+          "change": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "reason",
+          "change"
+        ],
+        "additionalProperties": false
+      }
     },
-    "concerns": {
-     "type": "array",
-     "items": {
-      "type": "string"
-     }
+    "self_report": {
+      "type": "object",
+      "properties": {
+        "obeyed_invariants": {
+          "type": "boolean"
+        },
+        "concerns": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "obeyed_invariants",
+        "concerns"
+      ],
+      "additionalProperties": false
+    },
+    "files": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "path": {
+            "type": "string"
+          },
+          "sha256": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "path",
+          "sha256"
+        ],
+        "additionalProperties": false
+      }
     }
-   },
-   "required": [
-    "obeyed_invariants",
-    "concerns"
-   ],
-   "additionalProperties": false
   },
-  "files": {
-   "type": "array",
-   "items": {
-    "type": "object",
-    "properties": {
-     "path": {
-      "type": "string"
-     },
-     "sha256": {
-      "type": "string"
-     }
-    },
-    "required": [
-     "path",
-     "sha256"
-    ],
-    "additionalProperties": false
-   }
-  }
- },
- "required": [
-  "task_id",
-  "status",
-  "images",
-  "calls_used",
-  "retries",
-  "self_report",
-  "files"
- ],
- "additionalProperties": false
+  "required": [
+    "task_id",
+    "status",
+    "images",
+    "calls_used",
+    "retries",
+    "self_report",
+    "files"
+  ],
+  "additionalProperties": false
 }
