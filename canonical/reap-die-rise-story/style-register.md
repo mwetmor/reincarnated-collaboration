@@ -142,3 +142,14 @@ The superseded 2D-pixel HD-2D lock body (2026-05-15 → 2026-06-14: Candidates A
 When future register-relevant decisions arise (roster tier-stature tuning, non-humanoid retarget results, second-biome extension scoring, UI-layer register evidence): append sections; preserve the lock history; reference the A-holds rulings. When (and if) the project pivots register again: a new section captures the pivot; the prior lock is marked superseded; git preserves the archaeology. New canonical design docs touching visual presentation reference this doc and defer to it on register matters (Gate-1 register-coherence checks cite it by §).
 
 — gandalf, with Matt's register pivot 2026-06-14 + A-holds lock 2026-06-15; 2D archaeology trimmed + doc re-homed to `reap-die-rise-story/` in the canonical reorg, 2026-07-01
+
+---
+## Painted-2D lane — line register ruled (Matt, 2026-09-12; ledger R-23)
+
+Scope: the **painted-2D pipeline lane** (`canonical/reap-die-rise-game/painted-2d-pipeline/`), not the project-wide register above, which stays locked until the lane passes its loop + plate gates.
+
+- **Line register — H1:** *"HAND-DRAWN painted 2D in the manner of a modern hand-animated action game — a confident dark contour line drawn by hand with visible taper and varying weight, painted fills in clean planes inside the line, restrained texture; the line carries the pose. It should look like one frame of hand-drawn animation, not a rendered illustration."* Chosen over H2 (heavy ink + cel two-tone; "very close") for durability: H1 keeps material distinction at gameplay scale and does not pull proportions toward cartoon across a roster.
+- **Screen register — ARPG-language default:** ~45° elevated ¾ camera, cold key from screen upper-left, warm light as accent only; the D2R / Grim Dawn / PoE / Last Epoch neighbourhood. **Hades-language framing** (steep ~60° arena, bold geometric ground pattern, jewel-toned saturated light, graphic shadows) is a **level dialect** within H1, not a second register — K7 proved one layout carries both.
+- **Character scale — 17 % of screen height at 1080p** (corpus centre; Hades' ~8 % is the outlier and not adopted). The 10.1 % Godot-fixture value is not a universal.
+- **Intent over consistency (R-21)** governs animation in this register: per-frame pose adherence is the primary gate; drawing variation within the arc is tolerated; identity consistency stays hard.
+- Evidence packets: Desktop `07 K4`, `08 K5`, `09 K6`, `10 K6 in E07V`, `11 K7`; prompts in `astra_test_01/burst/runs/C-1/k1/`.
