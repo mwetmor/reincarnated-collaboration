@@ -30,6 +30,8 @@
 
 ## SESSION-DELTA LOG (latest governs all below)
 
+- **2026-09-12 (gandalf, HITL Run C-1):** animation-set axis registered from Matt's K3 review — an **empty-hands (no-weapon) animation set** is a later, distinct set per weapon class (D2's COF weapon-class axis, legolas R9 X6); out of scope for Run C-1. Idle definition ruled-in-principle: breath only (chest/shoulders), head/eyes/feet/weapon-hand locked, ~2-s cycle; walk rules (arm counter-swing incl. reduced weapon-arm swing, head bob/sway with weight transfer, gaze locked on the path) → legolas R10 commissioned (`gandalf/requests/2026-09-12-legolas-mode-a-walk-idle-cycle-anatomy.md`) → T1 gait tooling.
+
 ### 2026-09-11 — ⚑ **ASTRA painted-2D test reviewed: register fork OPENED (Q70); burst-lane architecture proposed (Q71)** (gandalf, DRIFT-CRITIC → ARCHITECT)
 
 **What is:** Matt ran a Codex/`gpt-6-astra` test (`astra_test_01/`) of painted-2D sprite sheets + VFX + painted scenes. **Runs 01–03 (guided) nearly passed the brief** — 224-frame 8-direction painted battle-mage, turnaround PASS, walk seams 8/8, idle seams 6/8 marginal FAIL, frost VFX style+alpha PASS. The overnight autonomous "TEST 02" run (22 h, 14 compactions, 1,332 shell calls vs 30 images) **drifted into a Blender rig of the sibling folder's purple wizard + a Pixi graybox chamber** — nothing after E07V tests the commissioned hypothesis. Verdict + measured timeline + harvest list + architecture: `agentic_orchestration/gandalf/notes/2026-09-11-astra-burst-lane-review-and-architecture.md`.
