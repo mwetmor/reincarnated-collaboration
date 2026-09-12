@@ -69,3 +69,6 @@ A row belongs here ONLY if no agent can perform it (environment / credential / h
 ---
 
 **Signed:** gandalf, 2026-07-02. The decision queue holds what waits on your judgment; this one holds what waits on your hands.
+
+### T29 — Corpus register stills from your own installs (filed 2026-09-12, gandalf)
+Legolas obtained Grim Dawn + Hades press-kit stills (`agentic_orchestration/legolas/research/2026-09-12-corpus-register-stills/`); D2R (login-gated kit), PoE1 (no public kit), PoE2 + Last Epoch (JS-only press pages) are empty. If you own them: one in-game 1080p screenshot each (ARPG camera, player visible, no menus) into that folder as `<game>.png`. Unblocks: Q74 register ruling against the full corpus; the on-screen character-scale band (corpus is bimodal: GD ~17 % of frame vs Hades ~8 %). Class D: private comparison only.
