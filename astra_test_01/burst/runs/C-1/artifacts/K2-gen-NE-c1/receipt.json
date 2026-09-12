@@ -1,0 +1,36 @@
+{
+  "task_id": "K2-gen-NE-c1",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "k2_NE.png",
+      "path": "out/k2_NE.png",
+      "sha256": "9fffc72afcc781ad24ec7e0b95e4560ef90d0195ad70a18a0046f91f74778bf1",
+      "prompt": "Use case: identity-preserve. Image 1 is the APPROVED IDENTITY MASTER, direction S. Create EXACTLY ONE portrait image, 1024x1536 like Image 1, showing the SAME young woman rotated to direction NE. Preserve identity, hair mass, skin, every costume item and its anatomical side, proportions, standing rest pose with even weight, full-body framing and standing height. NE means she faces the viewer's UPPER-RIGHT, back-three-quarter, turned 135 degrees from the master. Her BACK and RIGHT side are visible, her RIGHT side nearer the camera. Her RIGHT arm holds the upright plain walnut staff on SCREEN-RIGHT nearest the camera. Her LEFT hip olive satchel is on the FAR side SCREEN-LEFT, mostly hidden behind her. Her head faces AWAY toward UPPER-RIGHT: NO face visible. No mirroring. The harness strap remains over her anatomical RIGHT shoulder and crosses toward LEFT hip. Camera fixed, elevated three-quarter pinhole view about 53 degrees above ground plane; rotate the character only. Young woman early 20s, sun-browned skin, dark curly hair tied back, no helmet; ivory linen shirt, navy sleeveless long tabard, every surface plain with no emblems or insignia; ONE chestnut diagonal harness strap supporting ONE olive canvas satchel on LEFT hip, ONE waist belt, chestnut laced bracers, navy trousers, chestnut buckled boots. Staff in RIGHT hand is PLAIN dark walnut with small brass ferrules at foot and tip, NO ring or headpiece. Match master's items exactly, do not invent additional objects. Painted 2D illustration, high resolution, clean material planes, restrained surface texture, readable silhouette, no conspicuous brush grain. Blue, ivory, brass palette. Single key light fixed from SCREEN UPPER-LEFT, illuminating screen-left-facing planes regardless of character rotation; deep cool low-value ambient and readable shadows never pure black; slight rim on key-facing edge. No spell glow. NO floor shadow. Full body centered, feet fully visible, same margin and standing height as Image 1. Flat uniform pure #00ff00 green background over whole canvas, no gradients, no environment, no checkerboard, do not matte. This task requests a single portrait turnaround, not an atlas sheet.",
+      "references": [
+        {
+          "role": "APPROVED IDENTITY MASTER — direction S; identity, costume, proportions, pose and register",
+          "path": "in/01_k1_master_L.png"
+        }
+      ],
+      "elapsed_s": 40.027
+    }
+  ],
+  "calls_used": 1,
+  "retries": [],
+  "self_report": {
+    "obeyed_invariants": false,
+    "concerns": [
+      "Camera elevation appears shallower than the specified approximately 53 degrees.",
+      "A sliver of cheek and jaw remains visible despite the no-visible-face requirement.",
+      "Followed the task-specific single portrait instruction rather than the register's conflicting 2×2 sheet and 512×512 frame requirements.",
+      "Exact background RGB uniformity and geometric registration were not measured."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/k2_NE.png",
+      "sha256": "9fffc72afcc781ad24ec7e0b95e4560ef90d0195ad70a18a0046f91f74778bf1"
+    }
+  ]
+}

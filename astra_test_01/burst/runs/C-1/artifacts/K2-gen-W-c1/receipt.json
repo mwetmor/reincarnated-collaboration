@@ -1,0 +1,35 @@
+{
+  "task_id": "K2-gen-W-c1",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "k2_W.png",
+      "path": "out/k2_W.png",
+      "sha256": "1f002725afcd207d3953c2b2ff8485ff77cda4bd452348d6797ef3abb7cb1c91",
+      "prompt": "Use case: identity-preserve. Image 1 is the APPROVED IDENTITY MASTER, direction S. Generate exactly ONE portrait image, same canvas aspect ratio and full-body standing height/framing as Image 1. Rotate this SAME young woman to direction W: full LEFT profile, face and toes pointing screen-left. Her anatomical LEFT side is nearest the camera. Her olive canvas satchel on her LEFT hip is in the foreground, nearest the camera. Her anatomical RIGHT arm and plain walnut staff are on the FAR side behind her body: staff shaft mostly occluded by her body, brass tip rising above the far shoulder and brass foot visible beside the far boot. Her near LEFT arm hangs relaxed, empty-handed. Do not mirror the reference. Preserve the same identity, face, dark curly tied-back hair mass, sun-browned skin, early-20s age, body proportions, costume and every item's anatomical side. Same standing rest pose with even weight. ONE plain dark walnut staff with small brass ferrules at tip and foot, no ring or head-piece, held upright in RIGHT hand only. Ivory linen shirt, navy sleeveless long tabard with plain chest, ONE chestnut diagonal harness strap over RIGHT shoulder carrying ONE olive canvas satchel on LEFT hip, ONE waist belt, chestnut laced bracers, navy trousers, chestnut buckled boots. All surfaces plain, no insignia or emblems, no extra objects. Fixed elevated three-quarter pinhole camera approximately 53 degrees above the ground plane, looking down at the standing character; character rotates while camera stays fixed. Single light key from SCREEN UPPER-LEFT, fixed in screen space; deep cool low-value ambient with readable shadows never pure black, slight rim on key-facing screen-left edge. No spell glow. NO floor shadow. Painted 2D illustration, high resolution, clean material planes, restrained surface texture, readable silhouette, no conspicuous brush or pixel grain. Blue, ivory and brass palette matching master. Full body centered with both feet fully visible and comfortable margins, portrait canvas like Image 1. Flat uniform pure #00ff00 green background covering entire canvas, no gradients or scenery, do not matte. This task requests one portrait turnaround asset, not a registered frame or multi-cell sheet.",
+      "references": [
+        {
+          "role": "APPROVED IDENTITY MASTER (direction S): identity, costume, proportions, pose and register",
+          "path": "in/01_k1_master_L.png"
+        }
+      ],
+      "elapsed_s": 36.408
+    }
+  ],
+  "calls_used": 1,
+  "retries": [],
+  "self_report": {
+    "obeyed_invariants": false,
+    "concerns": [
+      "Camera appears substantially lower than the requested approximately 53-degree elevation.",
+      "Staff remains on the far side, but more of its shaft is exposed than requested.",
+      "Delivered the task-specific portrait asset at 1024×1536, not the register card's 512×512 registered frame or 2×2 sheet."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/k2_W.png",
+      "sha256": "1f002725afcd207d3953c2b2ff8485ff77cda4bd452348d6797ef3abb7cb1c91"
+    }
+  ]
+}

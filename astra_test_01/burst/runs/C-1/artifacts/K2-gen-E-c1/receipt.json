@@ -1,0 +1,35 @@
+{
+  "task_id": "K2-gen-E-c1",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "k2_E",
+      "path": "out/k2_E.png",
+      "sha256": "d4e801e9e4e6ac3909627d9b28789051e1056cc2cb21003f34f9dcfec607bd79",
+      "prompt": "Use case: identity-preserve. Create exactly ONE full-body character turnaround image, direction E, on a portrait canvas matching Image 1. Image 1 is the APPROVED IDENTITY MASTER for identity, costume, proportions, standing pose and painted register. Rotate this SAME young woman to full RIGHT profile facing SCREEN-RIGHT. Her anatomical RIGHT side is nearest the camera: her RIGHT arm, right hand and upright staff are in the foreground. Her olive satchel remains on her anatomical LEFT hip on the far side, hidden behind her body. Do not mirror the master. Her nose and both boot toes point screen-right. Preserve her face, early-20s age, sun-browned skin, dark curly hair tied back and hair mass; no helmet. Preserve ivory linen shirt, navy sleeveless long split tabard with completely plain chest, ONE chestnut diagonal harness strap over the anatomical RIGHT shoulder carrying the far-side satchel, ONE waist belt, chestnut laced bracers, navy trousers and chestnut buckled boots. Preserve the PLAIN dark walnut staff, small brass ferrules at tip and foot, held upright in anatomical RIGHT hand beside her. No staff head-piece or ring, no extra objects, no emblems or insignia anywhere. Same standing rest pose, weight even, arms relaxed with right hand holding staff; no action. Fixed elevated three-quarter pinhole camera approximately 53 degrees above the ground plane (projection C); character rotates, camera does not. Full right-profile face and body seen from that elevated fixed camera. Same full-body framing and standing height as master, centered with all feet, hair and staff fully visible. Single key light fixed at SCREEN UPPER-LEFT, independent of rotation, deep cool low-value ambient, readable shadows never pure black, slight rim on key-facing silhouette. No spell glow, no floor shadow or contact shadow. Flat uniform pure #00ff00 background across entire canvas, opaque green plate; do not matte. Painted 2D high-resolution illustration with clean material planes, restrained surface texture, readable silhouette, no conspicuous brush grain. Blue, ivory and brass with chestnut leather. Preserve identity and all item anatomy exactly; ONLY change the character's facing direction. Deliver the single portrait source image requested for this burst.",
+      "references": [
+        {
+          "role": "APPROVED IDENTITY MASTER — direction S; identity, costume, proportions, pose and register",
+          "path": "in/01_k1_master_L.png"
+        }
+      ],
+      "elapsed_s": 27.782
+    }
+  ],
+  "calls_used": 1,
+  "retries": [],
+  "self_report": {
+    "obeyed_invariants": false,
+    "concerns": [
+      "Camera appears closer to level profile than the specified 53-degree elevated projection.",
+      "Delivered the task-requested 1024×1536 portrait source, not the register's 2×2 sheet or registered 512×512 frame.",
+      "Exact pose, costume-detail fidelity and pure #00ff00 plate uniformity were not quantitatively verified."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/k2_E.png",
+      "sha256": "d4e801e9e4e6ac3909627d9b28789051e1056cc2cb21003f34f9dcfec607bd79"
+    }
+  ]
+}

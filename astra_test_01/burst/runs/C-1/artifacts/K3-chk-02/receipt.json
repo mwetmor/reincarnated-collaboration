@@ -1,0 +1,27 @@
+{
+  "task_id": "K3-chk-02",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [],
+  "calls_used": 0,
+  "retries": [],
+  "self_report": {
+    "obeyed_invariants": true,
+    "concerns": [
+      "Walk skipped: absent from this idle-only registration.",
+      "Literal G5 unavailable without a cast comparator; neighbour MAD measurements included. G11 uses frame 0 versus frame 4 as specified.",
+      "Frozen gates emit no evidence PNGs; seam-diff images and drift strips unavailable.",
+      "G9 dark-fringe and silhouette verdicts remain null without calibrated thresholds.",
+      "Reviewed root and planted-sole gates unavailable without annotations; sole-row measurements reported separately."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/checks.json",
+      "sha256": "dd96c3577c8e8dd3d3fd9c0385cf111084435a2810f86db0ba1cc82a1a1c7b1f"
+    },
+    {
+      "path": "out/checks_readme.txt",
+      "sha256": "860203aeeb8dd60abfdf7c31ba54fe28a58ddf5510cf51632afc47d2c8bbac52"
+    }
+  ]
+}

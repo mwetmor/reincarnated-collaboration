@@ -1,0 +1,36 @@
+{
+  "task_id": "K2-gen-SW-c1",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "k2_SW.png",
+      "path": "out/k2_SW.png",
+      "sha256": "ac3d5e03d19ed68dbdb5aa0bed8b29ee84f25ecb718c910e1202f1fe1d46a595",
+      "prompt": "Use case: identity-preserve. Image 1 is the APPROVED IDENTITY MASTER, direction S. Create exactly ONE full-body portrait image of the SAME young woman rotated to SW: she faces the viewer's LOWER-LEFT, turned 45 degrees toward screen-left from the reference S pose. Her LEFT side is nearer the camera. Her olive satchel on her anatomical LEFT hip is in FRONT, screen-right of her body, nearest the camera. Her anatomical RIGHT arm and upright staff are on the FAR side, screen-left of her body, partly behind her; staff tip rises above the far shoulder. Face visible looking lower-left. Rotate the character, never mirror. Staff stays in anatomical RIGHT hand; satchel stays on anatomical LEFT hip; single diagonal harness remains over anatomical RIGHT shoulder. Keep the same face, dark curly tied-back hair mass, sun-browned skin, early-20s age, proportions, clothing, items and relaxed evenly weighted standing rest pose as the master. Ivory linen shirt, navy sleeveless long split tabard with PLAIN chest, ONE chestnut diagonal harness strap carrying ONE olive canvas satchel, ONE waist belt, chestnut laced bracers, navy trousers, chestnut buckled boots. All surfaces plain, no emblems or insignia. Plain dark walnut staff with small brass ferrules at foot and tip, no ring or head-piece. No additional objects. Fixed elevated three-quarter pinhole camera approximately 53 degrees above ground plane, looking down at character; character rotates while camera stays fixed. Single key light from SCREEN UPPER-LEFT, fixed in screen space; deep cool low-value ambient, readable shadows never pure black, slight rim on key-facing silhouette. No spell glow, no floor or cast shadow, no ground plane. Painted 2D high-resolution illustration, clean material planes, restrained surface texture, readable silhouette, no conspicuous brush or grain. Blue, ivory, brass and chestnut palette matching master. Match reference portrait aspect ratio, framing and standing height: centered full body with feet and entire staff fully visible. Flat uniform pure #00ff00 green across entire background, opaque, no matting or checkerboard. Deliver one portrait, not a sheet; task-specific portrait framing follows Image 1.",
+      "references": [
+        {
+          "role": "APPROVED IDENTITY MASTER (direction S)",
+          "path": "in/01_k1_master_L.png"
+        }
+      ],
+      "elapsed_s": 39.644
+    }
+  ],
+  "calls_used": 1,
+  "retries": [],
+  "self_report": {
+    "obeyed_invariants": false,
+    "concerns": [
+      "Face looks screen-right rather than lower-left; the requested SW rotation is not faithfully realized.",
+      "Camera appears substantially shallower than the requested 53-degree elevation.",
+      "Delivered the task-specific 1024×1536 portrait; the register's 2×2 sheet and 512×512 registered-frame requirements were not applied.",
+      "No retry: observed direction and camera issues fall outside the enumerated retry conditions."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/k2_SW.png",
+      "sha256": "ac3d5e03d19ed68dbdb5aa0bed8b29ee84f25ecb718c910e1202f1fe1d46a595"
+    }
+  ]
+}

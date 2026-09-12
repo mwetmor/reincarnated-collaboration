@@ -1,0 +1,496 @@
+{
+  "task_id": "K3-reg-02",
+  "source_registration": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3-reg-01/registration.json",
+  "source_registration_sha256": "936113736ec6c23f15c733bf84aa92aeb03ff4dcf5526a2c84c68352b22f49f3",
+  "inherited_transform": {
+    "cell_px": 627,
+    "scale": 0.5106,
+    "scaled_cell_px": 320,
+    "offset_xy": [
+      96,
+      112
+    ],
+    "frame_canvas": 512,
+    "pivot": [
+      256,
+      400
+    ],
+    "note": "uniform downscale + translation only; identical for every cell of every K3 sheet (all cells share the seed geometry)"
+  },
+  "additional_scale": 1,
+  "resampling": "none; integer PIL paste without a mask; unchanged frames copied byte-for-byte",
+  "frame_canvas_px": [
+    512,
+    512
+  ],
+  "root_anchor_xy": [
+    256,
+    400
+  ],
+  "target_sole_line": 399,
+  "measurement_conventions": {
+    "sole_line": "zero-based bottom-most row with alpha >= 128",
+    "sole_method": "Derived directly from alpha >= 128 support bbox because frozen sole_contacts, measured_anchor and register_reviewed require two reviewed sole regions; no reviewed regions supplied.",
+    "alpha_bbox": "alpha > 0; half-open [left, top, right, bottom]",
+    "bbox_centre_x": "(left + right - 1)/2, centre of included pixel coordinates",
+    "horizontal_alignment": "Only if absolute centre-x difference from frame 0 exceeds 2 px; nearest integer difference, ties-to-even. No frame triggered this condition.",
+    "offset_xy": "integer pixels applied to input; positive x right, positive y down",
+    "root_anchor": "Atlas metadata (256,400), separate from measured sole row; no gate verdict inferred.",
+    "preview": "4096x544 RGB, eight unscaled 512x512 frames on #3a3f4a, labels 00-07 in bottom 32-pixel margin"
+  },
+  "frames": [
+    {
+      "name": "idle_S_00",
+      "frame_index": 0,
+      "path": "out/frames/idle/S/idle_S_00.png",
+      "source": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3-reg-01/frames/idle/S/idle_S_00.png",
+      "source_sha256": "0ec6c1c6bbed52ce5a64cbc8ee41c4e38cddc76595aa160a78e44ef61ddd0144",
+      "sha256": "0ec6c1c6bbed52ce5a64cbc8ee41c4e38cddc76595aa160a78e44ef61ddd0144",
+      "sole_line_before": 399,
+      "sole_line_after": 399,
+      "offset_xy": [
+        0,
+        0
+      ],
+      "alpha_bbox_before": [
+        209,
+        157,
+        303,
+        403
+      ],
+      "alpha_bbox_after": [
+        209,
+        157,
+        303,
+        403
+      ],
+      "alpha_bbox_height_before_px": 246,
+      "alpha_bbox_height_after_px": 246,
+      "bbox_centre_x_before": 255.5,
+      "bbox_centre_x_after": 255.5,
+      "alpha_ge_128_bbox_before": [
+        212,
+        160,
+        300,
+        400
+      ],
+      "alpha_ge_128_bbox_after": [
+        212,
+        160,
+        300,
+        400
+      ],
+      "alpha_ge_128_height_before_px": 240,
+      "alpha_ge_128_height_after_px": 240,
+      "root_anchor_xy": [
+        256,
+        400
+      ],
+      "pixel_content_preserved_under_integer_translation": true
+    },
+    {
+      "name": "idle_S_01",
+      "frame_index": 1,
+      "path": "out/frames/idle/S/idle_S_01.png",
+      "source": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3-reg-01/frames/idle/S/idle_S_01.png",
+      "source_sha256": "388f793a64c43597ac4aec07257fc3126b04d2d36fdbc54d58b8904193cd827a",
+      "sha256": "388f793a64c43597ac4aec07257fc3126b04d2d36fdbc54d58b8904193cd827a",
+      "sole_line_before": 399,
+      "sole_line_after": 399,
+      "offset_xy": [
+        0,
+        0
+      ],
+      "alpha_bbox_before": [
+        209,
+        157,
+        303,
+        403
+      ],
+      "alpha_bbox_after": [
+        209,
+        157,
+        303,
+        403
+      ],
+      "alpha_bbox_height_before_px": 246,
+      "alpha_bbox_height_after_px": 246,
+      "bbox_centre_x_before": 255.5,
+      "bbox_centre_x_after": 255.5,
+      "alpha_ge_128_bbox_before": [
+        212,
+        160,
+        300,
+        400
+      ],
+      "alpha_ge_128_bbox_after": [
+        212,
+        160,
+        300,
+        400
+      ],
+      "alpha_ge_128_height_before_px": 240,
+      "alpha_ge_128_height_after_px": 240,
+      "root_anchor_xy": [
+        256,
+        400
+      ],
+      "pixel_content_preserved_under_integer_translation": true
+    },
+    {
+      "name": "idle_S_02",
+      "frame_index": 2,
+      "path": "out/frames/idle/S/idle_S_02.png",
+      "source": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3-reg-01/frames/idle/S/idle_S_02.png",
+      "source_sha256": "02cf41118cbb2bb0b8955ee4edd98756e4b0b09095b4e8f033556706d2ada433",
+      "sha256": "02cf41118cbb2bb0b8955ee4edd98756e4b0b09095b4e8f033556706d2ada433",
+      "sole_line_before": 399,
+      "sole_line_after": 399,
+      "offset_xy": [
+        0,
+        0
+      ],
+      "alpha_bbox_before": [
+        209,
+        157,
+        303,
+        402
+      ],
+      "alpha_bbox_after": [
+        209,
+        157,
+        303,
+        402
+      ],
+      "alpha_bbox_height_before_px": 245,
+      "alpha_bbox_height_after_px": 245,
+      "bbox_centre_x_before": 255.5,
+      "bbox_centre_x_after": 255.5,
+      "alpha_ge_128_bbox_before": [
+        212,
+        159,
+        300,
+        400
+      ],
+      "alpha_ge_128_bbox_after": [
+        212,
+        159,
+        300,
+        400
+      ],
+      "alpha_ge_128_height_before_px": 241,
+      "alpha_ge_128_height_after_px": 241,
+      "root_anchor_xy": [
+        256,
+        400
+      ],
+      "pixel_content_preserved_under_integer_translation": true
+    },
+    {
+      "name": "idle_S_03",
+      "frame_index": 3,
+      "path": "out/frames/idle/S/idle_S_03.png",
+      "source": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3-reg-01/frames/idle/S/idle_S_03.png",
+      "source_sha256": "406f7976ae42c3177231f66838118c3df4c03b97dc1bdc5a8a45bdf10ab1ef2f",
+      "sha256": "406f7976ae42c3177231f66838118c3df4c03b97dc1bdc5a8a45bdf10ab1ef2f",
+      "sole_line_before": 399,
+      "sole_line_after": 399,
+      "offset_xy": [
+        0,
+        0
+      ],
+      "alpha_bbox_before": [
+        209,
+        157,
+        303,
+        403
+      ],
+      "alpha_bbox_after": [
+        209,
+        157,
+        303,
+        403
+      ],
+      "alpha_bbox_height_before_px": 246,
+      "alpha_bbox_height_after_px": 246,
+      "bbox_centre_x_before": 255.5,
+      "bbox_centre_x_after": 255.5,
+      "alpha_ge_128_bbox_before": [
+        212,
+        159,
+        300,
+        400
+      ],
+      "alpha_ge_128_bbox_after": [
+        212,
+        159,
+        300,
+        400
+      ],
+      "alpha_ge_128_height_before_px": 241,
+      "alpha_ge_128_height_after_px": 241,
+      "root_anchor_xy": [
+        256,
+        400
+      ],
+      "pixel_content_preserved_under_integer_translation": true
+    },
+    {
+      "name": "idle_S_04",
+      "frame_index": 4,
+      "path": "out/frames/idle/S/idle_S_04.png",
+      "source": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3-reg-01/frames/idle/S/idle_S_04.png",
+      "source_sha256": "053c85bc3c89142fe51c444af105d2ff98e9264fb9886b7570ffc53721562141",
+      "sha256": "053c85bc3c89142fe51c444af105d2ff98e9264fb9886b7570ffc53721562141",
+      "sole_line_before": 399,
+      "sole_line_after": 399,
+      "offset_xy": [
+        0,
+        0
+      ],
+      "alpha_bbox_before": [
+        206,
+        156,
+        302,
+        403
+      ],
+      "alpha_bbox_after": [
+        206,
+        156,
+        302,
+        403
+      ],
+      "alpha_bbox_height_before_px": 247,
+      "alpha_bbox_height_after_px": 247,
+      "bbox_centre_x_before": 253.5,
+      "bbox_centre_x_after": 253.5,
+      "alpha_ge_128_bbox_before": [
+        209,
+        159,
+        299,
+        400
+      ],
+      "alpha_ge_128_bbox_after": [
+        209,
+        159,
+        299,
+        400
+      ],
+      "alpha_ge_128_height_before_px": 241,
+      "alpha_ge_128_height_after_px": 241,
+      "root_anchor_xy": [
+        256,
+        400
+      ],
+      "pixel_content_preserved_under_integer_translation": true
+    },
+    {
+      "name": "idle_S_05",
+      "frame_index": 5,
+      "path": "out/frames/idle/S/idle_S_05.png",
+      "source": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3-reg-01/frames/idle/S/idle_S_05.png",
+      "source_sha256": "e9c60e2ccc387965df970cd24afdfc9bbc508d05349d59765c56f9b8f684242c",
+      "sha256": "ef95702874562e0b57a37ad7fb818b0824704f759b9cc8b77649e42fdcdf9ed4",
+      "sole_line_before": 396,
+      "sole_line_after": 399,
+      "offset_xy": [
+        0,
+        3
+      ],
+      "alpha_bbox_before": [
+        207,
+        153,
+        304,
+        400
+      ],
+      "alpha_bbox_after": [
+        207,
+        156,
+        304,
+        403
+      ],
+      "alpha_bbox_height_before_px": 247,
+      "alpha_bbox_height_after_px": 247,
+      "bbox_centre_x_before": 255.0,
+      "bbox_centre_x_after": 255.0,
+      "alpha_ge_128_bbox_before": [
+        210,
+        156,
+        301,
+        397
+      ],
+      "alpha_ge_128_bbox_after": [
+        210,
+        159,
+        301,
+        400
+      ],
+      "alpha_ge_128_height_before_px": 241,
+      "alpha_ge_128_height_after_px": 241,
+      "root_anchor_xy": [
+        256,
+        400
+      ],
+      "pixel_content_preserved_under_integer_translation": true
+    },
+    {
+      "name": "idle_S_06",
+      "frame_index": 6,
+      "path": "out/frames/idle/S/idle_S_06.png",
+      "source": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3-reg-01/frames/idle/S/idle_S_06.png",
+      "source_sha256": "c5bb68951c4e5f5ea7ec23858c58bdbbddd18e7e113644bbf44cc0526eb2d6e0",
+      "sha256": "9d2a19e63c8b49dd2083431c347eedfc8c97bb5aa1d3e72486d18af5f12563f6",
+      "sole_line_before": 396,
+      "sole_line_after": 399,
+      "offset_xy": [
+        0,
+        3
+      ],
+      "alpha_bbox_before": [
+        206,
+        153,
+        302,
+        400
+      ],
+      "alpha_bbox_after": [
+        206,
+        156,
+        302,
+        403
+      ],
+      "alpha_bbox_height_before_px": 247,
+      "alpha_bbox_height_after_px": 247,
+      "bbox_centre_x_before": 253.5,
+      "bbox_centre_x_after": 253.5,
+      "alpha_ge_128_bbox_before": [
+        209,
+        156,
+        299,
+        397
+      ],
+      "alpha_ge_128_bbox_after": [
+        209,
+        159,
+        299,
+        400
+      ],
+      "alpha_ge_128_height_before_px": 241,
+      "alpha_ge_128_height_after_px": 241,
+      "root_anchor_xy": [
+        256,
+        400
+      ],
+      "pixel_content_preserved_under_integer_translation": true
+    },
+    {
+      "name": "idle_S_07",
+      "frame_index": 7,
+      "path": "out/frames/idle/S/idle_S_07.png",
+      "source": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3-reg-01/frames/idle/S/idle_S_07.png",
+      "source_sha256": "0ec6c1c6bbed52ce5a64cbc8ee41c4e38cddc76595aa160a78e44ef61ddd0144",
+      "sha256": "0ec6c1c6bbed52ce5a64cbc8ee41c4e38cddc76595aa160a78e44ef61ddd0144",
+      "sole_line_before": 399,
+      "sole_line_after": 399,
+      "offset_xy": [
+        0,
+        0
+      ],
+      "alpha_bbox_before": [
+        209,
+        157,
+        303,
+        403
+      ],
+      "alpha_bbox_after": [
+        209,
+        157,
+        303,
+        403
+      ],
+      "alpha_bbox_height_before_px": 246,
+      "alpha_bbox_height_after_px": 246,
+      "bbox_centre_x_before": 255.5,
+      "bbox_centre_x_after": 255.5,
+      "alpha_ge_128_bbox_before": [
+        212,
+        160,
+        300,
+        400
+      ],
+      "alpha_ge_128_bbox_after": [
+        212,
+        160,
+        300,
+        400
+      ],
+      "alpha_ge_128_height_before_px": 240,
+      "alpha_ge_128_height_after_px": 240,
+      "root_anchor_xy": [
+        256,
+        400
+      ],
+      "pixel_content_preserved_under_integer_translation": true
+    }
+  ],
+  "summary": {
+    "sole_lines_before": [
+      399,
+      399,
+      399,
+      399,
+      399,
+      396,
+      396,
+      399
+    ],
+    "sole_lines_after": [
+      399,
+      399,
+      399,
+      399,
+      399,
+      399,
+      399,
+      399
+    ],
+    "offsets_xy": [
+      [
+        0,
+        0
+      ],
+      [
+        0,
+        0
+      ],
+      [
+        0,
+        0
+      ],
+      [
+        0,
+        0
+      ],
+      [
+        0,
+        0
+      ],
+      [
+        0,
+        3
+      ],
+      [
+        0,
+        3
+      ],
+      [
+        0,
+        0
+      ]
+    ],
+    "frame_7_byte_identical_to_frame_0": true,
+    "all_frames_512x512_rgba": true,
+    "max_absolute_translation_px": 3,
+    "visible_pixel_content_and_alpha_histograms_preserved": true
+  },
+  "concerns": []
+}

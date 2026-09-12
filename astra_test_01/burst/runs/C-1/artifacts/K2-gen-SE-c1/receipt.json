@@ -1,0 +1,35 @@
+{
+  "task_id": "K2-gen-SE-c1",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "k2_SE.png",
+      "path": "out/k2_SE.png",
+      "sha256": "71e2aa757bb6ffdf5fa284c53444549ddd59204f6c2fade5f16850841f07d6b0",
+      "prompt": "Use case: identity-preserve. Create exactly ONE portrait full-body painted 2D turnaround image using Image 1 as the APPROVED IDENTITY MASTER (S direction). Rotate this same young woman 45 degrees toward screen-right into direction SE, facing the viewer's LOWER-RIGHT. Preserve her identity, face, dark curly tied-back hair mass, sun-browned skin, proportions, costume, every object and anatomical side, standing rest pose with even weight and relaxed arms. Her anatomical RIGHT side is NEAR the camera: RIGHT arm and upright staff in FRONT on screen-left of her body. Her LEFT hip and olive satchel are FAR, screen-right, partly occluded behind her body. The visible face looks toward screen lower-right; head, torso and feet all turn together. Do not mirror. Camera is fixed, elevated three-quarter pinhole view approximately 53 degrees above the ground plane; rotate the character only. Full body, both feet fully visible, centered, same standing height and portrait framing as the master. Flat uniform pure #00ff00 over the entire background, no floor shadow, no background objects, do not matte. Identity and equipment unchanged: early-20s young woman, no helmet; ivory linen shirt, navy sleeveless tabard with entirely PLAIN chest, ONE chestnut diagonal harness strap over the anatomical RIGHT shoulder carrying ONE olive canvas satchel on anatomical LEFT hip, ONE waist belt, chestnut laced bracers, navy trousers, chestnut buckled boots. ONE PLAIN dark walnut staff upright in anatomical RIGHT hand, with small brass ferrules at foot and tip, no ring or head-piece. No insignia, emblems, additional ornaments, additional equipment, or text. Painted 2D high-resolution illustration with clean material planes, restrained surface texture, readable small silhouette, no conspicuous grain or brush strokes. Blue, ivory, brass palette. Single key light from SCREEN UPPER-LEFT, fixed in screen space; deep cool low-value ambient with readable shadows never pure black and a slight rim on the key-facing silhouette edge. No spell glow, no warm or saturated illumination on the figure. Deliver a single portrait image like the reference, not a sheet.",
+      "references": [
+        {
+          "role": "APPROVED IDENTITY MASTER (direction S): identity, costume, proportions, pose and register",
+          "path": "in/01_k1_master_L.png"
+        }
+      ],
+      "elapsed_s": 42.58
+    }
+  ],
+  "calls_used": 1,
+  "retries": [],
+  "self_report": {
+    "obeyed_invariants": false,
+    "concerns": [
+      "Followed the task-specific single portrait requirement; output is 1024×1536, not the register's 2×2 sheet or registered 512×512 frame.",
+      "The apparent camera elevation is shallower than the specified approximately 53 degrees.",
+      "Exact 45-degree rotation, unchanged costume details, and pixel-exact background uniformity are not verified."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/k2_SE.png",
+      "sha256": "71e2aa757bb6ffdf5fa284c53444549ddd59204f6c2fade5f16850841f07d6b0"
+    }
+  ]
+}
