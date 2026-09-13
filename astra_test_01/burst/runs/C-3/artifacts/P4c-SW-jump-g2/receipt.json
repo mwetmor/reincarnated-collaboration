@@ -1,0 +1,77 @@
+{
+  "task_id": "P4c-SW-jump-g2",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [],
+  "calls_used": 0,
+  "retries": [],
+  "self_report": {
+    "obeyed_invariants": true,
+    "concerns": [
+      "Head-pitch deltas unavailable for frames 2 and 5: face_not_visible.",
+      "Exemplar-band measurement skipped as instructed: no one-shot kind.",
+      "suspect_inside_selected derived from frozen suspect pairs and selection bounds; original registration lacks this field."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/checks.json",
+      "sha256": "e13c21b473782b4be6375b74e77d2daa663c6d95c3a9e07b9cd8e25c3eadd351"
+    },
+    {
+      "path": "out/grid.png",
+      "sha256": "b89a954ecf4ed513b61caa8c5ad2612c56791942c9754d435c4612ef2d87f60d"
+    },
+    {
+      "path": "out/first_second.png",
+      "sha256": "4d5007b5e940eb721b7ed68b0d20db6f01aedc9eeb23e859fa5a6578441846e1"
+    },
+    {
+      "path": "out/cut/registration.json",
+      "sha256": "a11fd60fc4af8224f9d25dac9126ce0ae776af9e9d8521bd00aa2c826adbe7a6"
+    },
+    {
+      "path": "out/cut/series.json",
+      "sha256": "df08f77829ab55b888db2df5b634ba9cad9d4ead3ac9c8d720775afde2cff64b"
+    },
+    {
+      "path": "out/cut/frames/jump/SW/jump_SW_00.png",
+      "sha256": "ee8f33ed5deb6cf707a18469eb716a7a1e92f9ced157ba313411657265e95c68"
+    },
+    {
+      "path": "out/cut/frames/jump/SW/jump_SW_01.png",
+      "sha256": "d2974808d9397828a280c03f309982912130f918b1cf4f9ede6821339b63a73f"
+    },
+    {
+      "path": "out/cut/frames/jump/SW/jump_SW_02.png",
+      "sha256": "37cecf74a036e5389d103824ca055aec5fb39bb0e0de9577db88b258527714e5"
+    },
+    {
+      "path": "out/cut/frames/jump/SW/jump_SW_03.png",
+      "sha256": "c231f7f847532e149853cb512efcd73ade1964d422f1157ac8f7aea0d23204db"
+    },
+    {
+      "path": "out/cut/frames/jump/SW/jump_SW_04.png",
+      "sha256": "63fe8030e78e7143dc654b477b0274ffdf8981bb2e5606981dc0e6d7122d6a5a"
+    },
+    {
+      "path": "out/cut/frames/jump/SW/jump_SW_05.png",
+      "sha256": "6779a08792aa7947248a03f70f99b6b405b2443c19e16245e93d1d4626ccc65d"
+    },
+    {
+      "path": "out/cut/frames/jump/SW/jump_SW_06.png",
+      "sha256": "102f145915acfb85b3f786e9b7a7e1d361a03b19435d6f61264b060b39f15836"
+    },
+    {
+      "path": "out/cut/frames/jump/SW/jump_SW_07.png",
+      "sha256": "1bf113754f4a1d2bf20552061cca2d2c3771a504a2b26f11c9bd4e6e31ba39ff"
+    },
+    {
+      "path": "out/cut/frames/rest/SW/rest_SW.png",
+      "sha256": "61c600b72d3d92645badcfbda0f71f42bf4ed1e34337fd7f535712f486ede498"
+    },
+    {
+      "path": "out/cut/sheets/jump_SW_strip.png",
+      "sha256": "d3fb3d9f464b192e0ee5f50d06afa1d819955eadbaf868bd105693b1ccaa3209"
+    }
+  ]
+}

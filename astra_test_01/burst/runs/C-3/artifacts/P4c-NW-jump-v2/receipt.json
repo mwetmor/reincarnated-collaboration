@@ -1,0 +1,35 @@
+{
+  "task_id": "P4c-NW-jump-v2",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [],
+  "calls_used": 0,
+  "retries": [],
+  "self_report": {
+    "obeyed_invariants": true,
+    "concerns": [
+      "Exemplar-band measurement and scoring skipped as instructed: no one-shot kind exists.",
+      "Frozen splice instrument identified five suspect pairs inside the selected interval, spanning native frames 84–89.",
+      "Head-pitch proxy was evaluable for 7 of 8 registered frames."
+    ]
+  },
+  "files": [
+    {"path":"out/checks.json","sha256":"2d65d98d0a0b881d6d8274b3b9577bdb0db642898b614a9041b60c2a7d60b4ad"},
+    {"path":"out/grid.png","sha256":"1cc69e0429bc22ca9095bcffc41d6f674fe50eb04f30efcef499afb596357d65"},
+    {"path":"out/first_second.png","sha256":"6d71f06410874d25222f259ea4464952f22a56ce7e09d970599f09c80ed3ebbd"},
+    {"path":"out/cut/registration.json","sha256":"e3eeea270e4e673ea72487114cc8882f05d7c1b2bd0b12d5728a30a16e87246c"},
+    {"path":"out/cut/series.json","sha256":"3776ce9f73801b392c1f0361983124b8985249a01472d01040a4c0df480824bc"},
+    {"path":"out/cut/frames/jump/NW/jump_NW_00.png","sha256":"e75045238d39ef03e645b6c10c605b034769334031cdd26886a08bba27ccd465"},
+    {"path":"out/cut/frames/jump/NW/jump_NW_01.png","sha256":"b96997446bd7da13f726527524a5f8b118e669f31354484ea4aa0edb616c056a"},
+    {"path":"out/cut/frames/jump/NW/jump_NW_02.png","sha256":"3788a96b88ba67fbd9593827232e43d9f99dacfcbd0348edcbf4f163086075a7"},
+    {"path":"out/cut/frames/jump/NW/jump_NW_03.png","sha256":"46da80bafe2f9b867cbe6277b2cb0dccf4d5bd1a8b14666ba57c3f55dfd0a1db"},
+    {"path":"out/cut/frames/jump/NW/jump_NW_04.png","sha256":"ae1fe1722439759770e1804896a86a990d3367a91d07f9613dfe72a83d9cf5c0"},
+    {"path":"out/cut/frames/jump/NW/jump_NW_05.png","sha256":"a5759600a3c8621b371c05131a289eccc26d0b79a7fe40cc544132a525039d84"},
+    {"path":"out/cut/frames/jump/NW/jump_NW_06.png","sha256":"b98be43bd21b66400da8c076aec4d8680ade585ffb02b925317f7941377d80a6"},
+    {"path":"out/cut/frames/jump/NW/jump_NW_07.png","sha256":"ebd5bfd17a2bfed83ff06df58fa8c61b4170206fc226204f27b8550756891c8a"},
+    {"path":"out/cut/frames/rest/NW/rest_NW.png","sha256":"abbdbe2ce63f4db1b11e6528aeacc7bc59ed7d0b03e155a48c9604dad0edd840"},
+    {"path":"out/cut/sheets/jump_NW_strip.png","sha256":"1f48be523c2af1bd9d729df51d6d7ec24eb05f293cd498975d1c9f2497f2b0e8"},
+    {"path":"out/native_samples/sample_00.png","sha256":"65aee0c1c201af36a862688fb93e14687194720577264e17cb8e90b706decaae"},
+    {"path":"out/native_samples/sample_01.png","sha256":"c9fdbb683a3bce9d53ee5f943d3dcfc9b6c832a33630ccfd1ecd6dc6c4a501c5"},
+    {"path":"out/native_samples/sample_02.png","sha256":"0a5fc3435bed0a859cf29722a32b20c523c0c91a3cde73205fb0e082adf8e425"}
+  ]
+}

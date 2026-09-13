@@ -3,10 +3,29 @@ import json, shutil, pathlib, glob
 B = pathlib.Path('/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst'); R = B/'runs/C-3'; A = R/'artifacts'
 DIRS = ['S', 'SW', 'W', 'NW', 'N', 'NE', 'E', 'SE']; ANIMS = ['idle', 'walk', 'run', 'jump', 'cast']
 L = json.load(open(R/'ledger.json')); ok = {b['id'] for b in L['bursts'] if b['exit'] == 0}
+PREFER = {('E','walk'):'-g2', ('SW','walk'):'-g2', ('NW','walk'):'-g2', ('SE','run'):'-g2', ('SW','jump'):'-g2', ('NE','cast'):'-v2x', ('NW','cast'):'-v2x', ('NW','jump'):'-v2'}
 def src(D, a):
-    for suf in ('-x', '-r1', ''):
+    for suf in ((PREFER[(D,a)],) if (D,a) in PREFER else ()) + ('-x', '-r1', ''):
         if f'P4c-{D}-{a}{suf}' in ok and glob.glob(str(A/f'P4c-{D}-{a}{suf}/cut/frames/{a}/{D}/*_00.png')): return suf
     return None
+CFLAGS = {
+ 'walk_E': ['head down in the first second on v1 → re-generated with the gaze line doubled; re-generation head-up (R-C3-24)'],
+ 'walk_SW': ['head down on v1 → re-generated; re-generation head-up (R-C3-24)'],
+ 'walk_W': ['HEAD DOWN in the first second and in frame 0; stride ≈ 2.8 s (≈ 2× other directions). The gaze re-generation is head-up but the cut tool found no cycle in it (70-frame bob) — original kept (second failure)'],
+ 'walk_NE': ['HEAD DOWN in the first second and frame 0 on BOTH attempts (second failure) — original kept'],
+ 'walk_NW': ['head down on v1 → re-generated; transcriber: cannot tell (back view)'],
+ 'run_SE': ['head down on v1 → re-generated; re-generation head-up'],
+ 'jump_SW': ['head down on v1 → re-generated; re-generation head-up'],
+ 'run_N': ['first second head-down: cannot tell (back view)'],
+ 'walk_N': ['first second head-down: cannot tell (back view)'],
+ 'cast_S': ['raised staff reaches the frame top at gather even from the padded seed; 45 of 89 event frames have no tracked staff tip (staff foreshortened toward the camera); key poses conductor-computed (R-C3-17)'],
+ 'cast_W': ['noisy staff-tip baseline (tolerance 39.9 px); key poses conductor-computed (R-C3-17)'],
+ 'cast_NE': ['v2 clip (R-C3-24); gather and release on adjacent native frames 90/91; transcriber: last frame does NOT return to rest; key poses conductor-computed'],
+ 'cast_NW': ['v2 clip (R-C3-24); key poses conductor-computed'],
+ 'jump_NW': ['v2 clip (R-C3-24); HEAD DOWN in the first second on BOTH attempts (second failure) — v2 kept; both failures are back three-quarter views: likely a transcriber misread of an averted head, Matt\'s eye rules'], 'walk_NE_note': [],
+}
+for k in ('cast_E', 'cast_N', 'cast_SE', 'cast_SW'): CFLAGS.setdefault(k, ['key poses conductor-computed from a full-resolution staff-tip series (R-C3-17)'])
+for k in ('jump_S', 'jump_E', 'jump_W', 'jump_SE'): CFLAGS.setdefault(k, ['key poses conductor-computed from the tool\'s head/sole series with a floored settle tolerance (R-C3-17)'])
 out = R/'cells'; out.mkdir(exist_ok=True); missing = {}; index = {}
 Q = json.load(open(R/'matrix_questions.json'))['sets']
 for D in DIRS:
@@ -28,7 +47,7 @@ for D in DIRS:
         mism = [i['id'] for i in items if i['class'] == 'motion' and i['id'] in ans and ans[i['id']] != i['expected']]
         ctrl = all(ans.get(i['id']) == 'no' for i in items if i['class'] == 'declared_absent_control') if ans else None
         index[cell] = dict(status='COMPLETE', check_burst=cb.name, pack_burst=pk.parent.name if pk.exists() else None, transcribe_burst=tr.parent.name if tr.exists() else None,
-                           clip=chk.get('clip'), clip_version=chk.get('clip_version'), flags=chk.get('flags', []), transcriber_disagrees_with_intent=mism, transcriber_controls_caught=ctrl,
+                           clip=chk.get('clip'), clip_version=chk.get('clip_version'), flags=chk.get('flags', []) + CFLAGS.get(cell, []), transcriber_disagrees_with_intent=mism, transcriber_controls_caught=ctrl,
                            packet=f'../artifacts/{pk.parent.name}/packet/review.html' if pk.exists() else None)
 json.dump(missing, open(out/'missing.json', 'w'), indent=1)
 adv = R/'cells_advanced'; adv.mkdir(exist_ok=True)

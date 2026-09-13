@@ -1,0 +1,30 @@
+{
+  "task_id": "P4c-SE-run-g2",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [],
+  "calls_used": 0,
+  "retries": [],
+  "self_report": {
+    "obeyed_invariants": true,
+    "concerns": [
+      "bands_from_exemplar.measure returned ValueError: gait intent requires 12 frames and 12 candidate phases. Recorded a null envelope; retained the prescribed eight-frame cut. All other requested measurements completed."
+    ]
+  },
+  "files": [
+    {"path":"out/checks.json","sha256":"d10d43a2d94a79621260ad4bc8965484186f8bcab7441c4856c2d14ce2b28f5b"},
+    {"path":"out/grid.png","sha256":"0f651cc8e67f6f3d93f3c5050427583ccf6c642d312ed93ab361b28e68823135"},
+    {"path":"out/first_second.png","sha256":"83b7dbd19cf4ab743ca46eaf43b7d74d1e6d297b0f3ef1b0fdcedc19216f813e"},
+    {"path":"out/cut/registration.json","sha256":"e1dd3e001d2daeb2a24a4619da63fd3ba8a9ceb0a62056e7d48ebc4e8d40f22b"},
+    {"path":"out/cut/series.json","sha256":"c9238707c28548742d952a641b3bfaeba803d1aa094db3a0069137871157e84e"},
+    {"path":"out/cut/frames/rest/SE/rest_SE.png","sha256":"40b1e427d6b9096df57489783c9d61a34595eb75213367a56dd93bf1de5cc259"},
+    {"path":"out/cut/frames/run/SE/run_SE_00.png","sha256":"314ae1d5c878e961f1d4c9882ce9a483b3c7d1b53ca1dc4c1a0f7edcb5d2f1af"},
+    {"path":"out/cut/frames/run/SE/run_SE_01.png","sha256":"5f4ee4d921129634327b2459883796e05141d6588728a47eabdceee602fe1a47"},
+    {"path":"out/cut/frames/run/SE/run_SE_02.png","sha256":"27498ce79e28aa062834a13238aae6940a898fecaf44fa491864830f760ce28c"},
+    {"path":"out/cut/frames/run/SE/run_SE_03.png","sha256":"1154e2a1cea6191bc9abb554dc6db99415afaddc710c15f89b2f6ccf2e8c36d3"},
+    {"path":"out/cut/frames/run/SE/run_SE_04.png","sha256":"0d72c0d74b656ed570f83197f746364ccdb8252c08e636806d2587a8f22c3d04"},
+    {"path":"out/cut/frames/run/SE/run_SE_05.png","sha256":"de393dd386ce30cf2e9f2d8abb28047ba451486723870a50ad55400394a7c440"},
+    {"path":"out/cut/frames/run/SE/run_SE_06.png","sha256":"266f7a1227ddda75c55af564c0d59943d7aa49e09e499da8757ddd755902e70d"},
+    {"path":"out/cut/frames/run/SE/run_SE_07.png","sha256":"37895c3b4b87c1b72112a0920885a094156f4f5d4db941f1cc5fe66bc320cc5b"},
+    {"path":"out/cut/sheets/run_SE_strip.png","sha256":"c33fdfe7a210818c7b19d9d73b6d9a9fc0dbae53a352ee34cb40d35d591a84c3"}
+  ]
+}

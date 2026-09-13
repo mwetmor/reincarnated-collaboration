@@ -1,0 +1,370 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark">
+<title>Run C-3 — the Keeper matrix (verdict-ready, not the verdict)</title>
+<style>
+:root{font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:#e8e9e7;background:#141922;line-height:1.5}
+*{box-sizing:border-box}body{margin:0;padding:32px}main{max-width:1800px;margin:auto}h1{font-size:clamp(23px,2.5vw,34px);line-height:1.2;margin:0 0 22px;font-weight:650;max-width:1100px}h2{font-size:18px;margin:0 0 12px}a{color:#a8d6f0;text-underline-offset:3px}a:hover{color:#fff}a:focus-visible,summary:focus-visible,.strip:focus-visible{outline:3px solid #dfb677;outline-offset:3px}.front{background:#202631;border:1px solid #738092;padding:22px 26px}.front ul{padding-left:22px;margin:0}.front li+li{margin-top:12px}.front li:first-child{font-weight:650;color:#ffe0aa}.links{display:flex;flex-wrap:wrap;gap:8px 22px;margin:22px 0 10px}.godot-note,.intro{color:#bcc5d0;font-size:13px}.counts{font-size:16px;font-weight:600;margin-top:24px}.matrix-wrap{overflow:auto;border:1px solid #556172;margin:18px 0 34px;max-height:80vh}table{border-collapse:separate;border-spacing:0;width:100%;min-width:1450px;table-layout:fixed;font-size:12px}caption{text-align:left;padding:12px;background:#202631;color:#d6dde5}th,td{padding:12px;vertical-align:top;border-right:1px solid #3d4857;border-bottom:1px solid #3d4857}thead th{position:sticky;top:0;z-index:3;background:#293341;text-transform:capitalize;text-align:left;font-size:14px}tbody th{position:sticky;left:0;z-index:2;background:#202a37;font-size:19px}thead th:first-child{left:0;z-index:4}td{background:#181f29}.packet-label{font-weight:600;font-size:13px}.strip{overflow-x:auto;margin-top:10px;background:#141922;height:130px}.strip a{display:block;width:max-content}.strip img{height:108px;width:auto;display:block}.badge{white-space:nowrap;background:#2a3543;color:#e8edf4;font-size:12px;padding:4px 7px;display:inline-block;margin:8px 0}.metrics{display:grid;grid-template-columns:1fr 1fr;gap:5px 12px;margin:4px 0 10px}.metrics div{min-width:0}.metrics dt{font-size:10px}.metrics dd{font-variant-numeric:tabular-nums;margin:0;font-size:13px}.flags{border:1px solid #bc666a;padding:10px 10px 10px 23px;margin:12px 0;color:#edc6c8;overflow-wrap:anywhere}.flags li+li{margin-top:7px}.quiet,.caveat{color:#b8c2cf;font-size:11px}.incomplete{background:#363b43;color:#dedfe2;border:1px solid #787e88;padding:14px;min-height:205px}.incomplete strong{font-size:12px;letter-spacing:.06em}.verdict{background:#222830;color:#b9c2cc;font-style:italic;font-size:13px}details{font-size:10px;color:#b9c5d4;overflow-wrap:anywhere}summary{cursor:pointer}.legend{max-width:1160px}.legend dt{font-weight:650;margin-top:18px;color:#dce4ef;scroll-margin-top:20px}.legend dd{margin:4px 0 0;color:#c0cad6;font-size:13px}.rule-note{border-left:3px solid #cda267;padding-left:14px}.footer{color:#aab6c4;font-size:12px;margin-top:30px}@media(max-width:700px){body{padding:16px}.front{padding:16px}.matrix-wrap{max-height:75vh}}@media print{body{background:white;color:black;padding:10px}.matrix-wrap{overflow:visible;max-height:none}table{min-width:0;font-size:8px}th,td,thead th,tbody th,.verdict,.front{background:white;color:black;position:static}a,.flags,.quiet,.legend dd,.intro,.godot-note{color:black}.strip{height:auto;overflow:hidden}.strip img{height:auto;width:100%}.strip a{width:100%}.badge{white-space:normal}.metrics{display:block}.flags{padding:5px 5px 5px 14px}.legend{break-before:page}}
+</style>
+</head>
+<body><main>
+<h1>Run C-3 — the Keeper matrix (verdict-ready, not the verdict)</h1>
+<section class="front" aria-labelledby="front-title"><h2 id="front-title">FRONT PAGE</h2><ul><li>HALT H-C3-1 (FIRST): Grok returned 402 'usage balance exhausted' after 53 of 56 clips. Ruling R-C3-9 (veto-open) scoped the halt to the Grok stream; Astra work continued on charter fallbacks. Your options: top up and say 'resume grok' / accept the fallbacks / veto R-C3-9.</li>
+<li>R-C3-1 GEOMETRY FLAG: the C-2 E frame (R-43) was a mirrored body — your question ('isn't the staff in the wrong hand?') was right. This turnaround follows the derived table: on E/SE/NE the staff is in the NEAR hand. Veto-open.</li>
+<li>GLYPH (R-C3-14): the judge picked glyph A (needle through three strata); ratify or swap.</li>
+<li>Q75 reading (R-C3-19): a whole-sheet edit re-renders the body (16 / 9 RGB levels of drift); the gear LAYER cut from it at declared regions keeps the motion byte-identical. See the gear packet.</li>
+<li>Findings: F-C3-1 residual light contour on dark cloth after the clamp matte · F-C3-2 head-pitch proxy misses the first-second head-down · F-C3-3 coherence calls the passed idle 'redrawn' · F-C3-4 the cut tool's staff-tip proxy tracks the hair (explicit sockets used) · F-C3-5 zero-noise settle tolerance (explicit one-shot key poses used).</li>
+<li>Gates are PROPOSALS: every number is a report; nothing here is a verdict. Your eye rules each cell at C-4.</li></ul></section>
+<nav class="links" aria-label="Review packets">
+<a href="artifacts/P2p-turnaround/review.html">Turnaround (packet 20)</a>
+<span>Gear (<a href="artifacts/P5p-gear-idle-S-r1/packet/review.html">idle S</a>, <a href="artifacts/P5p-gear-walk-E-r1/packet/review.html">walk E</a>)</span>
+<a href="artifacts/P5p-vfx/review.html">VFX</a>
+<a href="viewer/index.html">Pixi viewer wheel</a>
+<a href="godot/README.md">Godot stub</a>
+<a href="artifacts/P6c-numbers/numbers.csv">numbers.csv</a>
+</nav>
+<p class="godot-note">Godot stub: open <a href="godot/project.godot">runs/C-3/godot/project.godot</a> in Godot 4.6: arrows/WASD move, Shift run, Space jump, E cast, G gear.</p>
+<p class="counts">38 complete / 2 incomplete · 40 cells · 8 directions</p>
+<p class="intro">Complete describes packet availability only. Scroll each strip sideways for all frames; select it to open the packet. Four measurements per complete cell are rounded to three decimals; hover a value for its source precision. Flags and transcriber disagreements are outlined in red. <a href="#legend">Number definitions ↓</a></p>
+<div class="matrix-wrap" tabindex="0" aria-label="Keeper matrix, horizontally and vertically scrollable">
+<table><caption>Keeper animation matrix · Matt’s eye rules each cell at C-4</caption>
+<colgroup><col style="width:65px"><col><col><col><col><col><col style="width:120px"></colgroup>
+<thead><tr><th scope="col">Facing</th><th scope="col">idle</th><th scope="col">walk</th><th scope="col">run</th><th scope="col">jump</th><th scope="col">cast</th><th scope="col">Matt's verdict</th></tr></thead>
+<tbody><tr><th scope="row">S</th><td id="idle_S">
+<a class="packet-label" href="artifacts/P4p-S-idle/packet/review.html">S idle packet ↗</a>
+<div class="strip" tabindex="0" aria-label="S idle strip; scroll horizontally to see all frames"><a href="artifacts/P4p-S-idle/packet/review.html" aria-label="Open S idle review packet"><img src="thumbs/idle_S.png" alt="S idle: animation frame strip" loading="lazy"></a></div>
+<p class="badge">clip v1; 16 frames@8fps</p>
+<dl class="metrics"><div><dt><a href="#def-G6b">G6b</a></dt><dd title="0.22877629597981772">0.229</dd></div><div><dt><a href="#def-G1_max">G1 max</a></dt><dd title="0.012345679012345734">0.012</dd></div><div><dt><a href="#def-closure_mad">Closure</a></dt><dd title="4.987842386258125">4.988</dd></div><div><dt><a href="#def-motion_range_H">Motion range</a></dt><dd title="0">0.000</dd></div></dl>
+<ul class="flags"><li>Flag: Period uses the prompted fallback: observed autocorrelation confidence 0.0</li><li>Flag: Suspected splice pairs inside the selected span</li><li>Transcriber disagrees with intent: visible breathing.</li></ul>
+
+<details><summary>Source record</summary><p>Clip: S_idle.mp4<br>Check: P4c-S-idle<br>Pack: P4p-S-idle<br>Transcriber: P4t-S-idle<br>Transcriber controls caught: true</p></details>
+</td><td id="walk_S">
+<a class="packet-label" href="artifacts/P4p-S-walk/packet/review.html">S walk packet ↗</a>
+<div class="strip" tabindex="0" aria-label="S walk strip; scroll horizontally to see all frames"><a href="artifacts/P4p-S-walk/packet/review.html" aria-label="Open S walk review packet"><img src="thumbs/walk_S.png" alt="S walk: animation frame strip" loading="lazy"></a></div>
+<p class="badge">clip v1; 12 frames@12fps</p>
+<dl class="metrics"><div><dt><a href="#def-G6b">G6b</a></dt><dd title="0.7196426391601562">0.720</dd></div><div><dt><a href="#def-G1_max">G1 max</a></dt><dd title="0.020746887966805017">0.021</dd></div><div><dt><a href="#def-closure_mad">Closure</a></dt><dd title="18.172472769826268">18.172</dd></div><div><dt><a href="#def-motion_range_H">Motion range</a></dt><dd title="0.02074688796680498">0.021</dd></div></dl>
+<ul class="flags"><li>Flag: walk S proposal has no quantities: measure only; no proposal scores computed</li><li>Flag: Suspected splice inside the selected span; native adjacent pairs 74–75,95–96.</li></ul>
+
+<details><summary>Source record</summary><p>Clip: S_walk.mp4<br>Check: P4c-S-walk<br>Pack: P4p-S-walk<br>Transcriber: P4t-S-walk<br>Transcriber controls caught: true</p></details>
+</td><td id="run_S">
+<a class="packet-label" href="artifacts/P4p-S-run/packet/review.html">S run packet ↗</a>
+<div class="strip" tabindex="0" aria-label="S run strip; scroll horizontally to see all frames"><a href="artifacts/P4p-S-run/packet/review.html" aria-label="Open S run review packet"><img src="thumbs/run_S.png" alt="S run: animation frame strip" loading="lazy"></a></div>
+<p class="badge">clip v1; 8 frames@12fps</p>
+<dl class="metrics"><div><dt><a href="#def-G6b">G6b</a></dt><dd title="1.6367225646972656">1.637</dd></div><div><dt><a href="#def-G1_max">G1 max</a></dt><dd title="0.08108108108108103">0.081</dd></div><div><dt><a href="#def-closure_mad">Closure</a></dt><dd title="39.94952132288947">39.950</dd></div><div><dt><a href="#def-motion_range_H">Motion range</a></dt><dd title="0.04633204633204633">0.046</dd></div></dl>
+<ul class="flags"><li>Flag: Exemplar band measurement: ValueError: gait intent requires 12 frames and 12 candidate phases</li><li>Transcriber disagrees with intent: staff staying in the same hand.</li><li>Transcriber disagrees with intent: stable identity.</li><li>Transcriber disagrees with intent: both feet airborne.</li><li>Transcriber disagrees with intent: torso lean.</li><li>Transcriber disagrees with intent: continuous loop.</li></ul>
+<p class="caveat">G6c uses the frozen walk-mode half-cycle instrument on run frames, per task scope; the function does not accept animation=&quot;run&quot;.</p>
+<details><summary>Source record</summary><p>Clip: S_run.mp4<br>Check: P4c-S-run<br>Pack: P4p-S-run<br>Transcriber: P4t-S-run<br>Transcriber controls caught: true</p></details>
+</td><td id="jump_S">
+<a class="packet-label" href="artifacts/P4p-S-jump-x/packet/review.html">S jump packet ↗</a>
+<div class="strip" tabindex="0" aria-label="S jump strip; scroll horizontally to see all frames"><a href="artifacts/P4p-S-jump-x/packet/review.html" aria-label="Open S jump review packet"><img src="thumbs/jump_S.png" alt="S jump: animation frame strip" loading="lazy"></a></div>
+<p class="badge">clip v2; 8 frames@12fps</p>
+<dl class="metrics"><div><dt><a href="#def-G6b">G6b</a></dt><dd title="0.986480712890625">0.986</dd></div><div><dt><a href="#def-G1_max">G1 max</a></dt><dd title="0.22499999999999998">0.225</dd></div><div><dt><a href="#def-closure_mad">Closure</a></dt><dd title="29.0965025090148">29.097</dd></div><div><dt><a href="#def-motion_range_H">Motion range</a></dt><dd title="0.425">0.425</dd></div></dl>
+<ul class="flags"><li>Transcriber disagrees with intent: stable identity.</li></ul>
+
+<details><summary>Source record</summary><p>Clip: S_jump_v2.mp4<br>Check: P4c-S-jump-x<br>Pack: P4p-S-jump-x<br>Transcriber: P4t-S-jump-x<br>Transcriber controls caught: true</p></details>
+</td><td id="cast_S">
+<a class="packet-label" href="artifacts/P4p-S-cast-x/packet/review.html">S cast packet ↗</a>
+<div class="strip" tabindex="0" aria-label="S cast strip; scroll horizontally to see all frames"><a href="artifacts/P4p-S-cast-x/packet/review.html" aria-label="Open S cast review packet"><img src="thumbs/cast_S.png" alt="S cast: animation frame strip" loading="lazy"></a></div>
+<p class="badge">clip v2; 8 frames@20fps</p>
+<dl class="metrics"><div><dt><a href="#def-G6b">G6b</a></dt><dd title="0.9651145935058594">0.965</dd></div><div><dt><a href="#def-G1_max">G1 max</a></dt><dd title="0.32499999999999996">0.325</dd></div><div><dt><a href="#def-closure_mad">Closure</a></dt><dd title="24.706930746868803">24.707</dd></div><div><dt><a href="#def-motion_range_H">Motion range</a></dt><dd title="0.32916666666666666">0.329</dd></div></dl>
+<ul class="flags"><li>Flag: Head pitch unavailable at output frame 3, native frame 58: face not visible.</li><li>Transcriber disagrees with intent: clean plate.</li><li>Transcriber disagrees with intent: ending at rest.</li></ul>
+
+<details><summary>Source record</summary><p>Clip: S_cast_v2.mp4<br>Check: P4c-S-cast-x<br>Pack: P4p-S-cast-x<br>Transcriber: P4t-S-cast-x<br>Transcriber controls caught: true</p></details>
+</td><td class="verdict">rule at C-4</td></tr>
+<tr><th scope="row">SE</th><td id="idle_SE">
+<a class="packet-label" href="artifacts/P4p-SE-idle/packet/review.html">SE idle packet ↗</a>
+<div class="strip" tabindex="0" aria-label="SE idle strip; scroll horizontally to see all frames"><a href="artifacts/P4p-SE-idle/packet/review.html" aria-label="Open SE idle review packet"><img src="thumbs/idle_SE.png" alt="SE idle: animation frame strip" loading="lazy"></a></div>
+<p class="badge">clip v1; 16 frames@8fps</p>
+<dl class="metrics"><div><dt><a href="#def-G6b">G6b</a></dt><dd title="0.31878407796223956">0.319</dd></div><div><dt><a href="#def-G1_max">G1 max</a></dt><dd title="0.004149377593360981">0.004</dd></div><div><dt><a href="#def-closure_mad">Closure</a></dt><dd title="7.5044239715406365">7.504</dd></div><div><dt><a href="#def-motion_range_H">Motion range</a></dt><dd title="0">0.000</dd></div></dl>
+<ul class="flags"><li>Flag: Period uses the prompted fallback: observed autocorrelation confidence 0.0; selected period uses the registered 2.0-second prior</li><li>Transcriber disagrees with intent: visible breathing.</li></ul>
+
+<details><summary>Source record</summary><p>Clip: SE_idle.mp4<br>Check: P4c-SE-idle<br>Pack: P4p-SE-idle<br>Transcriber: P4t-SE-idle<br>Transcriber controls caught: true</p></details>
+</td><td id="walk_SE">
+<a class="packet-label" href="artifacts/P4p-SE-walk/packet/review.html">SE walk packet ↗</a>
+<div class="strip" tabindex="0" aria-label="SE walk strip; scroll horizontally to see all frames"><a href="artifacts/P4p-SE-walk/packet/review.html" aria-label="Open SE walk review packet"><img src="thumbs/walk_SE.png" alt="SE walk: animation frame strip" loading="lazy"></a></div>
+<p class="badge">clip v1; 12 frames@12fps</p>
+<dl class="metrics"><div><dt><a href="#def-G6b">G6b</a></dt><dd title="1.4473457336425781">1.447</dd></div><div><dt><a href="#def-G1_max">G1 max</a></dt><dd title="0.02092050209205021">0.021</dd></div><div><dt><a href="#def-closure_mad">Closure</a></dt><dd title="36.73219330855019">36.732</dd></div><div><dt><a href="#def-motion_range_H">Motion range</a></dt><dd title="0.02092050209205021">0.021</dd></div></dl>
+<ul class="flags"><li>Flag: Band measurement.W6: frozen estimator unresolved</li><li>Flag: Band measurement.left planted-sole slip: frozen estimator unresolved</li><li>Flag: W2 max 1 cycle fraction: second maximum absent; only one maximum observed</li></ul>
+
+<details><summary>Source record</summary><p>Clip: SE_walk.mp4<br>Check: P4c-SE-walk<br>Pack: P4p-SE-walk<br>Transcriber: P4t-SE-walk<br>Transcriber controls caught: true</p></details>
+</td><td id="run_SE">
+<a class="packet-label" href="artifacts/P4p-SE-run/packet/review.html">SE run packet ↗</a>
+<div class="strip" tabindex="0" aria-label="SE run strip; scroll horizontally to see all frames"><a href="artifacts/P4p-SE-run/packet/review.html" aria-label="Open SE run review packet"><img src="thumbs/run_SE.png" alt="SE run: animation frame strip" loading="lazy"></a></div>
+<p class="badge">clip v1; 8 frames@12fps</p>
+<dl class="metrics"><div><dt><a href="#def-G6b">G6b</a></dt><dd title="2.2526944478352866">2.253</dd></div><div><dt><a href="#def-G1_max">G1 max</a></dt><dd title="0.101123595505618">0.101</dd></div><div><dt><a href="#def-closure_mad">Closure</a></dt><dd title="44.90657832270316">44.907</dd></div><div><dt><a href="#def-motion_range_H">Motion range</a></dt><dd title="0.03745318352059925">0.037</dd></div></dl>
+<ul class="flags"><li>Flag: Band measurement: gait intent requires 12 frames and 12 candidate phases</li><li>Transcriber disagrees with intent: both feet airborne.</li><li>Transcriber disagrees with intent: continuous loop.</li><li>Transcriber disagrees with intent: head down during the first second.</li></ul>
+<p class="caveat">G6c uses the frozen walk-mode half-cycle instrument on run frames, per task scope; the function does not accept animation=&quot;run&quot;.</p>
+<details><summary>Source record</summary><p>Clip: SE_run.mp4<br>Check: P4c-SE-run<br>Pack: P4p-SE-run<br>Transcriber: P4t-SE-run<br>Transcriber controls caught: true</p></details>
+</td><td id="jump_SE">
+<a class="packet-label" href="artifacts/P4p-SE-jump-x/packet/review.html">SE jump packet ↗</a>
+<div class="strip" tabindex="0" aria-label="SE jump strip; scroll horizontally to see all frames"><a href="artifacts/P4p-SE-jump-x/packet/review.html" aria-label="Open SE jump review packet"><img src="thumbs/jump_SE.png" alt="SE jump: animation frame strip" loading="lazy"></a></div>
+<p class="badge">clip v2; 8 frames@12fps</p>
+<dl class="metrics"><div><dt><a href="#def-G6b">G6b</a></dt><dd title="1.8619969685872395">1.862</dd></div><div><dt><a href="#def-G1_max">G1 max</a></dt><dd title="0.21250000000000002">0.213</dd></div><div><dt><a href="#def-closure_mad">Closure</a></dt><dd title="47.79558073912252">47.796</dd></div><div><dt><a href="#def-motion_range_H">Motion range</a></dt><dd title="0.5">0.500</dd></div></dl>
+<ul class="flags"><li>Flag: Frozen register returned rest anchor center x=256.0 versus requested cx=255.5 (0.5 px raster offset); shared transform retained unchanged.</li><li>Flag: Head-pitch delta unavailable for output frame(s) [6]: face not visible.</li><li>Flag: Exemplar measure/score intentionally not computed per step a: frozen estimator has no one-shot kind.</li></ul>
+
+<details><summary>Source record</summary><p>Clip: SE_jump_v2.mp4<br>Check: P4c-SE-jump-x<br>Pack: P4p-SE-jump-x<br>Transcriber: P4t-SE-jump-x<br>Transcriber controls caught: true</p></details>
+</td><td id="cast_SE">
+<a class="packet-label" href="artifacts/P4p-SE-cast-x/packet/review.html">SE cast packet ↗</a>
+<div class="strip" tabindex="0" aria-label="SE cast strip; scroll horizontally to see all frames"><a href="artifacts/P4p-SE-cast-x/packet/review.html" aria-label="Open SE cast review packet"><img src="thumbs/cast_SE.png" alt="SE cast: animation frame strip" loading="lazy"></a></div>
+<p class="badge">clip v2; 8 frames@20fps</p>
+<dl class="metrics"><div><dt><a href="#def-G6b">G6b</a></dt><dd title="0.9325955708821615">0.933</dd></div><div><dt><a href="#def-G1_max">G1 max</a></dt><dd title="0.20833333333333326">0.208</dd></div><div><dt><a href="#def-closure_mad">Closure</a></dt><dd title="24.26937984496124">24.269</dd></div><div><dt><a href="#def-motion_range_H">Motion range</a></dt><dd title="0.2125">0.212</dd></div></dl>
+<ul class="flags"><li>Flag: Frozen register raster result: anchor center x=256.0 versus requested cx=255.5 (0.5 px offset); shared transform preserved without adjustment.</li><li>Transcriber disagrees with intent: ending at rest.</li></ul>
+
+<details><summary>Source record</summary><p>Clip: SE_cast_v2.mp4<br>Check: P4c-SE-cast-x<br>Pack: P4p-SE-cast-x<br>Transcriber: P4t-SE-cast-x<br>Transcriber controls caught: true</p></details>
+</td><td class="verdict">rule at C-4</td></tr>
+<tr><th scope="row">E</th><td id="idle_E">
+<a class="packet-label" href="artifacts/P4p-E-idle/packet/review.html">E idle packet ↗</a>
+<div class="strip" tabindex="0" aria-label="E idle strip; scroll horizontally to see all frames"><a href="artifacts/P4p-E-idle/packet/review.html" aria-label="Open E idle review packet"><img src="thumbs/idle_E.png" alt="E idle: animation frame strip" loading="lazy"></a></div>
+<p class="badge">clip v1; 16 frames@8fps</p>
+<dl class="metrics"><div><dt><a href="#def-G6b">G6b</a></dt><dd title="0.3848063151041667">0.385</dd></div><div><dt><a href="#def-G1_max">G1 max</a></dt><dd title="0.016393442622950838">0.016</dd></div><div><dt><a href="#def-closure_mad">Closure</a></dt><dd title="12.136753121998078">12.137</dd></div><div><dt><a href="#def-motion_range_H">Motion range</a></dt><dd title="0">0.000</dd></div></dl>
+<ul class="flags"><li>Flag: Period uses prompted fallback at 2.0 s; observed autocorrelation confidence is 0.0, so a measured single breath cycle is unconfirmed.</li><li>Transcriber disagrees with intent: visible breathing.</li></ul>
+
+<details><summary>Source record</summary><p>Clip: E_idle.mp4<br>Check: P4c-E-idle<br>Pack: P4p-E-idle<br>Transcriber: P4t-E-idle<br>Transcriber controls caught: true</p></details>
+</td><td id="walk_E">
+<a class="packet-label" href="artifacts/P4p-E-walk/packet/review.html">E walk packet ↗</a>
+<div class="strip" tabindex="0" aria-label="E walk strip; scroll horizontally to see all frames"><a href="artifacts/P4p-E-walk/packet/review.html" aria-label="Open E walk review packet"><img src="thumbs/walk_E.png" alt="E walk: animation frame strip" loading="lazy"></a></div>
+<p class="badge">clip v1; 12 frames@12fps</p>
+<dl class="metrics"><div><dt><a href="#def-G6b">G6b</a></dt><dd title="1.780927022298177">1.781</dd></div><div><dt><a href="#def-G1_max">G1 max</a></dt><dd title="0.040322580645161255">0.040</dd></div><div><dt><a href="#def-closure_mad">Closure</a></dt><dd title="42.98212807401997">42.982</dd></div><div><dt><a href="#def-motion_range_H">Motion range</a></dt><dd title="0.028225806451612902">0.028</dd></div></dl>
+<ul class="flags"><li>Flag: Frozen band estimator unresolved: W6</li><li>Transcriber disagrees with intent: head down during the first second.</li></ul>
+
+<details><summary>Source record</summary><p>Clip: E_walk.mp4<br>Check: P4c-E-walk<br>Pack: P4p-E-walk<br>Transcriber: P4t-E-walk<br>Transcriber controls caught: true</p></details>
+</td><td id="run_E">
+<a class="packet-label" href="artifacts/P4p-E-run/packet/review.html">E run packet ↗</a>
+<div class="strip" tabindex="0" aria-label="E run strip; scroll horizontally to see all frames"><a href="artifacts/P4p-E-run/packet/review.html" aria-label="Open E run review packet"><img src="thumbs/run_E.png" alt="E run: animation frame strip" loading="lazy"></a></div>
+<p class="badge">clip v1; 8 frames@12fps</p>
+<dl class="metrics"><div><dt><a href="#def-G6b">G6b</a></dt><dd title="1.2192230224609375">1.219</dd></div><div><dt><a href="#def-G1_max">G1 max</a></dt><dd title="0.08235294117647063">0.082</dd></div><div><dt><a href="#def-closure_mad">Closure</a></dt><dd title="33.32154648132059">33.322</dd></div><div><dt><a href="#def-motion_range_H">Motion range</a></dt><dd title="0.0392156862745098">0.039</dd></div></dl>
+<ul class="flags"><li>Flag: Band measurement: gait intent requires 12 frames and 12 candidate phases</li><li>Transcriber disagrees with intent: both feet airborne.</li></ul>
+<p class="caveat">G6c uses the frozen walk-mode half-cycle instrument on run frames, per task scope; the function does not accept animation=&quot;run&quot;.</p>
+<details><summary>Source record</summary><p>Clip: E_run.mp4<br>Check: P4c-E-run<br>Pack: P4p-E-run<br>Transcriber: P4t-E-run<br>Transcriber controls caught: true</p></details>
+</td><td id="jump_E">
+<a class="packet-label" href="artifacts/P4p-E-jump-x/packet/review.html">E jump packet ↗</a>
+<div class="strip" tabindex="0" aria-label="E jump strip; scroll horizontally to see all frames"><a href="artifacts/P4p-E-jump-x/packet/review.html" aria-label="Open E jump review packet"><img src="thumbs/jump_E.png" alt="E jump: animation frame strip" loading="lazy"></a></div>
+<p class="badge">clip v2; 8 frames@12fps</p>
+<dl class="metrics"><div><dt><a href="#def-G6b">G6b</a></dt><dd title="0.5053087870279948">0.505</dd></div><div><dt><a href="#def-G1_max">G1 max</a></dt><dd title="0.125">0.125</dd></div><div><dt><a href="#def-closure_mad">Closure</a></dt><dd title="28.149313358302123">28.149</dd></div><div><dt><a href="#def-motion_range_H">Motion range</a></dt><dd title="0.38333333333333336">0.383</dd></div></dl>
+<ul class="flags"><li>Flag: Frozen register returned anchor center x=256.0 for requested cx=255.5 (0.5 px raster-center difference); shared transform retained unchanged.</li></ul>
+
+<details><summary>Source record</summary><p>Clip: E_jump_v2.mp4<br>Check: P4c-E-jump-x<br>Pack: P4p-E-jump-x<br>Transcriber: P4t-E-jump-x<br>Transcriber controls caught: true</p></details>
+</td><td id="cast_E">
+<a class="packet-label" href="artifacts/P4p-E-cast-x/packet/review.html">E cast packet ↗</a>
+<div class="strip" tabindex="0" aria-label="E cast strip; scroll horizontally to see all frames"><a href="artifacts/P4p-E-cast-x/packet/review.html" aria-label="Open E cast review packet"><img src="thumbs/cast_E.png" alt="E cast: animation frame strip" loading="lazy"></a></div>
+<p class="badge">clip v2; 8 frames@20fps</p>
+<dl class="metrics"><div><dt><a href="#def-G6b">G6b</a></dt><dd title="0.908105214436849">0.908</dd></div><div><dt><a href="#def-G1_max">G1 max</a></dt><dd title="0.2875000000000001">0.288</dd></div><div><dt><a href="#def-closure_mad">Closure</a></dt><dd title="23.82351851851852">23.824</dd></div><div><dt><a href="#def-motion_range_H">Motion range</a></dt><dd title="0.3">0.300</dd></div></dl>
+<ul class="flags"><li>Flag: Frozen register returned anchor center x=256.0 for requested cx=255.5 (0.5 px raster offset); height=240 and sole row=399. Shared transform retained unchanged.</li><li>Flag: Head-pitch delta unavailable for output frame(s) 6: frozen proxy reports face not visible; retained as null.</li><li>Transcriber disagrees with intent: clean plate.</li></ul>
+
+<details><summary>Source record</summary><p>Clip: E_cast_v2.mp4<br>Check: P4c-E-cast-x<br>Pack: P4p-E-cast-x<br>Transcriber: P4t-E-cast-x<br>Transcriber controls caught: true</p></details>
+</td><td class="verdict">rule at C-4</td></tr>
+<tr><th scope="row">NE</th><td id="idle_NE">
+<a class="packet-label" href="artifacts/P4p-NE-idle/packet/review.html">NE idle packet ↗</a>
+<div class="strip" tabindex="0" aria-label="NE idle strip; scroll horizontally to see all frames"><a href="artifacts/P4p-NE-idle/packet/review.html" aria-label="Open NE idle review packet"><img src="thumbs/idle_NE.png" alt="NE idle: animation frame strip" loading="lazy"></a></div>
+<p class="badge">clip v1; 16 frames@8fps</p>
+<dl class="metrics"><div><dt><a href="#def-G6b">G6b</a></dt><dd title="0.3902448018391927">0.390</dd></div><div><dt><a href="#def-G1_max">G1 max</a></dt><dd title="0.016460905349794275">0.016</dd></div><div><dt><a href="#def-closure_mad">Closure</a></dt><dd title="8.968122991401025">8.968</dd></div><div><dt><a href="#def-motion_range_H">Motion range</a></dt><dd title="0.00411522633744856">0.004</dd></div></dl>
+<ul class="flags"><li>Flag: Frozen selection reports suspected splice inside the selected span; 11 suspect native adjacent pairs retained without verdict.</li><li>Flag: Period uses prompted fallback of 2.0 s; observed autocorrelation confidence is 0.0.</li><li>Transcriber disagrees with intent: visible breathing.</li></ul>
+
+<details><summary>Source record</summary><p>Clip: NE_idle.mp4<br>Check: P4c-NE-idle<br>Pack: P4p-NE-idle<br>Transcriber: P4t-NE-idle<br>Transcriber controls caught: true</p></details>
+</td><td id="walk_NE">
+<a class="packet-label" href="artifacts/P4p-NE-walk/packet/review.html">NE walk packet ↗</a>
+<div class="strip" tabindex="0" aria-label="NE walk strip; scroll horizontally to see all frames"><a href="artifacts/P4p-NE-walk/packet/review.html" aria-label="Open NE walk review packet"><img src="thumbs/walk_NE.png" alt="NE walk: animation frame strip" loading="lazy"></a></div>
+<p class="badge">clip v1; 12 frames@12fps</p>
+<dl class="metrics"><div><dt><a href="#def-G6b">G6b</a></dt><dd title="1.2739117940266926">1.274</dd></div><div><dt><a href="#def-G1_max">G1 max</a></dt><dd title="0.020408163265306145">0.020</dd></div><div><dt><a href="#def-closure_mad">Closure</a></dt><dd title="29.927866134016732">29.928</dd></div><div><dt><a href="#def-motion_range_H">Motion range</a></dt><dd title="0.024489795918367346">0.024</dd></div></dl>
+<ul class="flags"><li>Flag: Frozen gait quantities unresolved: right planted-sole slip</li><li>Transcriber disagrees with intent: head down in the first frame.</li><li>Transcriber disagrees with intent: head down during the first second.</li></ul>
+
+<details><summary>Source record</summary><p>Clip: NE_walk.mp4<br>Check: P4c-NE-walk<br>Pack: P4p-NE-walk<br>Transcriber: P4t-NE-walk<br>Transcriber controls caught: true</p></details>
+</td><td id="run_NE">
+<a class="packet-label" href="artifacts/P4p-NE-run/packet/review.html">NE run packet ↗</a>
+<div class="strip" tabindex="0" aria-label="NE run strip; scroll horizontally to see all frames"><a href="artifacts/P4p-NE-run/packet/review.html" aria-label="Open NE run review packet"><img src="thumbs/run_NE.png" alt="NE run: animation frame strip" loading="lazy"></a></div>
+<p class="badge">clip v1; 8 frames@12fps</p>
+<dl class="metrics"><div><dt><a href="#def-G6b">G6b</a></dt><dd title="2.018914540608724">2.019</dd></div><div><dt><a href="#def-G1_max">G1 max</a></dt><dd title="0.0968992248062015">0.097</dd></div><div><dt><a href="#def-closure_mad">Closure</a></dt><dd title="42.22577056475362">42.226</dd></div><div><dt><a href="#def-motion_range_H">Motion range</a></dt><dd title="0.04263565891472868">0.043</dd></div></dl>
+<ul class="flags"><li>Flag: Band measurement: gait intent requires 12 frames and 12 candidate phases</li><li>Transcriber disagrees with intent: consistent facing.</li><li>Transcriber disagrees with intent: alternating feet.</li><li>Transcriber disagrees with intent: both feet airborne.</li><li>Transcriber disagrees with intent: continuous loop.</li></ul>
+<p class="caveat">G6c uses the frozen walk-mode half-cycle instrument on run frames, per task scope; the function does not accept animation=&quot;run&quot;.</p>
+<details><summary>Source record</summary><p>Clip: NE_run.mp4<br>Check: P4c-NE-run<br>Pack: P4p-NE-run<br>Transcriber: P4t-NE-run<br>Transcriber controls caught: true</p></details>
+</td><td id="jump_NE">
+<a class="packet-label" href="artifacts/P4p-NE-jump/packet/review.html">NE jump packet ↗</a>
+<div class="strip" tabindex="0" aria-label="NE jump strip; scroll horizontally to see all frames"><a href="artifacts/P4p-NE-jump/packet/review.html" aria-label="Open NE jump review packet"><img src="thumbs/jump_NE.png" alt="NE jump: animation frame strip" loading="lazy"></a></div>
+<p class="badge">clip v2; 8 frames@12fps</p>
+<dl class="metrics"><div><dt><a href="#def-G6b">G6b</a></dt><dd title="0.7795817057291666">0.780</dd></div><div><dt><a href="#def-G1_max">G1 max</a></dt><dd title="0.16393442622950816">0.164</dd></div><div><dt><a href="#def-closure_mad">Closure</a></dt><dd title="14.043371132577349">14.043</dd></div><div><dt><a href="#def-motion_range_H">Motion range</a></dt><dd title="0.3975409836065574">0.398</dd></div></dl>
+<ul class="flags"><li>Flag: Suspected splice inside the selected span</li><li>Flag: Exemplar bands skipped: estimator has no one-shot kind</li></ul>
+
+<details><summary>Source record</summary><p>Clip: NE_jump_v2.mp4<br>Check: P4c-NE-jump<br>Pack: P4p-NE-jump<br>Transcriber: P4t-NE-jump<br>Transcriber controls caught: true</p></details>
+</td><td id="cast_NE">
+<a class="packet-label" href="artifacts/P4p-NE-cast-x/packet/review.html">NE cast packet ↗</a>
+<div class="strip" tabindex="0" aria-label="NE cast strip; scroll horizontally to see all frames"><a href="artifacts/P4p-NE-cast-x/packet/review.html" aria-label="Open NE cast review packet"><img src="thumbs/cast_NE.png" alt="NE cast: animation frame strip" loading="lazy"></a></div>
+<p class="badge">clip v1; 8 frames@20fps</p>
+<dl class="metrics"><div><dt><a href="#def-G6b">G6b</a></dt><dd title="0.9599520365397135">0.960</dd></div><div><dt><a href="#def-G1_max">G1 max</a></dt><dd title="0.016666666666666607">0.017</dd></div><div><dt><a href="#def-closure_mad">Closure</a></dt><dd title="15.615714202999248">15.616</dd></div><div><dt><a href="#def-motion_range_H">Motion range</a></dt><dd title="0.025">0.025</dd></div></dl>
+<ul class="flags"><li>Flag: v2 not generated (H-C3-1 Grok balance) — cut from the full-height v1 clip (R-C3-9)</li><li>Transcriber disagrees with intent: stable identity.</li><li>Transcriber disagrees with intent: ending at rest.</li></ul>
+
+<details><summary>Source record</summary><p>Clip: NE_cast.mp4<br>Check: P4c-NE-cast-x<br>Pack: P4p-NE-cast-x<br>Transcriber: P4t-NE-cast-x<br>Transcriber controls caught: true</p></details>
+</td><td class="verdict">rule at C-4</td></tr>
+<tr><th scope="row">N</th><td id="idle_N">
+<a class="packet-label" href="artifacts/P4p-N-idle-r1/packet/review.html">N idle packet ↗</a>
+<div class="strip" tabindex="0" aria-label="N idle strip; scroll horizontally to see all frames"><a href="artifacts/P4p-N-idle-r1/packet/review.html" aria-label="Open N idle review packet"><img src="thumbs/idle_N.png" alt="N idle: animation frame strip" loading="lazy"></a></div>
+<p class="badge">clip v1; 16 frames@8fps</p>
+<dl class="metrics"><div><dt><a href="#def-G6b">G6b</a></dt><dd title="0.2832221984863281">0.283</dd></div><div><dt><a href="#def-G1_max">G1 max</a></dt><dd title="0.004149377593360981">0.004</dd></div><div><dt><a href="#def-closure_mad">Closure</a></dt><dd title="5.91719640056138">5.917</dd></div><div><dt><a href="#def-motion_range_H">Motion range</a></dt><dd title="0.004149377593360996">0.004</dd></div></dl>
+<ul class="flags"><li>Flag: re-run once: first attempt exit 3, Selected model is at capacity</li><li>Transcriber disagrees with intent: visible breathing.</li></ul>
+
+<details><summary>Source record</summary><p>Clip: N_idle.mp4<br>Check: P4c-N-idle-r1<br>Pack: P4p-N-idle-r1<br>Transcriber: P4t-N-idle-r1<br>Transcriber controls caught: true</p></details>
+</td><td id="walk_N">
+<a class="packet-label" href="artifacts/P4p-N-walk-r1/packet/review.html">N walk packet ↗</a>
+<div class="strip" tabindex="0" aria-label="N walk strip; scroll horizontally to see all frames"><a href="artifacts/P4p-N-walk-r1/packet/review.html" aria-label="Open N walk review packet"><img src="thumbs/walk_N.png" alt="N walk: animation frame strip" loading="lazy"></a></div>
+<p class="badge">clip v1; 12 frames@12fps</p>
+<dl class="metrics"><div><dt><a href="#def-G6b">G6b</a></dt><dd title="0.6886812845865885">0.689</dd></div><div><dt><a href="#def-G1_max">G1 max</a></dt><dd title="0.024896265560165998">0.025</dd></div><div><dt><a href="#def-closure_mad">Closure</a></dt><dd title="17.49759774685222">17.498</dd></div><div><dt><a href="#def-motion_range_H">Motion range</a></dt><dd title="0.029045643153526972">0.029</dd></div></dl>
+<ul class="flags"><li>Flag: re-run once: first attempt exit 3, Selected model is at capacity</li><li>Transcriber disagrees with intent: head down in the first frame.</li><li>Transcriber disagrees with intent: head down during the first second.</li></ul>
+
+<details><summary>Source record</summary><p>Clip: N_walk.mp4<br>Check: P4c-N-walk-r1<br>Pack: P4p-N-walk-r1<br>Transcriber: P4t-N-walk-r1<br>Transcriber controls caught: true</p></details>
+</td><td id="run_N">
+<a class="packet-label" href="artifacts/P4p-N-run/packet/review.html">N run packet ↗</a>
+<div class="strip" tabindex="0" aria-label="N run strip; scroll horizontally to see all frames"><a href="artifacts/P4p-N-run/packet/review.html" aria-label="Open N run review packet"><img src="thumbs/run_N.png" alt="N run: animation frame strip" loading="lazy"></a></div>
+<p class="badge">clip v1; 8 frames@12fps</p>
+<dl class="metrics"><div><dt><a href="#def-G6b">G6b</a></dt><dd title="0.946539560953776">0.947</dd></div><div><dt><a href="#def-G1_max">G1 max</a></dt><dd title="0.07509881422924902">0.075</dd></div><div><dt><a href="#def-closure_mad">Closure</a></dt><dd title="20.983016908929102">20.983</dd></div><div><dt><a href="#def-motion_range_H">Motion range</a></dt><dd title="0.05138339920948617">0.051</dd></div></dl>
+<ul class="flags"><li>Flag: Walk band measurement: ValueError: gait intent requires 12 frames and 12 candidate phases</li><li>Transcriber disagrees with intent: head down in the first frame.</li><li>Transcriber disagrees with intent: both feet airborne.</li><li>Transcriber disagrees with intent: torso lean.</li><li>Transcriber disagrees with intent: head down during the first second.</li></ul>
+<p class="caveat">G6c uses the frozen walk-mode half-cycle instrument on run frames, per task scope; the function does not accept animation=&quot;run&quot;.</p>
+<details><summary>Source record</summary><p>Clip: N_run.mp4<br>Check: P4c-N-run<br>Pack: P4p-N-run<br>Transcriber: P4t-N-run<br>Transcriber controls caught: true</p></details>
+</td><td id="jump_N">
+<a class="packet-label" href="artifacts/P4p-N-jump/packet/review.html">N jump packet ↗</a>
+<div class="strip" tabindex="0" aria-label="N jump strip; scroll horizontally to see all frames"><a href="artifacts/P4p-N-jump/packet/review.html" aria-label="Open N jump review packet"><img src="thumbs/jump_N.png" alt="N jump: animation frame strip" loading="lazy"></a></div>
+<p class="badge">clip v2; 8 frames@12fps</p>
+<dl class="metrics"><div><dt><a href="#def-G6b">G6b</a></dt><dd title="0.3346303304036458">0.335</dd></div><div><dt><a href="#def-G1_max">G1 max</a></dt><dd title="0.2416666666666667">0.242</dd></div><div><dt><a href="#def-closure_mad">Closure</a></dt><dd title="3.8353832137569754">3.835</dd></div><div><dt><a href="#def-motion_range_H">Motion range</a></dt><dd title="0.4">0.400</dd></div></dl>
+<ul class="flags"><li>Flag: Exemplar band measurement skipped as instructed: no one-shot kind.</li><li>Flag: Frozen splice suspects occur inside the selected span; descriptive report only.</li></ul>
+
+<details><summary>Source record</summary><p>Clip: N_jump_v2.mp4<br>Check: P4c-N-jump<br>Pack: P4p-N-jump<br>Transcriber: P4t-N-jump<br>Transcriber controls caught: true</p></details>
+</td><td id="cast_N">
+<a class="packet-label" href="artifacts/P4p-N-cast-x/packet/review.html">N cast packet ↗</a>
+<div class="strip" tabindex="0" aria-label="N cast strip; scroll horizontally to see all frames"><a href="artifacts/P4p-N-cast-x/packet/review.html" aria-label="Open N cast review packet"><img src="thumbs/cast_N.png" alt="N cast: animation frame strip" loading="lazy"></a></div>
+<p class="badge">clip v2; 8 frames@20fps</p>
+<dl class="metrics"><div><dt><a href="#def-G6b">G6b</a></dt><dd title="1.3722178141276042">1.372</dd></div><div><dt><a href="#def-G1_max">G1 max</a></dt><dd title="0.32499999999999996">0.325</dd></div><div><dt><a href="#def-closure_mad">Closure</a></dt><dd title="34.5937824358877">34.594</dd></div><div><dt><a href="#def-motion_range_H">Motion range</a></dt><dd title="0.32916666666666666">0.329</dd></div></dl>
+<ul class="flags"><li>Transcriber disagrees with intent: clean plate.</li><li>Transcriber disagrees with intent: forward thrust.</li><li>Transcriber disagrees with intent: ending at rest.</li></ul>
+
+<details><summary>Source record</summary><p>Clip: N_cast_v2.mp4<br>Check: P4c-N-cast-x<br>Pack: P4p-N-cast-x<br>Transcriber: P4t-N-cast-x<br>Transcriber controls caught: true</p></details>
+</td><td class="verdict">rule at C-4</td></tr>
+<tr><th scope="row">NW</th><td id="idle_NW">
+<a class="packet-label" href="artifacts/P4p-NW-idle/packet/review.html">NW idle packet ↗</a>
+<div class="strip" tabindex="0" aria-label="NW idle strip; scroll horizontally to see all frames"><a href="artifacts/P4p-NW-idle/packet/review.html" aria-label="Open NW idle review packet"><img src="thumbs/idle_NW.png" alt="NW idle: animation frame strip" loading="lazy"></a></div>
+<p class="badge">clip v1; 16 frames@8fps</p>
+<dl class="metrics"><div><dt><a href="#def-G6b">G6b</a></dt><dd title="0.4670372009277344">0.467</dd></div><div><dt><a href="#def-G1_max">G1 max</a></dt><dd title="0.01680672268907557">0.017</dd></div><div><dt><a href="#def-closure_mad">Closure</a></dt><dd title="10.674678930926762">10.675</dd></div><div><dt><a href="#def-motion_range_H">Motion range</a></dt><dd title="0">0.000</dd></div></dl>
+<ul class="flags"><li>Flag: Cycle period uses the frozen tool’s prompted 2.0-second fallback; observed autocorrelation confidence is 0.0.</li><li>Transcriber disagrees with intent: visible breathing.</li></ul>
+
+<details><summary>Source record</summary><p>Clip: NW_idle.mp4<br>Check: P4c-NW-idle<br>Pack: P4p-NW-idle<br>Transcriber: P4t-NW-idle<br>Transcriber controls caught: true</p></details>
+</td><td id="walk_NW">
+<a class="packet-label" href="artifacts/P4p-NW-walk/packet/review.html">NW walk packet ↗</a>
+<div class="strip" tabindex="0" aria-label="NW walk strip; scroll horizontally to see all frames"><a href="artifacts/P4p-NW-walk/packet/review.html" aria-label="Open NW walk review packet"><img src="thumbs/walk_NW.png" alt="NW walk: animation frame strip" loading="lazy"></a></div>
+<p class="badge">clip v1; 12 frames@12fps</p>
+<dl class="metrics"><div><dt><a href="#def-G6b">G6b</a></dt><dd title="0.9162267049153646">0.916</dd></div><div><dt><a href="#def-G1_max">G1 max</a></dt><dd title="0.024590163934426257">0.025</dd></div><div><dt><a href="#def-closure_mad">Closure</a></dt><dd title="24.213204800747025">24.213</dd></div><div><dt><a href="#def-motion_range_H">Motion range</a></dt><dd title="0.020491803278688523">0.020</dd></div></dl>
+<ul class="flags"><li>Flag: Band measurement.W6: frozen estimator returned null</li><li>Flag: Band measurement.right planted-sole slip: frozen estimator returned null</li><li>Transcriber disagrees with intent: head down in the first frame.</li><li>Transcriber disagrees with intent: head down during the first second.</li></ul>
+
+<details><summary>Source record</summary><p>Clip: NW_walk.mp4<br>Check: P4c-NW-walk<br>Pack: P4p-NW-walk<br>Transcriber: P4t-NW-walk<br>Transcriber controls caught: true</p></details>
+</td><td id="run_NW">
+<a class="packet-label" href="artifacts/P4p-NW-run/packet/review.html">NW run packet ↗</a>
+<div class="strip" tabindex="0" aria-label="NW run strip; scroll horizontally to see all frames"><a href="artifacts/P4p-NW-run/packet/review.html" aria-label="Open NW run review packet"><img src="thumbs/run_NW.png" alt="NW run: animation frame strip" loading="lazy"></a></div>
+<p class="badge">clip v1; 8 frames@12fps</p>
+<dl class="metrics"><div><dt><a href="#def-G6b">G6b</a></dt><dd title="1.624982198079427">1.625</dd></div><div><dt><a href="#def-G1_max">G1 max</a></dt><dd title="0.10861423220973787">0.109</dd></div><div><dt><a href="#def-closure_mad">Closure</a></dt><dd title="34.355796899656546">34.356</dd></div><div><dt><a href="#def-motion_range_H">Motion range</a></dt><dd title="0.04119850187265917">0.041</dd></div></dl>
+<ul class="flags"><li>Flag: Band measurement: gait intent requires 12 frames and 12 candidate phases</li><li>Transcriber disagrees with intent: consistent facing.</li><li>Transcriber disagrees with intent: staff staying in the same hand.</li><li>Transcriber disagrees with intent: stable identity.</li><li>Transcriber disagrees with intent: both feet airborne.</li></ul>
+<p class="caveat">G6c uses the frozen walk-mode half-cycle instrument on run frames, per task scope; the function does not accept animation=&quot;run&quot;.</p>
+<details><summary>Source record</summary><p>Clip: NW_run.mp4<br>Check: P4c-NW-run<br>Pack: P4p-NW-run<br>Transcriber: P4t-NW-run<br>Transcriber controls caught: true</p></details>
+</td><td id="jump_NW"><div class="incomplete"><strong>INCOMPLETE</strong><p>v1 clip only (v2 re-drive stopped by H-C3-1 Grok balance); the figure exits the frame — tracking invalid</p></div></td><td id="cast_NW"><div class="incomplete"><strong>INCOMPLETE</strong><p>v1 clip only (v2 re-drive stopped by H-C3-1 Grok balance); the figure exits the frame — frozen matte refuses (border green 0.94)</p></div></td><td class="verdict">rule at C-4</td></tr>
+<tr><th scope="row">W</th><td id="idle_W">
+<a class="packet-label" href="artifacts/P4p-W-idle/packet/review.html">W idle packet ↗</a>
+<div class="strip" tabindex="0" aria-label="W idle strip; scroll horizontally to see all frames"><a href="artifacts/P4p-W-idle/packet/review.html" aria-label="Open W idle review packet"><img src="thumbs/idle_W.png" alt="W idle: animation frame strip" loading="lazy"></a></div>
+<p class="badge">clip v1; 16 frames@8fps</p>
+<dl class="metrics"><div><dt><a href="#def-G6b">G6b</a></dt><dd title="0.30869420369466144">0.309</dd></div><div><dt><a href="#def-G1_max">G1 max</a></dt><dd title="0.012396694214875992">0.012</dd></div><div><dt><a href="#def-closure_mad">Closure</a></dt><dd title="10.601112937903125">10.601</dd></div><div><dt><a href="#def-motion_range_H">Motion range</a></dt><dd title="0.004132231404958678">0.004</dd></div></dl>
+<ul class="flags"><li>Flag: Period uses the prompted fallback</li><li>Flag: Suspected splice inside the selected span</li></ul>
+
+<details><summary>Source record</summary><p>Clip: W_idle.mp4<br>Check: P4c-W-idle<br>Pack: P4p-W-idle<br>Transcriber: P4t-W-idle<br>Transcriber controls caught: true</p></details>
+</td><td id="walk_W">
+<a class="packet-label" href="artifacts/P4p-W-walk/packet/review.html">W walk packet ↗</a>
+<div class="strip" tabindex="0" aria-label="W walk strip; scroll horizontally to see all frames"><a href="artifacts/P4p-W-walk/packet/review.html" aria-label="Open W walk review packet"><img src="thumbs/walk_W.png" alt="W walk: animation frame strip" loading="lazy"></a></div>
+<p class="badge">clip v1; 12 frames@12fps</p>
+<dl class="metrics"><div><dt><a href="#def-G6b">G6b</a></dt><dd title="2.2337379455566406">2.234</dd></div><div><dt><a href="#def-G1_max">G1 max</a></dt><dd title="0.06324110671936756">0.063</dd></div><div><dt><a href="#def-closure_mad">Closure</a></dt><dd title="48.033787285201996">48.034</dd></div><div><dt><a href="#def-motion_range_H">Motion range</a></dt><dd title="0.043478260869565216">0.043</dd></div></dl>
+<ul class="flags"><li>Flag: bands W6: frozen estimator unresolved; see diagnostic</li><li>Flag: bands left planted-sole slip: frozen estimator unresolved; see diagnostic</li><li>Flag: bands right planted-sole slip: frozen estimator unresolved; see diagnostic</li><li>Transcriber disagrees with intent: head down in the first frame.</li><li>Transcriber disagrees with intent: both feet airborne.</li><li>Transcriber disagrees with intent: head down during the first second.</li></ul>
+
+<details><summary>Source record</summary><p>Clip: W_walk.mp4<br>Check: P4c-W-walk<br>Pack: P4p-W-walk<br>Transcriber: P4t-W-walk<br>Transcriber controls caught: true</p></details>
+</td><td id="run_W">
+<a class="packet-label" href="artifacts/P4p-W-run/packet/review.html">W run packet ↗</a>
+<div class="strip" tabindex="0" aria-label="W run strip; scroll horizontally to see all frames"><a href="artifacts/P4p-W-run/packet/review.html" aria-label="Open W run review packet"><img src="thumbs/run_W.png" alt="W run: animation frame strip" loading="lazy"></a></div>
+<p class="badge">clip v1; 8 frames@12fps</p>
+<dl class="metrics"><div><dt><a href="#def-G6b">G6b</a></dt><dd title="2.5203259785970054">2.520</dd></div><div><dt><a href="#def-G1_max">G1 max</a></dt><dd title="0.09999999999999998">0.100</dd></div><div><dt><a href="#def-closure_mad">Closure</a></dt><dd title="54.82108139017727">54.821</dd></div><div><dt><a href="#def-motion_range_H">Motion range</a></dt><dd title="0.05384615384615385">0.054</dd></div></dl>
+<ul class="flags"><li>Flag: Band measurement: ValueError: gait intent requires 12 frames and 12 candidate phases</li><li>Transcriber disagrees with intent: staff staying in the same hand.</li><li>Transcriber disagrees with intent: both feet airborne.</li><li>Transcriber disagrees with intent: continuous loop.</li></ul>
+<p class="caveat">G6c uses the frozen walk-mode half-cycle instrument on run frames, per task scope; the function does not accept animation=&quot;run&quot;.</p>
+<details><summary>Source record</summary><p>Clip: W_run.mp4<br>Check: P4c-W-run<br>Pack: P4p-W-run<br>Transcriber: P4t-W-run<br>Transcriber controls caught: true</p></details>
+</td><td id="jump_W">
+<a class="packet-label" href="artifacts/P4p-W-jump-x/packet/review.html">W jump packet ↗</a>
+<div class="strip" tabindex="0" aria-label="W jump strip; scroll horizontally to see all frames"><a href="artifacts/P4p-W-jump-x/packet/review.html" aria-label="Open W jump review packet"><img src="thumbs/jump_W.png" alt="W jump: animation frame strip" loading="lazy"></a></div>
+<p class="badge">clip v2; 8 frames@12fps</p>
+<dl class="metrics"><div><dt><a href="#def-G6b">G6b</a></dt><dd title="1.042144775390625">1.042</dd></div><div><dt><a href="#def-G1_max">G1 max</a></dt><dd title="0.2875">0.287</dd></div><div><dt><a href="#def-closure_mad">Closure</a></dt><dd title="29.197541703248465">29.198</dd></div><div><dt><a href="#def-motion_range_H">Motion range</a></dt><dd title="0.5125">0.512</dd></div></dl>
+<p class="quiet">No flags or transcriber disagreements recorded.</p>
+
+<details><summary>Source record</summary><p>Clip: W_jump_v2.mp4<br>Check: P4c-W-jump-x<br>Pack: P4p-W-jump-x<br>Transcriber: P4t-W-jump-x<br>Transcriber controls caught: true</p></details>
+</td><td id="cast_W">
+<a class="packet-label" href="artifacts/P4p-W-cast-x/packet/review.html">W cast packet ↗</a>
+<div class="strip" tabindex="0" aria-label="W cast strip; scroll horizontally to see all frames"><a href="artifacts/P4p-W-cast-x/packet/review.html" aria-label="Open W cast review packet"><img src="thumbs/cast_W.png" alt="W cast: animation frame strip" loading="lazy"></a></div>
+<p class="badge">clip v2; 8 frames@20fps</p>
+<dl class="metrics"><div><dt><a href="#def-G6b">G6b</a></dt><dd title="1.467694600423177">1.468</dd></div><div><dt><a href="#def-G1_max">G1 max</a></dt><dd title="0.2333333333333334">0.233</dd></div><div><dt><a href="#def-closure_mad">Closure</a></dt><dd title="36.8715060492282">36.872</dd></div><div><dt><a href="#def-motion_range_H">Motion range</a></dt><dd title="0.12916666666666668">0.129</dd></div></dl>
+<ul class="flags"><li>Transcriber disagrees with intent: ending at rest.</li></ul>
+
+<details><summary>Source record</summary><p>Clip: W_cast_v2.mp4<br>Check: P4c-W-cast-x<br>Pack: P4p-W-cast-x<br>Transcriber: P4t-W-cast-x<br>Transcriber controls caught: true</p></details>
+</td><td class="verdict">rule at C-4</td></tr>
+<tr><th scope="row">SW</th><td id="idle_SW">
+<a class="packet-label" href="artifacts/P4p-SW-idle/packet/review.html">SW idle packet ↗</a>
+<div class="strip" tabindex="0" aria-label="SW idle strip; scroll horizontally to see all frames"><a href="artifacts/P4p-SW-idle/packet/review.html" aria-label="Open SW idle review packet"><img src="thumbs/idle_SW.png" alt="SW idle: animation frame strip" loading="lazy"></a></div>
+<p class="badge">clip v1; 16 frames@8fps</p>
+<dl class="metrics"><div><dt><a href="#def-G6b">G6b</a></dt><dd title="0.27434666951497394">0.274</dd></div><div><dt><a href="#def-G1_max">G1 max</a></dt><dd title="0.020491803278688492">0.020</dd></div><div><dt><a href="#def-closure_mad">Closure</a></dt><dd title="6.832587838713859">6.833</dd></div><div><dt><a href="#def-motion_range_H">Motion range</a></dt><dd title="0">0.000</dd></div></dl>
+<ul class="flags"><li>Flag: Period uses the prompted fallback</li><li>Flag: Suspected splice inside the selected span</li><li>Transcriber disagrees with intent: visible breathing.</li></ul>
+
+<details><summary>Source record</summary><p>Clip: SW_idle.mp4<br>Check: P4c-SW-idle<br>Pack: P4p-SW-idle<br>Transcriber: P4t-SW-idle<br>Transcriber controls caught: true</p></details>
+</td><td id="walk_SW">
+<a class="packet-label" href="artifacts/P4p-SW-walk/packet/review.html">SW walk packet ↗</a>
+<div class="strip" tabindex="0" aria-label="SW walk strip; scroll horizontally to see all frames"><a href="artifacts/P4p-SW-walk/packet/review.html" aria-label="Open SW walk review packet"><img src="thumbs/walk_SW.png" alt="SW walk: animation frame strip" loading="lazy"></a></div>
+<p class="badge">clip v1; 12 frames@12fps</p>
+<dl class="metrics"><div><dt><a href="#def-G6b">G6b</a></dt><dd title="1.3931210835774739">1.393</dd></div><div><dt><a href="#def-G1_max">G1 max</a></dt><dd title="0.08235294117647063">0.082</dd></div><div><dt><a href="#def-closure_mad">Closure</a></dt><dd title="33.06579857384751">33.066</dd></div><div><dt><a href="#def-motion_range_H">Motion range</a></dt><dd title="0.027450980392156862">0.027</dd></div></dl>
+<ul class="flags"><li>Flag: Frozen bands estimator returned unresolved quantities: left planted-sole slip, right planted-sole slip</li><li>Flag: W2 min 1 cycle fraction unresolved: frozen estimator did not return a second minimum.</li><li>Transcriber disagrees with intent: head down in the first frame.</li><li>Transcriber disagrees with intent: head down during the first second.</li></ul>
+
+<details><summary>Source record</summary><p>Clip: SW_walk.mp4<br>Check: P4c-SW-walk<br>Pack: P4p-SW-walk<br>Transcriber: P4t-SW-walk<br>Transcriber controls caught: true</p></details>
+</td><td id="run_SW">
+<a class="packet-label" href="artifacts/P4p-SW-run/packet/review.html">SW run packet ↗</a>
+<div class="strip" tabindex="0" aria-label="SW run strip; scroll horizontally to see all frames"><a href="artifacts/P4p-SW-run/packet/review.html" aria-label="Open SW run review packet"><img src="thumbs/run_SW.png" alt="SW run: animation frame strip" loading="lazy"></a></div>
+<p class="badge">clip v1; 8 frames@12fps</p>
+<dl class="metrics"><div><dt><a href="#def-G6b">G6b</a></dt><dd title="2.6799634297688804">2.680</dd></div><div><dt><a href="#def-G1_max">G1 max</a></dt><dd title="0.14181818181818184">0.142</dd></div><div><dt><a href="#def-closure_mad">Closure</a></dt><dd title="52.400915393159444">52.401</dd></div><div><dt><a href="#def-motion_range_H">Motion range</a></dt><dd title="0.05090909090909091">0.051</dd></div></dl>
+<ul class="flags"><li>Flag: Exemplar band measurement: ValueError: gait intent requires 12 frames and 12 candidate phases</li><li>Transcriber disagrees with intent: both feet airborne.</li></ul>
+<p class="caveat">G6c uses the frozen walk-mode half-cycle instrument on run frames, per task scope; the function does not accept animation=&quot;run&quot;.</p>
+<details><summary>Source record</summary><p>Clip: SW_run.mp4<br>Check: P4c-SW-run<br>Pack: P4p-SW-run<br>Transcriber: P4t-SW-run<br>Transcriber controls caught: true</p></details>
+</td><td id="jump_SW">
+<a class="packet-label" href="artifacts/P4p-SW-jump-x/packet/review.html">SW jump packet ↗</a>
+<div class="strip" tabindex="0" aria-label="SW jump strip; scroll horizontally to see all frames"><a href="artifacts/P4p-SW-jump-x/packet/review.html" aria-label="Open SW jump review packet"><img src="thumbs/jump_SW.png" alt="SW jump: animation frame strip" loading="lazy"></a></div>
+<p class="badge">clip v2; 8 frames@12fps</p>
+<dl class="metrics"><div><dt><a href="#def-G6b">G6b</a></dt><dd title="0.8302497863769531">0.830</dd></div><div><dt><a href="#def-G1_max">G1 max</a></dt><dd title="0.22499999999999998">0.225</dd></div><div><dt><a href="#def-closure_mad">Closure</a></dt><dd title="26.45146837784715">26.451</dd></div><div><dt><a href="#def-motion_range_H">Motion range</a></dt><dd title="0.4166666666666667">0.417</dd></div></dl>
+<ul class="flags"><li>Transcriber disagrees with intent: head down during the first second.</li></ul>
+
+<details><summary>Source record</summary><p>Clip: SW_jump_v2.mp4<br>Check: P4c-SW-jump-x<br>Pack: P4p-SW-jump-x<br>Transcriber: P4t-SW-jump-x<br>Transcriber controls caught: true</p></details>
+</td><td id="cast_SW">
+<a class="packet-label" href="artifacts/P4p-SW-cast-x/packet/review.html">SW cast packet ↗</a>
+<div class="strip" tabindex="0" aria-label="SW cast strip; scroll horizontally to see all frames"><a href="artifacts/P4p-SW-cast-x/packet/review.html" aria-label="Open SW cast review packet"><img src="thumbs/cast_SW.png" alt="SW cast: animation frame strip" loading="lazy"></a></div>
+<p class="badge">clip v2; 8 frames@20fps</p>
+<dl class="metrics"><div><dt><a href="#def-G6b">G6b</a></dt><dd title="0.839471181233724">0.839</dd></div><div><dt><a href="#def-G1_max">G1 max</a></dt><dd title="0.3125">0.313</dd></div><div><dt><a href="#def-closure_mad">Closure</a></dt><dd title="20.692361555088745">20.692</dd></div><div><dt><a href="#def-motion_range_H">Motion range</a></dt><dd title="0.3625">0.362</dd></div></dl>
+<ul class="flags"><li>Transcriber disagrees with intent: clean plate.</li><li>Transcriber disagrees with intent: ending at rest.</li></ul>
+
+<details><summary>Source record</summary><p>Clip: SW_cast_v2.mp4<br>Check: P4c-SW-cast-x<br>Pack: P4p-SW-cast-x<br>Transcriber: P4t-SW-cast-x<br>Transcriber controls caught: true</p></details>
+</td><td class="verdict">rule at C-4</td></tr></tbody></table></div>
+<section id="legend" class="legend" aria-labelledby="legend-title"><h2 id="legend-title">Number definitions</h2>
+<p class="rule-note">All numbers are reports against proposed bands; none is a pass or fail.</p>
+<p class="intro">G6b in the cells is raw endpoint seam MAD, not a ratio. G6 (literal) remains the recorded brief gate; G6b is a second instrument. Whether G6b becomes the shipping bar is Matt's ruling at the first-loop milestone. Closure compares animation endpoints for loops and rest to final frame for jump/cast. G1 max and motion range are fractions, not percentages.</p>
+<dl><dt id="def-cell">cell</dt><dd>Matrix key &lt;animation&gt;_&lt;DIR&gt;; rows ordered by S SW W NW N NE E SE, then idle walk run jump cast; only cells with named frame inputs are included.</dd>
+<dt id="def-n_frames">n_frames</dt><dd>Count of animation PNG frames in the named cell, ordered by numeric filename suffix; rest is excluded.</dd>
+<dt id="def-fps_out">fps_out</dt><dd>Playback frames per second copied from the cell registration.json top-level fps_out.</dd>
+<dt id="def-G6b">G6b</dt><dd>Frozen g6_seam.evaluate(frames) g6b value: last-to-first RGB MAD over the entire canvas after PIL alpha compositing on RGB (20,25,34), in display RGB units 0..255; this is raw MAD, not a ratio, and uses animation endpoints even for one-shots.</dd>
+<dt id="def-G6b_median_internal_mad">G6b_median_internal_mad</dt><dd>Frozen g6_seam.evaluate(frames) g6b threshold: median full-canvas composited RGB MAD across internal adjacent animation-frame pairs; retained as a descriptive comparator only.</dd>
+<dt id="def-G6_literal_min_internal_mad">G6_literal_min_internal_mad</dt><dd>Frozen g6_seam.evaluate(frames) g6_seam threshold: minimum full-canvas composited RGB MAD across internal adjacent animation-frame pairs; its measured seam value is identical to G6b.</dd>
+<dt id="def-G6c">G6c</dt><dd>For walk/run only, frozen g6_seam.g6c(frames, animation=&quot;walk&quot;) value: full-canvas composited seam MAD (N-1,0) divided by half-cycle homologue MAD (N/2-1,N/2); the walk-only function mode is used for both gait types as requested; 0/0 is 1, positive/0 is null with G6c_ratio_infinite true; other animations are null.</dd>
+<dt id="def-G6c_homologue_mad">G6c_homologue_mad</dt><dd>Walk/run half-cycle homologue MAD from frozen g6c notes, in full-canvas composited RGB units 0..255; null for other animations.</dd>
+<dt id="def-G6c_ratio_infinite">G6c_ratio_infinite</dt><dd>Frozen g6c ratio_infinite flag for walk/run; null when G6c is not applicable or unevaluable.</dd>
+<dt id="def-G1_max">G1_max · G1 max</dt><dd>Maximum g1_height.evaluate(frame, cell rest) value across all animation frames: abs(H_frame/H_rest - 1), with alpha &gt;=128 inclusive bbox height; null if any required measurement is unavailable.</dd>
+<dt id="def-closure_mad">closure_mad · Closure</dt><dd>Mean absolute straight RGB difference across all three channels and pixels where max(alpha_first,alpha_last)&gt;=128; first=animation frame 0 for idle/walk/run, first=cell rest for jump/cast, last=animation frame N-1; no compositing, alpha weighting, alignment or masking of either RGB operand; units 0..255; empty union gives null.</dd>
+<dt id="def-rim_mean">rim_mean</dt><dd>Arithmetic mean over all frames of frozen matte_quality.rim_luma_excess with default background (58,63,74): partial-alpha composite Rec.709 display luma minus opaque interior-ring mean at Euclidean distance 1..3 px; signed luma units 0..255; null if any frame is unevaluable.</dd>
+<dt id="def-motion_range_H">motion_range_H · Motion range</dt><dd>(Maximum minus minimum alpha&gt;=128 bbox top row across animation frames)/H_rest; rest supplies only the denominator; null for empty required alpha support.</dd>
+<dt id="def-lateral_range_H">lateral_range_H</dt><dd>(Maximum minus minimum alpha&gt;=128 bbox center-x across animation frames)/H_rest, with center-x=(xmin+xmax_inclusive)/2; rest supplies only the denominator; null for empty required alpha support.</dd>
+<dt id="def-H_rest">H_rest</dt><dd>Cell-local rest image alpha&gt;=128 bbox height in pixels (ymax_inclusive-ymin+1).</dd>
+<dt id="def-notes">notes</dt><dd>Per-cell measurement caveats only; no verdicts; JSON null is represented by the literal text null in CSV.</dd></dl>
+</section>
+<p class="footer">Sources: <a href="matrix_index.json">matrix_index.json</a> · <a href="artifacts/P6c-numbers/numbers.json">numbers.json</a>. Definitions above are reproduced from the numbers source; its source-order description is retained verbatim. This page uses the requested review order S SE E NE N NW W SW. No verdicts have been assigned.</p>
+</main></body></html>
+

@@ -1,0 +1,53 @@
+{
+  "task_id": "P4p-NE-cast-v2x",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [],
+  "calls_used": 0,
+  "retries": [],
+  "self_report": {
+    "obeyed_invariants": true,
+    "concerns": [
+      "Input checks record conflicting source-version and frame-index assertions; the frozen builder completed once using the supplied inputs.",
+      "Head-pitch proxy unavailable for frames 3–7; exemplar scoring and G6c were skipped in the supplied checks.",
+      "No oracle was supplied."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/packet/review.html",
+      "sha256": "a8792dce721bc9655a2d955bfe235a76f88600714b79b0e4cde3a11e8864ee9a"
+    },
+    {
+      "path": "out/packet/cast_NE_1to1.mp4",
+      "sha256": "d70555f938ca937de0826def5a4aeaee0b33147189c1149e32af46c9fa0da525"
+    },
+    {
+      "path": "out/packet/cast_NE_2x.mp4",
+      "sha256": "2234100df0efa4e0256220479c8e7c846cb2936ec61b0099daccd165bb8ffcda"
+    },
+    {
+      "path": "out/packet/numbers.json",
+      "sha256": "c9e5ecc48db121cf74a8dcf98c628276e92c3e22bc81b8a7977a485218da4d05"
+    },
+    {
+      "path": "out/packet/img/seam_pairs.png",
+      "sha256": "1de09f5e8ec04b8dee957f0d6f48a312746f9eccbbc6a83c933cf2fedaa407fc"
+    },
+    {
+      "path": "out/packet/img/strip.png",
+      "sha256": "8e1b2b1bda7bbe9230f69ea205dbca44006825172fc62c13784d4ed3a9a6bfa3"
+    },
+    {
+      "path": "out/packet/summary.txt",
+      "sha256": "1bdbc44e337c5b37b8492c814367ef0d09b7cd9579c6f485e80fe360b07b89ad"
+    },
+    {
+      "path": "out/packet/seam_pairs.png",
+      "sha256": "1de09f5e8ec04b8dee957f0d6f48a312746f9eccbbc6a83c933cf2fedaa407fc"
+    },
+    {
+      "path": "out/packet/strip.png",
+      "sha256": "8e1b2b1bda7bbe9230f69ea205dbca44006825172fc62c13784d4ed3a9a6bfa3"
+    }
+  ]
+}

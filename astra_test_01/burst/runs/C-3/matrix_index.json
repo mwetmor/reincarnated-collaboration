@@ -72,7 +72,9 @@
    "transcribe_burst": "P4t-S-jump-x",
    "clip": "S_jump_v2.mp4",
    "clip_version": "v2",
-   "flags": [],
+   "flags": [
+    "key poses conductor-computed from the tool's head/sole series with a floored settle tolerance (R-C3-17)"
+   ],
    "transcriber_disagrees_with_intent": [
     "identity_stable"
    ],
@@ -92,7 +94,8 @@
      "output_index": 3,
      "native_index": 58,
      "reason": "face_not_visible"
-    }
+    },
+    "raised staff reaches the frame top at gather even from the padded seed; 45 of 89 event frames have no tracked staff tip (staff foreshortened toward the camera); key poses conductor-computed (R-C3-17)"
    ],
    "transcriber_disagrees_with_intent": [
     "plate_clean",
@@ -120,21 +123,21 @@
   },
   "walk_SW": {
    "status": "COMPLETE",
-   "check_burst": "P4c-SW-walk",
-   "pack_burst": "P4p-SW-walk",
-   "transcribe_burst": "P4t-SW-walk",
-   "clip": "SW_walk.mp4",
+   "check_burst": "P4c-SW-walk-g2",
+   "pack_burst": "P4p-SW-walk-g2",
+   "transcribe_burst": "P4t-SW-walk-g2",
+   "clip": "SW_walk_g2.mp4",
    "clip_version": "v1",
    "flags": [
-    "Frozen bands estimator returned unresolved quantities: planted_sole_slip_L, planted_sole_slip_R",
-    "W2_min_1_cycle_fraction unresolved: frozen estimator did not return a second minimum."
+    "gaze re-generated once with the gaze line doubled (charter \u00a7 6, R-C3-24)",
+    "head down on v1 \u2192 re-generated; re-generation head-up (R-C3-24)"
    ],
    "transcriber_disagrees_with_intent": [
-    "head_down_frame0",
-    "first_second_head_down"
+    "same_facing",
+    "head_bobs"
    ],
    "transcriber_controls_caught": true,
-   "packet": "../artifacts/P4p-SW-walk/packet/review.html"
+   "packet": "../artifacts/P4p-SW-walk-g2/packet/review.html"
   },
   "run_SW": {
    "status": "COMPLETE",
@@ -154,17 +157,18 @@
   },
   "jump_SW": {
    "status": "COMPLETE",
-   "check_burst": "P4c-SW-jump-x",
-   "pack_burst": "P4p-SW-jump-x",
-   "transcribe_burst": "P4t-SW-jump-x",
-   "clip": "SW_jump_v2.mp4",
+   "check_burst": "P4c-SW-jump-g2",
+   "pack_burst": "P4p-SW-jump-g2",
+   "transcribe_burst": "P4t-SW-jump-g2",
+   "clip": "SW_jump_v2_g2.mp4",
    "clip_version": "v2",
-   "flags": [],
-   "transcriber_disagrees_with_intent": [
-    "first_second_head_down"
+   "flags": [
+    "gaze re-generated once with the gaze line doubled (charter \u00a7 6, R-C3-24)",
+    "head down on v1 \u2192 re-generated; re-generation head-up"
    ],
+   "transcriber_disagrees_with_intent": [],
    "transcriber_controls_caught": true,
-   "packet": "../artifacts/P4p-SW-jump-x/packet/review.html"
+   "packet": "../artifacts/P4p-SW-jump-g2/packet/review.html"
   },
   "cast_SW": {
    "status": "COMPLETE",
@@ -173,7 +177,9 @@
    "transcribe_burst": "P4t-SW-cast-x",
    "clip": "SW_cast_v2.mp4",
    "clip_version": "v2",
-   "flags": [],
+   "flags": [
+    "key poses conductor-computed from a full-resolution staff-tip series (R-C3-17)"
+   ],
    "transcriber_disagrees_with_intent": [
     "plate_clean",
     "ends_rest"
@@ -206,7 +212,8 @@
    "flags": [
     "bands W6: frozen estimator unresolved; see diagnostic",
     "bands planted_sole_slip_L: frozen estimator unresolved; see diagnostic",
-    "bands planted_sole_slip_R: frozen estimator unresolved; see diagnostic"
+    "bands planted_sole_slip_R: frozen estimator unresolved; see diagnostic",
+    "HEAD DOWN in the first second and in frame 0; stride \u2248 2.8 s (\u2248 2\u00d7 other directions). The gaze re-generation is head-up but the cut tool found no cycle in it (70-frame bob) \u2014 original kept (second failure)"
    ],
    "transcriber_disagrees_with_intent": [
     "head_down_frame0",
@@ -241,7 +248,9 @@
    "transcribe_burst": "P4t-W-jump-x",
    "clip": "W_jump_v2.mp4",
    "clip_version": "v2",
-   "flags": [],
+   "flags": [
+    "key poses conductor-computed from the tool's head/sole series with a floored settle tolerance (R-C3-17)"
+   ],
    "transcriber_disagrees_with_intent": [],
    "transcriber_controls_caught": true,
    "packet": "../artifacts/P4p-W-jump-x/packet/review.html"
@@ -253,7 +262,9 @@
    "transcribe_burst": "P4t-W-cast-x",
    "clip": "W_cast_v2.mp4",
    "clip_version": "v2",
-   "flags": [],
+   "flags": [
+    "noisy staff-tip baseline (tolerance 39.9 px); key poses conductor-computed (R-C3-17)"
+   ],
    "transcriber_disagrees_with_intent": [
     "ends_rest"
    ],
@@ -278,21 +289,21 @@
   },
   "walk_NW": {
    "status": "COMPLETE",
-   "check_burst": "P4c-NW-walk",
-   "pack_burst": "P4p-NW-walk",
-   "transcribe_burst": "P4t-NW-walk",
-   "clip": "NW_walk.mp4",
+   "check_burst": "P4c-NW-walk-g2",
+   "pack_burst": "P4p-NW-walk-g2",
+   "transcribe_burst": "P4t-NW-walk-g2",
+   "clip": "NW_walk_g2.mp4",
    "clip_version": "v1",
    "flags": [
-    "bands_measure.W6: frozen estimator returned null",
-    "bands_measure.planted_sole_slip_R: frozen estimator returned null"
+    "gaze re-generated once with the gaze line doubled (charter \u00a7 6, R-C3-24)",
+    "head down on v1 \u2192 re-generated; transcriber: cannot tell (back view)"
    ],
    "transcriber_disagrees_with_intent": [
     "head_down_frame0",
     "first_second_head_down"
    ],
    "transcriber_controls_caught": true,
-   "packet": "../artifacts/P4p-NW-walk/packet/review.html"
+   "packet": "../artifacts/P4p-NW-walk-g2/packet/review.html"
   },
   "run_NW": {
    "status": "COMPLETE",
@@ -314,12 +325,41 @@
    "packet": "../artifacts/P4p-NW-run/packet/review.html"
   },
   "jump_NW": {
-   "status": "INCOMPLETE",
-   "reason": "v1 clip only (v2 re-drive stopped by H-C3-1 Grok balance); the figure exits the frame \u2014 tracking invalid"
+   "status": "COMPLETE",
+   "check_burst": "P4c-NW-jump-v2",
+   "pack_burst": "P4p-NW-jump-v2",
+   "transcribe_burst": "P4t-NW-jump-v2",
+   "clip": "NW_jump_v2.mp4",
+   "clip_version": "v2",
+   "flags": [
+    "v2 clip generated after resume (R-C3-24)",
+    "v2 clip (R-C3-24); HEAD DOWN in the first second on BOTH attempts (second failure) \u2014 v2 kept; both failures are back three-quarter views: likely a transcriber misread of an averted head, Matt's eye rules"
+   ],
+   "transcriber_disagrees_with_intent": [
+    "head_down_frame0",
+    "first_second_head_down"
+   ],
+   "transcriber_controls_caught": true,
+   "packet": "../artifacts/P4p-NW-jump-v2/packet/review.html"
   },
   "cast_NW": {
-   "status": "INCOMPLETE",
-   "reason": "v1 clip only (v2 re-drive stopped by H-C3-1 Grok balance); the figure exits the frame \u2014 frozen matte refuses (border green 0.94)"
+   "status": "COMPLETE",
+   "check_burst": "P4c-NW-cast-v2x",
+   "pack_burst": "P4p-NW-cast-v2x",
+   "transcribe_burst": "P4t-NW-cast-v2x",
+   "clip": "NW_cast_v2.mp4",
+   "clip_version": "v2",
+   "flags": [
+    "Conflicting registration-template indices [14,32,51,58,69,80,93,102]; explicit cut instruction [12,24,35,51,65,79,97,108] used and recorded as actual indices_native.",
+    "Requested cell label S_cast retained; actual matrix cell is NW_cast.",
+    "Exemplar measure/score skipped as instructed: frozen measure supports idle/walk only, not cast.",
+    "v2 clip (R-C3-24); key poses conductor-computed"
+   ],
+   "transcriber_disagrees_with_intent": [
+    "thrust_forward"
+   ],
+   "transcriber_controls_caught": true,
+   "packet": "../artifacts/P4p-NW-cast-v2x/packet/review.html"
   },
   "idle_N": {
    "status": "COMPLETE",
@@ -345,7 +385,8 @@
    "clip": "N_walk.mp4",
    "clip_version": "v1",
    "flags": [
-    "re-run once: first attempt exit 3, Selected model is at capacity"
+    "re-run once: first attempt exit 3, Selected model is at capacity",
+    "first second head-down: cannot tell (back view)"
    ],
    "transcriber_disagrees_with_intent": [
     "head_down_frame0",
@@ -362,7 +403,8 @@
    "clip": "N_run.mp4",
    "clip_version": "v1",
    "flags": [
-    "bands_measure_walk: ValueError: gait intent requires 12 frames and 12 candidate phases"
+    "bands_measure_walk: ValueError: gait intent requires 12 frames and 12 candidate phases",
+    "first second head-down: cannot tell (back view)"
    ],
    "transcriber_disagrees_with_intent": [
     "head_down_frame0",
@@ -395,7 +437,9 @@
    "transcribe_burst": "P4t-N-cast-x",
    "clip": "N_cast_v2.mp4",
    "clip_version": "v2",
-   "flags": [],
+   "flags": [
+    "key poses conductor-computed from a full-resolution staff-tip series (R-C3-17)"
+   ],
    "transcriber_disagrees_with_intent": [
     "plate_clean",
     "thrust_forward",
@@ -429,7 +473,8 @@
    "clip": "NE_walk.mp4",
    "clip_version": "v1",
    "flags": [
-    "Frozen gait quantities unresolved: planted_sole_slip_R"
+    "Frozen gait quantities unresolved: planted_sole_slip_R",
+    "HEAD DOWN in the first second and frame 0 on BOTH attempts (second failure) \u2014 original kept"
    ],
    "transcriber_disagrees_with_intent": [
     "head_down_frame0",
@@ -474,20 +519,21 @@
   },
   "cast_NE": {
    "status": "COMPLETE",
-   "check_burst": "P4c-NE-cast-x",
-   "pack_burst": "P4p-NE-cast-x",
-   "transcribe_burst": "P4t-NE-cast-x",
-   "clip": "NE_cast.mp4",
-   "clip_version": "v1",
+   "check_burst": "P4c-NE-cast-v2x",
+   "pack_burst": "P4p-NE-cast-v2x",
+   "transcribe_burst": "P4t-NE-cast-v2x",
+   "clip": "NE_cast_v2.mp4",
+   "clip_version": "v2",
    "flags": [
-    "v2 not generated (H-C3-1 Grok balance) \u2014 cut from the full-height v1 clip (R-C3-9)"
+    "v2 not generated (H-C3-1 Grok balance) \u2014 cut from the full-height v1 clip (R-C3-9)",
+    "v2 clip (R-C3-24); gather and release on adjacent native frames 90/91; transcriber: last frame does NOT return to rest; key poses conductor-computed"
    ],
    "transcriber_disagrees_with_intent": [
-    "identity_stable",
+    "plate_clean",
     "ends_rest"
    ],
    "transcriber_controls_caught": true,
-   "packet": "../artifacts/P4p-NE-cast-x/packet/review.html"
+   "packet": "../artifacts/P4p-NE-cast-v2x/packet/review.html"
   },
   "idle_E": {
    "status": "COMPLETE",
@@ -507,19 +553,18 @@
   },
   "walk_E": {
    "status": "COMPLETE",
-   "check_burst": "P4c-E-walk",
-   "pack_burst": "P4p-E-walk",
-   "transcribe_burst": "P4t-E-walk",
-   "clip": "E_walk.mp4",
+   "check_burst": "P4c-E-walk-g2",
+   "pack_burst": "P4p-E-walk-g2",
+   "transcribe_burst": "P4t-E-walk-g2",
+   "clip": "E_walk_g2.mp4",
    "clip_version": "v1",
    "flags": [
-    "Frozen band estimator unresolved: W6"
+    "gaze re-generated once with the gaze line doubled (charter \u00a7 6, R-C3-24)",
+    "head down in the first second on v1 \u2192 re-generated with the gaze line doubled; re-generation head-up (R-C3-24)"
    ],
-   "transcriber_disagrees_with_intent": [
-    "first_second_head_down"
-   ],
+   "transcriber_disagrees_with_intent": [],
    "transcriber_controls_caught": true,
-   "packet": "../artifacts/P4p-E-walk/packet/review.html"
+   "packet": "../artifacts/P4p-E-walk-g2/packet/review.html"
   },
   "run_E": {
    "status": "COMPLETE",
@@ -545,7 +590,8 @@
    "clip": "E_jump_v2.mp4",
    "clip_version": "v2",
    "flags": [
-    "Frozen register returned anchor_cx=256.0 for requested cx=255.5 (0.5 px raster-center difference); shared transform retained unchanged."
+    "Frozen register returned anchor_cx=256.0 for requested cx=255.5 (0.5 px raster-center difference); shared transform retained unchanged.",
+    "key poses conductor-computed from the tool's head/sole series with a floored settle tolerance (R-C3-17)"
    ],
    "transcriber_disagrees_with_intent": [],
    "transcriber_controls_caught": true,
@@ -571,7 +617,8 @@
       6
      ],
      "notes": "Head-pitch delta unavailable for output frame(s) 6: frozen proxy reports face_not_visible; retained as null."
-    }
+    },
+    "key poses conductor-computed from a full-resolution staff-tip series (R-C3-17)"
    ],
    "transcriber_disagrees_with_intent": [
     "plate_clean"
@@ -613,21 +660,20 @@
   },
   "run_SE": {
    "status": "COMPLETE",
-   "check_burst": "P4c-SE-run",
-   "pack_burst": "P4p-SE-run",
-   "transcribe_burst": "P4t-SE-run",
-   "clip": "SE_run.mp4",
+   "check_burst": "P4c-SE-run-g2",
+   "pack_burst": "P4p-SE-run-g2",
+   "transcribe_burst": "P4t-SE-run-g2",
+   "clip": "SE_run_g2.mp4",
    "clip_version": "v1",
    "flags": [
-    "bands_measure: gait intent requires 12 frames and 12 candidate phases"
+    "gaze re-generated once with the gaze line doubled (charter \u00a7 6, R-C3-24)",
+    "head down on v1 \u2192 re-generated; re-generation head-up"
    ],
    "transcriber_disagrees_with_intent": [
-    "both_feet_air",
-    "loop_continuous",
-    "first_second_head_down"
+    "both_feet_air"
    ],
    "transcriber_controls_caught": true,
-   "packet": "../artifacts/P4p-SE-run/packet/review.html"
+   "packet": "../artifacts/P4p-SE-run-g2/packet/review.html"
   },
   "jump_SE": {
    "status": "COMPLETE",
@@ -639,7 +685,8 @@
    "flags": [
     "Frozen register returned rest anchor_cx=256.0 versus requested cx=255.5 (0.5 px raster offset); shared transform retained unchanged.",
     "Head-pitch delta unavailable for output frame(s) [6]: face_not_visible.",
-    "Exemplar measure/score intentionally not computed per step a: frozen estimator has no one-shot kind."
+    "Exemplar measure/score intentionally not computed per step a: frozen estimator has no one-shot kind.",
+    "key poses conductor-computed from the tool's head/sole series with a floored settle tolerance (R-C3-17)"
    ],
    "transcriber_disagrees_with_intent": [],
    "transcriber_controls_caught": true,
@@ -653,7 +700,8 @@
    "clip": "SE_cast_v2.mp4",
    "clip_version": "v2",
    "flags": [
-    "Frozen register raster result: anchor_cx=256.0 versus requested cx=255.5 (0.5 px offset); shared transform preserved without adjustment."
+    "Frozen register raster result: anchor_cx=256.0 versus requested cx=255.5 (0.5 px offset); shared transform preserved without adjustment.",
+    "key poses conductor-computed from a full-resolution staff-tip series (R-C3-17)"
    ],
    "transcriber_disagrees_with_intent": [
     "ends_rest"

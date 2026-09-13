@@ -1,0 +1,425 @@
+{
+  "cell": "W_walk",
+  "clip": "W_walk_g2.mp4",
+  "clip_version": "v1",
+  "flags": [
+    "gaze re-generated once with the gaze line doubled (charter \u00a7 6, R-C3-24)"
+  ],
+  "cut": {
+    "period": {
+      "frames": 140,
+      "seconds": 5.833333333333333,
+      "source": "head_bob_autocorr",
+      "confidence": 0.7791916576609906,
+      "bob_frames": 70,
+      "bob_seconds": 2.9166666666666665,
+      "notes": "confidence measures observed autocorrelation, not the prompted/sibling prior"
+    },
+    "selection": {
+      "start": null,
+      "end_exclusive": null,
+      "indices_native": [],
+      "reason": "no complete eligible cycle with required closure evidence",
+      "seam_mad": null,
+      "candidates": [],
+      "suspect_inside_selected": null,
+      "requested_indices_native": [],
+      "output_indices_native": []
+    },
+    "detection": null,
+    "splice": {
+      "per_pair_mad": [
+        4.95551944100872,
+        0.8941695161076241,
+        5.710463846914418,
+        0.4143070876320111,
+        6.023931456215231,
+        0.8962020813921093,
+        6.47959487195276,
+        0.46376238162807826,
+        7.13480074731429,
+        1.084365811957028,
+        7.485934478528036,
+        0.5320263873230945,
+        7.331625011637192,
+        1.18339039532184,
+        6.926785228014052,
+        0.7053434575555694,
+        7.203072761002943,
+        1.1654264163729116,
+        8.500269089668304,
+        0.5655409952092638,
+        8.58811324723059,
+        1.256282724587555,
+        8.697043876708634,
+        0.5481652083435731,
+        8.443430570341814,
+        1.1526352219193368,
+        7.409936757431645,
+        0.5174464256833162,
+        7.584393529176935,
+        1.003671534743464,
+        7.6463888146111705,
+        0.659757695044186,
+        6.234914569461744,
+        0.9699410810548883,
+        5.8274364428443555,
+        0.5243654557858266,
+        6.875888743634067,
+        1.016145865076136,
+        7.474137420666341,
+        0.4786335583957304,
+        7.769112806919599,
+        1.0669162308184343,
+        8.656203481184773,
+        0.5032769517901502,
+        7.688166527614936,
+        1.1270957550803904,
+        9.178285252996902,
+        0.6489626385074456,
+        8.201161890982027,
+        1.4260769618214113,
+        6.537165088145502,
+        0.614678582719079,
+        7.259639682895136,
+        1.0693741759745565,
+        8.051355836786856,
+        0.5898080650150935,
+        7.978701238755638,
+        1.110917010293373,
+        8.571936256249378,
+        0.6052208063390401,
+        7.618785394653864,
+        0.959062913165301,
+        7.557363671461057,
+        0.5599456365430654,
+        7.378491337925572,
+        1.1072652377988395,
+        7.27848971973448,
+        0.587343465246077,
+        5.859715703533355,
+        1.0456636465577844,
+        6.543253309442977,
+        0.478380435807684,
+        7.052654015690948,
+        1.0323728803608627,
+        7.743063577172786,
+        0.5156103735196506,
+        7.81496490807782,
+        1.0412210940374438,
+        7.613972808721329,
+        0.47149222909720157,
+        7.7773720941637965,
+        1.1559816603941417,
+        8.808633565198814,
+        0.6289342108824522,
+        7.459965674726912,
+        1.033170406762419,
+        5.924719411823813,
+        0.51055885521882,
+        7.027086478397432,
+        1.0267040006017483,
+        7.0213726613216325,
+        0.4932507137915251,
+        6.989729324313406,
+        1.0900597901787392,
+        7.306094671274352,
+        0.5025803009233271,
+        6.2968130232924695,
+        0.9515555496953068,
+        8.11368562724741,
+        0.5931553325277142,
+        7.756943394645686,
+        1.3175009334292298,
+        6.4264523951396315,
+        0.6684694478349402,
+        6.464957588255842,
+        0.9726192197304487,
+        8.224332680517355,
+        0.5321633980731219,
+        7.9418118284843615,
+        1.037581183938658,
+        8.371532259044852,
+        0.5326768561928165,
+        7.169993837370342,
+        0.9341508816574882,
+        7.564243067950529,
+        0.528485297789834,
+        7.557778496261813,
+        1.1151543279613936,
+        7.140028083848073,
+        0.6084916261284581,
+        5.8972582185040725,
+        1.0353669318773202,
+        6.811077101102393,
+        0.49214573245843585,
+        7.429739232996383,
+        1.0122609363492332,
+        7.65492595126761,
+        0.48468055780207664,
+        7.886090652191713,
+        1.0672780253220733,
+        7.701056375688185,
+        0.45524659292448194,
+        8.211384093728576,
+        1.2219668536950514,
+        9.04196966197509,
+        0.7153520557987253,
+        7.326727541178282,
+        1.0892177918321313,
+        6.415225442702926,
+        0.5361804952135655,
+        7.6055743940311915,
+        1.0926225231608357,
+        8.144356402708778,
+        0.5796154638356936
+      ],
+      "suspect_pairs": [],
+      "median_pair_mad": 3.1907982014150655,
+      "multiplier": 4.0,
+      "notes": "RGB composited on black; no loop seam; pairs index supplied frames",
+      "suspect_inside_selected": null
+    },
+    "transform": {
+      "scale": 0.21699819168173598,
+      "nominal_scale": 0.21699819168173598,
+      "translation_xy": [
+        174,
+        156
+      ],
+      "scaled_size": [
+        166,
+        253
+      ],
+      "source_sampling_box_xyxy": [
+        0.0,
+        0.0,
+        764.9833333333333,
+        1165.9083333333333
+      ],
+      "source_size": [
+        768,
+        1168
+      ],
+      "anchor_index": 0,
+      "anchor_native_bbox": [
+        266,
+        18,
+        490,
+        1124
+      ],
+      "canvas": [
+        512,
+        512
+      ],
+      "anchor_bbox": [
+        232,
+        160,
+        280,
+        400
+      ],
+      "anchor_H": 240,
+      "anchor_sole_row": 399,
+      "anchor_cx": 255.5,
+      "target_h": 240,
+      "sole_row": 399,
+      "cx": 255.5,
+      "one_transform_for_every_frame": true,
+      "upscaling": false,
+      "resampling": "PIL Lanczos; exact isotropic sampling box; integer unmasked paste",
+      "calibration": "closest nominal scale attaining raster height/centre, search +/-1 output px in .025 px steps"
+    },
+    "wall_seconds": 32.02208070800407,
+    "output_indices_native": [],
+    "strip": {
+      "path": "/Users/admin/astra-burst/runs/C-3/P4c-W-walk-g2/out/cut/sheets/walk_W_strip.png",
+      "diagnostic_only": true,
+      "indices_native": [
+        0,
+        13,
+        26,
+        39,
+        52,
+        65,
+        79,
+        92,
+        105,
+        118,
+        131,
+        144
+      ]
+    },
+    "notes": "No registered walk frames emitted. Transform and strip belong to the frozen diagnostic fallback; the strip is not a selected cycle. splice.suspect_inside_selected copied from selection.suspect_inside_selected."
+  },
+  "results": [
+    {
+      "id": "bands_from_exemplar.measure",
+      "subject": "W_walk",
+      "value": null,
+      "passed": null,
+      "threshold": null,
+      "op": "report",
+      "unit": "",
+      "evidence": [
+        "out/cut/registration.json"
+      ],
+      "notes": "Not computed: frozen cut emitted no registered walk frames; no complete eligible cycle with required closure evidence. STEP 2 skipped as instructed."
+    },
+    {
+      "id": "bands_from_exemplar.score.walk_W_video",
+      "subject": "W_walk",
+      "value": null,
+      "passed": null,
+      "threshold": null,
+      "op": "report",
+      "unit": "",
+      "evidence": [
+        "out/cut/registration.json"
+      ],
+      "notes": "Not computed: frozen cut emitted no registered walk frames; no complete eligible cycle with required closure evidence. STEP 2 skipped as instructed."
+    },
+    {
+      "id": "g6_seam",
+      "subject": "W_walk",
+      "value": null,
+      "passed": null,
+      "threshold": null,
+      "op": "report",
+      "unit": "",
+      "evidence": [
+        "out/cut/registration.json"
+      ],
+      "notes": "Not computed: frozen cut emitted no registered walk frames; no complete eligible cycle with required closure evidence. STEP 2 skipped as instructed."
+    },
+    {
+      "id": "g6b",
+      "subject": "W_walk",
+      "value": null,
+      "passed": null,
+      "threshold": null,
+      "op": "report",
+      "unit": "",
+      "evidence": [
+        "out/cut/registration.json"
+      ],
+      "notes": "Not computed: frozen cut emitted no registered walk frames; no complete eligible cycle with required closure evidence. STEP 2 skipped as instructed."
+    },
+    {
+      "id": "g6c",
+      "subject": "W_walk",
+      "value": null,
+      "passed": null,
+      "threshold": null,
+      "op": "report",
+      "unit": "",
+      "evidence": [
+        "out/cut/registration.json"
+      ],
+      "notes": "Not computed: frozen cut emitted no registered walk frames; no complete eligible cycle with required closure evidence. STEP 2 skipped as instructed."
+    },
+    {
+      "id": "g1_height.max_fraction",
+      "subject": "W_walk",
+      "value": null,
+      "passed": null,
+      "threshold": null,
+      "op": "report",
+      "unit": "",
+      "evidence": [
+        "out/cut/registration.json"
+      ],
+      "notes": "Not computed: frozen cut emitted no registered walk frames; no complete eligible cycle with required closure evidence. STEP 2 skipped as instructed."
+    },
+    {
+      "id": "head_pitch",
+      "subject": "W_walk",
+      "value": null,
+      "passed": null,
+      "threshold": null,
+      "op": "report",
+      "unit": "",
+      "evidence": [
+        "out/cut/registration.json"
+      ],
+      "notes": "Not computed: frozen cut emitted no registered walk frames; no complete eligible cycle with required closure evidence. STEP 2 skipped as instructed."
+    },
+    {
+      "id": "coherence",
+      "subject": "W_walk",
+      "value": null,
+      "passed": null,
+      "threshold": null,
+      "op": "report",
+      "unit": "",
+      "evidence": [
+        "out/cut/registration.json"
+      ],
+      "notes": "Not computed: frozen cut emitted no registered walk frames; no complete eligible cycle with required closure evidence. STEP 2 skipped as instructed."
+    },
+    {
+      "id": "matte_quality.rim_luma_excess.mean",
+      "subject": "W_walk",
+      "value": null,
+      "passed": null,
+      "threshold": null,
+      "op": "report",
+      "unit": "",
+      "evidence": [
+        "out/cut/registration.json"
+      ],
+      "notes": "Not computed: frozen cut emitted no registered walk frames; no complete eligible cycle with required closure evidence. STEP 2 skipped as instructed."
+    },
+    {
+      "id": "closure.frame_0_frame_11",
+      "subject": "W_walk",
+      "value": null,
+      "passed": null,
+      "threshold": null,
+      "op": "report",
+      "unit": "rgb_mad",
+      "evidence": [
+        "out/cut/registration.json"
+      ],
+      "notes": "Not computed: frozen cut emitted no registered walk frames; no complete eligible cycle with required closure evidence. STEP 2 skipped as instructed."
+    },
+    {
+      "id": "closure.frame_11_rest",
+      "subject": "W_walk",
+      "value": null,
+      "passed": null,
+      "threshold": null,
+      "op": "report",
+      "unit": "rgb_mad",
+      "evidence": [
+        "out/cut/registration.json"
+      ],
+      "notes": "Not computed: frozen cut emitted no registered walk frames; no complete eligible cycle with required closure evidence. STEP 2 skipped as instructed."
+    }
+  ],
+  "concerns": [
+    "Frozen cut selected no cycle: no complete eligible cycle with required closure evidence. No registered walk frames were emitted.",
+    "Not computed: proposal measurements/scoring, G6 literal, G6b, G6c, G1 size stability, head pitch, coherence, mean rim luma excess, and both closure measurements.",
+    "out/grid.png omitted because no registered walk frames exist; frozen strip is diagnostic only."
+  ],
+  "sheets": {
+    "grid": {
+      "path": null,
+      "notes": "Not produced: no registered walk frames; STEP 3 first_second.png only."
+    },
+    "first_second": {
+      "path": "out/first_second.png",
+      "native_indices": [
+        0,
+        12,
+        24
+      ],
+      "times_s": [
+        0.0,
+        0.5,
+        1.0
+      ],
+      "frame_height_px": 384,
+      "matte": false
+    }
+  }
+}

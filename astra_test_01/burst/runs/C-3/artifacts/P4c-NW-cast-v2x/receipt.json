@@ -1,0 +1,77 @@
+{
+  "task_id": "P4c-NW-cast-v2x",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [],
+  "calls_used": 0,
+  "retries": [],
+  "self_report": {
+    "obeyed_invariants": true,
+    "concerns": [
+      "Conflicting index lists: cut and recorded the explicitly ordered [12,24,35,51,65,79,97,108]; preserved conflicting template indices separately.",
+      "Retained requested cell label S_cast and recorded actual_cell NW_cast.",
+      "Exemplar bands skipped as instructed because cast is unsupported. All other requested measurements and the full native splice scan completed."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/checks.json",
+      "sha256": "0a778e702e5c1aec25c9d74bcf3fa70f022955ed25a60d8bbbab30d77b3c5e8e"
+    },
+    {
+      "path": "out/grid.png",
+      "sha256": "1e7b3ead4aa52b868ab8bd9aab2c70af6611e19ab47bfacb6896eaf800052a50"
+    },
+    {
+      "path": "out/first_second.png",
+      "sha256": "68cd634d7f04ae28bc6f6c8f1191b58fe12c195deadb73c216db726f541ebf28"
+    },
+    {
+      "path": "out/cut/registration.json",
+      "sha256": "6016f1f3e5ef6be645c808a36ec41638fdcc688bdc276d79f037a9bbb4bd8306"
+    },
+    {
+      "path": "out/cut/series.json",
+      "sha256": "d580b742337ac6f7e8a3518dbc96aae5782b537eb4a12944dbe5646f7ba602d9"
+    },
+    {
+      "path": "out/cut/frames/cast/NW/cast_NW_00.png",
+      "sha256": "de486c15ecaa85878fbd3b2de3cfc78d1e62e4fb2e0d13e35d221eb35785ebb2"
+    },
+    {
+      "path": "out/cut/frames/cast/NW/cast_NW_01.png",
+      "sha256": "f307ae3d109918dd074ee3d7a3207e51266efcb820480bb11432302092799f53"
+    },
+    {
+      "path": "out/cut/frames/cast/NW/cast_NW_02.png",
+      "sha256": "237577f121f73e8963dade80144aea62d0783633d8093bf5e15bdebc6a077baa"
+    },
+    {
+      "path": "out/cut/frames/cast/NW/cast_NW_03.png",
+      "sha256": "f6ce2ab49d99b46d7910e167e62c6729d757c9bc9e97037bf492a1fbd7162f9e"
+    },
+    {
+      "path": "out/cut/frames/cast/NW/cast_NW_04.png",
+      "sha256": "641a840af037d958559a17803402e62c245a7d5b59449a5d99cead15e4abb6ab"
+    },
+    {
+      "path": "out/cut/frames/cast/NW/cast_NW_05.png",
+      "sha256": "0adc84da7280d35e32921a87edfccc5d9c845c40d5da64cc96e5659994700f0d"
+    },
+    {
+      "path": "out/cut/frames/cast/NW/cast_NW_06.png",
+      "sha256": "656b5cf23f8a3b3e675c04f2d768b76a0094fa1865862eb647dca4688bac83f0"
+    },
+    {
+      "path": "out/cut/frames/cast/NW/cast_NW_07.png",
+      "sha256": "3f8482de1954aa4e488e37ec6dfd7bd7499abc934c7571fad6092568a927718d"
+    },
+    {
+      "path": "out/cut/frames/rest/NW/rest_NW.png",
+      "sha256": "77366b85e3d9c97edf050f8cf59d57d601c6bae16912f30a09dcd11e167c4b0e"
+    },
+    {
+      "path": "out/cut/sheets/cast_NW_strip.png",
+      "sha256": "3d46d131743edfa523d24bcdb8d2188d6e7484ee4cd420d5cd4e8af712210341"
+    }
+  ]
+}

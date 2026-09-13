@@ -1,0 +1,28 @@
+{
+  "task_id": "P4p-W-walk-g2",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [],
+  "calls_used": 0,
+  "retries": [],
+  "self_report": {
+    "obeyed_invariants": true,
+    "concerns": [
+      "No registered walk cycle: no complete eligible cycle with required closure evidence. Builder skipped; self-contained fallback page, summary, and diagnostic image delivered.",
+      "Cycle measurements and grid unavailable because no registered walk frames were emitted."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/packet/review.html",
+      "sha256": "55b613f243c9f5b2c3fba2b56a0a9115ca3046c2794c1193b24201ecf68c36f3"
+    },
+    {
+      "path": "out/packet/summary.txt",
+      "sha256": "412c92b4c4b0e527e1b589e351b1c6cefe59d7c3aac9e1d6026c75880b8b44d8"
+    },
+    {
+      "path": "out/packet/img/first_second.png",
+      "sha256": "66f334fc4af623f43cf6c1f71a9b2702e0508b7a0d75c1c5cf3d20d6ebe43dc2"
+    }
+  ]
+}

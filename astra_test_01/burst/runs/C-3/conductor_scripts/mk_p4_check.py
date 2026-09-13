@@ -7,12 +7,16 @@ SPEC = {'idle': (16, 8, '--prompted-period-s 2.0'), 'walk': (12, 12, ''), 'run':
 ROW = {'E': 'walk_E_video', 'SE': 'walk_E_video', 'NE': 'walk_E_video', 'W': 'walk_W_video', 'SW': 'walk_W_video', 'NW': 'walk_W_video', 'N': 'walk_N_proposal', 'S': 'walk_S_proposal'}
 overrides = json.loads(sys.argv[1]) if len(sys.argv) > 1 else {}   # {"<D>_<a>": {"min_start_s": 1.0, "suffix": "-r1", "flag": "..."}}
 out = []
+ONLY = set(overrides) if overrides.get('__only__') is None and any('clip' in v for v in overrides.values() if isinstance(v, dict)) else None
 for D in ['S', 'SW', 'W', 'NW', 'N', 'NE', 'E', 'SE']:
     for a in ['idle', 'walk', 'run', 'jump', 'cast']:
         cell = f'{D}_{a}'; o = overrides.get(cell, {})
+        if ONLY is not None and cell not in ONLY: continue
         flags = list(o.get('flags', []))
         clip = XV/f'{cell}.mp4'; ver = 'v1'
-        if a in ('jump', 'cast'):
+        if o.get('clip'):
+            clip, ver = XV/o['clip'], o.get('ver', 'v1')
+        elif a in ('jump', 'cast'):
             if (XV/f'{cell}_v2.mp4').exists(): clip, ver = XV/f'{cell}_v2.mp4', 'v2'
             else: flags.append('v2 not generated (H-C3-1 Grok balance) — cut from the full-height v1 clip (R-C3-9)')
         n, fps, extra = SPEC[a]

@@ -1,0 +1,79 @@
+{
+  "task_id": "P4c-NE-cast-v2x",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [],
+  "calls_used": 0,
+  "retries": [],
+  "self_report": {
+    "obeyed_invariants": true,
+    "concerns": [
+      "Used explicit indices [12,51,90,91,99,107,117,124]; conflicting template indices retained separately.",
+      "Used named NE_cast_v2.mp4; conflicting supplied v1 provenance flag preserved but unverified.",
+      "Gather/release are adjacent native frames 90/91.",
+      "Exemplar measurement skipped as instructed: no cast mode. G6c is inapplicable.",
+      "Head-pitch proxy unavailable for frames 3–7: face_not_visible. Mean uses three evaluable frames."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/checks.json",
+      "sha256": "4915ca6ed0b136d1af7682a113d4ec493b2a150040436a8d79551e04f40d9fe6"
+    },
+    {
+      "path": "out/grid.png",
+      "sha256": "da620ec57167b3c9b312c34e473fef81a56d6d1a4891e433e22784e89b348601"
+    },
+    {
+      "path": "out/first_second.png",
+      "sha256": "1332a32a79b913bac4ce44f77e9c7ab364116970125fd457dcf5f0f8476528c2"
+    },
+    {
+      "path": "out/cut/registration.json",
+      "sha256": "84c5a4ce28bda65fb4b2a1fb14027724e3b96f36e5ba625dbf4593b306721164"
+    },
+    {
+      "path": "out/cut/series.json",
+      "sha256": "a81b096e6f65222223b765ca799975fc0b8d86456a38095c75e7bb811b53ecbd"
+    },
+    {
+      "path": "out/cut/frames/cast/NE/cast_NE_00.png",
+      "sha256": "35550e0c2325badce349179bb07135243abadb13b51f39e8e8bb7b7ead1ad239"
+    },
+    {
+      "path": "out/cut/frames/cast/NE/cast_NE_01.png",
+      "sha256": "c8e0a1141f12c1929d7be1118faf5765ae166bed559a5b83ecbf3e911dcd144c"
+    },
+    {
+      "path": "out/cut/frames/cast/NE/cast_NE_02.png",
+      "sha256": "7e3a77dbdb1d70e1bc8b404c797cc36a09e91c27fbab8640d569aa3705744009"
+    },
+    {
+      "path": "out/cut/frames/cast/NE/cast_NE_03.png",
+      "sha256": "bb1817ef070741adf0746413eb1e2a019de4c0de38bed8b3ae413d911b6cc70f"
+    },
+    {
+      "path": "out/cut/frames/cast/NE/cast_NE_04.png",
+      "sha256": "67035d624b9ffd359c5b026fd2efc6443b9154b24a02708d7548af1363b3ecf0"
+    },
+    {
+      "path": "out/cut/frames/cast/NE/cast_NE_05.png",
+      "sha256": "a8aaa0f09130de768e98292096484c7601110a313d345b4c95d382eab4adfb08"
+    },
+    {
+      "path": "out/cut/frames/cast/NE/cast_NE_06.png",
+      "sha256": "8d6c4f59b05f0b804123065f8cbbbc9ceffebb375b23ccd0585072e1b13f5e03"
+    },
+    {
+      "path": "out/cut/frames/cast/NE/cast_NE_07.png",
+      "sha256": "a454e468fcab48f286f8811b46fd33d2320bcf7d841ca72fdb02b0203e5b2ed7"
+    },
+    {
+      "path": "out/cut/frames/rest/NE/rest_NE.png",
+      "sha256": "7ab0fd6392f46ca2f02845edfd91b44d31e60b7701f1f597679d49dc45e21a7e"
+    },
+    {
+      "path": "out/cut/sheets/cast_NE_strip.png",
+      "sha256": "5aed0aeb7f85b512a439a87db96f0186c84f2ec89217c5e069346f3b6a518e8f"
+    }
+  ]
+}

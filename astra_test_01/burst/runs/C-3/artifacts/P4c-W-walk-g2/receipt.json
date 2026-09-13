@@ -1,0 +1,41 @@
+{
+  "task_id": "P4c-W-walk-g2",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [],
+  "calls_used": 0,
+  "retries": [],
+  "self_report": {
+    "obeyed_invariants": true,
+    "concerns": [
+      "Frozen cut found no complete eligible cycle with required closure evidence; no registered walk frames were emitted.",
+      "Not computed: proposal measurements/scoring, G6 literal, G6b, G6c, G1 size stability, head pitch, coherence, mean rim luma excess, and both closure measurements.",
+      "out/grid.png omitted as instructed; frozen strip is diagnostic only."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/checks.json",
+      "sha256": "951c6e93bda04c547e8338f219ea34aa08d16c1fb6e37d5e67e95d3eb7538e93"
+    },
+    {
+      "path": "out/first_second.png",
+      "sha256": "66f334fc4af623f43cf6c1f71a9b2702e0508b7a0d75c1c5cf3d20d6ebe43dc2"
+    },
+    {
+      "path": "out/cut/registration.json",
+      "sha256": "2b857c266b4fac2f4a9b9defd6f2db3d38c47e05a0827287ed6cfb58718ba420"
+    },
+    {
+      "path": "out/cut/series.json",
+      "sha256": "5215358d3801814b3b94ba188bac85aad34eff331395d77132fb6a60b9948c6d"
+    },
+    {
+      "path": "out/cut/frames/rest/W/rest_W.png",
+      "sha256": "9bc96bc51c59f205a980864d8c187c1a2042cc22ccfd88ad444d2c1b7d1ed1df"
+    },
+    {
+      "path": "out/cut/sheets/walk_W_strip.png",
+      "sha256": "6ab9a328e3f7262c09aa99032a72fd1833b78bb771964e6ee07578ec4c4003fa"
+    }
+  ]
+}
