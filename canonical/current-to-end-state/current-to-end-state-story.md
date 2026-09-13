@@ -29,6 +29,18 @@
 
 ## SESSION-DELTA LOG (latest governs all below)
 
+### 2026-09-12 — PROVENANCE MARKS RULED (R-31/R-32): faction insignia = source-game signifier; "faction" now overloaded (Q77 filed)
+
+- **Matt RULED (HITL Run C-2, mid-session, verbatim core):** *"Instead of a ring with hour mark, make the staff head an actual astrolabe. And for the pauldron, instead of the ring with hour mark, create an insignia for the source game's faction that this character represents… It shouldn't come from Last Epoch, but it should signify what Last Epoch represents. The faction insignias can be a marker that they are from the same source game."* Ledger R-31 (`astra_test_01/burst/runs/C-1/ledger.json`).
+- **What this adds to the frame:** a **provenance mark** worn on the body — the glyph that says *"this kit came from the same shelf"* (the archive of the genre's build-history: every shelf a preserved kit, `archive-frame.md § 1`). It is **authored homage, not copy** (the 2026-07-25 IP law): the mark signifies what the source game *represents*, borrowing none of its letterforms, logos or marks. First mapping ruled: **F04 Keepers of Hours ↔ the Last-Epoch signifier** (time as layered eras; a line crossing them).
+- **The glyph (R-32, Matt: "Agreed"):** **"Needle through Strata"** — one vertical needle/gnomon (diamond head, short foot) piercing three stacked strata bands, brass with a drawn contour, no enclosing ring/shield/frame, no text/clock/hourglass/compass/gears, legible at 8 px. Worn on `pauldron_L` (count 1); the staff head becomes an actual **astrolabe** (count 1); the ring-with-hour-mark is RETIRED. Starter set stays plain (0 everywhere).
+- **Vocabulary collision surfaced → Q77 filed (`matt_decision_needed/`):** "faction" now names three axes — `archive-frame.md § 5` **element-courts** (allegiance, computed from `elem_raw`; the kin-faction loop of 2026-07-22 lives here) · the **F0x art-direction factions** (the bible's `faction` field) · the **source-game provenance mark**. They compose (allegiance ≠ visual house ≠ provenance) but one word will drift the canon. Recommendation on the queue: **court / house / provenance mark**. Until ruled, this tracker and the bible write *provenance mark*, never "faction insignia".
+- **Empirical hook (recognition → validate → commit, § 3.4):** the mark is minted as a first-party template at C-2 step 5 (`K1p-sig-01`) and worn by the H1 advanced master (`K1p-adv-01`); the bible gains a `sigil-advanced` motif rule with the template as `reference_asset`. Whether shelf-marks generalise beyond F04 waits on the next house's mint — no frame-wide commitment until two marks coexist on screen.
+- **PART B:** no locked row reopened; Q77 is a new open fork (naming). `archive-frame.md` untouched pending Q77.
+
+**Signed:** gandalf, 2026-09-12 (RUN-CONDUCTOR, HITL Run C-2).
+
+
 ### 2026-07-28 — DEATH-FAITH FRAME DISSOLVED (Matt ruling) — Glitch Archive is THE frame; re-skin fold QUEUED
 
 - **Matt RULED (verbatim core):** *"we have definitely dissolved the RDR death faith game - it is no longer story canon."* The governing frame is the **Glitch Archive**: the teenage kid finds the old ARPG floppy disk, 3D-prints the adapter to his VR console, gets stuck in the glitching game, and saves the ARPG kits (and himself) from **deletion** by defeating them one by one — adding them to the adapter and *becoming* them.
