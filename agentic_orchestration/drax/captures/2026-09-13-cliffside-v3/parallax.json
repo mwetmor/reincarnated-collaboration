@@ -1,0 +1,97 @@
+{
+  "ruling": "R-C3-48",
+  "view_px": [
+    1920,
+    1080
+  ],
+  "feet_anchor_in_view_px": [
+    962,
+    595
+  ],
+  "canvas_px": [
+    5376,
+    4096
+  ],
+  "camera_rule": "view top-left = feet - anchor, clamped to [0, canvas - view]",
+  "travel_walkable": {
+    "view_x_range": [
+      0,
+      3287.43
+    ],
+    "view_y_range": [
+      0,
+      2795.22
+    ],
+    "travel_px": [
+      3287.43,
+      2795.22
+    ],
+    "feet_bbox_px": [
+      414.17,
+      383.17,
+      4249.43,
+      3390.22
+    ]
+  },
+  "travel_full_canvas": {
+    "view_x_range": [
+      0,
+      3456
+    ],
+    "view_y_range": [
+      0,
+      3016
+    ],
+    "travel_px": [
+      3456,
+      3016
+    ]
+  },
+  "layer_rule": "layer offset = scroll_factor * camera offset; min layer size = view + scroll_factor * travel (per axis)",
+  "layers": {
+    "sky": {
+      "scroll_factor": 0.12,
+      "min_size_px_walkable_travel": [
+        2315,
+        1416
+      ],
+      "min_size_px_full_canvas_travel": [
+        2335,
+        1442
+      ]
+    },
+    "far_ruins": {
+      "scroll_factor": 0.25,
+      "min_size_px_walkable_travel": [
+        2742,
+        1779
+      ],
+      "min_size_px_full_canvas_travel": [
+        2784,
+        1834
+      ]
+    },
+    "forest_valley": {
+      "scroll_factor": 0.45,
+      "min_size_px_walkable_travel": [
+        3400,
+        2338
+      ],
+      "min_size_px_full_canvas_travel": [
+        3476,
+        2438
+      ]
+    },
+    "mist": {
+      "scroll_factor": 0.7,
+      "min_size_px_walkable_travel": [
+        4222,
+        3037
+      ],
+      "min_size_px_full_canvas_travel": [
+        4340,
+        3192
+      ]
+    }
+  }
+}

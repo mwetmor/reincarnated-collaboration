@@ -1,0 +1,768 @@
+{
+  "capture": "2026-09-13-cliffside-v3",
+  "ruling": "R-C3-48",
+  "author": "drax",
+  "godot_commit": "40b79de (reincarnated-godot, not pushed)",
+  "files": [
+    {
+      "file": "07_ortho_canvas_shaded_v3.png",
+      "bytes": 419943,
+      "sha256": "6f7050331bea5a3ad00cd8443e0fe0979e81a820a45faca3a41e6f5bf30d5133",
+      "size_px": [
+        5376,
+        4096
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "file": "08_ortho_canvas_layer_id_v3.png",
+      "bytes": 201737,
+      "sha256": "a74619d27e5dd590a9af7e58cdd566382d841f5ac944ef279567a3514e272c3f",
+      "size_px": [
+        5376,
+        4096
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "file": "README.md",
+      "bytes": 7192,
+      "sha256": "6b3038ac8789310a6692070da0ab521cd5dbecd41ebbfd43279275dee148347e"
+    },
+    {
+      "file": "chunks/chunk_0_2_depth.png",
+      "bytes": 6944,
+      "sha256": "79e9f38b5f8ed15cb2b44515f4c7106e3678ff0e71b2df8c27e1e5ba1c73c3bc",
+      "size_px": [
+        1536,
+        1024
+      ],
+      "mode": "I;16"
+    },
+    {
+      "file": "chunks/chunk_0_2_guide.png",
+      "bytes": 10662,
+      "sha256": "1e43702912c446d2b327d4853bde114fd8215f73e789cf41c797d749c49db19e",
+      "size_px": [
+        1536,
+        1024
+      ],
+      "mode": "RGB"
+    },
+    {
+      "file": "chunks/chunk_0_2_id.png",
+      "bytes": 11557,
+      "sha256": "d223a070f6ad39b9535a3ab5825c8904567453c359efbe5aecdf0c2281ec8226",
+      "size_px": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "file": "chunks/chunk_0_2_mask.png",
+      "bytes": 4146,
+      "sha256": "21c297139049d4cba4552d0c2e2e7716f8fb7d29143597c1209ca136623a65f5",
+      "size_px": [
+        1536,
+        1024
+      ],
+      "mode": "L"
+    },
+    {
+      "file": "chunks/chunk_0_3_depth.png",
+      "bytes": 6830,
+      "sha256": "a938dba7c7e13658ae1cde2e22002a996bd6a381039de61cb820edaa8084bab2",
+      "size_px": [
+        1536,
+        1024
+      ],
+      "mode": "I;16"
+    },
+    {
+      "file": "chunks/chunk_0_3_guide.png",
+      "bytes": 19179,
+      "sha256": "4a6f85108b36d37998f4c0ac65abefcc94fdf364cccbddc2332f7cc4351d08c6",
+      "size_px": [
+        1536,
+        1024
+      ],
+      "mode": "RGB"
+    },
+    {
+      "file": "chunks/chunk_0_3_id.png",
+      "bytes": 19004,
+      "sha256": "ba97f6d215d3a1c0f4d5cd732e1b2448c57fb4fcf43dfad40ebe08bab7c726b8",
+      "size_px": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "file": "chunks/chunk_0_3_mask.png",
+      "bytes": 5895,
+      "sha256": "2f933a42cb5be8b74b8559978785358f38b8bf445ad1c6d23b56c831755b73a9",
+      "size_px": [
+        1536,
+        1024
+      ],
+      "mode": "L"
+    },
+    {
+      "file": "chunks/chunk_0_4_depth.png",
+      "bytes": 25937,
+      "sha256": "1c1f1858e32ff09f31333cf666ca9896e865b860bc9c3f5dc7541aac59e7def7",
+      "size_px": [
+        1536,
+        1024
+      ],
+      "mode": "I;16"
+    },
+    {
+      "file": "chunks/chunk_0_4_guide.png",
+      "bytes": 37503,
+      "sha256": "448096e2a2d165750f4ef7c788f6f852b45f574eab045bfc23f5f851887d2d23",
+      "size_px": [
+        1536,
+        1024
+      ],
+      "mode": "RGB"
+    },
+    {
+      "file": "chunks/chunk_0_4_id.png",
+      "bytes": 14402,
+      "sha256": "0b5818f930f69d8e20e0f5943e335aa4ebe044609de8378f694cbbbfa469f6b8",
+      "size_px": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "file": "chunks/chunk_0_4_mask.png",
+      "bytes": 3669,
+      "sha256": "6ee0937622900d5349ab2bdcbce5b1c322a8a234e37d75bb9faf0803f4f26f0d",
+      "size_px": [
+        1536,
+        1024
+      ],
+      "mode": "L"
+    },
+    {
+      "file": "chunks/chunk_1_1_depth.png",
+      "bytes": 7710,
+      "sha256": "3f2a6c7411903d2ef28ed4cc8ef0b0140a9af2a471ce9f72e9f5fdbba4e1f6d5",
+      "size_px": [
+        1536,
+        1024
+      ],
+      "mode": "I;16"
+    },
+    {
+      "file": "chunks/chunk_1_1_guide.png",
+      "bytes": 12030,
+      "sha256": "5405767cb23426905f78b06ff84b262693ad55c78c34b717f91f84293558b096",
+      "size_px": [
+        1536,
+        1024
+      ],
+      "mode": "RGB"
+    },
+    {
+      "file": "chunks/chunk_1_1_id.png",
+      "bytes": 13851,
+      "sha256": "968fbdab12a8f0cdcd9b014bc4e920b8dbe4bc05bcd91df0471fee72192201e8",
+      "size_px": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "file": "chunks/chunk_1_1_mask.png",
+      "bytes": 5209,
+      "sha256": "5817495ba601d2b3ae50f126fff53898d9178ac4a0f84aa86cc0ebbb2c782177",
+      "size_px": [
+        1536,
+        1024
+      ],
+      "mode": "L"
+    },
+    {
+      "file": "chunks/chunk_1_2_depth.png",
+      "bytes": 6914,
+      "sha256": "1bd4f0215858a24cd1d1e0ac2fd2cb9ecf2c60ef0da7405a9fad458738115f17",
+      "size_px": [
+        1536,
+        1024
+      ],
+      "mode": "I;16"
+    },
+    {
+      "file": "chunks/chunk_1_2_guide.png",
+      "bytes": 14806,
+      "sha256": "59ef8d02f7393eb691cc3cfad117986a9de8aa64a404b336cfef0eaea6d84b82",
+      "size_px": [
+        1536,
+        1024
+      ],
+      "mode": "RGB"
+    },
+    {
+      "file": "chunks/chunk_1_2_id.png",
+      "bytes": 17323,
+      "sha256": "a8226e7708014fa487f64c9600444ff29204fc92bde2ce055dee1b6d5886350c",
+      "size_px": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "file": "chunks/chunk_1_2_mask.png",
+      "bytes": 5795,
+      "sha256": "4b785a3fb9b2e96db2bcd364260b286c166aa2b80a1ddef06ca1f8cf86eb228f",
+      "size_px": [
+        1536,
+        1024
+      ],
+      "mode": "L"
+    },
+    {
+      "file": "chunks/chunk_1_3_depth.png",
+      "bytes": 55795,
+      "sha256": "923dedf64cc855726e9703a750fe49f25e73ef7a6f22494c5dbcf6173eb2977d",
+      "size_px": [
+        1536,
+        1024
+      ],
+      "mode": "I;16"
+    },
+    {
+      "file": "chunks/chunk_1_3_guide.png",
+      "bytes": 24953,
+      "sha256": "55f070e9db05cae39416871eacdd9e2f6742a985107505588087242d2128e3f5",
+      "size_px": [
+        1536,
+        1024
+      ],
+      "mode": "RGB"
+    },
+    {
+      "file": "chunks/chunk_1_3_id.png",
+      "bytes": 13906,
+      "sha256": "fa95de4a28102525b5f47e06995b239e7a8b7c79a22cd73adc00b12e7d97d91f",
+      "size_px": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "file": "chunks/chunk_1_3_mask.png",
+      "bytes": 3669,
+      "sha256": "6ee0937622900d5349ab2bdcbce5b1c322a8a234e37d75bb9faf0803f4f26f0d",
+      "size_px": [
+        1536,
+        1024
+      ],
+      "mode": "L"
+    },
+    {
+      "file": "chunks/chunk_1_4_depth.png",
+      "bytes": 59400,
+      "sha256": "b7a98a688314e06cb54c0fdf38abdfd30631ff172dbce62d0a8e511406e76b0f",
+      "size_px": [
+        1536,
+        1024
+      ],
+      "mode": "I;16"
+    },
+    {
+      "file": "chunks/chunk_1_4_guide.png",
+      "bytes": 34039,
+      "sha256": "1709161ec6ba2bdbbd250bef4ca06acc4be5b81ef6c4f4772a5dede744082c3c",
+      "size_px": [
+        1536,
+        1024
+      ],
+      "mode": "RGB"
+    },
+    {
+      "file": "chunks/chunk_1_4_id.png",
+      "bytes": 10098,
+      "sha256": "066bf98366311e17cd4730dfa35ea56263b3898e7b2cbb67093ca10f5d9fe652",
+      "size_px": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "file": "chunks/chunk_1_4_mask.png",
+      "bytes": 3669,
+      "sha256": "6ee0937622900d5349ab2bdcbce5b1c322a8a234e37d75bb9faf0803f4f26f0d",
+      "size_px": [
+        1536,
+        1024
+      ],
+      "mode": "L"
+    },
+    {
+      "file": "chunks/chunk_2_0_depth.png",
+      "bytes": 34297,
+      "sha256": "11e45abdbb236ec103b2abce1f81de2e68879b5c035203aa2ea1963f112b3754",
+      "size_px": [
+        1536,
+        1024
+      ],
+      "mode": "I;16"
+    },
+    {
+      "file": "chunks/chunk_2_0_guide.png",
+      "bytes": 40464,
+      "sha256": "6e4c9c49e1a08eeff330330495f28fcd656ce809338962df14c1dc589a082927",
+      "size_px": [
+        1536,
+        1024
+      ],
+      "mode": "RGB"
+    },
+    {
+      "file": "chunks/chunk_2_0_id.png",
+      "bytes": 23317,
+      "sha256": "44f6352e20c8a80820540ff26e2beae79cf6f9742e1dd5be9dbc81fe86a239dc",
+      "size_px": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "file": "chunks/chunk_2_0_mask.png",
+      "bytes": 5480,
+      "sha256": "26112d7c7670dd55528459e4228fb78086555ea81ddf149f89ac7cdadf4e9deb",
+      "size_px": [
+        1536,
+        1024
+      ],
+      "mode": "L"
+    },
+    {
+      "file": "chunks/chunk_2_1_depth.png",
+      "bytes": 67223,
+      "sha256": "cf8ab6df38f8d5afbb4910148106a45df4545f91dc392497e39ebffdcca484ab",
+      "size_px": [
+        1536,
+        1024
+      ],
+      "mode": "I;16"
+    },
+    {
+      "file": "chunks/chunk_2_1_guide.png",
+      "bytes": 50733,
+      "sha256": "acdde661384f3d8b02f0a881118c7e37e80585d3a6700ef093b58812f076ac42",
+      "size_px": [
+        1536,
+        1024
+      ],
+      "mode": "RGB"
+    },
+    {
+      "file": "chunks/chunk_2_1_id.png",
+      "bytes": 28057,
+      "sha256": "fcc595a266192fa75edab33bcae9e0c5e40728828890c418daef9eae4662a0c0",
+      "size_px": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "file": "chunks/chunk_2_1_mask.png",
+      "bytes": 6575,
+      "sha256": "9fd2c4596749b64de62fc041d19fbebbf9af02391316ff0c358a3d0edd80ed58",
+      "size_px": [
+        1536,
+        1024
+      ],
+      "mode": "L"
+    },
+    {
+      "file": "chunks/chunk_2_2_depth.png",
+      "bytes": 99855,
+      "sha256": "5adb0b51083b8f4536db5ab61393434a9752750b05d05d87508da1d25a25a1c1",
+      "size_px": [
+        1536,
+        1024
+      ],
+      "mode": "I;16"
+    },
+    {
+      "file": "chunks/chunk_2_2_guide.png",
+      "bytes": 34768,
+      "sha256": "55d96a77931ae1f98ee908160cbdfaef1ded47a6518ae5a986b92e8d22fafc5d",
+      "size_px": [
+        1536,
+        1024
+      ],
+      "mode": "RGB"
+    },
+    {
+      "file": "chunks/chunk_2_2_id.png",
+      "bytes": 14661,
+      "sha256": "4260e6d1d8d7db8b1eb32e87642523489bf7e935e9659cf05cf6e9e0184f5ea1",
+      "size_px": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "file": "chunks/chunk_2_2_mask.png",
+      "bytes": 3669,
+      "sha256": "6ee0937622900d5349ab2bdcbce5b1c322a8a234e37d75bb9faf0803f4f26f0d",
+      "size_px": [
+        1536,
+        1024
+      ],
+      "mode": "L"
+    },
+    {
+      "file": "chunks/chunk_2_3_depth.png",
+      "bytes": 121407,
+      "sha256": "6f9c06a31db9318a409e365c20ada062240687c63c1c41730222d6ab86c933f1",
+      "size_px": [
+        1536,
+        1024
+      ],
+      "mode": "I;16"
+    },
+    {
+      "file": "chunks/chunk_2_3_guide.png",
+      "bytes": 10829,
+      "sha256": "5a3dadeb84bdc21a8d86808ee235696a125658c8992abb6bcd84d85c24b62278",
+      "size_px": [
+        1536,
+        1024
+      ],
+      "mode": "RGB"
+    },
+    {
+      "file": "chunks/chunk_2_3_id.png",
+      "bytes": 10109,
+      "sha256": "435bf62fadcdac38e5ffa26f9829c36b6362df59c0d54f90560dff373fc941eb",
+      "size_px": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "file": "chunks/chunk_2_3_mask.png",
+      "bytes": 3669,
+      "sha256": "6ee0937622900d5349ab2bdcbce5b1c322a8a234e37d75bb9faf0803f4f26f0d",
+      "size_px": [
+        1536,
+        1024
+      ],
+      "mode": "L"
+    },
+    {
+      "file": "chunks/chunk_2_4_depth.png",
+      "bytes": 59693,
+      "sha256": "43c695743695d30ed231b919f0ec5670e4909fbd6660bbaf6944ad1bfc16d50b",
+      "size_px": [
+        1536,
+        1024
+      ],
+      "mode": "I;16"
+    },
+    {
+      "file": "chunks/chunk_2_4_guide.png",
+      "bytes": 7002,
+      "sha256": "f3c25fb11472ef4426fa5273cf9d912282eef95ed209b5355d08cb5716350202",
+      "size_px": [
+        1536,
+        1024
+      ],
+      "mode": "RGB"
+    },
+    {
+      "file": "chunks/chunk_2_4_id.png",
+      "bytes": 8537,
+      "sha256": "b4faef27ba987c0f45b093eac17651e3629e527250d7ef353e650655c53cefe7",
+      "size_px": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "file": "chunks/chunk_2_4_mask.png",
+      "bytes": 3669,
+      "sha256": "6ee0937622900d5349ab2bdcbce5b1c322a8a234e37d75bb9faf0803f4f26f0d",
+      "size_px": [
+        1536,
+        1024
+      ],
+      "mode": "L"
+    },
+    {
+      "file": "chunks/chunk_3_0_depth.png",
+      "bytes": 15978,
+      "sha256": "1b45a008c602ae6892d655bbb4d976f7ef36eb61518a9042256f7a2cd2911f63",
+      "size_px": [
+        1536,
+        1024
+      ],
+      "mode": "I;16"
+    },
+    {
+      "file": "chunks/chunk_3_0_guide.png",
+      "bytes": 23257,
+      "sha256": "02c857dd3b5679d3beb014d5b1b542baf207f2454eaad6d36a6218e42b363df4",
+      "size_px": [
+        1536,
+        1024
+      ],
+      "mode": "RGB"
+    },
+    {
+      "file": "chunks/chunk_3_0_id.png",
+      "bytes": 19003,
+      "sha256": "b560a5a56d44c49628a787fec4d82c6f8991439ff7dcd08e2329e8dfc452f2bf",
+      "size_px": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "file": "chunks/chunk_3_0_mask.png",
+      "bytes": 6405,
+      "sha256": "5a840b5cd758ee12b1ebbf3ce98b07c819c4670284848ee71975cc4257324e9b",
+      "size_px": [
+        1536,
+        1024
+      ],
+      "mode": "L"
+    },
+    {
+      "file": "chunks/chunk_3_1_depth.png",
+      "bytes": 56317,
+      "sha256": "25729716f19f7001f860faafcf7922da489a29dbd6619913dca08b7f41c925f7",
+      "size_px": [
+        1536,
+        1024
+      ],
+      "mode": "I;16"
+    },
+    {
+      "file": "chunks/chunk_3_1_guide.png",
+      "bytes": 30628,
+      "sha256": "7e0abc80e7dd9d0ef0bb6cad7f3edd98d565245ca3111baf5c16374fa02f1e66",
+      "size_px": [
+        1536,
+        1024
+      ],
+      "mode": "RGB"
+    },
+    {
+      "file": "chunks/chunk_3_1_id.png",
+      "bytes": 11490,
+      "sha256": "a51be88ddd6f2ac171dec51b42e7eee743e20061477ad7cae96f75e2a977ebd7",
+      "size_px": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "file": "chunks/chunk_3_1_mask.png",
+      "bytes": 3669,
+      "sha256": "6ee0937622900d5349ab2bdcbce5b1c322a8a234e37d75bb9faf0803f4f26f0d",
+      "size_px": [
+        1536,
+        1024
+      ],
+      "mode": "L"
+    },
+    {
+      "file": "chunks/chunk_3_2_depth.png",
+      "bytes": 75892,
+      "sha256": "fa3dafe5d3182af348a1e85e249b0ae3368c1a6bbba5ff13517cac331dc31391",
+      "size_px": [
+        1536,
+        1024
+      ],
+      "mode": "I;16"
+    },
+    {
+      "file": "chunks/chunk_3_2_guide.png",
+      "bytes": 18203,
+      "sha256": "034bc0b3a399582c927fc140ecf4b4f294c1f213c3c7e0706a012f5158e2e38f",
+      "size_px": [
+        1536,
+        1024
+      ],
+      "mode": "RGB"
+    },
+    {
+      "file": "chunks/chunk_3_2_id.png",
+      "bytes": 8537,
+      "sha256": "b4faef27ba987c0f45b093eac17651e3629e527250d7ef353e650655c53cefe7",
+      "size_px": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "file": "chunks/chunk_3_2_mask.png",
+      "bytes": 3669,
+      "sha256": "6ee0937622900d5349ab2bdcbce5b1c322a8a234e37d75bb9faf0803f4f26f0d",
+      "size_px": [
+        1536,
+        1024
+      ],
+      "mode": "L"
+    },
+    {
+      "file": "chunks/chunk_3_3_depth.png",
+      "bytes": 85544,
+      "sha256": "5ac4274dedcbe4cecb628522b1321feb682c87775b44c46a4d9c8b78fbc9f746",
+      "size_px": [
+        1536,
+        1024
+      ],
+      "mode": "I;16"
+    },
+    {
+      "file": "chunks/chunk_3_3_guide.png",
+      "bytes": 16398,
+      "sha256": "2ecee01a02a7372ce9efcf0e54cb7e9e49bcca9fe77b4283a136e03529db4449",
+      "size_px": [
+        1536,
+        1024
+      ],
+      "mode": "RGB"
+    },
+    {
+      "file": "chunks/chunk_3_3_id.png",
+      "bytes": 8537,
+      "sha256": "b4faef27ba987c0f45b093eac17651e3629e527250d7ef353e650655c53cefe7",
+      "size_px": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "file": "chunks/chunk_3_3_mask.png",
+      "bytes": 4181,
+      "sha256": "e677ece907059de60d08fda6055cf9c5db7cb17b5c3b7afd8071fd1b625c5682",
+      "size_px": [
+        1536,
+        1024
+      ],
+      "mode": "L"
+    },
+    {
+      "file": "chunks/chunk_3_4_depth.png",
+      "bytes": 80603,
+      "sha256": "ab1adc584770c6ad5d6ed82187f999fcabd27f19e62bf27ec4c856177dc4122e",
+      "size_px": [
+        1536,
+        1024
+      ],
+      "mode": "I;16"
+    },
+    {
+      "file": "chunks/chunk_3_4_guide.png",
+      "bytes": 19897,
+      "sha256": "a924336f60a7632fa0e31acc45e1565150044062acb50528ad67e3c650ee42c2",
+      "size_px": [
+        1536,
+        1024
+      ],
+      "mode": "RGB"
+    },
+    {
+      "file": "chunks/chunk_3_4_id.png",
+      "bytes": 8537,
+      "sha256": "b4faef27ba987c0f45b093eac17651e3629e527250d7ef353e650655c53cefe7",
+      "size_px": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "file": "chunks/chunk_3_4_mask.png",
+      "bytes": 3669,
+      "sha256": "6ee0937622900d5349ab2bdcbce5b1c322a8a234e37d75bb9faf0803f4f26f0d",
+      "size_px": [
+        1536,
+        1024
+      ],
+      "mode": "L"
+    },
+    {
+      "file": "chunks_v3.json",
+      "bytes": 14092,
+      "sha256": "4147593cd63c7fa43db9be1714cf7de1860d92d6537a7cccc0023f8d836852b1"
+    },
+    {
+      "file": "ortho_canvas_v3_depth_mm.png",
+      "bytes": 697022,
+      "sha256": "eca7179bf8c29f4ec362ee93cae78d77f03ca81c2b768ac46bf08e565e2313ec",
+      "size_px": [
+        5376,
+        4096
+      ],
+      "mode": "I;16"
+    },
+    {
+      "file": "ortho_canvas_v3_mask.png",
+      "bytes": 42872,
+      "sha256": "277d75857e154a0136569f1d3c327ed4d096237e23aad5fb0b3f9363116e5b5a",
+      "size_px": [
+        5376,
+        4096
+      ],
+      "mode": "L"
+    },
+    {
+      "file": "parallax.json",
+      "bytes": 1648,
+      "sha256": "4fc5e18fdf9507a02856b26e3bce9486588e0b7fb3ad4dbd998a6fe93a0ad59e"
+    },
+    {
+      "file": "walkable.json",
+      "bytes": 15688,
+      "sha256": "8e6fa54aca65d6e635f6929f5788e51a5c3a652f023ffdcb7815484c994f9340"
+    },
+    {
+      "file": "work/blockout_meta_v3.json",
+      "bytes": 5430,
+      "sha256": "f391c5dbf994cad4ad0278d79b450b6489e36c567c9daf5cc0ea6f9f6249bf9f"
+    },
+    {
+      "file": "work/ortho_canvas_v3_depth_rgba.png",
+      "bytes": 1011002,
+      "sha256": "13cb9af7f5a95cc007eff79e168a0df29b0b06381b805f5f06027dafeefb04d7",
+      "size_px": [
+        5376,
+        4096
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "file": "work/scene_data_raw.json",
+      "bytes": 15143,
+      "sha256": "d513fabeb02b566089840d8fa241dbd4b359779b9d2f7905715e8375140b0ad3"
+    }
+  ]
+}
