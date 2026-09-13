@@ -1,0 +1,10 @@
+Cell: cast_SW
+Frames: 8
+Playback fps: 20
+Encodes: H.264 yuv420p; Lanczos 2x and 1:1; five repeats
+Final-pose extra hold per repeat: 0.5 s
+Seam image: last | first | absolute RGB difference x4 on #3a3f4a
+Measurements: 9; report-only rows: 0
+Oracle: not supplied
+Build wall seconds: 1.227435 (criterion <= 120)
+Proposed/uncommitted measurements retain null; no gates recomputed.

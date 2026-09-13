@@ -1,0 +1,665 @@
+{
+ "generated_by": "conductor assemble_cells.py (copy only)",
+ "cells": {
+  "idle_S": {
+   "status": "COMPLETE",
+   "check_burst": "P4c-S-idle",
+   "pack_burst": "P4p-S-idle",
+   "transcribe_burst": "P4t-S-idle",
+   "clip": "S_idle.mp4",
+   "clip_version": "v1",
+   "flags": [
+    "period_prompted_fallback: observed autocorrelation confidence 0.0",
+    "suspect_splice_pairs_inside_selected"
+   ],
+   "transcriber_disagrees_with_intent": [
+    "breath_visible"
+   ],
+   "transcriber_controls_caught": true,
+   "packet": "../artifacts/P4p-S-idle/packet/review.html"
+  },
+  "walk_S": {
+   "status": "COMPLETE",
+   "check_burst": "P4c-S-walk",
+   "pack_burst": "P4p-S-walk",
+   "transcribe_burst": "P4t-S-walk",
+   "clip": "S_walk.mp4",
+   "clip_version": "v1",
+   "flags": [
+    "walk_S_proposal has no quantities: measure only; no proposal scores computed",
+    {
+     "suspect_inside_selected": true,
+     "suspect_pairs_inside_selected": [
+      [
+       74,
+       75
+      ],
+      [
+       95,
+       96
+      ]
+     ]
+    }
+   ],
+   "transcriber_disagrees_with_intent": [],
+   "transcriber_controls_caught": true,
+   "packet": "../artifacts/P4p-S-walk/packet/review.html"
+  },
+  "run_S": {
+   "status": "COMPLETE",
+   "check_burst": "P4c-S-run",
+   "pack_burst": "P4p-S-run",
+   "transcribe_burst": "P4t-S-run",
+   "clip": "S_run.mp4",
+   "clip_version": "v1",
+   "flags": [
+    "bands_from_exemplar.measure: ValueError: gait intent requires 12 frames and 12 candidate phases"
+   ],
+   "transcriber_disagrees_with_intent": [
+    "staff_same_hand",
+    "identity_stable",
+    "both_feet_air",
+    "torso_lean",
+    "loop_continuous"
+   ],
+   "transcriber_controls_caught": true,
+   "packet": "../artifacts/P4p-S-run/packet/review.html"
+  },
+  "jump_S": {
+   "status": "COMPLETE",
+   "check_burst": "P4c-S-jump-x",
+   "pack_burst": "P4p-S-jump-x",
+   "transcribe_burst": "P4t-S-jump-x",
+   "clip": "S_jump_v2.mp4",
+   "clip_version": "v2",
+   "flags": [],
+   "transcriber_disagrees_with_intent": [
+    "identity_stable"
+   ],
+   "transcriber_controls_caught": true,
+   "packet": "../artifacts/P4p-S-jump-x/packet/review.html"
+  },
+  "cast_S": {
+   "status": "COMPLETE",
+   "check_burst": "P4c-S-cast-x",
+   "pack_burst": "P4p-S-cast-x",
+   "transcribe_burst": "P4t-S-cast-x",
+   "clip": "S_cast_v2.mp4",
+   "clip_version": "v2",
+   "flags": [
+    {
+     "id": "head_pitch_unavailable",
+     "output_index": 3,
+     "native_index": 58,
+     "reason": "face_not_visible"
+    }
+   ],
+   "transcriber_disagrees_with_intent": [
+    "plate_clean",
+    "ends_rest"
+   ],
+   "transcriber_controls_caught": true,
+   "packet": "../artifacts/P4p-S-cast-x/packet/review.html"
+  },
+  "idle_SW": {
+   "status": "COMPLETE",
+   "check_burst": "P4c-SW-idle",
+   "pack_burst": "P4p-SW-idle",
+   "transcribe_burst": "P4t-SW-idle",
+   "clip": "SW_idle.mp4",
+   "clip_version": "v1",
+   "flags": [
+    "period_from_prompted_fallback",
+    "splice_suspect_inside_selected"
+   ],
+   "transcriber_disagrees_with_intent": [
+    "breath_visible"
+   ],
+   "transcriber_controls_caught": true,
+   "packet": "../artifacts/P4p-SW-idle/packet/review.html"
+  },
+  "walk_SW": {
+   "status": "COMPLETE",
+   "check_burst": "P4c-SW-walk",
+   "pack_burst": "P4p-SW-walk",
+   "transcribe_burst": "P4t-SW-walk",
+   "clip": "SW_walk.mp4",
+   "clip_version": "v1",
+   "flags": [
+    "Frozen bands estimator returned unresolved quantities: planted_sole_slip_L, planted_sole_slip_R",
+    "W2_min_1_cycle_fraction unresolved: frozen estimator did not return a second minimum."
+   ],
+   "transcriber_disagrees_with_intent": [
+    "head_down_frame0",
+    "first_second_head_down"
+   ],
+   "transcriber_controls_caught": true,
+   "packet": "../artifacts/P4p-SW-walk/packet/review.html"
+  },
+  "run_SW": {
+   "status": "COMPLETE",
+   "check_burst": "P4c-SW-run",
+   "pack_burst": "P4p-SW-run",
+   "transcribe_burst": "P4t-SW-run",
+   "clip": "SW_run.mp4",
+   "clip_version": "v1",
+   "flags": [
+    "bands_from_exemplar.measure: ValueError: gait intent requires 12 frames and 12 candidate phases"
+   ],
+   "transcriber_disagrees_with_intent": [
+    "both_feet_air"
+   ],
+   "transcriber_controls_caught": true,
+   "packet": "../artifacts/P4p-SW-run/packet/review.html"
+  },
+  "jump_SW": {
+   "status": "COMPLETE",
+   "check_burst": "P4c-SW-jump-x",
+   "pack_burst": "P4p-SW-jump-x",
+   "transcribe_burst": "P4t-SW-jump-x",
+   "clip": "SW_jump_v2.mp4",
+   "clip_version": "v2",
+   "flags": [],
+   "transcriber_disagrees_with_intent": [
+    "first_second_head_down"
+   ],
+   "transcriber_controls_caught": true,
+   "packet": "../artifacts/P4p-SW-jump-x/packet/review.html"
+  },
+  "cast_SW": {
+   "status": "COMPLETE",
+   "check_burst": "P4c-SW-cast-x",
+   "pack_burst": "P4p-SW-cast-x",
+   "transcribe_burst": "P4t-SW-cast-x",
+   "clip": "SW_cast_v2.mp4",
+   "clip_version": "v2",
+   "flags": [],
+   "transcriber_disagrees_with_intent": [
+    "plate_clean",
+    "ends_rest"
+   ],
+   "transcriber_controls_caught": true,
+   "packet": "../artifacts/P4p-SW-cast-x/packet/review.html"
+  },
+  "idle_W": {
+   "status": "COMPLETE",
+   "check_burst": "P4c-W-idle",
+   "pack_burst": "P4p-W-idle",
+   "transcribe_burst": "P4t-W-idle",
+   "clip": "W_idle.mp4",
+   "clip_version": "v1",
+   "flags": [
+    "period_prompted_fallback",
+    "splice_suspect_inside_selected"
+   ],
+   "transcriber_disagrees_with_intent": [],
+   "transcriber_controls_caught": true,
+   "packet": "../artifacts/P4p-W-idle/packet/review.html"
+  },
+  "walk_W": {
+   "status": "COMPLETE",
+   "check_burst": "P4c-W-walk",
+   "pack_burst": "P4p-W-walk",
+   "transcribe_burst": "P4t-W-walk",
+   "clip": "W_walk.mp4",
+   "clip_version": "v1",
+   "flags": [
+    "bands W6: frozen estimator unresolved; see diagnostic",
+    "bands planted_sole_slip_L: frozen estimator unresolved; see diagnostic",
+    "bands planted_sole_slip_R: frozen estimator unresolved; see diagnostic"
+   ],
+   "transcriber_disagrees_with_intent": [
+    "head_down_frame0",
+    "both_feet_air",
+    "first_second_head_down"
+   ],
+   "transcriber_controls_caught": true,
+   "packet": "../artifacts/P4p-W-walk/packet/review.html"
+  },
+  "run_W": {
+   "status": "COMPLETE",
+   "check_burst": "P4c-W-run",
+   "pack_burst": "P4p-W-run",
+   "transcribe_burst": "P4t-W-run",
+   "clip": "W_run.mp4",
+   "clip_version": "v1",
+   "flags": [
+    "bands_measure: ValueError: gait intent requires 12 frames and 12 candidate phases"
+   ],
+   "transcriber_disagrees_with_intent": [
+    "staff_same_hand",
+    "both_feet_air",
+    "loop_continuous"
+   ],
+   "transcriber_controls_caught": true,
+   "packet": "../artifacts/P4p-W-run/packet/review.html"
+  },
+  "jump_W": {
+   "status": "COMPLETE",
+   "check_burst": "P4c-W-jump-x",
+   "pack_burst": "P4p-W-jump-x",
+   "transcribe_burst": "P4t-W-jump-x",
+   "clip": "W_jump_v2.mp4",
+   "clip_version": "v2",
+   "flags": [],
+   "transcriber_disagrees_with_intent": [],
+   "transcriber_controls_caught": true,
+   "packet": "../artifacts/P4p-W-jump-x/packet/review.html"
+  },
+  "cast_W": {
+   "status": "COMPLETE",
+   "check_burst": "P4c-W-cast-x",
+   "pack_burst": "P4p-W-cast-x",
+   "transcribe_burst": "P4t-W-cast-x",
+   "clip": "W_cast_v2.mp4",
+   "clip_version": "v2",
+   "flags": [],
+   "transcriber_disagrees_with_intent": [
+    "ends_rest"
+   ],
+   "transcriber_controls_caught": true,
+   "packet": "../artifacts/P4p-W-cast-x/packet/review.html"
+  },
+  "idle_NW": {
+   "status": "COMPLETE",
+   "check_burst": "P4c-NW-idle",
+   "pack_burst": "P4p-NW-idle",
+   "transcribe_burst": "P4t-NW-idle",
+   "clip": "NW_idle.mp4",
+   "clip_version": "v1",
+   "flags": [
+    "Cycle period uses the frozen tool\u2019s prompted 2.0-second fallback; observed autocorrelation confidence is 0.0."
+   ],
+   "transcriber_disagrees_with_intent": [
+    "breath_visible"
+   ],
+   "transcriber_controls_caught": true,
+   "packet": "../artifacts/P4p-NW-idle/packet/review.html"
+  },
+  "walk_NW": {
+   "status": "COMPLETE",
+   "check_burst": "P4c-NW-walk",
+   "pack_burst": "P4p-NW-walk",
+   "transcribe_burst": "P4t-NW-walk",
+   "clip": "NW_walk.mp4",
+   "clip_version": "v1",
+   "flags": [
+    "bands_measure.W6: frozen estimator returned null",
+    "bands_measure.planted_sole_slip_R: frozen estimator returned null"
+   ],
+   "transcriber_disagrees_with_intent": [
+    "head_down_frame0",
+    "first_second_head_down"
+   ],
+   "transcriber_controls_caught": true,
+   "packet": "../artifacts/P4p-NW-walk/packet/review.html"
+  },
+  "run_NW": {
+   "status": "COMPLETE",
+   "check_burst": "P4c-NW-run",
+   "pack_burst": "P4p-NW-run",
+   "transcribe_burst": "P4t-NW-run",
+   "clip": "NW_run.mp4",
+   "clip_version": "v1",
+   "flags": [
+    "bands_measure: gait intent requires 12 frames and 12 candidate phases"
+   ],
+   "transcriber_disagrees_with_intent": [
+    "same_facing",
+    "staff_same_hand",
+    "identity_stable",
+    "both_feet_air"
+   ],
+   "transcriber_controls_caught": true,
+   "packet": "../artifacts/P4p-NW-run/packet/review.html"
+  },
+  "jump_NW": {
+   "status": "INCOMPLETE",
+   "reason": "v1 clip only (v2 re-drive stopped by H-C3-1 Grok balance); the figure exits the frame \u2014 tracking invalid"
+  },
+  "cast_NW": {
+   "status": "INCOMPLETE",
+   "reason": "v1 clip only (v2 re-drive stopped by H-C3-1 Grok balance); the figure exits the frame \u2014 frozen matte refuses (border green 0.94)"
+  },
+  "idle_N": {
+   "status": "COMPLETE",
+   "check_burst": "P4c-N-idle-r1",
+   "pack_burst": "P4p-N-idle-r1",
+   "transcribe_burst": "P4t-N-idle-r1",
+   "clip": "N_idle.mp4",
+   "clip_version": "v1",
+   "flags": [
+    "re-run once: first attempt exit 3, Selected model is at capacity"
+   ],
+   "transcriber_disagrees_with_intent": [
+    "breath_visible"
+   ],
+   "transcriber_controls_caught": true,
+   "packet": "../artifacts/P4p-N-idle-r1/packet/review.html"
+  },
+  "walk_N": {
+   "status": "COMPLETE",
+   "check_burst": "P4c-N-walk-r1",
+   "pack_burst": "P4p-N-walk-r1",
+   "transcribe_burst": "P4t-N-walk-r1",
+   "clip": "N_walk.mp4",
+   "clip_version": "v1",
+   "flags": [
+    "re-run once: first attempt exit 3, Selected model is at capacity"
+   ],
+   "transcriber_disagrees_with_intent": [
+    "head_down_frame0",
+    "first_second_head_down"
+   ],
+   "transcriber_controls_caught": true,
+   "packet": "../artifacts/P4p-N-walk-r1/packet/review.html"
+  },
+  "run_N": {
+   "status": "COMPLETE",
+   "check_burst": "P4c-N-run",
+   "pack_burst": "P4p-N-run",
+   "transcribe_burst": "P4t-N-run",
+   "clip": "N_run.mp4",
+   "clip_version": "v1",
+   "flags": [
+    "bands_measure_walk: ValueError: gait intent requires 12 frames and 12 candidate phases"
+   ],
+   "transcriber_disagrees_with_intent": [
+    "head_down_frame0",
+    "both_feet_air",
+    "torso_lean",
+    "first_second_head_down"
+   ],
+   "transcriber_controls_caught": true,
+   "packet": "../artifacts/P4p-N-run/packet/review.html"
+  },
+  "jump_N": {
+   "status": "COMPLETE",
+   "check_burst": "P4c-N-jump",
+   "pack_burst": "P4p-N-jump",
+   "transcribe_burst": "P4t-N-jump",
+   "clip": "N_jump_v2.mp4",
+   "clip_version": "v2",
+   "flags": [
+    "bands_from_exemplar.measure skipped as instructed: no one-shot kind.",
+    "Frozen splice suspects occur inside the selected span; descriptive report only."
+   ],
+   "transcriber_disagrees_with_intent": [],
+   "transcriber_controls_caught": true,
+   "packet": "../artifacts/P4p-N-jump/packet/review.html"
+  },
+  "cast_N": {
+   "status": "COMPLETE",
+   "check_burst": "P4c-N-cast-x",
+   "pack_burst": "P4p-N-cast-x",
+   "transcribe_burst": "P4t-N-cast-x",
+   "clip": "N_cast_v2.mp4",
+   "clip_version": "v2",
+   "flags": [],
+   "transcriber_disagrees_with_intent": [
+    "plate_clean",
+    "thrust_forward",
+    "ends_rest"
+   ],
+   "transcriber_controls_caught": true,
+   "packet": "../artifacts/P4p-N-cast-x/packet/review.html"
+  },
+  "idle_NE": {
+   "status": "COMPLETE",
+   "check_burst": "P4c-NE-idle",
+   "pack_burst": "P4p-NE-idle",
+   "transcribe_burst": "P4t-NE-idle",
+   "clip": "NE_idle.mp4",
+   "clip_version": "v1",
+   "flags": [
+    "Frozen selection reports suspect_inside_selected=true; 11 suspect native adjacent pairs retained without verdict.",
+    "Period uses prompted_fallback of 2.0 s; observed autocorrelation confidence is 0.0."
+   ],
+   "transcriber_disagrees_with_intent": [
+    "breath_visible"
+   ],
+   "transcriber_controls_caught": true,
+   "packet": "../artifacts/P4p-NE-idle/packet/review.html"
+  },
+  "walk_NE": {
+   "status": "COMPLETE",
+   "check_burst": "P4c-NE-walk",
+   "pack_burst": "P4p-NE-walk",
+   "transcribe_burst": "P4t-NE-walk",
+   "clip": "NE_walk.mp4",
+   "clip_version": "v1",
+   "flags": [
+    "Frozen gait quantities unresolved: planted_sole_slip_R"
+   ],
+   "transcriber_disagrees_with_intent": [
+    "head_down_frame0",
+    "first_second_head_down"
+   ],
+   "transcriber_controls_caught": true,
+   "packet": "../artifacts/P4p-NE-walk/packet/review.html"
+  },
+  "run_NE": {
+   "status": "COMPLETE",
+   "check_burst": "P4c-NE-run",
+   "pack_burst": "P4p-NE-run",
+   "transcribe_burst": "P4t-NE-run",
+   "clip": "NE_run.mp4",
+   "clip_version": "v1",
+   "flags": [
+    "bands_measure: gait intent requires 12 frames and 12 candidate phases"
+   ],
+   "transcriber_disagrees_with_intent": [
+    "same_facing",
+    "feet_alternate",
+    "both_feet_air",
+    "loop_continuous"
+   ],
+   "transcriber_controls_caught": true,
+   "packet": "../artifacts/P4p-NE-run/packet/review.html"
+  },
+  "jump_NE": {
+   "status": "COMPLETE",
+   "check_burst": "P4c-NE-jump",
+   "pack_burst": "P4p-NE-jump",
+   "transcribe_burst": "P4t-NE-jump",
+   "clip": "NE_jump_v2.mp4",
+   "clip_version": "v2",
+   "flags": [
+    "splice_suspect_inside_selected",
+    "exemplar_bands_skipped_no_oneshot_kind"
+   ],
+   "transcriber_disagrees_with_intent": [],
+   "transcriber_controls_caught": true,
+   "packet": "../artifacts/P4p-NE-jump/packet/review.html"
+  },
+  "cast_NE": {
+   "status": "COMPLETE",
+   "check_burst": "P4c-NE-cast-x",
+   "pack_burst": "P4p-NE-cast-x",
+   "transcribe_burst": "P4t-NE-cast-x",
+   "clip": "NE_cast.mp4",
+   "clip_version": "v1",
+   "flags": [
+    "v2 not generated (H-C3-1 Grok balance) \u2014 cut from the full-height v1 clip (R-C3-9)"
+   ],
+   "transcriber_disagrees_with_intent": [
+    "identity_stable",
+    "ends_rest"
+   ],
+   "transcriber_controls_caught": true,
+   "packet": "../artifacts/P4p-NE-cast-x/packet/review.html"
+  },
+  "idle_E": {
+   "status": "COMPLETE",
+   "check_burst": "P4c-E-idle",
+   "pack_burst": "P4p-E-idle",
+   "transcribe_burst": "P4t-E-idle",
+   "clip": "E_idle.mp4",
+   "clip_version": "v1",
+   "flags": [
+    "Period uses prompted_fallback at 2.0 s; observed autocorrelation confidence is 0.0, so a measured single breath cycle is unconfirmed."
+   ],
+   "transcriber_disagrees_with_intent": [
+    "breath_visible"
+   ],
+   "transcriber_controls_caught": true,
+   "packet": "../artifacts/P4p-E-idle/packet/review.html"
+  },
+  "walk_E": {
+   "status": "COMPLETE",
+   "check_burst": "P4c-E-walk",
+   "pack_burst": "P4p-E-walk",
+   "transcribe_burst": "P4t-E-walk",
+   "clip": "E_walk.mp4",
+   "clip_version": "v1",
+   "flags": [
+    "Frozen band estimator unresolved: W6"
+   ],
+   "transcriber_disagrees_with_intent": [
+    "first_second_head_down"
+   ],
+   "transcriber_controls_caught": true,
+   "packet": "../artifacts/P4p-E-walk/packet/review.html"
+  },
+  "run_E": {
+   "status": "COMPLETE",
+   "check_burst": "P4c-E-run",
+   "pack_burst": "P4p-E-run",
+   "transcribe_burst": "P4t-E-run",
+   "clip": "E_run.mp4",
+   "clip_version": "v1",
+   "flags": [
+    "bands_measure: gait intent requires 12 frames and 12 candidate phases"
+   ],
+   "transcriber_disagrees_with_intent": [
+    "both_feet_air"
+   ],
+   "transcriber_controls_caught": true,
+   "packet": "../artifacts/P4p-E-run/packet/review.html"
+  },
+  "jump_E": {
+   "status": "COMPLETE",
+   "check_burst": "P4c-E-jump-x",
+   "pack_burst": "P4p-E-jump-x",
+   "transcribe_burst": "P4t-E-jump-x",
+   "clip": "E_jump_v2.mp4",
+   "clip_version": "v2",
+   "flags": [
+    "Frozen register returned anchor_cx=256.0 for requested cx=255.5 (0.5 px raster-center difference); shared transform retained unchanged."
+   ],
+   "transcriber_disagrees_with_intent": [],
+   "transcriber_controls_caught": true,
+   "packet": "../artifacts/P4p-E-jump-x/packet/review.html"
+  },
+  "cast_E": {
+   "status": "COMPLETE",
+   "check_burst": "P4c-E-cast-x",
+   "pack_burst": "P4p-E-cast-x",
+   "transcribe_burst": "P4t-E-cast-x",
+   "clip": "E_cast_v2.mp4",
+   "clip_version": "v2",
+   "flags": [
+    {
+     "id": "anchor_center_raster_offset",
+     "value": 0.5,
+     "unit": "px",
+     "notes": "Frozen register returned anchor_cx=256.0 for requested cx=255.5 (0.5 px raster offset); height=240 and sole row=399. Shared transform retained unchanged."
+    },
+    {
+     "id": "head_pitch_face_not_visible",
+     "frames": [
+      6
+     ],
+     "notes": "Head-pitch delta unavailable for output frame(s) 6: frozen proxy reports face_not_visible; retained as null."
+    }
+   ],
+   "transcriber_disagrees_with_intent": [
+    "plate_clean"
+   ],
+   "transcriber_controls_caught": true,
+   "packet": "../artifacts/P4p-E-cast-x/packet/review.html"
+  },
+  "idle_SE": {
+   "status": "COMPLETE",
+   "check_burst": "P4c-SE-idle",
+   "pack_burst": "P4p-SE-idle",
+   "transcribe_burst": "P4t-SE-idle",
+   "clip": "SE_idle.mp4",
+   "clip_version": "v1",
+   "flags": [
+    "period_prompted_fallback: observed autocorrelation confidence 0.0; selected period uses the registered 2.0-second prior"
+   ],
+   "transcriber_disagrees_with_intent": [
+    "breath_visible"
+   ],
+   "transcriber_controls_caught": true,
+   "packet": "../artifacts/P4p-SE-idle/packet/review.html"
+  },
+  "walk_SE": {
+   "status": "COMPLETE",
+   "check_burst": "P4c-SE-walk",
+   "pack_burst": "P4p-SE-walk",
+   "transcribe_burst": "P4t-SE-walk",
+   "clip": "SE_walk.mp4",
+   "clip_version": "v1",
+   "flags": [
+    "bands_measure.W6: frozen estimator unresolved",
+    "bands_measure.planted_sole_slip_L: frozen estimator unresolved",
+    "W2_max_1_cycle_fraction: second maximum absent; only one maximum observed"
+   ],
+   "transcriber_disagrees_with_intent": [],
+   "transcriber_controls_caught": true,
+   "packet": "../artifacts/P4p-SE-walk/packet/review.html"
+  },
+  "run_SE": {
+   "status": "COMPLETE",
+   "check_burst": "P4c-SE-run",
+   "pack_burst": "P4p-SE-run",
+   "transcribe_burst": "P4t-SE-run",
+   "clip": "SE_run.mp4",
+   "clip_version": "v1",
+   "flags": [
+    "bands_measure: gait intent requires 12 frames and 12 candidate phases"
+   ],
+   "transcriber_disagrees_with_intent": [
+    "both_feet_air",
+    "loop_continuous",
+    "first_second_head_down"
+   ],
+   "transcriber_controls_caught": true,
+   "packet": "../artifacts/P4p-SE-run/packet/review.html"
+  },
+  "jump_SE": {
+   "status": "COMPLETE",
+   "check_burst": "P4c-SE-jump-x",
+   "pack_burst": "P4p-SE-jump-x",
+   "transcribe_burst": "P4t-SE-jump-x",
+   "clip": "SE_jump_v2.mp4",
+   "clip_version": "v2",
+   "flags": [
+    "Frozen register returned rest anchor_cx=256.0 versus requested cx=255.5 (0.5 px raster offset); shared transform retained unchanged.",
+    "Head-pitch delta unavailable for output frame(s) [6]: face_not_visible.",
+    "Exemplar measure/score intentionally not computed per step a: frozen estimator has no one-shot kind."
+   ],
+   "transcriber_disagrees_with_intent": [],
+   "transcriber_controls_caught": true,
+   "packet": "../artifacts/P4p-SE-jump-x/packet/review.html"
+  },
+  "cast_SE": {
+   "status": "COMPLETE",
+   "check_burst": "P4c-SE-cast-x",
+   "pack_burst": "P4p-SE-cast-x",
+   "transcribe_burst": "P4t-SE-cast-x",
+   "clip": "SE_cast_v2.mp4",
+   "clip_version": "v2",
+   "flags": [
+    "Frozen register raster result: anchor_cx=256.0 versus requested cx=255.5 (0.5 px offset); shared transform preserved without adjustment."
+   ],
+   "transcriber_disagrees_with_intent": [
+    "ends_rest"
+   ],
+   "transcriber_controls_caught": true,
+   "packet": "../artifacts/P4p-SE-cast-x/packet/review.html"
+  }
+ }
+}

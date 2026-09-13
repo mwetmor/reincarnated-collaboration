@@ -1,0 +1,31 @@
+{
+  "task_id": "P4c-E-jump-x",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [],
+  "calls_used": 0,
+  "retries": [],
+  "self_report": {
+    "obeyed_invariants": true,
+    "concerns": [
+      "Frozen registration returned anchor_cx=256.0 versus requested 255.5; shared transform retained unchanged.",
+      "Exemplar band measurement skipped as instructed: no frozen one-shot kind exists. All other requested measurements completed; all passed fields are null."
+    ]
+  },
+  "files": [
+    {"path":"out/checks.json","sha256":"d1a87dd059ad2b3be45f6cff401de15f7a3695678380b17ac349a12f6eeeb2eb"},
+    {"path":"out/grid.png","sha256":"026e315618b1306a4f84d86a4990e8f5a2af6a021d49e8b06db61f25704e3ba9"},
+    {"path":"out/first_second.png","sha256":"343022908ec5b74c8ef2444b4a6d749f59fbabb9945b6019383a7b3d403e2144"},
+    {"path":"out/cut/registration.json","sha256":"83ee01ca31a75f9e9384faefd2cdf2a6171160911308e784c27f7d2ff368f654"},
+    {"path":"out/cut/series.json","sha256":"66a69611b9da08f0e694d70329e4a4fb5eecc2715d72666ab7b11bac4ecda2ee"},
+    {"path":"out/cut/frames/jump/E/jump_E_00.png","sha256":"70f1724986d2bc5d7afdbcdf660f69d6c77dda4d5d34917c858e2e88b287f23e"},
+    {"path":"out/cut/frames/jump/E/jump_E_01.png","sha256":"758fba53d03009757a1e28edf1e5aa84971eef5acc0153bbfdd0636ab4f43968"},
+    {"path":"out/cut/frames/jump/E/jump_E_02.png","sha256":"4bc7578d73e0bdb4ee5d71b7fe7676ffe72e558fd69e582dd17a379f2ccc9179"},
+    {"path":"out/cut/frames/jump/E/jump_E_03.png","sha256":"b3e2e410d36e0e19d2a9727e95dea992c64b0fede32faab01e772791ad6e899c"},
+    {"path":"out/cut/frames/jump/E/jump_E_04.png","sha256":"4b1ce088113ad1614d57c9d5cf056be4984c81740d54f8fa7c34feff5f2c567d"},
+    {"path":"out/cut/frames/jump/E/jump_E_05.png","sha256":"ffd127d21dc143fba96dd09a8f9a17f57400fbec2c0fb767fb5128b5e4db5966"},
+    {"path":"out/cut/frames/jump/E/jump_E_06.png","sha256":"a257537491337d4c898bea686bab4566089c16076810bb5b55dccb5244a4a6af"},
+    {"path":"out/cut/frames/jump/E/jump_E_07.png","sha256":"7cec150de9d7870f76194bac826261b7c7bd0acd1aedcac0845a815c7ea2f87a"},
+    {"path":"out/cut/frames/rest/E/rest_E.png","sha256":"b0cfbae4ba2aab7d2a1045e4ea2e1be8818051690c3342adc4d857806c0e85ec"},
+    {"path":"out/cut/sheets/jump_E_strip.png","sha256":"acf68853483fc59058b057b0b91eb710c305dc10b51275e75296e5ca9c5f37a1"}
+  ]
+}

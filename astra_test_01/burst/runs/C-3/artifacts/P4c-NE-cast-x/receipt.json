@@ -1,0 +1,80 @@
+{
+  "task_id": "P4c-NE-cast-x",
+  "status": "DELIVERED",
+  "images": [],
+  "calls_used": 0,
+  "retries": [
+    {
+      "reason": "Verification used an incorrect expected preview width.",
+      "change": "Corrected the verification calculation; delivered outputs were unchanged."
+    }
+  ],
+  "self_report": {
+    "obeyed_invariants": true,
+    "concerns": [
+      "Exemplar-band measurement skipped as instructed: the frozen instrument has no cast kind."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/checks.json",
+      "sha256": "b6cf039f250c09d79e2c02ea3df102ad7e8d91059917f7ad0ce1438cce2bcc38"
+    },
+    {
+      "path": "out/grid.png",
+      "sha256": "e781f326bf86552183ee873d662c997e72059a7c830939ee2c7f6400aad3bd03"
+    },
+    {
+      "path": "out/first_second.png",
+      "sha256": "07bcb33990317094bf84b5a23cdc8978a2c9a39bb067d1fe98f76595b3af67ac"
+    },
+    {
+      "path": "out/cut/registration.json",
+      "sha256": "2d280b2883d635c8dc3c67974d3fff901f9be65356938cf38aea182b2c0f89ac"
+    },
+    {
+      "path": "out/cut/series.json",
+      "sha256": "7647f5338e3e32e852513e0b012787eb09538ca6d095a15e48b6c477a8cb0aec"
+    },
+    {
+      "path": "out/cut/frames/cast/NE/cast_NE_00.png",
+      "sha256": "89ddeb05a22005708cfbe8c9dc08114c036bdb8ea859e79fb0968ddfd6fb9aff"
+    },
+    {
+      "path": "out/cut/frames/cast/NE/cast_NE_01.png",
+      "sha256": "833d8af76171cf4f9a86123931fc65e0f445b0749a33ab56c5d532b520ada2dc"
+    },
+    {
+      "path": "out/cut/frames/cast/NE/cast_NE_02.png",
+      "sha256": "6e113aed3d2893777fdb4d89fbc9fa2c822a472ed4f4c9aa6c8012773c4e0c4c"
+    },
+    {
+      "path": "out/cut/frames/cast/NE/cast_NE_03.png",
+      "sha256": "d9b77168b79a1c085c40f0689e5c1d2939c383cf96f906c5daa90f22fd9dbc4c"
+    },
+    {
+      "path": "out/cut/frames/cast/NE/cast_NE_04.png",
+      "sha256": "b07c52778c3690228eea9a9806b1f7f87648364e3cae4796b9133c0b78548b72"
+    },
+    {
+      "path": "out/cut/frames/cast/NE/cast_NE_05.png",
+      "sha256": "88870558952c42f5d18a43829099b7ae2967b7189025686c08c7174ee7c514b6"
+    },
+    {
+      "path": "out/cut/frames/cast/NE/cast_NE_06.png",
+      "sha256": "47a9a2a5f44333356be4e69b3d6147238b0bb5f625c6e190eb6be3aa0982b7ac"
+    },
+    {
+      "path": "out/cut/frames/cast/NE/cast_NE_07.png",
+      "sha256": "1aa82a59fe37868b914c4115cb1adcd68796c4626e1134e6f3eab5b3346eb50e"
+    },
+    {
+      "path": "out/cut/frames/rest/NE/rest_NE.png",
+      "sha256": "0e7c518f36b50ba1a0daaa3a176b9b9d334ce2bce0eda4211c3a41584effcf26"
+    },
+    {
+      "path": "out/cut/sheets/cast_NE_strip.png",
+      "sha256": "7248766f29b64e849731448f05a750f53ff64aa628ee0d23705bf6da42a90aa2"
+    }
+  ]
+}

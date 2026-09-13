@@ -1,0 +1,14 @@
+{
+ "text": "PACK BURST P6p-godot — the playable review stub + the viewer wheel with the FROZEN exporters (Run C-3 P6, fork G). task_id \"P6p-godot\".\n\nRun exactly these two commands once each, substituting OUT = the absolute path of this burst's out/ directory:\n(1) cd /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst && python3 -B -m export.godot_import --cells /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/cells --out OUT/godot --vfx /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/vfx_frames --gear-variant /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/cells_advanced\n(2) cd /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst && python3 -B -m review.viewer_wheel --cells /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/cells --out OUT/viewer\nDo NOT run Godot (the conductor runs the headless proof outside this sandbox). Paste each command's JSON stdout into out/exporters.json. If a command fails, do not work around it: record its stderr in out/exporters.json and continue with the other.\nNo image_gen. No code. No writes outside out/. No web. calls_used 0. BUDGET under 10 minutes.\nRETURN: receipt task_id \"P6p-godot\"; images []; files: out/exporters.json, out/godot/project.godot, out/godot/frames/*.tres, out/godot/vfx/*.tres, out/godot/scenes/*.tscn, out/godot/scripts/*.gd, out/godot/README.md, out/viewer/index.html with sha256 (PNG copies may be omitted from the list); status; concerns. Never PASS/FAIL.",
+ "references": [],
+ "image_cap": 0,
+ "minutes_cap": 15,
+ "tool_call_cap": 20,
+ "outputs": [
+  "out/exporters.json",
+  "out/viewer/index.html"
+ ],
+ "effort": "high",
+ "add_dirs": [],
+ "experiment": "C3-P6"
+}

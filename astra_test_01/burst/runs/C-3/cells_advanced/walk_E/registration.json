@@ -1,0 +1,603 @@
+{
+  "task_id": "K1p-paintchk-walk-E-r2",
+  "kind": "walk",
+  "direction": "E",
+  "fps_out": 12.0,
+  "n": 12,
+  "canvas": [
+    512,
+    512
+  ],
+  "source_registration": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/P4c-E-walk/cut/registration.json",
+  "source_registration_sha256": "565ee7c69a4c331cfc8132180bbee4e44b5e597f607b5f0eb93bc855a373eddc",
+  "base_source_dir": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/P4c-E-walk/cut/frames/walk/E",
+  "base_transform": {
+    "scale": 0.22572769953051644,
+    "nominal_scale": 0.22535211267605634,
+    "translation_xy": [
+      170,
+      149
+    ],
+    "scaled_size": [
+      173,
+      263
+    ],
+    "source_sampling_box_xyxy": [
+      0.0,
+      0.0,
+      766.4101497504159,
+      1165.120632279534
+    ],
+    "source_size": [
+      768,
+      1168
+    ],
+    "anchor_index": 0,
+    "anchor_native_bbox": [
+      108,
+      48,
+      654,
+      1113
+    ],
+    "canvas": [
+      512,
+      512
+    ],
+    "anchor_bbox": [
+      194,
+      160,
+      318,
+      400
+    ],
+    "anchor_H": 240,
+    "anchor_sole_row": 399,
+    "anchor_cx": 255.5,
+    "target_h": 240,
+    "sole_row": 399,
+    "cx": 255.5,
+    "one_transform_for_every_frame": true,
+    "upscaling": false,
+    "resampling": "PIL Lanczos; exact isotropic sampling box; integer unmasked paste",
+    "calibration": "closest nominal scale attaining raster height/centre, search +/-1 output px in .025 px steps"
+  },
+  "composition": {
+    "source_dir": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/P4c-E-walk/cut/frames/walk/E",
+    "label": "walk_E",
+    "cols": 3,
+    "rows": 4,
+    "sheet": [
+      1024,
+      1536
+    ],
+    "cell": [
+      341,
+      384
+    ],
+    "union_crop_512": [
+      185,
+      146,
+      337,
+      410
+    ],
+    "scale": 1.3381818181818184,
+    "cells": [
+      {
+        "frame": "walk_E_00.png",
+        "cell": [
+          0,
+          0
+        ],
+        "paste": [
+          69,
+          15
+        ],
+        "size": [
+          203,
+          353
+        ]
+      },
+      {
+        "frame": "walk_E_01.png",
+        "cell": [
+          1,
+          0
+        ],
+        "paste": [
+          410,
+          15
+        ],
+        "size": [
+          203,
+          353
+        ]
+      },
+      {
+        "frame": "walk_E_02.png",
+        "cell": [
+          2,
+          0
+        ],
+        "paste": [
+          751,
+          15
+        ],
+        "size": [
+          203,
+          353
+        ]
+      },
+      {
+        "frame": "walk_E_03.png",
+        "cell": [
+          0,
+          1
+        ],
+        "paste": [
+          69,
+          399
+        ],
+        "size": [
+          203,
+          353
+        ]
+      },
+      {
+        "frame": "walk_E_04.png",
+        "cell": [
+          1,
+          1
+        ],
+        "paste": [
+          410,
+          399
+        ],
+        "size": [
+          203,
+          353
+        ]
+      },
+      {
+        "frame": "walk_E_05.png",
+        "cell": [
+          2,
+          1
+        ],
+        "paste": [
+          751,
+          399
+        ],
+        "size": [
+          203,
+          353
+        ]
+      },
+      {
+        "frame": "walk_E_06.png",
+        "cell": [
+          0,
+          2
+        ],
+        "paste": [
+          69,
+          783
+        ],
+        "size": [
+          203,
+          353
+        ]
+      },
+      {
+        "frame": "walk_E_07.png",
+        "cell": [
+          1,
+          2
+        ],
+        "paste": [
+          410,
+          783
+        ],
+        "size": [
+          203,
+          353
+        ]
+      },
+      {
+        "frame": "walk_E_08.png",
+        "cell": [
+          2,
+          2
+        ],
+        "paste": [
+          751,
+          783
+        ],
+        "size": [
+          203,
+          353
+        ]
+      },
+      {
+        "frame": "walk_E_09.png",
+        "cell": [
+          0,
+          3
+        ],
+        "paste": [
+          69,
+          1167
+        ],
+        "size": [
+          203,
+          353
+        ]
+      },
+      {
+        "frame": "walk_E_10.png",
+        "cell": [
+          1,
+          3
+        ],
+        "paste": [
+          410,
+          1167
+        ],
+        "size": [
+          203,
+          353
+        ]
+      },
+      {
+        "frame": "walk_E_11.png",
+        "cell": [
+          2,
+          3
+        ],
+        "paste": [
+          751,
+          1167
+        ],
+        "size": [
+          203,
+          353
+        ]
+      }
+    ],
+    "inverse": "frame_512 = paste back: cell region [paste, paste+size] resized to (x1-x0, y1-y0) with LANCZOS, placed at (x0,y0) on a 512 transparent canvas",
+    "sha256": "781bd42315ace809620dabf058d0980654eb39c4d0ed558853a3c41c850477dd"
+  },
+  "regions_source": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/P5-regions/regions_walk_E.json",
+  "region_rules": {
+    "rule": "R-C3-16: staff tip = topmost inlier of a RANSAC line through full-resolution thin (\u2264 9 px) row/column alpha runs, head band excluded, extended upward through contiguous alpha; staff-head box = square 0.22\u00b7H centred 0.06\u00b7H above the tip; pauldron box S = [right shoulder edge \u2212 0.18\u00b7H, head_top + 0.12\u00b7H, edge + 10, head_top + 0.32\u00b7H]; E = [back edge \u2212 6, head_top + 0.12\u00b7H, back edge + 0.16\u00b7H, head_top + 0.30\u00b7H]",
+    "frames": [
+      {
+        "frame": "walk_E_00.png",
+        "staff_tip": [
+          284.7,
+          168
+        ],
+        "staff_head_box": [
+          258,
+          128,
+          310,
+          179
+        ],
+        "pauldron_box": [
+          235,
+          192,
+          278,
+          234
+        ],
+        "H": 235,
+        "head_top": 164
+      },
+      {
+        "frame": "walk_E_01.png",
+        "staff_tip": [
+          290.0,
+          168
+        ],
+        "staff_head_box": [
+          263,
+          127,
+          316,
+          179
+        ],
+        "pauldron_box": [
+          238,
+          188,
+          282,
+          231
+        ],
+        "H": 239,
+        "head_top": 160
+      },
+      {
+        "frame": "walk_E_02.png",
+        "staff_tip": [
+          290.4,
+          169
+        ],
+        "staff_head_box": [
+          264,
+          128,
+          316,
+          181
+        ],
+        "pauldron_box": [
+          235,
+          187,
+          279,
+          231
+        ],
+        "H": 240,
+        "head_top": 159
+      },
+      {
+        "frame": "walk_E_03.png",
+        "staff_tip": [
+          285.0,
+          170
+        ],
+        "staff_head_box": [
+          258,
+          128,
+          311,
+          182
+        ],
+        "pauldron_box": [
+          232,
+          187,
+          276,
+          230
+        ],
+        "H": 242,
+        "head_top": 158
+      },
+      {
+        "frame": "walk_E_04.png",
+        "staff_tip": [
+          285.6,
+          172
+        ],
+        "staff_head_box": [
+          259,
+          131,
+          312,
+          184
+        ],
+        "pauldron_box": [
+          226,
+          187,
+          270,
+          231
+        ],
+        "H": 241,
+        "head_top": 159
+      },
+      {
+        "frame": "walk_E_05.png",
+        "staff_tip": [
+          288.2,
+          174
+        ],
+        "staff_head_box": [
+          262,
+          133,
+          314,
+          185
+        ],
+        "pauldron_box": [
+          223,
+          191,
+          266,
+          234
+        ],
+        "H": 237,
+        "head_top": 163
+      },
+      {
+        "frame": "walk_E_06.png",
+        "staff_tip": [
+          293.7,
+          172
+        ],
+        "staff_head_box": [
+          268,
+          132,
+          319,
+          183
+        ],
+        "pauldron_box": [
+          228,
+          192,
+          271,
+          234
+        ],
+        "H": 233,
+        "head_top": 165
+      },
+      {
+        "frame": "walk_E_07.png",
+        "staff_tip": [
+          294.6,
+          166
+        ],
+        "staff_head_box": [
+          268,
+          126,
+          320,
+          177
+        ],
+        "pauldron_box": [
+          237,
+          189,
+          280,
+          231
+        ],
+        "H": 233,
+        "head_top": 162
+      },
+      {
+        "frame": "walk_E_08.png",
+        "staff_tip": [
+          288.9,
+          165
+        ],
+        "staff_head_box": [
+          262,
+          124,
+          314,
+          176
+        ],
+        "pauldron_box": [
+          235,
+          187,
+          278,
+          229
+        ],
+        "H": 236,
+        "head_top": 159
+      },
+      {
+        "frame": "walk_E_09.png",
+        "staff_tip": [
+          282.7,
+          168
+        ],
+        "staff_head_box": [
+          256,
+          127,
+          308,
+          179
+        ],
+        "pauldron_box": [
+          231,
+          187,
+          275,
+          230
+        ],
+        "H": 239,
+        "head_top": 159
+      },
+      {
+        "frame": "walk_E_10.png",
+        "staff_tip": [
+          278.0,
+          170
+        ],
+        "staff_head_box": [
+          251,
+          129,
+          304,
+          182
+        ],
+        "pauldron_box": [
+          227,
+          187,
+          271,
+          231
+        ],
+        "H": 241,
+        "head_top": 159
+      },
+      {
+        "frame": "walk_E_11.png",
+        "staff_tip": [
+          277.6,
+          171
+        ],
+        "staff_head_box": [
+          251,
+          130,
+          303,
+          182
+        ],
+        "pauldron_box": [
+          226,
+          190,
+          270,
+          233
+        ],
+        "H": 238,
+        "head_top": 162
+      }
+    ]
+  },
+  "composite_order": [
+    "staff_head_box",
+    "pauldron_box"
+  ],
+  "composite_parameters": {
+    "thresh": 24,
+    "dilate_px": 3
+  },
+  "matte_parameters": {
+    "alpha_floor": 40,
+    "edge_mode": "clamp",
+    "preserve_particles": false
+  },
+  "inverse_resampling": "LANCZOS to the exact union_crop_512 dimensions; unmasked paste at (x0,y0); no additional registration",
+  "output_frames": [
+    {
+      "output_index": 0,
+      "playback_time_s": 0.0,
+      "path": "frames/walk/E/walk_E_00.png"
+    },
+    {
+      "output_index": 1,
+      "playback_time_s": 0.08333333333333333,
+      "path": "frames/walk/E/walk_E_01.png"
+    },
+    {
+      "output_index": 2,
+      "playback_time_s": 0.16666666666666666,
+      "path": "frames/walk/E/walk_E_02.png"
+    },
+    {
+      "output_index": 3,
+      "playback_time_s": 0.25,
+      "path": "frames/walk/E/walk_E_03.png"
+    },
+    {
+      "output_index": 4,
+      "playback_time_s": 0.3333333333333333,
+      "path": "frames/walk/E/walk_E_04.png"
+    },
+    {
+      "output_index": 5,
+      "playback_time_s": 0.4166666666666667,
+      "path": "frames/walk/E/walk_E_05.png"
+    },
+    {
+      "output_index": 6,
+      "playback_time_s": 0.5,
+      "path": "frames/walk/E/walk_E_06.png"
+    },
+    {
+      "output_index": 7,
+      "playback_time_s": 0.5833333333333334,
+      "path": "frames/walk/E/walk_E_07.png"
+    },
+    {
+      "output_index": 8,
+      "playback_time_s": 0.6666666666666666,
+      "path": "frames/walk/E/walk_E_08.png"
+    },
+    {
+      "output_index": 9,
+      "playback_time_s": 0.75,
+      "path": "frames/walk/E/walk_E_09.png"
+    },
+    {
+      "output_index": 10,
+      "playback_time_s": 0.8333333333333334,
+      "path": "frames/walk/E/walk_E_10.png"
+    },
+    {
+      "output_index": 11,
+      "playback_time_s": 0.9166666666666666,
+      "path": "frames/walk/E/walk_E_11.png"
+    }
+  ],
+  "passed": null
+}

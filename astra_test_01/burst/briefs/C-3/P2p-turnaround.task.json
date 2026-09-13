@@ -1,0 +1,13 @@
+{
+ "text": "PACK BURST P2p-turnaround — packet 20: the Keeper's H1 8-direction turnaround (Run C-3 P2). task_id \"P2p-turnaround\".\n\nInputs (read-only): S = /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K1p-gen-01/k1p_master_C.png (approved master); SW W NW N NE E SE = /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/K2c-gen-SW/k2c_SW.png, /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/K2c-gen-W/k2c_W.png, /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/K2c-gen-NW/k2c_NW.png, /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/K2c-gen-N/k2c_N.png, /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/K2c-gen-NE/k2c_NE.png, /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/K2c-gen-E/k2c_E.png, /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/K2c-gen-SE/k2c_SE.png; judgment /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/K2c-jdg-01/judgment.json (image 5 was the hidden mirrored control — say so); the conductor's facing table /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/k2c_facing_table.json. With PIL: out/turnaround_strip.png (S SE E NE N NW W SW left→right, each scaled to 600 px tall, labelled, on #3a3f4a) and out/wheel.png (the 8 stills arranged on a compass: N top, E right, S bottom, W left, diagonals between, labelled). out/review.html (self-contained, relative out/ paths): title; a prominent FLAG box: 'R-C3-1 — geometry correction: the C-2 E frame (R-43) was a mirrored body (staff in the far hand); this turnaround follows the derived table — on E/SE/NE the staff is in the NEAR hand. Veto-open: Matt rules.'; the strip; the wheel; a table per direction: claimed, seen_facing, staff_side, satchel, strap, mirrored, axes 1–5 and the axis-4 reason, from the judgment (skip the control row but report it caught: mirrored=true, axis 4 = 1); and the facing-table text per direction. out/summary.txt ≤ 12 lines. No image_gen. No code beyond the page and the two PIL images. No writes outside out/. No web. calls_used 0.\nRETURN: receipt task_id \"P2p-turnaround\"; images []; files: every out/ file with sha256; status DELIVERED / DELIVERED_WITH_CONCERNS; concerns. Never PASS/FAIL.",
+ "references": [],
+ "image_cap": 0,
+ "minutes_cap": 15,
+ "tool_call_cap": 20,
+ "outputs": [
+  "out/review.html"
+ ],
+ "effort": "high",
+ "add_dirs": [],
+ "experiment": "C3-P2"
+}

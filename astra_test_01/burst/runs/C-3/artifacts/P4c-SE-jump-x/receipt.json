@@ -1,0 +1,77 @@
+{
+  "task_id": "P4c-SE-jump-x",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [],
+  "calls_used": 0,
+  "retries": [],
+  "self_report": {
+    "obeyed_invariants": true,
+    "concerns": [
+      "Frozen registration returned anchor_cx=256.0 versus requested 255.5; shared transform retained unchanged.",
+      "Head-pitch delta unavailable for output frame 6: face_not_visible.",
+      "Exemplar measure/score skipped as instructed: no one-shot estimator."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/checks.json",
+      "sha256": "9e49d0602b5b20b34008d3fc7dcc846d280a229690b21a85ee1b09671be2104c"
+    },
+    {
+      "path": "out/grid.png",
+      "sha256": "6e7a8d6ea498621590e636387b8120160ef77cbfdb6b34b68085330b1d4ef2ca"
+    },
+    {
+      "path": "out/first_second.png",
+      "sha256": "dea5f4e2272ff106be10b5df083aee61d2b5ec9fd881e5c059e115c0472fb1c6"
+    },
+    {
+      "path": "out/cut/registration.json",
+      "sha256": "93ec0891b44f6c2112f8d792c4168cfa54050ed9a9c6aca4c693674782a4da17"
+    },
+    {
+      "path": "out/cut/series.json",
+      "sha256": "c0cb5e96673c78fce805f3197018941015c87a85ff78b54b23663a4eb9ff564e"
+    },
+    {
+      "path": "out/cut/frames/rest/SE/rest_SE.png",
+      "sha256": "8fb54e3fb27e88a84453c2a4a14296540215bc46087624c50f495ae15be56a0b"
+    },
+    {
+      "path": "out/cut/frames/jump/SE/jump_SE_00.png",
+      "sha256": "8cf05af469cfe4fb8348d76abcec0c3f42be66005d9b3d82248a36fd37536ea2"
+    },
+    {
+      "path": "out/cut/frames/jump/SE/jump_SE_01.png",
+      "sha256": "779479c6dc7f4e71e37e12374d82b57649c624848a4ab5d8de85d56f8911b0ed"
+    },
+    {
+      "path": "out/cut/frames/jump/SE/jump_SE_02.png",
+      "sha256": "4a38ec55c3daac9a6be71a9c21d625f79daa9ed7009f604b973fe9bb1cff51e5"
+    },
+    {
+      "path": "out/cut/frames/jump/SE/jump_SE_03.png",
+      "sha256": "4fc614f45d18b8b53d330391a07d6c0bd90d006359aa65def3898eafdbffea52"
+    },
+    {
+      "path": "out/cut/frames/jump/SE/jump_SE_04.png",
+      "sha256": "08cddda80a02688b1c43b1bf318c765239fa4b17729e3d79ed6afe7702fd7a8d"
+    },
+    {
+      "path": "out/cut/frames/jump/SE/jump_SE_05.png",
+      "sha256": "f46a91829f788af6608a12a8555f5ee278605498b85584e92708aa2d3f40e387"
+    },
+    {
+      "path": "out/cut/frames/jump/SE/jump_SE_06.png",
+      "sha256": "d8f00114787c67976254d6ab10dc2651532946b144e3862e217cd4d97e289804"
+    },
+    {
+      "path": "out/cut/frames/jump/SE/jump_SE_07.png",
+      "sha256": "5c46beac2de2c83cbed18f3a2b8295a2173d9b4a88b4419979980641e4c50e36"
+    },
+    {
+      "path": "out/cut/sheets/jump_SE_strip.png",
+      "sha256": "dd49c2c731684b3dddb41e243a3124e795537864ed0c0cbed21fab80c8d00560"
+    }
+  ]
+}

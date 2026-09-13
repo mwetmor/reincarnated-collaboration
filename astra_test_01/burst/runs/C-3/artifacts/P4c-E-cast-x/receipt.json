@@ -1,0 +1,76 @@
+{
+  "task_id": "P4c-E-cast-x",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [],
+  "calls_used": 0,
+  "retries": [],
+  "self_report": {
+    "obeyed_invariants": true,
+    "concerns": [
+      "Frozen registration returned center x=256.0 versus requested 255.5; shared transform retained unchanged. Height=240 and sole row=399.",
+      "Head-pitch delta for output frame 6 is null: frozen proxy reports face_not_visible."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/checks.json",
+      "sha256": "92b8501710f1cec28b6115b39258c05c06fa236643a3a9c8020617fd558bd2d5"
+    },
+    {
+      "path": "out/grid.png",
+      "sha256": "99837550234629a3bf29e2c89abd646a58cd4e7703a433c37723854b3b5a1bb6"
+    },
+    {
+      "path": "out/first_second.png",
+      "sha256": "b041ea7c29912eac7c30a2350363f82a3caf4d381030d096fc1a6141841eb1c8"
+    },
+    {
+      "path": "out/cut/registration.json",
+      "sha256": "d67eaea5635f66692b133d02a5b038dcfb0aeee68bd3c34acee340da34b3e980"
+    },
+    {
+      "path": "out/cut/series.json",
+      "sha256": "6476aaa2ca32fbfd5a333a33a2a7bf4335ba701d45be66d53e23d21684330a1f"
+    },
+    {
+      "path": "out/cut/frames/cast/E/cast_E_00.png",
+      "sha256": "6c522673d1b9421cb392acb77c9a1c9367c6577cbad24b00020fdc2d3b4a214c"
+    },
+    {
+      "path": "out/cut/frames/cast/E/cast_E_01.png",
+      "sha256": "572219746a833f07cac5727226b0382ef2e811382666e89934725221743a2e50"
+    },
+    {
+      "path": "out/cut/frames/cast/E/cast_E_02.png",
+      "sha256": "994113eb0f54c78d5399bc923659d4da48689c4a15b0a39a2a50459cae51a8c1"
+    },
+    {
+      "path": "out/cut/frames/cast/E/cast_E_03.png",
+      "sha256": "836aa2bb6511753bb7881c3b3f65a7d70eb60f4f73396ca76fb586f22ab40f4a"
+    },
+    {
+      "path": "out/cut/frames/cast/E/cast_E_04.png",
+      "sha256": "f2c539e786cadc9a24fb3fb01dab2175518d4c2f68253f4b7a3c1fe742efe756"
+    },
+    {
+      "path": "out/cut/frames/cast/E/cast_E_05.png",
+      "sha256": "0c1c3c48f4140d871830ce936117d0087274bc739114967c4e3574c10c2ee61e"
+    },
+    {
+      "path": "out/cut/frames/cast/E/cast_E_06.png",
+      "sha256": "59fddaf92019b408be8423bceac9dbdb079666e49ce110833f3f12dd993d4ccf"
+    },
+    {
+      "path": "out/cut/frames/cast/E/cast_E_07.png",
+      "sha256": "311e17eef4754351cbbd8c358f5c16c5b087e5835df4e9d5649a90a2dd6fc3b5"
+    },
+    {
+      "path": "out/cut/frames/rest/E/rest_E.png",
+      "sha256": "63ed7ccea57c65528c88e8b16aa1db68d2a2cdc69ffbc31e429ac13844a8e6a1"
+    },
+    {
+      "path": "out/cut/sheets/cast_E_strip.png",
+      "sha256": "6984fc7d214309e8d5532d7f2c0dc2dcac74c2bd53ccf7e00ca8cbaae422bf26"
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "task_id": "P5p-gear-walk-E",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [],
+  "calls_used": 0,
+  "retries": [],
+  "self_report": {
+    "obeyed_invariants": true,
+    "concerns": [
+      "The frozen builder command is missing after 'Run exactly once:' in both the supplied task and brief.txt. Clarification was requested; the builder was not run.",
+      "Delivered an evidence-only review.html with all four images and exact captions. ADVANCED and STARTER playback remain unavailable."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/packet/review.html",
+      "sha256": "cc0ec92a4d16fc672a71732286928468f6dab71466c18c8817172d86bbb08d2d"
+    },
+    {
+      "path": "out/packet/img/adv_2.png",
+      "sha256": "f5b31ad0a02edc704e09503212f9480cb6b8c17ed64fc953f48cb3270721d4ba"
+    },
+    {
+      "path": "out/packet/img/gear_layer_strip.png",
+      "sha256": "c7495aa39d0e6dc6b2d422f16d597597c54254064bab76b93371cf7e6d6d57f3"
+    },
+    {
+      "path": "out/packet/img/glyph_A.png",
+      "sha256": "360d35101f2e17e248435c1bfe5de9162ae3373aafe306d810c83c0218a8c95d"
+    },
+    {
+      "path": "out/packet/img/regions_overlay.png",
+      "sha256": "2391092c49102b0782a4cf59d40cf2c954947f073a8ee2b217506e2ea20872f8"
+    }
+  ]
+}

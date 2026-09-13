@@ -1,0 +1,13 @@
+{
+ "text": "PACK BURST P5p-gear-idle-S — review packet for the Keeper ADVANCED gear set (Run C-3 P5, fork C) with the FROZEN packet builder; the STARTER frames play beside it as the comparison. task_id \"P5p-gear-idle-S\".\n\nRun exactly once:  (absolute path of this burst's out/). Then copy into out/packet/img/ these read-only evidence images and append a section to out/packet/review.html (self-contained, relative paths only) titled 'Gear layer evidence' showing them with one-line captions: /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/K1p-paintchk-idle-S-r2/regions_overlay.png ('regions: staff head + pauldron, base | edited sheet cell | composited'), /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/K1p-paintchk-idle-S-r2/gear_layer_strip.png ('pixels taken from the edit'), /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/K1p-adv-01/adv_2.png ('the advanced still, judge-selected'), /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/K1p-sig-01/glyph_A.png ('provenance mark — glyph A, judge pick; Matt ratifies')). Label the oracle video 'STARTER (same motion)'. No image_gen. No code beyond that HTML edit. No writes outside out/. No web. calls_used 0. BUDGET under 6 minutes.\nRETURN: receipt task_id \"P5p-gear-idle-S\"; images []; files: every out/packet/** file with sha256; status DELIVERED / DELIVERED_WITH_CONCERNS; concerns. Never PASS/FAIL.",
+ "references": [],
+ "image_cap": 0,
+ "minutes_cap": 15,
+ "tool_call_cap": 20,
+ "outputs": [
+  "out/packet/review.html"
+ ],
+ "effort": "high",
+ "add_dirs": [],
+ "experiment": "C3-P5"
+}

@@ -1,0 +1,34 @@
+{
+  "task_id": "P2p-turnaround",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [],
+  "calls_used": 0,
+  "retries": [],
+  "self_report": {
+    "obeyed_invariants": true,
+    "concerns": [
+      "Green plates retained within gray layouts; no frozen matting tool was supplied.",
+      "S has no judgment row; its scores are explicitly unscored.",
+      "R-C3-1 remains veto-open for Matt. Hidden control image 5 is reported caught and excluded.",
+      "Live wrapper-managed logs are excluded from the deliverable hashes."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/review.html",
+      "sha256": "ceb02c2591fc26f0d9c9ea865cec4e98c309e9063c20792ca8548c28bb81d67b"
+    },
+    {
+      "path": "out/summary.txt",
+      "sha256": "6ff6cc63167cc877b5e540ebc3250cad7f9eba2a124e8396e36a39f719296dc4"
+    },
+    {
+      "path": "out/turnaround_strip.png",
+      "sha256": "36e2a6bc6ed9b58cef981d623f46b4855ee0447094212b4c81a44b3d3532238c"
+    },
+    {
+      "path": "out/wheel.png",
+      "sha256": "6703a8fb5cc08adb8712c72fd075346138fdb71e2a9fc7fbda564b567b3e42b2"
+    }
+  ]
+}
