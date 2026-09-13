@@ -1,0 +1,991 @@
+{
+  "task_id": "K3p-xv-cut-04",
+  "source_clip": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/xvideo/in/walk_E_grok.mp4",
+  "source_dimensions": [
+    768,
+    1168
+  ],
+  "fps": 24,
+  "stride_native_range_half_open": [
+    71,
+    105
+  ],
+  "stride_start_s": 2.9583333333333335,
+  "stride_end_exclusive_s": 4.375,
+  "selected_native_indices": [
+    71,
+    74,
+    77,
+    79,
+    82,
+    85,
+    88,
+    91,
+    94,
+    97,
+    99,
+    102
+  ],
+  "latest_selected_time_s": 4.25,
+  "cut_authority": "R-46; head-up stride; R-51; time limit relaxed to 4.4 s, known splice approximately 4.5 s",
+  "seed_geometry": {
+    "cell_px": 627,
+    "scale": 0.5106,
+    "scaled_cell_px": 320,
+    "offset_xy": [
+      96,
+      112
+    ],
+    "frame_canvas": 512,
+    "pivot": [
+      256,
+      400
+    ],
+    "note": "uniform downscale + translation only; identical for every cell of every K3 sheet (all cells share the seed geometry)"
+  },
+  "anchor": "walk_E_00 / native frame 71; native frame 0 is rest and uses identical transform",
+  "scale": 0.22059283088235293,
+  "scale_basis_native_height": 1088,
+  "scale_calibration_note": "Nominal 240/1088 yielded 239 thresholded pixels. Select first numerator in linspace(240,240.5,101) yielding height 240 and even bbox width; divide by 1088 and apply that ONE scale to every frame.",
+  "translation_xy": [
+    170,
+    153
+  ],
+  "canvas": [
+    512,
+    512
+  ],
+  "pivot": [
+    256,
+    400
+  ],
+  "target_sole_row": 399,
+  "target_bbox_center_x": 255.5,
+  "target_anchor_height": 240,
+  "resampling": "PIL LANCZOS, one exact isotropic scale using shared source sampling box; integer paste, no per-frame recentering",
+  "scaled_size": [
+    169,
+    257
+  ],
+  "source_sampling_box_xyxy": [
+    0.0,
+    0.0,
+    766.1173725547385,
+    1165.0423949501053
+  ],
+  "sampling_note": "Floor-sized destination excludes only less than one output pixel of the original right/bottom plate boundary; all subject alpha support remains inside the source box. x and y scale are identical.",
+  "phase_note": "Output frame 0 is a DOWN phase, one phase after plate-13 CONTACT: rotation +1 (conductor-supplied). The committed phase table is retained verbatim; frames are not reordered or re-selected.",
+  "phase_rotation": 1,
+  "committed_phase_table": [
+    {
+      "boundary_contact": false,
+      "contact": false,
+      "contact_sides": [],
+      "frame": 0,
+      "lead_track": "far",
+      "mean_confidence": 0.7604166666666666,
+      "phase": "DOWN",
+      "planted": {
+        "far": true,
+        "near": false
+      },
+      "printed_phase": 1,
+      "reason": null,
+      "source": "annotation"
+    },
+    {
+      "boundary_contact": false,
+      "contact": false,
+      "contact_sides": [],
+      "frame": 1,
+      "lead_track": "far",
+      "mean_confidence": 0.7604166666666666,
+      "phase": "PASSING",
+      "planted": {
+        "far": true,
+        "near": false
+      },
+      "printed_phase": 2,
+      "reason": null,
+      "source": "annotation"
+    },
+    {
+      "boundary_contact": false,
+      "contact": false,
+      "contact_sides": [],
+      "frame": 2,
+      "lead_track": "far",
+      "mean_confidence": 0.7604166666666666,
+      "phase": "UP",
+      "planted": {
+        "far": true,
+        "near": false
+      },
+      "printed_phase": 3,
+      "reason": null,
+      "source": "annotation"
+    },
+    {
+      "boundary_contact": false,
+      "contact": false,
+      "contact_sides": [],
+      "frame": 3,
+      "lead_track": "far",
+      "mean_confidence": 0.7604166666666666,
+      "phase": "UP",
+      "planted": {
+        "far": true,
+        "near": false
+      },
+      "printed_phase": 4,
+      "reason": null,
+      "source": "annotation"
+    },
+    {
+      "boundary_contact": false,
+      "contact": true,
+      "contact_sides": [
+        "near"
+      ],
+      "frame": 4,
+      "lead_track": "near",
+      "mean_confidence": 0.7604166666666666,
+      "phase": "CONTACT",
+      "planted": {
+        "far": false,
+        "near": true
+      },
+      "printed_phase": 5,
+      "reason": null,
+      "source": "annotation"
+    },
+    {
+      "boundary_contact": false,
+      "contact": false,
+      "contact_sides": [],
+      "frame": 5,
+      "lead_track": "near",
+      "mean_confidence": 0.7604166666666666,
+      "phase": "DOWN",
+      "planted": {
+        "far": false,
+        "near": true
+      },
+      "printed_phase": 6,
+      "reason": null,
+      "source": "annotation"
+    },
+    {
+      "boundary_contact": false,
+      "contact": false,
+      "contact_sides": [],
+      "frame": 6,
+      "lead_track": "near",
+      "mean_confidence": 0.7604166666666666,
+      "phase": "DOWN",
+      "planted": {
+        "far": false,
+        "near": true
+      },
+      "printed_phase": 7,
+      "reason": null,
+      "source": "annotation"
+    },
+    {
+      "boundary_contact": false,
+      "contact": false,
+      "contact_sides": [],
+      "frame": 7,
+      "lead_track": "near",
+      "mean_confidence": 0.7604166666666666,
+      "phase": "PASSING",
+      "planted": {
+        "far": false,
+        "near": true
+      },
+      "printed_phase": 8,
+      "reason": null,
+      "source": "annotation"
+    },
+    {
+      "boundary_contact": false,
+      "contact": false,
+      "contact_sides": [],
+      "frame": 8,
+      "lead_track": "near",
+      "mean_confidence": 0.7604166666666666,
+      "phase": "UP",
+      "planted": {
+        "far": false,
+        "near": true
+      },
+      "printed_phase": 9,
+      "reason": null,
+      "source": "annotation"
+    },
+    {
+      "boundary_contact": false,
+      "contact": false,
+      "contact_sides": [],
+      "frame": 9,
+      "lead_track": "near",
+      "mean_confidence": 0.7604166666666666,
+      "phase": "UP",
+      "planted": {
+        "far": false,
+        "near": true
+      },
+      "printed_phase": 10,
+      "reason": null,
+      "source": "annotation"
+    },
+    {
+      "boundary_contact": false,
+      "contact": true,
+      "contact_sides": [
+        "far"
+      ],
+      "frame": 10,
+      "lead_track": "far",
+      "mean_confidence": 0.7604166666666666,
+      "phase": "CONTACT",
+      "planted": {
+        "far": true,
+        "near": false
+      },
+      "printed_phase": 11,
+      "reason": null,
+      "source": "annotation"
+    },
+    {
+      "boundary_contact": false,
+      "contact": false,
+      "contact_sides": [],
+      "frame": 11,
+      "lead_track": "far",
+      "mean_confidence": 0.7604166666666666,
+      "phase": "DOWN",
+      "planted": {
+        "far": true,
+        "near": false
+      },
+      "printed_phase": 12,
+      "reason": null,
+      "source": "annotation"
+    }
+  ],
+  "frames": [
+    {
+      "path": "out/frames/walk/E/walk_E_00.png",
+      "output_frame": 0,
+      "native_index": 71,
+      "time_s": 2.9583333333333335,
+      "native_bbox_height": 1088,
+      "native_sole_line": 1117,
+      "bbox_xyxy": [
+        194,
+        160,
+        318,
+        400
+      ],
+      "bbox_height": 240,
+      "sole_line": 399,
+      "bbox_center_x": 255.5,
+      "matte": {
+        "method": "green excess matte + inverse straight-alpha compositing",
+        "removed_background_or_detached_alpha_dust_pixels": 180,
+        "native_input_alpha": false,
+        "alpha_floor": 40,
+        "alpha_floor_removed_pixels": 670181
+      },
+      "target_phase_table_row": {
+        "boundary_contact": false,
+        "contact": false,
+        "contact_sides": [],
+        "frame": 0,
+        "lead_track": "far",
+        "mean_confidence": 0.7604166666666666,
+        "phase": "DOWN",
+        "planted": {
+          "far": true,
+          "near": false
+        },
+        "printed_phase": 1,
+        "reason": null,
+        "source": "annotation"
+      }
+    },
+    {
+      "path": "out/frames/walk/E/walk_E_01.png",
+      "output_frame": 1,
+      "native_index": 74,
+      "time_s": 3.0833333333333335,
+      "native_bbox_height": 1086,
+      "native_sole_line": 1107,
+      "bbox_xyxy": [
+        188,
+        158,
+        303,
+        397
+      ],
+      "bbox_height": 239,
+      "sole_line": 396,
+      "bbox_center_x": 245.0,
+      "matte": {
+        "method": "green excess matte + inverse straight-alpha compositing",
+        "removed_background_or_detached_alpha_dust_pixels": 233,
+        "native_input_alpha": false,
+        "alpha_floor": 40,
+        "alpha_floor_removed_pixels": 674551
+      },
+      "target_phase_table_row": {
+        "boundary_contact": false,
+        "contact": false,
+        "contact_sides": [],
+        "frame": 1,
+        "lead_track": "far",
+        "mean_confidence": 0.7604166666666666,
+        "phase": "PASSING",
+        "planted": {
+          "far": true,
+          "near": false
+        },
+        "printed_phase": 2,
+        "reason": null,
+        "source": "annotation"
+      }
+    },
+    {
+      "path": "out/frames/walk/E/walk_E_02.png",
+      "output_frame": 2,
+      "native_index": 77,
+      "time_s": 3.2083333333333335,
+      "native_bbox_height": 1089,
+      "native_sole_line": 1104,
+      "bbox_xyxy": [
+        203,
+        157,
+        297,
+        397
+      ],
+      "bbox_height": 240,
+      "sole_line": 396,
+      "bbox_center_x": 249.5,
+      "matte": {
+        "method": "green excess matte + inverse straight-alpha compositing",
+        "removed_background_or_detached_alpha_dust_pixels": 875,
+        "native_input_alpha": false,
+        "alpha_floor": 40,
+        "alpha_floor_removed_pixels": 681070
+      },
+      "target_phase_table_row": {
+        "boundary_contact": false,
+        "contact": false,
+        "contact_sides": [],
+        "frame": 2,
+        "lead_track": "far",
+        "mean_confidence": 0.7604166666666666,
+        "phase": "UP",
+        "planted": {
+          "far": true,
+          "near": false
+        },
+        "printed_phase": 3,
+        "reason": null,
+        "source": "annotation"
+      }
+    },
+    {
+      "path": "out/frames/walk/E/walk_E_03.png",
+      "output_frame": 3,
+      "native_index": 79,
+      "time_s": 3.2916666666666665,
+      "native_bbox_height": 1091,
+      "native_sole_line": 1104,
+      "bbox_xyxy": [
+        220,
+        156,
+        295,
+        397
+      ],
+      "bbox_height": 241,
+      "sole_line": 396,
+      "bbox_center_x": 257.0,
+      "matte": {
+        "method": "green excess matte + inverse straight-alpha compositing",
+        "removed_background_or_detached_alpha_dust_pixels": 523,
+        "native_input_alpha": false,
+        "alpha_floor": 40,
+        "alpha_floor_removed_pixels": 694823
+      },
+      "target_phase_table_row": {
+        "boundary_contact": false,
+        "contact": false,
+        "contact_sides": [],
+        "frame": 3,
+        "lead_track": "far",
+        "mean_confidence": 0.7604166666666666,
+        "phase": "UP",
+        "planted": {
+          "far": true,
+          "near": false
+        },
+        "printed_phase": 4,
+        "reason": null,
+        "source": "annotation"
+      }
+    },
+    {
+      "path": "out/frames/walk/E/walk_E_04.png",
+      "output_frame": 4,
+      "native_index": 82,
+      "time_s": 3.4166666666666665,
+      "native_bbox_height": 1090,
+      "native_sole_line": 1103,
+      "bbox_xyxy": [
+        227,
+        156,
+        291,
+        397
+      ],
+      "bbox_height": 241,
+      "sole_line": 396,
+      "bbox_center_x": 258.5,
+      "matte": {
+        "method": "green excess matte + inverse straight-alpha compositing",
+        "removed_background_or_detached_alpha_dust_pixels": 113,
+        "native_input_alpha": false,
+        "alpha_floor": 40,
+        "alpha_floor_removed_pixels": 669406
+      },
+      "target_phase_table_row": {
+        "boundary_contact": false,
+        "contact": true,
+        "contact_sides": [
+          "near"
+        ],
+        "frame": 4,
+        "lead_track": "near",
+        "mean_confidence": 0.7604166666666666,
+        "phase": "CONTACT",
+        "planted": {
+          "far": false,
+          "near": true
+        },
+        "printed_phase": 5,
+        "reason": null,
+        "source": "annotation"
+      }
+    },
+    {
+      "path": "out/frames/walk/E/walk_E_05.png",
+      "output_frame": 5,
+      "native_index": 85,
+      "time_s": 3.5416666666666665,
+      "native_bbox_height": 1078,
+      "native_sole_line": 1103,
+      "bbox_xyxy": [
+        211,
+        159,
+        323,
+        396
+      ],
+      "bbox_height": 237,
+      "sole_line": 395,
+      "bbox_center_x": 266.5,
+      "matte": {
+        "method": "green excess matte + inverse straight-alpha compositing",
+        "removed_background_or_detached_alpha_dust_pixels": 123,
+        "native_input_alpha": false,
+        "alpha_floor": 40,
+        "alpha_floor_removed_pixels": 635016
+      },
+      "target_phase_table_row": {
+        "boundary_contact": false,
+        "contact": false,
+        "contact_sides": [],
+        "frame": 5,
+        "lead_track": "near",
+        "mean_confidence": 0.7604166666666666,
+        "phase": "DOWN",
+        "planted": {
+          "far": false,
+          "near": true
+        },
+        "printed_phase": 6,
+        "reason": null,
+        "source": "annotation"
+      }
+    },
+    {
+      "path": "out/frames/walk/E/walk_E_06.png",
+      "output_frame": 6,
+      "native_index": 88,
+      "time_s": 3.6666666666666665,
+      "native_bbox_height": 1072,
+      "native_sole_line": 1107,
+      "bbox_xyxy": [
+        196,
+        161,
+        320,
+        398
+      ],
+      "bbox_height": 237,
+      "sole_line": 397,
+      "bbox_center_x": 257.5,
+      "matte": {
+        "method": "green excess matte + inverse straight-alpha compositing",
+        "removed_background_or_detached_alpha_dust_pixels": 112,
+        "native_input_alpha": false,
+        "alpha_floor": 40,
+        "alpha_floor_removed_pixels": 657761
+      },
+      "target_phase_table_row": {
+        "boundary_contact": false,
+        "contact": false,
+        "contact_sides": [],
+        "frame": 6,
+        "lead_track": "near",
+        "mean_confidence": 0.7604166666666666,
+        "phase": "DOWN",
+        "planted": {
+          "far": false,
+          "near": true
+        },
+        "printed_phase": 7,
+        "reason": null,
+        "source": "annotation"
+      }
+    },
+    {
+      "path": "out/frames/walk/E/walk_E_07.png",
+      "output_frame": 7,
+      "native_index": 91,
+      "time_s": 3.7916666666666665,
+      "native_bbox_height": 1093,
+      "native_sole_line": 1118,
+      "bbox_xyxy": [
+        191,
+        159,
+        304,
+        400
+      ],
+      "bbox_height": 241,
+      "sole_line": 399,
+      "bbox_center_x": 247.0,
+      "matte": {
+        "method": "green excess matte + inverse straight-alpha compositing",
+        "removed_background_or_detached_alpha_dust_pixels": 351,
+        "native_input_alpha": false,
+        "alpha_floor": 40,
+        "alpha_floor_removed_pixels": 657544
+      },
+      "target_phase_table_row": {
+        "boundary_contact": false,
+        "contact": false,
+        "contact_sides": [],
+        "frame": 7,
+        "lead_track": "near",
+        "mean_confidence": 0.7604166666666666,
+        "phase": "PASSING",
+        "planted": {
+          "far": false,
+          "near": true
+        },
+        "printed_phase": 8,
+        "reason": null,
+        "source": "annotation"
+      }
+    },
+    {
+      "path": "out/frames/walk/E/walk_E_08.png",
+      "output_frame": 8,
+      "native_index": 94,
+      "time_s": 3.9166666666666665,
+      "native_bbox_height": 1100,
+      "native_sole_line": 1119,
+      "bbox_xyxy": [
+        211,
+        157,
+        289,
+        400
+      ],
+      "bbox_height": 243,
+      "sole_line": 399,
+      "bbox_center_x": 249.5,
+      "matte": {
+        "method": "green excess matte + inverse straight-alpha compositing",
+        "removed_background_or_detached_alpha_dust_pixels": 385,
+        "native_input_alpha": false,
+        "alpha_floor": 40,
+        "alpha_floor_removed_pixels": 677097
+      },
+      "target_phase_table_row": {
+        "boundary_contact": false,
+        "contact": false,
+        "contact_sides": [],
+        "frame": 8,
+        "lead_track": "near",
+        "mean_confidence": 0.7604166666666666,
+        "phase": "UP",
+        "planted": {
+          "far": false,
+          "near": true
+        },
+        "printed_phase": 9,
+        "reason": null,
+        "source": "annotation"
+      }
+    },
+    {
+      "path": "out/frames/walk/E/walk_E_09.png",
+      "output_frame": 9,
+      "native_index": 97,
+      "time_s": 4.041666666666667,
+      "native_bbox_height": 1102,
+      "native_sole_line": 1119,
+      "bbox_xyxy": [
+        222,
+        157,
+        292,
+        400
+      ],
+      "bbox_height": 243,
+      "sole_line": 399,
+      "bbox_center_x": 256.5,
+      "matte": {
+        "method": "green excess matte + inverse straight-alpha compositing",
+        "removed_background_or_detached_alpha_dust_pixels": 907,
+        "native_input_alpha": false,
+        "alpha_floor": 40,
+        "alpha_floor_removed_pixels": 674612
+      },
+      "target_phase_table_row": {
+        "boundary_contact": false,
+        "contact": false,
+        "contact_sides": [],
+        "frame": 9,
+        "lead_track": "near",
+        "mean_confidence": 0.7604166666666666,
+        "phase": "UP",
+        "planted": {
+          "far": false,
+          "near": true
+        },
+        "printed_phase": 10,
+        "reason": null,
+        "source": "annotation"
+      }
+    },
+    {
+      "path": "out/frames/walk/E/walk_E_10.png",
+      "output_frame": 10,
+      "native_index": 99,
+      "time_s": 4.125,
+      "native_bbox_height": 1096,
+      "native_sole_line": 1119,
+      "bbox_xyxy": [
+        217,
+        158,
+        314,
+        400
+      ],
+      "bbox_height": 242,
+      "sole_line": 399,
+      "bbox_center_x": 265.0,
+      "matte": {
+        "method": "green excess matte + inverse straight-alpha compositing",
+        "removed_background_or_detached_alpha_dust_pixels": 128,
+        "native_input_alpha": false,
+        "alpha_floor": 40,
+        "alpha_floor_removed_pixels": 663756
+      },
+      "target_phase_table_row": {
+        "boundary_contact": false,
+        "contact": true,
+        "contact_sides": [
+          "far"
+        ],
+        "frame": 10,
+        "lead_track": "far",
+        "mean_confidence": 0.7604166666666666,
+        "phase": "CONTACT",
+        "planted": {
+          "far": true,
+          "near": false
+        },
+        "printed_phase": 11,
+        "reason": null,
+        "source": "annotation"
+      }
+    },
+    {
+      "path": "out/frames/walk/E/walk_E_11.png",
+      "output_frame": 11,
+      "native_index": 102,
+      "time_s": 4.25,
+      "native_bbox_height": 1082,
+      "native_sole_line": 1117,
+      "bbox_xyxy": [
+        200,
+        161,
+        313,
+        400
+      ],
+      "bbox_height": 239,
+      "sole_line": 399,
+      "bbox_center_x": 256.0,
+      "matte": {
+        "method": "green excess matte + inverse straight-alpha compositing",
+        "removed_background_or_detached_alpha_dust_pixels": 206,
+        "native_input_alpha": false,
+        "alpha_floor": 40,
+        "alpha_floor_removed_pixels": 669559
+      },
+      "target_phase_table_row": {
+        "boundary_contact": false,
+        "contact": false,
+        "contact_sides": [],
+        "frame": 11,
+        "lead_track": "far",
+        "mean_confidence": 0.7604166666666666,
+        "phase": "DOWN",
+        "planted": {
+          "far": true,
+          "near": false
+        },
+        "printed_phase": 12,
+        "reason": null,
+        "source": "annotation"
+      }
+    }
+  ],
+  "rest_frame": {
+    "path": "out/frames/rest/E/rest_E.png",
+    "output_frame": null,
+    "native_index": 0,
+    "time_s": 0.0,
+    "native_bbox_height": 1110,
+    "native_sole_line": 1123,
+    "bbox_xyxy": [
+      224,
+      156,
+      284,
+      401
+    ],
+    "bbox_height": 245,
+    "sole_line": 400,
+    "bbox_center_x": 253.5,
+    "matte": {
+      "method": "green excess matte + inverse straight-alpha compositing",
+      "removed_background_or_detached_alpha_dust_pixels": 64,
+      "native_input_alpha": false,
+      "alpha_floor": 40,
+      "alpha_floor_removed_pixels": 699200
+    },
+    "target_phase_table_row": null
+  },
+  "walk_union_alpha_box": [
+    188,
+    156,
+    323,
+    400
+  ],
+  "silhouette_jump": {
+    "definition": "symmetric difference area / union area of native alpha>=128 masks, no alignment; descriptive only",
+    "coverage": "11 adjacent selected-frame pairs, excluding loop seam",
+    "pairs": [
+      {
+        "native_indices": [
+          71,
+          74
+        ],
+        "delta_native_frames": 3,
+        "times_s": [
+          2.9583333333333335,
+          3.0833333333333335
+        ],
+        "silhouette_xor_pixels": 91502,
+        "silhouette_union_pixels": 254055,
+        "silhouette_jump_xor_over_union": 0.3601661057644998
+      },
+      {
+        "native_indices": [
+          74,
+          77
+        ],
+        "delta_native_frames": 3,
+        "times_s": [
+          3.0833333333333335,
+          3.2083333333333335
+        ],
+        "silhouette_xor_pixels": 92720,
+        "silhouette_union_pixels": 242528,
+        "silhouette_jump_xor_over_union": 0.3823063728724106
+      },
+      {
+        "native_indices": [
+          77,
+          79
+        ],
+        "delta_native_frames": 2,
+        "times_s": [
+          3.2083333333333335,
+          3.2916666666666665
+        ],
+        "silhouette_xor_pixels": 69770,
+        "silhouette_union_pixels": 222844,
+        "silhouette_jump_xor_over_union": 0.3130889770422358
+      },
+      {
+        "native_indices": [
+          79,
+          82
+        ],
+        "delta_native_frames": 3,
+        "times_s": [
+          3.2916666666666665,
+          3.4166666666666665
+        ],
+        "silhouette_xor_pixels": 85091,
+        "silhouette_union_pixels": 245120,
+        "silhouette_jump_xor_over_union": 0.3471401762402089
+      },
+      {
+        "native_indices": [
+          82,
+          85
+        ],
+        "delta_native_frames": 3,
+        "times_s": [
+          3.4166666666666665,
+          3.5416666666666665
+        ],
+        "silhouette_xor_pixels": 123890,
+        "silhouette_union_pixels": 280968,
+        "silhouette_jump_xor_over_union": 0.4409398935110048
+      },
+      {
+        "native_indices": [
+          85,
+          88
+        ],
+        "delta_native_frames": 3,
+        "times_s": [
+          3.5416666666666665,
+          3.6666666666666665
+        ],
+        "silhouette_xor_pixels": 75938,
+        "silhouette_union_pixels": 260592,
+        "silhouette_jump_xor_over_union": 0.29140572235525264
+      },
+      {
+        "native_indices": [
+          88,
+          91
+        ],
+        "delta_native_frames": 3,
+        "times_s": [
+          3.6666666666666665,
+          3.7916666666666665
+        ],
+        "silhouette_xor_pixels": 98924,
+        "silhouette_union_pixels": 269946,
+        "silhouette_jump_xor_over_union": 0.3664584768805613
+      },
+      {
+        "native_indices": [
+          91,
+          94
+        ],
+        "delta_native_frames": 3,
+        "times_s": [
+          3.7916666666666665,
+          3.9166666666666665
+        ],
+        "silhouette_xor_pixels": 114023,
+        "silhouette_union_pixels": 265170,
+        "silhouette_jump_xor_over_union": 0.4299996228834333
+      },
+      {
+        "native_indices": [
+          94,
+          97
+        ],
+        "delta_native_frames": 3,
+        "times_s": [
+          3.9166666666666665,
+          4.041666666666667
+        ],
+        "silhouette_xor_pixels": 84696,
+        "silhouette_union_pixels": 244458,
+        "silhouette_jump_xor_over_union": 0.34646442333652405
+      },
+      {
+        "native_indices": [
+          97,
+          99
+        ],
+        "delta_native_frames": 2,
+        "times_s": [
+          4.041666666666667,
+          4.125
+        ],
+        "silhouette_xor_pixels": 86929,
+        "silhouette_union_pixels": 253123,
+        "silhouette_jump_xor_over_union": 0.3434259233653204
+      },
+      {
+        "native_indices": [
+          99,
+          102
+        ],
+        "delta_native_frames": 3,
+        "times_s": [
+          4.125,
+          4.25
+        ],
+        "silhouette_xor_pixels": 85069,
+        "silhouette_union_pixels": 253534,
+        "silhouette_jump_xor_over_union": 0.33553290682906434
+      }
+    ],
+    "largest_adjacent_selected_pair": {
+      "native_indices": [
+        82,
+        85
+      ],
+      "delta_native_frames": 3,
+      "times_s": [
+        3.4166666666666665,
+        3.5416666666666665
+      ],
+      "silhouette_xor_pixels": 123890,
+      "silhouette_union_pixels": 280968,
+      "silhouette_jump_xor_over_union": 0.4409398935110048
+    },
+    "largest_consecutive_native_pair": null
+  },
+  "gates_evaluated": false,
+  "concerns": [
+    "Largest consecutive native-frame silhouette jump across all 33 pairs in [71,105) was not computed: extraction was explicitly limited to the 12 named walk frames. The largest adjacent selected-frame jump is reported instead, with 2-3 native-frame gaps."
+  ],
+  "ffmpeg_argv": [
+    "/opt/homebrew/bin/ffmpeg",
+    "-v",
+    "error",
+    "-i",
+    "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/xvideo/in/walk_E_grok.mp4",
+    "-map",
+    "0:v:0",
+    "-vf",
+    "select=eq(n\\,0)+eq(n\\,71)+eq(n\\,74)+eq(n\\,77)+eq(n\\,79)+eq(n\\,82)+eq(n\\,85)+eq(n\\,88)+eq(n\\,91)+eq(n\\,94)+eq(n\\,97)+eq(n\\,99)+eq(n\\,102)",
+    "-fps_mode",
+    "passthrough",
+    "-f",
+    "rawvideo",
+    "-pix_fmt",
+    "rgb24",
+    "pipe:1"
+  ]
+}

@@ -1,0 +1,17 @@
+{
+ "text": "PACK BURST K3p-pack-walk-xv2 — milestone packet: the Keeper's X-VIDEO WALK-E cycle (Grok i2v from the r2 still, one stride resampled to 12 phases — step 8 / H-4) beside the Muybridge oracle (the Astra attempt's media already sits in Desktop packet 17; do NOT re-encode it) (HITL Run C-2 step 8; Matt rules PASS / FAIL-WITH-NUMBERS and L5 = G6c). task_id \"K3p-pack-walk-xv2\".\n\nInputs (read-only): frames /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-xv-cut-04/frames/walk/E/walk_E_00..11.png + rest /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-xv-cut-04/frames/rest/E/rest_E.png + strip /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-xv-cut-04/sheets/walk_E_strip.png; /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-chk-walk-xv2/checks.json + plots/; the oracle frames /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/fixtures/muybridge/plate13_lateral/ (12 public-domain Muybridge plate-13 lateral frames, 8.33 fps — the walking oracle, R-22) and the oracle curves plot /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/oracle/plots/plate13_lateral_ann_curves.png; the pose guides /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/oracle/pose_guides/walk_00..11.png; the committed band /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/oracle/bands_walk.json row 'plate13_lateral_ann'.\nTools: ffmpeg at /opt/homebrew/bin/ffmpeg (H.264, yuv420p, Chrome-playable); PIL for compositing on #3a3f4a. Produce in out/: walk_E_12fps.mp4 (12 fps; the 12 frames looped 5 times; each 512 frame centred on a 1024 canvas at 2× NEAREST — display only, say so), muybridge_plate13_8fps.mp4 (the 12 oracle frames at 8.33 fps looped 5 times, scaled to the same display height — say the scale), walk_E_seam_pairs.png (frame 11 | frame 0 | |diff| ×4), and review.html — self-contained (relative paths to copies in out/img/, no external resources): both MP4s side by side with <video autoplay loop muted controls>; the strip; the curves plot of OUR walk beside plate13_lateral_ann_curves.png; the INTENT table from K3p-chk-walk-xv2 (W1 value vs floor 3.95 / target 4.93 / ceiling 7 %H; W2 phase match; W3a ≤ 0.35; W3c 2–3; W4 = 2; W5 free arm 8–20 %H, weapon arm ≥ 3 %H; W6 ≥ 9/12 — each with its passed flag); the CONSTRAINT table (G6 literal, G6b, G6c ≤ 1.25 — labelled 'L5: G6c — Matt rules', G11 per pair, G1, silhouette distances, ground spread, planted-foot table); and a clearly labelled block 'PASS / FAIL-WITH-NUMBERS — Matt rules'. Also out/summary.txt (≤ 12 lines). BUDGET: 15 minutes — ffmpeg for the encodes, a template string for the page, nothing optional; deliver. No image_gen. No code beyond the HTML page. No writes outside out/. No web. calls_used must be 0.\nRETURN: receipt task_id \"K3p-pack-walk-xv2\"; images []; files: every out/ file with sha256 (list the img/ copies too); status DELIVERED / DELIVERED_WITH_CONCERNS; concerns for anything missing. Never PASS/FAIL.",
+ "references": [],
+ "image_cap": 0,
+ "minutes_cap": 15,
+ "tool_call_cap": 20,
+ "outputs": [
+  "out/review.html",
+  "out/summary.txt",
+  "out/walk_E_12fps.mp4",
+  "out/muybridge_plate13_8fps.mp4",
+  "out/walk_E_seam_pairs.png"
+ ],
+ "effort": "high",
+ "add_dirs": [],
+ "experiment": "K3p-xv"
+}

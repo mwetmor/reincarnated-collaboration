@@ -1,0 +1,28 @@
+{
+ "text": "CHECK BURST K3p-xv-cut-04 — cut ONE stride from the X-video walk clip (Grok i2v from the H1 E rest frame r2), resample it to the 12 plate-13 phases, matte on the plate, and register the frames for the gait gates (HITL Run C-2 step 8 / H-4; R-41; Q76 rules: use only 0–4.3 s of the clip, never across the ~4.5 s splice). task_id \"K3p-xv-cut-04\".\n\nInputs (read-only): the clip /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/xvideo/in/walk_E_grok.mp4 (6 s, 720p, ~24 fps, first frame = the r2 still on a #00ff00 plate); the seed geometry /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-seed/registration_transform.json (512 canvas, pivot (256,400), sole row 399, target figure height ≈ 240 px); the committed walk band /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/oracle/bands_walk.json row 'plate13_lateral_ann' (its phase_table = the 12 target phases). Tools: ffmpeg at /opt/homebrew/bin/ffmpeg; frozen modules under /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/ (read the docstrings; run, never modify): gates/matte.py (extract, alpha_floor=40), gates/common.py, oracle/walk_landmarks.py + oracle/walk_curves.py (contact detection on masks — the same instrument that measured the oracle), oracle/motion_map.py (alpha_box). PIL + numpy + scipy only; `python3 - <<'PY'` glue that calls these modules is fine; no new tool files.\n\nEXPLICIT CUT (conductor, R-46 — cut-02 selected the stride correctly and stopped on a wording discrepancy; there is NOTHING to analyse or decide here): the stride is native frames [71, 105) — the HEAD-UP stride (2.96–4.38 s; 34 frames; DOWN at 71 and 88; Matt observed the head looks down for the first ~3 s, R-51; the 4.3-s rule is relaxed to 4.4 s for this cut, the known splice being at ~4.5 s — report the largest consecutive silhouette jump inside the stride). Do ONLY: (1) obtain the 12 native frames with indices [71, 74, 77, 79, 82, 85, 88, 91, 94, 97, 99, 102] — re-split ONLY those 12 native indices (and native frame 0 for the rest frame) from the clip /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/xvideo/in/walk_E_grok.mp4 with ffmpeg (select by frame number; 24 fps, 145 frames) and matte them with gates/matte.py extract, alpha_floor=40; (2) register with ONE uniform scale for all 12 so that frame 0's figure height (alpha ≥ 128 bbox) = 240 px (native H ≈ 1092–1110 → factor ≈ 0.22; report it) and ONE integer translation so frame 0's sole line (bottom-most alpha ≥ 128 row) lands on row 399 and its bbox centre-x on 255.5 — the SAME scale and translation for every frame (in-place treadmill; no per-frame re-centring; LANCZOS downscale then integer paste on a 512×512 transparent canvas); write out/frames/walk/E/walk_E_00.png … walk_E_11.png and out/frames/rest/E/rest_E.png (= native frame 0 of the clip registered the same way — re-split it too); (3) out/sheets/walk_E_strip.png (12 frames on #3a3f4a with numbers); out/registration.json (per frame: native index, time, bbox height, sole line; the scale and translation; the note that frame 0 is a DOWN phase, one phase after plate-13's CONTACT — rotation +1); out/readme.txt with the exact commands. Do not evaluate any gate; do not judge the walk; do not stop for any reason short of a missing input — report and deliver. No image_gen. No writes outside out/. No web. calls_used must be 0.\nRETURN: receipt task_id \"K3p-xv-cut-04\"; images []; calls_used 0; files: every out/ file with sha256; status DELIVERED / DELIVERED_WITH_CONCERNS / FAILED; concerns must name anything you could not compute. Never PASS/FAIL.",
+ "references": [],
+ "image_cap": 0,
+ "minutes_cap": 15,
+ "tool_call_cap": 20,
+ "outputs": [
+  "out/registration.json",
+  "out/readme.txt",
+  "out/sheets/walk_E_strip.png",
+  "out/frames/rest/E/rest_E.png",
+  "out/frames/walk/E/walk_E_00.png",
+  "out/frames/walk/E/walk_E_01.png",
+  "out/frames/walk/E/walk_E_02.png",
+  "out/frames/walk/E/walk_E_03.png",
+  "out/frames/walk/E/walk_E_04.png",
+  "out/frames/walk/E/walk_E_05.png",
+  "out/frames/walk/E/walk_E_06.png",
+  "out/frames/walk/E/walk_E_07.png",
+  "out/frames/walk/E/walk_E_08.png",
+  "out/frames/walk/E/walk_E_09.png",
+  "out/frames/walk/E/walk_E_10.png",
+  "out/frames/walk/E/walk_E_11.png"
+ ],
+ "effort": "high",
+ "add_dirs": [],
+ "experiment": "K3p-xv"
+}

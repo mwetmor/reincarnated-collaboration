@@ -1,0 +1,85 @@
+{
+  "task_id": "K3p-xv-cut-04",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [],
+  "calls_used": 0,
+  "retries": [
+    {
+      "reason": "Nominal downscale produced a 239-pixel thresholded anchor.",
+      "change": "Calibrated one shared scale to 0.22059283088235293; translation (170,153). Final anchor height 240, sole row 399, centre-x 255.5."
+    }
+  ],
+  "self_report": {
+    "obeyed_invariants": true,
+    "concerns": [
+      "Full native-consecutive silhouette jump was not computed because extraction was restricted to the named frames. Largest adjacent selected-frame XOR/union was 0.4409398935110048, native frames 82–85.",
+      "Wrapper-managed live logs are excluded from the deliverable file manifest."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/registration.json",
+      "sha256": "0f73f3d556357bf34fc2e54ae1e782d750a94b19a8f352ef6f1b2a40a5e7d231"
+    },
+    {
+      "path": "out/readme.txt",
+      "sha256": "9f11e9f363d4955af8fc80d3f8f75c8986fab262692eaf2a8f4b46bbb812ac4a"
+    },
+    {
+      "path": "out/sheets/walk_E_strip.png",
+      "sha256": "cb1fd8cfdfb0dd0a7074e0237f40e1a1acc34412c9552c22e07a8bcdd2359afb"
+    },
+    {
+      "path": "out/frames/rest/E/rest_E.png",
+      "sha256": "fd8d9a398bf61e635fa2e6e395d265f693777f685589ad9ea4e92a5f953e44cc"
+    },
+    {
+      "path": "out/frames/walk/E/walk_E_00.png",
+      "sha256": "a8d0e0d91d8c9f84e007092b13f55d9e358f36e6b5c6a9b18f59b27f2f3dc7af"
+    },
+    {
+      "path": "out/frames/walk/E/walk_E_01.png",
+      "sha256": "1bfaf64cf08d314602b5555b8f3e376866da8d9d5f4f47ebe04bc5359a11013a"
+    },
+    {
+      "path": "out/frames/walk/E/walk_E_02.png",
+      "sha256": "67212ca132d665710c34c99147df94e3d27e4cf74537cf4ad9212bd6cc099ff6"
+    },
+    {
+      "path": "out/frames/walk/E/walk_E_03.png",
+      "sha256": "2fdbb754250c4a98f1c4a765f9eb2d48f6e4320262925e5cedf32cdaffc5bc65"
+    },
+    {
+      "path": "out/frames/walk/E/walk_E_04.png",
+      "sha256": "591cb71d44ff1e681b26f82d225a51894372bf2144c5631f5348b0ada61b642d"
+    },
+    {
+      "path": "out/frames/walk/E/walk_E_05.png",
+      "sha256": "6beec45e133020d659f19192f2df8ff4835d2e743a561ec4dfa628b05462573d"
+    },
+    {
+      "path": "out/frames/walk/E/walk_E_06.png",
+      "sha256": "662cf763fec123a7dfa8abb9bdc4f9767d0de435fa807cc75ffd07a38fbc386a"
+    },
+    {
+      "path": "out/frames/walk/E/walk_E_07.png",
+      "sha256": "8a312c3626bd4327430559c62addf7051f22b93b35e5fd7d59f8d7b90afe6b7e"
+    },
+    {
+      "path": "out/frames/walk/E/walk_E_08.png",
+      "sha256": "66cb01cfabc23c0f2300952126d3a7a5aad5f1c905e4e879ff7e818eda4f2b84"
+    },
+    {
+      "path": "out/frames/walk/E/walk_E_09.png",
+      "sha256": "5aca3c225f2a884042bf1b6fbea12a237b742f2fd5e633655c86938d360c086c"
+    },
+    {
+      "path": "out/frames/walk/E/walk_E_10.png",
+      "sha256": "8cc892b665669e3b1dc47f1038aba38aeb6b7871bf8b60ffd8a79ba1c35d73b1"
+    },
+    {
+      "path": "out/frames/walk/E/walk_E_11.png",
+      "sha256": "22960832d3c97d0d56e1e6d290aad555a5615c382ae316506bb62efe36b5ad85"
+    }
+  ]
+}

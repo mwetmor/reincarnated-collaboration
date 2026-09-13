@@ -1,0 +1,2245 @@
+{
+  "coordinate_system": "grid registered source pixels; native plot coordinates subtract grid_shift_xy",
+  "fps": 12.0,
+  "frame_names": [
+    "walk_E_00.png",
+    "walk_E_01.png",
+    "walk_E_02.png",
+    "walk_E_03.png",
+    "walk_E_04.png",
+    "walk_E_05.png",
+    "walk_E_06.png",
+    "walk_E_07.png",
+    "walk_E_08.png",
+    "walk_E_09.png",
+    "walk_E_10.png",
+    "walk_E_11.png"
+  ],
+  "frames": 12,
+  "landmarks": [
+    {
+      "H": 240,
+      "feet_merged": false,
+      "foot_L_velocity_x": -12.0,
+      "foot_L_x": 218.0,
+      "foot_L_x_H": 0.9083333333333333,
+      "foot_L_y": 397,
+      "foot_L_y_H": 1.6541666666666666,
+      "foot_R_velocity_x": -0.0,
+      "foot_R_x": 290.0,
+      "foot_R_x_H": 1.2083333333333333,
+      "foot_R_y": 399,
+      "foot_R_y_H": 1.6625,
+      "foot_components": 2,
+      "foot_identity": "initial image x order; tracked over time, not anatomical",
+      "grid_shift_xy": [
+        0,
+        0
+      ],
+      "ground_line_y": 402,
+      "ground_line_y_H": 1.675,
+      "head_box_xyxy": [
+        233,
+        165,
+        292,
+        194
+      ],
+      "head_cx": 262.0,
+      "head_cx_H": 1.0916666666666666,
+      "head_cx_mask_lineage": 257.267818574514,
+      "head_cy": 179.0,
+      "head_cy_H": 0.7458333333333333,
+      "head_ncc": 0.4332153997525953,
+      "head_ref_y": 175,
+      "head_ref_y_H": 0.7291666666666666,
+      "head_search_limit": false,
+      "head_template_frame": 11,
+      "head_top_mask_y": 160,
+      "head_top_mask_y_H": 0.6666666666666666,
+      "head_top_thin": false,
+      "head_top_y": 165.0,
+      "head_top_y_H": 0.6875,
+      "head_track_method": "fixed head patch NCC; +/-25%H previous position",
+      "head_track_valid": false,
+      "identity_ambiguous": false,
+      "mask_area": 11159,
+      "mask_area_per_H": 46.49583333333333,
+      "planted": {
+        "L": false,
+        "R": true
+      },
+      "planted_L": false,
+      "planted_R": true,
+      "planted_ground_only_lineage": {
+        "L": false,
+        "R": false
+      },
+      "sole_line_y": 399,
+      "sole_line_y_H": 1.6625,
+      "torso_cx": 251.0,
+      "torso_cx_H": 1.0458333333333334,
+      "torso_width": 44.0,
+      "torso_width_H": 0.18333333333333332,
+      "valid": true,
+      "velocity_boundary": "forward difference (no prior frame)",
+      "wrist_ext_L": 9.0,
+      "wrist_ext_L_H": 0.0375,
+      "wrist_ext_R": 18.0,
+      "wrist_ext_R_H": 0.075
+    },
+    {
+      "H": 245,
+      "feet_merged": false,
+      "foot_L_velocity_x": -12.0,
+      "foot_L_x": 206.0,
+      "foot_L_x_H": 0.8408163265306122,
+      "foot_L_y": 396,
+      "foot_L_y_H": 1.616326530612245,
+      "foot_R_velocity_x": 0.0,
+      "foot_R_x": 290.0,
+      "foot_R_x_H": 1.183673469387755,
+      "foot_R_y": 401,
+      "foot_R_y_H": 1.636734693877551,
+      "foot_components": 2,
+      "foot_identity": "initial image x order; tracked over time, not anatomical",
+      "grid_shift_xy": [
+        0,
+        0
+      ],
+      "ground_line_y": 402,
+      "ground_line_y_H": 1.6408163265306122,
+      "head_box_xyxy": [
+        234,
+        162,
+        293,
+        191
+      ],
+      "head_cx": 263.0,
+      "head_cx_H": 1.073469387755102,
+      "head_cx_mask_lineage": 259.11764705882354,
+      "head_cy": 176.0,
+      "head_cy_H": 0.7183673469387755,
+      "head_ncc": 0.4240831692489059,
+      "head_ref_y": 177,
+      "head_ref_y_H": 0.7224489795918367,
+      "head_search_limit": false,
+      "head_template_frame": 11,
+      "head_top_mask_y": 157,
+      "head_top_mask_y_H": 0.6408163265306123,
+      "head_top_thin": false,
+      "head_top_y": 162.0,
+      "head_top_y_H": 0.6612244897959184,
+      "head_track_method": "fixed head patch NCC; +/-25%H previous position",
+      "head_track_valid": false,
+      "identity_ambiguous": false,
+      "mask_area": 11101,
+      "mask_area_per_H": 45.310204081632655,
+      "planted": {
+        "L": false,
+        "R": true
+      },
+      "planted_L": false,
+      "planted_R": true,
+      "planted_ground_only_lineage": {
+        "L": false,
+        "R": true
+      },
+      "sole_line_y": 401,
+      "sole_line_y_H": 1.636734693877551,
+      "torso_cx": 251.5,
+      "torso_cx_H": 1.026530612244898,
+      "torso_width": 52.0,
+      "torso_width_H": 0.21224489795918366,
+      "valid": true,
+      "velocity_boundary": "backward difference",
+      "wrist_ext_L": 0.5,
+      "wrist_ext_L_H": 0.0020408163265306124,
+      "wrist_ext_R": 12.5,
+      "wrist_ext_R_H": 0.05102040816326531
+    },
+    {
+      "H": 247,
+      "feet_merged": true,
+      "foot_L_velocity_x": null,
+      "foot_L_x": null,
+      "foot_L_x_H": null,
+      "foot_L_y": null,
+      "foot_L_y_H": null,
+      "foot_R_velocity_x": -13.0,
+      "foot_R_x": 277.0,
+      "foot_R_x_H": 1.1214574898785425,
+      "foot_R_y": 402,
+      "foot_R_y_H": 1.6275303643724697,
+      "foot_components": 1,
+      "foot_identity": "initial image x order; tracked over time, not anatomical",
+      "grid_shift_xy": [
+        0,
+        0
+      ],
+      "ground_line_y": 402,
+      "ground_line_y_H": 1.6275303643724697,
+      "head_box_xyxy": [
+        235,
+        159,
+        294,
+        188
+      ],
+      "head_cx": 264.0,
+      "head_cx_H": 1.0688259109311742,
+      "head_cx_mask_lineage": 259.0456960680128,
+      "head_cy": 173.0,
+      "head_cy_H": 0.7004048582995951,
+      "head_ncc": 0.43428602598126426,
+      "head_ref_y": 176,
+      "head_ref_y_H": 0.7125506072874493,
+      "head_search_limit": false,
+      "head_template_frame": 11,
+      "head_top_mask_y": 156,
+      "head_top_mask_y_H": 0.631578947368421,
+      "head_top_thin": false,
+      "head_top_y": 159.0,
+      "head_top_y_H": 0.6437246963562753,
+      "head_track_method": "fixed head patch NCC; +/-25%H previous position",
+      "head_track_valid": false,
+      "identity_ambiguous": true,
+      "mask_area": 10133,
+      "mask_area_per_H": 41.02429149797571,
+      "planted": {
+        "L": null,
+        "R": false
+      },
+      "planted_L": null,
+      "planted_R": false,
+      "planted_ground_only_lineage": {
+        "L": null,
+        "R": true
+      },
+      "sole_line_y": 402,
+      "sole_line_y_H": 1.6275303643724697,
+      "torso_cx": 253.0,
+      "torso_cx_H": 1.0242914979757085,
+      "torso_width": 44.0,
+      "torso_width_H": 0.17813765182186234,
+      "valid": true,
+      "velocity_boundary": "backward difference",
+      "wrist_ext_L": 0.0,
+      "wrist_ext_L_H": 0.0,
+      "wrist_ext_R": 11.0,
+      "wrist_ext_R_H": 0.044534412955465584
+    },
+    {
+      "H": 248,
+      "feet_merged": false,
+      "foot_L_velocity_x": null,
+      "foot_L_x": 267.0,
+      "foot_L_x_H": 1.0766129032258065,
+      "foot_L_y": 402,
+      "foot_L_y_H": 1.6209677419354838,
+      "foot_R_velocity_x": 4.0,
+      "foot_R_x": 281.0,
+      "foot_R_x_H": 1.1330645161290323,
+      "foot_R_y": 393,
+      "foot_R_y_H": 1.5846774193548387,
+      "foot_components": 2,
+      "foot_identity": "initial image x order; tracked over time, not anatomical",
+      "grid_shift_xy": [
+        0,
+        0
+      ],
+      "ground_line_y": 402,
+      "ground_line_y_H": 1.6209677419354838,
+      "head_box_xyxy": [
+        233,
+        158,
+        292,
+        187
+      ],
+      "head_cx": 262.0,
+      "head_cx_H": 1.0564516129032258,
+      "head_cx_mask_lineage": 257.9924078091106,
+      "head_cy": 172.0,
+      "head_cy_H": 0.6935483870967742,
+      "head_ncc": 0.4277949338392661,
+      "head_ref_y": 173,
+      "head_ref_y_H": 0.6975806451612904,
+      "head_search_limit": false,
+      "head_template_frame": 11,
+      "head_top_mask_y": 155,
+      "head_top_mask_y_H": 0.625,
+      "head_top_thin": false,
+      "head_top_y": 158.0,
+      "head_top_y_H": 0.6370967741935484,
+      "head_track_method": "fixed head patch NCC; +/-25%H previous position",
+      "head_track_valid": false,
+      "identity_ambiguous": false,
+      "mask_area": 9913,
+      "mask_area_per_H": 39.971774193548384,
+      "planted": {
+        "L": null,
+        "R": false
+      },
+      "planted_L": null,
+      "planted_R": false,
+      "planted_ground_only_lineage": {
+        "L": true,
+        "R": false
+      },
+      "sole_line_y": 402,
+      "sole_line_y_H": 1.6209677419354838,
+      "torso_cx": 253.0,
+      "torso_cx_H": 1.0201612903225807,
+      "torso_width": 44.0,
+      "torso_width_H": 0.1774193548387097,
+      "valid": true,
+      "velocity_boundary": "backward difference",
+      "wrist_ext_L": 0.0,
+      "wrist_ext_L_H": 0.0,
+      "wrist_ext_R": 8.0,
+      "wrist_ext_R_H": 0.03225806451612903
+    },
+    {
+      "H": 248,
+      "feet_merged": true,
+      "foot_L_velocity_x": null,
+      "foot_L_x": null,
+      "foot_L_x_H": null,
+      "foot_L_y": null,
+      "foot_L_y_H": null,
+      "foot_R_velocity_x": -30.0,
+      "foot_R_x": 251.0,
+      "foot_R_x_H": 1.0120967741935485,
+      "foot_R_y": 402,
+      "foot_R_y_H": 1.6209677419354838,
+      "foot_components": 1,
+      "foot_identity": "initial image x order; tracked over time, not anatomical",
+      "grid_shift_xy": [
+        0,
+        0
+      ],
+      "ground_line_y": 402,
+      "ground_line_y_H": 1.6209677419354838,
+      "head_box_xyxy": [
+        232,
+        158,
+        291,
+        187
+      ],
+      "head_cx": 261.0,
+      "head_cx_H": 1.0524193548387097,
+      "head_cx_mask_lineage": 256.39258451472193,
+      "head_cy": 172.0,
+      "head_cy_H": 0.6935483870967742,
+      "head_ncc": 0.45163289692630154,
+      "head_ref_y": 178,
+      "head_ref_y_H": 0.717741935483871,
+      "head_search_limit": false,
+      "head_template_frame": 11,
+      "head_top_mask_y": 155,
+      "head_top_mask_y_H": 0.625,
+      "head_top_thin": false,
+      "head_top_y": 158.0,
+      "head_top_y_H": 0.6370967741935484,
+      "head_track_method": "fixed head patch NCC; +/-25%H previous position",
+      "head_track_valid": false,
+      "identity_ambiguous": true,
+      "mask_area": 10353,
+      "mask_area_per_H": 41.74596774193548,
+      "planted": {
+        "L": null,
+        "R": false
+      },
+      "planted_L": null,
+      "planted_R": false,
+      "planted_ground_only_lineage": {
+        "L": null,
+        "R": true
+      },
+      "sole_line_y": 402,
+      "sole_line_y_H": 1.6209677419354838,
+      "torso_cx": 252.5,
+      "torso_cx_H": 1.0181451612903225,
+      "torso_width": 47.5,
+      "torso_width_H": 0.19153225806451613,
+      "valid": true,
+      "velocity_boundary": "backward difference",
+      "wrist_ext_L": 0.0,
+      "wrist_ext_L_H": 0.0,
+      "wrist_ext_R": 6.75,
+      "wrist_ext_R_H": 0.02721774193548387
+    },
+    {
+      "H": 246,
+      "feet_merged": false,
+      "foot_L_velocity_x": null,
+      "foot_L_x": 282.0,
+      "foot_L_x_H": 1.146341463414634,
+      "foot_L_y": 394,
+      "foot_L_y_H": 1.6016260162601625,
+      "foot_R_velocity_x": -16.5,
+      "foot_R_x": 234.5,
+      "foot_R_x_H": 0.9532520325203252,
+      "foot_R_y": 402,
+      "foot_R_y_H": 1.6341463414634145,
+      "foot_components": 2,
+      "foot_identity": "initial image x order; tracked over time, not anatomical",
+      "grid_shift_xy": [
+        0,
+        0
+      ],
+      "ground_line_y": 402,
+      "ground_line_y_H": 1.6341463414634145,
+      "head_box_xyxy": [
+        231,
+        159,
+        290,
+        188
+      ],
+      "head_cx": 260.0,
+      "head_cx_H": 1.056910569105691,
+      "head_cx_mask_lineage": 255.27854855923158,
+      "head_cy": 173.0,
+      "head_cy_H": 0.7032520325203252,
+      "head_ncc": 0.4540248037094509,
+      "head_ref_y": 180,
+      "head_ref_y_H": 0.7317073170731707,
+      "head_search_limit": false,
+      "head_template_frame": 11,
+      "head_top_mask_y": 157,
+      "head_top_mask_y_H": 0.6382113821138211,
+      "head_top_thin": false,
+      "head_top_y": 159.0,
+      "head_top_y_H": 0.6463414634146342,
+      "head_track_method": "fixed head patch NCC; +/-25%H previous position",
+      "head_track_valid": false,
+      "identity_ambiguous": false,
+      "mask_area": 10559,
+      "mask_area_per_H": 42.922764227642276,
+      "planted": {
+        "L": null,
+        "R": false
+      },
+      "planted_L": null,
+      "planted_R": false,
+      "planted_ground_only_lineage": {
+        "L": false,
+        "R": true
+      },
+      "sole_line_y": 402,
+      "sole_line_y_H": 1.6341463414634145,
+      "torso_cx": 251.75,
+      "torso_cx_H": 1.0233739837398375,
+      "torso_width": 48.0,
+      "torso_width_H": 0.1951219512195122,
+      "valid": true,
+      "velocity_boundary": "backward difference",
+      "wrist_ext_L": 0.0,
+      "wrist_ext_L_H": 0.0,
+      "wrist_ext_R": 4.25,
+      "wrist_ext_R_H": 0.017276422764227643
+    },
+    {
+      "H": 242,
+      "feet_merged": false,
+      "foot_L_velocity_x": 7.5,
+      "foot_L_x": 289.5,
+      "foot_L_x_H": 1.1962809917355373,
+      "foot_L_y": 396,
+      "foot_L_y_H": 1.6363636363636365,
+      "foot_R_velocity_x": -16.5,
+      "foot_R_x": 218.0,
+      "foot_R_x_H": 0.9008264462809917,
+      "foot_R_y": 401,
+      "foot_R_y_H": 1.6570247933884297,
+      "foot_components": 2,
+      "foot_identity": "initial image x order; tracked over time, not anatomical",
+      "grid_shift_xy": [
+        0,
+        0
+      ],
+      "ground_line_y": 402,
+      "ground_line_y_H": 1.6611570247933884,
+      "head_box_xyxy": [
+        232,
+        162,
+        291,
+        191
+      ],
+      "head_cx": 261.0,
+      "head_cx_H": 1.078512396694215,
+      "head_cx_mask_lineage": 255.68076109936575,
+      "head_cy": 176.0,
+      "head_cy_H": 0.7272727272727273,
+      "head_ncc": 0.49707487143000184,
+      "head_ref_y": 179,
+      "head_ref_y_H": 0.7396694214876033,
+      "head_search_limit": false,
+      "head_template_frame": 11,
+      "head_top_mask_y": 160,
+      "head_top_mask_y_H": 0.6611570247933884,
+      "head_top_thin": false,
+      "head_top_y": 162.0,
+      "head_top_y_H": 0.6694214876033058,
+      "head_track_method": "fixed head patch NCC; +/-25%H previous position",
+      "head_track_valid": false,
+      "identity_ambiguous": false,
+      "mask_area": 10475,
+      "mask_area_per_H": 43.28512396694215,
+      "planted": {
+        "L": false,
+        "R": false
+      },
+      "planted_L": false,
+      "planted_R": false,
+      "planted_ground_only_lineage": {
+        "L": false,
+        "R": true
+      },
+      "sole_line_y": 401,
+      "sole_line_y_H": 1.6570247933884297,
+      "torso_cx": 252.0,
+      "torso_cx_H": 1.0413223140495869,
+      "torso_width": 47.0,
+      "torso_width_H": 0.19421487603305784,
+      "valid": true,
+      "velocity_boundary": "backward difference",
+      "wrist_ext_L": 0.0,
+      "wrist_ext_L_H": 0.0,
+      "wrist_ext_R": 3.5,
+      "wrist_ext_R_H": 0.014462809917355372
+    },
+    {
+      "H": 242,
+      "feet_merged": false,
+      "foot_L_velocity_x": 0.5,
+      "foot_L_x": 290.0,
+      "foot_L_x_H": 1.1983471074380165,
+      "foot_L_y": 398,
+      "foot_L_y_H": 1.6446280991735538,
+      "foot_R_velocity_x": -12.0,
+      "foot_R_x": 206.0,
+      "foot_R_x_H": 0.8512396694214877,
+      "foot_R_y": 400,
+      "foot_R_y_H": 1.6528925619834711,
+      "foot_components": 2,
+      "foot_identity": "initial image x order; tracked over time, not anatomical",
+      "grid_shift_xy": [
+        0,
+        0
+      ],
+      "ground_line_y": 402,
+      "ground_line_y_H": 1.6611570247933884,
+      "head_box_xyxy": [
+        233,
+        161,
+        292,
+        190
+      ],
+      "head_cx": 262.0,
+      "head_cx_H": 1.0826446280991735,
+      "head_cx_mask_lineage": 256.514165792235,
+      "head_cy": 175.0,
+      "head_cy_H": 0.7231404958677686,
+      "head_ncc": 0.5192150442379958,
+      "head_ref_y": 176,
+      "head_ref_y_H": 0.7272727272727273,
+      "head_search_limit": false,
+      "head_template_frame": 11,
+      "head_top_mask_y": 159,
+      "head_top_mask_y_H": 0.6570247933884298,
+      "head_top_thin": false,
+      "head_top_y": 161.0,
+      "head_top_y_H": 0.6652892561983471,
+      "head_track_method": "fixed head patch NCC; +/-25%H previous position",
+      "head_track_valid": true,
+      "identity_ambiguous": false,
+      "mask_area": 10321,
+      "mask_area_per_H": 42.64876033057851,
+      "planted": {
+        "L": false,
+        "R": false
+      },
+      "planted_L": false,
+      "planted_R": false,
+      "planted_ground_only_lineage": {
+        "L": false,
+        "R": true
+      },
+      "sole_line_y": 400,
+      "sole_line_y_H": 1.6528925619834711,
+      "torso_cx": 255.0,
+      "torso_cx_H": 1.0537190082644627,
+      "torso_width": 47.0,
+      "torso_width_H": 0.19421487603305784,
+      "valid": true,
+      "velocity_boundary": "backward difference",
+      "wrist_ext_L": 0.0,
+      "wrist_ext_L_H": 0.0,
+      "wrist_ext_R": 3.5,
+      "wrist_ext_R_H": 0.014462809917355372
+    },
+    {
+      "H": 242,
+      "feet_merged": true,
+      "foot_L_velocity_x": -14.0,
+      "foot_L_x": 276.0,
+      "foot_L_x_H": 1.140495867768595,
+      "foot_L_y": 398,
+      "foot_L_y_H": 1.6446280991735538,
+      "foot_R_velocity_x": null,
+      "foot_R_x": null,
+      "foot_R_x_H": null,
+      "foot_R_y": null,
+      "foot_R_y_H": null,
+      "foot_components": 1,
+      "foot_identity": "initial image x order; tracked over time, not anatomical",
+      "grid_shift_xy": [
+        0,
+        0
+      ],
+      "ground_line_y": 402,
+      "ground_line_y_H": 1.6611570247933884,
+      "head_box_xyxy": [
+        233,
+        158,
+        292,
+        187
+      ],
+      "head_cx": 262.0,
+      "head_cx_H": 1.0826446280991735,
+      "head_cx_mask_lineage": 255.99367088607596,
+      "head_cy": 172.0,
+      "head_cy_H": 0.7107438016528925,
+      "head_ncc": 0.5251157144195655,
+      "head_ref_y": 175,
+      "head_ref_y_H": 0.7231404958677686,
+      "head_search_limit": false,
+      "head_template_frame": 11,
+      "head_top_mask_y": 157,
+      "head_top_mask_y_H": 0.6487603305785123,
+      "head_top_thin": false,
+      "head_top_y": 158.0,
+      "head_top_y_H": 0.6528925619834711,
+      "head_track_method": "fixed head patch NCC; +/-25%H previous position",
+      "head_track_valid": true,
+      "identity_ambiguous": true,
+      "mask_area": 9591,
+      "mask_area_per_H": 39.63223140495868,
+      "planted": {
+        "L": false,
+        "R": null
+      },
+      "planted_L": false,
+      "planted_R": null,
+      "planted_ground_only_lineage": {
+        "L": false,
+        "R": null
+      },
+      "sole_line_y": 398,
+      "sole_line_y_H": 1.6446280991735538,
+      "torso_cx": 255.5,
+      "torso_cx_H": 1.0557851239669422,
+      "torso_width": 45.0,
+      "torso_width_H": 0.1859504132231405,
+      "valid": true,
+      "velocity_boundary": "backward difference",
+      "wrist_ext_L": 0.0,
+      "wrist_ext_L_H": 0.0,
+      "wrist_ext_R": 3.0,
+      "wrist_ext_R_H": 0.012396694214876033
+    },
+    {
+      "H": 243,
+      "feet_merged": true,
+      "foot_L_velocity_x": -15.0,
+      "foot_L_x": 261.0,
+      "foot_L_x_H": 1.0740740740740742,
+      "foot_L_y": 398,
+      "foot_L_y_H": 1.6378600823045268,
+      "foot_R_velocity_x": null,
+      "foot_R_x": null,
+      "foot_R_x_H": null,
+      "foot_R_y": null,
+      "foot_R_y_H": null,
+      "foot_components": 1,
+      "foot_identity": "initial image x order; tracked over time, not anatomical",
+      "grid_shift_xy": [
+        0,
+        0
+      ],
+      "ground_line_y": 402,
+      "ground_line_y_H": 1.654320987654321,
+      "head_box_xyxy": [
+        230,
+        158,
+        289,
+        187
+      ],
+      "head_cx": 259.0,
+      "head_cx_H": 1.0658436213991769,
+      "head_cx_mask_lineage": 254.25796505652622,
+      "head_cy": 172.0,
+      "head_cy_H": 0.7078189300411523,
+      "head_ncc": 0.5914101997641691,
+      "head_ref_y": 174,
+      "head_ref_y_H": 0.7160493827160493,
+      "head_search_limit": false,
+      "head_template_frame": 11,
+      "head_top_mask_y": 156,
+      "head_top_mask_y_H": 0.6419753086419753,
+      "head_top_thin": false,
+      "head_top_y": 158.0,
+      "head_top_y_H": 0.6502057613168725,
+      "head_track_method": "fixed head patch NCC; +/-25%H previous position",
+      "head_track_valid": true,
+      "identity_ambiguous": true,
+      "mask_area": 9405,
+      "mask_area_per_H": 38.7037037037037,
+      "planted": {
+        "L": false,
+        "R": null
+      },
+      "planted_L": false,
+      "planted_R": null,
+      "planted_ground_only_lineage": {
+        "L": false,
+        "R": null
+      },
+      "sole_line_y": 398,
+      "sole_line_y_H": 1.6378600823045268,
+      "torso_cx": 252.5,
+      "torso_cx_H": 1.0390946502057614,
+      "torso_width": 45.0,
+      "torso_width_H": 0.18518518518518517,
+      "valid": true,
+      "velocity_boundary": "backward difference",
+      "wrist_ext_L": 0.0,
+      "wrist_ext_L_H": 0.0,
+      "wrist_ext_R": 5.0,
+      "wrist_ext_R_H": 0.0205761316872428
+    },
+    {
+      "H": 243,
+      "feet_merged": true,
+      "foot_L_velocity_x": -8.0,
+      "foot_L_x": 253.0,
+      "foot_L_x_H": 1.0411522633744856,
+      "foot_L_y": 398,
+      "foot_L_y_H": 1.6378600823045268,
+      "foot_R_velocity_x": null,
+      "foot_R_x": null,
+      "foot_R_x_H": null,
+      "foot_R_y": null,
+      "foot_R_y_H": null,
+      "foot_components": 1,
+      "foot_identity": "initial image x order; tracked over time, not anatomical",
+      "grid_shift_xy": [
+        0,
+        0
+      ],
+      "ground_line_y": 402,
+      "ground_line_y_H": 1.654320987654321,
+      "head_box_xyxy": [
+        229,
+        157,
+        288,
+        186
+      ],
+      "head_cx": 258.0,
+      "head_cx_H": 1.0617283950617284,
+      "head_cx_mask_lineage": 253.24900398406373,
+      "head_cy": 171.0,
+      "head_cy_H": 0.7037037037037037,
+      "head_ncc": 0.6395502976875123,
+      "head_ref_y": 173,
+      "head_ref_y_H": 0.7119341563786008,
+      "head_search_limit": false,
+      "head_template_frame": 11,
+      "head_top_mask_y": 156,
+      "head_top_mask_y_H": 0.6419753086419753,
+      "head_top_thin": false,
+      "head_top_y": 157.0,
+      "head_top_y_H": 0.6460905349794238,
+      "head_track_method": "fixed head patch NCC; +/-25%H previous position",
+      "head_track_valid": true,
+      "identity_ambiguous": true,
+      "mask_area": 10274,
+      "mask_area_per_H": 42.2798353909465,
+      "planted": {
+        "L": false,
+        "R": null
+      },
+      "planted_L": false,
+      "planted_R": null,
+      "planted_ground_only_lineage": {
+        "L": false,
+        "R": null
+      },
+      "sole_line_y": 398,
+      "sole_line_y_H": 1.6378600823045268,
+      "torso_cx": 252.5,
+      "torso_cx_H": 1.0390946502057614,
+      "torso_width": 49.0,
+      "torso_width_H": 0.20164609053497942,
+      "valid": true,
+      "velocity_boundary": "backward difference",
+      "wrist_ext_L": 0.0,
+      "wrist_ext_L_H": 0.0,
+      "wrist_ext_R": 3.0,
+      "wrist_ext_R_H": 0.012345679012345678
+    },
+    {
+      "H": 240,
+      "feet_merged": false,
+      "foot_L_velocity_x": 30.0,
+      "foot_L_x": 283.0,
+      "foot_L_x_H": 1.1791666666666667,
+      "foot_L_y": 397,
+      "foot_L_y_H": 1.6541666666666666,
+      "foot_R_velocity_x": null,
+      "foot_R_x": 234.5,
+      "foot_R_x_H": 0.9770833333333333,
+      "foot_R_y": 397,
+      "foot_R_y_H": 1.6541666666666666,
+      "foot_components": 2,
+      "foot_identity": "initial image x order; tracked over time, not anatomical",
+      "grid_shift_xy": [
+        0,
+        0
+      ],
+      "ground_line_y": 402,
+      "ground_line_y_H": 1.675,
+      "head_box_xyxy": [
+        227,
+        158,
+        286,
+        187
+      ],
+      "head_cx": 256.0,
+      "head_cx_H": 1.0666666666666667,
+      "head_cx_mask_lineage": 251.65677546983184,
+      "head_cy": 172.0,
+      "head_cy_H": 0.7166666666666667,
+      "head_ncc": 1.0,
+      "head_ref_y": 172,
+      "head_ref_y_H": 0.7166666666666667,
+      "head_search_limit": false,
+      "head_template_frame": 11,
+      "head_top_mask_y": 158,
+      "head_top_mask_y_H": 0.6583333333333333,
+      "head_top_thin": false,
+      "head_top_y": 158.0,
+      "head_top_y_H": 0.6583333333333333,
+      "head_track_method": "fixed head patch NCC; +/-25%H previous position",
+      "head_track_valid": true,
+      "identity_ambiguous": false,
+      "mask_area": 10995,
+      "mask_area_per_H": 45.8125,
+      "planted": {
+        "L": false,
+        "R": null
+      },
+      "planted_L": false,
+      "planted_R": null,
+      "planted_ground_only_lineage": {
+        "L": false,
+        "R": false
+      },
+      "sole_line_y": 397,
+      "sole_line_y_H": 1.6541666666666666,
+      "torso_cx": 248.0,
+      "torso_cx_H": 1.0333333333333334,
+      "torso_width": 53.0,
+      "torso_width_H": 0.22083333333333333,
+      "valid": true,
+      "velocity_boundary": "backward difference",
+      "wrist_ext_L": 0.0,
+      "wrist_ext_L_H": 0.0,
+      "wrist_ext_R": 10.5,
+      "wrist_ext_R_H": 0.04375
+    }
+  ],
+  "mask_H_cv": 0.011335012954051264,
+  "mask_H_px": [
+    240,
+    245,
+    247,
+    248,
+    248,
+    246,
+    242,
+    242,
+    242,
+    243,
+    243,
+    240
+  ],
+  "mask_area_px": [
+    11159,
+    11101,
+    10133,
+    9913,
+    10353,
+    10559,
+    10475,
+    10321,
+    9591,
+    9405,
+    10274,
+    10995
+  ],
+  "mask_estimate": {
+    "H_median": 243.0,
+    "W1": 0.03292181069958848,
+    "W1_sanity_1_5_pct_H": true,
+    "W2": {
+      "coordinate": "Cartesian up; negative image y",
+      "max": [
+        {
+          "frame": 10,
+          "phase": null
+        }
+      ],
+      "min": [
+        {
+          "frame": 0,
+          "phase": null
+        }
+      ]
+    },
+    "W3a": 0.6193301984553514,
+    "W3b": 0.546875,
+    "W3c": 4,
+    "W4": 2,
+    "W5": {
+      "L": 0.037037037037037035,
+      "R": 0.06172839506172839
+    },
+    "W6": null,
+    "W6_per_arm": {
+      "L": null,
+      "R": null
+    },
+    "contact_frames": [],
+    "head_mask_bob_lineage": {
+      "W1": 0.0205761316872428,
+      "W2": {
+        "coordinate": "Cartesian up; negative image y",
+        "max": [
+          {
+            "frame": 3,
+            "phase": null
+          },
+          {
+            "frame": 4,
+            "phase": null
+          }
+        ],
+        "min": [
+          {
+            "frame": 0,
+            "phase": null
+          },
+          {
+            "frame": 6,
+            "phase": null
+          }
+        ]
+      },
+      "W4": 2,
+      "minima_frames": [
+        0,
+        6
+      ]
+    },
+    "head_ref_bob": {
+      "W1": 0.03292181069958848,
+      "W2": {
+        "coordinate": "Cartesian up; negative image y",
+        "max": [
+          {
+            "frame": 11,
+            "phase": null
+          }
+        ],
+        "min": [
+          {
+            "frame": 5,
+            "phase": null
+          }
+        ]
+      },
+      "W4": 2,
+      "minima_frames": [
+        1,
+        5
+      ]
+    },
+    "head_track_flagged_frames": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "identity_note": "projected track opposition, not independently established anatomical same-side identity",
+    "minima_frames": [
+      0,
+      6
+    ],
+    "projection_diagnostics": {
+      "W5": {
+        "L": 0.037037037037037035,
+        "R": 0.06172839506172839
+      },
+      "W6": null,
+      "W6_per_arm": {
+        "L": null,
+        "R": null
+      },
+      "identity_note": "projected track opposition, not independently established anatomical same-side identity",
+      "sole_scroll": {
+        "L": {
+          "delta_px_per_frame": [
+            null,
+            -12.0,
+            null,
+            null,
+            null,
+            null,
+            7.5,
+            0.5,
+            -14.0,
+            -15.0,
+            -8.0,
+            30.0
+          ],
+          "mean_scroll_px_per_frame": -1.5714285714285714,
+          "observed_velocity_frames": 7,
+          "swing_x_px": [
+            218.0,
+            206.0,
+            null,
+            null,
+            null,
+            null,
+            289.5,
+            290.0,
+            276.0,
+            261.0,
+            253.0,
+            283.0
+          ]
+        },
+        "R": {
+          "delta_px_per_frame": [
+            null,
+            null,
+            -13.0,
+            4.0,
+            -30.0,
+            -16.5,
+            -16.5,
+            -12.0,
+            null,
+            null,
+            null,
+            null
+          ],
+          "mean_scroll_px_per_frame": -14.0,
+          "observed_velocity_frames": 6,
+          "swing_x_px": [
+            null,
+            null,
+            277.0,
+            281.0,
+            251.0,
+            234.5,
+            218.0,
+            206.0,
+            null,
+            null,
+            null,
+            null
+          ]
+        },
+        "estimator": "backward velocity on observed non-planted frames; missing tracks and seam excluded",
+        "mean_absolute_speed_px_per_frame": 13.76923076923077,
+        "mean_scroll_px_per_frame": -7.3076923076923075,
+        "planted_scroll_lineage": {
+          "L": {
+            "delta_px_per_frame": [
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null
+            ],
+            "mean_scroll_px_per_frame": null,
+            "planted_x_px": [
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null
+            ],
+            "slip_px_per_frame": [
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null
+            ],
+            "slip_rms_px_per_frame": null
+          },
+          "R": {
+            "delta_px_per_frame": [
+              0.0,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null
+            ],
+            "mean_scroll_px_per_frame": 0.0,
+            "planted_x_px": [
+              290.0,
+              290.0,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null
+            ],
+            "slip_px_per_frame": [
+              0.0,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null
+            ],
+            "slip_rms_px_per_frame": 0.0
+          },
+          "mean_scroll_px_per_frame": 0.0,
+          "slip_rms_px_per_frame": 0.0
+        }
+      },
+      "valid_frames_per_arm": {
+        "L": 10,
+        "R": 9
+      }
+    },
+    "signed_area_px2": 35.0,
+    "sole_scroll": {
+      "L": {
+        "delta_px_per_frame": [
+          null,
+          -12.0,
+          null,
+          null,
+          null,
+          null,
+          7.5,
+          0.5,
+          -14.0,
+          -15.0,
+          -8.0,
+          30.0
+        ],
+        "mean_scroll_px_per_frame": -1.5714285714285714,
+        "observed_velocity_frames": 7,
+        "swing_x_px": [
+          218.0,
+          206.0,
+          null,
+          null,
+          null,
+          null,
+          289.5,
+          290.0,
+          276.0,
+          261.0,
+          253.0,
+          283.0
+        ]
+      },
+      "R": {
+        "delta_px_per_frame": [
+          null,
+          null,
+          -13.0,
+          4.0,
+          -30.0,
+          -16.5,
+          -16.5,
+          -12.0,
+          null,
+          null,
+          null,
+          null
+        ],
+        "mean_scroll_px_per_frame": -14.0,
+        "observed_velocity_frames": 6,
+        "swing_x_px": [
+          null,
+          null,
+          277.0,
+          281.0,
+          251.0,
+          234.5,
+          218.0,
+          206.0,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "estimator": "backward velocity on observed non-planted frames; missing tracks and seam excluded",
+      "mean_absolute_speed_px_per_frame": 13.76923076923077,
+      "mean_scroll_px_per_frame": -7.3076923076923075,
+      "planted_scroll_lineage": {
+        "L": {
+          "delta_px_per_frame": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          "mean_scroll_px_per_frame": null,
+          "planted_x_px": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          "slip_px_per_frame": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          "slip_rms_px_per_frame": null
+        },
+        "R": {
+          "delta_px_per_frame": [
+            0.0,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          "mean_scroll_px_per_frame": 0.0,
+          "planted_x_px": [
+            290.0,
+            290.0,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          "slip_px_per_frame": [
+            0.0,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          "slip_rms_px_per_frame": 0.0
+        },
+        "mean_scroll_px_per_frame": 0.0,
+        "slip_rms_px_per_frame": 0.0
+      }
+    },
+    "valid_frames_per_arm": {
+      "L": 10,
+      "R": 9
+    }
+  },
+  "mask_health": [
+    {
+      "H": 240,
+      "grid_or_floor_contact": false,
+      "grid_shift_xy": [
+        0,
+        0
+      ],
+      "mask_area": 11159,
+      "mask_area_per_H": 46.49583333333333,
+      "mask_method": "A",
+      "method": "frozen matte alpha >=128"
+    },
+    {
+      "H": 245,
+      "grid_or_floor_contact": false,
+      "grid_shift_xy": [
+        0,
+        0
+      ],
+      "mask_area": 11101,
+      "mask_area_per_H": 45.310204081632655,
+      "mask_method": "A",
+      "method": "frozen matte alpha >=128"
+    },
+    {
+      "H": 247,
+      "grid_or_floor_contact": false,
+      "grid_shift_xy": [
+        0,
+        0
+      ],
+      "mask_area": 10133,
+      "mask_area_per_H": 41.02429149797571,
+      "mask_method": "A",
+      "method": "frozen matte alpha >=128"
+    },
+    {
+      "H": 248,
+      "grid_or_floor_contact": false,
+      "grid_shift_xy": [
+        0,
+        0
+      ],
+      "mask_area": 9913,
+      "mask_area_per_H": 39.971774193548384,
+      "mask_method": "A",
+      "method": "frozen matte alpha >=128"
+    },
+    {
+      "H": 248,
+      "grid_or_floor_contact": false,
+      "grid_shift_xy": [
+        0,
+        0
+      ],
+      "mask_area": 10353,
+      "mask_area_per_H": 41.74596774193548,
+      "mask_method": "A",
+      "method": "frozen matte alpha >=128"
+    },
+    {
+      "H": 246,
+      "grid_or_floor_contact": false,
+      "grid_shift_xy": [
+        0,
+        0
+      ],
+      "mask_area": 10559,
+      "mask_area_per_H": 42.922764227642276,
+      "mask_method": "A",
+      "method": "frozen matte alpha >=128"
+    },
+    {
+      "H": 242,
+      "grid_or_floor_contact": false,
+      "grid_shift_xy": [
+        0,
+        0
+      ],
+      "mask_area": 10475,
+      "mask_area_per_H": 43.28512396694215,
+      "mask_method": "A",
+      "method": "frozen matte alpha >=128"
+    },
+    {
+      "H": 242,
+      "grid_or_floor_contact": false,
+      "grid_shift_xy": [
+        0,
+        0
+      ],
+      "mask_area": 10321,
+      "mask_area_per_H": 42.64876033057851,
+      "mask_method": "A",
+      "method": "frozen matte alpha >=128"
+    },
+    {
+      "H": 242,
+      "grid_or_floor_contact": false,
+      "grid_shift_xy": [
+        0,
+        0
+      ],
+      "mask_area": 9591,
+      "mask_area_per_H": 39.63223140495868,
+      "mask_method": "A",
+      "method": "frozen matte alpha >=128"
+    },
+    {
+      "H": 243,
+      "grid_or_floor_contact": false,
+      "grid_shift_xy": [
+        0,
+        0
+      ],
+      "mask_area": 9405,
+      "mask_area_per_H": 38.7037037037037,
+      "mask_method": "A",
+      "method": "frozen matte alpha >=128"
+    },
+    {
+      "H": 243,
+      "grid_or_floor_contact": false,
+      "grid_shift_xy": [
+        0,
+        0
+      ],
+      "mask_area": 10274,
+      "mask_area_per_H": 42.2798353909465,
+      "mask_method": "A",
+      "method": "frozen matte alpha >=128"
+    },
+    {
+      "H": 240,
+      "grid_or_floor_contact": false,
+      "grid_shift_xy": [
+        0,
+        0
+      ],
+      "mask_area": 10995,
+      "mask_area_per_H": 45.8125,
+      "mask_method": "A",
+      "method": "frozen matte alpha >=128"
+    }
+  ],
+  "mask_params": {
+    "alpha_threshold": 128,
+    "broad_row_fraction": 0.78,
+    "close_size": 3,
+    "component": "largest 8-connected",
+    "grid_open_size": 5,
+    "ground_tolerance_px": 2,
+    "mask_method": "A",
+    "median_size": 7,
+    "polarity": "opposite inset-border majority",
+    "preclose_size": 7
+  },
+  "mask_stability": 0.05144986320576609,
+  "mode": "ours",
+  "notes": [
+    "H normalization uses clip median inclusive silhouette height; no per-frame rescaling",
+    "Tracked head NCC drives W1/W2/W4; raw mask top retained under lineage names",
+    "W1 outside 1-5%H flags an unreliable head track, not a veridical bob measurement",
+    "W5 is a silhouette extent at 0.45H, not an identified wrist",
+    "merged/hidden feet; identity and contact phase may be unreliable"
+  ],
+  "phase_table": [
+    {
+      "boundary_contact": false,
+      "contact": false,
+      "contact_sides": [],
+      "frame": 0,
+      "lead_track": null,
+      "phase": null,
+      "planted": {
+        "L": false,
+        "R": true
+      },
+      "printed_phase": 1,
+      "reason": "expected two contact events; observed 0"
+    },
+    {
+      "boundary_contact": false,
+      "contact": false,
+      "contact_sides": [],
+      "frame": 1,
+      "lead_track": null,
+      "phase": null,
+      "planted": {
+        "L": false,
+        "R": true
+      },
+      "printed_phase": 2,
+      "reason": "expected two contact events; observed 0"
+    },
+    {
+      "boundary_contact": false,
+      "contact": false,
+      "contact_sides": [],
+      "frame": 2,
+      "lead_track": null,
+      "phase": null,
+      "planted": {
+        "L": null,
+        "R": false
+      },
+      "printed_phase": 3,
+      "reason": "expected two contact events; observed 0"
+    },
+    {
+      "boundary_contact": false,
+      "contact": false,
+      "contact_sides": [],
+      "frame": 3,
+      "lead_track": null,
+      "phase": null,
+      "planted": {
+        "L": null,
+        "R": false
+      },
+      "printed_phase": 4,
+      "reason": "expected two contact events; observed 0"
+    },
+    {
+      "boundary_contact": false,
+      "contact": false,
+      "contact_sides": [],
+      "frame": 4,
+      "lead_track": null,
+      "phase": null,
+      "planted": {
+        "L": null,
+        "R": false
+      },
+      "printed_phase": 5,
+      "reason": "expected two contact events; observed 0"
+    },
+    {
+      "boundary_contact": false,
+      "contact": false,
+      "contact_sides": [],
+      "frame": 5,
+      "lead_track": null,
+      "phase": null,
+      "planted": {
+        "L": null,
+        "R": false
+      },
+      "printed_phase": 6,
+      "reason": "expected two contact events; observed 0"
+    },
+    {
+      "boundary_contact": false,
+      "contact": false,
+      "contact_sides": [],
+      "frame": 6,
+      "lead_track": null,
+      "phase": null,
+      "planted": {
+        "L": false,
+        "R": false
+      },
+      "printed_phase": 7,
+      "reason": "expected two contact events; observed 0"
+    },
+    {
+      "boundary_contact": false,
+      "contact": false,
+      "contact_sides": [],
+      "frame": 7,
+      "lead_track": null,
+      "phase": null,
+      "planted": {
+        "L": false,
+        "R": false
+      },
+      "printed_phase": 8,
+      "reason": "expected two contact events; observed 0"
+    },
+    {
+      "boundary_contact": false,
+      "contact": false,
+      "contact_sides": [],
+      "frame": 8,
+      "lead_track": null,
+      "phase": null,
+      "planted": {
+        "L": false,
+        "R": null
+      },
+      "printed_phase": 9,
+      "reason": "expected two contact events; observed 0"
+    },
+    {
+      "boundary_contact": false,
+      "contact": false,
+      "contact_sides": [],
+      "frame": 9,
+      "lead_track": null,
+      "phase": null,
+      "planted": {
+        "L": false,
+        "R": null
+      },
+      "printed_phase": 10,
+      "reason": "expected two contact events; observed 0"
+    },
+    {
+      "boundary_contact": false,
+      "contact": false,
+      "contact_sides": [],
+      "frame": 10,
+      "lead_track": null,
+      "phase": null,
+      "planted": {
+        "L": false,
+        "R": null
+      },
+      "printed_phase": 11,
+      "reason": "expected two contact events; observed 0"
+    },
+    {
+      "boundary_contact": false,
+      "contact": false,
+      "contact_sides": [],
+      "frame": 11,
+      "lead_track": null,
+      "phase": null,
+      "planted": {
+        "L": false,
+        "R": null
+      },
+      "printed_phase": 12,
+      "reason": "expected two contact events; observed 0"
+    }
+  ],
+  "provenance": {
+    "fps": 12,
+    "frame_names": [
+      "walk_E_00.png",
+      "walk_E_01.png",
+      "walk_E_02.png",
+      "walk_E_03.png",
+      "walk_E_04.png",
+      "walk_E_05.png",
+      "walk_E_06.png",
+      "walk_E_07.png",
+      "walk_E_08.png",
+      "walk_E_09.png",
+      "walk_E_10.png",
+      "walk_E_11.png"
+    ],
+    "frames": 12,
+    "invocation": "frozen curves/bands/_plots/_write APIs; CLI --ours ignores --out and was not executed",
+    "k_lat": 0.5,
+    "k_vert": 1.25,
+    "label": "walk_E_K3p",
+    "mask_params": {
+      "alpha_threshold": 128,
+      "broad_row_fraction": 0.78,
+      "close_size": 3,
+      "component": "largest 8-connected",
+      "grid_open_size": 5,
+      "ground_tolerance_px": 2,
+      "mask_method": "A",
+      "median_size": 7,
+      "polarity": "opposite inset-border majority",
+      "preclose_size": 7
+    },
+    "pattern": "*.png",
+    "source": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-xv-cut-03/frames/walk/E",
+    "source_note": "own registered sprites"
+  },
+  "reason": null,
+  "results": [
+    {
+      "evidence": [
+        "out/plots/walk_E_K3p_mask_check.png",
+        "out/plots/walk_E_K3p_curves.png"
+      ],
+      "id": "W1_floor",
+      "notes": "no committed floor",
+      "op": ">=",
+      "passed": null,
+      "subject": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-xv-cut-03/frames/walk/E",
+      "threshold": null,
+      "unit": "fraction_H",
+      "value": 0.03292181069958848
+    },
+    {
+      "evidence": [
+        "out/plots/walk_E_K3p_mask_check.png",
+        "out/plots/walk_E_K3p_curves.png"
+      ],
+      "id": "W1",
+      "notes": "SPEC descriptive screen; not a shipping verdict",
+      "op": "<=",
+      "passed": true,
+      "subject": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-xv-cut-03/frames/walk/E",
+      "threshold": 0.07,
+      "unit": "",
+      "value": 0.03292181069958848
+    },
+    {
+      "evidence": [
+        "out/plots/walk_E_K3p_mask_check.png",
+        "out/plots/walk_E_K3p_curves.png"
+      ],
+      "id": "W3a",
+      "notes": "SPEC descriptive screen; not a shipping verdict",
+      "op": "<=",
+      "passed": false,
+      "subject": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-xv-cut-03/frames/walk/E",
+      "threshold": 0.35,
+      "unit": "",
+      "value": 0.6193301984553514
+    },
+    {
+      "evidence": [
+        "out/plots/walk_E_K3p_mask_check.png",
+        "out/plots/walk_E_K3p_curves.png"
+      ],
+      "id": "W4",
+      "notes": "SPEC descriptive screen; not a shipping verdict",
+      "op": "==",
+      "passed": true,
+      "subject": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-xv-cut-03/frames/walk/E",
+      "threshold": 2,
+      "unit": "",
+      "value": 2
+    },
+    {
+      "evidence": [
+        "out/plots/walk_E_K3p_mask_check.png",
+        "out/plots/walk_E_K3p_curves.png"
+      ],
+      "id": "W6",
+      "notes": "SPEC descriptive screen; not a shipping verdict",
+      "op": ">=",
+      "passed": null,
+      "subject": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-xv-cut-03/frames/walk/E",
+      "threshold": 0.75,
+      "unit": "",
+      "value": null
+    }
+  ],
+  "stable": true,
+  "summary": {
+    "H_median": 243.0,
+    "W1": 0.03292181069958848,
+    "W1_sanity_1_5_pct_H": true,
+    "W2": {
+      "coordinate": "Cartesian up; negative image y",
+      "max": [
+        {
+          "frame": 10,
+          "phase": null
+        }
+      ],
+      "min": [
+        {
+          "frame": 0,
+          "phase": null
+        }
+      ]
+    },
+    "W3a": 0.6193301984553514,
+    "W3b": 0.546875,
+    "W3c": 4,
+    "W4": 2,
+    "W5": {
+      "L": 0.037037037037037035,
+      "R": 0.06172839506172839
+    },
+    "W6": null,
+    "W6_per_arm": {
+      "L": null,
+      "R": null
+    },
+    "contact_frames": [],
+    "head_mask_bob_lineage": {
+      "W1": 0.0205761316872428,
+      "W2": {
+        "coordinate": "Cartesian up; negative image y",
+        "max": [
+          {
+            "frame": 3,
+            "phase": null
+          },
+          {
+            "frame": 4,
+            "phase": null
+          }
+        ],
+        "min": [
+          {
+            "frame": 0,
+            "phase": null
+          },
+          {
+            "frame": 6,
+            "phase": null
+          }
+        ]
+      },
+      "W4": 2,
+      "minima_frames": [
+        0,
+        6
+      ]
+    },
+    "head_ref_bob": {
+      "W1": 0.03292181069958848,
+      "W2": {
+        "coordinate": "Cartesian up; negative image y",
+        "max": [
+          {
+            "frame": 11,
+            "phase": null
+          }
+        ],
+        "min": [
+          {
+            "frame": 5,
+            "phase": null
+          }
+        ]
+      },
+      "W4": 2,
+      "minima_frames": [
+        1,
+        5
+      ]
+    },
+    "head_track_flagged_frames": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "identity_note": "projected track opposition, not independently established anatomical same-side identity",
+    "minima_frames": [
+      0,
+      6
+    ],
+    "projection_diagnostics": {
+      "W5": {
+        "L": 0.037037037037037035,
+        "R": 0.06172839506172839
+      },
+      "W6": null,
+      "W6_per_arm": {
+        "L": null,
+        "R": null
+      },
+      "identity_note": "projected track opposition, not independently established anatomical same-side identity",
+      "sole_scroll": {
+        "L": {
+          "delta_px_per_frame": [
+            null,
+            -12.0,
+            null,
+            null,
+            null,
+            null,
+            7.5,
+            0.5,
+            -14.0,
+            -15.0,
+            -8.0,
+            30.0
+          ],
+          "mean_scroll_px_per_frame": -1.5714285714285714,
+          "observed_velocity_frames": 7,
+          "swing_x_px": [
+            218.0,
+            206.0,
+            null,
+            null,
+            null,
+            null,
+            289.5,
+            290.0,
+            276.0,
+            261.0,
+            253.0,
+            283.0
+          ]
+        },
+        "R": {
+          "delta_px_per_frame": [
+            null,
+            null,
+            -13.0,
+            4.0,
+            -30.0,
+            -16.5,
+            -16.5,
+            -12.0,
+            null,
+            null,
+            null,
+            null
+          ],
+          "mean_scroll_px_per_frame": -14.0,
+          "observed_velocity_frames": 6,
+          "swing_x_px": [
+            null,
+            null,
+            277.0,
+            281.0,
+            251.0,
+            234.5,
+            218.0,
+            206.0,
+            null,
+            null,
+            null,
+            null
+          ]
+        },
+        "estimator": "backward velocity on observed non-planted frames; missing tracks and seam excluded",
+        "mean_absolute_speed_px_per_frame": 13.76923076923077,
+        "mean_scroll_px_per_frame": -7.3076923076923075,
+        "planted_scroll_lineage": {
+          "L": {
+            "delta_px_per_frame": [
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null
+            ],
+            "mean_scroll_px_per_frame": null,
+            "planted_x_px": [
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null
+            ],
+            "slip_px_per_frame": [
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null
+            ],
+            "slip_rms_px_per_frame": null
+          },
+          "R": {
+            "delta_px_per_frame": [
+              0.0,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null
+            ],
+            "mean_scroll_px_per_frame": 0.0,
+            "planted_x_px": [
+              290.0,
+              290.0,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null
+            ],
+            "slip_px_per_frame": [
+              0.0,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null
+            ],
+            "slip_rms_px_per_frame": 0.0
+          },
+          "mean_scroll_px_per_frame": 0.0,
+          "slip_rms_px_per_frame": 0.0
+        }
+      },
+      "valid_frames_per_arm": {
+        "L": 10,
+        "R": 9
+      }
+    },
+    "signed_area_px2": 35.0,
+    "sole_scroll": {
+      "L": {
+        "delta_px_per_frame": [
+          null,
+          -12.0,
+          null,
+          null,
+          null,
+          null,
+          7.5,
+          0.5,
+          -14.0,
+          -15.0,
+          -8.0,
+          30.0
+        ],
+        "mean_scroll_px_per_frame": -1.5714285714285714,
+        "observed_velocity_frames": 7,
+        "swing_x_px": [
+          218.0,
+          206.0,
+          null,
+          null,
+          null,
+          null,
+          289.5,
+          290.0,
+          276.0,
+          261.0,
+          253.0,
+          283.0
+        ]
+      },
+      "R": {
+        "delta_px_per_frame": [
+          null,
+          null,
+          -13.0,
+          4.0,
+          -30.0,
+          -16.5,
+          -16.5,
+          -12.0,
+          null,
+          null,
+          null,
+          null
+        ],
+        "mean_scroll_px_per_frame": -14.0,
+        "observed_velocity_frames": 6,
+        "swing_x_px": [
+          null,
+          null,
+          277.0,
+          281.0,
+          251.0,
+          234.5,
+          218.0,
+          206.0,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "estimator": "backward velocity on observed non-planted frames; missing tracks and seam excluded",
+      "mean_absolute_speed_px_per_frame": 13.76923076923077,
+      "mean_scroll_px_per_frame": -7.3076923076923075,
+      "planted_scroll_lineage": {
+        "L": {
+          "delta_px_per_frame": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          "mean_scroll_px_per_frame": null,
+          "planted_x_px": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          "slip_px_per_frame": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          "slip_rms_px_per_frame": null
+        },
+        "R": {
+          "delta_px_per_frame": [
+            0.0,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          "mean_scroll_px_per_frame": 0.0,
+          "planted_x_px": [
+            290.0,
+            290.0,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          "slip_px_per_frame": [
+            0.0,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          "slip_rms_px_per_frame": 0.0
+        },
+        "mean_scroll_px_per_frame": 0.0,
+        "slip_rms_px_per_frame": 0.0
+      }
+    },
+    "valid_frames_per_arm": {
+      "L": 10,
+      "R": 9
+    }
+  },
+  "threshold": 0.25
+}

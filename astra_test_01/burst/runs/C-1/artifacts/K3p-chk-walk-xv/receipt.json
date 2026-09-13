@@ -1,0 +1,49 @@
+{
+  "task_id": "K3p-chk-walk-xv",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [],
+  "calls_used": 0,
+  "retries": [],
+  "self_report": {
+    "obeyed_invariants": true,
+    "concerns": [
+      "Oracle CLI ignores --out for --ours; used its frozen measurement and plotting functions directly to keep writes under out/.",
+      "W6 opposed counts and verdicts remain null because foot observations are missing. Staff-arm anatomy is not exposed; both role assignments are reported.",
+      "G11 pair measurements are complete; verdicts require an unsupplied cast05 reference.",
+      "L planted-scroll/slip is unavailable without consecutive observations. Slip and silhouette verdicts lack calibrated thresholds.",
+      "Oracle head tracking flags frames 0–6; both oracle and gait measurement lineages are preserved.",
+      "Committed phases already start DOWN. All cyclic W2 results are recorded without changing frame order.",
+      "Live wrapper-owned logs are excluded from the artifact hash manifest."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/checks.json",
+      "sha256": "004184a9432d5026429aa49ed46e1e7ee75ab766183528896a755e1a2ce35462"
+    },
+    {
+      "path": "out/checks_readme.txt",
+      "sha256": "3020564788c202f9be4f8fd2e00637f6b3a8656d0956085dfef95b5646e133c3"
+    },
+    {
+      "path": "out/instrument_payloads.json",
+      "sha256": "d9f7b9afd257a663d0497735319e8a076f1afa22a597d262480cfcf52015dc39"
+    },
+    {
+      "path": "out/plots/walk_E_K3p_committed_W1_curves.png",
+      "sha256": "0f97411010fa5482f5278cadadb23f379f05d38337bef467a1b9c74c0615ac29"
+    },
+    {
+      "path": "out/plots/walk_E_K3p_curves.png",
+      "sha256": "2b1a41d34f1167f965279b26190d471c2318851f5df40214078fae7a6b87c55b"
+    },
+    {
+      "path": "out/plots/walk_E_K3p_mask_check.png",
+      "sha256": "2cdb000295718ec0a420a58d2fbf65ef64d781fd8c51872911d269e47c33b567"
+    },
+    {
+      "path": "out/walk_E_K3p_measure.json",
+      "sha256": "5b3010f2ad199d1ebbad2f0c99bf4a7b09226a0428c1701553ac3f6bb1259134"
+    }
+  ]
+}

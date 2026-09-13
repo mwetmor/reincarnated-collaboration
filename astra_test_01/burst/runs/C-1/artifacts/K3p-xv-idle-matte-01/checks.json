@@ -1,0 +1,3133 @@
+[
+  {
+    "id": "matte_quality.spill",
+    "subject": "input/idle/S/idle_S_00",
+    "passed": null,
+    "value": 0.00026123301985370953,
+    "threshold": null,
+    "op": "<=",
+    "unit": "fraction",
+    "evidence": [
+      "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-xv-idle-cut-01/frames/idle/S/idle_S_00.png"
+    ],
+    "notes": "{\"metrics\": {\"subject_pixels\": 11484, \"tol\": 20}, \"reason\": \"Descriptive only; Matt's eye rules. RGBA source placeholder; source-independent spill/halo only.\"}"
+  },
+  {
+    "id": "matte_quality.edge_halo",
+    "subject": "input/idle/S/idle_S_00",
+    "passed": null,
+    "value": 0.0929047432379459,
+    "threshold": null,
+    "op": "<=",
+    "unit": "green_excess_0_255",
+    "evidence": [
+      "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-xv-idle-cut-01/frames/idle/S/idle_S_00.png"
+    ],
+    "notes": "{\"metrics\": {\"band_pixels\": 2551, \"halo_width_px\": 2}, \"reason\": \"Descriptive only; Matt's eye rules. RGBA source placeholder; source-independent spill/halo only.\"}"
+  },
+  {
+    "id": "matte_quality.direct_luminance_fringe",
+    "subject": "input/idle/S/idle_S_00",
+    "passed": null,
+    "value": 21.3481000088578,
+    "threshold": null,
+    "op": "<=",
+    "unit": "luma_0_255",
+    "evidence": [
+      "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-xv-idle-cut-01/frames/idle/S/idle_S_00.png"
+    ],
+    "notes": "{\"all_partial_alpha_pixels\": 1040, \"definition\": \"sRGB-code luma Rec.709 weights; partial band = (0<alpha<255) within two 4-connected dilation steps of alpha==255; interior = alpha==255 within two steps of this partial band.\", \"opaque_band_mean_luma\": 64.25682219114219, \"opaque_band_pixels\": 2145, \"partial_band_mean_luma\": 85.60492219999999, \"partial_band_pixels\": 1000, \"reason\": \"Descriptive only; Matt's eye rules.\"}"
+  },
+  {
+    "id": "matte_quality.alpha_area_lost",
+    "subject": "input/idle/S/idle_S_00",
+    "passed": null,
+    "value": 0.0,
+    "threshold": null,
+    "op": "<=",
+    "unit": "percent_input_alpha_mass",
+    "evidence": [
+      "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-xv-idle-cut-01/frames/idle/S/idle_S_00.png"
+    ],
+    "notes": "Alpha-weighted area=sum(alpha/255); descriptive only; Matt's eye rules."
+  },
+  {
+    "id": "matte_quality.alpha_support_area_lost",
+    "subject": "input/idle/S/idle_S_00",
+    "passed": null,
+    "value": 0.0,
+    "threshold": null,
+    "op": "<=",
+    "unit": "percent_input_nonzero_pixels",
+    "evidence": [
+      "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-xv-idle-cut-01/frames/idle/S/idle_S_00.png"
+    ],
+    "notes": "Binary area=count(alpha>0); descriptive only; Matt's eye rules."
+  },
+  {
+    "id": "matte_quality.spill",
+    "subject": "A/idle/S/idle_S_00",
+    "passed": null,
+    "value": 0.00010309278350515464,
+    "threshold": null,
+    "op": "<=",
+    "unit": "fraction",
+    "evidence": [
+      "out/A/idle_S_00.png"
+    ],
+    "notes": "{\"metrics\": {\"subject_pixels\": 9700, \"tol\": 20}, \"reason\": \"Descriptive only; Matt's eye rules. RGBA source placeholder; source-independent spill/halo only.\"}"
+  },
+  {
+    "id": "matte_quality.edge_halo",
+    "subject": "A/idle/S/idle_S_00",
+    "passed": null,
+    "value": 0.0,
+    "threshold": null,
+    "op": "<=",
+    "unit": "green_excess_0_255",
+    "evidence": [
+      "out/A/idle_S_00.png"
+    ],
+    "notes": "{\"metrics\": {\"band_pixels\": 2500, \"halo_width_px\": 2}, \"reason\": \"Descriptive only; Matt's eye rules. RGBA source placeholder; source-independent spill/halo only.\"}"
+  },
+  {
+    "id": "matte_quality.direct_luminance_fringe",
+    "subject": "A/idle/S/idle_S_00",
+    "passed": null,
+    "value": 46.73048300055156,
+    "threshold": null,
+    "op": "<=",
+    "unit": "luma_0_255",
+    "evidence": [
+      "out/A/idle_S_00.png"
+    ],
+    "notes": "{\"all_partial_alpha_pixels\": 49, \"definition\": \"sRGB-code luma Rec.709 weights; partial band = (0<alpha<255) within two 4-connected dilation steps of alpha==255; interior = alpha==255 within two steps of this partial band.\", \"opaque_band_mean_luma\": 58.904921081081085, \"opaque_band_pixels\": 185, \"partial_band_mean_luma\": 105.63540408163264, \"partial_band_pixels\": 49, \"reason\": \"Descriptive only; Matt's eye rules.\"}"
+  },
+  {
+    "id": "matte_quality.alpha_area_lost",
+    "subject": "A/idle/S/idle_S_00",
+    "passed": null,
+    "value": 12.12403953847373,
+    "threshold": null,
+    "op": "<=",
+    "unit": "percent_input_alpha_mass",
+    "evidence": [
+      "out/A/idle_S_00.png"
+    ],
+    "notes": "Alpha-weighted area=sum(alpha/255); descriptive only; Matt's eye rules."
+  },
+  {
+    "id": "matte_quality.alpha_support_area_lost",
+    "subject": "A/idle/S/idle_S_00",
+    "passed": null,
+    "value": 15.53465691396726,
+    "threshold": null,
+    "op": "<=",
+    "unit": "percent_input_nonzero_pixels",
+    "evidence": [
+      "out/A/idle_S_00.png"
+    ],
+    "notes": "Binary area=count(alpha>0); descriptive only; Matt's eye rules."
+  },
+  {
+    "id": "matte_quality.spill",
+    "subject": "B/idle/S/idle_S_00",
+    "passed": null,
+    "value": 0.0001180080245456691,
+    "threshold": null,
+    "op": "<=",
+    "unit": "fraction",
+    "evidence": [
+      "out/B/idle_S_00.png"
+    ],
+    "notes": "{\"metrics\": {\"subject_pixels\": 8474, \"tol\": 20}, \"reason\": \"Descriptive only; Matt's eye rules. RGBA source placeholder; source-independent spill/halo only.\"}"
+  },
+  {
+    "id": "matte_quality.edge_halo",
+    "subject": "B/idle/S/idle_S_00",
+    "passed": null,
+    "value": 0.0,
+    "threshold": null,
+    "op": "<=",
+    "unit": "green_excess_0_255",
+    "evidence": [
+      "out/B/idle_S_00.png"
+    ],
+    "notes": "{\"metrics\": {\"band_pixels\": 1706, \"halo_width_px\": 2}, \"reason\": \"Descriptive only; Matt's eye rules. RGBA source placeholder; source-independent spill/halo only.\"}"
+  },
+  {
+    "id": "matte_quality.direct_luminance_fringe",
+    "subject": "B/idle/S/idle_S_00",
+    "passed": null,
+    "value": 92.56799543378995,
+    "threshold": null,
+    "op": "<=",
+    "unit": "luma_0_255",
+    "evidence": [
+      "out/B/idle_S_00.png"
+    ],
+    "notes": "{\"all_partial_alpha_pixels\": 27, \"definition\": \"sRGB-code luma Rec.709 weights; partial band = (0<alpha<255) within two 4-connected dilation steps of alpha==255; interior = alpha==255 within two steps of this partial band.\", \"opaque_band_mean_luma\": 53.00587123287671, \"opaque_band_pixels\": 73, \"partial_band_mean_luma\": 145.57386666666665, \"partial_band_pixels\": 27, \"reason\": \"Descriptive only; Matt's eye rules.\"}"
+  },
+  {
+    "id": "matte_quality.alpha_area_lost",
+    "subject": "B/idle/S/idle_S_00",
+    "passed": null,
+    "value": 23.2188830370507,
+    "threshold": null,
+    "op": "<=",
+    "unit": "percent_input_alpha_mass",
+    "evidence": [
+      "out/B/idle_S_00.png"
+    ],
+    "notes": "Alpha-weighted area=sum(alpha/255); descriptive only; Matt's eye rules."
+  },
+  {
+    "id": "matte_quality.alpha_support_area_lost",
+    "subject": "B/idle/S/idle_S_00",
+    "passed": null,
+    "value": 26.210379658655526,
+    "threshold": null,
+    "op": "<=",
+    "unit": "percent_input_nonzero_pixels",
+    "evidence": [
+      "out/B/idle_S_00.png"
+    ],
+    "notes": "Binary area=count(alpha>0); descriptive only; Matt's eye rules."
+  },
+  {
+    "id": "matte_quality.spill",
+    "subject": "input/idle/S/idle_S_01",
+    "passed": null,
+    "value": 0.0,
+    "threshold": null,
+    "op": "<=",
+    "unit": "fraction",
+    "evidence": [
+      "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-xv-idle-cut-01/frames/idle/S/idle_S_01.png"
+    ],
+    "notes": "{\"metrics\": {\"subject_pixels\": 11510, \"tol\": 20}, \"reason\": \"Descriptive only; Matt's eye rules. RGBA source placeholder; source-independent spill/halo only.\"}"
+  },
+  {
+    "id": "matte_quality.edge_halo",
+    "subject": "input/idle/S/idle_S_01",
+    "passed": null,
+    "value": 0.06752537080405933,
+    "threshold": null,
+    "op": "<=",
+    "unit": "green_excess_0_255",
+    "evidence": [
+      "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-xv-idle-cut-01/frames/idle/S/idle_S_01.png"
+    ],
+    "notes": "{\"metrics\": {\"band_pixels\": 2562, \"halo_width_px\": 2}, \"reason\": \"Descriptive only; Matt's eye rules. RGBA source placeholder; source-independent spill/halo only.\"}"
+  },
+  {
+    "id": "matte_quality.direct_luminance_fringe",
+    "subject": "input/idle/S/idle_S_01",
+    "passed": null,
+    "value": 20.133078434944103,
+    "threshold": null,
+    "op": "<=",
+    "unit": "luma_0_255",
+    "evidence": [
+      "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-xv-idle-cut-01/frames/idle/S/idle_S_01.png"
+    ],
+    "notes": "{\"all_partial_alpha_pixels\": 1078, \"definition\": \"sRGB-code luma Rec.709 weights; partial band = (0<alpha<255) within two 4-connected dilation steps of alpha==255; interior = alpha==255 within two steps of this partial band.\", \"opaque_band_mean_luma\": 63.60651481481481, \"opaque_band_pixels\": 2160, \"partial_band_mean_luma\": 83.73959324975891, \"partial_band_pixels\": 1037, \"reason\": \"Descriptive only; Matt's eye rules.\"}"
+  },
+  {
+    "id": "matte_quality.alpha_area_lost",
+    "subject": "input/idle/S/idle_S_01",
+    "passed": null,
+    "value": 0.0,
+    "threshold": null,
+    "op": "<=",
+    "unit": "percent_input_alpha_mass",
+    "evidence": [
+      "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-xv-idle-cut-01/frames/idle/S/idle_S_01.png"
+    ],
+    "notes": "Alpha-weighted area=sum(alpha/255); descriptive only; Matt's eye rules."
+  },
+  {
+    "id": "matte_quality.alpha_support_area_lost",
+    "subject": "input/idle/S/idle_S_01",
+    "passed": null,
+    "value": 0.0,
+    "threshold": null,
+    "op": "<=",
+    "unit": "percent_input_nonzero_pixels",
+    "evidence": [
+      "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-xv-idle-cut-01/frames/idle/S/idle_S_01.png"
+    ],
+    "notes": "Binary area=count(alpha>0); descriptive only; Matt's eye rules."
+  },
+  {
+    "id": "matte_quality.spill",
+    "subject": "A/idle/S/idle_S_01",
+    "passed": null,
+    "value": 0.0,
+    "threshold": null,
+    "op": "<=",
+    "unit": "fraction",
+    "evidence": [
+      "out/A/idle_S_01.png"
+    ],
+    "notes": "{\"metrics\": {\"subject_pixels\": 9715, \"tol\": 20}, \"reason\": \"Descriptive only; Matt's eye rules. RGBA source placeholder; source-independent spill/halo only.\"}"
+  },
+  {
+    "id": "matte_quality.edge_halo",
+    "subject": "A/idle/S/idle_S_01",
+    "passed": null,
+    "value": 0.0,
+    "threshold": null,
+    "op": "<=",
+    "unit": "green_excess_0_255",
+    "evidence": [
+      "out/A/idle_S_01.png"
+    ],
+    "notes": "{\"metrics\": {\"band_pixels\": 2520, \"halo_width_px\": 2}, \"reason\": \"Descriptive only; Matt's eye rules. RGBA source placeholder; source-independent spill/halo only.\"}"
+  },
+  {
+    "id": "matte_quality.direct_luminance_fringe",
+    "subject": "A/idle/S/idle_S_01",
+    "passed": null,
+    "value": 41.58286647869673,
+    "threshold": null,
+    "op": "<=",
+    "unit": "luma_0_255",
+    "evidence": [
+      "out/A/idle_S_01.png"
+    ],
+    "notes": "{\"all_partial_alpha_pixels\": 57, \"definition\": \"sRGB-code luma Rec.709 weights; partial band = (0<alpha<255) within two 4-connected dilation steps of alpha==255; interior = alpha==255 within two steps of this partial band.\", \"opaque_band_mean_luma\": 57.54941071428571, \"opaque_band_pixels\": 168, \"partial_band_mean_luma\": 99.13227719298244, \"partial_band_pixels\": 57, \"reason\": \"Descriptive only; Matt's eye rules.\"}"
+  },
+  {
+    "id": "matte_quality.alpha_area_lost",
+    "subject": "A/idle/S/idle_S_01",
+    "passed": null,
+    "value": 12.159398309519375,
+    "threshold": null,
+    "op": "<=",
+    "unit": "percent_input_alpha_mass",
+    "evidence": [
+      "out/A/idle_S_01.png"
+    ],
+    "notes": "Alpha-weighted area=sum(alpha/255); descriptive only; Matt's eye rules."
+  },
+  {
+    "id": "matte_quality.alpha_support_area_lost",
+    "subject": "A/idle/S/idle_S_01",
+    "passed": null,
+    "value": 15.595134665508258,
+    "threshold": null,
+    "op": "<=",
+    "unit": "percent_input_nonzero_pixels",
+    "evidence": [
+      "out/A/idle_S_01.png"
+    ],
+    "notes": "Binary area=count(alpha>0); descriptive only; Matt's eye rules."
+  },
+  {
+    "id": "matte_quality.spill",
+    "subject": "B/idle/S/idle_S_01",
+    "passed": null,
+    "value": 0.0,
+    "threshold": null,
+    "op": "<=",
+    "unit": "fraction",
+    "evidence": [
+      "out/B/idle_S_01.png"
+    ],
+    "notes": "{\"metrics\": {\"subject_pixels\": 8472, \"tol\": 20}, \"reason\": \"Descriptive only; Matt's eye rules. RGBA source placeholder; source-independent spill/halo only.\"}"
+  },
+  {
+    "id": "matte_quality.edge_halo",
+    "subject": "B/idle/S/idle_S_01",
+    "passed": null,
+    "value": 0.0,
+    "threshold": null,
+    "op": "<=",
+    "unit": "green_excess_0_255",
+    "evidence": [
+      "out/B/idle_S_01.png"
+    ],
+    "notes": "{\"metrics\": {\"band_pixels\": 1752, \"halo_width_px\": 2}, \"reason\": \"Descriptive only; Matt's eye rules. RGBA source placeholder; source-independent spill/halo only.\"}"
+  },
+  {
+    "id": "matte_quality.direct_luminance_fringe",
+    "subject": "B/idle/S/idle_S_01",
+    "passed": null,
+    "value": 76.52379390804599,
+    "threshold": null,
+    "op": "<=",
+    "unit": "luma_0_255",
+    "evidence": [
+      "out/B/idle_S_01.png"
+    ],
+    "notes": "{\"all_partial_alpha_pixels\": 30, \"definition\": \"sRGB-code luma Rec.709 weights; partial band = (0<alpha<255) within two 4-connected dilation steps of alpha==255; interior = alpha==255 within two steps of this partial band.\", \"opaque_band_mean_luma\": 51.73672333333333, \"opaque_band_pixels\": 60, \"partial_band_mean_luma\": 128.26051724137932, \"partial_band_pixels\": 29, \"reason\": \"Descriptive only; Matt's eye rules.\"}"
+  },
+  {
+    "id": "matte_quality.alpha_area_lost",
+    "subject": "B/idle/S/idle_S_01",
+    "passed": null,
+    "value": 23.385324925276496,
+    "threshold": null,
+    "op": "<=",
+    "unit": "percent_input_alpha_mass",
+    "evidence": [
+      "out/B/idle_S_01.png"
+    ],
+    "notes": "Alpha-weighted area=sum(alpha/255); descriptive only; Matt's eye rules."
+  },
+  {
+    "id": "matte_quality.alpha_support_area_lost",
+    "subject": "B/idle/S/idle_S_01",
+    "passed": null,
+    "value": 26.39443961772372,
+    "threshold": null,
+    "op": "<=",
+    "unit": "percent_input_nonzero_pixels",
+    "evidence": [
+      "out/B/idle_S_01.png"
+    ],
+    "notes": "Binary area=count(alpha>0); descriptive only; Matt's eye rules."
+  },
+  {
+    "id": "matte_quality.spill",
+    "subject": "input/idle/S/idle_S_02",
+    "passed": null,
+    "value": 8.678295582747549e-05,
+    "threshold": null,
+    "op": "<=",
+    "unit": "fraction",
+    "evidence": [
+      "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-xv-idle-cut-01/frames/idle/S/idle_S_02.png"
+    ],
+    "notes": "{\"metrics\": {\"subject_pixels\": 11523, \"tol\": 20}, \"reason\": \"Descriptive only; Matt's eye rules. RGBA source placeholder; source-independent spill/halo only.\"}"
+  },
+  {
+    "id": "matte_quality.edge_halo",
+    "subject": "input/idle/S/idle_S_02",
+    "passed": null,
+    "value": 0.10007757951900698,
+    "threshold": null,
+    "op": "<=",
+    "unit": "green_excess_0_255",
+    "evidence": [
+      "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-xv-idle-cut-01/frames/idle/S/idle_S_02.png"
+    ],
+    "notes": "{\"metrics\": {\"band_pixels\": 2578, \"halo_width_px\": 2}, \"reason\": \"Descriptive only; Matt's eye rules. RGBA source placeholder; source-independent spill/halo only.\"}"
+  },
+  {
+    "id": "matte_quality.direct_luminance_fringe",
+    "subject": "input/idle/S/idle_S_02",
+    "passed": null,
+    "value": 20.441910542872023,
+    "threshold": null,
+    "op": "<=",
+    "unit": "luma_0_255",
+    "evidence": [
+      "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-xv-idle-cut-01/frames/idle/S/idle_S_02.png"
+    ],
+    "notes": "{\"all_partial_alpha_pixels\": 1075, \"definition\": \"sRGB-code luma Rec.709 weights; partial band = (0<alpha<255) within two 4-connected dilation steps of alpha==255; interior = alpha==255 within two steps of this partial band.\", \"opaque_band_mean_luma\": 64.6930867491976, \"opaque_band_pixels\": 2181, \"partial_band_mean_luma\": 85.13499729206963, \"partial_band_pixels\": 1034, \"reason\": \"Descriptive only; Matt's eye rules.\"}"
+  },
+  {
+    "id": "matte_quality.alpha_area_lost",
+    "subject": "input/idle/S/idle_S_02",
+    "passed": null,
+    "value": 0.0,
+    "threshold": null,
+    "op": "<=",
+    "unit": "percent_input_alpha_mass",
+    "evidence": [
+      "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-xv-idle-cut-01/frames/idle/S/idle_S_02.png"
+    ],
+    "notes": "Alpha-weighted area=sum(alpha/255); descriptive only; Matt's eye rules."
+  },
+  {
+    "id": "matte_quality.alpha_support_area_lost",
+    "subject": "input/idle/S/idle_S_02",
+    "passed": null,
+    "value": 0.0,
+    "threshold": null,
+    "op": "<=",
+    "unit": "percent_input_nonzero_pixels",
+    "evidence": [
+      "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-xv-idle-cut-01/frames/idle/S/idle_S_02.png"
+    ],
+    "notes": "Binary area=count(alpha>0); descriptive only; Matt's eye rules."
+  },
+  {
+    "id": "matte_quality.spill",
+    "subject": "A/idle/S/idle_S_02",
+    "passed": null,
+    "value": 0.0,
+    "threshold": null,
+    "op": "<=",
+    "unit": "fraction",
+    "evidence": [
+      "out/A/idle_S_02.png"
+    ],
+    "notes": "{\"metrics\": {\"subject_pixels\": 9728, \"tol\": 20}, \"reason\": \"Descriptive only; Matt's eye rules. RGBA source placeholder; source-independent spill/halo only.\"}"
+  },
+  {
+    "id": "matte_quality.edge_halo",
+    "subject": "A/idle/S/idle_S_02",
+    "passed": null,
+    "value": 0.0,
+    "threshold": null,
+    "op": "<=",
+    "unit": "green_excess_0_255",
+    "evidence": [
+      "out/A/idle_S_02.png"
+    ],
+    "notes": "{\"metrics\": {\"band_pixels\": 2546, \"halo_width_px\": 2}, \"reason\": \"Descriptive only; Matt's eye rules. RGBA source placeholder; source-independent spill/halo only.\"}"
+  },
+  {
+    "id": "matte_quality.direct_luminance_fringe",
+    "subject": "A/idle/S/idle_S_02",
+    "passed": null,
+    "value": 47.123732183908075,
+    "threshold": null,
+    "op": "<=",
+    "unit": "luma_0_255",
+    "evidence": [
+      "out/A/idle_S_02.png"
+    ],
+    "notes": "{\"all_partial_alpha_pixels\": 58, \"definition\": \"sRGB-code luma Rec.709 weights; partial band = (0<alpha<255) within two 4-connected dilation steps of alpha==255; interior = alpha==255 within two steps of this partial band.\", \"opaque_band_mean_luma\": 70.23893333333332, \"opaque_band_pixels\": 195, \"partial_band_mean_luma\": 117.3626655172414, \"partial_band_pixels\": 58, \"reason\": \"Descriptive only; Matt's eye rules.\"}"
+  },
+  {
+    "id": "matte_quality.alpha_area_lost",
+    "subject": "A/idle/S/idle_S_02",
+    "passed": null,
+    "value": 12.163846447629378,
+    "threshold": null,
+    "op": "<=",
+    "unit": "percent_input_alpha_mass",
+    "evidence": [
+      "out/A/idle_S_02.png"
+    ],
+    "notes": "Alpha-weighted area=sum(alpha/255); descriptive only; Matt's eye rules."
+  },
+  {
+    "id": "matte_quality.alpha_support_area_lost",
+    "subject": "A/idle/S/idle_S_02",
+    "passed": null,
+    "value": 15.577540571031845,
+    "threshold": null,
+    "op": "<=",
+    "unit": "percent_input_nonzero_pixels",
+    "evidence": [
+      "out/A/idle_S_02.png"
+    ],
+    "notes": "Binary area=count(alpha>0); descriptive only; Matt's eye rules."
+  },
+  {
+    "id": "matte_quality.spill",
+    "subject": "B/idle/S/idle_S_02",
+    "passed": null,
+    "value": 0.0,
+    "threshold": null,
+    "op": "<=",
+    "unit": "fraction",
+    "evidence": [
+      "out/B/idle_S_02.png"
+    ],
+    "notes": "{\"metrics\": {\"subject_pixels\": 8483, \"tol\": 20}, \"reason\": \"Descriptive only; Matt's eye rules. RGBA source placeholder; source-independent spill/halo only.\"}"
+  },
+  {
+    "id": "matte_quality.edge_halo",
+    "subject": "B/idle/S/idle_S_02",
+    "passed": null,
+    "value": 0.0,
+    "threshold": null,
+    "op": "<=",
+    "unit": "green_excess_0_255",
+    "evidence": [
+      "out/B/idle_S_02.png"
+    ],
+    "notes": "{\"metrics\": {\"band_pixels\": 1776, \"halo_width_px\": 2}, \"reason\": \"Descriptive only; Matt's eye rules. RGBA source placeholder; source-independent spill/halo only.\"}"
+  },
+  {
+    "id": "matte_quality.direct_luminance_fringe",
+    "subject": "B/idle/S/idle_S_02",
+    "passed": null,
+    "value": 106.13286677559917,
+    "threshold": null,
+    "op": "<=",
+    "unit": "luma_0_255",
+    "evidence": [
+      "out/B/idle_S_02.png"
+    ],
+    "notes": "{\"all_partial_alpha_pixels\": 30, \"definition\": \"sRGB-code luma Rec.709 weights; partial band = (0<alpha<255) within two 4-connected dilation steps of alpha==255; interior = alpha==255 within two steps of this partial band.\", \"opaque_band_mean_luma\": 67.91461470588236, \"opaque_band_pixels\": 68, \"partial_band_mean_luma\": 174.04748148148153, \"partial_band_pixels\": 27, \"reason\": \"Descriptive only; Matt's eye rules.\"}"
+  },
+  {
+    "id": "matte_quality.alpha_area_lost",
+    "subject": "B/idle/S/idle_S_02",
+    "passed": null,
+    "value": 23.39103675555181,
+    "threshold": null,
+    "op": "<=",
+    "unit": "percent_input_alpha_mass",
+    "evidence": [
+      "out/B/idle_S_02.png"
+    ],
+    "notes": "Alpha-weighted area=sum(alpha/255); descriptive only; Matt's eye rules."
+  },
+  {
+    "id": "matte_quality.alpha_support_area_lost",
+    "subject": "B/idle/S/idle_S_02",
+    "passed": null,
+    "value": 26.382018571552546,
+    "threshold": null,
+    "op": "<=",
+    "unit": "percent_input_nonzero_pixels",
+    "evidence": [
+      "out/B/idle_S_02.png"
+    ],
+    "notes": "Binary area=count(alpha>0); descriptive only; Matt's eye rules."
+  },
+  {
+    "id": "matte_quality.spill",
+    "subject": "input/idle/S/idle_S_03",
+    "passed": null,
+    "value": 8.675284115554784e-05,
+    "threshold": null,
+    "op": "<=",
+    "unit": "fraction",
+    "evidence": [
+      "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-xv-idle-cut-01/frames/idle/S/idle_S_03.png"
+    ],
+    "notes": "{\"metrics\": {\"subject_pixels\": 11527, \"tol\": 20}, \"reason\": \"Descriptive only; Matt's eye rules. RGBA source placeholder; source-independent spill/halo only.\"}"
+  },
+  {
+    "id": "matte_quality.edge_halo",
+    "subject": "input/idle/S/idle_S_03",
+    "passed": null,
+    "value": 0.07721859393008068,
+    "threshold": null,
+    "op": "<=",
+    "unit": "green_excess_0_255",
+    "evidence": [
+      "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-xv-idle-cut-01/frames/idle/S/idle_S_03.png"
+    ],
+    "notes": "{\"metrics\": {\"band_pixels\": 2603, \"halo_width_px\": 2}, \"reason\": \"Descriptive only; Matt's eye rules. RGBA source placeholder; source-independent spill/halo only.\"}"
+  },
+  {
+    "id": "matte_quality.direct_luminance_fringe",
+    "subject": "input/idle/S/idle_S_03",
+    "passed": null,
+    "value": 22.294128244620005,
+    "threshold": null,
+    "op": "<=",
+    "unit": "luma_0_255",
+    "evidence": [
+      "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-xv-idle-cut-01/frames/idle/S/idle_S_03.png"
+    ],
+    "notes": "{\"all_partial_alpha_pixels\": 1043, \"definition\": \"sRGB-code luma Rec.709 weights; partial band = (0<alpha<255) within two 4-connected dilation steps of alpha==255; interior = alpha==255 within two steps of this partial band.\", \"opaque_band_mean_luma\": 63.557460917941576, \"opaque_band_pixels\": 2157, \"partial_band_mean_luma\": 85.85158916256158, \"partial_band_pixels\": 1015, \"reason\": \"Descriptive only; Matt's eye rules.\"}"
+  },
+  {
+    "id": "matte_quality.alpha_area_lost",
+    "subject": "input/idle/S/idle_S_03",
+    "passed": null,
+    "value": 0.0,
+    "threshold": null,
+    "op": "<=",
+    "unit": "percent_input_alpha_mass",
+    "evidence": [
+      "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-xv-idle-cut-01/frames/idle/S/idle_S_03.png"
+    ],
+    "notes": "Alpha-weighted area=sum(alpha/255); descriptive only; Matt's eye rules."
+  },
+  {
+    "id": "matte_quality.alpha_support_area_lost",
+    "subject": "input/idle/S/idle_S_03",
+    "passed": null,
+    "value": 0.0,
+    "threshold": null,
+    "op": "<=",
+    "unit": "percent_input_nonzero_pixels",
+    "evidence": [
+      "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-xv-idle-cut-01/frames/idle/S/idle_S_03.png"
+    ],
+    "notes": "Binary area=count(alpha>0); descriptive only; Matt's eye rules."
+  },
+  {
+    "id": "matte_quality.spill",
+    "subject": "A/idle/S/idle_S_03",
+    "passed": null,
+    "value": 0.0,
+    "threshold": null,
+    "op": "<=",
+    "unit": "fraction",
+    "evidence": [
+      "out/A/idle_S_03.png"
+    ],
+    "notes": "{\"metrics\": {\"subject_pixels\": 9722, \"tol\": 20}, \"reason\": \"Descriptive only; Matt's eye rules. RGBA source placeholder; source-independent spill/halo only.\"}"
+  },
+  {
+    "id": "matte_quality.edge_halo",
+    "subject": "A/idle/S/idle_S_03",
+    "passed": null,
+    "value": 0.0,
+    "threshold": null,
+    "op": "<=",
+    "unit": "green_excess_0_255",
+    "evidence": [
+      "out/A/idle_S_03.png"
+    ],
+    "notes": "{\"metrics\": {\"band_pixels\": 2561, \"halo_width_px\": 2}, \"reason\": \"Descriptive only; Matt's eye rules. RGBA source placeholder; source-independent spill/halo only.\"}"
+  },
+  {
+    "id": "matte_quality.direct_luminance_fringe",
+    "subject": "A/idle/S/idle_S_03",
+    "passed": null,
+    "value": 80.72676962233169,
+    "threshold": null,
+    "op": "<=",
+    "unit": "luma_0_255",
+    "evidence": [
+      "out/A/idle_S_03.png"
+    ],
+    "notes": "{\"all_partial_alpha_pixels\": 43, \"definition\": \"sRGB-code luma Rec.709 weights; partial band = (0<alpha<255) within two 4-connected dilation steps of alpha==255; interior = alpha==255 within two steps of this partial band.\", \"opaque_band_mean_luma\": 72.97008275862069, \"opaque_band_pixels\": 116, \"partial_band_mean_luma\": 153.69685238095238, \"partial_band_pixels\": 42, \"reason\": \"Descriptive only; Matt's eye rules.\"}"
+  },
+  {
+    "id": "matte_quality.alpha_area_lost",
+    "subject": "A/idle/S/idle_S_03",
+    "passed": null,
+    "value": 12.296032304986248,
+    "threshold": null,
+    "op": "<=",
+    "unit": "percent_input_alpha_mass",
+    "evidence": [
+      "out/A/idle_S_03.png"
+    ],
+    "notes": "Alpha-weighted area=sum(alpha/255); descriptive only; Matt's eye rules."
+  },
+  {
+    "id": "matte_quality.alpha_support_area_lost",
+    "subject": "A/idle/S/idle_S_03",
+    "passed": null,
+    "value": 15.658887828576384,
+    "threshold": null,
+    "op": "<=",
+    "unit": "percent_input_nonzero_pixels",
+    "evidence": [
+      "out/A/idle_S_03.png"
+    ],
+    "notes": "Binary area=count(alpha>0); descriptive only; Matt's eye rules."
+  },
+  {
+    "id": "matte_quality.spill",
+    "subject": "B/idle/S/idle_S_03",
+    "passed": null,
+    "value": 0.0,
+    "threshold": null,
+    "op": "<=",
+    "unit": "fraction",
+    "evidence": [
+      "out/B/idle_S_03.png"
+    ],
+    "notes": "{\"metrics\": {\"subject_pixels\": 8468, \"tol\": 20}, \"reason\": \"Descriptive only; Matt's eye rules. RGBA source placeholder; source-independent spill/halo only.\"}"
+  },
+  {
+    "id": "matte_quality.edge_halo",
+    "subject": "B/idle/S/idle_S_03",
+    "passed": null,
+    "value": 0.0,
+    "threshold": null,
+    "op": "<=",
+    "unit": "green_excess_0_255",
+    "evidence": [
+      "out/B/idle_S_03.png"
+    ],
+    "notes": "{\"metrics\": {\"band_pixels\": 1803, \"halo_width_px\": 2}, \"reason\": \"Descriptive only; Matt's eye rules. RGBA source placeholder; source-independent spill/halo only.\"}"
+  },
+  {
+    "id": "matte_quality.direct_luminance_fringe",
+    "subject": "B/idle/S/idle_S_03",
+    "passed": null,
+    "value": 141.83651734892786,
+    "threshold": null,
+    "op": "<=",
+    "unit": "luma_0_255",
+    "evidence": [
+      "out/B/idle_S_03.png"
+    ],
+    "notes": "{\"all_partial_alpha_pixels\": 28, \"definition\": \"sRGB-code luma Rec.709 weights; partial band = (0<alpha<255) within two 4-connected dilation steps of alpha==255; interior = alpha==255 within two steps of this partial band.\", \"opaque_band_mean_luma\": 50.35877894736842, \"opaque_band_pixels\": 38, \"partial_band_mean_luma\": 192.19529629629628, \"partial_band_pixels\": 27, \"reason\": \"Descriptive only; Matt's eye rules.\"}"
+  },
+  {
+    "id": "matte_quality.alpha_area_lost",
+    "subject": "B/idle/S/idle_S_03",
+    "passed": null,
+    "value": 23.604228527341387,
+    "threshold": null,
+    "op": "<=",
+    "unit": "percent_input_alpha_mass",
+    "evidence": [
+      "out/B/idle_S_03.png"
+    ],
+    "notes": "Alpha-weighted area=sum(alpha/255); descriptive only; Matt's eye rules."
+  },
+  {
+    "id": "matte_quality.alpha_support_area_lost",
+    "subject": "B/idle/S/idle_S_03",
+    "passed": null,
+    "value": 26.53769410948209,
+    "threshold": null,
+    "op": "<=",
+    "unit": "percent_input_nonzero_pixels",
+    "evidence": [
+      "out/B/idle_S_03.png"
+    ],
+    "notes": "Binary area=count(alpha>0); descriptive only; Matt's eye rules."
+  },
+  {
+    "id": "matte_quality.spill",
+    "subject": "input/idle/S/idle_S_04",
+    "passed": null,
+    "value": 8.670770831526923e-05,
+    "threshold": null,
+    "op": "<=",
+    "unit": "fraction",
+    "evidence": [
+      "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-xv-idle-cut-01/frames/idle/S/idle_S_04.png"
+    ],
+    "notes": "{\"metrics\": {\"subject_pixels\": 11533, \"tol\": 20}, \"reason\": \"Descriptive only; Matt's eye rules. RGBA source placeholder; source-independent spill/halo only.\"}"
+  },
+  {
+    "id": "matte_quality.edge_halo",
+    "subject": "input/idle/S/idle_S_04",
+    "passed": null,
+    "value": 0.06699846860643185,
+    "threshold": null,
+    "op": "<=",
+    "unit": "green_excess_0_255",
+    "evidence": [
+      "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-xv-idle-cut-01/frames/idle/S/idle_S_04.png"
+    ],
+    "notes": "{\"metrics\": {\"band_pixels\": 2612, \"halo_width_px\": 2}, \"reason\": \"Descriptive only; Matt's eye rules. RGBA source placeholder; source-independent spill/halo only.\"}"
+  },
+  {
+    "id": "matte_quality.direct_luminance_fringe",
+    "subject": "input/idle/S/idle_S_04",
+    "passed": null,
+    "value": 22.970701385495488,
+    "threshold": null,
+    "op": "<=",
+    "unit": "luma_0_255",
+    "evidence": [
+      "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-xv-idle-cut-01/frames/idle/S/idle_S_04.png"
+    ],
+    "notes": "{\"all_partial_alpha_pixels\": 1040, \"definition\": \"sRGB-code luma Rec.709 weights; partial band = (0<alpha<255) within two 4-connected dilation steps of alpha==255; interior = alpha==255 within two steps of this partial band.\", \"opaque_band_mean_luma\": 64.47456361948954, \"opaque_band_pixels\": 2155, \"partial_band_mean_luma\": 87.44526500498503, \"partial_band_pixels\": 1003, \"reason\": \"Descriptive only; Matt's eye rules.\"}"
+  },
+  {
+    "id": "matte_quality.alpha_area_lost",
+    "subject": "input/idle/S/idle_S_04",
+    "passed": null,
+    "value": 0.0,
+    "threshold": null,
+    "op": "<=",
+    "unit": "percent_input_alpha_mass",
+    "evidence": [
+      "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-xv-idle-cut-01/frames/idle/S/idle_S_04.png"
+    ],
+    "notes": "Alpha-weighted area=sum(alpha/255); descriptive only; Matt's eye rules."
+  },
+  {
+    "id": "matte_quality.alpha_support_area_lost",
+    "subject": "input/idle/S/idle_S_04",
+    "passed": null,
+    "value": 0.0,
+    "threshold": null,
+    "op": "<=",
+    "unit": "percent_input_nonzero_pixels",
+    "evidence": [
+      "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-xv-idle-cut-01/frames/idle/S/idle_S_04.png"
+    ],
+    "notes": "Binary area=count(alpha>0); descriptive only; Matt's eye rules."
+  },
+  {
+    "id": "matte_quality.spill",
+    "subject": "A/idle/S/idle_S_04",
+    "passed": null,
+    "value": 0.0,
+    "threshold": null,
+    "op": "<=",
+    "unit": "fraction",
+    "evidence": [
+      "out/A/idle_S_04.png"
+    ],
+    "notes": "{\"metrics\": {\"subject_pixels\": 9758, \"tol\": 20}, \"reason\": \"Descriptive only; Matt's eye rules. RGBA source placeholder; source-independent spill/halo only.\"}"
+  },
+  {
+    "id": "matte_quality.edge_halo",
+    "subject": "A/idle/S/idle_S_04",
+    "passed": null,
+    "value": 0.0,
+    "threshold": null,
+    "op": "<=",
+    "unit": "green_excess_0_255",
+    "evidence": [
+      "out/A/idle_S_04.png"
+    ],
+    "notes": "{\"metrics\": {\"band_pixels\": 2585, \"halo_width_px\": 2}, \"reason\": \"Descriptive only; Matt's eye rules. RGBA source placeholder; source-independent spill/halo only.\"}"
+  },
+  {
+    "id": "matte_quality.direct_luminance_fringe",
+    "subject": "A/idle/S/idle_S_04",
+    "passed": null,
+    "value": 86.86902458326843,
+    "threshold": null,
+    "op": "<=",
+    "unit": "luma_0_255",
+    "evidence": [
+      "out/A/idle_S_04.png"
+    ],
+    "notes": "{\"all_partial_alpha_pixels\": 49, \"definition\": \"sRGB-code luma Rec.709 weights; partial band = (0<alpha<255) within two 4-connected dilation steps of alpha==255; interior = alpha==255 within two steps of this partial band.\", \"opaque_band_mean_luma\": 71.66263664122137, \"opaque_band_pixels\": 131, \"partial_band_mean_luma\": 158.5316612244898, \"partial_band_pixels\": 49, \"reason\": \"Descriptive only; Matt's eye rules.\"}"
+  },
+  {
+    "id": "matte_quality.alpha_area_lost",
+    "subject": "A/idle/S/idle_S_04",
+    "passed": null,
+    "value": 12.164066906376492,
+    "threshold": null,
+    "op": "<=",
+    "unit": "percent_input_alpha_mass",
+    "evidence": [
+      "out/A/idle_S_04.png"
+    ],
+    "notes": "Alpha-weighted area=sum(alpha/255); descriptive only; Matt's eye rules."
+  },
+  {
+    "id": "matte_quality.alpha_support_area_lost",
+    "subject": "A/idle/S/idle_S_04",
+    "passed": null,
+    "value": 15.390618225960285,
+    "threshold": null,
+    "op": "<=",
+    "unit": "percent_input_nonzero_pixels",
+    "evidence": [
+      "out/A/idle_S_04.png"
+    ],
+    "notes": "Binary area=count(alpha>0); descriptive only; Matt's eye rules."
+  },
+  {
+    "id": "matte_quality.spill",
+    "subject": "B/idle/S/idle_S_04",
+    "passed": null,
+    "value": 0.0,
+    "threshold": null,
+    "op": "<=",
+    "unit": "fraction",
+    "evidence": [
+      "out/B/idle_S_04.png"
+    ],
+    "notes": "{\"metrics\": {\"subject_pixels\": 8490, \"tol\": 20}, \"reason\": \"Descriptive only; Matt's eye rules. RGBA source placeholder; source-independent spill/halo only.\"}"
+  },
+  {
+    "id": "matte_quality.edge_halo",
+    "subject": "B/idle/S/idle_S_04",
+    "passed": null,
+    "value": 0.0,
+    "threshold": null,
+    "op": "<=",
+    "unit": "green_excess_0_255",
+    "evidence": [
+      "out/B/idle_S_04.png"
+    ],
+    "notes": "{\"metrics\": {\"band_pixels\": 1764, \"halo_width_px\": 2}, \"reason\": \"Descriptive only; Matt's eye rules. RGBA source placeholder; source-independent spill/halo only.\"}"
+  },
+  {
+    "id": "matte_quality.direct_luminance_fringe",
+    "subject": "B/idle/S/idle_S_04",
+    "passed": null,
+    "value": 128.90939591836732,
+    "threshold": null,
+    "op": "<=",
+    "unit": "luma_0_255",
+    "evidence": [
+      "out/B/idle_S_04.png"
+    ],
+    "notes": "{\"all_partial_alpha_pixels\": 33, \"definition\": \"sRGB-code luma Rec.709 weights; partial band = (0<alpha<255) within two 4-connected dilation steps of alpha==255; interior = alpha==255 within two steps of this partial band.\", \"opaque_band_mean_luma\": 60.003404081632645, \"opaque_band_pixels\": 49, \"partial_band_mean_luma\": 188.91279999999998, \"partial_band_pixels\": 33, \"reason\": \"Descriptive only; Matt's eye rules.\"}"
+  },
+  {
+    "id": "matte_quality.alpha_area_lost",
+    "subject": "B/idle/S/idle_S_04",
+    "passed": null,
+    "value": 23.57223910189692,
+    "threshold": null,
+    "op": "<=",
+    "unit": "percent_input_alpha_mass",
+    "evidence": [
+      "out/B/idle_S_04.png"
+    ],
+    "notes": "Alpha-weighted area=sum(alpha/255); descriptive only; Matt's eye rules."
+  },
+  {
+    "id": "matte_quality.alpha_support_area_lost",
+    "subject": "B/idle/S/idle_S_04",
+    "passed": null,
+    "value": 26.38515564033642,
+    "threshold": null,
+    "op": "<=",
+    "unit": "percent_input_nonzero_pixels",
+    "evidence": [
+      "out/B/idle_S_04.png"
+    ],
+    "notes": "Binary area=count(alpha>0); descriptive only; Matt's eye rules."
+  },
+  {
+    "id": "matte_quality.spill",
+    "subject": "input/idle/S/idle_S_05",
+    "passed": null,
+    "value": 0.0,
+    "threshold": null,
+    "op": "<=",
+    "unit": "fraction",
+    "evidence": [
+      "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-xv-idle-cut-01/frames/idle/S/idle_S_05.png"
+    ],
+    "notes": "{\"metrics\": {\"subject_pixels\": 11536, \"tol\": 20}, \"reason\": \"Descriptive only; Matt's eye rules. RGBA source placeholder; source-independent spill/halo only.\"}"
+  },
+  {
+    "id": "matte_quality.edge_halo",
+    "subject": "input/idle/S/idle_S_05",
+    "passed": null,
+    "value": 0.0693752395553852,
+    "threshold": null,
+    "op": "<=",
+    "unit": "green_excess_0_255",
+    "evidence": [
+      "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-xv-idle-cut-01/frames/idle/S/idle_S_05.png"
+    ],
+    "notes": "{\"metrics\": {\"band_pixels\": 2609, \"halo_width_px\": 2}, \"reason\": \"Descriptive only; Matt's eye rules. RGBA source placeholder; source-independent spill/halo only.\"}"
+  },
+  {
+    "id": "matte_quality.direct_luminance_fringe",
+    "subject": "input/idle/S/idle_S_05",
+    "passed": null,
+    "value": 22.990262079503722,
+    "threshold": null,
+    "op": "<=",
+    "unit": "luma_0_255",
+    "evidence": [
+      "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-xv-idle-cut-01/frames/idle/S/idle_S_05.png"
+    ],
+    "notes": "{\"all_partial_alpha_pixels\": 1027, \"definition\": \"sRGB-code luma Rec.709 weights; partial band = (0<alpha<255) within two 4-connected dilation steps of alpha==255; interior = alpha==255 within two steps of this partial band.\", \"opaque_band_mean_luma\": 63.53787412912216, \"opaque_band_pixels\": 2153, \"partial_band_mean_luma\": 86.52813620862588, \"partial_band_pixels\": 997, \"reason\": \"Descriptive only; Matt's eye rules.\"}"
+  },
+  {
+    "id": "matte_quality.alpha_area_lost",
+    "subject": "input/idle/S/idle_S_05",
+    "passed": null,
+    "value": 0.0,
+    "threshold": null,
+    "op": "<=",
+    "unit": "percent_input_alpha_mass",
+    "evidence": [
+      "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-xv-idle-cut-01/frames/idle/S/idle_S_05.png"
+    ],
+    "notes": "Alpha-weighted area=sum(alpha/255); descriptive only; Matt's eye rules."
+  },
+  {
+    "id": "matte_quality.alpha_support_area_lost",
+    "subject": "input/idle/S/idle_S_05",
+    "passed": null,
+    "value": 0.0,
+    "threshold": null,
+    "op": "<=",
+    "unit": "percent_input_nonzero_pixels",
+    "evidence": [
+      "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-xv-idle-cut-01/frames/idle/S/idle_S_05.png"
+    ],
+    "notes": "Binary area=count(alpha>0); descriptive only; Matt's eye rules."
+  },
+  {
+    "id": "matte_quality.spill",
+    "subject": "A/idle/S/idle_S_05",
+    "passed": null,
+    "value": 0.0,
+    "threshold": null,
+    "op": "<=",
+    "unit": "fraction",
+    "evidence": [
+      "out/A/idle_S_05.png"
+    ],
+    "notes": "{\"metrics\": {\"subject_pixels\": 9774, \"tol\": 20}, \"reason\": \"Descriptive only; Matt's eye rules. RGBA source placeholder; source-independent spill/halo only.\"}"
+  },
+  {
+    "id": "matte_quality.edge_halo",
+    "subject": "A/idle/S/idle_S_05",
+    "passed": null,
+    "value": 0.0,
+    "threshold": null,
+    "op": "<=",
+    "unit": "green_excess_0_255",
+    "evidence": [
+      "out/A/idle_S_05.png"
+    ],
+    "notes": "{\"metrics\": {\"band_pixels\": 2584, \"halo_width_px\": 2}, \"reason\": \"Descriptive only; Matt's eye rules. RGBA source placeholder; source-independent spill/halo only.\"}"
+  },
+  {
+    "id": "matte_quality.direct_luminance_fringe",
+    "subject": "A/idle/S/idle_S_05",
+    "passed": null,
+    "value": 94.7338608,
+    "threshold": null,
+    "op": "<=",
+    "unit": "luma_0_255",
+    "evidence": [
+      "out/A/idle_S_05.png"
+    ],
+    "notes": "{\"all_partial_alpha_pixels\": 54, \"definition\": \"sRGB-code luma Rec.709 weights; partial band = (0<alpha<255) within two 4-connected dilation steps of alpha==255; interior = alpha==255 within two steps of this partial band.\", \"opaque_band_mean_luma\": 56.813963199999996, \"opaque_band_pixels\": 125, \"partial_band_mean_luma\": 151.547824, \"partial_band_pixels\": 50, \"reason\": \"Descriptive only; Matt's eye rules.\"}"
+  },
+  {
+    "id": "matte_quality.alpha_area_lost",
+    "subject": "A/idle/S/idle_S_05",
+    "passed": null,
+    "value": 12.145929467330074,
+    "threshold": null,
+    "op": "<=",
+    "unit": "percent_input_alpha_mass",
+    "evidence": [
+      "out/A/idle_S_05.png"
+    ],
+    "notes": "Alpha-weighted area=sum(alpha/255); descriptive only; Matt's eye rules."
+  },
+  {
+    "id": "matte_quality.alpha_support_area_lost",
+    "subject": "A/idle/S/idle_S_05",
+    "passed": null,
+    "value": 15.27392510402219,
+    "threshold": null,
+    "op": "<=",
+    "unit": "percent_input_nonzero_pixels",
+    "evidence": [
+      "out/A/idle_S_05.png"
+    ],
+    "notes": "Binary area=count(alpha>0); descriptive only; Matt's eye rules."
+  },
+  {
+    "id": "matte_quality.spill",
+    "subject": "B/idle/S/idle_S_05",
+    "passed": null,
+    "value": 0.0,
+    "threshold": null,
+    "op": "<=",
+    "unit": "fraction",
+    "evidence": [
+      "out/B/idle_S_05.png"
+    ],
+    "notes": "{\"metrics\": {\"subject_pixels\": 8505, \"tol\": 20}, \"reason\": \"Descriptive only; Matt's eye rules. RGBA source placeholder; source-independent spill/halo only.\"}"
+  },
+  {
+    "id": "matte_quality.edge_halo",
+    "subject": "B/idle/S/idle_S_05",
+    "passed": null,
+    "value": 0.0,
+    "threshold": null,
+    "op": "<=",
+    "unit": "green_excess_0_255",
+    "evidence": [
+      "out/B/idle_S_05.png"
+    ],
+    "notes": "{\"metrics\": {\"band_pixels\": 1774, \"halo_width_px\": 2}, \"reason\": \"Descriptive only; Matt's eye rules. RGBA source placeholder; source-independent spill/halo only.\"}"
+  },
+  {
+    "id": "matte_quality.direct_luminance_fringe",
+    "subject": "B/idle/S/idle_S_05",
+    "passed": null,
+    "value": 130.98771751152074,
+    "threshold": null,
+    "op": "<=",
+    "unit": "luma_0_255",
+    "evidence": [
+      "out/B/idle_S_05.png"
+    ],
+    "notes": "{\"all_partial_alpha_pixels\": 35, \"definition\": \"sRGB-code luma Rec.709 weights; partial band = (0<alpha<255) within two 4-connected dilation steps of alpha==255; interior = alpha==255 within two steps of this partial band.\", \"opaque_band_mean_luma\": 60.03218571428571, \"opaque_band_pixels\": 42, \"partial_band_mean_luma\": 191.01990322580644, \"partial_band_pixels\": 31, \"reason\": \"Descriptive only; Matt's eye rules.\"}"
+  },
+  {
+    "id": "matte_quality.alpha_area_lost",
+    "subject": "B/idle/S/idle_S_05",
+    "passed": null,
+    "value": 23.547780036480958,
+    "threshold": null,
+    "op": "<=",
+    "unit": "percent_input_alpha_mass",
+    "evidence": [
+      "out/B/idle_S_05.png"
+    ],
+    "notes": "Alpha-weighted area=sum(alpha/255); descriptive only; Matt's eye rules."
+  },
+  {
+    "id": "matte_quality.alpha_support_area_lost",
+    "subject": "B/idle/S/idle_S_05",
+    "passed": null,
+    "value": 26.27427184466019,
+    "threshold": null,
+    "op": "<=",
+    "unit": "percent_input_nonzero_pixels",
+    "evidence": [
+      "out/B/idle_S_05.png"
+    ],
+    "notes": "Binary area=count(alpha>0); descriptive only; Matt's eye rules."
+  },
+  {
+    "id": "matte_quality.spill",
+    "subject": "input/idle/S/idle_S_06",
+    "passed": null,
+    "value": 0.0,
+    "threshold": null,
+    "op": "<=",
+    "unit": "fraction",
+    "evidence": [
+      "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-xv-idle-cut-01/frames/idle/S/idle_S_06.png"
+    ],
+    "notes": "{\"metrics\": {\"subject_pixels\": 11558, \"tol\": 20}, \"reason\": \"Descriptive only; Matt's eye rules. RGBA source placeholder; source-independent spill/halo only.\"}"
+  },
+  {
+    "id": "matte_quality.edge_halo",
+    "subject": "input/idle/S/idle_S_06",
+    "passed": null,
+    "value": 0.055154050969950554,
+    "threshold": null,
+    "op": "<=",
+    "unit": "green_excess_0_255",
+    "evidence": [
+      "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-xv-idle-cut-01/frames/idle/S/idle_S_06.png"
+    ],
+    "notes": "{\"metrics\": {\"band_pixels\": 2629, \"halo_width_px\": 2}, \"reason\": \"Descriptive only; Matt's eye rules. RGBA source placeholder; source-independent spill/halo only.\"}"
+  },
+  {
+    "id": "matte_quality.direct_luminance_fringe",
+    "subject": "input/idle/S/idle_S_06",
+    "passed": null,
+    "value": 26.237637505909348,
+    "threshold": null,
+    "op": "<=",
+    "unit": "luma_0_255",
+    "evidence": [
+      "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-xv-idle-cut-01/frames/idle/S/idle_S_06.png"
+    ],
+    "notes": "{\"all_partial_alpha_pixels\": 1041, \"definition\": \"sRGB-code luma Rec.709 weights; partial band = (0<alpha<255) within two 4-connected dilation steps of alpha==255; interior = alpha==255 within two steps of this partial band.\", \"opaque_band_mean_luma\": 63.930644765006974, \"opaque_band_pixels\": 2149, \"partial_band_mean_luma\": 90.16828227091632, \"partial_band_pixels\": 1004, \"reason\": \"Descriptive only; Matt's eye rules.\"}"
+  },
+  {
+    "id": "matte_quality.alpha_area_lost",
+    "subject": "input/idle/S/idle_S_06",
+    "passed": null,
+    "value": 0.0,
+    "threshold": null,
+    "op": "<=",
+    "unit": "percent_input_alpha_mass",
+    "evidence": [
+      "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-xv-idle-cut-01/frames/idle/S/idle_S_06.png"
+    ],
+    "notes": "Alpha-weighted area=sum(alpha/255); descriptive only; Matt's eye rules."
+  },
+  {
+    "id": "matte_quality.alpha_support_area_lost",
+    "subject": "input/idle/S/idle_S_06",
+    "passed": null,
+    "value": 0.0,
+    "threshold": null,
+    "op": "<=",
+    "unit": "percent_input_nonzero_pixels",
+    "evidence": [
+      "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-xv-idle-cut-01/frames/idle/S/idle_S_06.png"
+    ],
+    "notes": "Binary area=count(alpha>0); descriptive only; Matt's eye rules."
+  },
+  {
+    "id": "matte_quality.spill",
+    "subject": "A/idle/S/idle_S_06",
+    "passed": null,
+    "value": 0.0,
+    "threshold": null,
+    "op": "<=",
+    "unit": "fraction",
+    "evidence": [
+      "out/A/idle_S_06.png"
+    ],
+    "notes": "{\"metrics\": {\"subject_pixels\": 9776, \"tol\": 20}, \"reason\": \"Descriptive only; Matt's eye rules. RGBA source placeholder; source-independent spill/halo only.\"}"
+  },
+  {
+    "id": "matte_quality.edge_halo",
+    "subject": "A/idle/S/idle_S_06",
+    "passed": null,
+    "value": 0.0,
+    "threshold": null,
+    "op": "<=",
+    "unit": "green_excess_0_255",
+    "evidence": [
+      "out/A/idle_S_06.png"
+    ],
+    "notes": "{\"metrics\": {\"band_pixels\": 2592, \"halo_width_px\": 2}, \"reason\": \"Descriptive only; Matt's eye rules. RGBA source placeholder; source-independent spill/halo only.\"}"
+  },
+  {
+    "id": "matte_quality.direct_luminance_fringe",
+    "subject": "A/idle/S/idle_S_06",
+    "passed": null,
+    "value": 94.85345730780062,
+    "threshold": null,
+    "op": "<=",
+    "unit": "luma_0_255",
+    "evidence": [
+      "out/A/idle_S_06.png"
+    ],
+    "notes": "{\"all_partial_alpha_pixels\": 58, \"definition\": \"sRGB-code luma Rec.709 weights; partial band = (0<alpha<255) within two 4-connected dilation steps of alpha==255; interior = alpha==255 within two steps of this partial band.\", \"opaque_band_mean_luma\": 54.279595522388064, \"opaque_band_pixels\": 134, \"partial_band_mean_luma\": 149.1330528301887, \"partial_band_pixels\": 53, \"reason\": \"Descriptive only; Matt's eye rules.\"}"
+  },
+  {
+    "id": "matte_quality.alpha_area_lost",
+    "subject": "A/idle/S/idle_S_06",
+    "passed": null,
+    "value": 12.223627194995935,
+    "threshold": null,
+    "op": "<=",
+    "unit": "percent_input_alpha_mass",
+    "evidence": [
+      "out/A/idle_S_06.png"
+    ],
+    "notes": "Alpha-weighted area=sum(alpha/255); descriptive only; Matt's eye rules."
+  },
+  {
+    "id": "matte_quality.alpha_support_area_lost",
+    "subject": "A/idle/S/idle_S_06",
+    "passed": null,
+    "value": 15.41789236892196,
+    "threshold": null,
+    "op": "<=",
+    "unit": "percent_input_nonzero_pixels",
+    "evidence": [
+      "out/A/idle_S_06.png"
+    ],
+    "notes": "Binary area=count(alpha>0); descriptive only; Matt's eye rules."
+  },
+  {
+    "id": "matte_quality.spill",
+    "subject": "B/idle/S/idle_S_06",
+    "passed": null,
+    "value": 0.0,
+    "threshold": null,
+    "op": "<=",
+    "unit": "fraction",
+    "evidence": [
+      "out/B/idle_S_06.png"
+    ],
+    "notes": "{\"metrics\": {\"subject_pixels\": 8507, \"tol\": 20}, \"reason\": \"Descriptive only; Matt's eye rules. RGBA source placeholder; source-independent spill/halo only.\"}"
+  },
+  {
+    "id": "matte_quality.edge_halo",
+    "subject": "B/idle/S/idle_S_06",
+    "passed": null,
+    "value": 0.0,
+    "threshold": null,
+    "op": "<=",
+    "unit": "green_excess_0_255",
+    "evidence": [
+      "out/B/idle_S_06.png"
+    ],
+    "notes": "{\"metrics\": {\"band_pixels\": 1798, \"halo_width_px\": 2}, \"reason\": \"Descriptive only; Matt's eye rules. RGBA source placeholder; source-independent spill/halo only.\"}"
+  },
+  {
+    "id": "matte_quality.direct_luminance_fringe",
+    "subject": "B/idle/S/idle_S_06",
+    "passed": null,
+    "value": 130.16710176470588,
+    "threshold": null,
+    "op": "<=",
+    "unit": "luma_0_255",
+    "evidence": [
+      "out/B/idle_S_06.png"
+    ],
+    "notes": "{\"all_partial_alpha_pixels\": 39, \"definition\": \"sRGB-code luma Rec.709 weights; partial band = (0<alpha<255) within two 4-connected dilation steps of alpha==255; interior = alpha==255 within two steps of this partial band.\", \"opaque_band_mean_luma\": 45.679809999999996, \"opaque_band_pixels\": 40, \"partial_band_mean_luma\": 175.84691176470588, \"partial_band_pixels\": 34, \"reason\": \"Descriptive only; Matt's eye rules.\"}"
+  },
+  {
+    "id": "matte_quality.alpha_area_lost",
+    "subject": "B/idle/S/idle_S_06",
+    "passed": null,
+    "value": 23.609367617800746,
+    "threshold": null,
+    "op": "<=",
+    "unit": "percent_input_alpha_mass",
+    "evidence": [
+      "out/B/idle_S_06.png"
+    ],
+    "notes": "Alpha-weighted area=sum(alpha/255); descriptive only; Matt's eye rules."
+  },
+  {
+    "id": "matte_quality.alpha_support_area_lost",
+    "subject": "B/idle/S/idle_S_06",
+    "passed": null,
+    "value": 26.397300571033057,
+    "threshold": null,
+    "op": "<=",
+    "unit": "percent_input_nonzero_pixels",
+    "evidence": [
+      "out/B/idle_S_06.png"
+    ],
+    "notes": "Binary area=count(alpha>0); descriptive only; Matt's eye rules."
+  },
+  {
+    "id": "matte_quality.spill",
+    "subject": "input/idle/S/idle_S_07",
+    "passed": null,
+    "value": 0.0,
+    "threshold": null,
+    "op": "<=",
+    "unit": "fraction",
+    "evidence": [
+      "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-xv-idle-cut-01/frames/idle/S/idle_S_07.png"
+    ],
+    "notes": "{\"metrics\": {\"subject_pixels\": 11558, \"tol\": 20}, \"reason\": \"Descriptive only; Matt's eye rules. RGBA source placeholder; source-independent spill/halo only.\"}"
+  },
+  {
+    "id": "matte_quality.edge_halo",
+    "subject": "input/idle/S/idle_S_07",
+    "passed": null,
+    "value": 0.055893536121673006,
+    "threshold": null,
+    "op": "<=",
+    "unit": "green_excess_0_255",
+    "evidence": [
+      "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-xv-idle-cut-01/frames/idle/S/idle_S_07.png"
+    ],
+    "notes": "{\"metrics\": {\"band_pixels\": 2630, \"halo_width_px\": 2}, \"reason\": \"Descriptive only; Matt's eye rules. RGBA source placeholder; source-independent spill/halo only.\"}"
+  },
+  {
+    "id": "matte_quality.direct_luminance_fringe",
+    "subject": "input/idle/S/idle_S_07",
+    "passed": null,
+    "value": 23.755656007276748,
+    "threshold": null,
+    "op": "<=",
+    "unit": "luma_0_255",
+    "evidence": [
+      "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-xv-idle-cut-01/frames/idle/S/idle_S_07.png"
+    ],
+    "notes": "{\"all_partial_alpha_pixels\": 1037, \"definition\": \"sRGB-code luma Rec.709 weights; partial band = (0<alpha<255) within two 4-connected dilation steps of alpha==255; interior = alpha==255 within two steps of this partial band.\", \"opaque_band_mean_luma\": 63.850731226765795, \"opaque_band_pixels\": 2152, \"partial_band_mean_luma\": 87.60638723404254, \"partial_band_pixels\": 987, \"reason\": \"Descriptive only; Matt's eye rules.\"}"
+  },
+  {
+    "id": "matte_quality.alpha_area_lost",
+    "subject": "input/idle/S/idle_S_07",
+    "passed": null,
+    "value": 0.0,
+    "threshold": null,
+    "op": "<=",
+    "unit": "percent_input_alpha_mass",
+    "evidence": [
+      "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-xv-idle-cut-01/frames/idle/S/idle_S_07.png"
+    ],
+    "notes": "Alpha-weighted area=sum(alpha/255); descriptive only; Matt's eye rules."
+  },
+  {
+    "id": "matte_quality.alpha_support_area_lost",
+    "subject": "input/idle/S/idle_S_07",
+    "passed": null,
+    "value": 0.0,
+    "threshold": null,
+    "op": "<=",
+    "unit": "percent_input_nonzero_pixels",
+    "evidence": [
+      "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-xv-idle-cut-01/frames/idle/S/idle_S_07.png"
+    ],
+    "notes": "Binary area=count(alpha>0); descriptive only; Matt's eye rules."
+  },
+  {
+    "id": "matte_quality.spill",
+    "subject": "A/idle/S/idle_S_07",
+    "passed": null,
+    "value": 0.0,
+    "threshold": null,
+    "op": "<=",
+    "unit": "fraction",
+    "evidence": [
+      "out/A/idle_S_07.png"
+    ],
+    "notes": "{\"metrics\": {\"subject_pixels\": 9789, \"tol\": 20}, \"reason\": \"Descriptive only; Matt's eye rules. RGBA source placeholder; source-independent spill/halo only.\"}"
+  },
+  {
+    "id": "matte_quality.edge_halo",
+    "subject": "A/idle/S/idle_S_07",
+    "passed": null,
+    "value": 0.0,
+    "threshold": null,
+    "op": "<=",
+    "unit": "green_excess_0_255",
+    "evidence": [
+      "out/A/idle_S_07.png"
+    ],
+    "notes": "{\"metrics\": {\"band_pixels\": 2595, \"halo_width_px\": 2}, \"reason\": \"Descriptive only; Matt's eye rules. RGBA source placeholder; source-independent spill/halo only.\"}"
+  },
+  {
+    "id": "matte_quality.direct_luminance_fringe",
+    "subject": "A/idle/S/idle_S_07",
+    "passed": null,
+    "value": 59.720471464267874,
+    "threshold": null,
+    "op": "<=",
+    "unit": "luma_0_255",
+    "evidence": [
+      "out/A/idle_S_07.png"
+    ],
+    "notes": "{\"all_partial_alpha_pixels\": 69, \"definition\": \"sRGB-code luma Rec.709 weights; partial band = (0<alpha<255) within two 4-connected dilation steps of alpha==255; interior = alpha==255 within two steps of this partial band.\", \"opaque_band_mean_luma\": 67.58337681159419, \"opaque_band_pixels\": 138, \"partial_band_mean_luma\": 127.30384827586207, \"partial_band_pixels\": 58, \"reason\": \"Descriptive only; Matt's eye rules.\"}"
+  },
+  {
+    "id": "matte_quality.alpha_area_lost",
+    "subject": "A/idle/S/idle_S_07",
+    "passed": null,
+    "value": 12.16153872702006,
+    "threshold": null,
+    "op": "<=",
+    "unit": "percent_input_alpha_mass",
+    "evidence": [
+      "out/A/idle_S_07.png"
+    ],
+    "notes": "Alpha-weighted area=sum(alpha/255); descriptive only; Matt's eye rules."
+  },
+  {
+    "id": "matte_quality.alpha_support_area_lost",
+    "subject": "A/idle/S/idle_S_07",
+    "passed": null,
+    "value": 15.305416161965734,
+    "threshold": null,
+    "op": "<=",
+    "unit": "percent_input_nonzero_pixels",
+    "evidence": [
+      "out/A/idle_S_07.png"
+    ],
+    "notes": "Binary area=count(alpha>0); descriptive only; Matt's eye rules."
+  },
+  {
+    "id": "matte_quality.spill",
+    "subject": "B/idle/S/idle_S_07",
+    "passed": null,
+    "value": 0.0,
+    "threshold": null,
+    "op": "<=",
+    "unit": "fraction",
+    "evidence": [
+      "out/B/idle_S_07.png"
+    ],
+    "notes": "{\"metrics\": {\"subject_pixels\": 8521, \"tol\": 20}, \"reason\": \"Descriptive only; Matt's eye rules. RGBA source placeholder; source-independent spill/halo only.\"}"
+  },
+  {
+    "id": "matte_quality.edge_halo",
+    "subject": "B/idle/S/idle_S_07",
+    "passed": null,
+    "value": 0.0,
+    "threshold": null,
+    "op": "<=",
+    "unit": "green_excess_0_255",
+    "evidence": [
+      "out/B/idle_S_07.png"
+    ],
+    "notes": "{\"metrics\": {\"band_pixels\": 1811, \"halo_width_px\": 2}, \"reason\": \"Descriptive only; Matt's eye rules. RGBA source placeholder; source-independent spill/halo only.\"}"
+  },
+  {
+    "id": "matte_quality.direct_luminance_fringe",
+    "subject": "B/idle/S/idle_S_07",
+    "passed": null,
+    "value": 90.1661630541872,
+    "threshold": null,
+    "op": "<=",
+    "unit": "luma_0_255",
+    "evidence": [
+      "out/B/idle_S_07.png"
+    ],
+    "notes": "{\"all_partial_alpha_pixels\": 49, \"definition\": \"sRGB-code luma Rec.709 weights; partial band = (0<alpha<255) within two 4-connected dilation steps of alpha==255; interior = alpha==255 within two steps of this partial band.\", \"opaque_band_mean_luma\": 57.58046551724138, \"opaque_band_pixels\": 58, \"partial_band_mean_luma\": 147.74662857142857, \"partial_band_pixels\": 35, \"reason\": \"Descriptive only; Matt's eye rules.\"}"
+  },
+  {
+    "id": "matte_quality.alpha_area_lost",
+    "subject": "B/idle/S/idle_S_07",
+    "passed": null,
+    "value": 23.527139235834515,
+    "threshold": null,
+    "op": "<=",
+    "unit": "percent_input_alpha_mass",
+    "evidence": [
+      "out/B/idle_S_07.png"
+    ],
+    "notes": "Alpha-weighted area=sum(alpha/255); descriptive only; Matt's eye rules."
+  },
+  {
+    "id": "matte_quality.alpha_support_area_lost",
+    "subject": "B/idle/S/idle_S_07",
+    "passed": null,
+    "value": 26.27617234815712,
+    "threshold": null,
+    "op": "<=",
+    "unit": "percent_input_nonzero_pixels",
+    "evidence": [
+      "out/B/idle_S_07.png"
+    ],
+    "notes": "Binary area=count(alpha>0); descriptive only; Matt's eye rules."
+  },
+  {
+    "id": "matte_quality.spill",
+    "subject": "input/idle/S/idle_S_08",
+    "passed": null,
+    "value": 0.0,
+    "threshold": null,
+    "op": "<=",
+    "unit": "fraction",
+    "evidence": [
+      "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-xv-idle-cut-01/frames/idle/S/idle_S_08.png"
+    ],
+    "notes": "{\"metrics\": {\"subject_pixels\": 11588, \"tol\": 20}, \"reason\": \"Descriptive only; Matt's eye rules. RGBA source placeholder; source-independent spill/halo only.\"}"
+  },
+  {
+    "id": "matte_quality.edge_halo",
+    "subject": "input/idle/S/idle_S_08",
+    "passed": null,
+    "value": 0.07537114579368101,
+    "threshold": null,
+    "op": "<=",
+    "unit": "green_excess_0_255",
+    "evidence": [
+      "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-xv-idle-cut-01/frames/idle/S/idle_S_08.png"
+    ],
+    "notes": "{\"metrics\": {\"band_pixels\": 2627, \"halo_width_px\": 2}, \"reason\": \"Descriptive only; Matt's eye rules. RGBA source placeholder; source-independent spill/halo only.\"}"
+  },
+  {
+    "id": "matte_quality.direct_luminance_fringe",
+    "subject": "input/idle/S/idle_S_08",
+    "passed": null,
+    "value": 29.03136373317826,
+    "threshold": null,
+    "op": "<=",
+    "unit": "luma_0_255",
+    "evidence": [
+      "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-xv-idle-cut-01/frames/idle/S/idle_S_08.png"
+    ],
+    "notes": "{\"all_partial_alpha_pixels\": 1049, \"definition\": \"sRGB-code luma Rec.709 weights; partial band = (0<alpha<255) within two 4-connected dilation steps of alpha==255; interior = alpha==255 within two steps of this partial band.\", \"opaque_band_mean_luma\": 63.41977327785484, \"opaque_band_pixels\": 2163, \"partial_band_mean_luma\": 92.4511370110331, \"partial_band_pixels\": 997, \"reason\": \"Descriptive only; Matt's eye rules.\"}"
+  },
+  {
+    "id": "matte_quality.alpha_area_lost",
+    "subject": "input/idle/S/idle_S_08",
+    "passed": null,
+    "value": 0.0,
+    "threshold": null,
+    "op": "<=",
+    "unit": "percent_input_alpha_mass",
+    "evidence": [
+      "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-xv-idle-cut-01/frames/idle/S/idle_S_08.png"
+    ],
+    "notes": "Alpha-weighted area=sum(alpha/255); descriptive only; Matt's eye rules."
+  },
+  {
+    "id": "matte_quality.alpha_support_area_lost",
+    "subject": "input/idle/S/idle_S_08",
+    "passed": null,
+    "value": 0.0,
+    "threshold": null,
+    "op": "<=",
+    "unit": "percent_input_nonzero_pixels",
+    "evidence": [
+      "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-xv-idle-cut-01/frames/idle/S/idle_S_08.png"
+    ],
+    "notes": "Binary area=count(alpha>0); descriptive only; Matt's eye rules."
+  },
+  {
+    "id": "matte_quality.spill",
+    "subject": "A/idle/S/idle_S_08",
+    "passed": null,
+    "value": 0.0,
+    "threshold": null,
+    "op": "<=",
+    "unit": "fraction",
+    "evidence": [
+      "out/A/idle_S_08.png"
+    ],
+    "notes": "{\"metrics\": {\"subject_pixels\": 9790, \"tol\": 20}, \"reason\": \"Descriptive only; Matt's eye rules. RGBA source placeholder; source-independent spill/halo only.\"}"
+  },
+  {
+    "id": "matte_quality.edge_halo",
+    "subject": "A/idle/S/idle_S_08",
+    "passed": null,
+    "value": 0.0,
+    "threshold": null,
+    "op": "<=",
+    "unit": "green_excess_0_255",
+    "evidence": [
+      "out/A/idle_S_08.png"
+    ],
+    "notes": "{\"metrics\": {\"band_pixels\": 2595, \"halo_width_px\": 2}, \"reason\": \"Descriptive only; Matt's eye rules. RGBA source placeholder; source-independent spill/halo only.\"}"
+  },
+  {
+    "id": "matte_quality.direct_luminance_fringe",
+    "subject": "A/idle/S/idle_S_08",
+    "passed": null,
+    "value": 64.68877459526774,
+    "threshold": null,
+    "op": "<=",
+    "unit": "luma_0_255",
+    "evidence": [
+      "out/A/idle_S_08.png"
+    ],
+    "notes": "{\"all_partial_alpha_pixels\": 67, \"definition\": \"sRGB-code luma Rec.709 weights; partial band = (0<alpha<255) within two 4-connected dilation steps of alpha==255; interior = alpha==255 within two steps of this partial band.\", \"opaque_band_mean_luma\": 76.20198904109589, \"opaque_band_pixels\": 146, \"partial_band_mean_luma\": 140.89076363636363, \"partial_band_pixels\": 55, \"reason\": \"Descriptive only; Matt's eye rules.\"}"
+  },
+  {
+    "id": "matte_quality.alpha_area_lost",
+    "subject": "A/idle/S/idle_S_08",
+    "passed": null,
+    "value": 12.203518796749036,
+    "threshold": null,
+    "op": "<=",
+    "unit": "percent_input_alpha_mass",
+    "evidence": [
+      "out/A/idle_S_08.png"
+    ],
+    "notes": "Alpha-weighted area=sum(alpha/255); descriptive only; Matt's eye rules."
+  },
+  {
+    "id": "matte_quality.alpha_support_area_lost",
+    "subject": "A/idle/S/idle_S_08",
+    "passed": null,
+    "value": 15.516051087331718,
+    "threshold": null,
+    "op": "<=",
+    "unit": "percent_input_nonzero_pixels",
+    "evidence": [
+      "out/A/idle_S_08.png"
+    ],
+    "notes": "Binary area=count(alpha>0); descriptive only; Matt's eye rules."
+  },
+  {
+    "id": "matte_quality.spill",
+    "subject": "B/idle/S/idle_S_08",
+    "passed": null,
+    "value": 0.0,
+    "threshold": null,
+    "op": "<=",
+    "unit": "fraction",
+    "evidence": [
+      "out/B/idle_S_08.png"
+    ],
+    "notes": "{\"metrics\": {\"subject_pixels\": 8520, \"tol\": 20}, \"reason\": \"Descriptive only; Matt's eye rules. RGBA source placeholder; source-independent spill/halo only.\"}"
+  },
+  {
+    "id": "matte_quality.edge_halo",
+    "subject": "B/idle/S/idle_S_08",
+    "passed": null,
+    "value": 0.0,
+    "threshold": null,
+    "op": "<=",
+    "unit": "green_excess_0_255",
+    "evidence": [
+      "out/B/idle_S_08.png"
+    ],
+    "notes": "{\"metrics\": {\"band_pixels\": 1841, \"halo_width_px\": 2}, \"reason\": \"Descriptive only; Matt's eye rules. RGBA source placeholder; source-independent spill/halo only.\"}"
+  },
+  {
+    "id": "matte_quality.direct_luminance_fringe",
+    "subject": "B/idle/S/idle_S_08",
+    "passed": null,
+    "value": 103.2519993951613,
+    "threshold": null,
+    "op": "<=",
+    "unit": "luma_0_255",
+    "evidence": [
+      "out/B/idle_S_08.png"
+    ],
+    "notes": "{\"all_partial_alpha_pixels\": 45, \"definition\": \"sRGB-code luma Rec.709 weights; partial band = (0<alpha<255) within two 4-connected dilation steps of alpha==255; interior = alpha==255 within two steps of this partial band.\", \"opaque_band_mean_luma\": 58.002981250000005, \"opaque_band_pixels\": 64, \"partial_band_mean_luma\": 161.2549806451613, \"partial_band_pixels\": 31, \"reason\": \"Descriptive only; Matt's eye rules.\"}"
+  },
+  {
+    "id": "matte_quality.alpha_area_lost",
+    "subject": "B/idle/S/idle_S_08",
+    "passed": null,
+    "value": 23.581062508952556,
+    "threshold": null,
+    "op": "<=",
+    "unit": "percent_input_alpha_mass",
+    "evidence": [
+      "out/B/idle_S_08.png"
+    ],
+    "notes": "Alpha-weighted area=sum(alpha/255); descriptive only; Matt's eye rules."
+  },
+  {
+    "id": "matte_quality.alpha_support_area_lost",
+    "subject": "B/idle/S/idle_S_08",
+    "passed": null,
+    "value": 26.475664480497063,
+    "threshold": null,
+    "op": "<=",
+    "unit": "percent_input_nonzero_pixels",
+    "evidence": [
+      "out/B/idle_S_08.png"
+    ],
+    "notes": "Binary area=count(alpha>0); descriptive only; Matt's eye rules."
+  },
+  {
+    "id": "matte_quality.spill",
+    "subject": "input/idle/S/idle_S_09",
+    "passed": null,
+    "value": 0.0,
+    "threshold": null,
+    "op": "<=",
+    "unit": "fraction",
+    "evidence": [
+      "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-xv-idle-cut-01/frames/idle/S/idle_S_09.png"
+    ],
+    "notes": "{\"metrics\": {\"subject_pixels\": 11579, \"tol\": 20}, \"reason\": \"Descriptive only; Matt's eye rules. RGBA source placeholder; source-independent spill/halo only.\"}"
+  },
+  {
+    "id": "matte_quality.edge_halo",
+    "subject": "input/idle/S/idle_S_09",
+    "passed": null,
+    "value": 0.0927404028886355,
+    "threshold": null,
+    "op": "<=",
+    "unit": "green_excess_0_255",
+    "evidence": [
+      "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-xv-idle-cut-01/frames/idle/S/idle_S_09.png"
+    ],
+    "notes": "{\"metrics\": {\"band_pixels\": 2631, \"halo_width_px\": 2}, \"reason\": \"Descriptive only; Matt's eye rules. RGBA source placeholder; source-independent spill/halo only.\"}"
+  },
+  {
+    "id": "matte_quality.direct_luminance_fringe",
+    "subject": "input/idle/S/idle_S_09",
+    "passed": null,
+    "value": 27.74577581580246,
+    "threshold": null,
+    "op": "<=",
+    "unit": "luma_0_255",
+    "evidence": [
+      "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-xv-idle-cut-01/frames/idle/S/idle_S_09.png"
+    ],
+    "notes": "{\"all_partial_alpha_pixels\": 1027, \"definition\": \"sRGB-code luma Rec.709 weights; partial band = (0<alpha<255) within two 4-connected dilation steps of alpha==255; interior = alpha==255 within two steps of this partial band.\", \"opaque_band_mean_luma\": 63.099974743709225, \"opaque_band_pixels\": 2146, \"partial_band_mean_luma\": 90.84575055951169, \"partial_band_pixels\": 983, \"reason\": \"Descriptive only; Matt's eye rules.\"}"
+  },
+  {
+    "id": "matte_quality.alpha_area_lost",
+    "subject": "input/idle/S/idle_S_09",
+    "passed": null,
+    "value": 0.0,
+    "threshold": null,
+    "op": "<=",
+    "unit": "percent_input_alpha_mass",
+    "evidence": [
+      "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-xv-idle-cut-01/frames/idle/S/idle_S_09.png"
+    ],
+    "notes": "Alpha-weighted area=sum(alpha/255); descriptive only; Matt's eye rules."
+  },
+  {
+    "id": "matte_quality.alpha_support_area_lost",
+    "subject": "input/idle/S/idle_S_09",
+    "passed": null,
+    "value": 0.0,
+    "threshold": null,
+    "op": "<=",
+    "unit": "percent_input_nonzero_pixels",
+    "evidence": [
+      "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-xv-idle-cut-01/frames/idle/S/idle_S_09.png"
+    ],
+    "notes": "Binary area=count(alpha>0); descriptive only; Matt's eye rules."
+  },
+  {
+    "id": "matte_quality.spill",
+    "subject": "A/idle/S/idle_S_09",
+    "passed": null,
+    "value": 0.0,
+    "threshold": null,
+    "op": "<=",
+    "unit": "fraction",
+    "evidence": [
+      "out/A/idle_S_09.png"
+    ],
+    "notes": "{\"metrics\": {\"subject_pixels\": 9800, \"tol\": 20}, \"reason\": \"Descriptive only; Matt's eye rules. RGBA source placeholder; source-independent spill/halo only.\"}"
+  },
+  {
+    "id": "matte_quality.edge_halo",
+    "subject": "A/idle/S/idle_S_09",
+    "passed": null,
+    "value": 0.0,
+    "threshold": null,
+    "op": "<=",
+    "unit": "green_excess_0_255",
+    "evidence": [
+      "out/A/idle_S_09.png"
+    ],
+    "notes": "{\"metrics\": {\"band_pixels\": 2591, \"halo_width_px\": 2}, \"reason\": \"Descriptive only; Matt's eye rules. RGBA source placeholder; source-independent spill/halo only.\"}"
+  },
+  {
+    "id": "matte_quality.direct_luminance_fringe",
+    "subject": "A/idle/S/idle_S_09",
+    "passed": null,
+    "value": 61.00019297820823,
+    "threshold": null,
+    "op": "<=",
+    "unit": "luma_0_255",
+    "evidence": [
+      "out/A/idle_S_09.png"
+    ],
+    "notes": "{\"all_partial_alpha_pixels\": 71, \"definition\": \"sRGB-code luma Rec.709 weights; partial band = (0<alpha<255) within two 4-connected dilation steps of alpha==255; interior = alpha==255 within two steps of this partial band.\", \"opaque_band_mean_luma\": 69.80507142857142, \"opaque_band_pixels\": 154, \"partial_band_mean_luma\": 130.80526440677966, \"partial_band_pixels\": 59, \"reason\": \"Descriptive only; Matt's eye rules.\"}"
+  },
+  {
+    "id": "matte_quality.alpha_area_lost",
+    "subject": "A/idle/S/idle_S_09",
+    "passed": null,
+    "value": 12.13857721388939,
+    "threshold": null,
+    "op": "<=",
+    "unit": "percent_input_alpha_mass",
+    "evidence": [
+      "out/A/idle_S_09.png"
+    ],
+    "notes": "Alpha-weighted area=sum(alpha/255); descriptive only; Matt's eye rules."
+  },
+  {
+    "id": "matte_quality.alpha_support_area_lost",
+    "subject": "A/idle/S/idle_S_09",
+    "passed": null,
+    "value": 15.364021072631484,
+    "threshold": null,
+    "op": "<=",
+    "unit": "percent_input_nonzero_pixels",
+    "evidence": [
+      "out/A/idle_S_09.png"
+    ],
+    "notes": "Binary area=count(alpha>0); descriptive only; Matt's eye rules."
+  },
+  {
+    "id": "matte_quality.spill",
+    "subject": "B/idle/S/idle_S_09",
+    "passed": null,
+    "value": 0.0,
+    "threshold": null,
+    "op": "<=",
+    "unit": "fraction",
+    "evidence": [
+      "out/B/idle_S_09.png"
+    ],
+    "notes": "{\"metrics\": {\"subject_pixels\": 8533, \"tol\": 20}, \"reason\": \"Descriptive only; Matt's eye rules. RGBA source placeholder; source-independent spill/halo only.\"}"
+  },
+  {
+    "id": "matte_quality.edge_halo",
+    "subject": "B/idle/S/idle_S_09",
+    "passed": null,
+    "value": 0.0,
+    "threshold": null,
+    "op": "<=",
+    "unit": "green_excess_0_255",
+    "evidence": [
+      "out/B/idle_S_09.png"
+    ],
+    "notes": "{\"metrics\": {\"band_pixels\": 1827, \"halo_width_px\": 2}, \"reason\": \"Descriptive only; Matt's eye rules. RGBA source placeholder; source-independent spill/halo only.\"}"
+  },
+  {
+    "id": "matte_quality.direct_luminance_fringe",
+    "subject": "B/idle/S/idle_S_09",
+    "passed": null,
+    "value": 102.08670195503421,
+    "threshold": null,
+    "op": "<=",
+    "unit": "luma_0_255",
+    "evidence": [
+      "out/B/idle_S_09.png"
+    ],
+    "notes": "{\"all_partial_alpha_pixels\": 47, \"definition\": \"sRGB-code luma Rec.709 weights; partial band = (0<alpha<255) within two 4-connected dilation steps of alpha==255; interior = alpha==255 within two steps of this partial band.\", \"opaque_band_mean_luma\": 53.23146774193547, \"opaque_band_pixels\": 62, \"partial_band_mean_luma\": 155.31816969696968, \"partial_band_pixels\": 33, \"reason\": \"Descriptive only; Matt's eye rules.\"}"
+  },
+  {
+    "id": "matte_quality.alpha_area_lost",
+    "subject": "B/idle/S/idle_S_09",
+    "passed": null,
+    "value": 23.486807615308024,
+    "threshold": null,
+    "op": "<=",
+    "unit": "percent_input_alpha_mass",
+    "evidence": [
+      "out/B/idle_S_09.png"
+    ],
+    "notes": "Alpha-weighted area=sum(alpha/255); descriptive only; Matt's eye rules."
+  },
+  {
+    "id": "matte_quality.alpha_support_area_lost",
+    "subject": "B/idle/S/idle_S_09",
+    "passed": null,
+    "value": 26.306244062526986,
+    "threshold": null,
+    "op": "<=",
+    "unit": "percent_input_nonzero_pixels",
+    "evidence": [
+      "out/B/idle_S_09.png"
+    ],
+    "notes": "Binary area=count(alpha>0); descriptive only; Matt's eye rules."
+  },
+  {
+    "id": "matte_quality.spill",
+    "subject": "input/idle/S/idle_S_10",
+    "passed": null,
+    "value": 0.0,
+    "threshold": null,
+    "op": "<=",
+    "unit": "fraction",
+    "evidence": [
+      "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-xv-idle-cut-01/frames/idle/S/idle_S_10.png"
+    ],
+    "notes": "{\"metrics\": {\"subject_pixels\": 11595, \"tol\": 20}, \"reason\": \"Descriptive only; Matt's eye rules. RGBA source placeholder; source-independent spill/halo only.\"}"
+  },
+  {
+    "id": "matte_quality.edge_halo",
+    "subject": "input/idle/S/idle_S_10",
+    "passed": null,
+    "value": 0.0683371298405467,
+    "threshold": null,
+    "op": "<=",
+    "unit": "green_excess_0_255",
+    "evidence": [
+      "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-xv-idle-cut-01/frames/idle/S/idle_S_10.png"
+    ],
+    "notes": "{\"metrics\": {\"band_pixels\": 2634, \"halo_width_px\": 2}, \"reason\": \"Descriptive only; Matt's eye rules. RGBA source placeholder; source-independent spill/halo only.\"}"
+  },
+  {
+    "id": "matte_quality.direct_luminance_fringe",
+    "subject": "input/idle/S/idle_S_10",
+    "passed": null,
+    "value": 29.724364086210997,
+    "threshold": null,
+    "op": "<=",
+    "unit": "luma_0_255",
+    "evidence": [
+      "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-xv-idle-cut-01/frames/idle/S/idle_S_10.png"
+    ],
+    "notes": "{\"all_partial_alpha_pixels\": 1051, \"definition\": \"sRGB-code luma Rec.709 weights; partial band = (0<alpha<255) within two 4-connected dilation steps of alpha==255; interior = alpha==255 within two steps of this partial band.\", \"opaque_band_mean_luma\": 62.843207512597345, \"opaque_band_pixels\": 2183, \"partial_band_mean_luma\": 92.56757159880834, \"partial_band_pixels\": 1007, \"reason\": \"Descriptive only; Matt's eye rules.\"}"
+  },
+  {
+    "id": "matte_quality.alpha_area_lost",
+    "subject": "input/idle/S/idle_S_10",
+    "passed": null,
+    "value": 0.0,
+    "threshold": null,
+    "op": "<=",
+    "unit": "percent_input_alpha_mass",
+    "evidence": [
+      "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-xv-idle-cut-01/frames/idle/S/idle_S_10.png"
+    ],
+    "notes": "Alpha-weighted area=sum(alpha/255); descriptive only; Matt's eye rules."
+  },
+  {
+    "id": "matte_quality.alpha_support_area_lost",
+    "subject": "input/idle/S/idle_S_10",
+    "passed": null,
+    "value": 0.0,
+    "threshold": null,
+    "op": "<=",
+    "unit": "percent_input_nonzero_pixels",
+    "evidence": [
+      "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-xv-idle-cut-01/frames/idle/S/idle_S_10.png"
+    ],
+    "notes": "Binary area=count(alpha>0); descriptive only; Matt's eye rules."
+  },
+  {
+    "id": "matte_quality.spill",
+    "subject": "A/idle/S/idle_S_10",
+    "passed": null,
+    "value": 0.0,
+    "threshold": null,
+    "op": "<=",
+    "unit": "fraction",
+    "evidence": [
+      "out/A/idle_S_10.png"
+    ],
+    "notes": "{\"metrics\": {\"subject_pixels\": 9796, \"tol\": 20}, \"reason\": \"Descriptive only; Matt's eye rules. RGBA source placeholder; source-independent spill/halo only.\"}"
+  },
+  {
+    "id": "matte_quality.edge_halo",
+    "subject": "A/idle/S/idle_S_10",
+    "passed": null,
+    "value": 0.0,
+    "threshold": null,
+    "op": "<=",
+    "unit": "green_excess_0_255",
+    "evidence": [
+      "out/A/idle_S_10.png"
+    ],
+    "notes": "{\"metrics\": {\"band_pixels\": 2595, \"halo_width_px\": 2}, \"reason\": \"Descriptive only; Matt's eye rules. RGBA source placeholder; source-independent spill/halo only.\"}"
+  },
+  {
+    "id": "matte_quality.direct_luminance_fringe",
+    "subject": "A/idle/S/idle_S_10",
+    "passed": null,
+    "value": 63.14576807249915,
+    "threshold": null,
+    "op": "<=",
+    "unit": "luma_0_255",
+    "evidence": [
+      "out/A/idle_S_10.png"
+    ],
+    "notes": "{\"all_partial_alpha_pixels\": 69, \"definition\": \"sRGB-code luma Rec.709 weights; partial band = (0<alpha<255) within two 4-connected dilation steps of alpha==255; interior = alpha==255 within two steps of this partial band.\", \"opaque_band_mean_luma\": 73.10465298013244, \"opaque_band_pixels\": 151, \"partial_band_mean_luma\": 136.2504210526316, \"partial_band_pixels\": 57, \"reason\": \"Descriptive only; Matt's eye rules.\"}"
+  },
+  {
+    "id": "matte_quality.alpha_area_lost",
+    "subject": "A/idle/S/idle_S_10",
+    "passed": null,
+    "value": 12.200535508007992,
+    "threshold": null,
+    "op": "<=",
+    "unit": "percent_input_alpha_mass",
+    "evidence": [
+      "out/A/idle_S_10.png"
+    ],
+    "notes": "Alpha-weighted area=sum(alpha/255); descriptive only; Matt's eye rules."
+  },
+  {
+    "id": "matte_quality.alpha_support_area_lost",
+    "subject": "A/idle/S/idle_S_10",
+    "passed": null,
+    "value": 15.515308322552823,
+    "threshold": null,
+    "op": "<=",
+    "unit": "percent_input_nonzero_pixels",
+    "evidence": [
+      "out/A/idle_S_10.png"
+    ],
+    "notes": "Binary area=count(alpha>0); descriptive only; Matt's eye rules."
+  },
+  {
+    "id": "matte_quality.spill",
+    "subject": "B/idle/S/idle_S_10",
+    "passed": null,
+    "value": 0.0,
+    "threshold": null,
+    "op": "<=",
+    "unit": "fraction",
+    "evidence": [
+      "out/B/idle_S_10.png"
+    ],
+    "notes": "{\"metrics\": {\"subject_pixels\": 8524, \"tol\": 20}, \"reason\": \"Descriptive only; Matt's eye rules. RGBA source placeholder; source-independent spill/halo only.\"}"
+  },
+  {
+    "id": "matte_quality.edge_halo",
+    "subject": "B/idle/S/idle_S_10",
+    "passed": null,
+    "value": 0.0,
+    "threshold": null,
+    "op": "<=",
+    "unit": "green_excess_0_255",
+    "evidence": [
+      "out/B/idle_S_10.png"
+    ],
+    "notes": "{\"metrics\": {\"band_pixels\": 1832, \"halo_width_px\": 2}, \"reason\": \"Descriptive only; Matt's eye rules. RGBA source placeholder; source-independent spill/halo only.\"}"
+  },
+  {
+    "id": "matte_quality.direct_luminance_fringe",
+    "subject": "B/idle/S/idle_S_10",
+    "passed": null,
+    "value": 103.51500947580644,
+    "threshold": null,
+    "op": "<=",
+    "unit": "luma_0_255",
+    "evidence": [
+      "out/B/idle_S_10.png"
+    ],
+    "notes": "{\"all_partial_alpha_pixels\": 46, \"definition\": \"sRGB-code luma Rec.709 weights; partial band = (0<alpha<255) within two 4-connected dilation steps of alpha==255; interior = alpha==255 within two steps of this partial band.\", \"opaque_band_mean_luma\": 52.897596774193545, \"opaque_band_pixels\": 62, \"partial_band_mean_luma\": 156.41260624999998, \"partial_band_pixels\": 32, \"reason\": \"Descriptive only; Matt's eye rules.\"}"
+  },
+  {
+    "id": "matte_quality.alpha_area_lost",
+    "subject": "B/idle/S/idle_S_10",
+    "passed": null,
+    "value": 23.58722125373034,
+    "threshold": null,
+    "op": "<=",
+    "unit": "percent_input_alpha_mass",
+    "evidence": [
+      "out/B/idle_S_10.png"
+    ],
+    "notes": "Alpha-weighted area=sum(alpha/255); descriptive only; Matt's eye rules."
+  },
+  {
+    "id": "matte_quality.alpha_support_area_lost",
+    "subject": "B/idle/S/idle_S_10",
+    "passed": null,
+    "value": 26.485554118154376,
+    "threshold": null,
+    "op": "<=",
+    "unit": "percent_input_nonzero_pixels",
+    "evidence": [
+      "out/B/idle_S_10.png"
+    ],
+    "notes": "Binary area=count(alpha>0); descriptive only; Matt's eye rules."
+  },
+  {
+    "id": "matte_quality.spill",
+    "subject": "input/idle/S/idle_S_11",
+    "passed": null,
+    "value": 0.00017299541562148602,
+    "threshold": null,
+    "op": "<=",
+    "unit": "fraction",
+    "evidence": [
+      "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-xv-idle-cut-01/frames/idle/S/idle_S_11.png"
+    ],
+    "notes": "{\"metrics\": {\"subject_pixels\": 11561, \"tol\": 20}, \"reason\": \"Descriptive only; Matt's eye rules. RGBA source placeholder; source-independent spill/halo only.\"}"
+  },
+  {
+    "id": "matte_quality.edge_halo",
+    "subject": "input/idle/S/idle_S_11",
+    "passed": null,
+    "value": 0.07169954476479515,
+    "threshold": null,
+    "op": "<=",
+    "unit": "green_excess_0_255",
+    "evidence": [
+      "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-xv-idle-cut-01/frames/idle/S/idle_S_11.png"
+    ],
+    "notes": "{\"metrics\": {\"band_pixels\": 2636, \"halo_width_px\": 2}, \"reason\": \"Descriptive only; Matt's eye rules. RGBA source placeholder; source-independent spill/halo only.\"}"
+  },
+  {
+    "id": "matte_quality.direct_luminance_fringe",
+    "subject": "input/idle/S/idle_S_11",
+    "passed": null,
+    "value": 23.21198793686439,
+    "threshold": null,
+    "op": "<=",
+    "unit": "luma_0_255",
+    "evidence": [
+      "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-xv-idle-cut-01/frames/idle/S/idle_S_11.png"
+    ],
+    "notes": "{\"all_partial_alpha_pixels\": 1022, \"definition\": \"sRGB-code luma Rec.709 weights; partial band = (0<alpha<255) within two 4-connected dilation steps of alpha==255; interior = alpha==255 within two steps of this partial band.\", \"opaque_band_mean_luma\": 63.8882622160408, \"opaque_band_pixels\": 2157, \"partial_band_mean_luma\": 87.10025015290519, \"partial_band_pixels\": 981, \"reason\": \"Descriptive only; Matt's eye rules.\"}"
+  },
+  {
+    "id": "matte_quality.alpha_area_lost",
+    "subject": "input/idle/S/idle_S_11",
+    "passed": null,
+    "value": 0.0,
+    "threshold": null,
+    "op": "<=",
+    "unit": "percent_input_alpha_mass",
+    "evidence": [
+      "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-xv-idle-cut-01/frames/idle/S/idle_S_11.png"
+    ],
+    "notes": "Alpha-weighted area=sum(alpha/255); descriptive only; Matt's eye rules."
+  },
+  {
+    "id": "matte_quality.alpha_support_area_lost",
+    "subject": "input/idle/S/idle_S_11",
+    "passed": null,
+    "value": 0.0,
+    "threshold": null,
+    "op": "<=",
+    "unit": "percent_input_nonzero_pixels",
+    "evidence": [
+      "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-xv-idle-cut-01/frames/idle/S/idle_S_11.png"
+    ],
+    "notes": "Binary area=count(alpha>0); descriptive only; Matt's eye rules."
+  },
+  {
+    "id": "matte_quality.spill",
+    "subject": "A/idle/S/idle_S_11",
+    "passed": null,
+    "value": 0.0,
+    "threshold": null,
+    "op": "<=",
+    "unit": "fraction",
+    "evidence": [
+      "out/A/idle_S_11.png"
+    ],
+    "notes": "{\"metrics\": {\"subject_pixels\": 9781, \"tol\": 20}, \"reason\": \"Descriptive only; Matt's eye rules. RGBA source placeholder; source-independent spill/halo only.\"}"
+  },
+  {
+    "id": "matte_quality.edge_halo",
+    "subject": "A/idle/S/idle_S_11",
+    "passed": null,
+    "value": 0.0,
+    "threshold": null,
+    "op": "<=",
+    "unit": "green_excess_0_255",
+    "evidence": [
+      "out/A/idle_S_11.png"
+    ],
+    "notes": "{\"metrics\": {\"band_pixels\": 2591, \"halo_width_px\": 2}, \"reason\": \"Descriptive only; Matt's eye rules. RGBA source placeholder; source-independent spill/halo only.\"}"
+  },
+  {
+    "id": "matte_quality.direct_luminance_fringe",
+    "subject": "A/idle/S/idle_S_11",
+    "passed": null,
+    "value": 68.24666310807837,
+    "threshold": null,
+    "op": "<=",
+    "unit": "luma_0_255",
+    "evidence": [
+      "out/A/idle_S_11.png"
+    ],
+    "notes": "{\"all_partial_alpha_pixels\": 68, \"definition\": \"sRGB-code luma Rec.709 weights; partial band = (0<alpha<255) within two 4-connected dilation steps of alpha==255; interior = alpha==255 within two steps of this partial band.\", \"opaque_band_mean_luma\": 60.8680012987013, \"opaque_band_pixels\": 154, \"partial_band_mean_luma\": 129.11466440677967, \"partial_band_pixels\": 59, \"reason\": \"Descriptive only; Matt's eye rules.\"}"
+  },
+  {
+    "id": "matte_quality.alpha_area_lost",
+    "subject": "A/idle/S/idle_S_11",
+    "passed": null,
+    "value": 12.275289323576333,
+    "threshold": null,
+    "op": "<=",
+    "unit": "percent_input_alpha_mass",
+    "evidence": [
+      "out/A/idle_S_11.png"
+    ],
+    "notes": "Alpha-weighted area=sum(alpha/255); descriptive only; Matt's eye rules."
+  },
+  {
+    "id": "matte_quality.alpha_support_area_lost",
+    "subject": "A/idle/S/idle_S_11",
+    "passed": null,
+    "value": 15.396591990312258,
+    "threshold": null,
+    "op": "<=",
+    "unit": "percent_input_nonzero_pixels",
+    "evidence": [
+      "out/A/idle_S_11.png"
+    ],
+    "notes": "Binary area=count(alpha>0); descriptive only; Matt's eye rules."
+  },
+  {
+    "id": "matte_quality.spill",
+    "subject": "B/idle/S/idle_S_11",
+    "passed": null,
+    "value": 0.0,
+    "threshold": null,
+    "op": "<=",
+    "unit": "fraction",
+    "evidence": [
+      "out/B/idle_S_11.png"
+    ],
+    "notes": "{\"metrics\": {\"subject_pixels\": 8512, \"tol\": 20}, \"reason\": \"Descriptive only; Matt's eye rules. RGBA source placeholder; source-independent spill/halo only.\"}"
+  },
+  {
+    "id": "matte_quality.edge_halo",
+    "subject": "B/idle/S/idle_S_11",
+    "passed": null,
+    "value": 0.0,
+    "threshold": null,
+    "op": "<=",
+    "unit": "green_excess_0_255",
+    "evidence": [
+      "out/B/idle_S_11.png"
+    ],
+    "notes": "{\"metrics\": {\"band_pixels\": 1792, \"halo_width_px\": 2}, \"reason\": \"Descriptive only; Matt's eye rules. RGBA source placeholder; source-independent spill/halo only.\"}"
+  },
+  {
+    "id": "matte_quality.direct_luminance_fringe",
+    "subject": "B/idle/S/idle_S_11",
+    "passed": null,
+    "value": 109.28336601307188,
+    "threshold": null,
+    "op": "<=",
+    "unit": "luma_0_255",
+    "evidence": [
+      "out/B/idle_S_11.png"
+    ],
+    "notes": "{\"all_partial_alpha_pixels\": 44, \"definition\": \"sRGB-code luma Rec.709 weights; partial band = (0<alpha<255) within two 4-connected dilation steps of alpha==255; interior = alpha==255 within two steps of this partial band.\", \"opaque_band_mean_luma\": 54.54501176470588, \"opaque_band_pixels\": 51, \"partial_band_mean_luma\": 163.82837777777777, \"partial_band_pixels\": 36, \"reason\": \"Descriptive only; Matt's eye rules.\"}"
+  },
+  {
+    "id": "matte_quality.alpha_area_lost",
+    "subject": "B/idle/S/idle_S_11",
+    "passed": null,
+    "value": 23.63994333918622,
+    "threshold": null,
+    "op": "<=",
+    "unit": "percent_input_alpha_mass",
+    "evidence": [
+      "out/B/idle_S_11.png"
+    ],
+    "notes": "Alpha-weighted area=sum(alpha/255); descriptive only; Matt's eye rules."
+  },
+  {
+    "id": "matte_quality.alpha_support_area_lost",
+    "subject": "B/idle/S/idle_S_11",
+    "passed": null,
+    "value": 26.37315111149554,
+    "threshold": null,
+    "op": "<=",
+    "unit": "percent_input_nonzero_pixels",
+    "evidence": [
+      "out/B/idle_S_11.png"
+    ],
+    "notes": "Binary area=count(alpha>0); descriptive only; Matt's eye rules."
+  },
+  {
+    "id": "matte_quality.spill",
+    "subject": "input/idle/S/idle_S_12",
+    "passed": null,
+    "value": 8.639308855291577e-05,
+    "threshold": null,
+    "op": "<=",
+    "unit": "fraction",
+    "evidence": [
+      "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-xv-idle-cut-01/frames/idle/S/idle_S_12.png"
+    ],
+    "notes": "{\"metrics\": {\"subject_pixels\": 11575, \"tol\": 20}, \"reason\": \"Descriptive only; Matt's eye rules. RGBA source placeholder; source-independent spill/halo only.\"}"
+  },
+  {
+    "id": "matte_quality.edge_halo",
+    "subject": "input/idle/S/idle_S_12",
+    "passed": null,
+    "value": 0.08453922315308454,
+    "threshold": null,
+    "op": "<=",
+    "unit": "green_excess_0_255",
+    "evidence": [
+      "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-xv-idle-cut-01/frames/idle/S/idle_S_12.png"
+    ],
+    "notes": "{\"metrics\": {\"band_pixels\": 2626, \"halo_width_px\": 2}, \"reason\": \"Descriptive only; Matt's eye rules. RGBA source placeholder; source-independent spill/halo only.\"}"
+  },
+  {
+    "id": "matte_quality.direct_luminance_fringe",
+    "subject": "input/idle/S/idle_S_12",
+    "passed": null,
+    "value": 24.975216225650982,
+    "threshold": null,
+    "op": "<=",
+    "unit": "luma_0_255",
+    "evidence": [
+      "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-xv-idle-cut-01/frames/idle/S/idle_S_12.png"
+    ],
+    "notes": "{\"all_partial_alpha_pixels\": 1061, \"definition\": \"sRGB-code luma Rec.709 weights; partial band = (0<alpha<255) within two 4-connected dilation steps of alpha==255; interior = alpha==255 within two steps of this partial band.\", \"opaque_band_mean_luma\": 64.09113201653652, \"opaque_band_pixels\": 2177, \"partial_band_mean_luma\": 89.0663482421875, \"partial_band_pixels\": 1024, \"reason\": \"Descriptive only; Matt's eye rules.\"}"
+  },
+  {
+    "id": "matte_quality.alpha_area_lost",
+    "subject": "input/idle/S/idle_S_12",
+    "passed": null,
+    "value": 0.0,
+    "threshold": null,
+    "op": "<=",
+    "unit": "percent_input_alpha_mass",
+    "evidence": [
+      "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-xv-idle-cut-01/frames/idle/S/idle_S_12.png"
+    ],
+    "notes": "Alpha-weighted area=sum(alpha/255); descriptive only; Matt's eye rules."
+  },
+  {
+    "id": "matte_quality.alpha_support_area_lost",
+    "subject": "input/idle/S/idle_S_12",
+    "passed": null,
+    "value": 0.0,
+    "threshold": null,
+    "op": "<=",
+    "unit": "percent_input_nonzero_pixels",
+    "evidence": [
+      "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-xv-idle-cut-01/frames/idle/S/idle_S_12.png"
+    ],
+    "notes": "Binary area=count(alpha>0); descriptive only; Matt's eye rules."
+  },
+  {
+    "id": "matte_quality.spill",
+    "subject": "A/idle/S/idle_S_12",
+    "passed": null,
+    "value": 0.0,
+    "threshold": null,
+    "op": "<=",
+    "unit": "fraction",
+    "evidence": [
+      "out/A/idle_S_12.png"
+    ],
+    "notes": "{\"metrics\": {\"subject_pixels\": 9768, \"tol\": 20}, \"reason\": \"Descriptive only; Matt's eye rules. RGBA source placeholder; source-independent spill/halo only.\"}"
+  },
+  {
+    "id": "matte_quality.edge_halo",
+    "subject": "A/idle/S/idle_S_12",
+    "passed": null,
+    "value": 0.0,
+    "threshold": null,
+    "op": "<=",
+    "unit": "green_excess_0_255",
+    "evidence": [
+      "out/A/idle_S_12.png"
+    ],
+    "notes": "{\"metrics\": {\"band_pixels\": 2601, \"halo_width_px\": 2}, \"reason\": \"Descriptive only; Matt's eye rules. RGBA source placeholder; source-independent spill/halo only.\"}"
+  },
+  {
+    "id": "matte_quality.direct_luminance_fringe",
+    "subject": "A/idle/S/idle_S_12",
+    "passed": null,
+    "value": 78.41373809133168,
+    "threshold": null,
+    "op": "<=",
+    "unit": "luma_0_255",
+    "evidence": [
+      "out/A/idle_S_12.png"
+    ],
+    "notes": "{\"all_partial_alpha_pixels\": 58, \"definition\": \"sRGB-code luma Rec.709 weights; partial band = (0<alpha<255) within two 4-connected dilation steps of alpha==255; interior = alpha==255 within two steps of this partial band.\", \"opaque_band_mean_luma\": 73.99474492753623, \"opaque_band_pixels\": 138, \"partial_band_mean_luma\": 152.4084830188679, \"partial_band_pixels\": 53, \"reason\": \"Descriptive only; Matt's eye rules.\"}"
+  },
+  {
+    "id": "matte_quality.alpha_area_lost",
+    "subject": "A/idle/S/idle_S_12",
+    "passed": null,
+    "value": 12.313146175108326,
+    "threshold": null,
+    "op": "<=",
+    "unit": "percent_input_alpha_mass",
+    "evidence": [
+      "out/A/idle_S_12.png"
+    ],
+    "notes": "Alpha-weighted area=sum(alpha/255); descriptive only; Matt's eye rules."
+  },
+  {
+    "id": "matte_quality.alpha_support_area_lost",
+    "subject": "A/idle/S/idle_S_12",
+    "passed": null,
+    "value": 15.61123110151188,
+    "threshold": null,
+    "op": "<=",
+    "unit": "percent_input_nonzero_pixels",
+    "evidence": [
+      "out/A/idle_S_12.png"
+    ],
+    "notes": "Binary area=count(alpha>0); descriptive only; Matt's eye rules."
+  },
+  {
+    "id": "matte_quality.spill",
+    "subject": "B/idle/S/idle_S_12",
+    "passed": null,
+    "value": 0.0,
+    "threshold": null,
+    "op": "<=",
+    "unit": "fraction",
+    "evidence": [
+      "out/B/idle_S_12.png"
+    ],
+    "notes": "{\"metrics\": {\"subject_pixels\": 8489, \"tol\": 20}, \"reason\": \"Descriptive only; Matt's eye rules. RGBA source placeholder; source-independent spill/halo only.\"}"
+  },
+  {
+    "id": "matte_quality.edge_halo",
+    "subject": "B/idle/S/idle_S_12",
+    "passed": null,
+    "value": 0.0,
+    "threshold": null,
+    "op": "<=",
+    "unit": "green_excess_0_255",
+    "evidence": [
+      "out/B/idle_S_12.png"
+    ],
+    "notes": "{\"metrics\": {\"band_pixels\": 1794, \"halo_width_px\": 2}, \"reason\": \"Descriptive only; Matt's eye rules. RGBA source placeholder; source-independent spill/halo only.\"}"
+  },
+  {
+    "id": "matte_quality.direct_luminance_fringe",
+    "subject": "B/idle/S/idle_S_12",
+    "passed": null,
+    "value": 127.28803679653682,
+    "threshold": null,
+    "op": "<=",
+    "unit": "luma_0_255",
+    "evidence": [
+      "out/B/idle_S_12.png"
+    ],
+    "notes": "{\"all_partial_alpha_pixels\": 37, \"definition\": \"sRGB-code luma Rec.709 weights; partial band = (0<alpha<255) within two 4-connected dilation steps of alpha==255; interior = alpha==255 within two steps of this partial band.\", \"opaque_band_mean_luma\": 53.322290476190474, \"opaque_band_pixels\": 42, \"partial_band_mean_luma\": 180.6103272727273, \"partial_band_pixels\": 33, \"reason\": \"Descriptive only; Matt's eye rules.\"}"
+  },
+  {
+    "id": "matte_quality.alpha_area_lost",
+    "subject": "B/idle/S/idle_S_12",
+    "passed": null,
+    "value": 23.78611280287518,
+    "threshold": null,
+    "op": "<=",
+    "unit": "percent_input_alpha_mass",
+    "evidence": [
+      "out/B/idle_S_12.png"
+    ],
+    "notes": "Alpha-weighted area=sum(alpha/255); descriptive only; Matt's eye rules."
+  },
+  {
+    "id": "matte_quality.alpha_support_area_lost",
+    "subject": "B/idle/S/idle_S_12",
+    "passed": null,
+    "value": 26.6609071274298,
+    "threshold": null,
+    "op": "<=",
+    "unit": "percent_input_nonzero_pixels",
+    "evidence": [
+      "out/B/idle_S_12.png"
+    ],
+    "notes": "Binary area=count(alpha>0); descriptive only; Matt's eye rules."
+  },
+  {
+    "id": "matte_quality.spill",
+    "subject": "input/idle/S/idle_S_13",
+    "passed": null,
+    "value": 8.667013347200555e-05,
+    "threshold": null,
+    "op": "<=",
+    "unit": "fraction",
+    "evidence": [
+      "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-xv-idle-cut-01/frames/idle/S/idle_S_13.png"
+    ],
+    "notes": "{\"metrics\": {\"subject_pixels\": 11538, \"tol\": 20}, \"reason\": \"Descriptive only; Matt's eye rules. RGBA source placeholder; source-independent spill/halo only.\"}"
+  },
+  {
+    "id": "matte_quality.edge_halo",
+    "subject": "input/idle/S/idle_S_13",
+    "passed": null,
+    "value": 0.09766373037150516,
+    "threshold": null,
+    "op": "<=",
+    "unit": "green_excess_0_255",
+    "evidence": [
+      "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-xv-idle-cut-01/frames/idle/S/idle_S_13.png"
+    ],
+    "notes": "{\"metrics\": {\"band_pixels\": 2611, \"halo_width_px\": 2}, \"reason\": \"Descriptive only; Matt's eye rules. RGBA source placeholder; source-independent spill/halo only.\"}"
+  },
+  {
+    "id": "matte_quality.direct_luminance_fringe",
+    "subject": "input/idle/S/idle_S_13",
+    "passed": null,
+    "value": 26.012903954183315,
+    "threshold": null,
+    "op": "<=",
+    "unit": "luma_0_255",
+    "evidence": [
+      "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-xv-idle-cut-01/frames/idle/S/idle_S_13.png"
+    ],
+    "notes": "{\"all_partial_alpha_pixels\": 1055, \"definition\": \"sRGB-code luma Rec.709 weights; partial band = (0<alpha<255) within two 4-connected dilation steps of alpha==255; interior = alpha==255 within two steps of this partial band.\", \"opaque_band_mean_luma\": 65.01553160573809, \"opaque_band_pixels\": 2161, \"partial_band_mean_luma\": 91.0284355599214, \"partial_band_pixels\": 1018, \"reason\": \"Descriptive only; Matt's eye rules.\"}"
+  },
+  {
+    "id": "matte_quality.alpha_area_lost",
+    "subject": "input/idle/S/idle_S_13",
+    "passed": null,
+    "value": 0.0,
+    "threshold": null,
+    "op": "<=",
+    "unit": "percent_input_alpha_mass",
+    "evidence": [
+      "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-xv-idle-cut-01/frames/idle/S/idle_S_13.png"
+    ],
+    "notes": "Alpha-weighted area=sum(alpha/255); descriptive only; Matt's eye rules."
+  },
+  {
+    "id": "matte_quality.alpha_support_area_lost",
+    "subject": "input/idle/S/idle_S_13",
+    "passed": null,
+    "value": 0.0,
+    "threshold": null,
+    "op": "<=",
+    "unit": "percent_input_nonzero_pixels",
+    "evidence": [
+      "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-xv-idle-cut-01/frames/idle/S/idle_S_13.png"
+    ],
+    "notes": "Binary area=count(alpha>0); descriptive only; Matt's eye rules."
+  },
+  {
+    "id": "matte_quality.spill",
+    "subject": "A/idle/S/idle_S_13",
+    "passed": null,
+    "value": 0.0,
+    "threshold": null,
+    "op": "<=",
+    "unit": "fraction",
+    "evidence": [
+      "out/A/idle_S_13.png"
+    ],
+    "notes": "{\"metrics\": {\"subject_pixels\": 9757, \"tol\": 20}, \"reason\": \"Descriptive only; Matt's eye rules. RGBA source placeholder; source-independent spill/halo only.\"}"
+  },
+  {
+    "id": "matte_quality.edge_halo",
+    "subject": "A/idle/S/idle_S_13",
+    "passed": null,
+    "value": 0.0,
+    "threshold": null,
+    "op": "<=",
+    "unit": "green_excess_0_255",
+    "evidence": [
+      "out/A/idle_S_13.png"
+    ],
+    "notes": "{\"metrics\": {\"band_pixels\": 2576, \"halo_width_px\": 2}, \"reason\": \"Descriptive only; Matt's eye rules. RGBA source placeholder; source-independent spill/halo only.\"}"
+  },
+  {
+    "id": "matte_quality.direct_luminance_fringe",
+    "subject": "A/idle/S/idle_S_13",
+    "passed": null,
+    "value": 63.90778020541548,
+    "threshold": null,
+    "op": "<=",
+    "unit": "luma_0_255",
+    "evidence": [
+      "out/A/idle_S_13.png"
+    ],
+    "notes": "{\"all_partial_alpha_pixels\": 63, \"definition\": \"sRGB-code luma Rec.709 weights; partial band = (0<alpha<255) within two 4-connected dilation steps of alpha==255; interior = alpha==255 within two steps of this partial band.\", \"opaque_band_mean_luma\": 80.07113725490196, \"opaque_band_pixels\": 204, \"partial_band_mean_luma\": 143.97891746031743, \"partial_band_pixels\": 63, \"reason\": \"Descriptive only; Matt's eye rules.\"}"
+  },
+  {
+    "id": "matte_quality.alpha_area_lost",
+    "subject": "A/idle/S/idle_S_13",
+    "passed": null,
+    "value": 12.209007342232049,
+    "threshold": null,
+    "op": "<=",
+    "unit": "percent_input_alpha_mass",
+    "evidence": [
+      "out/A/idle_S_13.png"
+    ],
+    "notes": "Alpha-weighted area=sum(alpha/255); descriptive only; Matt's eye rules."
+  },
+  {
+    "id": "matte_quality.alpha_support_area_lost",
+    "subject": "A/idle/S/idle_S_13",
+    "passed": null,
+    "value": 15.435950771364194,
+    "threshold": null,
+    "op": "<=",
+    "unit": "percent_input_nonzero_pixels",
+    "evidence": [
+      "out/A/idle_S_13.png"
+    ],
+    "notes": "Binary area=count(alpha>0); descriptive only; Matt's eye rules."
+  },
+  {
+    "id": "matte_quality.spill",
+    "subject": "B/idle/S/idle_S_13",
+    "passed": null,
+    "value": 0.0,
+    "threshold": null,
+    "op": "<=",
+    "unit": "fraction",
+    "evidence": [
+      "out/B/idle_S_13.png"
+    ],
+    "notes": "{\"metrics\": {\"subject_pixels\": 8493, \"tol\": 20}, \"reason\": \"Descriptive only; Matt's eye rules. RGBA source placeholder; source-independent spill/halo only.\"}"
+  },
+  {
+    "id": "matte_quality.edge_halo",
+    "subject": "B/idle/S/idle_S_13",
+    "passed": null,
+    "value": 0.0,
+    "threshold": null,
+    "op": "<=",
+    "unit": "green_excess_0_255",
+    "evidence": [
+      "out/B/idle_S_13.png"
+    ],
+    "notes": "{\"metrics\": {\"band_pixels\": 1784, \"halo_width_px\": 2}, \"reason\": \"Descriptive only; Matt's eye rules. RGBA source placeholder; source-independent spill/halo only.\"}"
+  },
+  {
+    "id": "matte_quality.direct_luminance_fringe",
+    "subject": "B/idle/S/idle_S_13",
+    "passed": null,
+    "value": 120.69026533613444,
+    "threshold": null,
+    "op": "<=",
+    "unit": "luma_0_255",
+    "evidence": [
+      "out/B/idle_S_13.png"
+    ],
+    "notes": "{\"all_partial_alpha_pixels\": 34, \"definition\": \"sRGB-code luma Rec.709 weights; partial band = (0<alpha<255) within two 4-connected dilation steps of alpha==255; interior = alpha==255 within two steps of this partial band.\", \"opaque_band_mean_luma\": 62.66734642857142, \"opaque_band_pixels\": 56, \"partial_band_mean_luma\": 183.35761176470587, \"partial_band_pixels\": 34, \"reason\": \"Descriptive only; Matt's eye rules.\"}"
+  },
+  {
+    "id": "matte_quality.alpha_area_lost",
+    "subject": "B/idle/S/idle_S_13",
+    "passed": null,
+    "value": 23.566146290310343,
+    "threshold": null,
+    "op": "<=",
+    "unit": "percent_input_alpha_mass",
+    "evidence": [
+      "out/B/idle_S_13.png"
+    ],
+    "notes": "Alpha-weighted area=sum(alpha/255); descriptive only; Matt's eye rules."
+  },
+  {
+    "id": "matte_quality.alpha_support_area_lost",
+    "subject": "B/idle/S/idle_S_13",
+    "passed": null,
+    "value": 26.39105564222569,
+    "threshold": null,
+    "op": "<=",
+    "unit": "percent_input_nonzero_pixels",
+    "evidence": [
+      "out/B/idle_S_13.png"
+    ],
+    "notes": "Binary area=count(alpha>0); descriptive only; Matt's eye rules."
+  },
+  {
+    "id": "matte_quality.spill",
+    "subject": "input/idle/S/idle_S_14",
+    "passed": null,
+    "value": 8.687342541916427e-05,
+    "threshold": null,
+    "op": "<=",
+    "unit": "fraction",
+    "evidence": [
+      "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-xv-idle-cut-01/frames/idle/S/idle_S_14.png"
+    ],
+    "notes": "{\"metrics\": {\"subject_pixels\": 11511, \"tol\": 20}, \"reason\": \"Descriptive only; Matt's eye rules. RGBA source placeholder; source-independent spill/halo only.\"}"
+  },
+  {
+    "id": "matte_quality.edge_halo",
+    "subject": "input/idle/S/idle_S_14",
+    "passed": null,
+    "value": 0.07896764252696456,
+    "threshold": null,
+    "op": "<=",
+    "unit": "green_excess_0_255",
+    "evidence": [
+      "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-xv-idle-cut-01/frames/idle/S/idle_S_14.png"
+    ],
+    "notes": "{\"metrics\": {\"band_pixels\": 2596, \"halo_width_px\": 2}, \"reason\": \"Descriptive only; Matt's eye rules. RGBA source placeholder; source-independent spill/halo only.\"}"
+  },
+  {
+    "id": "matte_quality.direct_luminance_fringe",
+    "subject": "input/idle/S/idle_S_14",
+    "passed": null,
+    "value": 23.41139027586223,
+    "threshold": null,
+    "op": "<=",
+    "unit": "luma_0_255",
+    "evidence": [
+      "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-xv-idle-cut-01/frames/idle/S/idle_S_14.png"
+    ],
+    "notes": "{\"all_partial_alpha_pixels\": 1039, \"definition\": \"sRGB-code luma Rec.709 weights; partial band = (0<alpha<255) within two 4-connected dilation steps of alpha==255; interior = alpha==255 within two steps of this partial band.\", \"opaque_band_mean_luma\": 64.90234312354312, \"opaque_band_pixels\": 2145, \"partial_band_mean_luma\": 88.31373339940535, \"partial_band_pixels\": 1009, \"reason\": \"Descriptive only; Matt's eye rules.\"}"
+  },
+  {
+    "id": "matte_quality.alpha_area_lost",
+    "subject": "input/idle/S/idle_S_14",
+    "passed": null,
+    "value": 0.0,
+    "threshold": null,
+    "op": "<=",
+    "unit": "percent_input_alpha_mass",
+    "evidence": [
+      "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-xv-idle-cut-01/frames/idle/S/idle_S_14.png"
+    ],
+    "notes": "Alpha-weighted area=sum(alpha/255); descriptive only; Matt's eye rules."
+  },
+  {
+    "id": "matte_quality.alpha_support_area_lost",
+    "subject": "input/idle/S/idle_S_14",
+    "passed": null,
+    "value": 0.0,
+    "threshold": null,
+    "op": "<=",
+    "unit": "percent_input_nonzero_pixels",
+    "evidence": [
+      "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-xv-idle-cut-01/frames/idle/S/idle_S_14.png"
+    ],
+    "notes": "Binary area=count(alpha>0); descriptive only; Matt's eye rules."
+  },
+  {
+    "id": "matte_quality.spill",
+    "subject": "A/idle/S/idle_S_14",
+    "passed": null,
+    "value": 0.0,
+    "threshold": null,
+    "op": "<=",
+    "unit": "fraction",
+    "evidence": [
+      "out/A/idle_S_14.png"
+    ],
+    "notes": "{\"metrics\": {\"subject_pixels\": 9732, \"tol\": 20}, \"reason\": \"Descriptive only; Matt's eye rules. RGBA source placeholder; source-independent spill/halo only.\"}"
+  },
+  {
+    "id": "matte_quality.edge_halo",
+    "subject": "A/idle/S/idle_S_14",
+    "passed": null,
+    "value": 0.0,
+    "threshold": null,
+    "op": "<=",
+    "unit": "green_excess_0_255",
+    "evidence": [
+      "out/A/idle_S_14.png"
+    ],
+    "notes": "{\"metrics\": {\"band_pixels\": 2575, \"halo_width_px\": 2}, \"reason\": \"Descriptive only; Matt's eye rules. RGBA source placeholder; source-independent spill/halo only.\"}"
+  },
+  {
+    "id": "matte_quality.direct_luminance_fringe",
+    "subject": "A/idle/S/idle_S_14",
+    "passed": null,
+    "value": 66.50106051162186,
+    "threshold": null,
+    "op": "<=",
+    "unit": "luma_0_255",
+    "evidence": [
+      "out/A/idle_S_14.png"
+    ],
+    "notes": "{\"all_partial_alpha_pixels\": 52, \"definition\": \"sRGB-code luma Rec.709 weights; partial band = (0<alpha<255) within two 4-connected dilation steps of alpha==255; interior = alpha==255 within two steps of this partial band.\", \"opaque_band_mean_luma\": 67.40537086092715, \"opaque_band_pixels\": 151, \"partial_band_mean_luma\": 133.906431372549, \"partial_band_pixels\": 51, \"reason\": \"Descriptive only; Matt's eye rules.\"}"
+  },
+  {
+    "id": "matte_quality.alpha_area_lost",
+    "subject": "A/idle/S/idle_S_14",
+    "passed": null,
+    "value": 12.201309644709578,
+    "threshold": null,
+    "op": "<=",
+    "unit": "percent_input_alpha_mass",
+    "evidence": [
+      "out/A/idle_S_14.png"
+    ],
+    "notes": "Alpha-weighted area=sum(alpha/255); descriptive only; Matt's eye rules."
+  },
+  {
+    "id": "matte_quality.alpha_support_area_lost",
+    "subject": "A/idle/S/idle_S_14",
+    "passed": null,
+    "value": 15.454782382069322,
+    "threshold": null,
+    "op": "<=",
+    "unit": "percent_input_nonzero_pixels",
+    "evidence": [
+      "out/A/idle_S_14.png"
+    ],
+    "notes": "Binary area=count(alpha>0); descriptive only; Matt's eye rules."
+  },
+  {
+    "id": "matte_quality.spill",
+    "subject": "B/idle/S/idle_S_14",
+    "passed": null,
+    "value": 0.0,
+    "threshold": null,
+    "op": "<=",
+    "unit": "fraction",
+    "evidence": [
+      "out/B/idle_S_14.png"
+    ],
+    "notes": "{\"metrics\": {\"subject_pixels\": 8472, \"tol\": 20}, \"reason\": \"Descriptive only; Matt's eye rules. RGBA source placeholder; source-independent spill/halo only.\"}"
+  },
+  {
+    "id": "matte_quality.edge_halo",
+    "subject": "B/idle/S/idle_S_14",
+    "passed": null,
+    "value": 0.0,
+    "threshold": null,
+    "op": "<=",
+    "unit": "green_excess_0_255",
+    "evidence": [
+      "out/B/idle_S_14.png"
+    ],
+    "notes": "{\"metrics\": {\"band_pixels\": 1782, \"halo_width_px\": 2}, \"reason\": \"Descriptive only; Matt's eye rules. RGBA source placeholder; source-independent spill/halo only.\"}"
+  },
+  {
+    "id": "matte_quality.direct_luminance_fringe",
+    "subject": "B/idle/S/idle_S_14",
+    "passed": null,
+    "value": 123.42268666666662,
+    "threshold": null,
+    "op": "<=",
+    "unit": "luma_0_255",
+    "evidence": [
+      "out/B/idle_S_14.png"
+    ],
+    "notes": "{\"all_partial_alpha_pixels\": 30, \"definition\": \"sRGB-code luma Rec.709 weights; partial band = (0<alpha<255) within two 4-connected dilation steps of alpha==255; interior = alpha==255 within two steps of this partial band.\", \"opaque_band_mean_luma\": 56.74419999999999, \"opaque_band_pixels\": 60, \"partial_band_mean_luma\": 180.1668866666666, \"partial_band_pixels\": 30, \"reason\": \"Descriptive only; Matt's eye rules.\"}"
+  },
+  {
+    "id": "matte_quality.alpha_area_lost",
+    "subject": "B/idle/S/idle_S_14",
+    "passed": null,
+    "value": 23.556330686882067,
+    "threshold": null,
+    "op": "<=",
+    "unit": "percent_input_alpha_mass",
+    "evidence": [
+      "out/B/idle_S_14.png"
+    ],
+    "notes": "Alpha-weighted area=sum(alpha/255); descriptive only; Matt's eye rules."
+  },
+  {
+    "id": "matte_quality.alpha_support_area_lost",
+    "subject": "B/idle/S/idle_S_14",
+    "passed": null,
+    "value": 26.40083398488402,
+    "threshold": null,
+    "op": "<=",
+    "unit": "percent_input_nonzero_pixels",
+    "evidence": [
+      "out/B/idle_S_14.png"
+    ],
+    "notes": "Binary area=count(alpha>0); descriptive only; Matt's eye rules."
+  },
+  {
+    "id": "matte_quality.spill",
+    "subject": "input/idle/S/idle_S_15",
+    "passed": null,
+    "value": 0.00017404925593943085,
+    "threshold": null,
+    "op": "<=",
+    "unit": "fraction",
+    "evidence": [
+      "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-xv-idle-cut-01/frames/idle/S/idle_S_15.png"
+    ],
+    "notes": "{\"metrics\": {\"subject_pixels\": 11491, \"tol\": 20}, \"reason\": \"Descriptive only; Matt's eye rules. RGBA source placeholder; source-independent spill/halo only.\"}"
+  },
+  {
+    "id": "matte_quality.edge_halo",
+    "subject": "input/idle/S/idle_S_15",
+    "passed": null,
+    "value": 0.06580996884735202,
+    "threshold": null,
+    "op": "<=",
+    "unit": "green_excess_0_255",
+    "evidence": [
+      "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-xv-idle-cut-01/frames/idle/S/idle_S_15.png"
+    ],
+    "notes": "{\"metrics\": {\"band_pixels\": 2568, \"halo_width_px\": 2}, \"reason\": \"Descriptive only; Matt's eye rules. RGBA source placeholder; source-independent spill/halo only.\"}"
+  },
+  {
+    "id": "matte_quality.direct_luminance_fringe",
+    "subject": "input/idle/S/idle_S_15",
+    "passed": null,
+    "value": 21.954243231887773,
+    "threshold": null,
+    "op": "<=",
+    "unit": "luma_0_255",
+    "evidence": [
+      "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-xv-idle-cut-01/frames/idle/S/idle_S_15.png"
+    ],
+    "notes": "{\"all_partial_alpha_pixels\": 1053, \"definition\": \"sRGB-code luma Rec.709 weights; partial band = (0<alpha<255) within two 4-connected dilation steps of alpha==255; interior = alpha==255 within two steps of this partial band.\", \"opaque_band_mean_luma\": 64.17100627306272, \"opaque_band_pixels\": 2168, \"partial_band_mean_luma\": 86.12524950495049, \"partial_band_pixels\": 1010, \"reason\": \"Descriptive only; Matt's eye rules.\"}"
+  },
+  {
+    "id": "matte_quality.alpha_area_lost",
+    "subject": "input/idle/S/idle_S_15",
+    "passed": null,
+    "value": 0.0,
+    "threshold": null,
+    "op": "<=",
+    "unit": "percent_input_alpha_mass",
+    "evidence": [
+      "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-xv-idle-cut-01/frames/idle/S/idle_S_15.png"
+    ],
+    "notes": "Alpha-weighted area=sum(alpha/255); descriptive only; Matt's eye rules."
+  },
+  {
+    "id": "matte_quality.alpha_support_area_lost",
+    "subject": "input/idle/S/idle_S_15",
+    "passed": null,
+    "value": 0.0,
+    "threshold": null,
+    "op": "<=",
+    "unit": "percent_input_nonzero_pixels",
+    "evidence": [
+      "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-xv-idle-cut-01/frames/idle/S/idle_S_15.png"
+    ],
+    "notes": "Binary area=count(alpha>0); descriptive only; Matt's eye rules."
+  },
+  {
+    "id": "matte_quality.spill",
+    "subject": "A/idle/S/idle_S_15",
+    "passed": null,
+    "value": 0.0,
+    "threshold": null,
+    "op": "<=",
+    "unit": "fraction",
+    "evidence": [
+      "out/A/idle_S_15.png"
+    ],
+    "notes": "{\"metrics\": {\"subject_pixels\": 9725, \"tol\": 20}, \"reason\": \"Descriptive only; Matt's eye rules. RGBA source placeholder; source-independent spill/halo only.\"}"
+  },
+  {
+    "id": "matte_quality.edge_halo",
+    "subject": "A/idle/S/idle_S_15",
+    "passed": null,
+    "value": 0.0,
+    "threshold": null,
+    "op": "<=",
+    "unit": "green_excess_0_255",
+    "evidence": [
+      "out/A/idle_S_15.png"
+    ],
+    "notes": "{\"metrics\": {\"band_pixels\": 2530, \"halo_width_px\": 2}, \"reason\": \"Descriptive only; Matt's eye rules. RGBA source placeholder; source-independent spill/halo only.\"}"
+  },
+  {
+    "id": "matte_quality.direct_luminance_fringe",
+    "subject": "A/idle/S/idle_S_15",
+    "passed": null,
+    "value": 50.162378854314014,
+    "threshold": null,
+    "op": "<=",
+    "unit": "luma_0_255",
+    "evidence": [
+      "out/A/idle_S_15.png"
+    ],
+    "notes": "{\"all_partial_alpha_pixels\": 56, \"definition\": \"sRGB-code luma Rec.709 weights; partial band = (0<alpha<255) within two 4-connected dilation steps of alpha==255; interior = alpha==255 within two steps of this partial band.\", \"opaque_band_mean_luma\": 71.10534257425742, \"opaque_band_pixels\": 202, \"partial_band_mean_luma\": 121.26772142857143, \"partial_band_pixels\": 56, \"reason\": \"Descriptive only; Matt's eye rules.\"}"
+  },
+  {
+    "id": "matte_quality.alpha_area_lost",
+    "subject": "A/idle/S/idle_S_15",
+    "passed": null,
+    "value": 12.054409721150538,
+    "threshold": null,
+    "op": "<=",
+    "unit": "percent_input_alpha_mass",
+    "evidence": [
+      "out/A/idle_S_15.png"
+    ],
+    "notes": "Alpha-weighted area=sum(alpha/255); descriptive only; Matt's eye rules."
+  },
+  {
+    "id": "matte_quality.alpha_support_area_lost",
+    "subject": "A/idle/S/idle_S_15",
+    "passed": null,
+    "value": 15.36854929945175,
+    "threshold": null,
+    "op": "<=",
+    "unit": "percent_input_nonzero_pixels",
+    "evidence": [
+      "out/A/idle_S_15.png"
+    ],
+    "notes": "Binary area=count(alpha>0); descriptive only; Matt's eye rules."
+  },
+  {
+    "id": "matte_quality.spill",
+    "subject": "B/idle/S/idle_S_15",
+    "passed": null,
+    "value": 0.0,
+    "threshold": null,
+    "op": "<=",
+    "unit": "fraction",
+    "evidence": [
+      "out/B/idle_S_15.png"
+    ],
+    "notes": "{\"metrics\": {\"subject_pixels\": 8482, \"tol\": 20}, \"reason\": \"Descriptive only; Matt's eye rules. RGBA source placeholder; source-independent spill/halo only.\"}"
+  },
+  {
+    "id": "matte_quality.edge_halo",
+    "subject": "B/idle/S/idle_S_15",
+    "passed": null,
+    "value": 0.0,
+    "threshold": null,
+    "op": "<=",
+    "unit": "green_excess_0_255",
+    "evidence": [
+      "out/B/idle_S_15.png"
+    ],
+    "notes": "{\"metrics\": {\"band_pixels\": 1783, \"halo_width_px\": 2}, \"reason\": \"Descriptive only; Matt's eye rules. RGBA source placeholder; source-independent spill/halo only.\"}"
+  },
+  {
+    "id": "matte_quality.direct_luminance_fringe",
+    "subject": "B/idle/S/idle_S_15",
+    "passed": null,
+    "value": 90.88848300492609,
+    "threshold": null,
+    "op": "<=",
+    "unit": "luma_0_255",
+    "evidence": [
+      "out/B/idle_S_15.png"
+    ],
+    "notes": "{\"all_partial_alpha_pixels\": 31, \"definition\": \"sRGB-code luma Rec.709 weights; partial band = (0<alpha<255) within two 4-connected dilation steps of alpha==255; interior = alpha==255 within two steps of this partial band.\", \"opaque_band_mean_luma\": 70.37172413793104, \"opaque_band_pixels\": 58, \"partial_band_mean_luma\": 161.26020714285713, \"partial_band_pixels\": 28, \"reason\": \"Descriptive only; Matt's eye rules.\"}"
+  },
+  {
+    "id": "matte_quality.alpha_area_lost",
+    "subject": "B/idle/S/idle_S_15",
+    "passed": null,
+    "value": 23.29087141478118,
+    "threshold": null,
+    "op": "<=",
+    "unit": "percent_input_alpha_mass",
+    "evidence": [
+      "out/B/idle_S_15.png"
+    ],
+    "notes": "Alpha-weighted area=sum(alpha/255); descriptive only; Matt's eye rules."
+  },
+  {
+    "id": "matte_quality.alpha_support_area_lost",
+    "subject": "B/idle/S/idle_S_15",
+    "passed": null,
+    "value": 26.185710556087372,
+    "threshold": null,
+    "op": "<=",
+    "unit": "percent_input_nonzero_pixels",
+    "evidence": [
+      "out/B/idle_S_15.png"
+    ],
+    "notes": "Binary area=count(alpha>0); descriptive only; Matt's eye rules."
+  },
+  {
+    "id": "matte_quality.particle_loss",
+    "subject": "input,A,B/idle/S",
+    "passed": null,
+    "value": null,
+    "threshold": null,
+    "op": "<=",
+    "unit": "source_partial_alpha_mass_fraction",
+    "evidence": [],
+    "notes": "Not computable: original green plate/native split unavailable; registered RGBA is not a valid source for this metric. Placeholder-source particle-loss outputs discarded."
+  }
+]

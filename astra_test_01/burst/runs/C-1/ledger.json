@@ -11487,6 +11487,410 @@
       "codex_version": "codex-cli 0.153.4",
       "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
       "exit": 0
+    },
+    {
+      "id": "K3p-chk-walk-xv",
+      "type": "CHECK",
+      "experiment": "K3p-xv",
+      "brief_sha256": "58df5988a172b6f6bede2d3d8aeb7edcdc713c3597205e2d16bfba441f7b8de8",
+      "started": "2026-09-13T03:39:01.736894+00:00",
+      "ended": "2026-09-13T03:44:07.205836+00:00",
+      "minutes": 5.091136884033282,
+      "image_calls": 0,
+      "tool_calls": 12,
+      "audit": {
+        "violations": [],
+        "image_calls": 0,
+        "tool_calls": 12,
+        "tools_seen": {
+          "command_execution": 11,
+          "file_change": 1
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": []
+      },
+      "receipt_sha256": "43e2c7ac97624d3cd6a46e32b220218a04fbe6f68d4133c17a830ca0f231eb8b",
+      "artifacts": [
+        {
+          "name": "checks.json",
+          "sha256": "004184a9432d5026429aa49ed46e1e7ee75ab766183528896a755e1a2ce35462"
+        },
+        {
+          "name": "checks_readme.txt",
+          "sha256": "3020564788c202f9be4f8fd2e00637f6b3a8656d0956085dfef95b5646e133c3"
+        },
+        {
+          "name": "instrument_payloads.json",
+          "sha256": "d9f7b9afd257a663d0497735319e8a076f1afa22a597d262480cfcf52015dc39"
+        },
+        {
+          "name": "plots/walk_E_K3p_committed_W1_curves.png",
+          "sha256": "0f97411010fa5482f5278cadadb23f379f05d38337bef467a1b9c74c0615ac29"
+        },
+        {
+          "name": "plots/walk_E_K3p_curves.png",
+          "sha256": "2b1a41d34f1167f965279b26190d471c2318851f5df40214078fae7a6b87c55b"
+        },
+        {
+          "name": "plots/walk_E_K3p_mask_check.png",
+          "sha256": "2cdb000295718ec0a420a58d2fbf65ef64d781fd8c51872911d269e47c33b567"
+        },
+        {
+          "name": "walk_E_K3p_measure.json",
+          "sha256": "5b3010f2ad199d1ebbad2f0c99bf4a7b09226a0428c1701553ac3f6bb1259134"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
+    },
+    {
+      "id": "K3p-xv-idle-matte-01",
+      "type": "CHECK",
+      "experiment": "K3p-xv",
+      "brief_sha256": "adaeef72290ecb0e68fce1a41edb8470a3bfbfdc593f98db150d48c89c6a90a2",
+      "started": "2026-09-13T03:49:45.690327+00:00",
+      "ended": "2026-09-13T03:59:27.033900+00:00",
+      "minutes": 9.689186947916703,
+      "image_calls": 0,
+      "tool_calls": 11,
+      "audit": {
+        "violations": [],
+        "image_calls": 0,
+        "tool_calls": 11,
+        "tools_seen": {
+          "command_execution": 11
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": []
+      },
+      "receipt_sha256": "cc5ba9a6e01e4be1868ef498a90588fb91f25555ad4b6208a68801b1c3faffb8",
+      "artifacts": [
+        {
+          "name": "A/idle_S_00.png",
+          "sha256": "5667b9d39e8ff04773bfe20bc7688888886de8625fd462359b152fedd28cc042"
+        },
+        {
+          "name": "A/idle_S_01.png",
+          "sha256": "a1f10210e4949662b46b6f3895c302fac561e1bea36d5390b05558e3e217fd50"
+        },
+        {
+          "name": "A/idle_S_02.png",
+          "sha256": "aaec7c872178c4952c9e8b6876490bfd83bbde034022c6bca7a610706ba9ded8"
+        },
+        {
+          "name": "A/idle_S_03.png",
+          "sha256": "e645ee1dda5334f822ba9899c3425e445a5712e08d46b89e25968dfd13a1158c"
+        },
+        {
+          "name": "A/idle_S_04.png",
+          "sha256": "4b122b142c91dd042aff6452cdc248073f1d9a7047943d202aca6b48f1e44003"
+        },
+        {
+          "name": "A/idle_S_05.png",
+          "sha256": "33178bf4149eff494b3b3fce9a5904e7966379caae31c0a5aefa97e057ee4a5e"
+        },
+        {
+          "name": "A/idle_S_06.png",
+          "sha256": "8f0ccbca44f413909e8aec4c692ca09a6af571586391564a08b0ed48e1a74151"
+        },
+        {
+          "name": "A/idle_S_07.png",
+          "sha256": "4cf70c82954d219737f1b40b4134b55660eb529bf2256712fe051805daaa9a0b"
+        },
+        {
+          "name": "A/idle_S_08.png",
+          "sha256": "8fb7a2dd793785b47f49badb8b5c33112eb724a06a9f8514a7ca557bedfb4dc0"
+        },
+        {
+          "name": "A/idle_S_09.png",
+          "sha256": "4b8c886d3a939983bda7de4fdb6e5927436e3e3e77e26c615aa05f646044a3fe"
+        },
+        {
+          "name": "A/idle_S_10.png",
+          "sha256": "46b31adfc36281f28bcc8975ccfd50e5123b0b2bea01b4a9cfad0d9d6f7c9b67"
+        },
+        {
+          "name": "A/idle_S_11.png",
+          "sha256": "d6d3678b55a64f7be5318641cb3ad3fd8f31002589faf0a275b7f6a1150d261b"
+        },
+        {
+          "name": "A/idle_S_12.png",
+          "sha256": "4333a62b24602c6e150808e6d81b6c5661a11d9e8d547bccbfc3826096000bab"
+        },
+        {
+          "name": "A/idle_S_13.png",
+          "sha256": "d95768d317b32682d71684ab5edd63ab653a03ae42918ab6f01359b724d424c1"
+        },
+        {
+          "name": "A/idle_S_14.png",
+          "sha256": "6b0d027ebc0ff6dffd1f83cf18ffefa753f2ee69a274f66b3508e50173cf29e9"
+        },
+        {
+          "name": "A/idle_S_15.png",
+          "sha256": "03eb01effd0baa02e0853e87088e0ee47fbff016dd439a73c4393730271f2fff"
+        },
+        {
+          "name": "B/idle_S_00.png",
+          "sha256": "ab6c0c7dad3b55e01cecee8e15aeb71fb279c80023d3300a361d2ab26a7e481f"
+        },
+        {
+          "name": "B/idle_S_01.png",
+          "sha256": "2ee46f5f5f531bbacd88212876fdee2ff569962407bf569c91e8707887555d1b"
+        },
+        {
+          "name": "B/idle_S_02.png",
+          "sha256": "9e10fe92802b35a916111750610a6c586679c8b5054f2f3cae9681ddecf30894"
+        },
+        {
+          "name": "B/idle_S_03.png",
+          "sha256": "a99bb42fe308cf8e312af51e75a856f598d6fa7a0a4106baddc26f8bcf6d31d7"
+        },
+        {
+          "name": "B/idle_S_04.png",
+          "sha256": "2a163a3351f051cceca0f14de1b51dd974bdafad47e8333896484082ecfc38bf"
+        },
+        {
+          "name": "B/idle_S_05.png",
+          "sha256": "3daa683653b3672778737771c8ef5a4567aa5e7e2c11ee7c0a79c9caa2e8442e"
+        },
+        {
+          "name": "B/idle_S_06.png",
+          "sha256": "051d32acc44ed5cf3c463483b961fa3a22cd6b16ef87ba4f0b9991fa1048a9b7"
+        },
+        {
+          "name": "B/idle_S_07.png",
+          "sha256": "16cc6208cd8c1aef3078e896245fec87d7c686ab944d81e5284564aeb4fc662f"
+        },
+        {
+          "name": "B/idle_S_08.png",
+          "sha256": "83a7fa1b23256b00a3356b4492e462ecb3d3dc6de3b3a3c5cfec881fc3057611"
+        },
+        {
+          "name": "B/idle_S_09.png",
+          "sha256": "d071d34d60450f087dfa33401e69550ae5ca250a3d1e1ebb5d5edaeef6e44bf1"
+        },
+        {
+          "name": "B/idle_S_10.png",
+          "sha256": "e48e92ca6ddc2d0420aa8a9609ebf8518de15a9a36c23f2a2ee56fd35772ced6"
+        },
+        {
+          "name": "B/idle_S_11.png",
+          "sha256": "a6770c81d3d9b6f444e90672259250d1f9f7cea0b4879ae558cc1f17b9a08760"
+        },
+        {
+          "name": "B/idle_S_12.png",
+          "sha256": "10dddca0c78c9b9da4f2d83c18c6ae3143a0dcd953b55ca451f2c5366709b816"
+        },
+        {
+          "name": "B/idle_S_13.png",
+          "sha256": "2373ac680970951600534042f3688cea93b1264a6d52d927997e4a95554ceed6"
+        },
+        {
+          "name": "B/idle_S_14.png",
+          "sha256": "c5c8f74214df8362b39190c19d565ae5207ae216cc6b80fe8c218998b330c469"
+        },
+        {
+          "name": "B/idle_S_15.png",
+          "sha256": "7132dd9f4c7b91919e4587e3f3abc7863593be5c6c0c626f235540945ff2e2fc"
+        },
+        {
+          "name": "checks.json",
+          "sha256": "cf6e40c631f6c0dc01691b7b2076e1540f7844bc8c856c98ec641e6b22228a93"
+        },
+        {
+          "name": "checks_readme.txt",
+          "sha256": "191d55c8452039fbc8f8ca0f5893012c5da6ad72019b46f3a715a70fa980bb2f"
+        },
+        {
+          "name": "edge_crops.png",
+          "sha256": "3575697ba1c8bcfb5d0a744d13088a21385c2e4aa24a1289a0ed760c09c53aae"
+        },
+        {
+          "name": "idle_S_video_A_erode1_8fps.mp4",
+          "sha256": "6400d096f0d1c044f7f27a6754ac6bb759a80f6ddd9fc0c1bd47ab4d72b91e61"
+        },
+        {
+          "name": "idle_S_video_B_erode2_floor96_8fps.mp4",
+          "sha256": "17a547f76f68d7b4c0b0441585e51ae01289568b70a91e7dfaf48f9dc2b786c4"
+        },
+        {
+          "name": "idle_S_video_input_8fps.mp4",
+          "sha256": "f7344bf8865b30f1b9608d8755d33a768215011c65fa5f7671bcbdb1437a8324"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
+    },
+    {
+      "id": "K3p-pack-walk-xv",
+      "type": "PACK",
+      "experiment": "K3p-xv",
+      "brief_sha256": "6891d3a685aa4f4846600eed0f694785dc25ddaf41309069957bf3d2f78b6e83",
+      "started": "2026-09-13T03:44:36.853205+00:00",
+      "ended": "2026-09-13T03:59:36.806144+00:00",
+      "minutes": 15.000301270133301,
+      "image_calls": 0,
+      "tool_calls": 11,
+      "audit": {
+        "violations": [
+          "receipt unreadable: [Errno 2] No such file or directory: '/Users/admin/astra-burst/runs/C-1/K3p-pack-walk-xv/out/receipt.json'"
+        ],
+        "image_calls": 0,
+        "tool_calls": 11,
+        "tools_seen": {
+          "command_execution": 11
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [],
+        "execution_error": "TIMEOUT"
+      },
+      "receipt_sha256": null,
+      "artifacts": [],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 3
+    },
+    {
+      "id": "K3p-xv-cut-04",
+      "type": "CHECK",
+      "experiment": "K3p-xv",
+      "brief_sha256": "b6e5f312ee140219a38189874da48c5e7aca353c7bd27bb2981a858021cbafb4",
+      "started": "2026-09-13T04:02:23.730894+00:00",
+      "ended": "2026-09-13T04:06:46.578337+00:00",
+      "minutes": 4.380849649299974,
+      "image_calls": 0,
+      "tool_calls": 9,
+      "audit": {
+        "violations": [],
+        "image_calls": 0,
+        "tool_calls": 9,
+        "tools_seen": {
+          "command_execution": 8,
+          "file_change": 1
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": []
+      },
+      "receipt_sha256": "edacd8eb69489c9f3a2cc7c12f67d2b35541e46a5989ae85559551befb244cb1",
+      "artifacts": [
+        {
+          "name": "frames/rest/E/rest_E.png",
+          "sha256": "fd8d9a398bf61e635fa2e6e395d265f693777f685589ad9ea4e92a5f953e44cc"
+        },
+        {
+          "name": "frames/walk/E/walk_E_00.png",
+          "sha256": "a8d0e0d91d8c9f84e007092b13f55d9e358f36e6b5c6a9b18f59b27f2f3dc7af"
+        },
+        {
+          "name": "frames/walk/E/walk_E_01.png",
+          "sha256": "1bfaf64cf08d314602b5555b8f3e376866da8d9d5f4f47ebe04bc5359a11013a"
+        },
+        {
+          "name": "frames/walk/E/walk_E_02.png",
+          "sha256": "67212ca132d665710c34c99147df94e3d27e4cf74537cf4ad9212bd6cc099ff6"
+        },
+        {
+          "name": "frames/walk/E/walk_E_03.png",
+          "sha256": "2fdbb754250c4a98f1c4a765f9eb2d48f6e4320262925e5cedf32cdaffc5bc65"
+        },
+        {
+          "name": "frames/walk/E/walk_E_04.png",
+          "sha256": "591cb71d44ff1e681b26f82d225a51894372bf2144c5631f5348b0ada61b642d"
+        },
+        {
+          "name": "frames/walk/E/walk_E_05.png",
+          "sha256": "6beec45e133020d659f19192f2df8ff4835d2e743a561ec4dfa628b05462573d"
+        },
+        {
+          "name": "frames/walk/E/walk_E_06.png",
+          "sha256": "662cf763fec123a7dfa8abb9bdc4f9767d0de435fa807cc75ffd07a38fbc386a"
+        },
+        {
+          "name": "frames/walk/E/walk_E_07.png",
+          "sha256": "8a312c3626bd4327430559c62addf7051f22b93b35e5fd7d59f8d7b90afe6b7e"
+        },
+        {
+          "name": "frames/walk/E/walk_E_08.png",
+          "sha256": "66cb01cfabc23c0f2300952126d3a7a5aad5f1c905e4e879ff7e818eda4f2b84"
+        },
+        {
+          "name": "frames/walk/E/walk_E_09.png",
+          "sha256": "5aca3c225f2a884042bf1b6fbea12a237b742f2fd5e633655c86938d360c086c"
+        },
+        {
+          "name": "frames/walk/E/walk_E_10.png",
+          "sha256": "8cc892b665669e3b1dc47f1038aba38aeb6b7871bf8b60ffd8a79ba1c35d73b1"
+        },
+        {
+          "name": "frames/walk/E/walk_E_11.png",
+          "sha256": "22960832d3c97d0d56e1e6d290aad555a5615c382ae316506bb62efe36b5ad85"
+        },
+        {
+          "name": "readme.txt",
+          "sha256": "9f11e9f363d4955af8fc80d3f8f75c8986fab262692eaf2a8f4b46bbb812ac4a"
+        },
+        {
+          "name": "registration.json",
+          "sha256": "0f73f3d556357bf34fc2e54ae1e782d750a94b19a8f352ef6f1b2a40a5e7d231"
+        },
+        {
+          "name": "sheets/walk_E_strip.png",
+          "sha256": "cb1fd8cfdfb0dd0a7074e0237f40e1a1acc34412c9552c22e07a8bcdd2359afb"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
     }
   ],
   "images_used": 101,
@@ -11810,6 +12214,16 @@
       "id": "M-K3p-idle-2",
       "ts": "2026-09-12T23:13:51",
       "what": "Relaxed idle-S attempt 2 (exaggeration lever): breath 3.39 %H in band, head carried, feet locked, G12 1.000, G6b pass, one 1.4-px arm residue \u2014 Matt: 'did seem to work better \u2026 not an utter failure \u2026 could maybe be passable' \u2014 ruling DEFERRED to the comparison with the video-cut idle (packet 19). Step 8 \u2192 video process test for both loops."
+    },
+    {
+      "id": "M-K3p-idle-VIDEO",
+      "ts": "2026-09-12T23:49:24",
+      "what": "FIRST LOOP PASSED BY MATT'S EYE \u2014 the relaxed idle-S from Grok video (master C seed): 'night and day \u2026 perfect except for the white glow'. The instrument disagreed on every gate \u2192 the band/LOCK model is re-derived from this exemplar (R-48). Halo trim in flight."
+    },
+    {
+      "id": "M-K3p-walk-VIDEO",
+      "ts": "2026-09-12T23:56:24",
+      "what": "SECOND LOOP PASSED BY MATT'S EYE \u2014 the walk-E from Grok video (r2 seed): 'a perfect walk' (raw clip); the cut 12-frame packet pending his read (cadence). Both loops now pass by eye; both committed bands re-derive from these exemplars (R-48/R-50)."
     }
   ],
   "halts": [
@@ -12240,6 +12654,51 @@
       "ruling": "K3p-chk-idle-xv on the harvested video idle (whole-span resample, R-45) vs the committed relaxed band: breath 0.41 %H (floor 1.96) BELOW FLOOR; head bob 1.94 %H (ceiling 1.20) ABOVE; feet lock 0.42 %H (\u2264 0.25) FAIL \u2014 the sole creeps; LOCK regions 3 mismatches (arms_left 6.34 %H, arms_right 2.43, hips 1.50); G6/G6b/G6c FAIL (seam 0.597 vs 0.415) \u2014 no closure because no breath was cut (no dominant period). The video model animated arms, head and hips while the chest breath never registered. Attempt 2 (Astra edit-canvas + object-respecting composite, R-40): breath 3.39 IN BAND, head 0.00, feet 0.00, 1 region miss (1.4 px), G6b PASS \u2014 wins every gate.",
       "consequence": "Finding: SPLIT BY LOOP TYPE \u2014 idles (small deltas on a shared base) \u2192 image model + composite; locomotion (a temporal object) \u2192 video model + oracle cut. Recommendation to Matt: attempt 2 = PASS-WITH-NUMBERS as the relaxed-idle candidate (the R-42 deferral resolved by the comparison); the video idle is not the improvement for idles. Packet 19 shows both.",
       "evidence": "K3p-chk-idle-xv checks.json; K3p-chk-x2-01 checks.json; R-45 caveat."
+    },
+    {
+      "id": "R-48",
+      "by": "Matt",
+      "ts": "2026-09-12T23:49:24",
+      "topic": "IDLE RULED: the Grok video idle PASSES by eye \u2014 'night and day' better than the Astra composite; the committed relaxed band + LOCK model is FALSIFIED as a model of the eye",
+      "ruling": "Matt, verbatim: \"The grok video version of the idle is better - night and day. It is perfect except for the white glow around the character that needs to be trimmed off.\" Ruling: video idle (K3p-xv-idle-cut-01 frames, from master C) = PASS-BY-EYE pending the halo trim; attempt 2 (Astra composite, breath 3.39 %H in band) = superseded ('maybe passable' stands as its record). The instrument (idle_intent vs the committed relaxed band: video breath 0.41 %H below floor, head 1.94 above, feet 0.42, 3 LOCK misses, G6b fail) scored the loop the eye passes as failing every gate, and the loop the eye demoted as passing \u2014 the band measured one number (chest width) and demanded the rest LOCK; the eye judges COHERENT whole-body micro-motion (arms 6 %H, head 2 %H, hips 1.5 %H, all carried, none re-drawn). Matt's K3 complaint was re-drawing (darting eyes), not motion.",
+      "consequence": "(1) IDLE \u2192 VIDEO MODEL: R-47's 'split by loop type' is WITHDRAWN \u2014 both loops go to the video model; the image model keeps identity + register (master C seeds the clip); oracle cut; matte; gates. (2) The relaxed band (R-c, provisional) and the LOCK/MOTION region model are RE-DERIVED from the passing exemplar \u2014 the video idle's own curves calibrate the band; LOCK lists become coherence checks (carry vs re-draw: per-region drift at 48 px, silhouette continuity) rather than displacement thresholds \u2014 T3 + a Matt checkpoint before any band re-commits. (3) Pivot gate: 'one loop passes the oracle gates' is read as 'one loop passes Matt's eye AND the re-derived gates' \u2014 the eye is the authority the gates serve. (4) The halo: a matte edge artifact (soft video edges keep green-mixed semi-transparent pixels) \u2192 re-matte with a higher alpha_floor + 1-px erosion + despill, halo metric before/after (K3p-xv-idle-matte-01).",
+      "evidence": "Packet 19 (video idle MP4 beside attempt 2); K3p-chk-idle-xv checks.json; K3p-chk-x2-01 checks.json; R-21 (intent over consistency) applied to the spec itself."
+    },
+    {
+      "id": "R-49",
+      "by": "gandalf (conductor, DRIFT-CRITIC)",
+      "ts": "2026-09-12T23:50:28",
+      "topic": "Step 8 video walk measured \u2014 structurally a walk, under-exaggerated against the drawn band; the Astra walk was never a walk",
+      "ruling": "K3p-chk-walk-xv on the 12 frames cut at native [53,87): W-1 2.06 %H \u2014 above the veridical floor (2.0), BELOW the committed drawn floor 3.95 / target 4.93 (k_vert 1.25, R-a); W-4 = 2 PASS (two head minima per stride); W-2 phase-extrema match FAIL at every cyclic rotation (head tracker flagged frames 0\u20136); W-3a 0.77 (\u2264 0.35) FAIL; W-3c 4 (2\u20133) FAIL; W-5 staff arm 3.7 %H (\u2265 3 PASS) / free arm 6.2 %H (floor 8 \u2014 just under); W-6 null (foot observations missing on 5 of 12 frames); G1 height 12/12 within 3 % (no scale drift); planted-sole slip 2.0 px/frame (Astra: 20); ground spread 0; G6c 1.246 \u2264 1.25 PASS (L5); G6b fail narrowly (1.246 vs 1.207). Verdict: FAIL-WITH-NUMBERS on the committed band \u2014 a LIFE-LIKE stride that the R-21 drawn band requires to be exaggerated ~2\u00d7; every structural gate the Astra walk failed (one size, two bobs, stationary treadmill foot, closing seam) the video walk passes.",
+      "consequence": "Walk \u2192 video model (with R-48, both loops). Next lever = the exaggeration language on the walk prompt (Q76: 12\u00d7 on the idle) aimed at 3.95\u20137 %H; T3 first: per-boot identity in profile (W-5/W-6/contacts), a head tracker that does not flag the first frames, the cut tool with a period fallback and cap headroom. Packet 18 = the video walk beside Muybridge and beside the Astra walk.",
+      "evidence": "K3p-chk-walk-xv checks.json; K3p-xv-cut-03 registration.json; K3p-chk-walk-01 (Astra) for the comparison."
+    },
+    {
+      "id": "R-50",
+      "by": "Matt",
+      "ts": "2026-09-12T23:56:24",
+      "topic": "WALK RULED on the raw Grok clip: 'a perfect walk' \u2014 the second loop passed by eye; the drawn-amplitude premise (R-a k_vert 1.25) falsified for a continuous walk",
+      "ruling": "Matt, verbatim: \"The MP4 from Grok has a perfect walk. I'm excited to see the animated packet.\" Ruling: the video walk (walk_E_grok.mp4, 24 fps, from the r2 still) = PASS-BY-EYE on the raw clip. The committed walk band's target (4.93 %H, k_vert 1.25 over the Muybridge floor 3.95) rested on R-21's exaggeration premise, born of Astra stills that floated; the eye passes a continuous walk at 2.06 %H \u2014 life-like amplitude, continuous phase. Pending: Matt's read of the animated packet (the 12-frame cut at the register's 12 fps = one stride per second, ~1.4\u00d7 the clip's 1.42-s stride) \u2014 a cadence question, not a walk question.",
+      "consequence": "Both committed bands (idle relaxed R-c; walk R-a/R-e) are RE-DERIVED from the eye's exemplars (video idle, video walk) \u2014 T3 + Matt checkpoint before re-commit; the LOCK/MOTION region model becomes a coherence model. The pivot gate's 'one loop' half is met BY EYE on both loops; the plate half (X6) remains. Construction defects the walk inherits from the r2 seed (satchel front, strap side \u2014 R-43) are fixed at the E rest frame, not in the video. Frame-rate rule for cut walks = open (12 f @ 12 fps vs 16\u201317 f from the 34-frame stride vs 12 f @ 8.5 fps).",
+      "evidence": "Desktop 18 raw clip; K3p-chk-walk-xv (R-49); contact sheet."
+    },
+    {
+      "id": "R-51",
+      "by": "Matt (observations) + gandalf (conductor)",
+      "ts": "2026-09-12T23:59:13",
+      "topic": "Video walk: head down for the first ~3 s (gaze rule); lateral bob is a front/back-view quantity \u2192 per-facing bands; the packet stride re-cut head-up",
+      "ruling": "Matt, verbatim: \"1) THe head looks down for the first 3 seconds which is not correct for a purposeful character walking towards something in game. 2) The head will not show as much left-to-right bob as it is walking East. I suspect we will see more bob in N and S walks. But maybe I was off about the bob %..\" (1) Gaze rule (Legolas W-7; the prompt asked for it): the clip holds the gaze only after ~3 s; the packet stride [53,87) = 2.2\u20133.6 s straddles the head-down window \u2014 which is also why the head tracker flagged frames 0\u20136 and W-2/W-3a read wide. Re-cut: K3p-xv-cut-04 = native [71,105) (2.96\u20134.38 s; DOWN at 71/88; before the ~4.5 s splice; the 4.3-s rule relaxed to 4.4 s with the splice check reported) \u2192 gates \u2192 packet B; packet A (as measured) kept. (2) Bands are PER FACING: vertical bob (W-1) in profile E/W; lateral sway (W-3) in front/back N/S \u2014 Legolas's lateral-suppression rule was written for front views; plate-13 front/rear rows exist uncommitted for N/S. On the bob %: the raw clip Matt passed bobs 2.06 %H vs the drawn target 4.93 \u2014 the target was off (R-50), not the eye.",
+      "consequence": "Next clip prompts carry 'eyes on the horizon from the FIRST frame'; T3 adds a gaze/head-pitch check (W-7) and per-facing band rows; the N/S walk (a later clip) calibrates the lateral row. Cadence of the 12-frame cut remains an open rider.",
+      "evidence": "Desktop 18 raw clip; cut-01 landmarks (head_top_y opening frames); K3p-chk-walk-xv (tracker flags 0\u20136)."
+    },
+    {
+      "id": "R-52",
+      "by": "gandalf (conductor)",
+      "ts": "2026-09-13T00:00:57",
+      "topic": "Halo trim measured and cropped (A = 1-px erosion + despill removes the rim; the fringe metric moved with its own band); packet 18 (cut A) timed out at the PACK cap; head-up cut-04 delivered; the cut-B gates launch was lost to a grep exit code and relaunched",
+      "ruling": "K3p-xv-idle-matte-01: edge_halo (2-px band) input 0.093 \u2192 A 0.000 \u2192 B 0.000; alpha-weighted area lost A 12.1 % / B 23.5 %; the 'direct luminance fringe' rose after both trims because the partial-alpha band it averages shrank to the brightest remaining pixels \u2014 a metric artifact; edge_crops.png (near-shoulder, \u00d74): input carries the pale rim Matt saw; A removes it with the edge intact; B eats slightly more. Conductor lean A; Matt picks. K3p-pack-walk-xv (cut A packet) hit the 15-min cap with no receipt (the Astra comparison media pushed it over) \u2014 not re-run: cut A straddles the head-down opening (R-51); the packet is built for cut B only (pack-walk-xv2 trimmed to essentials). CORRECTION (same session): K3p-xv-cut-04 had NOT run \u2014 the brief-writing heredoc failed on an exact-match assertion inside a background call, the runner launched against a missing task file, and the conductor read the completion notification as delivery without opening the output (the same shape as the 'check running \u2260 check passing' rule: a notification is not a receipt). The chk-walk-xv2 / pack-walk-xv2 briefs were likewise never written. All three rebuilt with regex-verified replacements + dry-runs; cut-04 launched for real.",
+      "consequence": "T3: matte for video frames = despill + 1-px edge treatment as a tool parameter, not glue; PACK budgets sized to the media (or split); the runner never chains a launch behind grep -c. Conductor rule: open every background task's output before acting on its notification; never chain a launch behind `grep -c`.",
+      "evidence": "K3p-xv-idle-matte-01 checks.json + edge_crops.png; k3p_packwalkxv.log; task b0o7zcltd exit 1."
     }
   ]
 }
