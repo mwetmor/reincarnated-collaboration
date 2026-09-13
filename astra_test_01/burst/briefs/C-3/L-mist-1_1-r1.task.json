@@ -1,0 +1,22 @@
+{
+ "text": "GENERATE BURST L-mist-1_1-r1 — parallax background panel by OUTPAINTING (Matt R-C3-46/48). task_id \"L-mist-1_1-r1\".\n\nRE-DRIVE (conductor R-C3-50): the first attempt left a HARD STRAIGHT HORIZONTAL LINE exactly at row 256 — the dense cloud bank in the top strip stopped dead and flat black began beneath it. This time the cloud bank in the top strip must FLOW DOWN across row 256 with its lower edge broken into irregular, billowing, soft shapes, and must merge with the wisps of the left strip; no straight edge, no black band touching the strip.\n\nThis image is one panel (lower-right (thick rolling banks)) of a 2×2 grid of 1536×1024 panels (neighbours overlap by 256 px) that together form ONE continuous painted parallax background layer for a hand-painted 2D game scene seen past a cliff edge at sunset. The whole layer is the MIST layer: soft drifting banks of pale warm mist and low cloud lit by the sunset (peach, rose and lavender), painted as LIGHT on a PURE BLACK background (black = fully transparent in the game, brighter = more opaque mist). Mist is thin and wispy in the upper half and thickens into dense rolling cloud banks toward the bottom. No land, no trees, no sky colour on the black.\nIMAGE 1 is the canvas to EDIT: its LEFT 256 columns; its TOP 256 rows; its top-left 256×256 corner are ALREADY PAINTED (real pixels from neighbouring panels); the rest is flat black placeholder. Use image_gen in EDIT mode on IMAGE 1 and deliver ONE 1536×1024 image: keep the painted strips as they are and replace the placeholder with painting that CONTINUES them seamlessly (no visible join), following the layer description for this panel's position.\nREGISTER: the level's approved painted style (IMAGE 2): hand-drawn painted 2D, tapered dark contours (lighter and thinner with distance), painted planes, bold Hades-like jewel tones and graphic shapes, rich detail. No characters, creatures, text, UI, border or vignette.\n\nOne image_gen call. ONE retry only if a painted strip was altered, a join remains, the layer contains a cliff rim/characters/text, or (keyed layers) the area above the silhouette is not flat pure #00ff00 — name the reason. Copy the output from $CODEX_HOME/generated_images/... to out/L-mist-1_1.png with sha256. No code. No other files. No web.\nRETURN: receipt task_id \"L-mist-1_1-r1\"; images = the file with prompt, references and elapsed_s; calls_used = the TRUE number of image_gen calls; status; concerns. Never PASS/FAIL.",
+ "references": [
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/CS-layers/L-mist-1_1_canvas.png",
+   "role": "IMAGE 1 — the canvas to EDIT (painted neighbour strips + placeholder)"
+  },
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/CS-vista-01/vista_01.png",
+   "role": "IMAGE 2 — the approved painted STYLE and story of this background (do not copy its layout)"
+  }
+ ],
+ "image_cap": 2,
+ "minutes_cap": 15,
+ "tool_call_cap": 20,
+ "outputs": [
+  "out/L-mist-1_1.png"
+ ],
+ "effort": "high",
+ "add_dirs": [],
+ "experiment": "C3-cliffside-layers"
+}

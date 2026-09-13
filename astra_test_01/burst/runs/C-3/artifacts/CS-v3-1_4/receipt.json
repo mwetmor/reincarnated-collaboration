@@ -1,0 +1,43 @@
+{
+  "task_id": "CS-v3-1_4",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "chunk_1_4.png",
+      "path": "out/chunk_1_4.png",
+      "sha256": "c91de580ff88ebaf5520fd0aba27c25b90c0dc2c0f439a1849b5e8987cb127a9",
+      "prompt": "Use case: precise-object-edit. Edit IMAGE 1 in place as a 1536×1024 orthographic game environment chunk. IMAGE 1 is the edit canvas and geometry authority. IMAGE 2 is supporting painted STYLE reference only, never composition. Preserve all already painted pixels in IMAGE 1 exactly: entire TOP 256 rows and LEFT 256 columns, including the corner. Fill only the flat geometry-guide regions, seamlessly extending the existing painted strips with matching colors, scale, stones, vegetation, strata and light. No visible horizontal join at y=256 or vertical join at x=256. Keep every guide boundary exactly at its original coordinates. The large DARK GREY/BROWN upper-right region is a continuous VERTICAL CLIFF FACE, continuing the blue-violet fractured rock columns visible directly above it; paint rock all the way down, its lowest part slightly hazier and darker without drawing a new ledge or bottom edge. The LIGHT GREY diagonal region from around (432,256) toward (1200,1024) and below-left is a grassy/rocky verge, continuing the dense small yellow flowers, green grass, scattered grey stones and sunset patches in the left strip. Preserve that exact diagonal division between verge and cliff wall. Interpret any TAN as packed-dirt cliff-top path, dark blocks as boulders, BROWN planks as bridge deck, MAGENTA plank as cracked loose plank, and PURE GREEN as empty void; only paint these if actually present in IMAGE 1. Every existing pure #00ff00 pixel must remain flat pure #00ff00. Do not import green shapes or the road from IMAGE 2. Orthographic elevated three-quarter view, no perspective shrinking toward the top. HAND-DRAWN painted 2D, confident tapered dark contours of varying weight, painted fills in clean planes, restrained surface texture, readable forms, environmental richness, bold jewel tones and graphic shadows matching IMAGE 2 and the existing strips exactly. Warm sunset key from SCREEN UPPER-LEFT, cool violet shadows, no pure black. No characters, creatures, text, UI, border, vignette, new objects, reframing or resizing. Deliver ONE 1536×1024 edited image.\nCRITICAL CORRECTION FOR RETRY: The previous attempt brightened and repainted portions of the protected TOP strip. Treat the original IMAGE 1 top 256 rows and left 256 columns as immutable pasted source pixels, including their existing low-contrast violet haze. Do not sharpen, brighten, relight, recolor or repaint them. Only replace the flat grey guide pixels outside these strips. The rock directly below y=256 must inherit the exact muted values of the original rock above. Preserve the exact original guide diagonal and all original painted details.",
+      "references": [
+        {
+          "role": "edit canvas and geometry authority",
+          "path": "in/01_chunk_1_4_edit_canvas.png"
+        },
+        {
+          "role": "approved painted style reference",
+          "path": "in/02_chunk_A.png"
+        }
+      ],
+      "elapsed_s": 37.942
+    }
+  ],
+  "calls_used": 2,
+  "retries": [
+    {
+      "reason": "First result visibly brightened and repainted portions of the protected top strip.",
+      "change": "Repeated the edit from original references with stronger immutable-strip and muted-value preservation instructions."
+    }
+  ],
+  "self_report": {
+    "obeyed_invariants": false,
+    "concerns": [
+      "A visible horizontal join remains near y=256 in the delivered retry.",
+      "Exact pixel preservation of painted strips and guide boundaries is not verified."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/chunk_1_4.png",
+      "sha256": "c91de580ff88ebaf5520fd0aba27c25b90c0dc2c0f439a1849b5e8987cb127a9"
+    }
+  ]
+}

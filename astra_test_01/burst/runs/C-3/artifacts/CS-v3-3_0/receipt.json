@@ -1,0 +1,43 @@
+{
+  "task_id": "CS-v3-3_0",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "chunk_3_0",
+      "path": "out/chunk_3_0.png",
+      "sha256": "cd686f2c8572604f6c31685c10cb03243c5eea99bfa33853693dbdb3c845a870",
+      "prompt": "Use case: style-transfer / outpainting. EDIT IMAGE 1 in place to one 1536x1024 PNG; IMAGE 2 supplies painting style only, not layout. Corrective attempt: prevent a vertical join at x=256 and do not extend dirt outside the TAN polygon. Exact material-map interpretation is essential. The LARGE GREY area covering most of this specific canvas is ROCKY GRASSY VERGE, not an open dirt road. Paint that grey polygon as continuous rocky ground with grass and rock outcrops, preserving its exact outline. The only unpainted TAN path is the small lower-left polygon beginning (256,655), extending to around (409,767), (409,780), (282,958), (256,939); fill this polygon with matching packed dirt, preserving this footprint. The small DARK GREY/BROWN lower-left plane below it is vertical cliff, continuous to the bottom of canvas with no ledge or bottom edge and darker hazier lowest stone. Preserve the complete LEFT 256 COLUMNS pixel-for-pixel: original plants, dirt, wooden bridge corner, upright timber post, cliff and all shadows. Continue their details smoothly at x=256, no straight vertical texture seam. Do not redraw or rearrange anything in that strip. All original PURE #00ff00 areas must stay exact flat #00ff00 with their original silhouettes: upper-left green corner and large upper-right green triangle whose diagonal runs from (534,0) to (1535,703). No foliage, rocks, outlines, haze or anything over any green pixel. No new internal material boundaries; honor the tan/grey/dark-grey guide lines exactly. Orthographic elevated three-quarter view, no perspective shrinking; a person would be 130 px tall, but no people. Warm SUNSET key from SCREEN UPPER-LEFT, cool violet shadows; match IMAGE 2 exactly in confident hand-drawn tapered dark contours, clean painted material planes, restrained surface texture, bold jewel tones, graphic shadows, grassy stonework and environmental richness. HAND-DRAWN painted 2D, each image like hand animation, no conspicuous grain. No characters, creatures, text, UI, border, vignette. Only replace flat non-green guide pixels to the right of x=255. Return precisely the original canvas dimensions and framing.",
+      "references": [
+        {
+          "role": "edit target: painted strip and geometry guide",
+          "path": "in/01_chunk_3_0_edit_canvas.png"
+        },
+        {
+          "role": "approved painting style",
+          "path": "in/02_chunk_A.png"
+        }
+      ],
+      "elapsed_s": 31.653
+    }
+  ],
+  "calls_used": 2,
+  "retries": [
+    {
+      "reason": "First output showed a vertical join at x=256 and extended dirt beyond the tan guide.",
+      "change": "Retried from original references with explicit material boundaries, polygon coordinates, and strip-preservation instructions."
+    }
+  ],
+  "self_report": {
+    "obeyed_invariants": false,
+    "concerns": [
+      "Delivered image is 1536×1024, but internal dirt/verge and cliff boundaries visibly drift from the guide.",
+      "Exact pixel preservation of the painted strip and pure-green regions remains unverified."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/chunk_3_0.png",
+      "sha256": "cd686f2c8572604f6c31685c10cb03243c5eea99bfa33853693dbdb3c845a870"
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "task_id": "L-far_ruins-1_0",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "L-far_ruins-1_0.png",
+      "path": "out/L-far_ruins-1_0.png",
+      "sha256": "cc06aae9e412239ee2a98091a8270e68c5dba073904186c845ffe447aa8683b9",
+      "prompt": "Use case: precise-object-edit. Edit IMAGE 1 (generated 1536x1024 far ruins panel) with ONE localized correction: remove the smoke plume that rises above the temple into the green sky around x=1160–1250,y=540–680, replacing that plume and every trace of its halo above the architecture/land silhouette with flat pure #00ff00. Keep any thin smoke below the skyline within the painted temple plateau only. Every pixel above the mountain and architectural silhouette must be flat pure #00ff00, including gaps between columns. Preserve the rest of IMAGE 1 exactly: same mountains, temple, haze, lighting, composition and 1536x1024 size. IMAGE 2 is the original canvas: its LEFT 256 columns are the immutable neighbour overlap; ensure the final LEFT 256 columns match IMAGE 2 exactly. Do not modify those original painted pixels. Retain seamless continuation at x=256. Hand-drawn painted 2D, tapered contours, clean violet painted planes and subtle warm upper-left rims, restrained texture. No characters, creatures, text, UI, borders, vignette or foreground cliff rim. Return ONE 1536x1024 PNG.",
+      "references": [
+        {
+          "role": "Retry edit target: initial outpainting",
+          "path": "/Users/admin/.codex/generated_images/01a09c83-2e42-7c63-a549-ae1682d592d2/exec-4429fe2f-8ba4-4b9f-b565-47821ad4c528.png"
+        },
+        {
+          "role": "Original canvas and immutable neighbour strip",
+          "path": "in/01_L-far_ruins-1_0_canvas.png"
+        },
+        {
+          "role": "Style and story reference used in initial generation",
+          "path": "in/02_vista_01.png"
+        }
+      ],
+      "elapsed_s": 21.266
+    }
+  ],
+  "calls_used": 2,
+  "retries": [
+    {
+      "reason": "Smoke extended above the temple silhouette into the green sky.",
+      "change": "Removed the protruding smoke plume and requested restoration of pure green above the silhouette."
+    }
+  ],
+  "self_report": {
+    "obeyed_invariants": true,
+    "concerns": [
+      "Dimensions verified as 1536×1024. Exact neighbour-strip pixel preservation and pure #00ff00 values were visually inspected but not numerically verified."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/L-far_ruins-1_0.png",
+      "sha256": "cc06aae9e412239ee2a98091a8270e68c5dba073904186c845ffe447aa8683b9"
+    }
+  ]
+}

@@ -1,0 +1,60 @@
+{
+ "layers": [
+  {
+   "name": "sky",
+   "file": "layers/sky.png",
+   "scroll_scale": 0.12,
+   "position": [
+    0,
+    0.0
+   ],
+   "z": -40
+  },
+  {
+   "name": "far_ruins",
+   "file": "layers/far_ruins.png",
+   "scroll_scale": 0.25,
+   "position": [
+    0,
+    -416.0
+   ],
+   "z": -30
+  },
+  {
+   "name": "forest_valley",
+   "file": "layers/forest_valley.png",
+   "scroll_scale": 0.45,
+   "position": [
+    0,
+    537.0
+   ],
+   "z": -20
+  },
+  {
+   "name": "mist",
+   "file": "layers/mist.png",
+   "scroll_scale": 0.7,
+   "position": [
+    0,
+    568.0
+   ],
+   "z": -10
+  }
+ ],
+ "camera": {
+  "anchor": [
+   962,
+   595
+  ],
+  "view": [
+   1920,
+   1080
+  ],
+  "limits": [
+   2,
+   55,
+   5378,
+   4151
+  ]
+ }
+}

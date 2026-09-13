@@ -1,0 +1,37 @@
+{
+  "task_id": "CS-v4-3_2",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "chunk_3_2",
+      "path": "out/chunk_3_2.png",
+      "sha256": "0246110177d4ed105592538d24e9ce7cbd5bf21244c521b2bbdac4b86d4d0b83",
+      "prompt": "EDIT Image 1 by outpainting ONLY its unfinished flat geometry-guide areas. Deliver one 1536×1024 PNG, same exact framing and geometry. Image 1 is the edit target; Image 2 is a style reference only, never a composition reference. LOCK all finished pixels in the TOP 256 rows and LEFT 256 columns of Image 1, including their corner. Preserve these existing painted strips exactly. LOCK every pure #00ff00 void pixel and its exact silhouette, with no change of color or coverage. Replace only the remaining flat guide with seamless continuation of the painted strips. No straight seam at x=256 or y=256. Continue each existing rock rib, crack, color plane and vegetation strand naturally across these boundaries. The grey face covers almost the entire lower and central canvas: paint continuous tall weathered natural cliff faces with irregular vertical fluting, buttresses, tapered dark cracks, cool violet shadow planes and restrained warm sunset highlights, continuing all the way to the canvas bottom without any base, bottom edge or invented ledge. Slightly darker and hazier toward the lowest part. Preserve the guide's large rib locations and geometry. At upper right the OLIVE area becomes short grass, moss, tiny flowers and bare rock patches, with no boulders or props; the LIGHT GREY band becomes rocky cliff rim exactly along the guide boundary. Retain every material boundary in its exact position. Any TAN is ragged soft-edged packed dirt with tufts and pebbles; any BROWN planks and posts are wooden bridge; any MAGENTA plank is cracked loose wood. Do not add these elements where absent. Orthographic elevated three-quarter view, no perspective shrinking toward the top. Scene scale corresponds to a standing person 130 pixels tall, but show no people. Match Image 2 and the finished strips exactly: HAND-DRAWN painted 2D action-game environment, confident hand-drawn dark contours with visible taper and varying weight, clean painted material planes, restrained surface texture, rich jewel tones and graphic shadows. Warm SUNSET key from screen UPPER-LEFT, cool violet shadows. No characters, creatures, text, UI, border, vignette. All empty void remains flat pure #00ff00. Preserve finished strips and boundary positions exactly; finish only flat guide areas.",
+      "references": [
+        {
+          "role": "edit target: painted strips and geometry guide",
+          "path": "in/01_chunk_3_2_edit_canvas.png"
+        },
+        {
+          "role": "approved level style reference",
+          "path": "in/02_chunk_A.png"
+        }
+      ],
+      "elapsed_s": 23.917
+    }
+  ],
+  "calls_used": 1,
+  "retries": [],
+  "self_report": {
+    "obeyed_invariants": true,
+    "concerns": [
+      "Visual inspection found no obvious strip-edge seam; exact preservation of painted pixels, guide boundaries, and #00ff00 pixels was not measured."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/chunk_3_2.png",
+      "sha256": "0246110177d4ed105592538d24e9ce7cbd5bf21244c521b2bbdac4b86d4d0b83"
+    }
+  ]
+}

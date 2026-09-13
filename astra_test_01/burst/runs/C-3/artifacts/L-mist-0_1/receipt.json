@@ -1,0 +1,37 @@
+{
+  "task_id": "L-mist-0_1",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "L-mist-0_1.png",
+      "path": "out/L-mist-0_1.png",
+      "sha256": "9e4b269de2c50be75ed8fc6326ae1376915f4b820815660cccb5cf753b0bf432",
+      "prompt": "Use case: precise-object-edit / outpainting. Edit IMAGE 1, the 1536x1024 canvas. IMAGE 2 is supporting painted style and sunset mist palette only; do not copy its layout or objects. Deliver ONE 1536x1024 PNG. LOCK AND PRESERVE EXACTLY the existing painted top 256 rows (y=0 through 255), including the top-right 256x256 corner: these are real neighbouring panel pixels and must remain in their original positions, with identical shapes and colors. Paint only the black placeholder below y=256, continuing the existing mist across that boundary seamlessly with no horizontal join. This is the lower-left thick rolling banks panel of a 2x2 continuous parallax MIST layer; adjacent panels overlap by 256 pixels. Subject is ONLY soft drifting banks of pale warm mist and low cloud, peach, rose, lavender, lit by sunset from screen upper-left, painted as LIGHT over flat pure BLACK (#000000). Black represents zero mist opacity; brighter colors represent denser mist. Keep negative space truly black, with no sky-colored background fill. Existing top overlap must stay untouched even where dense; below it develop thinner wispy mist in the upper half, thickening into dense rolling cloud banks toward the bottom, especially lower-left. Continue truncated cloud forms naturally below y=256 before opening into black gaps between wisps; avoid a straight edge, stripe or join. Hand-drawn painted 2D game animation register: confident tapered contour shapes, lighter thinner distant edges, clean painted planes, restrained surface texture, graphic shapes, rich peach and lavender local light, no conspicuous grain. Mist edges are soft atmospheric painted shapes consistent with the existing top strip. No land, cliff rim, rock, trees, architecture, horizon, sun disk, sky color, characters, creatures, text, UI, border, vignette or new objects. This task is a black-backed mist layer, not a sprite sheet. Preserve canvas dimensions and the original painted overlap exactly; extend only the placeholder.",
+      "references": [
+        {
+          "role": "edit target: painted neighbour overlap and black placeholder",
+          "path": "in/01_L-mist-0_1_canvas.png"
+        },
+        {
+          "role": "supporting painted style and sunset mist palette",
+          "path": "in/02_vista_01.png"
+        }
+      ],
+      "elapsed_s": 37.643
+    }
+  ],
+  "calls_used": 1,
+  "retries": [],
+  "self_report": {
+    "obeyed_invariants": true,
+    "concerns": [
+      "Output dimensions verified as 1536×1024. Overlap continuity inspected visually; exact pixel preservation and pure-black values were not measured."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/L-mist-0_1.png",
+      "sha256": "9e4b269de2c50be75ed8fc6326ae1376915f4b820815660cccb5cf753b0bf432"
+    }
+  ]
+}

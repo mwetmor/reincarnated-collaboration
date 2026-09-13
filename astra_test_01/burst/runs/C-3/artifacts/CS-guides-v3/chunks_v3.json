@@ -1,0 +1,650 @@
+{
+  "ruling": "R-C3-48",
+  "canvas_px": [
+    5376,
+    4096
+  ],
+  "chunk_px": [
+    1536,
+    1024
+  ],
+  "step_px": [
+    1280,
+    768
+  ],
+  "overlap_px": [
+    256,
+    256
+  ],
+  "keep_rule": "foreground fraction >= 1 %",
+  "px_per_m": 100.617553710938,
+  "cut_depth_m": 20.0,
+  "depth_format": {
+    "png": "16-bit greyscale (uint16)",
+    "unit": "millimetres below local rim",
+    "top_surfaces": 0,
+    "not_foreground": 65535,
+    "fade": "alpha = 1 if mm <= 8000; (20000 - mm)/12000 if mm <= 20000; else 0"
+  },
+  "guide_rule": "shaded ortho crop; every mask==0 pixel is pure #00ff00",
+  "paint_order_rule": "row by row, top to bottom, left to right; a chunk is painted after its left and above neighbours (when kept)",
+  "paint_order": [
+    {
+      "step": 1,
+      "chunk": "chunk_2_0",
+      "index": [
+        2,
+        0
+      ],
+      "origin_px": [
+        2560,
+        0
+      ],
+      "fg_fraction": 0.3632,
+      "paint_after": [],
+      "corner_overlaps_already_painted": [],
+      "files": {
+        "guide": "chunks/chunk_2_0_guide.png",
+        "mask": "chunks/chunk_2_0_mask.png",
+        "depth": "chunks/chunk_2_0_depth.png",
+        "id": "chunks/chunk_2_0_id.png"
+      }
+    },
+    {
+      "step": 2,
+      "chunk": "chunk_3_0",
+      "index": [
+        3,
+        0
+      ],
+      "origin_px": [
+        3840,
+        0
+      ],
+      "fg_fraction": 0.7645,
+      "paint_after": [
+        {
+          "chunk": "chunk_2_0",
+          "side": "left",
+          "shared_px": "x 0..255 of this chunk"
+        }
+      ],
+      "corner_overlaps_already_painted": [],
+      "files": {
+        "guide": "chunks/chunk_3_0_guide.png",
+        "mask": "chunks/chunk_3_0_mask.png",
+        "depth": "chunks/chunk_3_0_depth.png",
+        "id": "chunks/chunk_3_0_id.png"
+      }
+    },
+    {
+      "step": 3,
+      "chunk": "chunk_1_1",
+      "index": [
+        1,
+        1
+      ],
+      "origin_px": [
+        1280,
+        768
+      ],
+      "fg_fraction": 0.2583,
+      "paint_after": [],
+      "corner_overlaps_already_painted": [
+        {
+          "chunk": "chunk_2_0",
+          "corner": "above_right"
+        }
+      ],
+      "files": {
+        "guide": "chunks/chunk_1_1_guide.png",
+        "mask": "chunks/chunk_1_1_mask.png",
+        "depth": "chunks/chunk_1_1_depth.png",
+        "id": "chunks/chunk_1_1_id.png"
+      }
+    },
+    {
+      "step": 4,
+      "chunk": "chunk_2_1",
+      "index": [
+        2,
+        1
+      ],
+      "origin_px": [
+        2560,
+        768
+      ],
+      "fg_fraction": 0.7986,
+      "paint_after": [
+        {
+          "chunk": "chunk_1_1",
+          "side": "left",
+          "shared_px": "x 0..255 of this chunk"
+        },
+        {
+          "chunk": "chunk_2_0",
+          "side": "above",
+          "shared_px": "y 0..255 of this chunk"
+        }
+      ],
+      "corner_overlaps_already_painted": [
+        {
+          "chunk": "chunk_3_0",
+          "corner": "above_right"
+        }
+      ],
+      "files": {
+        "guide": "chunks/chunk_2_1_guide.png",
+        "mask": "chunks/chunk_2_1_mask.png",
+        "depth": "chunks/chunk_2_1_depth.png",
+        "id": "chunks/chunk_2_1_id.png"
+      }
+    },
+    {
+      "step": 5,
+      "chunk": "chunk_3_1",
+      "index": [
+        3,
+        1
+      ],
+      "origin_px": [
+        3840,
+        768
+      ],
+      "fg_fraction": 1.0,
+      "paint_after": [
+        {
+          "chunk": "chunk_2_1",
+          "side": "left",
+          "shared_px": "x 0..255 of this chunk"
+        },
+        {
+          "chunk": "chunk_3_0",
+          "side": "above",
+          "shared_px": "y 0..255 of this chunk"
+        }
+      ],
+      "corner_overlaps_already_painted": [
+        {
+          "chunk": "chunk_2_0",
+          "corner": "above_left"
+        }
+      ],
+      "files": {
+        "guide": "chunks/chunk_3_1_guide.png",
+        "mask": "chunks/chunk_3_1_mask.png",
+        "depth": "chunks/chunk_3_1_depth.png",
+        "id": "chunks/chunk_3_1_id.png"
+      }
+    },
+    {
+      "step": 6,
+      "chunk": "chunk_0_2",
+      "index": [
+        0,
+        2
+      ],
+      "origin_px": [
+        0,
+        1536
+      ],
+      "fg_fraction": 0.1047,
+      "paint_after": [],
+      "corner_overlaps_already_painted": [
+        {
+          "chunk": "chunk_1_1",
+          "corner": "above_right"
+        }
+      ],
+      "files": {
+        "guide": "chunks/chunk_0_2_guide.png",
+        "mask": "chunks/chunk_0_2_mask.png",
+        "depth": "chunks/chunk_0_2_depth.png",
+        "id": "chunks/chunk_0_2_id.png"
+      }
+    },
+    {
+      "step": 7,
+      "chunk": "chunk_1_2",
+      "index": [
+        1,
+        2
+      ],
+      "origin_px": [
+        1280,
+        1536
+      ],
+      "fg_fraction": 0.8305,
+      "paint_after": [
+        {
+          "chunk": "chunk_0_2",
+          "side": "left",
+          "shared_px": "x 0..255 of this chunk"
+        },
+        {
+          "chunk": "chunk_1_1",
+          "side": "above",
+          "shared_px": "y 0..255 of this chunk"
+        }
+      ],
+      "corner_overlaps_already_painted": [
+        {
+          "chunk": "chunk_2_1",
+          "corner": "above_right"
+        }
+      ],
+      "files": {
+        "guide": "chunks/chunk_1_2_guide.png",
+        "mask": "chunks/chunk_1_2_mask.png",
+        "depth": "chunks/chunk_1_2_depth.png",
+        "id": "chunks/chunk_1_2_id.png"
+      }
+    },
+    {
+      "step": 8,
+      "chunk": "chunk_2_2",
+      "index": [
+        2,
+        2
+      ],
+      "origin_px": [
+        2560,
+        1536
+      ],
+      "fg_fraction": 1.0,
+      "paint_after": [
+        {
+          "chunk": "chunk_1_2",
+          "side": "left",
+          "shared_px": "x 0..255 of this chunk"
+        },
+        {
+          "chunk": "chunk_2_1",
+          "side": "above",
+          "shared_px": "y 0..255 of this chunk"
+        }
+      ],
+      "corner_overlaps_already_painted": [
+        {
+          "chunk": "chunk_1_1",
+          "corner": "above_left"
+        },
+        {
+          "chunk": "chunk_3_1",
+          "corner": "above_right"
+        }
+      ],
+      "files": {
+        "guide": "chunks/chunk_2_2_guide.png",
+        "mask": "chunks/chunk_2_2_mask.png",
+        "depth": "chunks/chunk_2_2_depth.png",
+        "id": "chunks/chunk_2_2_id.png"
+      }
+    },
+    {
+      "step": 9,
+      "chunk": "chunk_3_2",
+      "index": [
+        3,
+        2
+      ],
+      "origin_px": [
+        3840,
+        1536
+      ],
+      "fg_fraction": 1.0,
+      "paint_after": [
+        {
+          "chunk": "chunk_2_2",
+          "side": "left",
+          "shared_px": "x 0..255 of this chunk"
+        },
+        {
+          "chunk": "chunk_3_1",
+          "side": "above",
+          "shared_px": "y 0..255 of this chunk"
+        }
+      ],
+      "corner_overlaps_already_painted": [
+        {
+          "chunk": "chunk_2_1",
+          "corner": "above_left"
+        }
+      ],
+      "files": {
+        "guide": "chunks/chunk_3_2_guide.png",
+        "mask": "chunks/chunk_3_2_mask.png",
+        "depth": "chunks/chunk_3_2_depth.png",
+        "id": "chunks/chunk_3_2_id.png"
+      }
+    },
+    {
+      "step": 10,
+      "chunk": "chunk_0_3",
+      "index": [
+        0,
+        3
+      ],
+      "origin_px": [
+        0,
+        2304
+      ],
+      "fg_fraction": 0.7491,
+      "paint_after": [
+        {
+          "chunk": "chunk_0_2",
+          "side": "above",
+          "shared_px": "y 0..255 of this chunk"
+        }
+      ],
+      "corner_overlaps_already_painted": [
+        {
+          "chunk": "chunk_1_2",
+          "corner": "above_right"
+        }
+      ],
+      "files": {
+        "guide": "chunks/chunk_0_3_guide.png",
+        "mask": "chunks/chunk_0_3_mask.png",
+        "depth": "chunks/chunk_0_3_depth.png",
+        "id": "chunks/chunk_0_3_id.png"
+      }
+    },
+    {
+      "step": 11,
+      "chunk": "chunk_1_3",
+      "index": [
+        1,
+        3
+      ],
+      "origin_px": [
+        1280,
+        2304
+      ],
+      "fg_fraction": 1.0,
+      "paint_after": [
+        {
+          "chunk": "chunk_0_3",
+          "side": "left",
+          "shared_px": "x 0..255 of this chunk"
+        },
+        {
+          "chunk": "chunk_1_2",
+          "side": "above",
+          "shared_px": "y 0..255 of this chunk"
+        }
+      ],
+      "corner_overlaps_already_painted": [
+        {
+          "chunk": "chunk_0_2",
+          "corner": "above_left"
+        },
+        {
+          "chunk": "chunk_2_2",
+          "corner": "above_right"
+        }
+      ],
+      "files": {
+        "guide": "chunks/chunk_1_3_guide.png",
+        "mask": "chunks/chunk_1_3_mask.png",
+        "depth": "chunks/chunk_1_3_depth.png",
+        "id": "chunks/chunk_1_3_id.png"
+      }
+    },
+    {
+      "step": 12,
+      "chunk": "chunk_2_3",
+      "index": [
+        2,
+        3
+      ],
+      "origin_px": [
+        2560,
+        2304
+      ],
+      "fg_fraction": 1.0,
+      "paint_after": [
+        {
+          "chunk": "chunk_1_3",
+          "side": "left",
+          "shared_px": "x 0..255 of this chunk"
+        },
+        {
+          "chunk": "chunk_2_2",
+          "side": "above",
+          "shared_px": "y 0..255 of this chunk"
+        }
+      ],
+      "corner_overlaps_already_painted": [
+        {
+          "chunk": "chunk_1_2",
+          "corner": "above_left"
+        },
+        {
+          "chunk": "chunk_3_2",
+          "corner": "above_right"
+        }
+      ],
+      "files": {
+        "guide": "chunks/chunk_2_3_guide.png",
+        "mask": "chunks/chunk_2_3_mask.png",
+        "depth": "chunks/chunk_2_3_depth.png",
+        "id": "chunks/chunk_2_3_id.png"
+      }
+    },
+    {
+      "step": 13,
+      "chunk": "chunk_3_3",
+      "index": [
+        3,
+        3
+      ],
+      "origin_px": [
+        3840,
+        2304
+      ],
+      "fg_fraction": 0.9994,
+      "paint_after": [
+        {
+          "chunk": "chunk_2_3",
+          "side": "left",
+          "shared_px": "x 0..255 of this chunk"
+        },
+        {
+          "chunk": "chunk_3_2",
+          "side": "above",
+          "shared_px": "y 0..255 of this chunk"
+        }
+      ],
+      "corner_overlaps_already_painted": [
+        {
+          "chunk": "chunk_2_2",
+          "corner": "above_left"
+        }
+      ],
+      "files": {
+        "guide": "chunks/chunk_3_3_guide.png",
+        "mask": "chunks/chunk_3_3_mask.png",
+        "depth": "chunks/chunk_3_3_depth.png",
+        "id": "chunks/chunk_3_3_id.png"
+      }
+    },
+    {
+      "step": 14,
+      "chunk": "chunk_0_4",
+      "index": [
+        0,
+        4
+      ],
+      "origin_px": [
+        0,
+        3072
+      ],
+      "fg_fraction": 1.0,
+      "paint_after": [
+        {
+          "chunk": "chunk_0_3",
+          "side": "above",
+          "shared_px": "y 0..255 of this chunk"
+        }
+      ],
+      "corner_overlaps_already_painted": [
+        {
+          "chunk": "chunk_1_3",
+          "corner": "above_right"
+        }
+      ],
+      "files": {
+        "guide": "chunks/chunk_0_4_guide.png",
+        "mask": "chunks/chunk_0_4_mask.png",
+        "depth": "chunks/chunk_0_4_depth.png",
+        "id": "chunks/chunk_0_4_id.png"
+      }
+    },
+    {
+      "step": 15,
+      "chunk": "chunk_1_4",
+      "index": [
+        1,
+        4
+      ],
+      "origin_px": [
+        1280,
+        3072
+      ],
+      "fg_fraction": 1.0,
+      "paint_after": [
+        {
+          "chunk": "chunk_0_4",
+          "side": "left",
+          "shared_px": "x 0..255 of this chunk"
+        },
+        {
+          "chunk": "chunk_1_3",
+          "side": "above",
+          "shared_px": "y 0..255 of this chunk"
+        }
+      ],
+      "corner_overlaps_already_painted": [
+        {
+          "chunk": "chunk_0_3",
+          "corner": "above_left"
+        },
+        {
+          "chunk": "chunk_2_3",
+          "corner": "above_right"
+        }
+      ],
+      "files": {
+        "guide": "chunks/chunk_1_4_guide.png",
+        "mask": "chunks/chunk_1_4_mask.png",
+        "depth": "chunks/chunk_1_4_depth.png",
+        "id": "chunks/chunk_1_4_id.png"
+      }
+    },
+    {
+      "step": 16,
+      "chunk": "chunk_2_4",
+      "index": [
+        2,
+        4
+      ],
+      "origin_px": [
+        2560,
+        3072
+      ],
+      "fg_fraction": 1.0,
+      "paint_after": [
+        {
+          "chunk": "chunk_1_4",
+          "side": "left",
+          "shared_px": "x 0..255 of this chunk"
+        },
+        {
+          "chunk": "chunk_2_3",
+          "side": "above",
+          "shared_px": "y 0..255 of this chunk"
+        }
+      ],
+      "corner_overlaps_already_painted": [
+        {
+          "chunk": "chunk_1_3",
+          "corner": "above_left"
+        },
+        {
+          "chunk": "chunk_3_3",
+          "corner": "above_right"
+        }
+      ],
+      "files": {
+        "guide": "chunks/chunk_2_4_guide.png",
+        "mask": "chunks/chunk_2_4_mask.png",
+        "depth": "chunks/chunk_2_4_depth.png",
+        "id": "chunks/chunk_2_4_id.png"
+      }
+    },
+    {
+      "step": 17,
+      "chunk": "chunk_3_4",
+      "index": [
+        3,
+        4
+      ],
+      "origin_px": [
+        3840,
+        3072
+      ],
+      "fg_fraction": 1.0,
+      "paint_after": [
+        {
+          "chunk": "chunk_2_4",
+          "side": "left",
+          "shared_px": "x 0..255 of this chunk"
+        },
+        {
+          "chunk": "chunk_3_3",
+          "side": "above",
+          "shared_px": "y 0..255 of this chunk"
+        }
+      ],
+      "corner_overlaps_already_painted": [
+        {
+          "chunk": "chunk_2_3",
+          "corner": "above_left"
+        }
+      ],
+      "files": {
+        "guide": "chunks/chunk_3_4_guide.png",
+        "mask": "chunks/chunk_3_4_mask.png",
+        "depth": "chunks/chunk_3_4_depth.png",
+        "id": "chunks/chunk_3_4_id.png"
+      }
+    }
+  ],
+  "dropped": [
+    {
+      "chunk": "chunk_0_0",
+      "origin_px": [
+        0,
+        0
+      ],
+      "fg_fraction": 0.0
+    },
+    {
+      "chunk": "chunk_1_0",
+      "origin_px": [
+        1280,
+        0
+      ],
+      "fg_fraction": 0.0
+    },
+    {
+      "chunk": "chunk_0_1",
+      "origin_px": [
+        0,
+        768
+      ],
+      "fg_fraction": 0.0
+    }
+  ]
+}

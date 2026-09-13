@@ -1,0 +1,34 @@
+{
+  "task_id": "L-forest_valley-0_0",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "L-forest_valley-0_0",
+      "path": "out/L-forest_valley-0_0.png",
+      "sha256": "a43ea77ecf58166b576cc00e92d8e7a39433abbcba723c226a37c6141a36a0a4",
+      "prompt": "Use case: stylized-concept. Generate ONE LANDSCAPE 1536×1024 PNG: the upper-left panel of a continuous charred forest valley parallax layer for a hand-painted 2D game. Reference Image 1 is approved painted STYLE and story only; do not copy its layout. This is panel (0,0) of a 3×2 grid with 256 px overlaps: the assembled layer is 4096×1792. The far ridge silhouette of burnt treetops must therefore sit around y=450–570 pixels in THIS upper panel (25–32 percent of the full layer height). EVERYTHING above the irregular treetop silhouette is perfectly flat pure #00ff00 RGB(0,255,0), opaque, uniform, with no sky, clouds, sun, distant mountains, haze, smoke or stray marks in that green area. Sharp clean key boundary. All smoke stays below the ridge silhouette. Below the silhouette, a vast burnt forest fills the entire width continuously down to the bottom edge: dark charcoal skeletal trunks and branching trees, cool grey ash ground, scattered glowing orange embers and small lingering fires, restrained curling smoke within the forest, and a winding river reflecting sunset in broken orange-gold planes. Forest becomes denser and darker toward the bottom while retaining readable cool shadow detail. Broad valley terrain, no foreground cliff rim. This layer is nearer than the ruins, but contains no architecture or ruins. It is an open continuation panel; terrain, trees and river continue naturally through side and bottom edges, without framing or a self-contained island. Elevated approximately 45 degree three-quarter view into the valley. HAND-DRAWN painted 2D in the manner of a modern hand-animated action game: confident hand-drawn tapered dark contours with varying weight, thinner and lighter in distance; painted fills in clean graphic planes, restrained surface texture, readable small silhouettes, rich environmental detail and local ember light spill. Bold jewel tones and graphic shapes, deep cool low-value ambient, a cool key from screen upper-left and restrained warm sunset reflections and fire accents per this environment brief. No conspicuous brush grain. No characters, creatures, text, UI, border, vignette, cliff rim, buildings, sky or sun. Deliver exactly one 1536×1024 landscape panel on opaque pure green above its silhouette.",
+      "references": [
+        {
+          "role": "Approved painted style and story reference only; not layout",
+          "path": "in/01_vista_01.png"
+        }
+      ],
+      "elapsed_s": 22.078
+    }
+  ],
+  "calls_used": 1,
+  "retries": [],
+  "self_report": {
+    "obeyed_invariants": false,
+    "concerns": [
+      "The treetop silhouette appears around y=240–435, higher than the requested full-layer placement of approximately y=448–573. This is outside the authorized retry reasons.",
+      "Green background appears flat visually; exact #00ff00 pixel values were not instrumentally verified."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/L-forest_valley-0_0.png",
+      "sha256": "a43ea77ecf58166b576cc00e92d8e7a39433abbcba723c226a37c6141a36a0a4"
+    }
+  ]
+}

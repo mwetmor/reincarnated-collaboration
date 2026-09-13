@@ -1,0 +1,43 @@
+{
+  "task_id": "CS-v3-0_4",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "chunk_0_4.png",
+      "path": "out/chunk_0_4.png",
+      "sha256": "ff94a356992c303a71908bd025805cf7cb58241e4d093a573e17325279562691",
+      "prompt": "Use case: style-transfer. EDIT IMAGE 1, the original 1536x1024 unfinished terrain canvas. IMAGE 2 is STYLE ONLY. Output one 1536x1024 image. This is a geometry-preservation retry: the prior attempt moved the diagonal cliff edge to the right and incorrectly filled the light-grey verge with orange dirt. Correct these issues. Treat guide color regions as strict material masks. The huge LIGHT GREY region occupying almost all of the lower right image must become GRASSY ROCKY VERGE, dense rock slabs and grass consistent with the upper-left finished terrain; it must NOT become an orange dirt road. Only the tiny TAN polygon immediately below the upper painted dirt path, approximately (800,256)-(1030,256)-(847,318), is unfinished dirt. Keep that tan polygon boundary exact. The DARK GREY/BROWN triangular region at LEFT must become sheer vertical continuous rock, with the cliff rim fixed on the exact straight diagonal from (0,290) to (560,1024). At the BOTTOM edge the cliff/verge boundary must intersect x=560, not x=900. Do not shift this line, grow the cliff, or change the terrain layout. Paint vertical rock all the way to the bottom of the image, slightly darker and hazier at lowest part, no ledge and no bottom edge. Preserve the dark boulder block at approximately x978..1168 y310..543 and the upper-right outcrop in their exact guide footprints and heights, converting their planes into fractured natural stone. Preserve original cast-shadow footprints with cool violet shadows. The TOP 256 ROWS and all other already painted pixels in IMAGE 1 are locked finished neighbor art: preserve them exactly with no repainting, no repositioning, no color change. Continue their rock slabs, grasses, tiny yellow and white flowers and strata seamlessly into the unfinished regions with no visible join at y256. Preserve any pure #00ff00 pixels exactly in place; do not add green from the style reference. Orthographic elevated three-quarter camera, no perspective size reduction toward top. HAND-DRAWN painted 2D: confident tapered dark hand contours, clean painted planes, restrained texture, rich environment, bold jewel tones and graphic shadows, matching IMAGE 2 exactly. Warm sunset key upper-left, cool violet shadow planes. No people, creatures, text, UI, border, vignette, new paths or extra objects. Geometry and original painted strip preservation are mandatory.",
+      "references": [
+        {
+          "role": "edit target",
+          "path": "in/01_chunk_0_4_edit_canvas.png"
+        },
+        {
+          "role": "approved level style",
+          "path": "in/02_chunk_A.png"
+        }
+      ],
+      "elapsed_s": 26.414
+    }
+  ],
+  "calls_used": 2,
+  "retries": [
+    {
+      "reason": "First output shifted the diagonal cliff boundary and replaced the light-grey verge with dirt.",
+      "change": "Retried from the original canvas with explicit material regions and diagonal boundary coordinates."
+    }
+  ],
+  "self_report": {
+    "obeyed_invariants": false,
+    "concerns": [
+      "Retry corrected the verge material, but the cliff boundary still visibly deviates from the guide.",
+      "Exact pixel preservation of the finished strips was not verified."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/chunk_0_4.png",
+      "sha256": "ff94a356992c303a71908bd025805cf7cb58241e4d093a573e17325279562691"
+    }
+  ]
+}

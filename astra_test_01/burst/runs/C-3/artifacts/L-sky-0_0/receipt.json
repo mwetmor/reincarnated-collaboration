@@ -1,0 +1,31 @@
+{
+  "task_id": "L-sky-0_0",
+  "status": "DELIVERED",
+  "images": [
+    {
+      "name": "L-sky-0_0.png",
+      "path": "out/L-sky-0_0.png",
+      "sha256": "79e6a8c7ef9675fd24ed5f126c3d697dd1ff674717f61fc9fd3eb79f41ff22d5",
+      "prompt": "Use case: stylized-concept. Create ONE landscape 1536×1024 painted 2D game parallax background panel, the LEFT panel of a two-panel continuous SUNSET SKY layer; future right neighbour overlaps the rightmost 256 pixels. Input image 1 is a STYLE AND STORY reference only: borrow its painted sky palette and graphic cloud language, never its layout or land. This image is entirely SKY. A blazing sunset with a luminous sun low near the LEFT edge, throwing long gold rays through the atmosphere. Huge sculpted clouds in bold graphic shapes, saturated orange, hot magenta, violet and gold, with deep cool violet shadow planes and warm sunset-facing edges. A few dark smoke plumes rise from below the frame into clouds toward the right, with their sources completely outside the image. Near the bottom, a soft band of violet atmospheric haze with no solid horizon silhouette. Rich layered cloud detail, confident hand-drawn contours with visible taper and varying weight, lighter and thinner with distance; painted fills in clean planes, restrained surface texture, no conspicuous grain. The result should look like a frame of modern hand-drawn animation. Jewel-toned sunset level palette. Keep the right edge naturally open for continuous sky extension; clouds and haze may continue off the image boundaries. Full-bleed sky, no border or vignette. Absolutely no land, mountains, rocks, cliff rim, valley, water, buildings, ruins, trees, characters, creatures, text or UI. Opaque fully painted sky background. Deliver only this single 1536×1024 panel.",
+      "references": [
+        {
+          "role": "Approved painted style and story reference; not layout",
+          "path": "in/01_vista_01.png"
+        }
+      ],
+      "elapsed_s": 24.348
+    }
+  ],
+  "calls_used": 1,
+  "retries": [],
+  "self_report": {
+    "obeyed_invariants": true,
+    "concerns": []
+  },
+  "files": [
+    {
+      "path": "out/L-sky-0_0.png",
+      "sha256": "79e6a8c7ef9675fd24ed5f126c3d697dd1ff674717f61fc9fd3eb79f41ff22d5"
+    }
+  ]
+}

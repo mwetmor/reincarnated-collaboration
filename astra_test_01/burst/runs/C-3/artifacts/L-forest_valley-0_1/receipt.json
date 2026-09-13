@@ -1,0 +1,37 @@
+{
+  "task_id": "L-forest_valley-0_1",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "L-forest_valley-0_1.png",
+      "path": "out/L-forest_valley-0_1.png",
+      "sha256": "dbe34243425cc9ac5ce709263caac8bdadcde050a5c51173741af926d7c56663",
+      "prompt": "Use case: precise-object-edit / outpainting. Edit IMAGE 1, the 1536x1024 canvas. Deliver exactly ONE 1536x1024 PNG. IMAGE 2 is approved painted STYLE and story reference only, never its layout. Lock and preserve every existing painted pixel in IMAGE 1, specifically the full-width TOP 256 rows including the top-right 256x256 corner. Replace ONLY the flat mid-grey placeholder below with a seamless continuation of the existing painting. Do not move, rescale, redraw or recompose the painted strip. Continue cut-off trunks, terrain planes, smoke and fires naturally through y=256 without a horizontal join or change of detail scale.\nThis is the LOWER-LEFT panel of a 3x2 grid of overlapping panels forming ONE continuous CHARRED FOREST VALLEY parallax background layer. This lower panel is entirely within the forest below the full layer's distant treetop silhouette, so the existing top strip determines its content: no new horizon or sky. The whole layer has a far ridge silhouette at 25–32 percent of its full height, with pure #00ff00 above that silhouette; any existing pure #00ff00 must be preserved and extended exactly, but do not introduce a green region into this lower forest panel. Extend the vast burnt valley downward: dark skeletal trunks with broken branches, grey ash terrain, scattered glowing orange embers and small lingering fires, curling cool grey-violet smoke, a winding river reflecting sunset where naturally continuous with the river in the upper-right of the painted strip. Forest fills the entire placeholder to all edges, becoming denser and darker toward the bottom. No foreground cliff rim, no platform, no ruins focal point.\nStyle: HAND-DRAWN painted 2D in the manner of a modern hand-animated action game. Confident hand-drawn dark contour with visible taper and varying weight, painted fills in clean planes, restrained texture, graphic jewel-tone shapes, rich environmental detail and local fire-light spill. Clean material planes and readable small silhouettes, no conspicuous grain. Match the existing strip's exact palette and level of detail; deep cool low-value ambient with readable shadows, cold upper-left key and warm orange ember/fire accents. Contours thinner and lighter with distance. No characters, creatures, text, UI, border, watermark or vignette. Preserve the original painted strip exactly and fill only grey.",
+      "references": [
+        {
+          "role": "edit target: painted neighbour strip and placeholder",
+          "path": "in/01_L-forest_valley-0_1_canvas.png"
+        },
+        {
+          "role": "approved painted style and story reference only",
+          "path": "in/02_vista_01.png"
+        }
+      ],
+      "elapsed_s": 60.446
+    }
+  ],
+  "calls_used": 1,
+  "retries": [],
+  "self_report": {
+    "obeyed_invariants": true,
+    "concerns": [
+      "Painted-strip preservation assessed visually; exact pixel equality was not measured."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/L-forest_valley-0_1.png",
+      "sha256": "dbe34243425cc9ac5ce709263caac8bdadcde050a5c51173741af926d7c56663"
+    }
+  ]
+}

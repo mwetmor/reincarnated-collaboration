@@ -1,0 +1,44 @@
+{
+  "task_id": "CS-v4-2_0",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "chunk_2_0",
+      "path": "out/chunk_2_0.png",
+      "sha256": "0c1aba78a4fdfcf2db909fc39ed3ffbb295b436dc0b4bda76bc025c96e395e50",
+      "prompt": "Use case: style-transfer. Create ONE 1536×1024 hand-drawn painted 2D game environment chunk by painting directly over IMAGE 1, the exact orthographic geometry guide. IMAGE 2 is the approved painted STYLE reference only, not composition. Preserve IMAGE 1's framing, every terrain silhouette, bridge placement, and all material-region boundaries exactly. Every pure green #00ff00 pixel in IMAGE 1 must stay flat pure #00ff00 in the output, unchanged, with no scenery, shadows, texture, outlines or grass intruding into it. Paint every non-green pixel as scenery. Do not expand, shrink, shift, recrop or reinterpret the guide geometry.\nMaterial map: OLIVE GREEN = grassy rocky cliff-top ground: short grass, moss, small flowers, bare rock patches, NO boulders, NO props. TAN = worn packed-dirt path/clearing inside grass; follow its location precisely but make the material transition ragged and soft with dirt breaking into grass, tufts and pebbles, never a clean drawn line. LIGHT GREY band = rocky verge at the rim, weathered rock with fine cracks. GREY planes beneath rim = natural cliff faces dropping toward viewer with irregular fluting, buttresses and cracks. Paint continuous weathered rock all the way down to the existing green boundary, slightly hazier and darker toward lowest parts, no ledge or bottom edge drawn. BROWN planks and two posts = wooden bridge deck at the exact guide position and width, extending off the bottom-left edge; retain each broad plank's geometry. MAGENTA plank = one cracked loose wooden bridge plank, replace all magenta with painted wood while preserving footprint. Do not add railings, ropes, posts or other props.\nStyle: HAND-DRAWN painted 2D in the manner of a modern hand-animated action game. Confident dark contours drawn by hand with visible taper and varying weight, clean painted material planes inside the line, restrained surface texture, readable silhouettes, no conspicuous grain. Match IMAGE 2's approved level style exactly: golden ochre dirt, sunset-lit rock edges, rich grass, cool violet rock shadows, bold jewel tones and graphic shadows. Environmental richness with restrained texture. Warm sunset single key from SCREEN UPPER-LEFT, cool violet low-value readable shadows, never pure black. Orthographic elevated three-quarter view, no perspective shrinking toward the top. No characters, creatures, text, UI, border, watermark or vignette. Preserve the huge empty green field on the left exactly. Output one 1536×1024 painting.\nCORRECTION FOR THE ONE PERMITTED RETRY: The previous attempt moved the outer rim and bridge boundaries and let grass overlap the green. Use IMAGE 1 as a locked pixel-coordinate stencil. Do not redraw its silhouette approximately. The top edge starts green through x=1387; the rim contour near y=200 is around x=1138; at y=440 around x=916; at y=570 around x=870; at y=840 around x=912. The bridge first upper-left post is exactly around (1120,607), second post around (1363,787), and deck corners stay precisely on the guide. The loose plank retains the original magenta footprint near the lower edge. No vegetation or rock may cross the original green boundary. Keep the exact original all-green pixels untouched as solid RGB(0,255,0), without even subtle texture or gradient. Confine all painted texture to non-green regions. Accuracy of the original silhouette and green field takes priority over decorative richness.",
+      "references": [
+        {
+          "role": "GEOMETRY GUIDE — exact boundaries; green is void",
+          "path": "in/01_chunk_2_0_guide.png"
+        },
+        {
+          "role": "Approved painted STYLE reference",
+          "path": "in/02_chunk_A.png"
+        }
+      ],
+      "elapsed_s": 22.119
+    }
+  ],
+  "calls_used": 2,
+  "retries": [
+    {
+      "reason": "First image shifted rim and bridge boundaries and extended vegetation into the green void.",
+      "change": "Repeated generation from the original references with explicit boundary coordinates and stronger locked-stencil instructions."
+    }
+  ],
+  "self_report": {
+    "obeyed_invariants": false,
+    "concerns": [
+      "Retry improves alignment but still visibly alters some boundary and plank geometry.",
+      "Exact pixelwise preservation of pure #00ff00 is unverified.",
+      "Confirmed output dimensions: 1536×1024. Retry allowance exhausted."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/chunk_2_0.png",
+      "sha256": "0c1aba78a4fdfcf2db909fc39ed3ffbb295b436dc0b4bda76bc025c96e395e50"
+    }
+  ]
+}

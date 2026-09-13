@@ -1,0 +1,37 @@
+{
+  "task_id": "L-forest_valley-1_1",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "L-forest_valley-1_1.png",
+      "path": "out/L-forest_valley-1_1.png",
+      "sha256": "ea358214c870ab3992d48443e2f1fb8fe820a9a13f4263f9fa0ff9aa93388905",
+      "prompt": "Use case: precise-object-edit / outpainting. Edit IMAGE 1, the 1536x1024 canvas. IMAGE 2 is supporting painted style and story reference only; do not copy its composition. Deliver ONE 1536x1024 PNG. Preserve the existing painted pixels of IMAGE 1: the entire top 256 rows and entire left 256 columns, including both top corners, must remain exactly unchanged in position, color, detail and scale. Replace ONLY the flat mid-grey rectangle x=256..1535, y=256..1023 with seamless continuation of the painting. No visible horizontal or vertical join. Continue every cut trunk, branch, ground plane, smoke wisp and river bank naturally across those boundaries.\nThis is the LOWER-MIDDLE panel of a 3x2 continuous parallax layer, CHARRED FOREST VALLEY, where the river bends. An elevated approximately 45-degree view across a vast burnt forest: blackened skeletal trunks and branches, cool grey-violet ash and stones, small lingering orange fires and ember pockets, curling grey-purple smoke, a winding WATER river reflecting orange sunset. Continue the river entering from the left strip near mid-height into a natural bend through the new region. Forest fills everything to the bottom, denser and darker toward the bottom, with readable cool shadows. This lower panel is entirely below the full layer's far treetop silhouette: do not introduce a horizon or sky. Any preexisting pure #00ff00 must stay pure #00ff00 and continue if encountered; there is none visible in this lower-panel canvas. No cliff rim, ruins, architecture, characters, creatures, lettering, UI, frame, border or vignette.\nSTYLE: hand-drawn painted 2D in the manner of a modern hand-animated action game. Confident hand-drawn tapered dark contours with varying weight, clean painted planes, restrained surface texture, readable silhouettes, no conspicuous grain. Rich local light spill, bold jewel tones and graphic shapes matching the supplied painted strips and IMAGE 2. Cool upper-left key and deep cool low-value ambient, readable shadows, warm orange accents from the depicted embers and reflected sunset. Keep the exact scale and density of IMAGE 1's trees. No redesign or global relighting of existing painted strips. Fill the whole grey area; leave no placeholder.",
+      "references": [
+        {
+          "role": "edit target: painted neighbour strips and placeholder",
+          "path": "in/01_L-forest_valley-1_1_canvas.png"
+        },
+        {
+          "role": "approved painted style and story reference",
+          "path": "in/02_vista_01.png"
+        }
+      ],
+      "elapsed_s": 43.914
+    }
+  ],
+  "calls_used": 1,
+  "retries": [],
+  "self_report": {
+    "obeyed_invariants": true,
+    "concerns": [
+      "1536×1024 confirmed. No visible joins observed; exact pixel preservation of painted strips was not quantitatively verified."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/L-forest_valley-1_1.png",
+      "sha256": "ea358214c870ab3992d48443e2f1fb8fe820a9a13f4263f9fa0ff9aa93388905"
+    }
+  ]
+}

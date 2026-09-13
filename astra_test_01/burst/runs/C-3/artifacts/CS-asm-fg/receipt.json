@@ -1,0 +1,47 @@
+{
+  "task_id": "CS-asm-fg",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [],
+  "calls_used": 0,
+  "retries": [
+    {
+      "reason": "Worst-seam ranking included corner-discarded candidates.",
+      "change": "Excluded wholly discarded candidates from summary and crops; retained their measurements separately."
+    }
+  ],
+  "self_report": {
+    "obeyed_invariants": true,
+    "concerns": [
+      "Frozen clamp extraction used temporary green padding in RAM and preserved detached components.",
+      "Partially retained seam statistics include their complete computed path portions before corner selection.",
+      "Lowest per-chunk mask IoU: 0.964840 for chunk_0_2.",
+      "Wrapper-owned hidden logs are excluded from the deliverable manifest."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/foreground.png",
+      "sha256": "f4cdfb22e9fce0642c6602a237c17903ced3b9191929c2c681f748e60b2c8c1d"
+    },
+    {
+      "path": "out/foreground_preview_1344x1024.png",
+      "sha256": "f42ca4073b6d13f5049dedcd03d3b64b2cca4741695ca12c9ff628a3cf929e25"
+    },
+    {
+      "path": "out/seams.json",
+      "sha256": "725e4aa9e481fbe11e4f804677a99a982288c48e412e8288104238743b1d274f"
+    },
+    {
+      "path": "out/checks.json",
+      "sha256": "d0229c1db163081e6d0a5a01f840e10d86845a59a29d3d12ff17f61034e39d99"
+    },
+    {
+      "path": "out/seam_worst_crops.png",
+      "sha256": "f4fd14e41f9b499ff9689a82aadf9f1fe70c8c38d25c8696bfb2be7fd9a0b926"
+    },
+    {
+      "path": "out/summary.txt",
+      "sha256": "d7892d6cdb65493563ecd380c95c973f1d6a3b3fc26e69c7513815984f7a1e29"
+    }
+  ]
+}

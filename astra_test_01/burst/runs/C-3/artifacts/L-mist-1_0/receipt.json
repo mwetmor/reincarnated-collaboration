@@ -1,0 +1,42 @@
+{
+  "task_id": "L-mist-1_0",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "L-mist-1_0",
+      "path": "out/L-mist-1_0.png",
+      "sha256": "f5e920c1c4fdd4a058400484a1df45e0198d6ab48cded48d488b84780258f20b",
+      "prompt": "Use case: precise-object-edit. EDIT IMAGE 1 by outpainting only its black placeholder to the right of column 255. Deliver exactly ONE 1536×1024 PNG, same framing and size. IMAGE 1 is the edit canvas: its LEFT 256 columns, x=0 through 255 across the full height, are frozen real painted pixels from the neighbouring panel. Preserve that entire strip EXACTLY unchanged, including all black areas, cloud shapes, colours and positions. Do not repaint, shift, scale or crop it. Continue the existing mist naturally and seamlessly across x=256 into the right 1280 columns; there must be no visible vertical join. IMAGE 2 is STYLE reference only; do not copy its layout or objects. This is the upper-right panel (thin wisps) of a continuous 2×2 parallax MIST layer seen beyond a cliff at sunset. Paint ONLY soft drifting pale warm mist and low clouds as LIGHT on a flat PURE BLACK #000000 background, where black is transparent in the game and brighter mist more opaque. Keep generous pure black negative space in the upper half with a few thin, delicate rose-lavender wisps continuing the supplied wisps. Thicken gradually toward the bottom into rolling peach, rose and lavender cloud banks continuing the supplied lower-left bank. Hand-drawn painted 2D animation-game style, clean painted planes, restrained smooth texture, graphic cloud shapes, delicate tapered edges and thinner lighter distant contours, softly lit from upper-left. Match the supplied strip's subtle values and painted treatment. No land, cliff rim, trees, buildings, sun, sky colour or background gradient. No characters, creatures, text, UI, border or vignette. This task is a black-backed mist layer, not a green-backed sprite sheet. Preserve the original left 256 columns exactly and fill only the right placeholder.\nRETRY CORRECTION: The previous attempt brightened the protected left strip. This is unacceptable for neighbour overlap. Treat x=0..255 as a locked, uneditable region: retain the source pixels at original brightness, colour and texture exactly. In particular the lower-left peach and lavender clouds must remain muted and dark exactly as IMAGE 1, not relit or brightened. Only synthesize x=256..1535, matching the darker source values at the boundary. No global colour grading or contrast changes.",
+      "references": [
+        {
+          "role": "edit canvas; protected left 256 columns",
+          "path": "in/01_L-mist-1_0_canvas.png"
+        },
+        {
+          "role": "approved painted style only",
+          "path": "in/02_vista_01.png"
+        }
+      ],
+      "elapsed_s": 22.683
+    }
+  ],
+  "calls_used": 2,
+  "retries": [
+    {
+      "reason": "First output visibly brightened the protected painted strip.",
+      "change": "Re-edited the original canvas with stronger strip-lock and original-value preservation instructions."
+    }
+  ],
+  "self_report": {
+    "obeyed_invariants": false,
+    "concerns": [
+      "Retry improves the value match, but the protected strip still appears locally altered; exact pixel preservation is not established."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/L-mist-1_0.png",
+      "sha256": "f5e920c1c4fdd4a058400484a1df45e0198d6ab48cded48d488b84780258f20b"
+    }
+  ]
+}

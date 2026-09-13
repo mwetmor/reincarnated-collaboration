@@ -1,0 +1,44 @@
+{
+  "task_id": "CS-v3-0_2",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "chunk_0_2",
+      "path": "out/chunk_0_2.png",
+      "sha256": "0e7511c25dc9db611541a9f0b950dc5d4a8bbaa889ee95e8c5fc1e4a8d2098d6",
+      "prompt": "Use case: style-transfer. EDIT IMAGE 1, the 1536×1024 geometry canvas, into one finished 1536×1024 environment chunk. IMAGE 2 is STYLE ONLY, never composition. Preserve IMAGE 1's exact layout and every boundary. Most of this canvas is empty flat pure #00ff00 and MUST remain identical pure #00ff00, without texture, gradients, objects or spill. Only paint the existing non-green shapes at the lower-right: TAN is packed golden dirt path; the curving LIGHT GREY band is a rocky grassy verge. Keep the exact curved green/verge boundary from approximately (670,1024) to (1536,498) and exact verge/path boundary from approximately (962,1024) to (1536,684). Confine all grass, rocks and shadows within these existing non-green areas. Any already finished painted corner pixels in IMAGE 1 must stay unchanged and continue seamlessly into new painting. Do not add areas absent from this guide. Orthographic elevated three-quarter view, constant scale across the image, no perspective shrinking. Match IMAGE 2's hand-drawn painted 2D style exactly: confident hand-drawn tapered dark contours with varying weight, clean painted material planes, restrained surface texture, rich golden ochre packed earth with small stones and subtle cracks, angular grey rocks with cool violet shadows, grassy rim with little yellow and white wildflowers, warm sunset key from SCREEN UPPER-LEFT. Bold jewel tones and graphic shadows, readable details and no conspicuous grain. The line carries the forms. The guide's grey band is a top-surface verge, not a new tall cliff wall. If a vertical cliff plane is present, paint continuous rock down to its green boundary, slightly hazier and darker low down with no ledge or bottom edge. No characters, creatures, text, UI, border or vignette. Do not move boundaries, alter painted pixels, paint into green, or reproduce IMAGE 2's layout. Return only the edited canvas.\nRETRY CORRECTION: The previous attempt moved the green boundary outward and allowed grass into green. Treat IMAGE 1's pure green region as an absolutely locked pixel mask. Preserve its exact smooth curve and every green pixel, including along the border. Paint all foliage and rocks INSIDE the grey band with a hard smooth clipped edge at green; no grass blade may cross the guide boundary. The boundary meets the RIGHT edge at y=498, never above, and BOTTOM edge at x approximately 670, never to the left. Preserve the grey/tan material boundary as well: do not widen the dirt into the verge. Generate the original IMAGE 1 again with this correction, using IMAGE 2 only for painting style. Keep green a single exact flat #00ff00, no noise or color variation.",
+      "references": [
+        {
+          "role": "edit target",
+          "path": "in/01_chunk_0_2_edit_canvas.png"
+        },
+        {
+          "role": "approved style reference",
+          "path": "in/02_chunk_A.png"
+        }
+      ],
+      "elapsed_s": 21.544
+    }
+  ],
+  "calls_used": 2,
+  "retries": [
+    {
+      "reason": "First output shifted the curved boundary and extended foliage into green.",
+      "change": "Repeated the original edit with explicit locked-green-mask and clipped-foliage constraints."
+    }
+  ],
+  "self_report": {
+    "obeyed_invariants": false,
+    "concerns": [
+      "Retry improved edge clipping, but the boundary still appears displaced from the guide.",
+      "Exact #00ff00 pixel preservation was not verified.",
+      "The described painted corner patch was not visually discernible in the supplied canvas."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/chunk_0_2.png",
+      "sha256": "0e7511c25dc9db611541a9f0b950dc5d4a8bbaa889ee95e8c5fc1e4a8d2098d6"
+    }
+  ]
+}

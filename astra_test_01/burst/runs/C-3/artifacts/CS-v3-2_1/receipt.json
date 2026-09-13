@@ -1,0 +1,43 @@
+{
+  "task_id": "CS-v3-2_1",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "chunk_2_1",
+      "path": "out/chunk_2_1.png",
+      "sha256": "30e0bfe5576ecaed1e8d3aa120db496c944fbacaaa5b8ca8b1c2044079a2015f",
+      "prompt": "Edit IMAGE 1 in place by outpainting ONLY its flat geometry-guide surfaces. Deliver one 1536x1024 PNG, identical framing and pixel registration. IMAGE 1 is the edit target; IMAGE 2 is only the approved painting-style reference, never a composition reference. Preserve exactly the already finished painted pixels in the TOP 256 rows and LEFT 256 columns, including their corner overlap. Continue their painting seamlessly into adjacent guide areas with no join at x=256 or y=256. Preserve every existing pure #00ff00 green pixel exactly, flat and uniform; do not expand, shrink, shade, or paint over any green region. All guide silhouettes and material boundaries must remain at their exact original coordinates. TAN guide becomes packed orange-ochre dirt with matching small stones and tracks. LIGHT GREY band becomes rocky grassy rim, matching reference vegetation and stones. DARK GREY/BROWN large plane on the right is a continuous vertical violet-grey rock cliff face, not ground or water: extend the rock strata from the painted top strip all the way down through the entire plane, no bottom edge or ledge, slightly darker and hazier toward its lowest part. Dark block at bottom becomes a natural angular boulder outcrop within its existing silhouette. BROWN diagonal bridge deck and two near posts become painted wooden planks/posts seamlessly continuing the finished bridge in the top strip; preserve exact deck shape, width, endpoints, plank boundaries, and post locations. MAGENTA patch becomes a cracked loose wooden plank occupying exactly that patch, no magenta remains. Preserve the triangular green opening beneath the near bridge. Orthographic elevated three-quarter view, no perspective shrinking. HAND-DRAWN painted 2D animation environment: confident tapered dark contour lines of varying weight, clean painted material planes, restrained surface texture, readable forms, no conspicuous grain. Match IMAGE 2 exactly in colours, textures, stone strata, grass, richness, bold jewel tones and graphic shadows. Warm sunset key from screen UPPER-LEFT, cool violet shadows, matching existing painted strips. No characters, creatures, text, UI, border, vignette, new structures, or composition changes. This is a constrained seamless completion of IMAGE 1, not a redesign.\nRETRY — diagnosed issue: the prior attempt painted over the large upper-left green void. Start again from ORIGINAL IMAGE 1. The enormous flat green area covering the upper-left of IMAGE 1 is an intentional empty cutout, NOT missing scenery. It MUST stay solid #00ff00 with the EXACT original silhouette: across the top from x=0 to approximately x=830, continuing down to the diagonal left path edge and bridge left edge. Do not add any terrain, cliff, plants or texture inside this green area. Also lock the small green triangular hole below the bridge, without plants intruding into it. Treat ALL green as a strict uneditable mask. Only non-green flat guide pixels outside the finished top/left strips are editable. Preserve original bridge plank divisions and the loose plank location immediately below y=256. Most important: original green mask and original finished strips must remain pixel-identical.",
+      "references": [
+        {
+          "role": "edit target",
+          "path": "in/01_chunk_2_1_edit_canvas.png"
+        },
+        {
+          "role": "approved style reference",
+          "path": "in/02_chunk_A.png"
+        }
+      ],
+      "elapsed_s": 32.868
+    }
+  ],
+  "calls_used": 2,
+  "retries": [
+    {
+      "reason": "First output painted over the large upper-left green void.",
+      "change": "Restarted from original canvas with stronger green-mask preservation instructions."
+    }
+  ],
+  "self_report": {
+    "obeyed_invariants": false,
+    "concerns": [
+      "Retry restores the large green void visually, but exact pixel preservation of green and painted strips is unverified.",
+      "Bridge plank subdivisions and rocky verge boundaries visibly differ from the guide."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/chunk_2_1.png",
+      "sha256": "30e0bfe5576ecaed1e8d3aa120db496c944fbacaaa5b8ca8b1c2044079a2015f"
+    }
+  ]
+}

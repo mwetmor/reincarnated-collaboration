@@ -1,0 +1,37 @@
+{
+  "task_id": "L-forest_valley-2_1",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "L-forest_valley-2_1.png",
+      "path": "out/L-forest_valley-2_1.png",
+      "sha256": "72fa6ae0236d2b01b60911b0312980b47f8731bc2760482a45e9d470b61bdbd5",
+      "prompt": "Use case: precise-object-edit. Edit IMAGE 1, the 1536x1024 canvas, to finish the lower-right panel of a continuous 3x2 charred forest valley parallax layer. Deliver exactly one 1536x1024 PNG. IMAGE 2 is supporting painted style and story reference only, never its composition. CRITICAL LOCK: preserve the existing painted TOP 256 rows and LEFT 256 columns, including their corner, exactly as supplied, at their exact coordinates. Replace ONLY the flat mid-grey rectangle x=256..1535, y=256..1023. Seamlessly continue every cropped trunk, branch, ash plane, ember, smoke curl and sunset-reflecting river at both boundaries; no visible vertical or horizontal join. This panel is the lower-right portion below the far ridge silhouette of the FULL layer: the entire panel is forest terrain, no sky or new horizon. Any existing pure #00ff00 would be preserved and continued, but there is none in these supplied strips. Vast burnt valley, blackened skeletal trees with irregular tapering trunks and branches, cool grey-purple ash ground and rocks, scattered orange embers and small lingering fires, localized curling smoke, winding river reflecting orange sunset continuing the river visible along the left and top. Forest fills to all edges and becomes denser and darker toward the bottom. Match IMAGE 1's scale and elevated three-quarter approximately 45-degree perspective exactly. Hand-drawn painted 2D animation background: confident hand-drawn dark contours with visible taper and varying weight, lighter thinner contours with distance, clean painted material planes, restrained surface texture, readable silhouettes, bold jewel colors and graphic shapes, environmental richness and local warm light spill. Cool low-value ambient with readable shadows, upper-left key, warm reflected river and ember accents matching the supplied strips. Do not add buildings, ruins, cliff rims, characters, creatures, text, UI, border, vignette, sun or sky. Preserve all already painted strips unchanged; complete only the grey placeholder.",
+      "references": [
+        {
+          "role": "edit target: painted neighbour strips and placeholder",
+          "path": "in/01_L-forest_valley-2_1_canvas.png"
+        },
+        {
+          "role": "supporting painted style and story reference",
+          "path": "in/02_vista_01.png"
+        }
+      ],
+      "elapsed_s": 38.179
+    }
+  ],
+  "calls_used": 1,
+  "retries": [],
+  "self_report": {
+    "obeyed_invariants": true,
+    "concerns": [
+      "Visual inspection indicates continuous joins; exact pixel preservation of the painted strips was not numerically verified."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/L-forest_valley-2_1.png",
+      "sha256": "72fa6ae0236d2b01b60911b0312980b47f8731bc2760482a45e9d470b61bdbd5"
+    }
+  ]
+}

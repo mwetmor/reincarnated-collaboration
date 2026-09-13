@@ -1,0 +1,37 @@
+{
+  "task_id": "CS-v4-2_3",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "chunk_2_3.png",
+      "path": "out/chunk_2_3.png",
+      "sha256": "b270a7ea028bf2909643558b09ee343c2140efb51553f9543cb1c2d4e99c71c1",
+      "prompt": "Use case: precise-object-edit / terrain outpainting. Edit IMAGE 1, the 1536x1024 canvas. IMAGE 2 is style reference only. Deliver exactly one 1536x1024 PNG with the identical framing and geometry as IMAGE 1.\nPreserve all already finished pixels in the TOP 256 rows and LEFT 256 columns, including their corner intersection, unchanged. Preserve the entire pure #00ff00 void unchanged, pixel for pixel, with its exact original silhouette. The tiny painted cliff at the far right also stays unchanged. Paint ONLY the flat olive and grey guide regions below row 256 and right of column 256. Do not redraw or recompose the picture.\nReplace flat OLIVE with a seamless continuation of the neighboring short grass, moss, tiny flowers and bare rock patches; no boulders or props. Replace the LIGHT GREY winding rim band with continuous natural rocky verge, following its exact outline. Replace the DARK GREY cliff face with weathered rock continuous with the cliff already painted above: irregular vertical fluting, buttresses, cracks, cool violet shaded planes and sparse trailing vegetation, growing slightly darker and hazier downward. Rock runs all the way to the green silhouette; draw no bottom edge or lower ledge. Every guide boundary must remain at its exact position. Continue the painted strips' colors, grass density, stone scale, strata, contours and illumination seamlessly into the guide. No vertical join at x=256 and no horizontal join at y=256. No unpainted flat guide remnants.\nHAND-DRAWN painted 2D animation background: confident hand-drawn tapered dark contours of varying weight, clean painted material planes, restrained texture, readable shapes, no conspicuous grain. Match IMAGE 2's approved terrain painting exactly. Elevated three-quarter orthographic view, no perspective shrinking. Warm sunset key from screen upper-left, cool violet shadows, bold jewel tones and graphic shadows. No characters, creatures, text, UI, border or vignette. Preserve every pure green pixel as flat pure #00ff00. Preserve the existing finished strips exactly.",
+      "references": [
+        {
+          "role": "edit_target",
+          "path": "in/01_chunk_2_3_edit_canvas.png"
+        },
+        {
+          "role": "style_reference",
+          "path": "in/02_chunk_A.png"
+        }
+      ],
+      "elapsed_s": 25.135
+    }
+  ],
+  "calls_used": 1,
+  "retries": [],
+  "self_report": {
+    "obeyed_invariants": true,
+    "concerns": [
+      "1536×1024 dimensions confirmed. Visual inspection found no obvious strip joins; exact preservation of painted pixels, guide boundaries, and pure-green values was not quantitatively verified."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/chunk_2_3.png",
+      "sha256": "b270a7ea028bf2909643558b09ee343c2140efb51553f9543cb1c2d4e99c71c1"
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "task_id": "CS-v3-3_4",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "chunk_3_4",
+      "path": "out/chunk_3_4.png",
+      "sha256": "ad41a5b62d6bffb9ac68d2bc5a72c52fff26e38cdaaa5fa1e0c7cf63894a6574",
+      "prompt": "EDIT / OUTPAINT IMAGE 1 ONLY. IMAGE 2 is a secondary style reference, not a lighting override. Output one 1536×1024 PNG. Critical correction: a previous attempt relit and brightened the already painted top and left strips. Those pixels MUST NOT CHANGE. LOCK the entire top 256 rows and entire left 256 columns, including their corner: retain their original subdued cool violet values, exact existing cracks, vegetation, highlights and haze. Do not redraw, enhance, recolor, sharpen, or relight any existing painting. Only replace flat guide pixels in x>=256,y>=256. Make the new painting match the original muted strips, not the other way around. Continue directly across x=256 and y=256 without a seam. The large grey-brown unfinished area is vertical cliff rock all the way to the bottom, with continuous tall fractured cool violet stone planes, tapered dark hand-drawn contours, restrained texture and dangling vines continued from the strip above. Slightly darker and hazier at the lowest part; no cliff bottom edge, ground, or new lower ledge. Preserve every guide boundary exactly. The small light grey triangle at upper right has corners approximately (1280,256),(1385,340),(1494,256): paint it as the rocky grassy rim continuing the existing cap stones above, retaining its exact silhouette and plane corner at x≈1385 down to the bottom. Keep all geometry registered to the original guide. Any green in IMAGE 1 must stay flat pure #00ff00; add no green from IMAGE 2. HAND-DRAWN painted 2D, clean material planes, restrained surface texture, confident varying-weight tapered dark contours, graphic shadows and rich colors matching the existing painting. Orthographic elevated three-quarter view, no perspective shrinking. Upper-left sunset key only where it already exists, cool violet shadows; do not increase lighting in protected areas. No characters, creatures, text, UI, border, vignette, bridge, added path or new landmass. Top 256 rows and left 256 columns are immutable source pixels. Fill only the remaining geometry guide.",
+      "references": [
+        {
+          "role": "edit target: painted strips and geometry guide",
+          "path": "in/01_chunk_3_4_edit_canvas.png"
+        },
+        {
+          "role": "approved painted style reference",
+          "path": "in/02_chunk_A.png"
+        }
+      ],
+      "elapsed_s": 23.107
+    }
+  ],
+  "calls_used": 2,
+  "retries": [
+    {
+      "reason": "First result visibly brightened the protected painted strips.",
+      "change": "Retried from the original canvas with stronger strip-locking instructions and original muted lighting prioritized."
+    }
+  ],
+  "self_report": {
+    "obeyed_invariants": false,
+    "concerns": [
+      "Retry improves lighting continuity, but protected-strip details show visible variation; exact pixel preservation is not established.",
+      "Exact guide-boundary preservation remains unverified. Output dimensions are confirmed as 1536×1024."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/chunk_3_4.png",
+      "sha256": "ad41a5b62d6bffb9ac68d2bc5a72c52fff26e38cdaaa5fa1e0c7cf63894a6574"
+    }
+  ]
+}

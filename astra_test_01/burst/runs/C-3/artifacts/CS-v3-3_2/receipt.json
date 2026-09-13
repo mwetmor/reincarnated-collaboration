@@ -1,0 +1,43 @@
+{
+  "task_id": "CS-v3-3_2",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "chunk_3_2",
+      "path": "out/chunk_3_2.png",
+      "sha256": "1956ad68c67ee13455c83d3b945b2f6df47beed3e682b8510dc7a9f866cbf4cd",
+      "prompt": "Use case: precise-object-edit. EDIT IMAGE 1 by outpainting its flat geometry guide areas. Deliver exactly ONE 1536×1024 PNG, identical framing and coordinates. IMAGE 1 is the edit target; IMAGE 2 is style reference only, never composition. Preserve the already painted TOP 256 rows and LEFT 256 columns, including their corner, exactly unchanged. These are finished neighbouring tile pixels. Replace only remaining flat guide areas with seamlessly continuous painting, matching the existing stones, cracks, strata, vegetation, colours and light across x=256 and y=256 with no join line. Every guide boundary must stay exactly where it is. In this particular tile the large dark grey/brown area is a continuous tall vertical cliff face: extend the existing upper cliff downward with cool violet rock planes, vertical fractures, sparse hanging vines, darker slightly hazier low portions, no bottom edge or added ledge. The diagonal light-grey band from approximately (256,544) toward (880,1024), with its lower boundary from (256,966) toward (331,1024), is rocky grassy rim/verge: continue the existing foreground left-hand stone-and-grass strip along this exact band. Also paint the small light-grey guide wedge at the upper right as its indicated rocky verge. Preserve all guide outlines exactly; do not turn the dark plane into a path or open void. General guide legend where present: TAN packed dirt path; LIGHT GREY rocky grassy verge; DARK GREY/BROWN vertical cliff face; dark blocks boulders; BROWN planks bridge deck; MAGENTA loose cracked plank; pure #00ff00 empty void. Every green pixel, if present in IMAGE 1, must remain exact flat #00ff00; do not import green from IMAGE 2. Orthographic elevated three-quarter view, no perspective shrinking. HAND-DRAWN painted 2D animation register, confident tapered dark contours of varying weight, clean painted material planes, restrained texture without conspicuous grain, readable graphic shadows, rich jewel tones matching IMAGE 2 exactly. Warm sunset key fixed SCREEN UPPER-LEFT with cool violet shadows, matching existing strips. No characters, creatures, text, UI, border, vignette, new objects or invented scenery. Keep painted strips pixel-identical and all geometry boundaries fixed; complete only the flat unfinished regions.\nRETRY CORRECTION: The previous attempt repainted the protected upper strip, brightening its lighting and changing rock detail. Work from the ORIGINAL IMAGE 1 again. Its top y=0..255 and left x=0..255 are LOCKED finished pixels: copy them exactly, do not regenerate, recolour, sharpen, brighten or change any line within them. Restrict ALL new paint to x>=256 AND y>=256. Match the subdued cool value of the original cliff at y=255 instead of introducing stronger highlights above or at that boundary. Preserve the exact diagonal verge footprint and the tiny upper-right grey wedge footprint. No visible rectangular join at either protected edge.",
+      "references": [
+        {
+          "role": "edit_target",
+          "path": "in/01_chunk_3_2_edit_canvas.png"
+        },
+        {
+          "role": "style_reference",
+          "path": "in/02_chunk_A.png"
+        }
+      ],
+      "elapsed_s": 24.401
+    }
+  ],
+  "calls_used": 2,
+  "retries": [
+    {
+      "reason": "First output visibly changed lighting and rock details in the protected top strip.",
+      "change": "Repeated edit from original references with stronger locked-strip preservation instructions."
+    }
+  ],
+  "self_report": {
+    "obeyed_invariants": false,
+    "concerns": [
+      "Retry improves visual continuity, but protected-strip details still appear altered; pixel-exact preservation is not established.",
+      "Exact guide-boundary preservation is not established."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/chunk_3_2.png",
+      "sha256": "1956ad68c67ee13455c83d3b945b2f6df47beed3e682b8510dc7a9f866cbf4cd"
+    }
+  ]
+}

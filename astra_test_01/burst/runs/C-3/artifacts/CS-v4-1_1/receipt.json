@@ -1,0 +1,43 @@
+{
+  "task_id": "CS-v4-1_1",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "chunk_1_1",
+      "path": "out/chunk_1_1.png",
+      "sha256": "5fd19053b92e178e79fb2d34dee396e81a60027f54d946f8643bd05a98cbcbb6",
+      "prompt": "Use case: style-transfer. EDIT IMAGE 1, using IMAGE 2 only as the painted style reference. Deliver exactly one 1536x1024 landscape image. Preserve IMAGE 1's composition and all geometry boundaries exactly. This is an orthographic game environment chunk, elevated three-quarter view with no perspective shrinking toward the top. Replace only the flat non-green geometry guide regions with finished hand-drawn painted 2D terrain matching IMAGE 2's colors, texture scale, tapered dark contours, clean painted planes, restrained surface detail, jewel tones and graphic shadows. The large pure #00ff00 area is empty void: preserve EVERY existing green pixel as exactly flat #00ff00; no terrain, grass, shadows, texture or antialiasing may extend into it. The irregular outer boundary runs from near x410 at the bottom, through the lower-right half, to y414 at the right edge: keep this exact silhouette. LIGHT GREY band directly inside that silhouette is a rocky cliff-top rim/verge: paint weathered natural exposed stone, small fissures and flat rock patches, all confined inside the band. OLIVE GREEN band inside the rocky rim is grassy rocky cliff-top ground: short grass, moss, tiny flowers and exposed rock patches, NO boulders or props. TAN lower-right area is warm worn packed-dirt clearing/path with restrained pebbles and dirt wear; its transition to grass must be ragged and soft, tufts and dirt intermixed around the existing guide edge, never an outlined clean dividing line. If finished painted corner/strip pixels are present in IMAGE 1, preserve them exactly and continue their materials seamlessly without any visible straight join. Only where grey cliff-face planes are actually present, paint continuous weathered fluted natural rock darker and hazier low down, no bottom ledge. Only where bridge guides are present, paint those as wood, with any magenta guide as a cracked loose plank. Do not invent a bridge or cliff wall outside the existing shapes. Warm sunset key from SCREEN UPPER-LEFT, cool violet readable shadows, consistent with IMAGE 2. Hand-drawn animation environment, confident variable-weight dark line, clean material planes and restrained texture, environmental richness without conspicuous grain. No characters, creatures, text, UI, border, vignette, added objects or backdrop. Preserve canvas extent, pure green void, geometry and any existing finished art absolutely.\nBOUNDARY CORRECTION RETRY: Start again from the original IMAGE 1 edit target. The previous attempt allowed rock tips and grass tips to protrude beyond the guide silhouette into pure green. Correct this: treat the original green region as a locked pixel mask. Paint only inside the existing grey, olive and tan pixels. CLIP all rock contours, grass blades, flowers and shading to those original non-green areas. Do not smooth, expand, shift, straighten or reinterpret any edge of the guide. The grey rim is a low exposed rock surface, with its outer contour precisely the guide's existing contour. All flat pure green must be copied unchanged. Preserve all other requirements.",
+      "references": [
+        {
+          "role": "edit target — geometry guide and any existing painted pixels",
+          "path": "in/01_chunk_1_1_edit_canvas.png"
+        },
+        {
+          "role": "approved painted style reference",
+          "path": "in/02_chunk_A.png"
+        }
+      ],
+      "elapsed_s": 21.6
+    }
+  ],
+  "calls_used": 2,
+  "retries": [
+    {
+      "reason": "First output visibly extended some rock and grass edges into the green void.",
+      "change": "Restarted from the original canvas with stronger instructions to clip all painting to the original non-green regions."
+    }
+  ],
+  "self_report": {
+    "obeyed_invariants": false,
+    "concerns": [
+      "Retry improves silhouette preservation, but minor boundary deviations remain visible; exact green-pixel preservation is unverified.",
+      "The described finished 256×256 painted corner was not visually identifiable in the supplied canvas."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/chunk_1_1.png",
+      "sha256": "5fd19053b92e178e79fb2d34dee396e81a60027f54d946f8643bd05a98cbcbb6"
+    }
+  ]
+}

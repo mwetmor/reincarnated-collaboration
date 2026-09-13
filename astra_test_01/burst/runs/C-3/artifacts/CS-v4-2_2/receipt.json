@@ -1,0 +1,43 @@
+{
+  "task_id": "CS-v4-2_2",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "chunk_2_2.png",
+      "path": "out/chunk_2_2.png",
+      "sha256": "c2ff9a0fe1d6c73bdcb7154b87480a3c27fed57ddb2489af22ea40b4bbc013cd",
+      "prompt": "Use case: precise-object-edit. EDIT IMAGE 1, the 1536x1024 canvas with finished painted strips and flat geometry guide. Deliver one 1536x1024 PNG. IMAGE 2 is supporting STYLE reference only, never its layout. Preserve IMAGE 1 composition exactly.\nThe TOP 256 rows and LEFT 256 columns, including their corner, are already finished neighbor artwork: keep every one of these pixels unchanged. Outpaint ONLY the unfinished flat guide areas inside the remaining region. Continue the finished grass, dirt and cliff painting seamlessly across x=256 and y=256, without any straight join line or abrupt texture/color change.\nGuide interpretation: OLIVE is grassy rocky cliff-top ground: short grass, moss, small yellow and white flowers, bare rock patches, no boulders or props. TAN is worn packed dirt merging softly and raggedly into grass with tufts and pebbles. LIGHT GREY band is rocky rim verge. DARK GREY and lighter ribs are continuous natural cliff walls dropping toward the viewer: weathered irregular vertical fluting, buttresses, cracks and sparse trailing vegetation, matching the finished top strip's stone, strata and colors. Cliff walls continue all the way to the exact green boundary; become slightly hazier and darker in their lowest parts, with no ledge or drawn bottom edge. If present, brown planks/posts are wooden bridge and magenta is one cracked loose plank; do not add a bridge where none is guided.\nCRITICAL: Every guide boundary stays at exactly the same image coordinates. Every pure #00ff00 pixel is a locked empty-void pixel and stays exactly flat #00ff00. Do not paint into the void, change its silhouette, blur its edges or add shadows onto it. Retain the long central green void and right cliff silhouettes exactly. No reframing, shifting, resizing, cropping or geometric redesign.\nHAND-DRAWN painted 2D, confident dark contours drawn by hand with taper and varying weight, clean painted material planes, restrained surface texture, readable shapes, no conspicuous grain. Match IMAGE 2 and the finished strips exactly: rich local environmental detail, jewel tones and graphic shadows. Orthographic elevated three-quarter view, no perspective shrinking toward the top. Warm SUNSET key fixed from SCREEN UPPER-LEFT, cool violet shadows. No characters, creatures, text, UI, border, vignette or added objects. Preserve all existing finished artwork unchanged; paint only unfinished non-green guide areas.\nRETRY CORRECTION: The previous attempt incorrectly made the left cliff rim run diagonally toward the lower-left and repainted the top-right finished wall. Do not do that. This is a constrained guide-filling operation. The light grey rim band in IMAGE 1 runs roughly VERTICALLY down the image, around x=440 to 580, all the way to the bottom; preserve that band's exact zigzag outline. The olive grassy top remains WIDE at the bottom, extending from the frozen left strip x=256 to about x=457 at y=1023. The rock wall starts to the RIGHT of the light-grey verge, about x=532 at the bottom, never x=256. Retain each material in its own original guide region. The upper-right cliff at y<256 is already complete: its existing sparse cracks, lighting and vegetation must be unchanged, do not add more vegetation or remodel rock there. Treat all x<256 and all y<256 pixels as immutable source pixels. All guide/green silhouettes are immutable too. Fill only flat guide material regions with matching painted details, following their precise outlines.",
+      "references": [
+        {
+          "role": "edit target — painted strips and geometry guide",
+          "path": "in/01_chunk_2_2_edit_canvas.png"
+        },
+        {
+          "role": "approved level style reference",
+          "path": "in/02_chunk_A.png"
+        }
+      ],
+      "elapsed_s": 25.531
+    }
+  ],
+  "calls_used": 2,
+  "retries": [
+    {
+      "reason": "First output moved the lower grassy rim and altered the finished upper-right cliff strip.",
+      "change": "Retried from original references with explicit rim coordinates and stronger frozen-strip preservation instructions."
+    }
+  ],
+  "self_report": {
+    "obeyed_invariants": false,
+    "concerns": [
+      "The retry improves rim geometry, but the finished upper-right cliff strip still appears altered.",
+      "Exact boundary and #00ff00 pixel preservation were not deterministically verified."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/chunk_2_2.png",
+      "sha256": "c2ff9a0fe1d6c73bdcb7154b87480a3c27fed57ddb2489af22ea40b4bbc013cd"
+    }
+  ]
+}

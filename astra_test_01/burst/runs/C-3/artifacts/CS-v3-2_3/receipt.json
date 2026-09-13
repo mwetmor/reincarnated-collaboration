@@ -1,0 +1,43 @@
+{
+  "task_id": "CS-v3-2_3",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "chunk_2_3",
+      "path": "out/chunk_2_3.png",
+      "sha256": "8305b46d68aabd5130d0eb645126b378000aaec814ef6dafb7d18ebb89ed5ff1",
+      "prompt": "Use case: precise-object-edit. Edit IMAGE 1, the 1536x1024 cliffside chunk canvas. IMAGE 2 is STYLE REFERENCE ONLY; never copy its composition. Output exactly one 1536x1024 PNG. Preserve all existing painted pixels in IMAGE 1: the entire top 256 rows and entire left 256 columns, including their corner. Paint ONLY the remaining flat geometry guide areas, joining the existing painting seamlessly at x=256 and y=256. The large dark grey-brown region is NOT empty space: it is a continuous vertical cliff wall extending from the painted rock at the top and left across the whole remaining canvas and down beyond the bottom. Continue those exact vertical strata, angular rock planes, cracks, hanging vines, colors, textures, lighting and scale seamlessly. The small light-grey polygon just beside the left rim is rocky grassy verge; preserve its precise boundary while painting it to continue the adjacent existing rim. Keep every geometry boundary exactly fixed. No new cliff top, ground, floor, ledge or bottom edge in the large cliff-face region. Keep lowest rock slightly darker and hazier as in the existing bottom-left pixels; retain visible rock through haze. If any pure green #00ff00 pixels exist in IMAGE 1, preserve them exactly as flat pure green. Do not introduce any green void from IMAGE 2. Other guide colors if present: tan is packed dirt path; dark blocks are boulders; brown planks are wooden bridge deck; magenta plank is cracked loose wood. Do not invent features absent from IMAGE 1. Orthographic elevated three-quarter view, no perspective shrinking toward top. HAND-DRAWN painted 2D action-game environment, confident hand-drawn tapered dark contours of varying weight, clean painted material planes, restrained surface texture, readable forms, rich environment, bold jewel tones and graphic shadows, matching reference painting exactly. Warm sunset key from SCREEN UPPER-LEFT, cool violet shadows, readable deep values. No characters, creatures, text, UI, border, vignette or conspicuous grain. Preserve finished strips unchanged; fill all flat guides with continuous cliff painting and leave no visible joins.\nRETRY: Previous attempt altered the finished TOP 256 ROWS, adding warm highlights and changing rock and vines. Strict preservation is essential for tiling. Treat every pixel with y<256 OR x<256 in IMAGE 1 as locked original artwork: reproduce it exactly unchanged, including its dim cool top-center cliff, existing fine cracks, vines and light distribution. Do not relight, redraw, enhance or add detail to these protected strips. Only replace the solid grey guide pixels outside these strips. Continue the dark cool rock shapes directly below each original top-strip stratum. The completed image must retain the original top and left strips exactly and transition seamlessly into the newly painted lower-right area.",
+      "references": [
+        {
+          "role": "edit_target",
+          "path": "in/01_chunk_2_3_edit_canvas.png"
+        },
+        {
+          "role": "style_reference",
+          "path": "in/02_chunk_A.png"
+        }
+      ],
+      "elapsed_s": 37.091
+    }
+  ],
+  "calls_used": 2,
+  "retries": [
+    {
+      "reason": "First output visibly altered lighting and detail in the protected top strip.",
+      "change": "Re-edited the original canvas with stronger pixel-preservation instructions for both protected strips."
+    }
+  ],
+  "self_report": {
+    "obeyed_invariants": false,
+    "concerns": [
+      "Retry improves preservation, but protected painted details still show visual differences; exact pixel preservation is not established.",
+      "Geometry boundary fidelity has not been deterministically verified."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/chunk_2_3.png",
+      "sha256": "8305b46d68aabd5130d0eb645126b378000aaec814ef6dafb7d18ebb89ed5ff1"
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "task_id": "CS-v4-1_4",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "chunk_1_4",
+      "path": "out/chunk_1_4.png",
+      "sha256": "302d36db900ea39bf04dc89683b822c434b748b8564f1a93e8c773d9d20935f2",
+      "prompt": "Use case: precise-object-edit / outpainting. Edit IMAGE 1, the 1536x1024 terrain canvas. IMAGE 2 is a STYLE reference only, never a layout reference. Deliver ONE 1536x1024 PNG.\nThe top 256 rows and left 256 columns of IMAGE 1, including their corner overlap, are finished neighboring terrain pixels: preserve these painted strips exactly in place without repainting, recoloring, shifting, scaling or altering details. Change ONLY the flat olive rectangle at x=256..1535, y=256..1023. Replace that entire olive guide with a seamless continuation of the surrounding grassy rocky cliff-top ground: short grass, moss, small white and yellow flowers, small stones, bare rock patches. NO boulders, NO props. Match the existing strips' colors, scale, vegetation density, brushwork, stone shapes and light. Continue partially cut tufts and patches across x=256 and y=256 so there is absolutely no straight seam, line, edge, tonal step or rectangular border at either inner strip edge. The whole image is continuous grass-covered ground, with natural irregular patchwork matching the existing terrain. No new path, cliff, bridge or void: IMAGE 1 has only grassy ground in its editable guide. Preserve all existing guide boundaries and any pure #00ff00 pixels exactly; the olive guide is grassy terrain, not chroma green.\nHAND-DRAWN painted 2D animation background: confident tapered dark contours with varying weight, clean painted material planes, restrained surface texture, readable small shapes, bold jewel colors and graphic shadows, no conspicuous grain. Match IMAGE 2's approved painted level style while strictly retaining IMAGE 1's composition and grass palette. Elevated orthographic three-quarter view, constant ground scale throughout with no perspective shrinking toward the top. Warm SUNSET key from SCREEN UPPER-LEFT, cool violet shadows, readable deep cool ambient. No characters, creatures, text, UI, border or vignette. Preserve the full original canvas and finished top/left pixels; paint only the missing olive rectangle.",
+      "references": [
+        {
+          "role": "edit target: painted strips and geometry guide",
+          "path": "in/01_chunk_1_4_edit_canvas.png"
+        },
+        {
+          "role": "approved level style reference",
+          "path": "in/02_chunk_A.png"
+        }
+      ],
+      "elapsed_s": 22.514
+    }
+  ],
+  "calls_used": 1,
+  "retries": [],
+  "self_report": {
+    "obeyed_invariants": true,
+    "concerns": [
+      "Output dimensions confirmed as 1536×1024. Visual inspection shows continuous grass without an obvious join; exact pixel preservation of the painted strips was not quantitatively verified."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/chunk_1_4.png",
+      "sha256": "302d36db900ea39bf04dc89683b822c434b748b8564f1a93e8c773d9d20935f2"
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+ "text": "GENERATE BURST CS-v4-1_4 — cliffside v4.1 chunk 1_4 by OUTPAINTING (Matt R-C3-46/48/54-57). task_id \"CS-v4-1_4\".\n\nIMAGE 1 is the canvas to EDIT (1536×1024). In it, a 256×256 corner square (from a diagonal neighbour); the LEFT 256 columns (from the chunk to its left); the TOP 256 rows (from the chunk above) are ALREADY PAINTED — real finished pixels from neighbouring chunks. Everything else in IMAGE 1 is a flat-shaded ORTHOGRAPHIC GEOMETRY GUIDE: OLIVE GREEN = grassy rocky ground on the cliff top (short grass, moss, small flowers, bare rock patches; NO boulders, NO props); TAN = a worn packed-dirt path/clearing inside the grass — its edges are ragged and soft, dirt breaking into grass with tufts and pebbles, never a clean line; LIGHT GREY band = the rocky verge right at the rim; GREY planes (dark grey with lighter ribs) = natural cliff faces dropping toward the viewer, with irregular fluting, buttresses and cracks — paint them as continuous weathered rock all the way down to where they meet the green, slightly hazier and darker toward their lowest part, with no ledge or bottom edge drawn; BROWN planks + posts = a wooden bridge deck; MAGENTA plank = one loose bridge plank (paint it as a cracked, loose plank); PURE GREEN #00ff00 = empty void.\nUse image_gen in EDIT mode on IMAGE 1 and deliver ONE 1536×1024 image in which: (a) the painted strip(s) stay as they are; (b) every flat guide area is replaced by painting that CONTINUES the painted strip(s) seamlessly (same colours, textures, stones, grass, strata, light) so no join is visible — grass continues as grass, dirt as dirt, rock faces as the same rock; no straight line may appear at the inner edge of a painted strip; (c) every guide boundary stays exactly where it is; (d) every green pixel stays flat pure #00ff00.\nOrthographic view: no perspective shrinking toward the top. Scale: a person standing here is 130 px tall. LIGHT: warm SUNSET key from the UPPER-LEFT, cool violet shadows. REGISTER: HAND-DRAWN painted 2D — confident tapered dark contours, painted planes, bold Hades-like jewel tones and graphic shadows — matching IMAGE 2 exactly. No characters, creatures, text, UI, border or vignette.\n\nOne image_gen call. ONE retry only if a painted strip was altered, a boundary moved, the green was painted over, or a join line remains — name the reason. Copy the output from $CODEX_HOME/generated_images/... to out/chunk_1_4.png with sha256. No code. No other files. No web.\nRETURN: receipt task_id \"CS-v4-1_4\"; images = the file with prompt, references and elapsed_s; calls_used = the TRUE number of image_gen calls; status; concerns. Never PASS/FAIL.",
+ "references": [
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/CS-guides-v4/chunk_1_4_edit_canvas.png",
+   "role": "IMAGE 1 — the canvas to EDIT (painted strips + geometry guide)"
+  },
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/CS-chunk-A/chunk_A.png",
+   "role": "IMAGE 2 — the approved painted STYLE of this level (Matt: 'love the style and the chunks')"
+  }
+ ],
+ "image_cap": 2,
+ "minutes_cap": 15,
+ "tool_call_cap": 20,
+ "outputs": [
+  "out/chunk_1_4.png"
+ ],
+ "effort": "high",
+ "add_dirs": [],
+ "experiment": "C3-cliffside-v3"
+}

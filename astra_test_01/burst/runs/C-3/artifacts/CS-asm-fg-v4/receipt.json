@@ -1,0 +1,44 @@
+{
+  "task_id": "CS-asm-fg-v4",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [],
+  "calls_used": 0,
+  "retries": [
+    {
+      "reason": "python executable unavailable.",
+      "change": "Used python3; assembly ran once."
+    }
+  ],
+  "self_report": {
+    "obeyed_invariants": true,
+    "concerns": [
+      "Eight seam paths contain no jointly fully opaque samples; their zero costs do not establish a color match."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/foreground.png",
+      "sha256": "7c483b645f377ab93bad8f3f9aea0d4ff88cc1b6b4926be99e54985ba7323532"
+    },
+    {
+      "path": "out/foreground_preview_1344x1024.png",
+      "sha256": "77e741d186aafcd3e4e66e6cad70ebfa44d8e11854f9f6191c1c626bdbab70be"
+    },
+    {
+      "path": "out/seams.json",
+      "sha256": "0fd03b13b9b1e358f46b06c1334f386b828e65cece249c3aa72a566c4c374bc6"
+    },
+    {
+      "path": "out/checks.json",
+      "sha256": "2841954768e71f7f97b806e79a6dbcea1e230eeaf8c0e4a97a2dbaaccbfafab5"
+    },
+    {
+      "path": "out/seam_worst_crops.png",
+      "sha256": "f8783addc2145ea87db45a6a23b4b9b011382c57fd25887da739b26f2977231c"
+    },
+    {
+      "path": "out/summary.txt",
+      "sha256": "bef1519278b8692afaba466007f7410ab8b81f88c2844be6625b9c2de355ca6b"
+    }
+  ]
+}

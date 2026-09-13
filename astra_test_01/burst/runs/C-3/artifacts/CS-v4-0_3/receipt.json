@@ -1,0 +1,43 @@
+{
+  "task_id": "CS-v4-0_3",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "chunk_0_3",
+      "path": "out/chunk_0_3.png",
+      "sha256": "737db83165ad71f03a25c18c68130fd8d5be0116f12b39cb41bcb8b00ddac51f",
+      "prompt": "Edit IMAGE 1 by outpainting only its flat geometry guide areas into finished cliffside terrain. Output ONE 1536x1024 PNG, exactly the same composition and framing. IMAGE 1 is the edit target; IMAGE 2 is only the approved painting style reference, not a geometry reference. Preserve the already painted TOP 256 rows and any already painted corner pixels exactly unchanged. Preserve every pure #00ff00 void pixel exactly unchanged and preserve the precise void silhouette. All guide boundaries must remain in their exact locations. Replace OLIVE GREEN with grassy rocky cliff-top ground: short grass, moss, small flowers, bare rock patches, no boulders or props. Replace TAN with worn packed-dirt path/clearing, warm ochre earth, subtle ruts, cracks and small pebbles. The tan/olive boundary follows the guide exactly but its painting has ragged soft dirt breaking into grass with tufts and pebbles, never a clean outline. Replace LIGHT GREY band along upper-left rim with low natural rocky verge, matching the continuous existing stones in the painted top strip. Do not add cliff faces where there are no dark grey guide planes. If present, dark GREY planes with lighter ribs mean continuous natural cliff faces dropping toward viewer, irregular fluting, buttresses and cracks, subtly darker and hazier toward lowest part with no ledge or drawn bottom edge. If present, BROWN planks/posts mean wooden bridge, MAGENTA means cracked loose plank. Seamlessly continue the exact colors, textures, grass, stone and lighting of the painted strips down through every guide region. No visible join or straight horizontal line at y=256; the finished strips themselves must stay untouched. Elevated orthographic three-quarter view, no perspective shrinking toward top. HAND-DRAWN painted 2D action-game environment: confident tapered dark contour lines with varying weight, clean painted material planes, restrained surface texture, bold jewel tones and graphic cool violet shadows, environmental richness, matching IMAGE 2 exactly. Warm sunset key from SCREEN UPPER-LEFT. No characters, creatures, text, UI, border, vignette or new props. Flat pure #00ff00 empty void, never shade or texture it. Preserve original canvas extent and all terrain geometry.\nPRECISION RETRY: The previous attempt moved the grass/dirt boundary. Use the ORIGINAL IMAGE 1 guide as an exact tracing, not an approximate layout. Keep the tan clearing and olive areas exactly their original sizes and shapes. In particular the lower-right olive region begins on the BOTTOM edge at about x=960 and meets the RIGHT edge at about y=665; do not expand this grass leftward or upward. The left olive area extends to x=440 at y=500, bends left to x=340 at y=620, x=220 at y=645, x=170 at y=705 and reaches the left edge at y=780. Preserve the prominent olive tongue reaching x=840,y=390 near the top middle. These are fixed boundary coordinates, with only small tuft-scale edge softness. The light grey rim is low rock verge inside its exact guide band, not a tall cliff or boulders. Preserve all original finished pixels in y=0..255 exactly, with no repaint, and all original #00ff00 pixels. Texture only the remaining flat colored regions. Do not recompose, expand vegetation, simplify the guide curves, or add a cliff in the lower right.",
+      "references": [
+        {
+          "role": "edit target: painted strips and geometry guide",
+          "path": "in/01_chunk_0_3_edit_canvas.png"
+        },
+        {
+          "role": "approved level painting style",
+          "path": "in/02_chunk_A.png"
+        }
+      ],
+      "elapsed_s": 27.721
+    }
+  ],
+  "calls_used": 2,
+  "retries": [
+    {
+      "reason": "First output visibly shifted grass–dirt boundaries, especially at lower right.",
+      "change": "Retried from original references with explicit boundary coordinates and stronger preservation instructions."
+    }
+  ],
+  "self_report": {
+    "obeyed_invariants": false,
+    "concerns": [
+      "Retry improves boundary alignment, but local contour deviations remain visible.",
+      "Exact preservation of painted-strip pixels and pure-green pixels was not verified numerically."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/chunk_0_3.png",
+      "sha256": "737db83165ad71f03a25c18c68130fd8d5be0116f12b39cb41bcb8b00ddac51f"
+    }
+  ]
+}

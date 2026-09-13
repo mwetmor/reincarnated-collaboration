@@ -1,0 +1,37 @@
+{
+  "task_id": "CS-v3-1_3",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "chunk_1_3",
+      "path": "out/chunk_1_3.png",
+      "sha256": "44f4f216ccf6befd93a856755400c93cc53b77c90d389037b481084b3b38db56",
+      "prompt": "Use case: precise-object-edit. EDIT IMAGE 1 by outpainting its unfinished guide regions. Deliver exactly ONE 1536x1024 PNG. IMAGE 1 is the spatial authority and edit target. IMAGE 2 is ONLY the approved painting-style reference, never its layout. Preserve the already painted TOP 256 rows and LEFT 256 columns of IMAGE 1 exactly as original pixels, including their corner. Replace only the flat geometric guide areas elsewhere with seamless continuation of that existing painting: TAN becomes packed orange-gold dirt path; LIGHT GREY band becomes rocky grassy cliff rim; DARK GREY/BROWN becomes continuous steep vertical violet-grey fractured rock face, with hanging small vines. Dark blocks become boulder outcrops. Follow every guide boundary exactly without moving, smoothing away or redesigning its bends. The upper edge of the grey rim runs from near (256,685) to (584,365), then (627,389), then (1480,277), then (1500,256); its lower cliff lip runs from near (275,811) to (609,482) then (1536,358). Keep this precise composition. Continue the cliff all the way through the bottom and right image edges where the guide does; lowest rock slightly hazier and darker, never add a bottom ledge or outline. All existing pure green #00ff00 pixels must remain exactly flat pure green; do not introduce green void where none exists in IMAGE 1. Brown bridge planks or magenta loose planks, if present, become wood or cracked loose wood respectively; do not invent a bridge. Seamless joins at x=256 and y=256: match existing dirt direction, stone scale, contour weight, grass, strata and colours. Orthographic elevated three-quarter view, no perspective shrinking toward top. A standing person would be 130 px tall, but show no people. HAND-DRAWN painted 2D animation environment: confident hand-drawn tapered dark contours with varied weight, painted clean planes, restrained texture, readable silhouettes, rich environment, graphic shadows, jewel tones. Match IMAGE 2's orange dirt, golden sunlit rock tops, green-yellow grasses and cool violet rock faces. Warm SUNSET key from SCREEN UPPER-LEFT with cool violet shadows, no pure black. No characters, creatures, text, UI, border, vignette, conspicuous grain. Retain original canvas dimensions, original painted strips and all exact guide boundaries.",
+      "references": [
+        {
+          "role": "edit target: painted strips and geometry guide",
+          "path": "in/01_chunk_1_3_edit_canvas.png"
+        },
+        {
+          "role": "approved level painting style",
+          "path": "in/02_chunk_A.png"
+        }
+      ],
+      "elapsed_s": 24.794
+    }
+  ],
+  "calls_used": 1,
+  "retries": [],
+  "self_report": {
+    "obeyed_invariants": true,
+    "concerns": [
+      "Dimensions verified as 1536×1024. Visual inspection found no obvious joins; exact strip-pixel preservation and guide-boundary alignment were not measured."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/chunk_1_3.png",
+      "sha256": "44f4f216ccf6befd93a856755400c93cc53b77c90d389037b481084b3b38db56"
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "task_id": "L-far_ruins-1_1",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "L-far_ruins-1_1.png",
+      "path": "out/L-far_ruins-1_1.png",
+      "sha256": "573b3898ce87a950dd92539c7c6c5f11ba0a48c08317d925bea02274696c89a3",
+      "prompt": "Use case: precise-object-edit / outpainting. Edit IMAGE 1, the supplied 1536x1024 canvas. IMAGE 2 is solely a reference for hand-drawn painted style and recently destroyed temple story, never its layout or foreground. Deliver ONE 1536x1024 PNG. Preserve exactly the existing painted TOP 256 rows and LEFT 256 columns including their corner; replace ONLY the flat mid-grey placeholder rectangle x=256..1535, y=256..1023. Continue every ridge, atmospheric cloud and painted plane seamlessly across both boundaries, without any straight join or change in color, scale, contour character or detail density. Do not repaint, shift, resize or reinterpret the existing strips.\nThis is the LOWER-RIGHT panel of a 2x2 continuous FAR RUINS parallax background layer with 256px overlaps, viewed past a cliff edge at sunset. This lower panel lies below the overall layer skyline; its supplied top strip already contains mountains and violet haze, so extend that land downward and rightward. Do not invent a new skyline or sky inside the grey rectangle. Any pure #00ff00 already present must remain exact and continue where applicable; the area above the full layer's land silhouette is pure #00ff00, but this lower panel is filled by distant land and haze. Paint distant jagged mountain spires, receding hazy cliffs and a SECOND SMALLER recently destroyed temple ruin on a distant hilltop plateau: broken columns, collapsed split dome, fallen statue fragments, burnt blue banners, tiny restrained embers and thin smoke. Keep the ruin small and atmospherically subdued within the mountain range, not a foreground hero temple. Cool violet atmospheric haze dominates, with restrained warm sunset rim light from screen upper-left. Fully paint to bottom and right edges, increasingly hazy and simple toward bottom, with distant cliffs still suggested through haze.\nREGISTER: hand-drawn painted 2D, like a frame of modern hand-animated action game; confident hand-drawn dark contour with visible taper and varying weight, thinner and lighter with distance, clean painted material planes inside the lines, restrained texture, readable small silhouettes, no conspicuous grain. Jewel-toned violet graphic shapes and environmental richness. Elevated three-quarter view, cool low-value ambient and readable shadows never pure black; single key from screen upper-left. F04 Keepers of Hours: monumental stonework and fractured observatory architecture, deliberate ornamental geometry, blue/ivory/brass muted by distance. Match IMAGE 1's exact subdued violet palette and spatial depth, using IMAGE 2 only for painted line and plane language and ruin motifs. No characters, creatures, foreground cliff rim, text, UI, border, vignette, sun, orange sky or bright river. No layout copied from IMAGE 2.",
+      "references": [
+        {
+          "role": "edit target: painted neighbour strips and grey placeholder",
+          "path": "in/01_L-far_ruins-1_1_canvas.png"
+        },
+        {
+          "role": "painted style and destroyed-temple story reference",
+          "path": "in/02_vista_01.png"
+        }
+      ],
+      "elapsed_s": 36.468
+    }
+  ],
+  "calls_used": 1,
+  "retries": [],
+  "self_report": {
+    "obeyed_invariants": true,
+    "concerns": [
+      "Exact pixel preservation of the painted strips was not measured; visual inspection showed no obvious join."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/L-far_ruins-1_1.png",
+      "sha256": "573b3898ce87a950dd92539c7c6c5f11ba0a48c08317d925bea02274696c89a3"
+    }
+  ]
+}

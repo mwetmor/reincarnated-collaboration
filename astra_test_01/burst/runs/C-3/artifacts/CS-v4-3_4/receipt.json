@@ -1,0 +1,44 @@
+{
+  "task_id": "CS-v4-3_4",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "chunk_3_4",
+      "path": "out/chunk_3_4.png",
+      "sha256": "1154a905fea482ab9153cfa426a17c8d55df40ee0898815d0ed26f6ff1f8ee49",
+      "prompt": "Use case: precise-object-edit. Edit IMAGE 1 only. Output exactly 1536x1024. IMAGE 2 supplies style context only. This is a retry because the earlier attempt repainted the protected top strip. CRITICAL: copy the original IMAGE 1 top 256 rows verbatim, including its dim muted violet rock at upper right; do not redraw, relight, sharpen, brighten or add warm highlights to any of those pixels. Likewise copy all original green pixels verbatim, all left 256 columns and all original painted pixels. The canvas is intentionally almost entirely pure #00ff00 void. The only editable area is the small flat grey unpainted portion of the rock at extreme right BELOW y=256, within the existing non-green silhouette. Continue the dim muted violet cliff texture from above into that tiny grey region, preserving its exact boundary with green. Irregular vertical fluting, fine cracks and clean painted planes, slightly hazier darker lower down, without a ledge or bottom outline. Keep the original upper cliff exactly as supplied; no orange highlights added there. No horizontal seam at row 256. Do not import IMAGE 2 terrain or composition. HAND-DRAWN painted 2D with tapered dark contours and restrained texture, elevated orthographic view, existing upper-left lighting. No characters, creatures, ground, bridge, props, text, UI, border or vignette. All #00ff00 remains flat pure #00ff00 at precisely the original coordinates. Preserve the entire protected top 256 rows pixel-for-pixel. Minimal edit strictly confined to the small unfinished grey tip below the protected strip.",
+      "references": [
+        {
+          "role": "edit target",
+          "path": "in/01_chunk_3_4_edit_canvas.png"
+        },
+        {
+          "role": "style reference",
+          "path": "in/02_chunk_A.png"
+        }
+      ],
+      "elapsed_s": 16.917
+    }
+  ],
+  "calls_used": 2,
+  "retries": [
+    {
+      "reason": "First result visibly repainted the protected upper cliff strip.",
+      "change": "Emphasized verbatim preservation of the top 256 rows and restricted editing to the unfinished grey tip below."
+    }
+  ],
+  "self_report": {
+    "obeyed_invariants": false,
+    "concerns": [
+      "Retry visibly shifted the lower cliff silhouette, changing the green boundary.",
+      "Exact preservation of protected painted pixels and pure-green values is unverified.",
+      "Delivered dimensions verified as 1536×1024; retry allowance exhausted."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/chunk_3_4.png",
+      "sha256": "1154a905fea482ab9153cfa426a17c8d55df40ee0898815d0ed26f6ff1f8ee49"
+    }
+  ]
+}

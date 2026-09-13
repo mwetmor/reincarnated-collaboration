@@ -1,0 +1,43 @@
+{
+  "task_id": "CS-v4-3_3",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "chunk_3_3.png",
+      "path": "out/chunk_3_3.png",
+      "sha256": "e428e31d131cff5126f3082b35b3f7c71b2b4a1e400831aa205516c29564d8c4",
+      "prompt": "Use case: precise-object-edit. Edit IMAGE 1 as the fixed 1536x1024 canvas. IMAGE 2 is style reference only. Deliver one 1536x1024 PNG. Replace only the unpainted flat grey geometry-guide cliff faces in IMAGE 1 with seamlessly continued hand-drawn painted rock. Preserve the already painted top 256 rows and all already finished pixels in the left 256 columns and corner exactly unchanged. Preserve every pure #00ff00 void pixel and the exact rock/void silhouette boundary, pixel for pixel. Do not move, enlarge, erode, round, or embellish that boundary. The grey guide is entirely vertical natural cliff face, not ground or a cave: continue the existing upper rock columns, cracks, irregular fluting and buttresses downward all the way to the existing green boundary. Continue each fissure and painted plane smoothly through y=256 with no horizontal join, ledge, bottom outline or change of style. Slightly darker and hazier cool violet rock toward the lowest parts, but remain solid rock up to the green. Sparse existing trailing vegetation may continue naturally on the faces. Match IMAGE 2's hand-drawn painted 2D register: confident tapered dark contours of varying weight, clean painted material planes, restrained surface texture, readable shapes, rich jewel tones and graphic shadows. Match the actual colors and texture of IMAGE 1's finished strip, with a warm sunset key from screen upper-left and cool violet shadows. Orthographic elevated three-quarter view, no perspective shrinking toward top. Keep the exact composition of IMAGE 1; do not import IMAGE 2's road or cliff-top composition. No additional terrain, grass-top, boulders, props, bridge, characters, creatures, text, UI, border, vignette, or shadows in green void. Green stays perfectly flat #00ff00. This is an outpainting of the existing cliff texture inside the fixed grey mask only; the finished strips are immutable.\nRETRY CORRECTION: The previous attempt repainted and brightened the existing upper strip. Treat all existing textured pixels of IMAGE 1 as locked source pixels: especially y=0 through y=255, copy their original exact darker muted colors, original brush marks, original cracks and vegetation unchanged. Do not enhance their contrast, saturation, highlights, or detail. Only fill the flat untextured gray areas below that strip. Blend the newly painted rock to the subdued original strip by adapting ONLY the new rock. Keep the green mask and all silhouette coordinates exactly unchanged. Output at original 1536x1024.",
+      "references": [
+        {
+          "role": "edit target: painted strips and geometry guide",
+          "path": "in/01_chunk_3_3_edit_canvas.png"
+        },
+        {
+          "role": "approved level style reference",
+          "path": "in/02_chunk_A.png"
+        }
+      ],
+      "elapsed_s": 20.012
+    }
+  ],
+  "calls_used": 2,
+  "retries": [
+    {
+      "reason": "First result visibly brightened the existing upper painted strip.",
+      "change": "Repeated edit from original references with explicit preservation of original strip colors and texture."
+    }
+  ],
+  "self_report": {
+    "obeyed_invariants": false,
+    "concerns": [
+      "Retry improves color continuity, but existing strip details still appear altered; exact pixel preservation is not established.",
+      "Green purity and boundary coordinates were inspected visually only."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/chunk_3_3.png",
+      "sha256": "e428e31d131cff5126f3082b35b3f7c71b2b4a1e400831aa205516c29564d8c4"
+    }
+  ]
+}

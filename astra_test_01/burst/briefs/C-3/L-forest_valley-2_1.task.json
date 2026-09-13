@@ -1,0 +1,22 @@
+{
+ "text": "GENERATE BURST L-forest_valley-2_1 — parallax background panel by OUTPAINTING (Matt R-C3-46/48). task_id \"L-forest_valley-2_1\".\n\nThis image is one panel (lower-right) of a 3×2 grid of 1536×1024 panels (neighbours overlap by 256 px) that together form ONE continuous painted parallax background layer for a hand-painted 2D game scene seen past a cliff edge at sunset. The whole layer is the CHARRED FOREST VALLEY layer — nearer than the ruins: a vast burnt forest filling a valley: black skeletal trunks and branches, grey ash ground, pockets of glowing orange embers and small lingering fires, smoke curling up, a winding river reflecting the sunset. Its top silhouette (the far ridge line of burnt treetops) sits at about 25–32 % of the full layer's height; EVERYTHING ABOVE that silhouette is flat pure #00ff00; below it the forest fills everything down to the bottom edge, denser and darker toward the bottom.\nIMAGE 1 is the canvas to EDIT: its LEFT 256 columns; its TOP 256 rows; its top-left 256×256 corner are ALREADY PAINTED (real pixels from neighbouring panels); the rest is flat mid-grey placeholder. Use image_gen in EDIT mode on IMAGE 1 and deliver ONE 1536×1024 image: keep the painted strips as they are and replace the placeholder with painting that CONTINUES them seamlessly (no visible join), following the layer description for this panel's position — any flat pure #00ff00 in the painted strips continues as flat pure #00ff00.\nREGISTER: the level's approved painted style (IMAGE 2): hand-drawn painted 2D, tapered dark contours (lighter and thinner with distance), painted planes, bold Hades-like jewel tones and graphic shapes, rich detail. No characters, creatures, text, UI, border or vignette.\n\nOne image_gen call. ONE retry only if a painted strip was altered, a join remains, the layer contains a cliff rim/characters/text, or (keyed layers) the area above the silhouette is not flat pure #00ff00 — name the reason. Copy the output from $CODEX_HOME/generated_images/... to out/L-forest_valley-2_1.png with sha256. No code. No other files. No web.\nRETURN: receipt task_id \"L-forest_valley-2_1\"; images = the file with prompt, references and elapsed_s; calls_used = the TRUE number of image_gen calls; status; concerns. Never PASS/FAIL.",
+ "references": [
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/CS-layers/L-forest_valley-2_1_canvas.png",
+   "role": "IMAGE 1 — the canvas to EDIT (painted neighbour strips + placeholder)"
+  },
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/CS-vista-01/vista_01.png",
+   "role": "IMAGE 2 — the approved painted STYLE and story of this background (do not copy its layout)"
+  }
+ ],
+ "image_cap": 2,
+ "minutes_cap": 15,
+ "tool_call_cap": 20,
+ "outputs": [
+  "out/L-forest_valley-2_1.png"
+ ],
+ "effort": "high",
+ "add_dirs": [],
+ "experiment": "C3-cliffside-layers"
+}

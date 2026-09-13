@@ -1,0 +1,12 @@
+CS-asm-fg: report only; 17 chunks assembled in manifest paint_order.
+Foreground: 5376 x 4096 RGBA, straight alpha.
+Re-drives used: chunk_1_4, chunk_2_4.
+Frozen clamp matte: 12-px green padding in RAM, then exact crop; detached components preserved.
+Alpha restricted to each mask dilated by a 6-px Euclidean disk.
+Minimum-error DP: 27 full paths; 48 retained pair records; 11 discarded candidates recorded separately.
+Corner squares use lower whole-path mean cost; sole nontransparent source wins.
+Mean of seam path means: 1.680427; worst: 3.478494 (chunk_2_2 / chunk_3_3).
+Depth fade: full at <=8000 mm; linear to zero at 20000 mm; 65535 zero.
+Per-chunk IoU range (alpha>=128): 0.964840 to 1.000000.
+Preview over #3a3f4a; worst crops ranked by reported path mean, tile order left-to-right then down.
+See checks.json for measured spill, matte adaptation, opaque-only seam statistics, and attribution details.

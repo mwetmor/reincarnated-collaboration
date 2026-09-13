@@ -1,0 +1,44 @@
+{
+  "task_id": "CS-v3-3_3",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "chunk_3_3",
+      "path": "out/chunk_3_3.png",
+      "sha256": "613376dc00488e28bae5fc1a4921bfbc4fb598ff144963439b8ee4f11f167c75",
+      "prompt": "Use case: precise-object-edit. Edit IMAGE 1, the 1536×1024 cliffside chunk canvas. IMAGE 2 is a style reference only, never a layout reference. Deliver one 1536×1024 PNG with exactly the original framing and geometry.\nPreserve all already-painted pixels in IMAGE 1: the entire TOP 256 rows and the entire LEFT 256 columns, including their overlapping corner, are finished neighboring artwork and must remain unchanged. Outpaint only the flat guide region to their lower right, joining the existing rocks, grasses, vines, strata, colors and lighting seamlessly at x=256 and y=256. No visible joins.\nThe LIGHT GREY diagonal band is the top-facing grassy/rocky cliff rim: extend the existing warm-lit slabs and dense tufts of grass and tiny yellow flowers from the top strip down toward the lower-right, following precisely both original diagonal boundaries. The DARK GREY/BROWN region to its lower-left is the sheer vertical cliff face dropping toward the viewer: extend the tall fractured cool violet rock strata and hanging vines from the left strip continuously through this region all the way to the bottom of the image. Keep its lowest part slightly darker and hazier, without any bottom edge or lower ledge. The dark guide region above/right of the diagonal rim must seamlessly continue the cool recessed cliff/chasm painting immediately above it in the top strip. Any tan guide is packed dirt, any dark blocks are boulders, any brown planks are wood, any magenta plank is a cracked loose plank; only paint features where present in this particular canvas.\nEvery guide boundary must stay exactly where it is. Preserve every existing pure green #00ff00 pixel, including the very thin green wedge at the right edge, exactly in place as flat solid #00ff00. Do not add green elsewhere. Do not widen, move, round off or cover the green wedge. Do not repaint or reinterpret the painted strips.\nMatch IMAGE 2's hand-drawn painted 2D environment style exactly: confident dark contours with visible taper and varying weight, clean painted material planes, restrained surface texture, rich detailed stonework and vegetation, readable graphic cool violet shadows and warm sunset highlights from SCREEN UPPER-LEFT. Orthographic elevated three-quarter view, no perspective shrinking toward the top. No characters, creatures, text, UI, border, vignette, or conspicuous grain. Maintain the exact original composition and painted strips while replacing every flat non-green guide area with finished continuous painting.\nBOUNDARY CORRECTION, highest priority: the previous attempt narrowed the light-grey rim and painted over part of the green wedge. Use the ORIGINAL IMAGE 1 as the edit target again. Preserve the FULL WIDTH of its light-grey polygon. Its near/left boundary runs approximately from (310,256) to (1280,1023); its far/right boundary runs approximately from (874,256) to (1535,758). The entire bottom-right region to the right of x=1280 at the bottom edge is TOP-FACING ROCKY/GRASSY VERGE, not vertical cliff face. The top-facing band fills the entire right edge below y=765 through y=1023. Do not insert a vertical cliff face inside that band or narrow it into a thin wall. Continue the broad top-facing rock slabs across its full width, with irregular grassy cracks, matching the existing top strip. The sheer near cliff face must remain entirely to the LEFT of the original near diagonal boundary, reaching the bottom edge at x about 1280. Preserve the exact original green wedge pixels along the far/right boundary beginning around (1375,642) and reaching the right edge around y=758. Do not cover the start of this thin green wedge with vegetation. Copy the finished top and left strips without modification. Exact source geometry is more important than inventing a different cliff silhouette.",
+      "references": [
+        {
+          "role": "edit_target",
+          "path": "in/01_chunk_3_3_edit_canvas.png"
+        },
+        {
+          "role": "style_reference",
+          "path": "in/02_chunk_A.png"
+        }
+      ],
+      "elapsed_s": 25.942
+    }
+  ],
+  "calls_used": 2,
+  "retries": [
+    {
+      "reason": "First attempt narrowed the diagonal rim and covered part of the green wedge.",
+      "change": "Re-edited the original canvas with explicit boundary coordinates and full-width rim constraints."
+    }
+  ],
+  "self_report": {
+    "obeyed_invariants": false,
+    "concerns": [
+      "Delivered dimensions verified as 1536×1024.",
+      "Retry improves geometry, but irregular rock contours still deviate locally from the straight guide boundary.",
+      "Exact pixel preservation of painted strips and green wedge was not verified."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/chunk_3_3.png",
+      "sha256": "613376dc00488e28bae5fc1a4921bfbc4fb598ff144963439b8ee4f11f167c75"
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "task_id": "CS-v4-1_3",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "chunk_1_3",
+      "path": "out/chunk_1_3.png",
+      "sha256": "fb568ca516493be5591172197586f579dc3b290306e21c973ad5eaf538fb57bd",
+      "prompt": "Use case: precise-object-edit. EDIT IMAGE 1 in place, output ONE 1536x1024 PNG. Image 1 is the edit target: an orthographic terrain tile with finished painted TOP 256 rows and LEFT 256 columns (including their corner), and flat geometry guides everywhere else. Image 2 is STYLE REFERENCE ONLY; do not copy its composition or cliff into this tile. Preserve every already painted pixel in Image 1 exactly, including the whole top strip y=0..255 and left strip x=0..255. Paint ONLY the remaining flat guide regions. OLIVE GREEN means continuous grassy rocky cliff-top ground with short grass, moss, little white/yellow flowers and small bare rock patches; no boulders, no props. TAN means worn packed orange dirt continuing the existing dirt seamlessly, with matching tiny pebbles and directional texture. Keep the exact existing winding tan/olive boundary in place; make its edge naturally ragged and soft with tufts and pebbles, without changing its course. Continue the colors, texture density, stones, grass, scale and light of the painted strips across x=256 and y=256 so there is NO visible straight join. The large olive area should become continuous meadow like the finished lower-left grass, all the way to the right and bottom image edges. In this target there are no cliff-face guide planes or bridge guides; do not invent any. Any pure #00ff00 void pixels present must stay exactly flat #00ff00. Fixed elevated three-quarter orthographic view, no perspective shrinking. HAND-DRAWN painted 2D: confident tapered dark contour lines of varying weight, painted fills in clean planes, restrained texture, readable material planes, bold jewel colors and graphic shadows matching Image 2. Warm sunset key from SCREEN UPPER-LEFT with cool violet shadows, matching Image 1. No characters, creatures, text, UI, border, vignette. Preserve canvas dimensions and every guide boundary. Critical: retain the already finished upper and left strips unmodified and seamlessly fill only the guide.",
+      "references": [
+        {
+          "role": "edit_target",
+          "path": "in/01_chunk_1_3_edit_canvas.png"
+        },
+        {
+          "role": "style_reference",
+          "path": "in/02_chunk_A.png"
+        }
+      ],
+      "elapsed_s": 26.311
+    }
+  ],
+  "calls_used": 1,
+  "retries": [],
+  "self_report": {
+    "obeyed_invariants": true,
+    "concerns": [
+      "1536×1024 dimensions confirmed. Visual inspection found no straight join; exact strip-pixel preservation and boundary alignment were not measured."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/chunk_1_3.png",
+      "sha256": "fb568ca516493be5591172197586f579dc3b290306e21c973ad5eaf538fb57bd"
+    }
+  ]
+}

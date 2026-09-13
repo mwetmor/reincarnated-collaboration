@@ -1,0 +1,44 @@
+{
+  "task_id": "CS-v4-2_4",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "chunk_2_4",
+      "path": "out/chunk_2_4.png",
+      "sha256": "032f3e3136036ce5dff980d7954e3ad7e9b27c555d3caa6ffb6663e1b05b35a6",
+      "prompt": "Use case: precise-object-edit. Edit IMAGE 1 in place; output ONE 1536x1024 PNG. IMAGE 1 is the exact composition and geometry canvas. IMAGE 2 is style reference only, never its layout. Complete the flat guide areas of IMAGE 1 by seamless outpainting from its existing finished pixels. LOCK every already painted pixel: the top 256 rows and left 256 columns including their corner are finished neighboring chunks and must remain unchanged. LOCK every pure #00ff00 void pixel, preserving its exact boundary and solid color. Change only remaining flat olive, light-grey and dark-grey guide regions below y=256 and right of x=256. Olive is continuous grassy rocky cliff-top ground: short golden-olive grass, moss, tiny white and yellow flowers, small flat bare rock patches, no boulders or props. Light grey is the natural rocky rim verge; dark grey is continuous weathered cliff face with irregular fluting, buttresses, cracks and vertical strata, becoming subtly darker and hazier low down, with no bottom edge or ledge. Preserve each guide boundary at exactly its original position. Extend the existing grassy texture across x=256 with no vertical seam and extend the existing rim stones and cliff strata across y=256 with no horizontal seam. Match the colors, texture density, stone scale, contour weight and lighting of the painted strips and IMAGE 2 exactly. Hand-drawn painted 2D animation environment, confident tapered dark contours with varying weight, clean painted material planes, restrained texture, rich golden-olive vegetation, jewel-tone accents and cool violet graphic shadows. Warm sunset sunlight from SCREEN UPPER-LEFT. Elevated orthographic three-quarter view, no perspective shrinking toward top. Preserve original framing, geometry, terrain silhouette and scale. No characters, creatures, text, UI, borders, vignette, additional paths, structures, or objects. All green remains pure flat #00ff00. Do not repaint, move, resize, or reinterpret existing finished strips.\nRETRY — diagnosed issue: the first attempt shifted the rim contours from the geometry guide. Boundary preservation is the highest priority. Work from this original IMAGE 1 again. Treat all original green pixels and the original top/left finished strips as an immutable mask. The olive/light-grey interface must retain its exact original winding shape, including the outward bend near y=620, inward bend near y=730, and subsequent lower bends. The light-grey/dark-grey interface must likewise remain at its original coordinates. Confine texture to each existing guide region; never straighten the verge, spread rim stones into olive, or change the outer silhouette against the green. Copy the finished strips and the entire green region unchanged; synthesize only inside the flat non-green guide shapes. Keep the same 1536x1024 pixel canvas.",
+      "references": [
+        {
+          "role": "edit target: painted strips and geometry guide",
+          "path": "in/01_chunk_2_4_edit_canvas.png"
+        },
+        {
+          "role": "approved level style reference",
+          "path": "in/02_chunk_A.png"
+        }
+      ],
+      "elapsed_s": 24.71
+    }
+  ],
+  "calls_used": 2,
+  "retries": [
+    {
+      "reason": "First output visibly shifted rim contours from the guide.",
+      "change": "Re-edited the original canvas with stronger boundary constraints and explicit bend locations."
+    }
+  ],
+  "self_report": {
+    "obeyed_invariants": false,
+    "concerns": [
+      "Retry retains apparent local deviations along guide boundaries.",
+      "Exact pixel preservation of painted strips and pure-green void was not verified.",
+      "Confirmed output dimensions are 1536×1024."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/chunk_2_4.png",
+      "sha256": "032f3e3136036ce5dff980d7954e3ad7e9b27c555d3caa6ffb6663e1b05b35a6"
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "task_id": "CS-v4-0_2",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "chunk_0_2",
+      "path": "out/chunk_0_2.png",
+      "sha256": "4f7d81154e13d979c3799dca8222888603ee1fa76184d5773bc9886e1b37eb77",
+      "prompt": "Use case: style-transfer. EDIT IMAGE 1, the 1536x1024 geometry canvas, and return ONE image at exactly 1536x1024. IMAGE 2 is only the approved painting style reference; do not copy its composition. Paint only the non-pure-green guide regions of IMAGE 1. Preserve every original #00ff00 pixel unchanged, with the exact original silhouette and boundary coordinates. The vast upper and left green void must remain flat pure #00ff00. Do not add any terrain into it. Preserve any already-painted corner or strip pixels exactly and extend their materials seamlessly without a straight join. The light grey narrow curving band along the lower/right edge of the void is rocky cliff-top verge: paint low weathered exposed rocks, cracked stone planes. The olive region inside it is grassy rocky ground: short grass, moss, small flowers, bare rock patches, no boulders or props. The tan region in the bottom-right is worn packed-dirt clearing; its edge is softly ragged with dirt breaking into grass, tufts and pebbles, while keeping the guide's material boundary location. Any dark grey cliff-face planes, if present, are continuous weathered rock with irregular fluting, buttresses and cracks, slightly hazier/darker at their lowest part, ending only at the green silhouette without a drawn bottom ledge. Any brown deck/post guides, if present, are wood; any magenta plank guide is a cracked loose plank. Do not invent absent geometry. Orthographic elevated three-quarter game view, no perspective shrinking toward the top. Match IMAGE 2 exactly in warm sunset upper-left lighting, cool violet shadows, colors, stone/grass/dirt treatment and fine detail scale. HAND-DRAWN painted 2D modern hand-animated action-game environment: confident hand-drawn dark tapered contours of varying weight, clean painted material planes inside the lines, restrained texture, bold jewel tones and graphic shadows. No conspicuous grain. Preserve the layout and all boundaries of IMAGE 1, with no reframing, stretching or cropping. No characters, creatures, text, UI, border, vignette. The green void is a locked solid color region, never scenery.\nRETRY CORRECTION: The previous attempt moved the green/terrain boundary upward by about 30 pixels. This is a strict masked painting task: do not expand the non-green silhouette even by one pixel. Use IMAGE 1's original outline exactly, not an approximation. At x=416 the green reaches about y=970; at x=500 it reaches y=1018; at x=910 it reaches y=881; at x=1000 it reaches y=892; at the right edge the terrain starts about y=535. Preserve these and all intervening original outline coordinates. Keep all rock, grass, and flowers INSIDE the existing grey/olive/tan area. Keep every original green pixel exactly #00ff00. Preserve the original internal grey/olive/tan region widths and positions. Texture the existing low flat rock verge without raising its silhouette or adding boulders. Output exactly 1536x1024.",
+      "references": [
+        {
+          "role": "edit target — geometry canvas",
+          "path": "in/01_chunk_0_2_edit_canvas.png"
+        },
+        {
+          "role": "approved painting style reference",
+          "path": "in/02_chunk_A.png"
+        }
+      ],
+      "elapsed_s": 23.72
+    }
+  ],
+  "calls_used": 2,
+  "retries": [
+    {
+      "reason": "First result visibly expanded terrain into the green void by approximately 30 pixels.",
+      "change": "Retried from the original references with explicit silhouette coordinates and stricter boundary preservation instructions."
+    }
+  ],
+  "self_report": {
+    "obeyed_invariants": false,
+    "concerns": [
+      "The retry follows the outer silhouette more closely, but internal material boundaries visibly differ; exact green-pixel preservation was not verified.",
+      "No painted 256×256 corner patch was visible in the supplied canvas, so its preservation and seam continuity could not be verified."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/chunk_0_2.png",
+      "sha256": "4f7d81154e13d979c3799dca8222888603ee1fa76184d5773bc9886e1b37eb77"
+    }
+  ]
+}

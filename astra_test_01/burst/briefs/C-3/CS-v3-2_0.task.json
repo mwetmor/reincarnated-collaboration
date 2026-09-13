@@ -1,0 +1,22 @@
+{
+ "text": "GENERATE BURST CS-v3-2_0 — cliffside v3 chunk 2_0, the FIRST chunk of the grid, painted over its orthographic guide (Matt R-C3-48). task_id \"CS-v3-2_0\".\n\nIMAGE 1 is a flat-shaded ORTHOGRAPHIC GEOMETRY GUIDE: TAN = packed-dirt cliff-top path; LIGHT GREY band = grassy/rocky verge along the rim; DARK GREY/BROWN plane = the vertical cliff face dropping toward the viewer (paint it as continuous rock all the way down to where it meets the green — it will fade into mist in the game, so keep its lowest part slightly hazier and darker, with no ledge or bottom edge drawn); dark blocks = boulder outcrops; BROWN planks = a wooden bridge deck; MAGENTA plank = one loose bridge plank (paint it as a cracked, loose plank); PURE GREEN #00ff00 = empty void.\nDeliver ONE 1536×1024 painting that follows IMAGE 1 exactly: keep every boundary where it is; paint every green pixel as flat pure #00ff00; paint every other pixel as scenery.\nOrthographic view: no perspective shrinking toward the top. Scale: a person standing here is 130 px tall. LIGHT: warm SUNSET key from the UPPER-LEFT, cool violet shadows. REGISTER: HAND-DRAWN painted 2D — confident tapered dark contours, painted planes, bold Hades-like jewel tones and graphic shadows — matching IMAGE 2 exactly. No characters, creatures, text, UI, border or vignette.\n\nOne image_gen call. ONE retry only if a painted strip was altered, a boundary moved, the green was painted over, or a join line remains — name the reason. Copy the output from $CODEX_HOME/generated_images/... to out/chunk_2_0.png with sha256. No code. No other files. No web.\nRETURN: receipt task_id \"CS-v3-2_0\"; images = the file with prompt, references and elapsed_s; calls_used = the TRUE number of image_gen calls; status; concerns. Never PASS/FAIL.",
+ "references": [
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/CS-guides-v3/chunk_2_0_guide.png",
+   "role": "IMAGE 1 — GEOMETRY GUIDE (exact boundaries; green = void)"
+  },
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/CS-chunk-A/chunk_A.png",
+   "role": "IMAGE 2 — the approved painted STYLE of this level (Matt: 'love the style and the chunks')"
+  }
+ ],
+ "image_cap": 2,
+ "minutes_cap": 15,
+ "tool_call_cap": 20,
+ "outputs": [
+  "out/chunk_2_0.png"
+ ],
+ "effort": "high",
+ "add_dirs": [],
+ "experiment": "C3-cliffside-v3"
+}

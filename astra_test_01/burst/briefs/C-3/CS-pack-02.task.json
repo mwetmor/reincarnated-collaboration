@@ -1,0 +1,13 @@
+{
+ "text": "PACK BURST CS-pack-02 — export the playable CLIFFSIDE SCENE (bare foreground + four parallax layers + follow camera) with the FROZEN exporter (Run C-3, Matt R-C3-42/48). task_id \"CS-pack-02\".\n\nRun exactly once, substituting OUT = the absolute path of this burst's out/ directory: cd /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst && python3 -B -m export.godot_import --cells /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/cells --out OUT/godot --parallax /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/CS-parallax-in --vfx-kit /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/vfx_scene --sockets /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/sockets.json\nDo NOT pass --scene, --vfx or --gear-variant. Do NOT run Godot (the conductor runs the headless proof outside this sandbox). Paste the command's JSON stdout (or its stderr on failure — do not work around a failure) into out/exporter.json. Then write out/README_scene.txt (≤ 15 lines): how to open it (Godot 4.6 → Import → out/godot/project.godot → Run Project), controls (arrows/WASD move, Shift run, Space jump, E or left click cast), what is in the scene (painted cliffside foreground, parallax layers sky 0.12 / far_ruins 0.25 / forest_valley 0.45 / mist 0.70, follow camera at 12.5 % figure height, collision from the walkable data, contact shadow, directional frost bolt) and the VFX credit line from vfx_scene/CREDITS.txt.\nNo image_gen. No code. No writes outside out/. No web. calls_used 0. BUDGET under 10 minutes.\nRETURN: receipt task_id \"CS-pack-02\"; images []; files: out/exporter.json, out/README_scene.txt, out/godot/project.godot, out/godot/scenes/*.tscn, out/godot/scripts/*.gd with sha256 (PNG copies may be omitted); status; concerns. Never PASS/FAIL.",
+ "references": [],
+ "image_cap": 0,
+ "minutes_cap": 15,
+ "tool_call_cap": 20,
+ "outputs": [
+  "out/exporter.json"
+ ],
+ "effort": "high",
+ "add_dirs": [],
+ "experiment": "C3-cliffside-v3"
+}

@@ -1,0 +1,10 @@
+CS-asm-layers: report only; 16 read-only panels assembled into four RGBA layers.
+Seams: row-first RGB mean squared error, DP +/-1 pixel, linear feather +/-3 pixels.
+sky: 2335x1442, scale=1.408203125, mean alpha=1.000000, seams=1.
+far_ruins: 2784x1834, scale=1.023437500, mean alpha=0.628860, seams=3.
+forest_valley: 3476x2438, scale=1.360491071, mean alpha=0.785037, seams=5.
+mist: 4340x3192, scale=1.781250000, mean alpha=0.340992, seams=3.
+Matte: frozen clamp with default dust handling; temporary 10-pixel green border cropped after extraction.
+Mist (1,1): re-drive used; alpha=max(R,G,B)*0.85, straight color recovered.
+Preview: top-left stack over black, 1280 pixels wide; 0 image generation calls.
+Notes: prior CS-asm-fg source unavailable; live wrapper audit logs excluded from deliverable hashes.

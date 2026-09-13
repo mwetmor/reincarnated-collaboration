@@ -1,0 +1,43 @@
+{
+  "task_id": "L-far_ruins-0_1",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "L-far_ruins-0_1",
+      "path": "out/L-far_ruins-0_1.png",
+      "sha256": "7b56f1c6eb89ae7d0dfcd05da0c186f77209b9b00d83e0340bc8f8352c7bbc5b",
+      "prompt": "Use case: compositing / outpainting. Edit IMAGE 1, the 1536x1024 canvas. IMAGE 2 is supporting style and destroyed-temple story reference ONLY; do not copy its layout. Deliver ONE 1536x1024 PNG. Keep IMAGE 1's already painted TOP 256 ROWS, including the top-right 256x256 corner, exactly unchanged in position, detail, color and pixels. Replace ONLY the flat mid-grey placeholder below with a seamless continuation; no horizontal join at row 256. This is the LOWER-LEFT panel of a larger continuous 2x2 far-ruins parallax background, with 256 px neighbour overlaps. The mountain skyline and green sky opening occur higher in the full assembled layer, outside this lower panel: the supplied top strip already shows only mountains and violet haze, so continue land and haze throughout this lower panel. Preserve any existing pure #00ff00 if present; any actual area above the full land silhouette must be flat pure #00ff00. Do not invent a sky band within this lower panel. Continue distant jagged violet mountain spires, and place on a far hilltop plateau in the new painting the ruins of a recently destroyed ceremonial temple: broken columns, a collapsed split dome, fallen stone statues, burnt blue banners, small embers and thin smoke. Fractured observatory architecture with deliberate ornamental geometry, blue / ivory / brass. All terrain and ruins remain far away in cool violet atmospheric haze, with restrained warm sunset rim light from screen upper-left and tiny warm embers. No foreground cliff rim. Fully paint land down to the bottom edge as hazy distant cliffs, progressively simpler and hazier toward the bottom. Style: hand-drawn painted 2D, one frame of modern hand-animated action-game environment art; confident tapered dark hand-drawn contours with varying weight, thinner and lighter at distance, painted fills in clean planes, restrained surface texture, readable small silhouettes, graphic jewel colors, environmental richness and restrained local light spill. Match the top strip's palette and contrast seamlessly, using IMAGE 2's painted material language. Deep cool low-value ambient with readable shadows. No characters, creatures, lettering, text, UI, borders, vignette, conspicuous grain. Do not change or repaint the protected top strip; do not shift, scale or crop the canvas.\nRETRY CORRECTION: The previous attempt changed the protected top strip by adding smoke and new peaks within it. The entire rectangle x=0..1535, y=0..255 is LOCKED ORIGINAL IMAGE 1 PIXELS. Preserve that whole rectangle exactly. Every new mountain, ruin, banner and smoke plume must stay at y>=256. Place the temple and its smoke lower so nothing overlaps the locked rectangle. At y=256 continue the existing lavender haze first, blending naturally into new terrain below. Treat the top 256 rows as a pasted immutable neighbour tile, not an area to regenerate. Keep the original top-right corner exactly. Only replace grey.",
+      "references": [
+        {
+          "role": "edit target: painted neighbour strip and placeholder",
+          "path": "in/01_L-far_ruins-0_1_canvas.png"
+        },
+        {
+          "role": "approved painted style and story reference",
+          "path": "in/02_vista_01.png"
+        }
+      ],
+      "elapsed_s": 29.606
+    }
+  ],
+  "calls_used": 2,
+  "retries": [
+    {
+      "reason": "First output added smoke and peaks within the protected top strip.",
+      "change": "Repeated edit from original canvas, explicitly locking rows 0–255 and moving new features below them."
+    }
+  ],
+  "self_report": {
+    "obeyed_invariants": false,
+    "concerns": [
+      "Retry still appears to introduce peaks near the lower edge of the protected top strip; exact pixel preservation is not established.",
+      "Temple arrangement closely resembles the style reference despite the instruction not to copy its layout."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/L-far_ruins-0_1.png",
+      "sha256": "7b56f1c6eb89ae7d0dfcd05da0c186f77209b9b00d83e0340bc8f8352c7bbc5b"
+    }
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "task_id": "CS-v3-3_1",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "chunk_3_1",
+      "path": "out/chunk_3_1.png",
+      "sha256": "fe8e089ee7b11609a154466e1bab629563cde8710ba878b4f69bdc6a79547c74",
+      "prompt": "Use case: precise-object-edit. EDIT IMAGE 1 by outpainting ONLY its unpainted flat geometry guide. Deliver one 1536×1024 PNG.\nIMAGE 1 is the edit canvas. Its TOP 256 rows and LEFT 256 columns, including the upper-left corner, are finished neighbouring artwork: preserve these existing pixels exactly, without repainting, shifting, cropping, or recoloring. IMAGE 2 is a STYLE reference only, never a layout reference.\nReplace every flat guide area outside the preserved strips with a seamless continuation of the existing painting, matching stones, strata, grass, contours, palette, scale and light. Guide legend: tan = packed-dirt cliff-top path; light grey = grassy/rocky verge along rim; dark grey/brown = vertical cliff face dropping toward viewer; dark blocks = boulder outcrops; brown planks = wooden bridge; magenta plank = cracked loose plank; pure #00ff00 = empty void. Follow only the shapes actually present. Keep every guide boundary exactly in place. Preserve every green pixel pure #00ff00; do not introduce green where none exists. Paint continuous rock down to the canvas edge or existing green, lowest rock slightly darker and hazier, no bottom edge or foot ledge.\nOrthographic elevated three-quarter game view, no perspective shrinking toward top. A person would be 130 px tall, but include no people. Warm sunset key from SCREEN UPPER-LEFT, cool violet shadows, matching the existing artwork. HAND-DRAWN painted 2D in the manner of modern hand-animated action game backgrounds: confident hand-drawn dark contours with visible taper and varying weight, clean painted material planes within contours, restrained surface texture, jewel tones and graphic shadows. Environmental richness, fine rock cracks and hanging foliage consistent with IMAGE 2. Maintain exact original framing and all existing artwork. No seams at x=256 or y=256. No characters, creatures, text, UI, border or vignette.\nCORRECTION FOR THE SINGLE RETRY: The previous attempt incorrectly treated both flat grey guide regions as one cliff wall and erased the diagonal material boundary. Work again from original IMAGE 1. The straight diagonal boundary runs from approximately (360,256) to (1460,1024). Preserve that exact boundary location: the LIGHT GREY region ABOVE/RIGHT of it must become the grassy rocky verge, and the DARK GREY/BROWN region BELOW/LEFT must become the cool vertical cliff rock face. Do not turn the entire image into vertical cliff columns. The existing top 256 rows and left 256 columns are locked original finished pixels, preserve every detail exactly. Complete only the remaining flat guide pixels, joining to their neighbours without any horizontal or vertical seam.",
+      "references": [
+        {
+          "role": "edit canvas",
+          "path": "in/01_chunk_3_1_edit_canvas.png"
+        },
+        {
+          "role": "approved level style",
+          "path": "in/02_chunk_A.png"
+        }
+      ],
+      "elapsed_s": 22.431
+    }
+  ],
+  "calls_used": 2,
+  "retries": [
+    {
+      "reason": "First output erased the diagonal guide boundary.",
+      "change": "Retried from the original canvas with explicit diagonal coordinates and material assignments."
+    }
+  ],
+  "self_report": {
+    "obeyed_invariants": false,
+    "concerns": [
+      "Retry still visibly deviates from the exact diagonal guide boundary.",
+      "Light-grey verge became predominantly dirt terrain.",
+      "Exact pixel preservation of painted strips was not verified."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/chunk_3_1.png",
+      "sha256": "fe8e089ee7b11609a154466e1bab629563cde8710ba878b4f69bdc6a79547c74"
+    }
+  ]
+}

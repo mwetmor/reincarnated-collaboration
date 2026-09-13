@@ -1,0 +1,37 @@
+{
+  "task_id": "CS-v4-3_1",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "chunk_3_1.png",
+      "path": "out/chunk_3_1.png",
+      "sha256": "9587be05c8285a9d2733093771761ed0de89799a3f203eefae3a88c6c8d3288a",
+      "prompt": "EDIT IMAGE 1 by outpainting its unfinished flat geometry guide. Deliver exactly ONE 1536x1024 PNG, same framing and exact geometry. Image 1 is the edit target; Image 2 is ONLY the approved painted style reference, never its composition. PROTECTED FINISHED PIXELS: all of the TOP 256 rows and LEFT 256 columns, including the upper-left corner, are already painted neighbour artwork. Keep these unchanged. Paint only the flat guide region beyond these strips. Seamlessly continue their exact grass, stones, flowers, cliff strata, colour, texture, light and detail scale; no straight join at x=256 or y=256. OLIVE guide is grassy rocky cliff-top ground: short grass, moss, small yellow and white flowers, small bare rock patches, no boulders or props. LIGHT GREY winding band is the rocky verge at the cliff rim: paint natural irregular rock caps confined to the exact band. DARK GREY and lighter ribs below are continuous tall weathered natural cliff faces, fluted buttresses, cracks and cool violet recesses, continuing the finished left cliff. Preserve the exact winding ground/verge/cliff boundaries in Image 1; do not shift, simplify, widen or redesign them. Cliff rock continues to the canvas bottom, subtly darker and hazier at its lowest portions, without a bottom ledge or drawn bottom edge. Every pure #00ff00 pixel, if present in Image 1, must remain exact flat #00ff00. Do not import green void or a dirt road from Image 2. Where present in the guide, TAN means worn packed dirt with ragged soft grass transitions, BROWN means bridge planks and posts, MAGENTA means one cracked loose plank; do not invent these where absent. Hand-drawn painted 2D action-game environment, confident tapered dark hand contours with varying weight, clean painted material planes, restrained texture, readable graphic shapes, rich jewel tones and graphic shadows, precisely matching the supplied finished art. Elevated three-quarter orthographic view with no perspective shrinking. Warm sunset key from screen upper-left and cool violet shadows, matching the finished strips. No characters, creatures, text, UI, border, vignette, added objects, or conspicuous surface grain. Existing small bridge fragment at upper left remains unchanged. Complete all flat unfinished areas; preserve all finished strips and exact guide geometry.",
+      "references": [
+        {
+          "role": "edit target: painted strips and geometry guide",
+          "path": "in/01_chunk_3_1_edit_canvas.png"
+        },
+        {
+          "role": "approved level style reference",
+          "path": "in/02_chunk_A.png"
+        }
+      ],
+      "elapsed_s": 22.857
+    }
+  ],
+  "calls_used": 1,
+  "retries": [],
+  "self_report": {
+    "obeyed_invariants": true,
+    "concerns": [
+      "Confirmed 1536×1024 output. Visual inspection found no obvious straight join; pixel-exact preservation of painted strips and guide boundaries remains unverified."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/chunk_3_1.png",
+      "sha256": "9587be05c8285a9d2733093771761ed0de89799a3f203eefae3a88c6c8d3288a"
+    }
+  ]
+}

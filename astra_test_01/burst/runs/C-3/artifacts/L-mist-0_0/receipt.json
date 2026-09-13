@@ -1,0 +1,31 @@
+{
+  "task_id": "L-mist-0_0",
+  "status": "DELIVERED",
+  "images": [
+    {
+      "name": "L-mist-0_0.png",
+      "path": "out/L-mist-0_0.png",
+      "sha256": "e0ffb99bed507a1ecac0fca511fcf13c24a4279dc51815b8a66f65da8fdc9700",
+      "prompt": "Use case: stylized-concept. Generate ONE landscape image, exactly 1536 x 1024 pixels, a standalone MIST parallax background layer panel for a hand-painted 2D action game. This is the FIRST, upper-left panel (thin wisps) of a continuous 2 x 2 grid whose panels overlap by 256 pixels. Reference Image 1 is approved painted STYLE and sunset atmosphere only; do not copy its layout or depict its landscape. Subject: only soft drifting banks of pale warm mist and low cloud, painted as LIGHT on a perfectly flat pure BLACK #000000 background. Black represents fully transparent in-game; brighter cloud represents denser mist. Keep large areas of untouched exact black between isolated fine elongated wisps across the upper half; gradually increase cloud density downward into soft rolling cloud banks along the lower portion, continuing naturally off the side and bottom edges. Palette: pale peach and rose sunset-lit rims from screen upper-left, lavender low-value internal cloud planes. No sky color or background gradient on the black. Style: HAND-DRAWN painted 2D animation-frame aesthetic, confident tapered hand-drawn contours with varying weight, made very thin and subtle for distant mist, clean painted planes, restrained surface texture, readable graphic shapes with softly dissipating edges, rich layered cloud detail, jewel-tone accents. Preserve an airy drifting mist character, avoiding heavy solid outlines. The panel is a continuous full-bleed atmospheric layer with no framing, no vignette, no joins. No land, mountains, cliff rim, rocks, trees, buildings, horizon, sun, fire, characters, creatures, text, UI, border, or checkerboard. Output only the single mist-on-black panel.",
+      "references": [
+        {
+          "role": "Approved painted style and sunset atmosphere only; do not copy layout",
+          "path": "in/01_vista_01.png"
+        }
+      ],
+      "elapsed_s": 21.305
+    }
+  ],
+  "calls_used": 1,
+  "retries": [],
+  "self_report": {
+    "obeyed_invariants": true,
+    "concerns": []
+  },
+  "files": [
+    {
+      "path": "out/L-mist-0_0.png",
+      "sha256": "e0ffb99bed507a1ecac0fca511fcf13c24a4279dc51815b8a66f65da8fdc9700"
+    }
+  ]
+}

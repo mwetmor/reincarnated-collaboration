@@ -1,0 +1,43 @@
+{
+  "task_id": "CS-v3-2_2",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "chunk_2_2",
+      "path": "out/chunk_2_2.png",
+      "sha256": "f51430caba56d306f86d62f0930420647bd909624588e5979daf68c18f783915",
+      "prompt": "Use case: precise-object-edit. Edit IMAGE 1 in place by outpainting ONLY its unfinished flat geometry guide. Deliver ONE 1536x1024 PNG, same exact framing and coordinates. IMAGE 1 is the edit target; IMAGE 2 is only the approved painting style reference, never a composition reference. LOCK all already painted pixels in IMAGE 1: the entire TOP 256 rows and LEFT 256 columns, including the corner. Preserve these finished strips unchanged, extending their exact stones, contours, vegetation, dirt texture, cliff strata, colors and lighting across the join with no visible horizontal or vertical seam. Replace every remaining flat guide area with finished painting. TAN is packed dirt cliff-top path. LIGHT GREY is rocky grassy verge along the rim, including the broad diagonal band on the right. DARK GREY/BROWN is vertical cliff face dropping toward the viewer. Dark blocks are boulder outcrops: extend the existing top-center boulder into its guide base. Each guide boundary must stay exactly at its original coordinates; do not redesign, shift, straighten, crop or reframe any geometry. Keep the zigzag rim on the left and the diagonal verge across the right in their exact positions. Paint the cliff continuously all the way through the bottom crop, slightly darker and hazier low down, with no bottom edge or new ledge. Any brown planks indicate wooden bridge deck and any magenta plank a cracked loose plank, only if present. Every pure green #00ff00 pixel, if present in IMAGE 1, must remain unchanged flat pure #00ff00; do not import any green regions from IMAGE 2. Orthographic elevated three-quarter view, no perspective shrinking toward the top. HAND-DRAWN painted 2D modern hand-animated action-game background: confident tapered dark contours with varying weight, clean painted material planes, restrained texture, readable forms, rich environment, bold jewel tones and graphic shadows matching IMAGE 2 exactly. Warm SUNSET key from screen UPPER-LEFT and deep cool violet readable shadows. Preserve the existing painted strips' scale exactly. No characters, creatures, text, UI, border, vignette or additional objects. This is a seamless completion of IMAGE 1, not a new composition. Finished strips remain fixed; all flat guide colors become matching painted terrain. RETRY CORRECTION: The previous attempt shifted the left cliff boundary and turned the light-grey right band into a broad dirt path. Follow ORIGINAL IMAGE 1 geometry literally. On the left, the light-grey/dark cliff boundary goes from (563,300) to (324,560) to (454,939) to (377,1023); preserve those vertices and segments. The tan/light-grey boundary goes from approximately (446,256) to (256,477), follows x=256 to y=697, then (324,906), then (256,985). The large diagonal LIGHT GREY polygon on the right is entirely a ROCKY GRASSY VERGE with contiguous stone surfaces, grasses and vegetation, NOT a broad orange dirt road. Its lower boundary runs from about (810,387) to (1535,969), with its upper boundary from (1166,256) to (1535,542). Preserve all of those boundaries exactly, adding only painted texture within each guide region. Preserve the top 256 rows and left 256 columns of finished pixels exactly. No extra ledges projecting into the dark face. Use the original canvas supplied as IMAGE 1, not the previous result.",
+      "references": [
+        {
+          "role": "edit target",
+          "path": "in/01_chunk_2_2_edit_canvas.png"
+        },
+        {
+          "role": "approved style reference",
+          "path": "in/02_chunk_A.png"
+        }
+      ],
+      "elapsed_s": 25.606
+    }
+  ],
+  "calls_used": 2,
+  "retries": [
+    {
+      "reason": "First output shifted the left cliff boundary and interpreted the right verge as a broad dirt path.",
+      "change": "Retried from the original canvas with explicit boundary coordinates and rocky, grassy material requirements."
+    }
+  ],
+  "self_report": {
+    "obeyed_invariants": false,
+    "concerns": [
+      "Retry corrected the right verge material, but painted contours still deviate locally from exact guide boundaries.",
+      "Exact pixel preservation of the finished strips was not verified."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/chunk_2_2.png",
+      "sha256": "f51430caba56d306f86d62f0930420647bd909624588e5979daf68c18f783915"
+    }
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "task_id": "CS-v3-1_4-r1",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "chunk_1_4",
+      "path": "out/chunk_1_4.png",
+      "sha256": "c8458c32da4642dcd44d35d6d450b6b8ac03e5992aa13f9e166a4578c019fda1",
+      "prompt": "Use case: precise-object-edit. EDIT IMAGE 1 by outpainting only its flat geometry-guide regions. Deliver one 1536x1024 PNG, same framing and geometry. IMAGE 1 is the edit target: its TOP 256 rows and LEFT 256 columns, including the corner, are finished neighboring artwork and must remain exactly unchanged. IMAGE 2 is a style reference only; do not copy its composition or add its green shapes.\nCRITICAL SEAM REPAIR: The existing tall rock columns, fissures, planar faces and hanging vines visible above row 256 must continue directly DOWN across row 256 with the very same widths, alignment, contours, colors and textures. Row 256 is an arbitrary crop boundary, not a geological transition. No horizontal join, ledge, band, restart of rock pattern, change in column scale, or abrupt haze at that row. Trace every existing column edge and fissure into the new region. Gradually darken and haze only farther down the cliff, without a bottom ledge or bottom edge.\nReplace the DARK GREY/BROWN guide plane with this continuous vertical violet-grey rock cliff. Replace the LIGHT GREY diagonal region with grassy rocky verge continuing the existing left strip: same dense green grasses, small yellow and white wildflowers, scattered angular grey stones with upper-left golden sunlight. Keep the diagonal guide boundary exactly where it is, from near (430,256) to (1200,1024), and preserve every other guide boundary. Extend the already painted left terrain seamlessly across x=256. Do not reinterpret the light-grey region as a void. Where present, TAN means packed dirt path, dark blocks mean boulder outcrops, BROWN planks mean wooden bridge, MAGENTA means one cracked loose plank, and existing pure green means empty void to retain exactly #00ff00. Do not introduce any of these features if absent from IMAGE 1.\nSTYLE: HAND-DRAWN painted 2D, confident tapered dark hand contours of varying weight, painted clean material planes, restrained surface texture, readable forms, rich environment, bold jewel tones and graphic shadows, exactly matching reference IMAGE 2 and the finished strips. Orthographic elevated three-quarter camera, no perspective shrinking toward the top. Warm sunset key fixed at SCREEN UPPER-LEFT, cool violet shadows, no pure-black shadows. No characters, creatures, text, UI, borders or vignette. Preserve finished pixels, geometry and all existing green pixels. Finish every flat guide region; leave no placeholder paint.\nRETRY — precise protected-strip correction. The previous attempt invented a new protruding rock cap near (680,215), inside the protected top strip. This is forbidden. Lock ALL ORIGINAL pixels in rows y=0..255 and columns x=0..255 of IMAGE 1. Do not redraw, embellish, recolor, add rock caps, change fissures, or change vines anywhere in those strips. Only the flat-colored guide area at x>=256 AND y>=256 may be painted. Continue existing cliffs from their exact cut ends at y=256; no new cap at that row. The protected top strip must retain the exact same rock pattern as IMAGE 1. Preserve diagonal geometry positions exactly. No material boundary movement. Make the lower cliff subtly darker with gradual violet haze, avoiding a bright bottom.",
+      "references": [
+        {
+          "role": "edit target: painted strips and geometry guide",
+          "path": "in/01_chunk_1_4_edit_canvas-r1.png"
+        },
+        {
+          "role": "approved level style reference",
+          "path": "in/02_chunk_A.png"
+        }
+      ],
+      "elapsed_s": 29.098
+    }
+  ],
+  "calls_used": 2,
+  "retries": [
+    {
+      "reason": "First output added a rock cap inside the protected top strip near (680,215).",
+      "change": "Repeated the original edit with explicit pixel-region protection and prohibition of new rock caps inside the strips."
+    }
+  ],
+  "self_report": {
+    "obeyed_invariants": false,
+    "concerns": [
+      "The retry still visibly changes rock detail inside the protected top strip near (680,215).",
+      "The lower diagonal verge boundary appears displaced leftward from the guide.",
+      "Exact pixel preservation was not quantitatively verified."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/chunk_1_4.png",
+      "sha256": "c8458c32da4642dcd44d35d6d450b6b8ac03e5992aa13f9e166a4578c019fda1"
+    }
+  ]
+}

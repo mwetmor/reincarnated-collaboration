@@ -1,0 +1,43 @@
+{
+  "task_id": "CS-v3-2_4-r1",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "chunk_2_4",
+      "path": "out/chunk_2_4.png",
+      "sha256": "2b9ddf62d9a95e67b1c04d849ef69e0e6f5c854492be0f4ee207f33fdc086ed6",
+      "prompt": "Use case: precise-object-edit. Edit IMAGE 1 only, at its exact 1536x1024 size. IMAGE 1 is an orthographic cliff-wall terrain chunk with finished painted top 256 rows and left 256 columns, including their corner; the remaining flat grey-brown region (x>=256, y>=256) is the guide for continuous vertical cliff face. IMAGE 2 is supporting painted STYLE reference only, never a composition reference. Preserve all existing finished pixels in IMAGE 1's top and left strips exactly unchanged. Fill only the flat grey-brown guide area with hand-drawn painted cliff rock continuing BOTH strips seamlessly. Carry each column, angular rock plane, fissure, contour and trailing vine across the top and left inner edges unbroken, matching existing scale, muted cool violet-blue values, local lighting and restrained texture. No rectangular seam, join line, abrupt tonal transition or border at x=256 or y=256. This entire chunk is cliff FACE: do not introduce a cliff-top path, rim, sky, bridge, floor, bottom edge, ledge or green void that is not present in IMAGE 1. Continue rock all the way to bottom and right canvas edges, with lowest part slightly darker and hazier in cool violet mist, still readable as continuous rock. Preserve every guide boundary exactly and preserve any existing pure #00ff00 pixels exactly. Orthographic elevated three-quarter view, no perspective shrinking toward top. Environment scale: a person would be 130 px tall, but include no people. Hand-drawn painted 2D animation environment: confident tapered dark contours with varying weight, clean painted material planes, restrained surface texture, readable graphic shadows, subtle jewel tones; match IMAGE 2's rock drawing language while retaining IMAGE 1's shadowed cliff-face palette. Sunset key fixed from screen upper-left with sparse subdued warm edge accents and deep cool violet ambient, no pure black shadows. No characters, creatures, text, UI, border or vignette. Output ONE 1536x1024 PNG.\nRETRY correction: the previous attempt increased contrast and removed haze from the protected painted strips. Their ORIGINAL low-contrast tones and mist MUST remain unchanged. Treat the entire union of x=0..255 and y=0..255 as locked source pixels, not as material to redraw, sharpen or relight. Preserve the exact original haze along the left edge and the subdued top strip. Match the newly painted interior to those subdued tones, so the original source strips remain intact. Fill the guide only; no global color, clarity or contrast adjustment.",
+      "references": [
+        {
+          "role": "edit target: painted strips and geometry guide",
+          "path": "in/01_chunk_2_4_edit_canvas-r1.png"
+        },
+        {
+          "role": "approved level painting style",
+          "path": "in/02_chunk_A.png"
+        }
+      ],
+      "elapsed_s": 34.571
+    }
+  ],
+  "calls_used": 2,
+  "retries": [
+    {
+      "reason": "First output visibly increased contrast and reduced haze in protected painted strips.",
+      "change": "Repeated edit from original references with stronger strip-lock and original-tone preservation instructions."
+    }
+  ],
+  "self_report": {
+    "obeyed_invariants": false,
+    "concerns": [
+      "Retry improves tonal continuity, but protected strips still appear locally altered; exact pixel preservation is not established.",
+      "Output dimensions verified as 1536×1024. No further retry attempted."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/chunk_2_4.png",
+      "sha256": "2b9ddf62d9a95e67b1c04d849ef69e0e6f5c854492be0f4ee207f33fdc086ed6"
+    }
+  ]
+}

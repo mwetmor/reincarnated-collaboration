@@ -1,0 +1,44 @@
+{
+  "task_id": "CS-v3-2_0",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "chunk_2_0",
+      "path": "out/chunk_2_0.png",
+      "sha256": "b9752d87b3bd4433c858eda775d5b542cb6fd5024c17bb647ef1eae7aa15220e",
+      "prompt": "Use case: style-transfer. Deliver ONE 1536x1024 PNG game environment chunk. IMAGE 1 is the edit target and exact orthographic geometry guide. IMAGE 2 is STYLE ONLY, never composition. Paint over every non-green pixel of IMAGE 1 as scenery while keeping EVERY boundary exactly in place and preserving every pure #00ff00 green pixel unchanged. The large empty upper-left region must remain flat pure #00ff00. Do not expand vegetation or rocks into green. Do not reposition, crop, zoom, or change geometry. TAN = packed-dirt cliff-top path. LIGHT GREY band = grassy rocky verge along the rim. DARK GREY/BROWN plane = vertical cliff face dropping toward viewer: continuous fractured rock all the way down until it meets green, lowest part slightly hazier and darker, no ledge or bottom edge drawn. BROWN planks = wooden bridge deck in precisely the existing position with the same silhouette and two upright posts. MAGENTA plank = cracked loose wooden plank; replace all magenta with wood, preserving its footprint. Dark blocks if present = boulder outcrops. No flat guide colors left except the green void. Keep the exact bridge footprint extending out of the lower edge. Orthographic elevated three-quarter view, no perspective shrinking toward top. A person would be 130 px tall but do not draw people. Match IMAGE 2's hand-drawn painted 2D style: confident tapered dark contours with varying weight, painted clean planes, restrained surface texture, readable graphic shapes, golden packed dirt, sunlit grey stone, grasses and little wildflowers, deep cool violet rock shadows, bold jewel tones and graphic shadows. Warm SUNSET key from SCREEN UPPER-LEFT. Environmental richness with clean material planes, no conspicuous brush grain. No characters, creatures, text, UI, border, vignette, visible tile join, or new objects beyond scenery indicated. This is one continuous painting over the exact guide, not a redesigned scene. Preserve the original green/non-green mask pixel for pixel.\nRETRY — exact geometry correction. The previous attempt moved the cliff left edge and bridge upward and painted plants over green. Treat IMAGE 1 as a hard stencil. All vegetation must stay INSIDE the original non-green silhouette, clipped at that silhouette. Key exact original coordinates: cliff corner (831,445); vertical left cliff boundary x=831 from y=445 to y=910; path/verge inner corner around (1137,383); bridge top attaches around (1126,652) and (1349,817); next bridge plank spans (1016,748),(1241,913),(1127,1015),(904,848); loose plank occupies original magenta polygon near (903,850),(1122,1015),(1114,1024),(901,1024),(792,945). Keep both wooden post silhouettes exactly as guide. The curved green boundary in the upper-right must stay precisely the guide curve, not a straight diagonal. Preserve original dirt-versus-verge boundary too: do not widen dirt to replace the large grey band. No painted mark may cross into any original green pixel. Paint the magenta footprint as a visibly cracked loose plank. Exact IMAGE 1 silhouette and region registration take priority over ornamental detail.",
+      "references": [
+        {
+          "role": "GEOMETRY GUIDE — edit target, exact boundaries",
+          "path": "in/01_chunk_2_0_guide.png"
+        },
+        {
+          "role": "Approved level style reference",
+          "path": "in/02_chunk_A.png"
+        }
+      ],
+      "elapsed_s": 23.032
+    }
+  ],
+  "calls_used": 2,
+  "retries": [
+    {
+      "reason": "First output shifted cliff and bridge boundaries and extended vegetation into green.",
+      "change": "Repeated generation from original references with explicit boundary coordinates and hard-stencil constraints."
+    }
+  ],
+  "self_report": {
+    "obeyed_invariants": false,
+    "concerns": [
+      "Retry improves outer alignment, but internal path/verge boundaries and bridge plank geometry still differ from the guide.",
+      "Exact pixelwise boundary preservation and pure #00ff00 coverage were not verified.",
+      "Confirmed delivered dimensions: 1536×1024."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/chunk_2_0.png",
+      "sha256": "b9752d87b3bd4433c858eda775d5b542cb6fd5024c17bb647ef1eae7aa15220e"
+    }
+  ]
+}

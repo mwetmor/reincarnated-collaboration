@@ -1,0 +1,680 @@
+{
+  "task_id": "CS-asm-fg-v4",
+  "report_only": true,
+  "canvas_px": [
+    5376,
+    4096
+  ],
+  "chunk_count": 17,
+  "redrive_count": 0,
+  "matte_method": {
+    "tool": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/gates/matte.py",
+    "edge_mode": "clamp",
+    "preserve_particles": true,
+    "temporary_green_border_px": 16,
+    "border_removed_after_extract": true,
+    "mask_dilation": "Euclidean disk radius 6 pixels; clip outside mask dilation"
+  },
+  "seam_method": {
+    "cost": "mean absolute RGB channel difference in 0..255 units where both alpha==255; zero otherwise",
+    "dp": "minimum accumulated cost, predecessor offsets -1, 0, +1; deterministic first-min tie break",
+    "directions": "vertical left/right; horizontal top; diagonal square chooses lower path-mean orientation",
+    "corner_resolution": "when overlap candidates cover the same corner pixels, lowest path mean supplies the cut; first candidate wins exact ties",
+    "feather": "linear new-side weight from 0 to 1 over signed path offset -3 to +3 pixels",
+    "exclusive_support": "only source with alpha>0 wins regardless of seam weight",
+    "compositing": "premultiplied weighted interpolation, then straight-alpha RGB output",
+    "statistics": "path mean and p95 include zero-cost non-jointly-opaque samples; opaque-only quantities recorded separately",
+    "existing": "cost is against composite already placed; geometric chunk pair and composite provenance reported",
+    "all_geometric_overlaps_recorded": true
+  },
+  "chunks": [
+    {
+      "chunk": "chunk_2_0",
+      "input": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/CS-v4-2_0/chunk_2_0.png",
+      "input_sha256": "0c1aba78a4fdfcf2db909fc39ed3ffbb295b436dc0b4bda76bc025c96e395e50",
+      "redrive": false,
+      "mask": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/CS-guides-v4/chunk_2_0_mask.png",
+      "matte": {
+        "method": "green excess matte + inverse straight-alpha compositing + nearest fully-opaque RGB clamp",
+        "removed_background_or_detached_alpha_dust_pixels": 0,
+        "native_input_alpha": false,
+        "alpha_floor": null,
+        "alpha_floor_removed_pixels": 0
+      },
+      "raw_matte": {
+        "iou_alpha_ge_128": 0.9983256815915623,
+        "spill_pixels_alpha_gt_0": 1010867,
+        "spill_fraction_of_support": 0.6427119527725765,
+        "mask_pixels": 561951,
+        "missing_mask_pixels_alpha_lt_128": 276,
+        "support_pixels_alpha_gt_0": 1572815
+      },
+      "restricted_matte": {
+        "iou_alpha_ge_128": 0.9983256815915623,
+        "spill_pixels_alpha_gt_0": 8101,
+        "spill_fraction_of_support": 0.014211059049309796,
+        "mask_pixels": 561951,
+        "missing_mask_pixels_alpha_lt_128": 276,
+        "support_pixels_alpha_gt_0": 570049
+      },
+      "removed_outside_6px_dilation": 1002766,
+      "spill_outside_dilated_mask": 0
+    },
+    {
+      "chunk": "chunk_3_0",
+      "input": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/CS-v4-3_0/chunk_3_0.png",
+      "input_sha256": "f318cb0a478fd0d7ab7dc98af96b02a2b6b7138a10898c26aab68ac2e34ae0de",
+      "redrive": false,
+      "mask": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/CS-guides-v4/chunk_3_0_mask.png",
+      "matte": {
+        "method": "green excess matte + inverse straight-alpha compositing + nearest fully-opaque RGB clamp",
+        "removed_background_or_detached_alpha_dust_pixels": 0,
+        "native_input_alpha": false,
+        "alpha_floor": null,
+        "alpha_floor_removed_pixels": 0
+      },
+      "raw_matte": {
+        "iou_alpha_ge_128": 0.9999321298547963,
+        "spill_pixels_alpha_gt_0": 11164,
+        "spill_fraction_of_support": 0.007097880045572917,
+        "mask_pixels": 1561700,
+        "missing_mask_pixels_alpha_lt_128": 0,
+        "support_pixels_alpha_gt_0": 1572864
+      },
+      "restricted_matte": {
+        "iou_alpha_ge_128": 0.9999321298547963,
+        "spill_pixels_alpha_gt_0": 1090,
+        "spill_fraction_of_support": 0.0006974705494660191,
+        "mask_pixels": 1561700,
+        "missing_mask_pixels_alpha_lt_128": 0,
+        "support_pixels_alpha_gt_0": 1562790
+      },
+      "removed_outside_6px_dilation": 10074,
+      "spill_outside_dilated_mask": 0
+    },
+    {
+      "chunk": "chunk_1_1",
+      "input": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/CS-v4-1_1/chunk_1_1.png",
+      "input_sha256": "5fd19053b92e178e79fb2d34dee396e81a60027f54d946f8643bd05a98cbcbb6",
+      "redrive": false,
+      "mask": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/CS-guides-v4/chunk_1_1_mask.png",
+      "matte": {
+        "method": "green excess matte + inverse straight-alpha compositing + nearest fully-opaque RGB clamp",
+        "removed_background_or_detached_alpha_dust_pixels": 0,
+        "native_input_alpha": false,
+        "alpha_floor": null,
+        "alpha_floor_removed_pixels": 0
+      },
+      "raw_matte": {
+        "iou_alpha_ge_128": 0.9965987953463802,
+        "spill_pixels_alpha_gt_0": 1159699,
+        "spill_fraction_of_support": 0.73732426782499,
+        "mask_pixels": 413149,
+        "missing_mask_pixels_alpha_lt_128": 0,
+        "support_pixels_alpha_gt_0": 1572848
+      },
+      "restricted_matte": {
+        "iou_alpha_ge_128": 0.9965987953463802,
+        "spill_pixels_alpha_gt_0": 8168,
+        "spill_fraction_of_support": 0.019386827495686147,
+        "mask_pixels": 413149,
+        "missing_mask_pixels_alpha_lt_128": 0,
+        "support_pixels_alpha_gt_0": 421317
+      },
+      "removed_outside_6px_dilation": 1151531,
+      "spill_outside_dilated_mask": 0
+    },
+    {
+      "chunk": "chunk_2_1",
+      "input": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/CS-v4-2_1/chunk_2_1.png",
+      "input_sha256": "a62c4eab53a3cb0d4d615bdf0abca2e3320ec9d45389aa92f4231f7efc743e99",
+      "redrive": false,
+      "mask": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/CS-guides-v4/chunk_2_1_mask.png",
+      "matte": {
+        "method": "green excess matte + inverse straight-alpha compositing + nearest fully-opaque RGB clamp",
+        "removed_background_or_detached_alpha_dust_pixels": 0,
+        "native_input_alpha": false,
+        "alpha_floor": null,
+        "alpha_floor_removed_pixels": 0
+      },
+      "raw_matte": {
+        "iou_alpha_ge_128": 0.9972717558782109,
+        "spill_pixels_alpha_gt_0": 397633,
+        "spill_fraction_of_support": 0.25284442265516754,
+        "mask_pixels": 1175008,
+        "missing_mask_pixels_alpha_lt_128": 906,
+        "support_pixels_alpha_gt_0": 1572639
+      },
+      "restricted_matte": {
+        "iou_alpha_ge_128": 0.9972726029526557,
+        "spill_pixels_alpha_gt_0": 15148,
+        "spill_fraction_of_support": 0.01272776464222277,
+        "mask_pixels": 1175008,
+        "missing_mask_pixels_alpha_lt_128": 906,
+        "support_pixels_alpha_gt_0": 1190154
+      },
+      "removed_outside_6px_dilation": 382485,
+      "spill_outside_dilated_mask": 0
+    },
+    {
+      "chunk": "chunk_3_1",
+      "input": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/CS-v4-3_1/chunk_3_1.png",
+      "input_sha256": "9587be05c8285a9d2733093771761ed0de89799a3f203eefae3a88c6c8d3288a",
+      "redrive": false,
+      "mask": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/CS-guides-v4/chunk_3_1_mask.png",
+      "matte": {
+        "method": "green excess matte + inverse straight-alpha compositing + nearest fully-opaque RGB clamp",
+        "removed_background_or_detached_alpha_dust_pixels": 0,
+        "native_input_alpha": false,
+        "alpha_floor": null,
+        "alpha_floor_removed_pixels": 0
+      },
+      "raw_matte": {
+        "iou_alpha_ge_128": 1.0,
+        "spill_pixels_alpha_gt_0": 0,
+        "spill_fraction_of_support": 0.0,
+        "mask_pixels": 1572864,
+        "missing_mask_pixels_alpha_lt_128": 0,
+        "support_pixels_alpha_gt_0": 1572864
+      },
+      "restricted_matte": {
+        "iou_alpha_ge_128": 1.0,
+        "spill_pixels_alpha_gt_0": 0,
+        "spill_fraction_of_support": 0.0,
+        "mask_pixels": 1572864,
+        "missing_mask_pixels_alpha_lt_128": 0,
+        "support_pixels_alpha_gt_0": 1572864
+      },
+      "removed_outside_6px_dilation": 0,
+      "spill_outside_dilated_mask": 0
+    },
+    {
+      "chunk": "chunk_0_2",
+      "input": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/CS-v4-0_2/chunk_0_2.png",
+      "input_sha256": "4f7d81154e13d979c3799dca8222888603ee1fa76184d5773bc9886e1b37eb77",
+      "redrive": false,
+      "mask": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/CS-guides-v4/chunk_0_2_mask.png",
+      "matte": {
+        "method": "green excess matte + inverse straight-alpha compositing + nearest fully-opaque RGB clamp",
+        "removed_background_or_detached_alpha_dust_pixels": 0,
+        "native_input_alpha": false,
+        "alpha_floor": null,
+        "alpha_floor_removed_pixels": 0
+      },
+      "raw_matte": {
+        "iou_alpha_ge_128": 0.9940971277306351,
+        "spill_pixels_alpha_gt_0": 1371906,
+        "spill_fraction_of_support": 0.8722598546049193,
+        "mask_pixels": 200912,
+        "missing_mask_pixels_alpha_lt_128": 0,
+        "support_pixels_alpha_gt_0": 1572818
+      },
+      "restricted_matte": {
+        "iou_alpha_ge_128": 0.9940971277306351,
+        "spill_pixels_alpha_gt_0": 8525,
+        "spill_fraction_of_support": 0.040704364558315866,
+        "mask_pixels": 200912,
+        "missing_mask_pixels_alpha_lt_128": 0,
+        "support_pixels_alpha_gt_0": 209437
+      },
+      "removed_outside_6px_dilation": 1363381,
+      "spill_outside_dilated_mask": 0
+    },
+    {
+      "chunk": "chunk_1_2",
+      "input": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/CS-v4-1_2/chunk_1_2.png",
+      "input_sha256": "041093ba70ebc7d54468c3d96d6c4a40539044cb560e24c9055730e77d4054c5",
+      "redrive": false,
+      "mask": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/CS-guides-v4/chunk_1_2_mask.png",
+      "matte": {
+        "method": "green excess matte + inverse straight-alpha compositing + nearest fully-opaque RGB clamp",
+        "removed_background_or_detached_alpha_dust_pixels": 0,
+        "native_input_alpha": false,
+        "alpha_floor": null,
+        "alpha_floor_removed_pixels": 0
+      },
+      "raw_matte": {
+        "iou_alpha_ge_128": 0.9990201990883265,
+        "spill_pixels_alpha_gt_0": 243769,
+        "spill_fraction_of_support": 0.1549841562906901,
+        "mask_pixels": 1329095,
+        "missing_mask_pixels_alpha_lt_128": 536,
+        "support_pixels_alpha_gt_0": 1572864
+      },
+      "restricted_matte": {
+        "iou_alpha_ge_128": 0.9990201990883265,
+        "spill_pixels_alpha_gt_0": 6150,
+        "spill_fraction_of_support": 0.004605896296185344,
+        "mask_pixels": 1329095,
+        "missing_mask_pixels_alpha_lt_128": 536,
+        "support_pixels_alpha_gt_0": 1335245
+      },
+      "removed_outside_6px_dilation": 237619,
+      "spill_outside_dilated_mask": 0
+    },
+    {
+      "chunk": "chunk_2_2",
+      "input": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/CS-v4-2_2/chunk_2_2.png",
+      "input_sha256": "c2ff9a0fe1d6c73bdcb7154b87480a3c27fed57ddb2489af22ea40b4bbc013cd",
+      "redrive": false,
+      "mask": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/CS-guides-v4/chunk_2_2_mask.png",
+      "matte": {
+        "method": "green excess matte + inverse straight-alpha compositing + nearest fully-opaque RGB clamp",
+        "removed_background_or_detached_alpha_dust_pixels": 0,
+        "native_input_alpha": false,
+        "alpha_floor": null,
+        "alpha_floor_removed_pixels": 0
+      },
+      "raw_matte": {
+        "iou_alpha_ge_128": 0.9990951570902538,
+        "spill_pixels_alpha_gt_0": 523469,
+        "spill_fraction_of_support": 0.3328395020909408,
+        "mask_pixels": 1049268,
+        "missing_mask_pixels_alpha_lt_128": 312,
+        "support_pixels_alpha_gt_0": 1572737
+      },
+      "restricted_matte": {
+        "iou_alpha_ge_128": 0.9990951570902538,
+        "spill_pixels_alpha_gt_0": 13971,
+        "spill_fraction_of_support": 0.013140037188252124,
+        "mask_pixels": 1049268,
+        "missing_mask_pixels_alpha_lt_128": 312,
+        "support_pixels_alpha_gt_0": 1063239
+      },
+      "removed_outside_6px_dilation": 509498,
+      "spill_outside_dilated_mask": 0
+    },
+    {
+      "chunk": "chunk_3_2",
+      "input": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/CS-v4-3_2/chunk_3_2.png",
+      "input_sha256": "0246110177d4ed105592538d24e9ce7cbd5bf21244c521b2bbdac4b86d4d0b83",
+      "redrive": false,
+      "mask": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/CS-guides-v4/chunk_3_2_mask.png",
+      "matte": {
+        "method": "green excess matte + inverse straight-alpha compositing + nearest fully-opaque RGB clamp",
+        "removed_background_or_detached_alpha_dust_pixels": 0,
+        "native_input_alpha": false,
+        "alpha_floor": null,
+        "alpha_floor_removed_pixels": 0
+      },
+      "raw_matte": {
+        "iou_alpha_ge_128": 0.9996427837490053,
+        "spill_pixels_alpha_gt_0": 122937,
+        "spill_fraction_of_support": 0.07817103048515674,
+        "mask_pixels": 1449730,
+        "missing_mask_pixels_alpha_lt_128": 146,
+        "support_pixels_alpha_gt_0": 1572667
+      },
+      "restricted_matte": {
+        "iou_alpha_ge_128": 0.9996427837490053,
+        "spill_pixels_alpha_gt_0": 4569,
+        "spill_fraction_of_support": 0.0031417198251528743,
+        "mask_pixels": 1449730,
+        "missing_mask_pixels_alpha_lt_128": 146,
+        "support_pixels_alpha_gt_0": 1454299
+      },
+      "removed_outside_6px_dilation": 118368,
+      "spill_outside_dilated_mask": 0
+    },
+    {
+      "chunk": "chunk_0_3",
+      "input": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/CS-v4-0_3/chunk_0_3.png",
+      "input_sha256": "737db83165ad71f03a25c18c68130fd8d5be0116f12b39cb41bcb8b00ddac51f",
+      "redrive": false,
+      "mask": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/CS-guides-v4/chunk_0_3_mask.png",
+      "matte": {
+        "method": "green excess matte + inverse straight-alpha compositing + nearest fully-opaque RGB clamp",
+        "removed_background_or_detached_alpha_dust_pixels": 0,
+        "native_input_alpha": false,
+        "alpha_floor": null,
+        "alpha_floor_removed_pixels": 0
+      },
+      "raw_matte": {
+        "iou_alpha_ge_128": 0.9984665733342079,
+        "spill_pixels_alpha_gt_0": 247666,
+        "spill_fraction_of_support": 0.1574676088468635,
+        "mask_pixels": 1325140,
+        "missing_mask_pixels_alpha_lt_128": 733,
+        "support_pixels_alpha_gt_0": 1572806
+      },
+      "restricted_matte": {
+        "iou_alpha_ge_128": 0.9984996950385141,
+        "spill_pixels_alpha_gt_0": 8833,
+        "spill_fraction_of_support": 0.006621573300209225,
+        "mask_pixels": 1325140,
+        "missing_mask_pixels_alpha_lt_128": 733,
+        "support_pixels_alpha_gt_0": 1333973
+      },
+      "removed_outside_6px_dilation": 238833,
+      "spill_outside_dilated_mask": 0
+    },
+    {
+      "chunk": "chunk_1_3",
+      "input": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/CS-v4-1_3/chunk_1_3.png",
+      "input_sha256": "fb568ca516493be5591172197586f579dc3b290306e21c973ad5eaf538fb57bd",
+      "redrive": false,
+      "mask": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/CS-guides-v4/chunk_1_3_mask.png",
+      "matte": {
+        "method": "green excess matte + inverse straight-alpha compositing + nearest fully-opaque RGB clamp",
+        "removed_background_or_detached_alpha_dust_pixels": 0,
+        "native_input_alpha": false,
+        "alpha_floor": null,
+        "alpha_floor_removed_pixels": 0
+      },
+      "raw_matte": {
+        "iou_alpha_ge_128": 1.0,
+        "spill_pixels_alpha_gt_0": 0,
+        "spill_fraction_of_support": 0.0,
+        "mask_pixels": 1572864,
+        "missing_mask_pixels_alpha_lt_128": 0,
+        "support_pixels_alpha_gt_0": 1572864
+      },
+      "restricted_matte": {
+        "iou_alpha_ge_128": 1.0,
+        "spill_pixels_alpha_gt_0": 0,
+        "spill_fraction_of_support": 0.0,
+        "mask_pixels": 1572864,
+        "missing_mask_pixels_alpha_lt_128": 0,
+        "support_pixels_alpha_gt_0": 1572864
+      },
+      "removed_outside_6px_dilation": 0,
+      "spill_outside_dilated_mask": 0
+    },
+    {
+      "chunk": "chunk_2_3",
+      "input": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/CS-v4-2_3/chunk_2_3.png",
+      "input_sha256": "b270a7ea028bf2909643558b09ee343c2140efb51553f9543cb1c2d4e99c71c1",
+      "redrive": false,
+      "mask": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/CS-guides-v4/chunk_2_3_mask.png",
+      "matte": {
+        "method": "green excess matte + inverse straight-alpha compositing + nearest fully-opaque RGB clamp",
+        "removed_background_or_detached_alpha_dust_pixels": 0,
+        "native_input_alpha": false,
+        "alpha_floor": null,
+        "alpha_floor_removed_pixels": 0
+      },
+      "raw_matte": {
+        "iou_alpha_ge_128": 0.9990408288149825,
+        "spill_pixels_alpha_gt_0": 870724,
+        "spill_fraction_of_support": 0.5536280169892418,
+        "mask_pixels": 702036,
+        "missing_mask_pixels_alpha_lt_128": 20,
+        "support_pixels_alpha_gt_0": 1572760
+      },
+      "restricted_matte": {
+        "iou_alpha_ge_128": 0.9990408288149825,
+        "spill_pixels_alpha_gt_0": 9309,
+        "spill_fraction_of_support": 0.013086477025915694,
+        "mask_pixels": 702036,
+        "missing_mask_pixels_alpha_lt_128": 20,
+        "support_pixels_alpha_gt_0": 711345
+      },
+      "removed_outside_6px_dilation": 861415,
+      "spill_outside_dilated_mask": 0
+    },
+    {
+      "chunk": "chunk_3_3",
+      "input": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/CS-v4-3_3/chunk_3_3.png",
+      "input_sha256": "e428e31d131cff5126f3082b35b3f7c71b2b4a1e400831aa205516c29564d8c4",
+      "redrive": false,
+      "mask": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/CS-guides-v4/chunk_3_3_mask.png",
+      "matte": {
+        "method": "green excess matte + inverse straight-alpha compositing + nearest fully-opaque RGB clamp",
+        "removed_background_or_detached_alpha_dust_pixels": 0,
+        "native_input_alpha": false,
+        "alpha_floor": null,
+        "alpha_floor_removed_pixels": 0
+      },
+      "raw_matte": {
+        "iou_alpha_ge_128": 0.9985179808644011,
+        "spill_pixels_alpha_gt_0": 815605,
+        "spill_fraction_of_support": 0.5186367237824893,
+        "mask_pixels": 756998,
+        "missing_mask_pixels_alpha_lt_128": 371,
+        "support_pixels_alpha_gt_0": 1572594
+      },
+      "restricted_matte": {
+        "iou_alpha_ge_128": 0.9985179808644011,
+        "spill_pixels_alpha_gt_0": 13361,
+        "spill_fraction_of_support": 0.017344064386317908,
+        "mask_pixels": 756998,
+        "missing_mask_pixels_alpha_lt_128": 371,
+        "support_pixels_alpha_gt_0": 770350
+      },
+      "removed_outside_6px_dilation": 802244,
+      "spill_outside_dilated_mask": 0
+    },
+    {
+      "chunk": "chunk_0_4",
+      "input": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/CS-v4-0_4/chunk_0_4.png",
+      "input_sha256": "15063347b88d541570366d2db5c36e5b0829e3d29222f1dfc7bb282485a726a6",
+      "redrive": false,
+      "mask": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/CS-guides-v4/chunk_0_4_mask.png",
+      "matte": {
+        "method": "green excess matte + inverse straight-alpha compositing + nearest fully-opaque RGB clamp",
+        "removed_background_or_detached_alpha_dust_pixels": 0,
+        "native_input_alpha": false,
+        "alpha_floor": null,
+        "alpha_floor_removed_pixels": 0
+      },
+      "raw_matte": {
+        "iou_alpha_ge_128": 1.0,
+        "spill_pixels_alpha_gt_0": 0,
+        "spill_fraction_of_support": 0.0,
+        "mask_pixels": 1572864,
+        "missing_mask_pixels_alpha_lt_128": 0,
+        "support_pixels_alpha_gt_0": 1572864
+      },
+      "restricted_matte": {
+        "iou_alpha_ge_128": 1.0,
+        "spill_pixels_alpha_gt_0": 0,
+        "spill_fraction_of_support": 0.0,
+        "mask_pixels": 1572864,
+        "missing_mask_pixels_alpha_lt_128": 0,
+        "support_pixels_alpha_gt_0": 1572864
+      },
+      "removed_outside_6px_dilation": 0,
+      "spill_outside_dilated_mask": 0
+    },
+    {
+      "chunk": "chunk_1_4",
+      "input": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/CS-v4-1_4/chunk_1_4.png",
+      "input_sha256": "302d36db900ea39bf04dc89683b822c434b748b8564f1a93e8c773d9d20935f2",
+      "redrive": false,
+      "mask": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/CS-guides-v4/chunk_1_4_mask.png",
+      "matte": {
+        "method": "green excess matte + inverse straight-alpha compositing + nearest fully-opaque RGB clamp",
+        "removed_background_or_detached_alpha_dust_pixels": 0,
+        "native_input_alpha": false,
+        "alpha_floor": null,
+        "alpha_floor_removed_pixels": 0
+      },
+      "raw_matte": {
+        "iou_alpha_ge_128": 1.0,
+        "spill_pixels_alpha_gt_0": 0,
+        "spill_fraction_of_support": 0.0,
+        "mask_pixels": 1572864,
+        "missing_mask_pixels_alpha_lt_128": 0,
+        "support_pixels_alpha_gt_0": 1572864
+      },
+      "restricted_matte": {
+        "iou_alpha_ge_128": 1.0,
+        "spill_pixels_alpha_gt_0": 0,
+        "spill_fraction_of_support": 0.0,
+        "mask_pixels": 1572864,
+        "missing_mask_pixels_alpha_lt_128": 0,
+        "support_pixels_alpha_gt_0": 1572864
+      },
+      "removed_outside_6px_dilation": 0,
+      "spill_outside_dilated_mask": 0
+    },
+    {
+      "chunk": "chunk_2_4",
+      "input": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/CS-v4-2_4/chunk_2_4.png",
+      "input_sha256": "032f3e3136036ce5dff980d7954e3ad7e9b27c555d3caa6ffb6663e1b05b35a6",
+      "redrive": false,
+      "mask": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/CS-guides-v4/chunk_2_4_mask.png",
+      "matte": {
+        "method": "green excess matte + inverse straight-alpha compositing + nearest fully-opaque RGB clamp",
+        "removed_background_or_detached_alpha_dust_pixels": 0,
+        "native_input_alpha": false,
+        "alpha_floor": null,
+        "alpha_floor_removed_pixels": 0
+      },
+      "raw_matte": {
+        "iou_alpha_ge_128": 0.9965083052024445,
+        "spill_pixels_alpha_gt_0": 911295,
+        "spill_fraction_of_support": 0.5793953350567572,
+        "mask_pixels": 661543,
+        "missing_mask_pixels_alpha_lt_128": 0,
+        "support_pixels_alpha_gt_0": 1572838
+      },
+      "restricted_matte": {
+        "iou_alpha_ge_128": 0.9965083052024445,
+        "spill_pixels_alpha_gt_0": 6196,
+        "spill_fraction_of_support": 0.009279074608492241,
+        "mask_pixels": 661543,
+        "missing_mask_pixels_alpha_lt_128": 0,
+        "support_pixels_alpha_gt_0": 667739
+      },
+      "removed_outside_6px_dilation": 905099,
+      "spill_outside_dilated_mask": 0
+    },
+    {
+      "chunk": "chunk_3_4",
+      "input": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/CS-v4-3_4/chunk_3_4.png",
+      "input_sha256": "1154a905fea482ab9153cfa426a17c8d55df40ee0898815d0ed26f6ff1f8ee49",
+      "redrive": false,
+      "mask": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/CS-guides-v4/chunk_3_4_mask.png",
+      "matte": {
+        "method": "green excess matte + inverse straight-alpha compositing + nearest fully-opaque RGB clamp",
+        "removed_background_or_detached_alpha_dust_pixels": 0,
+        "native_input_alpha": false,
+        "alpha_floor": null,
+        "alpha_floor_removed_pixels": 0
+      },
+      "raw_matte": {
+        "iou_alpha_ge_128": 0.9719046904154245,
+        "spill_pixels_alpha_gt_0": 1527373,
+        "spill_fraction_of_support": 0.971111559000489,
+        "mask_pixels": 45438,
+        "missing_mask_pixels_alpha_lt_128": 121,
+        "support_pixels_alpha_gt_0": 1572809
+      },
+      "restricted_matte": {
+        "iou_alpha_ge_128": 0.9815460590439472,
+        "spill_pixels_alpha_gt_0": 2561,
+        "spill_fraction_of_support": 0.05335750151051107,
+        "mask_pixels": 45438,
+        "missing_mask_pixels_alpha_lt_128": 121,
+        "support_pixels_alpha_gt_0": 47997
+      },
+      "removed_outside_6px_dilation": 1524812,
+      "spill_outside_dilated_mask": 0
+    }
+  ],
+  "seams_summary": {
+    "count": 45,
+    "mean_of_path_means": 1.4708526018593047,
+    "worst_path_mean": 4.2353515625,
+    "worst_pair": [
+      "chunk_1_3",
+      "chunk_2_3"
+    ],
+    "worst_seam_id": 28,
+    "zero_opaque_path_samples": 8,
+    "fully_superseded_corner_candidates": 7
+  },
+  "prefade_canvas": {
+    "iou_alpha_ge_128": 0.9989633973980293,
+    "spill_pixels_alpha_gt_0": 74400,
+    "spill_fraction_of_support": 0.006102503855691532,
+    "mask_pixels": 12117320,
+    "missing_mask_pixels_alpha_lt_128": 2775,
+    "support_pixels_alpha_gt_0": 12191717
+  },
+  "postfade_canvas": {
+    "iou_alpha_ge_128": 0.946219048436453,
+    "spill_pixels_alpha_gt_0": 0,
+    "spill_fraction_of_support": 0.0,
+    "mask_pixels": 12117320,
+    "missing_mask_pixels_alpha_lt_128": 651681,
+    "support_pixels_alpha_gt_0": 12114618
+  },
+  "depth_fade": {
+    "formula": "1 at depth<=8000; (20000-depth)/12000 at 8000<depth<20000; 0 at depth>=20000 or depth==65535",
+    "depth_dtype": "uint16",
+    "alpha_changed_pixels": 1445716,
+    "alpha_sum_before": 3082160331,
+    "alpha_sum_after": 2910485509,
+    "nonzero_alpha_depth_ge_20000_or_invalid": 0,
+    "nonzero_alpha_outside_full_mask": 0,
+    "rgb_changed_by_depth_fade": false
+  },
+  "worst_crops": [
+    {
+      "tile": 0,
+      "seam_id": 28,
+      "chunk_pair": [
+        "chunk_1_3",
+        "chunk_2_3"
+      ],
+      "crop_box_xyxy": [
+        2339,
+        2824,
+        2851,
+        3336
+      ],
+      "path_mean_cost": 4.2353515625
+    },
+    {
+      "tile": 1,
+      "seam_id": 14,
+      "chunk_pair": [
+        "chunk_3_1",
+        "chunk_2_2"
+      ],
+      "crop_box_xyxy": [
+        3751,
+        1346,
+        4263,
+        1858
+      ],
+      "path_mean_cost": 4.1809892654418945
+    },
+    {
+      "tile": 2,
+      "seam_id": 13,
+      "chunk_pair": [
+        "chunk_2_1",
+        "chunk_2_2"
+      ],
+      "crop_box_xyxy": [
+        3645,
+        1436,
+        4157,
+        1948
+      ],
+      "path_mean_cost": 3.747178792953491
+    },
+    {
+      "tile": 3,
+      "seam_id": 41,
+      "chunk_pair": [
+        "chunk_1_4",
+        "chunk_2_4"
+      ],
+      "crop_box_xyxy": [
+        2400,
+        3587,
+        2912,
+        4099
+      ],
+      "path_mean_cost": 3.5035808086395264
+    }
+  ],
+  "concerns": [
+    "8 seam paths contain no jointly fully opaque samples; their zero costs describe void/one-sided support, not a color match."
+  ],
+  "elapsed_s": 13.720496291993186
+}

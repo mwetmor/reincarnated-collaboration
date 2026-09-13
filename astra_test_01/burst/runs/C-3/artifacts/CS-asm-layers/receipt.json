@@ -1,0 +1,45 @@
+{
+  "task_id": "CS-asm-layers",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [],
+  "calls_used": 0,
+  "retries": [],
+  "self_report": {
+    "obeyed_invariants": true,
+    "concerns": [
+      "Frozen matte required a temporary green border, cropped after extraction.",
+      "Implemented the supplied seam specification; prior CS-asm-fg source was unavailable for comparison.",
+      "Wrapper-owned live audit logs are excluded from deliverable hashes."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/layers/sky.png",
+      "sha256": "29ba10fc269a88b4f9b1d80813d26b950799921c643e2eede520c826ed01a1ae"
+    },
+    {
+      "path": "out/layers/far_ruins.png",
+      "sha256": "f3ca2dee0f7372c90e89ce5ddda74753c33e4ee47ac07689cba3da2c031110e3"
+    },
+    {
+      "path": "out/layers/forest_valley.png",
+      "sha256": "7d8f6d4fde6b21347d0481c1ef1ebec99ca7259c14f11ded9707914071dc2bc8"
+    },
+    {
+      "path": "out/layers/mist.png",
+      "sha256": "2832c2c262533a487e61586beed68337bf6ba1da64a6f14176d33dfa9ffa0202"
+    },
+    {
+      "path": "out/layers_stack_preview.png",
+      "sha256": "69ca1a57915e5fc3175d4cbb422e215bef587b3edb3c32382fa94705ca2a4f95"
+    },
+    {
+      "path": "out/checks.json",
+      "sha256": "c6c78614d463c96554d08b03f1c8ca144f224267e3c21a0945b2b4ec1fd73f42"
+    },
+    {
+      "path": "out/summary.txt",
+      "sha256": "85acfadc98f4651cc3e74f4bfbf383f92d5dc41f6ac79e1cc078764d4857ca16"
+    }
+  ]
+}

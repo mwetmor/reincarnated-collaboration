@@ -1,0 +1,43 @@
+{
+  "task_id": "CS-v3-2_4",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "chunk_2_4.png",
+      "path": "out/chunk_2_4.png",
+      "sha256": "72ac30033cf93e2212e268e9427213e810e7cbeb6fc99e2a698a9465150b5d1a",
+      "prompt": "Use case: precise-object-edit. Edit IMAGE 1, the 1536x1024 cliff tile canvas; IMAGE 2 is supporting painted style reference only. Deliver one 1536x1024 PNG. Preserve exactly the already painted TOP 256 rows and LEFT 256 columns, including their corner: these are finished neighboring pixels, not areas to repaint. Replace only the flat dark grey-brown guide rectangle x=256..1535, y=256..1023 with a seamless continuation of the cliff face in those painted strips. This particular tile contains only vertical cliff face, with no path, rim, bridge, sky or green void visible; do not import the composition of IMAGE 2. Continue each rock fissure, angular stone plane, vertical stratum and sparse trailing vine from the painted top and left naturally through the new area, with no horizontal or vertical join line at the strip boundaries. Keep the existing strips' exact muted cool violet-blue rock colors, restrained dark olive vines, scale and lighting. Continuous rock fills the entire guide rectangle to the bottom edge; lower rock becomes slightly darker and hazier, with no ledge, ground or bottom edge drawn. Hand-drawn painted 2D action-game environment, confident tapered dark hand contours, clean painted planes, restrained surface texture, readable graphic shadows, matching the rock painting technique of IMAGE 2 while retaining IMAGE 1's shadowed cliff palette. Orthographic elevated three-quarter view, no perspective shrinking toward top. Sunset key fixed from screen upper-left, subtle warm highlights only where supported by the existing strips, cool violet shadows. Preserve all guide boundaries in their exact positions. Any existing pure green #00ff00 pixels must remain flat pure #00ff00; add none where absent. No characters, creatures, text, UI, border, vignette, conspicuous grain, or new objects. Highest priority: pixel-preserve the painted top and left strips and seamlessly extend their painting into the flat guide.\nRETRY CORRECTION: The first attempt altered the contrast and brightness of the protected painted strips. Use the ORIGINAL IMAGE 1 again. Treat every pixel in y<256 OR x<256 as locked, immutable source pixels: do not relight, recolor, sharpen, redraw or increase their contrast. Generate only within x>=256 AND y>=256. Match the new rock's subdued values precisely to the original strips right at both seams, smoothly continuing their contours. The entire original top and left painted area must stay exactly as supplied. No global image adjustment.",
+      "references": [
+        {
+          "role": "edit target: painted strips and geometry guide",
+          "path": "in/01_chunk_2_4_edit_canvas.png"
+        },
+        {
+          "role": "approved painted style reference",
+          "path": "in/02_chunk_A.png"
+        }
+      ],
+      "elapsed_s": 33.517
+    }
+  ],
+  "calls_used": 2,
+  "retries": [
+    {
+      "reason": "First output visibly changed contrast and brightness within the protected painted strips.",
+      "change": "Retried from the original canvas with stronger immutable-pixel and seam-value preservation instructions."
+    }
+  ],
+  "self_report": {
+    "obeyed_invariants": false,
+    "concerns": [
+      "Delivered dimensions verified as 1536×1024.",
+      "Retry improves strip matching, but exact pixel preservation is unverified; a rectangular transition remains visible near the upper-left painted corner."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/chunk_2_4.png",
+      "sha256": "72ac30033cf93e2212e268e9427213e810e7cbeb6fc99e2a698a9465150b5d1a"
+    }
+  ]
+}

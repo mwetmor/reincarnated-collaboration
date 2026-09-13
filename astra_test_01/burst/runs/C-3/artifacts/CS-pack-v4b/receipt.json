@@ -1,0 +1,53 @@
+{
+  "task_id": "CS-pack-v4b",
+  "status": "DELIVERED",
+  "images": [],
+  "calls_used": 0,
+  "retries": [],
+  "self_report": {
+    "obeyed_invariants": true,
+    "concerns": ["Godot runtime verification remains with the conductor, as instructed."]
+  },
+  "files": [
+    {
+      "path": "out/exporter.json",
+      "sha256": "f937569983d13fb41c0d3b40f2bcd6be620f72d15c5617fa71720131851f79d8"
+    },
+    {
+      "path": "out/README_scene.txt",
+      "sha256": "490c63d6207aed611c299125f07426816091cabb2d6e49314e4475f7ca41d20b"
+    },
+    {
+      "path": "out/godot/project.godot",
+      "sha256": "2e99461d74d52642cb886e8a7062aaa8db73639eedb535603e5943cebd4aabba"
+    },
+    {
+      "path": "out/godot/scenes/cliffside.tscn",
+      "sha256": "a427f11de0d297f505884a57e87a68710de07b193f532e644bf593b7c53137b9"
+    },
+    {
+      "path": "out/godot/scenes/frost_bolt.tscn",
+      "sha256": "4dda78afdf571f4853ad067d46472e072603a236f9a3b3f70385fbdcb3dae4a5"
+    },
+    {
+      "path": "out/godot/scenes/frost_impact.tscn",
+      "sha256": "f10b6807b2708a8ea5ee1844f56bc3e65c4a40ddaa640c04aec38e449444c629"
+    },
+    {
+      "path": "out/godot/scenes/main.tscn",
+      "sha256": "a7ff2b1ba99ca306dacd7fbee1556fbfbed54d72cc8e3c01ab72e1aba58b874d"
+    },
+    {
+      "path": "out/godot/scripts/frost_bolt.gd",
+      "sha256": "7fcfce78be6360dc720017408bf1896600c41e1be2a7f9d1bc501cff24c5fd23"
+    },
+    {
+      "path": "out/godot/scripts/frost_impact.gd",
+      "sha256": "2f53be38f198744ff7f39b9281e2c82b06836c37a6f3bbc89e85d54bd1fc4105"
+    },
+    {
+      "path": "out/godot/scripts/keeper.gd",
+      "sha256": "21edf18e73bce111fd1f7a8e2f916004a6745254f27fc6f8ede7f8d1e774545c"
+    }
+  ]
+}

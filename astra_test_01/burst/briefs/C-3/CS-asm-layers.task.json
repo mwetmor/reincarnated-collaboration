@@ -1,0 +1,14 @@
+{
+ "text": "CHECK BURST CS-asm-layers — assemble the four PARALLAX LAYERS from their outpainted panels (Matt R-C3-48). REPORT ONLY. task_id \"CS-asm-layers\".\n\nInputs (read-only): panels /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/L-<layer>-<c>_<r>/L-<layer>-<c>_<r>.png (1536×1024; panel (c,r) sits at (c·1280, r·768); 256-px overlaps): sky 2×1, far_ruins 2×2, forest_valley 3×2, mist 2×2 — EXCEPTION: mist panel (1,1) comes from L-mist-1_1-r1/L-mist-1_1.png (the re-drive), not L-mist-1_1/. Frozen tool /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/gates/matte.py (extract, edge_mode='clamp'). python glue PIL/numpy/scipy; no new tool files.\n\nSTEP 1 — per layer, composite its panels row by row with MINIMUM-ERROR seam cuts exactly as in CS-asm-fg (cost on RGB; DP ±1 px; feather ±3 px), producing the layer's grid canvas (sky 2816×1024, far_ruins 2816×1792, forest_valley 4096×1792, mist 2816×1792). Record seam stats.\nSTEP 2 — alpha: sky fully opaque. far_ruins and forest_valley: alpha from the clamp matte (#00ff00 above their silhouettes → transparent). mist: painted as light on black → alpha = max(R,G,B) (0–255), RGB = RGB·255/alpha where alpha > 0 (clip), alpha multiplied by 0.85 overall.\nSTEP 3 — scale each layer uniformly (LANCZOS) to COVER its required size, anchored top-left (crop any excess at right/bottom): sky 2335×1442, far_ruins 2784×1834, forest_valley 3476×2438, mist 4340×3192. Report each scale.\nSTEP 4 — write out/layers/sky.png, out/layers/far_ruins.png, out/layers/forest_valley.png, out/layers/mist.png (RGBA), out/layers_stack_preview.png (all four stacked back to front at their top-left over black, downscaled to 1280 px wide), out/checks.json (seam stats per layer, scales, alpha coverage per layer), out/summary.txt ≤ 10 lines. No image_gen. No writes outside out/. No web. calls_used 0. Deliver within 14 minutes.\nRETURN: receipt task_id \"CS-asm-layers\"; images []; files: every out/ file with sha256; status; concerns. Never PASS/FAIL.",
+ "references": [],
+ "image_cap": 0,
+ "minutes_cap": 15,
+ "tool_call_cap": 20,
+ "outputs": [
+  "out/layers/sky.png",
+  "out/checks.json"
+ ],
+ "effort": "high",
+ "add_dirs": [],
+ "experiment": "C3-cliffside-v3"
+}

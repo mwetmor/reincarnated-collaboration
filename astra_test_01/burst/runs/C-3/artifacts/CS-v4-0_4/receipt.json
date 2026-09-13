@@ -1,0 +1,37 @@
+{
+  "task_id": "CS-v4-0_4",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "chunk_0_4",
+      "path": "out/chunk_0_4.png",
+      "sha256": "15063347b88d541570366d2db5c36e5b0829e3d29222f1dfc7bb282485a726a6",
+      "prompt": "Use case: sketch-to-render. EDIT IMAGE 1, the 1536x1024 terrain canvas. IMAGE 2 is ONLY the approved painting style reference, not a composition reference. Deliver one 1536x1024 PNG. Preserve the existing finished painted TOP 256 ROWS of IMAGE 1 exactly as they are, including all stones, dirt marks and flowers. Replace only the flat guide colors below with seamless continuation of the finished painting. The tan region is worn ochre packed dirt, continuing the road above with the same diagonal wear, small stones and restrained texture. The olive region is continuous grassy rocky cliff-top ground: short grass, moss, tiny white and yellow flowers, occasional small bare rock patches; NO boulders or props. The tan/olive boundary must remain at exactly its existing location and shape, with local ragged soft natural transitions of dirt, grass tufts and pebbles instead of an outline. In this particular canvas the entire lower portion is ground, not a cliff face. Do not introduce cliffs, bridges or void absent from IMAGE 1. Preserve any pure #00ff00 pixels exactly if present. No straight horizontal line, seam or texture break may remain at y=256: continue the painted strip seamlessly with identical colors, material scale, texture and lighting. Orthographic elevated three-quarter view, no perspective shrinking toward the top. Warm sunset key from screen upper-left, cool violet shadows. HAND-DRAWN painted 2D: confident hand-drawn tapered dark contours with varied weight, painted fills in clean planes, restrained surface texture, readable small forms, environmental richness; bold jewel tones and graphic shadows matching IMAGE 2 and the finished strip exactly. No conspicuous grain. No characters, creatures, text, UI, border or vignette. Keep framing, terrain geometry and all finished source pixels fixed. Do not copy IMAGE 2's cliff layout or green corners.",
+      "references": [
+        {
+          "role": "edit target: painted strip and geometry guide",
+          "path": "in/01_chunk_0_4_edit_canvas.png"
+        },
+        {
+          "role": "approved level painting style",
+          "path": "in/02_chunk_A.png"
+        }
+      ],
+      "elapsed_s": 43.999
+    }
+  ],
+  "calls_used": 1,
+  "retries": [],
+  "self_report": {
+    "obeyed_invariants": true,
+    "concerns": [
+      "Visual inspection found no obvious horizontal join; exact preservation of painted-strip pixels and guide boundaries remains unverified."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/chunk_0_4.png",
+      "sha256": "15063347b88d541570366d2db5c36e5b0829e3d29222f1dfc7bb282485a726a6"
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "task_id": "CS-v4-1_2",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "chunk_1_2",
+      "path": "out/chunk_1_2.png",
+      "sha256": "041093ba70ebc7d54468c3d96d6c4a40539044cb560e24c9055730e77d4054c5",
+      "prompt": "Use case: precise-object-edit. Edit IMAGE 1 in place by outpainting ONLY its flat geometry-guide areas into finished terrain. Deliver ONE 1536x1024 PNG, same framing and geometry. IMAGE 1 is the edit target; IMAGE 2 is solely the approved painted style reference, never its composition.\nLOCKED PIXELS: IMAGE 1's TOP 256 rows and LEFT 256 columns including their corner contain finished neighbour painting and must stay exactly unchanged. All pure #00ff00 void pixels must stay exactly unchanged and flat pure #00ff00. Preserve every guide boundary at its existing coordinates. No cropping, moving, reshaping, or rescaling.\nReplace TAN with a worn golden packed-dirt path/clearing, continuing the existing painted dirt seamlessly in colour, small stones, scratches, texture and lighting. Replace OLIVE GREEN with cliff-top grassy rocky ground: short grass, moss, small flowers and bare rock patches, no boulders or props. Retain the olive region on the right as ground vegetation in its exact shape. Dirt/grass edges must remain ragged and soft, with tufts and pebbles, never a clean line. Replace LIGHT GREY band at the left rim with continuous rocky verge matching the already painted verge above and below. Grey cliff-face planes, if present, become continuous weathered rock dropping toward the viewer, irregular fluting, buttresses, cracks, darker hazier lower portions, no ledge or bottom edge. Brown bridge elements, if present, remain wood; magenta plank, if present, becomes cracked loose wood. Do not invent absent structures.\nSeamless continuation from finished strips: no straight join at x=256 or y=256, no change of material, palette, density or scale at the joins. Connect each interrupted stone, grass patch and dirt stroke naturally. Orthographic elevated three-quarter view, no perspective shrinking toward the top. Warm SUNSET key from SCREEN UPPER-LEFT and cool violet shadows, matching both images' existing painting.\nHAND-DRAWN painted 2D action-game environment: confident hand-drawn tapered dark contours with varying weight, painted fills in clean planes, restrained texture, rich jewel tones and graphic shadows, readable shapes and clean materials, no conspicuous brush grain. Match IMAGE 2 exactly in painting style, and match IMAGE 1 finished strips exactly in local continuity. No characters, creatures, text, UI, border, vignette, or new props. Preserve finished strips and all green void exactly; change only flat guide areas.\nGEOMETRY CORRECTION FOR RETRY: The previous attempt widened the right grassy region into the tan path. Start again from IMAGE 1, not from the previous output. Trace the original colour-region shapes exactly. At the RIGHT edge, tan dirt extends down to y approximately 390; the olive grass begins there, never at y=256. The grass/dirt boundary then runs through approximately (1490,470), (1395,635), (1385,700), (1305,755), (1315,810), (1255,890), (1260,940), (1290,1010). All area LEFT of this exact irregular boundary remains DIRT, not grass. The left grey rim silhouette must also match IMAGE 1 precisely, including its narrow notch near (277,455). Keep grass inside the guide's olive shapes, allowing only fine soft edge tufts. Do not introduce new large rock outcrops on the right. Preserve the top and left 256-pixel strips literally unchanged.",
+      "references": [
+        {
+          "role": "edit target: painted strips and geometry guide",
+          "path": "in/01_chunk_1_2_edit_canvas.png"
+        },
+        {
+          "role": "approved painted style reference",
+          "path": "in/02_chunk_A.png"
+        }
+      ],
+      "elapsed_s": 25.713
+    }
+  ],
+  "calls_used": 2,
+  "retries": [
+    {
+      "reason": "First output moved the right grass boundary upward and widened it.",
+      "change": "Retried from the original canvas with explicit boundary coordinates and reinforced strip preservation."
+    }
+  ],
+  "self_report": {
+    "obeyed_invariants": false,
+    "concerns": [
+      "Retry still visibly approximates guide boundaries, including the right grass edge and left rim notch.",
+      "Exact pixel preservation of painted strips and pure-green void was not verified."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/chunk_1_2.png",
+      "sha256": "041093ba70ebc7d54468c3d96d6c4a40539044cb560e24c9055730e77d4054c5"
+    }
+  ]
+}

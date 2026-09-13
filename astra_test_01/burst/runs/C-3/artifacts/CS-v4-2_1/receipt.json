@@ -1,0 +1,43 @@
+{
+  "task_id": "CS-v4-2_1",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "chunk_2_1",
+      "path": "out/chunk_2_1.png",
+      "sha256": "a62c4eab53a3cb0d4d615bdf0abca2e3320ec9d45389aa92f4231f7efc743e99",
+      "prompt": "Use case: precise-object-edit. Edit IMAGE 1 in place; IMAGE 2 is supporting style reference only. Deliver one 1536x1024 PNG with exactly the same framing and geometry as IMAGE 1. This is an outpainting completion of a game environment tile, not a new composition.\nLOCKED PIXELS: the TOP 256 rows and LEFT 256 columns, including their corner, already contain finished neighbour artwork. Preserve those strips exactly as supplied. All pure #00ff00 pixels throughout IMAGE 1 are locked empty void: preserve them exactly, perfectly flat #00ff00. Do not shift any silhouette or guide boundary, crop, resize, add scenery into green, or repaint finished artwork.\nPaint ONLY the remaining flat geometry guide areas, continuing the existing artwork seamlessly across x=256 and y=256. No straight seam or change of material, texture, colour, lighting or detail at these joins. OLIVE GREEN means grassy rocky cliff top: short grass, moss, small flowers, bare rock patches, no boulders or props. TAN means worn packed dirt path and clearing inside grass: ragged soft edges with dirt breaking into grass tufts and pebbles, never a clean line. LIGHT GREY band means rocky rim verge. GREY planes with lighter ribs mean continuous natural cliff faces descending toward the viewer: weathered rock with irregular fluting, buttresses, cracks and strata; paint them all the way down to their existing green boundary, subtly darker and hazier below, without any ledge or drawn bottom edge. BROWN planks and posts mean wooden bridge deck: continue the exact existing bridge width, plank boundaries, post positions and wood palette from the top strip. MAGENTA plank means one cracked, loose wooden bridge plank, replace its magenta fill with appropriate wood within the same boundary.\nOrthographic elevated three-quarter view, no perspective shrinking toward top. A person would stand 130 px tall; do not add a person. Warm sunset key from SCREEN UPPER-LEFT and cool violet shadows, matching supplied painted strips and IMAGE 2 exactly. HAND-DRAWN painted 2D animation-frame register: confident hand-drawn dark contours with taper and varying weight, painted fills in clean planes, restrained texture, bold jewel tones and graphic readable shadows, environmental richness, no conspicuous brush or pixel grain. No characters, creatures, text, UI, border, vignette or additional props. Preserve all existing void boundaries and all finished-strip pixels exactly.\nRETRY — previous attempt painted grass blades into locked green along the upper-left cliff tip and moved that tip. Correct this boundary drift. Use the ORIGINAL IMAGE 1 as the edit canvas again. Treat every green pixel as a hard protected mask: all vegetation and rock detail must remain INSIDE the existing non-green silhouette, including the cliff tip near (357,336); no grass blade, flower, rock or antialias fringe may extend into the green. Match the original outline point for point. The 256-pixel finished top and left strips must remain pixel-identical. Keep the central loose plank's original outlined footprint and visibly crack its wood surface. Complete textures only within existing guide regions. Output remains exactly 1536x1024.",
+      "references": [
+        {
+          "role": "edit target: painted strips and geometry guide",
+          "path": "in/01_chunk_2_1_edit_canvas.png"
+        },
+        {
+          "role": "approved level style reference",
+          "path": "in/02_chunk_A.png"
+        }
+      ],
+      "elapsed_s": 26.891
+    }
+  ],
+  "calls_used": 2,
+  "retries": [
+    {
+      "reason": "First output extended grass into green void and shifted the upper-left cliff tip.",
+      "change": "Repeated the edit from the original canvas with reinforced point-for-point silhouette and protected-green constraints."
+    }
+  ],
+  "self_report": {
+    "obeyed_invariants": false,
+    "concerns": [
+      "Retry improves the cliff silhouette, but bridge plank divisions and post outlines show visible geometry drift.",
+      "Exact pixel preservation of finished strips and pure-green regions was not verified; inspection was visual only."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/chunk_2_1.png",
+      "sha256": "a62c4eab53a3cb0d4d615bdf0abca2e3320ec9d45389aa92f4231f7efc743e99"
+    }
+  ]
+}

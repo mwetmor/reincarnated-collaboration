@@ -1,0 +1,44 @@
+{
+  "task_id": "CS-v3-0_3",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "chunk_0_3.png",
+      "path": "out/chunk_0_3.png",
+      "sha256": "fc46b5632dbd83ecc77bbc13f83eceb562940544ec872f9800ed6d7cac4e1f20",
+      "prompt": "Use case: sketch-to-render. EDIT IMAGE 1 as a locked 1536×1024 outpainting canvas. IMAGE 1 is the edit target: existing finished terrain in the TOP 256 ROWS and existing painted corner pixels are immutable. IMAGE 2 is STYLE REFERENCE ONLY, never a composition reference. Deliver one 1536×1024 image.\nReplace only flat geometry-guide colors in IMAGE 1 with finished painting that seamlessly continues the existing painted terrain. TAN = packed golden dirt cliff-top path, with restrained painted ruts, scattered small stones and cracks. LIGHT GREY = rocky grassy verge along the rim; fill its entire footprint with natural stone and grass consistent with the existing strip. DARK GREY/BROWN faces and dark blocks at lower right = continuous vertical rock cliff and boulder outcrops; retain their exact silhouettes and plane boundaries, paint fissures and strata with cool violet shadows. Rock continues down beyond the image, slightly hazier and darker at its lowest part, without a bottom ledge. If any brown deck planks or magenta loose plank occur, paint wood and the loose cracked plank respectively; do not invent a bridge where absent.\nABSOLUTE INVARIANTS: Preserve every already-painted pixel in the top 256 rows and painted corner exactly. Preserve every pure green pixel at its original coordinates, flat #00ff00. Keep every guide boundary exactly in place. The broad green upper-left void and its curved diagonal boundary must remain unchanged. Keep the tan path footprint and grey verge footprint exactly as shown, including the diagonal interior boundary extending from around (415,517) toward the bottom near (800,1024). Do not shift, redesign, crop, zoom or reinterpret this geometry. Paint seamlessly up to existing strips, with no horizontal join at y=256 and no residual flat guide areas.\nOrthographic elevated three-quarter view, no perspective shrinking toward the top. Match IMAGE 2's painting exactly: HAND-DRAWN painted 2D, confident tapered dark hand-drawn contours with varied weight, clean painted material planes, restrained texture, warm golden earth, grey-violet stone, yellow-green grass and small flowers, graphic cool violet shadows and rich jewel colors. Warm SUNSET key from SCREEN UPPER-LEFT. Same texture scale, stones, grass, strata and light as the immutable strip. No conspicuous grain. No characters, creatures, text, UI, border or vignette. Preserve the full 1536×1024 canvas and its green void.\nRETRY CORRECTION: The previous attempt incorrectly filled the lower-left LIGHT GREY region with dirt and expanded the lower-right cliff. Follow IMAGE 1's geometry literally. The tan dirt is ONLY the polygon on the right: its leftmost point is (415,517), and its lower-left edge runs diagonally to approximately (800,1024). ALL land to the LEFT of that diagonal is LIGHT GREY guide and must become a broad ROCKY GRASSY VERGE, NOT a continuation of the dirt road. The grey area is very wide in the lower-left quadrant: fill it with natural grey stones, grasses and low vegetation, keeping the straight diagonal dirt/verge boundary exactly. The vertical cliff/boulder mass is ONLY the existing dark block footprint at the lower right, starting around (1149,842), with the jagged upper boundary passing through (1324,754), (1351,788), (1476,721) and the right edge; do not grow this cliff into a long diagonal front rim. Any remaining light grey guide, including its right edge wedge, is rocky grassy verge. The STYLE image must supply brushwork and colors ONLY. It must not supply its road layout or cliff layout. Preserve the original top 256 rows and green exactly.",
+      "references": [
+        {
+          "role": "edit target — painted strips and geometry guide",
+          "path": "in/01_chunk_0_3_edit_canvas.png"
+        },
+        {
+          "role": "approved level style reference",
+          "path": "in/02_chunk_A.png"
+        }
+      ],
+      "elapsed_s": 29.96
+    }
+  ],
+  "calls_used": 2,
+  "retries": [
+    {
+      "reason": "First output replaced the broad lower-left verge with dirt and expanded the cliff beyond its guide footprint.",
+      "change": "Repeated edit from original references with explicit coordinate constraints for the dirt/verge boundary and lower-right cliff."
+    }
+  ],
+  "self_report": {
+    "obeyed_invariants": false,
+    "concerns": [
+      "Retry improves geometry, but vegetation and rock contours still deviate from exact guide boundaries.",
+      "Pixel-exact preservation of painted strips and pure green was not verified.",
+      "Delivered dimensions verified as 1536×1024; retry allowance exhausted."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/chunk_0_3.png",
+      "sha256": "fc46b5632dbd83ecc77bbc13f83eceb562940544ec872f9800ed6d7cac4e1f20"
+    }
+  ]
+}

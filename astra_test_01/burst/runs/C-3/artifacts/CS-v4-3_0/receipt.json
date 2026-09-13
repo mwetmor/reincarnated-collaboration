@@ -1,0 +1,37 @@
+{
+  "task_id": "CS-v4-3_0",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "chunk_3_0.png",
+      "path": "out/chunk_3_0.png",
+      "sha256": "f318cb0a478fd0d7ab7dc98af96b02a2b6b7138a10898c26aab68ac2e34ae0de",
+      "prompt": "Use case: precise-object-edit. EDIT IMAGE 1, the 1536x1024 terrain canvas, and output ONE image at exactly 1536x1024. IMAGE 2 is supporting STYLE reference only, never composition. Outpaint the unfinished flat geometry guide in Image 1. Preserve every finished pixel in columns x=0 through 255 exactly unchanged, including the existing rocks, flowers, dirt, bridge fragment and pure green void. Replace only the flat tan and muted olive guide regions to the right with finished painting that continues the left strip seamlessly. No vertical join at x=256: continue matching local textures and colors across it. OLIVE means continuous grassy rocky CLIFF-TOP GROUND: short grass, moss, tiny white/yellow flowers and bare rock patches, no boulders, no props. TAN means worn golden packed-dirt path/clearing, following the exact existing tan footprint, including its irregular right edge and rounded lower end near y=730. Keep each guide boundary in its exact original location, softened locally by ragged grass tufts, pebbles and dirt breakup. The entire large olive area on the right and bottom is ground, not void and not a cliff face. Do not add cliff faces or bridge structures where none are drawn. Existing natural cliff pixels on the far left remain unchanged. All existing vivid pure #00ff00 void pixels at upper left must remain flat pure #00ff00 with exactly unchanged outline. Orthographic elevated three-quarter view, no perspective shrinking toward top. Warm sunset key fixed from screen upper-left, cool violet readable shadows. HAND-DRAWN painted 2D animation environment: confident tapered dark hand-drawn contours of varying weight, clean painted material planes, restrained surface texture, rich jewel colors and graphic shadows, match Image 2 and the painted strip exactly. No conspicuous grain. No characters, creatures, text, UI, border, vignette or additional objects. Lock the original canvas geometry, framing and painted left strip. Finish all flat guide regions.",
+      "references": [
+        {
+          "role": "edit target — painted strip and geometry guide",
+          "path": "in/01_chunk_3_0_edit_canvas.png"
+        },
+        {
+          "role": "approved level style",
+          "path": "in/02_chunk_A.png"
+        }
+      ],
+      "elapsed_s": 32.12
+    }
+  ],
+  "calls_used": 1,
+  "retries": [],
+  "self_report": {
+    "obeyed_invariants": true,
+    "concerns": [
+      "1536×1024 dimensions confirmed. Visual inspection found no obvious join; exact painted-strip, boundary, and pure-green pixel preservation remain unverified."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/chunk_3_0.png",
+      "sha256": "f318cb0a478fd0d7ab7dc98af96b02a2b6b7138a10898c26aab68ac2e34ae0de"
+    }
+  ]
+}

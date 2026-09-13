@@ -1,0 +1,43 @@
+{
+  "task_id": "CS-v3-1_1",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "chunk_1_1.png",
+      "path": "out/chunk_1_1.png",
+      "sha256": "1aeeb34671fdb38bd6374be2865774f96cd699162e521e596ebe271b41c75d99",
+      "prompt": "EDIT IMAGE 1, using IMAGE 2 only as the approved painting style reference. Deliver one 1536x1024 PNG. Use case: style-transfer, game environment chunk outpainting. IMAGE 1 is the exact geometry and pixel-position authority: preserve its framing and every region boundary exactly. Keep every existing pure green #00ff00 pixel unchanged and flat pure #00ff00. Paint only the non-green guide areas. The broad tan region at lower right is packed-dirt cliff-top path; the curved light grey band separating it from the green is a grassy rocky verge. Replace tan with warm ochre packed dirt, restrained cracks, scattered small stones and painted ground texture matching IMAGE 2. Replace grey with rocky verge stones, grasses and sparse tiny yellow/white flowers matching IMAGE 2; all of these details must remain strictly INSIDE the original grey band, never protruding into the green. Preserve the exact smooth outer silhouette from Image 1, including where it meets bottom and right canvas edges. Preserve any already finished painted corner pixels unchanged and continue them seamlessly with no join. Do not import the layout of Image 2 or add a cliff face where Image 1 has none. Orthographic elevated three-quarter view, no perspective shrinking toward top; consistent environmental scale across image. Hand-drawn painted 2D with confident tapered dark contours of varying weight, clean painted material planes, restrained surface texture, jewel tones and graphic shadows, readable shapes, no conspicuous grain. Match IMAGE 2 exactly in colors, stone shapes, grasses, painting detail and light. Warm sunset key fixed from screen upper-left, cool violet readable shadows. No characters, creatures, text, UI, border, vignette, extra objects or new terrain in the green. Priority: exact Image 1 geometry and untouched green, then seamless painting in Image 2 style.\nRETRY CORRECTION: The previous attempt moved the outer boundary and allowed grass blades into green. Treat the green as a locked hard pixel mask, not as a background to redraw. No grass tips, stones, outlines, shadows or antialiasing may cross into ANY originally green pixel. All verge vegetation must be inset within grey. Trace Image 1 exactly: terrain begins at bottom x approximately 432; the grey outer edge curves up to the point (1522,310), then slopes DOWN-RIGHT to (1535,321). Preserve this small upper-right triangular tip exactly; do not extend terrain upward along the right edge. At the bottom, the grey-to-tan boundary is approximately x576. Keep the original grey-to-tan curve as the material boundary, painting within each region. The original flat guide is the edit target; Image 2 supplies only style. Flat green must remain mathematically uniform RGB(0,255,0).",
+      "references": [
+        {
+          "role": "edit target: geometry guide",
+          "path": "in/01_chunk_1_1_edit_canvas.png"
+        },
+        {
+          "role": "approved painted style reference",
+          "path": "in/02_chunk_A.png"
+        }
+      ],
+      "elapsed_s": 26.638
+    }
+  ],
+  "calls_used": 2,
+  "retries": [
+    {
+      "reason": "First output extended grass into green and shifted the upper-right boundary.",
+      "change": "Retried the original canvas with explicit boundary coordinates and stricter clipping instructions."
+    }
+  ],
+  "self_report": {
+    "obeyed_invariants": false,
+    "concerns": [
+      "The described painted 256×256 corner was not visually identifiable in the supplied canvas.",
+      "Retry visually improves boundary preservation; exact pixel equality and pure-green preservation remain unverified."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/chunk_1_1.png",
+      "sha256": "1aeeb34671fdb38bd6374be2865774f96cd699162e521e596ebe271b41c75d99"
+    }
+  ]
+}

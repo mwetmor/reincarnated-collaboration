@@ -1,0 +1,12 @@
+CS-asm-fg-v4 — report only
+Canvas: 5376 x 4096, RGBA, straight alpha.
+Chunks: 17 in manifest paint_order; re-drives: 0.
+Frozen clamp matte; particles preserved; 16px RAM border cropped away.
+Alpha limited to Euclidean 6px mask dilation.
+Seams: 45; mean of path means: 1.470853.
+Worst mean: 4.235352; pair: chunk_1_3 / chunk_2_3.
+DP +/-1; corner selects lower-cost cut; feather +/-3px.
+Paths without jointly opaque samples: 8.
+Depth alpha: full <=8m, linear to zero at 20m; RGB untouched.
+Lowest chunk IoU: 0.981546 (chunk_3_4).
+Image calls: 0; processing elapsed: 13.72s.
