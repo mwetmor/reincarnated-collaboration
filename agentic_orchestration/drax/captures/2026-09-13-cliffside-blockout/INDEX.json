@@ -1,8 +1,7 @@
 {
   "capture": "2026-09-13-cliffside-blockout",
-  "ruling": "R-C3-42 checkpoint 1",
   "author": "drax",
-  "godot_commit": "de4fe2c (reincarnated-godot, unpushed)",
+  "ruling": "R-C3-42 checkpoint 1 + R-C3-44 v2",
   "files": [
     {
       "file": "01_follow_start_k12p5.png",
@@ -17,6 +16,15 @@
       "file": "02_follow_plateau_k12p5.png",
       "bytes": 55808,
       "sha256": "3529e228d50d507869cd1b39a6c76641fb04d97682cf0ba08f17481acf847327",
+      "size_px": [
+        1920,
+        1080
+      ]
+    },
+    {
+      "file": "02_follow_plateau_v2_k12p5.png",
+      "bytes": 53472,
+      "sha256": "0d43611fe4c4e21bbd2c719434a17f9b2fb7607350fca5c18973b789ddfb3a75",
       "size_px": [
         1920,
         1080
@@ -68,9 +76,27 @@
       ]
     },
     {
+      "file": "07_ortho_canvas_shaded_v2.png",
+      "bytes": 378056,
+      "sha256": "5ccb0076d974fa68af7f56d73e9943ca7ea1162e9f2220eaab4fea2dd0861d7f",
+      "size_px": [
+        4977,
+        3980
+      ]
+    },
+    {
       "file": "08_ortho_canvas_layer_id.png",
       "bytes": 197415,
       "sha256": "382fd94c25999b7584edacd4aeb748b36614f0e8ba267f78ce97ef4f748a4a3c",
+      "size_px": [
+        4977,
+        3980
+      ]
+    },
+    {
+      "file": "08_ortho_canvas_layer_id_v2.png",
+      "bytes": 187225,
+      "sha256": "2dd6d85b88e3c20e01e56626abbaf74a883d7eedaaa32e021660ce7dfe1947e2",
       "size_px": [
         4977,
         3980
@@ -123,13 +149,18 @@
     },
     {
       "file": "README.md",
-      "bytes": 10039,
-      "sha256": "b23568daf39a735cd30c4adecfda8191e69bc8426bf84a60bc36ee5b95b78bf4"
+      "bytes": 11183,
+      "sha256": "5bbe7fa2bf873671196f6aaff1428cd7b6f72d1cdfb6dd8e7e17e6ac75d43c81"
     },
     {
       "file": "blockout_meta.json",
       "bytes": 10626,
       "sha256": "3c52abf710ad8c6993cb64a5384e4c808a1051d4334fe1291dac246b52e36fd2"
+    },
+    {
+      "file": "blockout_meta_v2.json",
+      "bytes": 5897,
+      "sha256": "0265a5813cd17fffd20cc2c3fede056d437d5d6ed9f35095d50a760203656e71"
     },
     {
       "file": "composite_record.json",
@@ -152,6 +183,15 @@
       "size_px": [
         1920,
         1080
+      ]
+    },
+    {
+      "file": "work/ortho_canvas_v2_fgmask_cut7m.png",
+      "bytes": 116529,
+      "sha256": "17ed7d9c7a67acf70362dd226dc9cabd7c8813b239f1e92fd28b3e2da9dc6a7e",
+      "size_px": [
+        4977,
+        3980
       ]
     },
     {

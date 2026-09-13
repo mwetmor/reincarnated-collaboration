@@ -120,3 +120,16 @@ Both images are aligned so the plateau ground point sits at (962, 595). They agr
 - **The background is only a small corner of the frame.** At 12.5 % the upper-left corner beyond the cliff is roughly a quarter of the frame at the plateau, and less at the start. The four bands squeeze into about 10° of view angle.
 - **Godot crashed once on exit (signal 11)** after all files were written, on the first run only. The later runs exited cleanly, and no output was affected.
 - **The perspective ID pass has soft edges** from MSAA (colours blend at class boundaries). Classes can be recovered by nearest colour.
+
+## v2: plateau re-route (R-C3-44)
+
+Matt accepted the 12.5 % rung. I then rebuilt the vista plateau as a promontory that juts toward the camera, so its 40 m face is visible below the rim. To give it empty space in front, the near-side landmass is cut back to a rim over s = 6.9–29.9 m. The run is `cliffside_blockout.gd --v2`. It reuses the accepted k = 0.541386 and the 100.6176 px/m scale as constants rather than solving them again. All v1 files above are unchanged.
+
+| File | What it is |
+|---|---|
+| `02_follow_plateau_v2_k12p5.png` | Follow camera on the plateau spawn point. Anchor (962.0, 595.0); capsule still measures 135.0 px |
+| `07_ortho_canvas_shaded_v2.png`, `08_ortho_canvas_layer_id_v2.png` | Ortho foreground canvas, 4977×3980 px (same size and origin as v1) |
+| `work/ortho_canvas_v2_fgmask_cut7m.png` | Foreground mask: fragments below −7 m are dropped, anti-aliasing off. This is the source of the chunk masks |
+| `blockout_meta_v2.json` | v2 numbers plus key points in canvas px (rim and 7 m cut corners, spawn point, path centres) |
+
+The chunk guides built from this canvas are in `../2026-09-13-cliffside-chunks/`.
