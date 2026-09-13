@@ -16,3 +16,7 @@
 - P5: GENERATE wave running (`p5gen.log`): K1p-sig-01 (glyph A/B) + K4v-gen-* (7 frost sheets). Next: `mk_p5_b.py glyphjudge` → K1p-sig-jdg (control = image 2) → `mk_p5_b.py adv <A|B>` → K1p-adv-01 → `mk_p5_b.py advjudge` (control = image 3) → paint-over sheets (idle-S C-2 exemplar 4×4; walk-E from C-3's own P4 cut) → CHECK (slice + mask_composite gear layer + G12) → PACK. VFX: CHECK slice sheets → vfx_lifecycle/element_hue/pse → composite_socket on P4c-S-cast frames → PACK.
 - P6: godot_import over all cells (+ advanced variant + VFX) → headless proof by CONDUCTOR outside sandbox; viewer_wheel; matrix.html. P7: close (Desktop packets 20+, handoff STATE REFRESH, game tracker delta, conductor scripts preserved, push).
 - Suite: 299 run; standing reds = 4 T0-d3 motif + test_synthetic_contract_and_grid + Godot headless (in-sandbox only).
+
+## CLOSE (2026-09-13, after P6) — Run C-3 EXITED verdict-ready (R-C3-21, M-C3-EXIT)
+- Later rulings: R-C3-14 glyph A (gated) · R-C3-15 adv_2 + paint-over inputs · R-C3-16 staff-tip socket defect → explicit sockets (F-C3-4) · R-C3-17 one-shot explicit key poses (F-C3-5); NW jump/cast incomplete · R-C3-18 head-down dispositions · R-C3-19 gear layer / VFX results · R-C3-20 P4 closed 38/2 + cast composite · R-C3-21 exit predicate evaluated.
+- Front door `runs/C-3/matrix.html`; Godot `runs/C-3/godot/`; viewer `runs/C-3/viewer/`; scripts `runs/C-3/conductor_scripts/`. Open: H-C3-1 (Grok), Q78 (a–e), jack-ryan Gate-2.

@@ -1,0 +1,24 @@
+{
+  "task_id": "P6c-numbers",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [],
+  "calls_used": 0,
+  "retries": [],
+  "self_report": {
+    "obeyed_invariants": true,
+    "concerns": [
+      "G6c for run uses the frozen function's walk mode to compute the requested half-cycle ratio; documented in both reports.",
+      "Measured 38 cells and 400 frames; preserved missing.json entries for jump_NW and cast_NW."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/numbers.json",
+      "sha256": "d8b471b1bfcf23d3c2f524d734d3c9432f68cbf3719db48497dba3335e958547"
+    },
+    {
+      "path": "out/numbers.csv",
+      "sha256": "c7389d9909733623064f7972ab0a8954bbe0e03a7aed30e909d0af1fda90137b"
+    }
+  ]
+}

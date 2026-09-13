@@ -13599,6 +13599,540 @@
       "codex_version": "codex-cli 0.153.4",
       "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
       "exit": 0
+    },
+    {
+      "id": "P6p-godot",
+      "type": "PACK",
+      "experiment": "C3-P6",
+      "brief_sha256": "acb4d6432ed2a39e6bc5d3a58535ac05a33f18179691ca892b6666737688b146",
+      "started": "2026-09-13T08:20:37.900998+00:00",
+      "ended": "2026-09-13T08:21:40.855927+00:00",
+      "minutes": 1.0492435284667105,
+      "image_calls": 0,
+      "tool_calls": 5,
+      "audit": {
+        "violations": [],
+        "image_calls": 0,
+        "tool_calls": 5,
+        "tools_seen": {
+          "command_execution": 4,
+          "file_change": 1
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": []
+      },
+      "receipt_sha256": "4ca82a3babb71b090c8298a0a6201c56b9feeba973b8c8356ea1396ba701429a",
+      "artifacts": [
+        {
+          "name": "exporters.json",
+          "sha256": "ee11a9522bfa1b90c300c16b4790a76d45dec33cd98b24bb51b8010c1e251a53"
+        },
+        {
+          "name": "godot/README.md",
+          "sha256": "0859d0a7b134f2b8c2eaaf107147d7be9b28bc2e6cf463b59be5b76876069198"
+        },
+        {
+          "name": "godot/frames/keeper.tres",
+          "sha256": "3052034ae66f5c93cd680e0b480a6b2f12ce0b777d5c5e7fe895361a56941783"
+        },
+        {
+          "name": "godot/frames/keeper_advanced.tres",
+          "sha256": "6ce134ddd9f5ccdcca4c3ad75b0eb5fa88d75b95cc66d901ca20a10ad757d33d"
+        },
+        {
+          "name": "godot/project.godot",
+          "sha256": "60d6e568fe5a68a58f535411a5a75550a45b60d2dd1ba38498816f55a085c29b"
+        },
+        {
+          "name": "godot/scenes/main.tscn",
+          "sha256": "a7ff2b1ba99ca306dacd7fbee1556fbfbed54d72cc8e3c01ab72e1aba58b874d"
+        },
+        {
+          "name": "godot/scripts/keeper.gd",
+          "sha256": "89e9e64440aa00541acf90980852293abb81e345295f6d9bd9d771f7d3b67399"
+        },
+        {
+          "name": "godot/vfx/frost_bolt.tres",
+          "sha256": "84717be6000bece9af3ffe998179cd6a4275574542a0d6b4b4c38b79dc1a159c"
+        },
+        {
+          "name": "viewer/index.html",
+          "sha256": "7606a80794224b1829106cd7e1f06a1fb41094a21f6c42dd12166e51ede3325c"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
+    },
+    {
+      "id": "P6c-numbers",
+      "type": "CHECK",
+      "experiment": "C3-P6",
+      "brief_sha256": "ee049f82049c640a28f8be6352dfd1da3b8a08ee5e035407902e2b54d142709d",
+      "started": "2026-09-13T08:20:37.900999+00:00",
+      "ended": "2026-09-13T08:23:09.512566+00:00",
+      "minutes": 2.5268506437500036,
+      "image_calls": 0,
+      "tool_calls": 5,
+      "audit": {
+        "violations": [],
+        "image_calls": 0,
+        "tool_calls": 5,
+        "tools_seen": {
+          "command_execution": 5
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": []
+      },
+      "receipt_sha256": "f51f97c75c159f6603e4ea53555d1aa7a8d5013d126f986ee6f5ca321658c5e5",
+      "artifacts": [
+        {
+          "name": "numbers.csv",
+          "sha256": "c7389d9909733623064f7972ab0a8954bbe0e03a7aed30e909d0af1fda90137b"
+        },
+        {
+          "name": "numbers.json",
+          "sha256": "d8b471b1bfcf23d3c2f524d734d3c9432f68cbf3719db48497dba3335e958547"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
+    },
+    {
+      "id": "P5p-vfx",
+      "type": "PACK",
+      "experiment": "C3-P5",
+      "brief_sha256": "151d4cec633786324af5bf53fcaa386f6afc6154ae34a9b186aa1b45ad3b7200",
+      "started": "2026-09-13T08:24:27.096342+00:00",
+      "ended": "2026-09-13T08:29:03.371897+00:00",
+      "minutes": 4.604578127783437,
+      "image_calls": 0,
+      "tool_calls": 8,
+      "audit": {
+        "violations": [],
+        "image_calls": 0,
+        "tool_calls": 8,
+        "tools_seen": {
+          "command_execution": 8
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": []
+      },
+      "receipt_sha256": "c92caee653588eb53f4a67eb00f06fdbbbc128ab562cf06c4da89f1e96e6ad48",
+      "artifacts": [
+        {
+          "name": "composite_cast_S/composite.mp4",
+          "sha256": "3e341101f8910684d71c76e84857124f7a1bdd28b3a70c7d6c96e38f6f9ccc49"
+        },
+        {
+          "name": "composite_cast_S/frames/composite_00.png",
+          "sha256": "67eba83e64d1b216efff538188b9c83280fe4f2bfa3aedf701875ca53bc66335"
+        },
+        {
+          "name": "composite_cast_S/frames/composite_01.png",
+          "sha256": "2cf74d5d773f8e314ffe52a9c075e2b2f2a9f2ed7fcb852fd6de750156ec79c5"
+        },
+        {
+          "name": "composite_cast_S/frames/composite_02.png",
+          "sha256": "85386bcd5b813e60e9951aa10aba6605277af81780301b4023c44e73fb6356e7"
+        },
+        {
+          "name": "composite_cast_S/frames/composite_03.png",
+          "sha256": "dc5b19ef42ec5fd4b8e695a52f2c04fe9b3e30a151791a95489d790531923e1e"
+        },
+        {
+          "name": "composite_cast_S/frames/composite_04.png",
+          "sha256": "eb583477730778e2911332db8720d9606eeb6ecba19e45e967fb045b0d012d5a"
+        },
+        {
+          "name": "composite_cast_S/frames/composite_05.png",
+          "sha256": "afc7e0397369b4561609e5a65568aa7376e9ffb7f7a373cbdb481e45ae546de3"
+        },
+        {
+          "name": "composite_cast_S/frames/composite_06.png",
+          "sha256": "f19e3af8b428246d3174bd5b361056b7040661e3f5a9f6919c03adfecfe9b943"
+        },
+        {
+          "name": "composite_cast_S/frames/composite_07.png",
+          "sha256": "f83926df95f6f6c87eff05b590999caaa9193b4957b46a8424e5d89bc7e6e8eb"
+        },
+        {
+          "name": "composite_cast_S/sockets.json",
+          "sha256": "4cd86ab788938bf3a3cd3c80294b4c55cb3f16e2efb89c21e5832a060d3d73e1"
+        },
+        {
+          "name": "composite_strip.png",
+          "sha256": "0034fdef52e101f1dece8c60e3edf69a2a0dd4e854a499557e3c479064f96675"
+        },
+        {
+          "name": "reports/K4v-chk-01/checks.json",
+          "sha256": "05a4116ff595fed507270eefbc51f50865e8d311f04482986c17f03c9526aa73"
+        },
+        {
+          "name": "reports/K4v-chk-03-r1/checks.json",
+          "sha256": "c2e8d9ac0436d4961215a44c2c0cc8ea8dcbe8c2c4456fbc8e8203617a86ec4c"
+        },
+        {
+          "name": "review.html",
+          "sha256": "a72fcff5917c962e692cc564757a607e35916ebf69e364969450c4ed30d453a0"
+        },
+        {
+          "name": "sockets_cast_S_x.json",
+          "sha256": "26c3f3ab72b670b2204150b5256698702a0e2cac3d8701c3ac73a701d709cce3"
+        },
+        {
+          "name": "summary.txt",
+          "sha256": "e9746fdd55bf5cd393ffa82779d5b64a636a44774916b7b3094c35f0f3f2ce3d"
+        },
+        {
+          "name": "vfx/frames/cast/cast_00.png",
+          "sha256": "03e8c527322af6571db50c760d3445696a3956e9e6c2eb4b97ed9a9ac78391d9"
+        },
+        {
+          "name": "vfx/frames/cast/cast_01.png",
+          "sha256": "c7fb48d5b12e1bcc603fd8e19bd3a97b4fe69b9d3e95a39609f8898175fb8de6"
+        },
+        {
+          "name": "vfx/frames/cast/cast_02.png",
+          "sha256": "ce310433f66011eb87f233d3b5d57522a86a400d222477affec8f97de7c0a61f"
+        },
+        {
+          "name": "vfx/frames/cast/cast_03.png",
+          "sha256": "f06f58ee7a826cc58be4f2e9f7deb4f3d2d516e98d2a07eb092e9c13d5bb8058"
+        },
+        {
+          "name": "vfx/frames/cast/cast_04.png",
+          "sha256": "38163831f157eb306542f70d100d15f465618a4aaeb73967c7011854f3080ab2"
+        },
+        {
+          "name": "vfx/frames/cast/cast_05.png",
+          "sha256": "803ed3c753a00bd984e2b90831cd207e871decc17b191c72b5c2a6448b98db1d"
+        },
+        {
+          "name": "vfx/frames/cast/cast_06.png",
+          "sha256": "3b5cbc8d3b6d1c16865ce7b00121ad0d552535e3d2be2d3c336d4603362ea66e"
+        },
+        {
+          "name": "vfx/frames/cast/cast_07.png",
+          "sha256": "b9387442b98ac8902b79e155513eba6520f959282442210df0275a9bf8fb009c"
+        },
+        {
+          "name": "vfx/frames/impact/impact_00.png",
+          "sha256": "f67471cb21176bd1264b1891b758fc8516899699cb5d188f4e89eeb711bf4216"
+        },
+        {
+          "name": "vfx/frames/impact/impact_01.png",
+          "sha256": "7e9105ee92646e54116f12d47b3631393a355819e9b46ec717bdbab230cf33a9"
+        },
+        {
+          "name": "vfx/frames/impact/impact_02.png",
+          "sha256": "d84b564242f3480ca026b63a3c3efb8bde9c91e9a9885a881688bb1a96fc8d90"
+        },
+        {
+          "name": "vfx/frames/impact/impact_03.png",
+          "sha256": "7f67fa97a3c63ed092656b3888cd97efd46015fb0dc7a0f20bbd6b7d0ffd8ab6"
+        },
+        {
+          "name": "vfx/frames/impact/impact_04.png",
+          "sha256": "cc445698bccc7625c3b44e3d690bc41e364fe33684e8984a2b52ec40e54a40a0"
+        },
+        {
+          "name": "vfx/frames/impact/impact_05.png",
+          "sha256": "40a4614b4cee1e2ce76946f7a5ac2765cdc7fd9ae8368aa26e6859cdddcb5654"
+        },
+        {
+          "name": "vfx/frames/impact/impact_06.png",
+          "sha256": "9b782760ed812aa4b6f3a06c741caf88d50e27a50721581433e91adf7dde339f"
+        },
+        {
+          "name": "vfx/frames/impact/impact_07.png",
+          "sha256": "f1f111f3255714e207a6471888a49ba90dbc4e4a12ce593a3d5592b5600e2919"
+        },
+        {
+          "name": "vfx/frames/impact/impact_08.png",
+          "sha256": "7a028748e26d09e4c358f8fb68140ab6ceb4101b3d767a47a1dd960c7ed7611a"
+        },
+        {
+          "name": "vfx/frames/impact/impact_09.png",
+          "sha256": "0d99d12a3a3b1143cec69c04cd25d5da46a3e3139dc5588e6fdd36137bd6888e"
+        },
+        {
+          "name": "vfx/frames/travel/travel_00.png",
+          "sha256": "81c17ab14b4b36afbea3c6313ac579c62dd360bf3cdb933d4d3b14f515318e42"
+        },
+        {
+          "name": "vfx/frames/travel/travel_01.png",
+          "sha256": "86b6fdfccc03ae2b6a8a1055d820caef92ecebd8338ecc01e34eda6e33610d38"
+        },
+        {
+          "name": "vfx/frames/travel/travel_02.png",
+          "sha256": "eb978eae0f479d0105549ebce25575459d7f48c4c4a9ac35ebcea03c69ecd9df"
+        },
+        {
+          "name": "vfx/frames/travel/travel_03.png",
+          "sha256": "80881672133142d1f424671b9da921fd6c040cd090a99d4cd716d2b8e2abf09f"
+        },
+        {
+          "name": "vfx/frames/travel/travel_04.png",
+          "sha256": "72ad1b1466e85e80e4061c41400589d32796bac5d6ceb2685ee87824f7fb5a44"
+        },
+        {
+          "name": "vfx/frames/travel/travel_05.png",
+          "sha256": "f687722e7bd7853620866d9b592f1fc5f66c4d50184de00c6e08f6daa22afc9a"
+        },
+        {
+          "name": "vfx/impact_20fps.mp4",
+          "sha256": "32835b18444a3a9f82498e3e43eb213390d8d97a8ffaef01a5762ae3187bd995"
+        },
+        {
+          "name": "vfx/travel_12fps.mp4",
+          "sha256": "9bd17ce7b48e8a1be3cce1cbcedfedcea39e38ee94c18a7dff04e82719de6601"
+        },
+        {
+          "name": "vfx_sheet_review.png",
+          "sha256": "3921ee9b98dbeea11be2ce125a854b70d256f1f55e972de6bc83511fdfbd23ba"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
+    },
+    {
+      "id": "P6p-matrix",
+      "type": "PACK",
+      "experiment": "C3-P6",
+      "brief_sha256": "73ce8cb78f2682fff69227330e0e1ad35231183ac8b4814593383e83275b07f1",
+      "started": "2026-09-13T08:29:05.763134+00:00",
+      "ended": "2026-09-13T08:33:37.689089+00:00",
+      "minutes": 4.532085413883396,
+      "image_calls": 0,
+      "tool_calls": 13,
+      "audit": {
+        "violations": [],
+        "image_calls": 0,
+        "tool_calls": 13,
+        "tools_seen": {
+          "command_execution": 12,
+          "file_change": 1
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": []
+      },
+      "receipt_sha256": "69c3a52b9c0bf037dd2ffdeb3f84cf4ca12001ff10fc9e0768fc90cbecdd5326",
+      "artifacts": [
+        {
+          "name": "matrix.html",
+          "sha256": "99f426b71431b9e42c68a112e42d4acb6399be02a276bb6e7a9bc90905e6025c"
+        },
+        {
+          "name": "summary.txt",
+          "sha256": "a31757f12eb0333521af9ac6a4ae847c69467b7247bf200b175306ca07e9dc76"
+        },
+        {
+          "name": "thumbs/cast_E.png",
+          "sha256": "cb3b4b9327acbd1ddc20e4092111b7b47ce5316c7db1d6c8588d6f0492b1f612"
+        },
+        {
+          "name": "thumbs/cast_N.png",
+          "sha256": "92838f6a3e67363200fe4b59c139afa0df707a79706eeb7cb216a65becee23d8"
+        },
+        {
+          "name": "thumbs/cast_NE.png",
+          "sha256": "c60a92bb5a001d11eae9fc19bb59158c79b249861c3673aff0eadedbb6b1e6e3"
+        },
+        {
+          "name": "thumbs/cast_S.png",
+          "sha256": "160cc9c168220767a18cf15de0256edd5d8364e8da1dce962e616f9cb2b6f7cc"
+        },
+        {
+          "name": "thumbs/cast_SE.png",
+          "sha256": "53b7e745eecd18d286fa25f386446397d758a2b59517e49d8b5e21d6f15a5283"
+        },
+        {
+          "name": "thumbs/cast_SW.png",
+          "sha256": "345c8d288836c977638e99cb174d99760645d6e8bc272af32e642df320cd4b23"
+        },
+        {
+          "name": "thumbs/cast_W.png",
+          "sha256": "d1ecb2a2c8e62e7d578f73e27ae962655776209cc411684cd618489b63d5c8b2"
+        },
+        {
+          "name": "thumbs/idle_E.png",
+          "sha256": "41a63794a92daff5cadc06cb315d337cc19d144a3937e36ab5287a243767f94b"
+        },
+        {
+          "name": "thumbs/idle_N.png",
+          "sha256": "df1df60ed24d4bd6b078844e14847149166cc303833ac396e37a1dac156d5d92"
+        },
+        {
+          "name": "thumbs/idle_NE.png",
+          "sha256": "cd1f4b0c6fb4ed2527defaf0709ceb8636853fe9d491ca917bc3396628ff4ef5"
+        },
+        {
+          "name": "thumbs/idle_NW.png",
+          "sha256": "e0617fddc7c687319d746132a7e1228170b1b1dc1d70f27204b2cbadbe016825"
+        },
+        {
+          "name": "thumbs/idle_S.png",
+          "sha256": "53a49a0d6dd1e341ea2a83b3c862f0a1a97324b44d077c8e3c4dd765a3df78cb"
+        },
+        {
+          "name": "thumbs/idle_SE.png",
+          "sha256": "e3851f3cdd3d31a44088b41a9850cae791d5ef2eb8330bef0969784b1e642d76"
+        },
+        {
+          "name": "thumbs/idle_SW.png",
+          "sha256": "993f712248b011cde95c41fd1e408c48c59a9e3cdb7144db47457b73a93969d2"
+        },
+        {
+          "name": "thumbs/idle_W.png",
+          "sha256": "7b8bde9611e9beaf9508bc7a7ca430e5d59ca4a1636cb30a475c8c5198da8206"
+        },
+        {
+          "name": "thumbs/jump_E.png",
+          "sha256": "eac2a3b266037d2a4a48e7c8c6b760f28394f0e12bfe54359461eccdb19bb072"
+        },
+        {
+          "name": "thumbs/jump_N.png",
+          "sha256": "4d2b560b43b082d437da9bd053cea6c17370a68d40bb6fa99db77b6d80beb568"
+        },
+        {
+          "name": "thumbs/jump_NE.png",
+          "sha256": "727305d220fb335ff45c221a7000aaf069c448fea601bfa45620253853b5d546"
+        },
+        {
+          "name": "thumbs/jump_S.png",
+          "sha256": "39a35e1b604543058eb11776b2f1807248a27d031fbada67668c534ef7049181"
+        },
+        {
+          "name": "thumbs/jump_SE.png",
+          "sha256": "ddbac5f544753fd9d5da2408f6591f58a106c3351433e0f27dea12fa6f027d1d"
+        },
+        {
+          "name": "thumbs/jump_SW.png",
+          "sha256": "60f75643a6636ba449b171cc6bc9b3c06f7afc234c3d9a7f8d5c0ad600e8da5b"
+        },
+        {
+          "name": "thumbs/jump_W.png",
+          "sha256": "07d2d8c0f219f50f6f9f2d5ef0a78112abe722f82eab8804e43a8114e2f9eedb"
+        },
+        {
+          "name": "thumbs/run_E.png",
+          "sha256": "28b52ed55ff373cdb1ed7fb741629edd362dcc7041d1e9a839a152b458d91dfb"
+        },
+        {
+          "name": "thumbs/run_N.png",
+          "sha256": "6bc69720c805f84b0b13de5a13efd9d5268f66b5e3311163d2e521fdad63ee43"
+        },
+        {
+          "name": "thumbs/run_NE.png",
+          "sha256": "5efbf0a653b0cc7e6a28b4653cc12161956a73554d7561503b78a54cd9ffbcab"
+        },
+        {
+          "name": "thumbs/run_NW.png",
+          "sha256": "6a1647e83b9749823f1ac5453e34fce9fa124ce0a3cd66f5eecc98f22727163a"
+        },
+        {
+          "name": "thumbs/run_S.png",
+          "sha256": "16fafb00dac2439df6185837b7305ae8fe905795af170b46754c47f5c7f1bcd2"
+        },
+        {
+          "name": "thumbs/run_SE.png",
+          "sha256": "81fad1df84ad2c7f2c2dea67ccc2fc6e977d9ff5b14c0a18f9d81031660c0d09"
+        },
+        {
+          "name": "thumbs/run_SW.png",
+          "sha256": "48e0213223435f9d1a86c4ab46fec70668a87fc0035c90e1be93cbcd57645a2f"
+        },
+        {
+          "name": "thumbs/run_W.png",
+          "sha256": "5e0917ddc94e4870183a7bb673bd0ec688b66fe862053cbcb7420e3c4b76c770"
+        },
+        {
+          "name": "thumbs/walk_E.png",
+          "sha256": "d8ff3d0091d3671694787e78057f80d35c24ae02b35b64f82b568c52414ce8ef"
+        },
+        {
+          "name": "thumbs/walk_N.png",
+          "sha256": "7951133e0e45a71d6fbbe552204b44ee675e1191c166afb55f232482c75cd79f"
+        },
+        {
+          "name": "thumbs/walk_NE.png",
+          "sha256": "d95e86f7d4b8eb53336825c2cfa552bbd691063745ad1f86a28afaddf0eb474b"
+        },
+        {
+          "name": "thumbs/walk_NW.png",
+          "sha256": "7c7a2c7e3ba0682f28a13411604cd973774bca477cb069379668a17d94224895"
+        },
+        {
+          "name": "thumbs/walk_S.png",
+          "sha256": "575e23ec37ace6e7ce8035e6f21dae4db4aa0804b3718d1203ba9028cf8f9984"
+        },
+        {
+          "name": "thumbs/walk_SE.png",
+          "sha256": "2f48c2fecdf3a01c6843d7cf86eb9b8a8e13bc93f393100e8924fe68caf4b000"
+        },
+        {
+          "name": "thumbs/walk_SW.png",
+          "sha256": "ac4d13559b1f3a3d959d6c2aa4835342b34b731ad9bba06b9e5a6f3742289faf"
+        },
+        {
+          "name": "thumbs/walk_W.png",
+          "sha256": "64ae39a69262318a6b7fa6a454cc43b0dbefc3f84c062984bf84bdfa2314dc17"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
     }
   ],
   "images_used": 24,
@@ -13634,6 +14168,16 @@
       "id": "M-C3-P5",
       "what": "Gear: glyph A (gated to Matt), advanced still adv_2, gear-layer loops idle_S + walk_E (body byte-identical outside regions); VFX: frost bolt cast 8 / travel 6 / impact 10 + cast composite on S",
       "ts": "2026-09-13T04:20:59"
+    },
+    {
+      "id": "M-C3-P6",
+      "what": "Uniform numbers; Godot 4.6 stub (headless proof clean); viewer wheel; matrix.html front door",
+      "ts": "2026-09-13T04:34:34"
+    },
+    {
+      "id": "M-C3-EXIT",
+      "what": "Run C-3 exits VERDICT-READY (not the verdict): 38/40 cells + 2 with reason; H-C3-1 open (Grok balance); C-4 = Matt verdict session (Q78)",
+      "ts": "2026-09-13T04:34:34"
     }
   ],
   "halts": [
@@ -13837,6 +14381,15 @@
       "consequence": "P6: uniform numbers (P6c-numbers), Godot stub + viewer (P6p-godot; headless proof by the conductor outside the sandbox), then matrix.html.",
       "evidence": "runs/C-3/matrix_index.json; cells/missing.json; K4v-chk-03-r1/checks.json",
       "ts": "2026-09-13T04:20:59"
+    },
+    {
+      "id": "R-C3-21",
+      "by": "gandalf (conductor)",
+      "topic": "P6 + P7 CLOSE — § 0 exit predicate evaluated item by item; what the predicate does NOT cover named out loud (rubric law, desirable-run-pattern § 6.3)",
+      "ruling": "§ 0 EXIT: (1) T3 tests green with standing reds named — YES (299 run; reds = 4 T0-d3 motif + test_synthetic_contract_and_grid + Godot headless in-sandbox only). (2) 8 judge-verified H1 rest frames — YES (S master C + 7 at geometry 5, control caught). (3) 40 cells each with clip → cut → matte → registered frames → numbers vs PROPOSED bands → packet — 38 YES; 2 carry reason + fallback (NW jump, NW cast: v1 only after H-C3-1) = complete per § 0. (4) gear probe — YES (9 images: glyph 3, advanced still 2, paint-over sheets 4) + gear-layer loops idle S / walk E. (5) frost-bolt VFX composited on the cast — YES (S cast, explicit sockets). (6) Godot stub passes a headless import — YES (runs/C-3/godot: 38 cells, 400 frames, gear variant, 3 VFX animations; import exit 0 zero ERROR; run 240 frames exit 0 — conductor-run outside the Codex sandbox). (7) viewer wheel plays every cell — built and link-validated (38 cells + missing reasons); it is plain HTML/canvas, not the Pixi library (T3f contract: no network dependency), and was NOT browser-exercised in-run. (8) matrix.html — YES (runs/C-3/matrix.html, 0 unresolved links; Desktop copy). (9) ledger complete — YES. WHAT FELL OUT of the predicate vs the § 0 intent (‘can the process cover the matrix…’): the intent is Matt’s eye, reserved to C-4; the run did not play the full Godot project with input (only T3f’s fixture test exercised the state machine); head-down cells could not be re-generated; one-shot key poses are conductor-explicit, not instrument-detected; VFX scale and the Godot VFX offset are uncalibrated presentation choices.",
+      "consequence": "Run C-3 EXITS verdict-ready. Q78 (a–e) queued; game tracker SESSION-DELTA 2026-09-13; handoff STATE REFRESH; conductor scripts preserved; Desktop review tree. jack-ryan Gate-2 of the in-run reclassifications commissioned (charter § 1).",
+      "evidence": "runs/C-3/matrix.html; matrix_index.json; P6c-numbers; conductor headless logs",
+      "ts": "2026-09-13T04:34:34"
     }
   ],
   "grok_calls": [

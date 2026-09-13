@@ -1,0 +1,53 @@
+{
+  "task_id": "P6p-godot",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [],
+  "calls_used": 0,
+  "retries": [],
+  "self_report": {
+    "obeyed_invariants": true,
+    "concerns": [
+      "Both frozen exporters completed successfully, each executed once.",
+      "Viewer reports two missing cells: cast_NW and jump_NW.",
+      "Godot was not launched; headless verification remains with the conductor."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/exporters.json",
+      "sha256": "ee11a9522bfa1b90c300c16b4790a76d45dec33cd98b24bb51b8010c1e251a53"
+    },
+    {
+      "path": "out/godot/project.godot",
+      "sha256": "60d6e568fe5a68a58f535411a5a75550a45b60d2dd1ba38498816f55a085c29b"
+    },
+    {
+      "path": "out/godot/frames/keeper.tres",
+      "sha256": "3052034ae66f5c93cd680e0b480a6b2f12ce0b777d5c5e7fe895361a56941783"
+    },
+    {
+      "path": "out/godot/frames/keeper_advanced.tres",
+      "sha256": "6ce134ddd9f5ccdcca4c3ad75b0eb5fa88d75b95cc66d901ca20a10ad757d33d"
+    },
+    {
+      "path": "out/godot/vfx/frost_bolt.tres",
+      "sha256": "84717be6000bece9af3ffe998179cd6a4275574542a0d6b4b4c38b79dc1a159c"
+    },
+    {
+      "path": "out/godot/scenes/main.tscn",
+      "sha256": "a7ff2b1ba99ca306dacd7fbee1556fbfbed54d72cc8e3c01ab72e1aba58b874d"
+    },
+    {
+      "path": "out/godot/scripts/keeper.gd",
+      "sha256": "89e9e64440aa00541acf90980852293abb81e345295f6d9bd9d771f7d3b67399"
+    },
+    {
+      "path": "out/godot/README.md",
+      "sha256": "0859d0a7b134f2b8c2eaaf107147d7be9b28bc2e6cf463b59be5b76876069198"
+    },
+    {
+      "path": "out/viewer/index.html",
+      "sha256": "7606a80794224b1829106cd7e1f06a1fb41094a21f6c42dd12166e51ede3325c"
+    }
+  ]
+}

@@ -1,0 +1,169 @@
+{
+ "P4c-S-jump": {
+  "cell": "P4c-S-jump",
+  "kind": "jump",
+  "detection_confidence": 0.2,
+  "key_poses": {
+   "onset": 12,
+   "crouch": 24,
+   "take_off": 41,
+   "apex": 61,
+   "touchdown": 81,
+   "landing_crouch": 90
+  },
+  "notes": "no six-sample settle after landing crouch",
+  "indices": [
+   12,
+   24,
+   41,
+   51,
+   61,
+   71,
+   90,
+   122
+  ],
+  "settle": 122,
+  "tolerance_px": 12.81,
+  "status": "explicit_from_series",
+  "strictly_increasing": true
+ },
+ "P4c-E-jump": {
+  "cell": "P4c-E-jump",
+  "kind": "jump",
+  "detection_confidence": 0.2,
+  "key_poses": {
+   "onset": 13,
+   "crouch": 22,
+   "take_off": 55,
+   "apex": 74,
+   "touchdown": 91,
+   "landing_crouch": 96
+  },
+  "notes": "no six-sample settle after landing crouch",
+  "indices": [
+   13,
+   22,
+   55,
+   64,
+   74,
+   82,
+   96,
+   126
+  ],
+  "settle": 126,
+  "tolerance_px": 8.22,
+  "status": "explicit_from_series",
+  "strictly_increasing": true
+ },
+ "P4c-W-jump": {
+  "cell": "P4c-W-jump",
+  "kind": "jump",
+  "detection_confidence": 0.2,
+  "key_poses": {
+   "onset": 15,
+   "crouch": 33,
+   "take_off": 44,
+   "apex": 57,
+   "touchdown": 75,
+   "landing_crouch": 81
+  },
+  "notes": "no six-sample settle after landing crouch",
+  "indices": [
+   15,
+   33,
+   44,
+   50,
+   57,
+   66,
+   81,
+   117
+  ],
+  "settle": 117,
+  "tolerance_px": 8.24,
+  "status": "explicit_from_series",
+  "strictly_increasing": true
+ },
+ "P4c-N-jump": {
+  "cell": "P4c-N-jump",
+  "kind": "jump",
+  "detection_confidence": 0.9,
+  "key_poses": {
+   "onset": 12,
+   "crouch": 21,
+   "take_off": 23,
+   "apex": 60,
+   "touchdown": 103,
+   "landing_crouch": 103,
+   "settle": 118
+  },
+  "notes": "complete ordered event; confidence is structural, not a shipping verdict",
+  "status": "tool_detection_ok"
+ },
+ "P4c-SE-jump": {
+  "cell": "P4c-SE-jump",
+  "kind": "jump",
+  "detection_confidence": 0.2,
+  "key_poses": {
+   "onset": 13,
+   "crouch": 37,
+   "take_off": 52,
+   "apex": 67,
+   "touchdown": 88,
+   "landing_crouch": 92
+  },
+  "notes": "no six-sample settle after landing crouch",
+  "status": "needs_contact_sheet"
+ },
+ "P4c-SW-jump": {
+  "cell": "P4c-SW-jump",
+  "kind": "jump",
+  "detection_confidence": 0.2,
+  "key_poses": {
+   "onset": 12,
+   "crouch": 38,
+   "take_off": 43,
+   "apex": 58,
+   "touchdown": 78,
+   "landing_crouch": 84
+  },
+  "notes": "no six-sample settle after landing crouch",
+  "indices": [
+   12,
+   38,
+   43,
+   50,
+   58,
+   68,
+   84,
+   120
+  ],
+  "settle": 120,
+  "tolerance_px": 8.24,
+  "status": "explicit_from_series",
+  "strictly_increasing": true
+ },
+ "P4c-NE-jump": {
+  "cell": "P4c-NE-jump",
+  "kind": "jump",
+  "detection_confidence": 0.9,
+  "key_poses": {
+   "onset": 12,
+   "crouch": 27,
+   "take_off": 30,
+   "apex": 68,
+   "touchdown": 86,
+   "landing_crouch": 87,
+   "settle": 127
+  },
+  "notes": "complete ordered event; confidence is structural, not a shipping verdict",
+  "status": "tool_detection_ok"
+ },
+ "P4c-NW-jump": {
+  "cell": "P4c-NW-jump",
+  "kind": "jump",
+  "detection_confidence": 0.0,
+  "key_poses": {},
+  "notes": "missing/nonfinite tracking; no interpolation across invalid frames",
+  "status": "needs_contact_sheet"
+ }
+}

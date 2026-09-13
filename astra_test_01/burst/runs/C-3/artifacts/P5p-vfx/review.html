@@ -1,0 +1,567 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>62 · Frost bolt · Run C-3 P5 fork B</title>
+<style>
+:root{color-scheme:dark;font-family:system-ui,sans-serif;background:#111820;color:#e6edf3}*{box-sizing:border-box}body{margin:0}main{max-width:1200px;margin:auto;padding:32px 24px 64px}h1{font-size:30px;margin:8px 0}h2{font-size:21px;margin:32px 0 14px}h3{font-size:17px}p,figcaption{line-height:1.6}a{color:#9ed2f2}header{border-bottom:1px solid #344453;padding-bottom:20px}.eyebrow{color:#a8bbc9;font-size:13px;letter-spacing:.08em}figure{margin:0 0 22px}figcaption,.muted{font-size:14px;color:#b9c8d4}video{display:block;max-width:100%;background:#080c10}#hero{width:512px;height:auto;margin:auto}.hero{padding:20px;background:#0a1017}.strip{overflow:auto}.strip img{display:block;width:2048px;max-width:none}.sheet{display:block;width:100%;height:auto}.modules{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}.modules video{width:100%;height:256px;object-fit:contain}.cast-stage{height:256px;display:grid;place-items:center;background:#080c10}.cast-stage img{width:256px;height:256px;max-width:100%;object-fit:contain}button,input{accent-color:#9ed2f2}button{background:#263948;color:#e6edf3;border:1px solid #718797;border-radius:4px;padding:8px 14px;cursor:pointer}.controls{display:flex;gap:12px;align-items:center;margin:10px 0}.controls input{min-width:0;flex:1}.table-wrap{overflow-x:auto}table{width:100%;border-collapse:collapse;font-size:13px;margin:16px 0 24px;font-variant-numeric:tabular-nums}th,td{text-align:left;vertical-align:top;padding:10px 9px;border-bottom:1px solid #344453}th{color:#b9c8d4}td code{white-space:nowrap}.flag{font-family:ui-monospace,monospace}.flag-false{color:#efc08c}.flag-null{color:#b8bec7}details{margin:10px 0}summary{cursor:pointer}pre{white-space:pre-wrap;overflow-wrap:anywhere;font-size:12px;line-height:1.5;padding:16px;background:#0a1017}.notice{border-left:3px solid #87b7d4;padding:8px 16px}.number{font-size:25px;font-variant-numeric:tabular-nums}footer{border-top:1px solid #344453;margin-top:36px;padding-top:16px}@media(max-width:800px){.modules{grid-template-columns:1fr}main{padding:20px 14px}h1{font-size:25px}}@media print{details{display:block}video,button,input{display:none}body{color:#111;background:#fff}}
+</style>
+</head>
+<body><main>
+<header><div class="eyebrow">REVIEW PACKET 62 · P5p-vfx · RUN C-3 / P5 / FORK B</div><h1>The frost bolt</h1><p>Frozen media and measurement reports. reports, not verdicts.</p></header>
+<section aria-labelledby="cast-composite"><h2 id="cast-composite">Cast composite · S</h2>
+<figure><div class="hero"><video id="hero" controls playsinline preload="metadata" poster="composite_cast_S/frames/composite_00.png" src="composite_cast_S/composite.mp4">Open <a href="composite_cast_S/composite.mp4">the cast composite MP4</a>.</video></div><figcaption>frost bolt cast composited at the staff-tip socket on the S cast cell; sockets frames 4–5 interpolated — the staff points at the camera</figcaption></figure>
+<figure><div class="strip"><a href="composite_strip.png"><img src="composite_strip.png" alt="Eight sequential S cast composite frames, 00 through 07"></a></div><figcaption>Composite strip · 8 frames at 20 fps · scroll horizontally or open the image for full size.</figcaption></figure></section>
+<section aria-labelledby="modules"><h2 id="modules">Cast, travel, impact</h2>
+<div class="modules"><figure><h3>Cast · 8 frames · 20 fps</h3><div class="cast-stage"><img id="cast-frame" src="vfx/frames/cast/cast_00.png" alt="Isolated cast module, frame 00"></div><div class="controls"><button id="cast-play" type="button">Play</button><label for="cast-seek">Frame</label><input id="cast-seek" type="range" min="0" max="7" step="1" value="0"><output id="cast-index" for="cast-seek">00 / 07</output></div><figcaption>Page-based frame playback at 20 fps. No standalone cast MP4 was supplied. Original PNGs are linked below.</figcaption></figure>
+<figure><h3>Travel · 6 frames · 12 fps</h3><video controls playsinline loop preload="metadata" poster="vfx/frames/travel/travel_00.png" src="vfx/travel_12fps.mp4">Open <a href="vfx/travel_12fps.mp4">travel MP4</a>.</video><figcaption>Supplied travel loop · <a href="vfx/travel_12fps.mp4">MP4</a>.</figcaption></figure>
+<figure><h3>Impact · 10 frames · 20 fps</h3><video controls playsinline preload="metadata" poster="vfx/frames/impact/impact_00.png" src="vfx/impact_20fps.mp4">Open <a href="vfx/impact_20fps.mp4">impact MP4</a>.</video><figcaption>Supplied impact sequence · <a href="vfx/impact_20fps.mp4">MP4</a>.</figcaption></figure></div>
+<figure><a href="vfx_sheet_review.png"><img class="sheet" src="vfx_sheet_review.png" alt="Frozen review sheet of the cast, travel and impact modules"></a><figcaption>Frozen module review sheet · original media copied without image processing.</figcaption></figure>
+<details><summary>Original module and composite frames</summary><div id="frame-links"></div></details></section>
+<section aria-labelledby="numbers"><h2 id="numbers">Module numbers</h2><p>reports, not verdicts.</p><p class="muted">Values, thresholds, operators and <code>passed</code> flags below come directly from the K4v-chk-01 modules block. Nested PSE measurements are included. <code>null</code> remains <code>null</code>; it is not a positive flag. Complete envelopes and notes are available under each table.</p><div class="notice">G6 is the literal brief gate (minimum internal adjacent-pair MAD). G6b is the separately registered median instrument. Any shipping-bar ruling belongs to Matt at the first-loop milestone.</div><div id="module-tables"></div></section>
+<section aria-labelledby="composite-numbers"><h2 id="composite-numbers">Composite block · K4v-chk-03-r1</h2><p>reports, not verdicts.</p><p class="number">Attachment 13.1 px vs 6 px</p><p>Reported maximum: <strong>13.072031808564743 px</strong>; frozen threshold: <strong>6 px</strong>; <code>passed: false</code>. No alignment correction is applied in this packet.</p><p>Composite, character and VFX temporal PSE each report 0 against 3 temporal flashes/second, with <code>passed: true</code>. Spatial-pattern PSE is unevaluated; its value and flag remain <code>null</code>.</p><div id="composite-table"></div><h3>Attachment by frame</h3><div id="attachment-frames"></div><p class="muted">Sockets 4–5 are conductor-supplied interpolations between frames 3 and 6 (R-C3-20), retained unchanged. Coordinates are in registered space. Composite: 8 frames, 512 × 512, 20 fps; VFX anchor (128,128).</p><details><summary>Complete supplied composite block and notes</summary><pre id="composite-raw"></pre></details></section>
+<footer><h2>Source records</h2><p><a href="reports/K4v-chk-01/checks.json">K4v-chk-01 / checks.json</a> (module reports) · <a href="reports/K4v-chk-03-r1/checks.json">K4v-chk-03-r1 / checks.json</a> (composite report) · <a href="sockets_cast_S_x.json">sockets_cast_S_x.json</a> · <a href="composite_cast_S/sockets.json">Composite sockets</a> · <a href="summary.txt">Summary</a></p><p class="muted">All media references are relative. Report data, page styles and playback logic are embedded; no external services or libraries are required. Media playback starts only on request.</p></footer>
+<noscript><p>Enable JavaScript to display the embedded gate tables and cast frame player. The supplied videos, sheets and source JSON links remain available.</p></noscript>
+<script type="application/json" id="module-data">
+{
+  "cast": [
+    {
+      "id": "vfx.frame_count",
+      "subject": "cast",
+      "passed": true,
+      "value": 8,
+      "threshold": 8,
+      "op": "==",
+      "unit": "frames",
+      "evidence": [],
+      "notes": "{}"
+    },
+    {
+      "id": "vfx.fps",
+      "subject": "cast",
+      "passed": true,
+      "value": 20.0,
+      "threshold": 20,
+      "op": "==",
+      "unit": "fps",
+      "evidence": [],
+      "notes": "{}"
+    },
+    {
+      "id": "vfx.energy_curve",
+      "subject": "cast",
+      "passed": true,
+      "value": 0,
+      "threshold": 0,
+      "op": "<=",
+      "unit": "violations",
+      "evidence": [],
+      "notes": "{\"definition\": \"One interior peak; nondecreasing rise, nonincreasing release; endpoints below peak\", \"energy\": [114618.49431607843, 314253.84411607846, 731557.8474423529, 2159801.4099356863, 2770408.1110101957, 1032097.7288219606, 317846.8799537255, 35133.18305254902], \"peak_count\": 1, \"peak_index\": 4, \"roundoff_relative\": 1e-12}"
+    },
+    {
+      "id": "pse_check",
+      "subject": "cast",
+      "passed": true,
+      "value": 0,
+      "threshold": 3,
+      "op": "<=",
+      "unit": "temporal_flashes/second",
+      "evidence": [],
+      "notes": "{\"metrics\": {\"canvas_size\": [256, 256], \"coverage\": \"general and red temporal flash rules only; spatial rule UNEVALUABLE\", \"fps\": 20.0, \"results\": [{\"evidence\": [], \"id\": \"pse.general_flash\", \"notes\": \"{\\\"metrics\\\": {\\\"area_fraction\\\": 0.2, \\\"equivalent_area_threshold\\\": 184320.0, \\\"flash_times_s\\\": [], \\\"qualifying_transition_times_s\\\": [0.25], \\\"required_pixels\\\": 13107.2}, \\\"reason\\\": \\\"\\\"}\", \"op\": \"<=\", \"passed\": true, \"subject\": \"cast\", \"threshold\": 3, \"unit\": \"flashes/second\", \"value\": 0}, {\"evidence\": [], \"id\": \"pse.red_flash\", \"notes\": \"{\\\"metrics\\\": {\\\"area_fraction\\\": 0.2, \\\"equivalent_area_threshold\\\": 184320.0, \\\"flash_times_s\\\": [], \\\"qualifying_transition_times_s\\\": [], \\\"required_pixels\\\": 13107.2}, \\\"reason\\\": \\\"\\\"}\", \"op\": \"<=\", \"passed\": true, \"subject\": \"cast\", \"threshold\": 3, \"unit\": \"flashes/second\", \"value\": 0}, {\"evidence\": [], \"id\": \"pse.spatial_pattern\", \"notes\": \"{\\\"metrics\\\": {}, \\\"reason\\\": \\\"Report only: regular stripes/checks >=5 pairs over >=20% area are not robustly computed; spatial rule requires review\\\"}\", \"op\": \"<=\", \"passed\": null, \"subject\": \"cast\", \"threshold\": 5, \"unit\": \"light-dark pairs\", \"value\": null}], \"thresholds\": {\"area_fraction\": 0.2, \"luminance_change\": 0.1, \"red_saturation\": 0.8, \"red_scale\": 320.0, \"red_transition\": 20.0}}, \"reason\": \"\"}"
+    },
+    {
+      "id": "element_hue",
+      "subject": "frost",
+      "passed": true,
+      "value": 203.69015973765175,
+      "threshold": [
+        180.0,
+        230.0
+      ],
+      "op": "within",
+      "unit": "degrees",
+      "evidence": [],
+      "notes": "{\"band_degrees\": [180.0, 230.0], \"chromatic_saturation_min\": 0.15, \"chromatic_weight\": 44980.440922722024, \"element\": \"frost\", \"emissive_weight\": 49241.403152633604, \"histogram_bin_degrees\": 1.0, \"in_band_fraction\": 0.9932124938110272, \"modal_radius_degrees\": 5, \"per_frame_in_band_fraction\": [0.9865689027056632, 0.9897345382763972, 0.993905060504676, 0.9931403982428313, 0.9967195031617153, 0.9918398458622537, 0.9830985112595084, 0.9597534979713124], \"weight\": \"alpha*HSV_value\"}"
+    }
+  ],
+  "travel": [
+    {
+      "id": "vfx.frame_count",
+      "subject": "travel",
+      "passed": true,
+      "value": 6,
+      "threshold": 6,
+      "op": "==",
+      "unit": "frames",
+      "evidence": [],
+      "notes": "{}"
+    },
+    {
+      "id": "g6_seam",
+      "subject": "travel",
+      "passed": false,
+      "value": 14.144073486328125,
+      "threshold": 1.7896321614583333,
+      "op": "<=",
+      "unit": "rgb_mad",
+      "evidence": [],
+      "notes": "{\"definition\": \"literal minimum internal\", \"adjacent_and_seam\": [{\"canvas\": 8.61175537109375, \"foreground_union\": 26.20878610569332}, {\"canvas\": 22.0936279296875, \"foreground_union\": 41.48790830945559}, {\"canvas\": 23.835154215494793, \"foreground_union\": 44.75562049930281}, {\"canvas\": 14.711181640625, \"foreground_union\": 42.267075843928104}, {\"canvas\": 1.7896321614583333, \"foreground_union\": 6.681402149557556}, {\"canvas\": 14.144073486328125, \"foreground_union\": 43.15391061452514}]}"
+    },
+    {
+      "id": "g6b",
+      "subject": "travel",
+      "passed": true,
+      "value": 14.144073486328125,
+      "threshold": 14.711181640625,
+      "op": "<=",
+      "unit": "rgb_mad",
+      "evidence": [],
+      "notes": "{\"definition\": \"median internal\", \"adjacent_and_seam\": [{\"canvas\": 8.61175537109375, \"foreground_union\": 26.20878610569332}, {\"canvas\": 22.0936279296875, \"foreground_union\": 41.48790830945559}, {\"canvas\": 23.835154215494793, \"foreground_union\": 44.75562049930281}, {\"canvas\": 14.711181640625, \"foreground_union\": 42.267075843928104}, {\"canvas\": 1.7896321614583333, \"foreground_union\": 6.681402149557556}, {\"canvas\": 14.144073486328125, \"foreground_union\": 43.15391061452514}]}"
+    },
+    {
+      "id": "vfx.top_bottom_mirror_diff",
+      "subject": "travel",
+      "passed": null,
+      "value": 0.3089356747795284,
+      "threshold": null,
+      "op": "<=",
+      "unit": "normalized_emission_L1",
+      "evidence": [],
+      "notes": "{\"committed\": false, \"per_frame\": [0.1387909852852413, 0.17763450563323485, 0.13996070425028093, 0.1090185160776735, 0.3089356747795284, 0.29534537718822407], \"proposed\": true, \"reason\": \"Report only: no committed symmetry threshold; 0 identical, 1 disjoint\", \"top_bottom_energy_imbalance\": [0.005295051086999996, 0.041667464342648966, 0.05210835425326568, 0.02392717641150995, 0.15977209141727847, 0.1517648494688455], \"vertical_emission_centroid\": [63.56778494192674, 62.7573081750562, 62.3549502670106, 63.16949373858968, 62.00531931072581, 62.0315528866964]}"
+    },
+    {
+      "id": "pse_check",
+      "subject": "travel",
+      "passed": true,
+      "value": 0,
+      "threshold": 3,
+      "op": "<=",
+      "unit": "temporal_flashes/second",
+      "evidence": [],
+      "notes": "{\"metrics\": {\"canvas_size\": [256, 128], \"coverage\": \"general and red temporal flash rules only; spatial rule UNEVALUABLE\", \"fps\": 12.0, \"results\": [{\"evidence\": [], \"id\": \"pse.general_flash\", \"notes\": \"{\\\"metrics\\\": {\\\"area_fraction\\\": 0.2, \\\"equivalent_area_threshold\\\": 184320.0, \\\"flash_times_s\\\": [], \\\"qualifying_transition_times_s\\\": [], \\\"required_pixels\\\": 6553.6}, \\\"reason\\\": \\\"\\\"}\", \"op\": \"<=\", \"passed\": true, \"subject\": \"travel\", \"threshold\": 3, \"unit\": \"flashes/second\", \"value\": 0}, {\"evidence\": [], \"id\": \"pse.red_flash\", \"notes\": \"{\\\"metrics\\\": {\\\"area_fraction\\\": 0.2, \\\"equivalent_area_threshold\\\": 184320.0, \\\"flash_times_s\\\": [], \\\"qualifying_transition_times_s\\\": [], \\\"required_pixels\\\": 6553.6}, \\\"reason\\\": \\\"\\\"}\", \"op\": \"<=\", \"passed\": true, \"subject\": \"travel\", \"threshold\": 3, \"unit\": \"flashes/second\", \"value\": 0}, {\"evidence\": [], \"id\": \"pse.spatial_pattern\", \"notes\": \"{\\\"metrics\\\": {}, \\\"reason\\\": \\\"Report only: regular stripes/checks >=5 pairs over >=20% area are not robustly computed; spatial rule requires review\\\"}\", \"op\": \"<=\", \"passed\": null, \"subject\": \"travel\", \"threshold\": 5, \"unit\": \"light-dark pairs\", \"value\": null}], \"thresholds\": {\"area_fraction\": 0.2, \"luminance_change\": 0.1, \"red_saturation\": 0.8, \"red_scale\": 320.0, \"red_transition\": 20.0}}, \"reason\": \"\"}"
+    },
+    {
+      "id": "element_hue",
+      "subject": "frost",
+      "passed": true,
+      "value": 204.75758448761684,
+      "threshold": [
+        180.0,
+        230.0
+      ],
+      "op": "within",
+      "unit": "degrees",
+      "evidence": [],
+      "notes": "{\"band_degrees\": [180.0, 230.0], \"chromatic_saturation_min\": 0.15, \"chromatic_weight\": 29527.94366782007, \"element\": \"frost\", \"emissive_weight\": 32092.64792003076, \"histogram_bin_degrees\": 1.0, \"in_band_fraction\": 0.9816139597497278, \"modal_radius_degrees\": 5, \"per_frame_in_band_fraction\": [0.9749351310919302, 0.9776260291170366, 0.9790200559480471, 0.9791149785199429, 0.9914663039978281, 0.9913615056017536], \"weight\": \"alpha*HSV_value\"}"
+    }
+  ],
+  "impact": [
+    {
+      "id": "vfx.frame_count",
+      "subject": "impact",
+      "passed": true,
+      "value": 10,
+      "threshold": 10,
+      "op": "==",
+      "unit": "frames",
+      "evidence": [],
+      "notes": "{}"
+    },
+    {
+      "id": "vfx.energy_curve",
+      "subject": "impact",
+      "passed": false,
+      "value": 1,
+      "threshold": 0,
+      "op": "<=",
+      "unit": "violations",
+      "evidence": [],
+      "notes": "{\"definition\": \"One interior peak; nondecreasing rise, nonincreasing release; endpoints below peak\", \"energy\": [327922.1413058823, 2611404.0513364705, 8306028.9670109805, 4295681.748838431, 4975552.330018823, 1567374.1339866663, 324188.92359215685, 38217.28796627451, 25288.931224313725, 0.0], \"peak_count\": 1, \"peak_index\": 2, \"roundoff_relative\": 1e-12}"
+    },
+    {
+      "id": "vfx.final_alpha_fraction",
+      "subject": "impact",
+      "passed": true,
+      "value": 0.0,
+      "threshold": 0.005,
+      "op": "<=",
+      "unit": "fraction_of_peak_alpha",
+      "evidence": [],
+      "notes": "{\"alpha_sum\": [591303.0, 4362617.0, 13392326.0, 8023965.0, 8201754.0, 3195299.0, 654419.0, 88105.0, 50231.0, 0.0], \"peak_alpha_sum\": 13392326.0, \"reason\": null}"
+    },
+    {
+      "id": "pse_check",
+      "subject": "impact",
+      "passed": true,
+      "value": 1,
+      "threshold": 3,
+      "op": "<=",
+      "unit": "temporal_flashes/second",
+      "evidence": [],
+      "notes": "{\"metrics\": {\"canvas_size\": [384, 384], \"coverage\": \"general and red temporal flash rules only; spatial rule UNEVALUABLE\", \"fps\": 20.0, \"results\": [{\"evidence\": [], \"id\": \"pse.general_flash\", \"notes\": \"{\\\"metrics\\\": {\\\"area_fraction\\\": 0.2, \\\"equivalent_area_threshold\\\": 184320.0, \\\"flash_times_s\\\": [0.15], \\\"qualifying_transition_times_s\\\": [0.1, 0.15, 0.2], \\\"required_pixels\\\": 29491.200000000004}, \\\"reason\\\": \\\"\\\"}\", \"op\": \"<=\", \"passed\": true, \"subject\": \"impact\", \"threshold\": 3, \"unit\": \"flashes/second\", \"value\": 1}, {\"evidence\": [], \"id\": \"pse.red_flash\", \"notes\": \"{\\\"metrics\\\": {\\\"area_fraction\\\": 0.2, \\\"equivalent_area_threshold\\\": 184320.0, \\\"flash_times_s\\\": [], \\\"qualifying_transition_times_s\\\": [], \\\"required_pixels\\\": 29491.200000000004}, \\\"reason\\\": \\\"\\\"}\", \"op\": \"<=\", \"passed\": true, \"subject\": \"impact\", \"threshold\": 3, \"unit\": \"flashes/second\", \"value\": 0}, {\"evidence\": [], \"id\": \"pse.spatial_pattern\", \"notes\": \"{\\\"metrics\\\": {}, \\\"reason\\\": \\\"Report only: regular stripes/checks >=5 pairs over >=20% area are not robustly computed; spatial rule requires review\\\"}\", \"op\": \"<=\", \"passed\": null, \"subject\": \"impact\", \"threshold\": 5, \"unit\": \"light-dark pairs\", \"value\": null}], \"thresholds\": {\"area_fraction\": 0.2, \"luminance_change\": 0.1, \"red_saturation\": 0.8, \"red_scale\": 320.0, \"red_transition\": 20.0}}, \"reason\": \"\"}"
+    },
+    {
+      "id": "element_hue",
+      "subject": "frost",
+      "passed": true,
+      "value": 209.10575834023658,
+      "threshold": [
+        180.0,
+        230.0
+      ],
+      "op": "within",
+      "unit": "degrees",
+      "evidence": [],
+      "notes": "{\"band_degrees\": [180.0, 230.0], \"chromatic_saturation_min\": 0.15, \"chromatic_weight\": 137290.96944252212, \"element\": \"frost\", \"emissive_weight\": 151210.56738177623, \"histogram_bin_degrees\": 1.0, \"in_band_fraction\": 0.9748833253597347, \"modal_radius_degrees\": 5, \"per_frame_in_band_fraction\": [0.9778100757627789, 0.9882694767079533, 0.9911250224948491, 0.9919134684450441, 0.9790106351739164, 0.8984579953531968, 0.7433685407697946, 0.6087629696310165, 0.9834437911944155, null], \"weight\": \"alpha*HSV_value\"}"
+    }
+  ]
+}
+</script><script type="application/json" id="composite-data">
+{
+  "fps": 20.0,
+  "count": 8,
+  "canvas": [
+    512,
+    512
+  ],
+  "vfx_anchor_xy": [
+    128,
+    128
+  ],
+  "socket_source": {
+    "xy_per_frame": [
+      [
+        216.4,
+        165
+      ],
+      [
+        245.1,
+        105
+      ],
+      [
+        249.2,
+        82
+      ],
+      [
+        237.9,
+        118
+      ],
+      [
+        232.5,
+        126.3
+      ],
+      [
+        227.2,
+        134.7
+      ],
+      [
+        221.8,
+        143
+      ],
+      [
+        210.3,
+        169
+      ]
+    ],
+    "source": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/P5-regions/sockets_cast_S_x.json",
+    "input_space": "registered",
+    "conductor_metadata": {
+      "rule": "R-C3-16 staff tip rule on P4c-S-cast-x frames",
+      "frames": [
+        {
+          "frame": "cast_S_00.png",
+          "socket": [
+            216.4,
+            165
+          ]
+        },
+        {
+          "frame": "cast_S_01.png",
+          "socket": [
+            245.1,
+            105
+          ]
+        },
+        {
+          "frame": "cast_S_02.png",
+          "socket": [
+            249.2,
+            82
+          ]
+        },
+        {
+          "frame": "cast_S_03.png",
+          "socket": [
+            237.9,
+            118
+          ]
+        },
+        {
+          "frame": "cast_S_04.png",
+          "socket": [
+            232.5,
+            126.3
+          ],
+          "interpolated": true
+        },
+        {
+          "frame": "cast_S_05.png",
+          "socket": [
+            227.2,
+            134.7
+          ],
+          "interpolated": true
+        },
+        {
+          "frame": "cast_S_06.png",
+          "socket": [
+            221.8,
+            143
+          ]
+        },
+        {
+          "frame": "cast_S_07.png",
+          "socket": [
+            210.3,
+            169
+          ]
+        }
+      ],
+      "note": "frames 4–5: staff foreshortened toward the camera (no visible line) — sockets linearly interpolated between frames 3 and 6 (R-C3-20)"
+    }
+  },
+  "xy_per_frame": [
+    [
+      216.4,
+      165.0
+    ],
+    [
+      245.1,
+      105.0
+    ],
+    [
+      249.2,
+      82.0
+    ],
+    [
+      237.9,
+      118.0
+    ],
+    [
+      232.5,
+      126.3
+    ],
+    [
+      227.2,
+      134.7
+    ],
+    [
+      221.8,
+      143.0
+    ],
+    [
+      210.3,
+      169.0
+    ]
+  ],
+  "placements": [
+    {
+      "index": 0,
+      "character_index": 0,
+      "vfx_index": 0,
+      "socket_xy": [
+        216.4,
+        165.0
+      ],
+      "offset_xy": [
+        88,
+        37
+      ],
+      "clipped_alpha_fraction": 0.0
+    },
+    {
+      "index": 1,
+      "character_index": 1,
+      "vfx_index": 1,
+      "socket_xy": [
+        245.1,
+        105.0
+      ],
+      "offset_xy": [
+        117,
+        -23
+      ],
+      "clipped_alpha_fraction": 0.0
+    },
+    {
+      "index": 2,
+      "character_index": 2,
+      "vfx_index": 2,
+      "socket_xy": [
+        249.2,
+        82.0
+      ],
+      "offset_xy": [
+        121,
+        -46
+      ],
+      "clipped_alpha_fraction": 0.0
+    },
+    {
+      "index": 3,
+      "character_index": 3,
+      "vfx_index": 3,
+      "socket_xy": [
+        237.9,
+        118.0
+      ],
+      "offset_xy": [
+        110,
+        -10
+      ],
+      "clipped_alpha_fraction": 0.0
+    },
+    {
+      "index": 4,
+      "character_index": 4,
+      "vfx_index": 4,
+      "socket_xy": [
+        232.5,
+        126.3
+      ],
+      "offset_xy": [
+        104,
+        -2
+      ],
+      "clipped_alpha_fraction": 0.0
+    },
+    {
+      "index": 5,
+      "character_index": 5,
+      "vfx_index": 5,
+      "socket_xy": [
+        227.2,
+        134.7
+      ],
+      "offset_xy": [
+        99,
+        7
+      ],
+      "clipped_alpha_fraction": 0.0
+    },
+    {
+      "index": 6,
+      "character_index": 6,
+      "vfx_index": 6,
+      "socket_xy": [
+        221.8,
+        143.0
+      ],
+      "offset_xy": [
+        94,
+        15
+      ],
+      "clipped_alpha_fraction": 0.0
+    },
+    {
+      "index": 7,
+      "character_index": 7,
+      "vfx_index": 7,
+      "socket_xy": [
+        210.3,
+        169.0
+      ],
+      "offset_xy": [
+        82,
+        41
+      ],
+      "clipped_alpha_fraction": 0.0
+    }
+  ],
+  "timing": "One shared fps; character cycles, VFX once then transparent",
+  "compositing": "Premultiplied Porter-Duff over; straight RGBA outputs",
+  "attachment": {
+    "id": "attachment",
+    "subject": "vfx",
+    "passed": false,
+    "value": 13.072031808564743,
+    "threshold": 6.0,
+    "op": "<=",
+    "unit": "px",
+    "evidence": [],
+    "notes": "{\"bright_blob_fraction\": 0.8, \"definition\": \"Maximum Euclidean distance in supplied canvas; no registration\", \"missing_active_sockets\": [], \"per_frame\": [{\"centroid_xy\": [219.746041128629, 161.50147592920266], \"distance_px\": 4.8410393417555735, \"index\": 0, \"reason\": null, \"socket_xy\": [216.4, 165.0]}, {\"centroid_xy\": [243.08815012209075, 103.20833322683056], \"distance_px\": 2.6939951294170563, \"index\": 1, \"reason\": null, \"socket_xy\": [245.1, 105.0]}, {\"centroid_xy\": [252.7014801286426, 75.84810830974902], \"distance_px\": 7.078568673104621, \"index\": 2, \"reason\": null, \"socket_xy\": [249.2, 82.0]}, {\"centroid_xy\": [237.79811289406229, 110.29327443271706], \"distance_px\": 7.7073990393497205, \"index\": 3, \"reason\": null, \"socket_xy\": [237.9, 118.0]}, {\"centroid_xy\": [234.6189505360062, 135.536915811556], \"distance_px\": 9.476843624531034, \"index\": 4, \"reason\": null, \"socket_xy\": [232.5, 126.3]}, {\"centroid_xy\": [231.0736315226687, 147.18491066971308], \"distance_px\": 13.072031808564743, \"index\": 5, \"reason\": null, \"socket_xy\": [227.2, 134.7]}, {\"centroid_xy\": [224.46177200486895, 144.89076521942917], \"distance_px\": 3.2649691148473416, \"index\": 6, \"reason\": null, \"socket_xy\": [221.8, 143.0]}, {\"centroid_xy\": [212.99637196868437, 171.84685888867673], \"distance_px\": 3.9211002697641524, \"index\": 7, \"reason\": null, \"socket_xy\": [210.3, 169.0]}]}"
+  },
+  "pse": {
+    "character": {
+      "id": "pse_check",
+      "subject": "composite.character",
+      "passed": true,
+      "value": 0,
+      "threshold": 3,
+      "op": "<=",
+      "unit": "temporal_flashes/second",
+      "evidence": [],
+      "notes": "{\"metrics\": {\"canvas_size\": [512, 512], \"coverage\": \"general and red temporal flash rules only; spatial rule UNEVALUABLE\", \"fps\": 20.0, \"results\": [{\"evidence\": [], \"id\": \"pse.general_flash\", \"notes\": \"{\\\"metrics\\\": {\\\"area_fraction\\\": 0.2, \\\"equivalent_area_threshold\\\": 184320.0, \\\"flash_times_s\\\": [], \\\"qualifying_transition_times_s\\\": [], \\\"required_pixels\\\": 52428.8}, \\\"reason\\\": \\\"\\\"}\", \"op\": \"<=\", \"passed\": true, \"subject\": \"composite.character\", \"threshold\": 3, \"unit\": \"flashes/second\", \"value\": 0}, {\"evidence\": [], \"id\": \"pse.red_flash\", \"notes\": \"{\\\"metrics\\\": {\\\"area_fraction\\\": 0.2, \\\"equivalent_area_threshold\\\": 184320.0, \\\"flash_times_s\\\": [], \\\"qualifying_transition_times_s\\\": [], \\\"required_pixels\\\": 52428.8}, \\\"reason\\\": \\\"\\\"}\", \"op\": \"<=\", \"passed\": true, \"subject\": \"composite.character\", \"threshold\": 3, \"unit\": \"flashes/second\", \"value\": 0}, {\"evidence\": [], \"id\": \"pse.spatial_pattern\", \"notes\": \"{\\\"metrics\\\": {}, \\\"reason\\\": \\\"Report only: regular stripes/checks >=5 pairs over >=20% area are not robustly computed; spatial rule requires review\\\"}\", \"op\": \"<=\", \"passed\": null, \"subject\": \"composite.character\", \"threshold\": 5, \"unit\": \"light-dark pairs\", \"value\": null}], \"thresholds\": {\"area_fraction\": 0.2, \"luminance_change\": 0.1, \"red_saturation\": 0.8, \"red_scale\": 320.0, \"red_transition\": 20.0}}, \"reason\": \"\"}"
+    },
+    "vfx": {
+      "id": "pse_check",
+      "subject": "composite.vfx",
+      "passed": true,
+      "value": 0,
+      "threshold": 3,
+      "op": "<=",
+      "unit": "temporal_flashes/second",
+      "evidence": [],
+      "notes": "{\"metrics\": {\"canvas_size\": [256, 256], \"coverage\": \"general and red temporal flash rules only; spatial rule UNEVALUABLE\", \"fps\": 20.0, \"results\": [{\"evidence\": [], \"id\": \"pse.general_flash\", \"notes\": \"{\\\"metrics\\\": {\\\"area_fraction\\\": 0.2, \\\"equivalent_area_threshold\\\": 184320.0, \\\"flash_times_s\\\": [], \\\"qualifying_transition_times_s\\\": [0.25], \\\"required_pixels\\\": 13107.2}, \\\"reason\\\": \\\"\\\"}\", \"op\": \"<=\", \"passed\": true, \"subject\": \"composite.vfx\", \"threshold\": 3, \"unit\": \"flashes/second\", \"value\": 0}, {\"evidence\": [], \"id\": \"pse.red_flash\", \"notes\": \"{\\\"metrics\\\": {\\\"area_fraction\\\": 0.2, \\\"equivalent_area_threshold\\\": 184320.0, \\\"flash_times_s\\\": [], \\\"qualifying_transition_times_s\\\": [], \\\"required_pixels\\\": 13107.2}, \\\"reason\\\": \\\"\\\"}\", \"op\": \"<=\", \"passed\": true, \"subject\": \"composite.vfx\", \"threshold\": 3, \"unit\": \"flashes/second\", \"value\": 0}, {\"evidence\": [], \"id\": \"pse.spatial_pattern\", \"notes\": \"{\\\"metrics\\\": {}, \\\"reason\\\": \\\"Report only: regular stripes/checks >=5 pairs over >=20% area are not robustly computed; spatial rule requires review\\\"}\", \"op\": \"<=\", \"passed\": null, \"subject\": \"composite.vfx\", \"threshold\": 5, \"unit\": \"light-dark pairs\", \"value\": null}], \"thresholds\": {\"area_fraction\": 0.2, \"luminance_change\": 0.1, \"red_saturation\": 0.8, \"red_scale\": 320.0, \"red_transition\": 20.0}}, \"reason\": \"\"}"
+    },
+    "composite": {
+      "id": "pse_check",
+      "subject": "composite",
+      "passed": true,
+      "value": 0,
+      "threshold": 3,
+      "op": "<=",
+      "unit": "temporal_flashes/second",
+      "evidence": [],
+      "notes": "{\"metrics\": {\"canvas_size\": [512, 512], \"coverage\": \"general and red temporal flash rules only; spatial rule UNEVALUABLE\", \"fps\": 20.0, \"results\": [{\"evidence\": [], \"id\": \"pse.general_flash\", \"notes\": \"{\\\"metrics\\\": {\\\"area_fraction\\\": 0.2, \\\"equivalent_area_threshold\\\": 184320.0, \\\"flash_times_s\\\": [], \\\"qualifying_transition_times_s\\\": [], \\\"required_pixels\\\": 52428.8}, \\\"reason\\\": \\\"\\\"}\", \"op\": \"<=\", \"passed\": true, \"subject\": \"composite\", \"threshold\": 3, \"unit\": \"flashes/second\", \"value\": 0}, {\"evidence\": [], \"id\": \"pse.red_flash\", \"notes\": \"{\\\"metrics\\\": {\\\"area_fraction\\\": 0.2, \\\"equivalent_area_threshold\\\": 184320.0, \\\"flash_times_s\\\": [], \\\"qualifying_transition_times_s\\\": [], \\\"required_pixels\\\": 52428.8}, \\\"reason\\\": \\\"\\\"}\", \"op\": \"<=\", \"passed\": true, \"subject\": \"composite\", \"threshold\": 3, \"unit\": \"flashes/second\", \"value\": 0}, {\"evidence\": [], \"id\": \"pse.spatial_pattern\", \"notes\": \"{\\\"metrics\\\": {}, \\\"reason\\\": \\\"Report only: regular stripes/checks >=5 pairs over >=20% area are not robustly computed; spatial rule requires review\\\"}\", \"op\": \"<=\", \"passed\": null, \"subject\": \"composite\", \"threshold\": 5, \"unit\": \"light-dark pairs\", \"value\": null}], \"thresholds\": {\"area_fraction\": 0.2, \"luminance_change\": 0.1, \"red_saturation\": 0.8, \"red_scale\": 320.0, \"red_transition\": 20.0}}, \"reason\": \"\"}"
+    }
+  },
+  "frames": [
+    "out/composite_cast_S/frames/composite_00.png",
+    "out/composite_cast_S/frames/composite_01.png",
+    "out/composite_cast_S/frames/composite_02.png",
+    "out/composite_cast_S/frames/composite_03.png",
+    "out/composite_cast_S/frames/composite_04.png",
+    "out/composite_cast_S/frames/composite_05.png",
+    "out/composite_cast_S/frames/composite_06.png",
+    "out/composite_cast_S/frames/composite_07.png"
+  ],
+  "mp4": "out/composite_cast_S/composite.mp4",
+  "sockets_json": "out/composite_cast_S/sockets.json"
+}
+</script>
+<script>
+'use strict';
+const modules=JSON.parse(document.getElementById('module-data').textContent);
+const composite=JSON.parse(document.getElementById('composite-data').textContent);
+const el=(tag,text)=>{const node=document.createElement(tag);if(text!==undefined)node.textContent=text;return node;};
+const value=x=>JSON.stringify(x);
+function notes(g){try{return JSON.parse(g.notes||'{}');}catch{return {};}}
+function expand(gates){return gates.flatMap(g=>[g,...(notes(g).metrics?.results||[])]);}
+function table(headers,rows){const wrap=el('div');wrap.className='table-wrap';const t=el('table'),head=el('thead'),hr=el('tr');headers.forEach(h=>{const th=el('th',h);th.scope='col';hr.append(th);});head.append(hr);t.append(head);const body=el('tbody');rows.forEach(row=>{const tr=el('tr');row.forEach(cell=>{const td=el('td');if(cell instanceof Node)td.append(cell);else td.textContent=cell;tr.append(td);});body.append(tr);});t.append(body);wrap.append(t);return wrap;}
+function gatesTable(gates){return table(['Gate','Subject','Value','Operator','Threshold','Unit','passed (reported)'],expand(gates).map(g=>{const flag=el('span',value(g.passed));flag.className='flag flag-'+g.passed;return[g.id,g.subject,value(g.value),g.op,value(g.threshold),g.unit,flag];}));}
+Object.entries(modules).forEach(([name,gates])=>{const section=el('section');section.append(el('h3',name[0].toUpperCase()+name.slice(1)),gatesTable(gates));const d=el('details');d.append(el('summary','Complete reported gate envelopes and notes'),el('pre',JSON.stringify(gates,null,2)));section.append(d);document.getElementById('module-tables').append(section);});
+document.getElementById('composite-table').append(gatesTable([composite.attachment,...Object.values(composite.pse)]));
+document.getElementById('composite-raw').textContent=JSON.stringify(composite,null,2);
+document.getElementById('attachment-frames').append(table(['Frame','Socket (x,y)','Bright centroid (x,y)','Distance (px)','Socket provenance'],notes(composite.attachment).per_frame.map(f=>[String(f.index).padStart(2,'0'),value(f.socket_xy),value(f.centroid_xy),value(f.distance_px),[4,5].includes(f.index)?'interpolated':'supplied'])));
+for(const [name,count,base,prefix] of [['cast',8,'vfx/frames/cast/','cast_'],['travel',6,'vfx/frames/travel/','travel_'],['impact',10,'vfx/frames/impact/','impact_'],['composite',8,'composite_cast_S/frames/','composite_']]){const p=el('p',name+': ');for(let i=0;i<count;i++){const n=String(i).padStart(2,'0'),a=el('a',n);a.href=base+prefix+n+'.png';p.append(a,document.createTextNode(' '));}document.getElementById('frame-links').append(p);}
+const castImage=document.getElementById('cast-frame'),seek=document.getElementById('cast-seek'),play=document.getElementById('cast-play');
+const castFrames=Array.from({length:8},(_,i)=>{const im=new Image();im.src='vfx/frames/cast/cast_'+String(i).padStart(2,'0')+'.png';return im;});
+let frame=0,playing=false,start=0,request;
+function show(i){frame=i;castImage.src=castFrames[i].src;castImage.alt='Isolated cast module, frame '+String(i).padStart(2,'0');seek.value=i;document.getElementById('cast-index').textContent=String(i).padStart(2,'0')+' / 07';}
+function stop(){playing=false;play.textContent='Play';cancelAnimationFrame(request);}
+function tick(now){const next=Math.floor((now-start)/50);if(next>=8){show(7);stop();return;}show(next);request=requestAnimationFrame(tick);}
+play.addEventListener('click',async()=>{if(playing){stop();return;}await Promise.all(castFrames.map(im=>im.decode().catch(()=>{})));if(frame===7)show(0);playing=true;play.textContent='Pause';start=performance.now()-frame*50;request=requestAnimationFrame(tick);});
+seek.addEventListener('input',()=>{stop();show(Number(seek.value));});
+document.addEventListener('visibilitychange',()=>{if(document.hidden)stop();});
+</script></main></body></html>

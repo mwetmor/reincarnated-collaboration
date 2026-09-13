@@ -1,0 +1,13 @@
+{
+ "text": "PACK BURST P5p-vfx — review packet 62: the frost bolt (Run C-3 P5, fork B). task_id \"P5p-vfx\".\n\nInputs (read-only): /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/K4v-chk-01/ (vfx/frames/{cast,travel,impact}, vfx/travel_12fps.mp4, vfx/impact_20fps.mp4, vfx_sheet_review.png, checks.json modules), /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/K4v-chk-03-r1/ (composite_cast_S/composite.mp4, composite_cast_S/frames, composite_strip.png, checks.json composite block), /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/P5-regions/sockets_cast_S_x.json. Copy the media into out/ (keep names) and write out/review.html (self-contained, relative paths): the cast composite MP4 first (caption: 'frost bolt cast composited at the staff-tip socket on the S cast cell; sockets frames 4–5 interpolated — the staff points at the camera'), the composite strip, the three module videos/sheet, then a numbers table per module (every gate value with its passed flag as REPORTED by the frozen gate, plus the sentence 'reports, not verdicts'), then the composite block (attachment 13.1 px vs 6, PSE). out/summary.txt ≤ 10 lines. No image_gen. No code beyond the page. No writes outside out/. No web. calls_used 0.\nRETURN: receipt task_id \"P5p-vfx\"; images []; files: every out/ file with sha256; status; concerns. Never PASS/FAIL.",
+ "references": [],
+ "image_cap": 0,
+ "minutes_cap": 15,
+ "tool_call_cap": 20,
+ "outputs": [
+  "out/review.html"
+ ],
+ "effort": "high",
+ "add_dirs": [],
+ "experiment": "C3-P5"
+}
