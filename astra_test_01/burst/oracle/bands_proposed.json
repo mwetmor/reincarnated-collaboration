@@ -1,0 +1,5319 @@
+{
+  "idle_relaxed_video": {
+    "committed": false,
+    "diagnostics": {
+      "estimator": "median RGB profile-gradient translation; local left/right edge templates",
+      "regions": {
+        "arms_left": {
+          "classification": "MOTION",
+          "displacement_H": 0.06336764624375828,
+          "dy_p2p_H": 0.06336764624375828,
+          "left_p2p_H": 0.0010402454695924712,
+          "right_p2p_H": 0.001063685289119487,
+          "search_limit_frames": {
+            "horizontal": {
+              "left": [],
+              "right": []
+            },
+            "vertical": []
+          }
+        },
+        "arms_right": {
+          "classification": "MOTION",
+          "displacement_H": 0.02432205372576712,
+          "dy_p2p_H": 0.02432205372576712,
+          "left_p2p_H": 0.008333333333333304,
+          "right_p2p_H": 0.008333333333333526,
+          "search_limit_frames": {
+            "horizontal": {
+              "left": [
+                2,
+                3,
+                13,
+                14,
+                15
+              ],
+              "right": [
+                0,
+                1,
+                2,
+                3,
+                5,
+                6,
+                8,
+                9,
+                10,
+                12,
+                15
+              ]
+            },
+            "vertical": []
+          }
+        },
+        "feet": {
+          "classification": "LOCK",
+          "displacement_H": 0.0001569635130429027,
+          "dy_p2p_H": 0.0001569635130429027,
+          "left_p2p_H": 0.0001435486345022774,
+          "right_p2p_H": 0.00011655386635678333,
+          "search_limit_frames": {
+            "horizontal": {
+              "left": [],
+              "right": []
+            },
+            "vertical": []
+          }
+        },
+        "head": {
+          "classification": "MOTION",
+          "displacement_H": 0.04590865232120049,
+          "dy_p2p_H": 0.04590865232120049,
+          "left_p2p_H": 0.0015463790717410442,
+          "right_p2p_H": 0.030223702890411763,
+          "search_limit_frames": {
+            "horizontal": {
+              "left": [],
+              "right": []
+            },
+            "vertical": [
+              0
+            ]
+          }
+        },
+        "hips": {
+          "classification": "MOTION",
+          "displacement_H": 0.014964578506495295,
+          "dy_p2p_H": 0.014964578506495295,
+          "left_p2p_H": 0.0012257836438291925,
+          "right_p2p_H": 0.011935218576403006,
+          "search_limit_frames": {
+            "horizontal": {
+              "left": [],
+              "right": []
+            },
+            "vertical": []
+          }
+        },
+        "legs": {
+          "classification": "LOCK",
+          "displacement_H": 0.0008155754765893919,
+          "dy_p2p_H": 0.0005113610202221413,
+          "left_p2p_H": 0.0008155754765893919,
+          "right_p2p_H": 0.00043051350897904683,
+          "search_limit_frames": {
+            "horizontal": {
+              "left": [],
+              "right": []
+            },
+            "vertical": []
+          }
+        },
+        "shoulders_chest": {
+          "classification": "MOTION",
+          "displacement_H": 0.022963317836104995,
+          "dy_p2p_H": 0.022963317836104995,
+          "left_p2p_H": 0.0010491452098573273,
+          "right_p2p_H": 0.004057121412260445,
+          "search_limit_frames": {
+            "horizontal": {
+              "left": [],
+              "right": []
+            },
+            "vertical": []
+          }
+        }
+      },
+      "summary": {
+        "LOCK": [
+          "legs",
+          "feet"
+        ],
+        "MOTION": [
+          "head",
+          "shoulders_chest",
+          "hips",
+          "arms_left",
+          "arms_right"
+        ],
+        "breath_amplitude_H": 0.004141131124248132,
+        "breath_period_frames": null,
+        "breath_period_s": null,
+        "contamination": 0.0,
+        "contamination_infinite": false,
+        "head_sway_H": 0.019425583799634223,
+        "moving_count": 5,
+        "passed": null,
+        "period_confidence": 0.0,
+        "reason": null,
+        "reasons": []
+      }
+    },
+    "facing": "S",
+    "fps": 8.0,
+    "governing_quantity": "breath_amplitude_H",
+    "hash_convention": "SHA256(concatenated ASCII SHA256 hex digests in natural numbered frame order)",
+    "kind": "idle",
+    "label": "idle_relaxed_video",
+    "notes": "R-45: idle exemplar covers the whole selected span; not evidence of a verified single breath cycle.",
+    "proposed": true,
+    "proposed_from": {
+      "frames_dir": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-xv-idle-cut-01/frames/idle/S",
+      "sha256_of_sorted_frame_hashes": "df6df057b04636d703b69b974c1b97875872577b2ea7a9d6f8674ca768999c67"
+    },
+    "quantities": {
+      "arms_left_displacement_H": {
+        "ceiling": 0.09505146936563741,
+        "floor": 0.03802058774625496,
+        "target": 0.06336764624375828,
+        "value": 0.06336764624375828
+      },
+      "arms_right_displacement_H": {
+        "ceiling": 0.03648308058865068,
+        "floor": 0.01459323223546027,
+        "target": 0.02432205372576712,
+        "value": 0.02432205372576712
+      },
+      "breath_amplitude_H": {
+        "ceiling": 0.006211696686372198,
+        "floor": 0.002484678674548879,
+        "target": 0.004141131124248132,
+        "value": 0.004141131124248132
+      },
+      "feet_displacement_H": {
+        "ceiling": 0.00023544526956435405,
+        "floor": 9.417810782574163e-05,
+        "target": 0.0001569635130429027,
+        "value": 0.0001569635130429027
+      },
+      "head_displacement_H": {
+        "ceiling": 0.06886297848180073,
+        "floor": 0.027545191392720294,
+        "target": 0.04590865232120049,
+        "value": 0.04590865232120049
+      },
+      "head_sway_H": {
+        "ceiling": 0.029138375699451335,
+        "floor": 0.011655350279780534,
+        "target": 0.019425583799634223,
+        "value": 0.019425583799634223
+      },
+      "hips_displacement_H": {
+        "ceiling": 0.02244686775974294,
+        "floor": 0.008978747103897176,
+        "target": 0.014964578506495295,
+        "value": 0.014964578506495295
+      },
+      "legs_displacement_H": {
+        "ceiling": 0.0012233632148840878,
+        "floor": 0.0004893452859536351,
+        "target": 0.0008155754765893919,
+        "value": 0.0008155754765893919
+      },
+      "shoulders_chest_displacement_H": {
+        "ceiling": 0.03444497675415749,
+        "floor": 0.013777990701662997,
+        "target": 0.022963317836104995,
+        "value": 0.022963317836104995
+      }
+    },
+    "unmeasured": {}
+  },
+  "walk_E_video": {
+    "committed": false,
+    "diagnostics": {
+      "G6c": {
+        "evidence": [],
+        "id": "g6c",
+        "notes": "{\"seam_pair\": [11, 0], \"homologue_pair\": [5, 6], \"seam_mad\": 0.8322703043619791, \"homologue_mad\": 1.0277048746744792, \"ratio_infinite\": false, \"comparison\": \"seam MAD <= 1.25 * half-cycle homologue MAD\"}",
+        "op": "<=",
+        "passed": null,
+        "subject": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-xv-cut-04/frames/walk/E",
+        "threshold": 1.25,
+        "unit": "ratio",
+        "value": 0.8098339561010615
+      },
+      "W2": {
+        "coordinate": "Cartesian up; negative image y",
+        "max": [
+          {
+            "frame": 3,
+            "phase": null
+          },
+          {
+            "frame": 4,
+            "phase": null
+          }
+        ],
+        "min": [
+          {
+            "frame": 6,
+            "phase": null
+          },
+          {
+            "frame": 11,
+            "phase": null
+          }
+        ]
+      },
+      "W2_note": "phase labels unresolved; extrema frame positions / cycle length are numeric proposals",
+      "gait_checks": [
+        {
+          "evidence": [],
+          "id": "W1_floor",
+          "notes": "{\"committed\": false, \"floor\": 0.0}",
+          "op": ">=",
+          "passed": null,
+          "subject": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-xv-cut-04/frames/walk/E",
+          "threshold": 0.0,
+          "unit": "fraction_H",
+          "value": 0.02079002079002079
+        },
+        {
+          "evidence": [],
+          "id": "W2",
+          "notes": "{\"candidate_phases\": [null, null, null, null, null, null, null, null, null, null, null, null], \"committed\": false, \"expected_extrema\": {}, \"expected_phases\": [], \"inferred_contact_phases\": [{\"boundary_contact\": false, \"contact\": false, \"contact_sides\": [], \"frame\": 0, \"lead_track\": null, \"phase\": null, \"planted\": {\"L\": true, \"R\": false}, \"printed_phase\": 1, \"reason\": \"expected two contact events; observed 1\"}, {\"boundary_contact\": false, \"contact\": false, \"contact_sides\": [], \"frame\": 1, \"lead_track\": null, \"phase\": null, \"planted\": {\"L\": false, \"R\": false}, \"printed_phase\": 2, \"reason\": \"expected two contact events; observed 1\"}, {\"boundary_contact\": false, \"contact\": false, \"contact_sides\": [], \"frame\": 2, \"lead_track\": null, \"phase\": null, \"planted\": {\"L\": null, \"R\": false}, \"printed_phase\": 3, \"reason\": \"expected two contact events; observed 1\"}, {\"boundary_contact\": false, \"contact\": false, \"contact_sides\": [], \"frame\": 3, \"lead_track\": null, \"phase\": null, \"planted\": {\"L\": null, \"R\": false}, \"printed_phase\": 4, \"reason\": \"expected two contact events; observed 1\"}, {\"boundary_contact\": false, \"contact\": false, \"contact_sides\": [], \"frame\": 4, \"lead_track\": null, \"phase\": null, \"planted\": {\"L\": null, \"R\": false}, \"printed_phase\": 5, \"reason\": \"expected two contact events; observed 1\"}, {\"boundary_contact\": false, \"contact\": false, \"contact_sides\": [], \"frame\": 5, \"lead_track\": null, \"phase\": null, \"planted\": {\"L\": false, \"R\": false}, \"printed_phase\": 6, \"reason\": \"expected two contact events; observed 1\"}, {\"boundary_contact\": false, \"contact\": true, \"contact_sides\": [\"R\"], \"frame\": 6, \"lead_track\": null, \"phase\": null, \"planted\": {\"L\": false, \"R\": true}, \"printed_phase\": 7, \"reason\": \"expected two contact events; observed 1\"}, {\"boundary_contact\": false, \"contact\": false, \"contact_sides\": [], \"frame\": 7, \"lead_track\": null, \"phase\": null, \"planted\": {\"L\": false, \"R\": true}, \"printed_phase\": 8, \"reason\": \"expected two contact events; observed 1\"}, {\"boundary_contact\": false, \"contact\": false, \"contact_sides\": [], \"frame\": 8, \"lead_track\": null, \"phase\": null, \"planted\": {\"L\": null, \"R\": true}, \"printed_phase\": 9, \"reason\": \"expected two contact events; observed 1\"}, {\"boundary_contact\": false, \"contact\": false, \"contact_sides\": [], \"frame\": 9, \"lead_track\": null, \"phase\": null, \"planted\": {\"L\": null, \"R\": true}, \"printed_phase\": 10, \"reason\": \"expected two contact events; observed 1\"}, {\"boundary_contact\": false, \"contact\": false, \"contact_sides\": [], \"frame\": 10, \"lead_track\": null, \"phase\": null, \"planted\": {\"L\": true, \"R\": false}, \"printed_phase\": 11, \"reason\": \"expected two contact events; observed 1\"}, {\"boundary_contact\": false, \"contact\": false, \"contact_sides\": [], \"frame\": 11, \"lead_track\": null, \"phase\": null, \"planted\": {\"L\": true, \"R\": false}, \"printed_phase\": 12, \"reason\": \"expected two contact events; observed 1\"}], \"observed_extrema\": {\"coordinate\": \"Cartesian up; negative image y\", \"max\": [{\"frame\": 3, \"phase\": null}, {\"frame\": 4, \"phase\": null}], \"min\": [{\"frame\": 6, \"phase\": null}, {\"frame\": 11, \"phase\": null}]}}",
+          "op": "==",
+          "passed": null,
+          "subject": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-xv-cut-04/frames/walk/E",
+          "threshold": true,
+          "unit": "phase_match",
+          "value": null
+        },
+        {
+          "evidence": [],
+          "id": "W3a",
+          "notes": "{\"committed\": false}",
+          "op": "<=",
+          "passed": null,
+          "subject": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-xv-cut-04/frames/walk/E",
+          "threshold": 0.35,
+          "unit": "fraction_H",
+          "value": 0.6957309822528935
+        },
+        {
+          "evidence": [],
+          "id": "W3c_floor",
+          "notes": "{\"ceiling\": 3, \"committed\": false, \"floor\": 2}",
+          "op": ">=",
+          "passed": null,
+          "subject": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-xv-cut-04/frames/walk/E",
+          "threshold": 2,
+          "unit": "fraction_H",
+          "value": 2
+        },
+        {
+          "evidence": [],
+          "id": "W3c_ceiling",
+          "notes": "{\"ceiling\": 3, \"committed\": false, \"floor\": 2}",
+          "op": "<=",
+          "passed": null,
+          "subject": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-xv-cut-04/frames/walk/E",
+          "threshold": 3,
+          "unit": "fraction_H",
+          "value": 2
+        },
+        {
+          "evidence": [],
+          "id": "W4",
+          "notes": "{\"committed\": false}",
+          "op": "==",
+          "passed": null,
+          "subject": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-xv-cut-04/frames/walk/E",
+          "threshold": 2,
+          "unit": "minima_count",
+          "value": 2
+        },
+        {
+          "evidence": [],
+          "id": "W5_L",
+          "notes": "{\"committed\": false, \"free_arm_limits\": {\"ceiling\": 0.2, \"floor\": 0.08}, \"identity_note\": \"projected track opposition, not independently established anatomical same-side identity\", \"reason\": \"anatomical arm role unassigned\", \"weapon_arm_limits\": {\"ceiling\": null, \"floor\": 0.03}}",
+          "op": "<=",
+          "passed": null,
+          "subject": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-xv-cut-04/frames/walk/E",
+          "threshold": null,
+          "unit": "fraction_H",
+          "value": 0.014553014553014554
+        },
+        {
+          "evidence": [],
+          "id": "W5_R",
+          "notes": "{\"committed\": false, \"free_arm_limits\": {\"ceiling\": 0.2, \"floor\": 0.08}, \"identity_note\": \"projected track opposition, not independently established anatomical same-side identity\", \"reason\": \"anatomical arm role unassigned\", \"weapon_arm_limits\": {\"ceiling\": null, \"floor\": 0.03}}",
+          "op": "<=",
+          "passed": null,
+          "subject": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-xv-cut-04/frames/walk/E",
+          "threshold": null,
+          "unit": "fraction_H",
+          "value": 0.04365904365904366
+        },
+        {
+          "evidence": [],
+          "id": "W6",
+          "notes": "{\"committed\": false, \"identity_note\": \"projected track opposition, not independently established anatomical same-side identity\", \"minimum_opposed_frames\": 9, \"per_arm\": {\"L\": null, \"R\": 0.4166666666666667}, \"total_frames\": 12}",
+          "op": ">=",
+          "passed": null,
+          "subject": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-xv-cut-04/frames/walk/E",
+          "threshold": 0.75,
+          "unit": "opposed_fraction",
+          "value": null
+        },
+        {
+          "evidence": [],
+          "id": "planted_sole_slip_L",
+          "notes": "{\"committed\": false, \"delta_px_per_frame\": [null, null, null, null, null, null, null, null, null, null, -19.0, -6.0], \"mean_scroll_px_per_frame\": -12.5, \"planted_x_px\": [218.0, null, null, null, null, null, null, null, null, null, 243.0, 224.0], \"reason\": \"no registered slip ceiling\", \"slip_px_per_frame\": [null, null, null, null, null, null, null, null, null, null, -6.5, 6.5], \"slip_rms_px_per_frame\": 6.5}",
+          "op": "<=",
+          "passed": null,
+          "subject": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-xv-cut-04/frames/walk/E",
+          "threshold": null,
+          "unit": "px_per_frame",
+          "value": 6.5
+        },
+        {
+          "evidence": [],
+          "id": "planted_sole_slip_R",
+          "notes": "{\"committed\": false, \"delta_px_per_frame\": [null, null, null, null, null, null, 0.0, -17.0, -17.0, null, null, null], \"mean_scroll_px_per_frame\": -11.333333333333334, \"planted_x_px\": [null, null, null, null, null, null, 290.0, 290.0, 273.0, 256.0, null, null], \"reason\": \"no registered slip ceiling\", \"slip_px_per_frame\": [null, null, null, null, null, null, 11.333333333333334, -5.666666666666666, -5.666666666666666, null, null, null], \"slip_rms_px_per_frame\": 8.013876853447538}",
+          "op": "<=",
+          "passed": null,
+          "subject": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-xv-cut-04/frames/walk/E",
+          "threshold": null,
+          "unit": "px_per_frame",
+          "value": 8.013876853447538
+        }
+      ]
+    },
+    "facing": "E",
+    "fps": 12.0,
+    "governing_quantity": "W1",
+    "hash_convention": "SHA256(concatenated ASCII SHA256 hex digests in natural numbered frame order)",
+    "kind": "walk",
+    "label": "walk_E_video",
+    "notes": "Exemplar-centred proposal; no committed shipping gate.",
+    "proposed": true,
+    "proposed_from": {
+      "frames_dir": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-xv-cut-04/frames/walk/E",
+      "sha256_of_sorted_frame_hashes": "439c03ade844bf3ae75a00ded1b1074bb787dbd75b5b3814713b66837ce8c06b"
+    },
+    "quantities": {
+      "G6c": {
+        "ceiling": 1.214750934151592,
+        "floor": 0.4859003736606369,
+        "target": 0.8098339561010615,
+        "value": 0.8098339561010615
+      },
+      "W1": {
+        "ceiling": 0.031185031185031187,
+        "floor": 0.012474012474012475,
+        "target": 0.02079002079002079,
+        "value": 0.02079002079002079
+      },
+      "W2_max_0_cycle_fraction": {
+        "ceiling": 0.375,
+        "floor": 0.15,
+        "target": 0.25,
+        "value": 0.25
+      },
+      "W2_max_1_cycle_fraction": {
+        "ceiling": 0.5,
+        "floor": 0.19999999999999998,
+        "target": 0.3333333333333333,
+        "value": 0.3333333333333333
+      },
+      "W2_max_count": {
+        "ceiling": 3.0,
+        "floor": 1.2,
+        "target": 2.0,
+        "value": 2.0
+      },
+      "W2_min_0_cycle_fraction": {
+        "ceiling": 0.75,
+        "floor": 0.3,
+        "target": 0.5,
+        "value": 0.5
+      },
+      "W2_min_1_cycle_fraction": {
+        "ceiling": 1.375,
+        "floor": 0.5499999999999999,
+        "target": 0.9166666666666666,
+        "value": 0.9166666666666666
+      },
+      "W2_min_count": {
+        "ceiling": 3.0,
+        "floor": 1.2,
+        "target": 2.0,
+        "value": 2.0
+      },
+      "W3a": {
+        "ceiling": 1.0435964733793404,
+        "floor": 0.4174385893517361,
+        "target": 0.6957309822528935,
+        "value": 0.6957309822528935
+      },
+      "W3b": {
+        "ceiling": 1.0255126848548677,
+        "floor": 0.41020507394194705,
+        "target": 0.6836751232365784,
+        "value": 0.6836751232365784
+      },
+      "W3c": {
+        "ceiling": 3.0,
+        "floor": 1.2,
+        "target": 2.0,
+        "value": 2.0
+      },
+      "W4": {
+        "ceiling": 3.0,
+        "floor": 1.2,
+        "target": 2.0,
+        "value": 2.0
+      },
+      "W5_L": {
+        "ceiling": 0.02182952182952183,
+        "floor": 0.008731808731808732,
+        "target": 0.014553014553014554,
+        "value": 0.014553014553014554
+      },
+      "W5_R": {
+        "ceiling": 0.06548856548856549,
+        "floor": 0.026195426195426197,
+        "target": 0.04365904365904366,
+        "value": 0.04365904365904366
+      },
+      "planted_sole_slip_L": {
+        "ceiling": 9.75,
+        "floor": 3.9,
+        "target": 6.5,
+        "value": 6.5
+      },
+      "planted_sole_slip_R": {
+        "ceiling": 12.020815280171307,
+        "floor": 4.808326112068523,
+        "target": 8.013876853447538,
+        "value": 8.013876853447538
+      }
+    },
+    "unmeasured": {
+      "W6": {
+        "reason": "frozen estimator unresolved; no numeric band fabricated",
+        "value": null
+      }
+    }
+  },
+  "walk_N_proposal": {
+    "bands": {
+      "W1": {
+        "ceiling": 0.07,
+        "floor": 0.5579710144927537,
+        "target": 1.1159420289855073
+      },
+      "W2": {
+        "coordinate": "Cartesian up; negative image y",
+        "max": [
+          {
+            "frame": 11,
+            "phase": null
+          }
+        ],
+        "min": [
+          {
+            "frame": 4,
+            "phase": null
+          }
+        ]
+      },
+      "W3a": {
+        "ceiling": 0.35,
+        "value": 0.20265209379476376
+      },
+      "W3b": {
+        "threshold": null,
+        "value": 0.41142857142857137
+      },
+      "W3c": {
+        "ceiling": 3,
+        "floor": 2,
+        "value": 4
+      },
+      "W4": {
+        "target": 2,
+        "value": 2
+      },
+      "W5": null,
+      "W5_role_limits": {
+        "assignment": null,
+        "free_arm": {
+          "ceiling": 0.2,
+          "floor": 0.08
+        },
+        "weapon_arm": {
+          "ceiling": null,
+          "floor": 0.03
+        }
+      },
+      "W6": {
+        "floor": 0.75,
+        "minimum_opposed_frames": 9,
+        "total_frames": 12,
+        "value": null
+      },
+      "note": "W5 targets apply k_lat to extents; anatomical free/weapon role is unassigned. Sole floor is absolute mean speed; signed values retained in curves.",
+      "parameters": {
+        "k_lat": 0.5,
+        "k_vert": 2.0,
+        "sole_scroll_multiplier": 1.0
+      },
+      "sole_scroll": null
+    },
+    "committed": false,
+    "curves": {
+      "coordinate_system": "grid registered source pixels; native plot coordinates subtract grid_shift_xy",
+      "fps": 8.33,
+      "frame_names": [
+        "rear_00.png",
+        "rear_01.png",
+        "rear_02.png",
+        "rear_03.png",
+        "rear_04.png",
+        "rear_05.png",
+        "rear_06.png",
+        "rear_07.png",
+        "rear_08.png",
+        "rear_09.png",
+        "rear_10.png",
+        "rear_11.png"
+      ],
+      "frames": 12,
+      "landmarks": [
+        {
+          "H": 333,
+          "feet_merged": true,
+          "foot_L_velocity_x": null,
+          "foot_L_x": 225.0,
+          "foot_L_x_H": 0.6756756756756757,
+          "foot_L_y": 515,
+          "foot_L_y_H": 1.5465465465465464,
+          "foot_R_velocity_x": null,
+          "foot_R_x": null,
+          "foot_R_x_H": null,
+          "foot_R_y": null,
+          "foot_R_y_H": null,
+          "foot_components": 1,
+          "foot_identity": "initial image x order; tracked over time, not anatomical",
+          "grid_shift_xy": [
+            0,
+            0
+          ],
+          "ground_line_y": 734,
+          "ground_line_y_H": 2.204204204204204,
+          "head_box_xyxy": [
+            267,
+            603,
+            375,
+            628
+          ],
+          "head_cx": 320.5,
+          "head_cx_H": 0.9624624624624625,
+          "head_cx_mask_lineage": 245.36885245901638,
+          "head_cy": 615.0,
+          "head_cy_H": 1.8468468468468469,
+          "head_ncc": 0.9051564478158798,
+          "head_ref_y": 197,
+          "head_ref_y_H": 0.5915915915915916,
+          "head_search_limit": false,
+          "head_template_frame": 11,
+          "head_top_mask_y": 183,
+          "head_top_mask_y_H": 0.5495495495495496,
+          "head_top_thin": false,
+          "head_top_y": 603.0,
+          "head_top_y_H": 1.8108108108108107,
+          "head_track_method": "fixed head patch NCC; +/-25%H previous position",
+          "head_track_valid": true,
+          "identity_ambiguous": true,
+          "mask_area": 7167,
+          "mask_area_per_H": 21.52252252252252,
+          "planted": {
+            "L": null,
+            "R": null
+          },
+          "planted_L": null,
+          "planted_R": null,
+          "planted_ground_only_lineage": {
+            "L": false,
+            "R": null
+          },
+          "sole_line_y": 515,
+          "sole_line_y_H": 1.5465465465465464,
+          "torso_cx": 235.25,
+          "torso_cx_H": 0.7064564564564565,
+          "torso_width": 20.0,
+          "torso_width_H": 0.06006006006006006,
+          "valid": true,
+          "velocity_boundary": "forward difference (no prior frame)",
+          "wrist_ext_L": 4.25,
+          "wrist_ext_L_H": 0.012762762762762763,
+          "wrist_ext_R": 26.75,
+          "wrist_ext_R_H": 0.08033033033033032
+        },
+        {
+          "H": 112,
+          "feet_merged": true,
+          "foot_L_velocity_x": null,
+          "foot_L_x": null,
+          "foot_L_x_H": null,
+          "foot_L_y": null,
+          "foot_L_y_H": null,
+          "foot_R_velocity_x": null,
+          "foot_R_x": 79.0,
+          "foot_R_x_H": 0.7053571428571429,
+          "foot_R_y": 721,
+          "foot_R_y_H": 6.4375,
+          "foot_components": 1,
+          "foot_identity": "initial image x order; tracked over time, not anatomical",
+          "grid_shift_xy": [
+            0,
+            0
+          ],
+          "ground_line_y": 734,
+          "ground_line_y_H": 6.553571428571429,
+          "head_box_xyxy": [
+            267,
+            597,
+            375,
+            622
+          ],
+          "head_cx": 320.5,
+          "head_cx_H": 2.861607142857143,
+          "head_cx_mask_lineage": 162.248322147651,
+          "head_cy": 609.0,
+          "head_cy_H": 5.4375,
+          "head_ncc": 0.8827137919211535,
+          "head_ref_y": 632,
+          "head_ref_y_H": 5.642857142857143,
+          "head_search_limit": false,
+          "head_template_frame": 11,
+          "head_top_mask_y": 610,
+          "head_top_mask_y_H": 5.446428571428571,
+          "head_top_thin": false,
+          "head_top_y": 597.0,
+          "head_top_y_H": 5.330357142857143,
+          "head_track_method": "fixed head patch NCC; +/-25%H previous position",
+          "head_track_valid": true,
+          "identity_ambiguous": true,
+          "mask_area": 4133,
+          "mask_area_per_H": 36.901785714285715,
+          "planted": {
+            "L": null,
+            "R": null
+          },
+          "planted_L": null,
+          "planted_R": null,
+          "planted_ground_only_lineage": {
+            "L": null,
+            "R": false
+          },
+          "sole_line_y": 721,
+          "sole_line_y_H": 6.4375,
+          "torso_cx": 170.0,
+          "torso_cx_H": 1.5178571428571428,
+          "torso_width": 34.0,
+          "torso_width_H": 0.30357142857142855,
+          "valid": true,
+          "velocity_boundary": "backward difference",
+          "wrist_ext_L": 0.0,
+          "wrist_ext_L_H": 0.0,
+          "wrist_ext_R": 1.0,
+          "wrist_ext_R_H": 0.008928571428571428
+        },
+        {
+          "H": 133,
+          "feet_merged": true,
+          "foot_L_velocity_x": null,
+          "foot_L_x": 327.0,
+          "foot_L_x_H": 2.4586466165413534,
+          "foot_L_y": 734,
+          "foot_L_y_H": 5.518796992481203,
+          "foot_R_velocity_x": null,
+          "foot_R_x": null,
+          "foot_R_x_H": null,
+          "foot_R_y": null,
+          "foot_R_y_H": null,
+          "foot_components": 1,
+          "foot_identity": "initial image x order; tracked over time, not anatomical",
+          "grid_shift_xy": [
+            0,
+            0
+          ],
+          "ground_line_y": 734,
+          "ground_line_y_H": 5.518796992481203,
+          "head_box_xyxy": [
+            260,
+            599,
+            368,
+            624
+          ],
+          "head_cx": 313.5,
+          "head_cx_H": 2.357142857142857,
+          "head_cx_mask_lineage": 363.4140127388535,
+          "head_cy": 611.0,
+          "head_cy_H": 4.593984962406015,
+          "head_ncc": 0.8523352206520286,
+          "head_ref_y": 616,
+          "head_ref_y_H": 4.631578947368421,
+          "head_search_limit": false,
+          "head_template_frame": 11,
+          "head_top_mask_y": 602,
+          "head_top_mask_y_H": 4.526315789473684,
+          "head_top_thin": false,
+          "head_top_y": 599.0,
+          "head_top_y_H": 4.503759398496241,
+          "head_track_method": "fixed head patch NCC; +/-25%H previous position",
+          "head_track_valid": true,
+          "identity_ambiguous": true,
+          "mask_area": 1767,
+          "mask_area_per_H": 13.285714285714286,
+          "planted": {
+            "L": null,
+            "R": null
+          },
+          "planted_L": null,
+          "planted_R": null,
+          "planted_ground_only_lineage": {
+            "L": true,
+            "R": null
+          },
+          "sole_line_y": 734,
+          "sole_line_y_H": 5.518796992481203,
+          "torso_cx": 363.0,
+          "torso_cx_H": 2.7293233082706765,
+          "torso_width": 10.0,
+          "torso_width_H": 0.07518796992481203,
+          "valid": true,
+          "velocity_boundary": "backward difference",
+          "wrist_ext_L": 3.0,
+          "wrist_ext_L_H": 0.022556390977443608,
+          "wrist_ext_R": 0.0,
+          "wrist_ext_R_H": 0.0
+        },
+        {
+          "H": 58,
+          "feet_merged": true,
+          "foot_L_velocity_x": null,
+          "foot_L_x": null,
+          "foot_L_x_H": null,
+          "foot_L_y": null,
+          "foot_L_y_H": null,
+          "foot_R_velocity_x": null,
+          "foot_R_x": 199.0,
+          "foot_R_x_H": 3.4310344827586206,
+          "foot_R_y": 688,
+          "foot_R_y_H": 11.862068965517242,
+          "foot_components": 1,
+          "foot_identity": "initial image x order; tracked over time, not anatomical",
+          "grid_shift_xy": [
+            0,
+            0
+          ],
+          "ground_line_y": 734,
+          "ground_line_y_H": 12.655172413793103,
+          "head_box_xyxy": [
+            261,
+            599,
+            369,
+            624
+          ],
+          "head_cx": 314.5,
+          "head_cx_H": 5.422413793103448,
+          "head_cx_mask_lineage": 246.9607142857143,
+          "head_cy": 611.0,
+          "head_cy_H": 10.53448275862069,
+          "head_ncc": 0.8397127115457322,
+          "head_ref_y": 641,
+          "head_ref_y_H": 11.051724137931034,
+          "head_search_limit": false,
+          "head_template_frame": 11,
+          "head_top_mask_y": 631,
+          "head_top_mask_y_H": 10.879310344827585,
+          "head_top_thin": false,
+          "head_top_y": 599.0,
+          "head_top_y_H": 10.327586206896552,
+          "head_track_method": "fixed head patch NCC; +/-25%H previous position",
+          "head_track_valid": true,
+          "identity_ambiguous": true,
+          "mask_area": 2217,
+          "mask_area_per_H": 38.224137931034484,
+          "planted": {
+            "L": null,
+            "R": null
+          },
+          "planted_L": null,
+          "planted_R": null,
+          "planted_ground_only_lineage": {
+            "L": null,
+            "R": false
+          },
+          "sole_line_y": 688,
+          "sole_line_y_H": 11.862068965517242,
+          "torso_cx": 247.0,
+          "torso_cx_H": 4.258620689655173,
+          "torso_width": 28.0,
+          "torso_width_H": 0.4827586206896552,
+          "valid": true,
+          "velocity_boundary": "backward difference",
+          "wrist_ext_L": 22.0,
+          "wrist_ext_L_H": 0.3793103448275862,
+          "wrist_ext_R": 0.0,
+          "wrist_ext_R_H": 0.0
+        },
+        {
+          "H": 113,
+          "feet_merged": false,
+          "foot_L_velocity_x": null,
+          "foot_L_x": 213.0,
+          "foot_L_x_H": 1.8849557522123894,
+          "foot_L_y": 701,
+          "foot_L_y_H": 6.20353982300885,
+          "foot_R_velocity_x": -125.0,
+          "foot_R_x": 74.0,
+          "foot_R_x_H": 0.6548672566371682,
+          "foot_R_y": 728,
+          "foot_R_y_H": 6.442477876106195,
+          "foot_components": 2,
+          "foot_identity": "initial image x order; tracked over time, not anatomical",
+          "grid_shift_xy": [
+            0,
+            0
+          ],
+          "ground_line_y": 734,
+          "ground_line_y_H": 6.495575221238938,
+          "head_box_xyxy": [
+            269,
+            605,
+            377,
+            630
+          ],
+          "head_cx": 322.5,
+          "head_cx_H": 2.853982300884956,
+          "head_cx_mask_lineage": 212.11363636363637,
+          "head_cy": 617.0,
+          "head_cy_H": 5.460176991150442,
+          "head_ncc": 0.8850446080961911,
+          "head_ref_y": 638,
+          "head_ref_y_H": 5.646017699115045,
+          "head_search_limit": false,
+          "head_template_frame": 11,
+          "head_top_mask_y": 616,
+          "head_top_mask_y_H": 5.451327433628318,
+          "head_top_thin": false,
+          "head_top_y": 605.0,
+          "head_top_y_H": 5.353982300884955,
+          "head_track_method": "fixed head patch NCC; +/-25%H previous position",
+          "head_track_valid": true,
+          "identity_ambiguous": false,
+          "mask_area": 5373,
+          "mask_area_per_H": 47.54867256637168,
+          "planted": {
+            "L": null,
+            "R": false
+          },
+          "planted_L": null,
+          "planted_R": false,
+          "planted_ground_only_lineage": {
+            "L": false,
+            "R": false
+          },
+          "sole_line_y": 728,
+          "sole_line_y_H": 6.442477876106195,
+          "torso_cx": 251.5,
+          "torso_cx_H": 2.225663716814159,
+          "torso_width": 29.0,
+          "torso_width_H": 0.25663716814159293,
+          "valid": true,
+          "velocity_boundary": "backward difference",
+          "wrist_ext_L": 13.0,
+          "wrist_ext_L_H": 0.11504424778761062,
+          "wrist_ext_R": 5.0,
+          "wrist_ext_R_H": 0.04424778761061947
+        },
+        {
+          "H": 241,
+          "feet_merged": true,
+          "foot_L_velocity_x": -95.5,
+          "foot_L_x": 117.5,
+          "foot_L_x_H": 0.487551867219917,
+          "foot_L_y": 659,
+          "foot_L_y_H": 2.7344398340248963,
+          "foot_R_velocity_x": null,
+          "foot_R_x": null,
+          "foot_R_x_H": null,
+          "foot_R_y": null,
+          "foot_R_y_H": null,
+          "foot_components": 1,
+          "foot_identity": "initial image x order; tracked over time, not anatomical",
+          "grid_shift_xy": [
+            0,
+            0
+          ],
+          "ground_line_y": 734,
+          "ground_line_y_H": 3.045643153526971,
+          "head_box_xyxy": [
+            270,
+            595,
+            378,
+            620
+          ],
+          "head_cx": 323.5,
+          "head_cx_H": 1.342323651452282,
+          "head_cx_mask_lineage": 142.49303621169918,
+          "head_cy": 607.0,
+          "head_cy_H": 2.5186721991701244,
+          "head_ncc": 0.8695078976066513,
+          "head_ref_y": 442,
+          "head_ref_y_H": 1.83402489626556,
+          "head_search_limit": false,
+          "head_template_frame": 11,
+          "head_top_mask_y": 419,
+          "head_top_mask_y_H": 1.7385892116182573,
+          "head_top_thin": false,
+          "head_top_y": 595.0,
+          "head_top_y_H": 2.4688796680497926,
+          "head_track_method": "fixed head patch NCC; +/-25%H previous position",
+          "head_track_valid": true,
+          "identity_ambiguous": true,
+          "mask_area": 7816,
+          "mask_area_per_H": 32.43153526970954,
+          "planted": {
+            "L": false,
+            "R": null
+          },
+          "planted_L": false,
+          "planted_R": null,
+          "planted_ground_only_lineage": {
+            "L": false,
+            "R": null
+          },
+          "sole_line_y": 659,
+          "sole_line_y_H": 2.7344398340248963,
+          "torso_cx": 143.0,
+          "torso_cx_H": 0.5933609958506224,
+          "torso_width": 36.0,
+          "torso_width_H": 0.14937759336099585,
+          "valid": true,
+          "velocity_boundary": "backward difference",
+          "wrist_ext_L": 2.0,
+          "wrist_ext_L_H": 0.008298755186721992,
+          "wrist_ext_R": 6.0,
+          "wrist_ext_R_H": 0.024896265560165973
+        },
+        {
+          "H": 118,
+          "feet_merged": false,
+          "foot_L_velocity_x": 250.5,
+          "foot_L_x": 368.0,
+          "foot_L_x_H": 3.1186440677966103,
+          "foot_L_y": 630,
+          "foot_L_y_H": 5.338983050847458,
+          "foot_R_velocity_x": null,
+          "foot_R_x": 204.0,
+          "foot_R_x_H": 1.728813559322034,
+          "foot_R_y": 632,
+          "foot_R_y_H": 5.3559322033898304,
+          "foot_components": 2,
+          "foot_identity": "initial image x order; tracked over time, not anatomical",
+          "grid_shift_xy": [
+            0,
+            0
+          ],
+          "ground_line_y": 734,
+          "ground_line_y_H": 6.220338983050848,
+          "head_box_xyxy": [
+            271,
+            578,
+            379,
+            603
+          ],
+          "head_cx": 324.5,
+          "head_cx_H": 2.75,
+          "head_cx_mask_lineage": 224.87769784172662,
+          "head_cy": 590.0,
+          "head_cy_H": 5.0,
+          "head_ncc": 0.8321733777667358,
+          "head_ref_y": 538,
+          "head_ref_y_H": 4.559322033898305,
+          "head_search_limit": false,
+          "head_template_frame": 11,
+          "head_top_mask_y": 515,
+          "head_top_mask_y_H": 4.364406779661017,
+          "head_top_thin": false,
+          "head_top_y": 578.0,
+          "head_top_y_H": 4.898305084745763,
+          "head_track_method": "fixed head patch NCC; +/-25%H previous position",
+          "head_track_valid": true,
+          "identity_ambiguous": false,
+          "mask_area": 8823,
+          "mask_area_per_H": 74.77118644067797,
+          "planted": {
+            "L": false,
+            "R": null
+          },
+          "planted_L": false,
+          "planted_R": null,
+          "planted_ground_only_lineage": {
+            "L": false,
+            "R": false
+          },
+          "sole_line_y": 632,
+          "sole_line_y_H": 5.3559322033898304,
+          "torso_cx": 308.0,
+          "torso_cx_H": 2.610169491525424,
+          "torso_width": 55.0,
+          "torso_width_H": 0.4661016949152542,
+          "valid": true,
+          "velocity_boundary": "backward difference",
+          "wrist_ext_L": 68.5,
+          "wrist_ext_L_H": 0.5805084745762712,
+          "wrist_ext_R": 27.5,
+          "wrist_ext_R_H": 0.2330508474576271
+        },
+        {
+          "H": 138,
+          "feet_merged": true,
+          "foot_L_velocity_x": null,
+          "foot_L_x": null,
+          "foot_L_x_H": null,
+          "foot_L_y": null,
+          "foot_L_y_H": null,
+          "foot_R_velocity_x": 168.0,
+          "foot_R_x": 372.0,
+          "foot_R_x_H": 2.6956521739130435,
+          "foot_R_y": 693,
+          "foot_R_y_H": 5.021739130434782,
+          "foot_components": 1,
+          "foot_identity": "initial image x order; tracked over time, not anatomical",
+          "grid_shift_xy": [
+            0,
+            0
+          ],
+          "ground_line_y": 734,
+          "ground_line_y_H": 5.318840579710145,
+          "head_box_xyxy": [
+            278,
+            562,
+            386,
+            587
+          ],
+          "head_cx": 331.5,
+          "head_cx_H": 2.402173913043478,
+          "head_cx_mask_lineage": 333.335429769392,
+          "head_cy": 574.0,
+          "head_cy_H": 4.159420289855072,
+          "head_ncc": 0.8089704310735365,
+          "head_ref_y": 577,
+          "head_ref_y_H": 4.181159420289855,
+          "head_search_limit": false,
+          "head_template_frame": 11,
+          "head_top_mask_y": 556,
+          "head_top_mask_y_H": 4.028985507246377,
+          "head_top_thin": false,
+          "head_top_y": 562.0,
+          "head_top_y_H": 4.072463768115942,
+          "head_track_method": "fixed head patch NCC; +/-25%H previous position",
+          "head_track_valid": true,
+          "identity_ambiguous": true,
+          "mask_area": 5105,
+          "mask_area_per_H": 36.992753623188406,
+          "planted": {
+            "L": null,
+            "R": false
+          },
+          "planted_L": null,
+          "planted_R": false,
+          "planted_ground_only_lineage": {
+            "L": null,
+            "R": false
+          },
+          "sole_line_y": 693,
+          "sole_line_y_H": 5.021739130434782,
+          "torso_cx": 373.5,
+          "torso_cx_H": 2.7065217391304346,
+          "torso_width": 12.0,
+          "torso_width_H": 0.08695652173913043,
+          "valid": true,
+          "velocity_boundary": "backward difference",
+          "wrist_ext_L": 0.0,
+          "wrist_ext_L_H": 0.0,
+          "wrist_ext_R": 0.0,
+          "wrist_ext_R_H": 0.0
+        },
+        {
+          "H": 227,
+          "feet_merged": true,
+          "foot_L_velocity_x": null,
+          "foot_L_x": null,
+          "foot_L_x_H": null,
+          "foot_L_y": null,
+          "foot_L_y_H": null,
+          "foot_R_velocity_x": -104.0,
+          "foot_R_x": 268.0,
+          "foot_R_x_H": 1.1806167400881058,
+          "foot_R_y": 381,
+          "foot_R_y_H": 1.6784140969162995,
+          "foot_components": 1,
+          "foot_identity": "initial image x order; tracked over time, not anatomical",
+          "grid_shift_xy": [
+            0,
+            0
+          ],
+          "ground_line_y": 734,
+          "ground_line_y_H": 3.2334801762114536,
+          "head_box_xyxy": [
+            270,
+            549,
+            378,
+            574
+          ],
+          "head_cx": 323.5,
+          "head_cx_H": 1.4251101321585904,
+          "head_cx_mask_lineage": 227.85816618911176,
+          "head_cy": 561.0,
+          "head_cy_H": 2.4713656387665197,
+          "head_ncc": 0.8486402494086339,
+          "head_ref_y": 173,
+          "head_ref_y_H": 0.762114537444934,
+          "head_search_limit": false,
+          "head_template_frame": 11,
+          "head_top_mask_y": 155,
+          "head_top_mask_y_H": 0.6828193832599119,
+          "head_top_thin": false,
+          "head_top_y": 549.0,
+          "head_top_y_H": 2.4185022026431717,
+          "head_track_method": "fixed head patch NCC; +/-25%H previous position",
+          "head_track_valid": true,
+          "identity_ambiguous": true,
+          "mask_area": 3303,
+          "mask_area_per_H": 14.550660792951541,
+          "planted": {
+            "L": null,
+            "R": false
+          },
+          "planted_L": null,
+          "planted_R": false,
+          "planted_ground_only_lineage": {
+            "L": null,
+            "R": false
+          },
+          "sole_line_y": 381,
+          "sole_line_y_H": 1.6784140969162995,
+          "torso_cx": 251.5,
+          "torso_cx_H": 1.1079295154185023,
+          "torso_width": 10.0,
+          "torso_width_H": 0.04405286343612335,
+          "valid": true,
+          "velocity_boundary": "backward difference",
+          "wrist_ext_L": 0.0,
+          "wrist_ext_L_H": 0.0,
+          "wrist_ext_R": 1.5,
+          "wrist_ext_R_H": 0.006607929515418502
+        },
+        {
+          "H": 138,
+          "feet_merged": true,
+          "foot_L_velocity_x": null,
+          "foot_L_x": null,
+          "foot_L_x_H": null,
+          "foot_L_y": null,
+          "foot_L_y_H": null,
+          "foot_R_velocity_x": -104.0,
+          "foot_R_x": 164.0,
+          "foot_R_x_H": 1.1884057971014492,
+          "foot_R_y": 576,
+          "foot_R_y_H": 4.173913043478261,
+          "foot_components": 1,
+          "foot_identity": "initial image x order; tracked over time, not anatomical",
+          "grid_shift_xy": [
+            0,
+            0
+          ],
+          "ground_line_y": 734,
+          "ground_line_y_H": 5.318840579710145,
+          "head_box_xyxy": [
+            263,
+            536,
+            371,
+            561
+          ],
+          "head_cx": 316.5,
+          "head_cx_H": 2.2934782608695654,
+          "head_cx_mask_lineage": 187.8197424892704,
+          "head_cy": 548.0,
+          "head_cy_H": 3.971014492753623,
+          "head_ncc": 0.8353777240514163,
+          "head_ref_y": 462,
+          "head_ref_y_H": 3.347826086956522,
+          "head_search_limit": false,
+          "head_template_frame": 11,
+          "head_top_mask_y": 439,
+          "head_top_mask_y_H": 3.181159420289855,
+          "head_top_thin": false,
+          "head_top_y": 536.0,
+          "head_top_y_H": 3.8840579710144927,
+          "head_track_method": "fixed head patch NCC; +/-25%H previous position",
+          "head_track_valid": true,
+          "identity_ambiguous": true,
+          "mask_area": 6263,
+          "mask_area_per_H": 45.38405797101449,
+          "planted": {
+            "L": null,
+            "R": false
+          },
+          "planted_L": null,
+          "planted_R": false,
+          "planted_ground_only_lineage": {
+            "L": null,
+            "R": false
+          },
+          "sole_line_y": 576,
+          "sole_line_y_H": 4.173913043478261,
+          "torso_cx": 201.5,
+          "torso_cx_H": 1.460144927536232,
+          "torso_width": 54.0,
+          "torso_width_H": 0.391304347826087,
+          "valid": true,
+          "velocity_boundary": "backward difference",
+          "wrist_ext_L": 0.0,
+          "wrist_ext_L_H": 0.0,
+          "wrist_ext_R": 135.5,
+          "wrist_ext_R_H": 0.9818840579710145
+        },
+        {
+          "H": 208,
+          "feet_merged": false,
+          "foot_L_velocity_x": null,
+          "foot_L_x": 199.0,
+          "foot_L_x_H": 0.9567307692307693,
+          "foot_L_y": 594,
+          "foot_L_y_H": 2.855769230769231,
+          "foot_R_velocity_x": -44.0,
+          "foot_R_x": 120.0,
+          "foot_R_x_H": 0.5769230769230769,
+          "foot_R_y": 614,
+          "foot_R_y_H": 2.951923076923077,
+          "foot_components": 2,
+          "foot_identity": "initial image x order; tracked over time, not anatomical",
+          "grid_shift_xy": [
+            0,
+            0
+          ],
+          "ground_line_y": 734,
+          "ground_line_y_H": 3.5288461538461537,
+          "head_box_xyxy": [
+            262,
+            529,
+            370,
+            554
+          ],
+          "head_cx": 315.5,
+          "head_cx_H": 1.5168269230769231,
+          "head_cx_mask_lineage": 196.21753246753246,
+          "head_cy": 541.0,
+          "head_cy_H": 2.6009615384615383,
+          "head_ncc": 0.9222811540734986,
+          "head_ref_y": 444,
+          "head_ref_y_H": 2.1346153846153846,
+          "head_search_limit": false,
+          "head_template_frame": 11,
+          "head_top_mask_y": 407,
+          "head_top_mask_y_H": 1.9567307692307692,
+          "head_top_thin": false,
+          "head_top_y": 529.0,
+          "head_top_y_H": 2.543269230769231,
+          "head_track_method": "fixed head patch NCC; +/-25%H previous position",
+          "head_track_valid": true,
+          "identity_ambiguous": false,
+          "mask_area": 9016,
+          "mask_area_per_H": 43.34615384615385,
+          "planted": {
+            "L": null,
+            "R": false
+          },
+          "planted_L": null,
+          "planted_R": false,
+          "planted_ground_only_lineage": {
+            "L": false,
+            "R": false
+          },
+          "sole_line_y": 614,
+          "sole_line_y_H": 2.951923076923077,
+          "torso_cx": 178.0,
+          "torso_cx_H": 0.8557692307692307,
+          "torso_width": 35.0,
+          "torso_width_H": 0.16826923076923078,
+          "valid": true,
+          "velocity_boundary": "backward difference",
+          "wrist_ext_L": 1.5,
+          "wrist_ext_L_H": 0.007211538461538462,
+          "wrist_ext_R": 0.0,
+          "wrist_ext_R_H": 0.0
+        },
+        {
+          "H": 204,
+          "feet_merged": true,
+          "foot_L_velocity_x": null,
+          "foot_L_x": null,
+          "foot_L_x_H": null,
+          "foot_L_y": null,
+          "foot_L_y_H": null,
+          "foot_R_velocity_x": 217.0,
+          "foot_R_x": 337.0,
+          "foot_R_x_H": 1.6519607843137254,
+          "foot_R_y": 731,
+          "foot_R_y_H": 3.5833333333333335,
+          "foot_components": 1,
+          "foot_identity": "initial image x order; tracked over time, not anatomical",
+          "grid_shift_xy": [
+            0,
+            0
+          ],
+          "ground_line_y": 734,
+          "ground_line_y_H": 3.5980392156862746,
+          "head_box_xyxy": [
+            253,
+            528,
+            361,
+            553
+          ],
+          "head_cx": 306.5,
+          "head_cx_H": 1.5024509803921569,
+          "head_cx_mask_lineage": 317.13278271918676,
+          "head_cy": 540.0,
+          "head_cy_H": 2.6470588235294117,
+          "head_ncc": 1.0,
+          "head_ref_y": 558,
+          "head_ref_y_H": 2.735294117647059,
+          "head_search_limit": false,
+          "head_template_frame": 11,
+          "head_top_mask_y": 528,
+          "head_top_mask_y_H": 2.588235294117647,
+          "head_top_thin": false,
+          "head_top_y": 528.0,
+          "head_top_y_H": 2.588235294117647,
+          "head_track_method": "fixed head patch NCC; +/-25%H previous position",
+          "head_track_valid": true,
+          "identity_ambiguous": true,
+          "mask_area": 15136,
+          "mask_area_per_H": 74.19607843137256,
+          "planted": {
+            "L": null,
+            "R": false
+          },
+          "planted_L": null,
+          "planted_R": false,
+          "planted_ground_only_lineage": {
+            "L": null,
+            "R": false
+          },
+          "sole_line_y": 731,
+          "sole_line_y_H": 3.5833333333333335,
+          "torso_cx": 333.0,
+          "torso_cx_H": 1.6323529411764706,
+          "torso_width": 59.0,
+          "torso_width_H": 0.28921568627450983,
+          "valid": true,
+          "velocity_boundary": "backward difference",
+          "wrist_ext_L": 57.5,
+          "wrist_ext_L_H": 0.2818627450980392,
+          "wrist_ext_R": 5.5,
+          "wrist_ext_R_H": 0.02696078431372549
+        }
+      ],
+      "mask_health": [
+        {
+          "H": 333,
+          "area_fraction": 0.023472579298147937,
+          "detected_grid_fraction": 0.0,
+          "grid_detected": false,
+          "grid_leak": 0.0,
+          "grid_shift_xy": [
+            0,
+            0
+          ],
+          "mask_area": 7167,
+          "mask_area_per_H": 21.52252252252252,
+          "median_foreground_caveat": "body occupancy >= half the row persists in the median; no semantic repair",
+          "method": "grid phase correlation / registered temporal median",
+          "phase_peak": null,
+          "phase_peak_ratio": null,
+          "registration_valid_fraction": 1.0
+        },
+        {
+          "H": 112,
+          "area_fraction": 0.01353595231467077,
+          "detected_grid_fraction": 0.0,
+          "grid_detected": false,
+          "grid_leak": 0.0,
+          "grid_shift_xy": [
+            0,
+            0
+          ],
+          "mask_area": 4133,
+          "mask_area_per_H": 36.901785714285715,
+          "median_foreground_caveat": "body occupancy >= half the row persists in the median; no semantic repair",
+          "method": "grid phase correlation / registered temporal median",
+          "phase_peak": null,
+          "phase_peak_ratio": null,
+          "registration_valid_fraction": 1.0
+        },
+        {
+          "H": 133,
+          "area_fraction": 0.005787086315031031,
+          "detected_grid_fraction": 0.0008580739188104869,
+          "grid_detected": false,
+          "grid_leak": 0.0,
+          "grid_shift_xy": [
+            0,
+            0
+          ],
+          "mask_area": 1767,
+          "mask_area_per_H": 13.285714285714286,
+          "median_foreground_caveat": "body occupancy >= half the row persists in the median; no semantic repair",
+          "method": "grid phase correlation / registered temporal median",
+          "phase_peak": null,
+          "phase_peak_ratio": null,
+          "registration_valid_fraction": 1.0
+        },
+        {
+          "H": 58,
+          "area_fraction": 0.00726087739695744,
+          "detected_grid_fraction": 0.0012052335958864853,
+          "grid_detected": false,
+          "grid_leak": 0.0,
+          "grid_shift_xy": [
+            0,
+            0
+          ],
+          "mask_area": 2217,
+          "mask_area_per_H": 38.224137931034484,
+          "median_foreground_caveat": "body occupancy >= half the row persists in the median; no semantic repair",
+          "method": "grid phase correlation / registered temporal median",
+          "phase_peak": null,
+          "phase_peak_ratio": null,
+          "registration_valid_fraction": 1.0
+        },
+        {
+          "H": 113,
+          "area_fraction": 0.01759706551820132,
+          "detected_grid_fraction": 0.002950857255145987,
+          "grid_detected": false,
+          "grid_leak": 0.0,
+          "grid_shift_xy": [
+            0,
+            0
+          ],
+          "mask_area": 5373,
+          "mask_area_per_H": 47.54867256637168,
+          "median_foreground_caveat": "body occupancy >= half the row persists in the median; no semantic repair",
+          "method": "grid phase correlation / registered temporal median",
+          "phase_peak": null,
+          "phase_peak_ratio": null,
+          "registration_valid_fraction": 1.0
+        },
+        {
+          "H": 241,
+          "area_fraction": 0.025598113547415133,
+          "detected_grid_fraction": 0.004146265577152963,
+          "grid_detected": false,
+          "grid_leak": 0.0,
+          "grid_shift_xy": [
+            0,
+            0
+          ],
+          "mask_area": 7816,
+          "mask_area_per_H": 32.43153526970954,
+          "median_foreground_caveat": "body occupancy >= half the row persists in the median; no semantic repair",
+          "method": "grid phase correlation / registered temporal median",
+          "phase_peak": null,
+          "phase_peak_ratio": null,
+          "registration_valid_fraction": 1.0
+        },
+        {
+          "H": 118,
+          "area_fraction": 0.02889613047963712,
+          "detected_grid_fraction": 0.006835115528845367,
+          "grid_detected": false,
+          "grid_leak": 0.004420265215912955,
+          "grid_shift_xy": [
+            0,
+            0
+          ],
+          "mask_area": 8823,
+          "mask_area_per_H": 74.77118644067797,
+          "median_foreground_caveat": "body occupancy >= half the row persists in the median; no semantic repair",
+          "method": "grid phase correlation / registered temporal median",
+          "phase_peak": null,
+          "phase_peak_ratio": null,
+          "registration_valid_fraction": 1.0
+        },
+        {
+          "H": 138,
+          "area_fraction": 0.016719341051631816,
+          "detected_grid_fraction": 0.0039104590040447374,
+          "grid_detected": false,
+          "grid_leak": 0.0,
+          "grid_shift_xy": [
+            0,
+            0
+          ],
+          "mask_area": 5105,
+          "mask_area_per_H": 36.992753623188406,
+          "median_foreground_caveat": "body occupancy >= half the row persists in the median; no semantic repair",
+          "method": "grid phase correlation / registered temporal median",
+          "phase_peak": null,
+          "phase_peak_ratio": null,
+          "registration_valid_fraction": 1.0
+        },
+        {
+          "H": 227,
+          "area_fraction": 0.01081762654133984,
+          "detected_grid_fraction": 0.0007303453583768647,
+          "grid_detected": false,
+          "grid_leak": 0.0,
+          "grid_shift_xy": [
+            0,
+            0
+          ],
+          "mask_area": 3303,
+          "mask_area_per_H": 14.550660792951541,
+          "median_foreground_caveat": "body occupancy >= half the row persists in the median; no semantic repair",
+          "method": "grid phase correlation / registered temporal median",
+          "phase_peak": null,
+          "phase_peak_ratio": null,
+          "registration_valid_fraction": 1.0
+        },
+        {
+          "H": 138,
+          "area_fraction": 0.020511896769122438,
+          "detected_grid_fraction": 0.00037991059000769647,
+          "grid_detected": false,
+          "grid_leak": 0.0,
+          "grid_shift_xy": [
+            0,
+            0
+          ],
+          "mask_area": 6263,
+          "mask_area_per_H": 45.38405797101449,
+          "median_foreground_caveat": "body occupancy >= half the row persists in the median; no semantic repair",
+          "method": "grid phase correlation / registered temporal median",
+          "phase_peak": null,
+          "phase_peak_ratio": null,
+          "registration_valid_fraction": 1.0
+        },
+        {
+          "H": 208,
+          "area_fraction": 0.02952822309921889,
+          "detected_grid_fraction": 0.0,
+          "grid_detected": false,
+          "grid_leak": 0.0,
+          "grid_shift_xy": [
+            0,
+            0
+          ],
+          "mask_area": 9016,
+          "mask_area_per_H": 43.34615384615385,
+          "median_foreground_caveat": "body occupancy >= half the row persists in the median; no semantic repair",
+          "method": "grid phase correlation / registered temporal median",
+          "phase_peak": null,
+          "phase_peak_ratio": null,
+          "registration_valid_fraction": 1.0
+        },
+        {
+          "H": 204,
+          "area_fraction": 0.04957178181341805,
+          "detected_grid_fraction": 0.0,
+          "grid_detected": false,
+          "grid_leak": 0.0,
+          "grid_shift_xy": [
+            0,
+            0
+          ],
+          "mask_area": 15136,
+          "mask_area_per_H": 74.19607843137256,
+          "median_foreground_caveat": "body occupancy >= half the row persists in the median; no semantic repair",
+          "method": "grid phase correlation / registered temporal median",
+          "phase_peak": null,
+          "phase_peak_ratio": null,
+          "registration_valid_fraction": 1.0
+        }
+      ],
+      "mask_params": {
+        "close_size": 3,
+        "grid_highpass": "signed 5px median residual, long-line opening",
+        "ground_tolerance_px": 3.0,
+        "head_patch_fraction_H": 0.12,
+        "head_search_fraction_H": 0.25,
+        "line_width_px": 5,
+        "method": "grid phase correlation / registered temporal median",
+        "registration": "integer translation; phase correlation; no scale",
+        "stationary_tolerance_px": 2.0,
+        "tau": 12.0
+      },
+      "mode": "ref",
+      "notes": [
+        "H normalization uses clip median inclusive silhouette height; no per-frame rescaling",
+        "Tracked head NCC drives W1/W2/W4; raw mask top retained under lineage names",
+        "W1 outside 1-5%H flags an unreliable head track, not a veridical bob measurement",
+        "W5 is a silhouette extent at 0.45H, not an identified wrist",
+        "front/rear: W5, W6 and sole scroll are not meaningful and are null",
+        "merged/hidden feet; identity and contact phase may be unreliable"
+      ],
+      "phase_table": [
+        {
+          "boundary_contact": false,
+          "contact": false,
+          "contact_sides": [],
+          "frame": 0,
+          "lead_track": null,
+          "phase": null,
+          "planted": {
+            "L": null,
+            "R": null
+          },
+          "printed_phase": 1,
+          "reason": "expected two contact events; observed 0"
+        },
+        {
+          "boundary_contact": false,
+          "contact": false,
+          "contact_sides": [],
+          "frame": 1,
+          "lead_track": null,
+          "phase": null,
+          "planted": {
+            "L": null,
+            "R": null
+          },
+          "printed_phase": 2,
+          "reason": "expected two contact events; observed 0"
+        },
+        {
+          "boundary_contact": false,
+          "contact": false,
+          "contact_sides": [],
+          "frame": 2,
+          "lead_track": null,
+          "phase": null,
+          "planted": {
+            "L": null,
+            "R": null
+          },
+          "printed_phase": 3,
+          "reason": "expected two contact events; observed 0"
+        },
+        {
+          "boundary_contact": false,
+          "contact": false,
+          "contact_sides": [],
+          "frame": 3,
+          "lead_track": null,
+          "phase": null,
+          "planted": {
+            "L": null,
+            "R": null
+          },
+          "printed_phase": 4,
+          "reason": "expected two contact events; observed 0"
+        },
+        {
+          "boundary_contact": false,
+          "contact": false,
+          "contact_sides": [],
+          "frame": 4,
+          "lead_track": null,
+          "phase": null,
+          "planted": {
+            "L": null,
+            "R": false
+          },
+          "printed_phase": 5,
+          "reason": "expected two contact events; observed 0"
+        },
+        {
+          "boundary_contact": false,
+          "contact": false,
+          "contact_sides": [],
+          "frame": 5,
+          "lead_track": null,
+          "phase": null,
+          "planted": {
+            "L": false,
+            "R": null
+          },
+          "printed_phase": 6,
+          "reason": "expected two contact events; observed 0"
+        },
+        {
+          "boundary_contact": false,
+          "contact": false,
+          "contact_sides": [],
+          "frame": 6,
+          "lead_track": null,
+          "phase": null,
+          "planted": {
+            "L": false,
+            "R": null
+          },
+          "printed_phase": 7,
+          "reason": "expected two contact events; observed 0"
+        },
+        {
+          "boundary_contact": false,
+          "contact": false,
+          "contact_sides": [],
+          "frame": 7,
+          "lead_track": null,
+          "phase": null,
+          "planted": {
+            "L": null,
+            "R": false
+          },
+          "printed_phase": 8,
+          "reason": "expected two contact events; observed 0"
+        },
+        {
+          "boundary_contact": false,
+          "contact": false,
+          "contact_sides": [],
+          "frame": 8,
+          "lead_track": null,
+          "phase": null,
+          "planted": {
+            "L": null,
+            "R": false
+          },
+          "printed_phase": 9,
+          "reason": "expected two contact events; observed 0"
+        },
+        {
+          "boundary_contact": false,
+          "contact": false,
+          "contact_sides": [],
+          "frame": 9,
+          "lead_track": null,
+          "phase": null,
+          "planted": {
+            "L": null,
+            "R": false
+          },
+          "printed_phase": 10,
+          "reason": "expected two contact events; observed 0"
+        },
+        {
+          "boundary_contact": false,
+          "contact": false,
+          "contact_sides": [],
+          "frame": 10,
+          "lead_track": null,
+          "phase": null,
+          "planted": {
+            "L": null,
+            "R": false
+          },
+          "printed_phase": 11,
+          "reason": "expected two contact events; observed 0"
+        },
+        {
+          "boundary_contact": false,
+          "contact": false,
+          "contact_sides": [],
+          "frame": 11,
+          "lead_track": null,
+          "phase": null,
+          "planted": {
+            "L": null,
+            "R": false
+          },
+          "printed_phase": 12,
+          "reason": "expected two contact events; observed 0"
+        }
+      ],
+      "provenance": {
+        "fps": 8.33,
+        "frame_names": [
+          "rear_00.png",
+          "rear_01.png",
+          "rear_02.png",
+          "rear_03.png",
+          "rear_04.png",
+          "rear_05.png",
+          "rear_06.png",
+          "rear_07.png",
+          "rear_08.png",
+          "rear_09.png",
+          "rear_10.png",
+          "rear_11.png"
+        ],
+        "frames": 12,
+        "k_lat": 0.5,
+        "k_vert": 2.0,
+        "mask_params": {
+          "close_size": 3,
+          "grid_highpass": "signed 5px median residual, long-line opening",
+          "ground_tolerance_px": 3.0,
+          "head_patch_fraction_H": 0.12,
+          "head_search_fraction_H": 0.25,
+          "line_width_px": 5,
+          "method": "grid phase correlation / registered temporal median",
+          "registration": "integer translation; phase correlation; no scale",
+          "stationary_tolerance_px": 2.0,
+          "tau": 12.0
+        },
+        "pattern": "rear_*.png",
+        "plate": "plate13",
+        "row": "rear",
+        "source": "/Users/admin/Desktop/Astra Burst Review - 2026-09-11/05b Oracle - Muybridge plate 13 (woman walking)/_frames",
+        "source_note": "Muybridge public domain"
+      },
+      "results": [
+        {
+          "evidence": [
+            "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/oracle/plots/plate13_rear_mask_check.png",
+            "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/oracle/plots/plate13_rear_curves.png"
+          ],
+          "id": "W1_floor",
+          "notes": "no committed floor",
+          "op": ">=",
+          "passed": null,
+          "subject": "/Users/admin/Desktop/Astra Burst Review - 2026-09-11/05b Oracle - Muybridge plate 13 (woman walking)/_frames",
+          "threshold": null,
+          "unit": "fraction_H",
+          "value": 0.5579710144927537
+        },
+        {
+          "evidence": [
+            "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/oracle/plots/plate13_rear_mask_check.png",
+            "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/oracle/plots/plate13_rear_curves.png"
+          ],
+          "id": "W1",
+          "notes": "SPEC descriptive screen; not a shipping verdict",
+          "op": "<=",
+          "passed": false,
+          "subject": "/Users/admin/Desktop/Astra Burst Review - 2026-09-11/05b Oracle - Muybridge plate 13 (woman walking)/_frames",
+          "threshold": 0.07,
+          "unit": "",
+          "value": 0.5579710144927537
+        },
+        {
+          "evidence": [
+            "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/oracle/plots/plate13_rear_mask_check.png",
+            "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/oracle/plots/plate13_rear_curves.png"
+          ],
+          "id": "W3a",
+          "notes": "SPEC descriptive screen; not a shipping verdict",
+          "op": "<=",
+          "passed": true,
+          "subject": "/Users/admin/Desktop/Astra Burst Review - 2026-09-11/05b Oracle - Muybridge plate 13 (woman walking)/_frames",
+          "threshold": 0.35,
+          "unit": "",
+          "value": 0.20265209379476376
+        },
+        {
+          "evidence": [
+            "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/oracle/plots/plate13_rear_mask_check.png",
+            "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/oracle/plots/plate13_rear_curves.png"
+          ],
+          "id": "W4",
+          "notes": "SPEC descriptive screen; not a shipping verdict",
+          "op": "==",
+          "passed": true,
+          "subject": "/Users/admin/Desktop/Astra Burst Review - 2026-09-11/05b Oracle - Muybridge plate 13 (woman walking)/_frames",
+          "threshold": 2,
+          "unit": "",
+          "value": 2
+        },
+        {
+          "evidence": [
+            "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/oracle/plots/plate13_rear_mask_check.png",
+            "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/oracle/plots/plate13_rear_curves.png"
+          ],
+          "id": "W6",
+          "notes": "SPEC descriptive screen; not a shipping verdict",
+          "op": ">=",
+          "passed": null,
+          "subject": "/Users/admin/Desktop/Astra Burst Review - 2026-09-11/05b Oracle - Muybridge plate 13 (woman walking)/_frames",
+          "threshold": 0.75,
+          "unit": "",
+          "value": null
+        }
+      ],
+      "summary": {
+        "H_median": 138.0,
+        "W1": 0.5579710144927537,
+        "W1_sanity_1_5_pct_H": false,
+        "W2": {
+          "coordinate": "Cartesian up; negative image y",
+          "max": [
+            {
+              "frame": 11,
+              "phase": null
+            }
+          ],
+          "min": [
+            {
+              "frame": 4,
+              "phase": null
+            }
+          ]
+        },
+        "W3a": 0.20265209379476376,
+        "W3b": 0.41142857142857137,
+        "W3c": 4,
+        "W4": 2,
+        "W5": null,
+        "W6": null,
+        "W6_per_arm": null,
+        "contact_frames": [],
+        "head_mask_bob_lineage": {
+          "W1": 3.449275362318841,
+          "W2": {
+            "coordinate": "Cartesian up; negative image y",
+            "max": [
+              {
+                "frame": 8,
+                "phase": null
+              }
+            ],
+            "min": [
+              {
+                "frame": 3,
+                "phase": null
+              }
+            ]
+          },
+          "W4": 5,
+          "minima_frames": [
+            1,
+            3,
+            7,
+            9,
+            11
+          ]
+        },
+        "head_ref_bob": {
+          "W1": 3.391304347826087,
+          "W2": {
+            "coordinate": "Cartesian up; negative image y",
+            "max": [
+              {
+                "frame": 8,
+                "phase": null
+              }
+            ],
+            "min": [
+              {
+                "frame": 3,
+                "phase": null
+              }
+            ]
+          },
+          "W4": 5,
+          "minima_frames": [
+            1,
+            3,
+            7,
+            9,
+            11
+          ]
+        },
+        "head_track_flagged_frames": [],
+        "minima_frames": [
+          0,
+          4
+        ],
+        "projection_diagnostics": {
+          "W5": {
+            "L": 0.4963768115942029,
+            "R": 0.9818840579710145
+          },
+          "W6": null,
+          "W6_per_arm": {
+            "L": null,
+            "R": null
+          },
+          "identity_note": "projected track opposition, not independently established anatomical same-side identity",
+          "sole_scroll": {
+            "L": {
+              "delta_px_per_frame": [
+                null,
+                null,
+                null,
+                null,
+                null,
+                -95.5,
+                250.5,
+                null,
+                null,
+                null,
+                null,
+                null
+              ],
+              "mean_scroll_px_per_frame": 77.5,
+              "observed_velocity_frames": 2,
+              "swing_x_px": [
+                null,
+                null,
+                null,
+                null,
+                null,
+                117.5,
+                368.0,
+                null,
+                null,
+                null,
+                null,
+                null
+              ]
+            },
+            "R": {
+              "delta_px_per_frame": [
+                null,
+                null,
+                null,
+                null,
+                -125.0,
+                null,
+                null,
+                168.0,
+                -104.0,
+                -104.0,
+                -44.0,
+                217.0
+              ],
+              "mean_scroll_px_per_frame": 1.3333333333333333,
+              "observed_velocity_frames": 6,
+              "swing_x_px": [
+                null,
+                null,
+                null,
+                null,
+                74.0,
+                null,
+                null,
+                372.0,
+                268.0,
+                164.0,
+                120.0,
+                337.0
+              ]
+            },
+            "estimator": "backward velocity on observed non-planted frames; missing tracks and seam excluded",
+            "mean_absolute_speed_px_per_frame": 138.5,
+            "mean_scroll_px_per_frame": 20.375,
+            "planted_scroll_lineage": {
+              "L": {
+                "delta_px_per_frame": [
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null
+                ],
+                "mean_scroll_px_per_frame": null,
+                "planted_x_px": [
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null
+                ],
+                "slip_px_per_frame": [
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null
+                ],
+                "slip_rms_px_per_frame": null
+              },
+              "R": {
+                "delta_px_per_frame": [
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null
+                ],
+                "mean_scroll_px_per_frame": null,
+                "planted_x_px": [
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null
+                ],
+                "slip_px_per_frame": [
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null
+                ],
+                "slip_rms_px_per_frame": null
+              },
+              "mean_scroll_px_per_frame": null,
+              "slip_rms_px_per_frame": null
+            }
+          },
+          "valid_frames_per_arm": {
+            "L": 6,
+            "R": 9
+          }
+        },
+        "signed_area_px2": 791.9999999999999,
+        "sole_scroll": null
+      }
+    },
+    "facing": "N",
+    "governing_quantity": "W3",
+    "phase_table": [
+      {
+        "boundary_contact": false,
+        "contact": false,
+        "contact_sides": [],
+        "frame": 0,
+        "lead_track": null,
+        "phase": null,
+        "planted": {
+          "L": null,
+          "R": null
+        },
+        "printed_phase": 1,
+        "reason": "expected two contact events; observed 0"
+      },
+      {
+        "boundary_contact": false,
+        "contact": false,
+        "contact_sides": [],
+        "frame": 1,
+        "lead_track": null,
+        "phase": null,
+        "planted": {
+          "L": null,
+          "R": null
+        },
+        "printed_phase": 2,
+        "reason": "expected two contact events; observed 0"
+      },
+      {
+        "boundary_contact": false,
+        "contact": false,
+        "contact_sides": [],
+        "frame": 2,
+        "lead_track": null,
+        "phase": null,
+        "planted": {
+          "L": null,
+          "R": null
+        },
+        "printed_phase": 3,
+        "reason": "expected two contact events; observed 0"
+      },
+      {
+        "boundary_contact": false,
+        "contact": false,
+        "contact_sides": [],
+        "frame": 3,
+        "lead_track": null,
+        "phase": null,
+        "planted": {
+          "L": null,
+          "R": null
+        },
+        "printed_phase": 4,
+        "reason": "expected two contact events; observed 0"
+      },
+      {
+        "boundary_contact": false,
+        "contact": false,
+        "contact_sides": [],
+        "frame": 4,
+        "lead_track": null,
+        "phase": null,
+        "planted": {
+          "L": null,
+          "R": false
+        },
+        "printed_phase": 5,
+        "reason": "expected two contact events; observed 0"
+      },
+      {
+        "boundary_contact": false,
+        "contact": false,
+        "contact_sides": [],
+        "frame": 5,
+        "lead_track": null,
+        "phase": null,
+        "planted": {
+          "L": false,
+          "R": null
+        },
+        "printed_phase": 6,
+        "reason": "expected two contact events; observed 0"
+      },
+      {
+        "boundary_contact": false,
+        "contact": false,
+        "contact_sides": [],
+        "frame": 6,
+        "lead_track": null,
+        "phase": null,
+        "planted": {
+          "L": false,
+          "R": null
+        },
+        "printed_phase": 7,
+        "reason": "expected two contact events; observed 0"
+      },
+      {
+        "boundary_contact": false,
+        "contact": false,
+        "contact_sides": [],
+        "frame": 7,
+        "lead_track": null,
+        "phase": null,
+        "planted": {
+          "L": null,
+          "R": false
+        },
+        "printed_phase": 8,
+        "reason": "expected two contact events; observed 0"
+      },
+      {
+        "boundary_contact": false,
+        "contact": false,
+        "contact_sides": [],
+        "frame": 8,
+        "lead_track": null,
+        "phase": null,
+        "planted": {
+          "L": null,
+          "R": false
+        },
+        "printed_phase": 9,
+        "reason": "expected two contact events; observed 0"
+      },
+      {
+        "boundary_contact": false,
+        "contact": false,
+        "contact_sides": [],
+        "frame": 9,
+        "lead_track": null,
+        "phase": null,
+        "planted": {
+          "L": null,
+          "R": false
+        },
+        "printed_phase": 10,
+        "reason": "expected two contact events; observed 0"
+      },
+      {
+        "boundary_contact": false,
+        "contact": false,
+        "contact_sides": [],
+        "frame": 10,
+        "lead_track": null,
+        "phase": null,
+        "planted": {
+          "L": null,
+          "R": false
+        },
+        "printed_phase": 11,
+        "reason": "expected two contact events; observed 0"
+      },
+      {
+        "boundary_contact": false,
+        "contact": false,
+        "contact_sides": [],
+        "frame": 11,
+        "lead_track": null,
+        "phase": null,
+        "planted": {
+          "L": null,
+          "R": false
+        },
+        "printed_phase": 12,
+        "reason": "expected two contact events; observed 0"
+      }
+    ],
+    "proposed": true,
+    "proposed_from": "muybridge",
+    "provenance": {
+      "fps": 8.33,
+      "frame_names": [
+        "rear_00.png",
+        "rear_01.png",
+        "rear_02.png",
+        "rear_03.png",
+        "rear_04.png",
+        "rear_05.png",
+        "rear_06.png",
+        "rear_07.png",
+        "rear_08.png",
+        "rear_09.png",
+        "rear_10.png",
+        "rear_11.png"
+      ],
+      "frames": 12,
+      "k_lat": 0.5,
+      "k_vert": 2.0,
+      "mask_params": {
+        "close_size": 3,
+        "grid_highpass": "signed 5px median residual, long-line opening",
+        "ground_tolerance_px": 3.0,
+        "head_patch_fraction_H": 0.12,
+        "head_search_fraction_H": 0.25,
+        "line_width_px": 5,
+        "method": "grid phase correlation / registered temporal median",
+        "registration": "integer translation; phase correlation; no scale",
+        "stationary_tolerance_px": 2.0,
+        "tau": 12.0
+      },
+      "pattern": "rear_*.png",
+      "plate": "plate13",
+      "row": "rear",
+      "source": "/Users/admin/Desktop/Astra Burst Review - 2026-09-11/05b Oracle - Muybridge plate 13 (woman walking)/_frames",
+      "source_note": "Muybridge public domain"
+    },
+    "source_row": "plate13_rear",
+    "summary": {
+      "H_median": 138.0,
+      "W1": 0.5579710144927537,
+      "W1_sanity_1_5_pct_H": false,
+      "W2": {
+        "coordinate": "Cartesian up; negative image y",
+        "max": [
+          {
+            "frame": 11,
+            "phase": null
+          }
+        ],
+        "min": [
+          {
+            "frame": 4,
+            "phase": null
+          }
+        ]
+      },
+      "W3a": 0.20265209379476376,
+      "W3b": 0.41142857142857137,
+      "W3c": 4,
+      "W4": 2,
+      "W5": null,
+      "W6": null,
+      "W6_per_arm": null,
+      "contact_frames": [],
+      "head_mask_bob_lineage": {
+        "W1": 3.449275362318841,
+        "W2": {
+          "coordinate": "Cartesian up; negative image y",
+          "max": [
+            {
+              "frame": 8,
+              "phase": null
+            }
+          ],
+          "min": [
+            {
+              "frame": 3,
+              "phase": null
+            }
+          ]
+        },
+        "W4": 5,
+        "minima_frames": [
+          1,
+          3,
+          7,
+          9,
+          11
+        ]
+      },
+      "head_ref_bob": {
+        "W1": 3.391304347826087,
+        "W2": {
+          "coordinate": "Cartesian up; negative image y",
+          "max": [
+            {
+              "frame": 8,
+              "phase": null
+            }
+          ],
+          "min": [
+            {
+              "frame": 3,
+              "phase": null
+            }
+          ]
+        },
+        "W4": 5,
+        "minima_frames": [
+          1,
+          3,
+          7,
+          9,
+          11
+        ]
+      },
+      "head_track_flagged_frames": [],
+      "minima_frames": [
+        0,
+        4
+      ],
+      "projection_diagnostics": {
+        "W5": {
+          "L": 0.4963768115942029,
+          "R": 0.9818840579710145
+        },
+        "W6": null,
+        "W6_per_arm": {
+          "L": null,
+          "R": null
+        },
+        "identity_note": "projected track opposition, not independently established anatomical same-side identity",
+        "sole_scroll": {
+          "L": {
+            "delta_px_per_frame": [
+              null,
+              null,
+              null,
+              null,
+              null,
+              -95.5,
+              250.5,
+              null,
+              null,
+              null,
+              null,
+              null
+            ],
+            "mean_scroll_px_per_frame": 77.5,
+            "observed_velocity_frames": 2,
+            "swing_x_px": [
+              null,
+              null,
+              null,
+              null,
+              null,
+              117.5,
+              368.0,
+              null,
+              null,
+              null,
+              null,
+              null
+            ]
+          },
+          "R": {
+            "delta_px_per_frame": [
+              null,
+              null,
+              null,
+              null,
+              -125.0,
+              null,
+              null,
+              168.0,
+              -104.0,
+              -104.0,
+              -44.0,
+              217.0
+            ],
+            "mean_scroll_px_per_frame": 1.3333333333333333,
+            "observed_velocity_frames": 6,
+            "swing_x_px": [
+              null,
+              null,
+              null,
+              null,
+              74.0,
+              null,
+              null,
+              372.0,
+              268.0,
+              164.0,
+              120.0,
+              337.0
+            ]
+          },
+          "estimator": "backward velocity on observed non-planted frames; missing tracks and seam excluded",
+          "mean_absolute_speed_px_per_frame": 138.5,
+          "mean_scroll_px_per_frame": 20.375,
+          "planted_scroll_lineage": {
+            "L": {
+              "delta_px_per_frame": [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+              ],
+              "mean_scroll_px_per_frame": null,
+              "planted_x_px": [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+              ],
+              "slip_px_per_frame": [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+              ],
+              "slip_rms_px_per_frame": null
+            },
+            "R": {
+              "delta_px_per_frame": [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+              ],
+              "mean_scroll_px_per_frame": null,
+              "planted_x_px": [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+              ],
+              "slip_px_per_frame": [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+              ],
+              "slip_rms_px_per_frame": null
+            },
+            "mean_scroll_px_per_frame": null,
+            "slip_rms_px_per_frame": null
+          }
+        },
+        "valid_frames_per_arm": {
+          "L": 6,
+          "R": 9
+        }
+      },
+      "signed_area_px2": 791.9999999999999,
+      "sole_scroll": null
+    }
+  },
+  "walk_S_proposal": {
+    "bands": {
+      "W1": {
+        "ceiling": 0.07,
+        "floor": 0.8215767634854771,
+        "target": 1.6431535269709543
+      },
+      "W2": {
+        "coordinate": "Cartesian up; negative image y",
+        "max": [
+          {
+            "frame": 6,
+            "phase": null
+          },
+          {
+            "frame": 10,
+            "phase": null
+          }
+        ],
+        "min": [
+          {
+            "frame": 1,
+            "phase": null
+          }
+        ]
+      },
+      "W3a": {
+        "ceiling": 0.35,
+        "value": 0.38786884625497514
+      },
+      "W3b": {
+        "threshold": null,
+        "value": -0.003968253968253976
+      },
+      "W3c": {
+        "ceiling": 3,
+        "floor": 2,
+        "value": 6
+      },
+      "W4": {
+        "target": 2,
+        "value": 3
+      },
+      "W5": null,
+      "W5_role_limits": {
+        "assignment": null,
+        "free_arm": {
+          "ceiling": 0.2,
+          "floor": 0.08
+        },
+        "weapon_arm": {
+          "ceiling": null,
+          "floor": 0.03
+        }
+      },
+      "W6": {
+        "floor": 0.75,
+        "minimum_opposed_frames": 9,
+        "total_frames": 12,
+        "value": null
+      },
+      "note": "W5 targets apply k_lat to extents; anatomical free/weapon role is unassigned. Sole floor is absolute mean speed; signed values retained in curves.",
+      "parameters": {
+        "k_lat": 0.5,
+        "k_vert": 2.0,
+        "sole_scroll_multiplier": 1.0
+      },
+      "sole_scroll": null
+    },
+    "committed": false,
+    "curves": {
+      "coordinate_system": "grid registered source pixels; native plot coordinates subtract grid_shift_xy",
+      "fps": 8.33,
+      "frame_names": [
+        "front_00.png",
+        "front_01.png",
+        "front_02.png",
+        "front_03.png",
+        "front_04.png",
+        "front_05.png",
+        "front_06.png",
+        "front_07.png",
+        "front_08.png",
+        "front_09.png",
+        "front_10.png",
+        "front_11.png"
+      ],
+      "frames": 12,
+      "landmarks": [
+        {
+          "H": 703,
+          "feet_merged": true,
+          "foot_L_velocity_x": 130.0,
+          "foot_L_x": 148.0,
+          "foot_L_x_H": 0.21052631578947367,
+          "foot_L_y": 771,
+          "foot_L_y_H": 1.096728307254623,
+          "foot_R_velocity_x": null,
+          "foot_R_x": null,
+          "foot_R_x_H": null,
+          "foot_R_y": null,
+          "foot_R_y_H": null,
+          "foot_components": 1,
+          "foot_identity": "initial image x order; tracked over time, not anatomical",
+          "grid_shift_xy": [
+            0,
+            0
+          ],
+          "ground_line_y": 771,
+          "ground_line_y_H": 1.096728307254623,
+          "head_box_xyxy": [
+            104,
+            69,
+            269,
+            154
+          ],
+          "head_cx": 186.0,
+          "head_cx_H": 0.26458036984352773,
+          "head_cx_mask_lineage": 181.44410441044104,
+          "head_cy": 111.0,
+          "head_cy_H": 0.15789473684210525,
+          "head_ncc": 1.0,
+          "head_ref_y": 204,
+          "head_ref_y_H": 0.2901849217638691,
+          "head_search_limit": false,
+          "head_template_frame": 0,
+          "head_top_mask_y": 69,
+          "head_top_mask_y_H": 0.09815078236130868,
+          "head_top_thin": false,
+          "head_top_y": 69.0,
+          "head_top_y_H": 0.09815078236130868,
+          "head_track_method": "fixed head patch NCC; +/-25%H previous position",
+          "head_track_valid": true,
+          "identity_ambiguous": true,
+          "mask_area": 174977,
+          "mask_area_per_H": 248.900426742532,
+          "planted": {
+            "L": false,
+            "R": null
+          },
+          "planted_L": false,
+          "planted_R": null,
+          "planted_ground_only_lineage": {
+            "L": true,
+            "R": null
+          },
+          "sole_line_y": 771,
+          "sole_line_y_H": 1.096728307254623,
+          "torso_cx": 186.5,
+          "torso_cx_H": 0.2652916073968706,
+          "torso_width": 218.0,
+          "torso_width_H": 0.310099573257468,
+          "valid": true,
+          "velocity_boundary": "forward difference (no prior frame)",
+          "wrist_ext_L": 68.5,
+          "wrist_ext_L_H": 0.09743954480796586,
+          "wrist_ext_R": 16.5,
+          "wrist_ext_R_H": 0.023470839260312945
+        },
+        {
+          "H": 577,
+          "feet_merged": false,
+          "foot_L_velocity_x": 130.0,
+          "foot_L_x": 278.0,
+          "foot_L_x_H": 0.48180242634315423,
+          "foot_L_y": 626,
+          "foot_L_y_H": 1.0849220103986135,
+          "foot_R_velocity_x": null,
+          "foot_R_x": 356.0,
+          "foot_R_x_H": 0.6169844020797227,
+          "foot_R_y": 694,
+          "foot_R_y_H": 1.2027729636048528,
+          "foot_components": 2,
+          "foot_identity": "initial image x order; tracked over time, not anatomical",
+          "grid_shift_xy": [
+            3,
+            118
+          ],
+          "ground_line_y": 771,
+          "ground_line_y_H": 1.3362218370883883,
+          "head_box_xyxy": [
+            107,
+            198,
+            272,
+            283
+          ],
+          "head_cx": 189.0,
+          "head_cx_H": 0.3275563258232236,
+          "head_cx_mask_lineage": 195.72829064919594,
+          "head_cy": 240.0,
+          "head_cy_H": 0.41594454072790293,
+          "head_ncc": 0.8803055947740591,
+          "head_ref_y": 233,
+          "head_ref_y_H": 0.4038128249566724,
+          "head_search_limit": false,
+          "head_template_frame": 0,
+          "head_top_mask_y": 118,
+          "head_top_mask_y_H": 0.2045060658578856,
+          "head_top_thin": false,
+          "head_top_y": 198.0,
+          "head_top_y_H": 0.3431542461005199,
+          "head_track_method": "fixed head patch NCC; +/-25%H previous position",
+          "head_track_valid": true,
+          "identity_ambiguous": false,
+          "mask_area": 111577,
+          "mask_area_per_H": 193.3743500866551,
+          "planted": {
+            "L": false,
+            "R": null
+          },
+          "planted_L": false,
+          "planted_R": null,
+          "planted_ground_only_lineage": {
+            "L": false,
+            "R": false
+          },
+          "sole_line_y": 694,
+          "sole_line_y_H": 1.2027729636048528,
+          "torso_cx": 191.5,
+          "torso_cx_H": 0.33188908145580587,
+          "torso_width": 212.0,
+          "torso_width_H": 0.36741767764298094,
+          "valid": true,
+          "velocity_boundary": "backward difference",
+          "wrist_ext_L": 7.5,
+          "wrist_ext_L_H": 0.012998266897746967,
+          "wrist_ext_R": 4.5,
+          "wrist_ext_R_H": 0.00779896013864818
+        },
+        {
+          "H": 44,
+          "feet_merged": true,
+          "foot_L_velocity_x": null,
+          "foot_L_x": null,
+          "foot_L_x_H": null,
+          "foot_L_y": null,
+          "foot_L_y_H": null,
+          "foot_R_velocity_x": -159.0,
+          "foot_R_x": 197.0,
+          "foot_R_x_H": 4.4772727272727275,
+          "foot_R_y": 693,
+          "foot_R_y_H": 15.75,
+          "foot_components": 1,
+          "foot_identity": "initial image x order; tracked over time, not anatomical",
+          "grid_shift_xy": [
+            5,
+            -79
+          ],
+          "ground_line_y": 771,
+          "ground_line_y_H": 17.522727272727273,
+          "head_box_xyxy": [
+            93,
+            22,
+            258,
+            107
+          ],
+          "head_cx": 175.0,
+          "head_cx_H": 3.977272727272727,
+          "head_cx_mask_lineage": 61.20754716981132,
+          "head_cy": 64.0,
+          "head_cy_H": 1.4545454545454546,
+          "head_ncc": 0.41000929412263476,
+          "head_ref_y": 657,
+          "head_ref_y_H": 14.931818181818182,
+          "head_search_limit": true,
+          "head_template_frame": 0,
+          "head_top_mask_y": 650,
+          "head_top_mask_y_H": 14.772727272727273,
+          "head_top_thin": false,
+          "head_top_y": 22.0,
+          "head_top_y_H": 0.5,
+          "head_track_method": "fixed head patch NCC; +/-25%H previous position",
+          "head_track_valid": false,
+          "identity_ambiguous": true,
+          "mask_area": 11745,
+          "mask_area_per_H": 266.9318181818182,
+          "planted": {
+            "L": null,
+            "R": false
+          },
+          "planted_L": null,
+          "planted_R": false,
+          "planted_ground_only_lineage": {
+            "L": null,
+            "R": false
+          },
+          "sole_line_y": 693,
+          "sole_line_y_H": 15.75,
+          "torso_cx": 110.5,
+          "torso_cx_H": 2.5113636363636362,
+          "torso_width": 208.0,
+          "torso_width_H": 4.7272727272727275,
+          "valid": true,
+          "velocity_boundary": "backward difference",
+          "wrist_ext_L": 0.0,
+          "wrist_ext_L_H": 0.0,
+          "wrist_ext_R": 166.5,
+          "wrist_ext_R_H": 3.784090909090909
+        },
+        {
+          "H": 175,
+          "feet_merged": true,
+          "foot_L_velocity_x": null,
+          "foot_L_x": null,
+          "foot_L_x_H": null,
+          "foot_L_y": null,
+          "foot_L_y_H": null,
+          "foot_R_velocity_x": -66.0,
+          "foot_R_x": 131.0,
+          "foot_R_x_H": 0.7485714285714286,
+          "foot_R_y": 375,
+          "foot_R_y_H": 2.142857142857143,
+          "foot_components": 1,
+          "foot_identity": "initial image x order; tracked over time, not anatomical",
+          "grid_shift_xy": [
+            8,
+            -37
+          ],
+          "ground_line_y": 771,
+          "ground_line_y_H": 4.405714285714286,
+          "head_box_xyxy": [
+            104,
+            57,
+            269,
+            142
+          ],
+          "head_cx": 186.0,
+          "head_cx_H": 1.062857142857143,
+          "head_cx_mask_lineage": 145.33333333333334,
+          "head_cy": 99.0,
+          "head_cy_H": 0.5657142857142857,
+          "head_ncc": 0.7397212451150303,
+          "head_ref_y": 234,
+          "head_ref_y_H": 1.3371428571428572,
+          "head_search_limit": false,
+          "head_template_frame": 0,
+          "head_top_mask_y": 201,
+          "head_top_mask_y_H": 1.1485714285714286,
+          "head_top_thin": false,
+          "head_top_y": 57.0,
+          "head_top_y_H": 0.32571428571428573,
+          "head_track_method": "fixed head patch NCC; +/-25%H previous position",
+          "head_track_valid": true,
+          "identity_ambiguous": true,
+          "mask_area": 3186,
+          "mask_area_per_H": 18.205714285714286,
+          "planted": {
+            "L": null,
+            "R": false
+          },
+          "planted_L": null,
+          "planted_R": false,
+          "planted_ground_only_lineage": {
+            "L": null,
+            "R": false
+          },
+          "sole_line_y": 375,
+          "sole_line_y_H": 2.142857142857143,
+          "torso_cx": 141.0,
+          "torso_cx_H": 0.8057142857142857,
+          "torso_width": 18.0,
+          "torso_width_H": 0.10285714285714286,
+          "valid": true,
+          "velocity_boundary": "backward difference",
+          "wrist_ext_L": 2.0,
+          "wrist_ext_L_H": 0.011428571428571429,
+          "wrist_ext_R": 0.0,
+          "wrist_ext_R_H": 0.0
+        },
+        {
+          "H": 225,
+          "feet_merged": false,
+          "foot_L_velocity_x": null,
+          "foot_L_x": 236.0,
+          "foot_L_x_H": 1.048888888888889,
+          "foot_L_y": 549,
+          "foot_L_y_H": 2.44,
+          "foot_R_velocity_x": 81.5,
+          "foot_R_x": 212.5,
+          "foot_R_x_H": 0.9444444444444444,
+          "foot_R_y": 500,
+          "foot_R_y_H": 2.2222222222222223,
+          "foot_components": 2,
+          "foot_identity": "initial image x order; tracked over time, not anatomical",
+          "grid_shift_xy": [
+            7,
+            -40
+          ],
+          "ground_line_y": 771,
+          "ground_line_y_H": 3.4266666666666667,
+          "head_box_xyxy": [
+            101,
+            53,
+            266,
+            138
+          ],
+          "head_cx": 183.0,
+          "head_cx_H": 0.8133333333333334,
+          "head_cx_mask_lineage": 283.137299771167,
+          "head_cy": 95.0,
+          "head_cy_H": 0.4222222222222222,
+          "head_ncc": 0.6768495839021683,
+          "head_ref_y": 351,
+          "head_ref_y_H": 1.56,
+          "head_search_limit": false,
+          "head_template_frame": 0,
+          "head_top_mask_y": 325,
+          "head_top_mask_y_H": 1.4444444444444444,
+          "head_top_thin": false,
+          "head_top_y": 53.0,
+          "head_top_y_H": 0.23555555555555555,
+          "head_track_method": "fixed head patch NCC; +/-25%H previous position",
+          "head_track_valid": true,
+          "identity_ambiguous": false,
+          "mask_area": 6045,
+          "mask_area_per_H": 26.866666666666667,
+          "planted": {
+            "L": null,
+            "R": false
+          },
+          "planted_L": null,
+          "planted_R": false,
+          "planted_ground_only_lineage": {
+            "L": false,
+            "R": false
+          },
+          "sole_line_y": 549,
+          "sole_line_y_H": 2.44,
+          "torso_cx": 266.0,
+          "torso_cx_H": 1.1822222222222223,
+          "torso_width": 26.0,
+          "torso_width_H": 0.11555555555555555,
+          "valid": true,
+          "velocity_boundary": "backward difference",
+          "wrist_ext_L": 9.0,
+          "wrist_ext_L_H": 0.04,
+          "wrist_ext_R": 11.0,
+          "wrist_ext_R_H": 0.04888888888888889
+        },
+        {
+          "H": 273,
+          "feet_merged": true,
+          "foot_L_velocity_x": -150.0,
+          "foot_L_x": 86.0,
+          "foot_L_x_H": 0.315018315018315,
+          "foot_L_y": 387,
+          "foot_L_y_H": 1.4175824175824177,
+          "foot_R_velocity_x": null,
+          "foot_R_x": null,
+          "foot_R_x_H": null,
+          "foot_R_y": null,
+          "foot_R_y_H": null,
+          "foot_components": 1,
+          "foot_identity": "initial image x order; tracked over time, not anatomical",
+          "grid_shift_xy": [
+            -13,
+            -42
+          ],
+          "ground_line_y": 771,
+          "ground_line_y_H": 2.8241758241758244,
+          "head_box_xyxy": [
+            78,
+            53,
+            243,
+            138
+          ],
+          "head_cx": 160.0,
+          "head_cx_H": 0.5860805860805861,
+          "head_cx_mask_lineage": 123.89181561618062,
+          "head_cy": 95.0,
+          "head_cy_H": 0.34798534798534797,
+          "head_ncc": 0.675508266047073,
+          "head_ref_y": 158,
+          "head_ref_y_H": 0.5787545787545788,
+          "head_search_limit": false,
+          "head_template_frame": 0,
+          "head_top_mask_y": 115,
+          "head_top_mask_y_H": 0.42124542124542125,
+          "head_top_thin": false,
+          "head_top_y": 53.0,
+          "head_top_y_H": 0.19413919413919414,
+          "head_track_method": "fixed head patch NCC; +/-25%H previous position",
+          "head_track_valid": true,
+          "identity_ambiguous": true,
+          "mask_area": 15027,
+          "mask_area_per_H": 55.043956043956044,
+          "planted": {
+            "L": false,
+            "R": null
+          },
+          "planted_L": false,
+          "planted_R": null,
+          "planted_ground_only_lineage": {
+            "L": false,
+            "R": null
+          },
+          "sole_line_y": 387,
+          "sole_line_y_H": 1.4175824175824177,
+          "torso_cx": 119.0,
+          "torso_cx_H": 0.4358974358974359,
+          "torso_width": 71.0,
+          "torso_width_H": 0.2600732600732601,
+          "valid": true,
+          "velocity_boundary": "backward difference",
+          "wrist_ext_L": 0.0,
+          "wrist_ext_L_H": 0.0,
+          "wrist_ext_R": 3.5,
+          "wrist_ext_R_H": 0.01282051282051282
+        },
+        {
+          "H": 257,
+          "feet_merged": true,
+          "foot_L_velocity_x": null,
+          "foot_L_x": null,
+          "foot_L_x_H": null,
+          "foot_L_y": null,
+          "foot_L_y_H": null,
+          "foot_R_velocity_x": null,
+          "foot_R_x": 288.0,
+          "foot_R_x_H": 1.1206225680933852,
+          "foot_R_y": 284,
+          "foot_R_y_H": 1.105058365758755,
+          "foot_components": 1,
+          "foot_identity": "initial image x order; tracked over time, not anatomical",
+          "grid_shift_xy": [
+            11,
+            -104
+          ],
+          "ground_line_y": 771,
+          "ground_line_y_H": 3.0,
+          "head_box_xyxy": [
+            91,
+            0,
+            256,
+            85
+          ],
+          "head_cx": 173.0,
+          "head_cx_H": 0.6731517509727627,
+          "head_cx_mask_lineage": 223.68373493975903,
+          "head_cy": 42.0,
+          "head_cy_H": 0.16342412451361868,
+          "head_ncc": 0.4737088554595649,
+          "head_ref_y": 79,
+          "head_ref_y_H": 0.30739299610894943,
+          "head_search_limit": true,
+          "head_template_frame": 0,
+          "head_top_mask_y": 28,
+          "head_top_mask_y_H": 0.10894941634241245,
+          "head_top_thin": false,
+          "head_top_y": 0.0,
+          "head_top_y_H": 0.0,
+          "head_track_method": "fixed head patch NCC; +/-25%H previous position",
+          "head_track_valid": false,
+          "identity_ambiguous": true,
+          "mask_area": 7767,
+          "mask_area_per_H": 30.22178988326848,
+          "planted": {
+            "L": null,
+            "R": null
+          },
+          "planted_L": null,
+          "planted_R": null,
+          "planted_ground_only_lineage": {
+            "L": null,
+            "R": false
+          },
+          "sole_line_y": 284,
+          "sole_line_y_H": 1.105058365758755,
+          "torso_cx": 227.75,
+          "torso_cx_H": 0.8861867704280155,
+          "torso_width": 33.0,
+          "torso_width_H": 0.12840466926070038,
+          "valid": true,
+          "velocity_boundary": "backward difference",
+          "wrist_ext_L": 2.25,
+          "wrist_ext_L_H": 0.008754863813229572,
+          "wrist_ext_R": 24.75,
+          "wrist_ext_R_H": 0.0963035019455253
+        },
+        {
+          "H": 44,
+          "feet_merged": false,
+          "foot_L_velocity_x": null,
+          "foot_L_x": 189.0,
+          "foot_L_x_H": 4.295454545454546,
+          "foot_L_y": 657,
+          "foot_L_y_H": 14.931818181818182,
+          "foot_R_velocity_x": -50.0,
+          "foot_R_x": 238.0,
+          "foot_R_x_H": 5.409090909090909,
+          "foot_R_y": 651,
+          "foot_R_y_H": 14.795454545454545,
+          "foot_components": 2,
+          "foot_identity": "initial image x order; tracked over time, not anatomical",
+          "grid_shift_xy": [
+            9,
+            -39
+          ],
+          "ground_line_y": 771,
+          "ground_line_y_H": 17.522727272727273,
+          "head_box_xyxy": [
+            96,
+            54,
+            261,
+            139
+          ],
+          "head_cx": 178.0,
+          "head_cx_H": 4.045454545454546,
+          "head_cx_mask_lineage": 233.64,
+          "head_cy": 96.0,
+          "head_cy_H": 2.1818181818181817,
+          "head_ncc": 0.7016005405537562,
+          "head_ref_y": 622,
+          "head_ref_y_H": 14.136363636363637,
+          "head_search_limit": false,
+          "head_template_frame": 0,
+          "head_top_mask_y": 614,
+          "head_top_mask_y_H": 13.954545454545455,
+          "head_top_thin": false,
+          "head_top_y": 54.0,
+          "head_top_y_H": 1.2272727272727273,
+          "head_track_method": "fixed head patch NCC; +/-25%H previous position",
+          "head_track_valid": true,
+          "identity_ambiguous": false,
+          "mask_area": 1842,
+          "mask_area_per_H": 41.86363636363637,
+          "planted": {
+            "L": null,
+            "R": false
+          },
+          "planted_L": null,
+          "planted_R": false,
+          "planted_ground_only_lineage": {
+            "L": false,
+            "R": false
+          },
+          "sole_line_y": 657,
+          "sole_line_y_H": 14.931818181818182,
+          "torso_cx": 266.0,
+          "torso_cx_H": 6.045454545454546,
+          "torso_width": 50.0,
+          "torso_width_H": 1.1363636363636365,
+          "valid": true,
+          "velocity_boundary": "backward difference",
+          "wrist_ext_L": 46.0,
+          "wrist_ext_L_H": 1.0454545454545454,
+          "wrist_ext_R": 13.0,
+          "wrist_ext_R_H": 0.29545454545454547
+        },
+        {
+          "H": 145,
+          "feet_merged": true,
+          "foot_L_velocity_x": null,
+          "foot_L_x": null,
+          "foot_L_x_H": null,
+          "foot_L_y": null,
+          "foot_L_y_H": null,
+          "foot_R_velocity_x": -141.0,
+          "foot_R_x": 97.0,
+          "foot_R_x_H": 0.6689655172413793,
+          "foot_R_y": 260,
+          "foot_R_y_H": 1.793103448275862,
+          "foot_components": 1,
+          "foot_identity": "initial image x order; tracked over time, not anatomical",
+          "grid_shift_xy": [
+            9,
+            -37
+          ],
+          "ground_line_y": 771,
+          "ground_line_y_H": 5.317241379310345,
+          "head_box_xyxy": [
+            95,
+            47,
+            260,
+            132
+          ],
+          "head_cx": 177.0,
+          "head_cx_H": 1.2206896551724138,
+          "head_cx_mask_lineage": 130.57035175879398,
+          "head_cy": 89.0,
+          "head_cy_H": 0.6137931034482759,
+          "head_ncc": 0.700536774935005,
+          "head_ref_y": 127,
+          "head_ref_y_H": 0.8758620689655172,
+          "head_search_limit": false,
+          "head_template_frame": 0,
+          "head_top_mask_y": 116,
+          "head_top_mask_y_H": 0.8,
+          "head_top_thin": false,
+          "head_top_y": 47.0,
+          "head_top_y_H": 0.32413793103448274,
+          "head_track_method": "fixed head patch NCC; +/-25%H previous position",
+          "head_track_valid": true,
+          "identity_ambiguous": true,
+          "mask_area": 1699,
+          "mask_area_per_H": 11.717241379310344,
+          "planted": {
+            "L": null,
+            "R": false
+          },
+          "planted_L": null,
+          "planted_R": false,
+          "planted_ground_only_lineage": {
+            "L": null,
+            "R": false
+          },
+          "sole_line_y": 260,
+          "sole_line_y_H": 1.793103448275862,
+          "torso_cx": 105.5,
+          "torso_cx_H": 0.7275862068965517,
+          "torso_width": 12.0,
+          "torso_width_H": 0.08275862068965517,
+          "valid": true,
+          "velocity_boundary": "backward difference",
+          "wrist_ext_L": 0.0,
+          "wrist_ext_L_H": 0.0,
+          "wrist_ext_R": 0.0,
+          "wrist_ext_R_H": 0.0
+        },
+        {
+          "H": 292,
+          "feet_merged": true,
+          "foot_L_velocity_x": null,
+          "foot_L_x": 293.0,
+          "foot_L_x_H": 1.0034246575342465,
+          "foot_L_y": 303,
+          "foot_L_y_H": 1.0376712328767124,
+          "foot_R_velocity_x": null,
+          "foot_R_x": null,
+          "foot_R_x_H": null,
+          "foot_R_y": null,
+          "foot_R_y_H": null,
+          "foot_components": 1,
+          "foot_identity": "initial image x order; tracked over time, not anatomical",
+          "grid_shift_xy": [
+            14,
+            -120
+          ],
+          "ground_line_y": 771,
+          "ground_line_y_H": 2.6404109589041096,
+          "head_box_xyxy": [
+            162,
+            6,
+            327,
+            91
+          ],
+          "head_cx": 244.0,
+          "head_cx_H": 0.8356164383561644,
+          "head_cx_mask_lineage": 174.5954724409449,
+          "head_cy": 48.0,
+          "head_cy_H": 0.1643835616438356,
+          "head_ncc": 0.31470093852420133,
+          "head_ref_y": 69,
+          "head_ref_y_H": 0.2363013698630137,
+          "head_search_limit": false,
+          "head_template_frame": 0,
+          "head_top_mask_y": 12,
+          "head_top_mask_y_H": 0.0410958904109589,
+          "head_top_thin": false,
+          "head_top_y": 6.0,
+          "head_top_y_H": 0.02054794520547945,
+          "head_track_method": "fixed head patch NCC; +/-25%H previous position",
+          "head_track_valid": false,
+          "identity_ambiguous": true,
+          "mask_area": 13277,
+          "mask_area_per_H": 45.46917808219178,
+          "planted": {
+            "L": null,
+            "R": null
+          },
+          "planted_L": null,
+          "planted_R": null,
+          "planted_ground_only_lineage": {
+            "L": false,
+            "R": null
+          },
+          "sole_line_y": 303,
+          "sole_line_y_H": 1.0376712328767124,
+          "torso_cx": 234.0,
+          "torso_cx_H": 0.8013698630136986,
+          "torso_width": 21.0,
+          "torso_width_H": 0.07191780821917808,
+          "valid": true,
+          "velocity_boundary": "backward difference",
+          "wrist_ext_L": 1.5,
+          "wrist_ext_L_H": 0.005136986301369863,
+          "wrist_ext_R": 27.5,
+          "wrist_ext_R_H": 0.09417808219178082
+        },
+        {
+          "H": 133,
+          "feet_merged": true,
+          "foot_L_velocity_x": -99.0,
+          "foot_L_x": 194.0,
+          "foot_L_x_H": 1.4586466165413534,
+          "foot_L_y": 675,
+          "foot_L_y_H": 5.075187969924812,
+          "foot_R_velocity_x": null,
+          "foot_R_x": null,
+          "foot_R_x_H": null,
+          "foot_R_y": null,
+          "foot_R_y_H": null,
+          "foot_components": 1,
+          "foot_identity": "initial image x order; tracked over time, not anatomical",
+          "grid_shift_xy": [
+            -7,
+            -97
+          ],
+          "ground_line_y": 771,
+          "ground_line_y_H": 5.796992481203008,
+          "head_box_xyxy": [
+            83,
+            0,
+            248,
+            85
+          ],
+          "head_cx": 165.0,
+          "head_cx_H": 1.2406015037593985,
+          "head_cx_mask_lineage": 368.50757575757575,
+          "head_cy": 42.0,
+          "head_cy_H": 0.3157894736842105,
+          "head_ncc": 0.5257040097398209,
+          "head_ref_y": 569,
+          "head_ref_y_H": 4.2781954887218046,
+          "head_search_limit": true,
+          "head_template_frame": 0,
+          "head_top_mask_y": 543,
+          "head_top_mask_y_H": 4.082706766917293,
+          "head_top_thin": false,
+          "head_top_y": 0.0,
+          "head_top_y_H": 0.0,
+          "head_track_method": "fixed head patch NCC; +/-25%H previous position",
+          "head_track_valid": false,
+          "identity_ambiguous": true,
+          "mask_area": 11780,
+          "mask_area_per_H": 88.57142857142857,
+          "planted": {
+            "L": false,
+            "R": null
+          },
+          "planted_L": false,
+          "planted_R": null,
+          "planted_ground_only_lineage": {
+            "L": false,
+            "R": null
+          },
+          "sole_line_y": 675,
+          "sole_line_y_H": 5.075187969924812,
+          "torso_cx": 372.75,
+          "torso_cx_H": 2.8026315789473686,
+          "torso_width": 16.0,
+          "torso_width_H": 0.12030075187969924,
+          "valid": true,
+          "velocity_boundary": "backward difference",
+          "wrist_ext_L": 0.0,
+          "wrist_ext_L_H": 0.0,
+          "wrist_ext_R": 0.25,
+          "wrist_ext_R_H": 0.0018796992481203006
+        },
+        {
+          "H": 344,
+          "feet_merged": true,
+          "foot_L_velocity_x": 4.5,
+          "foot_L_x": 198.5,
+          "foot_L_x_H": 0.5770348837209303,
+          "foot_L_y": 693,
+          "foot_L_y_H": 2.01453488372093,
+          "foot_R_velocity_x": null,
+          "foot_R_x": null,
+          "foot_R_x_H": null,
+          "foot_R_y": null,
+          "foot_R_y_H": null,
+          "foot_components": 1,
+          "foot_identity": "initial image x order; tracked over time, not anatomical",
+          "grid_shift_xy": [
+            8,
+            -79
+          ],
+          "ground_line_y": 771,
+          "ground_line_y_H": 2.241279069767442,
+          "head_box_xyxy": [
+            103,
+            2,
+            268,
+            87
+          ],
+          "head_cx": 185.0,
+          "head_cx_H": 0.5377906976744186,
+          "head_cx_mask_lineage": 321.1434782608696,
+          "head_cy": 44.0,
+          "head_cy_H": 0.12790697674418605,
+          "head_ncc": 0.7944148080323482,
+          "head_ref_y": 398,
+          "head_ref_y_H": 1.1569767441860466,
+          "head_search_limit": false,
+          "head_template_frame": 0,
+          "head_top_mask_y": 350,
+          "head_top_mask_y_H": 1.0174418604651163,
+          "head_top_thin": false,
+          "head_top_y": 2.0,
+          "head_top_y_H": 0.005813953488372093,
+          "head_track_method": "fixed head patch NCC; +/-25%H previous position",
+          "head_track_valid": true,
+          "identity_ambiguous": true,
+          "mask_area": 28686,
+          "mask_area_per_H": 83.38953488372093,
+          "planted": {
+            "L": false,
+            "R": null
+          },
+          "planted_L": false,
+          "planted_R": null,
+          "planted_ground_only_lineage": {
+            "L": false,
+            "R": null
+          },
+          "sole_line_y": 693,
+          "sole_line_y_H": 2.01453488372093,
+          "torso_cx": 345.5,
+          "torso_cx_H": 1.004360465116279,
+          "torso_width": 47.5,
+          "torso_width_H": 0.1380813953488372,
+          "valid": true,
+          "velocity_boundary": "backward difference",
+          "wrist_ext_L": 2.75,
+          "wrist_ext_L_H": 0.007994186046511628,
+          "wrist_ext_R": 14.75,
+          "wrist_ext_R_H": 0.042877906976744186
+        }
+      ],
+      "mask_health": [
+        {
+          "H": 703,
+          "area_fraction": 0.5730656492049716,
+          "detected_grid_fraction": 0.0008416984623446378,
+          "grid_detected": true,
+          "grid_leak": 0.00030861198900426914,
+          "grid_period_yx": [
+            257.6666666666667,
+            30.384615384615383
+          ],
+          "grid_shift_xy": [
+            0,
+            0
+          ],
+          "mask_area": 174977,
+          "mask_area_per_H": 248.900426742532,
+          "median_foreground_caveat": "body occupancy >= half the row persists in the median; no semantic repair",
+          "method": "grid phase correlation / registered temporal median",
+          "periodic_grid_ambiguity": "nearest lattice phase; whole-period displacement unresolved",
+          "phase_peak": [
+            0.9987063407897949,
+            0.9974683523178101
+          ],
+          "phase_peak_ratio": [
+            null,
+            null
+          ],
+          "registration_valid_fraction": 1.0
+        },
+        {
+          "H": 577,
+          "area_fraction": 0.36542486121800644,
+          "detected_grid_fraction": 0.0007991222755334305,
+          "grid_detected": true,
+          "grid_leak": 0.0,
+          "grid_period_yx": [
+            257.6666666666667,
+            30.384615384615383
+          ],
+          "grid_shift_xy": [
+            3,
+            118
+          ],
+          "mask_area": 111577,
+          "mask_area_per_H": 193.3743500866551,
+          "median_foreground_caveat": "body occupancy >= half the row persists in the median; no semantic repair",
+          "method": "grid phase correlation / registered temporal median",
+          "periodic_grid_ambiguity": "nearest lattice phase; whole-period displacement unresolved",
+          "phase_peak": [
+            0.10915741324424744,
+            0.9101729989051819
+          ],
+          "phase_peak_ratio": [
+            1.2177356400408537,
+            3.562873819081976
+          ],
+          "registration_valid_fraction": 0.8409124404342772
+        },
+        {
+          "H": 44,
+          "area_fraction": 0.038465947238279265,
+          "detected_grid_fraction": 0.0018504265806409354,
+          "grid_detected": true,
+          "grid_leak": 0.0,
+          "grid_period_yx": [
+            257.6666666666667,
+            30.384615384615383
+          ],
+          "grid_shift_xy": [
+            5,
+            -79
+          ],
+          "mask_area": 11745,
+          "mask_area_per_H": 266.9318181818182,
+          "median_foreground_caveat": "body occupancy >= half the row persists in the median; no semantic repair",
+          "method": "grid phase correlation / registered temporal median",
+          "periodic_grid_ambiguity": "nearest lattice phase; whole-period displacement unresolved",
+          "phase_peak": [
+            0.21270698308944702,
+            0.49080392718315125
+          ],
+          "phase_peak_ratio": [
+            1.8660154894254506,
+            2.036814835166772
+          ],
+          "registration_valid_fraction": 0.8864362094093373
+        },
+        {
+          "H": 175,
+          "area_fraction": 0.010434440860038974,
+          "detected_grid_fraction": 0.002895180703162101,
+          "grid_detected": true,
+          "grid_leak": 0.0,
+          "grid_period_yx": [
+            257.6666666666667,
+            30.384615384615383
+          ],
+          "grid_shift_xy": [
+            8,
+            -37
+          ],
+          "mask_area": 3186,
+          "mask_area_per_H": 18.205714285714286,
+          "median_foreground_caveat": "body occupancy >= half the row persists in the median; no semantic repair",
+          "method": "grid phase correlation / registered temporal median",
+          "periodic_grid_ambiguity": "nearest lattice phase; whole-period displacement unresolved",
+          "phase_peak": [
+            0.21111451089382172,
+            0.8454832434654236
+          ],
+          "phase_peak_ratio": [
+            1.6669343380363486,
+            5.793876400260676
+          ],
+          "registration_valid_fraction": 0.9328508032161397
+        },
+        {
+          "H": 225,
+          "area_fraction": 0.019797926867211425,
+          "detected_grid_fraction": 0.000242356755694565,
+          "grid_detected": true,
+          "grid_leak": 0.0,
+          "grid_period_yx": [
+            257.6666666666667,
+            30.384615384615383
+          ],
+          "grid_shift_xy": [
+            7,
+            -40
+          ],
+          "mask_area": 6045,
+          "mask_area_per_H": 26.866666666666667,
+          "median_foreground_caveat": "body occupancy >= half the row persists in the median; no semantic repair",
+          "method": "grid phase correlation / registered temporal median",
+          "periodic_grid_ambiguity": "nearest lattice phase; whole-period displacement unresolved",
+          "phase_peak": [
+            0.21933570504188538,
+            0.3249393105506897
+          ],
+          "phase_peak_ratio": [
+            1.6102028658024437,
+            3.002487832943088
+          ],
+          "registration_valid_fraction": 0.9314490641426629
+        },
+        {
+          "H": 273,
+          "area_fraction": 0.049214796862462544,
+          "detected_grid_fraction": 0.0013264119737337679,
+          "grid_detected": true,
+          "grid_leak": 0.0,
+          "grid_period_yx": [
+            257.6666666666667,
+            30.384615384615383
+          ],
+          "grid_shift_xy": [
+            -13,
+            -42
+          ],
+          "mask_area": 15027,
+          "mask_area_per_H": 55.043956043956044,
+          "median_foreground_caveat": "body occupancy >= half the row persists in the median; no semantic repair",
+          "method": "grid phase correlation / registered temporal median",
+          "periodic_grid_ambiguity": "nearest lattice phase; whole-period displacement unresolved",
+          "phase_peak": [
+            0.1697470098733902,
+            0.40730351209640503
+          ],
+          "phase_peak_ratio": [
+            1.0559169713877494,
+            1.0885385732480768
+          ],
+          "registration_valid_fraction": 0.9145430428873205
+        },
+        {
+          "H": 257,
+          "area_fraction": 0.025437634074049816,
+          "detected_grid_fraction": 0.004113514664221265,
+          "grid_detected": true,
+          "grid_leak": 0.0,
+          "grid_period_yx": [
+            257.6666666666667,
+            30.384615384615383
+          ],
+          "grid_shift_xy": [
+            11,
+            -104
+          ],
+          "mask_area": 7767,
+          "mask_area_per_H": 30.22178988326848,
+          "median_foreground_caveat": "body occupancy >= half the row persists in the median; no semantic repair",
+          "method": "grid phase correlation / registered temporal median",
+          "periodic_grid_ambiguity": "nearest lattice phase; whole-period displacement unresolved",
+          "phase_peak": [
+            0.1744900345802307,
+            0.4764147102832794
+          ],
+          "phase_peak_ratio": [
+            1.2109513387930702,
+            1.1582549646614615
+          ],
+          "registration_valid_fraction": 0.8413578528501482
+        },
+        {
+          "H": 44,
+          "area_fraction": 0.006032718162018766,
+          "detected_grid_fraction": 0.003003258715836704,
+          "grid_detected": true,
+          "grid_leak": 0.0,
+          "grid_period_yx": [
+            257.6666666666667,
+            30.384615384615383
+          ],
+          "grid_shift_xy": [
+            9,
+            -39
+          ],
+          "mask_area": 1842,
+          "mask_area_per_H": 41.86363636363637,
+          "median_foreground_caveat": "body occupancy >= half the row persists in the median; no semantic repair",
+          "method": "grid phase correlation / registered temporal median",
+          "periodic_grid_ambiguity": "nearest lattice phase; whole-period displacement unresolved",
+          "phase_peak": [
+            0.21033862233161926,
+            0.7388522028923035
+          ],
+          "phase_peak_ratio": [
+            1.5031233105206703,
+            3.0014535249736074
+          ],
+          "registration_valid_fraction": 0.9279119655460396
+        },
+        {
+          "H": 145,
+          "area_fraction": 0.005564380107095485,
+          "detected_grid_fraction": 0.001598244551066861,
+          "grid_detected": true,
+          "grid_leak": 0.0,
+          "grid_period_yx": [
+            257.6666666666667,
+            30.384615384615383
+          ],
+          "grid_shift_xy": [
+            9,
+            -37
+          ],
+          "mask_area": 1699,
+          "mask_area_per_H": 11.717241379310344,
+          "median_foreground_caveat": "body occupancy >= half the row persists in the median; no semantic repair",
+          "method": "grid phase correlation / registered temporal median",
+          "periodic_grid_ambiguity": "nearest lattice phase; whole-period displacement unresolved",
+          "phase_peak": [
+            0.1916869878768921,
+            0.7388521432876587
+          ],
+          "phase_peak_ratio": [
+            1.1326112350061408,
+            1.911551650822375
+          ],
+          "registration_valid_fraction": 0.9304403360243667
+        },
+        {
+          "H": 292,
+          "area_fraction": 0.0434833870994154,
+          "detected_grid_fraction": 0.0008482486449309775,
+          "grid_detected": true,
+          "grid_leak": 0.0,
+          "grid_period_yx": [
+            257.6666666666667,
+            30.384615384615383
+          ],
+          "grid_shift_xy": [
+            14,
+            -120
+          ],
+          "mask_area": 13277,
+          "mask_area_per_H": 45.46917808219178,
+          "median_foreground_caveat": "body occupancy >= half the row persists in the median; no semantic repair",
+          "method": "grid phase correlation / registered temporal median",
+          "periodic_grid_ambiguity": "nearest lattice phase; whole-period displacement unresolved",
+          "phase_peak": [
+            0.11731977760791779,
+            0.9210199117660522
+          ],
+          "phase_peak_ratio": [
+            1.1915701961138045,
+            6.185441556560945
+          ],
+          "registration_valid_fraction": 0.8148197881015933
+        },
+        {
+          "H": 133,
+          "area_fraction": 0.03858057543354021,
+          "detected_grid_fraction": 0.0,
+          "grid_detected": true,
+          "grid_leak": 0.0,
+          "grid_period_yx": [
+            257.6666666666667,
+            30.384615384615383
+          ],
+          "grid_shift_xy": [
+            -7,
+            -97
+          ],
+          "mask_area": 11780,
+          "mask_area_per_H": 88.57142857142857,
+          "median_foreground_caveat": "body occupancy >= half the row persists in the median; no semantic repair",
+          "method": "grid phase correlation / registered temporal median",
+          "periodic_grid_ambiguity": "nearest lattice phase; whole-period displacement unresolved",
+          "phase_peak": [
+            0.24715133011341095,
+            0.9752165079116821
+          ],
+          "phase_peak_ratio": [
+            1.075463888995517,
+            12.555184982046528
+          ],
+          "registration_valid_fraction": 0.8590171451029197
+        },
+        {
+          "H": 344,
+          "area_fraction": 0.0939492688358688,
+          "detected_grid_fraction": 0.0002292563905218858,
+          "grid_detected": true,
+          "grid_leak": 0.0,
+          "grid_period_yx": [
+            257.6666666666667,
+            30.384615384615383
+          ],
+          "grid_shift_xy": [
+            8,
+            -79
+          ],
+          "mask_area": 28686,
+          "mask_area_per_H": 83.38953488372093,
+          "median_foreground_caveat": "body occupancy >= half the row persists in the median; no semantic repair",
+          "method": "grid phase correlation / registered temporal median",
+          "periodic_grid_ambiguity": "nearest lattice phase; whole-period displacement unresolved",
+          "phase_peak": [
+            0.07515013217926025,
+            0.006786861456930637
+          ],
+          "phase_peak_ratio": [
+            1.0192917502435683,
+            3.6296297725951843
+          ],
+          "registration_valid_fraction": 0.8796174693369577
+        }
+      ],
+      "mask_params": {
+        "close_size": 3,
+        "grid_highpass": "signed 5px median residual, long-line opening",
+        "ground_tolerance_px": 3.0,
+        "head_patch_fraction_H": 0.12,
+        "head_search_fraction_H": 0.25,
+        "line_width_px": 5,
+        "method": "grid phase correlation / registered temporal median",
+        "registration": "integer translation; phase correlation; no scale",
+        "stationary_tolerance_px": 2.0,
+        "tau": 12.0
+      },
+      "mode": "ref",
+      "notes": [
+        "H normalization uses clip median inclusive silhouette height; no per-frame rescaling",
+        "Tracked head NCC drives W1/W2/W4; raw mask top retained under lineage names",
+        "W1 outside 1-5%H flags an unreliable head track, not a veridical bob measurement",
+        "W5 is a silhouette extent at 0.45H, not an identified wrist",
+        "front/rear: W5, W6 and sole scroll are not meaningful and are null",
+        "merged/hidden feet; identity and contact phase may be unreliable"
+      ],
+      "phase_table": [
+        {
+          "boundary_contact": false,
+          "contact": false,
+          "contact_sides": [],
+          "frame": 0,
+          "lead_track": null,
+          "phase": null,
+          "planted": {
+            "L": false,
+            "R": null
+          },
+          "printed_phase": 1,
+          "reason": "expected two contact events; observed 0"
+        },
+        {
+          "boundary_contact": false,
+          "contact": false,
+          "contact_sides": [],
+          "frame": 1,
+          "lead_track": null,
+          "phase": null,
+          "planted": {
+            "L": false,
+            "R": null
+          },
+          "printed_phase": 2,
+          "reason": "expected two contact events; observed 0"
+        },
+        {
+          "boundary_contact": false,
+          "contact": false,
+          "contact_sides": [],
+          "frame": 2,
+          "lead_track": null,
+          "phase": null,
+          "planted": {
+            "L": null,
+            "R": false
+          },
+          "printed_phase": 3,
+          "reason": "expected two contact events; observed 0"
+        },
+        {
+          "boundary_contact": false,
+          "contact": false,
+          "contact_sides": [],
+          "frame": 3,
+          "lead_track": null,
+          "phase": null,
+          "planted": {
+            "L": null,
+            "R": false
+          },
+          "printed_phase": 4,
+          "reason": "expected two contact events; observed 0"
+        },
+        {
+          "boundary_contact": false,
+          "contact": false,
+          "contact_sides": [],
+          "frame": 4,
+          "lead_track": null,
+          "phase": null,
+          "planted": {
+            "L": null,
+            "R": false
+          },
+          "printed_phase": 5,
+          "reason": "expected two contact events; observed 0"
+        },
+        {
+          "boundary_contact": false,
+          "contact": false,
+          "contact_sides": [],
+          "frame": 5,
+          "lead_track": null,
+          "phase": null,
+          "planted": {
+            "L": false,
+            "R": null
+          },
+          "printed_phase": 6,
+          "reason": "expected two contact events; observed 0"
+        },
+        {
+          "boundary_contact": false,
+          "contact": false,
+          "contact_sides": [],
+          "frame": 6,
+          "lead_track": null,
+          "phase": null,
+          "planted": {
+            "L": null,
+            "R": null
+          },
+          "printed_phase": 7,
+          "reason": "expected two contact events; observed 0"
+        },
+        {
+          "boundary_contact": false,
+          "contact": false,
+          "contact_sides": [],
+          "frame": 7,
+          "lead_track": null,
+          "phase": null,
+          "planted": {
+            "L": null,
+            "R": false
+          },
+          "printed_phase": 8,
+          "reason": "expected two contact events; observed 0"
+        },
+        {
+          "boundary_contact": false,
+          "contact": false,
+          "contact_sides": [],
+          "frame": 8,
+          "lead_track": null,
+          "phase": null,
+          "planted": {
+            "L": null,
+            "R": false
+          },
+          "printed_phase": 9,
+          "reason": "expected two contact events; observed 0"
+        },
+        {
+          "boundary_contact": false,
+          "contact": false,
+          "contact_sides": [],
+          "frame": 9,
+          "lead_track": null,
+          "phase": null,
+          "planted": {
+            "L": null,
+            "R": null
+          },
+          "printed_phase": 10,
+          "reason": "expected two contact events; observed 0"
+        },
+        {
+          "boundary_contact": false,
+          "contact": false,
+          "contact_sides": [],
+          "frame": 10,
+          "lead_track": null,
+          "phase": null,
+          "planted": {
+            "L": false,
+            "R": null
+          },
+          "printed_phase": 11,
+          "reason": "expected two contact events; observed 0"
+        },
+        {
+          "boundary_contact": false,
+          "contact": false,
+          "contact_sides": [],
+          "frame": 11,
+          "lead_track": null,
+          "phase": null,
+          "planted": {
+            "L": false,
+            "R": null
+          },
+          "printed_phase": 12,
+          "reason": "expected two contact events; observed 0"
+        }
+      ],
+      "provenance": {
+        "fps": 8.33,
+        "frame_names": [
+          "front_00.png",
+          "front_01.png",
+          "front_02.png",
+          "front_03.png",
+          "front_04.png",
+          "front_05.png",
+          "front_06.png",
+          "front_07.png",
+          "front_08.png",
+          "front_09.png",
+          "front_10.png",
+          "front_11.png"
+        ],
+        "frames": 12,
+        "k_lat": 0.5,
+        "k_vert": 2.0,
+        "mask_params": {
+          "close_size": 3,
+          "grid_highpass": "signed 5px median residual, long-line opening",
+          "ground_tolerance_px": 3.0,
+          "head_patch_fraction_H": 0.12,
+          "head_search_fraction_H": 0.25,
+          "line_width_px": 5,
+          "method": "grid phase correlation / registered temporal median",
+          "registration": "integer translation; phase correlation; no scale",
+          "stationary_tolerance_px": 2.0,
+          "tau": 12.0
+        },
+        "pattern": "front_*.png",
+        "plate": "plate13",
+        "row": "front",
+        "source": "/Users/admin/Desktop/Astra Burst Review - 2026-09-11/05b Oracle - Muybridge plate 13 (woman walking)/_frames",
+        "source_note": "Muybridge public domain"
+      },
+      "results": [
+        {
+          "evidence": [
+            "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/oracle/plots/plate13_front_mask_check.png",
+            "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/oracle/plots/plate13_front_curves.png"
+          ],
+          "id": "W1_floor",
+          "notes": "no committed floor",
+          "op": ">=",
+          "passed": null,
+          "subject": "/Users/admin/Desktop/Astra Burst Review - 2026-09-11/05b Oracle - Muybridge plate 13 (woman walking)/_frames",
+          "threshold": null,
+          "unit": "fraction_H",
+          "value": 0.8215767634854771
+        },
+        {
+          "evidence": [
+            "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/oracle/plots/plate13_front_mask_check.png",
+            "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/oracle/plots/plate13_front_curves.png"
+          ],
+          "id": "W1",
+          "notes": "SPEC descriptive screen; not a shipping verdict",
+          "op": "<=",
+          "passed": false,
+          "subject": "/Users/admin/Desktop/Astra Burst Review - 2026-09-11/05b Oracle - Muybridge plate 13 (woman walking)/_frames",
+          "threshold": 0.07,
+          "unit": "",
+          "value": 0.8215767634854771
+        },
+        {
+          "evidence": [
+            "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/oracle/plots/plate13_front_mask_check.png",
+            "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/oracle/plots/plate13_front_curves.png"
+          ],
+          "id": "W3a",
+          "notes": "SPEC descriptive screen; not a shipping verdict",
+          "op": "<=",
+          "passed": false,
+          "subject": "/Users/admin/Desktop/Astra Burst Review - 2026-09-11/05b Oracle - Muybridge plate 13 (woman walking)/_frames",
+          "threshold": 0.35,
+          "unit": "",
+          "value": 0.38786884625497514
+        },
+        {
+          "evidence": [
+            "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/oracle/plots/plate13_front_mask_check.png",
+            "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/oracle/plots/plate13_front_curves.png"
+          ],
+          "id": "W4",
+          "notes": "SPEC descriptive screen; not a shipping verdict",
+          "op": "==",
+          "passed": false,
+          "subject": "/Users/admin/Desktop/Astra Burst Review - 2026-09-11/05b Oracle - Muybridge plate 13 (woman walking)/_frames",
+          "threshold": 2,
+          "unit": "",
+          "value": 3
+        },
+        {
+          "evidence": [
+            "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/oracle/plots/plate13_front_mask_check.png",
+            "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/oracle/plots/plate13_front_curves.png"
+          ],
+          "id": "W6",
+          "notes": "SPEC descriptive screen; not a shipping verdict",
+          "op": ">=",
+          "passed": null,
+          "subject": "/Users/admin/Desktop/Astra Burst Review - 2026-09-11/05b Oracle - Muybridge plate 13 (woman walking)/_frames",
+          "threshold": 0.75,
+          "unit": "",
+          "value": null
+        }
+      ],
+      "summary": {
+        "H_median": 241.0,
+        "W1": 0.8215767634854771,
+        "W1_sanity_1_5_pct_H": false,
+        "W2": {
+          "coordinate": "Cartesian up; negative image y",
+          "max": [
+            {
+              "frame": 6,
+              "phase": null
+            },
+            {
+              "frame": 10,
+              "phase": null
+            }
+          ],
+          "min": [
+            {
+              "frame": 1,
+              "phase": null
+            }
+          ]
+        },
+        "W3a": 0.38786884625497514,
+        "W3b": -0.003968253968253976,
+        "W3c": 6,
+        "W4": 3,
+        "W5": null,
+        "W6": null,
+        "W6_per_arm": null,
+        "contact_frames": [],
+        "head_mask_bob_lineage": {
+          "W1": 2.6473029045643153,
+          "W2": {
+            "coordinate": "Cartesian up; negative image y",
+            "max": [
+              {
+                "frame": 9,
+                "phase": null
+              }
+            ],
+            "min": [
+              {
+                "frame": 2,
+                "phase": null
+              }
+            ]
+          },
+          "W4": 4,
+          "minima_frames": [
+            2,
+            4,
+            7,
+            10
+          ]
+        },
+        "head_ref_bob": {
+          "W1": 2.4398340248962658,
+          "W2": {
+            "coordinate": "Cartesian up; negative image y",
+            "max": [
+              {
+                "frame": 9,
+                "phase": null
+              }
+            ],
+            "min": [
+              {
+                "frame": 2,
+                "phase": null
+              }
+            ]
+          },
+          "W4": 4,
+          "minima_frames": [
+            2,
+            4,
+            7,
+            10
+          ]
+        },
+        "head_track_flagged_frames": [
+          2,
+          6,
+          9,
+          10
+        ],
+        "minima_frames": [
+          1,
+          3,
+          7
+        ],
+        "projection_diagnostics": {
+          "W5": {
+            "L": 0.2842323651452282,
+            "R": 0.6908713692946058
+          },
+          "W6": null,
+          "W6_per_arm": {
+            "L": null,
+            "R": null
+          },
+          "identity_note": "projected track opposition, not independently established anatomical same-side identity",
+          "sole_scroll": {
+            "L": {
+              "delta_px_per_frame": [
+                null,
+                130.0,
+                null,
+                null,
+                null,
+                -150.0,
+                null,
+                null,
+                null,
+                null,
+                -99.0,
+                4.5
+              ],
+              "mean_scroll_px_per_frame": -28.625,
+              "observed_velocity_frames": 4,
+              "swing_x_px": [
+                148.0,
+                278.0,
+                null,
+                null,
+                null,
+                86.0,
+                null,
+                null,
+                null,
+                null,
+                194.0,
+                198.5
+              ]
+            },
+            "R": {
+              "delta_px_per_frame": [
+                null,
+                null,
+                -159.0,
+                -66.0,
+                81.5,
+                null,
+                null,
+                -50.0,
+                -141.0,
+                null,
+                null,
+                null
+              ],
+              "mean_scroll_px_per_frame": -66.9,
+              "observed_velocity_frames": 5,
+              "swing_x_px": [
+                null,
+                null,
+                197.0,
+                131.0,
+                212.5,
+                null,
+                null,
+                238.0,
+                97.0,
+                null,
+                null,
+                null
+              ]
+            },
+            "estimator": "backward velocity on observed non-planted frames; missing tracks and seam excluded",
+            "mean_absolute_speed_px_per_frame": 97.88888888888889,
+            "mean_scroll_px_per_frame": -49.888888888888886,
+            "planted_scroll_lineage": {
+              "L": {
+                "delta_px_per_frame": [
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null
+                ],
+                "mean_scroll_px_per_frame": null,
+                "planted_x_px": [
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null
+                ],
+                "slip_px_per_frame": [
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null
+                ],
+                "slip_rms_px_per_frame": null
+              },
+              "R": {
+                "delta_px_per_frame": [
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null
+                ],
+                "mean_scroll_px_per_frame": null,
+                "planted_x_px": [
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null
+                ],
+                "slip_px_per_frame": [
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null
+                ],
+                "slip_rms_px_per_frame": null
+              },
+              "mean_scroll_px_per_frame": null,
+              "slip_rms_px_per_frame": null
+            }
+          },
+          "valid_frames_per_arm": {
+            "L": 8,
+            "R": 7
+          }
+        },
+        "signed_area_px2": -66.00000000000013,
+        "sole_scroll": null
+      }
+    },
+    "facing": "S",
+    "governing_quantity": "W3",
+    "phase_table": [
+      {
+        "boundary_contact": false,
+        "contact": false,
+        "contact_sides": [],
+        "frame": 0,
+        "lead_track": null,
+        "phase": null,
+        "planted": {
+          "L": false,
+          "R": null
+        },
+        "printed_phase": 1,
+        "reason": "expected two contact events; observed 0"
+      },
+      {
+        "boundary_contact": false,
+        "contact": false,
+        "contact_sides": [],
+        "frame": 1,
+        "lead_track": null,
+        "phase": null,
+        "planted": {
+          "L": false,
+          "R": null
+        },
+        "printed_phase": 2,
+        "reason": "expected two contact events; observed 0"
+      },
+      {
+        "boundary_contact": false,
+        "contact": false,
+        "contact_sides": [],
+        "frame": 2,
+        "lead_track": null,
+        "phase": null,
+        "planted": {
+          "L": null,
+          "R": false
+        },
+        "printed_phase": 3,
+        "reason": "expected two contact events; observed 0"
+      },
+      {
+        "boundary_contact": false,
+        "contact": false,
+        "contact_sides": [],
+        "frame": 3,
+        "lead_track": null,
+        "phase": null,
+        "planted": {
+          "L": null,
+          "R": false
+        },
+        "printed_phase": 4,
+        "reason": "expected two contact events; observed 0"
+      },
+      {
+        "boundary_contact": false,
+        "contact": false,
+        "contact_sides": [],
+        "frame": 4,
+        "lead_track": null,
+        "phase": null,
+        "planted": {
+          "L": null,
+          "R": false
+        },
+        "printed_phase": 5,
+        "reason": "expected two contact events; observed 0"
+      },
+      {
+        "boundary_contact": false,
+        "contact": false,
+        "contact_sides": [],
+        "frame": 5,
+        "lead_track": null,
+        "phase": null,
+        "planted": {
+          "L": false,
+          "R": null
+        },
+        "printed_phase": 6,
+        "reason": "expected two contact events; observed 0"
+      },
+      {
+        "boundary_contact": false,
+        "contact": false,
+        "contact_sides": [],
+        "frame": 6,
+        "lead_track": null,
+        "phase": null,
+        "planted": {
+          "L": null,
+          "R": null
+        },
+        "printed_phase": 7,
+        "reason": "expected two contact events; observed 0"
+      },
+      {
+        "boundary_contact": false,
+        "contact": false,
+        "contact_sides": [],
+        "frame": 7,
+        "lead_track": null,
+        "phase": null,
+        "planted": {
+          "L": null,
+          "R": false
+        },
+        "printed_phase": 8,
+        "reason": "expected two contact events; observed 0"
+      },
+      {
+        "boundary_contact": false,
+        "contact": false,
+        "contact_sides": [],
+        "frame": 8,
+        "lead_track": null,
+        "phase": null,
+        "planted": {
+          "L": null,
+          "R": false
+        },
+        "printed_phase": 9,
+        "reason": "expected two contact events; observed 0"
+      },
+      {
+        "boundary_contact": false,
+        "contact": false,
+        "contact_sides": [],
+        "frame": 9,
+        "lead_track": null,
+        "phase": null,
+        "planted": {
+          "L": null,
+          "R": null
+        },
+        "printed_phase": 10,
+        "reason": "expected two contact events; observed 0"
+      },
+      {
+        "boundary_contact": false,
+        "contact": false,
+        "contact_sides": [],
+        "frame": 10,
+        "lead_track": null,
+        "phase": null,
+        "planted": {
+          "L": false,
+          "R": null
+        },
+        "printed_phase": 11,
+        "reason": "expected two contact events; observed 0"
+      },
+      {
+        "boundary_contact": false,
+        "contact": false,
+        "contact_sides": [],
+        "frame": 11,
+        "lead_track": null,
+        "phase": null,
+        "planted": {
+          "L": false,
+          "R": null
+        },
+        "printed_phase": 12,
+        "reason": "expected two contact events; observed 0"
+      }
+    ],
+    "proposed": true,
+    "proposed_from": "muybridge",
+    "provenance": {
+      "fps": 8.33,
+      "frame_names": [
+        "front_00.png",
+        "front_01.png",
+        "front_02.png",
+        "front_03.png",
+        "front_04.png",
+        "front_05.png",
+        "front_06.png",
+        "front_07.png",
+        "front_08.png",
+        "front_09.png",
+        "front_10.png",
+        "front_11.png"
+      ],
+      "frames": 12,
+      "k_lat": 0.5,
+      "k_vert": 2.0,
+      "mask_params": {
+        "close_size": 3,
+        "grid_highpass": "signed 5px median residual, long-line opening",
+        "ground_tolerance_px": 3.0,
+        "head_patch_fraction_H": 0.12,
+        "head_search_fraction_H": 0.25,
+        "line_width_px": 5,
+        "method": "grid phase correlation / registered temporal median",
+        "registration": "integer translation; phase correlation; no scale",
+        "stationary_tolerance_px": 2.0,
+        "tau": 12.0
+      },
+      "pattern": "front_*.png",
+      "plate": "plate13",
+      "row": "front",
+      "source": "/Users/admin/Desktop/Astra Burst Review - 2026-09-11/05b Oracle - Muybridge plate 13 (woman walking)/_frames",
+      "source_note": "Muybridge public domain"
+    },
+    "source_row": "plate13_front",
+    "summary": {
+      "H_median": 241.0,
+      "W1": 0.8215767634854771,
+      "W1_sanity_1_5_pct_H": false,
+      "W2": {
+        "coordinate": "Cartesian up; negative image y",
+        "max": [
+          {
+            "frame": 6,
+            "phase": null
+          },
+          {
+            "frame": 10,
+            "phase": null
+          }
+        ],
+        "min": [
+          {
+            "frame": 1,
+            "phase": null
+          }
+        ]
+      },
+      "W3a": 0.38786884625497514,
+      "W3b": -0.003968253968253976,
+      "W3c": 6,
+      "W4": 3,
+      "W5": null,
+      "W6": null,
+      "W6_per_arm": null,
+      "contact_frames": [],
+      "head_mask_bob_lineage": {
+        "W1": 2.6473029045643153,
+        "W2": {
+          "coordinate": "Cartesian up; negative image y",
+          "max": [
+            {
+              "frame": 9,
+              "phase": null
+            }
+          ],
+          "min": [
+            {
+              "frame": 2,
+              "phase": null
+            }
+          ]
+        },
+        "W4": 4,
+        "minima_frames": [
+          2,
+          4,
+          7,
+          10
+        ]
+      },
+      "head_ref_bob": {
+        "W1": 2.4398340248962658,
+        "W2": {
+          "coordinate": "Cartesian up; negative image y",
+          "max": [
+            {
+              "frame": 9,
+              "phase": null
+            }
+          ],
+          "min": [
+            {
+              "frame": 2,
+              "phase": null
+            }
+          ]
+        },
+        "W4": 4,
+        "minima_frames": [
+          2,
+          4,
+          7,
+          10
+        ]
+      },
+      "head_track_flagged_frames": [
+        2,
+        6,
+        9,
+        10
+      ],
+      "minima_frames": [
+        1,
+        3,
+        7
+      ],
+      "projection_diagnostics": {
+        "W5": {
+          "L": 0.2842323651452282,
+          "R": 0.6908713692946058
+        },
+        "W6": null,
+        "W6_per_arm": {
+          "L": null,
+          "R": null
+        },
+        "identity_note": "projected track opposition, not independently established anatomical same-side identity",
+        "sole_scroll": {
+          "L": {
+            "delta_px_per_frame": [
+              null,
+              130.0,
+              null,
+              null,
+              null,
+              -150.0,
+              null,
+              null,
+              null,
+              null,
+              -99.0,
+              4.5
+            ],
+            "mean_scroll_px_per_frame": -28.625,
+            "observed_velocity_frames": 4,
+            "swing_x_px": [
+              148.0,
+              278.0,
+              null,
+              null,
+              null,
+              86.0,
+              null,
+              null,
+              null,
+              null,
+              194.0,
+              198.5
+            ]
+          },
+          "R": {
+            "delta_px_per_frame": [
+              null,
+              null,
+              -159.0,
+              -66.0,
+              81.5,
+              null,
+              null,
+              -50.0,
+              -141.0,
+              null,
+              null,
+              null
+            ],
+            "mean_scroll_px_per_frame": -66.9,
+            "observed_velocity_frames": 5,
+            "swing_x_px": [
+              null,
+              null,
+              197.0,
+              131.0,
+              212.5,
+              null,
+              null,
+              238.0,
+              97.0,
+              null,
+              null,
+              null
+            ]
+          },
+          "estimator": "backward velocity on observed non-planted frames; missing tracks and seam excluded",
+          "mean_absolute_speed_px_per_frame": 97.88888888888889,
+          "mean_scroll_px_per_frame": -49.888888888888886,
+          "planted_scroll_lineage": {
+            "L": {
+              "delta_px_per_frame": [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+              ],
+              "mean_scroll_px_per_frame": null,
+              "planted_x_px": [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+              ],
+              "slip_px_per_frame": [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+              ],
+              "slip_rms_px_per_frame": null
+            },
+            "R": {
+              "delta_px_per_frame": [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+              ],
+              "mean_scroll_px_per_frame": null,
+              "planted_x_px": [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+              ],
+              "slip_px_per_frame": [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+              ],
+              "slip_rms_px_per_frame": null
+            },
+            "mean_scroll_px_per_frame": null,
+            "slip_rms_px_per_frame": null
+          }
+        },
+        "valid_frames_per_arm": {
+          "L": 8,
+          "R": 7
+        }
+      },
+      "signed_area_px2": -66.00000000000013,
+      "sole_scroll": null
+    }
+  },
+  "walk_W_video": {
+    "committed": false,
+    "diagnostics": {
+      "G6c": {
+        "evidence": [],
+        "id": "g6c",
+        "notes": "{\"seam_pair\": [11, 0], \"homologue_pair\": [5, 6], \"seam_mad\": 0.8322703043619791, \"homologue_mad\": 1.0277048746744792, \"ratio_infinite\": false, \"comparison\": \"seam MAD <= 1.25 * half-cycle homologue MAD\"}",
+        "op": "<=",
+        "passed": null,
+        "subject": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-xv-cut-04/frames/walk/E",
+        "threshold": 1.25,
+        "unit": "ratio",
+        "value": 0.8098339561010615
+      },
+      "W2": {
+        "coordinate": "Cartesian up; negative image y",
+        "max": [
+          {
+            "frame": 3,
+            "phase": null
+          },
+          {
+            "frame": 4,
+            "phase": null
+          }
+        ],
+        "min": [
+          {
+            "frame": 6,
+            "phase": null
+          },
+          {
+            "frame": 11,
+            "phase": null
+          }
+        ]
+      },
+      "W2_note": "phase labels unresolved; extrema frame positions / cycle length are numeric proposals",
+      "gait_checks": [
+        {
+          "evidence": [],
+          "id": "W1_floor",
+          "notes": "{\"committed\": false, \"floor\": 0.0}",
+          "op": ">=",
+          "passed": null,
+          "subject": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-xv-cut-04/frames/walk/E",
+          "threshold": 0.0,
+          "unit": "fraction_H",
+          "value": 0.02079002079002079
+        },
+        {
+          "evidence": [],
+          "id": "W2",
+          "notes": "{\"candidate_phases\": [null, null, null, null, null, null, null, null, null, null, null, null], \"committed\": false, \"expected_extrema\": {}, \"expected_phases\": [], \"inferred_contact_phases\": [{\"boundary_contact\": false, \"contact\": false, \"contact_sides\": [], \"frame\": 0, \"lead_track\": null, \"phase\": null, \"planted\": {\"L\": true, \"R\": false}, \"printed_phase\": 1, \"reason\": \"expected two contact events; observed 1\"}, {\"boundary_contact\": false, \"contact\": false, \"contact_sides\": [], \"frame\": 1, \"lead_track\": null, \"phase\": null, \"planted\": {\"L\": false, \"R\": false}, \"printed_phase\": 2, \"reason\": \"expected two contact events; observed 1\"}, {\"boundary_contact\": false, \"contact\": false, \"contact_sides\": [], \"frame\": 2, \"lead_track\": null, \"phase\": null, \"planted\": {\"L\": null, \"R\": false}, \"printed_phase\": 3, \"reason\": \"expected two contact events; observed 1\"}, {\"boundary_contact\": false, \"contact\": false, \"contact_sides\": [], \"frame\": 3, \"lead_track\": null, \"phase\": null, \"planted\": {\"L\": null, \"R\": false}, \"printed_phase\": 4, \"reason\": \"expected two contact events; observed 1\"}, {\"boundary_contact\": false, \"contact\": false, \"contact_sides\": [], \"frame\": 4, \"lead_track\": null, \"phase\": null, \"planted\": {\"L\": null, \"R\": false}, \"printed_phase\": 5, \"reason\": \"expected two contact events; observed 1\"}, {\"boundary_contact\": false, \"contact\": false, \"contact_sides\": [], \"frame\": 5, \"lead_track\": null, \"phase\": null, \"planted\": {\"L\": false, \"R\": false}, \"printed_phase\": 6, \"reason\": \"expected two contact events; observed 1\"}, {\"boundary_contact\": false, \"contact\": true, \"contact_sides\": [\"R\"], \"frame\": 6, \"lead_track\": null, \"phase\": null, \"planted\": {\"L\": false, \"R\": true}, \"printed_phase\": 7, \"reason\": \"expected two contact events; observed 1\"}, {\"boundary_contact\": false, \"contact\": false, \"contact_sides\": [], \"frame\": 7, \"lead_track\": null, \"phase\": null, \"planted\": {\"L\": false, \"R\": true}, \"printed_phase\": 8, \"reason\": \"expected two contact events; observed 1\"}, {\"boundary_contact\": false, \"contact\": false, \"contact_sides\": [], \"frame\": 8, \"lead_track\": null, \"phase\": null, \"planted\": {\"L\": null, \"R\": true}, \"printed_phase\": 9, \"reason\": \"expected two contact events; observed 1\"}, {\"boundary_contact\": false, \"contact\": false, \"contact_sides\": [], \"frame\": 9, \"lead_track\": null, \"phase\": null, \"planted\": {\"L\": null, \"R\": true}, \"printed_phase\": 10, \"reason\": \"expected two contact events; observed 1\"}, {\"boundary_contact\": false, \"contact\": false, \"contact_sides\": [], \"frame\": 10, \"lead_track\": null, \"phase\": null, \"planted\": {\"L\": true, \"R\": false}, \"printed_phase\": 11, \"reason\": \"expected two contact events; observed 1\"}, {\"boundary_contact\": false, \"contact\": false, \"contact_sides\": [], \"frame\": 11, \"lead_track\": null, \"phase\": null, \"planted\": {\"L\": true, \"R\": false}, \"printed_phase\": 12, \"reason\": \"expected two contact events; observed 1\"}], \"observed_extrema\": {\"coordinate\": \"Cartesian up; negative image y\", \"max\": [{\"frame\": 3, \"phase\": null}, {\"frame\": 4, \"phase\": null}], \"min\": [{\"frame\": 6, \"phase\": null}, {\"frame\": 11, \"phase\": null}]}}",
+          "op": "==",
+          "passed": null,
+          "subject": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-xv-cut-04/frames/walk/E",
+          "threshold": true,
+          "unit": "phase_match",
+          "value": null
+        },
+        {
+          "evidence": [],
+          "id": "W3a",
+          "notes": "{\"committed\": false}",
+          "op": "<=",
+          "passed": null,
+          "subject": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-xv-cut-04/frames/walk/E",
+          "threshold": 0.35,
+          "unit": "fraction_H",
+          "value": 0.6957309822528935
+        },
+        {
+          "evidence": [],
+          "id": "W3c_floor",
+          "notes": "{\"ceiling\": 3, \"committed\": false, \"floor\": 2}",
+          "op": ">=",
+          "passed": null,
+          "subject": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-xv-cut-04/frames/walk/E",
+          "threshold": 2,
+          "unit": "fraction_H",
+          "value": 2
+        },
+        {
+          "evidence": [],
+          "id": "W3c_ceiling",
+          "notes": "{\"ceiling\": 3, \"committed\": false, \"floor\": 2}",
+          "op": "<=",
+          "passed": null,
+          "subject": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-xv-cut-04/frames/walk/E",
+          "threshold": 3,
+          "unit": "fraction_H",
+          "value": 2
+        },
+        {
+          "evidence": [],
+          "id": "W4",
+          "notes": "{\"committed\": false}",
+          "op": "==",
+          "passed": null,
+          "subject": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-xv-cut-04/frames/walk/E",
+          "threshold": 2,
+          "unit": "minima_count",
+          "value": 2
+        },
+        {
+          "evidence": [],
+          "id": "W5_L",
+          "notes": "{\"committed\": false, \"free_arm_limits\": {\"ceiling\": 0.2, \"floor\": 0.08}, \"identity_note\": \"projected track opposition, not independently established anatomical same-side identity\", \"reason\": \"anatomical arm role unassigned\", \"weapon_arm_limits\": {\"ceiling\": null, \"floor\": 0.03}}",
+          "op": "<=",
+          "passed": null,
+          "subject": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-xv-cut-04/frames/walk/E",
+          "threshold": null,
+          "unit": "fraction_H",
+          "value": 0.014553014553014554
+        },
+        {
+          "evidence": [],
+          "id": "W5_R",
+          "notes": "{\"committed\": false, \"free_arm_limits\": {\"ceiling\": 0.2, \"floor\": 0.08}, \"identity_note\": \"projected track opposition, not independently established anatomical same-side identity\", \"reason\": \"anatomical arm role unassigned\", \"weapon_arm_limits\": {\"ceiling\": null, \"floor\": 0.03}}",
+          "op": "<=",
+          "passed": null,
+          "subject": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-xv-cut-04/frames/walk/E",
+          "threshold": null,
+          "unit": "fraction_H",
+          "value": 0.04365904365904366
+        },
+        {
+          "evidence": [],
+          "id": "W6",
+          "notes": "{\"committed\": false, \"identity_note\": \"projected track opposition, not independently established anatomical same-side identity\", \"minimum_opposed_frames\": 9, \"per_arm\": {\"L\": null, \"R\": 0.4166666666666667}, \"total_frames\": 12}",
+          "op": ">=",
+          "passed": null,
+          "subject": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-xv-cut-04/frames/walk/E",
+          "threshold": 0.75,
+          "unit": "opposed_fraction",
+          "value": null
+        },
+        {
+          "evidence": [],
+          "id": "planted_sole_slip_L",
+          "notes": "{\"committed\": false, \"delta_px_per_frame\": [null, null, null, null, null, null, null, null, null, null, -19.0, -6.0], \"mean_scroll_px_per_frame\": -12.5, \"planted_x_px\": [218.0, null, null, null, null, null, null, null, null, null, 243.0, 224.0], \"reason\": \"no registered slip ceiling\", \"slip_px_per_frame\": [null, null, null, null, null, null, null, null, null, null, -6.5, 6.5], \"slip_rms_px_per_frame\": 6.5}",
+          "op": "<=",
+          "passed": null,
+          "subject": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-xv-cut-04/frames/walk/E",
+          "threshold": null,
+          "unit": "px_per_frame",
+          "value": 6.5
+        },
+        {
+          "evidence": [],
+          "id": "planted_sole_slip_R",
+          "notes": "{\"committed\": false, \"delta_px_per_frame\": [null, null, null, null, null, null, 0.0, -17.0, -17.0, null, null, null], \"mean_scroll_px_per_frame\": -11.333333333333334, \"planted_x_px\": [null, null, null, null, null, null, 290.0, 290.0, 273.0, 256.0, null, null], \"reason\": \"no registered slip ceiling\", \"slip_px_per_frame\": [null, null, null, null, null, null, 11.333333333333334, -5.666666666666666, -5.666666666666666, null, null, null], \"slip_rms_px_per_frame\": 8.013876853447538}",
+          "op": "<=",
+          "passed": null,
+          "subject": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-xv-cut-04/frames/walk/E",
+          "threshold": null,
+          "unit": "px_per_frame",
+          "value": 8.013876853447538
+        }
+      ]
+    },
+    "facing": "W",
+    "fps": 12.0,
+    "governing_quantity": "W1",
+    "hash_convention": "SHA256(concatenated ASCII SHA256 hex digests in natural numbered frame order)",
+    "kind": "walk",
+    "label": "walk_W_video",
+    "notes": "E profile measurement reused for W bands only; no mirrored art or independent W evidence.",
+    "proposed": true,
+    "proposed_from": {
+      "frames_dir": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-xv-cut-04/frames/walk/E",
+      "sha256_of_sorted_frame_hashes": "439c03ade844bf3ae75a00ded1b1074bb787dbd75b5b3814713b66837ce8c06b"
+    },
+    "quantities": {
+      "G6c": {
+        "ceiling": 1.214750934151592,
+        "floor": 0.4859003736606369,
+        "target": 0.8098339561010615,
+        "value": 0.8098339561010615
+      },
+      "W1": {
+        "ceiling": 0.031185031185031187,
+        "floor": 0.012474012474012475,
+        "target": 0.02079002079002079,
+        "value": 0.02079002079002079
+      },
+      "W2_max_0_cycle_fraction": {
+        "ceiling": 0.375,
+        "floor": 0.15,
+        "target": 0.25,
+        "value": 0.25
+      },
+      "W2_max_1_cycle_fraction": {
+        "ceiling": 0.5,
+        "floor": 0.19999999999999998,
+        "target": 0.3333333333333333,
+        "value": 0.3333333333333333
+      },
+      "W2_max_count": {
+        "ceiling": 3.0,
+        "floor": 1.2,
+        "target": 2.0,
+        "value": 2.0
+      },
+      "W2_min_0_cycle_fraction": {
+        "ceiling": 0.75,
+        "floor": 0.3,
+        "target": 0.5,
+        "value": 0.5
+      },
+      "W2_min_1_cycle_fraction": {
+        "ceiling": 1.375,
+        "floor": 0.5499999999999999,
+        "target": 0.9166666666666666,
+        "value": 0.9166666666666666
+      },
+      "W2_min_count": {
+        "ceiling": 3.0,
+        "floor": 1.2,
+        "target": 2.0,
+        "value": 2.0
+      },
+      "W3a": {
+        "ceiling": 1.0435964733793404,
+        "floor": 0.4174385893517361,
+        "target": 0.6957309822528935,
+        "value": 0.6957309822528935
+      },
+      "W3b": {
+        "ceiling": 1.0255126848548677,
+        "floor": 0.41020507394194705,
+        "target": 0.6836751232365784,
+        "value": 0.6836751232365784
+      },
+      "W3c": {
+        "ceiling": 3.0,
+        "floor": 1.2,
+        "target": 2.0,
+        "value": 2.0
+      },
+      "W4": {
+        "ceiling": 3.0,
+        "floor": 1.2,
+        "target": 2.0,
+        "value": 2.0
+      },
+      "W5_L": {
+        "ceiling": 0.02182952182952183,
+        "floor": 0.008731808731808732,
+        "target": 0.014553014553014554,
+        "value": 0.014553014553014554
+      },
+      "W5_R": {
+        "ceiling": 0.06548856548856549,
+        "floor": 0.026195426195426197,
+        "target": 0.04365904365904366,
+        "value": 0.04365904365904366
+      },
+      "planted_sole_slip_L": {
+        "ceiling": 9.75,
+        "floor": 3.9,
+        "target": 6.5,
+        "value": 6.5
+      },
+      "planted_sole_slip_R": {
+        "ceiling": 12.020815280171307,
+        "floor": 4.808326112068523,
+        "target": 8.013876853447538,
+        "value": 8.013876853447538
+      }
+    },
+    "unmeasured": {
+      "W6": {
+        "reason": "frozen estimator unresolved; no numeric band fabricated",
+        "value": null
+      }
+    }
+  }
+}

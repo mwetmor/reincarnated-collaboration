@@ -30,7 +30,7 @@ def evaluate(frames_dir, bands_walk_row, phase_table):
         note['committed'] = row.get('committed') is True
         r = result(name, frames_dir, value, threshold, op=op, unit=unit,
                    notes=json.dumps(note, allow_nan=False, sort_keys=True))
-        if row.get('committed') is not True: r['passed'] = None
+        if row.get('committed') is not True or row.get('proposed') is True: r['passed'] = None
         results.append(r)
     def bounded(name, value, band):
         for key, op in [('floor','>='),('ceiling','<=')]:
@@ -59,7 +59,11 @@ def evaluate(frames_dir, bands_walk_row, phase_table):
     assignment = b.get('W5_role_limits',{}).get('assignment') or row.get('arm_roles',{})
     if isinstance(assignment,dict) and 'weapon_arm' in assignment:
         assignment = {side:role for role,side in assignment.items()}
-    for side in ('L','R'):
+    sides = tuple((s.get('W5') or {}).keys()) or ('L','R')
+    # near/far are distinct tracked identities; never equate them with screen L/R.
+    sides = tuple(dict.fromkeys(sides + tuple(k for k in (assignment or {})
+                  if k in ('L','R','near','far'))))
+    for side in sides:
         value = (s.get('W5') or {}).get(side)
         role = assignment.get(side) if isinstance(assignment,dict) else None
         limits = {'free_arm':dict(floor=.08,ceiling=.20), 'weapon_arm':dict(floor=.03,ceiling=None)}

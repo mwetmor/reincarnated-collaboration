@@ -57,7 +57,7 @@ class Tests(TemporaryTest):
     def test_k3_combat_report_only(self):
         path=ROOT/'runs/C-1/artifacts/K3-reg-02/frames/idle/S'
         if not path.exists():self.skipTest('K3 registered idle absent')
-        row=json.loads((ROOT/'oracle/bands_idle.json').read_text())['combat']
+        row=dict(json.loads((ROOT/'oracle/bands_idle.json').read_text())['combat'], committed=False)
         r=evaluate(path,row,'combat')
         self.assertIsNone(r['passed'])
         self.assertTrue(r['value']['breath']['below_floor'])

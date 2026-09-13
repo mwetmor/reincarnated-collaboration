@@ -115,7 +115,7 @@ def main(argv=None):
     parser.add_argument('--control_box', help='optional background-only XYXY box, same size')
     parser.add_argument('--fps', required=True, type=float)
     parser.add_argument('--label', required=True)
-    parser.add_argument('--out', type=Path, default=Path('oracle/bands_idle.json'))
+    parser.add_argument('--out', type=Path, default=None)
     parser.add_argument('--plot_dir', type=Path)
     parser.add_argument('--tau', type=float, default=TAU)
     parser.add_argument('--eps', type=float, default=EPS)
@@ -152,7 +152,7 @@ def main(argv=None):
     if plot_dir:
         data['result']['evidence'] = _plots(plot_dir, args.label, load_frames(directory), data)
     if args.ref:
-        out = args.out.resolve()
+        out = (args.out or Path('oracle/bands_idle.json')).resolve()
         existing = json.loads(out.read_text()) if out.exists() else {}
         existing[args.label] = {
             'breath_amplitude_H': _band(s['breath_amplitude_H']),
@@ -165,7 +165,7 @@ def main(argv=None):
             'curves': data, 'committed': False}
         _write(out, existing)
     else:
-        out = OURS_ROOT / f'{args.label}_ours.json'
+        out = args.out if args.out is not None else OURS_ROOT / f'{args.label}_ours.json'
         _write(out, data)
     print(json.dumps({'label': args.label, 'out': str(out), 'summary': s,
                       'box': box, 'void_frames': data['void_frames'],

@@ -1,0 +1,21 @@
+{
+  "errors": [],
+  "exit_code": 1,
+  "identity_capture_wall_seconds": 96.01460858399514,
+  "reds": [
+    "test_oracle_walk.Tests.test_synthetic_contract_and_grid",
+    "test_oracles_motif.Tests.test_f04_outside_at_least_three",
+    "test_oracles_motif.Tests.test_named_genuine_annuli_retained (center=[113, 201])",
+    "test_oracles_motif.Tests.test_named_genuine_annuli_retained (center=[111, 311])",
+    "test_oracles_motif.Tests.test_named_genuine_annuli_retained (center=[170, 253])"
+  ],
+  "regression": {
+    "compared": 1880,
+    "differences": [],
+    "tolerance": 0.001,
+    "within_tolerance": true
+  },
+  "successful": 232,
+  "tests_run": 237,
+  "wall_seconds": 91.82311199999822
+}

@@ -1,0 +1,150 @@
+{
+  "synthetic_tests": 14,
+  "successful": 14,
+  "head_pitch": {
+    "id": "head_pitch",
+    "subject": "clip",
+    "passed": null,
+    "value": {
+      "frames": [
+        {
+          "head_top_y": 20,
+          "head_h": 20,
+          "face_area": 125,
+          "head_area": 1200,
+          "face_fraction": 0.10416666666666667,
+          "face_centroid_y": 31.0,
+          "pitch_proxy": 0.55,
+          "reason": null,
+          "index": 0,
+          "time_s": 0.0,
+          "delta": 0.20000000000000007,
+          "head_down": true,
+          "delta_reason": null
+        },
+        {
+          "head_top_y": 20,
+          "head_h": 20,
+          "face_area": 125,
+          "head_area": 1200,
+          "face_fraction": 0.10416666666666667,
+          "face_centroid_y": 24.0,
+          "pitch_proxy": 0.2,
+          "reason": null,
+          "index": 1,
+          "time_s": 1.0,
+          "delta": -0.14999999999999997,
+          "head_down": false,
+          "delta_reason": null
+        }
+      ],
+      "rest": {
+        "head_top_y": 20,
+        "head_h": 20,
+        "face_area": 125,
+        "head_area": 1200,
+        "face_fraction": 0.10416666666666667,
+        "face_centroid_y": 27.0,
+        "pitch_proxy": 0.35,
+        "reason": null
+      },
+      "skin_lab": [
+        65.08368532524979,
+        17.56128134073037,
+        32.81573265822295
+      ],
+      "first_second_mean_delta": 0.20000000000000007,
+      "first_second_evaluable_frames": 1,
+      "first_second_head_down": true,
+      "first_second_reason": null,
+      "calibration": {
+        "head_fraction": 0.14,
+        "skin_lab_tol": 20.0,
+        "hair_dark_L": 30.0,
+        "minimum_face_fraction": 0.02,
+        "head_down_delta": 0.05
+      }
+    },
+    "threshold": 0.05,
+    "op": "report",
+    "unit": "fraction_head_h",
+    "evidence": [],
+    "notes": "Colour-bin face-height proxy; no claim to an anatomical angle.\n\nProvisional calibration, fixed before real-clip evaluation: CIE76 tolerance\n20 Lab units, head top 14% of largest alpha component height, hair L<30,\nminimum visible face fraction .02; delta>.05 head heights marks head down.\nThe .05 threshold is one quarter of the specified synthetic .20 displacement,\nnot fitted to the real-clip window means. Upright rest selection is explicit."
+  },
+  "coherence": {
+    "translated": {
+      "max_residual_mad": 0.0,
+      "raw_mad_at_max_residual": 39.90946578979492,
+      "max_raw_mad": 39.90946578979492,
+      "worst_pair": [
+        0,
+        1
+      ],
+      "bounds": [
+        15,
+        15,
+        78,
+        78
+      ],
+      "search_core": [
+        15,
+        15,
+        78,
+        78
+      ],
+      "classification": "carried",
+      "pairs": [
+        {
+          "pair": [
+            0,
+            1
+          ],
+          "raw_mad": 39.90946578979492,
+          "residual_mad": 0.0,
+          "translation_xy": [
+            4,
+            3
+          ],
+          "classification": "carried"
+        }
+      ]
+    },
+    "retextured": {
+      "max_residual_mad": 42.78146743774414,
+      "raw_mad_at_max_residual": 42.78146743774414,
+      "max_raw_mad": 42.78146743774414,
+      "worst_pair": [
+        0,
+        1
+      ],
+      "bounds": [
+        20,
+        20,
+        70,
+        70
+      ],
+      "search_core": [
+        20,
+        20,
+        70,
+        70
+      ],
+      "classification": "redrawn",
+      "pairs": [
+        {
+          "pair": [
+            0,
+            1
+          ],
+          "raw_mad": 42.78146743774414,
+          "residual_mad": 42.78146743774414,
+          "translation_xy": [
+            0,
+            0
+          ],
+          "classification": "redrawn"
+        }
+      ]
+    }
+  }
+}

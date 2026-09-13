@@ -910,6 +910,180 @@
       "codex_version": "codex-cli 0.153.4",
       "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
       "exit": 0
+    },
+    {
+      "id": "T3c",
+      "type": "TOOLING",
+      "experiment": "C3-T3",
+      "brief_sha256": "7f3980f2879c6292c953fa342334712aaaec4b1073157bc072159afc49c6b7bf",
+      "started": "2026-09-13T06:04:47.280152+00:00",
+      "ended": "2026-09-13T06:20:17.658254+00:00",
+      "minutes": 15.505417293749996,
+      "image_calls": 0,
+      "tool_calls": 26,
+      "audit": {
+        "violations": [],
+        "image_calls": 0,
+        "tool_calls": 26,
+        "tools_seen": {
+          "command_execution": 26
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": []
+      },
+      "receipt_sha256": "492a568d48bc785e5d1581ab3aa2dabe03898ea6a8d6c1108bac5f4e8fc70586",
+      "artifacts": [],
+      "artifacts_in_place": [
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "gates/coherence.py",
+          "sha256": "00a4ed0aefb63f5b7392e7f2ae6f3843c0ba8781cd125ca3008088950e6990c6"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "gates/gait_intent.py",
+          "sha256": "fb05995b0d06f4d1883ca2c337e3224283e92b4823653732ada78883f546bb50"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "gates/head_pitch.py",
+          "sha256": "46250ae05390e683807fa1d395d8cead12f324d078ab4f8338e3c0b97c0386a7"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "oracle/bands_from_exemplar.py",
+          "sha256": "1728f5dda4d930a5f2c3e693a5efed5ed7dd5d809326942d9354712782877180"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "oracle/bands_proposed.json",
+          "sha256": "17119213bb3e03c1cab2bbcc3dcadb8998c10ff3f8b6f92f7a8091436f9a5ae5"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "oracle/idle_bands.py",
+          "sha256": "06427c4310d8c42431e7f557e556dbad9a7626486f5e5b47a4b517b6eb03429f"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "oracles/keylight.py",
+          "sha256": "6d49ca6ff7d330ba7eb7229187ecbf2b6455cb6ff865685be84b9652bae0baa2"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3c/acceptance.json",
+          "sha256": "eb23eaa992cb1c59ec26ed5344b5e4ddae2aee585a01a0305ff5dc3416dc51f9"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3c/full_suite.log",
+          "sha256": "34e8522dcacf7040e05bcb099896cc2c7f9ed84c340e36d982cf6f4617a1c2c3"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3c/suite_execution.json",
+          "sha256": "171d08269a827bc88caf284c575066de8503c2013a06d2c5329e7ea382da82be"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3c/suite_identity_capture.log",
+          "sha256": "9923f2eb5e2e6bbe8975cbb84a912bee3cfc3b3071f74f0f4aaac5c22fa5d345"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3c/suite_reds.json",
+          "sha256": "b192961e9a5b47a311f3862a44d085d4b9eb7e6a773309667ca09acb0cd82ffb"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3c/synthetic_measurements.json",
+          "sha256": "088e7ef8d5ed4350ce5f52f65eb6f4ac4841df38a3bbea6c9b380712feb1d062"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "tests/acceptance_t3c.py",
+          "sha256": "b49f683a4c311799c758998db1d8ea103d04806e605a75ba98f41bf2c16347b9"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "tests/gates_regression_diff.json",
+          "sha256": "c8864b881f6646a530b06271dfb4d801767aa46db6184abad8bba4761cafbe80"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "tests/oracles_acceptance_measurements.json",
+          "sha256": "39949a5e5c6afe3bf7e19061f5aa2859e15d85b70803b0430ced6471c998f3d0"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "tests/oracles_palette_measurements.json",
+          "sha256": "d644692970ba376c582468b225308f6c3d6e9c7c8b5a0c73187689d2e1cbac25"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "tests/oracles_silhouette_measurements.json",
+          "sha256": "1dc9e68b72691bf50e1773cdfcc5cad8d8990731cfb2a012956acb826aaa637f"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "tests/parts_measurements.json",
+          "sha256": "daef6067a663ac0f199506bfbbb229a351bd7ce0fac4cb670dcac047026f8994"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "tests/sheet_consistency_calibration.json",
+          "sha256": "3b8076d4a4b4e3b06920e067b3c5c665d6a0a441afd3f4725cbfafdb3df463ab"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "tests/t0c_suite_output.txt",
+          "sha256": "b898948bea8562631a47fe927c75e11b45c90addf759b92c98b367e4007435de"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "tests/t0c_summary.json",
+          "sha256": "ba888ec1aeb9eaab92059e7c1c6e716d31ada3923ad96511bcfe0ef38d211e2f"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "tests/test_bands_from_exemplar.py",
+          "sha256": "632aa0659039055d9150bdb5810f86bd845c51b189b688097b537cffa0f3d162"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "tests/test_coherence.py",
+          "sha256": "d4dbb7f87c3aac9441e097918f6deb2f62eb0cba1e8e2a498fb2d511389d3272"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "tests/test_head_pitch.py",
+          "sha256": "9dc248df6323176102059623b59ab10947513fe0194978888737394482834111"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "tests/test_idle_intent.py",
+          "sha256": "d7ba18fccd79cd7f3ee3906617d9dd2fe9a41fa15f3e22a909def8d4ac900608"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "tests/test_t3c_fixes.py",
+          "sha256": "1d4892b6367197e5d8717e5f0fefea82a8f16e967a2f4840bacf656db3ad9966"
+        }
+      ],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
     }
   ],
   "images_used": 8,
@@ -932,7 +1106,18 @@
       "ts": "2026-09-13T01:15:41"
     }
   ],
-  "halts": [],
+  "halts": [
+    {
+      "id": "H-C3-1",
+      "kind": "three consecutive Grok failures (charter § 8)",
+      "ts_fired": "2026-09-13T06:07:25",
+      "detail": "NE_cast_v2, NW_jump_v2, NW_cast_v2 → API error (status 402 Payment Required): Grok Build usage balance exhausted. 53 of 56 clips generated before the halt. No retries; no further Grok calls.",
+      "packet": "~/Desktop/Astra Burst Review - 2026-09-13/00 HALT - Grok balance exhausted/HALT.md",
+      "scope": "GROK STREAM (R-C3-9)",
+      "status": "OPEN — Matt: top up + ‘resume grok’, accept fallbacks, or veto R-C3-9",
+      "ts": "2026-09-13T02:21:30"
+    }
+  ],
   "rulings": [
     {
       "id": "R-C3-0",
@@ -1014,6 +1199,24 @@
       "consequence": "P4 cuts with --edge-mode clamp. F-C3-1 goes on the C-4 front page (residual contour on dark cloth; candidate next-lap levers: a 1-px opaque-edge despill toward the interior colour, or premultiplied compositing at the engine). Freeze recorded below; T3c fires.",
       "evidence": "runs/C-3/t3/T3b/{matte_edge_acceptance,tooling_summary}.json, edge_crops.png",
       "ts": "2026-09-13T02:04:44"
+    },
+    {
+      "id": "R-C3-9",
+      "by": "gandalf (conductor)",
+      "topic": "HALT SCOPE: H-C3-1 (Grok balance exhausted) halts the GROK STREAM; Astra-labour phases continue to the § 0 exit on charter fallbacks — veto-open, FIRST item on the C-4 page",
+      "ruling": "Charter § 8 lists resource halts (Grok failures/rate-limit streak, image cap) beside integrity halts (VOIDs, a judge passing its control twice, T3 FAILs, medium/bar changes, writes outside out/). An integrity halt stops the run because every later step would build on untrustworthy state. A resource halt protects the resource: spend and hammering. Here the cause is certain (402, balance exhausted), and the decision it reserves to Matt (spend) is untouched: no retry, no further call. Every Grok-dependent cell has a named fallback: (a) NE cast / NW jump / NW cast have no v2 clip → cut from their v1 clips, flagged; (b) the § 6 head-down re-generation cannot fire → the § 6 second-failure fallback (later segment, flagged) applies directly. Stopping T3–P6 would idle the run for no protective gain; § 0 defines a cell that completes on its fallback as complete. If Matt reads § 8 as a whole-run stop, the veto discards everything after 06:07:25 (T3c onward).",
+      "consequence": "HALT packet on the Desktop; halts[] H-C3-1 OPEN. No Grok call will be made by this conductor again in C-3. P4 proceeds on 53 clips (40 v1 + 13 v2).",
+      "evidence": "~/astra-burst/grok/C-3/*/grok_stdout.txt; clipsV2 log",
+      "ts": "2026-09-13T02:21:30"
+    },
+    {
+      "id": "R-C3-10",
+      "by": "gandalf (conductor, DRIFT-CRITIC)",
+      "topic": "T3c ACCEPTED-WITH-FINDINGS + FROZEN — proposed bands self-consistent (idle 9/9, walk 16/16); k3 test fixed (reds 6→5); head pitch MISSES its real-clip first-second criterion (F-C3-2); coherence labels the eye-passed idle ‘redrawn’ in 6/7 regions (F-C3-3); both demoted to reports; head-down decision re-assigned to TRANSCRIBE",
+      "ruling": "Receipt DELIVERED_WITH_CONCERNS (audit clean; 16 min, 26 calls). Suite 237 run, reds = the four T0-d3 motif + test_synthetic_contract_and_grid (test_k3_combat_report_only now GREEN, as contracted). oracle/bands_proposed.json: idle_relaxed_video, walk_E_video, walk_W_video, walk_N_proposal, walk_S_proposal — all proposed:true, committed:false; the old committed rows untouched. Self-consistency: idle 9/9, walk 16/16 inside their own bands. Head pitch on walk_E_grok.mp4 (rest = native 71): head-down window 0–71 mean delta 0.075 > head-up 71–105 0.041 ✓; first_second_head_down = FALSE (first-second mean delta −0.050) ✗ — the contract required TRUE (Matt observed the head down for ~3 s, R-51). Synthetic lowered/raised skin patch ✓. Coherence (±6 px block search, residual ratio 0.5) on the video idle Matt passed: feet ‘carried’, the other six regions ‘redrawn’ — the classifier contradicts the eye exactly as the LOCK/MOTION model did (R-48). Disposition: not a burst FAIL (instruments built to contract, synthetics pass); both instruments are REPORT-ONLY in P4 and neither carries a decision. The § 6 ‘head down in its first second’ decision moves to the P4 TRANSCRIBE instance (a separate Astra reading gaze by eye) on the clip’s native first-second frames, with a declared-absent control; given H-C3-1, a flagged cell takes the later-segment fallback (--min-start-s 1.0), flagged.",
+      "consequence": "F-C3-2/F-C3-3 on the C-4 page (instrument–eye gaps, third and fourth of the lane). Freeze below; T3d fires.",
+      "evidence": "runs/C-3/t3/T3c/acceptance.json; oracle/bands_proposed.json; suite output",
+      "ts": "2026-09-13T02:21:30"
     }
   ],
   "grok_calls": [
@@ -1861,6 +2064,108 @@
       "printed": "",
       "staged_mp4": "/Users/admin/astra-burst/grok/C-3/SE_cast_v2/SE_cast_v2.mp4",
       "ts": "2026-09-13T02:04:44"
+    },
+    {
+      "id": "G-SW_jump_v2",
+      "cell": "SW_jump_v2",
+      "still": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/K2c-pad/pad_SW.png",
+      "still_sha256": "bf1982fdb88dfc1d594845b2eebe7e585f1c1756553b2019bb7811a4dbe675d1",
+      "prompt_sha256": "e7bedc633264e3b6d27f59a5e02e70e24de0d506dafd264772eff64cd2744270",
+      "extra": "",
+      "clip": "runs/C-3/xvideo/in/SW_jump_v2.mp4",
+      "clip_sha256": "8c359a97393fa3bccff7ca0dd6777316a5f139b6be96d6dfaf3a482c53d137e7",
+      "ok": true,
+      "rc": 0,
+      "wall_s": 52,
+      "probe": "768,1168,24/1,6.041667,145",
+      "printed": "",
+      "staged_mp4": "/Users/admin/astra-burst/grok/C-3/SW_jump_v2/SW_jump_v2.mp4",
+      "ts": "2026-09-13T02:21:30"
+    },
+    {
+      "id": "G-SW_cast_v2",
+      "cell": "SW_cast_v2",
+      "still": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/K2c-pad/pad_SW.png",
+      "still_sha256": "bf1982fdb88dfc1d594845b2eebe7e585f1c1756553b2019bb7811a4dbe675d1",
+      "prompt_sha256": "d0c931c079d046018ed2913c02f7b04a3fb836e6b27344d046d5876dafdd787d",
+      "extra": "",
+      "clip": "runs/C-3/xvideo/in/SW_cast_v2.mp4",
+      "clip_sha256": "42a9de3f2388c9c17256c45cb23f5073553292b1495cb325b9954dc9c6322945",
+      "ok": true,
+      "rc": 0,
+      "wall_s": 59,
+      "probe": "768,1168,24/1,6.041667,145",
+      "printed": "",
+      "staged_mp4": "/Users/admin/astra-burst/grok/C-3/SW_cast_v2/SW_cast_v2.mp4",
+      "ts": "2026-09-13T02:21:30"
+    },
+    {
+      "id": "G-NE_jump_v2",
+      "cell": "NE_jump_v2",
+      "still": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/K2c-pad/pad_NE.png",
+      "still_sha256": "7e919ab2aaaa68ed69752f912e67f8508cf0836886e2930a9c9dbe218e0532b7",
+      "prompt_sha256": "a877ef06567ff19bd47bd6b579ff0fa9ce7b539a5fd541dc8d154a57ea471c13",
+      "extra": "",
+      "clip": "runs/C-3/xvideo/in/NE_jump_v2.mp4",
+      "clip_sha256": "0c3d5fe087bd28525409e9313feb31fc3507d82a8cd546580aa23dbc282555a5",
+      "ok": true,
+      "rc": 0,
+      "wall_s": 64,
+      "probe": "768,1168,24/1,6.041667,145",
+      "printed": "",
+      "staged_mp4": "/Users/admin/astra-burst/grok/C-3/NE_jump_v2/NE_jump_v2.mp4",
+      "ts": "2026-09-13T02:21:30"
+    },
+    {
+      "id": "G-NE_cast_v2",
+      "cell": "NE_cast_v2",
+      "still": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/K2c-pad/pad_NE.png",
+      "still_sha256": "7e919ab2aaaa68ed69752f912e67f8508cf0836886e2930a9c9dbe218e0532b7",
+      "prompt_sha256": "5e1ee3d86d6388eab6f43410199a082a67b3de86b2617131d1de893847e7b0db",
+      "extra": "",
+      "clip": "runs/C-3/xvideo/in/NE_cast_v2.mp4",
+      "clip_sha256": "",
+      "ok": false,
+      "rc": 1,
+      "wall_s": 26,
+      "probe": "",
+      "printed": "    'costUsdTicks': 95927600,         'costUsdTicks': 95927600 ",
+      "staged_mp4": "",
+      "ts": "2026-09-13T02:21:30"
+    },
+    {
+      "id": "G-NW_jump_v2",
+      "cell": "NW_jump_v2",
+      "still": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/K2c-pad/pad_NW.png",
+      "still_sha256": "7eafdf471fea41b75a5148e9918a6b4a58eb1dc37938a4d79a7c711f41b4214f",
+      "prompt_sha256": "c73f32668a39fb857c9a99961c01c431ff03c97dbc2df6ff03835f38a60f39a9",
+      "extra": "",
+      "clip": "runs/C-3/xvideo/in/NW_jump_v2.mp4",
+      "clip_sha256": "",
+      "ok": false,
+      "rc": 1,
+      "wall_s": 1,
+      "probe": "",
+      "printed": "",
+      "staged_mp4": "",
+      "ts": "2026-09-13T02:21:30"
+    },
+    {
+      "id": "G-NW_cast_v2",
+      "cell": "NW_cast_v2",
+      "still": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/K2c-pad/pad_NW.png",
+      "still_sha256": "7eafdf471fea41b75a5148e9918a6b4a58eb1dc37938a4d79a7c711f41b4214f",
+      "prompt_sha256": "fa205821b6dfe95aed1cdea618ca24ff7460d39badf9aa4911a50d4ae90bb491",
+      "extra": "",
+      "clip": "runs/C-3/xvideo/in/NW_cast_v2.mp4",
+      "clip_sha256": "",
+      "ok": false,
+      "rc": 1,
+      "wall_s": 2,
+      "probe": "",
+      "printed": "",
+      "staged_mp4": "",
+      "ts": "2026-09-13T02:21:30"
     }
   ],
   "run": "C-3",
