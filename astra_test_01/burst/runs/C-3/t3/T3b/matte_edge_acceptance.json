@@ -1,0 +1,4621 @@
+{
+  "task_id": "T3b",
+  "indices_native": [
+    1,
+    7,
+    13,
+    19,
+    26,
+    32,
+    38,
+    44,
+    50,
+    56,
+    62,
+    68,
+    75,
+    81,
+    87,
+    93
+  ],
+  "alpha_floor": 40,
+  "background_rgb": [
+    58,
+    63,
+    74
+  ],
+  "luma": "Rec.709 display RGB, 0..255",
+  "ring": "Opaque pixels at Euclidean distance 1..3 from partial-alpha band",
+  "aggregation": "Arithmetic mean of all 16 per-frame values; native and registered reported separately",
+  "transform": {
+    "scale": 0.21178445229681978,
+    "source_frame_zero_native_index": 1,
+    "source_frame_zero_bbox_height": 1132,
+    "scaled_canvas_size": [
+      163,
+      248
+    ],
+    "resampling": "PIL affine bicubic, inverse diagonal 1/scale on both axes; scale about origin",
+    "integer_translation_xy": [
+      178,
+      158
+    ],
+    "canvas": [
+      512,
+      512
+    ],
+    "pivot": [
+      256,
+      400
+    ],
+    "target_sole_row": 399,
+    "target_center_x": 255.5,
+    "frame_zero_measured_height": 240,
+    "frame_zero_measured_sole_line": 399,
+    "frame_zero_measured_center_x": 255.5,
+    "one_scale_and_translation_for_all_frames": true,
+    "upscaling": false,
+    "sole_line_definition": "Bottommost row of alpha>=128 figure support (includes held equipment); no independent anatomical annotation.",
+    "root_anchor_note": "Atlas pivot is fixed metadata, not independently inferred anatomy.",
+    "scale_selection": "Closest sampled single uniform factor to 240/1132 yielding raster height 240 and even alpha-bbox width; see registration_scale_search.json. Initial factor left a half-pixel centre residual.",
+    "nominal_ratio_240_over_source_height": 0.21201413427561838
+  },
+  "frames": [
+    {
+      "frame": 0,
+      "native_index": 1,
+      "native": {
+        "unpremultiply": {
+          "rim_luma_excess": {
+            "id": "matte_quality.rim_luma_excess",
+            "subject": "",
+            "passed": null,
+            "value": 2.5449449594380837,
+            "threshold": null,
+            "op": "<=",
+            "unit": "luma_0_255",
+            "evidence": [],
+            "notes": "Partial-alpha composite mean minus opaque ring mean; Euclidean 1\u20133 px; Rec.709 display luma.",
+            "metrics": {
+              "partial_band_pixels": 16037,
+              "opaque_ring_pixels": 20636,
+              "partial_band_mean": 59.202260727997874,
+              "opaque_ring_mean": 56.65731576855979,
+              "bg": [
+                58,
+                63,
+                74
+              ]
+            }
+          },
+          "alpha_area": {
+            "id": "matte_quality.alpha_area",
+            "subject": "",
+            "passed": null,
+            "value": 245992.1294117647,
+            "threshold": null,
+            "op": "<=",
+            "unit": "opaque_pixel_equivalents",
+            "evidence": [],
+            "notes": "Sum of alpha/255; transparent pixels contribute zero.",
+            "metrics": {
+              "support_pixels": 252543,
+              "opaque_pixels": 236506
+            }
+          },
+          "direct_luminance_fringe": {
+            "id": "matte_quality.direct_luminance_fringe",
+            "subject": "",
+            "passed": null,
+            "value": 33.74421495487763,
+            "threshold": null,
+            "op": "<=",
+            "unit": "luma_0_255",
+            "evidence": [],
+            "notes": "R-52: average over the PRE-TRIM partial-alpha band, replacing a post-trim denominator; frozen nearest-opaque reference RGB; positive Rec.709 composite-luma excess.",
+            "metrics": {
+              "pre_trim_band_pixels": 16037,
+              "surviving_band_pixels": 16037,
+              "reference_supplied": true,
+              "bg": [
+                58,
+                63,
+                74
+              ]
+            }
+          }
+        },
+        "clamp": {
+          "rim_luma_excess": {
+            "id": "matte_quality.rim_luma_excess",
+            "subject": "",
+            "passed": null,
+            "value": -5.369271095542608,
+            "threshold": null,
+            "op": "<=",
+            "unit": "luma_0_255",
+            "evidence": [],
+            "notes": "Partial-alpha composite mean minus opaque ring mean; Euclidean 1\u20133 px; Rec.709 display luma.",
+            "metrics": {
+              "partial_band_pixels": 16037,
+              "opaque_ring_pixels": 20636,
+              "partial_band_mean": 51.28804467301718,
+              "opaque_ring_mean": 56.65731576855979,
+              "bg": [
+                58,
+                63,
+                74
+              ]
+            }
+          },
+          "alpha_area": {
+            "id": "matte_quality.alpha_area",
+            "subject": "",
+            "passed": null,
+            "value": 245992.1294117647,
+            "threshold": null,
+            "op": "<=",
+            "unit": "opaque_pixel_equivalents",
+            "evidence": [],
+            "notes": "Sum of alpha/255; transparent pixels contribute zero.",
+            "metrics": {
+              "support_pixels": 252543,
+              "opaque_pixels": 236506
+            }
+          },
+          "direct_luminance_fringe": {
+            "id": "matte_quality.direct_luminance_fringe",
+            "subject": "",
+            "passed": null,
+            "value": 14.837163364474556,
+            "threshold": null,
+            "op": "<=",
+            "unit": "luma_0_255",
+            "evidence": [],
+            "notes": "R-52: average over the PRE-TRIM partial-alpha band, replacing a post-trim denominator; frozen nearest-opaque reference RGB; positive Rec.709 composite-luma excess.",
+            "metrics": {
+              "pre_trim_band_pixels": 16037,
+              "surviving_band_pixels": 16037,
+              "reference_supplied": true,
+              "bg": [
+                58,
+                63,
+                74
+              ]
+            }
+          }
+        },
+        "alpha_byte_identical": true
+      },
+      "registered": {
+        "unpremultiply": {
+          "rim_luma_excess": {
+            "id": "matte_quality.rim_luma_excess",
+            "subject": "",
+            "passed": null,
+            "value": -2.5349109828403513,
+            "threshold": null,
+            "op": "<=",
+            "unit": "luma_0_255",
+            "evidence": [],
+            "notes": "Partial-alpha composite mean minus opaque ring mean; Euclidean 1\u20133 px; Rec.709 display luma.",
+            "metrics": {
+              "partial_band_pixels": 1040,
+              "opaque_ring_pixels": 3248,
+              "partial_band_mean": 60.18210059351433,
+              "opaque_ring_mean": 62.71701157635468,
+              "bg": [
+                58,
+                63,
+                74
+              ]
+            }
+          },
+          "alpha_area": {
+            "id": "matte_quality.alpha_area",
+            "subject": "",
+            "passed": null,
+            "value": 11032.788235294118,
+            "threshold": null,
+            "op": "<=",
+            "unit": "opaque_pixel_equivalents",
+            "evidence": [],
+            "notes": "Sum of alpha/255; transparent pixels contribute zero.",
+            "metrics": {
+              "support_pixels": 11484,
+              "opaque_pixels": 10444
+            }
+          },
+          "direct_luminance_fringe": {
+            "id": "matte_quality.direct_luminance_fringe",
+            "subject": "",
+            "passed": null,
+            "value": 19.140380937405734,
+            "threshold": null,
+            "op": "<=",
+            "unit": "luma_0_255",
+            "evidence": [],
+            "notes": "R-52: average over the PRE-TRIM partial-alpha band, replacing a post-trim denominator; frozen nearest-opaque reference RGB; positive Rec.709 composite-luma excess.",
+            "metrics": {
+              "pre_trim_band_pixels": 1040,
+              "surviving_band_pixels": 1040,
+              "reference_supplied": true,
+              "bg": [
+                58,
+                63,
+                74
+              ]
+            }
+          }
+        },
+        "clamp": {
+          "rim_luma_excess": {
+            "id": "matte_quality.rim_luma_excess",
+            "subject": "",
+            "passed": null,
+            "value": -10.505748110659127,
+            "threshold": null,
+            "op": "<=",
+            "unit": "luma_0_255",
+            "evidence": [],
+            "notes": "Partial-alpha composite mean minus opaque ring mean; Euclidean 1\u20133 px; Rec.709 display luma.",
+            "metrics": {
+              "partial_band_pixels": 1040,
+              "opaque_ring_pixels": 3248,
+              "partial_band_mean": 52.082722886877825,
+              "opaque_ring_mean": 62.58847099753695,
+              "bg": [
+                58,
+                63,
+                74
+              ]
+            }
+          },
+          "alpha_area": {
+            "id": "matte_quality.alpha_area",
+            "subject": "",
+            "passed": null,
+            "value": 11032.788235294118,
+            "threshold": null,
+            "op": "<=",
+            "unit": "opaque_pixel_equivalents",
+            "evidence": [],
+            "notes": "Sum of alpha/255; transparent pixels contribute zero.",
+            "metrics": {
+              "support_pixels": 11484,
+              "opaque_pixels": 10444
+            }
+          },
+          "direct_luminance_fringe": {
+            "id": "matte_quality.direct_luminance_fringe",
+            "subject": "",
+            "passed": null,
+            "value": 8.411908536199094,
+            "threshold": null,
+            "op": "<=",
+            "unit": "luma_0_255",
+            "evidence": [],
+            "notes": "R-52: average over the PRE-TRIM partial-alpha band, replacing a post-trim denominator; frozen nearest-opaque reference RGB; positive Rec.709 composite-luma excess.",
+            "metrics": {
+              "pre_trim_band_pixels": 1040,
+              "surviving_band_pixels": 1040,
+              "reference_supplied": true,
+              "bg": [
+                58,
+                63,
+                74
+              ]
+            }
+          }
+        },
+        "alpha_byte_identical": true
+      },
+      "matte_notes": {
+        "unpremultiply": {
+          "method": "green excess matte + inverse straight-alpha compositing",
+          "removed_background_or_detached_alpha_dust_pixels": 70,
+          "native_input_alpha": false,
+          "alpha_floor": 40,
+          "alpha_floor_removed_pixels": 643568,
+          "edge_mode_requested": "unpremultiply",
+          "edge_mode_applied": "unpremultiply"
+        },
+        "clamp": {
+          "method": "green excess matte + inverse straight-alpha compositing + nearest fully-opaque RGB clamp",
+          "removed_background_or_detached_alpha_dust_pixels": 70,
+          "native_input_alpha": false,
+          "alpha_floor": 40,
+          "alpha_floor_removed_pixels": 643568,
+          "edge_mode_requested": "clamp",
+          "edge_mode_applied": "clamp"
+        }
+      },
+      "registered_edge_crop_xyxy": [
+        180,
+        200,
+        244,
+        264
+      ]
+    },
+    {
+      "frame": 1,
+      "native_index": 7,
+      "native": {
+        "unpremultiply": {
+          "rim_luma_excess": {
+            "id": "matte_quality.rim_luma_excess",
+            "subject": "",
+            "passed": null,
+            "value": 1.0538710108049614,
+            "threshold": null,
+            "op": "<=",
+            "unit": "luma_0_255",
+            "evidence": [],
+            "notes": "Partial-alpha composite mean minus opaque ring mean; Euclidean 1\u20133 px; Rec.709 display luma.",
+            "metrics": {
+              "partial_band_pixels": 16818,
+              "opaque_ring_pixels": 20731,
+              "partial_band_mean": 59.19041352202005,
+              "opaque_ring_mean": 58.13654251121509,
+              "bg": [
+                58,
+                63,
+                74
+              ]
+            }
+          },
+          "alpha_area": {
+            "id": "matte_quality.alpha_area",
+            "subject": "",
+            "passed": null,
+            "value": 246428.16862745097,
+            "threshold": null,
+            "op": "<=",
+            "unit": "opaque_pixel_equivalents",
+            "evidence": [],
+            "notes": "Sum of alpha/255; transparent pixels contribute zero.",
+            "metrics": {
+              "support_pixels": 253193,
+              "opaque_pixels": 236375
+            }
+          },
+          "direct_luminance_fringe": {
+            "id": "matte_quality.direct_luminance_fringe",
+            "subject": "",
+            "passed": null,
+            "value": 32.414772656234334,
+            "threshold": null,
+            "op": "<=",
+            "unit": "luma_0_255",
+            "evidence": [],
+            "notes": "R-52: average over the PRE-TRIM partial-alpha band, replacing a post-trim denominator; frozen nearest-opaque reference RGB; positive Rec.709 composite-luma excess.",
+            "metrics": {
+              "pre_trim_band_pixels": 16818,
+              "surviving_band_pixels": 16818,
+              "reference_supplied": true,
+              "bg": [
+                58,
+                63,
+                74
+              ]
+            }
+          }
+        },
+        "clamp": {
+          "rim_luma_excess": {
+            "id": "matte_quality.rim_luma_excess",
+            "subject": "",
+            "passed": null,
+            "value": -5.315838396529379,
+            "threshold": null,
+            "op": "<=",
+            "unit": "luma_0_255",
+            "evidence": [],
+            "notes": "Partial-alpha composite mean minus opaque ring mean; Euclidean 1\u20133 px; Rec.709 display luma.",
+            "metrics": {
+              "partial_band_pixels": 16818,
+              "opaque_ring_pixels": 20731,
+              "partial_band_mean": 52.82070411468571,
+              "opaque_ring_mean": 58.13654251121509,
+              "bg": [
+                58,
+                63,
+                74
+              ]
+            }
+          },
+          "alpha_area": {
+            "id": "matte_quality.alpha_area",
+            "subject": "",
+            "passed": null,
+            "value": 246428.16862745097,
+            "threshold": null,
+            "op": "<=",
+            "unit": "opaque_pixel_equivalents",
+            "evidence": [],
+            "notes": "Sum of alpha/255; transparent pixels contribute zero.",
+            "metrics": {
+              "support_pixels": 253193,
+              "opaque_pixels": 236375
+            }
+          },
+          "direct_luminance_fringe": {
+            "id": "matte_quality.direct_luminance_fringe",
+            "subject": "",
+            "passed": null,
+            "value": 14.266196752452437,
+            "threshold": null,
+            "op": "<=",
+            "unit": "luma_0_255",
+            "evidence": [],
+            "notes": "R-52: average over the PRE-TRIM partial-alpha band, replacing a post-trim denominator; frozen nearest-opaque reference RGB; positive Rec.709 composite-luma excess.",
+            "metrics": {
+              "pre_trim_band_pixels": 16818,
+              "surviving_band_pixels": 16818,
+              "reference_supplied": true,
+              "bg": [
+                58,
+                63,
+                74
+              ]
+            }
+          }
+        },
+        "alpha_byte_identical": true
+      },
+      "registered": {
+        "unpremultiply": {
+          "rim_luma_excess": {
+            "id": "matte_quality.rim_luma_excess",
+            "subject": "",
+            "passed": null,
+            "value": -3.114932910699288,
+            "threshold": null,
+            "op": "<=",
+            "unit": "luma_0_255",
+            "evidence": [],
+            "notes": "Partial-alpha composite mean minus opaque ring mean; Euclidean 1\u20133 px; Rec.709 display luma.",
+            "metrics": {
+              "partial_band_pixels": 1078,
+              "opaque_ring_pixels": 3272,
+              "partial_band_mean": 59.291548568518316,
+              "opaque_ring_mean": 62.406481479217604,
+              "bg": [
+                58,
+                63,
+                74
+              ]
+            }
+          },
+          "alpha_area": {
+            "id": "matte_quality.alpha_area",
+            "subject": "",
+            "passed": null,
+            "value": 11053.823529411764,
+            "threshold": null,
+            "op": "<=",
+            "unit": "opaque_pixel_equivalents",
+            "evidence": [],
+            "notes": "Sum of alpha/255; transparent pixels contribute zero.",
+            "metrics": {
+              "support_pixels": 11510,
+              "opaque_pixels": 10432
+            }
+          },
+          "direct_luminance_fringe": {
+            "id": "matte_quality.direct_luminance_fringe",
+            "subject": "",
+            "passed": null,
+            "value": 19.460876175924916,
+            "threshold": null,
+            "op": "<=",
+            "unit": "luma_0_255",
+            "evidence": [],
+            "notes": "R-52: average over the PRE-TRIM partial-alpha band, replacing a post-trim denominator; frozen nearest-opaque reference RGB; positive Rec.709 composite-luma excess.",
+            "metrics": {
+              "pre_trim_band_pixels": 1078,
+              "surviving_band_pixels": 1078,
+              "reference_supplied": true,
+              "bg": [
+                58,
+                63,
+                74
+              ]
+            }
+          }
+        },
+        "clamp": {
+          "rim_luma_excess": {
+            "id": "matte_quality.rim_luma_excess",
+            "subject": "",
+            "passed": null,
+            "value": -9.579165772435672,
+            "threshold": null,
+            "op": "<=",
+            "unit": "luma_0_255",
+            "evidence": [],
+            "notes": "Partial-alpha composite mean minus opaque ring mean; Euclidean 1\u20133 px; Rec.709 display luma.",
+            "metrics": {
+              "partial_band_pixels": 1078,
+              "opaque_ring_pixels": 3272,
+              "partial_band_mean": 52.71363862854232,
+              "opaque_ring_mean": 62.29280440097799,
+              "bg": [
+                58,
+                63,
+                74
+              ]
+            }
+          },
+          "alpha_area": {
+            "id": "matte_quality.alpha_area",
+            "subject": "",
+            "passed": null,
+            "value": 11053.823529411764,
+            "threshold": null,
+            "op": "<=",
+            "unit": "opaque_pixel_equivalents",
+            "evidence": [],
+            "notes": "Sum of alpha/255; transparent pixels contribute zero.",
+            "metrics": {
+              "support_pixels": 11510,
+              "opaque_pixels": 10432
+            }
+          },
+          "direct_luminance_fringe": {
+            "id": "matte_quality.direct_luminance_fringe",
+            "subject": "",
+            "passed": null,
+            "value": 9.55521394157663,
+            "threshold": null,
+            "op": "<=",
+            "unit": "luma_0_255",
+            "evidence": [],
+            "notes": "R-52: average over the PRE-TRIM partial-alpha band, replacing a post-trim denominator; frozen nearest-opaque reference RGB; positive Rec.709 composite-luma excess.",
+            "metrics": {
+              "pre_trim_band_pixels": 1078,
+              "surviving_band_pixels": 1078,
+              "reference_supplied": true,
+              "bg": [
+                58,
+                63,
+                74
+              ]
+            }
+          }
+        },
+        "alpha_byte_identical": true
+      },
+      "matte_notes": {
+        "unpremultiply": {
+          "method": "green excess matte + inverse straight-alpha compositing",
+          "removed_background_or_detached_alpha_dust_pixels": 106,
+          "native_input_alpha": false,
+          "alpha_floor": 40,
+          "alpha_floor_removed_pixels": 643460,
+          "edge_mode_requested": "unpremultiply",
+          "edge_mode_applied": "unpremultiply"
+        },
+        "clamp": {
+          "method": "green excess matte + inverse straight-alpha compositing + nearest fully-opaque RGB clamp",
+          "removed_background_or_detached_alpha_dust_pixels": 106,
+          "native_input_alpha": false,
+          "alpha_floor": 40,
+          "alpha_floor_removed_pixels": 643460,
+          "edge_mode_requested": "clamp",
+          "edge_mode_applied": "clamp"
+        }
+      },
+      "registered_edge_crop_xyxy": [
+        180,
+        200,
+        244,
+        264
+      ]
+    },
+    {
+      "frame": 2,
+      "native_index": 13,
+      "native": {
+        "unpremultiply": {
+          "rim_luma_excess": {
+            "id": "matte_quality.rim_luma_excess",
+            "subject": "",
+            "passed": null,
+            "value": 1.6611031132277247,
+            "threshold": null,
+            "op": "<=",
+            "unit": "luma_0_255",
+            "evidence": [],
+            "notes": "Partial-alpha composite mean minus opaque ring mean; Euclidean 1\u20133 px; Rec.709 display luma.",
+            "metrics": {
+              "partial_band_pixels": 16543,
+              "opaque_ring_pixels": 20772,
+              "partial_band_mean": 60.05097484440431,
+              "opaque_ring_mean": 58.389871731176584,
+              "bg": [
+                58,
+                63,
+                74
+              ]
+            }
+          },
+          "alpha_area": {
+            "id": "matte_quality.alpha_area",
+            "subject": "",
+            "passed": null,
+            "value": 246725.97647058824,
+            "threshold": null,
+            "op": "<=",
+            "unit": "opaque_pixel_equivalents",
+            "evidence": [],
+            "notes": "Sum of alpha/255; transparent pixels contribute zero.",
+            "metrics": {
+              "support_pixels": 253379,
+              "opaque_pixels": 236836
+            }
+          },
+          "direct_luminance_fringe": {
+            "id": "matte_quality.direct_luminance_fringe",
+            "subject": "",
+            "passed": null,
+            "value": 32.57076013265489,
+            "threshold": null,
+            "op": "<=",
+            "unit": "luma_0_255",
+            "evidence": [],
+            "notes": "R-52: average over the PRE-TRIM partial-alpha band, replacing a post-trim denominator; frozen nearest-opaque reference RGB; positive Rec.709 composite-luma excess.",
+            "metrics": {
+              "pre_trim_band_pixels": 16543,
+              "surviving_band_pixels": 16543,
+              "reference_supplied": true,
+              "bg": [
+                58,
+                63,
+                74
+              ]
+            }
+          }
+        },
+        "clamp": {
+          "rim_luma_excess": {
+            "id": "matte_quality.rim_luma_excess",
+            "subject": "",
+            "passed": null,
+            "value": -5.360260995091302,
+            "threshold": null,
+            "op": "<=",
+            "unit": "luma_0_255",
+            "evidence": [],
+            "notes": "Partial-alpha composite mean minus opaque ring mean; Euclidean 1\u20133 px; Rec.709 display luma.",
+            "metrics": {
+              "partial_band_pixels": 16543,
+              "opaque_ring_pixels": 20772,
+              "partial_band_mean": 53.02961073608528,
+              "opaque_ring_mean": 58.389871731176584,
+              "bg": [
+                58,
+                63,
+                74
+              ]
+            }
+          },
+          "alpha_area": {
+            "id": "matte_quality.alpha_area",
+            "subject": "",
+            "passed": null,
+            "value": 246725.97647058824,
+            "threshold": null,
+            "op": "<=",
+            "unit": "opaque_pixel_equivalents",
+            "evidence": [],
+            "notes": "Sum of alpha/255; transparent pixels contribute zero.",
+            "metrics": {
+              "support_pixels": 253379,
+              "opaque_pixels": 236836
+            }
+          },
+          "direct_luminance_fringe": {
+            "id": "matte_quality.direct_luminance_fringe",
+            "subject": "",
+            "passed": null,
+            "value": 14.180805164627417,
+            "threshold": null,
+            "op": "<=",
+            "unit": "luma_0_255",
+            "evidence": [],
+            "notes": "R-52: average over the PRE-TRIM partial-alpha band, replacing a post-trim denominator; frozen nearest-opaque reference RGB; positive Rec.709 composite-luma excess.",
+            "metrics": {
+              "pre_trim_band_pixels": 16543,
+              "surviving_band_pixels": 16543,
+              "reference_supplied": true,
+              "bg": [
+                58,
+                63,
+                74
+              ]
+            }
+          }
+        },
+        "alpha_byte_identical": true
+      },
+      "registered": {
+        "unpremultiply": {
+          "rim_luma_excess": {
+            "id": "matte_quality.rim_luma_excess",
+            "subject": "",
+            "passed": null,
+            "value": -2.273820849387917,
+            "threshold": null,
+            "op": "<=",
+            "unit": "luma_0_255",
+            "evidence": [],
+            "notes": "Partial-alpha composite mean minus opaque ring mean; Euclidean 1\u20133 px; Rec.709 display luma.",
+            "metrics": {
+              "partial_band_pixels": 1075,
+              "opaque_ring_pixels": 3315,
+              "partial_band_mean": 60.85413136780665,
+              "opaque_ring_mean": 63.12795221719457,
+              "bg": [
+                58,
+                63,
+                74
+              ]
+            }
+          },
+          "alpha_area": {
+            "id": "matte_quality.alpha_area",
+            "subject": "",
+            "passed": null,
+            "value": 11068.996078431372,
+            "threshold": null,
+            "op": "<=",
+            "unit": "opaque_pixel_equivalents",
+            "evidence": [],
+            "notes": "Sum of alpha/255; transparent pixels contribute zero.",
+            "metrics": {
+              "support_pixels": 11523,
+              "opaque_pixels": 10448
+            }
+          },
+          "direct_luminance_fringe": {
+            "id": "matte_quality.direct_luminance_fringe",
+            "subject": "",
+            "passed": null,
+            "value": 19.70858868983128,
+            "threshold": null,
+            "op": "<=",
+            "unit": "luma_0_255",
+            "evidence": [],
+            "notes": "R-52: average over the PRE-TRIM partial-alpha band, replacing a post-trim denominator; frozen nearest-opaque reference RGB; positive Rec.709 composite-luma excess.",
+            "metrics": {
+              "pre_trim_band_pixels": 1075,
+              "surviving_band_pixels": 1075,
+              "reference_supplied": true,
+              "bg": [
+                58,
+                63,
+                74
+              ]
+            }
+          }
+        },
+        "clamp": {
+          "rim_luma_excess": {
+            "id": "matte_quality.rim_luma_excess",
+            "subject": "",
+            "passed": null,
+            "value": -9.234187433021148,
+            "threshold": null,
+            "op": "<=",
+            "unit": "luma_0_255",
+            "evidence": [],
+            "notes": "Partial-alpha composite mean minus opaque ring mean; Euclidean 1\u20133 px; Rec.709 display luma.",
+            "metrics": {
+              "partial_band_pixels": 1075,
+              "opaque_ring_pixels": 3315,
+              "partial_band_mean": 53.79520719744642,
+              "opaque_ring_mean": 63.02939463046757,
+              "bg": [
+                58,
+                63,
+                74
+              ]
+            }
+          },
+          "alpha_area": {
+            "id": "matte_quality.alpha_area",
+            "subject": "",
+            "passed": null,
+            "value": 11068.996078431372,
+            "threshold": null,
+            "op": "<=",
+            "unit": "opaque_pixel_equivalents",
+            "evidence": [],
+            "notes": "Sum of alpha/255; transparent pixels contribute zero.",
+            "metrics": {
+              "support_pixels": 11523,
+              "opaque_pixels": 10448
+            }
+          },
+          "direct_luminance_fringe": {
+            "id": "matte_quality.direct_luminance_fringe",
+            "subject": "",
+            "passed": null,
+            "value": 10.020611094208846,
+            "threshold": null,
+            "op": "<=",
+            "unit": "luma_0_255",
+            "evidence": [],
+            "notes": "R-52: average over the PRE-TRIM partial-alpha band, replacing a post-trim denominator; frozen nearest-opaque reference RGB; positive Rec.709 composite-luma excess.",
+            "metrics": {
+              "pre_trim_band_pixels": 1075,
+              "surviving_band_pixels": 1075,
+              "reference_supplied": true,
+              "bg": [
+                58,
+                63,
+                74
+              ]
+            }
+          }
+        },
+        "alpha_byte_identical": true
+      },
+      "matte_notes": {
+        "unpremultiply": {
+          "method": "green excess matte + inverse straight-alpha compositing",
+          "removed_background_or_detached_alpha_dust_pixels": 89,
+          "native_input_alpha": false,
+          "alpha_floor": 40,
+          "alpha_floor_removed_pixels": 642798,
+          "edge_mode_requested": "unpremultiply",
+          "edge_mode_applied": "unpremultiply"
+        },
+        "clamp": {
+          "method": "green excess matte + inverse straight-alpha compositing + nearest fully-opaque RGB clamp",
+          "removed_background_or_detached_alpha_dust_pixels": 89,
+          "native_input_alpha": false,
+          "alpha_floor": 40,
+          "alpha_floor_removed_pixels": 642798,
+          "edge_mode_requested": "clamp",
+          "edge_mode_applied": "clamp"
+        }
+      },
+      "registered_edge_crop_xyxy": [
+        179,
+        200,
+        243,
+        264
+      ]
+    },
+    {
+      "frame": 3,
+      "native_index": 19,
+      "native": {
+        "unpremultiply": {
+          "rim_luma_excess": {
+            "id": "matte_quality.rim_luma_excess",
+            "subject": "",
+            "passed": null,
+            "value": 2.548391092139667,
+            "threshold": null,
+            "op": "<=",
+            "unit": "luma_0_255",
+            "evidence": [],
+            "notes": "Partial-alpha composite mean minus opaque ring mean; Euclidean 1\u20133 px; Rec.709 display luma.",
+            "metrics": {
+              "partial_band_pixels": 16417,
+              "opaque_ring_pixels": 20859,
+              "partial_band_mean": 60.930533361663606,
+              "opaque_ring_mean": 58.38214226952394,
+              "bg": [
+                58,
+                63,
+                74
+              ]
+            }
+          },
+          "alpha_area": {
+            "id": "matte_quality.alpha_area",
+            "subject": "",
+            "passed": null,
+            "value": 247067.4549019608,
+            "threshold": null,
+            "op": "<=",
+            "unit": "opaque_pixel_equivalents",
+            "evidence": [],
+            "notes": "Sum of alpha/255; transparent pixels contribute zero.",
+            "metrics": {
+              "support_pixels": 253578,
+              "opaque_pixels": 237161
+            }
+          },
+          "direct_luminance_fringe": {
+            "id": "matte_quality.direct_luminance_fringe",
+            "subject": "",
+            "passed": null,
+            "value": 31.654496878534566,
+            "threshold": null,
+            "op": "<=",
+            "unit": "luma_0_255",
+            "evidence": [],
+            "notes": "R-52: average over the PRE-TRIM partial-alpha band, replacing a post-trim denominator; frozen nearest-opaque reference RGB; positive Rec.709 composite-luma excess.",
+            "metrics": {
+              "pre_trim_band_pixels": 16417,
+              "surviving_band_pixels": 16417,
+              "reference_supplied": true,
+              "bg": [
+                58,
+                63,
+                74
+              ]
+            }
+          }
+        },
+        "clamp": {
+          "rim_luma_excess": {
+            "id": "matte_quality.rim_luma_excess",
+            "subject": "",
+            "passed": null,
+            "value": -3.898834009578188,
+            "threshold": null,
+            "op": "<=",
+            "unit": "luma_0_255",
+            "evidence": [],
+            "notes": "Partial-alpha composite mean minus opaque ring mean; Euclidean 1\u20133 px; Rec.709 display luma.",
+            "metrics": {
+              "partial_band_pixels": 16417,
+              "opaque_ring_pixels": 20859,
+              "partial_band_mean": 54.48330825994575,
+              "opaque_ring_mean": 58.38214226952394,
+              "bg": [
+                58,
+                63,
+                74
+              ]
+            }
+          },
+          "alpha_area": {
+            "id": "matte_quality.alpha_area",
+            "subject": "",
+            "passed": null,
+            "value": 247067.4549019608,
+            "threshold": null,
+            "op": "<=",
+            "unit": "opaque_pixel_equivalents",
+            "evidence": [],
+            "notes": "Sum of alpha/255; transparent pixels contribute zero.",
+            "metrics": {
+              "support_pixels": 253578,
+              "opaque_pixels": 237161
+            }
+          },
+          "direct_luminance_fringe": {
+            "id": "matte_quality.direct_luminance_fringe",
+            "subject": "",
+            "passed": null,
+            "value": 13.677840031148964,
+            "threshold": null,
+            "op": "<=",
+            "unit": "luma_0_255",
+            "evidence": [],
+            "notes": "R-52: average over the PRE-TRIM partial-alpha band, replacing a post-trim denominator; frozen nearest-opaque reference RGB; positive Rec.709 composite-luma excess.",
+            "metrics": {
+              "pre_trim_band_pixels": 16417,
+              "surviving_band_pixels": 16417,
+              "reference_supplied": true,
+              "bg": [
+                58,
+                63,
+                74
+              ]
+            }
+          }
+        },
+        "alpha_byte_identical": true
+      },
+      "registered": {
+        "unpremultiply": {
+          "rim_luma_excess": {
+            "id": "matte_quality.rim_luma_excess",
+            "subject": "",
+            "passed": null,
+            "value": -1.3050151346602448,
+            "threshold": null,
+            "op": "<=",
+            "unit": "luma_0_255",
+            "evidence": [],
+            "notes": "Partial-alpha composite mean minus opaque ring mean; Euclidean 1\u20133 px; Rec.709 display luma.",
+            "metrics": {
+              "partial_band_pixels": 1043,
+              "opaque_ring_pixels": 3292,
+              "partial_band_mean": 61.391564938243754,
+              "opaque_ring_mean": 62.696580072904,
+              "bg": [
+                58,
+                63,
+                74
+              ]
+            }
+          },
+          "alpha_area": {
+            "id": "matte_quality.alpha_area",
+            "subject": "",
+            "passed": null,
+            "value": 11080.666666666666,
+            "threshold": null,
+            "op": "<=",
+            "unit": "opaque_pixel_equivalents",
+            "evidence": [],
+            "notes": "Sum of alpha/255; transparent pixels contribute zero.",
+            "metrics": {
+              "support_pixels": 11527,
+              "opaque_pixels": 10484
+            }
+          },
+          "direct_luminance_fringe": {
+            "id": "matte_quality.direct_luminance_fringe",
+            "subject": "",
+            "passed": null,
+            "value": 22.5268601688192,
+            "threshold": null,
+            "op": "<=",
+            "unit": "luma_0_255",
+            "evidence": [],
+            "notes": "R-52: average over the PRE-TRIM partial-alpha band, replacing a post-trim denominator; frozen nearest-opaque reference RGB; positive Rec.709 composite-luma excess.",
+            "metrics": {
+              "pre_trim_band_pixels": 1043,
+              "surviving_band_pixels": 1043,
+              "reference_supplied": true,
+              "bg": [
+                58,
+                63,
+                74
+              ]
+            }
+          }
+        },
+        "clamp": {
+          "rim_luma_excess": {
+            "id": "matte_quality.rim_luma_excess",
+            "subject": "",
+            "passed": null,
+            "value": -7.965154390055432,
+            "threshold": null,
+            "op": "<=",
+            "unit": "luma_0_255",
+            "evidence": [],
+            "notes": "Partial-alpha composite mean minus opaque ring mean; Euclidean 1\u20133 px; Rec.709 display luma.",
+            "metrics": {
+              "partial_band_pixels": 1043,
+              "opaque_ring_pixels": 3292,
+              "partial_band_mean": 54.569437529750154,
+              "opaque_ring_mean": 62.534591919805585,
+              "bg": [
+                58,
+                63,
+                74
+              ]
+            }
+          },
+          "alpha_area": {
+            "id": "matte_quality.alpha_area",
+            "subject": "",
+            "passed": null,
+            "value": 11080.666666666666,
+            "threshold": null,
+            "op": "<=",
+            "unit": "opaque_pixel_equivalents",
+            "evidence": [],
+            "notes": "Sum of alpha/255; transparent pixels contribute zero.",
+            "metrics": {
+              "support_pixels": 11527,
+              "opaque_pixels": 10484
+            }
+          },
+          "direct_luminance_fringe": {
+            "id": "matte_quality.direct_luminance_fringe",
+            "subject": "",
+            "passed": null,
+            "value": 11.774311407140036,
+            "threshold": null,
+            "op": "<=",
+            "unit": "luma_0_255",
+            "evidence": [],
+            "notes": "R-52: average over the PRE-TRIM partial-alpha band, replacing a post-trim denominator; frozen nearest-opaque reference RGB; positive Rec.709 composite-luma excess.",
+            "metrics": {
+              "pre_trim_band_pixels": 1043,
+              "surviving_band_pixels": 1043,
+              "reference_supplied": true,
+              "bg": [
+                58,
+                63,
+                74
+              ]
+            }
+          }
+        },
+        "alpha_byte_identical": true
+      },
+      "matte_notes": {
+        "unpremultiply": {
+          "method": "green excess matte + inverse straight-alpha compositing",
+          "removed_background_or_detached_alpha_dust_pixels": 92,
+          "native_input_alpha": false,
+          "alpha_floor": 40,
+          "alpha_floor_removed_pixels": 642793,
+          "edge_mode_requested": "unpremultiply",
+          "edge_mode_applied": "unpremultiply"
+        },
+        "clamp": {
+          "method": "green excess matte + inverse straight-alpha compositing + nearest fully-opaque RGB clamp",
+          "removed_background_or_detached_alpha_dust_pixels": 92,
+          "native_input_alpha": false,
+          "alpha_floor": 40,
+          "alpha_floor_removed_pixels": 642793,
+          "edge_mode_requested": "clamp",
+          "edge_mode_applied": "clamp"
+        }
+      },
+      "registered_edge_crop_xyxy": [
+        180,
+        201,
+        244,
+        265
+      ]
+    },
+    {
+      "frame": 4,
+      "native_index": 26,
+      "native": {
+        "unpremultiply": {
+          "rim_luma_excess": {
+            "id": "matte_quality.rim_luma_excess",
+            "subject": "",
+            "passed": null,
+            "value": 4.110149737383793,
+            "threshold": null,
+            "op": "<=",
+            "unit": "luma_0_255",
+            "evidence": [],
+            "notes": "Partial-alpha composite mean minus opaque ring mean; Euclidean 1\u20133 px; Rec.709 display luma.",
+            "metrics": {
+              "partial_band_pixels": 16141,
+              "opaque_ring_pixels": 20883,
+              "partial_band_mean": 61.961161048019235,
+              "opaque_ring_mean": 57.85101131063544,
+              "bg": [
+                58,
+                63,
+                74
+              ]
+            }
+          },
+          "alpha_area": {
+            "id": "matte_quality.alpha_area",
+            "subject": "",
+            "passed": null,
+            "value": 247457.79607843136,
+            "threshold": null,
+            "op": "<=",
+            "unit": "opaque_pixel_equivalents",
+            "evidence": [],
+            "notes": "Sum of alpha/255; transparent pixels contribute zero.",
+            "metrics": {
+              "support_pixels": 253743,
+              "opaque_pixels": 237602
+            }
+          },
+          "direct_luminance_fringe": {
+            "id": "matte_quality.direct_luminance_fringe",
+            "subject": "",
+            "passed": null,
+            "value": 32.44650088079194,
+            "threshold": null,
+            "op": "<=",
+            "unit": "luma_0_255",
+            "evidence": [],
+            "notes": "R-52: average over the PRE-TRIM partial-alpha band, replacing a post-trim denominator; frozen nearest-opaque reference RGB; positive Rec.709 composite-luma excess.",
+            "metrics": {
+              "pre_trim_band_pixels": 16141,
+              "surviving_band_pixels": 16141,
+              "reference_supplied": true,
+              "bg": [
+                58,
+                63,
+                74
+              ]
+            }
+          }
+        },
+        "clamp": {
+          "rim_luma_excess": {
+            "id": "matte_quality.rim_luma_excess",
+            "subject": "",
+            "passed": null,
+            "value": -2.812844616150201,
+            "threshold": null,
+            "op": "<=",
+            "unit": "luma_0_255",
+            "evidence": [],
+            "notes": "Partial-alpha composite mean minus opaque ring mean; Euclidean 1\u20133 px; Rec.709 display luma.",
+            "metrics": {
+              "partial_band_pixels": 16141,
+              "opaque_ring_pixels": 20883,
+              "partial_band_mean": 55.03816669448524,
+              "opaque_ring_mean": 57.85101131063544,
+              "bg": [
+                58,
+                63,
+                74
+              ]
+            }
+          },
+          "alpha_area": {
+            "id": "matte_quality.alpha_area",
+            "subject": "",
+            "passed": null,
+            "value": 247457.79607843136,
+            "threshold": null,
+            "op": "<=",
+            "unit": "opaque_pixel_equivalents",
+            "evidence": [],
+            "notes": "Sum of alpha/255; transparent pixels contribute zero.",
+            "metrics": {
+              "support_pixels": 253743,
+              "opaque_pixels": 237602
+            }
+          },
+          "direct_luminance_fringe": {
+            "id": "matte_quality.direct_luminance_fringe",
+            "subject": "",
+            "passed": null,
+            "value": 13.791984637635737,
+            "threshold": null,
+            "op": "<=",
+            "unit": "luma_0_255",
+            "evidence": [],
+            "notes": "R-52: average over the PRE-TRIM partial-alpha band, replacing a post-trim denominator; frozen nearest-opaque reference RGB; positive Rec.709 composite-luma excess.",
+            "metrics": {
+              "pre_trim_band_pixels": 16141,
+              "surviving_band_pixels": 16141,
+              "reference_supplied": true,
+              "bg": [
+                58,
+                63,
+                74
+              ]
+            }
+          }
+        },
+        "alpha_byte_identical": true
+      },
+      "registered": {
+        "unpremultiply": {
+          "rim_luma_excess": {
+            "id": "matte_quality.rim_luma_excess",
+            "subject": "",
+            "passed": null,
+            "value": -0.5172506811275852,
+            "threshold": null,
+            "op": "<=",
+            "unit": "luma_0_255",
+            "evidence": [],
+            "notes": "Partial-alpha composite mean minus opaque ring mean; Euclidean 1\u20133 px; Rec.709 display luma.",
+            "metrics": {
+              "partial_band_pixels": 1040,
+              "opaque_ring_pixels": 3288,
+              "partial_band_mean": 62.03986489064856,
+              "opaque_ring_mean": 62.557115571776144,
+              "bg": [
+                58,
+                63,
+                74
+              ]
+            }
+          },
+          "alpha_area": {
+            "id": "matte_quality.alpha_area",
+            "subject": "",
+            "passed": null,
+            "value": 11103.839215686274,
+            "threshold": null,
+            "op": "<=",
+            "unit": "opaque_pixel_equivalents",
+            "evidence": [],
+            "notes": "Sum of alpha/255; transparent pixels contribute zero.",
+            "metrics": {
+              "support_pixels": 11533,
+              "opaque_pixels": 10493
+            }
+          },
+          "direct_luminance_fringe": {
+            "id": "matte_quality.direct_luminance_fringe",
+            "subject": "",
+            "passed": null,
+            "value": 22.84039432352941,
+            "threshold": null,
+            "op": "<=",
+            "unit": "luma_0_255",
+            "evidence": [],
+            "notes": "R-52: average over the PRE-TRIM partial-alpha band, replacing a post-trim denominator; frozen nearest-opaque reference RGB; positive Rec.709 composite-luma excess.",
+            "metrics": {
+              "pre_trim_band_pixels": 1040,
+              "surviving_band_pixels": 1040,
+              "reference_supplied": true,
+              "bg": [
+                58,
+                63,
+                74
+              ]
+            }
+          }
+        },
+        "clamp": {
+          "rim_luma_excess": {
+            "id": "matte_quality.rim_luma_excess",
+            "subject": "",
+            "passed": null,
+            "value": -7.904928573047741,
+            "threshold": null,
+            "op": "<=",
+            "unit": "luma_0_255",
+            "evidence": [],
+            "notes": "Partial-alpha composite mean minus opaque ring mean; Euclidean 1\u20133 px; Rec.709 display luma.",
+            "metrics": {
+              "partial_band_pixels": 1040,
+              "opaque_ring_pixels": 3288,
+              "partial_band_mean": 54.50157854374058,
+              "opaque_ring_mean": 62.40650711678832,
+              "bg": [
+                58,
+                63,
+                74
+              ]
+            }
+          },
+          "alpha_area": {
+            "id": "matte_quality.alpha_area",
+            "subject": "",
+            "passed": null,
+            "value": 11103.839215686274,
+            "threshold": null,
+            "op": "<=",
+            "unit": "opaque_pixel_equivalents",
+            "evidence": [],
+            "notes": "Sum of alpha/255; transparent pixels contribute zero.",
+            "metrics": {
+              "support_pixels": 11533,
+              "opaque_pixels": 10493
+            }
+          },
+          "direct_luminance_fringe": {
+            "id": "matte_quality.direct_luminance_fringe",
+            "subject": "",
+            "passed": null,
+            "value": 12.24963407239819,
+            "threshold": null,
+            "op": "<=",
+            "unit": "luma_0_255",
+            "evidence": [],
+            "notes": "R-52: average over the PRE-TRIM partial-alpha band, replacing a post-trim denominator; frozen nearest-opaque reference RGB; positive Rec.709 composite-luma excess.",
+            "metrics": {
+              "pre_trim_band_pixels": 1040,
+              "surviving_band_pixels": 1040,
+              "reference_supplied": true,
+              "bg": [
+                58,
+                63,
+                74
+              ]
+            }
+          }
+        },
+        "alpha_byte_identical": true
+      },
+      "matte_notes": {
+        "unpremultiply": {
+          "method": "green excess matte + inverse straight-alpha compositing",
+          "removed_background_or_detached_alpha_dust_pixels": 80,
+          "native_input_alpha": false,
+          "alpha_floor": 40,
+          "alpha_floor_removed_pixels": 642164,
+          "edge_mode_requested": "unpremultiply",
+          "edge_mode_applied": "unpremultiply"
+        },
+        "clamp": {
+          "method": "green excess matte + inverse straight-alpha compositing + nearest fully-opaque RGB clamp",
+          "removed_background_or_detached_alpha_dust_pixels": 80,
+          "native_input_alpha": false,
+          "alpha_floor": 40,
+          "alpha_floor_removed_pixels": 642164,
+          "edge_mode_requested": "clamp",
+          "edge_mode_applied": "clamp"
+        }
+      },
+      "registered_edge_crop_xyxy": [
+        181,
+        202,
+        245,
+        266
+      ]
+    },
+    {
+      "frame": 5,
+      "native_index": 32,
+      "native": {
+        "unpremultiply": {
+          "rim_luma_excess": {
+            "id": "matte_quality.rim_luma_excess",
+            "subject": "",
+            "passed": null,
+            "value": 5.452946165386635,
+            "threshold": null,
+            "op": "<=",
+            "unit": "luma_0_255",
+            "evidence": [],
+            "notes": "Partial-alpha composite mean minus opaque ring mean; Euclidean 1\u20133 px; Rec.709 display luma.",
+            "metrics": {
+              "partial_band_pixels": 15569,
+              "opaque_ring_pixels": 20907,
+              "partial_band_mean": 62.859130716015606,
+              "opaque_ring_mean": 57.40618455062897,
+              "bg": [
+                58,
+                63,
+                74
+              ]
+            }
+          },
+          "alpha_area": {
+            "id": "matte_quality.alpha_area",
+            "subject": "",
+            "passed": null,
+            "value": 247725.43529411763,
+            "threshold": null,
+            "op": "<=",
+            "unit": "opaque_pixel_equivalents",
+            "evidence": [],
+            "notes": "Sum of alpha/255; transparent pixels contribute zero.",
+            "metrics": {
+              "support_pixels": 253677,
+              "opaque_pixels": 238108
+            }
+          },
+          "direct_luminance_fringe": {
+            "id": "matte_quality.direct_luminance_fringe",
+            "subject": "",
+            "passed": null,
+            "value": 34.09568584182494,
+            "threshold": null,
+            "op": "<=",
+            "unit": "luma_0_255",
+            "evidence": [],
+            "notes": "R-52: average over the PRE-TRIM partial-alpha band, replacing a post-trim denominator; frozen nearest-opaque reference RGB; positive Rec.709 composite-luma excess.",
+            "metrics": {
+              "pre_trim_band_pixels": 15569,
+              "surviving_band_pixels": 15569,
+              "reference_supplied": true,
+              "bg": [
+                58,
+                63,
+                74
+              ]
+            }
+          }
+        },
+        "clamp": {
+          "rim_luma_excess": {
+            "id": "matte_quality.rim_luma_excess",
+            "subject": "",
+            "passed": null,
+            "value": -3.4454339629982016,
+            "threshold": null,
+            "op": "<=",
+            "unit": "luma_0_255",
+            "evidence": [],
+            "notes": "Partial-alpha composite mean minus opaque ring mean; Euclidean 1\u20133 px; Rec.709 display luma.",
+            "metrics": {
+              "partial_band_pixels": 15569,
+              "opaque_ring_pixels": 20907,
+              "partial_band_mean": 53.96075058763077,
+              "opaque_ring_mean": 57.40618455062897,
+              "bg": [
+                58,
+                63,
+                74
+              ]
+            }
+          },
+          "alpha_area": {
+            "id": "matte_quality.alpha_area",
+            "subject": "",
+            "passed": null,
+            "value": 247725.43529411763,
+            "threshold": null,
+            "op": "<=",
+            "unit": "opaque_pixel_equivalents",
+            "evidence": [],
+            "notes": "Sum of alpha/255; transparent pixels contribute zero.",
+            "metrics": {
+              "support_pixels": 253677,
+              "opaque_pixels": 238108
+            }
+          },
+          "direct_luminance_fringe": {
+            "id": "matte_quality.direct_luminance_fringe",
+            "subject": "",
+            "passed": null,
+            "value": 13.887303848446951,
+            "threshold": null,
+            "op": "<=",
+            "unit": "luma_0_255",
+            "evidence": [],
+            "notes": "R-52: average over the PRE-TRIM partial-alpha band, replacing a post-trim denominator; frozen nearest-opaque reference RGB; positive Rec.709 composite-luma excess.",
+            "metrics": {
+              "pre_trim_band_pixels": 15569,
+              "surviving_band_pixels": 15569,
+              "reference_supplied": true,
+              "bg": [
+                58,
+                63,
+                74
+              ]
+            }
+          }
+        },
+        "alpha_byte_identical": true
+      },
+      "registered": {
+        "unpremultiply": {
+          "rim_luma_excess": {
+            "id": "matte_quality.rim_luma_excess",
+            "subject": "",
+            "passed": null,
+            "value": -0.29407183060444453,
+            "threshold": null,
+            "op": "<=",
+            "unit": "luma_0_255",
+            "evidence": [],
+            "notes": "Partial-alpha composite mean minus opaque ring mean; Euclidean 1\u20133 px; Rec.709 display luma.",
+            "metrics": {
+              "partial_band_pixels": 1027,
+              "opaque_ring_pixels": 3283,
+              "partial_band_mean": 61.946570874238695,
+              "opaque_ring_mean": 62.24064270484314,
+              "bg": [
+                58,
+                63,
+                74
+              ]
+            }
+          },
+          "alpha_area": {
+            "id": "matte_quality.alpha_area",
+            "subject": "",
+            "passed": null,
+            "value": 11119.419607843138,
+            "threshold": null,
+            "op": "<=",
+            "unit": "opaque_pixel_equivalents",
+            "evidence": [],
+            "notes": "Sum of alpha/255; transparent pixels contribute zero.",
+            "metrics": {
+              "support_pixels": 11536,
+              "opaque_pixels": 10509
+            }
+          },
+          "direct_luminance_fringe": {
+            "id": "matte_quality.direct_luminance_fringe",
+            "subject": "",
+            "passed": null,
+            "value": 22.81961184107528,
+            "threshold": null,
+            "op": "<=",
+            "unit": "luma_0_255",
+            "evidence": [],
+            "notes": "R-52: average over the PRE-TRIM partial-alpha band, replacing a post-trim denominator; frozen nearest-opaque reference RGB; positive Rec.709 composite-luma excess.",
+            "metrics": {
+              "pre_trim_band_pixels": 1027,
+              "surviving_band_pixels": 1027,
+              "reference_supplied": true,
+              "bg": [
+                58,
+                63,
+                74
+              ]
+            }
+          }
+        },
+        "clamp": {
+          "rim_luma_excess": {
+            "id": "matte_quality.rim_luma_excess",
+            "subject": "",
+            "passed": null,
+            "value": -8.164359470103612,
+            "threshold": null,
+            "op": "<=",
+            "unit": "luma_0_255",
+            "evidence": [],
+            "notes": "Partial-alpha composite mean minus opaque ring mean; Euclidean 1\u20133 px; Rec.709 display luma.",
+            "metrics": {
+              "partial_band_pixels": 1027,
+              "opaque_ring_pixels": 3283,
+              "partial_band_mean": 53.96557479733471,
+              "opaque_ring_mean": 62.12993426743832,
+              "bg": [
+                58,
+                63,
+                74
+              ]
+            }
+          },
+          "alpha_area": {
+            "id": "matte_quality.alpha_area",
+            "subject": "",
+            "passed": null,
+            "value": 11119.419607843138,
+            "threshold": null,
+            "op": "<=",
+            "unit": "opaque_pixel_equivalents",
+            "evidence": [],
+            "notes": "Sum of alpha/255; transparent pixels contribute zero.",
+            "metrics": {
+              "support_pixels": 11536,
+              "opaque_pixels": 10509
+            }
+          },
+          "direct_luminance_fringe": {
+            "id": "matte_quality.direct_luminance_fringe",
+            "subject": "",
+            "passed": null,
+            "value": 11.432157368310516,
+            "threshold": null,
+            "op": "<=",
+            "unit": "luma_0_255",
+            "evidence": [],
+            "notes": "R-52: average over the PRE-TRIM partial-alpha band, replacing a post-trim denominator; frozen nearest-opaque reference RGB; positive Rec.709 composite-luma excess.",
+            "metrics": {
+              "pre_trim_band_pixels": 1027,
+              "surviving_band_pixels": 1027,
+              "reference_supplied": true,
+              "bg": [
+                58,
+                63,
+                74
+              ]
+            }
+          }
+        },
+        "alpha_byte_identical": true
+      },
+      "matte_notes": {
+        "unpremultiply": {
+          "method": "green excess matte + inverse straight-alpha compositing",
+          "removed_background_or_detached_alpha_dust_pixels": 90,
+          "native_input_alpha": false,
+          "alpha_floor": 40,
+          "alpha_floor_removed_pixels": 642251,
+          "edge_mode_requested": "unpremultiply",
+          "edge_mode_applied": "unpremultiply"
+        },
+        "clamp": {
+          "method": "green excess matte + inverse straight-alpha compositing + nearest fully-opaque RGB clamp",
+          "removed_background_or_detached_alpha_dust_pixels": 90,
+          "native_input_alpha": false,
+          "alpha_floor": 40,
+          "alpha_floor_removed_pixels": 642251,
+          "edge_mode_requested": "clamp",
+          "edge_mode_applied": "clamp"
+        }
+      },
+      "registered_edge_crop_xyxy": [
+        181,
+        202,
+        245,
+        266
+      ]
+    },
+    {
+      "frame": 6,
+      "native_index": 38,
+      "native": {
+        "unpremultiply": {
+          "rim_luma_excess": {
+            "id": "matte_quality.rim_luma_excess",
+            "subject": "",
+            "passed": null,
+            "value": 5.81295864884769,
+            "threshold": null,
+            "op": "<=",
+            "unit": "luma_0_255",
+            "evidence": [],
+            "notes": "Partial-alpha composite mean minus opaque ring mean; Euclidean 1\u20133 px; Rec.709 display luma.",
+            "metrics": {
+              "partial_band_pixels": 16253,
+              "opaque_ring_pixels": 20831,
+              "partial_band_mean": 63.940981048156424,
+              "opaque_ring_mean": 58.12802239930873,
+              "bg": [
+                58,
+                63,
+                74
+              ]
+            }
+          },
+          "alpha_area": {
+            "id": "matte_quality.alpha_area",
+            "subject": "",
+            "passed": null,
+            "value": 248082.38039215686,
+            "threshold": null,
+            "op": "<=",
+            "unit": "opaque_pixel_equivalents",
+            "evidence": [],
+            "notes": "Sum of alpha/255; transparent pixels contribute zero.",
+            "metrics": {
+              "support_pixels": 254320,
+              "opaque_pixels": 238067
+            }
+          },
+          "direct_luminance_fringe": {
+            "id": "matte_quality.direct_luminance_fringe",
+            "subject": "",
+            "passed": null,
+            "value": 34.424638159109094,
+            "threshold": null,
+            "op": "<=",
+            "unit": "luma_0_255",
+            "evidence": [],
+            "notes": "R-52: average over the PRE-TRIM partial-alpha band, replacing a post-trim denominator; frozen nearest-opaque reference RGB; positive Rec.709 composite-luma excess.",
+            "metrics": {
+              "pre_trim_band_pixels": 16253,
+              "surviving_band_pixels": 16253,
+              "reference_supplied": true,
+              "bg": [
+                58,
+                63,
+                74
+              ]
+            }
+          }
+        },
+        "clamp": {
+          "rim_luma_excess": {
+            "id": "matte_quality.rim_luma_excess",
+            "subject": "",
+            "passed": null,
+            "value": -3.624025239206773,
+            "threshold": null,
+            "op": "<=",
+            "unit": "luma_0_255",
+            "evidence": [],
+            "notes": "Partial-alpha composite mean minus opaque ring mean; Euclidean 1\u20133 px; Rec.709 display luma.",
+            "metrics": {
+              "partial_band_pixels": 16253,
+              "opaque_ring_pixels": 20831,
+              "partial_band_mean": 54.50399716010196,
+              "opaque_ring_mean": 58.12802239930873,
+              "bg": [
+                58,
+                63,
+                74
+              ]
+            }
+          },
+          "alpha_area": {
+            "id": "matte_quality.alpha_area",
+            "subject": "",
+            "passed": null,
+            "value": 248082.38039215686,
+            "threshold": null,
+            "op": "<=",
+            "unit": "opaque_pixel_equivalents",
+            "evidence": [],
+            "notes": "Sum of alpha/255; transparent pixels contribute zero.",
+            "metrics": {
+              "support_pixels": 254320,
+              "opaque_pixels": 238067
+            }
+          },
+          "direct_luminance_fringe": {
+            "id": "matte_quality.direct_luminance_fringe",
+            "subject": "",
+            "passed": null,
+            "value": 13.816574812589652,
+            "threshold": null,
+            "op": "<=",
+            "unit": "luma_0_255",
+            "evidence": [],
+            "notes": "R-52: average over the PRE-TRIM partial-alpha band, replacing a post-trim denominator; frozen nearest-opaque reference RGB; positive Rec.709 composite-luma excess.",
+            "metrics": {
+              "pre_trim_band_pixels": 16253,
+              "surviving_band_pixels": 16253,
+              "reference_supplied": true,
+              "bg": [
+                58,
+                63,
+                74
+              ]
+            }
+          }
+        },
+        "alpha_byte_identical": true
+      },
+      "registered": {
+        "unpremultiply": {
+          "rim_luma_excess": {
+            "id": "matte_quality.rim_luma_excess",
+            "subject": "",
+            "passed": null,
+            "value": 1.7899288769094355,
+            "threshold": null,
+            "op": "<=",
+            "unit": "luma_0_255",
+            "evidence": [],
+            "notes": "Partial-alpha composite mean minus opaque ring mean; Euclidean 1\u20133 px; Rec.709 display luma.",
+            "metrics": {
+              "partial_band_pixels": 1041,
+              "opaque_ring_pixels": 3271,
+              "partial_band_mean": 64.37412288485807,
+              "opaque_ring_mean": 62.58419400794863,
+              "bg": [
+                58,
+                63,
+                74
+              ]
+            }
+          },
+          "alpha_area": {
+            "id": "matte_quality.alpha_area",
+            "subject": "",
+            "passed": null,
+            "value": 11130.709803921569,
+            "threshold": null,
+            "op": "<=",
+            "unit": "opaque_pixel_equivalents",
+            "evidence": [],
+            "notes": "Sum of alpha/255; transparent pixels contribute zero.",
+            "metrics": {
+              "support_pixels": 11558,
+              "opaque_pixels": 10517
+            }
+          },
+          "direct_luminance_fringe": {
+            "id": "matte_quality.direct_luminance_fringe",
+            "subject": "",
+            "passed": null,
+            "value": 24.28130221694826,
+            "threshold": null,
+            "op": "<=",
+            "unit": "luma_0_255",
+            "evidence": [],
+            "notes": "R-52: average over the PRE-TRIM partial-alpha band, replacing a post-trim denominator; frozen nearest-opaque reference RGB; positive Rec.709 composite-luma excess.",
+            "metrics": {
+              "pre_trim_band_pixels": 1041,
+              "surviving_band_pixels": 1041,
+              "reference_supplied": true,
+              "bg": [
+                58,
+                63,
+                74
+              ]
+            }
+          }
+        },
+        "clamp": {
+          "rim_luma_excess": {
+            "id": "matte_quality.rim_luma_excess",
+            "subject": "",
+            "passed": null,
+            "value": -6.6244489055478155,
+            "threshold": null,
+            "op": "<=",
+            "unit": "luma_0_255",
+            "evidence": [],
+            "notes": "Partial-alpha composite mean minus opaque ring mean; Euclidean 1\u20133 px; Rec.709 display luma.",
+            "metrics": {
+              "partial_band_pixels": 1041,
+              "opaque_ring_pixels": 3271,
+              "partial_band_mean": 55.85639994801379,
+              "opaque_ring_mean": 62.480848853561604,
+              "bg": [
+                58,
+                63,
+                74
+              ]
+            }
+          },
+          "alpha_area": {
+            "id": "matte_quality.alpha_area",
+            "subject": "",
+            "passed": null,
+            "value": 11130.709803921569,
+            "threshold": null,
+            "op": "<=",
+            "unit": "opaque_pixel_equivalents",
+            "evidence": [],
+            "notes": "Sum of alpha/255; transparent pixels contribute zero.",
+            "metrics": {
+              "support_pixels": 11558,
+              "opaque_pixels": 10517
+            }
+          },
+          "direct_luminance_fringe": {
+            "id": "matte_quality.direct_luminance_fringe",
+            "subject": "",
+            "passed": null,
+            "value": 12.814425620161611,
+            "threshold": null,
+            "op": "<=",
+            "unit": "luma_0_255",
+            "evidence": [],
+            "notes": "R-52: average over the PRE-TRIM partial-alpha band, replacing a post-trim denominator; frozen nearest-opaque reference RGB; positive Rec.709 composite-luma excess.",
+            "metrics": {
+              "pre_trim_band_pixels": 1041,
+              "surviving_band_pixels": 1041,
+              "reference_supplied": true,
+              "bg": [
+                58,
+                63,
+                74
+              ]
+            }
+          }
+        },
+        "alpha_byte_identical": true
+      },
+      "matte_notes": {
+        "unpremultiply": {
+          "method": "green excess matte + inverse straight-alpha compositing",
+          "removed_background_or_detached_alpha_dust_pixels": 94,
+          "native_input_alpha": false,
+          "alpha_floor": 40,
+          "alpha_floor_removed_pixels": 641793,
+          "edge_mode_requested": "unpremultiply",
+          "edge_mode_applied": "unpremultiply"
+        },
+        "clamp": {
+          "method": "green excess matte + inverse straight-alpha compositing + nearest fully-opaque RGB clamp",
+          "removed_background_or_detached_alpha_dust_pixels": 94,
+          "native_input_alpha": false,
+          "alpha_floor": 40,
+          "alpha_floor_removed_pixels": 641793,
+          "edge_mode_requested": "clamp",
+          "edge_mode_applied": "clamp"
+        }
+      },
+      "registered_edge_crop_xyxy": [
+        181,
+        202,
+        245,
+        266
+      ]
+    },
+    {
+      "frame": 7,
+      "native_index": 44,
+      "native": {
+        "unpremultiply": {
+          "rim_luma_excess": {
+            "id": "matte_quality.rim_luma_excess",
+            "subject": "",
+            "passed": null,
+            "value": 7.582169816115815,
+            "threshold": null,
+            "op": "<=",
+            "unit": "luma_0_255",
+            "evidence": [],
+            "notes": "Partial-alpha composite mean minus opaque ring mean; Euclidean 1\u20133 px; Rec.709 display luma.",
+            "metrics": {
+              "partial_band_pixels": 15607,
+              "opaque_ring_pixels": 20865,
+              "partial_band_mean": 64.73937814585462,
+              "opaque_ring_mean": 57.1572083297388,
+              "bg": [
+                58,
+                63,
+                74
+              ]
+            }
+          },
+          "alpha_area": {
+            "id": "matte_quality.alpha_area",
+            "subject": "",
+            "passed": null,
+            "value": 248232.7294117647,
+            "threshold": null,
+            "op": "<=",
+            "unit": "opaque_pixel_equivalents",
+            "evidence": [],
+            "notes": "Sum of alpha/255; transparent pixels contribute zero.",
+            "metrics": {
+              "support_pixels": 254186,
+              "opaque_pixels": 238579
+            }
+          },
+          "direct_luminance_fringe": {
+            "id": "matte_quality.direct_luminance_fringe",
+            "subject": "",
+            "passed": null,
+            "value": 37.59739455231878,
+            "threshold": null,
+            "op": "<=",
+            "unit": "luma_0_255",
+            "evidence": [],
+            "notes": "R-52: average over the PRE-TRIM partial-alpha band, replacing a post-trim denominator; frozen nearest-opaque reference RGB; positive Rec.709 composite-luma excess.",
+            "metrics": {
+              "pre_trim_band_pixels": 15607,
+              "surviving_band_pixels": 15607,
+              "reference_supplied": true,
+              "bg": [
+                58,
+                63,
+                74
+              ]
+            }
+          }
+        },
+        "clamp": {
+          "rim_luma_excess": {
+            "id": "matte_quality.rim_luma_excess",
+            "subject": "",
+            "passed": null,
+            "value": -5.389181774635958,
+            "threshold": null,
+            "op": "<=",
+            "unit": "luma_0_255",
+            "evidence": [],
+            "notes": "Partial-alpha composite mean minus opaque ring mean; Euclidean 1\u20133 px; Rec.709 display luma.",
+            "metrics": {
+              "partial_band_pixels": 15607,
+              "opaque_ring_pixels": 20865,
+              "partial_band_mean": 51.76802655510284,
+              "opaque_ring_mean": 57.1572083297388,
+              "bg": [
+                58,
+                63,
+                74
+              ]
+            }
+          },
+          "alpha_area": {
+            "id": "matte_quality.alpha_area",
+            "subject": "",
+            "passed": null,
+            "value": 248232.7294117647,
+            "threshold": null,
+            "op": "<=",
+            "unit": "opaque_pixel_equivalents",
+            "evidence": [],
+            "notes": "Sum of alpha/255; transparent pixels contribute zero.",
+            "metrics": {
+              "support_pixels": 254186,
+              "opaque_pixels": 238579
+            }
+          },
+          "direct_luminance_fringe": {
+            "id": "matte_quality.direct_luminance_fringe",
+            "subject": "",
+            "passed": null,
+            "value": 14.00919201936788,
+            "threshold": null,
+            "op": "<=",
+            "unit": "luma_0_255",
+            "evidence": [],
+            "notes": "R-52: average over the PRE-TRIM partial-alpha band, replacing a post-trim denominator; frozen nearest-opaque reference RGB; positive Rec.709 composite-luma excess.",
+            "metrics": {
+              "pre_trim_band_pixels": 15607,
+              "surviving_band_pixels": 15607,
+              "reference_supplied": true,
+              "bg": [
+                58,
+                63,
+                74
+              ]
+            }
+          }
+        },
+        "alpha_byte_identical": true
+      },
+      "registered": {
+        "unpremultiply": {
+          "rim_luma_excess": {
+            "id": "matte_quality.rim_luma_excess",
+            "subject": "",
+            "passed": null,
+            "value": 1.1828321602663436,
+            "threshold": null,
+            "op": "<=",
+            "unit": "luma_0_255",
+            "evidence": [],
+            "notes": "Partial-alpha composite mean minus opaque ring mean; Euclidean 1\u20133 px; Rec.709 display luma.",
+            "metrics": {
+              "partial_band_pixels": 1037,
+              "opaque_ring_pixels": 3299,
+              "partial_band_mean": 63.79444555826573,
+              "opaque_ring_mean": 62.611613397999385,
+              "bg": [
+                58,
+                63,
+                74
+              ]
+            }
+          },
+          "alpha_area": {
+            "id": "matte_quality.alpha_area",
+            "subject": "",
+            "passed": null,
+            "value": 11135.458823529412,
+            "threshold": null,
+            "op": "<=",
+            "unit": "opaque_pixel_equivalents",
+            "evidence": [],
+            "notes": "Sum of alpha/255; transparent pixels contribute zero.",
+            "metrics": {
+              "support_pixels": 11558,
+              "opaque_pixels": 10521
+            }
+          },
+          "direct_luminance_fringe": {
+            "id": "matte_quality.direct_luminance_fringe",
+            "subject": "",
+            "passed": null,
+            "value": 23.115767530016825,
+            "threshold": null,
+            "op": "<=",
+            "unit": "luma_0_255",
+            "evidence": [],
+            "notes": "R-52: average over the PRE-TRIM partial-alpha band, replacing a post-trim denominator; frozen nearest-opaque reference RGB; positive Rec.709 composite-luma excess.",
+            "metrics": {
+              "pre_trim_band_pixels": 1037,
+              "surviving_band_pixels": 1037,
+              "reference_supplied": true,
+              "bg": [
+                58,
+                63,
+                74
+              ]
+            }
+          }
+        },
+        "clamp": {
+          "rim_luma_excess": {
+            "id": "matte_quality.rim_luma_excess",
+            "subject": "",
+            "passed": null,
+            "value": -9.866360736127575,
+            "threshold": null,
+            "op": "<=",
+            "unit": "luma_0_255",
+            "evidence": [],
+            "notes": "Partial-alpha composite mean minus opaque ring mean; Euclidean 1\u20133 px; Rec.709 display luma.",
+            "metrics": {
+              "partial_band_pixels": 1037,
+              "opaque_ring_pixels": 3299,
+              "partial_band_mean": 52.63844908503035,
+              "opaque_ring_mean": 62.50480982115793,
+              "bg": [
+                58,
+                63,
+                74
+              ]
+            }
+          },
+          "alpha_area": {
+            "id": "matte_quality.alpha_area",
+            "subject": "",
+            "passed": null,
+            "value": 11135.458823529412,
+            "threshold": null,
+            "op": "<=",
+            "unit": "opaque_pixel_equivalents",
+            "evidence": [],
+            "notes": "Sum of alpha/255; transparent pixels contribute zero.",
+            "metrics": {
+              "support_pixels": 11558,
+              "opaque_pixels": 10521
+            }
+          },
+          "direct_luminance_fringe": {
+            "id": "matte_quality.direct_luminance_fringe",
+            "subject": "",
+            "passed": null,
+            "value": 10.28224990791688,
+            "threshold": null,
+            "op": "<=",
+            "unit": "luma_0_255",
+            "evidence": [],
+            "notes": "R-52: average over the PRE-TRIM partial-alpha band, replacing a post-trim denominator; frozen nearest-opaque reference RGB; positive Rec.709 composite-luma excess.",
+            "metrics": {
+              "pre_trim_band_pixels": 1037,
+              "surviving_band_pixels": 1037,
+              "reference_supplied": true,
+              "bg": [
+                58,
+                63,
+                74
+              ]
+            }
+          }
+        },
+        "alpha_byte_identical": true
+      },
+      "matte_notes": {
+        "unpremultiply": {
+          "method": "green excess matte + inverse straight-alpha compositing",
+          "removed_background_or_detached_alpha_dust_pixels": 80,
+          "native_input_alpha": false,
+          "alpha_floor": 40,
+          "alpha_floor_removed_pixels": 641576,
+          "edge_mode_requested": "unpremultiply",
+          "edge_mode_applied": "unpremultiply"
+        },
+        "clamp": {
+          "method": "green excess matte + inverse straight-alpha compositing + nearest fully-opaque RGB clamp",
+          "removed_background_or_detached_alpha_dust_pixels": 80,
+          "native_input_alpha": false,
+          "alpha_floor": 40,
+          "alpha_floor_removed_pixels": 641576,
+          "edge_mode_requested": "clamp",
+          "edge_mode_applied": "clamp"
+        }
+      },
+      "registered_edge_crop_xyxy": [
+        181,
+        202,
+        245,
+        266
+      ]
+    },
+    {
+      "frame": 8,
+      "native_index": 50,
+      "native": {
+        "unpremultiply": {
+          "rim_luma_excess": {
+            "id": "matte_quality.rim_luma_excess",
+            "subject": "",
+            "passed": null,
+            "value": 8.04722656571819,
+            "threshold": null,
+            "op": "<=",
+            "unit": "luma_0_255",
+            "evidence": [],
+            "notes": "Partial-alpha composite mean minus opaque ring mean; Euclidean 1\u20133 px; Rec.709 display luma.",
+            "metrics": {
+              "partial_band_pixels": 15871,
+              "opaque_ring_pixels": 20888,
+              "partial_band_mean": 65.38817927540796,
+              "opaque_ring_mean": 57.34095270968977,
+              "bg": [
+                58,
+                63,
+                74
+              ]
+            }
+          },
+          "alpha_area": {
+            "id": "matte_quality.alpha_area",
+            "subject": "",
+            "passed": null,
+            "value": 248409.8274509804,
+            "threshold": null,
+            "op": "<=",
+            "unit": "opaque_pixel_equivalents",
+            "evidence": [],
+            "notes": "Sum of alpha/255; transparent pixels contribute zero.",
+            "metrics": {
+              "support_pixels": 254608,
+              "opaque_pixels": 238737
+            }
+          },
+          "direct_luminance_fringe": {
+            "id": "matte_quality.direct_luminance_fringe",
+            "subject": "",
+            "passed": null,
+            "value": 37.760972053603744,
+            "threshold": null,
+            "op": "<=",
+            "unit": "luma_0_255",
+            "evidence": [],
+            "notes": "R-52: average over the PRE-TRIM partial-alpha band, replacing a post-trim denominator; frozen nearest-opaque reference RGB; positive Rec.709 composite-luma excess.",
+            "metrics": {
+              "pre_trim_band_pixels": 15871,
+              "surviving_band_pixels": 15871,
+              "reference_supplied": true,
+              "bg": [
+                58,
+                63,
+                74
+              ]
+            }
+          }
+        },
+        "clamp": {
+          "rim_luma_excess": {
+            "id": "matte_quality.rim_luma_excess",
+            "subject": "",
+            "passed": null,
+            "value": -4.940734480066382,
+            "threshold": null,
+            "op": "<=",
+            "unit": "luma_0_255",
+            "evidence": [],
+            "notes": "Partial-alpha composite mean minus opaque ring mean; Euclidean 1\u20133 px; Rec.709 display luma.",
+            "metrics": {
+              "partial_band_pixels": 15871,
+              "opaque_ring_pixels": 20888,
+              "partial_band_mean": 52.40021822962339,
+              "opaque_ring_mean": 57.34095270968977,
+              "bg": [
+                58,
+                63,
+                74
+              ]
+            }
+          },
+          "alpha_area": {
+            "id": "matte_quality.alpha_area",
+            "subject": "",
+            "passed": null,
+            "value": 248409.8274509804,
+            "threshold": null,
+            "op": "<=",
+            "unit": "opaque_pixel_equivalents",
+            "evidence": [],
+            "notes": "Sum of alpha/255; transparent pixels contribute zero.",
+            "metrics": {
+              "support_pixels": 254608,
+              "opaque_pixels": 238737
+            }
+          },
+          "direct_luminance_fringe": {
+            "id": "matte_quality.direct_luminance_fringe",
+            "subject": "",
+            "passed": null,
+            "value": 14.415225948276609,
+            "threshold": null,
+            "op": "<=",
+            "unit": "luma_0_255",
+            "evidence": [],
+            "notes": "R-52: average over the PRE-TRIM partial-alpha band, replacing a post-trim denominator; frozen nearest-opaque reference RGB; positive Rec.709 composite-luma excess.",
+            "metrics": {
+              "pre_trim_band_pixels": 15871,
+              "surviving_band_pixels": 15871,
+              "reference_supplied": true,
+              "bg": [
+                58,
+                63,
+                74
+              ]
+            }
+          }
+        },
+        "alpha_byte_identical": true
+      },
+      "registered": {
+        "unpremultiply": {
+          "rim_luma_excess": {
+            "id": "matte_quality.rim_luma_excess",
+            "subject": "",
+            "passed": null,
+            "value": 3.3254477209563547,
+            "threshold": null,
+            "op": "<=",
+            "unit": "luma_0_255",
+            "evidence": [],
+            "notes": "Partial-alpha composite mean minus opaque ring mean; Euclidean 1\u20133 px; Rec.709 display luma.",
+            "metrics": {
+              "partial_band_pixels": 1049,
+              "opaque_ring_pixels": 3293,
+              "partial_band_mean": 65.43593943064357,
+              "opaque_ring_mean": 62.11049170968722,
+              "bg": [
+                58,
+                63,
+                74
+              ]
+            }
+          },
+          "alpha_area": {
+            "id": "matte_quality.alpha_area",
+            "subject": "",
+            "passed": null,
+            "value": 11142.623529411765,
+            "threshold": null,
+            "op": "<=",
+            "unit": "opaque_pixel_equivalents",
+            "evidence": [],
+            "notes": "Sum of alpha/255; transparent pixels contribute zero.",
+            "metrics": {
+              "support_pixels": 11588,
+              "opaque_pixels": 10539
+            }
+          },
+          "direct_luminance_fringe": {
+            "id": "matte_quality.direct_luminance_fringe",
+            "subject": "",
+            "passed": null,
+            "value": 24.3319317706873,
+            "threshold": null,
+            "op": "<=",
+            "unit": "luma_0_255",
+            "evidence": [],
+            "notes": "R-52: average over the PRE-TRIM partial-alpha band, replacing a post-trim denominator; frozen nearest-opaque reference RGB; positive Rec.709 composite-luma excess.",
+            "metrics": {
+              "pre_trim_band_pixels": 1049,
+              "surviving_band_pixels": 1049,
+              "reference_supplied": true,
+              "bg": [
+                58,
+                63,
+                74
+              ]
+            }
+          }
+        },
+        "clamp": {
+          "rim_luma_excess": {
+            "id": "matte_quality.rim_luma_excess",
+            "subject": "",
+            "passed": null,
+            "value": -8.045640532018773,
+            "threshold": null,
+            "op": "<=",
+            "unit": "luma_0_255",
+            "evidence": [],
+            "notes": "Partial-alpha composite mean minus opaque ring mean; Euclidean 1\u20133 px; Rec.709 display luma.",
+            "metrics": {
+              "partial_band_pixels": 1049,
+              "opaque_ring_pixels": 3293,
+              "partial_band_mean": 53.924761715172245,
+              "opaque_ring_mean": 61.97040224719102,
+              "bg": [
+                58,
+                63,
+                74
+              ]
+            }
+          },
+          "alpha_area": {
+            "id": "matte_quality.alpha_area",
+            "subject": "",
+            "passed": null,
+            "value": 11142.623529411765,
+            "threshold": null,
+            "op": "<=",
+            "unit": "opaque_pixel_equivalents",
+            "evidence": [],
+            "notes": "Sum of alpha/255; transparent pixels contribute zero.",
+            "metrics": {
+              "support_pixels": 11588,
+              "opaque_pixels": 10539
+            }
+          },
+          "direct_luminance_fringe": {
+            "id": "matte_quality.direct_luminance_fringe",
+            "subject": "",
+            "passed": null,
+            "value": 11.408749084655788,
+            "threshold": null,
+            "op": "<=",
+            "unit": "luma_0_255",
+            "evidence": [],
+            "notes": "R-52: average over the PRE-TRIM partial-alpha band, replacing a post-trim denominator; frozen nearest-opaque reference RGB; positive Rec.709 composite-luma excess.",
+            "metrics": {
+              "pre_trim_band_pixels": 1049,
+              "surviving_band_pixels": 1049,
+              "reference_supplied": true,
+              "bg": [
+                58,
+                63,
+                74
+              ]
+            }
+          }
+        },
+        "alpha_byte_identical": true
+      },
+      "matte_notes": {
+        "unpremultiply": {
+          "method": "green excess matte + inverse straight-alpha compositing",
+          "removed_background_or_detached_alpha_dust_pixels": 81,
+          "native_input_alpha": false,
+          "alpha_floor": 40,
+          "alpha_floor_removed_pixels": 641631,
+          "edge_mode_requested": "unpremultiply",
+          "edge_mode_applied": "unpremultiply"
+        },
+        "clamp": {
+          "method": "green excess matte + inverse straight-alpha compositing + nearest fully-opaque RGB clamp",
+          "removed_background_or_detached_alpha_dust_pixels": 81,
+          "native_input_alpha": false,
+          "alpha_floor": 40,
+          "alpha_floor_removed_pixels": 641631,
+          "edge_mode_requested": "clamp",
+          "edge_mode_applied": "clamp"
+        }
+      },
+      "registered_edge_crop_xyxy": [
+        181,
+        202,
+        245,
+        266
+      ]
+    },
+    {
+      "frame": 9,
+      "native_index": 56,
+      "native": {
+        "unpremultiply": {
+          "rim_luma_excess": {
+            "id": "matte_quality.rim_luma_excess",
+            "subject": "",
+            "passed": null,
+            "value": 7.959662196093696,
+            "threshold": null,
+            "op": "<=",
+            "unit": "luma_0_255",
+            "evidence": [],
+            "notes": "Partial-alpha composite mean minus opaque ring mean; Euclidean 1\u20133 px; Rec.709 display luma.",
+            "metrics": {
+              "partial_band_pixels": 15624,
+              "opaque_ring_pixels": 20914,
+              "partial_band_mean": 65.2604619187675,
+              "opaque_ring_mean": 57.30079972267381,
+              "bg": [
+                58,
+                63,
+                74
+              ]
+            }
+          },
+          "alpha_area": {
+            "id": "matte_quality.alpha_area",
+            "subject": "",
+            "passed": null,
+            "value": 248417.32156862746,
+            "threshold": null,
+            "op": "<=",
+            "unit": "opaque_pixel_equivalents",
+            "evidence": [],
+            "notes": "Sum of alpha/255; transparent pixels contribute zero.",
+            "metrics": {
+              "support_pixels": 254451,
+              "opaque_pixels": 238827
+            }
+          },
+          "direct_luminance_fringe": {
+            "id": "matte_quality.direct_luminance_fringe",
+            "subject": "",
+            "passed": null,
+            "value": 37.10562537594249,
+            "threshold": null,
+            "op": "<=",
+            "unit": "luma_0_255",
+            "evidence": [],
+            "notes": "R-52: average over the PRE-TRIM partial-alpha band, replacing a post-trim denominator; frozen nearest-opaque reference RGB; positive Rec.709 composite-luma excess.",
+            "metrics": {
+              "pre_trim_band_pixels": 15624,
+              "surviving_band_pixels": 15624,
+              "reference_supplied": true,
+              "bg": [
+                58,
+                63,
+                74
+              ]
+            }
+          }
+        },
+        "clamp": {
+          "rim_luma_excess": {
+            "id": "matte_quality.rim_luma_excess",
+            "subject": "",
+            "passed": null,
+            "value": -4.3945425748469304,
+            "threshold": null,
+            "op": "<=",
+            "unit": "luma_0_255",
+            "evidence": [],
+            "notes": "Partial-alpha composite mean minus opaque ring mean; Euclidean 1\u20133 px; Rec.709 display luma.",
+            "metrics": {
+              "partial_band_pixels": 15624,
+              "opaque_ring_pixels": 20914,
+              "partial_band_mean": 52.90625714782688,
+              "opaque_ring_mean": 57.30079972267381,
+              "bg": [
+                58,
+                63,
+                74
+              ]
+            }
+          },
+          "alpha_area": {
+            "id": "matte_quality.alpha_area",
+            "subject": "",
+            "passed": null,
+            "value": 248417.32156862746,
+            "threshold": null,
+            "op": "<=",
+            "unit": "opaque_pixel_equivalents",
+            "evidence": [],
+            "notes": "Sum of alpha/255; transparent pixels contribute zero.",
+            "metrics": {
+              "support_pixels": 254451,
+              "opaque_pixels": 238827
+            }
+          },
+          "direct_luminance_fringe": {
+            "id": "matte_quality.direct_luminance_fringe",
+            "subject": "",
+            "passed": null,
+            "value": 14.43797266508037,
+            "threshold": null,
+            "op": "<=",
+            "unit": "luma_0_255",
+            "evidence": [],
+            "notes": "R-52: average over the PRE-TRIM partial-alpha band, replacing a post-trim denominator; frozen nearest-opaque reference RGB; positive Rec.709 composite-luma excess.",
+            "metrics": {
+              "pre_trim_band_pixels": 15624,
+              "surviving_band_pixels": 15624,
+              "reference_supplied": true,
+              "bg": [
+                58,
+                63,
+                74
+              ]
+            }
+          }
+        },
+        "alpha_byte_identical": true
+      },
+      "registered": {
+        "unpremultiply": {
+          "rim_luma_excess": {
+            "id": "matte_quality.rim_luma_excess",
+            "subject": "",
+            "passed": null,
+            "value": 3.1548240166762938,
+            "threshold": null,
+            "op": "<=",
+            "unit": "luma_0_255",
+            "evidence": [],
+            "notes": "Partial-alpha composite mean minus opaque ring mean; Euclidean 1\u20133 px; Rec.709 display luma.",
+            "metrics": {
+              "partial_band_pixels": 1027,
+              "opaque_ring_pixels": 3300,
+              "partial_band_mean": 64.91077844091872,
+              "opaque_ring_mean": 61.755954424242425,
+              "bg": [
+                58,
+                63,
+                74
+              ]
+            }
+          },
+          "alpha_area": {
+            "id": "matte_quality.alpha_area",
+            "subject": "",
+            "passed": null,
+            "value": 11145.764705882353,
+            "threshold": null,
+            "op": "<=",
+            "unit": "opaque_pixel_equivalents",
+            "evidence": [],
+            "notes": "Sum of alpha/255; transparent pixels contribute zero.",
+            "metrics": {
+              "support_pixels": 11579,
+              "opaque_pixels": 10552
+            }
+          },
+          "direct_luminance_fringe": {
+            "id": "matte_quality.direct_luminance_fringe",
+            "subject": "",
+            "passed": null,
+            "value": 23.89367306184012,
+            "threshold": null,
+            "op": "<=",
+            "unit": "luma_0_255",
+            "evidence": [],
+            "notes": "R-52: average over the PRE-TRIM partial-alpha band, replacing a post-trim denominator; frozen nearest-opaque reference RGB; positive Rec.709 composite-luma excess.",
+            "metrics": {
+              "pre_trim_band_pixels": 1027,
+              "surviving_band_pixels": 1027,
+              "reference_supplied": true,
+              "bg": [
+                58,
+                63,
+                74
+              ]
+            }
+          }
+        },
+        "clamp": {
+          "rim_luma_excess": {
+            "id": "matte_quality.rim_luma_excess",
+            "subject": "",
+            "passed": null,
+            "value": -7.730459191175164,
+            "threshold": null,
+            "op": "<=",
+            "unit": "luma_0_255",
+            "evidence": [],
+            "notes": "Partial-alpha composite mean minus opaque ring mean; Euclidean 1\u20133 px; Rec.709 display luma.",
+            "metrics": {
+              "partial_band_pixels": 1027,
+              "opaque_ring_pixels": 3300,
+              "partial_band_mean": 53.88113783912786,
+              "opaque_ring_mean": 61.611597030303024,
+              "bg": [
+                58,
+                63,
+                74
+              ]
+            }
+          },
+          "alpha_area": {
+            "id": "matte_quality.alpha_area",
+            "subject": "",
+            "passed": null,
+            "value": 11145.764705882353,
+            "threshold": null,
+            "op": "<=",
+            "unit": "opaque_pixel_equivalents",
+            "evidence": [],
+            "notes": "Sum of alpha/255; transparent pixels contribute zero.",
+            "metrics": {
+              "support_pixels": 11579,
+              "opaque_pixels": 10552
+            }
+          },
+          "direct_luminance_fringe": {
+            "id": "matte_quality.direct_luminance_fringe",
+            "subject": "",
+            "passed": null,
+            "value": 11.441601696164348,
+            "threshold": null,
+            "op": "<=",
+            "unit": "luma_0_255",
+            "evidence": [],
+            "notes": "R-52: average over the PRE-TRIM partial-alpha band, replacing a post-trim denominator; frozen nearest-opaque reference RGB; positive Rec.709 composite-luma excess.",
+            "metrics": {
+              "pre_trim_band_pixels": 1027,
+              "surviving_band_pixels": 1027,
+              "reference_supplied": true,
+              "bg": [
+                58,
+                63,
+                74
+              ]
+            }
+          }
+        },
+        "alpha_byte_identical": true
+      },
+      "matte_notes": {
+        "unpremultiply": {
+          "method": "green excess matte + inverse straight-alpha compositing",
+          "removed_background_or_detached_alpha_dust_pixels": 65,
+          "native_input_alpha": false,
+          "alpha_floor": 40,
+          "alpha_floor_removed_pixels": 640796,
+          "edge_mode_requested": "unpremultiply",
+          "edge_mode_applied": "unpremultiply"
+        },
+        "clamp": {
+          "method": "green excess matte + inverse straight-alpha compositing + nearest fully-opaque RGB clamp",
+          "removed_background_or_detached_alpha_dust_pixels": 65,
+          "native_input_alpha": false,
+          "alpha_floor": 40,
+          "alpha_floor_removed_pixels": 640796,
+          "edge_mode_requested": "clamp",
+          "edge_mode_applied": "clamp"
+        }
+      },
+      "registered_edge_crop_xyxy": [
+        181,
+        202,
+        245,
+        266
+      ]
+    },
+    {
+      "frame": 10,
+      "native_index": 62,
+      "native": {
+        "unpremultiply": {
+          "rim_luma_excess": {
+            "id": "matte_quality.rim_luma_excess",
+            "subject": "",
+            "passed": null,
+            "value": 7.5871948912221185,
+            "threshold": null,
+            "op": "<=",
+            "unit": "luma_0_255",
+            "evidence": [],
+            "notes": "Partial-alpha composite mean minus opaque ring mean; Euclidean 1\u20133 px; Rec.709 display luma.",
+            "metrics": {
+              "partial_band_pixels": 16095,
+              "opaque_ring_pixels": 20909,
+              "partial_band_mean": 65.24762250612478,
+              "opaque_ring_mean": 57.660427614902666,
+              "bg": [
+                58,
+                63,
+                74
+              ]
+            }
+          },
+          "alpha_area": {
+            "id": "matte_quality.alpha_area",
+            "subject": "",
+            "passed": null,
+            "value": 248525.10196078432,
+            "threshold": null,
+            "op": "<=",
+            "unit": "opaque_pixel_equivalents",
+            "evidence": [],
+            "notes": "Sum of alpha/255; transparent pixels contribute zero.",
+            "metrics": {
+              "support_pixels": 254764,
+              "opaque_pixels": 238669
+            }
+          },
+          "direct_luminance_fringe": {
+            "id": "matte_quality.direct_luminance_fringe",
+            "subject": "",
+            "passed": null,
+            "value": 36.65548534122764,
+            "threshold": null,
+            "op": "<=",
+            "unit": "luma_0_255",
+            "evidence": [],
+            "notes": "R-52: average over the PRE-TRIM partial-alpha band, replacing a post-trim denominator; frozen nearest-opaque reference RGB; positive Rec.709 composite-luma excess.",
+            "metrics": {
+              "pre_trim_band_pixels": 16095,
+              "surviving_band_pixels": 16095,
+              "reference_supplied": true,
+              "bg": [
+                58,
+                63,
+                74
+              ]
+            }
+          }
+        },
+        "clamp": {
+          "rim_luma_excess": {
+            "id": "matte_quality.rim_luma_excess",
+            "subject": "",
+            "passed": null,
+            "value": -4.418021537458081,
+            "threshold": null,
+            "op": "<=",
+            "unit": "luma_0_255",
+            "evidence": [],
+            "notes": "Partial-alpha composite mean minus opaque ring mean; Euclidean 1\u20133 px; Rec.709 display luma.",
+            "metrics": {
+              "partial_band_pixels": 16095,
+              "opaque_ring_pixels": 20909,
+              "partial_band_mean": 53.242406077444585,
+              "opaque_ring_mean": 57.660427614902666,
+              "bg": [
+                58,
+                63,
+                74
+              ]
+            }
+          },
+          "alpha_area": {
+            "id": "matte_quality.alpha_area",
+            "subject": "",
+            "passed": null,
+            "value": 248525.10196078432,
+            "threshold": null,
+            "op": "<=",
+            "unit": "opaque_pixel_equivalents",
+            "evidence": [],
+            "notes": "Sum of alpha/255; transparent pixels contribute zero.",
+            "metrics": {
+              "support_pixels": 254764,
+              "opaque_pixels": 238669
+            }
+          },
+          "direct_luminance_fringe": {
+            "id": "matte_quality.direct_luminance_fringe",
+            "subject": "",
+            "passed": null,
+            "value": 14.077490908807388,
+            "threshold": null,
+            "op": "<=",
+            "unit": "luma_0_255",
+            "evidence": [],
+            "notes": "R-52: average over the PRE-TRIM partial-alpha band, replacing a post-trim denominator; frozen nearest-opaque reference RGB; positive Rec.709 composite-luma excess.",
+            "metrics": {
+              "pre_trim_band_pixels": 16095,
+              "surviving_band_pixels": 16095,
+              "reference_supplied": true,
+              "bg": [
+                58,
+                63,
+                74
+              ]
+            }
+          }
+        },
+        "alpha_byte_identical": true
+      },
+      "registered": {
+        "unpremultiply": {
+          "rim_luma_excess": {
+            "id": "matte_quality.rim_luma_excess",
+            "subject": "",
+            "passed": null,
+            "value": 3.6871608524592077,
+            "threshold": null,
+            "op": "<=",
+            "unit": "luma_0_255",
+            "evidence": [],
+            "notes": "Partial-alpha composite mean minus opaque ring mean; Euclidean 1\u20133 px; Rec.709 display luma.",
+            "metrics": {
+              "partial_band_pixels": 1051,
+              "opaque_ring_pixels": 3316,
+              "partial_band_mean": 65.44089293931083,
+              "opaque_ring_mean": 61.75373208685162,
+              "bg": [
+                58,
+                63,
+                74
+              ]
+            }
+          },
+          "alpha_area": {
+            "id": "matte_quality.alpha_area",
+            "subject": "",
+            "passed": null,
+            "value": 11148.658823529411,
+            "threshold": null,
+            "op": "<=",
+            "unit": "opaque_pixel_equivalents",
+            "evidence": [],
+            "notes": "Sum of alpha/255; transparent pixels contribute zero.",
+            "metrics": {
+              "support_pixels": 11595,
+              "opaque_pixels": 10544
+            }
+          },
+          "direct_luminance_fringe": {
+            "id": "matte_quality.direct_luminance_fringe",
+            "subject": "",
+            "passed": null,
+            "value": 24.16943073002369,
+            "threshold": null,
+            "op": "<=",
+            "unit": "luma_0_255",
+            "evidence": [],
+            "notes": "R-52: average over the PRE-TRIM partial-alpha band, replacing a post-trim denominator; frozen nearest-opaque reference RGB; positive Rec.709 composite-luma excess.",
+            "metrics": {
+              "pre_trim_band_pixels": 1051,
+              "surviving_band_pixels": 1051,
+              "reference_supplied": true,
+              "bg": [
+                58,
+                63,
+                74
+              ]
+            }
+          }
+        },
+        "clamp": {
+          "rim_luma_excess": {
+            "id": "matte_quality.rim_luma_excess",
+            "subject": "",
+            "passed": null,
+            "value": -6.842188976768178,
+            "threshold": null,
+            "op": "<=",
+            "unit": "luma_0_255",
+            "evidence": [],
+            "notes": "Partial-alpha composite mean minus opaque ring mean; Euclidean 1\u20133 px; Rec.709 display luma.",
+            "metrics": {
+              "partial_band_pixels": 1051,
+              "opaque_ring_pixels": 3316,
+              "partial_band_mean": 54.77114618607862,
+              "opaque_ring_mean": 61.613335162846795,
+              "bg": [
+                58,
+                63,
+                74
+              ]
+            }
+          },
+          "alpha_area": {
+            "id": "matte_quality.alpha_area",
+            "subject": "",
+            "passed": null,
+            "value": 11148.658823529411,
+            "threshold": null,
+            "op": "<=",
+            "unit": "opaque_pixel_equivalents",
+            "evidence": [],
+            "notes": "Sum of alpha/255; transparent pixels contribute zero.",
+            "metrics": {
+              "support_pixels": 11595,
+              "opaque_pixels": 10544
+            }
+          },
+          "direct_luminance_fringe": {
+            "id": "matte_quality.direct_luminance_fringe",
+            "subject": "",
+            "passed": null,
+            "value": 11.78668137758624,
+            "threshold": null,
+            "op": "<=",
+            "unit": "luma_0_255",
+            "evidence": [],
+            "notes": "R-52: average over the PRE-TRIM partial-alpha band, replacing a post-trim denominator; frozen nearest-opaque reference RGB; positive Rec.709 composite-luma excess.",
+            "metrics": {
+              "pre_trim_band_pixels": 1051,
+              "surviving_band_pixels": 1051,
+              "reference_supplied": true,
+              "bg": [
+                58,
+                63,
+                74
+              ]
+            }
+          }
+        },
+        "alpha_byte_identical": true
+      },
+      "matte_notes": {
+        "unpremultiply": {
+          "method": "green excess matte + inverse straight-alpha compositing",
+          "removed_background_or_detached_alpha_dust_pixels": 77,
+          "native_input_alpha": false,
+          "alpha_floor": 40,
+          "alpha_floor_removed_pixels": 641032,
+          "edge_mode_requested": "unpremultiply",
+          "edge_mode_applied": "unpremultiply"
+        },
+        "clamp": {
+          "method": "green excess matte + inverse straight-alpha compositing + nearest fully-opaque RGB clamp",
+          "removed_background_or_detached_alpha_dust_pixels": 77,
+          "native_input_alpha": false,
+          "alpha_floor": 40,
+          "alpha_floor_removed_pixels": 641032,
+          "edge_mode_requested": "clamp",
+          "edge_mode_applied": "clamp"
+        }
+      },
+      "registered_edge_crop_xyxy": [
+        181,
+        202,
+        245,
+        266
+      ]
+    },
+    {
+      "frame": 11,
+      "native_index": 68,
+      "native": {
+        "unpremultiply": {
+          "rim_luma_excess": {
+            "id": "matte_quality.rim_luma_excess",
+            "subject": "",
+            "passed": null,
+            "value": 6.785083297903341,
+            "threshold": null,
+            "op": "<=",
+            "unit": "luma_0_255",
+            "evidence": [],
+            "notes": "Partial-alpha composite mean minus opaque ring mean; Euclidean 1\u20133 px; Rec.709 display luma.",
+            "metrics": {
+              "partial_band_pixels": 15757,
+              "opaque_ring_pixels": 20990,
+              "partial_band_mean": 64.42911438889905,
+              "opaque_ring_mean": 57.64403109099571,
+              "bg": [
+                58,
+                63,
+                74
+              ]
+            }
+          },
+          "alpha_area": {
+            "id": "matte_quality.alpha_area",
+            "subject": "",
+            "passed": null,
+            "value": 248304.30980392155,
+            "threshold": null,
+            "op": "<=",
+            "unit": "opaque_pixel_equivalents",
+            "evidence": [],
+            "notes": "Sum of alpha/255; transparent pixels contribute zero.",
+            "metrics": {
+              "support_pixels": 254380,
+              "opaque_pixels": 238623
+            }
+          },
+          "direct_luminance_fringe": {
+            "id": "matte_quality.direct_luminance_fringe",
+            "subject": "",
+            "passed": null,
+            "value": 35.29722107034905,
+            "threshold": null,
+            "op": "<=",
+            "unit": "luma_0_255",
+            "evidence": [],
+            "notes": "R-52: average over the PRE-TRIM partial-alpha band, replacing a post-trim denominator; frozen nearest-opaque reference RGB; positive Rec.709 composite-luma excess.",
+            "metrics": {
+              "pre_trim_band_pixels": 15757,
+              "surviving_band_pixels": 15757,
+              "reference_supplied": true,
+              "bg": [
+                58,
+                63,
+                74
+              ]
+            }
+          }
+        },
+        "clamp": {
+          "rim_luma_excess": {
+            "id": "matte_quality.rim_luma_excess",
+            "subject": "",
+            "passed": null,
+            "value": -3.9768174867339283,
+            "threshold": null,
+            "op": "<=",
+            "unit": "luma_0_255",
+            "evidence": [],
+            "notes": "Partial-alpha composite mean minus opaque ring mean; Euclidean 1\u20133 px; Rec.709 display luma.",
+            "metrics": {
+              "partial_band_pixels": 15757,
+              "opaque_ring_pixels": 20990,
+              "partial_band_mean": 53.66721360426178,
+              "opaque_ring_mean": 57.64403109099571,
+              "bg": [
+                58,
+                63,
+                74
+              ]
+            }
+          },
+          "alpha_area": {
+            "id": "matte_quality.alpha_area",
+            "subject": "",
+            "passed": null,
+            "value": 248304.30980392155,
+            "threshold": null,
+            "op": "<=",
+            "unit": "opaque_pixel_equivalents",
+            "evidence": [],
+            "notes": "Sum of alpha/255; transparent pixels contribute zero.",
+            "metrics": {
+              "support_pixels": 254380,
+              "opaque_pixels": 238623
+            }
+          },
+          "direct_luminance_fringe": {
+            "id": "matte_quality.direct_luminance_fringe",
+            "subject": "",
+            "passed": null,
+            "value": 14.02450106611814,
+            "threshold": null,
+            "op": "<=",
+            "unit": "luma_0_255",
+            "evidence": [],
+            "notes": "R-52: average over the PRE-TRIM partial-alpha band, replacing a post-trim denominator; frozen nearest-opaque reference RGB; positive Rec.709 composite-luma excess.",
+            "metrics": {
+              "pre_trim_band_pixels": 15757,
+              "surviving_band_pixels": 15757,
+              "reference_supplied": true,
+              "bg": [
+                58,
+                63,
+                74
+              ]
+            }
+          }
+        },
+        "alpha_byte_identical": true
+      },
+      "registered": {
+        "unpremultiply": {
+          "rim_luma_excess": {
+            "id": "matte_quality.rim_luma_excess",
+            "subject": "",
+            "passed": null,
+            "value": 0.5030124000283109,
+            "threshold": null,
+            "op": "<=",
+            "unit": "luma_0_255",
+            "evidence": [],
+            "notes": "Partial-alpha composite mean minus opaque ring mean; Euclidean 1\u20133 px; Rec.709 display luma.",
+            "metrics": {
+              "partial_band_pixels": 1022,
+              "opaque_ring_pixels": 3284,
+              "partial_band_mean": 63.04707494570431,
+              "opaque_ring_mean": 62.544062545676,
+              "bg": [
+                58,
+                63,
+                74
+              ]
+            }
+          },
+          "alpha_area": {
+            "id": "matte_quality.alpha_area",
+            "subject": "",
+            "passed": null,
+            "value": 11140.250980392157,
+            "threshold": null,
+            "op": "<=",
+            "unit": "opaque_pixel_equivalents",
+            "evidence": [],
+            "notes": "Sum of alpha/255; transparent pixels contribute zero.",
+            "metrics": {
+              "support_pixels": 11561,
+              "opaque_pixels": 10539
+            }
+          },
+          "direct_luminance_fringe": {
+            "id": "matte_quality.direct_luminance_fringe",
+            "subject": "",
+            "passed": null,
+            "value": 24.054738745251523,
+            "threshold": null,
+            "op": "<=",
+            "unit": "luma_0_255",
+            "evidence": [],
+            "notes": "R-52: average over the PRE-TRIM partial-alpha band, replacing a post-trim denominator; frozen nearest-opaque reference RGB; positive Rec.709 composite-luma excess.",
+            "metrics": {
+              "pre_trim_band_pixels": 1022,
+              "surviving_band_pixels": 1022,
+              "reference_supplied": true,
+              "bg": [
+                58,
+                63,
+                74
+              ]
+            }
+          }
+        },
+        "clamp": {
+          "rim_luma_excess": {
+            "id": "matte_quality.rim_luma_excess",
+            "subject": "",
+            "passed": null,
+            "value": -9.283310972168223,
+            "threshold": null,
+            "op": "<=",
+            "unit": "luma_0_255",
+            "evidence": [],
+            "notes": "Partial-alpha composite mean minus opaque ring mean; Euclidean 1\u20133 px; Rec.709 display luma.",
+            "metrics": {
+              "partial_band_pixels": 1022,
+              "opaque_ring_pixels": 3284,
+              "partial_band_mean": 53.16416369287441,
+              "opaque_ring_mean": 62.447474665042634,
+              "bg": [
+                58,
+                63,
+                74
+              ]
+            }
+          },
+          "alpha_area": {
+            "id": "matte_quality.alpha_area",
+            "subject": "",
+            "passed": null,
+            "value": 11140.250980392157,
+            "threshold": null,
+            "op": "<=",
+            "unit": "opaque_pixel_equivalents",
+            "evidence": [],
+            "notes": "Sum of alpha/255; transparent pixels contribute zero.",
+            "metrics": {
+              "support_pixels": 11561,
+              "opaque_pixels": 10539
+            }
+          },
+          "direct_luminance_fringe": {
+            "id": "matte_quality.direct_luminance_fringe",
+            "subject": "",
+            "passed": null,
+            "value": 11.422087243006791,
+            "threshold": null,
+            "op": "<=",
+            "unit": "luma_0_255",
+            "evidence": [],
+            "notes": "R-52: average over the PRE-TRIM partial-alpha band, replacing a post-trim denominator; frozen nearest-opaque reference RGB; positive Rec.709 composite-luma excess.",
+            "metrics": {
+              "pre_trim_band_pixels": 1022,
+              "surviving_band_pixels": 1022,
+              "reference_supplied": true,
+              "bg": [
+                58,
+                63,
+                74
+              ]
+            }
+          }
+        },
+        "alpha_byte_identical": true
+      },
+      "matte_notes": {
+        "unpremultiply": {
+          "method": "green excess matte + inverse straight-alpha compositing",
+          "removed_background_or_detached_alpha_dust_pixels": 89,
+          "native_input_alpha": false,
+          "alpha_floor": 40,
+          "alpha_floor_removed_pixels": 641035,
+          "edge_mode_requested": "unpremultiply",
+          "edge_mode_applied": "unpremultiply"
+        },
+        "clamp": {
+          "method": "green excess matte + inverse straight-alpha compositing + nearest fully-opaque RGB clamp",
+          "removed_background_or_detached_alpha_dust_pixels": 89,
+          "native_input_alpha": false,
+          "alpha_floor": 40,
+          "alpha_floor_removed_pixels": 641035,
+          "edge_mode_requested": "clamp",
+          "edge_mode_applied": "clamp"
+        }
+      },
+      "registered_edge_crop_xyxy": [
+        181,
+        202,
+        245,
+        266
+      ]
+    },
+    {
+      "frame": 12,
+      "native_index": 75,
+      "native": {
+        "unpremultiply": {
+          "rim_luma_excess": {
+            "id": "matte_quality.rim_luma_excess",
+            "subject": "",
+            "passed": null,
+            "value": 5.247652728155288,
+            "threshold": null,
+            "op": "<=",
+            "unit": "luma_0_255",
+            "evidence": [],
+            "notes": "Partial-alpha composite mean minus opaque ring mean; Euclidean 1\u20133 px; Rec.709 display luma.",
+            "metrics": {
+              "partial_band_pixels": 16324,
+              "opaque_ring_pixels": 20766,
+              "partial_band_mean": 63.968526117349164,
+              "opaque_ring_mean": 58.720873389193876,
+              "bg": [
+                58,
+                63,
+                74
+              ]
+            }
+          },
+          "alpha_area": {
+            "id": "matte_quality.alpha_area",
+            "subject": "",
+            "passed": null,
+            "value": 248051.79215686274,
+            "threshold": null,
+            "op": "<=",
+            "unit": "opaque_pixel_equivalents",
+            "evidence": [],
+            "notes": "Sum of alpha/255; transparent pixels contribute zero.",
+            "metrics": {
+              "support_pixels": 254455,
+              "opaque_pixels": 238131
+            }
+          },
+          "direct_luminance_fringe": {
+            "id": "matte_quality.direct_luminance_fringe",
+            "subject": "",
+            "passed": null,
+            "value": 32.8272697084048,
+            "threshold": null,
+            "op": "<=",
+            "unit": "luma_0_255",
+            "evidence": [],
+            "notes": "R-52: average over the PRE-TRIM partial-alpha band, replacing a post-trim denominator; frozen nearest-opaque reference RGB; positive Rec.709 composite-luma excess.",
+            "metrics": {
+              "pre_trim_band_pixels": 16324,
+              "surviving_band_pixels": 16324,
+              "reference_supplied": true,
+              "bg": [
+                58,
+                63,
+                74
+              ]
+            }
+          }
+        },
+        "clamp": {
+          "rim_luma_excess": {
+            "id": "matte_quality.rim_luma_excess",
+            "subject": "",
+            "passed": null,
+            "value": -2.8568253435879782,
+            "threshold": null,
+            "op": "<=",
+            "unit": "luma_0_255",
+            "evidence": [],
+            "notes": "Partial-alpha composite mean minus opaque ring mean; Euclidean 1\u20133 px; Rec.709 display luma.",
+            "metrics": {
+              "partial_band_pixels": 16324,
+              "opaque_ring_pixels": 20766,
+              "partial_band_mean": 55.8640480456059,
+              "opaque_ring_mean": 58.720873389193876,
+              "bg": [
+                58,
+                63,
+                74
+              ]
+            }
+          },
+          "alpha_area": {
+            "id": "matte_quality.alpha_area",
+            "subject": "",
+            "passed": null,
+            "value": 248051.79215686274,
+            "threshold": null,
+            "op": "<=",
+            "unit": "opaque_pixel_equivalents",
+            "evidence": [],
+            "notes": "Sum of alpha/255; transparent pixels contribute zero.",
+            "metrics": {
+              "support_pixels": 254455,
+              "opaque_pixels": 238131
+            }
+          },
+          "direct_luminance_fringe": {
+            "id": "matte_quality.direct_luminance_fringe",
+            "subject": "",
+            "passed": null,
+            "value": 13.639763538444537,
+            "threshold": null,
+            "op": "<=",
+            "unit": "luma_0_255",
+            "evidence": [],
+            "notes": "R-52: average over the PRE-TRIM partial-alpha band, replacing a post-trim denominator; frozen nearest-opaque reference RGB; positive Rec.709 composite-luma excess.",
+            "metrics": {
+              "pre_trim_band_pixels": 16324,
+              "surviving_band_pixels": 16324,
+              "reference_supplied": true,
+              "bg": [
+                58,
+                63,
+                74
+              ]
+            }
+          }
+        },
+        "alpha_byte_identical": true
+      },
+      "registered": {
+        "unpremultiply": {
+          "rim_luma_excess": {
+            "id": "matte_quality.rim_luma_excess",
+            "subject": "",
+            "passed": null,
+            "value": 0.3007754271473573,
+            "threshold": null,
+            "op": "<=",
+            "unit": "luma_0_255",
+            "evidence": [],
+            "notes": "Partial-alpha composite mean minus opaque ring mean; Euclidean 1\u20133 px; Rec.709 display luma.",
+            "metrics": {
+              "partial_band_pixels": 1061,
+              "opaque_ring_pixels": 3314,
+              "partial_band_mean": 63.1680791084992,
+              "opaque_ring_mean": 62.86730368135184,
+              "bg": [
+                58,
+                63,
+                74
+              ]
+            }
+          },
+          "alpha_area": {
+            "id": "matte_quality.alpha_area",
+            "subject": "",
+            "passed": null,
+            "value": 11133.007843137255,
+            "threshold": null,
+            "op": "<=",
+            "unit": "opaque_pixel_equivalents",
+            "evidence": [],
+            "notes": "Sum of alpha/255; transparent pixels contribute zero.",
+            "metrics": {
+              "support_pixels": 11575,
+              "opaque_pixels": 10514
+            }
+          },
+          "direct_luminance_fringe": {
+            "id": "matte_quality.direct_luminance_fringe",
+            "subject": "",
+            "passed": null,
+            "value": 23.200992592264047,
+            "threshold": null,
+            "op": "<=",
+            "unit": "luma_0_255",
+            "evidence": [],
+            "notes": "R-52: average over the PRE-TRIM partial-alpha band, replacing a post-trim denominator; frozen nearest-opaque reference RGB; positive Rec.709 composite-luma excess.",
+            "metrics": {
+              "pre_trim_band_pixels": 1061,
+              "surviving_band_pixels": 1061,
+              "reference_supplied": true,
+              "bg": [
+                58,
+                63,
+                74
+              ]
+            }
+          }
+        },
+        "clamp": {
+          "rim_luma_excess": {
+            "id": "matte_quality.rim_luma_excess",
+            "subject": "",
+            "passed": null,
+            "value": -6.240039638483793,
+            "threshold": null,
+            "op": "<=",
+            "unit": "luma_0_255",
+            "evidence": [],
+            "notes": "Partial-alpha composite mean minus opaque ring mean; Euclidean 1\u20133 px; Rec.709 display luma.",
+            "metrics": {
+              "partial_band_pixels": 1061,
+              "opaque_ring_pixels": 3314,
+              "partial_band_mean": 56.43950990889098,
+              "opaque_ring_mean": 62.679549547374776,
+              "bg": [
+                58,
+                63,
+                74
+              ]
+            }
+          },
+          "alpha_area": {
+            "id": "matte_quality.alpha_area",
+            "subject": "",
+            "passed": null,
+            "value": 11133.007843137255,
+            "threshold": null,
+            "op": "<=",
+            "unit": "opaque_pixel_equivalents",
+            "evidence": [],
+            "notes": "Sum of alpha/255; transparent pixels contribute zero.",
+            "metrics": {
+              "support_pixels": 11575,
+              "opaque_pixels": 10514
+            }
+          },
+          "direct_luminance_fringe": {
+            "id": "matte_quality.direct_luminance_fringe",
+            "subject": "",
+            "passed": null,
+            "value": 12.935267669789877,
+            "threshold": null,
+            "op": "<=",
+            "unit": "luma_0_255",
+            "evidence": [],
+            "notes": "R-52: average over the PRE-TRIM partial-alpha band, replacing a post-trim denominator; frozen nearest-opaque reference RGB; positive Rec.709 composite-luma excess.",
+            "metrics": {
+              "pre_trim_band_pixels": 1061,
+              "surviving_band_pixels": 1061,
+              "reference_supplied": true,
+              "bg": [
+                58,
+                63,
+                74
+              ]
+            }
+          }
+        },
+        "alpha_byte_identical": true
+      },
+      "matte_notes": {
+        "unpremultiply": {
+          "method": "green excess matte + inverse straight-alpha compositing",
+          "removed_background_or_detached_alpha_dust_pixels": 77,
+          "native_input_alpha": false,
+          "alpha_floor": 40,
+          "alpha_floor_removed_pixels": 641502,
+          "edge_mode_requested": "unpremultiply",
+          "edge_mode_applied": "unpremultiply"
+        },
+        "clamp": {
+          "method": "green excess matte + inverse straight-alpha compositing + nearest fully-opaque RGB clamp",
+          "removed_background_or_detached_alpha_dust_pixels": 77,
+          "native_input_alpha": false,
+          "alpha_floor": 40,
+          "alpha_floor_removed_pixels": 641502,
+          "edge_mode_requested": "clamp",
+          "edge_mode_applied": "clamp"
+        }
+      },
+      "registered_edge_crop_xyxy": [
+        181,
+        202,
+        245,
+        266
+      ]
+    },
+    {
+      "frame": 13,
+      "native_index": 81,
+      "native": {
+        "unpremultiply": {
+          "rim_luma_excess": {
+            "id": "matte_quality.rim_luma_excess",
+            "subject": "",
+            "passed": null,
+            "value": 4.390864390330343,
+            "threshold": null,
+            "op": "<=",
+            "unit": "luma_0_255",
+            "evidence": [],
+            "notes": "Partial-alpha composite mean minus opaque ring mean; Euclidean 1\u20133 px; Rec.709 display luma.",
+            "metrics": {
+              "partial_band_pixels": 16210,
+              "opaque_ring_pixels": 20808,
+              "partial_band_mean": 63.1349266452323,
+              "opaque_ring_mean": 58.744062254901955,
+              "bg": [
+                58,
+                63,
+                74
+              ]
+            }
+          },
+          "alpha_area": {
+            "id": "matte_quality.alpha_area",
+            "subject": "",
+            "passed": null,
+            "value": 247501.00392156863,
+            "threshold": null,
+            "op": "<=",
+            "unit": "opaque_pixel_equivalents",
+            "evidence": [],
+            "notes": "Sum of alpha/255; transparent pixels contribute zero.",
+            "metrics": {
+              "support_pixels": 253834,
+              "opaque_pixels": 237624
+            }
+          },
+          "direct_luminance_fringe": {
+            "id": "matte_quality.direct_luminance_fringe",
+            "subject": "",
+            "passed": null,
+            "value": 32.753071826444575,
+            "threshold": null,
+            "op": "<=",
+            "unit": "luma_0_255",
+            "evidence": [],
+            "notes": "R-52: average over the PRE-TRIM partial-alpha band, replacing a post-trim denominator; frozen nearest-opaque reference RGB; positive Rec.709 composite-luma excess.",
+            "metrics": {
+              "pre_trim_band_pixels": 16210,
+              "surviving_band_pixels": 16210,
+              "reference_supplied": true,
+              "bg": [
+                58,
+                63,
+                74
+              ]
+            }
+          }
+        },
+        "clamp": {
+          "rim_luma_excess": {
+            "id": "matte_quality.rim_luma_excess",
+            "subject": "",
+            "passed": null,
+            "value": -2.927928751303348,
+            "threshold": null,
+            "op": "<=",
+            "unit": "luma_0_255",
+            "evidence": [],
+            "notes": "Partial-alpha composite mean minus opaque ring mean; Euclidean 1\u20133 px; Rec.709 display luma.",
+            "metrics": {
+              "partial_band_pixels": 16210,
+              "opaque_ring_pixels": 20808,
+              "partial_band_mean": 55.81613350359861,
+              "opaque_ring_mean": 58.744062254901955,
+              "bg": [
+                58,
+                63,
+                74
+              ]
+            }
+          },
+          "alpha_area": {
+            "id": "matte_quality.alpha_area",
+            "subject": "",
+            "passed": null,
+            "value": 247501.00392156863,
+            "threshold": null,
+            "op": "<=",
+            "unit": "opaque_pixel_equivalents",
+            "evidence": [],
+            "notes": "Sum of alpha/255; transparent pixels contribute zero.",
+            "metrics": {
+              "support_pixels": 253834,
+              "opaque_pixels": 237624
+            }
+          },
+          "direct_luminance_fringe": {
+            "id": "matte_quality.direct_luminance_fringe",
+            "subject": "",
+            "passed": null,
+            "value": 13.74022497819066,
+            "threshold": null,
+            "op": "<=",
+            "unit": "luma_0_255",
+            "evidence": [],
+            "notes": "R-52: average over the PRE-TRIM partial-alpha band, replacing a post-trim denominator; frozen nearest-opaque reference RGB; positive Rec.709 composite-luma excess.",
+            "metrics": {
+              "pre_trim_band_pixels": 16210,
+              "surviving_band_pixels": 16210,
+              "reference_supplied": true,
+              "bg": [
+                58,
+                63,
+                74
+              ]
+            }
+          }
+        },
+        "alpha_byte_identical": true
+      },
+      "registered": {
+        "unpremultiply": {
+          "rim_luma_excess": {
+            "id": "matte_quality.rim_luma_excess",
+            "subject": "",
+            "passed": null,
+            "value": 1.2750621130493087,
+            "threshold": null,
+            "op": "<=",
+            "unit": "luma_0_255",
+            "evidence": [],
+            "notes": "Partial-alpha composite mean minus opaque ring mean; Euclidean 1\u20133 px; Rec.709 display luma.",
+            "metrics": {
+              "partial_band_pixels": 1055,
+              "opaque_ring_pixels": 3305,
+              "partial_band_mean": 64.24092365616579,
+              "opaque_ring_mean": 62.96586154311648,
+              "bg": [
+                58,
+                63,
+                74
+              ]
+            }
+          },
+          "alpha_area": {
+            "id": "matte_quality.alpha_area",
+            "subject": "",
+            "passed": null,
+            "value": 11106.843137254902,
+            "threshold": null,
+            "op": "<=",
+            "unit": "opaque_pixel_equivalents",
+            "evidence": [],
+            "notes": "Sum of alpha/255; transparent pixels contribute zero.",
+            "metrics": {
+              "support_pixels": 11538,
+              "opaque_pixels": 10483
+            }
+          },
+          "direct_luminance_fringe": {
+            "id": "matte_quality.direct_luminance_fringe",
+            "subject": "",
+            "passed": null,
+            "value": 22.283417854846203,
+            "threshold": null,
+            "op": "<=",
+            "unit": "luma_0_255",
+            "evidence": [],
+            "notes": "R-52: average over the PRE-TRIM partial-alpha band, replacing a post-trim denominator; frozen nearest-opaque reference RGB; positive Rec.709 composite-luma excess.",
+            "metrics": {
+              "pre_trim_band_pixels": 1055,
+              "surviving_band_pixels": 1055,
+              "reference_supplied": true,
+              "bg": [
+                58,
+                63,
+                74
+              ]
+            }
+          }
+        },
+        "clamp": {
+          "rim_luma_excess": {
+            "id": "matte_quality.rim_luma_excess",
+            "subject": "",
+            "passed": null,
+            "value": -6.8955260958020475,
+            "threshold": null,
+            "op": "<=",
+            "unit": "luma_0_255",
+            "evidence": [],
+            "notes": "Partial-alpha composite mean minus opaque ring mean; Euclidean 1\u20133 px; Rec.709 display luma.",
+            "metrics": {
+              "partial_band_pixels": 1055,
+              "opaque_ring_pixels": 3305,
+              "partial_band_mean": 55.940952330824274,
+              "opaque_ring_mean": 62.83647842662632,
+              "bg": [
+                58,
+                63,
+                74
+              ]
+            }
+          },
+          "alpha_area": {
+            "id": "matte_quality.alpha_area",
+            "subject": "",
+            "passed": null,
+            "value": 11106.843137254902,
+            "threshold": null,
+            "op": "<=",
+            "unit": "opaque_pixel_equivalents",
+            "evidence": [],
+            "notes": "Sum of alpha/255; transparent pixels contribute zero.",
+            "metrics": {
+              "support_pixels": 11538,
+              "opaque_pixels": 10483
+            }
+          },
+          "direct_luminance_fringe": {
+            "id": "matte_quality.direct_luminance_fringe",
+            "subject": "",
+            "passed": null,
+            "value": 11.451443898522442,
+            "threshold": null,
+            "op": "<=",
+            "unit": "luma_0_255",
+            "evidence": [],
+            "notes": "R-52: average over the PRE-TRIM partial-alpha band, replacing a post-trim denominator; frozen nearest-opaque reference RGB; positive Rec.709 composite-luma excess.",
+            "metrics": {
+              "pre_trim_band_pixels": 1055,
+              "surviving_band_pixels": 1055,
+              "reference_supplied": true,
+              "bg": [
+                58,
+                63,
+                74
+              ]
+            }
+          }
+        },
+        "alpha_byte_identical": true
+      },
+      "matte_notes": {
+        "unpremultiply": {
+          "method": "green excess matte + inverse straight-alpha compositing",
+          "removed_background_or_detached_alpha_dust_pixels": 84,
+          "native_input_alpha": false,
+          "alpha_floor": 40,
+          "alpha_floor_removed_pixels": 640240,
+          "edge_mode_requested": "unpremultiply",
+          "edge_mode_applied": "unpremultiply"
+        },
+        "clamp": {
+          "method": "green excess matte + inverse straight-alpha compositing + nearest fully-opaque RGB clamp",
+          "removed_background_or_detached_alpha_dust_pixels": 84,
+          "native_input_alpha": false,
+          "alpha_floor": 40,
+          "alpha_floor_removed_pixels": 640240,
+          "edge_mode_requested": "clamp",
+          "edge_mode_applied": "clamp"
+        }
+      },
+      "registered_edge_crop_xyxy": [
+        181,
+        202,
+        245,
+        266
+      ]
+    },
+    {
+      "frame": 14,
+      "native_index": 87,
+      "native": {
+        "unpremultiply": {
+          "rim_luma_excess": {
+            "id": "matte_quality.rim_luma_excess",
+            "subject": "",
+            "passed": null,
+            "value": 3.470675672374327,
+            "threshold": null,
+            "op": "<=",
+            "unit": "luma_0_255",
+            "evidence": [],
+            "notes": "Partial-alpha composite mean minus opaque ring mean; Euclidean 1\u20133 px; Rec.709 display luma.",
+            "metrics": {
+              "partial_band_pixels": 16388,
+              "opaque_ring_pixels": 20841,
+              "partial_band_mean": 62.17961960980535,
+              "opaque_ring_mean": 58.70894393743102,
+              "bg": [
+                58,
+                63,
+                74
+              ]
+            }
+          },
+          "alpha_area": {
+            "id": "matte_quality.alpha_area",
+            "subject": "",
+            "passed": null,
+            "value": 246974.44313725492,
+            "threshold": null,
+            "op": "<=",
+            "unit": "opaque_pixel_equivalents",
+            "evidence": [],
+            "notes": "Sum of alpha/255; transparent pixels contribute zero.",
+            "metrics": {
+              "support_pixels": 253397,
+              "opaque_pixels": 237009
+            }
+          },
+          "direct_luminance_fringe": {
+            "id": "matte_quality.direct_luminance_fringe",
+            "subject": "",
+            "passed": null,
+            "value": 32.94627104629403,
+            "threshold": null,
+            "op": "<=",
+            "unit": "luma_0_255",
+            "evidence": [],
+            "notes": "R-52: average over the PRE-TRIM partial-alpha band, replacing a post-trim denominator; frozen nearest-opaque reference RGB; positive Rec.709 composite-luma excess.",
+            "metrics": {
+              "pre_trim_band_pixels": 16388,
+              "surviving_band_pixels": 16388,
+              "reference_supplied": true,
+              "bg": [
+                58,
+                63,
+                74
+              ]
+            }
+          }
+        },
+        "clamp": {
+          "rim_luma_excess": {
+            "id": "matte_quality.rim_luma_excess",
+            "subject": "",
+            "passed": null,
+            "value": -4.162877548968879,
+            "threshold": null,
+            "op": "<=",
+            "unit": "luma_0_255",
+            "evidence": [],
+            "notes": "Partial-alpha composite mean minus opaque ring mean; Euclidean 1\u20133 px; Rec.709 display luma.",
+            "metrics": {
+              "partial_band_pixels": 16388,
+              "opaque_ring_pixels": 20841,
+              "partial_band_mean": 54.546066388462144,
+              "opaque_ring_mean": 58.70894393743102,
+              "bg": [
+                58,
+                63,
+                74
+              ]
+            }
+          },
+          "alpha_area": {
+            "id": "matte_quality.alpha_area",
+            "subject": "",
+            "passed": null,
+            "value": 246974.44313725492,
+            "threshold": null,
+            "op": "<=",
+            "unit": "opaque_pixel_equivalents",
+            "evidence": [],
+            "notes": "Sum of alpha/255; transparent pixels contribute zero.",
+            "metrics": {
+              "support_pixels": 253397,
+              "opaque_pixels": 237009
+            }
+          },
+          "direct_luminance_fringe": {
+            "id": "matte_quality.direct_luminance_fringe",
+            "subject": "",
+            "passed": null,
+            "value": 13.925557823275758,
+            "threshold": null,
+            "op": "<=",
+            "unit": "luma_0_255",
+            "evidence": [],
+            "notes": "R-52: average over the PRE-TRIM partial-alpha band, replacing a post-trim denominator; frozen nearest-opaque reference RGB; positive Rec.709 composite-luma excess.",
+            "metrics": {
+              "pre_trim_band_pixels": 16388,
+              "surviving_band_pixels": 16388,
+              "reference_supplied": true,
+              "bg": [
+                58,
+                63,
+                74
+              ]
+            }
+          }
+        },
+        "alpha_byte_identical": true
+      },
+      "registered": {
+        "unpremultiply": {
+          "rim_luma_excess": {
+            "id": "matte_quality.rim_luma_excess",
+            "subject": "",
+            "passed": null,
+            "value": -1.8446585345414164,
+            "threshold": null,
+            "op": "<=",
+            "unit": "luma_0_255",
+            "evidence": [],
+            "notes": "Partial-alpha composite mean minus opaque ring mean; Euclidean 1\u20133 px; Rec.709 display luma.",
+            "metrics": {
+              "partial_band_pixels": 1039,
+              "opaque_ring_pixels": 3287,
+              "partial_band_mean": 61.33409412746041,
+              "opaque_ring_mean": 63.17875266200183,
+              "bg": [
+                58,
+                63,
+                74
+              ]
+            }
+          },
+          "alpha_area": {
+            "id": "matte_quality.alpha_area",
+            "subject": "",
+            "passed": null,
+            "value": 11078.592156862745,
+            "threshold": null,
+            "op": "<=",
+            "unit": "opaque_pixel_equivalents",
+            "evidence": [],
+            "notes": "Sum of alpha/255; transparent pixels contribute zero.",
+            "metrics": {
+              "support_pixels": 11511,
+              "opaque_pixels": 10472
+            }
+          },
+          "direct_luminance_fringe": {
+            "id": "matte_quality.direct_luminance_fringe",
+            "subject": "",
+            "passed": null,
+            "value": 21.853642341618073,
+            "threshold": null,
+            "op": "<=",
+            "unit": "luma_0_255",
+            "evidence": [],
+            "notes": "R-52: average over the PRE-TRIM partial-alpha band, replacing a post-trim denominator; frozen nearest-opaque reference RGB; positive Rec.709 composite-luma excess.",
+            "metrics": {
+              "pre_trim_band_pixels": 1039,
+              "surviving_band_pixels": 1039,
+              "reference_supplied": true,
+              "bg": [
+                58,
+                63,
+                74
+              ]
+            }
+          }
+        },
+        "clamp": {
+          "rim_luma_excess": {
+            "id": "matte_quality.rim_luma_excess",
+            "subject": "",
+            "passed": null,
+            "value": -8.946470596367348,
+            "threshold": null,
+            "op": "<=",
+            "unit": "luma_0_255",
+            "evidence": [],
+            "notes": "Partial-alpha composite mean minus opaque ring mean; Euclidean 1\u20133 px; Rec.709 display luma.",
+            "metrics": {
+              "partial_band_pixels": 1039,
+              "opaque_ring_pixels": 3287,
+              "partial_band_mean": 54.07932897771235,
+              "opaque_ring_mean": 63.0257995740797,
+              "bg": [
+                58,
+                63,
+                74
+              ]
+            }
+          },
+          "alpha_area": {
+            "id": "matte_quality.alpha_area",
+            "subject": "",
+            "passed": null,
+            "value": 11078.592156862745,
+            "threshold": null,
+            "op": "<=",
+            "unit": "opaque_pixel_equivalents",
+            "evidence": [],
+            "notes": "Sum of alpha/255; transparent pixels contribute zero.",
+            "metrics": {
+              "support_pixels": 11511,
+              "opaque_pixels": 10472
+            }
+          },
+          "direct_luminance_fringe": {
+            "id": "matte_quality.direct_luminance_fringe",
+            "subject": "",
+            "passed": null,
+            "value": 11.02042582422767,
+            "threshold": null,
+            "op": "<=",
+            "unit": "luma_0_255",
+            "evidence": [],
+            "notes": "R-52: average over the PRE-TRIM partial-alpha band, replacing a post-trim denominator; frozen nearest-opaque reference RGB; positive Rec.709 composite-luma excess.",
+            "metrics": {
+              "pre_trim_band_pixels": 1039,
+              "surviving_band_pixels": 1039,
+              "reference_supplied": true,
+              "bg": [
+                58,
+                63,
+                74
+              ]
+            }
+          }
+        },
+        "alpha_byte_identical": true
+      },
+      "matte_notes": {
+        "unpremultiply": {
+          "method": "green excess matte + inverse straight-alpha compositing",
+          "removed_background_or_detached_alpha_dust_pixels": 84,
+          "native_input_alpha": false,
+          "alpha_floor": 40,
+          "alpha_floor_removed_pixels": 642269,
+          "edge_mode_requested": "unpremultiply",
+          "edge_mode_applied": "unpremultiply"
+        },
+        "clamp": {
+          "method": "green excess matte + inverse straight-alpha compositing + nearest fully-opaque RGB clamp",
+          "removed_background_or_detached_alpha_dust_pixels": 84,
+          "native_input_alpha": false,
+          "alpha_floor": 40,
+          "alpha_floor_removed_pixels": 642269,
+          "edge_mode_requested": "clamp",
+          "edge_mode_applied": "clamp"
+        }
+      },
+      "registered_edge_crop_xyxy": [
+        180,
+        201,
+        244,
+        265
+      ]
+    },
+    {
+      "frame": 15,
+      "native_index": 93,
+      "native": {
+        "unpremultiply": {
+          "rim_luma_excess": {
+            "id": "matte_quality.rim_luma_excess",
+            "subject": "",
+            "passed": null,
+            "value": 2.6432907969519874,
+            "threshold": null,
+            "op": "<=",
+            "unit": "luma_0_255",
+            "evidence": [],
+            "notes": "Partial-alpha composite mean minus opaque ring mean; Euclidean 1\u20133 px; Rec.709 display luma.",
+            "metrics": {
+              "partial_band_pixels": 16223,
+              "opaque_ring_pixels": 20766,
+              "partial_band_mean": 61.29796677691924,
+              "opaque_ring_mean": 58.65467597996725,
+              "bg": [
+                58,
+                63,
+                74
+              ]
+            }
+          },
+          "alpha_area": {
+            "id": "matte_quality.alpha_area",
+            "subject": "",
+            "passed": null,
+            "value": 246478.12549019608,
+            "threshold": null,
+            "op": "<=",
+            "unit": "opaque_pixel_equivalents",
+            "evidence": [],
+            "notes": "Sum of alpha/255; transparent pixels contribute zero.",
+            "metrics": {
+              "support_pixels": 252942,
+              "opaque_pixels": 236719
+            }
+          },
+          "direct_luminance_fringe": {
+            "id": "matte_quality.direct_luminance_fringe",
+            "subject": "",
+            "passed": null,
+            "value": 32.175861678493256,
+            "threshold": null,
+            "op": "<=",
+            "unit": "luma_0_255",
+            "evidence": [],
+            "notes": "R-52: average over the PRE-TRIM partial-alpha band, replacing a post-trim denominator; frozen nearest-opaque reference RGB; positive Rec.709 composite-luma excess.",
+            "metrics": {
+              "pre_trim_band_pixels": 16223,
+              "surviving_band_pixels": 16223,
+              "reference_supplied": true,
+              "bg": [
+                58,
+                63,
+                74
+              ]
+            }
+          }
+        },
+        "clamp": {
+          "rim_luma_excess": {
+            "id": "matte_quality.rim_luma_excess",
+            "subject": "",
+            "passed": null,
+            "value": -3.937900724840482,
+            "threshold": null,
+            "op": "<=",
+            "unit": "luma_0_255",
+            "evidence": [],
+            "notes": "Partial-alpha composite mean minus opaque ring mean; Euclidean 1\u20133 px; Rec.709 display luma.",
+            "metrics": {
+              "partial_band_pixels": 16223,
+              "opaque_ring_pixels": 20766,
+              "partial_band_mean": 54.71677525512677,
+              "opaque_ring_mean": 58.65467597996725,
+              "bg": [
+                58,
+                63,
+                74
+              ]
+            }
+          },
+          "alpha_area": {
+            "id": "matte_quality.alpha_area",
+            "subject": "",
+            "passed": null,
+            "value": 246478.12549019608,
+            "threshold": null,
+            "op": "<=",
+            "unit": "opaque_pixel_equivalents",
+            "evidence": [],
+            "notes": "Sum of alpha/255; transparent pixels contribute zero.",
+            "metrics": {
+              "support_pixels": 252942,
+              "opaque_pixels": 236719
+            }
+          },
+          "direct_luminance_fringe": {
+            "id": "matte_quality.direct_luminance_fringe",
+            "subject": "",
+            "passed": null,
+            "value": 13.75069026999914,
+            "threshold": null,
+            "op": "<=",
+            "unit": "luma_0_255",
+            "evidence": [],
+            "notes": "R-52: average over the PRE-TRIM partial-alpha band, replacing a post-trim denominator; frozen nearest-opaque reference RGB; positive Rec.709 composite-luma excess.",
+            "metrics": {
+              "pre_trim_band_pixels": 16223,
+              "surviving_band_pixels": 16223,
+              "reference_supplied": true,
+              "bg": [
+                58,
+                63,
+                74
+              ]
+            }
+          }
+        },
+        "alpha_byte_identical": true
+      },
+      "registered": {
+        "unpremultiply": {
+          "rim_luma_excess": {
+            "id": "matte_quality.rim_luma_excess",
+            "subject": "",
+            "passed": null,
+            "value": -1.9262512174912132,
+            "threshold": null,
+            "op": "<=",
+            "unit": "luma_0_255",
+            "evidence": [],
+            "notes": "Partial-alpha composite mean minus opaque ring mean; Euclidean 1\u20133 px; Rec.709 display luma.",
+            "metrics": {
+              "partial_band_pixels": 1053,
+              "opaque_ring_pixels": 3313,
+              "partial_band_mean": 60.97682695938774,
+              "opaque_ring_mean": 62.90307817687896,
+              "bg": [
+                58,
+                63,
+                74
+              ]
+            }
+          },
+          "alpha_area": {
+            "id": "matte_quality.alpha_area",
+            "subject": "",
+            "passed": null,
+            "value": 11053.964705882352,
+            "threshold": null,
+            "op": "<=",
+            "unit": "opaque_pixel_equivalents",
+            "evidence": [],
+            "notes": "Sum of alpha/255; transparent pixels contribute zero.",
+            "metrics": {
+              "support_pixels": 11491,
+              "opaque_pixels": 10438
+            }
+          },
+          "direct_luminance_fringe": {
+            "id": "matte_quality.direct_luminance_fringe",
+            "subject": "",
+            "passed": null,
+            "value": 20.72964824385975,
+            "threshold": null,
+            "op": "<=",
+            "unit": "luma_0_255",
+            "evidence": [],
+            "notes": "R-52: average over the PRE-TRIM partial-alpha band, replacing a post-trim denominator; frozen nearest-opaque reference RGB; positive Rec.709 composite-luma excess.",
+            "metrics": {
+              "pre_trim_band_pixels": 1053,
+              "surviving_band_pixels": 1053,
+              "reference_supplied": true,
+              "bg": [
+                58,
+                63,
+                74
+              ]
+            }
+          }
+        },
+        "clamp": {
+          "rim_luma_excess": {
+            "id": "matte_quality.rim_luma_excess",
+            "subject": "",
+            "passed": null,
+            "value": -8.36721761980256,
+            "threshold": null,
+            "op": "<=",
+            "unit": "luma_0_255",
+            "evidence": [],
+            "notes": "Partial-alpha composite mean minus opaque ring mean; Euclidean 1\u20133 px; Rec.709 display luma.",
+            "metrics": {
+              "partial_band_pixels": 1053,
+              "opaque_ring_pixels": 3313,
+              "partial_band_mean": 54.38300942517178,
+              "opaque_ring_mean": 62.75022704497434,
+              "bg": [
+                58,
+                63,
+                74
+              ]
+            }
+          },
+          "alpha_area": {
+            "id": "matte_quality.alpha_area",
+            "subject": "",
+            "passed": null,
+            "value": 11053.964705882352,
+            "threshold": null,
+            "op": "<=",
+            "unit": "opaque_pixel_equivalents",
+            "evidence": [],
+            "notes": "Sum of alpha/255; transparent pixels contribute zero.",
+            "metrics": {
+              "support_pixels": 11491,
+              "opaque_pixels": 10438
+            }
+          },
+          "direct_luminance_fringe": {
+            "id": "matte_quality.direct_luminance_fringe",
+            "subject": "",
+            "passed": null,
+            "value": 10.638252859616781,
+            "threshold": null,
+            "op": "<=",
+            "unit": "luma_0_255",
+            "evidence": [],
+            "notes": "R-52: average over the PRE-TRIM partial-alpha band, replacing a post-trim denominator; frozen nearest-opaque reference RGB; positive Rec.709 composite-luma excess.",
+            "metrics": {
+              "pre_trim_band_pixels": 1053,
+              "surviving_band_pixels": 1053,
+              "reference_supplied": true,
+              "bg": [
+                58,
+                63,
+                74
+              ]
+            }
+          }
+        },
+        "alpha_byte_identical": true
+      },
+      "matte_notes": {
+        "unpremultiply": {
+          "method": "green excess matte + inverse straight-alpha compositing",
+          "removed_background_or_detached_alpha_dust_pixels": 101,
+          "native_input_alpha": false,
+          "alpha_floor": 40,
+          "alpha_floor_removed_pixels": 640534,
+          "edge_mode_requested": "unpremultiply",
+          "edge_mode_applied": "unpremultiply"
+        },
+        "clamp": {
+          "method": "green excess matte + inverse straight-alpha compositing + nearest fully-opaque RGB clamp",
+          "removed_background_or_detached_alpha_dust_pixels": 101,
+          "native_input_alpha": false,
+          "alpha_floor": 40,
+          "alpha_floor_removed_pixels": 640534,
+          "edge_mode_requested": "clamp",
+          "edge_mode_applied": "clamp"
+        }
+      },
+      "registered_edge_crop_xyxy": [
+        180,
+        201,
+        244,
+        265
+      ]
+    }
+  ],
+  "summary": {
+    "native": {
+      "unpremultiply": {
+        "mean": 4.806136567630854,
+        "minimum": 1.0538710108049614,
+        "maximum": 8.04722656571819,
+        "evaluable_frames": 16,
+        "total_frames": 16
+      },
+      "clamp": {
+        "mean": -4.176958658596163,
+        "minimum": -5.389181774635958,
+        "maximum": -2.812844616150201,
+        "evaluable_frames": 16,
+        "total_frames": 16
+      },
+      "alpha_area": {
+        "unpremultiply": 3960373.9960784316,
+        "clamp": 3960373.9960784316,
+        "lost_percent": 0.0,
+        "byte_identical_all_frames": true
+      },
+      "criteria": [
+        {
+          "id": "matte_quality.rim_luma_excess",
+          "subject": "native/unpremultiply",
+          "passed": null,
+          "value": 4.806136567630854,
+          "threshold": 5,
+          "op": ">",
+          "unit": "luma_0_255",
+          "evidence": [
+            "edge_crops.png"
+          ],
+          "notes": "Known-bad reproduction; mean of 16 per-frame measurements; conductor evaluates."
+        },
+        {
+          "id": "matte_quality.rim_luma_excess",
+          "subject": "native/clamp",
+          "passed": null,
+          "value": -4.176958658596163,
+          "threshold": 5,
+          "op": "<=",
+          "unit": "luma_0_255",
+          "evidence": [
+            "edge_crops.png"
+          ],
+          "notes": "Mean of 16 per-frame measurements; ranges also reported; conductor evaluates."
+        },
+        {
+          "id": "matte_quality.alpha_area_lost",
+          "subject": "native",
+          "passed": null,
+          "value": 0.0,
+          "threshold": 1,
+          "op": "<=",
+          "unit": "percent",
+          "evidence": [],
+          "notes": "Integrated alpha area; expected zero; conductor evaluates."
+        }
+      ]
+    },
+    "registered": {
+      "unpremultiply": {
+        "mean": 0.08800821413375948,
+        "minimum": -3.114932910699288,
+        "maximum": 3.6871608524592077,
+        "evaluable_frames": 16,
+        "total_frames": 16
+      },
+      "clamp": {
+        "mean": -8.262200438349012,
+        "minimum": -10.505748110659127,
+        "maximum": -6.240039638483793,
+        "evaluable_frames": 16,
+        "total_frames": 16
+      },
+      "alpha_area": {
+        "unpremultiply": 177675.40784313725,
+        "clamp": 177675.40784313725,
+        "lost_percent": 0.0,
+        "byte_identical_all_frames": true
+      },
+      "criteria": [
+        {
+          "id": "matte_quality.rim_luma_excess",
+          "subject": "registered/unpremultiply",
+          "passed": null,
+          "value": 0.08800821413375948,
+          "threshold": 5,
+          "op": ">",
+          "unit": "luma_0_255",
+          "evidence": [
+            "edge_crops.png"
+          ],
+          "notes": "Known-bad reproduction; mean of 16 per-frame measurements; conductor evaluates."
+        },
+        {
+          "id": "matte_quality.rim_luma_excess",
+          "subject": "registered/clamp",
+          "passed": null,
+          "value": -8.262200438349012,
+          "threshold": 5,
+          "op": "<=",
+          "unit": "luma_0_255",
+          "evidence": [
+            "edge_crops.png"
+          ],
+          "notes": "Mean of 16 per-frame measurements; ranges also reported; conductor evaluates."
+        },
+        {
+          "id": "matte_quality.alpha_area_lost",
+          "subject": "registered",
+          "passed": null,
+          "value": 0.0,
+          "threshold": 1,
+          "op": "<=",
+          "unit": "percent",
+          "evidence": [],
+          "notes": "Integrated alpha area; expected zero; conductor evaluates."
+        }
+      ]
+    }
+  },
+  "timings": {
+    "decode_s": 0.3251785410029697,
+    "unpremultiply_matte_s": 2.080699956000899,
+    "clamp_matte_s": 2.454622585006291,
+    "total_s": 9.152153958006238
+  },
+  "decoded_temporaries_removed": true,
+  "source_sha256": {
+    "runs/C-1/xvideo/in/idle_C_grok.mp4": "c98c1e2370a1db3654a6ca09e343ff204865755af2456a1ba3750ece865733cf",
+    "runs/C-1/artifacts/K3p-xv-idle-cut-01/registration.json": "27993bc0117aed8f16625189f3685c8de8bacb58bd5cdca9297eb02daf0b5308"
+  },
+  "notes": [
+    "No acceptance verdicts; thresholds are reported for the conductor.",
+    "direct_luminance_fringe was absent from the permitted pre-T3b modules; added with explicit untrimmed reference.",
+    "Original K3p affine bicubic registration is replayed with one scale and translation for every frame and both modes."
+  ]
+}

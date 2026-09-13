@@ -1,0 +1,171 @@
+{
+  "task_id": "T3b",
+  "suite": {
+    "tests_run": 223,
+    "successful_tests": 217,
+    "elapsed_s": 89.05969054099842
+  },
+  "reds": [
+    "test_k3_combat_report_only (test_idle_intent.Tests.test_k3_combat_report_only)",
+    "test_synthetic_contract_and_grid (test_oracle_walk.Tests.test_synthetic_contract_and_grid)",
+    "test_f04_outside_at_least_three (test_oracles_motif.Tests.test_f04_outside_at_least_three)",
+    "test_named_genuine_annuli_retained (test_oracles_motif.Tests.test_named_genuine_annuli_retained) (center=[113, 201])",
+    "test_named_genuine_annuli_retained (test_oracles_motif.Tests.test_named_genuine_annuli_retained) (center=[111, 311])",
+    "test_named_genuine_annuli_retained (test_oracles_motif.Tests.test_named_genuine_annuli_retained) (center=[170, 253])"
+  ],
+  "new_synthetic_tests": {
+    "tests_run": 16,
+    "successful": 16,
+    "elapsed_s": 0.067,
+    "rim_luma_excess": {
+      "unpremultiply": 10.859609490490946,
+      "clamp": 7.434396241191223
+    }
+  },
+  "regression": {
+    "tolerance": 0.001,
+    "compared": 1880,
+    "differences": [],
+    "within_tolerance": true
+  },
+  "real_frame_acceptance": {
+    "native": {
+      "unpremultiply": {
+        "mean": 4.806136567630854,
+        "minimum": 1.0538710108049614,
+        "maximum": 8.04722656571819,
+        "evaluable_frames": 16,
+        "total_frames": 16
+      },
+      "clamp": {
+        "mean": -4.176958658596163,
+        "minimum": -5.389181774635958,
+        "maximum": -2.812844616150201,
+        "evaluable_frames": 16,
+        "total_frames": 16
+      },
+      "alpha_area": {
+        "unpremultiply": 3960373.9960784316,
+        "clamp": 3960373.9960784316,
+        "lost_percent": 0.0,
+        "byte_identical_all_frames": true
+      },
+      "criteria": [
+        {
+          "id": "matte_quality.rim_luma_excess",
+          "subject": "native/unpremultiply",
+          "passed": null,
+          "value": 4.806136567630854,
+          "threshold": 5,
+          "op": ">",
+          "unit": "luma_0_255",
+          "evidence": [
+            "edge_crops.png"
+          ],
+          "notes": "Known-bad reproduction; mean of 16 per-frame measurements; conductor evaluates."
+        },
+        {
+          "id": "matte_quality.rim_luma_excess",
+          "subject": "native/clamp",
+          "passed": null,
+          "value": -4.176958658596163,
+          "threshold": 5,
+          "op": "<=",
+          "unit": "luma_0_255",
+          "evidence": [
+            "edge_crops.png"
+          ],
+          "notes": "Mean of 16 per-frame measurements; ranges also reported; conductor evaluates."
+        },
+        {
+          "id": "matte_quality.alpha_area_lost",
+          "subject": "native",
+          "passed": null,
+          "value": 0.0,
+          "threshold": 1,
+          "op": "<=",
+          "unit": "percent",
+          "evidence": [],
+          "notes": "Integrated alpha area; expected zero; conductor evaluates."
+        }
+      ]
+    },
+    "registered": {
+      "unpremultiply": {
+        "mean": 0.08800821413375948,
+        "minimum": -3.114932910699288,
+        "maximum": 3.6871608524592077,
+        "evaluable_frames": 16,
+        "total_frames": 16
+      },
+      "clamp": {
+        "mean": -8.262200438349012,
+        "minimum": -10.505748110659127,
+        "maximum": -6.240039638483793,
+        "evaluable_frames": 16,
+        "total_frames": 16
+      },
+      "alpha_area": {
+        "unpremultiply": 177675.40784313725,
+        "clamp": 177675.40784313725,
+        "lost_percent": 0.0,
+        "byte_identical_all_frames": true
+      },
+      "criteria": [
+        {
+          "id": "matte_quality.rim_luma_excess",
+          "subject": "registered/unpremultiply",
+          "passed": null,
+          "value": 0.08800821413375948,
+          "threshold": 5,
+          "op": ">",
+          "unit": "luma_0_255",
+          "evidence": [
+            "edge_crops.png"
+          ],
+          "notes": "Known-bad reproduction; mean of 16 per-frame measurements; conductor evaluates."
+        },
+        {
+          "id": "matte_quality.rim_luma_excess",
+          "subject": "registered/clamp",
+          "passed": null,
+          "value": -8.262200438349012,
+          "threshold": 5,
+          "op": "<=",
+          "unit": "luma_0_255",
+          "evidence": [
+            "edge_crops.png"
+          ],
+          "notes": "Mean of 16 per-frame measurements; ranges also reported; conductor evaluates."
+        },
+        {
+          "id": "matte_quality.alpha_area_lost",
+          "subject": "registered",
+          "passed": null,
+          "value": 0.0,
+          "threshold": 1,
+          "op": "<=",
+          "unit": "percent",
+          "evidence": [],
+          "notes": "Integrated alpha area; expected zero; conductor evaluates."
+        }
+      ]
+    }
+  },
+  "wall_times": {
+    "acceptance_s": 9.152153958006238,
+    "suite_s": 89.05969054099842,
+    "burst_elapsed_at_summary_s": 460.71332,
+    "burst_cap_s": 2400
+  },
+  "known_bad_note": "Unpremultiply >5 mean was not reproduced: native 4.806136567630854; registered 0.08800821413375948. Threshold and metric were not changed to rescue it.",
+  "implementation_note": "direct_luminance_fringe did not exist in the permitted pre-T3b source files; added with explicit untrimmed_rgba reference and fixed pre-trim denominator.",
+  "read_scope_note": "Initial SPEC section filter also exposed the adjacent T3a-1 row because that row mentions T3b; no other source files were opened beyond the named list.",
+  "temporaries": {
+    "acceptance_files_remaining": 0,
+    "tests_tmp_files_remaining": 8
+  },
+  "image_calls": 0,
+  "acceptance_runs": 1,
+  "full_suite_runs": 1
+}

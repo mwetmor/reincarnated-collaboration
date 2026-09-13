@@ -9,7 +9,6 @@ the series; fps arguments always mean the source/native fps. Periods, window
 bounds and returned indices are native frame units, including at half rate.
 Masks alone suffice for tracking/periods, but never fabricate RGB seam MAD.
 """
-import inspect
 import argparse
 import hashlib
 import json
@@ -103,22 +102,17 @@ def split(clip, out_dir, t_max_s=4.4, half_rate=False):
 
 
 def matte_frames(paths, alpha_floor=40, edge_mode='unpremultiply'):
-    """Return RGBA PIL frames; ``.notes`` records ignored pre-T3b edge_mode."""
+    """Return RGBA PIL frames with the requested matte edge mode and notes."""
     if edge_mode not in ('unpremultiply', 'clamp'):
         raise ValueError('edge_mode must be unpremultiply or clamp')
-    supports_edge = 'edge_mode' in inspect.signature(extract).parameters
-    kwargs = dict(alpha_floor=alpha_floor)
-    if supports_edge:
-        kwargs['edge_mode'] = edge_mode
+    kwargs = dict(alpha_floor=alpha_floor, edge_mode=edge_mode)
     frames = FrameSequence()
     frames.notes = []
     for path in paths:
         with Image.open(path) as image:
             frame, note = extract(image, **kwargs)
         note = dict(note, edge_mode_requested=edge_mode,
-                    edge_mode_applied=edge_mode if supports_edge else 'unpremultiply')
-        if not supports_edge:
-            note['edge_mode_note'] = 'edge_mode ignored: frozen extract predates T3b'
+                    edge_mode_applied=edge_mode)
         frames.append(frame)
         frames.notes.append(note)
     if not frames:

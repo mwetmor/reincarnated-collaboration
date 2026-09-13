@@ -8,7 +8,15 @@ import numpy as np
 from PIL import Image
 from scipy import ndimage
 
-def extract(image, preserve_particles=False, alpha_floor=None):
+def extract(image, preserve_particles=False, alpha_floor=None, edge_mode='unpremultiply'):
+    """Extract straight RGBA; clamp changes only partial-alpha RGB.
+
+    Nearest neighbours are surviving alpha=255 pixels in Euclidean distance.
+    A clamp matte without any opaque donor is undefined and raises ValueError.
+    The default retains the historical pixels and metadata exactly.
+    """
+    if edge_mode not in ('unpremultiply', 'clamp'):
+        raise ValueError("edge_mode must be unpremultiply or clamp")
     if alpha_floor is not None and (not np.isfinite(alpha_floor) or not 0<=alpha_floor<=255):
         raise ValueError("alpha_floor must be in 0..255 alpha units")
     a = np.array(image.convert('RGBA')).astype(float)
@@ -51,10 +59,20 @@ def extract(image, preserve_particles=False, alpha_floor=None):
     mask = out[...,3] >= 128
     if mask.sum() < 100:
         raise ValueError('Empty extracted subject')
+    if edge_mode == 'clamp':
+        partial = (out[...,3] > 0) & (out[...,3] < 255)
+        opaque = out[...,3] == 255
+        if partial.any():
+            if not opaque.any():
+                raise ValueError('clamp requires a fully opaque neighbour')
+            nearest = ndimage.distance_transform_edt(~opaque, return_distances=False,
+                                                     return_indices=True)
+            out[partial, :3] = out[nearest[0][partial], nearest[1][partial], :3]
+        method += ' + nearest fully-opaque RGB clamp'
     return Image.fromarray(out), {'method':method, 'removed_background_or_detached_alpha_dust_pixels':dust,
                                 'native_input_alpha':native, 'alpha_floor':alpha_floor,
                                 'alpha_floor_removed_pixels':floor_removed}
 
 
-def remove_chroma_key(image, preserve_particles=False, alpha_floor=None):
-    return extract(image, preserve_particles=preserve_particles, alpha_floor=alpha_floor)[0]
+def remove_chroma_key(image, preserve_particles=False, alpha_floor=None, edge_mode='unpremultiply'):
+    return extract(image, preserve_particles=preserve_particles, alpha_floor=alpha_floor, edge_mode=edge_mode)[0]
