@@ -1,0 +1,40 @@
+{
+  "task_id": "K2c-gen-E",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "k2c_E.png",
+      "path": "out/k2c_E.png",
+      "sha256": "b7443ce2cd169eba9485a6da52da8f532506725b3e1f6d53265a183a2c5e7eac",
+      "prompt": "Use case: identity-preserve. Create EXACTLY ONE Keeper H1 rest-frame image, direction E, portrait 1024x1536, on flat uniform pure #00ff00 covering the whole canvas. Image 1 is the APPROVED IDENTITY MASTER: derive identity, young face, hair, costume, colours, proportions and drawing register ONLY from Image 1. Image 2 is GEOMETRY ONLY: use ONLY its body turn and item sides; do not inherit its face, hair, proportions, colours, shading or brushwork.\nTurn the SAME young woman from Image 1 to E: full RIGHT profile facing SCREEN-RIGHT, nose, chest and boot toes pointing right. Her anatomical RIGHT side is toward the camera. Her near RIGHT arm holds the plain staff upright IN FRONT of her body, nearest camera; grip at chest height and near forearm and laced bracer fully visible. Staff foot on ground beside near boot, staff tip ABOVE HER HEAD. The one harness strap passes over her visible near RIGHT shoulder and diagonally down the FRONT of her chest toward screen-right to the olive satchel on her FAR LEFT hip: satchel mostly hidden on the far side, at most a corner behind her hip. Far LEFT arm hangs relaxed behind her body, mostly hidden. Head level, gaze level screen-right. Do not mirror: staff in near anatomical RIGHT hand; empty arm is far LEFT. Maintain the master's curly tied-back updo, not the geometry reference's long ponytail.\nSame full-body centred framing and standing height as Image 1, feet and all staff fully visible, weight even, standing rest pose. Camera fixed elevated three-quarter pinhole view, approximately 53 degrees above ground plane (projection C); only character rotates. Single cold key fixed at SCREEN UPPER-LEFT, slight rim along key-facing screen-left edge, deep cool low-value ambient and readable shadows never pure black. No warm or saturated illumination, no spell glow, NO floor shadow.\nIdentity and costume unchanged from Image 1: YOUNG WOMAN early 20s, sun-browned skin, dark curly hair tied back; ivory linen shirt with rolled sleeves; navy sleeveless tabard with PLAIN chest and back, no emblem; ONE chestnut diagonal harness strap carrying an olive canvas satchel with brass corners on LEFT hip; ONE waist belt with brass buckle; chestnut laced bracers; navy trousers; chestnut buckled boots. PLAIN dark walnut staff with small brass ferrules at foot and tip, no ring, no head-piece, in RIGHT hand. No insignia anywhere, every surface plain. No extra objects, text or watermark.\nSTYLE: HAND-DRAWN painted 2D in the manner of a modern hand-animated action game. Match Image 1's confident dark hand-drawn contour with visible taper and varying line weight, painted fills in clean planes inside the line, restrained texture. The line carries the pose. Every frame should look like one frame of hand-drawn animation, not a rendered illustration. Clean material planes, readable small silhouette, no conspicuous brush grain. Preserve master's face, proportions and costume cut exactly while turning her. Output this single portrait source frame only; do not create a sheet or matte the green background.",
+      "references": [
+        {
+          "role": "APPROVED IDENTITY MASTER — identity, costume, proportions and register",
+          "path": "in/01_k1p_master_C.png"
+        },
+        {
+          "role": "GEOMETRY ONLY — E body turn and item sides",
+          "path": "in/02_k2_E.png"
+        }
+      ],
+      "elapsed_s": 21.206
+    }
+  ],
+  "calls_used": 1,
+  "retries": [],
+  "self_report": {
+    "obeyed_invariants": false,
+    "concerns": [
+      "Staff tip is below the crown rather than above the head.",
+      "Camera appears closer to a level profile than the requested approximately 53-degree elevation.",
+      "Tabard length and pointed hem drift toward Image 2 rather than preserving Image 1's cut.",
+      "Delivered the task-specific 1024×1536 portrait source rather than the register's general 512×512 registered frame."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/k2c_E.png",
+      "sha256": "b7443ce2cd169eba9485a6da52da8f532506725b3e1f6d53265a183a2c5e7eac"
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "task_id": "K2c-gen-N",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "k2c_N.png",
+      "path": "out/k2c_N.png",
+      "sha256": "7fd1a629b8c4f2c0c1a870c15affeb9fa3b9025cadec146188606b73f17ce3eb",
+      "prompt": "Use case: identity-preserve. Generate exactly ONE portrait image, 1024×1536, full-body N-facing rest frame of the character in Image 1.\nImage 1 is the APPROVED IDENTITY MASTER: identity, hair, costume, colours, proportions and hand-drawn painted register come ONLY from Image 1. Image 2 is GEOMETRY ONLY: use ONLY its full back-facing body turn and item sides. Do not adopt Image 2's hair, proportions, colours, detailing or rendering style.\nTurn the SAME young woman from Image 1 to direction N, directly AWAY from camera, full BACK view. Face entirely invisible; head level; back of tied-back dark curly hair visible, preserving Image 1's compact tied-up hairstyle. Her anatomical RIGHT hand holds the upright staff on SCREEN-RIGHT. Olive satchel hangs AT HER SIDE on anatomical LEFT hip, SCREEN-LEFT. ONE chestnut strap crosses her BACK from RIGHT shoulder (screen-right top) to LEFT hip (screen-left bottom). Plain back tabard panel, waist belt, both bracers, backs of both boots visible. Preserve Image 1's tabard length and body proportions, not Image 2's longer coat.\nIdentity and outfit: young woman early 20s, sun-browned skin, dark curly hair tied back; ivory linen rolled-sleeve shirt; navy sleeveless tabard with PLAIN chest and back, no emblem; ONE chestnut diagonal harness strap; olive canvas satchel with brass corners on LEFT hip; ONE waist belt with brass buckle; chestnut laced bracers; navy trousers; chestnut buckled boots. PLAIN dark walnut staff with small brass ferrules at foot and tip in RIGHT hand, no ring or head-piece. No insignia anywhere, every surface plain. No extra objects.\nCamera fixed: elevated three-quarter pinhole projection C, about 53 degrees above ground plane; character rotates, camera does not. Same framing and standing height as Image 1, full body centered, both feet fully visible, standing rest pose, weight even, arms relaxed, staff upright. No mirroring.\nLighting fixed to SCREEN UPPER-LEFT: single cold key, deep cool low-value ambient, readable shadows never pure black, slight rim on screen-left key-facing silhouette. No spell glow, no warm light source, NO floor shadows.\nStyle: HAND-DRAWN painted 2D in the manner of a modern hand-animated action game. Confident dark contour line drawn by hand with visible taper and varying weight; painted fills in clean planes within the line, restrained surface texture; line carries pose. Match Image 1's drawing and simplification faithfully. Each image should look like one frame of hand-drawn animation, not a rendered illustration. Clean material planes, readable silhouette, no conspicuous brush or grain texture.\nBackground: flat uniform pure #00ff00 covering the entire canvas. No floor, no ground markings, no shadow, no gradient, no checkerboard, no text. Do not matte. Deliver the single portrait frame, not a sheet.",
+      "references": [
+        {
+          "role": "APPROVED IDENTITY MASTER — identity, costume, proportions and register",
+          "path": "in/01_k1p_master_C.png"
+        },
+        {
+          "role": "GEOMETRY ONLY — N body turn and item sides",
+          "path": "in/02_k2_N.png"
+        }
+      ],
+      "elapsed_s": 33.972
+    }
+  ],
+  "calls_used": 1,
+  "retries": [],
+  "self_report": {
+    "obeyed_invariants": false,
+    "concerns": [
+      "Hair appears longer and fuller than the approved master's compact tied-up hairstyle.",
+      "Camera appears shallower than the requested approximately 53-degree elevation.",
+      "Neither concern qualifies for the permitted retry."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/k2c_N.png",
+      "sha256": "7fd1a629b8c4f2c0c1a870c15affeb9fa3b9025cadec146188606b73f17ce3eb"
+    }
+  ]
+}

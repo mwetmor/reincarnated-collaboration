@@ -1,0 +1,40 @@
+{
+  "task_id": "K2c-gen-W",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "k2c_W.png",
+      "path": "out/k2c_W.png",
+      "sha256": "f32611a81926c1c22ce0d2d5e4f4d5f934388be429eb38784e9e2c1c23ed6f59",
+      "prompt": "Use case: identity-preserve. Create exactly ONE full-body W-direction rest frame of the young woman in reference Image 1, on a portrait 1024x1536 canvas. Image 1 is the APPROVED IDENTITY MASTER: take identity, face, dark curly tied-back hair, costume, colours, proportions and hand-drawn painted register ONLY from Image 1. Image 2 is GEOMETRY ONLY: take ONLY the left-facing body turn and anatomical item sides, never its face, hair, proportions, colours, brushwork or rendering style.\n\nTurn Image 1's SAME character to full LEFT profile, direction W. Nose, chest and boot toes point SCREEN-LEFT, head level and gaze level screen-left. Her anatomical LEFT side is nearest the camera. Near LEFT arm hangs relaxed with its laced bracer. Olive canvas satchel hangs AT HER SIDE on the near LEFT hip over hip and upper thigh, not swung to her front. ONE chestnut diagonal carrying strap comes from the far RIGHT shoulder, EMERGES FROM BEHIND HER NECK, and runs diagonally down the FRONT of her chest to the left-hip satchel. Visible near LEFT shoulder is bare of straps. Anatomical RIGHT arm holds the plain staff on the FAR side behind her body: shaft mostly occluded by her body, tip rises above the far shoulder, foot appears beside far boot. Do not mirror. Staff remains in RIGHT hand; satchel remains on LEFT hip; strap remains over RIGHT shoulder.\n\nCamera: fixed elevated three-quarter pinhole view, approximately 53 degrees above the ground plane, projection C. Character rotates, camera does not. Show this elevated camera consistently while preserving full left profile facing. Full body and both feet entirely visible, centred, same standing height and framing as Image 1, standing rest with evenly balanced weight, staff upright.\n\nIdentity and outfit unchanged from Image 1: young woman early 20s, sun-browned skin, dark curly hair tied back in the same compact updo as Image 1; ivory linen shirt rolled sleeves; navy sleeveless tabard with PLAIN chest and back; ONE diagonal chestnut harness strap; olive canvas satchel with brass corners at LEFT hip; ONE waist belt with brass buckle; chestnut laced bracers; navy trousers; chestnut buckled boots. PLAIN dark walnut staff with small brass ferrules at foot and tip, no ring or head-piece. No emblem, insignia, markings, text or extra objects. Every surface plain.\n\nRegister: HAND-DRAWN painted 2D in the manner of a modern hand-animated action game. Confident dark contour lines visibly drawn by hand with taper and variable weight; painted fills in clean planes inside the line; restrained texture; the line carries the pose. Match Image 1's drawn face, proportions, shape language and clean material planes. Each image should look like one frame of hand-drawn animation. Readable small silhouette, no conspicuous brush grain; avoid photographic shading and glossy volumetric illustration. Faction palette blue / ivory / brass.\n\nLighting: single cool key fixed at SCREEN UPPER-LEFT, independent of character rotation; screen-left key-facing silhouette, deep cool low-value ambient with readable shadows never pure black, slight rim on key-facing silhouette edge. No spell glow, no warm light source, NO floor shadow. Background covers the whole canvas in perfectly flat uniform pure #00ff00, without gradient or floor, no checkerboard. Keep green plate opaque, do not matte. Deliver a single portrait rest-frame image as specifically requested, not a sheet.",
+      "references": [
+        {
+          "role": "APPROVED IDENTITY MASTER — identity, costume, proportions and register",
+          "path": "in/01_k1p_master_C.png"
+        },
+        {
+          "role": "GEOMETRY ONLY — W body turn and anatomical item sides",
+          "path": "in/02_k2_W.png"
+        }
+      ],
+      "elapsed_s": 30.022
+    }
+  ],
+  "calls_used": 1,
+  "retries": [],
+  "self_report": {
+    "obeyed_invariants": false,
+    "concerns": [
+      "Camera appears shallower than the requested approximately 53-degree elevation.",
+      "Tied-back hair is fuller and projects farther behind the head than the identity master.",
+      "Followed the task-specific single 1024×1536 portrait requirement instead of the register card's sheet generation and 512×512 delivery constraints.",
+      "Exact background RGB uniformity was not measured."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/k2c_W.png",
+      "sha256": "f32611a81926c1c22ce0d2d5e4f4d5f934388be429eb38784e9e2c1c23ed6f59"
+    }
+  ]
+}

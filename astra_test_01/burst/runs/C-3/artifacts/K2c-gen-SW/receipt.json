@@ -1,0 +1,39 @@
+{
+  "task_id": "K2c-gen-SW",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "k2c_SW.png",
+      "path": "out/k2c_SW.png",
+      "sha256": "28be62c732ef5a809d3bdb2dc03051a5225079e928a6894053bfe2a93b224b67",
+      "prompt": "Use case: identity-preserve. Create ONE full-body SW standing rest frame of the exact young woman in Image 1, on a portrait 1024×1536 canvas. Image 1 is the APPROVED IDENTITY MASTER: identity, face, hair, costume, colours, proportions and hand-drawn painted register come ONLY from Image 1. Image 2 is GEOMETRY-ONLY: use only its body turn and item sides; never copy its face, hair, proportions, brushwork, colours or finish. Crucially do NOT copy Image 2's head turn: the requested head turns WITH the torso toward SCREEN-LEFT.\n\nTurn the Image 1 character 45 degrees toward SCREEN-LEFT from her front-facing S pose. Her body, chest, knees, boots AND level head face the viewer's LOWER-LEFT. Show her face in three-quarter view, nose pointing left, looking lower-left. Her anatomical LEFT side is nearer the camera. The olive satchel hangs AT HER SIDE on her near LEFT hip, SCREEN-RIGHT of her body, nearest the camera. ONE chestnut strap runs from her far anatomical RIGHT shoulder diagonally across the FRONT of her chest to that satchel. Her anatomical RIGHT hand holds the plain walnut staff upright on the FAR side, SCREEN-LEFT of her body, partly behind her, tip above her far shoulder. Do not mirror the character. Staff remains in RIGHT hand; satchel remains on LEFT hip; strap stays over RIGHT shoulder.\n\nPreserve Image 1's young early-20s sun-browned woman, expressive face and dark curly tied-back hair. Preserve ivory linen shirt with rolled sleeves, navy sleeveless tabard with plain chest and back, ONE chestnut diagonal strap, olive canvas satchel with brass corners, ONE waist belt with brass buckle, chestnut laced bracers, navy trousers and chestnut buckled boots. Plain dark walnut staff with small brass ferrules at foot and tip, no ring or head-piece. No emblems or insignia anywhere; every surface plain. No extra objects.\n\nHAND-DRAWN painted 2D in the manner of a modern hand-animated action game: confident dark hand-drawn contour with visible taper and varying weight; painted fills in clean planes inside the line, restrained texture. The LINE carries the pose. Match Image 1's drawing style exactly, as a frame of hand-drawn animation. Clean material planes, readable small silhouettes, no conspicuous brush or grain texture, no photographic finish.\n\nFixed camera: elevated three-quarter pinhole view from the front, approximately 53 degrees above ground plane, projection C. The character rotates, never the camera. Full body centered, feet fully visible, same framing and standing height as Image 1, weight even, arms relaxed and staff upright. Fixed single COOL key from SCREEN UPPER-LEFT; key-facing silhouette edge has slight rim. Deep cool low-value ambient, readable shadows never pure black. Light never rotates with the character. No spell glow, no warm or saturated light source. NO floor shadow. Flat uniform pure #00ff00 background covering the entire canvas, opaque green plate, no matting, no transparency, no checkerboard. Deliver one portrait image only.",
+      "references": [
+        {
+          "role": "APPROVED IDENTITY MASTER — identity, costume, proportions and register",
+          "path": "in/01_k1p_master_C.png"
+        },
+        {
+          "role": "GEOMETRY-ONLY — body turn and item sides; exclude head turn and rendering style",
+          "path": "in/02_k2_SW.png"
+        }
+      ],
+      "elapsed_s": 33.123
+    }
+  ],
+  "calls_used": 1,
+  "retries": [],
+  "self_report": {
+    "obeyed_invariants": false,
+    "concerns": [
+      "Camera elevation appears shallower than the requested approximately 53 degrees.",
+      "Followed the task-specific single 1024×1536 portrait requirement, which conflicts with the register's sheet and 512×512 delivery constraints.",
+      "Exact background RGB uniformity was not measured."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/k2c_SW.png",
+      "sha256": "28be62c732ef5a809d3bdb2dc03051a5225079e928a6894053bfe2a93b224b67"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "task_id": "K2c-gen-SE",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "k2c_SE.png",
+      "path": "out/k2c_SE.png",
+      "sha256": "6f7f7b736e6790416c7d069a1ff924e339bc59176a34887e3dbef70c44c821d8",
+      "prompt": "Use case: identity-preserve. Generate EXACTLY ONE full-body Keeper rest-frame image, portrait canvas 1024x1536, uniform flat pure #00ff00 background covering the whole canvas, no floor shadow, no matting. Image 1 is the APPROVED IDENTITY MASTER: preserve its exact character identity, young face, dark curly tied-back hair, sun-browned skin, costume, colours, proportions, and hand-drawn painted register. Image 2 is GEOMETRY ONLY: use only its SE body turn and which side each item lands on; do not copy its face, hair, proportions, brushwork, colours, or register. Turn the SAME woman from Image 1 by 45 degrees toward SCREEN-RIGHT from her S pose. Body, chest, head and gaze all face the viewer's LOWER-RIGHT, head level, face visible in three-quarter view. Her anatomical RIGHT side is nearer camera. RIGHT arm holds the plain upright walnut staff IN FRONT on SCREEN-LEFT, nearest camera, gripping hand and laced bracer in front of torso contour. Single chestnut strap runs from near anatomical RIGHT shoulder diagonally across FRONT of chest to olive canvas satchel with brass corners on FAR anatomical LEFT hip, SCREEN-RIGHT, partly behind her. Never mirror. Camera fixed elevated three-quarter pinhole view, approximately 53 degrees above ground plane, character rotates and camera does not. Same framing and standing height as Image 1, centred full body, feet fully visible, even weight, relaxed rest stance and upright staff. Preserve Image 1 clothing construction exactly: ivory linen shirt with rolled sleeves; navy sleeveless tabard with PLAIN chest and back, no emblem; ONE chestnut diagonal harness strap; ONE waist belt with brass buckle; chestnut laced bracers; navy trousers; chestnut buckled boots. Plain dark walnut staff with small brass ferrules at tip and foot, no ring or head-piece, in anatomical RIGHT hand. No insignia, no extra objects, every surface plain. HAND-DRAWN painted 2D in the manner of a modern hand-animated action game: confident hand-drawn dark contour line with visible taper and varying weight; painted fills in clean planes within the line; restrained texture. The LINE carries the pose. One frame of hand-drawn animation, not a rendered illustration. Preserve master Image 1's facial simplification and contour-led drawing; clean material planes, readable small silhouette, no conspicuous brush or grain texture. Single cool key fixed at SCREEN UPPER-LEFT, does not rotate with character; deep cool low-value ambient, readable shadows never pure black, slight rim on key-facing screen-left silhouette. No spell glow, no warm light source, no floor shadow. Output one portrait image only.\nRETRY CORRECTION: The previous attempt left the torso and boots facing nearly S while turning only the head. Correct the WHOLE BODY rotation. Closely follow Image 2's chest, pelvis, leg, boot and shoulder orientation: the near RIGHT shoulder projects forward on screen-left, far LEFT shoulder recedes on screen-right, chest plane points diagonally screen-right, BOTH BOOT TOES point diagonally SCREEN-RIGHT, and the far LEFT hip satchel is mostly edge-on and partly concealed behind the far hip. Right gripping hand overlaps the torso silhouette in front. All body parts face SE together, not merely the face. Image 2 is the exact orientation target, but redraw that geometry using ONLY Image 1's young woman's identity, hair, bodily proportions, costume construction, colours, strong hand-drawn outlines and painted planes. Do not retain Image 1's frontal chest or splayed frontal feet.",
+      "references": [
+        {
+          "role": "APPROVED IDENTITY MASTER — identity, costume, proportions and register",
+          "path": "in/01_k1p_master_C.png"
+        },
+        {
+          "role": "GEOMETRY ONLY — SE body turn and item sides",
+          "path": "in/02_k2_SE.png"
+        }
+      ],
+      "elapsed_s": 30.42
+    }
+  ],
+  "calls_used": 2,
+  "retries": [
+    {
+      "reason": "First result turned the head toward SE but left torso and feet facing too close to S.",
+      "change": "Emphasized whole-body rotation using Image 2's shoulder, chest, pelvis and boot orientation while preserving Image 1's identity and register."
+    }
+  ],
+  "self_report": {
+    "obeyed_invariants": false,
+    "concerns": [
+      "Exact 53-degree camera elevation is not visually established.",
+      "Facial proportions and boot details show some drift from the identity master.",
+      "Delivered the task-specific 1024×1536 portrait; the frozen card's 512×512 registration and sheet format were not applied.",
+      "Pure #00ff00 plate uniformity was requested but not numerically verified."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/k2c_SE.png",
+      "sha256": "6f7f7b736e6790416c7d069a1ff924e339bc59176a34887e3dbef70c44c821d8"
+    }
+  ]
+}

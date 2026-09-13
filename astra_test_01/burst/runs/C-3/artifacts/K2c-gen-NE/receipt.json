@@ -1,0 +1,40 @@
+{
+  "task_id": "K2c-gen-NE",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "k2c_NE.png",
+      "path": "out/k2c_NE.png",
+      "sha256": "f817a7f62d7bd95c7b5e8b299fac61c0c1771e45bcd469368f056a77bb0c4b78",
+      "prompt": "Use case: identity-preserve. Create exactly one full-body NE rest-frame character image, portrait 1024x1536, on flat uniform pure #00ff00 covering the whole canvas. Image 1 is the APPROVED IDENTITY MASTER: preserve its young woman's identity, tied-back dark curly hair, sun-browned skin, costume, colours, proportions, and HAND-DRAWN painted 2D register. Image 2 is GEOMETRY ONLY: use only its back three-quarter body turn and item sides; never its hair, proportions, rendering, colours or brushwork.\nTurn the SAME character from Image 1 135 degrees from facing the camera to NE, facing away toward viewer's UPPER-RIGHT. Show her BACK and RIGHT side, RIGHT side nearer camera. Head level, turned away; NO visible face except at most edge of cheek and ear. Preserve Image 1's compact tied-back curly hairstyle. Standing relaxed rest pose, even weight, both feet fully visible, centred, same framing and standing height as Image 1. Fixed elevated three-quarter pinhole camera approximately 53 degrees above ground, character rotates, camera stays fixed.\nHer anatomical RIGHT hand grips a plain upright dark walnut staff on SCREEN-RIGHT nearest the camera, gripping forearm in front of body contour. Small brass ferrules at tip and foot; no ring or headpiece. One chestnut diagonal harness strap crosses her plain BACK from near RIGHT shoulder down to olive canvas satchel with brass corners at FAR anatomical LEFT hip, SCREEN-LEFT, mostly hidden behind body. Never mirror. Ivory linen shirt with rolled sleeves, navy sleeveless tabard with plain chest and back, one waist belt with brass buckle, chestnut laced bracers, navy trousers, chestnut buckled boots. All surfaces plain, no emblem or insignia. Preserve garment lengths and design from Image 1.\nStyle: HAND-DRAWN painted 2D in the manner of a modern hand-animated action game. Confident dark contour lines drawn by hand with visible taper and varying weight, painted fills in clean planes inside lines, restrained texture; the line carries the pose. Every image looks like one frame of hand-drawn animation. Clean material planes, readable silhouette, no conspicuous grain. Match Image 1's linework and simple painted shading exactly.\nSingle cold key light from SCREEN UPPER-LEFT, fixed independent of body turn, screen-left remains key-facing. Deep cool low-value ambient with readable shadows never pure black, slight rim on key-facing silhouette. No warm light source, no spell glow, NO floor shadow. No scenery, extra objects, text, transparency or checkerboard. Output ONE portrait image, not a sheet.",
+      "references": [
+        {
+          "role": "APPROVED IDENTITY MASTER — identity, costume, proportions and register",
+          "path": "in/01_k1p_master_C.png"
+        },
+        {
+          "role": "GEOMETRY ONLY — NE body turn and item sides",
+          "path": "in/02_k2_NE.png"
+        }
+      ],
+      "elapsed_s": 21.295
+    }
+  ],
+  "calls_used": 1,
+  "retries": [],
+  "self_report": {
+    "obeyed_invariants": false,
+    "concerns": [
+      "Hair silhouette and longer tabard drift toward Image 2 rather than preserving Image 1 exactly.",
+      "Camera appears shallower than the requested approximately 53-degree elevation.",
+      "A waist buckle appears on the back.",
+      "Delivered the task-specific 1024×1536 portrait; the frozen register's sheet and 512×512 registration requirements conflict with that instruction."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/k2c_NE.png",
+      "sha256": "f817a7f62d7bd95c7b5e8b299fac61c0c1771e45bcd469368f056a77bb0c4b78"
+    }
+  ]
+}

@@ -1,0 +1,620 @@
+{
+  "bursts": [
+    {
+      "id": "K2c-gen-NE",
+      "type": "GENERATE",
+      "experiment": "C3-P2",
+      "brief_sha256": "0e2ff1317352069c9e2425a5a3b68b7940d46f2883c1b44c9fdae46b54b9b267",
+      "started": "2026-09-13T05:05:51.281070+00:00",
+      "ended": "2026-09-13T05:07:31.865151+00:00",
+      "minutes": 1.676377678466694,
+      "image_calls": 1,
+      "tool_calls": 4,
+      "audit": {
+        "violations": [],
+        "image_calls": 1,
+        "tool_calls": 4,
+        "tools_seen": {
+          "command_execution": 4
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a09928-56cf-7410-9494-d78c6e3b66e3/exec-bdda433e-3a92-47e5-a406-55a4ad69ac52.png",
+            "sha256": "f817a7f62d7bd95c7b5e8b299fac61c0c1771e45bcd469368f056a77bb0c4b78"
+          }
+        ]
+      },
+      "receipt_sha256": "627200d8a520382b82e0e1a97ebefa91d52de8564ed17628de5ac919cb516607",
+      "artifacts": [
+        {
+          "name": "k2c_NE.png",
+          "sha256": "f817a7f62d7bd95c7b5e8b299fac61c0c1771e45bcd469368f056a77bb0c4b78"
+        },
+        {
+          "name": "exec-bdda433e-3a92-47e5-a406-55a4ad69ac52.provenance.json",
+          "sha256": "271d49bf73c29c125611ee33cef564e8be0204c28ed0d9bfa169c946fb9f0f0e"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a09928-56cf-7410-9494-d78c6e3b66e3/exec-bdda433e-3a92-47e5-a406-55a4ad69ac52.png",
+          "sha256": "f817a7f62d7bd95c7b5e8b299fac61c0c1771e45bcd469368f056a77bb0c4b78"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
+    },
+    {
+      "id": "K2c-gen-E",
+      "type": "GENERATE",
+      "experiment": "C3-P2",
+      "brief_sha256": "74f161babb54cd2f2772f5c3c199b20312d20859bb576a9bca5eb89e5ed45f95",
+      "started": "2026-09-13T05:05:51.281023+00:00",
+      "ended": "2026-09-13T05:07:36.922951+00:00",
+      "minutes": 1.7606859298666677,
+      "image_calls": 1,
+      "tool_calls": 4,
+      "audit": {
+        "violations": [],
+        "image_calls": 1,
+        "tool_calls": 4,
+        "tools_seen": {
+          "command_execution": 4
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a09928-56f3-7fb0-9e17-cb0d6007a4ee/exec-5fc6c3a2-3d7e-495f-9291-5bb848cbfc34.png",
+            "sha256": "b7443ce2cd169eba9485a6da52da8f532506725b3e1f6d53265a183a2c5e7eac"
+          }
+        ]
+      },
+      "receipt_sha256": "05ccfc1bda2d872152632f629b09ed47f4ce4f09cf0981c18b715de1ace80189",
+      "artifacts": [
+        {
+          "name": "k2c_E.png",
+          "sha256": "b7443ce2cd169eba9485a6da52da8f532506725b3e1f6d53265a183a2c5e7eac"
+        },
+        {
+          "name": "exec-5fc6c3a2-3d7e-495f-9291-5bb848cbfc34.provenance.json",
+          "sha256": "68ffbbe7438990313bd2c2dc69dd53715c8e5fdd3d14a5b3ac5456b721764f18"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a09928-56f3-7fb0-9e17-cb0d6007a4ee/exec-5fc6c3a2-3d7e-495f-9291-5bb848cbfc34.png",
+          "sha256": "b7443ce2cd169eba9485a6da52da8f532506725b3e1f6d53265a183a2c5e7eac"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
+    },
+    {
+      "id": "K2c-gen-NW",
+      "type": "GENERATE",
+      "experiment": "C3-P2",
+      "brief_sha256": "ada87a9142a03387e32f783ccaa985ba589453a0431c7b4e203e40a16944026f",
+      "started": "2026-09-13T05:05:51.281081+00:00",
+      "ended": "2026-09-13T05:07:48.326896+00:00",
+      "minutes": 1.950755232633431,
+      "image_calls": 1,
+      "tool_calls": 2,
+      "audit": {
+        "violations": [],
+        "image_calls": 1,
+        "tool_calls": 2,
+        "tools_seen": {
+          "command_execution": 2
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a09928-56b5-7773-a2f5-8d3276b5af83/exec-f31332ec-a664-439b-ac84-a0dd8feb478c.png",
+            "sha256": "1d0d074f425fe46a666e3e080d6f6219d46157b99d0c6c696f3851409b4d3d0d"
+          }
+        ]
+      },
+      "receipt_sha256": "3c941a084d0a2ca9e26f4cfe8236cc5b101326aa3b1e9912637890f9e58f4b05",
+      "artifacts": [
+        {
+          "name": "k2c_NW.png",
+          "sha256": "1d0d074f425fe46a666e3e080d6f6219d46157b99d0c6c696f3851409b4d3d0d"
+        },
+        {
+          "name": "exec-f31332ec-a664-439b-ac84-a0dd8feb478c.provenance.json",
+          "sha256": "5b92dbc813c0dc27badc9a6cfacc4777a62239195ff9828132dcbb02b3f64135"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a09928-56b5-7773-a2f5-8d3276b5af83/exec-f31332ec-a664-439b-ac84-a0dd8feb478c.png",
+          "sha256": "1d0d074f425fe46a666e3e080d6f6219d46157b99d0c6c696f3851409b4d3d0d"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
+    },
+    {
+      "id": "K2c-gen-W",
+      "type": "GENERATE",
+      "experiment": "C3-P2",
+      "brief_sha256": "feea76ebfffce189b93ff7305981b17710fbeaa10ba106ce0dab197af6a6bf03",
+      "started": "2026-09-13T05:05:51.281082+00:00",
+      "ended": "2026-09-13T05:07:49.704857+00:00",
+      "minutes": 1.973704756250057,
+      "image_calls": 1,
+      "tool_calls": 4,
+      "audit": {
+        "violations": [],
+        "image_calls": 1,
+        "tool_calls": 4,
+        "tools_seen": {
+          "command_execution": 4
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a09928-56b5-7092-943e-6ae1c506d9de/exec-fb296d2e-770a-48f8-a6f7-2ab8a3b66941.png",
+            "sha256": "f32611a81926c1c22ce0d2d5e4f4d5f934388be429eb38784e9e2c1c23ed6f59"
+          }
+        ]
+      },
+      "receipt_sha256": "7df30dcf5317e015073b109e8cfb5e5748242489e03051860adb3c7133613681",
+      "artifacts": [
+        {
+          "name": "k2c_W.png",
+          "sha256": "f32611a81926c1c22ce0d2d5e4f4d5f934388be429eb38784e9e2c1c23ed6f59"
+        },
+        {
+          "name": "exec-fb296d2e-770a-48f8-a6f7-2ab8a3b66941.provenance.json",
+          "sha256": "81bee867bc894bedd44062376b7eaaadf4bfdfc6c010156da88e6419198818d2"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a09928-56b5-7092-943e-6ae1c506d9de/exec-fb296d2e-770a-48f8-a6f7-2ab8a3b66941.png",
+          "sha256": "f32611a81926c1c22ce0d2d5e4f4d5f934388be429eb38784e9e2c1c23ed6f59"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
+    },
+    {
+      "id": "K2c-gen-N",
+      "type": "GENERATE",
+      "experiment": "C3-P2",
+      "brief_sha256": "8790001547338d92c0b062bfd878f0a3989b909dfc95168adf2d49ae375e12a0",
+      "started": "2026-09-13T05:05:51.280959+00:00",
+      "ended": "2026-09-13T05:07:51.607617+00:00",
+      "minutes": 2.005431524999949,
+      "image_calls": 1,
+      "tool_calls": 4,
+      "audit": {
+        "violations": [],
+        "image_calls": 1,
+        "tool_calls": 4,
+        "tools_seen": {
+          "command_execution": 4
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a09928-56b9-7fb3-992f-4e63647372fd/exec-e045c976-6dd3-477c-a7cf-7f84c75d1e03.png",
+            "sha256": "7fd1a629b8c4f2c0c1a870c15affeb9fa3b9025cadec146188606b73f17ce3eb"
+          }
+        ]
+      },
+      "receipt_sha256": "88af1779b67da143624194849487afb6a822642aa876e4a4f059a573334099c9",
+      "artifacts": [
+        {
+          "name": "k2c_N.png",
+          "sha256": "7fd1a629b8c4f2c0c1a870c15affeb9fa3b9025cadec146188606b73f17ce3eb"
+        },
+        {
+          "name": "exec-e045c976-6dd3-477c-a7cf-7f84c75d1e03.provenance.json",
+          "sha256": "1065e887e499b89f4551c676e7620dd20c4a0a5d857641f37a06172289674dc2"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a09928-56b9-7fb3-992f-4e63647372fd/exec-e045c976-6dd3-477c-a7cf-7f84c75d1e03.png",
+          "sha256": "7fd1a629b8c4f2c0c1a870c15affeb9fa3b9025cadec146188606b73f17ce3eb"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
+    },
+    {
+      "id": "K2c-gen-SW",
+      "type": "GENERATE",
+      "experiment": "C3-P2",
+      "brief_sha256": "9961881a5cff6fe26a8180c3777f2ab573825ad72df668e1a0401e178ebf41d3",
+      "started": "2026-09-13T05:05:51.281029+00:00",
+      "ended": "2026-09-13T05:08:00.940203+00:00",
+      "minutes": 2.160974749999999,
+      "image_calls": 1,
+      "tool_calls": 2,
+      "audit": {
+        "violations": [],
+        "image_calls": 1,
+        "tool_calls": 2,
+        "tools_seen": {
+          "command_execution": 2
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a09928-56ef-7353-a3a9-7b3fca6e3981/exec-b52fa132-df4f-4162-9e37-a8b6f684e5b1.png",
+            "sha256": "28be62c732ef5a809d3bdb2dc03051a5225079e928a6894053bfe2a93b224b67"
+          }
+        ]
+      },
+      "receipt_sha256": "c22bd30ac40dbdf3576313d845bfb7ed3bad25af2e9dd4a894920f2cae3399b8",
+      "artifacts": [
+        {
+          "name": "k2c_SW.png",
+          "sha256": "28be62c732ef5a809d3bdb2dc03051a5225079e928a6894053bfe2a93b224b67"
+        },
+        {
+          "name": "exec-b52fa132-df4f-4162-9e37-a8b6f684e5b1.provenance.json",
+          "sha256": "808ccdbe836cc3d31a8c6413ece94012e87d376e35a103e6a18dbc40c6110a7b"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a09928-56ef-7353-a3a9-7b3fca6e3981/exec-b52fa132-df4f-4162-9e37-a8b6f684e5b1.png",
+          "sha256": "28be62c732ef5a809d3bdb2dc03051a5225079e928a6894053bfe2a93b224b67"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
+    },
+    {
+      "id": "K2c-gen-SE",
+      "type": "GENERATE",
+      "experiment": "C3-P2",
+      "brief_sha256": "bfd4d5aa197f25f7175c6e1f10b62750dc4b75a4f826836b5c301d9f6b8c9b40",
+      "started": "2026-09-13T05:05:51.281032+00:00",
+      "ended": "2026-09-13T05:08:42.618037+00:00",
+      "minutes": 2.8555884132000453,
+      "image_calls": 2,
+      "tool_calls": 3,
+      "audit": {
+        "violations": [],
+        "image_calls": 2,
+        "tool_calls": 3,
+        "tools_seen": {
+          "command_execution": 3
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a09928-56f1-7542-9b8a-2b3ae6cf9e2d/exec-b6823e51-39ec-4cab-8cc9-c89a854d9fd8.png",
+            "sha256": "9296b5f878e529d2503b389f9386564fd58c22bfb1cb6d9f25af388cbc8d54c7"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a09928-56f1-7542-9b8a-2b3ae6cf9e2d/exec-e48f63c3-33d7-45d7-ac09-7ebccc39b009.png",
+            "sha256": "6f7f7b736e6790416c7d069a1ff924e339bc59176a34887e3dbef70c44c821d8"
+          }
+        ]
+      },
+      "receipt_sha256": "ec4f405e1e86f13052d2ba80337feb8becc50dcdcaa2fb6e024ecdee62b1cdc3",
+      "artifacts": [
+        {
+          "name": "k2c_SE.png",
+          "sha256": "6f7f7b736e6790416c7d069a1ff924e339bc59176a34887e3dbef70c44c821d8"
+        },
+        {
+          "name": "exec-b6823e51-39ec-4cab-8cc9-c89a854d9fd8.provenance.json",
+          "sha256": "271681071c29e085147f0d289d8baa7c600e05b793564a6ac2899983038bf44c"
+        },
+        {
+          "name": "exec-e48f63c3-33d7-45d7-ac09-7ebccc39b009.provenance.json",
+          "sha256": "e9c391160ea4a084fb78dee5f766ba9f03cf89af76316436bc8fae676bbbde0f"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a09928-56f1-7542-9b8a-2b3ae6cf9e2d/exec-b6823e51-39ec-4cab-8cc9-c89a854d9fd8.png",
+          "sha256": "9296b5f878e529d2503b389f9386564fd58c22bfb1cb6d9f25af388cbc8d54c7"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a09928-56f1-7542-9b8a-2b3ae6cf9e2d/exec-e48f63c3-33d7-45d7-ac09-7ebccc39b009.png",
+          "sha256": "6f7f7b736e6790416c7d069a1ff924e339bc59176a34887e3dbef70c44c821d8"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
+    },
+    {
+      "id": "K2c-jdg-01",
+      "type": "JUDGE",
+      "experiment": "C3-P2",
+      "brief_sha256": "82a64818d8dcc352521db05e3ec7accf4c6e481569d20f7d04d50e041e9d6818",
+      "started": "2026-09-13T05:09:59.515356+00:00",
+      "ended": "2026-09-13T05:14:03.035476+00:00",
+      "minutes": 4.058730713883415,
+      "image_calls": 0,
+      "tool_calls": 4,
+      "audit": {
+        "violations": [],
+        "image_calls": 0,
+        "tool_calls": 4,
+        "tools_seen": {
+          "error": 1,
+          "file_change": 1,
+          "command_execution": 2
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": []
+      },
+      "receipt_sha256": "fa85559f78156cc7f118a1f941196820f2f3bb9a8b30ac5052418562ae1cd325",
+      "artifacts": [
+        {
+          "name": "judgment.json",
+          "sha256": "14b8d58ef9ccb72432307037a5edf17956e0b5179e3b7d031c8421da8128cd25"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
+    }
+  ],
+  "images_used": 8,
+  "images_cap": 120,
+  "experiments": {},
+  "milestones": [
+    {
+      "id": "M-C3-P0",
+      "what": "P0 complete — ledger created (cap 120), R-C3-0 cites R-57; SYNC 10/10",
+      "ts": "2026-09-13T00:59:25"
+    },
+    {
+      "id": "M-C3-P2",
+      "what": "Turnaround complete: 8 H1 rest frames (S master C + 7 judged, geometry 5/5, control caught); 8 images of 120",
+      "ts": "2026-09-13T01:15:41"
+    },
+    {
+      "id": "M-C3-S-clips",
+      "what": "5 S clips from master C (idle/walk/run/jump/cast), 5/5 ok, ~50–93 s each",
+      "ts": "2026-09-13T01:15:41"
+    }
+  ],
+  "halts": [],
+  "rulings": [
+    {
+      "id": "R-C3-0",
+      "by": "gandalf (conductor)",
+      "topic": "P0 LAUNCH — Run C-3 (the MATRIX run) begins under Matt GO (C-1 ledger R-57)",
+      "ruling": "Fresh gandalf session (charter-freshness gate executed: agent file + OP § 2 + desirable-run-pattern §§ 3–4 read from disk). Charter sha256[:12] 6e7bfa8c7450 verified == R-57. SYNC 10/10 (MANIFEST 4537800c3a7b). GO found at C-1 R-57 (Matt: \"go\"). This ledger created with images_cap 120. Conductor = gandalf RUN-CONDUCTOR; labour = Astra bursts via lane/run_burst.py --run C-3; Grok clips conductor-driven; verdict reserved to Matt at C-4.",
+      "consequence": "P1 (T3a…T3f serial TOOLING) begins; briefs live under briefs/C-3/; conductor scripts (ledger writer, wave runner, grok clip runner) are session-scratch copies of the C-2 shapes (runs/C-1/conductor_scripts/), preserved in-repo at close.",
+      "evidence": "C-1 ledger R-57; check_sync 10/10; shasum charter 6e7bfa8c7450",
+      "ts": "2026-09-13T00:59:25"
+    },
+    {
+      "id": "R-C3-1",
+      "by": "gandalf (conductor, DRIFT-CRITIC on own C-2 derivation)",
+      "topic": "GEOMETRY: the R-43 E-frame construction (staff in the FAR hand; strap from behind the neck; bare near shoulder) is the W geometry applied to E — a near/far inversion; P2 uses the R-15 DERIVED table (C-1 k2_facing_table_derived.json) extended to N",
+      "ruling": "Physics (right = front × up): a right-handed figure facing screen-right presents her RIGHT side to the camera, so on E the staff is in the NEAR hand and the satchel (left hip) is on the FAR side. Evidence: (1) C-1 K2-jdg-04 (judged against the R-15 derivation) — E-c1, NE-c1, SE-c1 staff NEAR, W/NW/SW staff FAR, none mirrored; (2) the C-2 brief K2p-gen-E text says ‘only its left side is visible’ for E and the K2p-jdg-E brief says ‘she faces screen-right, so her LEFT side is NEAR’ — both inverted; (3) conductor view of k2p_E_r2 beside master C: near arm hangs empty, staff in the far hand ⇒ the staff is in her LEFT hand — Matt’s R-43 question (‘isn’t the E seed holding the staff in the wrong hand?’) was CORRECT and the C-2 judge was handed an inverted derivation. R-43’s satchel/strap text is correct for W, not E. Charter § 2/§ 3 E and § 11 cite R-43 as the judge geometry; applying it would mint mirrored bodies on 3–4 directions, violating fork E’s own clause (all 8 real, no mirroring, F3). Ruling: P2 briefs and the P2 JUDGE use the derived table (runs/C-3/k2c_facing_table.json, conductor data), with a mirrored control drawn from a generated candidate.",
+      "consequence": "(a) All 7 P2 directions are generated against the derived geometry, with the C-1 K2 v4 frames as GEOMETRY-ONLY references (old register; face/brushwork not to be copied). (b) The passed C-2 walk-E exemplar (from r2) carries a mirrored staff hand — irrelevant to its motion band (R-50/R-55 stand), recorded for C-4. (c) FLAG FOR MATT at C-4 (packet 20 front page): veto-open — if Matt rules R-43 as intended (staff far on E), P2 E/NE/SE are re-minted at ≤ 6 images and their 15 clips re-driven.",
+      "evidence": "runs/C-1/k2_facing_table_derived.json; runs/C-1/artifacts/K2-jdg-04/judgment.json; briefs/K2p-gen-E.task.json; briefs/K2p-jdg-E.task.json; C-1 ledger R-15, R-43",
+      "ts": "2026-09-13T01:04:52"
+    },
+    {
+      "id": "R-C3-2",
+      "by": "gandalf (conductor)",
+      "topic": "SEQUENCING: P2 (turnaround) runs BEFORE P1 (T3 tooling); P3 Grok clips run DURING P1; nothing is MEASURED before its instrument is frozen",
+      "ruling": "Charter § 4 lists P1 before P2 and the restart prompt says ‘T3 serial … then P2–P6’. P2 depends on no T3 instrument (GENERATE + JUDGE by rubric + PACK with frozen tools), and P3 clips are conductor-driven Grok calls, not Astra bursts, so they may run while T3 TOOLING bursts hold the lane. The Grok matrix (40+ sequential clips) is the run’s long pole; running it during T3 saves ≈ 2 h without touching any gate, band, budget or bar. Instrument-before-candidate is honoured at the MEASUREMENT boundary: no P4 cut/check runs on any clip until T3a–T3d are frozen; the head-down first-second check (charter § 6 re-generate-once rule) is applied with the T3c head-pitch proxy after T3c, and flagged clips are re-driven then. TOOLING stays serial and never overlaps a burst: P2 bursts finish (or their wave closes) before T3a launches.",
+      "consequence": "Order: P2 GENERATE wave (7) + S clips from master C in parallel → P2 JUDGE (+ retries) → T3a… serially while P3 clips for the other 7 directions run → P4 after the T3d freeze.",
+      "evidence": "charter § 4, § 5; BURST_RULES concurrency (R-13)",
+      "ts": "2026-09-13T01:04:52"
+    },
+    {
+      "id": "R-C3-3",
+      "by": "gandalf (conductor)",
+      "topic": "PROMPTS: matrix prompts frozen as data (runs/C-3/matrix_prompts.json, 40 cells); the cast surge reduced to a small tip glint so the plate stays empty",
+      "ruling": "Charter § 6 prescribes both ‘plate unchanged and empty’ and, for cast, ‘a surge gathers at the astrolabe/tip’. A baked surge would put light and particles on the #00ff00 plate (matte contamination, R-53 family) and double the frost bolt that P5 composites at the staff-tip socket. The starter staff carries no astrolabe (bible v0.3; the astrolabe head is the ADVANCED set, R-31). Cast prompt = raises the staff two-handed, a small brief pale glint at the tip (nothing leaves the staff), thrusts forward in the facing direction, returns to rest. Every prompt carries the R-51 gaze line and names the staff hand/satchel hip (anatomical). Idle/walk keep the C-2 passed wording (idle ‘a third bigger than life’; walk treadmill + two bobs per stride); run/jump per charter § 6.",
+      "consequence": "The cast one-shot is measured on the staff-tip trajectory (T3a); the VFX is P5’s. Prompt sha256 per cell ledgered in grok_calls[].",
+      "evidence": "runs/C-3/matrix_prompts.json; charter § 6; C-1 R-31, R-51, R-53",
+      "ts": "2026-09-13T01:06:43"
+    },
+    {
+      "id": "R-C3-4",
+      "by": "gandalf (conductor, DRIFT-CRITIC)",
+      "topic": "P2 TURNAROUND ACCEPTED for clip seeding — 7 of 7 directions geometry 5, none mirrored; hidden control caught; no retries; SPEC § 7 contracted + re-freeze 8a6cb95dfff2",
+      "ruling": "K2c-gen-{SW,W,NW,N,NE,E,SE}: all exit 0, 8 images (SE retried once inside its burst). K2c-jdg-01 (separate instance; derived geometry per claim): every real candidate seen_facing == claimed, mirrored false, axis 4 (equipment geometry) 5, axis 5 (direction read) 5, axes 1–3 ≥ 4; hidden control (image 5, mirror(W) claimed E) → mirrored TRUE, axis 4 = 1, light 2 — CAUGHT, batch valid. The judge’s own reasoning independently restates R-C3-1 (‘for an E-facing body the near arm must hold the staff’). Conductor eye on the 8-strip (S master C + 7): identity and register coherent; E/SE/NE staff in front; W/SW/NW satchel at the side; back views read. Figure scale varies slightly between stills — normalised by the one-scale registration per clip. SPEC.md § 7 (T3a-1…T3f contracts) appended by the conductor; freeze re-run: only SPEC.md changed; MANIFEST 8a6cb95dfff2; 00-system § 7 restamped; SYNC 10/10.",
+      "consequence": "P3 seeds: S = master C; others = runs/C-3/artifacts/K2c-gen-<D>/k2c_<D>.png. P2 PACK (packet 20) runs in the first non-TOOLING window (P4). Clips generated while a TOOLING burst runs are STAGED outside burst/ (~/astra-burst/grok/C-3/) and folded in between TOOLING bursts (charter § 1: no conductor writes under burst/ during TOOLING).",
+      "evidence": "runs/C-3/artifacts/K2c-jdg-01/judgment.json; ledger bursts K2c-*; freeze output",
+      "ts": "2026-09-13T01:15:41"
+    }
+  ],
+  "grok_calls": [
+    {
+      "id": "G-S_idle",
+      "cell": "S_idle",
+      "still": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K1p-gen-01/k1p_master_C.png",
+      "still_sha256": "b7bf2c14f79b71c3b645a792c25ca7e31ca11631dc385489a705dc8fb70ad957",
+      "prompt_sha256": "3507e54596f62c949ec70ffcdebec94fb1feb2adcb20a4fbfd5f6142405a848e",
+      "extra": "",
+      "clip": "runs/C-3/xvideo/in/S_idle.mp4",
+      "clip_sha256": "6ef230de87eae8674ec7f5001fa7e2818d442c623601fd14712968ddba381c3a",
+      "ok": true,
+      "rc": 0,
+      "wall_s": 55,
+      "probe": "768,1168,24/1,6.041667,145",
+      "printed": "",
+      "ts": "2026-09-13T01:07:42"
+    },
+    {
+      "id": "G-S_walk",
+      "cell": "S_walk",
+      "still": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K1p-gen-01/k1p_master_C.png",
+      "still_sha256": "b7bf2c14f79b71c3b645a792c25ca7e31ca11631dc385489a705dc8fb70ad957",
+      "prompt_sha256": "aa90110bc380bf8e6c41eb496125c53df2e283d8c3193e11649917a4c3db1b29",
+      "extra": "",
+      "clip": "runs/C-3/xvideo/in/S_walk.mp4",
+      "clip_sha256": "0de989e9228383f75505e1ad77767f6fc7426193fd3aff2a057cd5a0ad9fef5f",
+      "ok": true,
+      "rc": 0,
+      "wall_s": 50,
+      "probe": "768,1168,24/1,6.041667,145",
+      "printed": "",
+      "ts": "2026-09-13T01:08:32"
+    },
+    {
+      "id": "G-S_run",
+      "cell": "S_run",
+      "still": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K1p-gen-01/k1p_master_C.png",
+      "still_sha256": "b7bf2c14f79b71c3b645a792c25ca7e31ca11631dc385489a705dc8fb70ad957",
+      "prompt_sha256": "f1cfb4ebc318c6b170825fdfcc4e578fbc5699db5f35649dbc97c0f0df321324",
+      "extra": "",
+      "clip": "runs/C-3/xvideo/in/S_run.mp4",
+      "clip_sha256": "e67bfdae9966609fb1f422456891ef8e024c5d083269e3e715ca86aacda9351e",
+      "ok": true,
+      "rc": 0,
+      "wall_s": 58,
+      "probe": "768,1168,24/1,6.041667,145",
+      "printed": "",
+      "ts": "2026-09-13T01:09:30"
+    },
+    {
+      "id": "G-S_jump",
+      "cell": "S_jump",
+      "still": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K1p-gen-01/k1p_master_C.png",
+      "still_sha256": "b7bf2c14f79b71c3b645a792c25ca7e31ca11631dc385489a705dc8fb70ad957",
+      "prompt_sha256": "02ccd4fa277ad0c8d2edbbd561e14d3b84e30da8a9355f26c66f400f2f32e041",
+      "extra": "",
+      "clip": "runs/C-3/xvideo/in/S_jump.mp4",
+      "clip_sha256": "57d4e8d64a49703a05104590444d7b435d73bf9e1b2db3f355c5c0ce014dd609",
+      "ok": true,
+      "rc": 0,
+      "wall_s": 55,
+      "probe": "768,1168,24/1,6.041667,145",
+      "printed": "",
+      "ts": "2026-09-13T01:10:25"
+    },
+    {
+      "id": "G-S_cast",
+      "cell": "S_cast",
+      "still": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K1p-gen-01/k1p_master_C.png",
+      "still_sha256": "b7bf2c14f79b71c3b645a792c25ca7e31ca11631dc385489a705dc8fb70ad957",
+      "prompt_sha256": "a759fc4ca52b401846a65d70283a868a866349e577f3eb2ccb5e43210b43bb8b",
+      "extra": "",
+      "clip": "runs/C-3/xvideo/in/S_cast.mp4",
+      "clip_sha256": "18bd8a7f134b1e4032953edaf2be78725b148b5d88d7d5c96767b12937c6a9ca",
+      "ok": true,
+      "rc": 0,
+      "wall_s": 93,
+      "probe": "768,1168,24/1,6.041667,145",
+      "printed": "",
+      "ts": "2026-09-13T01:11:58"
+    }
+  ],
+  "run": "C-3",
+  "charter": "agentic_orchestration/gandalf/notes/2026-09-13-astra-burst-lane-run-C-3-charter.md",
+  "charter_sha256_12": "6e7bfa8c7450",
+  "notes": [
+    {
+      "id": "N-K2c-jdg-01-control",
+      "what": "hidden control for K2c-jdg-01 = image 5 = mirror(k2c_W) claimed E (runs/C-3/artifacts/K2c-control/K2c-jdg-01_control_mirror.png); caught iff mirrored=true or axis 4 ≤ 2",
+      "ts": "2026-09-13T01:09:59"
+    }
+  ]
+}
