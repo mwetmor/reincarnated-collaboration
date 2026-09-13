@@ -1,0 +1,34 @@
+{
+  "task_id": "K4v-gen-cast-b",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "cast_04_07",
+      "path": "out/cast_04_07.png",
+      "sha256": "12090ed8f0c03cc994f4e4f5cd7db531d79237470ee73e061f19c9f60049e10c",
+      "prompt": "Use case: stylized-concept. Generate a painted FROST CAST VFX animation sprite sheet, square 1254 × 1254 canvas, exactly 2 columns × 2 rows of equal square cells, four frames in row-major order. Reference image 1 is STYLE ONLY: match the icy blue-white energy at the character's staff tip, its faceted painted brushwork, hard illustrated edges and deep-blue falloff. Do not include any character, hand, staff, scenery, symbols, text or grid. Pure uniform BLACK #000000 background, bright energy only: an additive emission plate. Every effect centred exactly in its own cell with generous black padding; no glow or particle touches a cell boundary. Hand-drawn painted 2D animation, confident hand-drawn edges with visible taper and varying weight, painted fills in clean planes, restrained texture, readable small silhouettes and no conspicuous grain. No photographic mist, neon laser style or fire-like flames. Frames 4–7 of 8, the release and fade of the same flare: top-left frame 4 the flare bursts outward, 44%, shards flying outward; top-right frame 5 the burst breaks into scattering shards with a shrinking core, 38%; bottom-left frame 6 faint fragments and a dim core, 24%; bottom-right frame 7 a few tiny fading sparks, 10%, mostly black. Same effect, fading. Blue-white and deep-blue energy only. No floor shadows. The percentages describe effect size within each cell, maintaining generous black padding. No labels, no borders.",
+      "references": [
+        {
+          "role": "STYLE ONLY — frost energy at the staff tip",
+          "path": "in/01_vfx_style_match.png"
+        }
+      ],
+      "elapsed_s": 35.156
+    }
+  ],
+  "calls_used": 1,
+  "retries": [],
+  "self_report": {
+    "obeyed_invariants": true,
+    "concerns": [
+      "Effect extents visually exceed the requested percentages; this is outside the authorized retry reasons.",
+      "Exact centering and background RGB values were not measured."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/cast_04_07.png",
+      "sha256": "12090ed8f0c03cc994f4e4f5cd7db531d79237470ee73e061f19c9f60049e10c"
+    }
+  ]
+}

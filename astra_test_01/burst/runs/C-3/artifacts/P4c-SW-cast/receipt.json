@@ -1,0 +1,78 @@
+{
+  "task_id": "P4c-SW-cast",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [],
+  "calls_used": 0,
+  "retries": [],
+  "self_report": {
+    "obeyed_invariants": true,
+    "concerns": [
+      "Exemplar-band scoring skipped as instructed: no cast measure kind exists.",
+      "Head-pitch deltas unavailable for frames 0 and 1; six frames were evaluable.",
+      "Frozen selection repeats source indices: [21,30,39,129,129,130,130,130].",
+      "Frozen splice instrument reports 41 suspect adjacent pairs within the selected span. All result envelopes retain passed=null."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/checks.json",
+      "sha256": "4868eb3b476d030c98773c084bad936a8fc6441471e4362ebab71aea401a19cc"
+    },
+    {
+      "path": "out/grid.png",
+      "sha256": "35a67615c3611bb5c7b11966175492761d13a2c05410a32a90b1cc9bd4f69ec3"
+    },
+    {
+      "path": "out/first_second.png",
+      "sha256": "fff4ebaf7abe2957b907f7c86f686161e47728766147d2e96ddc4657632ea271"
+    },
+    {
+      "path": "out/cut/registration.json",
+      "sha256": "be9097a5217b4792ebe5e3aa01e76d2814dfdfe58c6a0a740553b6f1e01327a6"
+    },
+    {
+      "path": "out/cut/series.json",
+      "sha256": "2ec5f3c43871ea48c668d5d2a1c1fdc3c4d5857a6da4022cdcd51f7864293217"
+    },
+    {
+      "path": "out/cut/frames/cast/SW/cast_SW_00.png",
+      "sha256": "5498ed3fd44c4e30ee862eb41b894b8c4c45e0d4f74a75c7d6f8f44cd975ad25"
+    },
+    {
+      "path": "out/cut/frames/cast/SW/cast_SW_01.png",
+      "sha256": "9828945bb6ba4fcacce87d6f2730cbc41d94d18b8d0d750fd6827b11ccf01abc"
+    },
+    {
+      "path": "out/cut/frames/cast/SW/cast_SW_02.png",
+      "sha256": "2eaceaa637d7a7b0a1bc5851ac5ef478e2c7518a0aa2aa196509142e4558de14"
+    },
+    {
+      "path": "out/cut/frames/cast/SW/cast_SW_03.png",
+      "sha256": "b0336b372175b27ea4c67c3fa9f23b46b0b62fd4455a086a98fd635223aaf678"
+    },
+    {
+      "path": "out/cut/frames/cast/SW/cast_SW_04.png",
+      "sha256": "b0336b372175b27ea4c67c3fa9f23b46b0b62fd4455a086a98fd635223aaf678"
+    },
+    {
+      "path": "out/cut/frames/cast/SW/cast_SW_05.png",
+      "sha256": "5ab33938ffc70a581ca67ef24b23d10761beef46682b10a0bbd81768f6eff542"
+    },
+    {
+      "path": "out/cut/frames/cast/SW/cast_SW_06.png",
+      "sha256": "5ab33938ffc70a581ca67ef24b23d10761beef46682b10a0bbd81768f6eff542"
+    },
+    {
+      "path": "out/cut/frames/cast/SW/cast_SW_07.png",
+      "sha256": "5ab33938ffc70a581ca67ef24b23d10761beef46682b10a0bbd81768f6eff542"
+    },
+    {
+      "path": "out/cut/frames/rest/SW/rest_SW.png",
+      "sha256": "8f4b81f930b6685fe7a36f2d601343f8a99b8cddf8a3d2b6fb046b671a58834f"
+    },
+    {
+      "path": "out/cut/sheets/cast_SW_strip.png",
+      "sha256": "d33bf1f302399c125fc3c1a192657388e16ca8ee34545cb5a54a9dcb466ab349"
+    }
+  ]
+}

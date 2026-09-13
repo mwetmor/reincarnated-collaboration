@@ -1,0 +1,30 @@
+{
+  "task_id": "P4c-W-run",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [],
+  "calls_used": 0,
+  "retries": [],
+  "self_report": {
+    "obeyed_invariants": true,
+    "concerns": [
+      "bands_from_exemplar.measure could not compute walk measurements: ValueError: gait intent requires 12 frames and 12 candidate phases. Exception recorded; remaining measurements and both sheets completed."
+    ]
+  },
+  "files": [
+    {"path":"out/checks.json","sha256":"33057a3cc9b0817001c2cfff017be91825eea6e054ccce206fe6f44504056dfc"},
+    {"path":"out/grid.png","sha256":"c2293678d57b128645cecf0c134520df77ca9989f01211b3df745c2cb24929dc"},
+    {"path":"out/first_second.png","sha256":"561e2872e0be877ef315f4f51f1ba67e01e395ee9546c9c739db5a407c5261a8"},
+    {"path":"out/cut/registration.json","sha256":"14153ce6848ebfbea1df40d7b9d9fb0c4f0882402dbfa753391402eba0d651b3"},
+    {"path":"out/cut/series.json","sha256":"3694da7b6414041bb66b1f797f4b1bcc3235293f336093af1705db7cd028e4ab"},
+    {"path":"out/cut/frames/rest/W/rest_W.png","sha256":"2ffd9f0c3cab5f0abead74ad8d391bba19ccaed164befabd4818358d09506486"},
+    {"path":"out/cut/frames/run/W/run_W_00.png","sha256":"244728edfda65afe3a7503c337b09fd18798021646144c4c37089ddad18a96bd"},
+    {"path":"out/cut/frames/run/W/run_W_01.png","sha256":"8c6321f1d018efb6933e04c22403008dcf005346fc8a1bd03f53690feaec56dc"},
+    {"path":"out/cut/frames/run/W/run_W_02.png","sha256":"56be713370e452971641605df286813ed69363a01e748080e9c68ccba2bc35af"},
+    {"path":"out/cut/frames/run/W/run_W_03.png","sha256":"0b31e735e989298b2bfcc77c95bb08789227bc4b6a95e025ecb6d37bc5b4defb"},
+    {"path":"out/cut/frames/run/W/run_W_04.png","sha256":"8d7bbf8fe4e7de9df6b714705769c5fed3a95264fd0e27e0eecdf07e1490288a"},
+    {"path":"out/cut/frames/run/W/run_W_05.png","sha256":"a97c1b2d4770df71c675051392753800b51ce21e7ae6f49c3852c70e6b95af84"},
+    {"path":"out/cut/frames/run/W/run_W_06.png","sha256":"b23ca64a25a95d91b6b693595c332c8bb080e8438e12c7ba14b3f26fa3ca10b7"},
+    {"path":"out/cut/frames/run/W/run_W_07.png","sha256":"d5dc7498dd838ba1ea6a63c86ea66e428eca375f7fba17a127650210bed92a23"},
+    {"path":"out/cut/sheets/run_W_strip.png","sha256":"4f45c8543c0d300ab83ed6acc6b80fa8fdc83cdedea024ccfec5b4a9068634b1"}
+  ]
+}

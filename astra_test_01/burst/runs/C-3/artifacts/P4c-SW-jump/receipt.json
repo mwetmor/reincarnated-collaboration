@@ -1,0 +1,46 @@
+{
+  "task_id": "P4c-SW-jump",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [],
+  "calls_used": 0,
+  "retries": [
+    {
+      "reason": "Hash-list serialization encountered a Path object.",
+      "change": "Converted paths to strings; the cut was not rerun."
+    }
+  ],
+  "self_report": {
+    "obeyed_invariants": true,
+    "concerns": [
+      "Frozen cut found no six-sample settle after landing crouch; detection confidence was 0.2 and no registered jump frames were produced.",
+      "Grid and frame-dependent measurements were omitted as instructed. Exemplar bands were skipped because one-shots have no measure() kind.",
+      "Delivered strip is diagnostic only."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/checks.json",
+      "sha256": "5367dc1291f3b8e20f39b41fc7f539db2adb84df8312e5d327fe7011f6750df2"
+    },
+    {
+      "path": "out/first_second.png",
+      "sha256": "f6c91e2e955730a3b0e4368b5aca51c8e29f8ceae8cc935dc39d1b0a12098863"
+    },
+    {
+      "path": "out/cut/registration.json",
+      "sha256": "e180f422e6466707b091b525f68d4a00095366926352dce1e6ee06c6f53c7fbb"
+    },
+    {
+      "path": "out/cut/series.json",
+      "sha256": "7a9ad3d02ebe2baead820619aa4122482bb2691d9c7c0c7e7ca2176c34cd16ab"
+    },
+    {
+      "path": "out/cut/frames/rest/SW/rest_SW.png",
+      "sha256": "b3ac20b136ad8c5d3440c43088b94f09efcb93e080254db94f42d9adfb87dd60"
+    },
+    {
+      "path": "out/cut/sheets/jump_SW_strip.png",
+      "sha256": "75a866407d3407900de9658bf2d7d5a3d6cf046ebc000a0c96dc12306325f528"
+    }
+  ]
+}

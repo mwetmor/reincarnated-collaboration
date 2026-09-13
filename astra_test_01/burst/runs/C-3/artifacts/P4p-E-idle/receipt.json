@@ -1,0 +1,52 @@
+{
+  "task_id": "P4p-E-idle",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [],
+  "calls_used": 0,
+  "retries": [],
+  "self_report": {
+    "obeyed_invariants": true,
+    "concerns": [
+      "Source checks flag a prompted fallback period of 2.0 seconds with autocorrelation confidence 0.0; a measured single breath cycle is unconfirmed.",
+      "Packet summary reports that no oracle was supplied."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/packet/review.html",
+      "sha256": "abce97b8f7c86a43ed16608fe296585e55d043d2482c002f811901c7e5e3be3c"
+    },
+    {
+      "path": "out/packet/idle_E_1to1.mp4",
+      "sha256": "de357ba4e94e717f3c966733fa7e8811450f1a42d3dfb05a62bd537cab5d66a5"
+    },
+    {
+      "path": "out/packet/idle_E_2x.mp4",
+      "sha256": "5009ddf3f3e9fef0beb536dcdff88013f0e3227578eb3c300828c7d0ba38553f"
+    },
+    {
+      "path": "out/packet/numbers.json",
+      "sha256": "c9e4d108b6f1e16099eaa13124c4955298c094c73cc14e211c0f4fecdc91fb96"
+    },
+    {
+      "path": "out/packet/summary.txt",
+      "sha256": "36df879d15be182462edac19f6322571488e13ceb446c2a9cff8d878d004c53d"
+    },
+    {
+      "path": "out/packet/img/seam_pairs.png",
+      "sha256": "e8c98a225241dacf78fa316e0604c382913065dedfeb3ea5c0ec513bd0351422"
+    },
+    {
+      "path": "out/packet/img/strip.png",
+      "sha256": "41a63794a92daff5cadc06cb315d337cc19d144a3937e36ab5287a243767f94b"
+    },
+    {
+      "path": "out/packet/seam_pairs.png",
+      "sha256": "e8c98a225241dacf78fa316e0604c382913065dedfeb3ea5c0ec513bd0351422"
+    },
+    {
+      "path": "out/packet/strip.png",
+      "sha256": "41a63794a92daff5cadc06cb315d337cc19d144a3937e36ab5287a243767f94b"
+    }
+  ]
+}

@@ -1,0 +1,791 @@
+{
+  "task_id": "K1p-paintchk-idle-S-r2",
+  "fps_out": 8,
+  "fps_source": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-xv-idle-cut-01/registration.json#/breath/output_fps",
+  "canvas": [
+    512,
+    512
+  ],
+  "pivot": [
+    256,
+    400
+  ],
+  "source_dir": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-xv-idle-cut-01/frames/idle/S",
+  "base_registration": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-xv-idle-cut-01/registration.json",
+  "base_transform": {
+    "scale": 0.21178445229681978,
+    "source_frame_zero_native_index": 1,
+    "source_frame_zero_bbox_height": 1132,
+    "scaled_canvas_size": [
+      163,
+      248
+    ],
+    "resampling": "PIL affine bicubic, inverse diagonal 1/scale on both axes; scale about origin",
+    "integer_translation_xy": [
+      178,
+      158
+    ],
+    "canvas": [
+      512,
+      512
+    ],
+    "pivot": [
+      256,
+      400
+    ],
+    "target_sole_row": 399,
+    "target_center_x": 255.5,
+    "frame_zero_measured_height": 240,
+    "frame_zero_measured_sole_line": 399,
+    "frame_zero_measured_center_x": 255.5,
+    "one_scale_and_translation_for_all_frames": true,
+    "upscaling": false,
+    "sole_line_definition": "Bottommost row of alpha>=128 figure support (includes held equipment); no independent anatomical annotation.",
+    "root_anchor_note": "Atlas pivot is fixed metadata, not independently inferred anatomy.",
+    "scale_selection": "Closest sampled single uniform factor to 240/1132 yielding raster height 240 and even alpha-bbox width; see registration_scale_search.json. Initial factor left a half-pixel centre residual.",
+    "nominal_ratio_240_over_source_height": 0.21201413427561838
+  },
+  "composition_record": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/P5-sheets/sheet_idle_S.json",
+  "union_crop_512": [
+    201,
+    152,
+    311,
+    408
+  ],
+  "sheet_scale": 1.3800000000000001,
+  "inverse": "frame_512 = paste back: cell region [paste, paste+size] resized to (x1-x0, y1-y0) with LANCZOS, placed at (x0,y0) on a 512 transparent canvas",
+  "inverse_source_size": [
+    152,
+    353
+  ],
+  "inverse_target_size": [
+    110,
+    256
+  ],
+  "region_rules": "R-C3-16: staff tip = topmost inlier of a RANSAC line through full-resolution thin (\u2264 9 px) row/column alpha runs, head band excluded, extended upward through contiguous alpha; staff-head box = square 0.22\u00b7H centred 0.06\u00b7H above the tip; pauldron box S = [right shoulder edge \u2212 0.18\u00b7H, head_top + 0.12\u00b7H, edge + 10, head_top + 0.32\u00b7H]; E = [back edge \u2212 6, head_top + 0.12\u00b7H, back edge + 0.16\u00b7H, head_top + 0.30\u00b7H]",
+  "region_source": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/P5-regions/regions_idle_S.json",
+  "declared_regions": [
+    {
+      "frame": "idle_S_00.png",
+      "staff_tip": [
+        214.3,
+        174
+      ],
+      "staff_head_box": [
+        188,
+        134,
+        240,
+        185
+      ],
+      "pauldron_box": [
+        247,
+        192,
+        300,
+        239
+      ],
+      "H": 235,
+      "head_top": 164
+    },
+    {
+      "frame": "idle_S_01.png",
+      "staff_tip": [
+        213.5,
+        174
+      ],
+      "staff_head_box": [
+        187,
+        134,
+        239,
+        185
+      ],
+      "pauldron_box": [
+        247,
+        192,
+        300,
+        239
+      ],
+      "H": 235,
+      "head_top": 164
+    },
+    {
+      "frame": "idle_S_02.png",
+      "staff_tip": [
+        213.5,
+        174
+      ],
+      "staff_head_box": [
+        187,
+        134,
+        239,
+        185
+      ],
+      "pauldron_box": [
+        247,
+        192,
+        300,
+        239
+      ],
+      "H": 235,
+      "head_top": 164
+    },
+    {
+      "frame": "idle_S_03.png",
+      "staff_tip": [
+        213.6,
+        174
+      ],
+      "staff_head_box": [
+        187,
+        134,
+        239,
+        185
+      ],
+      "pauldron_box": [
+        248,
+        192,
+        301,
+        239
+      ],
+      "H": 235,
+      "head_top": 164
+    },
+    {
+      "frame": "idle_S_04.png",
+      "staff_tip": [
+        215.8,
+        174
+      ],
+      "staff_head_box": [
+        189,
+        134,
+        241,
+        185
+      ],
+      "pauldron_box": [
+        249,
+        192,
+        302,
+        239
+      ],
+      "H": 235,
+      "head_top": 164
+    },
+    {
+      "frame": "idle_S_05.png",
+      "staff_tip": [
+        215.2,
+        174
+      ],
+      "staff_head_box": [
+        189,
+        134,
+        241,
+        185
+      ],
+      "pauldron_box": [
+        249,
+        192,
+        302,
+        239
+      ],
+      "H": 235,
+      "head_top": 164
+    },
+    {
+      "frame": "idle_S_06.png",
+      "staff_tip": [
+        213.8,
+        174
+      ],
+      "staff_head_box": [
+        187,
+        134,
+        239,
+        185
+      ],
+      "pauldron_box": [
+        250,
+        192,
+        303,
+        239
+      ],
+      "H": 235,
+      "head_top": 164
+    },
+    {
+      "frame": "idle_S_07.png",
+      "staff_tip": [
+        213.8,
+        173
+      ],
+      "staff_head_box": [
+        187,
+        133,
+        239,
+        184
+      ],
+      "pauldron_box": [
+        250,
+        192,
+        303,
+        239
+      ],
+      "H": 235,
+      "head_top": 164
+    },
+    {
+      "frame": "idle_S_08.png",
+      "staff_tip": [
+        213.9,
+        173
+      ],
+      "staff_head_box": [
+        188,
+        133,
+        239,
+        184
+      ],
+      "pauldron_box": [
+        250,
+        192,
+        303,
+        239
+      ],
+      "H": 235,
+      "head_top": 164
+    },
+    {
+      "frame": "idle_S_09.png",
+      "staff_tip": [
+        213.8,
+        173
+      ],
+      "staff_head_box": [
+        187,
+        133,
+        239,
+        184
+      ],
+      "pauldron_box": [
+        250,
+        192,
+        303,
+        239
+      ],
+      "H": 235,
+      "head_top": 164
+    },
+    {
+      "frame": "idle_S_10.png",
+      "staff_tip": [
+        213.8,
+        173
+      ],
+      "staff_head_box": [
+        187,
+        133,
+        239,
+        184
+      ],
+      "pauldron_box": [
+        250,
+        192,
+        303,
+        239
+      ],
+      "H": 235,
+      "head_top": 164
+    },
+    {
+      "frame": "idle_S_11.png",
+      "staff_tip": [
+        213.7,
+        173
+      ],
+      "staff_head_box": [
+        187,
+        133,
+        239,
+        184
+      ],
+      "pauldron_box": [
+        250,
+        192,
+        303,
+        239
+      ],
+      "H": 235,
+      "head_top": 164
+    },
+    {
+      "frame": "idle_S_12.png",
+      "staff_tip": [
+        215.3,
+        174
+      ],
+      "staff_head_box": [
+        189,
+        134,
+        241,
+        185
+      ],
+      "pauldron_box": [
+        250,
+        192,
+        303,
+        239
+      ],
+      "H": 235,
+      "head_top": 164
+    },
+    {
+      "frame": "idle_S_13.png",
+      "staff_tip": [
+        215.7,
+        174
+      ],
+      "staff_head_box": [
+        189,
+        134,
+        241,
+        185
+      ],
+      "pauldron_box": [
+        248,
+        192,
+        301,
+        239
+      ],
+      "H": 235,
+      "head_top": 164
+    },
+    {
+      "frame": "idle_S_14.png",
+      "staff_tip": [
+        215.7,
+        174
+      ],
+      "staff_head_box": [
+        189,
+        134,
+        241,
+        185
+      ],
+      "pauldron_box": [
+        248,
+        192,
+        301,
+        239
+      ],
+      "H": 235,
+      "head_top": 164
+    },
+    {
+      "frame": "idle_S_15.png",
+      "staff_tip": [
+        213.5,
+        174
+      ],
+      "staff_head_box": [
+        187,
+        134,
+        239,
+        185
+      ],
+      "pauldron_box": [
+        247,
+        192,
+        300,
+        239
+      ],
+      "H": 235,
+      "head_top": 164
+    }
+  ],
+  "composite": {
+    "region_order": [
+      "staff_head_box",
+      "pauldron_box"
+    ],
+    "thresh": 24,
+    "dilate_px": 3,
+    "second_region_base": "first region output",
+    "replacement": "exact variant RGBA bytes at union mask; unchanged base elsewhere"
+  },
+  "matte": {
+    "alpha_floor": 40,
+    "edge_mode": "clamp",
+    "preserve_particles": false
+  },
+  "frames": [
+    {
+      "frame": "idle_S_00.png",
+      "path": "out/advanced/frames/idle/S/idle_S_00.png",
+      "root_anchor": [
+        256,
+        400
+      ],
+      "region_boxes": {
+        "staff_head_box": [
+          188,
+          134,
+          240,
+          185
+        ],
+        "pauldron_box": [
+          247,
+          192,
+          300,
+          239
+        ]
+      },
+      "source_sha256": "6e103d2c809d5e61a41a0aae84990a5430b646f23e4ae4e49bf8a4f4e0d8d6b2"
+    },
+    {
+      "frame": "idle_S_01.png",
+      "path": "out/advanced/frames/idle/S/idle_S_01.png",
+      "root_anchor": [
+        256,
+        400
+      ],
+      "region_boxes": {
+        "staff_head_box": [
+          187,
+          134,
+          239,
+          185
+        ],
+        "pauldron_box": [
+          247,
+          192,
+          300,
+          239
+        ]
+      },
+      "source_sha256": "88cd3bcfa778f680ec0ff8ab1205a16bbd38d7dece59b30dcaf1774a4c2d70cf"
+    },
+    {
+      "frame": "idle_S_02.png",
+      "path": "out/advanced/frames/idle/S/idle_S_02.png",
+      "root_anchor": [
+        256,
+        400
+      ],
+      "region_boxes": {
+        "staff_head_box": [
+          187,
+          134,
+          239,
+          185
+        ],
+        "pauldron_box": [
+          247,
+          192,
+          300,
+          239
+        ]
+      },
+      "source_sha256": "d45faa6252a8bdd7d66ff9063e52988c678c5954684bac57e5bb7187477e7976"
+    },
+    {
+      "frame": "idle_S_03.png",
+      "path": "out/advanced/frames/idle/S/idle_S_03.png",
+      "root_anchor": [
+        256,
+        400
+      ],
+      "region_boxes": {
+        "staff_head_box": [
+          187,
+          134,
+          239,
+          185
+        ],
+        "pauldron_box": [
+          248,
+          192,
+          301,
+          239
+        ]
+      },
+      "source_sha256": "1ec7c1915bf616b8416e8f87f6916dbc841fcd8726b7dd66dd77f607ab825b24"
+    },
+    {
+      "frame": "idle_S_04.png",
+      "path": "out/advanced/frames/idle/S/idle_S_04.png",
+      "root_anchor": [
+        256,
+        400
+      ],
+      "region_boxes": {
+        "staff_head_box": [
+          189,
+          134,
+          241,
+          185
+        ],
+        "pauldron_box": [
+          249,
+          192,
+          302,
+          239
+        ]
+      },
+      "source_sha256": "753c5a89e44d0e0107837cb458e26454a176741ed41060e8386c9a9e39d8e17f"
+    },
+    {
+      "frame": "idle_S_05.png",
+      "path": "out/advanced/frames/idle/S/idle_S_05.png",
+      "root_anchor": [
+        256,
+        400
+      ],
+      "region_boxes": {
+        "staff_head_box": [
+          189,
+          134,
+          241,
+          185
+        ],
+        "pauldron_box": [
+          249,
+          192,
+          302,
+          239
+        ]
+      },
+      "source_sha256": "90809d60bd4b6a5b4232161337980f59b2e3bbf8a510d24e848112c655090c57"
+    },
+    {
+      "frame": "idle_S_06.png",
+      "path": "out/advanced/frames/idle/S/idle_S_06.png",
+      "root_anchor": [
+        256,
+        400
+      ],
+      "region_boxes": {
+        "staff_head_box": [
+          187,
+          134,
+          239,
+          185
+        ],
+        "pauldron_box": [
+          250,
+          192,
+          303,
+          239
+        ]
+      },
+      "source_sha256": "aed2bf58b5e2b71e84b96f3b3f9dc97e2b824f7d263793686d6343c91ff2ca9f"
+    },
+    {
+      "frame": "idle_S_07.png",
+      "path": "out/advanced/frames/idle/S/idle_S_07.png",
+      "root_anchor": [
+        256,
+        400
+      ],
+      "region_boxes": {
+        "staff_head_box": [
+          187,
+          133,
+          239,
+          184
+        ],
+        "pauldron_box": [
+          250,
+          192,
+          303,
+          239
+        ]
+      },
+      "source_sha256": "aa7316d7ff1dbd37126a84b658d5c29d7c1457456c8c4702d00f8ea002787e0d"
+    },
+    {
+      "frame": "idle_S_08.png",
+      "path": "out/advanced/frames/idle/S/idle_S_08.png",
+      "root_anchor": [
+        256,
+        400
+      ],
+      "region_boxes": {
+        "staff_head_box": [
+          188,
+          133,
+          239,
+          184
+        ],
+        "pauldron_box": [
+          250,
+          192,
+          303,
+          239
+        ]
+      },
+      "source_sha256": "980dafad9f18d99bb3f4fb77a0aae69e936f7c401cc9dcc5f712210d683a2b61"
+    },
+    {
+      "frame": "idle_S_09.png",
+      "path": "out/advanced/frames/idle/S/idle_S_09.png",
+      "root_anchor": [
+        256,
+        400
+      ],
+      "region_boxes": {
+        "staff_head_box": [
+          187,
+          133,
+          239,
+          184
+        ],
+        "pauldron_box": [
+          250,
+          192,
+          303,
+          239
+        ]
+      },
+      "source_sha256": "b4406b1ba086244c47efa41afcffe6e3bcced090188c11095a90fa706b3d2410"
+    },
+    {
+      "frame": "idle_S_10.png",
+      "path": "out/advanced/frames/idle/S/idle_S_10.png",
+      "root_anchor": [
+        256,
+        400
+      ],
+      "region_boxes": {
+        "staff_head_box": [
+          187,
+          133,
+          239,
+          184
+        ],
+        "pauldron_box": [
+          250,
+          192,
+          303,
+          239
+        ]
+      },
+      "source_sha256": "fe149c8b475b6b6d8887f56d73552ef9649816dd9ae75a404d7297a60a824c6e"
+    },
+    {
+      "frame": "idle_S_11.png",
+      "path": "out/advanced/frames/idle/S/idle_S_11.png",
+      "root_anchor": [
+        256,
+        400
+      ],
+      "region_boxes": {
+        "staff_head_box": [
+          187,
+          133,
+          239,
+          184
+        ],
+        "pauldron_box": [
+          250,
+          192,
+          303,
+          239
+        ]
+      },
+      "source_sha256": "3d2409187c5d1d2d18702632916e6e32941b5a944c9dd969af5fab653b1a0fc2"
+    },
+    {
+      "frame": "idle_S_12.png",
+      "path": "out/advanced/frames/idle/S/idle_S_12.png",
+      "root_anchor": [
+        256,
+        400
+      ],
+      "region_boxes": {
+        "staff_head_box": [
+          189,
+          134,
+          241,
+          185
+        ],
+        "pauldron_box": [
+          250,
+          192,
+          303,
+          239
+        ]
+      },
+      "source_sha256": "a4b1adc0117f354de59ae1a4eaef2ead65a0c6d98d3839c775632130a281b1ea"
+    },
+    {
+      "frame": "idle_S_13.png",
+      "path": "out/advanced/frames/idle/S/idle_S_13.png",
+      "root_anchor": [
+        256,
+        400
+      ],
+      "region_boxes": {
+        "staff_head_box": [
+          189,
+          134,
+          241,
+          185
+        ],
+        "pauldron_box": [
+          248,
+          192,
+          301,
+          239
+        ]
+      },
+      "source_sha256": "9b5421969e977a838705c8b3564abe22971a8578898e32e651d855cd584fd1a2"
+    },
+    {
+      "frame": "idle_S_14.png",
+      "path": "out/advanced/frames/idle/S/idle_S_14.png",
+      "root_anchor": [
+        256,
+        400
+      ],
+      "region_boxes": {
+        "staff_head_box": [
+          189,
+          134,
+          241,
+          185
+        ],
+        "pauldron_box": [
+          248,
+          192,
+          301,
+          239
+        ]
+      },
+      "source_sha256": "b1c4c60669206c3516d5ea39071ef5ed75d227f3d481a4a607e13fdd0ad135c4"
+    },
+    {
+      "frame": "idle_S_15.png",
+      "path": "out/advanced/frames/idle/S/idle_S_15.png",
+      "root_anchor": [
+        256,
+        400
+      ],
+      "region_boxes": {
+        "staff_head_box": [
+          187,
+          134,
+          239,
+          185
+        ],
+        "pauldron_box": [
+          247,
+          192,
+          300,
+          239
+        ]
+      },
+      "source_sha256": "956be1df3218e5a486f96878298b3f06e5041ca63ee646dd4d055b653a5248f7"
+    }
+  ],
+  "passed": null
+}

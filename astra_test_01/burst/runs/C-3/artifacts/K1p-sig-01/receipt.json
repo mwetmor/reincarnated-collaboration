@@ -1,0 +1,49 @@
+{
+  "task_id": "K1p-sig-01",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "glyph_A",
+      "path": "out/glyph_A.png",
+      "sha256": "360d35101f2e17e248435c1bfe5de9162ae3373aafe306d810c83c0218a8c95d",
+      "prompt": "Create a square opaque painted image. The entire canvas is painted solid bright pure green #00ff00, with one small flat brass insignia painted in the center. The green background is REQUIRED visible image content: preserve it as opaque green, never remove it or make it transparent. Candidate A, Needle through Strata: ONE slim straight vertical needle with a small diamond head and a short foot, piercing EXACTLY THREE straight-edged horizontal bands with small green gaps between bands. Top band narrowest, middle wider, lowest widest. Emblem fills 60 percent of image height. Hand-drawn painted 2D with confident tapered dark contour, clean flat planes and bold simple shapes legible at 8 pixels tall. Use exactly TWO flat brass colors inside the dark contour: brass fill and darker brass shade. Absolutely no gradient, highlight stripe, bevel, faceting, texture, glow or shadow. No enclosing ring, shield, frame, border, text, letters, numbers, clock, hourglass, compass, gears, stars or wings. No other objects. Solid opaque #00ff00 visible everywhere outside the emblem, including every corner and every edge. Deliver the complete green square painting.",
+      "references": [],
+      "elapsed_s": 17.81
+    },
+    {
+      "name": "glyph_B",
+      "path": "out/glyph_B.png",
+      "sha256": "1426b13d9b3cc80207c8452244e8426e6455729a42cb21f3c3d05a0fc07a6bc4",
+      "prompt": "Use case: logo-brand. Create candidate B of the Keeper advanced-set provenance mark 'Needle through Strata': a SINGLE flat game INSIGNIA emblem, centered, filling about 60 percent of a square canvas height, on flat uniform pure #00ff00 background. ONE vertical needle / gnomon with a small diamond-shaped head and a short foot, piercing EXACTLY THREE stacked horizontal strata bands. Lowest band widest, middle band narrower, top band narrowest. Candidate B: slightly thicker straight needle shaft with a diamond head wider than the shaft; the three horizontal strata bands touch each other and have gently rounded ends. Brass with a confident hand-drawn dark contour with visible taper and varying weight; painted clean flat planes. TWO tones only, one brass fill and one darker brass shade, plus the dark contour line. Hand-drawn painted 2D game-art line quality, bold extremely simple shapes legible shrunk to 8 pixels tall, restrained texture and clean material planes, no conspicuous grain. Deliberate ceremonial ornamental geometry. No enclosing ring, shield, frame or border. No text, letters, numbers, clock, hourglass, compass, gears, stars or wings. No photographic rendering, bevel, glow, shadow, gradients, extra ornament or objects. Opaque uniform pure green plate all the way to the canvas edges. One emblem only.",
+      "references": [],
+      "elapsed_s": 34.415
+    }
+  ],
+  "calls_used": 3,
+  "retries": [
+    {
+      "reason": "Initial candidate A appeared off-plate, with transparency instead of the required green background.",
+      "change": "Regenerated A with explicit opaque green painting instructions and reinforced flat two-tone treatment."
+    }
+  ],
+  "self_report": {
+    "obeyed_invariants": false,
+    "concerns": [
+      "Candidate B remains off-plate with transparency; the single retry allowance was used on A.",
+      "B has bevel-like highlights and more than two brass tones; A retains subtle tonal variation.",
+      "Both emblems occupy more than the requested approximately 60 percent canvas height.",
+      "Delivered unchanged native 1254×1254 single-emblem templates per task; these are not registered 512×512 sprite frames.",
+      "Exact green RGB uniformity and 8-pixel legibility were not measured."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/glyph_A.png",
+      "sha256": "360d35101f2e17e248435c1bfe5de9162ae3373aafe306d810c83c0218a8c95d"
+    },
+    {
+      "path": "out/glyph_B.png",
+      "sha256": "1426b13d9b3cc80207c8452244e8426e6455729a42cb21f3c3d05a0fc07a6bc4"
+    }
+  ]
+}

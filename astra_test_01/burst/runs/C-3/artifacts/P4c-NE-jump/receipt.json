@@ -1,0 +1,31 @@
+{
+  "task_id": "P4c-NE-jump",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [],
+  "calls_used": 0,
+  "retries": [],
+  "self_report": {
+    "obeyed_invariants": true,
+    "concerns": [
+      "Frozen splice scan flagged native pair [83,84] inside the selected event.",
+      "Exemplar-band measurement skipped as instructed: no one-shot kind exists. All requested b–g measurements computed; every result has passed=null."
+    ]
+  },
+  "files": [
+    {"path":"out/checks.json","sha256":"3f6492e0035e3ea36c300bffd35c7cb66bc18929ca8553262aa4c9dcf4974e56"},
+    {"path":"out/grid.png","sha256":"dad063143a8756ad8b3e7b75bbaa4a2bc1fdef2ac7e0c2c274c278fca1b0e492"},
+    {"path":"out/first_second.png","sha256":"33d70e1c220301dd998d2d52e74ba845d5e322b8b2b1d4421f4cdd282d2a85c1"},
+    {"path":"out/cut/registration.json","sha256":"d3b544454c65f897d6b7bc5a647cc77b081efac560f82193be0b79f2a1e53972"},
+    {"path":"out/cut/series.json","sha256":"6f52eb555498c045af6a9bff4b49c8af6385b4cba4bfce73c030b344095c7502"},
+    {"path":"out/cut/frames/jump/NE/jump_NE_00.png","sha256":"101a692c63f5bdb35619b98d95bbfc9d5066e5b3b847b24fd2e0a4a1515b3e85"},
+    {"path":"out/cut/frames/jump/NE/jump_NE_01.png","sha256":"dbf7e36b6860ca62bc43ab7634dc3a8002a226be8c8a85a30a27517cdab9e1b5"},
+    {"path":"out/cut/frames/jump/NE/jump_NE_02.png","sha256":"27c9998489bd7c9ce2f750bfacf3a2cf02c39c3514fd7296d677599f3ffb2650"},
+    {"path":"out/cut/frames/jump/NE/jump_NE_03.png","sha256":"cb67ee87c73b899c91df3e7b25d5750e6c1c9983f9be6142710219bd4fc519df"},
+    {"path":"out/cut/frames/jump/NE/jump_NE_04.png","sha256":"9b3efd34b157845d9ac8cc4b699705d4d03f3ab20f01088c1ca40f61a02dbf18"},
+    {"path":"out/cut/frames/jump/NE/jump_NE_05.png","sha256":"9e7927abcd523dd3dbbf2e1b824fd97c2ea889e5fc3a09dbac08f28b4be0160e"},
+    {"path":"out/cut/frames/jump/NE/jump_NE_06.png","sha256":"794ea3b87ba171f1d1a065de9e3685855826fbd9a0b5aa13cdd49773c2072f1d"},
+    {"path":"out/cut/frames/jump/NE/jump_NE_07.png","sha256":"ca8931b1435e2acda64e02edeed0d33a41a80ac55de248feaa8179d39998b804"},
+    {"path":"out/cut/frames/rest/NE/rest_NE.png","sha256":"9cf5ed6dabe66f118c99931c7ca4335aaf70bac7aba7f26c1dffa53750d6a107"},
+    {"path":"out/cut/sheets/jump_NE_strip.png","sha256":"11418d98de414d5ee193dfe2291ac3a7d3786307933dfd3fca1d55a3688e166e"}
+  ]
+}

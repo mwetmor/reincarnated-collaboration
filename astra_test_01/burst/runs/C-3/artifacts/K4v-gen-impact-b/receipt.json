@@ -1,0 +1,33 @@
+{
+  "task_id": "K4v-gen-impact-b",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "impact_04_07",
+      "path": "out/impact_04_07.png",
+      "sha256": "6e7e5f21762c5386afc9b2a60d36dde76419d4dc3328906b87dcad5b9e52ef8e",
+      "prompt": "Create an original hand-painted blue-white FROST projectile VFX animation sprite sheet, module IMPACT continued. Square 1254x1254 native sheet, strict 2x2 equal-cell layout in row-major order, with invisible cell boundaries. Reference image 1 is STYLE ONLY: match the icy blue-white energy at the character's staff tip, its faceted painted brushwork, hard illustrated edges and deep-blue falloff. HAND-DRAWN painted 2D in the manner of a modern hand-animated action game: confident hand-drawn contours with visible taper and varying weight, painted fills in clean planes, restrained texture, readable small silhouettes, no conspicuous grain. Flat pure black #000000 emission background throughout. Angular translucent ice facets, white-blue highlights and deep cobalt soft emission fringes; no green or cyan. Each effect is centered at 50%,50% of its own cell. Top-left frame 4: shards spread wider and dimmer, 78% extent, fading white-blue core. Top-right frame 5: scattered shards fading, no central flash, 70% extent. Bottom-left frame 6: a few small dim fragments, 50% extent. Bottom-right frame 7: faint sparks, 30% extent. Strict monotone fading in brightness and shard count across the four frames. Everything fully contained inside at least 8% margins in each cell, ample pure black space separating effects. No character, hand, staff, scenery, symbols, text, labels, grid lines, borders, or floor shadows. This is an emission VFX sheet on black.",
+      "references": [
+        {
+          "role": "STYLE ONLY — frost energy at the staff tip",
+          "path": "in/01_vfx_style_match.png"
+        }
+      ],
+      "elapsed_s": 29.734
+    }
+  ],
+  "calls_used": 1,
+  "retries": [],
+  "self_report": {
+    "obeyed_invariants": true,
+    "concerns": [
+      "Frame 4 retains a strong central flash; frame 6 fragments remain relatively bright. Neither qualifies for the permitted retry."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/impact_04_07.png",
+      "sha256": "6e7e5f21762c5386afc9b2a60d36dde76419d4dc3328906b87dcad5b9e52ef8e"
+    }
+  ]
+}

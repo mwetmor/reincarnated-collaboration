@@ -1,0 +1,564 @@
+{
+  "task_id": "K1p-paintchk-idle-S",
+  "fps_out": 8,
+  "fps_source": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-xv-idle-cut-01/registration.json#breath.output_fps",
+  "canvas": [
+    512,
+    512
+  ],
+  "pivot": [
+    256,
+    400
+  ],
+  "source_dir": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-xv-idle-cut-01/frames/idle/S",
+  "composition_record": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/P5-sheets/sheet_idle_S.json",
+  "edited_sheet": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/K1p-paint-idle-S/sheet_idle_S_advanced.png",
+  "inverse": "frame_512 = paste back: cell region [paste, paste+size] resized to (x1-x0, y1-y0) with LANCZOS, placed at (x0,y0) on a 512 transparent canvas",
+  "union_crop_512": [
+    201,
+    152,
+    311,
+    408
+  ],
+  "sheet_scale": 1.3800000000000001,
+  "resize_target": [
+    110,
+    256
+  ],
+  "resampling": "LANCZOS, downscale only; identical target and translation for all frames",
+  "matte": {
+    "alpha_floor": 40,
+    "edge_mode": "clamp"
+  },
+  "region_rules": {
+    "staff_head": "Square side 0.22*H centered at track.tip_xy shifted upward by 0.06*H. Use non-null frozen tip literally.",
+    "staff_head_null_fallback": "Topmost base alpha>=128 point outside head box; not used (all tips non-null).",
+    "pauldron": "Screen-right shoulder: x=[bbox center-x,bbox right+12], y=[head_top_y+0.10*H,head_top_y+0.34*H].",
+    "box_integer_conversion": "Floor lower bounds, ceil upper bounds, clip to [0,512]; upper bounds exclusive.",
+    "tracking": "Frozen video_cut.track over full ordered base-alpha sequence; native coordinates; frozen 3-frame median head_top_y.",
+    "order": [
+      "staff_head",
+      "pauldron"
+    ],
+    "thresh": 24,
+    "dilate_px": 3,
+    "mask_area_fraction_denominator": 262144
+  },
+  "frames": [
+    {
+      "frame": "idle_S_00.png",
+      "path": "frames/idle/S/idle_S_00.png",
+      "region_boxes": {
+        "staff_head": [
+          234,
+          119,
+          287,
+          173
+        ],
+        "pauldron": [
+          256,
+          184,
+          314,
+          242
+        ]
+      },
+      "tracking": {
+        "tip_xy": [
+          260.5,
+          160.5
+        ],
+        "head_top_y": 160.0,
+        "H": 240.0,
+        "bbox": [
+          210.0,
+          160.0,
+          302.0,
+          400.0
+        ]
+      }
+    },
+    {
+      "frame": "idle_S_01.png",
+      "path": "frames/idle/S/idle_S_01.png",
+      "region_boxes": {
+        "staff_head": [
+          234,
+          119,
+          287,
+          173
+        ],
+        "pauldron": [
+          256,
+          184,
+          314,
+          242
+        ]
+      },
+      "tracking": {
+        "tip_xy": [
+          260.5,
+          160.5
+        ],
+        "head_top_y": 160.0,
+        "H": 240.0,
+        "bbox": [
+          210.0,
+          160.0,
+          302.0,
+          400.0
+        ]
+      }
+    },
+    {
+      "frame": "idle_S_02.png",
+      "path": "frames/idle/S/idle_S_02.png",
+      "region_boxes": {
+        "staff_head": [
+          234,
+          119,
+          287,
+          173
+        ],
+        "pauldron": [
+          256,
+          184,
+          314,
+          242
+        ]
+      },
+      "tracking": {
+        "tip_xy": [
+          260.5,
+          160.5
+        ],
+        "head_top_y": 160.0,
+        "H": 240.0,
+        "bbox": [
+          210.0,
+          160.0,
+          302.0,
+          400.0
+        ]
+      }
+    },
+    {
+      "frame": "idle_S_03.png",
+      "path": "frames/idle/S/idle_S_03.png",
+      "region_boxes": {
+        "staff_head": [
+          236,
+          122,
+          289,
+          175
+        ],
+        "pauldron": [
+          256,
+          185,
+          314,
+          243
+        ]
+      },
+      "tracking": {
+        "tip_xy": [
+          262.5,
+          162.5
+        ],
+        "head_top_y": 162.0,
+        "H": 238.0,
+        "bbox": [
+          210.0,
+          162.0,
+          302.0,
+          400.0
+        ]
+      }
+    },
+    {
+      "frame": "idle_S_04.png",
+      "path": "frames/idle/S/idle_S_04.png",
+      "region_boxes": {
+        "staff_head": [
+          234,
+          122,
+          287,
+          175
+        ],
+        "pauldron": [
+          256,
+          185,
+          314,
+          243
+        ]
+      },
+      "tracking": {
+        "tip_xy": [
+          260.5,
+          162.5
+        ],
+        "head_top_y": 162.0,
+        "H": 238.0,
+        "bbox": [
+          210.0,
+          162.0,
+          302.0,
+          400.0
+        ]
+      }
+    },
+    {
+      "frame": "idle_S_05.png",
+      "path": "frames/idle/S/idle_S_05.png",
+      "region_boxes": {
+        "staff_head": [
+          226,
+          122,
+          279,
+          175
+        ],
+        "pauldron": [
+          256,
+          185,
+          314,
+          243
+        ]
+      },
+      "tracking": {
+        "tip_xy": [
+          252.5,
+          162.5
+        ],
+        "head_top_y": 162.0,
+        "H": 238.0,
+        "bbox": [
+          210.0,
+          162.0,
+          302.0,
+          400.0
+        ]
+      }
+    },
+    {
+      "frame": "idle_S_06.png",
+      "path": "frames/idle/S/idle_S_06.png",
+      "region_boxes": {
+        "staff_head": [
+          226,
+          122,
+          279,
+          175
+        ],
+        "pauldron": [
+          256,
+          185,
+          314,
+          243
+        ]
+      },
+      "tracking": {
+        "tip_xy": [
+          252.5,
+          162.5
+        ],
+        "head_top_y": 162.0,
+        "H": 238.0,
+        "bbox": [
+          210.0,
+          162.0,
+          302.0,
+          400.0
+        ]
+      }
+    },
+    {
+      "frame": "idle_S_07.png",
+      "path": "frames/idle/S/idle_S_07.png",
+      "region_boxes": {
+        "staff_head": [
+          224,
+          122,
+          277,
+          175
+        ],
+        "pauldron": [
+          256,
+          185,
+          314,
+          243
+        ]
+      },
+      "tracking": {
+        "tip_xy": [
+          250.5,
+          162.5
+        ],
+        "head_top_y": 162.0,
+        "H": 238.0,
+        "bbox": [
+          210.0,
+          162.0,
+          302.0,
+          400.0
+        ]
+      }
+    },
+    {
+      "frame": "idle_S_08.png",
+      "path": "frames/idle/S/idle_S_08.png",
+      "region_boxes": {
+        "staff_head": [
+          224,
+          122,
+          277,
+          175
+        ],
+        "pauldron": [
+          256,
+          185,
+          314,
+          243
+        ]
+      },
+      "tracking": {
+        "tip_xy": [
+          250.5,
+          162.5
+        ],
+        "head_top_y": 162.0,
+        "H": 238.0,
+        "bbox": [
+          210.0,
+          162.0,
+          302.0,
+          400.0
+        ]
+      }
+    },
+    {
+      "frame": "idle_S_09.png",
+      "path": "frames/idle/S/idle_S_09.png",
+      "region_boxes": {
+        "staff_head": [
+          224,
+          122,
+          277,
+          175
+        ],
+        "pauldron": [
+          256,
+          185,
+          314,
+          243
+        ]
+      },
+      "tracking": {
+        "tip_xy": [
+          250.5,
+          162.5
+        ],
+        "head_top_y": 162.0,
+        "H": 238.0,
+        "bbox": [
+          210.0,
+          162.0,
+          302.0,
+          400.0
+        ]
+      }
+    },
+    {
+      "frame": "idle_S_10.png",
+      "path": "frames/idle/S/idle_S_10.png",
+      "region_boxes": {
+        "staff_head": [
+          224,
+          122,
+          277,
+          175
+        ],
+        "pauldron": [
+          256,
+          185,
+          314,
+          243
+        ]
+      },
+      "tracking": {
+        "tip_xy": [
+          250.5,
+          162.5
+        ],
+        "head_top_y": 162.0,
+        "H": 238.0,
+        "bbox": [
+          210.0,
+          162.0,
+          302.0,
+          400.0
+        ]
+      }
+    },
+    {
+      "frame": "idle_S_11.png",
+      "path": "frames/idle/S/idle_S_11.png",
+      "region_boxes": {
+        "staff_head": [
+          224,
+          122,
+          277,
+          175
+        ],
+        "pauldron": [
+          256,
+          185,
+          314,
+          243
+        ]
+      },
+      "tracking": {
+        "tip_xy": [
+          250.5,
+          162.5
+        ],
+        "head_top_y": 162.0,
+        "H": 238.0,
+        "bbox": [
+          210.0,
+          162.0,
+          302.0,
+          400.0
+        ]
+      }
+    },
+    {
+      "frame": "idle_S_12.png",
+      "path": "frames/idle/S/idle_S_12.png",
+      "region_boxes": {
+        "staff_head": [
+          234,
+          122,
+          287,
+          175
+        ],
+        "pauldron": [
+          255,
+          185,
+          314,
+          243
+        ]
+      },
+      "tracking": {
+        "tip_xy": [
+          260.5,
+          162.5
+        ],
+        "head_top_y": 162.0,
+        "H": 238.0,
+        "bbox": [
+          208.0,
+          162.0,
+          302.0,
+          400.0
+        ]
+      }
+    },
+    {
+      "frame": "idle_S_13.png",
+      "path": "frames/idle/S/idle_S_13.png",
+      "region_boxes": {
+        "staff_head": [
+          236,
+          122,
+          289,
+          175
+        ],
+        "pauldron": [
+          255,
+          185,
+          314,
+          243
+        ]
+      },
+      "tracking": {
+        "tip_xy": [
+          262.5,
+          162.5
+        ],
+        "head_top_y": 162.0,
+        "H": 238.0,
+        "bbox": [
+          208.0,
+          162.0,
+          302.0,
+          400.0
+        ]
+      }
+    },
+    {
+      "frame": "idle_S_14.png",
+      "path": "frames/idle/S/idle_S_14.png",
+      "region_boxes": {
+        "staff_head": [
+          236,
+          122,
+          289,
+          175
+        ],
+        "pauldron": [
+          255,
+          185,
+          314,
+          243
+        ]
+      },
+      "tracking": {
+        "tip_xy": [
+          262.5,
+          162.5
+        ],
+        "head_top_y": 162.0,
+        "H": 238.0,
+        "bbox": [
+          208.0,
+          162.0,
+          302.0,
+          400.0
+        ]
+      }
+    },
+    {
+      "frame": "idle_S_15.png",
+      "path": "frames/idle/S/idle_S_15.png",
+      "region_boxes": {
+        "staff_head": [
+          236,
+          122,
+          289,
+          175
+        ],
+        "pauldron": [
+          256,
+          185,
+          314,
+          243
+        ]
+      },
+      "tracking": {
+        "tip_xy": [
+          262.5,
+          162.5
+        ],
+        "head_top_y": 162.0,
+        "H": 238.0,
+        "bbox": [
+          210.0,
+          162.0,
+          302.0,
+          400.0
+        ]
+      }
+    }
+  ],
+  "concerns": [
+    "Frozen video_cut.track returns non-null tip_xy on the head rather than the visible screen-left staff tip. The prescribed staff-head box is retained literally; the null-tip fallback is not triggered. All requested numerical measurements were computed."
+  ]
+}

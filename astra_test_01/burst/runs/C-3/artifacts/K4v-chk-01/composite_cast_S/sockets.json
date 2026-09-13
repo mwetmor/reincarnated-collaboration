@@ -1,0 +1,356 @@
+{
+  "fps": 20.0,
+  "count": 8,
+  "canvas": [
+    512,
+    512
+  ],
+  "vfx_anchor_xy": [
+    128,
+    128
+  ],
+  "socket_source": {
+    "xy_per_frame": [
+      [
+        214.5,
+        168.5
+      ],
+      [
+        242.5,
+        104.5
+      ],
+      [
+        246.5,
+        82.5
+      ],
+      [
+        258.5,
+        160.5
+      ],
+      [
+        258.5,
+        160.5
+      ],
+      [
+        260.5,
+        162.5
+      ],
+      [
+        258.5,
+        160.5
+      ],
+      [
+        258.5,
+        160.5
+      ]
+    ],
+    "source": "oracle.video_cut.track.tip_xy",
+    "native_tip_xy": [
+      [
+        214.5,
+        168.5
+      ],
+      [
+        242.5,
+        104.5
+      ],
+      [
+        246.5,
+        82.5
+      ],
+      [
+        258.5,
+        160.5
+      ],
+      [
+        258.5,
+        160.5
+      ],
+      [
+        260.5,
+        162.5
+      ],
+      [
+        258.5,
+        160.5
+      ],
+      [
+        258.5,
+        160.5
+      ]
+    ],
+    "working_scale": 0.5,
+    "transform": {
+      "scale": 1.0,
+      "translation_xy": [
+        0.0,
+        0.0
+      ]
+    },
+    "input_space": "registered",
+    "mapping": "(xy + 0.5) * scale - 0.5 + translation_xy",
+    "notes": "Mask-based staff-tip proxy; no anatomical guarantee or per-frame correction",
+    "registration_provenance": {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/P4c-S-cast/cut/registration.json",
+      "sha256": "91d6ac394fdfb77d364af7a921d4283f0df790c7af1a372ecdb69d67c955678e",
+      "transform": {
+        "scale": 0.291970802919708,
+        "nominal_scale": 0.291970802919708,
+        "translation_xy": [
+          143,
+          82
+        ],
+        "scaled_size": [
+          224,
+          341
+        ],
+        "source_sampling_box_xyxy": [
+          0.0,
+          0.0,
+          767.2,
+          1167.9250000000002
+        ],
+        "source_size": [
+          768,
+          1168
+        ],
+        "anchor_index": 0,
+        "anchor_native_bbox": [
+          230,
+          268,
+          543,
+          1090
+        ],
+        "canvas": [
+          512,
+          512
+        ],
+        "anchor_bbox": [
+          210,
+          160,
+          302,
+          400
+        ],
+        "anchor_H": 240,
+        "anchor_sole_row": 399,
+        "anchor_cx": 255.5,
+        "target_h": 240,
+        "sole_row": 399,
+        "cx": 255.5,
+        "one_transform_for_every_frame": true,
+        "upscaling": false,
+        "resampling": "PIL Lanczos; exact isotropic sampling box; integer unmasked paste",
+        "calibration": "closest nominal scale attaining raster height/centre, search +/-1 output px in .025 px steps"
+      },
+      "applied": false,
+      "reason": "Requested registration transform cannot be applied to the supplied already-registered 512x512 character frames: its native source_size is 768x1168. Sockets were estimated with transform=None in registered coordinates; the original transform is retained as provenance, not applied twice."
+    }
+  },
+  "xy_per_frame": [
+    [
+      214.5,
+      168.5
+    ],
+    [
+      242.5,
+      104.5
+    ],
+    [
+      246.5,
+      82.5
+    ],
+    [
+      258.5,
+      160.5
+    ],
+    [
+      258.5,
+      160.5
+    ],
+    [
+      260.5,
+      162.5
+    ],
+    [
+      258.5,
+      160.5
+    ],
+    [
+      258.5,
+      160.5
+    ]
+  ],
+  "placements": [
+    {
+      "index": 0,
+      "character_index": 0,
+      "vfx_index": 0,
+      "socket_xy": [
+        214.5,
+        168.5
+      ],
+      "offset_xy": [
+        86,
+        40
+      ],
+      "clipped_alpha_fraction": 0.0
+    },
+    {
+      "index": 1,
+      "character_index": 1,
+      "vfx_index": 1,
+      "socket_xy": [
+        242.5,
+        104.5
+      ],
+      "offset_xy": [
+        114,
+        -24
+      ],
+      "clipped_alpha_fraction": 0.0
+    },
+    {
+      "index": 2,
+      "character_index": 2,
+      "vfx_index": 2,
+      "socket_xy": [
+        246.5,
+        82.5
+      ],
+      "offset_xy": [
+        118,
+        -46
+      ],
+      "clipped_alpha_fraction": 0.0
+    },
+    {
+      "index": 3,
+      "character_index": 3,
+      "vfx_index": 3,
+      "socket_xy": [
+        258.5,
+        160.5
+      ],
+      "offset_xy": [
+        130,
+        32
+      ],
+      "clipped_alpha_fraction": 0.0
+    },
+    {
+      "index": 4,
+      "character_index": 4,
+      "vfx_index": 4,
+      "socket_xy": [
+        258.5,
+        160.5
+      ],
+      "offset_xy": [
+        130,
+        32
+      ],
+      "clipped_alpha_fraction": 0.0
+    },
+    {
+      "index": 5,
+      "character_index": 5,
+      "vfx_index": 5,
+      "socket_xy": [
+        260.5,
+        162.5
+      ],
+      "offset_xy": [
+        132,
+        34
+      ],
+      "clipped_alpha_fraction": 0.0
+    },
+    {
+      "index": 6,
+      "character_index": 6,
+      "vfx_index": 6,
+      "socket_xy": [
+        258.5,
+        160.5
+      ],
+      "offset_xy": [
+        130,
+        32
+      ],
+      "clipped_alpha_fraction": 0.0
+    },
+    {
+      "index": 7,
+      "character_index": 7,
+      "vfx_index": 7,
+      "socket_xy": [
+        258.5,
+        160.5
+      ],
+      "offset_xy": [
+        130,
+        32
+      ],
+      "clipped_alpha_fraction": 0.0
+    }
+  ],
+  "timing": "One shared fps; character cycles, VFX once then transparent",
+  "compositing": "Premultiplied Porter-Duff over; straight RGBA outputs",
+  "attachment": {
+    "id": "attachment",
+    "subject": "vfx",
+    "passed": false,
+    "value": 12.219164440295652,
+    "threshold": 6.0,
+    "op": "<=",
+    "unit": "px",
+    "evidence": [],
+    "notes": "{\"bright_blob_fraction\": 0.8, \"definition\": \"Maximum Euclidean distance in supplied canvas; no registration\", \"missing_active_sockets\": [], \"per_frame\": [{\"centroid_xy\": [217.746041128629, 164.50147592920263], \"distance_px\": 5.150240552973913, \"index\": 0, \"reason\": null, \"socket_xy\": [214.5, 168.5]}, {\"centroid_xy\": [240.08815012209075, 102.20833322683055], \"distance_px\": 3.326974065546611, \"index\": 1, \"reason\": null, \"socket_xy\": [242.5, 104.5]}, {\"centroid_xy\": [249.7014801286426, 75.84810830974902], \"distance_px\": 7.3822176934118815, \"index\": 2, \"reason\": null, \"socket_xy\": [246.5, 82.5]}, {\"centroid_xy\": [257.7981128940623, 152.29327443271706], \"distance_px\": 8.236685622638344, \"index\": 3, \"reason\": null, \"socket_xy\": [258.5, 160.5]}, {\"centroid_xy\": [260.6189505360062, 169.536915811556], \"distance_px\": 9.282014800634183, \"index\": 4, \"reason\": null, \"socket_xy\": [258.5, 160.5]}, {\"centroid_xy\": [264.0736315226687, 174.18491066971308], \"distance_px\": 12.219164440295652, \"index\": 5, \"reason\": null, \"socket_xy\": [260.5, 162.5]}, {\"centroid_xy\": [260.461772004869, 161.89076521942917], \"distance_px\": 2.4047405878101507, \"index\": 6, \"reason\": null, \"socket_xy\": [258.5, 160.5]}, {\"centroid_xy\": [260.99637196868434, 162.84685888867673], \"distance_px\": 3.4263128358913675, \"index\": 7, \"reason\": null, \"socket_xy\": [258.5, 160.5]}]}"
+  },
+  "pse": {
+    "character": {
+      "id": "pse_check",
+      "subject": "composite.character",
+      "passed": true,
+      "value": 0,
+      "threshold": 3,
+      "op": "<=",
+      "unit": "temporal_flashes/second",
+      "evidence": [],
+      "notes": "{\"metrics\": {\"canvas_size\": [512, 512], \"coverage\": \"general and red temporal flash rules only; spatial rule UNEVALUABLE\", \"fps\": 20.0, \"results\": [{\"evidence\": [], \"id\": \"pse.general_flash\", \"notes\": \"{\\\"metrics\\\": {\\\"area_fraction\\\": 0.2, \\\"equivalent_area_threshold\\\": 184320.0, \\\"flash_times_s\\\": [], \\\"qualifying_transition_times_s\\\": [], \\\"required_pixels\\\": 52428.8}, \\\"reason\\\": \\\"\\\"}\", \"op\": \"<=\", \"passed\": true, \"subject\": \"composite.character\", \"threshold\": 3, \"unit\": \"flashes/second\", \"value\": 0}, {\"evidence\": [], \"id\": \"pse.red_flash\", \"notes\": \"{\\\"metrics\\\": {\\\"area_fraction\\\": 0.2, \\\"equivalent_area_threshold\\\": 184320.0, \\\"flash_times_s\\\": [], \\\"qualifying_transition_times_s\\\": [], \\\"required_pixels\\\": 52428.8}, \\\"reason\\\": \\\"\\\"}\", \"op\": \"<=\", \"passed\": true, \"subject\": \"composite.character\", \"threshold\": 3, \"unit\": \"flashes/second\", \"value\": 0}, {\"evidence\": [], \"id\": \"pse.spatial_pattern\", \"notes\": \"{\\\"metrics\\\": {}, \\\"reason\\\": \\\"Report only: regular stripes/checks >=5 pairs over >=20% area are not robustly computed; spatial rule requires review\\\"}\", \"op\": \"<=\", \"passed\": null, \"subject\": \"composite.character\", \"threshold\": 5, \"unit\": \"light-dark pairs\", \"value\": null}], \"thresholds\": {\"area_fraction\": 0.2, \"luminance_change\": 0.1, \"red_saturation\": 0.8, \"red_scale\": 320.0, \"red_transition\": 20.0}}, \"reason\": \"\"}"
+    },
+    "vfx": {
+      "id": "pse_check",
+      "subject": "composite.vfx",
+      "passed": true,
+      "value": 0,
+      "threshold": 3,
+      "op": "<=",
+      "unit": "temporal_flashes/second",
+      "evidence": [],
+      "notes": "{\"metrics\": {\"canvas_size\": [256, 256], \"coverage\": \"general and red temporal flash rules only; spatial rule UNEVALUABLE\", \"fps\": 20.0, \"results\": [{\"evidence\": [], \"id\": \"pse.general_flash\", \"notes\": \"{\\\"metrics\\\": {\\\"area_fraction\\\": 0.2, \\\"equivalent_area_threshold\\\": 184320.0, \\\"flash_times_s\\\": [], \\\"qualifying_transition_times_s\\\": [0.25], \\\"required_pixels\\\": 13107.2}, \\\"reason\\\": \\\"\\\"}\", \"op\": \"<=\", \"passed\": true, \"subject\": \"composite.vfx\", \"threshold\": 3, \"unit\": \"flashes/second\", \"value\": 0}, {\"evidence\": [], \"id\": \"pse.red_flash\", \"notes\": \"{\\\"metrics\\\": {\\\"area_fraction\\\": 0.2, \\\"equivalent_area_threshold\\\": 184320.0, \\\"flash_times_s\\\": [], \\\"qualifying_transition_times_s\\\": [], \\\"required_pixels\\\": 13107.2}, \\\"reason\\\": \\\"\\\"}\", \"op\": \"<=\", \"passed\": true, \"subject\": \"composite.vfx\", \"threshold\": 3, \"unit\": \"flashes/second\", \"value\": 0}, {\"evidence\": [], \"id\": \"pse.spatial_pattern\", \"notes\": \"{\\\"metrics\\\": {}, \\\"reason\\\": \\\"Report only: regular stripes/checks >=5 pairs over >=20% area are not robustly computed; spatial rule requires review\\\"}\", \"op\": \"<=\", \"passed\": null, \"subject\": \"composite.vfx\", \"threshold\": 5, \"unit\": \"light-dark pairs\", \"value\": null}], \"thresholds\": {\"area_fraction\": 0.2, \"luminance_change\": 0.1, \"red_saturation\": 0.8, \"red_scale\": 320.0, \"red_transition\": 20.0}}, \"reason\": \"\"}"
+    },
+    "composite": {
+      "id": "pse_check",
+      "subject": "composite",
+      "passed": true,
+      "value": 0,
+      "threshold": 3,
+      "op": "<=",
+      "unit": "temporal_flashes/second",
+      "evidence": [],
+      "notes": "{\"metrics\": {\"canvas_size\": [512, 512], \"coverage\": \"general and red temporal flash rules only; spatial rule UNEVALUABLE\", \"fps\": 20.0, \"results\": [{\"evidence\": [], \"id\": \"pse.general_flash\", \"notes\": \"{\\\"metrics\\\": {\\\"area_fraction\\\": 0.2, \\\"equivalent_area_threshold\\\": 184320.0, \\\"flash_times_s\\\": [], \\\"qualifying_transition_times_s\\\": [], \\\"required_pixels\\\": 52428.8}, \\\"reason\\\": \\\"\\\"}\", \"op\": \"<=\", \"passed\": true, \"subject\": \"composite\", \"threshold\": 3, \"unit\": \"flashes/second\", \"value\": 0}, {\"evidence\": [], \"id\": \"pse.red_flash\", \"notes\": \"{\\\"metrics\\\": {\\\"area_fraction\\\": 0.2, \\\"equivalent_area_threshold\\\": 184320.0, \\\"flash_times_s\\\": [], \\\"qualifying_transition_times_s\\\": [], \\\"required_pixels\\\": 52428.8}, \\\"reason\\\": \\\"\\\"}\", \"op\": \"<=\", \"passed\": true, \"subject\": \"composite\", \"threshold\": 3, \"unit\": \"flashes/second\", \"value\": 0}, {\"evidence\": [], \"id\": \"pse.spatial_pattern\", \"notes\": \"{\\\"metrics\\\": {}, \\\"reason\\\": \\\"Report only: regular stripes/checks >=5 pairs over >=20% area are not robustly computed; spatial rule requires review\\\"}\", \"op\": \"<=\", \"passed\": null, \"subject\": \"composite\", \"threshold\": 5, \"unit\": \"light-dark pairs\", \"value\": null}], \"thresholds\": {\"area_fraction\": 0.2, \"luminance_change\": 0.1, \"red_saturation\": 0.8, \"red_scale\": 320.0, \"red_transition\": 20.0}}, \"reason\": \"\"}"
+    }
+  },
+  "frames": [
+    "out/composite_cast_S/frames/composite_00.png",
+    "out/composite_cast_S/frames/composite_01.png",
+    "out/composite_cast_S/frames/composite_02.png",
+    "out/composite_cast_S/frames/composite_03.png",
+    "out/composite_cast_S/frames/composite_04.png",
+    "out/composite_cast_S/frames/composite_05.png",
+    "out/composite_cast_S/frames/composite_06.png",
+    "out/composite_cast_S/frames/composite_07.png"
+  ],
+  "mp4": "out/composite_cast_S/composite.mp4"
+}

@@ -1,0 +1,26 @@
+{
+ "text": "JUDGE BURST K1p-sig-jdg — which insignia glyph is nearest its written spec. task_id \"K1p-sig-jdg\". You are a separate instance; you have not seen any prompt or receipt and must not look for one.\n\nImages 1, 2 and 3 are three candidate emblems. SPEC (ledger R-32): ONE vertical needle/gnomon with a small diamond head and a short foot, piercing THREE stacked horizontal strata bands (lowest widest, top narrowest); brass with a dark contour line; NO enclosing ring, shield or frame; NO text, clock, hourglass, compass or gears; TWO tones; legible at 8 px tall.\nFor EACH image answer, with one line of visible evidence each: needle_present, diamond_head, short_foot, three_strata, strata_widths_descending_upward, enclosing_ring_or_frame, forbidden_motif (text/clock/hourglass/compass/gears/star/wings: name it or 'none'), tone_count (integer), legible_at_8px (view it mentally shrunk: yes/no); then spec_fidelity 1–5 and register 1–5 (hand-drawn tapered dark contour, painted flat planes) with one-line reasons. Finally name nearest_to_spec (the image number) with one line why. Write out/judgment.json: {\"candidates\":[{\"image\":n, …fields…, \"scores\":{\"spec_fidelity\":n,\"register\":n}, \"reasons\":{…}}], \"nearest_to_spec\":n, \"why\":\"…\"}. No image_gen. No code. No web. No files outside out/. calls_used 0.\nRETURN: receipt task_id \"K1p-sig-jdg\"; images []; files [out/judgment.json + sha256]; status DELIVERED / DELIVERED_WITH_CONCERNS. Never PASS/FAIL.",
+ "references": [
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/K1p-sig-01/glyph_A.png",
+   "role": "candidate"
+  },
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/fixtures/sigil_template.png",
+   "role": "candidate"
+  },
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/K1p-sig-01/glyph_B.png",
+   "role": "candidate"
+  }
+ ],
+ "image_cap": 0,
+ "minutes_cap": 15,
+ "tool_call_cap": 20,
+ "outputs": [
+  "out/judgment.json"
+ ],
+ "effort": "high",
+ "add_dirs": [],
+ "experiment": "C3-P5"
+}

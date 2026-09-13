@@ -1,0 +1,43 @@
+{
+  "task_id": "P4c-NW-jump",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [],
+  "calls_used": 0,
+  "retries": [],
+  "self_report": {
+    "obeyed_invariants": true,
+    "concerns": [
+      "Frozen cut detected no complete event: confidence 0.0; missing/nonfinite tracking. No retry.",
+      "No registered jump frames: G6/G6b, G1, head pitch, coherence, rim luma, both closure measurements, and grid.png unavailable.",
+      "Exemplar bands skipped as instructed; one-shot kind unsupported.",
+      "suspect_inside_selected unavailable without a selected interval; recorded null.",
+      "Delivered strip is diagnostic only."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/checks.json",
+      "sha256": "844d69df6676b349c4391056443dbc6dc1630b8d6fea7fc6c39b92429c2382e0"
+    },
+    {
+      "path": "out/first_second.png",
+      "sha256": "1607ea7bfa9d0f82bc41979da49759feecfead1ed5af5c14784d5a9d7173cba8"
+    },
+    {
+      "path": "out/cut/registration.json",
+      "sha256": "2bc0ae2531fac33cb540c95bce0f4baed50b7bbba58653fa533a5bd0f6b57132"
+    },
+    {
+      "path": "out/cut/series.json",
+      "sha256": "6e22a97effe0b52dec422c534b2355822d00e385cca9489f279146dbb7b93f66"
+    },
+    {
+      "path": "out/cut/frames/rest/NW/rest_NW.png",
+      "sha256": "b25ef82986c007262c61538dfe55be58f589ef8e2d560cfd7ae198b2f209c020"
+    },
+    {
+      "path": "out/cut/sheets/jump_NW_strip.png",
+      "sha256": "99e19b7b42b6252390c2c93c63d9e80ae5d90edf3c104ba0eda7bf1fc0ef4719"
+    }
+  ]
+}

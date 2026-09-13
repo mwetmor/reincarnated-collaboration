@@ -1,0 +1,13 @@
+{
+ "text": "PACK BURST P4p-N-walk-r1 — review packet for Run C-3 matrix cell WALK × N with the FROZEN packet builder. task_id \"P4p-N-walk-r1\".\n\nInputs (read-only): the cut /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/P4c-N-walk-r1/cut (frames + registration.json) and its checks /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/P4c-N-walk-r1/checks.json. Run exactly once: `cd /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst && python3 -B -m review.cell_packet --cell /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/P4c-N-walk-r1/cut --checks /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/P4c-N-walk-r1/checks.json --out $PWD/out/packet` (use the absolute path of this burst's out/ directory). If the cut has no frames (a cell whose cut recorded no cycle/detection), do not run the builder: write out/packet/summary.txt with the cell name and the reason copied from checks.json and out/packet/review.html (self-contained, no external references) showing that reason and first_second.png copied into out/packet/img/.\nNo image_gen. No code beyond that page. No writes outside out/. No web. calls_used 0. BUDGET: under 5 minutes.\nRETURN: receipt task_id \"P4p-N-walk-r1\"; images []; files: every out/packet/** file with sha256; status DELIVERED / DELIVERED_WITH_CONCERNS; concerns for anything missing. Never PASS/FAIL.",
+ "references": [],
+ "image_cap": 0,
+ "minutes_cap": 15,
+ "tool_call_cap": 20,
+ "outputs": [
+  "out/packet/review.html"
+ ],
+ "effort": "high",
+ "add_dirs": [],
+ "experiment": "C3-P4"
+}

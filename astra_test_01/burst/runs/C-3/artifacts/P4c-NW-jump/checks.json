@@ -1,0 +1,440 @@
+{
+  "cell": "NW_jump",
+  "clip": "NW_jump.mp4",
+  "clip_version": "v1",
+  "flags": [
+    "v2 not generated (H-C3-1 Grok balance) — cut from the full-height v1 clip (R-C3-9)"
+  ],
+  "cut": {
+    "period": null,
+    "selection": {
+      "start": null,
+      "end_exclusive": null,
+      "indices_native": [],
+      "candidates": [
+        {
+          "kind": "jump",
+          "onset": null,
+          "key": [],
+          "key_poses": {},
+          "settle": null,
+          "confidence": 0.0,
+          "detection": null,
+          "baseline": null,
+          "notes": "missing/nonfinite tracking; no interpolation across invalid frames",
+          "index_units": "native_frames"
+        }
+      ],
+      "reason": "missing/nonfinite tracking; no interpolation across invalid frames",
+      "requested_indices_native": [],
+      "output_indices_native": []
+    },
+    "detection": {
+      "kind": "jump",
+      "onset": null,
+      "key": [],
+      "key_poses": {},
+      "settle": null,
+      "confidence": 0.0,
+      "detection": null,
+      "baseline": null,
+      "notes": "missing/nonfinite tracking; no interpolation across invalid frames",
+      "index_units": "native_frames"
+    },
+    "splice": {
+      "per_pair_mad": [
+        1.4329232506543383,
+        0.9926097762813954,
+        1.6780677058898423,
+        1.1772404223903217,
+        1.9465942187267706,
+        1.3698202757655005,
+        2.250425882344796,
+        1.6403497303881398,
+        2.717040492847578,
+        2.0288608843384917,
+        3.2777949647771663,
+        2.65446696800575,
+        3.9633704632472457,
+        3.112143907768015,
+        4.421387029603257,
+        3.5066167012697775,
+        4.8803252556619325,
+        3.837733904163728,
+        5.300393394901015,
+        4.38951718764454,
+        5.879361092096042,
+        4.687592120404655,
+        6.36735867483962,
+        4.970431271665069,
+        6.396653579599188,
+        4.73248009985945,
+        6.206316982684787,
+        4.594905733547557,
+        5.767319662607951,
+        4.206171043574048,
+        5.157358167057901,
+        3.654920302874326,
+        4.452029168603778,
+        2.9970882287785265,
+        3.452033691368688,
+        2.328692624267241,
+        2.606715327878219,
+        1.7889441067398053,
+        1.5861412598767488,
+        2.0338787498974416,
+        4.340950148679571,
+        4.81306650823188,
+        8.352917780832112,
+        7.815660166254887,
+        11.235195882748751,
+        9.74771172094998,
+        12.624951964087126,
+        10.347481965173946,
+        11.366423870206498,
+        7.5084847544008655,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        1.6798299257135145,
+        1.7824575952296873,
+        1.1820927559083554,
+        1.2111480343617038,
+        0.730100900394937,
+        0.7670537375995319,
+        0.4899564025774447,
+        0.7324476085221864,
+        1.0971211941432613,
+        2.367135404757675,
+        2.200612348466091,
+        3.3377977154712846,
+        3.199551323910885,
+        4.7926362411577825,
+        4.262594598503703,
+        6.521918090000889,
+        6.172723272474628,
+        8.8965084036782,
+        8.32113003861466,
+        11.0535390771576,
+        9.281315222924926,
+        12.093725543684485,
+        9.571233939026857,
+        10.80374539817643,
+        6.817228957715128,
+        7.613763403603093,
+        5.159794993918897,
+        5.612189392026856,
+        3.8076853337388483,
+        4.092987906021323,
+        2.7185025308029127,
+        2.5979707217961114,
+        1.4764735241104678,
+        1.4188565379064577,
+        1.375331125498439,
+        1.9664839263703697,
+        1.6242485231467756,
+        2.287296307073585,
+        2.1218989156254358,
+        3.0956610823273403,
+        2.775970855403447,
+        3.863772702720718,
+        3.292188124132982,
+        4.648604363606743,
+        3.9607460347681864,
+        5.272537211242337,
+        4.3677702200370945,
+        6.039988438443536,
+        5.137378259904934,
+        6.658700067466525,
+        5.419581376939156,
+        6.515145604051058,
+        4.896354528130496,
+        5.696127083746708,
+        4.309666375946795,
+        5.0428139865904456,
+        3.6976469914006884,
+        4.315210804728716,
+        3.1858474020511958,
+        3.6271715819929864,
+        2.541810992496058,
+        2.8945489386345886,
+        2.108745103343556,
+        2.3190056956340652,
+        1.2924974941175893,
+        1.3028969609462133,
+        0.9457205548208035,
+        1.1970730435526424,
+        0.7867900688698036,
+        0.9230984977490385,
+        0.7101166131639038,
+        0.7717264106966639,
+        0.5001155075564497,
+        0.5321099285066315,
+        0.4724760257564105,
+        0.510950463360118,
+        0.37284631010831926,
+        0.39832316074341095,
+        0.35555827984057836,
+        0.33500479412408274,
+        0.2682187478560325,
+        0.26333889487348705,
+        0.16284392801700553,
+        0.20190520100081474,
+        0.1599571269908974
+      ],
+      "median_pair_mad": 3.2777949647771663,
+      "multiplier": 4.0,
+      "suspect_pairs": [],
+      "invalid_pairs": [
+        [
+          50,
+          51
+        ],
+        [
+          51,
+          52
+        ],
+        [
+          52,
+          53
+        ],
+        [
+          53,
+          54
+        ],
+        [
+          54,
+          55
+        ],
+        [
+          55,
+          56
+        ],
+        [
+          56,
+          57
+        ],
+        [
+          57,
+          58
+        ],
+        [
+          58,
+          59
+        ]
+      ],
+      "notes": "Missing matte samples excluded; pair indices refer to supplied frames; no fabricated MAD",
+      "suspect_inside_selected": null,
+      "suspect_inside_selected_note": "Not emitted by frozen tool; no selected event interval exists."
+    },
+    "transform": {
+      "scale": 0.21486123545210384,
+      "nominal_scale": 0.21486123545210384,
+      "translation_xy": [
+        175,
+        158
+      ],
+      "scaled_size": [
+        165,
+        250
+      ],
+      "source_sampling_box_xyxy": [
+        0.0,
+        0.0,
+        767.9375,
+        1163.5416666666667
+      ],
+      "source_size": [
+        768,
+        1168
+      ],
+      "anchor_index": 0,
+      "anchor_native_bbox": [
+        192,
+        8,
+        562,
+        1125
+      ],
+      "canvas": [
+        512,
+        512
+      ],
+      "anchor_bbox": [
+        216,
+        160,
+        296,
+        400
+      ],
+      "anchor_H": 240,
+      "anchor_sole_row": 399,
+      "anchor_cx": 255.5,
+      "target_h": 240,
+      "sole_row": 399,
+      "cx": 255.5,
+      "one_transform_for_every_frame": true,
+      "upscaling": false,
+      "resampling": "PIL Lanczos; exact isotropic sampling box; integer unmasked paste",
+      "calibration": "closest nominal scale attaining raster height/centre, search +/-1 output px in .025 px steps"
+    },
+    "wall_seconds": 29.08585241700348,
+    "invalid_native_indices": [
+      51,
+      52,
+      53,
+      54,
+      55,
+      57,
+      58
+    ],
+    "indices_native": [],
+    "strip": {
+      "path": "/Users/admin/astra-burst/runs/C-3/P4c-NW-jump/out/cut/sheets/jump_NW_strip.png",
+      "diagnostic_only": true,
+      "indices_native": [
+        0,
+        20,
+        39,
+        66,
+        85,
+        105,
+        124,
+        144
+      ]
+    }
+  },
+  "results": [
+    {
+      "id": "bands_from_exemplar",
+      "subject": "NW_jump",
+      "value": null,
+      "passed": null,
+      "threshold": null,
+      "op": "report",
+      "unit": "",
+      "evidence": [],
+      "notes": "Skipped as instructed: measure() has no one-shot kind."
+    },
+    {
+      "id": "g6_seam",
+      "subject": "NW_jump",
+      "value": null,
+      "passed": null,
+      "threshold": null,
+      "op": "report",
+      "unit": "rgb_mad",
+      "evidence": [],
+      "notes": "Not computed: frozen cut emitted no registered jump frames. missing/nonfinite tracking; no interpolation across invalid frames"
+    },
+    {
+      "id": "g6b",
+      "subject": "NW_jump",
+      "value": null,
+      "passed": null,
+      "threshold": null,
+      "op": "report",
+      "unit": "rgb_mad",
+      "evidence": [],
+      "notes": "Not computed: frozen cut emitted no registered jump frames. missing/nonfinite tracking; no interpolation across invalid frames"
+    },
+    {
+      "id": "g1_height_max",
+      "subject": "NW_jump",
+      "value": null,
+      "passed": null,
+      "threshold": null,
+      "op": "report",
+      "unit": "fraction",
+      "evidence": [],
+      "notes": "Not computed: frozen cut emitted no registered jump frames. missing/nonfinite tracking; no interpolation across invalid frames"
+    },
+    {
+      "id": "head_pitch",
+      "subject": "NW_jump",
+      "value": null,
+      "passed": null,
+      "threshold": null,
+      "op": "report",
+      "unit": "fraction_head_h",
+      "evidence": [],
+      "notes": "Not computed: frozen cut emitted no registered jump frames. missing/nonfinite tracking; no interpolation across invalid frames"
+    },
+    {
+      "id": "coherence",
+      "subject": "NW_jump",
+      "value": null,
+      "passed": null,
+      "threshold": null,
+      "op": "report",
+      "unit": "rgb_mad",
+      "evidence": [],
+      "notes": "Not computed: frozen cut emitted no registered jump frames. missing/nonfinite tracking; no interpolation across invalid frames"
+    },
+    {
+      "id": "matte_quality.rim_luma_excess_mean",
+      "subject": "NW_jump",
+      "value": null,
+      "passed": null,
+      "threshold": null,
+      "op": "report",
+      "unit": "luma_0_255",
+      "evidence": [],
+      "notes": "Not computed: frozen cut emitted no registered jump frames. missing/nonfinite tracking; no interpolation across invalid frames"
+    },
+    {
+      "id": "closure_frame_0_frame_7",
+      "subject": "NW_jump",
+      "value": null,
+      "passed": null,
+      "threshold": null,
+      "op": "report",
+      "unit": "rgb_mad",
+      "evidence": [],
+      "notes": "Not computed: frozen cut emitted no registered jump frames. missing/nonfinite tracking; no interpolation across invalid frames"
+    },
+    {
+      "id": "closure_frame_7_rest",
+      "subject": "NW_jump",
+      "value": null,
+      "passed": null,
+      "threshold": null,
+      "op": "report",
+      "unit": "rgb_mad",
+      "evidence": [],
+      "notes": "Not computed: frozen cut emitted no registered jump frames. missing/nonfinite tracking; no interpolation across invalid frames"
+    }
+  ],
+  "sheets": {
+    "grid": {
+      "path": null,
+      "notes": "Not produced as instructed for no detection / no registered frames; diagnostic strip is not a substitute."
+    },
+    "first_second": {
+      "path": "out/first_second.png",
+      "native_indices": [
+        0,
+        12,
+        24
+      ],
+      "times_s": [
+        0.0,
+        0.5,
+        1.0
+      ],
+      "native_size": [
+        768,
+        1168
+      ],
+      "cell_size": [
+        252,
+        384
+      ],
+      "matte": false
+    }
+  }
+}

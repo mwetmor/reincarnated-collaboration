@@ -1,0 +1,60 @@
+{
+  "task_id": "K1p-adv-01",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "adv_1",
+      "path": "out/adv_1.png",
+      "sha256": "8cb4a3cd32c9e9c1b369bf2adbe82558a89eac400b7fb3d25d2b7969c452b7da",
+      "prompt": "Use case: identity-preserve. Edit Image 1, the approved identity master, with Image 2 used only as the shape reference for a small brass emblem. Deliver one portrait 1024x1536 still. Preserve Image 1 exactly: same woman, facial features and expression, hair, skin, pose, framing, standing height, ivory shirt, navy tabard with plain chest, diagonal strap, olive satchel on her anatomical LEFT hip (screen-right), belt, bracers, trousers, boots, walnut staff shaft in her anatomical RIGHT hand (screen-left), and flat pure #00ff00 background. Change only two local areas. (1) Replace the staff's upper brass tip with a small brass astrolabe on a short collar: TWO nested open brass rings and a thin pointer arm across them, recognizable as a working instrument, no glow. Keep shaft length and position intact; fit the small head in the available green margin. (2) Add a modest chestnut-leather pauldron with brass edging on her anatomical LEFT shoulder, SCREEN-RIGHT, above the satchel side. On that pauldron place a small upright brass plate shaped exactly like Image 2: a diamond tip on a central vertical stem, three horizontal bars increasing in width from top to bottom, and a tiny rectangular foot. Make all three bars distinct and clearly legible. No other insignia anywhere. Keep the chest plain. Preserve the hand-drawn painted 2D register: confident dark hand-drawn contours with taper and variable weight, clean painted material planes, restrained texture, readable silhouette, no conspicuous grain. Fixed single cold key from SCREEN UPPER-LEFT with deep cool readable ambient shadows and a slight key-facing rim. No warm light source, no floor shadow, no background texture, no matting. Do not mirror, reframe, resize the woman, change the face, or redesign any existing equipment. Only the astrolabe and screen-right pauldron are additions.",
+      "references": [
+        {
+          "role": "APPROVED IDENTITY MASTER — edit target; preserve identity, pose, framing and register",
+          "path": "in/01_k1p_master_C.png"
+        },
+        {
+          "role": "Pauldron provenance emblem — shape only",
+          "path": "in/02_glyph_A.png"
+        }
+      ],
+      "elapsed_s": 36.922
+    },
+    {
+      "name": "adv_2",
+      "path": "out/adv_2.png",
+      "sha256": "f5b31ad0a02edc704e09503212f9480cb6b8c17ed64fc953f48cb3270721d4ba",
+      "prompt": "Use case: identity-preserve. Edit Image 1, the approved identity master, with Image 2 used only as the shape reference for a small brass emblem. Deliver one portrait 1024x1536 still. Preserve Image 1 exactly: same woman, facial features and expression, hair, skin, pose, framing, standing height, ivory shirt, navy tabard with plain chest, diagonal strap, olive satchel on her anatomical LEFT hip (screen-right), belt, bracers, trousers, boots, walnut staff shaft in her anatomical RIGHT hand (screen-left), and flat pure #00ff00 background. Change only two local areas. (1) Replace the staff's upper brass tip with a small brass astrolabe on a short collar: THREE nested open brass rings and a thin pointer arm across them, recognizable as a working instrument, no glow. Keep shaft length and position intact; fit the small head in the available green margin. (2) Add a slightly smaller chestnut-leather pauldron with brass edging on her anatomical LEFT shoulder, SCREEN-RIGHT, above the satchel side. On that pauldron place a small upright brass plate shaped exactly like Image 2: a diamond tip on a central vertical stem, three horizontal bars increasing in width from top to bottom, and a tiny rectangular foot. Make all three bars distinct and clearly legible. No other insignia anywhere. Keep the chest plain. Preserve the hand-drawn painted 2D register: confident dark hand-drawn contours with taper and variable weight, clean painted material planes, restrained texture, readable silhouette, no conspicuous grain. Fixed single cold key from SCREEN UPPER-LEFT with deep cool readable ambient shadows and a slight key-facing rim. No warm light source, no floor shadow, no background texture, no matting. Do not mirror, reframe, resize the woman, change the face, or redesign any existing equipment. Only the astrolabe and screen-right pauldron are additions.",
+      "references": [
+        {
+          "role": "APPROVED IDENTITY MASTER — edit target; preserve identity, pose, framing and register",
+          "path": "in/01_k1p_master_C.png"
+        },
+        {
+          "role": "Pauldron provenance emblem — shape only",
+          "path": "in/02_glyph_A.png"
+        }
+      ],
+      "elapsed_s": 33.958
+    }
+  ],
+  "calls_used": 2,
+  "retries": [],
+  "self_report": {
+    "obeyed_invariants": false,
+    "concerns": [
+      "Both emblems show two main crossbars instead of the reference's three.",
+      "Candidate 2 changes pauldron construction to overlapping plates, exceeding the permitted slight size variation.",
+      "Minor painted shading and texture drift appears outside the additions; exact preservation was not achieved."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/adv_1.png",
+      "sha256": "8cb4a3cd32c9e9c1b369bf2adbe82558a89eac400b7fb3d25d2b7969c452b7da"
+    },
+    {
+      "path": "out/adv_2.png",
+      "sha256": "f5b31ad0a02edc704e09503212f9480cb6b8c17ed64fc953f48cb3270721d4ba"
+    }
+  ]
+}

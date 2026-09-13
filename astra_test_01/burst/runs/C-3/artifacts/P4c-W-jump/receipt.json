@@ -1,0 +1,54 @@
+{
+  "task_id": "P4c-W-jump",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [],
+  "calls_used": 0,
+  "retries": [],
+  "self_report": {
+    "obeyed_invariants": true,
+    "concerns": [
+      "No complete jump detected: no six-sample settle after landing crouch; confidence 0.2.",
+      "No registered jump frames; grid, G6/G6b, G1, head pitch, coherence, rim luma, and closure measurements omitted as instructed.",
+      "Exemplar measurement skipped as instructed; no one-shot kind exists.",
+      "suspect_inside_selected reported null because no selected interval exists. Frozen strip is diagnostic-only."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/checks.json",
+      "sha256": "ac24c36205353be556860ad905f1ec4a70dc03b51ae2172cb855a49e9dc63425"
+    },
+    {
+      "path": "out/first_second.png",
+      "sha256": "5dd120fd41bcde09e0bbe218d5b72f47bbf84f283d19542b8c98f9a074fd4d3e"
+    },
+    {
+      "path": "out/cut/registration.json",
+      "sha256": "faed63a6fcc99b8356858e38ebdce56d53741386796a12446902955163658414"
+    },
+    {
+      "path": "out/cut/series.json",
+      "sha256": "322435d390a759183a0240320db45d39d3ff27e637671649fd0df62f0290df61"
+    },
+    {
+      "path": "out/cut/frames/rest/W/rest_W.png",
+      "sha256": "876269b72000ba8a49eca17607a18d351ca61dd89c713921a0725b81cb7d0f65"
+    },
+    {
+      "path": "out/cut/sheets/jump_W_strip.png",
+      "sha256": "bfdefadbabfb93c395a6fd802023195f442e5fb2b6069446ee748c115c32915d"
+    },
+    {
+      "path": "out/native_samples/sample_00.png",
+      "sha256": "fa1a830aa37ff2e987ba58b25f2ffc6b7af969c6bf585d475dc03d74fd560722"
+    },
+    {
+      "path": "out/native_samples/sample_01.png",
+      "sha256": "b1427275590b31fe8688fcdfff163aae36ab49b8419def641c96dfd9567d205a"
+    },
+    {
+      "path": "out/native_samples/sample_02.png",
+      "sha256": "5051c01b925ca330af3c74dce6005092ed474f8b0f971c0bd3ab9ce7455d1d2f"
+    }
+  ]
+}

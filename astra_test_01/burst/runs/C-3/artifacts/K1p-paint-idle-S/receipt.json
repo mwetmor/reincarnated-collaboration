@@ -1,0 +1,49 @@
+{
+  "task_id": "K1p-paint-idle-S",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "sheet_idle_S_advanced.png",
+      "path": "out/sheet_idle_S_advanced.png",
+      "sha256": "d674476be7e1ded0c312380b2bfee9cff5401ffa10e7beaa0905ccc221052cff",
+      "prompt": "Use case: precise-object-edit. Edit the FIRST reference image directly, the original 1024×1536 animation sheet. The second reference shows gear appearance ONLY. The third reference shows the brass emblem ONLY. This is a corrective attempt: the previous attempt changed the flat green plate. Preserve the original EXACT flat pure RGB(0,255,0) / #00ff00 background everywhere, no texture, noise, gradients, shading or colour shift. Preserve all original pixels outside the two gear additions as closely as possible. Do not repaint the woman or smooth her lines. Maintain her original face, hair, expression, costume, colours, shading, boots, hands, pose, breathing motion, height, feet position, staff shaft and position in EVERY frame. Keep the original 4×4 layout, all 16 cells, spacing, frame order and 1024×1536 canvas unchanged. Add only: in each cell, the small brass astrolabe from Image 2, nested open rings and pointer arm, replacing the plain cap at the existing staff tip on SCREEN-LEFT; and the chestnut leather pauldron with brass edging from Image 2 on the woman's anatomical LEFT shoulder, SCREEN-RIGHT. Follow each existing shoulder and staff's individual position. Each pauldron carries the small brass emblem from Image 3: a pointed vertical needle through three stacked horizontal bands, shortest at top and longest at bottom, with a small foot. Same gear design and size across all 16 cells. No other new objects. Preserve existing hand-drawn painted 2D linework and clean material planes exactly; no restyling. Fixed existing upper-left lighting. No glow, floor shadows, text or borders. Return the original sheet with ONLY these localized gear additions and an absolutely uniform pure #00ff00 plate.",
+      "references": [
+        {
+          "role": "edit target — original animation sheet",
+          "path": "in/01_sheet_idle_S.png"
+        },
+        {
+          "role": "advanced gear appearance only",
+          "path": "in/02_adv_2.png"
+        },
+        {
+          "role": "brass emblem shape",
+          "path": "in/03_glyph_A.png"
+        }
+      ],
+      "elapsed_s": 30.666
+    }
+  ],
+  "calls_used": 2,
+  "retries": [
+    {
+      "reason": "First output visibly changed the green plate.",
+      "change": "Retried from the original references with stronger exact #00ff00 plate and localized-edit preservation instructions."
+    }
+  ],
+  "self_report": {
+    "obeyed_invariants": false,
+    "concerns": [
+      "All 16 cells and correct shoulder placement are present; dimensions verified as 1024×1536.",
+      "Output visibly repaints face, costume and line details beyond the requested gear regions.",
+      "The green plate still appears altered; exact #00ff00 uniformity is unverified.",
+      "Exact motion preservation and three-band emblem fidelity are unverified."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/sheet_idle_S_advanced.png",
+      "sha256": "d674476be7e1ded0c312380b2bfee9cff5401ffa10e7beaa0905ccc221052cff"
+    }
+  ]
+}

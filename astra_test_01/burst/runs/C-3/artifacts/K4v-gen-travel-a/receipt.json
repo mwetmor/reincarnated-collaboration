@@ -1,0 +1,35 @@
+{
+  "task_id": "K4v-gen-travel-a",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "travel_00_03",
+      "path": "out/travel_00_03.png",
+      "sha256": "8bba96c931a8a0cb330a8c16857c8464c22b82d66f2b5c1c6882c7c34e95f9dc",
+      "prompt": "Create an original hand-painted blue-white FROST projectile VFX animation sprite sheet, square 1254×1254 native canvas. Reference image 1 is STYLE ONLY: match the icy blue-white energy at the character's staff tip, its faceted painted brushwork, hard illustrated edges and deep-blue falloff. Do not include any character, hand, staff, scenery, symbols, text or visible grid. HAND-DRAWN painted 2D animation: confident hand-drawn dark contours with visible taper and varying weight, clean painted planes, restrained texture, readable silhouettes, no conspicuous grain. Flat pure black #000000 emission background. Angular translucent ice facets, bright white-blue core, deep cobalt soft emission fringes; no green or cyan. Every effect fully contained with ample black margins. Strict 2×2 layout, four equal square cells, row-major, no grid lines. FOUR consecutive loop phases of ONE horizontal ice lance flying RIGHT, identical position and scale in every cell: centreline at 50% of cell height, core at x=66%, thin wake extending left to x=12%, needle tip at x=88%; height no more than 30% of cell; symmetric above/below centreline. Top-left phase 0: narrow steady crystalline lance. Top-right phase 1: core expands subtly with paired above/below splinters. Bottom-left phase 2: brilliant core with longer paired wake streaks. Bottom-right phase 3: contraction with shorter paired sparks. No rotation. No floor shadows. The frost effect is self-emissive; any material key is fixed screen upper-left. Output only the four-cell VFX sheet.",
+      "references": [
+        {
+          "role": "STYLE ONLY — frost energy at the staff tip",
+          "path": "in/01_vfx_style_match.png"
+        }
+      ],
+      "elapsed_s": 26.488
+    }
+  ],
+  "calls_used": 1,
+  "retries": [],
+  "self_report": {
+    "obeyed_invariants": true,
+    "concerns": [
+      "Visual inspection suggests phases 1–3 exceed the requested 30% cell-height envelope, especially phase 2.",
+      "Splinter symmetry, wake endpoints, and identical scale are approximate. These deviations do not authorize a retry under the task rules.",
+      "Used the task-specific black emission background in place of the register's general green plate."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/travel_00_03.png",
+      "sha256": "8bba96c931a8a0cb330a8c16857c8464c22b82d66f2b5c1c6882c7c34e95f9dc"
+    }
+  ]
+}

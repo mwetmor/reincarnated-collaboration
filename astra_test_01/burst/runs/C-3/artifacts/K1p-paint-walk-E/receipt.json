@@ -1,0 +1,48 @@
+{
+  "task_id": "K1p-paint-walk-E",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "sheet_walk_E_advanced",
+      "path": "out/sheet_walk_E_advanced.png",
+      "sha256": "81bdb87b9470b7d68d1842e70733b3482aef51aea9953b293e6e861a5fd80f23",
+      "prompt": "Use case: precise-object-edit. EDIT Image 1 directly; do not redraw the animation sheet. Output one PNG at exactly 1024×1536. Image 1 is the edit target: 12 frames in 3 columns and 4 rows, read left-to-right, top-to-bottom, of ONE young woman walking in right profile facing screen-right. Image 2 is supporting reference for advanced gear appearance ONLY. Image 3 is supporting reference for the pauldron emblem shape ONLY.\nIn EVERY cell make only these two local paint-over changes: (1) replace the plain brass tip of the existing walnut staff with a small brass ASTROLABE matching Image 2: nested open rings and a pointer arm. It follows the exact staff position and inclination in that cell, fully visible, with green visible through the open rings. Keep the staff shaft, grip, hand and bottom unchanged. (2) add Image 2's chestnut-leather PAULDRON with brass edging on her anatomical LEFT shoulder, carrying Image 3's needle through THREE stacked bands as a small brass plate. In this right-facing profile her LEFT shoulder is the FAR shoulder: the pauldron must show ONLY as a narrow sliver above the far shoulder line, or be hidden wherever the existing head/torso covers it. Do not put armor on the visible NEAR/right shoulder. Preserve the existing ivory fabric on that near shoulder. Do not expose the emblem unnaturally; respect far-side occlusion. The staff remains in her NEAR anatomical RIGHT hand.\nCHANGE NOTHING ELSE. Every cell keeps its exact pose, size, location, silhouette except the two added gear regions, face, hair, costume, colours, drawing and lighting. Preserve all twelve original distinct walk poses and their exact frame order, layout and spacing. No mirroring. No new objects beyond the two specified gear additions, no glow, no text, no borders, no floor shadows. Retain the original flat pure #00ff00 plate exactly. Keep the original camera and framing.\nStyle of additions must match the target: HAND-DRAWN painted 2D, confident dark hand-drawn contour with taper and varying weight, clean painted material planes, restrained texture, readable small silhouettes and no conspicuous grain. Single cold key from SCREEN UPPER-LEFT, fixed across frames, deep cool readable ambient shadows, slight rim on key-facing edge. Blue / ivory / brass ceremonial gear. No saturated emitted light. Preserve the animation drawing, not an independently reinterpreted illustration.\nRETRY CORRECTION: the previous attempt changed the flat green plate into uneven green. This is forbidden. Start again from original Image 1. All background pixels must remain a single solid uniform RGB(0,255,0), #00ff00, including gaps in rings; no noise, grain, mottling, gradients or background texture whatsoever. Preserve the original pixels outside the local staff-tip and far-shoulder additions. The far LEFT shoulder armor is only a tiny narrow sliver behind the upper shoulder/neck, mostly occluded. Keep all existing near shoulder fabric and anatomy intact. Do not repaint any body, face, boot, clothing or shaft.",
+      "references": [
+        {
+          "role": "Edit target: 12-frame animation sheet",
+          "path": "in/01_sheet_walk_E.png"
+        },
+        {
+          "role": "Advanced gear appearance only",
+          "path": "in/02_adv_2.png"
+        },
+        {
+          "role": "Pauldron emblem shape only",
+          "path": "in/03_glyph_A.png"
+        }
+      ],
+      "elapsed_s": 37.684
+    }
+  ],
+  "calls_used": 2,
+  "retries": [
+    {
+      "reason": "The first output's green plate appeared uneven.",
+      "change": "Repeated the edit from the original references with explicit uniform RGB(0,255,0) preservation and narrow far-shoulder occlusion instructions."
+    }
+  ],
+  "self_report": {
+    "obeyed_invariants": false,
+    "concerns": [
+      "All 12 frames remain in the original layout; output dimensions are verified as 1024×1536.",
+      "The retry still appears to contain slight background variation and repainting outside the requested gear regions; exact pixel preservation is not established.",
+      "The small, occluded pauldron emblem cannot be visually verified."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/sheet_walk_E_advanced.png",
+      "sha256": "81bdb87b9470b7d68d1842e70733b3482aef51aea9953b293e6e861a5fd80f23"
+    }
+  ]
+}

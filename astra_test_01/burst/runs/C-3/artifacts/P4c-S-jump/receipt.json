@@ -1,0 +1,41 @@
+{
+  "task_id": "P4c-S-jump",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [],
+  "calls_used": 0,
+  "retries": [],
+  "self_report": {
+    "obeyed_invariants": true,
+    "concerns": [
+      "Frozen cut found no six-sample settle after landing crouch; detection confidence 0.2. No registered jump frames emitted.",
+      "Per instructions, grid.png and all STEP 2 measurements were omitted. Delivered strip is diagnostic only.",
+      "splice.suspect_inside_selected is unavailable and recorded as null."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/checks.json",
+      "sha256": "e8d1c6a3b75e0425401aa99b396a085edc2c7311ab9c4b317cf63fc18b58d5f8"
+    },
+    {
+      "path": "out/first_second.png",
+      "sha256": "68e8991906023e941d4cad4daeb2462cf6709ef4eab97f5cbcda47eb9dc0083b"
+    },
+    {
+      "path": "out/cut/registration.json",
+      "sha256": "a6c10a0047972c3dfa64fc9f19678ee9793643d7c152fec1b043e465c967fbec"
+    },
+    {
+      "path": "out/cut/series.json",
+      "sha256": "a36b9bbc2bbd62d016634de24d08eafdb507e7f5380d5a77ed13d1e07b8cacf4"
+    },
+    {
+      "path": "out/cut/frames/rest/S/rest_S.png",
+      "sha256": "2349663994a3b52f34caa03d54d23e4da8bf58224d6688a3e94248e116cb36f4"
+    },
+    {
+      "path": "out/cut/sheets/jump_S_strip.png",
+      "sha256": "780290f075fbd1d4fa9a81d51cf39435f142b323af7ec50c9b12a22c819fc8dd"
+    }
+  ]
+}

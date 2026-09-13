@@ -1,0 +1,76 @@
+{
+  "task_id": "P4c-N-jump",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [],
+  "calls_used": 0,
+  "retries": [],
+  "self_report": {
+    "obeyed_invariants": true,
+    "concerns": [
+      "Exemplar-band measurement skipped as instructed: no one-shot kind exists. All other requested measurements computed with passed=null.",
+      "Four frozen splice-suspect pairs occur inside the selected span: [44,45], [72,73], [73,74], [74,75]."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/checks.json",
+      "sha256": "dd77c2c6335971abaa156a732a65cde789416a2dba72b7ea884728f08b75eb15"
+    },
+    {
+      "path": "out/grid.png",
+      "sha256": "cd8ba74b8f2193f555c114c73d24a3aee1f364e1deb5e16f772caf6987cd7714"
+    },
+    {
+      "path": "out/first_second.png",
+      "sha256": "0d324cb1e1802196750830c2d8c3b5bcc2527f9d6369d3a95617bd222554fd76"
+    },
+    {
+      "path": "out/cut/registration.json",
+      "sha256": "d6d22c4be9e27109ee55ac5bb1887ebeeab2e555207ae9335a25fc9fea74b341"
+    },
+    {
+      "path": "out/cut/series.json",
+      "sha256": "0e92c7c226886e366d89e0267efdeb5db216df0561758068be1a28edcb1c5adc"
+    },
+    {
+      "path": "out/cut/frames/jump/N/jump_N_00.png",
+      "sha256": "d1ca5b57692d915073ece5d8feaf17d5bd41704493768d55b295ee7007c4a434"
+    },
+    {
+      "path": "out/cut/frames/jump/N/jump_N_01.png",
+      "sha256": "27c76a06442d23bad1070b120b34b9013b1a5dd2f0bb3d8ee4f908f49a7aa4f6"
+    },
+    {
+      "path": "out/cut/frames/jump/N/jump_N_02.png",
+      "sha256": "91f3097eadbd6e5746ba1958a2890bcf2974f27ee975259e9b71024323fea162"
+    },
+    {
+      "path": "out/cut/frames/jump/N/jump_N_03.png",
+      "sha256": "a0efd710255f03814fb743f996325f602491494c17418b8d2b77fcd742eb2d52"
+    },
+    {
+      "path": "out/cut/frames/jump/N/jump_N_04.png",
+      "sha256": "e820875c37aa0b3635d9cd6c9ebc3de3fc5aaaf58e63b41ed4ba9ea6e5c8c78b"
+    },
+    {
+      "path": "out/cut/frames/jump/N/jump_N_05.png",
+      "sha256": "266a421bf31fc42ff5f1bed93825c8eff86a1a03a0a8f9e80f7bca40f9e24d58"
+    },
+    {
+      "path": "out/cut/frames/jump/N/jump_N_06.png",
+      "sha256": "4e206313e064a84caa7c545460c5bbfb4f286bb4c95af0c348b1dcda93e07a7a"
+    },
+    {
+      "path": "out/cut/frames/jump/N/jump_N_07.png",
+      "sha256": "b0347f4a3063c65f97f44bcb243f862be4af2680c87f081ec0ddc700417b31fa"
+    },
+    {
+      "path": "out/cut/frames/rest/N/rest_N.png",
+      "sha256": "739b674df1054534a7666288a4992cc32aee6ba1693edaac131e107f1cff90e0"
+    },
+    {
+      "path": "out/cut/sheets/jump_N_strip.png",
+      "sha256": "1738107b57ac1efbc6d833059e283dfe8bcc28d15cef7fd1e2059a2fd47b5c9c"
+    }
+  ]
+}

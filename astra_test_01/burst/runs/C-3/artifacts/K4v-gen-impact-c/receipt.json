@@ -1,0 +1,34 @@
+{
+  "task_id": "K4v-gen-impact-c",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "impact_08_09",
+      "path": "out/impact_08_09.png",
+      "sha256": "55d220e03c661ce247ccdebc971ab8da6a2476fdab5d7ca1c63133f36961c18c",
+      "prompt": "Use case: stylized-concept. Create an original hand-painted blue-white FROST projectile VFX animation sprite sheet, module IMPACT end. Reference image 1 is STYLE ONLY: match the icy blue-white energy at the character's staff tip, its faceted painted brushwork, hard illustrated edges and deep-blue falloff. Hand-drawn painted 2D animation, confident tapered hand-drawn contours, clean painted planes, restrained texture. Do not include any character, hand, staff, scenery, symbols, text or grid. Flat pure black #000000 emission background. Angular translucent ice facets, white-blue cores, deep cobalt soft emission fringes; no green or cyan. Strict 2 columns by 1 row of two equal square cells in a 2:1 landscape sheet, with no visible divider or cell boundaries. Frame 8 in the LEFT square: only two or three tiny faint dying sparks clustered at the cell centre, 12% remaining intensity; ample entirely black margins, extremely sparse, no large burst. Frame 9 in the RIGHT square: completely uniform pure black #000000, no emission at all, no sparks, no glow, no marks whatsoever: the effect has ended. Every effect fully contained. No grid lines, no text.",
+      "references": [
+        {
+          "role": "STYLE ONLY — frost energy at the staff tip",
+          "path": "in/01_vfx_style_match.png"
+        }
+      ],
+      "elapsed_s": 18.09
+    }
+  ],
+  "calls_used": 1,
+  "retries": [],
+  "self_report": {
+    "obeyed_invariants": true,
+    "concerns": [
+      "Frame 8 appears to contain four sparks, with the largest brighter than the requested faint 12% ending.",
+      "Frame 9 visually appears black; exact pixel uniformity was not measured."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/impact_08_09.png",
+      "sha256": "55d220e03c661ce247ccdebc971ab8da6a2476fdab5d7ca1c63133f36961c18c"
+    }
+  ]
+}

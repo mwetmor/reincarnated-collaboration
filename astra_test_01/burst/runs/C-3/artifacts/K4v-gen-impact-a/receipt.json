@@ -1,0 +1,33 @@
+{
+  "task_id": "K4v-gen-impact-a",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "impact_00_03",
+      "path": "out/impact_00_03.png",
+      "sha256": "140924157200c1a81522b4fcf8c7343d0546d2058a71288ab86341328b225268",
+      "prompt": "Create an original hand-painted blue-white FROST projectile VFX animation sprite sheet. Reference image 1 is STYLE ONLY: match the icy blue-white energy at the character's staff tip, its faceted painted brushwork, hard illustrated edges and deep-blue falloff — do not include any character, hand, staff, scenery, symbols, text or grid lines. Hand-drawn painted 2D animation, clean painted material planes, restrained surface texture, readable small silhouettes, no conspicuous grain. Flat pure black #000000 emission background; angular translucent ice facets, a bright white-blue core, deep cobalt soft emission fringes; no green or cyan; no text; every effect fully contained with ample black margins. Module IMPACT, square 1254×1254 sheet, strict 2×2 layout of equal 627×627 cells without visible dividing lines, row-major: four successive initial frames of an ice-lance collision centred at exactly 50%,50% of each cell: top-left frame 0 a tiny compact white crystalline flash, 15% of the cell; top-right frame 1 an explosive white-blue jagged burst, 35%; bottom-left frame 2 the peak radial icy explosion, 65%, angular outward shards; bottom-right frame 3 the burst breaking into several large flying shards with a diminishing central flash, 75%. Keep everything inside 8% cell margins; no circular disc or square, no black outlines, no smoke. Only four isolated effects on pure black.",
+      "references": [
+        {
+          "role": "STYLE ONLY — frost energy at the staff tip",
+          "path": "in/01_vfx_style_match.png"
+        }
+      ],
+      "elapsed_s": 26.269
+    }
+  ],
+  "calls_used": 1,
+  "retries": [],
+  "self_report": {
+    "obeyed_invariants": true,
+    "concerns": [
+      "Visual inspection suggests effect sizes exceed the requested cell percentages, especially frame 2, which also appears to intrude into the required 8% margins. No authorized retry condition was observed."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/impact_00_03.png",
+      "sha256": "140924157200c1a81522b4fcf8c7343d0546d2058a71288ab86341328b225268"
+    }
+  ]
+}

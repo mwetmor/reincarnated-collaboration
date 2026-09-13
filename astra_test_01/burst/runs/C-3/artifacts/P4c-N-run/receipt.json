@@ -1,0 +1,75 @@
+{
+  "task_id": "P4c-N-run",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [],
+  "calls_used": 0,
+  "retries": [],
+  "self_report": {
+    "obeyed_invariants": true,
+    "concerns": [
+      "bands_measure_walk: ValueError: gait intent requires 12 frames and 12 candidate phases. Other requested measurements and both sheets computed."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/checks.json",
+      "sha256": "dc3e09da6b527456cc96d12b6a0358d1a0ebda7f3bed9d9329ad18054e8c6372"
+    },
+    {
+      "path": "out/grid.png",
+      "sha256": "5e35d770fee0a40b768f7bd93763258995c4b6b903e2e720549aeef26961c244"
+    },
+    {
+      "path": "out/first_second.png",
+      "sha256": "ed700e11d616f0336eab33f0d5cdc31f34b06d4f5a44989f58e63966fd4da5ef"
+    },
+    {
+      "path": "out/cut/registration.json",
+      "sha256": "2463654d282ae18d53dcb519ad335c424c9b840613adb6535aa82e7d233e9190"
+    },
+    {
+      "path": "out/cut/series.json",
+      "sha256": "0c2c121acb58bded443f9ea0666ec7fcb440d36d8208899e6d41857b834ea2a7"
+    },
+    {
+      "path": "out/cut/frames/rest/N/rest_N.png",
+      "sha256": "32e28cbb6d5f3a4dab8a7cf2fe48d93781306af3ee1a37b6bd34f4b6a4b7fb2b"
+    },
+    {
+      "path": "out/cut/frames/run/N/run_N_00.png",
+      "sha256": "4e07488a8e05b8d8dafbf88d4ac1b178a8b4f35ce2cf895fc9ba7bf188d24b4b"
+    },
+    {
+      "path": "out/cut/frames/run/N/run_N_01.png",
+      "sha256": "100bb99e9c5fae3be383ff2be287c51025e125e20577ac9253bf94db307623b8"
+    },
+    {
+      "path": "out/cut/frames/run/N/run_N_02.png",
+      "sha256": "ff83fa7d8880585dbb933a12baa2af74559f53aac11beceafb24f848c997afcd"
+    },
+    {
+      "path": "out/cut/frames/run/N/run_N_03.png",
+      "sha256": "4c3d4be360615bb072207aa2e1dd3ff38bf50b210dd8a5ba50d6bb9e64ecbe4c"
+    },
+    {
+      "path": "out/cut/frames/run/N/run_N_04.png",
+      "sha256": "f93ee6c9c68adc5fa27a0554fde2080eba991e5e3ab13f933e99a0ba35e2d005"
+    },
+    {
+      "path": "out/cut/frames/run/N/run_N_05.png",
+      "sha256": "6efd25c1663a04c2430de71a44e0ec33e3cbfe3cddfe3426f32995acb483374c"
+    },
+    {
+      "path": "out/cut/frames/run/N/run_N_06.png",
+      "sha256": "4078cbb35c0c4b444ea85727d037b79f43e5dea0ef4bed6f7f9a18d0fc48f8d6"
+    },
+    {
+      "path": "out/cut/frames/run/N/run_N_07.png",
+      "sha256": "f06a79d399b22e0950774dcf58acf2bd58ed41f05d28fc0bb7edb8ebad4aae6e"
+    },
+    {
+      "path": "out/cut/sheets/run_N_strip.png",
+      "sha256": "3c7942a7a8aeab8256d6df282cad13b9bcfb2617aa91f8cd0d0e96e6070b7745"
+    }
+  ]
+}

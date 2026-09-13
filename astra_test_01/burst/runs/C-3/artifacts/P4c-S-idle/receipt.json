@@ -1,0 +1,40 @@
+{
+  "task_id": "P4c-S-idle",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [],
+  "calls_used": 0,
+  "retries": [],
+  "self_report": {
+    "obeyed_invariants": true,
+    "concerns": [
+      "Period used the prompted 2.0-second fallback; observed autocorrelation confidence was 0.0.",
+      "Frozen cut flagged suspect splice pairs inside the selected window.",
+      "All requested measurements were computed; all reported passed fields are null."
+    ]
+  },
+  "files": [
+    {"path":"out/checks.json","sha256":"43220633549f2046c2763e20945ca6e5acbcba7c9aca1d2881e9432288c72168"},
+    {"path":"out/grid.png","sha256":"d4a040e253ee22b8c115a463078e87c84de495f0ad60587e59f814df3909adf9"},
+    {"path":"out/first_second.png","sha256":"53fce9746f8f89539245792d39fef679759945b444afbac289e197739c169aed"},
+    {"path":"out/cut/registration.json","sha256":"ec8bf5a42c10938cf771d270c7ca2af4f02b55b5bca727b0819f756d0303dbc1"},
+    {"path":"out/cut/series.json","sha256":"113cf8511a9cb60382bcf8dda9f89c8dbfafcb846b4190fc0f63154f7a990c9b"},
+    {"path":"out/cut/frames/idle/S/idle_S_00.png","sha256":"17a76e238fe28b348b102d09b688fe28d90a76b29d8237c22f1e53d514aab514"},
+    {"path":"out/cut/frames/idle/S/idle_S_01.png","sha256":"c0de42879a138d9a901c8c4363592925aee6e976da11d21d3b7fd217680c739a"},
+    {"path":"out/cut/frames/idle/S/idle_S_02.png","sha256":"f1930820eeff2f7e2942d29de68caadb3c9594f676addc0e60fdcbb8069a9651"},
+    {"path":"out/cut/frames/idle/S/idle_S_03.png","sha256":"29241c19d4a4791dbe101c3f9279d75a73b33d5f650019d3cc7a7996e0c16e65"},
+    {"path":"out/cut/frames/idle/S/idle_S_04.png","sha256":"6086a9970d708ef3605c566965059b94924460a2d3aaf37dff6758d5ed6b5f30"},
+    {"path":"out/cut/frames/idle/S/idle_S_05.png","sha256":"11e5ff23c5796ea8ee78bc6ccdc536ad8726af1325b133a43ddc312e478ca4b9"},
+    {"path":"out/cut/frames/idle/S/idle_S_06.png","sha256":"631251079be026afc8dc3b72a2edd875d69fadb028e506c08db6d687d5e08a66"},
+    {"path":"out/cut/frames/idle/S/idle_S_07.png","sha256":"a017f1b0a16e4b51959f713814c723ed5b7e080f47a38dbabcf66192ba3e5090"},
+    {"path":"out/cut/frames/idle/S/idle_S_08.png","sha256":"08a5f167a37e52c8591c4febcbc50f7540a682d41146dee503b8b1493158924a"},
+    {"path":"out/cut/frames/idle/S/idle_S_09.png","sha256":"d45f4bd96b45a11c0eee6f8dbbf6f645597db6339ae5d9fc670fa2282d955b9e"},
+    {"path":"out/cut/frames/idle/S/idle_S_10.png","sha256":"b131bf7edea3c9ec959b5265594501eac2338712dd3671afc8b056e52523917a"},
+    {"path":"out/cut/frames/idle/S/idle_S_11.png","sha256":"906b2c0f470c0afa2fb5371150abeb80a3db51848f5538651f9d637e4ff86e69"},
+    {"path":"out/cut/frames/idle/S/idle_S_12.png","sha256":"4c109aa829bfff05fdd55d27602c6b4f3776b01cf44e855bb044b9a960f80319"},
+    {"path":"out/cut/frames/idle/S/idle_S_13.png","sha256":"5f052e4b7f37aee572c07906cde478a0c74d226b1a44d296fdcc5cac783ccacf"},
+    {"path":"out/cut/frames/idle/S/idle_S_14.png","sha256":"d3e5b9324c88c9b419be10af57b16eb01c4233c0570b14d39a170e5cc7dc1225"},
+    {"path":"out/cut/frames/idle/S/idle_S_15.png","sha256":"41baa3e73e49be01f3af7c8080ca402a1f9855d62907faf89e802bb776bddcc3"},
+    {"path":"out/cut/frames/rest/S/rest_S.png","sha256":"e55939d00c05cb2406f9ce990ba42b4785dc2e5321e8460b6f92151787e0b1cb"},
+    {"path":"out/cut/sheets/idle_S_strip.png","sha256":"d29f121ee8766e27d1a6bff39f1cdb8ede6ed0f8c0db8ab73d3ffcc024e923ff"}
+  ]
+}

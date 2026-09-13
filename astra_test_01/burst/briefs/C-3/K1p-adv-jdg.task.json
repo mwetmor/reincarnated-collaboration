@@ -1,0 +1,30 @@
+{
+ "text": "JUDGE BURST K1p-adv-jdg — the Keeper's ADVANCED gear stills vs the starter master. task_id \"K1p-adv-jdg\". Separate instance; no prompts or receipts.\n\nImage 1 is the starter master (plain walnut staff tip, no pauldron). Images 2, 3, 4 are candidates that each CLAIM to be the same woman with exactly two additions: a small brass ASTROLABE (nested open rings + pointer arm) at the staff tip, and a chestnut-leather PAULDRON on her LEFT shoulder (screen-right) carrying a small brass emblem of a vertical needle through three stacked bands. Everything else must be identical to Image 1. For EACH candidate: astrolabe_present, pauldron_present, pauldron_side (\"her left / screen-right\" | \"her right / screen-left\" | \"absent\"), emblem_legible (yes/no), extra_changes (list anything else that differs from Image 1: face, hair, pose, costume, colours, framing), mirrored (true/false); scores 1–5 identity_preservation, gear_quality (register fidelity of the additions), and one-line reasons. Name best (image number). Write out/judgment.json {\"candidates\":[…], \"best\":n, \"why\":\"…\"}. No image_gen. No code. No web. No files outside out/. calls_used 0.\nRETURN: receipt task_id \"K1p-adv-jdg\"; images []; files [out/judgment.json + sha256]. Never PASS/FAIL.",
+ "references": [
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K1p-gen-01/k1p_master_C.png",
+   "role": "Image 1: APPROVED STARTER MASTER"
+  },
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/K1p-adv-01/adv_1.png",
+   "role": "candidate"
+  },
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K1p-gen-01/k1p_master_C.png",
+   "role": "candidate"
+  },
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/K1p-adv-01/adv_2.png",
+   "role": "candidate"
+  }
+ ],
+ "image_cap": 0,
+ "minutes_cap": 15,
+ "tool_call_cap": 20,
+ "outputs": [
+  "out/judgment.json"
+ ],
+ "effort": "high",
+ "add_dirs": [],
+ "experiment": "C3-P5"
+}

@@ -1,0 +1,25 @@
+{
+  "task_id": "P4c-NW-cast",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [],
+  "calls_used": 0,
+  "retries": [],
+  "self_report": {
+    "obeyed_invariants": true,
+    "concerns": [
+      "Frozen cut exited with a NumPy inhomogeneous-array ValueError in detect_oneshot; no retry performed.",
+      "No registered frames, rest frame, grid, strip, registration.json or series.json were produced. G6/G6b, G1, head pitch, coherence, rim luminance and closure measurements remain null.",
+      "Exemplar-band measurement skipped as instructed because one-shots have no measure kind."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/checks.json",
+      "sha256": "1cfe5c85ca094d6b1f3d88dfe8b962a7da2ebf5a807a59ae0052a6ffe25cdb26"
+    },
+    {
+      "path": "out/first_second.png",
+      "sha256": "3a7b8b553e039427bea4e36be1f544527ba597a97886270839d9ddadf7b09731"
+    }
+  ]
+}

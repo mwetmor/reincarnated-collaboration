@@ -1,0 +1,26 @@
+{
+ "text": "GENERATE BURST K1p-paint-walk-E — gear paint-over of an animation sheet (Run C-3 P5, fork C: the advanced set on the same woman, motion identical). task_id \"K1p-paint-walk-E\".\n\nImage 1 is an ANIMATION SHEET: 12 cells, each one frame of ONE walk in right profile (facing screen-right) of the same young woman, read left-to-right, top-to-bottom, on a flat #00ff00 plate. Image 2 shows the SAME woman wearing the ADVANCED gear set: a small brass ASTROLABE (nested open rings + pointer arm) at the tip of her walnut staff, and a chestnut-leather PAULDRON with brass edging on her LEFT shoulder carrying Image 3's emblem (a needle through three stacked bands) as a small brass plate. EDIT Image 1 — do not redraw it: in EVERY cell, and identically in every cell, (1) replace the plain brass tip of the staff with Image 2's astrolabe, following the staff's position in that cell; (2) add Image 2's pauldron on her LEFT shoulder, following that shoulder in that cell. She is in right profile facing screen-right, so her LEFT shoulder is the FAR shoulder: the pauldron shows only as a narrow sliver of brass-edged leather above the far shoulder line (or is hidden where the head/torso covers it); the staff is in her NEAR right hand in front of her body, so the astrolabe is fully visible. CHANGE NOTHING ELSE: every cell keeps its exact pose, size, position, face, hair, costume, colours, line and the #00ff00 plate; the cell layout, spacing and frame order stay exactly as Image 1; no new objects, no glow, no text, no borders. Output the whole sheet at Image 1's size (1024×1536).\n\nOne image_gen call in EDIT mode on Image 1. ONE retry only if cells are rearranged, a cell is missing, the pauldron lands on her right shoulder, or the plate changes — name the reason. Copy the output from $CODEX_HOME/generated_images/... to out/sheet_walk_E_advanced.png with sha256. No code. No other files. No web.\nRETURN: receipt task_id \"K1p-paint-walk-E\"; images = the file with prompt, references (role + path), elapsed_s; calls_used = the TRUE number of image_gen calls; status DELIVERED / DELIVERED_WITH_CONCERNS / FAILED; concerns. Never PASS/FAIL.",
+ "references": [
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/P5-sheets/sheet_walk_E.png",
+   "role": "IMAGE 1 — the animation sheet to EDIT"
+  },
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/K1p-adv-01/adv_2.png",
+   "role": "IMAGE 2 — the advanced gear on the same woman (gear appearance only)"
+  },
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/K1p-sig-01/glyph_A.png",
+   "role": "IMAGE 3 — the emblem shape"
+  }
+ ],
+ "image_cap": 2,
+ "minutes_cap": 15,
+ "tool_call_cap": 20,
+ "outputs": [
+  "out/sheet_walk_E_advanced.png"
+ ],
+ "effort": "high",
+ "add_dirs": [],
+ "experiment": "C3-P5"
+}

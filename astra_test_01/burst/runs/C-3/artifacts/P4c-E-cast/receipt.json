@@ -1,0 +1,42 @@
+{
+  "task_id": "P4c-E-cast",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [],
+  "calls_used": 0,
+  "retries": [],
+  "self_report": {
+    "obeyed_invariants": true,
+    "concerns": [
+      "Frozen cut ran exactly once: detection incomplete because no six-sample settle followed return; confidence 0.2.",
+      "No cast frames emitted. G6/G6b, G1, head pitch, coherence, rim luma excess, both closure measurements, and grid.png were not computed, as instructed.",
+      "Exemplar band measurement skipped as instructed: no one-shot measure kind.",
+      "Delivered strip is diagnostic only."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/checks.json",
+      "sha256": "574fcbfdf215f492a9b8fe46e328c3e5ae3a0213ed6553cf2454c5d924c0a226"
+    },
+    {
+      "path": "out/first_second.png",
+      "sha256": "4f3587d03c11663aa92e2192bd06f15bede1d72f707e5e5324f74f7d83f32062"
+    },
+    {
+      "path": "out/cut/registration.json",
+      "sha256": "432586f9227b5686be89d6fb7a8ae889ed2ecce1a692150eed0f05c7c6b80f89"
+    },
+    {
+      "path": "out/cut/series.json",
+      "sha256": "6dc2428bbd874b275d65db5e1018cfe1d4ed66844e7a6e353a1f119003be97e9"
+    },
+    {
+      "path": "out/cut/frames/rest/E/rest_E.png",
+      "sha256": "63ed7ccea57c65528c88e8b16aa1db68d2a2cdc69ffbc31e429ac13844a8e6a1"
+    },
+    {
+      "path": "out/cut/sheets/cast_E_strip.png",
+      "sha256": "156a40956958d0805bb8ae935f55a0eb1e4f268493817e7019e49dbee9d2c7dc"
+    }
+  ]
+}

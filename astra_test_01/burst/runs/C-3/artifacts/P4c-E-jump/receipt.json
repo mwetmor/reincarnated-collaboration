@@ -1,0 +1,48 @@
+{
+  "task_id": "P4c-E-jump",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [],
+  "calls_used": 0,
+  "retries": [
+    {
+      "reason": "Sheet verification used an incorrect expected width.",
+      "change": "Corrected the assertion to derive width from source dimensions; verified 756×384. Cut was not rerun."
+    }
+  ],
+  "self_report": {
+    "obeyed_invariants": true,
+    "concerns": [
+      "Frozen cut detected no six-sample settle after landing crouch; complete detection is null, confidence 0.2.",
+      "No jump frames were produced. G6/G6b, G1, head pitch, coherence, rim luma, closure, and grid were not computed.",
+      "Exemplar measurement intentionally skipped for the one-shot.",
+      "Delivered strip is diagnostic only.",
+      "suspect_inside_selected was absent from registration; checks report null because no interval was selected."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/checks.json",
+      "sha256": "c2d5f06e8df4eb7087367f79ec4142712f333649f109d4651cb3b87603283112"
+    },
+    {
+      "path": "out/first_second.png",
+      "sha256": "c80dde82ed774321507ee924d7993ebe9c1bd3aa0b0f7e46df002392f612e84f"
+    },
+    {
+      "path": "out/cut/registration.json",
+      "sha256": "e97e527bc7afec8846c487911a9b796354f1b5e3a5210bcaa8647202d4e4e6da"
+    },
+    {
+      "path": "out/cut/series.json",
+      "sha256": "05672b3e9c4d3bf216c248c28606b75cbad3ef83e6e7c0043b9a1f25d9a1df9b"
+    },
+    {
+      "path": "out/cut/frames/rest/E/rest_E.png",
+      "sha256": "b0cfbae4ba2aab7d2a1045e4ea2e1be8818051690c3342adc4d857806c0e85ec"
+    },
+    {
+      "path": "out/cut/sheets/jump_E_strip.png",
+      "sha256": "273b0e729a8666983d6b04c265b62b427edf36ff6f98734eaf5bf82e343f9b51"
+    }
+  ]
+}

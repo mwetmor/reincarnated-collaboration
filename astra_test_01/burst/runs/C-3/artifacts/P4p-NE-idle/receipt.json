@@ -1,0 +1,53 @@
+{
+  "task_id": "P4p-NE-idle",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [],
+  "calls_used": 0,
+  "retries": [],
+  "self_report": {
+    "obeyed_invariants": true,
+    "concerns": [
+      "Input checks flag 11 suspect native adjacent pairs retained.",
+      "Input period uses prompted fallback of 2.0 seconds with observed autocorrelation confidence 0.0.",
+      "Packet summary reports oracle not supplied."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/packet/review.html",
+      "sha256": "eb025605e346d3501e9e2f13c04e76e748b402ec052a83dc715902ae90859295"
+    },
+    {
+      "path": "out/packet/idle_NE_2x.mp4",
+      "sha256": "0d89072f46e32a4c63052bd6f9d4693e3cf6e46cdb54fd7bc86ba5f6a41e2720"
+    },
+    {
+      "path": "out/packet/idle_NE_1to1.mp4",
+      "sha256": "0b9694464ace3ae69eb2ed88dbe461da35a3d39a76efe517d175545c5bc2da9a"
+    },
+    {
+      "path": "out/packet/numbers.json",
+      "sha256": "8a66c69e2a9fb57b510f7520505022f61854f7aa5b0e54c2b66ae2b39fc229f7"
+    },
+    {
+      "path": "out/packet/img/seam_pairs.png",
+      "sha256": "57bed23e46ea010d12bc40378597a552239cb01395b09c87bf83babfe30de474"
+    },
+    {
+      "path": "out/packet/img/strip.png",
+      "sha256": "cd1f4b0c6fb4ed2527defaf0709ceb8636853fe9d491ca917bc3396628ff4ef5"
+    },
+    {
+      "path": "out/packet/summary.txt",
+      "sha256": "cfc31a5d64f0a8b115a6279283677161adee78131608a350397e1d413c9ebae9"
+    },
+    {
+      "path": "out/packet/seam_pairs.png",
+      "sha256": "57bed23e46ea010d12bc40378597a552239cb01395b09c87bf83babfe30de474"
+    },
+    {
+      "path": "out/packet/strip.png",
+      "sha256": "cd1f4b0c6fb4ed2527defaf0709ceb8636853fe9d491ca917bc3396628ff4ef5"
+    }
+  ]
+}

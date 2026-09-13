@@ -1,0 +1,42 @@
+{
+  "task_id": "P4c-N-cast",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [],
+  "calls_used": 0,
+  "retries": [],
+  "self_report": {
+    "obeyed_invariants": true,
+    "concerns": [
+      "Frozen cut reported no return after release, confidence 0.2; no complete one-shot or cast frames. No retry performed.",
+      "G6/G6b, G1, head pitch, coherence, rim luma and both closure measurements were not computed; grid.png was not created, following the prescribed fallback.",
+      "Exemplar bands skipped as instructed; G6c is inapplicable to cast.",
+      "Delivered strip is diagnostic only. suspect_inside_selected is null because no interval was selected."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/checks.json",
+      "sha256": "b44c79cab2befbd1d89a8ed9578d3b360003d3e0eeaf825375e1686561f5495c"
+    },
+    {
+      "path": "out/first_second.png",
+      "sha256": "474cae6e0e8c70f00fadb3656bc8736b981ceb66135668d70f879ca1535e0ccb"
+    },
+    {
+      "path": "out/cut/registration.json",
+      "sha256": "1bb8099ab59353e85a49825768a54469dab4c3616277ea02150d1187c61226d1"
+    },
+    {
+      "path": "out/cut/series.json",
+      "sha256": "272cb3abbcfb122b0597d41ef629a6e1082ff7e315649cf5b7d962fdeec08d82"
+    },
+    {
+      "path": "out/cut/frames/rest/N/rest_N.png",
+      "sha256": "270eba6291f5713a08f07edcd955ecc5911188f48e4c96229660245a316c92a8"
+    },
+    {
+      "path": "out/cut/sheets/cast_N_strip.png",
+      "sha256": "05c8b89b9f368e9fe6d46fea60f2ddc0924c708948bfd3c5765c0d8ac98cbdda"
+    }
+  ]
+}

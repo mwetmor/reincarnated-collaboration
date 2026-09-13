@@ -1,0 +1,34 @@
+{
+  "task_id": "K4v-gen-cast-a",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "cast_00_03",
+      "path": "out/cast_00_03.png",
+      "sha256": "791667ca82f59820ab0c602d40c1a0ae5af52b37cb81323795e5ed36810d13f1",
+      "prompt": "Use case: stylized-concept. Generate one painted FROST CAST VFX animation sprite sheet, square 1254 x 1254 pixels, exactly 2 columns x 2 rows of equal square cells, four frames in row-major order. Reference image 1 is STYLE ONLY: match the icy blue-white energy at the character's staff tip, its faceted painted brushwork, hard illustrated edges and deep-blue falloff. Do not include any character, hand, staff, scenery, symbols, text or visible grid. Pure uniform BLACK #000000 background, bright energy only: an additive emission plate. Every effect centred exactly in its own cell with generous black padding; no glow or particle touches a cell boundary. Frame centers at normalized image coordinates (25%,25%), (75%,25%), (25%,75%), (75%,75%). No photographic mist, neon laser style or fire-like flames. Frames 0–3 of 8: top-left frame 0 a tiny gathering pale blue-white core with exactly 3 small angular ice fragments, total effect diameter 10% of the cell; top-right frame 1 a growing core with a few orbiting icy shards, total diameter 18%; bottom-left frame 2 a compact flare gathering bright layers, total diameter 28%; bottom-right frame 3 the peak crystalline cast flare with a brilliant pale-blue-white core and deep blue painted falloff, a few sharp shards pointing outward, total diameter 40%. Genuine temporal growth of ONE effect. HAND-DRAWN painted 2D in the manner of a modern hand-animated action game: confident hand-drawn tapered contours with varying weight, painted fills in clean planes, restrained surface texture, readable small silhouettes, no conspicuous grain. Each frame looks like a frame of hand-drawn animation. The frozen VFX edge language is carried by the reference's staff-tip energy only. No floor shadows. The requested black emission plate and centered VFX sheet layout apply to this asset.",
+      "references": [
+        {
+          "role": "STYLE ONLY — frost energy at the staff tip",
+          "path": "in/01_vfx_style_match.png"
+        }
+      ],
+      "elapsed_s": 25.112
+    }
+  ],
+  "calls_used": 1,
+  "retries": [],
+  "self_report": {
+    "obeyed_invariants": true,
+    "concerns": [
+      "Effects visually exceed the requested cell-relative diameters, especially the peak frame. This does not meet the authorized retry conditions.",
+      "Exact centering and pure-black background values were not measured."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/cast_00_03.png",
+      "sha256": "791667ca82f59820ab0c602d40c1a0ae5af52b37cb81323795e5ed36810d13f1"
+    }
+  ]
+}

@@ -1,0 +1,1151 @@
+{
+  "task_id": "K1p-paintchk-walk-E-r2",
+  "report_only": true,
+  "passed": null,
+  "frame_count": 12,
+  "parameters": {
+    "matte": {
+      "alpha_floor": 40,
+      "edge_mode": "clamp",
+      "preserve_particles": false
+    },
+    "composite": {
+      "thresh": 24,
+      "dilate_px": 3
+    },
+    "region_order": [
+      "staff_head_box",
+      "pauldron_box"
+    ]
+  },
+  "definitions": {
+    "mask_area_fraction": "Frozen composite mask_pixels / (512*512), separately for each sequential region application.",
+    "G12": "Frozen evaluate(base, final composite, union of both masks); passed suppressed to null.",
+    "silhouette64_distance": "Frozen silhouette64.distance(base alpha, registered variant alpha); 1 minus aligned IoU.",
+    "outside_regions_drift": "sum(max(base_alpha,variant_alpha)/255 * mean_channels(abs(base_RGB-variant_RGB))) / sum(max(base_alpha,variant_alpha)/255), excluding both XYXY region boxes; straight RGB, 0..255 units.",
+    "means": "Arithmetic mean of per-frame values, unweighted across frames.",
+    "gear_layer": "Exact variant RGBA bytes selected by union mask, composited for display on #3a3f4a; alpha-zero replacement/erasure pixels are invisible in this diagnostic.",
+    "overlay": "Frames 00,03,06,09; columns base with staff-head box cyan and pauldron box orange, registered variant, final composite. Native 512 canvas per panel."
+  },
+  "inputs": [
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/P5-sheets/sheet_walk_E.json",
+      "sha256": "d700f259be51b86ff2adec35a6b2fff3ea15536f7af697e853fbf74f3319d7ea"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/P5-regions/regions_walk_E.json",
+      "sha256": "f6ea374cc756f4bd6f1c8642dbb388e50f78008401c36945881ce696ff935dc8"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/P5-sheets/sheet_walk_E.png",
+      "sha256": "781bd42315ace809620dabf058d0980654eb39c4d0ed558853a3c41c850477dd"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/K1p-paint-walk-E/sheet_walk_E_advanced.png",
+      "sha256": "81bdb87b9470b7d68d1842e70733b3482aef51aea9953b293e6e861a5fd80f23"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/P4c-E-walk/cut/registration.json",
+      "sha256": "565ee7c69a4c331cfc8132180bbee4e44b5e597f607b5f0eb93bc855a373eddc"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/P4c-E-walk/cut/frames/walk/E/walk_E_00.png",
+      "sha256": "25d0412811745039edb6c706bb2ac45eeec46b1a45dc44317308d57745145d28"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/P4c-E-walk/cut/frames/walk/E/walk_E_01.png",
+      "sha256": "69776cef1749ea589184a33295ec98b1b5abe3c94b768e12b0f75685d55e6859"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/P4c-E-walk/cut/frames/walk/E/walk_E_02.png",
+      "sha256": "288c519881ce6390611e964a39833e174f48be8ac61cb47f3410f0df43aca1e1"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/P4c-E-walk/cut/frames/walk/E/walk_E_03.png",
+      "sha256": "7f9cb13ff46bdebd074e25fe8e7f1bb86e62235f17498e97b5c8b0d2d6aa4af0"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/P4c-E-walk/cut/frames/walk/E/walk_E_04.png",
+      "sha256": "8d68814457b01012bf02657464fce256c82a805a921b65ee9dcc9c5cbbf6a914"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/P4c-E-walk/cut/frames/walk/E/walk_E_05.png",
+      "sha256": "e41ae60a043b008fd992a9dd3ee9cb71ddfff11ec2c9a929132a306da108e489"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/P4c-E-walk/cut/frames/walk/E/walk_E_06.png",
+      "sha256": "e77c86024341f305c39d5912bff53c441599794ea499aba66ba91dee8bcfbeff"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/P4c-E-walk/cut/frames/walk/E/walk_E_07.png",
+      "sha256": "c841e3ae9011b126a26403de3481b841c3430d66732d73b2aa5596d588567ea1"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/P4c-E-walk/cut/frames/walk/E/walk_E_08.png",
+      "sha256": "bf8cba49bcb4a2d66b235fcff097a11141b59f59b2e243b56b024269c7e1089f"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/P4c-E-walk/cut/frames/walk/E/walk_E_09.png",
+      "sha256": "2b3e90f1f00d1177dbb1c3cdcfdf6f9eefc482225500c2e1fa66c8c26fa5f6a6"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/P4c-E-walk/cut/frames/walk/E/walk_E_10.png",
+      "sha256": "d336dcdf644b2bbbbbb05def4128a0e321f1235bf67b4b8b8d701ec8e91f9613"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/P4c-E-walk/cut/frames/walk/E/walk_E_11.png",
+      "sha256": "8239e0b3c0caeefdc70262f6f7685ed83e51fb00baf9233afbcc69a0e558829e"
+    }
+  ],
+  "frozen_tools": [
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/gates/matte.py",
+      "sha256": "de3a4fbbc6aeb5a8f6f14e4a7a5812db296acd0aefcaefddf64699aa833e6389"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/gates/mask_composite.py",
+      "sha256": "131ed243fcb228641ce6ce99b5bfa408d007405d045f66d36fb16d4bbec6ad07"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/gates/silhouette64.py",
+      "sha256": "1ba8cdb931ac6020e4485f8fa5826f6f5342278bda34a7596617b2da7b8dc147"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/gates/common.py",
+      "sha256": "bd8f46dca498b8cb0470c38065dff0def4b59e7f0fa6814d13be355ea3c60ca0"
+    }
+  ],
+  "per_frame": [
+    {
+      "frame": "walk_E_00.png",
+      "passed": null,
+      "regions": {
+        "staff_head_box": {
+          "mask_pixels": 976,
+          "mask_area_fraction": 0.00372314453125,
+          "outside_mask_pixels": 261168,
+          "outside_mask_changed_pixels": 0,
+          "outside_mask_byte_identical": true,
+          "base_preserved_fraction": 1.0,
+          "changed_inside_pixels": 724,
+          "changed_inside_fraction": 0.7418032786885246,
+          "figure_pixels": 10223,
+          "mask_figure_pixels": 226,
+          "mask_figure_fraction": 0.02210701359679155,
+          "region_box": [
+            258,
+            128,
+            310,
+            179
+          ],
+          "thresh": 24.0,
+          "dilate_px": 3,
+          "thresholded_difference_pixels": 3042,
+          "out_of_box_changed_pixels": 12531,
+          "dropped_out_of_box_pixels": 2621,
+          "difference_definition": "max(abs(premultiplied RGB), abs(alpha)); 0..255"
+        },
+        "pauldron_box": {
+          "mask_pixels": 1562,
+          "mask_area_fraction": 0.00595855712890625,
+          "outside_mask_pixels": 260582,
+          "outside_mask_changed_pixels": 0,
+          "outside_mask_byte_identical": true,
+          "base_preserved_fraction": 1.0,
+          "changed_inside_pixels": 1357,
+          "changed_inside_fraction": 0.8687580025608195,
+          "figure_pixels": 10464,
+          "mask_figure_pixels": 1070,
+          "mask_figure_fraction": 0.1022553516819572,
+          "region_box": [
+            235,
+            192,
+            278,
+            234
+          ],
+          "thresh": 24.0,
+          "dilate_px": 3,
+          "thresholded_difference_pixels": 2621,
+          "out_of_box_changed_pixels": 11168,
+          "dropped_out_of_box_pixels": 2128,
+          "difference_definition": "max(abs(premultiplied RGB), abs(alpha)); 0..255"
+        }
+      },
+      "mask_area_fraction_per_region": {
+        "staff_head_box": 0.00372314453125,
+        "pauldron_box": 0.00595855712890625
+      },
+      "union_mask_area_fraction": 0.00968170166015625,
+      "G12": {
+        "id": "g12_base_preservation",
+        "subject": "walk_E_00.png",
+        "passed": null,
+        "value": 1.0,
+        "threshold": 0.99,
+        "op": ">=",
+        "unit": "fraction",
+        "evidence": [],
+        "notes": "{\"base_preserved_fraction\": 1.0, \"changed_inside_fraction\": 0.8199369582348306, \"changed_inside_pixels\": 2081, \"figure_pixels\": 10223, \"mask_area_fraction\": 0.00968170166015625, \"mask_figure_fraction\": 0.12677296292673385, \"mask_figure_pixels\": 1296, \"mask_pixels\": 2538, \"max_mask_figure_fraction\": 0.6, \"min_preserved_fraction\": 0.99, \"outside_mask_byte_identical\": true, \"outside_mask_changed_pixels\": 0, \"outside_mask_pixels\": 259606, \"reason\": null}"
+      },
+      "G12_value": 1.0,
+      "silhouette64_distance": 0.22945205479452058,
+      "outside_regions_drift": 9.442837236525216,
+      "outside_regions_alpha_union_weight": 9103.325490196079,
+      "outside_regions_changed_pixels_composite": 0,
+      "matte": {
+        "method": "green excess matte + inverse straight-alpha compositing + nearest fully-opaque RGB clamp",
+        "removed_background_or_detached_alpha_dust_pixels": 4,
+        "native_input_alpha": false,
+        "alpha_floor": 40,
+        "alpha_floor_removed_pixels": 51266
+      }
+    },
+    {
+      "frame": "walk_E_01.png",
+      "passed": null,
+      "regions": {
+        "staff_head_box": {
+          "mask_pixels": 1010,
+          "mask_area_fraction": 0.00385284423828125,
+          "outside_mask_pixels": 261134,
+          "outside_mask_changed_pixels": 0,
+          "outside_mask_byte_identical": true,
+          "base_preserved_fraction": 1.0,
+          "changed_inside_pixels": 746,
+          "changed_inside_fraction": 0.7386138613861386,
+          "figure_pixels": 9451,
+          "mask_figure_pixels": 247,
+          "mask_figure_fraction": 0.026134800550206328,
+          "region_box": [
+            263,
+            127,
+            316,
+            179
+          ],
+          "thresh": 24.0,
+          "dilate_px": 3,
+          "thresholded_difference_pixels": 2687,
+          "out_of_box_changed_pixels": 11441,
+          "dropped_out_of_box_pixels": 2245,
+          "difference_definition": "max(abs(premultiplied RGB), abs(alpha)); 0..255"
+        },
+        "pauldron_box": {
+          "mask_pixels": 1600,
+          "mask_area_fraction": 0.006103515625,
+          "outside_mask_pixels": 260544,
+          "outside_mask_changed_pixels": 0,
+          "outside_mask_byte_identical": true,
+          "base_preserved_fraction": 1.0,
+          "changed_inside_pixels": 1402,
+          "changed_inside_fraction": 0.87625,
+          "figure_pixels": 9683,
+          "mask_figure_pixels": 1081,
+          "mask_figure_fraction": 0.11163895486935867,
+          "region_box": [
+            238,
+            188,
+            282,
+            231
+          ],
+          "thresh": 24.0,
+          "dilate_px": 3,
+          "thresholded_difference_pixels": 2245,
+          "out_of_box_changed_pixels": 9990,
+          "dropped_out_of_box_pixels": 1739,
+          "difference_definition": "max(abs(premultiplied RGB), abs(alpha)); 0..255"
+        }
+      },
+      "mask_area_fraction_per_region": {
+        "staff_head_box": 0.00385284423828125,
+        "pauldron_box": 0.006103515625
+      },
+      "union_mask_area_fraction": 0.00995635986328125,
+      "G12": {
+        "id": "g12_base_preservation",
+        "subject": "walk_E_01.png",
+        "passed": null,
+        "value": 1.0,
+        "threshold": 0.99,
+        "op": ">=",
+        "unit": "fraction",
+        "evidence": [],
+        "notes": "{\"base_preserved_fraction\": 1.0, \"changed_inside_fraction\": 0.8229885057471265, \"changed_inside_pixels\": 2148, \"figure_pixels\": 9451, \"mask_area_fraction\": 0.00995635986328125, \"mask_figure_fraction\": 0.1405142312982753, \"mask_figure_pixels\": 1328, \"mask_pixels\": 2610, \"max_mask_figure_fraction\": 0.6, \"min_preserved_fraction\": 0.99, \"outside_mask_byte_identical\": true, \"outside_mask_changed_pixels\": 0, \"outside_mask_pixels\": 259534, \"reason\": null}"
+      },
+      "G12_value": 1.0,
+      "silhouette64_distance": 0.22491349480968859,
+      "outside_regions_drift": 9.07283256722578,
+      "outside_regions_alpha_union_weight": 8265.192156862746,
+      "outside_regions_changed_pixels_composite": 0,
+      "matte": {
+        "method": "green excess matte + inverse straight-alpha compositing + nearest fully-opaque RGB clamp",
+        "removed_background_or_detached_alpha_dust_pixels": 1,
+        "native_input_alpha": false,
+        "alpha_floor": 40,
+        "alpha_floor_removed_pixels": 52767
+      }
+    },
+    {
+      "frame": "walk_E_02.png",
+      "passed": null,
+      "regions": {
+        "staff_head_box": {
+          "mask_pixels": 1059,
+          "mask_area_fraction": 0.004039764404296875,
+          "outside_mask_pixels": 261085,
+          "outside_mask_changed_pixels": 0,
+          "outside_mask_byte_identical": true,
+          "base_preserved_fraction": 1.0,
+          "changed_inside_pixels": 762,
+          "changed_inside_fraction": 0.7195467422096318,
+          "figure_pixels": 8806,
+          "mask_figure_pixels": 272,
+          "mask_figure_fraction": 0.03088803088803089,
+          "region_box": [
+            264,
+            128,
+            316,
+            181
+          ],
+          "thresh": 24.0,
+          "dilate_px": 3,
+          "thresholded_difference_pixels": 2357,
+          "out_of_box_changed_pixels": 10529,
+          "dropped_out_of_box_pixels": 1900,
+          "difference_definition": "max(abs(premultiplied RGB), abs(alpha)); 0..255"
+        },
+        "pauldron_box": {
+          "mask_pixels": 1602,
+          "mask_area_fraction": 0.00611114501953125,
+          "outside_mask_pixels": 260542,
+          "outside_mask_changed_pixels": 0,
+          "outside_mask_byte_identical": true,
+          "base_preserved_fraction": 1.0,
+          "changed_inside_pixels": 1388,
+          "changed_inside_fraction": 0.8664169787765293,
+          "figure_pixels": 9045,
+          "mask_figure_pixels": 1038,
+          "mask_figure_fraction": 0.11475953565505805,
+          "region_box": [
+            235,
+            187,
+            279,
+            231
+          ],
+          "thresh": 24.0,
+          "dilate_px": 3,
+          "thresholded_difference_pixels": 1900,
+          "out_of_box_changed_pixels": 9035,
+          "dropped_out_of_box_pixels": 1385,
+          "difference_definition": "max(abs(premultiplied RGB), abs(alpha)); 0..255"
+        }
+      },
+      "mask_area_fraction_per_region": {
+        "staff_head_box": 0.004039764404296875,
+        "pauldron_box": 0.00611114501953125
+      },
+      "union_mask_area_fraction": 0.010150909423828125,
+      "G12": {
+        "id": "g12_base_preservation",
+        "subject": "walk_E_02.png",
+        "passed": null,
+        "value": 1.0,
+        "threshold": 0.99,
+        "op": ">=",
+        "unit": "fraction",
+        "evidence": [],
+        "notes": "{\"base_preserved_fraction\": 1.0, \"changed_inside_fraction\": 0.8079669297256671, \"changed_inside_pixels\": 2150, \"figure_pixels\": 8806, \"mask_area_fraction\": 0.010150909423828125, \"mask_figure_fraction\": 0.148762207585737, \"mask_figure_pixels\": 1310, \"mask_pixels\": 2661, \"max_mask_figure_fraction\": 0.6, \"min_preserved_fraction\": 0.99, \"outside_mask_byte_identical\": true, \"outside_mask_changed_pixels\": 0, \"outside_mask_pixels\": 259483, \"reason\": null}"
+      },
+      "G12_value": 1.0,
+      "silhouette64_distance": 0.16817359855334535,
+      "outside_regions_drift": 8.765362293571124,
+      "outside_regions_alpha_union_weight": 7557.082352941177,
+      "outside_regions_changed_pixels_composite": 0,
+      "matte": {
+        "method": "green excess matte + inverse straight-alpha compositing + nearest fully-opaque RGB clamp",
+        "removed_background_or_detached_alpha_dust_pixels": 0,
+        "native_input_alpha": false,
+        "alpha_floor": 40,
+        "alpha_floor_removed_pixels": 54042
+      }
+    },
+    {
+      "frame": "walk_E_03.png",
+      "passed": null,
+      "regions": {
+        "staff_head_box": {
+          "mask_pixels": 1225,
+          "mask_area_fraction": 0.004673004150390625,
+          "outside_mask_pixels": 260919,
+          "outside_mask_changed_pixels": 0,
+          "outside_mask_byte_identical": true,
+          "base_preserved_fraction": 1.0,
+          "changed_inside_pixels": 937,
+          "changed_inside_fraction": 0.7648979591836734,
+          "figure_pixels": 9408,
+          "mask_figure_pixels": 377,
+          "mask_figure_fraction": 0.040072278911564625,
+          "region_box": [
+            258,
+            128,
+            311,
+            182
+          ],
+          "thresh": 24.0,
+          "dilate_px": 3,
+          "thresholded_difference_pixels": 2499,
+          "out_of_box_changed_pixels": 10805,
+          "dropped_out_of_box_pixels": 1986,
+          "difference_definition": "max(abs(premultiplied RGB), abs(alpha)); 0..255"
+        },
+        "pauldron_box": {
+          "mask_pixels": 1513,
+          "mask_area_fraction": 0.005771636962890625,
+          "outside_mask_pixels": 260631,
+          "outside_mask_changed_pixels": 0,
+          "outside_mask_byte_identical": true,
+          "base_preserved_fraction": 1.0,
+          "changed_inside_pixels": 1335,
+          "changed_inside_fraction": 0.8823529411764706,
+          "figure_pixels": 9668,
+          "mask_figure_pixels": 1037,
+          "mask_figure_fraction": 0.10726106743897393,
+          "region_box": [
+            232,
+            187,
+            276,
+            230
+          ],
+          "thresh": 24.0,
+          "dilate_px": 3,
+          "thresholded_difference_pixels": 1986,
+          "out_of_box_changed_pixels": 9394,
+          "dropped_out_of_box_pixels": 1475,
+          "difference_definition": "max(abs(premultiplied RGB), abs(alpha)); 0..255"
+        }
+      },
+      "mask_area_fraction_per_region": {
+        "staff_head_box": 0.004673004150390625,
+        "pauldron_box": 0.005771636962890625
+      },
+      "union_mask_area_fraction": 0.01044464111328125,
+      "G12": {
+        "id": "g12_base_preservation",
+        "subject": "walk_E_03.png",
+        "passed": null,
+        "value": 1.0,
+        "threshold": 0.99,
+        "op": ">=",
+        "unit": "fraction",
+        "evidence": [],
+        "notes": "{\"base_preserved_fraction\": 1.0, \"changed_inside_fraction\": 0.8298027757487217, \"changed_inside_pixels\": 2272, \"figure_pixels\": 9408, \"mask_area_fraction\": 0.01044464111328125, \"mask_figure_fraction\": 0.15029761904761904, \"mask_figure_pixels\": 1414, \"mask_pixels\": 2738, \"max_mask_figure_fraction\": 0.6, \"min_preserved_fraction\": 0.99, \"outside_mask_byte_identical\": true, \"outside_mask_changed_pixels\": 0, \"outside_mask_pixels\": 259406, \"reason\": null}"
+      },
+      "G12_value": 1.0,
+      "silhouette64_distance": 0.18571428571428572,
+      "outside_regions_drift": 8.407304770586446,
+      "outside_regions_alpha_union_weight": 8066.176470588236,
+      "outside_regions_changed_pixels_composite": 0,
+      "matte": {
+        "method": "green excess matte + inverse straight-alpha compositing + nearest fully-opaque RGB clamp",
+        "removed_background_or_detached_alpha_dust_pixels": 1,
+        "native_input_alpha": false,
+        "alpha_floor": 40,
+        "alpha_floor_removed_pixels": 53058
+      }
+    },
+    {
+      "frame": "walk_E_04.png",
+      "passed": null,
+      "regions": {
+        "staff_head_box": {
+          "mask_pixels": 1188,
+          "mask_area_fraction": 0.0045318603515625,
+          "outside_mask_pixels": 260956,
+          "outside_mask_changed_pixels": 0,
+          "outside_mask_byte_identical": true,
+          "base_preserved_fraction": 1.0,
+          "changed_inside_pixels": 880,
+          "changed_inside_fraction": 0.7407407407407407,
+          "figure_pixels": 10205,
+          "mask_figure_pixels": 317,
+          "mask_figure_fraction": 0.031063204311611955,
+          "region_box": [
+            259,
+            131,
+            312,
+            184
+          ],
+          "thresh": 24.0,
+          "dilate_px": 3,
+          "thresholded_difference_pixels": 2736,
+          "out_of_box_changed_pixels": 12255,
+          "dropped_out_of_box_pixels": 2241,
+          "difference_definition": "max(abs(premultiplied RGB), abs(alpha)); 0..255"
+        },
+        "pauldron_box": {
+          "mask_pixels": 1516,
+          "mask_area_fraction": 0.0057830810546875,
+          "outside_mask_pixels": 260628,
+          "outside_mask_changed_pixels": 0,
+          "outside_mask_byte_identical": true,
+          "base_preserved_fraction": 1.0,
+          "changed_inside_pixels": 1364,
+          "changed_inside_fraction": 0.899736147757256,
+          "figure_pixels": 10478,
+          "mask_figure_pixels": 1070,
+          "mask_figure_fraction": 0.10211872494750907,
+          "region_box": [
+            226,
+            187,
+            270,
+            231
+          ],
+          "thresh": 24.0,
+          "dilate_px": 3,
+          "thresholded_difference_pixels": 2241,
+          "out_of_box_changed_pixels": 10841,
+          "dropped_out_of_box_pixels": 1742,
+          "difference_definition": "max(abs(premultiplied RGB), abs(alpha)); 0..255"
+        }
+      },
+      "mask_area_fraction_per_region": {
+        "staff_head_box": 0.0045318603515625,
+        "pauldron_box": 0.0057830810546875
+      },
+      "union_mask_area_fraction": 0.01031494140625,
+      "G12": {
+        "id": "g12_base_preservation",
+        "subject": "walk_E_04.png",
+        "passed": null,
+        "value": 1.0,
+        "threshold": 0.99,
+        "op": ">=",
+        "unit": "fraction",
+        "evidence": [],
+        "notes": "{\"base_preserved_fraction\": 1.0, \"changed_inside_fraction\": 0.8298816568047337, \"changed_inside_pixels\": 2244, \"figure_pixels\": 10205, \"mask_area_fraction\": 0.01031494140625, \"mask_figure_fraction\": 0.13591376776090153, \"mask_figure_pixels\": 1387, \"mask_pixels\": 2704, \"max_mask_figure_fraction\": 0.6, \"min_preserved_fraction\": 0.99, \"outside_mask_byte_identical\": true, \"outside_mask_changed_pixels\": 0, \"outside_mask_pixels\": 259440, \"reason\": null}"
+      },
+      "G12_value": 1.0,
+      "silhouette64_distance": 0.17730496453900713,
+      "outside_regions_drift": 8.44974957284174,
+      "outside_regions_alpha_union_weight": 9000.04705882353,
+      "outside_regions_changed_pixels_composite": 0,
+      "matte": {
+        "method": "green excess matte + inverse straight-alpha compositing + nearest fully-opaque RGB clamp",
+        "removed_background_or_detached_alpha_dust_pixels": 0,
+        "native_input_alpha": false,
+        "alpha_floor": 40,
+        "alpha_floor_removed_pixels": 51143
+      }
+    },
+    {
+      "frame": "walk_E_05.png",
+      "passed": null,
+      "regions": {
+        "staff_head_box": {
+          "mask_pixels": 1031,
+          "mask_area_fraction": 0.003932952880859375,
+          "outside_mask_pixels": 261113,
+          "outside_mask_changed_pixels": 0,
+          "outside_mask_byte_identical": true,
+          "base_preserved_fraction": 1.0,
+          "changed_inside_pixels": 751,
+          "changed_inside_fraction": 0.7284190106692532,
+          "figure_pixels": 10442,
+          "mask_figure_pixels": 228,
+          "mask_figure_fraction": 0.021834897529208964,
+          "region_box": [
+            262,
+            133,
+            314,
+            185
+          ],
+          "thresh": 24.0,
+          "dilate_px": 3,
+          "thresholded_difference_pixels": 3036,
+          "out_of_box_changed_pixels": 12822,
+          "dropped_out_of_box_pixels": 2578,
+          "difference_definition": "max(abs(premultiplied RGB), abs(alpha)); 0..255"
+        },
+        "pauldron_box": {
+          "mask_pixels": 1417,
+          "mask_area_fraction": 0.005405426025390625,
+          "outside_mask_pixels": 260727,
+          "outside_mask_changed_pixels": 0,
+          "outside_mask_byte_identical": true,
+          "base_preserved_fraction": 1.0,
+          "changed_inside_pixels": 1270,
+          "changed_inside_fraction": 0.8962597035991532,
+          "figure_pixels": 10701,
+          "mask_figure_pixels": 1003,
+          "mask_figure_fraction": 0.09372955798523502,
+          "region_box": [
+            223,
+            191,
+            266,
+            234
+          ],
+          "thresh": 24.0,
+          "dilate_px": 3,
+          "thresholded_difference_pixels": 2578,
+          "out_of_box_changed_pixels": 11488,
+          "dropped_out_of_box_pixels": 2084,
+          "difference_definition": "max(abs(premultiplied RGB), abs(alpha)); 0..255"
+        }
+      },
+      "mask_area_fraction_per_region": {
+        "staff_head_box": 0.003932952880859375,
+        "pauldron_box": 0.005405426025390625
+      },
+      "union_mask_area_fraction": 0.00933837890625,
+      "G12": {
+        "id": "g12_base_preservation",
+        "subject": "walk_E_05.png",
+        "passed": null,
+        "value": 1.0,
+        "threshold": 0.99,
+        "op": ">=",
+        "unit": "fraction",
+        "evidence": [],
+        "notes": "{\"base_preserved_fraction\": 1.0, \"changed_inside_fraction\": 0.8255718954248366, \"changed_inside_pixels\": 2021, \"figure_pixels\": 10442, \"mask_area_fraction\": 0.00933837890625, \"mask_figure_fraction\": 0.11788929323884313, \"mask_figure_pixels\": 1231, \"mask_pixels\": 2448, \"max_mask_figure_fraction\": 0.6, \"min_preserved_fraction\": 0.99, \"outside_mask_byte_identical\": true, \"outside_mask_changed_pixels\": 0, \"outside_mask_pixels\": 259696, \"reason\": null}"
+      },
+      "G12_value": 1.0,
+      "silhouette64_distance": 0.1557971014492754,
+      "outside_regions_drift": 9.151140476561586,
+      "outside_regions_alpha_union_weight": 9409.780392156863,
+      "outside_regions_changed_pixels_composite": 0,
+      "matte": {
+        "method": "green excess matte + inverse straight-alpha compositing + nearest fully-opaque RGB clamp",
+        "removed_background_or_detached_alpha_dust_pixels": 3,
+        "native_input_alpha": false,
+        "alpha_floor": 40,
+        "alpha_floor_removed_pixels": 50732
+      }
+    },
+    {
+      "frame": "walk_E_06.png",
+      "passed": null,
+      "regions": {
+        "staff_head_box": {
+          "mask_pixels": 895,
+          "mask_area_fraction": 0.003414154052734375,
+          "outside_mask_pixels": 261249,
+          "outside_mask_changed_pixels": 0,
+          "outside_mask_byte_identical": true,
+          "base_preserved_fraction": 1.0,
+          "changed_inside_pixels": 621,
+          "changed_inside_fraction": 0.693854748603352,
+          "figure_pixels": 10403,
+          "mask_figure_pixels": 143,
+          "mask_figure_fraction": 0.013746034797654523,
+          "region_box": [
+            268,
+            132,
+            319,
+            183
+          ],
+          "thresh": 24.0,
+          "dilate_px": 3,
+          "thresholded_difference_pixels": 2949,
+          "out_of_box_changed_pixels": 12881,
+          "dropped_out_of_box_pixels": 2522,
+          "difference_definition": "max(abs(premultiplied RGB), abs(alpha)); 0..255"
+        },
+        "pauldron_box": {
+          "mask_pixels": 1454,
+          "mask_area_fraction": 0.00554656982421875,
+          "outside_mask_pixels": 260690,
+          "outside_mask_changed_pixels": 0,
+          "outside_mask_byte_identical": true,
+          "base_preserved_fraction": 1.0,
+          "changed_inside_pixels": 1278,
+          "changed_inside_fraction": 0.8789546079779917,
+          "figure_pixels": 10646,
+          "mask_figure_pixels": 1018,
+          "mask_figure_fraction": 0.09562276911516063,
+          "region_box": [
+            228,
+            192,
+            271,
+            234
+          ],
+          "thresh": 24.0,
+          "dilate_px": 3,
+          "thresholded_difference_pixels": 2522,
+          "out_of_box_changed_pixels": 11585,
+          "dropped_out_of_box_pixels": 2027,
+          "difference_definition": "max(abs(premultiplied RGB), abs(alpha)); 0..255"
+        }
+      },
+      "mask_area_fraction_per_region": {
+        "staff_head_box": 0.003414154052734375,
+        "pauldron_box": 0.00554656982421875
+      },
+      "union_mask_area_fraction": 0.008960723876953125,
+      "G12": {
+        "id": "g12_base_preservation",
+        "subject": "walk_E_06.png",
+        "passed": null,
+        "value": 1.0,
+        "threshold": 0.99,
+        "op": ">=",
+        "unit": "fraction",
+        "evidence": [],
+        "notes": "{\"base_preserved_fraction\": 1.0, \"changed_inside_fraction\": 0.8084291187739464, \"changed_inside_pixels\": 1899, \"figure_pixels\": 10403, \"mask_area_fraction\": 0.008960723876953125, \"mask_figure_fraction\": 0.11160242237816015, \"mask_figure_pixels\": 1161, \"mask_pixels\": 2349, \"max_mask_figure_fraction\": 0.6, \"min_preserved_fraction\": 0.99, \"outside_mask_byte_identical\": true, \"outside_mask_changed_pixels\": 0, \"outside_mask_pixels\": 259795, \"reason\": null}"
+      },
+      "G12_value": 1.0,
+      "silhouette64_distance": 0.18563922942206657,
+      "outside_regions_drift": 8.636135264341336,
+      "outside_regions_alpha_union_weight": 9478.337254901962,
+      "outside_regions_changed_pixels_composite": 0,
+      "matte": {
+        "method": "green excess matte + inverse straight-alpha compositing + nearest fully-opaque RGB clamp",
+        "removed_background_or_detached_alpha_dust_pixels": 0,
+        "native_input_alpha": false,
+        "alpha_floor": 40,
+        "alpha_floor_removed_pixels": 50865
+      }
+    },
+    {
+      "frame": "walk_E_07.png",
+      "passed": null,
+      "regions": {
+        "staff_head_box": {
+          "mask_pixels": 865,
+          "mask_area_fraction": 0.003299713134765625,
+          "outside_mask_pixels": 261279,
+          "outside_mask_changed_pixels": 0,
+          "outside_mask_byte_identical": true,
+          "base_preserved_fraction": 1.0,
+          "changed_inside_pixels": 616,
+          "changed_inside_fraction": 0.7121387283236994,
+          "figure_pixels": 9623,
+          "mask_figure_pixels": 155,
+          "mask_figure_fraction": 0.016107243063493714,
+          "region_box": [
+            268,
+            126,
+            320,
+            177
+          ],
+          "thresh": 24.0,
+          "dilate_px": 3,
+          "thresholded_difference_pixels": 2696,
+          "out_of_box_changed_pixels": 11792,
+          "dropped_out_of_box_pixels": 2282,
+          "difference_definition": "max(abs(premultiplied RGB), abs(alpha)); 0..255"
+        },
+        "pauldron_box": {
+          "mask_pixels": 1550,
+          "mask_area_fraction": 0.00591278076171875,
+          "outside_mask_pixels": 260594,
+          "outside_mask_changed_pixels": 0,
+          "outside_mask_byte_identical": true,
+          "base_preserved_fraction": 1.0,
+          "changed_inside_pixels": 1353,
+          "changed_inside_fraction": 0.8729032258064516,
+          "figure_pixels": 9849,
+          "mask_figure_pixels": 1032,
+          "mask_figure_fraction": 0.1047822113920195,
+          "region_box": [
+            237,
+            189,
+            280,
+            231
+          ],
+          "thresh": 24.0,
+          "dilate_px": 3,
+          "thresholded_difference_pixels": 2282,
+          "out_of_box_changed_pixels": 10400,
+          "dropped_out_of_box_pixels": 1769,
+          "difference_definition": "max(abs(premultiplied RGB), abs(alpha)); 0..255"
+        }
+      },
+      "mask_area_fraction_per_region": {
+        "staff_head_box": 0.003299713134765625,
+        "pauldron_box": 0.00591278076171875
+      },
+      "union_mask_area_fraction": 0.009212493896484375,
+      "G12": {
+        "id": "g12_base_preservation",
+        "subject": "walk_E_07.png",
+        "passed": null,
+        "value": 1.0,
+        "threshold": 0.99,
+        "op": ">=",
+        "unit": "fraction",
+        "evidence": [],
+        "notes": "{\"base_preserved_fraction\": 1.0, \"changed_inside_fraction\": 0.8153209109730849, \"changed_inside_pixels\": 1969, \"figure_pixels\": 9623, \"mask_area_fraction\": 0.009212493896484375, \"mask_figure_fraction\": 0.12335030655720669, \"mask_figure_pixels\": 1187, \"mask_pixels\": 2415, \"max_mask_figure_fraction\": 0.6, \"min_preserved_fraction\": 0.99, \"outside_mask_byte_identical\": true, \"outside_mask_changed_pixels\": 0, \"outside_mask_pixels\": 259729, \"reason\": null}"
+      },
+      "G12_value": 1.0,
+      "silhouette64_distance": 0.19237749546279492,
+      "outside_regions_drift": 9.004941336672676,
+      "outside_regions_alpha_union_weight": 8633.847058823529,
+      "outside_regions_changed_pixels_composite": 0,
+      "matte": {
+        "method": "green excess matte + inverse straight-alpha compositing + nearest fully-opaque RGB clamp",
+        "removed_background_or_detached_alpha_dust_pixels": 2,
+        "native_input_alpha": false,
+        "alpha_floor": 40,
+        "alpha_floor_removed_pixels": 52267
+      }
+    },
+    {
+      "frame": "walk_E_08.png",
+      "passed": null,
+      "regions": {
+        "staff_head_box": {
+          "mask_pixels": 974,
+          "mask_area_fraction": 0.00371551513671875,
+          "outside_mask_pixels": 261170,
+          "outside_mask_changed_pixels": 0,
+          "outside_mask_byte_identical": true,
+          "base_preserved_fraction": 1.0,
+          "changed_inside_pixels": 703,
+          "changed_inside_fraction": 0.7217659137577002,
+          "figure_pixels": 8714,
+          "mask_figure_pixels": 237,
+          "mask_figure_fraction": 0.027197613036493,
+          "region_box": [
+            262,
+            124,
+            314,
+            176
+          ],
+          "thresh": 24.0,
+          "dilate_px": 3,
+          "thresholded_difference_pixels": 2587,
+          "out_of_box_changed_pixels": 10701,
+          "dropped_out_of_box_pixels": 2153,
+          "difference_definition": "max(abs(premultiplied RGB), abs(alpha)); 0..255"
+        },
+        "pauldron_box": {
+          "mask_pixels": 1552,
+          "mask_area_fraction": 0.00592041015625,
+          "outside_mask_pixels": 260592,
+          "outside_mask_changed_pixels": 0,
+          "outside_mask_byte_identical": true,
+          "base_preserved_fraction": 1.0,
+          "changed_inside_pixels": 1370,
+          "changed_inside_fraction": 0.8827319587628866,
+          "figure_pixels": 8934,
+          "mask_figure_pixels": 997,
+          "mask_figure_fraction": 0.11159614954107902,
+          "region_box": [
+            235,
+            187,
+            278,
+            229
+          ],
+          "thresh": 24.0,
+          "dilate_px": 3,
+          "thresholded_difference_pixels": 2153,
+          "out_of_box_changed_pixels": 9258,
+          "dropped_out_of_box_pixels": 1667,
+          "difference_definition": "max(abs(premultiplied RGB), abs(alpha)); 0..255"
+        }
+      },
+      "mask_area_fraction_per_region": {
+        "staff_head_box": 0.00371551513671875,
+        "pauldron_box": 0.00592041015625
+      },
+      "union_mask_area_fraction": 0.00963592529296875,
+      "G12": {
+        "id": "g12_base_preservation",
+        "subject": "walk_E_08.png",
+        "passed": null,
+        "value": 1.0,
+        "threshold": 0.99,
+        "op": ">=",
+        "unit": "fraction",
+        "evidence": [],
+        "notes": "{\"base_preserved_fraction\": 1.0, \"changed_inside_fraction\": 0.8206650831353919, \"changed_inside_pixels\": 2073, \"figure_pixels\": 8714, \"mask_area_fraction\": 0.00963592529296875, \"mask_figure_fraction\": 0.14161120036722516, \"mask_figure_pixels\": 1234, \"mask_pixels\": 2526, \"max_mask_figure_fraction\": 0.6, \"min_preserved_fraction\": 0.99, \"outside_mask_byte_identical\": true, \"outside_mask_changed_pixels\": 0, \"outside_mask_pixels\": 259618, \"reason\": null}"
+      },
+      "G12_value": 1.0,
+      "silhouette64_distance": 0.17543859649122806,
+      "outside_regions_drift": 9.616683948485628,
+      "outside_regions_alpha_union_weight": 7635.81568627451,
+      "outside_regions_changed_pixels_composite": 0,
+      "matte": {
+        "method": "green excess matte + inverse straight-alpha compositing + nearest fully-opaque RGB clamp",
+        "removed_background_or_detached_alpha_dust_pixels": 0,
+        "native_input_alpha": false,
+        "alpha_floor": 40,
+        "alpha_floor_removed_pixels": 53713
+      }
+    },
+    {
+      "frame": "walk_E_09.png",
+      "passed": null,
+      "regions": {
+        "staff_head_box": {
+          "mask_pixels": 1151,
+          "mask_area_fraction": 0.004390716552734375,
+          "outside_mask_pixels": 260993,
+          "outside_mask_changed_pixels": 0,
+          "outside_mask_byte_identical": true,
+          "base_preserved_fraction": 1.0,
+          "changed_inside_pixels": 898,
+          "changed_inside_fraction": 0.7801911381407471,
+          "figure_pixels": 9278,
+          "mask_figure_pixels": 350,
+          "mask_figure_fraction": 0.03772364733778832,
+          "region_box": [
+            256,
+            127,
+            308,
+            179
+          ],
+          "thresh": 24.0,
+          "dilate_px": 3,
+          "thresholded_difference_pixels": 2864,
+          "out_of_box_changed_pixels": 11133,
+          "dropped_out_of_box_pixels": 2371,
+          "difference_definition": "max(abs(premultiplied RGB), abs(alpha)); 0..255"
+        },
+        "pauldron_box": {
+          "mask_pixels": 1560,
+          "mask_area_fraction": 0.005950927734375,
+          "outside_mask_pixels": 260584,
+          "outside_mask_changed_pixels": 0,
+          "outside_mask_byte_identical": true,
+          "base_preserved_fraction": 1.0,
+          "changed_inside_pixels": 1386,
+          "changed_inside_fraction": 0.8884615384615384,
+          "figure_pixels": 9541,
+          "mask_figure_pixels": 1091,
+          "mask_figure_fraction": 0.11434860077560004,
+          "region_box": [
+            231,
+            187,
+            275,
+            230
+          ],
+          "thresh": 24.0,
+          "dilate_px": 3,
+          "thresholded_difference_pixels": 2371,
+          "out_of_box_changed_pixels": 9711,
+          "dropped_out_of_box_pixels": 1854,
+          "difference_definition": "max(abs(premultiplied RGB), abs(alpha)); 0..255"
+        }
+      },
+      "mask_area_fraction_per_region": {
+        "staff_head_box": 0.004390716552734375,
+        "pauldron_box": 0.005950927734375
+      },
+      "union_mask_area_fraction": 0.010341644287109375,
+      "G12": {
+        "id": "g12_base_preservation",
+        "subject": "walk_E_09.png",
+        "passed": null,
+        "value": 1.0,
+        "threshold": 0.99,
+        "op": ">=",
+        "unit": "fraction",
+        "evidence": [],
+        "notes": "{\"base_preserved_fraction\": 1.0, \"changed_inside_fraction\": 0.8424935448174106, \"changed_inside_pixels\": 2284, \"figure_pixels\": 9278, \"mask_area_fraction\": 0.010341644287109375, \"mask_figure_fraction\": 0.15531364518215132, \"mask_figure_pixels\": 1441, \"mask_pixels\": 2711, \"max_mask_figure_fraction\": 0.6, \"min_preserved_fraction\": 0.99, \"outside_mask_byte_identical\": true, \"outside_mask_changed_pixels\": 0, \"outside_mask_pixels\": 259433, \"reason\": null}"
+      },
+      "G12_value": 1.0,
+      "silhouette64_distance": 0.2569558101472995,
+      "outside_regions_drift": 9.320108756028482,
+      "outside_regions_alpha_union_weight": 7989.580392156862,
+      "outside_regions_changed_pixels_composite": 0,
+      "matte": {
+        "method": "green excess matte + inverse straight-alpha compositing + nearest fully-opaque RGB clamp",
+        "removed_background_or_detached_alpha_dust_pixels": 0,
+        "native_input_alpha": false,
+        "alpha_floor": 40,
+        "alpha_floor_removed_pixels": 53136
+      }
+    },
+    {
+      "frame": "walk_E_10.png",
+      "passed": null,
+      "regions": {
+        "staff_head_box": {
+          "mask_pixels": 1242,
+          "mask_area_fraction": 0.00473785400390625,
+          "outside_mask_pixels": 260902,
+          "outside_mask_changed_pixels": 0,
+          "outside_mask_byte_identical": true,
+          "base_preserved_fraction": 1.0,
+          "changed_inside_pixels": 989,
+          "changed_inside_fraction": 0.7962962962962963,
+          "figure_pixels": 10081,
+          "mask_figure_pixels": 435,
+          "mask_figure_fraction": 0.04315048110306517,
+          "region_box": [
+            251,
+            129,
+            304,
+            182
+          ],
+          "thresh": 24.0,
+          "dilate_px": 3,
+          "thresholded_difference_pixels": 3052,
+          "out_of_box_changed_pixels": 12151,
+          "dropped_out_of_box_pixels": 2531,
+          "difference_definition": "max(abs(premultiplied RGB), abs(alpha)); 0..255"
+        },
+        "pauldron_box": {
+          "mask_pixels": 1645,
+          "mask_area_fraction": 0.006275177001953125,
+          "outside_mask_pixels": 260499,
+          "outside_mask_changed_pixels": 0,
+          "outside_mask_byte_identical": true,
+          "base_preserved_fraction": 1.0,
+          "changed_inside_pixels": 1464,
+          "changed_inside_fraction": 0.8899696048632219,
+          "figure_pixels": 10341,
+          "mask_figure_pixels": 1119,
+          "mask_figure_fraction": 0.10821003771395417,
+          "region_box": [
+            227,
+            187,
+            271,
+            231
+          ],
+          "thresh": 24.0,
+          "dilate_px": 3,
+          "thresholded_difference_pixels": 2531,
+          "out_of_box_changed_pixels": 10660,
+          "dropped_out_of_box_pixels": 1991,
+          "difference_definition": "max(abs(premultiplied RGB), abs(alpha)); 0..255"
+        }
+      },
+      "mask_area_fraction_per_region": {
+        "staff_head_box": 0.00473785400390625,
+        "pauldron_box": 0.006275177001953125
+      },
+      "union_mask_area_fraction": 0.011013031005859375,
+      "G12": {
+        "id": "g12_base_preservation",
+        "subject": "walk_E_10.png",
+        "passed": null,
+        "value": 1.0,
+        "threshold": 0.99,
+        "op": ">=",
+        "unit": "fraction",
+        "evidence": [],
+        "notes": "{\"base_preserved_fraction\": 1.0, \"changed_inside_fraction\": 0.8496709386906823, \"changed_inside_pixels\": 2453, \"figure_pixels\": 10081, \"mask_area_fraction\": 0.011013031005859375, \"mask_figure_fraction\": 0.1541513738716397, \"mask_figure_pixels\": 1554, \"mask_pixels\": 2887, \"max_mask_figure_fraction\": 0.6, \"min_preserved_fraction\": 0.99, \"outside_mask_byte_identical\": true, \"outside_mask_changed_pixels\": 0, \"outside_mask_pixels\": 259257, \"reason\": null}"
+      },
+      "G12_value": 1.0,
+      "silhouette64_distance": 0.1964285714285714,
+      "outside_regions_drift": 9.16988059377435,
+      "outside_regions_alpha_union_weight": 8693.780392156861,
+      "outside_regions_changed_pixels_composite": 0,
+      "matte": {
+        "method": "green excess matte + inverse straight-alpha compositing + nearest fully-opaque RGB clamp",
+        "removed_background_or_detached_alpha_dust_pixels": 4,
+        "native_input_alpha": false,
+        "alpha_floor": 40,
+        "alpha_floor_removed_pixels": 51413
+      }
+    },
+    {
+      "frame": "walk_E_11.png",
+      "passed": null,
+      "regions": {
+        "staff_head_box": {
+          "mask_pixels": 1158,
+          "mask_area_fraction": 0.00441741943359375,
+          "outside_mask_pixels": 260986,
+          "outside_mask_changed_pixels": 0,
+          "outside_mask_byte_identical": true,
+          "base_preserved_fraction": 1.0,
+          "changed_inside_pixels": 887,
+          "changed_inside_fraction": 0.7659758203799655,
+          "figure_pixels": 10671,
+          "mask_figure_pixels": 366,
+          "mask_figure_fraction": 0.03429856620747821,
+          "region_box": [
+            251,
+            130,
+            303,
+            182
+          ],
+          "thresh": 24.0,
+          "dilate_px": 3,
+          "thresholded_difference_pixels": 2907,
+          "out_of_box_changed_pixels": 12977,
+          "dropped_out_of_box_pixels": 2408,
+          "difference_definition": "max(abs(premultiplied RGB), abs(alpha)); 0..255"
+        },
+        "pauldron_box": {
+          "mask_pixels": 1557,
+          "mask_area_fraction": 0.005939483642578125,
+          "outside_mask_pixels": 260587,
+          "outside_mask_changed_pixels": 0,
+          "outside_mask_byte_identical": true,
+          "base_preserved_fraction": 1.0,
+          "changed_inside_pixels": 1387,
+          "changed_inside_fraction": 0.8908156711624919,
+          "figure_pixels": 10922,
+          "mask_figure_pixels": 1115,
+          "mask_figure_fraction": 0.10208752975645487,
+          "region_box": [
+            226,
+            190,
+            270,
+            233
+          ],
+          "thresh": 24.0,
+          "dilate_px": 3,
+          "thresholded_difference_pixels": 2408,
+          "out_of_box_changed_pixels": 11542,
+          "dropped_out_of_box_pixels": 1937,
+          "difference_definition": "max(abs(premultiplied RGB), abs(alpha)); 0..255"
+        }
+      },
+      "mask_area_fraction_per_region": {
+        "staff_head_box": 0.00441741943359375,
+        "pauldron_box": 0.005939483642578125
+      },
+      "union_mask_area_fraction": 0.010356903076171875,
+      "G12": {
+        "id": "g12_base_preservation",
+        "subject": "walk_E_11.png",
+        "passed": null,
+        "value": 1.0,
+        "threshold": 0.99,
+        "op": ">=",
+        "unit": "fraction",
+        "evidence": [],
+        "notes": "{\"base_preserved_fraction\": 1.0, \"changed_inside_fraction\": 0.8375690607734807, \"changed_inside_pixels\": 2274, \"figure_pixels\": 10671, \"mask_area_fraction\": 0.010356903076171875, \"mask_figure_fraction\": 0.13878736763189953, \"mask_figure_pixels\": 1481, \"mask_pixels\": 2715, \"max_mask_figure_fraction\": 0.6, \"min_preserved_fraction\": 0.99, \"outside_mask_byte_identical\": true, \"outside_mask_changed_pixels\": 0, \"outside_mask_pixels\": 259429, \"reason\": null}"
+      },
+      "G12_value": 1.0,
+      "silhouette64_distance": 0.15107913669064743,
+      "outside_regions_drift": 8.875951630375178,
+      "outside_regions_alpha_union_weight": 9344.81568627451,
+      "outside_regions_changed_pixels_composite": 0,
+      "matte": {
+        "method": "green excess matte + inverse straight-alpha compositing + nearest fully-opaque RGB clamp",
+        "removed_background_or_detached_alpha_dust_pixels": 0,
+        "native_input_alpha": false,
+        "alpha_floor": 40,
+        "alpha_floor_removed_pixels": 50406
+      }
+    }
+  ],
+  "means": {
+    "G12_value": 1.0,
+    "silhouette64_distance": 0.19160619495856088,
+    "outside_regions_drift": 8.99274403724913,
+    "union_mask_area_fraction": 0.009950637817382812,
+    "outside_regions_changed_pixels_composite": 0.0,
+    "mask_area_fraction_per_region": {
+      "staff_head_box": 0.0040607452392578125,
+      "pauldron_box": 0.005889892578125
+    }
+  },
+  "maxima": {
+    "G12_value": 1.0,
+    "silhouette64_distance": 0.2569558101472995,
+    "outside_regions_drift": 9.616683948485628,
+    "union_mask_area_fraction": 0.011013031005859375,
+    "outside_regions_changed_pixels_composite": 0,
+    "mask_area_fraction_per_region": {
+      "staff_head_box": 0.00473785400390625,
+      "pauldron_box": 0.006275177001953125
+    }
+  },
+  "concerns": []
+}

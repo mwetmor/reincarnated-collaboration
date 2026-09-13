@@ -1,0 +1,51 @@
+{
+  "task_id": "P4p-E-run",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [],
+  "calls_used": 0,
+  "retries": [],
+  "self_report": {
+    "obeyed_invariants": true,
+    "concerns": [
+      "Input checks flag: bands_measure: gait intent requires 12 frames and 12 candidate phases. The packet contains the supplied 8 frames; the frozen builder ran exactly once."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/packet/review.html",
+      "sha256": "142e06b550c24093a77520f2be30a5fc806a11559fe48930471a8d09691b5161"
+    },
+    {
+      "path": "out/packet/run_E_2x.mp4",
+      "sha256": "7e543a2d6916b958fad05bccfc321e39a90b33330967018661bc9d4acf17fa70"
+    },
+    {
+      "path": "out/packet/run_E_1to1.mp4",
+      "sha256": "b7e3901f108d46ea5486d375b825482535d5959aab47d2cb68f1e04340912b3d"
+    },
+    {
+      "path": "out/packet/numbers.json",
+      "sha256": "1481ecdad13fc64679e12029023c5eeb09f90b9e9ba6077d9633322d86b631dc"
+    },
+    {
+      "path": "out/packet/summary.txt",
+      "sha256": "7c1f8437f891c9929ad9b6764443cd791572c8eda844d4d2d5d9e434bceb21cb"
+    },
+    {
+      "path": "out/packet/img/seam_pairs.png",
+      "sha256": "1ed68411847385f7ca2cb5307b51721eebc534d4b8521e97af7265634c6909d3"
+    },
+    {
+      "path": "out/packet/img/strip.png",
+      "sha256": "28b52ed55ff373cdb1ed7fb741629edd362dcc7041d1e9a839a152b458d91dfb"
+    },
+    {
+      "path": "out/packet/seam_pairs.png",
+      "sha256": "1ed68411847385f7ca2cb5307b51721eebc534d4b8521e97af7265634c6909d3"
+    },
+    {
+      "path": "out/packet/strip.png",
+      "sha256": "28b52ed55ff373cdb1ed7fb741629edd362dcc7041d1e9a839a152b458d91dfb"
+    }
+  ]
+}

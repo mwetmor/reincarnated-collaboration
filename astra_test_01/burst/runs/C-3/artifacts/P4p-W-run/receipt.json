@@ -1,0 +1,51 @@
+{
+  "task_id": "P4p-W-run",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [],
+  "calls_used": 0,
+  "retries": [],
+  "self_report": {
+    "obeyed_invariants": true,
+    "concerns": [
+      "Input checks report: bands_measure: ValueError: gait intent requires 12 frames and 12 candidate phases. Packet contains the supplied eight-frame cycle; this measurement remains null."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/packet/review.html",
+      "sha256": "d9afd6fc247644851c5c9347d005be9476bb6cfa4d75882691e9932be69d1972"
+    },
+    {
+      "path": "out/packet/run_W_2x.mp4",
+      "sha256": "045562f1edef51574187bf28ab2c479908a5cca096e0c4da08df38f1a56eb77b"
+    },
+    {
+      "path": "out/packet/run_W_1to1.mp4",
+      "sha256": "ec287b9bb944ea305844861292dc51cc9ac8487d64f65bfa65c0c0e7c3f2fb8b"
+    },
+    {
+      "path": "out/packet/numbers.json",
+      "sha256": "0b6a0ba469f895cc6eef00dcc0702700dabeef8fe1d59f07770441306c875e2c"
+    },
+    {
+      "path": "out/packet/summary.txt",
+      "sha256": "f41cff43cf95117682328c1d82a2372dab41e7f601b931140063f11c28213178"
+    },
+    {
+      "path": "out/packet/img/seam_pairs.png",
+      "sha256": "ae8ed89fdfde78b67112606e4b0fd441e1ed13f7aa69fbe4c573a98fb3fd1581"
+    },
+    {
+      "path": "out/packet/img/strip.png",
+      "sha256": "5e0917ddc94e4870183a7bb673bd0ec688b66fe862053cbcb7420e3c4b76c770"
+    },
+    {
+      "path": "out/packet/seam_pairs.png",
+      "sha256": "ae8ed89fdfde78b67112606e4b0fd441e1ed13f7aa69fbe4c573a98fb3fd1581"
+    },
+    {
+      "path": "out/packet/strip.png",
+      "sha256": "5e0917ddc94e4870183a7bb673bd0ec688b66fe862053cbcb7420e3c4b76c770"
+    }
+  ]
+}

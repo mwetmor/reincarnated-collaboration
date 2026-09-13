@@ -1,0 +1,75 @@
+{
+  "task_id": "P4c-NW-run",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [],
+  "calls_used": 0,
+  "retries": [],
+  "self_report": {
+    "obeyed_invariants": true,
+    "concerns": [
+      "bands_from_exemplar.measure could not compute: gait intent requires 12 frames and 12 candidate phases; the prescribed cut contains 8 frames. Exception recorded; no retry or scoring. All other requested measurements and sheets completed."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/checks.json",
+      "sha256": "8163fcd0936f29f8089563dd01f495476380d16fe16ea4741fc03826615d29a4"
+    },
+    {
+      "path": "out/grid.png",
+      "sha256": "29dc4eb05a4696e7fdf048430c4ceb61386b38677530f4c553a0e9ad25091790"
+    },
+    {
+      "path": "out/first_second.png",
+      "sha256": "a7ccdf98196cac849656eaa61230e507c9bb3b2175326677282a5df6de9da2a0"
+    },
+    {
+      "path": "out/cut/registration.json",
+      "sha256": "916a83573b101b658482ab1a39267f572f620f7dbe98cf0b691c2423bc4a2225"
+    },
+    {
+      "path": "out/cut/series.json",
+      "sha256": "9f10dbb9b6b78d9a6d7e9f3e8f46131bf4bf2c3f431337ba3737b3a9e5189515"
+    },
+    {
+      "path": "out/cut/frames/rest/NW/rest_NW.png",
+      "sha256": "1da402e6a4135faad95cd545ea01093e8abc9b65c13e6f562cdb2fbee2a1a90c"
+    },
+    {
+      "path": "out/cut/frames/run/NW/run_NW_00.png",
+      "sha256": "1d855e3eba90680b132e1aa433fa42277f82c26956615cf659ab1d2714370aa1"
+    },
+    {
+      "path": "out/cut/frames/run/NW/run_NW_01.png",
+      "sha256": "280d5a5606d7f74060466e0aadc102f8ce4ff50461fa4cf19545ca4c0cc7081b"
+    },
+    {
+      "path": "out/cut/frames/run/NW/run_NW_02.png",
+      "sha256": "0c9d9dbe819e427e43667e1ca48dca771a353d1f4ad6f4f850541341ad1530f9"
+    },
+    {
+      "path": "out/cut/frames/run/NW/run_NW_03.png",
+      "sha256": "32adcaab2080561507f835c0488941b8e9b99d1dfdf4ab0f503575422b6c05b0"
+    },
+    {
+      "path": "out/cut/frames/run/NW/run_NW_04.png",
+      "sha256": "6fedef4a165baae9b3e32f3d9a2602ed5467e3c7c55629009f229d702978c06b"
+    },
+    {
+      "path": "out/cut/frames/run/NW/run_NW_05.png",
+      "sha256": "566620d58d4ef79eb67910498fa86d8ddb4b7da926553694e798cef1b886410f"
+    },
+    {
+      "path": "out/cut/frames/run/NW/run_NW_06.png",
+      "sha256": "dffb2f1c3e64b3e03b8cdc3741827945c08f14ee57881c53b0d5b5c23907dd20"
+    },
+    {
+      "path": "out/cut/frames/run/NW/run_NW_07.png",
+      "sha256": "f16e4f8b130048d38e9cab6a1caad9a3eca4ec65c979ae053e2d9d0e03653dc0"
+    },
+    {
+      "path": "out/cut/sheets/run_NW_strip.png",
+      "sha256": "f977415beb872d3a5426b815cce1435647654096a1ec05d35a0ef9052ff312c6"
+    }
+  ]
+}

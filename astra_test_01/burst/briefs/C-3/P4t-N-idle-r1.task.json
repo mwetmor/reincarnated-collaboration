@@ -1,0 +1,102 @@
+{
+ "text": "TRANSCRIBE BURST P4t-N-idle-r1 — answer closed YES/NO questions about ONE animation of a painted 2D character (a young woman with a staff), by looking. task_id \"P4t-N-idle-r1\". You are a separate instance: you have not seen any prompt, receipt, measurement or prior answer and must not look for one. The character should face directly away from the camera and perform: idle.\nAnswer every question with exactly one of: \"yes\", \"no\", \"cannot tell\" — presence/absence only, never coordinates, never free vocabulary — plus one short line of visible evidence (name frame numbers).\n1. [same_facing] Does the figure face the same direction in every frame (no turning toward or away from the camera)?\n2. [staff_same_hand] Is the staff held by the same hand in every frame?\n3. [identity_stable] Are the face (where visible), hair, costume and colours the same in every frame (no redrawn features, no changing items)?\n4. [head_down_frame0] In frame 0, is the head tilted down so the gaze points at the ground?\n5. [plate_clean] Is every frame free of scenery, floor shadow, particles or glow outside the figure?\n6. [size_stable] Is the figure the same size in every frame?\n7. [feet_move] Do either of the feet change position between any two frames?\n8. [breath_visible] Do the shoulders/torso visibly rise and settle across the frames?\n9. [head_turns] Does the head turn to face a different direction in any frame?\n10. [loop_continuous] Does the last frame lead naturally back into frame 0 (no jump in pose)?\n11. [shield_present] Does the figure carry a shield in any frame?\n12. [helmet_present] Does the figure wear a helmet in any frame?\n13. [first_second_head_down] In the t=0.0, t=0.5 and t=1.0 panels of the second image, is the head tilted DOWN so her gaze points at the ground or her feet in ANY of the three panels?\n\nWrite out/answers.json: {\"task_id\":\"P4t-N-idle-r1\",\"answers\":[{\"id\":\"…\",\"answer\":\"yes|no|cannot tell\",\"evidence\":\"…\"}, …]} with one entry per question in order. No image_gen. No code. No web. No files outside out/. calls_used must be 0.\nRETURN: receipt task_id \"P4t-N-idle-r1\"; images []; files [out/answers.json + sha256]; status DELIVERED / DELIVERED_WITH_CONCERNS; concerns for anything you could not assess. Never PASS/FAIL.",
+ "references": [
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/P4c-N-idle-r1/grid.png",
+   "role": "the 16 registered animation frames of ONE idle cycle/one-shot, numbered 0…15, read left-to-right, top-to-bottom"
+  },
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/P4c-N-idle-r1/first_second.png",
+   "role": "the first second of the source clip: three panels t=0.0, t=0.5, t=1.0"
+  }
+ ],
+ "image_cap": 0,
+ "minutes_cap": 15,
+ "tool_call_cap": 20,
+ "outputs": [
+  "out/answers.json"
+ ],
+ "effort": "high",
+ "add_dirs": [],
+ "experiment": "C3-P4",
+ "questions": [
+  {
+   "id": "same_facing",
+   "question": "Does the figure face the same direction in every frame (no turning toward or away from the camera)?",
+   "expected": "yes",
+   "class": "motion"
+  },
+  {
+   "id": "staff_same_hand",
+   "question": "Is the staff held by the same hand in every frame?",
+   "expected": "yes",
+   "class": "motion"
+  },
+  {
+   "id": "identity_stable",
+   "question": "Are the face (where visible), hair, costume and colours the same in every frame (no redrawn features, no changing items)?",
+   "expected": "yes",
+   "class": "motion"
+  },
+  {
+   "id": "head_down_frame0",
+   "question": "In frame 0, is the head tilted down so the gaze points at the ground?",
+   "expected": "no",
+   "class": "motion"
+  },
+  {
+   "id": "plate_clean",
+   "question": "Is every frame free of scenery, floor shadow, particles or glow outside the figure?",
+   "expected": "yes",
+   "class": "motion"
+  },
+  {
+   "id": "size_stable",
+   "question": "Is the figure the same size in every frame?",
+   "expected": "yes",
+   "class": "motion"
+  },
+  {
+   "id": "feet_move",
+   "question": "Do either of the feet change position between any two frames?",
+   "expected": "no",
+   "class": "motion"
+  },
+  {
+   "id": "breath_visible",
+   "question": "Do the shoulders/torso visibly rise and settle across the frames?",
+   "expected": "yes",
+   "class": "motion"
+  },
+  {
+   "id": "head_turns",
+   "question": "Does the head turn to face a different direction in any frame?",
+   "expected": "no",
+   "class": "motion"
+  },
+  {
+   "id": "loop_continuous",
+   "question": "Does the last frame lead naturally back into frame 0 (no jump in pose)?",
+   "expected": "yes",
+   "class": "motion"
+  },
+  {
+   "id": "shield_present",
+   "question": "Does the figure carry a shield in any frame?",
+   "expected": "no",
+   "class": "declared_absent_control"
+  },
+  {
+   "id": "helmet_present",
+   "question": "Does the figure wear a helmet in any frame?",
+   "expected": "no",
+   "class": "declared_absent_control"
+  },
+  {
+   "id": "first_second_head_down",
+   "question": "In the t=0.0, t=0.5 and t=1.0 panels of the second image, is the head tilted DOWN so her gaze points at the ground or her feet in ANY of the three panels?",
+   "expected": "no",
+   "class": "motion"
+  }
+ ]
+}

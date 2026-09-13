@@ -1,0 +1,52 @@
+{
+  "task_id": "P4p-SE-walk",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [],
+  "calls_used": 0,
+  "retries": [],
+  "self_report": {
+    "obeyed_invariants": true,
+    "concerns": [
+      "Input checks report unresolved W6 and planted_sole_slip_L estimators, and an absent second maximum.",
+      "No oracle supplied. All packet files were generated; the frozen builder ran exactly once."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/packet/review.html",
+      "sha256": "33a3e003efc08d4613a1b20c6e7d03235fabb7c76905c9a2a351344a21f30514"
+    },
+    {
+      "path": "out/packet/numbers.json",
+      "sha256": "5cb7aa615c88f34d925cec023e5bcf83626cac4e8d2a2dec03400e335ad82f71"
+    },
+    {
+      "path": "out/packet/summary.txt",
+      "sha256": "0ce177569b4b93b43fe104475a5dcec89fdc3d3bc20dd56d02b47b9bc0ee1029"
+    },
+    {
+      "path": "out/packet/walk_SE_1to1.mp4",
+      "sha256": "363e522636eaeda247a840bdd4df16fa196404e66127eefd58cc64cc96c362d0"
+    },
+    {
+      "path": "out/packet/walk_SE_2x.mp4",
+      "sha256": "0b6220d551b11128b87b36c15a6c1f8249f74ed54550eb29750ed960744be610"
+    },
+    {
+      "path": "out/packet/img/seam_pairs.png",
+      "sha256": "b85accb9ffa8319dc58fef4e320086386ae730e3944593bdb846d9626cf095b7"
+    },
+    {
+      "path": "out/packet/img/strip.png",
+      "sha256": "2f48c2fecdf3a01c6843d7cf86eb9b8a8e13bc93f393100e8924fe68caf4b000"
+    },
+    {
+      "path": "out/packet/seam_pairs.png",
+      "sha256": "b85accb9ffa8319dc58fef4e320086386ae730e3944593bdb846d9626cf095b7"
+    },
+    {
+      "path": "out/packet/strip.png",
+      "sha256": "2f48c2fecdf3a01c6843d7cf86eb9b8a8e13bc93f393100e8924fe68caf4b000"
+    }
+  ]
+}

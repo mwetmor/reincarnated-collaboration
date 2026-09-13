@@ -1,0 +1,422 @@
+{
+  "cell": "SE_jump",
+  "clip": "SE_jump_v2.mp4",
+  "clip_version": "v2",
+  "flags": [
+    "No complete one-shot detection: no six-sample settle after landing crouch; confidence 0.2.",
+    "No registered jump frames; STEP 2 measurements not computed.",
+    "grid.png omitted under the no-detection branch.",
+    "bands_from_exemplar.measure/score skipped as instructed: no one-shot kind.",
+    "suspect_inside_selected is null because there is no selected interval.",
+    "Frozen strip is diagnostic only; it is not a registered one-shot."
+  ],
+  "cut": {
+    "period": null,
+    "selection": {
+      "start": null,
+      "end_exclusive": null,
+      "indices_native": [],
+      "candidates": [
+        {
+          "kind": "jump",
+          "onset": 13,
+          "key": [
+            {
+              "name": "onset",
+              "index": 13
+            },
+            {
+              "name": "crouch",
+              "index": 37
+            },
+            {
+              "name": "take_off",
+              "index": 52
+            },
+            {
+              "name": "apex",
+              "index": 67
+            },
+            {
+              "name": "touchdown",
+              "index": 88
+            },
+            {
+              "name": "landing_crouch",
+              "index": 92
+            }
+          ],
+          "key_poses": {
+            "onset": 13,
+            "crouch": 37,
+            "take_off": 52,
+            "apex": 67,
+            "touchdown": 88,
+            "landing_crouch": 92
+          },
+          "settle": null,
+          "confidence": 0.2,
+          "detection": null,
+          "baseline": {
+            "samples": 12,
+            "head_top_y": 268.0,
+            "sole_y": 1089.0,
+            "head_noise": 1.9075871903765995,
+            "sole_noise": 0.0,
+            "duration_s": 0.5
+          },
+          "notes": "no six-sample settle after landing crouch",
+          "index_units": "native_frames"
+        }
+      ],
+      "reason": "no six-sample settle after landing crouch",
+      "requested_indices_native": [],
+      "output_indices_native": []
+    },
+    "detection": {
+      "kind": "jump",
+      "onset": 13,
+      "key": [
+        {
+          "name": "onset",
+          "index": 13
+        },
+        {
+          "name": "crouch",
+          "index": 37
+        },
+        {
+          "name": "take_off",
+          "index": 52
+        },
+        {
+          "name": "apex",
+          "index": 67
+        },
+        {
+          "name": "touchdown",
+          "index": 88
+        },
+        {
+          "name": "landing_crouch",
+          "index": 92
+        }
+      ],
+      "key_poses": {
+        "onset": 13,
+        "crouch": 37,
+        "take_off": 52,
+        "apex": 67,
+        "touchdown": 88,
+        "landing_crouch": 92
+      },
+      "settle": null,
+      "confidence": 0.2,
+      "detection": null,
+      "baseline": {
+        "samples": 12,
+        "head_top_y": 268.0,
+        "sole_y": 1089.0,
+        "head_noise": 1.9075871903765995,
+        "sole_noise": 0.0,
+        "duration_s": 0.5
+      },
+      "notes": "no six-sample settle after landing crouch",
+      "index_units": "native_frames"
+    },
+    "splice": {
+      "per_pair_mad": [
+        0.37618637122267107,
+        0.40432361235456804,
+        0.5469819025840515,
+        0.6561609623277147,
+        0.8836159766757397,
+        1.0937026166479529,
+        1.2631679229050907,
+        1.4516021399054362,
+        1.6081120757145173,
+        1.830889663770479,
+        1.9935392834876975,
+        2.1339006062399055,
+        2.323843278319205,
+        2.560935441294567,
+        2.7274917965260768,
+        2.8387804529718133,
+        3.016148082003094,
+        3.145554051476327,
+        3.2602795089538685,
+        3.3387198522978494,
+        3.43888817856049,
+        3.5109161730617315,
+        3.538339472925649,
+        3.521631520604987,
+        3.457952836771927,
+        3.481699679229892,
+        3.365170875729571,
+        3.25746011597125,
+        3.0169773658349954,
+        2.783971334017203,
+        2.5003774691589737,
+        2.1795900935591526,
+        1.8479897589544472,
+        1.598324907506689,
+        1.2304041133544517,
+        0.7988236137774051,
+        0.4411878282665646,
+        0.6556581518468346,
+        1.3038888308474879,
+        1.8515483947474538,
+        2.3592422770633257,
+        2.835952360610322,
+        3.3818835496590474,
+        4.116552162705695,
+        4.574642327163889,
+        4.971117522968486,
+        5.364178019664565,
+        6.13058752905047,
+        6.928125259010089,
+        7.308707102744154,
+        7.58462414656959,
+        7.694828564305485,
+        7.300354230974745,
+        7.087495278004435,
+        6.484971964902548,
+        5.7730504281342245,
+        5.022509455255736,
+        4.397621145177005,
+        3.6645244795542804,
+        3.125854364960465,
+        2.7396577828151787,
+        2.321803027595176,
+        1.9765570244238269,
+        1.6917002168044153,
+        1.4583840906564642,
+        1.2149452400994898,
+        0.8201687881088465,
+        0.6220808280524421,
+        0.5499357471302991,
+        0.4394415471137028,
+        0.4437855877074972,
+        0.8029045317630729,
+        0.9970032423077725,
+        1.3244173067035248,
+        1.6555717632738263,
+        2.0034030345404377,
+        2.354194276144027,
+        2.7470939005193786,
+        3.163426311749383,
+        3.5698621781906406,
+        4.117445594400796,
+        4.757857367435631,
+        5.474060985364011,
+        6.177314995443178,
+        7.17693299846408,
+        8.134134842538675,
+        8.90598614536554,
+        9.021789762137049,
+        8.919842062961878,
+        7.594308682488052,
+        5.757128379663938,
+        4.730747979981212,
+        4.628899768884369,
+        4.176832703718655,
+        3.9813159162811345,
+        3.468832304142079,
+        3.0505971316850977,
+        2.421538809188846,
+        1.95636531294956,
+        1.6081408076440022,
+        1.173033342938915,
+        0.8463367053665444,
+        1.0086071464722028,
+        1.1511017799860424,
+        1.331213267180243,
+        1.5157015002429972,
+        1.6653156583300686,
+        1.9120757367073624,
+        2.1103432599948744,
+        2.289326194378209,
+        2.40278602825273,
+        2.5467417151565237,
+        2.641279196578501,
+        2.7142075983139553,
+        2.8862560534164374,
+        3.0104227306149354,
+        3.049584934139972,
+        3.0939903765889536,
+        3.1270033091897975,
+        3.038808267713115,
+        2.9645404320447124,
+        2.914778364626,
+        2.7591625550758265,
+        2.6132141959617274,
+        2.513120053682906,
+        2.3386519761963975,
+        2.178199563596847,
+        2.003860165906501,
+        1.858440247891971,
+        1.762286607458377,
+        1.5915225503363293,
+        1.504397177792326,
+        1.3559895774202035,
+        1.3066380444056747,
+        1.1864255480338812,
+        1.1420416244254075,
+        1.0032830226191436,
+        0.9655504963755356,
+        0.8162977247151976,
+        0.7676998252347591,
+        0.5816950709627464,
+        0.5499107347057962,
+        0.4073833350499194,
+        0.3965896756581586
+      ],
+      "suspect_pairs": [],
+      "median_pair_mad": 2.46095813917391,
+      "multiplier": 4.0,
+      "notes": "RGB composited on black; no loop seam; pairs index supplied frames",
+      "suspect_inside_selected": null,
+      "suspect_inside_selected_notes": "Unevaluable: no selected one-shot interval."
+    },
+    "transform": {
+      "scale": 0.29144417475728157,
+      "nominal_scale": 0.2912621359223301,
+      "translation_xy": [
+        144,
+        82
+      ],
+      "scaled_size": [
+        223,
+        340
+      ],
+      "source_sampling_box_xyxy": [
+        0.0,
+        0.0,
+        765.1551113887153,
+        1166.6042057047678
+      ],
+      "source_size": [
+        768,
+        1168
+      ],
+      "anchor_index": 0,
+      "anchor_native_bbox": [
+        218,
+        266,
+        550,
+        1090
+      ],
+      "canvas": [
+        512,
+        512
+      ],
+      "anchor_bbox": [
+        208,
+        160,
+        305,
+        400
+      ],
+      "anchor_H": 240,
+      "anchor_sole_row": 399,
+      "anchor_cx": 256.0,
+      "target_h": 240,
+      "sole_row": 399,
+      "cx": 255.5,
+      "one_transform_for_every_frame": true,
+      "upscaling": false,
+      "resampling": "PIL Lanczos; exact isotropic sampling box; integer unmasked paste",
+      "calibration": "closest nominal scale attaining raster height/centre, search +/-1 output px in .025 px steps"
+    },
+    "wall_seconds": 29.87967095800559
+  },
+  "results": [
+    {
+      "id": "g6_seam",
+      "subject": "SE_jump",
+      "value": null,
+      "passed": null,
+      "threshold": null,
+      "op": "report",
+      "unit": "rgb_mad",
+      "evidence": [],
+      "notes": "Not computed: frozen cut returned no complete one-shot detection and no registered jump frames; no six-sample settle after landing crouch. STEP 2 skipped as instructed."
+    },
+    {
+      "id": "g6b",
+      "subject": "SE_jump",
+      "value": null,
+      "passed": null,
+      "threshold": null,
+      "op": "report",
+      "unit": "rgb_mad",
+      "evidence": [],
+      "notes": "Not computed: frozen cut returned no complete one-shot detection and no registered jump frames; no six-sample settle after landing crouch. STEP 2 skipped as instructed."
+    },
+    {
+      "id": "g1_height_max",
+      "subject": "SE_jump",
+      "value": null,
+      "passed": null,
+      "threshold": null,
+      "op": "report",
+      "unit": "fraction",
+      "evidence": [],
+      "notes": "Not computed: frozen cut returned no complete one-shot detection and no registered jump frames; no six-sample settle after landing crouch. STEP 2 skipped as instructed."
+    },
+    {
+      "id": "head_pitch",
+      "subject": "SE_jump",
+      "value": null,
+      "passed": null,
+      "threshold": null,
+      "op": "report",
+      "unit": "fraction_head_h",
+      "evidence": [],
+      "notes": "Not computed: frozen cut returned no complete one-shot detection and no registered jump frames; no six-sample settle after landing crouch. STEP 2 skipped as instructed."
+    },
+    {
+      "id": "coherence",
+      "subject": "SE_jump",
+      "value": null,
+      "passed": null,
+      "threshold": null,
+      "op": "report",
+      "unit": "rgb_mad",
+      "evidence": [],
+      "notes": "Not computed: frozen cut returned no complete one-shot detection and no registered jump frames; no six-sample settle after landing crouch. STEP 2 skipped as instructed."
+    },
+    {
+      "id": "matte_quality.rim_luma_excess_mean",
+      "subject": "SE_jump",
+      "value": null,
+      "passed": null,
+      "threshold": null,
+      "op": "report",
+      "unit": "luma_0_255",
+      "evidence": [],
+      "notes": "Not computed: frozen cut returned no complete one-shot detection and no registered jump frames; no six-sample settle after landing crouch. STEP 2 skipped as instructed."
+    },
+    {
+      "id": "closure_0_7",
+      "subject": "SE_jump",
+      "value": null,
+      "passed": null,
+      "threshold": null,
+      "op": "report",
+      "unit": "rgb_mad",
+      "evidence": [],
+      "notes": "Not computed: frozen cut returned no complete one-shot detection and no registered jump frames; no six-sample settle after landing crouch. STEP 2 skipped as instructed."
+    },
+    {
+      "id": "closure_7_rest",
+      "subject": "SE_jump",
+      "value": null,
+      "passed": null,
+      "threshold": null,
+      "op": "report",
+      "unit": "rgb_mad",
+      "evidence": [],
+      "notes": "Not computed: frozen cut returned no complete one-shot detection and no registered jump frames; no six-sample settle after landing crouch. STEP 2 skipped as instructed."
+    }
+  ]
+}

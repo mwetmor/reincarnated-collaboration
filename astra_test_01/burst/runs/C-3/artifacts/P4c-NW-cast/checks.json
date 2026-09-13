@@ -1,0 +1,144 @@
+{
+  "cell": "NW_cast",
+  "clip": "NW_cast.mp4",
+  "clip_version": "v1",
+  "flags": [
+    "v2 not generated (H-C3-1 Grok balance) \u2014 cut from the full-height v1 clip (R-C3-9)"
+  ],
+  "cut": {
+    "period": null,
+    "selection": null,
+    "detection": null,
+    "splice": null,
+    "transform": null,
+    "wall_seconds": null,
+    "exit_code": 1,
+    "error": "ValueError: setting an array element with a sequence. The requested array has an inhomogeneous shape after 1 dimensions. The detected shape was (144,) + inhomogeneous part.",
+    "error_location": "oracle/video_cut.py:473 detect_oneshot; called from main line 719",
+    "registration_written": false,
+    "series_written": false,
+    "registered_frame_count": 0,
+    "attempts": 1
+  },
+  "results": [
+    {
+      "id": "g6_seam",
+      "subject": "NW_cast",
+      "value": null,
+      "passed": null,
+      "threshold": null,
+      "op": "report",
+      "unit": "rgb_mad",
+      "evidence": [],
+      "notes": "Not computed: frozen cut exited 1 in oracle/video_cut.py:473, detect_oneshot, converting series[tip_xy] to a float NumPy array; no registered frames or rest frame were written. ValueError: setting an array element with a sequence. The requested array has an inhomogeneous shape after 1 dimensions. The detected shape was (144,) + inhomogeneous part."
+    },
+    {
+      "id": "g6b",
+      "subject": "NW_cast",
+      "value": null,
+      "passed": null,
+      "threshold": null,
+      "op": "report",
+      "unit": "rgb_mad",
+      "evidence": [],
+      "notes": "Not computed: frozen cut exited 1 in oracle/video_cut.py:473, detect_oneshot, converting series[tip_xy] to a float NumPy array; no registered frames or rest frame were written. ValueError: setting an array element with a sequence. The requested array has an inhomogeneous shape after 1 dimensions. The detected shape was (144,) + inhomogeneous part."
+    },
+    {
+      "id": "g1_height_max",
+      "subject": "NW_cast",
+      "value": null,
+      "passed": null,
+      "threshold": null,
+      "op": "report",
+      "unit": "fraction",
+      "evidence": [],
+      "notes": "Not computed: frozen cut exited 1 in oracle/video_cut.py:473, detect_oneshot, converting series[tip_xy] to a float NumPy array; no registered frames or rest frame were written. ValueError: setting an array element with a sequence. The requested array has an inhomogeneous shape after 1 dimensions. The detected shape was (144,) + inhomogeneous part."
+    },
+    {
+      "id": "head_pitch",
+      "subject": "NW_cast",
+      "value": null,
+      "passed": null,
+      "threshold": null,
+      "op": "report",
+      "unit": "fraction_head_h",
+      "evidence": [],
+      "notes": "Not computed: frozen cut exited 1 in oracle/video_cut.py:473, detect_oneshot, converting series[tip_xy] to a float NumPy array; no registered frames or rest frame were written. ValueError: setting an array element with a sequence. The requested array has an inhomogeneous shape after 1 dimensions. The detected shape was (144,) + inhomogeneous part."
+    },
+    {
+      "id": "coherence",
+      "subject": "NW_cast",
+      "value": null,
+      "passed": null,
+      "threshold": null,
+      "op": "report",
+      "unit": "rgb_mad",
+      "evidence": [],
+      "notes": "Not computed: frozen cut exited 1 in oracle/video_cut.py:473, detect_oneshot, converting series[tip_xy] to a float NumPy array; no registered frames or rest frame were written. ValueError: setting an array element with a sequence. The requested array has an inhomogeneous shape after 1 dimensions. The detected shape was (144,) + inhomogeneous part."
+    },
+    {
+      "id": "matte_quality.rim_luma_excess_mean",
+      "subject": "NW_cast",
+      "value": null,
+      "passed": null,
+      "threshold": null,
+      "op": "report",
+      "unit": "luma_0_255",
+      "evidence": [],
+      "notes": "Not computed: frozen cut exited 1 in oracle/video_cut.py:473, detect_oneshot, converting series[tip_xy] to a float NumPy array; no registered frames or rest frame were written. ValueError: setting an array element with a sequence. The requested array has an inhomogeneous shape after 1 dimensions. The detected shape was (144,) + inhomogeneous part."
+    },
+    {
+      "id": "closure_0_7",
+      "subject": "NW_cast",
+      "value": null,
+      "passed": null,
+      "threshold": null,
+      "op": "report",
+      "unit": "rgb_mad",
+      "evidence": [],
+      "notes": "Not computed: frozen cut exited 1 in oracle/video_cut.py:473, detect_oneshot, converting series[tip_xy] to a float NumPy array; no registered frames or rest frame were written. ValueError: setting an array element with a sequence. The requested array has an inhomogeneous shape after 1 dimensions. The detected shape was (144,) + inhomogeneous part."
+    },
+    {
+      "id": "closure_7_rest",
+      "subject": "NW_cast",
+      "value": null,
+      "passed": null,
+      "threshold": null,
+      "op": "report",
+      "unit": "rgb_mad",
+      "evidence": [],
+      "notes": "Not computed: frozen cut exited 1 in oracle/video_cut.py:473, detect_oneshot, converting series[tip_xy] to a float NumPy array; no registered frames or rest frame were written. ValueError: setting an array element with a sequence. The requested array has an inhomogeneous shape after 1 dimensions. The detected shape was (144,) + inhomogeneous part."
+    }
+  ],
+  "notes": [
+    "bands_from_exemplar.measure and score skipped as instructed: no one-shot measure kind exists.",
+    "G6c not requested for this one-shot; frozen instrument applies to walk or idle only.",
+    "No cut retry, manual frame selection, or replacement registration performed.",
+    "grid.png unavailable: no registered frames.",
+    "registration.json, series.json, registered PNGs, rest PNG and strip unavailable: cut terminated before output writes.",
+    "wall_seconds unavailable: frozen registration report was not written."
+  ],
+  "first_second": {
+    "native_frame_indices": [
+      0,
+      12,
+      24
+    ],
+    "native_times_s": [
+      0.0,
+      0.5,
+      1.0
+    ],
+    "native_size": [
+      768,
+      1168
+    ],
+    "panel_size": [
+      252,
+      384
+    ],
+    "matte": false,
+    "selection": "ffmpeg select eq(n,0)+eq(n,12)+eq(n,24)",
+    "path": "out/first_second.png"
+  }
+}

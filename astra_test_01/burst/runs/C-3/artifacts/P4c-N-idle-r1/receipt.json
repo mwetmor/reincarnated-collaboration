@@ -1,0 +1,114 @@
+{
+  "task_id": "P4c-N-idle-r1",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [],
+  "calls_used": 0,
+  "retries": [
+    {
+      "reason": "Prior attempt exited 3: Selected model is at capacity.",
+      "change": "Re-ran with unchanged cut parameters."
+    }
+  ],
+  "self_report": {
+    "obeyed_invariants": true,
+    "concerns": [
+      "Period used the prompted 2.0 s fallback; observed autocorrelation confidence was 0.0.",
+      "Frozen splice instrument reports suspect pairs inside the selected cycle.",
+      "All requested measurements and sheets were computed; no verdicts issued."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/checks.json",
+      "sha256": "dabb61e5f561b2fda5f579c2110a3bcbc0893206169d49ea9909c9064b850790"
+    },
+    {
+      "path": "out/grid.png",
+      "sha256": "d487fc41679981757cdd0c4d0bc5e4f265f6178d34285b7efc4921ab8ec5fcf0"
+    },
+    {
+      "path": "out/first_second.png",
+      "sha256": "2cf1e21c4da4f00cb4939c3ed57d2e066af0fd57e4bb02cccb4b620b053c802b"
+    },
+    {
+      "path": "out/cut/registration.json",
+      "sha256": "52e0f6ad7f41204d949797be513385ac6d240dbab6bf0d69ebfb1adbc04f032f"
+    },
+    {
+      "path": "out/cut/series.json",
+      "sha256": "564e67fa83c5f32b2de4f7400b9252ad8e9c722ba5bfa8922c1d94e6b94ed52f"
+    },
+    {
+      "path": "out/cut/frames/idle/N/idle_N_00.png",
+      "sha256": "98e5eddf81e453bbe60d26023a1903726a90718ff88cfc0f9fe8397434103f9e"
+    },
+    {
+      "path": "out/cut/frames/idle/N/idle_N_01.png",
+      "sha256": "8b3a64fdc9e90df10d09cd1f244abb1fa18d270dfd2d3873a11f7a0aa80a0cc8"
+    },
+    {
+      "path": "out/cut/frames/idle/N/idle_N_02.png",
+      "sha256": "63e63141a4b0633b553e8c3d11b5bf44e77a8207355aa8c3053388ff905d6fc1"
+    },
+    {
+      "path": "out/cut/frames/idle/N/idle_N_03.png",
+      "sha256": "a475c3bee601ae6b2f9d27b85d8f0dec6d5e9570becf144fe7350cef25edaffd"
+    },
+    {
+      "path": "out/cut/frames/idle/N/idle_N_04.png",
+      "sha256": "a8253c915ab99c98c6bf6cce17e4fda01584bf070edd0361862a5ae2ecfaf922"
+    },
+    {
+      "path": "out/cut/frames/idle/N/idle_N_05.png",
+      "sha256": "5e00937845a6cefc8920a9f0c303236eab271b4fdb1b03c26964c62af5d19af9"
+    },
+    {
+      "path": "out/cut/frames/idle/N/idle_N_06.png",
+      "sha256": "e3523ebff78e64f8ffd7a3ee2f154b9c35942eb1f317b1cbc2f68b473267186f"
+    },
+    {
+      "path": "out/cut/frames/idle/N/idle_N_07.png",
+      "sha256": "1a5924d8d6f0728590bbca5ef7ed6935459ab3b9d090caa4ff1934583231c713"
+    },
+    {
+      "path": "out/cut/frames/idle/N/idle_N_08.png",
+      "sha256": "8c4be648055c5254c7f696ccc8c0d07e1f0b29baa788c5d243da461327a5df7d"
+    },
+    {
+      "path": "out/cut/frames/idle/N/idle_N_09.png",
+      "sha256": "7810c1108c6f3de83a2476ace1822113727ee6ebdc95368c1b909fc55c80e938"
+    },
+    {
+      "path": "out/cut/frames/idle/N/idle_N_10.png",
+      "sha256": "efa0f783c5671b53e77c154c97cf4ee8286656d25433ebf449d931fcc2e3ac97"
+    },
+    {
+      "path": "out/cut/frames/idle/N/idle_N_11.png",
+      "sha256": "70008b797e6076726f772c57a42f76229bab2a2e8d70ca9e85fafe8ddd85804b"
+    },
+    {
+      "path": "out/cut/frames/idle/N/idle_N_12.png",
+      "sha256": "779d85ba1d82b755ad76cbcb3aea1919b99ab645249863eef98e75cfa5f54a71"
+    },
+    {
+      "path": "out/cut/frames/idle/N/idle_N_13.png",
+      "sha256": "79e684e95c406f2b36e789d438480d2bcf9dabfbd518220199337c6e674dd53e"
+    },
+    {
+      "path": "out/cut/frames/idle/N/idle_N_14.png",
+      "sha256": "2e8eb6ad92d3c5fa5dcad81308aee441fe692a35f71bb81806a35485d8123567"
+    },
+    {
+      "path": "out/cut/frames/idle/N/idle_N_15.png",
+      "sha256": "6ae467dbd9dc179293b7bb5ab4e665f7dca7d719df15c73d4390ea3b3e842669"
+    },
+    {
+      "path": "out/cut/frames/rest/N/rest_N.png",
+      "sha256": "b2c224d67ac2be12937ab16deba831568e00c39203eab0139c0ccdf8896e457d"
+    },
+    {
+      "path": "out/cut/sheets/idle_N_strip.png",
+      "sha256": "34b53af2f99154aafd255708a663ddf93777a9bc4218065848aa0ddc6efb6f5b"
+    }
+  ]
+}

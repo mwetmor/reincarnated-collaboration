@@ -1,0 +1,30 @@
+{
+  "task_id": "P4c-S-run",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [],
+  "calls_used": 0,
+  "retries": [],
+  "self_report": {
+    "obeyed_invariants": true,
+    "concerns": [
+      "bands_from_exemplar.measure not computed: ValueError: gait intent requires 12 frames and 12 candidate phases. Exception recorded; requested eight-frame cut retained."
+    ]
+  },
+  "files": [
+    {"path":"out/checks.json","sha256":"87e6e25b937635b4979c2a986421ade8820091c00c1111cf5f252031f60fe980"},
+    {"path":"out/grid.png","sha256":"1b2b912bc5b19a8662ca17f696a0936c8b9972bd20bd3f80effd97daf3e2bb72"},
+    {"path":"out/first_second.png","sha256":"72acee35fa92bbc5067e5fae0ed538b4e41bff5807cba00f5c26f68d27408087"},
+    {"path":"out/cut/registration.json","sha256":"aa086dde94c6be7acdce3254a46169e6d35fbede16db10070edf59e8cb8f87c5"},
+    {"path":"out/cut/series.json","sha256":"f3a9b37728d2b9003ed3f5f3d7e2589116758cffb84d738e0af91d414aae21a2"},
+    {"path":"out/cut/frames/rest/S/rest_S.png","sha256":"43b66ba9de02746aaf99a3b4f7c3aaa9a764913f1712ffc05776622cbfe25750"},
+    {"path":"out/cut/frames/run/S/run_S_00.png","sha256":"fb08374baef9b2843fbd12ef690e12dacb0c0ab1451f05a71d53a8c5c480be70"},
+    {"path":"out/cut/frames/run/S/run_S_01.png","sha256":"c811bf936455b4308d2ad0bfbe57f18ef4c3793782f6e8322b865cb07fa591a0"},
+    {"path":"out/cut/frames/run/S/run_S_02.png","sha256":"0bd2a4738c6c2dbb2bf174a23413e2fb08222429253c0f5f31ef066223b21269"},
+    {"path":"out/cut/frames/run/S/run_S_03.png","sha256":"4d8a8e379dfc0ce40c1a18f24c3ee58f7f658f7f20cf032614c671892481132b"},
+    {"path":"out/cut/frames/run/S/run_S_04.png","sha256":"fccc00aaa6b346794a76483dcbaae358529269c411bf0f165cc2d0846021e92c"},
+    {"path":"out/cut/frames/run/S/run_S_05.png","sha256":"bac17d8892833b5bb7b83437c333123b59190f1a05f540bee62c589f59414ed4"},
+    {"path":"out/cut/frames/run/S/run_S_06.png","sha256":"149ff6f71f702f26ae9a932b6690a1f1ba356b844aba09dbe24c60538f813595"},
+    {"path":"out/cut/frames/run/S/run_S_07.png","sha256":"ff0b99f865c17c509ba57d31626d0b1246a3ad68c76c41b208fe62be125d9881"},
+    {"path":"out/cut/sheets/run_S_strip.png","sha256":"b620923dc245727f9bfd209d30cccbd697872dd4d0eb666d143685d0c79595c9"}
+  ]
+}

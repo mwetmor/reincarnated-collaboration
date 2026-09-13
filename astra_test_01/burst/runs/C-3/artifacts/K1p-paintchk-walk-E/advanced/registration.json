@@ -1,0 +1,336 @@
+{
+  "task_id": "K1p-paintchk-walk-E",
+  "kind": "walk",
+  "direction": "E",
+  "fps_out": 12.0,
+  "n": 12,
+  "canvas": [
+    512,
+    512
+  ],
+  "source_registration": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/P4c-E-walk/cut/registration.json",
+  "source_dir": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/P4c-E-walk/cut/frames/walk/E",
+  "source_transform": {
+    "scale": 0.22572769953051644,
+    "nominal_scale": 0.22535211267605634,
+    "translation_xy": [
+      170,
+      149
+    ],
+    "scaled_size": [
+      173,
+      263
+    ],
+    "source_sampling_box_xyxy": [
+      0.0,
+      0.0,
+      766.4101497504159,
+      1165.120632279534
+    ],
+    "source_size": [
+      768,
+      1168
+    ],
+    "anchor_index": 0,
+    "anchor_native_bbox": [
+      108,
+      48,
+      654,
+      1113
+    ],
+    "canvas": [
+      512,
+      512
+    ],
+    "anchor_bbox": [
+      194,
+      160,
+      318,
+      400
+    ],
+    "anchor_H": 240,
+    "anchor_sole_row": 399,
+    "anchor_cx": 255.5,
+    "target_h": 240,
+    "sole_row": 399,
+    "cx": 255.5,
+    "one_transform_for_every_frame": true,
+    "upscaling": false,
+    "resampling": "PIL Lanczos; exact isotropic sampling box; integer unmasked paste",
+    "calibration": "closest nominal scale attaining raster height/centre, search +/-1 output px in .025 px steps"
+  },
+  "source_indices_native": [
+    69,
+    72,
+    75,
+    78,
+    81,
+    84,
+    87,
+    90,
+    93,
+    96,
+    99,
+    102
+  ],
+  "composition_record": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/P5-sheets/sheet_walk_E.json",
+  "edited_sheet": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/K1p-paint-walk-E/sheet_walk_E_advanced.png",
+  "inverse": "frame_512 = paste back: cell region [paste, paste+size] resized to (x1-x0, y1-y0) with LANCZOS, placed at (x0,y0) on a 512 transparent canvas",
+  "union_crop_512": [
+    185,
+    146,
+    337,
+    410
+  ],
+  "sheet_scale": 1.3381818181818184,
+  "inverse_resize_size": [
+    152,
+    264
+  ],
+  "inverse_paste_xy": [
+    185,
+    146
+  ],
+  "region_rules": {
+    "staff_head": "Square side 0.22*H centered at video_cut.track tip_xy, center shifted up by 0.06*H. Null-tip fallback: topmost alpha>=128 point outside head box; no fallback needed in this sequence.",
+    "pauldron": "Far shoulder in right profile: x=[torso_cx-0.16*H, torso_cx+0.12*H), y=[head_top_y+0.10*H, head_top_y+0.32*H). torso_cx is mean x of base alpha>=128 pixels whose integer y lies in [head_top_y+0.20*H,head_top_y+0.45*H).",
+    "rounding": "Floor lower box coordinates, ceil upper box coordinates, clamp to [0,512]; exclusive upper bounds.",
+    "tracking": "Single ordered call on all 12 base alpha channels; frozen default working_scale=0.5 and three-frame median head_top_y retained.",
+    "application_order": [
+      "staff_head",
+      "pauldron"
+    ],
+    "thresh": 24,
+    "dilate_px": 3,
+    "mask_area_fraction_denominator": 262144,
+    "outside_regions_drift": "sum(max(base_alpha,variant_alpha)/255 * mean_channels(abs(base_RGB-variant_RGB)) * outside_both_boxes) / sum(max(base_alpha,variant_alpha)/255 * outside_both_boxes); straight RGB, 0..255 units. Alpha union is per-pixel maximum.",
+    "matte": {
+      "alpha_floor": 40,
+      "edge_mode": "clamp",
+      "preserve_particles": false
+    }
+  },
+  "frames": [
+    {
+      "frame": "walk_E_00.png",
+      "path": "out/advanced/frames/walk/E/walk_E_00.png",
+      "region_boxes": {
+        "staff_head": [
+          220,
+          119,
+          273,
+          173
+        ],
+        "pauldron": [
+          225,
+          182,
+          293,
+          235
+        ]
+      }
+    },
+    {
+      "frame": "walk_E_01.png",
+      "path": "out/advanced/frames/walk/E/walk_E_01.png",
+      "region_boxes": {
+        "staff_head": [
+          221,
+          115,
+          276,
+          169
+        ],
+        "pauldron": [
+          224,
+          180,
+          294,
+          235
+        ]
+      }
+    },
+    {
+      "frame": "walk_E_02.png",
+      "path": "out/advanced/frames/walk/E/walk_E_02.png",
+      "region_boxes": {
+        "staff_head": [
+          219,
+          112,
+          274,
+          167
+        ],
+        "pauldron": [
+          222,
+          178,
+          292,
+          233
+        ]
+      }
+    },
+    {
+      "frame": "walk_E_03.png",
+      "path": "out/advanced/frames/walk/E/walk_E_03.png",
+      "region_boxes": {
+        "staff_head": [
+          217,
+          112,
+          272,
+          167
+        ],
+        "pauldron": [
+          219,
+          178,
+          289,
+          233
+        ]
+      }
+    },
+    {
+      "frame": "walk_E_04.png",
+      "path": "out/advanced/frames/walk/E/walk_E_04.png",
+      "region_boxes": {
+        "staff_head": [
+          215,
+          115,
+          270,
+          169
+        ],
+        "pauldron": [
+          215,
+          180,
+          284,
+          235
+        ]
+      }
+    },
+    {
+      "frame": "walk_E_05.png",
+      "path": "out/advanced/frames/walk/E/walk_E_05.png",
+      "region_boxes": {
+        "staff_head": [
+          216,
+          119,
+          269,
+          173
+        ],
+        "pauldron": [
+          213,
+          184,
+          281,
+          237
+        ]
+      }
+    },
+    {
+      "frame": "walk_E_06.png",
+      "path": "out/advanced/frames/walk/E/walk_E_06.png",
+      "region_boxes": {
+        "staff_head": [
+          220,
+          120,
+          273,
+          173
+        ],
+        "pauldron": [
+          217,
+          183,
+          285,
+          237
+        ]
+      }
+    },
+    {
+      "frame": "walk_E_07.png",
+      "path": "out/advanced/frames/walk/E/walk_E_07.png",
+      "region_boxes": {
+        "staff_head": [
+          220,
+          118,
+          273,
+          171
+        ],
+        "pauldron": [
+          224,
+          181,
+          292,
+          235
+        ]
+      }
+    },
+    {
+      "frame": "walk_E_08.png",
+      "path": "out/advanced/frames/walk/E/walk_E_08.png",
+      "region_boxes": {
+        "staff_head": [
+          218,
+          115,
+          271,
+          169
+        ],
+        "pauldron": [
+          224,
+          180,
+          292,
+          233
+        ]
+      }
+    },
+    {
+      "frame": "walk_E_09.png",
+      "path": "out/advanced/frames/walk/E/walk_E_09.png",
+      "region_boxes": {
+        "staff_head": [
+          217,
+          113,
+          272,
+          167
+        ],
+        "pauldron": [
+          220,
+          178,
+          290,
+          233
+        ]
+      }
+    },
+    {
+      "frame": "walk_E_10.png",
+      "path": "out/advanced/frames/walk/E/walk_E_10.png",
+      "region_boxes": {
+        "staff_head": [
+          215,
+          112,
+          270,
+          167
+        ],
+        "pauldron": [
+          218,
+          178,
+          288,
+          233
+        ]
+      }
+    },
+    {
+      "frame": "walk_E_11.png",
+      "path": "out/advanced/frames/walk/E/walk_E_11.png",
+      "region_boxes": {
+        "staff_head": [
+          213,
+          117,
+          268,
+          171
+        ],
+        "pauldron": [
+          219,
+          180,
+          288,
+          234
+        ]
+      }
+    }
+  ],
+  "passed": null,
+  "concerns": [
+    "Visual inspection of frames 00, 03, 06, and 09 shows frozen video_cut.track tip_xy on the hair rather than the staff tip. The required non-null coordinates were retained; the declared staff-head boxes miss the added staff ornaments, which are consequently excluded from the composite.",
+    "Outside-regions drift compares original source frames with reconstructed edited frames; it includes sheet resampling/matting differences as well as generator changes. No round-trip baseline subtraction was requested or performed."
+  ]
+}

@@ -1,0 +1,84 @@
+{
+  "candidates": [
+    {
+      "image": 1,
+      "needle_present": true,
+      "diamond_head": true,
+      "short_foot": true,
+      "three_strata": true,
+      "strata_widths_descending_upward": true,
+      "enclosing_ring_or_frame": false,
+      "forbidden_motif": "none",
+      "tone_count": 2,
+      "legible_at_8px": "yes",
+      "scores": {"spec_fidelity": 4, "register": 3},
+      "reasons": {
+        "needle_present": "One narrow vertical brass shaft continues through all three bands.",
+        "diamond_head": "A small pointed diamond terminates the shaft at the top.",
+        "short_foot": "The shaft ends in a short, shallow rectangular foot.",
+        "three_strata": "Three separate rectangular horizontal bands have visible gaps between them.",
+        "strata_widths_descending_upward": "The bottom band is widest, the middle intermediate, and the top narrowest.",
+        "enclosing_ring_or_frame": "Only the component contours surround the brass; there is no enclosing border around the emblem.",
+        "forbidden_motif": "No text, dial, hourglass, compass, gears, star, or wings are visible.",
+        "tone_count": "Two dominant fill tones, light gold and shaded brass, exclude the dark contour and green plate; slight shading prevents perfectly uniform fills.",
+        "legible_at_8px": "Mentally reduced to eight pixels tall, the separated widening bars and central spike should retain a recognizable silhouette, though the diamond detail weakens.",
+        "spec_fidelity": "The required structure, small head, short foot, and two principal brass tones are present; exact tiny-scale detail and strictly flat tones are less secure.",
+        "register": "Clean painted planes and slightly irregular dark edges fit partially, but the largely uniform heavy outline shows little expressive taper."
+      }
+    },
+    {
+      "image": 2,
+      "needle_present": false,
+      "diamond_head": false,
+      "short_foot": false,
+      "three_strata": false,
+      "strata_widths_descending_upward": false,
+      "enclosing_ring_or_frame": true,
+      "forbidden_motif": "compass",
+      "tone_count": 5,
+      "legible_at_8px": "no",
+      "scores": {"spec_fidelity": 1, "register": 1},
+      "reasons": {
+        "needle_present": "Several radial instrument lines appear inside the dial, rather than one vertical shaft piercing bands.",
+        "diamond_head": "No distinct small diamond on a vertical shaft is visible.",
+        "short_foot": "No isolated short foot terminating a shaft is visible.",
+        "three_strata": "The structure consists of concentric rings and radial supports, not three horizontal strata.",
+        "strata_widths_descending_upward": "There is no upward-narrowing stack of three bands to compare.",
+        "enclosing_ring_or_frame": "Multiple prominent brass rings enclose the central dial.",
+        "forbidden_motif": "The circular dial and radial directional lines visibly suggest a compass; the small source does not resolve finer instrument details.",
+        "tone_count": "Approximately five dominant fill groups are visible: pale highlights, gold brass, brown, blue-gray, and dark slate, excluding background and contour.",
+        "legible_at_8px": "The nested rings and tiny radial details would merge into a small circular mass without the specified glyph structure.",
+        "spec_fidelity": "The brass instrument replaces the required needle-and-strata silhouette with an explicitly enclosing compass-like dial.",
+        "register": "Dense metallic shading and fine mechanical detail dominate, with little visible hand-drawn taper or broad flat painted planes."
+      }
+    },
+    {
+      "image": 3,
+      "needle_present": true,
+      "diamond_head": true,
+      "short_foot": true,
+      "three_strata": true,
+      "strata_widths_descending_upward": true,
+      "enclosing_ring_or_frame": false,
+      "forbidden_motif": "none",
+      "tone_count": 5,
+      "legible_at_8px": "no",
+      "scores": {"spec_fidelity": 3, "register": 2},
+      "reasons": {
+        "needle_present": "A single upright brass shaft runs through the center of the band stack.",
+        "diamond_head": "A diamond-shaped head is present, but it is relatively large and divided into gemstone-like facets.",
+        "short_foot": "A short flared trapezoidal foot terminates the lower shaft.",
+        "three_strata": "Three horizontal capsule-shaped bands are distinguishable at full size, with their dark edges touching.",
+        "strata_widths_descending_upward": "The capsule bands increase in width from top to middle to bottom.",
+        "enclosing_ring_or_frame": "There is no ring, shield, or independent frame surrounding the glyph.",
+        "forbidden_motif": "No text, clock, hourglass, compass, gears, star, or wings are visible.",
+        "tone_count": "Approximately five dominant brass fill tones appear across pale bevel highlights, light gold, mid-gold, bronze, and deep bronze facets, excluding contour and background.",
+        "legible_at_8px": "The touching capsule bands would merge into a stepped mound, obscuring the three separate strata at eight pixels tall.",
+        "spec_fidelity": "The main components and width ordering are correct, but the oversized faceted head, additional tones, and fused tiny-scale bands depart from the brief.",
+        "register": "Smooth capsule geometry, bevel highlights, and a uniform thick border read as a polished icon with little hand-drawn contour variation."
+      }
+    }
+  ],
+  "nearest_to_spec": 1,
+  "why": "Image 1 most directly combines a small diamond-tipped needle, short foot, three separated upward-narrowing strata, and two principal brass tones without any enclosing frame or forbidden motif."
+}

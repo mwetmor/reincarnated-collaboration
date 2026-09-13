@@ -1,0 +1,419 @@
+{
+  "cell": "NE_cast",
+  "clip": "NE_cast.mp4",
+  "clip_version": "v1",
+  "flags": [
+    "v2 not generated (H-C3-1 Grok balance) — cut from the full-height v1 clip (R-C3-9)"
+  ],
+  "cut": {
+    "period": null,
+    "selection": {
+      "start": null,
+      "end_exclusive": null,
+      "indices_native": [],
+      "candidates": [
+        {
+          "kind": "cast",
+          "onset": 12,
+          "key": [
+            {
+              "name": "onset",
+              "index": 12
+            },
+            {
+              "name": "raise_mid",
+              "index": 15
+            },
+            {
+              "name": "gather",
+              "index": 18
+            },
+            {
+              "name": "release",
+              "index": 138
+            }
+          ],
+          "key_poses": {
+            "onset": 12,
+            "raise_mid": 15,
+            "gather": 18,
+            "release": 138
+          },
+          "settle": null,
+          "confidence": 0.2,
+          "detection": null,
+          "baseline": {
+            "samples": 12,
+            "tip_xy": [
+              335.5,
+              16.5
+            ],
+            "tip_noise": 5.715476066494082,
+            "duration_s": 0.5
+          },
+          "notes": "no return after release",
+          "index_units": "native_frames"
+        }
+      ],
+      "reason": "no return after release",
+      "requested_indices_native": [],
+      "output_indices_native": []
+    },
+    "detection": {
+      "kind": "cast",
+      "onset": 12,
+      "key": [
+        {
+          "name": "onset",
+          "index": 12
+        },
+        {
+          "name": "raise_mid",
+          "index": 15
+        },
+        {
+          "name": "gather",
+          "index": 18
+        },
+        {
+          "name": "release",
+          "index": 138
+        }
+      ],
+      "key_poses": {
+        "onset": 12,
+        "raise_mid": 15,
+        "gather": 18,
+        "release": 138
+      },
+      "settle": null,
+      "confidence": 0.2,
+      "detection": null,
+      "baseline": {
+        "samples": 12,
+        "tip_xy": [
+          335.5,
+          16.5
+        ],
+        "tip_noise": 5.715476066494082,
+        "duration_s": 0.5
+      },
+      "notes": "no return after release",
+      "index_units": "native_frames"
+    },
+    "splice": {
+      "per_pair_mad": [
+        0.6466094260944446,
+        0.7754294183703531,
+        0.9430265296052569,
+        1.0449667316462103,
+        1.2336664647635278,
+        1.198884525960402,
+        1.2608494743843404,
+        1.2419516621977817,
+        1.316790876464081,
+        1.2546112121865778,
+        1.3381006540734692,
+        1.450295362466392,
+        1.5793527522799575,
+        1.6795430082313705,
+        1.845576791413499,
+        1.9705796575114454,
+        2.1219624033315827,
+        2.1457413748372134,
+        2.272227354263268,
+        2.3248354815047443,
+        2.4292098305625474,
+        2.515872120807924,
+        2.596036967430561,
+        2.604969657505088,
+        2.535021663931047,
+        2.458067268802513,
+        2.4185910652327114,
+        2.2567385671654114,
+        2.096327614572526,
+        2.0898533954846927,
+        2.0161395373937454,
+        2.0517466506934476,
+        1.8918771481310301,
+        1.8407945287018104,
+        1.8975578439179308,
+        1.923720572996686,
+        1.8643076554809137,
+        2.009743727482638,
+        2.0713600144523268,
+        2.1868188372140267,
+        2.1712232375947633,
+        2.151914174764219,
+        2.1795444103583987,
+        2.2408105944284755,
+        2.2478394725576063,
+        2.289560934305103,
+        2.370670106472844,
+        2.3574550703446637,
+        2.31965315190341,
+        2.358721095978452,
+        2.308657125339768,
+        2.249326592838388,
+        2.126757389547595,
+        2.0721188338949954,
+        2.0009702062277697,
+        1.8748913228105564,
+        1.6288176509580277,
+        1.4474416511834374,
+        1.1148511928415628,
+        0.9187663193717839,
+        0.9127960436960347,
+        0.9157112462089018,
+        0.8709562099190339,
+        0.8244372526585574,
+        0.7729602540205064,
+        0.7570514665508621,
+        0.6639790248075325,
+        0.6592479264783149,
+        0.5185210384336683,
+        0.4617516417363197,
+        0.33158033700036865,
+        0.3541161797660291,
+        0.33082464227974795,
+        0.18595578316186273,
+        0.1712656564791117,
+        0.16704522917159814,
+        0.24131838714474366,
+        0.1818079544184993,
+        0.16841731303743104,
+        0.17482781592566404,
+        0.321680081866594,
+        0.3946648928104356,
+        0.6010319441876542,
+        0.7531620001277982,
+        0.9220568075744161,
+        1.097028635146451,
+        1.2689318899995847,
+        1.406847901949823,
+        1.473656165583043,
+        1.6581043323510671,
+        1.744571068215624,
+        1.8669882413052628,
+        1.8895542661188665,
+        2.035321051746682,
+        2.0526018053205806,
+        2.127664650105346,
+        2.158461219782275,
+        2.3016880039882004,
+        2.457539656890155,
+        2.5286395238097783,
+        2.442190093318665,
+        2.4749643810873625,
+        2.404070448706875,
+        2.352926847201648,
+        2.2740298653291076,
+        2.309504745137122,
+        2.3043286313921305,
+        2.3352007398119885,
+        2.2464053699869613,
+        2.3514531852712106,
+        2.3142304862084,
+        2.322628339152532,
+        2.1921222381080545,
+        2.300746162131777,
+        2.2339833450306554,
+        2.2222023538556703,
+        1.9950097334093306,
+        2.046080474714054,
+        1.9444892499552524,
+        1.8174338113778914,
+        1.5956485779358114,
+        1.6205516897747798,
+        1.5210342178417353,
+        1.4635187651683916,
+        1.2814275973806302,
+        1.3114701652780179,
+        1.2505934674167738,
+        1.1776117141106177,
+        0.9951631654367236,
+        1.0262809514872386,
+        0.9684264940949731,
+        0.9097754028737971,
+        0.7894840092249429,
+        0.8227867071175861,
+        0.7920014128429316,
+        0.727771986394392,
+        0.6406167916111801,
+        0.5899994648566691,
+        0.5607271052638796,
+        0.5064411889051367,
+        0.1510132579316364,
+        0.08015382809364377,
+        0.09070248085571284,
+        0.1168141860805397
+      ],
+      "suspect_pairs": [],
+      "median_pair_mad": 1.7120570382234972,
+      "multiplier": 4.0,
+      "notes": "RGB composited on black; no loop seam; pairs index supplied frames",
+      "suspect_inside_selected": null,
+      "suspect_inside_selected_note": "No selected interval; frozen one-shot tool did not emit this field."
+    },
+    "transform": {
+      "scale": 0.21897810218978103,
+      "nominal_scale": 0.21897810218978103,
+      "translation_xy": [
+        170,
+        156
+      ],
+      "scaled_size": [
+        168,
+        255
+      ],
+      "source_sampling_box_xyxy": [
+        0.0,
+        0.0,
+        767.1999999999999,
+        1164.5
+      ],
+      "source_size": [
+        768,
+        1168
+      ],
+      "anchor_index": 0,
+      "anchor_native_bbox": [
+        200,
+        16,
+        585,
+        1112
+      ],
+      "canvas": [
+        512,
+        512
+      ],
+      "anchor_bbox": [
+        214,
+        160,
+        298,
+        400
+      ],
+      "anchor_H": 240,
+      "anchor_sole_row": 399,
+      "anchor_cx": 255.5,
+      "target_h": 240,
+      "sole_row": 399,
+      "cx": 255.5,
+      "one_transform_for_every_frame": true,
+      "upscaling": false,
+      "resampling": "PIL Lanczos; exact isotropic sampling box; integer unmasked paste",
+      "calibration": "closest nominal scale attaining raster height/centre, search +/-1 output px in .025 px steps"
+    },
+    "wall_seconds": 37.32296591600607
+  },
+  "results": [
+    {
+      "id": "video_cut_selection",
+      "subject": "cast/NE",
+      "passed": null,
+      "value": [],
+      "threshold": null,
+      "op": "report",
+      "unit": "native_frames",
+      "evidence": [
+        "/Users/admin/astra-burst/runs/C-3/P4c-NE-cast/out/cut/sheets/cast_NE_strip.png"
+      ],
+      "notes": "Measurement only; no shipping verdict. no return after release"
+    },
+    {
+      "id": "g6_seam",
+      "subject": "NE_cast",
+      "passed": null,
+      "value": null,
+      "threshold": null,
+      "op": "report",
+      "unit": "rgb_mad",
+      "evidence": [],
+      "notes": "Not computed: frozen cut produced no cast frames; detection incomplete: no return after release. Step 2 skipped per no-detection instruction."
+    },
+    {
+      "id": "g6b",
+      "subject": "NE_cast",
+      "passed": null,
+      "value": null,
+      "threshold": null,
+      "op": "report",
+      "unit": "rgb_mad",
+      "evidence": [],
+      "notes": "Not computed: frozen cut produced no cast frames; detection incomplete: no return after release. Step 2 skipped per no-detection instruction."
+    },
+    {
+      "id": "g1_size_stability",
+      "subject": "NE_cast",
+      "passed": null,
+      "value": null,
+      "threshold": null,
+      "op": "report",
+      "unit": "fraction",
+      "evidence": [],
+      "notes": "Not computed: frozen cut produced no cast frames; detection incomplete: no return after release. Step 2 skipped per no-detection instruction."
+    },
+    {
+      "id": "head_pitch",
+      "subject": "NE_cast",
+      "passed": null,
+      "value": null,
+      "threshold": null,
+      "op": "report",
+      "unit": "fraction_head_h",
+      "evidence": [],
+      "notes": "Not computed: frozen cut produced no cast frames; detection incomplete: no return after release. Step 2 skipped per no-detection instruction."
+    },
+    {
+      "id": "coherence",
+      "subject": "NE_cast",
+      "passed": null,
+      "value": null,
+      "threshold": null,
+      "op": "report",
+      "unit": "rgb_mad",
+      "evidence": [],
+      "notes": "Not computed: frozen cut produced no cast frames; detection incomplete: no return after release. Step 2 skipped per no-detection instruction."
+    },
+    {
+      "id": "matte_quality.rim_luma_excess",
+      "subject": "NE_cast",
+      "passed": null,
+      "value": null,
+      "threshold": null,
+      "op": "report",
+      "unit": "luma_0_255",
+      "evidence": [],
+      "notes": "Not computed: frozen cut produced no cast frames; detection incomplete: no return after release. Step 2 skipped per no-detection instruction."
+    },
+    {
+      "id": "closure_0_7",
+      "subject": "NE_cast",
+      "passed": null,
+      "value": null,
+      "threshold": null,
+      "op": "report",
+      "unit": "rgb_mad",
+      "evidence": [],
+      "notes": "Not computed: frozen cut produced no cast frames; detection incomplete: no return after release. Step 2 skipped per no-detection instruction."
+    },
+    {
+      "id": "closure_7_rest",
+      "subject": "NE_cast",
+      "passed": null,
+      "value": null,
+      "threshold": null,
+      "op": "report",
+      "unit": "rgb_mad",
+      "evidence": [],
+      "notes": "Not computed: frozen cut produced no cast frames; detection incomplete: no return after release. Step 2 skipped per no-detection instruction."
+    }
+  ],
+  "notes": [
+    "Report only; no verdicts.",
+    "bands_from_exemplar.measure and score skipped as directed: no cast/one-shot kind.",
+    "G6c not applicable to cast; no G6c requested in step 2.",
+    "out/grid.png not produced: no registered cast frames. Frozen strip is diagnostic only, not a selected cast sequence.",
+    "first_second.png uses native frames 0, 12, 24 at 24 fps, without matting; each resized to 252 × 384."
+  ]
+}

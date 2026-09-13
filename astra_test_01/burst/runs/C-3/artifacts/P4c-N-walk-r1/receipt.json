@@ -1,0 +1,97 @@
+{
+  "task_id": "P4c-N-walk-r1",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [],
+  "calls_used": 0,
+  "retries": [
+    {
+      "reason": "First attempt exit 3, Selected model is at capacity (provided task history).",
+      "change": "Conductor re-run once; exact frozen cut parameters retained."
+    }
+  ],
+  "self_report": {
+    "obeyed_invariants": true,
+    "concerns": [
+      "bands measure unresolved: planted_sole_slip_L",
+      "walk_N_proposal has no quantities; measurements reported without band scores as instructed."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/checks.json",
+      "sha256": "3450e18241aeeb7b4fab305094e4926739a647d839362fcf6d7b77bf111029ae"
+    },
+    {
+      "path": "out/grid.png",
+      "sha256": "fa50599d157fda39e93eb2c8c2aceca795e19e8d7f9caa52e89edb7a63c0bdc1"
+    },
+    {
+      "path": "out/first_second.png",
+      "sha256": "784b082fc00ba85a7141eafc589417ce591c8f86e557421becd043f49a06a18e"
+    },
+    {
+      "path": "out/cut/registration.json",
+      "sha256": "3a798af91b021f60edb7081a35204d86c218dc49898556bb340c4418282665a1"
+    },
+    {
+      "path": "out/cut/series.json",
+      "sha256": "2645152740007fc2d3543621f7a0b618721c1ed64db6687c231fd7c3cca1214e"
+    },
+    {
+      "path": "out/cut/frames/rest/N/rest_N.png",
+      "sha256": "a867478ec3f2cc0152e617de7a1e2d6b3fa2ecafbe9410dfb25099daf69dfe4b"
+    },
+    {
+      "path": "out/cut/frames/walk/N/walk_N_00.png",
+      "sha256": "255d674db280722245127e7e3f1fb9d27055340bac5a9cf64dfd0bb066c8966f"
+    },
+    {
+      "path": "out/cut/frames/walk/N/walk_N_01.png",
+      "sha256": "4ba1e49bf745c69b010d8cac2983a9b3aadc0fa22df7f0edc3baabc6001af961"
+    },
+    {
+      "path": "out/cut/frames/walk/N/walk_N_02.png",
+      "sha256": "1e1d52b53fa280abc21c12d9b9b8fceb5f56a53f6cfaf8230db0ce8b7e782d5f"
+    },
+    {
+      "path": "out/cut/frames/walk/N/walk_N_03.png",
+      "sha256": "aaf09ea0aa4bdd0281b8870ac028bb7eb47665b72bb451163dd1a67f7e48439f"
+    },
+    {
+      "path": "out/cut/frames/walk/N/walk_N_04.png",
+      "sha256": "100809ec233a400bfa3d67773be412bc7b8b02691be2f4b1e38eb724eb39fff8"
+    },
+    {
+      "path": "out/cut/frames/walk/N/walk_N_05.png",
+      "sha256": "5ec0b1cf146e2d630df4d6262c4ce3a4b284d297be83984bc44fdcf83955549f"
+    },
+    {
+      "path": "out/cut/frames/walk/N/walk_N_06.png",
+      "sha256": "65f588b55862efa64ce9a486c00c8a4a9fa62f3673063f344a8b0a6234858536"
+    },
+    {
+      "path": "out/cut/frames/walk/N/walk_N_07.png",
+      "sha256": "4a007d5db0f7b9a2070063866b33b287cef7ef161f522fc3c48ddd06f57ebf78"
+    },
+    {
+      "path": "out/cut/frames/walk/N/walk_N_08.png",
+      "sha256": "5e87bca29109d84a525d77ab881fc5d03f593db9726670181acc38b631795220"
+    },
+    {
+      "path": "out/cut/frames/walk/N/walk_N_09.png",
+      "sha256": "553e03d317dd6e8785a779f759a32005ead3f38508c264fd5f461b3a7012e88a"
+    },
+    {
+      "path": "out/cut/frames/walk/N/walk_N_10.png",
+      "sha256": "5ab4d3fa49818ff77f4a53fa59341ea689b743814261961e4aed19bccbdf05b4"
+    },
+    {
+      "path": "out/cut/frames/walk/N/walk_N_11.png",
+      "sha256": "0f35db5093c543a968f67f7ea2011d0238b941c0f5fe3882ec33ac2e1e29ae6b"
+    },
+    {
+      "path": "out/cut/sheets/walk_N_strip.png",
+      "sha256": "1d60595bb9766c518d54ebf679b11b1298b1bc1986fefa6ef4b47545cbc647da"
+    }
+  ]
+}

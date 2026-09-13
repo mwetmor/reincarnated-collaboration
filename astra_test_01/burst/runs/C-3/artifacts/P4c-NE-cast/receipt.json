@@ -1,0 +1,42 @@
+{
+  "task_id": "P4c-NE-cast",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [],
+  "calls_used": 0,
+  "retries": [],
+  "self_report": {
+    "obeyed_invariants": true,
+    "concerns": [
+      "Frozen cut reported no return after release, confidence 0.2; no cast frames produced.",
+      "G6/G6b, G1, head pitch, coherence, rim luma and both closure measurements were not computed; out/grid.png omitted per no-detection instruction.",
+      "Exemplar bands skipped as instructed: no one-shot measurement kind.",
+      "Delivered strip is diagnostic only."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/checks.json",
+      "sha256": "c81976a5b24c2450942de036e18694a7852c79b80af177cf51c7e5ac4a69ba5c"
+    },
+    {
+      "path": "out/first_second.png",
+      "sha256": "02735c31b34a70da6b8d14506dafa57b976f749c626e5035dd35ea4f266b7357"
+    },
+    {
+      "path": "out/cut/registration.json",
+      "sha256": "a258f7b69172c8c7ca350184a12f361dfe7c484346b12f14dd7384e1c8347188"
+    },
+    {
+      "path": "out/cut/series.json",
+      "sha256": "6f335e1c199dc2061967728dd171bb5c767a9ffcb156678ce19cb8053b421352"
+    },
+    {
+      "path": "out/cut/frames/rest/NE/rest_NE.png",
+      "sha256": "0e7c518f36b50ba1a0daaa3a176b9b9d334ce2bce0eda4211c3a41584effcf26"
+    },
+    {
+      "path": "out/cut/sheets/cast_NE_strip.png",
+      "sha256": "0912cdd92388799427250ba30789abbc1a22ee698bd34753e3e0bdb4e23feb69"
+    }
+  ]
+}

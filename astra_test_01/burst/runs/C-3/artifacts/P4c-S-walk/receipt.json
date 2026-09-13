@@ -1,0 +1,35 @@
+{
+  "task_id": "P4c-S-walk",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [],
+  "calls_used": 0,
+  "retries": [],
+  "self_report": {
+    "obeyed_invariants": true,
+    "concerns": [
+      "Proposal scores not computed: walk_S_proposal has no quantities; measurements reported.",
+      "Frozen splice instrument flagged native pairs 74–75 and 95–96 inside the selected cycle."
+    ]
+  },
+  "files": [
+    {"path":"out/checks.json","sha256":"a12879f47f667b7719aaf421b958221a897bd9c87e5b3680c62fece8c7fe5cb8"},
+    {"path":"out/grid.png","sha256":"6be112c02bb7384302e36908e9014d0b1ae9ece61b86041acb9c251991c7fee6"},
+    {"path":"out/first_second.png","sha256":"63027d9c366005709db19a50e71d2bcb2776e354cd960bfd25368c12eea3c716"},
+    {"path":"out/cut/registration.json","sha256":"f5deb9596212868db23fd80ba7cb50db4c858d14aee4ee8f9a1e564a12318d12"},
+    {"path":"out/cut/series.json","sha256":"9461fc71b7fff45f08386f67767cf5eb3615d14fb60e53031b9096d8edccafe5"},
+    {"path":"out/cut/frames/rest/S/rest_S.png","sha256":"86e1093b0c01d8daf28360ecc9d4885bb82cb5d7fc29158db543fac739f22d8d"},
+    {"path":"out/cut/frames/walk/S/walk_S_00.png","sha256":"2d2053a59e9589121bb601cf42eb22d07a4178abf36e5158124c3d649f5d1c3a"},
+    {"path":"out/cut/frames/walk/S/walk_S_01.png","sha256":"87f4bd3f1e966a3ab7001b469ee7a73dc600d3ccc59c6c8bdf3b7fc62af12f54"},
+    {"path":"out/cut/frames/walk/S/walk_S_02.png","sha256":"031c7a53813fb87a850d68511151a06c69c382e5ec0057d7055aab9c0a16d6d1"},
+    {"path":"out/cut/frames/walk/S/walk_S_03.png","sha256":"7b1c3bd9e3faedbafbffc639663ebe9f000670c3f123e5268a445f30c3d7ec25"},
+    {"path":"out/cut/frames/walk/S/walk_S_04.png","sha256":"dd31a97db61738b9670e08d09f9ec3e18abea44c13a5d7a877397d35979a0432"},
+    {"path":"out/cut/frames/walk/S/walk_S_05.png","sha256":"6fd2b66ab8bd51637b011bbaec634eb75dba9af5f33feae966526bccee55c97f"},
+    {"path":"out/cut/frames/walk/S/walk_S_06.png","sha256":"b587475a1e137ef084d834fa14c9ce8e6c5158fa2a797b24e8d985a2fdb51190"},
+    {"path":"out/cut/frames/walk/S/walk_S_07.png","sha256":"14e15b04db3d81fa774d4be35e3866f10ac0d78c685118510c45083d5515b660"},
+    {"path":"out/cut/frames/walk/S/walk_S_08.png","sha256":"3e1b6bb1069c2e1edcd0174730ca52ef10eba65e288bdad2cbb36f5489f9896a"},
+    {"path":"out/cut/frames/walk/S/walk_S_09.png","sha256":"d90387e8e2fba0786c2178aea1ba890713de699370b4210219e2f4a3927de9a7"},
+    {"path":"out/cut/frames/walk/S/walk_S_10.png","sha256":"f4c8e5a7d6bfdcfb51da5c16df9ab254ac9b127f92fa284305cc4a8c39dc2f10"},
+    {"path":"out/cut/frames/walk/S/walk_S_11.png","sha256":"6334c347e39dc1690c4ab09277ac78240e4b190556b361e5c7cf9056f2a0c666"},
+    {"path":"out/cut/sheets/walk_S_strip.png","sha256":"47586f445cd2b58eb18c1d25cc45e1720ae93683e7a290180cc03ad53bd1ca24"}
+  ]
+}

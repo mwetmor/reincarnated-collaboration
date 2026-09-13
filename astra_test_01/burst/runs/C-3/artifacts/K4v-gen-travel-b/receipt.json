@@ -1,0 +1,34 @@
+{
+  "task_id": "K4v-gen-travel-b",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "travel_04_05",
+      "path": "out/travel_04_05.png",
+      "sha256": "c8fbc0d8b8bf669f82a1871c89114833fc313828248992cdfe2b7e043ea750bc",
+      "prompt": "Create an original hand-painted blue-white FROST projectile VFX animation sprite sheet for a hand-animated action game. Use case: stylized-concept. Reference image 1 is STYLE ONLY: match the icy blue-white energy at the character's staff tip, its faceted painted brushwork, hard illustrated edges and deep-blue falloff. Do not include any character, hand, staff, scenery, symbols, text, labels or grid lines. Hand-drawn painted 2D animation: confident hand-drawn contours with visible taper and varying weight, clean painted material planes, restrained surface texture, readable small silhouettes, no conspicuous grain. Angular translucent ice facets, a bright white-blue core, deep cobalt soft emission fringes; no green or cyan. Flat pure black #000000 emission background across the entire sheet, with every effect fully contained and ample black margins. Strict 2 columns by 1 row, two equal square cells on a 2:1 landscape canvas, no visible divider. Exactly two rightward-pointing frost lances, one per cell. These are loop phases 4 and 5 of the SAME lance, with the same geometry in a six-phase loop returning to phase 0. Left cell phase 4: the core dims slightly with a short symmetric wake. Right cell phase 5: the lance is nearly identical to a narrow steady lance, ready to loop back. In EACH square cell, centreline y = 50%, bright core x = 66%, wake extends back to x = 12%, pointed tip x = 88%, total effect height at most 30% of the cell. Maintain matched position, scale and lance silhouette across the two cells. The wake is symmetric above and below the horizontal centreline. Spell emission provides the saturated light. No floor or floor shadows. No extra objects. Output only the sprite sheet.",
+      "references": [
+        {
+          "role": "STYLE ONLY — frost energy at the staff tip",
+          "path": "in/01_vfx_style_match.png"
+        }
+      ],
+      "elapsed_s": 23.754
+    }
+  ],
+  "calls_used": 1,
+  "retries": [],
+  "self_report": {
+    "obeyed_invariants": true,
+    "concerns": [
+      "The two phases appear nearly identical; phase 4 core dimming is not clearly distinguishable.",
+      "Applied the task-specific black background and 2×1 sheet requirements over the register's general green-background and 2×2 requirements."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/travel_04_05.png",
+      "sha256": "c8fbc0d8b8bf669f82a1871c89114833fc313828248992cdfe2b7e043ea750bc"
+    }
+  ]
+}

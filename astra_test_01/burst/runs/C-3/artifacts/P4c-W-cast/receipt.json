@@ -1,0 +1,42 @@
+{
+  "task_id": "P4c-W-cast",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [],
+  "calls_used": 0,
+  "retries": [],
+  "self_report": {
+    "obeyed_invariants": true,
+    "concerns": [
+      "Frozen cut reported no return after release; detection null, confidence 0.2. No cast frames emitted; no retry.",
+      "G6/G6b, G1, head pitch, coherence, rim luma, and closure measurements not computed. All result envelopes have value null and passed null.",
+      "out/grid.png omitted because no registered cast frames exist. Delivered strip is diagnostic only.",
+      "Exemplar measurement skipped as instructed: no one-shot kind exists."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/checks.json",
+      "sha256": "5c220fa8344af8e45066ad9edeff6bc289bdb0f9e631635e7f062a811616b013"
+    },
+    {
+      "path": "out/first_second.png",
+      "sha256": "ef32712a456c431924cba55288a6d42acc71e7cf33b46778a42376a34bac8c7e"
+    },
+    {
+      "path": "out/cut/registration.json",
+      "sha256": "002ea66389ff482cbc44f965c956bfcabc0273d6c16d0720068403f92d9b4c9a"
+    },
+    {
+      "path": "out/cut/series.json",
+      "sha256": "f238b074ed9907201503b1c85371cbd083fd6a39a8086f999b57de1bc5eb5df7"
+    },
+    {
+      "path": "out/cut/frames/rest/W/rest_W.png",
+      "sha256": "c82aff682c27468c0e1a04a4fa3917c7b9f4f30c029fdf12f094cd8596b34295"
+    },
+    {
+      "path": "out/cut/sheets/cast_W_strip.png",
+      "sha256": "c5a6d71a883d48224e8e8d4f793c6b8df6273fe9e717ccdd854ce6cf451a9c20"
+    }
+  ]
+}

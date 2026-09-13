@@ -1,0 +1,41 @@
+{
+  "task_id": "P4c-SE-jump",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [],
+  "calls_used": 0,
+  "retries": [],
+  "self_report": {
+    "obeyed_invariants": true,
+    "concerns": [
+      "No complete jump detected: no six-sample settle after landing crouch; confidence 0.2.",
+      "No registered jump frames. G6/G6b, G1, head pitch, coherence, rim luminance and closure measurements were not computed; grid.png omitted as instructed.",
+      "One-shot band scoring skipped as instructed. Delivered strip is diagnostic only."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/checks.json",
+      "sha256": "0aab65eb5601a715f562b2781914744043e6ccf2dfa836e8fe2a9dee936a41ac"
+    },
+    {
+      "path": "out/first_second.png",
+      "sha256": "c827a54d43ccbbf00b148efb75b56062887f294c38ae3b570ec0074774f3b654"
+    },
+    {
+      "path": "out/cut/registration.json",
+      "sha256": "278d20dbe510f47791fb5e4dc43c1d9c53abb8f58b009522c46003609e8578fc"
+    },
+    {
+      "path": "out/cut/series.json",
+      "sha256": "c0cb5e96673c78fce805f3197018941015c87a85ff78b54b23663a4eb9ff564e"
+    },
+    {
+      "path": "out/cut/frames/rest/SE/rest_SE.png",
+      "sha256": "8fb54e3fb27e88a84453c2a4a14296540215bc46087624c50f495ae15be56a0b"
+    },
+    {
+      "path": "out/cut/sheets/jump_SE_strip.png",
+      "sha256": "e6fb36fa2ec6d184ec4110c10a727bbdd6b292ade6dbc9ac3f250313ce409e0b"
+    }
+  ]
+}

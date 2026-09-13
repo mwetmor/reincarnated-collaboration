@@ -1,0 +1,52 @@
+{
+  "task_id": "P4p-N-idle-r1",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [],
+  "calls_used": 0,
+  "retries": [],
+  "self_report": {
+    "obeyed_invariants": true,
+    "concerns": [
+      "Source checks report: Period used the prompted 2.0 s fallback; observed autocorrelation confidence is 0.0.",
+      "Source checks report: Frozen splice instrument reports suspect pairs inside the selected cycle."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/packet/review.html",
+      "sha256": "daa2d8a53dd351f995752061ab7a291bf9203a767559845c949a35f1fd5928c2"
+    },
+    {
+      "path": "out/packet/idle_N_2x.mp4",
+      "sha256": "bf3c6b9b45bdd46af28b2d517830c80acf256474239c98a146f1ae1f3a027ecf"
+    },
+    {
+      "path": "out/packet/idle_N_1to1.mp4",
+      "sha256": "1b1323cc8a50a5e4ca3f201eb885c2b57a6d5aebbba89572d4b87b3af2a2fbc9"
+    },
+    {
+      "path": "out/packet/numbers.json",
+      "sha256": "4ac4abba331c75e531c3499eced6c4d3317e092dc002c98dfd3b7f39e59be27e"
+    },
+    {
+      "path": "out/packet/img/seam_pairs.png",
+      "sha256": "023eba2aceefe6be9a29e5e4cca8ee750071a34605fbfbadb4564f45a58e2d85"
+    },
+    {
+      "path": "out/packet/img/strip.png",
+      "sha256": "df1df60ed24d4bd6b078844e14847149166cc303833ac396e37a1dac156d5d92"
+    },
+    {
+      "path": "out/packet/summary.txt",
+      "sha256": "e5a9f13293fbd861b99da55bd68304e8670d58459d9efc03d139b1372f491b91"
+    },
+    {
+      "path": "out/packet/seam_pairs.png",
+      "sha256": "023eba2aceefe6be9a29e5e4cca8ee750071a34605fbfbadb4564f45a58e2d85"
+    },
+    {
+      "path": "out/packet/strip.png",
+      "sha256": "df1df60ed24d4bd6b078844e14847149166cc303833ac396e37a1dac156d5d92"
+    }
+  ]
+}
