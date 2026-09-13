@@ -34,6 +34,8 @@ An **LE-05-like outdoor cliffside path** for the novice Keeper (starter set), dr
 4. **Cluttered variant.** The same blockout with props, painted as a look target.
 5. **Props as assets + breakables/interactives.** Individual 2D assets placed from layout data; boxes, vines and the falling bridge piece wired in.
 
+**Progress (R-C3-43…58):** checkpoints 1, 1b, 2 and **3 COMPLETE** — first playable delivered (`astra_test_01/burst/runs/C-3/cliffside_final/`). Geometry went v3 → v4.1 on Matt's review (strip removed; organic rock; boulders out → props at checkpoint 5); walkable = all flat tops, 0.5 m rim margin; image cap lifted (R-C3-55). Next: checkpoint 4.
+
 **Budget posture:** Grok not needed through checkpoint 5 (existing clips). Astra images per checkpoint are named before it fires. Nothing moves past a checkpoint without Matt's word.
 
 Tracker-delta: game tracker SESSION-DELTA owed at checkpoint 3 (first playable).
