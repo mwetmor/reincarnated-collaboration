@@ -1,0 +1,41 @@
+{
+  "task_id": "K2p-gen-E",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "k2p_E",
+      "path": "out/k2p_E.png",
+      "sha256": "f909ed80f16e6cab9f79e26510b08cc9bdb3217a9789d99213cacd12150e38c0",
+      "prompt": "Use case: identity-preserve. Create exactly ONE full-body portrait image. Image 1 is the APPROVED IDENTITY MASTER, direction S: preserve this exact young woman's identity, face, dark curly tied-back hair mass, sun-browned skin, proportions, costume, every item and anatomical side, and standing rest pose. Change only the character's rotation to direction E: full RIGHT-facing profile, nose and toes pointing screen-right, only the LEFT side visible. The olive satchel on her anatomical LEFT hip is toward the camera, visibly in front of the body. The plain walnut staff remains in her anatomical RIGHT hand on the far side, its gripping hand partly hidden behind her body, its tip rising above her shoulder. Do not mirror the reference. Harness goes over anatomical RIGHT shoulder to LEFT hip. Weight even, relaxed rest pose, staff upright. Fixed elevated three-quarter pinhole camera ~53 degrees above ground plane, projection C: character rotates, camera does not. Full body with both feet entirely visible, centered, same standing height and framing as Image 1, portrait canvas matching Image 1. Flat uniform pure #00ff00 background over the whole canvas; no matting, no transparency, no checkerboard, NO floor shadows. Identity and costume unchanged: young woman early 20s, face visible, no helmet; ivory linen shirt with rolled sleeves; navy sleeveless tabard with entirely PLAIN chest, no emblem; ONE chestnut diagonal harness strap carrying ONE olive canvas satchel on LEFT hip; ONE waist belt; chestnut laced bracers; navy trousers; chestnut buckled boots. ONE PLAIN dark walnut staff with small brass ferrules at foot and tip, NO ring, NO head-piece, held in RIGHT hand. NO insignia anywhere; every surface plain. HAND-DRAWN painted 2D in the manner of a modern hand-animated action game: confident dark hand-drawn contour with visible taper and varying weight, painted fills in clean planes inside the line, restrained texture; the line carries the pose. One frame of hand-drawn animation, not a rendered illustration. Clean material planes, readable silhouette, no conspicuous brush or pixel grain. Blue / ivory / brass palette. Single cold key fixed from SCREEN UPPER-LEFT, never rotating with character; deep cool low-value ambient and readable shadows, never pure black; slight rim on key-facing screen-left silhouette edge. No warm or saturated lighting, no spell glow. No extra objects, no text.\nCRITICAL RETRY CORRECTION: The previous attempt incorrectly faced SCREEN-LEFT and placed equipment on reversed anatomical sides. This image MUST face SCREEN-RIGHT: nose points toward the RIGHT BORDER, toes point toward the RIGHT BORDER, back of head toward LEFT BORDER. We see her LEFT ear and LEFT arm nearest the viewer. Her LEFT hand hangs relaxed beside the near-side olive satchel. Her RIGHT hand grips the staff on the FAR side; staff is in front of her in the screen-right part of the image. Use the original identity master as reference, rotating the character, never flipping it. Clearly show the elevated view looking down at her head, shoulders, and boots from ~53 degrees above ground. Exactly one character, one satchel, one staff.",
+      "references": [
+        {
+          "role": "APPROVED IDENTITY MASTER (direction S): identity, costume, proportions, pose and register",
+          "path": "in/01_k1p_master_C.png"
+        }
+      ],
+      "elapsed_s": 24.343
+    }
+  ],
+  "calls_used": 2,
+  "retries": [
+    {
+      "reason": "First result faced screen-left with mirrored anatomical equipment placement.",
+      "change": "Explicitly anchored nose and toes toward the right border, left side nearest camera, and staff in the far right hand."
+    }
+  ],
+  "self_report": {
+    "obeyed_invariants": false,
+    "concerns": [
+      "Final faces screen-right, but torso remains partly frontal rather than full profile.",
+      "Harness appears to cross the near left shoulder instead of the required right shoulder.",
+      "Camera elevation appears shallower than the requested 53 degrees; staff hand is clearly exposed.",
+      "Delivered the task-specific 1024×1536 portrait; the register's 512×512 registered sheet requirements were not applied."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/k2p_E.png",
+      "sha256": "f909ed80f16e6cab9f79e26510b08cc9bdb3217a9789d99213cacd12150e38c0"
+    }
+  ]
+}

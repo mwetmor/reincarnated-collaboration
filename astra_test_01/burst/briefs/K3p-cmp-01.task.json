@@ -1,0 +1,32 @@
+{
+ "text": "CHECK BURST K3p-cmp-01 — COMPOSITE the Keeper relaxed idle frames onto the locked base with the T0-e mask composite (the loop mechanism, R-20) and report G12 per frame. task_id \"K3p-cmp-01\".\n\nInputs (read-only): the sole-aligned frames /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-reg-01/frames/idle/S/idle_S_01.png … idle_S_15.png (512×512 RGBA) and the SEED canvas /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-seed/canvas_idle_S_seed.png (1254×1254; slot 0 = the APPROVED master C, 470 px tall, sole on cell row 564). THE BASE IS THE SEED, NOT THE SHEET'S SLOT 0 (K3p-reg-01 measured every sheet's slot 0 re-rendered, up to 139 RGB from the seed): FIRST build out/base/idle_S_base.png = crop slot 0 (0,0,627,627) of the seed canvas → gates/matte.py extract (character mode, alpha_floor=40) → resize by exactly 0.5106 with LANCZOS (627 → 320 px) → paste at (96,112) on a 512×512 transparent canvas → translate VERTICALLY by an integer so its sole line (bottom-most row with alpha ≥ 128) is 399, horizontally by an integer only if its alpha-bbox centre-x differs from 255.5 by more than 2 px — report the offsets and the resulting bbox height (expect ≈ 240 px); PIL is a frozen library, integer translations only. Use THIS base as frame 0 of the loop. Frozen tools (read-only; run, never modify or create code; read the docstrings for exact signatures) under /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/: gates/mask_composite.py (composite, evaluate → G12, compose_loop), gates/drift48.py (G11), gates/g6_seam.py (G6 literal + G6b + g6c), gates/common.py.\n\nDo, for frames 1–15 (K3p-reg-01) against the seed-derived base (out/base/idle_S_base.png): region box = the head + shoulders + chest band — the alpha bbox of frame 0 from its top row down to the belt line (belt ≈ the row at 0.55 of the bbox height; state the box you used in pixels); composite(base=frame 0, variant=frame k, region_box, thresh, dilate_px) with the module's documented defaults (record them); write out/composited/idle_S_00.png … idle_S_15.png (frame 0 = the base, copied unchanged); G12 per frame (base_preserved_fraction; literal ≥ 0.99; mask figure fraction ≤ 0.60); then G11 (drift48: every adjacent pair + the 15→0 seam) and G6 / G6b / G6c on the COMPOSITED loop and on the ORIGINAL loop (K3p-reg-01 frames 0–15) side by side; also report, per frame, the 48-px drift of the ORIGINAL frame vs the base (how far each re-rendered frame strayed from the approved master before compositing). Write out/checks.json = SPEC § 1 result envelopes; out/strips/original_vs_composited.png (two 16-frame rows on #3a3f4a); out/checks_readme.txt with the exact commands.\nNo image_gen. No writes outside out/. No web. calls_used must be 0.\nRETURN: receipt task_id \"K3p-cmp-01\"; images []; calls_used 0; files: every out/ file with sha256; status DELIVERED / DELIVERED_WITH_CONCERNS / FAILED; concerns must name anything you could not compute. Never PASS/FAIL.",
+ "references": [],
+ "image_cap": 0,
+ "minutes_cap": 15,
+ "tool_call_cap": 20,
+ "outputs": [
+  "out/checks.json",
+  "out/checks_readme.txt",
+  "out/strips/original_vs_composited.png",
+  "out/base/idle_S_base.png",
+  "out/composited/idle_S_00.png",
+  "out/composited/idle_S_01.png",
+  "out/composited/idle_S_02.png",
+  "out/composited/idle_S_03.png",
+  "out/composited/idle_S_04.png",
+  "out/composited/idle_S_05.png",
+  "out/composited/idle_S_06.png",
+  "out/composited/idle_S_07.png",
+  "out/composited/idle_S_08.png",
+  "out/composited/idle_S_09.png",
+  "out/composited/idle_S_10.png",
+  "out/composited/idle_S_11.png",
+  "out/composited/idle_S_12.png",
+  "out/composited/idle_S_13.png",
+  "out/composited/idle_S_14.png",
+  "out/composited/idle_S_15.png"
+ ],
+ "effort": "high",
+ "add_dirs": [],
+ "experiment": "K3p"
+}

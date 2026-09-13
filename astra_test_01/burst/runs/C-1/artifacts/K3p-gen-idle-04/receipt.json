@@ -1,0 +1,40 @@
+{
+  "task_id": "K3p-gen-idle-04",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "k3p_idle_S_10_12.png",
+      "path": "out/k3p_idle_S_10_12.png",
+      "sha256": "bb889313dd0a18d703de3c98ecf695ea696f056c95010602655cd936b80ec687",
+      "prompt": "Use case: identity-preserve. Edit Image 1, the supplied 1254×1254 2×2 sprite canvas. Deliver exactly ONE image, same canvas dimensions. Keep SLOT 0 (top-left 627×627 square) PIXEL-IDENTICAL, untouched including its green pixels. Fill only the three empty green squares: slot 1 top-right = idle frame 10; slot 2 bottom-left = idle frame 11; slot 3 bottom-right = idle frame 12. No borders, gutters, labels or text.\n\nCopy the exact approved rest character from slot 0 into each destination cell at exactly the same cell-relative position and 470 px standing height, then make ONLY the specified tiny breathing changes. This is a young woman with dark curly hair tied back; ivory rolled-sleeve shirt; navy sleeveless tabard with plain chest; one diagonal chestnut harness to an olive canvas satchel on her anatomical LEFT hip; one belt; laced bracers; navy trousers; chestnut boots; plain walnut staff with brass ferrules upright in her anatomical RIGHT hand (screen left). No insignia anywhere. Facing S, toward the camera. Do not mirror.\n\nRelaxed breathing idle, frames 10–12 of 16; 2 seconds at 8 fps; one full breath: frame 4 peak inhale, frame 8 rest, frame 12 bottom exhale, frame 16 rest. Relative to rest H=470 px:\nFrame 10: chest/shoulders total width -5.4 px; head y -1.0 px.\nFrame 11: chest/shoulders total width -7.1 px; head y -1.3 px.\nFrame 12: chest/shoulders total width -7.7 px; head y -1.4 px.\nImage-down is positive. These are subtle progressive exhale poses with narrowing chest and settling shoulders. Head displacement never exceeds 2 px. Only shoulders, chest and head may move. Preserve the face and eyes exactly with fixed gaze while translating the head. LOCK hips, legs, both feet and sole positions, both arms and hands, staff grip and tip, satchel and belt PIXEL-FOR-PIXEL to the rest frame at their cell-relative coordinates. Keep the same head size, character size, cell baseline and framing in every cell. Slight drawing variation only within the allowed breathing arc; identity must remain exact.\n\nRegister: HAND-DRAWN painted 2D in the manner of a modern hand-animated action game. Confident hand-drawn dark contour with visible taper and varying weight, painted fills in clean material planes, restrained surface texture, readable small silhouettes, no conspicuous grain. Each pose should look like one animation frame. Faction Keepers of Hours, blue/ivory/brass; preserve this approved outfit exactly. Elevated three-quarter projection C, same camera and S facing in all cells. Single key from SCREEN UPPER-LEFT fixed across the sheet, deep cool low-value ambient, readable shadows never pure black, slight rim along the key-facing silhouette. No warm or saturated lighting source, no spell effects, no floor shadows. Flat pure #00ff00 background throughout all cells. Do not zoom, rescale, crop, matte or add scenery. Slot 0 must remain completely unchanged.\nRETRY CORRECTION: The previous attempt wrongly repainted the approved top-left character, especially her face and garment details. Treat the entire top-left quadrant of Image 1 as a protected immutable image region. Retain its original pixels exactly, with no redraw, smoothing, recoloring or background change. Only synthesize in the three empty quadrants. Preserve the exact fine linework and face proportions of the source in the new slots; do not simplify or stylize her differently. The source flat green must remain a uniform pure #00ff00 with no grain or gradients. All other requirements above remain unchanged.",
+      "references": [
+        {
+          "role": "edit target; approved rest frame in protected slot 0",
+          "path": "in/01_canvas_idle_S_seed.png"
+        }
+      ],
+      "elapsed_s": 20.673
+    }
+  ],
+  "calls_used": 2,
+  "retries": [
+    {
+      "reason": "First output visibly altered slot 0, including face and garment details.",
+      "change": "Retried from the original seed with explicit immutable-quadrant preservation and source-detail constraints."
+    }
+  ],
+  "self_report": {
+    "obeyed_invariants": false,
+    "concerns": [
+      "Retry still visibly redraws slot 0; pixel-identical preservation was not achieved.",
+      "Locked character details show drawing variation.",
+      "Exact breathing displacements and pure-green plate uniformity were not numerically verified."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/k3p_idle_S_10_12.png",
+      "sha256": "bb889313dd0a18d703de3c98ecf695ea696f056c95010602655cd936b80ec687"
+    }
+  ]
+}

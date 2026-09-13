@@ -1,0 +1,41 @@
+{
+  "task_id": "K3p-gen-idle-03",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "k3p_idle_S_07_09.png",
+      "path": "out/k3p_idle_S_07_09.png",
+      "sha256": "800b4f07d8839ce7e602bce61e189dc6cb8bec8b6e898ce27641a746b9bb273c",
+      "prompt": "Use case: identity-preserve. Edit Image 1, the supplied 1254×1254 canvas. Deliver exactly one same-size 2×2 sheet, four 627×627 cells, no borders, gutters, labels or text. SLOT 0 TOP-LEFT IS LOCKED: retain its exact original pixels without redrawing, recoloring, shifting or resizing anything. Fill only the three empty green cells with this same Keeper, at precisely the same cell-relative placement and size as slot 0. Slot 1 top-right = relaxed idle frame 7; slot 2 bottom-left = relaxed idle frame 8; slot 3 bottom-right = relaxed idle frame 9. Flat pure #00ff00 background throughout; no matting, no floor shadows.\nIdentity: young woman, dark curly hair tied back, ivory shirt with rolled sleeves, navy sleeveless tabard with plain chest, one diagonal chestnut harness to an olive canvas satchel on her anatomical LEFT hip, one belt, laced bracers, navy trousers, chestnut boots, plain walnut staff with brass ferrules upright in her anatomical RIGHT hand (screen left). No insignia anywhere. Do not mirror.\nAnimation: 16-frame RELAXED BREATHING idle, 2 seconds at 8 fps, one full breath per loop. Frame 4 peak inhale, frame 8 rest, frame 12 bottom exhale, frame 16 rest. Relative to the approved rest frame, H=470px: frame 7 chest/shoulders width +2.9px, head y +0.5px image-down; frame 8 chest/shoulders width +0.0px, head y +0.0px, exact rest pose; frame 9 chest/shoulders width -2.9px, head y -0.5px. Only shoulders, chest and head move, with subtle shoulder lifting/broadening on inhale and settling on exhale; head movement never more than 2px. Preserve face and eyes and fixed gaze as an unchanged drawing that rides with the head. Hips, legs, both feet, both arms and hands, staff grip and tip, satchel and belt are LOCKED PIXEL-FOR-PIXEL to rest at their same cell-relative coordinates. Both soles stay on the identical baseline. No body sway or limb changes. Each frame gently progresses along the specified breathing arc with stable identity.\nEvery cell has identical character size, head size, baseline placement, facing S toward camera, elevated three-quarter projection C camera, and lighting. Single key from SCREEN UPPER-LEFT fixed; deep cool low-value ambient with readable shadows, slight rim on key-facing silhouette; no warm or saturated light source. HAND-DRAWN painted 2D in the manner of a modern hand-animated action game: confident hand-drawn dark contour with visible taper and varying weight, clean painted material planes, restrained surface texture, readable silhouette, no conspicuous grain. The line carries the pose, one frame of hand-drawn animation. Keep the reference's exact design and plain clothing. Preserve original top-left slot pixel-identically; do not zoom or resize the canvas.\nRETRY CORRECTION: The prior attempt incorrectly redrew the original top-left character, especially her face and painted details. This is an edit-canvas operation, not a redraw of the whole sheet. Keep the entire original top-left 627×627 pixel region completely untouched, including every green background pixel and every character pixel. Copy its existing character drawing into the three empty cells, then modify only the tiny specified chest/shoulder widths and head offsets there. Preserve the exact original rendering, eyes, facial proportions, arms, feet and staff. Frame 8 must be the original rest drawing translated exactly 627 pixels downward. Keep the background perfectly uniform pure #00ff00, with no texture or color variation.",
+      "references": [
+        {
+          "role": "edit target; locked approved rest frame in slot 0",
+          "path": "in/01_canvas_idle_S_seed.png"
+        }
+      ],
+      "elapsed_s": 20.868
+    }
+  ],
+  "calls_used": 2,
+  "retries": [
+    {
+      "reason": "First output visibly redrew slot 0, including facial features.",
+      "change": "Repeated edit from the original seed with stronger instructions to preserve the entire top-left region and copy its existing drawing."
+    }
+  ],
+  "self_report": {
+    "obeyed_invariants": false,
+    "concerns": [
+      "The retry still visibly alters slot 0 and the approved facial drawing.",
+      "Locked body parts show drawing variation; pixel-identical preservation was not achieved.",
+      "The background appears nonuniform; exact #00ff00 and specified motion offsets were not measured.",
+      "The permitted retry is exhausted; the candidate is returned for conductor review."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/k3p_idle_S_07_09.png",
+      "sha256": "800b4f07d8839ce7e602bce61e189dc6cb8bec8b6e898ce27641a746b9bb273c"
+    }
+  ]
+}

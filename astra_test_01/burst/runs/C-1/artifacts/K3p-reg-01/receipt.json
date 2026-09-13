@@ -1,0 +1,98 @@
+{
+  "task_id": "K3p-reg-01",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [],
+  "calls_used": 0,
+  "retries": [
+    {
+      "reason": "Output-count verification included live wrapper audit files.",
+      "change": "Verified the 19 requested deliverables separately; no artwork reprocessing."
+    }
+  ],
+  "self_report": {
+    "obeyed_invariants": true,
+    "concerns": [
+      "Frames 02 and 03 required integer vertical translations of +13 px, exceeding 6 px.",
+      "All four repeated slot-0 cells differ beyond edge matte noise: maximum matted RGBA absolute difference 255 each; mutually opaque RGB maxima 132, 104, 139, and 113.",
+      "Live .wrapper-* audit files are excluded from the deliverable hash inventory."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/registration.json",
+      "sha256": "cbe2f466b2cce09d4fc469bf72d373db630782dbdd8a942cc1214a83a8ee07af"
+    },
+    {
+      "path": "out/readme.txt",
+      "sha256": "20ea1dc45436dbd17dc000a319d23c23089c18f45400f7cb1a587d8ece576c0d"
+    },
+    {
+      "path": "out/sheets/idle_S_strip.png",
+      "sha256": "76f73c7ee932920037fb63fabdcd8df24b465bfa9f7f1b1270e1882e197f2708"
+    },
+    {
+      "path": "out/frames/idle/S/idle_S_00.png",
+      "sha256": "308537a66fce3976a6e8b36257a0546beb75161f4854bb0d4897b08a9634d7ea"
+    },
+    {
+      "path": "out/frames/idle/S/idle_S_01.png",
+      "sha256": "b0e84a720dce9bdcaaa046bc51ec42a0883ed9802df3a1c6577b2c9173dd4b47"
+    },
+    {
+      "path": "out/frames/idle/S/idle_S_02.png",
+      "sha256": "d5767447fe1e76451787e6d2f1a956562fcecafa2e0c0e9be3371972d82a672a"
+    },
+    {
+      "path": "out/frames/idle/S/idle_S_03.png",
+      "sha256": "acb5cbfd1919dd036c7fbf474dd5fb4edb64c78a3ed019d57e8cc2324fe67163"
+    },
+    {
+      "path": "out/frames/idle/S/idle_S_04.png",
+      "sha256": "2db950e52f7db1ad8d5ddf84651a34212e8b4f2ea221316b42bc6846d7521316"
+    },
+    {
+      "path": "out/frames/idle/S/idle_S_05.png",
+      "sha256": "45fbc16a84713d58e35ad507c0065bb5f6ac2ab98133e68169979df295fd8eb8"
+    },
+    {
+      "path": "out/frames/idle/S/idle_S_06.png",
+      "sha256": "0e5b81a8b3b2dd6b0f342c9ee07718b63f708888fa39d2ed3b99793fcd2f3f36"
+    },
+    {
+      "path": "out/frames/idle/S/idle_S_07.png",
+      "sha256": "d68c17689b9545f81a44b504157968e9fdac093a0ca99eee9dbe07b7aef104d3"
+    },
+    {
+      "path": "out/frames/idle/S/idle_S_08.png",
+      "sha256": "33709c9a4bd36393bdca0930a8829f1f41446cdbd4acc2d66cefdfca9612e69c"
+    },
+    {
+      "path": "out/frames/idle/S/idle_S_09.png",
+      "sha256": "c52650d32740055dfcbf60e779e503e0849044dac5dc7e07dfa0b45fbf41e900"
+    },
+    {
+      "path": "out/frames/idle/S/idle_S_10.png",
+      "sha256": "731b2ea0c9f9d1ad266f9b3df4e1c485cdd4cc67132b0408b8d7503fc4f390af"
+    },
+    {
+      "path": "out/frames/idle/S/idle_S_11.png",
+      "sha256": "e62fc1e7f552925c398895ed58b2808daa5acefe5162c050288d65283d9913a9"
+    },
+    {
+      "path": "out/frames/idle/S/idle_S_12.png",
+      "sha256": "5a66be4dab2a74ebb779dbc2a4dd68e136f12e856900671fc0ab4fe6f3d563ac"
+    },
+    {
+      "path": "out/frames/idle/S/idle_S_13.png",
+      "sha256": "6e02b75d28dd87d4133bff2f81ac33052d4cdbaa297a9313e7152f1c62c2993d"
+    },
+    {
+      "path": "out/frames/idle/S/idle_S_14.png",
+      "sha256": "96b321b850a5bd4de9dcc318ff64c822542461163b8cade847f3c3823d33bc57"
+    },
+    {
+      "path": "out/frames/idle/S/idle_S_15.png",
+      "sha256": "878b7ddadce23c70247fe089c736dd6734ff519fc3125b615a1e86ec0d820a52"
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+ "text": "PACK BURST K3p-reg-x2-01 — register the Keeper RELAXED idle-S sheets into 16 sole-aligned 512×512 frames (register card CANVAS rule: uniform downscale + TRANSLATION only — per-frame integer translation, never per-frame scale, never upscaling; K3-reg-02 method). task_id \"K3p-reg-x2-01\" (ATTEMPT 2 of the relaxed idle — same seed, exaggeration-language method change; attempt 1 = K3p-reg-01).\n\nInputs (read-only): the five 2×2 sheets (1254², 627-px cells, row-major) /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-gen-idle-x2-01/k3p_idle_x2_S_01_03.png (slot 0 = rest frame 0; slots 1–3 = frames 1–3), /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-gen-idle-x2-02/k3p_idle_x2_S_04_06.png (slot 0 = rest frame 0; slots 1–3 = frames 4–6), /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-gen-idle-x2-03/k3p_idle_x2_S_07_09.png (slot 0 = rest frame 0; slots 1–3 = frames 7–9), /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-gen-idle-x2-04/k3p_idle_x2_S_10_12.png (slot 0 = rest frame 0; slots 1–3 = frames 10–12), /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-gen-idle-x2-05/k3p_idle_x2_S_13_15.png (slot 0 = rest frame 0; slots 1–3 = frames 13–15); the registration transform /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-seed/registration_transform.json (cell = 627 px; scale = 0.5106 → 320 px; paste offset (96,112) on a 512×512 transparent canvas — the SAME transform for every cell). Frozen tools: gates/matte.py (extract, character mode, alpha_floor=40) for matting each cell BEFORE downscaling; gates/common.py; gates/register.py (read its docstring). PIL is a frozen library: run `python3 - <<'PY'` scripts that only crop cells, matte, resize with LANCZOS by exactly the given scale, paste at exactly the given offset, and then translate by INTEGERS — never fit, never per-frame scale, never upscale.\n\nFrames: frame 0 = sheet-1 slot 0 (the seed cell — it must also equal sheet-2..5 slot 0 within matte noise; report the max |Δ| of those four slot-0 cells vs sheet-1 slot 0 as a seed-persistence number); frames 1–15 = the sheets' slots 1–3 in order. Then SOLE-ALIGN: measure each frame's sole line (bottom-most row with alpha ≥ 128) and translate the frame VERTICALLY by an integer so that row lands on frame 0's sole line; horizontal translation ONLY if the alpha-bbox centre-x differs from frame 0 by more than 2 px, and then by the integer difference; report every offset. Write out/frames/idle/S/idle_S_00.png … idle_S_15.png, out/sheets/idle_S_strip.png (16 frames on #3a3f4a with numbers), out/registration.json (per frame: source sheet + slot, alpha bbox, bbox height px, sole line before/after, offsets applied, seed-persistence Δ for slot-0 cells), out/readme.txt with the exact commands. No image_gen. No writes outside out/. calls_used must be 0.\nRETURN: receipt task_id \"K3p-reg-x2-01\" (ATTEMPT 2 of the relaxed idle — same seed, exaggeration-language method change; attempt 1 = K3p-reg-01); images []; files: every out/ file with sha256; status DELIVERED / DELIVERED_WITH_CONCERNS; concerns for any cell whose figure touches a cell edge, any frame needing more than 6 px of translation, or any slot-0 cell that differs from the seed by more than matte noise. Never PASS/FAIL.",
+ "references": [],
+ "image_cap": 0,
+ "minutes_cap": 15,
+ "tool_call_cap": 20,
+ "outputs": [
+  "out/registration.json",
+  "out/readme.txt",
+  "out/sheets/idle_S_strip.png",
+  "out/frames/idle/S/idle_S_00.png",
+  "out/frames/idle/S/idle_S_01.png",
+  "out/frames/idle/S/idle_S_02.png",
+  "out/frames/idle/S/idle_S_03.png",
+  "out/frames/idle/S/idle_S_04.png",
+  "out/frames/idle/S/idle_S_05.png",
+  "out/frames/idle/S/idle_S_06.png",
+  "out/frames/idle/S/idle_S_07.png",
+  "out/frames/idle/S/idle_S_08.png",
+  "out/frames/idle/S/idle_S_09.png",
+  "out/frames/idle/S/idle_S_10.png",
+  "out/frames/idle/S/idle_S_11.png",
+  "out/frames/idle/S/idle_S_12.png",
+  "out/frames/idle/S/idle_S_13.png",
+  "out/frames/idle/S/idle_S_14.png",
+  "out/frames/idle/S/idle_S_15.png"
+ ],
+ "effort": "high",
+ "add_dirs": [],
+ "experiment": "K3p"
+}

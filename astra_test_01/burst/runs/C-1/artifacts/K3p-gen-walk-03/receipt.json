@@ -1,0 +1,54 @@
+{
+  "task_id": "K3p-gen-walk-03",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "k3p_walk_E_06_08.png",
+      "path": "out/k3p_walk_E_06_08.png",
+      "sha256": "6602275b9dac0a446d1c47d4f8e6fc93e6589d7bcad8e249d94a204c12c2f012",
+      "prompt": "Use case: identity-preserve. Edit Image 1, the 1254×1254 square sprite canvas, and deliver exactly ONE PNG of the same dimensions. The canvas consists of four 627×627 cells in a 2×2 arrangement without visible borders or gutters. FREEZE THE ENTIRE TOP-LEFT CELL (slot 0): retain every source pixel exactly, including its character and green background. Only fill the three empty green cells: top-right = walk frame 6 DOWN; bottom-left = walk frame 7 PASSING; bottom-right = walk frame 8 UP. Images 2, 3, 4 are solely foot-placement/head-height layout guides for those three frames respectively; do not reproduce their text, circles, colored markers, white backgrounds or ground lines.\n\nIdentity from Image 1: same young woman, dark curly hair tied back, ivory rolled-sleeve shirt, navy sleeveless tabard with plain chest, one diagonal chestnut harness to olive canvas satchel on her LEFT hip, one belt, laced bracers, navy trousers, chestnut boots. Plain walnut staff with brass ferrules upright in her RIGHT hand, on the far side, tip above shoulder. No insignia anywhere. E facing: full right-facing profile with LEFT side toward camera, left satchel visible in front; right staff hand on far side. Do not mirror. Gaze stays level toward screen-right, never toward camera.\n\nMatch the original character height of 470 pixels, cell-relative center, baseline, costume and identity. The reference character is approximately x 256–370, y 94–564 within slot 0; use the corresponding cell-relative torso/root position and baseline for the three added figures. Keep each entire character and staff contained in its cell. No zoom. Same fixed elevated three-quarter projection camera, with character facing E in every cell. Walk IN PLACE, figure root stays centered: planted near foot slides backward under the body while the far swing foot passes forward. These are successive frames 6,7,8 of a 12-frame full stride at 12 fps.\n\nExact phase spec: H is standing figure height, x is relative to body/root and screen-right positive, sole height above baseline. Near = anatomical left/camera side; far = anatomical right/staff side.\nFrame 6 / top-right / DOWN: head height 0.988776 H; near sole x +0.110788 H, height 0.004553 H, PLANTED; far sole x -0.072847 H, height 0.068294 H, SWING. Near arm x -0.017450 H; far arm x +0.019713 H. Weight bent into supporting near leg, far foot behind and lifted.\nFrame 7 / bottom-left / PASSING: head height 0.996364 H; near sole x +0.057670 H, height 0.006071 H, PLANTED; far sole x -0.001518 H, height 0.066776 H, SWING. Near arm x -0.009084 H; far arm x +0.000411 H. Far foot passes under body lifted, near foot still ahead supporting.\nFrame 8 / bottom-right / UP: head height 0.988776 H; near sole x +0.001518 H, height 0.007588 H, PLANTED; far sole x +0.185152 H, height 0.030353 H, SWING. Near arm x -0.000239 H; far arm x -0.050104 H. Near supporting sole under body; far foot clearly swings forward to screen-right above ground.\nMatch guide foot trajectories closely. The stride has weight: head bobs into contact and rises through passing, approximately 4–5 percent over the complete cycle; honor the exact per-frame values above. Free near arm counterswings against near leg, staff arm counterswings less with staff upright in grip. Hair and satchel follow by a few pixels.\n\nStyle: HAND-DRAWN painted 2D, a modern hand-animated action game frame. Confident hand-drawn dark contour with visible taper and varying weight, painted fills in clean planes, restrained surface texture, readable small silhouettes, no conspicuous grain. The line carries the pose. Match the source drawing closely. Faction palette blue / ivory / brass. Fixed single key from SCREEN UPPER-LEFT in every cell, deep cool low-value ambient, readable shadows never pure black, slight rim on key-facing silhouette. No warm or saturated light source, no spell effects, NO floor shadows. Background everywhere flat pure #00ff00, fully opaque. No matting, no text, labels, borders, gutters, extra objects or figures. Repeat: slot 0 must remain pixel-identical to Image 1; edit only slots 1–3.\n\nDIAGNOSED RETRY: the prior attempt redrew and shifted slot 0, violating its pixel-identical freeze. Correct this specifically. Image 1 remains the ORIGINAL authoritative edit target. Copy its top-left 627×627 region unchanged; do not regenerate, move, enlarge, recolor, smooth, or redraw any pixel there. The figure in that original region ends near y=564, not y=594. For added cells use baseline near local y=564 and standing 470-pixel height. Retain original exact flat green background; do not add green texture. Fill only the three empty cells using the phase specifications. Preserve original sheet dimensions 1254×1254. All other identity, hand, pose, style and lighting constraints remain as specified.",
+      "references": [
+        {
+          "role": "Edit target; approved rest-frame identity, placement and lighting; slot 0 frozen",
+          "path": "in/01_canvas_walk_E_seed.png"
+        },
+        {
+          "role": "Frame 6 pose layout guide for slot 1",
+          "path": "in/02_walk_06.png"
+        },
+        {
+          "role": "Frame 7 pose layout guide for slot 2",
+          "path": "in/03_walk_07.png"
+        },
+        {
+          "role": "Frame 8 pose layout guide for slot 3",
+          "path": "in/04_walk_08.png"
+        }
+      ],
+      "elapsed_s": 40.291
+    }
+  ],
+  "calls_used": 2,
+  "retries": [
+    {
+      "reason": "First output visibly redrew and shifted slot 0.",
+      "change": "Retried from original references with stronger pixel-preservation instructions and explicit original baseline and height."
+    }
+  ],
+  "self_report": {
+    "obeyed_invariants": false,
+    "concerns": [
+      "Retry still visibly alters slot 0; it is not pixel-identical.",
+      "Figures are enlarged and displaced from the reference baseline; top-row boots cross the 627-pixel cell boundary.",
+      "Frame 7 swing-foot placement and arm counter-swing do not closely match the specified phase.",
+      "Green background appears textured; exact pure #00ff00 was not verified.",
+      "Two-call cap reached; no further retry or corrective editing performed."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/k3p_walk_E_06_08.png",
+      "sha256": "6602275b9dac0a446d1c47d4f8e6fc93e6589d7bcad8e249d94a204c12c2f012"
+    }
+  ]
+}

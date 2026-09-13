@@ -1,0 +1,52 @@
+{
+  "task_id": "K3p-gen-walk-02",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "k3p_walk_E_03_05.png",
+      "path": "out/k3p_walk_E_03_05.png",
+      "sha256": "7b4fe64b07a25945db1d23c786a273d0eae5c402f54cff73300220849654cb51",
+      "prompt": "EDIT-CANVAS / identity-preserve. Produce exactly ONE 1254×1254 PNG sprite sheet, 2×2 square 627px cells. Image 1 is the edit target. Keep its entire TOP-LEFT cell (slot 0, x0–626 y0–626) PIXEL-IDENTICAL, including the approved rest character and green. Change ONLY the three empty green cells. Image 2 is a layout-only pose guide for top-right slot 1 = WALK frame 3 UP. Image 3 is a layout-only pose guide for bottom-left slot 2 = WALK frame 4 CONTACT. Image 4 is a layout-only pose guide for bottom-right slot 3 = WALK frame 5 DOWN. Never draw the guides, circles, lines, text, colored boxes or labels. The background throughout is flat pure #00ff00. No borders, gutters, text or floor shadows. Do not zoom, crop, mirror, matte or resize the canvas.\nCopy the exact character identity, proportions, 470px standing height, local center and baseline from slot 0 into each new cell, changing pose according to the guides and numerical phase specification below. All frames face screen-right E in full right-facing profile; LEFT side toward camera, olive satchel on LEFT hip in front, plain walnut staff with brass ferrules in anatomical RIGHT hand on FAR side, upright with tip above shoulder. Young woman, dark curly hair tied back, ivory rolled-sleeve shirt, navy sleeveless tabard with plain chest, ONE diagonal chestnut harness to olive canvas LEFT-hip satchel, ONE belt, laced bracers, navy trousers, chestnut boots. No insignia anywhere. Same level head and gaze locked screen-right, never toward camera. Same elevated three-quarter projection camera as reference, character rotation only. Fixed single cold key from SCREEN UPPER-LEFT, deep cool low-value ambient with readable shadows never pure black, slight rim on key-facing edge. No warm light or spell effects.\nHAND-DRAWN painted 2D in the manner of a modern hand-animated action game: confident dark hand-drawn contour with visible taper and varying weight, painted fills in clean material planes, restrained texture, readable small silhouettes, no conspicuous grain; the line carries the pose. Each image looks like an animation frame. Faction palette blue / ivory / brass; retain exact costume from target.\nThis is a 12-frame IN-PLACE WALK at 12fps, one full stride with left then right contact. Figures remain centered in their cells. H=470px; x offsets below are relative to body root along screen-right; sole height is above common rest ground baseline. Near = anatomical left / camera side. Far = anatomical right / staff side. Match each guide's planted vs swing sole and head ride. No translation through the cell. Planted sole slides backward under the body as swing foot passes forward. Arms oppose same-side legs, free near arm swings freely while far staff arm swings less with staff upright. Hair and satchel follow motion by a few pixels. Head bobs down into contact and rises through passing, weighty stride.\nTOP-RIGHT, frame 3 UP: head height 1.026717H; near sole x +0.247376H, height 0.025800H, SWING; far sole x -0.051600H, height 0.004553H, PLANTED. Near arm x -0.038964H; far arm x +0.013963H.\nBOTTOM-LEFT, frame 4 CONTACT: head height 1.013437H; near sole x +0.238270H, height 0.006071H, PLANTED; far sole x -0.125964H, height 0.022765H, SWING. Near arm x -0.037530H; far arm x +0.034087H.\nBOTTOM-RIGHT, frame 5 DOWN: head height 1.019129H; near sole x +0.185152H, height 0.004553H, PLANTED; far sole x -0.154800H, height 0.042494H, SWING. Near arm x -0.029163H; far arm x +0.041890H.\nFinal invariant: original top-left cell must remain pixel-for-pixel untouched; fill only slots 1–3 with the specified three phases, at identical character scale, baseline, identity, camera, lighting and right-facing direction. Keep every character, staff and boot completely inside its cell on the pure green plate.\nRETRY CORRECTION — previous attempt altered and enlarged slot 0. This is a local canvas edit, not a redraw of the sheet. Preserve Image 1 top-left 627×627 pixels exactly as supplied. The original rest figure occupies approximately x256–371, y95–564, NOT an enlarged figure that fills the cell. Keep that original patch untouched. New figures must likewise be only approximately 470px tall, with local feet baseline y564 and local body center x313. Therefore top-right figure head around global y82 and ground around y564; bottom-left head around global y716 and ground around y1191; bottom-right head around global y713 and ground around y1191. Leave the large green margins intact. Do not enlarge any figure to 560px. Slot 0 must be the original patch, not a newly painted copy. In frame 3 the near forward leg's free arm is BACK, as specified, never swinging forward together with that leg. All elements stay within their 627px cell.",
+      "references": [
+        {
+          "role": "Edit canvas; approved rest identity, scale, baseline and lighting; slot 0 preservation target",
+          "path": "in/01_canvas_walk_E_seed.png"
+        },
+        {
+          "role": "Layout-only pose guide for frame 3, slot 1",
+          "path": "in/02_walk_03.png"
+        },
+        {
+          "role": "Layout-only pose guide for frame 4, slot 2",
+          "path": "in/03_walk_04.png"
+        },
+        {
+          "role": "Layout-only pose guide for frame 5, slot 3",
+          "path": "in/04_walk_05.png"
+        }
+      ],
+      "elapsed_s": 38.583
+    }
+  ],
+  "calls_used": 2,
+  "retries": [
+    {
+      "reason": "First generation visibly redrew and enlarged slot 0.",
+      "change": "Retried from the original references with explicit untouched-cell bounds, original figure bounds, scale and baseline coordinates."
+    }
+  ],
+  "self_report": {
+    "obeyed_invariants": false,
+    "concerns": [
+      "The retry still visibly altered slot 0; pixel-identical preservation was not achieved.",
+      "Figure scale and baseline differ from the seed, and exact numerical pose-guide adherence is unverified.",
+      "Both permitted image calls are exhausted; the final candidate is returned for conductor review."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/k3p_walk_E_03_05.png",
+      "sha256": "7b4fe64b07a25945db1d23c786a273d0eae5c402f54cff73300220849654cb51"
+    }
+  ]
+}

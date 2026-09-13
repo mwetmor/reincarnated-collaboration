@@ -1,0 +1,53 @@
+{
+  "task_id": "K3p-gen-walk-04",
+  "status": "FAILED",
+  "images": [
+    {
+      "name": "k3p_walk_E_09_11.png",
+      "path": "out/k3p_walk_E_09_11.png",
+      "sha256": "ae72bad2bb00a5d91748e25e6f30607d1d01b69b7dcfe1695e4ec491e89e80bd",
+      "prompt": "Use case: identity-preserve. Edit Image 1, the 1254×1254 canvas. Deliver ONE 1254×1254 image, exactly the same 2×2 sheet with 627-pixel square cells. LOCK the entire top-left cell (slot 0) pixel-identical to Image 1. Fill only the three empty green cells: top-right slot 1 = walk frame 9, bottom-left slot 2 = walk frame 10, bottom-right slot 3 = walk frame 11. No borders, labels, gutters, text, floor shadows, or matting. Background flat pure #00ff00 throughout.\n\nImage 1 is the edit target and sole identity/style/size/light reference. Images 2, 3, 4 are layout-only pose guides for frames 9, 10, 11 respectively: use their head height and near/far sole positions, do not reproduce the diagram marks or text. Near means anatomical LEFT side toward camera, far means anatomical RIGHT staff side.\n\nPreserve this exact young woman, dark curly hair tied back, ivory rolled-sleeve shirt, navy sleeveless tabard with plain chest, one diagonal chestnut harness to olive canvas satchel on LEFT hip in front, one belt, laced bracers, navy trousers, chestnut boots, plain walnut staff with brass ferrules upright in RIGHT hand on far side, tip above shoulder. No insignia anywhere. E-facing full screen-right profile throughout, eyes and head level facing the path, never toward camera. Same camera as seed: elevated three-quarter projection C. Never mirror. Staff stays in right far hand. Fixed screen upper-left single key, deep cool readable ambient, subtle key-facing rim, no warm light source. Preserve seed size and baseline: standing figure 470 px tall per cell, same position relative to each cell as seed. Do not zoom or rescale. Root stays centered for in-place walking.\n\nPHASE SPEC, H = figure height, sole x relative to body along travel, positive toward screen-right; height measured above baseline. Match guide layouts and these numeric positions:\nSlot 1, FRAME 9, UP: head height 0.983085 H; near left sole x -0.066776 H, height 0.010623 H, planted; far right sole x +0.268623 H, height 0.047047 H, swing. Near free arm x +0.010518 H, far staff arm x -0.072692 H, each opposing same-side sole.\nSlot 2, FRAME 10, CONTACT: head height 0.984982 H; near left sole x -0.119894 H, height 0.024282 H, swing; far right sole x +0.221576 H, height 0.016694 H, planted. Near free arm x +0.018884 H; far staff arm x -0.059960 H.\nSlot 3, FRAME 11, DOWN: head height 0.983085 H; near left sole x -0.166941 H, height 0.057670 H, swing; far right sole x +0.157835 H, height 0.016694 H, planted. Near free arm x +0.026295 H; far staff arm x -0.042712 H.\n\nThese are successive frames 9–11 of a 12-frame IN-PLACE WALK at 12 fps, full two-contact stride left then right. Legs must articulate a weighty walk; planted foot slides backward beneath body as swing foot passes forward. Head bobs into contact and rises through passing by about 4–5% of H over the full cycle (about 20 px), following specific guides for these frames. Near arm counter-swings freely; far staff arm counter-swings less and maintains upright staff in grip. Hair and satchel follow by a few pixels. Keep same figure proportions, costume, staff, rendering, camera, facing and fixed lighting in all cells.\n\nSTYLE: HAND-DRAWN painted 2D in the manner of a modern hand-animated action game: confident dark hand-drawn contour with visible taper and varying weight, painted fills in clean material planes, restrained surface texture, readable small silhouettes, no conspicuous grain. Line carries the pose; each figure looks like a frame of hand-drawn animation. Keeper blue/ivory/brass palette. Rest-cell preservation is critical: absolutely no changes anywhere in top-left 627×627 pixels. Only fill slots 1, 2, 3.\nRETRY CORRECTION: Prior attempt altered and enlarged the top-left rest frame. Start again from the ORIGINAL Image 1 supplied here. Retain its top-left cell exactly, including original small figure bounds approximately x=257–371, y=94–564. Do not redraw or enlarge this figure. Copy its pixels unchanged. Corresponding figures in the other cells must keep that same 470-pixel standing height and the same local baseline at approximately y=564. Top-right baseline global y=564; bottom-row baseline global y=1191. Leave all original top-left pixels untouched. Fill only originally empty green slots. The three walk poses must follow the distinct near/far placements specified, especially frame 11 near leg trailing and lifted, far leg ahead and planted.",
+      "references": [
+        {
+          "role": "Edit target; approved rest identity, size, baseline and lighting; slot 0 preservation",
+          "path": "in/01_canvas_walk_E_seed.png"
+        },
+        {
+          "role": "Layout-only pose guide for frame 9, slot 1",
+          "path": "in/02_walk_09.png"
+        },
+        {
+          "role": "Layout-only pose guide for frame 10, slot 2",
+          "path": "in/03_walk_10.png"
+        },
+        {
+          "role": "Layout-only pose guide for frame 11, slot 3",
+          "path": "in/04_walk_11.png"
+        }
+      ],
+      "elapsed_s": 38.271
+    }
+  ],
+  "calls_used": 2,
+  "retries": [
+    {
+      "reason": "First generation visibly redrew and enlarged slot 0.",
+      "change": "Restarted from original references with explicit original figure bounds, cell baselines and pixel-preservation instructions."
+    }
+  ],
+  "self_report": {
+    "obeyed_invariants": false,
+    "concerns": [
+      "Retry still visibly altered slot 0; pixel-identical preservation was not achieved.",
+      "Figure size and placement changed; the rest figure extends below its top-left cell.",
+      "Exact pose-guide coordinates and pure-green plate values were not quantitatively verified.",
+      "Both permitted image calls were used. Final candidate saved for conductor review."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/k3p_walk_E_09_11.png",
+      "sha256": "ae72bad2bb00a5d91748e25e6f30607d1d01b69b7dcfe1695e4ec491e89e80bd"
+    }
+  ]
+}

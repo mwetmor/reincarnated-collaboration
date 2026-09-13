@@ -1,0 +1,42 @@
+{
+  "task_id": "K2p-gen-E-r2",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "k2p_E_r2.png",
+      "path": "out/k2p_E_r2.png",
+      "sha256": "30eca1a67fba1a31571b47549cc3b75c770f8ff01743793b76030be9cd0d623c",
+      "prompt": "Use case: identity-preserve. Generate exactly ONE full-body character rest frame, portrait canvas matching Image 1, on flat uniform pure #00ff00 covering the whole background, no floor shadow, no matting.\nREFERENCE ROLES: Image 1 is the APPROVED IDENTITY MASTER: preserve her exact youthful face, dark curly tied-back hair mass, sun-browned skin, proportions, costume construction and lengths, all items and their anatomical sides, and hand-drawn register. Image 2 is GEOMETRY ONLY: use its full right-facing profile and staff-in-front arrangement and strap emerging from behind the neck across the front of the chest. Do not borrow its face, hair, proportions, garment lengths, texture or rendering. Image 2 omits the satchel: you MUST include the master image's olive canvas satchel.\nROTATION: SAME young woman, early 20s, rotated to direction E: full RIGHT-facing profile, nose, chest and both boot toes point screen-right; her LEFT side is the near side visible to camera. Standing rest, weight even, full body with both feet completely visible, centered, same standing height and framing as Image 1. Camera fixed, elevated three-quarter pinhole projection C about 53 degrees above ground; character rotates, camera does not. No mirroring.\nCRITICAL EQUIPMENT TOPOLOGY: one chestnut strap over anatomical RIGHT shoulder, which is the FAR shoulder hidden behind her neck. The strap EMERGES FROM BEHIND HER NECK and descends across the FRONT of her chest toward screen-right, ending at the olive canvas satchel on her near LEFT hip, toward the camera in front of the near thigh, with brass corners visible. The visible near LEFT shoulder is BARE of strap: only ivory sleeve and navy tabard shoulder there. NO strap over the near shoulder. Exactly one strap and one satchel. Near LEFT arm hangs relaxed straight down at her side with laced bracer and empty hand. Far RIGHT arm partly hidden behind the body bends to hold the plain walnut staff upright in front of the body at chest height. The gripping hand belongs to the FAR arm. Staff foot touches the ground beside her far boot; tip rises above her HEAD. Plain dark walnut staff with small brass ferrules at foot and tip; no ring or head-piece.\nIDENTITY/COSTUME: young woman with the exact identity and hair shape from Image 1; visible face, no helmet; ivory linen shirt, navy sleeveless tabard with plain chest, same hem length and cut as Image 1, navy trousers, chestnut laced bracers, ONE chestnut waist belt, chestnut buckled boots, ONE diagonal chestnut harness carrying the olive canvas satchel on LEFT hip. Every surface plain: no insignia, emblem, ornament added, text, extra objects or extra straps.\nSTYLE H1: HAND-DRAWN painted 2D in the manner of a modern hand-animated action game. Confident dark contour drawn by hand with visible taper and varying weight; painted fills in clean planes inside the line; restrained texture; line carries pose. Looks like one frame of hand-drawn animation, not a rendered illustration. Clean material planes, readable small silhouette, no conspicuous brush or granular texture. Match Image 1's drawing register precisely.\nLIGHT: single cold key fixed at SCREEN UPPER-LEFT, independent of character rotation. Deep cool low-value ambient, readable shadows never pure black, slight rim on key-facing screen-left silhouette edge. No warm or saturated light, no spell glow, no floor shadow. Background completely flat pure #00ff00.\nDeliver one portrait image only, no sheet or additional views.",
+      "references": [
+        {
+          "role": "APPROVED IDENTITY MASTER — identity, costume, proportions, pose and register",
+          "path": "in/01_k1p_master_C.png"
+        },
+        {
+          "role": "GEOMETRY ONLY — E profile and equipment placement; excludes identity and register",
+          "path": "in/02_k2_E.png"
+        }
+      ],
+      "elapsed_s": 35.349
+    }
+  ],
+  "calls_used": 1,
+  "retries": [],
+  "self_report": {
+    "obeyed_invariants": false,
+    "concerns": [
+      "Strap appears to cross the visible near shoulder instead of emerging solely from behind the neck.",
+      "Staff tip is below the head.",
+      "Camera appears substantially shallower than the specified 53-degree elevation.",
+      "Hair silhouette and tabard hem differ from the approved identity master.",
+      "Delivered the task-specific 1024×1536 portrait; no 2×2 sheet or 512×512 registration was performed.",
+      "No retry: observed deviations do not meet the task's restricted retry conditions."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/k2p_E_r2.png",
+      "sha256": "30eca1a67fba1a31571b47549cc3b75c770f8ff01743793b76030be9cd0d623c"
+    }
+  ]
+}

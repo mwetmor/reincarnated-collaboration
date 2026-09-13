@@ -1,0 +1,37 @@
+{
+  "task_id": "K2p-gen-E-r1",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "k2p_E_r1.png",
+      "path": "out/k2p_E_r1.png",
+      "sha256": "757a52f15ecf1f4c6362c36a86f032430b5e16666b5e472078d5a6016a22eadc",
+      "prompt": "Use case: identity-preserve. Image 1 is the APPROVED IDENTITY MASTER, direction S; preserve exactly her identity, hair mass, skin, costume, items, proportions and hand-drawn register. Create EXACTLY ONE full-body rest-frame portrait of the SAME young woman rotated to direction E: full RIGHT-facing profile, chest, nose and both boot toes point screen-right; only her anatomical LEFT side is visible. The camera stays fixed, elevated three-quarter pinhole view approximately 53 degrees above the ground plane, projection C; rotate the character, never mirror the image. Same framing and standing height as Image 1, full body centered, feet fully visible, portrait canvas. Flat uniform pure #00ff00 background everywhere, no floor shadow, no matting.\n\nCRITICAL STRAP GEOMETRY: ONE chestnut harness strap goes over her anatomical RIGHT shoulder (the FAR shoulder hidden behind her neck), down across the FRONT of her chest to the anatomical LEFT hip. In this profile the strap EMERGES FROM BEHIND HER NECK at the top of the torso and runs diagonally down the FRONT of her chest toward screen-right to the olive satchel on her NEAR LEFT hip. The visible NEAR LEFT shoulder has NO strap over it. Satchel is on the near hip, toward camera and in front of the body. Her near LEFT arm hangs relaxed at her side with its laced bracer. Her far RIGHT arm is partly hidden behind the body and holds the plain walnut staff upright in front of her body, hand at chest height; staff foot grounded beside her far boot, tip above her head. Keep weapon in anatomical right hand.\n\nIdentity unchanged: young woman early 20s, sun-browned skin, dark curly hair tied back, same face in profile, face visible, no helmet. Ivory linen shirt, navy sleeveless tabard with PLAIN chest, ONE chestnut diagonal harness strap, ONE olive canvas satchel on LEFT hip, ONE waist belt, chestnut laced bracers, navy trousers, chestnut buckled boots. PLAIN dark walnut staff with small brass ferrules at tip and foot, NO ring or head-piece. No insignia or emblems anywhere, every surface plain, no extra objects. Same standing rest pose and even weight.\n\nRegister: HAND-DRAWN painted 2D in the manner of a modern hand-animated action game. Confident dark contour line drawn by hand with visible taper and varying weight; painted fills in clean material planes within the line; restrained surface texture, readable silhouette, no conspicuous grain. The line carries the pose. Looks like one frame of hand-drawn animation. F04 palette blue, ivory, brass. Fixed single cold key from SCREEN UPPER-LEFT, key-facing silhouette edge has a slight rim, deep cool low-value ambient, readable shadows never pure black. Light does not rotate with the character. No spell glow, no warm or saturated light source. No floor shadow. Deliver a single portrait image like the reference.",
+      "references": [
+        {
+          "role": "APPROVED IDENTITY MASTER (direction S): identity, costume, proportions, pose and register",
+          "path": "in/01_k1p_master_C.png"
+        }
+      ],
+      "elapsed_s": 34.025
+    }
+  ],
+  "calls_used": 1,
+  "retries": [],
+  "self_report": {
+    "obeyed_invariants": false,
+    "concerns": [
+      "Strap appears to cross the visible near shoulder instead of emerging behind the neck from the far shoulder.",
+      "Camera appears substantially lower than the requested approximately 53-degree elevation.",
+      "Staff tip is below the top of the head; ground contact beside the far boot is uncertain.",
+      "Delivered the task-specific portrait image, not the register's 512×512 registered frame or 2×2 sheet.",
+      "No retry: observed deviations do not meet the task's permitted retry conditions."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/k2p_E_r1.png",
+      "sha256": "757a52f15ecf1f4c6362c36a86f032430b5e16666b5e472078d5a6016a22eadc"
+    }
+  ]
+}

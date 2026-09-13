@@ -1,0 +1,40 @@
+{
+  "task_id": "K3p-gen-idle-01",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "k3p_idle_S_01_03.png",
+      "path": "out/k3p_idle_S_01_03.png",
+      "sha256": "c15adf8a87c02a85f0d05cf89054393ab6b57a94fadd1e974fb1fe8f37d1d7f1",
+      "prompt": "Use case: identity-preserve. Edit Image 1, the supplied 1254×1254 canvas with four 627×627 square cells in a 2×2 grid. Deliver exactly one same-size sheet. SLOT 0 top-left is the APPROVED REST FRAME and must remain PIXEL-IDENTICAL: preserve that entire quadrant without repainting. Fill only the three empty green cells: slot 1 top-right = frame 1, slot 2 bottom-left = frame 2, slot 3 bottom-right = frame 3 of a 16-frame relaxed breathing idle-S loop. No borders, labels, gutters or text. Flat pure #00ff00 everywhere outside the figures; no matting, no floor shadows.\nUse the exact young woman from slot 0: dark curly hair tied back; ivory shirt with rolled sleeves; navy sleeveless tabard with plain chest; one diagonal chestnut harness to an olive canvas satchel on her anatomical LEFT hip; one belt; laced bracers; navy trousers; chestnut boots; plain walnut staff with brass ferrules upright in her anatomical RIGHT hand. No insignia anywhere. Do not mirror. Copy the reference figure into each empty cell with precisely the same cell-relative location, size, head size, baseline and staff position. No zoom or rescale.\nMotion: 2.0 seconds at 8 fps, ONE full breath per 16-frame loop. Frame 0 rest, frame 4 peak inhale, frame 8 rest, frame 12 bottom exhale, frame 16 rest. Relative to rest: frame 1 chest/shoulder total width +2.9 px, head y +0.5 px; frame 2 width +5.4 px, head y +1.0 px; frame 3 width +7.1 px, head y +1.3 px. Image-down is positive. Only shoulders, chest and head move. Shoulders lift slightly and chest broadens with inhale; head gently follows by at most 2 px. Preserve face and eyes and fixed gaze without redrawing their identity. LOCK PIXEL-FOR-PIXEL in the same local cell coordinates: hips, legs, both feet and sole contact positions, both arms and hands, staff grip and tip, satchel, belt. Slight drawing variation only inside the specified breathing arc; preserve all locked areas. Each successive pose advances subtly toward peak inhale.\nStyle: HAND-DRAWN painted 2D in the manner of a modern hand-animated action game. Confident hand-drawn dark contour with visible taper and varied weight, clean painted material planes inside the line, restrained surface texture, readable small silhouettes, no conspicuous brush or granular texture. The line carries the pose; each is an animation frame. F04 Keepers of Hours blue, ivory and brass identity, keeping this approved costume exactly. Elevated three-quarter projection C, direction S facing camera, same camera across all cells. Single cold key from SCREEN UPPER-LEFT, fixed; deep cool low-value ambient with readable shadows never pure black; slight rim on key-facing edge. No spell light in these idle frames. Retain all existing slot 0 pixels exactly; modify empty slots only.\nRETRY CORRECTION: The previous attempt repainted the approved top-left figure and changed its face, contour and fills. This is forbidden. Use the ORIGINAL supplied seed canvas as the edit target again. Retain the complete top-left 627×627 pixel block byte-for-byte visually untouched, including the original face, fine lines and green background. Do not regenerate or reinterpret that quadrant. Fill the three empty quadrants only, taking exact copies of the approved figure as the basis and changing ONLY the tiny specified chest/shoulder breathing widths and head offsets. Keep all locked body parts and accessories identical to the original seed, at exactly the same local coordinates in each cell. Preserve the solid pure green plate without texture.",
+      "references": [
+        {
+          "role": "edit target; approved rest frame in slot 0",
+          "path": "in/01_canvas_idle_S_seed.png"
+        }
+      ],
+      "elapsed_s": 31.873
+    }
+  ],
+  "calls_used": 2,
+  "retries": [
+    {
+      "reason": "First result visibly repainted slot 0.",
+      "change": "Retried from the original seed with stronger instructions to preserve the entire top-left quadrant and edit only empty cells."
+    }
+  ],
+  "self_report": {
+    "obeyed_invariants": false,
+    "concerns": [
+      "Retry still visibly redraws slot 0, including facial details and painted fills.",
+      "Lower-row figures visibly shift upward relative to the required cell-local baseline; locked regions are not preserved exactly.",
+      "Exact breathing offsets and pure #00ff00 plate uniformity were not numerically verified."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/k3p_idle_S_01_03.png",
+      "sha256": "c15adf8a87c02a85f0d05cf89054393ab6b57a94fadd1e974fb1fe8f37d1d7f1"
+    }
+  ]
+}

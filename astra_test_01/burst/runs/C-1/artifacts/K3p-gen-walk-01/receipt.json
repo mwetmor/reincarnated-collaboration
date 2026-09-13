@@ -1,0 +1,54 @@
+{
+  "task_id": "K3p-gen-walk-01",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "k3p_walk_E_00_02.png",
+      "path": "out/k3p_walk_E_00_02.png",
+      "sha256": "34d7347279ff910b42538f1da35111758503526d49e3aa0b24eeb41ad4997436",
+      "prompt": "Use case: identity-preserve. Edit Image 1, a 1254×1254 2×2 sprite canvas with 627×627 cells. Deliver exactly ONE image of the SAME dimensions and framing. Keep the entire top-left 627×627 slot 0 PIXEL-IDENTICAL to Image 1, including its green background and approved resting character. Change ONLY the three empty green cells: top-right slot 1 = walk frame 0 DOWN; bottom-left slot 2 = walk frame 1 PASSING; bottom-right slot 3 = walk frame 2 UP. No borders, gutters, labels or guide marks. Flat pure #00ff00 background throughout; no floor shadows; no matting or transparency.\n\nImage 1 is the edit target and sole identity/style/size/baseline/light reference. Images 2, 3, 4 are solely layout guides for frames 0, 1, 2 respectively, showing sole centers and head heights; do not reproduce their white backgrounds, text, circles, lines or colored marks. Translate each guide's relative body/foot layout into its corresponding 627-px cell at the source character's constant scale, standing H=470 px, body centered at local x≈313 and baseline local y≈563. Preserve exactly the source resting character in slot 0.\n\nCharacter in every cell: same young woman, E-facing full right-facing profile, gaze level to screen-right, LEFT side toward camera, olive canvas satchel on LEFT hip in front, upright plain walnut staff with brass ferrules in anatomical RIGHT hand on the far side, tip above shoulder. Dark curly hair tied back, ivory shirt with rolled sleeves, navy sleeveless tabard with plain chest, one diagonal chestnut harness to the satchel, one belt, laced bracers, navy trousers, chestnut boots. No insignia anywhere. Match source face, proportions and costume with no design additions.\n\nFrames are consecutive phases of an IN-PLACE WALK at 12 fps, frames 0–2 of a 12-frame full stride cycle. Near = anatomical LEFT/camera-side leg; far = RIGHT/staff-side leg. x is along travel, positive to screen-right. H=source standing figure height, same scale all cells. Follow these exact phase relationships:\nFrame 0, top-right, DOWN: head height 0.984982 H; near sole x -0.150247 H and height 0.048565 H above baseline, swinging behind; far sole x +0.130517 H and height 0.003035 H, planted forward. Near arm x +0.023665 H; far arm x -0.035319 H. Lower weight into the bent supporting far leg.\nFrame 1, bottom-left, PASSING: head height 0.998261 H; near sole x -0.031870 H and height 0.040976 H, swing foot passing underneath; far sole x +0.084988 H and height 0.004553 H, planted. Near arm x +0.005020 H; far arm x -0.022999 H.\nFrame 2, bottom-right, UP: head height 1.032408 H; near sole x +0.118376 H and height 0.007588 H, swing forward nearly contacting; far sole x +0.001518 H and height 0.004553 H, planted under body. Near arm x -0.018645 H; far arm x -0.000411 H.\n\nThe body stays centered; planted far foot moves backward underneath across frames while near swing foot travels from behind through to forward. Head bobs from DOWN to UP about 20 px without changing figure scale. Weighty hand-drawn stride. Free near arm counter-swings against near leg, far staff arm swings less with the staff staying vertical in its grip. Head and gaze stay level and locked screen-right, never turn toward camera. Hair mass and satchel follow motion by a few pixels. Keep staff in the same far anatomical hand, never mirror.\n\nSTYLE: HAND-DRAWN painted 2D in the manner of a modern hand-animated action game: confident dark contour drawn by hand with visible taper and varying weight, painted fills in clean planes inside the line, restrained texture; line carries the pose. Every figure looks like a frame of hand-drawn animation. Clean material planes, readable small silhouettes, no conspicuous grain. Blue/ivory/brass Keeper palette with source chestnut leather and olive satchel. Same elevated three-quarter projection C camera as source, same E facing in all cells. Fixed single key from SCREEN UPPER-LEFT, deep cool low-value ambient, readable nonblack shadows, slight rim on key-facing edge. No added warm/saturated light. No environment. Do not zoom, rescale, crop, or move the original slot 0. Output exactly the edited 1254×1254 sheet with slot 0 untouched and three specified walking poses.\n\nRETRY CORRECTION — the previous attempt altered and enlarged slot 0. This retry MUST retain Image 1's top-left quadrant byte-for-byte visually, without regenerating it: original hair top at y≈95, boots bottom at y≈563, original upright staff at x≈360, original resting silhouette at x≈257–370. Treat that whole quadrant as a locked, uneditable region. Copy its pixels unchanged into the final result. Only synthesize within the other three 627×627 quadrants. All walking characters must use the ORIGINAL character's scale and cell-local baseline y≈563, not enlarge it. Preserve the pure uniform #00ff00 plate with no noise. Match the near/far foot markers and opposing arm motion exactly as specified. Output same 1254×1254 canvas.",
+      "references": [
+        {
+          "role": "Edit target; approved rest-frame identity, scale, baseline and lighting; slot 0 locked",
+          "path": "in/01_canvas_walk_E_seed.png"
+        },
+        {
+          "role": "Layout-only pose guide: frame 0 DOWN, slot 1",
+          "path": "in/02_walk_00.png"
+        },
+        {
+          "role": "Layout-only pose guide: frame 1 PASSING, slot 2",
+          "path": "in/03_walk_01.png"
+        },
+        {
+          "role": "Layout-only pose guide: frame 2 UP, slot 3",
+          "path": "in/04_walk_02.png"
+        }
+      ],
+      "elapsed_s": 26.243
+    }
+  ],
+  "calls_used": 2,
+  "retries": [
+    {
+      "reason": "First generation visibly redrew and enlarged slot 0.",
+      "change": "Retried from original references with explicit locked-quadrant preservation and original pixel-coordinate anchors."
+    }
+  ],
+  "self_report": {
+    "obeyed_invariants": false,
+    "concerns": [
+      "Slot 0 remains visibly altered after the permitted retry; pixel-identical preservation was not achieved.",
+      "Passing frame in slot 2 contains an extra hand.",
+      "Foot placements and arm counter-swing visibly deviate from the phase guides.",
+      "Scale, baseline and exact background RGB were not instrumentally verified.",
+      "Two-call image budget exhausted; candidate saved without post-processing."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/k3p_walk_E_00_02.png",
+      "sha256": "34d7347279ff910b42538f1da35111758503526d49e3aa0b24eeb41ad4997436"
+    }
+  ]
+}

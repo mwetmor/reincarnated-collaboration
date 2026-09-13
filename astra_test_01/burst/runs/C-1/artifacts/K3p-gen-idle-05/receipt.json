@@ -1,0 +1,41 @@
+{
+  "task_id": "K3p-gen-idle-05",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "k3p_idle_S_13_15.png",
+      "path": "out/k3p_idle_S_13_15.png",
+      "sha256": "19760acddcd8d201e58d840402ec66a41c9f8b1d8c3a10f5ec797d44b2a35f54",
+      "prompt": "Use case: identity-preserve. Edit Image 1, the supplied 1254x1254 canvas, in place. Deliver exactly one 1254x1254 PNG with four 627x627 square cells in a 2x2 arrangement, no borders, gutters, text, or labels. Preserve the entire top-left cell (slot 0, approved frame 0) PIXEL-IDENTICALLY. Fill only empty green top-right slot 1 with frame 13, bottom-left slot 2 with frame 14, bottom-right slot 3 with frame 15. Copy the approved character into the same cell-relative position in each other cell, preserving her 470 px standing height and exact baseline. Pure flat #00ff00 background throughout, no floor shadow, no matting. Character: the exact young woman shown, dark curly hair tied back, ivory rolled-sleeve shirt, navy sleeveless tabard with plain chest, one diagonal chestnut harness to olive canvas satchel on anatomical LEFT hip, one belt, laced bracers, navy trousers, chestnut boots, plain walnut staff with brass ferrules upright in anatomical RIGHT hand (screen left). No insignia. Facing S toward camera; identical elevated three-quarter projection C camera and character scale in all cells, no mirroring or zooming. Relaxed breathing idle, frames 13-15 of 16, 2.0 seconds at 8 fps, one full breath. Frame 4 peak inhale, frame 8 rest, frame 12 bottom exhale, frame 16 returns to rest. Relative to rest: frame 13 chest/shoulder total width -7.1 px, head y -1.3 px; frame 14 width -5.4 px, head y -1.0 px; frame 15 width -2.9 px, head y -0.5 px; image-down is positive. These three slightly narrowed chest/shoulder poses progressively return toward rest. Only shoulders, chest and head move; shoulders settle with the breath. Head movement at most 2 px, preserve head size, face drawing, eyes and fixed gaze. LOCK PIXEL-FOR-PIXEL to rest in cell-relative coordinates: hips, legs, both feet and sole baseline, both arms and hands, staff grip and tip, satchel, belt. Do not redraw or alter these locked regions. HAND-DRAWN painted 2D in the manner of a modern hand-animated action game, confident hand-drawn dark contours with visible taper and variable weight, painted fills in clean planes, restrained texture, readable small silhouettes, no conspicuous grain. Each pose looks like a hand-drawn animation frame. Preserve reference identity and drawing style. Single cold key from SCREEN UPPER-LEFT fixed in every cell, deep cool low-value ambient with readable nonblack shadows and slight key-facing rim; no warm spell light on idle frames. The approved reference remains the authority for costume and appearance. Preserve slot 0 exactly; only add frames 13,14,15 in the three previously empty cells.\nRETRY CORRECTION: The prior attempt altered slot 0 and enlarged the figures. Work from the ORIGINAL supplied seed only. Treat the whole top-left 627x627 region as protected existing pixels: do not regenerate, repaint, resize, or move anything there. The source head top is approximately y=95 and feet bottom y=564, not y=38 and y=615. Maintain these exact cell-relative bounds, with the source staff approximately x=229..246, y=121..548. New slots must retain the same generous green margins as original slot 0. Populate cells by faithful duplicates at offsets (+627,0), (0,+627), (+627,+627), with ONLY the specified tiny chest-width and head-height changes. Output the same canvas with original slot 0 untouched.",
+      "references": [
+        {
+          "role": "edit target; approved rest frame in protected slot 0",
+          "path": "in/01_canvas_idle_S_seed.png"
+        }
+      ],
+      "elapsed_s": 23.984
+    }
+  ],
+  "calls_used": 2,
+  "retries": [
+    {
+      "reason": "First output visibly altered slot 0 and enlarged the character.",
+      "change": "Retried from the original seed with explicit protected-region instructions and source coordinate bounds."
+    }
+  ],
+  "self_report": {
+    "obeyed_invariants": false,
+    "concerns": [
+      "Retry still visibly redraws slot 0; pixel-identical preservation was not achieved.",
+      "Generated cells show position and drawing variation in locked regions.",
+      "Exact breathing deltas and pure-green plate values were not quantitatively verified.",
+      "Retry allowance exhausted; candidate returned for conductor review."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/k3p_idle_S_13_15.png",
+      "sha256": "19760acddcd8d201e58d840402ec66a41c9f8b1d8c3a10f5ec797d44b2a35f54"
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+ "text": "CHECK BURST K3p-chk-x2-01 — the Keeper RELAXED idle-S loop against the COMMITTED relaxed band (R-29/R-c): intent gates, oracle curves, consistency constraints. task_id \"K3p-chk-x2-01\" (ATTEMPT 2 of the relaxed idle — same seed, exaggeration-language method change; attempt 1 = K3p-chk-01).\n\nInputs (read-only): the COMPOSITED loop /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-cmp-x2-01/composited/idle_S_00.png … idle_S_15.png (512×512 RGBA, sole-aligned, pivot (256,400)); the committed bands /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/oracle/bands_idle.json (rows 'relaxed' = the shipping band, 'combat' = comparison). Frozen tools (read-only; run, never modify or create code; read each docstring): gates/idle_intent.py evaluate(frames_dir, bands_idle_row, label) — run it TWICE: against row 'relaxed' (committed → boolean verdicts: breath_minimum/maximum, head_bob_minimum/maximum, idle_regions LOCK/MOTION mismatches, idle_feet_lock ≤ 0.0025 H) and against row 'combat' (comparison; report the numbers); oracle/idle_bands.py CLI: `python3 -m oracle.idle_bands --ours <composited dir> --fps 8 --label idle_S_K3p --out out/idle_S_K3p_measure.json --plot_dir out/plots` (WRITE ONLY UNDER out/ — the frozen band file must not be touched); gates/g6_seam.py (G6 literal, G6b, g6c for the 15→0 seam); gates/drift48.py (G11 every adjacent pair + the seam); gates/g1_height.py (each frame vs frame 0); gates/silhouette64.py (distance of every frame to frame 0); also report each frame's alpha-bbox height, sole line and the max spread.\nProduce out/checks.json = SPEC § 1 result envelopes (idle_intent relaxed with the full payload — breath value vs floor 0.01958 / target 0.03264 / ceiling 0.04896 H; head value vs 0 / 0.006 / 0.012 H; per-region displacement + classification; sole displacement; contamination; figure drift — plus idle_intent combat, G6/G6b/G6c, G11 per pair, G1, silhouette distances, sole spread), out/plots/ (the curves plot + box check the CLI emits), out/checks_readme.txt with the exact commands.\nNo image_gen. No writes outside out/. No web. calls_used must be 0.\nRETURN: receipt task_id \"K3p-chk-x2-01\" (ATTEMPT 2 of the relaxed idle — same seed, exaggeration-language method change; attempt 1 = K3p-chk-01); images []; calls_used 0; files: every out/ file with sha256; status DELIVERED / DELIVERED_WITH_CONCERNS / FAILED; concerns must name anything you could not compute. Never PASS/FAIL.",
+ "references": [],
+ "image_cap": 0,
+ "minutes_cap": 15,
+ "tool_call_cap": 20,
+ "outputs": [
+  "out/checks.json",
+  "out/checks_readme.txt",
+  "out/idle_S_K3p_measure.json"
+ ],
+ "effort": "high",
+ "add_dirs": [],
+ "experiment": "K3p"
+}

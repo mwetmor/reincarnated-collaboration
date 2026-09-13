@@ -1,0 +1,39 @@
+{
+  "task_id": "K3p-chk-01",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [],
+  "calls_used": 0,
+  "retries": [],
+  "self_report": {
+    "obeyed_invariants": true,
+    "concerns": [
+      "Oracle CLI ignores --out for --ours; invoked its frozen measurement and plotting functions directly to keep writes under out/.",
+      "G11 pair measurements computed; verdicts unavailable because cast05 was not supplied.",
+      "Silhouette distances computed; verdicts unavailable without a calibrated threshold.",
+      "Frozen estimator returned null breath period.",
+      "Wrapper-owned live logs are excluded from the artifact hashes because they continue changing."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/checks.json",
+      "sha256": "c8eb1a630fde9d68a4f1b9c354398109ac9923e0f7df7823158c7a4d5b57f690"
+    },
+    {
+      "path": "out/checks_readme.txt",
+      "sha256": "e5113ef87411cb6dc74093317f9466b0dd530a1dc2338da0cc151563ab8f6fba"
+    },
+    {
+      "path": "out/idle_S_K3p_measure.json",
+      "sha256": "7631bb5720293dc1709929d60cf719149dbeb4e4a592c03c5ef5b5f0b2715e58"
+    },
+    {
+      "path": "out/plots/idle_S_K3p_box_check.png",
+      "sha256": "b380080db62a5e43309158027c3d81a767ec6474ff67da67d730fbd940ec2830"
+    },
+    {
+      "path": "out/plots/idle_S_K3p_curves.png",
+      "sha256": "572d2cc607e381d69f5806edbb168dce9ee25c3696c8e47728e607b14543b20c"
+    }
+  ]
+}

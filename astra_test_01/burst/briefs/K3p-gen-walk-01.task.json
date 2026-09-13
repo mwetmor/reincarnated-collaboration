@@ -1,0 +1,30 @@
+{
+ "text": "GENERATE BURST K3p-gen-walk-01 — Keeper WALK-E cycle, frames 0–2 of 12, via EDIT-CANVAS on the E-facing rest frame with per-frame POSE GUIDES (HITL Run C-2 step 7; committed walk band R-29/R-a; Muybridge plate 13 phase table R-22; dope sheet = the spec, R-21). task_id \"K3p-gen-walk-01\".\n\nImage 1 is a 1254×1254 2×2 canvas on a pure #00ff00 plate: SLOT 0 (top-left) holds the APPROVED REST FRAME of the Keeper facing E (full right-facing profile: she faces screen-right; her LEFT side is toward the camera, the satchel on her left hip in front; the staff in her RIGHT hand on the far side, its tip rising above the shoulder) — this exact character (a young woman; dark curly hair tied back; ivory shirt with rolled sleeves; navy sleeveless tabard, plain chest; one diagonal chestnut harness to an olive canvas satchel on her LEFT hip; one belt; laced bracers; navy trousers; chestnut boots; a plain walnut staff with brass ferrules held upright in her RIGHT hand; no insignia anywhere) — standing 470 px tall in the cell; slots 1–3 are empty green. Images 2, 3, 4 are POSE GUIDES for walk frames 0, 1, 2: numbered-foot silhouette layouts showing where each sole sits (planted vs swinging) and how high the head rides. Deliver EXACTLY ONE image: the SAME canvas with slots 1, 2, 3 filled by walk frames 0, 1, 2 (row-major) of a 12-frame IN-PLACE WALK at 12 fps (one full stride cycle: two contacts, left then right) and SLOT 0 LEFT PIXEL-IDENTICAL.\nPHASE SPEC per frame (from the plate-13 phase table — the dope sheet numbers rows 1–12, our frames 0–11: row f+1 is frame f; H = the figure height; 'near' = her left/camera side, 'far' = her right/staff side; x is along the direction of travel, screen-right positive):\n  walk frame 0 (dope-sheet row 1) — DOWN: head height 0.984982 H; near sole x -0.150247 H, height 0.048565 H, swing; far sole x +0.130517 H, height 0.003035 H, planted; near arm x +0.023665 H, opposing same-side sole; far arm x -0.035319 H, opposing same-side sole.\n  walk frame 1 (dope-sheet row 2) — PASSING: head height 0.998261 H; near sole x -0.031870 H, height 0.040976 H, swing; far sole x +0.084988 H, height 0.004553 H, planted; near arm x +0.005020 H, opposing same-side sole; far arm x -0.022999 H, opposing same-side sole.\n  walk frame 2 (dope-sheet row 3) — UP: head height 1.032408 H; near sole x +0.118376 H, height 0.007588 H, swing; far sole x +0.001518 H, height 0.004553 H, planted; near arm x -0.018645 H, opposing same-side sole; far arm x -0.000411 H, opposing same-side sole.\nThe walk is IN PLACE: the figure stays centred in the cell; the planted foot slides backward under the body while the swing foot passes forward; the head bobs DOWN into each contact and rises through the passing position by about 4–5 % of her height (about 20 px) — a weighty, hand-drawn stride, not a float; the arms counter-swing against the legs (the free near arm swings freely, the far staff arm swings less, the staff staying upright in the grip); the head and gaze stay level and locked on the path ahead, never turning to the camera; the hair mass and satchel follow the motion by a few pixels. Same identity, costume, size, baseline, camera (elevated three-quarter, projection C), facing (E) and light (single key from SCREEN UPPER-LEFT, fixed for every frame; deep cool ambient; no floor shadow) in every cell. Register: HAND-DRAWN painted 2D in the manner of a modern hand-animated action game — a confident dark contour line drawn by hand with visible taper and varying weight, painted fills in clean planes inside the line, restrained texture; the line carries the pose. It should look like one frame of hand-drawn animation, not a rendered illustration. Exactly four square cells, row-major, no borders, labels or gutters; flat pure #00ff00 plate; do not mirror (the staff stays in the far hand); do not zoom; do not matte. No insignia anywhere.\n\nOne image_gen call (edit/reference mode on Image 1, guides as layout references); ONE retry only if a cell is off-plate, mirrored, or slot 0 was altered — name the retry reason. Copy the final output to out/k3p_walk_E_00_02.png and compute its sha256. No code. No other files. No web. No agents.\nRETURN: the receipt (task_id \"K3p-gen-walk-01\"): images = the one file with prompt, references (role + path), elapsed_s; calls_used = the TRUE number of image_gen calls; status DELIVERED / DELIVERED_WITH_CONCERNS / FAILED; concerns. Never PASS/FAIL.",
+ "references": [
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-seed/canvas_walk_E_seed.png",
+   "role": "the 2×2 edit canvas: slot 0 = the approved E-facing REST frame (identity, size, baseline, light; keep pixel-identical); fill slots 1–3"
+  },
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/T1b/pose_guides/walk_00.png",
+   "role": "POSE GUIDE for walk frame 0 (slot 1): numbered-foot silhouette layout — match the planted foot, the swing foot placement and the head height; it is a layout guide, not a style or identity reference"
+  },
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/T1b/pose_guides/walk_01.png",
+   "role": "POSE GUIDE for walk frame 1 (slot 2): numbered-foot silhouette layout — match the planted foot, the swing foot placement and the head height; it is a layout guide, not a style or identity reference"
+  },
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/T1b/pose_guides/walk_02.png",
+   "role": "POSE GUIDE for walk frame 2 (slot 3): numbered-foot silhouette layout — match the planted foot, the swing foot placement and the head height; it is a layout guide, not a style or identity reference"
+  }
+ ],
+ "image_cap": 2,
+ "minutes_cap": 15,
+ "tool_call_cap": 20,
+ "outputs": [
+  "out/k3p_walk_E_00_02.png"
+ ],
+ "effort": "high",
+ "add_dirs": [],
+ "experiment": "K3p"
+}

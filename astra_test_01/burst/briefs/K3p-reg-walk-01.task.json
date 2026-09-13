@@ -1,0 +1,28 @@
+{
+ "text": "PACK BURST K3p-reg-walk-01 — register the Keeper WALK-E sheets into 12 sole-aligned 512×512 frames (register card CANVAS rule: uniform downscale + TRANSLATION only — per-frame integer translation, never per-frame scale, never upscaling; K3-reg-02 method). task_id \"K3p-reg-walk-01\".\n\nInputs (read-only): the four 2×2 sheets (1254², 627-px cells, row-major) /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-gen-walk-01/k3p_walk_E_00_02.png (slot 0 = E rest; slots 1–3 = walk frames 0–2), /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-gen-walk-02/k3p_walk_E_03_05.png (slot 0 = E rest; slots 1–3 = walk frames 3–5), /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-gen-walk-03/k3p_walk_E_06_08.png (slot 0 = E rest; slots 1–3 = walk frames 6–8), /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-gen-walk-04/k3p_walk_E_09_11.png (slot 0 = E rest; slots 1–3 = walk frames 9–11); the registration transform /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-seed/registration_transform.json (same transform as the idle; the E seed shares the geometry) (cell = 627 px; scale = 0.5106 → 320 px; paste offset (96,112) on a 512×512 transparent canvas — the SAME transform for every cell). Frozen tools: gates/matte.py (extract, character mode, alpha_floor=40) for matting each cell BEFORE downscaling; gates/common.py; gates/register.py (read its docstring). PIL is a frozen library: run `python3 - <<'PY'` scripts that only crop cells, matte, resize with LANCZOS by exactly the given scale, paste at exactly the given offset, and then translate by INTEGERS — never fit, never per-frame scale, never upscale.\n\nFrames: walk_E_00 … walk_E_11 = the four sheets' slots 1–3 in order (slot 0 of every sheet is the E REST frame, NOT a walk frame — register it too as out/frames/rest/E/rest_E.png from sheet 1, and report the max |Δ| of the four slot-0 cells vs the seed as a seed-persistence number). Then SOLE-ALIGN: measure each frame's sole line (bottom-most row with alpha ≥ 128) and translate the frame VERTICALLY by an integer so that row lands on the REST frame's sole line (the ground line for the in-place cycle; a swing foot above the ground must NOT be pulled down — align on the LOWER of the two soles, i.e. the planted foot); horizontal translation ONLY if the alpha-bbox centre-x differs from frame 0 by more than 2 px, and then by the integer difference; report every offset. Write out/frames/walk/E/walk_E_00.png … walk_E_11.png, out/sheets/walk_E_strip.png (12 frames on #3a3f4a with numbers), out/registration.json (per frame: source sheet + slot, alpha bbox, bbox height px, sole line before/after, offsets applied, seed-persistence Δ for slot-0 cells), out/readme.txt with the exact commands. No image_gen. No writes outside out/. calls_used must be 0.\nRETURN: receipt task_id \"K3p-reg-walk-01\"; images []; files: every out/ file with sha256; status DELIVERED / DELIVERED_WITH_CONCERNS; concerns for any cell whose figure touches a cell edge, any frame needing more than 6 px of translation, or any slot-0 cell that differs from the seed by more than matte noise. Never PASS/FAIL.",
+ "references": [],
+ "image_cap": 0,
+ "minutes_cap": 15,
+ "tool_call_cap": 20,
+ "outputs": [
+  "out/registration.json",
+  "out/readme.txt",
+  "out/sheets/walk_E_strip.png",
+  "out/frames/rest/E/rest_E.png",
+  "out/frames/walk/E/walk_E_00.png",
+  "out/frames/walk/E/walk_E_01.png",
+  "out/frames/walk/E/walk_E_02.png",
+  "out/frames/walk/E/walk_E_03.png",
+  "out/frames/walk/E/walk_E_04.png",
+  "out/frames/walk/E/walk_E_05.png",
+  "out/frames/walk/E/walk_E_06.png",
+  "out/frames/walk/E/walk_E_07.png",
+  "out/frames/walk/E/walk_E_08.png",
+  "out/frames/walk/E/walk_E_09.png",
+  "out/frames/walk/E/walk_E_10.png",
+  "out/frames/walk/E/walk_E_11.png"
+ ],
+ "effort": "high",
+ "add_dirs": [],
+ "experiment": "K3p"
+}
