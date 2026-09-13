@@ -1,0 +1,36 @@
+{
+  "tests_run": 299,
+  "successful": false,
+  "successful_tests": 293,
+  "failures": [
+    {
+      "test": "test_headless_state_machine_input_map_gear_vfx_and_nearest_fallback (test_godot_import.GodotImportTests.test_headless_state_machine_input_map_gear_vfx_and_nearest_fallback)",
+      "traceback": "Traceback (most recent call last):\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_godot_import.py\", line 162, in test_headless_state_machine_input_map_gear_vfx_and_nearest_fallback\n    self.assertEqual(proc.returncode, 0, log)\nAssertionError: -6 != 0 : ERROR: Could not create directory: '/Users/admin/Library/Application Support/Godot/app_userdata/Keeper cell review stub'.\n   at: make_dir_recursive (core/io/dir_access.cpp:178)\nERROR: Error attempting to create data dir: /Users/admin/Library/Application Support/Godot/app_userdata/Keeper cell review stub.\n   at: ensure_user_data_dir (core/os/os.cpp:437)\nERROR: Could not create directory: 'user://logs'.\n   at: make_dir_recursive (core/io/dir_access.cpp:178)\n\n================================================================\nhandle_crash: Program crashed with signal 11\nEngine version: Godot Engine v4.6.3.stable.official (7d41c59c457bd5a245092b4e7eb2d833e3b3f8c3)\nDumping the backtrace. Please include this when reporting the bug on: https://github.com/godotengine/godot/issues\n[1] 1   libsystem_platform.dylib            0x0000000187ad56a4 _sigtramp + 56\n[2] RotatedFileLogger::rotate_file() (in Godot) + 1160\n[3] RotatedFileLogger::rotate_file() (in Godot) + 1160\n[4] RotatedFileLogger::RotatedFileLogger(String const&, int) (in Godot) + 80\n[5] Main::setup(char const*, int, char**, bool) (in Godot) + 18880\n[6] OS_MacOS_Headless::run() (in Godot) + 68\n[7] main (in Godot) + 924\n[8] 8   dyld                                0x00000001876fab98 start + 6076\n-- END OF C++ BACKTRACE --\n================================================================\n\n"
+    },
+    {
+      "test": "test_synthetic_contract_and_grid (test_oracle_walk.Tests.test_synthetic_contract_and_grid)",
+      "traceback": "Traceback (most recent call last):\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_oracle_walk.py\", line 117, in test_synthetic_contract_and_grid\n    self.assertIsNotNone(a[key],key);self.assertAlmostEqual(a[key],b[key],delta=2,msg=key)\n                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 60 != 65 within 2 delta (5 difference) : head_ref_y\n"
+    },
+    {
+      "test": "test_f04_outside_at_least_three (test_oracles_motif.Tests.test_f04_outside_at_least_three)",
+      "traceback": "Traceback (most recent call last):\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_oracles_motif.py\", line 19, in test_f04_outside_at_least_three\n    self.assertGreaterEqual(metrics(row)['outside'],3)\nAssertionError: 2 not greater than or equal to 3\n"
+    },
+    {
+      "test": "test_named_genuine_annuli_retained (test_oracles_motif.Tests.test_named_genuine_annuli_retained) (center=[113, 201])",
+      "traceback": "Traceback (most recent call last):\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_oracles_motif.py\", line 84, in test_named_genuine_annuli_retained\n    self.assertNotIn('rejected',peak)\nAssertionError: 'rejected' unexpectedly found in {'angular_support': 0.7708333333333334, 'center': [113.0, 201.0], 'hollow_score': 0.3125, 'inner_opposed_support': 0.3125, 'inside': False, 'lab_band_surround': 11.57642176150743, 'lab_center_band': 11.062059961818727, 'lab_center_surround': 22.610550201280017, 'lab_color_return': 0.0, 'radius': 30.0, 'rejected': 'not_annulus', 'score': 0.7074940354497125}\n"
+    },
+    {
+      "test": "test_named_genuine_annuli_retained (test_oracles_motif.Tests.test_named_genuine_annuli_retained) (center=[111, 311])",
+      "traceback": "Traceback (most recent call last):\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_oracles_motif.py\", line 84, in test_named_genuine_annuli_retained\n    self.assertNotIn('rejected',peak)\nAssertionError: 'rejected' unexpectedly found in {'angular_support': 0.75, 'center': [111.0, 311.0], 'hollow_score': 0.16666666666666666, 'inner_opposed_support': 0.16666666666666666, 'inside': False, 'lab_band_surround': 21.229621366461696, 'lab_center_band': 18.63219308325294, 'lab_center_surround': 39.74946870785732, 'lab_color_return': 0.0, 'radius': 27.0, 'rejected': 'not_annulus', 'score': 0.5281963253811909}\n"
+    },
+    {
+      "test": "test_named_genuine_annuli_retained (test_oracles_motif.Tests.test_named_genuine_annuli_retained) (center=[170, 253])",
+      "traceback": "Traceback (most recent call last):\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_oracles_motif.py\", line 84, in test_named_genuine_annuli_retained\n    self.assertNotIn('rejected',peak)\nAssertionError: 'rejected' unexpectedly found in {'angular_support': 0.8333333333333334, 'center': [170.0, 253.0], 'hollow_score': 0.08333333333333333, 'inner_opposed_support': 0.08333333333333333, 'inside': False, 'lab_band_surround': 12.987929666149537, 'lab_center_band': 18.508563966712764, 'lab_center_surround': 30.467977867785994, 'lab_color_return': 0.0, 'radius': 8.0, 'rejected': 'not_annulus', 'score': 0.6366616733180586}\n"
+    }
+  ],
+  "errors": [],
+  "skipped": [],
+  "exit_code": 1,
+  "wall_s": 96.99010195900337,
+  "instrumentation": "Observed stdlib TestResult.stopTest; original tests/run_t0c.py executed unchanged using runpy."
+}

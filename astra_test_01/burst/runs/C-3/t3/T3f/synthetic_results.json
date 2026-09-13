@@ -1,0 +1,13 @@
+{
+  "tests_run": 14,
+  "successful": false,
+  "failures": [
+    {
+      "test": "test_headless_state_machine_input_map_gear_vfx_and_nearest_fallback (test_godot_import.GodotImportTests.test_headless_state_machine_input_map_gear_vfx_and_nearest_fallback)",
+      "traceback": "Traceback (most recent call last):\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_godot_import.py\", line 162, in test_headless_state_machine_input_map_gear_vfx_and_nearest_fallback\n    self.assertEqual(proc.returncode, 0, log)\nAssertionError: -6 != 0 : ERROR: Could not create directory: '/Users/admin/Library/Application Support/Godot/app_userdata/Keeper cell review stub'.\n   at: make_dir_recursive (core/io/dir_access.cpp:178)\nERROR: Error attempting to create data dir: /Users/admin/Library/Application Support/Godot/app_userdata/Keeper cell review stub.\n   at: ensure_user_data_dir (core/os/os.cpp:437)\nERROR: Could not create directory: 'user://logs'.\n   at: make_dir_recursive (core/io/dir_access.cpp:178)\n\n================================================================\nhandle_crash: Program crashed with signal 11\nEngine version: Godot Engine v4.6.3.stable.official (7d41c59c457bd5a245092b4e7eb2d833e3b3f8c3)\nDumping the backtrace. Please include this when reporting the bug on: https://github.com/godotengine/godot/issues\n[1] 1   libsystem_platform.dylib            0x0000000187ad56a4 _sigtramp + 56\n[2] RotatedFileLogger::rotate_file() (in Godot) + 1160\n[3] RotatedFileLogger::rotate_file() (in Godot) + 1160\n[4] RotatedFileLogger::RotatedFileLogger(String const&, int) (in Godot) + 80\n[5] Main::setup(char const*, int, char**, bool) (in Godot) + 18880\n[6] OS_MacOS_Headless::run() (in Godot) + 68\n[7] main (in Godot) + 924\n[8] 8   dyld                                0x00000001876fab98 start + 6076\n-- END OF C++ BACKTRACE --\n================================================================\n\n"
+    }
+  ],
+  "errors": [],
+  "skipped": [],
+  "wall_s": 4.091515375002928
+}

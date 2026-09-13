@@ -1,0 +1,135 @@
+[
+  {
+    "id": "t3f_fixture_cells",
+    "subject": "T3f",
+    "passed": null,
+    "value": 2,
+    "threshold": 2,
+    "op": "==",
+    "unit": "cells",
+    "evidence": [
+      "cells/idle_E/registration.json",
+      "cells/walk_E/registration.json"
+    ],
+    "notes": "12 walk/E frames plus 1 rest/E frame renamed idle/E. Measurement only; conductor owns verdict."
+  },
+  {
+    "id": "t3f_unchanged_pngs",
+    "subject": "T3f",
+    "passed": null,
+    "value": 13,
+    "threshold": 13,
+    "op": "==",
+    "unit": "files",
+    "evidence": [
+      "asset_validation.json"
+    ],
+    "notes": "All delivered sprite PNGs match the reference bytes. Measurement only; conductor owns verdict."
+  },
+  {
+    "id": "t3f_missing_texture_paths",
+    "subject": "T3f",
+    "passed": null,
+    "value": 0,
+    "threshold": 0,
+    "op": "==",
+    "unit": "paths",
+    "evidence": [
+      "fixture_project/frames/keeper.tres",
+      "asset_validation.json"
+    ],
+    "notes": "13/13 referenced texture paths exist; Godot import parses the resource. Measurement only; conductor owns verdict."
+  },
+  {
+    "id": "t3f_viewer_cells",
+    "subject": "T3f",
+    "passed": null,
+    "value": 2,
+    "threshold": 2,
+    "op": "==",
+    "unit": "cells",
+    "evidence": [
+      "viewer/index.html"
+    ],
+    "notes": "index.html lists idle_E and walk_E. Measurement only; conductor owns verdict."
+  },
+  {
+    "id": "t3f_viewer_nonlocal_paths",
+    "subject": "T3f",
+    "passed": null,
+    "value": 0,
+    "threshold": 0,
+    "op": "==",
+    "unit": "paths",
+    "evidence": [
+      "viewer/index.html",
+      "asset_validation.json"
+    ],
+    "notes": "All 15 embedded/markup references resolve inside the packet; 8 direction buttons and 5 animation buttons; 38 missing cells have reasons. Measurement only; conductor owns verdict."
+  },
+  {
+    "id": "t3f_import_exit",
+    "subject": "T3f",
+    "passed": null,
+    "value": 0,
+    "threshold": 0,
+    "op": "==",
+    "unit": "exit_code",
+    "evidence": [
+      "godot_import.log"
+    ],
+    "notes": "Literal command from the T3f row. Measurement only; conductor owns verdict."
+  },
+  {
+    "id": "t3f_import_error_lines",
+    "subject": "T3f",
+    "passed": null,
+    "value": 6,
+    "threshold": 0,
+    "op": "==",
+    "unit": "lines",
+    "evidence": [
+      "godot_import.log"
+    ],
+    "notes": "Denied user-data/editor writes and unavailable system certificate access. Measurement only; conductor owns verdict."
+  },
+  {
+    "id": "t3f_import_script_error_lines",
+    "subject": "T3f",
+    "passed": null,
+    "value": 0,
+    "threshold": 0,
+    "op": "==",
+    "unit": "lines",
+    "evidence": [
+      "godot_import.log"
+    ],
+    "notes": "Runtime aborted before scene startup; absence of script errors alone does not establish runtime acceptance. Measurement only; conductor owns verdict."
+  },
+  {
+    "id": "t3f_runtime_exit",
+    "subject": "T3f",
+    "passed": null,
+    "value": -6,
+    "threshold": 0,
+    "op": "==",
+    "unit": "exit_code",
+    "evidence": [
+      "godot_runtime.log"
+    ],
+    "notes": "Literal command from the T3f row. Measurement only; conductor owns verdict."
+  },
+  {
+    "id": "t3f_runtime_script_error_lines",
+    "subject": "T3f",
+    "passed": null,
+    "value": 0,
+    "threshold": 0,
+    "op": "==",
+    "unit": "lines",
+    "evidence": [
+      "godot_runtime.log"
+    ],
+    "notes": "Runtime aborted before scene startup; absence of script errors alone does not establish runtime acceptance. Measurement only; conductor owns verdict."
+  }
+]

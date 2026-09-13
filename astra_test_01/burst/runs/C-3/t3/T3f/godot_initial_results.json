@@ -1,0 +1,40 @@
+[
+  {
+    "command": [
+      "/Applications/Godot.app/Contents/MacOS/Godot",
+      "--headless",
+      "--path",
+      "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/t3/T3f/fixture_project",
+      "--import"
+    ],
+    "exit_code": 0,
+    "wall_s": 2.423326750002161,
+    "error_lines": [
+      "ERROR: Could not create directory: '/Users/admin/Library/Application Support/Godot/app_userdata/Keeper cell review stub'.",
+      "ERROR: Error attempting to create data dir: /Users/admin/Library/Application Support/Godot/app_userdata/Keeper cell review stub.",
+      "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+      "ERROR: Could not open 'user://' directory: 'user://'.",
+      "ERROR: Cannot save file '/Users/admin/Library/Application Support/Godot/editor_settings-4.6.tres'.",
+      "ERROR: Error saving editor settings to /Users/admin/Library/Application Support/Godot/editor_settings-4.6.tres"
+    ],
+    "script_error_lines": []
+  },
+  {
+    "command": [
+      "/Applications/Godot.app/Contents/MacOS/Godot",
+      "--headless",
+      "--path",
+      "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/t3/T3f/fixture_project",
+      "--quit-after",
+      "120"
+    ],
+    "exit_code": -6,
+    "wall_s": 0.6210625829990022,
+    "error_lines": [
+      "ERROR: Could not create directory: '/Users/admin/Library/Application Support/Godot/app_userdata/Keeper cell review stub'.",
+      "ERROR: Error attempting to create data dir: /Users/admin/Library/Application Support/Godot/app_userdata/Keeper cell review stub.",
+      "ERROR: Could not create directory: 'user://logs'."
+    ],
+    "script_error_lines": []
+  }
+]

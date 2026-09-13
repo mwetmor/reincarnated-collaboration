@@ -1,0 +1,15 @@
+Godot Engine v4.6.3.stable.official.7d41c59c4 - https://godotengine.org
+
+Missing animation idle_SE; using idle_E
+Missing animation walk_N; using walk_E
+Missing animation cast_N; using idle_E
+T3F_RUNTIME_ASSERTIONS=complete
+ERROR: Could not create directory: '/Users/admin/Library/Application Support/Godot/app_userdata/Keeper cell review stub'.
+   at: make_dir_recursive (core/io/dir_access.cpp:178)
+ERROR: Error attempting to create data dir: /Users/admin/Library/Application Support/Godot/app_userdata/Keeper cell review stub.
+   at: ensure_user_data_dir (core/os/os.cpp:437)
+ERROR: Condition "ret != noErr" is true. Returning: ""
+   at: get_system_ca_certificates (platform/macos/os_macos.mm:1028)
+T3F_ASSERTION: missing cast does not stick
+WARNING: ObjectDB instances leaked at exit (run with --verbose for details).
+   at: cleanup (core/object/object.cpp:2663)

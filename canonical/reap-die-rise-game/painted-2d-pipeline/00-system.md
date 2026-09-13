@@ -141,7 +141,7 @@ Live truth: `astra_test_01/burst/runs/C-1/ledger.json`. As of this doc's authori
 | `astra_test_01/burst/JUDGE_RUBRIC.md` | executable rubric | 67b1e22ca361 | 2026-09-11 |
 | `astra_test_01/burst/receipt.schema.json` | receipt contract | e2afcbc22e8d | 2026-09-11 |
 | `astra_test_01/burst/lane/run_burst.py` | the invocation | 3fcbd1744546 | 2026-09-12 |
-| `astra_test_01/burst/MANIFEST.sha256` | freeze state | 85479ff9a587 | 2026-09-13 |
+| `astra_test_01/burst/MANIFEST.sha256` | freeze state | f80770ac1266 | 2026-09-13 |
 | `~/.codex/astra-burst.config.toml` | **model pin** (`gpt-6-astra`, verified 2026-09-11 via the exec header: `model: gpt-6-astra · provider: openai`) + **effort HIGH always** (Matt 2026-09-11) + no plugins/MCP | 04725bed2d11 | 2026-09-11 |
 | `AGENTS.md` (repo root, § Painted 2D) | Codex routing | 7be8a3e2e209 | 2026-09-12 |
 

@@ -1,0 +1,23 @@
+{
+  "task_id": "T3f",
+  "wall_s_since_first_clock": 1016.348657,
+  "wall_cap_s": 2400,
+  "image_calls": 0,
+  "image_cap": 0,
+  "suite_tests_run": 299,
+  "suite_successful_tests": 293,
+  "suite_successful": false,
+  "new_tests_run": 14,
+  "new_tests_successful": 13,
+  "godot_acceptance_complete": false,
+  "clean_freeze_ready": false,
+  "notes": [
+    "No existing modules or existing test files changed; export/ is the new freeze domain.",
+    "Initial and one retried literal Godot commands are preserved. The logging-disable request did not prevent the bundled macOS logger from aborting; no further literal retry was attempted.",
+    "Supplemental diagnostic used --log-file solely to investigate behavior; it is not the literal acceptance. It exposed a probe timing issue (same-frame repeated simulated input); the probe now advances a frame after gear toggle, but clean runtime confirmation remains blocked.",
+    "The first exact full-suite command ran 298 tests, 292 successful, in 100.164810458 s. The final unchanged runner observed through stdlib TestResult ran 299 tests, 293 successful, in 96.990101959 s.",
+    "test_k3_combat_report_only is no longer among the red entries.",
+    "Godot-generated disposable caches/import metadata removed. No decoded video frame temporaries remain.",
+    "Staff-tip offset (0,-160) is a configurable stub, not a measured attachment point. The offline viewer was structurally validated, not exercised in a browser."
+  ]
+}
