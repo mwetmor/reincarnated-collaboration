@@ -1,0 +1,34 @@
+test_cli_synthetic_idle_half_rate_and_audit (test_video_cut.CLITests.test_cli_synthetic_idle_half_rate_and_audit) ... ok
+test_missing_matte_is_reported_without_fabricated_measurements (test_video_cut.CLITests.test_missing_matte_is_reported_without_fabricated_measurements) ... ok
+test_cast_gather_release_and_order (test_video_cut.OneShotTests.test_cast_gather_release_and_order) ... ok
+test_incomplete_events_never_fabricate_settle (test_video_cut.OneShotTests.test_incomplete_events_never_fabricate_settle) ... ok
+test_invalid_tracking_and_arguments (test_video_cut.OneShotTests.test_invalid_tracking_and_arguments) ... ok
+test_jump_all_key_poses_within_one_frame (test_video_cut.OneShotTests.test_jump_all_key_poses_within_one_frame) ... ok
+test_native_offset_and_half_rate (test_video_cut.OneShotTests.test_native_offset_and_half_rate) ... ok
+test_no_event_flat_and_baseline_noise (test_video_cut.OneShotTests.test_no_event_flat_and_baseline_noise) ... ok
+test_resampling_counts_midpoints_and_bad_poses (test_video_cut.OneShotTests.test_resampling_counts_midpoints_and_bad_poses) ... ok
+test_settle_requires_six_consecutive_samples (test_video_cut.OneShotTests.test_settle_requires_six_consecutive_samples) ... ok
+test_single_frame_spike_and_crouch_without_flight (test_video_cut.OneShotTests.test_single_frame_spike_and_crouch_without_flight) ... ok
+test_bob_17_stride_34 (test_video_cut.Tests.test_bob_17_stride_34) ... ok
+test_half_rate_native_units (test_video_cut.Tests.test_half_rate_native_units) ... ok
+test_idle_48_and_flat_fallback (test_video_cut.Tests.test_idle_48_and_flat_fallback) ... ok
+test_idle_rgb_closure_optimum_and_latest_tie (test_video_cut.Tests.test_idle_rgb_closure_optimum_and_latest_tie) ... ok
+test_latest_down_and_bounds (test_video_cut.Tests.test_latest_down_and_bounds) ... ok
+test_latest_down_within_flat_maximum (test_video_cut.Tests.test_latest_down_within_flat_maximum) ... ok
+test_matte_floor_and_edge_note (test_video_cut.Tests.test_matte_floor_and_edge_note) ... ok
+test_register_shared_transform_including_rest (test_video_cut.Tests.test_register_shared_transform_including_rest) ... ok
+test_resample_python_round_and_bad_arguments (test_video_cut.Tests.test_resample_python_round_and_bad_arguments) ... ok
+test_splice_108_and_selection_membership (test_video_cut.Tests.test_splice_108_and_selection_membership) ... ok
+test_split_real_synthetic_video_strict_time_and_half_rate (test_video_cut.Tests.test_split_real_synthetic_video_strict_time_and_half_rate) ... ok
+test_track_largest_component_median_and_coordinates (test_video_cut.Tests.test_track_largest_component_median_and_coordinates) ... ok
+
+----------------------------------------------------------------------
+Ran 23 tests in 5.281s
+
+OK
+VIDEO_SYNTHETIC_CAST {"expected": {"onset": 30, "raise_mid": 34, "gather": 39, "release": 42, "follow_through": 45, "return_mid": 50, "return_index": 55, "settle": 55}, "measured": {"onset": 30, "raise_mid": 34, "gather": 39, "release": 42, "follow_through": 45, "return": 55, "settle": 55}, "gather_error": 0, "release_error": 0}
+VIDEO_SYNTHETIC_JUMP {"expected": {"onset": 30, "crouch": 35, "take_off": 36, "apex": 45, "touchdown": 55, "landing_crouch": 58, "settle": 62}, "measured": {"onset": 30, "crouch": 35, "take_off": 36, "apex": 45, "touchdown": 55, "landing_crouch": 58, "settle": 62}, "errors": {"onset": 0, "crouch": 0, "take_off": 0, "apex": 0, "touchdown": 0, "landing_crouch": 0, "settle": 0}, "confidence": 0.9}
+VIDEO_SYNTHETIC_BOB {"frames": 34, "seconds": 1.4166666666666667, "source": "head_bob_autocorr", "confidence": 0.9999882316291031, "bob_frames": 17, "bob_seconds": 0.7083333333333334, "notes": "confidence measures observed autocorrelation, not the prompted/sibling prior"}
+VIDEO_SYNTHETIC_IDLE {"frames": 48, "seconds": 2.0, "source": "chest_width_autocorr", "confidence": 1.0, "bob_frames": null, "bob_seconds": null, "notes": "confidence measures observed autocorrelation, not the prompted/sibling prior"}
+VIDEO_SYNTHETIC_REGISTER {"scale": 0.5, "nominal_scale": 0.5, "translation_xy": [92, 120], "scaled_size": [320, 320], "source_sampling_box_xyxy": [0.0, 0.0, 640.0, 640.0], "source_size": [640, 640], "anchor_index": 1, "anchor_native_bbox": [256, 80, 400, 560], "canvas": [512, 512], "anchor_bbox": [220, 160, 292, 400], "anchor_H": 240, "anchor_sole_row": 399, "anchor_cx": 255.5, "target_h": 240, "sole_row": 399, "cx": 255.5, "one_transform_for_every_frame": true, "upscaling": false, "resampling": "PIL Lanczos; exact isotropic sampling box; integer unmasked paste", "calibration": "closest nominal scale attaining raster height/centre, search +/-1 output px in .025 px steps"}
+VIDEO_SYNTHETIC_SPLICE {"suspect_pairs": [[107, 108]], "mad": 10.1375, "median": 0.0}

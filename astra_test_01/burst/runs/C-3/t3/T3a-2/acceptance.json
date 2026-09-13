@@ -1,0 +1,678 @@
+{
+  "task_id": "T3a-2",
+  "tool_sha256": "ab68e10ba0ad865af64003dbd8c249b075a69d0cdb9416c2515336954466949b",
+  "notes": [
+    "Walk must reproduce corrected T3a-1 selection exactly.",
+    "Real jump/cast are reports only, including incomplete/null detections.",
+    "Diagnostic-only strips are labelled and do not fabricate game frames.",
+    "Frozen matte may report edge_mode clamp ignored until T3b."
+  ],
+  "clips": [
+    {
+      "kind": "walk",
+      "present": true,
+      "command": [
+        "/Library/Frameworks/Python.framework/Versions/3.12/bin/python3",
+        "-B",
+        "-m",
+        "oracle.video_cut",
+        "--clip",
+        "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/xvideo/in/walk_E_grok.mp4",
+        "--kind",
+        "walk",
+        "--direction",
+        "E",
+        "--n",
+        "12",
+        "--fps-out",
+        "12",
+        "--out",
+        "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/t3/T3a-2/walk"
+      ],
+      "returncode": 0,
+      "subprocess_seconds": 26.130607707993477,
+      "stderr": "",
+      "stdout": "{\"out\": \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/t3/T3a-2/walk\", \"indices_native\": [71, 74, 77, 79, 82, 85, 88, 91, 94, 97, 99, 102], \"diagnostic_only\": false, \"wall_seconds\": 25.514380042004632}\n",
+      "results": [
+        {
+          "id": "cli_native_indices",
+          "subject": "walk",
+          "passed": null,
+          "value": [
+            71,
+            74,
+            77,
+            79,
+            82,
+            85,
+            88,
+            91,
+            94,
+            97,
+            99,
+            102
+          ],
+          "threshold": [
+            71,
+            74,
+            77,
+            79,
+            82,
+            85,
+            88,
+            91,
+            94,
+            97,
+            99,
+            102
+          ],
+          "op": "==",
+          "unit": "native_frames",
+          "evidence": [],
+          "notes": "Measurement only; conductor criterion. "
+        },
+        {
+          "id": "cli_selected_window",
+          "subject": "walk",
+          "passed": null,
+          "value": [
+            71,
+            105
+          ],
+          "threshold": [
+            71,
+            105
+          ],
+          "op": "==",
+          "unit": "native_frames",
+          "evidence": [],
+          "notes": "Measurement only; conductor criterion. "
+        },
+        {
+          "id": "cli_every_candidate_window",
+          "subject": "walk",
+          "passed": null,
+          "value": [
+            [
+              6,
+              40
+            ],
+            [
+              17,
+              51
+            ],
+            [
+              36,
+              70
+            ],
+            [
+              54,
+              88
+            ],
+            [
+              71,
+              105
+            ]
+          ],
+          "threshold": [
+            [
+              6,
+              40
+            ],
+            [
+              17,
+              51
+            ],
+            [
+              36,
+              70
+            ],
+            [
+              54,
+              88
+            ],
+            [
+              71,
+              105
+            ]
+          ],
+          "op": "==",
+          "unit": "native_frames",
+          "evidence": [],
+          "notes": "Measurement only; conductor criterion. "
+        },
+        {
+          "id": "cli_period",
+          "subject": "walk",
+          "passed": null,
+          "value": 34,
+          "threshold": 34,
+          "op": "==",
+          "unit": "native_frames",
+          "evidence": [],
+          "notes": "Measurement only; conductor criterion. "
+        },
+        {
+          "id": "cli_selection_native_window",
+          "subject": "walk",
+          "passed": null,
+          "value": [
+            71,
+            72,
+            73,
+            74,
+            75,
+            76,
+            77,
+            78,
+            79,
+            80,
+            81,
+            82,
+            83,
+            84,
+            85,
+            86,
+            87,
+            88,
+            89,
+            90,
+            91,
+            92,
+            93,
+            94,
+            95,
+            96,
+            97,
+            98,
+            99,
+            100,
+            101,
+            102,
+            103,
+            104
+          ],
+          "threshold": [
+            71,
+            72,
+            73,
+            74,
+            75,
+            76,
+            77,
+            78,
+            79,
+            80,
+            81,
+            82,
+            83,
+            84,
+            85,
+            86,
+            87,
+            88,
+            89,
+            90,
+            91,
+            92,
+            93,
+            94,
+            95,
+            96,
+            97,
+            98,
+            99,
+            100,
+            101,
+            102,
+            103,
+            104
+          ],
+          "op": "==",
+          "unit": "native_frames",
+          "evidence": [],
+          "notes": "Measurement only; conductor criterion. "
+        },
+        {
+          "id": "cli_execution",
+          "subject": "walk",
+          "passed": null,
+          "value": 0,
+          "threshold": 0,
+          "op": "==",
+          "unit": "exit_code",
+          "evidence": [],
+          "notes": "Measurement only; conductor criterion. "
+        }
+      ],
+      "registration": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/t3/T3a-2/walk/registration.json",
+      "indices_native": [
+        71,
+        74,
+        77,
+        79,
+        82,
+        85,
+        88,
+        91,
+        94,
+        97,
+        99,
+        102
+      ],
+      "detection": null,
+      "strip": {
+        "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/t3/T3a-2/walk/sheets/walk_E_strip.png",
+        "diagnostic_only": false,
+        "indices_native": [
+          71,
+          74,
+          77,
+          79,
+          82,
+          85,
+          88,
+          91,
+          94,
+          97,
+          99,
+          102
+        ]
+      },
+      "transform": {
+        "scale": 0.22061121323529412,
+        "nominal_scale": 0.22058823529411764,
+        "translation_xy": [
+          170,
+          153
+        ],
+        "scaled_size": [
+          169,
+          257
+        ],
+        "source_sampling_box_xyxy": [
+          0.0,
+          0.0,
+          766.0535360899906,
+          1164.9453181960212
+        ],
+        "source_size": [
+          768,
+          1168
+        ],
+        "anchor_index": 0,
+        "anchor_native_bbox": [
+          108,
+          30,
+          672,
+          1118
+        ],
+        "canvas": [
+          512,
+          512
+        ],
+        "anchor_bbox": [
+          194,
+          160,
+          318,
+          400
+        ],
+        "anchor_H": 240,
+        "anchor_sole_row": 399,
+        "anchor_cx": 255.5,
+        "target_h": 240,
+        "sole_row": 399,
+        "cx": 255.5,
+        "one_transform_for_every_frame": true,
+        "upscaling": false,
+        "resampling": "PIL Lanczos; exact isotropic sampling box; integer unmasked paste",
+        "calibration": "closest nominal scale attaining raster height/centre, search +/-1 output px in .025 px steps"
+      },
+      "wall_seconds": 25.514380042004632,
+      "matte_note": {
+        "method": "green excess matte + inverse straight-alpha compositing",
+        "removed_background_or_detached_alpha_dust_pixels": 64,
+        "native_input_alpha": false,
+        "alpha_floor": 40,
+        "alpha_floor_removed_pixels": 699200,
+        "edge_mode_requested": "clamp",
+        "edge_mode_applied": "unpremultiply",
+        "edge_mode_note": "edge_mode ignored: frozen extract predates T3b"
+      },
+      "invalid_native_indices": [],
+      "period": {
+        "frames": 34,
+        "seconds": 1.4166666666666667,
+        "source": "head_bob_autocorr",
+        "confidence": 0.6072190142699215,
+        "bob_frames": 17,
+        "bob_seconds": 0.7083333333333334,
+        "notes": "confidence measures observed autocorrelation, not the prompted/sibling prior"
+      },
+      "n_native": 145
+    },
+    {
+      "kind": "jump",
+      "present": true,
+      "command": [
+        "/Library/Frameworks/Python.framework/Versions/3.12/bin/python3",
+        "-B",
+        "-m",
+        "oracle.video_cut",
+        "--clip",
+        "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/xvideo/in/S_jump.mp4",
+        "--kind",
+        "jump",
+        "--direction",
+        "S",
+        "--n",
+        "8",
+        "--fps-out",
+        "12",
+        "--out",
+        "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/t3/T3a-2/jump"
+      ],
+      "returncode": 0,
+      "subprocess_seconds": 25.345132499998726,
+      "stderr": "",
+      "stdout": "{\"out\": \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/t3/T3a-2/jump\", \"indices_native\": [], \"diagnostic_only\": true, \"wall_seconds\": 24.559683917002985}\n",
+      "results": [
+        {
+          "id": "real_key_pose_indices",
+          "subject": "jump",
+          "passed": null,
+          "value": {},
+          "threshold": null,
+          "op": "report",
+          "unit": "native_frames",
+          "evidence": [],
+          "notes": "Measurement only; conductor criterion. missing/nonfinite tracking; no interpolation across invalid frames"
+        },
+        {
+          "id": "real_oneshot_confidence",
+          "subject": "jump",
+          "passed": null,
+          "value": 0.0,
+          "threshold": null,
+          "op": "report",
+          "unit": "ratio",
+          "evidence": [],
+          "notes": "Measurement only; conductor criterion. "
+        },
+        {
+          "id": "cli_execution",
+          "subject": "jump",
+          "passed": null,
+          "value": 0,
+          "threshold": 0,
+          "op": "==",
+          "unit": "exit_code",
+          "evidence": [],
+          "notes": "Measurement only; conductor criterion. "
+        }
+      ],
+      "registration": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/t3/T3a-2/jump/registration.json",
+      "indices_native": [],
+      "detection": {
+        "kind": "jump",
+        "onset": null,
+        "key": [],
+        "key_poses": {},
+        "settle": null,
+        "confidence": 0.0,
+        "detection": null,
+        "baseline": null,
+        "notes": "missing/nonfinite tracking; no interpolation across invalid frames",
+        "index_units": "native_frames"
+      },
+      "strip": {
+        "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/t3/T3a-2/jump/sheets/jump_S_strip.png",
+        "diagnostic_only": true,
+        "indices_native": [
+          0,
+          19,
+          39,
+          67,
+          86,
+          105,
+          125,
+          144
+        ]
+      },
+      "transform": {
+        "scale": 0.21180494263018534,
+        "nominal_scale": 0.2118270079435128,
+        "translation_xy": [
+          178,
+          158
+        ],
+        "scaled_size": [
+          162,
+          247
+        ],
+        "source_sampling_box_xyxy": [
+          0.0,
+          0.0,
+          764.8546723617044,
+          1166.1673090946974
+        ],
+        "source_size": [
+          768,
+          1168
+        ],
+        "anchor_index": 0,
+        "anchor_native_bbox": [
+          151,
+          9,
+          588,
+          1142
+        ],
+        "canvas": [
+          512,
+          512
+        ],
+        "anchor_bbox": [
+          210,
+          160,
+          302,
+          400
+        ],
+        "anchor_H": 240,
+        "anchor_sole_row": 399,
+        "anchor_cx": 255.5,
+        "target_h": 240,
+        "sole_row": 399,
+        "cx": 255.5,
+        "one_transform_for_every_frame": true,
+        "upscaling": false,
+        "resampling": "PIL Lanczos; exact isotropic sampling box; integer unmasked paste",
+        "calibration": "closest nominal scale attaining raster height/centre, search +/-1 output px in .025 px steps"
+      },
+      "wall_seconds": 24.559683917002985,
+      "matte_note": {
+        "method": "green excess matte + inverse straight-alpha compositing",
+        "removed_background_or_detached_alpha_dust_pixels": 74,
+        "native_input_alpha": false,
+        "alpha_floor": 40,
+        "alpha_floor_removed_pixels": 641895,
+        "edge_mode_requested": "clamp",
+        "edge_mode_applied": "unpremultiply",
+        "edge_mode_note": "edge_mode ignored: frozen extract predates T3b"
+      },
+      "invalid_native_indices": [
+        49,
+        50,
+        51,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58
+      ],
+      "period": null,
+      "n_native": 145
+    },
+    {
+      "kind": "cast",
+      "present": true,
+      "command": [
+        "/Library/Frameworks/Python.framework/Versions/3.12/bin/python3",
+        "-B",
+        "-m",
+        "oracle.video_cut",
+        "--clip",
+        "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/xvideo/in/S_cast.mp4",
+        "--kind",
+        "cast",
+        "--direction",
+        "S",
+        "--n",
+        "8",
+        "--fps-out",
+        "12",
+        "--out",
+        "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/t3/T3a-2/cast"
+      ],
+      "returncode": 0,
+      "subprocess_seconds": 26.577497207996203,
+      "stderr": "",
+      "stdout": "{\"out\": \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/t3/T3a-2/cast\", \"indices_native\": [], \"diagnostic_only\": true, \"wall_seconds\": 25.812790249998216}\n",
+      "results": [
+        {
+          "id": "real_key_pose_indices",
+          "subject": "cast",
+          "passed": null,
+          "value": {},
+          "threshold": null,
+          "op": "report",
+          "unit": "native_frames",
+          "evidence": [],
+          "notes": "Measurement only; conductor criterion. no sustained tip departure from baseline"
+        },
+        {
+          "id": "real_oneshot_confidence",
+          "subject": "cast",
+          "passed": null,
+          "value": 0.0,
+          "threshold": null,
+          "op": "report",
+          "unit": "ratio",
+          "evidence": [],
+          "notes": "Measurement only; conductor criterion. "
+        },
+        {
+          "id": "cli_execution",
+          "subject": "cast",
+          "passed": null,
+          "value": 0,
+          "threshold": 0,
+          "op": "==",
+          "unit": "exit_code",
+          "evidence": [],
+          "notes": "Measurement only; conductor criterion. "
+        }
+      ],
+      "registration": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/t3/T3a-2/cast/registration.json",
+      "indices_native": [],
+      "detection": {
+        "kind": "cast",
+        "onset": null,
+        "key": [],
+        "key_poses": {},
+        "settle": null,
+        "confidence": 0.0,
+        "detection": null,
+        "baseline": {
+          "samples": 12,
+          "tip_xy": [
+            384.5,
+            10.5
+          ],
+          "tip_noise": 101.4051280754578,
+          "duration_s": 0.5
+        },
+        "notes": "no sustained tip departure from baseline",
+        "index_units": "native_frames"
+      },
+      "strip": {
+        "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/t3/T3a-2/cast/sheets/cast_S_strip.png",
+        "diagnostic_only": true,
+        "indices_native": [
+          0,
+          21,
+          41,
+          62,
+          82,
+          103,
+          123,
+          144
+        ]
+      },
+      "transform": {
+        "scale": 0.21179328621908128,
+        "nominal_scale": 0.21201413427561838,
+        "translation_xy": [
+          178,
+          158
+        ],
+        "scaled_size": [
+          162,
+          247
+        ],
+        "source_sampling_box_xyxy": [
+          0.0,
+          0.0,
+          764.8967674661105,
+          1166.2314911366007
+        ],
+        "source_size": [
+          768,
+          1168
+        ],
+        "anchor_index": 0,
+        "anchor_native_bbox": [
+          151,
+          10,
+          588,
+          1142
+        ],
+        "canvas": [
+          512,
+          512
+        ],
+        "anchor_bbox": [
+          210,
+          160,
+          302,
+          400
+        ],
+        "anchor_H": 240,
+        "anchor_sole_row": 399,
+        "anchor_cx": 255.5,
+        "target_h": 240,
+        "sole_row": 399,
+        "cx": 255.5,
+        "one_transform_for_every_frame": true,
+        "upscaling": false,
+        "resampling": "PIL Lanczos; exact isotropic sampling box; integer unmasked paste",
+        "calibration": "closest nominal scale attaining raster height/centre, search +/-1 output px in .025 px steps"
+      },
+      "wall_seconds": 25.812790249998216,
+      "matte_note": {
+        "method": "green excess matte + inverse straight-alpha compositing",
+        "removed_background_or_detached_alpha_dust_pixels": 72,
+        "native_input_alpha": false,
+        "alpha_floor": 40,
+        "alpha_floor_removed_pixels": 640544,
+        "edge_mode_requested": "clamp",
+        "edge_mode_applied": "unpremultiply",
+        "edge_mode_note": "edge_mode ignored: frozen extract predates T3b"
+      },
+      "invalid_native_indices": [],
+      "period": null,
+      "n_native": 145
+    }
+  ],
+  "wall_seconds": 78.0568060000005
+}

@@ -570,6 +570,221 @@
       "codex_version": "codex-cli 0.153.4",
       "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
       "exit": 0
+    },
+    {
+      "id": "T3a-2",
+      "type": "TOOLING",
+      "experiment": "C3-T3",
+      "brief_sha256": "6b4e40826488d24d87078a1900683886b154e287d0b32cda4a7e55441c7ab7a7",
+      "started": "2026-09-13T05:34:41.556529+00:00",
+      "ended": "2026-09-13T05:52:16.455401+00:00",
+      "minutes": 17.582971319450007,
+      "image_calls": 0,
+      "tool_calls": 27,
+      "audit": {
+        "violations": [],
+        "image_calls": 0,
+        "tool_calls": 27,
+        "tools_seen": {
+          "command_execution": 22,
+          "file_change": 5
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": []
+      },
+      "receipt_sha256": "587a59ac9f79c42f83248d29433d28d4aa538924ec7c0585e02d1ac1d3e10eba",
+      "artifacts": [],
+      "artifacts_in_place": [
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "oracle/video_cut.py",
+          "sha256": "ab68e10ba0ad865af64003dbd8c249b075a69d0cdb9416c2515336954466949b"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3a-2/acceptance.json",
+          "sha256": "3d26082f0b3b17bfec7f2437d9132c1e42bd004c4546c6dcefd7887b553ed102"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3a-2/acceptance.log",
+          "sha256": "a0c4f7e56d29d4f425a40ad2746f14e6f05a808a3de73794162c5970ece6b886"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3a-2/acceptance_initial_attempt.json",
+          "sha256": "3e4ed499b8a455b33ef2e6c7bd3eeb9bbd38a8e875dcd885824fe5b046101cd9"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3a-2/cast/frames/rest/S/rest_S.png",
+          "sha256": "d196844a04a2c8afb22df72519ea835f7ac21dc592680698252b0eabe4384851"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3a-2/cast/registration.json",
+          "sha256": "2f28ebd15deec7fbd25b9d60ba90999c37b3660e2591beb9351a983d4af74cd3"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3a-2/cast/series.json",
+          "sha256": "50e0c9468c71c99125a385fefd242f6b8f20d59d1156e9c359ef88a34ee5d344"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3a-2/cast/sheets/cast_S_strip.png",
+          "sha256": "a68ccf82c1181e6a1f1ae16315e4296aa5d0003fdce436faf181536e9c057bdd"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3a-2/full_suite.log",
+          "sha256": "8662dde9f3c89663aad3ac93076b08c24dca0b82a853e447b121c066b8e6921c"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3a-2/full_suite_diagnostic.log",
+          "sha256": "127b899ec43d866f66091bfc86281d7995c0d41790fa4b62bb6dbabb332e83e7"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3a-2/full_suite_results.json",
+          "sha256": "b4810f3530f989bb3e30a37d1195023bd37e9dfe7793d9b5a10020327d595bfd"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3a-2/jump/frames/rest/S/rest_S.png",
+          "sha256": "7a6a2e87fbecb2d30ad34e05c711f4ddba5c999825cc189d60f08106c3ccda68"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3a-2/jump/registration.json",
+          "sha256": "a011e2304ea76bc364b81d545102a870dca0ccb3b1b408cc8c0b9cdd54d6a031"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3a-2/jump/series.json",
+          "sha256": "416408d80af6ba34dc662c4e6fe25055316883732824d03011cb6af9a9751f3b"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3a-2/jump/sheets/jump_S_strip.png",
+          "sha256": "5f07b0a2806e4f4af890b3beb92ae843d464362ed8157c06fcf9b3f512f57977"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3a-2/synthetic.log",
+          "sha256": "ae1c87e178bc4bc0aeec1b8d87c5aac8f7e86061025ad2b42f7f21aa59e1e44a"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3a-2/validation.json",
+          "sha256": "c51957a46df97fd197287b9f70d7742a28935819455db4e818414696db11b736"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3a-2/walk/frames/rest/E/rest_E.png",
+          "sha256": "41bb5f196e44230ab57562322bb9066175277e7f628f7e7b5ac5387f8f58c81c"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3a-2/walk/frames/walk/E/walk_E_00.png",
+          "sha256": "cb78bc20bbfa43eff7ced4997764d902300d25e62d259d678354e97b11dd525c"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3a-2/walk/frames/walk/E/walk_E_01.png",
+          "sha256": "208d0ab406019b769e6129cce6a1964b3bba0cf4f30a95030e5a254347d5a016"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3a-2/walk/frames/walk/E/walk_E_02.png",
+          "sha256": "97105c86666c9c2f28dd06f5d194aa4d5165c97c1e0898f06b027d17bb9fc164"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3a-2/walk/frames/walk/E/walk_E_03.png",
+          "sha256": "79af7edc3c4fd0d8d748167420b0a27be7cbebc8346fbf558bf23148746a8408"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3a-2/walk/frames/walk/E/walk_E_04.png",
+          "sha256": "918bcaafd2843f7eb1ed5f3e84fc6a17cbf746fd716a7ee7f0af255cba1fc787"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3a-2/walk/frames/walk/E/walk_E_05.png",
+          "sha256": "55177ac015aba82b2fcc8c655e480fed982b70030619b2fec569c6aee7d0754f"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3a-2/walk/frames/walk/E/walk_E_06.png",
+          "sha256": "c769748e10817ed732d203114cc4b8faf8ce58e788c7a351d53d8fbd3feb5e95"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3a-2/walk/frames/walk/E/walk_E_07.png",
+          "sha256": "69eb5ef705f40d0cc4e87741e3aed73a5a3015d6d09a12148c48ccf723896e50"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3a-2/walk/frames/walk/E/walk_E_08.png",
+          "sha256": "7052dc3ae897473931ce5ffb0359ad1196a0502a09a01ffc32375b686b5edd18"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3a-2/walk/frames/walk/E/walk_E_09.png",
+          "sha256": "161e2392abff42c51ca84d2b1a8e1678f642924a0f1e0783660e30cda9d9ca72"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3a-2/walk/frames/walk/E/walk_E_10.png",
+          "sha256": "db1f9fb46307353580c7e83bc0b97302178b08aa2a0d7d9221528720005a263e"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3a-2/walk/frames/walk/E/walk_E_11.png",
+          "sha256": "814762cbd129bbcba16e449d078d67adc9db2d107bd2c304d4ccb04e1f7e53a1"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3a-2/walk/registration.json",
+          "sha256": "fd85ae98f8096ce902bd0dec294ecd4439316f160e7deedcd5fec461c6337709"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3a-2/walk/series.json",
+          "sha256": "7437c468eda3fec818cfe9a116e0122c13230e15a8b481e5892d44b6bd7ed6e9"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3a-2/walk/sheets/walk_E_strip.png",
+          "sha256": "838a6249d57b776d571e86b5e5ae8309e53b9e8beca0cbfc28e316477fe34ebb"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "tests/acceptance_t3a.py",
+          "sha256": "a5adb1de8cc214e1bef0ed48f3ef35f25021a180379d93ec8a8c61b98d305057"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "tests/test_video_cut.py",
+          "sha256": "8cb6f09f5a6fd2862f89b309a7c2b2fbc9c68c44e3721f4d5dc4a78266a2e9c9"
+        }
+      ],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
     }
   ],
   "images_used": 8,
@@ -647,6 +862,24 @@
       "consequence": "Freeze 3f927475515c (+ oracle/video_cut.py, tests/test_video_cut.py, tests/acceptance_t3a.py); SYNC 10/10. 19 staged clips folded into runs/C-3/xvideo/in + grok_calls. T3a-2 fires.",
       "evidence": "runs/C-3/t3/T3a-1/acceptance.json; receipt ~/astra-burst/runs/C-3/T3a-1/out/receipt.json; conductor re-run output",
       "ts": "2026-09-13T01:34:36"
+    },
+    {
+      "id": "R-C3-6",
+      "by": "gandalf (conductor, DRIFT-CRITIC)",
+      "topic": "T3a-2 ACCEPTED + FROZEN — one-shot detection exact on synthetics; CLI reproduces the walk cut; real S jump/cast REPORTED null honestly",
+      "ruling": "Receipt DELIVERED_WITH_CONCERNS (audit clean; 18 min, 27 calls). Synthetic: jump key poses (onset/crouch/take-off/apex/touchdown/landing crouch/settle) error 0 on every pose; cast gather/release error 0; no-event and noisy no-event → confidence 0, detection null (never fabricated). CLI end-to-end on walk_E_grok.mp4 → indices [71…102] identical to T3a-1/cut B (25.5 s). Suite 207/201 — the same six standing reds. Real report-only runs: S_jump → detection null (‘missing/nonfinite tracking’); S_cast → null (tip baseline y≈10 px, noise 101 px). Conductor contact sheets (every 8th frame): S_jump is a clean single jump whose head and staff LEAVE THE TOP OF THE FRAME at the apex — the rest still fills ~95 % of the frame height (a source-framing defect, not an instrument defect); S_cast is weak and the STAFF DISAPPEARS for ~1 s while a glowing hand points — a clip-content defect.",
+      "consequence": "Freeze bd0675c7da22; SYNC 10/10. The instrument stands; the one-shot clips are re-driven (R-C3-7).",
+      "evidence": "runs/C-3/t3/T3a-2/{validation,acceptance}.json; jump/cast registration.json; conductor contact sheets",
+      "ts": "2026-09-13T01:54:27"
+    },
+    {
+      "id": "R-C3-7",
+      "by": "gandalf (conductor)",
+      "topic": "ONE-SHOT RE-DRIVE (method within hypothesis): all 16 jump/cast clips re-driven from PADDED seeds (70 % height, 353 px headroom) with a v2 cast prompt (staff visible in every frame, both hands, no glowing hand) and a v2 jump line (whole body and staff stay inside the frame); Grok clip count rises to ≈ 56",
+      "ruling": "The R-C3-6 failure is source framing (figure ≈ 95 % of frame height ⇒ apex and staff raise exit the frame) and, for cast, clip content (staff vanishes). Two-attempt rule scope guard: this is a method change within the hypothesis (seed geometry + prompt wording), never medium. Seeds: runs/C-3/artifacts/K2c-pad/pad_<D>.png — the judged rest still cropped to its alpha bbox, uniformly downscaled to 1075 px on a 1024×1536 #00ff00 canvas, feet at row 1428 (C-1 seed.py precedent: uniform scale + translation only); pad_seeds.json records scale/paste/sha256. Prompts: matrix_prompts.json cells <D>_jump_v2 / <D>_cast_v2 (sha256 recorded). Idle/walk/run keep their full-height clips (their motion stays inside the frame; the run clips are checked for exits at P4). Budget: charter H says ~45 Grok clips with halts counting FAILURES, not clips; 40 + 16 = 56 is an estimate overage on a subscription surface with no printed cost (T30), recorded here veto-open.",
+      "consequence": "16 clips <D>_{jump,cast}_v2 generated STAGED during T3b; v1 clips kept for lineage. P4 cuts one-shots from v2; if v2 detection still fails, fallback = conductor-explicit key-pose indices from a contact sheet (R-46 precedent), flagged.",
+      "evidence": "R-C3-6; runs/C-3/artifacts/K2c-pad/pad_seeds.json; matrix_prompts.json",
+      "ts": "2026-09-13T01:54:27"
     }
   ],
   "grok_calls": [

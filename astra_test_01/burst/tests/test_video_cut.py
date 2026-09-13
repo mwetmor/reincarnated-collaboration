@@ -2,6 +2,7 @@
 import json
 from pathlib import Path
 import subprocess
+import sys
 import tempfile
 import unittest
 from unittest.mock import patch
@@ -205,6 +206,198 @@ class Tests(unittest.TestCase):
             self.assertEqual(len(meta['paths']),meta['n'])
         with self.assertRaises(ValueError): vc.split(clip,self.base/'False')
         with self.assertRaises(ValueError): vc.split(clip,self.base/'bad',t_max_s=0)
+
+
+def jump_series():
+    # Independent 30 baseline / 6 crouch / 10 rise / 10 fall / 6 land / 20 rest.
+    head = np.r_[np.full(30,100.), [102,104,106,108,110,112],
+                 np.linspace(95,50,10), np.linspace(55,100,10),
+                 [104,108,112,110,106,102], np.full(20,100.)]
+    sole = np.r_[np.full(36,340.), np.linspace(335,290,10),
+                 np.linspace(295,340,10), np.full(26,340.)]
+    return dict(head_top_y=head.tolist(),sole_y=sole.tolist())
+
+
+def cast_series():
+    tip = np.tile([100.,100.],(82,1))
+    tip[30:40,1] = np.linspace(96,60,10)  # gather 39
+    tip[40] = [102,62]
+    tip[41] = [106,64]
+    tip[42] = [156,70]                 # largest arrival speed, release 42
+    tip[43:46] = [[166,75],[172,80],[176,85]]
+    tip[46:56] = np.linspace([169,87],[100,100],10)  # return 55
+    return dict(tip_xy=tip.tolist())
+
+
+class OneShotTests(unittest.TestCase):
+    def test_jump_all_key_poses_within_one_frame(self):
+        result = vc.detect_oneshot('jump',jump_series(),60)
+        expected = dict(onset=30,crouch=35,take_off=36,apex=45,touchdown=55,
+                        landing_crouch=58,settle=62)
+        self.assertIsNotNone(result['detection'])
+        errors = {k:abs(result['detection'][k]-v) for k,v in expected.items()}
+        self.assertLessEqual(max(errors.values()),1)
+        self.assertEqual(result['baseline']['samples'],30)
+        self.assertEqual(vc.resample_oneshot('jump',result),[30,35,36,40,45,50,58,62])
+        print('VIDEO_SYNTHETIC_JUMP '+json.dumps(dict(expected=expected,
+              measured=result['detection'],errors=errors,confidence=result['confidence'])))
+
+    def test_cast_gather_release_and_order(self):
+        result = vc.detect_oneshot('cast',cast_series(),60)
+        self.assertIsNotNone(result['detection'])
+        expected = dict(onset=30,raise_mid=34,gather=39,release=42,
+                        follow_through=45,return_mid=50,return_index=55,settle=55)
+        self.assertAlmostEqual(result['detection']['gather'],39,delta=1)
+        self.assertAlmostEqual(result['detection']['release'],42,delta=1)
+        self.assertEqual(vc.resample_oneshot('cast',result),[30,34,39,42,45,50,55,55])
+        print('VIDEO_SYNTHETIC_CAST '+json.dumps(dict(expected=expected,
+              measured=result['detection'],gather_error=abs(result['detection']['gather']-39),
+              release_error=abs(result['detection']['release']-42))))
+
+    def test_no_event_flat_and_baseline_noise(self):
+        for noisy in (False,True):
+            noise = np.tile([-.2,.2],41) if noisy else np.zeros(82)
+            samples = [('jump',dict(head_top_y=(100+noise).tolist(),sole_y=[340.]*82)),
+                       ('cast',dict(tip_xy=np.column_stack([100+noise,100+noise]).tolist()))]
+            for kind,series in samples:
+                with self.subTest(kind=kind,noisy=noisy):
+                    result = vc.detect_oneshot(kind,series,60)
+                    self.assertIsNone(result['detection'])
+                    self.assertLess(result['confidence'],.3)
+                    self.assertIsNone(result['onset'])
+                    with self.assertRaises(ValueError): vc.resample_oneshot(kind,result)
+                    json.dumps(result,allow_nan=False)
+
+    def test_single_frame_spike_and_crouch_without_flight(self):
+        series = dict(head_top_y=[100.]*82,sole_y=[340.]*82)
+        series['head_top_y'][35] = 120
+        self.assertIsNone(vc.detect_oneshot('jump',series,60)['onset'])
+        series['head_top_y'][36] = 120
+        result = vc.detect_oneshot('jump',series,60)
+        self.assertEqual(result['onset'],35)
+        self.assertIsNone(result['detection']); self.assertLess(result['confidence'],.3)
+        tip = dict(tip_xy=[[100.,100.] for _ in range(82)])
+        tip['tip_xy'][35] = [200.,50.]
+        self.assertIsNone(vc.detect_oneshot('cast',tip,60)['onset'])
+
+    def test_incomplete_events_never_fabricate_settle(self):
+        for kind,series in [('jump',jump_series()),('cast',cast_series())]:
+            for length in (20,48,60 if kind=='cast' else 67):
+                with self.subTest(kind=kind,length=length):
+                    short = {k:v[:length] for k,v in series.items()}
+                    result = vc.detect_oneshot(kind,short,60)
+                    self.assertIsNone(result['detection'])
+                    self.assertLess(result['confidence'],.3)
+                    self.assertIsNone(result['settle'])
+
+    def test_settle_requires_six_consecutive_samples(self):
+        series = jump_series()
+        series['head_top_y'][67] = 100.1  # breaks first five rest samples
+        result = vc.detect_oneshot('jump',series,60)
+        self.assertEqual(result['settle'],68)
+        cast = cast_series()
+        cast['tip_xy'][60] = [100.1,100.]
+        self.assertEqual(vc.detect_oneshot('cast',cast,60)['settle'],61)
+
+    def test_invalid_tracking_and_arguments(self):
+        for kind,series in [('jump',jump_series()),('cast',cast_series())]:
+            for bad in (None,float('nan'),float('inf')):
+                broken = {k:list(v) for k,v in series.items()}
+                key = next(iter(broken))
+                broken[key][40] = [bad,bad] if kind=='cast' else bad
+                result = vc.detect_oneshot(kind,broken,60)
+                self.assertIsNone(result['detection'])
+                self.assertLess(result['confidence'],.3)
+                json.dumps(result,allow_nan=False)
+        for fps in (0,-1,float('nan')):
+            with self.assertRaises(ValueError): vc.detect_oneshot('jump',jump_series(),fps)
+        with self.assertRaises(ValueError): vc.detect_oneshot('walk',{},60)
+        with self.assertRaises(ValueError): vc.detect_oneshot('cast',{'tip_xy':[1.]*82},60)
+        with self.assertRaises(ValueError): vc.detect_oneshot('jump',dict(head_top_y=[1.]*82,sole_y=[1.]*80),60)
+
+    def test_native_offset_and_half_rate(self):
+        series = jump_series(); series['indices_native'] = list(range(100,182))
+        result = vc.detect_oneshot('jump',series,60)
+        self.assertEqual(result['onset'],130)
+        self.assertEqual(result['settle'],162)
+        cast = cast_series(); cast['indices_native'] = list(range(101,183))
+        measured = vc.detect_oneshot('cast',cast,60)
+        self.assertEqual(measured['detection']['raise_mid'],136)
+        half = {k:v[::2] for k,v in series.items()}
+        result = vc.detect_oneshot('jump',half,60)
+        self.assertEqual(result['baseline']['samples'],15)
+        self.assertAlmostEqual(result['detection']['apex'],145,delta=1)
+        self.assertEqual(result['settle'],162)
+
+    def test_resampling_counts_midpoints_and_bad_poses(self):
+        detection = vc.detect_oneshot('jump',jump_series(),60)
+        for count in (1,2,5,8,16):
+            sampled = vc.resample_oneshot('jump',detection,count)
+            self.assertEqual(len(sampled),count)
+            self.assertEqual(sampled,sorted(sampled))
+            self.assertEqual(sampled[0],30)
+            if count>1: self.assertEqual(sampled[-1],62)
+        for n in (0,-1,2.,True):
+            with self.assertRaises(ValueError): vc.resample_oneshot('jump',detection,n)
+        with self.assertRaises(ValueError): vc.resample_oneshot('cast',detection)
+        with self.assertRaises(ValueError): vc.resample_oneshot('jump',{})
+        with self.assertRaises(ValueError): vc.resample_oneshot('jump',None)
+        detection['detection']['apex'] = 20
+        with self.assertRaises(ValueError): vc.resample_oneshot('jump',detection)
+
+
+class CLITests(unittest.TestCase):
+    setUp = Tests.setUp
+
+    def test_missing_matte_is_reported_without_fabricated_measurements(self):
+        good = self.base/'good.png'; bad = self.base/'bad.png'
+        figure().save(good); Image.new('RGB',(160,160),'red').save(bad)
+        frames = vc._matte_oneshot_report([good,bad,good,good],'clamp')
+        series = vc.track(frames)
+        self.assertEqual(series['invalid_indices'],[1])
+        self.assertIsNone(series['head_top_y'][1])
+        self.assertFalse(frames.notes[1]['valid'])
+        self.assertIn('uniform green plate',frames.notes[1]['error'])
+        scan = vc._splice_missing(frames,series['invalid_indices'])
+        self.assertEqual(scan['per_pair_mad'],[None,None,0.])
+        self.assertEqual(scan['invalid_pairs'],[[0,1],[1,2]])
+        self.assertEqual(scan['suspect_pairs'],[])
+        self.assertEqual(scan['median_pair_mad'],0.)
+        with self.assertRaises(ValueError): vc.matte_frames([good,bad])
+
+    def test_cli_synthetic_idle_half_rate_and_audit(self):
+        clip = self.base/'idle.mkv'
+        subprocess.run([vc.FFMPEG,'-v','error','-f','lavfi','-i',
+            'color=c=0x00ff00:s=640x640:r=24:d=3,drawbox=x=200:y=80:w=240:h=480:color=0x708090:t=fill',
+            '-c:v','ffv1',str(clip)],check=True,capture_output=True)
+        out = self.base/'cli'
+        command = [sys.executable,'-B','-m','oracle.video_cut','--clip',str(clip),
+            '--kind','idle','--direction','NE','--n','4','--fps-out','8','--out',str(out),
+            '--half-rate','--edge-mode','clamp']
+        completed = subprocess.run(command,cwd=ROOT,capture_output=True,text=True)
+        self.assertEqual(completed.returncode,0,completed.stderr)
+        record = json.loads((out/'registration.json').read_text())
+        series = json.loads((out/'series.json').read_text())
+        self.assertEqual(record['n_native'],72)
+        self.assertEqual(record['source']['n'],36)
+        self.assertEqual(record['fps_out'],8)
+        self.assertTrue(all(i%2==0 for i in record['indices_native']))
+        self.assertEqual(len(record['output_frames']),4)
+        self.assertEqual(len(record['selection']['candidates']),12)
+        self.assertEqual(series['indices_native'],list(range(0,72,2)))
+        self.assertFalse((out/'tmp').exists())
+        self.assertIsNone(record['results'][0]['passed'])
+        self.assertEqual(record['transform']['anchor_H'],240)
+        self.assertEqual(record['transform']['anchor_sole_row'],399)
+        self.assertEqual(record['transform']['anchor_cx'],255.5)
+        for f in record['output_frames']:
+            with Image.open(f['path']) as image:
+                self.assertEqual(image.mode,'RGBA'); self.assertEqual(image.size,(512,512))
+        with Image.open(out/'sheets/idle_NE_strip.png') as image:
+            self.assertEqual(image.getpixel((0,0)),(58,63,74))
+        repeated = subprocess.run(command,cwd=ROOT,capture_output=True,text=True)
+        self.assertNotEqual(repeated.returncode,0)
+        self.assertIn('out must be empty',repeated.stderr)
 
 
 if __name__ == '__main__':

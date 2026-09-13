@@ -1,0 +1,215 @@
+{
+  "task_id": "T3a-2",
+  "synthetic": {
+    "tests_run": 23,
+    "successful": 23,
+    "elapsed_s": 5.281,
+    "jump": {
+      "expected": {
+        "onset": 30,
+        "crouch": 35,
+        "take_off": 36,
+        "apex": 45,
+        "touchdown": 55,
+        "landing_crouch": 58,
+        "settle": 62
+      },
+      "measured": {
+        "onset": 30,
+        "crouch": 35,
+        "take_off": 36,
+        "apex": 45,
+        "touchdown": 55,
+        "landing_crouch": 58,
+        "settle": 62
+      },
+      "errors": {
+        "onset": 0,
+        "crouch": 0,
+        "take_off": 0,
+        "apex": 0,
+        "touchdown": 0,
+        "landing_crouch": 0,
+        "settle": 0
+      },
+      "confidence": 0.9
+    },
+    "cast": {
+      "expected": {
+        "onset": 30,
+        "raise_mid": 34,
+        "gather": 39,
+        "release": 42,
+        "follow_through": 45,
+        "return_mid": 50,
+        "return_index": 55,
+        "settle": 55
+      },
+      "measured": {
+        "onset": 30,
+        "raise_mid": 34,
+        "gather": 39,
+        "release": 42,
+        "follow_through": 45,
+        "return": 55,
+        "settle": 55
+      },
+      "gather_error": 0,
+      "release_error": 0
+    },
+    "key_error_criterion_frames": 1,
+    "no_event": [
+      {
+        "kind": "jump",
+        "noisy": false,
+        "confidence": 0.0,
+        "criterion_confidence_lt": 0.3,
+        "detection": null,
+        "criterion_detection": null
+      },
+      {
+        "kind": "cast",
+        "noisy": false,
+        "confidence": 0.0,
+        "criterion_confidence_lt": 0.3,
+        "detection": null,
+        "criterion_detection": null
+      },
+      {
+        "kind": "jump",
+        "noisy": true,
+        "confidence": 0.0,
+        "criterion_confidence_lt": 0.3,
+        "detection": null,
+        "criterion_detection": null
+      },
+      {
+        "kind": "cast",
+        "noisy": true,
+        "confidence": 0.0,
+        "criterion_confidence_lt": 0.3,
+        "detection": null,
+        "criterion_detection": null
+      }
+    ]
+  },
+  "full_suite_command": "PYTHONDONTWRITEBYTECODE=1 python3 -B tests/run_t0c.py",
+  "full_suite_first": {
+    "tests_run": 207,
+    "successful_tests": 201,
+    "elapsed_s": 95.6309110000002
+  },
+  "full_suite_diagnostic": {
+    "tests_run": 207,
+    "successful": 201,
+    "failures": [
+      {
+        "name": "test_idle_intent.Tests.test_k3_combat_report_only",
+        "traceback": "Traceback (most recent call last):\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_idle_intent.py\", line 62, in test_k3_combat_report_only\n    self.assertIsNone(r['passed'])\nAssertionError: False is not None\n"
+      },
+      {
+        "name": "test_oracle_walk.Tests.test_synthetic_contract_and_grid",
+        "traceback": "Traceback (most recent call last):\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_oracle_walk.py\", line 117, in test_synthetic_contract_and_grid\n    self.assertIsNotNone(a[key],key);self.assertAlmostEqual(a[key],b[key],delta=2,msg=key)\n                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 60 != 65 within 2 delta (5 difference) : head_ref_y\n"
+      },
+      {
+        "name": "test_oracles_motif.Tests.test_f04_outside_at_least_three",
+        "traceback": "Traceback (most recent call last):\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_oracles_motif.py\", line 19, in test_f04_outside_at_least_three\n    self.assertGreaterEqual(metrics(row)['outside'],3)\nAssertionError: 2 not greater than or equal to 3\n"
+      },
+      {
+        "name": "test_oracles_motif.Tests.test_named_genuine_annuli_retained (center=[113, 201])",
+        "traceback": "Traceback (most recent call last):\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_oracles_motif.py\", line 84, in test_named_genuine_annuli_retained\n    self.assertNotIn('rejected',peak)\nAssertionError: 'rejected' unexpectedly found in {'angular_support': 0.7708333333333334, 'center': [113.0, 201.0], 'hollow_score': 0.3125, 'inner_opposed_support': 0.3125, 'inside': False, 'lab_band_surround': 11.57642176150743, 'lab_center_band': 11.062059961818727, 'lab_center_surround': 22.610550201280017, 'lab_color_return': 0.0, 'radius': 30.0, 'rejected': 'not_annulus', 'score': 0.7074940354497125}\n"
+      },
+      {
+        "name": "test_oracles_motif.Tests.test_named_genuine_annuli_retained (center=[111, 311])",
+        "traceback": "Traceback (most recent call last):\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_oracles_motif.py\", line 84, in test_named_genuine_annuli_retained\n    self.assertNotIn('rejected',peak)\nAssertionError: 'rejected' unexpectedly found in {'angular_support': 0.75, 'center': [111.0, 311.0], 'hollow_score': 0.16666666666666666, 'inner_opposed_support': 0.16666666666666666, 'inside': False, 'lab_band_surround': 21.229621366461696, 'lab_center_band': 18.63219308325294, 'lab_center_surround': 39.74946870785732, 'lab_color_return': 0.0, 'radius': 27.0, 'rejected': 'not_annulus', 'score': 0.5281963253811909}\n"
+      },
+      {
+        "name": "test_oracles_motif.Tests.test_named_genuine_annuli_retained (center=[170, 253])",
+        "traceback": "Traceback (most recent call last):\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_oracles_motif.py\", line 84, in test_named_genuine_annuli_retained\n    self.assertNotIn('rejected',peak)\nAssertionError: 'rejected' unexpectedly found in {'angular_support': 0.8333333333333334, 'center': [170.0, 253.0], 'hollow_score': 0.08333333333333333, 'inner_opposed_support': 0.08333333333333333, 'inside': False, 'lab_band_surround': 12.987929666149537, 'lab_center_band': 18.508563966712764, 'lab_center_surround': 30.467977867785994, 'lab_color_return': 0.0, 'radius': 8.0, 'rejected': 'not_annulus', 'score': 0.6366616733180586}\n"
+      }
+    ],
+    "errors": [],
+    "skipped": 0,
+    "elapsed_s": 87.92451441699814
+  },
+  "successful_regression_tests": [
+    "test_gates_regression_lock.Tests.test_regression_lock",
+    "test_gates_run_gates.Tests.test_regression_comparator_detects_mutation",
+    "test_oracle_idle.Tests.test_noisy_feet_calibrate_lock"
+  ],
+  "acceptance_wall_s": 78.0568060000005,
+  "real_clips": [
+    {
+      "kind": "walk",
+      "returncode": 0,
+      "wall_seconds": 25.514380042004632,
+      "indices_native": [
+        71,
+        74,
+        77,
+        79,
+        82,
+        85,
+        88,
+        91,
+        94,
+        97,
+        99,
+        102
+      ],
+      "invalid_native_indices": [],
+      "confidence": null,
+      "key_poses": null,
+      "anchor_H": 240,
+      "anchor_sole_row": 399,
+      "anchor_cx": 255.5
+    },
+    {
+      "kind": "jump",
+      "returncode": 0,
+      "wall_seconds": 24.559683917002985,
+      "indices_native": [],
+      "invalid_native_indices": [
+        49,
+        50,
+        51,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58
+      ],
+      "confidence": 0.0,
+      "key_poses": {},
+      "anchor_H": 240,
+      "anchor_sole_row": 399,
+      "anchor_cx": 255.5
+    },
+    {
+      "kind": "cast",
+      "returncode": 0,
+      "wall_seconds": 25.812790249998216,
+      "indices_native": [],
+      "invalid_native_indices": [],
+      "confidence": 0.0,
+      "key_poses": {},
+      "anchor_H": 240,
+      "anchor_sole_row": 399,
+      "anchor_cx": 255.5
+    }
+  ],
+  "retry": {
+    "reason": "Nine jump frames rejected by frozen matte: green border fraction 0.9457386364..0.9499225207 < 0.95.",
+    "change": "One-shot CLI records missing samples, excludes missing pairs from MAD, emits diagnostic-only valid-frame strips; matte threshold unchanged."
+  },
+  "decoded_temporary_directories_remaining": [],
+  "elapsed_since_first_clock_s": 908.352407,
+  "wall_cap_s": 2400,
+  "notes": [
+    "Real one-shot detections remain null; diagnostic strips are report-only, no generated game-frame sequences for those clips.",
+    "Frozen matte reports requested clamp ignored, unpremultiply applied.",
+    "The full suite was repeated solely to capture the red identities suppressed by its standard console output.",
+    "Initial SPEC extraction displayed section headings outside the requested sections, but no bodies from those sections were used."
+  ]
+}

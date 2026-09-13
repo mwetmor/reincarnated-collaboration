@@ -9,6 +9,7 @@ import hashlib
 import json
 from pathlib import Path
 import sys
+import subprocess
 import tempfile
 import time
 import traceback
@@ -134,5 +135,89 @@ class Acceptance(unittest.TestCase):
                          'instrument execution errors are recorded in acceptance.json')
 
 
+OUT_T3A2 = ROOT/'runs/C-3/t3/T3a-2'
+
+
+class AcceptanceT3a2(unittest.TestCase):
+    """CLI regression and real one-shot reports; only T3a-2 receives writes."""
+
+    def test_cli_walk_and_oneshot_reports(self):
+        OUT_T3A2.mkdir(parents=True,exist_ok=True)
+        prior = json.loads((OUT/'acceptance.json').read_text())
+        prior_walk = next(c for c in prior['clips'] if c['kind']=='walk')
+        report = dict(task_id='T3a-2',tool_sha256=hashlib.sha256(Path(vc.__file__).read_bytes()).hexdigest(),
+            notes=['Walk must reproduce corrected T3a-1 selection exactly.',
+                   'Real jump/cast are reports only, including incomplete/null detections.',
+                   'Diagnostic-only strips are labelled and do not fabricate game frames.',
+                   'Frozen matte may report edge_mode clamp ignored until T3b.'],clips=[])
+        started = time.perf_counter()
+        for kind,direction,count,relative in [
+            ('walk','E',12,'runs/C-1/xvideo/in/walk_E_grok.mp4'),
+            ('jump','S',8,'runs/C-3/xvideo/in/S_jump.mp4'),
+            ('cast','S',8,'runs/C-3/xvideo/in/S_cast.mp4')]:
+            clip = ROOT/relative
+            if not clip.exists():
+                report['clips'].append(dict(kind=kind,present=False,notes='optional real clip absent'))
+                continue
+            out = OUT_T3A2/kind
+            command = [sys.executable,'-B','-m','oracle.video_cut','--clip',str(clip),
+                '--kind',kind,'--direction',direction,'--n',str(count),'--fps-out','12',
+                '--out',str(out)]
+            tick = time.perf_counter()
+            completed = subprocess.run(command,cwd=ROOT,capture_output=True,text=True)
+            record = dict(kind=kind,present=True,command=command,returncode=completed.returncode,
+                          subprocess_seconds=time.perf_counter()-tick,stderr=completed.stderr,
+                          stdout=completed.stdout,results=[])
+            registration_path = out/'registration.json'
+            if registration_path.exists():
+                registration = json.loads(registration_path.read_text())
+                record.update(registration=str(registration_path),
+                    indices_native=registration['indices_native'],detection=registration['detection'],
+                    strip=registration['strip'],transform=registration['transform'],
+                    wall_seconds=registration['wall_seconds'],
+                    matte_note=registration['matte_notes'][0],
+                    invalid_native_indices=registration['invalid_native_indices'],
+                    period=registration['period'],n_native=registration['n_native'])
+                if kind=='walk':
+                    selected = registration['selection']; expected = prior_walk['selection']
+                    pairs = [[c['start'],c['end_exclusive']] for c in selected['candidates']]
+                    expected_pairs = [[c['start'],c['end_exclusive']] for c in expected['candidates']]
+                    record['results'] = [
+                        quantity('cli_native_indices','walk',registration['indices_native'],
+                                 prior_walk['indices_native'],'==','native_frames'),
+                        quantity('cli_selected_window','walk',[selected['start'],selected['end_exclusive']],
+                                 [expected['start'],expected['end_exclusive']],'==','native_frames'),
+                        quantity('cli_every_candidate_window','walk',pairs,expected_pairs,'==','native_frames'),
+                        quantity('cli_period','walk',registration['period']['frames'],
+                                 prior_walk['period']['frames'],'==','native_frames'),
+                        quantity('cli_selection_native_window','walk',selected['indices_native'],
+                                 expected['indices_native'],'==','native_frames')]
+                else:
+                    event = registration['detection']
+                    record['results'] = [quantity('real_key_pose_indices',kind,event['key_poses'],
+                        None,'report','native_frames',event['notes']),
+                        quantity('real_oneshot_confidence',kind,event['confidence'],None,'report','ratio')]
+                record['results'].append(quantity('cli_execution',kind,completed.returncode,0,'==','exit_code'))
+            report['clips'].append(record)
+            report['wall_seconds'] = time.perf_counter()-started
+            (OUT_T3A2/'acceptance.json').write_text(json.dumps(report,indent=2,allow_nan=False)+'\n')
+            print('T3A2_REAL '+json.dumps({k:v for k,v in record.items() if k not in
+                  ('transform','command','stdout','stderr')},allow_nan=False),flush=True)
+        # Assertions cover execution and frozen walk regression only. The
+        # conductor, not this report harness, judges real one-shot quality.
+        for record in report['clips']:
+            with self.subTest(kind=record['kind']):
+                if not record['present']:
+                    self.assertNotEqual(record['kind'],'walk','required walk source missing')
+                    continue
+                self.assertEqual(record['returncode'],0,record['stderr'])
+                self.assertIn('registration',record)
+                self.assertTrue(Path(record['strip']['path']).is_file())
+                self.assertFalse((OUT_T3A2/record['kind']/'tmp').exists())
+                if record['kind']=='walk':
+                    for q in record['results']:
+                        self.assertEqual(q['value'],q['threshold'],q['id'])
+
+
 if __name__ == '__main__':
-    unittest.main()
+    unittest.main(defaultTest='AcceptanceT3a2')

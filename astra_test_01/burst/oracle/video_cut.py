@@ -10,14 +10,18 @@ bounds and returned indices are native frame units, including at half rate.
 Masks alone suffice for tracking/periods, but never fabricate RGB seam MAD.
 """
 import inspect
+import argparse
+import hashlib
 import json
 import math
 from fractions import Fraction
 from pathlib import Path
 import subprocess
+import tempfile
+import time
 
 import numpy as np
-from PIL import Image
+from PIL import Image, ImageDraw
 from scipy import ndimage, signal
 
 from gates.matte import extract
@@ -440,3 +444,344 @@ def register(rgba_frames, anchor_index=0, target_h=240, sole_row=399, cx=255.5, 
         resampling='PIL Lanczos; exact isotropic sampling box; integer unmasked paste',
         calibration='closest nominal scale attaining raster height/centre, search +/-1 output px in .025 px steps')
     return result,transform
+
+
+def _sustained(condition, start, count):
+    """First run start, not the frame at which the run is confirmed."""
+    for i in range(start, len(condition)-count+1):
+        if np.all(condition[i:i+count]):
+            return i
+    return None
+
+
+def detect_oneshot(kind, series, fps):
+    """Measure one complete event; indices are always native frame indices.
+
+    Baseline uses samples at t < 0.5 s relative to the series start. Noise is
+    population standard deviation for jump coordinates, RMS radial deviation
+    about the componentwise median for the cast tip. A 1e-9 px numerical
+    tolerance handles noiseless baselines, without adding a pixel noise floor.
+    Sustained conditions require 2/6 observed samples (also at half rate).
+    Jump touchdown is the first sole within 2 px below baseline after apex.
+    Cast follow-through is greatest baseline displacement after release and
+    before return; return is the first two-sample baseline contact, settle the
+    first six-sample contact. Speed is backward difference in native seconds,
+    attributed to its arrival frame. Extrema ties choose the first frame.
+
+    ``key`` lists named {name, index} measurements; ``detection`` maps names to
+    indices only for a complete event. Partial evidence remains in key_poses,
+    with confidence < .3 and detection=null; resampling never invents a pose.
+    """
+    _positive(fps, 'fps')
+    if kind not in ('jump', 'cast'):
+        raise ValueError('one-shot kind must be jump or cast')
+    fields = ('head_top_y', 'sole_y') if kind == 'jump' else ('tip_xy',)
+    arrays = {k: np.asarray(series[k], dtype=float) for k in fields}
+    length = len(arrays[fields[0]])
+    native, step = _native_indices(series, length)
+    baseline_n = int(math.ceil(.5*fps/step))
+    result = dict(kind=kind, onset=None, key=[], key_poses={}, settle=None,
+                  confidence=0., detection=None, baseline=None,
+                  notes='', index_units='native_frames')
+    for k, a in arrays.items():
+        expected = (length, 2) if k == 'tip_xy' else (length,)
+        if a.shape != expected:
+            raise ValueError(k+' has an invalid shape or length')
+    if baseline_n < 2 or length < baseline_n+6:
+        result['notes'] = 'insufficient baseline or event/settle samples'
+        return result
+    if any(not np.isfinite(a).all() for a in arrays.values()):
+        result['notes'] = 'missing/nonfinite tracking; no interpolation across invalid frames'
+        return result
+    poses = {}
+    def finish(reason, complete=False):
+        measured = {k: int(native[v]) for k, v in poses.items()}
+        if 'raise_mid' in measured:
+            measured['raise_mid'] = round((measured['onset']+measured['gather'])/2)
+        result.update(onset=measured.get('onset'), settle=measured.get('settle'),
+                      key=[dict(name=k, index=v) for k,v in measured.items()],
+                      key_poses=measured, detection=measured if complete else None,
+                      confidence=.9 if complete else (.2 if poses else 0.), notes=reason)
+        return result
+    if kind == 'jump':
+        head, sole = arrays['head_top_y'], arrays['sole_y']
+        bh, bs = float(np.median(head[:baseline_n])), float(np.median(sole[:baseline_n]))
+        nh, ns = float(np.std(head[:baseline_n])), float(np.std(sole[:baseline_n]))
+        result['baseline'] = dict(samples=baseline_n, head_top_y=bh, sole_y=bs,
+                                  head_noise=nh, sole_noise=ns, duration_s=.5)
+        onset = _sustained(np.abs(head-bh) > 3*max(nh,1e-9), baseline_n, 2)
+        if onset is None:
+            return finish('no sustained head departure from baseline')
+        poses['onset'] = onset
+        airborne = np.flatnonzero((np.arange(length) >= onset) & (sole < bs-2))
+        if not len(airborne):
+            return finish('head departure without take-off')
+        takeoff = int(airborne[0])
+        poses['crouch'] = onset+int(np.argmax(head[onset:max(onset+1,takeoff)]))
+        poses['take_off'] = takeoff
+        apex = takeoff+int(np.argmin(sole[takeoff:]))
+        poses['apex'] = apex
+        touchdown = _sustained(sole >= bs-2, apex+1, 1)
+        if touchdown is None:
+            return finish('no touchdown after apex')
+        poses['touchdown'] = touchdown
+        landing = touchdown+int(np.argmax(head[touchdown:]))
+        poses['landing_crouch'] = landing
+        at_rest = (np.abs(head-bh) <= max(nh,1e-9)) & (np.abs(sole-bs) <= max(ns,1e-9))
+        settle = _sustained(at_rest, landing+1, 6)
+        if settle is None:
+            return finish('no six-sample settle after landing crouch')
+        poses['settle'] = settle
+    else:
+        tip = arrays['tip_xy']
+        baseline = np.median(tip[:baseline_n], axis=0)
+        displacement = np.linalg.norm(tip-baseline, axis=1)
+        noise = float(np.sqrt(np.mean(displacement[:baseline_n]**2)))
+        result['baseline'] = dict(samples=baseline_n, tip_xy=baseline.tolist(),
+                                  tip_noise=noise, duration_s=.5)
+        onset = _sustained(displacement > 3*max(noise,1e-9), baseline_n, 2)
+        if onset is None:
+            return finish('no sustained tip departure from baseline')
+        poses['onset'] = onset
+        gather = onset+int(np.argmin(tip[onset:,1]))
+        poses['raise_mid'] = round((onset+gather)/2)
+        poses['gather'] = gather
+        if gather >= length-1 or tip[gather,1] >= baseline[1]-max(noise,1e-9):
+            return finish('no raised gather followed by release evidence')
+        speed = np.r_[0., np.linalg.norm(np.diff(tip,axis=0),axis=1)*fps/step]
+        release = gather+1+int(np.argmax(speed[gather+1:]))
+        poses['release'] = release
+        at_rest = displacement <= max(noise,1e-9)
+        returned = _sustained(at_rest, release+1, 2)
+        if returned is None:
+            return finish('no return after release')
+        follow = release+int(np.argmax(displacement[release:returned]))
+        poses['follow_through'] = follow
+        poses['return'] = returned
+        settle = _sustained(at_rest, returned, 6)
+        if settle is None:
+            return finish('no six-sample settle after return')
+        poses['settle'] = settle
+    return finish('complete ordered event; confidence is structural, not a shipping verdict', True)
+
+
+def resample_oneshot(kind, detection, n=8):
+    """Eight semantic poses by default; other n sample the same phase timeline.
+
+    Midpoints and phase resampling use Python ties-to-even round. There is no
+    image interpolation. Null/incomplete detections are errors, not idle loops.
+    """
+    n = _integer(n, 'n', 1)
+    if kind not in ('jump', 'cast'):
+        raise ValueError('one-shot kind must be jump or cast')
+    if not isinstance(detection, dict):
+        raise ValueError('complete detection required')
+    if detection.get('kind', kind) != kind:
+        raise ValueError('detection kind does not match')
+    poses = detection.get('detection', detection)
+    if not isinstance(poses, dict):
+        raise ValueError('cannot resample a null detection')
+    names = (['onset','crouch','take_off','apex','touchdown','landing_crouch','settle']
+             if kind == 'jump' else
+             ['onset','raise_mid','gather','release','follow_through','return','settle'])
+    try:
+        values = [_integer(poses[k], k) for k in names]
+    except KeyError as exc:
+        raise ValueError('missing key pose '+str(exc)) from exc
+    if any(a>b for a,b in zip(values,values[1:])):
+        raise ValueError('key poses must be chronological')
+    p = dict(zip(names,values))
+    if kind == 'jump':
+        phases = [p['onset'],p['crouch'],p['take_off'],round((p['take_off']+p['apex'])/2),
+                  p['apex'],round((p['apex']+p['touchdown'])/2),p['landing_crouch'],p['settle']]
+    else:
+        phases = [p['onset'],p['raise_mid'],p['gather'],p['release'],p['follow_through'],
+                  round((p['follow_through']+p['return'])/2),p['return'],p['settle']]
+    return [round(float(x)) for x in np.interp(np.linspace(0,7,n),np.arange(8),phases)]
+
+
+def _write_strip(frames, indices, path, diagnostic=False):
+    sheet = Image.new('RGB', (512*len(frames),536), '#3a3f4a')
+    draw = ImageDraw.Draw(sheet)
+    for i,(frame,native) in enumerate(zip(frames,indices)):
+        sheet.paste(frame,(512*i,24),frame)
+        prefix = 'REPORT ONLY / ' if diagnostic else ''
+        draw.text((512*i+8,6),f'{prefix}{i:02d} / native {native}',fill='white')
+    sheet.save(path)
+
+
+def _matte_oneshot_report(paths, edge_mode):
+    """Keep failed matte samples explicitly missing for report-only evidence.
+
+    Transparent placeholders preserve the native timeline, never become output
+    game frames, and are excluded from both splice MAD and diagnostic strips.
+    The frozen matte's threshold and default rejection behavior do not change.
+    """
+    frames = FrameSequence(); frames.notes = []
+    for i,path in enumerate(paths):
+        try:
+            one = matte_frames([path],edge_mode=edge_mode)
+            frames.append(one[0]); frames.notes.append(one.notes[0])
+        except ValueError as exc:
+            with Image.open(path) as image:
+                frames.append(Image.new('RGBA',image.size))
+            frames.notes.append(dict(valid=False,sample_index=i,error=str(exc),
+                                     edge_mode_requested=edge_mode,edge_mode_applied=None))
+    return frames
+
+
+def _splice_missing(frames, invalid):
+    if not invalid:
+        return splice_check(frames)
+    invalid = set(invalid)
+    values = [None if i in invalid or i+1 in invalid else _mad(a,b)
+              for i,(a,b) in enumerate(zip(frames,frames[1:]))]
+    observed = [v for v in values if v is not None]
+    median = float(np.median(observed)) if observed else None
+    return dict(per_pair_mad=values,median_pair_mad=median,multiplier=SPLICE_MEDIAN_MULTIPLIER,
+        suspect_pairs=[[i,i+1] for i,v in enumerate(values)
+                       if v is not None and median is not None and v>SPLICE_MEDIAN_MULTIPLIER*median],
+        invalid_pairs=[[i,i+1] for i,v in enumerate(values) if v is None],
+        notes='Missing matte samples excluded; pair indices refer to supplied frames; no fabricated MAD')
+
+
+def main(argv=None):
+    """Full-source tracking, bounded selection, one transform, auditable PNGs.
+
+    fps-out is playback metadata, never source-frame interpolation. Half-rate
+    output requests snap to the nearest decoded sample (ties to earlier), with
+    requested AND actual native indices recorded. For unevaluable selections,
+    emit only a clearly labelled diagnostic strip and rest; no game frames.
+    """
+    parser = argparse.ArgumentParser(description=main.__doc__)
+    parser.add_argument('--clip',type=Path,required=True)
+    parser.add_argument('--kind',choices=['idle','walk','run','jump','cast'],required=True)
+    parser.add_argument('--direction',choices=['S','SW','W','NW','N','NE','E','SE'],required=True)
+    parser.add_argument('--n',type=int,required=True)
+    parser.add_argument('--fps-out',type=float,required=True)
+    parser.add_argument('--out',type=Path,required=True)
+    parser.add_argument('--t-max-s',type=float,default=4.4)
+    parser.add_argument('--min-start-s',type=float,default=0)
+    parser.add_argument('--prompted-period-s',type=float,default=2.0)
+    parser.add_argument('--sibling-stride-frames',type=int)
+    parser.add_argument('--half-rate',action='store_true')
+    parser.add_argument('--edge-mode',choices=['clamp','unpremultiply'],default='clamp')
+    args = parser.parse_args(argv)
+    _integer(args.n,'n',1); _positive(args.fps_out,'fps_out')
+    _positive(args.t_max_s,'t_max_s'); _positive(args.prompted_period_s,'prompted_period_s')
+    if not np.isfinite(args.min_start_s) or not 0 <= args.min_start_s < args.t_max_s:
+        raise ValueError('min_start_s must be in [0,t_max_s)')
+    if args.sibling_stride_frames is not None:
+        _integer(args.sibling_stride_frames,'sibling_stride_frames',2)
+    if args.out.exists() and any(args.out.iterdir()):
+        raise ValueError('out must be empty to prevent stale deliverables')
+    begin = time.perf_counter()
+    # Full timestamps avoid truncating period evidence (the T3a-1 regression).
+    probe = subprocess.run([FFPROBE,'-v','error','-select_streams','v:0',
+        '-show_entries','frame=best_effort_timestamp_time','-of','json',str(args.clip)],
+        check=True,capture_output=True,text=True)
+    stamps = [float(f['best_effort_timestamp_time']) for f in json.loads(probe.stdout)['frames']]
+    if not stamps:
+        raise ValueError('clip contains no frames')
+    args.out.mkdir(parents=True,exist_ok=True)
+    temporary_root = args.out/'tmp'; temporary_root.mkdir()
+    record = dict(kind=args.kind,direction=args.direction,clip=str(args.clip.resolve()),
+                  clip_sha256=hashlib.sha256(args.clip.read_bytes()).hexdigest(),
+                  tool_sha256=hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),
+                  t_max=args.t_max_s,t_max_s=args.t_max_s,min_start_s=args.min_start_s,
+                  fps_out=args.fps_out,n=args.n,n_native=len(stamps),half_rate=args.half_rate,
+                  period=None,detection=None,stage_seconds={})
+    try:
+        with tempfile.TemporaryDirectory(dir=temporary_root,prefix='decode_') as tmp:
+            tick = time.perf_counter()
+            meta = split(args.clip,Path(tmp)/'frames',t_max_s=stamps[-1]-stamps[0]+1,
+                         half_rate=args.half_rate)
+            record['stage_seconds']['split'] = time.perf_counter()-tick
+            record.update(fps=meta['fps'],source={k:v for k,v in meta.items() if k!='paths'})
+            tick = time.perf_counter()
+            matting = _matte_oneshot_report if args.kind in ('jump','cast') else matte_frames
+            rgba = matting(meta['paths'],edge_mode=args.edge_mode)
+            record['stage_seconds']['matte'] = time.perf_counter()-tick
+            record['matte_notes'] = rgba.notes
+            tick = time.perf_counter(); series = track(rgba)
+            series.update(indices_native=meta['indices_native'],times=meta['times'])
+            record['stage_seconds']['track'] = time.perf_counter()-tick
+            tick = time.perf_counter()
+            splice = _splice_missing(rgba,series['invalid_indices']); series['splice'] = splice
+            record['stage_seconds']['splice'] = time.perf_counter()-tick
+            record['splice'] = splice
+            tick = time.perf_counter()
+            if args.kind in ('idle','walk','run'):
+                period = detect_period(args.kind,series,meta['fps'],args.prompted_period_s,
+                                       args.sibling_stride_frames)
+                record['period'] = period
+                selection = select_cycle(args.kind,series,period,meta['fps'],args.t_max_s,args.min_start_s)
+                requested = ([] if selection['start'] is None else
+                             resample(selection['start'],selection['end_exclusive'],args.n))
+            else:
+                eligible = [i for i,t in enumerate(meta['times']) if t < args.t_max_s]
+                subset = {k:[series[k][i] for i in eligible] for k in
+                          ('head_top_y','sole_y','tip_xy','indices_native')}
+                event = detect_oneshot(args.kind,subset,meta['fps'])
+                record['detection'] = event
+                allowed = event['detection'] is not None and event['onset']/meta['fps'] >= args.min_start_s
+                requested = resample_oneshot(args.kind,event,args.n) if allowed else []
+                selection = dict(start=event['onset'] if allowed else None,
+                    end_exclusive=event['settle']+1 if allowed else None,
+                    indices_native=[i for i in meta['indices_native'] if
+                        allowed and event['onset'] <= i <= event['settle']],
+                    candidates=[event],reason=event['notes'] if allowed or not event['detection'] else
+                    'detected onset precedes min_start_s')
+            record['stage_seconds']['selection'] = time.perf_counter()-tick
+            native = np.asarray(meta['indices_native'])
+            # Clamp loop rounding to the selected half-open window; record both
+            # requested/actual indices so half-rate cuts cannot claim odd frames.
+            allowed_native = native
+            if requested:
+                allowed_native = native[(native >= selection['start']) & (native < selection['end_exclusive'])]
+            actual = [int(allowed_native[np.argmin(abs(allowed_native-i))]) for i in requested]
+            selection.update(requested_indices_native=requested,output_indices_native=actual)
+            record['selection'] = selection
+            record['indices_native'] = actual
+            by_native = {v:i for i,v in enumerate(meta['indices_native'])}
+            record['output_frames'] = [dict(output_index=i,native_index=j,
+                native_time_s=meta['times'][by_native[j]],playback_time_s=i/args.fps_out)
+                for i,j in enumerate(actual)]
+            diagnostic = not actual
+            valid_native = [int(v) for i,v in enumerate(native) if i not in series['invalid_indices']]
+            if not valid_native or 0 in series['invalid_indices']:
+                raise ValueError('no valid native rest frame; cannot register the clip')
+            display_indices = actual or [valid_native[round(x)] for x in np.linspace(0,len(valid_native)-1,args.n)]
+            record['invalid_native_indices'] = [int(native[i]) for i in series['invalid_indices']]
+            tick = time.perf_counter()
+            registered, transform = register([rgba[by_native[i]] for i in display_indices]+[rgba[0]])
+            record['stage_seconds']['register'] = time.perf_counter()-tick
+            record['transform'] = transform
+            rest_dir = args.out/'frames'/'rest'/args.direction; rest_dir.mkdir(parents=True)
+            rest_path = rest_dir/f'rest_{args.direction}.png'; registered[-1].save(rest_path)
+            record['rest'] = dict(native_index=0,same_transform=True,path=str(rest_path),
+                                  bbox=_bbox(_mask(registered[-1])))
+            if actual:
+                frame_dir = args.out/'frames'/args.kind/args.direction; frame_dir.mkdir(parents=True)
+                for i,frame in enumerate(registered[:-1]):
+                    path = frame_dir/f'{args.kind}_{args.direction}_{i:02d}.png'; frame.save(path)
+                    record['output_frames'][i]['path'] = str(path)
+            sheet_dir = args.out/'sheets'; sheet_dir.mkdir()
+            sheet_path = sheet_dir/f'{args.kind}_{args.direction}_strip.png'
+            _write_strip(registered[:-1],display_indices,sheet_path,diagnostic)
+            record['strip'] = dict(path=str(sheet_path),diagnostic_only=diagnostic,indices_native=display_indices)
+            record['results'] = [dict(id='video_cut_selection',subject=args.kind+'/'+args.direction,
+                passed=None,value=actual,threshold=None,op='report',unit='native_frames',
+                evidence=[str(sheet_path)],notes='Measurement only; no shipping verdict. '+selection['reason'])]
+            (args.out/'series.json').write_text(json.dumps(series,indent=2,allow_nan=False)+'\n')
+    finally:
+        temporary_root.rmdir()
+    record['wall_seconds'] = time.perf_counter()-begin
+    (args.out/'registration.json').write_text(json.dumps(record,indent=2,allow_nan=False)+'\n')
+    print(json.dumps(dict(out=str(args.out),indices_native=actual,
+                         diagnostic_only=diagnostic,wall_seconds=record['wall_seconds'])))
+    return 0
+
+
+if __name__ == '__main__':
+    raise SystemExit(main())
