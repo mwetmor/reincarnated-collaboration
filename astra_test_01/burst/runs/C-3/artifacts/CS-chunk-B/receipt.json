@@ -1,0 +1,52 @@
+{
+  "task_id": "CS-chunk-B",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "chunk_B",
+      "path": "out/chunk_B.png",
+      "sha256": "43d46fe50050ea6d5d5a6f30691e919df0ec4cbf901ece2b55c000279eb52e93",
+      "prompt": "Use case: style-transfer. Deliver ONE 1536x1024 landscape game environment painting, editing Image 1's flat geometry into scenery. Image 1 is the EDIT TARGET and absolute geometry authority; Image 2 is a hand-drawn character REGISTER reference only (do not include the character); Image 3 is a hand-drawn environment REGISTER reference only (do not copy layout or content); Image 4 is the already painted LEFT NEIGHBOUR to continue across the seam.\nGEOMETRY INVARIANTS: fixed elevated high three-quarter ORTHOGRAPHIC camera, parallel lines stay parallel, no size reduction toward the top. Preserve every boundary in Image 1 exactly: tan packed-earth top, light-grey rocky grassy verge, dark-grey vertical cliff face and small upper-right boulder outcrop, and all green void. Every green pixel of Image 1 must remain flat uniform pure #00ff00, with no scenery painted there; every non-green pixel becomes scenery. Do not move, widen, or bend any path edge, rim, cliff outline, lower cut edge or boulder footprint. Trace the guide, do not redesign it. The tan polygon ends at approximately (0,434),(780,331),(904,192),(841,0); the outer verge ends at (0,525),(868,410),(1034,224),(957,0); the cliff lower edge runs (0,949),(869,834),(1034,649), and the vertical right edge remains x1034 from y224 to649. Preserve the guide's separate upper-right rock/void shape too. The green beneath the cliff and on the right must remain completely featureless. End the rock cleanly at the lower cut edge within a few pixels.\nPAINT: sun-warmed packed dirt with pebbles, wheel ruts, a few cracks. Short tough grass, small wildflowers, weathered stones confined to the verge. Bold layered cliff rock strata, deep crevices, sparse clinging roots and tufts, mineral streaks. Small boulder outcrop as stacked mossy rock inside its guide footprint. No new objects outside the silhouettes.\nSTYLE: HAND-DRAWN painted 2D animation frame: confident dark contours with hand-drawn taper and varying weight, clean painted material planes, restrained surface texture, readable forms, no conspicuous grain. Bold playful angular chunky shapes, jewel-toned accents and strong graphic shadows. Match Image 4's earth colours, linework, foliage and rock treatment. Warm gold/orange SUNSET key from SCREEN UPPER LEFT, cool violet readable shadows, rim and boulder cast shadows; lower cliff slightly darker and hazier within the rock only. No pure black shading.\nSEAM: this chunk sits immediately RIGHT of Image 4 with a 256px overlap. Output x0..255 corresponds to Image 4 x1280..1535, same vertical coordinates. Reproduce that reference strip as closely as the locked Image 1 boundaries permit: same path colours and texture, corresponding verge tufts and stones, cliff strata and lighting; continue those forms to the right. Geometry and green mask of Image 1 take priority wherever the references differ. Do not copy the whole neighbour's composition.\nNo characters, creatures, text, UI, borders, vignette, sky or fog in the green void. Output a single landscape painting, not a sheet.\nCORRECTION FOR THE SINGLE RETRY: The prior attempt moved the tan/light-grey boundary and erased the upper-right non-green rock. Correct exactly those geometry errors. Treat Image 1 as a strict paint-by-region stencil. The upper-right DARK regions are NOT green void: paint the dark triangle touching the top from x957 to1147 and down to (1010,155) as rock, AND paint the dark polygon touching the top from x1267 to1536 and the right edge down to y214 as rock. They must remain in the output exactly as the guide shows, separated by the green shape touching the top from x1147 to1267. Do not erase these cropped rock areas or shift them into the main cliff. The tan-to-verge boundary MUST meet the left edge at y434, continue straight to (780,331), then to (904,192), then to (841,0). Keep dirt on the tan side and verge on the grey side. The verge-to-cliff boundary MUST meet the left edge at y525, continue straight to (868,410), then to (1034,224). Never bow these lines or substitute the neighbour's curve. No new verge across the upper-left corner. Preserve all exact green region silhouettes. The whole original blockout silhouette must be recognizable unchanged beneath the painted surfaces.",
+      "references": [
+        {
+          "role": "Geometry guide; edit target",
+          "path": "in/01_chunk_B_guide.png"
+        },
+        {
+          "role": "Character register reference only",
+          "path": "in/02_keeper_rest_S.png"
+        },
+        {
+          "role": "Environment register reference only",
+          "path": "in/03_plate_A.png"
+        },
+        {
+          "role": "Left neighbour; overlap reference",
+          "path": "in/04_chunk_A.png"
+        }
+      ],
+      "elapsed_s": 41.107
+    }
+  ],
+  "calls_used": 2,
+  "retries": [
+    {
+      "reason": "First generation moved the path boundary and omitted upper-right rock regions.",
+      "change": "Repeated generation with explicit boundary coordinates and instructions to preserve both upper-right rock regions."
+    }
+  ],
+  "self_report": {
+    "obeyed_invariants": false,
+    "concerns": [
+      "Retry restores upper-right rocks, but visible boundary deviations remain, including the main cliff's right and lower edges.",
+      "Left overlap does not exactly reproduce chunk A; guide and neighbour boundaries also differ.",
+      "Uniform exact #00ff00 was requested but not verified pixelwise."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/chunk_B.png",
+      "sha256": "43d46fe50050ea6d5d5a6f30691e919df0ec4cbf901ece2b55c000279eb52e93"
+    }
+  ]
+}

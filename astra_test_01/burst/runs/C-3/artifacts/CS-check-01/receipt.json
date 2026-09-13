@@ -1,0 +1,64 @@
+{
+  "task_id": "CS-check-01",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [],
+  "calls_used": 0,
+  "retries": [
+    {
+      "reason": "Both chunks failed the frozen extractor's green-border precondition.",
+      "change": "Added temporary 10-pixel green padding in memory, applied unchanged clamp extraction, then cropped away padding."
+    }
+  ],
+  "self_report": {
+    "obeyed_invariants": true,
+    "concerns": [
+      "Matte padding adaptation is documented in checks.json.",
+      "Screen vista scale increased from 1.833333333 to 1.855468750 to cover the extension continuously.",
+      "The screen exposes the supplied chunks' hard top boundary at screen y=438.",
+      "Receipt inventories all authored deliverables; mutable wrapper-owned telemetry is excluded.",
+      "Measurements only; no gate verdict issued."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/checks.json",
+      "sha256": "fdd202651284ec9e747a7dd0605e3eee8c5465037cfd39038fcd2dac8f230653"
+    },
+    {
+      "path": "out/chunk_A_rgba.png",
+      "sha256": "5620f87c7d6049431818379b5eacc0772cffbbd03a5ffaf58d9afcf86a0d195c"
+    },
+    {
+      "path": "out/chunk_B_rgba.png",
+      "sha256": "40de324be9c2c20ca77802ad8649aa46603eaad7f61f5987c12f619190a82856"
+    },
+    {
+      "path": "out/portion_composite_2816x1024.png",
+      "sha256": "b1eb971b95a73ef98e9a986c25f8280e11820eb0f3b087d69e9f9ad6692d8ae1"
+    },
+    {
+      "path": "out/portion_composite_noKeeper.png",
+      "sha256": "b32e4c2c01eda57615f2b172f7c5c958409fb015d82db409cb38aefd69006f01"
+    },
+    {
+      "path": "out/review.html",
+      "sha256": "acf50e4d3ff0d5633255221f6fb7c941b08363c5615e209ca4ccb8aee17c9df1"
+    },
+    {
+      "path": "out/screen_view_1920x1080.png",
+      "sha256": "5f86cd25902046b097f4b0aca1acc7adec223ea1d71205f63aa8f85450b375e2"
+    },
+    {
+      "path": "out/screen_view_960x540.png",
+      "sha256": "df128a249f43f2ba01769bf000292d444a05cec8294dac9a79c88c9af8f28020"
+    },
+    {
+      "path": "out/seam_overlap_A_B_x4.png",
+      "sha256": "d867c8421034de9def5b34e25e1584c5d5250b93300a4e8fe39f5eb06f7ceea3"
+    },
+    {
+      "path": "out/summary.txt",
+      "sha256": "459b020db23712082349967034b2aac94af307f5bd78236f73dd23915973ad28"
+    }
+  ]
+}

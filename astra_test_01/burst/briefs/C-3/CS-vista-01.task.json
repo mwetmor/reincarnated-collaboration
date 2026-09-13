@@ -1,0 +1,22 @@
+{
+ "text": "GENERATE BURST CS-vista-01 — the cliffside scene's BACKGROUND VISTA: the view out into the void beyond and below a high cliff edge, as a separately scrolling painted backdrop (Run C-3 cliffside proof step, Matt R-C3-42/44). task_id \"CS-vista-01\".\n\nOne image_gen call: a LANDSCAPE 1536×1024 painted VISTA, no characters, no creatures, no text, no UI, no border. It will sit BEHIND a foreground cliff path and scroll slower than it, so paint the whole canvas edge to edge as open distance — NO cliff rim, ledge or foreground ground anywhere in the image.\nTHE STORY (Matt): the ruins of a RECENTLY DESTROYED TEMPLE and a CHARRED, BURNT FOREST against a SUNSET sky.\nCOMPOSITION, top to bottom: (1) upper 35 %: a blazing sunset sky — the sun low at the UPPER-LEFT, near the horizon, throwing long gold rays across the scene; big sculpted clouds in bold graphic shapes, saturated orange, hot magenta, violet and gold, with a few dark smoke plumes drifting up into them. (2) horizon at about 35 % from the top: distant mountain spires in cool violet haze. (3) middle band, left of centre: a far hilltop TEMPLE recently destroyed — broken columns, a collapsed dome split open, fallen statues, scorched stone, still-glowing embers and thin smoke rising from the rubble, a few banners burnt to rags; small but crisply readable silhouettes. (4) lower half: a vast CHARRED FOREST spreading across a valley — black skeletal trunks and branches, grey ash ground, pockets of glowing orange embers and small lingering fires, smoke wisps curling, a river of reflected sunset light winding through it; detail thinning into atmospheric distance. (5) bottom 12 %: the valley floor dissolving into warm haze and drifting smoke, soft and uniform, because foreground cliff edges will overlap this band.\nDETAIL: EXTREMELY detailed and rich — this backdrop must show what painted, stylized 2D can do even when the foreground is bare: layered depth, many small readable shapes, lighting that sells distance.\nREGISTER: Image 1 (the character) and Image 2 (a scene plate) show our HAND-DRAWN painted 2D register — a confident dark contour line with visible taper and varying weight, painted fills in clean planes, restrained texture — push it toward a bolder, zanier HADES-like flavour for this vista: saturated jewel tones, strong graphic shadows, slightly exaggerated shapes. Keep contours lighter and thinner with distance (atmospheric perspective). Do not copy either reference's content or layout.\n\nONE retry only if the image contains a foreground cliff rim, characters, text or a border — name the reason. Copy the output from $CODEX_HOME/generated_images/... to out/vista_01.png with sha256. No code. No other files. No web.\nRETURN: receipt task_id \"CS-vista-01\"; images = the file with prompt, references (role + path) and elapsed_s; calls_used = the TRUE number of image_gen calls; status; concerns. Never PASS/FAIL.",
+ "references": [
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/L2-refs/keeper_rest_S.png",
+   "role": "IMAGE 1 — REGISTER anchor (the character's hand-drawn line and paint); do not include her"
+  },
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/L2-plate-01/plate_A.png",
+   "role": "IMAGE 2 — REGISTER anchor (our painted environment line and paint); do not copy its layout or content"
+  }
+ ],
+ "image_cap": 2,
+ "minutes_cap": 15,
+ "tool_call_cap": 20,
+ "outputs": [
+  "out/vista_01.png"
+ ],
+ "effort": "high",
+ "add_dirs": [],
+ "experiment": "C3-cliffside"
+}

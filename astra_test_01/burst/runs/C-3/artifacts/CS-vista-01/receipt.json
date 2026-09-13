@@ -1,0 +1,40 @@
+{
+  "task_id": "CS-vista-01",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "vista_01",
+      "path": "out/vista_01.png",
+      "sha256": "6cea1b7340da3d2dc911c53051f3b072ccab5f73bf89ecae63e106b2184d0e45",
+      "prompt": "Use case: stylized-concept.\nCreate ONE landscape 1536×1024 painted background vista for a separately scrolling game backdrop. Paint the entire canvas edge to edge as open distance, viewed out into the void beyond and below a high cliff. No foreground cliff rim, ledge, foreground ground, framing rocks or foreground objects anywhere. No characters, creatures, text, UI, watermark or border.\nReferences: Image 1 is a STYLE reference for hand-drawn contour and painted planes only; do not include the character. Image 2 is a STYLE reference for painted environment line and paint only; do not copy its content or layout.\nSTYLE: HAND-DRAWN painted 2D, like a frame of modern hand-animated action-game animation: confident dark contours drawn by hand with visible taper and varying weight, clean painted material planes inside the lines, restrained surface texture, clear small silhouettes, no conspicuous grain. Push toward bold, zany graphic stylization, saturated jewel tones, strong graphic shadows, slightly exaggerated shapes. Environmental richness and local light spill. Contours become lighter and thinner with distance. Extreme richness and detail through many small readable shapes and layered atmospheric depth, while keeping clean painted planes.\nSTORY: a RECENTLY DESTROYED TEMPLE and a CHARRED, BURNT FOREST against a SUNSET sky.\nCOMPOSITION top to bottom: Upper 35 percent is blazing sunset sky. Sun low at the UPPER-LEFT near the horizon throws long gold rays across the scene. Big sculpted clouds in bold graphic shapes, saturated orange, hot magenta, violet and gold, with a few dark smoke plumes drifting into them. Horizon about 35 percent from top: distant mountain spires in cool violet haze. Middle band left of center: a far hilltop temple recently destroyed, small but crisply readable silhouettes: broken columns, a collapsed dome split open, fallen statues, scorched stone, still-glowing embers and thin smoke from rubble, a few banners burnt to rags. Blue, ivory and brass remnants, deliberate ornamental geometry and monumental fractured stonework. Lower half: vast charred forest across a distant valley, dark cool skeletal trunks and branches, grey ash ground, pockets of glowing orange embers and small lingering fires, curling smoke wisps, a river of reflected sunset light winding through it. Detail thins into atmospheric distance. Bottom 12 percent: valley floor dissolves into soft uniform warm haze and drifting smoke, with no hard foreground edge, suitable for foreground cliff edges to overlap later.\nLighting: sunset key from screen UPPER-LEFT, deep cool readable shadow planes, glowing sunset and fire spill, lighting that sells great distance. This is a full-color opaque environment vista; use the requested landscape vista composition and sunset lighting, not a sprite sheet or green backing.",
+      "references": [
+        {
+          "role": "REGISTER anchor: character hand-drawn line and paint only",
+          "path": "in/01_keeper_rest_S.png"
+        },
+        {
+          "role": "REGISTER anchor: environment line and paint only",
+          "path": "in/02_plate_A.png"
+        }
+      ],
+      "elapsed_s": 33.146
+    }
+  ],
+  "calls_used": 1,
+  "retries": [],
+  "self_report": {
+    "obeyed_invariants": true,
+    "concerns": [
+      "Temple is larger than the requested small distant silhouette.",
+      "Horizon sits above the requested 35% line.",
+      "Temple banners remain relatively intact and echo reference banner motifs.",
+      "Task-specific landscape, full-color background and sunset requirements were applied over conflicting sprite-canvas, green-plate and lighting register constraints."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/vista_01.png",
+      "sha256": "6cea1b7340da3d2dc911c53051f3b072ccab5f73bf89ecae63e106b2184d0e45"
+    }
+  ]
+}

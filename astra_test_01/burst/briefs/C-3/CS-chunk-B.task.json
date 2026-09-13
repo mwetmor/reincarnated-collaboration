@@ -1,0 +1,30 @@
+{
+ "text": "GENERATE BURST CS-chunk-B — cliffside foreground chunk B, painted over its orthographic blockout guide (Run C-3 cliffside proof step, Matt R-C3-43/44). task_id \"CS-chunk-B\".\n\nDeliver ONE LANDSCAPE 1536×1024 painting that follows IMAGE 1 exactly. IMAGE 1 is a flat-shaded GEOMETRY GUIDE of one section of a game level seen from a fixed high three-quarter camera in ORTHOGRAPHIC projection (no perspective: parallel lines stay parallel and things near the top of the image are NOT smaller). Its colours mean: TAN = a packed-dirt path on the cliff top; LIGHT GREY band = the grassy/rocky cliff-top verge along the rim; DARK GREY/BROWN large plane = the vertical CLIFF FACE dropping from the rim toward the viewer; the small dark block = a boulder outcrop; PURE GREEN #00ff00 = EMPTY VOID beyond or below the cliff (a separate background will show there).\nHARD RULES: keep every boundary exactly where IMAGE 1 puts it — the rim line, the path edges, the cliff face's outline and its lower cut edge, the boulder's footprint; do not move, widen or bend them. Paint EVERY pixel that is green in IMAGE 1 as flat uniform pure #00ff00 in your output (nothing painted there: no sky, no fog, no rocks); paint every non-green pixel as scenery. Where the cliff face meets the green at its lower edge, end the rock cleanly (a slightly ragged broken edge is fine, staying within a few pixels).\nWHAT TO PAINT: a sun-warmed cliff-top path of packed earth with pebbles, wheel ruts and a few cracks; the verge with short tough grass tufts, small wildflowers and weathered stones along the lip; the cliff face as bold layered rock strata with deep crevices, a few roots and tufts clinging, streaks of mineral colour; the boulder outcrop as a stacked rock with moss. Scale: a person standing here is 130 px tall (1.75 m); one path width is several person-widths.\nLIGHT: warm SUNSET key light from the UPPER-LEFT (gold/orange on lit planes), cool violet shadows, strong readable cast shadows from the boulder and the rim; the cliff face's lower part slightly darker and hazier.\nREGISTER: IMAGE 2 (the character) and IMAGE 3 (a scene plate) show our HAND-DRAWN painted 2D register — a confident dark contour line with visible taper and varying weight, painted fills in clean planes, restrained texture — push it toward a bolder, zanier HADES-like flavour: saturated jewel tones, strong graphic shadows, slightly exaggerated chunky shapes. No characters, no creatures, no text, no UI, no border, no vignette.\nSEAM (critical): this chunk sits immediately to the RIGHT of IMAGE 4, overlapping it by 256 px: the LEFT 256 px of your output show EXACTLY the same place as the RIGHT 256 px of IMAGE 4. Reproduce IMAGE 4's right 256 px in your left 256 px as closely as possible — same path colours and texture, same verge tufts and stones, same cliff strata lines, same light — and continue those forms naturally to the right. \n\nOne image_gen call. ONE retry only if a boundary visibly moved, the green area was painted over, or a character/text appears — name the reason. Copy the output from $CODEX_HOME/generated_images/... to out/chunk_B.png with sha256. No code. No other files. No web.\nRETURN: receipt task_id \"CS-chunk-B\"; images = the file with prompt, references (role + path) and elapsed_s; calls_used = the TRUE number of image_gen calls; status; concerns. Never PASS/FAIL.",
+ "references": [
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/CS-guides/chunk_B_guide.png",
+   "role": "IMAGE 1 — GEOMETRY GUIDE (exact boundaries; green = void)"
+  },
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/L2-refs/keeper_rest_S.png",
+   "role": "IMAGE 2 — REGISTER anchor + scale (do not include her)"
+  },
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/L2-plate-01/plate_A.png",
+   "role": "IMAGE 3 — REGISTER anchor (line/paint only; not its layout or content)"
+  },
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/CS-chunk-A/chunk_A.png",
+   "role": "IMAGE 4 — the ALREADY PAINTED neighbouring chunk A (continue it)"
+  }
+ ],
+ "image_cap": 2,
+ "minutes_cap": 15,
+ "tool_call_cap": 20,
+ "outputs": [
+  "out/chunk_B.png"
+ ],
+ "effort": "high",
+ "add_dirs": [],
+ "experiment": "C3-cliffside"
+}

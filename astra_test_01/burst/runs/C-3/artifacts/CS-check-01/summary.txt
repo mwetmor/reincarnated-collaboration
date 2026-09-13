@@ -1,0 +1,12 @@
+CS-check-01 — report only; no gate verdict.
+A: IoU 0.990062; hole 0.009701; spill 0.000000; boundary mean/p95 3.170/31.016 px.
+B: IoU 0.950752; hole 0.049248; spill 0.000000; boundary mean/p95 4.577/11.180 px.
+Seam: mean RGB MAD 31.343/255; median row MAD 29.253/255.
+Geometry restriction: Euclidean mask dilation 6 px; painted alpha threshold for metrics 128.
+Matte adaptation: 10-px green padding in memory, frozen clamp extraction, then exact crop.
+Assembly: 2816x1024; B origin (1280,0); overlap linear A-to-B blend.
+Vista scales: assembly 1.833333333; extended screen 1.855468750; no tiling/mirroring.
+Keepers: alpha-bbox crops at 130 px tall; feet (1586,157) and (1676,157).
+Screen: world origin (624,-438); idle feet (962,595); 1920x1080 and 960x540.
+Frozen default component filtering is retained; all measurements precede geometry restriction unless specified.
+Review: review.html; numerical detail: checks.json; image_gen calls: 0.

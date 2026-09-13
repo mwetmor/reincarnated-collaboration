@@ -1,0 +1,49 @@
+{
+  "task_id": "CS-chunk-A",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "chunk_A",
+      "path": "out/chunk_A.png",
+      "sha256": "4a4cc178a04a11d34a2b669fc6d9e9b6d1e9f1f6472534b93aba90a5236dab56",
+      "prompt": "Use case: style-transfer. Create ONE 1536x1024 landscape game environment painting by painting directly over Image 1, the exact orthographic geometry guide. Image 1 is the edit target and absolute geometry authority. Image 2 is a hand-drawn line/paint register reference only; do not include the person. Image 3 is a hand-drawn line/paint register reference only; do not borrow its architecture, objects or composition.\nGEOMETRY LOCK: Keep the camera, framing, all silhouettes and every boundary exactly at the coordinates in Image 1. Fixed elevated high three-quarter ORTHOGRAPHIC projection: parallel lines remain parallel; no distance-based shrinking. TAN is packed-earth cliff-top path. LIGHT GREY is the narrow grassy/rocky verge along the rim. The large DARK GREY/BROWN lower-right plane is vertical cliff face dropping toward the viewer, NOT ground. The small dark foreground block is the boulder outcrop, retaining its exact footprint and silhouette. Preserve the path edges, curved upper-left verge, angular lower-right rim, cliff face outline and lower cut edge without moving, widening or bending any of them.\nVOID LOCK: Every pixel green in Image 1 must remain flat uniform pure #00ff00, exactly the same shapes and boundaries. No painting, shadows, foliage, sky, haze, rocks or other marks in those green regions. Every non-green pixel becomes scenery. End the lower cliff cleanly at the green boundary, with at most a few pixels of broken edge variation. The green void is a flat chroma plate, not landscape.\nPAINT: Sun-warmed packed dirt path with restrained pebbles, shallow wheel ruts and a few cracks. Narrow verge with short tough grass tufts, tiny wildflowers and weathered stones within its existing band. Vertical cliff face with bold layered rock strata, deep crevices, a few clinging roots and tufts and mineral-color streaks. Boulder becomes chunky stacked weathered rock with moss, keeping its exact outline. Preserve the broad open path. Use environmental detail of a consistent world scale throughout the orthographic image.\nSTYLE: HAND-DRAWN painted 2D, like a frame of modern hand-animated action-game scenery: confident dark contour line drawn by hand, visibly tapered with varying weight, clean painted color planes inside the line, restrained surface texture. Bold, slightly zany graphic forms, saturated jewel tones, strong graphic shadows, slightly exaggerated chunky shapes. Readable material planes and no conspicuous brush grain. Environmental richness and localized light spill as in Image 3.\nLIGHT: warm sunset key from SCREEN UPPER-LEFT, golden-orange lit planes and cool violet shadows; strong readable cast shadows from the boulder and rim. Lower cliff slightly darker and hazier, but haze stays inside the cliff silhouette. Shadows retain readable cool color, never pure black.\nNo characters, creatures, text, UI, border or vignette. Deliver one 1536x1024 image. Highest priority is exact Image 1 geometry and untouched uniform #00ff00 void.\nCORRECTIVE RETRY: The previous attempt moved the right-hand rim and raised the lower cut edge. Strictly trace Image 1's boundaries; do not redesign a natural diagonal cliff. At 1536x1024, the TOP boundary of the lower-right LIGHT GREY verge runs from approximately (780,784) diagonally to (1164,419), then angles to (1206,444), then runs shallowly upward to (1535,400). Its BOTTOM boundary against the vertical cliff runs from (854,866) diagonally to (1189,537), then shallowly to (1535,491). KEEP this angular bend and the horizontal-ish right segment. Do not replace them with one continuous diagonal. The LOWER cut edge of the cliff meets the right border at (1535,916), continues to (1190,961), then (1121,1023). Everything below/right of that edge is exact flat #00ff00. Do not raise this edge. Top-left green region ends at (650,0) and (0,300) along the exact original curve. Its adjacent verge outer path boundary intersects (808,0) and (0,406). Keep boulder top polygon corners near (450,896), (624,808), (651,843), (776,775), (867,880); its body extends out of the bottom frame. Treat Image 1 as immutable region masks: place brushwork only INSIDE each original region. Grass and rocks must not move or obscure region boundaries. The tiny original grey lower-left corner must also be painted as scenery. Texture density restrained; bold clean graphic rock planes and tapered dark outlines.",
+      "references": [
+        {
+          "role": "GEOMETRY GUIDE — edit target; exact boundaries and green void",
+          "path": "in/01_chunk_A_guide.png"
+        },
+        {
+          "role": "REGISTER anchor — character excluded",
+          "path": "in/02_keeper_rest_S.png"
+        },
+        {
+          "role": "REGISTER anchor — line and paint only",
+          "path": "in/03_plate_A.png"
+        }
+      ],
+      "elapsed_s": 47.909
+    }
+  ],
+  "calls_used": 2,
+  "retries": [
+    {
+      "reason": "First generation visibly moved the right-hand rim and raised the lower cliff cut edge.",
+      "change": "Retried from original references with explicit boundary coordinates and stricter region preservation."
+    }
+  ],
+  "self_report": {
+    "obeyed_invariants": false,
+    "concerns": [
+      "Delivered dimensions verified as 1536×1024.",
+      "Lower cliff cut edge remains visibly above the guide, expanding the green void.",
+      "Vegetation crosses internal guide boundaries; boulder silhouette is not exact.",
+      "Exact #00ff00 pixel uniformity was not independently measured."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/chunk_A.png",
+      "sha256": "4a4cc178a04a11d34a2b669fc6d9e9b6d1e9f1f6472534b93aba90a5236dab56"
+    }
+  ]
+}

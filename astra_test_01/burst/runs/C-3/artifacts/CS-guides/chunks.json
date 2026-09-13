@@ -1,0 +1,166 @@
+{
+  "ruling": "R-C3-44 (checkpoint 1 accepted; proof step)",
+  "source_canvas": {
+    "shaded": "07_ortho_canvas_shaded_v2.png",
+    "id": "08_ortho_canvas_layer_id_v2.png",
+    "mask": "work/ortho_canvas_v2_fgmask_cut7m.png",
+    "size_px": [
+      4977,
+      3980
+    ],
+    "folder": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/drax/captures/2026-09-13-cliffside-blockout"
+  },
+  "camera": {
+    "projection": "orthographic",
+    "yaw_deg": 47.0,
+    "pitch_deg_down": 52.95354112560294,
+    "perspective_rung_k": 0.541385974272702
+  },
+  "px_per_m": {
+    "screen_x": 100.617553710938,
+    "screen_y_per_ground_m": 80.30762476468774,
+    "screen_y_per_vertical_m": 60.61829360372662
+  },
+  "chunk_size_px": [
+    1536,
+    1024
+  ],
+  "overlap_px": 256,
+  "overlap_rule": "B's left 256 px == A's right 256 px (same canvas pixels)",
+  "cliff_face_cut_depth_m_below_rim": 7.0,
+  "cliff_face_cut_band_px_on_screen": 424.32805522608635,
+  "chunks": {
+    "A": {
+      "canvas_origin_px": [
+        700,
+        2250
+      ],
+      "keeper_spawn_px": [
+        1586.03,
+        157.38
+      ],
+      "keeper_spawn_inside": false,
+      "foreground_fraction": 0.9078,
+      "files": {
+        "guide": "chunk_A_guide.png",
+        "mask": "chunk_A_mask.png",
+        "id": "chunk_A_id.png"
+      }
+    },
+    "B": {
+      "canvas_origin_px": [
+        1980,
+        2250
+      ],
+      "keeper_spawn_px": [
+        306.03,
+        157.38
+      ],
+      "keeper_spawn_inside": true,
+      "foreground_fraction": 0.5925,
+      "files": {
+        "guide": "chunk_B_guide.png",
+        "mask": "chunk_B_mask.png",
+        "id": "chunk_B_id.png"
+      }
+    }
+  },
+  "keeper_spawn_canvas_px": [
+    2286.03442382812,
+    2407.38110351562
+  ],
+  "figure_scale": {
+    "figure_1_75m_px": 130.0,
+    "definition": "measured silhouette of the 1.75 m x r0.30 m capsule in this ortho (same instrument that set the 12.5 % rung = 135 px in perspective)",
+    "vertical_pole_1_75m_px": 106.08,
+    "feet": "sprite alpha>=128 bbox bottom-centre on the spawn/contact point"
+  },
+  "contact_shadow": {
+    "file": "shadow_ellipse.png",
+    "ground_disc_diameter_m": 0.55,
+    "ellipse_px": [
+      55.34,
+      44.17
+    ],
+    "png_size_px": [
+      58,
+      47
+    ],
+    "alpha": "0.45 at centre -> 0 at rim, smoothstep radial, black",
+    "anchor": "ellipse centre on the figure's ground contact point"
+  },
+  "key_points_canvas_px": {
+    "cut_-2.0_-7.0": [
+      1475.97497558594,
+      2370.30688476562
+    ],
+    "cut_-2.0_7.0": [
+      2865.64233398438,
+      2186.37231445312
+    ],
+    "cut_7.0_-7.0": [
+      1624.12231445312,
+      3083.3388671875
+    ],
+    "cut_7.0_7.0": [
+      3013.78979492188,
+      2899.40405273438
+    ],
+    "cut_9.0_-5.0": [
+      1855.56799316406,
+      3215.51416015625
+    ],
+    "cut_9.0_5.0": [
+      2848.1875,
+      3084.13208007812
+    ],
+    "keeper_spawn": [
+      2286.03442382812,
+      2407.38110351562
+    ],
+    "path_centre_s12.0": [
+      1597.78967285156,
+      2534.09594726562
+    ],
+    "path_centre_s16.9": [
+      1932.47155761719,
+      2248.44409179688
+    ],
+    "path_centre_s20.9": [
+      2203.72998046875,
+      2011.25219726562
+    ],
+    "path_centre_s4.0": [
+      974.932739257812,
+      2938.86840820312
+    ],
+    "path_centre_s8.0": [
+      1300.60668945312,
+      2750.599609375
+    ],
+    "rim_-2.0_-7.0": [
+      1475.97497558594,
+      1945.98022460938
+    ],
+    "rim_-2.0_7.0": [
+      2865.64233398438,
+      1762.04541015625
+    ],
+    "rim_7.0_-7.0": [
+      1624.12231445312,
+      2659.01196289062
+    ],
+    "rim_7.0_7.0": [
+      3013.78979492188,
+      2475.0771484375
+    ],
+    "rim_9.0_-5.0": [
+      1855.56799316406,
+      2791.18725585938
+    ],
+    "rim_9.0_5.0": [
+      2848.1875,
+      2659.80517578125
+    ]
+  }
+}
