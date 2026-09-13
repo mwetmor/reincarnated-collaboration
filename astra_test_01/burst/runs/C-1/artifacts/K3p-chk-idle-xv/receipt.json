@@ -1,0 +1,40 @@
+{
+  "task_id": "K3p-chk-idle-xv",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [],
+  "calls_used": 0,
+  "retries": [],
+  "self_report": {
+    "obeyed_invariants": true,
+    "concerns": [
+      "G11 pair measurements computed; comparison verdict unavailable because cast05 was not supplied.",
+      "Silhouette distances computed without verdicts because no calibrated threshold was supplied.",
+      "Oracle breath period was unevaluable.",
+      "Head and right-arm tracking reached search limits; displacement may be underestimated.",
+      "Frozen oracle ignores --out for --ours; output root redirected in memory without editing source.",
+      "Live conductor-owned .wrapper-* logs excluded from artifact hashes."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/checks.json",
+      "sha256": "4b7ab38bdb1e0e5930fac2d1d2ec1b27e1372eadaca9fc6c92c0865354204d90"
+    },
+    {
+      "path": "out/checks_readme.txt",
+      "sha256": "c349cfd44461062c10fa504a4241f13310c889a7f3acff891a070ed5147e0a0d"
+    },
+    {
+      "path": "out/idle_S_xv_measure.json",
+      "sha256": "32f94e2a62a9aa9eaf65bc7cea20dec6b9cd1d1a5d6a287b3030ca196816dc35"
+    },
+    {
+      "path": "out/plots/idle_S_xv_box_check.png",
+      "sha256": "54ebb85739cff09d954e1bd0e223c6db1aeec33a8780b3a0c416102f05091ad9"
+    },
+    {
+      "path": "out/plots/idle_S_xv_curves.png",
+      "sha256": "58b1b87b12e59ab169480b5988da796371d5281bb4321d05313aab176fa40863"
+    }
+  ]
+}

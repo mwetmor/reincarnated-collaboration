@@ -1,0 +1,12 @@
+The video loop is the whole retained 3.9 s resampled to 16 frames — the frozen breath instrument found NO dominant breath period in the clip (R-45), so no single breath could be cut; amplitude is measured honestly, loop closure is not a cut breath.
+K3p-pack-idle-xv: X-video; recorded instrument flags only; Matt ruling pending; relaxed band provisional R-c.
+Breath minimum: 0.414113112 %H / >=1.958382 %H (target 3.263970; band 1.958382–4.895956) / passed=false.
+Breath maximum: 0.414113112 %H / <=4.895956 %H / passed=true.
+Head minimum: 1.942558380 %H / >=0 %H (band 0–1.2) / passed=true.
+Head maximum: 1.942558380 %H / <=1.2 %H / passed=false.
+Regions: 3 mismatches (hips, arms_left, arms_right) / ==0; LOCK hips, legs, feet, arms_left, arms_right; MOTION shoulders_chest / passed=false.
+Feet lock: 0.416666667 %H / <=0.25 %H / passed=false; sole-row spread=0 px is a separate proxy.
+C-1 largest constraint delta #1 unavailable: baseline constraint JSON absent; current G6 seam=0.596973419 RGB MAD, threshold=0.132755280, passed=false.
+C-1 largest constraint delta #2 unavailable: baseline constraint JSON absent; current maximum G11 pair=0.161458333 RGB MAD, threshold=null, passed=null.
+Missing: G12 per frame, G11 cast05 comparator, silhouette thresholds; top-level attempt2 checks_intent.json replaced by packet data/attempt2_checks.json.
+Display only: 2x NEAREST, #3a3f4a, 1024²; 64 frames at 8fps. Method deviation: ffmpeg compositing instead of PIL; frozen PIL wrapper unavailable.

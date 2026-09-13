@@ -1,0 +1,79 @@
+{
+  "task_id": "K3p-pack-idle-xv",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [],
+  "calls_used": 0,
+  "retries": [],
+  "self_report": {
+    "obeyed_invariants": false,
+    "concerns": [
+      "Used ffmpeg for display compositing and seam assembly instead of PIL because no frozen PIL wrapper was supplied.",
+      "G12 measurements and C-1 constraint baseline were absent; G12 rows and the two largest C-1 deltas are marked unavailable.",
+      "G11 comparator and calibrated silhouette thresholds were absent.",
+      "Requested checks_intent.json was absent; used attempt 2's data/attempt2_checks.json, with provenance disclosed.",
+      "Wrapper-owned mutable audit logs are excluded from the deliverable file census."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/review.html",
+      "sha256": "268d4b68d90b735bf1665597a2e414cac6a07e4ad051b29cba041490eddb7eb3"
+    },
+    {
+      "path": "out/summary.txt",
+      "sha256": "dd91bab2ad940dc557f132eb256d1d10501561e131e8b594d29815dd7658fa3e"
+    },
+    {
+      "path": "out/idle_S_relaxed_8fps.mp4",
+      "sha256": "8c21ee084ca7aeb28df10bdb023088c5e6a92d76e4b4563d90bf2dfd0f9e5319"
+    },
+    {
+      "path": "out/idle_S_attempt2_8fps.mp4",
+      "sha256": "6befb7442642c9c9b62f7bbd5c9d31d2f1dfcfea47ef215161ecf6c302657cdd"
+    },
+    {
+      "path": "out/idle_S_seam_pairs.png",
+      "sha256": "daddd2c27232018d8e74cb5bf5fc41d0bf10e3f99d7a210863d61266ad3d6fb5"
+    },
+    {
+      "path": "out/img/attempt1_curves.png",
+      "sha256": "572d2cc607e381d69f5806edbb168dce9ee25c3696c8e47728e607b14543b20c"
+    },
+    {
+      "path": "out/img/combat_curves.png",
+      "sha256": "237546ea2efbce35d7f9d159c7ce3c3a88b91feff1cb46a6503922ef42dd30e4"
+    },
+    {
+      "path": "out/img/dead_idle_curves.png",
+      "sha256": "6603d4c6efd220f10d58505a70344107365181f1fca3111e56e805a76221ca53"
+    },
+    {
+      "path": "out/img/idle_S_strip.png",
+      "sha256": "d9315f19f698c47bb6fe2223fd85c25befffc82abf396490ca93ef7b6bc67b02"
+    },
+    {
+      "path": "out/img/ours_curves.png",
+      "sha256": "58b1b87b12e59ab169480b5988da796371d5281bb4321d05313aab176fa40863"
+    },
+    {
+      "path": "out/data/attempt1_checks.json",
+      "sha256": "c8eb1a630fde9d68a4f1b9c354398109ac9923e0f7df7823158c7a4d5b57f690"
+    },
+    {
+      "path": "out/data/attempt2_checks.json",
+      "sha256": "2039d2bfc7a151033dcf55bfb5e0d92eef713e19a701b75625e3d9b3d07782fa"
+    },
+    {
+      "path": "out/data/registration.json",
+      "sha256": "27993bc0117aed8f16625189f3685c8de8bacb58bd5cdca9297eb02daf0b5308"
+    },
+    {
+      "path": "out/data/relaxed_band.json",
+      "sha256": "883460c8ece273f3bc191ebb259c3a3fda5728534fca7f1b9923248b4c661c0b"
+    },
+    {
+      "path": "out/data/xvideo_checks.json",
+      "sha256": "4b7ab38bdb1e0e5930fac2d1d2ec1b27e1372eadaca9fc6c92c0865354204d90"
+    }
+  ]
+}

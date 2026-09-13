@@ -1,0 +1,37 @@
+{
+  "task_id": "K3p-xv-cut-03",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [],
+  "calls_used": 0,
+  "retries": [
+    {
+      "reason": "Nominal scale rasterized frame 0 to 239 px height.",
+      "change": "Applied shared scale 0.22294172062904719 and translation (166,153) to all frames; frame 0 height is 240 px, sole row 399, centre-x 255.5."
+    }
+  ],
+  "self_report": {
+    "obeyed_invariants": true,
+    "concerns": [
+      "All requested artifacts delivered. Pre-existing live out/.wrapper-* telemetry files are excluded from the manifest because their final hashes cannot be computed during recording."
+    ]
+  },
+  "files": [
+    {"path":"out/ffmpeg_extract.log","sha256":"f61b620830b507d044487a260a4d092899c27db7fd921e5a20a7cba438776fe9"},
+    {"path":"out/frames/rest/E/rest_E.png","sha256":"c6cd3c35fb62c3f356ef56cc63aa22e2ae938a2dac6030ae405bf67b516c64c8"},
+    {"path":"out/frames/walk/E/walk_E_00.png","sha256":"d989e439a5b48d33b92ba331516a6398e9a567cea175042621aff97be2c98936"},
+    {"path":"out/frames/walk/E/walk_E_01.png","sha256":"1ed2ed74614b30b3cf7e199ef2215647f7603728b4b7cdf1198e58bb16ebbb26"},
+    {"path":"out/frames/walk/E/walk_E_02.png","sha256":"37c195b911c6abd51ba58a24fbf3fefd7f02fe2f53951b720bf1d9748db668c3"},
+    {"path":"out/frames/walk/E/walk_E_03.png","sha256":"0fe61a54c119c3bb43cf86270db1cc1a9936b6b20ce85d28ee6eb277cca85947"},
+    {"path":"out/frames/walk/E/walk_E_04.png","sha256":"02b4c3902f8a378f7a4769cf609a85ba409b68a9fc6113e986b0a0a3df90b166"},
+    {"path":"out/frames/walk/E/walk_E_05.png","sha256":"d9d8e681acb20e42cf811bbdb68222020f1cc95e567b0cb300f5f25c39f72864"},
+    {"path":"out/frames/walk/E/walk_E_06.png","sha256":"47614abc270527e0b210e74cd9956b000405d740783c2c566bbfdaab5cab6f93"},
+    {"path":"out/frames/walk/E/walk_E_07.png","sha256":"6eb5c40c3aa2cb3c1d9a7aca268da767aed5360cd68df8eb8b352bef68afeaf4"},
+    {"path":"out/frames/walk/E/walk_E_08.png","sha256":"6c913a56bd92e851c455b3ba2f88a3f151e12008495444abdf3cc47d41626883"},
+    {"path":"out/frames/walk/E/walk_E_09.png","sha256":"96dad48647b996ce496835465bf62eb1fbc97a490c32d6c024e0299dea43ec9f"},
+    {"path":"out/frames/walk/E/walk_E_10.png","sha256":"88eb65862dcadb35dc70338bf5660c93e2021490d2fcdaaedc5aa0c52ea0627c"},
+    {"path":"out/frames/walk/E/walk_E_11.png","sha256":"7d66ff81061db9baece1f4af80d59bb74ff1e52ae9f49fc6177d541728bc642a"},
+    {"path":"out/readme.txt","sha256":"536ee2793a85c3128a6b63796000a3e7f20b6650971456dd4e944d6aa6e0072a"},
+    {"path":"out/registration.json","sha256":"bafcc03b5fc9e0015315aa7f535f8ba6025ea695af857b832e1a7d5f505bd90a"},
+    {"path":"out/sheets/walk_E_strip.png","sha256":"76708f8d677079662fa05d17ffe33036807af05ade76ff0a5e9fe403267c0e82"}
+  ]
+}

@@ -1,0 +1,890 @@
+{
+  "task_id": "K3p-xv-cut-03",
+  "source": {
+    "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/xvideo/in/walk_E_grok.mp4",
+    "sha256": "872a232c71c3f0565fc62c4b794601a0bc7af1721d38e0510c911164599d6c15",
+    "native_size": [
+      768,
+      1168
+    ],
+    "fps": 24,
+    "permitted_time_s": [
+      0,
+      4.3
+    ],
+    "extraction_indices": [
+      0,
+      53,
+      56,
+      59,
+      61,
+      64,
+      67,
+      70,
+      73,
+      76,
+      79,
+      81,
+      84
+    ],
+    "reused_matted_frames": false
+  },
+  "stride_native_interval_half_open": [
+    53,
+    87
+  ],
+  "selected_native_indices": [
+    53,
+    56,
+    59,
+    61,
+    64,
+    67,
+    70,
+    73,
+    76,
+    79,
+    81,
+    84
+  ],
+  "scale": 0.22294172062904719,
+  "scale_definition": "241 / native alpha>=128 bbox height of walk frame 00 (native 53); one-pixel raster calibration from nominal 240/H to deliver alpha>=128 height exactly 240",
+  "native_reference_height": 1081,
+  "scaled_canvas_size": [
+    171,
+    260
+  ],
+  "resize": "PIL Image.resize, LANCZOS, dimensions rounded from the one shared scalar",
+  "rasterized_axis_ratios": [
+    0.22265625,
+    0.2226027397260274
+  ],
+  "translation_xy": [
+    166,
+    153
+  ],
+  "canvas": [
+    512,
+    512
+  ],
+  "pivot": [
+    256,
+    400
+  ],
+  "target_sole_line": 399,
+  "target_bbox_center_x": 255.5,
+  "reference_frame": {
+    "walk_frame": 0,
+    "native_index": 53,
+    "registered": {
+      "bbox_xyxy": [
+        193,
+        160,
+        319,
+        400
+      ],
+      "bbox_height": 240,
+      "sole_line": 399,
+      "bbox_center_x": 255.5
+    }
+  },
+  "phase_note": "Frame 0 is a DOWN phase, one phase after plate-13's CONTACT \u2014 rotation +1 (conductor R-46). Native sample order is fixed as supplied; no additional rotation applied.",
+  "rotation": 1,
+  "phase_table_source": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/oracle/bands_walk.json",
+  "phase_table_row": "plate13_lateral_ann",
+  "phase_table": [
+    {
+      "boundary_contact": false,
+      "contact": false,
+      "contact_sides": [],
+      "frame": 0,
+      "lead_track": "far",
+      "mean_confidence": 0.7604166666666666,
+      "phase": "DOWN",
+      "planted": {
+        "far": true,
+        "near": false
+      },
+      "printed_phase": 1,
+      "reason": null,
+      "source": "annotation"
+    },
+    {
+      "boundary_contact": false,
+      "contact": false,
+      "contact_sides": [],
+      "frame": 1,
+      "lead_track": "far",
+      "mean_confidence": 0.7604166666666666,
+      "phase": "PASSING",
+      "planted": {
+        "far": true,
+        "near": false
+      },
+      "printed_phase": 2,
+      "reason": null,
+      "source": "annotation"
+    },
+    {
+      "boundary_contact": false,
+      "contact": false,
+      "contact_sides": [],
+      "frame": 2,
+      "lead_track": "far",
+      "mean_confidence": 0.7604166666666666,
+      "phase": "UP",
+      "planted": {
+        "far": true,
+        "near": false
+      },
+      "printed_phase": 3,
+      "reason": null,
+      "source": "annotation"
+    },
+    {
+      "boundary_contact": false,
+      "contact": false,
+      "contact_sides": [],
+      "frame": 3,
+      "lead_track": "far",
+      "mean_confidence": 0.7604166666666666,
+      "phase": "UP",
+      "planted": {
+        "far": true,
+        "near": false
+      },
+      "printed_phase": 4,
+      "reason": null,
+      "source": "annotation"
+    },
+    {
+      "boundary_contact": false,
+      "contact": true,
+      "contact_sides": [
+        "near"
+      ],
+      "frame": 4,
+      "lead_track": "near",
+      "mean_confidence": 0.7604166666666666,
+      "phase": "CONTACT",
+      "planted": {
+        "far": false,
+        "near": true
+      },
+      "printed_phase": 5,
+      "reason": null,
+      "source": "annotation"
+    },
+    {
+      "boundary_contact": false,
+      "contact": false,
+      "contact_sides": [],
+      "frame": 5,
+      "lead_track": "near",
+      "mean_confidence": 0.7604166666666666,
+      "phase": "DOWN",
+      "planted": {
+        "far": false,
+        "near": true
+      },
+      "printed_phase": 6,
+      "reason": null,
+      "source": "annotation"
+    },
+    {
+      "boundary_contact": false,
+      "contact": false,
+      "contact_sides": [],
+      "frame": 6,
+      "lead_track": "near",
+      "mean_confidence": 0.7604166666666666,
+      "phase": "DOWN",
+      "planted": {
+        "far": false,
+        "near": true
+      },
+      "printed_phase": 7,
+      "reason": null,
+      "source": "annotation"
+    },
+    {
+      "boundary_contact": false,
+      "contact": false,
+      "contact_sides": [],
+      "frame": 7,
+      "lead_track": "near",
+      "mean_confidence": 0.7604166666666666,
+      "phase": "PASSING",
+      "planted": {
+        "far": false,
+        "near": true
+      },
+      "printed_phase": 8,
+      "reason": null,
+      "source": "annotation"
+    },
+    {
+      "boundary_contact": false,
+      "contact": false,
+      "contact_sides": [],
+      "frame": 8,
+      "lead_track": "near",
+      "mean_confidence": 0.7604166666666666,
+      "phase": "UP",
+      "planted": {
+        "far": false,
+        "near": true
+      },
+      "printed_phase": 9,
+      "reason": null,
+      "source": "annotation"
+    },
+    {
+      "boundary_contact": false,
+      "contact": false,
+      "contact_sides": [],
+      "frame": 9,
+      "lead_track": "near",
+      "mean_confidence": 0.7604166666666666,
+      "phase": "UP",
+      "planted": {
+        "far": false,
+        "near": true
+      },
+      "printed_phase": 10,
+      "reason": null,
+      "source": "annotation"
+    },
+    {
+      "boundary_contact": false,
+      "contact": true,
+      "contact_sides": [
+        "far"
+      ],
+      "frame": 10,
+      "lead_track": "far",
+      "mean_confidence": 0.7604166666666666,
+      "phase": "CONTACT",
+      "planted": {
+        "far": true,
+        "near": false
+      },
+      "printed_phase": 11,
+      "reason": null,
+      "source": "annotation"
+    },
+    {
+      "boundary_contact": false,
+      "contact": false,
+      "contact_sides": [],
+      "frame": 11,
+      "lead_track": "far",
+      "mean_confidence": 0.7604166666666666,
+      "phase": "DOWN",
+      "planted": {
+        "far": true,
+        "near": false
+      },
+      "printed_phase": 12,
+      "reason": null,
+      "source": "annotation"
+    }
+  ],
+  "phase_table_note": "Committed table preserved verbatim as target metadata; phases are not re-detected or judged.",
+  "seed_geometry": {
+    "cell_px": 627,
+    "scale": 0.5106,
+    "scaled_cell_px": 320,
+    "offset_xy": [
+      96,
+      112
+    ],
+    "frame_canvas": 512,
+    "pivot": [
+      256,
+      400
+    ],
+    "note": "uniform downscale + translation only; identical for every cell of every K3 sheet (all cells share the seed geometry)"
+  },
+  "seed_geometry_sha256": "efc12bbdddaaed3bd543dad01eb8a179ec2d60e9c2f0abf8bac5ea36dd5db903",
+  "band_sha256": "2b6984f487c058e1d3afd222a393f6dbbead21d85d8df8510249d1730184289d",
+  "rest": {
+    "path": "out/frames/rest/E/rest_E.png",
+    "frame": null,
+    "native_index": 0,
+    "time_s": 0.0,
+    "pts": 0,
+    "ffmpeg_pts_time_s": 0.0,
+    "native": {
+      "bbox_xyxy": [
+        244,
+        14,
+        516,
+        1124
+      ],
+      "bbox_height": 1110,
+      "sole_line": 1123,
+      "bbox_center_x": 379.5
+    },
+    "registered": {
+      "bbox_xyxy": [
+        220,
+        156,
+        281,
+        403
+      ],
+      "bbox_height": 247,
+      "sole_line": 402,
+      "bbox_center_x": 250.0
+    },
+    "scale": 0.22294172062904719,
+    "translation_xy": [
+      166,
+      153
+    ],
+    "matte": {
+      "method": "green excess matte + inverse straight-alpha compositing",
+      "removed_background_or_detached_alpha_dust_pixels": 64,
+      "native_input_alpha": false,
+      "alpha_floor": 40,
+      "alpha_floor_removed_pixels": 699200
+    }
+  },
+  "frames": [
+    {
+      "path": "out/frames/walk/E/walk_E_00.png",
+      "frame": 0,
+      "native_index": 53,
+      "time_s": 2.2083333333333335,
+      "pts": 27136,
+      "ffmpeg_pts_time_s": 2.208333,
+      "native": {
+        "bbox_xyxy": [
+          122,
+          30,
+          688,
+          1111
+        ],
+        "bbox_height": 1081,
+        "sole_line": 1110,
+        "bbox_center_x": 404.5
+      },
+      "registered": {
+        "bbox_xyxy": [
+          193,
+          160,
+          319,
+          400
+        ],
+        "bbox_height": 240,
+        "sole_line": 399,
+        "bbox_center_x": 255.5
+      },
+      "scale": 0.22294172062904719,
+      "translation_xy": [
+        166,
+        153
+      ],
+      "matte": {
+        "method": "green excess matte + inverse straight-alpha compositing",
+        "removed_background_or_detached_alpha_dust_pixels": 481,
+        "native_input_alpha": false,
+        "alpha_floor": 40,
+        "alpha_floor_removed_pixels": 648668
+      }
+    },
+    {
+      "path": "out/frames/walk/E/walk_E_01.png",
+      "frame": 1,
+      "native_index": 56,
+      "time_s": 2.3333333333333335,
+      "pts": 28672,
+      "ffmpeg_pts_time_s": 2.333333,
+      "native": {
+        "bbox_xyxy": [
+          85,
+          20,
+          626,
+          1120
+        ],
+        "bbox_height": 1100,
+        "sole_line": 1119,
+        "bbox_center_x": 355.0
+      },
+      "registered": {
+        "bbox_xyxy": [
+          185,
+          157,
+          305,
+          402
+        ],
+        "bbox_height": 245,
+        "sole_line": 401,
+        "bbox_center_x": 244.5
+      },
+      "scale": 0.22294172062904719,
+      "translation_xy": [
+        166,
+        153
+      ],
+      "matte": {
+        "method": "green excess matte + inverse straight-alpha compositing",
+        "removed_background_or_detached_alpha_dust_pixels": 94,
+        "native_input_alpha": false,
+        "alpha_floor": 40,
+        "alpha_floor_removed_pixels": 654348
+      }
+    },
+    {
+      "path": "out/frames/walk/E/walk_E_02.png",
+      "frame": 2,
+      "native_index": 59,
+      "time_s": 2.4583333333333335,
+      "pts": 30208,
+      "ffmpeg_pts_time_s": 2.458333,
+      "native": {
+        "bbox_xyxy": [
+          134,
+          12,
+          560,
+          1122
+        ],
+        "bbox_height": 1110,
+        "sole_line": 1121,
+        "bbox_center_x": 346.5
+      },
+      "registered": {
+        "bbox_xyxy": [
+          196,
+          156,
+          291,
+          403
+        ],
+        "bbox_height": 247,
+        "sole_line": 402,
+        "bbox_center_x": 243.0
+      },
+      "scale": 0.22294172062904719,
+      "translation_xy": [
+        166,
+        153
+      ],
+      "matte": {
+        "method": "green excess matte + inverse straight-alpha compositing",
+        "removed_background_or_detached_alpha_dust_pixels": 198,
+        "native_input_alpha": false,
+        "alpha_floor": 40,
+        "alpha_floor_removed_pixels": 666393
+      }
+    },
+    {
+      "path": "out/frames/walk/E/walk_E_03.png",
+      "frame": 3,
+      "native_index": 61,
+      "time_s": 2.5416666666666665,
+      "pts": 31232,
+      "ffmpeg_pts_time_s": 2.541667,
+      "native": {
+        "bbox_xyxy": [
+          199,
+          8,
+          544,
+          1122
+        ],
+        "bbox_height": 1114,
+        "sole_line": 1121,
+        "bbox_center_x": 371.0
+      },
+      "registered": {
+        "bbox_xyxy": [
+          210,
+          155,
+          287,
+          403
+        ],
+        "bbox_height": 248,
+        "sole_line": 402,
+        "bbox_center_x": 248.0
+      },
+      "scale": 0.22294172062904719,
+      "translation_xy": [
+        166,
+        153
+      ],
+      "matte": {
+        "method": "green excess matte + inverse straight-alpha compositing",
+        "removed_background_or_detached_alpha_dust_pixels": 816,
+        "native_input_alpha": false,
+        "alpha_floor": 40,
+        "alpha_floor_removed_pixels": 657113
+      }
+    },
+    {
+      "path": "out/frames/walk/E/walk_E_04.png",
+      "frame": 4,
+      "native_index": 64,
+      "time_s": 2.6666666666666665,
+      "pts": 32768,
+      "ffmpeg_pts_time_s": 2.666667,
+      "native": {
+        "bbox_xyxy": [
+          232,
+          8,
+          550,
+          1122
+        ],
+        "bbox_height": 1114,
+        "sole_line": 1121,
+        "bbox_center_x": 390.5
+      },
+      "registered": {
+        "bbox_xyxy": [
+          218,
+          155,
+          289,
+          403
+        ],
+        "bbox_height": 248,
+        "sole_line": 402,
+        "bbox_center_x": 253.0
+      },
+      "scale": 0.22294172062904719,
+      "translation_xy": [
+        166,
+        153
+      ],
+      "matte": {
+        "method": "green excess matte + inverse straight-alpha compositing",
+        "removed_background_or_detached_alpha_dust_pixels": 116,
+        "native_input_alpha": false,
+        "alpha_floor": 40,
+        "alpha_floor_removed_pixels": 668843
+      }
+    },
+    {
+      "path": "out/frames/walk/E/walk_E_05.png",
+      "frame": 5,
+      "native_index": 67,
+      "time_s": 2.7916666666666665,
+      "pts": 34304,
+      "ffmpeg_pts_time_s": 2.791667,
+      "native": {
+        "bbox_xyxy": [
+          198,
+          18,
+          662,
+          1122
+        ],
+        "bbox_height": 1104,
+        "sole_line": 1121,
+        "bbox_center_x": 429.5
+      },
+      "registered": {
+        "bbox_xyxy": [
+          210,
+          157,
+          313,
+          403
+        ],
+        "bbox_height": 246,
+        "sole_line": 402,
+        "bbox_center_x": 261.0
+      },
+      "scale": 0.22294172062904719,
+      "translation_xy": [
+        166,
+        153
+      ],
+      "matte": {
+        "method": "green excess matte + inverse straight-alpha compositing",
+        "removed_background_or_detached_alpha_dust_pixels": 138,
+        "native_input_alpha": false,
+        "alpha_floor": 40,
+        "alpha_floor_removed_pixels": 662265
+      }
+    },
+    {
+      "path": "out/frames/walk/E/walk_E_06.png",
+      "frame": 6,
+      "native_index": 70,
+      "time_s": 2.9166666666666665,
+      "pts": 35840,
+      "ffmpeg_pts_time_s": 2.916667,
+      "native": {
+        "bbox_xyxy": [
+          128,
+          30,
+          688,
+          1120
+        ],
+        "bbox_height": 1090,
+        "sole_line": 1119,
+        "bbox_center_x": 407.5
+      },
+      "registered": {
+        "bbox_xyxy": [
+          195,
+          160,
+          319,
+          402
+        ],
+        "bbox_height": 242,
+        "sole_line": 401,
+        "bbox_center_x": 256.5
+      },
+      "scale": 0.22294172062904719,
+      "translation_xy": [
+        166,
+        153
+      ],
+      "matte": {
+        "method": "green excess matte + inverse straight-alpha compositing",
+        "removed_background_or_detached_alpha_dust_pixels": 143,
+        "native_input_alpha": false,
+        "alpha_floor": 40,
+        "alpha_floor_removed_pixels": 670575
+      }
+    },
+    {
+      "path": "out/frames/walk/E/walk_E_07.png",
+      "frame": 7,
+      "native_index": 73,
+      "time_s": 3.0416666666666665,
+      "pts": 37376,
+      "ffmpeg_pts_time_s": 3.041667,
+      "native": {
+        "bbox_xyxy": [
+          80,
+          26,
+          630,
+          1114
+        ],
+        "bbox_height": 1088,
+        "sole_line": 1113,
+        "bbox_center_x": 354.5
+      },
+      "registered": {
+        "bbox_xyxy": [
+          184,
+          159,
+          306,
+          401
+        ],
+        "bbox_height": 242,
+        "sole_line": 400,
+        "bbox_center_x": 244.5
+      },
+      "scale": 0.22294172062904719,
+      "translation_xy": [
+        166,
+        153
+      ],
+      "matte": {
+        "method": "green excess matte + inverse straight-alpha compositing",
+        "removed_background_or_detached_alpha_dust_pixels": 375,
+        "native_input_alpha": false,
+        "alpha_floor": 40,
+        "alpha_floor_removed_pixels": 662176
+      }
+    },
+    {
+      "path": "out/frames/walk/E/walk_E_08.png",
+      "frame": 8,
+      "native_index": 76,
+      "time_s": 3.1666666666666665,
+      "pts": 38912,
+      "ffmpeg_pts_time_s": 3.166667,
+      "native": {
+        "bbox_xyxy": [
+          120,
+          18,
+          576,
+          1106
+        ],
+        "bbox_height": 1088,
+        "sole_line": 1105,
+        "bbox_center_x": 347.5
+      },
+      "registered": {
+        "bbox_xyxy": [
+          193,
+          157,
+          294,
+          399
+        ],
+        "bbox_height": 242,
+        "sole_line": 398,
+        "bbox_center_x": 243.0
+      },
+      "scale": 0.22294172062904719,
+      "translation_xy": [
+        166,
+        153
+      ],
+      "matte": {
+        "method": "green excess matte + inverse straight-alpha compositing",
+        "removed_background_or_detached_alpha_dust_pixels": 128,
+        "native_input_alpha": false,
+        "alpha_floor": 40,
+        "alpha_floor_removed_pixels": 680259
+      }
+    },
+    {
+      "path": "out/frames/walk/E/walk_E_09.png",
+      "frame": 9,
+      "native_index": 79,
+      "time_s": 3.2916666666666665,
+      "pts": 40448,
+      "ffmpeg_pts_time_s": 3.291667,
+      "native": {
+        "bbox_xyxy": [
+          226,
+          14,
+          566,
+          1105
+        ],
+        "bbox_height": 1091,
+        "sole_line": 1104,
+        "bbox_center_x": 395.5
+      },
+      "registered": {
+        "bbox_xyxy": [
+          216,
+          156,
+          292,
+          399
+        ],
+        "bbox_height": 243,
+        "sole_line": 398,
+        "bbox_center_x": 253.5
+      },
+      "scale": 0.22294172062904719,
+      "translation_xy": [
+        166,
+        153
+      ],
+      "matte": {
+        "method": "green excess matte + inverse straight-alpha compositing",
+        "removed_background_or_detached_alpha_dust_pixels": 523,
+        "native_input_alpha": false,
+        "alpha_floor": 40,
+        "alpha_floor_removed_pixels": 694823
+      }
+    },
+    {
+      "path": "out/frames/walk/E/walk_E_10.png",
+      "frame": 10,
+      "native_index": 81,
+      "time_s": 3.375,
+      "pts": 41472,
+      "ffmpeg_pts_time_s": 3.375,
+      "native": {
+        "bbox_xyxy": [
+          265,
+          13,
+          552,
+          1104
+        ],
+        "bbox_height": 1091,
+        "sole_line": 1103,
+        "bbox_center_x": 408.0
+      },
+      "registered": {
+        "bbox_xyxy": [
+          225,
+          156,
+          289,
+          399
+        ],
+        "bbox_height": 243,
+        "sole_line": 398,
+        "bbox_center_x": 256.5
+      },
+      "scale": 0.22294172062904719,
+      "translation_xy": [
+        166,
+        153
+      ],
+      "matte": {
+        "method": "green excess matte + inverse straight-alpha compositing",
+        "removed_background_or_detached_alpha_dust_pixels": 1249,
+        "native_input_alpha": false,
+        "alpha_floor": 40,
+        "alpha_floor_removed_pixels": 676998
+      }
+    },
+    {
+      "path": "out/frames/walk/E/walk_E_11.png",
+      "frame": 11,
+      "native_index": 84,
+      "time_s": 3.5,
+      "pts": 43008,
+      "ffmpeg_pts_time_s": 3.5,
+      "native": {
+        "bbox_xyxy": [
+          208,
+          20,
+          662,
+          1102
+        ],
+        "bbox_height": 1082,
+        "sole_line": 1101,
+        "bbox_center_x": 434.5
+      },
+      "registered": {
+        "bbox_xyxy": [
+          212,
+          158,
+          313,
+          398
+        ],
+        "bbox_height": 240,
+        "sole_line": 397,
+        "bbox_center_x": 262.0
+      },
+      "scale": 0.22294172062904719,
+      "translation_xy": [
+        166,
+        153
+      ],
+      "matte": {
+        "method": "green excess matte + inverse straight-alpha compositing",
+        "removed_background_or_detached_alpha_dust_pixels": 73,
+        "native_input_alpha": false,
+        "alpha_floor": 40,
+        "alpha_floor_removed_pixels": 647224
+      }
+    }
+  ],
+  "alpha_box": [
+    184,
+    155,
+    319,
+    403
+  ],
+  "gate_evaluation_performed": false,
+  "concerns": [],
+  "calibration_note": "Initial nominal 240/1081 scale rasterized to height 239; a single shared calibrated scale 241/1081 is used for every delivered walk/rest frame. No per-frame scaling.",
+  "ffmpeg_argv": [
+    "/opt/homebrew/bin/ffmpeg",
+    "-hide_banner",
+    "-nostdin",
+    "-i",
+    "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/xvideo/in/walk_E_grok.mp4",
+    "-t",
+    "4.3",
+    "-map",
+    "0:v:0",
+    "-vf",
+    "select='eq(n,0)+eq(n,53)+eq(n,56)+eq(n,59)+eq(n,61)+eq(n,64)+eq(n,67)+eq(n,70)+eq(n,73)+eq(n,76)+eq(n,79)+eq(n,81)+eq(n,84)',showinfo",
+    "-fps_mode",
+    "passthrough",
+    "-frames:v",
+    "13",
+    "-f",
+    "rawvideo",
+    "-pix_fmt",
+    "rgb24",
+    "pipe:1"
+  ]
+}
