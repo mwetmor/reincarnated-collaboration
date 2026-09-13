@@ -1,0 +1,132 @@
+{
+  "task_id": "T-freeze",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [],
+  "calls_used": 0,
+  "retries": [
+    {
+      "reason": "Full suite reported six unsuccessful tests instead of the five expected.",
+      "change": "Repeated the suite with diagnostic reporting hooks; no frozen code or assertions changed."
+    }
+  ],
+  "self_report": {
+    "obeyed_invariants": true,
+    "concerns": [
+      "(1) Both idle rows committed=true. Combat breath floor/target/ceiling preserved exactly: 0.03916764399998302 / 0.06527940666663837 / 0.09791910999995755; head: 0.03279878164982141 / 0.054664636083035685 / 0.08199695412455353; period=null. LOCK=[hips,legs,feet,arms_left,arms_right]; MOTION=[shoulders_chest,head]; moving_count=2; lock_eps_H=0.004. Region lists explicitly attributed to R-29.",
+      "(1) Relaxed breath floor/target/ceiling=0.01958382 / 0.03263970 / 0.04895956, computed from the combat target rounded to the ruling's eight decimal places, multiplied by 0.5 and 0.6/1.0/1.5, then rounded using decimal half-even. Original combat precision was preserved. Relaxed head=0.0 / 0.006 / 0.012; period=2.0 s; moving_count=1; lock_eps_H=0.004; provisional=true; contamination=null; void_frames=[]. Eleven original measurement keys preserved under superseded_house_measurement, including breath target 0.002136889328410163 and contamination 0.4467995767480139. Head belongs to neither region list. The frozen gate cannot enforce head ≤ chest. No standalone frame-based idle evaluation was attempted.",
+      "(2) Only plate13_lateral_ann committed. k_vert=1.25; W1 value and unchanged floor=0.03945870747438978; target=0.04932338434298723; 1.5×target=0.07398507651448084; ruled ceiling=0.07. Both ceiling numbers recorded. Annotation W4=4 versus rule 2; W6=0.5416666666666666 versus rule 0.75; mean confidence=0.7604166666666666. Commit note discloses mask agreement 2 / 1.0. Other four walk rows preserved byte-for-byte; provenance unchanged.",
+      "(3) dope_walk_12: 12 frames, INTENT CONFLICT count=0, period_source absent in frozen output, W1 target/head_amplitude_H=0.04932338434298723; trajectory_source='source numeric landmarks, normalized; head amplitude scaled'; assumptions=[]. Twelve 512×512 walk guides regenerated with H_px=400.",
+      "(3) dope_idle_relaxed_16: 16 frames at 8 fps, INTENT CONFLICT count=0, period_source=band, period=2.0 s. dope_idle_combat_8: 8 frames at 12 fps, count=0, period_source=clip_duration, period=0.6666666666666666 s. dope_idle_combat_16: 16 frames at 8 fps, count=0, period_source=clip_duration, period=2.0 s. All four text files exactly equal their sheet prompt_text.",
+      "(4) Bible v0.3 adds two optional properties; seven required properties unchanged; additionalProperties=false retained. Six exhibit hashes computed; character_height_frac_1080p=0.17. Band cards contain final hashes and committed rows. bible.validate returned []. Exactly one test added; all five bible tests succeeded, including optional-key validation, wrong-shaped bands rejection, and extra-key rejection.",
+      "(5) .gitignore contains exactly two lines: __pycache__/ and tests/tmp/.",
+      "(6) Full suite: tests_run=184, successful_tests=178, unsuccessful=6; elapsed_s=85.91133345799972. Diagnostic repeat: 184 / 178, elapsed_s=85.8842981250018. Five standing reds were expected. Additional stale assertion: test_idle_intent.Tests.test_k3_combat_report_only expects null but receives false after combat commitment. Diagnostics also captured the grid discrepancy head_ref_y=60 versus 65, tolerance=2, and motif outside count=2 versus minimum=3. Frozen assertions remain unchanged.",
+      "Twenty-six deliverables hashed; final band hashes and four committed sheet/text pairs verified after the suite. No git operations or image-generation calls."
+    ]
+  },
+  "files": [
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/oracle/bands_idle.json",
+      "sha256": "fed0aa885b3e3d7c8f60eb4cecb2a3e2ff46251a68d4b3da868236fb078fd939"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/oracle/bands_walk.json",
+      "sha256": "2b6984f487c058e1d3afd222a393f6dbbead21d85d8df8510249d1730184289d"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/bible/schema.json",
+      "sha256": "f0159a7983f9e5215c0d773e5a849dd3834fac71a34ffee699815265579e280c"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/bible/f04-keepers.json",
+      "sha256": "5c49f41ca2036c62f76ed90e2dd64a06b3c0d27fa48769f4f42336b939fa728a"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/.gitignore",
+      "sha256": "9821f8578fe2f33207a004702bdd8cc708e02518acb34580d530a5f74a67403f"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_bible.py",
+      "sha256": "6dd168716ace110ed4edc934c71581fd511ba80000f4a4630cc4850a52d7f677"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/oracle/dope_walk_12.json",
+      "sha256": "441288246d871ed0f928c11adfc1a5a6696344ad340e4f093efad993544b9611"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/oracle/dope_walk_12.txt",
+      "sha256": "995e0c1947a6e2ef974023db141041840fddf655a49d1418f6c29ea397983f60"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/oracle/dope_idle_relaxed_16.json",
+      "sha256": "98ca454d0994956df6dd14a26fd6259da8e305b572415a1398ddbffe08a56128"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/oracle/dope_idle_relaxed_16.txt",
+      "sha256": "36b8feb293834d2659e92f983a337906cc3107ae3945c1c67df2554961d01021"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/oracle/dope_idle_combat_8.json",
+      "sha256": "4e8bf6e5b898a859a6ba6478c2a4f670e7ba90f002830d2b12895770cc01bf07"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/oracle/dope_idle_combat_8.txt",
+      "sha256": "9c88c671acc18b31a702119759a8ac56faba90cf95f8a3281db2928bf730c240"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/oracle/dope_idle_combat_16.json",
+      "sha256": "e8619cf7ca70864a4a17b6b9b5643c1acce2589b0f9d7070576fa56a48761740"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/oracle/dope_idle_combat_16.txt",
+      "sha256": "3c47fadccd1cfd330e0175f1d374ad5b992459cbacb9ec0eb2772f3751c50d53"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/oracle/pose_guides/walk_00.png",
+      "sha256": "b58753bed2945e8261422c0eb349d0e61e33590a4f78b0149ace7d31d7aebff9"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/oracle/pose_guides/walk_01.png",
+      "sha256": "dd18535ad5c0022533af698267b7edb47b0244c52171cdcc031fd20bb0517d79"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/oracle/pose_guides/walk_02.png",
+      "sha256": "cd6a5671d23deab6935caaf341f7b9b6cd1e95831b84fbf0f1ecea98b3ef195c"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/oracle/pose_guides/walk_03.png",
+      "sha256": "567df474d5c5643baf63785799dc4bf55c4f8b7c6c6bc5e901119698854821f2"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/oracle/pose_guides/walk_04.png",
+      "sha256": "968ac03e39d0c94a2b078270a8a88aade5c389f5a40f6c84ff9c908c21219b1e"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/oracle/pose_guides/walk_05.png",
+      "sha256": "7c56805045cc92a768e774f9abde3e626bada561975f07d7c7495e35bfeb2d72"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/oracle/pose_guides/walk_06.png",
+      "sha256": "719b4e4b9eb38967cffa6dff8a0410f19cbbbc0259b863c053f51617900ec3cd"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/oracle/pose_guides/walk_07.png",
+      "sha256": "1262cdf73961589dff6cb47750e5023ed3d7e020691370d1fbb23fed424498bd"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/oracle/pose_guides/walk_08.png",
+      "sha256": "fa2de6b6bce70b28af61203891b3c5ebce6c21ec72e4485e30104db436d6b954"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/oracle/pose_guides/walk_09.png",
+      "sha256": "7590e401933cd64d59b6333a341d5775b87656bae189d823b399b44ecb18921f"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/oracle/pose_guides/walk_10.png",
+      "sha256": "497f286970ebf5ab9002ef77e6ece8ffdbf6171ed948b59e798107c8509c62ce"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/oracle/pose_guides/walk_11.png",
+      "sha256": "ec4f6dd1f3f32da20ffc70690eae6a89618364ab67a8f1d1b6e9684497df5b30"
+    }
+  ]
+}

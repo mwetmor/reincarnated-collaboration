@@ -233,6 +233,8 @@ SCALE         { canvas_px, feature_size_px: {class: px} }
 
 gandalf reviews the receipt + code + test output (DRIFT-CRITIC), runs the tests, then writes `MANIFEST.sha256` over `lane/ gates/ parts/ compare/ review/ *.json *.md`. Any later change = a new TOOLING burst + re-freeze + ledger entry. GENERATE/CHECK/JUDGE bursts read tools by absolute path; the sandbox (workspace-write on a workdir outside the repo) makes the repo read-only to them.
 
+**C-2 amendment (ledger R-28 / R-30, 2026-09-12) — the freeze DOMAIN, stated once:** `lane/ gates/ oracle/ oracles/ parts/ compare/ transcribe/ review/ bible/ fixtures/ tests/` plus the six root contracts (`BURST_RULES.md JUDGE_RUBRIC.md REGISTER_CARD.md SPEC.md receipt.schema.json transcribe.schema.json`). **Excluded:** `__pycache__/`, `*.pyc`, `tests/tmp/`, and the suite's own volatile outputs `tests/t0c_suite_output.txt` + `tests/t0c_summary.json` — pinning those made pre-conditions P1 (run the suite) and P2 (the freeze verifies) contradict each other. `oracle/` (the T1 instruments **and the pre-registered band files**) sat outside the T1 freeze (`9146d9811620`); from the C-2 freeze on it is pinned, so a committed band cannot move silently. A data edit ruled by Matt (bible, bands) is a conductor edit + re-hash + ledger line; a TOOL edit is still a TOOLING burst + re-freeze + ledger entry.
+
 ## 6. T1–T5 tooling roadmap (NOT YET CONTRACTED — recorded 2026-09-11 at Matt's question; each becomes a TOOLING burst before the experiment it instruments; "instrument before candidate")
 
 | Burst | Instruments (closed-form unless marked) | Needs from bible / manifest | Before |

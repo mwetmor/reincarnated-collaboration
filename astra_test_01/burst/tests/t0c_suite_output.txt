@@ -9,6 +9,7 @@ test_snapshot_scalar_compatibility_and_harvest_link_scan (test_audit.ModuleTests
 test_additive_optional_part_controls (test_bible.Tests.test_additive_optional_part_controls) ... ok
 test_known_bad_schema_constraints (test_bible.Tests.test_known_bad_schema_constraints) ... ok
 test_optional_v02_asset_contracts (test_bible.Tests.test_optional_v02_asset_contracts) ... ok
+test_optional_v03_style_and_bands_contracts (test_bible.Tests.test_optional_v03_style_and_bands_contracts) ... ok
 test_stub_and_v01_fields (test_bible.Tests.test_stub_and_v01_fields) ... ok
 test_cli_roundtrip_and_named_thresholds (test_calibrate_transcriber.Tests.test_cli_roundtrip_and_named_thresholds) ... ok
 test_control_present_and_false_zero (test_calibrate_transcriber.Tests.test_control_present_and_false_zero) ... ok
@@ -89,7 +90,7 @@ test_regression_comparator_detects_mutation (test_gates_run_gates.Tests.test_reg
 test_real_mirror_vs_idle (test_gates_silhouette64.Tests.test_real_mirror_vs_idle) ... ok
 test_swollen_bag_and_shift_alignment (test_gates_silhouette64.Tests.test_swollen_bag_and_shift_alignment) ... ok
 test_frozen_narrow_box_search_limit_reported (test_idle_intent.Tests.test_frozen_narrow_box_search_limit_reported) ... ok
-test_k3_combat_report_only (test_idle_intent.Tests.test_k3_combat_report_only) ... ok
+test_k3_combat_report_only (test_idle_intent.Tests.test_k3_combat_report_only) ... FAIL
 test_sole_slide_and_panting (test_idle_intent.Tests.test_sole_slide_and_panting) ... ok
 test_static_below_floor_and_provisional (test_idle_intent.Tests.test_static_below_floor_and_provisional) ... ok
 test_target_and_displacement_regions (test_idle_intent.Tests.test_target_and_displacement_regions) ... ok
@@ -191,6 +192,14 @@ test_separate_part_inventory (test_transcribe.Tests.test_separate_part_inventory
 test_strict_schema_no_coordinates_or_open_vocabulary (test_transcribe.Tests.test_strict_schema_no_coordinates_or_open_vocabulary) ... ok
 
 ======================================================================
+FAIL: test_k3_combat_report_only (test_idle_intent.Tests.test_k3_combat_report_only)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_idle_intent.py", line 62, in test_k3_combat_report_only
+    self.assertIsNone(r['passed'])
+AssertionError: False is not None
+
+======================================================================
 FAIL: test_synthetic_contract_and_grid (test_oracle_walk.Tests.test_synthetic_contract_and_grid)
 ----------------------------------------------------------------------
 Traceback (most recent call last):
@@ -233,6 +242,6 @@ Traceback (most recent call last):
 AssertionError: 'rejected' unexpectedly found in {'angular_support': 0.8333333333333334, 'center': [170.0, 253.0], 'hollow_score': 0.08333333333333333, 'inner_opposed_support': 0.08333333333333333, 'inside': False, 'lab_band_surround': 12.987929666149537, 'lab_center_band': 18.508563966712764, 'lab_center_surround': 30.467977867785994, 'lab_color_return': 0.0, 'radius': 8.0, 'rejected': 'not_annulus', 'score': 0.6366616733180586}
 
 ----------------------------------------------------------------------
-Ran 183 tests in 79.698s
+Ran 184 tests in 84.591s
 
-FAILED (failures=5)
+FAILED (failures=6)

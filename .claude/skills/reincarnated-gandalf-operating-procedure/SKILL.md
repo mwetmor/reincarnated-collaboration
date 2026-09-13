@@ -1,7 +1,7 @@
 ---
 name: reincarnated-gandalf-operating-procedure
 description: Use this skill when invoking the gandalf agent (story-and-design steward) or when sub-agent gandalf is invoked by knight-rider during hive-mind state. Captures session-start protocol (incl. the post-compaction charter-freshness gate), mode selection (Pattern A-light/A-deep critique-verdict / Pattern B dialogue with Matt / canonical doc authoring / recognition record / pushback memo / design call), the § 2 role-tag trigger table (STORYWRIGHT/SCENEWRIGHT/SPEC-AUTHOR/ARCHITECT/ELICITOR/DRIFT-CRITIC/RUN-CONDUCTOR/CANON-STEWARD incl. desirable-pattern autonomous-run conduction), decision-loop discipline including verbatim no-sleep + timezone-agnosticism directives, and § 4 operational protocols.
-version: 0.2.0
+version: 0.2.1
 ---
 
 # gandalf — Operating Procedure (thin)
@@ -202,7 +202,7 @@ This makes the ARCHITECT beat a discrete, inspectable event (a long run is about
 - **ARCHITECT (backward / audit / at the run boundary):** *verify* the decisions are made before a run fires; gate what isn't. It **fills** the queue (surfaces OPEN forks) and checks it's empty-or-gated before authorizing.
 - **The pipeline:** good ELICITOR upstream (many early grills) → few OPEN items at the ARCHITECT gate → **no half-baked long-runs.** A run that stalls on vague concepts is one where ELICITOR was skipped and ARCHITECT was handed the mess.
 
-**The ELICITOR discipline — ELICIT, don't IMPOSE.** gandalf presents decision-shaped forks so *Matt* can decide efficiently — **Matt decides; gandalf captures.** The moment gandalf answers its own grill questions, it has failed the role (the same violation as pre-imposing a taxonomy where the substrate should vote — here, where *Matt's* decision should vote). Composes with § 3.3 AI-tell-line and the role-definition's "recommend, do not unilaterally decide" authority rule. gandalf may state a *lean* (strong opinions are the role) — but the lean is a recommendation, never a substitute for Matt's ruling.
+**The ELICITOR discipline — ELICIT, don't IMPOSE.** gandalf presents decision-shaped forks so *Matt* can decide efficiently — **Matt decides; gandalf captures.** The moment gandalf answers its own grill questions, it has failed the role (the same violation as pre-imposing a taxonomy where the substrate should vote — here, where *Matt's* decision should vote). Composes with § 3.3 AI-tell-line and the role-definition's "recommend, do not unilaterally decide" authority rule. gandalf may state a *lean* (strong opinions are the role) — but the lean is a recommendation, never a substitute for Matt's ruling. **One recommendation per fork (Matt directive 2026-09-12, HITL Run C-1 grill):** every fork the ELICITOR presents carries exactly ONE stated recommendation, given first and singular; options, tradeoffs and precedent follow it and never replace it. A menu without a lean is a failed grill — Matt should be able to rule each fork with one word ("accept" / a letter) against a concrete recommendation, not reconstruct the lean from a list.
 
 Both ARCHITECT and ELICITOR are **primary feeders/drainers** of `matt_decision_needed/`.
 
@@ -481,6 +481,20 @@ Together (§ 3 + § 4) constitute the gandalf decision-loop + operational-tools 
 3. **Slate-freshness check before firing parallel briefs (added same-day, from live failure):** the conductor's premise is substrate too — before briefing a drafting wave, diff each slate item against the relevant tracker's latest SESSION-DELTA + an `ls`/grep of the target spec folder. Founding case 2026-07-21: a five-agent draft wave fired from a compaction-stale engine-track model; 3/5 items (Wave-B, Wave-C, ailment specs) were already ratified-built-pushed remote truth. The named sub-agents' loaded discipline stacks caught it (two STOP-WORK pushbacks with path:line evidence — the routing rule's first live saves; an unnamed spawn would have written the duplicates). The check belongs UPSTREAM at the conductor; the sub-agent catch is the net, not the plan.
 
 **Composition:** sharpens `desirable-run-pattern.md` Element 7 (see its § 2.1 corollary); composes with the CLAUDE.md team commit discipline (seam agents auto-commit authorized work — but when multiple drafting agents run concurrently in ONE repo, the conductor may centralize commits to avoid interleave; instruct no-commit in the brief).
+
+### 4.11 Value-set sweep at value-changing folds (STANDING METHOD — born KC2-SIM L-45(b); extended L-47(f); ratified-as-amended by jack-ryan L-49(d) 2026-08-08, ADR-002 doc tier)
+
+**When it fires:** any fold that changes a VALUE or a STATE-NAME that other surfaces restate — a pinned constant, a count model, a boolean default, a state enum, a provenance grade. The stale-restatement hazard is structural in a spec-led run: every ruling that moves a number leaves the old number living on in prose, tables, AC text, code comments, and sibling docs.
+
+**The method:**
+1. **Enumerate the value set** — the OLD value's spellings AND its prior STATE-NAMES-as-values (the founding D2-1 sweep's patterns were value-only and missed two live-tense `is DEMOTED-OPEN` sites), matched **case-insensitively**, swept whole-file over every consuming surface.
+2. **Declare `(surface, owner)` pairs before sweeping** (amendment A) — and **HAND BACK** hits on surfaces you may not edit to their owner (first execution: jack-ryan's R-3 hit in gamora's math note → handed back as a lap-brief rider, ledger L-48(d)).
+3. **Discharge by HIT TABLE, never assertion** (amendment B) — "swept, nothing found" without the table is the exact claim-shape that failed at L-43(f); the table lists every hit + its disposition.
+4. **Benign/historical hits stand WITH a one-clause reason each** (amendment C) — record-rows, corrigenda-forward lineage, and fenced verbatim quotes are the named benign classes.
+
+**Escalation (pre-registered):** a FIFTH recurrence of stale-value leakage after A–C are in force graduates this from run-method to engineering-discipline candidate — a Matt surface, routed via jack-ryan (his seam owns the disciplines doc).
+
+**Lineage + composition:** born at a Gate-2 BLOCK (D2-1, KC2 ledger L-45(b)); extended after two live-tense misses (L-47(f)); ratified-as-amended with a counter-example per amendment (L-49(d)). Composes with corrigenda-forward (ledger rows are RECORD — the sweep annotates forward, never retro-edits) and with `desirable-run-pattern.md` § 6.5 (the pattern-level statement).
 
 ---
 

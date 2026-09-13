@@ -14,16 +14,25 @@
 - **Matt interface (declared):** (1) the **GO word** launches T0/X1; (2) **milestones** — identity masters (pick 1 of 3) · turnaround sheet · first loop · first VFX composite · first plate + derived mask — each delivered as a standalone `review.html` + Chrome-playable MP4 copied to `~/Desktop/Astra Burst Review - <date>/` plus a ≤10-line chat summary; (3) **any experiment-level FAIL** surfaced immediately; (4) **HALT** conditions (§ 8); (5) the veto-open ledger of conductor rulings.
 - **Push:** commit-only; no push word for this workstream. **Spend:** $0 new (built-in only). **Session concurrency:** ~~one Codex lane, serial bursts~~ → parallel waves for non-TOOLING bursts, TOOLING serial (R-13; `AGENTS.md § 3`). **Concurrency (Matt ruling 2026-09-12, ledger R-13): non-TOOLING bursts (GENERATE / CHECK / JUDGE / TRANSCRIBE / LABEL / ANNOTATE / PACK) may run in PARALLEL WAVES — default wave size 4, larger permitted for a homogeneous wave (the subscription has the headroom); TOOLING bursts stay SERIAL and never overlap any other burst (they write into the shared frozen tree); a wave RESERVES its image caps against the ledger before launch (images_used + Σ caps ≤ run cap); every burst keeps its own workdir, thread-scoped image truth and locked ledger append. The rate-limit HALT rule (three consecutive backoffs) is unchanged.**
 
-## 2. Register card (FROZEN for the run; extracted verbatim into `astra_test_01/burst/REGISTER_CARD.md` by T0)
+## 2. Register card (FROZEN for the run; extracted verbatim into `astra_test_01/burst/REGISTER_CARD.md` by T0) — **v1.1, 2026-09-12: H1 re-freeze at C-2 step 3 (R-23 / R-29; Matt witnesses). v1.0 text in git.**
 
 ```
-REGISTER CARD — Run C-1 — v1.0 — do not reinterpret; every line is a constraint
-STYLE: painted 2D, illustrated, high-res. Not pixel art. Not cel-shaded. F04 CLARITY: clean
-  material planes, restrained surface texture, readable small silhouettes, no conspicuous
-  brush/pixel grain (Matt: "F01 and F02 seem to show too many brush strokes or pixels").
+REGISTER CARD — Run C-1 — v1.1 (H1 re-freeze, C-2 step 3; R-23 / R-29) — do not reinterpret; every line is a constraint
+STYLE (H1 — ruled R-23; supersedes v1.0 STYLE in pixels, never in identity text): HAND-DRAWN painted 2D
+  in the manner of a modern hand-animated action game — a confident dark contour line drawn by hand
+  with visible taper and varying weight, painted fills in clean planes inside the line, restrained
+  texture; the line carries the pose. Every frame should look like one frame of hand-drawn animation,
+  not a rendered illustration. Not pixel art. Not cel-shaded. F04 CLARITY keepers: clean material
+  planes, restrained surface texture, readable small silhouettes, no conspicuous brush/pixel grain.
   Environmental richness and local light-spill on floors/walls in the F03 manner.
-  Anchors: E07V/art/F04.png (figures + observatory), E07V/art/F03.png (light/detail),
-  run_03/evidence/vfx_style_match.png (painted VFX edge language).
+  Exhibits of the ruled register (EVIDENCE, never generation references — the register is text-carried):
+  runs/C-1/artifacts/K4-gen-H1/k4_H1_{1,2}.png (figure), K6-male-H1/k6_male_H1_{1,2}.png (in-world),
+  K7-H1-foundry/k7_H1_foundry.png + K7-H1-aery/k7_H1_aery.png (rooms, dialect). VFX edge language:
+  run_03/evidence/vfx_style_match.png.
+SCREEN (R-23): the default screen is the ARPG-language world — elevated ~45° camera, cold key, warm
+  accents only — in the classic isometric-ARPG band. Hades-language framing (steep ~60° arena, bold
+  ground pattern, jewel-toned light) is a LEVEL DIALECT inside H1, never the default. On-screen
+  character height 17 % of 1080p (corpus centre). SCALE is a post-process, never a prompt instruction.
 LIGHT: single key from SCREEN UPPER-LEFT, fixed for every frame of every direction; the light
   never rotates with the character. Deep cool low-value ambient; readable shadows, never pure
   black. Slight rim on the key-facing silhouette edge. Spell light is the ONLY warm/saturated

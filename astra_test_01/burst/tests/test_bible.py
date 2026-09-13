@@ -31,3 +31,18 @@ class Tests(unittest.TestCase):
         for rule in b['RULE']:
             for key in ['mode','family','family_parameters']:rule['oracle'].pop(key,None)
         self.assertEqual(validate(b),[]) # v0.1 remains valid
+
+    def test_optional_v03_style_and_bands_contracts(self):
+        b=stub()
+        committed=json.loads((ROOT/'bible/f04-keepers.json').read_text())
+        b['style']=copy.deepcopy(committed['style'])
+        b['bands']=copy.deepcopy(committed['bands'])
+        self.assertEqual(validate(b),[])
+        wrong=copy.deepcopy(b);wrong['bands']=[]
+        self.assertIn('$.bands: expected object',validate(wrong))
+        wrong=copy.deepcopy(b);wrong['bands']['idle']['committed_rows']='combat'
+        self.assertTrue(validate(wrong))
+        extra=copy.deepcopy(b);extra['extra']=1
+        self.assertIn('$.extra: unexpected',validate(extra))
+        del b['style'];del b['bands']
+        self.assertEqual(validate(b),[])

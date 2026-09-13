@@ -7032,8 +7032,9 @@
         "floor": 0.03945870747438978,
         "mean_confidence": 0.7604166666666666,
         "source": "annotation",
-        "target": 0.07891741494877956,
-        "value": 0.03945870747438978
+        "target": 0.04932338434298723,
+        "value": 0.03945870747438978,
+        "ceiling_note": "R-29 (R-e) 2026-09-12: 1.5 × target = 0.073985076514480844 (approximately 0.07399) exceeds the stated per-gate ceiling 0.07; the stated ceiling 0.07 holds."
       },
       "W2": {
         "bands": {
@@ -7146,7 +7147,7 @@
       "note": "W5 targets apply k_lat to extents; anatomical free/weapon role is unassigned. Sole floor is absolute mean speed; signed values retained in curves.",
       "parameters": {
         "k_lat": 0.5,
-        "k_vert": 2.0,
+        "k_vert": 1.25,
         "sole_scroll_multiplier": 1.0
       },
       "sole_scroll": {
@@ -7322,7 +7323,7 @@
         }
       }
     },
-    "committed": false,
+    "committed": true,
     "curves": {
       "annotation": {
         "frames": [
@@ -10405,7 +10406,8 @@
         }
       },
       "source": "annotation"
-    }
+    },
+    "commit_note": "R-29 (R-a/R-e) 2026-09-12 — RULES commit: annotation-path W4 value 4 and W6 value 0.5417 disagree with the rules (2 / 0.75) at mean confidence 0.76 while the mask path agrees (2 / 1.0); disclosed, not hidden. Only this row is committed; plate13_lateral (mask), plate13_front, plate13_rear, plate2_lateral stay report-only."
   },
   "plate13_rear": {
     "bands": {

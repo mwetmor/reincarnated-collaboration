@@ -1,12 +1,10 @@
-LOCK head: displacement <= 0.004 H.
-LOCK shoulders_chest: displacement <= 0.004 H.
 LOCK hips: displacement <= 0.004 H.
 LOCK legs: displacement <= 0.004 H.
 LOCK feet: displacement <= 0.004 H.
 LOCK arms_left: displacement <= 0.004 H.
 LOCK arms_right: displacement <= 0.004 H.
-INTENT CONFLICT: head is LOCK but has nonzero amplitude target 0.054664636083035685 H.
-INTENT CONFLICT: shoulders_chest is LOCK but has nonzero amplitude target 0.06527940666663837 H.
+MOTION shoulders_chest: peak-to-peak displacement target 0.06527940666663837 H.
+MOTION head: peak-to-peak displacement target 0.054664636083035685 H.
 frame 1 — head delta y +0.000000 H (image-down), chest delta width +0.000000 H.
 frame 2 — head delta y +0.019327 H (image-down), chest delta width +0.023080 H.
 frame 3 — head delta y +0.027332 H (image-down), chest delta width +0.032640 H.

@@ -527,6 +527,101 @@
         },
         "additionalProperties": false
       }
+    },
+    "style": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "register_id": {
+          "type": "string"
+        },
+        "ruling": {
+          "type": "string"
+        },
+        "sentence": {
+          "type": "string"
+        },
+        "screen": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "default_world_language": {
+              "type": "string"
+            },
+            "level_dialect": {
+              "type": "string"
+            },
+            "character_height_frac_1080p": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            }
+          }
+        },
+        "exhibits": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "path": {
+                "type": "string"
+              },
+              "sha256": {
+                "type": "string",
+                "pattern": "^[0-9a-f]{64}$"
+              },
+              "role": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "bands": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "idle": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "path": {
+              "type": "string"
+            },
+            "sha256": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "committed_rows": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "walk": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "path": {
+              "type": "string"
+            },
+            "sha256": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "committed_rows": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
     }
   },
   "required": [
@@ -540,5 +635,5 @@
   ],
   "additionalProperties": false,
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "title": "Bible v0.2"
+  "title": "Bible v0.3"
 }

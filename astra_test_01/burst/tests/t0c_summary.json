@@ -1,7 +1,11 @@
 {
-  "tests_run": 183,
+  "tests_run": 184,
   "successful_tests": 178,
   "failures": [
+    {
+      "test": "test_idle_intent.Tests.test_k3_combat_report_only",
+      "traceback": "Traceback (most recent call last):\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_idle_intent.py\", line 62, in test_k3_combat_report_only\n    self.assertIsNone(r['passed'])\nAssertionError: False is not None\n"
+    },
     {
       "test": "test_oracle_walk.Tests.test_synthetic_contract_and_grid",
       "traceback": "Traceback (most recent call last):\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_oracle_walk.py\", line 117, in test_synthetic_contract_and_grid\n    self.assertIsNotNone(a[key],key);self.assertAlmostEqual(a[key],b[key],delta=2,msg=key)\n                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 60 != 65 within 2 delta (5 difference) : head_ref_y\n"
@@ -25,7 +29,7 @@
   ],
   "errors": [],
   "skipped": [],
-  "elapsed_s": 81.09132845799832,
+  "elapsed_s": 85.8842981250018,
   "regression": {
     "tolerance": 0.001,
     "compared": 1880,
