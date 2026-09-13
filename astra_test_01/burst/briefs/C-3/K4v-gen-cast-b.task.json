@@ -1,0 +1,18 @@
+{
+ "text": "GENERATE BURST K4v-gen-cast-b — Run C-3 P5 frost bolt VFX sheet 'cast_04_07' (the run_03 method; charter § 3 fork B). task_id \"K4v-gen-cast-b\".\n\nOne image_gen call: Generate a painted FROST CAST VFX animation sprite sheet, exactly 2 columns × 2 rows of equal square cells, four frames in row-major order. Reference image 1 is STYLE ONLY: match the icy blue-white energy at the character's staff tip, its faceted painted brushwork, hard illustrated edges and deep-blue falloff — do not include any character, hand, staff, scenery, symbols, text or grid. Pure uniform BLACK #000000 background, bright energy only (an additive emission plate). Every effect centred exactly in its own cell with generous black padding — no glow or particle touches a cell boundary. No photographic mist, neon laser style or fire-like flames. Frames 4–7 of 8 (the release and fade of the same flare): frame 4 the flare bursts outward, 44 %, shards flying outward; frame 5 the burst breaks into scattering shards with a shrinking core, 38 %; frame 6 faint fragments and a dim core, 24 %; frame 7 a few tiny fading sparks, 10 %, mostly black. Same effect, fading.\n\nONE retry only if the grid is wrong, a character/staff/text appears, or the background is not black — name the reason. Copy the output from $CODEX_HOME/generated_images/... to out/cast_04_07.png with sha256. No code. No other files. No web.\nRETURN: receipt task_id \"K4v-gen-cast-b\"; images = the file with prompt, references and elapsed_s; calls_used = the TRUE number of image_gen calls; status DELIVERED / DELIVERED_WITH_CONCERNS / FAILED; concerns. Never PASS/FAIL.",
+ "references": [
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/run_03/evidence/vfx_style_match.png",
+   "role": "STYLE ONLY — the frost energy at the staff tip"
+  }
+ ],
+ "image_cap": 2,
+ "minutes_cap": 15,
+ "tool_call_cap": 20,
+ "outputs": [
+  "out/cast_04_07.png"
+ ],
+ "effort": "high",
+ "add_dirs": [],
+ "experiment": "C3-P5"
+}

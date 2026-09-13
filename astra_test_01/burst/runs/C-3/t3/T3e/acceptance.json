@@ -1,0 +1,989 @@
+{
+  "task_id": "T3e",
+  "modules": {
+    "cast": {
+      "inputs": [
+        {
+          "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/run_03/vfx/frames/cast/cast_00.png",
+          "sha256": "3b5c795400d2a6e3aa055458e4d4fef5cc17258bc679e423767e1e097b01ef60"
+        },
+        {
+          "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/run_03/vfx/frames/cast/cast_01.png",
+          "sha256": "392a9dccfb8594f4a893c49e314738484759630eb4bca8cd05365910c0efaa04"
+        },
+        {
+          "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/run_03/vfx/frames/cast/cast_02.png",
+          "sha256": "c454e23493727b54fa13c3d93e4f143220d0c7ef592ea1f4801b8e2e7ff1febb"
+        },
+        {
+          "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/run_03/vfx/frames/cast/cast_03.png",
+          "sha256": "6305149ac6d056df051bfe89f1e7f8e2cf0695fd3ad54b234ed247a3139baf02"
+        },
+        {
+          "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/run_03/vfx/frames/cast/cast_04.png",
+          "sha256": "1e5cf688f123e7953e83844f5edcd8a78914d18677aa5e92bab5c651c7a865bb"
+        },
+        {
+          "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/run_03/vfx/frames/cast/cast_05.png",
+          "sha256": "86c2fa1b05d855e973dd80ddce70f43eb763fab38aab44605b048bd3f5ae59f1"
+        },
+        {
+          "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/run_03/vfx/frames/cast/cast_06.png",
+          "sha256": "49b1927ca65aa11610f7a4b0ef318d364fc775918df67e0b5e552c75ac7d4dcb"
+        },
+        {
+          "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/run_03/vfx/frames/cast/cast_07.png",
+          "sha256": "ee32606ffd126a26b3a9dad6e71467f3605b1a54fc137f899f1018864d4f2ca9"
+        }
+      ],
+      "results": [
+        {
+          "id": "vfx.frame_count",
+          "subject": "cast",
+          "passed": true,
+          "value": 8,
+          "threshold": 8,
+          "op": "==",
+          "unit": "frames",
+          "evidence": [],
+          "notes": "{}"
+        },
+        {
+          "id": "vfx.fps",
+          "subject": "cast",
+          "passed": true,
+          "value": 20.0,
+          "threshold": 20,
+          "op": "==",
+          "unit": "fps",
+          "evidence": [],
+          "notes": "{}"
+        },
+        {
+          "id": "vfx.energy_curve",
+          "subject": "cast",
+          "passed": true,
+          "value": 0,
+          "threshold": 0,
+          "op": "<=",
+          "unit": "violations",
+          "evidence": [],
+          "notes": "{\"definition\": \"One interior peak; nondecreasing rise, nonincreasing release; endpoints below peak\", \"energy\": [100753.4478109804, 338522.250225098, 1166102.161300392, 3076297.8774164706, 2393964.877488627, 1095801.7769168627, 236698.8374415686, 22545.299947450978], \"peak_count\": 1, \"peak_index\": 3, \"roundoff_relative\": 1e-12}"
+        },
+        {
+          "id": "pse_check",
+          "subject": "cast",
+          "passed": true,
+          "value": 0,
+          "threshold": 3,
+          "op": "<=",
+          "unit": "temporal_flashes/second",
+          "evidence": [],
+          "notes": "{\"metrics\": {\"canvas_size\": [256, 256], \"coverage\": \"general and red temporal flash rules only; spatial rule UNEVALUABLE\", \"fps\": 20.0, \"results\": [{\"evidence\": [], \"id\": \"pse.general_flash\", \"notes\": \"{\\\"metrics\\\": {\\\"area_fraction\\\": 0.2, \\\"equivalent_area_threshold\\\": 184320.0, \\\"flash_times_s\\\": [], \\\"qualifying_transition_times_s\\\": [0.15, 0.2], \\\"required_pixels\\\": 13107.2}, \\\"reason\\\": \\\"\\\"}\", \"op\": \"<=\", \"passed\": true, \"subject\": \"cast\", \"threshold\": 3, \"unit\": \"flashes/second\", \"value\": 0}, {\"evidence\": [], \"id\": \"pse.red_flash\", \"notes\": \"{\\\"metrics\\\": {\\\"area_fraction\\\": 0.2, \\\"equivalent_area_threshold\\\": 184320.0, \\\"flash_times_s\\\": [], \\\"qualifying_transition_times_s\\\": [], \\\"required_pixels\\\": 13107.2}, \\\"reason\\\": \\\"\\\"}\", \"op\": \"<=\", \"passed\": true, \"subject\": \"cast\", \"threshold\": 3, \"unit\": \"flashes/second\", \"value\": 0}, {\"evidence\": [], \"id\": \"pse.spatial_pattern\", \"notes\": \"{\\\"metrics\\\": {}, \\\"reason\\\": \\\"Report only: regular stripes/checks >=5 pairs over >=20% area are not robustly computed; spatial rule requires review\\\"}\", \"op\": \"<=\", \"passed\": null, \"subject\": \"cast\", \"threshold\": 5, \"unit\": \"light-dark pairs\", \"value\": null}], \"thresholds\": {\"area_fraction\": 0.2, \"luminance_change\": 0.1, \"red_saturation\": 0.8, \"red_scale\": 320.0, \"red_transition\": 20.0}}, \"reason\": \"\"}"
+        },
+        {
+          "id": "element_hue",
+          "subject": "frost",
+          "passed": true,
+          "value": 205.0035105331391,
+          "threshold": [
+            180.0,
+            230.0
+          ],
+          "op": "within",
+          "unit": "degrees",
+          "evidence": [],
+          "notes": "{\"band_degrees\": [180.0, 230.0], \"chromatic_saturation_min\": 0.15, \"chromatic_weight\": 49134.81420991926, \"element\": \"frost\", \"emissive_weight\": 54114.046412918105, \"histogram_bin_degrees\": 1.0, \"in_band_fraction\": 0.9944194361238219, \"modal_radius_degrees\": 5, \"per_frame_in_band_fraction\": [0.9825766302108607, 0.9901286940452848, 0.9959617260245334, 0.9965569313637405, 0.9953716386097405, 0.9936073510140475, 0.980099440499803, 0.9511062194530463], \"weight\": \"alpha*HSV_value\"}"
+        }
+      ],
+      "elapsed_s": 0.090296333997685
+    },
+    "travel": {
+      "inputs": [
+        {
+          "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/run_03/vfx/frames/travel/travel_00.png",
+          "sha256": "109470220a6af2a49939047b076ee236c086e9a2b875cca2d66cbf92ef5465ff"
+        },
+        {
+          "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/run_03/vfx/frames/travel/travel_01.png",
+          "sha256": "874e874ffbfc2e7d41f4237cb67ae017d3df86f41a831ff4bfe54687c9401c77"
+        },
+        {
+          "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/run_03/vfx/frames/travel/travel_02.png",
+          "sha256": "f45686598aa63924434b083fe27416c4738f8f4bca2b6a548f5b2ba539f5a3f0"
+        },
+        {
+          "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/run_03/vfx/frames/travel/travel_03.png",
+          "sha256": "cb70f8f8e8431278afa638eb1315aaf01f65a70e5ac83f0d416a3a2464465f74"
+        },
+        {
+          "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/run_03/vfx/frames/travel/travel_04.png",
+          "sha256": "8dde3186936aeea10366e34991d3277c2f46ed0878effc7d5ab1c21b77de0fd1"
+        },
+        {
+          "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/run_03/vfx/frames/travel/travel_05.png",
+          "sha256": "5cb69d8938141b61ec672ae5ad9018a68e2b2264f17e8e8b5b59ce2dcbfff7d3"
+        }
+      ],
+      "results": [
+        {
+          "id": "vfx.frame_count",
+          "subject": "travel",
+          "passed": true,
+          "value": 6,
+          "threshold": 6,
+          "op": "==",
+          "unit": "frames",
+          "evidence": [],
+          "notes": "{}"
+        },
+        {
+          "id": "g6_seam",
+          "subject": "travel",
+          "passed": false,
+          "value": 15.843587239583334,
+          "threshold": 11.451629638671875,
+          "op": "<=",
+          "unit": "rgb_mad",
+          "evidence": [],
+          "notes": "{\"definition\": \"literal minimum internal\", \"adjacent_and_seam\": [{\"canvas\": 16.586812337239582, \"foreground_union\": 34.16839546530878}, {\"canvas\": 22.224131266276043, \"foreground_union\": 38.88095746574123}, {\"canvas\": 22.956868489583332, \"foreground_union\": 40.29194786645242}, {\"canvas\": 11.451629638671875, \"foreground_union\": 26.945784862846473}, {\"canvas\": 14.926798502604166, \"foreground_union\": 32.26819721159344}, {\"canvas\": 15.843587239583334, \"foreground_union\": 34.07473527610046}]}"
+        },
+        {
+          "id": "g6b",
+          "subject": "travel",
+          "passed": true,
+          "value": 15.843587239583334,
+          "threshold": 16.586812337239582,
+          "op": "<=",
+          "unit": "rgb_mad",
+          "evidence": [],
+          "notes": "{\"definition\": \"median internal\", \"adjacent_and_seam\": [{\"canvas\": 16.586812337239582, \"foreground_union\": 34.16839546530878}, {\"canvas\": 22.224131266276043, \"foreground_union\": 38.88095746574123}, {\"canvas\": 22.956868489583332, \"foreground_union\": 40.29194786645242}, {\"canvas\": 11.451629638671875, \"foreground_union\": 26.945784862846473}, {\"canvas\": 14.926798502604166, \"foreground_union\": 32.26819721159344}, {\"canvas\": 15.843587239583334, \"foreground_union\": 34.07473527610046}]}"
+        },
+        {
+          "id": "vfx.top_bottom_mirror_diff",
+          "subject": "travel",
+          "passed": null,
+          "value": 0.10468411958210397,
+          "threshold": null,
+          "op": "<=",
+          "unit": "normalized_emission_L1",
+          "evidence": [],
+          "notes": "{\"committed\": false, \"per_frame\": [0.07082369678662206, 0.08158112021693242, 0.09079846967764023, 0.07109178705061124, 0.0748135883163653, 0.10468411958210397], \"proposed\": true, \"reason\": \"Report only: no committed symmetry threshold; 0 identical, 1 disjoint\", \"top_bottom_energy_imbalance\": [0.004622951803747988, 0.025308617617421897, 0.03272103617505837, 0.01945205343300683, 0.00212938777856505, 0.024934781319066644], \"vertical_emission_centroid\": [63.62297820492402, 63.93457934226946, 64.066203134161, 63.67047383394704, 63.63008415668108, 63.99625537266113]}"
+        },
+        {
+          "id": "pse_check",
+          "subject": "travel",
+          "passed": true,
+          "value": 0,
+          "threshold": 3,
+          "op": "<=",
+          "unit": "temporal_flashes/second",
+          "evidence": [],
+          "notes": "{\"metrics\": {\"canvas_size\": [256, 128], \"coverage\": \"general and red temporal flash rules only; spatial rule UNEVALUABLE\", \"fps\": 20.0, \"results\": [{\"evidence\": [], \"id\": \"pse.general_flash\", \"notes\": \"{\\\"metrics\\\": {\\\"area_fraction\\\": 0.2, \\\"equivalent_area_threshold\\\": 184320.0, \\\"flash_times_s\\\": [], \\\"qualifying_transition_times_s\\\": [], \\\"required_pixels\\\": 6553.6}, \\\"reason\\\": \\\"\\\"}\", \"op\": \"<=\", \"passed\": true, \"subject\": \"travel\", \"threshold\": 3, \"unit\": \"flashes/second\", \"value\": 0}, {\"evidence\": [], \"id\": \"pse.red_flash\", \"notes\": \"{\\\"metrics\\\": {\\\"area_fraction\\\": 0.2, \\\"equivalent_area_threshold\\\": 184320.0, \\\"flash_times_s\\\": [], \\\"qualifying_transition_times_s\\\": [], \\\"required_pixels\\\": 6553.6}, \\\"reason\\\": \\\"\\\"}\", \"op\": \"<=\", \"passed\": true, \"subject\": \"travel\", \"threshold\": 3, \"unit\": \"flashes/second\", \"value\": 0}, {\"evidence\": [], \"id\": \"pse.spatial_pattern\", \"notes\": \"{\\\"metrics\\\": {}, \\\"reason\\\": \\\"Report only: regular stripes/checks >=5 pairs over >=20% area are not robustly computed; spatial rule requires review\\\"}\", \"op\": \"<=\", \"passed\": null, \"subject\": \"travel\", \"threshold\": 5, \"unit\": \"light-dark pairs\", \"value\": null}], \"thresholds\": {\"area_fraction\": 0.2, \"luminance_change\": 0.1, \"red_saturation\": 0.8, \"red_scale\": 320.0, \"red_transition\": 20.0}}, \"reason\": \"\"}"
+        },
+        {
+          "id": "element_hue",
+          "subject": "frost",
+          "passed": true,
+          "value": 204.357362949235,
+          "threshold": [
+            180.0,
+            230.0
+          ],
+          "op": "within",
+          "unit": "degrees",
+          "evidence": [],
+          "notes": "{\"band_degrees\": [180.0, 230.0], \"chromatic_saturation_min\": 0.15, \"chromatic_weight\": 45978.638800461355, \"element\": \"frost\", \"emissive_weight\": 49632.36086120723, \"histogram_bin_degrees\": 1.0, \"in_band_fraction\": 0.7909576061402539, \"modal_radius_degrees\": 5, \"per_frame_in_band_fraction\": [0.7736883348266472, 0.785880659701508, 0.8099282281490308, 0.7949489022734593, 0.7855166626746035, 0.7882327743322868], \"weight\": \"alpha*HSV_value\"}"
+        }
+      ],
+      "elapsed_s": 0.1361712500001886
+    },
+    "impact": {
+      "inputs": [
+        {
+          "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/run_03/vfx/frames/impact/impact_00.png",
+          "sha256": "afa0b6c2e5bb835b516c15457fb3546247af5b7e23adb4ebdd27561a83db5c6e"
+        },
+        {
+          "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/run_03/vfx/frames/impact/impact_01.png",
+          "sha256": "018eb4806d361a2da0f540d0a1e0dd16cc2ed4049ef12955f38576de842ac2e3"
+        },
+        {
+          "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/run_03/vfx/frames/impact/impact_02.png",
+          "sha256": "d3214a831c64bb3e240de003c8f7a2d231f92d527ca37e86e6e07dcd515320ad"
+        },
+        {
+          "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/run_03/vfx/frames/impact/impact_03.png",
+          "sha256": "c226c27b859d5508612dff0ab1406abc55d0e14e66bc2ce3344c5e398ef69a27"
+        },
+        {
+          "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/run_03/vfx/frames/impact/impact_04.png",
+          "sha256": "ab6137edf09611cbc0f2a15ffdc7002a0c81431c416b3864a4d6f5afe45df397"
+        },
+        {
+          "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/run_03/vfx/frames/impact/impact_05.png",
+          "sha256": "8d3a990abaa24b5c451f3559e0975644f9a05b512fb514bd6fff08e8d24b3f57"
+        },
+        {
+          "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/run_03/vfx/frames/impact/impact_06.png",
+          "sha256": "98418124feef72510ffe9ef88882aa1c6d20385aca2e4cde2dc39600e262fe0d"
+        },
+        {
+          "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/run_03/vfx/frames/impact/impact_07.png",
+          "sha256": "882ef5f68d357007f9335e19e6c16e77aa2400882d351b30c211d122a70dc563"
+        },
+        {
+          "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/run_03/vfx/frames/impact/impact_08.png",
+          "sha256": "27707c15acc91cc143889c927c73d7a26a6c3745630d6fa7750d0de250638326"
+        },
+        {
+          "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/run_03/vfx/frames/impact/impact_09.png",
+          "sha256": "0d99d12a3a3b1143cec69c04cd25d5da46a3e3139dc5588e6fdd36137bd6888e"
+        }
+      ],
+      "results": [
+        {
+          "id": "vfx.frame_count",
+          "subject": "impact",
+          "passed": true,
+          "value": 10,
+          "threshold": 10,
+          "op": "==",
+          "unit": "frames",
+          "evidence": [],
+          "notes": "{}"
+        },
+        {
+          "id": "vfx.energy_curve",
+          "subject": "impact",
+          "passed": true,
+          "value": 0,
+          "threshold": 0,
+          "op": "<=",
+          "unit": "violations",
+          "evidence": [],
+          "notes": "{\"definition\": \"One interior peak; nondecreasing rise, nonincreasing release; endpoints below peak\", \"energy\": [344392.6210745098, 2661260.6472015684, 8237978.707248628, 6019467.291159214, 4003345.9286549017, 2002550.9241341173, 797854.347142745, 111079.14490117648, 2299.70138117647, 0.0], \"peak_count\": 1, \"peak_index\": 2, \"roundoff_relative\": 1e-12}"
+        },
+        {
+          "id": "vfx.final_alpha_fraction",
+          "subject": "impact",
+          "passed": true,
+          "value": 0.0,
+          "threshold": 0.005,
+          "op": "<=",
+          "unit": "fraction_of_peak_alpha",
+          "evidence": [],
+          "notes": "{\"alpha_sum\": [780728.0, 5169107.0, 14885804.0, 12357675.0, 8542060.0, 4622667.0, 2088605.0, 268386.0, 5598.0, 0.0], \"peak_alpha_sum\": 14885804.0, \"reason\": null}"
+        },
+        {
+          "id": "pse_check",
+          "subject": "impact",
+          "passed": true,
+          "value": 0,
+          "threshold": 3,
+          "op": "<=",
+          "unit": "temporal_flashes/second",
+          "evidence": [],
+          "notes": "{\"metrics\": {\"canvas_size\": [384, 384], \"coverage\": \"general and red temporal flash rules only; spatial rule UNEVALUABLE\", \"fps\": 20.0, \"results\": [{\"evidence\": [], \"id\": \"pse.general_flash\", \"notes\": \"{\\\"metrics\\\": {\\\"area_fraction\\\": 0.2, \\\"equivalent_area_threshold\\\": 184320.0, \\\"flash_times_s\\\": [], \\\"qualifying_transition_times_s\\\": [0.1, 0.15, 0.2], \\\"required_pixels\\\": 29491.200000000004}, \\\"reason\\\": \\\"\\\"}\", \"op\": \"<=\", \"passed\": true, \"subject\": \"impact\", \"threshold\": 3, \"unit\": \"flashes/second\", \"value\": 0}, {\"evidence\": [], \"id\": \"pse.red_flash\", \"notes\": \"{\\\"metrics\\\": {\\\"area_fraction\\\": 0.2, \\\"equivalent_area_threshold\\\": 184320.0, \\\"flash_times_s\\\": [], \\\"qualifying_transition_times_s\\\": [], \\\"required_pixels\\\": 29491.200000000004}, \\\"reason\\\": \\\"\\\"}\", \"op\": \"<=\", \"passed\": true, \"subject\": \"impact\", \"threshold\": 3, \"unit\": \"flashes/second\", \"value\": 0}, {\"evidence\": [], \"id\": \"pse.spatial_pattern\", \"notes\": \"{\\\"metrics\\\": {}, \\\"reason\\\": \\\"Report only: regular stripes/checks >=5 pairs over >=20% area are not robustly computed; spatial rule requires review\\\"}\", \"op\": \"<=\", \"passed\": null, \"subject\": \"impact\", \"threshold\": 5, \"unit\": \"light-dark pairs\", \"value\": null}], \"thresholds\": {\"area_fraction\": 0.2, \"luminance_change\": 0.1, \"red_saturation\": 0.8, \"red_scale\": 320.0, \"red_transition\": 20.0}}, \"reason\": \"\"}"
+        },
+        {
+          "id": "element_hue",
+          "subject": "frost",
+          "passed": true,
+          "value": 208.50728750091824,
+          "threshold": [
+            180.0,
+            230.0
+          ],
+          "op": "within",
+          "unit": "degrees",
+          "evidence": [],
+          "notes": "{\"band_degrees\": [180.0, 230.0], \"chromatic_saturation_min\": 0.15, \"chromatic_weight\": 172516.54599000385, \"element\": \"frost\", \"emissive_weight\": 191048.65064206073, \"histogram_bin_degrees\": 1.0, \"in_band_fraction\": 0.7716366530874998, \"modal_radius_degrees\": 5, \"per_frame_in_band_fraction\": [0.6967947036339776, 0.7970367773725704, 0.8563860519285237, 0.8051216637819857, 0.6876098192574744, 0.6768904271038436, 0.5607895773670585, 0.5887640829702054, 0.5487674169346196, null], \"weight\": \"alpha*HSV_value\"}"
+        }
+      ],
+      "elapsed_s": 0.2735716669994872
+    }
+  },
+  "known_bad": {
+    "cast_fire_rotation": {
+      "frost": {
+        "id": "element_hue",
+        "subject": "frost",
+        "passed": false,
+        "value": 23.209476730359484,
+        "threshold": [
+          180.0,
+          230.0
+        ],
+        "op": "within",
+        "unit": "degrees",
+        "evidence": [],
+        "notes": "{\"band_degrees\": [180.0, 230.0], \"chromatic_saturation_min\": 0.15, \"chromatic_weight\": 49134.81420991926, \"element\": \"frost\", \"emissive_weight\": 54114.046412918105, \"histogram_bin_degrees\": 1.0, \"in_band_fraction\": 2.394372721567735e-07, \"modal_radius_degrees\": 5, \"per_frame_in_band_fraction\": [0.0, 0.0, 0.0, 0.0, 2.884433123681649e-07, 5.126836961264783e-07, 2.1584120932968635e-06, 0.0], \"weight\": \"alpha*HSV_value\"}"
+      },
+      "fire": {
+        "id": "element_hue",
+        "subject": "fire",
+        "passed": true,
+        "value": 23.209476730359484,
+        "threshold": [
+          0.0,
+          45.0
+        ],
+        "op": "within",
+        "unit": "degrees",
+        "evidence": [],
+        "notes": "{\"band_degrees\": [0.0, 45.0], \"chromatic_saturation_min\": 0.15, \"chromatic_weight\": 49134.81420991926, \"element\": \"fire\", \"emissive_weight\": 54114.046412918105, \"histogram_bin_degrees\": 1.0, \"in_band_fraction\": 0.9835451808276507, \"modal_radius_degrees\": 5, \"per_frame_in_band_fraction\": [0.9504254626977858, 0.9740533798460251, 0.9875733825226819, 0.9912908575065368, 0.9847806143941642, 0.9771631159554326, 0.9506997093770064, 0.8881095399768683], \"weight\": \"alpha*HSV_value\"}"
+      },
+      "pse": {
+        "id": "pse_check",
+        "subject": "cast.fire_rotation",
+        "passed": true,
+        "value": 0,
+        "threshold": 3,
+        "op": "<=",
+        "unit": "temporal_flashes/second",
+        "evidence": [],
+        "notes": "{\"metrics\": {\"canvas_size\": [256, 256], \"coverage\": \"general and red temporal flash rules only; spatial rule UNEVALUABLE\", \"fps\": 20.0, \"results\": [{\"evidence\": [], \"id\": \"pse.general_flash\", \"notes\": \"{\\\"metrics\\\": {\\\"area_fraction\\\": 0.2, \\\"equivalent_area_threshold\\\": 184320.0, \\\"flash_times_s\\\": [], \\\"qualifying_transition_times_s\\\": [0.15, 0.2, 0.25], \\\"required_pixels\\\": 13107.2}, \\\"reason\\\": \\\"\\\"}\", \"op\": \"<=\", \"passed\": true, \"subject\": \"cast.fire_rotation\", \"threshold\": 3, \"unit\": \"flashes/second\", \"value\": 0}, {\"evidence\": [], \"id\": \"pse.red_flash\", \"notes\": \"{\\\"metrics\\\": {\\\"area_fraction\\\": 0.2, \\\"equivalent_area_threshold\\\": 184320.0, \\\"flash_times_s\\\": [], \\\"qualifying_transition_times_s\\\": [], \\\"required_pixels\\\": 13107.2}, \\\"reason\\\": \\\"\\\"}\", \"op\": \"<=\", \"passed\": true, \"subject\": \"cast.fire_rotation\", \"threshold\": 3, \"unit\": \"flashes/second\", \"value\": 0}, {\"evidence\": [], \"id\": \"pse.spatial_pattern\", \"notes\": \"{\\\"metrics\\\": {}, \\\"reason\\\": \\\"Report only: regular stripes/checks >=5 pairs over >=20% area are not robustly computed; spatial rule requires review\\\"}\", \"op\": \"<=\", \"passed\": null, \"subject\": \"cast.fire_rotation\", \"threshold\": 5, \"unit\": \"light-dark pairs\", \"value\": null}], \"thresholds\": {\"area_fraction\": 0.2, \"luminance_change\": 0.1, \"red_saturation\": 0.8, \"red_scale\": 320.0, \"red_transition\": 20.0}}, \"reason\": \"\"}"
+      }
+    },
+    "travel_fire_rotation": {
+      "frost": {
+        "id": "element_hue",
+        "subject": "frost",
+        "passed": false,
+        "value": 23.116023429352314,
+        "threshold": [
+          180.0,
+          230.0
+        ],
+        "op": "within",
+        "unit": "degrees",
+        "evidence": [],
+        "notes": "{\"band_degrees\": [180.0, 230.0], \"chromatic_saturation_min\": 0.15, \"chromatic_weight\": 45978.638800461355, \"element\": \"frost\", \"emissive_weight\": 49632.36086120723, \"histogram_bin_degrees\": 1.0, \"in_band_fraction\": 0.0, \"modal_radius_degrees\": 5, \"per_frame_in_band_fraction\": [0.0, 0.0, 0.0, 0.0, 0.0, 0.0], \"weight\": \"alpha*HSV_value\"}"
+      },
+      "fire": {
+        "id": "element_hue",
+        "subject": "fire",
+        "passed": true,
+        "value": 23.116023429352314,
+        "threshold": [
+          0.0,
+          45.0
+        ],
+        "op": "within",
+        "unit": "degrees",
+        "evidence": [],
+        "notes": "{\"band_degrees\": [0.0, 45.0], \"chromatic_saturation_min\": 0.15, \"chromatic_weight\": 45978.638800461355, \"element\": \"fire\", \"emissive_weight\": 49632.36086120723, \"histogram_bin_degrees\": 1.0, \"in_band_fraction\": 0.6832282691488516, \"modal_radius_degrees\": 5, \"per_frame_in_band_fraction\": [0.6666232580820193, 0.7036774908378094, 0.6944107224003502, 0.6858142041908871, 0.6663500056652324, 0.6748077538497845], \"weight\": \"alpha*HSV_value\"}"
+      },
+      "pse": {
+        "id": "pse_check",
+        "subject": "travel.fire_rotation",
+        "passed": true,
+        "value": 0,
+        "threshold": 3,
+        "op": "<=",
+        "unit": "temporal_flashes/second",
+        "evidence": [],
+        "notes": "{\"metrics\": {\"canvas_size\": [256, 128], \"coverage\": \"general and red temporal flash rules only; spatial rule UNEVALUABLE\", \"fps\": 20.0, \"results\": [{\"evidence\": [], \"id\": \"pse.general_flash\", \"notes\": \"{\\\"metrics\\\": {\\\"area_fraction\\\": 0.2, \\\"equivalent_area_threshold\\\": 184320.0, \\\"flash_times_s\\\": [], \\\"qualifying_transition_times_s\\\": [0.1, 0.15, 0.4, 0.45, 0.7, 0.75, 1.0, 1.05, 1.3, 1.35, 1.6, 1.65, 1.9, 1.95], \\\"required_pixels\\\": 6553.6}, \\\"reason\\\": \\\"\\\"}\", \"op\": \"<=\", \"passed\": true, \"subject\": \"travel.fire_rotation\", \"threshold\": 3, \"unit\": \"flashes/second\", \"value\": 0}, {\"evidence\": [], \"id\": \"pse.red_flash\", \"notes\": \"{\\\"metrics\\\": {\\\"area_fraction\\\": 0.2, \\\"equivalent_area_threshold\\\": 184320.0, \\\"flash_times_s\\\": [], \\\"qualifying_transition_times_s\\\": [], \\\"required_pixels\\\": 6553.6}, \\\"reason\\\": \\\"\\\"}\", \"op\": \"<=\", \"passed\": true, \"subject\": \"travel.fire_rotation\", \"threshold\": 3, \"unit\": \"flashes/second\", \"value\": 0}, {\"evidence\": [], \"id\": \"pse.spatial_pattern\", \"notes\": \"{\\\"metrics\\\": {}, \\\"reason\\\": \\\"Report only: regular stripes/checks >=5 pairs over >=20% area are not robustly computed; spatial rule requires review\\\"}\", \"op\": \"<=\", \"passed\": null, \"subject\": \"travel.fire_rotation\", \"threshold\": 5, \"unit\": \"light-dark pairs\", \"value\": null}], \"thresholds\": {\"area_fraction\": 0.2, \"luminance_change\": 0.1, \"red_saturation\": 0.8, \"red_scale\": 320.0, \"red_transition\": 20.0}}, \"reason\": \"\"}"
+      }
+    },
+    "impact_fire_rotation": {
+      "frost": {
+        "id": "element_hue",
+        "subject": "frost",
+        "passed": false,
+        "value": 27.300752486427587,
+        "threshold": [
+          180.0,
+          230.0
+        ],
+        "op": "within",
+        "unit": "degrees",
+        "evidence": [],
+        "notes": "{\"band_degrees\": [180.0, 230.0], \"chromatic_saturation_min\": 0.15, \"chromatic_weight\": 172516.54599000385, \"element\": \"frost\", \"emissive_weight\": 191048.65064206073, \"histogram_bin_degrees\": 1.0, \"in_band_fraction\": 1.1365775395474843e-07, \"modal_radius_degrees\": 5, \"per_frame_in_band_fraction\": [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 4.944908828912484e-07, 0.0, 0.0007145409074669524, null], \"weight\": \"alpha*HSV_value\"}"
+      },
+      "fire": {
+        "id": "element_hue",
+        "subject": "fire",
+        "passed": true,
+        "value": 27.300752486427587,
+        "threshold": [
+          0.0,
+          45.0
+        ],
+        "op": "within",
+        "unit": "degrees",
+        "evidence": [],
+        "notes": "{\"band_degrees\": [0.0, 45.0], \"chromatic_saturation_min\": 0.15, \"chromatic_weight\": 172516.54599000385, \"element\": \"fire\", \"emissive_weight\": 191048.65064206073, \"histogram_bin_degrees\": 1.0, \"in_band_fraction\": 0.6399527315747001, \"modal_radius_degrees\": 5, \"per_frame_in_band_fraction\": [0.5252358476893498, 0.634209632584202, 0.739132512084087, 0.6639562438889757, 0.5646083619192208, 0.5360264195525883, 0.4494791482929368, 0.5260419711368765, 0.5296534476598785, null], \"weight\": \"alpha*HSV_value\"}"
+      },
+      "pse": {
+        "id": "pse_check",
+        "subject": "impact.fire_rotation",
+        "passed": true,
+        "value": 1,
+        "threshold": 3,
+        "op": "<=",
+        "unit": "temporal_flashes/second",
+        "evidence": [],
+        "notes": "{\"metrics\": {\"canvas_size\": [384, 384], \"coverage\": \"general and red temporal flash rules only; spatial rule UNEVALUABLE\", \"fps\": 20.0, \"results\": [{\"evidence\": [], \"id\": \"pse.general_flash\", \"notes\": \"{\\\"metrics\\\": {\\\"area_fraction\\\": 0.2, \\\"equivalent_area_threshold\\\": 184320.0, \\\"flash_times_s\\\": [0.15], \\\"qualifying_transition_times_s\\\": [0.1, 0.15, 0.2, 0.25], \\\"required_pixels\\\": 29491.200000000004}, \\\"reason\\\": \\\"\\\"}\", \"op\": \"<=\", \"passed\": true, \"subject\": \"impact.fire_rotation\", \"threshold\": 3, \"unit\": \"flashes/second\", \"value\": 1}, {\"evidence\": [], \"id\": \"pse.red_flash\", \"notes\": \"{\\\"metrics\\\": {\\\"area_fraction\\\": 0.2, \\\"equivalent_area_threshold\\\": 184320.0, \\\"flash_times_s\\\": [], \\\"qualifying_transition_times_s\\\": [], \\\"required_pixels\\\": 29491.200000000004}, \\\"reason\\\": \\\"\\\"}\", \"op\": \"<=\", \"passed\": true, \"subject\": \"impact.fire_rotation\", \"threshold\": 3, \"unit\": \"flashes/second\", \"value\": 0}, {\"evidence\": [], \"id\": \"pse.spatial_pattern\", \"notes\": \"{\\\"metrics\\\": {}, \\\"reason\\\": \\\"Report only: regular stripes/checks >=5 pairs over >=20% area are not robustly computed; spatial rule requires review\\\"}\", \"op\": \"<=\", \"passed\": null, \"subject\": \"impact.fire_rotation\", \"threshold\": 5, \"unit\": \"light-dark pairs\", \"value\": null}], \"thresholds\": {\"area_fraction\": 0.2, \"luminance_change\": 0.1, \"red_saturation\": 0.8, \"red_scale\": 320.0, \"red_transition\": 20.0}}, \"reason\": \"\"}"
+      }
+    },
+    "impact_opaque_tail": {
+      "results": [
+        {
+          "id": "vfx.frame_count",
+          "subject": "impact",
+          "passed": true,
+          "value": 10,
+          "threshold": 10,
+          "op": "==",
+          "unit": "frames",
+          "evidence": [],
+          "notes": "{}"
+        },
+        {
+          "id": "vfx.energy_curve",
+          "subject": "impact",
+          "passed": true,
+          "value": 0,
+          "threshold": 0,
+          "op": "<=",
+          "unit": "violations",
+          "evidence": [],
+          "notes": "{\"definition\": \"One interior peak; nondecreasing rise, nonincreasing release; endpoints below peak\", \"energy\": [344392.6210745098, 2661260.6472015684, 8237978.707248628, 6019467.291159214, 4003345.9286549017, 2002550.9241341173, 797854.347142745, 111079.14490117648, 2299.70138117647, 0.0], \"peak_count\": 1, \"peak_index\": 2, \"roundoff_relative\": 1e-12}"
+        },
+        {
+          "id": "vfx.final_alpha_fraction",
+          "subject": "impact",
+          "passed": false,
+          "value": 1.0,
+          "threshold": 0.005,
+          "op": "<=",
+          "unit": "fraction_of_peak_alpha",
+          "evidence": [],
+          "notes": "{\"alpha_sum\": [780728.0, 5169107.0, 14885804.0, 12357675.0, 8542060.0, 4622667.0, 2088605.0, 268386.0, 5598.0, 37601280.0], \"peak_alpha_sum\": 37601280.0, \"reason\": null}"
+        },
+        {
+          "id": "pse_check",
+          "subject": "impact",
+          "passed": true,
+          "value": 0,
+          "threshold": 3,
+          "op": "<=",
+          "unit": "temporal_flashes/second",
+          "evidence": [],
+          "notes": "{\"metrics\": {\"canvas_size\": [384, 384], \"coverage\": \"general and red temporal flash rules only; spatial rule UNEVALUABLE\", \"fps\": 20.0, \"results\": [{\"evidence\": [], \"id\": \"pse.general_flash\", \"notes\": \"{\\\"metrics\\\": {\\\"area_fraction\\\": 0.2, \\\"equivalent_area_threshold\\\": 184320.0, \\\"flash_times_s\\\": [], \\\"qualifying_transition_times_s\\\": [0.1, 0.15, 0.2], \\\"required_pixels\\\": 29491.200000000004}, \\\"reason\\\": \\\"\\\"}\", \"op\": \"<=\", \"passed\": true, \"subject\": \"impact\", \"threshold\": 3, \"unit\": \"flashes/second\", \"value\": 0}, {\"evidence\": [], \"id\": \"pse.red_flash\", \"notes\": \"{\\\"metrics\\\": {\\\"area_fraction\\\": 0.2, \\\"equivalent_area_threshold\\\": 184320.0, \\\"flash_times_s\\\": [], \\\"qualifying_transition_times_s\\\": [], \\\"required_pixels\\\": 29491.200000000004}, \\\"reason\\\": \\\"\\\"}\", \"op\": \"<=\", \"passed\": true, \"subject\": \"impact\", \"threshold\": 3, \"unit\": \"flashes/second\", \"value\": 0}, {\"evidence\": [], \"id\": \"pse.spatial_pattern\", \"notes\": \"{\\\"metrics\\\": {}, \\\"reason\\\": \\\"Report only: regular stripes/checks >=5 pairs over >=20% area are not robustly computed; spatial rule requires review\\\"}\", \"op\": \"<=\", \"passed\": null, \"subject\": \"impact\", \"threshold\": 5, \"unit\": \"light-dark pairs\", \"value\": null}], \"thresholds\": {\"area_fraction\": 0.2, \"luminance_change\": 0.1, \"red_saturation\": 0.8, \"red_scale\": 320.0, \"red_transition\": 20.0}}, \"reason\": \"\"}"
+        }
+      ],
+      "mutation": "Last frame alpha set to 255 over the full canvas"
+    }
+  },
+  "checkpoint_scope": "run_03 certifies counts/style/alpha and zero impact residual; composite browser playback unverified. No lifecycle/seam/symmetry certification.",
+  "criteria": {
+    "counts": {
+      "cast": 8,
+      "travel": 6,
+      "impact": 10
+    },
+    "cast_fps": 20,
+    "energy": "one interior peak; monotone rise and release",
+    "impact_final_alpha_fraction_max": 0.005,
+    "frost_hue_degrees": [
+      180,
+      230
+    ],
+    "travel_g6": "seam MAD <= minimum internal MAD",
+    "travel_g6b": "seam MAD <= median internal MAD; second instrument only",
+    "symmetry": "report only: no committed threshold",
+    "attachment_max_px": 6,
+    "pse_max_flashes_per_second": 3,
+    "composite": "MP4 builds; no browser verification criterion"
+  },
+  "composite": {
+    "inputs": [
+      {
+        "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-xv-cut-04/frames/walk/E/walk_E_00.png",
+        "sha256": "a8d0e0d91d8c9f84e007092b13f55d9e358f36e6b5c6a9b18f59b27f2f3dc7af"
+      },
+      {
+        "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-xv-cut-04/frames/walk/E/walk_E_01.png",
+        "sha256": "1bfaf64cf08d314602b5555b8f3e376866da8d9d5f4f47ebe04bc5359a11013a"
+      },
+      {
+        "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-xv-cut-04/frames/walk/E/walk_E_02.png",
+        "sha256": "67212ca132d665710c34c99147df94e3d27e4cf74537cf4ad9212bd6cc099ff6"
+      },
+      {
+        "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-xv-cut-04/frames/walk/E/walk_E_03.png",
+        "sha256": "2fdbb754250c4a98f1c4a765f9eb2d48f6e4320262925e5cedf32cdaffc5bc65"
+      },
+      {
+        "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-xv-cut-04/frames/walk/E/walk_E_04.png",
+        "sha256": "591cb71d44ff1e681b26f82d225a51894372bf2144c5631f5348b0ada61b642d"
+      },
+      {
+        "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-xv-cut-04/frames/walk/E/walk_E_05.png",
+        "sha256": "6beec45e133020d659f19192f2df8ff4835d2e743a561ec4dfa628b05462573d"
+      },
+      {
+        "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-xv-cut-04/frames/walk/E/walk_E_06.png",
+        "sha256": "662cf763fec123a7dfa8abb9bdc4f9767d0de435fa807cc75ffd07a38fbc386a"
+      },
+      {
+        "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-xv-cut-04/frames/walk/E/walk_E_07.png",
+        "sha256": "8a312c3626bd4327430559c62addf7051f22b93b35e5fd7d59f8d7b90afe6b7e"
+      },
+      {
+        "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-xv-cut-04/frames/walk/E/walk_E_08.png",
+        "sha256": "66cb01cfabc23c0f2300952126d3a7a5aad5f1c905e4e879ff7e818eda4f2b84"
+      },
+      {
+        "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-xv-cut-04/frames/walk/E/walk_E_09.png",
+        "sha256": "5aca3c225f2a884042bf1b6fbea12a237b742f2fd5e633655c86938d360c086c"
+      },
+      {
+        "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-xv-cut-04/frames/walk/E/walk_E_10.png",
+        "sha256": "8cc892b665669e3b1dc47f1038aba38aeb6b7871bf8b60ffd8a79ba1c35d73b1"
+      },
+      {
+        "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-xv-cut-04/frames/walk/E/walk_E_11.png",
+        "sha256": "22960832d3c97d0d56e1e6d290aad555a5615c382ae316506bb62efe36b5ad85"
+      }
+    ],
+    "fixed_socket_xy": [
+      246.5,
+      158.5
+    ],
+    "socket_estimate": {
+      "xy_per_frame": [
+        [
+          250.5,
+          160.5
+        ],
+        [
+          250.5,
+          158.5
+        ],
+        [
+          250.5,
+          156.5
+        ],
+        [
+          246.5,
+          156.5
+        ],
+        [
+          244.5,
+          156.5
+        ],
+        [
+          246.5,
+          158.5
+        ],
+        [
+          246.5,
+          160.5
+        ],
+        [
+          246.5,
+          158.5
+        ],
+        [
+          244.5,
+          156.5
+        ],
+        [
+          244.5,
+          156.5
+        ],
+        [
+          240.5,
+          158.5
+        ],
+        [
+          244.5,
+          160.5
+        ]
+      ],
+      "source": "oracle.video_cut.track.tip_xy",
+      "native_tip_xy": [
+        [
+          250.5,
+          160.5
+        ],
+        [
+          250.5,
+          158.5
+        ],
+        [
+          250.5,
+          156.5
+        ],
+        [
+          246.5,
+          156.5
+        ],
+        [
+          244.5,
+          156.5
+        ],
+        [
+          246.5,
+          158.5
+        ],
+        [
+          246.5,
+          160.5
+        ],
+        [
+          246.5,
+          158.5
+        ],
+        [
+          244.5,
+          156.5
+        ],
+        [
+          244.5,
+          156.5
+        ],
+        [
+          240.5,
+          158.5
+        ],
+        [
+          244.5,
+          160.5
+        ]
+      ],
+      "working_scale": 0.5,
+      "transform": {
+        "scale": 1.0,
+        "translation_xy": [
+          0.0,
+          0.0
+        ]
+      },
+      "input_space": "registered",
+      "mapping": "(xy + 0.5) * scale - 0.5 + translation_xy",
+      "notes": "Mask-based staff-tip proxy; no anatomical guarantee or per-frame correction"
+    },
+    "report": {
+      "fps": 20.0,
+      "count": 12,
+      "canvas": [
+        512,
+        512
+      ],
+      "vfx_anchor_xy": [
+        128,
+        128
+      ],
+      "socket_source": {
+        "source": "fixed_socket"
+      },
+      "xy_per_frame": [
+        [
+          246.5,
+          158.5
+        ],
+        [
+          246.5,
+          158.5
+        ],
+        [
+          246.5,
+          158.5
+        ],
+        [
+          246.5,
+          158.5
+        ],
+        [
+          246.5,
+          158.5
+        ],
+        [
+          246.5,
+          158.5
+        ],
+        [
+          246.5,
+          158.5
+        ],
+        [
+          246.5,
+          158.5
+        ],
+        [
+          246.5,
+          158.5
+        ],
+        [
+          246.5,
+          158.5
+        ],
+        [
+          246.5,
+          158.5
+        ],
+        [
+          246.5,
+          158.5
+        ]
+      ],
+      "placements": [
+        {
+          "index": 0,
+          "character_index": 0,
+          "vfx_index": 0,
+          "socket_xy": [
+            246.5,
+            158.5
+          ],
+          "offset_xy": [
+            118,
+            30
+          ],
+          "clipped_alpha_fraction": 0.0
+        },
+        {
+          "index": 1,
+          "character_index": 1,
+          "vfx_index": 1,
+          "socket_xy": [
+            246.5,
+            158.5
+          ],
+          "offset_xy": [
+            118,
+            30
+          ],
+          "clipped_alpha_fraction": 0.0
+        },
+        {
+          "index": 2,
+          "character_index": 2,
+          "vfx_index": 2,
+          "socket_xy": [
+            246.5,
+            158.5
+          ],
+          "offset_xy": [
+            118,
+            30
+          ],
+          "clipped_alpha_fraction": 0.0
+        },
+        {
+          "index": 3,
+          "character_index": 3,
+          "vfx_index": 3,
+          "socket_xy": [
+            246.5,
+            158.5
+          ],
+          "offset_xy": [
+            118,
+            30
+          ],
+          "clipped_alpha_fraction": 0.0
+        },
+        {
+          "index": 4,
+          "character_index": 4,
+          "vfx_index": 4,
+          "socket_xy": [
+            246.5,
+            158.5
+          ],
+          "offset_xy": [
+            118,
+            30
+          ],
+          "clipped_alpha_fraction": 0.0
+        },
+        {
+          "index": 5,
+          "character_index": 5,
+          "vfx_index": 5,
+          "socket_xy": [
+            246.5,
+            158.5
+          ],
+          "offset_xy": [
+            118,
+            30
+          ],
+          "clipped_alpha_fraction": 0.0
+        },
+        {
+          "index": 6,
+          "character_index": 6,
+          "vfx_index": 6,
+          "socket_xy": [
+            246.5,
+            158.5
+          ],
+          "offset_xy": [
+            118,
+            30
+          ],
+          "clipped_alpha_fraction": 0.0
+        },
+        {
+          "index": 7,
+          "character_index": 7,
+          "vfx_index": 7,
+          "socket_xy": [
+            246.5,
+            158.5
+          ],
+          "offset_xy": [
+            118,
+            30
+          ],
+          "clipped_alpha_fraction": 0.0
+        },
+        {
+          "index": 8,
+          "character_index": 8,
+          "vfx_index": null,
+          "socket_xy": [
+            246.5,
+            158.5
+          ],
+          "offset_xy": [
+            118,
+            30
+          ],
+          "clipped_alpha_fraction": 0.0
+        },
+        {
+          "index": 9,
+          "character_index": 9,
+          "vfx_index": null,
+          "socket_xy": [
+            246.5,
+            158.5
+          ],
+          "offset_xy": [
+            118,
+            30
+          ],
+          "clipped_alpha_fraction": 0.0
+        },
+        {
+          "index": 10,
+          "character_index": 10,
+          "vfx_index": null,
+          "socket_xy": [
+            246.5,
+            158.5
+          ],
+          "offset_xy": [
+            118,
+            30
+          ],
+          "clipped_alpha_fraction": 0.0
+        },
+        {
+          "index": 11,
+          "character_index": 11,
+          "vfx_index": null,
+          "socket_xy": [
+            246.5,
+            158.5
+          ],
+          "offset_xy": [
+            118,
+            30
+          ],
+          "clipped_alpha_fraction": 0.0
+        }
+      ],
+      "timing": "One shared fps; character cycles, VFX once then transparent",
+      "compositing": "Premultiplied Porter-Duff over; straight RGBA outputs",
+      "attachment": {
+        "id": "attachment",
+        "subject": "vfx",
+        "passed": false,
+        "value": 12.572185846321217,
+        "threshold": 6.0,
+        "op": "<=",
+        "unit": "px",
+        "evidence": [],
+        "notes": "{\"bright_blob_fraction\": 0.8, \"definition\": \"Maximum Euclidean distance in supplied canvas; no registration\", \"missing_active_sockets\": [], \"per_frame\": [{\"centroid_xy\": [247.92799606298678, 151.38236070131478], \"distance_px\": 7.259473943895244, \"index\": 0, \"reason\": null, \"socket_xy\": [246.5, 158.5]}, {\"centroid_xy\": [246.7980065179025, 156.36800412154562], \"distance_px\": 2.1527225344801924, \"index\": 1, \"reason\": null, \"socket_xy\": [246.5, 158.5]}, {\"centroid_xy\": [249.60213909955186, 151.1464321070442], \"distance_px\": 7.98111694872834, \"index\": 2, \"reason\": null, \"socket_xy\": [246.5, 158.5]}, {\"centroid_xy\": [244.70213500883986, 149.39011246084837], \"distance_px\": 9.285600115363, \"index\": 3, \"reason\": null, \"socket_xy\": [246.5, 158.5]}, {\"centroid_xy\": [254.10606880118806, 164.64088863888486], \"distance_px\": 9.775622531767043, \"index\": 4, \"reason\": null, \"socket_xy\": [246.5, 158.5]}, {\"centroid_xy\": [238.2179871761968, 167.43059412745788], \"distance_px\": 12.179788499108916, \"index\": 5, \"reason\": null, \"socket_xy\": [246.5, 158.5]}, {\"centroid_xy\": [255.35756553613382, 149.57792682570167], \"distance_px\": 12.572185846321217, \"index\": 6, \"reason\": null, \"socket_xy\": [246.5, 158.5]}, {\"centroid_xy\": [244.68784464157275, 149.6835291297051], \"distance_px\": 9.000781391070165, \"index\": 7, \"reason\": null, \"socket_xy\": [246.5, 158.5]}, {\"centroid_xy\": null, \"distance_px\": null, \"index\": 8, \"reason\": \"no_emissive_flare\", \"socket_xy\": [246.5, 158.5]}, {\"centroid_xy\": null, \"distance_px\": null, \"index\": 9, \"reason\": \"no_emissive_flare\", \"socket_xy\": [246.5, 158.5]}, {\"centroid_xy\": null, \"distance_px\": null, \"index\": 10, \"reason\": \"no_emissive_flare\", \"socket_xy\": [246.5, 158.5]}, {\"centroid_xy\": null, \"distance_px\": null, \"index\": 11, \"reason\": \"no_emissive_flare\", \"socket_xy\": [246.5, 158.5]}]}"
+      },
+      "pse": {
+        "character": {
+          "id": "pse_check",
+          "subject": "composite.character",
+          "passed": true,
+          "value": 0,
+          "threshold": 3,
+          "op": "<=",
+          "unit": "temporal_flashes/second",
+          "evidence": [],
+          "notes": "{\"metrics\": {\"canvas_size\": [512, 512], \"coverage\": \"general and red temporal flash rules only; spatial rule UNEVALUABLE\", \"fps\": 20.0, \"results\": [{\"evidence\": [], \"id\": \"pse.general_flash\", \"notes\": \"{\\\"metrics\\\": {\\\"area_fraction\\\": 0.2, \\\"equivalent_area_threshold\\\": 184320.0, \\\"flash_times_s\\\": [], \\\"qualifying_transition_times_s\\\": [], \\\"required_pixels\\\": 52428.8}, \\\"reason\\\": \\\"\\\"}\", \"op\": \"<=\", \"passed\": true, \"subject\": \"composite.character\", \"threshold\": 3, \"unit\": \"flashes/second\", \"value\": 0}, {\"evidence\": [], \"id\": \"pse.red_flash\", \"notes\": \"{\\\"metrics\\\": {\\\"area_fraction\\\": 0.2, \\\"equivalent_area_threshold\\\": 184320.0, \\\"flash_times_s\\\": [], \\\"qualifying_transition_times_s\\\": [], \\\"required_pixels\\\": 52428.8}, \\\"reason\\\": \\\"\\\"}\", \"op\": \"<=\", \"passed\": true, \"subject\": \"composite.character\", \"threshold\": 3, \"unit\": \"flashes/second\", \"value\": 0}, {\"evidence\": [], \"id\": \"pse.spatial_pattern\", \"notes\": \"{\\\"metrics\\\": {}, \\\"reason\\\": \\\"Report only: regular stripes/checks >=5 pairs over >=20% area are not robustly computed; spatial rule requires review\\\"}\", \"op\": \"<=\", \"passed\": null, \"subject\": \"composite.character\", \"threshold\": 5, \"unit\": \"light-dark pairs\", \"value\": null}], \"thresholds\": {\"area_fraction\": 0.2, \"luminance_change\": 0.1, \"red_saturation\": 0.8, \"red_scale\": 320.0, \"red_transition\": 20.0}}, \"reason\": \"\"}"
+        },
+        "vfx": {
+          "id": "pse_check",
+          "subject": "composite.vfx",
+          "passed": true,
+          "value": 0,
+          "threshold": 3,
+          "op": "<=",
+          "unit": "temporal_flashes/second",
+          "evidence": [],
+          "notes": "{\"metrics\": {\"canvas_size\": [256, 256], \"coverage\": \"general and red temporal flash rules only; spatial rule UNEVALUABLE\", \"fps\": 20.0, \"results\": [{\"evidence\": [], \"id\": \"pse.general_flash\", \"notes\": \"{\\\"metrics\\\": {\\\"area_fraction\\\": 0.2, \\\"equivalent_area_threshold\\\": 184320.0, \\\"flash_times_s\\\": [], \\\"qualifying_transition_times_s\\\": [0.15, 0.2], \\\"required_pixels\\\": 13107.2}, \\\"reason\\\": \\\"\\\"}\", \"op\": \"<=\", \"passed\": true, \"subject\": \"composite.vfx\", \"threshold\": 3, \"unit\": \"flashes/second\", \"value\": 0}, {\"evidence\": [], \"id\": \"pse.red_flash\", \"notes\": \"{\\\"metrics\\\": {\\\"area_fraction\\\": 0.2, \\\"equivalent_area_threshold\\\": 184320.0, \\\"flash_times_s\\\": [], \\\"qualifying_transition_times_s\\\": [], \\\"required_pixels\\\": 13107.2}, \\\"reason\\\": \\\"\\\"}\", \"op\": \"<=\", \"passed\": true, \"subject\": \"composite.vfx\", \"threshold\": 3, \"unit\": \"flashes/second\", \"value\": 0}, {\"evidence\": [], \"id\": \"pse.spatial_pattern\", \"notes\": \"{\\\"metrics\\\": {}, \\\"reason\\\": \\\"Report only: regular stripes/checks >=5 pairs over >=20% area are not robustly computed; spatial rule requires review\\\"}\", \"op\": \"<=\", \"passed\": null, \"subject\": \"composite.vfx\", \"threshold\": 5, \"unit\": \"light-dark pairs\", \"value\": null}], \"thresholds\": {\"area_fraction\": 0.2, \"luminance_change\": 0.1, \"red_saturation\": 0.8, \"red_scale\": 320.0, \"red_transition\": 20.0}}, \"reason\": \"\"}"
+        },
+        "composite": {
+          "id": "pse_check",
+          "subject": "composite",
+          "passed": true,
+          "value": 0,
+          "threshold": 3,
+          "op": "<=",
+          "unit": "temporal_flashes/second",
+          "evidence": [],
+          "notes": "{\"metrics\": {\"canvas_size\": [512, 512], \"coverage\": \"general and red temporal flash rules only; spatial rule UNEVALUABLE\", \"fps\": 20.0, \"results\": [{\"evidence\": [], \"id\": \"pse.general_flash\", \"notes\": \"{\\\"metrics\\\": {\\\"area_fraction\\\": 0.2, \\\"equivalent_area_threshold\\\": 184320.0, \\\"flash_times_s\\\": [], \\\"qualifying_transition_times_s\\\": [], \\\"required_pixels\\\": 52428.8}, \\\"reason\\\": \\\"\\\"}\", \"op\": \"<=\", \"passed\": true, \"subject\": \"composite\", \"threshold\": 3, \"unit\": \"flashes/second\", \"value\": 0}, {\"evidence\": [], \"id\": \"pse.red_flash\", \"notes\": \"{\\\"metrics\\\": {\\\"area_fraction\\\": 0.2, \\\"equivalent_area_threshold\\\": 184320.0, \\\"flash_times_s\\\": [], \\\"qualifying_transition_times_s\\\": [], \\\"required_pixels\\\": 52428.8}, \\\"reason\\\": \\\"\\\"}\", \"op\": \"<=\", \"passed\": true, \"subject\": \"composite\", \"threshold\": 3, \"unit\": \"flashes/second\", \"value\": 0}, {\"evidence\": [], \"id\": \"pse.spatial_pattern\", \"notes\": \"{\\\"metrics\\\": {}, \\\"reason\\\": \\\"Report only: regular stripes/checks >=5 pairs over >=20% area are not robustly computed; spatial rule requires review\\\"}\", \"op\": \"<=\", \"passed\": null, \"subject\": \"composite\", \"threshold\": 5, \"unit\": \"light-dark pairs\", \"value\": null}], \"thresholds\": {\"area_fraction\": 0.2, \"luminance_change\": 0.1, \"red_saturation\": 0.8, \"red_scale\": 320.0, \"red_transition\": 20.0}}, \"reason\": \"\"}"
+        }
+      },
+      "frames": [
+        "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/t3/T3e/composite/frames/composite_00.png",
+        "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/t3/T3e/composite/frames/composite_01.png",
+        "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/t3/T3e/composite/frames/composite_02.png",
+        "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/t3/T3e/composite/frames/composite_03.png",
+        "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/t3/T3e/composite/frames/composite_04.png",
+        "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/t3/T3e/composite/frames/composite_05.png",
+        "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/t3/T3e/composite/frames/composite_06.png",
+        "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/t3/T3e/composite/frames/composite_07.png",
+        "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/t3/T3e/composite/frames/composite_08.png",
+        "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/t3/T3e/composite/frames/composite_09.png",
+        "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/t3/T3e/composite/frames/composite_10.png",
+        "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/t3/T3e/composite/frames/composite_11.png"
+      ],
+      "mp4": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/t3/T3e/composite/composite.mp4",
+      "sockets_json": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/t3/T3e/composite/sockets.json"
+    },
+    "elapsed_s": 1.2085615000032703,
+    "ffprobe": {
+      "programs": [],
+      "stream_groups": [],
+      "streams": [
+        {
+          "codec_name": "h264",
+          "width": 512,
+          "height": 512,
+          "pix_fmt": "yuv420p",
+          "r_frame_rate": "20/1",
+          "duration": "0.600000",
+          "nb_read_frames": "12"
+        }
+      ]
+    },
+    "mp4_sha256": "024afd90fb699973b379e134613f11c754a5ad0b626086b0a7d901da03ee34b5"
+  },
+  "elapsed_s": 2.5192731670031208
+}

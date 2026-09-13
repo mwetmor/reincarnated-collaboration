@@ -1,0 +1,18 @@
+{
+ "text": "GENERATE BURST K4v-gen-travel-a — Run C-3 P5 frost bolt VFX sheet 'travel_00_03' (the run_03 method; charter § 3 fork B). task_id \"K4v-gen-travel-a\".\n\nOne image_gen call: Create an original hand-painted blue-white FROST projectile VFX animation sprite sheet. Reference image 1 is STYLE ONLY: match the icy blue-white energy at the character's staff tip, its faceted painted brushwork, hard illustrated edges and deep-blue falloff — do not include any character, hand, staff, scenery, symbols, text or grid. Flat pure black #000000 emission background; angular translucent ice facets, a bright white-blue core, deep cobalt soft emission fringes; no green or cyan; no grid lines, no text; every effect fully contained with ample black margins. Strict 2×2 grid, four equal square cells, row-major. FOUR consecutive loop phases of ONE horizontal ice lance flying RIGHT, identical position and scale in every cell: centreline at 50 % of the cell height, core at x = 66 %, thin wake extending left to x = 12 %, needle tip at x = 88 %; height no more than 30 % of the cell; symmetric above/below the centreline. Phase 0 a narrow steady crystalline lance; phase 1 the core expands subtly with paired above/below splinters; phase 2 a brilliant core with longer paired wake streaks; phase 3 contraction with shorter paired sparks. No rotation.\n\nONE retry only if the grid is wrong, a character/staff/text appears, or the background is not black — name the reason. Copy the output from $CODEX_HOME/generated_images/... to out/travel_00_03.png with sha256. No code. No other files. No web.\nRETURN: receipt task_id \"K4v-gen-travel-a\"; images = the file with prompt, references and elapsed_s; calls_used = the TRUE number of image_gen calls; status DELIVERED / DELIVERED_WITH_CONCERNS / FAILED; concerns. Never PASS/FAIL.",
+ "references": [
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/run_03/evidence/vfx_style_match.png",
+   "role": "STYLE ONLY — the frost energy at the staff tip"
+  }
+ ],
+ "image_cap": 2,
+ "minutes_cap": 15,
+ "tool_call_cap": 20,
+ "outputs": [
+  "out/travel_00_03.png"
+ ],
+ "effort": "high",
+ "add_dirs": [],
+ "experiment": "C3-P5"
+}

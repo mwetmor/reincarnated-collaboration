@@ -1,0 +1,18 @@
+{
+ "text": "GENERATE BURST K4v-gen-travel-b — Run C-3 P5 frost bolt VFX sheet 'travel_04_05' (the run_03 method; charter § 3 fork B). task_id \"K4v-gen-travel-b\".\n\nOne image_gen call: Create an original hand-painted blue-white FROST projectile VFX animation sprite sheet. Reference image 1 is STYLE ONLY: match the icy blue-white energy at the character's staff tip, its faceted painted brushwork, hard illustrated edges and deep-blue falloff — do not include any character, hand, staff, scenery, symbols, text or grid. Flat pure black #000000 emission background; angular translucent ice facets, a bright white-blue core, deep cobalt soft emission fringes; no green or cyan; no grid lines, no text; every effect fully contained with ample black margins. Strict 2 columns × 1 row, two equal square cells. Loop phases 4–5 of the SAME lance (same geometry as a 6-phase loop that returns to phase 0): phase 4 the core dims slightly with a short symmetric wake; phase 5 the lance nearly identical to a narrow steady lance, ready to loop back. Centreline 50 %, core x = 66 %, wake to x = 12 %, tip x = 88 %, height ≤ 30 %.\n\nONE retry only if the grid is wrong, a character/staff/text appears, or the background is not black — name the reason. Copy the output from $CODEX_HOME/generated_images/... to out/travel_04_05.png with sha256. No code. No other files. No web.\nRETURN: receipt task_id \"K4v-gen-travel-b\"; images = the file with prompt, references and elapsed_s; calls_used = the TRUE number of image_gen calls; status DELIVERED / DELIVERED_WITH_CONCERNS / FAILED; concerns. Never PASS/FAIL.",
+ "references": [
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/run_03/evidence/vfx_style_match.png",
+   "role": "STYLE ONLY — the frost energy at the staff tip"
+  }
+ ],
+ "image_cap": 2,
+ "minutes_cap": 15,
+ "tool_call_cap": 20,
+ "outputs": [
+  "out/travel_04_05.png"
+ ],
+ "effort": "high",
+ "add_dirs": [],
+ "experiment": "C3-P5"
+}

@@ -1,0 +1,167 @@
+{
+  "task_id": "T3e",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [],
+  "calls_used": 0,
+  "retries": [
+    {
+      "reason": "Dotted unittest imports could not resolve the tests package.",
+      "change": "Used file-pattern unittest discovery; all 32 new tests succeeded without code changes."
+    }
+  ],
+  "self_report": {
+    "obeyed_invariants": false,
+    "concerns": [
+      "Read-scope deviation: initial SPEC extraction printed every §7 row, beyond the requested intro and T3e row.",
+      "Cast: 8/8 frames, 20/20 fps, one energy peak at index 3, zero monotonicity violations. Impact: 10/10 frames, one peak at index 2, zero monotonicity violations; final alpha ratio 0 <= 0.005.",
+      "Travel: 6/6 frames. Literal G6 seam MAD 15.843587 > 11.451630; separate G6b limit 16.586812. Maximum normalized mirror difference 0.104684; no committed symmetry threshold, so passed=null.",
+      "Frost dominant hues: cast 205.003511°, travel 204.357363°, impact 208.507288°, each within 180–230°. Hue-rotated copies measured 23.209477°, 23.116023°, 27.300752°: frost=false and fire=true. Opaque impact tail alpha ratio 1.0 > 0.005.",
+      "Fixed-socket attachment maximum 12.572186 px > 6 px. Socket [246.5,158.5]; clipped alpha fraction 0. Registered tip estimates use the reported identity transform; native transform mapping has synthetic coverage.",
+      "Temporal PSE: all three source modules and composite measured 0 flashes/second <= 3. Spatial-pattern screening remains unevaluable.",
+      "Composite built and decoded: H.264/yuv420p, 512×512, 12 frames, 20 fps, 0.600 seconds. Browser playback unverified.",
+      "Acceptance ran once in 2.519273 s; composite construction 1.208562 s. New tests: 32/32 successful in 0.043 s.",
+      "Full suite: tests_run=285, successful_tests=280, errors=0, skipped=0, elapsed_s=97.588032. All 32 T3e tests and test_k3_combat_report_only succeeded. Regression lock: 1880 comparisons, zero differences at tolerance 0.001.",
+      "Every suite red: test_oracle_walk.Tests.test_synthetic_contract_and_grid; test_oracles_motif.Tests.test_f04_outside_at_least_three; test_oracles_motif.Tests.test_named_genuine_annuli_retained subtests center=[113,201], center=[111,311], center=[170,253].",
+      "The mandated full-suite command rewrote eight standard reports under tests/; all are listed. No existing source modules or test code were modified.",
+      "Observed wall through validation: 751.260 s against 2400 s cap. No decoded video temporaries created; T3e temporary test directories removed."
+    ]
+  },
+  "files": [
+    {
+      "path": "gates/attachment.py",
+      "sha256": "ce8f2f1d06e783f5b2b57fc53dd663422c688bfbdfa50c1e55424389bab19fb7"
+    },
+    {
+      "path": "gates/element_hue.py",
+      "sha256": "983efede32f773b08f064cca90fd01fdd384ce53d2809508dd2050507f50f761"
+    },
+    {
+      "path": "gates/vfx_lifecycle.py",
+      "sha256": "7c55930fb186ceec73f5d60aee2c03fe9c2686158befa1dcffe5937870f8f61d"
+    },
+    {
+      "path": "review/composite_socket.py",
+      "sha256": "36c7578fbfaf99a1f58c01a57914b91ede8726d74c803629705ae165f910e8f6"
+    },
+    {
+      "path": "runs/C-3/t3/T3e/acceptance.json",
+      "sha256": "e90dcb0ed9d45251f1239b29ab53f7773f5f4f53425430f46d9802a6c6dd6649"
+    },
+    {
+      "path": "runs/C-3/t3/T3e/composite/composite.mp4",
+      "sha256": "024afd90fb699973b379e134613f11c754a5ad0b626086b0a7d901da03ee34b5"
+    },
+    {
+      "path": "runs/C-3/t3/T3e/composite/frames/composite_00.png",
+      "sha256": "f8db33bde6d5f023865255c5e8b0c2dcecf5c835b960324344608e17521974f5"
+    },
+    {
+      "path": "runs/C-3/t3/T3e/composite/frames/composite_01.png",
+      "sha256": "3a54810d4f13b5c34eb00c30a52841f3db69a5f8ef04baececf9777f8d07ea6e"
+    },
+    {
+      "path": "runs/C-3/t3/T3e/composite/frames/composite_02.png",
+      "sha256": "7969a3b9f0bf73211c1e0826294caf451ac258c2933b65bb70e44b7467efc729"
+    },
+    {
+      "path": "runs/C-3/t3/T3e/composite/frames/composite_03.png",
+      "sha256": "9e63c134f689ce044d3e33407d6b68ca5b22392d049e535d647d9d8b01ddb526"
+    },
+    {
+      "path": "runs/C-3/t3/T3e/composite/frames/composite_04.png",
+      "sha256": "af097acf2f5857503986c4959ae182d679bc8209e4b4e41989c5d8691884a730"
+    },
+    {
+      "path": "runs/C-3/t3/T3e/composite/frames/composite_05.png",
+      "sha256": "e36dd499f3755d489d152db5ccd3613dad513f262e553c9698d2be2905aa7a99"
+    },
+    {
+      "path": "runs/C-3/t3/T3e/composite/frames/composite_06.png",
+      "sha256": "2b19e0341cbbcf4105a587761faacd7f70aae42a2d2897d3c06f16db059c6001"
+    },
+    {
+      "path": "runs/C-3/t3/T3e/composite/frames/composite_07.png",
+      "sha256": "22c40b6cd689a31e8de189ebd7f9f39f4fd19456b06399c87d5c598c8090d016"
+    },
+    {
+      "path": "runs/C-3/t3/T3e/composite/frames/composite_08.png",
+      "sha256": "4eb674394b0423b7a2f412440163c083520d2198a975df2b89147911a87134b5"
+    },
+    {
+      "path": "runs/C-3/t3/T3e/composite/frames/composite_09.png",
+      "sha256": "f716806b30fa5e8eed8e676960de1004cfc77c0bb63db9d33c0f314a63176f17"
+    },
+    {
+      "path": "runs/C-3/t3/T3e/composite/frames/composite_10.png",
+      "sha256": "2a3830bf234735be12f798dad30084ff5c0911f04be0dc5be3be01bdfc0597ce"
+    },
+    {
+      "path": "runs/C-3/t3/T3e/composite/frames/composite_11.png",
+      "sha256": "b9af974993c58447a0993e51bcb4cda8f7b47d7d236daf794adf7343103f27b3"
+    },
+    {
+      "path": "runs/C-3/t3/T3e/composite/sockets.json",
+      "sha256": "a0840c3f949033adb10e1909f38939a71fdef8408886afd47728de66926fb83d"
+    },
+    {
+      "path": "runs/C-3/t3/T3e/full_suite.log",
+      "sha256": "dfee9b1c45808af709033c796e8d77205aceb6ecdf10a00a8385494e40e2203c"
+    },
+    {
+      "path": "runs/C-3/t3/T3e/validation.json",
+      "sha256": "bbd3495a0507b5420fe91da2cd126217e41cb738cc6b431a145d7350e80f8288"
+    },
+    {
+      "path": "tests/acceptance_t3e.py",
+      "sha256": "24908569666e073b130a8124e1065ecc9c99ecea65689bd7405e3a71d1763cc4"
+    },
+    {
+      "path": "tests/gates_regression_diff.json",
+      "sha256": "c8864b881f6646a530b06271dfb4d801767aa46db6184abad8bba4761cafbe80"
+    },
+    {
+      "path": "tests/oracles_acceptance_measurements.json",
+      "sha256": "39949a5e5c6afe3bf7e19061f5aa2859e15d85b70803b0430ced6471c998f3d0"
+    },
+    {
+      "path": "tests/oracles_palette_measurements.json",
+      "sha256": "d644692970ba376c582468b225308f6c3d6e9c7c8b5a0c73187689d2e1cbac25"
+    },
+    {
+      "path": "tests/oracles_silhouette_measurements.json",
+      "sha256": "1dc9e68b72691bf50e1773cdfcc5cad8d8990731cfb2a012956acb826aaa637f"
+    },
+    {
+      "path": "tests/parts_measurements.json",
+      "sha256": "daef6067a663ac0f199506bfbbb229a351bd7ce0fac4cb670dcac047026f8994"
+    },
+    {
+      "path": "tests/sheet_consistency_calibration.json",
+      "sha256": "3b8076d4a4b4e3b06920e067b3c5c665d6a0a441afd3f4725cbfafdb3df463ab"
+    },
+    {
+      "path": "tests/t0c_suite_output.txt",
+      "sha256": "1edb7ba87e58a116a03255aae478d3d449d1c932c85ebcec06326ff64784ebdf"
+    },
+    {
+      "path": "tests/t0c_summary.json",
+      "sha256": "f0d21049238a762b1a2ebb3a10edc43b880f18aa0861e2c1c4ef6198a27de59a"
+    },
+    {
+      "path": "tests/test_attachment.py",
+      "sha256": "a003e22c9f2f815018dfdc4aede381a70c7ce9b3498d3c37950b9b7cb7d0a118"
+    },
+    {
+      "path": "tests/test_composite_socket.py",
+      "sha256": "217985fd901d400da9a38801efd4a0582ce61ee6978e095308f6c3898ada2724"
+    },
+    {
+      "path": "tests/test_element_hue.py",
+      "sha256": "9dc20b08e767ff1ff8c46901edff2702a2cadaedcfe6142bf6c5d66599639349"
+    },
+    {
+      "path": "tests/test_vfx_lifecycle.py",
+      "sha256": "b61ce4051d3dd30d4321ca3dca294900a984047bc4315887912be041be8e0df3"
+    }
+  ]
+}

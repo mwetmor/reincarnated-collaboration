@@ -1,0 +1,18 @@
+{
+ "text": "GENERATE BURST K4v-gen-impact-a — Run C-3 P5 frost bolt VFX sheet 'impact_00_03' (the run_03 method; charter § 3 fork B). task_id \"K4v-gen-impact-a\".\n\nOne image_gen call: Create an original hand-painted blue-white FROST projectile VFX animation sprite sheet. Reference image 1 is STYLE ONLY: match the icy blue-white energy at the character's staff tip, its faceted painted brushwork, hard illustrated edges and deep-blue falloff — do not include any character, hand, staff, scenery, symbols, text or grid. Flat pure black #000000 emission background; angular translucent ice facets, a bright white-blue core, deep cobalt soft emission fringes; no green or cyan; no grid lines, no text; every effect fully contained with ample black margins. Module IMPACT, strict 2×2 grid, row-major: four successive initial frames of an ice-lance collision centred at exactly 50 %,50 % of each cell: frame 0 a tiny compact white crystalline flash, 15 % of the cell; frame 1 an explosive white-blue jagged burst, 35 %; frame 2 the peak radial icy explosion, 65 %, angular outward shards; frame 3 the burst breaking into several large flying shards with a diminishing central flash, 75 %. Keep everything inside 8 % cell margins; no circular disc or square, no black outlines, no smoke.\n\nONE retry only if the grid is wrong, a character/staff/text appears, or the background is not black — name the reason. Copy the output from $CODEX_HOME/generated_images/... to out/impact_00_03.png with sha256. No code. No other files. No web.\nRETURN: receipt task_id \"K4v-gen-impact-a\"; images = the file with prompt, references and elapsed_s; calls_used = the TRUE number of image_gen calls; status DELIVERED / DELIVERED_WITH_CONCERNS / FAILED; concerns. Never PASS/FAIL.",
+ "references": [
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/run_03/evidence/vfx_style_match.png",
+   "role": "STYLE ONLY — the frost energy at the staff tip"
+  }
+ ],
+ "image_cap": 2,
+ "minutes_cap": 15,
+ "tool_call_cap": 20,
+ "outputs": [
+  "out/impact_00_03.png"
+ ],
+ "effort": "high",
+ "add_dirs": [],
+ "experiment": "C3-P5"
+}

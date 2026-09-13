@@ -1,0 +1,77 @@
+{
+  "task_id": "T3e",
+  "new_unit_tests": {
+    "tests_run": 32,
+    "successful_tests": 32,
+    "elapsed_s": 0.043
+  },
+  "full_suite": {
+    "tests_run": 285,
+    "successful_tests": 280,
+    "failures": [
+      {
+        "test": "test_oracle_walk.Tests.test_synthetic_contract_and_grid",
+        "traceback": "Traceback (most recent call last):\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_oracle_walk.py\", line 117, in test_synthetic_contract_and_grid\n    self.assertIsNotNone(a[key],key);self.assertAlmostEqual(a[key],b[key],delta=2,msg=key)\n                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 60 != 65 within 2 delta (5 difference) : head_ref_y\n"
+      },
+      {
+        "test": "test_oracles_motif.Tests.test_f04_outside_at_least_three",
+        "traceback": "Traceback (most recent call last):\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_oracles_motif.py\", line 19, in test_f04_outside_at_least_three\n    self.assertGreaterEqual(metrics(row)['outside'],3)\nAssertionError: 2 not greater than or equal to 3\n"
+      },
+      {
+        "test": "test_oracles_motif.Tests.test_named_genuine_annuli_retained (center=[113, 201])",
+        "traceback": "Traceback (most recent call last):\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_oracles_motif.py\", line 84, in test_named_genuine_annuli_retained\n    self.assertNotIn('rejected',peak)\nAssertionError: 'rejected' unexpectedly found in {'angular_support': 0.7708333333333334, 'center': [113.0, 201.0], 'hollow_score': 0.3125, 'inner_opposed_support': 0.3125, 'inside': False, 'lab_band_surround': 11.57642176150743, 'lab_center_band': 11.062059961818727, 'lab_center_surround': 22.610550201280017, 'lab_color_return': 0.0, 'radius': 30.0, 'rejected': 'not_annulus', 'score': 0.7074940354497125}\n"
+      },
+      {
+        "test": "test_oracles_motif.Tests.test_named_genuine_annuli_retained (center=[111, 311])",
+        "traceback": "Traceback (most recent call last):\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_oracles_motif.py\", line 84, in test_named_genuine_annuli_retained\n    self.assertNotIn('rejected',peak)\nAssertionError: 'rejected' unexpectedly found in {'angular_support': 0.75, 'center': [111.0, 311.0], 'hollow_score': 0.16666666666666666, 'inner_opposed_support': 0.16666666666666666, 'inside': False, 'lab_band_surround': 21.229621366461696, 'lab_center_band': 18.63219308325294, 'lab_center_surround': 39.74946870785732, 'lab_color_return': 0.0, 'radius': 27.0, 'rejected': 'not_annulus', 'score': 0.5281963253811909}\n"
+      },
+      {
+        "test": "test_oracles_motif.Tests.test_named_genuine_annuli_retained (center=[170, 253])",
+        "traceback": "Traceback (most recent call last):\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_oracles_motif.py\", line 84, in test_named_genuine_annuli_retained\n    self.assertNotIn('rejected',peak)\nAssertionError: 'rejected' unexpectedly found in {'angular_support': 0.8333333333333334, 'center': [170.0, 253.0], 'hollow_score': 0.08333333333333333, 'inner_opposed_support': 0.08333333333333333, 'inside': False, 'lab_band_surround': 12.987929666149537, 'lab_center_band': 18.508563966712764, 'lab_center_surround': 30.467977867785994, 'lab_color_return': 0.0, 'radius': 8.0, 'rejected': 'not_annulus', 'score': 0.6366616733180586}\n"
+      }
+    ],
+    "errors": [],
+    "skipped": [],
+    "elapsed_s": 97.58803174999775,
+    "regression": {
+      "tolerance": 0.001,
+      "compared": 1880,
+      "differences": [],
+      "within_tolerance": true
+    }
+  },
+  "full_suite_successful": false,
+  "new_tests_in_full_suite": 32,
+  "combat_report_only_successful": true,
+  "suite_generated_or_overwritten_reports": [
+    "tests/gates_regression_diff.json",
+    "tests/oracles_palette_measurements.json",
+    "tests/t0c_suite_output.txt",
+    "tests/oracles_acceptance_measurements.json",
+    "tests/sheet_consistency_calibration.json",
+    "tests/oracles_silhouette_measurements.json",
+    "tests/t0c_summary.json",
+    "tests/parts_measurements.json"
+  ],
+  "acceptance_runs": 1,
+  "acceptance_elapsed_s": 2.5192731670031208,
+  "observed_burst_wall_s": 751.259646,
+  "wall_cap_s": 2400,
+  "scope_notes": [
+    "Initial SPEC extraction printed all of section 7, including rows other than T3e. This exceeded the requested section-level read scope.",
+    "The mandated unmodified full-suite command generated or overwrote its eight standard test reports under tests/; listed explicitly as execution side effects. No existing source modules or test code were modified.",
+    "Initial dotted-module unittest invocation could not import tests as a package; corrected to file-pattern unittest discovery. All 32 tests then ran successfully without code changes."
+  ],
+  "limitations": [
+    "Travel literal G6 remains false and G6b remains a separate instrument.",
+    "Symmetry has no committed threshold and is reported with passed=null.",
+    "PSE spatial-pattern result remains unevaluable; temporal screening only.",
+    "Fixed-socket attachment exceeds 6 px; no corrective per-frame alignment applied.",
+    "Registered-frame tip estimates use an explicitly reported identity map; native transform mapping is synthetic-tested.",
+    "MP4 decoded by ffprobe; browser playback not verified."
+  ],
+  "temporary_cleanup": {
+    "t3e_unit_directories_remaining": 0,
+    "decoded_video_frames_created": 0
+  }
+}

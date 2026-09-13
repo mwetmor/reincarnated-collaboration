@@ -1,0 +1,416 @@
+{
+ "provenance": "Run C-3 P4 X0-M closed question sets (conductor data); expected answers are the INTENT, not a verdict; controls must answer no",
+ "sets": {
+  "idle": {
+   "answers": [
+    "yes",
+    "no",
+    "cannot tell"
+   ],
+   "items": [
+    {
+     "id": "same_facing",
+     "question": "Does the figure face the same direction in every frame (no turning toward or away from the camera)?",
+     "expected": "yes",
+     "class": "motion"
+    },
+    {
+     "id": "staff_same_hand",
+     "question": "Is the staff held by the same hand in every frame?",
+     "expected": "yes",
+     "class": "motion"
+    },
+    {
+     "id": "identity_stable",
+     "question": "Are the face (where visible), hair, costume and colours the same in every frame (no redrawn features, no changing items)?",
+     "expected": "yes",
+     "class": "motion"
+    },
+    {
+     "id": "head_down_frame0",
+     "question": "In frame 0, is the head tilted down so the gaze points at the ground?",
+     "expected": "no",
+     "class": "motion"
+    },
+    {
+     "id": "plate_clean",
+     "question": "Is every frame free of scenery, floor shadow, particles or glow outside the figure?",
+     "expected": "yes",
+     "class": "motion"
+    },
+    {
+     "id": "size_stable",
+     "question": "Is the figure the same size in every frame?",
+     "expected": "yes",
+     "class": "motion"
+    },
+    {
+     "id": "feet_move",
+     "question": "Do either of the feet change position between any two frames?",
+     "expected": "no",
+     "class": "motion"
+    },
+    {
+     "id": "breath_visible",
+     "question": "Do the shoulders/torso visibly rise and settle across the frames?",
+     "expected": "yes",
+     "class": "motion"
+    },
+    {
+     "id": "head_turns",
+     "question": "Does the head turn to face a different direction in any frame?",
+     "expected": "no",
+     "class": "motion"
+    },
+    {
+     "id": "loop_continuous",
+     "question": "Does the last frame lead naturally back into frame 0 (no jump in pose)?",
+     "expected": "yes",
+     "class": "motion"
+    },
+    {
+     "id": "shield_present",
+     "question": "Does the figure carry a shield in any frame?",
+     "expected": "no",
+     "class": "declared_absent_control"
+    },
+    {
+     "id": "helmet_present",
+     "question": "Does the figure wear a helmet in any frame?",
+     "expected": "no",
+     "class": "declared_absent_control"
+    }
+   ]
+  },
+  "walk": {
+   "answers": [
+    "yes",
+    "no",
+    "cannot tell"
+   ],
+   "items": [
+    {
+     "id": "same_facing",
+     "question": "Does the figure face the same direction in every frame (no turning toward or away from the camera)?",
+     "expected": "yes",
+     "class": "motion"
+    },
+    {
+     "id": "staff_same_hand",
+     "question": "Is the staff held by the same hand in every frame?",
+     "expected": "yes",
+     "class": "motion"
+    },
+    {
+     "id": "identity_stable",
+     "question": "Are the face (where visible), hair, costume and colours the same in every frame (no redrawn features, no changing items)?",
+     "expected": "yes",
+     "class": "motion"
+    },
+    {
+     "id": "head_down_frame0",
+     "question": "In frame 0, is the head tilted down so the gaze points at the ground?",
+     "expected": "no",
+     "class": "motion"
+    },
+    {
+     "id": "plate_clean",
+     "question": "Is every frame free of scenery, floor shadow, particles or glow outside the figure?",
+     "expected": "yes",
+     "class": "motion"
+    },
+    {
+     "id": "size_stable",
+     "question": "Is the figure the same size in every frame?",
+     "expected": "yes",
+     "class": "motion"
+    },
+    {
+     "id": "feet_alternate",
+     "question": "Do the two legs take turns stepping forward across the frames?",
+     "expected": "yes",
+     "class": "motion"
+    },
+    {
+     "id": "head_bobs",
+     "question": "Does the head move up and down across the frames?",
+     "expected": "yes",
+     "class": "motion"
+    },
+    {
+     "id": "free_arm_swings",
+     "question": "Does the arm without the staff swing forward and back?",
+     "expected": "yes",
+     "class": "motion"
+    },
+    {
+     "id": "both_feet_air",
+     "question": "Is there any frame where both feet are clearly off the ground?",
+     "expected": "no",
+     "class": "motion"
+    },
+    {
+     "id": "loop_continuous",
+     "question": "Does the last frame lead naturally back into frame 0 (no jump in pose)?",
+     "expected": "yes",
+     "class": "motion"
+    },
+    {
+     "id": "shield_present",
+     "question": "Does the figure carry a shield in any frame?",
+     "expected": "no",
+     "class": "declared_absent_control"
+    },
+    {
+     "id": "helmet_present",
+     "question": "Does the figure wear a helmet in any frame?",
+     "expected": "no",
+     "class": "declared_absent_control"
+    }
+   ]
+  },
+  "run": {
+   "answers": [
+    "yes",
+    "no",
+    "cannot tell"
+   ],
+   "items": [
+    {
+     "id": "same_facing",
+     "question": "Does the figure face the same direction in every frame (no turning toward or away from the camera)?",
+     "expected": "yes",
+     "class": "motion"
+    },
+    {
+     "id": "staff_same_hand",
+     "question": "Is the staff held by the same hand in every frame?",
+     "expected": "yes",
+     "class": "motion"
+    },
+    {
+     "id": "identity_stable",
+     "question": "Are the face (where visible), hair, costume and colours the same in every frame (no redrawn features, no changing items)?",
+     "expected": "yes",
+     "class": "motion"
+    },
+    {
+     "id": "head_down_frame0",
+     "question": "In frame 0, is the head tilted down so the gaze points at the ground?",
+     "expected": "no",
+     "class": "motion"
+    },
+    {
+     "id": "plate_clean",
+     "question": "Is every frame free of scenery, floor shadow, particles or glow outside the figure?",
+     "expected": "yes",
+     "class": "motion"
+    },
+    {
+     "id": "size_stable",
+     "question": "Is the figure the same size in every frame?",
+     "expected": "yes",
+     "class": "motion"
+    },
+    {
+     "id": "feet_alternate",
+     "question": "Do the two legs take turns driving forward across the frames?",
+     "expected": "yes",
+     "class": "motion"
+    },
+    {
+     "id": "both_feet_air",
+     "question": "Is there any frame where both feet are clearly off the ground?",
+     "expected": "yes",
+     "class": "motion"
+    },
+    {
+     "id": "torso_lean",
+     "question": "Does the torso lean forward in the direction of travel?",
+     "expected": "yes",
+     "class": "motion"
+    },
+    {
+     "id": "loop_continuous",
+     "question": "Does the last frame lead naturally back into frame 0 (no jump in pose)?",
+     "expected": "yes",
+     "class": "motion"
+    },
+    {
+     "id": "shield_present",
+     "question": "Does the figure carry a shield in any frame?",
+     "expected": "no",
+     "class": "declared_absent_control"
+    },
+    {
+     "id": "helmet_present",
+     "question": "Does the figure wear a helmet in any frame?",
+     "expected": "no",
+     "class": "declared_absent_control"
+    }
+   ]
+  },
+  "jump": {
+   "answers": [
+    "yes",
+    "no",
+    "cannot tell"
+   ],
+   "items": [
+    {
+     "id": "same_facing",
+     "question": "Does the figure face the same direction in every frame (no turning toward or away from the camera)?",
+     "expected": "yes",
+     "class": "motion"
+    },
+    {
+     "id": "staff_same_hand",
+     "question": "Is the staff held by the same hand in every frame?",
+     "expected": "yes",
+     "class": "motion"
+    },
+    {
+     "id": "identity_stable",
+     "question": "Are the face (where visible), hair, costume and colours the same in every frame (no redrawn features, no changing items)?",
+     "expected": "yes",
+     "class": "motion"
+    },
+    {
+     "id": "head_down_frame0",
+     "question": "In frame 0, is the head tilted down so the gaze points at the ground?",
+     "expected": "no",
+     "class": "motion"
+    },
+    {
+     "id": "plate_clean",
+     "question": "Is every frame free of scenery, floor shadow, particles or glow outside the figure?",
+     "expected": "yes",
+     "class": "motion"
+    },
+    {
+     "id": "size_stable",
+     "question": "Is the figure the same size in every frame?",
+     "expected": "yes",
+     "class": "motion"
+    },
+    {
+     "id": "crouch_before",
+     "question": "Is there a crouch before the figure leaves the ground?",
+     "expected": "yes",
+     "class": "motion"
+    },
+    {
+     "id": "airborne",
+     "question": "Is there a frame where both feet are clearly off the ground?",
+     "expected": "yes",
+     "class": "motion"
+    },
+    {
+     "id": "lands_crouch",
+     "question": "Is there a landing crouch after the airborne frames?",
+     "expected": "yes",
+     "class": "motion"
+    },
+    {
+     "id": "ends_rest",
+     "question": "Does the last frame show the same standing rest pose as frame 0?",
+     "expected": "yes",
+     "class": "motion"
+    },
+    {
+     "id": "shield_present",
+     "question": "Does the figure carry a shield in any frame?",
+     "expected": "no",
+     "class": "declared_absent_control"
+    },
+    {
+     "id": "helmet_present",
+     "question": "Does the figure wear a helmet in any frame?",
+     "expected": "no",
+     "class": "declared_absent_control"
+    }
+   ]
+  },
+  "cast": {
+   "answers": [
+    "yes",
+    "no",
+    "cannot tell"
+   ],
+   "items": [
+    {
+     "id": "same_facing",
+     "question": "Does the figure face the same direction in every frame (no turning toward or away from the camera)?",
+     "expected": "yes",
+     "class": "motion"
+    },
+    {
+     "id": "staff_same_hand",
+     "question": "Is the staff held by the same hand in every frame?",
+     "expected": "yes",
+     "class": "motion"
+    },
+    {
+     "id": "identity_stable",
+     "question": "Are the face (where visible), hair, costume and colours the same in every frame (no redrawn features, no changing items)?",
+     "expected": "yes",
+     "class": "motion"
+    },
+    {
+     "id": "head_down_frame0",
+     "question": "In frame 0, is the head tilted down so the gaze points at the ground?",
+     "expected": "no",
+     "class": "motion"
+    },
+    {
+     "id": "plate_clean",
+     "question": "Is every frame free of scenery, floor shadow, particles or glow outside the figure?",
+     "expected": "yes",
+     "class": "motion"
+    },
+    {
+     "id": "size_stable",
+     "question": "Is the figure the same size in every frame?",
+     "expected": "yes",
+     "class": "motion"
+    },
+    {
+     "id": "staff_raised",
+     "question": "Is the staff raised above its rest position in some frame?",
+     "expected": "yes",
+     "class": "motion"
+    },
+    {
+     "id": "two_handed",
+     "question": "Are both hands on the staff in some frame?",
+     "expected": "yes",
+     "class": "motion"
+    },
+    {
+     "id": "thrust_forward",
+     "question": "Is the staff pushed toward the direction the figure faces in some frame?",
+     "expected": "yes",
+     "class": "motion"
+    },
+    {
+     "id": "ends_rest",
+     "question": "Does the last frame show the same standing rest pose as frame 0?",
+     "expected": "yes",
+     "class": "motion"
+    },
+    {
+     "id": "shield_present",
+     "question": "Does the figure carry a shield in any frame?",
+     "expected": "no",
+     "class": "declared_absent_control"
+    },
+    {
+     "id": "helmet_present",
+     "question": "Does the figure wear a helmet in any frame?",
+     "expected": "no",
+     "class": "declared_absent_control"
+    }
+   ]
+  }
+ }
+}
