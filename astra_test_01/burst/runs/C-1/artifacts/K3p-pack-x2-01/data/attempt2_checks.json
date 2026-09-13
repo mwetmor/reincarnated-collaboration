@@ -1,0 +1,1586 @@
+[
+  {
+    "evidence": [],
+    "id": "idle_intent",
+    "notes": "committed reference row",
+    "op": "<=",
+    "passed": false,
+    "subject": "idle_S_K3p:relaxed",
+    "threshold": null,
+    "unit": "fraction_H",
+    "value": {
+      "box": [
+        210,
+        160,
+        302,
+        400
+      ],
+      "breath": {
+        "below_floor": false,
+        "ceiling": 0.04895956,
+        "floor": 0.01958382,
+        "panting": false,
+        "target": 0.0326397,
+        "value": 0.03388720912960344
+      },
+      "checks": [
+        {
+          "evidence": [],
+          "id": "breath_minimum",
+          "notes": "",
+          "op": ">=",
+          "passed": true,
+          "subject": "idle_S_K3p:relaxed",
+          "threshold": 0.01958382,
+          "unit": "fraction_H",
+          "value": 0.03388720912960344
+        },
+        {
+          "evidence": [],
+          "id": "breath_maximum",
+          "notes": "panting above ceiling",
+          "op": "<=",
+          "passed": true,
+          "subject": "idle_S_K3p:relaxed",
+          "threshold": 0.04895956,
+          "unit": "fraction_H",
+          "value": 0.03388720912960344
+        },
+        {
+          "evidence": [],
+          "id": "head_bob_minimum",
+          "notes": "",
+          "op": ">=",
+          "passed": true,
+          "subject": "idle_S_K3p:relaxed",
+          "threshold": 0.0,
+          "unit": "fraction_H",
+          "value": 0.0
+        },
+        {
+          "evidence": [],
+          "id": "head_bob_maximum",
+          "notes": "panting above ceiling",
+          "op": "<=",
+          "passed": true,
+          "subject": "idle_S_K3p:relaxed",
+          "threshold": 0.012,
+          "unit": "fraction_H",
+          "value": 0.0
+        },
+        {
+          "evidence": [],
+          "id": "idle_regions",
+          "notes": "{\"expected_LOCK\": [\"hips\", \"legs\", \"feet\", \"arms_left\", \"arms_right\"], \"expected_MOTION\": [\"shoulders_chest\"], \"mismatches\": [\"arms_right\"]}",
+          "op": "==",
+          "passed": false,
+          "subject": "idle_S_K3p:relaxed",
+          "threshold": 0,
+          "unit": "regions",
+          "value": 1
+        },
+        {
+          "evidence": [],
+          "id": "idle_feet_lock",
+          "notes": "maximum pairwise sole-band mask distance; mandatory I-1",
+          "op": "<=",
+          "passed": true,
+          "subject": "idle_S_K3p:relaxed",
+          "threshold": 0.0025,
+          "unit": "fraction_H",
+          "value": 0.0
+        }
+      ],
+      "classification": {
+        "LOCK": [
+          "head",
+          "hips",
+          "legs",
+          "feet",
+          "arms_left"
+        ],
+        "MOTION": [
+          "shoulders_chest",
+          "arms_right"
+        ],
+        "UNEVALUABLE": []
+      },
+      "contamination": 0.0,
+      "figure_drift_px": [
+        [
+          -0.042682887829313634,
+          -0.08115878992332125
+        ],
+        [
+          -0.042682887829313634,
+          -0.08115878992332125
+        ],
+        [
+          0.36479190956595997,
+          0.048894121848752484
+        ],
+        [
+          -0.2473400940094395,
+          -0.042144503227049164
+        ],
+        [
+          0.1655065136969463,
+          -0.017571489032614924
+        ],
+        [
+          -0.9545014617945058,
+          0.0049451123721429326
+        ],
+        [
+          -0.038606780048831925,
+          0.05159934667872279
+        ],
+        [
+          0.09977191148909369,
+          -0.050359672566238085
+        ],
+        [
+          0.0326937576626317,
+          0.16313740336848415
+        ],
+        [
+          0.07940762374739782,
+          0.16787628450106193
+        ],
+        [
+          -0.10901405133548642,
+          0.09622177646859476
+        ],
+        [
+          0.008366911422813525,
+          0.07782189477443291
+        ],
+        [
+          -0.02526498829579168,
+          0.005046565244431807
+        ],
+        [
+          0.06111711600317658,
+          -0.310032337375085
+        ],
+        [
+          -0.005750759690086178,
+          -0.10037849675191753
+        ],
+        [
+          -0.03822414096445085,
+          -0.03398412089459873
+        ]
+      ],
+      "head_bob": {
+        "below_floor": false,
+        "ceiling": 0.012,
+        "floor": 0.0,
+        "panting": false,
+        "target": 0.006,
+        "value": 0.0
+      },
+      "height_px": 240,
+      "lock_eps_H": 0.004,
+      "regions": {
+        "arms_left": {
+          "classification": "LOCK",
+          "displacement_H": 0.0018445002068212758,
+          "dy_p2p_H": 0.0018445002068212758,
+          "left_p2p_H": 7.047780537849935e-05,
+          "right_p2p_H": 0.0,
+          "search_limit_frames": {
+            "horizontal": {
+              "left": [],
+              "right": []
+            },
+            "vertical": []
+          }
+        },
+        "arms_right": {
+          "classification": "MOTION",
+          "displacement_H": 0.005707508016370566,
+          "dy_p2p_H": 0.005707508016370566,
+          "left_p2p_H": 0.00259357253893322,
+          "right_p2p_H": 0.004364078667748572,
+          "search_limit_frames": {
+            "horizontal": {
+              "left": [],
+              "right": [
+                5
+              ]
+            },
+            "vertical": []
+          }
+        },
+        "feet": {
+          "classification": "LOCK",
+          "displacement_H": 0.0,
+          "dy_p2p_H": null,
+          "left_p2p_H": 0.0,
+          "right_p2p_H": 0.0,
+          "search_limit_frames": {
+            "horizontal": {
+              "left": [],
+              "right": []
+            },
+            "vertical": []
+          }
+        },
+        "head": {
+          "classification": "LOCK",
+          "displacement_H": 0.0,
+          "dy_p2p_H": null,
+          "left_p2p_H": 0.0,
+          "right_p2p_H": 0.0,
+          "search_limit_frames": {
+            "horizontal": {
+              "left": [],
+              "right": []
+            },
+            "vertical": []
+          }
+        },
+        "hips": {
+          "classification": "LOCK",
+          "displacement_H": 0.0,
+          "dy_p2p_H": null,
+          "left_p2p_H": 0.0,
+          "right_p2p_H": 0.0,
+          "search_limit_frames": {
+            "horizontal": {
+              "left": [],
+              "right": []
+            },
+            "vertical": []
+          }
+        },
+        "legs": {
+          "classification": "LOCK",
+          "displacement_H": 0.0,
+          "dy_p2p_H": null,
+          "left_p2p_H": 0.0,
+          "right_p2p_H": 0.0,
+          "search_limit_frames": {
+            "horizontal": {
+              "left": [],
+              "right": []
+            },
+            "vertical": []
+          }
+        },
+        "shoulders_chest": {
+          "classification": "MOTION",
+          "displacement_H": 0.02711601828335275,
+          "dy_p2p_H": 0.0023912377285085938,
+          "left_p2p_H": 0.02355918535517365,
+          "right_p2p_H": 0.02711601828335275,
+          "search_limit_frames": {
+            "horizontal": {
+              "left": [],
+              "right": []
+            },
+            "vertical": []
+          }
+        }
+      },
+      "sole_displacement_H": 0.0
+    }
+  },
+  {
+    "evidence": [],
+    "id": "idle_intent",
+    "notes": "committed reference row",
+    "op": "<=",
+    "passed": false,
+    "subject": "idle_S_K3p:combat",
+    "threshold": null,
+    "unit": "fraction_H",
+    "value": {
+      "box": [
+        210,
+        160,
+        302,
+        400
+      ],
+      "breath": {
+        "below_floor": true,
+        "ceiling": 0.09791910999995755,
+        "floor": 0.03916764399998302,
+        "panting": false,
+        "target": 0.06527940666663837,
+        "value": 0.03388720912960344
+      },
+      "checks": [
+        {
+          "evidence": [],
+          "id": "breath_minimum",
+          "notes": "",
+          "op": ">=",
+          "passed": false,
+          "subject": "idle_S_K3p:combat",
+          "threshold": 0.03916764399998302,
+          "unit": "fraction_H",
+          "value": 0.03388720912960344
+        },
+        {
+          "evidence": [],
+          "id": "breath_maximum",
+          "notes": "panting above ceiling",
+          "op": "<=",
+          "passed": true,
+          "subject": "idle_S_K3p:combat",
+          "threshold": 0.09791910999995755,
+          "unit": "fraction_H",
+          "value": 0.03388720912960344
+        },
+        {
+          "evidence": [],
+          "id": "head_bob_minimum",
+          "notes": "",
+          "op": ">=",
+          "passed": false,
+          "subject": "idle_S_K3p:combat",
+          "threshold": 0.03279878164982141,
+          "unit": "fraction_H",
+          "value": 0.0
+        },
+        {
+          "evidence": [],
+          "id": "head_bob_maximum",
+          "notes": "panting above ceiling",
+          "op": "<=",
+          "passed": true,
+          "subject": "idle_S_K3p:combat",
+          "threshold": 0.08199695412455353,
+          "unit": "fraction_H",
+          "value": 0.0
+        },
+        {
+          "evidence": [],
+          "id": "idle_regions",
+          "notes": "{\"expected_LOCK\": [\"hips\", \"legs\", \"feet\", \"arms_left\", \"arms_right\"], \"expected_MOTION\": [\"shoulders_chest\", \"head\"], \"mismatches\": [\"arms_right\", \"head\"]}",
+          "op": "==",
+          "passed": false,
+          "subject": "idle_S_K3p:combat",
+          "threshold": 0,
+          "unit": "regions",
+          "value": 2
+        },
+        {
+          "evidence": [],
+          "id": "idle_feet_lock",
+          "notes": "maximum pairwise sole-band mask distance; mandatory I-1",
+          "op": "<=",
+          "passed": true,
+          "subject": "idle_S_K3p:combat",
+          "threshold": 0.0025,
+          "unit": "fraction_H",
+          "value": 0.0
+        }
+      ],
+      "classification": {
+        "LOCK": [
+          "head",
+          "hips",
+          "legs",
+          "feet",
+          "arms_left"
+        ],
+        "MOTION": [
+          "shoulders_chest",
+          "arms_right"
+        ],
+        "UNEVALUABLE": []
+      },
+      "contamination": 0.0,
+      "figure_drift_px": [
+        [
+          -0.042682887829313634,
+          -0.08115878992332125
+        ],
+        [
+          -0.042682887829313634,
+          -0.08115878992332125
+        ],
+        [
+          0.36479190956595997,
+          0.048894121848752484
+        ],
+        [
+          -0.2473400940094395,
+          -0.042144503227049164
+        ],
+        [
+          0.1655065136969463,
+          -0.017571489032614924
+        ],
+        [
+          -0.9545014617945058,
+          0.0049451123721429326
+        ],
+        [
+          -0.038606780048831925,
+          0.05159934667872279
+        ],
+        [
+          0.09977191148909369,
+          -0.050359672566238085
+        ],
+        [
+          0.0326937576626317,
+          0.16313740336848415
+        ],
+        [
+          0.07940762374739782,
+          0.16787628450106193
+        ],
+        [
+          -0.10901405133548642,
+          0.09622177646859476
+        ],
+        [
+          0.008366911422813525,
+          0.07782189477443291
+        ],
+        [
+          -0.02526498829579168,
+          0.005046565244431807
+        ],
+        [
+          0.06111711600317658,
+          -0.310032337375085
+        ],
+        [
+          -0.005750759690086178,
+          -0.10037849675191753
+        ],
+        [
+          -0.03822414096445085,
+          -0.03398412089459873
+        ]
+      ],
+      "head_bob": {
+        "below_floor": true,
+        "ceiling": 0.08199695412455353,
+        "floor": 0.03279878164982141,
+        "panting": false,
+        "target": 0.054664636083035685,
+        "value": 0.0
+      },
+      "height_px": 240,
+      "lock_eps_H": 0.004,
+      "regions": {
+        "arms_left": {
+          "classification": "LOCK",
+          "displacement_H": 0.0018445002068212758,
+          "dy_p2p_H": 0.0018445002068212758,
+          "left_p2p_H": 7.047780537849935e-05,
+          "right_p2p_H": 0.0,
+          "search_limit_frames": {
+            "horizontal": {
+              "left": [],
+              "right": []
+            },
+            "vertical": []
+          }
+        },
+        "arms_right": {
+          "classification": "MOTION",
+          "displacement_H": 0.005707508016370566,
+          "dy_p2p_H": 0.005707508016370566,
+          "left_p2p_H": 0.00259357253893322,
+          "right_p2p_H": 0.004364078667748572,
+          "search_limit_frames": {
+            "horizontal": {
+              "left": [],
+              "right": [
+                5
+              ]
+            },
+            "vertical": []
+          }
+        },
+        "feet": {
+          "classification": "LOCK",
+          "displacement_H": 0.0,
+          "dy_p2p_H": null,
+          "left_p2p_H": 0.0,
+          "right_p2p_H": 0.0,
+          "search_limit_frames": {
+            "horizontal": {
+              "left": [],
+              "right": []
+            },
+            "vertical": []
+          }
+        },
+        "head": {
+          "classification": "LOCK",
+          "displacement_H": 0.0,
+          "dy_p2p_H": null,
+          "left_p2p_H": 0.0,
+          "right_p2p_H": 0.0,
+          "search_limit_frames": {
+            "horizontal": {
+              "left": [],
+              "right": []
+            },
+            "vertical": []
+          }
+        },
+        "hips": {
+          "classification": "LOCK",
+          "displacement_H": 0.0,
+          "dy_p2p_H": null,
+          "left_p2p_H": 0.0,
+          "right_p2p_H": 0.0,
+          "search_limit_frames": {
+            "horizontal": {
+              "left": [],
+              "right": []
+            },
+            "vertical": []
+          }
+        },
+        "legs": {
+          "classification": "LOCK",
+          "displacement_H": 0.0,
+          "dy_p2p_H": null,
+          "left_p2p_H": 0.0,
+          "right_p2p_H": 0.0,
+          "search_limit_frames": {
+            "horizontal": {
+              "left": [],
+              "right": []
+            },
+            "vertical": []
+          }
+        },
+        "shoulders_chest": {
+          "classification": "MOTION",
+          "displacement_H": 0.02711601828335275,
+          "dy_p2p_H": 0.0023912377285085938,
+          "left_p2p_H": 0.02355918535517365,
+          "right_p2p_H": 0.02711601828335275,
+          "search_limit_frames": {
+            "horizontal": {
+              "left": [],
+              "right": []
+            },
+            "vertical": []
+          }
+        }
+      },
+      "sole_displacement_H": 0.0
+    }
+  },
+  {
+    "evidence": [],
+    "id": "g6_seam",
+    "notes": "{\"definition\": \"literal minimum internal\", \"adjacent_and_seam\": [{\"canvas\": 0.35175832112630206, \"foreground_union\": 6.804762256168057}, {\"canvas\": 0.29508717854817706, \"foreground_union\": 5.644726600505935}, {\"canvas\": 0.24224726359049478, \"foreground_union\": 4.653646978357516}, {\"canvas\": 0.5660311381022135, \"foreground_union\": 10.721993400293856}, {\"canvas\": 0.4230855305989583, \"foreground_union\": 8.06965463717501}, {\"canvas\": 0.278839111328125, \"foreground_union\": 5.366419499302547}, {\"canvas\": 0.27307383219401044, \"foreground_union\": 5.286512566772518}, {\"canvas\": 0.2670631408691406, \"foreground_union\": 5.192005339661821}, {\"canvas\": 0.18170166015625, \"foreground_union\": 3.562069997008675}, {\"canvas\": 0.3402659098307292, \"foreground_union\": 6.665570667065212}, {\"canvas\": 0.08073043823242188, \"foreground_union\": 1.6118050266565118}, {\"canvas\": 0.0629730224609375, \"foreground_union\": 1.26159724875812}, {\"canvas\": 0.31134923299153644, \"foreground_union\": 6.14827369742624}, {\"canvas\": 0.14962641398111978, \"foreground_union\": 2.9473750125237954}, {\"canvas\": 0.12326431274414062, \"foreground_union\": 2.4217192535411827}, {\"canvas\": 0.10262425740559895, \"foreground_union\": 2.013798438006837}]}",
+    "op": "<=",
+    "passed": false,
+    "subject": "idle_S_K3p",
+    "threshold": 0.0629730224609375,
+    "unit": "rgb_mad",
+    "value": 0.10262425740559895
+  },
+  {
+    "evidence": [],
+    "id": "g6b",
+    "notes": "{\"definition\": \"median internal\", \"adjacent_and_seam\": [{\"canvas\": 0.35175832112630206, \"foreground_union\": 6.804762256168057}, {\"canvas\": 0.29508717854817706, \"foreground_union\": 5.644726600505935}, {\"canvas\": 0.24224726359049478, \"foreground_union\": 4.653646978357516}, {\"canvas\": 0.5660311381022135, \"foreground_union\": 10.721993400293856}, {\"canvas\": 0.4230855305989583, \"foreground_union\": 8.06965463717501}, {\"canvas\": 0.278839111328125, \"foreground_union\": 5.366419499302547}, {\"canvas\": 0.27307383219401044, \"foreground_union\": 5.286512566772518}, {\"canvas\": 0.2670631408691406, \"foreground_union\": 5.192005339661821}, {\"canvas\": 0.18170166015625, \"foreground_union\": 3.562069997008675}, {\"canvas\": 0.3402659098307292, \"foreground_union\": 6.665570667065212}, {\"canvas\": 0.08073043823242188, \"foreground_union\": 1.6118050266565118}, {\"canvas\": 0.0629730224609375, \"foreground_union\": 1.26159724875812}, {\"canvas\": 0.31134923299153644, \"foreground_union\": 6.14827369742624}, {\"canvas\": 0.14962641398111978, \"foreground_union\": 2.9473750125237954}, {\"canvas\": 0.12326431274414062, \"foreground_union\": 2.4217192535411827}, {\"canvas\": 0.10262425740559895, \"foreground_union\": 2.013798438006837}]}",
+    "op": "<=",
+    "passed": true,
+    "subject": "idle_S_K3p",
+    "threshold": 0.27307383219401044,
+    "unit": "rgb_mad",
+    "value": 0.10262425740559895
+  },
+  {
+    "evidence": [],
+    "id": "g6c",
+    "notes": "idle fallback to G6b; {\"definition\": \"median internal\", \"adjacent_and_seam\": [{\"canvas\": 0.35175832112630206, \"foreground_union\": 6.804762256168057}, {\"canvas\": 0.29508717854817706, \"foreground_union\": 5.644726600505935}, {\"canvas\": 0.24224726359049478, \"foreground_union\": 4.653646978357516}, {\"canvas\": 0.5660311381022135, \"foreground_union\": 10.721993400293856}, {\"canvas\": 0.4230855305989583, \"foreground_union\": 8.06965463717501}, {\"canvas\": 0.278839111328125, \"foreground_union\": 5.366419499302547}, {\"canvas\": 0.27307383219401044, \"foreground_union\": 5.286512566772518}, {\"canvas\": 0.2670631408691406, \"foreground_union\": 5.192005339661821}, {\"canvas\": 0.18170166015625, \"foreground_union\": 3.562069997008675}, {\"canvas\": 0.3402659098307292, \"foreground_union\": 6.665570667065212}, {\"canvas\": 0.08073043823242188, \"foreground_union\": 1.6118050266565118}, {\"canvas\": 0.0629730224609375, \"foreground_union\": 1.26159724875812}, {\"canvas\": 0.31134923299153644, \"foreground_union\": 6.14827369742624}, {\"canvas\": 0.14962641398111978, \"foreground_union\": 2.9473750125237954}, {\"canvas\": 0.12326431274414062, \"foreground_union\": 2.4217192535411827}, {\"canvas\": 0.10262425740559895, \"foreground_union\": 2.013798438006837}]}",
+    "op": "<=",
+    "passed": true,
+    "subject": "idle_S_K3p",
+    "threshold": 0.27307383219401044,
+    "unit": "rgb_mad",
+    "value": 0.10262425740559895
+  },
+  {
+    "evidence": [],
+    "id": "drift48",
+    "notes": "48px LANCZOS, then dark-background composite; UNEVALUABLE: at least two frames and cast05 required",
+    "op": "<=",
+    "passed": null,
+    "subject": "idle_S_K3p",
+    "threshold": null,
+    "unit": "",
+    "value": null
+  },
+  {
+    "evidence": [],
+    "id": "drift48_pair",
+    "notes": "48px LANCZOS RGBA then frozen dark-background composite; canvas and foreground_union; comparator unavailable: cast05 not supplied",
+    "op": "<=",
+    "passed": null,
+    "subject": "idle_S_00.png->idle_S_01.png",
+    "threshold": null,
+    "unit": "rgb_mad",
+    "value": {
+      "canvas": 0.19372106481481483,
+      "foreground_union": 2.001494768310912
+    }
+  },
+  {
+    "evidence": [],
+    "id": "drift48_pair",
+    "notes": "48px LANCZOS RGBA then frozen dark-background composite; canvas and foreground_union; comparator unavailable: cast05 not supplied",
+    "op": "<=",
+    "passed": null,
+    "subject": "idle_S_01.png->idle_S_02.png",
+    "threshold": null,
+    "unit": "rgb_mad",
+    "value": {
+      "canvas": 0.13020833333333334,
+      "foreground_union": 1.3513513513513513
+    }
+  },
+  {
+    "evidence": [],
+    "id": "drift48_pair",
+    "notes": "48px LANCZOS RGBA then frozen dark-background composite; canvas and foreground_union; comparator unavailable: cast05 not supplied",
+    "op": "<=",
+    "passed": null,
+    "subject": "idle_S_02.png->idle_S_03.png",
+    "threshold": null,
+    "unit": "rgb_mad",
+    "value": {
+      "canvas": 0.09346064814814815,
+      "foreground_union": 0.9656203288490284
+    }
+  },
+  {
+    "evidence": [],
+    "id": "drift48_pair",
+    "notes": "48px LANCZOS RGBA then frozen dark-background composite; canvas and foreground_union; comparator unavailable: cast05 not supplied",
+    "op": "<=",
+    "passed": null,
+    "subject": "idle_S_03.png->idle_S_04.png",
+    "threshold": null,
+    "unit": "rgb_mad",
+    "value": {
+      "canvas": 0.3521412037037037,
+      "foreground_union": 3.4971264367816093
+    }
+  },
+  {
+    "evidence": [],
+    "id": "drift48_pair",
+    "notes": "48px LANCZOS RGBA then frozen dark-background composite; canvas and foreground_union; comparator unavailable: cast05 not supplied",
+    "op": "<=",
+    "passed": null,
+    "subject": "idle_S_04.png->idle_S_05.png",
+    "threshold": null,
+    "unit": "rgb_mad",
+    "value": {
+      "canvas": 0.21325231481481483,
+      "foreground_union": 2.126984126984127
+    }
+  },
+  {
+    "evidence": [],
+    "id": "drift48_pair",
+    "notes": "48px LANCZOS RGBA then frozen dark-background composite; canvas and foreground_union; comparator unavailable: cast05 not supplied",
+    "op": "<=",
+    "passed": null,
+    "subject": "idle_S_05.png->idle_S_06.png",
+    "threshold": null,
+    "unit": "rgb_mad",
+    "value": {
+      "canvas": 0.1657986111111111,
+      "foreground_union": 1.6977777777777778
+    }
+  },
+  {
+    "evidence": [],
+    "id": "drift48_pair",
+    "notes": "48px LANCZOS RGBA then frozen dark-background composite; canvas and foreground_union; comparator unavailable: cast05 not supplied",
+    "op": "<=",
+    "passed": null,
+    "subject": "idle_S_06.png->idle_S_07.png",
+    "threshold": null,
+    "unit": "rgb_mad",
+    "value": {
+      "canvas": 0.16608796296296297,
+      "foreground_union": 1.6932153392330382
+    }
+  },
+  {
+    "evidence": [],
+    "id": "drift48_pair",
+    "notes": "48px LANCZOS RGBA then frozen dark-background composite; canvas and foreground_union; comparator unavailable: cast05 not supplied",
+    "op": "<=",
+    "passed": null,
+    "subject": "idle_S_07.png->idle_S_08.png",
+    "threshold": null,
+    "unit": "rgb_mad",
+    "value": {
+      "canvas": 0.15625,
+      "foreground_union": 1.592920353982301
+    }
+  },
+  {
+    "evidence": [],
+    "id": "drift48_pair",
+    "notes": "48px LANCZOS RGBA then frozen dark-background composite; canvas and foreground_union; comparator unavailable: cast05 not supplied",
+    "op": "<=",
+    "passed": null,
+    "subject": "idle_S_08.png->idle_S_09.png",
+    "threshold": null,
+    "unit": "rgb_mad",
+    "value": {
+      "canvas": 0.08130787037037036,
+      "foreground_union": 0.8400597907324364
+    }
+  },
+  {
+    "evidence": [],
+    "id": "drift48_pair",
+    "notes": "48px LANCZOS RGBA then frozen dark-background composite; canvas and foreground_union; comparator unavailable: cast05 not supplied",
+    "op": "<=",
+    "passed": null,
+    "subject": "idle_S_09.png->idle_S_10.png",
+    "threshold": null,
+    "unit": "rgb_mad",
+    "value": {
+      "canvas": 0.1869212962962963,
+      "foreground_union": 1.9226190476190477
+    }
+  },
+  {
+    "evidence": [],
+    "id": "drift48_pair",
+    "notes": "48px LANCZOS RGBA then frozen dark-background composite; canvas and foreground_union; comparator unavailable: cast05 not supplied",
+    "op": "<=",
+    "passed": null,
+    "subject": "idle_S_10.png->idle_S_11.png",
+    "threshold": null,
+    "unit": "rgb_mad",
+    "value": {
+      "canvas": 0.03443287037037037,
+      "foreground_union": 0.3606060606060606
+    }
+  },
+  {
+    "evidence": [],
+    "id": "drift48_pair",
+    "notes": "48px LANCZOS RGBA then frozen dark-background composite; canvas and foreground_union; comparator unavailable: cast05 not supplied",
+    "op": "<=",
+    "passed": null,
+    "subject": "idle_S_11.png->idle_S_12.png",
+    "threshold": null,
+    "unit": "rgb_mad",
+    "value": {
+      "canvas": 0.027488425925925927,
+      "foreground_union": 0.2865761689291101
+    }
+  },
+  {
+    "evidence": [],
+    "id": "drift48_pair",
+    "notes": "48px LANCZOS RGBA then frozen dark-background composite; canvas and foreground_union; comparator unavailable: cast05 not supplied",
+    "op": "<=",
+    "passed": null,
+    "subject": "idle_S_12.png->idle_S_13.png",
+    "threshold": null,
+    "unit": "rgb_mad",
+    "value": {
+      "canvas": 0.1697048611111111,
+      "foreground_union": 1.7455357142857142
+    }
+  },
+  {
+    "evidence": [],
+    "id": "drift48_pair",
+    "notes": "48px LANCZOS RGBA then frozen dark-background composite; canvas and foreground_union; comparator unavailable: cast05 not supplied",
+    "op": "<=",
+    "passed": null,
+    "subject": "idle_S_13.png->idle_S_14.png",
+    "threshold": null,
+    "unit": "rgb_mad",
+    "value": {
+      "canvas": 0.07899305555555555,
+      "foreground_union": 0.8198198198198198
+    }
+  },
+  {
+    "evidence": [],
+    "id": "drift48_pair",
+    "notes": "48px LANCZOS RGBA then frozen dark-background composite; canvas and foreground_union; comparator unavailable: cast05 not supplied",
+    "op": "<=",
+    "passed": null,
+    "subject": "idle_S_14.png->idle_S_15.png",
+    "threshold": null,
+    "unit": "rgb_mad",
+    "value": {
+      "canvas": 0.05787037037037037,
+      "foreground_union": 0.6006006006006006
+    }
+  },
+  {
+    "evidence": [],
+    "id": "drift48_pair",
+    "notes": "48px LANCZOS RGBA then frozen dark-background composite; canvas and foreground_union; comparator unavailable: cast05 not supplied",
+    "op": "<=",
+    "passed": null,
+    "subject": "idle_S_15.png->idle_S_00.png",
+    "threshold": null,
+    "unit": "rgb_mad",
+    "value": {
+      "canvas": 0.046296296296296294,
+      "foreground_union": 0.4804804804804805
+    }
+  },
+  {
+    "evidence": [],
+    "id": "g1_height",
+    "notes": "height_px=240; master_height_px=240",
+    "op": "<=",
+    "passed": true,
+    "subject": "idle_S_00.png",
+    "threshold": 0.03,
+    "unit": "fraction",
+    "value": 0.0
+  },
+  {
+    "evidence": [],
+    "id": "g1_height",
+    "notes": "height_px=240; master_height_px=240",
+    "op": "<=",
+    "passed": true,
+    "subject": "idle_S_01.png",
+    "threshold": 0.03,
+    "unit": "fraction",
+    "value": 0.0
+  },
+  {
+    "evidence": [],
+    "id": "g1_height",
+    "notes": "height_px=240; master_height_px=240",
+    "op": "<=",
+    "passed": true,
+    "subject": "idle_S_02.png",
+    "threshold": 0.03,
+    "unit": "fraction",
+    "value": 0.0
+  },
+  {
+    "evidence": [],
+    "id": "g1_height",
+    "notes": "height_px=240; master_height_px=240",
+    "op": "<=",
+    "passed": true,
+    "subject": "idle_S_03.png",
+    "threshold": 0.03,
+    "unit": "fraction",
+    "value": 0.0
+  },
+  {
+    "evidence": [],
+    "id": "g1_height",
+    "notes": "height_px=240; master_height_px=240",
+    "op": "<=",
+    "passed": true,
+    "subject": "idle_S_04.png",
+    "threshold": 0.03,
+    "unit": "fraction",
+    "value": 0.0
+  },
+  {
+    "evidence": [],
+    "id": "g1_height",
+    "notes": "height_px=240; master_height_px=240",
+    "op": "<=",
+    "passed": true,
+    "subject": "idle_S_05.png",
+    "threshold": 0.03,
+    "unit": "fraction",
+    "value": 0.0
+  },
+  {
+    "evidence": [],
+    "id": "g1_height",
+    "notes": "height_px=240; master_height_px=240",
+    "op": "<=",
+    "passed": true,
+    "subject": "idle_S_06.png",
+    "threshold": 0.03,
+    "unit": "fraction",
+    "value": 0.0
+  },
+  {
+    "evidence": [],
+    "id": "g1_height",
+    "notes": "height_px=240; master_height_px=240",
+    "op": "<=",
+    "passed": true,
+    "subject": "idle_S_07.png",
+    "threshold": 0.03,
+    "unit": "fraction",
+    "value": 0.0
+  },
+  {
+    "evidence": [],
+    "id": "g1_height",
+    "notes": "height_px=240; master_height_px=240",
+    "op": "<=",
+    "passed": true,
+    "subject": "idle_S_08.png",
+    "threshold": 0.03,
+    "unit": "fraction",
+    "value": 0.0
+  },
+  {
+    "evidence": [],
+    "id": "g1_height",
+    "notes": "height_px=240; master_height_px=240",
+    "op": "<=",
+    "passed": true,
+    "subject": "idle_S_09.png",
+    "threshold": 0.03,
+    "unit": "fraction",
+    "value": 0.0
+  },
+  {
+    "evidence": [],
+    "id": "g1_height",
+    "notes": "height_px=240; master_height_px=240",
+    "op": "<=",
+    "passed": true,
+    "subject": "idle_S_10.png",
+    "threshold": 0.03,
+    "unit": "fraction",
+    "value": 0.0
+  },
+  {
+    "evidence": [],
+    "id": "g1_height",
+    "notes": "height_px=240; master_height_px=240",
+    "op": "<=",
+    "passed": true,
+    "subject": "idle_S_11.png",
+    "threshold": 0.03,
+    "unit": "fraction",
+    "value": 0.0
+  },
+  {
+    "evidence": [],
+    "id": "g1_height",
+    "notes": "height_px=240; master_height_px=240",
+    "op": "<=",
+    "passed": true,
+    "subject": "idle_S_12.png",
+    "threshold": 0.03,
+    "unit": "fraction",
+    "value": 0.0
+  },
+  {
+    "evidence": [],
+    "id": "g1_height",
+    "notes": "height_px=240; master_height_px=240",
+    "op": "<=",
+    "passed": true,
+    "subject": "idle_S_13.png",
+    "threshold": 0.03,
+    "unit": "fraction",
+    "value": 0.0
+  },
+  {
+    "evidence": [],
+    "id": "g1_height",
+    "notes": "height_px=240; master_height_px=240",
+    "op": "<=",
+    "passed": true,
+    "subject": "idle_S_14.png",
+    "threshold": 0.03,
+    "unit": "fraction",
+    "value": 0.0
+  },
+  {
+    "evidence": [],
+    "id": "g1_height",
+    "notes": "height_px=240; master_height_px=240",
+    "op": "<=",
+    "passed": true,
+    "subject": "idle_S_15.png",
+    "threshold": 0.03,
+    "unit": "fraction",
+    "value": 0.0
+  },
+  {
+    "evidence": [],
+    "id": "silhouette64",
+    "notes": "UNEVALUABLE verdict: no calibrated threshold supplied; {\"aligned_iou\": 1.0, \"contour_distance\": 0.0, \"hu_a\": [0.35455068592258676, 0.08371711431723786, 0.0006474363637678719, 0.0013374751507566301, 1.2112569405238806e-06, 0.000381109667142795, -2.8612364469624616e-07], \"hu_b\": [0.35455068592258676, 0.08371711431723786, 0.0006474363637678719, 0.0013374751507566301, 1.2112569405238806e-06, 0.000381109667142795, -2.8612364469624616e-07]}",
+    "op": "<=",
+    "passed": null,
+    "subject": "idle_S_00.png",
+    "threshold": null,
+    "unit": "1-iou",
+    "value": 0.0
+  },
+  {
+    "evidence": [],
+    "id": "silhouette64",
+    "notes": "UNEVALUABLE verdict: no calibrated threshold supplied; {\"aligned_iou\": 0.9369024856596558, \"contour_distance\": 0.17267323269198936, \"hu_a\": [0.3443323834724201, 0.07676339312484201, 0.0011155835526104156, 0.0017593787396626983, 2.449037007412756e-06, 0.000485854765338497, -2.7873124515687847e-07], \"hu_b\": [0.35455068592258676, 0.08371711431723786, 0.0006474363637678719, 0.0013374751507566301, 1.2112569405238806e-06, 0.000381109667142795, -2.8612364469624616e-07]}",
+    "op": "<=",
+    "passed": null,
+    "subject": "idle_S_01.png",
+    "threshold": null,
+    "unit": "1-iou",
+    "value": 0.06309751434034416
+  },
+  {
+    "evidence": [],
+    "id": "silhouette64",
+    "notes": "UNEVALUABLE verdict: no calibrated threshold supplied; {\"aligned_iou\": 0.9386973180076629, \"contour_distance\": 0.16987602274114993, \"hu_a\": [0.34558152187086744, 0.07817861207857232, 0.0009285991456162519, 0.0016791118770484166, 2.082821347055373e-06, 0.0004670304279544411, -2.407308971037839e-07], \"hu_b\": [0.35455068592258676, 0.08371711431723786, 0.0006474363637678719, 0.0013374751507566301, 1.2112569405238806e-06, 0.000381109667142795, -2.8612364469624616e-07]}",
+    "op": "<=",
+    "passed": null,
+    "subject": "idle_S_02.png",
+    "threshold": null,
+    "unit": "1-iou",
+    "value": 0.06130268199233713
+  },
+  {
+    "evidence": [],
+    "id": "silhouette64",
+    "notes": "UNEVALUABLE verdict: no calibrated threshold supplied; {\"aligned_iou\": 0.9369024856596558, \"contour_distance\": 0.17267323269198936, \"hu_a\": [0.3443323834724201, 0.07676339312484201, 0.0011155835526104156, 0.0017593787396626983, 2.449037007412756e-06, 0.000485854765338497, -2.7873124515687847e-07], \"hu_b\": [0.35455068592258676, 0.08371711431723786, 0.0006474363637678719, 0.0013374751507566301, 1.2112569405238806e-06, 0.000381109667142795, -2.8612364469624616e-07]}",
+    "op": "<=",
+    "passed": null,
+    "subject": "idle_S_03.png",
+    "threshold": null,
+    "unit": "1-iou",
+    "value": 0.06309751434034416
+  },
+  {
+    "evidence": [],
+    "id": "silhouette64",
+    "notes": "UNEVALUABLE verdict: no calibrated threshold supplied; {\"aligned_iou\": 0.8829981718464351, \"contour_distance\": 0.3165017334028312, \"hu_a\": [0.3480040205566353, 0.07872736195864005, 0.0009625363260452413, 0.0016464025126973754, 2.0597443823516375e-06, 0.0004580171246414345, -2.3036164756777174e-07], \"hu_b\": [0.35455068592258676, 0.08371711431723786, 0.0006474363637678719, 0.0013374751507566301, 1.2112569405238806e-06, 0.000381109667142795, -2.8612364469624616e-07]}",
+    "op": "<=",
+    "passed": null,
+    "subject": "idle_S_04.png",
+    "threshold": null,
+    "unit": "1-iou",
+    "value": 0.11700182815356486
+  },
+  {
+    "evidence": [],
+    "id": "silhouette64",
+    "notes": "UNEVALUABLE verdict: no calibrated threshold supplied; {\"aligned_iou\": 0.9459459459459459, \"contour_distance\": 0.15126842965565462, \"hu_a\": [0.34667177883057987, 0.07857128827933163, 0.0008564994861429669, 0.0015750761800524117, 1.8122790821854984e-06, 0.0004384310321461636, -2.4992044750953827e-07], \"hu_b\": [0.35455068592258676, 0.08371711431723786, 0.0006474363637678719, 0.0013374751507566301, 1.2112569405238806e-06, 0.000381109667142795, -2.8612364469624616e-07]}",
+    "op": "<=",
+    "passed": null,
+    "subject": "idle_S_05.png",
+    "threshold": null,
+    "unit": "1-iou",
+    "value": 0.05405405405405406
+  },
+  {
+    "evidence": [],
+    "id": "silhouette64",
+    "notes": "UNEVALUABLE verdict: no calibrated threshold supplied; {\"aligned_iou\": 0.9822485207100592, \"contour_distance\": 0.05303700980490986, \"hu_a\": [0.3511607031989185, 0.08190824327863444, 0.0007250776127232194, 0.0014180862006957895, 1.4060789709099117e-06, 0.00039910456866392645, -3.011064140547168e-07], \"hu_b\": [0.35455068592258676, 0.08371711431723786, 0.0006474363637678719, 0.0013374751507566301, 1.2112569405238806e-06, 0.000381109667142795, -2.8612364469624616e-07]}",
+    "op": "<=",
+    "passed": null,
+    "subject": "idle_S_06.png",
+    "threshold": null,
+    "unit": "1-iou",
+    "value": 0.017751479289940808
+  },
+  {
+    "evidence": [],
+    "id": "silhouette64",
+    "notes": "UNEVALUABLE verdict: no calibrated threshold supplied; {\"aligned_iou\": 0.9386973180076629, \"contour_distance\": 0.16987602274114993, \"hu_a\": [0.34558152187086744, 0.07817861207857232, 0.0009285991456162519, 0.0016791118770484166, 2.082821347055373e-06, 0.0004670304279544411, -2.407308971037839e-07], \"hu_b\": [0.35455068592258676, 0.08371711431723786, 0.0006474363637678719, 0.0013374751507566301, 1.2112569405238806e-06, 0.000381109667142795, -2.8612364469624616e-07]}",
+    "op": "<=",
+    "passed": null,
+    "subject": "idle_S_07.png",
+    "threshold": null,
+    "unit": "1-iou",
+    "value": 0.06130268199233713
+  },
+  {
+    "evidence": [],
+    "id": "silhouette64",
+    "notes": "UNEVALUABLE verdict: no calibrated threshold supplied; {\"aligned_iou\": 0.9822485207100592, \"contour_distance\": 0.05303700980490986, \"hu_a\": [0.3511607031989185, 0.08190824327863444, 0.0007250776127232194, 0.0014180862006957895, 1.4060789709099117e-06, 0.00039910456866392645, -3.011064140547168e-07], \"hu_b\": [0.35455068592258676, 0.08371711431723786, 0.0006474363637678719, 0.0013374751507566301, 1.2112569405238806e-06, 0.000381109667142795, -2.8612364469624616e-07]}",
+    "op": "<=",
+    "passed": null,
+    "subject": "idle_S_08.png",
+    "threshold": null,
+    "unit": "1-iou",
+    "value": 0.017751479289940808
+  },
+  {
+    "evidence": [],
+    "id": "silhouette64",
+    "notes": "UNEVALUABLE verdict: no calibrated threshold supplied; {\"aligned_iou\": 0.9610894941634242, \"contour_distance\": 0.10904935667406382, \"hu_a\": [0.3567551526385282, 0.08427756716449471, 0.000581672109241354, 0.0012651646585985184, 1.0611709959735136e-06, 0.00036247486704120684, -2.2769690477341e-07], \"hu_b\": [0.35455068592258676, 0.08371711431723786, 0.0006474363637678719, 0.0013374751507566301, 1.2112569405238806e-06, 0.000381109667142795, -2.8612364469624616e-07]}",
+    "op": "<=",
+    "passed": null,
+    "subject": "idle_S_09.png",
+    "threshold": null,
+    "unit": "1-iou",
+    "value": 0.03891050583657585
+  },
+  {
+    "evidence": [],
+    "id": "silhouette64",
+    "notes": "UNEVALUABLE verdict: no calibrated threshold supplied; {\"aligned_iou\": 0.9401544401544402, \"contour_distance\": 0.16314241341628916, \"hu_a\": [0.3614862703479784, 0.08757117787609466, 0.0004142821808915866, 0.001087806182908968, 6.961150525904365e-07, 0.00031784247749639744, -2.2067700440483548e-07], \"hu_b\": [0.35455068592258676, 0.08371711431723786, 0.0006474363637678719, 0.0013374751507566301, 1.2112569405238806e-06, 0.000381109667142795, -2.8612364469624616e-07]}",
+    "op": "<=",
+    "passed": null,
+    "subject": "idle_S_10.png",
+    "threshold": null,
+    "unit": "1-iou",
+    "value": 0.05984555984555984
+  },
+  {
+    "evidence": [],
+    "id": "silhouette64",
+    "notes": "UNEVALUABLE verdict: no calibrated threshold supplied; {\"aligned_iou\": 0.9324324324324325, \"contour_distance\": 0.18250479875678413, \"hu_a\": [0.36503173402414074, 0.09001754232599696, 0.00041730851465314434, 0.001050991249348238, 6.510892397110011e-07, 0.0003092441504296482, -2.4604681073805843e-07], \"hu_b\": [0.35455068592258676, 0.08371711431723786, 0.0006474363637678719, 0.0013374751507566301, 1.2112569405238806e-06, 0.000381109667142795, -2.8612364469624616e-07]}",
+    "op": "<=",
+    "passed": null,
+    "subject": "idle_S_11.png",
+    "threshold": null,
+    "unit": "1-iou",
+    "value": 0.06756756756756754
+  },
+  {
+    "evidence": [],
+    "id": "silhouette64",
+    "notes": "UNEVALUABLE verdict: no calibrated threshold supplied; {\"aligned_iou\": 0.9251439539347409, \"contour_distance\": 0.19951246784816443, \"hu_a\": [0.36733105468750005, 0.09151941178226476, 0.00034994011097295384, 0.0009432966172455045, 4.921158219962664e-07, 0.00027895298891581014, -2.2703617372087902e-07], \"hu_b\": [0.35455068592258676, 0.08371711431723786, 0.0006474363637678719, 0.0013374751507566301, 1.2112569405238806e-06, 0.000381109667142795, -2.8612364469624616e-07]}",
+    "op": "<=",
+    "passed": null,
+    "subject": "idle_S_12.png",
+    "threshold": null,
+    "unit": "1-iou",
+    "value": 0.07485604606525909
+  },
+  {
+    "evidence": [],
+    "id": "silhouette64",
+    "notes": "UNEVALUABLE verdict: no calibrated threshold supplied; {\"aligned_iou\": 0.9647749510763209, \"contour_distance\": 0.08157120670814459, \"hu_a\": [0.3599669987648782, 0.08684406860325417, 0.0004819448617036767, 0.0011700784034880723, 8.427342509981842e-07, 0.00034034404450123534, -2.486831815727137e-07], \"hu_b\": [0.35455068592258676, 0.08371711431723786, 0.0006474363637678719, 0.0013374751507566301, 1.2112569405238806e-06, 0.000381109667142795, -2.8612364469624616e-07]}",
+    "op": "<=",
+    "passed": null,
+    "subject": "idle_S_13.png",
+    "threshold": null,
+    "unit": "1-iou",
+    "value": 0.03522504892367906
+  },
+  {
+    "evidence": [],
+    "id": "silhouette64",
+    "notes": "UNEVALUABLE verdict: no calibrated threshold supplied; {\"aligned_iou\": 0.9450757575757576, \"contour_distance\": 0.1514441738667325, \"hu_a\": [0.3582380551646088, 0.08574246384759496, 0.0005813785424249836, 0.0012799386281499934, 1.0700831607372111e-06, 0.00037002980732358745, -2.7200337281513835e-07], \"hu_b\": [0.35455068592258676, 0.08371711431723786, 0.0006474363637678719, 0.0013374751507566301, 1.2112569405238806e-06, 0.000381109667142795, -2.8612364469624616e-07]}",
+    "op": "<=",
+    "passed": null,
+    "subject": "idle_S_14.png",
+    "threshold": null,
+    "unit": "1-iou",
+    "value": 0.05492424242424243
+  },
+  {
+    "evidence": [],
+    "id": "silhouette64",
+    "notes": "UNEVALUABLE verdict: no calibrated threshold supplied; {\"aligned_iou\": 1.0, \"contour_distance\": 0.0, \"hu_a\": [0.35455068592258676, 0.08371711431723786, 0.0006474363637678719, 0.0013374751507566301, 1.2112569405238806e-06, 0.000381109667142795, -2.8612364469624616e-07], \"hu_b\": [0.35455068592258676, 0.08371711431723786, 0.0006474363637678719, 0.0013374751507566301, 1.2112569405238806e-06, 0.000381109667142795, -2.8612364469624616e-07]}",
+    "op": "<=",
+    "passed": null,
+    "subject": "idle_S_15.png",
+    "threshold": null,
+    "unit": "1-iou",
+    "value": 0.0
+  },
+  {
+    "evidence": [],
+    "id": "alpha_bbox_height",
+    "notes": "{\"bbox\": [210, 160, 302, 400], \"alpha_threshold\": 128}",
+    "op": "<=",
+    "passed": null,
+    "subject": "idle_S_00.png",
+    "threshold": null,
+    "unit": "px",
+    "value": 240
+  },
+  {
+    "evidence": [],
+    "id": "alpha_bbox_height",
+    "notes": "{\"bbox\": [210, 160, 302, 400], \"alpha_threshold\": 128}",
+    "op": "<=",
+    "passed": null,
+    "subject": "idle_S_01.png",
+    "threshold": null,
+    "unit": "px",
+    "value": 240
+  },
+  {
+    "evidence": [],
+    "id": "alpha_bbox_height",
+    "notes": "{\"bbox\": [210, 160, 302, 400], \"alpha_threshold\": 128}",
+    "op": "<=",
+    "passed": null,
+    "subject": "idle_S_02.png",
+    "threshold": null,
+    "unit": "px",
+    "value": 240
+  },
+  {
+    "evidence": [],
+    "id": "alpha_bbox_height",
+    "notes": "{\"bbox\": [210, 160, 302, 400], \"alpha_threshold\": 128}",
+    "op": "<=",
+    "passed": null,
+    "subject": "idle_S_03.png",
+    "threshold": null,
+    "unit": "px",
+    "value": 240
+  },
+  {
+    "evidence": [],
+    "id": "alpha_bbox_height",
+    "notes": "{\"bbox\": [210, 160, 302, 400], \"alpha_threshold\": 128}",
+    "op": "<=",
+    "passed": null,
+    "subject": "idle_S_04.png",
+    "threshold": null,
+    "unit": "px",
+    "value": 240
+  },
+  {
+    "evidence": [],
+    "id": "alpha_bbox_height",
+    "notes": "{\"bbox\": [210, 160, 302, 400], \"alpha_threshold\": 128}",
+    "op": "<=",
+    "passed": null,
+    "subject": "idle_S_05.png",
+    "threshold": null,
+    "unit": "px",
+    "value": 240
+  },
+  {
+    "evidence": [],
+    "id": "alpha_bbox_height",
+    "notes": "{\"bbox\": [210, 160, 302, 400], \"alpha_threshold\": 128}",
+    "op": "<=",
+    "passed": null,
+    "subject": "idle_S_06.png",
+    "threshold": null,
+    "unit": "px",
+    "value": 240
+  },
+  {
+    "evidence": [],
+    "id": "alpha_bbox_height",
+    "notes": "{\"bbox\": [210, 160, 302, 400], \"alpha_threshold\": 128}",
+    "op": "<=",
+    "passed": null,
+    "subject": "idle_S_07.png",
+    "threshold": null,
+    "unit": "px",
+    "value": 240
+  },
+  {
+    "evidence": [],
+    "id": "alpha_bbox_height",
+    "notes": "{\"bbox\": [210, 160, 302, 400], \"alpha_threshold\": 128}",
+    "op": "<=",
+    "passed": null,
+    "subject": "idle_S_08.png",
+    "threshold": null,
+    "unit": "px",
+    "value": 240
+  },
+  {
+    "evidence": [],
+    "id": "alpha_bbox_height",
+    "notes": "{\"bbox\": [210, 160, 302, 400], \"alpha_threshold\": 128}",
+    "op": "<=",
+    "passed": null,
+    "subject": "idle_S_09.png",
+    "threshold": null,
+    "unit": "px",
+    "value": 240
+  },
+  {
+    "evidence": [],
+    "id": "alpha_bbox_height",
+    "notes": "{\"bbox\": [210, 160, 302, 400], \"alpha_threshold\": 128}",
+    "op": "<=",
+    "passed": null,
+    "subject": "idle_S_10.png",
+    "threshold": null,
+    "unit": "px",
+    "value": 240
+  },
+  {
+    "evidence": [],
+    "id": "alpha_bbox_height",
+    "notes": "{\"bbox\": [210, 160, 302, 400], \"alpha_threshold\": 128}",
+    "op": "<=",
+    "passed": null,
+    "subject": "idle_S_11.png",
+    "threshold": null,
+    "unit": "px",
+    "value": 240
+  },
+  {
+    "evidence": [],
+    "id": "alpha_bbox_height",
+    "notes": "{\"bbox\": [210, 160, 302, 400], \"alpha_threshold\": 128}",
+    "op": "<=",
+    "passed": null,
+    "subject": "idle_S_12.png",
+    "threshold": null,
+    "unit": "px",
+    "value": 240
+  },
+  {
+    "evidence": [],
+    "id": "alpha_bbox_height",
+    "notes": "{\"bbox\": [210, 160, 302, 400], \"alpha_threshold\": 128}",
+    "op": "<=",
+    "passed": null,
+    "subject": "idle_S_13.png",
+    "threshold": null,
+    "unit": "px",
+    "value": 240
+  },
+  {
+    "evidence": [],
+    "id": "alpha_bbox_height",
+    "notes": "{\"bbox\": [210, 160, 302, 400], \"alpha_threshold\": 128}",
+    "op": "<=",
+    "passed": null,
+    "subject": "idle_S_14.png",
+    "threshold": null,
+    "unit": "px",
+    "value": 240
+  },
+  {
+    "evidence": [],
+    "id": "alpha_bbox_height",
+    "notes": "{\"bbox\": [210, 160, 302, 400], \"alpha_threshold\": 128}",
+    "op": "<=",
+    "passed": null,
+    "subject": "idle_S_15.png",
+    "threshold": null,
+    "unit": "px",
+    "value": 240
+  },
+  {
+    "evidence": [],
+    "id": "sole_line",
+    "notes": "Bottommost occupied alpha>=128 pixel row (inclusive); not reviewed anatomical sole/root annotation",
+    "op": "<=",
+    "passed": null,
+    "subject": "idle_S_00.png",
+    "threshold": null,
+    "unit": "px",
+    "value": 399
+  },
+  {
+    "evidence": [],
+    "id": "sole_line",
+    "notes": "Bottommost occupied alpha>=128 pixel row (inclusive); not reviewed anatomical sole/root annotation",
+    "op": "<=",
+    "passed": null,
+    "subject": "idle_S_01.png",
+    "threshold": null,
+    "unit": "px",
+    "value": 399
+  },
+  {
+    "evidence": [],
+    "id": "sole_line",
+    "notes": "Bottommost occupied alpha>=128 pixel row (inclusive); not reviewed anatomical sole/root annotation",
+    "op": "<=",
+    "passed": null,
+    "subject": "idle_S_02.png",
+    "threshold": null,
+    "unit": "px",
+    "value": 399
+  },
+  {
+    "evidence": [],
+    "id": "sole_line",
+    "notes": "Bottommost occupied alpha>=128 pixel row (inclusive); not reviewed anatomical sole/root annotation",
+    "op": "<=",
+    "passed": null,
+    "subject": "idle_S_03.png",
+    "threshold": null,
+    "unit": "px",
+    "value": 399
+  },
+  {
+    "evidence": [],
+    "id": "sole_line",
+    "notes": "Bottommost occupied alpha>=128 pixel row (inclusive); not reviewed anatomical sole/root annotation",
+    "op": "<=",
+    "passed": null,
+    "subject": "idle_S_04.png",
+    "threshold": null,
+    "unit": "px",
+    "value": 399
+  },
+  {
+    "evidence": [],
+    "id": "sole_line",
+    "notes": "Bottommost occupied alpha>=128 pixel row (inclusive); not reviewed anatomical sole/root annotation",
+    "op": "<=",
+    "passed": null,
+    "subject": "idle_S_05.png",
+    "threshold": null,
+    "unit": "px",
+    "value": 399
+  },
+  {
+    "evidence": [],
+    "id": "sole_line",
+    "notes": "Bottommost occupied alpha>=128 pixel row (inclusive); not reviewed anatomical sole/root annotation",
+    "op": "<=",
+    "passed": null,
+    "subject": "idle_S_06.png",
+    "threshold": null,
+    "unit": "px",
+    "value": 399
+  },
+  {
+    "evidence": [],
+    "id": "sole_line",
+    "notes": "Bottommost occupied alpha>=128 pixel row (inclusive); not reviewed anatomical sole/root annotation",
+    "op": "<=",
+    "passed": null,
+    "subject": "idle_S_07.png",
+    "threshold": null,
+    "unit": "px",
+    "value": 399
+  },
+  {
+    "evidence": [],
+    "id": "sole_line",
+    "notes": "Bottommost occupied alpha>=128 pixel row (inclusive); not reviewed anatomical sole/root annotation",
+    "op": "<=",
+    "passed": null,
+    "subject": "idle_S_08.png",
+    "threshold": null,
+    "unit": "px",
+    "value": 399
+  },
+  {
+    "evidence": [],
+    "id": "sole_line",
+    "notes": "Bottommost occupied alpha>=128 pixel row (inclusive); not reviewed anatomical sole/root annotation",
+    "op": "<=",
+    "passed": null,
+    "subject": "idle_S_09.png",
+    "threshold": null,
+    "unit": "px",
+    "value": 399
+  },
+  {
+    "evidence": [],
+    "id": "sole_line",
+    "notes": "Bottommost occupied alpha>=128 pixel row (inclusive); not reviewed anatomical sole/root annotation",
+    "op": "<=",
+    "passed": null,
+    "subject": "idle_S_10.png",
+    "threshold": null,
+    "unit": "px",
+    "value": 399
+  },
+  {
+    "evidence": [],
+    "id": "sole_line",
+    "notes": "Bottommost occupied alpha>=128 pixel row (inclusive); not reviewed anatomical sole/root annotation",
+    "op": "<=",
+    "passed": null,
+    "subject": "idle_S_11.png",
+    "threshold": null,
+    "unit": "px",
+    "value": 399
+  },
+  {
+    "evidence": [],
+    "id": "sole_line",
+    "notes": "Bottommost occupied alpha>=128 pixel row (inclusive); not reviewed anatomical sole/root annotation",
+    "op": "<=",
+    "passed": null,
+    "subject": "idle_S_12.png",
+    "threshold": null,
+    "unit": "px",
+    "value": 399
+  },
+  {
+    "evidence": [],
+    "id": "sole_line",
+    "notes": "Bottommost occupied alpha>=128 pixel row (inclusive); not reviewed anatomical sole/root annotation",
+    "op": "<=",
+    "passed": null,
+    "subject": "idle_S_13.png",
+    "threshold": null,
+    "unit": "px",
+    "value": 399
+  },
+  {
+    "evidence": [],
+    "id": "sole_line",
+    "notes": "Bottommost occupied alpha>=128 pixel row (inclusive); not reviewed anatomical sole/root annotation",
+    "op": "<=",
+    "passed": null,
+    "subject": "idle_S_14.png",
+    "threshold": null,
+    "unit": "px",
+    "value": 399
+  },
+  {
+    "evidence": [],
+    "id": "sole_line",
+    "notes": "Bottommost occupied alpha>=128 pixel row (inclusive); not reviewed anatomical sole/root annotation",
+    "op": "<=",
+    "passed": null,
+    "subject": "idle_S_15.png",
+    "threshold": null,
+    "unit": "px",
+    "value": 399
+  },
+  {
+    "evidence": [],
+    "id": "height_spread",
+    "notes": "Maximum minus minimum alpha>=128 bbox height",
+    "op": "<=",
+    "passed": null,
+    "subject": "idle_S_K3p",
+    "threshold": null,
+    "unit": "px",
+    "value": 0
+  },
+  {
+    "evidence": [],
+    "id": "sole_spread",
+    "notes": "Maximum minus minimum inclusive sole line; report-only",
+    "op": "<=",
+    "passed": null,
+    "subject": "idle_S_K3p",
+    "threshold": null,
+    "unit": "px",
+    "value": 0
+  },
+  {
+    "evidence": [
+      "out/plots/idle_S_K3p_box_check.png",
+      "out/plots/idle_S_K3p_curves.png"
+    ],
+    "id": "oracle_idle",
+    "notes": "Descriptive measurement only; no acceptance verdict",
+    "op": "<=",
+    "passed": null,
+    "subject": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-cmp-x2-01/composited",
+    "threshold": null,
+    "unit": "fraction_H",
+    "value": null
+  }
+]

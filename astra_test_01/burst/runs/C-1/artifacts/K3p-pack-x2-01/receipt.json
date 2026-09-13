@@ -1,0 +1,82 @@
+{
+  "task_id": "K3p-pack-x2-01",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [],
+  "calls_used": 0,
+  "retries": [],
+  "self_report": {
+    "obeyed_invariants": false,
+    "concerns": [
+      "PIL packing and HTML verification used inline Python/Node snippets, conflicting with a literal reading of no code beyond HTML. No additional code files were written.",
+      "C-1 constraint measurements were not supplied; the two largest constraint deltas could not be calculated.",
+      "G11 lacks cast05, silhouette thresholds are absent, and reviewed root/sole annotations were not supplied.",
+      "Wrapper-owned mutable audit logs are excluded from the deliverable file census."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/review.html",
+      "sha256": "af331231f8c64574766847b91feddbe463f52e5141f92f59b48e24c2c5c1757a"
+    },
+    {
+      "path": "out/summary.txt",
+      "sha256": "4495a5445b14f806d039b99a168dfd664221fb6fb05bd29b6cce9886e05767d1"
+    },
+    {
+      "path": "out/idle_S_relaxed_8fps.mp4",
+      "sha256": "6befb7442642c9c9b62f7bbd5c9d31d2f1dfcfea47ef215161ecf6c302657cdd"
+    },
+    {
+      "path": "out/idle_S_original_8fps.mp4",
+      "sha256": "50eaf7845c185d427f290f409fb70fc08880c7bcf6cad407d225af846d69b050"
+    },
+    {
+      "path": "out/idle_S_seam_pairs.png",
+      "sha256": "daa2c4e321145303356734c82338ae8fc76942cda4ab69145afd5702a79fb23c"
+    },
+    {
+      "path": "out/img/attempt1_curves.png",
+      "sha256": "572d2cc607e381d69f5806edbb168dce9ee25c3696c8e47728e607b14543b20c"
+    },
+    {
+      "path": "out/img/ours_curves.png",
+      "sha256": "8fdcba6ede87934b4145761db4a6e447e5173f54002af52a74ea4f31ddd4a965"
+    },
+    {
+      "path": "out/img/relaxed_strip.png",
+      "sha256": "4617eedf78b01541fdd9a408d98a2fdf2ec032142df14bebe145f8997e3ca2e7"
+    },
+    {
+      "path": "out/img/original_vs_composited.png",
+      "sha256": "352450ae0d780bb02c8f5b6f7c86754790dbfca6922d5e827f57a309b842cf56"
+    },
+    {
+      "path": "out/img/original_strip.png",
+      "sha256": "d5f7355024e95195af8bcf9a39c98fbd5dd98a48d4cb9cf55cf4d6dd13d33004"
+    },
+    {
+      "path": "out/img/combat_curves.png",
+      "sha256": "237546ea2efbce35d7f9d159c7ce3c3a88b91feff1cb46a6503922ef42dd30e4"
+    },
+    {
+      "path": "out/img/dead_idle_curves.png",
+      "sha256": "6603d4c6efd220f10d58505a70344107365181f1fca3111e56e805a76221ca53"
+    },
+    {
+      "path": "out/data/relaxed_band.json",
+      "sha256": "883460c8ece273f3bc191ebb259c3a3fda5728534fca7f1b9923248b4c661c0b"
+    },
+    {
+      "path": "out/data/composite_checks.json",
+      "sha256": "43e205da3e1f3a353783dfbed4bb159df43fd1be7f39cb35aa7f4a36f53b4b4d"
+    },
+    {
+      "path": "out/data/attempt2_checks.json",
+      "sha256": "2039d2bfc7a151033dcf55bfb5e0d92eef713e19a701b75625e3d9b3d07782fa"
+    },
+    {
+      "path": "out/data/attempt1_checks.json",
+      "sha256": "c8eb1a630fde9d68a4f1b9c354398109ac9923e0f7df7823158c7a4d5b57f690"
+    }
+  ]
+}
