@@ -1,0 +1,325 @@
+{
+  "walkable_polygons": [
+    {
+      "id": "path_0",
+      "vertices": 391,
+      "self_intersections": 0,
+      "inside_canvas": true,
+      "bbox_px": [
+        3.02,
+        1179.71,
+        3294.88,
+        3632.96
+      ]
+    },
+    {
+      "id": "path_1",
+      "vertices": 144,
+      "self_intersections": 0,
+      "inside_canvas": true,
+      "bbox_px": [
+        3613.19,
+        1.2,
+        4877.41,
+        870.22
+      ]
+    },
+    {
+      "id": "bridge_plank_0",
+      "vertices": 4,
+      "self_intersections": 0,
+      "inside_canvas": true,
+      "bbox_px": [
+        3010.08,
+        1144.08,
+        3340.02,
+        1401.26
+      ]
+    },
+    {
+      "id": "bridge_plank_1",
+      "vertices": 4,
+      "self_intersections": 0,
+      "inside_canvas": true,
+      "bbox_px": [
+        3124.01,
+        1045.88,
+        3453.95,
+        1303.06
+      ]
+    },
+    {
+      "id": "bridge_plank_2",
+      "vertices": 4,
+      "self_intersections": 0,
+      "inside_canvas": true,
+      "bbox_px": [
+        3237.94,
+        947.69,
+        3567.88,
+        1204.86
+      ]
+    },
+    {
+      "id": "bridge_plank_3",
+      "vertices": 4,
+      "self_intersections": 0,
+      "inside_canvas": true,
+      "bbox_px": [
+        3351.87,
+        849.49,
+        3681.81,
+        1106.66
+      ]
+    },
+    {
+      "id": "bridge_plank_4",
+      "vertices": 4,
+      "self_intersections": 0,
+      "inside_canvas": true,
+      "bbox_px": [
+        3465.79,
+        751.29,
+        3795.73,
+        1008.46
+      ]
+    },
+    {
+      "id": "bridge_plank_5",
+      "vertices": 4,
+      "self_intersections": 0,
+      "inside_canvas": true,
+      "bbox_px": [
+        3579.72,
+        653.09,
+        3909.66,
+        910.26
+      ]
+    }
+  ],
+  "spawn_px": [
+    2285.62,
+    2407.32
+  ],
+  "spawn_inside_walkable": [
+    "path_0"
+  ],
+  "spawn_on_foreground_mask": true,
+  "kept_chunks_all_have_fg": true,
+  "kept": 17,
+  "dropped": [
+    "chunk_0_0",
+    "chunk_1_0",
+    "chunk_0_1"
+  ],
+  "see_through_windows_above_20m": {
+    "count": 0,
+    "largest_px": [],
+    "rim_seam_cracks_filled_px": [
+      [
+        3959,
+        1125
+      ],
+      [
+        4228,
+        1476
+      ],
+      [
+        4276,
+        1530
+      ],
+      [
+        4418,
+        1593
+      ],
+      [
+        4437,
+        1608
+      ],
+      [
+        4445,
+        1614
+      ],
+      [
+        4467,
+        1626
+      ],
+      [
+        4670,
+        1630
+      ],
+      [
+        4483,
+        1633
+      ],
+      [
+        4904,
+        1701
+      ],
+      [
+        4967,
+        1729
+      ],
+      [
+        5220,
+        1973
+      ],
+      [
+        5270,
+        1992
+      ],
+      [
+        5373,
+        2043
+      ]
+    ]
+  },
+  "rim_stats": {
+    "near_landmass_rim": {
+      "tol_5cm": {
+        "tolerance_m": 0.05,
+        "vertices_in_canvas_band": 342,
+        "vertex_spacing_m": 0.25,
+        "max_straight_run_m": 2.486,
+        "max_straight_run_px": 205.1,
+        "max_straight_run_starts_at_px": [
+          3152.3,
+          3493.4
+        ],
+        "sharpest_opening_deg_1m_arms": 94.1,
+        "right_angle_corners_1m_straight_arms": 0
+      },
+      "tol_3cm": {
+        "tolerance_m": 0.03,
+        "vertices_in_canvas_band": 342,
+        "vertex_spacing_m": 0.25,
+        "max_straight_run_m": 1.75,
+        "max_straight_run_px": 157.3,
+        "max_straight_run_starts_at_px": [
+          2937.0,
+          1108.3
+        ],
+        "sharpest_opening_deg_1m_arms": 94.1,
+        "right_angle_corners_1m_straight_arms": 0
+      },
+      "self_intersections": 0,
+      "perimeter_m": 250.8
+    },
+    "far_plateau_rim": {
+      "tol_5cm": {
+        "tolerance_m": 0.05,
+        "vertices_in_canvas_band": 245,
+        "vertex_spacing_m": 0.25,
+        "max_straight_run_m": 2.488,
+        "max_straight_run_px": 244.5,
+        "max_straight_run_starts_at_px": [
+          4665.7,
+          -909.7
+        ],
+        "sharpest_opening_deg_1m_arms": 126.4,
+        "right_angle_corners_1m_straight_arms": 0
+      },
+      "tol_3cm": {
+        "tolerance_m": 0.03,
+        "vertices_in_canvas_band": 245,
+        "vertex_spacing_m": 0.25,
+        "max_straight_run_m": 1.996,
+        "max_straight_run_px": 191.6,
+        "max_straight_run_starts_at_px": [
+          5117.8,
+          -1066.5
+        ],
+        "sharpest_opening_deg_1m_arms": 126.4,
+        "right_angle_corners_1m_straight_arms": 0
+      },
+      "self_intersections": 0,
+      "perimeter_m": 273.0
+    }
+  },
+  "bridge_ends": {
+    "north_abutment_deck_end_px": [
+      3801.66,
+      732.58
+    ],
+    "south_abutment_deck_start_px": [
+      3118.09,
+      1321.77
+    ]
+  },
+  "feet": [
+    {
+      "v3_feet_px": [
+        2285,
+        2407
+      ],
+      "feet_px": [
+        2285.0,
+        2407.0
+      ],
+      "local_xz": [
+        -0.5576,
+        6.7852
+      ],
+      "moved": false,
+      "moved_m": 0.0,
+      "on": "path"
+    },
+    {
+      "v3_feet_px": [
+        1000,
+        2880
+      ],
+      "feet_px": [
+        1000.0,
+        2880.0
+      ],
+      "local_xz": [
+        -13.3288,
+        12.675
+      ],
+      "moved": false,
+      "moved_m": 0.0,
+      "on": "path"
+    },
+    {
+      "v3_feet_px": [
+        3000,
+        1200
+      ],
+      "feet_px": [
+        3015.25,
+        1239.72
+      ],
+      "local_xz": [
+        6.7,
+        -7.75
+      ],
+      "moved": true,
+      "moved_m": 0.517,
+      "on": "path"
+    },
+    {
+      "v3_feet_px": [
+        3800,
+        520
+      ],
+      "feet_px": [
+        3800.0,
+        520.0
+      ],
+      "local_xz": [
+        14.4994,
+        -16.712
+      ],
+      "moved": false,
+      "moved_m": 0.0,
+      "on": "path"
+    }
+  ],
+  "zone_fractions_of_top": {
+    "grassy_top": 0.6247361781989355,
+    "path": 0.2915834988012941,
+    "verge": 0.08368032299977043
+  },
+  "outcrops": 41
+}

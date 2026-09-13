@@ -1,0 +1,153 @@
+{
+ "rim_stats": {
+  "near_landmass_rim": {
+   "tol_5cm": {
+    "tolerance_m": 0.05,
+    "vertices_in_canvas_band": 342,
+    "vertex_spacing_m": 0.25,
+    "max_straight_run_m": 2.486,
+    "max_straight_run_px": 205.1,
+    "max_straight_run_starts_at_px": [
+     3152.3,
+     3493.4
+    ],
+    "sharpest_opening_deg_1m_arms": 94.1,
+    "right_angle_corners_1m_straight_arms": 0
+   },
+   "tol_3cm": {
+    "tolerance_m": 0.03,
+    "vertices_in_canvas_band": 342,
+    "vertex_spacing_m": 0.25,
+    "max_straight_run_m": 1.75,
+    "max_straight_run_px": 157.3,
+    "max_straight_run_starts_at_px": [
+     2937.0,
+     1108.3
+    ],
+    "sharpest_opening_deg_1m_arms": 94.1,
+    "right_angle_corners_1m_straight_arms": 0
+   },
+   "self_intersections": 0,
+   "perimeter_m": 250.8
+  },
+  "far_plateau_rim": {
+   "tol_5cm": {
+    "tolerance_m": 0.05,
+    "vertices_in_canvas_band": 245,
+    "vertex_spacing_m": 0.25,
+    "max_straight_run_m": 2.488,
+    "max_straight_run_px": 244.5,
+    "max_straight_run_starts_at_px": [
+     4665.7,
+     -909.7
+    ],
+    "sharpest_opening_deg_1m_arms": 126.4,
+    "right_angle_corners_1m_straight_arms": 0
+   },
+   "tol_3cm": {
+    "tolerance_m": 0.03,
+    "vertices_in_canvas_band": 245,
+    "vertex_spacing_m": 0.25,
+    "max_straight_run_m": 1.996,
+    "max_straight_run_px": 191.6,
+    "max_straight_run_starts_at_px": [
+     5117.8,
+     -1066.5
+    ],
+    "sharpest_opening_deg_1m_arms": 126.4,
+    "right_angle_corners_1m_straight_arms": 0
+   },
+   "self_intersections": 0,
+   "perimeter_m": 273.0
+  }
+ },
+ "feet": [
+  {
+   "v3_feet_px": [
+    2285,
+    2407
+   ],
+   "feet_px": [
+    2285.0,
+    2407.0
+   ],
+   "local_xz": [
+    -0.5576,
+    6.7852
+   ],
+   "moved": false,
+   "moved_m": 0.0,
+   "on": "path"
+  },
+  {
+   "v3_feet_px": [
+    1000,
+    2880
+   ],
+   "feet_px": [
+    1000.0,
+    2880.0
+   ],
+   "local_xz": [
+    -13.3288,
+    12.675
+   ],
+   "moved": false,
+   "moved_m": 0.0,
+   "on": "path"
+  },
+  {
+   "v3_feet_px": [
+    3000,
+    1200
+   ],
+   "feet_px": [
+    3015.25,
+    1239.72
+   ],
+   "local_xz": [
+    6.7,
+    -7.75
+   ],
+   "moved": true,
+   "moved_m": 0.517,
+   "on": "path"
+  },
+  {
+   "v3_feet_px": [
+    3800,
+    520
+   ],
+   "feet_px": [
+    3800.0,
+    520.0
+   ],
+   "local_xz": [
+    14.4994,
+    -16.712
+   ],
+   "moved": false,
+   "moved_m": 0.0,
+   "on": "path"
+  }
+ ],
+ "zones": {
+  "grassy_top": 0.6247361781989355,
+  "path": 0.2915834988012941,
+  "verge": 0.08368032299977043
+ },
+ "outcrops": 41,
+ "walkable": [
+  [
+   "path_0",
+   391,
+   0
+  ],
+  [
+   "path_1",
+   144,
+   0
+  ]
+ ],
+ "spawn_P": 3.8719297087575826
+}
