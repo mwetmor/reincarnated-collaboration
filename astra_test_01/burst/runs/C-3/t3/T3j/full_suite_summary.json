@@ -1,0 +1,70 @@
+{
+  "tests_run": 351,
+  "successful_tests": 337,
+  "elapsed_s": 131.16532458399888,
+  "successful": 337,
+  "red_assertions": 14,
+  "standing_red_assertions": 8,
+  "legacy_area_red_assertions": 6,
+  "command_wall_s": 131.3851965829963,
+  "diagnostic_wall_s": 126.57324329100084,
+  "exit_code": 1,
+  "reds": [
+    {
+      "test": "test_godot_import.GodotImportTests.test_headless_state_machine_input_map_gear_vfx_and_nearest_fallback",
+      "kind": "addFailure"
+    },
+    {
+      "test": "test_oracle_walk.Tests.test_synthetic_contract_and_grid",
+      "kind": "addFailure"
+    },
+    {
+      "test": "test_oracles_motif.Tests.test_f04_outside_at_least_three",
+      "kind": "addFailure"
+    },
+    {
+      "test": "test_oracles_motif.Tests.test_named_genuine_annuli_retained (center=[113, 201])",
+      "kind": "addSubTest"
+    },
+    {
+      "test": "test_oracles_motif.Tests.test_named_genuine_annuli_retained (center=[111, 311])",
+      "kind": "addSubTest"
+    },
+    {
+      "test": "test_oracles_motif.Tests.test_named_genuine_annuli_retained (center=[170, 253])",
+      "kind": "addSubTest"
+    },
+    {
+      "test": "test_scene_kit.SceneKitTests.test_headless_tower_import_run_and_physics",
+      "kind": "addFailure"
+    },
+    {
+      "test": "test_sockets.AmbientRectangleTests.test_fixture_room_rectangle_avoids_blocked_pillar",
+      "kind": "addFailure"
+    },
+    {
+      "test": "test_sockets.AmbientRectangleTests.test_rectangle_hole_union_and_concavity_largest_and_contained (area=10000)",
+      "kind": "addSubTest"
+    },
+    {
+      "test": "test_sockets.AmbientRectangleTests.test_rectangle_hole_union_and_concavity_largest_and_contained (area=4000)",
+      "kind": "addSubTest"
+    },
+    {
+      "test": "test_sockets.AmbientRectangleTests.test_rectangle_hole_union_and_concavity_largest_and_contained (area=10000)",
+      "kind": "addSubTest"
+    },
+    {
+      "test": "test_sockets.AmbientRectangleTests.test_rectangle_hole_union_and_concavity_largest_and_contained (area=3000)",
+      "kind": "addSubTest"
+    },
+    {
+      "test": "test_sockets.AmbientRectangleTests.test_slanted_fractional_global_optimum",
+      "kind": "addFailure"
+    },
+    {
+      "test": "test_sockets.SocketTests.test_headless_directional_release_and_resources",
+      "kind": "addFailure"
+    }
+  ]
+}

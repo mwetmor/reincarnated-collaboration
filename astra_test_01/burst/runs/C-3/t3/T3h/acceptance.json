@@ -1,0 +1,370 @@
+[
+  {
+    "id": "plate_size_px",
+    "subject": "T3h/fixture_project",
+    "passed": null,
+    "value": [
+      400,
+      300
+    ],
+    "threshold": [
+      400,
+      300
+    ],
+    "op": "==",
+    "unit": "as_named",
+    "evidence": [
+      "fixture_build.json",
+      "targeted_tests.log"
+    ],
+    "notes": "Measurement only; conductor evaluates acceptance."
+  },
+  {
+    "id": "rectangle_crop_size_px",
+    "subject": "T3h/fixture_project",
+    "passed": null,
+    "value": [
+      50,
+      90
+    ],
+    "threshold": [
+      50,
+      90
+    ],
+    "op": "==",
+    "unit": "as_named",
+    "evidence": [
+      "fixture_build.json",
+      "targeted_tests.log"
+    ],
+    "notes": "Measurement only; conductor evaluates acceptance."
+  },
+  {
+    "id": "cut_interior_rgba_max_abs_error",
+    "subject": "T3h/fixture_project",
+    "passed": null,
+    "value": 0,
+    "threshold": 0,
+    "op": "==",
+    "unit": "as_named",
+    "evidence": [
+      "fixture_build.json",
+      "targeted_tests.log"
+    ],
+    "notes": "Measurement only; conductor evaluates acceptance."
+  },
+  {
+    "id": "cut_rgb_max_abs_error_including_feather",
+    "subject": "T3h/fixture_project",
+    "passed": null,
+    "value": 0,
+    "threshold": 0,
+    "op": "==",
+    "unit": "as_named",
+    "evidence": [
+      "fixture_build.json",
+      "targeted_tests.log"
+    ],
+    "notes": "Measurement only; conductor evaluates acceptance."
+  },
+  {
+    "id": "cut_outside_alpha_max",
+    "subject": "T3h/fixture_project",
+    "passed": null,
+    "value": 0,
+    "threshold": 0,
+    "op": "==",
+    "unit": "as_named",
+    "evidence": [
+      "fixture_build.json",
+      "targeted_tests.log"
+    ],
+    "notes": "Measurement only; conductor evaluates acceptance."
+  },
+  {
+    "id": "cut_inward_feather_width_px",
+    "subject": "T3h/fixture_project",
+    "passed": null,
+    "value": 1,
+    "threshold": 1,
+    "op": "==",
+    "unit": "as_named",
+    "evidence": [
+      "fixture_build.json",
+      "targeted_tests.log"
+    ],
+    "notes": "Measurement only; conductor evaluates acceptance."
+  },
+  {
+    "id": "cut_crop_position_baseline",
+    "subject": "T3h/fixture_project",
+    "passed": null,
+    "value": [
+      250,
+      60,
+      150
+    ],
+    "threshold": [
+      250,
+      60,
+      150
+    ],
+    "op": "==",
+    "unit": "as_named",
+    "evidence": [
+      "fixture_build.json",
+      "targeted_tests.log"
+    ],
+    "notes": "Measurement only; conductor evaluates acceptance."
+  },
+  {
+    "id": "blocked_point_275_125_contained",
+    "subject": "T3h/fixture_project",
+    "passed": null,
+    "value": true,
+    "threshold": true,
+    "op": "==",
+    "unit": "as_named",
+    "evidence": [
+      "fixture_build.json",
+      "targeted_tests.log"
+    ],
+    "notes": "Measurement only; conductor evaluates acceptance."
+  },
+  {
+    "id": "walkable_point_120_200_contained",
+    "subject": "T3h/fixture_project",
+    "passed": null,
+    "value": false,
+    "threshold": false,
+    "op": "==",
+    "unit": "as_named",
+    "evidence": [
+      "fixture_build.json",
+      "targeted_tests.log"
+    ],
+    "notes": "Measurement only; conductor evaluates acceptance."
+  },
+  {
+    "id": "complement_area_px2",
+    "subject": "T3h/fixture_project",
+    "passed": null,
+    "value": 26400.0,
+    "threshold": 26400,
+    "op": "==",
+    "unit": "as_named",
+    "evidence": [
+      "fixture_build.json",
+      "targeted_tests.log"
+    ],
+    "notes": "Measurement only; conductor evaluates acceptance."
+  },
+  {
+    "id": "shadow_centre_alpha_u8",
+    "subject": "T3h/fixture_project",
+    "passed": null,
+    "value": 115,
+    "threshold": 115,
+    "op": "==",
+    "unit": "as_named",
+    "evidence": [
+      "fixture_build.json",
+      "targeted_tests.log"
+    ],
+    "notes": "round(0.45*255); normalized peak 0.4509803922"
+  },
+  {
+    "id": "shadow_rim_alpha_u8",
+    "subject": "T3h/fixture_project",
+    "passed": null,
+    "value": 0,
+    "threshold": 0,
+    "op": "==",
+    "unit": "as_named",
+    "evidence": [
+      "fixture_build.json",
+      "targeted_tests.log"
+    ],
+    "notes": "Measurement only; conductor evaluates acceptance."
+  },
+  {
+    "id": "fixture_cells",
+    "subject": "T3h/fixture_project",
+    "passed": null,
+    "value": 2,
+    "threshold": 2,
+    "op": "==",
+    "unit": "as_named",
+    "evidence": [
+      "fixture_build.json",
+      "targeted_tests.log"
+    ],
+    "notes": "Measurement only; conductor evaluates acceptance."
+  },
+  {
+    "id": "fixture_original_png_bytes",
+    "subject": "T3h/fixture_project",
+    "passed": null,
+    "value": 28,
+    "threshold": 28,
+    "op": "==",
+    "unit": "as_named",
+    "evidence": [
+      "fixture_build.json",
+      "targeted_tests.log"
+    ],
+    "notes": "Measurement only; conductor evaluates acceptance."
+  },
+  {
+    "id": "ext_resource_paths_resolved",
+    "subject": "T3h/fixture_project",
+    "passed": null,
+    "value": 35,
+    "threshold": 35,
+    "op": "==",
+    "unit": "as_named",
+    "evidence": [
+      "fixture_build.json",
+      "targeted_tests.log"
+    ],
+    "notes": "Measurement only; conductor evaluates acceptance."
+  },
+  {
+    "id": "main_scene",
+    "subject": "T3h/fixture_project",
+    "passed": null,
+    "value": "res://scenes/tower.tscn",
+    "threshold": "res://scenes/tower.tscn",
+    "op": "==",
+    "unit": "as_named",
+    "evidence": [
+      "fixture_build.json",
+      "targeted_tests.log"
+    ],
+    "notes": "Measurement only; conductor evaluates acceptance."
+  },
+  {
+    "id": "sandbox_main_retained",
+    "subject": "T3h/fixture_project",
+    "passed": null,
+    "value": true,
+    "threshold": true,
+    "op": "==",
+    "unit": "as_named",
+    "evidence": [
+      "fixture_build.json",
+      "targeted_tests.log"
+    ],
+    "notes": "Measurement only; conductor evaluates acceptance."
+  },
+  {
+    "id": "figure_sprite_and_speed_scale",
+    "subject": "T3h/fixture_project",
+    "passed": null,
+    "value": 0.5,
+    "threshold": 0.5,
+    "op": "==",
+    "unit": "as_named",
+    "evidence": [
+      "fixture_build.json",
+      "targeted_tests.log"
+    ],
+    "notes": "Measurement only; conductor evaluates acceptance."
+  },
+  {
+    "id": "feet_pivot_error_px",
+    "subject": "T3h/fixture_project",
+    "passed": null,
+    "value": 0,
+    "threshold": 0,
+    "op": "==",
+    "unit": "as_named",
+    "evidence": [
+      "fixture_build.json",
+      "targeted_tests.log"
+    ],
+    "notes": "sprite offset (-256,-400), centered=false, body at spawn; runtime blocked by engine startup"
+  },
+  {
+    "id": "feet_ellipse_width_px",
+    "subject": "T3h/fixture_project",
+    "passed": null,
+    "value": 26.4,
+    "threshold": 26.4,
+    "op": "==",
+    "unit": "as_named",
+    "evidence": [
+      "fixture_build.json",
+      "targeted_tests.log"
+    ],
+    "notes": "Measurement only; conductor evaluates acceptance."
+  },
+  {
+    "id": "walk_run_speed_px_s",
+    "subject": "T3h/fixture_project",
+    "passed": null,
+    "value": [
+      75.0,
+      125.0
+    ],
+    "threshold": [
+      75,
+      125
+    ],
+    "op": "==",
+    "unit": "as_named",
+    "evidence": [
+      "fixture_build.json",
+      "targeted_tests.log"
+    ],
+    "notes": "Measurement only; conductor evaluates acceptance."
+  },
+  {
+    "id": "fixed_camera_zoom",
+    "subject": "T3h/fixture_project",
+    "passed": null,
+    "value": 3.84,
+    "threshold": 3.84,
+    "op": "==",
+    "unit": "as_named",
+    "evidence": [
+      "fixture_build.json",
+      "targeted_tests.log"
+    ],
+    "notes": "Measurement only; conductor evaluates acceptance."
+  },
+  {
+    "id": "window_size_px",
+    "subject": "T3h/fixture_project",
+    "passed": null,
+    "value": [
+      1536,
+      1024
+    ],
+    "threshold": [
+      1536,
+      1024
+    ],
+    "op": "==",
+    "unit": "as_named",
+    "evidence": [
+      "fixture_build.json",
+      "targeted_tests.log"
+    ],
+    "notes": "Measurement only; conductor evaluates acceptance."
+  },
+  {
+    "id": "headless_import_exit_code",
+    "subject": "T3h/fixture_project",
+    "passed": null,
+    "value": -6,
+    "threshold": 0,
+    "op": "==",
+    "unit": "as_named",
+    "evidence": [
+      "fixture_build.json",
+      "targeted_tests.log"
+    ],
+    "notes": "sandbox engine RotatedFileLogger startup crash before project parse; runtime remains unevaluated"
+  }
+]

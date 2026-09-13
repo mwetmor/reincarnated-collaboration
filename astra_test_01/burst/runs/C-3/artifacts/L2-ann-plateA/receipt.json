@@ -1,0 +1,30 @@
+{
+  "task_id": "L2-ann-plateA",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [],
+  "calls_used": 0,
+  "retries": [
+    {
+      "reason": "The python executable was unavailable.",
+      "change": "Generated the overlay using python3."
+    }
+  ],
+  "self_report": {
+    "obeyed_invariants": true,
+    "concerns": [
+      "Hidden foreground parapet floor contacts and baselines are estimated.",
+      "Occluders use outer silhouettes without internal holes.",
+      "The doorway exit marks the bottom step approach."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/annotation.json",
+      "sha256": "6c312c72c9ab3a7f3afbc4cb58d0c4e36628586caf2576bce204d7ad96110606"
+    },
+    {
+      "path": "out/annotation_overlay.png",
+      "sha256": "fd15f8b3f0b3b6a7fe1c55e1174114252f1f24b265086c0c0141d16d0cac4e0e"
+    }
+  ]
+}

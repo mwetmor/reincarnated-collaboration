@@ -1,0 +1,82 @@
+test_cli_scene_option (test_scene_kit.SceneKitTests.test_cli_scene_option) ... ok
+test_collision_blocked_floor_and_complement_area (test_scene_kit.SceneKitTests.test_collision_blocked_floor_and_complement_area) ... ok
+test_concave_floor_and_disconnected_island (test_scene_kit.SceneKitTests.test_concave_floor_and_disconnected_island) ... ok
+test_cut_plate_mismatch_and_empty_occluders (test_scene_kit.SceneKitTests.test_cut_plate_mismatch_and_empty_occluders) ... ok
+test_degenerate_crossed_repeated_and_outside_polygons_rejected (test_scene_kit.SceneKitTests.test_degenerate_crossed_repeated_and_outside_polygons_rejected) ... ok
+test_full_plate_floor_and_winding_reversal (test_scene_kit.SceneKitTests.test_full_plate_floor_and_winding_reversal) ... ok
+test_headless_tower_import_run_and_physics (test_scene_kit.SceneKitTests.test_headless_tower_import_run_and_physics) ... FAIL
+test_load_valid_roundtrip (test_scene_kit.SceneKitTests.test_load_valid_roundtrip) ... ok
+test_missing_scene_files_overlap_and_bad_plate_rejected_before_output (test_scene_kit.SceneKitTests.test_missing_scene_files_overlap_and_bad_plate_rejected_before_output) ... ok
+test_old_sandbox_is_byte_identical_with_scene_option (test_scene_kit.SceneKitTests.test_old_sandbox_is_byte_identical_with_scene_option) ... ok
+test_overlapping_diagonal_walkable_union_edge_crossings (test_scene_kit.SceneKitTests.test_overlapping_diagonal_walkable_union_edge_crossings) ... ok
+test_rectangle_cut_bytes_crop_and_one_pixel_feather (test_scene_kit.SceneKitTests.test_rectangle_cut_bytes_crop_and_one_pixel_feather) ... ok
+test_scene_missing_escaping_and_undeclared_resources_rejected (test_scene_kit.SceneKitTests.test_scene_missing_escaping_and_undeclared_resources_rejected) ... ok
+test_schema_known_bad_types_bounds_ids_and_spawn (test_scene_kit.SceneKitTests.test_schema_known_bad_types_bounds_ids_and_spawn) ... ok
+test_shadow_peak_rim_radial_and_bad_dimensions (test_scene_kit.SceneKitTests.test_shadow_peak_rim_radial_and_bad_dimensions) ... ok
+test_tower_resources_hierarchy_pivot_speeds_collision_and_camera (test_scene_kit.SceneKitTests.test_tower_resources_hierarchy_pivot_speeds_collision_and_camera) ... ok
+test_triangle_outside_transparent_and_source_alpha_preserved (test_scene_kit.SceneKitTests.test_triangle_outside_transparent_and_source_alpha_preserved) ... ok
+test_walkable_union_hole_and_shared_edges (test_scene_kit.SceneKitTests.test_walkable_union_hole_and_shared_edges) ... ok
+test_all_fps_loops_resources_pivot_and_original_bytes (test_godot_import.GodotImportTests.test_all_fps_loops_resources_pivot_and_original_bytes) ... ok
+test_cut_diagnostic_sheets_and_rest_are_not_cells (test_godot_import.GodotImportTests.test_cut_diagnostic_sheets_and_rest_are_not_cells) ... ok
+test_empty_overlapping_nonempty_and_escaping_inputs_rejected (test_godot_import.GodotImportTests.test_empty_overlapping_nonempty_and_escaping_inputs_rejected) ... ok
+test_gap_duplicate_malformed_and_wrong_canvas_rejected (test_godot_import.GodotImportTests.test_gap_duplicate_malformed_and_wrong_canvas_rejected) ... ok
+test_gear_vfx_and_bad_vfx (test_godot_import.GodotImportTests.test_gear_vfx_and_bad_vfx) ... ok
+test_headless_state_machine_input_map_gear_vfx_and_nearest_fallback (test_godot_import.GodotImportTests.test_headless_state_machine_input_map_gear_vfx_and_nearest_fallback) ... FAIL
+test_missing_texture_and_undeclared_resource_rejected (test_godot_import.GodotImportTests.test_missing_texture_and_undeclared_resource_rejected) ... ok
+test_numeric_order_and_native_fps_ignored (test_godot_import.GodotImportTests.test_numeric_order_and_native_fps_ignored) ... ok
+
+======================================================================
+FAIL: test_headless_tower_import_run_and_physics (test_scene_kit.SceneKitTests.test_headless_tower_import_run_and_physics)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_scene_kit.py", line 326, in test_headless_tower_import_run_and_physics
+    self.assertEqual(proc.returncode, 0, log)
+AssertionError: -6 != 0 : ERROR: Failed to open 'user://logs/godot2026-09-13T11.49.00.log'.
+   at: copy (core/io/dir_access.cpp:423)
+
+================================================================
+handle_crash: Program crashed with signal 11
+Engine version: Godot Engine v4.6.3.stable.official (7d41c59c457bd5a245092b4e7eb2d833e3b3f8c3)
+Dumping the backtrace. Please include this when reporting the bug on: https://github.com/godotengine/godot/issues
+[1] 1   libsystem_platform.dylib            0x0000000187ad56a4 _sigtramp + 56
+[2] RotatedFileLogger::rotate_file() (in Godot) + 1160
+[3] RotatedFileLogger::rotate_file() (in Godot) + 1160
+[4] RotatedFileLogger::RotatedFileLogger(String const&, int) (in Godot) + 80
+[5] Main::setup(char const*, int, char**, bool) (in Godot) + 18880
+[6] OS_MacOS_Headless::run() (in Godot) + 68
+[7] main (in Godot) + 924
+[8] 8   dyld                                0x00000001876fab98 start + 6076
+-- END OF C++ BACKTRACE --
+================================================================
+
+
+======================================================================
+FAIL: test_headless_state_machine_input_map_gear_vfx_and_nearest_fallback (test_godot_import.GodotImportTests.test_headless_state_machine_input_map_gear_vfx_and_nearest_fallback)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_godot_import.py", line 162, in test_headless_state_machine_input_map_gear_vfx_and_nearest_fallback
+    self.assertEqual(proc.returncode, 0, log)
+AssertionError: -6 != 0 : ERROR: Failed to open 'user://logs/godot2026-09-13T11.49.05.log'.
+   at: copy (core/io/dir_access.cpp:423)
+
+================================================================
+handle_crash: Program crashed with signal 11
+Engine version: Godot Engine v4.6.3.stable.official (7d41c59c457bd5a245092b4e7eb2d833e3b3f8c3)
+Dumping the backtrace. Please include this when reporting the bug on: https://github.com/godotengine/godot/issues
+[1] 1   libsystem_platform.dylib            0x0000000187ad56a4 _sigtramp + 56
+[2] RotatedFileLogger::rotate_file() (in Godot) + 1160
+[3] RotatedFileLogger::rotate_file() (in Godot) + 1160
+[4] RotatedFileLogger::RotatedFileLogger(String const&, int) (in Godot) + 80
+[5] Main::setup(char const*, int, char**, bool) (in Godot) + 18880
+[6] OS_MacOS_Headless::run() (in Godot) + 68
+[7] main (in Godot) + 924
+[8] 8   dyld                                0x00000001876fab98 start + 6076
+-- END OF C++ BACKTRACE --
+================================================================
+
+
+----------------------------------------------------------------------
+Ran 26 tests in 8.376s
+
+FAILED (failures=2)
+{"tests_run": 26, "successful": false, "failures": ["test_headless_tower_import_run_and_physics (test_scene_kit.SceneKitTests.test_headless_tower_import_run_and_physics)", "test_headless_state_machine_input_map_gear_vfx_and_nearest_fallback (test_godot_import.GodotImportTests.test_headless_state_machine_input_map_gear_vfx_and_nearest_fallback)"], "errors": [], "skipped": [], "wall_s": 8.461777707998408}

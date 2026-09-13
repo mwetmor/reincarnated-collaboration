@@ -1,0 +1,31 @@
+{
+  "task_id": "B1d-faces-SE",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [],
+  "calls_used": 0,
+  "retries": [],
+  "self_report": {
+    "obeyed_invariants": true,
+    "concerns": [
+      "Frozen split at t_max_s=4.4 returned 106 frames (0–105). Delivered sheets contain exactly the requested frames 0–104; frame 105 was excluded. out/tmp was deleted."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/faces_0.png",
+      "sha256": "834dc49220e7fa5758708e2059a8e47fde1321cbd460788c6cae734fb6820cb2"
+    },
+    {
+      "path": "out/faces_1.png",
+      "sha256": "aec6e765f5ecd4905e34835beb3adda419957f5a39fd9f7f773ae8cf496f19d2"
+    },
+    {
+      "path": "out/faces_2.png",
+      "sha256": "eb2f967f2edac947325d085c21c819a64745b6fc570e9342e4bb502c4d06da93"
+    },
+    {
+      "path": "out/faces_index.json",
+      "sha256": "7512e9058b427c519d1d9cea2d509297f26987c4361fb45ae01744deff8b1cc2"
+    }
+  ]
+}

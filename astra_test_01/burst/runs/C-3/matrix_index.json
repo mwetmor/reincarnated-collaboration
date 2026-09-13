@@ -3,20 +3,18 @@
  "cells": {
   "idle_S": {
    "status": "COMPLETE",
-   "check_burst": "P4c-S-idle",
-   "pack_burst": "P4p-S-idle",
-   "transcribe_burst": "P4t-S-idle",
-   "clip": "S_idle.mp4",
+   "check_burst": "P4c-S-idle-alert",
+   "pack_burst": null,
+   "transcribe_burst": null,
+   "clip": "S_idle_alert.mp4",
    "clip_version": "v1",
    "flags": [
-    "period_prompted_fallback: observed autocorrelation confidence 0.0",
-    "suspect_splice_pairs_inside_selected"
+    "alert ready-idle re-drive (R-C3-35): eyes open; expression reads more startled than the passed calm idle",
+    "re-driven as an ALERT ready-idle (R-C3-35): eyes open on every frame (transcriber 0 closed); expression reads more startled than the calm idle Matt passed"
    ],
-   "transcriber_disagrees_with_intent": [
-    "breath_visible"
-   ],
-   "transcriber_controls_caught": true,
-   "packet": "../artifacts/P4p-S-idle/packet/review.html"
+   "transcriber_disagrees_with_intent": [],
+   "transcriber_controls_caught": null,
+   "packet": null
   },
   "walk_S": {
    "status": "COMPLETE",
@@ -106,20 +104,18 @@
   },
   "idle_SW": {
    "status": "COMPLETE",
-   "check_burst": "P4c-SW-idle",
-   "pack_burst": "P4p-SW-idle",
-   "transcribe_burst": "P4t-SW-idle",
+   "check_burst": "P4c-SW-idle-b",
+   "pack_burst": null,
+   "transcribe_burst": null,
    "clip": "SW_idle.mp4",
    "clip_version": "v1",
    "flags": [
-    "period_from_prompted_fallback",
-    "splice_suspect_inside_selected"
+    "blink-free re-cut (R-C3-32): windows whose sampled frames hit transcriber-closed eyes excluded",
+    "blink-free re-cut (R-C3-32): sampled frames avoid the eyes-closed span 93\u2013104"
    ],
-   "transcriber_disagrees_with_intent": [
-    "breath_visible"
-   ],
-   "transcriber_controls_caught": true,
-   "packet": "../artifacts/P4p-SW-idle/packet/review.html"
+   "transcriber_disagrees_with_intent": [],
+   "transcriber_controls_caught": null,
+   "packet": null
   },
   "walk_SW": {
    "status": "COMPLETE",
@@ -189,18 +185,18 @@
   },
   "idle_W": {
    "status": "COMPLETE",
-   "check_burst": "P4c-W-idle",
-   "pack_burst": "P4p-W-idle",
-   "transcribe_burst": "P4t-W-idle",
+   "check_burst": "P4c-W-idle-b",
+   "pack_burst": null,
+   "transcribe_burst": null,
    "clip": "W_idle.mp4",
    "clip_version": "v1",
    "flags": [
-    "period_prompted_fallback",
-    "splice_suspect_inside_selected"
+    "blink-free re-cut (R-C3-32)",
+    "blink-free re-cut (R-C3-32): sampled frames avoid the eyes-closed span 54\u2013104"
    ],
    "transcriber_disagrees_with_intent": [],
-   "transcriber_controls_caught": true,
-   "packet": "../artifacts/P4p-W-idle/packet/review.html"
+   "transcriber_controls_caught": null,
+   "packet": null
   },
   "walk_W": {
    "status": "COMPLETE",
@@ -537,19 +533,18 @@
   },
   "idle_E": {
    "status": "COMPLETE",
-   "check_burst": "P4c-E-idle",
-   "pack_burst": "P4p-E-idle",
-   "transcribe_burst": "P4t-E-idle",
+   "check_burst": "P4c-E-idle-b",
+   "pack_burst": null,
+   "transcribe_burst": null,
    "clip": "E_idle.mp4",
    "clip_version": "v1",
    "flags": [
-    "Period uses prompted_fallback at 2.0 s; observed autocorrelation confidence is 0.0, so a measured single breath cycle is unconfirmed."
+    "blink-free re-cut (R-C3-32)",
+    "blink-free re-cut (R-C3-32): sampled frames avoid the eyes-closed span 60\u2013104"
    ],
-   "transcriber_disagrees_with_intent": [
-    "breath_visible"
-   ],
-   "transcriber_controls_caught": true,
-   "packet": "../artifacts/P4p-E-idle/packet/review.html"
+   "transcriber_disagrees_with_intent": [],
+   "transcriber_controls_caught": null,
+   "packet": null
   },
   "walk_E": {
    "status": "COMPLETE",
@@ -628,19 +623,18 @@
   },
   "idle_SE": {
    "status": "COMPLETE",
-   "check_burst": "P4c-SE-idle",
-   "pack_burst": "P4p-SE-idle",
-   "transcribe_burst": "P4t-SE-idle",
-   "clip": "SE_idle.mp4",
+   "check_burst": "P4c-SE-idle-alert",
+   "pack_burst": null,
+   "transcribe_burst": null,
+   "clip": "SE_idle_alert.mp4",
    "clip_version": "v1",
    "flags": [
-    "period_prompted_fallback: observed autocorrelation confidence 0.0; selected period uses the registered 2.0-second prior"
+    "alert ready-idle re-drive (R-C3-35): eyes open; expression reads more startled",
+    "re-driven as an ALERT ready-idle (R-C3-35): eyes open on every frame; expression more startled"
    ],
-   "transcriber_disagrees_with_intent": [
-    "breath_visible"
-   ],
-   "transcriber_controls_caught": true,
-   "packet": "../artifacts/P4p-SE-idle/packet/review.html"
+   "transcriber_disagrees_with_intent": [],
+   "transcriber_controls_caught": null,
+   "packet": null
   },
   "walk_SE": {
    "status": "COMPLETE",

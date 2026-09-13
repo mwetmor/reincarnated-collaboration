@@ -1,0 +1,140 @@
+{
+  "task_id": "T3j",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [],
+  "calls_used": 0,
+  "retries": [
+    {
+      "reason": "The full-suite console summary omitted red test identities.",
+      "change": "Repeated the suite with diagnostic result capture; both runs reported 351 tests and 337 successful."
+    }
+  ],
+  "self_report": {
+    "obeyed_invariants": true,
+    "concerns": [
+      "Implemented largest_walkable_rectangle(annotation, cell_size=8, report=None): conservative boolean raster, deterministic O(rows*cols) histogram/stack search, one-cell inset, list return, and cells/area_px2/wall_s reporting. Geometry preprocessing also depends on polygon complexity.",
+      "Acceptance conflict remains: T3i fixture rectangle [32,32,240,272], area 49920 px2 versus required >=59800 px2; deficit 9880 px2 (16.52%). The mandated grid and inset reduce the previous continuous optimum. Original area assertions remain active. All 780 returned cells and 3900 independent samples were contained.",
+      "Concave L with blocked hole: rectangle [8,8,392,88], area 30720 px2; all 480 cells contained. Seven new synthetic tests succeeded in 3.604 s, including 511 exhaustive nonempty 3x3 grids, sub-cell holes/gaps, union seams, determinism and invalid inputs.",
+      "1536x1024 stress annotation: 25 polygons, 48 vertices each, 24576 grid cells; solver 0.113745 s versus <=5 s. Returned area 376960 px2; zero invalid cells among 5890 checked.",
+      "Real tower export: exit 0, wall 1.193705 s; 40 animation cells, 416 character frames, 471 validated resource references, 8 socket cells and 0 missing sockets. Plate A rectangle [288,424,1192,800], area 339904 px2; solver 0.043327 s. All 5311 returned cells and 26555 independent samples were inside walkable and outside blocked.",
+      "Full suite: tests_run=351, successful=337, red assertions=14; command wall 131.385197 s. Diagnostic repeat wall 126.573243 s, identical counts. Eight standing reds plus six preserved legacy area reds; the requested standing-red-only result was not achieved.",
+      "Standing reds: test_godot_import.GodotImportTests.test_headless_state_machine_input_map_gear_vfx_and_nearest_fallback; test_oracle_walk.Tests.test_synthetic_contract_and_grid; test_oracles_motif.Tests.test_f04_outside_at_least_three; test_oracles_motif.Tests.test_named_genuine_annuli_retained at centers [113,201], [111,311], [170,253]; test_scene_kit.SceneKitTests.test_headless_tower_import_run_and_physics; test_sockets.SocketTests.test_headless_directional_release_and_resources.",
+      "Additional reds: test_sockets.AmbientRectangleTests.test_fixture_room_rectangle_avoids_blocked_pillar (49920 versus 59800); test_rectangle_hole_union_and_concavity_largest_and_contained subtests: full floor 6400 versus 10000, hole 1920 versus 4000, overlapping union 6400 versus 10000, concavity 640 versus 3000; test_slanted_fractional_global_optimum (1024 versus 2500).",
+      "Elapsed at artifact hashing: 666.116 s versus 2400 s cap. Image calls 0 versus cap 0. No standalone Godot command; headless cases ran through the requested suite. Zero temporary directories remain. The 462 tower-project PNG files are omitted from the receipt as authorized."
+    ]
+  },
+  "files": [
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/export/scene_kit.py",
+      "sha256": "7a3ef96222fa90348af56684c5427ece2bd75240466808a73d5aec9d287dbdb6"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/export/godot_import.py",
+      "sha256": "57013b8aa28c2969f2b8fcc3b8a711e6cc9dc620af917fb29ce663043243bc73"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_scene_kit.py",
+      "sha256": "18512dbeb3efa368c75fff940dfe3e61ee824e3b66ec79bf9440a6d66fe82bfc"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_sockets.py",
+      "sha256": "7363fe213bdc2d8aa9a1e35e279cee652fdbce3a52819ae5869de849abe92712"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/t3/T3j/acceptance.json",
+      "sha256": "20b26845b13f79d41989e5c6689ee8f4526f8f4bf06a1c5583f0c115483263ed"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/t3/T3j/full_suite.log",
+      "sha256": "849e74a34613bab8e1d61e33a818ba3e25a512bc22645eeb1bcf0bc25ad7d4ed"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/t3/T3j/full_suite_diagnostics.json",
+      "sha256": "e616e1dcaebed81773de2dc583ed9564c604ecb78b00b7a5ced43542aa8471ed"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/t3/T3j/full_suite_diagnostics.log",
+      "sha256": "319afbfb8be131ae87e6e65c8c6fcc7dafd8f4f161818d7757f027e0a6cd0e14"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/t3/T3j/full_suite_run.json",
+      "sha256": "303070021c7dbae179f0847b9c8a4961e2e2d6e5334a10cc7e58adaced7e02ee"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/t3/T3j/full_suite_summary.json",
+      "sha256": "21b635c8daa89a4881a3df2f0b7a8d3da8e8219679dcdb08a5d6a3335d17dfa7"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/t3/T3j/tower_export.json",
+      "sha256": "31cfc7706be08bff7450ee34da81dc53ad31cfedafa49560489dde53a5c7f2d7"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/t3/T3j/tower_export_run.json",
+      "sha256": "801cb2eace1aca9ead93b62cc2735ccdea01b9b897dab7a85388549b33a13729"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/t3/T3j/tower_project/README.md",
+      "sha256": "7e3e017f5d542e6d9cbb8c236a9f3bfba11d5f86ea4fcdb8d3ee7631e767be73"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/t3/T3j/tower_project/frames/keeper.tres",
+      "sha256": "d5acbca3e7387b7b0acb7cd13122bcbcb966dee914f2efb71d9564f012232f58"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/t3/T3j/tower_project/project.godot",
+      "sha256": "6d0ef8e05564e1996db4acf5b3ce09abd63e698a147179acca4a78ab03c7a0af"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/t3/T3j/tower_project/scene/annotation.json",
+      "sha256": "5d2fcd0a422250eede5a7f7f8c913e7cb08cfeae2dfeb162df8814625147d565"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/t3/T3j/tower_project/scene/occluders/occluders.json",
+      "sha256": "0f7c7c346bc39e722e4105315bc890c966c57046d34f0bf2411a52447bc68254"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/t3/T3j/tower_project/scenes/ambient.tscn",
+      "sha256": "ae6006a9b905f8c34dfc7922e73563209a4c7532c227a4c788714dec2f6b7d95"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/t3/T3j/tower_project/scenes/frost_bolt.tscn",
+      "sha256": "4dda78afdf571f4853ad067d46472e072603a236f9a3b3f70385fbdcb3dae4a5"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/t3/T3j/tower_project/scenes/frost_impact.tscn",
+      "sha256": "f10b6807b2708a8ea5ee1844f56bc3e65c4a40ddaa640c04aec38e449444c629"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/t3/T3j/tower_project/scenes/main.tscn",
+      "sha256": "a7ff2b1ba99ca306dacd7fbee1556fbfbed54d72cc8e3c01ab72e1aba58b874d"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/t3/T3j/tower_project/scenes/tower.tscn",
+      "sha256": "adbea3f017b750dd9aa49e6de1e99cd01f4f08313ff225c6efa7efc50f839cd4"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/t3/T3j/tower_project/scripts/frost_bolt.gd",
+      "sha256": "7fcfce78be6360dc720017408bf1896600c41e1be2a7f9d1bc501cff24c5fd23"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/t3/T3j/tower_project/scripts/frost_impact.gd",
+      "sha256": "2f53be38f198744ff7f39b9281e2c82b06836c37a6f3bbc89e85d54bd1fc4105"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/t3/T3j/tower_project/scripts/keeper.gd",
+      "sha256": "21edf18e73bce111fd1f7a8e2f916004a6745254f27fc6f8ede7f8d1e774545c"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/t3/T3j/tower_project/sockets.json",
+      "sha256": "d35cc63bd7091348b693899eedb87d3032539385b4bce119fffec51a963fa921"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/t3/T3j/tower_project/vfx/flare.tres",
+      "sha256": "95244a28321c3e470360f182ecb828be8adf500db7487ccd0253fef3d765ae0b"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/t3/T3j/tower_project/vfx/impact.tres",
+      "sha256": "32f6eadd48ccc2cdb626b5bdd433f78bba0f662f7ca8ef53c373a0117f361600"
+    }
+  ]
+}

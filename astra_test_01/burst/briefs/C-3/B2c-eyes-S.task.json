@@ -1,0 +1,26 @@
+{
+ "text": "TRANSCRIBE BURST B2c-eyes-S — eye state per frame for a painted 2D character's idle animation. task_id \"B2c-eyes-S\". You are a separate instance: you have not seen any prompt, receipt or measurement and must not look for one.\n\nThe images are contact sheets of close-up crops of ONE young woman's head, one crop per video frame, each labelled n=<frame index> beneath it. For EVERY labelled crop answer the eye state with exactly one of: \"open\" (both visible eyes clearly open), \"closed\" (the visible eyes shut or nearly shut — any blink), \"partly\" (mid-blink, lids clearly lowered), \"not visible\" (the eyes cannot be seen). Presence only; never coordinates. Also answer one control question: \"helmet_present\": does the woman wear a helmet in ANY crop? (yes/no).\nWrite out/eyes.json: {\"task_id\":\"B2c-eyes-S\",\"frames\":{\"<n>\":\"open|closed|partly|not visible\", …every labelled n…},\"helmet_present\":\"yes|no\",\"notes\":\"one line\"}. No image_gen. No code. No web. No files outside out/. calls_used 0.\nRETURN: receipt task_id \"B2c-eyes-S\"; images []; files [out/eyes.json + sha256]; status DELIVERED / DELIVERED_WITH_CONCERNS; concerns. Never PASS/FAIL.",
+ "references": [
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/B1c-faces-S/faces_0.png",
+   "role": "face crops, native frames 0–35, each labelled n=<index> under the cell"
+  },
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/B1c-faces-S/faces_1.png",
+   "role": "face crops, native frames 36–71, each labelled n=<index> under the cell"
+  },
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/B1c-faces-S/faces_2.png",
+   "role": "face crops, native frames 72–104, each labelled n=<index> under the cell"
+  }
+ ],
+ "image_cap": 0,
+ "minutes_cap": 15,
+ "tool_call_cap": 20,
+ "outputs": [
+  "out/eyes.json"
+ ],
+ "effort": "high",
+ "add_dirs": [],
+ "experiment": "C3-L2-blink"
+}

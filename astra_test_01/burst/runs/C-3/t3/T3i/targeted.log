@@ -1,0 +1,38 @@
+test_bad_geometry_rejected (test_sockets.AmbientRectangleTests.test_bad_geometry_rejected) ... ok
+test_fixture_room_rectangle_avoids_blocked_pillar (test_sockets.AmbientRectangleTests.test_fixture_room_rectangle_avoids_blocked_pillar) ... ok
+test_rectangle_hole_union_and_concavity_largest_and_contained (test_sockets.AmbientRectangleTests.test_rectangle_hole_union_and_concavity_largest_and_contained) ... ok
+test_slanted_fractional_global_optimum (test_sockets.AmbientRectangleTests.test_slanted_fractional_global_optimum) ... ok
+test_all_new_resources_release_transform_directions_and_credits (test_sockets.SocketTests.test_all_new_resources_release_transform_directions_and_credits) ... ok
+test_default_override_all_cells_and_invalid_release (test_sockets.SocketTests.test_default_override_all_cells_and_invalid_release) ... ok
+test_headless_directional_release_and_resources (test_sockets.SocketTests.test_headless_directional_release_and_resources) ... FAIL
+test_invalid_kit_gap_range_rgb_and_missing_credit (test_sockets.SocketTests.test_invalid_kit_gap_range_rgb_and_missing_credit) ... ok
+test_missing_coordinate_is_explicit_and_malformed_rejected (test_sockets.SocketTests.test_missing_coordinate_is_explicit_and_malformed_rejected) ... ok
+test_real_cast_coverage (test_sockets.SocketTests.test_real_cast_coverage) ... ok
+
+======================================================================
+FAIL: test_headless_directional_release_and_resources (test_sockets.SocketTests.test_headless_directional_release_and_resources)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_sockets.py", line 163, in test_headless_directional_release_and_resources
+    self.assertEqual(engine_errors,[], '\n'.join(engine_errors))
+AssertionError: Lists differ: ['ERROR: Condition "ret != noErr" is true.[285 chars] ""'] != []
+
+First list contains 4 additional elements.
+First extra element 0:
+'ERROR: Condition "ret != noErr" is true. Returning: ""'
+
++ []
+- ['ERROR: Condition "ret != noErr" is true. Returning: ""',
+-  "ERROR: Cannot save file '/Users/admin/Library/Application "
+-  "Support/Godot/editor_settings-4.6.tres'.",
+-  'ERROR: Error saving editor settings to /Users/admin/Library/Application '
+-  'Support/Godot/editor_settings-4.6.tres',
+-  'ERROR: Condition "ret != noErr" is true. Returning: ""'] : ERROR: Condition "ret != noErr" is true. Returning: ""
+ERROR: Cannot save file '/Users/admin/Library/Application Support/Godot/editor_settings-4.6.tres'.
+ERROR: Error saving editor settings to /Users/admin/Library/Application Support/Godot/editor_settings-4.6.tres
+ERROR: Condition "ret != noErr" is true. Returning: ""
+
+----------------------------------------------------------------------
+Ran 10 tests in 14.043s
+
+FAILED (failures=1)

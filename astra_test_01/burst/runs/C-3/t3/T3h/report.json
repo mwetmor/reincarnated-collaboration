@@ -1,0 +1,81 @@
+{
+  "task_id": "T3h",
+  "full_suite_required_command": {
+    "tests_run": 326,
+    "successful_tests": 319,
+    "elapsed_s": 108.69213729200419
+  },
+  "full_suite_diagnostic_command": {
+    "tests_run": 326,
+    "successful_tests": 319,
+    "elapsed_s": 107.59209641700727
+  },
+  "unittest_successful_methods": 321,
+  "red_records": [
+    "test_headless_state_machine_input_map_gear_vfx_and_nearest_fallback (test_godot_import.GodotImportTests.test_headless_state_machine_input_map_gear_vfx_and_nearest_fallback)",
+    "test_synthetic_contract_and_grid (test_oracle_walk.Tests.test_synthetic_contract_and_grid)",
+    "test_f04_outside_at_least_three (test_oracles_motif.Tests.test_f04_outside_at_least_three)",
+    "test_named_genuine_annuli_retained (test_oracles_motif.Tests.test_named_genuine_annuli_retained) (center=[113, 201])",
+    "test_named_genuine_annuli_retained (test_oracles_motif.Tests.test_named_genuine_annuli_retained) (center=[111, 311])",
+    "test_named_genuine_annuli_retained (test_oracles_motif.Tests.test_named_genuine_annuli_retained) (center=[170, 253])",
+    "test_headless_tower_import_run_and_physics (test_scene_kit.SceneKitTests.test_headless_tower_import_run_and_physics)"
+  ],
+  "red_record_count": 7,
+  "unexpected_red_records": 0,
+  "targeted": {
+    "tests_run": 26,
+    "successful": false,
+    "failures": [
+      "test_headless_tower_import_run_and_physics (test_scene_kit.SceneKitTests.test_headless_tower_import_run_and_physics)",
+      "test_headless_state_machine_input_map_gear_vfx_and_nearest_fallback (test_godot_import.GodotImportTests.test_headless_state_machine_input_map_gear_vfx_and_nearest_fallback)"
+    ],
+    "errors": [],
+    "skipped": [],
+    "wall_s": 8.461777707998408
+  },
+  "fixture": {
+    "cells": [
+      "idle_S",
+      "walk_E"
+    ],
+    "frames": 28,
+    "texture_references": 28,
+    "gear_cells": 0,
+    "vfx_animations": 0,
+    "scene": {
+      "plate_size": [
+        400,
+        300
+      ],
+      "occluders": 1,
+      "collision_polygons": 5,
+      "figure_height_px": 120,
+      "scale": 0.5,
+      "feet_width_px": 26.4,
+      "walk_speed": 75.0,
+      "run_speed": 125.0,
+      "camera_zoom": 3.84,
+      "camera_visible_plate_px": [
+        400.0,
+        266.6666666666667
+      ],
+      "resource_references": 36
+    },
+    "wall_s": 0.029367083989200182,
+    "total_fixture_wall_s": 0.05783050000900403,
+    "unchanged_cell_frames": 28
+  },
+  "wall_s_since_first_clock": 844.304104,
+  "wall_cap_s": 2400,
+  "recorded_at_utc": "2026-09-13T15:55:06.304104+00:00",
+  "notes": [
+    "The runner subtracts seven red records; three annulus subtests belong to one method, yielding 321 successful methods versus runner successful_tests=319.",
+    "Godot headless exits -6 during RotatedFileLogger startup; engine parsing and physics are unevaluated in this sandbox.",
+    "Required suite commands rewrote their standard eight report files under tests/; these are included in the receipt.",
+    "Constraint deviation: one empty export/godot_import.py.tmp was briefly created outside the allowed temporary directories and deleted.",
+    "Initial SPEC extraction also exposed adjacent T3g/T3i contract text; no work on those rows was performed.",
+    "Initial dotted unittest module invocation found no tests package; corrected to directory discovery.",
+    "No temporary files remain in runs/C-3/t3/T3h/tmp/. No video frames were decoded by the T3h fixture build.",
+    "For the 4:3 synthetic plate, fill zoom 3.84 shows 400 by 266.6667 plate pixels in the 3:2 window; vertical crop is 33.3333 plate pixels total."
+  ]
+}

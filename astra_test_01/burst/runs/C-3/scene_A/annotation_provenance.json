@@ -1,0 +1,8 @@
+{
+ "notes": "Coordinates are plate pixels; walkable polygons exclude solid footprints, exits lie at stair approaches, and hidden foreground parapet inner foot contacts and depth baselines are estimated below their caps; foreground foliage is grouped with its supporting wall, and silhouettes use outer contours without internal holes.",
+ "conductor_edits": [
+  "R-C3-34: desk_and_instruments silhouette appended to blocked (its top overlapped the walkable polygon)",
+  "R-C3-34: front band y \u2265 815 appended to blocked (walkable ran over the front parapet face to the plate bottom)"
+ ],
+ "source_annotation_sha256": "6c312c72c9ab3a7f3afbc4cb58d0c4e36628586caf2576bce204d7ad96110606"
+}

@@ -1,0 +1,13 @@
+{
+ "text": "CHECK BURST B1d-faces-S — face-crop contact sheets for eye-state labelling (Run C-3 lap 2, idle blink fix, ledger R-C3-29). task_id \"B1d-faces-S\". REPORT ONLY.\n\nInput (read-only): the clip /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/xvideo/in/S_idle_alert.mp4 (768×1168, 24 fps, 145 frames, #00ff00 plate). Frozen tools under /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/ (run, never modify): oracle/video_cut.py (split, matte_frames with edge_mode='clamp', track). python glue importing them is fine; no new tool files; PIL + numpy only.\n\nDo exactly: (1) vc.split(clip, out/tmp/native, t_max_s=4.4) → native frames 0…104; vc.matte_frames(paths, edge_mode='clamp'). (2) For each native frame k: find the HEAD, not the staff: on the alpha≥128 mask of the largest component, head_top = the first row (from the top) whose WIDEST single run is ≥ 5 % of the frame width (the staff is only a few pixels wide and must be skipped); head_h = 0.13 × (sole row − head_top); head box = rows head_top … head_top + head_h, columns = the extent of alpha in those rows EXCLUDING any run narrower than 5 % of the frame width, expanded to a square around its centre with 20 % margin; crop from the MATTED frame composited on #3a3f4a; resize to 160×160 LANCZOS. Same method for every frame. (3) Sheets: out/faces_0.png, out/faces_1.png, out/faces_2.png — native frames 0–35, 36–71, 72–104 in a 6-column grid of 160-px cells with a 20-px caption strip under each cell reading the native index (e.g. 'n=37') in white; plain #111 background. (4) out/faces_index.json: {\"clip\":…, \"sheets\":[{\"file\":\"faces_0.png\",\"native_indices\":[…]},…], \"crop_px\":160}. Delete out/tmp before returning.\nNo image_gen. No writes outside out/. No web. calls_used 0. Deliver within 10 minutes.\nRETURN: receipt task_id \"B1d-faces-S\"; images []; files: out/faces_0.png, out/faces_1.png, out/faces_2.png, out/faces_index.json with sha256; status; concerns. Never PASS/FAIL.",
+ "references": [],
+ "image_cap": 0,
+ "minutes_cap": 15,
+ "tool_call_cap": 20,
+ "outputs": [
+  "out/faces_index.json"
+ ],
+ "effort": "high",
+ "add_dirs": [],
+ "experiment": "C3-L2-blink"
+}

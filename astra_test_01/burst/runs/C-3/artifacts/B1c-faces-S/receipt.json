@@ -1,0 +1,37 @@
+{
+  "task_id": "B1c-faces-S",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [],
+  "calls_used": 0,
+  "retries": [
+    {
+      "reason": "Requested crop margins extended above the source image.",
+      "change": "Filled out-of-frame margins with #3a3f4a while preserving crop geometry."
+    }
+  ],
+  "self_report": {
+    "obeyed_invariants": true,
+    "concerns": [
+      "Frozen split at 4.4 seconds returned frames 0–105; sheets contain the explicitly requested frames 0–104.",
+      "All crops required background padding above the source image. out/tmp was deleted."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/faces_0.png",
+      "sha256": "861d6639788a8c393bf4df4fb8cf85bb21b51794e4d6e2d07a0dcb7585237c53"
+    },
+    {
+      "path": "out/faces_1.png",
+      "sha256": "7a9e5f6b2265982c5771647b15e0970d8bb8fe4566af6436ae0fe2bc4637266a"
+    },
+    {
+      "path": "out/faces_2.png",
+      "sha256": "f5b0f68d7b74b1748cb189069f43630e43dc67452b60f2bd075dda9cc3cb4952"
+    },
+    {
+      "path": "out/faces_index.json",
+      "sha256": "564236487546469c456ee14ef2132c1a233e6e1e3e10870b40e96caa47c80db9"
+    }
+  ]
+}

@@ -18166,6 +18166,2594 @@
       "codex_version": "codex-cli 0.153.4",
       "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
       "exit": 0
+    },
+    {
+      "id": "P4c-W-idle-b",
+      "type": "CHECK",
+      "experiment": "C3-P4",
+      "brief_sha256": "7a868dea8ab1472307f6c77dc1f4c2e8e51b837a881fcc980bd285b868a01957",
+      "started": "2026-09-13T15:28:03.175433+00:00",
+      "ended": "2026-09-13T15:31:24.336312+00:00",
+      "minutes": 3.3526630527667294,
+      "image_calls": 0,
+      "tool_calls": 9,
+      "audit": {
+        "violations": [],
+        "image_calls": 0,
+        "tool_calls": 9,
+        "tools_seen": {
+          "command_execution": 9
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": []
+      },
+      "receipt_sha256": "1cf9e22c2cbc6b0de2f04d79152285a16c1113f6c367582f8daf12e004d6623b",
+      "artifacts": [
+        {
+          "name": "checks.json",
+          "sha256": "ea17ef10b3e735786d5fb5555a8da24dcb112d758efb790dcfd0d0e538f3a618"
+        },
+        {
+          "name": "cut/frames/idle/W/idle_W_00.png",
+          "sha256": "2d06180070df02abb2ca8dde24cdb1a8f189473bdb20b64f65d63afc71da5374"
+        },
+        {
+          "name": "cut/frames/idle/W/idle_W_01.png",
+          "sha256": "ef20ed8abbd5fc08e64fbbbb8aa3d5eb9c5f6de672a9f5d6a31c445bbe810f8d"
+        },
+        {
+          "name": "cut/frames/idle/W/idle_W_02.png",
+          "sha256": "bbfdd995ddf912207597cc0d09d7b36bf2d283d8e41c6410da0c0235d5adbb75"
+        },
+        {
+          "name": "cut/frames/idle/W/idle_W_03.png",
+          "sha256": "e3b4bf20b86f94640f3c4264ef79c7ff9778a339da44356efb3627f56819a412"
+        },
+        {
+          "name": "cut/frames/idle/W/idle_W_04.png",
+          "sha256": "f2504e23879277a2de7192d98ad1247bf972f7eaf72dd07ba67b8e721fc5925b"
+        },
+        {
+          "name": "cut/frames/idle/W/idle_W_05.png",
+          "sha256": "b04f258260c7ac9343f442f6a2f632f0f7becccfc537415cf7071d97bdcca2ed"
+        },
+        {
+          "name": "cut/frames/idle/W/idle_W_06.png",
+          "sha256": "8a7b34030f4d34719c506889fd3b23ba6fd6e2c88fb90a70b04e914ddf8d71e9"
+        },
+        {
+          "name": "cut/frames/idle/W/idle_W_07.png",
+          "sha256": "dcd6a8305f4edb6ae0f68d89e730aba2dd702fbc2911085a607e7897c861f97f"
+        },
+        {
+          "name": "cut/frames/idle/W/idle_W_08.png",
+          "sha256": "d8b3fe67f38188ba88c8f9c56ea4cef2fb7b3c7412e75c370e3c66041424d1dc"
+        },
+        {
+          "name": "cut/frames/idle/W/idle_W_09.png",
+          "sha256": "42c4c0a81b65fcb055c003c4759ee3addd5cd5197110431c563556ea498761ff"
+        },
+        {
+          "name": "cut/frames/idle/W/idle_W_10.png",
+          "sha256": "1cd93c22b27585014adf5c0e2d7ca52e1be967065164c185f9ed46d5df5094af"
+        },
+        {
+          "name": "cut/frames/idle/W/idle_W_11.png",
+          "sha256": "e5e09472029426a4d601837508478bbc79127c0655c91c6ceb4a6cb380c04e95"
+        },
+        {
+          "name": "cut/frames/idle/W/idle_W_12.png",
+          "sha256": "0d5e54180e2297e3ab4ee5ff846ccb4a232ea9c052ba1b8745c4d3efca953a0b"
+        },
+        {
+          "name": "cut/frames/idle/W/idle_W_13.png",
+          "sha256": "caadb6084f8a0feb951712670d3b521c3d54d11668ffbf1cc9a40ec48d395576"
+        },
+        {
+          "name": "cut/frames/idle/W/idle_W_14.png",
+          "sha256": "51916e4a3c25b3083d358aa87dfa0ca2577b91ee64166ed26a2b081734507632"
+        },
+        {
+          "name": "cut/frames/idle/W/idle_W_15.png",
+          "sha256": "ad3b5e06559703cfd9fd3c9ba81599576ddc7398bd1027c479292ad970b58b29"
+        },
+        {
+          "name": "cut/frames/rest/W/rest_W.png",
+          "sha256": "b76c9b55294f6535210b67f6cae923442f300362b25ed2895cdd9a269f718ffb"
+        },
+        {
+          "name": "cut/registration.json",
+          "sha256": "053b087fafe2c4afb03391c8473465497f6b981b119099ecc2ac1848c3e4f792"
+        },
+        {
+          "name": "cut/series.json",
+          "sha256": "8db4461e92936293902ba29bdd4e6546c82126469d83aaf36ec092579e5f0c0b"
+        },
+        {
+          "name": "cut/sheets/idle_W_strip.png",
+          "sha256": "4024b64e43fb8eae8bc060ccb7cd3fea5886d529c289e39ecd2cea7d0c03aead"
+        },
+        {
+          "name": "first_second.png",
+          "sha256": "4ee5697e4a509d6528d4b04552abf19c1707499d661a0ec6ae3821ac34e899f9"
+        },
+        {
+          "name": "grid.png",
+          "sha256": "86a591a79ebe1b1f17f39df0878ffaff4943af0cf17b5c2c58495285c30d0755"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
+    },
+    {
+      "id": "P4c-SW-idle-b",
+      "type": "CHECK",
+      "experiment": "C3-P4",
+      "brief_sha256": "20eb845f451dac1811b76391ba17a84f2b43297004905960cb72dfe0aadabca4",
+      "started": "2026-09-13T15:28:03.175482+00:00",
+      "ended": "2026-09-13T15:31:26.585314+00:00",
+      "minutes": 3.390141883333369,
+      "image_calls": 0,
+      "tool_calls": 8,
+      "audit": {
+        "violations": [],
+        "image_calls": 0,
+        "tool_calls": 8,
+        "tools_seen": {
+          "command_execution": 8
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": []
+      },
+      "receipt_sha256": "307f642deb2afc8a8a4ab1697112337309c75e006e0e4b7ba18b5583cab48e2f",
+      "artifacts": [
+        {
+          "name": "checks.json",
+          "sha256": "4bb99105082923c23f0d53ca0151685bc619666b1f6a3a1489a14f8dadb1fbc4"
+        },
+        {
+          "name": "cut/frames/idle/SW/idle_SW_00.png",
+          "sha256": "40254c9c1b99fe041ce36eaae457dc9adc56ad43a29240ae8aa139104b93b92f"
+        },
+        {
+          "name": "cut/frames/idle/SW/idle_SW_01.png",
+          "sha256": "0f1578759c8707994e14f97d7cfcce12fcf79099be12d5d3d2ab63ef8ebecabe"
+        },
+        {
+          "name": "cut/frames/idle/SW/idle_SW_02.png",
+          "sha256": "7032e993b2edeaaf06be912bfb223aeb15231537aeb59da863c0002b854c31d0"
+        },
+        {
+          "name": "cut/frames/idle/SW/idle_SW_03.png",
+          "sha256": "67ad547cf40472cb62a8a0f721562c49160c9c14adca739b6316a16c0443ad3f"
+        },
+        {
+          "name": "cut/frames/idle/SW/idle_SW_04.png",
+          "sha256": "3521f56758e6e14db770751cf469d260c1c311d7bab18502549f40483862ffcd"
+        },
+        {
+          "name": "cut/frames/idle/SW/idle_SW_05.png",
+          "sha256": "5949b6150279fc6f795308fc2d174510ae86293485ee971f22a209801ecb1547"
+        },
+        {
+          "name": "cut/frames/idle/SW/idle_SW_06.png",
+          "sha256": "2cd48c45de3dcf6a97cb552dd473ce12713e5f11022f2734628d4fd71d02d0f3"
+        },
+        {
+          "name": "cut/frames/idle/SW/idle_SW_07.png",
+          "sha256": "d6d6540ac508383e2bcd2a493fa3df6e782c2121bd0fe5881071717651709b5c"
+        },
+        {
+          "name": "cut/frames/idle/SW/idle_SW_08.png",
+          "sha256": "0532d090e50ddf317290f8b0cb3b217d166430fe8021b8578a9a1c4749980ebc"
+        },
+        {
+          "name": "cut/frames/idle/SW/idle_SW_09.png",
+          "sha256": "222b375e305d8acd1255ddd1d8404d2a0670d810c4b3bb6120dc188e413b554b"
+        },
+        {
+          "name": "cut/frames/idle/SW/idle_SW_10.png",
+          "sha256": "a35560e04ae6b113a4cba63f134ef7a35c0dc1a31be476380c681ad820e69f1c"
+        },
+        {
+          "name": "cut/frames/idle/SW/idle_SW_11.png",
+          "sha256": "f2fd921e2ac0ea6492bcb02a60664e54ec497cb960d18973a7e22a7ba2d6589d"
+        },
+        {
+          "name": "cut/frames/idle/SW/idle_SW_12.png",
+          "sha256": "f3e418873f9edc0473e00c782ce2d74eed25f7ed66a1113fdaf286af86e8473d"
+        },
+        {
+          "name": "cut/frames/idle/SW/idle_SW_13.png",
+          "sha256": "adb635d85b0343d00c77104b205167e4be960668c47c1be41a5fcc8281fd4882"
+        },
+        {
+          "name": "cut/frames/idle/SW/idle_SW_14.png",
+          "sha256": "0e037bdbbebf0b48c5dd93cd03334ca56a16f4cba877ed2c7fea507fd3b2f54a"
+        },
+        {
+          "name": "cut/frames/idle/SW/idle_SW_15.png",
+          "sha256": "45424ab3c99ecdcee94dee243ca405d039722c34869f64b315ada70f933f0639"
+        },
+        {
+          "name": "cut/frames/rest/SW/rest_SW.png",
+          "sha256": "7520c317a265e54e8b30042b856d6858dc9f9a51e2918beb5bcbb49f95737640"
+        },
+        {
+          "name": "cut/registration.json",
+          "sha256": "39de98da75e60caf786a8c0bd1468450b0890c14ea39a934778997550fee2567"
+        },
+        {
+          "name": "cut/series.json",
+          "sha256": "bc49f98506093a334f7bdb4288683262a275476af37eae2732c6586ff7044d57"
+        },
+        {
+          "name": "cut/sheets/idle_SW_strip.png",
+          "sha256": "981861e5a5b424cda8f54353214f3088651abb2de16ed60f4210f064cc1ac2bb"
+        },
+        {
+          "name": "first_second.png",
+          "sha256": "861826ec69e471db11b61aed4462470934f6fa3ec5a3a0ee4441741fcefc2b94"
+        },
+        {
+          "name": "grid.png",
+          "sha256": "0e481ecb9f9a58485491511ae19f335a3e03e1e3900847bb50a5eebc9c361358"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
+    },
+    {
+      "id": "P4c-E-idle-b",
+      "type": "CHECK",
+      "experiment": "C3-P4",
+      "brief_sha256": "22468bc4e003783c7cb1f3f04d05887b3e9c073a92554ca637715fbdf9f78b98",
+      "started": "2026-09-13T15:28:03.175449+00:00",
+      "ended": "2026-09-13T15:31:49.033721+00:00",
+      "minutes": 3.7642744034834323,
+      "image_calls": 0,
+      "tool_calls": 10,
+      "audit": {
+        "violations": [],
+        "image_calls": 0,
+        "tool_calls": 10,
+        "tools_seen": {
+          "command_execution": 10
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": []
+      },
+      "receipt_sha256": "29b4773fb040aab53d51921ca221130a1bddaed59df23d4670334c251377f82d",
+      "artifacts": [
+        {
+          "name": "checks.json",
+          "sha256": "63258bea2b43ea6e221f43ae3b116c5fdf8d1dbecddb0072a1280979c310bc2e"
+        },
+        {
+          "name": "cut/frames/idle/E/idle_E_00.png",
+          "sha256": "472ae1ac5ead62d3e43227d367c2d6205dfaaa450d2d2809bc3637a789eb4a82"
+        },
+        {
+          "name": "cut/frames/idle/E/idle_E_01.png",
+          "sha256": "a415bc7b7b9c1a324c7d09c1938e657d5b4858b786b2c6144fdf0957dde84b3f"
+        },
+        {
+          "name": "cut/frames/idle/E/idle_E_02.png",
+          "sha256": "8850be95f8e39b93152565c58a164dc6bc1fd07566cc7450b70fec207d569d14"
+        },
+        {
+          "name": "cut/frames/idle/E/idle_E_03.png",
+          "sha256": "a64653912dbd5e23ed5669079bd78328299758c16bbbeab0924642420ac05fe5"
+        },
+        {
+          "name": "cut/frames/idle/E/idle_E_04.png",
+          "sha256": "e86f30a66bd984614ef09380f4f76c734e29c5b90a6243ed423792e9ab0fce45"
+        },
+        {
+          "name": "cut/frames/idle/E/idle_E_05.png",
+          "sha256": "47ec0b950dae79f42fc2a9e77199c958934456cc54a9a7c129a15009dcd0f24e"
+        },
+        {
+          "name": "cut/frames/idle/E/idle_E_06.png",
+          "sha256": "ad771492963ea02c84ebc4575ac08eca8f9d69b60c09f6e2a2ddc8db7b7e6664"
+        },
+        {
+          "name": "cut/frames/idle/E/idle_E_07.png",
+          "sha256": "c9dcaec7bec487f754d6a6e154b9840474d2849a43abaae5ef461690481cce68"
+        },
+        {
+          "name": "cut/frames/idle/E/idle_E_08.png",
+          "sha256": "fb9dd682ad8622d76d566c4598e554ce86eee4389a683c8a7705c09866c75503"
+        },
+        {
+          "name": "cut/frames/idle/E/idle_E_09.png",
+          "sha256": "ec2e1819ab2954688d6d5026c74274b9072aaa5a9c77f5d5d1e7935d08a774aa"
+        },
+        {
+          "name": "cut/frames/idle/E/idle_E_10.png",
+          "sha256": "0f1669b1a462d081db891358738fc05f2665dd9ab6992f8ad78c3e808b4d140f"
+        },
+        {
+          "name": "cut/frames/idle/E/idle_E_11.png",
+          "sha256": "fe316ed11697597fc3c6eb043d0d98ceb78c6f96a3c224d24c39384534dd1ae2"
+        },
+        {
+          "name": "cut/frames/idle/E/idle_E_12.png",
+          "sha256": "004970cddb8d4ceaaf9851d604215057a9608a4bbcfad6b592de1cd85ec7625a"
+        },
+        {
+          "name": "cut/frames/idle/E/idle_E_13.png",
+          "sha256": "663de9f70d4e38a49184b79d7072ef4babf40066838cf01ea08a7d3e617f546c"
+        },
+        {
+          "name": "cut/frames/idle/E/idle_E_14.png",
+          "sha256": "4c87ac751aad7f8096cfbdc939de68fb4b77ae7c3559ff80665ccfa7d4198380"
+        },
+        {
+          "name": "cut/frames/idle/E/idle_E_15.png",
+          "sha256": "325b7f4a41e767c6452e3dd0de16955370d53108a10ba849ecfa31a5b3f85c30"
+        },
+        {
+          "name": "cut/frames/rest/E/rest_E.png",
+          "sha256": "35ef0f15548e021e3e0f0307525d77c1d8cf760c60cbb4ee1274ef5d8097bf05"
+        },
+        {
+          "name": "cut/registration.json",
+          "sha256": "8f65e9d407f0baf3b005578df363212d1fce6b8c43cd97c039f765b1ebc90040"
+        },
+        {
+          "name": "cut/series.json",
+          "sha256": "7e74e13fd2716be8bb963de951afcd80fdf27518d884cc74b113ad64bbc9e62b"
+        },
+        {
+          "name": "cut/sheets/idle_E_strip.png",
+          "sha256": "3f1865e3eb9c903c11f8cd74aeed865ccd8f8e940e7c92f186d2dd1fe457356e"
+        },
+        {
+          "name": "first_second.png",
+          "sha256": "f7e6b4c4ccdf26daf3f215416b3fffbfb6e7a39eb814a771a9de9e42add07c83"
+        },
+        {
+          "name": "grid.png",
+          "sha256": "28b881906daaaa6a03cb3ab78b38bb5b2b7bc99f9eedf3937a260c27932fc482"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
+    },
+    {
+      "id": "L2-ann-plateA",
+      "type": "ANNOTATE",
+      "experiment": "C3-L2-scene",
+      "brief_sha256": "05c2caa44e5749b7f74993d24cc37e1fdcf861685049e652ea8e499c8ac70194",
+      "started": "2026-09-13T15:28:03.175445+00:00",
+      "ended": "2026-09-13T15:33:17.453753+00:00",
+      "minutes": 5.237950057633376,
+      "image_calls": 0,
+      "tool_calls": 5,
+      "audit": {
+        "violations": [],
+        "image_calls": 0,
+        "tool_calls": 5,
+        "tools_seen": {
+          "command_execution": 4,
+          "file_change": 1
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": []
+      },
+      "receipt_sha256": "af742d6eff737f6997fbd647a6786e10b4cfcbc23942b1debbb4560c43814491",
+      "artifacts": [
+        {
+          "name": "annotation.json",
+          "sha256": "6c312c72c9ab3a7f3afbc4cb58d0c4e36628586caf2576bce204d7ad96110606"
+        },
+        {
+          "name": "annotation_overlay.png",
+          "sha256": "fd15f8b3f0b3b6a7fe1c55e1174114252f1f24b265086c0c0141d16d0cac4e0e"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
+    },
+    {
+      "id": "P4c-SE-idle-e2",
+      "type": "CHECK",
+      "experiment": "C3-P4",
+      "brief_sha256": "0ed91c54c875fac86dabd4125bdf946994c0825a5e72098555b9fae00e432c66",
+      "started": "2026-09-13T15:31:49.207680+00:00",
+      "ended": "2026-09-13T15:35:14.090894+00:00",
+      "minutes": 3.4147061972333175,
+      "image_calls": 0,
+      "tool_calls": 12,
+      "audit": {
+        "violations": [],
+        "image_calls": 0,
+        "tool_calls": 12,
+        "tools_seen": {
+          "command_execution": 12
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": []
+      },
+      "receipt_sha256": "425a94257c19c7145d0535a01cef0aa46dfd1d72361308475983ed03864810c4",
+      "artifacts": [
+        {
+          "name": "checks.json",
+          "sha256": "b12921ebf85dc6967a1ab4bf4d08751ae6a4ad427c6b4309b060e7d3483b5d31"
+        },
+        {
+          "name": "cut/frames/idle/SE/idle_SE_00.png",
+          "sha256": "0642552ddb3392f7a2416a74d2d25aead8af61e34587a40f1f3e2e0c208bf403"
+        },
+        {
+          "name": "cut/frames/idle/SE/idle_SE_01.png",
+          "sha256": "bbb6b9fa81930821ea0e5c2f90aec13aa484f019b773cf66d50bd545bbddefdb"
+        },
+        {
+          "name": "cut/frames/idle/SE/idle_SE_02.png",
+          "sha256": "16d0183ff4695b73fa6e82d58561549f58cb00b7a457790f6558f3788c36a521"
+        },
+        {
+          "name": "cut/frames/idle/SE/idle_SE_03.png",
+          "sha256": "7ff0cb8b1610451adcdcbd0e973225f58f599943cdab4cce5c60f7c595153b38"
+        },
+        {
+          "name": "cut/frames/idle/SE/idle_SE_04.png",
+          "sha256": "be175053db1baf4120f3df1d10f978f2cc104ae26fe1908928aa903043a63c3d"
+        },
+        {
+          "name": "cut/frames/idle/SE/idle_SE_05.png",
+          "sha256": "2562efb2c68435cd963b0d387273b8ef53afe475abd91a0eb46b2316d4041b4a"
+        },
+        {
+          "name": "cut/frames/idle/SE/idle_SE_06.png",
+          "sha256": "ede9702900118b68f79a931866b58b26ffb3615b7f703665496f52e83dbb5922"
+        },
+        {
+          "name": "cut/frames/idle/SE/idle_SE_07.png",
+          "sha256": "23072a355225a45fbcd892fa26db74f12ead062504cd913119cdb1a2539aa27e"
+        },
+        {
+          "name": "cut/frames/idle/SE/idle_SE_08.png",
+          "sha256": "21ebb9963f882630249e435614a9947a86649ac215021d0727d12ea0f3611c47"
+        },
+        {
+          "name": "cut/frames/idle/SE/idle_SE_09.png",
+          "sha256": "d24417473c3af0b312fcd98f75bea4ea441d99f2740357fda78c3f246666fc73"
+        },
+        {
+          "name": "cut/frames/idle/SE/idle_SE_10.png",
+          "sha256": "79a3bc27a904e3ffcab0afa8ac3daf66d51cc6dde50322df23490f28c931b11f"
+        },
+        {
+          "name": "cut/frames/idle/SE/idle_SE_11.png",
+          "sha256": "b9954836c96bff37b5e5e4d08e9e7bb1e98ccecd66c4a455e97f82a28ae79635"
+        },
+        {
+          "name": "cut/frames/idle/SE/idle_SE_12.png",
+          "sha256": "84e57c0105a1e32a402f2f954c16e12a217bc829b0c71a9a64caaa693a3844c4"
+        },
+        {
+          "name": "cut/frames/idle/SE/idle_SE_13.png",
+          "sha256": "2d4dc420683133f9319d3877ddcac2c1e65fa5cc2075a349d49dc7a573042728"
+        },
+        {
+          "name": "cut/frames/idle/SE/idle_SE_14.png",
+          "sha256": "7547594484d8cafe6a00208a9f54ab4c1298cab2cf57966d6fbd23ff08309d64"
+        },
+        {
+          "name": "cut/frames/idle/SE/idle_SE_15.png",
+          "sha256": "ebf5e4108ed3181c02f2400ca8ade19bfc1061763de23a048bea53efd4ec6c18"
+        },
+        {
+          "name": "cut/frames/rest/SE/rest_SE.png",
+          "sha256": "acb94b1b358f3fd49a9423478bac06c0be676824c838c4e4dc6b16afaaa30c99"
+        },
+        {
+          "name": "cut/registration.json",
+          "sha256": "919563de250fcb5f4dbb53bc2ada01803fb0986ea8c689074587a274b2dc13fc"
+        },
+        {
+          "name": "cut/series.json",
+          "sha256": "646dcb077816d675f5a52523d97dc8a614073e06e3b3e53ecf6c3ce4fd4f389a"
+        },
+        {
+          "name": "cut/sheets/idle_SE_strip.png",
+          "sha256": "387d82929f67d14ea81357612a0aa7abb2ef6686b3f7f9890712afded914d988"
+        },
+        {
+          "name": "first_second.png",
+          "sha256": "6ff1f0a1aa55536f2e2db4e8f0e3ba0906a3943e4f7497f398d5eda38f1b524d"
+        },
+        {
+          "name": "grid.png",
+          "sha256": "c1b912dc97e1247df237ffc245e9071bd0ae1d245c1cbc8b5bef1d470be0b65d"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
+    },
+    {
+      "id": "P4c-S-idle-e2",
+      "type": "CHECK",
+      "experiment": "C3-P4",
+      "brief_sha256": "0991da4421d39840e2d41d853a30001fe819cb68e56f0a43bf3d5527620c66a1",
+      "started": "2026-09-13T15:31:49.207683+00:00",
+      "ended": "2026-09-13T15:35:17.771382+00:00",
+      "minutes": 3.476047900700117,
+      "image_calls": 0,
+      "tool_calls": 9,
+      "audit": {
+        "violations": [],
+        "image_calls": 0,
+        "tool_calls": 9,
+        "tools_seen": {
+          "command_execution": 9
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": []
+      },
+      "receipt_sha256": "c4d54338868ca9050a9789e0f75cc1358510829db11b546545bb39699cf32de1",
+      "artifacts": [
+        {
+          "name": "checks.json",
+          "sha256": "4fbba9db14c315603cd31312dd4d8b7f6dfc25a233c76a80e9f4a828cdb0dfaf"
+        },
+        {
+          "name": "cut/frames/idle/S/idle_S_00.png",
+          "sha256": "546f280800f8f389e46616c094a585a74675583eb899ebbdf3d92ee4fb903ffb"
+        },
+        {
+          "name": "cut/frames/idle/S/idle_S_01.png",
+          "sha256": "406d7c70409f58ec237636a46859f6f895124e28b52e1869163fc75d9997c87a"
+        },
+        {
+          "name": "cut/frames/idle/S/idle_S_02.png",
+          "sha256": "3282e46a83f43b1dcd1f1231daa10dd3e3f7cb4d1ffde1e6d8798bd60853e266"
+        },
+        {
+          "name": "cut/frames/idle/S/idle_S_03.png",
+          "sha256": "7b4b68ba352e38133c6ae66c6aaa5e7de329024314a43d74d4cba7bed4604409"
+        },
+        {
+          "name": "cut/frames/idle/S/idle_S_04.png",
+          "sha256": "c8310263ff3ac5e13afd9e5b5b878db203c7daaa17a1208d7a92ba7097aa4c2b"
+        },
+        {
+          "name": "cut/frames/idle/S/idle_S_05.png",
+          "sha256": "e2a3f5085166870d12901997de4dfdb9f51d31b69f49b5164599aa5525b8805d"
+        },
+        {
+          "name": "cut/frames/idle/S/idle_S_06.png",
+          "sha256": "6157abc97df9f8831cd05de841cfd2d481213d1721f1aadf5ab145a3894ebfa4"
+        },
+        {
+          "name": "cut/frames/idle/S/idle_S_07.png",
+          "sha256": "0bcb53a6a2a3938ab4ab52f788c7e8b0feead139ca7986998769a851e81b0771"
+        },
+        {
+          "name": "cut/frames/idle/S/idle_S_08.png",
+          "sha256": "969346c2096dae0a5f69c7e7b4ff9bbc3c67dc324ddb1e5637e67507122289e2"
+        },
+        {
+          "name": "cut/frames/idle/S/idle_S_09.png",
+          "sha256": "1e4858deff8115c8fb890144d29be56b121f9a5ff2390ba2fd7fec70b9900b34"
+        },
+        {
+          "name": "cut/frames/idle/S/idle_S_10.png",
+          "sha256": "8fa02351c8530585426358c9027961657be12ecb3f1a4268f15199e6b7881cdf"
+        },
+        {
+          "name": "cut/frames/idle/S/idle_S_11.png",
+          "sha256": "9de5071e978b8175344fa0dde3f1e319722abc7cfaf461967c33481ef481e1c8"
+        },
+        {
+          "name": "cut/frames/idle/S/idle_S_12.png",
+          "sha256": "5b7216eaf4429c5a31b5129fdadfe9a6ae7f4f9ec2852b72c3860a8a18943f14"
+        },
+        {
+          "name": "cut/frames/idle/S/idle_S_13.png",
+          "sha256": "c3ba0c37a110a0a3588e9195f8583c8e6a0ff0ca95b5e1de79425583b0eff37f"
+        },
+        {
+          "name": "cut/frames/idle/S/idle_S_14.png",
+          "sha256": "a298cf65426360555fd4df552efcc74a9a62a99c0b4afd172c40585fd97d5867"
+        },
+        {
+          "name": "cut/frames/idle/S/idle_S_15.png",
+          "sha256": "102db6f18e98f8013ee0ed8d3cf22dac43275345ad1a2f623be8bf08301d6ba5"
+        },
+        {
+          "name": "cut/frames/rest/S/rest_S.png",
+          "sha256": "ccad46c202d4a36fb8adaf606e1670f8f12f52dfa17161a00d9d1694df00e45c"
+        },
+        {
+          "name": "cut/registration.json",
+          "sha256": "2707ec15b0b7ba4b2db3caf8faba5de6ce0c1dc14581e1ee9ef8c52f27c608d6"
+        },
+        {
+          "name": "cut/series.json",
+          "sha256": "5a1532861107a2b325d11e0517822f72cc5f9684497a0458b8e7ef09645845fe"
+        },
+        {
+          "name": "cut/sheets/idle_S_strip.png",
+          "sha256": "d1ec6a5a77741ff77620264ec1c1e7818e485a971e6addccb76861bff5abdedc"
+        },
+        {
+          "name": "first_second.png",
+          "sha256": "85e823e449605769c578e54338e4d3894a21dfaa2acc3a4bac08fe14e871f03a"
+        },
+        {
+          "name": "grid.png",
+          "sha256": "899ac2d6008da21911cedae741683720d1604c285973a2eceb3751d3c3c1106f"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
+    },
+    {
+      "id": "B1c-faces-S",
+      "type": "CHECK",
+      "experiment": "C3-L2-blink",
+      "brief_sha256": "60df0e2e55ba49ae73df3c1648eef73700fab8d4b5a60808c7197c85262bddd1",
+      "started": "2026-09-13T15:35:35.863650+00:00",
+      "ended": "2026-09-13T15:38:34.748534+00:00",
+      "minutes": 2.981404650700036,
+      "image_calls": 0,
+      "tool_calls": 3,
+      "audit": {
+        "violations": [],
+        "image_calls": 0,
+        "tool_calls": 3,
+        "tools_seen": {
+          "command_execution": 3
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": []
+      },
+      "receipt_sha256": "80b9ec28c8e4a100632ea5ce876f11c3d815e72b680fa0e32efa60a742142c54",
+      "artifacts": [
+        {
+          "name": "faces_0.png",
+          "sha256": "861d6639788a8c393bf4df4fb8cf85bb21b51794e4d6e2d07a0dcb7585237c53"
+        },
+        {
+          "name": "faces_1.png",
+          "sha256": "7a9e5f6b2265982c5771647b15e0970d8bb8fe4566af6436ae0fe2bc4637266a"
+        },
+        {
+          "name": "faces_2.png",
+          "sha256": "f5b0f68d7b74b1748cb189069f43630e43dc67452b60f2bd075dda9cc3cb4952"
+        },
+        {
+          "name": "faces_index.json",
+          "sha256": "564236487546469c456ee14ef2132c1a233e6e1e3e10870b40e96caa47c80db9"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
+    },
+    {
+      "id": "B1c-faces-SE",
+      "type": "CHECK",
+      "experiment": "C3-L2-blink",
+      "brief_sha256": "e0f3f8b6c17d5e5df8f7231da5728dd2f87628f2ac546f21aa578b792a38696e",
+      "started": "2026-09-13T15:35:35.863653+00:00",
+      "ended": "2026-09-13T15:38:35.102504+00:00",
+      "minutes": 2.987305409716646,
+      "image_calls": 0,
+      "tool_calls": 4,
+      "audit": {
+        "violations": [],
+        "image_calls": 0,
+        "tool_calls": 4,
+        "tools_seen": {
+          "command_execution": 4
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": []
+      },
+      "receipt_sha256": "da1fa9821d5ff75bf52039d6c837c76728c7134846fdad34988f130744ad48ef",
+      "artifacts": [
+        {
+          "name": "faces_0.png",
+          "sha256": "bbe2edf18df62982a62b05e16b77d840bf12f571f07842eefadd998b171d4a00"
+        },
+        {
+          "name": "faces_1.png",
+          "sha256": "15cbb892b54ad87a994253a34554b82daba324ba1878e9d718aa899ac55ca2e6"
+        },
+        {
+          "name": "faces_2.png",
+          "sha256": "9c7ac9216750ac3200fbccedcfb2de946a13d39d8c6d21164abd247fe3955c06"
+        },
+        {
+          "name": "faces_index.json",
+          "sha256": "57fc7dfa1cb57253c4d3bac674a23c626d64d31d2540a6741b5d0be8501a47ea"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
+    },
+    {
+      "id": "B2c-eyes-S",
+      "type": "TRANSCRIBE",
+      "experiment": "C3-L2-blink",
+      "brief_sha256": "026e1c9f96519414678338fd9321eb049e39690a7852ddbcce8b2ce614712796",
+      "started": "2026-09-13T15:38:35.563291+00:00",
+      "ended": "2026-09-13T15:39:38.223378+00:00",
+      "minutes": 1.0443297076334905,
+      "image_calls": 0,
+      "tool_calls": 2,
+      "audit": {
+        "violations": [],
+        "image_calls": 0,
+        "tool_calls": 2,
+        "tools_seen": {
+          "file_change": 1,
+          "command_execution": 1
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": []
+      },
+      "receipt_sha256": "35ed8800e7e636a519cee441e38f7a4e0ba303e41355b276f8ded635b45e98fb",
+      "artifacts": [
+        {
+          "name": "eyes.json",
+          "sha256": "349f323961fc8d9fe9b54e29b39942f956375bd38b8c718232e7a0ae8084ec86"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
+    },
+    {
+      "id": "B2c-eyes-SE",
+      "type": "TRANSCRIBE",
+      "experiment": "C3-L2-blink",
+      "brief_sha256": "d91ed8f4537085894abcf02330da63827cee06fb7a88e1838cd8e750bb542b91",
+      "started": "2026-09-13T15:38:35.563293+00:00",
+      "ended": "2026-09-13T15:39:54.691671+00:00",
+      "minutes": 1.3187997152832396,
+      "image_calls": 0,
+      "tool_calls": 3,
+      "audit": {
+        "violations": [],
+        "image_calls": 0,
+        "tool_calls": 3,
+        "tools_seen": {
+          "command_execution": 2,
+          "file_change": 1
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": []
+      },
+      "receipt_sha256": "78f7faddb8494f6f1f2a381a2e34f38424dcb8112487bdc7d5ecf23229ee7335",
+      "artifacts": [
+        {
+          "name": "eyes.json",
+          "sha256": "e90bc907f33215c91f6cc1e77320b240dcc222ce4e2ce310e3e689d81e9a244f"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
+    },
+    {
+      "id": "T3h",
+      "type": "TOOLING",
+      "experiment": "C3-T3",
+      "brief_sha256": "729f544d6c5573503638ceb2d24ff3a7f79a27d23aa5d77dbdf04a15cb8519cd",
+      "started": "2026-09-13T15:40:45.387209+00:00",
+      "ended": "2026-09-13T15:58:24.714791+00:00",
+      "minutes": 17.65540660903328,
+      "image_calls": 0,
+      "tool_calls": 27,
+      "audit": {
+        "violations": [],
+        "image_calls": 0,
+        "tool_calls": 27,
+        "tools_seen": {
+          "command_execution": 27
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": []
+      },
+      "receipt_sha256": "a47a889146c12025369638889e9d74558a006d04bd67b7011b0b3c4857ffb65a",
+      "artifacts": [],
+      "artifacts_in_place": [
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "export/godot_import.py",
+          "sha256": "b036984b6cddbf56ccc4e683a965e7d5256c124ec2844ccf4cf2cd370e35bc91"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "export/scene_kit.py",
+          "sha256": "4b89bb72c932680d71a59cc616f55690f4ca00d5a8caa6edb3948c350ecca658"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3h/acceptance.json",
+          "sha256": "03b1db170dcb5434ccfece19f130d61ed13bef2fc99e9c8e65c7ce6001f6cf9c"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3h/fixture_build.json",
+          "sha256": "dff5c9cc31e71641505661ada9bfaeec9537cdbf240d414e32bdfb7cc2df6311"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3h/fixture_project/README.md",
+          "sha256": "68300bbc609d8d56afbace4931472f29f5c0721d8c3e036c2d4b6c55a57393f2"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3h/fixture_project/frames/keeper.tres",
+          "sha256": "67fea0d60cbbc9966e0c5b4fa0a6e837635aebbbe0c89dac6d1f3513f9b394cc"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3h/fixture_project/project.godot",
+          "sha256": "6d0ef8e05564e1996db4acf5b3ce09abd63e698a147179acca4a78ab03c7a0af"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3h/fixture_project/scene/annotation.json",
+          "sha256": "bfd76a01fe82a5fd552dcd61c893cf691fd584ad81c14b9682d76cb4d821f31e"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3h/fixture_project/scene/occluders/occluders.json",
+          "sha256": "55675d530dfab04afa938326b58d7366a8f06307f01b68330b26595233c9600b"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3h/fixture_project/scene/occluders/pillar.png",
+          "sha256": "fb362ee66b1f1b2babf2453b5554adb33f8373064d00f9f8a317b77b7c50c480"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3h/fixture_project/scene/plate.png",
+          "sha256": "75aa4ceae5badd1116a7e0e9895b6fcfff9eb42d2b558b7625aa0be17c028b7d"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3h/fixture_project/scene/shadow.png",
+          "sha256": "d1227c4b30c8677d8c09a72a5341ba386487f7929c8fa4c13055240021c39935"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3h/fixture_project/scenes/main.tscn",
+          "sha256": "a7ff2b1ba99ca306dacd7fbee1556fbfbed54d72cc8e3c01ab72e1aba58b874d"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3h/fixture_project/scenes/tower.tscn",
+          "sha256": "c8d0d964452828305f4a1146a9a26e14c1403e952e7eab2119946a6dd9374509"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3h/fixture_project/scripts/keeper.gd",
+          "sha256": "89e9e64440aa00541acf90980852293abb81e345295f6d9bd9d771f7d3b67399"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3h/fixture_project/sprites/idle/S/idle_S_00.png",
+          "sha256": "17a76e238fe28b348b102d09b688fe28d90a76b29d8237c22f1e53d514aab514"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3h/fixture_project/sprites/idle/S/idle_S_01.png",
+          "sha256": "c0de42879a138d9a901c8c4363592925aee6e976da11d21d3b7fd217680c739a"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3h/fixture_project/sprites/idle/S/idle_S_02.png",
+          "sha256": "f1930820eeff2f7e2942d29de68caadb3c9594f676addc0e60fdcbb8069a9651"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3h/fixture_project/sprites/idle/S/idle_S_03.png",
+          "sha256": "29241c19d4a4791dbe101c3f9279d75a73b33d5f650019d3cc7a7996e0c16e65"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3h/fixture_project/sprites/idle/S/idle_S_04.png",
+          "sha256": "6086a9970d708ef3605c566965059b94924460a2d3aaf37dff6758d5ed6b5f30"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3h/fixture_project/sprites/idle/S/idle_S_05.png",
+          "sha256": "11e5ff23c5796ea8ee78bc6ccdc536ad8726af1325b133a43ddc312e478ca4b9"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3h/fixture_project/sprites/idle/S/idle_S_06.png",
+          "sha256": "631251079be026afc8dc3b72a2edd875d69fadb028e506c08db6d687d5e08a66"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3h/fixture_project/sprites/idle/S/idle_S_07.png",
+          "sha256": "a017f1b0a16e4b51959f713814c723ed5b7e080f47a38dbabcf66192ba3e5090"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3h/fixture_project/sprites/idle/S/idle_S_08.png",
+          "sha256": "08a5f167a37e52c8591c4febcbc50f7540a682d41146dee503b8b1493158924a"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3h/fixture_project/sprites/idle/S/idle_S_09.png",
+          "sha256": "d45f4bd96b45a11c0eee6f8dbbf6f645597db6339ae5d9fc670fa2282d955b9e"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3h/fixture_project/sprites/idle/S/idle_S_10.png",
+          "sha256": "b131bf7edea3c9ec959b5265594501eac2338712dd3671afc8b056e52523917a"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3h/fixture_project/sprites/idle/S/idle_S_11.png",
+          "sha256": "906b2c0f470c0afa2fb5371150abeb80a3db51848f5538651f9d637e4ff86e69"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3h/fixture_project/sprites/idle/S/idle_S_12.png",
+          "sha256": "4c109aa829bfff05fdd55d27602c6b4f3776b01cf44e855bb044b9a960f80319"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3h/fixture_project/sprites/idle/S/idle_S_13.png",
+          "sha256": "5f052e4b7f37aee572c07906cde478a0c74d226b1a44d296fdcc5cac783ccacf"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3h/fixture_project/sprites/idle/S/idle_S_14.png",
+          "sha256": "d3e5b9324c88c9b419be10af57b16eb01c4233c0570b14d39a170e5cc7dc1225"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3h/fixture_project/sprites/idle/S/idle_S_15.png",
+          "sha256": "41baa3e73e49be01f3af7c8080ca402a1f9855d62907faf89e802bb776bddcc3"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3h/fixture_project/sprites/walk/E/walk_E_00.png",
+          "sha256": "6c0380549cf1fb171316f6fb6dd1788940cfda144e6985093194a3c9debc6f6c"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3h/fixture_project/sprites/walk/E/walk_E_01.png",
+          "sha256": "1dcbcc49fef4b2acdb6ddddc7f2a0bdf141165490e54b5277b03bac38812a59c"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3h/fixture_project/sprites/walk/E/walk_E_02.png",
+          "sha256": "5eb7a2968fc5e5703871ada993430c48c6a50247ad073c7352494a7c7118334b"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3h/fixture_project/sprites/walk/E/walk_E_03.png",
+          "sha256": "865a4171771607918474639d20a49b488576a181d2e10a672a0964fa524304ea"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3h/fixture_project/sprites/walk/E/walk_E_04.png",
+          "sha256": "74c70141d4abe4d9398bd56c9d578c49d616388f073c8c61a25050e382f50129"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3h/fixture_project/sprites/walk/E/walk_E_05.png",
+          "sha256": "f0b365088c41b47e23b76f3545a72957312b1e3d1d3f8bd73b0357e65a713377"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3h/fixture_project/sprites/walk/E/walk_E_06.png",
+          "sha256": "04d1c18cdc1da9d7fe01fe1b83fc84a78db311231f5bfc1518cb7642f7223f2f"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3h/fixture_project/sprites/walk/E/walk_E_07.png",
+          "sha256": "0274bc8a47da8ed0d9e8b51ae9ac1bf483771e211897eea6919360e7761011ab"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3h/fixture_project/sprites/walk/E/walk_E_08.png",
+          "sha256": "4b4d68a51db95ed1f8c87daa243124809a8797dfd05899c646390c5123b1f144"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3h/fixture_project/sprites/walk/E/walk_E_09.png",
+          "sha256": "0da60754e38ec311c45ec203694261ed51d8e51fe19d060de5836e0b300880f2"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3h/fixture_project/sprites/walk/E/walk_E_10.png",
+          "sha256": "ea33b670f584f2a8dbc429a501e8bd7d38d8f7b267d23c6ffe56f57f8c4a5194"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3h/fixture_project/sprites/walk/E/walk_E_11.png",
+          "sha256": "9c41d0882f038cc1df8684864afb8b01ab90164177286bf7b32bd241e74ca5f0"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3h/full_suite.log",
+          "sha256": "dd71c603844cf99be88f2444c4998178db8c6f6e2479606b25a1642c660cb69f"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3h/full_suite_details.json",
+          "sha256": "62acd72de4600ded301ae73a3d6d510159ba5cdfdfdc96a3193faffacde32a09"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3h/full_suite_details.log",
+          "sha256": "52eee012b2eaf1fbd7d4a23fc9dee1580c41ea0b1b43049e1b0db5eccc6a5898"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3h/report.json",
+          "sha256": "5808ec6f3be804973218ad9c553617f4d828a0ba9af460b72e885d0167852e10"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3h/scene_input/annotation.json",
+          "sha256": "bfd76a01fe82a5fd552dcd61c893cf691fd584ad81c14b9682d76cb4d821f31e"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3h/scene_input/plate.png",
+          "sha256": "75aa4ceae5badd1116a7e0e9895b6fcfff9eb42d2b558b7625aa0be17c028b7d"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3h/targeted_tests.json",
+          "sha256": "1d37b77e2dd07dba7c575cdd63ea93f6a1fc630eeb946b29598c8f97b24e7beb"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3h/targeted_tests.log",
+          "sha256": "81ca791dffb6a671854615fb6d68e76808d16820b479de2697d2a56059b102ad"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "tests/gates_regression_diff.json",
+          "sha256": "c8864b881f6646a530b06271dfb4d801767aa46db6184abad8bba4761cafbe80"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "tests/oracles_acceptance_measurements.json",
+          "sha256": "39949a5e5c6afe3bf7e19061f5aa2859e15d85b70803b0430ced6471c998f3d0"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "tests/oracles_palette_measurements.json",
+          "sha256": "d644692970ba376c582468b225308f6c3d6e9c7c8b5a0c73187689d2e1cbac25"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "tests/oracles_silhouette_measurements.json",
+          "sha256": "1dc9e68b72691bf50e1773cdfcc5cad8d8990731cfb2a012956acb826aaa637f"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "tests/parts_measurements.json",
+          "sha256": "daef6067a663ac0f199506bfbbb229a351bd7ce0fac4cb670dcac047026f8994"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "tests/sheet_consistency_calibration.json",
+          "sha256": "3b8076d4a4b4e3b06920e067b3c5c665d6a0a441afd3f4725cbfafdb3df463ab"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "tests/t0c_suite_output.txt",
+          "sha256": "2b4dc5bb834cc358e5be3bd2d800c53201f370c2b28a54884b9604d91e2f8a61"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "tests/t0c_summary.json",
+          "sha256": "31879d602a759b0b86c402e1a6b9860c04992e0df300b1e2b8ec243337b2b300"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "tests/test_scene_kit.py",
+          "sha256": "83dfafae94ea4a8cf68dc0af964702807097a957c7763832f9e597b5cf626580"
+        }
+      ],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
+    },
+    {
+      "id": "B1d-faces-SE",
+      "type": "CHECK",
+      "experiment": "C3-L2-blink",
+      "brief_sha256": "b03bf971f0085beb32927f4da819d2ab0efc6247c15128506752e324cd64e049",
+      "started": "2026-09-13T15:59:19.593535+00:00",
+      "ended": "2026-09-13T16:01:28.400878+00:00",
+      "minutes": 2.1467783965167957,
+      "image_calls": 0,
+      "tool_calls": 3,
+      "audit": {
+        "violations": [],
+        "image_calls": 0,
+        "tool_calls": 3,
+        "tools_seen": {
+          "command_execution": 3
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": []
+      },
+      "receipt_sha256": "9943a71024dbf68e9c42afe269093f6000187eae64d44ba10629c61f17266d9b",
+      "artifacts": [
+        {
+          "name": "faces_0.png",
+          "sha256": "834dc49220e7fa5758708e2059a8e47fde1321cbd460788c6cae734fb6820cb2"
+        },
+        {
+          "name": "faces_1.png",
+          "sha256": "aec6e765f5ecd4905e34835beb3adda419957f5a39fd9f7f773ae8cf496f19d2"
+        },
+        {
+          "name": "faces_2.png",
+          "sha256": "eb2f967f2edac947325d085c21c819a64745b6fc570e9342e4bb502c4d06da93"
+        },
+        {
+          "name": "faces_index.json",
+          "sha256": "7512e9058b427c519d1d9cea2d509297f26987c4361fb45ae01744deff8b1cc2"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
+    },
+    {
+      "id": "B1d-faces-S",
+      "type": "CHECK",
+      "experiment": "C3-L2-blink",
+      "brief_sha256": "a1d86b2862b43404c739011b9b495cda780ec25440474f0ef671acb8959e53e1",
+      "started": "2026-09-13T15:59:19.593627+00:00",
+      "ended": "2026-09-13T16:02:34.138670+00:00",
+      "minutes": 3.242404264583456,
+      "image_calls": 0,
+      "tool_calls": 5,
+      "audit": {
+        "violations": [],
+        "image_calls": 0,
+        "tool_calls": 5,
+        "tools_seen": {
+          "command_execution": 5
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": []
+      },
+      "receipt_sha256": "4684d698eccfbdb8f4137dd6fd2bf8eb04e5424a2c2ee9de5b698da1d9c2e6e4",
+      "artifacts": [
+        {
+          "name": "faces_0.png",
+          "sha256": "f65d5d9c9e3632b96c42f9f1a1694481ea08b17f2fab4903126c82f01cfa1ef7"
+        },
+        {
+          "name": "faces_1.png",
+          "sha256": "d3bc8054559694797689a122413dcc4feec01fed58814fd26944f15e6c8a8d52"
+        },
+        {
+          "name": "faces_2.png",
+          "sha256": "faa7e65d1f8c6e7c93b6821c5859f6933ee867bb193ff2c897228d50e8eb7910"
+        },
+        {
+          "name": "faces_index.json",
+          "sha256": "107dbcebc9df0d5f0bb28c963e69511f9197e1c3d4c9ae06d6c38e8aa8c61edd"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
+    },
+    {
+      "id": "P4c-S-idle-alert",
+      "type": "CHECK",
+      "experiment": "C3-P4",
+      "brief_sha256": "7e38e29b0c0154022c60a5f42b895cbc77c7c66e4857644f74e650d65bea7117",
+      "started": "2026-09-13T15:59:19.593553+00:00",
+      "ended": "2026-09-13T16:02:39.319191+00:00",
+      "minutes": 3.3287472451498616,
+      "image_calls": 0,
+      "tool_calls": 11,
+      "audit": {
+        "violations": [],
+        "image_calls": 0,
+        "tool_calls": 11,
+        "tools_seen": {
+          "command_execution": 11
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": []
+      },
+      "receipt_sha256": "17ae47691f389ef6c498519aef6478fe0420855561b09714e9e55f4528706fbf",
+      "artifacts": [
+        {
+          "name": "checks.json",
+          "sha256": "4094a8689ce4f2ddd0401c72daecba2c41350a190c44ab5f8b4c16ba7ece6878"
+        },
+        {
+          "name": "cut/frames/idle/S/idle_S_00.png",
+          "sha256": "758375e33cc7d85790f4af995baa8a56cc3f19527810e82789c892b06b0a5fbf"
+        },
+        {
+          "name": "cut/frames/idle/S/idle_S_01.png",
+          "sha256": "94fff491ccb5b99bbdc5215a955a4025306661d63acf32fdf4fd9f5353b0bfaf"
+        },
+        {
+          "name": "cut/frames/idle/S/idle_S_02.png",
+          "sha256": "e582f4b5b02c5fd4449defeb3977cb55758b82c429ffdd11c6c00b70a113d236"
+        },
+        {
+          "name": "cut/frames/idle/S/idle_S_03.png",
+          "sha256": "b96d1c37ddeb6f8f999f7fe193592f37e9f7739027eb15e590955a722a858954"
+        },
+        {
+          "name": "cut/frames/idle/S/idle_S_04.png",
+          "sha256": "7945084f50064cca1583ada84aff47b7e8eccbad56d22fd588e23388f4b7e9bf"
+        },
+        {
+          "name": "cut/frames/idle/S/idle_S_05.png",
+          "sha256": "8311e5c104ce11302c8105f1312a362aea78e65cfb5f6998b3aee75d5f666290"
+        },
+        {
+          "name": "cut/frames/idle/S/idle_S_06.png",
+          "sha256": "36433e22330b96029ef8070c38a894089cede91d9110796c3bdeebc26ed8c5b9"
+        },
+        {
+          "name": "cut/frames/idle/S/idle_S_07.png",
+          "sha256": "5548dda2bce03293e7cc4a9d7afdcac2e070678bfdf52b828a5258941af729b8"
+        },
+        {
+          "name": "cut/frames/idle/S/idle_S_08.png",
+          "sha256": "d17a05bc6cea20b65c5a82e8d73d44a8b2a3ffeb49329a71e1465c71e319ec5e"
+        },
+        {
+          "name": "cut/frames/idle/S/idle_S_09.png",
+          "sha256": "200af8778c8f118041678e26b2e4b949bbfd80c2a9d6b4b168fad99a7a8c28a3"
+        },
+        {
+          "name": "cut/frames/idle/S/idle_S_10.png",
+          "sha256": "222fc1fda13820699cb4e5c0db84def53ee8fbd8f2eeee1474a443228c65df0e"
+        },
+        {
+          "name": "cut/frames/idle/S/idle_S_11.png",
+          "sha256": "39ae5d0c4b81acfbb2d1435c640408b2c233c469adc5ebd622c1a034e161e7a5"
+        },
+        {
+          "name": "cut/frames/idle/S/idle_S_12.png",
+          "sha256": "3baddab0a10867fb129371034e061535c0bc2c01c3ec1a3039a1fd1336b20328"
+        },
+        {
+          "name": "cut/frames/idle/S/idle_S_13.png",
+          "sha256": "788d58d3248f36e40a195777a27fbd3ac60667eab1bd7c88ef741f5d366f0670"
+        },
+        {
+          "name": "cut/frames/idle/S/idle_S_14.png",
+          "sha256": "7de4f0a9ffbfe845f70e2b42ccdcf45bb63001d2a2a42c760af81c39c66be375"
+        },
+        {
+          "name": "cut/frames/idle/S/idle_S_15.png",
+          "sha256": "596ac698154ba1a019e523305366e5b118c53ee31ea35835299c03468ffce3c2"
+        },
+        {
+          "name": "cut/frames/rest/S/rest_S.png",
+          "sha256": "75d680d1aa1e156915d786e45586cebe4aa9c1ecffa040e5b29c7a780e677b8f"
+        },
+        {
+          "name": "cut/registration.json",
+          "sha256": "37bc8694c9954d9f290674d743020297c2bf7cbefdd71fcdf4e65b8cb7284fb7"
+        },
+        {
+          "name": "cut/series.json",
+          "sha256": "27fed8000ca919b65946c88ea25cd05437dd42c58530d24e7467be9c902bd386"
+        },
+        {
+          "name": "cut/sheets/idle_S_strip.png",
+          "sha256": "27c34d1d063318bc72c171d282cd74ee746a27437be8e42a6cdbea27f2bfcb7e"
+        },
+        {
+          "name": "first_second.png",
+          "sha256": "251bdfde9301d9fb480ba1b215fdcff6fc0f77eae9608424d97460df364841b6"
+        },
+        {
+          "name": "grid.png",
+          "sha256": "eb24e1baa3ee7f1c18d56668619ff05b5b36ae67aec43e7e939ebe6674b564d1"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
+    },
+    {
+      "id": "P4c-SE-idle-alert",
+      "type": "CHECK",
+      "experiment": "C3-P4",
+      "brief_sha256": "204d2fcf8b3cfe968fc8e67062130ead6bf489bd1218b4b4cb82b473b654f8e1",
+      "started": "2026-09-13T15:59:19.593574+00:00",
+      "ended": "2026-09-13T16:02:54.313341+00:00",
+      "minutes": 3.578648001383408,
+      "image_calls": 0,
+      "tool_calls": 10,
+      "audit": {
+        "violations": [],
+        "image_calls": 0,
+        "tool_calls": 10,
+        "tools_seen": {
+          "command_execution": 10
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": []
+      },
+      "receipt_sha256": "43ef5adda3e40d2ffebce01d9793ab4ec52cc61880630d7737bf2b9d41b2f58e",
+      "artifacts": [
+        {
+          "name": "checks.json",
+          "sha256": "f76dce51069039a5a79b46473aca85704f12c5ed2ea85c93d999c5b3197cbb16"
+        },
+        {
+          "name": "cut/frames/idle/SE/idle_SE_00.png",
+          "sha256": "3df335052f748bc08f9b39c8909eec35e6ce2fec6f47806dce0cfdad23cc1da2"
+        },
+        {
+          "name": "cut/frames/idle/SE/idle_SE_01.png",
+          "sha256": "139d036253212c53a81f2c9b90731ae35af8306bd69e4dbb5359d53b12acc494"
+        },
+        {
+          "name": "cut/frames/idle/SE/idle_SE_02.png",
+          "sha256": "d9588573c7a9535a972e6394093f98fc3b45de14fb0fca3da1cd15bb50b9b34c"
+        },
+        {
+          "name": "cut/frames/idle/SE/idle_SE_03.png",
+          "sha256": "e14632395908761b01de953fcf5cc1e98066f1c3d3fdced0ae52925021c85fe0"
+        },
+        {
+          "name": "cut/frames/idle/SE/idle_SE_04.png",
+          "sha256": "7866bb494ef9de47c131c34af855b8201245c027efafb7a2fb20d9fb421db13b"
+        },
+        {
+          "name": "cut/frames/idle/SE/idle_SE_05.png",
+          "sha256": "54ffbd6e56f72dbda64f3d85f11624cf50c1d74a3f99afb31452effff16df5e2"
+        },
+        {
+          "name": "cut/frames/idle/SE/idle_SE_06.png",
+          "sha256": "dc6f76f0383648a33d545f575a6f05386465d15930755be7ae6cd307595a0030"
+        },
+        {
+          "name": "cut/frames/idle/SE/idle_SE_07.png",
+          "sha256": "02c0d74ddeec7c4a7567df1a1585f59a59dc534a9cb4324a8e50f8567e3b0670"
+        },
+        {
+          "name": "cut/frames/idle/SE/idle_SE_08.png",
+          "sha256": "6009f837e3f80bd2675276ec5dd31380c340d0ddd6b851c5f45edb22c68ffc19"
+        },
+        {
+          "name": "cut/frames/idle/SE/idle_SE_09.png",
+          "sha256": "0e5c0c3d72c463e8e3155dd7f3b1db7a963714ae5e08ade0675a1f3f8abf7081"
+        },
+        {
+          "name": "cut/frames/idle/SE/idle_SE_10.png",
+          "sha256": "46b5ea384edfcbfb9440f88e9e4c90cdaa50c23ad61e50fdf38994a8cd3fc5e3"
+        },
+        {
+          "name": "cut/frames/idle/SE/idle_SE_11.png",
+          "sha256": "0ad0a3076b7343f908641d71f09afc95e0f4ce5b7fbd9f20d3437ed186f60635"
+        },
+        {
+          "name": "cut/frames/idle/SE/idle_SE_12.png",
+          "sha256": "542403cc6a4f678e98bf48d38e80d71b4ba9528c75c8e4764534be024e0d4885"
+        },
+        {
+          "name": "cut/frames/idle/SE/idle_SE_13.png",
+          "sha256": "2d48be29717dda9d2b37793ac8b9b79671879b9a1d35f5a4eb107aaa7ac4961a"
+        },
+        {
+          "name": "cut/frames/idle/SE/idle_SE_14.png",
+          "sha256": "251344e19e315c9714f4630b691da707bb9160914c94db415eae77340bce3784"
+        },
+        {
+          "name": "cut/frames/idle/SE/idle_SE_15.png",
+          "sha256": "cd29aa60df9b6ec9ebac20b8180fda971b6f08cfc06cda5e6029581c3c24800c"
+        },
+        {
+          "name": "cut/frames/rest/SE/rest_SE.png",
+          "sha256": "6fa8db9a34ebcc18bd571491f6936df3bb4b1dd9194fa7b1aa0929e86ec59329"
+        },
+        {
+          "name": "cut/registration.json",
+          "sha256": "1c04edbcedd0acf09372d6a383061f0468adf8e9e3007b50c575287e899d8733"
+        },
+        {
+          "name": "cut/series.json",
+          "sha256": "336131b18b51d7b146144f31acdd8c5567fe3c51959d19654bb5e2bd9460f762"
+        },
+        {
+          "name": "cut/sheets/idle_SE_strip.png",
+          "sha256": "1b4d48121ad575c5524f7aef33fa1cc903e0f85c03820da13de8fb943750d118"
+        },
+        {
+          "name": "first_second.png",
+          "sha256": "1be1ae1eb29b9bd31d407156aeb89820060ee8bcf5abc555cbd53752980f862e"
+        },
+        {
+          "name": "grid.png",
+          "sha256": "eaffaa78ec3e496d68ac778771f3f715a13c43120571fbebd5e4f35f2bafa996"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
+    },
+    {
+      "id": "B2d-eyes-S",
+      "type": "TRANSCRIBE",
+      "experiment": "C3-L2-blink",
+      "brief_sha256": "f0cae68e026648eda88035b9c6fae31b3af74712ab761b6465502c38f880074b",
+      "started": "2026-09-13T16:03:16.256724+00:00",
+      "ended": "2026-09-13T16:04:05.653338+00:00",
+      "minutes": 0.8232714340333284,
+      "image_calls": 0,
+      "tool_calls": 2,
+      "audit": {
+        "violations": [],
+        "image_calls": 0,
+        "tool_calls": 2,
+        "tools_seen": {
+          "file_change": 1,
+          "command_execution": 1
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": []
+      },
+      "receipt_sha256": "307c4be8b5a3b571bd651aff9770689d1532b500d3acc9711e891e73bec0fa0c",
+      "artifacts": [
+        {
+          "name": "eyes.json",
+          "sha256": "cf869b1900135e3b2720cb772fb560aeb9773da92ffce86974ff7766c1d3c7a5"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
+    },
+    {
+      "id": "B2d-eyes-SE",
+      "type": "TRANSCRIBE",
+      "experiment": "C3-L2-blink",
+      "brief_sha256": "cda0d4a7f5134206f4af13b7116a422b4b96579deb29685dec5ea3efd133f6eb",
+      "started": "2026-09-13T16:03:16.256724+00:00",
+      "ended": "2026-09-13T16:04:09.823395+00:00",
+      "minutes": 0.8927712548499888,
+      "image_calls": 0,
+      "tool_calls": 2,
+      "audit": {
+        "violations": [],
+        "image_calls": 0,
+        "tool_calls": 2,
+        "tools_seen": {
+          "file_change": 1,
+          "command_execution": 1
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": []
+      },
+      "receipt_sha256": "d08bce9c2ad8452e98b0f789ca005dc3fb5509bb06af57951f448e21977f4d2e",
+      "artifacts": [
+        {
+          "name": "eyes.json",
+          "sha256": "da1dd3e6ea9adaae5dacc803e2587c3bbeba6a5b089a938a507d22198275fb88"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
+    },
+    {
+      "id": "T3i",
+      "type": "TOOLING",
+      "experiment": "C3-T3",
+      "brief_sha256": "3d2dc0801960322c22a6e05b739207aaa19119f30b6fc5cef741345215d7679a",
+      "started": "2026-09-13T16:04:13.169165+00:00",
+      "ended": "2026-09-13T16:26:54.203926+00:00",
+      "minutes": 22.68384495278345,
+      "image_calls": 0,
+      "tool_calls": 28,
+      "audit": {
+        "violations": [],
+        "image_calls": 0,
+        "tool_calls": 28,
+        "tools_seen": {
+          "command_execution": 28
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": []
+      },
+      "receipt_sha256": "0592cd3d40468680ec572f951308f1edc6f92e5c0cc72e2a594d19d3c42e29f1",
+      "artifacts": [],
+      "artifacts_in_place": [
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "export/godot_import.py",
+          "sha256": "e55b1e6824ec4da1952d1f14b661233f082c82ba9b75baf93878460edb2dd3b3"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "export/scene_kit.py",
+          "sha256": "db60e7f5e7d4563cc317a31518d3d5027bf9612a1a52ef1cf852413f599d3590"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "export/sockets.py",
+          "sha256": "91c3ad607505767391d6f6e5205f2e61dc45e5634b3e1ed124268c7282029e08"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "oracle/staff_tip.py",
+          "sha256": "1324d5db57d8dd964dd31729d691f14f6027fa09749e1e81b2f01474a89ffea7"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/sockets.json",
+          "sha256": "d35cc63bd7091348b693899eedb87d3032539385b4bce119fffec51a963fa921"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3i/acceptance.json",
+          "sha256": "2131c37a284e5a0bb8b4d50ed6bd85734e26e0979c033e5372b6ed99a6c4964e"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3i/build_report.json",
+          "sha256": "ef1bdd9b717d10ddeae9d9e8da7dbebb7bf59bf4f502c74593aa60b3ed3e4c8c"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3i/fixture_project/README.md",
+          "sha256": "b870f289153f99aac96939440e27e539cbdd7fc115ed5c5b14e14bdd4f69dfcc"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3i/fixture_project/frames/keeper.tres",
+          "sha256": "adda5a014f8405032741ffdec45e9c4b612441dd30d4c0f99ceba33127d20227"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3i/fixture_project/project.godot",
+          "sha256": "6d0ef8e05564e1996db4acf5b3ce09abd63e698a147179acca4a78ab03c7a0af"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3i/fixture_project/scene/annotation.json",
+          "sha256": "bfd76a01fe82a5fd552dcd61c893cf691fd584ad81c14b9682d76cb4d821f31e"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3i/fixture_project/scene/occluders/occluders.json",
+          "sha256": "55675d530dfab04afa938326b58d7366a8f06307f01b68330b26595233c9600b"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3i/fixture_project/scene/occluders/pillar.png",
+          "sha256": "fb362ee66b1f1b2babf2453b5554adb33f8373064d00f9f8a317b77b7c50c480"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3i/fixture_project/scene/plate.png",
+          "sha256": "75aa4ceae5badd1116a7e0e9895b6fcfff9eb42d2b558b7625aa0be17c028b7d"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3i/fixture_project/scene/shadow.png",
+          "sha256": "d1227c4b30c8677d8c09a72a5341ba386487f7929c8fa4c13055240021c39935"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3i/fixture_project/scenes/ambient.tscn",
+          "sha256": "5481a014ce920ce7c52ea94430a37d0bd51ff7902fd3fd991521e4f1a5d65528"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3i/fixture_project/scenes/frost_bolt.tscn",
+          "sha256": "4dda78afdf571f4853ad067d46472e072603a236f9a3b3f70385fbdcb3dae4a5"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3i/fixture_project/scenes/frost_impact.tscn",
+          "sha256": "f10b6807b2708a8ea5ee1844f56bc3e65c4a40ddaa640c04aec38e449444c629"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3i/fixture_project/scenes/main.tscn",
+          "sha256": "a7ff2b1ba99ca306dacd7fbee1556fbfbed54d72cc8e3c01ab72e1aba58b874d"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3i/fixture_project/scenes/tower.tscn",
+          "sha256": "179b8c4624315977114f63456b0282b72deac392bbb0063e6300f019ecd4545e"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3i/fixture_project/scripts/frost_bolt.gd",
+          "sha256": "7fcfce78be6360dc720017408bf1896600c41e1be2a7f9d1bc501cff24c5fd23"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3i/fixture_project/scripts/frost_impact.gd",
+          "sha256": "2f53be38f198744ff7f39b9281e2c82b06836c37a6f3bbc89e85d54bd1fc4105"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3i/fixture_project/scripts/keeper.gd",
+          "sha256": "21edf18e73bce111fd1f7a8e2f916004a6745254f27fc6f8ede7f8d1e774545c"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3i/fixture_project/sockets.json",
+          "sha256": "d35cc63bd7091348b693899eedb87d3032539385b4bce119fffec51a963fa921"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3i/fixture_project/sprites/cast/S/cast_S_00.png",
+          "sha256": "0a09cba841c4590b9b42f185c9f636688a5cad343c798d1b868cdc1103e84b17"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3i/fixture_project/sprites/cast/S/cast_S_01.png",
+          "sha256": "534e1d87766d34853990670c1ab4e7395a470eb4b0f3478c3cfe446cae7cd5d2"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3i/fixture_project/sprites/cast/S/cast_S_02.png",
+          "sha256": "12160ec1f6a2bbdcdb04e82ff56262961973c920516daef08f91e41efd1c417e"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3i/fixture_project/sprites/cast/S/cast_S_03.png",
+          "sha256": "e8054bad9a4381653d4faf57b6c2814e70a41db66bfede28d4d7859548ea3302"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3i/fixture_project/sprites/cast/S/cast_S_04.png",
+          "sha256": "9135bb21c227585d653d8ea9d398a5a9648cc16ffc9d3b34f8cfc51640ea9d0a"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3i/fixture_project/sprites/cast/S/cast_S_05.png",
+          "sha256": "d5e474f64dab153e89bcfa29b80442022da1b1fc5f829be44a0670b364ab1fa3"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3i/fixture_project/sprites/cast/S/cast_S_06.png",
+          "sha256": "0b5f00a2293bbf920accdb95e089f895b2bd8cf215a0e8c357f0c80dc1f108cd"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3i/fixture_project/sprites/cast/S/cast_S_07.png",
+          "sha256": "872ed85b6415b20d76e3fbecf22a848f128b68cbc43bfd6e177abe02b7ff3c8f"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3i/fixture_project/sprites/idle/S/idle_S_00.png",
+          "sha256": "17a76e238fe28b348b102d09b688fe28d90a76b29d8237c22f1e53d514aab514"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3i/fixture_project/sprites/idle/S/idle_S_01.png",
+          "sha256": "c0de42879a138d9a901c8c4363592925aee6e976da11d21d3b7fd217680c739a"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3i/fixture_project/sprites/idle/S/idle_S_02.png",
+          "sha256": "f1930820eeff2f7e2942d29de68caadb3c9594f676addc0e60fdcbb8069a9651"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3i/fixture_project/sprites/idle/S/idle_S_03.png",
+          "sha256": "29241c19d4a4791dbe101c3f9279d75a73b33d5f650019d3cc7a7996e0c16e65"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3i/fixture_project/sprites/idle/S/idle_S_04.png",
+          "sha256": "6086a9970d708ef3605c566965059b94924460a2d3aaf37dff6758d5ed6b5f30"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3i/fixture_project/sprites/idle/S/idle_S_05.png",
+          "sha256": "11e5ff23c5796ea8ee78bc6ccdc536ad8726af1325b133a43ddc312e478ca4b9"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3i/fixture_project/sprites/idle/S/idle_S_06.png",
+          "sha256": "631251079be026afc8dc3b72a2edd875d69fadb028e506c08db6d687d5e08a66"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3i/fixture_project/sprites/idle/S/idle_S_07.png",
+          "sha256": "a017f1b0a16e4b51959f713814c723ed5b7e080f47a38dbabcf66192ba3e5090"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3i/fixture_project/sprites/idle/S/idle_S_08.png",
+          "sha256": "08a5f167a37e52c8591c4febcbc50f7540a682d41146dee503b8b1493158924a"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3i/fixture_project/sprites/idle/S/idle_S_09.png",
+          "sha256": "d45f4bd96b45a11c0eee6f8dbbf6f645597db6339ae5d9fc670fa2282d955b9e"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3i/fixture_project/sprites/idle/S/idle_S_10.png",
+          "sha256": "b131bf7edea3c9ec959b5265594501eac2338712dd3671afc8b056e52523917a"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3i/fixture_project/sprites/idle/S/idle_S_11.png",
+          "sha256": "906b2c0f470c0afa2fb5371150abeb80a3db51848f5538651f9d637e4ff86e69"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3i/fixture_project/sprites/idle/S/idle_S_12.png",
+          "sha256": "4c109aa829bfff05fdd55d27602c6b4f3776b01cf44e855bb044b9a960f80319"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3i/fixture_project/sprites/idle/S/idle_S_13.png",
+          "sha256": "5f052e4b7f37aee572c07906cde478a0c74d226b1a44d296fdcc5cac783ccacf"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3i/fixture_project/sprites/idle/S/idle_S_14.png",
+          "sha256": "d3e5b9324c88c9b419be10af57b16eb01c4233c0570b14d39a170e5cc7dc1225"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3i/fixture_project/sprites/idle/S/idle_S_15.png",
+          "sha256": "41baa3e73e49be01f3af7c8080ca402a1f9855d62907faf89e802bb776bddcc3"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3i/fixture_project/sprites/walk/E/walk_E_00.png",
+          "sha256": "6c0380549cf1fb171316f6fb6dd1788940cfda144e6985093194a3c9debc6f6c"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3i/fixture_project/sprites/walk/E/walk_E_01.png",
+          "sha256": "1dcbcc49fef4b2acdb6ddddc7f2a0bdf141165490e54b5277b03bac38812a59c"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3i/fixture_project/sprites/walk/E/walk_E_02.png",
+          "sha256": "5eb7a2968fc5e5703871ada993430c48c6a50247ad073c7352494a7c7118334b"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3i/fixture_project/sprites/walk/E/walk_E_03.png",
+          "sha256": "865a4171771607918474639d20a49b488576a181d2e10a672a0964fa524304ea"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3i/fixture_project/sprites/walk/E/walk_E_04.png",
+          "sha256": "74c70141d4abe4d9398bd56c9d578c49d616388f073c8c61a25050e382f50129"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3i/fixture_project/sprites/walk/E/walk_E_05.png",
+          "sha256": "f0b365088c41b47e23b76f3545a72957312b1e3d1d3f8bd73b0357e65a713377"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3i/fixture_project/sprites/walk/E/walk_E_06.png",
+          "sha256": "04d1c18cdc1da9d7fe01fe1b83fc84a78db311231f5bfc1518cb7642f7223f2f"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3i/fixture_project/sprites/walk/E/walk_E_07.png",
+          "sha256": "0274bc8a47da8ed0d9e8b51ae9ac1bf483771e211897eea6919360e7761011ab"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3i/fixture_project/sprites/walk/E/walk_E_08.png",
+          "sha256": "4b4d68a51db95ed1f8c87daa243124809a8797dfd05899c646390c5123b1f144"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3i/fixture_project/sprites/walk/E/walk_E_09.png",
+          "sha256": "0da60754e38ec311c45ec203694261ed51d8e51fe19d060de5836e0b300880f2"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3i/fixture_project/sprites/walk/E/walk_E_10.png",
+          "sha256": "ea33b670f584f2a8dbc429a501e8bd7d38d8f7b267d23c6ffe56f57f8c4a5194"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3i/fixture_project/sprites/walk/E/walk_E_11.png",
+          "sha256": "9c41d0882f038cc1df8684864afb8b01ab90164177286bf7b32bd241e74ca5f0"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3i/fixture_project/vfx/flare.tres",
+          "sha256": "95244a28321c3e470360f182ecb828be8adf500db7487ccd0253fef3d765ae0b"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3i/fixture_project/vfx/impact.tres",
+          "sha256": "d9e53384b29ea0f50cbc60057b79b53476a2f36336744aa0d6325e5b9a70a930"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3i/fixture_project/vfx/sprites/flare/flare_00.png",
+          "sha256": "706ae848bcedaba471751cd0093450ac2efb76105a8ea892de090a5886697698"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3i/fixture_project/vfx/sprites/flare/flare_01.png",
+          "sha256": "99332dc47b701ecead7b1c5bb2522d904e0a17bdc308ac5098d4063e6893dc65"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3i/fixture_project/vfx/sprites/flare/flare_02.png",
+          "sha256": "ce819a74f50e9e5946c6f2b49d29ad544bdd659f7c1bba8ce95726b00d714a2e"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3i/fixture_project/vfx/sprites/flare/flare_03.png",
+          "sha256": "0944c056f4a0b383f3cccfdb0c1db281f8b2582769682a90a6343b3b3853f369"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3i/fixture_project/vfx/sprites/flare/flare_04.png",
+          "sha256": "1b00b2184d94f456f9f32af91552bc0b17ece6c50b98e601d5ae88615f4a05be"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3i/fixture_project/vfx/sprites/flare/flare_05.png",
+          "sha256": "0afca60e493b22667d3edbfcb32d65c6d1acd7d5b0e0546c0a926333f42d09f2"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3i/fixture_project/vfx/sprites/flare/flare_06.png",
+          "sha256": "0d23773a48bc4b7afdaeba090dcb1014a54b372315cb68d16c0e2f5953ded968"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3i/fixture_project/vfx/sprites/flare/flare_07.png",
+          "sha256": "b45de0d55756cefb21d8fd9fce1171cd4365fbaf12fe880efabe8173cae1b7d0"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3i/fixture_project/vfx/sprites/flare/flare_08.png",
+          "sha256": "1b2fc1d195e4cbda970ed0961d5576c882e4a4c5d3d6cf97916013ef23468946"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3i/fixture_project/vfx/sprites/impact/impact_00.png",
+          "sha256": "f26ca8e93272dd0d3049ca6bf4a5743c166c73c76cef3efd21ae06a53adc15b5"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3i/fixture_project/vfx/sprites/impact/impact_01.png",
+          "sha256": "4160b80a6ccafe8a28e88ef069f2844a772207484355997ae2c66a50dc3576c0"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3i/fixture_project/vfx/sprites/impact/impact_02.png",
+          "sha256": "58a2539dd4d8afb0db1e7309c0b26ad1fd4de0ea82c32f1ad74361e2a301e427"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3i/fixture_project/vfx/sprites/impact/impact_03.png",
+          "sha256": "6caf633d7c1ef02ed26badacc08b4f781a1ed8722a3d48863118d10f885a2b6e"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3i/fixture_project/vfx/sprites/impact/impact_04.png",
+          "sha256": "8e1d69cd53e5bd59c1515f5773fd449797e16f5dec6699a3b2aa6c8de2a342b5"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3i/fixture_project/vfx/sprites/impact/impact_05.png",
+          "sha256": "d22864bcd1ab8b0999747e3532d1dcdd9519a5ad79c43518243eedcbe54226e0"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3i/fixture_project/vfx/sprites/impact/impact_06.png",
+          "sha256": "5082a9877e5c730d584cdf3183b3b5b8d062bc4ecb1fe49da0794738a1785485"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3i/fixture_project/vfx/sprites/impact/impact_07.png",
+          "sha256": "25f69ea0c23f32494f693370aa1a0a2084863b3a9fd4ff704e72efc8031e0871"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3i/fixture_project/vfx/sprites/impact/impact_08.png",
+          "sha256": "6f7cd8a2a0887a1b880b067b4c43691e40a7399ac6ce027394943e7962b1e7d7"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3i/fixture_project/vfx/sprites/impact/impact_09.png",
+          "sha256": "9cc4f83e9148397ea5145e79a2f6f349c7cbc3a24729abc4cd0b90449adfdc26"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3i/fixture_project/vfx/sprites/impact/impact_10.png",
+          "sha256": "138503a61ec78be036cea3007b4813a8b840547ac8cc524ef0a32d19732eb7e1"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3i/fixture_project/vfx/sprites/impact/impact_11.png",
+          "sha256": "4e2ebd90354b53550aa2fa2028918e126c1d793b88694209dc81718be87a6103"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3i/fixture_project/vfx/sprites/impact/impact_12.png",
+          "sha256": "279993ab96c422baa9d2c5eb40a9dd1214f42456b44e8618de2901e3f130b8d1"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3i/fixture_project/vfx/sprites/impact/impact_13.png",
+          "sha256": "73e03df2430358af3be4f4acf63bd81eabf40c1d8a9a200e78ee892ac74a7203"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3i/fixture_project/vfx/sprites/impact/impact_14.png",
+          "sha256": "9dfdc77e26706a195ba426d387b5334a5075edbaf8424bab5c481742b25cfdd7"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3i/fixture_project/vfx/sprites/impact/impact_15.png",
+          "sha256": "09bae6f843e825ba7ecc5eef1d73287cf584e762fc4b6f44c7d8dbaa5876943d"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3i/fixture_project/vfx/sprites/impact/impact_16.png",
+          "sha256": "c3692ffe449ac450866c555aedb5b5c9060c48a78d927d0fb922056a6b3f9552"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3i/fixture_project/vfx/sprites/impact/impact_17.png",
+          "sha256": "c533992619e3758cc77160019465801c952a69297bebd1bd3394af33c32afd06"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3i/fixture_project/vfx/sprites/impact/impact_18.png",
+          "sha256": "4f64c9b05bd35f3e2d317e904410127c91d21ade0612f823be88d5e9cd5124fc"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3i/fixture_project/vfx/sprites/impact/impact_19.png",
+          "sha256": "7c75bb5d2fb066b0631ee4e68d82fed9f10ddc608f9b565366d5f90744138ec1"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3i/fixture_project/vfx/sprites/impact/impact_20.png",
+          "sha256": "3cb9e815239838620e63e5074d96d584e936c869cc1f0549bd2696b72d2caf7f"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3i/fixture_project/vfx/sprites/impact/impact_21.png",
+          "sha256": "fb60cef2bb87f0444416f62be4aea2a20c34e78bfbebe9449ade296e71995f6d"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3i/fixture_project/vfx/sprites/impact/impact_22.png",
+          "sha256": "2d0d8780041466e1fa483eb59f539c48b352cfedf31736c3495f6fc64fbcd058"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3i/fixture_project/vfx/sprites/impact/impact_23.png",
+          "sha256": "ec47668c36f0066c24c31e40a34d682a7aa659d350fd2df28c39d058573c34c7"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3i/fixture_project/vfx/sprites/impact/impact_24.png",
+          "sha256": "a07bdede94773d8902068bed5b08a02f16be77495001d4aa318445d7f45397e2"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3i/fixture_project/vfx/sprites/impact/impact_25.png",
+          "sha256": "ced34098ec064b988a0e8fc3942b8e4cb0d2959ef8de704215a9ffc504f8f9a0"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3i/fixture_project/vfx/sprites/impact/impact_26.png",
+          "sha256": "592cc25273d1888e4cbc6911cd3fd0a5a51de4546869c01c998201c2e0676910"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3i/fixture_project/vfx/sprites/impact/impact_27.png",
+          "sha256": "1e94797be591f54d7b85f48a29d4cd4eb3abfd81b5945276abfc4e5ed9af3b47"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3i/fixture_project/vfx/sprites/impact/impact_28.png",
+          "sha256": "74d82492c24196d0fcdd21ede9ee89f0e58272da14849550d316e9fca270a395"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3i/fixture_project/vfx/sprites/impact/impact_29.png",
+          "sha256": "fbde05cfa43dc019223613eeb20f1d82fa8f8d77d4127b8e4ecf588c63ad4fd9"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3i/fixture_project/vfx/sprites/impact/impact_30.png",
+          "sha256": "0bf150a9cfd0dc21a088e43d958740412bdc5e76e976be3f7c34dc0ee7d717c4"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3i/fixture_project/vfx/sprites/impact/impact_31.png",
+          "sha256": "69734178703e1c789672f62e3c876e1b4427bc02a34cb5ca7c13b56566c96904"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3i/fixture_project/vfx/sprites/impact/impact_32.png",
+          "sha256": "aef60a78c47c2880a7a2a7c7e8efaf527180eb48982df55bd8b65255faa2c758"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3i/fixture_project/vfx/sprites/impact/impact_33.png",
+          "sha256": "6a2f337225d324c62fd54a5379dc3f90c9f25641959a6d8ebebf0e280082ba6f"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3i/fixture_project/vfx/sprites/impact/impact_34.png",
+          "sha256": "dc8a1bffac7f63dd4dcad0c11d29b5e5a4f01985d346a88e921bde427828733a"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3i/fixture_project/vfx/sprites/impact/impact_35.png",
+          "sha256": "7240eae34a8e1e9279905255233f651d9a1479cfeec36cca1e49fc0b37b9ceab"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3i/fixture_project/vfx/sprites/impact/impact_36.png",
+          "sha256": "7d7d922661c0fd9187000eeae31fe41d7677c56b12942b5edb18675f40c2107f"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3i/fixture_project/vfx/sprites/impact/impact_37.png",
+          "sha256": "b67f14bf4f01d48360615ef8774c257c69549e2d4bb5d56fbfba871400f631f6"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3i/fixture_project/vfx/sprites/impact/impact_38.png",
+          "sha256": "3e3ab4bf44c7c9756447fc96984a14ac420c6d7e4b377477b74dbe210a84b353"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3i/fixture_project/vfx/sprites/impact/impact_39.png",
+          "sha256": "7dacc9b7798b36e64afc4ab02464cc2738be29e4d4e8f5c74bc67891058800be"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3i/full_suite.log",
+          "sha256": "cfe888393f0f8f8b06e86b4083a0e619ccc745dc1eac50674894f0b2bf1cf743"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3i/full_suite_final.log",
+          "sha256": "abec5946f2ea6abf3af65f05ead9d3cf1c31b4d257e0ce81400f3f12437e0071"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3i/measurements.json",
+          "sha256": "87d94585c31342aef7ae4ea0241e0841a13cb7463c5f281d25c2bcb8431182c5"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3i/suite_reds.json",
+          "sha256": "6950bffb1ed6ac4a5bb751c163e117fb5fdb5cacc10efca284a7ba1ee3b5c732"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3i/targeted.log",
+          "sha256": "344bcddb4d4fae074700a319d78ce159691c458d978d1a20450115f267ce5e1c"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "tests/test_sockets.py",
+          "sha256": "47621fa962006d95c5a294d958a1f286803572a71cf872ad796e8e194e7b4ba3"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "tests/test_staff_tip.py",
+          "sha256": "7681be7f24aa1e911fb6b89b9ada0adbdfb6b63abebaafe2f2d71d7d89becf27"
+        }
+      ],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
+    },
+    {
+      "id": "L2-tower",
+      "type": "PACK",
+      "experiment": "C3-L2-scene",
+      "brief_sha256": "a55aa59f19baec9b74ac0b2ad42a44768fe62261771a2ce65a8a58cd4a0d656c",
+      "started": "2026-09-13T16:28:38.954676+00:00",
+      "ended": "2026-09-13T16:29:24.161700+00:00",
+      "minutes": 0.7534411826333477,
+      "image_calls": 0,
+      "tool_calls": 7,
+      "audit": {
+        "violations": [],
+        "image_calls": 0,
+        "tool_calls": 7,
+        "tools_seen": {
+          "command_execution": 7
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [],
+        "execution_error": "receipt reports unsuccessful execution"
+      },
+      "receipt_sha256": "dc5f5d4501cac3f04ee67480b97fa6b70ec1b18d9cd4ac1b8080f98c42bf34c6",
+      "artifacts": [],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 3
+    },
+    {
+      "id": "L2-tower-r1",
+      "type": "PACK",
+      "experiment": "C3-L2-scene",
+      "brief_sha256": "422a371cdc40f049e5193131357268c153a64c4482bf8f23120697698bd1fec4",
+      "started": "2026-09-13T16:29:41.622017+00:00",
+      "ended": "2026-09-13T16:44:41.638716+00:00",
+      "minutes": 15.000232031249956,
+      "image_calls": 0,
+      "tool_calls": 8,
+      "audit": {
+        "violations": [
+          "receipt unreadable: [Errno 2] No such file or directory: '/Users/admin/astra-burst/runs/C-3/L2-tower-r1/out/receipt.json'"
+        ],
+        "image_calls": 0,
+        "tool_calls": 8,
+        "tools_seen": {
+          "command_execution": 8
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [],
+        "execution_error": "TIMEOUT"
+      },
+      "receipt_sha256": null,
+      "artifacts": [],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 3
+    },
+    {
+      "id": "T3j",
+      "type": "TOOLING",
+      "experiment": "C3-T3",
+      "brief_sha256": "c47ce7cea531b73ea153e920fbec366a9b185c90a33a2b980fefb4ff7a9fd2ed",
+      "started": "2026-09-13T16:45:37.103682+00:00",
+      "ended": "2026-09-13T16:58:40.941860+00:00",
+      "minutes": 13.063929070833304,
+      "image_calls": 0,
+      "tool_calls": 22,
+      "audit": {
+        "violations": [],
+        "image_calls": 0,
+        "tool_calls": 22,
+        "tools_seen": {
+          "command_execution": 22
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": []
+      },
+      "receipt_sha256": "65c0720b0f42e7d3c19941b1e34bd9c2d7d6a75b54841ee671ba78e41984b4b6",
+      "artifacts": [],
+      "artifacts_in_place": [
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "export/godot_import.py",
+          "sha256": "57013b8aa28c2969f2b8fcc3b8a711e6cc9dc620af917fb29ce663043243bc73"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "export/scene_kit.py",
+          "sha256": "7a3ef96222fa90348af56684c5427ece2bd75240466808a73d5aec9d287dbdb6"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3j/acceptance.json",
+          "sha256": "20b26845b13f79d41989e5c6689ee8f4526f8f4bf06a1c5583f0c115483263ed"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3j/full_suite.log",
+          "sha256": "849e74a34613bab8e1d61e33a818ba3e25a512bc22645eeb1bcf0bc25ad7d4ed"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3j/full_suite_diagnostics.json",
+          "sha256": "e616e1dcaebed81773de2dc583ed9564c604ecb78b00b7a5ced43542aa8471ed"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3j/full_suite_diagnostics.log",
+          "sha256": "319afbfb8be131ae87e6e65c8c6fcc7dafd8f4f161818d7757f027e0a6cd0e14"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3j/full_suite_run.json",
+          "sha256": "303070021c7dbae179f0847b9c8a4961e2e2d6e5334a10cc7e58adaced7e02ee"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3j/full_suite_summary.json",
+          "sha256": "21b635c8daa89a4881a3df2f0b7a8d3da8e8219679dcdb08a5d6a3335d17dfa7"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3j/tower_export.json",
+          "sha256": "31cfc7706be08bff7450ee34da81dc53ad31cfedafa49560489dde53a5c7f2d7"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3j/tower_export_run.json",
+          "sha256": "801cb2eace1aca9ead93b62cc2735ccdea01b9b897dab7a85388549b33a13729"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3j/tower_project/README.md",
+          "sha256": "7e3e017f5d542e6d9cbb8c236a9f3bfba11d5f86ea4fcdb8d3ee7631e767be73"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3j/tower_project/frames/keeper.tres",
+          "sha256": "d5acbca3e7387b7b0acb7cd13122bcbcb966dee914f2efb71d9564f012232f58"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3j/tower_project/project.godot",
+          "sha256": "6d0ef8e05564e1996db4acf5b3ce09abd63e698a147179acca4a78ab03c7a0af"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3j/tower_project/scene/annotation.json",
+          "sha256": "5d2fcd0a422250eede5a7f7f8c913e7cb08cfeae2dfeb162df8814625147d565"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3j/tower_project/scene/occluders/occluders.json",
+          "sha256": "0f7c7c346bc39e722e4105315bc890c966c57046d34f0bf2411a52447bc68254"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3j/tower_project/scenes/ambient.tscn",
+          "sha256": "ae6006a9b905f8c34dfc7922e73563209a4c7532c227a4c788714dec2f6b7d95"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3j/tower_project/scenes/frost_bolt.tscn",
+          "sha256": "4dda78afdf571f4853ad067d46472e072603a236f9a3b3f70385fbdcb3dae4a5"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3j/tower_project/scenes/frost_impact.tscn",
+          "sha256": "f10b6807b2708a8ea5ee1844f56bc3e65c4a40ddaa640c04aec38e449444c629"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3j/tower_project/scenes/main.tscn",
+          "sha256": "a7ff2b1ba99ca306dacd7fbee1556fbfbed54d72cc8e3c01ab72e1aba58b874d"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3j/tower_project/scenes/tower.tscn",
+          "sha256": "adbea3f017b750dd9aa49e6de1e99cd01f4f08313ff225c6efa7efc50f839cd4"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3j/tower_project/scripts/frost_bolt.gd",
+          "sha256": "7fcfce78be6360dc720017408bf1896600c41e1be2a7f9d1bc501cff24c5fd23"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3j/tower_project/scripts/frost_impact.gd",
+          "sha256": "2f53be38f198744ff7f39b9281e2c82b06836c37a6f3bbc89e85d54bd1fc4105"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3j/tower_project/scripts/keeper.gd",
+          "sha256": "21edf18e73bce111fd1f7a8e2f916004a6745254f27fc6f8ede7f8d1e774545c"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3j/tower_project/sockets.json",
+          "sha256": "d35cc63bd7091348b693899eedb87d3032539385b4bce119fffec51a963fa921"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3j/tower_project/vfx/flare.tres",
+          "sha256": "95244a28321c3e470360f182ecb828be8adf500db7487ccd0253fef3d765ae0b"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3j/tower_project/vfx/impact.tres",
+          "sha256": "32f6eadd48ccc2cdb626b5bdd433f78bba0f662f7ca8ef53c373a0117f361600"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "tests/test_scene_kit.py",
+          "sha256": "18512dbeb3efa368c75fff940dfe3e61ee824e3b66ec79bf9440a6d66fe82bfc"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "tests/test_sockets.py",
+          "sha256": "7363fe213bdc2d8aa9a1e35e279cee652fdbce3a52819ae5869de849abe92712"
+        }
+      ],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
     }
   ],
   "images_used": 26,
@@ -18540,6 +21128,69 @@
       "consequence": "Wave: P4c-{SW,E,W}-idle-b (re-cut with exclusions), P4c-{S,SE}-idle-e2 (new clips), L2-ann-plateA.",
       "evidence": "runs/C-3/t3/T3g/acceptance.json",
       "ts": "2026-09-13T11:28:02"
+    },
+    {
+      "id": "R-C3-34",
+      "by": "gandalf (conductor)",
+      "topic": "ANNOTATION ACCEPTED WITH TWO CONDUCTOR DATA EDITS (plate A): desk silhouette + front band y ≥ 815 appended to blocked; scene inputs staged at runs/C-3/scene_A/",
+      "ruling": "L2-ann-plateA (exit 0): 1 walkable polygon, 20 blocked, 21 occluders with baselines, exits doorway + stairs, spawn [764, 554]. Conductor view of the overlay: the walkable polygon ran over the front parapet face to the plate bottom (the annotator assumed hidden floor behind the parapet reaches the wall base) and over the desk top. Data edits (like a bible data edit: conductor edit + hash + ledger line): the desk_and_instruments occluder silhouette appended to blocked; a band [0,815]–[1536,1024] appended to blocked so feet stop at the parapet line. Re-rendered overlay checked by eye: floor walkable, walls/stairs/plinth/doorway steps/desk blocked. Original annotation hash recorded in scene_A/annotation.json.",
+      "consequence": "T3h builds the scene kit from runs/C-3/scene_A/{plate.png, annotation.json}.",
+      "evidence": "runs/C-3/artifacts/L2-ann-plateA/annotation_overlay.png; runs/C-3/scene_A/annotation.json",
+      "ts": "2026-09-13T11:36:55"
+    },
+    {
+      "id": "R-C3-35",
+      "by": "gandalf (conductor)",
+      "topic": "S/SE idle eye re-drive FAILED (eyes close by ~frame 9 despite the eyes-open line); prompt SEMANTICS changed: an alert, watchful ready-idle with no calm/relaxed/slow language (2 clips, stop on first failure); T3h fires",
+      "ruling": "B2c TRANSCRIBE on S_idle_e2 / SE_idle_e2: closed on 102/105 and 87/105 frames, every sampled frame hit; conductor eye on B1c S frames 0–17: eyes open 0–2, closing 3–8, closed from 9. The idle prompt’s ‘slow, calm, relaxed breath’ semantics produce a meditative eyes-closed breath that an appended ‘eyes open’ line does not override. Method change within the hypothesis (prompt semantics): matrix_prompts cells S_idle_alert / SE_idle_alert. Risk named: the alert framing may change the breathing character Matt passed at C-2 (R-48) — flagged for his eye.",
+      "consequence": "Clips S_idle_alert / SE_idle_alert staged during T3h; eye check (face crops + TRANSCRIBE) before any re-cut. If they still close: the S/SE idles keep their best available cut (the -e2 re-cuts are NOT used), flagged, and the eye requirement goes back to Matt (options: shorter idle loop from the open-eyed opening, or a paint-over of the eye region).",
+      "evidence": "runs/C-3/artifacts/B2c-eyes-*/eyes.json; B1c-faces-S/faces_0.png",
+      "ts": "2026-09-13T11:40:41"
+    },
+    {
+      "id": "R-C3-36",
+      "by": "gandalf (conductor, DRIFT-CRITIC)",
+      "topic": "T3h ACCEPTED + FROZEN — scene kit (occluder cut-outs, collision, fixed room camera, 1/6 scale, contact shadow, y-sort); headless tower test green OUTSIDE the sandbox; alert idles S/SE ok (eyes open on every 12th frame by conductor eye; expression reads startled — flag)",
+      "ruling": "Receipt DELIVERED_WITH_CONCERNS (audit clean; 27 calls). Fixture acceptance exact: occluder cut interior error 0, outside alpha 0, 1-px feather; blocked point contained / walkable point excluded; shadow alpha centre 115 → rim 0; 35 ext_resource paths resolved; main_scene tower.tscn, sandbox main kept; sprite+speed scale 0.5 on the fixture; feet pivot error 0; fixed camera zoom 3.84; window 1536×1024. In-sandbox the headless import aborts −6 (the known ~/Library write block); conductor run outside the sandbox: tests/test_scene_kit + test_godot_import 26/26 OK. Suite 326 run; standing reds + the two in-sandbox Godot headless tests. Freeze 09284ad1feba.",
+      "consequence": "Wave: B1d face crops + cut of S/SE alert idles; then T3i.",
+      "evidence": "runs/C-3/t3/T3h/acceptance.json; conductor unittest output",
+      "ts": "2026-09-13T11:59:19"
+    },
+    {
+      "id": "R-C3-37",
+      "by": "gandalf (conductor)",
+      "topic": "IDLE EYE FIX COMPLETE (Matt fix 1): SW/E/W blink-free re-cuts; S/SE alert ready-idles eyes open on every frame (0 closed); expression change flagged",
+      "ruling": "P4c-SW-idle-b [42,90), P4c-E-idle-b [14,62), P4c-W-idle-b [8,56) — windows chosen by T3g with the transcriber eyes-closed spans excluded. S/SE: the -e2 eyes-open re-drives FAILED (R-C3-35); alert re-drives S_idle_alert / SE_idle_alert → B2d TRANSCRIBE 0 closed/partly frames on both (controls caught); cuts P4c-S-idle-alert [54,102), P4c-SE-idle-alert [9,72) — no sampled frame closed. Conductor eye: open-eyed throughout; the S alert face reads more startled (lips parted, brows lifted) than the calm idle Matt passed — flagged for his eye. N/NE/NW idles: faces not visible, unchanged. Grok this lap: 4 clips (e2 ×2 failed on eyes, alert ×2 ok).",
+      "consequence": "Assembly prefers the -b and -alert idles; the tower scene uses them.",
+      "evidence": "runs/C-3/artifacts/B2d-eyes-*/eyes.json; P4c-*-idle-b / -alert registration.json",
+      "ts": "2026-09-13T12:28:18"
+    },
+    {
+      "id": "R-C3-38",
+      "by": "gandalf (conductor, DRIFT-CRITIC)",
+      "topic": "T3i ACCEPTED + FROZEN — directional VFX system (flare at the staff-tip socket on the cast release frame, comet projectile in the facing direction, impact at collision/range, contained ambient motes) + FULL-RESOLUTION staff-tip instrument (replaces the R-C3-16 conductor script; F-C3-4 closed as an instrument)",
+      "ruling": "Receipt DELIVERED_WITH_CONCERNS (audit clean; 28 calls). Real-frame staff tip: cast_S_00 (217,165) vs target (216,165) err 1 px; cast_S_02 (251,82) vs (249,82) err 2 px; walk_E_05 (285,159) reported. runs/C-3/sockets.json covers every cast cell (8 sockets + release index). Suite 344 run; reds = the standing set + three Godot headless tests red only in the sandbox; conductor outside the sandbox: test_staff_tip + test_sockets + test_scene_kit + test_godot_import 44/44 OK. impact_range accepts one inclusive [first,last] range → the scene uses a conductor-staged renumbered subset (ice frames 11–15 flash/burst + 31–39 shatter/sparkles). Freeze b7e521660e3e.",
+      "consequence": "Scene export PACK next (cells + scene_A + vfx kit + sockets; no gear variant — Matt rejected the gear swap, R-C3-28).",
+      "evidence": "runs/C-3/t3/T3i/measurements.json; conductor unittest output",
+      "ts": "2026-09-13T12:28:18"
+    },
+    {
+      "id": "R-C3-39",
+      "by": "gandalf (conductor)",
+      "topic": "TOWER EXPORT FAILED TWICE on real data — (1) strict annotation schema rejected conductor provenance keys (moved to scene_A/annotation_provenance.json); (2) the exporter HUNG in largest_walkable_rectangle (scipy HiGHS LP) on plate A’s real annotation and the burst hit its 15-min cap (KeyboardInterrupt; project incomplete, not harvested) — tool defect → TOOLING T3j",
+      "ruling": "L2-tower exit 3 (receipt FAILED honestly: ValueError schema). L2-tower-r1 exit 3 (timeout; exporter.stderr shows KeyboardInterrupt inside largest_walkable_rectangle → HiGHS). T3i’s acceptance exercised only a synthetic fixture (1 small walkable, few blocked) — the real annotation (1 walkable polygon, 22 blocked incl. a full-width band, many vertices) exposes a performance defect. Not harvested: the project lacks the ambient scene and the exporter never finished. Remedy in the tool, not the conductor (Gate-2 lesson): T3j replaces the LP with a raster maximal-rectangle and must export the REAL tower project from scene_A end-to-end as its acceptance.",
+      "consequence": "SPEC § 7 lap 2 T3j; re-freeze; TOOLING T3j; conductor headless proof of T3j’s tower project; install at runs/C-3/tower/.",
+      "evidence": "~/astra-burst/runs/C-3/L2-tower-r1/out/exporter.stderr",
+      "ts": "2026-09-13T12:45:33"
+    },
+    {
+      "id": "R-C3-40",
+      "by": "gandalf (conductor, DRIFT-CRITIC)",
+      "topic": "T3j ACCEPTED-WITH-FINDING + FROZEN; the PLAYABLE TOWER SCENE is built and installed at runs/C-3/tower/ (headless import + 600-frame run clean outside the sandbox)",
+      "ruling": "T3j exit 0 (22 calls): raster maximal rectangle 0.043 s on plate A (cell 8 px, 192×128 grid; ambient rectangle [288,424,1192,800], 339,904 px², inside walkable); real export: 40 cells, 416 frames, 21 occluders, 191 collision polygons, figure 171 px (sprite scale 0.7125), vfx kit flare 9 / impact 14 frames, sockets for 8 cast cells, 0 missing. FINDING: my T3j contract required ‘same or larger’ rectangle than the T3i LP AND a one-cell shrink — self-contradictory; the raster result is smaller, and T3i’s six exact-area assertions (test_sockets AmbientRectangleTests: fixture room, hole/union/concavity ×4, slanted fractional) are now red; containment holds in every case (no rectangle cell over blocked space). Owed: a TOOLING touch to re-express those tests as containment + near-optimal bounds. Conductor proof outside the sandbox: Godot 4.6 --import exit 0, --quit-after 600 exit 0, zero ERROR/WARNING/SCRIPT lines; main_scene res://scenes/tower.tscn; test_staff_tip + test_sockets + test_scene_kit + test_godot_import 51 run, only those 6 area assertions failing. Freeze 7c9e6d51ba48.",
+      "consequence": "Matt plays runs/C-3/tower/project.godot (Desktop copy). Fast follow queued (R-C3-31): own VFX vs library in the same scene.",
+      "evidence": "runs/C-3/t3/T3j/tower_export.json; conductor headless logs",
+      "ts": "2026-09-13T13:00:36"
     }
   ],
   "grok_calls": [
@@ -19710,6 +22361,40 @@
       "printed": "",
       "staged_mp4": "/Users/admin/astra-burst/grok/C-3/SE_idle_e2/SE_idle_e2.mp4",
       "ts": "2026-09-13T11:28:02"
+    },
+    {
+      "id": "G-S_idle_alert",
+      "cell": "S_idle_alert",
+      "still": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K1p-gen-01/k1p_master_C.png",
+      "still_sha256": "b7bf2c14f79b71c3b645a792c25ca7e31ca11631dc385489a705dc8fb70ad957",
+      "prompt_sha256": "01f077c9f74f69f6833ad5d8e3be681e5e73209e2ab5fdd9638d7d138fc2c2c4",
+      "extra": "",
+      "clip": "runs/C-3/xvideo/in/S_idle_alert.mp4",
+      "clip_sha256": "3790e662c5f9006591a17c96cc42183b7742496d52ac933281b6a9f7ee1f7fc9",
+      "ok": true,
+      "rc": 0,
+      "wall_s": 60,
+      "probe": "768,1168,24/1,6.041667,145",
+      "printed": "",
+      "staged_mp4": "/Users/admin/astra-burst/grok/C-3/S_idle_alert/S_idle_alert.mp4",
+      "ts": "2026-09-13T11:59:19"
+    },
+    {
+      "id": "G-SE_idle_alert",
+      "cell": "SE_idle_alert",
+      "still": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/K2c-gen-SE/k2c_SE.png",
+      "still_sha256": "6f7f7b736e6790416c7d069a1ff924e339bc59176a34887e3dbef70c44c821d8",
+      "prompt_sha256": "55490f765008a6ad5f9360f80a5cd2f025da6233566bb02b28b72f8b924f45e8",
+      "extra": "",
+      "clip": "runs/C-3/xvideo/in/SE_idle_alert.mp4",
+      "clip_sha256": "027ac964ac7dce0e62ae59cc5c31a14804616dde69c2218c8eab76c3654288c8",
+      "ok": true,
+      "rc": 0,
+      "wall_s": 53,
+      "probe": "768,1168,24/1,6.041667,145",
+      "printed": "",
+      "staged_mp4": "/Users/admin/astra-burst/grok/C-3/SE_idle_alert/SE_idle_alert.mp4",
+      "ts": "2026-09-13T11:59:19"
     }
   ],
   "run": "C-3",

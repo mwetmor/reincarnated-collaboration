@@ -1,0 +1,214 @@
+{
+  "t3i_fixture": {
+    "cell_size": 8,
+    "cells": 1850,
+    "grid_shape": [
+      37,
+      50
+    ],
+    "walkable_cells": 1359,
+    "rectangle_cells": 780,
+    "unshrunk_rectangle": [
+      24,
+      24,
+      248,
+      280
+    ],
+    "unshrunk_area_px2": 57344,
+    "area_px2": 49920,
+    "wall_s": 0.0008065830043051392,
+    "rectangle": [
+      32,
+      32,
+      240,
+      272
+    ],
+    "containment": {
+      "grid_cells_checked": 780,
+      "grid_cells_unwalkable": 0,
+      "independent_point_samples": 3900,
+      "samples_outside_walkable": 0,
+      "samples_inside_blocked": 0
+    },
+    "plate_size": [
+      400,
+      300
+    ],
+    "polygon_count": 2,
+    "vertices_per_polygon": [
+      4,
+      4
+    ],
+    "legacy_area_px2": 59800,
+    "area_delta_px2": -9880,
+    "area_ratio": 0.8347826086956521,
+    "literal_same_or_larger": false
+  },
+  "complex_25_polygons": {
+    "cell_size": 8,
+    "cells": 24576,
+    "grid_shape": [
+      128,
+      192
+    ],
+    "walkable_cells": 24048,
+    "rectangle_cells": 5890,
+    "unshrunk_rectangle": [
+      0,
+      208,
+      1536,
+      472
+    ],
+    "unshrunk_area_px2": 405504,
+    "area_px2": 376960,
+    "wall_s": 0.11374487499415409,
+    "rectangle": [
+      8,
+      216,
+      1528,
+      464
+    ],
+    "containment": {
+      "grid_cells_checked": 5890,
+      "grid_cells_unwalkable": 0,
+      "independent_point_samples": 29450,
+      "samples_outside_walkable": 0,
+      "samples_inside_blocked": 0
+    },
+    "plate_size": [
+      1536,
+      1024
+    ],
+    "polygon_count": 25,
+    "vertices_per_polygon": [
+      48,
+      48,
+      48,
+      48,
+      48,
+      48,
+      48,
+      48,
+      48,
+      48,
+      48,
+      48,
+      48,
+      48,
+      48,
+      48,
+      48,
+      48,
+      48,
+      48,
+      48,
+      48,
+      48,
+      48,
+      48
+    ],
+    "wall_criterion_s": 5
+  },
+  "plate_A": {
+    "cell_size": 8,
+    "cells": 24576,
+    "grid_shape": [
+      128,
+      192
+    ],
+    "walkable_cells": 8006,
+    "rectangle_cells": 5311,
+    "unshrunk_rectangle": [
+      280,
+      416,
+      1200,
+      808
+    ],
+    "unshrunk_area_px2": 360640,
+    "area_px2": 339904,
+    "wall_s": 0.04194583299977239,
+    "rectangle": [
+      288,
+      424,
+      1192,
+      800
+    ],
+    "containment": {
+      "grid_cells_checked": 5311,
+      "grid_cells_unwalkable": 0,
+      "independent_point_samples": 26555,
+      "samples_outside_walkable": 0,
+      "samples_inside_blocked": 0
+    },
+    "plate_size": [
+      1536,
+      1024
+    ],
+    "polygon_count": 23,
+    "vertices_per_polygon": [
+      77,
+      17,
+      7,
+      6,
+      6,
+      6,
+      6,
+      6,
+      6,
+      6,
+      6,
+      6,
+      12,
+      6,
+      6,
+      6,
+      6,
+      6,
+      6,
+      6,
+      6,
+      47,
+      4
+    ]
+  },
+  "notes": [
+    "The one-cell inset and 8 px grid cannot preserve the prior continuous optimum; legacy area assertions are retained.",
+    "The histogram/stack scan is O(rows*cols); exact complement construction and conservative rasterization also depend on polygon geometry.",
+    "No standalone Godot command was issued; full-suite headless cases are part of the requested suite."
+  ],
+  "synthetic_suite": {
+    "command": "PYTHONDONTWRITEBYTECODE=1 python3 -B -m unittest discover -s tests -p test_scene_kit.py -k FastRectangleTests -v",
+    "tests_run": 7,
+    "successful": true,
+    "wall_s": 3.604,
+    "exhaustive_nonempty_3x3_grids": 511,
+    "concave_L_blocked_hole_rectangle": [
+      8,
+      8,
+      392,
+      88
+    ],
+    "concave_L_blocked_hole_area_px2": 30720,
+    "concave_L_blocked_hole_grid_cells": 480
+  },
+  "full_suite": {
+    "tests_run": 351,
+    "successful_tests": 337,
+    "elapsed_s": 131.16532458399888,
+    "successful": 337,
+    "red_assertions": 14,
+    "standing_red_assertions": 8,
+    "legacy_area_red_assertions": 6,
+    "command_wall_s": 131.3851965829963,
+    "diagnostic_wall_s": 126.57324329100084,
+    "exit_code": 1
+  },
+  "delivery": {
+    "wall_since_first_clock_s": 666.116326,
+    "wall_cap_s": 2400,
+    "image_calls": 0,
+    "image_cap": 0,
+    "tower_project_png_files": 462,
+    "temporary_directories_remaining": 0
+  }
+}

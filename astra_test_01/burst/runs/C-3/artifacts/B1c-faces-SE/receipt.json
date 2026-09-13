@@ -1,0 +1,37 @@
+{
+  "task_id": "B1c-faces-SE",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [],
+  "calls_used": 0,
+  "retries": [
+    {
+      "reason": "The expanded square crops extended above the source boundary.",
+      "change": "Retained crop geometry and padded out-of-frame areas with #3a3f4a."
+    }
+  ],
+  "self_report": {
+    "obeyed_invariants": true,
+    "concerns": [
+      "Frozen split at t_max_s=4.4 returned 106 frames, including frame 105 at 4.375 seconds. Sheets contain the explicitly requested frames 0–104.",
+      "All 105 square crops required background padding above the source boundary. Temporary frames were deleted."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/faces_0.png",
+      "sha256": "bbe2edf18df62982a62b05e16b77d840bf12f571f07842eefadd998b171d4a00"
+    },
+    {
+      "path": "out/faces_1.png",
+      "sha256": "15cbb892b54ad87a994253a34554b82daba324ba1878e9d718aa899ac55ca2e6"
+    },
+    {
+      "path": "out/faces_2.png",
+      "sha256": "9c7ac9216750ac3200fbccedcfb2de946a13d39d8c6d21164abd247fe3955c06"
+    },
+    {
+      "path": "out/faces_index.json",
+      "sha256": "57fc7dfa1cb57253c4d3bac674a23c626d64d31d2540a6741b5d0be8501a47ea"
+    }
+  ]
+}
