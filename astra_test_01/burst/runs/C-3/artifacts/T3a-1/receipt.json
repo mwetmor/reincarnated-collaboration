@@ -1,0 +1,87 @@
+{
+  "task_id": "T3a-1",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [],
+  "calls_used": 0,
+  "retries": [
+    {
+      "reason": "Initial walk estimated stride 36 and selected [53,89).",
+      "change": "Removed uncontracted period-prefix truncation and selected the latest sample of flat DOWN peaks. Reused saved tracks and rebuilt the walk strip; no second full acceptance run."
+    }
+  ],
+  "self_report": {
+    "obeyed_invariants": false,
+    "concerns": [
+      "Read-scope deviation: initial extraction displayed other SPEC §7 rows and fuller dependency excerpts than requested. No out-of-scope implementation followed.",
+      "Synthetic: 12/12 successful in 1.357 s versus <20 s. Bob 17 versus 17±1; stride 34 versus 34±2; idle 48 versus 48±1; flat idle used prompted_fallback; splice [107,108] flagged.",
+      "Corrected walk: [71,105), indices [71,74,77,79,82,85,88,91,94,97,99,102]; maximum reference-index error 0 versus ≤1. Bob 17, stride 34, confidence 0.607219. No suspect splice inside selection.",
+      "Idle: [30,78), length 48 versus 48; source prompted_fallback. Both anchors: H=240 versus 240±1, sole=399, cx=255.5, 512×512 canvas, one shared transform including rest.",
+      "Initial full processing: walk 23.973 s, idle 24.966 s versus ≤180 s each; including strips/cleanup 24.263 s and 25.207 s. Corrective walk subset took 4.758 s. Corrected full pipeline was not independently retimed. Sources were 768×1168, 145 frames at 24 fps.",
+      "Final full suite: tests_run=196, successful=190, errors=0, skipped=0, elapsed=84.735 s. Regression: 1880 comparisons, zero differences at tolerance 0.001.",
+      "Standing reds: test_idle_intent.Tests.test_k3_combat_report_only; test_oracle_walk.Tests.test_synthetic_contract_and_grid; test_oracles_motif.Tests.test_f04_outside_at_least_three; test_oracles_motif.Tests.test_named_genuine_annuli_retained at centers [113,201], [111,311], [170,253].",
+      "edge_mode is explicitly reported as ignored pending T3b. Required suite regenerated its diagnostic outputs, included in files. Decoded and test temporaries removed. Burst elapsed approximately 902 s versus 2400 s cap."
+    ]
+  },
+  "files": [
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/oracle/video_cut.py",
+      "sha256": "537fcfd04b109cc20b7d1787a78bbc7323b78b9b6c63832e2f88c51e79809d43"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_video_cut.py",
+      "sha256": "00518fafb45995cd3ea6dc978079be46b7b635ff88140e69c8905a8553552924"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/acceptance_t3a.py",
+      "sha256": "5fff8e80527a286af8dab6b4263c3f628c56d696b01f71b635411a1416dada49"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/t3/T3a-1/acceptance.json",
+      "sha256": "7f5e9e095f5c956cb47a0c48b5ec01f64417b34bc7f25a1ba01d36000c826f50"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/t3/T3a-1/walk_strip.png",
+      "sha256": "8bb1737b64238532c499fbd9e9e2987f60832decbc232de6c528c6517a32aad1"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/t3/T3a-1/idle_strip.png",
+      "sha256": "dc6bf7c444937be47888b165cb5f25e978df51345c1d8ca61ad6b00b1732a253"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/t3/T3a-1/full_suite_stdout.txt",
+      "sha256": "e27f9c5938982c013bb9e2148987e4110e085398561f17219e08393908fbbb96"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/gates_regression_diff.json",
+      "sha256": "c8864b881f6646a530b06271dfb4d801767aa46db6184abad8bba4761cafbe80"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/oracles_acceptance_measurements.json",
+      "sha256": "39949a5e5c6afe3bf7e19061f5aa2859e15d85b70803b0430ced6471c998f3d0"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/oracles_palette_measurements.json",
+      "sha256": "d644692970ba376c582468b225308f6c3d6e9c7c8b5a0c73187689d2e1cbac25"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/oracles_silhouette_measurements.json",
+      "sha256": "1dc9e68b72691bf50e1773cdfcc5cad8d8990731cfb2a012956acb826aaa637f"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/parts_measurements.json",
+      "sha256": "daef6067a663ac0f199506bfbbb229a351bd7ce0fac4cb670dcac047026f8994"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/sheet_consistency_calibration.json",
+      "sha256": "3b8076d4a4b4e3b06920e067b3c5c665d6a0a441afd3f4725cbfafdb3df463ab"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/t0c_suite_output.txt",
+      "sha256": "26cc9f6fd54a577df02ba33711fb25a9ef118c3a581e09cd7cf882a0c0ee0c97"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/t0c_summary.json",
+      "sha256": "56a2dd37a9d096c1883b386d68e9dafe5086d6586c4dcddf50e6df7df75a2a03"
+    }
+  ]
+}
