@@ -1,0 +1,263 @@
+{
+  "task_id": "L2-comp-01",
+  "target_height_px": 171,
+  "scale_anchor": "1024 / 6, rounded to the explicitly requested 171 px",
+  "resampling": "PIL.Image.Resampling.LANCZOS",
+  "raster_rounding": "Width is nearest integer to crop width times uniform scale; top-left coordinates are nearest integers to requested bottom-center minus (width/2, height).",
+  "alpha_compositing": "Original RGBA pixels cropped to alpha >= 128 bounding box, resized, and alpha-composited in frame order 0 through 4.",
+  "zoom_center_px": [
+    768,
+    600
+  ],
+  "zoom_box_xyxy": [
+    318,
+    280,
+    1218,
+    920
+  ],
+  "placements": [
+    {
+      "frame_index": 0,
+      "source": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/cells/idle_S/frames/idle/S/idle_S_00.png",
+      "alpha_threshold": 128,
+      "alpha_bbox_xyxy": [
+        209,
+        160,
+        304,
+        400
+      ],
+      "crop_size_px": [
+        95,
+        240
+      ],
+      "uniform_scale": 0.7125,
+      "resized_size_px": [
+        68,
+        171
+      ],
+      "position_fraction": [
+        0.46,
+        0.66
+      ],
+      "requested_bottom_center_px": [
+        706.5600000000001,
+        675.84
+      ],
+      "paste_top_left_px": [
+        673,
+        505
+      ],
+      "actual_bottom_center_px": [
+        707.0,
+        676
+      ]
+    },
+    {
+      "frame_index": 1,
+      "source": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/cells/walk_E/frames/walk/E/walk_E_03.png",
+      "alpha_threshold": 128,
+      "alpha_bbox_xyxy": [
+        202,
+        159,
+        327,
+        397
+      ],
+      "crop_size_px": [
+        125,
+        238
+      ],
+      "uniform_scale": 0.7184873949579832,
+      "resized_size_px": [
+        90,
+        171
+      ],
+      "position_fraction": [
+        0.62,
+        0.58
+      ],
+      "requested_bottom_center_px": [
+        952.3199999999999,
+        593.92
+      ],
+      "paste_top_left_px": [
+        907,
+        423
+      ],
+      "actual_bottom_center_px": [
+        952.0,
+        594
+      ]
+    },
+    {
+      "frame_index": 2,
+      "source": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/cells/idle_SW/frames/idle/SW/idle_SW_00.png",
+      "alpha_threshold": 128,
+      "alpha_bbox_xyxy": [
+        220,
+        160,
+        292,
+        400
+      ],
+      "crop_size_px": [
+        72,
+        240
+      ],
+      "uniform_scale": 0.7125,
+      "resized_size_px": [
+        51,
+        171
+      ],
+      "position_fraction": [
+        0.3,
+        0.74
+      ],
+      "requested_bottom_center_px": [
+        460.79999999999995,
+        757.76
+      ],
+      "paste_top_left_px": [
+        435,
+        587
+      ],
+      "actual_bottom_center_px": [
+        460.5,
+        758
+      ]
+    },
+    {
+      "frame_index": 3,
+      "source": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/cells/walk_NE/frames/walk/NE/walk_NE_00.png",
+      "alpha_threshold": 128,
+      "alpha_bbox_xyxy": [
+        207,
+        160,
+        305,
+        400
+      ],
+      "crop_size_px": [
+        98,
+        240
+      ],
+      "uniform_scale": 0.7125,
+      "resized_size_px": [
+        70,
+        171
+      ],
+      "position_fraction": [
+        0.7,
+        0.78
+      ],
+      "requested_bottom_center_px": [
+        1075.1999999999998,
+        798.72
+      ],
+      "paste_top_left_px": [
+        1040,
+        628
+      ],
+      "actual_bottom_center_px": [
+        1075.0,
+        799
+      ]
+    },
+    {
+      "frame_index": 4,
+      "source": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/cells/run_W/frames/run/W/run_W_02.png",
+      "alpha_threshold": 128,
+      "alpha_bbox_xyxy": [
+        176,
+        147,
+        347,
+        381
+      ],
+      "crop_size_px": [
+        171,
+        234
+      ],
+      "uniform_scale": 0.7307692307692307,
+      "resized_size_px": [
+        125,
+        171
+      ],
+      "position_fraction": [
+        0.38,
+        0.52
+      ],
+      "requested_bottom_center_px": [
+        583.6800000000001,
+        532.48
+      ],
+      "paste_top_left_px": [
+        521,
+        361
+      ],
+      "actual_bottom_center_px": [
+        583.5,
+        532
+      ]
+    }
+  ],
+  "files": [
+    {
+      "plate": "plate_A",
+      "source_plate": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/L2-plate-01/plate_A.png",
+      "path": "out/comp_plate_A.png",
+      "size_px": [
+        1536,
+        1024
+      ],
+      "sha256": "cddc1ff42bbca259f0babbffff4024fa20260e79ddc7f68e55fca9e8b5e27bac"
+    },
+    {
+      "plate": "plate_A",
+      "source_plate": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/L2-plate-01/plate_A.png",
+      "path": "out/comp_plate_A_zoom.png",
+      "size_px": [
+        900,
+        640
+      ],
+      "sha256": "b86a489bc9468c393ed5e389d95260d909581740a676f9877d70a9cfa2f3fb98"
+    },
+    {
+      "plate": "plate_B",
+      "source_plate": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/L2-plate-01/plate_B.png",
+      "path": "out/comp_plate_B.png",
+      "size_px": [
+        1536,
+        1024
+      ],
+      "sha256": "62f925b0f0a637dd3c217c55cefab6ac6306cda080c39d5807f3a396d78b22ac"
+    },
+    {
+      "plate": "plate_B",
+      "source_plate": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/L2-plate-01/plate_B.png",
+      "path": "out/comp_plate_B_zoom.png",
+      "size_px": [
+        900,
+        640
+      ],
+      "sha256": "261431c2087443c12c77b7a9b58cee506d2a6ef94bd505e06d2c925f04c18fa9"
+    },
+    {
+      "plate": "k7",
+      "source_plate": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K7-H1-aery/k7_H1_aery.png",
+      "path": "out/comp_k7.png",
+      "size_px": [
+        1536,
+        1024
+      ],
+      "sha256": "0e1f5b93ffcf2e2e4c3cee6def36af7e8b98da51ce988029754858802a1befed"
+    },
+    {
+      "plate": "k7",
+      "source_plate": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K7-H1-aery/k7_H1_aery.png",
+      "path": "out/comp_k7_zoom.png",
+      "size_px": [
+        900,
+        640
+      ],
+      "sha256": "80c67ba71ac379ea2a12380150a98fe006234afc3293b716a0842be96be0bd4f"
+    }
+  ],
+  "concerns": []
+}

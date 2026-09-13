@@ -1,0 +1,31 @@
+{
+ "text": "GENERATE BURST L2-plate-01 — the Keeper's OBSERVATORY TOWER TERRACE re-drawn at the CHARACTER'S camera, as a playable scene plate (Run C-3 lap 2, Matt R-C3-29: 'get what we have into the scene with proper camera'). task_id \"L2-plate-01\".\n\nMake TWO separate image_gen calls, each producing ONE LANDSCAPE 1536×1024 scene plate with NO characters, NO creatures, NO text, NO UI:\nTHE ROOM (from Image 1): an open-air stone terrace high among clouds and mountain spires — a great brass ARMILLARY SPHERE on a round stepped plinth toward the upper-right, a broad COMPASS-ROSE inlaid in the paving (slate blue and pale stone with gold lines) filling the middle of the floor, stairs rising along the upper-left, an arched doorway in the right wall, low stone parapets and pillars at the front edge, a wooden desk with scrolls and a brass instrument at the left, hanging brass spheres and navy banners with gold compass sigils framing the edges, ivy on the stonework.\nTHE CAMERA — the whole point: match the camera the character in Images 2 and 3 was drawn with. She is seen from only SLIGHTLY above: her face, the front of her body and the sides of her boots show, and very little of the top of her head. So the floor must be seen from the same gentle height — a low elevated three-quarter view looking down only about 25–30°: the compass-rose reads as a WIDE, FLAT ellipse (roughly twice as wide as it is tall), walls and pillars show their FRONT faces tall and upright rather than their tops, the armillary and the desk are seen mostly from the side. Image 4 shows the mistake to avoid: a floor seen from high above under a character seen from nearly eye level. Keep vertical lines vertical (no fisheye, no tilt).\nSCALE: the room is built for a standing figure exactly like Images 2–3 whose height is ONE-SIXTH of the plate height (≈ 170 px on this 1024-px-tall plate): the doorway is about two of her tall, the desk reaches her waist, one compass-rose band is about one of her strides wide. PLAY SPACE: the compass-rose floor is open and uncluttered — at least 60 % of the floor is walkable; props sit at the edges; nothing blocks the centre.\nCandidate A: the camera faces the terrace squarely (the doorway on the right wall, the stairs upper-left, parapet along the bottom edge). Candidate B: the same room rotated about 20° so the compass-rose sits slightly left of centre and the armillary is more prominent; same camera height.\nRegister (same as the character): HAND-DRAWN painted 2D in the manner of a modern hand-animated action game — a confident dark contour line drawn by hand with visible taper and varying weight, painted fills in clean planes inside the line, restrained texture. Palette: slate blue, pale warm stone, brass and gold, teal cloud-light beyond the parapets. Light: single key from SCREEN UPPER-LEFT (matching the character), soft ambient, readable shadows never pure black; NO cast shadows of people. Fill the whole canvas; no border, no vignette. Do NOT copy Image 1's steep camera.\n\nONE extra retry only if a result contains a character, text, a border, or a camera clearly as steep as Image 1 — name the reason. Copy the outputs from $CODEX_HOME/generated_images/... to out/plate_A.png and out/plate_B.png with sha256. No code. No other files. No web.\nRETURN: receipt task_id \"L2-plate-01\"; images = both files with prompt, references (role + path) and elapsed_s; calls_used = the TRUE number of image_gen calls; status DELIVERED / DELIVERED_WITH_CONCERNS / FAILED; concerns. Never PASS/FAIL.",
+ "references": [
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K7-H1-aery/k7_H1_aery.png",
+   "role": "IMAGE 1 — LAYOUT and REGISTER reference: the observatory terrace to re-draw (its camera is too steep for our character)"
+  },
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/L2-refs/keeper_rest_S.png",
+   "role": "IMAGE 2 — the character facing the viewer: CAMERA and SCALE anchor"
+  },
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/L2-refs/keeper_rest_E.png",
+   "role": "IMAGE 3 — the character in right profile: CAMERA and SCALE anchor"
+  },
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/L2-refs/keeper_on_K7_aery_mismatch.png",
+   "role": "IMAGE 4 — what is WRONG today: the character composited onto Image 1 reads like a cut-out because the floor is seen from much higher than she is"
+  }
+ ],
+ "image_cap": 3,
+ "minutes_cap": 15,
+ "tool_call_cap": 20,
+ "outputs": [
+  "out/plate_A.png",
+  "out/plate_B.png"
+ ],
+ "effort": "high",
+ "add_dirs": [],
+ "experiment": "C3-L2-scene"
+}

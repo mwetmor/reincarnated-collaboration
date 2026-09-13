@@ -1,0 +1,37 @@
+{
+  "task_id": "B1-faces-W",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [],
+  "calls_used": 0,
+  "retries": [
+    {
+      "reason": "Initial crop validation rejected squares extending beyond the source image.",
+      "change": "Preserved square coordinates and filled out-of-image regions with #3a3f4a."
+    }
+  ],
+  "self_report": {
+    "obeyed_invariants": true,
+    "concerns": [
+      "Frozen split at 4.4 seconds decoded frames 0–105; sheets use explicitly requested frames 0–104.",
+      "Crop squares extend beyond the source boundary; background extensions use #3a3f4a. Temporary frames removed."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/faces_0.png",
+      "sha256": "06635a3fc441f22670f3bd4cd5501dc17649309c3a05667f7b3802f43b43e1e2"
+    },
+    {
+      "path": "out/faces_1.png",
+      "sha256": "1000c261ccce3f194f4f6d11d64fdaa812122e46740e945dfe0cde17077f70bd"
+    },
+    {
+      "path": "out/faces_2.png",
+      "sha256": "c8d23f50f70d94d01afbccb6167ae7bd9be26324558ddeb3cfeb68e2ebab649b"
+    },
+    {
+      "path": "out/faces_index.json",
+      "sha256": "fe184104a7c706130570f61e8734fe0786fab77cf9e69b3260d0d70f1699d72b"
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "task_id": "L2-plate-01",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "plate_A",
+      "path": "out/plate_A.png",
+      "sha256": "34d9ec23ed48382227ad8caa68ca16367d7167ba183ce219946010c17840e69d",
+      "prompt": "Use case: stylized-concept. Make ONE landscape 1536×1024 playable scene plate, filling the entire canvas. Re-draw the observatory tower terrace in reference Image 1 with a substantially LOWER camera. Reference roles: Image 1 is room layout, props and palette ONLY; its steep viewpoint must change. Images 2 and 3 are CAMERA anchors only: the character is seen from slightly above, with face, body front and boot sides visible, very little head top. Do not depict her. Image 4 is NEGATIVE camera evidence: avoid its high floor viewpoint under a low-viewpoint character.\nCAMERA PRIORITY: low elevated three-quarter view looking downward only 25–30 degrees, matching Images 2–3. The broad circular compass rose projects as a WIDE FLAT ellipse approximately twice as wide as tall. Show tall upright FRONT faces of walls and pillars, very little of their tops. Armillary sphere and desk viewed mostly from their sides. Keep all verticals vertical; no lens distortion, no tilt. Do not reproduce Image 1's overhead arena camera.\nROOM: open-air stone terrace high among teal clouds and mountain spires. Great brass armillary sphere on round stepped plinth toward upper-right. Broad compass-rose inlay of slate blue, pale stone and fine gold lines fills central paving. Stairs rise along upper-left. Arched doorway in right wall. Low stone parapets and pillars frame front edge. Wooden desk with scrolls and brass instrument at left. Hanging brass spheres, navy banners with gold compass sigils at edges, ivy on monumental fractured observatory stonework. At least 60 percent of floor is open walkable space, props at edges, no obstruction in centre.\nRELATIVE ARCHITECTURAL SCALE: designed for a standing figure like Images 2–3 about one-sixth plate height (approximately 170 pixels at 1024 high), but DO NOT DRAW any figure. Doorway roughly twice that figure's height, desk waist-high, a compass band about one stride wide.\nREGISTER: HAND-DRAWN painted 2D in the manner of a modern hand-animated action game. Confident dark contour drawn by hand with visible taper and varying weight; painted fills in clean planes within the line; restrained texture; clean material planes, readable silhouettes, no conspicuous grain. Each image feels like a hand-drawn animation background. Rich environment, subtle local light spill. Faction Keepers of Hours: arcane instruments, deliberate ornamental geometry, monumental stonework; blue, ivory and brass. Single cold key from SCREEN UPPER-LEFT, soft deep cool ambient, readable shadows never pure black, slight rim on key-facing edges. Warm stone, brass and gold are material accents, no warm glowing light sources. Teal cloud-light beyond parapets.\nDELIVERY: finished full scene background, one image only. NO characters, creatures, people silhouettes, cast shadows of people, text, letters, numbers, UI, border or vignette.\nCANDIDATE A: Camera faces terrace squarely. Doorway on right wall, stairs upper-left, parapet along bottom edge. Compass rose centred. Maintain the gentle 25–30 degree downward view and 2:1 ellipse.",
+      "references": [
+        {"role": "Layout and palette reference; steep camera to replace", "path": "in/01_k7_H1_aery.png"},
+        {"role": "Front-facing character camera and scale anchor", "path": "in/02_keeper_rest_S.png"},
+        {"role": "Profile character camera and scale anchor", "path": "in/03_keeper_rest_E.png"},
+        {"role": "Negative reference: camera mismatch to avoid", "path": "in/04_keeper_on_K7_aery_mismatch.png"}
+      ],
+      "elapsed_s": 49.856
+    },
+    {
+      "name": "plate_B",
+      "path": "out/plate_B.png",
+      "sha256": "fe30c8d7c8e5f8ce5ecaa0ceebbeb2ce7387174a2e12959f65685688876196b2",
+      "prompt": "Use case: stylized-concept. Make ONE landscape 1536×1024 playable scene plate, filling the entire canvas. Re-draw the observatory tower terrace in reference Image 1 with a substantially LOWER camera. Reference roles: Image 1 is room layout, props and palette ONLY; its steep viewpoint must change. Images 2 and 3 are CAMERA anchors only: the character is seen from slightly above, with face, body front and boot sides visible, very little head top. Do not depict her. Image 4 is NEGATIVE camera evidence: avoid its high floor viewpoint under a low-viewpoint character.\nCAMERA PRIORITY: low elevated three-quarter view looking downward only 25–30 degrees, matching Images 2–3. The broad circular compass rose projects as a WIDE FLAT ellipse approximately twice as wide as tall. Show tall upright FRONT faces of walls and pillars, very little of their tops. Armillary sphere and desk viewed mostly from their sides. Keep all verticals vertical; no lens distortion, no tilt. Do not reproduce Image 1's overhead arena camera.\nROOM: open-air stone terrace high among teal clouds and mountain spires. Great brass armillary sphere on round stepped plinth toward upper-right. Broad compass-rose inlay of slate blue, pale stone and fine gold lines fills central paving. Stairs rise along upper-left. Arched doorway in right wall. Low stone parapets and pillars frame front edge. Wooden desk with scrolls and brass instrument at left. Hanging brass spheres, navy banners with gold compass sigils at edges, ivy on monumental fractured observatory stonework. At least 60 percent of floor is open walkable space, props at edges, no obstruction in centre.\nRELATIVE ARCHITECTURAL SCALE: designed for a standing figure like Images 2–3 about one-sixth plate height (approximately 170 pixels at 1024 high), but DO NOT DRAW any figure. Doorway roughly twice that figure's height, desk waist-high, a compass band about one stride wide.\nREGISTER: HAND-DRAWN painted 2D in the manner of a modern hand-animated action game. Confident dark contour drawn by hand with visible taper and varying weight; painted fills in clean planes within the line; restrained texture; clean material planes, readable silhouettes, no conspicuous grain. Each image feels like a hand-drawn animation background. Rich environment, subtle local light spill. Faction Keepers of Hours: arcane instruments, deliberate ornamental geometry, monumental stonework; blue, ivory and brass. Single cold key from SCREEN UPPER-LEFT, soft deep cool ambient, readable shadows never pure black, slight rim on key-facing edges. Warm stone, brass and gold are material accents, no warm glowing light sources. Teal cloud-light beyond parapets.\nDELIVERY: finished full scene background, one image only. NO characters, creatures, people silhouettes, cast shadows of people, text, letters, numbers, UI, border or vignette.\nCANDIDATE B: Rotate the view of the same terrace about 20 degrees in azimuth relative to a square-on view, without raising the camera. The compass rose sits slightly LEFT of centre and the brass armillary sphere is more prominent toward upper-right. Right wall doorway, upper-left stairs and low front parapet still frame the room. Make this a visibly oblique composition of the terrace, not a duplicate square-on view. Maintain the gentle 25–30 degree downward view and approximately 2:1 ellipse.",
+      "references": [
+        {"role": "Layout and palette reference; steep camera to replace", "path": "in/01_k7_H1_aery.png"},
+        {"role": "Front-facing character camera and scale anchor", "path": "in/02_keeper_rest_S.png"},
+        {"role": "Profile character camera and scale anchor", "path": "in/03_keeper_rest_E.png"},
+        {"role": "Negative reference: camera mismatch to avoid", "path": "in/04_keeper_on_K7_aery_mismatch.png"}
+      ],
+      "elapsed_s": 46.989
+    }
+  ],
+  "calls_used": 2,
+  "retries": [],
+  "self_report": {
+    "obeyed_invariants": true,
+    "concerns": [
+      "Candidate B visually reads somewhat steeper than A; exact camera-angle agreement is unverified.",
+      "Both plates retain warm-looking stone highlights and violet doorway illumination from the layout reference.",
+      "Both armillary spheres are cropped at the upper canvas edge."
+    ]
+  },
+  "files": [
+    {"path": "out/plate_A.png", "sha256": "34d9ec23ed48382227ad8caa68ca16367d7167ba183ce219946010c17840e69d"},
+    {"path": "out/plate_B.png", "sha256": "fe30c8d7c8e5f8ce5ecaa0ceebbeb2ce7387174a2e12959f65685688876196b2"}
+  ]
+}

@@ -267,19 +267,46 @@ def _mad(a, b, figure_bbox=False):
     return float(np.mean(np.abs(_rgb(aa)-_rgb(bb)), dtype=np.float64))
 
 
-def select_cycle(kind, series, period, fps, t_max_s, min_start_s=0):
+def _excluded_indices(exclude_native):
+    """Canonical native-frame set; reject coercion of booleans/floats/strings."""
+    if exclude_native is None:
+        return []
+    if isinstance(exclude_native, (str, bytes, dict)):
+        raise ValueError('exclude_native must be an iterable of nonnegative integers')
+    try:
+        values = iter(exclude_native)
+    except TypeError as exc:
+        raise ValueError('exclude_native must be an iterable of nonnegative integers') from exc
+    return sorted({_integer(i, 'exclude_native index') for i in values})
+
+
+def _snap_indices(requested, allowed_native):
+    """Nearest decoded sample inside the window; exact ties choose earlier."""
+    native = np.asarray(allowed_native)
+    return [int(native[np.argmin(abs(native-i))]) for i in requested]
+
+
+def select_cycle(kind, series, period, fps, t_max_s, min_start_s=0,
+                 exclude_native=None, n=16):
     """Latest walk DOWN start, or minimum idle s-to-s+P figure-bbox RGB MAD.
 
     MAD uses straight RGBA composited on black, in native resolution, with no
     alignment. Walk seam is the emitted window's last native sample to first;
     closure_mad separately measures s to s+P. Idle selection uses closure_mad.
     Splice flags are descriptive and never silently change the selected start.
+    Exclusions apply only to the n resampled output frames, after snapping to
+    decoded samples inside the window (including at half rate). n defaults to
+    the 16-frame idle output; callers emitting other counts must supply n.
+    Native window membership remains in indices_native for backward compatibility.
     """
     _positive(fps, 'fps'); _positive(t_max_s, 't_max_s')
     if not np.isfinite(min_start_s) or min_start_s < 0:
         raise ValueError('min_start_s must be finite and nonnegative')
     if kind not in ('walk', 'run', 'idle'):
         raise ValueError('loop kind must be walk, run or idle')
+    n = _integer(n, 'n', 1)
+    excluded = _excluded_indices(exclude_native)
+    excluded_set = set(excluded)
     y = np.asarray(series['head_top_y'], dtype=float)
     native, step = _native_indices(series, len(y))
     frames = getattr(series, 'frames', None)
@@ -289,7 +316,8 @@ def select_cycle(kind, series, period, fps, t_max_s, min_start_s=0):
         raise ValueError('RGB frame count must match series')
     p = period.get('frames')
     empty = dict(start=None, end_exclusive=None, indices_native=[], reason='no detected period',
-                 seam_mad=None, candidates=[], suspect_inside_selected=None)
+                 seam_mad=None, candidates=[], suspect_inside_selected=None,
+                 exclude_native=excluded, resample_n=n)
     if p is None:
         return empty
     p = _integer(p, 'period frames', 1)
@@ -328,15 +356,24 @@ def select_cycle(kind, series, period, fps, t_max_s, min_start_s=0):
         closure = _mad(frames[j], frames[endpoint], True) if frames is not None and endpoint is not None else None
         if kind == 'idle' and closure is None:
             continue
+        requested = resample(start, end, n)
+        output = _snap_indices(requested, native[members])
         candidates.append(dict(start=start,end_exclusive=end,seam_mad=seam,closure_mad=closure,
-                               indices_native=[int(native[k]) for k in members]))
+                               indices_native=[int(native[k]) for k in members],
+                               requested_indices_native=requested, output_indices_native=output,
+                               excluded_hits=sorted(excluded_set.intersection(output))))
     if not candidates:
         empty['reason'] = 'no complete eligible cycle with required closure evidence'
         return empty
-    chosen = max(candidates, key=lambda c:c['start']) if kind != 'idle' else min(
-        candidates, key=lambda c:(c['closure_mad'], -c['start']))
+    ranked = sorted(candidates, key=(lambda c: -c['start']) if kind != 'idle' else
+                    (lambda c: (c['closure_mad'], -c['start'])))
+    chosen = next((c for c in ranked if not c['excluded_hits']), None)
+    if chosen is None:
+        empty.update(reason='all candidates hit excluded frames', candidates=candidates)
+        return empty
     result = dict(chosen, reason='latest eligible DOWN stride' if kind != 'idle' else
-                  'minimum s-to-s+P figure-bbox RGB MAD; exact ties choose latest', candidates=candidates)
+                  'minimum s-to-s+P figure-bbox RGB MAD; exact ties choose latest',
+                  candidates=candidates, exclude_native=excluded, resample_n=n)
     result['seam_mad_note'] = 'native RGB on black, pair-union bbox; null without RGB evidence'
     # Reuse supplied full-clip scan when available; otherwise scan these frames.
     splice = series.get('splice')
@@ -659,6 +696,8 @@ def main(argv=None):
     parser.add_argument('--prompted-period-s',type=float,default=2.0)
     parser.add_argument('--sibling-stride-frames',type=int)
     parser.add_argument('--half-rate',action='store_true')
+    parser.add_argument('--exclude-native-json',type=Path,
+                        help='JSON list of native indices, or object with exclude_native list; loops only')
     parser.add_argument('--edge-mode',choices=['clamp','unpremultiply'],default='clamp')
     args = parser.parse_args(argv)
     _integer(args.n,'n',1); _positive(args.fps_out,'fps_out')
@@ -667,6 +706,20 @@ def main(argv=None):
         raise ValueError('min_start_s must be in [0,t_max_s)')
     if args.sibling_stride_frames is not None:
         _integer(args.sibling_stride_frames,'sibling_stride_frames',2)
+    excluded = []
+    exclusion_file_sha256 = None
+    if args.exclude_native_json is not None:
+        if args.kind not in ('idle','walk','run'):
+            raise ValueError('--exclude-native-json requires a loop kind')
+        raw = args.exclude_native_json.read_bytes()
+        payload = json.loads(raw)
+        if isinstance(payload, dict):
+            payload = payload.get('exclude_native')
+        if not isinstance(payload, list):
+            raise ValueError('--exclude-native-json requires a list or an exclude_native list')
+        excluded = _excluded_indices(payload)
+        exclusion_file_sha256 = hashlib.sha256(raw).hexdigest()
+    exclusion_sha256 = hashlib.sha256(json.dumps(excluded,separators=(',',':')).encode('utf-8')).hexdigest()
     if args.out.exists() and any(args.out.iterdir()):
         raise ValueError('out must be empty to prevent stale deliverables')
     begin = time.perf_counter()
@@ -684,7 +737,11 @@ def main(argv=None):
                   tool_sha256=hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),
                   t_max=args.t_max_s,t_max_s=args.t_max_s,min_start_s=args.min_start_s,
                   fps_out=args.fps_out,n=args.n,n_native=len(stamps),half_rate=args.half_rate,
-                  period=None,detection=None,stage_seconds={})
+                  period=None,detection=None,stage_seconds={},exclude_native=excluded,
+                  exclude_native_sha256=exclusion_sha256,
+                  exclude_native_sha256_format='UTF-8 compact JSON of sorted unique native indices',
+                  exclude_native_json=str(args.exclude_native_json.resolve()) if args.exclude_native_json else None,
+                  exclude_native_json_sha256=exclusion_file_sha256)
     try:
         with tempfile.TemporaryDirectory(dir=temporary_root,prefix='decode_') as tmp:
             tick = time.perf_counter()
@@ -709,7 +766,8 @@ def main(argv=None):
                 period = detect_period(args.kind,series,meta['fps'],args.prompted_period_s,
                                        args.sibling_stride_frames)
                 record['period'] = period
-                selection = select_cycle(args.kind,series,period,meta['fps'],args.t_max_s,args.min_start_s)
+                selection = select_cycle(args.kind,series,period,meta['fps'],args.t_max_s,args.min_start_s,
+                                         exclude_native=excluded,n=args.n)
                 requested = ([] if selection['start'] is None else
                              resample(selection['start'],selection['end_exclusive'],args.n))
             else:
@@ -733,7 +791,7 @@ def main(argv=None):
             allowed_native = native
             if requested:
                 allowed_native = native[(native >= selection['start']) & (native < selection['end_exclusive'])]
-            actual = [int(allowed_native[np.argmin(abs(allowed_native-i))]) for i in requested]
+            actual = _snap_indices(requested, allowed_native)
             selection.update(requested_indices_native=requested,output_indices_native=actual)
             record['selection'] = selection
             record['indices_native'] = actual

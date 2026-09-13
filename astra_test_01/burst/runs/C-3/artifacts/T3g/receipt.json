@@ -1,0 +1,84 @@
+{
+  "task_id": "T3g",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [],
+  "calls_used": 0,
+  "retries": [
+    {
+      "reason": "Synthetic fixture measured closure MAD 42.833333 instead of 60 because transparent corners diluted the average.",
+      "change": "Used opaque synthetic support; retained the expected ranking and assertions. Reran targeted and full suites."
+    }
+  ],
+  "self_report": {
+    "obeyed_invariants": true,
+    "concerns": [
+      "Synthetic acceptance: sampled exclusion selects frame 3, expected 3; between-sample exclusion retains frame 1, expected 1; all 8 candidates excluded returns start=null with the exact required reason.",
+      "CLI exclusion tests verified both JSON forms, candidate hits, canonical-list and source-file SHA256 hashes, and no excluded game frames.",
+      "Walk CLI without flag reproduced [71,105) and all 12 expected indices exactly; elapsed 30.87s. Decoded temporaries removed.",
+      "Video-cut suite: 32 tests, 32 successful, including 23 unchanged existing tests and 9 new tests; 13.406s.",
+      "Final full suite: tests_run=308, successful=302, errors=0, skipped=0; 105.188s. Frozen regression: 1880 comparisons, 0 differences at tolerance 0.001.",
+      "Standing reds: test_headless_state_machine_input_map_gear_vfx_and_nearest_fallback; test_synthetic_contract_and_grid; test_f04_outside_at_least_three; test_named_genuine_annuli_retained subtests center=[113,201], center=[111,311], center=[170,253].",
+      "Added backward-compatible n=16 to select_cycle for exclusion resampling; CLI supplies its explicit output count.",
+      "Required full-suite execution refreshed eight generated reports under tests/, included in files. Source edits are limited to oracle/video_cut.py and tests/test_video_cut.py.",
+      "Wall time at final recording: 512.55s versus 1800s cap."
+    ]
+  },
+  "files": [
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/oracle/video_cut.py",
+      "sha256": "9db250fdfce5724d19aef2eb7cef204abee6653d599add837ba73bd64d695126"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_video_cut.py",
+      "sha256": "af3952d19ce5c877652a3333af664845b57e1d99dc8679fc593261c4b629ab53"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/t3/T3g/acceptance.json",
+      "sha256": "45dc5b7343164a453265b720b157d2a30e9b54edce6591dfabe87c0452374b39"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/t3/T3g/full_suite.log",
+      "sha256": "4ba7ea250cf506fca3a52f8bbb30f7d6942718e8e05f24207cd3453a44d37076"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/t3/T3g/full_suite_final.log",
+      "sha256": "160371b730651136674a9cd6c6352a1115bece618aea57ce2b4d3d3f3434e9c2"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/t3/T3g/video_cut_tests.log",
+      "sha256": "9af728bd7a713d161403440499e7716c3ad5c84cd18ac2949ad762445a945f6b"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/gates_regression_diff.json",
+      "sha256": "c8864b881f6646a530b06271dfb4d801767aa46db6184abad8bba4761cafbe80"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/oracles_acceptance_measurements.json",
+      "sha256": "39949a5e5c6afe3bf7e19061f5aa2859e15d85b70803b0430ced6471c998f3d0"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/oracles_palette_measurements.json",
+      "sha256": "d644692970ba376c582468b225308f6c3d6e9c7c8b5a0c73187689d2e1cbac25"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/oracles_silhouette_measurements.json",
+      "sha256": "1dc9e68b72691bf50e1773cdfcc5cad8d8990731cfb2a012956acb826aaa637f"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/parts_measurements.json",
+      "sha256": "daef6067a663ac0f199506bfbbb229a351bd7ce0fac4cb670dcac047026f8994"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/sheet_consistency_calibration.json",
+      "sha256": "3b8076d4a4b4e3b06920e067b3c5c665d6a0a441afd3f4725cbfafdb3df463ab"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/t0c_suite_output.txt",
+      "sha256": "cc7b9ec7d5f67ffa77462a77d03f9f187cbc1967c895e0e78ff4c7729dbb81fc"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/t0c_summary.json",
+      "sha256": "38a626e3a863e7a935aab3140232bb30bc459df93156e818e21a96252f86a0c5"
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+ "text": "CHECK BURST L2-comp-01 — composite the Keeper's registered frames onto the candidate tower plates at the plates' scale anchor, for a camera-match judgment. REPORT ONLY. task_id \"L2-comp-01\".\n\nInputs (read-only): plates /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/L2-plate-01/plate_A.png and plate_B.png and the control plate /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K7-H1-aery/k7_H1_aery.png (all 1536×1024); character frames (512×512 RGBA, transparent): /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/cells/idle_S/frames/idle/S/idle_S_00.png, /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/cells/walk_E/frames/walk/E/walk_E_03.png, /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/cells/idle_SW/frames/idle/SW/idle_SW_00.png, /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/cells/walk_NE/frames/walk/NE/walk_NE_00.png, /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/cells/run_W/frames/run/W/run_W_02.png.\nFor EACH of the three plates produce out/comp_<plate>.png (plate_A, plate_B, k7): for frame i, crop the frame to its alpha≥128 bounding box, scale it uniformly (LANCZOS) so its height is exactly 1024/6 = 171 px, and alpha-composite it so the BOTTOM-CENTRE of the crop (the feet) lands at the plate position (fx·1536, fy·1024) with (fx, fy) = [[0.46, 0.66], [0.62, 0.58], [0.3, 0.74], [0.7, 0.78], [0.38, 0.52]] for frames 0…4 respectively. No shadows, no other edits. Also out/comp_<plate>_zoom.png = the central 900×640 region around (768, 600) of each composite. out/comp_index.json lists files, positions and the scale. PIL only; no new tool files; no image_gen; no writes outside out/; no web; calls_used 0.\nRETURN: receipt task_id \"L2-comp-01\"; images []; files: every out/ file with sha256; status; concerns. Never PASS/FAIL.",
+ "references": [],
+ "image_cap": 0,
+ "minutes_cap": 15,
+ "tool_call_cap": 20,
+ "outputs": [
+  "out/comp_index.json"
+ ],
+ "effort": "high",
+ "add_dirs": [],
+ "experiment": "C3-L2-scene"
+}

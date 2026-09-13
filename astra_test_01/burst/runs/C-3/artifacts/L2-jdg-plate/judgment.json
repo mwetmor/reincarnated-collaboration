@@ -1,0 +1,36 @@
+{
+  "candidates": [
+    {
+      "image": 1,
+      "scores": {"camera_match": 2, "scale": 4, "register": 4, "playable_space": 4},
+      "reasons": {
+        "camera_match": "The broadly rounded floor rings imply a much steeper overhead camera than the figures, making the standing poses read as cut-outs against the plane.",
+        "scale": "The figures have plausible proportions against the masonry and instrument table, although the expansive floor bands make them feel somewhat small.",
+        "register": "Shared dark contours and blue, ivory and brass painted planes unify the scene, with finer surface detail on the floor than on the figures.",
+        "playable_space": "The central floor is clearly traversable, though the lower-left table and foreground masonry reduce the visible open perimeter."
+      }
+    },
+    {
+      "image": 2,
+      "scores": {"camera_match": 3, "scale": 4, "register": 4, "playable_space": 5},
+      "reasons": {
+        "camera_match": "The compressed rings bring the floor closer to the figures' camera, but the floor still appears viewed from higher above than their torsos and boots.",
+        "scale": "Figure size is credible beside the paving blocks and raised instrument base, with slightly oversized floor bands suggesting a monumental courtyard.",
+        "register": "The painted palette and hand-drawn masonry edges fit the figures, although the floor carries more dense cracks and tonal variation.",
+        "playable_space": "A broad continuous floor provides clear movement space, with the raised instrument base and vegetation confined to the edges."
+      }
+    },
+    {
+      "image": 3,
+      "scores": {"camera_match": 5, "scale": 4, "register": 4, "playable_space": 5},
+      "reasons": {
+        "camera_match": "The strongly foreshortened compass and rings agree with the figures' elevated three-quarter view, making the standing boots read naturally on the floor plane.",
+        "scale": "The figures sit plausibly among the paving bands, balustrade and substantial stone piers, while the instrument dais reads as deliberately monumental.",
+        "register": "Consistent dark outlines and blue, ivory and brass planes connect floor and figures, with the architecture remaining somewhat more intricately textured.",
+        "playable_space": "The open arena has a legible perimeter and unobstructed routes around the compass, with large structures and foliage kept outside the movement area."
+      }
+    }
+  ],
+  "best": 3,
+  "why": "Image 3 best shares the character's camera: its flatter floor ellipse supports convincing foot placement while preserving plausible scale and clear movement space."
+}

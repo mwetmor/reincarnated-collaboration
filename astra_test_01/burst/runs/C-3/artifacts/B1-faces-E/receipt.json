@@ -1,0 +1,31 @@
+{
+  "task_id": "B1-faces-E",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [],
+  "calls_used": 0,
+  "retries": [],
+  "self_report": {
+    "obeyed_invariants": true,
+    "concerns": [
+      "Frozen split(t_max_s=4.4) decoded frames 0–105; sheets use the explicitly requested frames 0–104. out/tmp was deleted."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/faces_0.png",
+      "sha256": "9be69cc38530f736ccc69708abd051a7798271fa73f0e40aaf08ceac24d52644"
+    },
+    {
+      "path": "out/faces_1.png",
+      "sha256": "160d6d715072e9f235e78dbeedd856618efde0d157af266cc843bbc9c93f48b5"
+    },
+    {
+      "path": "out/faces_2.png",
+      "sha256": "a88718a81b0b47867e66af5a11d6b9e32d1245ed749805ffa30f0291cb73e1a0"
+    },
+    {
+      "path": "out/faces_index.json",
+      "sha256": "6d243419da6e7f98aa8c483716d73a4e7421d9def1018059dd6d9b6ba8931e87"
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+ "text": "JUDGE BURST L2-jdg-plate — which scene plate shares the CHARACTER'S camera. task_id \"L2-jdg-plate\". You are a separate instance: you have not seen any prompt, receipt or prior judgment and must not look for one.\n\nImages 1–3 each show the SAME painted character (five poses) composited onto a stone observatory floor with a compass-rose inlay. The character art is fixed; only the floor painting differs. Judge each image independently: 1 camera_match 1–5 (do the figures look like they were drawn from the same camera as the floor — feet sitting ON the floor plane, the floor foreshortened by the same amount the figures are, rather than cut-outs standing on a floor seen from much higher above); 2 scale 1–5 (figure size plausible against the floor bands, props and steps visible); 3 register 1–5 (floor and figures look like one hand-drawn painted style); 4 playable_space 1–5 (open floor to move around, props at the edges, nothing confusing about where you can walk). One-line reason each. Then name best (image number) with one line why.\nWrite out/judgment.json {\"candidates\":[{\"image\":n,\"scores\":{\"camera_match\":n,\"scale\":n,\"register\":n,\"playable_space\":n},\"reasons\":{…}}],\"best\":n,\"why\":\"…\"}. No image_gen. No code. No web. No files outside out/. calls_used 0.\nRETURN: receipt task_id \"L2-jdg-plate\"; images []; files [out/judgment.json + sha256]; status. Never PASS/FAIL.",
+ "references": [
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/L2-comp-01/comp_k7_zoom.png",
+   "role": "candidate"
+  },
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/L2-comp-01/comp_plate_B_zoom.png",
+   "role": "candidate"
+  },
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/L2-comp-01/comp_plate_A_zoom.png",
+   "role": "candidate"
+  }
+ ],
+ "image_cap": 0,
+ "minutes_cap": 15,
+ "tool_call_cap": 20,
+ "outputs": [
+  "out/judgment.json"
+ ],
+ "effort": "high",
+ "add_dirs": [],
+ "experiment": "C3-L2-scene"
+}

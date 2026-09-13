@@ -1,4 +1,5 @@
 """Fast synthetic-only tests for the T3a loop contract (no real-clip IO)."""
+import hashlib
 import json
 from pathlib import Path
 import subprocess
@@ -229,6 +230,115 @@ def cast_series():
     return dict(tip_xy=tip.tolist())
 
 
+class ExclusionTests(unittest.TestCase):
+    """T3g: blink eligibility is determined by emitted samples, not bounds."""
+
+    @staticmethod
+    def idle_series():
+        frames = []
+        for color in (0,10,40,80,100,10,120,140,180,190,220,250):
+            # A filled support makes the independent closure MAD exactly the
+            # color difference; transparent bbox corners must not dilute it.
+            frames.append(Image.new('RGBA',(32,32),(color,color,color,255)))
+        return vc.track(frames)
+
+    def test_optimal_blink_chooses_next_clean_closure_and_reports_hit(self):
+        series = self.idle_series()
+        original = vc.select_cycle('idle',series,{'frames':4},24,.5,n=2)
+        self.assertEqual((original['start'],original['closure_mad']),(1,0.))
+        cut = vc.select_cycle('idle',series,{'frames':4},24,.5,
+                              exclude_native=(i for i in [1,1]),n=2)
+        self.assertEqual(cut['start'],3)
+        self.assertEqual(cut['closure_mad'],60.)
+        self.assertEqual(cut['exclude_native'],[1])
+        blocked = next(c for c in cut['candidates'] if c['start']==1)
+        self.assertEqual(blocked['excluded_hits'],[1])
+        self.assertEqual(blocked['output_indices_native'],[1,3])
+        self.assertEqual(cut['excluded_hits'],[])
+        self.assertEqual(cut['output_indices_native'],[3,5])
+        self.assertEqual(len(cut['candidates']),len(original['candidates']))
+        self.assertLess(blocked['closure_mad'],cut['closure_mad'])
+        json.dumps(cut,allow_nan=False)
+
+    def test_between_samples_and_closure_endpoint_stay_eligible(self):
+        for excluded in ([2],[5],[2,5,999],[]):
+            with self.subTest(excluded=excluded):
+                cut = vc.select_cycle('idle',self.idle_series(),{'frames':4},24,.5,
+                                      exclude_native=excluded,n=2)
+                self.assertEqual(cut['start'],1)
+                self.assertEqual(cut['output_indices_native'],[1,3])
+                self.assertEqual(cut['excluded_hits'],[])
+        # The same index becomes visible when the output count changes.
+        cut = vc.select_cycle('idle',self.idle_series(),{'frames':4},24,.5,
+                              exclude_native=[2],n=4)
+        self.assertEqual(cut['start'],3)
+        self.assertEqual(next(c for c in cut['candidates'] if c['start']==1)['excluded_hits'],[2])
+
+    def test_all_candidates_excluded_never_fallback(self):
+        cut = vc.select_cycle('idle',self.idle_series(),{'frames':4},24,.5,
+                              exclude_native=range(12),n=2)
+        self.assertIsNone(cut['start'])
+        self.assertIsNone(cut['end_exclusive'])
+        self.assertEqual(cut['indices_native'],[])
+        self.assertEqual(cut['reason'],'all candidates hit excluded frames')
+        self.assertEqual(len(cut['candidates']),8)
+        for candidate in cut['candidates']:
+            self.assertEqual(candidate['excluded_hits'],candidate['output_indices_native'])
+        missing = vc.select_cycle('idle',self.idle_series(),{'frames':None},24,.5,
+                                  exclude_native=range(12))
+        self.assertEqual(missing['reason'],'no detected period')
+        short = vc.select_cycle('idle',self.idle_series(),{'frames':20},24,.5,
+                                exclude_native=range(12))
+        self.assertEqual(short['reason'],'no complete eligible cycle with required closure evidence')
+
+    def test_half_rate_offset_checks_actual_snapped_indices(self):
+        series = self.idle_series()
+        series['indices_native'] = list(range(100,124,2))
+        invisible = vc.select_cycle('idle',series,{'frames':8},24,6,
+                                    exclude_native=[105],n=3)
+        self.assertEqual(invisible['start'],102)
+        self.assertEqual(invisible['requested_indices_native'],[102,105,107])
+        self.assertEqual(invisible['output_indices_native'],[102,104,106])
+        visible = vc.select_cycle('idle',series,{'frames':8},24,6,
+                                  exclude_native=[104],n=3)
+        self.assertEqual(visible['start'],106)
+        self.assertEqual(next(c for c in visible['candidates'] if c['start']==102)['excluded_hits'],[104])
+
+    def test_rounding_clamps_before_exclusion_and_default_count(self):
+        series = self.idle_series()
+        cut = vc.select_cycle('idle',series,{'frames':4},24,.5,exclude_native=[5])
+        self.assertEqual(cut['start'],1)
+        self.assertEqual(cut['resample_n'],16)
+        self.assertIn(5,cut['requested_indices_native'])
+        self.assertNotIn(5,cut['output_indices_native'])
+        self.assertEqual(len(cut['output_indices_native']),16)
+        self.assertLess(max(cut['output_indices_native']),cut['end_exclusive'])
+
+    def test_walk_and_run_exclusions_preserve_latest_clean_down(self):
+        series = {'head_top_y':[0.,1.,3.,3.,2.,0.,1.,3.,3.,2.,0.,1.]}
+        for kind in ('walk','run'):
+            with self.subTest(kind=kind):
+                args = (kind,series,{'frames':4,'bob_frames':2},24,.5)
+                self.assertEqual(vc.select_cycle(*args,n=2)['start'],8)
+                self.assertEqual(vc.select_cycle(*args,exclude_native=[9],n=2)['start'],8)
+                cut = vc.select_cycle(*args,exclude_native=[8],n=2)
+                self.assertEqual(cut['start'],3)
+                self.assertEqual(next(c for c in cut['candidates'] if c['start']==8)['excluded_hits'],[8])
+                self.assertIsNone(vc.select_cycle(*args,exclude_native=range(12),n=2)['start'])
+
+    def test_exclusion_and_count_known_bad_arguments(self):
+        args = ('idle',self.idle_series(),{'frames':4},24,.5)
+        for bad in (True,1,1.5,'1',{},[-1],[True],[1.0],[None],[float('nan')],[np.bool_(True)]):
+            with self.subTest(excluded=bad), self.assertRaises(ValueError):
+                vc.select_cycle(*args,exclude_native=bad,n=2)
+        for bad in (None,True,0,-1,2.0):
+            with self.subTest(n=bad), self.assertRaises(ValueError):
+                vc.select_cycle(*args,n=bad)
+        cut = vc.select_cycle(*args,exclude_native=np.array([999,999]),n=2)
+        self.assertEqual(cut['exclude_native'],[999])
+        self.assertEqual(cut['start'],1)
+
+
 class OneShotTests(unittest.TestCase):
     def test_jump_all_key_poses_within_one_frame(self):
         result = vc.detect_oneshot('jump',jump_series(),60)
@@ -348,6 +458,66 @@ class OneShotTests(unittest.TestCase):
 
 class CLITests(unittest.TestCase):
     setUp = Tests.setUp
+
+    def test_cli_exclusion_json_forms_hits_hashes_and_no_fallback(self):
+        clip = self.base/'exclusion.mkv'
+        subprocess.run([vc.FFMPEG,'-v','error','-f','lavfi','-i',
+            'color=c=0x00ff00:s=640x640:r=12:d=2,drawbox=x=200:y=80:w=240:h=480:color=0x708090:t=fill',
+            '-c:v','ffv1',str(clip)],check=True,capture_output=True)
+        for label,payload,expected in [('hit',[17,17],16),
+                ('between',{'exclude_native':[18]},17),
+                ('all',{'exclude_native':list(range(24))},None)]:
+            with self.subTest(label=label):
+                path = self.base/(label+'.json')
+                raw = (json.dumps(payload,indent=2)+'\n').encode()
+                path.write_bytes(raw)
+                out = self.base/label
+                command = [sys.executable,'-B','-m','oracle.video_cut','--clip',str(clip),
+                    '--kind','idle','--direction','S','--n','2','--fps-out','8',
+                    '--prompted-period-s','.5','--out',str(out),'--exclude-native-json',str(path)]
+                result = subprocess.run(command,cwd=ROOT,capture_output=True,text=True)
+                self.assertEqual(result.returncode,0,result.stderr)
+                record = json.loads((out/'registration.json').read_text())
+                excluded = sorted(set(payload if isinstance(payload,list) else payload['exclude_native']))
+                self.assertEqual(record['exclude_native'],excluded)
+                self.assertEqual(record['exclude_native_json_sha256'],hashlib.sha256(raw).hexdigest())
+                self.assertEqual(record['exclude_native_sha256'],
+                    hashlib.sha256(json.dumps(excluded,separators=(',',':')).encode()).hexdigest())
+                self.assertEqual(record['selection']['start'],expected)
+                self.assertFalse(set(record['indices_native']).intersection(excluded))
+                self.assertEqual(len(record['selection']['candidates']),18)
+                for c in record['selection']['candidates']:
+                    self.assertEqual(c['excluded_hits'],sorted(set(c['output_indices_native']).intersection(excluded)))
+                self.assertFalse((out/'tmp').exists())
+                if expected is None:
+                    self.assertEqual(record['selection']['reason'],'all candidates hit excluded frames')
+                    self.assertEqual(record['output_frames'],[])
+                    self.assertEqual(record['indices_native'],[])
+                    self.assertTrue(record['strip']['diagnostic_only'])
+                    self.assertFalse((out/'frames/idle').exists())
+                else:
+                    self.assertEqual(record['indices_native'],[expected,expected+3])
+                    self.assertEqual(record['selection']['output_indices_native'],record['indices_native'])
+
+    def test_cli_bad_exclusions_rejected_before_decoding_or_writes(self):
+        path = self.base/'exclude.json'
+        out = self.base/'bad-out'
+        args = ['--clip',str(self.base/'absent.mp4'),'--kind','idle','--direction','S',
+                '--n','2','--fps-out','8','--out',str(out),'--exclude-native-json',str(path)]
+        for payload in ({},None,True,3,'1',{'exclude_native':None},
+                        {'exclude_native':'1'},[False],[1.0],[-1]):
+            with self.subTest(payload=payload):
+                path.write_text(json.dumps(payload))
+                with patch.object(vc.subprocess,'run') as run:
+                    with self.assertRaises(ValueError): vc.main(args)
+                    run.assert_not_called()
+                self.assertFalse(out.exists())
+        path.write_text('[invalid')
+        with self.assertRaises(ValueError): vc.main(args)
+        path.write_text('[]')
+        for kind in ('jump','cast'):
+            oneshot = args[:]; oneshot[3] = kind
+            with self.assertRaisesRegex(ValueError,'requires a loop kind'): vc.main(oneshot)
 
     def test_missing_matte_is_reported_without_fabricated_measurements(self):
         good = self.base/'good.png'; bad = self.base/'bad.png'

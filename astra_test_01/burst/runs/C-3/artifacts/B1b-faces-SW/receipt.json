@@ -1,0 +1,37 @@
+{
+  "task_id": "B1b-faces-SW",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [],
+  "calls_used": 0,
+  "retries": [
+    {
+      "reason": "Prescribed square crops extended above the source boundary.",
+      "change": "Padded out-of-frame areas with #3a3f4a, preserving crop geometry."
+    }
+  ],
+  "self_report": {
+    "obeyed_invariants": true,
+    "concerns": [
+      "Frozen split at 4.4 seconds decoded frames 0–105; delivered sheets contain the explicitly requested frames 0–104.",
+      "Square crops required gray padding above the source image. Temporary files were removed."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/faces_0.png",
+      "sha256": "a9c9b2628d8a68a5d367c40824ea58da7d9ba869f1a576d292bfb87af6de989f"
+    },
+    {
+      "path": "out/faces_1.png",
+      "sha256": "c80ff1384a17a2b6b58b29b858349220033b8df747e5c03964f158891e32e617"
+    },
+    {
+      "path": "out/faces_2.png",
+      "sha256": "96c121e11ca22b5e58acc99939a679fcd69b020e2e2777027b45f3c16ac2c992"
+    },
+    {
+      "path": "out/faces_index.json",
+      "sha256": "bb11ffca63d7cf6852e2ead53538e31f35cfc4a9d4b84ab63032606dd5249b43"
+    }
+  ]
+}

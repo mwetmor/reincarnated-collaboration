@@ -1,0 +1,32 @@
+{
+  "task_id": "B1-faces-SE",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [],
+  "calls_used": 0,
+  "retries": [],
+  "self_report": {
+    "obeyed_invariants": true,
+    "concerns": [
+      "The frozen split at t_max_s=4.4 decoded frames 0–105; sheets contain the explicitly requested frames 0–104. Temporary frames were deleted.",
+      "The 25% margin was applied on each side of the centered square."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/faces_0.png",
+      "sha256": "6410ab5ca45e172b762c31f56752e30aa6eecbaba0e66c5ec7231625fa915926"
+    },
+    {
+      "path": "out/faces_1.png",
+      "sha256": "b1444d6198f8e418b2cfd33f5203816c90f04db2051f1a2812edd2d260b12321"
+    },
+    {
+      "path": "out/faces_2.png",
+      "sha256": "0b0f31cbc3f6bd645692b001b1483ca9b24e74080b9b76b11fcbff54a0464102"
+    },
+    {
+      "path": "out/faces_index.json",
+      "sha256": "33e99a029e97a60362207b29074ec05903592712d8c1d060cf8b6faace959ec1"
+    }
+  ]
+}

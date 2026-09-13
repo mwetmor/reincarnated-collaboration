@@ -1,0 +1,37 @@
+{
+  "task_id": "B1b-faces-SE",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [],
+  "calls_used": 0,
+  "retries": [
+    {
+      "reason": "Crop margins extended above the image boundary.",
+      "change": "Added #3a3f4a background padding while preserving square crop geometry."
+    }
+  ],
+  "self_report": {
+    "obeyed_invariants": true,
+    "concerns": [
+      "Frozen split at 4.4 seconds returned frames 0–105; sheets contain the explicitly requested frames 0–104.",
+      "Interpreted 20% margin as 20% on each edge. All crops required background padding."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/faces_0.png",
+      "sha256": "e64fd0046cd073bd55bf6e256fe58c5b2db8148b72d6731ee0f2aaacefb357a9"
+    },
+    {
+      "path": "out/faces_1.png",
+      "sha256": "2934acb6e34243c893b40d3edb7ff3628af9cd86aa3bff6ad2bba20cb1dd71a0"
+    },
+    {
+      "path": "out/faces_2.png",
+      "sha256": "34ba45b0673d2891eb3abf23ba89f6580d692f7b885d979b02466d96eac4fcb2"
+    },
+    {
+      "path": "out/faces_index.json",
+      "sha256": "b1f69f55e1ae5faec55d72859de261d56b2130881ebe92c3cd53a373a6cf484c"
+    }
+  ]
+}

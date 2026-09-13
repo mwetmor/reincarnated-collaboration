@@ -1,0 +1,19 @@
+{
+ "text": "ANNOTATE BURST L2-ann-plateA — walkable floor, blocked areas, occluders, exits and spawn for a painted game room plate (Run C-3 lap 2, X6-class annotation for the Godot scene kit, SPEC § 7 lap 2 T3h schema). task_id \"L2-ann-plateA\".\n\nImage 1 is a 1536×1024 painted scene plate of an open-air observatory terrace seen from a low elevated three-quarter camera: a compass-rose floor in the middle, a brass armillary on a round stepped plinth at the upper right, a stair at the upper left, a wooden desk and a chest at the left, an arched doorway on the right with steps, stone parapets and pillars along the front (bottom) edge, sky and mountains beyond the rear parapet. A standing character in this room is 171 px tall with her feet on the floor.\nWrite out/annotation.json in PLATE PIXEL coordinates (x right, y down; 0..1536 × 0..1024), polygons as ordered vertex lists (clockwise, not repeating the first vertex), following this schema exactly: {\"plate_size\":[1536,1024], \"walkable\":[<one or more polygons covering the floor where a character's FEET may stand — the paving inside the parapets, including the compass rose and the paved margins; exclude plinths, stairs, props, walls, sky>], \"blocked\":[<polygons of solid things standing ON or IN the walkable area that feet cannot enter: the armillary plinth base, the desk footprint, the chest footprint, pillar/statue bases, stair footprint if inside the floor, doorway step block>], \"occluders\":[{\"id\":\"…\",\"polygon\":[…],\"baseline_y\":<the y of the object's ground contact line — a character whose feet are ABOVE (smaller y than) this line is BEHIND the object>}, … <every foreground object that should draw IN FRONT of a character walking behind it: each front parapet segment and pillar along the bottom edge, the desk, the chest, the plinth front, the doorway jambs; trace the visible silhouette of the object in the painting, generous by a few pixels>], \"exits\":[{\"id\":\"doorway\",\"segment\":[[x,y],[x,y]]}, {\"id\":\"stairs\",\"segment\":…}], \"spawn\":[x,y] <feet point in the open centre of the compass rose>, \"figure_height_px\":171, \"notes\":\"one line\"}. Be precise on the WALKABLE boundary: it follows the foot of the parapets/walls (the line where the floor meets them), not their tops. Also write out/annotation_overlay.png: Image 1 with walkable polygons filled translucent green, blocked translucent red, occluder outlines in yellow with their baseline as a dashed line, exits as cyan segments, spawn as a white cross — PIL drawing from your JSON is allowed ONLY for this overlay (no other code). No image_gen. No web. No files outside out/. calls_used 0.\nRETURN: receipt task_id \"L2-ann-plateA\"; images []; files [out/annotation.json, out/annotation_overlay.png + sha256]; status DELIVERED / DELIVERED_WITH_CONCERNS; concerns for anything uncertain. Never PASS/FAIL.",
+ "references": [
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/L2-plate-01/plate_A.png",
+   "role": "IMAGE 1 — the selected scene plate (A) to annotate"
+  }
+ ],
+ "image_cap": 0,
+ "minutes_cap": 15,
+ "tool_call_cap": 20,
+ "outputs": [
+  "out/annotation.json",
+  "out/annotation_overlay.png"
+ ],
+ "effort": "high",
+ "add_dirs": [],
+ "experiment": "C3-L2-scene"
+}

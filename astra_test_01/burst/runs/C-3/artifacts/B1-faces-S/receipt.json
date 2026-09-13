@@ -1,0 +1,32 @@
+{
+  "task_id": "B1-faces-S",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [],
+  "calls_used": 0,
+  "retries": [],
+  "self_report": {
+    "obeyed_invariants": true,
+    "concerns": [
+      "Frozen split at t_max_s=4.4 returned frames 0–105; sheets contain exactly the requested frames 0–104.",
+      "The prescribed component-based head boxes include the staff, reducing face size in the crops."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/faces_0.png",
+      "sha256": "26a1e8e359ff2082a564e52ef67c32cf31aa0485fa325e1e78b2955077b3f01d"
+    },
+    {
+      "path": "out/faces_1.png",
+      "sha256": "15ef0dfaaeb297e711c0cefb36a648d5da98d5e7825b30d9e2efd584959cea11"
+    },
+    {
+      "path": "out/faces_2.png",
+      "sha256": "3ae30b9fd87198242331e911f4c90834575d5797f762e4d0739f4422d09649cc"
+    },
+    {
+      "path": "out/faces_index.json",
+      "sha256": "d4fac183c3f01f45406c593404b398a3144fae299b29316c3fc1ade34486dc7e"
+    }
+  ]
+}
