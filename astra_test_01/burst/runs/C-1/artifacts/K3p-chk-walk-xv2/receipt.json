@@ -1,0 +1,42 @@
+{
+  "task_id": "K3p-chk-walk-xv2",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [],
+  "calls_used": 0,
+  "retries": [],
+  "self_report": {
+    "obeyed_invariants": true,
+    "concerns": [
+      "Oracle CLI ignores --out with --ours; frozen functions were invoked directly to keep writes under out/.",
+      "G11 pair measurements are complete; comparator and verdicts are unavailable without cast05.",
+      "Staff-arm identity is not exposed; both role assignments are reported.",
+      "Missing L-foot landmarks prevent complete L-arm and pooled W6 measurements.",
+      "Silhouette and planted-slip verdicts lack registered thresholds.",
+      "Oracle head tracking flags frames 0 and 1; oracle and gait head estimators differ.",
+      "Both supplied phase schedules begin DOWN. All cyclic phase rotations are reported.",
+      "Wrapper-owned live logs are excluded from the artifact hashes because they continue changing."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/checks.json",
+      "sha256": "ca31ff9f6db11e9e09bdd3d0c1aa9b2e9ff4b434acff513763def7622bbaf20a"
+    },
+    {
+      "path": "out/checks_readme.txt",
+      "sha256": "3bd0f02294cea4ddb2daac3fe7b6dad220009c0ae41157da2aaf404ab126fb99"
+    },
+    {
+      "path": "out/plots/walk_E_K3p_curves.png",
+      "sha256": "3e9e5c9258730d9a1f78dbc507fd4b47395386e70f8e519ec1dbfac33e4ed54d"
+    },
+    {
+      "path": "out/plots/walk_E_K3p_mask_check.png",
+      "sha256": "461ad2465e944a304185c604296a3742eed695b2eaaea8b467024eaf397e5fa4"
+    },
+    {
+      "path": "out/walk_E_K3p_measure.json",
+      "sha256": "60b2e93866fda4cc56fa16c5026a849c89a9810d2c60e507dd13441bac12ccf4"
+    }
+  ]
+}

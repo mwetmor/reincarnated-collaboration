@@ -11891,6 +11891,144 @@
       "codex_version": "codex-cli 0.153.4",
       "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
       "exit": 0
+    },
+    {
+      "id": "K3p-chk-walk-xv2",
+      "type": "CHECK",
+      "experiment": "K3p-xv",
+      "brief_sha256": "2a61ced07a57b28e8e2a1849025d8deb82fcd906541a9f4118b6c7795d7ec1cd",
+      "started": "2026-09-13T04:06:57.270063+00:00",
+      "ended": "2026-09-13T04:11:42.284014+00:00",
+      "minutes": 4.750293152083274,
+      "image_calls": 0,
+      "tool_calls": 11,
+      "audit": {
+        "violations": [],
+        "image_calls": 0,
+        "tool_calls": 11,
+        "tools_seen": {
+          "command_execution": 11
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": []
+      },
+      "receipt_sha256": "a60ecd11b1f899cdae4ffc63b871b35fe841a5e3102078d15a42624da69f8ffa",
+      "artifacts": [
+        {
+          "name": "checks.json",
+          "sha256": "ca31ff9f6db11e9e09bdd3d0c1aa9b2e9ff4b434acff513763def7622bbaf20a"
+        },
+        {
+          "name": "checks_readme.txt",
+          "sha256": "3bd0f02294cea4ddb2daac3fe7b6dad220009c0ae41157da2aaf404ab126fb99"
+        },
+        {
+          "name": "plots/walk_E_K3p_curves.png",
+          "sha256": "3e9e5c9258730d9a1f78dbc507fd4b47395386e70f8e519ec1dbfac33e4ed54d"
+        },
+        {
+          "name": "plots/walk_E_K3p_mask_check.png",
+          "sha256": "461ad2465e944a304185c604296a3742eed695b2eaaea8b467024eaf397e5fa4"
+        },
+        {
+          "name": "walk_E_K3p_measure.json",
+          "sha256": "60b2e93866fda4cc56fa16c5026a849c89a9810d2c60e507dd13441bac12ccf4"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
+    },
+    {
+      "id": "K3p-pack-walk-xv2",
+      "type": "PACK",
+      "experiment": "K3p-xv",
+      "brief_sha256": "04a3656f33993ec2496de24907661bad9b9725719315e85c7b321b2a58a600a3",
+      "started": "2026-09-13T04:13:02.179135+00:00",
+      "ended": "2026-09-13T04:17:15.704155+00:00",
+      "minutes": 4.225469568066668,
+      "image_calls": 0,
+      "tool_calls": 9,
+      "audit": {
+        "violations": [],
+        "image_calls": 0,
+        "tool_calls": 9,
+        "tools_seen": {
+          "command_execution": 9
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": []
+      },
+      "receipt_sha256": "c0583bfd2945851f655907e5bf3bcbb27dc9a355b142e14c60f0484c1e973a1a",
+      "artifacts": [
+        {
+          "name": "img/plate13_lateral_ann_curves.png",
+          "sha256": "a963fc09783d726d556bc5cf924a1b6e17eba1e6c1d5f6695c83c2f0771dd032"
+        },
+        {
+          "name": "img/rest_E.png",
+          "sha256": "fd8d9a398bf61e635fa2e6e395d265f693777f685589ad9ea4e92a5f953e44cc"
+        },
+        {
+          "name": "img/walk_E_K3p_curves.png",
+          "sha256": "3e9e5c9258730d9a1f78dbc507fd4b47395386e70f8e519ec1dbfac33e4ed54d"
+        },
+        {
+          "name": "img/walk_E_strip.png",
+          "sha256": "cb1fd8cfdfb0dd0a7074e0237f40e1a1acc34412c9552c22e07a8bcdd2359afb"
+        },
+        {
+          "name": "muybridge_plate13_8fps.mp4",
+          "sha256": "f56a5fbfc59dc4714159675fd5d6f838556219b02641e75329d2a58ad42cfc53"
+        },
+        {
+          "name": "review.html",
+          "sha256": "e4ad3da63664c9dbe00521f4afa0f1ada6a7946b507d844ddeeba03857bb2622"
+        },
+        {
+          "name": "summary.txt",
+          "sha256": "93004d3bcc6ccdc21bbfe9995e8ccb2e66721b11b3d8bdbbc8ea3f69aa6399aa"
+        },
+        {
+          "name": "walk_E_12fps.mp4",
+          "sha256": "4f1f84878d45d859aed182969f45010c3cee5eea60dd2b9e4f50405ca108234f"
+        },
+        {
+          "name": "walk_E_12fps_1to1.mp4",
+          "sha256": "f994fb1d2573718b9245647b7b9bbcb1cfb504d61109a408886c812bdcaf11b9"
+        },
+        {
+          "name": "walk_E_seam_pairs.png",
+          "sha256": "a8d9820933f95dc0bbb8013e0ab6330190689b1d1c508f3d39b1ab39ada53e95"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
     }
   ],
   "images_used": 101,
@@ -12699,6 +12837,24 @@
       "ruling": "K3p-xv-idle-matte-01: edge_halo (2-px band) input 0.093 \u2192 A 0.000 \u2192 B 0.000; alpha-weighted area lost A 12.1 % / B 23.5 %; the 'direct luminance fringe' rose after both trims because the partial-alpha band it averages shrank to the brightest remaining pixels \u2014 a metric artifact; edge_crops.png (near-shoulder, \u00d74): input carries the pale rim Matt saw; A removes it with the edge intact; B eats slightly more. Conductor lean A; Matt picks. K3p-pack-walk-xv (cut A packet) hit the 15-min cap with no receipt (the Astra comparison media pushed it over) \u2014 not re-run: cut A straddles the head-down opening (R-51); the packet is built for cut B only (pack-walk-xv2 trimmed to essentials). CORRECTION (same session): K3p-xv-cut-04 had NOT run \u2014 the brief-writing heredoc failed on an exact-match assertion inside a background call, the runner launched against a missing task file, and the conductor read the completion notification as delivery without opening the output (the same shape as the 'check running \u2260 check passing' rule: a notification is not a receipt). The chk-walk-xv2 / pack-walk-xv2 briefs were likewise never written. All three rebuilt with regex-verified replacements + dry-runs; cut-04 launched for real.",
       "consequence": "T3: matte for video frames = despill + 1-px edge treatment as a tool parameter, not glue; PACK budgets sized to the media (or split); the runner never chains a launch behind grep -c. Conductor rule: open every background task's output before acting on its notification; never chain a launch behind `grep -c`.",
       "evidence": "K3p-xv-idle-matte-01 checks.json + edge_crops.png; k3p_packwalkxv.log; task b0o7zcltd exit 1."
+    },
+    {
+      "id": "R-53",
+      "by": "Matt (ruling) + gandalf (diagnosis)",
+      "ts": "2026-09-13T00:12:35",
+      "topic": "Halo trim REJECTED \u2014 all three review MP4s 'super pixelated'; the glow is the matte's un-premultiply, the blockiness is the 2\u00d7 nearest review encode; both \u2192 T3",
+      "ruling": "Matt, verbatim: \"All 3 of those MP4's are super pixelated looking. I do not like anhy of those 3 choices.\" Ruling: none of input / A / B. Diagnosis: (1) the white glow is produced by the frozen matte's inverse straight-alpha step \u2014 (rgb \u2212 (1\u2212\u03b1)\u00b7green)/\u03b1 brightens semi-transparent edge pixels (division by small \u03b1), so every soft edge composites as a light rim; erosion (A/B) cannot remove the cause and hard-cuts the edge into jaggies. (2) The review MP4s draw the 512-px register frames (figure \u2248 240 px) at 2\u00d7 NEAREST \u2014 honest pixels, but blocky beside the smooth raw clip, and worse with eroded edges; the game draws the sprite at ~184 px (17 % of 1080p), smaller than the packet.",
+      "consequence": "T3: matte for video frames = clamp edge colours to nearest opaque neighbours (or composite premultiplied) instead of un-premultiplying; review encodes = Lanczos 2\u00d7 AND a 1:1 game-scale MP4 so the judged object matches the played one. The idle stands PASSED by eye on the raw clip (R-48); its halo is an open T3 item, not a re-ruling. K3p-pack-walk-xv2 amended before launch (Lanczos + 1:1).",
+      "evidence": "Desktop 19 halo trim/ (3 MP4s + edge_crops.png); K3p-xv-idle-matte-01 checks.json; gates/matte.py extract (inverse straight-alpha compositing)."
+    },
+    {
+      "id": "R-54",
+      "by": "gandalf (conductor)",
+      "ts": "2026-09-13T00:13:12",
+      "topic": "Cut B (head-up, native 71\u2013105) measured \u2014 same structural walk, two gates improved; the drawn band remains the wrong ruler",
+      "ruling": "K3p-chk-walk-xv2 vs the committed row: W-1 2.08 %H (veridical floor 2.0 \u2713; drawn floor 3.95 \u2717); W-4 = 2 PASS; W-3c = 2 (2\u20133) PASS \u2014 improved from 4 with the head up; W-3a 0.70 (\u2264 0.35) FAIL; W-2 FAIL (head-path extrema vs the plate-13 schedule); W-5 staff/free arms 1.5 / 4.4 %H (below the 3 / 8 floors \u2014 lower swing than cut A's 3.7 / 6.2); planted-sole slip 8 px/frame (cut A: 2); G1 10/12 within 3 %; G6b 0.83 \u2264 1.24 PASS; G6c 0.81 \u2264 1.25 PASS (L5). Verdict: FAIL-WITH-NUMBERS on the committed DRAWN band \u2014 a life-like stride with gaze held; the band re-derives from the exemplar (R-50).",
+      "consequence": "Packet B (K3p-pack-walk-xv2: Lanczos 2\u00d7 + 1:1 encodes, R-53) is the loop Matt judges at the register's cadence (12 f @ 12 fps = 1 stride/s vs the clip's 1.42 s).",
+      "evidence": "K3p-chk-walk-xv2 checks.json; K3p-xv-cut-04 registration.json."
     }
   ]
 }

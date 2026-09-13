@@ -1,0 +1,12 @@
+K3p-pack-walk-xv2 — X-VIDEO WALK-E milestone packet; Matt's ruling pending.
+Keeper: 12 phases × 5 loops, 12 fps; 1024² 2× LANCZOS preview and native 512² 1:1 playback.
+Muybridge: 12 frames × 5 loops, 8.33 fps; 395×773 → 524×1024, centred on 1024².
+Videos use H.264/yuv420p; RGB composition on #3a3f4a uses ffmpeg, without new PIL code.
+W1 2.079%H vs floor 3.95 / target 4.93 / ceiling 7; W2 false; W3a 0.695731; W3c 2; W4 2.
+W5 L 1.455%H / R 4.366%H; both hypothetical arm-role assignments and their flags retained.
+W6 pooled/L unavailable; R 5/12; arm ownership and missing L landmarks remain unresolved.
+G6 literal 0.832270 ≤ 1.007624; G6b ≤ 1.244765; L5 G6c 0.809834 ≤ 1.25 (source flags true).
+G1 source flags false for frames 05/06; ground spread 4 px; planted slip L 6.5 / R 8.013877 px/frame.
+G11 comparator, silhouette/slip thresholds and measured root-anchor gate unavailable; details on page.
+Seam image, strip, paired curves, complete checks and committed band row included; no phase rotation.
+No image generation; Desktop packet 17 Astra attempt not accessed or re-encoded; no PACK verdict.
