@@ -1,0 +1,41 @@
+{
+  "task_id": "K3p-gen-idle-x2-03",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "k3p_idle_x2_S_07_09.png",
+      "path": "out/k3p_idle_x2_S_07_09.png",
+      "sha256": "6ac6f81843223c3a4ace160d8817c30f9322be39cd2f41a2969350c0d189dfac",
+      "prompt": "Use case: identity-preserve. Edit Image 1, the supplied 1254×1254 canvas, in place. Deliver exactly one image, the same 2×2 sheet with 627-pixel square cells, no borders, labels, gutters or text. SLOT 0 TOP-LEFT IS LOCKED: preserve every pixel of that quadrant exactly. Fill only empty green slots 1 top-right, 2 bottom-left, 3 bottom-right with frames 7, 8, 9 of the same Keeper's relaxed breathing idle-S loop. Copy the original figure into each cell at exactly the same local position and size; no zoom, mirroring or repositioning. Flat pure #00ff00 background, no floor shadows, no matting.\nIDENTITY: this exact young woman, dark curly hair tied back, ivory shirt with rolled sleeves, navy sleeveless tabard with plain chest, one diagonal chestnut harness to an olive canvas satchel on her anatomical LEFT hip, one belt, laced bracers, navy trousers, chestnut boots, plain walnut staff with brass ferrules upright in her anatomical RIGHT hand. No insignia anywhere.\nANIMATION: 16-frame loop, 2 seconds at 8 fps, one full breath: frame 4 peak inhale, frame 8 rest, frame 12 deepest exhale, frame 16 rest. Figure H=470 px. Frame 7 chest/shoulders width at least +2.9 px versus rest and head delta y +0.5 px image-down. Frame 8 width +0.0 px and head +0.0 px, exact rest copy. Frame 9 chest/shoulders width at least -2.9 px versus rest and head delta y -0.5 px. EXAGGERATE THE BREATH: hand-drawn game animation must READ at game scale, draw the breath at CARTOON scale about a third bigger than life. Across the full cycle the peak inhale shoulders RISE and whole chest/collar SWELL WIDER by about 25 px, tabard chest plane and shirt collar visibly broaden, harness bows outward and hair mass lifts a few pixels; deepest exhale shoulders DROP, chest narrows about 25 px below rest and tabard slackens. Render frames 7/8/9 along that strong breathing arc, wider / rest / narrower. Per-frame width deltas are MINIMUM, if in doubt draw breath BIGGER, never smaller.\nONLY shoulders, chest/collar and hair move. Head is carried subtly by the breath, never more than 2 px from rest, otherwise COPY the face and eyes, fixed gaze. COPY PIXEL-FOR-PIXEL from rest, trace rather than redraw: hips, legs, both feet and their sole contacts, both arms and hands (sleeves may widen but arms do not move), staff grip and tip, satchel, belt, face and eyes. Identity and extremity positions must remain exact. Identical head size, baseline, camera and facing S in every cell.\nREGISTER: HAND-DRAWN painted 2D in the manner of a modern hand-animated action game. Confident dark contour drawn by hand with visible taper and varying weight, clean painted planes, restrained texture; line carries the pose. Every cell looks like a hand-drawn animation frame. Clean materials, readable small silhouettes, no conspicuous grain. Godot-informed elevated three-quarter projection C, same camera with character facing S. Single cold key from SCREEN UPPER-LEFT fixed in all frames, deep cool low-value ambient, readable shadows never pure black, slight key-facing rim. No spell light on idle frames. Blue/ivory/brass Keeper materials. Preserve source design and style. SLOT 0 remains pixel-identical to supplied image.\nRETRY CORRECTION: The previous attempt redrew the locked top-left character, especially face/eyes, and enlarged the top-right head. This is an edit-canvas task. Preserve the original Image 1 top-left quadrant literally unchanged, including original face, contour, shading and pure green pixels. Duplicate its original pixels into the other three cells and change only the chest/shoulder/collar/hair breathing areas as specified. All faces retain the original exact drawing and size. Do not repaint the whole sheet. No background texture or color variation: original pure #00ff00.",
+      "references": [
+        {
+          "role": "edit target; locked rest frame in slot 0",
+          "path": "in/01_canvas_idle_S_seed.png"
+        }
+      ],
+      "elapsed_s": 36.777
+    }
+  ],
+  "calls_used": 2,
+  "retries": [
+    {
+      "reason": "First output visibly redrew slot 0, including the face.",
+      "change": "Retried from the original reference with stronger literal preservation and copying instructions."
+    }
+  ],
+  "self_report": {
+    "obeyed_invariants": false,
+    "concerns": [
+      "Retry still visibly redraws the locked rest frame; pixel-identical preservation was not achieved.",
+      "Cell-local figure positions and baselines visibly vary.",
+      "Background appears nonuniform; exact #00ff00 fidelity is unverified.",
+      "Breathing amplitude and required pixel deltas were not measured."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/k3p_idle_x2_S_07_09.png",
+      "sha256": "6ac6f81843223c3a4ace160d8817c30f9322be39cd2f41a2969350c0d189dfac"
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "relaxed": {
+    "breath_amplitude_H": {
+      "floor": 0.01958382,
+      "target": 0.0326397,
+      "ceiling": 0.04895956
+    },
+    "head_sway_H": {
+      "floor": 0.0,
+      "target": 0.006,
+      "ceiling": 0.012
+    },
+    "lock_regions": [
+      "hips",
+      "legs",
+      "feet",
+      "arms_left",
+      "arms_right"
+    ],
+    "motion_regions": [
+      "shoulders_chest"
+    ],
+    "lock_eps_H": 0.004,
+    "provisional": true,
+    "provenance": {
+      "rule": "R-29 (R-c) 2026-09-12: provisional = 0.5 × committed combat breath; head band per Legolas R10 § 5.4 I-3; period per Legolas § 2.3 relaxed-idle norm 2.0 s (16 f @ 8 fps)",
+      "derived_from_row": "combat",
+      "superseded_measurement": "Hades relaxed House clip — 0.21 %H, contamination 0.45, below resolution (T1a-idle-2)"
+    }
+  }
+}

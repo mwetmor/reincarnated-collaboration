@@ -1,0 +1,77 @@
+{
+  "task_id": "K3p-pack-01",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [],
+  "calls_used": 0,
+  "retries": [],
+  "self_report": {
+    "obeyed_invariants": true,
+    "concerns": [
+      "C-1 constraint values were not supplied; the two largest constraint changes cannot be substantiated.",
+      "Source checks leave G11 unevaluable without cast05 and silhouette flags null without calibrated thresholds. Root-anchor results were not supplied.",
+      "Wrapper-owned mutable .wrapper files are excluded from deliverable hashes."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/review.html",
+      "sha256": "dbfa0affc8b0191e0ba97ddcd6590e95b6105cae8691b85cab1de7610490fedf"
+    },
+    {
+      "path": "out/summary.txt",
+      "sha256": "774085380f8fe799c7ee4e77ce8f9d732443dba0655e11e4dde38c19dccf7b5b"
+    },
+    {
+      "path": "out/idle_S_relaxed_8fps.mp4",
+      "sha256": "28a4dffba3f409471956794f5f90e7553095c0c2707790d614f3009407be2825"
+    },
+    {
+      "path": "out/idle_S_original_8fps.mp4",
+      "sha256": "d9d97b609e3f597886ccd3f499c5ebf258ce3a5597aab1f78baa0c01e45b9b02"
+    },
+    {
+      "path": "out/idle_S_seam_pairs.png",
+      "sha256": "f9d55cfd11008561c69427d451935444ab142a803ec3b70ce838da1ea11388c9"
+    },
+    {
+      "path": "out/img/combat_curves.png",
+      "sha256": "237546ea2efbce35d7f9d159c7ce3c3a88b91feff1cb46a6503922ef42dd30e4"
+    },
+    {
+      "path": "out/img/idle_S_K3_curves.png",
+      "sha256": "6603d4c6efd220f10d58505a70344107365181f1fca3111e56e805a76221ca53"
+    },
+    {
+      "path": "out/img/idle_S_original_strip.png",
+      "sha256": "76f73c7ee932920037fb63fabdcd8df24b465bfa9f7f1b1270e1882e197f2708"
+    },
+    {
+      "path": "out/img/idle_S_relaxed_strip.png",
+      "sha256": "1ab7ab6cf3fb6cc9bdb8f74f60197fa4f376c5b9a06c90aea537843afc82d7a4"
+    },
+    {
+      "path": "out/img/original_vs_composited.png",
+      "sha256": "03632d839533079539eb18221037ec2c97d29f24d8cfd761cb8f8718b58af43a"
+    },
+    {
+      "path": "out/img/ours_box_check.png",
+      "sha256": "b380080db62a5e43309158027c3d81a767ec6474ff67da67d730fbd940ec2830"
+    },
+    {
+      "path": "out/img/ours_curves.png",
+      "sha256": "572d2cc607e381d69f5806edbb168dce9ee25c3696c8e47728e607b14543b20c"
+    },
+    {
+      "path": "out/band_relaxed.json",
+      "sha256": "49badbbf4bea288cc4b9580010d6aa176e2935e462e7c63cb717457eb329969c"
+    },
+    {
+      "path": "out/checks_composite.json",
+      "sha256": "af982bde9650564f24328e06acc148a74882651b970ca73b812c88914a29134a"
+    },
+    {
+      "path": "out/checks_intent.json",
+      "sha256": "c8eb1a630fde9d68a4f1b9c354398109ac9923e0f7df7823158c7a4d5b57f690"
+    }
+  ]
+}

@@ -1,0 +1,2955 @@
+[
+  {
+    "id": "W1_floor",
+    "subject": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-reg-walk-01/frames/walk/E",
+    "passed": true,
+    "value": 0.088,
+    "threshold": 0.03945870747438978,
+    "op": ">=",
+    "unit": "fraction_H",
+    "evidence": [],
+    "notes": "{\"ceiling\": 0.07, \"ceiling_note\": \"R-29 (R-e) 2026-09-12: 1.5 \\u00d7 target = 0.073985076514480844 (approximately 0.07399) exceeds the stated per-gate ceiling 0.07; the stated ceiling 0.07 holds.\", \"committed\": true, \"floor\": 0.03945870747438978, \"mean_confidence\": 0.7604166666666666, \"source\": \"annotation\", \"target\": 0.04932338434298723, \"value\": 0.03945870747438978}"
+  },
+  {
+    "id": "W1_ceiling",
+    "subject": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-reg-walk-01/frames/walk/E",
+    "passed": false,
+    "value": 0.088,
+    "threshold": 0.07,
+    "op": "<=",
+    "unit": "fraction_H",
+    "evidence": [],
+    "notes": "{\"ceiling\": 0.07, \"ceiling_note\": \"R-29 (R-e) 2026-09-12: 1.5 \\u00d7 target = 0.073985076514480844 (approximately 0.07399) exceeds the stated per-gate ceiling 0.07; the stated ceiling 0.07 holds.\", \"committed\": true, \"floor\": 0.03945870747438978, \"mean_confidence\": 0.7604166666666666, \"source\": \"annotation\", \"target\": 0.04932338434298723, \"value\": 0.03945870747438978}"
+  },
+  {
+    "id": "W2",
+    "subject": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-reg-walk-01/frames/walk/E",
+    "passed": false,
+    "value": false,
+    "threshold": true,
+    "op": "==",
+    "unit": "phase_match",
+    "evidence": [],
+    "notes": "{\"candidate_phases\": [\"DOWN\", \"PASSING\", \"UP\", \"UP\", \"CONTACT\", \"DOWN\", \"DOWN\", \"PASSING\", \"UP\", \"UP\", \"CONTACT\", \"DOWN\"], \"committed\": true, \"expected_extrema\": {\"coordinate\": \"height above per-frame ground; min=lowest head, max=highest head\", \"max\": [{\"frame\": 2, \"phase\": \"UP\"}], \"min\": [{\"frame\": 9, \"phase\": \"UP\"}, {\"frame\": 11, \"phase\": \"DOWN\"}]}, \"expected_phases\": [\"DOWN\", \"PASSING\", \"UP\", \"UP\", \"CONTACT\", \"DOWN\", \"DOWN\", \"PASSING\", \"UP\", \"UP\", \"CONTACT\", \"DOWN\"], \"inferred_contact_phases\": [{\"boundary_contact\": true, \"contact\": true, \"contact_sides\": [\"R\"], \"frame\": 0, \"lead_track\": null, \"phase\": null, \"planted\": {\"L\": false, \"R\": true}, \"printed_phase\": 1, \"reason\": \"expected two contact events; observed 4\"}, {\"boundary_contact\": false, \"contact\": true, \"contact_sides\": [\"L\"], \"frame\": 1, \"lead_track\": null, \"phase\": null, \"planted\": {\"L\": true, \"R\": null}, \"printed_phase\": 2, \"reason\": \"expected two contact events; observed 4\"}, {\"boundary_contact\": false, \"contact\": false, \"contact_sides\": [], \"frame\": 2, \"lead_track\": null, \"phase\": null, \"planted\": {\"L\": true, \"R\": true}, \"printed_phase\": 3, \"reason\": \"expected two contact events; observed 4\"}, {\"boundary_contact\": false, \"contact\": false, \"contact_sides\": [], \"frame\": 3, \"lead_track\": null, \"phase\": null, \"planted\": {\"L\": false, \"R\": true}, \"printed_phase\": 4, \"reason\": \"expected two contact events; observed 4\"}, {\"boundary_contact\": false, \"contact\": false, \"contact_sides\": [], \"frame\": 4, \"lead_track\": null, \"phase\": null, \"planted\": {\"L\": false, \"R\": true}, \"printed_phase\": 5, \"reason\": \"expected two contact events; observed 4\"}, {\"boundary_contact\": false, \"contact\": false, \"contact_sides\": [], \"frame\": 5, \"lead_track\": null, \"phase\": null, \"planted\": {\"L\": false, \"R\": true}, \"printed_phase\": 6, \"reason\": \"expected two contact events; observed 4\"}, {\"boundary_contact\": false, \"contact\": true, \"contact_sides\": [\"L\"], \"frame\": 6, \"lead_track\": null, \"phase\": null, \"planted\": {\"L\": true, \"R\": true}, \"printed_phase\": 7, \"reason\": \"expected two contact events; observed 4\"}, {\"boundary_contact\": false, \"contact\": false, \"contact_sides\": [], \"frame\": 7, \"lead_track\": null, \"phase\": null, \"planted\": {\"L\": false, \"R\": true}, \"printed_phase\": 8, \"reason\": \"expected two contact events; observed 4\"}, {\"boundary_contact\": false, \"contact\": false, \"contact_sides\": [], \"frame\": 8, \"lead_track\": null, \"phase\": null, \"planted\": {\"L\": false, \"R\": true}, \"printed_phase\": 9, \"reason\": \"expected two contact events; observed 4\"}, {\"boundary_contact\": false, \"contact\": true, \"contact_sides\": [\"L\"], \"frame\": 9, \"lead_track\": null, \"phase\": null, \"planted\": {\"L\": true, \"R\": false}, \"printed_phase\": 10, \"reason\": \"expected two contact events; observed 4\"}, {\"boundary_contact\": false, \"contact\": false, \"contact_sides\": [], \"frame\": 10, \"lead_track\": null, \"phase\": null, \"planted\": {\"L\": true, \"R\": null}, \"printed_phase\": 11, \"reason\": \"expected two contact events; observed 4\"}, {\"boundary_contact\": false, \"contact\": false, \"contact_sides\": [], \"frame\": 11, \"lead_track\": null, \"phase\": null, \"planted\": {\"L\": true, \"R\": false}, \"printed_phase\": 12, \"reason\": \"expected two contact events; observed 4\"}], \"observed_extrema\": {\"coordinate\": \"Cartesian up; negative image y\", \"max\": [{\"frame\": 9, \"phase\": \"UP\"}], \"min\": [{\"frame\": 1, \"phase\": \"PASSING\"}]}}"
+  },
+  {
+    "id": "W3a",
+    "subject": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-reg-walk-01/frames/walk/E",
+    "passed": false,
+    "value": 0.5830651187260185,
+    "threshold": 0.35,
+    "op": "<=",
+    "unit": "fraction_H",
+    "evidence": [],
+    "notes": "{\"committed\": true}"
+  },
+  {
+    "id": "W3c_floor",
+    "subject": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-reg-walk-01/frames/walk/E",
+    "passed": true,
+    "value": 4,
+    "threshold": 2,
+    "op": ">=",
+    "unit": "fraction_H",
+    "evidence": [],
+    "notes": "{\"ceiling\": 3, \"committed\": true, \"floor\": 2}"
+  },
+  {
+    "id": "W3c_ceiling",
+    "subject": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-reg-walk-01/frames/walk/E",
+    "passed": false,
+    "value": 4,
+    "threshold": 3,
+    "op": "<=",
+    "unit": "fraction_H",
+    "evidence": [],
+    "notes": "{\"ceiling\": 3, \"committed\": true, \"floor\": 2}"
+  },
+  {
+    "id": "W4",
+    "subject": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-reg-walk-01/frames/walk/E",
+    "passed": false,
+    "value": 4,
+    "threshold": 2,
+    "op": "==",
+    "unit": "minima_count",
+    "evidence": [],
+    "notes": "{\"committed\": true}"
+  },
+  {
+    "id": "W5_L",
+    "subject": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-reg-walk-01/frames/walk/E",
+    "passed": null,
+    "value": 0.064,
+    "threshold": null,
+    "op": "<=",
+    "unit": "fraction_H",
+    "evidence": [],
+    "notes": "{\"committed\": true, \"free_arm_limits\": {\"ceiling\": 0.2, \"floor\": 0.08}, \"identity_note\": \"projected track opposition, not independently established anatomical same-side identity\", \"reason\": \"anatomical arm role unassigned\", \"weapon_arm_limits\": {\"ceiling\": null, \"floor\": 0.03}}"
+  },
+  {
+    "id": "W5_R",
+    "subject": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-reg-walk-01/frames/walk/E",
+    "passed": null,
+    "value": 0.044,
+    "threshold": null,
+    "op": "<=",
+    "unit": "fraction_H",
+    "evidence": [],
+    "notes": "{\"committed\": true, \"free_arm_limits\": {\"ceiling\": 0.2, \"floor\": 0.08}, \"identity_note\": \"projected track opposition, not independently established anatomical same-side identity\", \"reason\": \"anatomical arm role unassigned\", \"weapon_arm_limits\": {\"ceiling\": null, \"floor\": 0.03}}"
+  },
+  {
+    "id": "W6",
+    "subject": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-reg-walk-01/frames/walk/E",
+    "passed": null,
+    "value": null,
+    "threshold": 0.75,
+    "op": ">=",
+    "unit": "opposed_fraction",
+    "evidence": [],
+    "notes": "{\"committed\": true, \"identity_note\": \"projected track opposition, not independently established anatomical same-side identity\", \"minimum_opposed_frames\": 9, \"per_arm\": {\"L\": 0.25, \"R\": null}, \"total_frames\": 12}"
+  },
+  {
+    "id": "planted_sole_slip_L",
+    "subject": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-reg-walk-01/frames/walk/E",
+    "passed": null,
+    "value": 10.559356040971437,
+    "threshold": null,
+    "op": "<=",
+    "unit": "px_per_frame",
+    "evidence": [],
+    "notes": "{\"committed\": true, \"delta_px_per_frame\": [null, -18.5, null, null, null, null, null, null, null, 7.0, -2.0, null], \"mean_scroll_px_per_frame\": -4.5, \"planted_x_px\": [null, 225.5, 207.0, null, null, null, 253.0, null, null, 261.0, 268.0, 266.0], \"reason\": \"no registered slip ceiling\", \"slip_px_per_frame\": [null, -14.0, null, null, null, null, null, null, null, 11.5, 2.5, null], \"slip_rms_px_per_frame\": 10.559356040971437}"
+  },
+  {
+    "id": "planted_sole_slip_R",
+    "subject": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-reg-walk-01/frames/walk/E",
+    "passed": null,
+    "value": 23.640830968662858,
+    "threshold": null,
+    "op": "<=",
+    "unit": "px_per_frame",
+    "evidence": [],
+    "notes": "{\"committed\": true, \"delta_px_per_frame\": [null, null, 4.0, 9.0, -2.0, 16.0, -28.5, -51.5, null, null, null, null], \"mean_scroll_px_per_frame\": -8.833333333333334, \"planted_x_px\": [277.0, null, 259.0, 263.0, 272.0, 270.0, 286.0, 257.5, 206.0, null, null, null], \"reason\": \"no registered slip ceiling\", \"slip_px_per_frame\": [null, null, 12.833333333333334, 17.833333333333336, 6.833333333333334, 24.833333333333336, -19.666666666666664, -42.666666666666664, null, null, null, null], \"slip_rms_px_per_frame\": 23.640830968662858}"
+  },
+  {
+    "id": "g6_seam",
+    "subject": "walk/E",
+    "passed": false,
+    "value": 1.4797350565592449,
+    "threshold": 1.3606147766113281,
+    "op": "<=",
+    "unit": "rgb_mad",
+    "evidence": [],
+    "notes": "{\"definition\": \"literal minimum internal\", \"adjacent_and_seam\": [{\"canvas\": 2.609491984049479, \"foreground_union\": 36.37470310893686}, {\"canvas\": 2.0018157958984375, \"foreground_union\": 30.87210260030592}, {\"canvas\": 1.993682861328125, \"foreground_union\": 29.12085585334596}, {\"canvas\": 2.8622093200683594, \"foreground_union\": 36.915670356703565}, {\"canvas\": 1.3606147766113281, \"foreground_union\": 22.52744268300385}, {\"canvas\": 1.8070131937662761, \"foreground_union\": 26.865793254688445}, {\"canvas\": 2.3041674296061196, \"foreground_union\": 32.07091784361616}, {\"canvas\": 2.945051829020182, \"foreground_union\": 34.9349593495935}, {\"canvas\": 2.132216135660807, \"foreground_union\": 29.160458402893713}, {\"canvas\": 2.714702606201172, \"foreground_union\": 36.85932563319003}, {\"canvas\": 1.7190043131510417, \"foreground_union\": 27.537684347755235}, {\"canvas\": 1.4797350565592449, \"foreground_union\": 23.58937403713614}]}"
+  },
+  {
+    "id": "g6b",
+    "subject": "walk/E",
+    "passed": true,
+    "value": 1.4797350565592449,
+    "threshold": 2.132216135660807,
+    "op": "<=",
+    "unit": "rgb_mad",
+    "evidence": [],
+    "notes": "{\"definition\": \"median internal\", \"adjacent_and_seam\": [{\"canvas\": 2.609491984049479, \"foreground_union\": 36.37470310893686}, {\"canvas\": 2.0018157958984375, \"foreground_union\": 30.87210260030592}, {\"canvas\": 1.993682861328125, \"foreground_union\": 29.12085585334596}, {\"canvas\": 2.8622093200683594, \"foreground_union\": 36.915670356703565}, {\"canvas\": 1.3606147766113281, \"foreground_union\": 22.52744268300385}, {\"canvas\": 1.8070131937662761, \"foreground_union\": 26.865793254688445}, {\"canvas\": 2.3041674296061196, \"foreground_union\": 32.07091784361616}, {\"canvas\": 2.945051829020182, \"foreground_union\": 34.9349593495935}, {\"canvas\": 2.132216135660807, \"foreground_union\": 29.160458402893713}, {\"canvas\": 2.714702606201172, \"foreground_union\": 36.85932563319003}, {\"canvas\": 1.7190043131510417, \"foreground_union\": 27.537684347755235}, {\"canvas\": 1.4797350565592449, \"foreground_union\": 23.58937403713614}]}"
+  },
+  {
+    "id": "g6c",
+    "subject": "walk/E",
+    "passed": true,
+    "value": 0.8188844783557445,
+    "threshold": 1.25,
+    "op": "<=",
+    "unit": "ratio",
+    "evidence": [],
+    "notes": "{\"seam_pair\": [11, 0], \"homologue_pair\": [5, 6], \"seam_mad\": 1.4797350565592449, \"homologue_mad\": 1.8070131937662761, \"ratio_infinite\": false, \"comparison\": \"seam MAD <= 1.25 * half-cycle homologue MAD\"}"
+  },
+  {
+    "id": "drift48",
+    "subject": "walk/E",
+    "passed": null,
+    "value": null,
+    "threshold": null,
+    "op": "<=",
+    "unit": "",
+    "evidence": [],
+    "notes": "48px LANCZOS, then dark-background composite; UNEVALUABLE: at least two frames and cast05 required"
+  },
+  {
+    "id": "G11_pair",
+    "subject": "walk/E/00->01",
+    "passed": null,
+    "value": 2.2378472222222223,
+    "threshold": null,
+    "op": "<=",
+    "unit": "rgb_mad",
+    "evidence": [],
+    "notes": "{\"foreground_union\": 18.09122807017544, \"seam\": false, \"reason\": \"No cast05 reference supplied; comparison threshold and passed remain null.\", \"definition\": \"Frozen drift48 reduction (48px LANCZOS RGBA), then frozen common.pair_differences.\"}"
+  },
+  {
+    "id": "G11_pair",
+    "subject": "walk/E/01->02",
+    "passed": null,
+    "value": 1.6121238425925926,
+    "threshold": null,
+    "op": "<=",
+    "unit": "rgb_mad",
+    "evidence": [],
+    "notes": "{\"foreground_union\": 13.171394799054374, \"seam\": false, \"reason\": \"No cast05 reference supplied; comparison threshold and passed remain null.\", \"definition\": \"Frozen drift48 reduction (48px LANCZOS RGBA), then frozen common.pair_differences.\"}"
+  },
+  {
+    "id": "G11_pair",
+    "subject": "walk/E/02->03",
+    "passed": null,
+    "value": 1.5688657407407407,
+    "threshold": null,
+    "op": "<=",
+    "unit": "rgb_mad",
+    "evidence": [],
+    "notes": "{\"foreground_union\": 11.40273396424816, \"seam\": false, \"reason\": \"No cast05 reference supplied; comparison threshold and passed remain null.\", \"definition\": \"Frozen drift48 reduction (48px LANCZOS RGBA), then frozen common.pair_differences.\"}"
+  },
+  {
+    "id": "G11_pair",
+    "subject": "walk/E/03->04",
+    "passed": null,
+    "value": 2.6027199074074074,
+    "threshold": null,
+    "op": "<=",
+    "unit": "rgb_mad",
+    "evidence": [],
+    "notes": "{\"foreground_union\": 19.037037037037038, \"seam\": false, \"reason\": \"No cast05 reference supplied; comparison threshold and passed remain null.\", \"definition\": \"Frozen drift48 reduction (48px LANCZOS RGBA), then frozen common.pair_differences.\"}"
+  },
+  {
+    "id": "G11_pair",
+    "subject": "walk/E/04->05",
+    "passed": null,
+    "value": 0.94140625,
+    "threshold": null,
+    "op": "<=",
+    "unit": "rgb_mad",
+    "evidence": [],
+    "notes": "{\"foreground_union\": 8.278625954198473, \"seam\": false, \"reason\": \"No cast05 reference supplied; comparison threshold and passed remain null.\", \"definition\": \"Frozen drift48 reduction (48px LANCZOS RGBA), then frozen common.pair_differences.\"}"
+  },
+  {
+    "id": "G11_pair",
+    "subject": "walk/E/05->06",
+    "passed": null,
+    "value": 1.3415798611111112,
+    "threshold": null,
+    "op": "<=",
+    "unit": "rgb_mad",
+    "evidence": [],
+    "notes": "{\"foreground_union\": 10.807692307692308, \"seam\": false, \"reason\": \"No cast05 reference supplied; comparison threshold and passed remain null.\", \"definition\": \"Frozen drift48 reduction (48px LANCZOS RGBA), then frozen common.pair_differences.\"}"
+  },
+  {
+    "id": "G11_pair",
+    "subject": "walk/E/06->07",
+    "passed": null,
+    "value": 1.8414351851851851,
+    "threshold": null,
+    "op": "<=",
+    "unit": "rgb_mad",
+    "evidence": [],
+    "notes": "{\"foreground_union\": 13.426160337552743, \"seam\": false, \"reason\": \"No cast05 reference supplied; comparison threshold and passed remain null.\", \"definition\": \"Frozen drift48 reduction (48px LANCZOS RGBA), then frozen common.pair_differences.\"}"
+  },
+  {
+    "id": "G11_pair",
+    "subject": "walk/E/07->08",
+    "passed": null,
+    "value": 2.638454861111111,
+    "threshold": null,
+    "op": "<=",
+    "unit": "rgb_mad",
+    "evidence": [],
+    "notes": "{\"foreground_union\": 18.820433436532507, \"seam\": false, \"reason\": \"No cast05 reference supplied; comparison threshold and passed remain null.\", \"definition\": \"Frozen drift48 reduction (48px LANCZOS RGBA), then frozen common.pair_differences.\"}"
+  },
+  {
+    "id": "G11_pair",
+    "subject": "walk/E/08->09",
+    "passed": null,
+    "value": 1.6940104166666667,
+    "threshold": null,
+    "op": "<=",
+    "unit": "rgb_mad",
+    "evidence": [],
+    "notes": "{\"foreground_union\": 12.881188118811881, \"seam\": false, \"reason\": \"No cast05 reference supplied; comparison threshold and passed remain null.\", \"definition\": \"Frozen drift48 reduction (48px LANCZOS RGBA), then frozen common.pair_differences.\"}"
+  },
+  {
+    "id": "G11_pair",
+    "subject": "walk/E/09->10",
+    "passed": null,
+    "value": 2.4602141203703702,
+    "threshold": null,
+    "op": "<=",
+    "unit": "rgb_mad",
+    "evidence": [],
+    "notes": "{\"foreground_union\": 19.149774774774773, \"seam\": false, \"reason\": \"No cast05 reference supplied; comparison threshold and passed remain null.\", \"definition\": \"Frozen drift48 reduction (48px LANCZOS RGBA), then frozen common.pair_differences.\"}"
+  },
+  {
+    "id": "G11_pair",
+    "subject": "walk/E/10->11",
+    "passed": null,
+    "value": 1.154369212962963,
+    "threshold": null,
+    "op": "<=",
+    "unit": "rgb_mad",
+    "evidence": [],
+    "notes": "{\"foreground_union\": 9.742368742368742, \"seam\": false, \"reason\": \"No cast05 reference supplied; comparison threshold and passed remain null.\", \"definition\": \"Frozen drift48 reduction (48px LANCZOS RGBA), then frozen common.pair_differences.\"}"
+  },
+  {
+    "id": "G11_pair",
+    "subject": "walk/E/11->00",
+    "passed": null,
+    "value": 1.1005497685185186,
+    "threshold": null,
+    "op": "<=",
+    "unit": "rgb_mad",
+    "evidence": [],
+    "notes": "{\"foreground_union\": 9.641318124207858, \"seam\": true, \"reason\": \"No cast05 reference supplied; comparison threshold and passed remain null.\", \"definition\": \"Frozen drift48 reduction (48px LANCZOS RGBA), then frozen common.pair_differences.\"}"
+  },
+  {
+    "id": "g1_height",
+    "subject": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-reg-walk-01/frames/walk/E/walk_E_00.png",
+    "passed": true,
+    "value": 0.023809523809523836,
+    "threshold": 0.03,
+    "op": "<=",
+    "unit": "fraction",
+    "evidence": [],
+    "notes": "height_px=246; master_height_px=252"
+  },
+  {
+    "id": "silhouette64",
+    "subject": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-reg-walk-01/frames/walk/E/walk_E_00.png",
+    "passed": null,
+    "value": 0.5276532137518685,
+    "threshold": null,
+    "op": "<=",
+    "unit": "1-iou",
+    "evidence": [],
+    "notes": "UNEVALUABLE verdict: no calibrated threshold supplied; {\"aligned_iou\": 0.47234678624813153, \"contour_distance\": 1.7466416332805808, \"hu_a\": [0.343891875, 0.07009077366601563, 0.002431144180572725, 0.00010720149576978634, -5.590320708703725e-09, 8.299226796442849e-06, 5.4441359108525835e-08], \"hu_b\": [0.4818811851851852, 0.19632719997375042, 0.001670128266205689, 0.0010109521958415256, 1.3134048766703505e-06, 0.0004160905628611843, -2.3954215005048783e-08]}"
+  },
+  {
+    "id": "g1_height",
+    "subject": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-reg-walk-01/frames/walk/E/walk_E_01.png",
+    "passed": false,
+    "value": 0.04761904761904767,
+    "threshold": 0.03,
+    "op": "<=",
+    "unit": "fraction",
+    "evidence": [],
+    "notes": "height_px=240; master_height_px=252"
+  },
+  {
+    "id": "silhouette64",
+    "subject": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-reg-walk-01/frames/walk/E/walk_E_01.png",
+    "passed": null,
+    "value": 0.44393939393939397,
+    "threshold": null,
+    "op": "<=",
+    "unit": "1-iou",
+    "evidence": [],
+    "notes": "UNEVALUABLE verdict: no calibrated threshold supplied; {\"aligned_iou\": 0.556060606060606, \"contour_distance\": 1.3511615234217538, \"hu_a\": [0.369137765977149, 0.09918928529505706, 0.0015908022666709007, 0.00032606000377144033, 1.9733571246017966e-07, 7.354041055148267e-05, 1.2729474770293373e-07], \"hu_b\": [0.4818811851851852, 0.19632719997375042, 0.001670128266205689, 0.0010109521958415256, 1.3134048766703505e-06, 0.0004160905628611843, -2.3954215005048783e-08]}"
+  },
+  {
+    "id": "g1_height",
+    "subject": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-reg-walk-01/frames/walk/E/walk_E_02.png",
+    "passed": true,
+    "value": 0.011904761904761862,
+    "threshold": 0.03,
+    "op": "<=",
+    "unit": "fraction",
+    "evidence": [],
+    "notes": "height_px=249; master_height_px=252"
+  },
+  {
+    "id": "silhouette64",
+    "subject": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-reg-walk-01/frames/walk/E/walk_E_02.png",
+    "passed": null,
+    "value": 0.5278174037089871,
+    "threshold": null,
+    "op": "<=",
+    "unit": "1-iou",
+    "evidence": [],
+    "notes": "UNEVALUABLE verdict: no calibrated threshold supplied; {\"aligned_iou\": 0.47218259629101283, \"contour_distance\": 1.6810003045209463, \"hu_a\": [0.3996111678087185, 0.10414449197813944, 0.004905078360970925, 0.00014682403514285354, 4.676397149913363e-08, 2.806883399071668e-05, -1.1549172515872497e-07], \"hu_b\": [0.4818811851851852, 0.19632719997375042, 0.001670128266205689, 0.0010109521958415256, 1.3134048766703505e-06, 0.0004160905628611843, -2.3954215005048783e-08]}"
+  },
+  {
+    "id": "g1_height",
+    "subject": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-reg-walk-01/frames/walk/E/walk_E_03.png",
+    "passed": false,
+    "value": 0.031746031746031855,
+    "threshold": 0.03,
+    "op": "<=",
+    "unit": "fraction",
+    "evidence": [],
+    "notes": "height_px=260; master_height_px=252"
+  },
+  {
+    "id": "silhouette64",
+    "subject": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-reg-walk-01/frames/walk/E/walk_E_03.png",
+    "passed": null,
+    "value": 0.5260029717682021,
+    "threshold": null,
+    "op": "<=",
+    "unit": "1-iou",
+    "evidence": [],
+    "notes": "UNEVALUABLE verdict: no calibrated threshold supplied; {\"aligned_iou\": 0.4739970282317979, \"contour_distance\": 1.756334579422037, \"hu_a\": [0.39862735233618646, 0.0934446628829493, 0.0055172493291637025, 2.2055781016535602e-05, -1.498256913519399e-09, 4.444595637460553e-06, -7.546581699763642e-09], \"hu_b\": [0.4818811851851852, 0.19632719997375042, 0.001670128266205689, 0.0010109521958415256, 1.3134048766703505e-06, 0.0004160905628611843, -2.3954215005048783e-08]}"
+  },
+  {
+    "id": "g1_height",
+    "subject": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-reg-walk-01/frames/walk/E/walk_E_04.png",
+    "passed": true,
+    "value": 0.02777777777777779,
+    "threshold": 0.03,
+    "op": "<=",
+    "unit": "fraction",
+    "evidence": [],
+    "notes": "height_px=245; master_height_px=252"
+  },
+  {
+    "id": "silhouette64",
+    "subject": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-reg-walk-01/frames/walk/E/walk_E_04.png",
+    "passed": null,
+    "value": 0.45523520485584223,
+    "threshold": null,
+    "op": "<=",
+    "unit": "1-iou",
+    "evidence": [],
+    "notes": "UNEVALUABLE verdict: no calibrated threshold supplied; {\"aligned_iou\": 0.5447647951441578, \"contour_distance\": 1.604430555372554, \"hu_a\": [0.3887703441322467, 0.09738473448539008, 0.003914712279862018, 0.0003810022301606059, 2.9271476936687926e-07, 8.835235099925261e-05, 3.6170468346515694e-07], \"hu_b\": [0.4818811851851852, 0.19632719997375042, 0.001670128266205689, 0.0010109521958415256, 1.3134048766703505e-06, 0.0004160905628611843, -2.3954215005048783e-08]}"
+  },
+  {
+    "id": "g1_height",
+    "subject": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-reg-walk-01/frames/walk/E/walk_E_05.png",
+    "passed": true,
+    "value": 0.023809523809523836,
+    "threshold": 0.03,
+    "op": "<=",
+    "unit": "fraction",
+    "evidence": [],
+    "notes": "height_px=246; master_height_px=252"
+  },
+  {
+    "id": "silhouette64",
+    "subject": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-reg-walk-01/frames/walk/E/walk_E_05.png",
+    "passed": null,
+    "value": 0.49386503067484666,
+    "threshold": null,
+    "op": "<=",
+    "unit": "1-iou",
+    "evidence": [],
+    "notes": "UNEVALUABLE verdict: no calibrated threshold supplied; {\"aligned_iou\": 0.5061349693251533, \"contour_distance\": 1.7012575906747798, \"hu_a\": [0.34164748942299383, 0.07061022060002888, 0.0018072813736221332, 5.249120438613308e-05, 1.5792692116972877e-08, 1.3941332944791428e-05, 3.461028597513452e-09], \"hu_b\": [0.4818811851851852, 0.19632719997375042, 0.001670128266205689, 0.0010109521958415256, 1.3134048766703505e-06, 0.0004160905628611843, -2.3954215005048783e-08]}"
+  },
+  {
+    "id": "g1_height",
+    "subject": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-reg-walk-01/frames/walk/E/walk_E_06.png",
+    "passed": false,
+    "value": 0.03571428571428581,
+    "threshold": 0.03,
+    "op": "<=",
+    "unit": "fraction",
+    "evidence": [],
+    "notes": "height_px=261; master_height_px=252"
+  },
+  {
+    "id": "silhouette64",
+    "subject": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-reg-walk-01/frames/walk/E/walk_E_06.png",
+    "passed": null,
+    "value": 0.3939393939393939,
+    "threshold": null,
+    "op": "<=",
+    "unit": "1-iou",
+    "evidence": [],
+    "notes": "UNEVALUABLE verdict: no calibrated threshold supplied; {\"aligned_iou\": 0.6060606060606061, \"contour_distance\": 1.3944329598816279, \"hu_a\": [0.41057261714228876, 0.12281659439183208, 0.0043099822417995756, 0.0006614276876991556, 4.535314520725358e-07, 7.327586235122841e-05, 1.020524584287703e-06], \"hu_b\": [0.4818811851851852, 0.19632719997375042, 0.001670128266205689, 0.0010109521958415256, 1.3134048766703505e-06, 0.0004160905628611843, -2.3954215005048783e-08]}"
+  },
+  {
+    "id": "g1_height",
+    "subject": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-reg-walk-01/frames/walk/E/walk_E_07.png",
+    "passed": false,
+    "value": 0.031746031746031855,
+    "threshold": 0.03,
+    "op": "<=",
+    "unit": "fraction",
+    "evidence": [],
+    "notes": "height_px=260; master_height_px=252"
+  },
+  {
+    "id": "silhouette64",
+    "subject": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-reg-walk-01/frames/walk/E/walk_E_07.png",
+    "passed": null,
+    "value": 0.4152410575427683,
+    "threshold": null,
+    "op": "<=",
+    "unit": "1-iou",
+    "evidence": [],
+    "notes": "UNEVALUABLE verdict: no calibrated threshold supplied; {\"aligned_iou\": 0.5847589424572317, \"contour_distance\": 1.3687403680586059, \"hu_a\": [0.369699803709604, 0.09896269155650557, 0.0006312462017481357, 0.00011553647669494758, 2.9786176261676614e-08, 3.3553047949351306e-05, 9.291336882153727e-09], \"hu_b\": [0.4818811851851852, 0.19632719997375042, 0.001670128266205689, 0.0010109521958415256, 1.3134048766703505e-06, 0.0004160905628611843, -2.3954215005048783e-08]}"
+  },
+  {
+    "id": "g1_height",
+    "subject": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-reg-walk-01/frames/walk/E/walk_E_08.png",
+    "passed": false,
+    "value": 0.031746031746031855,
+    "threshold": 0.03,
+    "op": "<=",
+    "unit": "fraction",
+    "evidence": [],
+    "notes": "height_px=260; master_height_px=252"
+  },
+  {
+    "id": "silhouette64",
+    "subject": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-reg-walk-01/frames/walk/E/walk_E_08.png",
+    "passed": null,
+    "value": 0.5300146412884335,
+    "threshold": null,
+    "op": "<=",
+    "unit": "1-iou",
+    "evidence": [],
+    "notes": "UNEVALUABLE verdict: no calibrated threshold supplied; {\"aligned_iou\": 0.4699853587115666, \"contour_distance\": 1.7797772390180775, \"hu_a\": [0.38500485632624254, 0.09313521141500174, 0.005670785860660397, 0.00046489115374750013, 6.492319075331005e-07, 0.00013039577587692556, -3.8505151753548673e-07], \"hu_b\": [0.4818811851851852, 0.19632719997375042, 0.001670128266205689, 0.0010109521958415256, 1.3134048766703505e-06, 0.0004160905628611843, -2.3954215005048783e-08]}"
+  },
+  {
+    "id": "g1_height",
+    "subject": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-reg-walk-01/frames/walk/E/walk_E_09.png",
+    "passed": false,
+    "value": 0.039682539682539764,
+    "threshold": 0.03,
+    "op": "<=",
+    "unit": "fraction",
+    "evidence": [],
+    "notes": "height_px=262; master_height_px=252"
+  },
+  {
+    "id": "silhouette64",
+    "subject": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-reg-walk-01/frames/walk/E/walk_E_09.png",
+    "passed": null,
+    "value": 0.48736998514115903,
+    "threshold": null,
+    "op": "<=",
+    "unit": "1-iou",
+    "evidence": [],
+    "notes": "UNEVALUABLE verdict: no calibrated threshold supplied; {\"aligned_iou\": 0.512630014858841, \"contour_distance\": 1.4058312603047085, \"hu_a\": [0.4062780284673757, 0.11939246141761967, 0.001387241394823267, 4.858144509104116e-05, -3.0650548494844e-09, 2.5021845610373382e-06, -1.2233817840525498e-08], \"hu_b\": [0.4818811851851852, 0.19632719997375042, 0.001670128266205689, 0.0010109521958415256, 1.3134048766703505e-06, 0.0004160905628611843, -2.3954215005048783e-08]}"
+  },
+  {
+    "id": "g1_height",
+    "subject": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-reg-walk-01/frames/walk/E/walk_E_10.png",
+    "passed": true,
+    "value": 0.019841269841269882,
+    "threshold": 0.03,
+    "op": "<=",
+    "unit": "fraction",
+    "evidence": [],
+    "notes": "height_px=247; master_height_px=252"
+  },
+  {
+    "id": "silhouette64",
+    "subject": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-reg-walk-01/frames/walk/E/walk_E_10.png",
+    "passed": null,
+    "value": 0.4441087613293051,
+    "threshold": null,
+    "op": "<=",
+    "unit": "1-iou",
+    "evidence": [],
+    "notes": "UNEVALUABLE verdict: no calibrated threshold supplied; {\"aligned_iou\": 0.5558912386706949, \"contour_distance\": 1.4605240445465653, \"hu_a\": [0.39885008620440554, 0.11141818997143547, 0.0036595679977775766, 0.0005036930184753674, 4.651607533170212e-07, 0.00011725781857788013, 5.012810216691806e-07], \"hu_b\": [0.4818811851851852, 0.19632719997375042, 0.001670128266205689, 0.0010109521958415256, 1.3134048766703505e-06, 0.0004160905628611843, -2.3954215005048783e-08]}"
+  },
+  {
+    "id": "g1_height",
+    "subject": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-reg-walk-01/frames/walk/E/walk_E_11.png",
+    "passed": true,
+    "value": 0.003968253968253954,
+    "threshold": 0.03,
+    "op": "<=",
+    "unit": "fraction",
+    "evidence": [],
+    "notes": "height_px=251; master_height_px=252"
+  },
+  {
+    "id": "silhouette64",
+    "subject": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-reg-walk-01/frames/walk/E/walk_E_11.png",
+    "passed": null,
+    "value": 0.44843049327354256,
+    "threshold": null,
+    "op": "<=",
+    "unit": "1-iou",
+    "evidence": [],
+    "notes": "UNEVALUABLE verdict: no calibrated threshold supplied; {\"aligned_iou\": 0.5515695067264574, \"contour_distance\": 1.5197296789903156, \"hu_a\": [0.40630555555555553, 0.10994941633325711, 0.002225209175363892, 0.00015947451745266624, 6.588648197854532e-08, 4.458771503398225e-05, 6.843916999137958e-08], \"hu_b\": [0.4818811851851852, 0.19632719997375042, 0.001670128266205689, 0.0010109521958415256, 1.3134048766703505e-06, 0.0004160905628611843, -2.3954215005048783e-08]}"
+  },
+  {
+    "id": "gait_intent_landmark_payload",
+    "subject": "walk/E",
+    "passed": null,
+    "value": {
+      "summary": {
+        "W1": 0.088,
+        "W2": {
+          "min": [
+            {
+              "frame": 1,
+              "phase": null
+            }
+          ],
+          "max": [
+            {
+              "frame": 9,
+              "phase": null
+            }
+          ],
+          "coordinate": "Cartesian up; negative image y"
+        },
+        "W4": 4,
+        "minima_frames": [
+          1,
+          4,
+          7,
+          10
+        ],
+        "W3a": 0.5830651187260185,
+        "W3b": -0.10414996858368696,
+        "W3c": 4,
+        "signed_area_px2": -81.18657588211644,
+        "head_mask_bob_lineage": {
+          "W1": 0.088,
+          "W2": {
+            "min": [
+              {
+                "frame": 1,
+                "phase": null
+              }
+            ],
+            "max": [
+              {
+                "frame": 9,
+                "phase": null
+              }
+            ],
+            "coordinate": "Cartesian up; negative image y"
+          },
+          "W4": 4,
+          "minima_frames": [
+            1,
+            4,
+            7,
+            10
+          ]
+        },
+        "head_ref_bob": {
+          "W1": 0.096,
+          "W2": {
+            "min": [
+              {
+                "frame": 1,
+                "phase": null
+              }
+            ],
+            "max": [
+              {
+                "frame": 8,
+                "phase": null
+              }
+            ],
+            "coordinate": "Cartesian up; negative image y"
+          },
+          "W4": 3,
+          "minima_frames": [
+            1,
+            4,
+            10
+          ]
+        },
+        "W5": {
+          "L": 0.064,
+          "R": 0.044
+        },
+        "W6": null,
+        "W6_per_arm": {
+          "L": 0.25,
+          "R": null
+        },
+        "valid_frames_per_arm": {
+          "L": 12,
+          "R": 10
+        },
+        "identity_note": "projected track opposition, not independently established anatomical same-side identity",
+        "sole_scroll": {
+          "L": {
+            "swing_x_px": [
+              212.5,
+              null,
+              null,
+              204.0,
+              205.0,
+              201.0,
+              null,
+              276.0,
+              251.0,
+              null,
+              null,
+              null
+            ],
+            "delta_px_per_frame": [
+              null,
+              null,
+              null,
+              -3.0,
+              1.0,
+              -4.0,
+              null,
+              23.0,
+              -25.0,
+              null,
+              null,
+              null
+            ],
+            "mean_scroll_px_per_frame": -1.6,
+            "observed_velocity_frames": 5
+          },
+          "R": {
+            "swing_x_px": [
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              217.0,
+              null,
+              205.0
+            ],
+            "delta_px_per_frame": [
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              11.0,
+              null,
+              null
+            ],
+            "mean_scroll_px_per_frame": 11.0,
+            "observed_velocity_frames": 1
+          },
+          "mean_scroll_px_per_frame": 0.5,
+          "mean_absolute_speed_px_per_frame": 11.166666666666666,
+          "estimator": "backward velocity on observed non-planted frames; missing tracks and seam excluded",
+          "planted_scroll_lineage": {
+            "L": {
+              "planted_x_px": [
+                null,
+                225.5,
+                207.0,
+                null,
+                null,
+                null,
+                253.0,
+                null,
+                null,
+                261.0,
+                268.0,
+                266.0
+              ],
+              "delta_px_per_frame": [
+                null,
+                -18.5,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                7.0,
+                -2.0,
+                null
+              ],
+              "mean_scroll_px_per_frame": -4.5,
+              "slip_px_per_frame": [
+                null,
+                -14.0,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                11.5,
+                2.5,
+                null
+              ],
+              "slip_rms_px_per_frame": 10.559356040971437
+            },
+            "R": {
+              "planted_x_px": [
+                277.0,
+                null,
+                259.0,
+                263.0,
+                272.0,
+                270.0,
+                286.0,
+                257.5,
+                206.0,
+                null,
+                null,
+                null
+              ],
+              "delta_px_per_frame": [
+                null,
+                null,
+                4.0,
+                9.0,
+                -2.0,
+                16.0,
+                -28.5,
+                -51.5,
+                null,
+                null,
+                null,
+                null
+              ],
+              "mean_scroll_px_per_frame": -8.833333333333334,
+              "slip_px_per_frame": [
+                null,
+                null,
+                12.833333333333334,
+                17.833333333333336,
+                6.833333333333334,
+                24.833333333333336,
+                -19.666666666666664,
+                -42.666666666666664,
+                null,
+                null,
+                null,
+                null
+              ],
+              "slip_rms_px_per_frame": 23.640830968662858
+            },
+            "mean_scroll_px_per_frame": -7.388888888888889,
+            "slip_rms_px_per_frame": 20.34532129914473
+          }
+        },
+        "H_median": 250.0,
+        "W1_sanity_1_5_pct_H": false,
+        "contact_frames": [
+          0,
+          1,
+          6,
+          9
+        ],
+        "head_track_flagged_frames": [],
+        "projection_diagnostics": {
+          "W5": {
+            "L": 0.064,
+            "R": 0.044
+          },
+          "W6": null,
+          "W6_per_arm": {
+            "L": 0.25,
+            "R": null
+          },
+          "valid_frames_per_arm": {
+            "L": 12,
+            "R": 10
+          },
+          "identity_note": "projected track opposition, not independently established anatomical same-side identity",
+          "sole_scroll": {
+            "L": {
+              "swing_x_px": [
+                212.5,
+                null,
+                null,
+                204.0,
+                205.0,
+                201.0,
+                null,
+                276.0,
+                251.0,
+                null,
+                null,
+                null
+              ],
+              "delta_px_per_frame": [
+                null,
+                null,
+                null,
+                -3.0,
+                1.0,
+                -4.0,
+                null,
+                23.0,
+                -25.0,
+                null,
+                null,
+                null
+              ],
+              "mean_scroll_px_per_frame": -1.6,
+              "observed_velocity_frames": 5
+            },
+            "R": {
+              "swing_x_px": [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                217.0,
+                null,
+                205.0
+              ],
+              "delta_px_per_frame": [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                11.0,
+                null,
+                null
+              ],
+              "mean_scroll_px_per_frame": 11.0,
+              "observed_velocity_frames": 1
+            },
+            "mean_scroll_px_per_frame": 0.5,
+            "mean_absolute_speed_px_per_frame": 11.166666666666666,
+            "estimator": "backward velocity on observed non-planted frames; missing tracks and seam excluded",
+            "planted_scroll_lineage": {
+              "L": {
+                "planted_x_px": [
+                  null,
+                  225.5,
+                  207.0,
+                  null,
+                  null,
+                  null,
+                  253.0,
+                  null,
+                  null,
+                  261.0,
+                  268.0,
+                  266.0
+                ],
+                "delta_px_per_frame": [
+                  null,
+                  -18.5,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  7.0,
+                  -2.0,
+                  null
+                ],
+                "mean_scroll_px_per_frame": -4.5,
+                "slip_px_per_frame": [
+                  null,
+                  -14.0,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  11.5,
+                  2.5,
+                  null
+                ],
+                "slip_rms_px_per_frame": 10.559356040971437
+              },
+              "R": {
+                "planted_x_px": [
+                  277.0,
+                  null,
+                  259.0,
+                  263.0,
+                  272.0,
+                  270.0,
+                  286.0,
+                  257.5,
+                  206.0,
+                  null,
+                  null,
+                  null
+                ],
+                "delta_px_per_frame": [
+                  null,
+                  null,
+                  4.0,
+                  9.0,
+                  -2.0,
+                  16.0,
+                  -28.5,
+                  -51.5,
+                  null,
+                  null,
+                  null,
+                  null
+                ],
+                "mean_scroll_px_per_frame": -8.833333333333334,
+                "slip_px_per_frame": [
+                  null,
+                  null,
+                  12.833333333333334,
+                  17.833333333333336,
+                  6.833333333333334,
+                  24.833333333333336,
+                  -19.666666666666664,
+                  -42.666666666666664,
+                  null,
+                  null,
+                  null,
+                  null
+                ],
+                "slip_rms_px_per_frame": 23.640830968662858
+              },
+              "mean_scroll_px_per_frame": -7.388888888888889,
+              "slip_rms_px_per_frame": 20.34532129914473
+            }
+          }
+        }
+      },
+      "landmarks": [
+        {
+          "valid": true,
+          "mask_area": 12378,
+          "mask_area_per_H": 50.31707317073171,
+          "head_top_y": 166,
+          "head_top_thin": false,
+          "head_ref_y": 185,
+          "sole_line_y": 411,
+          "H": 246,
+          "head_cx": 246.60661444734552,
+          "torso_cx": 250.0,
+          "torso_width": 51.5,
+          "wrist_ext_L": 6.25,
+          "wrist_ext_R": 9.25,
+          "foot_components": 2,
+          "feet_merged": false,
+          "ground_line_y": 411,
+          "foot_identity": "initial image x order; tracked over time, not anatomical",
+          "foot_L_x": 212.5,
+          "foot_L_y": 403,
+          "planted_L": false,
+          "foot_R_x": 277.0,
+          "foot_R_y": 411,
+          "planted_R": true,
+          "planted": {
+            "L": false,
+            "R": true
+          },
+          "head_top_y_H": 0.6747967479674797,
+          "head_ref_y_H": 0.7520325203252033,
+          "sole_line_y_H": 1.670731707317073,
+          "head_cx_H": 1.0024659123875834,
+          "torso_cx_H": 1.016260162601626,
+          "torso_width_H": 0.20934959349593496,
+          "wrist_ext_L_H": 0.02540650406504065,
+          "wrist_ext_R_H": 0.037601626016260166,
+          "ground_line_y_H": 1.670731707317073,
+          "foot_L_x_H": 0.8638211382113821,
+          "foot_L_y_H": 1.6382113821138211,
+          "foot_R_x_H": 1.1260162601626016,
+          "foot_R_y_H": 1.670731707317073,
+          "identity_ambiguous": false
+        },
+        {
+          "valid": true,
+          "mask_area": 11277,
+          "mask_area_per_H": 46.9875,
+          "head_top_y": 172,
+          "head_top_thin": false,
+          "head_ref_y": 189,
+          "sole_line_y": 411,
+          "H": 240,
+          "head_cx": 226.79765130984643,
+          "torso_cx": 231.5,
+          "torso_width": 53.0,
+          "wrist_ext_L": 0.0,
+          "wrist_ext_R": 7.0,
+          "foot_components": 1,
+          "feet_merged": true,
+          "ground_line_y": 411,
+          "foot_identity": "initial image x order; tracked over time, not anatomical",
+          "foot_L_x": 225.5,
+          "foot_L_y": 411,
+          "planted_L": true,
+          "foot_R_x": null,
+          "foot_R_y": null,
+          "planted_R": null,
+          "planted": {
+            "L": true,
+            "R": null
+          },
+          "head_top_y_H": 0.7166666666666667,
+          "head_ref_y_H": 0.7875,
+          "sole_line_y_H": 1.7125,
+          "head_cx_H": 0.9449902137910268,
+          "torso_cx_H": 0.9645833333333333,
+          "torso_width_H": 0.22083333333333333,
+          "wrist_ext_L_H": 0.0,
+          "wrist_ext_R_H": 0.029166666666666667,
+          "ground_line_y_H": 1.7125,
+          "foot_L_x_H": 0.9395833333333333,
+          "foot_L_y_H": 1.7125,
+          "foot_R_x_H": null,
+          "foot_R_y_H": null,
+          "identity_ambiguous": true
+        },
+        {
+          "valid": true,
+          "mask_area": 12098,
+          "mask_area_per_H": 48.5863453815261,
+          "head_top_y": 163,
+          "head_top_thin": false,
+          "head_ref_y": 177,
+          "sole_line_y": 411,
+          "H": 249,
+          "head_cx": 220.11962134251291,
+          "torso_cx": 226.0,
+          "torso_width": 53.0,
+          "wrist_ext_L": 0.0,
+          "wrist_ext_R": 1.5,
+          "foot_components": 2,
+          "feet_merged": false,
+          "ground_line_y": 411,
+          "foot_identity": "initial image x order; tracked over time, not anatomical",
+          "foot_L_x": 207.0,
+          "foot_L_y": 410,
+          "planted_L": true,
+          "foot_R_x": 259.0,
+          "foot_R_y": 411,
+          "planted_R": true,
+          "planted": {
+            "L": true,
+            "R": true
+          },
+          "head_top_y_H": 0.6546184738955824,
+          "head_ref_y_H": 0.7108433734939759,
+          "sole_line_y_H": 1.6506024096385543,
+          "head_cx_H": 0.8840145435442286,
+          "torso_cx_H": 0.9076305220883534,
+          "torso_width_H": 0.21285140562248997,
+          "wrist_ext_L_H": 0.0,
+          "wrist_ext_R_H": 0.006024096385542169,
+          "ground_line_y_H": 1.6506024096385543,
+          "foot_L_x_H": 0.8313253012048193,
+          "foot_L_y_H": 1.6465863453815262,
+          "foot_R_x_H": 1.0401606425702812,
+          "foot_R_y_H": 1.6506024096385543,
+          "identity_ambiguous": false
+        },
+        {
+          "valid": true,
+          "mask_area": 13060,
+          "mask_area_per_H": 50.23076923076923,
+          "head_top_y": 152,
+          "head_top_thin": false,
+          "head_ref_y": 167,
+          "sole_line_y": 411,
+          "H": 260,
+          "head_cx": 227.2250203086921,
+          "torso_cx": 234.5,
+          "torso_width": 53.0,
+          "wrist_ext_L": 16.0,
+          "wrist_ext_R": 4.0,
+          "foot_components": 2,
+          "feet_merged": false,
+          "ground_line_y": 411,
+          "foot_identity": "initial image x order; tracked over time, not anatomical",
+          "foot_L_x": 204.0,
+          "foot_L_y": 404,
+          "planted_L": false,
+          "foot_R_x": 263.0,
+          "foot_R_y": 411,
+          "planted_R": true,
+          "planted": {
+            "L": false,
+            "R": true
+          },
+          "head_top_y_H": 0.5846153846153846,
+          "head_ref_y_H": 0.6423076923076924,
+          "sole_line_y_H": 1.5807692307692307,
+          "head_cx_H": 0.8739423858026619,
+          "torso_cx_H": 0.9019230769230769,
+          "torso_width_H": 0.20384615384615384,
+          "wrist_ext_L_H": 0.06153846153846154,
+          "wrist_ext_R_H": 0.015384615384615385,
+          "ground_line_y_H": 1.5807692307692307,
+          "foot_L_x_H": 0.7846153846153846,
+          "foot_L_y_H": 1.5538461538461539,
+          "foot_R_x_H": 1.0115384615384615,
+          "foot_R_y_H": 1.5807692307692307,
+          "identity_ambiguous": false
+        },
+        {
+          "valid": true,
+          "mask_area": 11657,
+          "mask_area_per_H": 47.57959183673469,
+          "head_top_y": 167,
+          "head_top_thin": false,
+          "head_ref_y": 185,
+          "sole_line_y": 411,
+          "H": 245,
+          "head_cx": 246.5744322960471,
+          "torso_cx": 253.0,
+          "torso_width": 54.0,
+          "wrist_ext_L": 0.0,
+          "wrist_ext_R": 4.0,
+          "foot_components": 2,
+          "feet_merged": false,
+          "ground_line_y": 411,
+          "foot_identity": "initial image x order; tracked over time, not anatomical",
+          "foot_L_x": 205.0,
+          "foot_L_y": 398,
+          "planted_L": false,
+          "foot_R_x": 272.0,
+          "foot_R_y": 411,
+          "planted_R": true,
+          "planted": {
+            "L": false,
+            "R": true
+          },
+          "head_top_y_H": 0.6816326530612244,
+          "head_ref_y_H": 0.7551020408163265,
+          "sole_line_y_H": 1.6775510204081632,
+          "head_cx_H": 1.0064262542695799,
+          "torso_cx_H": 1.0326530612244897,
+          "torso_width_H": 0.22040816326530613,
+          "wrist_ext_L_H": 0.0,
+          "wrist_ext_R_H": 0.0163265306122449,
+          "ground_line_y_H": 1.6775510204081632,
+          "foot_L_x_H": 0.8367346938775511,
+          "foot_L_y_H": 1.6244897959183673,
+          "foot_R_x_H": 1.110204081632653,
+          "foot_R_y_H": 1.6775510204081632,
+          "identity_ambiguous": false
+        },
+        {
+          "valid": true,
+          "mask_area": 12227,
+          "mask_area_per_H": 49.703252032520325,
+          "head_top_y": 166,
+          "head_top_thin": false,
+          "head_ref_y": 185,
+          "sole_line_y": 411,
+          "H": 246,
+          "head_cx": 248.20151770657674,
+          "torso_cx": 254.5,
+          "torso_width": 53.0,
+          "wrist_ext_L": 11.0,
+          "wrist_ext_R": 4.0,
+          "foot_components": 2,
+          "feet_merged": false,
+          "ground_line_y": 411,
+          "foot_identity": "initial image x order; tracked over time, not anatomical",
+          "foot_L_x": 201.0,
+          "foot_L_y": 391,
+          "planted_L": false,
+          "foot_R_x": 270.0,
+          "foot_R_y": 411,
+          "planted_R": true,
+          "planted": {
+            "L": false,
+            "R": true
+          },
+          "head_top_y_H": 0.6747967479674797,
+          "head_ref_y_H": 0.7520325203252033,
+          "sole_line_y_H": 1.670731707317073,
+          "head_cx_H": 1.0089492589698241,
+          "torso_cx_H": 1.0345528455284554,
+          "torso_width_H": 0.21544715447154472,
+          "wrist_ext_L_H": 0.044715447154471545,
+          "wrist_ext_R_H": 0.016260162601626018,
+          "ground_line_y_H": 1.670731707317073,
+          "foot_L_x_H": 0.8170731707317073,
+          "foot_L_y_H": 1.589430894308943,
+          "foot_R_x_H": 1.0975609756097562,
+          "foot_R_y_H": 1.670731707317073,
+          "identity_ambiguous": false
+        },
+        {
+          "valid": true,
+          "mask_area": 13100,
+          "mask_area_per_H": 50.191570881226056,
+          "head_top_y": 151,
+          "head_top_thin": false,
+          "head_ref_y": 170,
+          "sole_line_y": 411,
+          "H": 261,
+          "head_cx": 250.24302134646962,
+          "torso_cx": 251.0,
+          "torso_width": 49.0,
+          "wrist_ext_L": 0.0,
+          "wrist_ext_R": 12.5,
+          "foot_components": 2,
+          "feet_merged": false,
+          "ground_line_y": 411,
+          "foot_identity": "initial image x order; tracked over time, not anatomical",
+          "foot_L_x": 253.0,
+          "foot_L_y": 411,
+          "planted_L": true,
+          "foot_R_x": 286.0,
+          "foot_R_y": 411,
+          "planted_R": true,
+          "planted": {
+            "L": true,
+            "R": true
+          },
+          "head_top_y_H": 0.578544061302682,
+          "head_ref_y_H": 0.6513409961685823,
+          "sole_line_y_H": 1.5747126436781609,
+          "head_cx_H": 0.9587855224002667,
+          "torso_cx_H": 0.9616858237547893,
+          "torso_width_H": 0.18773946360153257,
+          "wrist_ext_L_H": 0.0,
+          "wrist_ext_R_H": 0.04789272030651341,
+          "ground_line_y_H": 1.5747126436781609,
+          "foot_L_x_H": 0.9693486590038314,
+          "foot_L_y_H": 1.5747126436781609,
+          "foot_R_x_H": 1.0957854406130267,
+          "foot_R_y_H": 1.5747126436781609,
+          "identity_ambiguous": false
+        },
+        {
+          "valid": true,
+          "mask_area": 12735,
+          "mask_area_per_H": 48.98076923076923,
+          "head_top_y": 152,
+          "head_top_thin": false,
+          "head_ref_y": 166,
+          "sole_line_y": 411,
+          "H": 260,
+          "head_cx": 240.8151326053042,
+          "torso_cx": 241.0,
+          "torso_width": 58.0,
+          "wrist_ext_L": 0.0,
+          "wrist_ext_R": 8.0,
+          "foot_components": 2,
+          "feet_merged": false,
+          "ground_line_y": 411,
+          "foot_identity": "initial image x order; tracked over time, not anatomical",
+          "foot_L_x": 276.0,
+          "foot_L_y": 405,
+          "planted_L": false,
+          "foot_R_x": 257.5,
+          "foot_R_y": 411,
+          "planted_R": true,
+          "planted": {
+            "L": false,
+            "R": true
+          },
+          "head_top_y_H": 0.5846153846153846,
+          "head_ref_y_H": 0.6384615384615384,
+          "sole_line_y_H": 1.5807692307692307,
+          "head_cx_H": 0.9262120484819393,
+          "torso_cx_H": 0.926923076923077,
+          "torso_width_H": 0.2230769230769231,
+          "wrist_ext_L_H": 0.0,
+          "wrist_ext_R_H": 0.03076923076923077,
+          "ground_line_y_H": 1.5807692307692307,
+          "foot_L_x_H": 1.0615384615384615,
+          "foot_L_y_H": 1.5576923076923077,
+          "foot_R_x_H": 0.9903846153846154,
+          "foot_R_y_H": 1.5807692307692307,
+          "identity_ambiguous": false
+        },
+        {
+          "valid": true,
+          "mask_area": 12993,
+          "mask_area_per_H": 49.973076923076924,
+          "head_top_y": 152,
+          "head_top_thin": false,
+          "head_ref_y": 165,
+          "sole_line_y": 411,
+          "H": 260,
+          "head_cx": 214.81047197640117,
+          "torso_cx": 218.5,
+          "torso_width": 51.0,
+          "wrist_ext_L": 0.0,
+          "wrist_ext_R": 9.0,
+          "foot_components": 2,
+          "feet_merged": false,
+          "ground_line_y": 411,
+          "foot_identity": "initial image x order; tracked over time, not anatomical",
+          "foot_L_x": 251.0,
+          "foot_L_y": 405,
+          "planted_L": false,
+          "foot_R_x": 206.0,
+          "foot_R_y": 411,
+          "planted_R": true,
+          "planted": {
+            "L": false,
+            "R": true
+          },
+          "head_top_y_H": 0.5846153846153846,
+          "head_ref_y_H": 0.6346153846153846,
+          "sole_line_y_H": 1.5807692307692307,
+          "head_cx_H": 0.8261941229861584,
+          "torso_cx_H": 0.8403846153846154,
+          "torso_width_H": 0.19615384615384615,
+          "wrist_ext_L_H": 0.0,
+          "wrist_ext_R_H": 0.03461538461538462,
+          "ground_line_y_H": 1.5807692307692307,
+          "foot_L_x_H": 0.9653846153846154,
+          "foot_L_y_H": 1.5576923076923077,
+          "foot_R_x_H": 0.7923076923076923,
+          "foot_R_y_H": 1.5807692307692307,
+          "identity_ambiguous": false
+        },
+        {
+          "valid": true,
+          "mask_area": 13260,
+          "mask_area_per_H": 50.61068702290076,
+          "head_top_y": 150,
+          "head_top_thin": false,
+          "head_ref_y": 168,
+          "sole_line_y": 411,
+          "H": 262,
+          "head_cx": 225.24059561128527,
+          "torso_cx": 226.75,
+          "torso_width": 58.5,
+          "wrist_ext_L": 0.0,
+          "wrist_ext_R": 7.0,
+          "foot_components": 2,
+          "feet_merged": false,
+          "ground_line_y": 411,
+          "foot_identity": "initial image x order; tracked over time, not anatomical",
+          "foot_L_x": 261.0,
+          "foot_L_y": 411,
+          "planted_L": true,
+          "foot_R_x": 217.0,
+          "foot_R_y": 408,
+          "planted_R": false,
+          "planted": {
+            "L": true,
+            "R": false
+          },
+          "head_top_y_H": 0.5725190839694656,
+          "head_ref_y_H": 0.6412213740458015,
+          "sole_line_y_H": 1.5687022900763359,
+          "head_cx_H": 0.8596969298140659,
+          "torso_cx_H": 0.8654580152671756,
+          "torso_width_H": 0.22328244274809161,
+          "wrist_ext_L_H": 0.0,
+          "wrist_ext_R_H": 0.026717557251908396,
+          "ground_line_y_H": 1.5687022900763359,
+          "foot_L_x_H": 0.9961832061068703,
+          "foot_L_y_H": 1.5687022900763359,
+          "foot_R_x_H": 0.8282442748091603,
+          "foot_R_y_H": 1.5572519083969465,
+          "identity_ambiguous": false
+        },
+        {
+          "valid": true,
+          "mask_area": 11647,
+          "mask_area_per_H": 47.15384615384615,
+          "head_top_y": 165,
+          "head_top_thin": false,
+          "head_ref_y": 182,
+          "sole_line_y": 411,
+          "H": 247,
+          "head_cx": 241.90077653149265,
+          "torso_cx": 248.0,
+          "torso_width": 49.0,
+          "wrist_ext_L": 0.0,
+          "wrist_ext_R": 6.5,
+          "foot_components": 1,
+          "feet_merged": true,
+          "ground_line_y": 411,
+          "foot_identity": "initial image x order; tracked over time, not anatomical",
+          "foot_L_x": 268.0,
+          "foot_L_y": 411,
+          "planted_L": true,
+          "foot_R_x": null,
+          "foot_R_y": null,
+          "planted_R": null,
+          "planted": {
+            "L": true,
+            "R": null
+          },
+          "head_top_y_H": 0.6680161943319838,
+          "head_ref_y_H": 0.7368421052631579,
+          "sole_line_y_H": 1.6639676113360324,
+          "head_cx_H": 0.9793553705728447,
+          "torso_cx_H": 1.0040485829959513,
+          "torso_width_H": 0.19838056680161945,
+          "wrist_ext_L_H": 0.0,
+          "wrist_ext_R_H": 0.02631578947368421,
+          "ground_line_y_H": 1.6639676113360324,
+          "foot_L_x_H": 1.0850202429149798,
+          "foot_L_y_H": 1.6639676113360324,
+          "foot_R_x_H": null,
+          "foot_R_y_H": null,
+          "identity_ambiguous": true
+        },
+        {
+          "valid": true,
+          "mask_area": 11145,
+          "mask_area_per_H": 44.40239043824701,
+          "head_top_y": 161,
+          "head_top_thin": false,
+          "head_ref_y": 179,
+          "sole_line_y": 411,
+          "H": 251,
+          "head_cx": 245.93974895397488,
+          "torso_cx": 250.5,
+          "torso_width": 46.5,
+          "wrist_ext_L": 0.0,
+          "wrist_ext_R": 11.25,
+          "foot_components": 2,
+          "feet_merged": false,
+          "ground_line_y": 411,
+          "foot_identity": "initial image x order; tracked over time, not anatomical",
+          "foot_L_x": 266.0,
+          "foot_L_y": 411,
+          "planted_L": true,
+          "foot_R_x": 205.0,
+          "foot_R_y": 381,
+          "planted_R": false,
+          "planted": {
+            "L": true,
+            "R": false
+          },
+          "head_top_y_H": 0.6414342629482072,
+          "head_ref_y_H": 0.7131474103585658,
+          "sole_line_y_H": 1.6374501992031874,
+          "head_cx_H": 0.9798396372668322,
+          "torso_cx_H": 0.99800796812749,
+          "torso_width_H": 0.1852589641434263,
+          "wrist_ext_L_H": 0.0,
+          "wrist_ext_R_H": 0.044820717131474105,
+          "ground_line_y_H": 1.6374501992031874,
+          "foot_L_x_H": 1.0597609561752988,
+          "foot_L_y_H": 1.6374501992031874,
+          "foot_R_x_H": 0.8167330677290837,
+          "foot_R_y_H": 1.5179282868525896,
+          "identity_ambiguous": false
+        }
+      ],
+      "phase_table": [
+        {
+          "frame": 0,
+          "printed_phase": 1,
+          "phase": null,
+          "contact": true,
+          "lead_track": null,
+          "planted": {
+            "L": false,
+            "R": true
+          },
+          "contact_sides": [
+            "R"
+          ],
+          "boundary_contact": true,
+          "reason": "expected two contact events; observed 4"
+        },
+        {
+          "frame": 1,
+          "printed_phase": 2,
+          "phase": null,
+          "contact": true,
+          "lead_track": null,
+          "planted": {
+            "L": true,
+            "R": null
+          },
+          "contact_sides": [
+            "L"
+          ],
+          "boundary_contact": false,
+          "reason": "expected two contact events; observed 4"
+        },
+        {
+          "frame": 2,
+          "printed_phase": 3,
+          "phase": null,
+          "contact": false,
+          "lead_track": null,
+          "planted": {
+            "L": true,
+            "R": true
+          },
+          "contact_sides": [],
+          "boundary_contact": false,
+          "reason": "expected two contact events; observed 4"
+        },
+        {
+          "frame": 3,
+          "printed_phase": 4,
+          "phase": null,
+          "contact": false,
+          "lead_track": null,
+          "planted": {
+            "L": false,
+            "R": true
+          },
+          "contact_sides": [],
+          "boundary_contact": false,
+          "reason": "expected two contact events; observed 4"
+        },
+        {
+          "frame": 4,
+          "printed_phase": 5,
+          "phase": null,
+          "contact": false,
+          "lead_track": null,
+          "planted": {
+            "L": false,
+            "R": true
+          },
+          "contact_sides": [],
+          "boundary_contact": false,
+          "reason": "expected two contact events; observed 4"
+        },
+        {
+          "frame": 5,
+          "printed_phase": 6,
+          "phase": null,
+          "contact": false,
+          "lead_track": null,
+          "planted": {
+            "L": false,
+            "R": true
+          },
+          "contact_sides": [],
+          "boundary_contact": false,
+          "reason": "expected two contact events; observed 4"
+        },
+        {
+          "frame": 6,
+          "printed_phase": 7,
+          "phase": null,
+          "contact": true,
+          "lead_track": null,
+          "planted": {
+            "L": true,
+            "R": true
+          },
+          "contact_sides": [
+            "L"
+          ],
+          "boundary_contact": false,
+          "reason": "expected two contact events; observed 4"
+        },
+        {
+          "frame": 7,
+          "printed_phase": 8,
+          "phase": null,
+          "contact": false,
+          "lead_track": null,
+          "planted": {
+            "L": false,
+            "R": true
+          },
+          "contact_sides": [],
+          "boundary_contact": false,
+          "reason": "expected two contact events; observed 4"
+        },
+        {
+          "frame": 8,
+          "printed_phase": 9,
+          "phase": null,
+          "contact": false,
+          "lead_track": null,
+          "planted": {
+            "L": false,
+            "R": true
+          },
+          "contact_sides": [],
+          "boundary_contact": false,
+          "reason": "expected two contact events; observed 4"
+        },
+        {
+          "frame": 9,
+          "printed_phase": 10,
+          "phase": null,
+          "contact": true,
+          "lead_track": null,
+          "planted": {
+            "L": true,
+            "R": false
+          },
+          "contact_sides": [
+            "L"
+          ],
+          "boundary_contact": false,
+          "reason": "expected two contact events; observed 4"
+        },
+        {
+          "frame": 10,
+          "printed_phase": 11,
+          "phase": null,
+          "contact": false,
+          "lead_track": null,
+          "planted": {
+            "L": true,
+            "R": null
+          },
+          "contact_sides": [],
+          "boundary_contact": false,
+          "reason": "expected two contact events; observed 4"
+        },
+        {
+          "frame": 11,
+          "printed_phase": 12,
+          "phase": null,
+          "contact": false,
+          "lead_track": null,
+          "planted": {
+            "L": true,
+            "R": false
+          },
+          "contact_sides": [],
+          "boundary_contact": false,
+          "reason": "expected two contact events; observed 4"
+        }
+      ],
+      "results": [
+        {
+          "id": "W1_floor",
+          "subject": "walk/E",
+          "passed": null,
+          "value": 0.088,
+          "threshold": null,
+          "op": ">=",
+          "unit": "fraction_H",
+          "evidence": [],
+          "notes": "no committed floor"
+        },
+        {
+          "id": "W1",
+          "subject": "walk/E",
+          "passed": false,
+          "value": 0.088,
+          "threshold": 0.07,
+          "op": "<=",
+          "unit": "",
+          "evidence": [],
+          "notes": "SPEC descriptive screen; not a shipping verdict"
+        },
+        {
+          "id": "W3a",
+          "subject": "walk/E",
+          "passed": false,
+          "value": 0.5830651187260185,
+          "threshold": 0.35,
+          "op": "<=",
+          "unit": "",
+          "evidence": [],
+          "notes": "SPEC descriptive screen; not a shipping verdict"
+        },
+        {
+          "id": "W4",
+          "subject": "walk/E",
+          "passed": false,
+          "value": 4,
+          "threshold": 2,
+          "op": "==",
+          "unit": "",
+          "evidence": [],
+          "notes": "SPEC descriptive screen; not a shipping verdict"
+        },
+        {
+          "id": "W6",
+          "subject": "walk/E",
+          "passed": null,
+          "value": null,
+          "threshold": 0.75,
+          "op": ">=",
+          "unit": "",
+          "evidence": [],
+          "notes": "SPEC descriptive screen; not a shipping verdict"
+        }
+      ],
+      "notes": [
+        "H normalization uses clip median inclusive silhouette height; no per-frame rescaling",
+        "Tracked head NCC drives W1/W2/W4; raw mask top retained under lineage names",
+        "W1 outside 1-5%H flags an unreliable head track, not a veridical bob measurement",
+        "W5 is a silhouette extent at 0.45H, not an identified wrist",
+        "merged/hidden feet; identity and contact phase may be unreliable"
+      ]
+    },
+    "threshold": null,
+    "op": "<=",
+    "unit": "payload",
+    "evidence": [],
+    "notes": "Full underlying ground-proximity lineage used by gait_intent; descriptive payload, no threshold."
+  },
+  {
+    "id": "sole_line",
+    "subject": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-reg-walk-01/frames/walk/E/walk_E_00.png",
+    "passed": null,
+    "value": 411,
+    "threshold": null,
+    "op": "<=",
+    "unit": "px",
+    "evidence": [],
+    "notes": "Frozen gait-intent landmark sole line in source coordinates; no registered threshold."
+  },
+  {
+    "id": "ground_line",
+    "subject": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-reg-walk-01/frames/walk/E/walk_E_00.png",
+    "passed": null,
+    "value": 411,
+    "threshold": null,
+    "op": "<=",
+    "unit": "px",
+    "evidence": [],
+    "notes": "Frozen lineage uses clip-wide maximum sole y; no registered threshold."
+  },
+  {
+    "id": "sole_line",
+    "subject": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-reg-walk-01/frames/walk/E/walk_E_01.png",
+    "passed": null,
+    "value": 411,
+    "threshold": null,
+    "op": "<=",
+    "unit": "px",
+    "evidence": [],
+    "notes": "Frozen gait-intent landmark sole line in source coordinates; no registered threshold."
+  },
+  {
+    "id": "ground_line",
+    "subject": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-reg-walk-01/frames/walk/E/walk_E_01.png",
+    "passed": null,
+    "value": 411,
+    "threshold": null,
+    "op": "<=",
+    "unit": "px",
+    "evidence": [],
+    "notes": "Frozen lineage uses clip-wide maximum sole y; no registered threshold."
+  },
+  {
+    "id": "sole_line",
+    "subject": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-reg-walk-01/frames/walk/E/walk_E_02.png",
+    "passed": null,
+    "value": 411,
+    "threshold": null,
+    "op": "<=",
+    "unit": "px",
+    "evidence": [],
+    "notes": "Frozen gait-intent landmark sole line in source coordinates; no registered threshold."
+  },
+  {
+    "id": "ground_line",
+    "subject": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-reg-walk-01/frames/walk/E/walk_E_02.png",
+    "passed": null,
+    "value": 411,
+    "threshold": null,
+    "op": "<=",
+    "unit": "px",
+    "evidence": [],
+    "notes": "Frozen lineage uses clip-wide maximum sole y; no registered threshold."
+  },
+  {
+    "id": "sole_line",
+    "subject": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-reg-walk-01/frames/walk/E/walk_E_03.png",
+    "passed": null,
+    "value": 411,
+    "threshold": null,
+    "op": "<=",
+    "unit": "px",
+    "evidence": [],
+    "notes": "Frozen gait-intent landmark sole line in source coordinates; no registered threshold."
+  },
+  {
+    "id": "ground_line",
+    "subject": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-reg-walk-01/frames/walk/E/walk_E_03.png",
+    "passed": null,
+    "value": 411,
+    "threshold": null,
+    "op": "<=",
+    "unit": "px",
+    "evidence": [],
+    "notes": "Frozen lineage uses clip-wide maximum sole y; no registered threshold."
+  },
+  {
+    "id": "sole_line",
+    "subject": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-reg-walk-01/frames/walk/E/walk_E_04.png",
+    "passed": null,
+    "value": 411,
+    "threshold": null,
+    "op": "<=",
+    "unit": "px",
+    "evidence": [],
+    "notes": "Frozen gait-intent landmark sole line in source coordinates; no registered threshold."
+  },
+  {
+    "id": "ground_line",
+    "subject": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-reg-walk-01/frames/walk/E/walk_E_04.png",
+    "passed": null,
+    "value": 411,
+    "threshold": null,
+    "op": "<=",
+    "unit": "px",
+    "evidence": [],
+    "notes": "Frozen lineage uses clip-wide maximum sole y; no registered threshold."
+  },
+  {
+    "id": "sole_line",
+    "subject": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-reg-walk-01/frames/walk/E/walk_E_05.png",
+    "passed": null,
+    "value": 411,
+    "threshold": null,
+    "op": "<=",
+    "unit": "px",
+    "evidence": [],
+    "notes": "Frozen gait-intent landmark sole line in source coordinates; no registered threshold."
+  },
+  {
+    "id": "ground_line",
+    "subject": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-reg-walk-01/frames/walk/E/walk_E_05.png",
+    "passed": null,
+    "value": 411,
+    "threshold": null,
+    "op": "<=",
+    "unit": "px",
+    "evidence": [],
+    "notes": "Frozen lineage uses clip-wide maximum sole y; no registered threshold."
+  },
+  {
+    "id": "sole_line",
+    "subject": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-reg-walk-01/frames/walk/E/walk_E_06.png",
+    "passed": null,
+    "value": 411,
+    "threshold": null,
+    "op": "<=",
+    "unit": "px",
+    "evidence": [],
+    "notes": "Frozen gait-intent landmark sole line in source coordinates; no registered threshold."
+  },
+  {
+    "id": "ground_line",
+    "subject": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-reg-walk-01/frames/walk/E/walk_E_06.png",
+    "passed": null,
+    "value": 411,
+    "threshold": null,
+    "op": "<=",
+    "unit": "px",
+    "evidence": [],
+    "notes": "Frozen lineage uses clip-wide maximum sole y; no registered threshold."
+  },
+  {
+    "id": "sole_line",
+    "subject": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-reg-walk-01/frames/walk/E/walk_E_07.png",
+    "passed": null,
+    "value": 411,
+    "threshold": null,
+    "op": "<=",
+    "unit": "px",
+    "evidence": [],
+    "notes": "Frozen gait-intent landmark sole line in source coordinates; no registered threshold."
+  },
+  {
+    "id": "ground_line",
+    "subject": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-reg-walk-01/frames/walk/E/walk_E_07.png",
+    "passed": null,
+    "value": 411,
+    "threshold": null,
+    "op": "<=",
+    "unit": "px",
+    "evidence": [],
+    "notes": "Frozen lineage uses clip-wide maximum sole y; no registered threshold."
+  },
+  {
+    "id": "sole_line",
+    "subject": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-reg-walk-01/frames/walk/E/walk_E_08.png",
+    "passed": null,
+    "value": 411,
+    "threshold": null,
+    "op": "<=",
+    "unit": "px",
+    "evidence": [],
+    "notes": "Frozen gait-intent landmark sole line in source coordinates; no registered threshold."
+  },
+  {
+    "id": "ground_line",
+    "subject": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-reg-walk-01/frames/walk/E/walk_E_08.png",
+    "passed": null,
+    "value": 411,
+    "threshold": null,
+    "op": "<=",
+    "unit": "px",
+    "evidence": [],
+    "notes": "Frozen lineage uses clip-wide maximum sole y; no registered threshold."
+  },
+  {
+    "id": "sole_line",
+    "subject": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-reg-walk-01/frames/walk/E/walk_E_09.png",
+    "passed": null,
+    "value": 411,
+    "threshold": null,
+    "op": "<=",
+    "unit": "px",
+    "evidence": [],
+    "notes": "Frozen gait-intent landmark sole line in source coordinates; no registered threshold."
+  },
+  {
+    "id": "ground_line",
+    "subject": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-reg-walk-01/frames/walk/E/walk_E_09.png",
+    "passed": null,
+    "value": 411,
+    "threshold": null,
+    "op": "<=",
+    "unit": "px",
+    "evidence": [],
+    "notes": "Frozen lineage uses clip-wide maximum sole y; no registered threshold."
+  },
+  {
+    "id": "sole_line",
+    "subject": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-reg-walk-01/frames/walk/E/walk_E_10.png",
+    "passed": null,
+    "value": 411,
+    "threshold": null,
+    "op": "<=",
+    "unit": "px",
+    "evidence": [],
+    "notes": "Frozen gait-intent landmark sole line in source coordinates; no registered threshold."
+  },
+  {
+    "id": "ground_line",
+    "subject": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-reg-walk-01/frames/walk/E/walk_E_10.png",
+    "passed": null,
+    "value": 411,
+    "threshold": null,
+    "op": "<=",
+    "unit": "px",
+    "evidence": [],
+    "notes": "Frozen lineage uses clip-wide maximum sole y; no registered threshold."
+  },
+  {
+    "id": "sole_line",
+    "subject": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-reg-walk-01/frames/walk/E/walk_E_11.png",
+    "passed": null,
+    "value": 411,
+    "threshold": null,
+    "op": "<=",
+    "unit": "px",
+    "evidence": [],
+    "notes": "Frozen gait-intent landmark sole line in source coordinates; no registered threshold."
+  },
+  {
+    "id": "ground_line",
+    "subject": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-reg-walk-01/frames/walk/E/walk_E_11.png",
+    "passed": null,
+    "value": 411,
+    "threshold": null,
+    "op": "<=",
+    "unit": "px",
+    "evidence": [],
+    "notes": "Frozen lineage uses clip-wide maximum sole y; no registered threshold."
+  },
+  {
+    "id": "sole_line_spread",
+    "subject": "walk/E",
+    "passed": null,
+    "value": 0,
+    "threshold": null,
+    "op": "<=",
+    "unit": "px",
+    "evidence": [],
+    "notes": "{\"per_frame\": [411, 411, 411, 411, 411, 411, 411, 411, 411, 411, 411, 411], \"definition\": \"max minus min sole_line_y; no registered threshold.\"}"
+  },
+  {
+    "id": "ground_line_spread",
+    "subject": "walk/E",
+    "passed": null,
+    "value": 0,
+    "threshold": null,
+    "op": "<=",
+    "unit": "px",
+    "evidence": [],
+    "notes": "{\"per_frame\": [411, 411, 411, 411, 411, 411, 411, 411, 411, 411, 411, 411], \"definition\": \"max minus min ground_line_y; clip-wide by construction, also see sole_line_spread; no registered threshold.\"}"
+  },
+  {
+    "id": "planted_foot_table",
+    "subject": "walk/E",
+    "passed": null,
+    "value": [
+      {
+        "frame": 0,
+        "file": "walk_E_00.png",
+        "candidate_phase": "DOWN",
+        "sole_line_y": 411,
+        "ground_line_y": 411,
+        "foot_L_x": 212.5,
+        "foot_R_x": 277.0,
+        "foot_L_y": 403,
+        "foot_R_y": 411,
+        "planted": {
+          "L": false,
+          "R": true
+        },
+        "planted_x_px": {
+          "L": null,
+          "R": 277.0
+        },
+        "identity_ambiguous": false,
+        "foot_identity": "initial image x order; tracked over time, not anatomical"
+      },
+      {
+        "frame": 1,
+        "file": "walk_E_01.png",
+        "candidate_phase": "PASSING",
+        "sole_line_y": 411,
+        "ground_line_y": 411,
+        "foot_L_x": 225.5,
+        "foot_R_x": null,
+        "foot_L_y": 411,
+        "foot_R_y": null,
+        "planted": {
+          "L": true,
+          "R": null
+        },
+        "planted_x_px": {
+          "L": 225.5,
+          "R": null
+        },
+        "identity_ambiguous": true,
+        "foot_identity": "initial image x order; tracked over time, not anatomical"
+      },
+      {
+        "frame": 2,
+        "file": "walk_E_02.png",
+        "candidate_phase": "UP",
+        "sole_line_y": 411,
+        "ground_line_y": 411,
+        "foot_L_x": 207.0,
+        "foot_R_x": 259.0,
+        "foot_L_y": 410,
+        "foot_R_y": 411,
+        "planted": {
+          "L": true,
+          "R": true
+        },
+        "planted_x_px": {
+          "L": 207.0,
+          "R": 259.0
+        },
+        "identity_ambiguous": false,
+        "foot_identity": "initial image x order; tracked over time, not anatomical"
+      },
+      {
+        "frame": 3,
+        "file": "walk_E_03.png",
+        "candidate_phase": "UP",
+        "sole_line_y": 411,
+        "ground_line_y": 411,
+        "foot_L_x": 204.0,
+        "foot_R_x": 263.0,
+        "foot_L_y": 404,
+        "foot_R_y": 411,
+        "planted": {
+          "L": false,
+          "R": true
+        },
+        "planted_x_px": {
+          "L": null,
+          "R": 263.0
+        },
+        "identity_ambiguous": false,
+        "foot_identity": "initial image x order; tracked over time, not anatomical"
+      },
+      {
+        "frame": 4,
+        "file": "walk_E_04.png",
+        "candidate_phase": "CONTACT",
+        "sole_line_y": 411,
+        "ground_line_y": 411,
+        "foot_L_x": 205.0,
+        "foot_R_x": 272.0,
+        "foot_L_y": 398,
+        "foot_R_y": 411,
+        "planted": {
+          "L": false,
+          "R": true
+        },
+        "planted_x_px": {
+          "L": null,
+          "R": 272.0
+        },
+        "identity_ambiguous": false,
+        "foot_identity": "initial image x order; tracked over time, not anatomical"
+      },
+      {
+        "frame": 5,
+        "file": "walk_E_05.png",
+        "candidate_phase": "DOWN",
+        "sole_line_y": 411,
+        "ground_line_y": 411,
+        "foot_L_x": 201.0,
+        "foot_R_x": 270.0,
+        "foot_L_y": 391,
+        "foot_R_y": 411,
+        "planted": {
+          "L": false,
+          "R": true
+        },
+        "planted_x_px": {
+          "L": null,
+          "R": 270.0
+        },
+        "identity_ambiguous": false,
+        "foot_identity": "initial image x order; tracked over time, not anatomical"
+      },
+      {
+        "frame": 6,
+        "file": "walk_E_06.png",
+        "candidate_phase": "DOWN",
+        "sole_line_y": 411,
+        "ground_line_y": 411,
+        "foot_L_x": 253.0,
+        "foot_R_x": 286.0,
+        "foot_L_y": 411,
+        "foot_R_y": 411,
+        "planted": {
+          "L": true,
+          "R": true
+        },
+        "planted_x_px": {
+          "L": 253.0,
+          "R": 286.0
+        },
+        "identity_ambiguous": false,
+        "foot_identity": "initial image x order; tracked over time, not anatomical"
+      },
+      {
+        "frame": 7,
+        "file": "walk_E_07.png",
+        "candidate_phase": "PASSING",
+        "sole_line_y": 411,
+        "ground_line_y": 411,
+        "foot_L_x": 276.0,
+        "foot_R_x": 257.5,
+        "foot_L_y": 405,
+        "foot_R_y": 411,
+        "planted": {
+          "L": false,
+          "R": true
+        },
+        "planted_x_px": {
+          "L": null,
+          "R": 257.5
+        },
+        "identity_ambiguous": false,
+        "foot_identity": "initial image x order; tracked over time, not anatomical"
+      },
+      {
+        "frame": 8,
+        "file": "walk_E_08.png",
+        "candidate_phase": "UP",
+        "sole_line_y": 411,
+        "ground_line_y": 411,
+        "foot_L_x": 251.0,
+        "foot_R_x": 206.0,
+        "foot_L_y": 405,
+        "foot_R_y": 411,
+        "planted": {
+          "L": false,
+          "R": true
+        },
+        "planted_x_px": {
+          "L": null,
+          "R": 206.0
+        },
+        "identity_ambiguous": false,
+        "foot_identity": "initial image x order; tracked over time, not anatomical"
+      },
+      {
+        "frame": 9,
+        "file": "walk_E_09.png",
+        "candidate_phase": "UP",
+        "sole_line_y": 411,
+        "ground_line_y": 411,
+        "foot_L_x": 261.0,
+        "foot_R_x": 217.0,
+        "foot_L_y": 411,
+        "foot_R_y": 408,
+        "planted": {
+          "L": true,
+          "R": false
+        },
+        "planted_x_px": {
+          "L": 261.0,
+          "R": null
+        },
+        "identity_ambiguous": false,
+        "foot_identity": "initial image x order; tracked over time, not anatomical"
+      },
+      {
+        "frame": 10,
+        "file": "walk_E_10.png",
+        "candidate_phase": "CONTACT",
+        "sole_line_y": 411,
+        "ground_line_y": 411,
+        "foot_L_x": 268.0,
+        "foot_R_x": null,
+        "foot_L_y": 411,
+        "foot_R_y": null,
+        "planted": {
+          "L": true,
+          "R": null
+        },
+        "planted_x_px": {
+          "L": 268.0,
+          "R": null
+        },
+        "identity_ambiguous": true,
+        "foot_identity": "initial image x order; tracked over time, not anatomical"
+      },
+      {
+        "frame": 11,
+        "file": "walk_E_11.png",
+        "candidate_phase": "DOWN",
+        "sole_line_y": 411,
+        "ground_line_y": 411,
+        "foot_L_x": 266.0,
+        "foot_R_x": 205.0,
+        "foot_L_y": 411,
+        "foot_R_y": 381,
+        "planted": {
+          "L": true,
+          "R": false
+        },
+        "planted_x_px": {
+          "L": 266.0,
+          "R": null
+        },
+        "identity_ambiguous": false,
+        "foot_identity": "initial image x order; tracked over time, not anatomical"
+      }
+    ],
+    "threshold": null,
+    "op": "<=",
+    "unit": "source_px",
+    "evidence": [],
+    "notes": "Ground-proximity lineage appropriate to in-place sprites. L/R are screen tracks, not near/far anatomical labels; missing tracks remain null. No threshold."
+  },
+  {
+    "id": "planted_sole_trajectory",
+    "subject": "walk/E",
+    "passed": null,
+    "value": {
+      "L": {
+        "planted_x_px": [
+          null,
+          225.5,
+          207.0,
+          null,
+          null,
+          null,
+          253.0,
+          null,
+          null,
+          261.0,
+          268.0,
+          266.0
+        ],
+        "delta_px_per_frame": [
+          null,
+          -18.5,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          7.0,
+          -2.0,
+          null
+        ],
+        "mean_scroll_px_per_frame": -4.5,
+        "slip_px_per_frame": [
+          null,
+          -14.0,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          11.5,
+          2.5,
+          null
+        ],
+        "slip_rms_px_per_frame": 10.559356040971437
+      },
+      "R": {
+        "planted_x_px": [
+          277.0,
+          null,
+          259.0,
+          263.0,
+          272.0,
+          270.0,
+          286.0,
+          257.5,
+          206.0,
+          null,
+          null,
+          null
+        ],
+        "delta_px_per_frame": [
+          null,
+          null,
+          4.0,
+          9.0,
+          -2.0,
+          16.0,
+          -28.5,
+          -51.5,
+          null,
+          null,
+          null,
+          null
+        ],
+        "mean_scroll_px_per_frame": -8.833333333333334,
+        "slip_px_per_frame": [
+          null,
+          null,
+          12.833333333333334,
+          17.833333333333336,
+          6.833333333333334,
+          24.833333333333336,
+          -19.666666666666664,
+          -42.666666666666664,
+          null,
+          null,
+          null,
+          null
+        ],
+        "slip_rms_px_per_frame": 23.640830968662858
+      },
+      "mean_scroll_px_per_frame": -7.388888888888889,
+      "slip_rms_px_per_frame": 20.34532129914473
+    },
+    "threshold": null,
+    "op": "<=",
+    "unit": "px_per_frame",
+    "evidence": [],
+    "notes": "Frozen instrument includes seam delta when both endpoint samples of the same track are planted; no registered slip ceiling."
+  },
+  {
+    "id": "W6_opposed_frame_counts",
+    "subject": "walk/E",
+    "passed": null,
+    "value": {
+      "L": {
+        "fraction": 0.25,
+        "opposed_frames": 3.0,
+        "total_frames": 12
+      },
+      "R": {
+        "fraction": null,
+        "opposed_frames": null,
+        "total_frames": 12
+      }
+    },
+    "threshold": null,
+    "op": "<=",
+    "unit": "frames",
+    "evidence": [],
+    "notes": "Counts are frozen opposed fractions multiplied by 12; missing-data results remain null. Screen-track proxy, not anatomical same-side identity."
+  },
+  {
+    "id": "oracle_walk_payload",
+    "subject": "walk/E",
+    "passed": null,
+    "value": {
+      "W1": 0.084,
+      "W2": {
+        "min": [
+          {
+            "frame": 1,
+            "phase": "DOWN"
+          }
+        ],
+        "max": [
+          {
+            "frame": 9,
+            "phase": "PASSING"
+          }
+        ],
+        "coordinate": "Cartesian up; negative image y"
+      },
+      "W4": 3,
+      "minima_frames": [
+        1,
+        4,
+        10
+      ],
+      "W3a": 0.5297897346108751,
+      "W3b": -0.06598639455782315,
+      "W3c": 4,
+      "signed_area_px2": -48.500000000000014,
+      "head_mask_bob_lineage": {
+        "W1": 0.088,
+        "W2": {
+          "min": [
+            {
+              "frame": 1,
+              "phase": "DOWN"
+            }
+          ],
+          "max": [
+            {
+              "frame": 9,
+              "phase": "PASSING"
+            }
+          ],
+          "coordinate": "Cartesian up; negative image y"
+        },
+        "W4": 4,
+        "minima_frames": [
+          1,
+          4,
+          7,
+          10
+        ]
+      },
+      "head_ref_bob": {
+        "W1": 0.096,
+        "W2": {
+          "min": [
+            {
+              "frame": 1,
+              "phase": "DOWN"
+            }
+          ],
+          "max": [
+            {
+              "frame": 8,
+              "phase": "PASSING"
+            }
+          ],
+          "coordinate": "Cartesian up; negative image y"
+        },
+        "W4": 3,
+        "minima_frames": [
+          1,
+          4,
+          10
+        ]
+      },
+      "W5": {
+        "L": 0.064,
+        "R": 0.044
+      },
+      "W6": null,
+      "W6_per_arm": {
+        "L": 0.25,
+        "R": null
+      },
+      "valid_frames_per_arm": {
+        "L": 12,
+        "R": 10
+      },
+      "identity_note": "projected track opposition, not independently established anatomical same-side identity",
+      "sole_scroll": {
+        "L": {
+          "swing_x_px": [
+            212.5,
+            225.5,
+            207.0,
+            204.0,
+            205.0,
+            201.0,
+            253.0,
+            276.0,
+            251.0,
+            261.0,
+            268.0,
+            null
+          ],
+          "delta_px_per_frame": [
+            null,
+            13.0,
+            -18.5,
+            -3.0,
+            1.0,
+            -4.0,
+            52.0,
+            23.0,
+            -25.0,
+            10.0,
+            7.0,
+            null
+          ],
+          "mean_scroll_px_per_frame": 5.55,
+          "observed_velocity_frames": 10
+        },
+        "R": {
+          "swing_x_px": [
+            null,
+            null,
+            null,
+            263.0,
+            272.0,
+            null,
+            286.0,
+            257.5,
+            206.0,
+            217.0,
+            null,
+            null
+          ],
+          "delta_px_per_frame": [
+            null,
+            null,
+            null,
+            4.0,
+            9.0,
+            null,
+            16.0,
+            -28.5,
+            -51.5,
+            11.0,
+            null,
+            null
+          ],
+          "mean_scroll_px_per_frame": -6.666666666666667,
+          "observed_velocity_frames": 6
+        },
+        "mean_scroll_px_per_frame": 0.96875,
+        "mean_absolute_speed_px_per_frame": 17.28125,
+        "estimator": "backward velocity on observed non-planted frames; missing tracks and seam excluded",
+        "planted_scroll_lineage": {
+          "L": {
+            "planted_x_px": [
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              266.0
+            ],
+            "delta_px_per_frame": [
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null
+            ],
+            "mean_scroll_px_per_frame": null,
+            "slip_px_per_frame": [
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null
+            ],
+            "slip_rms_px_per_frame": null
+          },
+          "R": {
+            "planted_x_px": [
+              null,
+              null,
+              null,
+              null,
+              null,
+              270.0,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null
+            ],
+            "delta_px_per_frame": [
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null
+            ],
+            "mean_scroll_px_per_frame": null,
+            "slip_px_per_frame": [
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null
+            ],
+            "slip_rms_px_per_frame": null
+          },
+          "mean_scroll_px_per_frame": null,
+          "slip_rms_px_per_frame": null
+        }
+      },
+      "H_median": 250.0,
+      "W1_sanity_1_5_pct_H": false,
+      "contact_frames": [
+        5,
+        11
+      ],
+      "head_track_flagged_frames": [],
+      "projection_diagnostics": {
+        "W5": {
+          "L": 0.064,
+          "R": 0.044
+        },
+        "W6": null,
+        "W6_per_arm": {
+          "L": 0.25,
+          "R": null
+        },
+        "valid_frames_per_arm": {
+          "L": 12,
+          "R": 10
+        },
+        "identity_note": "projected track opposition, not independently established anatomical same-side identity",
+        "sole_scroll": {
+          "L": {
+            "swing_x_px": [
+              212.5,
+              225.5,
+              207.0,
+              204.0,
+              205.0,
+              201.0,
+              253.0,
+              276.0,
+              251.0,
+              261.0,
+              268.0,
+              null
+            ],
+            "delta_px_per_frame": [
+              null,
+              13.0,
+              -18.5,
+              -3.0,
+              1.0,
+              -4.0,
+              52.0,
+              23.0,
+              -25.0,
+              10.0,
+              7.0,
+              null
+            ],
+            "mean_scroll_px_per_frame": 5.55,
+            "observed_velocity_frames": 10
+          },
+          "R": {
+            "swing_x_px": [
+              null,
+              null,
+              null,
+              263.0,
+              272.0,
+              null,
+              286.0,
+              257.5,
+              206.0,
+              217.0,
+              null,
+              null
+            ],
+            "delta_px_per_frame": [
+              null,
+              null,
+              null,
+              4.0,
+              9.0,
+              null,
+              16.0,
+              -28.5,
+              -51.5,
+              11.0,
+              null,
+              null
+            ],
+            "mean_scroll_px_per_frame": -6.666666666666667,
+            "observed_velocity_frames": 6
+          },
+          "mean_scroll_px_per_frame": 0.96875,
+          "mean_absolute_speed_px_per_frame": 17.28125,
+          "estimator": "backward velocity on observed non-planted frames; missing tracks and seam excluded",
+          "planted_scroll_lineage": {
+            "L": {
+              "planted_x_px": [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                266.0
+              ],
+              "delta_px_per_frame": [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+              ],
+              "mean_scroll_px_per_frame": null,
+              "slip_px_per_frame": [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+              ],
+              "slip_rms_px_per_frame": null
+            },
+            "R": {
+              "planted_x_px": [
+                null,
+                null,
+                null,
+                null,
+                null,
+                270.0,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+              ],
+              "delta_px_per_frame": [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+              ],
+              "mean_scroll_px_per_frame": null,
+              "slip_px_per_frame": [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+              ],
+              "slip_rms_px_per_frame": null
+            },
+            "mean_scroll_px_per_frame": null,
+            "slip_rms_px_per_frame": null
+          }
+        }
+      }
+    },
+    "threshold": null,
+    "op": "<=",
+    "unit": "payload",
+    "evidence": [
+      "/Users/admin/astra-burst/runs/C-1/K3p-chk-walk-01/out/plots/walk_E_K3p_mask_check.png",
+      "/Users/admin/astra-burst/runs/C-1/K3p-chk-walk-01/out/plots/walk_E_K3p_curves.png"
+    ],
+    "notes": "CLI-equivalent frozen functions; output explicitly redirected using _write. Oracle stationary-x stance/NCC head differs from gait_intent ground-only stance/mask head. Derived plot bands are provisional self-measurement bands, not committed acceptance bands."
+  },
+  {
+    "id": "input_provenance",
+    "subject": "walk/E",
+    "passed": null,
+    "value": {
+      "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-reg-walk-01/frames/walk/E/walk_E_00.png": "0832bb02dcf1ddce9b50a870888a8fcb855f3e32601c672b3e85a53d2798e71b",
+      "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-reg-walk-01/frames/walk/E/walk_E_01.png": "989520a923ef2721fe823e101a0e68873d928ddf9b357580b98059593e57af37",
+      "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-reg-walk-01/frames/walk/E/walk_E_02.png": "e87a36f72fa24f9a35999346ee6db708df5275a49f364e25732c67ea1f267582",
+      "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-reg-walk-01/frames/walk/E/walk_E_03.png": "a1c4d59f9b7ec3d0650b6b996148b92dc39390d2bf39b734bf5f3c1f536ff47c",
+      "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-reg-walk-01/frames/walk/E/walk_E_04.png": "cac3785ac04267bbc189e1ef7298ac5d2a12e4da6ea9dfa12234643caff72696",
+      "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-reg-walk-01/frames/walk/E/walk_E_05.png": "7812959a4dddabefe0f0c2b36d8cb82308d2ecd6a3beb4933c88a5c16e010749",
+      "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-reg-walk-01/frames/walk/E/walk_E_06.png": "94d7300878d0e579869157fde610e10bd9d3a25d08b9cc3b86fe1652f01218e1",
+      "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-reg-walk-01/frames/walk/E/walk_E_07.png": "aa952be05d34ba8e22458965bf30efebbc4cfde3ab11214fce84440c39582a45",
+      "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-reg-walk-01/frames/walk/E/walk_E_08.png": "f9760d55802048a05c971a84b070fecee5f33c60065df760711a1bf173ec9161",
+      "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-reg-walk-01/frames/walk/E/walk_E_09.png": "ec7453b9efd05d5f123c4a00b8b92f042bfa15014b54d6945292df851ee7f1fc",
+      "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-reg-walk-01/frames/walk/E/walk_E_10.png": "9823103f98189cd5237edb248bf9977854bf4d8674ff07dc6a4c520d10e698af",
+      "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-reg-walk-01/frames/walk/E/walk_E_11.png": "954aa1a9c11a943c85d3edc896287e520f7bf3865bc0d7cfda08854b5b933ef2",
+      "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-reg-walk-01/frames/rest/E/rest_E.png": "2b8ade9d953bfc1ac6a753a7070f84a6020e8e073f1996a5a8c956e45efd6583",
+      "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/oracle/bands_walk.json": "2b6984f487c058e1d3afd222a393f6dbbead21d85d8df8510249d1730184289d",
+      "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/oracle/dope_walk_12.json": "441288246d871ed0f928c11adfc1a5a6696344ad340e4f093efad993544b9611"
+    },
+    "threshold": null,
+    "op": "<=",
+    "unit": "sha256",
+    "evidence": [],
+    "notes": "{\"committed_row\": \"plate13_lateral_ann\", \"arm_roles\": {\"near\": \"free_arm\", \"far\": \"weapon_arm\"}, \"candidate_phases\": [\"DOWN\", \"PASSING\", \"UP\", \"UP\", \"CONTACT\", \"DOWN\", \"DOWN\", \"PASSING\", \"UP\", \"UP\", \"CONTACT\", \"DOWN\"], \"expected_phases\": [\"DOWN\", \"PASSING\", \"UP\", \"UP\", \"CONTACT\", \"DOWN\", \"DOWN\", \"PASSING\", \"UP\", \"UP\", \"CONTACT\", \"DOWN\"], \"notes\": \"Committed row copied in memory; inputs unchanged.\"}"
+  }
+]

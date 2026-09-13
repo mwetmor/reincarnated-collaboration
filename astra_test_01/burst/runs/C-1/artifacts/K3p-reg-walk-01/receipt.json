@@ -1,0 +1,35 @@
+{
+  "task_id": "K3p-reg-walk-01",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [],
+  "calls_used": 0,
+  "retries": [],
+  "self_report": {
+    "obeyed_invariants": true,
+    "concerns": [
+      "Source edge contact: sheet 2 slot 0; sheet 3 slots 0 and 1; sheet 4 slots 0 and 1.",
+      "Walk frames 01–11 require translation exceeding 6 px; maximum absolute horizontal/vertical offsets are 35/20 px. Every offset is recorded.",
+      "All four slot-0 cells differ from the seed beyond matte noise; maximum absolute raw RGB and matted RGBA delta is 255.",
+      "Measured REST ground row is 411. The prescribed global alpha-bottom measurement can include the staff and is not an independently reviewed anatomical sole measurement.",
+      "Live wrapper-owned hidden logs are excluded from deliverable hashes."
+    ]
+  },
+  "files": [
+    {"path":"out/registration.json","sha256":"bd453758b1d1a18949fafec5a184e6527a6674bd3cb4f2fd35ae9f9cdca691fc"},
+    {"path":"out/readme.txt","sha256":"d7d786bfc5f24aff7640fea8ead67754f22bceb4e8c4ae1f258d4ff6e180aaa9"},
+    {"path":"out/sheets/walk_E_strip.png","sha256":"5279c9c0706b23d5d64a3b4332637f895a3b767fcbdd2bed760aedbd58f1b92d"},
+    {"path":"out/frames/rest/E/rest_E.png","sha256":"2b8ade9d953bfc1ac6a753a7070f84a6020e8e073f1996a5a8c956e45efd6583"},
+    {"path":"out/frames/walk/E/walk_E_00.png","sha256":"0832bb02dcf1ddce9b50a870888a8fcb855f3e32601c672b3e85a53d2798e71b"},
+    {"path":"out/frames/walk/E/walk_E_01.png","sha256":"989520a923ef2721fe823e101a0e68873d928ddf9b357580b98059593e57af37"},
+    {"path":"out/frames/walk/E/walk_E_02.png","sha256":"e87a36f72fa24f9a35999346ee6db708df5275a49f364e25732c67ea1f267582"},
+    {"path":"out/frames/walk/E/walk_E_03.png","sha256":"a1c4d59f9b7ec3d0650b6b996148b92dc39390d2bf39b734bf5f3c1f536ff47c"},
+    {"path":"out/frames/walk/E/walk_E_04.png","sha256":"cac3785ac04267bbc189e1ef7298ac5d2a12e4da6ea9dfa12234643caff72696"},
+    {"path":"out/frames/walk/E/walk_E_05.png","sha256":"7812959a4dddabefe0f0c2b36d8cb82308d2ecd6a3beb4933c88a5c16e010749"},
+    {"path":"out/frames/walk/E/walk_E_06.png","sha256":"94d7300878d0e579869157fde610e10bd9d3a25d08b9cc3b86fe1652f01218e1"},
+    {"path":"out/frames/walk/E/walk_E_07.png","sha256":"aa952be05d34ba8e22458965bf30efebbc4cfde3ab11214fce84440c39582a45"},
+    {"path":"out/frames/walk/E/walk_E_08.png","sha256":"f9760d55802048a05c971a84b070fecee5f33c60065df760711a1bf173ec9161"},
+    {"path":"out/frames/walk/E/walk_E_09.png","sha256":"ec7453b9efd05d5f123c4a00b8b92f042bfa15014b54d6945292df851ee7f1fc"},
+    {"path":"out/frames/walk/E/walk_E_10.png","sha256":"9823103f98189cd5237edb248bf9977854bf4d8674ff07dc6a4c520d10e698af"},
+    {"path":"out/frames/walk/E/walk_E_11.png","sha256":"954aa1a9c11a943c85d3edc896287e520f7bf3865bc0d7cfda08854b5b933ef2"}
+  ]
+}

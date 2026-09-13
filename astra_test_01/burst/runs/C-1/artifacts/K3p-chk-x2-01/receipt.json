@@ -1,0 +1,39 @@
+{
+  "task_id": "K3p-chk-x2-01",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [],
+  "calls_used": 0,
+  "retries": [],
+  "self_report": {
+    "obeyed_invariants": true,
+    "concerns": [
+      "Oracle CLI ignores --out for --ours; unchanged frozen measurement and plotting functions were invoked directly to keep writes under out/.",
+      "G11 pair measurements computed; comparison verdict unavailable because no cast05 comparator was supplied.",
+      "Silhouette distances computed; verdicts remain null without a calibrated threshold.",
+      "Oracle breath period and static-head sway are null; frozen idle_intent resolves static head displacement to zero.",
+      "Live wrapper telemetry files are excluded from the deliverable hashes because they continue changing."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/checks.json",
+      "sha256": "2039d2bfc7a151033dcf55bfb5e0d92eef713e19a701b75625e3d9b3d07782fa"
+    },
+    {
+      "path": "out/checks_readme.txt",
+      "sha256": "1cd7bf3331b08ebc1726f83199ba3598c86123c98a59e3987ccd35ce247d1a19"
+    },
+    {
+      "path": "out/idle_S_K3p_measure.json",
+      "sha256": "614887d009b4d4d6b4cad22b859fbdd22e59981ae3d0a98a3c9b9d1a847fb381"
+    },
+    {
+      "path": "out/plots/idle_S_K3p_box_check.png",
+      "sha256": "b380080db62a5e43309158027c3d81a767ec6474ff67da67d730fbd940ec2830"
+    },
+    {
+      "path": "out/plots/idle_S_K3p_curves.png",
+      "sha256": "8fdcba6ede87934b4145761db4a6e447e5173f54002af52a74ea4f31ddd4a965"
+    }
+  ]
+}

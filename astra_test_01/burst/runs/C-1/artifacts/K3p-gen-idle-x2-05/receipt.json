@@ -1,0 +1,41 @@
+{
+  "task_id": "K3p-gen-idle-x2-05",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "k3p_idle_x2_S_13_15.png",
+      "path": "out/k3p_idle_x2_S_13_15.png",
+      "sha256": "46760318840e7b5d379b862b9e71e026ec732d84efde1262d4c547741256e19c",
+      "prompt": "Use case: identity-preserve. Edit Image 1, the supplied 1254×1254 square 2×2 sprite canvas. Deliver exactly one same-size sheet on flat pure #00ff00. Each cell is 627×627 with no borders, labels, gutters or shadows. SLOT 0 TOP-LEFT IS LOCKED: leave the entire top-left 627×627 region PIXEL-IDENTICAL. Fill only top-right, bottom-left and bottom-right with frames 13, 14, 15 respectively of the SAME Keeper's relaxed breathing idle-S loop. Copy the rest figure with exact cell-relative placement and 470-px standing height into each empty cell, then change only breathing regions.\n\nIdentity locked to Image 1: young woman, dark curly hair tied back, ivory rolled-sleeve shirt, navy sleeveless tabard with plain chest, one diagonal chestnut harness to olive canvas satchel on anatomical LEFT hip, one belt, laced bracers, navy trousers, chestnut boots, plain walnut staff with brass ferrules upright in anatomical RIGHT hand. No insignia anywhere. Do not mirror. Face and eyes copied from rest, gaze fixed.\n\nMotion: 16-frame 2-second loop at 8 fps, ONE full breath; frame 4 peak inhale, frame 8 rest, frame 12 bottom exhale, frame 16 rest. These three frames return progressively from bottom exhale toward rest.\nFrame 13 top-right: chest/shoulder width at least 7.1 px narrower than rest, head y -1.3 px relative to rest (image-down positive).\nFrame 14 bottom-left: chest/shoulder width at least 5.4 px narrower than rest, head y -1.0 px.\nFrame 15 bottom-right: chest/shoulder width at least 2.9 px narrower than rest, head y -0.5 px.\nEXAGGERATE THE BREATH. Hand-drawn game animation needs a CARTOON-scale breath, about a third bigger than life. The full loop peak inhale swells the chest/collar 25 px wider than rest, raises shoulders and bows harness outward; the bottom exhale narrows chest 25 px below rest, drops shoulders and slackens tabard. Draw frames 13–15 as a clearly readable sequential recovery from that deep narrow exhale toward rest. Stated per-frame deltas are MINIMUM: if in doubt draw the breath BIGGER, never smaller. ONLY shoulders, chest/collar, and hair move. Head is carried slightly by breath, never more than 2 px here, and otherwise is a COPY: do not redraw face or eyes.\n\nCOPIED PIXEL-FOR-PIXEL from rest, translated exactly one cell: hips, legs, both feet and sole positions, both arms and hands, staff including grip and tip, satchel, belt, face and eyes. Sleeves may widen with chest but arms stay fixed. The three figures must have identical head size, cell-relative baseline, character scale, S facing, and elevated three-quarter projection C camera. No zoom or rescaling. No matting.\n\nRegister: HAND-DRAWN painted 2D in the manner of a modern hand-animated action game, confident dark hand-drawn contour with visible taper and varying weight, clean painted material planes within lines, restrained surface texture and readable small silhouettes, no conspicuous brush or pixel grain. The line carries the pose; each frame looks like hand-drawn animation. Faction Keepers of Hours, blue/ivory/brass identity carried by the reference. Fixed single key from SCREEN UPPER-LEFT, deep cool low-value ambient with readable nonblack shadows, slight key-facing rim. No warm spell light in idle. NO floor shadows. Preserve the exact original top-left rest frame and green plate.\n\nRETRY CORRECTION: The previous attempt wrongly enlarged and redrew slot 0. Work from the ORIGINAL input canvas supplied here, not from the prior generated sheet. Preserve ALL original pixels in x=0..626,y=0..626 without any change. The original figure runs approximately y=95..563, not y=43..606. Never enlarge the character. In new slots, copy it by EXACT offsets (627,0), (0,627), (627,627), keeping the original generous green space above and below. Original staff extends about x=229..246,y=121..548. Top-right head top must be around y=94 and boots bottom y=563; bottom row head top around y=722 and boots bottom y=1190. All fixed anatomy and equipment must retain original rest shape and placement. Apply only requested progressive narrow-chest exhale recovery in the three NEW slots. Flat uniform solid RGB(0,255,0) everywhere outside figures, with no grain, tonal variation, gradient or mottling. The supplied top-left original is immutable; do not repaint it.",
+      "references": [
+        {
+          "role": "Edit target; locked rest frame in slot 0, empty slots 1–3",
+          "path": "in/01_canvas_idle_S_seed.png"
+        }
+      ],
+      "elapsed_s": 33.687
+    }
+  ],
+  "calls_used": 2,
+  "retries": [
+    {
+      "reason": "First output visibly enlarged and redrew locked slot 0.",
+      "change": "Retried from the original reference with explicit immutable-region coordinates, original figure bounds, and exact cell translation offsets."
+    }
+  ],
+  "self_report": {
+    "obeyed_invariants": false,
+    "concerns": [
+      "Retry corrected approximate scale and placement, but slot 0 remains visibly redrawn rather than pixel-identical.",
+      "Fixed anatomy, face, and equipment were not preserved pixel-for-pixel.",
+      "Green plate appears nonuniform; exact #00ff00 compliance was not measured.",
+      "Breathing deltas and head displacement were not measured; requested amplitude is unverified."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/k3p_idle_x2_S_13_15.png",
+      "sha256": "46760318840e7b5d379b862b9e71e026ec732d84efde1262d4c547741256e19c"
+    }
+  ]
+}

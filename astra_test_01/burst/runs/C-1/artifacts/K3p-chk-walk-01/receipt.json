@@ -1,0 +1,40 @@
+{
+  "task_id": "K3p-chk-walk-01",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [],
+  "calls_used": 0,
+  "retries": [],
+  "self_report": {
+    "obeyed_invariants": true,
+    "concerns": [
+      "The oracle CLI ignores --out with --ours; frozen functions were invoked directly to keep writes under out/. Exact commands are documented.",
+      "W5 role flags remain null: the frozen tool expects L/R keys but the required assignment supplies near/far.",
+      "Pooled W6 and R opposed-frame count remain null because R landmarks are missing at frames 1 and 10; inferred gait phases are unavailable with four detected contact events.",
+      "G11 includes all 12 pair measurements, but comparison flags remain null without a cast05 reference.",
+      "Silhouette and planted-slip flags remain null without calibrated thresholds. Oracle plots use provisional bands and inferred phases; committed comparisons are recorded separately.",
+      "Mutable wrapper-owned .wrapper-events.jsonl and .wrapper-stderr.txt are excluded from deliverable hashes."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/checks.json",
+      "sha256": "4a9f85ddacf8a42a86b341ff25f47ea6032e96ac9c4e155e3264c04a21539ca9"
+    },
+    {
+      "path": "out/checks_readme.txt",
+      "sha256": "80e1a78d07ba4e7c1245cb8f116fa105b086db2f28276f60d497f76cd2f4904d"
+    },
+    {
+      "path": "out/plots/walk_E_K3p_curves.png",
+      "sha256": "c11fe579aae69b047f4fb0a85bd0288c6dedd594bbc30a96130ebeecf4482915"
+    },
+    {
+      "path": "out/plots/walk_E_K3p_mask_check.png",
+      "sha256": "60cac2e2c9f1efc6f085fa22be8760e59d0c6a90adf3a1cf2e2fb432ec50b6ed"
+    },
+    {
+      "path": "out/walk_E_K3p_measure.json",
+      "sha256": "ce9b8919ef5523b26c1bdc238a883fbfdddb415a785bc0eebed4e39f9ff654d6"
+    }
+  ]
+}

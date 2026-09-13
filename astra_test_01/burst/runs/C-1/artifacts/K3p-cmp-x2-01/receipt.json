@@ -1,0 +1,102 @@
+{
+  "task_id": "K3p-cmp-x2-01",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [],
+  "calls_used": 0,
+  "retries": [],
+  "self_report": {
+    "obeyed_invariants": false,
+    "concerns": [
+      "The mandated chest boxes overlap the frozen arm strips; overlapping arm pixels changed. Staff and all pixels outside the declared boxes remain unchanged.",
+      "Literal G11 comparison is unevaluable without cast05. All requested numeric 48-px drift measurements were computed.",
+      "Used the explicitly named K3p-reg-x2-01 inputs; treated later K3p-reg-01 mentions as stale labels.",
+      "Wrapper-owned live logs are excluded from the artifact hashes."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/base/idle_S_base.png",
+      "sha256": "5717ef8a4fb132a668a4459ec065395cfcf1a582d0a1fbddf539a67415b70379"
+    },
+    {
+      "path": "out/base/registration.json",
+      "sha256": "f3d6091d9c5334abc0a3397f3cdc9bc1731a3b9d5b502112d51261aa53095959"
+    },
+    {
+      "path": "out/checks.json",
+      "sha256": "43e205da3e1f3a353783dfbed4bb159df43fd1be7f39cb35aa7f4a36f53b4b4d"
+    },
+    {
+      "path": "out/checks_readme.txt",
+      "sha256": "97ddbbd4ec6d32f49e295c87ba0bdb752dbc3d698cd70ab09233267a25db7131"
+    },
+    {
+      "path": "out/composited/idle_S_00.png",
+      "sha256": "5717ef8a4fb132a668a4459ec065395cfcf1a582d0a1fbddf539a67415b70379"
+    },
+    {
+      "path": "out/composited/idle_S_01.png",
+      "sha256": "9fbb7fafb0eef66205a11b7524bb7f8dbc5d854fd485464ba9926605b6ff515f"
+    },
+    {
+      "path": "out/composited/idle_S_02.png",
+      "sha256": "cac6b5af458386f2c86807956b374ca421b0f3624a3c6c6b011fc7d5b188ca22"
+    },
+    {
+      "path": "out/composited/idle_S_03.png",
+      "sha256": "fd53479786bd93eeab164c0daf96b522757f8105559fa4413b37f6fa7ccd50c8"
+    },
+    {
+      "path": "out/composited/idle_S_04.png",
+      "sha256": "636d38ebf257850ef7eb1e8aad102857c4c1379f4c746860a6470459a6bef766"
+    },
+    {
+      "path": "out/composited/idle_S_05.png",
+      "sha256": "96d4bb94c294405fa7c5b676f1ed111aa22cac5bd0d7985a995f42b5f5e406d1"
+    },
+    {
+      "path": "out/composited/idle_S_06.png",
+      "sha256": "67a49cf495ba18bf139d98b41465ed5583fb55a272ced5dc81a03d3b2c316904"
+    },
+    {
+      "path": "out/composited/idle_S_07.png",
+      "sha256": "f89bd51aae929a0b2d4b4845e052b104340f96346b86b8577db3dff1abac08ae"
+    },
+    {
+      "path": "out/composited/idle_S_08.png",
+      "sha256": "7dd60bca45fec6baa4e24eb37256ba972995c5d99d0e0c0c7dad3fe6e6ac18f1"
+    },
+    {
+      "path": "out/composited/idle_S_09.png",
+      "sha256": "1ecd175ec25735973340efcdfe50bf555d567dd92539ed80f82537f00b570eb4"
+    },
+    {
+      "path": "out/composited/idle_S_10.png",
+      "sha256": "734e51de9e5a51edcf2bb0f79962c65877fdd3033a82bf1b854f753c3ee08837"
+    },
+    {
+      "path": "out/composited/idle_S_11.png",
+      "sha256": "14122f7323da569a7c05c6f039855b0bb4d7dfef26fbabfd5680a27c9de9cc16"
+    },
+    {
+      "path": "out/composited/idle_S_12.png",
+      "sha256": "ba25647a9f6b001858c473e993a101cb5f1e50ce3cba18f22dd2a2692a2fa814"
+    },
+    {
+      "path": "out/composited/idle_S_13.png",
+      "sha256": "0163f553ad2c356a09e381bbc8dfe8dfdc079429ef7928468fe215f95d8d47e5"
+    },
+    {
+      "path": "out/composited/idle_S_14.png",
+      "sha256": "fa1d8d9f0b1a8e6f324fd6e501d69a7db7180f8665de997d88d232ac38e29326"
+    },
+    {
+      "path": "out/composited/idle_S_15.png",
+      "sha256": "a95e364995425c042755d0012a8b994fa6982594770101299e4c7bc1eeaeb3cc"
+    },
+    {
+      "path": "out/strips/original_vs_composited.png",
+      "sha256": "352450ae0d780bb02c8f5b6f7c86754790dbfca6922d5e827f57a309b842cf56"
+    }
+  ]
+}

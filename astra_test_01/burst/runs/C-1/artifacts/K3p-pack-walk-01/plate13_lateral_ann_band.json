@@ -1,0 +1,3384 @@
+{
+  "bands": {
+    "W1": {
+      "ceiling": 0.07,
+      "floor": 0.03945870747438978,
+      "mean_confidence": 0.7604166666666666,
+      "source": "annotation",
+      "target": 0.04932338434298723,
+      "value": 0.03945870747438978,
+      "ceiling_note": "R-29 (R-e) 2026-09-12: 1.5 × target = 0.073985076514480844 (approximately 0.07399) exceeds the stated per-gate ceiling 0.07; the stated ceiling 0.07 holds."
+    },
+    "W2": {
+      "bands": {
+        "coordinate": "height above per-frame ground; min=lowest head, max=highest head",
+        "max": [
+          {
+            "frame": 2,
+            "phase": "UP"
+          }
+        ],
+        "min": [
+          {
+            "frame": 9,
+            "phase": "UP"
+          },
+          {
+            "frame": 11,
+            "phase": "DOWN"
+          }
+        ]
+      },
+      "mean_confidence": 0.7604166666666666,
+      "source": "annotation",
+      "value": {
+        "coordinate": "height above per-frame ground; min=lowest head, max=highest head",
+        "max": [
+          {
+            "frame": 2,
+            "phase": "UP"
+          }
+        ],
+        "min": [
+          {
+            "frame": 9,
+            "phase": "UP"
+          },
+          {
+            "frame": 11,
+            "phase": "DOWN"
+          }
+        ]
+      }
+    },
+    "W3a": {
+      "ceiling": 0.35,
+      "mean_confidence": 0.7604166666666666,
+      "source": "annotation",
+      "value": 0.22982940158427193
+    },
+    "W3b": {
+      "mean_confidence": 0.7604166666666666,
+      "source": "annotation",
+      "threshold": null,
+      "value": -0.3473557692307692
+    },
+    "W3c": {
+      "ceiling": 3,
+      "floor": 2,
+      "mean_confidence": 0.7604166666666666,
+      "source": "annotation",
+      "value": 2
+    },
+    "W4": {
+      "mean_confidence": 0.7604166666666666,
+      "source": "annotation",
+      "target": 2,
+      "value": 4
+    },
+    "W5": {
+      "bands": {
+        "far": {
+          "ceiling": 0.2,
+          "floor": 0.2291640318704945,
+          "target": 0.11458201593524725,
+          "value": 0.2291640318704945
+        },
+        "near": {
+          "ceiling": 0.2,
+          "floor": 0.13051726318452006,
+          "target": 0.06525863159226003,
+          "value": 0.13051726318452006
+        }
+      },
+      "mean_confidence": 0.7604166666666666,
+      "source": "annotation",
+      "value": {
+        "far": 0.2291640318704945,
+        "near": 0.13051726318452006
+      }
+    },
+    "W5_role_limits": {
+      "assignment": null,
+      "free_arm": {
+        "ceiling": 0.2,
+        "floor": 0.08
+      },
+      "weapon_arm": {
+        "ceiling": null,
+        "floor": 0.03
+      }
+    },
+    "W6": {
+      "floor": 0.75,
+      "mean_confidence": 0.7604166666666666,
+      "minimum_opposed_frames": 9,
+      "source": "annotation",
+      "total_frames": 12,
+      "value": 0.5416666666666666
+    },
+    "note": "W5 targets apply k_lat to extents; anatomical free/weapon role is unassigned. Sole floor is absolute mean speed; signed values retained in curves.",
+    "parameters": {
+      "k_lat": 0.5,
+      "k_vert": 1.25,
+      "sole_scroll_multiplier": 1.0
+    },
+    "sole_scroll": {
+      "ceiling": null,
+      "floor": 37.0,
+      "mean_confidence": 0.7604166666666666,
+      "source": "annotation",
+      "target": 37.0,
+      "value": {
+        "estimator": "backward velocity on observed non-planted frames; missing tracks and seam excluded",
+        "far": {
+          "delta_px_per_frame": [
+            null,
+            null,
+            null,
+            null,
+            -49.0,
+            -19.0,
+            54.0,
+            47.0,
+            123.0,
+            55.0,
+            null,
+            null
+          ],
+          "mean_scroll_px_per_frame": 35.166666666666664,
+          "observed_velocity_frames": 6,
+          "swing_x_px": [
+            null,
+            null,
+            null,
+            null,
+            -83.0,
+            -102.0,
+            -48.0,
+            -1.0,
+            122.0,
+            177.0,
+            null,
+            null
+          ]
+        },
+        "mean_absolute_speed_px_per_frame": 61.36363636363637,
+        "mean_scroll_px_per_frame": 37.0,
+        "near": {
+          "delta_px_per_frame": [
+            null,
+            78.0,
+            99.0,
+            85.0,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            -35.0,
+            -31.0
+          ],
+          "mean_scroll_px_per_frame": 39.2,
+          "observed_velocity_frames": 5,
+          "swing_x_px": [
+            -99.0,
+            -21.0,
+            78.0,
+            163.0,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            -79.0,
+            -110.0
+          ]
+        },
+        "planted_scroll_lineage": {
+          "far": {
+            "delta_px_per_frame": [
+              -30.0,
+              -55.0,
+              -35.0,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              -42.0,
+              -18.0
+            ],
+            "mean_scroll_px_per_frame": -36.0,
+            "planted_x_px": [
+              86.0,
+              56.0,
+              1.0,
+              -34.0,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              146.0,
+              104.0
+            ],
+            "slip_px_per_frame": [
+              6.0,
+              -19.0,
+              1.0,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              -6.0,
+              18.0
+            ],
+            "slip_rms_px_per_frame": 12.312595177297109
+          },
+          "mean_scroll_px_per_frame": -38.1,
+          "near": {
+            "delta_px_per_frame": [
+              null,
+              null,
+              null,
+              null,
+              -35.0,
+              -49.0,
+              -35.0,
+              -37.0,
+              -45.0,
+              null,
+              null,
+              null
+            ],
+            "mean_scroll_px_per_frame": -40.2,
+            "planted_x_px": [
+              null,
+              null,
+              null,
+              null,
+              157.0,
+              122.0,
+              73.0,
+              38.0,
+              1.0,
+              -44.0,
+              null,
+              null
+            ],
+            "slip_px_per_frame": [
+              null,
+              null,
+              null,
+              null,
+              5.200000000000003,
+              -8.799999999999997,
+              5.200000000000003,
+              3.200000000000003,
+              -4.799999999999997,
+              null,
+              null,
+              null
+            ],
+            "slip_rms_px_per_frame": 5.741080037762929
+          },
+          "slip_rms_px_per_frame": 9.833107342035884
+        }
+      }
+    }
+  },
+  "committed": true,
+  "curves": {
+    "annotation": {
+      "frames": [
+        {
+          "chin": [
+            250,
+            144
+          ],
+          "confidence": {
+            "chin": 0.85,
+            "far_sole": 0.9,
+            "far_wrist": 0.3,
+            "ground_y": 0.9,
+            "head_top": 0.85,
+            "hip": 0.65,
+            "near_sole": 0.85,
+            "near_wrist": 0.85
+          },
+          "far_sole": [
+            276,
+            682
+          ],
+          "far_wrist": [
+            242,
+            395
+          ],
+          "frame": 0,
+          "ground_y": 684,
+          "head_top": [
+            235,
+            33
+          ],
+          "hip": [
+            190,
+            362
+          ],
+          "near_sole": [
+            91,
+            652
+          ],
+          "near_wrist": [
+            253,
+            389
+          ],
+          "planted_far": true,
+          "planted_near": false
+        },
+        {
+          "chin": [
+            247,
+            140
+          ],
+          "confidence": {
+            "chin": 0.85,
+            "far_sole": 0.85,
+            "far_wrist": 0.7,
+            "ground_y": 0.9,
+            "head_top": 0.85,
+            "hip": 0.65,
+            "near_sole": 0.85,
+            "near_wrist": 0.85
+          },
+          "far_sole": [
+            238,
+            683
+          ],
+          "far_wrist": [
+            257,
+            389
+          ],
+          "frame": 1,
+          "ground_y": 686,
+          "head_top": [
+            227,
+            28
+          ],
+          "hip": [
+            182,
+            356
+          ],
+          "near_sole": [
+            161,
+            659
+          ],
+          "near_wrist": [
+            230,
+            391
+          ],
+          "planted_far": true,
+          "planted_near": false
+        },
+        {
+          "chin": [
+            231,
+            138
+          ],
+          "confidence": {
+            "chin": 0.85,
+            "far_sole": 0.85,
+            "far_wrist": 0.85,
+            "ground_y": 0.85,
+            "head_top": 0.9,
+            "hip": 0.65,
+            "near_sole": 0.85,
+            "near_wrist": 0.85
+          },
+          "far_sole": [
+            162,
+            699
+          ],
+          "far_wrist": [
+            274,
+            376
+          ],
+          "frame": 2,
+          "ground_y": 702,
+          "head_top": [
+            215,
+            26
+          ],
+          "hip": [
+            161,
+            362
+          ],
+          "near_sole": [
+            239,
+            697
+          ],
+          "near_wrist": [
+            198,
+            407
+          ],
+          "planted_far": true,
+          "planted_near": false
+        },
+        {
+          "chin": [
+            217,
+            146
+          ],
+          "confidence": {
+            "chin": 0.85,
+            "far_sole": 0.9,
+            "far_wrist": 0.85,
+            "ground_y": 0.9,
+            "head_top": 0.75,
+            "hip": 0.65,
+            "near_sole": 0.85,
+            "near_wrist": 0.85
+          },
+          "far_sole": [
+            112,
+            706
+          ],
+          "far_wrist": [
+            281,
+            376
+          ],
+          "frame": 3,
+          "ground_y": 709,
+          "head_top": [
+            204,
+            36
+          ],
+          "hip": [
+            146,
+            368
+          ],
+          "near_sole": [
+            309,
+            692
+          ],
+          "near_wrist": [
+            173,
+            411
+          ],
+          "planted_far": true,
+          "planted_near": false
+        },
+        {
+          "chin": [
+            221,
+            155
+          ],
+          "confidence": {
+            "chin": 0.85,
+            "far_sole": 0.85,
+            "far_wrist": 0.85,
+            "ground_y": 0.9,
+            "head_top": 0.85,
+            "hip": 0.65,
+            "near_sole": 0.9,
+            "near_wrist": 0.85
+          },
+          "far_sole": [
+            69,
+            695
+          ],
+          "far_wrist": [
+            292,
+            373
+          ],
+          "frame": 4,
+          "ground_y": 710,
+          "head_top": [
+            208,
+            44
+          ],
+          "hip": [
+            152,
+            378
+          ],
+          "near_sole": [
+            309,
+            706
+          ],
+          "near_wrist": [
+            181,
+            433
+          ],
+          "planted_far": false,
+          "planted_near": true
+        },
+        {
+          "chin": [
+            245,
+            153
+          ],
+          "confidence": {
+            "chin": 0.65,
+            "far_sole": 0.85,
+            "far_wrist": 0.8,
+            "ground_y": 0.9,
+            "head_top": 0.65,
+            "hip": 0.65,
+            "near_sole": 0.9,
+            "near_wrist": 0.8
+          },
+          "far_sole": [
+            76,
+            687
+          ],
+          "far_wrist": [
+            306,
+            386
+          ],
+          "frame": 5,
+          "ground_y": 715,
+          "head_top": [
+            237,
+            46
+          ],
+          "hip": [
+            178,
+            384
+          ],
+          "near_sole": [
+            300,
+            712
+          ],
+          "near_wrist": [
+            214,
+            430
+          ],
+          "planted_far": false,
+          "planted_near": true
+        },
+        {
+          "chin": [
+            250,
+            156
+          ],
+          "confidence": {
+            "chin": 0.85,
+            "far_sole": 0.8,
+            "far_wrist": 0.8,
+            "ground_y": 0.9,
+            "head_top": 0.85,
+            "hip": 0.65,
+            "near_sole": 0.9,
+            "near_wrist": 0.85
+          },
+          "far_sole": [
+            142,
+            656
+          ],
+          "far_wrist": [
+            281,
+            392
+          ],
+          "frame": 6,
+          "ground_y": 701,
+          "head_top": [
+            241,
+            48
+          ],
+          "hip": [
+            190,
+            375
+          ],
+          "near_sole": [
+            263,
+            698
+          ],
+          "near_wrist": [
+            245,
+            422
+          ],
+          "planted_far": false,
+          "planted_near": true
+        },
+        {
+          "chin": [
+            219,
+            155
+          ],
+          "confidence": {
+            "chin": 0.75,
+            "far_sole": 0.3,
+            "far_wrist": 0.3,
+            "ground_y": 0.9,
+            "head_top": 0.65,
+            "hip": 0.6,
+            "near_sole": 0.9,
+            "near_wrist": 0.8
+          },
+          "far_sole": [
+            155,
+            655
+          ],
+          "far_wrist": [
+            225,
+            413
+          ],
+          "frame": 7,
+          "ground_y": 699,
+          "head_top": [
+            204,
+            42
+          ],
+          "hip": [
+            156,
+            373
+          ],
+          "near_sole": [
+            194,
+            695
+          ],
+          "near_wrist": [
+            233,
+            414
+          ],
+          "planted_far": false,
+          "planted_near": true
+        },
+        {
+          "chin": [
+            206,
+            156
+          ],
+          "confidence": {
+            "chin": 0.8,
+            "far_sole": 0.85,
+            "far_wrist": 0.3,
+            "ground_y": 0.85,
+            "head_top": 0.8,
+            "hip": 0.65,
+            "near_sole": 0.9,
+            "near_wrist": 0.85
+          },
+          "far_sole": [
+            262,
+            680
+          ],
+          "far_wrist": [
+            140,
+            422
+          ],
+          "frame": 8,
+          "ground_y": 700,
+          "head_top": [
+            185,
+            47
+          ],
+          "hip": [
+            140,
+            370
+          ],
+          "near_sole": [
+            141,
+            695
+          ],
+          "near_wrist": [
+            242,
+            392
+          ],
+          "planted_far": false,
+          "planted_near": true
+        },
+        {
+          "chin": [
+            194,
+            153
+          ],
+          "confidence": {
+            "chin": 0.8,
+            "far_sole": 0.85,
+            "far_wrist": 0.3,
+            "ground_y": 0.8,
+            "head_top": 0.75,
+            "hip": 0.65,
+            "near_sole": 0.9,
+            "near_wrist": 0.85
+          },
+          "far_sole": [
+            305,
+            668
+          ],
+          "far_wrist": [
+            120,
+            417
+          ],
+          "frame": 9,
+          "ground_y": 699,
+          "head_top": [
+            171,
+            49
+          ],
+          "hip": [
+            128,
+            372
+          ],
+          "near_sole": [
+            84,
+            692
+          ],
+          "near_wrist": [
+            241,
+            393
+          ],
+          "planted_far": false,
+          "planted_near": true
+        },
+        {
+          "chin": [
+            223,
+            158
+          ],
+          "confidence": {
+            "chin": 0.75,
+            "far_sole": 0.85,
+            "far_wrist": 0.3,
+            "ground_y": 0.8,
+            "head_top": 0.65,
+            "hip": 0.6,
+            "near_sole": 0.8,
+            "near_wrist": 0.8
+          },
+          "far_sole": [
+            306,
+            688
+          ],
+          "far_wrist": [
+            149,
+            425
+          ],
+          "frame": 10,
+          "ground_y": 699,
+          "head_top": [
+            203,
+            48
+          ],
+          "hip": [
+            160,
+            374
+          ],
+          "near_sole": [
+            81,
+            683
+          ],
+          "near_wrist": [
+            264,
+            397
+          ],
+          "planted_far": true,
+          "planted_near": false
+        },
+        {
+          "chin": [
+            239,
+            152
+          ],
+          "confidence": {
+            "chin": 0.6,
+            "far_sole": 0.8,
+            "far_wrist": 0.3,
+            "ground_y": 0.75,
+            "head_top": 0.55,
+            "hip": 0.55,
+            "near_sole": 0.7,
+            "near_wrist": 0.7
+          },
+          "far_sole": [
+            282,
+            688
+          ],
+          "far_wrist": [
+            176,
+            426
+          ],
+          "frame": 11,
+          "ground_y": 699,
+          "head_top": [
+            222,
+            49
+          ],
+          "hip": [
+            178,
+            380
+          ],
+          "near_sole": [
+            68,
+            661
+          ],
+          "near_wrist": [
+            258,
+            407
+          ],
+          "planted_far": true,
+          "planted_near": false
+        }
+      ],
+      "plate": "13",
+      "row": "lateral",
+      "stride_notes": {
+        "contact_frames": [
+          3,
+          9
+        ],
+        "passing_frames": [
+          1,
+          7
+        ]
+      },
+      "subject_height_px": 658.9166666666666
+    },
+    "coordinate_system": "per-frame ground-relative height and hip-relative x",
+    "fps": 8.33,
+    "frame_names": [],
+    "frames": 12,
+    "landmarks": [
+      {
+        "H": 651.0,
+        "foot_L_x": -99.0,
+        "foot_L_y": -32.0,
+        "foot_R_x": 86.0,
+        "foot_R_y": -2.0,
+        "ground_line_y": 0.0,
+        "head_cx": 45.0,
+        "head_ref_y": -651.0,
+        "head_top_y": -651.0,
+        "mean_confidence": 0.76875,
+        "planted": {
+          "L": false,
+          "R": true
+        },
+        "planted_L": false,
+        "planted_R": true,
+        "points_ground_hip_relative": {
+          "chin": [
+            60.0,
+            540.0
+          ],
+          "far_sole": [
+            86.0,
+            2.0
+          ],
+          "far_wrist": [
+            52.0,
+            289.0
+          ],
+          "head_top": [
+            45.0,
+            651.0
+          ],
+          "hip": [
+            0.0,
+            322.0
+          ],
+          "near_sole": [
+            -99.0,
+            32.0
+          ],
+          "near_wrist": [
+            63.0,
+            295.0
+          ]
+        },
+        "source": "annotation",
+        "torso_cx": 0.0,
+        "valid": true,
+        "wrist_ext_L": 63.0,
+        "wrist_ext_R": 52.0
+      },
+      {
+        "H": 658.0,
+        "foot_L_x": -21.0,
+        "foot_L_y": -27.0,
+        "foot_R_x": 56.0,
+        "foot_R_y": -3.0,
+        "ground_line_y": 0.0,
+        "head_cx": 45.0,
+        "head_ref_y": -658.0,
+        "head_top_y": -658.0,
+        "mean_confidence": 0.8125,
+        "planted": {
+          "L": false,
+          "R": true
+        },
+        "planted_L": false,
+        "planted_R": true,
+        "points_ground_hip_relative": {
+          "chin": [
+            65.0,
+            546.0
+          ],
+          "far_sole": [
+            56.0,
+            3.0
+          ],
+          "far_wrist": [
+            75.0,
+            297.0
+          ],
+          "head_top": [
+            45.0,
+            658.0
+          ],
+          "hip": [
+            0.0,
+            330.0
+          ],
+          "near_sole": [
+            -21.0,
+            27.0
+          ],
+          "near_wrist": [
+            48.0,
+            295.0
+          ]
+        },
+        "source": "annotation",
+        "torso_cx": 0.0,
+        "valid": true,
+        "wrist_ext_L": 48.0,
+        "wrist_ext_R": 75.0
+      },
+      {
+        "H": 676.0,
+        "foot_L_x": 78.0,
+        "foot_L_y": -5.0,
+        "foot_R_x": 1.0,
+        "foot_R_y": -3.0,
+        "ground_line_y": 0.0,
+        "head_cx": 54.0,
+        "head_ref_y": -676.0,
+        "head_top_y": -676.0,
+        "mean_confidence": 0.83125,
+        "planted": {
+          "L": false,
+          "R": true
+        },
+        "planted_L": false,
+        "planted_R": true,
+        "points_ground_hip_relative": {
+          "chin": [
+            70.0,
+            564.0
+          ],
+          "far_sole": [
+            1.0,
+            3.0
+          ],
+          "far_wrist": [
+            113.0,
+            326.0
+          ],
+          "head_top": [
+            54.0,
+            676.0
+          ],
+          "hip": [
+            0.0,
+            340.0
+          ],
+          "near_sole": [
+            78.0,
+            5.0
+          ],
+          "near_wrist": [
+            37.0,
+            295.0
+          ]
+        },
+        "source": "annotation",
+        "torso_cx": 0.0,
+        "valid": true,
+        "wrist_ext_L": 37.0,
+        "wrist_ext_R": 113.0
+      },
+      {
+        "H": 673.0,
+        "foot_L_x": 163.0,
+        "foot_L_y": -17.0,
+        "foot_R_x": -34.0,
+        "foot_R_y": -3.0,
+        "ground_line_y": 0.0,
+        "head_cx": 58.0,
+        "head_ref_y": -673.0,
+        "head_top_y": -673.0,
+        "mean_confidence": 0.825,
+        "planted": {
+          "L": false,
+          "R": true
+        },
+        "planted_L": false,
+        "planted_R": true,
+        "points_ground_hip_relative": {
+          "chin": [
+            71.0,
+            563.0
+          ],
+          "far_sole": [
+            -34.0,
+            3.0
+          ],
+          "far_wrist": [
+            135.0,
+            333.0
+          ],
+          "head_top": [
+            58.0,
+            673.0
+          ],
+          "hip": [
+            0.0,
+            341.0
+          ],
+          "near_sole": [
+            163.0,
+            17.0
+          ],
+          "near_wrist": [
+            27.0,
+            298.0
+          ]
+        },
+        "source": "annotation",
+        "torso_cx": 0.0,
+        "valid": true,
+        "wrist_ext_L": 27.0,
+        "wrist_ext_R": 135.0
+      },
+      {
+        "H": 666.0,
+        "foot_L_x": 157.0,
+        "foot_L_y": -4.0,
+        "foot_R_x": -83.0,
+        "foot_R_y": -15.0,
+        "ground_line_y": 0.0,
+        "head_cx": 56.0,
+        "head_ref_y": -666.0,
+        "head_top_y": -666.0,
+        "mean_confidence": 0.8375,
+        "planted": {
+          "L": true,
+          "R": false
+        },
+        "planted_L": true,
+        "planted_R": false,
+        "points_ground_hip_relative": {
+          "chin": [
+            69.0,
+            555.0
+          ],
+          "far_sole": [
+            -83.0,
+            15.0
+          ],
+          "far_wrist": [
+            140.0,
+            337.0
+          ],
+          "head_top": [
+            56.0,
+            666.0
+          ],
+          "hip": [
+            0.0,
+            332.0
+          ],
+          "near_sole": [
+            157.0,
+            4.0
+          ],
+          "near_wrist": [
+            29.0,
+            277.0
+          ]
+        },
+        "source": "annotation",
+        "torso_cx": 0.0,
+        "valid": true,
+        "wrist_ext_L": 29.0,
+        "wrist_ext_R": 140.0
+      },
+      {
+        "H": 669.0,
+        "foot_L_x": 122.0,
+        "foot_L_y": -3.0,
+        "foot_R_x": -102.0,
+        "foot_R_y": -28.0,
+        "ground_line_y": 0.0,
+        "head_cx": 59.0,
+        "head_ref_y": -669.0,
+        "head_top_y": -669.0,
+        "mean_confidence": 0.775,
+        "planted": {
+          "L": true,
+          "R": false
+        },
+        "planted_L": true,
+        "planted_R": false,
+        "points_ground_hip_relative": {
+          "chin": [
+            67.0,
+            562.0
+          ],
+          "far_sole": [
+            -102.0,
+            28.0
+          ],
+          "far_wrist": [
+            128.0,
+            329.0
+          ],
+          "head_top": [
+            59.0,
+            669.0
+          ],
+          "hip": [
+            0.0,
+            331.0
+          ],
+          "near_sole": [
+            122.0,
+            3.0
+          ],
+          "near_wrist": [
+            36.0,
+            285.0
+          ]
+        },
+        "source": "annotation",
+        "torso_cx": 0.0,
+        "valid": true,
+        "wrist_ext_L": 36.0,
+        "wrist_ext_R": 128.0
+      },
+      {
+        "H": 653.0,
+        "foot_L_x": 73.0,
+        "foot_L_y": -3.0,
+        "foot_R_x": -48.0,
+        "foot_R_y": -45.0,
+        "ground_line_y": 0.0,
+        "head_cx": 51.0,
+        "head_ref_y": -653.0,
+        "head_top_y": -653.0,
+        "mean_confidence": 0.825,
+        "planted": {
+          "L": true,
+          "R": false
+        },
+        "planted_L": true,
+        "planted_R": false,
+        "points_ground_hip_relative": {
+          "chin": [
+            60.0,
+            545.0
+          ],
+          "far_sole": [
+            -48.0,
+            45.0
+          ],
+          "far_wrist": [
+            91.0,
+            309.0
+          ],
+          "head_top": [
+            51.0,
+            653.0
+          ],
+          "hip": [
+            0.0,
+            326.0
+          ],
+          "near_sole": [
+            73.0,
+            3.0
+          ],
+          "near_wrist": [
+            55.0,
+            279.0
+          ]
+        },
+        "source": "annotation",
+        "torso_cx": 0.0,
+        "valid": true,
+        "wrist_ext_L": 55.0,
+        "wrist_ext_R": 91.0
+      },
+      {
+        "H": 657.0,
+        "foot_L_x": 38.0,
+        "foot_L_y": -4.0,
+        "foot_R_x": -1.0,
+        "foot_R_y": -44.0,
+        "ground_line_y": 0.0,
+        "head_cx": 48.0,
+        "head_ref_y": -657.0,
+        "head_top_y": -657.0,
+        "mean_confidence": 0.6499999999999999,
+        "planted": {
+          "L": true,
+          "R": false
+        },
+        "planted_L": true,
+        "planted_R": false,
+        "points_ground_hip_relative": {
+          "chin": [
+            63.0,
+            544.0
+          ],
+          "far_sole": [
+            -1.0,
+            44.0
+          ],
+          "far_wrist": [
+            69.0,
+            286.0
+          ],
+          "head_top": [
+            48.0,
+            657.0
+          ],
+          "hip": [
+            0.0,
+            326.0
+          ],
+          "near_sole": [
+            38.0,
+            4.0
+          ],
+          "near_wrist": [
+            77.0,
+            285.0
+          ]
+        },
+        "source": "annotation",
+        "torso_cx": 0.0,
+        "valid": true,
+        "wrist_ext_L": 77.0,
+        "wrist_ext_R": 69.0
+      },
+      {
+        "H": 653.0,
+        "foot_L_x": 1.0,
+        "foot_L_y": -5.0,
+        "foot_R_x": 122.0,
+        "foot_R_y": -20.0,
+        "ground_line_y": 0.0,
+        "head_cx": 45.0,
+        "head_ref_y": -653.0,
+        "head_top_y": -653.0,
+        "mean_confidence": 0.75,
+        "planted": {
+          "L": true,
+          "R": false
+        },
+        "planted_L": true,
+        "planted_R": false,
+        "points_ground_hip_relative": {
+          "chin": [
+            66.0,
+            544.0
+          ],
+          "far_sole": [
+            122.0,
+            20.0
+          ],
+          "far_wrist": [
+            0.0,
+            278.0
+          ],
+          "head_top": [
+            45.0,
+            653.0
+          ],
+          "hip": [
+            0.0,
+            330.0
+          ],
+          "near_sole": [
+            1.0,
+            5.0
+          ],
+          "near_wrist": [
+            102.0,
+            308.0
+          ]
+        },
+        "source": "annotation",
+        "torso_cx": 0.0,
+        "valid": true,
+        "wrist_ext_L": 102.0,
+        "wrist_ext_R": 0.0
+      },
+      {
+        "H": 650.0,
+        "foot_L_x": -44.0,
+        "foot_L_y": -7.0,
+        "foot_R_x": 177.0,
+        "foot_R_y": -31.0,
+        "ground_line_y": 0.0,
+        "head_cx": 43.0,
+        "head_ref_y": -650.0,
+        "head_top_y": -650.0,
+        "mean_confidence": 0.7375,
+        "planted": {
+          "L": true,
+          "R": false
+        },
+        "planted_L": true,
+        "planted_R": false,
+        "points_ground_hip_relative": {
+          "chin": [
+            66.0,
+            546.0
+          ],
+          "far_sole": [
+            177.0,
+            31.0
+          ],
+          "far_wrist": [
+            -8.0,
+            282.0
+          ],
+          "head_top": [
+            43.0,
+            650.0
+          ],
+          "hip": [
+            0.0,
+            327.0
+          ],
+          "near_sole": [
+            -44.0,
+            7.0
+          ],
+          "near_wrist": [
+            113.0,
+            306.0
+          ]
+        },
+        "source": "annotation",
+        "torso_cx": 0.0,
+        "valid": true,
+        "wrist_ext_L": 113.0,
+        "wrist_ext_R": -8.0
+      },
+      {
+        "H": 651.0,
+        "foot_L_x": -79.0,
+        "foot_L_y": -16.0,
+        "foot_R_x": 146.0,
+        "foot_R_y": -11.0,
+        "ground_line_y": 0.0,
+        "head_cx": 43.0,
+        "head_ref_y": -651.0,
+        "head_top_y": -651.0,
+        "mean_confidence": 0.69375,
+        "planted": {
+          "L": false,
+          "R": true
+        },
+        "planted_L": false,
+        "planted_R": true,
+        "points_ground_hip_relative": {
+          "chin": [
+            63.0,
+            541.0
+          ],
+          "far_sole": [
+            146.0,
+            11.0
+          ],
+          "far_wrist": [
+            -11.0,
+            274.0
+          ],
+          "head_top": [
+            43.0,
+            651.0
+          ],
+          "hip": [
+            0.0,
+            325.0
+          ],
+          "near_sole": [
+            -79.0,
+            16.0
+          ],
+          "near_wrist": [
+            104.0,
+            302.0
+          ]
+        },
+        "source": "annotation",
+        "torso_cx": 0.0,
+        "valid": true,
+        "wrist_ext_L": 104.0,
+        "wrist_ext_R": -11.0
+      },
+      {
+        "H": 650.0,
+        "foot_L_x": -110.0,
+        "foot_L_y": -38.0,
+        "foot_R_x": 104.0,
+        "foot_R_y": -11.0,
+        "ground_line_y": 0.0,
+        "head_cx": 44.0,
+        "head_ref_y": -650.0,
+        "head_top_y": -650.0,
+        "mean_confidence": 0.6187499999999999,
+        "planted": {
+          "L": false,
+          "R": true
+        },
+        "planted_L": false,
+        "planted_R": true,
+        "points_ground_hip_relative": {
+          "chin": [
+            61.0,
+            547.0
+          ],
+          "far_sole": [
+            104.0,
+            11.0
+          ],
+          "far_wrist": [
+            -2.0,
+            273.0
+          ],
+          "head_top": [
+            44.0,
+            650.0
+          ],
+          "hip": [
+            0.0,
+            319.0
+          ],
+          "near_sole": [
+            -110.0,
+            38.0
+          ],
+          "near_wrist": [
+            80.0,
+            292.0
+          ]
+        },
+        "source": "annotation",
+        "torso_cx": 0.0,
+        "valid": true,
+        "wrist_ext_L": 80.0,
+        "wrist_ext_R": -2.0
+      }
+    ],
+    "mask_params": null,
+    "mean_confidence": 0.7604166666666666,
+    "mode": "annotation",
+    "notes": [
+      "Vertical measurements: height above per-frame ground_y; horizontal measurements: x minus per-frame hip.x.",
+      "H normalization is arithmetic mean ground_y - head_top.y.",
+      "W6 pools near/far opposed-frame fractions; zero wrist or sole displacement is not opposed.",
+      "Phase contacts derive from planted flags, not stride_notes; passing uses minimum sole separation in each contact interval.",
+      "stride_notes contacts [3, 9] disagree with planted-flag contacts [4, 10] (zero-based); flags drive phases."
+    ],
+    "phase_table": [
+      {
+        "boundary_contact": false,
+        "contact": false,
+        "contact_sides": [],
+        "frame": 0,
+        "lead_track": "far",
+        "mean_confidence": 0.7604166666666666,
+        "phase": "DOWN",
+        "planted": {
+          "far": true,
+          "near": false
+        },
+        "printed_phase": 1,
+        "reason": null,
+        "source": "annotation"
+      },
+      {
+        "boundary_contact": false,
+        "contact": false,
+        "contact_sides": [],
+        "frame": 1,
+        "lead_track": "far",
+        "mean_confidence": 0.7604166666666666,
+        "phase": "PASSING",
+        "planted": {
+          "far": true,
+          "near": false
+        },
+        "printed_phase": 2,
+        "reason": null,
+        "source": "annotation"
+      },
+      {
+        "boundary_contact": false,
+        "contact": false,
+        "contact_sides": [],
+        "frame": 2,
+        "lead_track": "far",
+        "mean_confidence": 0.7604166666666666,
+        "phase": "UP",
+        "planted": {
+          "far": true,
+          "near": false
+        },
+        "printed_phase": 3,
+        "reason": null,
+        "source": "annotation"
+      },
+      {
+        "boundary_contact": false,
+        "contact": false,
+        "contact_sides": [],
+        "frame": 3,
+        "lead_track": "far",
+        "mean_confidence": 0.7604166666666666,
+        "phase": "UP",
+        "planted": {
+          "far": true,
+          "near": false
+        },
+        "printed_phase": 4,
+        "reason": null,
+        "source": "annotation"
+      },
+      {
+        "boundary_contact": false,
+        "contact": true,
+        "contact_sides": [
+          "near"
+        ],
+        "frame": 4,
+        "lead_track": "near",
+        "mean_confidence": 0.7604166666666666,
+        "phase": "CONTACT",
+        "planted": {
+          "far": false,
+          "near": true
+        },
+        "printed_phase": 5,
+        "reason": null,
+        "source": "annotation"
+      },
+      {
+        "boundary_contact": false,
+        "contact": false,
+        "contact_sides": [],
+        "frame": 5,
+        "lead_track": "near",
+        "mean_confidence": 0.7604166666666666,
+        "phase": "DOWN",
+        "planted": {
+          "far": false,
+          "near": true
+        },
+        "printed_phase": 6,
+        "reason": null,
+        "source": "annotation"
+      },
+      {
+        "boundary_contact": false,
+        "contact": false,
+        "contact_sides": [],
+        "frame": 6,
+        "lead_track": "near",
+        "mean_confidence": 0.7604166666666666,
+        "phase": "DOWN",
+        "planted": {
+          "far": false,
+          "near": true
+        },
+        "printed_phase": 7,
+        "reason": null,
+        "source": "annotation"
+      },
+      {
+        "boundary_contact": false,
+        "contact": false,
+        "contact_sides": [],
+        "frame": 7,
+        "lead_track": "near",
+        "mean_confidence": 0.7604166666666666,
+        "phase": "PASSING",
+        "planted": {
+          "far": false,
+          "near": true
+        },
+        "printed_phase": 8,
+        "reason": null,
+        "source": "annotation"
+      },
+      {
+        "boundary_contact": false,
+        "contact": false,
+        "contact_sides": [],
+        "frame": 8,
+        "lead_track": "near",
+        "mean_confidence": 0.7604166666666666,
+        "phase": "UP",
+        "planted": {
+          "far": false,
+          "near": true
+        },
+        "printed_phase": 9,
+        "reason": null,
+        "source": "annotation"
+      },
+      {
+        "boundary_contact": false,
+        "contact": false,
+        "contact_sides": [],
+        "frame": 9,
+        "lead_track": "near",
+        "mean_confidence": 0.7604166666666666,
+        "phase": "UP",
+        "planted": {
+          "far": false,
+          "near": true
+        },
+        "printed_phase": 10,
+        "reason": null,
+        "source": "annotation"
+      },
+      {
+        "boundary_contact": false,
+        "contact": true,
+        "contact_sides": [
+          "far"
+        ],
+        "frame": 10,
+        "lead_track": "far",
+        "mean_confidence": 0.7604166666666666,
+        "phase": "CONTACT",
+        "planted": {
+          "far": true,
+          "near": false
+        },
+        "printed_phase": 11,
+        "reason": null,
+        "source": "annotation"
+      },
+      {
+        "boundary_contact": false,
+        "contact": false,
+        "contact_sides": [],
+        "frame": 11,
+        "lead_track": "far",
+        "mean_confidence": 0.7604166666666666,
+        "phase": "DOWN",
+        "planted": {
+          "far": true,
+          "near": false
+        },
+        "printed_phase": 12,
+        "reason": null,
+        "source": "annotation"
+      }
+    ],
+    "provenance": {
+      "annotation_path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/T1a-ann-13L/annotation.json",
+      "coordinates": "per-frame ground-relative height and hip-relative x",
+      "fps": 8.33,
+      "frame_names": [],
+      "frames": 12,
+      "k_lat": 0.5,
+      "k_vert": 2.0,
+      "mask_params": null,
+      "pattern": "*.png",
+      "plate": "13",
+      "reference_path": null,
+      "row": "lateral",
+      "source": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/T1a-ann-13L/annotation.json",
+      "source_note": "Muybridge public domain",
+      "stride_notes": {
+        "contact_frames": [
+          3,
+          9
+        ],
+        "passing_frames": [
+          1,
+          7
+        ]
+      },
+      "subject_height_px": 658.9166666666666
+    },
+    "quantities": {
+      "H_mean": {
+        "mean_confidence": 0.7604166666666666,
+        "source": "annotation",
+        "value": 658.9166666666666
+      },
+      "H_per_frame": {
+        "mean_confidence": 0.7604166666666666,
+        "source": "annotation",
+        "value": [
+          651.0,
+          658.0,
+          676.0,
+          673.0,
+          666.0,
+          669.0,
+          653.0,
+          657.0,
+          653.0,
+          650.0,
+          651.0,
+          650.0
+        ]
+      },
+      "W1": {
+        "mean_confidence": 0.7604166666666666,
+        "source": "annotation",
+        "value": 0.03945870747438978
+      },
+      "W1_sanity_1_5_pct_H": {
+        "mean_confidence": 0.7604166666666666,
+        "source": "annotation",
+        "value": true
+      },
+      "W2": {
+        "mean_confidence": 0.7604166666666666,
+        "source": "annotation",
+        "value": {
+          "coordinate": "height above per-frame ground; min=lowest head, max=highest head",
+          "max": [
+            {
+              "frame": 2,
+              "phase": "UP"
+            }
+          ],
+          "min": [
+            {
+              "frame": 9,
+              "phase": "UP"
+            },
+            {
+              "frame": 11,
+              "phase": "DOWN"
+            }
+          ]
+        }
+      },
+      "W3a": {
+        "mean_confidence": 0.7604166666666666,
+        "source": "annotation",
+        "value": 0.22982940158427193
+      },
+      "W3b": {
+        "mean_confidence": 0.7604166666666666,
+        "source": "annotation",
+        "value": -0.3473557692307692
+      },
+      "W3c": {
+        "mean_confidence": 0.7604166666666666,
+        "source": "annotation",
+        "value": 2
+      },
+      "W4": {
+        "mean_confidence": 0.7604166666666666,
+        "source": "annotation",
+        "value": 4
+      },
+      "W5": {
+        "mean_confidence": 0.7604166666666666,
+        "source": "annotation",
+        "value": {
+          "far": 0.2291640318704945,
+          "near": 0.13051726318452006
+        }
+      },
+      "W6": {
+        "mean_confidence": 0.7604166666666666,
+        "source": "annotation",
+        "value": 0.5416666666666666
+      },
+      "W6_per_arm": {
+        "mean_confidence": 0.7604166666666666,
+        "source": "annotation",
+        "value": {
+          "far": 0.6666666666666666,
+          "near": 0.4166666666666667
+        }
+      },
+      "contact_frames": {
+        "mean_confidence": 0.7604166666666666,
+        "source": "annotation",
+        "value": [
+          4,
+          10
+        ]
+      },
+      "minima_frames": {
+        "mean_confidence": 0.7604166666666666,
+        "source": "annotation",
+        "value": [
+          4,
+          6,
+          9,
+          11
+        ]
+      },
+      "signed_area_px2": {
+        "mean_confidence": 0.7604166666666666,
+        "source": "annotation",
+        "value": -144.5
+      },
+      "sole_heights": {
+        "mean_confidence": 0.7604166666666666,
+        "source": "annotation",
+        "value": {
+          "far": [
+            2.0,
+            3.0,
+            3.0,
+            3.0,
+            15.0,
+            28.0,
+            45.0,
+            44.0,
+            20.0,
+            31.0,
+            11.0,
+            11.0
+          ],
+          "near": [
+            32.0,
+            27.0,
+            5.0,
+            17.0,
+            4.0,
+            3.0,
+            3.0,
+            4.0,
+            5.0,
+            7.0,
+            16.0,
+            38.0
+          ]
+        }
+      },
+      "sole_scroll": {
+        "mean_confidence": 0.7604166666666666,
+        "source": "annotation",
+        "value": {
+          "estimator": "backward velocity on observed non-planted frames; missing tracks and seam excluded",
+          "far": {
+            "delta_px_per_frame": [
+              null,
+              null,
+              null,
+              null,
+              -49.0,
+              -19.0,
+              54.0,
+              47.0,
+              123.0,
+              55.0,
+              null,
+              null
+            ],
+            "mean_scroll_px_per_frame": 35.166666666666664,
+            "observed_velocity_frames": 6,
+            "swing_x_px": [
+              null,
+              null,
+              null,
+              null,
+              -83.0,
+              -102.0,
+              -48.0,
+              -1.0,
+              122.0,
+              177.0,
+              null,
+              null
+            ]
+          },
+          "mean_absolute_speed_px_per_frame": 61.36363636363637,
+          "mean_scroll_px_per_frame": 37.0,
+          "near": {
+            "delta_px_per_frame": [
+              null,
+              78.0,
+              99.0,
+              85.0,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              -35.0,
+              -31.0
+            ],
+            "mean_scroll_px_per_frame": 39.2,
+            "observed_velocity_frames": 5,
+            "swing_x_px": [
+              -99.0,
+              -21.0,
+              78.0,
+              163.0,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              -79.0,
+              -110.0
+            ]
+          },
+          "planted_scroll_lineage": {
+            "far": {
+              "delta_px_per_frame": [
+                -30.0,
+                -55.0,
+                -35.0,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                -42.0,
+                -18.0
+              ],
+              "mean_scroll_px_per_frame": -36.0,
+              "planted_x_px": [
+                86.0,
+                56.0,
+                1.0,
+                -34.0,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                146.0,
+                104.0
+              ],
+              "slip_px_per_frame": [
+                6.0,
+                -19.0,
+                1.0,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                -6.0,
+                18.0
+              ],
+              "slip_rms_px_per_frame": 12.312595177297109
+            },
+            "mean_scroll_px_per_frame": -38.1,
+            "near": {
+              "delta_px_per_frame": [
+                null,
+                null,
+                null,
+                null,
+                -35.0,
+                -49.0,
+                -35.0,
+                -37.0,
+                -45.0,
+                null,
+                null,
+                null
+              ],
+              "mean_scroll_px_per_frame": -40.2,
+              "planted_x_px": [
+                null,
+                null,
+                null,
+                null,
+                157.0,
+                122.0,
+                73.0,
+                38.0,
+                1.0,
+                -44.0,
+                null,
+                null
+              ],
+              "slip_px_per_frame": [
+                null,
+                null,
+                null,
+                null,
+                5.200000000000003,
+                -8.799999999999997,
+                5.200000000000003,
+                3.200000000000003,
+                -4.799999999999997,
+                null,
+                null,
+                null
+              ],
+              "slip_rms_px_per_frame": 5.741080037762929
+            },
+            "slip_rms_px_per_frame": 9.833107342035884
+          }
+        }
+      }
+    },
+    "results": [
+      {
+        "evidence": [
+          "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/oracle/plots/plate13_lateral_ann_annotation_check.png",
+          "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/oracle/plots/plate13_lateral_ann_curves.png"
+        ],
+        "id": "W1",
+        "mean_confidence": 0.7604166666666666,
+        "notes": "annotation measurement; no shipping verdict",
+        "op": "<=",
+        "passed": null,
+        "source": "annotation",
+        "subject": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/T1a-ann-13L/annotation.json",
+        "threshold": null,
+        "unit": "",
+        "value": 0.03945870747438978
+      },
+      {
+        "evidence": [
+          "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/oracle/plots/plate13_lateral_ann_annotation_check.png",
+          "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/oracle/plots/plate13_lateral_ann_curves.png"
+        ],
+        "id": "W2",
+        "mean_confidence": 0.7604166666666666,
+        "notes": "annotation measurement; no shipping verdict",
+        "op": "<=",
+        "passed": null,
+        "source": "annotation",
+        "subject": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/T1a-ann-13L/annotation.json",
+        "threshold": null,
+        "unit": "",
+        "value": {
+          "coordinate": "height above per-frame ground; min=lowest head, max=highest head",
+          "max": [
+            {
+              "frame": 2,
+              "phase": "UP"
+            }
+          ],
+          "min": [
+            {
+              "frame": 9,
+              "phase": "UP"
+            },
+            {
+              "frame": 11,
+              "phase": "DOWN"
+            }
+          ]
+        }
+      },
+      {
+        "evidence": [
+          "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/oracle/plots/plate13_lateral_ann_annotation_check.png",
+          "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/oracle/plots/plate13_lateral_ann_curves.png"
+        ],
+        "id": "W3a",
+        "mean_confidence": 0.7604166666666666,
+        "notes": "annotation measurement; no shipping verdict",
+        "op": "<=",
+        "passed": null,
+        "source": "annotation",
+        "subject": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/T1a-ann-13L/annotation.json",
+        "threshold": null,
+        "unit": "",
+        "value": 0.22982940158427193
+      },
+      {
+        "evidence": [
+          "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/oracle/plots/plate13_lateral_ann_annotation_check.png",
+          "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/oracle/plots/plate13_lateral_ann_curves.png"
+        ],
+        "id": "W3b",
+        "mean_confidence": 0.7604166666666666,
+        "notes": "annotation measurement; no shipping verdict",
+        "op": "<=",
+        "passed": null,
+        "source": "annotation",
+        "subject": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/T1a-ann-13L/annotation.json",
+        "threshold": null,
+        "unit": "",
+        "value": -0.3473557692307692
+      },
+      {
+        "evidence": [
+          "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/oracle/plots/plate13_lateral_ann_annotation_check.png",
+          "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/oracle/plots/plate13_lateral_ann_curves.png"
+        ],
+        "id": "W3c",
+        "mean_confidence": 0.7604166666666666,
+        "notes": "annotation measurement; no shipping verdict",
+        "op": "<=",
+        "passed": null,
+        "source": "annotation",
+        "subject": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/T1a-ann-13L/annotation.json",
+        "threshold": null,
+        "unit": "",
+        "value": 2
+      },
+      {
+        "evidence": [
+          "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/oracle/plots/plate13_lateral_ann_annotation_check.png",
+          "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/oracle/plots/plate13_lateral_ann_curves.png"
+        ],
+        "id": "W4",
+        "mean_confidence": 0.7604166666666666,
+        "notes": "annotation measurement; no shipping verdict",
+        "op": "<=",
+        "passed": null,
+        "source": "annotation",
+        "subject": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/T1a-ann-13L/annotation.json",
+        "threshold": null,
+        "unit": "",
+        "value": 4
+      },
+      {
+        "evidence": [
+          "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/oracle/plots/plate13_lateral_ann_annotation_check.png",
+          "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/oracle/plots/plate13_lateral_ann_curves.png"
+        ],
+        "id": "W5",
+        "mean_confidence": 0.7604166666666666,
+        "notes": "annotation measurement; no shipping verdict",
+        "op": "<=",
+        "passed": null,
+        "source": "annotation",
+        "subject": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/T1a-ann-13L/annotation.json",
+        "threshold": null,
+        "unit": "",
+        "value": {
+          "far": 0.2291640318704945,
+          "near": 0.13051726318452006
+        }
+      },
+      {
+        "evidence": [
+          "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/oracle/plots/plate13_lateral_ann_annotation_check.png",
+          "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/oracle/plots/plate13_lateral_ann_curves.png"
+        ],
+        "id": "W6",
+        "mean_confidence": 0.7604166666666666,
+        "notes": "annotation measurement; no shipping verdict",
+        "op": "<=",
+        "passed": null,
+        "source": "annotation",
+        "subject": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/T1a-ann-13L/annotation.json",
+        "threshold": null,
+        "unit": "",
+        "value": 0.5416666666666666
+      },
+      {
+        "evidence": [
+          "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/oracle/plots/plate13_lateral_ann_annotation_check.png",
+          "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/oracle/plots/plate13_lateral_ann_curves.png"
+        ],
+        "id": "sole_scroll",
+        "mean_confidence": 0.7604166666666666,
+        "notes": "annotation measurement; no shipping verdict",
+        "op": "<=",
+        "passed": null,
+        "source": "annotation",
+        "subject": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/T1a-ann-13L/annotation.json",
+        "threshold": null,
+        "unit": "",
+        "value": {
+          "estimator": "backward velocity on observed non-planted frames; missing tracks and seam excluded",
+          "far": {
+            "delta_px_per_frame": [
+              null,
+              null,
+              null,
+              null,
+              -49.0,
+              -19.0,
+              54.0,
+              47.0,
+              123.0,
+              55.0,
+              null,
+              null
+            ],
+            "mean_scroll_px_per_frame": 35.166666666666664,
+            "observed_velocity_frames": 6,
+            "swing_x_px": [
+              null,
+              null,
+              null,
+              null,
+              -83.0,
+              -102.0,
+              -48.0,
+              -1.0,
+              122.0,
+              177.0,
+              null,
+              null
+            ]
+          },
+          "mean_absolute_speed_px_per_frame": 61.36363636363637,
+          "mean_scroll_px_per_frame": 37.0,
+          "near": {
+            "delta_px_per_frame": [
+              null,
+              78.0,
+              99.0,
+              85.0,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              -35.0,
+              -31.0
+            ],
+            "mean_scroll_px_per_frame": 39.2,
+            "observed_velocity_frames": 5,
+            "swing_x_px": [
+              -99.0,
+              -21.0,
+              78.0,
+              163.0,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              -79.0,
+              -110.0
+            ]
+          },
+          "planted_scroll_lineage": {
+            "far": {
+              "delta_px_per_frame": [
+                -30.0,
+                -55.0,
+                -35.0,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                -42.0,
+                -18.0
+              ],
+              "mean_scroll_px_per_frame": -36.0,
+              "planted_x_px": [
+                86.0,
+                56.0,
+                1.0,
+                -34.0,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                146.0,
+                104.0
+              ],
+              "slip_px_per_frame": [
+                6.0,
+                -19.0,
+                1.0,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                -6.0,
+                18.0
+              ],
+              "slip_rms_px_per_frame": 12.312595177297109
+            },
+            "mean_scroll_px_per_frame": -38.1,
+            "near": {
+              "delta_px_per_frame": [
+                null,
+                null,
+                null,
+                null,
+                -35.0,
+                -49.0,
+                -35.0,
+                -37.0,
+                -45.0,
+                null,
+                null,
+                null
+              ],
+              "mean_scroll_px_per_frame": -40.2,
+              "planted_x_px": [
+                null,
+                null,
+                null,
+                null,
+                157.0,
+                122.0,
+                73.0,
+                38.0,
+                1.0,
+                -44.0,
+                null,
+                null
+              ],
+              "slip_px_per_frame": [
+                null,
+                null,
+                null,
+                null,
+                5.200000000000003,
+                -8.799999999999997,
+                5.200000000000003,
+                3.200000000000003,
+                -4.799999999999997,
+                null,
+                null,
+                null
+              ],
+              "slip_rms_px_per_frame": 5.741080037762929
+            },
+            "slip_rms_px_per_frame": 9.833107342035884
+          }
+        }
+      }
+    ],
+    "source": "annotation",
+    "summary": {
+      "H_mean": 658.9166666666666,
+      "H_per_frame": [
+        651.0,
+        658.0,
+        676.0,
+        673.0,
+        666.0,
+        669.0,
+        653.0,
+        657.0,
+        653.0,
+        650.0,
+        651.0,
+        650.0
+      ],
+      "W1": 0.03945870747438978,
+      "W1_sanity_1_5_pct_H": true,
+      "W2": {
+        "coordinate": "height above per-frame ground; min=lowest head, max=highest head",
+        "max": [
+          {
+            "frame": 2,
+            "phase": "UP"
+          }
+        ],
+        "min": [
+          {
+            "frame": 9,
+            "phase": "UP"
+          },
+          {
+            "frame": 11,
+            "phase": "DOWN"
+          }
+        ]
+      },
+      "W3a": 0.22982940158427193,
+      "W3b": -0.3473557692307692,
+      "W3c": 2,
+      "W4": 4,
+      "W5": {
+        "far": 0.2291640318704945,
+        "near": 0.13051726318452006
+      },
+      "W6": 0.5416666666666666,
+      "W6_per_arm": {
+        "far": 0.6666666666666666,
+        "near": 0.4166666666666667
+      },
+      "contact_frames": [
+        4,
+        10
+      ],
+      "mean_confidence": 0.7604166666666666,
+      "minima_frames": [
+        4,
+        6,
+        9,
+        11
+      ],
+      "signed_area_px2": -144.5,
+      "sole_heights": {
+        "far": [
+          2.0,
+          3.0,
+          3.0,
+          3.0,
+          15.0,
+          28.0,
+          45.0,
+          44.0,
+          20.0,
+          31.0,
+          11.0,
+          11.0
+        ],
+        "near": [
+          32.0,
+          27.0,
+          5.0,
+          17.0,
+          4.0,
+          3.0,
+          3.0,
+          4.0,
+          5.0,
+          7.0,
+          16.0,
+          38.0
+        ]
+      },
+      "sole_scroll": {
+        "estimator": "backward velocity on observed non-planted frames; missing tracks and seam excluded",
+        "far": {
+          "delta_px_per_frame": [
+            null,
+            null,
+            null,
+            null,
+            -49.0,
+            -19.0,
+            54.0,
+            47.0,
+            123.0,
+            55.0,
+            null,
+            null
+          ],
+          "mean_scroll_px_per_frame": 35.166666666666664,
+          "observed_velocity_frames": 6,
+          "swing_x_px": [
+            null,
+            null,
+            null,
+            null,
+            -83.0,
+            -102.0,
+            -48.0,
+            -1.0,
+            122.0,
+            177.0,
+            null,
+            null
+          ]
+        },
+        "mean_absolute_speed_px_per_frame": 61.36363636363637,
+        "mean_scroll_px_per_frame": 37.0,
+        "near": {
+          "delta_px_per_frame": [
+            null,
+            78.0,
+            99.0,
+            85.0,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            -35.0,
+            -31.0
+          ],
+          "mean_scroll_px_per_frame": 39.2,
+          "observed_velocity_frames": 5,
+          "swing_x_px": [
+            -99.0,
+            -21.0,
+            78.0,
+            163.0,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            -79.0,
+            -110.0
+          ]
+        },
+        "planted_scroll_lineage": {
+          "far": {
+            "delta_px_per_frame": [
+              -30.0,
+              -55.0,
+              -35.0,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              -42.0,
+              -18.0
+            ],
+            "mean_scroll_px_per_frame": -36.0,
+            "planted_x_px": [
+              86.0,
+              56.0,
+              1.0,
+              -34.0,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              146.0,
+              104.0
+            ],
+            "slip_px_per_frame": [
+              6.0,
+              -19.0,
+              1.0,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              -6.0,
+              18.0
+            ],
+            "slip_rms_px_per_frame": 12.312595177297109
+          },
+          "mean_scroll_px_per_frame": -38.1,
+          "near": {
+            "delta_px_per_frame": [
+              null,
+              null,
+              null,
+              null,
+              -35.0,
+              -49.0,
+              -35.0,
+              -37.0,
+              -45.0,
+              null,
+              null,
+              null
+            ],
+            "mean_scroll_px_per_frame": -40.2,
+            "planted_x_px": [
+              null,
+              null,
+              null,
+              null,
+              157.0,
+              122.0,
+              73.0,
+              38.0,
+              1.0,
+              -44.0,
+              null,
+              null
+            ],
+            "slip_px_per_frame": [
+              null,
+              null,
+              null,
+              null,
+              5.200000000000003,
+              -8.799999999999997,
+              5.200000000000003,
+              3.200000000000003,
+              -4.799999999999997,
+              null,
+              null,
+              null
+            ],
+            "slip_rms_px_per_frame": 5.741080037762929
+          },
+          "slip_rms_px_per_frame": 9.833107342035884
+        }
+      },
+      "source": "annotation"
+    }
+  },
+  "phase_table": [
+    {
+      "boundary_contact": false,
+      "contact": false,
+      "contact_sides": [],
+      "frame": 0,
+      "lead_track": "far",
+      "mean_confidence": 0.7604166666666666,
+      "phase": "DOWN",
+      "planted": {
+        "far": true,
+        "near": false
+      },
+      "printed_phase": 1,
+      "reason": null,
+      "source": "annotation"
+    },
+    {
+      "boundary_contact": false,
+      "contact": false,
+      "contact_sides": [],
+      "frame": 1,
+      "lead_track": "far",
+      "mean_confidence": 0.7604166666666666,
+      "phase": "PASSING",
+      "planted": {
+        "far": true,
+        "near": false
+      },
+      "printed_phase": 2,
+      "reason": null,
+      "source": "annotation"
+    },
+    {
+      "boundary_contact": false,
+      "contact": false,
+      "contact_sides": [],
+      "frame": 2,
+      "lead_track": "far",
+      "mean_confidence": 0.7604166666666666,
+      "phase": "UP",
+      "planted": {
+        "far": true,
+        "near": false
+      },
+      "printed_phase": 3,
+      "reason": null,
+      "source": "annotation"
+    },
+    {
+      "boundary_contact": false,
+      "contact": false,
+      "contact_sides": [],
+      "frame": 3,
+      "lead_track": "far",
+      "mean_confidence": 0.7604166666666666,
+      "phase": "UP",
+      "planted": {
+        "far": true,
+        "near": false
+      },
+      "printed_phase": 4,
+      "reason": null,
+      "source": "annotation"
+    },
+    {
+      "boundary_contact": false,
+      "contact": true,
+      "contact_sides": [
+        "near"
+      ],
+      "frame": 4,
+      "lead_track": "near",
+      "mean_confidence": 0.7604166666666666,
+      "phase": "CONTACT",
+      "planted": {
+        "far": false,
+        "near": true
+      },
+      "printed_phase": 5,
+      "reason": null,
+      "source": "annotation"
+    },
+    {
+      "boundary_contact": false,
+      "contact": false,
+      "contact_sides": [],
+      "frame": 5,
+      "lead_track": "near",
+      "mean_confidence": 0.7604166666666666,
+      "phase": "DOWN",
+      "planted": {
+        "far": false,
+        "near": true
+      },
+      "printed_phase": 6,
+      "reason": null,
+      "source": "annotation"
+    },
+    {
+      "boundary_contact": false,
+      "contact": false,
+      "contact_sides": [],
+      "frame": 6,
+      "lead_track": "near",
+      "mean_confidence": 0.7604166666666666,
+      "phase": "DOWN",
+      "planted": {
+        "far": false,
+        "near": true
+      },
+      "printed_phase": 7,
+      "reason": null,
+      "source": "annotation"
+    },
+    {
+      "boundary_contact": false,
+      "contact": false,
+      "contact_sides": [],
+      "frame": 7,
+      "lead_track": "near",
+      "mean_confidence": 0.7604166666666666,
+      "phase": "PASSING",
+      "planted": {
+        "far": false,
+        "near": true
+      },
+      "printed_phase": 8,
+      "reason": null,
+      "source": "annotation"
+    },
+    {
+      "boundary_contact": false,
+      "contact": false,
+      "contact_sides": [],
+      "frame": 8,
+      "lead_track": "near",
+      "mean_confidence": 0.7604166666666666,
+      "phase": "UP",
+      "planted": {
+        "far": false,
+        "near": true
+      },
+      "printed_phase": 9,
+      "reason": null,
+      "source": "annotation"
+    },
+    {
+      "boundary_contact": false,
+      "contact": false,
+      "contact_sides": [],
+      "frame": 9,
+      "lead_track": "near",
+      "mean_confidence": 0.7604166666666666,
+      "phase": "UP",
+      "planted": {
+        "far": false,
+        "near": true
+      },
+      "printed_phase": 10,
+      "reason": null,
+      "source": "annotation"
+    },
+    {
+      "boundary_contact": false,
+      "contact": true,
+      "contact_sides": [
+        "far"
+      ],
+      "frame": 10,
+      "lead_track": "far",
+      "mean_confidence": 0.7604166666666666,
+      "phase": "CONTACT",
+      "planted": {
+        "far": true,
+        "near": false
+      },
+      "printed_phase": 11,
+      "reason": null,
+      "source": "annotation"
+    },
+    {
+      "boundary_contact": false,
+      "contact": false,
+      "contact_sides": [],
+      "frame": 11,
+      "lead_track": "far",
+      "mean_confidence": 0.7604166666666666,
+      "phase": "DOWN",
+      "planted": {
+        "far": true,
+        "near": false
+      },
+      "printed_phase": 12,
+      "reason": null,
+      "source": "annotation"
+    }
+  ],
+  "provenance": {
+    "annotation_path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/T1a-ann-13L/annotation.json",
+    "coordinates": "per-frame ground-relative height and hip-relative x",
+    "fps": 8.33,
+    "frame_names": [],
+    "frames": 12,
+    "k_lat": 0.5,
+    "k_vert": 2.0,
+    "mask_params": null,
+    "pattern": "*.png",
+    "plate": "13",
+    "reference_path": null,
+    "row": "lateral",
+    "source": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/T1a-ann-13L/annotation.json",
+    "source_note": "Muybridge public domain",
+    "stride_notes": {
+      "contact_frames": [
+        3,
+        9
+      ],
+      "passing_frames": [
+        1,
+        7
+      ]
+    },
+    "subject_height_px": 658.9166666666666
+  },
+  "summary": {
+    "H_mean": 658.9166666666666,
+    "H_per_frame": [
+      651.0,
+      658.0,
+      676.0,
+      673.0,
+      666.0,
+      669.0,
+      653.0,
+      657.0,
+      653.0,
+      650.0,
+      651.0,
+      650.0
+    ],
+    "W1": 0.03945870747438978,
+    "W1_sanity_1_5_pct_H": true,
+    "W2": {
+      "coordinate": "height above per-frame ground; min=lowest head, max=highest head",
+      "max": [
+        {
+          "frame": 2,
+          "phase": "UP"
+        }
+      ],
+      "min": [
+        {
+          "frame": 9,
+          "phase": "UP"
+        },
+        {
+          "frame": 11,
+          "phase": "DOWN"
+        }
+      ]
+    },
+    "W3a": 0.22982940158427193,
+    "W3b": -0.3473557692307692,
+    "W3c": 2,
+    "W4": 4,
+    "W5": {
+      "far": 0.2291640318704945,
+      "near": 0.13051726318452006
+    },
+    "W6": 0.5416666666666666,
+    "W6_per_arm": {
+      "far": 0.6666666666666666,
+      "near": 0.4166666666666667
+    },
+    "contact_frames": [
+      4,
+      10
+    ],
+    "mean_confidence": 0.7604166666666666,
+    "minima_frames": [
+      4,
+      6,
+      9,
+      11
+    ],
+    "signed_area_px2": -144.5,
+    "sole_heights": {
+      "far": [
+        2.0,
+        3.0,
+        3.0,
+        3.0,
+        15.0,
+        28.0,
+        45.0,
+        44.0,
+        20.0,
+        31.0,
+        11.0,
+        11.0
+      ],
+      "near": [
+        32.0,
+        27.0,
+        5.0,
+        17.0,
+        4.0,
+        3.0,
+        3.0,
+        4.0,
+        5.0,
+        7.0,
+        16.0,
+        38.0
+      ]
+    },
+    "sole_scroll": {
+      "estimator": "backward velocity on observed non-planted frames; missing tracks and seam excluded",
+      "far": {
+        "delta_px_per_frame": [
+          null,
+          null,
+          null,
+          null,
+          -49.0,
+          -19.0,
+          54.0,
+          47.0,
+          123.0,
+          55.0,
+          null,
+          null
+        ],
+        "mean_scroll_px_per_frame": 35.166666666666664,
+        "observed_velocity_frames": 6,
+        "swing_x_px": [
+          null,
+          null,
+          null,
+          null,
+          -83.0,
+          -102.0,
+          -48.0,
+          -1.0,
+          122.0,
+          177.0,
+          null,
+          null
+        ]
+      },
+      "mean_absolute_speed_px_per_frame": 61.36363636363637,
+      "mean_scroll_px_per_frame": 37.0,
+      "near": {
+        "delta_px_per_frame": [
+          null,
+          78.0,
+          99.0,
+          85.0,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          -35.0,
+          -31.0
+        ],
+        "mean_scroll_px_per_frame": 39.2,
+        "observed_velocity_frames": 5,
+        "swing_x_px": [
+          -99.0,
+          -21.0,
+          78.0,
+          163.0,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          -79.0,
+          -110.0
+        ]
+      },
+      "planted_scroll_lineage": {
+        "far": {
+          "delta_px_per_frame": [
+            -30.0,
+            -55.0,
+            -35.0,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            -42.0,
+            -18.0
+          ],
+          "mean_scroll_px_per_frame": -36.0,
+          "planted_x_px": [
+            86.0,
+            56.0,
+            1.0,
+            -34.0,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            146.0,
+            104.0
+          ],
+          "slip_px_per_frame": [
+            6.0,
+            -19.0,
+            1.0,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            -6.0,
+            18.0
+          ],
+          "slip_rms_px_per_frame": 12.312595177297109
+        },
+        "mean_scroll_px_per_frame": -38.1,
+        "near": {
+          "delta_px_per_frame": [
+            null,
+            null,
+            null,
+            null,
+            -35.0,
+            -49.0,
+            -35.0,
+            -37.0,
+            -45.0,
+            null,
+            null,
+            null
+          ],
+          "mean_scroll_px_per_frame": -40.2,
+          "planted_x_px": [
+            null,
+            null,
+            null,
+            null,
+            157.0,
+            122.0,
+            73.0,
+            38.0,
+            1.0,
+            -44.0,
+            null,
+            null
+          ],
+          "slip_px_per_frame": [
+            null,
+            null,
+            null,
+            null,
+            5.200000000000003,
+            -8.799999999999997,
+            5.200000000000003,
+            3.200000000000003,
+            -4.799999999999997,
+            null,
+            null,
+            null
+          ],
+          "slip_rms_px_per_frame": 5.741080037762929
+        },
+        "slip_rms_px_per_frame": 9.833107342035884
+      }
+    },
+    "source": "annotation"
+  },
+  "value": {
+    "H_mean": 658.9166666666666,
+    "H_per_frame": [
+      651.0,
+      658.0,
+      676.0,
+      673.0,
+      666.0,
+      669.0,
+      653.0,
+      657.0,
+      653.0,
+      650.0,
+      651.0,
+      650.0
+    ],
+    "W1": 0.03945870747438978,
+    "W1_sanity_1_5_pct_H": true,
+    "W2": {
+      "coordinate": "height above per-frame ground; min=lowest head, max=highest head",
+      "max": [
+        {
+          "frame": 2,
+          "phase": "UP"
+        }
+      ],
+      "min": [
+        {
+          "frame": 9,
+          "phase": "UP"
+        },
+        {
+          "frame": 11,
+          "phase": "DOWN"
+        }
+      ]
+    },
+    "W3a": 0.22982940158427193,
+    "W3b": -0.3473557692307692,
+    "W3c": 2,
+    "W4": 4,
+    "W5": {
+      "far": 0.2291640318704945,
+      "near": 0.13051726318452006
+    },
+    "W6": 0.5416666666666666,
+    "W6_per_arm": {
+      "far": 0.6666666666666666,
+      "near": 0.4166666666666667
+    },
+    "contact_frames": [
+      4,
+      10
+    ],
+    "mean_confidence": 0.7604166666666666,
+    "minima_frames": [
+      4,
+      6,
+      9,
+      11
+    ],
+    "signed_area_px2": -144.5,
+    "sole_heights": {
+      "far": [
+        2.0,
+        3.0,
+        3.0,
+        3.0,
+        15.0,
+        28.0,
+        45.0,
+        44.0,
+        20.0,
+        31.0,
+        11.0,
+        11.0
+      ],
+      "near": [
+        32.0,
+        27.0,
+        5.0,
+        17.0,
+        4.0,
+        3.0,
+        3.0,
+        4.0,
+        5.0,
+        7.0,
+        16.0,
+        38.0
+      ]
+    },
+    "sole_scroll": {
+      "estimator": "backward velocity on observed non-planted frames; missing tracks and seam excluded",
+      "far": {
+        "delta_px_per_frame": [
+          null,
+          null,
+          null,
+          null,
+          -49.0,
+          -19.0,
+          54.0,
+          47.0,
+          123.0,
+          55.0,
+          null,
+          null
+        ],
+        "mean_scroll_px_per_frame": 35.166666666666664,
+        "observed_velocity_frames": 6,
+        "swing_x_px": [
+          null,
+          null,
+          null,
+          null,
+          -83.0,
+          -102.0,
+          -48.0,
+          -1.0,
+          122.0,
+          177.0,
+          null,
+          null
+        ]
+      },
+      "mean_absolute_speed_px_per_frame": 61.36363636363637,
+      "mean_scroll_px_per_frame": 37.0,
+      "near": {
+        "delta_px_per_frame": [
+          null,
+          78.0,
+          99.0,
+          85.0,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          -35.0,
+          -31.0
+        ],
+        "mean_scroll_px_per_frame": 39.2,
+        "observed_velocity_frames": 5,
+        "swing_x_px": [
+          -99.0,
+          -21.0,
+          78.0,
+          163.0,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          -79.0,
+          -110.0
+        ]
+      },
+      "planted_scroll_lineage": {
+        "far": {
+          "delta_px_per_frame": [
+            -30.0,
+            -55.0,
+            -35.0,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            -42.0,
+            -18.0
+          ],
+          "mean_scroll_px_per_frame": -36.0,
+          "planted_x_px": [
+            86.0,
+            56.0,
+            1.0,
+            -34.0,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            146.0,
+            104.0
+          ],
+          "slip_px_per_frame": [
+            6.0,
+            -19.0,
+            1.0,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            -6.0,
+            18.0
+          ],
+          "slip_rms_px_per_frame": 12.312595177297109
+        },
+        "mean_scroll_px_per_frame": -38.1,
+        "near": {
+          "delta_px_per_frame": [
+            null,
+            null,
+            null,
+            null,
+            -35.0,
+            -49.0,
+            -35.0,
+            -37.0,
+            -45.0,
+            null,
+            null,
+            null
+          ],
+          "mean_scroll_px_per_frame": -40.2,
+          "planted_x_px": [
+            null,
+            null,
+            null,
+            null,
+            157.0,
+            122.0,
+            73.0,
+            38.0,
+            1.0,
+            -44.0,
+            null,
+            null
+          ],
+          "slip_px_per_frame": [
+            null,
+            null,
+            null,
+            null,
+            5.200000000000003,
+            -8.799999999999997,
+            5.200000000000003,
+            3.200000000000003,
+            -4.799999999999997,
+            null,
+            null,
+            null
+          ],
+          "slip_rms_px_per_frame": 5.741080037762929
+        },
+        "slip_rms_px_per_frame": 9.833107342035884
+      }
+    },
+    "source": "annotation"
+  },
+  "commit_note": "R-29 (R-a/R-e) 2026-09-12 — RULES commit: annotation-path W4 value 4 and W6 value 0.5417 disagree with the rules (2 / 0.75) at mean confidence 0.76 while the mask path agrees (2 / 1.0); disclosed, not hidden. Only this row is committed; plate13_lateral (mask), plate13_front, plate13_rear, plate2_lateral stay report-only."
+}

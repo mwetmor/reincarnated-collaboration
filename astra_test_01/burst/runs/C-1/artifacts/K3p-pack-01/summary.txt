@@ -1,0 +1,12 @@
+K3p-pack-01 | provisional relaxed band R-c | Matt ruling pending; all passed flags copied.
+Breath minimum: 0.677520499 %H / >=1.958382 %H (band 1.958382–4.895956; target 3.263970) / passed=false.
+Breath maximum: 0.677520499 %H / <=4.895956 %H / passed=true.
+Head minimum: 1.413367779 %H / >=0 %H (band 0–1.2) / passed=true.
+Head maximum: 1.413367779 %H / <=1.2 %H / passed=false.
+Regions: 3 mismatches / required 0 / passed=false; hips, arms_left, arms_right are MOTION instead of LOCK.
+Region classes: LOCK legs, feet; MOTION head, shoulders_chest, hips, arms_left, arms_right; epsilon 0.4 %H; head class unspecified.
+Feet lock: 0 %H / <=0.25 %H / passed=true. Aggregate idle_intent passed=false (source flag).
+C-1 largest constraint deltas: unavailable; no C-1 constraint checks supplied, so ranking cannot be substantiated.
+Current seam MAD 0.3704401652; G6 bound 0.0803159078, G6b/G6c bound 0.3434638977; all passed=false; C-1 value/delta unavailable.
+Current sole-line spread 0 px; threshold=null, passed=null; C-1 value/delta unavailable. G11 and silhouette thresholds absent.
+Previews: each 64 frames, 8 fps, 8 s; 2x NEAREST 1024-square display only; original is C-2 before compositing, not C-1.

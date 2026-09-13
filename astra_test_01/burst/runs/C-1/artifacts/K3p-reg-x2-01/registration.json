@@ -1,0 +1,1167 @@
+{
+  "task_id": "K3p-reg-x2-01",
+  "attempt": 2,
+  "previous_attempt": "K3p-reg-01",
+  "transform_source": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-seed/registration_transform.json",
+  "transform": {
+    "cell_px": 627,
+    "scale": 0.5106,
+    "scaled_cell_px": 320,
+    "offset_xy": [
+      96,
+      112
+    ],
+    "frame_canvas": 512,
+    "pivot": [
+      256,
+      400
+    ],
+    "note": "uniform downscale + translation only; identical for every cell of every K3 sheet (all cells share the seed geometry)"
+  },
+  "actual_raster_scale": 0.5103668261562998,
+  "transform_method": "Matte native 627px cell with frozen extract(character, alpha_floor=40); shared LANCZOS reduction to 320px; unmasked paste at (96,112); integer translation only, with no resampling.",
+  "alpha_bbox_convention": "alpha >= 128; xyxy with exclusive upper bounds; pixel-centre x=(x_min+x_max_exclusive-1)/2",
+  "horizontal_rounding": "Only translate when absolute centre difference >2px; nearest integer, half ties away from zero.",
+  "sole_reference": {
+    "frame": 0,
+    "line_y": 399
+  },
+  "atlas_pivot": [
+    256,
+    400
+  ],
+  "pivot_note": "Declared atlas pivot; sole alignment is independently measured and does not assert reviewed anatomical anchor validation.",
+  "seed_persistence": {
+    "metric": "maximum absolute channel delta on native 627px slot-0 cells; raw RGBA and frozen-matted RGBA recorded separately",
+    "max_abs_delta": 255,
+    "raw_max_abs_delta": 193,
+    "matte_noise_tolerance": "Not numerically specified in brief; report all nonzero differences conservatively.",
+    "comparisons": [
+      {
+        "source_sheet": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-gen-idle-x2-02/k3p_idle_x2_S_04_06.png",
+        "slot": 0,
+        "reference_sheet": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-gen-idle-x2-01/k3p_idle_x2_S_01_03.png",
+        "raw_rgba_max_abs_delta": 180,
+        "matted_rgba_max_abs_delta": 237,
+        "matted_rgba_mean_abs_delta": 0.6268203312398729,
+        "changed_matted_pixels": 44932,
+        "common_opaque_rgb_max_abs_delta": 131
+      },
+      {
+        "source_sheet": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-gen-idle-x2-03/k3p_idle_x2_S_07_09.png",
+        "slot": 0,
+        "reference_sheet": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-gen-idle-x2-01/k3p_idle_x2_S_01_03.png",
+        "raw_rgba_max_abs_delta": 166,
+        "matted_rgba_max_abs_delta": 255,
+        "matted_rgba_mean_abs_delta": 0.7185503994871912,
+        "changed_matted_pixels": 44614,
+        "common_opaque_rgb_max_abs_delta": 149
+      },
+      {
+        "source_sheet": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-gen-idle-x2-04/k3p_idle_x2_S_10_12.png",
+        "slot": 0,
+        "reference_sheet": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-gen-idle-x2-01/k3p_idle_x2_S_01_03.png",
+        "raw_rgba_max_abs_delta": 193,
+        "matted_rgba_max_abs_delta": 255,
+        "matted_rgba_mean_abs_delta": 0.8047962628043213,
+        "changed_matted_pixels": 44750,
+        "common_opaque_rgb_max_abs_delta": 145
+      },
+      {
+        "source_sheet": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-gen-idle-x2-05/k3p_idle_x2_S_13_15.png",
+        "slot": 0,
+        "reference_sheet": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-gen-idle-x2-01/k3p_idle_x2_S_01_03.png",
+        "raw_rgba_max_abs_delta": 160,
+        "matted_rgba_max_abs_delta": 226,
+        "matted_rgba_mean_abs_delta": 0.6941627302997235,
+        "changed_matted_pixels": 44773,
+        "common_opaque_rgb_max_abs_delta": 126
+      }
+    ]
+  },
+  "cells": [
+    {
+      "source_sheet": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-gen-idle-x2-01/k3p_idle_x2_S_01_03.png",
+      "slot": 0,
+      "crop_xyxy": [
+        0,
+        0,
+        627,
+        627
+      ],
+      "matte": {
+        "method": "green excess matte + inverse straight-alpha compositing",
+        "removed_background_or_detached_alpha_dust_pixels": 31,
+        "native_input_alpha": false,
+        "alpha_floor": 40,
+        "alpha_floor_removed_pixels": 348048
+      },
+      "cell_edge_alpha_max": 0,
+      "figure_touches_cell_edge_alpha128": false
+    },
+    {
+      "source_sheet": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-gen-idle-x2-01/k3p_idle_x2_S_01_03.png",
+      "slot": 1,
+      "crop_xyxy": [
+        627,
+        0,
+        1254,
+        627
+      ],
+      "matte": {
+        "method": "green excess matte + inverse straight-alpha compositing",
+        "removed_background_or_detached_alpha_dust_pixels": 36,
+        "native_input_alpha": false,
+        "alpha_floor": 40,
+        "alpha_floor_removed_pixels": 346714
+      },
+      "cell_edge_alpha_max": 0,
+      "figure_touches_cell_edge_alpha128": false
+    },
+    {
+      "source_sheet": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-gen-idle-x2-01/k3p_idle_x2_S_01_03.png",
+      "slot": 2,
+      "crop_xyxy": [
+        0,
+        627,
+        627,
+        1254
+      ],
+      "matte": {
+        "method": "green excess matte + inverse straight-alpha compositing",
+        "removed_background_or_detached_alpha_dust_pixels": 34,
+        "native_input_alpha": false,
+        "alpha_floor": 40,
+        "alpha_floor_removed_pixels": 346723
+      },
+      "cell_edge_alpha_max": 0,
+      "figure_touches_cell_edge_alpha128": false
+    },
+    {
+      "source_sheet": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-gen-idle-x2-01/k3p_idle_x2_S_01_03.png",
+      "slot": 3,
+      "crop_xyxy": [
+        627,
+        627,
+        1254,
+        1254
+      ],
+      "matte": {
+        "method": "green excess matte + inverse straight-alpha compositing",
+        "removed_background_or_detached_alpha_dust_pixels": 39,
+        "native_input_alpha": false,
+        "alpha_floor": 40,
+        "alpha_floor_removed_pixels": 346085
+      },
+      "cell_edge_alpha_max": 0,
+      "figure_touches_cell_edge_alpha128": false
+    },
+    {
+      "source_sheet": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-gen-idle-x2-02/k3p_idle_x2_S_04_06.png",
+      "slot": 0,
+      "crop_xyxy": [
+        0,
+        0,
+        627,
+        627
+      ],
+      "matte": {
+        "method": "green excess matte + inverse straight-alpha compositing",
+        "removed_background_or_detached_alpha_dust_pixels": 27,
+        "native_input_alpha": false,
+        "alpha_floor": 40,
+        "alpha_floor_removed_pixels": 348181
+      },
+      "cell_edge_alpha_max": 0,
+      "figure_touches_cell_edge_alpha128": false
+    },
+    {
+      "source_sheet": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-gen-idle-x2-02/k3p_idle_x2_S_04_06.png",
+      "slot": 1,
+      "crop_xyxy": [
+        627,
+        0,
+        1254,
+        627
+      ],
+      "matte": {
+        "method": "green excess matte + inverse straight-alpha compositing",
+        "removed_background_or_detached_alpha_dust_pixels": 31,
+        "native_input_alpha": false,
+        "alpha_floor": 40,
+        "alpha_floor_removed_pixels": 345929
+      },
+      "cell_edge_alpha_max": 0,
+      "figure_touches_cell_edge_alpha128": false
+    },
+    {
+      "source_sheet": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-gen-idle-x2-02/k3p_idle_x2_S_04_06.png",
+      "slot": 2,
+      "crop_xyxy": [
+        0,
+        627,
+        627,
+        1254
+      ],
+      "matte": {
+        "method": "green excess matte + inverse straight-alpha compositing",
+        "removed_background_or_detached_alpha_dust_pixels": 45,
+        "native_input_alpha": false,
+        "alpha_floor": 40,
+        "alpha_floor_removed_pixels": 346726
+      },
+      "cell_edge_alpha_max": 0,
+      "figure_touches_cell_edge_alpha128": false
+    },
+    {
+      "source_sheet": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-gen-idle-x2-02/k3p_idle_x2_S_04_06.png",
+      "slot": 3,
+      "crop_xyxy": [
+        627,
+        627,
+        1254,
+        1254
+      ],
+      "matte": {
+        "method": "green excess matte + inverse straight-alpha compositing",
+        "removed_background_or_detached_alpha_dust_pixels": 29,
+        "native_input_alpha": false,
+        "alpha_floor": 40,
+        "alpha_floor_removed_pixels": 347967
+      },
+      "cell_edge_alpha_max": 0,
+      "figure_touches_cell_edge_alpha128": false
+    },
+    {
+      "source_sheet": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-gen-idle-x2-03/k3p_idle_x2_S_07_09.png",
+      "slot": 0,
+      "crop_xyxy": [
+        0,
+        0,
+        627,
+        627
+      ],
+      "matte": {
+        "method": "green excess matte + inverse straight-alpha compositing",
+        "removed_background_or_detached_alpha_dust_pixels": 13,
+        "native_input_alpha": false,
+        "alpha_floor": 40,
+        "alpha_floor_removed_pixels": 348372
+      },
+      "cell_edge_alpha_max": 0,
+      "figure_touches_cell_edge_alpha128": false
+    },
+    {
+      "source_sheet": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-gen-idle-x2-03/k3p_idle_x2_S_07_09.png",
+      "slot": 1,
+      "crop_xyxy": [
+        627,
+        0,
+        1254,
+        627
+      ],
+      "matte": {
+        "method": "green excess matte + inverse straight-alpha compositing",
+        "removed_background_or_detached_alpha_dust_pixels": 28,
+        "native_input_alpha": false,
+        "alpha_floor": 40,
+        "alpha_floor_removed_pixels": 346975
+      },
+      "cell_edge_alpha_max": 0,
+      "figure_touches_cell_edge_alpha128": false
+    },
+    {
+      "source_sheet": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-gen-idle-x2-03/k3p_idle_x2_S_07_09.png",
+      "slot": 2,
+      "crop_xyxy": [
+        0,
+        627,
+        627,
+        1254
+      ],
+      "matte": {
+        "method": "green excess matte + inverse straight-alpha compositing",
+        "removed_background_or_detached_alpha_dust_pixels": 31,
+        "native_input_alpha": false,
+        "alpha_floor": 40,
+        "alpha_floor_removed_pixels": 348392
+      },
+      "cell_edge_alpha_max": 0,
+      "figure_touches_cell_edge_alpha128": false
+    },
+    {
+      "source_sheet": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-gen-idle-x2-03/k3p_idle_x2_S_07_09.png",
+      "slot": 3,
+      "crop_xyxy": [
+        627,
+        627,
+        1254,
+        1254
+      ],
+      "matte": {
+        "method": "green excess matte + inverse straight-alpha compositing",
+        "removed_background_or_detached_alpha_dust_pixels": 30,
+        "native_input_alpha": false,
+        "alpha_floor": 40,
+        "alpha_floor_removed_pixels": 348404
+      },
+      "cell_edge_alpha_max": 0,
+      "figure_touches_cell_edge_alpha128": false
+    },
+    {
+      "source_sheet": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-gen-idle-x2-04/k3p_idle_x2_S_10_12.png",
+      "slot": 0,
+      "crop_xyxy": [
+        0,
+        0,
+        627,
+        627
+      ],
+      "matte": {
+        "method": "green excess matte + inverse straight-alpha compositing",
+        "removed_background_or_detached_alpha_dust_pixels": 28,
+        "native_input_alpha": false,
+        "alpha_floor": 40,
+        "alpha_floor_removed_pixels": 348035
+      },
+      "cell_edge_alpha_max": 0,
+      "figure_touches_cell_edge_alpha128": false
+    },
+    {
+      "source_sheet": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-gen-idle-x2-04/k3p_idle_x2_S_10_12.png",
+      "slot": 1,
+      "crop_xyxy": [
+        627,
+        0,
+        1254,
+        627
+      ],
+      "matte": {
+        "method": "green excess matte + inverse straight-alpha compositing",
+        "removed_background_or_detached_alpha_dust_pixels": 27,
+        "native_input_alpha": false,
+        "alpha_floor": 40,
+        "alpha_floor_removed_pixels": 348863
+      },
+      "cell_edge_alpha_max": 0,
+      "figure_touches_cell_edge_alpha128": false
+    },
+    {
+      "source_sheet": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-gen-idle-x2-04/k3p_idle_x2_S_10_12.png",
+      "slot": 2,
+      "crop_xyxy": [
+        0,
+        627,
+        627,
+        1254
+      ],
+      "matte": {
+        "method": "green excess matte + inverse straight-alpha compositing",
+        "removed_background_or_detached_alpha_dust_pixels": 22,
+        "native_input_alpha": false,
+        "alpha_floor": 40,
+        "alpha_floor_removed_pixels": 348959
+      },
+      "cell_edge_alpha_max": 0,
+      "figure_touches_cell_edge_alpha128": false
+    },
+    {
+      "source_sheet": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-gen-idle-x2-04/k3p_idle_x2_S_10_12.png",
+      "slot": 3,
+      "crop_xyxy": [
+        627,
+        627,
+        1254,
+        1254
+      ],
+      "matte": {
+        "method": "green excess matte + inverse straight-alpha compositing",
+        "removed_background_or_detached_alpha_dust_pixels": 29,
+        "native_input_alpha": false,
+        "alpha_floor": 40,
+        "alpha_floor_removed_pixels": 348979
+      },
+      "cell_edge_alpha_max": 0,
+      "figure_touches_cell_edge_alpha128": false
+    },
+    {
+      "source_sheet": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-gen-idle-x2-05/k3p_idle_x2_S_13_15.png",
+      "slot": 0,
+      "crop_xyxy": [
+        0,
+        0,
+        627,
+        627
+      ],
+      "matte": {
+        "method": "green excess matte + inverse straight-alpha compositing",
+        "removed_background_or_detached_alpha_dust_pixels": 40,
+        "native_input_alpha": false,
+        "alpha_floor": 40,
+        "alpha_floor_removed_pixels": 348233
+      },
+      "cell_edge_alpha_max": 0,
+      "figure_touches_cell_edge_alpha128": false
+    },
+    {
+      "source_sheet": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-gen-idle-x2-05/k3p_idle_x2_S_13_15.png",
+      "slot": 1,
+      "crop_xyxy": [
+        627,
+        0,
+        1254,
+        627
+      ],
+      "matte": {
+        "method": "green excess matte + inverse straight-alpha compositing",
+        "removed_background_or_detached_alpha_dust_pixels": 38,
+        "native_input_alpha": false,
+        "alpha_floor": 40,
+        "alpha_floor_removed_pixels": 349046
+      },
+      "cell_edge_alpha_max": 0,
+      "figure_touches_cell_edge_alpha128": false
+    },
+    {
+      "source_sheet": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-gen-idle-x2-05/k3p_idle_x2_S_13_15.png",
+      "slot": 2,
+      "crop_xyxy": [
+        0,
+        627,
+        627,
+        1254
+      ],
+      "matte": {
+        "method": "green excess matte + inverse straight-alpha compositing",
+        "removed_background_or_detached_alpha_dust_pixels": 46,
+        "native_input_alpha": false,
+        "alpha_floor": 40,
+        "alpha_floor_removed_pixels": 348718
+      },
+      "cell_edge_alpha_max": 0,
+      "figure_touches_cell_edge_alpha128": false
+    },
+    {
+      "source_sheet": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-gen-idle-x2-05/k3p_idle_x2_S_13_15.png",
+      "slot": 3,
+      "crop_xyxy": [
+        627,
+        627,
+        1254,
+        1254
+      ],
+      "matte": {
+        "method": "green excess matte + inverse straight-alpha compositing",
+        "removed_background_or_detached_alpha_dust_pixels": 45,
+        "native_input_alpha": false,
+        "alpha_floor": 40,
+        "alpha_floor_removed_pixels": 348228
+      },
+      "cell_edge_alpha_max": 0,
+      "figure_touches_cell_edge_alpha128": false
+    }
+  ],
+  "frames": [
+    {
+      "frame": 0,
+      "path": "out/frames/idle/S/idle_S_00.png",
+      "source_sheet": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-gen-idle-x2-01/k3p_idle_x2_S_01_03.png",
+      "slot": 0,
+      "alpha_bbox_threshold": 128,
+      "alpha_bbox_before": [
+        210,
+        159,
+        303,
+        400
+      ],
+      "alpha_bbox": [
+        210,
+        159,
+        303,
+        400
+      ],
+      "alpha_nonzero_bbox": [
+        207,
+        157,
+        305,
+        402
+      ],
+      "bbox_height_px": 241,
+      "sole_line_before": 399,
+      "sole_line_after": 399,
+      "alpha_bbox_center_x_before": 256.0,
+      "alpha_bbox_center_x_after": 256.0,
+      "offsets_applied_xy": [
+        0,
+        0
+      ],
+      "total_paste_offset_xy": [
+        96,
+        112
+      ],
+      "translation_magnitude_px": 0.0,
+      "atlas_pivot": [
+        256,
+        400
+      ]
+    },
+    {
+      "frame": 1,
+      "path": "out/frames/idle/S/idle_S_01.png",
+      "source_sheet": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-gen-idle-x2-01/k3p_idle_x2_S_01_03.png",
+      "slot": 1,
+      "alpha_bbox_threshold": 128,
+      "alpha_bbox_before": [
+        208,
+        159,
+        302,
+        400
+      ],
+      "alpha_bbox": [
+        208,
+        159,
+        302,
+        400
+      ],
+      "alpha_nonzero_bbox": [
+        205,
+        156,
+        305,
+        402
+      ],
+      "bbox_height_px": 241,
+      "sole_line_before": 399,
+      "sole_line_after": 399,
+      "alpha_bbox_center_x_before": 254.5,
+      "alpha_bbox_center_x_after": 254.5,
+      "offsets_applied_xy": [
+        0,
+        0
+      ],
+      "total_paste_offset_xy": [
+        96,
+        112
+      ],
+      "translation_magnitude_px": 0.0,
+      "atlas_pivot": [
+        256,
+        400
+      ]
+    },
+    {
+      "frame": 2,
+      "path": "out/frames/idle/S/idle_S_02.png",
+      "source_sheet": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-gen-idle-x2-01/k3p_idle_x2_S_01_03.png",
+      "slot": 2,
+      "alpha_bbox_threshold": 128,
+      "alpha_bbox_before": [
+        209,
+        152,
+        303,
+        393
+      ],
+      "alpha_bbox": [
+        209,
+        159,
+        303,
+        400
+      ],
+      "alpha_nonzero_bbox": [
+        206,
+        156,
+        306,
+        403
+      ],
+      "bbox_height_px": 241,
+      "sole_line_before": 392,
+      "sole_line_after": 399,
+      "alpha_bbox_center_x_before": 255.5,
+      "alpha_bbox_center_x_after": 255.5,
+      "offsets_applied_xy": [
+        0,
+        7
+      ],
+      "total_paste_offset_xy": [
+        96,
+        119
+      ],
+      "translation_magnitude_px": 7.0,
+      "atlas_pivot": [
+        256,
+        400
+      ]
+    },
+    {
+      "frame": 3,
+      "path": "out/frames/idle/S/idle_S_03.png",
+      "source_sheet": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-gen-idle-x2-01/k3p_idle_x2_S_01_03.png",
+      "slot": 3,
+      "alpha_bbox_threshold": 128,
+      "alpha_bbox_before": [
+        207,
+        152,
+        302,
+        393
+      ],
+      "alpha_bbox": [
+        207,
+        159,
+        302,
+        400
+      ],
+      "alpha_nonzero_bbox": [
+        204,
+        156,
+        305,
+        403
+      ],
+      "bbox_height_px": 241,
+      "sole_line_before": 392,
+      "sole_line_after": 399,
+      "alpha_bbox_center_x_before": 254.0,
+      "alpha_bbox_center_x_after": 254.0,
+      "offsets_applied_xy": [
+        0,
+        7
+      ],
+      "total_paste_offset_xy": [
+        96,
+        119
+      ],
+      "translation_magnitude_px": 7.0,
+      "atlas_pivot": [
+        256,
+        400
+      ]
+    },
+    {
+      "frame": 4,
+      "path": "out/frames/idle/S/idle_S_04.png",
+      "source_sheet": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-gen-idle-x2-02/k3p_idle_x2_S_04_06.png",
+      "slot": 1,
+      "alpha_bbox_threshold": 128,
+      "alpha_bbox_before": [
+        207,
+        156,
+        301,
+        400
+      ],
+      "alpha_bbox": [
+        210,
+        156,
+        304,
+        400
+      ],
+      "alpha_nonzero_bbox": [
+        207,
+        153,
+        307,
+        403
+      ],
+      "bbox_height_px": 244,
+      "sole_line_before": 399,
+      "sole_line_after": 399,
+      "alpha_bbox_center_x_before": 253.5,
+      "alpha_bbox_center_x_after": 256.5,
+      "offsets_applied_xy": [
+        3,
+        0
+      ],
+      "total_paste_offset_xy": [
+        99,
+        112
+      ],
+      "translation_magnitude_px": 3.0,
+      "atlas_pivot": [
+        256,
+        400
+      ]
+    },
+    {
+      "frame": 5,
+      "path": "out/frames/idle/S/idle_S_05.png",
+      "source_sheet": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-gen-idle-x2-02/k3p_idle_x2_S_04_06.png",
+      "slot": 2,
+      "alpha_bbox_threshold": 128,
+      "alpha_bbox_before": [
+        208,
+        146,
+        302,
+        387
+      ],
+      "alpha_bbox": [
+        208,
+        159,
+        302,
+        400
+      ],
+      "alpha_nonzero_bbox": [
+        205,
+        156,
+        305,
+        403
+      ],
+      "bbox_height_px": 241,
+      "sole_line_before": 386,
+      "sole_line_after": 399,
+      "alpha_bbox_center_x_before": 254.5,
+      "alpha_bbox_center_x_after": 254.5,
+      "offsets_applied_xy": [
+        0,
+        13
+      ],
+      "total_paste_offset_xy": [
+        96,
+        125
+      ],
+      "translation_magnitude_px": 13.0,
+      "atlas_pivot": [
+        256,
+        400
+      ]
+    },
+    {
+      "frame": 6,
+      "path": "out/frames/idle/S/idle_S_06.png",
+      "source_sheet": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-gen-idle-x2-02/k3p_idle_x2_S_04_06.png",
+      "slot": 3,
+      "alpha_bbox_threshold": 128,
+      "alpha_bbox_before": [
+        208,
+        146,
+        302,
+        387
+      ],
+      "alpha_bbox": [
+        208,
+        159,
+        302,
+        400
+      ],
+      "alpha_nonzero_bbox": [
+        206,
+        156,
+        305,
+        403
+      ],
+      "bbox_height_px": 241,
+      "sole_line_before": 386,
+      "sole_line_after": 399,
+      "alpha_bbox_center_x_before": 254.5,
+      "alpha_bbox_center_x_after": 254.5,
+      "offsets_applied_xy": [
+        0,
+        13
+      ],
+      "total_paste_offset_xy": [
+        96,
+        125
+      ],
+      "translation_magnitude_px": 13.0,
+      "atlas_pivot": [
+        256,
+        400
+      ]
+    },
+    {
+      "frame": 7,
+      "path": "out/frames/idle/S/idle_S_07.png",
+      "source_sheet": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-gen-idle-x2-03/k3p_idle_x2_S_07_09.png",
+      "slot": 1,
+      "alpha_bbox_threshold": 128,
+      "alpha_bbox_before": [
+        202,
+        156,
+        295,
+        400
+      ],
+      "alpha_bbox": [
+        210,
+        156,
+        303,
+        400
+      ],
+      "alpha_nonzero_bbox": [
+        207,
+        153,
+        305,
+        403
+      ],
+      "bbox_height_px": 244,
+      "sole_line_before": 399,
+      "sole_line_after": 399,
+      "alpha_bbox_center_x_before": 248.0,
+      "alpha_bbox_center_x_after": 256.0,
+      "offsets_applied_xy": [
+        8,
+        0
+      ],
+      "total_paste_offset_xy": [
+        104,
+        112
+      ],
+      "translation_magnitude_px": 8.0,
+      "atlas_pivot": [
+        256,
+        400
+      ]
+    },
+    {
+      "frame": 8,
+      "path": "out/frames/idle/S/idle_S_08.png",
+      "source_sheet": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-gen-idle-x2-03/k3p_idle_x2_S_07_09.png",
+      "slot": 2,
+      "alpha_bbox_threshold": 128,
+      "alpha_bbox_before": [
+        210,
+        146,
+        302,
+        386
+      ],
+      "alpha_bbox": [
+        210,
+        160,
+        302,
+        400
+      ],
+      "alpha_nonzero_bbox": [
+        207,
+        158,
+        305,
+        403
+      ],
+      "bbox_height_px": 240,
+      "sole_line_before": 385,
+      "sole_line_after": 399,
+      "alpha_bbox_center_x_before": 255.5,
+      "alpha_bbox_center_x_after": 255.5,
+      "offsets_applied_xy": [
+        0,
+        14
+      ],
+      "total_paste_offset_xy": [
+        96,
+        126
+      ],
+      "translation_magnitude_px": 14.0,
+      "atlas_pivot": [
+        256,
+        400
+      ]
+    },
+    {
+      "frame": 9,
+      "path": "out/frames/idle/S/idle_S_09.png",
+      "source_sheet": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-gen-idle-x2-03/k3p_idle_x2_S_07_09.png",
+      "slot": 3,
+      "alpha_bbox_threshold": 128,
+      "alpha_bbox_before": [
+        202,
+        146,
+        295,
+        386
+      ],
+      "alpha_bbox": [
+        210,
+        160,
+        303,
+        400
+      ],
+      "alpha_nonzero_bbox": [
+        207,
+        157,
+        305,
+        403
+      ],
+      "bbox_height_px": 240,
+      "sole_line_before": 385,
+      "sole_line_after": 399,
+      "alpha_bbox_center_x_before": 248.0,
+      "alpha_bbox_center_x_after": 256.0,
+      "offsets_applied_xy": [
+        8,
+        14
+      ],
+      "total_paste_offset_xy": [
+        104,
+        126
+      ],
+      "translation_magnitude_px": 16.1245154965971,
+      "atlas_pivot": [
+        256,
+        400
+      ]
+    },
+    {
+      "frame": 10,
+      "path": "out/frames/idle/S/idle_S_10.png",
+      "source_sheet": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-gen-idle-x2-04/k3p_idle_x2_S_10_12.png",
+      "slot": 1,
+      "alpha_bbox_threshold": 128,
+      "alpha_bbox_before": [
+        209,
+        160,
+        303,
+        400
+      ],
+      "alpha_bbox": [
+        209,
+        160,
+        303,
+        400
+      ],
+      "alpha_nonzero_bbox": [
+        206,
+        157,
+        306,
+        403
+      ],
+      "bbox_height_px": 240,
+      "sole_line_before": 399,
+      "sole_line_after": 399,
+      "alpha_bbox_center_x_before": 255.5,
+      "alpha_bbox_center_x_after": 255.5,
+      "offsets_applied_xy": [
+        0,
+        0
+      ],
+      "total_paste_offset_xy": [
+        96,
+        112
+      ],
+      "translation_magnitude_px": 0.0,
+      "atlas_pivot": [
+        256,
+        400
+      ]
+    },
+    {
+      "frame": 11,
+      "path": "out/frames/idle/S/idle_S_11.png",
+      "source_sheet": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-gen-idle-x2-04/k3p_idle_x2_S_10_12.png",
+      "slot": 2,
+      "alpha_bbox_threshold": 128,
+      "alpha_bbox_before": [
+        209,
+        160,
+        303,
+        400
+      ],
+      "alpha_bbox": [
+        209,
+        160,
+        303,
+        400
+      ],
+      "alpha_nonzero_bbox": [
+        206,
+        157,
+        306,
+        403
+      ],
+      "bbox_height_px": 240,
+      "sole_line_before": 399,
+      "sole_line_after": 399,
+      "alpha_bbox_center_x_before": 255.5,
+      "alpha_bbox_center_x_after": 255.5,
+      "offsets_applied_xy": [
+        0,
+        0
+      ],
+      "total_paste_offset_xy": [
+        96,
+        112
+      ],
+      "translation_magnitude_px": 0.0,
+      "atlas_pivot": [
+        256,
+        400
+      ]
+    },
+    {
+      "frame": 12,
+      "path": "out/frames/idle/S/idle_S_12.png",
+      "source_sheet": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-gen-idle-x2-04/k3p_idle_x2_S_10_12.png",
+      "slot": 3,
+      "alpha_bbox_threshold": 128,
+      "alpha_bbox_before": [
+        209,
+        160,
+        303,
+        400
+      ],
+      "alpha_bbox": [
+        209,
+        160,
+        303,
+        400
+      ],
+      "alpha_nonzero_bbox": [
+        206,
+        157,
+        306,
+        403
+      ],
+      "bbox_height_px": 240,
+      "sole_line_before": 399,
+      "sole_line_after": 399,
+      "alpha_bbox_center_x_before": 255.5,
+      "alpha_bbox_center_x_after": 255.5,
+      "offsets_applied_xy": [
+        0,
+        0
+      ],
+      "total_paste_offset_xy": [
+        96,
+        112
+      ],
+      "translation_magnitude_px": 0.0,
+      "atlas_pivot": [
+        256,
+        400
+      ]
+    },
+    {
+      "frame": 13,
+      "path": "out/frames/idle/S/idle_S_13.png",
+      "source_sheet": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-gen-idle-x2-05/k3p_idle_x2_S_13_15.png",
+      "slot": 1,
+      "alpha_bbox_threshold": 128,
+      "alpha_bbox_before": [
+        209,
+        160,
+        302,
+        400
+      ],
+      "alpha_bbox": [
+        209,
+        160,
+        302,
+        400
+      ],
+      "alpha_nonzero_bbox": [
+        206,
+        157,
+        305,
+        403
+      ],
+      "bbox_height_px": 240,
+      "sole_line_before": 399,
+      "sole_line_after": 399,
+      "alpha_bbox_center_x_before": 255.0,
+      "alpha_bbox_center_x_after": 255.0,
+      "offsets_applied_xy": [
+        0,
+        0
+      ],
+      "total_paste_offset_xy": [
+        96,
+        112
+      ],
+      "translation_magnitude_px": 0.0,
+      "atlas_pivot": [
+        256,
+        400
+      ]
+    },
+    {
+      "frame": 14,
+      "path": "out/frames/idle/S/idle_S_14.png",
+      "source_sheet": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-gen-idle-x2-05/k3p_idle_x2_S_13_15.png",
+      "slot": 2,
+      "alpha_bbox_threshold": 128,
+      "alpha_bbox_before": [
+        209,
+        159,
+        302,
+        400
+      ],
+      "alpha_bbox": [
+        209,
+        159,
+        302,
+        400
+      ],
+      "alpha_nonzero_bbox": [
+        206,
+        157,
+        305,
+        403
+      ],
+      "bbox_height_px": 241,
+      "sole_line_before": 399,
+      "sole_line_after": 399,
+      "alpha_bbox_center_x_before": 255.0,
+      "alpha_bbox_center_x_after": 255.0,
+      "offsets_applied_xy": [
+        0,
+        0
+      ],
+      "total_paste_offset_xy": [
+        96,
+        112
+      ],
+      "translation_magnitude_px": 0.0,
+      "atlas_pivot": [
+        256,
+        400
+      ]
+    },
+    {
+      "frame": 15,
+      "path": "out/frames/idle/S/idle_S_15.png",
+      "source_sheet": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-gen-idle-x2-05/k3p_idle_x2_S_13_15.png",
+      "slot": 3,
+      "alpha_bbox_threshold": 128,
+      "alpha_bbox_before": [
+        209,
+        159,
+        302,
+        400
+      ],
+      "alpha_bbox": [
+        209,
+        159,
+        302,
+        400
+      ],
+      "alpha_nonzero_bbox": [
+        206,
+        157,
+        305,
+        403
+      ],
+      "bbox_height_px": 241,
+      "sole_line_before": 399,
+      "sole_line_after": 399,
+      "alpha_bbox_center_x_before": 255.0,
+      "alpha_bbox_center_x_after": 255.0,
+      "offsets_applied_xy": [
+        0,
+        0
+      ],
+      "total_paste_offset_xy": [
+        96,
+        112
+      ],
+      "translation_magnitude_px": 0.0,
+      "atlas_pivot": [
+        256,
+        400
+      ]
+    }
+  ],
+  "concerns": [
+    "Sheet 2 slot 0 differs from seed: matted RGBA max absolute delta 237/255; common opaque RGB max delta 131/255. No numerical matte-noise tolerance is supplied; difference is not certified as matte noise.",
+    "Sheet 3 slot 0 differs from seed: matted RGBA max absolute delta 255/255; common opaque RGB max delta 149/255. No numerical matte-noise tolerance is supplied; difference is not certified as matte noise.",
+    "Sheet 4 slot 0 differs from seed: matted RGBA max absolute delta 255/255; common opaque RGB max delta 145/255. No numerical matte-noise tolerance is supplied; difference is not certified as matte noise.",
+    "Sheet 5 slot 0 differs from seed: matted RGBA max absolute delta 226/255; common opaque RGB max delta 126/255. No numerical matte-noise tolerance is supplied; difference is not certified as matte noise.",
+    "Frame 02 requires integer translation (0,7) px; magnitude 7.000 px exceeds 6 px.",
+    "Frame 03 requires integer translation (0,7) px; magnitude 7.000 px exceeds 6 px.",
+    "Frame 05 requires integer translation (0,13) px; magnitude 13.000 px exceeds 6 px.",
+    "Frame 06 requires integer translation (0,13) px; magnitude 13.000 px exceeds 6 px.",
+    "Frame 07 requires integer translation (8,0) px; magnitude 8.000 px exceeds 6 px.",
+    "Frame 08 requires integer translation (0,14) px; magnitude 14.000 px exceeds 6 px.",
+    "Frame 09 requires integer translation (8,14) px; magnitude 16.125 px exceeds 6 px."
+  ]
+}

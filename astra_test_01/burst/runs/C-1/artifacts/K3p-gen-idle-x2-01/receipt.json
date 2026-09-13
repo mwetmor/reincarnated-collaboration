@@ -1,0 +1,41 @@
+{
+  "task_id": "K3p-gen-idle-x2-01",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "k3p_idle_x2_S_01_03.png",
+      "path": "out/k3p_idle_x2_S_01_03.png",
+      "sha256": "f61275eeb38bfcdb36928f86b9946afd683f222e91d9d288f752d0e2aa2956a0",
+      "prompt": "Use case: identity-preserve. EDIT the supplied Image 1 canvas. Deliver exactly ONE 1254×1254 PNG, a 2×2 animation sheet of 627×627 cells, no borders, labels or gutters, on flat pure #00ff00.\n\nSLOT 0 TOP LEFT IS LOCKED: preserve the entire original top-left 627×627 square PIXEL-IDENTICALLY. Do not regenerate or change it. Fill only the three empty green cells: top-right frame 1, bottom-left frame 2, bottom-right frame 3. Copy the original figure to the identical cell-relative coordinates in each new cell before applying only the breathing changes described below. Every figure is the SAME 470 px tall woman, same baseline, same scale, camera, S facing, lighting, identity and equipment.\n\nThe exact Keeper: young woman, dark curly hair tied back, ivory shirt with rolled sleeves, navy sleeveless tabard with plain chest, one diagonal chestnut harness to an olive canvas satchel on her anatomical LEFT hip, one belt, laced bracers, navy trousers, chestnut boots, a plain walnut staff with brass ferrules held upright in her anatomical RIGHT hand. No insignia anywhere. No mirroring.\n\nRELAXED BREATHING idle, frames 1–3 of a 16-frame loop, 2 seconds at 8 fps, ONE full breath per loop. Frame 0 rest, frame 4 peak inhale, frame 8 rest, frame 12 bottom exhale, frame 16 rest.\nMinimum per-frame changes relative to rest (H=470px):\nframe 1: chest/shoulders width +2.9px, head image-down +0.5px, never more than 2px.\nframe 2: chest/shoulders width +5.4px, head image-down +1.0px, never more than 2px.\nframe 3: chest/shoulders width +7.1px, head image-down +1.3px, never more than 2px.\nEXAGGERATE THE BREATH. This hand-drawn game animation must READ at game scale. Draw the breath at CARTOON scale about a third bigger than life: at frame 4 the shoulders RISE and the chest and collar SWELL WIDER by about 25px on this 470px figure. Approach this peak progressively through frames 1, 2, 3. The tabard chest plane and shirt collar visibly broaden, harness bows outward, hair mass lifts a few pixels. At frame 12 the shoulders DROP and chest narrows 25px below rest, tabard slackening. The stated per-frame pixel deltas are MINIMUMS; if in doubt draw the breath BIGGER, never smaller.\nONLY shoulders, chest/collar and hair move. Head is carried by the breath, rises with inhale 1–3px, otherwise COPY the rest face and eyes; do not redraw them. COPIED PIXEL-FOR-PIXEL from rest at corresponding cell-relative positions: hips, legs, both feet, both arms and hands, staff grip and tip, satchel, belt, face and eyes with fixed gaze. Sleeves may widen with the chest but arms do not move. Each frame visibly progresses toward the next within the same arc; preserve identity.\n\nSTYLE: HAND-DRAWN painted 2D, one frame of modern hand-animated action-game animation. Confident dark hand-drawn contours with visible taper and varying weight, clean painted material planes inside the line, restrained texture; line carries pose. Readable small silhouettes, no conspicuous brush or grain. Blue, ivory and brass faction palette with ceremonial and deliberate ornamental geometry only as already present in approved character; no added insignia. Match original elevated three-quarter camera, projection C, default elevated approximately 45 degree ARPG world camera, same character S facing throughout. Single cold key from SCREEN UPPER-LEFT fixed in every cell, deep cool low-value ambient with readable shadows never pure black, slight rim along key-facing silhouette. No spell, no warm or saturated light source, NO floor shadow.\nPreserve original framing. No zoom, no matting, no resizing. Exactly the same green canvas, with SLOT 0 LEFT PIXEL-IDENTICAL and only slots 1–3 filled.\nRETRY CORRECTION: The prior attempt redrew the locked top-left figure, changing its face, contours and painted details. This is an edit-canvas task: retain every input pixel of the top-left quadrant unchanged, including its pure green background. Do not redraw, reinterpret, filter, smooth or repaint ANY part of slot 0. Use the original provided seed as the actual canvas and preserve its original top-left pixels. Copy this exact original character to the other slots, then animate only the chest/shoulder/collar breathing arc. Preserve the corresponding original lower body, arms, staff, equipment and face in each new cell. The bottom row must be exactly 627 pixels below the top row, and the right column exactly 627 pixels to the right of the left column; do not drift the figure's cell-relative baseline. Background everywhere must be perfectly flat #00ff00, without texture or gradient.",
+      "references": [
+        {
+          "role": "edit target; locked rest frame in slot 0",
+          "path": "in/01_canvas_idle_S_seed.png"
+        }
+      ],
+      "elapsed_s": 22.294
+    }
+  ],
+  "calls_used": 2,
+  "retries": [
+    {
+      "reason": "First output visibly altered slot 0.",
+      "change": "Retried from the original seed with stronger pixel-preservation instructions and explicit 627-pixel cell offsets."
+    }
+  ],
+  "self_report": {
+    "obeyed_invariants": false,
+    "concerns": [
+      "Retry still visibly redraws slot 0; pixel-identical preservation was not achieved.",
+      "Background appears textured rather than uniformly pure green.",
+      "Lower-row baseline drift and variation in supposedly fixed anatomy remain visible.",
+      "Breathing amplitude and exact pixel deltas were not measured."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/k3p_idle_x2_S_01_03.png",
+      "sha256": "f61275eeb38bfcdb36928f86b9946afd683f222e91d9d288f752d0e2aa2956a0"
+    }
+  ]
+}

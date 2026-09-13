@@ -1,0 +1,1275 @@
+{
+  "task_id": "K3p-reg-walk-01",
+  "transform_source": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-seed/registration_transform.json",
+  "transform": {
+    "cell_px": 627,
+    "scale": 0.5106,
+    "scaled_cell_px": 320,
+    "offset_xy": [
+      96,
+      112
+    ],
+    "frame_canvas": 512,
+    "pivot": [
+      256,
+      400
+    ],
+    "note": "uniform downscale + translation only; identical for every cell of every K3 sheet (all cells share the seed geometry)"
+  },
+  "effective_raster_scale": 0.5103668261562998,
+  "resampling": "LANCZOS, exactly once per cell",
+  "matte_order": "extract character mode alpha_floor=40 before resize",
+  "alpha_bbox_threshold": 128,
+  "alpha_bbox_convention": "xyxy, upper bounds exclusive",
+  "sole_definition": "bottom-most row with alpha >= 128; global lower contact per brief",
+  "rest_ground_line": 411,
+  "atlas_pivot_xy": [
+    256,
+    400
+  ],
+  "pivot_note": "Declared atlas root anchor; sole line independently measured, not equated to the atlas pivot.",
+  "horizontal_reference_frame": 0,
+  "horizontal_reference_center_x": 239.0,
+  "integer_rounding": "nearest integer, halves away from zero; only when absolute centre difference > 2",
+  "rest_cells": [
+    {
+      "source_sheet": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-gen-walk-01/k3p_walk_E_00_02.png",
+      "slot": 0,
+      "cell_crop_xyxy": [
+        0,
+        0,
+        627,
+        627
+      ],
+      "cell_alpha_bbox": [
+        254,
+        94,
+        376,
+        588
+      ],
+      "cell_edge_touched": false,
+      "cell_border_alpha_max": 0,
+      "matte": {
+        "method": "green excess matte + inverse straight-alpha compositing",
+        "removed_background_or_detached_alpha_dust_pixels": 12,
+        "native_input_alpha": false,
+        "alpha_floor": 40,
+        "alpha_floor_removed_pixels": 353099
+      },
+      "before_alignment": {
+        "alpha_bbox": [
+          226,
+          160,
+          288,
+          412
+        ],
+        "bbox_height_px": 252,
+        "bbox_center_x": 256.5,
+        "sole_line": 411,
+        "alpha_nonzero_bbox": [
+          223,
+          158,
+          290,
+          415
+        ]
+      },
+      "seed_persistence": {
+        "source_sheet": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-gen-walk-01/k3p_walk_E_00_02.png",
+        "slot": 0,
+        "seed_path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-seed/canvas_walk_E_seed.png",
+        "seed_slot": 0,
+        "raw_rgb_max_abs_delta": 255,
+        "raw_rgb_mean_abs_delta": 8.264608648391071,
+        "matted_rgba_max_abs_delta": 255,
+        "matted_rgba_mean_abs_delta": 3.6555818827916537,
+        "shared_opaque_core_rgb_max_abs_delta": 230,
+        "shared_opaque_core_pixels_with_rgb_delta_over_8": 19956
+      },
+      "offsets_applied_xy": [
+        0,
+        0
+      ],
+      "sole_line_before": 411,
+      "sole_line_after": 411,
+      "alpha_bbox": [
+        226,
+        160,
+        288,
+        412
+      ],
+      "bbox_height_px": 252,
+      "bbox_center_x": 256.5,
+      "sole_line": 411,
+      "alpha_nonzero_bbox": [
+        223,
+        158,
+        290,
+        415
+      ],
+      "output": "out/frames/rest/E/rest_E.png"
+    },
+    {
+      "source_sheet": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-gen-walk-02/k3p_walk_E_03_05.png",
+      "slot": 0,
+      "cell_crop_xyxy": [
+        0,
+        0,
+        627,
+        627
+      ],
+      "cell_alpha_bbox": [
+        251,
+        111,
+        383,
+        627
+      ],
+      "cell_edge_touched": true,
+      "cell_border_alpha_max": 255,
+      "matte": {
+        "method": "green excess matte + inverse straight-alpha compositing",
+        "removed_background_or_detached_alpha_dust_pixels": 12,
+        "native_input_alpha": false,
+        "alpha_floor": 40,
+        "alpha_floor_removed_pixels": 347630
+      },
+      "before_alignment": {
+        "alpha_bbox": [
+          224,
+          169,
+          291,
+          432
+        ],
+        "bbox_height_px": 263,
+        "bbox_center_x": 257.0,
+        "sole_line": 431,
+        "alpha_nonzero_bbox": [
+          222,
+          166,
+          294,
+          432
+        ]
+      },
+      "seed_persistence": {
+        "source_sheet": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-gen-walk-02/k3p_walk_E_03_05.png",
+        "slot": 0,
+        "seed_path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-seed/canvas_walk_E_seed.png",
+        "seed_slot": 0,
+        "raw_rgb_max_abs_delta": 255,
+        "raw_rgb_mean_abs_delta": 12.815584706292336,
+        "matted_rgba_max_abs_delta": 255,
+        "matted_rgba_mean_abs_delta": 7.828996970460078,
+        "shared_opaque_core_rgb_max_abs_delta": 255,
+        "shared_opaque_core_pixels_with_rgb_delta_over_8": 22461
+      },
+      "offsets_applied_xy": [
+        0,
+        0
+      ],
+      "sole_line_before": 431,
+      "sole_line_after": 431,
+      "alpha_bbox": [
+        224,
+        169,
+        291,
+        432
+      ],
+      "bbox_height_px": 263,
+      "bbox_center_x": 257.0,
+      "sole_line": 431,
+      "alpha_nonzero_bbox": [
+        222,
+        166,
+        294,
+        432
+      ]
+    },
+    {
+      "source_sheet": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-gen-walk-03/k3p_walk_E_06_08.png",
+      "slot": 0,
+      "cell_crop_xyxy": [
+        0,
+        0,
+        627,
+        627
+      ],
+      "cell_alpha_bbox": [
+        262,
+        115,
+        401,
+        627
+      ],
+      "cell_edge_touched": true,
+      "cell_border_alpha_max": 255,
+      "matte": {
+        "method": "green excess matte + inverse straight-alpha compositing",
+        "removed_background_or_detached_alpha_dust_pixels": 33,
+        "native_input_alpha": false,
+        "alpha_floor": 40,
+        "alpha_floor_removed_pixels": 345453
+      },
+      "before_alignment": {
+        "alpha_bbox": [
+          230,
+          171,
+          301,
+          432
+        ],
+        "bbox_height_px": 261,
+        "bbox_center_x": 265.0,
+        "sole_line": 431,
+        "alpha_nonzero_bbox": [
+          227,
+          168,
+          303,
+          432
+        ]
+      },
+      "seed_persistence": {
+        "source_sheet": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-gen-walk-03/k3p_walk_E_06_08.png",
+        "slot": 0,
+        "seed_path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-seed/canvas_walk_E_seed.png",
+        "seed_slot": 0,
+        "raw_rgb_max_abs_delta": 255,
+        "raw_rgb_mean_abs_delta": 16.535434933571423,
+        "matted_rgba_max_abs_delta": 255,
+        "matted_rgba_mean_abs_delta": 10.171368685596839,
+        "shared_opaque_core_rgb_max_abs_delta": 248,
+        "shared_opaque_core_pixels_with_rgb_delta_over_8": 21832
+      },
+      "offsets_applied_xy": [
+        0,
+        0
+      ],
+      "sole_line_before": 431,
+      "sole_line_after": 431,
+      "alpha_bbox": [
+        230,
+        171,
+        301,
+        432
+      ],
+      "bbox_height_px": 261,
+      "bbox_center_x": 265.0,
+      "sole_line": 431,
+      "alpha_nonzero_bbox": [
+        227,
+        168,
+        303,
+        432
+      ]
+    },
+    {
+      "source_sheet": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-gen-walk-04/k3p_walk_E_09_11.png",
+      "slot": 0,
+      "cell_crop_xyxy": [
+        0,
+        0,
+        627,
+        627
+      ],
+      "cell_alpha_bbox": [
+        263,
+        112,
+        401,
+        627
+      ],
+      "cell_edge_touched": true,
+      "cell_border_alpha_max": 255,
+      "matte": {
+        "method": "green excess matte + inverse straight-alpha compositing",
+        "removed_background_or_detached_alpha_dust_pixels": 34,
+        "native_input_alpha": false,
+        "alpha_floor": 40,
+        "alpha_floor_removed_pixels": 345720
+      },
+      "before_alignment": {
+        "alpha_bbox": [
+          230,
+          170,
+          300,
+          432
+        ],
+        "bbox_height_px": 262,
+        "bbox_center_x": 264.5,
+        "sole_line": 431,
+        "alpha_nonzero_bbox": [
+          228,
+          167,
+          303,
+          432
+        ]
+      },
+      "seed_persistence": {
+        "source_sheet": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-gen-walk-04/k3p_walk_E_09_11.png",
+        "slot": 0,
+        "seed_path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-seed/canvas_walk_E_seed.png",
+        "seed_slot": 0,
+        "raw_rgb_max_abs_delta": 255,
+        "raw_rgb_mean_abs_delta": 14.968117335531085,
+        "matted_rgba_max_abs_delta": 255,
+        "matted_rgba_mean_abs_delta": 10.02211551424596,
+        "shared_opaque_core_rgb_max_abs_delta": 251,
+        "shared_opaque_core_pixels_with_rgb_delta_over_8": 21784
+      },
+      "offsets_applied_xy": [
+        0,
+        0
+      ],
+      "sole_line_before": 431,
+      "sole_line_after": 431,
+      "alpha_bbox": [
+        230,
+        170,
+        300,
+        432
+      ],
+      "bbox_height_px": 262,
+      "bbox_center_x": 264.5,
+      "sole_line": 431,
+      "alpha_nonzero_bbox": [
+        228,
+        167,
+        303,
+        432
+      ]
+    }
+  ],
+  "walk_frames": [
+    {
+      "source_sheet": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-gen-walk-01/k3p_walk_E_00_02.png",
+      "slot": 1,
+      "cell_crop_xyxy": [
+        627,
+        0,
+        1254,
+        627
+      ],
+      "cell_alpha_bbox": [
+        179,
+        102,
+        382,
+        584
+      ],
+      "cell_edge_touched": false,
+      "cell_border_alpha_max": 0,
+      "matte": {
+        "method": "green excess matte + inverse straight-alpha compositing",
+        "removed_background_or_detached_alpha_dust_pixels": 42,
+        "native_input_alpha": false,
+        "alpha_floor": 40,
+        "alpha_floor_removed_pixels": 343119
+      },
+      "before_alignment": {
+        "alpha_bbox": [
+          188,
+          164,
+          291,
+          410
+        ],
+        "bbox_height_px": 246,
+        "bbox_center_x": 239.0,
+        "sole_line": 409,
+        "alpha_nonzero_bbox": [
+          185,
+          162,
+          293,
+          412
+        ]
+      },
+      "alpha_bbox": [
+        188,
+        166,
+        291,
+        412
+      ],
+      "bbox_height_px": 246,
+      "bbox_center_x": 239.0,
+      "sole_line": 411,
+      "alpha_nonzero_bbox": [
+        185,
+        164,
+        293,
+        414
+      ],
+      "frame": 0,
+      "output": "out/frames/walk/E/walk_E_00.png",
+      "sole_line_before": 409,
+      "sole_line_after": 411,
+      "offsets_applied_xy": [
+        0,
+        2
+      ],
+      "total_paste_offset_xy": [
+        96,
+        114
+      ],
+      "horizontal_difference_to_frame_0_before": 0.0,
+      "horizontal_residual_to_frame_0_after": 0.0
+    },
+    {
+      "source_sheet": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-gen-walk-01/k3p_walk_E_00_02.png",
+      "slot": 2,
+      "cell_crop_xyxy": [
+        0,
+        627,
+        627,
+        1254
+      ],
+      "cell_alpha_bbox": [
+        253,
+        83,
+        413,
+        555
+      ],
+      "cell_edge_touched": false,
+      "cell_border_alpha_max": 0,
+      "matte": {
+        "method": "green excess matte + inverse straight-alpha compositing",
+        "removed_background_or_detached_alpha_dust_pixels": 19,
+        "native_input_alpha": false,
+        "alpha_floor": 40,
+        "alpha_floor_removed_pixels": 348071
+      },
+      "before_alignment": {
+        "alpha_bbox": [
+          225,
+          155,
+          306,
+          395
+        ],
+        "bbox_height_px": 240,
+        "bbox_center_x": 265.0,
+        "sole_line": 394,
+        "alpha_nonzero_bbox": [
+          223,
+          152,
+          309,
+          398
+        ]
+      },
+      "alpha_bbox": [
+        199,
+        172,
+        280,
+        412
+      ],
+      "bbox_height_px": 240,
+      "bbox_center_x": 239.0,
+      "sole_line": 411,
+      "alpha_nonzero_bbox": [
+        197,
+        169,
+        283,
+        415
+      ],
+      "frame": 1,
+      "output": "out/frames/walk/E/walk_E_01.png",
+      "sole_line_before": 394,
+      "sole_line_after": 411,
+      "offsets_applied_xy": [
+        -26,
+        17
+      ],
+      "total_paste_offset_xy": [
+        70,
+        129
+      ],
+      "horizontal_difference_to_frame_0_before": -26.0,
+      "horizontal_residual_to_frame_0_after": 0.0
+    },
+    {
+      "source_sheet": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-gen-walk-01/k3p_walk_E_00_02.png",
+      "slot": 3,
+      "cell_crop_xyxy": [
+        627,
+        627,
+        1254,
+        1254
+      ],
+      "cell_alpha_bbox": [
+        222,
+        68,
+        440,
+        557
+      ],
+      "cell_edge_touched": false,
+      "cell_border_alpha_max": 0,
+      "matte": {
+        "method": "green excess matte + inverse straight-alpha compositing",
+        "removed_background_or_detached_alpha_dust_pixels": 10,
+        "native_input_alpha": false,
+        "alpha_floor": 40,
+        "alpha_floor_removed_pixels": 344980
+      },
+      "before_alignment": {
+        "alpha_bbox": [
+          210,
+          147,
+          320,
+          396
+        ],
+        "bbox_height_px": 249,
+        "bbox_center_x": 264.5,
+        "sole_line": 395,
+        "alpha_nonzero_bbox": [
+          207,
+          144,
+          323,
+          398
+        ]
+      },
+      "alpha_bbox": [
+        184,
+        163,
+        294,
+        412
+      ],
+      "bbox_height_px": 249,
+      "bbox_center_x": 238.5,
+      "sole_line": 411,
+      "alpha_nonzero_bbox": [
+        181,
+        160,
+        297,
+        414
+      ],
+      "frame": 2,
+      "output": "out/frames/walk/E/walk_E_02.png",
+      "sole_line_before": 395,
+      "sole_line_after": 411,
+      "offsets_applied_xy": [
+        -26,
+        16
+      ],
+      "total_paste_offset_xy": [
+        70,
+        128
+      ],
+      "horizontal_difference_to_frame_0_before": -25.5,
+      "horizontal_residual_to_frame_0_after": 0.5
+    },
+    {
+      "source_sheet": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-gen-walk-02/k3p_walk_E_03_05.png",
+      "slot": 1,
+      "cell_crop_xyxy": [
+        627,
+        0,
+        1254,
+        627
+      ],
+      "cell_alpha_bbox": [
+        194,
+        110,
+        441,
+        619
+      ],
+      "cell_edge_touched": false,
+      "cell_border_alpha_max": 0,
+      "matte": {
+        "method": "green excess matte + inverse straight-alpha compositing",
+        "removed_background_or_detached_alpha_dust_pixels": 24,
+        "native_input_alpha": false,
+        "alpha_floor": 40,
+        "alpha_floor_removed_pixels": 341170
+      },
+      "before_alignment": {
+        "alpha_bbox": [
+          195,
+          168,
+          321,
+          428
+        ],
+        "bbox_height_px": 260,
+        "bbox_center_x": 257.5,
+        "sole_line": 427,
+        "alpha_nonzero_bbox": [
+          193,
+          166,
+          323,
+          430
+        ]
+      },
+      "alpha_bbox": [
+        176,
+        152,
+        302,
+        412
+      ],
+      "bbox_height_px": 260,
+      "bbox_center_x": 238.5,
+      "sole_line": 411,
+      "alpha_nonzero_bbox": [
+        174,
+        150,
+        304,
+        414
+      ],
+      "frame": 3,
+      "output": "out/frames/walk/E/walk_E_03.png",
+      "sole_line_before": 427,
+      "sole_line_after": 411,
+      "offsets_applied_xy": [
+        -19,
+        -16
+      ],
+      "total_paste_offset_xy": [
+        77,
+        96
+      ],
+      "horizontal_difference_to_frame_0_before": -18.5,
+      "horizontal_residual_to_frame_0_after": 0.5
+    },
+    {
+      "source_sheet": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-gen-walk-02/k3p_walk_E_03_05.png",
+      "slot": 2,
+      "cell_crop_xyxy": [
+        0,
+        627,
+        627,
+        1254
+      ],
+      "cell_alpha_bbox": [
+        201,
+        87,
+        395,
+        568
+      ],
+      "cell_edge_touched": false,
+      "cell_border_alpha_max": 0,
+      "matte": {
+        "method": "green excess matte + inverse straight-alpha compositing",
+        "removed_background_or_detached_alpha_dust_pixels": 85,
+        "native_input_alpha": false,
+        "alpha_floor": 40,
+        "alpha_floor_removed_pixels": 346421
+      },
+      "before_alignment": {
+        "alpha_bbox": [
+          199,
+          157,
+          297,
+          402
+        ],
+        "bbox_height_px": 245,
+        "bbox_center_x": 247.5,
+        "sole_line": 401,
+        "alpha_nonzero_bbox": [
+          196,
+          154,
+          300,
+          404
+        ]
+      },
+      "alpha_bbox": [
+        190,
+        167,
+        288,
+        412
+      ],
+      "bbox_height_px": 245,
+      "bbox_center_x": 238.5,
+      "sole_line": 411,
+      "alpha_nonzero_bbox": [
+        187,
+        164,
+        291,
+        414
+      ],
+      "frame": 4,
+      "output": "out/frames/walk/E/walk_E_04.png",
+      "sole_line_before": 401,
+      "sole_line_after": 411,
+      "offsets_applied_xy": [
+        -9,
+        10
+      ],
+      "total_paste_offset_xy": [
+        87,
+        122
+      ],
+      "horizontal_difference_to_frame_0_before": -8.5,
+      "horizontal_residual_to_frame_0_after": 0.5
+    },
+    {
+      "source_sheet": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-gen-walk-02/k3p_walk_E_03_05.png",
+      "slot": 3,
+      "cell_crop_xyxy": [
+        627,
+        627,
+        1254,
+        1254
+      ],
+      "cell_alpha_bbox": [
+        181,
+        86,
+        381,
+        570
+      ],
+      "cell_edge_touched": false,
+      "cell_border_alpha_max": 0,
+      "matte": {
+        "method": "green excess matte + inverse straight-alpha compositing",
+        "removed_background_or_detached_alpha_dust_pixels": 6,
+        "native_input_alpha": false,
+        "alpha_floor": 40,
+        "alpha_floor_removed_pixels": 344016
+      },
+      "before_alignment": {
+        "alpha_bbox": [
+          189,
+          156,
+          290,
+          402
+        ],
+        "bbox_height_px": 246,
+        "bbox_center_x": 239.0,
+        "sole_line": 401,
+        "alpha_nonzero_bbox": [
+          186,
+          153,
+          293,
+          405
+        ]
+      },
+      "alpha_bbox": [
+        189,
+        166,
+        290,
+        412
+      ],
+      "bbox_height_px": 246,
+      "bbox_center_x": 239.0,
+      "sole_line": 411,
+      "alpha_nonzero_bbox": [
+        186,
+        163,
+        293,
+        415
+      ],
+      "frame": 5,
+      "output": "out/frames/walk/E/walk_E_05.png",
+      "sole_line_before": 401,
+      "sole_line_after": 411,
+      "offsets_applied_xy": [
+        0,
+        10
+      ],
+      "total_paste_offset_xy": [
+        96,
+        122
+      ],
+      "horizontal_difference_to_frame_0_before": 0.0,
+      "horizontal_residual_to_frame_0_after": 0.0
+    },
+    {
+      "source_sheet": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-gen-walk-03/k3p_walk_E_06_08.png",
+      "slot": 1,
+      "cell_crop_xyxy": [
+        627,
+        0,
+        1254,
+        627
+      ],
+      "cell_alpha_bbox": [
+        172,
+        115,
+        386,
+        627
+      ],
+      "cell_edge_touched": true,
+      "cell_border_alpha_max": 255,
+      "matte": {
+        "method": "green excess matte + inverse straight-alpha compositing",
+        "removed_background_or_detached_alpha_dust_pixels": 9,
+        "native_input_alpha": false,
+        "alpha_floor": 40,
+        "alpha_floor_removed_pixels": 340681
+      },
+      "before_alignment": {
+        "alpha_bbox": [
+          184,
+          171,
+          293,
+          432
+        ],
+        "bbox_height_px": 261,
+        "bbox_center_x": 238.0,
+        "sole_line": 431,
+        "alpha_nonzero_bbox": [
+          182,
+          168,
+          296,
+          432
+        ]
+      },
+      "alpha_bbox": [
+        184,
+        151,
+        293,
+        412
+      ],
+      "bbox_height_px": 261,
+      "bbox_center_x": 238.0,
+      "sole_line": 411,
+      "alpha_nonzero_bbox": [
+        182,
+        148,
+        296,
+        412
+      ],
+      "frame": 6,
+      "output": "out/frames/walk/E/walk_E_06.png",
+      "sole_line_before": 431,
+      "sole_line_after": 411,
+      "offsets_applied_xy": [
+        0,
+        -20
+      ],
+      "total_paste_offset_xy": [
+        96,
+        92
+      ],
+      "horizontal_difference_to_frame_0_before": 1.0,
+      "horizontal_residual_to_frame_0_after": 1.0
+    },
+    {
+      "source_sheet": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-gen-walk-03/k3p_walk_E_06_08.png",
+      "slot": 2,
+      "cell_crop_xyxy": [
+        0,
+        627,
+        627,
+        1254
+      ],
+      "cell_alpha_bbox": [
+        229,
+        72,
+        402,
+        582
+      ],
+      "cell_edge_touched": false,
+      "cell_border_alpha_max": 0,
+      "matte": {
+        "method": "green excess matte + inverse straight-alpha compositing",
+        "removed_background_or_detached_alpha_dust_pixels": 1793,
+        "native_input_alpha": false,
+        "alpha_floor": 40,
+        "alpha_floor_removed_pixels": 340829
+      },
+      "before_alignment": {
+        "alpha_bbox": [
+          213,
+          149,
+          301,
+          409
+        ],
+        "bbox_height_px": 260,
+        "bbox_center_x": 256.5,
+        "sole_line": 408,
+        "alpha_nonzero_bbox": [
+          211,
+          146,
+          304,
+          411
+        ]
+      },
+      "alpha_bbox": [
+        195,
+        152,
+        283,
+        412
+      ],
+      "bbox_height_px": 260,
+      "bbox_center_x": 238.5,
+      "sole_line": 411,
+      "alpha_nonzero_bbox": [
+        193,
+        149,
+        286,
+        414
+      ],
+      "frame": 7,
+      "output": "out/frames/walk/E/walk_E_07.png",
+      "sole_line_before": 408,
+      "sole_line_after": 411,
+      "offsets_applied_xy": [
+        -18,
+        3
+      ],
+      "total_paste_offset_xy": [
+        78,
+        115
+      ],
+      "horizontal_difference_to_frame_0_before": -17.5,
+      "horizontal_residual_to_frame_0_after": 0.5
+    },
+    {
+      "source_sheet": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-gen-walk-03/k3p_walk_E_06_08.png",
+      "slot": 3,
+      "cell_crop_xyxy": [
+        627,
+        627,
+        1254,
+        1254
+      ],
+      "cell_alpha_bbox": [
+        230,
+        72,
+        466,
+        582
+      ],
+      "cell_edge_touched": false,
+      "cell_border_alpha_max": 0,
+      "matte": {
+        "method": "green excess matte + inverse straight-alpha compositing",
+        "removed_background_or_detached_alpha_dust_pixels": 1668,
+        "native_input_alpha": false,
+        "alpha_floor": 40,
+        "alpha_floor_removed_pixels": 339838
+      },
+      "before_alignment": {
+        "alpha_bbox": [
+          214,
+          149,
+          334,
+          409
+        ],
+        "bbox_height_px": 260,
+        "bbox_center_x": 273.5,
+        "sole_line": 408,
+        "alpha_nonzero_bbox": [
+          211,
+          146,
+          336,
+          411
+        ]
+      },
+      "alpha_bbox": [
+        179,
+        152,
+        299,
+        412
+      ],
+      "bbox_height_px": 260,
+      "bbox_center_x": 238.5,
+      "sole_line": 411,
+      "alpha_nonzero_bbox": [
+        176,
+        149,
+        301,
+        414
+      ],
+      "frame": 8,
+      "output": "out/frames/walk/E/walk_E_08.png",
+      "sole_line_before": 408,
+      "sole_line_after": 411,
+      "offsets_applied_xy": [
+        -35,
+        3
+      ],
+      "total_paste_offset_xy": [
+        61,
+        115
+      ],
+      "horizontal_difference_to_frame_0_before": -34.5,
+      "horizontal_residual_to_frame_0_after": 0.5
+    },
+    {
+      "source_sheet": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-gen-walk-04/k3p_walk_E_09_11.png",
+      "slot": 1,
+      "cell_crop_xyxy": [
+        627,
+        0,
+        1254,
+        627
+      ],
+      "cell_alpha_bbox": [
+        220,
+        113,
+        425,
+        627
+      ],
+      "cell_edge_touched": true,
+      "cell_border_alpha_max": 255,
+      "matte": {
+        "method": "green excess matte + inverse straight-alpha compositing",
+        "removed_background_or_detached_alpha_dust_pixels": 53,
+        "native_input_alpha": false,
+        "alpha_floor": 40,
+        "alpha_floor_removed_pixels": 340073
+      },
+      "before_alignment": {
+        "alpha_bbox": [
+          209,
+          170,
+          313,
+          432
+        ],
+        "bbox_height_px": 262,
+        "bbox_center_x": 260.5,
+        "sole_line": 431,
+        "alpha_nonzero_bbox": [
+          206,
+          167,
+          315,
+          432
+        ]
+      },
+      "alpha_bbox": [
+        187,
+        150,
+        291,
+        412
+      ],
+      "bbox_height_px": 262,
+      "bbox_center_x": 238.5,
+      "sole_line": 411,
+      "alpha_nonzero_bbox": [
+        184,
+        147,
+        293,
+        412
+      ],
+      "frame": 9,
+      "output": "out/frames/walk/E/walk_E_09.png",
+      "sole_line_before": 431,
+      "sole_line_after": 411,
+      "offsets_applied_xy": [
+        -22,
+        -20
+      ],
+      "total_paste_offset_xy": [
+        74,
+        92
+      ],
+      "horizontal_difference_to_frame_0_before": -21.5,
+      "horizontal_residual_to_frame_0_after": 0.5
+    },
+    {
+      "source_sheet": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-gen-walk-04/k3p_walk_E_09_11.png",
+      "slot": 2,
+      "cell_crop_xyxy": [
+        0,
+        627,
+        627,
+        1254
+      ],
+      "cell_alpha_bbox": [
+        214,
+        110,
+        404,
+        594
+      ],
+      "cell_edge_touched": false,
+      "cell_border_alpha_max": 0,
+      "matte": {
+        "method": "green excess matte + inverse straight-alpha compositing",
+        "removed_background_or_detached_alpha_dust_pixels": 2739,
+        "native_input_alpha": false,
+        "alpha_floor": 40,
+        "alpha_floor_removed_pixels": 343783
+      },
+      "before_alignment": {
+        "alpha_bbox": [
+          206,
+          168,
+          302,
+          415
+        ],
+        "bbox_height_px": 247,
+        "bbox_center_x": 253.5,
+        "sole_line": 414,
+        "alpha_nonzero_bbox": [
+          203,
+          166,
+          304,
+          418
+        ]
+      },
+      "alpha_bbox": [
+        191,
+        165,
+        287,
+        412
+      ],
+      "bbox_height_px": 247,
+      "bbox_center_x": 238.5,
+      "sole_line": 411,
+      "alpha_nonzero_bbox": [
+        188,
+        163,
+        289,
+        415
+      ],
+      "frame": 10,
+      "output": "out/frames/walk/E/walk_E_10.png",
+      "sole_line_before": 414,
+      "sole_line_after": 411,
+      "offsets_applied_xy": [
+        -15,
+        -3
+      ],
+      "total_paste_offset_xy": [
+        81,
+        109
+      ],
+      "horizontal_difference_to_frame_0_before": -14.5,
+      "horizontal_residual_to_frame_0_after": 0.5
+    },
+    {
+      "source_sheet": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-gen-walk-04/k3p_walk_E_09_11.png",
+      "slot": 3,
+      "cell_crop_xyxy": [
+        627,
+        627,
+        1254,
+        1254
+      ],
+      "cell_alpha_bbox": [
+        185,
+        110,
+        380,
+        602
+      ],
+      "cell_edge_touched": false,
+      "cell_border_alpha_max": 0,
+      "matte": {
+        "method": "green excess matte + inverse straight-alpha compositing",
+        "removed_background_or_detached_alpha_dust_pixels": 254,
+        "native_input_alpha": false,
+        "alpha_floor": 40,
+        "alpha_floor_removed_pixels": 348070
+      },
+      "before_alignment": {
+        "alpha_bbox": [
+          191,
+          168,
+          290,
+          419
+        ],
+        "bbox_height_px": 251,
+        "bbox_center_x": 240.0,
+        "sole_line": 418,
+        "alpha_nonzero_bbox": [
+          188,
+          166,
+          292,
+          422
+        ]
+      },
+      "alpha_bbox": [
+        191,
+        161,
+        290,
+        412
+      ],
+      "bbox_height_px": 251,
+      "bbox_center_x": 240.0,
+      "sole_line": 411,
+      "alpha_nonzero_bbox": [
+        188,
+        159,
+        292,
+        415
+      ],
+      "frame": 11,
+      "output": "out/frames/walk/E/walk_E_11.png",
+      "sole_line_before": 418,
+      "sole_line_after": 411,
+      "offsets_applied_xy": [
+        0,
+        -7
+      ],
+      "total_paste_offset_xy": [
+        96,
+        105
+      ],
+      "horizontal_difference_to_frame_0_before": -1.0,
+      "horizontal_residual_to_frame_0_after": -1.0
+    }
+  ],
+  "seed_persistence": {
+    "seed": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-seed/canvas_walk_E_seed.png",
+    "seed_crop_xyxy": [
+      0,
+      0,
+      627,
+      627
+    ],
+    "max_abs_delta_raw_rgb": 255,
+    "max_abs_delta_matted_rgba": 255,
+    "per_sheet": [
+      {
+        "source_sheet": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-gen-walk-01/k3p_walk_E_00_02.png",
+        "slot": 0,
+        "seed_path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-seed/canvas_walk_E_seed.png",
+        "seed_slot": 0,
+        "raw_rgb_max_abs_delta": 255,
+        "raw_rgb_mean_abs_delta": 8.264608648391071,
+        "matted_rgba_max_abs_delta": 255,
+        "matted_rgba_mean_abs_delta": 3.6555818827916537,
+        "shared_opaque_core_rgb_max_abs_delta": 230,
+        "shared_opaque_core_pixels_with_rgb_delta_over_8": 19956
+      },
+      {
+        "source_sheet": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-gen-walk-02/k3p_walk_E_03_05.png",
+        "slot": 0,
+        "seed_path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-seed/canvas_walk_E_seed.png",
+        "seed_slot": 0,
+        "raw_rgb_max_abs_delta": 255,
+        "raw_rgb_mean_abs_delta": 12.815584706292336,
+        "matted_rgba_max_abs_delta": 255,
+        "matted_rgba_mean_abs_delta": 7.828996970460078,
+        "shared_opaque_core_rgb_max_abs_delta": 255,
+        "shared_opaque_core_pixels_with_rgb_delta_over_8": 22461
+      },
+      {
+        "source_sheet": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-gen-walk-03/k3p_walk_E_06_08.png",
+        "slot": 0,
+        "seed_path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-seed/canvas_walk_E_seed.png",
+        "seed_slot": 0,
+        "raw_rgb_max_abs_delta": 255,
+        "raw_rgb_mean_abs_delta": 16.535434933571423,
+        "matted_rgba_max_abs_delta": 255,
+        "matted_rgba_mean_abs_delta": 10.171368685596839,
+        "shared_opaque_core_rgb_max_abs_delta": 248,
+        "shared_opaque_core_pixels_with_rgb_delta_over_8": 21832
+      },
+      {
+        "source_sheet": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-gen-walk-04/k3p_walk_E_09_11.png",
+        "slot": 0,
+        "seed_path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-seed/canvas_walk_E_seed.png",
+        "seed_slot": 0,
+        "raw_rgb_max_abs_delta": 255,
+        "raw_rgb_mean_abs_delta": 14.968117335531085,
+        "matted_rgba_max_abs_delta": 255,
+        "matted_rgba_mean_abs_delta": 10.02211551424596,
+        "shared_opaque_core_rgb_max_abs_delta": 251,
+        "shared_opaque_core_pixels_with_rgb_delta_over_8": 21784
+      }
+    ],
+    "noise_note": "Opaque-core changes are reported separately from matte edges; 8 levels is a diagnostic count, not an acceptance gate."
+  },
+  "concerns": [
+    "k3p_walk_E_00_02.png slot 0 differs from seed beyond edge matte noise: raw RGB max |delta|=255; shared opaque core max=230, 19956 core pixels exceed 8 levels.",
+    "k3p_walk_E_03_05.png slot 0: extracted figure touches cell edge.",
+    "k3p_walk_E_03_05.png slot 0 differs from seed beyond edge matte noise: raw RGB max |delta|=255; shared opaque core max=255, 22461 core pixels exceed 8 levels.",
+    "k3p_walk_E_06_08.png slot 0: extracted figure touches cell edge.",
+    "k3p_walk_E_06_08.png slot 0 differs from seed beyond edge matte noise: raw RGB max |delta|=255; shared opaque core max=248, 21832 core pixels exceed 8 levels.",
+    "k3p_walk_E_06_08.png slot 1: extracted figure touches cell edge.",
+    "k3p_walk_E_09_11.png slot 0: extracted figure touches cell edge.",
+    "k3p_walk_E_09_11.png slot 0 differs from seed beyond edge matte noise: raw RGB max |delta|=255; shared opaque core max=251, 21784 core pixels exceed 8 levels.",
+    "k3p_walk_E_09_11.png slot 1: extracted figure touches cell edge.",
+    "walk_E_01 needs translation (-26, 17) px, exceeding 6 px on at least one axis.",
+    "walk_E_02 needs translation (-26, 16) px, exceeding 6 px on at least one axis.",
+    "walk_E_03 needs translation (-19, -16) px, exceeding 6 px on at least one axis.",
+    "walk_E_04 needs translation (-9, 10) px, exceeding 6 px on at least one axis.",
+    "walk_E_05 needs translation (0, 10) px, exceeding 6 px on at least one axis.",
+    "walk_E_06 needs translation (0, -20) px, exceeding 6 px on at least one axis.",
+    "walk_E_07 needs translation (-18, 3) px, exceeding 6 px on at least one axis.",
+    "walk_E_08 needs translation (-35, 3) px, exceeding 6 px on at least one axis.",
+    "walk_E_09 needs translation (-22, -20) px, exceeding 6 px on at least one axis.",
+    "walk_E_10 needs translation (-15, -3) px, exceeding 6 px on at least one axis.",
+    "walk_E_11 needs translation (0, -7) px, exceeding 6 px on at least one axis."
+  ]
+}

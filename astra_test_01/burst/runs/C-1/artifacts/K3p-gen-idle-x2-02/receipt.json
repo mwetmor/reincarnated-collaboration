@@ -1,0 +1,40 @@
+{
+  "task_id": "K3p-gen-idle-x2-02",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "k3p_idle_x2_S_04_06.png",
+      "path": "out/k3p_idle_x2_S_04_06.png",
+      "sha256": "4e3e60e2093bef44ca1a216a255a862bbe398d1068962667097ea1f8ad2a5a95",
+      "prompt": "Use case: identity-preserve. Edit target: Image 1, the locked 1254×1254 2×2 sprite canvas. Deliver exactly one same-size canvas. Preserve the entire top-left 627×627 SLOT 0 PIXEL-IDENTICALLY, including its green background. Fill only the three empty green cells: top-right frame 4, bottom-left frame 5, bottom-right frame 6 of a 16-frame relaxed breathing idle-S loop. Each new cell is based on an exact translated copy of slot 0, at identical local position, baseline and size. No borders, gutters, labels or text. Flat pure #00ff00 background, no floor shadows, no matting.\nCharacter identity: the exact young woman in Image 1, dark curly hair tied back; ivory rolled-sleeve shirt; navy sleeveless tabard with plain chest; one diagonal chestnut harness to olive canvas satchel on anatomical LEFT hip; one belt; laced bracers; navy trousers; chestnut boots; plain walnut staff with brass ferrules upright in anatomical RIGHT hand. No insignia. Never mirror. Fixed S facing, fixed elevated three-quarter projection, fixed camera and framing. Single cold key from SCREEN UPPER-LEFT, deep cool low-value ambient, readable shadows never pure black, slight key-facing rim. No spell light.\nMotion: 2 seconds at 8 fps, one full breath per loop: frame 0 rest, frame 4 inhale peak, frame 8 rest, frame 12 exhale bottom, frame 16 rest. Requested new poses relative to rest H=470 px: frame 4 chest/shoulder width +7.7 px minimum, head image-down delta +1.4 px; frame 5 width +7.1 px minimum, head image-down +1.3 px; frame 6 width +5.4 px minimum, head image-down +1.0 px. EXAGGERATE THE BREATH: numbers are MINIMUM, draw the breath BIGGER, never smaller. Hand-drawn game animation with CARTOON-scale breathing, a third bigger than life. At frame 4 shoulders RISE and chest and collar SWELL WIDER by about 25 px across the 470-px figure, visibly broader tabard chest plane and shirt collar, harness bowing outward, hair mass lifting a few pixels. Frame 5 is just past the peak with almost as broad a chest; frame 6 is visibly easing toward rest, still strongly inhaled. Head is carried by breath only 1–3 px, never independently animated. Only shoulders, chest/collar and hair animate; sleeves may widen with chest. Copy face and eyes without redrawing, gaze fixed. COPY PIXEL-FOR-PIXEL from rest, translated into each cell: hips, legs, both feet and soles, both arms and hands, staff including grip and tip, satchel, belt, face and eyes. Keep all planted components at exactly the reference local coordinates. No change to head size or lower-body stance. Every frame clearly progresses through the specified breathing arc.\nRegister: HAND-DRAWN painted 2D, one frame of modern hand-animated action-game animation. Confident hand-drawn dark contour with visible taper and varying weight, clean painted material planes, restrained surface texture, readable small silhouettes, no conspicuous grain. Preserve reference linework, identity and palette of navy/ivory/brass/chestnut. The line carries the pose. All four cells square and precisely aligned row-major. Do not zoom or resize the character. Most important edit invariant: leave top-left SLOT 0 untouched and pixel-identical; changes belong exclusively in the three empty cells.\nRETRY CORRECTION: The previous attempt redrew slot 0, including its face, violating the locked-cell constraint. Use the ORIGINAL supplied edit canvas again. Treat the entire top-left quadrant as a protected, immutable region: retain its original pixels, do not paint or regenerate any of it. Populate only the other quadrants. Each new figure must occupy the exact reference local coordinates plus the cell offset: top-right +627 x; bottom-left +627 y; bottom-right +627 x and +627 y. Feet and staff tip must not shift locally. Preserve original facial features, fine linework and clothing rather than simplifying them. The only permitted drawing changes in the NEW cells are the exaggerated chest/shoulder breathing arc described above.",
+      "references": [
+        {
+          "role": "edit target; locked rest frame in slot 0",
+          "path": "in/01_canvas_idle_S_seed.png"
+        }
+      ],
+      "elapsed_s": 36.105
+    }
+  ],
+  "calls_used": 2,
+  "retries": [
+    {
+      "reason": "First output visibly redrew slot 0, including facial details.",
+      "change": "Retried from the original seed with reinforced immutable-quadrant and exact cell-offset instructions."
+    }
+  ],
+  "self_report": {
+    "obeyed_invariants": false,
+    "concerns": [
+      "Retry still visibly redraws slot 0; pixel-identical preservation was not achieved.",
+      "New frames show changes to facial details and fixed body parts, with apparent local baseline drift.",
+      "Breathing amplitude and exact plate color were not measured."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/k3p_idle_x2_S_04_06.png",
+      "sha256": "4e3e60e2093bef44ca1a216a255a862bbe398d1068962667097ea1f8ad2a5a95"
+    }
+  ]
+}

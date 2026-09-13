@@ -1,0 +1,95 @@
+{
+  "task_id": "K3p-pack-walk-01",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [],
+  "calls_used": 0,
+  "retries": [
+    {
+      "reason": "Default video color conversion shifted the composite background.",
+      "change": "Rebuilt composites with explicit RGB backgrounds; verified RGB 58,63,74."
+    }
+  ],
+  "self_report": {
+    "obeyed_invariants": true,
+    "concerns": [
+      "Source checks lack atlas-root G2 measurements, anatomical W5/W6 assignments, and the G11 cast05 reference; null flags remain unchanged.",
+      "Silhouette and planted-slip thresholds are unregistered.",
+      "Composites use ffmpeg filters; no separate code files were created.",
+      "HTML JavaScript syntax and video decoding were checked; browser playback was not directly tested."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/review.html",
+      "sha256": "b7adeaaf2a33755cb7781e228212e90c1d32287dc104c47c7f1f0cd4f0f1224b"
+    },
+    {
+      "path": "out/summary.txt",
+      "sha256": "6e6c707beaa1c0f58d173e58dfb191664051ca2ebb3884c8541b4210acc7595f"
+    },
+    {
+      "path": "out/walk_E_12fps.mp4",
+      "sha256": "687239c638b1515e579d82473a3d8d7c016e82354695c6dbc98608f9b7c25516"
+    },
+    {
+      "path": "out/muybridge_plate13_8fps.mp4",
+      "sha256": "1ae241d85643872a699ef7eb52697b308a0883be51e16bec2c7ee15ce0fec9db"
+    },
+    {
+      "path": "out/walk_E_seam_pairs.png",
+      "sha256": "2774e44fae167111b3e83748470489c94bccf266bde9e3d5ed9d4f76f52f5037"
+    },
+    {
+      "path": "out/walk_E_homologue_pairs.png",
+      "sha256": "6b16ef093acb7d7c1d5d591eeb5442da88eaa6987591e108faff3c89f91c2c11"
+    },
+    {
+      "path": "out/guides_vs_frames.png",
+      "sha256": "70e503fafdcdbfdef5dd1dd79827a6a485e6e8a3409ee059a792b1a2155e04c5"
+    },
+    {
+      "path": "out/checks.json",
+      "sha256": "4a9f85ddacf8a42a86b341ff25f47ea6032e96ac9c4e155e3264c04a21539ca9"
+    },
+    {
+      "path": "out/plate13_lateral_ann_band.json",
+      "sha256": "73e39dfee6c09a9d08751d5252640c502ee965b4d1a6dc0819fe2219f18bf53a"
+    },
+    {
+      "path": "out/muybridge_LICENCE.txt",
+      "sha256": "3b6b427f448e64ae7bf7380968f96829c661042e7af8458ae4d325034d41f5a9"
+    },
+    {
+      "path": "out/img/guides_vs_frames.png",
+      "sha256": "70e503fafdcdbfdef5dd1dd79827a6a485e6e8a3409ee059a792b1a2155e04c5"
+    },
+    {
+      "path": "out/img/plate13_lateral_ann_curves.png",
+      "sha256": "a963fc09783d726d556bc5cf924a1b6e17eba1e6c1d5f6695c83c2f0771dd032"
+    },
+    {
+      "path": "out/img/rest_E.png",
+      "sha256": "2b8ade9d953bfc1ac6a753a7070f84a6020e8e073f1996a5a8c956e45efd6583"
+    },
+    {
+      "path": "out/img/walk_E_K3p_curves.png",
+      "sha256": "c11fe579aae69b047f4fb0a85bd0288c6dedd594bbc30a96130ebeecf4482915"
+    },
+    {
+      "path": "out/img/walk_E_K3p_mask_check.png",
+      "sha256": "60cac2e2c9f1efc6f085fa22be8760e59d0c6a90adf3a1cf2e2fb432ec50b6ed"
+    },
+    {
+      "path": "out/img/walk_E_homologue_pairs.png",
+      "sha256": "6b16ef093acb7d7c1d5d591eeb5442da88eaa6987591e108faff3c89f91c2c11"
+    },
+    {
+      "path": "out/img/walk_E_seam_pairs.png",
+      "sha256": "2774e44fae167111b3e83748470489c94bccf266bde9e3d5ed9d4f76f52f5037"
+    },
+    {
+      "path": "out/img/walk_E_strip.png",
+      "sha256": "5279c9c0706b23d5d64a3b4332637f895a3b767fcbdd2bed760aedbd58f1b92d"
+    }
+  ]
+}
