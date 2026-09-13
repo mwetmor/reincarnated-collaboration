@@ -1,0 +1,54 @@
+{
+  "task_id": "CS-check-02",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [],
+  "calls_used": 0,
+  "retries": [],
+  "self_report": {
+    "obeyed_invariants": true,
+    "concerns": [
+      "A rectangular transition remains at the four-chunk junction; path costs do not measure this additional boundary.",
+      "Exact CS-check-01 settings were unavailable; implemented settings and foreground-only diagnostics are documented.",
+      "D/B owns the corner square based on lower mean path cost.",
+      "The file manifest excludes preexisting, active wrapper-owned logs."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/checks.json",
+      "sha256": "e3d1ca14b403675b46c14a3287aad4d935135e2918c408c3e1b61f36649e980f"
+    },
+    {
+      "path": "out/portion_2x2_composite.png",
+      "sha256": "b15c6f24de407bb16170443cd4fa00abd9a41da207d91b2c81401e40f0f07511"
+    },
+    {
+      "path": "out/portion_2x2_noKeeper.png",
+      "sha256": "73de6e5ea7ffc76a07e8eb8d38094a7508165461fb46c4660c9a2392dfaa44b8"
+    },
+    {
+      "path": "out/review.html",
+      "sha256": "0048b8367981fbd6afed300fcc5e76661684359200056b1e3d9bfcfc114641a3"
+    },
+    {
+      "path": "out/screen_view_1920x1080.png",
+      "sha256": "dbc6f76f13a0ef07ee3b241af668e5122e157edb153316c2444f94cec11d3d0b"
+    },
+    {
+      "path": "out/screen_view_960x540.png",
+      "sha256": "c0c5284aa0c5dcfbb7b7f32c9a5fcc435b365ddfa47e4cd030bd34451bc224e7"
+    },
+    {
+      "path": "out/seam_closeups.png",
+      "sha256": "7aaba4cb91161d9f96e8583f981a92410a23b58697d21758939540355c9b914a"
+    },
+    {
+      "path": "out/seam_paths.png",
+      "sha256": "8fcbf1fb67054d5da35c6832d57326077b4aedb2a8a1c9b192fb633461b257fe"
+    },
+    {
+      "path": "out/summary.txt",
+      "sha256": "ccd9ade697d6dc7eacdbe523da1cf89c8837d2d4618399d22a52f870810b8556"
+    }
+  ]
+}

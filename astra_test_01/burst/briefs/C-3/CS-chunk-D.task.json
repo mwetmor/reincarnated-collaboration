@@ -1,0 +1,22 @@
+{
+ "text": "GENERATE BURST CS-chunk-D — cliffside foreground chunk D by OUTPAINTING: edit a canvas that already holds real painted pixels from its neighbour(s) (Run C-3 cliffside, Matt R-C3-46: seams by outpaint). task_id \"CS-chunk-D\".\n\nIMAGE 1 is the canvas to EDIT (1536×1024). Two strips are ALREADY PAINTED — real finished pixels copied from neighbours: its BOTTOM 256 rows (y 768–1023, from the chunk directly below) and its LEFT 256 columns (x 0–255, from the chunk to its left). Everything else in IMAGE 1 is a flat-shaded ORTHOGRAPHIC GEOMETRY GUIDE of the same game level: TAN = packed-dirt cliff-top path; LIGHT GREY band = grassy/rocky verge along the rim; DARK GREY/BROWN plane = the vertical cliff face dropping toward the viewer; dark block = boulder outcrop; PURE GREEN #00ff00 = empty void (a separate background shows there).\nUse image_gen in EDIT mode on IMAGE 1 and deliver ONE 1536×1024 image in which: (a) the already-painted strip(s) stay as they are — do not repaint, recolour, shift or restyle them; (b) every flat guide area is replaced by painting that CONTINUES the painted strip(s) seamlessly across their inner edge — the same dirt colours and pebbles, the same verge grass and stones, the same rock strata and vines, the same sunset light from the upper-left — so no join line is visible; (c) every boundary of the guide (rim line, path edges, cliff-face outline, boulder footprint) stays exactly where it is; (d) every green pixel stays flat pure #00ff00.\nOrthographic view: no perspective shrinking toward the top. Scale: a person standing here is 130 px tall. Register: the same HAND-DRAWN painted 2D look as the painted strip(s) and IMAGE 2 (tapered dark contours, painted planes, bold Hades-like jewel tones and graphic shadows). No characters, creatures, text, UI, border or vignette.\n\nOne image_gen call. ONE retry only if a painted strip was altered, a boundary moved, the green was painted over, or a visible join line remains — name the reason. Copy the output from $CODEX_HOME/generated_images/... to out/chunk_D.png with sha256. No code. No other files. No web.\nRETURN: receipt task_id \"CS-chunk-D\"; images = the file with prompt, references and elapsed_s; calls_used = the TRUE number of image_gen calls; status; concerns. Never PASS/FAIL.",
+ "references": [
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/CS-guides/chunk_D_edit_canvas.png",
+   "role": "IMAGE 1 — the canvas to EDIT (painted strip(s) + geometry guide)"
+  },
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/CS-chunk-B/chunk_B.png",
+   "role": "IMAGE 2 — a finished neighbouring chunk: the style to continue"
+  }
+ ],
+ "image_cap": 2,
+ "minutes_cap": 15,
+ "tool_call_cap": 20,
+ "outputs": [
+  "out/chunk_D.png"
+ ],
+ "effort": "high",
+ "add_dirs": [],
+ "experiment": "C3-cliffside"
+}

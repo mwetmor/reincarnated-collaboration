@@ -1,0 +1,43 @@
+{
+  "task_id": "CS-chunk-C",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "chunk_C",
+      "path": "out/chunk_C.png",
+      "sha256": "48a5216db05261eb59d01474349b2e6492444eae5341dd720f737ce1db640a3e",
+      "prompt": "Use case: precise-object-edit. Edit IMAGE 1, the 1536x1024 terrain canvas. IMAGE 2 is only a finished neighbouring terrain style reference. Deliver one 1536x1024 PNG. Outpaint ONLY the flat tan and light grey guide areas above y=768 in IMAGE 1 into finished hand-drawn painted 2D game terrain. The entire bottom 256 rows y=768..1023 are locked existing artwork: preserve these pixels exactly without repainting, recolouring, shifting, or restyling. All pure #00ff00 green pixels throughout the image are locked: preserve their exact colour and locations. Preserve the exact curved silhouette separating the green void from the terrain; no grass or rocks may protrude across it. Preserve every guide boundary and the path footprint exactly. Tan is packed golden dirt path; the light grey curved band is a rocky grassy verge, NOT a vertical wall. Continue the existing lower strip's dirt colours, diagonal subtle ruts, pebble sizes, grass clumps, small wildflowers, angular stones and upper-left sunset lighting smoothly upward across y=768 without any horizontal join line. Match IMAGE 2's tapered hand-drawn dark contours, painted clean material planes, restrained surface texture, readable shapes, rich colours and graphic cool shadows. Same elevated orthographic three-quarter camera and uniform environmental scale from bottom to top, no perspective shrinking. No new cliff face where the guide has none. No characters, creatures, text, UI, border or vignette. The output must retain IMAGE 1 composition exactly and replace all remaining flat tan/grey guide with seamless painted continuation. Keep green void flat pure #00ff00 and bottom strip untouched.\nRETRY — the previous attempt changed the curved green boundary, let grass extend into green, and repainted parts of the locked bottom strip. Correct these errors by editing the ORIGINAL IMAGE 1 again. Treat the original green region and all original rows y=768 through 1023 as an immutable cutout mask. Copy them exactly. Do not approximate or redraw the mask curve. At y=0 the original green extends to about x=1428; at y=768 it extends to about x=645; at y=1023 it extends to about x=95. These anchors are descriptive only: follow the original pixel contour everywhere between them. Keep every blade of grass and every rock INSIDE the original grey/tan region. The existing bottom strip is finished and must be retained identically, not recreated. Only fill original flat grey and tan pixels in the top 768 rows. Continue the lower artwork upward with no visible join. Preserve the original curve rather than straightening it into a diagonal.",
+      "references": [
+        {
+          "role": "edit target",
+          "path": "in/01_chunk_C_edit_canvas.png"
+        },
+        {
+          "role": "finished neighbouring chunk style reference",
+          "path": "in/02_chunk_A.png"
+        }
+      ],
+      "elapsed_s": 22.137
+    }
+  ],
+  "calls_used": 2,
+  "retries": [
+    {
+      "reason": "First output moved the green boundary and altered parts of the bottom painted strip.",
+      "change": "Re-edited the original canvas with stronger immutable-region instructions and boundary anchors."
+    }
+  ],
+  "self_report": {
+    "obeyed_invariants": false,
+    "concerns": [
+      "Retry visually improves preservation, but exact pixel identity of the bottom strip and green boundary remains unverified.",
+      "Output dimensions confirmed as 1536×1024."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/chunk_C.png",
+      "sha256": "48a5216db05261eb59d01474349b2e6492444eae5341dd720f737ce1db640a3e"
+    }
+  ]
+}

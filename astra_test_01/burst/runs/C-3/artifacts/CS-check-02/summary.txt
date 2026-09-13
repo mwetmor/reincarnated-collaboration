@@ -1,0 +1,12 @@
+CS-check-02 — report only; image_gen calls 0.
+Portion 2816x1792; compositing order A, B, C, D; DP +/-1 px, feather +/-3 px.
+A|B: path mean 11.178; p95 29.283; whole-band mean 27.592.
+C|D: path mean 2.989; p95 7.000; whole-band mean 9.840.
+C/A: path mean 2.479; p95 12.000; whole-band mean 8.990.
+D/B: path mean 1.765; p95 6.333; whole-band mean 7.383.
+D corner owner D/B, selected by lower mean path cost.
+CS-check-01 task-provided crossfade comparison: 31.3; support equivalence unverified.
+Vista scale 1.833333333; resized (2816, 1877); centered crop y=42.
+Keepers share 0.53125000 scale; feet (1586,925), (1676,925); shadows centered.
+Screen origin (624,330), 1920x1080; idle feet (962,595); outside pixels 0.
+Concern: rectangular junction transition remains; exact prior settings unavailable; diagnostics in checks.json.

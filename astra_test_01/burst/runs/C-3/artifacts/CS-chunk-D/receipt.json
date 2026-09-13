@@ -1,0 +1,43 @@
+{
+  "task_id": "CS-chunk-D",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "chunk_D",
+      "path": "out/chunk_D.png",
+      "sha256": "ba17fb8362b5a27a8467eba362339a91bb7dfb2df1589c7dbeb0946e1780ece7",
+      "prompt": "Use case: precise-object-edit. Retry to correct displaced cliff geometry and visible strip seams. Edit IMAGE 1, the ORIGINAL 1536×1024 canvas, replacing ONLY its flat tan/grey guide surfaces with finished painting. IMAGE 2 supplies material style only, never its layout. Keep original canvas coordinates and EVERY existing painted pixel: LEFT x=0–255 throughout and BOTTOM y=768–1023 throughout must be untouched pixel-identical source pixels. The joins x=256 and y=768 must disappear through precise continuation into the guide. Keep ALL original #00ff00 void pixels unchanged and pure #00ff00, including both upper corners and bottom-right notch. CRITICAL GEOMETRY: trace the exact original guide edges. The path-to-verge left edge runs diagonally down-left from near (1092,245) to (779,583), then down-right to (846,768). The verge-to-vertical-cliff rim runs from near (1144,349) down-left to (905,615), then down-right to about (948,768), where it must join the original painted bottom strip rim. Do NOT turn this angular rim into a long diagonal from bottom-left to top-right; the lower-central region left of x=846 at y=768 must remain continuous flat dirt, not a new cliff or dense vegetation wall. The entire original dark grey/brown plane on the right is VERTICAL cliff rock face, not horizontal ground. Keep its exact polygon outline and its green notch apex at (1200,714). Boulder top corners (1092,201), (1238,85), (1352,176), (1206,292), overall lower tip (1206,414): retain its exact silhouette, extent and footprint while painting angular natural fractured rock inside. Maintain all other guide boundaries exactly. Fill tan with ochre packed earth, fine directional dirt strokes, cracks and sparse pebbles matching source; light grey band with rocky grass verge; dark face with cool slate-violet fractured vertical rock strata and hanging vines matching the bottom strip and IMAGE 2. Use HAND-DRAWN painted 2D tapered dark contours, clean painted planes, restrained texture, readable graphic shapes, rich jewel colours, upper-left sunset light matching existing pixels, cool readable shadows. Orthographic elevated three-quarter camera with no perspective size change. No characters, creatures, text, UI, border, vignette or added geometry. Output ONE exact 1536×1024 PNG. Preserve original strips and green verbatim; paint only guide interiors and seamlessly continue materials at their strip joins.",
+      "references": [
+        {
+          "role": "edit target: painted strips and geometry guide",
+          "path": "in/01_chunk_D_edit_canvas.png"
+        },
+        {
+          "role": "finished neighbouring chunk style reference",
+          "path": "in/02_chunk_B.png"
+        }
+      ],
+      "elapsed_s": 52.64
+    }
+  ],
+  "calls_used": 2,
+  "retries": [
+    {
+      "reason": "First result displaced the cliff rim and left a visible join above the bottom strip.",
+      "change": "Retried from the original canvas with explicit boundary coordinates and stronger strip preservation instructions."
+    }
+  ],
+  "self_report": {
+    "obeyed_invariants": false,
+    "concerns": [
+      "Boulder silhouette and upper-right terrain geometry still differ from the guide.",
+      "Exact pixel preservation of painted strips and green void remains unverified."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/chunk_D.png",
+      "sha256": "ba17fb8362b5a27a8467eba362339a91bb7dfb2df1589c7dbeb0946e1780ece7"
+    }
+  ]
+}
