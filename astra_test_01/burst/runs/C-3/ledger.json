@@ -21200,6 +21200,15 @@
       "consequence": "HITL plan written (gandalf/notes/2026-09-13-cliffside-scene-hitl-plan.md); checkpoint 1 = drax blockout render at the candidate camera with the Keeper composited at 12.5 %, shown to Matt before any painting.",
       "evidence": "this session",
       "ts": "2026-09-13T14:20:44"
+    },
+    {
+      "id": "R-C3-43",
+      "by": "Matt (\"Agreed\") on gandalf architecture clarification",
+      "topic": "CLIFFSIDE ARCHITECTURE: flat 2D screen-space paintings only (nothing projected onto 3D; blockout = guide + data); ORTHOGRAPHIC level canvas at the player_lock yaw/pitch as the paint guide; foreground in overlapping 1536×1024 chunks with seam strips; props as single-view sprites; background as flat panoramas; distortion checked against blockout masks + seams; a PROOF STEP (2 adjacent chunks + 1 background panorama) before the full level",
+      "ruling": "Matt asked how drax specifies cut-out sections, whether images fit onto 3D surfaces, and how distortion is prevented. Clarified: no texture fitting onto geometry (a medium change); a perspective follow camera cannot align with flat paintings, so the paint guide is an orthographic canvas at the same yaw 47° / pitch 52.95° with ground px/m matching the 12.5 % follow render (drax addendum sent); chunks carry canvas-pixel origins and receive the neighbour’s painted overlap strip; props painted once at the fixed camera; background panoramas composed from the blockout’s far bands; per-chunk mask/edge fidelity + seam checks. Unproven: chunk-to-chunk consistency, paint-over fidelity to the blockout, Keeper angle. Matt: \"Agreed\" — proof step inserted after checkpoint 1; fallback = fewer larger paintings upscaled (sharpness trade).",
+      "consequence": "Plan § 3 amended: checkpoint 1b = proof (≈ 3–5 Astra images, 0 Grok).",
+      "evidence": "this session",
+      "ts": "2026-09-13T14:43:00"
     }
   ],
   "grok_calls": [
