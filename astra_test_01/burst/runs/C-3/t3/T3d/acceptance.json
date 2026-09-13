@@ -1,0 +1,94 @@
+{
+  "task_id": "T3d",
+  "results": [
+    {
+      "id": "decode_frame0_mad",
+      "subject": "walk/E",
+      "passed": null,
+      "value": 0.7586224675178528,
+      "threshold": 3,
+      "op": "<=",
+      "unit": "rgb_levels",
+      "evidence": [
+        "packet_walk_E/walk_E_2x.mp4"
+      ],
+      "notes": "Acceptance measurement; conductor owns verdict. pil_lanczos_fallback; full-canvas RGB MAD; no alignment or crop"
+    },
+    {
+      "id": "packet_wall",
+      "subject": "walk/E",
+      "passed": null,
+      "value": 1.1794042499968782,
+      "threshold": 120,
+      "op": "<=",
+      "unit": "seconds",
+      "evidence": [],
+      "notes": "Acceptance measurement; conductor owns verdict. "
+    },
+    {
+      "id": "external_or_missing_html_references",
+      "subject": "walk/E",
+      "passed": null,
+      "value": 0,
+      "threshold": 0,
+      "op": "==",
+      "unit": "references",
+      "evidence": [],
+      "notes": "Acceptance measurement; conductor owns verdict. 6 references checked"
+    },
+    {
+      "id": "summary_lines",
+      "subject": "walk/E",
+      "passed": null,
+      "value": 10,
+      "threshold": 12,
+      "op": "<=",
+      "unit": "lines",
+      "evidence": [],
+      "notes": "Acceptance measurement; conductor owns verdict. "
+    }
+  ],
+  "reference_mode": "pil_lanczos_fallback",
+  "reference_path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-xv-cut-04/frames/walk/E/walk_E_00.png",
+  "reference_notes": [
+    "Named Desktop video not readable/found; SPEC fallback used."
+  ],
+  "decoded_shape": [
+    1024,
+    1024,
+    3
+  ],
+  "reference_shape": [
+    1024,
+    1024,
+    3
+  ],
+  "source_frame_sha256": "a8d0e0d91d8c9f84e007092b13f55d9e358f36e6b5c6a9b18f59b27f2f3dc7af",
+  "video": {
+    "codec_name": "h264",
+    "codec_tag_string": "avc1",
+    "pix_fmt": "yuv420p",
+    "width": 1024,
+    "height": 1024,
+    "r_frame_rate": "12/1",
+    "nb_frames": "60",
+    "duration": "5.000000"
+  },
+  "packet": {
+    "cell": "walk_E",
+    "fps": 12.0,
+    "frames": 12,
+    "hold_frames": 0,
+    "wall_s": 1.1794042499968782,
+    "references": [
+      "walk_E_2x.mp4",
+      "walk_E_1to1.mp4",
+      "img/seam_pairs.png",
+      "img/strip.png",
+      "numbers.json",
+      "summary.txt"
+    ]
+  },
+  "wall_s": 1.6680585419962881,
+  "decoded_temporaries_on_disk": 0
+}

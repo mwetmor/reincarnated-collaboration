@@ -1,0 +1,44 @@
+[
+  {
+    "name": "g6_seam",
+    "subject": "walk/E",
+    "value": 0.8322703043619791,
+    "band": {
+      "floor": null,
+      "target": null,
+      "ceiling": 1.0076243082682292
+    },
+    "passed": true,
+    "proposed": false,
+    "unit": "rgb_mad",
+    "notes": "{\"definition\": \"literal minimum internal\", \"adjacent_and_seam\": [{\"canvas\": 1.2514050801595051, \"foreground_union\": 22.85254847323813}, {\"canvas\": 1.3349215189615886, \"foreground_union\": 25.657428452721362}, {\"canvas\": 1.2042935689290364, \"foreground_union\": 25.169284328576364}, {\"canvas\": 1.2447649637858074, \"foreground_union\": 24.206800197823938}, {\"canvas\": 1.2575950622558594, \"foreground_union\": 20.854693825910932}, {\"canvas\": 1.0277048746744792, \"foreground_union\": 17.930560177481976}, {\"canvas\": 1.3046671549479167, \"foreground_union\": 22.320085274859146}, {\"canvas\": 1.3726094563802083, \"foreground_union\": 24.039372884375556}, {\"canvas\": 1.2390213012695312, \"foreground_union\": 23.878988384061167}, {\"canvas\": 1.0874570210774739, \"foreground_union\": 19.950334756339377}, {\"canvas\": 1.0076243082682292, \"foreground_union\": 18.33051121906084}, {\"canvas\": 0.8322703043619791, \"foreground_union\": 16.070614810449815}]}"
+  },
+  {
+    "name": "g6b",
+    "subject": "walk/E",
+    "value": 0.8322703043619791,
+    "band": {
+      "floor": null,
+      "target": null,
+      "ceiling": 1.2447649637858074
+    },
+    "passed": true,
+    "proposed": false,
+    "unit": "rgb_mad",
+    "notes": "{\"definition\": \"median internal\", \"adjacent_and_seam\": [{\"canvas\": 1.2514050801595051, \"foreground_union\": 22.85254847323813}, {\"canvas\": 1.3349215189615886, \"foreground_union\": 25.657428452721362}, {\"canvas\": 1.2042935689290364, \"foreground_union\": 25.169284328576364}, {\"canvas\": 1.2447649637858074, \"foreground_union\": 24.206800197823938}, {\"canvas\": 1.2575950622558594, \"foreground_union\": 20.854693825910932}, {\"canvas\": 1.0277048746744792, \"foreground_union\": 17.930560177481976}, {\"canvas\": 1.3046671549479167, \"foreground_union\": 22.320085274859146}, {\"canvas\": 1.3726094563802083, \"foreground_union\": 24.039372884375556}, {\"canvas\": 1.2390213012695312, \"foreground_union\": 23.878988384061167}, {\"canvas\": 1.0874570210774739, \"foreground_union\": 19.950334756339377}, {\"canvas\": 1.0076243082682292, \"foreground_union\": 18.33051121906084}, {\"canvas\": 0.8322703043619791, \"foreground_union\": 16.070614810449815}]}"
+  },
+  {
+    "name": "g6c",
+    "subject": "walk/E",
+    "value": 0.8098339561010615,
+    "band": {
+      "floor": null,
+      "target": null,
+      "ceiling": 1.25
+    },
+    "passed": true,
+    "proposed": false,
+    "unit": "ratio",
+    "notes": "{\"seam_pair\": [11, 0], \"homologue_pair\": [5, 6], \"seam_mad\": 0.8322703043619791, \"homologue_mad\": 1.0277048746744792, \"ratio_infinite\": false, \"comparison\": \"seam MAD <= 1.25 * half-cycle homologue MAD\"}"
+  }
+]

@@ -1,0 +1,31 @@
+{
+  "task_id": "T3d",
+  "full_suite": {
+    "tests_run": 253,
+    "successful_tests": 248,
+    "elapsed_s": 97.29901249999966
+  },
+  "full_suite_exit_code": 1,
+  "red_cases": [
+    "test_synthetic_contract_and_grid (test_oracle_walk.Tests.test_synthetic_contract_and_grid)",
+    "test_f04_outside_at_least_three (test_oracles_motif.Tests.test_f04_outside_at_least_three)",
+    "test_named_genuine_annuli_retained (test_oracles_motif.Tests.test_named_genuine_annuli_retained) (center=[113, 201])",
+    "test_named_genuine_annuli_retained (test_oracles_motif.Tests.test_named_genuine_annuli_retained) (center=[111, 311])",
+    "test_named_genuine_annuli_retained (test_oracles_motif.Tests.test_named_genuine_annuli_retained) (center=[170, 253])"
+  ],
+  "diagnostic_errors": 0,
+  "combat_report_only_red": false,
+  "synthetic": {
+    "tests_run": 16,
+    "successful": true,
+    "failures": [],
+    "errors": [],
+    "skipped": [],
+    "wall_s": 1.1867537500002072
+  },
+  "acceptance_runs": 1,
+  "tracked_burst_wall_s": 633.377416,
+  "wall_cap_s": 2400,
+  "scope_concern": "Initial SPEC extraction displayed all section 7 rows, exceeding requested T3d-only row read. No work performed on other rows.",
+  "decoded_video_temporaries_on_disk": 0
+}
