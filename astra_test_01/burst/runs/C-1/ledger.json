@@ -7993,9 +7993,441 @@
    "codex_version": "codex-cli 0.153.4",
    "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
    "exit": 0
+  },
+  {
+   "id": "K1p-gen-01",
+   "type": "GENERATE",
+   "experiment": "K1p",
+   "brief_sha256": "220f1d4f7ad43aae331751d7288d044e4d47cf53eab938381e46e48f749230f3",
+   "started": "2026-09-13T00:51:34.362440+00:00",
+   "ended": "2026-09-13T00:55:37.933489+00:00",
+   "minutes": 4.059453711799991,
+   "image_calls": 3,
+   "tool_calls": 2,
+   "audit": {
+    "violations": [],
+    "image_calls": 3,
+    "tool_calls": 2,
+    "tools_seen": {
+     "command_execution": 2
+    },
+    "writes_outside_out": [],
+    "image_calls_events": 0,
+    "generated_images_new": [
+     {
+      "path": "/Users/admin/.codex/generated_images/01a0983f-912b-7402-b0d2-53451aadb5b7/exec-8a0c1c56-e271-4c9f-aa77-025bdc742fd8.png",
+      "sha256": "67695ed2f1b48e4b1ebc10abd61a9f10834014d03916a1fefffc8db07264680b"
+     },
+     {
+      "path": "/Users/admin/.codex/generated_images/01a0983f-912b-7402-b0d2-53451aadb5b7/exec-a162cae4-b0eb-4d42-998b-8dac7a1c57b8.png",
+      "sha256": "66667b177db5dbf35f07670f6b84bd6c4f8b712f42017c3cd151c75d9fd5ef49"
+     },
+     {
+      "path": "/Users/admin/.codex/generated_images/01a0983f-912b-7402-b0d2-53451aadb5b7/exec-adcdcff2-7030-4e5d-8d2f-2835b58d63fc.png",
+      "sha256": "b7bf2c14f79b71c3b645a792c25ca7e31ca11631dc385489a705dc8fb70ad957"
+     }
+    ]
+   },
+   "receipt_sha256": "2b126a8f46047d36e3796e8a35ae08ba3304498fd0c8f18582b121f39c835cf7",
+   "artifacts": [
+    {
+     "name": "k1p_master_A.png",
+     "sha256": "67695ed2f1b48e4b1ebc10abd61a9f10834014d03916a1fefffc8db07264680b"
+    },
+    {
+     "name": "k1p_master_B.png",
+     "sha256": "66667b177db5dbf35f07670f6b84bd6c4f8b712f42017c3cd151c75d9fd5ef49"
+    },
+    {
+     "name": "k1p_master_C.png",
+     "sha256": "b7bf2c14f79b71c3b645a792c25ca7e31ca11631dc385489a705dc8fb70ad957"
+    },
+    {
+     "name": "exec-8a0c1c56-e271-4c9f-aa77-025bdc742fd8.provenance.json",
+     "sha256": "b95d7957c481fc2dcc9b195094519de312818778275fc032b1d98913adb32ac8"
+    },
+    {
+     "name": "exec-a162cae4-b0eb-4d42-998b-8dac7a1c57b8.provenance.json",
+     "sha256": "9e69d9c7c588526ad69d25bb23348fcb6f572dafff7583d1f547f2d9aa36f6e2"
+    },
+    {
+     "name": "exec-adcdcff2-7030-4e5d-8d2f-2835b58d63fc.provenance.json",
+     "sha256": "4f3ce0a73e87e7994921c7bc832577e5b124bf1c13fdfe7d10f95d61c6a3c279"
+    }
+   ],
+   "artifacts_in_place": [],
+   "effort": "high",
+   "image_calls_events": 0,
+   "generated_images_new": [
+    {
+     "path": "/Users/admin/.codex/generated_images/01a0983f-912b-7402-b0d2-53451aadb5b7/exec-8a0c1c56-e271-4c9f-aa77-025bdc742fd8.png",
+     "sha256": "67695ed2f1b48e4b1ebc10abd61a9f10834014d03916a1fefffc8db07264680b"
+    },
+    {
+     "path": "/Users/admin/.codex/generated_images/01a0983f-912b-7402-b0d2-53451aadb5b7/exec-a162cae4-b0eb-4d42-998b-8dac7a1c57b8.png",
+     "sha256": "66667b177db5dbf35f07670f6b84bd6c4f8b712f42017c3cd151c75d9fd5ef49"
+    },
+    {
+     "path": "/Users/admin/.codex/generated_images/01a0983f-912b-7402-b0d2-53451aadb5b7/exec-adcdcff2-7030-4e5d-8d2f-2835b58d63fc.png",
+     "sha256": "b7bf2c14f79b71c3b645a792c25ca7e31ca11631dc385489a705dc8fb70ad957"
+    }
+   ],
+   "generator": {
+    "observed_fingerprint": null,
+    "probe_set_sha256": null
+   },
+   "regeneratable_until": null,
+   "model": "gpt-6-astra",
+   "model_source": "profile",
+   "codex_version": "codex-cli 0.153.4",
+   "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+   "exit": 0
+  },
+  {
+   "id": "K1p-tr-A",
+   "type": "TRANSCRIBE",
+   "experiment": "K1p",
+   "brief_sha256": "4eeec39683e70c05c12856afbfc4ff6d666ef14c1201097486384177bd49b892",
+   "started": "2026-09-13T00:56:09.703917+00:00",
+   "ended": "2026-09-13T00:57:04.458371+00:00",
+   "minutes": 0.9125554652833671,
+   "image_calls": 0,
+   "tool_calls": 3,
+   "audit": {
+    "violations": [],
+    "image_calls": 0,
+    "tool_calls": 3,
+    "tools_seen": {
+     "command_execution": 2,
+     "file_change": 1
+    },
+    "writes_outside_out": [],
+    "image_calls_events": 0,
+    "generated_images_new": []
+   },
+   "receipt_sha256": "6991d1e3a49d5b26be6ec155e26b9716e40e0e4168bb278879e80b653b977dbd",
+   "artifacts": [
+    {
+     "name": "inventory.json",
+     "sha256": "871b40f0d5ced0f5d39abd619144036609e2707e0cedf7336641ba5b04309f4b"
+    },
+    {
+     "name": "notes.txt",
+     "sha256": "4e04af4bad7b5981803897bba0cc8f4d2c7af3667405df57b053646244ec9071"
+    }
+   ],
+   "artifacts_in_place": [],
+   "effort": "high",
+   "image_calls_events": 0,
+   "generated_images_new": [],
+   "generator": {
+    "observed_fingerprint": null,
+    "probe_set_sha256": null
+   },
+   "regeneratable_until": null,
+   "model": "gpt-6-astra",
+   "model_source": "profile",
+   "codex_version": "codex-cli 0.153.4",
+   "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+   "exit": 0
+  },
+  {
+   "id": "K1p-tr-C",
+   "type": "TRANSCRIBE",
+   "experiment": "K1p",
+   "brief_sha256": "cd09019416ada2b83699350450d0fc4f53a0951cee1364b26b9115dad2c61f39",
+   "started": "2026-09-13T00:56:09.703930+00:00",
+   "ended": "2026-09-13T00:57:09.050090+00:00",
+   "minutes": 0.9890828708332872,
+   "image_calls": 0,
+   "tool_calls": 3,
+   "audit": {
+    "violations": [],
+    "image_calls": 0,
+    "tool_calls": 3,
+    "tools_seen": {
+     "command_execution": 2,
+     "file_change": 1
+    },
+    "writes_outside_out": [],
+    "image_calls_events": 0,
+    "generated_images_new": []
+   },
+   "receipt_sha256": "7dd1c97ece5bdf914b71e79a57b6b4063316551d53b8912690e89faa7bcacc2f",
+   "artifacts": [
+    {
+     "name": "inventory.json",
+     "sha256": "531dd4aa4921399527584a3dbee89d0de74bfa7c62fbb733c26e5f94b736132a"
+    },
+    {
+     "name": "notes.txt",
+     "sha256": "b4ab4842434d0e007a845e3faf6261748323f783eea8cd362395be184ab16563"
+    }
+   ],
+   "artifacts_in_place": [],
+   "effort": "high",
+   "image_calls_events": 0,
+   "generated_images_new": [],
+   "generator": {
+    "observed_fingerprint": null,
+    "probe_set_sha256": null
+   },
+   "regeneratable_until": null,
+   "model": "gpt-6-astra",
+   "model_source": "profile",
+   "codex_version": "codex-cli 0.153.4",
+   "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+   "exit": 0
+  },
+  {
+   "id": "K1p-tr-B",
+   "type": "TRANSCRIBE",
+   "experiment": "K1p",
+   "brief_sha256": "7295fb0d29396414eff7de56a23272a9a2a3821c0bed406b9c670c924e37a7fc",
+   "started": "2026-09-13T00:56:09.703929+00:00",
+   "ended": "2026-09-13T00:57:20.152706+00:00",
+   "minutes": 1.174123438183354,
+   "image_calls": 0,
+   "tool_calls": 5,
+   "audit": {
+    "violations": [],
+    "image_calls": 0,
+    "tool_calls": 5,
+    "tools_seen": {
+     "command_execution": 4,
+     "file_change": 1
+    },
+    "writes_outside_out": [],
+    "image_calls_events": 0,
+    "generated_images_new": []
+   },
+   "receipt_sha256": "543e43fe60f9b27999e39acadb118e8a53d53f04d3e6e83d9a31c2ac5f5c55c8",
+   "artifacts": [
+    {
+     "name": "inventory.json",
+     "sha256": "871b40f0d5ced0f5d39abd619144036609e2707e0cedf7336641ba5b04309f4b"
+    },
+    {
+     "name": "notes.txt",
+     "sha256": "1c0570fd8c09a90b95dde1d25b86e7d16c86cad3df99749b88fcf3dea1881e81"
+    }
+   ],
+   "artifacts_in_place": [],
+   "effort": "high",
+   "image_calls_events": 0,
+   "generated_images_new": [],
+   "generator": {
+    "observed_fingerprint": null,
+    "probe_set_sha256": null
+   },
+   "regeneratable_until": null,
+   "model": "gpt-6-astra",
+   "model_source": "profile",
+   "codex_version": "codex-cli 0.153.4",
+   "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+   "exit": 0
+  },
+  {
+   "id": "K1p-chk-01",
+   "type": "CHECK",
+   "experiment": "K1p",
+   "brief_sha256": "cc12bfb6eac33900a2236e81a9b1e8b7fac4d54e72a55da79150ef809fd9cbeb",
+   "started": "2026-09-13T00:56:09.703919+00:00",
+   "ended": "2026-09-13T00:59:37.813984+00:00",
+   "minutes": 3.46844613263335,
+   "image_calls": 0,
+   "tool_calls": 7,
+   "audit": {
+    "violations": [],
+    "image_calls": 0,
+    "tool_calls": 7,
+    "tools_seen": {
+     "command_execution": 7
+    },
+    "writes_outside_out": [],
+    "image_calls_events": 0,
+    "generated_images_new": []
+   },
+   "receipt_sha256": "786bddba47793392adcd950acf2178328a5c1db986cc0db4cbe12a1bebbae4be",
+   "artifacts": [
+    {
+     "name": "checks.json",
+     "sha256": "c951fe8cc59fe7990220c1b5c63f3a81ddd115d65237158b3eec0cedbfb9fb72"
+    },
+    {
+     "name": "checks_readme.txt",
+     "sha256": "473c1e8d67ec191ff3fffaa735f940c97ba957aebd03f4321045e947891925a9"
+    },
+    {
+     "name": "k1p_master_A_64.png",
+     "sha256": "20c6ca43eabc0f3944aa5d4905408c30e60d532da86244c3d68fbfc2dca1c9ff"
+    },
+    {
+     "name": "k1p_master_A_rgba.png",
+     "sha256": "b27b12c78207946c782c853c32a23583eef61fd9521f2ea8a61f3ffb2b463907"
+    },
+    {
+     "name": "k1p_master_B_64.png",
+     "sha256": "23cb0f20302c9996b0d85bc7cb8bef69c5f46fbef67c435e52c1612e9c778ab1"
+    },
+    {
+     "name": "k1p_master_B_rgba.png",
+     "sha256": "04de8b5689b8a22127f44bbc57385dc5c60ef9d0c08afa55311d4f2d4c01241a"
+    },
+    {
+     "name": "k1p_master_C_64.png",
+     "sha256": "6239abbf34aa17b3fadd76a8eb5cfc90105b7145309054de8c961009f66b658e"
+    },
+    {
+     "name": "k1p_master_C_rgba.png",
+     "sha256": "96c52c17fcc75fa8a4449d3026479d5ba71930cc52d72b54c12b99899e4fe307"
+    }
+   ],
+   "artifacts_in_place": [],
+   "effort": "high",
+   "image_calls_events": 0,
+   "generated_images_new": [],
+   "generator": {
+    "observed_fingerprint": null,
+    "probe_set_sha256": null
+   },
+   "regeneratable_until": null,
+   "model": "gpt-6-astra",
+   "model_source": "profile",
+   "codex_version": "codex-cli 0.153.4",
+   "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+   "exit": 0
+  },
+  {
+   "id": "K1p-jdg-01",
+   "type": "JUDGE",
+   "experiment": "K1p",
+   "brief_sha256": "c530cd3721254057c66eed96eec55a127be0207046d08d6cf1316c7bfeeff17c",
+   "started": "2026-09-13T01:00:14.138616+00:00",
+   "ended": "2026-09-13T01:02:33.890445+00:00",
+   "minutes": 2.329161511116642,
+   "image_calls": 0,
+   "tool_calls": 2,
+   "audit": {
+    "violations": [],
+    "image_calls": 0,
+    "tool_calls": 2,
+    "tools_seen": {
+     "file_change": 1,
+     "command_execution": 1
+    },
+    "writes_outside_out": [],
+    "image_calls_events": 0,
+    "generated_images_new": []
+   },
+   "receipt_sha256": "632451de64022668afa261524b4d6723ffea8d8bb44069deb8224baa856779fc",
+   "artifacts": [
+    {
+     "name": "judgment.json",
+     "sha256": "f4b7ae2baeabd1ac53065447b368f1bc60fa5af67a787d70663d0e76ca69f3ff"
+    }
+   ],
+   "artifacts_in_place": [],
+   "effort": "high",
+   "image_calls_events": 0,
+   "generated_images_new": [],
+   "generator": {
+    "observed_fingerprint": null,
+    "probe_set_sha256": null
+   },
+   "regeneratable_until": null,
+   "model": "gpt-6-astra",
+   "model_source": "profile",
+   "codex_version": "codex-cli 0.153.4",
+   "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+   "exit": 0
+  },
+  {
+   "id": "K1p-pack-01",
+   "type": "PACK",
+   "experiment": "K1p",
+   "brief_sha256": "4c02911294c754cfe363a863ee245f5355744330cee9a96453365117f2da7e0e",
+   "started": "2026-09-13T01:04:05.643392+00:00",
+   "ended": "2026-09-13T01:10:08.182467+00:00",
+   "minutes": 6.042227061800016,
+   "image_calls": 0,
+   "tool_calls": 12,
+   "audit": {
+    "violations": [],
+    "image_calls": 0,
+    "tool_calls": 12,
+    "tools_seen": {
+     "command_execution": 11,
+     "file_change": 1
+    },
+    "writes_outside_out": [],
+    "image_calls_events": 0,
+    "generated_images_new": []
+   },
+   "receipt_sha256": "b8c4d23437082a52c9755d97db4309ccdf8d4f325bfc517596175ea53809a457",
+   "artifacts": [
+    {
+     "name": "img/k1p_master_A.png",
+     "sha256": "67695ed2f1b48e4b1ebc10abd61a9f10834014d03916a1fefffc8db07264680b"
+    },
+    {
+     "name": "img/k1p_master_A_64.png",
+     "sha256": "20c6ca43eabc0f3944aa5d4905408c30e60d532da86244c3d68fbfc2dca1c9ff"
+    },
+    {
+     "name": "img/k1p_master_A_rgba.png",
+     "sha256": "b27b12c78207946c782c853c32a23583eef61fd9521f2ea8a61f3ffb2b463907"
+    },
+    {
+     "name": "img/k1p_master_B.png",
+     "sha256": "66667b177db5dbf35f07670f6b84bd6c4f8b712f42017c3cd151c75d9fd5ef49"
+    },
+    {
+     "name": "img/k1p_master_B_64.png",
+     "sha256": "23cb0f20302c9996b0d85bc7cb8bef69c5f46fbef67c435e52c1612e9c778ab1"
+    },
+    {
+     "name": "img/k1p_master_B_rgba.png",
+     "sha256": "04de8b5689b8a22127f44bbc57385dc5c60ef9d0c08afa55311d4f2d4c01241a"
+    },
+    {
+     "name": "img/k1p_master_C.png",
+     "sha256": "b7bf2c14f79b71c3b645a792c25ca7e31ca11631dc385489a705dc8fb70ad957"
+    },
+    {
+     "name": "img/k1p_master_C_64.png",
+     "sha256": "6239abbf34aa17b3fadd76a8eb5cfc90105b7145309054de8c961009f66b658e"
+    },
+    {
+     "name": "img/k1p_master_C_rgba.png",
+     "sha256": "96c52c17fcc75fa8a4449d3026479d5ba71930cc52d72b54c12b99899e4fe307"
+    },
+    {
+     "name": "review.html",
+     "sha256": "11d19ce03754ea5c60d1068665ab54d41eb6904d47765ddc0f298ceb66b38cfd"
+    },
+    {
+     "name": "summary.txt",
+     "sha256": "1a7bf849baea9b00b0571332e5354795b6f8f81011e1899106c9215c130d1dd7"
+    }
+   ],
+   "artifacts_in_place": [],
+   "effort": "high",
+   "image_calls_events": 0,
+   "generated_images_new": [],
+   "generator": {
+    "observed_fingerprint": null,
+    "probe_set_sha256": null
+   },
+   "regeneratable_until": null,
+   "model": "gpt-6-astra",
+   "model_source": "profile",
+   "codex_version": "codex-cli 0.153.4",
+   "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+   "exit": 0
   }
  ],
- "images_used": 66,
+ "images_used": 69,
  "images_cap": 250,
  "experiments": {
   "T0": {
@@ -8187,6 +8619,28 @@
     "T1c"
    ],
    "images": 0
+  },
+  "T2": {
+   "status": "T-freeze DELIVERED_WITH_CONCERNS (exit 0, audit clean, 9.0 min, 20 calls, 0 images): bands COMMITTED per R-29 (idle combat + relaxed-provisional; walk plate13_lateral_ann @ k_vert 1.25); dope sheets + 12 pose guides regenerated, 0 INTENT CONFLICT lines; bible v0.3 (style card + bands card); .gitignore. Suite 178/184 (5 standing reds + test_k3_combat_report_only — superseded premise, fix → T3). Conductor: register card v1.1 (H1), SPEC § 5 freeze-domain amendment, MANIFEST 8c28f3a6b716 (190 rows; oracle/ pinned; volatile suite outputs unpinned — R-28/R-30), SYNC 10/10. Milestone M-C2-freeze.",
+   "bursts": [
+    "T-freeze"
+   ],
+   "images": 0
+  },
+  "K1p": {
+   "status": "H1 starter masters DELIVERED — chain complete (gen 3 imgs → chk + tr A/B/C → jdg (control caught: axis 3 = 2, axis 2 = 2) → pack). CHECK: plates 0.984–0.985, spill 0, halo 0; O8 to the H1 exhibit A 0.003 / B 0.020 / C 0.016 vs 0.06–0.08 to the v1.0 painted anchor → the H1 sentence SURVIVED CHECK (H-3 not triggered); O7 A 144° / B 103° / C 314° (gradient proxy, near-zero resultant on C — disclosed, conflicts with the judge's axis 3 = 4); O3b annulus A 2 / B 1 / C 1 advisory. O9 inventories identical on all three = the starter declaration exactly (1 harness, 1 belt, 1 satchel, both bracers, 2 boots, rod, rod_head ABSENT, 4 controls absent) — zero construction violations. JUDGE C 5·4·4·4·5 (4.4) · A 4·4·3·4·4 (3.8) · B 4·4·3·4·4 (3.8); all feminine, no cleft, no empty straps; 'ornament' on all three = the satchel's brass corners (bible-declared construction — rubric note). Packet: ~/Desktop/Astra Burst Review - 2026-09-11/14 K1′ H1 starter masters/. Conductor lean C (register 5/5) or A (O8 nearest). AWAITING MATT'S PICK.",
+   "bursts": [
+    "K1p-gen-01",
+    "K1p-chk-01",
+    "K1p-tr-A",
+    "K1p-tr-B",
+    "K1p-tr-C",
+    "K1p-jdg-01",
+    "K1p-pack-01"
+   ],
+   "images": 3,
+   "control": "K1p-control/k1p_control_mirror.png = candidate C mirrored horizontally (conductor-side, PIL; sha256 ba5c8dab41f4), judged as candidate T",
+   "check_note": "TRANSCRIBE bursts could not read runs/C-1/k1/questions.json + inventory.schema.json (reads outside the workdir are forbidden) and answered from the in-brief glossary — inventories conform anyway; next chain attaches both files in the burst's in/."
   }
  },
  "milestones": [

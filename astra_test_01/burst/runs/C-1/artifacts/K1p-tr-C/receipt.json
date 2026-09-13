@@ -1,0 +1,24 @@
+{
+  "task_id": "K1p-tr-C",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [],
+  "calls_used": 0,
+  "retries": [],
+  "self_report": {
+    "obeyed_invariants": true,
+    "concerns": [
+      "rod_head: Brass cap interpreted as a shaft fitting, not a distinct head-piece; answered absent.",
+      "External question set and schema were not read because reads outside out/ were forbidden. Inventory follows the supplied closed glossary and stated key structure; exact schema conformity remains unverified."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/inventory.json",
+      "sha256": "531dd4aa4921399527584a3dbee89d0de74bfa7c62fbb733c26e5f94b736132a"
+    },
+    {
+      "path": "out/notes.txt",
+      "sha256": "b4ab4842434d0e007a845e3faf6261748323f783eea8cd362395be184ab16563"
+    }
+  ]
+}

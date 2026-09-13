@@ -1,0 +1,25 @@
+{
+  "task_id": "K1p-tr-A",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [],
+  "calls_used": 0,
+  "retries": [],
+  "self_report": {
+    "obeyed_invariants": true,
+    "concerns": [
+      "bracer_R: Partly occluded; one visible instance counted.",
+      "rod_head: Visible shaft cap interpreted as no distinct head-piece; counted absent.",
+      "External question and schema files were not read because the burst prohibits reads outside out/. Inventory follows the supplied closed part list; exact schema conformance remains unverified."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/inventory.json",
+      "sha256": "871b40f0d5ced0f5d39abd619144036609e2707e0cedf7336641ba5b04309f4b"
+    },
+    {
+      "path": "out/notes.txt",
+      "sha256": "4e04af4bad7b5981803897bba0cc8f4d2c7af3667405df57b053646244ec9071"
+    }
+  ]
+}

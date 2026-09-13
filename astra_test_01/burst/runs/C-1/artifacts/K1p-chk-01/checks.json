@@ -1,0 +1,692 @@
+[
+  {
+    "evidence": [
+      "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K1p-gen-01/k1p_master_A.png",
+      "out/k1p_master_A_rgba.png"
+    ],
+    "id": "plate_uniformity",
+    "notes": "{\"metrics\": {\"matte_extraction\": {\"alpha_floor\": 40, \"alpha_floor_removed_pixels\": 1143340, \"method\": \"green excess matte + inverse straight-alpha compositing\", \"native_input_alpha\": false, \"removed_background_or_detached_alpha_dust_pixels\": 204}, \"non_subject_pixels\": 1149075, \"plate_mean_rgb\": [3.3826190631594977, 249.28757826947762, 2.762553358135892], \"plate_sd_rgb\": [1.3867469927407714, 4.159293553325886, 1.2964965984054735], \"subject_support\": \"supplied subject alpha >=128\", \"tol\": 8}, \"reason\": \"No min_fraction declared; X1 observations are not a threshold\"}",
+    "op": ">=",
+    "passed": null,
+    "subject": "k1p_master_A",
+    "threshold": null,
+    "unit": "fraction",
+    "value": 0.9842638644126798
+  },
+  {
+    "evidence": [
+      "out/k1p_master_A_rgba.png"
+    ],
+    "id": "g9_alpha",
+    "notes": "Canvas-border clipping",
+    "op": "<=",
+    "passed": true,
+    "subject": "k1p_master_A",
+    "threshold": 0,
+    "unit": "alpha",
+    "value": 0
+  },
+  {
+    "evidence": [
+      "out/k1p_master_A_rgba.png"
+    ],
+    "id": "g9_green",
+    "notes": "Partial alpha and green excess >20",
+    "op": "<=",
+    "passed": true,
+    "subject": "k1p_master_A",
+    "threshold": 0,
+    "unit": "pixels",
+    "value": 0
+  },
+  {
+    "evidence": [
+      "out/k1p_master_A_rgba.png"
+    ],
+    "id": "g9_edge_mean",
+    "notes": "Mean RGB over 0<alpha<255; measurement only",
+    "op": "<=",
+    "passed": null,
+    "subject": "k1p_master_A",
+    "threshold": null,
+    "unit": "rgb",
+    "value": 30.147855626326965
+  },
+  {
+    "evidence": [
+      "out/k1p_master_A_rgba.png"
+    ],
+    "id": "g9_dark_fringe",
+    "notes": "UNEVALUABLE: source defines visual inspection, no numeric threshold",
+    "op": ">=",
+    "passed": null,
+    "subject": "k1p_master_A",
+    "threshold": null,
+    "unit": "rgb",
+    "value": 30.147855626326965
+  },
+  {
+    "evidence": [
+      "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K1p-gen-01/k1p_master_A.png",
+      "out/k1p_master_A_rgba.png"
+    ],
+    "id": "matte_quality.spill",
+    "notes": "{\"metrics\": {\"subject_pixels\": 428312, \"tol\": 20}, \"reason\": \"\"}",
+    "op": "<=",
+    "passed": null,
+    "subject": "k1p_master_A",
+    "threshold": null,
+    "unit": "fraction",
+    "value": 0.0
+  },
+  {
+    "evidence": [
+      "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K1p-gen-01/k1p_master_A.png",
+      "out/k1p_master_A_rgba.png"
+    ],
+    "id": "matte_quality.edge_halo",
+    "notes": "{\"metrics\": {\"band_pixels\": 17531, \"halo_width_px\": 2}, \"reason\": \"\"}",
+    "op": "<=",
+    "passed": null,
+    "subject": "k1p_master_A",
+    "threshold": null,
+    "unit": "green_excess_0_255",
+    "value": 0.0
+  },
+  {
+    "evidence": [
+      "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K1p-gen-01/k1p_master_A.png",
+      "out/k1p_master_A_rgba.png"
+    ],
+    "id": "matte_quality.particle_loss",
+    "notes": "{\"metrics\": {\"includes_plate_residuals\": true, \"model_coupled\": true, \"removed_partial_alpha_mass\": 10188291.0, \"source_partial_alpha_mass\": 10536292.0}, \"reason\": \"\"}",
+    "op": "<=",
+    "passed": null,
+    "subject": "k1p_master_A",
+    "threshold": null,
+    "unit": "source_partial_alpha_mass_fraction",
+    "value": 0.9669712077076071
+  },
+  {
+    "evidence": [
+      "out/k1p_master_A_rgba.png"
+    ],
+    "id": "O7",
+    "notes": "{\"metrics\": {\"absolute_value_minus_135_deg\": 9.292364995024968, \"azimuth_deg\": 144.29236499502497, \"circular_absolute_error_deg\": 9.292364995024968, \"dispersion\": 0.9964065058544547, \"erosion_px\": 1, \"key_azimuth_deg\": 135, \"resultant\": 0.0035934941455452738}, \"reason\": \"Circular mean azimuth; tolerance undeclared; gradient proxy, not visual lighting judgment.\"}",
+    "op": "<=",
+    "passed": null,
+    "subject": "k1p_master_A",
+    "threshold": null,
+    "unit": "degrees",
+    "value": 144.29236499502497
+  },
+  {
+    "evidence": [
+      "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K1p-gen-01/k1p_master_A.png"
+    ],
+    "id": "O3b.raw",
+    "notes": "{\"metrics\": {\"alignment_cosine\": 0.9, \"allowed_masks\": null, \"angular_samples\": 48, \"annulus_filtered_count\": 2, \"annulus_rejected\": 4, \"family\": \"ring\", \"gradient_floor\": 0.02, \"hollow_min\": 0.5, \"input_support\": \"Entire original RGB plate; no subject crop or mask.\", \"inside\": 0, \"max_radius_px\": 30, \"min_angular_support\": 0.75, \"min_radius_px\": 8, \"nms_radius_fraction\": 0.8, \"outside\": 2, \"peaks\": [{\"angular_support\": 0.8333333333333334, \"center\": [453.0, 151.0], \"hollow_score\": 0.14583333333333334, \"inner_opposed_support\": 0.14583333333333334, \"inside\": false, \"lab_band_surround\": 19.099401147485594, \"lab_center_band\": 21.329814278566534, \"lab_center_surround\": 38.99183933320375, \"lab_color_return\": 0.0, \"radius\": 8.0, \"rejected\": \"not_annulus\", \"score\": 0.8242013076681377}, {\"angular_support\": 0.7708333333333334, \"center\": [263.0, 414.0], \"hollow_score\": 0.5208333333333334, \"inner_opposed_support\": 0.5208333333333334, \"inside\": false, \"lab_band_surround\": 52.59132950683413, \"lab_center_band\": 15.928561528721621, \"lab_center_surround\": 57.787521705340986, \"lab_color_return\": 0.0, \"radius\": 30.0, \"score\": 0.7418862284463797}, {\"angular_support\": 0.8333333333333334, \"center\": [554.0, 166.0], \"hollow_score\": 0.08333333333333333, \"inner_opposed_support\": 0.08333333333333333, \"inside\": false, \"lab_band_surround\": 4.617600615244584, \"lab_center_band\": 35.91876331677099, \"lab_center_surround\": 39.93594298666771, \"lab_color_return\": 0.0, \"radius\": 8.0, \"rejected\": \"not_annulus\", \"score\": 0.7046103008326128}, {\"angular_support\": 0.8125, \"center\": [511.0, 142.0], \"hollow_score\": 0.125, \"inner_opposed_support\": 0.125, \"inside\": false, \"lab_band_surround\": 27.736548213777446, \"lab_center_band\": 6.9349100680098035, \"lab_center_surround\": 34.561373969575925, \"lab_color_return\": 0.0, \"radius\": 8.0, \"rejected\": \"not_annulus\", \"score\": 0.6585714297240277}, {\"angular_support\": 0.8333333333333334, \"center\": [406.0, 158.0], \"hollow_score\": 0.0, \"inner_opposed_support\": 0.0, \"inside\": false, \"lab_band_surround\": 75.77885490043451, \"lab_center_band\": 20.661904795439714, \"lab_center_surround\": 96.04277251792887, \"lab_color_return\": 0.0, \"radius\": 9.0, \"rejected\": \"not_annulus\", \"score\": 0.654081542881404}, {\"angular_support\": 0.75, \"center\": [473.0, 562.0], \"hollow_score\": 0.5, \"inner_opposed_support\": 0.5, \"inside\": false, \"lab_band_surround\": 7.00979053892733, \"lab_center_band\": 8.078880952815094, \"lab_center_surround\": 13.262951997814692, \"lab_color_return\": 0.0, \"radius\": 22.0, \"score\": 0.5798410303971934}], \"radial_tolerance_fraction\": 0.15, \"raw_count_before_annulus_filter\": 6, \"smooth_fraction\": 0.08, \"vote_thresh\": 0.5}, \"reason\": \"ADVISORY; starter motif budget is zero; no acceptance verdict.\"}",
+    "op": "<=",
+    "passed": null,
+    "subject": "k1p_master_A",
+    "threshold": null,
+    "unit": "instances",
+    "value": 6
+  },
+  {
+    "evidence": [
+      "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K1p-gen-01/k1p_master_A.png"
+    ],
+    "id": "O3b.annulus_filtered",
+    "notes": "{\"metrics\": {\"alignment_cosine\": 0.9, \"allowed_masks\": null, \"angular_samples\": 48, \"annulus_filtered_count\": 2, \"annulus_rejected\": 4, \"family\": \"ring\", \"gradient_floor\": 0.02, \"hollow_min\": 0.5, \"input_support\": \"Entire original RGB plate; no subject crop or mask.\", \"inside\": 0, \"max_radius_px\": 30, \"min_angular_support\": 0.75, \"min_radius_px\": 8, \"nms_radius_fraction\": 0.8, \"outside\": 2, \"peaks\": [{\"angular_support\": 0.8333333333333334, \"center\": [453.0, 151.0], \"hollow_score\": 0.14583333333333334, \"inner_opposed_support\": 0.14583333333333334, \"inside\": false, \"lab_band_surround\": 19.099401147485594, \"lab_center_band\": 21.329814278566534, \"lab_center_surround\": 38.99183933320375, \"lab_color_return\": 0.0, \"radius\": 8.0, \"rejected\": \"not_annulus\", \"score\": 0.8242013076681377}, {\"angular_support\": 0.7708333333333334, \"center\": [263.0, 414.0], \"hollow_score\": 0.5208333333333334, \"inner_opposed_support\": 0.5208333333333334, \"inside\": false, \"lab_band_surround\": 52.59132950683413, \"lab_center_band\": 15.928561528721621, \"lab_center_surround\": 57.787521705340986, \"lab_color_return\": 0.0, \"radius\": 30.0, \"score\": 0.7418862284463797}, {\"angular_support\": 0.8333333333333334, \"center\": [554.0, 166.0], \"hollow_score\": 0.08333333333333333, \"inner_opposed_support\": 0.08333333333333333, \"inside\": false, \"lab_band_surround\": 4.617600615244584, \"lab_center_band\": 35.91876331677099, \"lab_center_surround\": 39.93594298666771, \"lab_color_return\": 0.0, \"radius\": 8.0, \"rejected\": \"not_annulus\", \"score\": 0.7046103008326128}, {\"angular_support\": 0.8125, \"center\": [511.0, 142.0], \"hollow_score\": 0.125, \"inner_opposed_support\": 0.125, \"inside\": false, \"lab_band_surround\": 27.736548213777446, \"lab_center_band\": 6.9349100680098035, \"lab_center_surround\": 34.561373969575925, \"lab_color_return\": 0.0, \"radius\": 8.0, \"rejected\": \"not_annulus\", \"score\": 0.6585714297240277}, {\"angular_support\": 0.8333333333333334, \"center\": [406.0, 158.0], \"hollow_score\": 0.0, \"inner_opposed_support\": 0.0, \"inside\": false, \"lab_band_surround\": 75.77885490043451, \"lab_center_band\": 20.661904795439714, \"lab_center_surround\": 96.04277251792887, \"lab_color_return\": 0.0, \"radius\": 9.0, \"rejected\": \"not_annulus\", \"score\": 0.654081542881404}, {\"angular_support\": 0.75, \"center\": [473.0, 562.0], \"hollow_score\": 0.5, \"inner_opposed_support\": 0.5, \"inside\": false, \"lab_band_surround\": 7.00979053892733, \"lab_center_band\": 8.078880952815094, \"lab_center_surround\": 13.262951997814692, \"lab_color_return\": 0.0, \"radius\": 22.0, \"score\": 0.5798410303971934}], \"radial_tolerance_fraction\": 0.15, \"raw_count_before_annulus_filter\": 6, \"smooth_fraction\": 0.08, \"vote_thresh\": 0.5}, \"reason\": \"ADVISORY; starter motif budget is zero; no acceptance verdict.\"}",
+    "op": "<=",
+    "passed": null,
+    "subject": "k1p_master_A",
+    "threshold": null,
+    "unit": "instances",
+    "value": 2
+  },
+  {
+    "evidence": [
+      "out/k1p_master_A_rgba.png",
+      "out/k1p_master_A_64.png"
+    ],
+    "id": "O5",
+    "notes": "{\"metrics\": {\"alpha_area_fraction_64\": 0.269287109375, \"alpha_area_px_64\": 1103, \"alpha_threshold\": 128, \"bbox_height_px_64\": 61, \"bbox_xyxy_64\": [14, 1, 49, 62], \"canvas_size_64\": [64, 64], \"centroid_64\": [30.69537624660018, 30.01903898458749], \"hu\": [0.26105038397725266, 0.021112726159528018, 0.00012059459891915116, 0.0005058080590069871, -4.7747603761450136e-08, 7.337705899793041e-05, -1.1543800224897587e-07], \"native_bbox_height_px\": 1475, \"native_bbox_xyxy\": [229, 16, 781, 1491], \"native_canvas_size\": [1024, 1536]}, \"reason\": \"Report only. Frozen descriptor always resizes to 64x64, including nonsquare inputs; PNG is its unchanged binary mask, not a registered sprite.\"}",
+    "op": "<=",
+    "passed": null,
+    "subject": "k1p_master_A",
+    "threshold": null,
+    "unit": "alpha_area_fraction_64",
+    "value": 0.269287109375
+  },
+  {
+    "evidence": [
+      "out/k1p_master_A_rgba.png",
+      "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K4-gen-H1/k4_H1_1.png"
+    ],
+    "id": "O8.H1_ruled_register.source",
+    "notes": "{\"metrics\": {\"anchor_path\": \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K4-gen-H1/k4_H1_1.png\", \"anchor_profile\": [0.9474522693925669, 0.03025674210854783, 0.00910987056002407, 0.004355024166923529, 0.0022071603403917587, 0.0014000349996420715, 0.0009284704477421642, 0.000755087649089362, 0.0005973966196243786, 0.0004538853765014404, 0.000345685880688829, 0.00031012393164714624, 0.000247441754070541, 0.00021965402029120002, 0.0001771360234883784, 0.00015242289777087355, 0.00014518941821652748, 0.0001282349374289073, 0.00011385600207490802, 9.565910173926103e-05, 8.525373694100311e-05, 7.729972936630838e-05, 6.703960112239925e-05, 6.12237260096688e-05, 5.336430830153181e-05, 4.4644592058866006e-05, 3.927814867776571e-05, 3.2641768861862586e-05, 2.5985957815094984e-05, 2.3355978044386483e-05, 1.895228365628668e-05, 1.9614540674897613e-05], \"anchor_support\": \"Frozen character matte, alpha_floor=40: {\\\"alpha_floor\\\": 40, \\\"alpha_floor_removed_pixels\\\": 1149745, \\\"method\\\": \\\"green excess matte + inverse straight-alpha compositing\\\", \\\"native_input_alpha\\\": false, \\\"removed_background_or_detached_alpha_dust_pixels\\\": 176}\", \"candidate_support\": \"Frozen character matte, alpha_floor=40, alpha>0\", \"display_scale\": 1.0, \"frequency_edges_cycles_per_source_px\": [0.0, 0.015625, 0.03125, 0.046875, 0.0625, 0.078125, 0.09375, 0.109375, 0.125, 0.140625, 0.15625, 0.171875, 0.1875, 0.203125, 0.21875, 0.234375, 0.25, 0.265625, 0.28125, 0.296875, 0.3125, 0.328125, 0.34375, 0.359375, 0.375, 0.390625, 0.40625, 0.421875, 0.4375, 0.453125, 0.46875, 0.484375, 0.5], \"profile\": [0.9444144619282142, 0.03158076771049666, 0.009004479042098367, 0.004488282329420685, 0.0023412181048153317, 0.0015504010492035185, 0.0010987904734593335, 0.000814899619347751, 0.0006961547524047408, 0.0005478990039088642, 0.0004676913604048018, 0.00039161666019410117, 0.000326515437737349, 0.0002852122271198509, 0.0002646358523567415, 0.0002322139050186324, 0.00019319657637510855, 0.00018445482856574392, 0.00016890487416999108, 0.00014923273089785822, 0.00013814445320511174, 0.000126514306332649, 0.00010507207092221516, 8.807553557834286e-05, 7.44849605419078e-05, 6.237066241847957e-05, 5.199613427197501e-05, 4.3040226877838844e-05, 3.486347737613076e-05, 2.70863763020578e-05, 2.3921751315778807e-05, 2.3401578647634977e-05], \"sampled_bins\": [true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true], \"source_px\": [1024.0, 1536.0]}, \"reason\": \"Descriptive distance; threshold undeclared; anchors have different source sizes. Continuity anchor includes its opaque background.\"}",
+    "op": "<=",
+    "passed": null,
+    "subject": "k1p_master_A",
+    "threshold": null,
+    "unit": "profile_l2",
+    "value": 0.0033418493675063505
+  },
+  {
+    "evidence": [
+      "out/k1p_master_A_rgba.png",
+      "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K4-gen-H1/k4_H1_1.png"
+    ],
+    "id": "O8.H1_ruled_register.display_0.5",
+    "notes": "{\"metrics\": {\"anchor_path\": \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K4-gen-H1/k4_H1_1.png\", \"anchor_profile\": [0.9474975358680775, 0.030166232549368847, 0.009307330645399715, 0.004525346777756244, 0.0023445061171488107, 0.0015369785678248033, 0.0010338968123999605, 0.0008552689675527388, 0.0006597041910746597, 0.00048903415147632, 0.00036645223897683324, 0.0003054268287386442, 0.00022545257578324414, 0.00017673553852917315, 0.00012533090739498678, 0.00010533752360353043, 8.184205905465297e-05, 5.8975952698564634e-05, 4.168027060226147e-05, 2.9315177981923012e-05, 2.5257345685306198e-05, 1.834378872218864e-05, 2.401514414901159e-05, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], \"anchor_support\": \"Frozen character matte, alpha_floor=40: {\\\"alpha_floor\\\": 40, \\\"alpha_floor_removed_pixels\\\": 1149745, \\\"method\\\": \\\"green excess matte + inverse straight-alpha compositing\\\", \\\"native_input_alpha\\\": false, \\\"removed_background_or_detached_alpha_dust_pixels\\\": 176}\", \"candidate_support\": \"Frozen character matte, alpha_floor=40, alpha>0\", \"display_scale\": 0.5, \"frequency_edges_cycles_per_source_px\": [0.0, 0.015625, 0.03125, 0.046875, 0.0625, 0.078125, 0.09375, 0.109375, 0.125, 0.140625, 0.15625, 0.171875, 0.1875, 0.203125, 0.21875, 0.234375, 0.25, 0.265625, 0.28125, 0.296875, 0.3125, 0.328125, 0.34375, 0.359375, 0.375, 0.390625, 0.40625, 0.421875, 0.4375, 0.453125, 0.46875, 0.484375, 0.5], \"profile\": [0.9447413861528654, 0.0314856821259003, 0.009117268928352228, 0.004709777817137307, 0.00249151860865861, 0.0017267573053301, 0.00124776313096665, 0.0009317382171272966, 0.0007903239293344427, 0.0006149589619369558, 0.000501466084423434, 0.0003885788229196965, 0.0002940102026640612, 0.00023276070861093101, 0.00019040989305609213, 0.00015155912175796472, 0.00010605794781325662, 7.758087949638743e-05, 5.884420110990026e-05, 4.0290929732985806e-05, 3.408583353034696e-05, 3.146865790361421e-05, 3.571153937186179e-05, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], \"sampled_bins\": [true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, false, false, false, false, false, false, false, false, false], \"source_px\": [1024.0, 1536.0]}, \"reason\": \"Descriptive distance; threshold undeclared; anchors have different source sizes. Continuity anchor includes its opaque background.\"}",
+    "op": "<=",
+    "passed": null,
+    "subject": "k1p_master_A",
+    "threshold": null,
+    "unit": "profile_l2",
+    "value": 0.0030968804574327265
+  },
+  {
+    "evidence": [
+      "out/k1p_master_A_rgba.png",
+      "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/fixtures/x0t/F04_starter_native.png"
+    ],
+    "id": "O8.v1_painted_continuity_only.source",
+    "notes": "{\"metrics\": {\"anchor_path\": \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/fixtures/x0t/F04_starter_native.png\", \"anchor_profile\": [0.8806314388448057, 0.0711039867782235, 0.02159012360815433, 0.00872144401376611, 0.004841466571979792, 0.0028065012198018077, 0.0019362708747991105, 0.0015879279358824922, 0.0012126772870557402, 0.0009297870436050135, 0.0007436188313785898, 0.0005339837417129076, 0.0004507040097819221, 0.0003801155781662599, 0.00032684276349985425, 0.000287162183615395, 0.0002826487044392961, 0.0002437386208164166, 0.00024064933094018328, 0.0002040430610132847, 0.0001638411188540572, 0.00013882724788266972, 0.0001227300922147004, 0.00011755764258484868, 9.845570993170444e-05, 7.775588872258922e-05, 5.9617375479934e-05, 4.6956710865643784e-05, 3.8028127685523886e-05, 2.9127217285150133e-05, 2.5497540083495013e-05, 2.6474324971935152e-05], \"anchor_support\": \"Native opaque full-canvas support: no alpha or green plate; gray background contributes; continuity only.\", \"candidate_support\": \"Frozen character matte, alpha_floor=40, alpha>0\", \"display_scale\": 1.0, \"frequency_edges_cycles_per_source_px\": [0.0, 0.015625, 0.03125, 0.046875, 0.0625, 0.078125, 0.09375, 0.109375, 0.125, 0.140625, 0.15625, 0.171875, 0.1875, 0.203125, 0.21875, 0.234375, 0.25, 0.265625, 0.28125, 0.296875, 0.3125, 0.328125, 0.34375, 0.359375, 0.375, 0.390625, 0.40625, 0.421875, 0.4375, 0.453125, 0.46875, 0.484375, 0.5], \"profile\": [0.9444144619282142, 0.03158076771049666, 0.009004479042098367, 0.004488282329420685, 0.0023412181048153317, 0.0015504010492035185, 0.0010987904734593335, 0.000814899619347751, 0.0006961547524047408, 0.0005478990039088642, 0.0004676913604048018, 0.00039161666019410117, 0.000326515437737349, 0.0002852122271198509, 0.0002646358523567415, 0.0002322139050186324, 0.00019319657637510855, 0.00018445482856574392, 0.00016890487416999108, 0.00014923273089785822, 0.00013814445320511174, 0.000126514306332649, 0.00010507207092221516, 8.807553557834286e-05, 7.44849605419078e-05, 6.237066241847957e-05, 5.199613427197501e-05, 4.3040226877838844e-05, 3.486347737613076e-05, 2.70863763020578e-05, 2.3921751315778807e-05, 2.3401578647634977e-05], \"sampled_bins\": [true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true], \"source_px\": [1024.0, 1536.0]}, \"reason\": \"Descriptive distance; threshold undeclared; anchors have different source sizes. Continuity anchor includes its opaque background.\"}",
+    "op": "<=",
+    "passed": null,
+    "subject": "k1p_master_A",
+    "threshold": null,
+    "unit": "profile_l2",
+    "value": 0.07626511581730262
+  },
+  {
+    "evidence": [
+      "out/k1p_master_A_rgba.png",
+      "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/fixtures/x0t/F04_starter_native.png"
+    ],
+    "id": "O8.v1_painted_continuity_only.display_0.5",
+    "notes": "{\"metrics\": {\"anchor_path\": \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/fixtures/x0t/F04_starter_native.png\", \"anchor_profile\": [0.8821187221790087, 0.07127267905135602, 0.02165632655603699, 0.008758322652601444, 0.004890917146656139, 0.00285525956771671, 0.001984503247503329, 0.0016348999895714393, 0.0012431990225272777, 0.0009357085796745055, 0.0007178553129183039, 0.00048421414096675927, 0.00036814281388255484, 0.00028120308883958515, 0.00020329810400650515, 0.00016192235820758618, 0.0001227424836515487, 8.377661703880942e-05, 6.934336319609439e-05, 5.3912193283173864e-05, 4.0365223522867666e-05, 2.9233502987154077e-05, 3.3452804846573615e-05, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], \"anchor_support\": \"Native opaque full-canvas support: no alpha or green plate; gray background contributes; continuity only.\", \"candidate_support\": \"Frozen character matte, alpha_floor=40, alpha>0\", \"display_scale\": 0.5, \"frequency_edges_cycles_per_source_px\": [0.0, 0.015625, 0.03125, 0.046875, 0.0625, 0.078125, 0.09375, 0.109375, 0.125, 0.140625, 0.15625, 0.171875, 0.1875, 0.203125, 0.21875, 0.234375, 0.25, 0.265625, 0.28125, 0.296875, 0.3125, 0.328125, 0.34375, 0.359375, 0.375, 0.390625, 0.40625, 0.421875, 0.4375, 0.453125, 0.46875, 0.484375, 0.5], \"profile\": [0.9447413861528654, 0.0314856821259003, 0.009117268928352228, 0.004709777817137307, 0.00249151860865861, 0.0017267573053301, 0.00124776313096665, 0.0009317382171272966, 0.0007903239293344427, 0.0006149589619369558, 0.000501466084423434, 0.0003885788229196965, 0.0002940102026640612, 0.00023276070861093101, 0.00019040989305609213, 0.00015155912175796472, 0.00010605794781325662, 7.758087949638743e-05, 5.884420110990026e-05, 4.0290929732985806e-05, 3.408583353034696e-05, 3.146865790361421e-05, 3.571153937186179e-05, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], \"sampled_bins\": [true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, false, false, false, false, false, false, false, false, false], \"source_px\": [1024.0, 1536.0]}, \"reason\": \"Descriptive distance; threshold undeclared; anchors have different source sizes. Continuity anchor includes its opaque background.\"}",
+    "op": "<=",
+    "passed": null,
+    "subject": "k1p_master_A",
+    "threshold": null,
+    "unit": "profile_l2",
+    "value": 0.0754099623831825
+  },
+  {
+    "evidence": [
+      "out/k1p_master_A_rgba.png"
+    ],
+    "id": "O2",
+    "notes": "{\"metrics\": {\"background_basis\": \"Explicit reporting assumption: gates.common.pixels frozen compositing background; task supplies no ground.\", \"background_rgb\": [20, 25, 34], \"bible_relation_min_delta_unapplied\": 0.08, \"delta\": 30.747619756251535, \"inside_mean\": 55.36929906917885, \"inside_spread\": 45.96647129510839, \"outside_mean\": 24.621679312927316, \"outside_spread\": 0.7787520464018167, \"sign\": 1}, \"reason\": \"Report only, whole-figure mean. No supplied ground or key-facing-edge mask; bible 0.08 lacks declared conversion to oracle 0..255 luma.\"}",
+    "op": ">=",
+    "passed": null,
+    "subject": "k1p_master_A",
+    "threshold": null,
+    "unit": "luma",
+    "value": 30.747619756251535
+  },
+  {
+    "evidence": [
+      "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K1p-gen-01/k1p_master_B.png",
+      "out/k1p_master_B_rgba.png"
+    ],
+    "id": "plate_uniformity",
+    "notes": "{\"metrics\": {\"matte_extraction\": {\"alpha_floor\": 40, \"alpha_floor_removed_pixels\": 1144305, \"method\": \"green excess matte + inverse straight-alpha compositing\", \"native_input_alpha\": false, \"removed_background_or_detached_alpha_dust_pixels\": 69}, \"non_subject_pixels\": 1149487, \"plate_mean_rgb\": [3.5097926292337362, 249.00557205083658, 3.117870841514519], \"plate_sd_rgb\": [1.4303362469851495, 3.8534665311941008, 1.2921236507659493], \"subject_support\": \"supplied subject alpha >=128\", \"tol\": 8}, \"reason\": \"No min_fraction declared; X1 observations are not a threshold\"}",
+    "op": ">=",
+    "passed": null,
+    "subject": "k1p_master_B",
+    "threshold": null,
+    "unit": "fraction",
+    "value": 0.9851055296841112
+  },
+  {
+    "evidence": [
+      "out/k1p_master_B_rgba.png"
+    ],
+    "id": "g9_alpha",
+    "notes": "Canvas-border clipping",
+    "op": "<=",
+    "passed": true,
+    "subject": "k1p_master_B",
+    "threshold": 0,
+    "unit": "alpha",
+    "value": 0
+  },
+  {
+    "evidence": [
+      "out/k1p_master_B_rgba.png"
+    ],
+    "id": "g9_green",
+    "notes": "Partial alpha and green excess >20",
+    "op": "<=",
+    "passed": true,
+    "subject": "k1p_master_B",
+    "threshold": 0,
+    "unit": "pixels",
+    "value": 0
+  },
+  {
+    "evidence": [
+      "out/k1p_master_B_rgba.png"
+    ],
+    "id": "g9_edge_mean",
+    "notes": "Mean RGB over 0<alpha<255; measurement only",
+    "op": "<=",
+    "passed": null,
+    "subject": "k1p_master_B",
+    "threshold": null,
+    "unit": "rgb",
+    "value": 31.174787104622872
+  },
+  {
+    "evidence": [
+      "out/k1p_master_B_rgba.png"
+    ],
+    "id": "g9_dark_fringe",
+    "notes": "UNEVALUABLE: source defines visual inspection, no numeric threshold",
+    "op": ">=",
+    "passed": null,
+    "subject": "k1p_master_B",
+    "threshold": null,
+    "unit": "rgb",
+    "value": 31.174787104622872
+  },
+  {
+    "evidence": [
+      "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K1p-gen-01/k1p_master_B.png",
+      "out/k1p_master_B_rgba.png"
+    ],
+    "id": "matte_quality.spill",
+    "notes": "{\"metrics\": {\"subject_pixels\": 427631, \"tol\": 20}, \"reason\": \"\"}",
+    "op": "<=",
+    "passed": null,
+    "subject": "k1p_master_B",
+    "threshold": null,
+    "unit": "fraction",
+    "value": 0.0
+  },
+  {
+    "evidence": [
+      "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K1p-gen-01/k1p_master_B.png",
+      "out/k1p_master_B_rgba.png"
+    ],
+    "id": "matte_quality.edge_halo",
+    "notes": "{\"metrics\": {\"band_pixels\": 16893, \"halo_width_px\": 2}, \"reason\": \"\"}",
+    "op": "<=",
+    "passed": null,
+    "subject": "k1p_master_B",
+    "threshold": null,
+    "unit": "green_excess_0_255",
+    "value": 0.0
+  },
+  {
+    "evidence": [
+      "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K1p-gen-01/k1p_master_B.png",
+      "out/k1p_master_B_rgba.png"
+    ],
+    "id": "matte_quality.particle_loss",
+    "notes": "{\"metrics\": {\"includes_plate_residuals\": true, \"model_coupled\": true, \"removed_partial_alpha_mass\": 10744553.0, \"source_partial_alpha_mass\": 11074777.0}, \"reason\": \"\"}",
+    "op": "<=",
+    "passed": null,
+    "subject": "k1p_master_B",
+    "threshold": null,
+    "unit": "source_partial_alpha_mass_fraction",
+    "value": 0.9701823341454189
+  },
+  {
+    "evidence": [
+      "out/k1p_master_B_rgba.png"
+    ],
+    "id": "O7",
+    "notes": "{\"metrics\": {\"absolute_value_minus_135_deg\": 32.421840701759606, \"azimuth_deg\": 102.5781592982404, \"circular_absolute_error_deg\": 32.421840701759606, \"dispersion\": 0.9975147914994764, \"erosion_px\": 1, \"key_azimuth_deg\": 135, \"resultant\": 0.0024852085005235424}, \"reason\": \"Circular mean azimuth; tolerance undeclared; gradient proxy, not visual lighting judgment.\"}",
+    "op": "<=",
+    "passed": null,
+    "subject": "k1p_master_B",
+    "threshold": null,
+    "unit": "degrees",
+    "value": 102.5781592982404
+  },
+  {
+    "evidence": [
+      "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K1p-gen-01/k1p_master_B.png"
+    ],
+    "id": "O3b.raw",
+    "notes": "{\"metrics\": {\"alignment_cosine\": 0.9, \"allowed_masks\": null, \"angular_samples\": 48, \"annulus_filtered_count\": 1, \"annulus_rejected\": 9, \"family\": \"ring\", \"gradient_floor\": 0.02, \"hollow_min\": 0.5, \"input_support\": \"Entire original RGB plate; no subject crop or mask.\", \"inside\": 0, \"max_radius_px\": 30, \"min_angular_support\": 0.75, \"min_radius_px\": 8, \"nms_radius_fraction\": 0.8, \"outside\": 1, \"peaks\": [{\"angular_support\": 0.75, \"center\": [681.0, 562.0], \"hollow_score\": 0.16666666666666666, \"inner_opposed_support\": 0.16666666666666666, \"inside\": false, \"lab_band_surround\": 39.515672197939445, \"lab_center_band\": 12.704447395946236, \"lab_center_surround\": 44.18412543398358, \"lab_color_return\": 0.0, \"radius\": 30.0, \"rejected\": \"not_annulus\", \"score\": 0.8098146185457217}, {\"angular_support\": 0.75, \"center\": [456.0, 153.0], \"hollow_score\": 0.20833333333333334, \"inner_opposed_support\": 0.20833333333333334, \"inside\": false, \"lab_band_surround\": 15.709707439893537, \"lab_center_band\": 1.996883235357222, \"lab_center_surround\": 16.784749560519177, \"lab_color_return\": 0.0, \"radius\": 8.0, \"rejected\": \"not_annulus\", \"score\": 0.7948223683000643}, {\"angular_support\": 0.7708333333333334, \"center\": [262.0, 446.0], \"hollow_score\": 0.4375, \"inner_opposed_support\": 0.4375, \"inside\": false, \"lab_band_surround\": 31.87946864696358, \"lab_center_band\": 13.25758712325814, \"lab_center_surround\": 44.39636420528862, \"lab_color_return\": 0.0, \"radius\": 29.0, \"rejected\": \"not_annulus\", \"score\": 0.7786823137292285}, {\"angular_support\": 0.875, \"center\": [546.0, 139.0], \"hollow_score\": 0.3125, \"inner_opposed_support\": 0.3125, \"inside\": false, \"lab_band_surround\": 13.212186877331156, \"lab_center_band\": 32.85471761395758, \"lab_center_surround\": 46.01516272566739, \"lab_color_return\": 0.0, \"radius\": 8.0, \"rejected\": \"not_annulus\", \"score\": 0.691495404506126}, {\"angular_support\": 0.8333333333333334, \"center\": [395.0, 130.0], \"hollow_score\": 0.0625, \"inner_opposed_support\": 0.0625, \"inside\": false, \"lab_band_surround\": 67.0814716926596, \"lab_center_band\": 16.238258115895988, \"lab_center_surround\": 82.53646791789754, \"lab_color_return\": 0.0, \"radius\": 8.0, \"rejected\": \"not_annulus\", \"score\": 0.6912295376795008}, {\"angular_support\": 0.875, \"center\": [491.0, 136.0], \"hollow_score\": 0.22916666666666666, \"inner_opposed_support\": 0.22916666666666666, \"inside\": false, \"lab_band_surround\": 12.833854940650621, \"lab_center_band\": 27.30673693539198, \"lab_center_surround\": 38.560367643258616, \"lab_color_return\": 0.0, \"radius\": 8.0, \"rejected\": \"not_annulus\", \"score\": 0.65450800392205}, {\"angular_support\": 0.8333333333333334, \"center\": [407.0, 1428.0], \"hollow_score\": 0.10416666666666667, \"inner_opposed_support\": 0.10416666666666667, \"inside\": false, \"lab_band_surround\": 17.75583661447808, \"lab_center_band\": 8.723122657826673, \"lab_center_surround\": 26.457967850066638, \"lab_color_return\": 0.0, \"radius\": 8.0, \"rejected\": \"not_annulus\", \"score\": 0.6419782663348731}, {\"angular_support\": 0.7708333333333334, \"center\": [526.0, 536.0], \"hollow_score\": 0.5208333333333334, \"inner_opposed_support\": 0.5208333333333334, \"inside\": false, \"lab_band_surround\": 21.200155769413023, \"lab_center_band\": 7.657822131380421, \"lab_center_surround\": 22.661504223488826, \"lab_color_return\": 0.0, \"radius\": 25.0, \"score\": 0.5625242567709702}, {\"angular_support\": 0.7708333333333334, \"center\": [604.0, 594.0], \"hollow_score\": 0.0, \"inner_opposed_support\": 0.0, \"inside\": false, \"lab_band_surround\": 11.652462534238635, \"lab_center_band\": 15.91985857302994, \"lab_center_surround\": 27.395135212737394, \"lab_color_return\": 0.0, \"radius\": 8.0, \"rejected\": \"not_annulus\", \"score\": 0.5290344971507026}, {\"angular_support\": 0.75, \"center\": [310.0, 476.0], \"hollow_score\": 0.25, \"inner_opposed_support\": 0.25, \"inside\": false, \"lab_band_surround\": 18.62601020031116, \"lab_center_band\": 4.947856955642284, \"lab_center_surround\": 13.806672613691665, \"lab_color_return\": 0.0, \"radius\": 11.0, \"rejected\": \"not_annulus\", \"score\": 0.511226083714443}], \"radial_tolerance_fraction\": 0.15, \"raw_count_before_annulus_filter\": 10, \"smooth_fraction\": 0.08, \"vote_thresh\": 0.5}, \"reason\": \"ADVISORY; starter motif budget is zero; no acceptance verdict.\"}",
+    "op": "<=",
+    "passed": null,
+    "subject": "k1p_master_B",
+    "threshold": null,
+    "unit": "instances",
+    "value": 10
+  },
+  {
+    "evidence": [
+      "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K1p-gen-01/k1p_master_B.png"
+    ],
+    "id": "O3b.annulus_filtered",
+    "notes": "{\"metrics\": {\"alignment_cosine\": 0.9, \"allowed_masks\": null, \"angular_samples\": 48, \"annulus_filtered_count\": 1, \"annulus_rejected\": 9, \"family\": \"ring\", \"gradient_floor\": 0.02, \"hollow_min\": 0.5, \"input_support\": \"Entire original RGB plate; no subject crop or mask.\", \"inside\": 0, \"max_radius_px\": 30, \"min_angular_support\": 0.75, \"min_radius_px\": 8, \"nms_radius_fraction\": 0.8, \"outside\": 1, \"peaks\": [{\"angular_support\": 0.75, \"center\": [681.0, 562.0], \"hollow_score\": 0.16666666666666666, \"inner_opposed_support\": 0.16666666666666666, \"inside\": false, \"lab_band_surround\": 39.515672197939445, \"lab_center_band\": 12.704447395946236, \"lab_center_surround\": 44.18412543398358, \"lab_color_return\": 0.0, \"radius\": 30.0, \"rejected\": \"not_annulus\", \"score\": 0.8098146185457217}, {\"angular_support\": 0.75, \"center\": [456.0, 153.0], \"hollow_score\": 0.20833333333333334, \"inner_opposed_support\": 0.20833333333333334, \"inside\": false, \"lab_band_surround\": 15.709707439893537, \"lab_center_band\": 1.996883235357222, \"lab_center_surround\": 16.784749560519177, \"lab_color_return\": 0.0, \"radius\": 8.0, \"rejected\": \"not_annulus\", \"score\": 0.7948223683000643}, {\"angular_support\": 0.7708333333333334, \"center\": [262.0, 446.0], \"hollow_score\": 0.4375, \"inner_opposed_support\": 0.4375, \"inside\": false, \"lab_band_surround\": 31.87946864696358, \"lab_center_band\": 13.25758712325814, \"lab_center_surround\": 44.39636420528862, \"lab_color_return\": 0.0, \"radius\": 29.0, \"rejected\": \"not_annulus\", \"score\": 0.7786823137292285}, {\"angular_support\": 0.875, \"center\": [546.0, 139.0], \"hollow_score\": 0.3125, \"inner_opposed_support\": 0.3125, \"inside\": false, \"lab_band_surround\": 13.212186877331156, \"lab_center_band\": 32.85471761395758, \"lab_center_surround\": 46.01516272566739, \"lab_color_return\": 0.0, \"radius\": 8.0, \"rejected\": \"not_annulus\", \"score\": 0.691495404506126}, {\"angular_support\": 0.8333333333333334, \"center\": [395.0, 130.0], \"hollow_score\": 0.0625, \"inner_opposed_support\": 0.0625, \"inside\": false, \"lab_band_surround\": 67.0814716926596, \"lab_center_band\": 16.238258115895988, \"lab_center_surround\": 82.53646791789754, \"lab_color_return\": 0.0, \"radius\": 8.0, \"rejected\": \"not_annulus\", \"score\": 0.6912295376795008}, {\"angular_support\": 0.875, \"center\": [491.0, 136.0], \"hollow_score\": 0.22916666666666666, \"inner_opposed_support\": 0.22916666666666666, \"inside\": false, \"lab_band_surround\": 12.833854940650621, \"lab_center_band\": 27.30673693539198, \"lab_center_surround\": 38.560367643258616, \"lab_color_return\": 0.0, \"radius\": 8.0, \"rejected\": \"not_annulus\", \"score\": 0.65450800392205}, {\"angular_support\": 0.8333333333333334, \"center\": [407.0, 1428.0], \"hollow_score\": 0.10416666666666667, \"inner_opposed_support\": 0.10416666666666667, \"inside\": false, \"lab_band_surround\": 17.75583661447808, \"lab_center_band\": 8.723122657826673, \"lab_center_surround\": 26.457967850066638, \"lab_color_return\": 0.0, \"radius\": 8.0, \"rejected\": \"not_annulus\", \"score\": 0.6419782663348731}, {\"angular_support\": 0.7708333333333334, \"center\": [526.0, 536.0], \"hollow_score\": 0.5208333333333334, \"inner_opposed_support\": 0.5208333333333334, \"inside\": false, \"lab_band_surround\": 21.200155769413023, \"lab_center_band\": 7.657822131380421, \"lab_center_surround\": 22.661504223488826, \"lab_color_return\": 0.0, \"radius\": 25.0, \"score\": 0.5625242567709702}, {\"angular_support\": 0.7708333333333334, \"center\": [604.0, 594.0], \"hollow_score\": 0.0, \"inner_opposed_support\": 0.0, \"inside\": false, \"lab_band_surround\": 11.652462534238635, \"lab_center_band\": 15.91985857302994, \"lab_center_surround\": 27.395135212737394, \"lab_color_return\": 0.0, \"radius\": 8.0, \"rejected\": \"not_annulus\", \"score\": 0.5290344971507026}, {\"angular_support\": 0.75, \"center\": [310.0, 476.0], \"hollow_score\": 0.25, \"inner_opposed_support\": 0.25, \"inside\": false, \"lab_band_surround\": 18.62601020031116, \"lab_center_band\": 4.947856955642284, \"lab_center_surround\": 13.806672613691665, \"lab_color_return\": 0.0, \"radius\": 11.0, \"rejected\": \"not_annulus\", \"score\": 0.511226083714443}], \"radial_tolerance_fraction\": 0.15, \"raw_count_before_annulus_filter\": 10, \"smooth_fraction\": 0.08, \"vote_thresh\": 0.5}, \"reason\": \"ADVISORY; starter motif budget is zero; no acceptance verdict.\"}",
+    "op": "<=",
+    "passed": null,
+    "subject": "k1p_master_B",
+    "threshold": null,
+    "unit": "instances",
+    "value": 1
+  },
+  {
+    "evidence": [
+      "out/k1p_master_B_rgba.png",
+      "out/k1p_master_B_64.png"
+    ],
+    "id": "O5",
+    "notes": "{\"metrics\": {\"alpha_area_fraction_64\": 0.267578125, \"alpha_area_px_64\": 1096, \"alpha_threshold\": 128, \"bbox_height_px_64\": 62, \"bbox_xyxy_64\": [15, 1, 50, 63], \"canvas_size_64\": [64, 64], \"centroid_64\": [31.471715328467152, 30.260036496350367], \"hu\": [0.268770989375535, 0.024154638064565435, 0.00028731062615431523, 0.0005677841852729299, -3.551248255968674e-08, 8.804764611801267e-05, -2.2655831258888335e-07], \"native_bbox_height_px\": 1491, \"native_bbox_xyxy\": [232, 16, 809, 1507], \"native_canvas_size\": [1024, 1536]}, \"reason\": \"Report only. Frozen descriptor always resizes to 64x64, including nonsquare inputs; PNG is its unchanged binary mask, not a registered sprite.\"}",
+    "op": "<=",
+    "passed": null,
+    "subject": "k1p_master_B",
+    "threshold": null,
+    "unit": "alpha_area_fraction_64",
+    "value": 0.267578125
+  },
+  {
+    "evidence": [
+      "out/k1p_master_B_rgba.png",
+      "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K4-gen-H1/k4_H1_1.png"
+    ],
+    "id": "O8.H1_ruled_register.source",
+    "notes": "{\"metrics\": {\"anchor_path\": \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K4-gen-H1/k4_H1_1.png\", \"anchor_profile\": [0.9474522693925669, 0.03025674210854783, 0.00910987056002407, 0.004355024166923529, 0.0022071603403917587, 0.0014000349996420715, 0.0009284704477421642, 0.000755087649089362, 0.0005973966196243786, 0.0004538853765014404, 0.000345685880688829, 0.00031012393164714624, 0.000247441754070541, 0.00021965402029120002, 0.0001771360234883784, 0.00015242289777087355, 0.00014518941821652748, 0.0001282349374289073, 0.00011385600207490802, 9.565910173926103e-05, 8.525373694100311e-05, 7.729972936630838e-05, 6.703960112239925e-05, 6.12237260096688e-05, 5.336430830153181e-05, 4.4644592058866006e-05, 3.927814867776571e-05, 3.2641768861862586e-05, 2.5985957815094984e-05, 2.3355978044386483e-05, 1.895228365628668e-05, 1.9614540674897613e-05], \"anchor_support\": \"Frozen character matte, alpha_floor=40: {\\\"alpha_floor\\\": 40, \\\"alpha_floor_removed_pixels\\\": 1149745, \\\"method\\\": \\\"green excess matte + inverse straight-alpha compositing\\\", \\\"native_input_alpha\\\": false, \\\"removed_background_or_detached_alpha_dust_pixels\\\": 176}\", \"candidate_support\": \"Frozen character matte, alpha_floor=40, alpha>0\", \"display_scale\": 1.0, \"frequency_edges_cycles_per_source_px\": [0.0, 0.015625, 0.03125, 0.046875, 0.0625, 0.078125, 0.09375, 0.109375, 0.125, 0.140625, 0.15625, 0.171875, 0.1875, 0.203125, 0.21875, 0.234375, 0.25, 0.265625, 0.28125, 0.296875, 0.3125, 0.328125, 0.34375, 0.359375, 0.375, 0.390625, 0.40625, 0.421875, 0.4375, 0.453125, 0.46875, 0.484375, 0.5], \"profile\": [0.9315208858786811, 0.042454895540867205, 0.011928007710995536, 0.004393565439556195, 0.0022977089703015785, 0.001519430037263416, 0.0011214603090170638, 0.000831524248545973, 0.0005942913303794834, 0.0004943301767151071, 0.00042157912414143086, 0.000329671359950306, 0.0002671578320841286, 0.0002425530210319686, 0.00020671280306120196, 0.00019767719923065836, 0.00015641896102474206, 0.00014231281819797374, 0.00013744401978889355, 0.00011468790875335461, 0.000109539757247835, 9.012433709442227e-05, 7.831537639375548e-05, 6.53812184111555e-05, 5.6636882294911845e-05, 4.9874953412436054e-05, 4.324061987427424e-05, 3.478498504940422e-05, 2.9525224253963373e-05, 2.5544843800888514e-05, 2.1862771347294216e-05, 2.2854341232390375e-05], \"sampled_bins\": [true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true], \"source_px\": [1024.0, 1536.0]}, \"reason\": \"Descriptive distance; threshold undeclared; anchors have different source sizes. Continuity anchor includes its opaque background.\"}",
+    "op": "<=",
+    "passed": null,
+    "subject": "k1p_master_B",
+    "threshold": null,
+    "unit": "profile_l2",
+    "value": 0.020263926356880277
+  },
+  {
+    "evidence": [
+      "out/k1p_master_B_rgba.png",
+      "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K4-gen-H1/k4_H1_1.png"
+    ],
+    "id": "O8.H1_ruled_register.display_0.5",
+    "notes": "{\"metrics\": {\"anchor_path\": \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K4-gen-H1/k4_H1_1.png\", \"anchor_profile\": [0.9474975358680775, 0.030166232549368847, 0.009307330645399715, 0.004525346777756244, 0.0023445061171488107, 0.0015369785678248033, 0.0010338968123999605, 0.0008552689675527388, 0.0006597041910746597, 0.00048903415147632, 0.00036645223897683324, 0.0003054268287386442, 0.00022545257578324414, 0.00017673553852917315, 0.00012533090739498678, 0.00010533752360353043, 8.184205905465297e-05, 5.8975952698564634e-05, 4.168027060226147e-05, 2.9315177981923012e-05, 2.5257345685306198e-05, 1.834378872218864e-05, 2.401514414901159e-05, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], \"anchor_support\": \"Frozen character matte, alpha_floor=40: {\\\"alpha_floor\\\": 40, \\\"alpha_floor_removed_pixels\\\": 1149745, \\\"method\\\": \\\"green excess matte + inverse straight-alpha compositing\\\", \\\"native_input_alpha\\\": false, \\\"removed_background_or_detached_alpha_dust_pixels\\\": 176}\", \"candidate_support\": \"Frozen character matte, alpha_floor=40, alpha>0\", \"display_scale\": 0.5, \"frequency_edges_cycles_per_source_px\": [0.0, 0.015625, 0.03125, 0.046875, 0.0625, 0.078125, 0.09375, 0.109375, 0.125, 0.140625, 0.15625, 0.171875, 0.1875, 0.203125, 0.21875, 0.234375, 0.25, 0.265625, 0.28125, 0.296875, 0.3125, 0.328125, 0.34375, 0.359375, 0.375, 0.390625, 0.40625, 0.421875, 0.4375, 0.453125, 0.46875, 0.484375, 0.5], \"profile\": [0.9315741734432494, 0.04241279759014979, 0.012205556209644126, 0.004586146101337111, 0.0024249165920622027, 0.0016702545530689874, 0.0012406171552918398, 0.0009302661723767529, 0.0006770182550355334, 0.0005412488291923099, 0.0004314736287685296, 0.0003143467722281587, 0.00023657940222664525, 0.00019314778678370875, 0.00014561930268431684, 0.00012795876674870702, 8.318435665761487e-05, 6.305006219682813e-05, 4.11531462310617e-05, 2.8146220315394964e-05, 2.369664540466343e-05, 2.1782571422486906e-05, 2.686643692391043e-05, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], \"sampled_bins\": [true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, false, false, false, false, false, false, false, false, false], \"source_px\": [1024.0, 1536.0]}, \"reason\": \"Descriptive distance; threshold undeclared; anchors have different source sizes. Continuity anchor includes its opaque background.\"}",
+    "op": "<=",
+    "passed": null,
+    "subject": "k1p_master_B",
+    "threshold": null,
+    "unit": "profile_l2",
+    "value": 0.02029818989077924
+  },
+  {
+    "evidence": [
+      "out/k1p_master_B_rgba.png",
+      "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/fixtures/x0t/F04_starter_native.png"
+    ],
+    "id": "O8.v1_painted_continuity_only.source",
+    "notes": "{\"metrics\": {\"anchor_path\": \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/fixtures/x0t/F04_starter_native.png\", \"anchor_profile\": [0.8806314388448057, 0.0711039867782235, 0.02159012360815433, 0.00872144401376611, 0.004841466571979792, 0.0028065012198018077, 0.0019362708747991105, 0.0015879279358824922, 0.0012126772870557402, 0.0009297870436050135, 0.0007436188313785898, 0.0005339837417129076, 0.0004507040097819221, 0.0003801155781662599, 0.00032684276349985425, 0.000287162183615395, 0.0002826487044392961, 0.0002437386208164166, 0.00024064933094018328, 0.0002040430610132847, 0.0001638411188540572, 0.00013882724788266972, 0.0001227300922147004, 0.00011755764258484868, 9.845570993170444e-05, 7.775588872258922e-05, 5.9617375479934e-05, 4.6956710865643784e-05, 3.8028127685523886e-05, 2.9127217285150133e-05, 2.5497540083495013e-05, 2.6474324971935152e-05], \"anchor_support\": \"Native opaque full-canvas support: no alpha or green plate; gray background contributes; continuity only.\", \"candidate_support\": \"Frozen character matte, alpha_floor=40, alpha>0\", \"display_scale\": 1.0, \"frequency_edges_cycles_per_source_px\": [0.0, 0.015625, 0.03125, 0.046875, 0.0625, 0.078125, 0.09375, 0.109375, 0.125, 0.140625, 0.15625, 0.171875, 0.1875, 0.203125, 0.21875, 0.234375, 0.25, 0.265625, 0.28125, 0.296875, 0.3125, 0.328125, 0.34375, 0.359375, 0.375, 0.390625, 0.40625, 0.421875, 0.4375, 0.453125, 0.46875, 0.484375, 0.5], \"profile\": [0.9315208858786811, 0.042454895540867205, 0.011928007710995536, 0.004393565439556195, 0.0022977089703015785, 0.001519430037263416, 0.0011214603090170638, 0.000831524248545973, 0.0005942913303794834, 0.0004943301767151071, 0.00042157912414143086, 0.000329671359950306, 0.0002671578320841286, 0.0002425530210319686, 0.00020671280306120196, 0.00019767719923065836, 0.00015641896102474206, 0.00014231281819797374, 0.00013744401978889355, 0.00011468790875335461, 0.000109539757247835, 9.012433709442227e-05, 7.831537639375548e-05, 6.53812184111555e-05, 5.6636882294911845e-05, 4.9874953412436054e-05, 4.324061987427424e-05, 3.478498504940422e-05, 2.9525224253963373e-05, 2.5544843800888514e-05, 2.1862771347294216e-05, 2.2854341232390375e-05], \"sampled_bins\": [true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true], \"source_px\": [1024.0, 1536.0]}, \"reason\": \"Descriptive distance; threshold undeclared; anchors have different source sizes. Continuity anchor includes its opaque background.\"}",
+    "op": "<=",
+    "passed": null,
+    "subject": "k1p_master_B",
+    "threshold": null,
+    "unit": "profile_l2",
+    "value": 0.059437421186696426
+  },
+  {
+    "evidence": [
+      "out/k1p_master_B_rgba.png",
+      "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/fixtures/x0t/F04_starter_native.png"
+    ],
+    "id": "O8.v1_painted_continuity_only.display_0.5",
+    "notes": "{\"metrics\": {\"anchor_path\": \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/fixtures/x0t/F04_starter_native.png\", \"anchor_profile\": [0.8821187221790087, 0.07127267905135602, 0.02165632655603699, 0.008758322652601444, 0.004890917146656139, 0.00285525956771671, 0.001984503247503329, 0.0016348999895714393, 0.0012431990225272777, 0.0009357085796745055, 0.0007178553129183039, 0.00048421414096675927, 0.00036814281388255484, 0.00028120308883958515, 0.00020329810400650515, 0.00016192235820758618, 0.0001227424836515487, 8.377661703880942e-05, 6.934336319609439e-05, 5.3912193283173864e-05, 4.0365223522867666e-05, 2.9233502987154077e-05, 3.3452804846573615e-05, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], \"anchor_support\": \"Native opaque full-canvas support: no alpha or green plate; gray background contributes; continuity only.\", \"candidate_support\": \"Frozen character matte, alpha_floor=40, alpha>0\", \"display_scale\": 0.5, \"frequency_edges_cycles_per_source_px\": [0.0, 0.015625, 0.03125, 0.046875, 0.0625, 0.078125, 0.09375, 0.109375, 0.125, 0.140625, 0.15625, 0.171875, 0.1875, 0.203125, 0.21875, 0.234375, 0.25, 0.265625, 0.28125, 0.296875, 0.3125, 0.328125, 0.34375, 0.359375, 0.375, 0.390625, 0.40625, 0.421875, 0.4375, 0.453125, 0.46875, 0.484375, 0.5], \"profile\": [0.9315741734432494, 0.04241279759014979, 0.012205556209644126, 0.004586146101337111, 0.0024249165920622027, 0.0016702545530689874, 0.0012406171552918398, 0.0009302661723767529, 0.0006770182550355334, 0.0005412488291923099, 0.0004314736287685296, 0.0003143467722281587, 0.00023657940222664525, 0.00019314778678370875, 0.00014561930268431684, 0.00012795876674870702, 8.318435665761487e-05, 6.305006219682813e-05, 4.11531462310617e-05, 2.8146220315394964e-05, 2.369664540466343e-05, 2.1782571422486906e-05, 2.686643692391043e-05, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], \"sampled_bins\": [true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, false, false, false, false, false, false, false, false, false], \"source_px\": [1024.0, 1536.0]}, \"reason\": \"Descriptive distance; threshold undeclared; anchors have different source sizes. Continuity anchor includes its opaque background.\"}",
+    "op": "<=",
+    "passed": null,
+    "subject": "k1p_master_B",
+    "threshold": null,
+    "unit": "profile_l2",
+    "value": 0.058263317853577044
+  },
+  {
+    "evidence": [
+      "out/k1p_master_B_rgba.png"
+    ],
+    "id": "O2",
+    "notes": "{\"metrics\": {\"background_basis\": \"Explicit reporting assumption: gates.common.pixels frozen compositing background; task supplies no ground.\", \"background_rgb\": [20, 25, 34], \"bible_relation_min_delta_unapplied\": 0.08, \"delta\": 31.933611535783683, \"inside_mean\": 56.557129488896166, \"inside_spread\": 44.73022546609847, \"outside_mean\": 24.623517953112483, \"outside_spread\": 0.8741700985001218, \"sign\": 1}, \"reason\": \"Report only, whole-figure mean. No supplied ground or key-facing-edge mask; bible 0.08 lacks declared conversion to oracle 0..255 luma.\"}",
+    "op": ">=",
+    "passed": null,
+    "subject": "k1p_master_B",
+    "threshold": null,
+    "unit": "luma",
+    "value": 31.933611535783683
+  },
+  {
+    "evidence": [
+      "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K1p-gen-01/k1p_master_C.png",
+      "out/k1p_master_C_rgba.png"
+    ],
+    "id": "plate_uniformity",
+    "notes": "{\"metrics\": {\"matte_extraction\": {\"alpha_floor\": 40, \"alpha_floor_removed_pixels\": 1149187, \"method\": \"green excess matte + inverse straight-alpha compositing\", \"native_input_alpha\": false, \"removed_background_or_detached_alpha_dust_pixels\": 135}, \"non_subject_pixels\": 1155091, \"plate_mean_rgb\": [3.341597328695315, 248.96388249930092, 2.9119411371052153], \"plate_sd_rgb\": [1.2636758642026724, 4.44256840423672, 1.106525932871267], \"subject_support\": \"supplied subject alpha >=128\", \"tol\": 8}, \"reason\": \"No min_fraction declared; X1 observations are not a threshold\"}",
+    "op": ">=",
+    "passed": null,
+    "subject": "k1p_master_C",
+    "threshold": null,
+    "unit": "fraction",
+    "value": 0.9838220538468397
+  },
+  {
+    "evidence": [
+      "out/k1p_master_C_rgba.png"
+    ],
+    "id": "g9_alpha",
+    "notes": "Canvas-border clipping",
+    "op": "<=",
+    "passed": true,
+    "subject": "k1p_master_C",
+    "threshold": 0,
+    "unit": "alpha",
+    "value": 0
+  },
+  {
+    "evidence": [
+      "out/k1p_master_C_rgba.png"
+    ],
+    "id": "g9_green",
+    "notes": "Partial alpha and green excess >20",
+    "op": "<=",
+    "passed": true,
+    "subject": "k1p_master_C",
+    "threshold": 0,
+    "unit": "pixels",
+    "value": 0
+  },
+  {
+    "evidence": [
+      "out/k1p_master_C_rgba.png"
+    ],
+    "id": "g9_edge_mean",
+    "notes": "Mean RGB over 0<alpha<255; measurement only",
+    "op": "<=",
+    "passed": null,
+    "subject": "k1p_master_C",
+    "threshold": null,
+    "unit": "rgb",
+    "value": 28.900907260700187
+  },
+  {
+    "evidence": [
+      "out/k1p_master_C_rgba.png"
+    ],
+    "id": "g9_dark_fringe",
+    "notes": "UNEVALUABLE: source defines visual inspection, no numeric threshold",
+    "op": ">=",
+    "passed": null,
+    "subject": "k1p_master_C",
+    "threshold": null,
+    "unit": "rgb",
+    "value": 28.900907260700187
+  },
+  {
+    "evidence": [
+      "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K1p-gen-01/k1p_master_C.png",
+      "out/k1p_master_C_rgba.png"
+    ],
+    "id": "matte_quality.spill",
+    "notes": "{\"metrics\": {\"subject_pixels\": 422275, \"tol\": 20}, \"reason\": \"\"}",
+    "op": "<=",
+    "passed": null,
+    "subject": "k1p_master_C",
+    "threshold": null,
+    "unit": "fraction",
+    "value": 0.0
+  },
+  {
+    "evidence": [
+      "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K1p-gen-01/k1p_master_C.png",
+      "out/k1p_master_C_rgba.png"
+    ],
+    "id": "matte_quality.edge_halo",
+    "notes": "{\"metrics\": {\"band_pixels\": 17681, \"halo_width_px\": 2}, \"reason\": \"\"}",
+    "op": "<=",
+    "passed": null,
+    "subject": "k1p_master_C",
+    "threshold": null,
+    "unit": "green_excess_0_255",
+    "value": 0.0
+  },
+  {
+    "evidence": [
+      "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K1p-gen-01/k1p_master_C.png",
+      "out/k1p_master_C_rgba.png"
+    ],
+    "id": "matte_quality.particle_loss",
+    "notes": "{\"metrics\": {\"includes_plate_residuals\": true, \"model_coupled\": true, \"removed_partial_alpha_mass\": 10599660.0, \"source_partial_alpha_mass\": 10950482.0}, \"reason\": \"\"}",
+    "op": "<=",
+    "passed": null,
+    "subject": "k1p_master_C",
+    "threshold": null,
+    "unit": "source_partial_alpha_mass_fraction",
+    "value": 0.9679628714060258
+  },
+  {
+    "evidence": [
+      "out/k1p_master_C_rgba.png"
+    ],
+    "id": "O7",
+    "notes": "{\"metrics\": {\"absolute_value_minus_135_deg\": 179.2133225852598, \"azimuth_deg\": 314.2133225852598, \"circular_absolute_error_deg\": 179.2133225852598, \"dispersion\": 0.9990875913020588, \"erosion_px\": 1, \"key_azimuth_deg\": 135, \"resultant\": 0.0009124086979411842}, \"reason\": \"Circular mean azimuth; tolerance undeclared; gradient proxy, not visual lighting judgment.\"}",
+    "op": "<=",
+    "passed": null,
+    "subject": "k1p_master_C",
+    "threshold": null,
+    "unit": "degrees",
+    "value": 314.2133225852598
+  },
+  {
+    "evidence": [
+      "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K1p-gen-01/k1p_master_C.png"
+    ],
+    "id": "O3b.raw",
+    "notes": "{\"metrics\": {\"alignment_cosine\": 0.9, \"allowed_masks\": null, \"angular_samples\": 48, \"annulus_filtered_count\": 1, \"annulus_rejected\": 8, \"family\": \"ring\", \"gradient_floor\": 0.02, \"hollow_min\": 0.5, \"input_support\": \"Entire original RGB plate; no subject crop or mask.\", \"inside\": 0, \"max_radius_px\": 30, \"min_angular_support\": 0.75, \"min_radius_px\": 8, \"nms_radius_fraction\": 0.8, \"outside\": 1, \"peaks\": [{\"angular_support\": 0.7708333333333334, \"center\": [266.0, 401.0], \"hollow_score\": 0.5833333333333334, \"inner_opposed_support\": 0.5833333333333334, \"inside\": false, \"lab_band_surround\": 63.15267125178441, \"lab_center_band\": 36.2118968741372, \"lab_center_surround\": 59.63961167912027, \"lab_color_return\": 0.0, \"radius\": 8.0, \"score\": 0.8813009136141429}, {\"angular_support\": 0.8333333333333334, \"center\": [565.0, 177.0], \"hollow_score\": 0.16666666666666666, \"inner_opposed_support\": 0.16666666666666666, \"inside\": false, \"lab_band_surround\": 64.5872701496915, \"lab_center_band\": 34.699033011623314, \"lab_center_surround\": 99.2394105104353, \"lab_color_return\": 0.0, \"radius\": 8.0, \"rejected\": \"not_annulus\", \"score\": 0.798472325924535}, {\"angular_support\": 0.8541666666666666, \"center\": [508.0, 151.0], \"hollow_score\": 0.2916666666666667, \"inner_opposed_support\": 0.2916666666666667, \"inside\": false, \"lab_band_surround\": 18.633463981617385, \"lab_center_band\": 18.50632048411528, \"lab_center_surround\": 34.81710194423377, \"lab_color_return\": 0.0, \"radius\": 8.0, \"rejected\": \"not_annulus\", \"score\": 0.7556836304700015}, {\"angular_support\": 0.75, \"center\": [678.0, 560.0], \"hollow_score\": 0.10416666666666667, \"inner_opposed_support\": 0.10416666666666667, \"inside\": false, \"lab_band_surround\": 36.92732950298203, \"lab_center_band\": 19.617466393089302, \"lab_center_surround\": 42.52365491692936, \"lab_color_return\": 0.0, \"radius\": 30.0, \"rejected\": \"not_annulus\", \"score\": 0.74719487843213}, {\"angular_support\": 0.75, \"center\": [404.0, 164.0], \"hollow_score\": 0.08333333333333333, \"inner_opposed_support\": 0.08333333333333333, \"inside\": false, \"lab_band_surround\": 46.27593021780067, \"lab_center_band\": 27.8136826470926, \"lab_center_surround\": 73.87850688973916, \"lab_color_return\": 0.0, \"radius\": 10.0, \"rejected\": \"not_annulus\", \"score\": 0.7033030799160278}, {\"angular_support\": 0.875, \"center\": [451.0, 156.0], \"hollow_score\": 0.3125, \"inner_opposed_support\": 0.3125, \"inside\": false, \"lab_band_surround\": 24.06519327559094, \"lab_center_band\": 21.00615111574794, \"lab_center_surround\": 44.71846747034212, \"lab_color_return\": 0.0, \"radius\": 8.0, \"rejected\": \"not_annulus\", \"score\": 0.6737534842018286}, {\"angular_support\": 0.7708333333333334, \"center\": [236.0, 433.0], \"hollow_score\": 0.22916666666666666, \"inner_opposed_support\": 0.22916666666666666, \"inside\": false, \"lab_band_surround\": 27.535106616043944, \"lab_center_band\": 8.246432019334069, \"lab_center_surround\": 29.07307953896629, \"lab_color_return\": 0.0, \"radius\": 25.0, \"rejected\": \"not_annulus\", \"score\": 0.6235598707327107}, {\"angular_support\": 0.75, \"center\": [509.0, 108.0], \"hollow_score\": 0.25, \"inner_opposed_support\": 0.25, \"inside\": false, \"lab_band_surround\": 1.9746635334502567, \"lab_center_band\": 35.26913395014252, \"lab_center_surround\": 36.65198428186129, \"lab_color_return\": 0.0, \"radius\": 8.0, \"rejected\": \"not_annulus\", \"score\": 0.6171704267819514}, {\"angular_support\": 0.8125, \"center\": [461.0, 544.0], \"hollow_score\": 0.4583333333333333, \"inner_opposed_support\": 0.4583333333333333, \"inside\": false, \"lab_band_surround\": 17.353181261561147, \"lab_center_band\": 8.592554680864698, \"lab_center_surround\": 14.984092240926854, \"lab_color_return\": 0.0, \"radius\": 21.0, \"rejected\": \"not_annulus\", \"score\": 0.5606444160561387}], \"radial_tolerance_fraction\": 0.15, \"raw_count_before_annulus_filter\": 9, \"smooth_fraction\": 0.08, \"vote_thresh\": 0.5}, \"reason\": \"ADVISORY; starter motif budget is zero; no acceptance verdict.\"}",
+    "op": "<=",
+    "passed": null,
+    "subject": "k1p_master_C",
+    "threshold": null,
+    "unit": "instances",
+    "value": 9
+  },
+  {
+    "evidence": [
+      "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K1p-gen-01/k1p_master_C.png"
+    ],
+    "id": "O3b.annulus_filtered",
+    "notes": "{\"metrics\": {\"alignment_cosine\": 0.9, \"allowed_masks\": null, \"angular_samples\": 48, \"annulus_filtered_count\": 1, \"annulus_rejected\": 8, \"family\": \"ring\", \"gradient_floor\": 0.02, \"hollow_min\": 0.5, \"input_support\": \"Entire original RGB plate; no subject crop or mask.\", \"inside\": 0, \"max_radius_px\": 30, \"min_angular_support\": 0.75, \"min_radius_px\": 8, \"nms_radius_fraction\": 0.8, \"outside\": 1, \"peaks\": [{\"angular_support\": 0.7708333333333334, \"center\": [266.0, 401.0], \"hollow_score\": 0.5833333333333334, \"inner_opposed_support\": 0.5833333333333334, \"inside\": false, \"lab_band_surround\": 63.15267125178441, \"lab_center_band\": 36.2118968741372, \"lab_center_surround\": 59.63961167912027, \"lab_color_return\": 0.0, \"radius\": 8.0, \"score\": 0.8813009136141429}, {\"angular_support\": 0.8333333333333334, \"center\": [565.0, 177.0], \"hollow_score\": 0.16666666666666666, \"inner_opposed_support\": 0.16666666666666666, \"inside\": false, \"lab_band_surround\": 64.5872701496915, \"lab_center_band\": 34.699033011623314, \"lab_center_surround\": 99.2394105104353, \"lab_color_return\": 0.0, \"radius\": 8.0, \"rejected\": \"not_annulus\", \"score\": 0.798472325924535}, {\"angular_support\": 0.8541666666666666, \"center\": [508.0, 151.0], \"hollow_score\": 0.2916666666666667, \"inner_opposed_support\": 0.2916666666666667, \"inside\": false, \"lab_band_surround\": 18.633463981617385, \"lab_center_band\": 18.50632048411528, \"lab_center_surround\": 34.81710194423377, \"lab_color_return\": 0.0, \"radius\": 8.0, \"rejected\": \"not_annulus\", \"score\": 0.7556836304700015}, {\"angular_support\": 0.75, \"center\": [678.0, 560.0], \"hollow_score\": 0.10416666666666667, \"inner_opposed_support\": 0.10416666666666667, \"inside\": false, \"lab_band_surround\": 36.92732950298203, \"lab_center_band\": 19.617466393089302, \"lab_center_surround\": 42.52365491692936, \"lab_color_return\": 0.0, \"radius\": 30.0, \"rejected\": \"not_annulus\", \"score\": 0.74719487843213}, {\"angular_support\": 0.75, \"center\": [404.0, 164.0], \"hollow_score\": 0.08333333333333333, \"inner_opposed_support\": 0.08333333333333333, \"inside\": false, \"lab_band_surround\": 46.27593021780067, \"lab_center_band\": 27.8136826470926, \"lab_center_surround\": 73.87850688973916, \"lab_color_return\": 0.0, \"radius\": 10.0, \"rejected\": \"not_annulus\", \"score\": 0.7033030799160278}, {\"angular_support\": 0.875, \"center\": [451.0, 156.0], \"hollow_score\": 0.3125, \"inner_opposed_support\": 0.3125, \"inside\": false, \"lab_band_surround\": 24.06519327559094, \"lab_center_band\": 21.00615111574794, \"lab_center_surround\": 44.71846747034212, \"lab_color_return\": 0.0, \"radius\": 8.0, \"rejected\": \"not_annulus\", \"score\": 0.6737534842018286}, {\"angular_support\": 0.7708333333333334, \"center\": [236.0, 433.0], \"hollow_score\": 0.22916666666666666, \"inner_opposed_support\": 0.22916666666666666, \"inside\": false, \"lab_band_surround\": 27.535106616043944, \"lab_center_band\": 8.246432019334069, \"lab_center_surround\": 29.07307953896629, \"lab_color_return\": 0.0, \"radius\": 25.0, \"rejected\": \"not_annulus\", \"score\": 0.6235598707327107}, {\"angular_support\": 0.75, \"center\": [509.0, 108.0], \"hollow_score\": 0.25, \"inner_opposed_support\": 0.25, \"inside\": false, \"lab_band_surround\": 1.9746635334502567, \"lab_center_band\": 35.26913395014252, \"lab_center_surround\": 36.65198428186129, \"lab_color_return\": 0.0, \"radius\": 8.0, \"rejected\": \"not_annulus\", \"score\": 0.6171704267819514}, {\"angular_support\": 0.8125, \"center\": [461.0, 544.0], \"hollow_score\": 0.4583333333333333, \"inner_opposed_support\": 0.4583333333333333, \"inside\": false, \"lab_band_surround\": 17.353181261561147, \"lab_center_band\": 8.592554680864698, \"lab_center_surround\": 14.984092240926854, \"lab_color_return\": 0.0, \"radius\": 21.0, \"rejected\": \"not_annulus\", \"score\": 0.5606444160561387}], \"radial_tolerance_fraction\": 0.15, \"raw_count_before_annulus_filter\": 9, \"smooth_fraction\": 0.08, \"vote_thresh\": 0.5}, \"reason\": \"ADVISORY; starter motif budget is zero; no acceptance verdict.\"}",
+    "op": "<=",
+    "passed": null,
+    "subject": "k1p_master_C",
+    "threshold": null,
+    "unit": "instances",
+    "value": 1
+  },
+  {
+    "evidence": [
+      "out/k1p_master_C_rgba.png",
+      "out/k1p_master_C_64.png"
+    ],
+    "id": "O5",
+    "notes": "{\"metrics\": {\"alpha_area_fraction_64\": 0.265380859375, \"alpha_area_px_64\": 1087, \"alpha_threshold\": 128, \"bbox_height_px_64\": 61, \"bbox_xyxy_64\": [13, 1, 49, 62], \"canvas_size_64\": [64, 64], \"centroid_64\": [30.709291628334867, 29.823367065317388], \"hu\": [0.26845509879752666, 0.021792729571272998, 8.607398332998246e-05, 0.0005885781606542984, -3.5108019232151387e-09, 8.474366121781231e-05, -1.3243098459908118e-07], \"native_bbox_height_px\": 1481, \"native_bbox_xyxy\": [207, 16, 778, 1497], \"native_canvas_size\": [1024, 1536]}, \"reason\": \"Report only. Frozen descriptor always resizes to 64x64, including nonsquare inputs; PNG is its unchanged binary mask, not a registered sprite.\"}",
+    "op": "<=",
+    "passed": null,
+    "subject": "k1p_master_C",
+    "threshold": null,
+    "unit": "alpha_area_fraction_64",
+    "value": 0.265380859375
+  },
+  {
+    "evidence": [
+      "out/k1p_master_C_rgba.png",
+      "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K4-gen-H1/k4_H1_1.png"
+    ],
+    "id": "O8.H1_ruled_register.source",
+    "notes": "{\"metrics\": {\"anchor_path\": \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K4-gen-H1/k4_H1_1.png\", \"anchor_profile\": [0.9474522693925669, 0.03025674210854783, 0.00910987056002407, 0.004355024166923529, 0.0022071603403917587, 0.0014000349996420715, 0.0009284704477421642, 0.000755087649089362, 0.0005973966196243786, 0.0004538853765014404, 0.000345685880688829, 0.00031012393164714624, 0.000247441754070541, 0.00021965402029120002, 0.0001771360234883784, 0.00015242289777087355, 0.00014518941821652748, 0.0001282349374289073, 0.00011385600207490802, 9.565910173926103e-05, 8.525373694100311e-05, 7.729972936630838e-05, 6.703960112239925e-05, 6.12237260096688e-05, 5.336430830153181e-05, 4.4644592058866006e-05, 3.927814867776571e-05, 3.2641768861862586e-05, 2.5985957815094984e-05, 2.3355978044386483e-05, 1.895228365628668e-05, 1.9614540674897613e-05], \"anchor_support\": \"Frozen character matte, alpha_floor=40: {\\\"alpha_floor\\\": 40, \\\"alpha_floor_removed_pixels\\\": 1149745, \\\"method\\\": \\\"green excess matte + inverse straight-alpha compositing\\\", \\\"native_input_alpha\\\": false, \\\"removed_background_or_detached_alpha_dust_pixels\\\": 176}\", \"candidate_support\": \"Frozen character matte, alpha_floor=40, alpha>0\", \"display_scale\": 1.0, \"frequency_edges_cycles_per_source_px\": [0.0, 0.015625, 0.03125, 0.046875, 0.0625, 0.078125, 0.09375, 0.109375, 0.125, 0.140625, 0.15625, 0.171875, 0.1875, 0.203125, 0.21875, 0.234375, 0.25, 0.265625, 0.28125, 0.296875, 0.3125, 0.328125, 0.34375, 0.359375, 0.375, 0.390625, 0.40625, 0.421875, 0.4375, 0.453125, 0.46875, 0.484375, 0.5], \"profile\": [0.9336046282252072, 0.03776827752157764, 0.010917644374245408, 0.005814472720294786, 0.0029112540791779236, 0.0020043357777171237, 0.001352847951997293, 0.0008949036184897652, 0.0007960435631311286, 0.0006216467891429723, 0.00047539403056643683, 0.00041728801535345975, 0.00035734346500537745, 0.0003097883854889557, 0.00026887225133451545, 0.00023246705214000765, 0.00019481916972839398, 0.00018043846601593436, 0.00014485460164062377, 0.0001303282927893954, 0.00010933478597422817, 9.441898707693296e-05, 7.980832599878568e-05, 6.539767841860448e-05, 5.5515885158187307e-05, 4.498974184964537e-05, 3.9056282805050164e-05, 3.016936806717549e-05, 2.4918339726722578e-05, 2.0208744079759216e-05, 1.773284833331982e-05, 2.08006614673214e-05], \"sampled_bins\": [true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true], \"source_px\": [1024.0, 1536.0]}, \"reason\": \"Descriptive distance; threshold undeclared; anchors have different source sizes. Continuity anchor includes its opaque background.\"}",
+    "op": "<=",
+    "passed": null,
+    "subject": "k1p_master_C",
+    "threshold": null,
+    "unit": "profile_l2",
+    "value": 0.015961776408029562
+  },
+  {
+    "evidence": [
+      "out/k1p_master_C_rgba.png",
+      "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K4-gen-H1/k4_H1_1.png"
+    ],
+    "id": "O8.H1_ruled_register.display_0.5",
+    "notes": "{\"metrics\": {\"anchor_path\": \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K4-gen-H1/k4_H1_1.png\", \"anchor_profile\": [0.9474975358680775, 0.030166232549368847, 0.009307330645399715, 0.004525346777756244, 0.0023445061171488107, 0.0015369785678248033, 0.0010338968123999605, 0.0008552689675527388, 0.0006597041910746597, 0.00048903415147632, 0.00036645223897683324, 0.0003054268287386442, 0.00022545257578324414, 0.00017673553852917315, 0.00012533090739498678, 0.00010533752360353043, 8.184205905465297e-05, 5.8975952698564634e-05, 4.168027060226147e-05, 2.9315177981923012e-05, 2.5257345685306198e-05, 1.834378872218864e-05, 2.401514414901159e-05, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], \"anchor_support\": \"Frozen character matte, alpha_floor=40: {\\\"alpha_floor\\\": 40, \\\"alpha_floor_removed_pixels\\\": 1149745, \\\"method\\\": \\\"green excess matte + inverse straight-alpha compositing\\\", \\\"native_input_alpha\\\": false, \\\"removed_background_or_detached_alpha_dust_pixels\\\": 176}\", \"candidate_support\": \"Frozen character matte, alpha_floor=40, alpha>0\", \"display_scale\": 0.5, \"frequency_edges_cycles_per_source_px\": [0.0, 0.015625, 0.03125, 0.046875, 0.0625, 0.078125, 0.09375, 0.109375, 0.125, 0.140625, 0.15625, 0.171875, 0.1875, 0.203125, 0.21875, 0.234375, 0.25, 0.265625, 0.28125, 0.296875, 0.3125, 0.328125, 0.34375, 0.359375, 0.375, 0.390625, 0.40625, 0.421875, 0.4375, 0.453125, 0.46875, 0.484375, 0.5], \"profile\": [0.93316152989959, 0.03803387593766404, 0.01123579908105735, 0.006092224444006903, 0.0031228589010809456, 0.002183272751352647, 0.0014878007248378825, 0.000994783720144844, 0.000864800400622926, 0.000650559622103249, 0.0004831448769076169, 0.00040412057516976723, 0.0003188067121374689, 0.00024463092049971445, 0.0001901240600624272, 0.00015622799148416148, 0.00010925182438789939, 8.274280447220501e-05, 5.8587796201998016e-05, 4.093078596306183e-05, 3.4566289366494444e-05, 2.5832788132042765e-05, 2.3527092754076562e-05, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], \"sampled_bins\": [true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, false, false, false, false, false, false, false, false, false], \"source_px\": [1024.0, 1536.0]}, \"reason\": \"Descriptive distance; threshold undeclared; anchors have different source sizes. Continuity anchor includes its opaque background.\"}",
+    "op": "<=",
+    "passed": null,
+    "subject": "k1p_master_C",
+    "threshold": null,
+    "unit": "profile_l2",
+    "value": 0.016581842580160624
+  },
+  {
+    "evidence": [
+      "out/k1p_master_C_rgba.png",
+      "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/fixtures/x0t/F04_starter_native.png"
+    ],
+    "id": "O8.v1_painted_continuity_only.source",
+    "notes": "{\"metrics\": {\"anchor_path\": \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/fixtures/x0t/F04_starter_native.png\", \"anchor_profile\": [0.8806314388448057, 0.0711039867782235, 0.02159012360815433, 0.00872144401376611, 0.004841466571979792, 0.0028065012198018077, 0.0019362708747991105, 0.0015879279358824922, 0.0012126772870557402, 0.0009297870436050135, 0.0007436188313785898, 0.0005339837417129076, 0.0004507040097819221, 0.0003801155781662599, 0.00032684276349985425, 0.000287162183615395, 0.0002826487044392961, 0.0002437386208164166, 0.00024064933094018328, 0.0002040430610132847, 0.0001638411188540572, 0.00013882724788266972, 0.0001227300922147004, 0.00011755764258484868, 9.845570993170444e-05, 7.775588872258922e-05, 5.9617375479934e-05, 4.6956710865643784e-05, 3.8028127685523886e-05, 2.9127217285150133e-05, 2.5497540083495013e-05, 2.6474324971935152e-05], \"anchor_support\": \"Native opaque full-canvas support: no alpha or green plate; gray background contributes; continuity only.\", \"candidate_support\": \"Frozen character matte, alpha_floor=40, alpha>0\", \"display_scale\": 1.0, \"frequency_edges_cycles_per_source_px\": [0.0, 0.015625, 0.03125, 0.046875, 0.0625, 0.078125, 0.09375, 0.109375, 0.125, 0.140625, 0.15625, 0.171875, 0.1875, 0.203125, 0.21875, 0.234375, 0.25, 0.265625, 0.28125, 0.296875, 0.3125, 0.328125, 0.34375, 0.359375, 0.375, 0.390625, 0.40625, 0.421875, 0.4375, 0.453125, 0.46875, 0.484375, 0.5], \"profile\": [0.9336046282252072, 0.03776827752157764, 0.010917644374245408, 0.005814472720294786, 0.0029112540791779236, 0.0020043357777171237, 0.001352847951997293, 0.0008949036184897652, 0.0007960435631311286, 0.0006216467891429723, 0.00047539403056643683, 0.00041728801535345975, 0.00035734346500537745, 0.0003097883854889557, 0.00026887225133451545, 0.00023246705214000765, 0.00019481916972839398, 0.00018043846601593436, 0.00014485460164062377, 0.0001303282927893954, 0.00010933478597422817, 9.441898707693296e-05, 7.980832599878568e-05, 6.539767841860448e-05, 5.5515885158187307e-05, 4.498974184964537e-05, 3.9056282805050164e-05, 3.016936806717549e-05, 2.4918339726722578e-05, 2.0208744079759216e-05, 1.773284833331982e-05, 2.08006614673214e-05], \"sampled_bins\": [true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true], \"source_px\": [1024.0, 1536.0]}, \"reason\": \"Descriptive distance; threshold undeclared; anchors have different source sizes. Continuity anchor includes its opaque background.\"}",
+    "op": "<=",
+    "passed": null,
+    "subject": "k1p_master_C",
+    "threshold": null,
+    "unit": "profile_l2",
+    "value": 0.06360333614380953
+  },
+  {
+    "evidence": [
+      "out/k1p_master_C_rgba.png",
+      "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/fixtures/x0t/F04_starter_native.png"
+    ],
+    "id": "O8.v1_painted_continuity_only.display_0.5",
+    "notes": "{\"metrics\": {\"anchor_path\": \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/fixtures/x0t/F04_starter_native.png\", \"anchor_profile\": [0.8821187221790087, 0.07127267905135602, 0.02165632655603699, 0.008758322652601444, 0.004890917146656139, 0.00285525956771671, 0.001984503247503329, 0.0016348999895714393, 0.0012431990225272777, 0.0009357085796745055, 0.0007178553129183039, 0.00048421414096675927, 0.00036814281388255484, 0.00028120308883958515, 0.00020329810400650515, 0.00016192235820758618, 0.0001227424836515487, 8.377661703880942e-05, 6.934336319609439e-05, 5.3912193283173864e-05, 4.0365223522867666e-05, 2.9233502987154077e-05, 3.3452804846573615e-05, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], \"anchor_support\": \"Native opaque full-canvas support: no alpha or green plate; gray background contributes; continuity only.\", \"candidate_support\": \"Frozen character matte, alpha_floor=40, alpha>0\", \"display_scale\": 0.5, \"frequency_edges_cycles_per_source_px\": [0.0, 0.015625, 0.03125, 0.046875, 0.0625, 0.078125, 0.09375, 0.109375, 0.125, 0.140625, 0.15625, 0.171875, 0.1875, 0.203125, 0.21875, 0.234375, 0.25, 0.265625, 0.28125, 0.296875, 0.3125, 0.328125, 0.34375, 0.359375, 0.375, 0.390625, 0.40625, 0.421875, 0.4375, 0.453125, 0.46875, 0.484375, 0.5], \"profile\": [0.93316152989959, 0.03803387593766404, 0.01123579908105735, 0.006092224444006903, 0.0031228589010809456, 0.002183272751352647, 0.0014878007248378825, 0.000994783720144844, 0.000864800400622926, 0.000650559622103249, 0.0004831448769076169, 0.00040412057516976723, 0.0003188067121374689, 0.00024463092049971445, 0.0001901240600624272, 0.00015622799148416148, 0.00010925182438789939, 8.274280447220501e-05, 5.8587796201998016e-05, 4.093078596306183e-05, 3.4566289366494444e-05, 2.5832788132042765e-05, 2.3527092754076562e-05, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], \"sampled_bins\": [true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, false, false, false, false, false, false, false, false, false], \"source_px\": [1024.0, 1536.0]}, \"reason\": \"Descriptive distance; threshold undeclared; anchors have different source sizes. Continuity anchor includes its opaque background.\"}",
+    "op": "<=",
+    "passed": null,
+    "subject": "k1p_master_C",
+    "threshold": null,
+    "unit": "profile_l2",
+    "value": 0.061890276872608056
+  },
+  {
+    "evidence": [
+      "out/k1p_master_C_rgba.png"
+    ],
+    "id": "O2",
+    "notes": "{\"metrics\": {\"background_basis\": \"Explicit reporting assumption: gates.common.pixels frozen compositing background; task supplies no ground.\", \"background_rgb\": [20, 25, 34], \"bible_relation_min_delta_unapplied\": 0.08, \"delta\": 31.835842077617276, \"inside_mean\": 56.443590750984335, \"inside_spread\": 44.850967834817006, \"outside_mean\": 24.60774867336706, \"outside_spread\": 0.6693145437273134, \"sign\": 1}, \"reason\": \"Report only, whole-figure mean. No supplied ground or key-facing-edge mask; bible 0.08 lacks declared conversion to oracle 0..255 luma.\"}",
+    "op": ">=",
+    "passed": null,
+    "subject": "k1p_master_C",
+    "threshold": null,
+    "unit": "luma",
+    "value": 31.835842077617276
+  }
+]

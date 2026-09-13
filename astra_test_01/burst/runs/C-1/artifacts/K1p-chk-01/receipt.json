@@ -1,0 +1,51 @@
+{
+  "task_id": "K1p-chk-01",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [],
+  "calls_used": 0,
+  "retries": [],
+  "self_report": {
+    "obeyed_invariants": true,
+    "concerns": [
+      "Continuity anchor lacks extractable alpha; O8 distances include its opaque background. Subject-only continuity distances could not be computed.",
+      "O2 uses assumed background RGB [20,25,34]; actual scene-ground separation could not be computed.",
+      "Frozen O5 produces 64×64 analytical masks, changing the nonsquare source aspect ratio.",
+      "G9 visual dark-fringe absence remains unevaluable.",
+      "Advisory O3b raw/annulus-filtered counts: A 6/2, B 10/1, C 9/1; starter motif budget is zero."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/checks.json",
+      "sha256": "c951fe8cc59fe7990220c1b5c63f3a81ddd115d65237158b3eec0cedbfb9fb72"
+    },
+    {
+      "path": "out/checks_readme.txt",
+      "sha256": "473c1e8d67ec191ff3fffaa735f940c97ba957aebd03f4321045e947891925a9"
+    },
+    {
+      "path": "out/k1p_master_A_rgba.png",
+      "sha256": "b27b12c78207946c782c853c32a23583eef61fd9521f2ea8a61f3ffb2b463907"
+    },
+    {
+      "path": "out/k1p_master_B_rgba.png",
+      "sha256": "04de8b5689b8a22127f44bbc57385dc5c60ef9d0c08afa55311d4f2d4c01241a"
+    },
+    {
+      "path": "out/k1p_master_C_rgba.png",
+      "sha256": "96c52c17fcc75fa8a4449d3026479d5ba71930cc52d72b54c12b99899e4fe307"
+    },
+    {
+      "path": "out/k1p_master_A_64.png",
+      "sha256": "20c6ca43eabc0f3944aa5d4905408c30e60d532da86244c3d68fbfc2dca1c9ff"
+    },
+    {
+      "path": "out/k1p_master_B_64.png",
+      "sha256": "23cb0f20302c9996b0d85bc7cb8bef69c5f46fbef67c435e52c1612e9c778ab1"
+    },
+    {
+      "path": "out/k1p_master_C_64.png",
+      "sha256": "6239abbf34aa17b3fadd76a8eb5cfc90105b7145309054de8c961009f66b658e"
+    }
+  ]
+}
