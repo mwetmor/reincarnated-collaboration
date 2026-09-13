@@ -1,0 +1,380 @@
+{
+ "outcrops_in_layout": 0,
+ "near_rock_id_px_canvas": 0,
+ "near_rock_id_px_chunks": {
+  "chunk_2_0": 0,
+  "chunk_3_0": 0,
+  "chunk_1_1": 0,
+  "chunk_2_1": 0,
+  "chunk_3_1": 0,
+  "chunk_0_2": 0,
+  "chunk_1_2": 0,
+  "chunk_2_2": 0,
+  "chunk_3_2": 0,
+  "chunk_0_3": 0,
+  "chunk_1_3": 0,
+  "chunk_2_3": 0,
+  "chunk_3_3": 0,
+  "chunk_0_4": 0,
+  "chunk_1_4": 0,
+  "chunk_2_4": 0,
+  "chunk_3_4": 0
+ },
+ "top_surface_shadows": {
+  "grassy_top": {
+   "median_lum": 125.7,
+   "shadow_px": 4559
+  },
+  "path": {
+   "median_lum": 166.7,
+   "shadow_px": 3260
+  },
+  "verge": {
+   "median_lum": 151.0,
+   "shadow_px": 2194
+  },
+  "bridge_zone_px": [
+   2921,
+   570,
+   4199,
+   1584
+  ],
+  "dark_px_outside_bridge_zone": 2108,
+  "of_which_within_3px_of_zone_or_rim_edge": 1964,
+  "interior_dark_blobs_outside_bridge_zone": {
+   "count": 91,
+   "largest_px": [
+    9,
+    6,
+    5,
+    5,
+    4
+   ],
+   "rule": "a cast shadow is a connected area of hundreds of px; 1-4 px specks are rim anti-aliasing"
+  }
+ },
+ "blocked_ids": [
+  "bridge_post_0",
+  "bridge_post_1",
+  "bridge_post_2",
+  "bridge_post_3",
+  "bridge_rail_L",
+  "bridge_rail_R"
+ ],
+ "walkable_polygons": [
+  {
+   "id": "path_0",
+   "vertices": 391,
+   "self_intersections": 0,
+   "inside_canvas": true,
+   "bbox_px": [
+    3.02,
+    1179.71,
+    3294.88,
+    3632.96
+   ]
+  },
+  {
+   "id": "path_1",
+   "vertices": 144,
+   "self_intersections": 0,
+   "inside_canvas": true,
+   "bbox_px": [
+    3613.19,
+    1.2,
+    4877.41,
+    870.22
+   ]
+  },
+  {
+   "id": "bridge_plank_0",
+   "vertices": 4,
+   "self_intersections": 0,
+   "inside_canvas": true,
+   "bbox_px": [
+    3010.08,
+    1144.08,
+    3340.02,
+    1401.26
+   ]
+  },
+  {
+   "id": "bridge_plank_1",
+   "vertices": 4,
+   "self_intersections": 0,
+   "inside_canvas": true,
+   "bbox_px": [
+    3124.01,
+    1045.88,
+    3453.95,
+    1303.06
+   ]
+  },
+  {
+   "id": "bridge_plank_2",
+   "vertices": 4,
+   "self_intersections": 0,
+   "inside_canvas": true,
+   "bbox_px": [
+    3237.94,
+    947.69,
+    3567.88,
+    1204.86
+   ]
+  },
+  {
+   "id": "bridge_plank_3",
+   "vertices": 4,
+   "self_intersections": 0,
+   "inside_canvas": true,
+   "bbox_px": [
+    3351.87,
+    849.49,
+    3681.81,
+    1106.66
+   ]
+  },
+  {
+   "id": "bridge_plank_4",
+   "vertices": 4,
+   "self_intersections": 0,
+   "inside_canvas": true,
+   "bbox_px": [
+    3465.79,
+    751.29,
+    3795.73,
+    1008.46
+   ]
+  },
+  {
+   "id": "bridge_plank_5",
+   "vertices": 4,
+   "self_intersections": 0,
+   "inside_canvas": true,
+   "bbox_px": [
+    3579.72,
+    653.09,
+    3909.66,
+    910.26
+   ]
+  }
+ ],
+ "spawn_inside_walkable": [
+  "path_0"
+ ],
+ "spawn_on_foreground_mask": true,
+ "kept_chunks_all_have_fg": true,
+ "kept": 17,
+ "dropped": [
+  "chunk_0_0",
+  "chunk_1_0",
+  "chunk_0_1"
+ ],
+ "see_through_windows_above_20m": {
+  "count": 0,
+  "largest_px": [],
+  "rim_seam_cracks_filled_px": [
+   [
+    3959,
+    1125
+   ],
+   [
+    4228,
+    1476
+   ],
+   [
+    4276,
+    1530
+   ],
+   [
+    4418,
+    1593
+   ],
+   [
+    4437,
+    1608
+   ],
+   [
+    4445,
+    1614
+   ],
+   [
+    4467,
+    1626
+   ],
+   [
+    4670,
+    1630
+   ],
+   [
+    4483,
+    1633
+   ],
+   [
+    4904,
+    1701
+   ],
+   [
+    4967,
+    1729
+   ],
+   [
+    5220,
+    1973
+   ],
+   [
+    5270,
+    1992
+   ],
+   [
+    5373,
+    2043
+   ]
+  ]
+ },
+ "bridge_ends": {
+  "north_abutment_deck_end_px": [
+   3801.66,
+   732.58
+  ],
+  "south_abutment_deck_start_px": [
+   3118.09,
+   1321.77
+  ]
+ }
+}
+{
+ "order": [
+  [
+   "chunk_2_0",
+   0.3573
+  ],
+  [
+   "chunk_3_0",
+   0.9929
+  ],
+  [
+   "chunk_1_1",
+   0.2627
+  ],
+  [
+   "chunk_2_1",
+   0.747
+  ],
+  [
+   "chunk_3_1",
+   1.0
+  ],
+  [
+   "chunk_0_2",
+   0.1277
+  ],
+  [
+   "chunk_1_2",
+   0.845
+  ],
+  [
+   "chunk_2_2",
+   0.6671
+  ],
+  [
+   "chunk_3_2",
+   0.9217
+  ],
+  [
+   "chunk_0_3",
+   0.8425
+  ],
+  [
+   "chunk_1_3",
+   1.0
+  ],
+  [
+   "chunk_2_3",
+   0.4463
+  ],
+  [
+   "chunk_3_3",
+   0.4813
+  ],
+  [
+   "chunk_0_4",
+   1.0
+  ],
+  [
+   "chunk_1_4",
+   1.0
+  ],
+  [
+   "chunk_2_4",
+   0.4206
+  ],
+  [
+   "chunk_3_4",
+   0.0289
+  ]
+ ],
+ "travel": {
+  "view_x_range": [
+   0,
+   3456
+  ],
+  "view_y_range": [
+   0,
+   3016
+  ],
+  "travel_px": [
+   3456,
+   3016
+  ]
+ },
+ "layers": {
+  "sky": {
+   "scroll_factor": 0.12,
+   "min_size_px_walkable_travel": [
+    2335,
+    1442
+   ],
+   "min_size_px_full_canvas_travel": [
+    2335,
+    1442
+   ]
+  },
+  "far_ruins": {
+   "scroll_factor": 0.25,
+   "min_size_px_walkable_travel": [
+    2784,
+    1834
+   ],
+   "min_size_px_full_canvas_travel": [
+    2784,
+    1834
+   ]
+  },
+  "forest_valley": {
+   "scroll_factor": 0.45,
+   "min_size_px_walkable_travel": [
+    3476,
+    2438
+   ],
+   "min_size_px_full_canvas_travel": [
+    3476,
+    2438
+   ]
+  },
+  "mist": {
+   "scroll_factor": 0.7,
+   "min_size_px_walkable_travel": [
+    4340,
+    3192
+   ],
+   "min_size_px_full_canvas_travel": [
+    4340,
+    3192
+   ]
+  }
+ },
+ "review": [
+  "09_review_v4_greyroom_vs_v3_painted.png"
+ ]
+}
