@@ -112,7 +112,21 @@
    "landing_crouch": 92
   },
   "notes": "no six-sample settle after landing crouch",
-  "status": "needs_contact_sheet"
+  "settle_closest_return": true,
+  "indices": [
+   13,
+   37,
+   52,
+   60,
+   67,
+   78,
+   92,
+   129
+  ],
+  "settle": 129,
+  "tolerance_px": 8.24,
+  "status": "explicit_from_series",
+  "strictly_increasing": true
  },
  "P4c-SW-jump": {
   "cell": "P4c-SW-jump",
