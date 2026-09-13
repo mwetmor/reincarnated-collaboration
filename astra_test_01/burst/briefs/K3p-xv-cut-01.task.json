@@ -1,0 +1,28 @@
+{
+ "text": "CHECK BURST K3p-xv-cut-01 — cut ONE stride from the X-video walk clip (Grok i2v from the H1 E rest frame r2), resample it to the 12 plate-13 phases, matte on the plate, and register the frames for the gait gates (HITL Run C-2 step 8 / H-4; R-41; Q76 rules: use only 0–4.3 s of the clip, never across the ~4.5 s splice). task_id \"K3p-xv-cut-01\".\n\nInputs (read-only): the clip /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/xvideo/in/walk_E_grok.mp4 (6 s, 720p, ~24 fps, first frame = the r2 still on a #00ff00 plate); the seed geometry /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-seed/registration_transform.json (512 canvas, pivot (256,400), sole row 399, target figure height ≈ 240 px); the committed walk band /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/oracle/bands_walk.json row 'plate13_lateral_ann' (its phase_table = the 12 target phases). Tools: ffmpeg at /opt/homebrew/bin/ffmpeg; frozen modules under /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/ (read the docstrings; run, never modify): gates/matte.py (extract, alpha_floor=40), gates/common.py, oracle/walk_landmarks.py + oracle/walk_curves.py (contact detection on masks — the same instrument that measured the oracle), oracle/motion_map.py (alpha_box). PIL + numpy + scipy only; `python3 - <<'PY'` glue that calls these modules is fine; no new tool files.\n\nDo: (1) split the clip at native fps to out/native/*.png, keeping ONLY frames with t ≤ 4.3 s; (2) matte every frame (green plate; report plate survival = fraction of border pixels within tolerance of #00ff00, and any frame where it fails); (3) on the matted frames, run the frozen walk landmark tracker to find the CONTACT events (planted-foot onsets) — report every contact frame index and the stride period in frames (contact-to-same-side-contact); if fewer than two same-side contacts exist in 0–4.3 s say so and stop after reporting; (4) choose the stride whose two contacts are cleanest (report which) and resample it to 12 frames at equal phase spacing (nearest native frame to each of the 12 phase positions, contact at frame 0 — list the native indices used); (5) register the 12 frames like K3p-reg-walk-02: ONE uniform scale for the whole clip so the FIRST frame's figure height = 240 px (report the factor), integer translation so the planted sole of frame 0 sits on row 399 and the figure centre-x on 255.5, the SAME translation for every frame (an in-place treadmill: do not re-centre per frame), write out/frames/walk/E/walk_E_00.png … walk_E_11.png (512×512 RGBA) and out/frames/rest/E/rest_E.png (= native frame 0 registered the same way); (6) out/sheets/walk_E_strip.png (12 frames on #3a3f4a with numbers) and out/registration.json (per frame: native index, time, bbox height, sole line, offsets; the contact table; plate survival per frame; the splice check = the largest silhouette jump between consecutive native frames, with its index); out/readme.txt with the exact commands.\nNo image_gen. No writes outside out/. No web. calls_used must be 0.\nRETURN: receipt task_id \"K3p-xv-cut-01\"; images []; calls_used 0; files: every out/ file with sha256; status DELIVERED / DELIVERED_WITH_CONCERNS / FAILED; concerns must name anything you could not compute. Never PASS/FAIL.",
+ "references": [],
+ "image_cap": 0,
+ "minutes_cap": 15,
+ "tool_call_cap": 20,
+ "outputs": [
+  "out/registration.json",
+  "out/readme.txt",
+  "out/sheets/walk_E_strip.png",
+  "out/frames/rest/E/rest_E.png",
+  "out/frames/walk/E/walk_E_00.png",
+  "out/frames/walk/E/walk_E_01.png",
+  "out/frames/walk/E/walk_E_02.png",
+  "out/frames/walk/E/walk_E_03.png",
+  "out/frames/walk/E/walk_E_04.png",
+  "out/frames/walk/E/walk_E_05.png",
+  "out/frames/walk/E/walk_E_06.png",
+  "out/frames/walk/E/walk_E_07.png",
+  "out/frames/walk/E/walk_E_08.png",
+  "out/frames/walk/E/walk_E_09.png",
+  "out/frames/walk/E/walk_E_10.png",
+  "out/frames/walk/E/walk_E_11.png"
+ ],
+ "effort": "high",
+ "add_dirs": [],
+ "experiment": "K3p-xv"
+}

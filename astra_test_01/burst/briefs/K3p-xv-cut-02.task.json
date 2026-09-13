@@ -1,0 +1,28 @@
+{
+ "text": "CHECK BURST K3p-xv-cut-02 — cut ONE stride from the X-video walk clip (Grok i2v from the H1 E rest frame r2), resample it to the 12 plate-13 phases, matte on the plate, and register the frames for the gait gates (HITL Run C-2 step 8 / H-4; R-41; Q76 rules: use only 0–4.3 s of the clip, never across the ~4.5 s splice). task_id \"K3p-xv-cut-02\".\n\nInputs (read-only): the clip /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/xvideo/in/walk_E_grok.mp4 (6 s, 720p, ~24 fps, first frame = the r2 still on a #00ff00 plate); the seed geometry /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-seed/registration_transform.json (512 canvas, pivot (256,400), sole row 399, target figure height ≈ 240 px); the committed walk band /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/oracle/bands_walk.json row 'plate13_lateral_ann' (its phase_table = the 12 target phases). Tools: ffmpeg at /opt/homebrew/bin/ffmpeg; frozen modules under /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/ (read the docstrings; run, never modify): gates/matte.py (extract, alpha_floor=40), gates/common.py, oracle/walk_landmarks.py + oracle/walk_curves.py (contact detection on masks — the same instrument that measured the oracle), oracle/motion_map.py (alpha_box). PIL + numpy + scipy only; `python3 - <<'PY'` glue that calls these modules is fine; no new tool files.\n\nMETHOD CHANGE (conductor, R-44 — cut-01 stopped at step 3: the frozen contact detector found zero contact onsets on these masks; the boots merge in profile): the STRIDE PERIOD comes from the HEAD BOB, which a walk repeats twice per stride. Do: (1) split the clip at native fps to out/native/*.png keeping ONLY t ≤ 4.3 s (104 frames) and matte every frame (alpha_floor=40; report plate survival per frame) — or REUSE cut-01's per-frame landmarks from /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-xv-cut-01/registration.json (key landmarks_native: head_top_y, sole_line_y, H per native frame) if they are complete, and say which; (2) take the head_top_y series (image-down; smooth with a 3-frame median), find its local MINIMA of head height above the ground (= head_top_y local MAXIMA in image coordinates: the DOWN phases) separated by ≥ 6 frames, and the dominant period by autocorrelation — report both; the STRIDE period = 2 × the bob period (two bobs per stride); sanity: at ~24 fps a natural stride is 20–36 frames — if the estimate falls outside, say so and use the autocorrelation peak nearest that window; (3) choose the cleanest stride (two consecutive bob periods with the most similar amplitude, wholly inside 0–4.3 s; report the native start index and length) starting at a DOWN frame (note: plate-13 phase 1 is CONTACT; our frame 0 = DOWN is one phase later — report this rotation so the gate's phase comparison can be read with a one-frame offset); (4) resample that stride to 12 frames at equal spacing (nearest native frame each; list the indices); (5) register with ONE uniform scale for the whole clip so frame 0's figure height = 240 px (native H ≈ 1110 → factor ≈ 0.216; report it) and ONE integer translation so frame 0's sole line lands on row 399 and its bbox centre-x on 255.5 — the SAME for all 12 frames (in-place treadmill, no per-frame re-centring); write out/frames/walk/E/walk_E_00.png … walk_E_11.png (512×512 RGBA) and out/frames/rest/E/rest_E.png (native frame 0 registered the same way); (6) out/sheets/walk_E_strip.png (12 frames on #3a3f4a with numbers), out/registration.json (per frame: native index, time, bbox height, sole line; the bob series, minima, periods, the chosen stride, the rotation note; plate survival; the largest consecutive silhouette jump inside the chosen stride), out/readme.txt with the exact commands. No image_gen. No writes outside out/. No web. calls_used must be 0.\nRETURN: receipt task_id \"K3p-xv-cut-02\"; images []; calls_used 0; files: every out/ file with sha256; status DELIVERED / DELIVERED_WITH_CONCERNS / FAILED; concerns must name anything you could not compute. Never PASS/FAIL.",
+ "references": [],
+ "image_cap": 0,
+ "minutes_cap": 15,
+ "tool_call_cap": 20,
+ "outputs": [
+  "out/registration.json",
+  "out/readme.txt",
+  "out/sheets/walk_E_strip.png",
+  "out/frames/rest/E/rest_E.png",
+  "out/frames/walk/E/walk_E_00.png",
+  "out/frames/walk/E/walk_E_01.png",
+  "out/frames/walk/E/walk_E_02.png",
+  "out/frames/walk/E/walk_E_03.png",
+  "out/frames/walk/E/walk_E_04.png",
+  "out/frames/walk/E/walk_E_05.png",
+  "out/frames/walk/E/walk_E_06.png",
+  "out/frames/walk/E/walk_E_07.png",
+  "out/frames/walk/E/walk_E_08.png",
+  "out/frames/walk/E/walk_E_09.png",
+  "out/frames/walk/E/walk_E_10.png",
+  "out/frames/walk/E/walk_E_11.png"
+ ],
+ "effort": "high",
+ "add_dirs": [],
+ "experiment": "K3p-xv"
+}

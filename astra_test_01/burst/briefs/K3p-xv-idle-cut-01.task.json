@@ -1,0 +1,31 @@
+{
+ "text": "CHECK BURST K3p-xv-idle-cut-01 — cut ONE breath from the X-video relaxed idle clip (Grok i2v from master C's S still), resample it to 16 frames (8 fps, 2.0 s), matte on the plate, register for the idle gates (HITL Run C-2 step 8 / R-42; Q76 rules: use only 0–4.3 s, never across the ~4.5 s splice). task_id \"K3p-xv-idle-cut-01\".\n\nInputs (read-only): the clip /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/xvideo/in/idle_C_grok.mp4 (6 s, 720p, ~24 fps, first frame = master C on a #00ff00 plate); the seed geometry /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3p-seed/registration_transform.json (512 canvas, pivot (256,400), sole row 399, figure height ≈ 240 px); the committed idle band /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/oracle/bands_idle.json row 'relaxed' (period 2.0 s). Tools: ffmpeg at /opt/homebrew/bin/ffmpeg; frozen modules under /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/ (read the docstrings; run, never modify): gates/matte.py (extract, alpha_floor=40), gates/common.py, oracle/motion_map.py (alpha_box, region_boxes, band_edges_x, band_shift_y), oracle/idle_curves.py (curves — the breath instrument). PIL + numpy + scipy only; `python3 - <<'PY'` glue that calls these modules is fine; no new tool files.\n\nDo: (1) split at native fps to out/native/*.png, keeping ONLY frames with t ≤ 4.3 s; (2) matte every frame (report plate survival per frame and any failure); (3) on the matted frames run the frozen breath instrument (oracle.idle_curves.curves on the alpha box, ours=True) to get the chest-width and head curves over time — report the breath period in frames (dominant period of the chest-width curve; also the two consecutive chest-width MINIMA that bound one full breath) and the peak-to-peak breath amplitude in %H over the clip; (4) choose the cleanest full breath (minimum → minimum; report the native indices) and resample it to 16 frames at equal phase spacing, frame 0 at the minimum (rest); (5) register: ONE uniform scale for the whole clip so frame 0's figure height = 240 px (report the factor), ONE integer translation so frame 0's sole line sits on row 399 and its centre-x on 255.5, the SAME translation for every frame (no per-frame re-centring); write out/frames/idle/S/idle_S_00.png … idle_S_15.png (512×512 RGBA); (6) out/sheets/idle_S_strip.png (16 frames on #3a3f4a with numbers), out/registration.json (per frame: native index, time, bbox height, sole line; the breath-period and amplitude numbers; plate survival; the splice check = the largest silhouette jump between consecutive native frames), out/readme.txt with the exact commands.\nNo image_gen. No writes outside out/. No web. calls_used must be 0.\nRETURN: receipt task_id \"K3p-xv-idle-cut-01\"; images []; calls_used 0; files: every out/ file with sha256; status DELIVERED / DELIVERED_WITH_CONCERNS / FAILED; concerns must name anything you could not compute. Never PASS/FAIL.",
+ "references": [],
+ "image_cap": 0,
+ "minutes_cap": 15,
+ "tool_call_cap": 20,
+ "outputs": [
+  "out/registration.json",
+  "out/readme.txt",
+  "out/sheets/idle_S_strip.png",
+  "out/frames/idle/S/idle_S_00.png",
+  "out/frames/idle/S/idle_S_01.png",
+  "out/frames/idle/S/idle_S_02.png",
+  "out/frames/idle/S/idle_S_03.png",
+  "out/frames/idle/S/idle_S_04.png",
+  "out/frames/idle/S/idle_S_05.png",
+  "out/frames/idle/S/idle_S_06.png",
+  "out/frames/idle/S/idle_S_07.png",
+  "out/frames/idle/S/idle_S_08.png",
+  "out/frames/idle/S/idle_S_09.png",
+  "out/frames/idle/S/idle_S_10.png",
+  "out/frames/idle/S/idle_S_11.png",
+  "out/frames/idle/S/idle_S_12.png",
+  "out/frames/idle/S/idle_S_13.png",
+  "out/frames/idle/S/idle_S_14.png",
+  "out/frames/idle/S/idle_S_15.png"
+ ],
+ "effort": "high",
+ "add_dirs": [],
+ "experiment": "K3p-xv"
+}

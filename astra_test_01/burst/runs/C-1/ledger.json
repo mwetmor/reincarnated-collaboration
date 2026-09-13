@@ -318,7 +318,7 @@
         }
       ],
       "exit": 0,
-      "note": "hand-invoked (wrapper caps pre-amendment); DELIVERED_WITH_CONCERNS; 46 tests: 45 green, 1 KNOWN RED = regression lock walk_SE_07 (cause: run_03/output_contact_regions.json not in the conductor's read allowlist \u2192 automatic sole fallback; fix assigned to T0-c addendum); G2/G9/silhouette64 verdicts null pending calibrated thresholds (per SPEC); usage 1,123,354 in / 24,843 out; conductor review: ACCEPT; frozen at MANIFEST.sha256"
+      "note": "hand-invoked (wrapper caps pre-amendment); DELIVERED_WITH_CONCERNS; 46 tests: 45 green, 1 KNOWN RED = regression lock walk_SE_07 (cause: run_03/output_contact_regions.json not in the conductor's read allowlist → automatic sole fallback; fix assigned to T0-c addendum); G2/G9/silhouette64 verdicts null pending calibrated thresholds (per SPEC); usage 1,123,354 in / 24,843 out; conductor review: ACCEPT; frozen at MANIFEST.sha256"
     },
     {
       "id": "T0-c",
@@ -571,7 +571,7 @@
       "artifacts": [],
       "exit": 2,
       "image_calls_events": 1,
-      "conductor_correction": "image_calls 1\u21920 (R-4): the PRE-fix wrapper's text heuristic matched 'image_gen' inside this burst's own heredocs; generated_images/ truth source = 0 new files (confirmed by replaying the fixed census); images_used 3\u21922",
+      "conductor_correction": "image_calls 1→0 (R-4): the PRE-fix wrapper's text heuristic matched 'image_gen' inside this burst's own heredocs; generated_images/ truth source = 0 new files (confirmed by replaying the fixed census); images_used 3→2",
       "model": "gpt-6-astra",
       "model_source": "profile (recorded by the conductor; this entry was written by the pre-fix wrapper)",
       "effort": "high",
@@ -10628,6 +10628,560 @@
       "codex_version": "codex-cli 0.153.4",
       "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
       "exit": 0
+    },
+    {
+      "id": "K2p-jdg-E",
+      "type": "JUDGE",
+      "experiment": "K2p",
+      "brief_sha256": "03faa76adecbe624653af1c5d94786f877699a36d19958cd664c07f896e23c83",
+      "started": "2026-09-13T03:18:38.503332+00:00",
+      "ended": "2026-09-13T03:26:04.455631+00:00",
+      "minutes": 7.432526694449977,
+      "image_calls": 0,
+      "tool_calls": 3,
+      "audit": {
+        "violations": [],
+        "image_calls": 0,
+        "tool_calls": 3,
+        "tools_seen": {
+          "file_change": 1,
+          "command_execution": 1,
+          "error": 1
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": []
+      },
+      "receipt_sha256": "25e1d2157ca6d764f81c8f1464102ce15b46423c543da07bacfe878dbe89760a",
+      "artifacts": [
+        {
+          "name": "judgment.json",
+          "sha256": "ff49f061f0468173a4a14dc2742f02099a65a60a8de93663eb7975d714455377"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
+    },
+    {
+      "id": "K3p-xv-cut-01",
+      "type": "CHECK",
+      "experiment": "K3p-xv",
+      "brief_sha256": "5851683832ad3b6cdfae8c316526e12a01033180a363faf985769b3c7ca23171",
+      "started": "2026-09-13T03:15:20.270742+00:00",
+      "ended": "2026-09-13T03:28:25.164004+00:00",
+      "minutes": 13.0815284326333,
+      "image_calls": 0,
+      "tool_calls": 9,
+      "audit": {
+        "violations": [],
+        "image_calls": 0,
+        "tool_calls": 9,
+        "tools_seen": {
+          "command_execution": 8,
+          "file_change": 1
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": []
+      },
+      "receipt_sha256": "d5fad9f2ae1a0c53ee5320f1c59e059a760ee9a931be27a5e05151b5f83332d6",
+      "artifacts": [
+        {
+          "name": "ffmpeg_extract.log",
+          "sha256": "5314ec9e6c70afb8d2f11a29f5551969325836e660bbb5f4b6bc419122bcadcf"
+        },
+        {
+          "name": "native/native_000.png",
+          "sha256": "b94b75012e6518ecf0205b0c592e5de561d9d077be9a169bc8088c094d5096d2"
+        },
+        {
+          "name": "native/native_001.png",
+          "sha256": "c8eeb0208167bc8e05e3b1e0b107aa6aef6d4f51c79532c7618d27875103261a"
+        },
+        {
+          "name": "native/native_002.png",
+          "sha256": "0a8d487b2f01f3965561c842f39fa4e6640881435f56983c508f7bf8a4e05554"
+        },
+        {
+          "name": "native/native_003.png",
+          "sha256": "a45451c1912536c70b3b5bd3d3cdd35eec8a0f7b755e7a08186d2fbf14ac77ed"
+        },
+        {
+          "name": "native/native_004.png",
+          "sha256": "07bd5f04a63459bd8e09590cfccdddf059bbf25459ee19a6f1fa15bd2dbfc8a6"
+        },
+        {
+          "name": "native/native_005.png",
+          "sha256": "5a90a51b1245b4bc70505fffbcfcfe31d8291924beecea707e20296bb781426d"
+        },
+        {
+          "name": "native/native_006.png",
+          "sha256": "236228e9cb13de9ce391fcf97895f5172013535090f3790cda346c3708202f44"
+        },
+        {
+          "name": "native/native_007.png",
+          "sha256": "dc79d38d36e0fbf7c148f5da4a18cc63792460d86e874c19b6eb226d3107a44c"
+        },
+        {
+          "name": "native/native_008.png",
+          "sha256": "60dc090d52f2699166142e761ad274c40e3ea52f557eb465d29951b447505d5f"
+        },
+        {
+          "name": "native/native_009.png",
+          "sha256": "ad8229d33bb9a9f81b33850fe8ef4e797d2e04871df2dbeefff8c1ebf392d932"
+        },
+        {
+          "name": "native/native_010.png",
+          "sha256": "83f76e36a2b881c4d456d31f38e3dcc1d192fda5363a6fb3eb468ce248424827"
+        },
+        {
+          "name": "native/native_011.png",
+          "sha256": "8cba8b1342c88f9174b684668f1e04f8ffe7ac3fe14530dda7585015b5067660"
+        },
+        {
+          "name": "native/native_012.png",
+          "sha256": "a71d29d0560db028893873b85c05e7b8a382139e5058a09424165063f0b9b23d"
+        },
+        {
+          "name": "native/native_013.png",
+          "sha256": "577a41af24533e872a58aadb5b703580f7d5ed7109c333ff112ef9d6ef8fdca5"
+        },
+        {
+          "name": "native/native_014.png",
+          "sha256": "752c2de3ae38aedb2c545ca011e2278d287e725e5d59c6fa5836c7ea096aa7af"
+        },
+        {
+          "name": "native/native_015.png",
+          "sha256": "8c19d4170501c6a4af5e7089fa17a9564f9e58d315fe399e88738ba01569d73e"
+        },
+        {
+          "name": "native/native_016.png",
+          "sha256": "44c5c7fb817d911cb2e003de501a2b9656296c069e63c170b73727c1ceec5435"
+        },
+        {
+          "name": "native/native_017.png",
+          "sha256": "6d15bd752e1aa215f35cc0faaa0077a2fbfdc88b19603fa2edb93fb964129fb9"
+        },
+        {
+          "name": "native/native_018.png",
+          "sha256": "c4224dc44dd8e6334ab3f94381bc68efa3a4d2d3e73671512a61dc6b2da1d4ef"
+        },
+        {
+          "name": "native/native_019.png",
+          "sha256": "99197283b45a248950f1907f260e9fe7c2a77c72c14b944e74ec178dcfa40bb8"
+        },
+        {
+          "name": "native/native_020.png",
+          "sha256": "647b7fb053d3b44a407345643d94ec955f66d642a42ba2a788aa77060f806517"
+        },
+        {
+          "name": "native/native_021.png",
+          "sha256": "509925375789b885beecab1cc9791fa9080aee4f31f3ddfcb29935c977c35333"
+        },
+        {
+          "name": "native/native_022.png",
+          "sha256": "3a9dcccd9d91e02bdcfad068500676382c318ba0bac579cd54899cf63ebee95c"
+        },
+        {
+          "name": "native/native_023.png",
+          "sha256": "deb2cc485d71f8731e0d3aa07c61bc23ea74032d64548bb3a81e797a80a653cf"
+        },
+        {
+          "name": "native/native_024.png",
+          "sha256": "9371b046b3a5d63d1b47edc5c5e975d909bad7cc9ce59b02ec1dcf726d66219d"
+        },
+        {
+          "name": "native/native_025.png",
+          "sha256": "2dff38a91b07df163d60a31ee5c87f10b16a9e35f92e07764997df1d119e8907"
+        },
+        {
+          "name": "native/native_026.png",
+          "sha256": "cfe6de45a810db9f87ca97c3cef47e7918b3351b3592ac8703b952e03fb5f067"
+        },
+        {
+          "name": "native/native_027.png",
+          "sha256": "382db737b4c605fd48dc7e2e9e787cb7b11871b7acef2da59afffc73e8255d9e"
+        },
+        {
+          "name": "native/native_028.png",
+          "sha256": "4b2a76770604a498b45187a8fd6b6e2be68f1eedd47a8e27c48e1f3958a7a3f7"
+        },
+        {
+          "name": "native/native_029.png",
+          "sha256": "1fe4cb73c45f169526a3d7f64db27d5168dcffeb5dd919a8783932e8b56f39dd"
+        },
+        {
+          "name": "native/native_030.png",
+          "sha256": "576494a2198eb6bc6bb0c7b2339c187c9a1397ed0cc2c90171fc31748ae5217c"
+        },
+        {
+          "name": "native/native_031.png",
+          "sha256": "dbe342dddf500183b3e980abe4846a0e182fbdcf5e0a6db3adc40a2bcd1cc326"
+        },
+        {
+          "name": "native/native_032.png",
+          "sha256": "3e07dc50fd5dabf3b4a7479a7f6d5016566814e8f31a1bce636465bba2cc55f0"
+        },
+        {
+          "name": "native/native_033.png",
+          "sha256": "14ecb91f6adf2c95b3c486b8ae21063f31d6723eee0f8dd366c929f6c0da0e7d"
+        },
+        {
+          "name": "native/native_034.png",
+          "sha256": "24223ae50e511eddf06d622dec1dfb2288e98bd60c8a700c997a2f1453395278"
+        },
+        {
+          "name": "native/native_035.png",
+          "sha256": "0f58f1034f9783bc609f316775688fa6c4107f4791c220f94991c087f2d3f7c7"
+        },
+        {
+          "name": "native/native_036.png",
+          "sha256": "878b6481e7aa754ffec88eb06c0e72b45cf386e34bcb20f3d767b045a9bb2783"
+        },
+        {
+          "name": "native/native_037.png",
+          "sha256": "d4ef9d4a90628da26a1274b3c06d24dfc01db4e4ed00ae4b097101a1fdc74953"
+        },
+        {
+          "name": "native/native_038.png",
+          "sha256": "86618594c0563ca6dcab32ddcf020ba96b362ba8c2c8a658f1f055e7cfffdd06"
+        },
+        {
+          "name": "native/native_039.png",
+          "sha256": "35eb868adf49d74aec620ba3d3de17b75317ba158f8915db2f0df5036d415857"
+        },
+        {
+          "name": "native/native_040.png",
+          "sha256": "46c5f7bba6de90fb92e92dde8536dc8205794e4976a7f961876ec2da7444bcfa"
+        },
+        {
+          "name": "native/native_041.png",
+          "sha256": "1a740c3f1acf71b82d92cb3ae5ac067db830358f325d1635b7dbf7e264f1c67c"
+        },
+        {
+          "name": "native/native_042.png",
+          "sha256": "e5c26e4c917d1a2a384602e8a4a08542d7d89c8e41f81f7e0fff146216a4f5fc"
+        },
+        {
+          "name": "native/native_043.png",
+          "sha256": "95269431807419c8ee7d18d807395bdc158abe9778840412ab9d174d91c7e16b"
+        },
+        {
+          "name": "native/native_044.png",
+          "sha256": "e5c9f94319f2cf52eb8c88af18f068a58c205079abc2bd3371ab69858deda86b"
+        },
+        {
+          "name": "native/native_045.png",
+          "sha256": "648b244a4cc0fd12279cdc9b30335824e7c95c537edd15a4e37aa8da3ec280fa"
+        },
+        {
+          "name": "native/native_046.png",
+          "sha256": "7b303ebdf98faab789804033c9e75e1f8ea2be53b63cedec2b8a655eed275c6b"
+        },
+        {
+          "name": "native/native_047.png",
+          "sha256": "927117e03aa6802cfcb2d86a65aee1d3fd35c7185ff54742313e608f467309de"
+        },
+        {
+          "name": "native/native_048.png",
+          "sha256": "3d74b7f02a8415e0d1b2c729fa8ebed79bd930f0047cc2ba9004099d32356ed3"
+        },
+        {
+          "name": "native/native_049.png",
+          "sha256": "8dc355dda2be2b76c0fb590161bf4a9f78a6ba83c046632cbf9f64045abdef90"
+        },
+        {
+          "name": "native/native_050.png",
+          "sha256": "9f90255b8e5ed527973023ec38c4c9834c55e9ae00a1fa3c6aa735def114e98a"
+        },
+        {
+          "name": "native/native_051.png",
+          "sha256": "eb57cceec20371ec62b8fb2e8737f984a8a84c92b43c068120a8009412056c95"
+        },
+        {
+          "name": "native/native_052.png",
+          "sha256": "9b61d883f967e1fe2d591e6dff20beb219c72452a3a7eada102da6dd5a430096"
+        },
+        {
+          "name": "native/native_053.png",
+          "sha256": "e61b74600456d36e299fcd0453f6002f92cb89b7aac9973db588e2657336e894"
+        },
+        {
+          "name": "native/native_054.png",
+          "sha256": "2fa8fd8e18cf3dec407ad798f0f06db73d15567669caa19ea920e90d46378fe8"
+        },
+        {
+          "name": "native/native_055.png",
+          "sha256": "423f6ccac5c0b8c3b5527c2f7770fb02e9f1d89755c60aca8182e9f42a8425a9"
+        },
+        {
+          "name": "native/native_056.png",
+          "sha256": "a0c4e8edcb48284e328f73e9e2f894a13babb5d97fdecf60387482b60098eb3e"
+        },
+        {
+          "name": "native/native_057.png",
+          "sha256": "3cdc7bdd30ffb48b59ac3d0a98a4b5d3d3ebd15f8029221122dbadbedfd0287f"
+        },
+        {
+          "name": "native/native_058.png",
+          "sha256": "ddc772d56fcf1b545a4effbad8243eb4df6741db1af24a08e402669fe2e11e19"
+        },
+        {
+          "name": "native/native_059.png",
+          "sha256": "836212db9c0904c2e4d652a499d2d1237761e420fc5deddc829c39df80da9ba5"
+        },
+        {
+          "name": "native/native_060.png",
+          "sha256": "21a0b3bb752b84c5096c900a0bbac2c541a4ed2087048e9b95456afe82d166ee"
+        },
+        {
+          "name": "native/native_061.png",
+          "sha256": "baf22cf09ad181856d206fa7be624b44f324fd5b4f694b041c69e6426f595063"
+        },
+        {
+          "name": "native/native_062.png",
+          "sha256": "51ce38dd198353ca532b41e3f25a4ed5e432642497100e66258904207efe3dd7"
+        },
+        {
+          "name": "native/native_063.png",
+          "sha256": "51bd4af0dc9bf0d5fcde1909b8ddad64cd629cd9e65d8f6755d573e8b531da77"
+        },
+        {
+          "name": "native/native_064.png",
+          "sha256": "0566600849f936387b1432354c8d584b860558892feb78ca701784e160cf5974"
+        },
+        {
+          "name": "native/native_065.png",
+          "sha256": "ff393e358e4b86e1a06d9b162a3338e01c2d354126c92caf403df5a7d40f92d4"
+        },
+        {
+          "name": "native/native_066.png",
+          "sha256": "5f29640f87efb7f7845affc315830d71f131334a3b48751147711e729e4b3486"
+        },
+        {
+          "name": "native/native_067.png",
+          "sha256": "929db8297dd9b4374f1a4c7455806769168b5bf0ec4c52985b56d5d548c4d07e"
+        },
+        {
+          "name": "native/native_068.png",
+          "sha256": "b058b078e423583e21892edcf3d397aa2035b17e67bb3cd5cd2e0d215acc55b0"
+        },
+        {
+          "name": "native/native_069.png",
+          "sha256": "3aefd13a60c76bf48da3f728527af90500a71cba4eef6698f7ed7c34612b8036"
+        },
+        {
+          "name": "native/native_070.png",
+          "sha256": "4e73aec25307d6f504cd36b8866b9d2acaa405a0bd286807b7d24faca99b9beb"
+        },
+        {
+          "name": "native/native_071.png",
+          "sha256": "c15b146296b3d6f722d8e36220b3fcaa145ef38b6290f6da05da5f735d7b6274"
+        },
+        {
+          "name": "native/native_072.png",
+          "sha256": "94a6cb82f9b1573c0f4be36b058cf1245939bb7d703b3bad786a29cc0a1b39df"
+        },
+        {
+          "name": "native/native_073.png",
+          "sha256": "0d8d4bb429297f71536c0ae97540defb5baba4d9c9316aa3225575d58c9033b1"
+        },
+        {
+          "name": "native/native_074.png",
+          "sha256": "08df5ec27d934c2a4bf7b9f19dc1f56eb71e534198c9c90a99817a28aaf46233"
+        },
+        {
+          "name": "native/native_075.png",
+          "sha256": "888c8f7a6f8fc0f278a151e2b25e182f4d8f2360fa3f56e316caec7f21d0b1d5"
+        },
+        {
+          "name": "native/native_076.png",
+          "sha256": "a3d7e4220bfcb652bb927f05f682d034147d83cb61e413a594881aec6490c185"
+        },
+        {
+          "name": "native/native_077.png",
+          "sha256": "15e52c220f202824128e2c6f132ee1aa0ad51e1963099ea43dfd9d03e43ede00"
+        },
+        {
+          "name": "native/native_078.png",
+          "sha256": "1c7b1c3eaf3c6ee140929e351c925813697ca6a533cf90821f07c2c3005cafa8"
+        },
+        {
+          "name": "native/native_079.png",
+          "sha256": "ad002ed85b35af3ce5be88e2cdcacbb8376ab6db6f12b97af1d8ec77785f4d39"
+        },
+        {
+          "name": "native/native_080.png",
+          "sha256": "a492fa13914f8e38ff57c59c0fd3e824cfe69cfb5db639ad9b8a3c91fd00ed6d"
+        },
+        {
+          "name": "native/native_081.png",
+          "sha256": "3e53c9a3b8bbc67196dd78e63f109600748a08401fad100e669539199cd562f8"
+        },
+        {
+          "name": "native/native_082.png",
+          "sha256": "32701701f9d19e8a46ff4a918158cf07671f74ffbddc5ebc003d8361406f60e3"
+        },
+        {
+          "name": "native/native_083.png",
+          "sha256": "52947c8db54c6d8371f0d48420faa4442ace1af487589c0a3fdc3c8580b71787"
+        },
+        {
+          "name": "native/native_084.png",
+          "sha256": "69d5d74c61b7ecff91c7388b5aa4850ac77048d4e9eb8ccc314ffefd1fec805e"
+        },
+        {
+          "name": "native/native_085.png",
+          "sha256": "a6009252f838956aead6babe4bff64877142cdd443e76d9d314c2f864a179dd4"
+        },
+        {
+          "name": "native/native_086.png",
+          "sha256": "f33927c12d1f1af5a8b6e9767cf876f81e451294f854cc9d7d5c85da89afb8be"
+        },
+        {
+          "name": "native/native_087.png",
+          "sha256": "a2a5f1d97f35383dd13286fdde5732db7192a4ff32d43fa66bfdfdbbb96728be"
+        },
+        {
+          "name": "native/native_088.png",
+          "sha256": "5f81c11ec66a977939a3c2fb23bcf2633039bd9ef653b9bb6845b04c378de1fc"
+        },
+        {
+          "name": "native/native_089.png",
+          "sha256": "6d2ad2fc25d7abe92f9687c0ff58e52aa34efbc403291d51b42de6113c715a04"
+        },
+        {
+          "name": "native/native_090.png",
+          "sha256": "4dfbf7c76ec78cdc2618a3124de96cc7f4da5dffdfdc537a6f899a57473da852"
+        },
+        {
+          "name": "native/native_091.png",
+          "sha256": "1b47e66a003057450b58e3f416a4b8f8f17544ddb101ed506b3b287aac45f4a4"
+        },
+        {
+          "name": "native/native_092.png",
+          "sha256": "5ee04e1b8d312f045e3fddf035d801bf9cf70e87824d4f599ac457dd92740382"
+        },
+        {
+          "name": "native/native_093.png",
+          "sha256": "d13bdc34d8768405c9ce16177eb30927a42df8a30eb62093c1ce08c60dc2a2af"
+        },
+        {
+          "name": "native/native_094.png",
+          "sha256": "56e52b4d9c49a4cbb2cb83a826f0f15fafc92f47b1af941925e51519645fd33e"
+        },
+        {
+          "name": "native/native_095.png",
+          "sha256": "45386e08b4f43fbc83a19e4d571173474610de1f43b5510c402fb5e6427381e1"
+        },
+        {
+          "name": "native/native_096.png",
+          "sha256": "4c0fab4de53014dfd86082f1e8475add2ebfdec7e7a7373f412629094b745831"
+        },
+        {
+          "name": "native/native_097.png",
+          "sha256": "3bfb6f8614acd2ec0aeafac834495b9eec57bce89a6e4631c1d1051d2d56d69d"
+        },
+        {
+          "name": "native/native_098.png",
+          "sha256": "65e161ae66add8331d6dd61123ebf56d4e8eb70837cd04f1e233276397d4ad7f"
+        },
+        {
+          "name": "native/native_099.png",
+          "sha256": "026c5764ddb5c49810064fbfc2bc311a070bb6e6744270974e4c6b334efd897d"
+        },
+        {
+          "name": "native/native_100.png",
+          "sha256": "69f577a4c049dae775daacb6d52a59f320a0a153dfe38d40a150c75d40432552"
+        },
+        {
+          "name": "native/native_101.png",
+          "sha256": "672cdcca12876d081c40646b610495aba02724345b1ea03de0a48aadc3b87c41"
+        },
+        {
+          "name": "native/native_102.png",
+          "sha256": "a8cbd77ae79f9d95181a427a2795da7e58bc846610ccdfc775a5d1bdb2052680"
+        },
+        {
+          "name": "native/native_103.png",
+          "sha256": "d13b0aeca5d0a1af1a401b9aadcfbad14f736cbc45bed7ca7b1c5f316a205a00"
+        },
+        {
+          "name": "readme.txt",
+          "sha256": "01e88d8dad04330b1afdf0f3065f8ce23a8d96931c3a9df4034abfcdb178fb1b"
+        },
+        {
+          "name": "registration.json",
+          "sha256": "0d8c816d19b525e3a3df453a4880302a435e8be18825dd97e42e4753caa9df51"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
+    },
+    {
+      "id": "K3p-xv-idle-cut-01",
+      "type": "CHECK",
+      "experiment": "K3p-xv",
+      "brief_sha256": "7ac363e2fd569dd9122ee1637febb6b9cf22a96d8491c236eba540b8bde049e8",
+      "started": "2026-09-13T03:16:22.477543+00:00",
+      "ended": "2026-09-13T03:31:22.494725+00:00",
+      "minutes": 15.000259088200012,
+      "image_calls": 0,
+      "tool_calls": 12,
+      "audit": {
+        "violations": [
+          "receipt unreadable: [Errno 2] No such file or directory: '/Users/admin/astra-burst/runs/C-1/K3p-xv-idle-cut-01/out/receipt.json'"
+        ],
+        "image_calls": 0,
+        "tool_calls": 12,
+        "tools_seen": {
+          "command_execution": 12
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [],
+        "execution_error": "TIMEOUT"
+      },
+      "receipt_sha256": null,
+      "artifacts": [],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 3
     }
   ],
   "images_used": 101,
@@ -10646,12 +11200,12 @@
       ],
       "known_red": [
         "tests/test_oracles_motif.py::test_f04_outside_at_least_three (annulus-filtered F04 outside = 2)",
-        "tests/test_oracles_motif.py::test_named_genuine_annuli_retained \u00d73 (chest boss, tabard compass, belt buckle rejected by the hollow-centre test)"
+        "tests/test_oracles_motif.py::test_named_genuine_annuli_retained ×3 (chest boss, tabard compass, belt buckle rejected by the hollow-centre test)"
       ],
-      "owed": "T0-d4 (O3b annulus discrimination) \u2014 off the critical path"
+      "owed": "T0-d4 (O3b annulus discrimination) — off the critical path"
     },
     "X1": {
-      "status": "GENERATE DELIVERED (exit 0) \u00b7 CHECK X1-chk-02 VOID on receipt semantics (conductor rule gap, fixed BURST_RULES v1.2) \u2014 substance accepted (R-6); CHECK path proven by K1/K2 CHECK bursts",
+      "status": "GENERATE DELIVERED (exit 0) · CHECK X1-chk-02 VOID on receipt semantics (conductor rule gap, fixed BURST_RULES v1.2) — substance accepted (R-6); CHECK path proven by K1/K2 CHECK bursts",
       "bursts": [
         "X1-gen-01",
         "X1-chk-01",
@@ -10663,7 +11217,7 @@
       "owed": "T0-d (F-1..F-5)"
     },
     "X0-T": {
-      "status": "pass A: controls 14/16 (second_belt ambiguity) \u2192 O9 advisory; pass B (unambiguous controls, F04 figures): {'presence_precision': 1.0, 'presence_recall': 1.0, 'counts_within_1': '38/38', 'controls': '8/8'} \u2192 PASS: presence P/R >= 0.9, counts \u00b11 >= 80 %, controls 100 %",
+      "status": "pass A: controls 14/16 (second_belt ambiguity) → O9 advisory; pass B (unambiguous controls, F04 figures): {'presence_precision': 1.0, 'presence_recall': 1.0, 'counts_within_1': '38/38', 'controls': '8/8'} → PASS: presence P/R >= 0.9, counts ±1 >= 80 %, controls 100 %",
       "bursts": [
         "X0-T-1",
         "X0-T-2",
@@ -10673,11 +11227,11 @@
         "X0-T-6"
       ],
       "inputs": "runs/C-1/x0t/ (hand_inventory.json, per-figure questions/schema), fixtures/x0t/ (native crops)",
-      "threshold": "presence P/R >= 0.9; counts within \u00b11 on >= 80 %; controls 100 % (calibrate_transcriber.py)",
+      "threshold": "presence P/R >= 0.9; counts within ±1 on >= 80 %; controls 100 % (calibrate_transcriber.py)",
       "summary": "runs/C-1/x0t/calibration_summary.json"
     },
     "K1": {
-      "status": "APPROVED \u2014 master L (11 images: gen-01 3, gen-02 3, gen-03 2, gen-04 3)",
+      "status": "APPROVED — master L (11 images: gen-01 3, gen-02 3, gen-03 2, gen-04 3)",
       "bursts": [
         "K1-gen-01",
         "K1-chk-01",
@@ -10711,7 +11265,7 @@
       "packet": "~/Desktop/Astra Burst Review - 2026-09-11/01 K1 identity masters/packet/review.html"
     },
     "K2": {
-      "status": "v4 (derived geometry): W/NW/N/NE/E/SE CORRECT by geometry-verified judge (4.8\u20135.0; near sides right; not mirrored); SW torso correct, head turns the wrong way \u2192 1-image head fix (cap 16\u219217, Matt) overnight or now; control caught (mirrored, axis2 1, axis3 2). MILESTONE: sheet v4 to Matt",
+      "status": "v4 (derived geometry): W/NW/N/NE/E/SE CORRECT by geometry-verified judge (4.8–5.0; near sides right; not mirrored); SW torso correct, head turns the wrong way → 1-image head fix (cap 16→17, Matt) overnight or now; control caught (mirrored, axis2 1, axis3 2). MILESTONE: sheet v4 to Matt",
       "bursts": [
         "K2-gen-SW",
         "K2-gen-W",
@@ -10740,11 +11294,11 @@
         "K2-pack-04"
       ],
       "images": 16,
-      "check": "G1 6/7 within \u00b13 % (NW 0.96); plates clean except W 27 % / E 75 %; O7 all within ~20\u00b0 of upper-left; G3 brightest-region rule fails on SW/W/SE (direction-naive rule \u2014 gate note, not art)",
+      "check": "G1 6/7 within ±3 % (NW 0.96); plates clean except W 27 % / E 75 %; O7 all within ~20° of upper-left; G3 brightest-region rule fails on SW/W/SE (direction-naive rule — gate note, not art)",
       "packet": "~/Desktop/Astra Burst Review - 2026-09-11/02 K2 turnaround/packet-v1/review.html"
     },
     "K3": {
-      "status": "UNVALIDATED (R-17): idle plausible but unreferenced; walk broken (phases/scale); both wait for the R10 oracle \u2192 T1 gates + prompt guidance \u2192 re-run",
+      "status": "UNVALIDATED (R-17): idle plausible but unreferenced; walk broken (phases/scale); both wait for the R10 oracle → T1 gates + prompt guidance → re-run",
       "bursts": [
         "K3-gen-idle-01",
         "K3-gen-walk-01",
@@ -10761,7 +11315,7 @@
       "images": 6
     },
     "K4": {
-      "status": "DELIVERED \u2014 register probe for Q74 (Matt rules); 8 images (H1/H2/H3/K1 \u00d7 2), all receipts DELIVERED_WITH_CONCERNS (expected: register override vs frozen card; 1024\u00d71536 masters not sheets; H3 warm key)",
+      "status": "DELIVERED — register probe for Q74 (Matt rules); 8 images (H1/H2/H3/K1 × 2), all receipts DELIVERED_WITH_CONCERNS (expected: register override vs frozen card; 1024×1536 masters not sheets; H3 warm key)",
       "bursts": [
         "K4-gen-H1",
         "K4-gen-H2",
@@ -10770,10 +11324,10 @@
       ],
       "images": 8,
       "packet": "~/Desktop/Astra Burst Review - 2026-09-11/07 K4 register probe (Q74)/",
-      "finding": "identity is text-carried and survives every register (same woman in all 8) \u2014 register is a separable axis from identity; cartoon AMPLITUDE belongs in motion, not proportions (H3 drifts toward chibi/anime-cute, not Hades)"
+      "finding": "identity is text-carried and survives every register (same woman in all 8) — register is a separable axis from identity; cartoon AMPLITUDE belongs in motion, not proportions (H3 drifts toward chibi/anime-cute, not Hades)"
     },
     "K5": {
-      "status": "DELIVERED \u2014 in-scene register probe for Q74 (Matt rules); 4 scene plates (L/H1/H2/K1), all receipts DELIVERED_WITH_CONCERNS (expected: full-scene vs frozen card; warm key; writing-like marks on pages); composites at 18 %/28 % frame height by conductor (matte.py alpha_floor 40 + contact shadow)",
+      "status": "DELIVERED — in-scene register probe for Q74 (Matt rules); 4 scene plates (L/H1/H2/K1), all receipts DELIVERED_WITH_CONCERNS (expected: full-scene vs frozen card; warm key; writing-like marks on pages); composites at 18 %/28 % frame height by conductor (matte.py alpha_floor 40 + contact shadow)",
       "bursts": [
         "K5-plate-L",
         "K5-plate-H1",
@@ -10785,7 +11339,7 @@
       "corpus": "legolas 2026-09-12-corpus-register-stills (press kits, class D) pending"
     },
     "K6": {
-      "status": "DELIVERED \u2014 in-world register study for Q74 (Matt rules): male end-game Keeper in H1/H2 \u00d7 ARPG/Hades worlds, 8 images \u00b7 male end-game masters on green (H1/H2 \u00d72) composited into the E07V faction scene panels (F01\u2013F04) at 10.5 % / 14 % of panel height \u2014 packet 10",
+      "status": "DELIVERED — in-world register study for Q74 (Matt rules): male end-game Keeper in H1/H2 × ARPG/Hades worlds, 8 images · male end-game masters on green (H1/H2 ×2) composited into the E07V faction scene panels (F01–F04) at 10.5 % / 14 % of panel height — packet 10",
       "bursts": [
         "K6-H1-arpg",
         "K6-H1-hades",
@@ -10796,10 +11350,10 @@
       ],
       "images": 12,
       "packet": "~/Desktop/Astra Burst Review - 2026-09-11/09 K6 in-world register study (Q74)/",
-      "scale_correction": "Matt 2026-09-12: 10.5 %/14 % composites were under the corpus band; corpus at 1080p = D2R ~17\u201318 %, GD ~15\u201317 %, PoE1 ~14\u201317 %, PoE2 ~16\u201318 %, LE ~17\u201318 % (Hades ~8 % outlier). CAMERA_BASELINE 10.1 % is a Godot-fixture projection, not universal; E07V painted figures carry no scale authority. Re-composited at 16 %/19 % (packet 10 *_corpus_scale sheets). Conductor error, recorded."
+      "scale_correction": "Matt 2026-09-12: 10.5 %/14 % composites were under the corpus band; corpus at 1080p = D2R ~17–18 %, GD ~15–17 %, PoE1 ~14–17 %, PoE2 ~16–18 %, LE ~17–18 % (Hades ~8 % outlier). CAMERA_BASELINE 10.1 % is a Godot-fixture projection, not universal; E07V painted figures carry no scale authority. Re-composited at 16 %/19 % (packet 10 *_corpus_scale sheets). Conductor error, recorded."
     },
     "K7": {
-      "status": "DELIVERED \u2014 Hades-language variants of E07V F03/F04 in H1/H2 (4 plates, layout-referenced from our own panels), K6 males composited at 17 % \u2014 packet 11; Q74 evidence",
+      "status": "DELIVERED — Hades-language variants of E07V F03/F04 in H1/H2 (4 plates, layout-referenced from our own panels), K6 males composited at 17 % — packet 11; Q74 evidence",
       "bursts": [
         "K7-H1-foundry",
         "K7-H2-foundry",
@@ -10810,7 +11364,7 @@
       "packet": "~/Desktop/Astra Burst Review - 2026-09-11/11 K7 Hades-language variants (foundry + aery)/"
     },
     "T1": {
-      "status": "T1a-idle DELIVERED_WITH_CONCERNS (exit 0, audit clean, 17 tool calls) \u2014 modules oracle/{motion_map,idle_curves,idle_bands}.py + tests/test_oracle_idle.py; suite 133/139 (4 T0-d3 reds + 2 synthetic amplitude reds: breath 25 %H vs 6 % truth, head sway 1 % vs 2 %). DRIFT-CRITIC (R-25): the CONTRACTED formulas measure changed-pixel EXTENT, not displacement \u2014 conductor spec defect, Astra correctly refused to tune; combat clip 'camera shift' 24 px = the conductor's tracking crop, not the camera; House relaxed idle background is ANIMATED (shades) \u2192 every region MOTION; eps/floor provisional. Fix burst T1a-idle-2 contracted: geometric displacement estimators validated on synthetic truth, control box for background contamination, feet-band noise-floor calibration (I-1), --ours without camera VOID, raw fixed-camera combat frames. \u00b7 T1a-idle-2 DELIVERED_WITH_CONCERNS: geometric estimator (least-squares translation of median-image profile gradients + edge templates, subpixel) recovers synthetic truth EXACTLY (breath 6.00 %H, head 2.00 %H, period 24 f); suite 137/141 (only the 4 T0-d3 reds); control box + contamination + feet-floor + --ours no-VOID implemented. REAL: Hades combat idle (raw 1080p, H=131 px, contamination 0.03) breath 6.5 %H, head bob 5.5 %H (frames 1\u20133 at search limit \u2192 possibly under); Hades relaxed House (H=111 px crop, contamination 0.45) breath 0.2 %H \u2014 below resolution, NOT usable for amplitude; OUR idle_S_K3 (H=241) breath 0.47 %H, head 0.21 %H \u2014 the dead idle, now a number. Open: region LOCK/MOTION classification collapses (feet-band floor > 1 because the feet band holds the ground shadow) \u2192 T1b classifies by per-band displacement, not energy. \u00b7 T1a-walk FAILED (exit 3, audit clean, one retry used): modules oracle/walk_{landmarks,curves,bands}.py + tests landed (walk tests 5/6; suite 142/147); plate13_lateral segments cleanly (H=594) but plate2 fragments (dark on dark), all phase tables null (1 contact event found, 2 expected), bob numbers are mask-top noise (hair vs grid). Two-attempt rule \u2192 conductor method change R-26. \u00b7 T1a-walk-2 FAILED (exit 3, audit clean): grid-registered median backdrop REGRESSED segmentation (mask H 49\u2013582 px in one row; rear row 0/12 usable grid signal); NCC head tracking seeded on non-head regions; 0 contacts. Synthetic still passes (grid/plain 1 px). Ruling R-27: annotation path. \u00b7 T1a-ann-13L DELIVERED (Muybridge plate 13 lateral landmarks, 12 frames, mean confidence 0.76) \u00b7 T1a-walk-3 DELIVERED_WITH_CONCERNS: annotation path works \u2014 W-1 3.95 %H (Legolas floor band 2\u20135 \u2713), W-3a 0.23 \u2713, W-3c 2 \u2713, W-4 4 (annotation jitter; needs prominence threshold), W-5 near 13 / far 23 %H, W-6 0.54 (near/far vs L/R correspondence unresolved), contacts 5/11, phase table produced; mask path agrees on W-1 only; suite 149/154 (4 T0-d3 + grid-parity red 5 px). WALK FLOOR EXISTS. X-VIDEO PROBE (Q76) executed: Grok i2v idle breath 0.65 %H / head 0.12 %H (veridical, not exaggerated \u2014 10\u00d7 under Hades combat 6.5 %H; \u2248 our dead idle 0.47 %H); walk head bob 2.0 %H (under the Muybridge 3.9 %H); identity/scale/plate rock-steady across 145 frames (area CV 0.007; H \u00b12 px; boil 0.2 %/frame). \u00b7 T1b DELIVERED_WITH_CONCERNS (28 calls): gates/idle_intent.py + gates/gait_intent.py + oracle/dope_sheet.py + oracle/pose_guide.py + G6c; suite 164/169 (4 T0-d3 + 1 walk grid-parity). FIRST INTENT VERDICT (report-only, rows uncommitted): our K3 idle-S breath 0.47 %H vs floor 3.9 %H, head 0.21 %H vs floor 3.3 %H \u2014 BELOW FLOOR on both; displacement classification shows every region drifting 0.5\u20131.2 %H incl. soles 1.24 %H vs I-1 limit 0.25 %H (registration residual = a fail). G6c on K3 walk 0.861 (matches R-19). Dope sheets + 12 pose guides generated; INTENT CONFLICTS flagged honestly (walk target 7.9 %H > 7 % ceiling with k_vert 2.0; combat row's collapsed LOCK list) \u2192 Matt rulings at the C-2 checkpoint. \u00b7 T1c DELIVERED_WITH_CONCERNS (22 calls): transcribe/motion_questions.py + compare/calibrate_motion_transcriber.py; question sets plate13 (54 q, truth 29 YES/25 NO), walk12 (54), idle8 (6) with declared-absent airborne controls; scorer self-test 1.0 / control-flip caught; suite 178/183 (5 standing reds). PHASE 1 BUILD LANE COMPLETE.",
+      "status": "T1a-idle DELIVERED_WITH_CONCERNS (exit 0, audit clean, 17 tool calls) — modules oracle/{motion_map,idle_curves,idle_bands}.py + tests/test_oracle_idle.py; suite 133/139 (4 T0-d3 reds + 2 synthetic amplitude reds: breath 25 %H vs 6 % truth, head sway 1 % vs 2 %). DRIFT-CRITIC (R-25): the CONTRACTED formulas measure changed-pixel EXTENT, not displacement — conductor spec defect, Astra correctly refused to tune; combat clip 'camera shift' 24 px = the conductor's tracking crop, not the camera; House relaxed idle background is ANIMATED (shades) → every region MOTION; eps/floor provisional. Fix burst T1a-idle-2 contracted: geometric displacement estimators validated on synthetic truth, control box for background contamination, feet-band noise-floor calibration (I-1), --ours without camera VOID, raw fixed-camera combat frames. · T1a-idle-2 DELIVERED_WITH_CONCERNS: geometric estimator (least-squares translation of median-image profile gradients + edge templates, subpixel) recovers synthetic truth EXACTLY (breath 6.00 %H, head 2.00 %H, period 24 f); suite 137/141 (only the 4 T0-d3 reds); control box + contamination + feet-floor + --ours no-VOID implemented. REAL: Hades combat idle (raw 1080p, H=131 px, contamination 0.03) breath 6.5 %H, head bob 5.5 %H (frames 1–3 at search limit → possibly under); Hades relaxed House (H=111 px crop, contamination 0.45) breath 0.2 %H — below resolution, NOT usable for amplitude; OUR idle_S_K3 (H=241) breath 0.47 %H, head 0.21 %H — the dead idle, now a number. Open: region LOCK/MOTION classification collapses (feet-band floor > 1 because the feet band holds the ground shadow) → T1b classifies by per-band displacement, not energy. · T1a-walk FAILED (exit 3, audit clean, one retry used): modules oracle/walk_{landmarks,curves,bands}.py + tests landed (walk tests 5/6; suite 142/147); plate13_lateral segments cleanly (H=594) but plate2 fragments (dark on dark), all phase tables null (1 contact event found, 2 expected), bob numbers are mask-top noise (hair vs grid). Two-attempt rule → conductor method change R-26. · T1a-walk-2 FAILED (exit 3, audit clean): grid-registered median backdrop REGRESSED segmentation (mask H 49–582 px in one row; rear row 0/12 usable grid signal); NCC head tracking seeded on non-head regions; 0 contacts. Synthetic still passes (grid/plain 1 px). Ruling R-27: annotation path. · T1a-ann-13L DELIVERED (Muybridge plate 13 lateral landmarks, 12 frames, mean confidence 0.76) · T1a-walk-3 DELIVERED_WITH_CONCERNS: annotation path works — W-1 3.95 %H (Legolas floor band 2–5 ✓), W-3a 0.23 ✓, W-3c 2 ✓, W-4 4 (annotation jitter; needs prominence threshold), W-5 near 13 / far 23 %H, W-6 0.54 (near/far vs L/R correspondence unresolved), contacts 5/11, phase table produced; mask path agrees on W-1 only; suite 149/154 (4 T0-d3 + grid-parity red 5 px). WALK FLOOR EXISTS. X-VIDEO PROBE (Q76) executed: Grok i2v idle breath 0.65 %H / head 0.12 %H (veridical, not exaggerated — 10× under Hades combat 6.5 %H; ≈ our dead idle 0.47 %H); walk head bob 2.0 %H (under the Muybridge 3.9 %H); identity/scale/plate rock-steady across 145 frames (area CV 0.007; H ±2 px; boil 0.2 %/frame). · T1b DELIVERED_WITH_CONCERNS (28 calls): gates/idle_intent.py + gates/gait_intent.py + oracle/dope_sheet.py + oracle/pose_guide.py + G6c; suite 164/169 (4 T0-d3 + 1 walk grid-parity). FIRST INTENT VERDICT (report-only, rows uncommitted): our K3 idle-S breath 0.47 %H vs floor 3.9 %H, head 0.21 %H vs floor 3.3 %H — BELOW FLOOR on both; displacement classification shows every region drifting 0.5–1.2 %H incl. soles 1.24 %H vs I-1 limit 0.25 %H (registration residual = a fail). G6c on K3 walk 0.861 (matches R-19). Dope sheets + 12 pose guides generated; INTENT CONFLICTS flagged honestly (walk target 7.9 %H > 7 % ceiling with k_vert 2.0; combat row's collapsed LOCK list) → Matt rulings at the C-2 checkpoint. · T1c DELIVERED_WITH_CONCERNS (22 calls): transcribe/motion_questions.py + compare/calibrate_motion_transcriber.py; question sets plate13 (54 q, truth 29 YES/25 NO), walk12 (54), idle8 (6) with declared-absent airborne controls; scorer self-test 1.0 / control-flip caught; suite 178/183 (5 standing reds). PHASE 1 BUILD LANE COMPLETE.",
       "bursts": [
         "T1a-idle",
         "T1a-idle-2",
@@ -10824,14 +11378,14 @@
       "images": 0
     },
     "T2": {
-      "status": "T-freeze DELIVERED_WITH_CONCERNS (exit 0, audit clean, 9.0 min, 20 calls, 0 images): bands COMMITTED per R-29 (idle combat + relaxed-provisional; walk plate13_lateral_ann @ k_vert 1.25); dope sheets + 12 pose guides regenerated, 0 INTENT CONFLICT lines; bible v0.3 (style card + bands card); .gitignore. Suite 178/184 (5 standing reds + test_k3_combat_report_only \u2014 superseded premise, fix \u2192 T3). Conductor: register card v1.1 (H1), SPEC \u00a7 5 freeze-domain amendment, MANIFEST 8c28f3a6b716 (190 rows; oracle/ pinned; volatile suite outputs unpinned \u2014 R-28/R-30), SYNC 10/10. Milestone M-C2-freeze.",
+      "status": "T-freeze DELIVERED_WITH_CONCERNS (exit 0, audit clean, 9.0 min, 20 calls, 0 images): bands COMMITTED per R-29 (idle combat + relaxed-provisional; walk plate13_lateral_ann @ k_vert 1.25); dope sheets + 12 pose guides regenerated, 0 INTENT CONFLICT lines; bible v0.3 (style card + bands card); .gitignore. Suite 178/184 (5 standing reds + test_k3_combat_report_only — superseded premise, fix → T3). Conductor: register card v1.1 (H1), SPEC § 5 freeze-domain amendment, MANIFEST 8c28f3a6b716 (190 rows; oracle/ pinned; volatile suite outputs unpinned — R-28/R-30), SYNC 10/10. Milestone M-C2-freeze.",
       "bursts": [
         "T-freeze"
       ],
       "images": 0
     },
     "K1p": {
-      "status": "H1 starter masters DELIVERED \u2014 chain complete (gen 3 imgs \u2192 chk + tr A/B/C \u2192 jdg (control caught: axis 3 = 2, axis 2 = 2) \u2192 pack). CHECK: plates 0.984\u20130.985, spill 0, halo 0; O8 to the H1 exhibit A 0.003 / B 0.020 / C 0.016 vs 0.06\u20130.08 to the v1.0 painted anchor \u2192 the H1 sentence SURVIVED CHECK (H-3 not triggered); O7 A 144\u00b0 / B 103\u00b0 / C 314\u00b0 (gradient proxy, near-zero resultant on C \u2014 disclosed, conflicts with the judge's axis 3 = 4); O3b annulus A 2 / B 1 / C 1 advisory. O9 inventories identical on all three = the starter declaration exactly (1 harness, 1 belt, 1 satchel, both bracers, 2 boots, rod, rod_head ABSENT, 4 controls absent) \u2014 zero construction violations. JUDGE C 5\u00b74\u00b74\u00b74\u00b75 (4.4) \u00b7 A 4\u00b74\u00b73\u00b74\u00b74 (3.8) \u00b7 B 4\u00b74\u00b73\u00b74\u00b74 (3.8); all feminine, no cleft, no empty straps; 'ornament' on all three = the satchel's brass corners (bible-declared construction \u2014 rubric note). Packet: ~/Desktop/Astra Burst Review - 2026-09-11/14 K1\u2032 H1 starter masters/. Conductor lean C (register 5/5) or A (O8 nearest). APPROVED \u2014 Matt picks C (M-K1p).",
+      "status": "H1 starter masters DELIVERED — chain complete (gen 3 imgs → chk + tr A/B/C → jdg (control caught: axis 3 = 2, axis 2 = 2) → pack). CHECK: plates 0.984–0.985, spill 0, halo 0; O8 to the H1 exhibit A 0.003 / B 0.020 / C 0.016 vs 0.06–0.08 to the v1.0 painted anchor → the H1 sentence SURVIVED CHECK (H-3 not triggered); O7 A 144° / B 103° / C 314° (gradient proxy, near-zero resultant on C — disclosed, conflicts with the judge's axis 3 = 4); O3b annulus A 2 / B 1 / C 1 advisory. O9 inventories identical on all three = the starter declaration exactly (1 harness, 1 belt, 1 satchel, both bracers, 2 boots, rod, rod_head ABSENT, 4 controls absent) — zero construction violations. JUDGE C 5·4·4·4·5 (4.4) · A 4·4·3·4·4 (3.8) · B 4·4·3·4·4 (3.8); all feminine, no cleft, no empty straps; 'ornament' on all three = the satchel's brass corners (bible-declared construction — rubric note). Packet: ~/Desktop/Astra Burst Review - 2026-09-11/14 K1′ H1 starter masters/. Conductor lean C (register 5/5) or A (O8 nearest). APPROVED — Matt picks C (M-K1p).",
       "bursts": [
         "K1p-gen-01",
         "K1p-chk-01",
@@ -10843,10 +11397,10 @@
       ],
       "images": 3,
       "control": "K1p-control/k1p_control_mirror.png = candidate C mirrored horizontally (conductor-side, PIL; sha256 ba5c8dab41f4), judged as candidate T",
-      "check_note": "TRANSCRIBE bursts could not read runs/C-1/k1/questions.json + inventory.schema.json (reads outside the workdir are forbidden) and answered from the in-brief glossary \u2014 inventories conform anyway; next chain attaches both files in the burst's in/."
+      "check_note": "TRANSCRIBE bursts could not read runs/C-1/k1/questions.json + inventory.schema.json (reads outside the workdir are forbidden) and answered from the in-brief glossary — inventories conform anyway; next chain attaches both files in the burst's in/."
     },
     "K3p": {
-      "status": "Step 6 idle-S attempt 1: FAIL-WITH-NUMBERS (R-36) \u2014 packet 15; attempt 2 (exaggeration lever) in flight. Step 7a: E rest frame r2 (R-34). Step 7 walk-E: 4 sheets (walk-04 FAILED \u2192 harvested, R-35) \u2192 registration \u2192 gait gates.",
+      "status": "Step 6 idle-S attempt 1: FAIL-WITH-NUMBERS (R-36) — packet 15; attempt 2 (exaggeration lever) in flight. Step 7a: E rest frame r2 (R-34). Step 7 walk-E: 4 sheets (walk-04 FAILED → harvested, R-35) → registration → gait gates.",
       "bursts": [
         "K3p-gen-idle-01",
         "K3p-gen-idle-02",
@@ -10877,35 +11431,35 @@
   "milestones": [
     {
       "id": "K1",
-      "name": "identity masters \u2014 Matt picks 1 of 3",
+      "name": "identity masters — Matt picks 1 of 3",
       "date": "2026-09-12",
-      "status": "APPROVED 2026-09-12 \u2014 Matt picks L (K1-gen-04, text-designed identity)",
+      "status": "APPROVED 2026-09-12 — Matt picks L (K1-gen-04, text-designed identity)",
       "candidates": {
-        "A": "rubric 4\u00b74\u00b74\u00b74\u00b74 (4.0); O9 0 violations; O3b annulus 4; O7 143.6\u00b0",
-        "B": "rubric 4\u00b74\u00b74\u00b74\u00b74 (4.0); O9 0 violations; O3b annulus 2 (= the two ruled placements); O7 86.6\u00b0",
-        "C": "rubric 4\u00b73\u00b74\u00b74\u00b74 (3.8) \u2014 FAILS mandatory axis 2 (hour-mark breaks the ring)"
+        "A": "rubric 4·4·4·4·4 (4.0); O9 0 violations; O3b annulus 4; O7 143.6°",
+        "B": "rubric 4·4·4·4·4 (4.0); O9 0 violations; O3b annulus 2 (= the two ruled placements); O7 86.6°",
+        "C": "rubric 4·3·4·4·4 (3.8) — FAILS mandatory axis 2 (hour-mark breaks the ring)"
       },
-      "control": "mirrored B: axis 3 = 2 and axis 2 = 2 \u2192 batch VALID",
+      "control": "mirrored B: axis 3 = 2 and axis 2 = 2 → batch VALID",
       "conductor_lean": "B",
       "matt_ruling": "B chosen as base; starter carries NO insignia (chest plain; ring head removed from the staff); character is FEMININE; treat as a STARTING character",
       "approved_master": {
         "path": "runs/C-1/artifacts/K1-gen-04/k1_master_L.png",
         "sha256": "b3f259fa772dc300d97d99a4b632c95bb70e9dfc8caa550283921fd7fcc7302e",
-        "judge": "K1-jdg-04: L 4\u00b74\u00b74\u00b74\u00b74 (4.0) \u2014 reads as a young woman, 'no visible chin cleft/dimple', no chest or harness sigil; axis 4 back to 4 (tall staff line). J: chin dimple + shaped satchel plates (3.8). K: a small spiral mark on the harness \u2014 a real bleed (3.8). Control (mirror K): axis 3 = 2, axis 2 = 2 (LEFT hand / RIGHT hip) \u2192 batch VALID. The only ornament the judge lists on L is the satchel's brass corner plates \u2014 ruled hardware (V2)."
+        "judge": "K1-jdg-04: L 4·4·4·4·4 (4.0) — reads as a young woman, 'no visible chin cleft/dimple', no chest or harness sigil; axis 4 back to 4 (tall staff line). J: chin dimple + shaped satchel plates (3.8). K: a small spiral mark on the harness — a real bleed (3.8). Control (mirror K): axis 3 = 2, axis 2 = 2 (LEFT hand / RIGHT hip) → batch VALID. The only ornament the judge lists on L is the satchel's brass corner plates — ruled hardware (V2)."
       }
     },
     {
       "id": "K2",
-      "name": "turnaround sheet \u2014 Matt sees the sheet",
+      "name": "turnaround sheet — Matt sees the sheet",
       "date": "2026-09-12",
-      "status": "SHEET v4 DELIVERED \u2014 6/7 correct by geometry; SW head pending; awaiting Matt",
+      "status": "SHEET v4 DELIVERED — 6/7 correct by geometry; SW head pending; awaiting Matt",
       "conductor_lean": "approve the turnaround; SW head fix +1 image overnight (or now on Matt's word)"
     },
     {
       "id": "K3",
-      "name": "first loop \u2014 Matt rules G6b as shipping bar",
+      "name": "first loop — Matt rules G6b as shipping bar",
       "date": "2026-09-12",
-      "status": "NOT APPROVED \u2014 loops unvalidated pending the oracle (R-17); L5 deferred to oracle-tuned gates"
+      "status": "NOT APPROVED — loops unvalidated pending the oracle (R-17); L5 deferred to oracle-tuned gates"
     },
     {
       "id": "M-T1a-idle",
@@ -10920,7 +11474,7 @@
     {
       "id": "M-T1b",
       "ts": "2026-09-12T19:25:36",
-      "what": "Intent gates + dope sheets + pose guides exist; the K3 idle-S fails the minimum-amplitude gate (report-only) \u2014 the R-21 inversion is now enforced by code."
+      "what": "Intent gates + dope sheets + pose guides exist; the K3 idle-S fails the minimum-amplitude gate (report-only) — the R-21 inversion is now enforced by code."
     },
     {
       "id": "M-T1-complete",
@@ -10930,53 +11484,58 @@
     {
       "id": "M-C2-freeze",
       "ts": "2026-09-12T20:51:02",
-      "what": "HITL Run C-2 step 3 DONE \u2014 lane re-frozen in H1: register card v1.1 (card == charter \u00a7 2, byte-identical), bible v0.3 (style card, 6 H1 exhibits; bands card with file hashes), bands COMMITTED (idle combat + relaxed-provisional; walk plate13_lateral_ann at k_vert 1.25), dope sheets + 12 pose guides regenerated with 0 INTENT CONFLICT lines, MANIFEST 8c28f3a6b716 (190 rows; oracle/ pinned; volatile suite outputs unpinned \u2014 R-28/R-30), SYNC re-stamped. Suite 178/184: 5 standing reds + test_k3_combat_report_only (superseded premise \u2014 the K3 idle-S FAILS the committed combat band, R-21 enforced; assertion fix folded into T3). T-freeze: 9.0 min, 20 calls, 0 images, audit clean. Images 66/250."
+      "what": "HITL Run C-2 step 3 DONE — lane re-frozen in H1: register card v1.1 (card == charter § 2, byte-identical), bible v0.3 (style card, 6 H1 exhibits; bands card with file hashes), bands COMMITTED (idle combat + relaxed-provisional; walk plate13_lateral_ann at k_vert 1.25), dope sheets + 12 pose guides regenerated with 0 INTENT CONFLICT lines, MANIFEST 8c28f3a6b716 (190 rows; oracle/ pinned; volatile suite outputs unpinned — R-28/R-30), SYNC re-stamped. Suite 178/184: 5 standing reds + test_k3_combat_report_only (superseded premise — the K3 idle-S FAILS the committed combat band, R-21 enforced; assertion fix folded into T3). T-freeze: 9.0 min, 20 calls, 0 images, audit clean. Images 66/250."
     },
     {
       "id": "M-K1p",
       "ts": "2026-09-12T21:48:08",
-      "what": "K1\u2032 APPROVED \u2014 Matt picks C ('C is the best'): the H1 starter master (k1p_master_C.png, sha256 b7bf2c14f79b) supersedes master L in pixels (identity text unchanged); bible assets[0] content_hash \u2192 C, probe set \u2192 the H1 description with no reference (register text-carried), probe_set_sha256 re-frozen; tree re-frozen. Seed canvas K3p-seed/canvas_idle_S_seed.png built on the K3 geometry."
+      "what": "K1′ APPROVED — Matt picks C ('C is the best'): the H1 starter master (k1p_master_C.png, sha256 b7bf2c14f79b) supersedes master L in pixels (identity text unchanged); bible assets[0] content_hash → C, probe set → the H1 description with no reference (register text-carried), probe_set_sha256 re-frozen; tree re-frozen. Seed canvas K3p-seed/canvas_idle_S_seed.png built on the K3 geometry."
     },
     {
       "id": "M-K3p-idle-1",
       "ts": "2026-09-12T22:23:54",
-      "what": "Relaxed idle-S attempt 1 RULED FAIL-WITH-NUMBERS by Matt (R-38) \u2014 the first H1 loop measured against a committed band; closest yet (0.47 \u2192 0.68 %H); staff-split composite defect named \u2192 object-respecting regions for attempt 2."
+      "what": "Relaxed idle-S attempt 1 RULED FAIL-WITH-NUMBERS by Matt (R-38) — the first H1 loop measured against a committed band; closest yet (0.47 → 0.68 %H); staff-split composite defect named → object-respecting regions for attempt 2."
     },
     {
       "id": "M-K3p-walk-1",
       "ts": "2026-09-12T22:34:20",
-      "what": "Walk-E attempt 1 measured under the oracle gates: FAIL-WITH-NUMBERS (R-39) \u2014 weighty (W-1 above floor) but drift-confounded (per-sheet scale growth); G6c PASS (L5 instrument). Re-registration fork to Matt."
+      "what": "Walk-E attempt 1 measured under the oracle gates: FAIL-WITH-NUMBERS (R-39) — weighty (W-1 above floor) but drift-confounded (per-sheet scale growth); G6c PASS (L5 instrument). Re-registration fork to Matt."
+    },
+    {
+      "id": "M-K3p-idle-2",
+      "ts": "2026-09-12T23:13:51",
+      "what": "Relaxed idle-S attempt 2 (exaggeration lever): breath 3.39 %H in band, head carried, feet locked, G12 1.000, G6b pass, one 1.4-px arm residue — Matt: 'did seem to work better … not an utter failure … could maybe be passable' — ruling DEFERRED to the comparison with the video-cut idle (packet 19). Step 8 → video process test for both loops."
     }
   ],
   "halts": [
     {
       "id": "H-1",
       "date": "2026-09-12",
-      "rule": "charter \u00a7 7 K1: 3 masters (+3 with Matt's notes if none acceptable; then HALT) \u2014 K1 image cap 6 reached (K1-gen-01: 3; K1-gen-02: 3) with no master satisfying Matt's K1 ruling",
-      "diagnosis": "K1-gen-02 (B as identity reference + three text changes) removed the insignia exactly as ruled (plain chest; plain walnut staff with brass ferrules) and preserved everything else \u2014 but the figure did NOT become feminine: faces/build near-identical to B (Astra's receipt: 'the feminine face and build changes are subtle, especially in D and E'). Method finding: a reference image pins IDENTITY; text edits against it land only on local objects (ring, head-piece); a global identity change loses to the reference. K1-gen-01 (text-driven identity, style anchor only) held the full costume from text on all three.",
+      "rule": "charter § 7 K1: 3 masters (+3 with Matt's notes if none acceptable; then HALT) — K1 image cap 6 reached (K1-gen-01: 3; K1-gen-02: 3) with no master satisfying Matt's K1 ruling",
+      "diagnosis": "K1-gen-02 (B as identity reference + three text changes) removed the insignia exactly as ruled (plain chest; plain walnut staff with brass ferrules) and preserved everything else — but the figure did NOT become feminine: faces/build near-identical to B (Astra's receipt: 'the feminine face and build changes are subtle, especially in D and E'). Method finding: a reference image pins IDENTITY; text edits against it land only on local objects (ring, head-piece); a global identity change loses to the reference. K1-gen-01 (text-driven identity, style anchor only) held the full costume from text on all three.",
       "fork": {
-        "a_recommended": "K1-gen-03, +3 images (K1 cap 6\u21929; run 17/250): v2 description text-driven, NO identity reference, F04 starter crop as STYLE anchor only, 'young woman' stated first",
-        "b": "accept E/F gender-agnostic \u2014 against the ruling",
-        "c": "edit-mode pass on E (1 image) \u2014 same reference-conditioning that failed; edit path untested (X2's hypothesis)"
+        "a_recommended": "K1-gen-03, +3 images (K1 cap 6→9; run 17/250): v2 description text-driven, NO identity reference, F04 starter crop as STYLE anchor only, 'young woman' stated first",
+        "b": "accept E/F gender-agnostic — against the ruling",
+        "c": "edit-mode pass on E (1 image) — same reference-conditioning that failed; edit path untested (X2's hypothesis)"
       },
       "packet": "~/Desktop/Astra Burst Review - 2026-09-11/01 K1 identity masters/ (D/E/F natives copied at chain end; second-set review.html when K1-pack-02 lands)",
-      "status": "RESOLVED 2026-09-12 \u2014 Matt: \"Go\" \u2192 K1 image cap raised 6\u21928; K1-gen-03 (chin fix on E, 2 candidates) authorized",
-      "matt_eye": "2026-09-12: 'The slight cleft in the chin reads more masculine. Other than that it's good. All 3 look the same to my eye.' \u2192 the remaining change is LOCAL (chin/jaw), the class of edit the reference-conditioned burst executes reliably.",
-      "evidence": "K1-jdg-02: D/E/F 4\u00b75\u00b74\u00b73\u00b74 (4.0), judge reads all three as a young woman (PRIMED \u2014 told the identity, then asked); axis 4 fell 4\u21923 on all three (the ring head's removal, as predicted); control failed axis 3 = 2. O9: rod_head absent, insignia gone, zero violations on all three.",
-      "disposition": "fork revised by the conductor on Matt's eye: K1-gen-03 = E as identity reference + ONE local change (no chin cleft; smooth rounded chin, soft jawline), TWO candidates (+2 images, K1 cap 6\u21928) \u2014 awaiting Matt's word on the cap"
+      "status": "RESOLVED 2026-09-12 — Matt: \"Go\" → K1 image cap raised 6→8; K1-gen-03 (chin fix on E, 2 candidates) authorized",
+      "matt_eye": "2026-09-12: 'The slight cleft in the chin reads more masculine. Other than that it's good. All 3 look the same to my eye.' → the remaining change is LOCAL (chin/jaw), the class of edit the reference-conditioned burst executes reliably.",
+      "evidence": "K1-jdg-02: D/E/F 4·5·4·3·4 (4.0), judge reads all three as a young woman (PRIMED — told the identity, then asked); axis 4 fell 4→3 on all three (the ring head's removal, as predicted); control failed axis 3 = 2. O9: rod_head absent, insignia gone, zero violations on all three.",
+      "disposition": "fork revised by the conductor on Matt's eye: K1-gen-03 = E as identity reference + ONE local change (no chin cleft; smooth rounded chin, soft jawline), TWO candidates (+2 images, K1 cap 6→8) — awaiting Matt's word on the cap"
     },
     {
       "id": "H-2",
       "date": "2026-09-12",
-      "rule": "charter \u00a7 7 K1 \u2014 K1 image cap (raised to 8 at H-1) reached with no acceptable master",
-      "diagnosis": "K1-gen-03 (E as identity reference + one local facial change) reproduced E's face essentially unchanged, cleft included (native face crops E/G/H indistinguishable). Second occurrence of the same method finding: a strong identity reference PINS THE FACE; text can add/remove separate objects against it (ring, head-piece \u2014 landed in gen-02) but cannot alter a facial feature. Corollary for K2: reference pinning is what a turnaround needs.",
+      "rule": "charter § 7 K1 — K1 image cap (raised to 8 at H-1) reached with no acceptable master",
+      "diagnosis": "K1-gen-03 (E as identity reference + one local facial change) reproduced E's face essentially unchanged, cleft included (native face crops E/G/H indistinguishable). Second occurrence of the same method finding: a strong identity reference PINS THE FACE; text can add/remove separate objects against it (ring, head-piece — landed in gen-02) but cannot alter a facial feature. Corollary for K2: reference pinning is what a turnaround needs.",
       "fork": {
-        "a_recommended": "K1-gen-04, +3 (cap 8\u219211; run 19/250): identity from the description (young woman; smooth rounded chin, no cleft; soft jawline), NO identity reference, F04 crop as style anchor only \u2014 costume held from text on all three in gen-01",
-        "b": "image-EDIT pass on E (1\u20132): different mechanism, pins everything else; prompt-guided masking on a ~100 px face region is the least reliable documented operation (R6); untested in this lane",
-        "c": "accept E \u2014 against Matt's reading of the chin"
+        "a_recommended": "K1-gen-04, +3 (cap 8→11; run 19/250): identity from the description (young woman; smooth rounded chin, no cleft; soft jawline), NO identity reference, F04 crop as style anchor only — costume held from text on all three in gen-01",
+        "b": "image-EDIT pass on E (1–2): different mechanism, pins everything else; prompt-guided masking on a ~100 px face region is the least reliable documented operation (R6); untested in this lane",
+        "c": "accept E — against Matt's reading of the chin"
       },
-      "status": "RESOLVED 2026-09-12 \u2014 Matt: \"Go\" \u2192 fork (a); K1 image cap 8\u219211; K1-gen-04 authorized",
-      "evidence": "K1-jdg-03: G/H 4\u00b73\u00b74\u00b73\u00b74 (3.6) \u2014 the judge, asked plainly, names 'a shallow central chin dimple' on both (instrument agrees with Matt's eye); it also reads a faint tone-on-tone weave in the navy wool as 'repeated geometric motifs' (texture note for the bible; invisible at 240 px). Control (mirror H) failed axis 3 = 2 and axis 2 = 2. K1-chk-03: plate uniformity G 5.7 % / H 12.6 % (E 33 %, B \u2248 98 %) \u2014 plate drift COMPOUNDS under reference conditioning, each generation inheriting and drifting its parent's off-green plate. O9: zero violations, rod_head absent. Both findings strengthen fork (a): a fresh text-designed master with a clean plate as the root."
+      "status": "RESOLVED 2026-09-12 — Matt: \"Go\" → fork (a); K1 image cap 8→11; K1-gen-04 authorized",
+      "evidence": "K1-jdg-03: G/H 4·3·4·3·4 (3.6) — the judge, asked plainly, names 'a shallow central chin dimple' on both (instrument agrees with Matt's eye); it also reads a faint tone-on-tone weave in the navy wool as 'repeated geometric motifs' (texture note for the bible; invisible at 240 px). Control (mirror H) failed axis 3 = 2 and axis 2 = 2. K1-chk-03: plate uniformity G 5.7 % / H 12.6 % (E 33 %, B ≈ 98 %) — plate drift COMPOUNDS under reference conditioning, each generation inheriting and drifting its parent's off-green plate. O9: zero violations, rod_head absent. Both findings strengthen fork (a): a fresh text-designed master with a clean plate as the root."
     }
   ],
   "rulings": [
@@ -10985,7 +11544,7 @@
       "date": "2026-09-11",
       "boundary": "reasoning",
       "burst": "T0-c",
-      "ruling": "T0-c VOID (exit 2) is upheld AS AN AUDIT RESULT and overridden ON SUBSTANCE by conductor review: both violation classes are conductor-owned spec defects (forbidden-tool regex applied to command text \u2014 the repo path 'reincarnated-collaboration' matched 'collaboration'; TOOLING deliverables under add_dirs rejected by verify_files). Substance ACCEPTED: 69 tests, 67 green, regression lock 0/1,880 diffs; TWO NAMED-RED acceptance cases retained un-tuned: O3 template mode on the F04 crop finds inside=1/outside=0 (required outside>=3) and therefore the comparator does not reject the F04 crop. Finding: the bleed instances are primitive-family members, not copies of the template \u2014 O3b (radial-symmetry/ring family detector) owed in T0-d, with the two audit fixes and the O9 declared-absent-PART controls. Tree frozen at MANIFEST.sha256 (T0-c substance).",
+      "ruling": "T0-c VOID (exit 2) is upheld AS AN AUDIT RESULT and overridden ON SUBSTANCE by conductor review: both violation classes are conductor-owned spec defects (forbidden-tool regex applied to command text — the repo path 'reincarnated-collaboration' matched 'collaboration'; TOOLING deliverables under add_dirs rejected by verify_files). Substance ACCEPTED: 69 tests, 67 green, regression lock 0/1,880 diffs; TWO NAMED-RED acceptance cases retained un-tuned: O3 template mode on the F04 crop finds inside=1/outside=0 (required outside>=3) and therefore the comparator does not reject the F04 crop. Finding: the bleed instances are primitive-family members, not copies of the template — O3b (radial-symmetry/ring family detector) owed in T0-d, with the two audit fixes and the O9 declared-absent-PART controls. Tree frozen at MANIFEST.sha256 (T0-c substance).",
       "veto": "open to Matt"
     },
     {
@@ -10993,7 +11552,7 @@
       "date": "2026-09-11",
       "boundary": "reasoning",
       "burst": "X1-gen-01 / X1-chk-01",
-      "ruling": "X1 art DELIVERED (satchel + staff head: register, upper-left key, identity via one reference, clean #00ff00 plate, matte composites clean over dark and light). Lane VOIDs on both bursts are UPHELD as audit results and attributed to conductor-owned audit defects, now T0-d acceptance criteria: (F-1) image-call detector read 0 vs true 2 \u2014 image generation lives inside command_execution items in the --json stream; truth source = new files under $CODEX_HOME/generated_images/<thread>/ during the burst window (written even for --ephemeral sessions; 2 PNGs for X1), cross-checked with receipt calls_used, mismatch => VOID; (F-2) repo-wide snapshot blamed the burst for the conductor's own git commit (35 paths under .git/) \u2014 audit roots must be workdir + add_dirs only, .git/ excluded; (F-3) forbidden-tool regex over command text matches the repo name 'reincarnated-collaboration' \u2014 apply to tool names/types only; (F-4) system-skill reads ($CODEX_HOME/skills/.system/) are legitimate and outrank the brief \u2014 whitelist; (F-5) gates: add plate_uniformity (within \u00b18 of #00ff00 fraction; X1: 100 % / 38 %, both sd<1.1) and an alpha floor for character/prop mattes (preserve_particles mode leaves <40/255 residual alpha \u2014 invisible, but it trips the border-clipping metric). Art findings for the bible: relative-size instructions do not land (props ~51 % / 73 % of canvas vs ~30 % requested) \u2014 SCALE must be stated in source px; leather micro-texture exceeds the restraint register at prop scale \u2014 O8's case. X1 ran at effort medium (before Matt's HIGH ruling); all later bursts HIGH.",
+      "ruling": "X1 art DELIVERED (satchel + staff head: register, upper-left key, identity via one reference, clean #00ff00 plate, matte composites clean over dark and light). Lane VOIDs on both bursts are UPHELD as audit results and attributed to conductor-owned audit defects, now T0-d acceptance criteria: (F-1) image-call detector read 0 vs true 2 — image generation lives inside command_execution items in the --json stream; truth source = new files under $CODEX_HOME/generated_images/<thread>/ during the burst window (written even for --ephemeral sessions; 2 PNGs for X1), cross-checked with receipt calls_used, mismatch => VOID; (F-2) repo-wide snapshot blamed the burst for the conductor's own git commit (35 paths under .git/) — audit roots must be workdir + add_dirs only, .git/ excluded; (F-3) forbidden-tool regex over command text matches the repo name 'reincarnated-collaboration' — apply to tool names/types only; (F-4) system-skill reads ($CODEX_HOME/skills/.system/) are legitimate and outrank the brief — whitelist; (F-5) gates: add plate_uniformity (within ±8 of #00ff00 fraction; X1: 100 % / 38 %, both sd<1.1) and an alpha floor for character/prop mattes (preserve_particles mode leaves <40/255 residual alpha — invisible, but it trips the border-clipping metric). Art findings for the bible: relative-size instructions do not land (props ~51 % / 73 % of canvas vs ~30 % requested) — SCALE must be stated in source px; leather micro-texture exceeds the restraint register at prop scale — O8's case. X1 ran at effort medium (before Matt's HIGH ruling); all later bursts HIGH.",
       "veto": "open to Matt"
     },
     {
@@ -11001,7 +11560,7 @@
       "date": "2026-09-11",
       "boundary": "reasoning",
       "burst": "HITL session-start (pre T0-d)",
-      "ruling": "HITL Run C-1 session-start, plan \u00a7 1 pre-conditions: P1 = MANIFEST.sha256 stale on ONE row (SPEC.md: manifest 05d48f86b245 vs tree d15654c052fa) \u2014 cause ef637836 (effort-HIGH doc amendment) landed after the 5ff896a1 freeze; the \u00a7 7 SYNC row was re-stamped, the MANIFEST was not. Ruled a doc drift, not a tool drift; accepted with the exception named; the T0-d re-freeze closes it (this session also amends SPEC.md, BURST_RULES.md and the charter before T0-d1, so three MANIFEST rows are knowingly stale until the re-freeze). P2 open (X1 lane VOID) \u2192 T0-d. P3 all ten \u00a7 7 SYNC rows match (manual shasum). P4 legolas R6\u2013R8 + R9 read. P5 the Chrome-playable MP4 review path is proven on ~/Desktop/'Painted World Review - 2026-09-11' (H.264 copies); the 'Astra Burst Review' folder is created at K1. P6 codex login = ChatGPT, no live Codex process, one lane; codex-cli 0.153.4 (T16 recorded 0.147.0 \u2014 CLI version is now recorded per burst, T0-d1 (E)). origin/main == HEAD 46ee41a6 (a push landed after plan \u00a7 2 was written; 'no push' stands going forward). RULING: T0-d is SPLIT \u2014 T0-d1 (audit/lane fixes a, b, d, F-1, F-2 + check_sync + tests; runs under the OLD wrapper whose VOID on a/b is expected, then conductor substance review as at R-1) \u2192 re-freeze \u2192 T0-d2 (O3b, O9 part-controls, F-5 gates, R9 extensions) THROUGH the fixed wrapper, so the first burst audited by the new instrument is a TOOLING burst before any candidate art: 'instrument before candidate' applied to the instrument itself; charter \u00a7 7 T0 row allows 1\u20132 TOOLING bursts. F-4 is a DOC fix executed by the conductor now (BURST_RULES + charter \u00a7 4 twin-edit: system-skill reads permitted). Evidence that shaped the contract: the --json stream surfaces neither image_gen calls nor the model (X1: only `cat SKILL.md` + `cp` items) \u2014 so F-1's truth source is the generated_images directory diff and (d)'s model source is the profile file.",
+      "ruling": "HITL Run C-1 session-start, plan § 1 pre-conditions: P1 = MANIFEST.sha256 stale on ONE row (SPEC.md: manifest 05d48f86b245 vs tree d15654c052fa) — cause ef637836 (effort-HIGH doc amendment) landed after the 5ff896a1 freeze; the § 7 SYNC row was re-stamped, the MANIFEST was not. Ruled a doc drift, not a tool drift; accepted with the exception named; the T0-d re-freeze closes it (this session also amends SPEC.md, BURST_RULES.md and the charter before T0-d1, so three MANIFEST rows are knowingly stale until the re-freeze). P2 open (X1 lane VOID) → T0-d. P3 all ten § 7 SYNC rows match (manual shasum). P4 legolas R6–R8 + R9 read. P5 the Chrome-playable MP4 review path is proven on ~/Desktop/'Painted World Review - 2026-09-11' (H.264 copies); the 'Astra Burst Review' folder is created at K1. P6 codex login = ChatGPT, no live Codex process, one lane; codex-cli 0.153.4 (T16 recorded 0.147.0 — CLI version is now recorded per burst, T0-d1 (E)). origin/main == HEAD 46ee41a6 (a push landed after plan § 2 was written; 'no push' stands going forward). RULING: T0-d is SPLIT — T0-d1 (audit/lane fixes a, b, d, F-1, F-2 + check_sync + tests; runs under the OLD wrapper whose VOID on a/b is expected, then conductor substance review as at R-1) → re-freeze → T0-d2 (O3b, O9 part-controls, F-5 gates, R9 extensions) THROUGH the fixed wrapper, so the first burst audited by the new instrument is a TOOLING burst before any candidate art: 'instrument before candidate' applied to the instrument itself; charter § 7 T0 row allows 1–2 TOOLING bursts. F-4 is a DOC fix executed by the conductor now (BURST_RULES + charter § 4 twin-edit: system-skill reads permitted). Evidence that shaped the contract: the --json stream surfaces neither image_gen calls nor the model (X1: only `cat SKILL.md` + `cp` items) — so F-1's truth source is the generated_images directory diff and (d)'s model source is the profile file.",
       "veto": "open to Matt"
     },
     {
@@ -11009,7 +11568,7 @@
       "date": "2026-09-11",
       "boundary": "reasoning",
       "burst": "T0-d1",
-      "ruling": "T0-d1 VOID (exit 2) UPHELD as an audit result of the PRE-fix wrapper (18 forbidden-tool hits on command text; 20 add_dir artifacts rejected by the old verify_files; a phantom image call from the text heuristic; two Finder .DS_Store writes under agentic_orchestration/ blamed on the burst by the repo-wide snapshot \u2014 every one an instance of the defect classes T0-d1 was contracted to fix) and OVERRIDDEN ON SUBSTANCE by conductor DRIFT-CRITIC review: 86 tests / 84 green, the only reds the two T0-d2-reserved acceptance cases (O3 F04 outside>=3; comparator rejects F04); regression lock 0/1,880. Delivered per SPEC \u00a76 (a)(b)(d)(f:F-1,F-2) + check_sync: forbidden regex on type/tool/name/server only (replayed on T0-c, X1-gen-01, X1-chk-01, T0-d1 real streams: 0 hits; three fixtured); in-place add_dir artifacts (artifacts_in_place[]); effort must equal high; non-TOOLING add_dirs empty; model/effort/codex_version/profile_sha256 per burst (model from the profile \u2014 the --json stream does not echo it); generated_images/ before/after diff thread-scoped as the image truth, receipt calls_used cross-check; snapshot roots workdir+add_dirs with .git/__pycache__/pyc/wrapper-log exclusions; lane/check_sync.py (proven live: flags run_burst.py DRIFT, exit 1). Concerns accepted: read-scope deviation on SPEC.md (harmless); two legacy scalar take_snapshot calls migrated. Ledger corrected: T0-d1 image_calls 1\u21920, images_used 3\u21922 (the pre-fix wrapper booked a phantom call). Tree FROZEN at MANIFEST.sha256 (closes P1's stale rows). Next: X1-gen-02 through the fixed wrapper (P2: exit 0, image_calls == calls_used == 2), then T0-d2.",
+      "ruling": "T0-d1 VOID (exit 2) UPHELD as an audit result of the PRE-fix wrapper (18 forbidden-tool hits on command text; 20 add_dir artifacts rejected by the old verify_files; a phantom image call from the text heuristic; two Finder .DS_Store writes under agentic_orchestration/ blamed on the burst by the repo-wide snapshot — every one an instance of the defect classes T0-d1 was contracted to fix) and OVERRIDDEN ON SUBSTANCE by conductor DRIFT-CRITIC review: 86 tests / 84 green, the only reds the two T0-d2-reserved acceptance cases (O3 F04 outside>=3; comparator rejects F04); regression lock 0/1,880. Delivered per SPEC §6 (a)(b)(d)(f:F-1,F-2) + check_sync: forbidden regex on type/tool/name/server only (replayed on T0-c, X1-gen-01, X1-chk-01, T0-d1 real streams: 0 hits; three fixtured); in-place add_dir artifacts (artifacts_in_place[]); effort must equal high; non-TOOLING add_dirs empty; model/effort/codex_version/profile_sha256 per burst (model from the profile — the --json stream does not echo it); generated_images/ before/after diff thread-scoped as the image truth, receipt calls_used cross-check; snapshot roots workdir+add_dirs with .git/__pycache__/pyc/wrapper-log exclusions; lane/check_sync.py (proven live: flags run_burst.py DRIFT, exit 1). Concerns accepted: read-scope deviation on SPEC.md (harmless); two legacy scalar take_snapshot calls migrated. Ledger corrected: T0-d1 image_calls 1→0, images_used 3→2 (the pre-fix wrapper booked a phantom call). Tree FROZEN at MANIFEST.sha256 (closes P1's stale rows). Next: X1-gen-02 through the fixed wrapper (P2: exit 0, image_calls == calls_used == 2), then T0-d2.",
       "veto": "open to Matt"
     },
     {
@@ -11017,7 +11576,7 @@
       "date": "2026-09-12",
       "boundary": "reasoning",
       "burst": "T0-d2",
-      "ruling": "T0-d2 DELIVERED, exit 0, zero violations \u2014 the first TOOLING burst audited clean by the fixed wrapper (50 in-place artifacts verified; 22 tool calls; 25.7 min). Conductor DRIFT-CRITIC ACCEPT on substance: 118 tests / 116 green, regression lock 0/1,880; THE TWO T0-c REDS ARE GREEN \u2014 O3b (gradient-vote circular Hough; vote_thresh 0.50 fixed on synthetic rings BEFORE any real measurement) counts 14 ring-family instances outside the rod head on the F04 crop (acceptance >= 3) and the comparator rejects it. TWO NEW NAMED REDS, diagnosed by the conductor from the peak overlays: O3b counts FILLED DISCS as ring-family \u2014 the clean crop's single 'ring' is the mage's front boot toe (286,407) r=8, and on F04 the face, a fist and both boot toes sit among the 14 (the genuine ring-sigils \u2014 pauldron emblem, chest boss, tabard compass, belt buckle \u2014 are also there, so the catch is real by eye). T0-d3 OWED: annulus discrimination (hollow-centre / inner-edge test), filled discs at 3 radii join the synthetic calibration set (must count 0), acceptance unchanged (F04 outside >= 3, clean 0) \u2014 no bar lowered, no threshold tuned. F-5: plate_uniformity on the X1-gen-01 props reads 99.5 % / 22.3 % within \u00b18 (R-2 recorded 100 %/38 % by a different measurement); X1-gen-02's plates read 99.5 % / 98.8 % \u2192 plate uniformity VARIES PER GENERATION, so the gate is live; alpha_floor=40 takes G9 border alpha 34/39 \u2192 0. All R9 THEN items delivered (pse spatial-pattern report-only; probe alarm threshold awaits K1; C2PA presence detected, issuer/model null when opaque). Tree FROZEN (MANIFEST re-written). Next: serial chain X1-chk-02 \u2192 X0-T-1..4 (runs during the grill) \u2192 T0-d3 \u2192 K1.",
+      "ruling": "T0-d2 DELIVERED, exit 0, zero violations — the first TOOLING burst audited clean by the fixed wrapper (50 in-place artifacts verified; 22 tool calls; 25.7 min). Conductor DRIFT-CRITIC ACCEPT on substance: 118 tests / 116 green, regression lock 0/1,880; THE TWO T0-c REDS ARE GREEN — O3b (gradient-vote circular Hough; vote_thresh 0.50 fixed on synthetic rings BEFORE any real measurement) counts 14 ring-family instances outside the rod head on the F04 crop (acceptance >= 3) and the comparator rejects it. TWO NEW NAMED REDS, diagnosed by the conductor from the peak overlays: O3b counts FILLED DISCS as ring-family — the clean crop's single 'ring' is the mage's front boot toe (286,407) r=8, and on F04 the face, a fist and both boot toes sit among the 14 (the genuine ring-sigils — pauldron emblem, chest boss, tabard compass, belt buckle — are also there, so the catch is real by eye). T0-d3 OWED: annulus discrimination (hollow-centre / inner-edge test), filled discs at 3 radii join the synthetic calibration set (must count 0), acceptance unchanged (F04 outside >= 3, clean 0) — no bar lowered, no threshold tuned. F-5: plate_uniformity on the X1-gen-01 props reads 99.5 % / 22.3 % within ±8 (R-2 recorded 100 %/38 % by a different measurement); X1-gen-02's plates read 99.5 % / 98.8 % → plate uniformity VARIES PER GENERATION, so the gate is live; alpha_floor=40 takes G9 border alpha 34/39 → 0. All R9 THEN items delivered (pse spatial-pattern report-only; probe alarm threshold awaits K1; C2PA presence detected, issuer/model null when opaque). Tree FROZEN (MANIFEST re-written). Next: serial chain X1-chk-02 → X0-T-1..4 (runs during the grill) → T0-d3 → K1.",
       "veto": "open to Matt"
     },
     {
@@ -11025,7 +11584,7 @@
       "date": "2026-09-12",
       "boundary": "reasoning",
       "burst": "X1-chk-02",
-      "ruling": "X1-chk-02 VOID (exit 2) UPHELD as an audit result: the single violation 'image count mismatch (audit 0 vs receipt 5)' is the fixed wrapper working correctly \u2014 the truth source saw 0 image files; the CHECK burst self-reported its command count in `calls_used` because the executable rules never defined that field for non-GENERATE types (X1-chk-01 did the same: 6). Conductor-owned gap; closed by BURST_RULES v1.2 twin-edit (charter \u00a74): calls_used = image_gen calls only, 0 for every type but GENERATE/LABEL. Substance ACCEPTED from the workdir: plate_uniformity 99.58 % / 98.87 % within \u00b18 (X1-gen-02 props; the gate is live \u2014 X1-gen-01's staff head read 22.3 %); alpha_floor=40 takes the G9 border-clipping metric 34/39 \u2192 0 on both props; matte spill 0.0, edge halo 0.0; particle-loss proxy 0.99 (includes plate residuals \u2014 uninformative for props, noted); O8 grain distance to the F04 anchor 0.023 / 0.009 at source, 0.022 / 0.006 at display 0.5 \u2014 thresholds undeclared, verdicts null (honest). No rerun: the K1/K2 CHECK bursts prove the corrected CHECK path before the GO gate. The X0-T template already states calls_used 0.",
+      "ruling": "X1-chk-02 VOID (exit 2) UPHELD as an audit result: the single violation 'image count mismatch (audit 0 vs receipt 5)' is the fixed wrapper working correctly — the truth source saw 0 image files; the CHECK burst self-reported its command count in `calls_used` because the executable rules never defined that field for non-GENERATE types (X1-chk-01 did the same: 6). Conductor-owned gap; closed by BURST_RULES v1.2 twin-edit (charter §4): calls_used = image_gen calls only, 0 for every type but GENERATE/LABEL. Substance ACCEPTED from the workdir: plate_uniformity 99.58 % / 98.87 % within ±8 (X1-gen-02 props; the gate is live — X1-gen-01's staff head read 22.3 %); alpha_floor=40 takes the G9 border-clipping metric 34/39 → 0 on both props; matte spill 0.0, edge halo 0.0; particle-loss proxy 0.99 (includes plate residuals — uninformative for props, noted); O8 grain distance to the F04 anchor 0.023 / 0.009 at source, 0.022 / 0.006 at display 0.5 — thresholds undeclared, verdicts null (honest). No rerun: the K1/K2 CHECK bursts prove the corrected CHECK path before the GO gate. The X0-T template already states calls_used 0.",
       "veto": "open to Matt"
     },
     {
@@ -11033,7 +11592,7 @@
       "date": "2026-09-12",
       "boundary": "reasoning",
       "burst": "X0-T-1..4",
-      "ruling": "X0-T pass A verdict (charter \u00a7 7 X0-T thresholds): presence precision 0.94 / recall 0.96 (bar 0.9) PASS; counts within \u00b11 on 74/74 (bar 80 %) PASS; declared-absent controls 14/16 = 87.5 % (bar 100 %) FAIL \u2014 both misses are `second_belt` on the two F04 reference figures (the starter's double waist band was pre-registered as ambiguous in the hand inventory BEFORE the burst; the advanced figure's 'overlapping straps' was not). helmet/cape/shield/staff caught 12/12. Charter falsifier applied as written: O9 stays ADVISORY at K1; K1's ownership check falls to Matt's eye (recorded). Secondary findings: (i) both F03 transcribers answered one key outside the closed list (strict-schema breach by the burst; comparator rejects; scored over the closed list) \u2192 template clause 'answer ONLY the listed keys'; (ii) `rod`/`rod_head` read absent on the F04 advanced figure whose weapon is a short-handled astrolabe \u2014 glossary term, not perception; (iii) the F04 anchors themselves carry the doubled-band tell (R6 functional implausibility) \u2014 a bible V4 construction-table fact. Pass B pre-registered (X0-T-5/6, same F04 figures, controls helmet/cape/shield/quiver, template fix) \u2014 a second measurement with unambiguous controls, not a bar change; fires after T0-d3.",
+      "ruling": "X0-T pass A verdict (charter § 7 X0-T thresholds): presence precision 0.94 / recall 0.96 (bar 0.9) PASS; counts within ±1 on 74/74 (bar 80 %) PASS; declared-absent controls 14/16 = 87.5 % (bar 100 %) FAIL — both misses are `second_belt` on the two F04 reference figures (the starter's double waist band was pre-registered as ambiguous in the hand inventory BEFORE the burst; the advanced figure's 'overlapping straps' was not). helmet/cape/shield/staff caught 12/12. Charter falsifier applied as written: O9 stays ADVISORY at K1; K1's ownership check falls to Matt's eye (recorded). Secondary findings: (i) both F03 transcribers answered one key outside the closed list (strict-schema breach by the burst; comparator rejects; scored over the closed list) → template clause 'answer ONLY the listed keys'; (ii) `rod`/`rod_head` read absent on the F04 advanced figure whose weapon is a short-handled astrolabe — glossary term, not perception; (iii) the F04 anchors themselves carry the doubled-band tell (R6 functional implausibility) — a bible V4 construction-table fact. Pass B pre-registered (X0-T-5/6, same F04 figures, controls helmet/cape/shield/quiver, template fix) — a second measurement with unambiguous controls, not a bar change; fires after T0-d3.",
       "veto": "open to Matt"
     },
     {
@@ -11041,7 +11600,7 @@
       "date": "2026-09-12",
       "boundary": "reasoning",
       "burst": "T0-d3",
-      "ruling": "T0-d3 DELIVERED exit 0 (14 tool calls; zero violations). Conductor DRIFT-CRITIC verdict on the build AND on the conductor's own contract: the annulus test (hollow_min 0.5, frozen on synthetic rings=1.0 / discs=0.0 BEFORE any real-crop measurement) makes the clean crop read 0 (boot toe rejected) but on the F04 crop keeps only 2 outside \u2014 rejecting three genuine sigil placements (chest boss hollow 0.31, tabard compass 0.17, belt buckle 0.08) while keeping one boot toe whose sole line reads as an inner edge. Astra added tests that the three genuine placements must survive; suite 121 / 117 with FOUR NAMED REDS, nothing tuned to the real crops \u2014 accepted as an honest partial. The framing defect is the conductor's: the F04 bleed family is RADIAL ORNAMENT (compass diagrams, rimmed bosses, small rings), not annuli; 'hollow centre' is the wrong discriminator for painted art. RULING for Run C-1: O3b is a MEASUREMENT, not a GATE \u2014 report the raw family count (bleed index; calibration anchors F04 = 14 vs clean = 1) and the annulus-filtered count beside it; motif bleed at K1/K2/K3 is judged by JUDGE + Matt's eye (charter \u00a7 6), O3 template mode remains the copy-detection gate for the chosen motif; O3b produces no FAIL verdict in the overnight run (no spurious HALTs). T0-d4 owed (interior radial-structure discriminator: internal edge-energy / spoke count vs a smooth convex blob), acceptance unchanged (F04 \u2265 3 genuine kept; clean 0; synthetic discs 0) \u2014 off the HITL critical path. Tree FROZEN (T0-d3 state).",
+      "ruling": "T0-d3 DELIVERED exit 0 (14 tool calls; zero violations). Conductor DRIFT-CRITIC verdict on the build AND on the conductor's own contract: the annulus test (hollow_min 0.5, frozen on synthetic rings=1.0 / discs=0.0 BEFORE any real-crop measurement) makes the clean crop read 0 (boot toe rejected) but on the F04 crop keeps only 2 outside — rejecting three genuine sigil placements (chest boss hollow 0.31, tabard compass 0.17, belt buckle 0.08) while keeping one boot toe whose sole line reads as an inner edge. Astra added tests that the three genuine placements must survive; suite 121 / 117 with FOUR NAMED REDS, nothing tuned to the real crops — accepted as an honest partial. The framing defect is the conductor's: the F04 bleed family is RADIAL ORNAMENT (compass diagrams, rimmed bosses, small rings), not annuli; 'hollow centre' is the wrong discriminator for painted art. RULING for Run C-1: O3b is a MEASUREMENT, not a GATE — report the raw family count (bleed index; calibration anchors F04 = 14 vs clean = 1) and the annulus-filtered count beside it; motif bleed at K1/K2/K3 is judged by JUDGE + Matt's eye (charter § 6), O3 template mode remains the copy-detection gate for the chosen motif; O3b produces no FAIL verdict in the overnight run (no spurious HALTs). T0-d4 owed (interior radial-structure discriminator: internal edge-energy / spoke count vs a smooth convex blob), acceptance unchanged (F04 ≥ 3 genuine kept; clean 0; synthetic discs 0) — off the HITL critical path. Tree FROZEN (T0-d3 state).",
       "veto": "open to Matt"
     },
     {
@@ -11049,23 +11608,23 @@
       "date": "2026-09-12",
       "boundary": "reasoning",
       "burst": "X0-T-5/6",
-      "ruling": "X0-T pass B (pre-registered in R-7; same F04 figures; controls helmet/cape/shield/quiver \u2014 absent by construction; template clause 'answer ONLY the listed keys'; rod glossary widened to short-handled instruments): per figure {\"X0-T-5\": {\"extra_keys\": [\"second_belt\"], \"missing_keys\": [], \"tool_passed\": true, \"tool_value\": 0, \"disagreements\": [], \"controls\": \"4/4\"}, \"X0-T-6\": {\"extra_keys\": [], \"missing_keys\": [], \"tool_passed\": true, \"tool_value\": 0, \"disagreements\": [], \"controls\": \"4/4\"}}; aggregate {\"presence_precision\": 1.0, \"presence_recall\": 1.0, \"counts_within_1\": \"38/38\", \"controls\": \"8/8\"}; verdict: PASS: presence P/R >= 0.9, counts \u00b11 >= 80 %, controls 100 %. Disposition for K1: O9 transcribe\u2192compare is CALIBRATED on the part inventory at the charter bars (with the control-construction lesson recorded: controls must be absent by construction on the figure they are applied to); it runs at K1 as an instrument beside JUDGE and Matt. Pass A's second_belt finding stands as a fact about the F04 anchors (doubled band) for the V4 construction table.",
+      "ruling": "X0-T pass B (pre-registered in R-7; same F04 figures; controls helmet/cape/shield/quiver — absent by construction; template clause 'answer ONLY the listed keys'; rod glossary widened to short-handled instruments): per figure {\"X0-T-5\": {\"extra_keys\": [\"second_belt\"], \"missing_keys\": [], \"tool_passed\": true, \"tool_value\": 0, \"disagreements\": [], \"controls\": \"4/4\"}, \"X0-T-6\": {\"extra_keys\": [], \"missing_keys\": [], \"tool_passed\": true, \"tool_value\": 0, \"disagreements\": [], \"controls\": \"4/4\"}}; aggregate {\"presence_precision\": 1.0, \"presence_recall\": 1.0, \"counts_within_1\": \"38/38\", \"controls\": \"8/8\"}; verdict: PASS: presence P/R >= 0.9, counts ±1 >= 80 %, controls 100 %. Disposition for K1: O9 transcribe→compare is CALIBRATED on the part inventory at the charter bars (with the control-construction lesson recorded: controls must be absent by construction on the figure they are applied to); it runs at K1 as an instrument beside JUDGE and Matt. Pass A's second_belt finding stands as a fact about the F04 anchors (doubled band) for the V4 construction table.",
       "veto": "open to Matt"
     },
     {
       "id": "R-10",
       "date": "2026-09-12",
       "boundary": "reasoning",
-      "burst": "K1-gen-01 \u2026 K1-pack-01",
-      "ruling": "K1 executed end-to-end under the fixed lane: GENERATE (3 calls = calls_used, exit 0) \u2192 CHECK (8 calls) \u2192 TRANSCRIBE \u00d73 \u2192 JUDGE (separate instance, hidden mirrored control) \u2192 PACK, every burst exit 0 with zero violations \u2014 the first complete typed-burst cycle of Run C-1. Instruments: the bible held \u2014 zero ornament outside the two ruled placements on all three masters (the F04 style reference's satchel dial and panel diagrams did NOT bleed), construction table satisfied (O9: zero violations, all controls absent, all three), plates 98.4\u201398.6 %, mattes clean; JUDGE batch VALID (control failed axis 3 = 2 and axis 2 = 2 'rod in the wrong hand'); A 4.0 and B 4.0 pass the mandatory bars, C 3.8 fails axis 2 (hour-mark breaks its ring \u2014 flagged independently by Astra's receipt, the conductor's eye and the judge). O3b bleed index (advisory): annulus counts A 4 / B 2 / C 4 \u2014 B's equals the two ruled placements exactly. O7 azimuth weak evidence (painted shading; high dispersion): A 143.6\u00b0, B 86.6\u00b0, C 111.6\u00b0. Findings for tooling: masters came back 1024\u00d71536 portrait (registration handles it; the SCALE rule already says post-process); O2's key-facing-edge form needs an edge mask; O5 squashes portrait inputs to 64\u00d764 (T-later). Conductor lean for the pick: B. MILESTONE: commitment boundary \u2014 Matt picks; the \u00a7 3 identity-spec text is ratified by the pick (charter gate row 7).",
+      "burst": "K1-gen-01 … K1-pack-01",
+      "ruling": "K1 executed end-to-end under the fixed lane: GENERATE (3 calls = calls_used, exit 0) → CHECK (8 calls) → TRANSCRIBE ×3 → JUDGE (separate instance, hidden mirrored control) → PACK, every burst exit 0 with zero violations — the first complete typed-burst cycle of Run C-1. Instruments: the bible held — zero ornament outside the two ruled placements on all three masters (the F04 style reference's satchel dial and panel diagrams did NOT bleed), construction table satisfied (O9: zero violations, all controls absent, all three), plates 98.4–98.6 %, mattes clean; JUDGE batch VALID (control failed axis 3 = 2 and axis 2 = 2 'rod in the wrong hand'); A 4.0 and B 4.0 pass the mandatory bars, C 3.8 fails axis 2 (hour-mark breaks its ring — flagged independently by Astra's receipt, the conductor's eye and the judge). O3b bleed index (advisory): annulus counts A 4 / B 2 / C 4 — B's equals the two ruled placements exactly. O7 azimuth weak evidence (painted shading; high dispersion): A 143.6°, B 86.6°, C 111.6°. Findings for tooling: masters came back 1024×1536 portrait (registration handles it; the SCALE rule already says post-process); O2's key-facing-edge form needs an edge mask; O5 squashes portrait inputs to 64×64 (T-later). Conductor lean for the pick: B. MILESTONE: commitment boundary — Matt picks; the § 3 identity-spec text is ratified by the pick (charter gate row 7).",
       "veto": "open to Matt"
     },
     {
       "id": "R-11",
       "date": "2026-09-12",
       "boundary": "commitment (Matt) + reasoning (execution)",
-      "burst": "K1 milestone \u2192 K1-gen-02",
-      "ruling": "MATT'S K1 RULING: B as the base; remove the insignia altogether (no ring/shape on the clothing; the ring head removed from atop the staff); treat this as a STARTING character; the character is FEMININE (the original reference read feminine; the masters had drifted gender-agnostic). Conductor execution: Bible v0 \u2192 v0.1 (starter: zero motif placements, all parts plain; rod_head ABSENT on the starter; staff = plain walnut shaft with small brass ferrules at foot and tip \u2014 a value accent, no shape; the ring-with-hour-mark RESERVED as an earned advanced-set motif \u2014 placements to be ruled with the advanced set); charter \u00a7 3 identity spec amended (young woman); master prompt v2; probe set re-frozen (sha256 in the bible). Design consequence stated to Matt: the 64-px silhouette read now rests on the hair mass + staff line (+ advanced pauldron), not a ringed head. K1-gen-02 = the charter's '+3 with Matt's notes' burst, B as identity reference with the three changes explicit; image budget K1 = 6 (3 + 3). If none acceptable \u2192 HALT per charter.",
+      "burst": "K1 milestone → K1-gen-02",
+      "ruling": "MATT'S K1 RULING: B as the base; remove the insignia altogether (no ring/shape on the clothing; the ring head removed from atop the staff); treat this as a STARTING character; the character is FEMININE (the original reference read feminine; the masters had drifted gender-agnostic). Conductor execution: Bible v0 → v0.1 (starter: zero motif placements, all parts plain; rod_head ABSENT on the starter; staff = plain walnut shaft with small brass ferrules at foot and tip — a value accent, no shape; the ring-with-hour-mark RESERVED as an earned advanced-set motif — placements to be ruled with the advanced set); charter § 3 identity spec amended (young woman); master prompt v2; probe set re-frozen (sha256 in the bible). Design consequence stated to Matt: the 64-px silhouette read now rests on the hair mass + staff line (+ advanced pauldron), not a ringed head. K1-gen-02 = the charter's '+3 with Matt's notes' burst, B as identity reference with the three changes explicit; image budget K1 = 6 (3 + 3). If none acceptable → HALT per charter.",
       "veto": "Matt's own ruling; execution details veto-open"
     },
     {
@@ -11073,15 +11632,15 @@
       "date": "2026-09-12",
       "boundary": "commitment (Matt's pick) + reasoning (close-out)",
       "burst": "K1",
-      "ruling": "K1 CLOSED \u2014 Matt: 'L is the winner.' The approved starter master is a text-designed young woman (K1-gen-04 L): plain chest, plain walnut staff with brass ferrules, one diagonal harness to a left-hip olive satchel, one belt, laced bracers, no insignia; plate 98.3 %. The charter \u00a7 3 identity spec is RATIFIED by the pick (ARCHITECT gate row 7 \u2192 RESOLVED) as amended: young woman, smooth rounded chin, starter without insignia. K1 spent 11 images (cap raised 6\u21928\u219211 by Matt at H-1/H-2). Method findings banked for the bible and the overnight charter: (1) the bible's vocabulary HELD on all 11 masters (zero bleed from a reference that carried the primitive; zero construction violations) \u2014 text-driven identity + style anchor is the master-minting method; (2) a strong identity REFERENCE pins the face \u2014 text can add/remove separate objects against it but cannot alter a facial feature (K2's turnaround relies on exactly this pinning); (3) plate uniformity drifts and compounds under reference conditioning (98 \u2192 33 \u2192 6 %) \u2014 the plate gate is live and each generation is judged on its own plate; (4) a JUDGE primed with the identity confirms it; ask plainly ('name a cleft') and it agrees with the eye; (5) removing the ring head cost one rubric point on the 64-px read \u2014 the tall staff line carries it. L bound into the bible as the asset of record (content_hash) and the probe set re-frozen to L's prompt. Next: K2 turnaround (7 directions, L as identity reference).",
+      "ruling": "K1 CLOSED — Matt: 'L is the winner.' The approved starter master is a text-designed young woman (K1-gen-04 L): plain chest, plain walnut staff with brass ferrules, one diagonal harness to a left-hip olive satchel, one belt, laced bracers, no insignia; plate 98.3 %. The charter § 3 identity spec is RATIFIED by the pick (ARCHITECT gate row 7 → RESOLVED) as amended: young woman, smooth rounded chin, starter without insignia. K1 spent 11 images (cap raised 6→8→11 by Matt at H-1/H-2). Method findings banked for the bible and the overnight charter: (1) the bible's vocabulary HELD on all 11 masters (zero bleed from a reference that carried the primitive; zero construction violations) — text-driven identity + style anchor is the master-minting method; (2) a strong identity REFERENCE pins the face — text can add/remove separate objects against it but cannot alter a facial feature (K2's turnaround relies on exactly this pinning); (3) plate uniformity drifts and compounds under reference conditioning (98 → 33 → 6 %) — the plate gate is live and each generation is judged on its own plate; (4) a JUDGE primed with the identity confirms it; ask plainly ('name a cleft') and it agrees with the eye; (5) removing the ring head cost one rubric point on the 64-px read — the tall staff line carries it. L bound into the bible as the asset of record (content_hash) and the probe set re-frozen to L's prompt. Next: K2 turnaround (7 directions, L as identity reference).",
       "veto": "Matt's pick; close-out details veto-open"
     },
     {
       "id": "R-13",
       "date": "2026-09-12",
-      "boundary": "commitment (Matt) \u2014 charter \u00a7 1 concurrency",
-      "burst": "\u2014",
-      "ruling": "MATT: 'Concurrency 4. Agreed. The subscription has tons of headroom for parallel calls\u2026 I am fine with concurrency above 4 even.' Charter \u00a7 1 / BURST_RULES / AGENTS.md \u00a7 3 amended: non-TOOLING bursts run in parallel waves (default 4; larger for a homogeneous wave); TOOLING serial, never overlapping; a wave reserves its image caps against the ledger before launch. Conductor's remaining restrictions, stated to Matt: TOOLING's shared-tree writes; cap reservation near the run cap; thread-scoped image truth (a stream without thread.started would VOID on a false mismatch \u2014 the safe direction). Until now every burst ran serially (K2's seven directions \u2248 25 min; each K1 evidence chain \u2248 15 min). First parallel wave: the K2 evidence chain (CHECK \u2225 JUDGE, then PACK); K3 generation idle-01 \u2225 walk-01.",
+      "boundary": "commitment (Matt) — charter § 1 concurrency",
+      "burst": "—",
+      "ruling": "MATT: 'Concurrency 4. Agreed. The subscription has tons of headroom for parallel calls… I am fine with concurrency above 4 even.' Charter § 1 / BURST_RULES / AGENTS.md § 3 amended: non-TOOLING bursts run in parallel waves (default 4; larger for a homogeneous wave); TOOLING serial, never overlapping; a wave reserves its image caps against the ledger before launch. Conductor's remaining restrictions, stated to Matt: TOOLING's shared-tree writes; cap reservation near the run cap; thread-scoped image truth (a stream without thread.started would VOID on a false mismatch — the safe direction). Until now every burst ran serially (K2's seven directions ≈ 25 min; each K1 evidence chain ≈ 15 min). First parallel wave: the K2 evidence chain (CHECK ∥ JUDGE, then PACK); K3 generation idle-01 ∥ walk-01.",
       "veto": "Matt's ruling"
     },
     {
@@ -11089,15 +11648,15 @@
       "date": "2026-09-12",
       "boundary": "reasoning",
       "burst": "K2-gen-NW-r2",
-      "ruling": "K2 NW: two text-only attempts (original + diagnosed retry with sharpened screen-side facts) were both read as NE by the judge; height repaired on the retry. Charter \u00a7 4 two-attempt rule \u2192 conductor changes METHOD within the hypothesis (reference set): the N and W frames bracket the NW pose ('halfway between'), identity master retained. One image. Finding for the overnight charter: back-three-quarter left/right is the hard facing for text alone; bracketing references are the standing method for NW/NE-class views.",
+      "ruling": "K2 NW: two text-only attempts (original + diagnosed retry with sharpened screen-side facts) were both read as NE by the judge; height repaired on the retry. Charter § 4 two-attempt rule → conductor changes METHOD within the hypothesis (reference set): the N and W frames bracket the NW pose ('halfway between'), identity master retained. One image. Finding for the overnight charter: back-three-quarter left/right is the hard facing for text alone; bracketing references are the standing method for NW/NE-class views.",
       "veto": "open to Matt"
     },
     {
       "id": "R-15",
       "date": "2026-09-12",
       "boundary": "reasoning (conductor error, self-caught)",
-      "burst": "K2 v1\u2013v3",
-      "ruling": "CONDUCTOR ERROR: the K2 screen-side facing table asserted in the direction briefs had NEAR/FAR inverted for every non-cardinal facing (E/W and the four diagonals). Derived from the master (facing S, her right hand is on screen-left): facing E her RIGHT side faces the viewer (staff nearest, satchel hidden); facing W her LEFT side faces the viewer (satchel nearest, staff behind); diagonals accordingly. Consequence: K2 v1\u2013v3 SW, W, NE, E, SE are MIRRORED BODIES (staff in the left hand, satchel on the right hip; light correct) and NW kept coming out as the TRUE geometry against the wrong instruction \u2014 hence the judge's persistent 'NW seen as NE'. The judge, primed with the same wrong facts, confirmed the mirrored frames; only the light tell (mirrored-E control) was independent. Disposition: six directions regenerated with the DERIVED table (near side / far side / handedness explicit), one homogeneous wave of six at image_cap 1 \u2192 K2 reaches its 16-image cap exactly; judge instructed to verify handedness by near-side geometry as well as light; sheet v4. RULE for the charter: a screen-side table is DERIVED from the master and recorded as data (runs/C-1/k2_facing_table_derived.json), never asserted from memory; the judge must be given the derivation, not the claim.",
+      "burst": "K2 v1–v3",
+      "ruling": "CONDUCTOR ERROR: the K2 screen-side facing table asserted in the direction briefs had NEAR/FAR inverted for every non-cardinal facing (E/W and the four diagonals). Derived from the master (facing S, her right hand is on screen-left): facing E her RIGHT side faces the viewer (staff nearest, satchel hidden); facing W her LEFT side faces the viewer (satchel nearest, staff behind); diagonals accordingly. Consequence: K2 v1–v3 SW, W, NE, E, SE are MIRRORED BODIES (staff in the left hand, satchel on the right hip; light correct) and NW kept coming out as the TRUE geometry against the wrong instruction — hence the judge's persistent 'NW seen as NE'. The judge, primed with the same wrong facts, confirmed the mirrored frames; only the light tell (mirrored-E control) was independent. Disposition: six directions regenerated with the DERIVED table (near side / far side / handedness explicit), one homogeneous wave of six at image_cap 1 → K2 reaches its 16-image cap exactly; judge instructed to verify handedness by near-side geometry as well as light; sheet v4. RULE for the charter: a screen-side table is DERIVED from the master and recorded as data (runs/C-1/k2_facing_table_derived.json), never asserted from memory; the judge must be given the derivation, not the claim.",
       "veto": "open to Matt"
     },
     {
@@ -11105,15 +11664,15 @@
       "date": "2026-09-12",
       "boundary": "reasoning",
       "burst": "K2 v4",
-      "ruling": "With the DERIVED facing table (R-15), six of seven directions are correct by a judge instructed to verify handedness from the near side, and the mirrored-E control was caught. SW's body is correct and its head turns the wrong way \u2014 a head-only defect, the same class as K1's chin (local feature vs global geometry). K2 cap 16 spent exactly; the SW head fix is +1 image and a cap raise, Matt's word. Findings for the charter: (1) a screen-side table is derived from the master and handed to the judge as a derivation, never as a claim; (2) the generator resists geometrically impossible instructions (NW kept the true geometry) \u2014 a useful tell that the instruction, not the model, is wrong.",
+      "ruling": "With the DERIVED facing table (R-15), six of seven directions are correct by a judge instructed to verify handedness from the near side, and the mirrored-E control was caught. SW's body is correct and its head turns the wrong way — a head-only defect, the same class as K1's chin (local feature vs global geometry). K2 cap 16 spent exactly; the SW head fix is +1 image and a cap raise, Matt's word. Findings for the charter: (1) a screen-side table is derived from the master and handed to the judge as a derivation, never as a claim; (2) the generator resists geometrically impossible instructions (NW kept the true geometry) — a useful tell that the instruction, not the model, is wrong.",
       "veto": "open to Matt"
     },
     {
       "id": "R-17",
       "date": "2026-09-12",
-      "boundary": "commitment (Matt) \u2014 HITL run close",
-      "burst": "\u2014",
-      "ruling": "MATT: no overnight autonomous run. 'Right now the idle doesn't look right and the walk motion has issues\u2026 once we decide on an oracle, we will be able to compare our work against the oracle and I suspect that we will not make the claim that it is known that idle and walk loops are solved for\u2026 we will also be able to use the oracle to tune our software checks and our prompt guidance.' Disposition: the idle-S and walk-S loops are UNVALIDATED (no approval; L5 deferred to oracle-tuned gates); the conductor's 'approve the idle' lean is WITHDRAWN as a recommendation without a reference. Oracle-first sequence: legolas R10/R10b (in flight) \u2192 T1 gait contract (gait_oracle, pose_guide, visibility_table) + cycle prompt guidance (phase text, numbered-foot guides, breath spec) \u2192 TOOLING \u2192 re-run idle-S + walk-E under oracle-tuned gates \u2192 compare to the oracle \u2192 then composite, gear-on-loops, continuation. Everything standing on loops waits. Stands: the lane (typed bursts, audit, waves, calibrated O9, judge-with-controls, derived geometry), Bible v0.1, K1 APPROVED (L), K2 six of seven by geometry (SW head pending; approval pending Matt), instrument findings R-12/R-15/R-16. Tonight at most T0-e (composite tooling, 0 images) on Matt's word.",
+      "boundary": "commitment (Matt) — HITL run close",
+      "burst": "—",
+      "ruling": "MATT: no overnight autonomous run. 'Right now the idle doesn't look right and the walk motion has issues… once we decide on an oracle, we will be able to compare our work against the oracle and I suspect that we will not make the claim that it is known that idle and walk loops are solved for… we will also be able to use the oracle to tune our software checks and our prompt guidance.' Disposition: the idle-S and walk-S loops are UNVALIDATED (no approval; L5 deferred to oracle-tuned gates); the conductor's 'approve the idle' lean is WITHDRAWN as a recommendation without a reference. Oracle-first sequence: legolas R10/R10b (in flight) → T1 gait contract (gait_oracle, pose_guide, visibility_table) + cycle prompt guidance (phase text, numbered-foot guides, breath spec) → TOOLING → re-run idle-S + walk-E under oracle-tuned gates → compare to the oracle → then composite, gear-on-loops, continuation. Everything standing on loops waits. Stands: the lane (typed bursts, audit, waves, calibrated O9, judge-with-controls, derived geometry), Bible v0.1, K1 APPROVED (L), K2 six of seven by geometry (SW head pending; approval pending Matt), instrument findings R-12/R-15/R-16. Tonight at most T0-e (composite tooling, 0 images) on Matt's word.",
       "veto": "Matt's ruling"
     },
     {
@@ -11121,15 +11680,15 @@
       "date": "2026-09-12",
       "boundary": "reasoning",
       "burst": "T0-e",
-      "ruling": "T0-e DELIVERED exit 0 (13 tool calls, clean audit; fired on Matt's word after the HITL close as the one tooling item that waits on nothing). Conductor DRIFT-CRITIC ACCEPT: gates/mask_composite.py \u2014 composite(base, variant, region_box, thresh, dilate_px) with alpha-aware differencing, dilation, region clipping, byte-identical base outside the mask asserted in code and reported; G12 evaluate(min_preserved_fraction 0.99 literal, coverage guard on the FIGURE not the canvas \u2192 null when the mask covers too much); compose_loop. 14 tests incl. the four contracted known-bad cases; suite 135/131 (the four T0-d4 reds unchanged); regression lock 0. thresh=8 / dilate_px=2 are provisional synthetic calibrations, stated. Tree FROZEN (closes the three doc-drift rows: bible v0.1 hash, BURST_RULES v1.2, SPEC T0-e). Next: K3-cmp-01 \u2014 a MECHANISM test of the composite on the sole-aligned idle frames (G12 + G11/G6 original vs composited); no loop approval implied (R-17).",
+      "ruling": "T0-e DELIVERED exit 0 (13 tool calls, clean audit; fired on Matt's word after the HITL close as the one tooling item that waits on nothing). Conductor DRIFT-CRITIC ACCEPT: gates/mask_composite.py — composite(base, variant, region_box, thresh, dilate_px) with alpha-aware differencing, dilation, region clipping, byte-identical base outside the mask asserted in code and reported; G12 evaluate(min_preserved_fraction 0.99 literal, coverage guard on the FIGURE not the canvas → null when the mask covers too much); compose_loop. 14 tests incl. the four contracted known-bad cases; suite 135/131 (the four T0-d4 reds unchanged); regression lock 0. thresh=8 / dilate_px=2 are provisional synthetic calibrations, stated. Tree FROZEN (closes the three doc-drift rows: bible v0.1 hash, BURST_RULES v1.2, SPEC T0-e). Next: K3-cmp-01 — a MECHANISM test of the composite on the sole-aligned idle frames (G12 + G11/G6 original vs composited); no loop approval implied (R-17).",
       "veto": "open to Matt"
     },
     {
       "id": "R-19",
       "date": "2026-09-12",
-      "boundary": "reasoning (L5 evidence) \u2014 the ruling stays Matt's",
+      "boundary": "reasoning (L5 evidence) — the ruling stays Matt's",
       "burst": "K3-chk-01 data + legolas R10",
-      "ruling": "legolas R10/R10b RETURNED (findings.md, 856 lines; commit bb7643ac). G6c (seam vs its half-cycle homologue, \u2264 1.25\u00d7) computed on the K3 seam metrics already in K3-chk-01: WALK seam 3.058 vs homologue(3\u21924) 3.552 \u2192 ratio 0.86 PASS; IDLE seam 0 (return frame = copy). The walk's G6-literal 'failure' (3.058 vs the minimum internal pair 3.009) is the statistic artifact R10 predicted \u2014 a correct walk's pose deltas are non-uniform, so its seam legitimately exceeds the minimum; G6-literal is biased against walks by construction. CONDUCTOR RECOMMENDATION FOR L5 (supersedes the earlier G6b lean): shipping bar = G6c for walks, G6b (median) for idles, G6-literal reported beside; G6c is a one-line addition to gates/g6_seam.py (T1). Other R10 findings that change the lane: (1) no shipped ARPG authors a per-weapon WALK \u2014 D2 shares one walk beat across 12 weapon classes with only composited layers changing; the staff-arm question belongs to the idle/run and to a LAYER, not to walk authoring; (2) fps is not free once the frame count is chosen \u2014 an 8-frame cycle at 8 fps is Williams' 'natural' walk, at 12 fps a 'cartoon' walk (K3 ran 10); (3) two idles is the genre norm (combat-ready ~0.64 s + relaxed ~2.0 s), and an idle needs ~5 LOCK assertions to 2 MOTION assertions \u2014 feet \u2264 0.25 %H, breath 0.6\u20132.0 %H, head \u2264 1.2 %H, gaze \u2264 1.5 px, grip \u2264 1 px, root \u2264 0.25 %H, exactly one breath per loop; (4) several requested gates are SUB-PIXEL at 400 px (toe clearance 3.2 px, foot-skate 0.24 px/frame, veridical head bob 0.8 px) \u2192 judge questions; slip measured relative to the 0.105 H/frame planted-sole scroll; (5) Muybridge is the floor, not the target (animators amplify vertical, suppress lateral; the true head path is a 2:1 figure-8 the tradition forbids); (6) the oracle exists in both forms, public domain \u2014 plates 2 and 13 downloaded with sidecars, plate 2's lateral row assembled at Muybridge's 8.33 fps onto Matt's Desktop; painted \u00d7 elevated-\u00be \u00d7 idle+walk \u00d7 8-dir \u00d7 open licence is an EMPTY SET \u2014 best painted CC0 = laetissima (walk only), best camera match = Mini-Crusader (CC-BY 4.0); (7) judge-anchor vs generation-reference are distinct BEFORE policy: CraftPix's licence forbids AI 'testing, validating'; CC0/CC-BY are anchor-safe, public domain unrestricted. Caveat: per-frame Muybridge MEASUREMENT was attempted and NOT achieved (segmentation; ~a day with grid rectification) \u2014 all \u00a7 5.4 ranges are pre-registration-required, calibrated on our own anchors before they bind.",
+      "ruling": "legolas R10/R10b RETURNED (findings.md, 856 lines; commit bb7643ac). G6c (seam vs its half-cycle homologue, ≤ 1.25×) computed on the K3 seam metrics already in K3-chk-01: WALK seam 3.058 vs homologue(3→4) 3.552 → ratio 0.86 PASS; IDLE seam 0 (return frame = copy). The walk's G6-literal 'failure' (3.058 vs the minimum internal pair 3.009) is the statistic artifact R10 predicted — a correct walk's pose deltas are non-uniform, so its seam legitimately exceeds the minimum; G6-literal is biased against walks by construction. CONDUCTOR RECOMMENDATION FOR L5 (supersedes the earlier G6b lean): shipping bar = G6c for walks, G6b (median) for idles, G6-literal reported beside; G6c is a one-line addition to gates/g6_seam.py (T1). Other R10 findings that change the lane: (1) no shipped ARPG authors a per-weapon WALK — D2 shares one walk beat across 12 weapon classes with only composited layers changing; the staff-arm question belongs to the idle/run and to a LAYER, not to walk authoring; (2) fps is not free once the frame count is chosen — an 8-frame cycle at 8 fps is Williams' 'natural' walk, at 12 fps a 'cartoon' walk (K3 ran 10); (3) two idles is the genre norm (combat-ready ~0.64 s + relaxed ~2.0 s), and an idle needs ~5 LOCK assertions to 2 MOTION assertions — feet ≤ 0.25 %H, breath 0.6–2.0 %H, head ≤ 1.2 %H, gaze ≤ 1.5 px, grip ≤ 1 px, root ≤ 0.25 %H, exactly one breath per loop; (4) several requested gates are SUB-PIXEL at 400 px (toe clearance 3.2 px, foot-skate 0.24 px/frame, veridical head bob 0.8 px) → judge questions; slip measured relative to the 0.105 H/frame planted-sole scroll; (5) Muybridge is the floor, not the target (animators amplify vertical, suppress lateral; the true head path is a 2:1 figure-8 the tradition forbids); (6) the oracle exists in both forms, public domain — plates 2 and 13 downloaded with sidecars, plate 2's lateral row assembled at Muybridge's 8.33 fps onto Matt's Desktop; painted × elevated-¾ × idle+walk × 8-dir × open licence is an EMPTY SET — best painted CC0 = laetissima (walk only), best camera match = Mini-Crusader (CC-BY 4.0); (7) judge-anchor vs generation-reference are distinct BEFORE policy: CraftPix's licence forbids AI 'testing, validating'; CC0/CC-BY are anchor-safe, public domain unrestricted. Caveat: per-frame Muybridge MEASUREMENT was attempted and NOT achieved (segmentation; ~a day with grid rectification) — all § 5.4 ranges are pre-registration-required, calibrated on our own anchors before they bind.",
       "veto": "open to Matt"
     },
     {
@@ -11137,14 +11696,14 @@
       "date": "2026-09-12",
       "boundary": "reasoning",
       "burst": "K3-cmp-01",
-      "ruling": "MECHANISM TEST of the T0-e composite on the sole-aligned idle frames (0 images): G12 base preservation 1.000 on all eight frames (outside the mask the base is byte-identical); drift48 fell on every adjacent pair (3\u21924: 0.404\u21920.298; 6\u21927: 0.503\u21920.382 \u2014 under the contextual 0.462 bar); G6/G6b pass. Two frames UNEVALUABLE by the coverage guard (my declared torso band covered 61 % of the figure; the box should be tighter \u2014 the guard is doing its job). Verdict: the composite MECHANISM works; the idle loop remains UNVALIDATED (R-17) \u2014 no loop claim.",
+      "ruling": "MECHANISM TEST of the T0-e composite on the sole-aligned idle frames (0 images): G12 base preservation 1.000 on all eight frames (outside the mask the base is byte-identical); drift48 fell on every adjacent pair (3→4: 0.404→0.298; 6→7: 0.503→0.382 — under the contextual 0.462 bar); G6/G6b pass. Two frames UNEVALUABLE by the coverage guard (my declared torso band covered 61 % of the figure; the box should be tighter — the guard is doing its job). Verdict: the composite MECHANISM works; the idle loop remains UNVALIDATED (R-17) — no loop claim.",
       "veto": "open to Matt"
     },
     {
       "id": "R-21",
       "by": "Matt",
       "ts": "2026-09-12T15:09:52",
-      "topic": "Intent over consistency \u2014 animation gate hierarchy inverted (design ruling)",
+      "topic": "Intent over consistency — animation gate hierarchy inverted (design ruling)",
       "ruling": "Consistency is not the #1 animation goal; a frame-by-frame spec/plan of exactly where and how the body moves (idle/walk/sprint/attack/cast) is. Slight frame-to-frame variation is a feature when each frame is obviously moving from the prior pose toward the planned pose (hand-drawn intent, exaggerated/cartoon amplitude). Walk = 12 frames so Muybridge plate 2 informs the motion natively; Hades-class oracles supply the exaggerated amplitude to spec into frames. Identity consistency remains a hard constraint; drawing consistency becomes tolerance within the arc.",
       "consequence": "T1 phase table = dope-sheet SPEC (primary gate: per-frame pose adherence within band); G6/G11/G12/O-gates demoted to constraints; smear clause reserved for attack/cast. Register lean toward Hades/Hollow Knight (line-forward) filed for Matt's ruling, not folded. Prior K3 gate passes (R-19/R-20) stand as consistency evidence only.",
       "evidence": "K3 critique (rigid arm, darting eyes, no head bob) = intent failures that passed every consistency gate."
@@ -11154,23 +11713,23 @@
       "by": "Matt",
       "ts": "2026-09-12T15:51:22",
       "topic": "Walking oracle = Muybridge plates 2 (man) + 13 (woman)",
-      "ruling": "Matt reviewed both Muybridge GIFs: they serve as the walking oracle (structure/floor; 12 phases map 1:1 to the 12-frame walk per R-21). Hades-class clips remain view-only amplitude exhibits pending the sourcing-class ruling. Register (Q74) cannot be ruled from figures alone \u2014 needs the character IN SCENE against the corpus (D2, Grim Dawn, PoE1, Last Epoch, PoE2?) \u2192 K5 in-scene probe.",
+      "ruling": "Matt reviewed both Muybridge GIFs: they serve as the walking oracle (structure/floor; 12 phases map 1:1 to the 12-frame walk per R-21). Hades-class clips remain view-only amplitude exhibits pending the sourcing-class ruling. Register (Q74) cannot be ruled from figures alone — needs the character IN SCENE against the corpus (D2, Grim Dawn, PoE1, Last Epoch, PoE2?) → K5 in-scene probe.",
       "consequence": "T1 bands: floor from plates 2/13 lateral (+ plate 13 front/rear for S/N). K5 fired: 4 scene plates (L/H1/H2/K1), composites at ~18 % and ~28 % frame height, corpus stills via legolas press kits."
     },
     {
       "id": "R-23",
       "by": "Matt",
       "ts": "2026-09-12T17:02:15",
-      "topic": "Q74 RULED \u2014 painted-2D lane register = H1",
-      "ruling": "H1 (hand-drawn tapered contour + painted fills in clean planes; 'the line carries the pose') across the board \u2014 figure, room, both world languages; 'very close' vs H2, H1 wins. Default screen = ARPG-language world (~45\u00b0 camera, cold key, warm accents only) in the D2R/GD/PoE/LE band; Hades-language framing (steep ~60\u00b0 arena, bold ground pattern, jewel-toned light) retained as a LEVEL DIALECT inside H1. On-screen character height 17 % of 1080p (corpus centre). Evidence: K4 (figures), K5 (empty plates \u2014 scale failure), K6 (in-world + E07V composites at corpus scale), K7 (Hades-language variants of F03/F04).",
-      "consequence": "Master L (painted register) and the K2 turnaround are superseded in pixels, not identity text; C-2 opens by re-freezing the lane in H1 (register card, bible style card, probe set) and re-minting the starter master + turnaround in H1. Project-wide register pivot (3D Synty \u2192 painted-2D) stays gated per 00-system.md until a loop passes the oracle gates and a plate passes X6. Bible gap: plate/world motif constraints (three exhibits of sigil spread) \u2192 T3."
+      "topic": "Q74 RULED — painted-2D lane register = H1",
+      "ruling": "H1 (hand-drawn tapered contour + painted fills in clean planes; 'the line carries the pose') across the board — figure, room, both world languages; 'very close' vs H2, H1 wins. Default screen = ARPG-language world (~45° camera, cold key, warm accents only) in the D2R/GD/PoE/LE band; Hades-language framing (steep ~60° arena, bold ground pattern, jewel-toned light) retained as a LEVEL DIALECT inside H1. On-screen character height 17 % of 1080p (corpus centre). Evidence: K4 (figures), K5 (empty plates — scale failure), K6 (in-world + E07V composites at corpus scale), K7 (Hades-language variants of F03/F04).",
+      "consequence": "Master L (painted register) and the K2 turnaround are superseded in pixels, not identity text; C-2 opens by re-freezing the lane in H1 (register card, bible style card, probe set) and re-minting the starter master + turnaround in H1. Project-wide register pivot (3D Synty → painted-2D) stays gated per 00-system.md until a loop passes the oracle gates and a plate passes X6. Bible gap: plate/world motif constraints (three exhibits of sigil spread) → T3."
     },
     {
       "id": "R-24",
       "by": "Matt",
       "ts": "2026-09-12T17:42:28",
       "topic": "Phase 1 build lane GO + push pattern",
-      "ruling": "\"go for the serial tooling and anything else that needs to be done to prepare for the HITL run. Push as you go.\" Serial TOOLING bursts T1a-idle \u2192 T1a-walk \u2192 T1b \u2192 T1c (oracle-derived suite, memo v0.2 \u00a7\u00a7 0a\u201311), then gandalf designs + authors the C-2 HITL run plan. PUSH AUTHORIZED for this workstream (reincarnated-collaboration): push after each landed burst / prep artifact; covers branch state (ancestors ride along).",
+      "ruling": "\"go for the serial tooling and anything else that needs to be done to prepare for the HITL run. Push as you go.\" Serial TOOLING bursts T1a-idle → T1a-walk → T1b → T1c (oracle-derived suite, memo v0.2 §§ 0a–11), then gandalf designs + authors the C-2 HITL run plan. PUSH AUTHORIZED for this workstream (reincarnated-collaboration): push after each landed burst / prep artifact; covers branch state (ancestors ride along).",
       "consequence": "Matt checkpoint after T1a-idle: measured curves beside the Hades frame strips before any band is committed. Commitment boundaries (bands.json pre-registration, register card re-freeze) HALT to Matt in C-2, not in Phase 1."
     },
     {
@@ -11178,7 +11737,7 @@
       "by": "gandalf (conductor, DRIFT-CRITIC)",
       "ts": "2026-09-12T17:59:23",
       "topic": "T1a-idle: instrument defects are the spec's, not the build's",
-      "ruling": "Accept the build as delivered; the two synthetic reds stand as evidence that changed-pixel extent \u2260 displacement. Contract T1a-idle-2 (fix) before any band is shown to Matt as a checkpoint. bands_idle.json remains committed=false.",
+      "ruling": "Accept the build as delivered; the two synthetic reds stand as evidence that changed-pixel extent ≠ displacement. Contract T1a-idle-2 (fix) before any band is shown to Matt as a checkpoint. bands_idle.json remains committed=false.",
       "consequence": "No Hades band is trusted yet; the Matt checkpoint fires after T1a-idle-2."
     },
     {
@@ -11186,16 +11745,16 @@
       "by": "gandalf (conductor)",
       "ts": "2026-09-12T18:30:39",
       "topic": "T1a-walk method change within the hypothesis (BURST_RULES two-attempt rule)",
-      "ruling": "Method changes for T1a-walk-2: (1) segmentation = median background across the 12 grid-REGISTERED cells of a row (fixed camera: the median is the empty backdrop) + white top-hat to suppress the grid, instead of Otsu; (2) head position by normalized-cross-correlation TEMPLATE tracking of a head patch (chosen on the frame with the widest upper run), instead of mask top; (3) planted foot = sole component STATIONARY in image coordinates between consecutive frames (|\u0394x| \u2264 2 px), because the camera is fixed and the planted foot does not move on the plate; (4) plate13 rows are primary, plate2 secondary. Not a medium change.",
-      "consequence": "Acceptance: two contact events per lateral row; W-1 lateral within 1\u20135 %H (Legolas veridical sanity band); W-4 = 2; synthetic plain/grid landmark discrepancy \u2264 2 px."
+      "ruling": "Method changes for T1a-walk-2: (1) segmentation = median background across the 12 grid-REGISTERED cells of a row (fixed camera: the median is the empty backdrop) + white top-hat to suppress the grid, instead of Otsu; (2) head position by normalized-cross-correlation TEMPLATE tracking of a head patch (chosen on the frame with the widest upper run), instead of mask top; (3) planted foot = sole component STATIONARY in image coordinates between consecutive frames (|Δx| ≤ 2 px), because the camera is fixed and the planted foot does not move on the plate; (4) plate13 rows are primary, plate2 secondary. Not a medium change.",
+      "consequence": "Acceptance: two contact events per lateral row; W-1 lateral within 1–5 %H (Legolas veridical sanity band); W-4 = 2; synthetic plain/grid landmark discrepancy ≤ 2 px."
     },
     {
       "id": "R-27",
       "by": "gandalf (conductor)",
       "ts": "2026-09-12T18:44:38",
       "topic": "Walk oracle reference values by ANNOTATION, not segmentation",
-      "ruling": "Two method changes failed on collotype segmentation (Otsu; grid-registered median) while the instrument passes on clean masks. The reference is 12 public-domain frames: an Astra ANNOTATE burst (T1a-ann-13L) marks head_top, chin, hip, near/far sole, near/far wrist, ground line and planted flags per frame with confidence; the walk instrument gains a --landmarks JSON path (T1a-walk-3) that computes W-1\u2026W-6 and the phase table directly from annotations; method-A (Otsu) masks are kept as an independent estimate on plate13_lateral, with a mask-area-stability selector (CV of area across 12 frames < 0.25) deciding whether the mask estimate is reported at all. Muybridge frames copied into fixtures/muybridge/ (public domain, licence sidecars) so burst provenance is in-repo.",
-      "consequence": "Gating OUR walks is unblocked (alpha masks); reference bands come from annotation \u2227 (agreeing) masks. Bands stay committed=false until Matt's checkpoint."
+      "ruling": "Two method changes failed on collotype segmentation (Otsu; grid-registered median) while the instrument passes on clean masks. The reference is 12 public-domain frames: an Astra ANNOTATE burst (T1a-ann-13L) marks head_top, chin, hip, near/far sole, near/far wrist, ground line and planted flags per frame with confidence; the walk instrument gains a --landmarks JSON path (T1a-walk-3) that computes W-1…W-6 and the phase table directly from annotations; method-A (Otsu) masks are kept as an independent estimate on plate13_lateral, with a mask-area-stability selector (CV of area across 12 frames < 0.25) deciding whether the mask estimate is reported at all. Muybridge frames copied into fixtures/muybridge/ (public domain, licence sidecars) so burst provenance is in-repo.",
+      "consequence": "Gating OUR walks is unblocked (alpha masks); reference bands come from annotation ∧ (agreeing) masks. Bands stay committed=false until Matt's checkpoint."
     },
     {
       "id": "R-28",
@@ -11210,44 +11769,44 @@
       "id": "R-29",
       "by": "Matt",
       "ts": "2026-09-12T20:35:14",
-      "topic": "HITL Run C-2 ruling sheet R-a\u2026R-h \u2014 ACCEPTED as recommended (one word: 'accept')",
-      "ruling": "R-a k_vert 1.25 \u2192 W-1 target 4.93 %H (floor = Muybridge plate 13 lateral 3.95 %H; ceiling 7 %H). R-b commit the Hades combat idle row: breath 6.53 %H (3.92\u20139.79), head 5.47 %H (3.28\u20138.20); MOTION = shoulders_chest + head, LOCK = hips/legs/feet/arms_left/arms_right \u2014 region lists set BY RULING because the T1b displacement classifier collapsed (all-LOCK) on the oracle clip itself. R-c relaxed idle PROVISIONAL = 0.5 \u00d7 combat: breath 3.26 %H (1.96\u20134.90), head \u2264 1.2 %H and \u2264 chest (Legolas I-3), period 2.0 s (16 f @ 8 fps), MOTION = shoulders_chest only; the Hades House row (0.21 %H, below resolution) is superseded, kept as lineage. R-d I-1 feet lock 0.25 %H hard. R-e ceilings = 1.5 \u00d7 target, capped by a stated per-gate ceiling (W-1 stays 7 %H). R-f X-video = in-betweener candidate with rules (0\u20134.3 s only; amplitude prompted to band; our cut closes the loop; identity via G11) \u2014 ruled at step 8 on numbers. R-g Muybridge frames may calibrate the motion transcriber (X0-M has not run; one TRANSCRIBE wave, 0 images, before K3\u2032 judging). R-h relaxed idle first.",
-      "consequence": "Bands commit at T-freeze (bands_idle.json combat+relaxed, bands_walk.json plate13_lateral_ann only; other walk rows stay report-only); dope sheets + pose guides regenerated from the committed rows; bible gains style + bands cards (schema v0.3); register card v1.1 (H1). Open on the sheet: R-i (Q73(b) advanced motif placements \u2014 needed at step 5), R-j (pilot = Keeper), Q73(d) disposition (resolved by supersession, R-23).",
-      "evidence": "C-2 plan \u00a7 3; ledger R-21\u2026R-27; oracle/bands_idle.json + bands_walk.json as read at session start (combat/relaxed all-LOCK; relaxed 0.0021 H; W1 target 0.0789 > ceiling 0.07)."
+      "topic": "HITL Run C-2 ruling sheet R-a…R-h — ACCEPTED as recommended (one word: 'accept')",
+      "ruling": "R-a k_vert 1.25 → W-1 target 4.93 %H (floor = Muybridge plate 13 lateral 3.95 %H; ceiling 7 %H). R-b commit the Hades combat idle row: breath 6.53 %H (3.92–9.79), head 5.47 %H (3.28–8.20); MOTION = shoulders_chest + head, LOCK = hips/legs/feet/arms_left/arms_right — region lists set BY RULING because the T1b displacement classifier collapsed (all-LOCK) on the oracle clip itself. R-c relaxed idle PROVISIONAL = 0.5 × combat: breath 3.26 %H (1.96–4.90), head ≤ 1.2 %H and ≤ chest (Legolas I-3), period 2.0 s (16 f @ 8 fps), MOTION = shoulders_chest only; the Hades House row (0.21 %H, below resolution) is superseded, kept as lineage. R-d I-1 feet lock 0.25 %H hard. R-e ceilings = 1.5 × target, capped by a stated per-gate ceiling (W-1 stays 7 %H). R-f X-video = in-betweener candidate with rules (0–4.3 s only; amplitude prompted to band; our cut closes the loop; identity via G11) — ruled at step 8 on numbers. R-g Muybridge frames may calibrate the motion transcriber (X0-M has not run; one TRANSCRIBE wave, 0 images, before K3′ judging). R-h relaxed idle first.",
+      "consequence": "Bands commit at T-freeze (bands_idle.json combat+relaxed, bands_walk.json plate13_lateral_ann only; other walk rows stay report-only); dope sheets + pose guides regenerated from the committed rows; bible gains style + bands cards (schema v0.3); register card v1.1 (H1). Open on the sheet: R-i (Q73(b) advanced motif placements — needed at step 5), R-j (pilot = Keeper), Q73(d) disposition (resolved by supersession, R-23).",
+      "evidence": "C-2 plan § 3; ledger R-21…R-27; oracle/bands_idle.json + bands_walk.json as read at session start (combat/relaxed all-LOCK; relaxed 0.0021 H; W1 target 0.0789 > ceiling 0.07)."
     },
     {
       "id": "R-30",
       "by": "gandalf (conductor, DRIFT-CRITIC)",
       "ts": "2026-09-12T20:51:01",
       "topic": "C-2 re-freeze: freeze domain extended to oracle/ (the T1 instruments + the band files were never pinned)",
-      "ruling": "MANIFEST.sha256 now covers lane/ gates/ oracle/ oracles/ parts/ compare/ transcribe/ review/ bible/ fixtures/ tests/ + the six root contracts; excludes __pycache__, *.pyc, tests/tmp/, tests/t0c_suite_output.txt, tests/t0c_summary.json (R-28). The T1 freeze (9146d9811620, 181 rows) verified but did not pin oracle/ \u2014 the instruments that measured the oracle and the pre-registered bands sat outside it since T1a. Frozen at 8c28f3a6b716 (190 rows) after T-freeze; SPEC \u00a7 5 amended to name this domain.",
+      "ruling": "MANIFEST.sha256 now covers lane/ gates/ oracle/ oracles/ parts/ compare/ transcribe/ review/ bible/ fixtures/ tests/ + the six root contracts; excludes __pycache__, *.pyc, tests/tmp/, tests/t0c_suite_output.txt, tests/t0c_summary.json (R-28). The T1 freeze (9146d9811620, 181 rows) verified but did not pin oracle/ — the instruments that measured the oracle and the pre-registered bands sat outside it since T1a. Frozen at 8c28f3a6b716 (190 rows) after T-freeze; SPEC § 5 amended to name this domain.",
       "consequence": "A band edit is now a visible drift alarm; the committed rows cannot move silently. Veto open.",
-      "evidence": "grep -c '  oracle/' MANIFEST.sha256 \u2192 0 before; ls oracle \u2192 11 files."
+      "evidence": "grep -c '  oracle/' MANIFEST.sha256 → 0 before; ls oracle → 11 files."
     },
     {
       "id": "R-31",
       "by": "Matt",
       "ts": "2026-09-12T20:51:01",
       "topic": "C-2 ruling sheet additions R-i / R-j (mid-session, 2026-09-12)",
-      "ruling": "R-j: the pilot is the female Keeper; the run_03 mage is retired. R-i: advanced set placements pauldron_L + staff head, count 1 each \u2014 and the ring-with-hour-mark is RETIRED in both: the staff head becomes an actual ASTROLABE; pauldron_L carries an INSIGNIA that signifies what Last Epoch represents without coming from Last Epoch. Faction insignias become source-game markers: characters of one faction share the mark that says 'same source game'.",
-      "consequence": "Bible V1a amendment 2 at the step-5 freeze: a 'sigil-advanced' motif rule (rod_head astrolabe \u00d71; pauldron_L provenance mark \u00d71); the starter 'sigil' rule unchanged (0 everywhere). PARTS stays starter-truth (no per-set layer in schema v0.3 \u2014 owed, T-class). Story: 'faction' is now overloaded (archive-frame \u00a7 5 element-courts vs the F04 art board vs source-game provenance) \u2014 vocabulary fork to the story tracker; the mark is written as a PROVENANCE MARK. Step 5 grows to 4 images (glyph template \u00d72 \u2192 man with the glyph as reference \u00d72). Open: R-k = the glyph itself (recommendation: Needle through Strata).",
-      "evidence": "Matt, verbatim: 'Instead of a ring with hour mark, make the staff head an actual astrolabe. And for the pauldron \u2026 create an insignia for the source game's faction that this character represents \u2026 it should signify what Last Epoch represents. The faction insignias can be a marker that they are from the same source game.'"
+      "ruling": "R-j: the pilot is the female Keeper; the run_03 mage is retired. R-i: advanced set placements pauldron_L + staff head, count 1 each — and the ring-with-hour-mark is RETIRED in both: the staff head becomes an actual ASTROLABE; pauldron_L carries an INSIGNIA that signifies what Last Epoch represents without coming from Last Epoch. Faction insignias become source-game markers: characters of one faction share the mark that says 'same source game'.",
+      "consequence": "Bible V1a amendment 2 at the step-5 freeze: a 'sigil-advanced' motif rule (rod_head astrolabe ×1; pauldron_L provenance mark ×1); the starter 'sigil' rule unchanged (0 everywhere). PARTS stays starter-truth (no per-set layer in schema v0.3 — owed, T-class). Story: 'faction' is now overloaded (archive-frame § 5 element-courts vs the F04 art board vs source-game provenance) — vocabulary fork to the story tracker; the mark is written as a PROVENANCE MARK. Step 5 grows to 4 images (glyph template ×2 → man with the glyph as reference ×2). Open: R-k = the glyph itself (recommendation: Needle through Strata).",
+      "evidence": "Matt, verbatim: 'Instead of a ring with hour mark, make the staff head an actual astrolabe. And for the pauldron … create an insignia for the source game's faction that this character represents … it should signify what Last Epoch represents. The faction insignias can be a marker that they are from the same source game.'"
     },
     {
       "id": "R-32",
       "by": "Matt",
       "ts": "2026-09-12T20:51:01",
-      "topic": "R-k RULED \u2014 the F04 provenance mark is the 'Needle through Strata'",
-      "ruling": "Matt: 'Agreed on the R-k F04 insignia glyph recommendation.' Glyph = one vertical needle/gnomon (small diamond head, short foot) piercing three stacked horizontal strata bands (lowest widest, top narrowest), brass with a dark contour line, no enclosing ring/shield/frame, no text/clock/hourglass/compass/gears, two tones, legible at 8 px. Signifies time as layered eras and one line crossing them \u2014 what Last Epoch represents \u2014 borrowing no Last Epoch letterform, hourglass or logo.",
+      "topic": "R-k RULED — the F04 provenance mark is the 'Needle through Strata'",
+      "ruling": "Matt: 'Agreed on the R-k F04 insignia glyph recommendation.' Glyph = one vertical needle/gnomon (small diamond head, short foot) piercing three stacked horizontal strata bands (lowest widest, top narrowest), brass with a dark contour line, no enclosing ring/shield/frame, no text/clock/hourglass/compass/gears, two tones, legible at 8 px. Signifies time as layered eras and one line crossing them — what Last Epoch represents — borrowing no Last Epoch letterform, hourglass or logo.",
       "consequence": "Step 5a: K1p-sig-01 mints the glyph template (2 images, no references); Matt picks; the pick becomes the reference for K1p-adv-01 and the 'sigil-advanced' rule's reference_asset. Bible never_generated keeps 'logo/wordmark' and 'source-game names'.",
       "evidence": "C-2 ELICITOR fork R-k (this session); alternatives (fractured hourglass; broken clock face) declined."
     },
     {
       "id": "R-33",
-      "by": "gandalf (conductor, DRIFT-CRITIC \u2014 answering Matt's question 'why re-render the master?')",
+      "by": "gandalf (conductor, DRIFT-CRITIC — answering Matt's question 'why re-render the master?')",
       "ts": "2026-09-12T21:48:08",
-      "topic": "Why K1\u2032 re-minted the starter master in H1 \u2014 the seed dependency the plan left implicit",
-      "ruling": "The loops inherit the SEED's register pixel-for-pixel: edit-canvas keeps slot 0 identical and the T0-e composite pastes the base's pixels over everything outside the motion region. A loop seeded from master L (v1.0 painted register) would ship in the superseded register and the pivot-gate evidence would be measured on the wrong pixels. Hence step 4 precedes the loops; the eight-direction turnaround is NOT re-minted (only the E rest frame, step 7a) until a loop passes. Plan defect: goal 3 stated the what, not the why \u2014 fold into the plan at close.",
+      "topic": "Why K1′ re-minted the starter master in H1 — the seed dependency the plan left implicit",
+      "ruling": "The loops inherit the SEED's register pixel-for-pixel: edit-canvas keeps slot 0 identical and the T0-e composite pastes the base's pixels over everything outside the motion region. A loop seeded from master L (v1.0 painted register) would ship in the superseded register and the pivot-gate evidence would be measured on the wrong pixels. Hence step 4 precedes the loops; the eight-direction turnaround is NOT re-minted (only the E rest frame, step 7a) until a loop passes. Plan defect: goal 3 stated the what, not the why — fold into the plan at close.",
       "consequence": "Cost 3 images / ~20 min; bonus evidence: identity is text-carried across registers on the starter (inventories identical; no cleft; no empty straps), H-3 answered by O8 numbers.",
       "evidence": "Matt: 'why did we re-render the master? Just to see if we could?'; K1p chain; T0-e mechanism (R-18/R-20)."
     },
@@ -11255,8 +11814,8 @@
       "id": "R-34",
       "by": "gandalf (conductor)",
       "ts": "2026-09-12T22:14:54",
-      "topic": "Step 7a: three E-facing rest frames; the walk seeds from r2 \u2014 strap construction over motion scaffolding",
-      "ruling": "K2p-gen-E (strap over the near shoulder, satchel near hip), K2p-gen-E-r1 (text-only geometry: strap still over the near shoulder, satchel swung front), K2p-gen-E-r2 (K2 v4 E frame as a GEOMETRY-ONLY reference: strap from behind the neck across the chest front \u2014 the bible construction \u2014 satchel front, hair drifted to a ponytail under two references). The walk seeds from r2 (sha256 30eca1a67fba); hair + satchel placement recorded as known deviations of the scaffold, not of the loop's motion evidence. 5 images on the scaffold; no more.",
+      "topic": "Step 7a: three E-facing rest frames; the walk seeds from r2 — strap construction over motion scaffolding",
+      "ruling": "K2p-gen-E (strap over the near shoulder, satchel near hip), K2p-gen-E-r1 (text-only geometry: strap still over the near shoulder, satchel swung front), K2p-gen-E-r2 (K2 v4 E frame as a GEOMETRY-ONLY reference: strap from behind the neck across the chest front — the bible construction — satchel front, hair drifted to a ponytail under two references). The walk seeds from r2 (sha256 30eca1a67fba); hair + satchel placement recorded as known deviations of the scaffold, not of the loop's motion evidence. 5 images on the scaffold; no more.",
       "consequence": "R-15 confirmed once more: a spatial construction the text keeps losing wants a first-party geometry reference. The H1 eight-direction turnaround (post-loop) uses reference-pinned geometry from the start.",
       "evidence": "receipts K2p-gen-E / -r1 / -r2; K2 experiment record (v4 E correct by geometry judge)."
     },
@@ -11264,8 +11823,8 @@
       "id": "R-35",
       "by": "gandalf (conductor)",
       "ts": "2026-09-12T22:14:54",
-      "topic": "K3p-gen-walk-04 FAILED (its own verdict) \u2014 harvested by conductor copy on substance review (R-4 precedent)",
-      "ruling": "The burst declared FAILED because slot 0 was not pixel-identical and the re-rendered rest figure extends below its cell \u2014 an invariant every walk sheet broke (sheets 2\u20134 enlarged ~10 %). Its three walk frames (9\u201311) are as usable as sheet 3's. Copied out/ into artifacts/K3p-gen-walk-04/ (png sha256 ae72bad2bb00) with the FAILED receipt + CONDUCTOR_HARVEST.txt; the FAILED verdict stands; the 12-frame set is registered and MEASURED rather than re-minted (a re-mint would most likely reproduce the drift for 2 images).",
+      "topic": "K3p-gen-walk-04 FAILED (its own verdict) — harvested by conductor copy on substance review (R-4 precedent)",
+      "ruling": "The burst declared FAILED because slot 0 was not pixel-identical and the re-rendered rest figure extends below its cell — an invariant every walk sheet broke (sheets 2–4 enlarged ~10 %). Its three walk frames (9–11) are as usable as sheet 3's. Copied out/ into artifacts/K3p-gen-walk-04/ (png sha256 ae72bad2bb00) with the FAILED receipt + CONDUCTOR_HARVEST.txt; the FAILED verdict stands; the 12-frame set is registered and MEASURED rather than re-minted (a re-mint would most likely reproduce the drift for 2 images).",
       "consequence": "Scale drift across walk sheets is a measured fact for the gait gates (G1 per frame; W-1 reads it as bob). H-4 remains the pre-registered fallback if W-2/W-4 fail.",
       "evidence": "walk-04 receipt (FAILED, 2 calls, audit clean); wave log k3p_walk2."
     },
@@ -11273,46 +11832,91 @@
       "id": "R-36",
       "by": "gandalf (conductor, DRIFT-CRITIC)",
       "ts": "2026-09-12T22:14:54",
-      "topic": "Step 6 attempt 1 \u2014 relaxed idle-S FAIL-WITH-NUMBERS; attempt 2 = method change within the hypothesis (exaggeration language)",
-      "ruling": "Composited onto the SEED (base = the approved master C, not a sheet's re-rendered slot 0 \u2014 brief amended after K3p-reg-01 measured every slot 0 re-rendered up to 139 RGB): idle_intent vs the committed relaxed band \u2192 breath 0.68 %H (floor 1.96) BELOW FLOOR; head bob 1.41 %H (ceiling 1.20) ABOVE CEILING \u2014 head re-drawn 1.9 %H vs chest carried 1.1 %H (I-3); LOCK mismatches 3 (hips 0.98, arms 1.0\u20131.2 %H \u2014 drawing variation inside the composite band); feet lock 0.00 PASS; G12 1.000 \u00d7 16 PASS; G6/G6b/G6c FAIL narrowly (0.370 vs 0.344) \u2014 structural: base-to-re-render transitions vs re-render-to-re-render internals. C-1 dead idle 0.47 %H \u2192 0.68 %H: numeric px deltas moved the amplitude a fifth of the way. Q76 showed exaggeration LANGUAGE moves it (Grok 0.65 \u2192 7.8 %H). Attempt 2 (K3p-gen-idle-x2-01..05, same seed, same gates): 'exaggerate, cartoon-scale, ~25 px at peak, never smaller' + head carried not redrawn; 10 images reserved.",
-      "consequence": "FAIL-WITH-NUMBERS is a complete C-2 outcome (\u00a7 5). Instrument notes \u2192 T3: composite box spans the arms (region mismatches partly the box); G6-family needs a base-aware seam when frame 0 is the approved master; idle_bands CLI ignores --out for --ours (Astra called the functions directly).",
+      "topic": "Step 6 attempt 1 — relaxed idle-S FAIL-WITH-NUMBERS; attempt 2 = method change within the hypothesis (exaggeration language)",
+      "ruling": "Composited onto the SEED (base = the approved master C, not a sheet's re-rendered slot 0 — brief amended after K3p-reg-01 measured every slot 0 re-rendered up to 139 RGB): idle_intent vs the committed relaxed band → breath 0.68 %H (floor 1.96) BELOW FLOOR; head bob 1.41 %H (ceiling 1.20) ABOVE CEILING — head re-drawn 1.9 %H vs chest carried 1.1 %H (I-3); LOCK mismatches 3 (hips 0.98, arms 1.0–1.2 %H — drawing variation inside the composite band); feet lock 0.00 PASS; G12 1.000 × 16 PASS; G6/G6b/G6c FAIL narrowly (0.370 vs 0.344) — structural: base-to-re-render transitions vs re-render-to-re-render internals. C-1 dead idle 0.47 %H → 0.68 %H: numeric px deltas moved the amplitude a fifth of the way. Q76 showed exaggeration LANGUAGE moves it (Grok 0.65 → 7.8 %H). Attempt 2 (K3p-gen-idle-x2-01..05, same seed, same gates): 'exaggerate, cartoon-scale, ~25 px at peak, never smaller' + head carried not redrawn; 10 images reserved.",
+      "consequence": "FAIL-WITH-NUMBERS is a complete C-2 outcome (§ 5). Instrument notes → T3: composite box spans the arms (region mismatches partly the box); G6-family needs a base-aware seam when frame 0 is the approved master; idle_bands CLI ignores --out for --ours (Astra called the functions directly).",
       "evidence": "K3p-reg-01 registration.json; K3p-cmp-01 checks.json; K3p-chk-01 checks.json."
     },
     {
       "id": "R-37",
       "by": "gandalf (conductor)",
       "ts": "2026-09-12T22:14:54",
-      "topic": "Provenance gate refused the first walk wave \u2014 brief defect, zero images",
+      "topic": "Provenance gate refused the first walk wave — brief defect, zero images",
       "ruling": "lane/ref_provenance.py refused runs/C-1/oracle/pose_guides/*.png as references (not under runs/<run>/artifacts or run_0*). The guides were mirrored to runs/C-1/artifacts/T1b/pose_guides/ (first-party: T1b made them) and the four walk briefs re-pointed; the wave ran on relaunch. The refusal cost 0 images and is the gate working against the conductor's brief.",
       "consequence": "Any burst reference must sit under a registered root; the T1 oracle/ outputs are data, not reference roots.",
-      "evidence": "k3p_walk.log (4 \u00d7 'Reference is not under a registered first-party content root')."
+      "evidence": "k3p_walk.log (4 × 'Reference is not under a registered first-party content root')."
     },
     {
       "id": "R-38",
       "by": "Matt",
       "ts": "2026-09-12T22:23:54",
-      "topic": "Step 6 attempt 1 RULED: FAIL \u2014 'definitely our closest yet'; the composite's own defect named",
-      "ruling": "Matt: \"It's a fail.. definitely our closest yet though. Even the composite fails because the staff separates visibly from itself. Composite would have improved it if there were no staff in the video.\" Ruling = FAIL-WITH-NUMBERS on the relaxed idle-S attempt 1 (breath 0.68 %H vs floor 1.96; head 1.41 vs ceiling 1.20; 3 LOCK mismatches; feet pass; G12 pass; G6b narrow fail). Mechanism of the visible composite defect: the staff is a rigid prop CROSSING the composite region boundary \u2014 variant pixels inside the band, base pixels below it \u2014 so it doubles at the box edge.",
-      "consequence": "Composite regions must respect OBJECT boundaries: a prop is wholly base or wholly variant, never split. Attempt 2's composite (K3p-cmp-x2-01) uses the instrument's own shoulders_chest region as the box (head, arms, hips, legs stay base \u2014 head carried, never re-drawn) with the staff column carved out. General answer = per-part masks (LABEL route) \u2192 T3. L5-class note: the loop was not approved; the exit criterion stands.",
-      "evidence": "Packet 15 (K3p-pack-01 review.html); K3p-chk-01 checks.json; Matt's eye on the seam. Matt, second observation (2026-09-12): \"there is one image frame where the shirt/skirt comes together more closely than the rest between the belt and the bottom hem line which is awkward.\" \u2014 the tabard's lower panel re-drawn in one frame; the instrument read it as hips displacement 0.98 %H (LOCK ceiling 0.4) \u2014 a drawing-variation defect inside the hip band, visible in the un-composited loop and at the composite band's lower edge (attempt 1's box reached the belt line). Attempt 2's composite box = the instrument's shoulders_chest band only \u2192 belt, tabard panel and hem are base pixels in every frame."
+      "topic": "Step 6 attempt 1 RULED: FAIL — 'definitely our closest yet'; the composite's own defect named",
+      "ruling": "Matt: \"It's a fail.. definitely our closest yet though. Even the composite fails because the staff separates visibly from itself. Composite would have improved it if there were no staff in the video.\" Ruling = FAIL-WITH-NUMBERS on the relaxed idle-S attempt 1 (breath 0.68 %H vs floor 1.96; head 1.41 vs ceiling 1.20; 3 LOCK mismatches; feet pass; G12 pass; G6b narrow fail). Mechanism of the visible composite defect: the staff is a rigid prop CROSSING the composite region boundary — variant pixels inside the band, base pixels below it — so it doubles at the box edge.",
+      "consequence": "Composite regions must respect OBJECT boundaries: a prop is wholly base or wholly variant, never split. Attempt 2's composite (K3p-cmp-x2-01) uses the instrument's own shoulders_chest region as the box (head, arms, hips, legs stay base — head carried, never re-drawn) with the staff column carved out. General answer = per-part masks (LABEL route) → T3. L5-class note: the loop was not approved; the exit criterion stands.",
+      "evidence": "Packet 15 (K3p-pack-01 review.html); K3p-chk-01 checks.json; Matt's eye on the seam. Matt, second observation (2026-09-12): \"there is one image frame where the shirt/skirt comes together more closely than the rest between the belt and the bottom hem line which is awkward.\" — the tabard's lower panel re-drawn in one frame; the instrument read it as hips displacement 0.98 %H (LOCK ceiling 0.4) — a drawing-variation defect inside the hip band, visible in the un-composited loop and at the composite band's lower edge (attempt 1's box reached the belt line). Attempt 2's composite box = the instrument's shoulders_chest band only → belt, tabard panel and hem are base pixels in every frame."
     },
     {
       "id": "R-39",
       "by": "gandalf (conductor, DRIFT-CRITIC)",
       "ts": "2026-09-12T22:34:20",
-      "topic": "Step 7 walk-E \u2014 FAIL-WITH-NUMBERS against the committed band; drift and intent entangled by per-sheet scale growth",
-      "ruling": "gait_intent (row plate13_lateral_ann, committed): W-1 8.8 %H (floor 3.95 PASS; ceiling 7 FAIL); W-2 phase match FAIL; W-3a 0.58 (\u2264 0.35) FAIL; W-3c 4 (2\u20133) FAIL; W-4 4 minima (=2) FAIL; W-5/W-6 null (tool wants L/R screen-track keys; brief passed near/far \u2014 conductor brief defect); G6c 0.82 (\u2264 1.25) PASS; G6b 1.48 (\u2264 2.13) PASS; G6 literal FAIL. Registration measured the confound: re-rendered rest cells 252 / 263 / 261 / 262 px vs the seed's 240; walk frames needed up to 35/20 px translation; rest ground row 411. A 12-frame cycle over four sheets carries four scales \u2014 a step in head height at each sheet boundary produces four minima, four lateral sign changes, a wide head cloud and an inflated bob.",
-      "consequence": "Fork put to Matt (one recommendation): re-register with a PER-SHEET uniform scale (each sheet's rest cell \u2192 470 px; same factor for all four cells of that sheet \u2014 uniform per sheet, not per frame; the register card's edge, hence Matt's) + re-check with L/R arm roles both ways; zero images. If W-2/W-4 then pass \u2192 intent present, defect = the sheet-scale mechanism; if not \u2192 H-4 (X-video walk frames as the step-8 candidate). Packet 17 = the walk as measured. L5: G6c passes \u2014 the seam is not the walk's problem.",
+      "topic": "Step 7 walk-E — FAIL-WITH-NUMBERS against the committed band; drift and intent entangled by per-sheet scale growth",
+      "ruling": "gait_intent (row plate13_lateral_ann, committed): W-1 8.8 %H (floor 3.95 PASS; ceiling 7 FAIL); W-2 phase match FAIL; W-3a 0.58 (≤ 0.35) FAIL; W-3c 4 (2–3) FAIL; W-4 4 minima (=2) FAIL; W-5/W-6 null (tool wants L/R screen-track keys; brief passed near/far — conductor brief defect); G6c 0.82 (≤ 1.25) PASS; G6b 1.48 (≤ 2.13) PASS; G6 literal FAIL. Registration measured the confound: re-rendered rest cells 252 / 263 / 261 / 262 px vs the seed's 240; walk frames needed up to 35/20 px translation; rest ground row 411. A 12-frame cycle over four sheets carries four scales — a step in head height at each sheet boundary produces four minima, four lateral sign changes, a wide head cloud and an inflated bob.",
+      "consequence": "Fork put to Matt (one recommendation): re-register with a PER-SHEET uniform scale (each sheet's rest cell → 470 px; same factor for all four cells of that sheet — uniform per sheet, not per frame; the register card's edge, hence Matt's) + re-check with L/R arm roles both ways; zero images. If W-2/W-4 then pass → intent present, defect = the sheet-scale mechanism; if not → H-4 (X-video walk frames as the step-8 candidate). Packet 17 = the walk as measured. L5: G6c passes — the seam is not the walk's problem.",
       "evidence": "K3p-reg-walk-01 registration.json (rest_cells bbox heights); K3p-chk-walk-01 checks.json."
     },
     {
       "id": "R-40",
       "by": "gandalf (conductor, DRIFT-CRITIC)",
       "ts": "2026-09-12T22:43:26",
-      "topic": "Step 6 attempt 2 \u2014 relaxed idle-S measured IN BAND on breath; one region residue; recommendation PASS-WITH-NUMBERS (Matt rules)",
-      "ruling": "K3p-gen-idle-x2 (exaggeration language, same seed, 10 images) \u2192 K3p-reg-x2-01 (heights 240\u2013244, no scale drift) \u2192 K3p-cmp-x2-01 (object-respecting composite: instrument shoulders_chest band minus the staff column; G12 1.000 \u00d7 16; G6b 0.103 \u2264 0.273 PASS; G6c PASS) \u2192 K3p-chk-x2-01 vs the committed relaxed band: breath 3.39 %H (1.96\u20134.90, target 3.26) PASS; head bob 0.00 (0\u20131.20) PASS \u2014 the head is base pixels, carried not re-drawn; feet lock 0.00 PASS; LOCK regions 1 mismatch \u2014 arms_right 0.57 %H vs lock_eps 0.40 (\u2248 1.4 px at H 240) where the chest band overlaps the staff arm's strip; everything else LOCK. Aggregate idle_intent passed=False on that single region. Trajectory: 0.47 (C-1) \u2192 0.68 (attempt 1, px numbers) \u2192 3.39 %H (attempt 2, language).",
-      "consequence": "Recommendation to Matt: PASS-WITH-NUMBERS \u2014 the \u00a7 5 letter (within the relaxed band; feet locked) is met; the region miss is a composite-band residue with a named fix (carve the arm strips out of the band as the staff was; per-part masks, T3), not an intent failure. Alternative: FAIL on the strict letter of the committed region rule. If PASS: the first loop to pass the oracle gates \u2192 half of the 00-system pivot gate (one loop + one plate); the plate half is untouched this session.",
+      "topic": "Step 6 attempt 2 — relaxed idle-S measured IN BAND on breath; one region residue; recommendation PASS-WITH-NUMBERS (Matt rules)",
+      "ruling": "K3p-gen-idle-x2 (exaggeration language, same seed, 10 images) → K3p-reg-x2-01 (heights 240–244, no scale drift) → K3p-cmp-x2-01 (object-respecting composite: instrument shoulders_chest band minus the staff column; G12 1.000 × 16; G6b 0.103 ≤ 0.273 PASS; G6c PASS) → K3p-chk-x2-01 vs the committed relaxed band: breath 3.39 %H (1.96–4.90, target 3.26) PASS; head bob 0.00 (0–1.20) PASS — the head is base pixels, carried not re-drawn; feet lock 0.00 PASS; LOCK regions 1 mismatch — arms_right 0.57 %H vs lock_eps 0.40 (≈ 1.4 px at H 240) where the chest band overlaps the staff arm's strip; everything else LOCK. Aggregate idle_intent passed=False on that single region. Trajectory: 0.47 (C-1) → 0.68 (attempt 1, px numbers) → 3.39 %H (attempt 2, language).",
+      "consequence": "Recommendation to Matt: PASS-WITH-NUMBERS — the § 5 letter (within the relaxed band; feet locked) is met; the region miss is a composite-band residue with a named fix (carve the arm strips out of the band as the staff was; per-part masks, T3), not an intent failure. Alternative: FAIL on the strict letter of the committed region rule. If PASS: the first loop to pass the oracle gates → half of the 00-system pivot gate (one loop + one plate); the plate half is untouched this session.",
       "evidence": "K3p-chk-x2-01 checks.json; K3p-cmp-x2-01 checks.json; packet 16 (K3p-pack-x2-01)."
+    },
+    {
+      "id": "R-41",
+      "by": "Matt (read) + gandalf (conductor reassessment)",
+      "ts": "2026-09-12T23:10:49",
+      "topic": "Walk-E attempt 1 — Matt's eye: 'doesn't look like walking at all'; re-registration fork WITHDRAWN; the defect is continuity, not scale",
+      "ruling": "Matt, verbatim: \"Muybridge is a perfect walk. The walk_E_12fps.mp4 is nothing like it and doesn't look like walking at all. I don't know what method we chose but it did not work as we had desired I'm sure. Did you use 12 frames, matching the muybridge 12? If so I can't imagine how we ended with that result.\" Answer: yes — 12 frames, one per plate-13 phase, 3 per edit-canvas sheet × 4 sheets, each cell given its pose guide + phase line; each frame was drawn as an INDEPENDENT still (guides not honoured — the receipts said so; four figure scales across the four sheets; W-2 mismatch, W-4 = 4, planted slip 20 px/frame). Twelve walking stills, no stride between them. The conductor's 'drift-confounded' framing (R-39) was too generous: removing the scale drift would not make these frames a cycle. The per-sheet re-registration fork is WITHDRAWN.",
+      "consequence": "Mechanism finding: the idle passes because every frame is a small delta from one shared base (the composite carries master C); a walk's frames are large inter-dependent deltas with no shared base — a STRIDE IS A TEMPORAL OBJECT and an image model drawing frames one at a time has no frame-before. Recommendation to Matt: H-4 now = step 8 as the walk's path — Grok i2v from the E rest frame r2, cut 0–4.3 s, resampled to 12 frames per stride, matted, the SAME gait gates beside Muybridge (Q76 probe: real leg alternation, head bob 2.0 %H). Alternatives: chained edit-canvas (continuity vs identity drift) · park the walk.",
+      "evidence": "Packet 17 (walk_E_12fps.mp4 beside muybridge_plate13_8fps.mp4); K3p-chk-walk-01; walk receipts' guide-adherence concerns; Q76 / packet 13."
+    },
+    {
+      "id": "R-42",
+      "by": "Matt (direction) + gandalf (conductor plan)",
+      "ts": "2026-09-12T23:13:51",
+      "topic": "Attempt 2 RULED by eye (better, still a fail); step 8 becomes the PROCESS test — both loops from Grok video, same gates",
+      "ruling": "Matt, verbatim: \"The new idle (exaggerated) did seem to work better than the last. Regardless, I suspect that we will see major improvements by implementing the grok video frame extraction, either as a gap fill or maybe even as the entire process since our walk and idle both failed (walk much worse of a fail than Idle).\" Matt, refinement (same session): \"Step 2 is not an utter failure.. It could maybe be passable. Let's compare it to a version cut from grok video though.\" Recorded: relaxed idle attempt 2 = MAYBE PASSABLE — ruling DEFERRED to the side-by-side with the video-cut idle (packet 19); the instrument read breath 3.39 %H IN the committed (provisional) band — an instrument–eye gap to re-examine against the video result (the band, and a breath composited onto an otherwise frozen body). Walk attempt 1 = FAIL (R-41). Direction: Grok video frame extraction as gap-fill or as the entire loop process.",
+      "consequence": "Step 8 executed as the process test: walk clip from the E rest frame r2 + idle clip from master C's S still (headless Grok CLI, 6 s, 720p; conductor-driven; 0 Astra images) → CHECK bursts cut one cycle each with the frozen instruments (contacts / breath period), resample to 12 / 16 phases, matte, register (one uniform scale + one translation per clip) → the SAME gait / idle gates → packets beside Muybridge and the Hades curves. Q76 rules hold: 0–4.3 s only; amplitude is promptable (idle prompt aimed inside 1.96–4.90 %H).",
+      "evidence": "Packets 16 + 17; R-38/R-40/R-41; Q76 probe (packet 13); xvideo/README.md prompts A/B."
+    },
+    {
+      "id": "R-43",
+      "by": "Matt (question) + gandalf (conductor)",
+      "ts": "2026-09-12T23:18:48",
+      "topic": "The E seed's equipment geometry questioned — satchel confirmed wrong (front, not side); staff hand ambiguous in profile → derived-geometry JUDGE with a mirrored control",
+      "ruling": "Matt: \"Isn't the E seed PNG holding the staff in the wrong hand? Also the satchel is in front of the character and it should be to the side, right?\" Satchel: YES — the bible hangs it at her near LEFT hip at her side; r2 (and r1) swing it to the front beside the staff — a seed deviation already logged at R-34 and carried into the video walk clip. Staff hand: in a pure profile a far arm and a near arm reaching forward draw almost the same picture; the only tell is which upper arm the torso occludes. Conductor's read of r2 = far hand (shoulder occluded), NOT asserted (cf. R-15). Instrument: K2p-jdg-E — E, r1, r2 + mirror(r2) control, derived geometry, per-candidate staff_hand / satchel / strap / facing + axes 1–5. JUDGE RESULT (K2p-jdg-E, control caught: mirror(r2) → facing left, mirrored true, light 2, geometry 1): staff hand = FAR (right) on E, r1 AND r2 — correct — by occlusion (gripping forearm emerges from behind the torso's front edge, no visible shoulder; the near arm hangs empty). Satchel: E = SIDE (correct); r1 and r2 = FRONT (wrong). Strap: over the NEAR shoulder on all three (wrong) — the conductor's read that r2's strap came from behind the neck was WRONG. Geometry axis: E 4 (one error), r1 3, r2 3 (two errors). The walk seed (r2) carries satchel-front + strap-side; the first mint carried strap-side only.",
+      "consequence": "The fix belongs to the E REST FRAME (re-mint with the K2 geometry text: staff on the far side, shaft partly behind the body, tip above the far shoulder; satchel at the side over the thigh; strap from behind the neck), reference-pinned and judge-verified — not to the video. The video walk clip's motion evidence stands on its own; its identity inherits r2's construction and packet 18 says so. Next E rest frame = the FIRST mint's satchel geometry + a strap that emerges from behind the neck, reference-pinned and judge-verified in a loop before a shipping walk is cut. Matt's satchel call confirmed; the hand was right.",
+      "evidence": "K2p-gen-E-r2 receipt; R-34; K2 derived-geometry judge precedent (K2-jdg-04)."
+    },
+    {
+      "id": "R-44",
+      "by": "gandalf (conductor)",
+      "ts": "2026-09-12T23:29:33",
+      "topic": "Step 8 walk cut — the frozen contact detector finds no contacts on video masks (boots merge in profile); stride period taken from the head bob instead",
+      "ruling": "K3p-xv-cut-01 delivered the split + matte (104 native frames ≤ 4.3 s, plate survival 1.0, 768×1168 native, H ≈ 1110 px) and per-frame landmarks, then stopped at step 3 as instructed: zero CONTACT onsets — feet_merged on most masks, foot identity ambiguous on 26/104; the detector's stance logic (written for the scrolling Muybridge plate and registered sprites) never fires on a continuous in-place video walk. Method change within the hypothesis (K3p-xv-cut-02): stride period = 2 × the head-bob period (two bobs per stride) from the frozen head_top_y landmark (autocorrelation + DOWN minima), cut from a DOWN frame with the one-phase rotation vs plate 13 reported, resample 12, one uniform scale + one translation.",
+      "consequence": "T3: the walk instrument needs a per-boot identity that survives profile overlap (part masks / colour-split soles) before video walks can be gated on W-5/W-6 and contacts; W-1…W-4 and G6c remain measurable from the head track. Both Astra and video walks will have been cut/judged with the same head-based period.",
+      "evidence": "K3p-xv-cut-01 receipt + registration.json (contact_table [], feet_merged, identity_ambiguous_native_indices)."
+    },
+    {
+      "id": "R-45",
+      "by": "gandalf (conductor)",
+      "ts": "2026-09-12T23:32:40",
+      "topic": "Step 8 idle cut — burst timed out at the 15-min cap with its work complete; harvested on substance; the frozen breath instrument found NO dominant period in the video idle",
+      "ruling": "K3p-xv-idle-cut-01 hit the CHECK cap (03:16:22 → 03:31:22) before writing its receipt (wrapper: 'receipt unreadable'; audit otherwise clean; exit 3). Its out/ was complete: 16 registered frames (237–240 px), strip, registration.json, native curves/measurements, checks.json, readme. Harvested by conductor copy (R-4 / R-35 precedent) with CONDUCTOR_HARVEST.txt; the 104-frame native split stays in the workdir. FINDING: the frozen breath instrument's period estimate = null (confidence 0.0); the periodogram's largest non-DC bin = the whole retained span (104 frames / 4.33 s) — no dominant breath period in the video idle's chest-width curve over 0–4.3 s. The burst therefore resampled the WHOLE span (native 1…93, ~3.9 s) to 16 frames rather than cutting one breath; the gates measure amplitude on that loop and the packet carries the caveat.",
+      "consequence": "Step 8's idle comparison is measured as delivered (amplitude honest; period not a cut breath). T3: the cut tool needs a period fallback (prompted 2.0 s window) and the CHECK cap needs headroom for 100+-frame clips (split at half rate, or a two-burst split/measure).",
+      "evidence": "wave log k3p_xvidlecut; workdir registration.json (breath.frozen_period_confidence 0.0; spectral_dominant_period_frames 104)."
     }
   ]
 }

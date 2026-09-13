@@ -1,0 +1,34 @@
+{
+ "text": "JUDGE BURST K2p-jdg-E — the Keeper's E-facing rest frames: equipment GEOMETRY verified by occlusion, not by claim (Matt's question 2026-09-12: is the staff in the wrong hand? is the satchel at the front instead of the side?). task_id \"K2p-jdg-E\". You are a separate instance: you have not seen any prompt, receipt, check or prior judgment, and must not look for one.\n\nImage 1 = the APPROVED MASTER (direction S, facing the camera): her RIGHT hand holds the staff (on SCREEN-LEFT when she faces you); ONE harness strap runs from her RIGHT shoulder to her LEFT hip, where an olive satchel hangs AT HER SIDE. Images 2, 3, 4, 5 = four candidates that all claim direction E (full profile, facing screen-right); judge each independently; do not assume any is a control.\nDERIVED GEOMETRY for E (from the master): she faces screen-right, so her LEFT side is NEAR the camera and her RIGHT side is FAR. Correct: (a) the staff is in her FAR (right) hand — the tell is OCCLUSION: the staff arm's shoulder/upper arm is hidden behind the torso and the near (left) arm is the one fully visible; a staff held by the NEAR hand shows that arm's full shoulder and upper arm in front of the torso; (b) the satchel hangs at her near LEFT hip AT HER SIDE — over the hip/thigh, its body overlapping the leg — NOT swung to the front of the hip beside the belt buckle; (c) the strap crosses the chest FRONT emerging from behind the neck (far shoulder) — the visible near shoulder is BARE; (d) nose, chest and boot toes point screen-right; a candidate facing screen-LEFT is mirrored (then the staff would sit in the near hand and the satchel on the far hip).\nFor EACH candidate answer, with the visible evidence in one line each: staff_hand = \"far\" | \"near\" | \"cannot tell\" (name the occlusion evidence); satchel = \"side\" | \"front\" | \"absent\"; strap_over_near_shoulder = true | false; facing = \"right\" | \"left\"; mirrored = true | false; then score axes 1–5 (1–5 integers, one-line reasons): 1 register fidelity (hand-drawn tapered contour, painted planes) · 2 identity fidelity to Image 1 (face, hair mass, costume, colours) · 3 light obedience (key from screen upper-left — the key-facing side is the screen-left side; a candidate lit from upper-right scores ≤ 2) · 4 equipment geometry per (a)–(d) (all four correct = 5; each error −1) · 5 profile quality (a true profile: one eye, one ear line, chest facing screen-right).\nWrite out/judgment.json: {\"candidates\":[{\"image\":2,\"staff_hand\":\"…\",\"staff_evidence\":\"…\",\"satchel\":\"…\",\"strap_over_near_shoulder\":bool,\"facing\":\"…\",\"mirrored\":bool,\"axes\":{\"1\":n,\"2\":n,\"3\":n,\"4\":n,\"5\":n},\"reasons\":{\"1\":\"…\",…}}, …]}. No image_gen. No code. No web. No files outside out/. calls_used must be 0.\nRETURN: receipt task_id \"K2p-jdg-E\"; images []; files [out/judgment.json + sha256]; status DELIVERED / DELIVERED_WITH_CONCERNS; concerns for anything you could not assess. Never PASS/FAIL — scores only.",
+ "references": [
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K1p-gen-01/k1p_master_C.png",
+   "role": "APPROVED MASTER (direction S)"
+  },
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K2p-gen-E/k2p_E.png",
+   "role": "candidate, claimed E"
+  },
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K2p-gen-E-r1/k2p_E_r1.png",
+   "role": "candidate, claimed E"
+  },
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K2p-gen-E-r2/k2p_E_r2.png",
+   "role": "candidate, claimed E"
+  },
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K2p-control/k2p_E_control_mirror.png",
+   "role": "candidate, claimed E"
+  }
+ ],
+ "image_cap": 0,
+ "minutes_cap": 15,
+ "tool_call_cap": 20,
+ "outputs": [
+  "out/judgment.json"
+ ],
+ "effort": "high",
+ "add_dirs": [],
+ "experiment": "K2p"
+}

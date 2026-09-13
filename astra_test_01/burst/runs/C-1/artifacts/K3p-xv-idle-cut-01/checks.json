@@ -1,0 +1,52 @@
+{
+  "task_id": "K3p-xv-idle-cut-01",
+  "native_count": 104,
+  "registered_count": 16,
+  "all_registered_rgba_512": true,
+  "frame_zero": {
+    "height": 240,
+    "sole_line": 399,
+    "center_x": 255.5
+  },
+  "single_uniform_scale": 0.21178445229681978,
+  "single_integer_translation": [
+    178,
+    158
+  ],
+  "maximum_retained_time_s": 4.291667,
+  "minimum_plate_border_green_fraction": 0.99974173553719,
+  "matte_error_count": 0,
+  "native_indices": [
+    1,
+    7,
+    13,
+    19,
+    26,
+    32,
+    38,
+    44,
+    50,
+    56,
+    62,
+    68,
+    75,
+    81,
+    87,
+    93
+  ],
+  "registered_height_range": [
+    237,
+    240
+  ],
+  "registered_sole_row_range": [
+    399,
+    399
+  ],
+  "concerns": [
+    "Frozen autocorrelation dominant period is unavailable: the retained clip contains only one full breath; the frozen instrument requires at least two cycles.",
+    "A same-size nonoverlapping control box does not fit the native canvas; frozen contamination measurement is unavailable.",
+    "The spectral dominant period is one clip-length bin (104 frames), not a resolved repeated-cycle estimate.",
+    "Input geometry is 768x1168 at 24 fps, rather than the brief description of 720p."
+  ],
+  "note": "Measurements and artifact consistency only; no conductor gates evaluated."
+}
