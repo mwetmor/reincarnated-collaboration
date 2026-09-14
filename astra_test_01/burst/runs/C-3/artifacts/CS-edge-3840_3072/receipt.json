@@ -1,0 +1,39 @@
+{
+  "task_id": "CS-edge-3840_3072",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "edge_3840_3072",
+      "path": "out/edge_3840_3072.png",
+      "sha256": "d0a050ce62a7e38adb010d8909c3768e6d6101cca45940632de45fa0a558923c",
+      "prompt": "Use case: precise-object-edit. IMAGE 1 is the ORIGINAL edit target. Make one 1536×1024 image. Local cloud-edge repair only. Preserve original composition, all original cloud interiors beyond 60–180 pixels from the black boundary, and all non-cloud elements exactly. Keep the huge black region pure #000000. Repaint the abrupt cloud cutout boundary into ROUND, SOFT, BILLowing CUMULUS LOBES that follow the actual painted puff curves. Match the original hand-painted 2D cloud style: peach/cream upper-left highlights, lavender/violet lower-right shadows, clean painted planes and restrained texture. At the boundary use rounded puffs of varied sizes, tapering into a few smaller translucent-looking vapour puffs, with black showing through their soft fading edges. Do not make pointed, shredded, ragged or wind-swept fingers. CRITICAL FOOTPRINT LOCK: follow the original boundary closely, do most repainting INSIDE the original cloud area, and extend new outer puffs only 20–50 pixels beyond the original boundary, never beyond 100 pixels. Leave the original large black gap along the top center open and unchanged; do not bridge separate cloud patches. Preserve the cloud bank interior and its placement along top and right edges. Preserve the little isolated fleck at far right. No new islands, no added terrain, no text. No haze, glow or gradients on black away from immediate soft puff edges. Do not change any rock, grass, dirt, bridge or other non-cloud content. The task-specific black-backed 1536×1024 cloud repair governs this asset. Retry correction: previous attempt spread too far into the upper black gap and produced ragged wisps; keep original footprint and draw softly rounded billow edges.",
+      "references": [
+        {
+          "role": "IMAGE 1 — original crop over black; edit target",
+          "path": "in/01_edge_3840_3072_canvas.png"
+        }
+      ],
+      "elapsed_s": 16.439
+    }
+  ],
+  "calls_used": 2,
+  "retries": [
+    {
+      "reason": "First attempt spread clouds too far into the upper black gap and produced ragged edges.",
+      "change": "Retried from the original with tighter expansion limits and explicit rounded-puff instructions."
+    }
+  ],
+  "self_report": {
+    "obeyed_invariants": true,
+    "concerns": [
+      "Dimensions verified as 1536×1024. Exact interior preservation, black RGB values, and maximum cloud expansion were assessed visually only.",
+      "Outermost vapour reads mainly as softly faded puffs, with limited wisps."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/edge_3840_3072.png",
+      "sha256": "d0a050ce62a7e38adb010d8909c3768e6d6101cca45940632de45fa0a558923c"
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+ "text": "GENERATE BURST CS-edge-2688_768 — repaint the CANYON-FACING CLOUD EDGES so they read as real billowing vapour (Matt R-C3-75/76). task_id \"CS-edge-2688_768\".\n\nIMAGE 1 (1536×1024) is a crop of a hand-painted 2D ARPG level shown over PURE BLACK: sunlit cliff-top ground and rock cliff faces, and a dense bank of sunset cumulus clouds (peach, cream, lavender, violet) filling a canyon. Where the cloud bank ends against the black, its edge is currently wrong: the outline cuts across the painted billows haphazardly instead of following them.\nUse image_gen in EDIT mode on IMAGE 1 and deliver ONE 1536×1024 image in which ONLY the cloud bank's EDGES against the black are repainted (a band roughly 60–180 px deep on the cloud side of each edge, plus wisps beyond it): the edge becomes rounded cumulus puffs of varied size whose outlines FOLLOW THE CURVES of the billows — each puff lit warm on its upper-left, shadowed lavender on its lower-right, with a soft painted outline that traces its own curve, in exactly the painting style of the interior clouds; toward the very outside the puffs get smaller and the vapour THINS OUT — the outermost small puffs and wisps are semi-transparent (the black shows through them) and fade softly into the black. Do NOT change the rock, grass, dirt, bridge or anything that is not cloud; do NOT change the interior of the cloud bank away from its edges; do NOT extend clouds more than ~150 px beyond the current edge; everywhere with no cloud stays PURE BLACK #000000 (no glow, no haze, no gradient on the black away from the wisps).\n\nOne image_gen call. ONE retry only if rock/ground was changed, the edges still cut across billows, the black got hazy far from the clouds, or clouds spread much beyond the old edge — name the reason. Copy the output from $CODEX_HOME/generated_images/... to out/edge_2688_768.png with sha256. No code. No other files. No web.\nRETURN: receipt task_id \"CS-edge-2688_768\"; images = the file with prompt, references and elapsed_s; calls_used = the TRUE number of image_gen calls; status; concerns. Never PASS/FAIL.",
+ "references": [
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/CS-edge-canvases/edge_2688_768_canvas.png",
+   "role": "IMAGE 1 — crop over black to EDIT"
+  }
+ ],
+ "image_cap": 2,
+ "minutes_cap": 15,
+ "tool_call_cap": 20,
+ "outputs": [
+  "out/edge_2688_768.png"
+ ],
+ "effort": "high",
+ "add_dirs": [],
+ "experiment": "C3-cliffside-v4"
+}

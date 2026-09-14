@@ -1,0 +1,33 @@
+{
+  "task_id": "CS-edge-2688_3072",
+  "status": "DELIVERED",
+  "images": [
+    {
+      "name": "edge_2688_3072.png",
+      "path": "out/edge_2688_3072.png",
+      "sha256": "d052bed14fb2d7c1ae070be5eb1115a6c22feee827c966fa0c1cf03ea9bb9bb2",
+      "prompt": "Use case: precise-object-edit. IMAGE 1 is the edit target. Deliver one 1536×1024 PNG with identical framing and terrain. Repaint ONLY the canyon-facing cloud edges against pure black: a band roughly 60–180 px deep on the cloud side of each existing edge, plus delicate wisps no farther than 150 px beyond the old edge. The main cloud edge is beside the left cliff; also treat the small cloud fragment at the upper-right corner. Replace the haphazard cut across billows with rounded cumulus puffs of varied sizes whose outer contours follow their own painted billow curves. Each puff is lit peach/cream on its upper-left and shadowed lavender/violet on its lower-right, with a soft painted outline tracing its own curve, matching the existing interior cloud painting exactly. Toward the outside, puffs become smaller and vapour thins: small outer puffs and wisps are semi-transparent in appearance over the black, gently fading into black. Keep these soft fades very local. Preserve the interior clouds away from this edge band. Preserve all rock, cliff faces, grass, dirt and every non-cloud detail exactly. Do not redraw, move or relight terrain. Everywhere without cloud must remain flat PURE BLACK #000000, with no distant haze, glow or gradient. Do not fill the canyon or expand the cloud bank more than 150 px beyond any original edge. Match the existing hand-drawn painted 2D game environment with clean material planes and restrained texture. No added objects, text, or changes of camera. This is a local cloud-edge correction, preserve all other pixels.",
+      "references": [
+        {
+          "role": "IMAGE 1 — crop over black to EDIT",
+          "path": "in/01_edge_2688_3072_canvas.png"
+        }
+      ],
+      "elapsed_s": 20.775
+    }
+  ],
+  "calls_used": 1,
+  "retries": [],
+  "self_report": {
+    "obeyed_invariants": true,
+    "concerns": [
+      "Preservation and black background assessed visually; exact pixel equality was not measured."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/edge_2688_3072.png",
+      "sha256": "d052bed14fb2d7c1ae070be5eb1115a6c22feee827c966fa0c1cf03ea9bb9bb2"
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "task_id": "CS-asm-fg-v4-band5",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [],
+  "calls_used": 0,
+  "retries": [],
+  "self_report": {
+    "obeyed_invariants": true,
+    "concerns": [
+      "Some translucent fringe areas appear muted grey-brown; retained as prescribed.",
+      "Live wrapper-owned telemetry is excluded from artifact checksums."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/foreground.png",
+      "sha256": "93e55f408e08886de05d3b986ce027cffda369b21b2853395dd3f8601dadcc09"
+    },
+    {
+      "path": "out/foreground_preview_1344x1024.png",
+      "sha256": "a4d13110762d87eb258bc3c61a238eeb63b21516b42cced69dc9b54a019a9a86"
+    },
+    {
+      "path": "out/edge_detail_crops.png",
+      "sha256": "21c4733028573cc3cc922b8b2d6b56a6e5f8daccc93961433bf27423ffd3438a"
+    },
+    {
+      "path": "out/checks.json",
+      "sha256": "d67b93aa454e8b597bc6149923537a295fbead4ae6ec101d384ff3e125488eeb"
+    },
+    {
+      "path": "out/summary.txt",
+      "sha256": "2f4bf2a83492c8d526109c3fcf088a2ab1a93043f1097bf72035d81ee56a6e57"
+    }
+  ]
+}

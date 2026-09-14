@@ -1,0 +1,61 @@
+{
+  "assets": [
+    {
+      "name": "ring",
+      "file": "ring.png",
+      "anchor": [
+        32,
+        64
+      ],
+      "footprint": {
+        "w": 20,
+        "h": 12,
+        "offset": [
+          3.5,
+          -2.25
+        ]
+      },
+      "collide": true,
+      "fade_when_behind": true
+    },
+    {
+      "name": "rect",
+      "file": "ring.png",
+      "anchor": [
+        32,
+        64
+      ],
+      "footprint": {
+        "w": 20,
+        "h": 12,
+        "offset": [
+          3.5,
+          -2.25
+        ],
+        "shape": "rect"
+      },
+      "collide": true,
+      "fade_when_behind": true
+    }
+  ],
+  "instances": [
+    {
+      "asset": "ring",
+      "position": [
+        128,
+        160
+      ]
+    },
+    {
+      "asset": "rect",
+      "position": [
+        256,
+        160
+      ]
+    }
+  ],
+  "shadows": [],
+  "overhead": [],
+  "near": [],
+  "particles": []
+}

@@ -1,0 +1,31 @@
+{
+  "task_id": "CS-edge-2688_2304",
+  "status": "DELIVERED",
+  "images": [
+    {
+      "name": "edge_2688_2304.png",
+      "path": "out/edge_2688_2304.png",
+      "sha256": "014d09c64cac9b37085db7366c1427d7f331c44afa254048ed9c559aecd9b327",
+      "prompt": "Use case: precise-object-edit. IMAGE 1 is the edit target. Deliver ONE 1536×1024 image, same framing and exact painting style. Repaint ONLY the canyon-facing cloud edges against pure black, within a band roughly 60–180 px deep on the cloud side plus small wisps beyond. The existing edge cuts across painted billows; replace it with rounded cumulus puffs of varied size whose silhouettes follow the curves of their own billows. Each puff has warm peach/cream upper-left light and lavender/violet lower-right shadow, matching the interior painted clouds. Soft painted curved outlines, smaller puffs toward the outside, thinning vapour, outermost tiny puffs and wisps semi-transparent in appearance with black showing through and a soft fade into black. Keep each cloud bank's overall footprint and the broad central black opening; do not extend clouds more than approximately 150 px beyond the original edge. Preserve rock, cliff, grass, flowers, dirt, all non-cloud elements and the cloud interiors away from the edge exactly. Preserve original light, colors, composition and detail. All empty space remains PURE BLACK #000000: no haze, glow or gradient away from the small wisps. Hand-drawn painted 2D game environment, clean material planes, restrained texture. No new objects, no text. This is a local edge repair, preserve everything outside the specified cloud-edge bands.",
+      "references": [
+        {
+          "role": "IMAGE 1 — crop over black to EDIT",
+          "path": "in/01_edge_2688_2304_canvas.png"
+        }
+      ],
+      "elapsed_s": 26.316
+    }
+  ],
+  "calls_used": 1,
+  "retries": [],
+  "self_report": {
+    "obeyed_invariants": true,
+    "concerns": []
+  },
+  "files": [
+    {
+      "path": "out/edge_2688_2304.png",
+      "sha256": "014d09c64cac9b37085db7366c1427d7f331c44afa254048ed9c559aecd9b327"
+    }
+  ]
+}

@@ -5,6 +5,7 @@ PYTHONPATH=.:tests python3 -B tests/test_props_layer.py --fixture runs/C-3/t3/T3
 import copy
 import hashlib
 import json
+import math
 from pathlib import Path
 import re
 import subprocess
@@ -17,7 +18,7 @@ from unittest.mock import patch
 from PIL import Image, ImageDraw
 from export.godot_import import build_project, validate_resources
 from export.parallax_scene import load_parallax
-from export.props_layer import load_props, near_coverage, _camera_top_left
+from export.props_layer import load_props, near_coverage, _camera_top_left, ellipse, write_layers, OCCLUSION_SCRIPT
 from test_parallax_scene import (make_inputs, rectangle, scene_nodes, vector,
                                  scene_polygons, contains, GODOT, TMP)
 
@@ -232,7 +233,7 @@ class PropsLayerTests(unittest.TestCase):
                 elif change == 'missing': del a[key][0][next(iter(a[key][0]))]
                 else: a[key] = {}
                 with self.subTest(key=key, change=change): self.reject(a)
-        a = copy.deepcopy(self.data);a['assets'][0]['footprint']['shape'] = 'ellipse';self.reject(a)
+        a = copy.deepcopy(self.data);a['assets'][0]['footprint']['surprise'] = 'ellipse';self.reject(a)
         for key in self.data:
             a = copy.deepcopy(self.data);del a[key]
             with self.subTest(missing=key): self.reject(a)
@@ -438,8 +439,345 @@ def build_fixture(directory):
     return report
 
 
+# T3m additions are below; the original T3l fixture command remains available.
+
+T3L_PROPS_BASELINE = {
+    **BASELINE,
+    'parallax/export.json': 'f0287a4091fad7bd3a51d617111bdab89b42b2af1a45bdcdc2ec7d9160d671e2',
+    'props/props.json': 'ca8a0a44effd6c925cf99faf696f61286700441d506baba1db3e1d9d765c9265',
+    'scenes/cliffside.tscn': '7b40d225aeb834f858c023970942f0d11a77842016b5dad0792ccfe61dd6addf',
+    'scripts/occlusion_fade.gd': '6457d041cb822f74c1c26fee1f1b72715e05b30b19b26b85bae230ddb45daeae',
+}
+
+
+class PropsLayerT3mTests(unittest.TestCase):
+    setUp = PropsLayerTests.setUp
+    export = PropsLayerTests.export
+    reject = PropsLayerTests.reject
+
+    def test_offset_ellipse_centre_exact_in_level_pixels(self):
+        footprint = self.data['assets'][0]['footprint']
+        footprint['offset'] = [13.25, -7.5]
+        (self.props/'props.json').write_text(json.dumps(self.data))
+        _, _, text = self.export()
+        nodes = scene_nodes(text)
+        for i in (0, 1):
+            node = nodes[f'PropCollision_{i}']
+            polygon = scene_polygons(node)[0]
+            pos = vector(node, 'position')
+            self.assertEqual(pos, self.data['instances'][i]['position'])
+            self.assertEqual(len(polygon), 16)
+            # Opposite cardinal vertices give the centre without summation noise.
+            centre = [(polygon[0][0]+polygon[8][0])/2,
+                      (polygon[4][1]+polygon[12][1])/2]
+            self.assertEqual(centre, [13.25, -7.5])
+            self.assertEqual([pos[k]+centre[k] for k in (0, 1)],
+                             [pos[k]+footprint['offset'][k] for k in (0, 1)])
+            self.assertEqual(vector(nodes[f'Prop_{i}'], 'offset'), [-49.5, -174])
+
+    def test_rect_four_vertices_and_offset_without_sprite_scaling(self):
+        self.data['assets'][0]['footprint'] = {
+            'w': 20, 'h': 12, 'shape': 'rect', 'offset': [-4.5, 9.25]}
+        (self.props/'props.json').write_text(json.dumps(self.data))
+        _, _, text = self.export()
+        for i in (0, 1):
+            node = scene_nodes(text)[f'PropCollision_{i}']
+            self.assertEqual(scene_polygons(node)[0],
+                             [[-14.5, 3.25], [5.5, 3.25], [5.5, 15.25], [-14.5, 15.25]])
+            self.assertEqual(vector(node, 'position'), self.data['instances'][i]['position'])
+        self.assertEqual(ellipse({'w': 20, 'h': 12, 'shape': 'rect'}),
+                         [[-10, -6], [10, -6], [10, 6], [-10, 6]])
+
+    def test_optional_defaults_preserve_legacy_vertices_and_scene_text(self):
+        baseline = ellipse({'w': 70, 'h': 24})
+        expected = [[35*math.cos(i*math.tau/16), 12*math.sin(i*math.tau/16)] for i in range(16)]
+        self.assertEqual(baseline, expected)
+        for extra in ({'shape': 'ellipse'}, {'offset': [0, 0]},
+                      {'shape': 'ellipse', 'offset': [0.0, -0.0]}):
+            with self.subTest(extra=extra):
+                self.assertEqual(ellipse({'w': 70, 'h': 24, **extra}), baseline)
+        # T3l iterates a set when emitting report counts. Freeze its pre-edit
+        # iteration order as well as the clock; do not change exporter output.
+        class BaselineCollections(set):
+            def __iter__(self):
+                return iter(('assets', 'near', 'shadows', 'instances', 'particles', 'overhead'))
+
+        with patch('time.monotonic', return_value=0.0), patch(
+                'export.props_layer.COLLECTIONS', BaselineCollections(self.data)):
+            out, _, before = self.export()
+        old_hashes = text_hashes(out)
+        self.assertEqual(set(old_hashes), set(T3L_PROPS_BASELINE))
+        differences = [p for p in old_hashes if old_hashes[p] != T3L_PROPS_BASELINE[p]]
+        # The contract requires a new script. All other old-manifest text is locked.
+        self.assertEqual(differences, ['scripts/occlusion_fade.gd'])
+        for asset in self.data['assets']:
+            asset['footprint'].update(shape='ellipse', offset=[0, 0])
+        (self.props/'props.json').write_text(json.dumps(self.data))
+        explicit = self.root/'explicit_defaults'
+        with patch('time.monotonic', return_value=0.0):
+            build_project(self.cells, explicit, parallax=self.source, props=self.props)
+        self.assertEqual((explicit/'scenes/cliffside.tscn').read_text(), before)
+
+    def test_invalid_shapes_offsets_and_unknown_keys_before_output(self):
+        cases = [({'shape': s}) for s in ('circle', 'RECT', '', None, True, 2, [], {})]
+        cases += [{'offset': v} for v in
+                  ([float('nan'), 0], [0, float('inf')], [float('-inf'), 0],
+                   [True, 0], [0, False], [0], [0, 0, 0], '0,0', None, {}, ['1', 0])]
+        cases += [{'surprise': 0}]
+        for extra in cases:
+            data = copy.deepcopy(self.data)
+            data['assets'][0]['footprint'].update(extra)
+            with self.subTest(extra=extra):
+                self.reject(data)
+        for footprint in (None, [], {'h': 12, 'offset': [0, 0]}, {'w': 12, 'shape': 'rect'}):
+            data = copy.deepcopy(self.data)
+            data['assets'][0]['footprint'] = footprint
+            with self.subTest(footprint=footprint):
+                self.reject(data)
+
+    def test_generated_pixel_mask_contract_and_legacy_near_branch(self):
+        out, _, _ = self.export()
+        script = (out/'scripts/occlusion_fade.gd').read_text()
+        self.assertEqual(script, OCCLUSION_SCRIPT)
+        for token in ('func _ready()', 'create_from_image_alpha(source.get_image(), 0.5)',
+                      'frames.get_frame_texture(sprite.animation, sprite.frame)',
+                      'frame_masks.has(current)', 'frame_masks[current] = _alpha_mask(current)',
+                      'sprite.offset', 'sprite.centered', 'sprite.flip_h', 'sprite.flip_v',
+                      'sprite.get_global_transform_with_canvas()', 'affine_inverse()',
+                      'x += 2.0', 'y += 2.0', 'mask.get_bitv(pixel)',
+                      'if wanted != target_alpha:', '0.15 if fade_mode == 2 else 0.06'):
+            self.assertIn(token, script)
+        pixel_branch = script.split('func _pixel_overlap()')[1].split('func _process')[0]
+        self.assertNotIn('body_width', pixel_branch)
+        self.assertNotIn('opaque_rect', pixel_branch)
+        self.assertIn('keeper.global_position.y < global_position.y and _pixel_overlap()', script)
+
+    def test_fixture_hollow_square_asymmetry_and_generated_resources(self):
+        out = build_t3m_fixture(self.root/'fixture')
+        self.assertEqual((out/'scripts/occlusion_fade.gd').read_text(), OCCLUSION_SCRIPT)
+        self.assertTrue(validate_resources(out, include_scenes=True))
+        with Image.open(out/'props/ring.png') as image:
+            alpha = image.getchannel('A')
+            self.assertEqual(image.size, (64, 64))
+            self.assertEqual(alpha.getpixel((32, 32)), 0)
+            self.assertEqual(alpha.getpixel((4, 32)), 255)
+        with Image.open(out/'sprites/square.png') as image:
+            self.assertEqual(image.size, (6, 6))
+            self.assertEqual(image.getchannel('A').getextrema(), (255, 255))
+        with Image.open(out/'sprites/asymmetric.png') as image:
+            self.assertEqual(image.getchannel('A').getbbox(), (0, 0, 6, 6))
+        nodes = scene_nodes((out/'scenes/cliffside.tscn').read_text())
+        self.assertEqual(scene_polygons(nodes['PropCollision_1'])[0],
+                         [[-6.5, -8.25], [13.5, -8.25], [13.5, 3.75], [-6.5, 3.75]])
+
+    @unittest.skipUnless(Path(GODOT).is_file(), 'Godot binary unavailable')
+    def test_headless_ring_hollow_fade_timing_front_flip_current_frame_and_transforms(self):
+        out = build_t3m_fixture(self.root/'fixture')
+        logs = []
+        for args in (['--import'], ['--script', 'res://probe.gd']):
+            # Keep the engine logger inside this test's TemporaryDirectory.
+            # The macOS default user logger can crash before project settings load.
+            proc = subprocess.run([GODOT, '--headless', '--path', str(out),
+                                   '--log-file', str(self.root/'godot.log'), *args],
+                                  capture_output=True, text=True, timeout=45)
+            log = proc.stdout+proc.stderr
+            logs.append(log)
+            self.assertEqual(proc.returncode, 0, log)
+            self.assertNotIn('SCRIPT ERROR', log)
+            self.assertNotIn('T3M_ASSERTION:', log)
+        self.assertIn('T3M_RUNTIME_ASSERTIONS=complete', logs[-1])
+        rows = [json.loads(line.split('=', 1)[1]) for line in logs[-1].splitlines()
+                if line.startswith('T3M_MEASURE=')]
+        self.assertGreaterEqual(len(rows), 20)
+
+
+T3M_PROBE = '''extends SceneTree
+var errors: int = 0
+
+func check(value: bool, message: String) -> void:
+    if not value:
+        errors += 1
+        printerr("T3M_ASSERTION: ", message)
+
+func record(label: String, value: float, threshold: float, op: String, unit: String = "alpha") -> void:
+    print("T3M_MEASURE=", JSON.stringify({"id": "t3m_" + label, "subject": "synthetic_ring",
+        "passed": null, "value": value, "threshold": threshold, "op": op, "unit": unit,
+        "evidence": ["fixture_project/probe.gd"], "notes": "Engine measurement; conductor owns acceptance."}))
+    check(value <= threshold if op == "<=" else value >= threshold, label)
+
+func settle(prop: Sprite2D, label: String, fading: bool) -> void:
+    # Apply the trigger at t=0 and measure completion, with a 0.1-second deadline.
+    # A stalled engine is reported as late, never relabelled a 0.1-second sample.
+    var started: int = Time.get_ticks_usec()
+    prop._process(0.0)
+    while not is_equal_approx(prop.modulate.a, prop.target_alpha) and Time.get_ticks_usec()-started < 100000:
+        await process_frame
+    record(label, prop.modulate.a, 0.4 if fading else 0.95, "<=" if fading else ">=")
+    record(label + "_wall_s", float(Time.get_ticks_usec()-started)/1000000.0, 0.1, "<=", "s")
+
+func _initialize() -> void:
+    call_deferred("probe")
+
+func probe() -> void:
+    root.size = Vector2i(320, 240)
+    var scene: Node2D = load("res://scenes/cliffside.tscn").instantiate()
+    root.add_child(scene)
+    await process_frame
+    var keeper: Node2D = scene.get_node("Actors/Keeper")
+    var sprite: AnimatedSprite2D = keeper.get_node("AnimatedSprite2D")
+    var prop: Sprite2D = scene.get_node("Actors/Prop_0")
+    sprite.pause()
+    keeper.position = Vector2(128, 131)
+    await settle(prop, "hollow_initial", false)
+    check(is_equal_approx(prop.modulate.a, 1.0), "hollow stays exactly 1")
+    check(prop.prop_mask.get_size() == Vector2i(64, 64), "ready creates prop bitmap")
+    keeper.position = Vector2(102, 131)
+    await settle(prop, "ring_behind", true)
+    var tween: Tween = prop.fade_tween
+    prop._process(0.0)
+    check(prop.fade_tween == tween, "same target does not retrigger tween")
+    keeper.position = Vector2(128, 131)
+    await settle(prop, "hollow_restored", false)
+    keeper.position = Vector2(128, 163)
+    check(prop._pixel_overlap(), "front case really overlaps opaque bottom ring")
+    await settle(prop, "ring_front", false)
+    check(is_equal_approx(prop.modulate.a, 1.0), "front stays exactly 1")
+    keeper.position = Vector2(128, 160)
+    await settle(prop, "anchor_equal", false)
+
+    # Same pixel rule for overhead, but without the behind predicate.
+    prop.fade_mode = 1
+    keeper.position = Vector2(128, 163)
+    await settle(prop, "overhead_front", true)
+    keeper.position = Vector2(128, 131)
+    await settle(prop, "overhead_hollow", false)
+    prop.fade_mode = 0
+    keeper.position = Vector2(102, 131)
+    sprite.frame = 1
+    await settle(prop, "current_transparent_frame", false)
+    check(prop.frame_masks.size() == 2, "one cache entry per distinct frame texture")
+    sprite.frame = 0
+    await settle(prop, "current_square_frame", true)
+    check(prop.frame_masks.size() == 2, "revisit reuses frame bitmap")
+
+    # A 32x6 texture with only its leftmost 6x6 opaque; offset is nonzero.
+    sprite.frame = 2
+    sprite.offset = Vector2(-8, -6)
+    keeper.position = Vector2(132, 131)
+    sprite.flip_h = false
+    await settle(prop, "asymmetric_unflipped_hollow", false)
+    sprite.flip_h = true
+    await settle(prop, "asymmetric_flipped_ring", true)
+    sprite.flip_h = false
+    await settle(prop, "asymmetric_unflipped_restored", false)
+
+    # Alpha threshold straddles 0.5 and must not depend on current modulate.a.
+    sprite.offset = Vector2(-3, -6)
+    keeper.position = Vector2(102, 131)
+    sprite.frame = 3
+    await settle(prop, "alpha_127_transparent", false)
+    sprite.frame = 4
+    await settle(prop, "alpha_128_opaque", true)
+    check(prop.frame_masks.size() == 5, "five distinct textures cached")
+
+    # Independent sprite offset/centering/scale and shared rotated canvas transform.
+    sprite.frame = 0
+    sprite.centered = true
+    sprite.offset = Vector2(0, -3)
+    sprite.scale = Vector2(1.5, 0.75)
+    scene.scale = Vector2(1.5, 0.75)
+    scene.rotation = 0.13
+    scene.position = Vector2(17, 9)
+    keeper.position = Vector2(128, 131)
+    await settle(prop, "transformed_hollow", false)
+    keeper.position = Vector2(102, 131)
+    await settle(prop, "transformed_ring", true)
+    sprite.scale.x = -1.5
+    await settle(prop, "negative_scale_ring", true)
+    sprite.scale = Vector2.ZERO
+    await settle(prop, "zero_scale_empty", false)
+
+    # Interrupt an in-progress fade; reverse tween must start from current alpha.
+    sprite.scale = Vector2.ONE
+    scene.transform = Transform2D.IDENTITY
+    keeper.position = Vector2(102, 131)
+    prop._process(0.0)
+    await create_timer(0.02).timeout
+    var interrupted: Tween = prop.fade_tween
+    keeper.position = Vector2(128, 131)
+    prop._process(0.0)
+    check(prop.fade_tween != interrupted, "changed target replaces tween")
+    check(not interrupted.is_valid(), "previous tween killed")
+    await settle(prop, "interrupted_restore", false)
+
+    if errors == 0:
+        print("T3M_RUNTIME_ASSERTIONS=complete")
+    scene.queue_free()
+    await process_frame
+    quit(0 if errors == 0 else 7)
+'''
+
+
+def build_t3m_fixture(directory):
+    """Small, persistent ring/6x6 fixture using the actual exported fade script.
+
+    Run Godot --headless --path DIR/fixture_project --import, then the same
+    command with --script res://probe.gd. All art is synthetic test geometry.
+    """
+    from export.godot_import import write_spriteframes
+    root = Path(directory)
+    root.mkdir(parents=True, exist_ok=True)
+    source = root/'fixture_inputs'
+    source.mkdir()
+    ring = Image.new('RGBA', (64, 64))
+    for y in range(64):
+        for x in range(64):
+            if 20**2 <= (x-31.5)**2+(y-31.5)**2 <= 31.5**2:
+                ring.putpixel((x, y), (40, 90, 130, 255))
+    ring.save(source/'ring.png')
+    data = {key: [] for key in ('assets', 'instances', 'shadows', 'overhead', 'near', 'particles')}
+    for name, footprint, position in (
+            ('ring', {'w': 20, 'h': 12, 'offset': [3.5, -2.25]}, [128, 160]),
+            ('rect', {'w': 20, 'h': 12, 'offset': [3.5, -2.25], 'shape': 'rect'}, [256, 160])):
+        data['assets'].append({'name': name, 'file': 'ring.png', 'anchor': [32, 64],
+                               'footprint': footprint, 'collide': True, 'fade_when_behind': True})
+        data['instances'].append({'asset': name, 'position': position})
+    (source/'props.json').write_text(json.dumps(data, indent=2)+'\n')
+    out = root/'fixture_project'
+    for folder in ('scripts', 'scenes', 'sprites', 'frames'):
+        (out/folder).mkdir(parents=True)
+    fragments = write_layers(out, load_props(source))
+    for name, alpha in (('square', 255), ('transparent', 0), ('alpha127', 127), ('alpha128', 128)):
+        Image.new('RGBA', (6, 6), (60, 130, 190, alpha)).save(out/'sprites'/f'{name}.png')
+    asymmetric = Image.new('RGBA', (32, 6))
+    ImageDraw.Draw(asymmetric).rectangle((0, 0, 5, 5), fill=(60, 130, 190, 255))
+    asymmetric.save(out/'sprites/asymmetric.png')
+    paths = ['sprites/'+n+'.png' for n in ('square', 'transparent', 'asymmetric', 'alpha127', 'alpha128')]
+    write_spriteframes(out, 'frames/keeper.tres', {'idle_S': (paths, 8, True)})
+    external = fragments['external']+[
+        '[ext_resource type="SpriteFrames" path="res://frames/keeper.tres" id="Frames"]']
+    scene = ('[gd_scene load_steps='+str(len(external)+1)+' format=3]\n\n'+
+             '\n'.join(external)+'\n\n[node name="Cliffside" type="Node2D"]\n'+
+             '\n[node name="Walls" type="StaticBody2D" parent="."]\n'+fragments['collisions']+
+             fragments['before_keeper']+
+             '\n[node name="Keeper" type="Node2D" parent="Actors"]\nposition = Vector2(128, 131)\n'+
+             '\n[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Actors/Keeper"]\n'+
+             'sprite_frames = ExtResource("Frames")\nanimation = &"idle_S"\ncentered = false\noffset = Vector2(-3, -6)\n'+
+             fragments['after_keeper'])
+    (out/'scenes/cliffside.tscn').write_text(scene)
+    (out/'project.godot').write_text('config_version=5\n\n[application]\nconfig/name="T3m ring probe"\n'
+                                   'run/main_scene="res://scenes/cliffside.tscn"\n\n[debug]\n'
+                                   'file_logging/enable_file_logging=false\n\n[display]\n'
+                                   'window/size/viewport_width=320\nwindow/size/viewport_height=240\n\n'
+                                   '[rendering]\nrenderer/rendering_method="gl_compatibility"\n')
+    (out/'probe.gd').write_text(T3M_PROBE)
+    return out
+
+
 if __name__ == '__main__':
-    if len(sys.argv) == 3 and sys.argv[1] == '--fixture':
+    if len(sys.argv) == 3 and sys.argv[1] == '--fixture-t3m':
+        print(build_t3m_fixture(sys.argv[2]))
+    elif len(sys.argv) == 3 and sys.argv[1] == '--fixture':
         print(json.dumps(build_fixture(sys.argv[2]), indent=2))
     else:
         unittest.main()

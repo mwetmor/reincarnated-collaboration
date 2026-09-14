@@ -1,0 +1,12 @@
+CS-asm-fg-v4-band5 — measurement report
+Foreground: 5376x4096 RGBA; six edited cloud-edge tiles composited.
+EDGE0 pixels: 22361; union R pixels: 2594730.
+DEEP >13000 mm alpha <0.95: 0 (target 0).
+Exposed underside pixels: 0 (target 0).
+Protected depth <=9000 RGBA mean absolute difference: 0.0.
+TOP RGBA mean absolute difference: 0.0.
+VOID-in-R translucent share (0.05,0.95): 0.244109.
+Alpha force changes outside R: 0; DEEP alpha decreases: 0.
+Per-tile inside/outside edit fractions and opacity histograms are in checks.json.
+Crop centres reused from band4; backgrounds #3a3f4a and forest RGB median [33.0, 27.0, 34.0].
+Image-generation calls: 0; measurements only.

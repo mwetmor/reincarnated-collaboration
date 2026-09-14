@@ -1,0 +1,42 @@
+{
+  "task_id": "CS-asm-fg-v4-band4",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [],
+  "calls_used": 0,
+  "retries": [],
+  "self_report": {
+    "obeyed_invariants": true,
+    "concerns": [
+      "246 deep-face pixels have final alpha below 0.95.",
+      "765 deep pixels lie within 3 px of void with final alpha below 0.5.",
+      "847 measured void-side silhouette pixels are outside puff arcs.",
+      "Shallow RGB mean absolute difference: 0.103945; maximum tile-boundary mean RGB difference: 7.137454."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/foreground.png",
+      "sha256": "c79a205323ef71199aaa420e253ac0194683b19230092226fc4f5fb661994547"
+    },
+    {
+      "path": "out/foreground_preview_1344x1024.png",
+      "sha256": "c0f88758bb411483ae436638f0cd527b2a935584b82d5d9b7ac812078b7044b8"
+    },
+    {
+      "path": "out/band_detail_crops.png",
+      "sha256": "ce8a6c0390a3b4f05f5c485446446377096026a8f820f47db97744be372ab544"
+    },
+    {
+      "path": "out/edge_detail_crops.png",
+      "sha256": "633fce061ea2cb4db6f007c6512b39f5ee12413529c467ac0cabc6b99a59b80c"
+    },
+    {
+      "path": "out/checks.json",
+      "sha256": "6d358e102f6860695df19bf2160dc816bd3a5a59bbcdef485a897b6039718b76"
+    },
+    {
+      "path": "out/summary.txt",
+      "sha256": "5c7382a17b9a4b3eb8190f5767d34999cca09e22448125681e4d86e5ae88365f"
+    }
+  ]
+}

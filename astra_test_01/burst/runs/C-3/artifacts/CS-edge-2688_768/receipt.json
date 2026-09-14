@@ -1,0 +1,33 @@
+{
+  "task_id": "CS-edge-2688_768",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "edge_2688_768.png",
+      "path": "out/edge_2688_768.png",
+      "sha256": "d76f7d11aae15494bde4b1f39f1be22f56dafd014eac204f0becce9a4003b3d9",
+      "prompt": "Use case: precise-object-edit. IMAGE 1 is the EDIT TARGET. Deliver one image at exactly 1536x1024, same framing and composition. Repaint ONLY the cloud bank's EDGES against pure black, in a band roughly 60–180 pixels deep on the cloud side plus small wisps outside. The cloud/black boundary runs beneath the bridge down the left side of the peach/lavender cloud bank through the canyon to the bottom edge. Its current outline cuts haphazardly across painted billows: replace that boundary with rounded cumulus puffs of varied size whose silhouettes FOLLOW each billow's own curves. Each puff has warm upper-left lighting and lavender lower-right shading, a soft painted edge tracing its own volume, exactly matching the existing interior cloud painting. Toward the outermost edge, puffs become smaller, vapour thins, and small puffs and wisps are semi-transparent over black and fade softly into it. Retain black gaps. No cloud extends more than approximately 150 pixels beyond its existing edge. Preserve all rocks, grass, flowers, dirt, bridge, cliff faces, terrain contours, and every non-cloud object unchanged. Preserve the interior cloud bank away from the narrow edge band unchanged. Everywhere without cloud remains flat PURE BLACK #000000: no glow, haze, gradient or fog away from the immediate wisps. Preserve the original hand-drawn painted 2D game environment style, clean material planes and restrained texture. This is a surgical edge repair, not a repaint of the scene. No added objects, no text. Preserve original colors and lighting everywhere else.",
+      "references": [
+        {
+          "role": "IMAGE 1 — crop over black to EDIT",
+          "path": "in/01_edge_2688_768_canvas.png"
+        }
+      ],
+      "elapsed_s": 27.831
+    }
+  ],
+  "calls_used": 1,
+  "retries": [],
+  "self_report": {
+    "obeyed_invariants": true,
+    "concerns": [
+      "Visual inspection shows rounded cloud edges and localized wisps; exact pixel preservation outside the edited band and pure-black values were not quantitatively verified."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/edge_2688_768.png",
+      "sha256": "d76f7d11aae15494bde4b1f39f1be22f56dafd014eac204f0becce9a4003b3d9"
+    }
+  ]
+}

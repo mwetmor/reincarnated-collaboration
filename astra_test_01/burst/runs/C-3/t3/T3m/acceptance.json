@@ -1,0 +1,684 @@
+{
+  "task_id": "T3m",
+  "metrics": [
+    {
+      "evidence": [
+        "fixture_project/probe.gd"
+      ],
+      "id": "t3m_hollow_initial",
+      "notes": "Engine measurement; conductor owns acceptance.",
+      "op": ">=",
+      "passed": null,
+      "subject": "synthetic_ring",
+      "threshold": 0.95,
+      "unit": "alpha",
+      "value": 1.0
+    },
+    {
+      "evidence": [
+        "fixture_project/probe.gd"
+      ],
+      "id": "t3m_hollow_initial_wall_s",
+      "notes": "Engine measurement; conductor owns acceptance.",
+      "op": "<=",
+      "passed": null,
+      "subject": "synthetic_ring",
+      "threshold": 0.1,
+      "unit": "s",
+      "value": 0.00046
+    },
+    {
+      "evidence": [
+        "fixture_project/probe.gd"
+      ],
+      "id": "t3m_ring_behind",
+      "notes": "Engine measurement; conductor owns acceptance.",
+      "op": "<=",
+      "passed": null,
+      "subject": "synthetic_ring",
+      "threshold": 0.4,
+      "unit": "alpha",
+      "value": 0.349999994039536
+    },
+    {
+      "evidence": [
+        "fixture_project/probe.gd"
+      ],
+      "id": "t3m_ring_behind_wall_s",
+      "notes": "Engine measurement; conductor owns acceptance.",
+      "op": "<=",
+      "passed": null,
+      "subject": "synthetic_ring",
+      "threshold": 0.1,
+      "unit": "s",
+      "value": 0.036907
+    },
+    {
+      "evidence": [
+        "fixture_project/probe.gd"
+      ],
+      "id": "t3m_hollow_restored",
+      "notes": "Engine measurement; conductor owns acceptance.",
+      "op": ">=",
+      "passed": null,
+      "subject": "synthetic_ring",
+      "threshold": 0.95,
+      "unit": "alpha",
+      "value": 1.0
+    },
+    {
+      "evidence": [
+        "fixture_project/probe.gd"
+      ],
+      "id": "t3m_hollow_restored_wall_s",
+      "notes": "Engine measurement; conductor owns acceptance.",
+      "op": "<=",
+      "passed": null,
+      "subject": "synthetic_ring",
+      "threshold": 0.1,
+      "unit": "s",
+      "value": 0.069116
+    },
+    {
+      "evidence": [
+        "fixture_project/probe.gd"
+      ],
+      "id": "t3m_ring_front",
+      "notes": "Engine measurement; conductor owns acceptance.",
+      "op": ">=",
+      "passed": null,
+      "subject": "synthetic_ring",
+      "threshold": 0.95,
+      "unit": "alpha",
+      "value": 1.0
+    },
+    {
+      "evidence": [
+        "fixture_project/probe.gd"
+      ],
+      "id": "t3m_ring_front_wall_s",
+      "notes": "Engine measurement; conductor owns acceptance.",
+      "op": "<=",
+      "passed": null,
+      "subject": "synthetic_ring",
+      "threshold": 0.1,
+      "unit": "s",
+      "value": 2.1e-05
+    },
+    {
+      "evidence": [
+        "fixture_project/probe.gd"
+      ],
+      "id": "t3m_anchor_equal",
+      "notes": "Engine measurement; conductor owns acceptance.",
+      "op": ">=",
+      "passed": null,
+      "subject": "synthetic_ring",
+      "threshold": 0.95,
+      "unit": "alpha",
+      "value": 1.0
+    },
+    {
+      "evidence": [
+        "fixture_project/probe.gd"
+      ],
+      "id": "t3m_anchor_equal_wall_s",
+      "notes": "Engine measurement; conductor owns acceptance.",
+      "op": "<=",
+      "passed": null,
+      "subject": "synthetic_ring",
+      "threshold": 0.1,
+      "unit": "s",
+      "value": 1.6e-05
+    },
+    {
+      "evidence": [
+        "fixture_project/probe.gd"
+      ],
+      "id": "t3m_overhead_front",
+      "notes": "Engine measurement; conductor owns acceptance.",
+      "op": "<=",
+      "passed": null,
+      "subject": "synthetic_ring",
+      "threshold": 0.4,
+      "unit": "alpha",
+      "value": 0.349999994039536
+    },
+    {
+      "evidence": [
+        "fixture_project/probe.gd"
+      ],
+      "id": "t3m_overhead_front_wall_s",
+      "notes": "Engine measurement; conductor owns acceptance.",
+      "op": "<=",
+      "passed": null,
+      "subject": "synthetic_ring",
+      "threshold": 0.1,
+      "unit": "s",
+      "value": 0.068845
+    },
+    {
+      "evidence": [
+        "fixture_project/probe.gd"
+      ],
+      "id": "t3m_overhead_hollow",
+      "notes": "Engine measurement; conductor owns acceptance.",
+      "op": ">=",
+      "passed": null,
+      "subject": "synthetic_ring",
+      "threshold": 0.95,
+      "unit": "alpha",
+      "value": 1.0
+    },
+    {
+      "evidence": [
+        "fixture_project/probe.gd"
+      ],
+      "id": "t3m_overhead_hollow_wall_s",
+      "notes": "Engine measurement; conductor owns acceptance.",
+      "op": "<=",
+      "passed": null,
+      "subject": "synthetic_ring",
+      "threshold": 0.1,
+      "unit": "s",
+      "value": 0.062567
+    },
+    {
+      "evidence": [
+        "fixture_project/probe.gd"
+      ],
+      "id": "t3m_current_transparent_frame",
+      "notes": "Engine measurement; conductor owns acceptance.",
+      "op": ">=",
+      "passed": null,
+      "subject": "synthetic_ring",
+      "threshold": 0.95,
+      "unit": "alpha",
+      "value": 1.0
+    },
+    {
+      "evidence": [
+        "fixture_project/probe.gd"
+      ],
+      "id": "t3m_current_transparent_frame_wall_s",
+      "notes": "Engine measurement; conductor owns acceptance.",
+      "op": "<=",
+      "passed": null,
+      "subject": "synthetic_ring",
+      "threshold": 0.1,
+      "unit": "s",
+      "value": 5.2e-05
+    },
+    {
+      "evidence": [
+        "fixture_project/probe.gd"
+      ],
+      "id": "t3m_current_square_frame",
+      "notes": "Engine measurement; conductor owns acceptance.",
+      "op": "<=",
+      "passed": null,
+      "subject": "synthetic_ring",
+      "threshold": 0.4,
+      "unit": "alpha",
+      "value": 0.349999994039536
+    },
+    {
+      "evidence": [
+        "fixture_project/probe.gd"
+      ],
+      "id": "t3m_current_square_frame_wall_s",
+      "notes": "Engine measurement; conductor owns acceptance.",
+      "op": "<=",
+      "passed": null,
+      "subject": "synthetic_ring",
+      "threshold": 0.1,
+      "unit": "s",
+      "value": 0.061598
+    },
+    {
+      "evidence": [
+        "fixture_project/probe.gd"
+      ],
+      "id": "t3m_asymmetric_unflipped_hollow",
+      "notes": "Engine measurement; conductor owns acceptance.",
+      "op": ">=",
+      "passed": null,
+      "subject": "synthetic_ring",
+      "threshold": 0.95,
+      "unit": "alpha",
+      "value": 1.0
+    },
+    {
+      "evidence": [
+        "fixture_project/probe.gd"
+      ],
+      "id": "t3m_asymmetric_unflipped_hollow_wall_s",
+      "notes": "Engine measurement; conductor owns acceptance.",
+      "op": "<=",
+      "passed": null,
+      "subject": "synthetic_ring",
+      "threshold": 0.1,
+      "unit": "s",
+      "value": 0.062063
+    },
+    {
+      "evidence": [
+        "fixture_project/probe.gd"
+      ],
+      "id": "t3m_asymmetric_flipped_ring",
+      "notes": "Engine measurement; conductor owns acceptance.",
+      "op": "<=",
+      "passed": null,
+      "subject": "synthetic_ring",
+      "threshold": 0.4,
+      "unit": "alpha",
+      "value": 0.349999994039536
+    },
+    {
+      "evidence": [
+        "fixture_project/probe.gd"
+      ],
+      "id": "t3m_asymmetric_flipped_ring_wall_s",
+      "notes": "Engine measurement; conductor owns acceptance.",
+      "op": "<=",
+      "passed": null,
+      "subject": "synthetic_ring",
+      "threshold": 0.1,
+      "unit": "s",
+      "value": 0.06225
+    },
+    {
+      "evidence": [
+        "fixture_project/probe.gd"
+      ],
+      "id": "t3m_asymmetric_unflipped_restored",
+      "notes": "Engine measurement; conductor owns acceptance.",
+      "op": ">=",
+      "passed": null,
+      "subject": "synthetic_ring",
+      "threshold": 0.95,
+      "unit": "alpha",
+      "value": 1.0
+    },
+    {
+      "evidence": [
+        "fixture_project/probe.gd"
+      ],
+      "id": "t3m_asymmetric_unflipped_restored_wall_s",
+      "notes": "Engine measurement; conductor owns acceptance.",
+      "op": "<=",
+      "passed": null,
+      "subject": "synthetic_ring",
+      "threshold": 0.1,
+      "unit": "s",
+      "value": 0.061767
+    },
+    {
+      "evidence": [
+        "fixture_project/probe.gd"
+      ],
+      "id": "t3m_alpha_127_transparent",
+      "notes": "Engine measurement; conductor owns acceptance.",
+      "op": ">=",
+      "passed": null,
+      "subject": "synthetic_ring",
+      "threshold": 0.95,
+      "unit": "alpha",
+      "value": 1.0
+    },
+    {
+      "evidence": [
+        "fixture_project/probe.gd"
+      ],
+      "id": "t3m_alpha_127_transparent_wall_s",
+      "notes": "Engine measurement; conductor owns acceptance.",
+      "op": "<=",
+      "passed": null,
+      "subject": "synthetic_ring",
+      "threshold": 0.1,
+      "unit": "s",
+      "value": 6.4e-05
+    },
+    {
+      "evidence": [
+        "fixture_project/probe.gd"
+      ],
+      "id": "t3m_alpha_128_opaque",
+      "notes": "Engine measurement; conductor owns acceptance.",
+      "op": "<=",
+      "passed": null,
+      "subject": "synthetic_ring",
+      "threshold": 0.4,
+      "unit": "alpha",
+      "value": 0.349999994039536
+    },
+    {
+      "evidence": [
+        "fixture_project/probe.gd"
+      ],
+      "id": "t3m_alpha_128_opaque_wall_s",
+      "notes": "Engine measurement; conductor owns acceptance.",
+      "op": "<=",
+      "passed": null,
+      "subject": "synthetic_ring",
+      "threshold": 0.1,
+      "unit": "s",
+      "value": 0.061982
+    },
+    {
+      "evidence": [
+        "fixture_project/probe.gd"
+      ],
+      "id": "t3m_transformed_hollow",
+      "notes": "Engine measurement; conductor owns acceptance.",
+      "op": ">=",
+      "passed": null,
+      "subject": "synthetic_ring",
+      "threshold": 0.95,
+      "unit": "alpha",
+      "value": 1.0
+    },
+    {
+      "evidence": [
+        "fixture_project/probe.gd"
+      ],
+      "id": "t3m_transformed_hollow_wall_s",
+      "notes": "Engine measurement; conductor owns acceptance.",
+      "op": "<=",
+      "passed": null,
+      "subject": "synthetic_ring",
+      "threshold": 0.1,
+      "unit": "s",
+      "value": 0.06083
+    },
+    {
+      "evidence": [
+        "fixture_project/probe.gd"
+      ],
+      "id": "t3m_transformed_ring",
+      "notes": "Engine measurement; conductor owns acceptance.",
+      "op": "<=",
+      "passed": null,
+      "subject": "synthetic_ring",
+      "threshold": 0.4,
+      "unit": "alpha",
+      "value": 0.349999994039536
+    },
+    {
+      "evidence": [
+        "fixture_project/probe.gd"
+      ],
+      "id": "t3m_transformed_ring_wall_s",
+      "notes": "Engine measurement; conductor owns acceptance.",
+      "op": "<=",
+      "passed": null,
+      "subject": "synthetic_ring",
+      "threshold": 0.1,
+      "unit": "s",
+      "value": 0.064013
+    },
+    {
+      "evidence": [
+        "fixture_project/probe.gd"
+      ],
+      "id": "t3m_negative_scale_ring",
+      "notes": "Engine measurement; conductor owns acceptance.",
+      "op": "<=",
+      "passed": null,
+      "subject": "synthetic_ring",
+      "threshold": 0.4,
+      "unit": "alpha",
+      "value": 0.349999994039536
+    },
+    {
+      "evidence": [
+        "fixture_project/probe.gd"
+      ],
+      "id": "t3m_negative_scale_ring_wall_s",
+      "notes": "Engine measurement; conductor owns acceptance.",
+      "op": "<=",
+      "passed": null,
+      "subject": "synthetic_ring",
+      "threshold": 0.1,
+      "unit": "s",
+      "value": 3.1e-05
+    },
+    {
+      "evidence": [
+        "fixture_project/probe.gd"
+      ],
+      "id": "t3m_zero_scale_empty",
+      "notes": "Engine measurement; conductor owns acceptance.",
+      "op": ">=",
+      "passed": null,
+      "subject": "synthetic_ring",
+      "threshold": 0.95,
+      "unit": "alpha",
+      "value": 1.0
+    },
+    {
+      "evidence": [
+        "fixture_project/probe.gd"
+      ],
+      "id": "t3m_zero_scale_empty_wall_s",
+      "notes": "Engine measurement; conductor owns acceptance.",
+      "op": "<=",
+      "passed": null,
+      "subject": "synthetic_ring",
+      "threshold": 0.1,
+      "unit": "s",
+      "value": 0.061292
+    },
+    {
+      "evidence": [
+        "fixture_project/probe.gd"
+      ],
+      "id": "t3m_interrupted_restore",
+      "notes": "Engine measurement; conductor owns acceptance.",
+      "op": ">=",
+      "passed": null,
+      "subject": "synthetic_ring",
+      "threshold": 0.95,
+      "unit": "alpha",
+      "value": 1.0
+    },
+    {
+      "evidence": [
+        "fixture_project/probe.gd"
+      ],
+      "id": "t3m_interrupted_restore_wall_s",
+      "notes": "Engine measurement; conductor owns acceptance.",
+      "op": "<=",
+      "passed": null,
+      "subject": "synthetic_ring",
+      "threshold": 0.1,
+      "unit": "s",
+      "value": 0.061829
+    },
+    {
+      "id": "t3m_ellipse_vertices",
+      "subject": "synthetic_footprints",
+      "passed": null,
+      "value": 16,
+      "threshold": 16,
+      "op": "==",
+      "unit": "vertices",
+      "evidence": [
+        "fixture_project/scenes/cliffside.tscn",
+        "t3m_tests.log"
+      ],
+      "notes": "Instrument only; conductor owns acceptance."
+    },
+    {
+      "id": "t3m_offset_centre_error_px",
+      "subject": "synthetic_footprints",
+      "passed": null,
+      "value": 0.0,
+      "threshold": 0,
+      "op": "==",
+      "unit": "px",
+      "evidence": [
+        "fixture_project/scenes/cliffside.tscn",
+        "t3m_tests.log"
+      ],
+      "notes": "Instrument only; conductor owns acceptance."
+    },
+    {
+      "id": "t3m_rect_vertices",
+      "subject": "synthetic_footprints",
+      "passed": null,
+      "value": 4,
+      "threshold": 4,
+      "op": "==",
+      "unit": "vertices",
+      "evidence": [
+        "fixture_project/scenes/cliffside.tscn",
+        "t3m_tests.log"
+      ],
+      "notes": "Instrument only; conductor owns acceptance."
+    },
+    {
+      "id": "t3m_rect_vertex_error_px",
+      "subject": "synthetic_footprints",
+      "passed": null,
+      "value": 0.0,
+      "threshold": 0,
+      "op": "==",
+      "unit": "px",
+      "evidence": [
+        "fixture_project/scenes/cliffside.tscn",
+        "t3m_tests.log"
+      ],
+      "notes": "Instrument only; conductor owns acceptance."
+    },
+    {
+      "id": "t3m_invalid_inputs_rejected_before_output",
+      "subject": "synthetic_footprints",
+      "passed": null,
+      "value": 24,
+      "threshold": 24,
+      "op": "==",
+      "unit": "cases",
+      "evidence": [
+        "fixture_project/scenes/cliffside.tscn",
+        "t3m_tests.log"
+      ],
+      "notes": "Instrument only; conductor owns acceptance."
+    },
+    {
+      "id": "t3m_old_manifest_identical_non_script_text_files",
+      "subject": "synthetic_footprints",
+      "passed": null,
+      "value": 10,
+      "threshold": 10,
+      "op": "==",
+      "unit": "files",
+      "evidence": [
+        "fixture_project/scenes/cliffside.tscn",
+        "t3m_tests.log"
+      ],
+      "notes": "Instrument only; conductor owns acceptance."
+    },
+    {
+      "id": "t3m_old_manifest_identical_all_text_files",
+      "subject": "synthetic_footprints",
+      "passed": null,
+      "value": 10,
+      "threshold": 11,
+      "op": "==",
+      "unit": "files",
+      "evidence": [
+        "fixture_project/scenes/cliffside.tscn",
+        "t3m_tests.log"
+      ],
+      "notes": "Instrument only; conductor owns acceptance."
+    }
+  ],
+  "fixture": {
+    "prop_size_px": [
+      64,
+      64
+    ],
+    "square_size_px": [
+      6,
+      6
+    ],
+    "ellipse_local_centre": [
+      3.5,
+      -2.25
+    ],
+    "ellipse_world_centre": [
+      131.5,
+      157.75
+    ],
+    "rect_vertices": [
+      [
+        -6.5,
+        -8.25
+      ],
+      [
+        13.5,
+        -8.25
+      ],
+      [
+        13.5,
+        3.75
+      ],
+      [
+        -6.5,
+        3.75
+      ]
+    ]
+  },
+  "tests": {
+    "t3m_tests_run": 7,
+    "t3m_successful": 7,
+    "t3m_wall_s": 5.182,
+    "full_suite": {
+      "tests_run": 389,
+      "successful_tests": 379,
+      "elapsed_s": 156.635352917001,
+      "successful": 379,
+      "red_records": 10,
+      "affected_test_methods": 8,
+      "red_names": [
+        "test_godot_import.GodotImportTests.test_headless_state_machine_input_map_gear_vfx_and_nearest_fallback",
+        "test_oracle_walk.Tests.test_synthetic_contract_and_grid",
+        "test_oracles_motif.Tests.test_f04_outside_at_least_three",
+        "test_oracles_motif.Tests.test_named_genuine_annuli_retained (center=[113, 201])",
+        "test_oracles_motif.Tests.test_named_genuine_annuli_retained (center=[111, 311])",
+        "test_oracles_motif.Tests.test_named_genuine_annuli_retained (center=[170, 253])",
+        "test_parallax_scene.ParallaxSceneTests.test_headless_cliffside_follow_camera_parallax_and_projectile_collision",
+        "test_props_layer.PropsLayerTests.test_headless_occlusion_fade_restore_overhead_near_and_particles",
+        "test_scene_kit.SceneKitTests.test_headless_tower_import_run_and_physics",
+        "test_sockets.SocketTests.test_headless_directional_release_and_resources"
+      ]
+    },
+    "initial_full_suite": {
+      "tests_run": 389,
+      "successful_tests": 378,
+      "elapsed_s": 162.6896173330024
+    },
+    "standing_reds_census": {
+      "tests_run": 9,
+      "red_records": 10,
+      "wall_s": 30.95545054099057
+    }
+  },
+  "runtime": {
+    "measurement_rows": 38,
+    "returncode": 0,
+    "completed": true,
+    "max_transition_wall_s": 0.069116
+  },
+  "concerns": [
+    "Literal all-text byte identity is 10/11: scripts/occlusion_fade.gd necessarily changes for the required fade feature. All 10 other files, including scene text, match the pre-edit T3l baseline with clock and pre-existing set iteration order fixed.",
+    "Near mode 2 retains the old body rectangle and 0.15-second tween; modes 0/1 use 0.06 seconds.",
+    "Godot default logging crashes in this sandbox; T3m uses --log-file inside allowed temporary storage. Import/runtime still emit denied user-data/editor-settings and system-certificate messages; runtime assertions complete with exit 0.",
+    "The real catalogue was read for coordinate/footprint compatibility only; the contract specifies synthetic acceptance and the existing project was not edited.",
+    "Final runner counts are preserved verbatim: successful_tests=379 of tests_run=389; 10 red records include three subtests of one method (8 affected methods)."
+  ],
+  "burst_wall_s_at_report": 1120.6033880710602,
+  "minutes_cap": 40,
+  "image_calls": 0
+}

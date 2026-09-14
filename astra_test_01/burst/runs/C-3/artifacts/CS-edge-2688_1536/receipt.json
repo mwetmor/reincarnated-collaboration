@@ -1,0 +1,33 @@
+{
+  "task_id": "CS-edge-2688_1536",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "edge_2688_1536.png",
+      "path": "out/edge_2688_1536.png",
+      "sha256": "ff1b1114f8b375c187d619baab36abb34d38c24509b9a0f76edfbde72af9105f",
+      "prompt": "Use case: precise-object-edit. Edit IMAGE 1, the supplied canyon crop over black. Deliver ONE image, exactly 1536×1024 with identical framing. Repaint ONLY the canyon-facing cloud bank EDGES where cloud meets black, in a band roughly 60–180 pixels deep on the cloud side plus a few wisps beyond. The current edges cut haphazardly across billows: replace those cuts with real rounded cumulus puffs of varied size, whose silhouettes FOLLOW the curves of their own painted billows. Each puff is warm cream/peach on its upper-left and lavender/violet on its lower-right, with a soft painted outline tracing its own curve, exactly matching the existing interior cloud painting. Toward the outside, progressively smaller puffs and wisps become translucent, with black showing through, fading softly and locally into the pure black. Preserve the overall cloud-bank footprint and the large open black canyon channels. Extend no cloud more than approximately 150 pixels beyond its current edge. Everywhere without cloud must stay PURE BLACK #000000: absolutely no broad glow, haze, fog or gradient in the empty black. Preserve ALL rock faces, grass, flowers, dirt, ground and any other non-cloud features exactly as supplied. Preserve the interior of the cloud bank away from its edges exactly. No global repaint, relighting, repositioning or style change. Hand-drawn painted 2D game environment, clean painted material planes, restrained texture, existing elevated three-quarter camera and existing lighting. This is a localized cloud-edge correction only; preserve all other supplied pixels.",
+      "references": [
+        {
+          "role": "IMAGE 1 — crop over black to EDIT",
+          "path": "in/01_edge_2688_1536_canvas.png"
+        }
+      ],
+      "elapsed_s": 29.329
+    }
+  ],
+  "calls_used": 1,
+  "retries": [],
+  "self_report": {
+    "obeyed_invariants": true,
+    "concerns": [
+      "Visual inspection only: exact pixel preservation outside cloud edges, pure-black values, and the approximately 150-pixel extension limit were not measured."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/edge_2688_1536.png",
+      "sha256": "ff1b1114f8b375c187d619baab36abb34d38c24509b9a0f76edfbde72af9105f"
+    }
+  ]
+}

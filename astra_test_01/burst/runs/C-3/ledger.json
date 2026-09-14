@@ -28204,9 +28204,738 @@
       "codex_version": "codex-cli 0.153.4",
       "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
       "exit": 0
+    },
+    {
+      "id": "CS-asm-fg-v4-band4",
+      "type": "CHECK",
+      "experiment": "C3-cliffside-v4",
+      "brief_sha256": "bc0adb359b869dc904636c580e2950f3a0dd272b6d9727d03454bcb205d32ffc",
+      "started": "2026-09-14T02:31:27.423544+00:00",
+      "ended": "2026-09-14T02:38:20.147769+00:00",
+      "minutes": 6.878837143050138,
+      "image_calls": 0,
+      "tool_calls": 5,
+      "audit": {
+        "violations": [],
+        "image_calls": 0,
+        "tool_calls": 5,
+        "tools_seen": {
+          "command_execution": 5
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": []
+      },
+      "receipt_sha256": "b21c336e05f8cf0a302b00f46a8d8b6dc7fe6426872191d45744c614cffc1bf6",
+      "artifacts": [
+        {
+          "name": "band_detail_crops.png",
+          "sha256": "ce8a6c0390a3b4f05f5c485446446377096026a8f820f47db97744be372ab544"
+        },
+        {
+          "name": "checks.json",
+          "sha256": "6d358e102f6860695df19bf2160dc816bd3a5a59bbcdef485a897b6039718b76"
+        },
+        {
+          "name": "edge_detail_crops.png",
+          "sha256": "633fce061ea2cb4db6f007c6512b39f5ee12413529c467ac0cabc6b99a59b80c"
+        },
+        {
+          "name": "foreground.png",
+          "sha256": "c79a205323ef71199aaa420e253ac0194683b19230092226fc4f5fb661994547"
+        },
+        {
+          "name": "foreground_preview_1344x1024.png",
+          "sha256": "c0f88758bb411483ae436638f0cd527b2a935584b82d5d9b7ac812078b7044b8"
+        },
+        {
+          "name": "summary.txt",
+          "sha256": "5c7382a17b9a4b3eb8190f5767d34999cca09e22448125681e4d86e5ae88365f"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
+    },
+    {
+      "id": "CS-edge-2688_2304",
+      "type": "GENERATE",
+      "experiment": "C3-cliffside-v4",
+      "brief_sha256": "bc424e59ac36d3186e8d1c3dbb8cdc0c54aecfb01d1e7eea878bad765b6158ce",
+      "started": "2026-09-14T02:39:51.435827+00:00",
+      "ended": "2026-09-14T02:41:25.492840+00:00",
+      "minutes": 1.5676050027834814,
+      "image_calls": 1,
+      "tool_calls": 2,
+      "audit": {
+        "violations": [],
+        "image_calls": 1,
+        "tool_calls": 2,
+        "tools_seen": {
+          "command_execution": 2
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a09dc9-0309-70b1-b7de-d361a8c6a5af/exec-6ffa44ed-40bc-4e30-85c2-bd54c203cc1e.png",
+            "sha256": "014d09c64cac9b37085db7366c1427d7f331c44afa254048ed9c559aecd9b327"
+          }
+        ]
+      },
+      "receipt_sha256": "02a3806e20c22d99fa2a2d132e0e2ab90506fc966e0fcd8cd71651c9473f250b",
+      "artifacts": [
+        {
+          "name": "edge_2688_2304.png",
+          "sha256": "014d09c64cac9b37085db7366c1427d7f331c44afa254048ed9c559aecd9b327"
+        },
+        {
+          "name": "exec-6ffa44ed-40bc-4e30-85c2-bd54c203cc1e.provenance.json",
+          "sha256": "060413a11b0fae9b180b136f05419660fa7fba77d1d784fe2904a75d324e1684"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a09dc9-0309-70b1-b7de-d361a8c6a5af/exec-6ffa44ed-40bc-4e30-85c2-bd54c203cc1e.png",
+          "sha256": "014d09c64cac9b37085db7366c1427d7f331c44afa254048ed9c559aecd9b327"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
+    },
+    {
+      "id": "CS-edge-2688_3072",
+      "type": "GENERATE",
+      "experiment": "C3-cliffside-v4",
+      "brief_sha256": "e5b8d3627a774e6535192390c92c144b4a57a54ab80dca56bc04c5cd18c7b721",
+      "started": "2026-09-14T02:39:51.436007+00:00",
+      "ended": "2026-09-14T02:41:26.799806+00:00",
+      "minutes": 1.5893775986165566,
+      "image_calls": 1,
+      "tool_calls": 2,
+      "audit": {
+        "violations": [],
+        "image_calls": 1,
+        "tool_calls": 2,
+        "tools_seen": {
+          "command_execution": 2
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a09dc9-0307-79b1-b38a-b8fb0831d707/exec-2bac986a-5d83-42ef-9327-1eda1452befd.png",
+            "sha256": "d052bed14fb2d7c1ae070be5eb1115a6c22feee827c966fa0c1cf03ea9bb9bb2"
+          }
+        ]
+      },
+      "receipt_sha256": "5a5f0105ad77bd632ac814c4b9528cb493aed3c81aadfe638ef77cc99523cb35",
+      "artifacts": [
+        {
+          "name": "edge_2688_3072.png",
+          "sha256": "d052bed14fb2d7c1ae070be5eb1115a6c22feee827c966fa0c1cf03ea9bb9bb2"
+        },
+        {
+          "name": "exec-2bac986a-5d83-42ef-9327-1eda1452befd.provenance.json",
+          "sha256": "0750988d251cfd020ff0ce53ff1608acd1a77f5a1837ee1487acfede14723d25"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a09dc9-0307-79b1-b38a-b8fb0831d707/exec-2bac986a-5d83-42ef-9327-1eda1452befd.png",
+          "sha256": "d052bed14fb2d7c1ae070be5eb1115a6c22feee827c966fa0c1cf03ea9bb9bb2"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
+    },
+    {
+      "id": "CS-edge-2688_768",
+      "type": "GENERATE",
+      "experiment": "C3-cliffside-v4",
+      "brief_sha256": "f155171728899172ffc2d11d863e204310037cbc09c760bde42d74fce211b6f4",
+      "started": "2026-09-14T02:39:51.435969+00:00",
+      "ended": "2026-09-14T02:41:28.472358+00:00",
+      "minutes": 1.6172555194500697,
+      "image_calls": 1,
+      "tool_calls": 2,
+      "audit": {
+        "violations": [],
+        "image_calls": 1,
+        "tool_calls": 2,
+        "tools_seen": {
+          "command_execution": 2
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a09dc9-0304-7830-9b89-5d314d019484/exec-fba74a3b-ee9c-4387-b2ac-9d0451e5e1e3.png",
+            "sha256": "d76f7d11aae15494bde4b1f39f1be22f56dafd014eac204f0becce9a4003b3d9"
+          }
+        ]
+      },
+      "receipt_sha256": "e82923e535706c3e596daa099a34b8d44ee2649a2aaf1a5aca7f27d3e59668f2",
+      "artifacts": [
+        {
+          "name": "edge_2688_768.png",
+          "sha256": "d76f7d11aae15494bde4b1f39f1be22f56dafd014eac204f0becce9a4003b3d9"
+        },
+        {
+          "name": "exec-fba74a3b-ee9c-4387-b2ac-9d0451e5e1e3.provenance.json",
+          "sha256": "a4bd34ecc51c0fb2522953188c0ccb31f0b2fdcb6216ceefde657047cc6653d2"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a09dc9-0304-7830-9b89-5d314d019484/exec-fba74a3b-ee9c-4387-b2ac-9d0451e5e1e3.png",
+          "sha256": "d76f7d11aae15494bde4b1f39f1be22f56dafd014eac204f0becce9a4003b3d9"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
+    },
+    {
+      "id": "CS-edge-3840_2304",
+      "type": "GENERATE",
+      "experiment": "C3-cliffside-v4",
+      "brief_sha256": "b39746b149ee6a2b49871fcdaab9e1f547055486343fa7441a0abf1c2a64dfcb",
+      "started": "2026-09-14T02:39:51.435795+00:00",
+      "ended": "2026-09-14T02:41:30.925186+00:00",
+      "minutes": 1.6581416104165934,
+      "image_calls": 1,
+      "tool_calls": 2,
+      "audit": {
+        "violations": [],
+        "image_calls": 1,
+        "tool_calls": 2,
+        "tools_seen": {
+          "command_execution": 2
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a09dc9-0302-75f1-96c7-32de95335760/exec-f56eb54d-a64e-4856-a441-375d3a67aadf.png",
+            "sha256": "5cace7f6059da8f18c1422731a364035480a6e4caf0970d4be38eeb105ee17ee"
+          }
+        ]
+      },
+      "receipt_sha256": "eef5f098bb1bd8b079f46f175e85874f7756878f308af17b1a6c5780fbe0c545",
+      "artifacts": [
+        {
+          "name": "edge_3840_2304.png",
+          "sha256": "5cace7f6059da8f18c1422731a364035480a6e4caf0970d4be38eeb105ee17ee"
+        },
+        {
+          "name": "exec-f56eb54d-a64e-4856-a441-375d3a67aadf.provenance.json",
+          "sha256": "231e1a1412245146b73d9c7aac7b7b1a120e7907c4ee771d7c06450495bfa795"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a09dc9-0302-75f1-96c7-32de95335760/exec-f56eb54d-a64e-4856-a441-375d3a67aadf.png",
+          "sha256": "5cace7f6059da8f18c1422731a364035480a6e4caf0970d4be38eeb105ee17ee"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
+    },
+    {
+      "id": "CS-edge-2688_1536",
+      "type": "GENERATE",
+      "experiment": "C3-cliffside-v4",
+      "brief_sha256": "63eed5fa32717e83fc2b6f66a27336bcc61f54cc583ceafd381cf0a677e18703",
+      "started": "2026-09-14T02:39:51.435888+00:00",
+      "ended": "2026-09-14T02:41:49.172819+00:00",
+      "minutes": 1.9622660965333731,
+      "image_calls": 1,
+      "tool_calls": 5,
+      "audit": {
+        "violations": [],
+        "image_calls": 1,
+        "tool_calls": 5,
+        "tools_seen": {
+          "command_execution": 5
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a09dc9-0309-7d83-8ac5-aac2cc117d78/exec-7c357e04-71e1-4d5f-a53a-507b8260be53.png",
+            "sha256": "ff1b1114f8b375c187d619baab36abb34d38c24509b9a0f76edfbde72af9105f"
+          }
+        ]
+      },
+      "receipt_sha256": "e5e4629aceebf69f1b635211ab6e681969e64952564000077770004063538599",
+      "artifacts": [
+        {
+          "name": "edge_2688_1536.png",
+          "sha256": "ff1b1114f8b375c187d619baab36abb34d38c24509b9a0f76edfbde72af9105f"
+        },
+        {
+          "name": "exec-7c357e04-71e1-4d5f-a53a-507b8260be53.provenance.json",
+          "sha256": "531ac40cef86732194c3d72cdac6fd48bb3e7193ca55db7c5857b4ebe0e429bb"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a09dc9-0309-7d83-8ac5-aac2cc117d78/exec-7c357e04-71e1-4d5f-a53a-507b8260be53.png",
+          "sha256": "ff1b1114f8b375c187d619baab36abb34d38c24509b9a0f76edfbde72af9105f"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
+    },
+    {
+      "id": "CS-edge-3840_3072",
+      "type": "GENERATE",
+      "experiment": "C3-cliffside-v4",
+      "brief_sha256": "21c6905466e45e228f90fa464212d275191a564b1bd9234c7c8ec0be2c0fba39",
+      "started": "2026-09-14T02:39:51.435810+00:00",
+      "ended": "2026-09-14T02:42:08.520154+00:00",
+      "minutes": 2.2847200749999805,
+      "image_calls": 2,
+      "tool_calls": 2,
+      "audit": {
+        "violations": [],
+        "image_calls": 2,
+        "tool_calls": 2,
+        "tools_seen": {
+          "command_execution": 2
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a09dc9-0302-7e60-b022-cdee4fdb90e3/exec-2d4341fd-0084-4e32-87f1-f3d618135710.png",
+            "sha256": "d0a050ce62a7e38adb010d8909c3768e6d6101cca45940632de45fa0a558923c"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a09dc9-0302-7e60-b022-cdee4fdb90e3/exec-bf93350a-bc4d-4a3f-97d4-110f1bedbe05.png",
+            "sha256": "3fb75c7e096fd66c764c0dfd7af3c3f0291e8c70f200a79ba7262332a9aaf710"
+          }
+        ]
+      },
+      "receipt_sha256": "b80d0f1c1938c8aac81d14a23f97766d3cb95255f46939e4ca4133c8dacad983",
+      "artifacts": [
+        {
+          "name": "edge_3840_3072.png",
+          "sha256": "d0a050ce62a7e38adb010d8909c3768e6d6101cca45940632de45fa0a558923c"
+        },
+        {
+          "name": "exec-2d4341fd-0084-4e32-87f1-f3d618135710.provenance.json",
+          "sha256": "0225c7b78f57f26d111aff96e2fd86e2227d32ca4b91c9922cc392941d7449f9"
+        },
+        {
+          "name": "exec-bf93350a-bc4d-4a3f-97d4-110f1bedbe05.provenance.json",
+          "sha256": "a9a6634aad7f170daeb91b6b93f6f4753057503cfa182d5ec48a6eb587915ebe"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a09dc9-0302-7e60-b022-cdee4fdb90e3/exec-2d4341fd-0084-4e32-87f1-f3d618135710.png",
+          "sha256": "d0a050ce62a7e38adb010d8909c3768e6d6101cca45940632de45fa0a558923c"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a09dc9-0302-7e60-b022-cdee4fdb90e3/exec-bf93350a-bc4d-4a3f-97d4-110f1bedbe05.png",
+          "sha256": "3fb75c7e096fd66c764c0dfd7af3c3f0291e8c70f200a79ba7262332a9aaf710"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
+    },
+    {
+      "id": "CS-asm-fg-v4-band5",
+      "type": "CHECK",
+      "experiment": "C3-cliffside-v4",
+      "brief_sha256": "9f9b3b6b432d1ede379826f08df5d1cebdbc3464b4cca6f75f59dcaf5619784a",
+      "started": "2026-09-14T02:43:25.256833+00:00",
+      "ended": "2026-09-14T02:48:32.665346+00:00",
+      "minutes": 5.123431472216665,
+      "image_calls": 0,
+      "tool_calls": 5,
+      "audit": {
+        "violations": [],
+        "image_calls": 0,
+        "tool_calls": 5,
+        "tools_seen": {
+          "command_execution": 5
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": []
+      },
+      "receipt_sha256": "1829b3eaa35109d8b5413e0042c2645261e6ac80be30c59053ad70142ebb1be4",
+      "artifacts": [
+        {
+          "name": "checks.json",
+          "sha256": "d67b93aa454e8b597bc6149923537a295fbead4ae6ec101d384ff3e125488eeb"
+        },
+        {
+          "name": "edge_detail_crops.png",
+          "sha256": "21c4733028573cc3cc922b8b2d6b56a6e5f8daccc93961433bf27423ffd3438a"
+        },
+        {
+          "name": "foreground.png",
+          "sha256": "93e55f408e08886de05d3b986ce027cffda369b21b2853395dd3f8601dadcc09"
+        },
+        {
+          "name": "foreground_preview_1344x1024.png",
+          "sha256": "a4d13110762d87eb258bc3c61a238eeb63b21516b42cced69dc9b54a019a9a86"
+        },
+        {
+          "name": "summary.txt",
+          "sha256": "2f4bf2a83492c8d526109c3fcf088a2ab1a93043f1097bf72035d81ee56a6e57"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
+    },
+    {
+      "id": "T3m",
+      "type": "TOOLING",
+      "experiment": "C3-T3",
+      "brief_sha256": "75a27cc7c8a83cc3369d1061c15a4846f2234425319c711fa7d9055de5a94f2f",
+      "started": "2026-09-14T02:31:33.476820+00:00",
+      "ended": "2026-09-14T02:52:40.728860+00:00",
+      "minutes": 21.12087608611667,
+      "image_calls": 0,
+      "tool_calls": 37,
+      "audit": {
+        "violations": [],
+        "image_calls": 0,
+        "tool_calls": 37,
+        "tools_seen": {
+          "command_execution": 33,
+          "file_change": 4
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": []
+      },
+      "receipt_sha256": "26c135d7970af99ea5ca52dcf481658249a038743efc4979072ef78b34e38149",
+      "artifacts": [],
+      "artifacts_in_place": [
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "export/props_layer.py",
+          "sha256": "4244b4eb07421448e9f767062ea9114ba9c5af20f2fad8718f8599f702c85599"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3m/acceptance.json",
+          "sha256": "bf69c3d2f2e521eff0e8fdba1ce487c3b04de2763e91af810f7bd7dd56b7b500"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3m/fixture_import.log",
+          "sha256": "27a7b0f78c7acd8ea9f3d9d22de359d631c02504c3893161754139264921c3cf"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3m/fixture_inputs/props.json",
+          "sha256": "96a1420f61968a5ff72ebcf7302376295c695f7eb53abc199dfdbd502992bf75"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3m/fixture_inputs/ring.png",
+          "sha256": "1e53d06fe5d8f10a31d9b0f3e14267947d8fd2eca2d2b2905d03c138e930ad80"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3m/fixture_project/frames/keeper.tres",
+          "sha256": "6b141549ac883e502f42853c3ea42b28073a1cdb9c1df0cbf38c2e7e8558e650"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3m/fixture_project/probe.gd",
+          "sha256": "f3fa70fbbde5d7d72175e6a6131225a099d1b39809c6094d2962b2e85f2675c7"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3m/fixture_project/project.godot",
+          "sha256": "bdf1e087e08ea7e827e9de5cc73739f0d2d435791c05626fcc1e0f6aab6a24c9"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3m/fixture_project/props/props.json",
+          "sha256": "96a1420f61968a5ff72ebcf7302376295c695f7eb53abc199dfdbd502992bf75"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3m/fixture_project/props/ring.png",
+          "sha256": "1e53d06fe5d8f10a31d9b0f3e14267947d8fd2eca2d2b2905d03c138e930ad80"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3m/fixture_project/scenes/cliffside.tscn",
+          "sha256": "8fc00d2363989b7586072f24e98c1a8cf7394503fd6c56c404f98a767e21a142"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3m/fixture_project/scripts/occlusion_fade.gd",
+          "sha256": "96d37de2e8c7790cb00815fb1f939389872874ba23b43dc017d8530d3db62f61"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3m/fixture_project/sprites/alpha127.png",
+          "sha256": "0b05c9b087e842dfbfc7806b6e27b766102c14b9664c4bd6acf5cd5321eb7359"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3m/fixture_project/sprites/alpha128.png",
+          "sha256": "57982edcb6ce06d03a05dba80164792b48246f909af5a88fa9aae4d8e7785e5c"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3m/fixture_project/sprites/asymmetric.png",
+          "sha256": "55ab374ef54376b28eff0edd3d9e021dc639d4617433f748f8f165647eaf1061"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3m/fixture_project/sprites/square.png",
+          "sha256": "0b871f857c6284b5aa9a786fe36a2c29d94de3157dd9c179273491c9cf98a389"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3m/fixture_project/sprites/transparent.png",
+          "sha256": "99ffd56208753f220688c23db8569aa72206cc56ca25becda93950c2c7d8e3a0"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3m/fixture_runtime.log",
+          "sha256": "e2e1a3ff2f450fdefcd6edb17a876a5858db5e49296d13addc85baf3113ff276"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3m/full_suite.log",
+          "sha256": "a337d09d3b9e868793b07b8a38fe2a51e63c9c60fbb4636a578e4eb856807110"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3m/full_suite_initial.log",
+          "sha256": "40e85321d4ae904ebcbbba784c136581b9ae2a2d41212e434d4b49ea67eb7293"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3m/standing_reds.json",
+          "sha256": "9869efaa6f55bd6f69aa65fdd03e085813d51a5df6e0ef4c7b0e5e0811192e0e"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3m/standing_reds.log",
+          "sha256": "df1843650efdf05adf444713f123c9d0076c3e3a79db3824ba2fb5d915d245fc"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3m/t3l_text_baseline.json",
+          "sha256": "5086694961e63a51e8ac4cacac17eaef323bb282083725355f6722168a0daaef"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3m/t3m_tests.log",
+          "sha256": "c79cd6549c668c3e3046865799715151cad56906c6db8c54d6cd820e7318a443"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3m/targeted.log",
+          "sha256": "18334a46bc2c2bbcfab5c6ea833ce470bbc3535159fe6fa23897095803398601"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "tests/test_props_layer.py",
+          "sha256": "b52d75d2f59503198bc5365f60696cd4751d08de14ac8c97840ab01e47a20721"
+        }
+      ],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
+    },
+    {
+      "id": "CS-pack-v6",
+      "type": "PACK",
+      "experiment": "C3-cliffside-v3",
+      "brief_sha256": "8331a8bfc0c7f378ede5ce9ee7dc2762354c294c24422d7236a5cc48edfb09a2",
+      "started": "2026-09-14T02:58:47.051433+00:00",
+      "ended": "2026-09-14T03:00:15.027402+00:00",
+      "minutes": 1.4662518270832758,
+      "image_calls": 0,
+      "tool_calls": 7,
+      "audit": {
+        "violations": [],
+        "image_calls": 0,
+        "tool_calls": 7,
+        "tools_seen": {
+          "command_execution": 7
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": []
+      },
+      "receipt_sha256": "965693ac3a3e0391666c125de9b4288b22da1da2d444fd6d21d1141085bd20ad",
+      "artifacts": [
+        {
+          "name": "README_scene.txt",
+          "sha256": "4a888ada1ac0f2d3dbce3403c2cb193aa7008b764a4fada69725ab9912758e97"
+        },
+        {
+          "name": "exporter.json",
+          "sha256": "84f1dba7d42ddff767194f8689d667d4cd74f48faf01c69c310aa1fa59305409"
+        },
+        {
+          "name": "godot/project.godot",
+          "sha256": "2e99461d74d52642cb886e8a7062aaa8db73639eedb535603e5943cebd4aabba"
+        },
+        {
+          "name": "godot/scenes/cliffside.tscn",
+          "sha256": "bfd7f1469fc25480382e6a9e5684ac027f1d97beafb52e1385a7fc955709eaf2"
+        },
+        {
+          "name": "godot/scenes/frost_bolt.tscn",
+          "sha256": "4dda78afdf571f4853ad067d46472e072603a236f9a3b3f70385fbdcb3dae4a5"
+        },
+        {
+          "name": "godot/scenes/frost_impact.tscn",
+          "sha256": "f10b6807b2708a8ea5ee1844f56bc3e65c4a40ddaa640c04aec38e449444c629"
+        },
+        {
+          "name": "godot/scenes/main.tscn",
+          "sha256": "a7ff2b1ba99ca306dacd7fbee1556fbfbed54d72cc8e3c01ab72e1aba58b874d"
+        },
+        {
+          "name": "godot/scripts/frost_bolt.gd",
+          "sha256": "7fcfce78be6360dc720017408bf1896600c41e1be2a7f9d1bc501cff24c5fd23"
+        },
+        {
+          "name": "godot/scripts/frost_impact.gd",
+          "sha256": "2f53be38f198744ff7f39b9281e2c82b06836c37a6f3bbc89e85d54bd1fc4105"
+        },
+        {
+          "name": "godot/scripts/keeper.gd",
+          "sha256": "21edf18e73bce111fd1f7a8e2f916004a6745254f27fc6f8ede7f8d1e774545c"
+        },
+        {
+          "name": "godot/scripts/occlusion_fade.gd",
+          "sha256": "96d37de2e8c7790cb00815fb1f939389872874ba23b43dc017d8530d3db62f61"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
     }
   ],
-  "images_used": 166,
+  "images_used": 173,
   "images_cap": 1000,
   "experiments": {},
   "milestones": [
@@ -28289,6 +29018,16 @@
       "id": "M-C3-LAYERED-PLAYABLE",
       "note": "First layered playable (runs/C-3/cliffside_layered; Desktop 75): cloud-band foreground + parallax + spawn dressing (9 props, shadow layer) via T3l; Godot 4.6.3 import clean; fade probe behind tree A/B = 0.35, in front 1.0. Movement pending ARPG speed comparison.",
       "ts": "2026-09-13T22:12:31"
+    },
+    {
+      "id": "M-C3-CLOUD-EDGES",
+      "note": "CS-asm-fg-v4-band5 ACCEPTED (DRIFT-CRITIC eyeball): Astra-painted canyon cloud edges composited by black-background matting — billow outlines follow the puffs, outer wisps translucent (24 % of edge-region void px in 0.05–0.95), deep face alpha <0.95 = 0, exposed underside 0, rock/top untouched (MAD 0). Residual: faint lighter haze patches where tile crossfades overlap inside the bank (minor).",
+      "ts": "2026-09-13T22:58:04"
+    },
+    {
+      "id": "M-C3-V6-PLAYABLE",
+      "note": "Cliffside v6 (runs/C-3/cliffside_v6; Desktop 76): band5 cloud edges + T3m pixel fade + mask-derived rect colliders + R-C3-77 movement. Godot probe: fade 1.0→0.35 at leaf contact (x 2380) → 1.0 at x 3040; cache side stops 2754.7 / 2912.3 = collider ± 14.3 half-width; behind pass OK; walk 247.0, run 494.0 px/s; anim 20.7/14.5 fps.",
+      "ts": "2026-09-13T23:01:47"
     }
   ],
   "halts": [
@@ -28929,6 +29668,34 @@
       "class": "reasoning",
       "veto_open": true,
       "ts": "2026-09-13T22:09:31"
+    },
+    {
+      "id": "R-C3-75",
+      "ruling": "Matt playtest notes on the layered scene (spawn dressing \"great\"): (1) trees must turn transparent at the exact moment the character TOUCHES them and turn opaque exactly as she leaves (now too early — the fade used the tree bounding box); (2) objects must block the character at their SIDES as well (barrels/crates wider mid-height than at the base; collider is a small ellipse centred on the base line, half of it in front) — keep passing behind; (3) canyon-facing cloud edges: outline lines are haphazard and do not follow the puff curves — edges must follow the billows so it reads as gas/real clouds; the outermost puffs thinning out should turn slightly translucent. Dispositions (veto-open): (1)+(2) → T3m TOOLING: pixel-accurate fade (Keeper current-frame alpha vs prop alpha, behind test kept, 0.06 s tween) and footprint offset + rect shape; props.json re-derived from each asset mask (width = widest opaque extent of the lower half, depth band, base on the anchor line); (3) → band4 assembly: puff-stamped canyon edges (round billow heads along the boundary, rim-lit arcs + contour following each arc, outer puffs progressively translucent).",
+      "class": "matt",
+      "veto_open": false,
+      "ts": "2026-09-13T22:30:36"
+    },
+    {
+      "id": "R-C3-76",
+      "ruling": "band4 (procedural puff edges) REJECTED by DRIFT-CRITIC: circles read as translucent soap bubbles with flat texture inside and ring contours; regressions (246 see-through deep-face px, 765 exposed underside). Lesson: billow shading at the edge must be PAINTED, not stamped. Change (veto-open, Matt trusts Astra painting): Astra repaints the canyon-facing cloud EDGES by editing band3 crops composited over pure black; soft translucent wisps recovered by known-background matting against black (alpha by projection onto the local opaque cloud colour); edited crops replace band3 cloud only inside the cloud region (never rock/top), linear crossfades across crop overlaps; deep-face coverage rules kept.",
+      "class": "reasoning",
+      "veto_open": true,
+      "ts": "2026-09-13T22:58:04"
+    },
+    {
+      "id": "R-C3-77",
+      "ruling": "Matt: run = Grim Dawn base run speed 3.8 body-heights/s → Keeper 494 px/s; walk = 50 % of run → 247 px/s (Matt: unless a strong reason for 25 %; conductor: no strong reason — 247 px/s ≈ 2.45 m/s reads as a brisk march, fallback 35–40 % if it looks like speed-walking). Anim fps set to avoid foot slide: run 8-frame cycle at 14.5 fps (1.05 bh/step, Hades stride); walk 12-frame cycle at 20.7 fps (0.55 bh/step). Applied as the T3l movement block in the next export (after T3m returns; no conductor writes under burst/ while TOOLING runs).",
+      "class": "matt",
+      "veto_open": false,
+      "ts": "2026-09-13T22:58:04"
+    },
+    {
+      "id": "R-C3-78",
+      "ruling": "T3m ACCEPTED: pixel-accurate fade (ring hollow 1.0, behind-ring 0.35 in 0.037 s, restore 0.069 s, flip_h handled), footprint offset + rect shape exact, 24 malformed cases rejected; byte identity 10/11 text files (occlusion_fade.gd necessarily changed — the SPEC row's own requirement A). Suite 389/379 (standing + sandbox reds); conductor ran test_props_layer + 5 headless outside the sandbox: 28/28 OK. Freeze MANIFEST 8687dcaf9758.",
+      "class": "reasoning",
+      "veto_open": true,
+      "ts": "2026-09-13T22:58:04"
     }
   ],
   "grok_calls": [

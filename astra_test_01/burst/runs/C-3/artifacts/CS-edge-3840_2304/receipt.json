@@ -1,0 +1,33 @@
+{
+  "task_id": "CS-edge-3840_2304",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "edge_3840_2304.png",
+      "path": "out/edge_3840_2304.png",
+      "sha256": "5cace7f6059da8f18c1422731a364035480a6e4caf0970d4be38eeb105ee17ee",
+      "prompt": "Use case: precise-object-edit. Edit IMAGE 1, the supplied 1536×1024 cloud-and-cliff crop over pure black. Deliver exactly one 1536×1024 PNG with identical framing and registration. Repaint ONLY the canyon-facing CLOUD EDGES against black: work in a band roughly 60–180 pixels deep on the cloud side, plus wisps beyond it. Replace the haphazard cut-across-billows silhouette with real billowing vapour: rounded cumulus puffs of varied sizes whose outer silhouettes follow each puff's own curved volume. Each puff has warm peach/cream upper-left light and lavender/violet lower-right shadow, with soft painted contour following the curve, matching the existing interior cloud painting exactly. Moving outward, the puffs become smaller and vapour thins; outermost tiny puffs and wisps appear semi-transparent over the black and fade softly into black. Keep this localized; never extend cloud more than approximately 150 pixels beyond the current silhouette. Preserve all interior clouds farther than 180 pixels from the black boundary exactly. Preserve rock faces, grass, dirt, bridge and every non-cloud feature exactly; no repainting, moving, restyling, relighting or replacing those areas. Preserve all existing lighting and colors. Everywhere with no cloud remains flat PURE BLACK #000000, with no distant haze, glow, gradient, or background detail. Hand-drawn painted 2D game environment, clean painted planes, restrained texture, no conspicuous grain. No text or new objects. This is an edge repair, not a whole-scene repaint.",
+      "references": [
+        {
+          "role": "edit target",
+          "path": "in/01_edge_3840_2304_canvas.png"
+        }
+      ],
+      "elapsed_s": 25.603
+    }
+  ],
+  "calls_used": 1,
+  "retries": [],
+  "self_report": {
+    "obeyed_invariants": true,
+    "concerns": [
+      "Visual inspection only: exact preservation of protected pixels, pure-black values, and the approximate 150 px extension limit were not quantitatively verified."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/edge_3840_2304.png",
+      "sha256": "5cace7f6059da8f18c1422731a364035480a6e4caf0970d4be38eeb105ee17ee"
+    }
+  ]
+}

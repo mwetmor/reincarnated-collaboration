@@ -1,0 +1,14 @@
+CS-asm-fg-v4-band4 — measurements only
+Canvas 5376x4096 RGBA; 17 chunks; 45 minimum-error overlap paths.
+Frozen clamp matte; 12px temporary green padding; preserve disconnected masked foreground.
+Cloud tiles: full overlap crossfades; maximum boundary mean RGB difference 7.1375.
+Deep face alpha <0.95: 246; groups >=100px: 1.
+Shallow RGB mean absolute difference: 0.103945.
+First cloud face depth p10/p50/p90 mm: [8259.500000000004, 10333.5, 13050.400000000001].
+Void extent p10/p50/p90 px: [0.0, 352.0, 857.3999999999996].
+Shallow-nearest cloud count: 0; exposed underside count: 765.
+Straight alpha edge count >=40px: 0.
+Puffs main/outer: 79/20; radii p10/p50/p90: [40.38737159729004, 79.02000427246094, 99.14029541015626].
+Outermost 20px alpha p10/p50/p90: [0.550000011920929, 0.721194863319397, 0.8896121978759766].
+Void silhouette pixels outside puff arcs: 847.
+Elapsed 39.729 s; no image generation; all metrics are reports, no verdict.
