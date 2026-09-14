@@ -1,0 +1,133 @@
+{
+ "polygons": [
+  {
+   "id": "near_landmass_top",
+   "vertices": 241,
+   "self_intersections": 0,
+   "inside_canvas": true,
+   "touches_canvas_edge": true
+  },
+  {
+   "id": "far_plateau_top",
+   "vertices": 113,
+   "self_intersections": 0,
+   "inside_canvas": true,
+   "touches_canvas_edge": true
+  },
+  {
+   "id": "bridge_plank_0",
+   "vertices": 4,
+   "self_intersections": 0,
+   "inside_canvas": true,
+   "touches_canvas_edge": false
+  },
+  {
+   "id": "bridge_plank_1",
+   "vertices": 4,
+   "self_intersections": 0,
+   "inside_canvas": true,
+   "touches_canvas_edge": false
+  },
+  {
+   "id": "bridge_plank_2",
+   "vertices": 4,
+   "self_intersections": 0,
+   "inside_canvas": true,
+   "touches_canvas_edge": false
+  },
+  {
+   "id": "bridge_plank_4",
+   "vertices": 4,
+   "self_intersections": 0,
+   "inside_canvas": true,
+   "touches_canvas_edge": false
+  },
+  {
+   "id": "bridge_plank_5",
+   "vertices": 4,
+   "self_intersections": 0,
+   "inside_canvas": true,
+   "touches_canvas_edge": false
+  },
+  {
+   "id": "bridge_plank_3",
+   "vertices": 4,
+   "self_intersections": 0,
+   "inside_canvas": true,
+   "touches_canvas_edge": false
+  }
+ ],
+ "stray_contour_pieces_dropped_vertex_counts": {
+  "near_landmass_top": [],
+  "far_plateau_top": []
+ },
+ "spawn_px": [
+  2285.62,
+  2407.32
+ ],
+ "spawn_inside": [
+  "near_landmass_top"
+ ],
+ "south_path_to_far_plateau_with_falls_out_plank": {
+  "from_px": [
+   3015.25,
+   1239.72
+  ],
+  "to_px": [
+   3800.0,
+   520.0
+  ],
+  "connected": true
+ },
+ "south_path_to_far_plateau_without_falls_out_plank": {
+  "from_px": [
+   3015.25,
+   1239.72
+  ],
+  "to_px": [
+   3800.0,
+   520.0
+  ],
+  "connected": false
+ },
+ "deck_end_overlap_px": {
+  "near_landmass_top__bridge_plank_0": 17516,
+  "far_plateau_top__bridge_plank_5": 13700
+ },
+ "plank_abutment_gap_m": 0.0,
+ "top_pixels": 9011005,
+ "verge_outer_0p5m": {
+  "method": "pixel centre of every filled top pixel, unprojected to the ground at y = 0.02 m; exact distance to the rim polylines (1 cm)",
+  "violations_px_vs_rim_not_under_deck": 0,
+  "top_px_overlapping_the_deck_footprint_exempt": 31034,
+  "min_distance_m_to_rim_not_under_deck_off_deck": 0.5043,
+  "min_distance_m_outside_landings_to_any_rim": 0.5043,
+  "landing_px": 53967,
+  "min_distance_m_in_landings_to_any_rim": 0.2552,
+  "off_deck_top_px_within_0p5m_of_any_rim": 0,
+  "min_distance_m_off_deck_to_any_rim": 0.5043,
+  "landing_rule": "the only top pixels closer than 0.5 m to a rim lie on the deck footprint, over the rim the deck covers"
+ },
+ "face_or_void_mask_px": {
+  "top_pixels_on_mask0_or_depth_gt0": 0
+ },
+ "deck_pixels_on_mask0_or_depth_gt0": {
+  "total": 7781,
+  "on_mask0": 191,
+  "within_6cm_of_a_plank_seam_or_deck_end": 7595,
+  "within_3cm_of_a_deck_side_edge": 186,
+  "elsewhere": 0,
+  "why": "the plank boxes are 8 cm shorter than their segment; the seams show rock or void below; the walkable deck is continuous across them"
+ },
+ "polygon_count": {
+  "walkable": 7,
+  "walkable_flagged": 1,
+  "blocked": 6
+ },
+ "walkable_bbox_px": [
+  0.5,
+  0.5,
+  5375.5,
+  4095.5
+ ]
+}

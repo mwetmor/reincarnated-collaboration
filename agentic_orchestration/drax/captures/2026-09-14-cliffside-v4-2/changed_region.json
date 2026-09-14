@@ -1,0 +1,134 @@
+{
+  "ruling": "R-C3-87 (5) / CLIFF-V4.2",
+  "reference": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/drax/captures/2026-09-13-cliffside-v4",
+  "canvas_px": [
+    5376,
+    4096
+  ],
+  "bbox_px": [
+    1524,
+    1103,
+    3118,
+    2106
+  ],
+  "bbox_convention": "[x0, y0, x1, y1), x1/y1 exclusive; union of every changed pixel in mask, depth, shaded and id",
+  "changed_px_mask": 27797,
+  "changed_px_shaded": 55059,
+  "changed_px_depth": 27797,
+  "changed_px_id": 51105,
+  "per_canvas_bbox_px": {
+    "mask": [
+      2010,
+      1103,
+      3046,
+      1505
+    ],
+    "depth": [
+      2010,
+      1103,
+      3046,
+      1505
+    ],
+    "shaded": [
+      1524,
+      1103,
+      3118,
+      2106
+    ],
+    "id": [
+      1894,
+      1103,
+      3117,
+      1597
+    ]
+  },
+  "shaded_bbox_px_changes_gt_2_lsb": [
+    1894,
+    1103,
+    3118,
+    1598
+  ],
+  "shaded_px_changed_by_1_or_2_lsb": 773,
+  "outside_bbox_identical": {
+    "mask": true,
+    "depth": true,
+    "shaded": true,
+    "id": true
+  },
+  "outside_bbox_px_total": 20421314,
+  "mask_px": {
+    "v4_1": 12117320,
+    "v4_2": 12116095
+  },
+  "rim_seam_cracks_filled_px": [
+    [
+      3959,
+      1125
+    ],
+    [
+      4228,
+      1476
+    ],
+    [
+      4276,
+      1530
+    ],
+    [
+      4418,
+      1593
+    ],
+    [
+      4437,
+      1608
+    ],
+    [
+      4445,
+      1614
+    ],
+    [
+      4467,
+      1626
+    ],
+    [
+      4670,
+      1630
+    ],
+    [
+      4483,
+      1633
+    ],
+    [
+      4904,
+      1701
+    ],
+    [
+      4967,
+      1729
+    ],
+    [
+      5220,
+      1973
+    ],
+    [
+      5270,
+      1992
+    ],
+    [
+      5373,
+      2043
+    ]
+  ],
+  "see_through_windows_after_fill": 0,
+  "chunks_touched": [
+    "chunk_1_1",
+    "chunk_2_1",
+    "chunk_0_2",
+    "chunk_1_2",
+    "chunk_2_2"
+  ],
+  "notes": [
+    "mask and depth change only where the rim moved (and the faces beneath it); shaded/id also change where the top zones were re-zoned (verge band within 1.6 m of the new rim)",
+    "the shaded canvas also carries 1-2 LSB changes along the interior edges of the 53 re-triangulated top triangles (MSAA centroid sampling across zone-colour edges); they lie inside bbox_px and are counted in changed_px_shaded",
+    "v4.1 triangles that avoid the patched rim are pinned (cliffside_v4_2_tris.py), so nothing outside bbox_px moves"
+  ]
+}

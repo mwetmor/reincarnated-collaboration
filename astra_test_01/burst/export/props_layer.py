@@ -3,6 +3,7 @@
 PNG bytes are copied unchanged. Opaque support means alpha >= 128 (including
 for bounding boxes and coverage); near fade uses the full displayed rectangle.
 Coverage counts the union, before runtime fading, at viewport pixel centres.
+Near entries may set fade=false to omit fading; absent fade defaults to true.
 """
 import json
 import math
@@ -27,7 +28,7 @@ FIELDS = {
     'glows': {'texture', 'position', 'scale', 'color', 'flicker_hz', 'flicker_amount', 'z_parent'},
 }
 OPTIONAL_FIELDS = {'particles': {'gravity', 'angular_velocity', 'scale_curve', 'additive'},
-                   'glows': {'sort_y'}}
+                   'glows': {'sort_y'}, 'near': {'fade'}}
 
 
 def _fields(value, fields, label):
@@ -128,6 +129,8 @@ def load_props(directory):
             elif collection == 'near':
                 if not _number(item['scroll_scale']) or item['scroll_scale'] <= 1:
                     raise ValueError('near scroll_scale must be finite and > 1')
+                if 'fade' in item and not isinstance(item['fade'], bool):
+                    raise ValueError('near fade must be boolean')
             elif collection == 'particles':
                 _name(item['name'], particle_names)
                 png(item['texture'])
@@ -428,7 +431,7 @@ def write_layers(out, props, body_width=48.0):
         if file in used:
             external.append(f'[ext_resource type="Texture2D" path="res://{dest}" id="{ident}"]')
         textures[file] = ident
-    fade_used = bool(props['overhead'] or props['near'] or any(
+    fade_used = bool(props['overhead'] or any(e.get('fade', True) for e in props['near']) or any(
         a['fade_when_behind'] and any(i['asset'] == a['name'] for i in props['instances']) for a in props['assets']))
     if fade_used:
         (out/'scripts/occlusion_fade.gd').write_text(OCCLUSION_SCRIPT)
@@ -489,7 +492,8 @@ def write_layers(out, props, body_width=48.0):
                   f'position = {_vector(entry["position"])}\nscroll_offset = {_vector(entry["position"])}\n'
                   f'scroll_scale = {_vector([entry["scroll_scale"]]*2)}\n')
         after += sprite(f'NearSprite_{i}', f'Near_{i}', entry['file'], [0, 0])
-        after += fade(entry['file'], [0, 0], 2, '../../Actors/Keeper')
+        if entry.get('fade', True):
+            after += fade(entry['file'], [0, 0], 2, '../../Actors/Keeper')
     after += '\n[node name="Air" type="Node2D" parent="."]\nz_index = 5\n'
     for i, entry in enumerate(props['particles']):
         x0, y0, x1, y1 = entry['rect']

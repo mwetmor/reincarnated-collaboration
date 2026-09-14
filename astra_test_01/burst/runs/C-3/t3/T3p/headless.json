@@ -1,0 +1,138 @@
+{
+  "runs": [
+    {
+      "stage": "import",
+      "returncode": 0,
+      "wall_s": 2.6223117090121377,
+      "script_errors": 0,
+      "assertions": 0
+    },
+    {
+      "stage": "probe",
+      "returncode": 0,
+      "wall_s": 1.2652460829995107,
+      "script_errors": 0,
+      "assertions": 0
+    }
+  ],
+  "metrics": [
+    {
+      "evidence": [
+        "fixture_project/probe.gd"
+      ],
+      "id": "t3p_opaque_initial",
+      "notes": "Engine measurement; conductor owns acceptance.",
+      "op": "==",
+      "passed": null,
+      "subject": "synthetic_near",
+      "threshold": 1.0,
+      "unit": "alpha",
+      "value": 1.0
+    },
+    {
+      "evidence": [
+        "fixture_project/probe.gd"
+      ],
+      "id": "t3p_opaque_overlap_0",
+      "notes": "Engine measurement; conductor owns acceptance.",
+      "op": "==",
+      "passed": null,
+      "subject": "synthetic_near",
+      "threshold": 1.0,
+      "unit": "alpha",
+      "value": 1.0
+    },
+    {
+      "evidence": [
+        "fixture_project/probe.gd"
+      ],
+      "id": "t3p_default_overlap_0",
+      "notes": "Engine measurement; conductor owns acceptance.",
+      "op": "<=",
+      "passed": null,
+      "subject": "synthetic_near",
+      "threshold": 0.4,
+      "unit": "alpha",
+      "value": 0.349999994039536
+    },
+    {
+      "evidence": [
+        "fixture_project/probe.gd"
+      ],
+      "id": "t3p_opaque_restored_0",
+      "notes": "Engine measurement; conductor owns acceptance.",
+      "op": "==",
+      "passed": null,
+      "subject": "synthetic_near",
+      "threshold": 1.0,
+      "unit": "alpha",
+      "value": 1.0
+    },
+    {
+      "evidence": [
+        "fixture_project/probe.gd"
+      ],
+      "id": "t3p_default_restored_0",
+      "notes": "Engine measurement; conductor owns acceptance.",
+      "op": ">=",
+      "passed": null,
+      "subject": "synthetic_near",
+      "threshold": 0.99,
+      "unit": "alpha",
+      "value": 1.0
+    },
+    {
+      "evidence": [
+        "fixture_project/probe.gd"
+      ],
+      "id": "t3p_opaque_overlap_1",
+      "notes": "Engine measurement; conductor owns acceptance.",
+      "op": "==",
+      "passed": null,
+      "subject": "synthetic_near",
+      "threshold": 1.0,
+      "unit": "alpha",
+      "value": 1.0
+    },
+    {
+      "evidence": [
+        "fixture_project/probe.gd"
+      ],
+      "id": "t3p_default_overlap_1",
+      "notes": "Engine measurement; conductor owns acceptance.",
+      "op": "<=",
+      "passed": null,
+      "subject": "synthetic_near",
+      "threshold": 0.4,
+      "unit": "alpha",
+      "value": 0.349999994039536
+    },
+    {
+      "evidence": [
+        "fixture_project/probe.gd"
+      ],
+      "id": "t3p_opaque_restored_1",
+      "notes": "Engine measurement; conductor owns acceptance.",
+      "op": "==",
+      "passed": null,
+      "subject": "synthetic_near",
+      "threshold": 1.0,
+      "unit": "alpha",
+      "value": 1.0
+    },
+    {
+      "evidence": [
+        "fixture_project/probe.gd"
+      ],
+      "id": "t3p_default_restored_1",
+      "notes": "Engine measurement; conductor owns acceptance.",
+      "op": ">=",
+      "passed": null,
+      "subject": "synthetic_near",
+      "threshold": 0.99,
+      "unit": "alpha",
+      "value": 1.0
+    }
+  ],
+  "wall_s": 4.2000743329990655
+}

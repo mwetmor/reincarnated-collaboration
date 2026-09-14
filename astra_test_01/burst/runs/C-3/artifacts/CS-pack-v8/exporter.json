@@ -1,0 +1,245 @@
+{
+  "cells": [
+    "cast_E",
+    "cast_N",
+    "cast_NE",
+    "cast_NW",
+    "cast_S",
+    "cast_SE",
+    "cast_SW",
+    "cast_W",
+    "idle_E",
+    "idle_N",
+    "idle_NE",
+    "idle_NW",
+    "idle_S",
+    "idle_SE",
+    "idle_SW",
+    "idle_W",
+    "jump_E",
+    "jump_N",
+    "jump_NE",
+    "jump_NW",
+    "jump_S",
+    "jump_SE",
+    "jump_SW",
+    "jump_W",
+    "run_E",
+    "run_N",
+    "run_NE",
+    "run_NW",
+    "run_S",
+    "run_SE",
+    "run_SW",
+    "run_W",
+    "walk_E",
+    "walk_N",
+    "walk_NE",
+    "walk_NW",
+    "walk_S",
+    "walk_SE",
+    "walk_SW",
+    "walk_W"
+  ],
+  "frames": 416,
+  "texture_references": 540,
+  "gear_cells": 0,
+  "vfx_animations": 0,
+  "parallax": {
+    "canvas_size": [
+      5376,
+      4096
+    ],
+    "tiles": [
+      {
+        "file": "tile_0_0.png",
+        "position": [
+          0,
+          0
+        ],
+        "size": [
+          4096,
+          4096
+        ]
+      },
+      {
+        "file": "tile_4096_0.png",
+        "position": [
+          4096,
+          0
+        ],
+        "size": [
+          1280,
+          4096
+        ]
+      }
+    ],
+    "tile_count": 2,
+    "tile_area_px2": 22020096,
+    "filtering": "nearest (texture_filter=1), no padding, no resampling",
+    "layers": [
+      {
+        "name": "sky",
+        "file": "layers/sky.png",
+        "scroll_scale": 0.12,
+        "position": [
+          0,
+          0.0
+        ],
+        "z": -40
+      },
+      {
+        "name": "far_ruins",
+        "file": "layers/far_ruins.png",
+        "scroll_scale": 0.25,
+        "position": [
+          0,
+          -416.0
+        ],
+        "z": -30
+      },
+      {
+        "name": "forest_valley",
+        "file": "layers/forest_valley.png",
+        "scroll_scale": 0.45,
+        "position": [
+          0,
+          537.0
+        ],
+        "z": -20
+      },
+      {
+        "name": "mist",
+        "file": "layers/mist.png",
+        "scroll_scale": 0.7,
+        "position": [
+          0,
+          568.0
+        ],
+        "z": -10
+      }
+    ],
+    "collision_polygons": 915,
+    "figure_height_px": 130,
+    "scale": 0.5416666666666666,
+    "walk_speed": 247,
+    "run_speed": 494,
+    "camera_offset": [
+      -2.0000000000000995,
+      -55.00000000000001
+    ],
+    "camera_anchor_px": [
+      962.0000000000001,
+      595.0
+    ],
+    "camera_limits": [
+      2,
+      55,
+      5378,
+      4151
+    ],
+    "wall_s": 10.892771625018213,
+    "props": {
+      "particles": 15,
+      "instances": 41,
+      "shadows": 6,
+      "near": 2,
+      "overhead": 0,
+      "assets": 41,
+      "glows": 8,
+      "collision_polygons": 37,
+      "body_width_px": 113.74999999999999,
+      "body_height_px": 130,
+      "near_coverage": 0.16081741448245224,
+      "coverage_step_px": 64,
+      "opaque_alpha_min": 128
+    },
+    "near_coverage": 0.16081741448245224,
+    "movement": {
+      "walk_px_s": 247,
+      "run_px_s": 494,
+      "walk_anim_fps": 20.7,
+      "run_anim_fps": 14.5
+    },
+    "resource_references": 628
+  },
+  "vfx_kits": {
+    "kits": [
+      {
+        "name": "frost",
+        "frames": {
+          "flare": 9,
+          "impact": 14
+        },
+        "socket_cells": 8,
+        "missing_sockets": 0,
+        "ambient_rectangle": null,
+        "ambient_rectangle_report": null,
+        "resource_references": 512
+      },
+      {
+        "name": "fire",
+        "frames": {
+          "flare": 9,
+          "impact": 9
+        },
+        "socket_cells": 8,
+        "missing_sockets": 0,
+        "ambient_rectangle": null,
+        "ambient_rectangle_report": null,
+        "resource_references": 533
+      },
+      {
+        "name": "lightning",
+        "frames": {
+          "flare": 8,
+          "impact": 7
+        },
+        "socket_cells": 8,
+        "missing_sockets": 0,
+        "ambient_rectangle": null,
+        "ambient_rectangle_report": null,
+        "resource_references": 551
+      },
+      {
+        "name": "arcane",
+        "frames": {
+          "flare": 14,
+          "impact": 7
+        },
+        "socket_cells": 8,
+        "missing_sockets": 0,
+        "ambient_rectangle": null,
+        "ambient_rectangle_report": null,
+        "resource_references": 575
+      },
+      {
+        "name": "holy",
+        "frames": {
+          "flare": 9,
+          "impact": 12
+        },
+        "socket_cells": 8,
+        "missing_sockets": 0,
+        "ambient_rectangle": null,
+        "ambient_rectangle_report": null,
+        "resource_references": 599
+      },
+      {
+        "name": "poison",
+        "frames": {
+          "flare": 9,
+          "impact": 17
+        },
+        "socket_cells": 8,
+        "missing_sockets": 0,
+        "ambient_rectangle": null,
+        "ambient_rectangle_report": null,
+        "resource_references": 628
+      }
+    ],
+    "credits": "Super Pixel Effects Gigapack - Will Tice / unTied Games (round_light_burst_001 large blue; spell_ice_001 large blue). Licence: see LICENSE file and http://untiedgames.com/files/license.txt. Local use only: no redistribution outside a game product; never used as AI-model reference or training material.\nSuper Pixel Effects Gigapack - Will Tice / unTied Games (round_light_burst_001_large_orange; stylized_explosion_001_large_orange)\nLicence: local use only; no redistribution outside a game product; never used as AI-model reference or training material.\nSuper Pixel Effects Gigapack - Will Tice / unTied Games (lightning_burst_001_large_yellow; lightning_strike_001_large_yellow)\nLicence: local use only; no redistribution outside a game product; never used as AI-model reference or training material.\nSuper Pixel Effects Gigapack - Will Tice / unTied Games (round_sparkle_burst_001_large_violet; symmetrical_impact_001_large_violet)\nLicence: local use only; no redistribution outside a game product; never used as AI-model reference or training material.\nSuper Pixel Effects Gigapack - Will Tice / unTied Games (round_light_burst_001_large_yellow)\nHoly Spell Effects - CreativeKind (spell_2 nova; commercial royalty-free licence)\nLicence: local use only; no redistribution outside a game product; never used as AI-model reference or training material.\nSuper Pixel Effects Gigapack - Will Tice / unTied Games (round_light_burst_001_large_green; spell_poison_001_large_green)\nLicence: local use only; no redistribution outside a game product; never used as AI-model reference or training material.\n",
+    "resource_references": 628
+  },
+  "wall_s": 12.122379915992497
+}

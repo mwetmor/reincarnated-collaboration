@@ -1,0 +1,345 @@
+{
+  "task_id": "T3p",
+  "metrics": [
+    {
+      "id": "t3p_near_entries",
+      "subject": "synthetic_near",
+      "passed": null,
+      "value": 2,
+      "threshold": 2,
+      "op": "==",
+      "unit": "count",
+      "evidence": [
+        "focused.log"
+      ],
+      "notes": "Instrument only; conductor owns acceptance."
+    },
+    {
+      "id": "t3p_opaque_sprite_script_count",
+      "subject": "synthetic_near",
+      "passed": null,
+      "value": 0,
+      "threshold": 0,
+      "op": "==",
+      "unit": "count",
+      "evidence": [
+        "focused.log"
+      ],
+      "notes": "Instrument only; conductor owns acceptance."
+    },
+    {
+      "id": "t3p_default_sprite_script_count",
+      "subject": "synthetic_near",
+      "passed": null,
+      "value": 1,
+      "threshold": 1,
+      "op": "==",
+      "unit": "count",
+      "evidence": [
+        "focused.log"
+      ],
+      "notes": "Instrument only; conductor owns acceptance."
+    },
+    {
+      "id": "t3p_legacy_text_files_identical",
+      "subject": "synthetic_near",
+      "passed": null,
+      "value": 11,
+      "threshold": 11,
+      "op": "==",
+      "unit": "count",
+      "evidence": [
+        "t3o_baseline.json",
+        "focused.log"
+      ],
+      "notes": "Instrument only; conductor owns acceptance."
+    },
+    {
+      "id": "t3p_non_boolean_cases_rejected_before_output",
+      "subject": "synthetic_near",
+      "passed": null,
+      "value": 12,
+      "threshold": 12,
+      "op": "==",
+      "unit": "count",
+      "evidence": [
+        "focused.log"
+      ],
+      "notes": "Instrument only; conductor owns acceptance."
+    },
+    {
+      "id": "t3p_unknown_or_misplaced_keys_rejected",
+      "subject": "synthetic_near",
+      "passed": null,
+      "value": 9,
+      "threshold": 9,
+      "op": "==",
+      "unit": "count",
+      "evidence": [
+        "focused.log"
+      ],
+      "notes": "Instrument only; conductor owns acceptance."
+    },
+    {
+      "id": "t3p_unused_fade_resources_all_opaque",
+      "subject": "synthetic_near",
+      "passed": null,
+      "value": 0,
+      "threshold": 0,
+      "op": "==",
+      "unit": "count",
+      "evidence": [
+        "focused.log"
+      ],
+      "notes": "Instrument only; conductor owns acceptance."
+    },
+    {
+      "id": "t3p_focused_tests_successful",
+      "subject": "synthetic_near",
+      "passed": null,
+      "value": 9,
+      "threshold": 9,
+      "op": "==",
+      "unit": "count",
+      "evidence": [
+        "focused.log"
+      ],
+      "notes": "Instrument only; conductor owns acceptance."
+    },
+    {
+      "id": "t3p_coverage_false",
+      "subject": "synthetic_near",
+      "passed": null,
+      "value": 0.5,
+      "threshold": 0.5,
+      "op": "==",
+      "unit": "share",
+      "evidence": [
+        "focused.log"
+      ],
+      "notes": "Instrument only; conductor owns acceptance."
+    },
+    {
+      "id": "t3p_coverage_delta_false",
+      "subject": "synthetic_near",
+      "passed": null,
+      "value": 0.0,
+      "threshold": 0,
+      "op": "==",
+      "unit": "share",
+      "evidence": [
+        "focused.log"
+      ],
+      "notes": "Instrument only; conductor owns acceptance."
+    },
+    {
+      "id": "t3p_coverage_true",
+      "subject": "synthetic_near",
+      "passed": null,
+      "value": 0.5,
+      "threshold": 0.5,
+      "op": "==",
+      "unit": "share",
+      "evidence": [
+        "focused.log"
+      ],
+      "notes": "Instrument only; conductor owns acceptance."
+    },
+    {
+      "id": "t3p_coverage_delta_true",
+      "subject": "synthetic_near",
+      "passed": null,
+      "value": 0.0,
+      "threshold": 0,
+      "op": "==",
+      "unit": "share",
+      "evidence": [
+        "focused.log"
+      ],
+      "notes": "Instrument only; conductor owns acceptance."
+    },
+    {
+      "evidence": [
+        "fixture_project/probe.gd"
+      ],
+      "id": "t3p_opaque_initial",
+      "notes": "Engine measurement; conductor owns acceptance.",
+      "op": "==",
+      "passed": null,
+      "subject": "synthetic_near",
+      "threshold": 1.0,
+      "unit": "alpha",
+      "value": 1.0
+    },
+    {
+      "evidence": [
+        "fixture_project/probe.gd"
+      ],
+      "id": "t3p_opaque_overlap_0",
+      "notes": "Engine measurement; conductor owns acceptance.",
+      "op": "==",
+      "passed": null,
+      "subject": "synthetic_near",
+      "threshold": 1.0,
+      "unit": "alpha",
+      "value": 1.0
+    },
+    {
+      "evidence": [
+        "fixture_project/probe.gd"
+      ],
+      "id": "t3p_default_overlap_0",
+      "notes": "Engine measurement; conductor owns acceptance.",
+      "op": "<=",
+      "passed": null,
+      "subject": "synthetic_near",
+      "threshold": 0.4,
+      "unit": "alpha",
+      "value": 0.349999994039536
+    },
+    {
+      "evidence": [
+        "fixture_project/probe.gd"
+      ],
+      "id": "t3p_opaque_restored_0",
+      "notes": "Engine measurement; conductor owns acceptance.",
+      "op": "==",
+      "passed": null,
+      "subject": "synthetic_near",
+      "threshold": 1.0,
+      "unit": "alpha",
+      "value": 1.0
+    },
+    {
+      "evidence": [
+        "fixture_project/probe.gd"
+      ],
+      "id": "t3p_default_restored_0",
+      "notes": "Engine measurement; conductor owns acceptance.",
+      "op": ">=",
+      "passed": null,
+      "subject": "synthetic_near",
+      "threshold": 0.99,
+      "unit": "alpha",
+      "value": 1.0
+    },
+    {
+      "evidence": [
+        "fixture_project/probe.gd"
+      ],
+      "id": "t3p_opaque_overlap_1",
+      "notes": "Engine measurement; conductor owns acceptance.",
+      "op": "==",
+      "passed": null,
+      "subject": "synthetic_near",
+      "threshold": 1.0,
+      "unit": "alpha",
+      "value": 1.0
+    },
+    {
+      "evidence": [
+        "fixture_project/probe.gd"
+      ],
+      "id": "t3p_default_overlap_1",
+      "notes": "Engine measurement; conductor owns acceptance.",
+      "op": "<=",
+      "passed": null,
+      "subject": "synthetic_near",
+      "threshold": 0.4,
+      "unit": "alpha",
+      "value": 0.349999994039536
+    },
+    {
+      "evidence": [
+        "fixture_project/probe.gd"
+      ],
+      "id": "t3p_opaque_restored_1",
+      "notes": "Engine measurement; conductor owns acceptance.",
+      "op": "==",
+      "passed": null,
+      "subject": "synthetic_near",
+      "threshold": 1.0,
+      "unit": "alpha",
+      "value": 1.0
+    },
+    {
+      "evidence": [
+        "fixture_project/probe.gd"
+      ],
+      "id": "t3p_default_restored_1",
+      "notes": "Engine measurement; conductor owns acceptance.",
+      "op": ">=",
+      "passed": null,
+      "subject": "synthetic_near",
+      "threshold": 0.99,
+      "unit": "alpha",
+      "value": 1.0
+    }
+  ],
+  "resource_reference_count": 20,
+  "focused_suite": {
+    "tests_run": 9,
+    "successful": true,
+    "successful_count": 9,
+    "wall_s": 6.725
+  },
+  "headless": [
+    {
+      "stage": "import",
+      "returncode": 0,
+      "wall_s": 2.6223117090121377,
+      "script_errors": 0,
+      "assertions": 0
+    },
+    {
+      "stage": "probe",
+      "returncode": 0,
+      "wall_s": 1.2652460829995107,
+      "script_errors": 0,
+      "assertions": 0
+    }
+  ],
+  "fixture_build_and_headless_wall_s": 4.2000743329990655,
+  "static_measurement_wall_s": 0.02583662499091588,
+  "notes": [
+    "Default fade is true; explicit false omits both script attachment and script-only exported properties. Coverage implementation unchanged.",
+    "Headless engine assertions completed inside this sandbox; no T3p runtime alpha limitation.",
+    "No real-clip acceptance is specified by the T3p row. Real kit and cliffside_v6 references were read only.",
+    "Engine import caches and temporary fixtures removed; retained fixtures use synthetic geometry.",
+    "Full suite rerun once with an in-memory unittest result recorder because the required runner prints counts but omits red names; no runner or existing test behavior altered."
+  ],
+  "full_suite": {
+    "direct_run": {
+      "tests_run": 433,
+      "successful_tests": 421,
+      "elapsed_s": 174.71127574998536
+    },
+    "diagnostic_run": {
+      "tests_run": 433,
+      "successful_tests": 421,
+      "elapsed_s": 175.47665970900562
+    },
+    "red_records": 12,
+    "t3p_red_records": 0,
+    "reds": [
+      "test_headless_state_machine_input_map_gear_vfx_and_nearest_fallback (test_godot_import.GodotImportTests.test_headless_state_machine_input_map_gear_vfx_and_nearest_fallback)",
+      "test_synthetic_contract_and_grid (test_oracle_walk.Tests.test_synthetic_contract_and_grid)",
+      "test_f04_outside_at_least_three (test_oracles_motif.Tests.test_f04_outside_at_least_three)",
+      "test_named_genuine_annuli_retained (test_oracles_motif.Tests.test_named_genuine_annuli_retained) (center=[113, 201])",
+      "test_named_genuine_annuli_retained (test_oracles_motif.Tests.test_named_genuine_annuli_retained) (center=[111, 311])",
+      "test_named_genuine_annuli_retained (test_oracles_motif.Tests.test_named_genuine_annuli_retained) (center=[170, 253])",
+      "test_headless_cliffside_follow_camera_parallax_and_projectile_collision (test_parallax_scene.ParallaxSceneTests.test_headless_cliffside_follow_camera_parallax_and_projectile_collision)",
+      "test_headless_occlusion_fade_restore_overhead_near_and_particles (test_props_layer.PropsLayerTests.test_headless_occlusion_fade_restore_overhead_near_and_particles)",
+      "test_headless_tower_import_run_and_physics (test_scene_kit.SceneKitTests.test_headless_tower_import_run_and_physics)",
+      "test_headless_directional_release_and_resources (test_sockets.SocketTests.test_headless_directional_release_and_resources)",
+      "test_headless_glow_sixty_samples_extrema_range_and_particle_properties (test_vfx_picker.LivingEmbersTests.test_headless_glow_sixty_samples_extrema_range_and_particle_properties)",
+      "test_headless_tab_twice_cast_scene_labels_and_inflight_kit_lock (test_vfx_picker.VfxPickerTests.test_headless_tab_twice_cast_scene_labels_and_inflight_kit_lock)"
+    ],
+    "evidence": [
+      "full_suite.log",
+      "suite_results.json"
+    ]
+  },
+  "tooling_observed_wall_s": 672.591,
+  "tooling_wall_cap_s": 2400
+}

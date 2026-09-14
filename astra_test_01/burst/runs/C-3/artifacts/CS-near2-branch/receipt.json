@@ -1,0 +1,38 @@
+{
+  "task_id": "CS-near2-branch",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "near2_branch",
+      "path": "out/near2_branch.png",
+      "sha256": "2cd269477a3906021af41b5fdeaaa1f16bd342174e053401d5eef8327f59ef67",
+      "prompt": "Use case: stylized-concept. Create ONE landscape image exactly 1536×1024, an isolated foreground layer for a hand-drawn painted 2D action game. Image 1 is a STYLE REFERENCE only: match its near-camera gnarled cliff-pine branch in the upper left, not the surrounding scene. Paint ONE long gnarled cliff-pine branch on flat pure #00ff00. Its thick base ENTERS FROM THE TOP BORDER near the LEFT third, cropped flush and straight by the actual top image edge: bark continues beyond the top edge, no visible origin, no end cap or exposed cut wood. The branch bends down and then reaches RIGHT, with the complete branch silhouette spanning roughly 70–85% of image width. It tapers into twisted twigs with 5–8 dark blue-green needle clusters. Its lowest needle or twig stays within the upper 60% of the canvas. Leave green clearance at left, right and bottom borders; only the thick base meets the TOP border. Keep the lower 40% completely empty pure green. Match reference twisted grey-violet bark, near-silhouette values, dark blue-green tufts, warm sunset rim on upper edges and very slight softness. Confident hand-drawn dark contour with visible taper and varying line weight; painted fills in clean planes, restrained surface texture, readable silhouette and no conspicuous grain. Elevated three-quarter world perspective. Cool low-value ambient with readable darks; upper-left key and the reference's warm upper-edge rim. Everything around and between branches is uniform solid RGB 0,255,0, with no gradient, lighting, texture or shadows on the background. No sky, rock, ground, characters, text, frame or border. Deliver only the single branch image.\nRETRY CORRECTION: The previous attempt had visibly uneven green and a silhouette too wide. Make the background a perfectly flat, exact solid #00ff00 (RGB 0 255 0) everywhere outside the branch, absolutely no grain, noise or variation. Keep the entire silhouette between x=170 and x=1400 on the 1536-wide canvas (about 80% width). Base still enters flush from TOP at x≈470; tapering primary bough reaches right to x≈1400. No long leftward limb; keep the leftmost small tufts inside x=170. All other requirements unchanged. Use the supplied approved scene only for the pine's hand-drawn style.",
+      "references": [
+        {
+          "role": "IMAGE 1 — approved near-camera branch look (style reference)",
+          "path": "in/01_near_bridge.png"
+        }
+      ],
+      "elapsed_s": 24.745
+    }
+  ],
+  "calls_used": 2,
+  "retries": [
+    {
+      "reason": "First image appeared to have uneven green and a silhouette wider than 85% of the canvas.",
+      "change": "Reinforced exact uniform #00ff00 and constrained silhouette to approximately 80% width."
+    }
+  ],
+  "self_report": {
+    "obeyed_invariants": true,
+    "concerns": [
+      "Background still appears slightly uneven; exact #00ff00 uniformity is not verified. Delivered without post-processing."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/near2_branch.png",
+      "sha256": "2cd269477a3906021af41b5fdeaaa1f16bd342174e053401d5eef8327f59ef67"
+    }
+  ]
+}

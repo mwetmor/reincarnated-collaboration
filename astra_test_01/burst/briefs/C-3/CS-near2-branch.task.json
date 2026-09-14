@@ -1,0 +1,18 @@
+{
+ "text": "GENERATE BURST CS-near2-branch — ELONGATED NEAR-CAMERA PINE BRANCH on green, for a foreground layer that must never show where the branch starts (Matt R-C3-87). task_id \"CS-near2-branch\".\n\nIMAGE 1 is an approved in-game frame of a hand-painted 2D ARPG: the gnarled dark CLIFF-PINE BRANCH with needle clusters at the top-left, close to the camera, is the approved look (twisted grey-violet bark, dark blue-green needle tufts, near-silhouette with a warm sunset rim light on its upper edges, very slight softness).\nPaint ONE LANDSCAPE image 1536×1024 on flat PURE GREEN #00ff00 containing ONE long gnarled cliff-pine branch: its thick base ENTERS FROM THE TOP BORDER of the image near the LEFT third (cut flush and straight by the top border, as if it grows from a rock face far above the frame), bends down and then reaches to the RIGHT across roughly 70–85 % of the image width, thinning into twisted twigs with 5–8 needle clusters; its lowest point stays in the upper 60 % of the image; it does NOT touch the left, right or bottom borders. Same painted register, palette and light as IMAGE 1. Everything around it is flat pure #00ff00. No sky, rock, ground, characters, text or border.\n\nOne image_gen call. ONE retry only if the object's cut edge is not flush with the required image border, the object does not fill the required length, the background is not flat pure #00ff00, or the style clearly departs from IMAGE 1 — name the reason. Copy the output from $CODEX_HOME/generated_images/... to out/near2_branch.png with sha256. No code. No other files. No web.\nRETURN: receipt task_id \"CS-near2-branch\"; images = the file with prompt, references and elapsed_s; calls_used = the TRUE number of image_gen calls; status; concerns. Never PASS/FAIL.",
+ "references": [
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/CS-near-bridge/near_bridge.png",
+   "role": "IMAGE 1 — approved near-camera branch look (style reference)"
+  }
+ ],
+ "image_cap": 2,
+ "minutes_cap": 15,
+ "tool_call_cap": 20,
+ "outputs": [
+  "out/near2_branch.png"
+ ],
+ "effort": "high",
+ "add_dirs": [],
+ "experiment": "C3-cliffside-near"
+}

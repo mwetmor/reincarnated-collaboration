@@ -1,0 +1,22 @@
+{
+ "text": "GENERATE BURST CS-corner-v42 — repaint two rounded canyon-rim corners into the painted cliffside level (Matt R-C3-87). task_id \"CS-corner-v42\".\n\nIMAGE 1 (1536×1024) is a crop of the finished hand-painted 2D ARPG level (sunset, high three-quarter camera): packed-dirt path, grassy rocky cliff-top ground, a rocky rim, a wooden bridge deck with posts at the top-right, and PURE GREEN #00ff00 void beyond the rim. Along the rim left of the bridge, two corners were reshaped into rounded, eroded rock promontories; there the painting has been replaced by a FLAT-SHADED GEOMETRY GUIDE: TAN = dirt path, OLIVE GREEN = grassy rocky ground, LIGHT GREY = the rocky rim verge, DARK GREY = rock face below the rim, BROWN = bridge deck/posts.\nUse image_gen in EDIT mode on IMAGE 1 and deliver ONE 1536×1024 image in which every flat guide area is replaced by painting that CONTINUES the surrounding painted areas seamlessly (same grass, dirt, pebbles, rim stones, rock faces, light and hand-painted style) so no join is visible; every guide boundary — especially the new rounded rim outline — stays exactly where it is; the already-painted areas stay as they are; every green pixel stays flat pure #00ff00. No new objects, characters, text or border.\n\nOne image_gen call. ONE retry only if a guide area is still flat, the rim outline moved or turned square again, painted areas were visibly changed, or the green was painted over — name the reason. Copy the output from $CODEX_HOME/generated_images/... to out/corner_v42.png with sha256. No code. No other files. No web.\nRETURN: receipt task_id \"CS-corner-v42\"; images = the file with prompt, references and elapsed_s; calls_used = the TRUE number of image_gen calls; status; concerns. Never PASS/FAIL.",
+ "references": [
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/CS-corner-canvases/corner_canvas.png",
+   "role": "IMAGE 1 — painted crop with the reshaped corners as guide (EDIT)"
+  },
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/CS-chunk-A/chunk_A.png",
+   "role": "IMAGE 2 — approved painted style of this level (reference only)"
+  }
+ ],
+ "image_cap": 2,
+ "minutes_cap": 15,
+ "tool_call_cap": 20,
+ "outputs": [
+  "out/corner_v42.png"
+ ],
+ "effort": "high",
+ "add_dirs": [],
+ "experiment": "C3-cliffside-v4"
+}

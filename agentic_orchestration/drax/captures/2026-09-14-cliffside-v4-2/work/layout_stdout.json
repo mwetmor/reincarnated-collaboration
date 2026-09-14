@@ -1,0 +1,244 @@
+{
+ "v4_2_patch": {
+  "ruling": "R-C3-87 (5)",
+  "what": "near-rim corners (a) beside the SW bridge post and (b) the stepped corner to its west, reshaped into rounded, eroded promontories; all other rim, walls and zones = v4.1",
+  "replaced_v41_vertex_range": [
+   957,
+   7
+  ],
+  "splice_v41_vertices": [
+   956,
+   8
+  ],
+  "replaced_v41_vertex_count": 54,
+  "new_arc_interior_vertices": 46,
+  "arc_length_m": 11.732,
+  "arcs": [
+   {
+    "name": "corner_b_stepped_west",
+    "ia": 962,
+    "ib": 980,
+    "R": 4.8,
+    "bites": [
+     [
+      0.56,
+      -0.4,
+      0.64
+     ]
+    ],
+    "noise_m": 0.06,
+    "seed": 205,
+    "centre_xz": [
+     1.5884,
+     -1.9501
+    ],
+    "base_convex_radius_m": 4.8
+   },
+   {
+    "name": "corner_a_sw_bridge_post",
+    "ia": 984,
+    "ib": 8,
+    "R": 4.6,
+    "bites": [
+     [
+      0.27,
+      -0.44,
+      0.87
+     ],
+     [
+      0.48,
+      0.12,
+      0.91
+     ],
+     [
+      0.73,
+      -0.38,
+      0.52
+     ]
+    ],
+    "noise_m": 0.06,
+    "seed": 18,
+    "centre_xz": [
+     5.2291,
+     -3.8773
+    ],
+    "base_convex_radius_m": 4.6
+   }
+  ],
+  "smoothing_m": 0.25,
+  "west_pinned_ramp_m": 1.5,
+  "checks": {
+   "min_opening_deg_1m_arms_new_arc": 146.1,
+   "min_opening_deg_1m_arms_v41_same_stretch": 94.1,
+   "max_straight_run_m_tol5cm_new_arc": 1.74,
+   "max_straight_run_m_tol5cm_v41_same_stretch": 1.75,
+   "base_arcs_convex_radius_m": [
+    4.8,
+    4.6
+   ],
+   "min_convex_circumradius_m_1m_chords_base_arcs": [
+    4.801,
+    4.6
+   ],
+   "min_convex_circumradius_m_2m_chords_final_arc": 4.009,
+   "min_convex_circumradius_m_2m_chords_v41_same_stretch": 1.432,
+   "max_rim_displacement_m": 1.126,
+   "sw_bridge_post_inside_top": true,
+   "sw_bridge_post_centre_to_rim_m": 0.447,
+   "kept_wall_columns_identical_to_v41": true,
+   "rezoned_zone_px": 82505,
+   "near_loop_self_intersections": 0
+  }
+ },
+ "rim_stats": {
+  "near_landmass_rim": {
+   "tol_5cm": {
+    "tolerance_m": 0.05,
+    "vertices_in_canvas_band": 334,
+    "vertex_spacing_m": 0.25,
+    "max_straight_run_m": 2.486,
+    "max_straight_run_px": 205.1,
+    "max_straight_run_starts_at_px": [
+     3152.3,
+     3493.4
+    ],
+    "sharpest_opening_deg_1m_arms": 108.2,
+    "right_angle_corners_1m_straight_arms": 0
+   },
+   "tol_3cm": {
+    "tolerance_m": 0.03,
+    "vertices_in_canvas_band": 334,
+    "vertex_spacing_m": 0.25,
+    "max_straight_run_m": 1.487,
+    "max_straight_run_px": 144.9,
+    "max_straight_run_starts_at_px": [
+     764.5,
+     2466.6
+    ],
+    "sharpest_opening_deg_1m_arms": 108.2,
+    "right_angle_corners_1m_straight_arms": 0
+   },
+   "self_intersections": 0,
+   "perimeter_m": 248.8
+  },
+  "far_plateau_rim": {
+   "tol_5cm": {
+    "tolerance_m": 0.05,
+    "vertices_in_canvas_band": 245,
+    "vertex_spacing_m": 0.25,
+    "max_straight_run_m": 2.488,
+    "max_straight_run_px": 244.5,
+    "max_straight_run_starts_at_px": [
+     4665.7,
+     -909.7
+    ],
+    "sharpest_opening_deg_1m_arms": 126.4,
+    "right_angle_corners_1m_straight_arms": 0
+   },
+   "tol_3cm": {
+    "tolerance_m": 0.03,
+    "vertices_in_canvas_band": 245,
+    "vertex_spacing_m": 0.25,
+    "max_straight_run_m": 1.996,
+    "max_straight_run_px": 191.6,
+    "max_straight_run_starts_at_px": [
+     5117.8,
+     -1066.5
+    ],
+    "sharpest_opening_deg_1m_arms": 126.4,
+    "right_angle_corners_1m_straight_arms": 0
+   },
+   "self_intersections": 0,
+   "perimeter_m": 273.0
+  }
+ },
+ "feet": [
+  {
+   "v3_feet_px": [
+    2285,
+    2407
+   ],
+   "feet_px": [
+    2285.0,
+    2407.0
+   ],
+   "local_xz": [
+    -0.5576,
+    6.7852
+   ],
+   "moved": false,
+   "moved_m": 0.0,
+   "on": "path"
+  },
+  {
+   "v3_feet_px": [
+    1000,
+    2880
+   ],
+   "feet_px": [
+    1000.0,
+    2880.0
+   ],
+   "local_xz": [
+    -13.3288,
+    12.675
+   ],
+   "moved": false,
+   "moved_m": 0.0,
+   "on": "path"
+  },
+  {
+   "v3_feet_px": [
+    3000,
+    1200
+   ],
+   "feet_px": [
+    3015.25,
+    1239.72
+   ],
+   "local_xz": [
+    6.7,
+    -7.75
+   ],
+   "moved": true,
+   "moved_m": 0.517,
+   "on": "path"
+  },
+  {
+   "v3_feet_px": [
+    3800,
+    520
+   ],
+   "feet_px": [
+    3800.0,
+    520.0
+   ],
+   "local_xz": [
+    14.4994,
+    -16.712
+   ],
+   "moved": false,
+   "moved_m": 0.0,
+   "on": "path"
+  }
+ ],
+ "zones": {
+  "grassy_top": 0.6260780642305426,
+  "path": 0.29153526951309866,
+  "verge": 0.08238666625635879
+ },
+ "outcrops": 0,
+ "walkable": [
+  [
+   "path_0",
+   391,
+   0
+  ],
+  [
+   "path_1",
+   144,
+   0
+  ]
+ ],
+ "spawn_P": 3.8719297087575826
+}

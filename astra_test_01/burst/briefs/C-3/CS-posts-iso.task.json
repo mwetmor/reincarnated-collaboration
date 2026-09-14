@@ -1,0 +1,18 @@
+{
+ "text": "GENERATE BURST CS-posts-iso — ISOLATE the four wooden BRIDGE POSTS from their painted crops (R-C3-87). task_id \"CS-posts-iso\".\n\nIMAGE 1 (1536×1024) is a sheet on flat PURE GREEN #00ff00 with four enlarged tiles cropped from a hand-painted 2D ARPG level; each tile is centred on one upright square WOODEN BRIDGE POST (dark brown timber with a lit top) standing at the corner of a wooden bridge deck, with planks, grass, dirt, rock or clouds around it.\nUse image_gen in EDIT mode on IMAGE 1 and deliver ONE 1536×1024 image in which, in every tile, ONLY the upright POST stays EXACTLY as painted (same pixels, position, size, outline, colours, lit top) and everything else — deck planks, grass, dirt, rock, clouds, shadows — becomes flat PURE GREEN #00ff00 with a crisp edge. Where a plank edge or grass hid the post's base, finish its bottom cleanly as a square timber base. Nothing new is added; nothing moves.\n\nOne image_gen call. ONE retry only if a post moved or changed, deck/ground remains attached, the background is not flat pure #00ff00, or the style clearly departs from IMAGE 1 — name the reason. Copy the output from $CODEX_HOME/generated_images/... to out/posts_iso.png with sha256. No code. No other files. No web.\nRETURN: receipt task_id \"CS-posts-iso\"; images = the file with prompt, references and elapsed_s; calls_used = the TRUE number of image_gen calls; status; concerns. Never PASS/FAIL.",
+ "references": [
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/CS-posts-canvases/posts_sheet.png",
+   "role": "IMAGE 1 — post tiles to isolate (EDIT)"
+  }
+ ],
+ "image_cap": 2,
+ "minutes_cap": 15,
+ "tool_call_cap": 20,
+ "outputs": [
+  "out/posts_iso.png"
+ ],
+ "effort": "high",
+ "add_dirs": [],
+ "experiment": "C3-cliffside-dress"
+}

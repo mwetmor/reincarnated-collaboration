@@ -1,0 +1,117 @@
+{
+  "canvas_size": [
+    5376,
+    4096
+  ],
+  "tiles": [
+    {
+      "file": "tile_0_0.png",
+      "position": [
+        0,
+        0
+      ],
+      "size": [
+        4096,
+        4096
+      ]
+    },
+    {
+      "file": "tile_4096_0.png",
+      "position": [
+        4096,
+        0
+      ],
+      "size": [
+        1280,
+        4096
+      ]
+    }
+  ],
+  "tile_count": 2,
+  "tile_area_px2": 22020096,
+  "filtering": "nearest (texture_filter=1), no padding, no resampling",
+  "layers": [
+    {
+      "name": "sky",
+      "file": "layers/sky.png",
+      "scroll_scale": 0.12,
+      "position": [
+        0,
+        0.0
+      ],
+      "z": -40
+    },
+    {
+      "name": "far_ruins",
+      "file": "layers/far_ruins.png",
+      "scroll_scale": 0.25,
+      "position": [
+        0,
+        -416.0
+      ],
+      "z": -30
+    },
+    {
+      "name": "forest_valley",
+      "file": "layers/forest_valley.png",
+      "scroll_scale": 0.45,
+      "position": [
+        0,
+        537.0
+      ],
+      "z": -20
+    },
+    {
+      "name": "mist",
+      "file": "layers/mist.png",
+      "scroll_scale": 0.7,
+      "position": [
+        0,
+        568.0
+      ],
+      "z": -10
+    }
+  ],
+  "collision_polygons": 915,
+  "figure_height_px": 130,
+  "scale": 0.5416666666666666,
+  "walk_speed": 247,
+  "run_speed": 494,
+  "camera_offset": [
+    -2.0000000000000995,
+    -55.00000000000001
+  ],
+  "camera_anchor_px": [
+    962.0000000000001,
+    595.0
+  ],
+  "camera_limits": [
+    2,
+    55,
+    5378,
+    4151
+  ],
+  "wall_s": 10.892771625018213,
+  "props": {
+    "particles": 15,
+    "instances": 41,
+    "shadows": 6,
+    "near": 2,
+    "overhead": 0,
+    "assets": 41,
+    "glows": 8,
+    "collision_polygons": 37,
+    "body_width_px": 113.74999999999999,
+    "body_height_px": 130,
+    "near_coverage": 0.16081741448245224,
+    "coverage_step_px": 64,
+    "opaque_alpha_min": 128
+  },
+  "near_coverage": 0.16081741448245224,
+  "movement": {
+    "walk_px_s": 247,
+    "run_px_s": 494,
+    "walk_anim_fps": 20.7,
+    "run_anim_fps": 14.5
+  }
+}

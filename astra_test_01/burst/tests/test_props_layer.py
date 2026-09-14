@@ -774,8 +774,227 @@ def build_t3m_fixture(directory):
     return out
 
 
+
+# T3p: captured from the T3o exporter before adding near.fade. Clock and
+# collection iteration order are fixed exactly as in the T3m regression lock.
+T3O_PROPS_BASELINE = {
+    **T3L_PROPS_BASELINE,
+    'scripts/occlusion_fade.gd': '96d37de2e8c7790cb00815fb1f939389872874ba23b43dc017d8530d3db62f61',
+}
+
+
+class PropsLayerT3pTests(unittest.TestCase):
+    setUp = PropsLayerTests.setUp
+    export = PropsLayerTests.export
+    reject = PropsLayerTests.reject
+
+    def mixed(self):
+        self.data['near'].append(copy.deepcopy(self.data['near'][0]))
+        self.data['near'][0]['fade'] = False
+        (self.props/'props.json').write_text(json.dumps(self.data))
+
+    def test_mixed_near_only_default_sprite_has_fade_script(self):
+        self.mixed()
+        out, report, text = self.export()
+        nodes = scene_nodes(text)
+        self.assertEqual(report['parallax']['props']['near'], 2)
+        for key in ('script =', 'keeper_path =', 'body_width =', 'fade_mode =',
+                    'opaque_rect =', 'modulate ='):
+            self.assertNotIn(key, nodes['NearSprite_0'])
+        self.assertIn('script = ExtResource("OcclusionFade")', nodes['NearSprite_1'])
+        self.assertIn('fade_mode = 2', nodes['NearSprite_1'])
+        for i in (0, 1):
+            self.assertEqual(vector(nodes[f'Near_{i}'], 'scroll_scale'), [1.2, 1.2])
+            self.assertEqual(vector(nodes[f'Near_{i}'], 'scroll_offset'), [0, 0])
+            self.assertIn('z_index = 4', nodes[f'Near_{i}'])
+        self.assertEqual((out/'props/props.json').read_bytes(), (self.props/'props.json').read_bytes())
+        self.assertEqual((out/'props/near.png').read_bytes(), (self.props/'near.png').read_bytes())
+        self.assertTrue(validate_resources(out, include_scenes=True))
+
+    def test_all_opaque_near_omits_unneeded_fade_resource(self):
+        self.mixed()
+        for key in self.data:
+            if key != 'near':
+                self.data[key] = []
+        for entry in self.data['near']:
+            entry['fade'] = False
+        (self.props/'props.json').write_text(json.dumps(self.data))
+        out, _, text = self.export()
+        self.assertNotIn('OcclusionFade', text)
+        self.assertFalse((out/'scripts/occlusion_fade.gd').exists())
+        self.assertTrue(validate_resources(out, include_scenes=True))
+
+    def test_opaque_near_keeps_other_layers_fade_resources(self):
+        self.data['near'][0]['fade'] = False
+        (self.props/'props.json').write_text(json.dumps(self.data))
+        out, _, text = self.export()
+        nodes = scene_nodes(text)
+        for name, mode in (('Prop_0', 0), ('Prop_1', 0), ('Overhead_0', 1)):
+            self.assertIn('script = ExtResource("OcclusionFade")', nodes[name])
+            self.assertIn(f'fade_mode = {mode}', nodes[name])
+        self.assertNotIn('script =', nodes['NearSprite_0'])
+        self.assertTrue(validate_resources(out, include_scenes=True))
+
+    def test_non_boolean_fade_rejected_before_any_output(self):
+        for value in (None, 0, 1, -1, 0.0, 1.0, 'false', 'true', '', [], {}, [False]):
+            bad = copy.deepcopy(self.data)
+            bad['near'][0]['fade'] = value
+            with self.subTest(fade=value):
+                self.reject(bad)
+
+    def test_unknown_keys_and_fade_on_other_collections_rejected(self):
+        for key in ('Fade', 'fade_when_behind', 'opacity', 'unexpected'):
+            bad = copy.deepcopy(self.data)
+            bad['near'][0].update(fade=False)
+            bad['near'][0][key] = False
+            with self.subTest(key=key):
+                self.reject(bad)
+        for collection in ('assets', 'instances', 'shadows', 'overhead', 'particles'):
+            bad = copy.deepcopy(self.data)
+            bad[collection][0]['fade'] = False
+            with self.subTest(collection=collection):
+                self.reject(bad)
+
+    def test_explicit_true_equals_default_export_text_except_copied_manifest(self):
+        with patch('time.monotonic', return_value=0.0):
+            before, _, _ = self.export()
+        self.data['near'][0]['fade'] = True
+        (self.props/'props.json').write_text(json.dumps(self.data))
+        after = self.root/'explicit_true'
+        with patch('time.monotonic', return_value=0.0):
+            build_project(self.cells, after, parallax=self.source, props=self.props)
+        a, b = text_hashes(before), text_hashes(after)
+        self.assertEqual(set(a), set(b))
+        self.assertEqual([p for p in a if a[p] != b[p]], ['props/props.json'])
+
+    def test_no_fade_key_byte_identical_to_t3o_all_text(self):
+        class OrderedCollections(set):
+            def __iter__(self):
+                return iter(('assets', 'near', 'shadows', 'instances', 'particles', 'overhead'))
+        with patch('time.monotonic', return_value=0.0), patch(
+                'export.props_layer.COLLECTIONS', OrderedCollections(self.data)):
+            out, _, _ = self.export()
+        self.assertEqual(text_hashes(out), T3O_PROPS_BASELINE)
+
+    def test_coverage_unchanged_for_false_true_and_mixed_entries(self):
+        props, walkable, camera = half_coverage_case(self.root/'half')
+        self.assertEqual(near_coverage(props, walkable, camera, 4000), .5)
+        for flags in ((False,), (True,), (False, None), (False, True)):
+            data = {k: copy.deepcopy(props[k]) for k in self.data}
+            template = data['near'][0]
+            data['near'] = [dict(template, **({} if flag is None else {'fade': flag}))
+                            for flag in flags]
+            (props['root']/'props.json').write_text(json.dumps(data))
+            with self.subTest(flags=flags):
+                self.assertEqual(near_coverage(props['root'], walkable, camera, 4000), .5)
+
+    @unittest.skipUnless(Path(GODOT).is_file(), 'Godot binary unavailable')
+    def test_headless_mixed_near_overlap_alpha_and_restore(self):
+        self.mixed()
+        out, _, _ = self.export()
+        (out/'probe.gd').write_text(T3P_PROBE)
+        logs = []
+        for args in (['--import'], ['--script', 'res://probe.gd']):
+            proc = subprocess.run([GODOT, '--headless', '--path', str(out),
+                                   '--log-file', str(self.root/'godot.log'), *args],
+                                  capture_output=True, text=True, timeout=45)
+            log = proc.stdout+proc.stderr
+            logs.append(log)
+            self.assertEqual(proc.returncode, 0, log)
+            self.assertNotIn('SCRIPT ERROR', log)
+            self.assertNotIn('T3P_ASSERTION:', log)
+        self.assertIn('T3P_RUNTIME_ASSERTIONS=complete', logs[-1])
+        rows = [json.loads(line.split('=', 1)[1]) for line in logs[-1].splitlines()
+                if line.startswith('T3P_MEASURE=')]
+        values = {r['id']: r['value'] for r in rows}
+        for cycle in range(2):
+            self.assertEqual(values[f't3p_opaque_overlap_{cycle}'], 1.0)
+            self.assertLessEqual(values[f't3p_default_overlap_{cycle}'], .4)
+            self.assertEqual(values[f't3p_opaque_restored_{cycle}'], 1.0)
+            self.assertGreaterEqual(values[f't3p_default_restored_{cycle}'], .99)
+
+
+T3P_PROBE = '''extends SceneTree
+var errors: int = 0
+
+func check(value: bool, message: String) -> void:
+    if not value:
+        errors += 1
+        printerr("T3P_ASSERTION: ", message)
+
+func record(label: String, value: float, threshold: float, op: String) -> void:
+    print("T3P_MEASURE=", JSON.stringify({"id": "t3p_" + label, "subject": "synthetic_near",
+        "passed": null, "value": value, "threshold": threshold, "op": op, "unit": "alpha",
+        "evidence": ["fixture_project/probe.gd"], "notes": "Engine measurement; conductor owns acceptance."}))
+    if op == "==":
+        check(value == threshold, label)
+    elif op == "<=":
+        check(value <= threshold, label)
+    else:
+        check(value >= threshold, label)
+
+func _initialize() -> void:
+    call_deferred("probe")
+
+func probe() -> void:
+    root.size = Vector2i(1920, 1080)
+    var scene: Node = load("res://scenes/cliffside.tscn").instantiate()
+    root.add_child(scene)
+    await process_frame
+    var keeper: Node2D = scene.get_node("Actors/Keeper")
+    keeper.set_physics_process(false)
+    var opaque: Sprite2D = scene.get_node("Near_0/NearSprite_0")
+    var fading: Sprite2D = scene.get_node("Near_1/NearSprite_1")
+    check(opaque.get_script() == null, "opaque sprite has no script")
+    check(fading.get_script() != null, "default sprite has fade script")
+    var camera: Camera2D = keeper.get_node("Camera2D")
+    camera.make_current()
+    camera.force_update_scroll()
+    await process_frame
+    record("opaque_initial", opaque.modulate.a, 1.0, "==")
+    for cycle in range(2):
+        for prop in [opaque, fading]:
+            prop.position = prop.get_parent().get_global_transform_with_canvas().affine_inverse() * (keeper.get_global_transform_with_canvas().origin - Vector2(100, 150))
+        await create_timer(0.25).timeout
+        var body: Rect2 = keeper.get_global_transform_with_canvas() * Rect2(-10, -130, 20, 130)
+        for prop in [opaque, fading]:
+            var displayed: Rect2 = prop.get_global_transform_with_canvas() * prop.get_rect()
+            check(displayed.intersects(body), "both near sprites really overlap Keeper")
+        record("opaque_overlap_" + str(cycle), opaque.modulate.a, 1.0, "==")
+        record("default_overlap_" + str(cycle), fading.modulate.a, 0.4, "<=")
+        for prop in [opaque, fading]:
+            prop.position += Vector2(10000, 10000)
+        await create_timer(0.25).timeout
+        record("opaque_restored_" + str(cycle), opaque.modulate.a, 1.0, "==")
+        record("default_restored_" + str(cycle), fading.modulate.a, 0.99, ">=")
+    if errors == 0:
+        print("T3P_RUNTIME_ASSERTIONS=complete")
+    scene.queue_free()
+    await process_frame
+    quit(0 if errors == 0 else 7)
+'''
+
+
+def build_t3p_fixture(directory):
+    """Export two synthetic near entries: fade:false and the legacy default."""
+    root = Path(directory)
+    root.mkdir(parents=True, exist_ok=True)
+    source, cells, _, _ = make_inputs(root/'fixture_inputs', (1200, 900))
+    props = root/'fixture_inputs/props'
+    data = make_props(props)
+    data['near'].append(copy.deepcopy(data['near'][0]))
+    data['near'][0]['fade'] = False
+    (props/'props.json').write_text(json.dumps(data, indent=2)+'\n')
+    out = root/'fixture_project'
+    build_project(cells, out, parallax=source, props=props)
+    (out/'probe.gd').write_text(T3P_PROBE)
+    return out
+
+
 if __name__ == '__main__':
-    if len(sys.argv) == 3 and sys.argv[1] == '--fixture-t3m':
+    if len(sys.argv) == 3 and sys.argv[1] == '--fixture-t3p':
+        print(build_t3p_fixture(sys.argv[2]))
+    elif len(sys.argv) == 3 and sys.argv[1] == '--fixture-t3m':
         print(build_t3m_fixture(sys.argv[2]))
     elif len(sys.argv) == 3 and sys.argv[1] == '--fixture':
         print(json.dumps(build_fixture(sys.argv[2]), indent=2))

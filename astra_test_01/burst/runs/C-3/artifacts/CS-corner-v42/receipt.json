@@ -1,0 +1,44 @@
+{
+  "task_id": "CS-corner-v42",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "corner_v42.png",
+      "path": "out/corner_v42.png",
+      "sha256": "ef9c9a6769a10c7d127e6dd75a71d1d3f7e237bd73b70af3ee93ddc4cb5fa8ff",
+      "prompt": "Use case: precise-object-edit. Edit IMAGE 1 only; IMAGE 2 is reference only for the approved painted materials. Deliver one 1536x1024 PNG with precisely the same framing. Repaint ONLY the flat geometry guide areas along the canyon rim left of the upper-right bridge, including the two rounded eroded promontories. TAN guide becomes continuous packed-dirt path; OLIVE guide becomes continuous grassy rocky ground; LIGHT GREY guide becomes painted rim stones; DARK GREY guide becomes rock face; BROWN guide becomes the matching existing wood posts/deck. Replace every guide area with finished painting seamlessly continuing adjacent original grass, dirt, pebbles, rim stones, rock faces and wood. Preserve EVERY guide boundary exactly, especially the smooth rounded outer silhouette against green. The guide is a strict shape mask, not a suggestion. Keep the original painted pixels unchanged, including the path, scattered stones, grass, foreground/right cliff and already painted bridge. Every original green pixel must remain flat pure #00ff00; do not extend stones or grass into the green. Do not leave any flat grey, olive, tan or brown guide remnants. Keep the bridge geometry exactly as supplied. Hand-drawn painted 2D action-game environment with confident hand-drawn dark contours of tapering variable weight, clean painted material planes and restrained surface texture, readable silhouettes without conspicuous grain. Match the surrounding painting and IMAGE 2, the existing elevated three-quarter camera, upper-left key light and cool readable rock shadows with the supplied sunset coloration. No new objects, characters, text, border, reframing or resizing. Exact preservation of the guide silhouette and all pre-existing painting is essential.\nCORRECTION FOR ONE RETRY: The previous attempt textured the green void and slightly displaced the outer rim edge. Start from the ORIGINAL IMAGE 1 again. Preserve its entire green region as exact solid RGB(0,255,0), without noise, texture, gradients, outlines extending into green or altered pixels. Lock the original green/non-green silhouette precisely to the input. Lock all already-painted portions to the input too. Only fill the flat guide-colored patches with matching painting. Preserve the rounded contours precisely, without straightening them or making square corners. Output exactly 1536x1024.",
+      "references": [
+        {
+          "role": "EDIT target",
+          "path": "in/01_corner_canvas.png"
+        },
+        {
+          "role": "Approved painted style reference only",
+          "path": "in/02_chunk_A.png"
+        }
+      ],
+      "elapsed_s": 31.948
+    }
+  ],
+  "calls_used": 2,
+  "retries": [
+    {
+      "reason": "First output visibly textured the green void and slightly displaced the rim outline.",
+      "change": "Restarted from original references with stronger instructions to preserve exact green pixels, silhouette, and existing painting."
+    }
+  ],
+  "self_report": {
+    "obeyed_invariants": false,
+    "concerns": [
+      "Delivered dimensions verified as 1536×1024; guide areas appear painted.",
+      "Green still appears textured, and some grass extends beyond the original rim silhouette.",
+      "Exact preservation of already-painted pixels is not established."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/corner_v42.png",
+      "sha256": "ef9c9a6769a10c7d127e6dd75a71d1d3f7e237bd73b70af3ee93ddc4cb5fa8ff"
+    }
+  ]
+}

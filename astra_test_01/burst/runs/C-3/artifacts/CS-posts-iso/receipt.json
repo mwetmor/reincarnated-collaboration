@@ -1,0 +1,40 @@
+{
+  "task_id": "CS-posts-iso",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "posts_iso.png",
+      "path": "out/posts_iso.png",
+      "sha256": "311efdc66b35437d28af022f792a38c869b989e76610f6abe9993721c9bcb2df",
+      "prompt": "EDIT the ORIGINAL supplied Image 1 (1536×1024). This is an exact preservation extraction task. Return one 1536×1024 image with only the four existing upright wooden bridge posts at their original coordinates on a perfectly uniform opaque RGB(0,255,0) #00ff00 background. Previous attempt changed wood grain and added variation to green; correct those errors. Preserve the ORIGINAL visible wood pixels and contours, including every original highlight, crack, grain shape, top-face colour and dark side plane. Erase surroundings only: all bridge deck planks, grass, dirt, stones, clouds and shadows must become exactly RGB(0,255,0). Do not repaint, enhance, sharpen, smooth or reinterpret the four posts. Their size and position must remain identical to the original. Approximate bounds left to right x180–296 y371–705; x552–665 y385–709; x912–1039 y377–691; x1293–1415 y381–691, follow actual original silhouettes precisely. The ONLY allowed reconstruction is completing the small occluded bottom portions as square timber bases after removing grass/planks. Crisp boundaries. No ground remnants attached. Preserve original hand-drawn painted 2D art. Every background pixel must be the same pure #00ff00: no background texture, noise, gradient, dither or illumination. No new objects or text. Nothing moves.",
+      "references": [
+        {
+          "role": "IMAGE 1 — post tiles to isolate (EDIT)",
+          "path": "in/01_posts_sheet.png"
+        }
+      ],
+      "elapsed_s": 49.937
+    }
+  ],
+  "calls_used": 2,
+  "retries": [
+    {
+      "reason": "First output altered painted wood details and showed background variation.",
+      "change": "Retried from the original reference, emphasizing preservation of original pixels and uniformly exact RGB(0,255,0)."
+    }
+  ],
+  "self_report": {
+    "obeyed_invariants": false,
+    "concerns": [
+      "Four posts isolated; output dimensions verified as 1536×1024.",
+      "Retry still visibly alters original painted details; exact pixel preservation was not achieved.",
+      "Background appears to retain slight variation; exact uniform #00ff00 is unverified. Retry allowance exhausted."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/posts_iso.png",
+      "sha256": "311efdc66b35437d28af022f792a38c869b989e76610f6abe9993721c9bcb2df"
+    }
+  ]
+}

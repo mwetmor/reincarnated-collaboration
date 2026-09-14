@@ -1,0 +1,35 @@
+{
+  "task_id": "CS-near2-spire",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "near2_spire",
+      "path": "out/near2_spire.png",
+      "sha256": "4ac6d28d996e55a5c5f2e305df82f9532c0417b6645413b7fb2b3cec5453d18c",
+      "prompt": "Use case: stylized-concept. Generate ONE portrait image exactly 1024×1536 for a foreground layer in a hand-drawn painted 2D action game. Image 1 is a STYLE AND SUBJECT reference: match only the red-orange sandstone hoodoo on the RIGHT of that image, with its banded eroded ledges, clinging dry shrubs, dark hand-drawn contours and sunset upper-left rim light. Create ONE much taller elongated hoodoo isolated on flat pure #00ff00 green. A single tall slightly leaning column of stacked, banded eroded sandstone, a few overhanging ledges, narrower neck near the top and a capstone. Center horizontally; overall rock width about 380–520 pixels. Capstone starts 60–120 pixels below the top border. The body extends continuously DOWN THROUGH THE BOTTOM IMAGE BORDER: rock must intersect the last pixel row across its full local body width, cut flush and straight by the image boundary as if the column continues far below the frame. NO visible base, no bottom silhouette edge, no taper to a point, no green gap below the rock. Keep a substantial shaft width at the bottom. The object spans almost the entire image height. Everything around it is uniform solid pure #00ff00, including both side margins. Hand-drawn painted 2D animation-frame register: confident dark contour line with visible taper and varying weight, painted fills in clean material planes, restrained surface texture, readable silhouette, no conspicuous grain. Match the reference palette and light, slightly darker and softer than the lit scene because it is near-camera: rusty red-orange stone, deep cool low-value readable shadows, warm sunset rim on upper-left ledges. Elevated three-quarter game camera. No clouds, ground, sky, characters, text, border, cast floor shadow, or other objects. Deliver one image only.",
+      "references": [
+        {
+          "role": "Approved near-camera hoodoo style and subject reference",
+          "path": "in/01_near_canyon.png"
+        }
+      ],
+      "elapsed_s": 24.097
+    }
+  ],
+  "calls_used": 1,
+  "retries": [],
+  "self_report": {
+    "obeyed_invariants": false,
+    "concerns": [
+      "Bottom crop is flush with no visible base, but the lower column exceeds the requested 380–520 px width.",
+      "Capstone begins approximately 28 px below the top rather than 60–120 px.",
+      "Green background appears uniform; exact #00ff00 was not pixel-verified."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/near2_spire.png",
+      "sha256": "4ac6d28d996e55a5c5f2e305df82f9532c0417b6645413b7fb2b3cec5453d18c"
+    }
+  ]
+}

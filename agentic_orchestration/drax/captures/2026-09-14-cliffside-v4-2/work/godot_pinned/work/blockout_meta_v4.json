@@ -1,0 +1,184 @@
+{
+  "bands": {
+    "charred_forest": {
+      "depression_deg_at_plateau_cam": [
+        45.5,
+        42.0
+      ],
+      "y_m": [
+        -157.630985178673,
+        -272.810448970486
+      ],
+      "z_out_m": [
+        150.0,
+        300.0
+      ]
+    },
+    "sky": {
+      "distance_along_forward_m": 1500.0,
+      "note": "camera-facing card, gradient orange (top, toward the horizon above frame) -> violet (bottom)"
+    },
+    "temple_ruins": {
+      "depression_deg_at_plateau_cam": [
+        40.6,
+        39.9
+      ],
+      "y_m": [
+        -327.538662970692,
+        -360.963371973228
+      ],
+      "z_out_m": [
+        380.0,
+        430.0
+      ]
+    },
+    "valley": {
+      "note": "flat, 40 m below the path, parallel to the cliff",
+      "w_from_path_line_m": [
+        -60.0,
+        45.0
+      ],
+      "y_m": -40.0
+    }
+  },
+  "bridge": {
+    "falls_out_index": 3,
+    "planks": [
+      {
+        "falls_out": false,
+        "index": 0,
+        "length_m": 1.5865202776591,
+        "width_m": 3.0
+      },
+      {
+        "falls_out": false,
+        "index": 1,
+        "length_m": 1.5865202776591,
+        "width_m": 3.0
+      },
+      {
+        "falls_out": false,
+        "index": 2,
+        "length_m": 1.5865202776591,
+        "width_m": 3.0
+      },
+      {
+        "falls_out": true,
+        "index": 3,
+        "length_m": 1.5865202776591,
+        "width_m": 3.0
+      },
+      {
+        "falls_out": false,
+        "index": 4,
+        "length_m": 1.5865202776591,
+        "width_m": 3.0
+      },
+      {
+        "falls_out": false,
+        "index": 5,
+        "length_m": 1.5865202776591,
+        "width_m": 3.0
+      }
+    ],
+    "segments": 6,
+    "span_m": 9.99912166595459
+  },
+  "layout": {
+    "chasm_s_m": [
+      33.3821109086275,
+      43.3821109086275
+    ],
+    "path_length_m": 46.3821109086275,
+    "plateau_s_m": 20.8719499088824
+  },
+  "ortho_canvas_v4": {
+    "camera_pos": [
+      39.615665435791,
+      64.4357757568359,
+      32.228271484375
+    ],
+    "file": "07_ortho_canvas_shaded_v4.png",
+    "frame": {
+      "rgt": [
+        0.681999325752258,
+        0.0,
+        -0.731352806091309
+      ],
+      "umin": -23.2673988342285,
+      "upc": [
+        -0.583727121353149,
+        0.602462649345398,
+        -0.544335782527924
+      ],
+      "vmax": 18.5067100524902
+    },
+    "key_points_canvas_px": {
+
+    },
+    "level_origin_canvas_px": [
+      2341.10888671875,
+      1862.10864257812
+    ],
+    "ortho_size_m": 40.7086025145007,
+    "proxy_ground_canvas_px": {
+      "bridge_approach": [
+        2942.20971679688,
+        1465.31518554688
+      ],
+      "plateau": [
+        2285.62109375,
+        2407.32836914062
+      ],
+      "start": [
+        974.5205078125,
+        2938.81884765625
+      ]
+    },
+    "px_per_ground_m_screen_y": 80.3076247646877,
+    "px_per_m_screen_x": 100.617553710938,
+    "px_per_vertical_m_screen_y": 60.6182936037266,
+    "size_px": [
+      5376,
+      4096
+    ],
+    "tiles": "single image (viewport limit not reached)"
+  },
+  "pin": {
+    "offset_k1": [
+      14.7262048721313,
+      28.3970108032227,
+      13.7826108932495
+    ],
+    "ok": true,
+    "pin_delta_m": 0.0,
+    "zp_delta_m": 0.0
+  },
+  "v4": {
+    "canvas_px": [
+      5376,
+      4096
+    ],
+    "cut_depth_m": 20.0,
+    "frame_pinned": {
+      "umin": -23.2673988342285,
+      "vmax": 18.5067100524902
+    },
+    "k": 0.541385974272702,
+    "layout": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/drax/captures/2026-09-14-cliffside-v4-2/work/v4_layout.json",
+    "px_per_m": 100.617553710938,
+    "ruling": "R-C3-54 / R-C3-55"
+  },
+  "v4_centreline_check_m": [
+    0.000000476837158203125,
+    0.00000095367431640625
+  ],
+  "v4_top_far_plateau_top": {
+    "triangles": 1090,
+    "vertices": 1092
+  },
+  "v4_top_near_landmass_top": {
+    "triangles": 993,
+    "vertices": 995
+  }
+}
