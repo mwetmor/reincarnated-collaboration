@@ -1,0 +1,15 @@
+Assets: 11; expected: 12; shrub_a contains joined fern_b (not independently reusable).
+Registration flags: 0 / 7.
+obj_05: shift [0, 0]; RGB MAE 8.731; flagged=False; components 3/4.
+obj_03: shift [0, 0]; RGB MAE 7.769; flagged=False; components 1/1.
+obj_01: shift [0, 0]; RGB MAE 7.723; flagged=False; components 2/2.
+obj_02: shift [0, 0]; RGB MAE 7.232; flagged=False; components 1/1.
+obj_06: shift [0, 0]; RGB MAE 12.107; flagged=False; components 2/2.
+obj_07: shift [0, 0]; RGB MAE 9.147; flagged=False; components 1/1.
+obj_04: shift [0, 0]; RGB MAE 8.222; flagged=False; components 1/1.
+Rebuild RGB MAE inside tile regions: 14.242; outside: 11.108.
+Diff-report region-bbox RGB MAE inside: 16.389; outside: 11.010.
+Shadows: pure black, k=1; Gaussian sigma 15 px / soften sigma 3 px; asset exclusion before softening.
+Matte: frozen extract, clamp, preserve_particles=True; obj_03 temporary 10-px green guard removed before 0.5x resize.
+Grouping: alpha>=32, 8-connected dilation 3 px; drop border groups and original support <150 px.
+Anchors/footprints: alpha>=200; 2-px transparent padding; report only.

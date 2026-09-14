@@ -1,0 +1,43 @@
+{
+  "task_id": "CS-mist2-3_4-ns",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "mist_3_4.png",
+      "path": "out/mist_3_4.png",
+      "sha256": "bb95e6ea3c1d51f8f17d9fd05c9f007a4f9388912ee0772ade6851244830cdf2",
+      "prompt": "Use case: lighting-weather. EDIT Image 1; Image 2 is only a spatial mist-zone guide, never an appearance reference. Deliver ONE 1536x1024 PNG with exactly the original framing. This tile is almost entirely flat pure #00ff00 void with a cropped cliff face at the upper-right. Do not invent cliff tops or other scenery outside this crop. The cyan area within the white outline in Image 2 marks the only editable zone (approximately x1314..1535, y5..515, with a curved left/lower boundary). Neither the cyan tint nor the white line may appear in the result. Inside this zone, make the lower rock disappear into a thick OPAQUE bank of billowing valley mist. Rock becomes progressively hazier downward and is swallowed completely; no bottom edge of rock remains visible. Use hand-painted cloud forms: soft lavender and dusky violet shadows, warm rose-peach highlights on billow tops lit by sunset. Underside is a soft rounded cloud-like silhouette against the flat green. Keep the bank localized within the guide zone; tiny wisps may drift just beyond and billow tops may rise no more than 40px above the upper outline. Preserve every existing pixel outside this local mist region, including the thin unmarked strips at top/right; retain all original upper cliff details wherever not obscured by mist. Every uncovered green pixel must remain flat pure #00ff00. Same hand-drawn painted 2D game art as Image 1: confident tapered varying-weight contours, clean painted planes, restrained texture, readable shapes, no conspicuous grain. Preserve original elevated three-quarter camera and existing lighting on rock, cool low-value shadows. No characters, creatures, text, UI, border, vignette, extra terrain, distant background, or new objects. Do not crop, move, resize, or repaint unaffected artwork.\nCORRECTION FOR SINGLE RETRY: In the previous attempt the visible upper rock was repainted lighter and mist extended too far left into the green. Start again from the original Image 1. Keep the exposed upper-right rock's exact original dark blue-violet colors, fissures and painted texture; do not relight or redraw it. Retain the original rock uninterrupted near the top of the tile, blending into localized mist lower down. Keep all mist at x >= 1300; no broad wisps to the left. Strictly follow the curved zone boundary of Image 2, with at most 10px edge softness beyond it. Use rounded painted billows within that narrow bank, opaque lavender-violet undersides and restrained peach on tops. The cliff bottom silhouette must be fully swallowed, no hard rock edge beneath the mist. Preserve the original top 4px strip exactly. Output still exactly 1536x1024 and all uncovered green exactly #00ff00.",
+      "references": [
+        {
+          "role": "edit target",
+          "path": "in/01_mist2_3_4_canvas-ns.png"
+        },
+        {
+          "role": "mist-zone guide only",
+          "path": "in/02_mist2_3_4_zone-ns.png"
+        }
+      ],
+      "elapsed_s": 73.916
+    }
+  ],
+  "calls_used": 2,
+  "retries": [
+    {
+      "reason": "Visible upper rock appeared lighter; mist extended too far left into green.",
+      "change": "Restarted from original references with stricter rock-color preservation and narrower mist placement."
+    }
+  ],
+  "self_report": {
+    "obeyed_invariants": false,
+    "concerns": [
+      "Exposed upper rock still appears lighter than the original after the retry.",
+      "Exact pixel preservation outside the mist zone is not verified."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/mist_3_4.png",
+      "sha256": "bb95e6ea3c1d51f8f17d9fd05c9f007a4f9388912ee0772ade6851244830cdf2"
+    }
+  ]
+}

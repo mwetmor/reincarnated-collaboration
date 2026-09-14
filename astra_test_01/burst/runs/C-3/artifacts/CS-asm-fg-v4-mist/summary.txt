@@ -1,0 +1,13 @@
+Task: CS-asm-fg-v4-mist (report only).
+Foreground: 5376 x 4096 straight RGBA; 17 chunks, 8 mist sources.
+Frozen extract(edge_mode=clamp), default dust filtering; 10-pixel temporary green padding.
+Per-chunk alpha clipped to mask dilated six iterations; no base depth fade.
+Minimum-error seams: 45; DP +/-1; feather +/-3 pixels.
+Corners select lower-mean-cost seam; alpha-positive single-source pixels retained.
+Mist: specified depth zones, closing 4, union dilation 48, weighted premultiplied average.
+Region falloff: Euclidean 24 pixels, smoothstep; mist over base.
+See-through deep-face pixels: 11115; groups >=400 pixels: 1.
+Outside-M RGB MAE: 0.15005789/255; changed pixels: 115318.
+At/outside 24-pixel falloff RGB MAE: 0.00000000/255.
+Connectivity/dilation use scipy default cross (4-connected).
+Elapsed processing: 19.7 seconds; image calls: 0.

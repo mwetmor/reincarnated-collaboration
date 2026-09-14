@@ -1,0 +1,2729 @@
+{
+  "tests_run": 382,
+  "elapsed_s": 149.24422875000164,
+  "tests": [
+    {
+      "test": "test_attachment.TestAttachment.test_alpha_weight_and_disconnected_cores",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.0003055419947486371
+    },
+    {
+      "test": "test_attachment.TestAttachment.test_distance_is_max_not_mean",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.0004947090055793524
+    },
+    {
+      "test": "test_attachment.TestAttachment.test_exact_and_literal_six_pixel_boundary",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.00035445801040623337
+    },
+    {
+      "test": "test_attachment.TestAttachment.test_missing_active_socket_is_not_success",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.0003279999946244061
+    },
+    {
+      "test": "test_attachment.TestAttachment.test_transparent_frame_excluded",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.00017129200568888336
+    },
+    {
+      "test": "test_attachment.TestAttachment.test_validation",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 7.787501090206206e-05
+    },
+    {
+      "test": "test_audit.ModuleTests.test_forbidden_fields_only",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.003525541993440129
+    },
+    {
+      "test": "test_audit.ModuleTests.test_generated_images_truth_and_thread_scope",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.0034995840105693787
+    },
+    {
+      "test": "test_audit.ModuleTests.test_missing_event_log",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.0007826660003047436
+    },
+    {
+      "test": "test_audit.ModuleTests.test_missing_generated_directory",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.0010131250019185245
+    },
+    {
+      "test": "test_audit.ModuleTests.test_real_streams_have_no_forbidden_hits",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.003992791986092925
+    },
+    {
+      "test": "test_audit.ModuleTests.test_receipt_mismatch_only_for_valid_receipt",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.0016785839980002493
+    },
+    {
+      "test": "test_audit.ModuleTests.test_snapshot_roots_exclusions_and_type_permissions",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.0033768749999580905
+    },
+    {
+      "test": "test_audit.ModuleTests.test_snapshot_scalar_compatibility_and_harvest_link_scan",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.0012179170007584617
+    },
+    {
+      "test": "test_bands_from_exemplar.Tests.test_actual_static_exemplar_and_bad_value",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.5749466249981197
+    },
+    {
+      "test": "test_bands_from_exemplar.Tests.test_cli_and_invalid",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.5762168750079582
+    },
+    {
+      "test": "test_bands_from_exemplar.Tests.test_facing_copies_keep_old_rows",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.034343374994932674
+    },
+    {
+      "test": "test_bands_from_exemplar.Tests.test_hash_order_and_missing_never_zero",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.0340180000057444
+    },
+    {
+      "test": "test_bible.Tests.test_additive_optional_part_controls",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.0014426249981625006
+    },
+    {
+      "test": "test_bible.Tests.test_known_bad_schema_constraints",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.004454916997929104
+    },
+    {
+      "test": "test_bible.Tests.test_optional_v02_asset_contracts",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.001466500005335547
+    },
+    {
+      "test": "test_bible.Tests.test_optional_v03_style_and_bands_contracts",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.0033104590111179277
+    },
+    {
+      "test": "test_bible.Tests.test_stub_and_v01_fields",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.0005268749955575913
+    },
+    {
+      "test": "test_calibrate_transcriber.Tests.test_cli_roundtrip_and_named_thresholds",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.08269962501071859
+    },
+    {
+      "test": "test_calibrate_transcriber.Tests.test_control_present_and_false_zero",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.0003125000075669959
+    },
+    {
+      "test": "test_calibrate_transcriber.Tests.test_count_off_by_two_and_disagreement",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.00012058300490025431
+    },
+    {
+      "test": "test_calibrate_transcriber.Tests.test_missing_or_open_inventory",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 4.833399725612253e-05
+    },
+    {
+      "test": "test_calibrate_transcriber.Tests.test_perfect",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.00014308400568552315
+    },
+    {
+      "test": "test_cell_packet.CellPacketTests.test_flatten_gate_envelopes_and_unknown",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.00022004099446348846
+    },
+    {
+      "test": "test_cell_packet.CellPacketTests.test_known_bad_cell_and_missing_oracle_rate",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.0032772499980637804
+    },
+    {
+      "test": "test_cell_packet.CellPacketTests.test_known_bad_html_paths_and_symlink",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.0021438330004457384
+    },
+    {
+      "test": "test_cell_packet.CellPacketTests.test_measurement_html_is_escaped",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.07289658300578594
+    },
+    {
+      "test": "test_cell_packet.CellPacketTests.test_one_shots_full_sequence_then_half_second_hold",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.21918366600584704
+    },
+    {
+      "test": "test_cell_packet.CellPacketTests.test_oracle_and_cli",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.1936703329993179
+    },
+    {
+      "test": "test_cell_packet.CellPacketTests.test_packet_products_local_links_and_default_output_rate",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.10023841699876357
+    },
+    {
+      "test": "test_cell_packet.CellPacketTests.test_proposed_and_uncommitted_never_gain_verdicts",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.00025779100542422384
+    },
+    {
+      "test": "test_check_sync.ModuleTests.test_all_ok_and_parenthetical",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.05963908400735818
+    },
+    {
+      "test": "test_check_sync.ModuleTests.test_parse_failures",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.11812800000188872
+    },
+    {
+      "test": "test_check_sync.ModuleTests.test_relative_and_tilde_resolution",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.0015777920052642003
+    },
+    {
+      "test": "test_check_sync.ModuleTests.test_stale_row",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.030305291002150625
+    },
+    {
+      "test": "test_check_sync.ModuleTests.test_unreadable_source",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.030946625003707595
+    },
+    {
+      "test": "test_coherence.Tests.test_noise_static_and_bad_input",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.01362962499842979
+    },
+    {
+      "test": "test_coherence.Tests.test_retextured_block_redrawn_and_worst_pair",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.010315125007764436
+    },
+    {
+      "test": "test_coherence.Tests.test_translated_block_carried",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.008967582994955592
+    },
+    {
+      "test": "test_compare.Tests.test_anatomical_controls",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.0004628750029951334
+    },
+    {
+      "test": "test_compare.Tests.test_control_claim_and_invalid_answers",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.0003411670040804893
+    },
+    {
+      "test": "test_compare.Tests.test_either_instrument_violates_both_mode",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.0011752499995054677
+    },
+    {
+      "test": "test_compare.Tests.test_missing_reviewed_masks_is_null",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.00010970799485221505
+    },
+    {
+      "test": "test_compare.Tests.test_stub_accepts_clean_crop",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 1.394808541997918
+    },
+    {
+      "test": "test_compare.Tests.test_stub_rejects_f04_crop",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 1.1182675840100273
+    },
+    {
+      "test": "test_compare.Tests.test_template_count_crosscheck",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.00019237500964663923
+    },
+    {
+      "test": "test_composite_socket.TestCompositeSocket.test_clipping_is_recorded",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.0014609579957323149
+    },
+    {
+      "test": "test_composite_socket.TestCompositeSocket.test_estimate_report_can_drive_composite",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.0032136249938048422
+    },
+    {
+      "test": "test_composite_socket.TestCompositeSocket.test_fixed_socket_tail_and_encoder_contract",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.003143708992865868
+    },
+    {
+      "test": "test_composite_socket.TestCompositeSocket.test_moving_socket_and_longer_effect_not_truncated",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.00280025000392925
+    },
+    {
+      "test": "test_composite_socket.TestCompositeSocket.test_porter_duff_over_and_no_double_alpha",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.0002700830082176253
+    },
+    {
+      "test": "test_composite_socket.TestCompositeSocket.test_tip_mapping_pixel_centres_and_identity",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.001403457994456403
+    },
+    {
+      "test": "test_composite_socket.TestCompositeSocket.test_validation",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.0002802910021273419
+    },
+    {
+      "test": "test_deps_ledger.Tests.test_cycle_and_invalid_are_atomic",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.0015480409929296002
+    },
+    {
+      "test": "test_deps_ledger.Tests.test_human_protection",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.0016449170070700347
+    },
+    {
+      "test": "test_deps_ledger.Tests.test_transitive_diamond_slot_and_unrelated",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.002659749996382743
+    },
+    {
+      "test": "test_dope_sheet.Tests.test_idle_roundtrip_target_sine",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.0002503329887986183
+    },
+    {
+      "test": "test_dope_sheet.Tests.test_invalid_and_conflicts_not_repaired",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.00024316700000781566
+    },
+    {
+      "test": "test_dope_sheet.Tests.test_walk_roundtrip_source_positions_and_amplitude",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.0002843750116880983
+    },
+    {
+      "test": "test_element_hue.TestElementHue.test_alpha_value_weighted_dominance_not_target_filter",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.0006520000024465844
+    },
+    {
+      "test": "test_element_hue.TestElementHue.test_band_edges_and_outside",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.0010588340082904324
+    },
+    {
+      "test": "test_element_hue.TestElementHue.test_circular_mode_wraps_at_red",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.00021587499941233546
+    },
+    {
+      "test": "test_element_hue.TestElementHue.test_frost_and_fire_rotated_known_bad",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.0005074590008007362
+    },
+    {
+      "test": "test_element_hue.TestElementHue.test_invisible_rgb_and_white_do_not_vote_hue",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.00030545800109393895
+    },
+    {
+      "test": "test_element_hue.TestElementHue.test_physical_low_saturation",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.0001347090001218021
+    },
+    {
+      "test": "test_element_hue.TestElementHue.test_schema_and_invalid_element",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.00016729100025258958
+    },
+    {
+      "test": "test_encode.EncodeTests.test_encoder_error_is_not_silent",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.007243291009217501
+    },
+    {
+      "test": "test_encode.EncodeTests.test_h264_scale_loops_fps_decode_and_faststart",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.0999578329938231
+    },
+    {
+      "test": "test_encode.EncodeTests.test_known_bad_parameters",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.00048691600386518985
+    },
+    {
+      "test": "test_encode.EncodeTests.test_one_to_one_alpha_canvas_and_odd_padding",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.16124670799763408
+    },
+    {
+      "test": "test_encode.EncodeTests.test_seam_order_amplification_and_known_bad",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.002289625001139939
+    },
+    {
+      "test": "test_encode.EncodeTests.test_side_by_side_common_clock",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.06754345900844783
+    },
+    {
+      "test": "test_encode.EncodeTests.test_side_by_side_shorter_sequence_repeats",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.0712955420021899
+    },
+    {
+      "test": "test_encode.EncodeTests.test_strip_numbered_and_plain",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.001988666001125239
+    },
+    {
+      "test": "test_gait_intent.Tests.test_all_w_quantities_evaluated",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.7105881250026869
+    },
+    {
+      "test": "test_gait_intent.Tests.test_bad_bob_phase_and_provisional",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 1.9118944999936502
+    },
+    {
+      "test": "test_gait_intent.Tests.test_unassigned_role_and_slip_threshold_are_null",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.6968389590037987
+    },
+    {
+      "test": "test_gates_build_review.Tests.test_script_injection_is_escaped",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.00045658300223294646
+    },
+    {
+      "test": "test_gates_build_review.Tests.test_template_and_invalid_atlas",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.00032049999572336674
+    },
+    {
+      "test": "test_gates_common.Tests.test_empty_and_changed",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.0011586670007091016
+    },
+    {
+      "test": "test_gates_common.Tests.test_empty_foreground_has_no_nan",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.00011270800314377993
+    },
+    {
+      "test": "test_gates_drift48.Tests.test_comparator_at_48",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.0017081249970942736
+    },
+    {
+      "test": "test_gates_g1_height.Tests.test_height_mutation",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.0011736250016838312
+    },
+    {
+      "test": "test_gates_g2_pivot.Tests.test_independent_root_and_shifted_mask",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.00043075000576209277
+    },
+    {
+      "test": "test_gates_g2_pivot.Tests.test_planted_slide_and_repeated_lead",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.00010112501331605017
+    },
+    {
+      "test": "test_gates_g3_light.Tests.test_wrong_side_and_clipping_detection",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.0006102500046836212
+    },
+    {
+      "test": "test_gates_g3_light.Tests.test_wrong_side_light",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.0006132910057203844
+    },
+    {
+      "test": "test_gates_g5_drift.Tests.test_excessive_drift_and_missing_comparator",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.0027253750013187528
+    },
+    {
+      "test": "test_gates_g6_seam.Tests.test_bad_closure_and_distinct_comparators",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.00018604198703542352
+    },
+    {
+      "test": "test_gates_g6_seam.Tests.test_g6c_idle_zero_and_invalid",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.0005494590004673228
+    },
+    {
+      "test": "test_gates_g6_seam.Tests.test_half_cycle_homologue_and_broken_seam",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.0007758749998174608
+    },
+    {
+      "test": "test_gates_g9_alpha.Tests.test_dark_fringe_and_green",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.0009392500069225207
+    },
+    {
+      "test": "test_gates_guides.Tests.test_numeric_C_and_legacy",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 5.120800051372498e-05
+    },
+    {
+      "test": "test_gates_lane_caps.Tests.test_audit_observed_tool_overrun",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.00404083399916999
+    },
+    {
+      "test": "test_gates_lane_caps.Tests.test_audit_type_caps_and_label_image_permission",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.027182916994206607
+    },
+    {
+      "test": "test_gates_lane_caps.Tests.test_validation_boundaries_every_type",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.00023999999393709004
+    },
+    {
+      "test": "test_gates_mask_composite.Tests.test_alpha_aware_hidden_rgb_and_black_alpha_changes",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.05123054199793842
+    },
+    {
+      "test": "test_gates_mask_composite.Tests.test_coverage_guard_uses_figure_not_canvas_and_strict_limit",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.006480666997958906
+    },
+    {
+      "test": "test_gates_mask_composite.Tests.test_dilation_and_xyxy_exclusive_clipping",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.11229458299931139
+    },
+    {
+      "test": "test_gates_mask_composite.Tests.test_empty_figure_and_full_mask_are_unevaluable",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.007882166988565587
+    },
+    {
+      "test": "test_gates_mask_composite.Tests.test_everywhere_variant_is_unevaluable",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.028857583994977176
+    },
+    {
+      "test": "test_gates_mask_composite.Tests.test_g12_detects_outside_corruption_including_hidden_bytes",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.005630667001241818
+    },
+    {
+      "test": "test_gates_mask_composite.Tests.test_identical_variant_has_empty_mask",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.03146037500118837
+    },
+    {
+      "test": "test_gates_mask_composite.Tests.test_invalid_inputs_are_rejected",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.00434549999772571
+    },
+    {
+      "test": "test_gates_mask_composite.Tests.test_loop_uses_same_base_and_one_box_per_variant",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.05422629200620577
+    },
+    {
+      "test": "test_gates_mask_composite.Tests.test_planted_out_of_box_change_dropped_and_reported",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.028961250005522743
+    },
+    {
+      "test": "test_gates_mask_composite.Tests.test_premultiplied_threshold_and_strict_boundary",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.0496765419957228
+    },
+    {
+      "test": "test_gates_mask_composite.Tests.test_preservation_uses_outside_denominator",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.004212125000776723
+    },
+    {
+      "test": "test_gates_mask_composite.Tests.test_shifted_variant_is_caught_by_region",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.04524741700151935
+    },
+    {
+      "test": "test_gates_mask_composite.Tests.test_synthetic_idle_arm_moves_with_base_preserved",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.04846229100076016
+    },
+    {
+      "test": "test_gates_matte.Tests.test_checkerboard_rejection",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.00042541700531728566
+    },
+    {
+      "test": "test_gates_matte.Tests.test_floor_and_particles",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.0011382920056348667
+    },
+    {
+      "test": "test_gates_matte.Tests.test_native_alpha_dark_interiors",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.0010674999939510599
+    },
+    {
+      "test": "test_gates_matte.Tests.test_particle_safe_opt_in_and_green_plate",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.003337207992444746
+    },
+    {
+      "test": "test_gates_matte.Tests.test_x1_floor_border_zero",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.5686703329993179
+    },
+    {
+      "test": "test_gates_matte_edge.MatteEdgeTests.test_alias_forwards",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.0071323339943774045
+    },
+    {
+      "test": "test_gates_matte_edge.MatteEdgeTests.test_alpha_byte_identical_all_options",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.03948949999175966
+    },
+    {
+      "test": "test_gates_matte_edge.MatteEdgeTests.test_default_equals_explicit_legacy",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.005517708006664179
+    },
+    {
+      "test": "test_gates_matte_edge.MatteEdgeTests.test_invalid_mode",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.0005240419995971024
+    },
+    {
+      "test": "test_gates_matte_edge.MatteEdgeTests.test_nearest_opaque_rgb_native_input",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.0007312079978873953
+    },
+    {
+      "test": "test_gates_matte_edge.MatteEdgeTests.test_no_opaque_donor_is_undefined",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.0009115409920923412
+    },
+    {
+      "test": "test_gates_matte_edge.MatteEdgeTests.test_soft_disc_known_bad",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.007406250006170012
+    },
+    {
+      "test": "test_gates_matte_edge.MatteEdgeTests.test_video_cut_forwards_mode_and_floor",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.004844499999308027
+    },
+    {
+      "test": "test_gates_matte_edge.MatteQualityEdgeTests.test_alpha_area_is_integrated_mass",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 8.237500151153654e-05
+    },
+    {
+      "test": "test_gates_matte_edge.MatteQualityEdgeTests.test_empty_band_and_missing_opaque_are_unevaluable",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.00041737500578165054
+    },
+    {
+      "test": "test_gates_matte_edge.MatteQualityEdgeTests.test_invalid_reference_and_background",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.0001477089972468093
+    },
+    {
+      "test": "test_gates_matte_edge.MatteQualityEdgeTests.test_known_bad_bright_rim",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.00011724999058060348
+    },
+    {
+      "test": "test_gates_matte_edge.MatteQualityEdgeTests.test_pretrim_denominator_survives_partial_and_total_erosion",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.0003485830093268305
+    },
+    {
+      "test": "test_gates_matte_edge.MatteQualityEdgeTests.test_reference_donors_stay_frozen",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.00022200000239536166
+    },
+    {
+      "test": "test_gates_matte_edge.MatteQualityEdgeTests.test_rim_exact_ring_and_background",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.00011495800572447479
+    },
+    {
+      "test": "test_gates_matte_edge.MatteQualityEdgeTests.test_transparent_rgb_never_affects_metrics",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.0004076670011272654
+    },
+    {
+      "test": "test_gates_pack.Tests.test_sparse_atlas_layout_and_invalid_canvas",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 2.9216581660002703
+    },
+    {
+      "test": "test_gates_pack.Tests.test_vfx_metadata",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.00017749999824445695
+    },
+    {
+      "test": "test_gates_pack.VfxPixels.test_internal_packing_energy_and_bad_size",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.003145750000840053
+    },
+    {
+      "test": "test_gates_register.Tests.test_clipped_sole_rejection",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.0001235830131918192
+    },
+    {
+      "test": "test_gates_register.Tests.test_measured_registration_and_shifted_mask",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.010307999997166917
+    },
+    {
+      "test": "test_gates_register.Tests.test_reviewed_region_bounds",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 5.370899452827871e-05
+    },
+    {
+      "test": "test_gates_register.Tests.test_upscaling_rejection",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 2.3208005586639047e-05
+    },
+    {
+      "test": "test_gates_regression_lock.Tests.test_regression_lock",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 5.507708624994848
+    },
+    {
+      "test": "test_gates_run_gates.Tests.test_empty_sequence_not_silent_success",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.000563582987524569
+    },
+    {
+      "test": "test_gates_run_gates.Tests.test_regression_comparator_detects_mutation",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.0001205000007757917
+    },
+    {
+      "test": "test_gates_silhouette64.Tests.test_real_mirror_vs_idle",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.01316608299384825
+    },
+    {
+      "test": "test_gates_silhouette64.Tests.test_swollen_bag_and_shift_alignment",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.004599040999892168
+    },
+    {
+      "test": "test_godot_import.GodotImportTests.test_all_fps_loops_resources_pivot_and_original_bytes",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.127882208005758
+    },
+    {
+      "test": "test_godot_import.GodotImportTests.test_cut_diagnostic_sheets_and_rest_are_not_cells",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.056909999999334104
+    },
+    {
+      "test": "test_godot_import.GodotImportTests.test_empty_overlapping_nonempty_and_escaping_inputs_rejected",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.0132157920015743
+    },
+    {
+      "test": "test_godot_import.GodotImportTests.test_gap_duplicate_malformed_and_wrong_canvas_rejected",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.05551216599997133
+    },
+    {
+      "test": "test_godot_import.GodotImportTests.test_gear_vfx_and_bad_vfx",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.045610334011144005
+    },
+    {
+      "test": "test_godot_import.GodotImportTests.test_headless_state_machine_input_map_gear_vfx_and_nearest_fallback",
+      "successful": false,
+      "failures": [
+        [
+          "test_headless_state_machine_input_map_gear_vfx_and_nearest_fallback (test_godot_import.GodotImportTests.test_headless_state_machine_input_map_gear_vfx_and_nearest_fallback)",
+          "Traceback (most recent call last):\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_godot_import.py\", line 162, in test_headless_state_machine_input_map_gear_vfx_and_nearest_fallback\n    self.assertEqual(proc.returncode, 0, log)\nAssertionError: -6 != 0 : ERROR: Failed to open 'user://logs/godot2026-09-13T21.37.23.log'.\n   at: copy (core/io/dir_access.cpp:423)\n\n================================================================\nhandle_crash: Program crashed with signal 11\nEngine version: Godot Engine v4.6.3.stable.official (7d41c59c457bd5a245092b4e7eb2d833e3b3f8c3)\nDumping the backtrace. Please include this when reporting the bug on: https://github.com/godotengine/godot/issues\n[1] 1   libsystem_platform.dylib            0x0000000187ad56a4 _sigtramp + 56\n[2] RotatedFileLogger::rotate_file() (in Godot) + 1160\n[3] RotatedFileLogger::rotate_file() (in Godot) + 1160\n[4] RotatedFileLogger::RotatedFileLogger(String const&, int) (in Godot) + 80\n[5] Main::setup(char const*, int, char**, bool) (in Godot) + 18880\n[6] OS_MacOS_Headless::run() (in Godot) + 68\n[7] main (in Godot) + 924\n[8] 8   dyld                                0x00000001876fab98 start + 6076\n-- END OF C++ BACKTRACE --\n================================================================\n\n"
+        ]
+      ],
+      "errors": [],
+      "wall_s": 3.5890613329975167
+    },
+    {
+      "test": "test_godot_import.GodotImportTests.test_missing_texture_and_undeclared_resource_rejected",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.02755829200032167
+    },
+    {
+      "test": "test_godot_import.GodotImportTests.test_numeric_order_and_native_fps_ignored",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.15848454200022388
+    },
+    {
+      "test": "test_head_pitch.Tests.test_back_view_and_absent_rest_are_null",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.0025742500001797453
+    },
+    {
+      "test": "test_head_pitch.Tests.test_lowered_twenty_percent_and_raised",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.0016592920001130551
+    },
+    {
+      "test": "test_head_pitch.Tests.test_translation_invariance_and_timing_boundary",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.0029601669957628474
+    },
+    {
+      "test": "test_head_pitch.Tests.test_validation_and_lab",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.0005870419990969822
+    },
+    {
+      "test": "test_idle_intent.Tests.test_frozen_narrow_box_search_limit_reported",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 3.2252455830021063
+    },
+    {
+      "test": "test_idle_intent.Tests.test_k3_combat_report_only",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.9585862920066575
+    },
+    {
+      "test": "test_idle_intent.Tests.test_sole_slide_and_panting",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 3.272360250004567
+    },
+    {
+      "test": "test_idle_intent.Tests.test_static_below_floor_and_provisional",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 2.0248070420057047
+    },
+    {
+      "test": "test_idle_intent.Tests.test_target_and_displacement_regions",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 6.426592958989204
+    },
+    {
+      "test": "test_lane.LaneTests.test_artifact_hash_escape_and_symlink",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.002268541997182183
+    },
+    {
+      "test": "test_lane.LaneTests.test_audit_planted_events",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.0010626250004861504
+    },
+    {
+      "test": "test_lane.LaneTests.test_clean_and_malformed_events",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.0019528340053511783
+    },
+    {
+      "test": "test_lane.LaneTests.test_exact_command_and_dry_run",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.0017440830124542117
+    },
+    {
+      "test": "test_lane.LaneTests.test_filesystem_diff_new_modified_deleted_and_allowed",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.0024837500095600262
+    },
+    {
+      "test": "test_lane.LaneTests.test_ledger_atomic_replacement_and_rollback",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.0018558750016381964
+    },
+    {
+      "test": "test_lane.LaneTests.test_render_deterministic_and_ordered",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.0008603750029578805
+    },
+    {
+      "test": "test_lane.LaneTests.test_schema_known_bad_and_strict_objects",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.0008073339995462447
+    },
+    {
+      "test": "test_lane.LaneTests.test_task_caps",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.0006749579915776849
+    },
+    {
+      "test": "test_lane.LaneTests.test_wrapper_roundtrip_error_timeout_and_void",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.019025708999834023
+    },
+    {
+      "test": "test_ledger.ModuleTests.test_empty_budget",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 3.100000321865082e-05
+    },
+    {
+      "test": "test_ledger.ModuleTests.test_provenance_and_authoritative_image_budget",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.0009883329912554473
+    },
+    {
+      "test": "test_matte_quality.Tests.test_spill_halo_and_loss_known_bad",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.0014352089929161593
+    },
+    {
+      "test": "test_matte_quality.Tests.test_undefined_transparent_rgb_has_no_halo",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.00028862500039394945
+    },
+    {
+      "test": "test_model_drift_probe.Tests.test_freeze_reference_hash_and_strict_schema",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.001793542003724724
+    },
+    {
+      "test": "test_model_drift_probe.Tests.test_identical_mirror_palette_and_missing",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.03269183299562428
+    },
+    {
+      "test": "test_motion_transcriber.Tests.test_annotation_coordinate_translation_and_scale_invariance",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.001001000011456199
+    },
+    {
+      "test": "test_motion_transcriber.Tests.test_annotation_truth_is_literal_not_designed_opposition",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.0009265830012736842
+    },
+    {
+      "test": "test_motion_transcriber.Tests.test_bad_controls_and_incomplete_bursts_rejected",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.0004967090062564239
+    },
+    {
+      "test": "test_motion_transcriber.Tests.test_cli_writes_summary_and_rejects_duplicate_keys",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.0026969999889843166
+    },
+    {
+      "test": "test_motion_transcriber.Tests.test_closed_answers_reject_missing_extra_and_non_boolean",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.0005757910112151876
+    },
+    {
+      "test": "test_motion_transcriber.Tests.test_continuity_truth_distinguishes_broken_wrap",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.0008922080014599487
+    },
+    {
+      "test": "test_motion_transcriber.Tests.test_control_failed_answers_remain_in_denominator",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.0005940419941907749
+    },
+    {
+      "test": "test_motion_transcriber.Tests.test_empty_and_zero_denominators_are_not_perfect",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.0005091669881949201
+    },
+    {
+      "test": "test_motion_transcriber.Tests.test_idle_sheet_counts_control_and_conflicts",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.0002382910024607554
+    },
+    {
+      "test": "test_motion_transcriber.Tests.test_invalid_sources_rejected",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.0006367500027408823
+    },
+    {
+      "test": "test_motion_transcriber.Tests.test_perfect_calibration_and_fixed_bars",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.0006222090014489368
+    },
+    {
+      "test": "test_motion_transcriber.Tests.test_phase_notes_not_repaired_and_confidence_retained",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.0004707500047516078
+    },
+    {
+      "test": "test_motion_transcriber.Tests.test_presence_metrics_exact_counts",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.000520500005222857
+    },
+    {
+      "test": "test_motion_transcriber.Tests.test_walk_sheet_counts_schema_and_dependencies",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.0007352080137934536
+    },
+    {
+      "test": "test_oracle_idle.Tests.test_animated_background_contamination",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 4.176117958006216
+    },
+    {
+      "test": "test_oracle_idle.Tests.test_green_and_native_alpha_identical_curves",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 22.062556209013565
+    },
+    {
+      "test": "test_oracle_idle.Tests.test_noisy_feet_calibrate_lock",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 4.353704125009244
+    },
+    {
+      "test": "test_oracle_idle.Tests.test_static_clip",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 2.530715834000148
+    },
+    {
+      "test": "test_oracle_idle.Tests.test_synthetic_idle_contract",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 2.595522957999492
+    },
+    {
+      "test": "test_oracle_idle.Tests.test_three_pixel_pan_is_void",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 4.367158709006617
+    },
+    {
+      "test": "test_oracle_walk.Tests.test_alpha_green_parity",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.0760400830040453
+    },
+    {
+      "test": "test_oracle_walk.Tests.test_alpha_synthetic_kinematics",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.35856900000362657
+    },
+    {
+      "test": "test_oracle_walk.Tests.test_annotation_cli_agreement_and_ours_alpha",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 1.254944083004375
+    },
+    {
+      "test": "test_oracle_walk.Tests.test_annotation_extra_contact_is_not_repaired",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.0013891669950680807
+    },
+    {
+      "test": "test_oracle_walk.Tests.test_annotation_truth_and_per_frame_coordinate_invariance",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.002521415997762233
+    },
+    {
+      "test": "test_oracle_walk.Tests.test_floating_below_calibrated_floor",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.7040063330059638
+    },
+    {
+      "test": "test_oracle_walk.Tests.test_front_rear_nulls_and_cli_merge",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 2.1984004590049153
+    },
+    {
+      "test": "test_oracle_walk.Tests.test_grid_registration_known_translation",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.6290094159921864
+    },
+    {
+      "test": "test_oracle_walk.Tests.test_mask_stability_selector_and_method_default",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.7266322080104146
+    },
+    {
+      "test": "test_oracle_walk.Tests.test_pigeon_and_line",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.0004082079976797104
+    },
+    {
+      "test": "test_oracle_walk.Tests.test_stationary_definition_and_swing",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.34640620899153873
+    },
+    {
+      "test": "test_oracle_walk.Tests.test_synthetic_contract_and_grid",
+      "successful": false,
+      "failures": [
+        [
+          "test_synthetic_contract_and_grid (test_oracle_walk.Tests.test_synthetic_contract_and_grid)",
+          "Traceback (most recent call last):\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_oracle_walk.py\", line 117, in test_synthetic_contract_and_grid\n    self.assertIsNotNone(a[key],key);self.assertAlmostEqual(a[key],b[key],delta=2,msg=key)\n                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 60 != 65 within 2 delta (5 difference) : head_ref_y\n"
+        ]
+      ],
+      "errors": [],
+      "wall_s": 1.4571922920004
+    },
+    {
+      "test": "test_oracle_walk.Tests.test_thin_head_and_missing_feet",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.035574834008002654
+    },
+    {
+      "test": "test_oracles_figure_ground.Tests.test_contrast_reverse_and_empty",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.0004505840042838827
+    },
+    {
+      "test": "test_oracles_grain.Tests.test_known_frequencies_source_units_and_anchor_distance",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.009613165995688178
+    },
+    {
+      "test": "test_oracles_keylight.Tests.test_shaded_planes_and_flat",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.0009262089879484847
+    },
+    {
+      "test": "test_oracles_motif.Tests.test_annulus_threshold_from_synthetic_observations",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.17688054199970793
+    },
+    {
+      "test": "test_oracles_motif.Tests.test_clean_outside_zero",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 1.3063969159993576
+    },
+    {
+      "test": "test_oracles_motif.Tests.test_exact_scaled_rotated_peaks_partition_nms",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.025181916993460618
+    },
+    {
+      "test": "test_oracles_motif.Tests.test_f04_outside_at_least_three",
+      "successful": false,
+      "failures": [
+        [
+          "test_f04_outside_at_least_three (test_oracles_motif.Tests.test_f04_outside_at_least_three)",
+          "Traceback (most recent call last):\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_oracles_motif.py\", line 19, in test_f04_outside_at_least_three\n    self.assertGreaterEqual(metrics(row)['outside'],3)\nAssertionError: 2 not greater than or equal to 3\n"
+        ]
+      ],
+      "errors": [],
+      "wall_s": 0.2834177499898942
+    },
+    {
+      "test": "test_oracles_motif.Tests.test_family_clean_outside_zero",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.21715441599371843
+    },
+    {
+      "test": "test_oracles_motif.Tests.test_family_masks_and_invalid_parameters",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.03979612499824725
+    },
+    {
+      "test": "test_oracles_motif.Tests.test_filled_discs_rejected_and_auditable",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.08969358300964814
+    },
+    {
+      "test": "test_oracles_motif.Tests.test_named_genuine_annuli_retained",
+      "successful": false,
+      "failures": [
+        [
+          "test_named_genuine_annuli_retained (test_oracles_motif.Tests.test_named_genuine_annuli_retained) (center=[113, 201])",
+          "Traceback (most recent call last):\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_oracles_motif.py\", line 84, in test_named_genuine_annuli_retained\n    self.assertNotIn('rejected',peak)\nAssertionError: 'rejected' unexpectedly found in {'angular_support': 0.7708333333333334, 'center': [113.0, 201.0], 'hollow_score': 0.3125, 'inner_opposed_support': 0.3125, 'inside': False, 'lab_band_surround': 11.57642176150743, 'lab_center_band': 11.062059961818727, 'lab_center_surround': 22.610550201280017, 'lab_color_return': 0.0, 'radius': 30.0, 'rejected': 'not_annulus', 'score': 0.7074940354497125}\n"
+        ],
+        [
+          "test_named_genuine_annuli_retained (test_oracles_motif.Tests.test_named_genuine_annuli_retained) (center=[111, 311])",
+          "Traceback (most recent call last):\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_oracles_motif.py\", line 84, in test_named_genuine_annuli_retained\n    self.assertNotIn('rejected',peak)\nAssertionError: 'rejected' unexpectedly found in {'angular_support': 0.75, 'center': [111.0, 311.0], 'hollow_score': 0.16666666666666666, 'inner_opposed_support': 0.16666666666666666, 'inside': False, 'lab_band_surround': 21.229621366461696, 'lab_center_band': 18.63219308325294, 'lab_center_surround': 39.74946870785732, 'lab_color_return': 0.0, 'radius': 27.0, 'rejected': 'not_annulus', 'score': 0.5281963253811909}\n"
+        ],
+        [
+          "test_named_genuine_annuli_retained (test_oracles_motif.Tests.test_named_genuine_annuli_retained) (center=[170, 253])",
+          "Traceback (most recent call last):\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_oracles_motif.py\", line 84, in test_named_genuine_annuli_retained\n    self.assertNotIn('rejected',peak)\nAssertionError: 'rejected' unexpectedly found in {'angular_support': 0.8333333333333334, 'center': [170.0, 253.0], 'hollow_score': 0.08333333333333333, 'inner_opposed_support': 0.08333333333333333, 'inside': False, 'lab_band_surround': 12.987929666149537, 'lab_center_band': 18.508563966712764, 'lab_center_surround': 30.467977867785994, 'lab_color_return': 0.0, 'radius': 8.0, 'rejected': 'not_annulus', 'score': 0.6366616733180586}\n"
+        ]
+      ],
+      "errors": [],
+      "wall_s": 0.2803345839929534
+    },
+    {
+      "test": "test_oracles_motif.Tests.test_synthetic_family_rings_and_negatives",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.15438158399774693
+    },
+    {
+      "test": "test_oracles_palette.Tests.test_frame_shift_margin",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.15782649999891873
+    },
+    {
+      "test": "test_oracles_palette.Tests.test_known_swatch_shift_and_empty",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.008891459001461044
+    },
+    {
+      "test": "test_oracles_plain_budget.Tests.test_plain_vs_stripes_mask_empty",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.0008385830005863681
+    },
+    {
+      "test": "test_oracles_silhouette64.Tests.test_mirror_distance_exceeds_adjacent_idle",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.03535354101040866
+    },
+    {
+      "test": "test_parallax_scene.ParallaxSceneTests.test_bad_foreground_mode_size_and_conflicting_overlapping_inputs",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.26196145900757983
+    },
+    {
+      "test": "test_parallax_scene.ParallaxSceneTests.test_bad_layer_fields_paths_missing_and_escaping_assets_before_output",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.1343025419919286
+    },
+    {
+      "test": "test_parallax_scene.ParallaxSceneTests.test_bad_walkable_schema_geometry_spawn_and_bounds",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.11574379100056831
+    },
+    {
+      "test": "test_parallax_scene.ParallaxSceneTests.test_bounded_complement_clips_exactly_and_preserves_blocked",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.11764245800441131
+    },
+    {
+      "test": "test_parallax_scene.ParallaxSceneTests.test_camera_fraction_and_known_bad_camera",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.11918762500863522
+    },
+    {
+      "test": "test_parallax_scene.ParallaxSceneTests.test_cli_parallax_and_directional_kit",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.35513795900624245
+    },
+    {
+      "test": "test_parallax_scene.ParallaxSceneTests.test_headless_cliffside_follow_camera_parallax_and_projectile_collision",
+      "successful": false,
+      "failures": [
+        [
+          "test_headless_cliffside_follow_camera_parallax_and_projectile_collision (test_parallax_scene.ParallaxSceneTests.test_headless_cliffside_follow_camera_parallax_and_projectile_collision)",
+          "Traceback (most recent call last):\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_parallax_scene.py\", line 370, in test_headless_cliffside_follow_camera_parallax_and_projectile_collision\n    self.assertEqual(proc.returncode, 0, log)\nAssertionError: -6 != 0 : ERROR: Failed to open 'user://logs/godot2026-09-13T21.38.40.log'.\n   at: copy (core/io/dir_access.cpp:423)\n\n================================================================\nhandle_crash: Program crashed with signal 11\nEngine version: Godot Engine v4.6.3.stable.official (7d41c59c457bd5a245092b4e7eb2d833e3b3f8c3)\nDumping the backtrace. Please include this when reporting the bug on: https://github.com/godotengine/godot/issues\n[1] 1   libsystem_platform.dylib            0x0000000187ad56a4 _sigtramp + 56\n[2] RotatedFileLogger::rotate_file() (in Godot) + 1160\n[3] RotatedFileLogger::rotate_file() (in Godot) + 1160\n[4] RotatedFileLogger::RotatedFileLogger(String const&, int) (in Godot) + 80\n[5] Main::setup(char const*, int, char**, bool) (in Godot) + 18880\n[6] OS_MacOS_Headless::run() (in Godot) + 68\n[7] main (in Godot) + 924\n[8] 8   dyld                                0x00000001876fab98 start + 6076\n-- END OF C++ BACKTRACE --\n================================================================\n\n"
+        ]
+      ],
+      "errors": [],
+      "wall_s": 9.480044374999125
+    },
+    {
+      "test": "test_parallax_scene.ParallaxSceneTests.test_large_fixture_exact_tiles_layers_collision_camera_and_resources",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 3.9439269580034306
+    },
+    {
+      "test": "test_parallax_scene.ParallaxSceneTests.test_missing_export_texture_is_detected",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.20986379199894145
+    },
+    {
+      "test": "test_parallax_scene.ParallaxSceneTests.test_optional_mist_is_a_normal_layer_and_stable_z_ties",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.20960604200081434
+    },
+    {
+      "test": "test_parallax_scene.ParallaxSceneTests.test_overlap_union_concavity_holes_and_winding",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.12054254200484138
+    },
+    {
+      "test": "test_parallax_scene.ParallaxSceneTests.test_scene_figure_shadow_bounds_order_and_script_regression",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.2170779159932863
+    },
+    {
+      "test": "test_parallax_scene.ParallaxSceneTests.test_tile_size_edges_vertical_splits_and_bad_parameters",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.11869083299825434
+    },
+    {
+      "test": "test_parallax_scene.ParallaxSceneTests.test_vfx_kit_and_sockets_match_existing_export_and_static_collision_mask",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.22610354200878646
+    },
+    {
+      "test": "test_parts.Tests.test_ambiguous_bins_empty_and_display",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.0040492090047337115
+    },
+    {
+      "test": "test_parts.Tests.test_metrics_and_known_bad",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.0020598749979399145
+    },
+    {
+      "test": "test_parts.Tests.test_three_part_antialiased_iou_and_health",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.002996082999743521
+    },
+    {
+      "test": "test_plate_uniformity.Tests.test_empty_background",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 8.591699588578194e-05
+    },
+    {
+      "test": "test_plate_uniformity.Tests.test_per_channel_fraction_and_threshold",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.0002960419951705262
+    },
+    {
+      "test": "test_pose_guide.Tests.test_idle_overlay_extremes_and_input_unchanged",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.024021124991122633
+    },
+    {
+      "test": "test_pose_guide.Tests.test_twelve_pngs_exact_sole_pixels",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.2089814170030877
+    },
+    {
+      "test": "test_props_layer.PropsLayerTests.test_absent_movement_props_byte_identical_to_frozen_t3k_all_text",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.2285524579929188
+    },
+    {
+      "test": "test_props_layer.PropsLayerTests.test_bad_numbers_names_booleans_and_ranges",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.3537044999975478
+    },
+    {
+      "test": "test_props_layer.PropsLayerTests.test_cli_props_and_requires_parallax",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.5158284170029219
+    },
+    {
+      "test": "test_props_layer.PropsLayerTests.test_collision_ellipses_at_anchors_and_noncollider_absent",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.28664487499918323
+    },
+    {
+      "test": "test_props_layer.PropsLayerTests.test_coverage_alpha_holes_union_threshold_and_blocked_samples",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.17819241600227542
+    },
+    {
+      "test": "test_props_layer.PropsLayerTests.test_coverage_camera_anchor_limits_and_invalid_sampling",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.14334824999968987
+    },
+    {
+      "test": "test_props_layer.PropsLayerTests.test_every_collection_unknown_and_missing_keys_and_wrong_types",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.19109691699850373
+    },
+    {
+      "test": "test_props_layer.PropsLayerTests.test_headless_occlusion_fade_restore_overhead_near_and_particles",
+      "successful": false,
+      "failures": [
+        [
+          "test_headless_occlusion_fade_restore_overhead_near_and_particles (test_props_layer.PropsLayerTests.test_headless_occlusion_fade_restore_overhead_near_and_particles)",
+          "Traceback (most recent call last):\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_props_layer.py\", line 341, in test_headless_occlusion_fade_restore_overhead_near_and_particles\n    self.assertEqual(proc.returncode, 0, log)\nAssertionError: -6 != 0 : ERROR: Failed to open 'user://logs/godot2026-09-13T21.38.51.log'.\n   at: copy (core/io/dir_access.cpp:423)\n\n================================================================\nhandle_crash: Program crashed with signal 11\nEngine version: Godot Engine v4.6.3.stable.official (7d41c59c457bd5a245092b4e7eb2d833e3b3f8c3)\nDumping the backtrace. Please include this when reporting the bug on: https://github.com/godotengine/godot/issues\n[1] 1   libsystem_platform.dylib            0x0000000187ad56a4 _sigtramp + 56\n[2] RotatedFileLogger::rotate_file() (in Godot) + 1160\n[3] RotatedFileLogger::rotate_file() (in Godot) + 1160\n[4] RotatedFileLogger::RotatedFileLogger(String const&, int) (in Godot) + 80\n[5] Main::setup(char const*, int, char**, bool) (in Godot) + 18880\n[6] OS_MacOS_Headless::run() (in Godot) + 68\n[7] main (in Godot) + 924\n[8] 8   dyld                                0x00000001876fab98 start + 6076\n-- END OF C++ BACKTRACE --\n================================================================\n\n"
+        ]
+      ],
+      "errors": [],
+      "wall_s": 3.3941131250030594
+    },
+    {
+      "test": "test_props_layer.PropsLayerTests.test_known_half_coverage_exact_and_empty_layer_zero",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.14707554200140294
+    },
+    {
+      "test": "test_props_layer.PropsLayerTests.test_layers_anchors_y_sort_z_order_and_fade_assignment",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.2933643340074923
+    },
+    {
+      "test": "test_props_layer.PropsLayerTests.test_missing_escaping_absolute_symlink_wrong_mode_and_nonpng_assets",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.17797399999108166
+    },
+    {
+      "test": "test_props_layer.PropsLayerTests.test_movement_exact_speeds_fps_all_directions_and_gear",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.4111005829909118
+    },
+    {
+      "test": "test_props_layer.PropsLayerTests.test_movement_without_props_and_invalid_movement_before_output",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.2576787910074927
+    },
+    {
+      "test": "test_props_layer.PropsLayerTests.test_particles_all_parameters_resources_and_texture_bytes",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.27996291700401343
+    },
+    {
+      "test": "test_props_layer.PropsLayerTests.test_props_requires_parallax_and_prevents_input_output_overlap",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.13686045800568536
+    },
+    {
+      "test": "test_props_layer.PropsLayerTests.test_required_six_bad_cases_before_any_output",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.14138212500256486
+    },
+    {
+      "test": "test_props_layer.PropsLayerTests.test_unused_asset_empty_collections_and_no_unneeded_fade_resource",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.2460944579943316
+    },
+    {
+      "test": "test_provenance_capture.Tests.test_bare_and_unreadable",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.0006678329955320805
+    },
+    {
+      "test": "test_provenance_capture.Tests.test_text_itxt_ztxt_xmp_and_c2pa",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.002203041993197985
+    },
+    {
+      "test": "test_pse_check.Tests.test_four_hz_white_and_one_hz",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.027515125009813346
+    },
+    {
+      "test": "test_pse_check.Tests.test_red_and_area_rules",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.04441591700015124
+    },
+    {
+      "test": "test_pse_check.Tests.test_threshold_boundary_and_invalid",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.02165462500124704
+    },
+    {
+      "test": "test_ref_provenance.Tests.test_first_party_and_symlink_escape",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.002805208001518622
+    },
+    {
+      "test": "test_render_brief.ModuleTests.test_missing_type_rules",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 3.5707998904399574e-05
+    },
+    {
+      "test": "test_run_burst.ModuleTests.test_effort_and_add_dirs",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.00035362500057090074
+    },
+    {
+      "test": "test_run_burst.ModuleTests.test_in_place_files",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.0024482500011799857
+    },
+    {
+      "test": "test_run_burst.ModuleTests.test_incomplete_task_rejected",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.00016666599549353123
+    },
+    {
+      "test": "test_run_burst.ModuleTests.test_profile_metadata",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.0007656660018255934
+    },
+    {
+      "test": "test_run_burst.ModuleTests.test_wrapper_image_truth_and_tooling_in_place",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.017197624998516403
+    },
+    {
+      "test": "test_scene_kit.FastRectangleTests.test_25_polygons_48_vertices_within_five_seconds",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 3.4020739999978105
+    },
+    {
+      "test": "test_scene_kit.FastRectangleTests.test_concave_l_with_blocked_hole",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.007550167007138953
+    },
+    {
+      "test": "test_scene_kit.FastRectangleTests.test_fixture_grid_maximum_inset_and_measurements",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.010687749992939644
+    },
+    {
+      "test": "test_scene_kit.FastRectangleTests.test_named_cell_size_and_no_room_for_inset",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.0002295829908689484
+    },
+    {
+      "test": "test_scene_kit.FastRectangleTests.test_stack_matches_exhaustive_small_grids",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.017262957990169525
+    },
+    {
+      "test": "test_scene_kit.FastRectangleTests.test_tiny_hole_and_subcell_gap_cannot_hide_between_samples",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.018463375003193505
+    },
+    {
+      "test": "test_scene_kit.FastRectangleTests.test_union_seams_winding_order_and_tie_determinism",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.0009197089966619387
+    },
+    {
+      "test": "test_scene_kit.SceneKitTests.test_cli_scene_option",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.1334612499922514
+    },
+    {
+      "test": "test_scene_kit.SceneKitTests.test_collision_blocked_floor_and_complement_area",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.03297279099933803
+    },
+    {
+      "test": "test_scene_kit.SceneKitTests.test_concave_floor_and_disconnected_island",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.07145612500607967
+    },
+    {
+      "test": "test_scene_kit.SceneKitTests.test_cut_plate_mismatch_and_empty_occluders",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.046650749995023943
+    },
+    {
+      "test": "test_scene_kit.SceneKitTests.test_degenerate_crossed_repeated_and_outside_polygons_rejected",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.031812790999538265
+    },
+    {
+      "test": "test_scene_kit.SceneKitTests.test_full_plate_floor_and_winding_reversal",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.03155579099257011
+    },
+    {
+      "test": "test_scene_kit.SceneKitTests.test_headless_tower_import_run_and_physics",
+      "successful": false,
+      "failures": [
+        [
+          "test_headless_tower_import_run_and_physics (test_scene_kit.SceneKitTests.test_headless_tower_import_run_and_physics)",
+          "Traceback (most recent call last):\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_scene_kit.py\", line 328, in test_headless_tower_import_run_and_physics\n    self.assertEqual(proc.returncode, 0, log)\nAssertionError: -6 != 0 : ERROR: Failed to open 'user://logs/godot2026-09-13T21.39.00.log'.\n   at: copy (core/io/dir_access.cpp:423)\n\n================================================================\nhandle_crash: Program crashed with signal 11\nEngine version: Godot Engine v4.6.3.stable.official (7d41c59c457bd5a245092b4e7eb2d833e3b3f8c3)\nDumping the backtrace. Please include this when reporting the bug on: https://github.com/godotengine/godot/issues\n[1] 1   libsystem_platform.dylib            0x0000000187ad56a4 _sigtramp + 56\n[2] RotatedFileLogger::rotate_file() (in Godot) + 1160\n[3] RotatedFileLogger::rotate_file() (in Godot) + 1160\n[4] RotatedFileLogger::RotatedFileLogger(String const&, int) (in Godot) + 80\n[5] Main::setup(char const*, int, char**, bool) (in Godot) + 18880\n[6] OS_MacOS_Headless::run() (in Godot) + 68\n[7] main (in Godot) + 924\n[8] 8   dyld                                0x00000001876fab98 start + 6076\n-- END OF C++ BACKTRACE --\n================================================================\n\n"
+        ]
+      ],
+      "errors": [],
+      "wall_s": 2.8382210419949843
+    },
+    {
+      "test": "test_scene_kit.SceneKitTests.test_load_valid_roundtrip",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.03312899998854846
+    },
+    {
+      "test": "test_scene_kit.SceneKitTests.test_missing_scene_files_overlap_and_bad_plate_rejected_before_output",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.03924741598893888
+    },
+    {
+      "test": "test_scene_kit.SceneKitTests.test_old_sandbox_is_byte_identical_with_scene_option",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.04564458299137186
+    },
+    {
+      "test": "test_scene_kit.SceneKitTests.test_overlapping_diagonal_walkable_union_edge_crossings",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.11389950000739191
+    },
+    {
+      "test": "test_scene_kit.SceneKitTests.test_rectangle_cut_bytes_crop_and_one_pixel_feather",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.03661104200000409
+    },
+    {
+      "test": "test_scene_kit.SceneKitTests.test_scene_missing_escaping_and_undeclared_resources_rejected",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.04993487500178162
+    },
+    {
+      "test": "test_scene_kit.SceneKitTests.test_schema_known_bad_types_bounds_ids_and_spawn",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.037201166996965185
+    },
+    {
+      "test": "test_scene_kit.SceneKitTests.test_shadow_peak_rim_radial_and_bad_dimensions",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.033198958000866696
+    },
+    {
+      "test": "test_scene_kit.SceneKitTests.test_tower_resources_hierarchy_pivot_speeds_collision_and_camera",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.044006374999298714
+    },
+    {
+      "test": "test_scene_kit.SceneKitTests.test_triangle_outside_transparent_and_source_alpha_preserved",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.04185087500081863
+    },
+    {
+      "test": "test_scene_kit.SceneKitTests.test_walkable_union_hole_and_shared_edges",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.07151662500109524
+    },
+    {
+      "test": "test_schema_check.ModuleTests.test_missing_receipt",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.00019087499822489917
+    },
+    {
+      "test": "test_sheet_consistency.Tests.test_identical_empty_and_palette_shift",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.004111208007088862
+    },
+    {
+      "test": "test_sheet_consistency.Tests.test_idle_and_mirrored_outlier",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.38186704099643975
+    },
+    {
+      "test": "test_sockets.AmbientRectangleTests.test_bad_geometry_rejected",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 3.8875004975125194e-05
+    },
+    {
+      "test": "test_sockets.AmbientRectangleTests.test_fixture_room_rectangle_avoids_blocked_pillar",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.009700707989395596
+    },
+    {
+      "test": "test_sockets.AmbientRectangleTests.test_rectangle_hole_union_and_concavity_largest_and_contained",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.02859362500021234
+    },
+    {
+      "test": "test_sockets.AmbientRectangleTests.test_slanted_fractional_global_optimum",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.00978883400966879
+    },
+    {
+      "test": "test_sockets.SocketTests.test_all_new_resources_release_transform_directions_and_credits",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.5941604589897906
+    },
+    {
+      "test": "test_sockets.SocketTests.test_default_override_all_cells_and_invalid_release",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 4.514505915998598
+    },
+    {
+      "test": "test_sockets.SocketTests.test_headless_directional_release_and_resources",
+      "successful": false,
+      "failures": [
+        [
+          "test_headless_directional_release_and_resources (test_sockets.SocketTests.test_headless_directional_release_and_resources)",
+          "Traceback (most recent call last):\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_sockets.py\", line 169, in test_headless_directional_release_and_resources\n    self.assertEqual(engine_errors,[], '\\n'.join(engine_errors))\nAssertionError: Lists differ: ['ERROR: Condition \"ret != noErr\" is true.[285 chars] \"\"'] != []\n\nFirst list contains 4 additional elements.\nFirst extra element 0:\n'ERROR: Condition \"ret != noErr\" is true. Returning: \"\"'\n\n+ []\n- ['ERROR: Condition \"ret != noErr\" is true. Returning: \"\"',\n-  \"ERROR: Cannot save file '/Users/admin/Library/Application \"\n-  \"Support/Godot/editor_settings-4.6.tres'.\",\n-  'ERROR: Error saving editor settings to /Users/admin/Library/Application '\n-  'Support/Godot/editor_settings-4.6.tres',\n-  'ERROR: Condition \"ret != noErr\" is true. Returning: \"\"'] : ERROR: Condition \"ret != noErr\" is true. Returning: \"\"\nERROR: Cannot save file '/Users/admin/Library/Application Support/Godot/editor_settings-4.6.tres'.\nERROR: Error saving editor settings to /Users/admin/Library/Application Support/Godot/editor_settings-4.6.tres\nERROR: Condition \"ret != noErr\" is true. Returning: \"\"\n"
+        ]
+      ],
+      "errors": [],
+      "wall_s": 4.074107166990871
+    },
+    {
+      "test": "test_sockets.SocketTests.test_invalid_kit_gap_range_rgb_and_missing_credit",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.12657645900617354
+    },
+    {
+      "test": "test_sockets.SocketTests.test_missing_coordinate_is_explicit_and_malformed_rejected",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.532307999994373
+    },
+    {
+      "test": "test_sockets.SocketTests.test_real_cast_coverage",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 3.623893625001074
+    },
+    {
+      "test": "test_staff_tip.StaffTipTests.test_diagonal_staff",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.05384220799896866
+    },
+    {
+      "test": "test_staff_tip.StaffTipTests.test_empty_no_head_short_staff_and_wrong_input",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.018631750004715286
+    },
+    {
+      "test": "test_staff_tip.StaffTipTests.test_hair_strands_excluded",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.05387683300068602
+    },
+    {
+      "test": "test_staff_tip.StaffTipTests.test_near_horizontal_chooses_end_farther_from_head",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.042055291996803135
+    },
+    {
+      "test": "test_staff_tip.StaffTipTests.test_raised_above_head_does_not_define_head_top",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.04376549999869894
+    },
+    {
+      "test": "test_staff_tip.StaffTipTests.test_real_cast_anchors",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.09160120801243465
+    },
+    {
+      "test": "test_staff_tip.StaffTipTests.test_real_walk_e_staff_line",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.059046499998657964
+    },
+    {
+      "test": "test_staff_tip.StaffTipTests.test_vertical_three_pixel_staff",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.055481540999608114
+    },
+    {
+      "test": "test_t3c_fixes.Tests.test_near_far_roles_and_proposed_null",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 1.0241328749980312
+    },
+    {
+      "test": "test_t3c_fixes.Tests.test_ours_explicit_out_and_unchanged_default",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.41008750000037253
+    },
+    {
+      "test": "test_t3c_fixes.Tests.test_weak_resultant_null_and_directional_gradient",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.0014272499975049868
+    },
+    {
+      "test": "test_transcribe.Tests.test_atomic_unique_dependency_ordered_absent_controls",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.0010580839880276471
+    },
+    {
+      "test": "test_transcribe.Tests.test_separate_part_inventory",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.00015537500439677387
+    },
+    {
+      "test": "test_transcribe.Tests.test_strict_schema_no_coordinates_or_open_vocabulary",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.0005837500066263601
+    },
+    {
+      "test": "test_vfx_lifecycle.TestVfxLifecycle.test_bad_travel_seam_retains_literal_and_median",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.002650125010404736
+    },
+    {
+      "test": "test_vfx_lifecycle.TestVfxLifecycle.test_cast_count_clock_and_energy",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.0006062910106265917
+    },
+    {
+      "test": "test_vfx_lifecycle.TestVfxLifecycle.test_empty_energy_is_unevaluable",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.0007329580112127587
+    },
+    {
+      "test": "test_vfx_lifecycle.TestVfxLifecycle.test_final_alpha_literal_boundary",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.0014117499958956614
+    },
+    {
+      "test": "test_vfx_lifecycle.TestVfxLifecycle.test_flash_known_bad_and_loop_closure",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.002451291002216749
+    },
+    {
+      "test": "test_vfx_lifecycle.TestVfxLifecycle.test_flat_second_peak_and_no_release",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.002250249992357567
+    },
+    {
+      "test": "test_vfx_lifecycle.TestVfxLifecycle.test_impact_transparent_ending",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.0007259580015670508
+    },
+    {
+      "test": "test_vfx_lifecycle.TestVfxLifecycle.test_invisible_rgb_cannot_change_energy_or_symmetry",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.0023809999984223396
+    },
+    {
+      "test": "test_vfx_lifecycle.TestVfxLifecycle.test_known_bad_opaque_tail_and_secondary_peak",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.0007107499986886978
+    },
+    {
+      "test": "test_vfx_lifecycle.TestVfxLifecycle.test_schema_and_input_errors",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.0006506250065285712
+    },
+    {
+      "test": "test_vfx_lifecycle.TestVfxLifecycle.test_travel_symmetry_and_seam",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.004893666002317332
+    },
+    {
+      "test": "test_vfx_lifecycle.TestVfxLifecycle.test_wrong_count_and_fps",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.0003807079920079559
+    },
+    {
+      "test": "test_video_cut.CLITests.test_cli_bad_exclusions_rejected_before_decoding_or_writes",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.04314841699670069
+    },
+    {
+      "test": "test_video_cut.CLITests.test_cli_exclusion_json_forms_hits_hashes_and_no_fallback",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 7.284152459003963
+    },
+    {
+      "test": "test_video_cut.CLITests.test_cli_synthetic_idle_half_rate_and_audit",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 3.690394458011724
+    },
+    {
+      "test": "test_video_cut.CLITests.test_missing_matte_is_reported_without_fabricated_measurements",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.01828895800281316
+    },
+    {
+      "test": "test_video_cut.ExclusionTests.test_all_candidates_excluded_never_fallback",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.01094754200312309
+    },
+    {
+      "test": "test_video_cut.ExclusionTests.test_between_samples_and_closure_endpoint_stay_eligible",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.021745417005149648
+    },
+    {
+      "test": "test_video_cut.ExclusionTests.test_exclusion_and_count_known_bad_arguments",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.0044880419882247224
+    },
+    {
+      "test": "test_video_cut.ExclusionTests.test_half_rate_offset_checks_actual_snapped_indices",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.005463416993734427
+    },
+    {
+      "test": "test_video_cut.ExclusionTests.test_optimal_blink_chooses_next_clean_closure_and_reports_hit",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.005449333999422379
+    },
+    {
+      "test": "test_video_cut.ExclusionTests.test_rounding_clamps_before_exclusion_and_default_count",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.004514915999607183
+    },
+    {
+      "test": "test_video_cut.ExclusionTests.test_walk_and_run_exclusions_preserve_latest_clean_down",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.0005757499893661588
+    },
+    {
+      "test": "test_video_cut.OneShotTests.test_cast_gather_release_and_order",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.00027312499878462404
+    },
+    {
+      "test": "test_video_cut.OneShotTests.test_incomplete_events_never_fabricate_settle",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.0004876660095760599
+    },
+    {
+      "test": "test_video_cut.OneShotTests.test_invalid_tracking_and_arguments",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.0004089580033905804
+    },
+    {
+      "test": "test_video_cut.OneShotTests.test_jump_all_key_poses_within_one_frame",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.00017454200133215636
+    },
+    {
+      "test": "test_video_cut.OneShotTests.test_native_offset_and_half_rate",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.0003352089988766238
+    },
+    {
+      "test": "test_video_cut.OneShotTests.test_no_event_flat_and_baseline_noise",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.000543833986739628
+    },
+    {
+      "test": "test_video_cut.OneShotTests.test_resampling_counts_midpoints_and_bad_poses",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.0002247500087833032
+    },
+    {
+      "test": "test_video_cut.OneShotTests.test_settle_requires_six_consecutive_samples",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.0002639580052345991
+    },
+    {
+      "test": "test_video_cut.OneShotTests.test_single_frame_spike_and_crouch_without_flight",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.00030420799157582223
+    },
+    {
+      "test": "test_video_cut.Tests.test_bob_17_stride_34",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.1459035000007134
+    },
+    {
+      "test": "test_video_cut.Tests.test_half_rate_native_units",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.2658800000062911
+    },
+    {
+      "test": "test_video_cut.Tests.test_idle_48_and_flat_fallback",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.31992879099561833
+    },
+    {
+      "test": "test_video_cut.Tests.test_idle_rgb_closure_optimum_and_latest_tie",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.05000145800295286
+    },
+    {
+      "test": "test_video_cut.Tests.test_latest_down_and_bounds",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.277595833002124
+    },
+    {
+      "test": "test_video_cut.Tests.test_latest_down_within_flat_maximum",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.00032033400202635676
+    },
+    {
+      "test": "test_video_cut.Tests.test_matte_floor_and_edge_note",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.006746957995346747
+    },
+    {
+      "test": "test_video_cut.Tests.test_register_shared_transform_including_rest",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.03933699999470264
+    },
+    {
+      "test": "test_video_cut.Tests.test_resample_python_round_and_bad_arguments",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.00021287499112077057
+    },
+    {
+      "test": "test_video_cut.Tests.test_splice_108_and_selection_membership",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.20044800000323448
+    },
+    {
+      "test": "test_video_cut.Tests.test_split_real_synthetic_video_strict_time_and_half_rate",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.1117654580011731
+    },
+    {
+      "test": "test_video_cut.Tests.test_track_largest_component_median_and_coordinates",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.0075427080009831116
+    },
+    {
+      "test": "test_viewer_wheel.ViewerWheelTests.test_empty_matrix_has_explicit_reasons",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.001515041003585793
+    },
+    {
+      "test": "test_viewer_wheel.ViewerWheelTests.test_external_escaping_and_missing_embedded_references_rejected",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.028999292000662535
+    },
+    {
+      "test": "test_viewer_wheel.ViewerWheelTests.test_invalid_missing_conflicting_present_and_nan_numbers_rejected",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.027449749992229044
+    },
+    {
+      "test": "test_viewer_wheel.ViewerWheelTests.test_packet_only_mp4_prefers_1to1_and_retains_numbers",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.04872725000313949
+    },
+    {
+      "test": "test_viewer_wheel.ViewerWheelTests.test_script_injection_escaped_and_values_preserved",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.027862415998242795
+    },
+    {
+      "test": "test_viewer_wheel.ViewerWheelTests.test_two_cells_numbers_missing_reason_local_assets_and_buttons",
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "wall_s": 0.0401293339964468
+    }
+  ],
+  "successful_test_methods": 374
+}

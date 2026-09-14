@@ -1,0 +1,43 @@
+{
+  "task_id": "CS-assets-spawn",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [],
+  "calls_used": 0,
+  "retries": [],
+  "self_report": {
+    "obeyed_invariants": true,
+    "concerns": [
+      "11 assets retained versus 12 expected: prescribed grouping joins shrub_a and fern_b; fern_b is not independently reusable.",
+      "Registration: all seven best shifts [0,0], no flags. Rebuild RGB MAE: 14.242 inside tile regions; 11.108 outside.",
+      "obj_03 required a temporary 10-px green guard for frozen matte border validation; removed before downscaling. Neighbouring barrel spill was discarded.",
+      "Measurement interpretations are documented: opaque alpha >= 200, Gaussian sigma 15/3 px, black shadows with k=1.",
+      "Mutable wrapper-owned .wrapper-events.jsonl and .wrapper-stderr.txt are excluded from deliverable hashes."
+    ]
+  },
+  "files": [
+    {"path":"out/asset_sheet.png","sha256":"ddc298256b21cbb16f14e213f5e90bfab6b12c81d5ae7b3fa804c86ccb9c76e3"},
+    {"path":"out/assets/barrel_broken.png","sha256":"1f74b4cf07cd6e6160d8e6c48abe442dca5e3b4b3408cca1d69b437c01459148"},
+    {"path":"out/assets/boulder_halfsunk.png","sha256":"1c1d8623050aec6b83ef08348f8193bde74197a687cf7e9484eb0a00c78469e3"},
+    {"path":"out/assets/boulder_mossy_large.png","sha256":"45d8bbe1d7a19de44d22fb15d2a4379a13874a6e88746997b3bd09b2ce43c13f"},
+    {"path":"out/assets/boulder_round.png","sha256":"e8202f4e1a6211162e5ab2a47c3b5b66849284122cca5b26f4141f6199a26063"},
+    {"path":"out/assets/charred_log.png","sha256":"9b41024c8a5070563397ac3451b625757cc2a781226c6f36f6c1e13a1db88f7f"},
+    {"path":"out/assets/crate_single.png","sha256":"b4073e670f468c01472add01268ecf8398f1a0d9f9a6a8ab8147667dc016d17f"},
+    {"path":"out/assets/crate_stack2.png","sha256":"f8eec63a51c6cb9051d37f043c8fd9699e8601ee9eb4574c859e051625fceb3f"},
+    {"path":"out/assets/fern_a.png","sha256":"9946447d3f2924e3245e2b42d6d2be7a7e90765c245e3e1fe5b109af73c269a3"},
+    {"path":"out/assets/rock_small_a.png","sha256":"f7cc49f1323379b83080f84f603711040ef09de48bab28cfbf53e14f75f0159b"},
+    {"path":"out/assets/shrub_a.png","sha256":"c0f4a384117f9728fd970817001c44940d70c866bcf23659c5feaedf495804ec"},
+    {"path":"out/assets/shrub_flower.png","sha256":"8fad55b504e77366006caf3a6a701bed86ba13b4485c6bb94987ee5328b964e4"},
+    {"path":"out/assets.json","sha256":"68b24c717a676a2c7cc8321d09ab9553b091dea5da9f7bf0198dc387920d088f"},
+    {"path":"out/checks.json","sha256":"78011651f5e97b9566d64738939f079df15412c5d079fd32d09a3bcce1eab276"},
+    {"path":"out/rebuild.png","sha256":"d2c57f7c95196b5f4810ba38dee7f063db4c6437467cace91093c11b2bdce53c"},
+    {"path":"out/rebuild_vs_after.png","sha256":"74c7cfd0712fc921ab15f65930b529310c86a1308f6ea7d49febda55e3f70598"},
+    {"path":"out/shadows/obj_01_shadow.png","sha256":"08f88caa0517b60d119896e363dbeb2bce783b5962a1f76fff86337ebffabca4"},
+    {"path":"out/shadows/obj_02_shadow.png","sha256":"7755e41764bef0578616119a4385bf2bd9a911e7961f471656112476485b3e9c"},
+    {"path":"out/shadows/obj_03_shadow.png","sha256":"9d45b646df19292014b752b6cf73209301df7e94bb3b4e1e2eec9646bae40656"},
+    {"path":"out/shadows/obj_04_shadow.png","sha256":"7faa988056ffadc87274a6c2b76c89c12b94362b375228bd7a560fc4e496d2ba"},
+    {"path":"out/shadows/obj_05_shadow.png","sha256":"56ed71aa0ca0020813e3f7a25ee4f5d92e753789ecfd265af3a7eb1ef5e1200f"},
+    {"path":"out/shadows/obj_06_shadow.png","sha256":"c7304c1467c58d99bcebac690ae12d2987103ced4220ca5f7f64dd23ad61249d"},
+    {"path":"out/shadows/obj_07_shadow.png","sha256":"7e36efe8cb8efa1fc22efd60cb8561b5c9e9b885508dcc4c8f77d29dffc152d4"},
+    {"path":"out/summary.txt","sha256":"31d7107d2637203310e15db0f94c118e573a72aa28910feb239856b531778647"}
+  ]
+}

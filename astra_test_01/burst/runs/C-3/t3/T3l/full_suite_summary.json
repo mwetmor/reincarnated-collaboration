@@ -1,0 +1,45 @@
+{
+  "tests_run": 382,
+  "successful_tests": 372,
+  "elapsed_s": 150.62621087500884,
+  "reds": [
+    "test_headless_state_machine_input_map_gear_vfx_and_nearest_fallback (test_godot_import.GodotImportTests.test_headless_state_machine_input_map_gear_vfx_and_nearest_fallback)",
+    "test_synthetic_contract_and_grid (test_oracle_walk.Tests.test_synthetic_contract_and_grid)",
+    "test_f04_outside_at_least_three (test_oracles_motif.Tests.test_f04_outside_at_least_three)",
+    "test_named_genuine_annuli_retained (test_oracles_motif.Tests.test_named_genuine_annuli_retained) (center=[113, 201])",
+    "test_named_genuine_annuli_retained (test_oracles_motif.Tests.test_named_genuine_annuli_retained) (center=[111, 311])",
+    "test_named_genuine_annuli_retained (test_oracles_motif.Tests.test_named_genuine_annuli_retained) (center=[170, 253])",
+    "test_headless_cliffside_follow_camera_parallax_and_projectile_collision (test_parallax_scene.ParallaxSceneTests.test_headless_cliffside_follow_camera_parallax_and_projectile_collision)",
+    "test_headless_occlusion_fade_restore_overhead_near_and_particles (test_props_layer.PropsLayerTests.test_headless_occlusion_fade_restore_overhead_near_and_particles)",
+    "test_headless_tower_import_run_and_physics (test_scene_kit.SceneKitTests.test_headless_tower_import_run_and_physics)",
+    "test_headless_directional_release_and_resources (test_sockets.SocketTests.test_headless_directional_release_and_resources)"
+  ],
+  "red_test_methods": [
+    "test_godot_import.GodotImportTests.test_headless_state_machine_input_map_gear_vfx_and_nearest_fallback",
+    "test_oracle_walk.Tests.test_synthetic_contract_and_grid",
+    "test_oracles_motif.Tests.test_f04_outside_at_least_three",
+    "test_oracles_motif.Tests.test_named_genuine_annuli_retained",
+    "test_parallax_scene.ParallaxSceneTests.test_headless_cliffside_follow_camera_parallax_and_projectile_collision",
+    "test_props_layer.PropsLayerTests.test_headless_occlusion_fade_restore_overhead_near_and_particles",
+    "test_scene_kit.SceneKitTests.test_headless_tower_import_run_and_physics",
+    "test_sockets.SocketTests.test_headless_directional_release_and_resources"
+  ],
+  "per_test_evidence_run": {
+    "tests_run": 382,
+    "elapsed_s": 149.24422875000164,
+    "successful_test_methods": 374,
+    "runner_report": {
+      "tests_run": 382,
+      "successful_tests": 372,
+      "elapsed_s": 149.23945583301247
+    }
+  },
+  "t3k_tests_run": 14,
+  "t3k_successful": 13,
+  "props_tests_run": 17,
+  "props_successful": 16,
+  "failure_records": 10,
+  "successful_test_methods": 374,
+  "red_test_method_count": 8,
+  "count_note": "Frozen runner successful_tests subtracts failure records, including three failing subtests in one annulus test. 382 - 10 = 372; there are 374 successful test methods and 8 red methods."
+}

@@ -1,0 +1,44 @@
+{
+  "task_id": "CS-mist2-3_2-ns",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "mist_3_2.png",
+      "path": "out/mist_3_2.png",
+      "sha256": "cc93a9ec3c5dc791d34c3f4c7c67a335ae8128c5887e932cf94b812b3fa6989f",
+      "prompt": "Use case: lighting-weather. EDIT Image 1, the finished 1536x1024 painted cliffside game-level chunk. Image 2 is ONLY a spatial mask guide: its cyan tinted region with white outline indicates the mist zone; never reproduce cyan tint or white outline. Deliver exactly one 1536x1024 PNG retaining the exact composition and registration of Image 1. Inside the indicated zone only, make the lower cliff faces disappear into a thick OPAQUE bank of billowing valley mist. Rock grows hazier downward and is completely swallowed; no bottom rock edge visible. Follow the irregular guide precisely, including its narrow upper-left section and broad lower central section; preserve the entire unmasked right cliff. Mist consists of painted cloud forms with soft lavender and dusky violet shadows, warm rose-peach lit billow tops from the existing upper-left sunset light. Mist is opaque, not transparent rock, not a flat fill or gradient. Its underside along the left green void forms a soft rounded cloud-like edge; a few wisps may drift slightly into adjacent green. Billow tops may rise at most 40 pixels above the guide's upper outline. Outside this small permitted extension and the guide zone, preserve Image 1 EXACTLY: all upper rock faces and their cracks, vines, rims, grass, flowers, dirt, all cliff-top ground and every other existing feature. Do not repaint, relight, shift, crop or redesign these. Every green pixel away from the mist remains flat pure #00ff00. No cyan or white guide marks. Same hand-drawn painted 2D style as source: confident tapered dark contours of varying weight, painted fills in clean planes, restrained surface texture, readable forms, rich environment. No characters, creatures, text, UI, border or vignette. Preserve the existing canvas, camera, lighting and art; this is solely a localized mist edit.\nRETRY correction: The prior attempt incorrectly filled ALL green void with clouds. Start again from ORIGINAL Image 1 and Image 2 guide. The lower-left green area OUTSIDE the white outline is a protected empty cutout and MUST remain pure #00ff00. Make a visible rounded CLOUD UNDERSIDE against that green, following the guide's lower-left boundary: approximately (0,515), (30,522), (70,548), (80,570), (80,645), (100,675), (175,722), (201,755), (201,782), (220,824), (216,900), (216,1024). Everything to the LEFT of this boundary below y=515 stays GREEN, not clouds. Mist lies above/right of this boundary, replacing the cyan zone ONLY. Small rounded billows may soften this boundary by a few pixels. Keep the protected green cutout clearly visible from the left edge at y=515 down to the bottom-left corner and spanning approximately 216 pixels across the bottom. Do not create cloud coverage away from the mask. Preserve original rock and ground outside the guide exactly. This green cutout is essential for a game asset. Use clean painted cloud planes and restrained texture.",
+      "references": [
+        {
+          "role": "edit target",
+          "path": "in/01_mist2_3_2_canvas-ns.png"
+        },
+        {
+          "role": "mist zone guide; cyan and white excluded from output",
+          "path": "in/02_mist2_3_2_zone-ns.png"
+        }
+      ],
+      "elapsed_s": 117.12
+    }
+  ],
+  "calls_used": 2,
+  "retries": [
+    {
+      "reason": "First output painted over the green void away from the mist zone.",
+      "change": "Restarted from original references with explicit protected green boundary coordinates."
+    }
+  ],
+  "self_report": {
+    "obeyed_invariants": false,
+    "concerns": [
+      "Some mist wisps visibly extend more than 40 px above the guide's upper boundary.",
+      "Mist underside does not precisely follow the guide near the left edge.",
+      "Exact pixel preservation outside the zone was not verified."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/mist_3_2.png",
+      "sha256": "cc93a9ec3c5dc791d34c3f4c7c67a335ae8128c5887e932cf94b812b3fa6989f"
+    }
+  ]
+}

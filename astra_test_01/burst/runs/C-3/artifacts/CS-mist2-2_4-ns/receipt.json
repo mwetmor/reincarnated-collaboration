@@ -1,0 +1,43 @@
+{
+  "task_id": "CS-mist2-2_4-ns",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "mist_2_4.png",
+      "path": "out/mist_2_4.png",
+      "sha256": "913dc486865821e9afad31a5eddec4b512b54101b616967279d18c30e14ced6b",
+      "prompt": "Use case: lighting-weather. Precise localized EDIT of IMAGE 1, output one 1536x1024 image. IMAGE 2 is a mask guide only. Replace ONLY the cyan-colored narrow cliff underside region of IMAGE 2 with opaque painted valley mist, working on clean IMAGE 1. The cyan zone follows a slender diagonal ribbon: top around (575,125), left edge around (550,190), middle around (587,355), bottom around (639,528). Match this narrow footprint carefully. Mist should occupy that ribbon, swallowing the rock bottom edge there, with rounded cloud scallops extending only about 10–25 pixels right of the existing cliff silhouette. No big cloud bank projecting across the green. Uppermost mist must not go above y=95; lowest mist must end by y=545. Nothing farther right than x=675 is edited. All other original pixels stay exactly unchanged, especially the upper cliff face, ALL grassy terrain and stone rim, and the foreground cliff below y=550. No image-wide repaint or color changes. Rock in the marked ribbon becomes hazy and disappears completely into thick opaque lavender/dusky-violet mist with subtle rose-peach billow tops. Compact painted cloud forms, soft rounded underside edge against flat pure #00ff00. Never paint the cyan guide or white outline. Keep every green pixel away from the very narrow mist ribbon pure #00ff00. Hand-drawn painted 2D style identical to the original: tapered dark contours, clean painted planes and restrained texture. No text, characters, creatures, UI, borders or vignette. This is a very small masked edit; faithfully preserve the original everywhere else.",
+      "references": [
+        {
+          "role": "edit target",
+          "path": "in/01_mist2_2_4_canvas-ns.png"
+        },
+        {
+          "role": "mist zone guide",
+          "path": "in/02_mist2_2_4_zone-ns.png"
+        }
+      ],
+      "elapsed_s": 41.895
+    }
+  ],
+  "calls_used": 2,
+  "retries": [
+    {
+      "reason": "First output extended mist too far into green and above the marked zone.",
+      "change": "Retried from original references with explicit narrow footprint coordinates and extension limits."
+    }
+  ],
+  "self_report": {
+    "obeyed_invariants": false,
+    "concerns": [
+      "Final mist appears to extend slightly above the permitted upper allowance.",
+      "Exact preservation of pixels outside the zone and pure-green values was not verified numerically."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/mist_2_4.png",
+      "sha256": "913dc486865821e9afad31a5eddec4b512b54101b616967279d18c30e14ced6b"
+    }
+  ]
+}

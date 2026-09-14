@@ -1,0 +1,16 @@
+# T3l layered cliffside export
+
+Build with `python3 -B -m export.godot_import --cells CELLS --parallax PARALLAX --props PROPS --out EMPTY_PROJECT`.
+`--props` requires `--parallax`. All manifest collections and entry fields are explicit; unknown keys are rejected. PNGs must be RGBA, relative to PROPS, and cannot escape through symlinks. Source PNG bytes and fractional anchors are preserved.
+
+The fixture project is `fixture_project/project.godot`. Its reusable synthetic inputs are in `fixture_inputs/`; `fixture_project/probe.gd` is the conductor's headless fade/restore probe. Run an engine import, then `--headless --path fixture_project --script res://probe.gd` in an environment where Godot can open its normal user log. The sandbox's logger startup abort does not exercise the scripts.
+
+Props and Keeper share Actors' effective z=2 and y sorting. A prop's feet sort point is its instance position, with texture offset equal to minus its asset anchor. Colliding instances add local 16-vertex footprint ellipses at that position under Walls. Shadows, overhead, near, and particles use z=1,3,4,5. Particle emission boxes are converted to centre plus half-extents; gravity is zero so the requested velocity and direction control drift. Color gradients run from start to end over particle life.
+
+The fixed 130-pixel body rectangle is centred on the Keeper's feet x; its width is the maximum alpha>=128 character frame width times the existing figure scale. Props fade only with overlapping opaque bounds and Keeper feet y less than the prop anchor y. Overhead uses opaque bounds without the y test; near sprites use full screen rectangles. Bounds are transformed into screen coordinates every frame, so near parallax and camera movement are included. Alpha targets are 0.35/1.0 over 0.15 seconds, with a tween restarted only when the target changes.
+
+Coverage uses alpha>=128 support before runtime fade, unions overlapping sprites, and counts nearest pixel-centre samples in a 1920x1080 viewport. Camera follow positions form a half-step lattice within walkable bounds, excluding blocked points. Camera limits constrain the centred viewport before the anchor-derived offset; near top-left on screen is its authored position minus scroll_scale times the camera view top-left. Clamped camera duplicates keep their ground-sample weight. No eligible samples raises ValueError rather than inventing a share. `parallax/export.json` and the CLI report contain `near_coverage`.
+
+Optional movement supplies exact level-pixel speeds and animation fps, including advanced gear sets. No movement and no props preserve all nine T3k text files byte for byte when the clock is held fixed. `t3k_text_baseline.json` was captured before modifying the exporter; its hashes are also frozen in the new regression test.
+
+The read-only CS-assets-spawn catalogue has 11 assets and 7 shadows. To author props.json, map catalogue asset name/file/anchor directly, footprint_px.width/height to footprint.w/h, and level_position_px to instance.position. Explicitly choose collide and fade_when_behind; map shadow level_top_left_px to position and choose opacity. Stage the referenced PNGs inside PROPS. Catalogue provenance and measurement fields are deliberately not accepted as props.json keys. No real catalogue PNGs were read or copied during this burst.

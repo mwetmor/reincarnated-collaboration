@@ -1,0 +1,41 @@
+{
+  "task_id": "CS-asm-fg-v4-mist",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [],
+  "calls_used": 0,
+  "retries": [],
+  "self_report": {
+    "obeyed_invariants": true,
+    "concerns": [
+      "11,115 deep-face pixels have alpha below 0.95. Largest connected group: 10,122 pixels; bbox [3643,1792,3892,1893]. The diagnostic crop shows abrupt boundaries.",
+      "Outside-M RGB mean absolute difference: 0.150058/255; beyond the specified 24-pixel falloff: 0.",
+      "Frozen matte defaults retained; temporary 10-pixel green padding was cropped away."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/checks.json",
+      "sha256": "dcab1c0a6b58f34d9642a8b593b3b72f6b6c6bea043f7c8c6f2b80b9e309695b"
+    },
+    {
+      "path": "out/foreground.png",
+      "sha256": "714968d012a02afe505ecc45cb7a97f990981f61c991820f760657637e80da8f"
+    },
+    {
+      "path": "out/foreground_preview_1344x1024.png",
+      "sha256": "26ea8523a11818e97235bfc9e1bd1546427707f12a6d9efaa7827b4ea59e5638"
+    },
+    {
+      "path": "out/mist_region_overlay.png",
+      "sha256": "3dcf285f73923bdae6f04eb18116bc5165c12a8860e5f1cb470b4f2dcc34b2e5"
+    },
+    {
+      "path": "out/seethrough_crops.png",
+      "sha256": "96d0fc4a09df51ba6b3cc665d497cbb31e3f064bd6a1110d017a795168228517"
+    },
+    {
+      "path": "out/summary.txt",
+      "sha256": "37e33d6e156ab01f0921e059d6c0ccf64c667db5229ddf5d31a0ae40a14b9454"
+    }
+  ]
+}

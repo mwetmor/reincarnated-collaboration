@@ -1,0 +1,18 @@
+{
+ "text": "GENERATE BURST CS-clutter-spawn — CLUTTER PROOF: add objects to the painted cliffside by EDITING it (Matt R-C3-42 ruling 5, R-C3-61). task_id \"CS-clutter-spawn\".\n\nIMAGE 1 is a finished, bare hand-painted 2D exploration level crop (1536×1024), seen from a fixed high three-quarter ARPG camera (Diablo II / Last Epoch style): a sunlit packed-dirt clearing and path inside grassy rocky cliff-top ground at sunset; a rocky cliff rim with PURE GREEN #00ff00 void beyond it. A person standing here is 130 px tall. The light is a warm sunset key from the UPPER-LEFT with cool violet shadows falling to the lower-right.\nUse image_gen in EDIT mode on IMAGE 1 and deliver ONE 1536×1024 image that is the SAME painting with exploration clutter ADDED, composed the way a senior environment artist would dress this spot of an outdoor ARPG level: a few weathered boulders of different sizes (some half-sunk in grass, one small cluster near the rim), two or three wooden supply crates (one stacked pair, one on its own), a broken barrel, a fallen charred log, a few low shrubs and fern clumps, scattered stones, and at the rim a hanging tangle of vines draping over the edge. Every object sits on the ground with its own soft contact shadow in the same light, drawn in the same hand-painted register (tapered dark contours, painted planes, bold jewel tones), and in exactly the same camera angle and scale as the ground.\nRULES: (a) everything that is NOT an added object stays exactly as painted — do not repaint, recolour, relight or shift the ground, path, grass, rim or green; (b) keep the main dirt path and the central clearing walkable and open — clutter sits along its edges and in the grass; (c) keep every object fully inside the image with at least 120 px margin from every border; (d) objects do not overlap each other except the stacked crates; (e) no characters, creatures, text, UI, border or vignette; green stays flat pure #00ff00 except where a vine hangs over the rim.\n\nOne image_gen call. ONE retry only if the ground outside the objects was visibly repainted/shifted, an object breaks rule (b)/(c)/(d), or the camera angle/scale of the objects does not match the ground — name the reason. Copy the output from $CODEX_HOME/generated_images/... to out/clutter_spawn.png with sha256. No code. No other files. No web.\nRETURN: receipt task_id \"CS-clutter-spawn\"; images = the file with prompt, references and elapsed_s; calls_used = the TRUE number of image_gen calls; status; concerns. Never PASS/FAIL.",
+ "references": [
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/CS-clutter-canvases/clutter_spawn_canvas.png",
+   "role": "IMAGE 1 — the bare painted crop to EDIT"
+  }
+ ],
+ "image_cap": 2,
+ "minutes_cap": 15,
+ "tool_call_cap": 20,
+ "outputs": [
+  "out/clutter_spawn.png"
+ ],
+ "effort": "high",
+ "add_dirs": [],
+ "experiment": "C3-cliffside-clutter"
+}

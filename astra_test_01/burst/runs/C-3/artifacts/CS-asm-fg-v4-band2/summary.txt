@@ -1,0 +1,14 @@
+Task CS-asm-fg-v4-band2: report only; 17 chunks; 5376x4096 RGBA.
+Matte: frozen clamp; all terrain components preserved; 6px mask dilation.
+Minimum-error seams: 45; DP +/-1px; feather +/-3px; lower-cost corners.
+BASE alpha uses matte only; no depth fade.
+Cloud tiles: checkerboard; 1280x864 step; odd rows +640px; full linear/bilinear overlaps.
+Band: seed 7, 3 octaves; specified depth/luminance formula; 2D void eligibility.
+Deep FACE alpha below 0.95: 0; groups >=100px: 0.
+Shallow RGB MAD (8bit): 0.014752.
+First half-alpha face depth p10/p50/p90 mm: {'p10': 9159.0, 'p50': 10911.0, 'p90': 12952.0, 'column_count': 2141}.
+Void extent p10/p50/p90 px: {'p10': 0.0, 'p50': 308.0, 'p90': 854.0999999999999, 'column_count': 2410}; censored columns: 143.
+Straight alpha edges >=40px: 0.
+Max tile-edge mean absolute RGB (8bit): 7.140663.
+Image-generation calls: 0; processing seconds: 22.599.
+Concerns: 143 canvas-censored extent columns; visible stepped silhouettes at depth-map boundaries (literal edge count remains 0).

@@ -1,0 +1,99 @@
+{
+  "task_id": "CS-clutter-spawn-x",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [],
+  "calls_used": 0,
+  "retries": [
+    {
+      "reason": "The python command was unavailable.",
+      "change": "Used the available python3 interpreter."
+    }
+  ],
+  "self_report": {
+    "obeyed_invariants": true,
+    "concerns": [
+      "Seven merged candidates were extracted; some contain multiple props. Masks retain ground contamination and omit some object pixels.",
+      "All seven candidates missed each measured sub-gate. Shadow separation remains ambiguous; no overall burst verdict is issued.",
+      "Halo measurements use conservative radial extent, capped at 16 px.",
+      "Mutable wrapper-owned event and stderr logs are excluded from artifact hashes."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/candidates_diagnostic.png",
+      "sha256": "b83b5bc35dd91010dad1982f544a1e3b4adcc78e97af5ef32826c56f04f0365b"
+    },
+    {
+      "path": "out/diff_heatmap.png",
+      "sha256": "55490d31842a35d7730b9b73691bc42b062f6b57913ffc8a0d9dd7d3e3734562"
+    },
+    {
+      "path": "out/objects/obj_01_rgba.png",
+      "sha256": "a1811407b6a44fec58ceaecee83a38e3fe8325689c8b70784087aa840b82531c"
+    },
+    {
+      "path": "out/objects/obj_01_shadow.png",
+      "sha256": "a0ad9e9df3946f86b09acc336b9b0b8a4cd4c37c9051dda368de6879ef73d410"
+    },
+    {
+      "path": "out/objects/obj_02_rgba.png",
+      "sha256": "556df476c16cde883b350f6bc195ea9bba3a0ce93826900ff5ddc50a09191e23"
+    },
+    {
+      "path": "out/objects/obj_02_shadow.png",
+      "sha256": "92a8095fe577cc3d734d9954cd964b706071b47ccb6035024e759775f924dbfd"
+    },
+    {
+      "path": "out/objects/obj_03_rgba.png",
+      "sha256": "72cb58d05957f9785a56108d19d15b11efb6f1f29719af7255c930c149750989"
+    },
+    {
+      "path": "out/objects/obj_03_shadow.png",
+      "sha256": "7e45a4d9fc832dda61afbc1acef98332f45f07c9e202ad16ecfbaaab12b08d68"
+    },
+    {
+      "path": "out/objects/obj_04_rgba.png",
+      "sha256": "0f2deffa75aa218b6052861b900a9cc20bc8c9dc77bd90f9d02d7dbb7ee830f1"
+    },
+    {
+      "path": "out/objects/obj_04_shadow.png",
+      "sha256": "58bad8568002ec80453db52b1e1c86eb0eee7fc7b4ac347425112b1e450b15b1"
+    },
+    {
+      "path": "out/objects/obj_05_rgba.png",
+      "sha256": "50b35c648a012d7bacde9cc3ca6053f5d1f7a035a2d9e72cf5839704ea176c5d"
+    },
+    {
+      "path": "out/objects/obj_05_shadow.png",
+      "sha256": "79ed9182fe0894afe31246eefed7c0d378f34e254a3ccaaa2e1dd4f5cf953aac"
+    },
+    {
+      "path": "out/objects/obj_06_rgba.png",
+      "sha256": "f13c7045a1bf288e36e76cc4ac73b72210273a3ec7aed30db6bccba83c5f77cb"
+    },
+    {
+      "path": "out/objects/obj_06_shadow.png",
+      "sha256": "bd6b5cfdd1af270487e25d556eb761f9b95a7fefa866f84a267ee04b92130fbb"
+    },
+    {
+      "path": "out/objects/obj_07_rgba.png",
+      "sha256": "709b534e43cfd599c0f7e29ba4d0c6c8bcdc46a36615eda6c8374e1f9d2437b6"
+    },
+    {
+      "path": "out/objects/obj_07_shadow.png",
+      "sha256": "db4ca9819463c410fd32cc6170e806f21ad829518e45cc9b75690912c638b157"
+    },
+    {
+      "path": "out/objects.json",
+      "sha256": "6b0ea8c7cf911e2feca2c9cee998cff181748e239deed8ff3fd4a059c4aa305e"
+    },
+    {
+      "path": "out/objects_sheet.png",
+      "sha256": "f4d3e29de94416588a5c2db8b5d354c6670486571f375be7ee6dc1612f038aa4"
+    },
+    {
+      "path": "out/summary.txt",
+      "sha256": "ab834c254eeaaeff21ff468362340cb11f9d2b925fbe8998fb9a49dcc73725ed"
+    }
+  ]
+}

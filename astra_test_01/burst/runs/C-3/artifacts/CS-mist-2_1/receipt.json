@@ -1,0 +1,39 @@
+{
+  "task_id": "CS-mist-2_1",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "mist_2_1.png",
+      "path": "out/mist_2_1.png",
+      "sha256": "d2f0bf17db9e3f10cde30e1359986bf2bf0783a262a733675704980562ae349a",
+      "prompt": "Use case: lighting-weather. EDIT IMAGE 1 as a strictly localized addition to the original. Output ONE 1536x1024 PNG. Preserve the supplied image EXACTLY above the bottom cliff-base region: all bridge planks and posts, dirt, grass, rocky rims, upper cliff walls and green void remain unchanged. Add a LOW bank of thick OPAQUE hand-painted valley mist covering the bases of BOTH the left foreground cliff and the right tall cliff. The mist is confined to the lowest parts of the vertical rock faces, predominantly the bottom quarter of the canvas. Do not add any mist behind or near the bridge, near the upper rims, or up the upper cliff face. Rock becomes hazier just above the cloud bank and disappears entirely inside it; no bottom edge of rock is visible. Use rounded painted billows with soft lavender and dusky violet shadows and restrained rose-peach sunset highlights. Critical: where the bank extends into the central green gap, show its soft rounded cloud-like UNDERSIDE ending above the bottom of the canvas, with a visible patch of flat pure #00ff00 beneath that underside. Do not blanket all of the green canyon opening with clouds. Every green pixel away from the localized base mist stays flat pure #00ff00. This is opaque painted cloud, no translucent rock bases, no flat colour or gradient. Match original hand-drawn painted 2D tapered contours, clean painted planes, restrained texture and jewel tones. Keep original camera, framing, dimensions, existing lighting and exact placement of every existing feature. No repainting of terrain or bridge, no altered strips, characters, creatures, text, UI, border, vignette or extra scenery. Only localized cliff-base mist.",
+      "references": [
+        {
+          "role": "IMAGE 1 — painted chunk to edit",
+          "path": "in/01_mist_2_1_canvas.png"
+        }
+      ],
+      "elapsed_s": 25.942
+    }
+  ],
+  "calls_used": 2,
+  "retries": [
+    {
+      "reason": "First edit spread mist across upper rock and into green behind the bridge.",
+      "change": "Restricted mist to cliff bases and explicitly requested a rounded underside with green beneath."
+    }
+  ],
+  "self_report": {
+    "obeyed_invariants": false,
+    "concerns": [
+      "Foreground left cliff remains visible to the bottom canvas edge; complete mist coverage of every cliff base was not achieved.",
+      "Exact pixel preservation above the mist was not verified."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/mist_2_1.png",
+      "sha256": "d2f0bf17db9e3f10cde30e1359986bf2bf0783a262a733675704980562ae349a"
+    }
+  ]
+}

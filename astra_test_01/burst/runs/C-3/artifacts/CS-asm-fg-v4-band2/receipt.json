@@ -1,0 +1,36 @@
+{
+  "task_id": "CS-asm-fg-v4-band2",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [],
+  "calls_used": 0,
+  "retries": [],
+  "self_report": {
+    "obeyed_invariants": true,
+    "concerns": [
+      "Void-extent measurements are canvas-truncated in 143 columns.",
+      "Some cloud silhouettes show steps along depth-map boundaries despite zero literal straight alpha-edge runs. The prescribed formula was retained."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/foreground.png",
+      "sha256": "92bc72cb0c57000018871284e035c007263fb8e17d4b4191aa62f4c3ad355a5c"
+    },
+    {
+      "path": "out/foreground_preview_1344x1024.png",
+      "sha256": "8cd5d3a34508bdf0cc20e713a94456f3338f3b8386f2756f5cdc655bd898dd86"
+    },
+    {
+      "path": "out/band_detail_crops.png",
+      "sha256": "b344a5765824815ff8c125eb6fd986d5c71ecf0251bb9b5087500262d8be4150"
+    },
+    {
+      "path": "out/checks.json",
+      "sha256": "301bf4b943981d5c78aad9836a1f17b30abb94a949b177e1f417a384329534d3"
+    },
+    {
+      "path": "out/summary.txt",
+      "sha256": "1cc3c2cb0a453e7d5278661999493648049d6f1e0e8ca7c15665289ee5353e0b"
+    }
+  ]
+}

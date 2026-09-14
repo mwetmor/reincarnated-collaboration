@@ -1,0 +1,14 @@
+CS-asm-fg-v4-band3 — measurements only.
+17 chunks assembled; 45 minimum-error overlap paths; no re-drive inputs present.
+Frozen clamp matte; 12-px temporary green pad; detached terrain retained; 6-px mask dilation.
+BASE uses matte alpha only, without depth fade; seeded depth/cloud formula applied as specified.
+Deep FACE final alpha < 0.95: 0; groups >=100 px: 0.
+Shallow RGB mean absolute change (0..255): 0.006270.
+First cloud FACE depth mm p10/p50/p90: {'p10': 9016.0, 'p50': 10463.0, 'p90': 12292.6, 'sample_count': 2150}.
+Void extent px p10/p50/p90: {'p10': 0.0, 'p50': 286.0, 'p90': 572.0, 'sample_count': 2410}; canvas-bottom-censored columns: 79.
+Shallow-nearest-face spill count: 0.
+DEEP adjacent to low-alpha void count: 0.
+Straight alpha edges >=40 px: 0.
+Maximum tile-boundary mean |RGB| at +/-2 px: 7.137454/255.
+Crop order: far face 1, far face 2, near face below path, under bridge (2x2, 640 px each).
+Detailed method conventions, seam statistics, crop coordinates and measured concerns: checks.json.

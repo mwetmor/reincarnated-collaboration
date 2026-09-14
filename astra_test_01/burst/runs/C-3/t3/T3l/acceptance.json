@@ -1,0 +1,574 @@
+{
+  "measured": {
+    "assets": 2,
+    "prop_sprites": 3,
+    "shadows": 2,
+    "overhead": 1,
+    "near": 1,
+    "particles": 1,
+    "collision_polygons": 2,
+    "near_scroll_scale": [
+      1.2,
+      1.2
+    ],
+    "particle_amount": 37,
+    "particle_lifetime_s": 2.75,
+    "known_coverage_share": 0.5,
+    "known_coverage_samples": 2,
+    "resource_references": 20,
+    "missing_resources": 0,
+    "walk_speed": 173.25,
+    "run_speed": 301.5,
+    "walk_anim_fps": 9.5,
+    "run_anim_fps": 17.25,
+    "actors_y_sort_enabled": true,
+    "keeper_parent_actors": true,
+    "z_order": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "anchor_position_error_px": 0.0,
+    "anchor_offset_error_px": 0.0,
+    "prop_fade_script_instances": 2,
+    "collision_vertices": [
+      16,
+      16
+    ],
+    "colliding_anchor_containment": [
+      true,
+      true
+    ],
+    "noncolliding_polygons": 0,
+    "baseline_text_files": 9,
+    "baseline_text_differences": 0,
+    "required_bad_cases_rejected": 6,
+    "synthetic_test_counts": {
+      "tests_run": 20,
+      "successful": true,
+      "failures": [],
+      "errors": [],
+      "skipped": 0,
+      "wall_s": 3.7803730000014184
+    }
+  },
+  "metrics": [
+    {
+      "id": "t3l_assets",
+      "subject": "synthetic_cliffside",
+      "passed": null,
+      "value": 2,
+      "threshold": 2,
+      "op": "==",
+      "unit": "count_or_px_s",
+      "evidence": [
+        "fixture_project/scenes/cliffside.tscn"
+      ],
+      "notes": "Instrument only; conductor owns acceptance."
+    },
+    {
+      "id": "t3l_prop_sprites",
+      "subject": "synthetic_cliffside",
+      "passed": null,
+      "value": 3,
+      "threshold": 3,
+      "op": "==",
+      "unit": "count_or_px_s",
+      "evidence": [
+        "fixture_project/scenes/cliffside.tscn"
+      ],
+      "notes": "Instrument only; conductor owns acceptance."
+    },
+    {
+      "id": "t3l_shadows",
+      "subject": "synthetic_cliffside",
+      "passed": null,
+      "value": 2,
+      "threshold": 2,
+      "op": "==",
+      "unit": "count_or_px_s",
+      "evidence": [
+        "fixture_project/scenes/cliffside.tscn"
+      ],
+      "notes": "Instrument only; conductor owns acceptance."
+    },
+    {
+      "id": "t3l_overhead",
+      "subject": "synthetic_cliffside",
+      "passed": null,
+      "value": 1,
+      "threshold": 1,
+      "op": "==",
+      "unit": "count_or_px_s",
+      "evidence": [
+        "fixture_project/scenes/cliffside.tscn"
+      ],
+      "notes": "Instrument only; conductor owns acceptance."
+    },
+    {
+      "id": "t3l_near",
+      "subject": "synthetic_cliffside",
+      "passed": null,
+      "value": 1,
+      "threshold": 1,
+      "op": "==",
+      "unit": "count_or_px_s",
+      "evidence": [
+        "fixture_project/scenes/cliffside.tscn"
+      ],
+      "notes": "Instrument only; conductor owns acceptance."
+    },
+    {
+      "id": "t3l_particles",
+      "subject": "synthetic_cliffside",
+      "passed": null,
+      "value": 1,
+      "threshold": 1,
+      "op": "==",
+      "unit": "count_or_px_s",
+      "evidence": [
+        "fixture_project/scenes/cliffside.tscn"
+      ],
+      "notes": "Instrument only; conductor owns acceptance."
+    },
+    {
+      "id": "t3l_collision_polygons",
+      "subject": "synthetic_cliffside",
+      "passed": null,
+      "value": 2,
+      "threshold": 2,
+      "op": "==",
+      "unit": "count_or_px_s",
+      "evidence": [
+        "fixture_project/scenes/cliffside.tscn"
+      ],
+      "notes": "Instrument only; conductor owns acceptance."
+    },
+    {
+      "id": "t3l_particle_amount",
+      "subject": "synthetic_cliffside",
+      "passed": null,
+      "value": 37,
+      "threshold": 37,
+      "op": "==",
+      "unit": "count_or_px_s",
+      "evidence": [
+        "fixture_project/scenes/cliffside.tscn"
+      ],
+      "notes": "Instrument only; conductor owns acceptance."
+    },
+    {
+      "id": "t3l_particle_lifetime_s",
+      "subject": "synthetic_cliffside",
+      "passed": null,
+      "value": 2.75,
+      "threshold": 2.75,
+      "op": "==",
+      "unit": "count_or_px_s",
+      "evidence": [
+        "fixture_project/scenes/cliffside.tscn"
+      ],
+      "notes": "Instrument only; conductor owns acceptance."
+    },
+    {
+      "id": "t3l_known_coverage_share",
+      "subject": "synthetic_cliffside",
+      "passed": null,
+      "value": 0.5,
+      "threshold": 0.5,
+      "op": "==",
+      "unit": "share",
+      "evidence": [
+        "fixture_project/scenes/cliffside.tscn"
+      ],
+      "notes": "Instrument only; conductor owns acceptance."
+    },
+    {
+      "id": "t3l_missing_resources",
+      "subject": "synthetic_cliffside",
+      "passed": null,
+      "value": 0,
+      "threshold": 0,
+      "op": "==",
+      "unit": "count_or_px_s",
+      "evidence": [
+        "fixture_project/scenes/cliffside.tscn"
+      ],
+      "notes": "Instrument only; conductor owns acceptance."
+    },
+    {
+      "id": "t3l_walk_speed",
+      "subject": "synthetic_cliffside",
+      "passed": null,
+      "value": 173.25,
+      "threshold": 173.25,
+      "op": "==",
+      "unit": "count_or_px_s",
+      "evidence": [
+        "fixture_project/scenes/cliffside.tscn"
+      ],
+      "notes": "Instrument only; conductor owns acceptance."
+    },
+    {
+      "id": "t3l_run_speed",
+      "subject": "synthetic_cliffside",
+      "passed": null,
+      "value": 301.5,
+      "threshold": 301.5,
+      "op": "==",
+      "unit": "count_or_px_s",
+      "evidence": [
+        "fixture_project/scenes/cliffside.tscn"
+      ],
+      "notes": "Instrument only; conductor owns acceptance."
+    },
+    {
+      "id": "t3l_walk_anim_fps",
+      "subject": "synthetic_cliffside",
+      "passed": null,
+      "value": 9.5,
+      "threshold": 9.5,
+      "op": "==",
+      "unit": "count_or_px_s",
+      "evidence": [
+        "fixture_project/scenes/cliffside.tscn"
+      ],
+      "notes": "Instrument only; conductor owns acceptance."
+    },
+    {
+      "id": "t3l_run_anim_fps",
+      "subject": "synthetic_cliffside",
+      "passed": null,
+      "value": 17.25,
+      "threshold": 17.25,
+      "op": "==",
+      "unit": "count_or_px_s",
+      "evidence": [
+        "fixture_project/scenes/cliffside.tscn"
+      ],
+      "notes": "Instrument only; conductor owns acceptance."
+    },
+    {
+      "id": "t3l_actors_y_sort_enabled",
+      "subject": "synthetic_cliffside",
+      "passed": null,
+      "value": true,
+      "threshold": true,
+      "op": "==",
+      "unit": "count_or_px",
+      "evidence": [
+        "fixture_project/scenes/cliffside.tscn",
+        "synthetic_tests.log"
+      ],
+      "notes": "Instrument only; conductor owns acceptance."
+    },
+    {
+      "id": "t3l_keeper_parent_actors",
+      "subject": "synthetic_cliffside",
+      "passed": null,
+      "value": true,
+      "threshold": true,
+      "op": "==",
+      "unit": "count_or_px",
+      "evidence": [
+        "fixture_project/scenes/cliffside.tscn",
+        "synthetic_tests.log"
+      ],
+      "notes": "Instrument only; conductor owns acceptance."
+    },
+    {
+      "id": "t3l_z_order",
+      "subject": "synthetic_cliffside",
+      "passed": null,
+      "value": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "threshold": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "op": "==",
+      "unit": "count_or_px",
+      "evidence": [
+        "fixture_project/scenes/cliffside.tscn",
+        "synthetic_tests.log"
+      ],
+      "notes": "Instrument only; conductor owns acceptance."
+    },
+    {
+      "id": "t3l_anchor_position_error_px",
+      "subject": "synthetic_cliffside",
+      "passed": null,
+      "value": 0.0,
+      "threshold": 0,
+      "op": "==",
+      "unit": "count_or_px",
+      "evidence": [
+        "fixture_project/scenes/cliffside.tscn",
+        "synthetic_tests.log"
+      ],
+      "notes": "Instrument only; conductor owns acceptance."
+    },
+    {
+      "id": "t3l_anchor_offset_error_px",
+      "subject": "synthetic_cliffside",
+      "passed": null,
+      "value": 0.0,
+      "threshold": 0,
+      "op": "==",
+      "unit": "count_or_px",
+      "evidence": [
+        "fixture_project/scenes/cliffside.tscn",
+        "synthetic_tests.log"
+      ],
+      "notes": "Instrument only; conductor owns acceptance."
+    },
+    {
+      "id": "t3l_prop_fade_script_instances",
+      "subject": "synthetic_cliffside",
+      "passed": null,
+      "value": 2,
+      "threshold": 2,
+      "op": "==",
+      "unit": "count_or_px",
+      "evidence": [
+        "fixture_project/scenes/cliffside.tscn",
+        "synthetic_tests.log"
+      ],
+      "notes": "Instrument only; conductor owns acceptance."
+    },
+    {
+      "id": "t3l_collision_vertices",
+      "subject": "synthetic_cliffside",
+      "passed": null,
+      "value": [
+        16,
+        16
+      ],
+      "threshold": [
+        16,
+        16
+      ],
+      "op": "==",
+      "unit": "count_or_px",
+      "evidence": [
+        "fixture_project/scenes/cliffside.tscn",
+        "synthetic_tests.log"
+      ],
+      "notes": "Instrument only; conductor owns acceptance."
+    },
+    {
+      "id": "t3l_colliding_anchor_containment",
+      "subject": "synthetic_cliffside",
+      "passed": null,
+      "value": [
+        true,
+        true
+      ],
+      "threshold": [
+        true,
+        true
+      ],
+      "op": "==",
+      "unit": "count_or_px",
+      "evidence": [
+        "fixture_project/scenes/cliffside.tscn",
+        "synthetic_tests.log"
+      ],
+      "notes": "Instrument only; conductor owns acceptance."
+    },
+    {
+      "id": "t3l_noncolliding_polygons",
+      "subject": "synthetic_cliffside",
+      "passed": null,
+      "value": 0,
+      "threshold": 0,
+      "op": "==",
+      "unit": "count_or_px",
+      "evidence": [
+        "fixture_project/scenes/cliffside.tscn",
+        "synthetic_tests.log"
+      ],
+      "notes": "Instrument only; conductor owns acceptance."
+    },
+    {
+      "id": "t3l_baseline_text_files",
+      "subject": "synthetic_cliffside",
+      "passed": null,
+      "value": 9,
+      "threshold": 9,
+      "op": "==",
+      "unit": "count_or_px",
+      "evidence": [
+        "fixture_project/scenes/cliffside.tscn",
+        "synthetic_tests.log"
+      ],
+      "notes": "Instrument only; conductor owns acceptance."
+    },
+    {
+      "id": "t3l_baseline_text_differences",
+      "subject": "synthetic_cliffside",
+      "passed": null,
+      "value": 0,
+      "threshold": 0,
+      "op": "==",
+      "unit": "count_or_px",
+      "evidence": [
+        "fixture_project/scenes/cliffside.tscn",
+        "synthetic_tests.log"
+      ],
+      "notes": "Instrument only; conductor owns acceptance."
+    },
+    {
+      "id": "t3l_required_bad_cases_rejected",
+      "subject": "synthetic_cliffside",
+      "passed": null,
+      "value": 6,
+      "threshold": 6,
+      "op": "==",
+      "unit": "count_or_px",
+      "evidence": [
+        "fixture_project/scenes/cliffside.tscn",
+        "synthetic_tests.log"
+      ],
+      "notes": "Instrument only; conductor owns acceptance."
+    }
+  ],
+  "export": {
+    "cells": [
+      "cast_E",
+      "idle_S",
+      "run_E",
+      "walk_E"
+    ],
+    "frames": 4,
+    "texture_references": 4,
+    "gear_cells": 0,
+    "vfx_animations": 0,
+    "parallax": {
+      "canvas_size": [
+        1200,
+        900
+      ],
+      "tiles": [
+        {
+          "file": "tile_0_0.png",
+          "position": [
+            0,
+            0
+          ],
+          "size": [
+            1200,
+            900
+          ]
+        }
+      ],
+      "tile_count": 1,
+      "tile_area_px2": 1080000,
+      "filtering": "nearest (texture_filter=1), no padding, no resampling",
+      "layers": [
+        {
+          "name": "far",
+          "file": "layers/far.png",
+          "scroll_scale": 0.12,
+          "position": [
+            -10,
+            20
+          ],
+          "z": -10
+        },
+        {
+          "name": "near",
+          "file": "layers/near.png",
+          "scroll_scale": 0.7,
+          "position": [
+            70,
+            -30
+          ],
+          "z": -2
+        }
+      ],
+      "collision_polygons": 5,
+      "figure_height_px": 120,
+      "scale": 0.5,
+      "walk_speed": 173.25,
+      "run_speed": 301.5,
+      "camera_offset": [
+        -2.0000000000000995,
+        -55.00000000000001
+      ],
+      "camera_anchor_px": [
+        962.0000000000001,
+        595.0
+      ],
+      "camera_limits": [
+        0,
+        0,
+        1200,
+        900
+      ],
+      "wall_s": 0.13655179100169335,
+      "props": {
+        "near": 1,
+        "assets": 2,
+        "overhead": 1,
+        "instances": 3,
+        "particles": 1,
+        "shadows": 2,
+        "collision_polygons": 2,
+        "body_width_px": 20.0,
+        "body_height_px": 130,
+        "near_coverage": 1.0,
+        "coverage_step_px": 64,
+        "opaque_alpha_min": 128
+      },
+      "near_coverage": 1.0,
+      "movement": {
+        "walk_px_s": 173.25,
+        "run_px_s": 301.5,
+        "walk_anim_fps": 9.5,
+        "run_anim_fps": 17.25
+      },
+      "resource_references": 20
+    },
+    "wall_s": 0.1528325830004178
+  },
+  "wall_s": 0.31568570899253245,
+  "suite": {
+    "tests_run": 382,
+    "successful_tests": 372,
+    "successful_test_methods": 374,
+    "failure_records": 10,
+    "red_test_method_count": 8,
+    "elapsed_s": 150.62621087500884,
+    "t3k_tests_run": 14,
+    "t3k_successful": 13,
+    "props_tests_run": 17,
+    "props_successful": 16,
+    "reds": [
+      "test_headless_state_machine_input_map_gear_vfx_and_nearest_fallback (test_godot_import.GodotImportTests.test_headless_state_machine_input_map_gear_vfx_and_nearest_fallback)",
+      "test_synthetic_contract_and_grid (test_oracle_walk.Tests.test_synthetic_contract_and_grid)",
+      "test_f04_outside_at_least_three (test_oracles_motif.Tests.test_f04_outside_at_least_three)",
+      "test_named_genuine_annuli_retained (test_oracles_motif.Tests.test_named_genuine_annuli_retained) (center=[113, 201])",
+      "test_named_genuine_annuli_retained (test_oracles_motif.Tests.test_named_genuine_annuli_retained) (center=[111, 311])",
+      "test_named_genuine_annuli_retained (test_oracles_motif.Tests.test_named_genuine_annuli_retained) (center=[170, 253])",
+      "test_headless_cliffside_follow_camera_parallax_and_projectile_collision (test_parallax_scene.ParallaxSceneTests.test_headless_cliffside_follow_camera_parallax_and_projectile_collision)",
+      "test_headless_occlusion_fade_restore_overhead_near_and_particles (test_props_layer.PropsLayerTests.test_headless_occlusion_fade_restore_overhead_near_and_particles)",
+      "test_headless_tower_import_run_and_physics (test_scene_kit.SceneKitTests.test_headless_tower_import_run_and_physics)",
+      "test_headless_directional_release_and_resources (test_sockets.SocketTests.test_headless_directional_release_and_resources)"
+    ],
+    "count_note": "Frozen runner successful_tests subtracts failure records, including three failing subtests in one annulus test. 382 - 10 = 372; there are 374 successful test methods and 8 red methods."
+  }
+}

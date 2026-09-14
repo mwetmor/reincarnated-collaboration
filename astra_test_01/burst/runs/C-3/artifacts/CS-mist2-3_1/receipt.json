@@ -1,0 +1,44 @@
+{
+  "task_id": "CS-mist2-3_1",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "mist_3_1.png",
+      "path": "out/mist_3_1.png",
+      "sha256": "db538b372702eaf436030c31c30d65161a295f788a7b27f3255a0e46c2142b57",
+      "prompt": "Use case: lighting-weather. Surgical local EDIT of Image 1. Output one 1536x1024 image. Image 2 is a location guide only, not artwork. Correct the opacity of existing mist ONLY within its tiny cyan-and-white marked lower-left wedge. The permitted wedge occupies approximately x=5..150, y=555..1018, widening at the very bottom, with its right boundary near x=10 at y=650, x=48 at y=740, x=75 at y=828, x=103 at y=840, x=103 at y=920, x=119 at y=980, and x=150 at y=1018. Follow the actual guide precisely. Replace cyan-guide area on the ORIGINAL Image 1 with opaque painted lavender/dusky violet mist, warm rose-peach softly rounded billow highlights, seamlessly matching the mist already immediately beside it. No visible rock bottom inside the edit zone. All pixels outside this wedge must remain exactly as in ORIGINAL Image 1. In particular the existing haze and every rock at x>150 must remain unchanged; do not add clouds across the bottom, do not cover or alter the visible cliff spire around x=350 y=950, do not retouch rock at x=150..500 y=700..1024. Keep all top 256 rows identical. Preserve left overlap detail outside the explicit zone. Upper rocks, grass, flowers, rims, bridge and middle cliff surfaces all remain identical. Any billows above the guide limited to at most 40px. Same hand-drawn painted 2D style with tapered dark contours and clean painted planes, restrained texture. Existing sunset lighting and camera fixed. Any visible mist underside must have soft rounded cloud-like edge against existing pure #00ff00 void; source contains no visible green so do not add green. No cyan, white guide, characters, text, UI or borders. This is a tiny localized opacity repair, preserve the entire rest of the source image exactly.",
+      "references": [
+        {
+          "role": "edit target",
+          "path": "in/01_mist2_3_1_canvas.png"
+        },
+        {
+          "role": "mist zone guide",
+          "path": "in/02_mist2_3_1_zone.png"
+        }
+      ],
+      "elapsed_s": 22.438
+    }
+  ],
+  "calls_used": 2,
+  "retries": [
+    {
+      "reason": "Initial mist extended beyond the guide and covered additional cliff detail.",
+      "change": "Retried from the original with explicit wedge coordinates and protected cliff landmarks."
+    }
+  ],
+  "self_report": {
+    "obeyed_invariants": false,
+    "concerns": [
+      "Retry substantially reduced spill, but mist still appears to extend slightly outside the marked zone.",
+      "Exact pixel preservation of overlap strips was not verified.",
+      "No green void is visible in the supplied source; a mist underside against green could not be assessed."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/mist_3_1.png",
+      "sha256": "db538b372702eaf436030c31c30d65161a295f788a7b27f3255a0e46c2142b57"
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+ "text": "GENERATE BURST CS-mist2-2_3 — MIST PASS on painted cliffside chunk 2_3 (Matt: 'some of the underside of some of the cliffs are transparent'; R-C3-60). task_id \"CS-mist2-2_3\".\n\nIMAGE 1 is a finished hand-painted 2D game-level chunk (1536×1024): sunlit cliff-top grass/dirt, rocky rims, and tall rock CLIFF FACES that drop toward the viewer into a canyon; PURE GREEN #00ff00 = empty void (the distant valley is drawn separately behind it in the game). Its overlap strips with neighbouring chunks that were ALREADY given this mist pass (top 256 rows and/or left 256 columns where they exist) must stay as they are and be continued seamlessly.\nIMAGE 2 is the SAME chunk with the MIST ZONE tinted CYAN and outlined in WHITE: it covers only the LOWER part of each cliff face (more than ~9 m below the rim) and a short band of the void just beneath. Outside the cyan zone NOTHING changes.\nUse image_gen in EDIT mode on IMAGE 1 (never paint the cyan tint or the white outline) and deliver ONE 1536×1024 image in which: inside the zone, the lower part of every cliff face disappears into a thick, OPAQUE bank of billowing valley mist — the rock grows hazier going down and is swallowed by the mist, so NO bottom edge of rock is ever visible. The mist bank is lit by the sunset: soft lavender and dusky violet in shadow, warm rose-peach where the light catches the billow tops, with painted cloud forms (not a flat colour, not a gradient). Its UNDERSIDE is a soft, rounded, cloud-like edge against the flat green; wisps may drift a little out over the green, and billow tops may rise at most ~40 px above the zone's upper outline. The upper half of every face, every rim and all cliff-top ground stay exactly as painted. Keep the upper cliff faces, rims, grass, dirt, bridge and everything above the mist EXACTLY as painted; every green pixel not covered by mist stays flat pure #00ff00.\nREGISTER: the same hand-drawn painted 2D style as IMAGE 1 (tapered contours, painted planes, bold jewel tones). No characters, creatures, text, UI, border or vignette.\n\nOne image_gen call. ONE retry only if rock above the mist was repainted differently, a strip was altered, a rock bottom edge is still visible, or the green was painted over away from the mist — name the reason. Copy the output from $CODEX_HOME/generated_images/... to out/mist_2_3.png with sha256. No code. No other files. No web.\nRETURN: receipt task_id \"CS-mist2-2_3\"; images = the file with prompt, references and elapsed_s; calls_used = the TRUE number of image_gen calls; status; concerns. Never PASS/FAIL.",
+ "references": [
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/CS-mist-canvases/mist2_2_3_canvas.png",
+   "role": "IMAGE 1 — the painted chunk to EDIT"
+  },
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/CS-mist-canvases/mist2_2_3_zone.png",
+   "role": "IMAGE 2 — MIST ZONE guide (cyan tint + white outline; do not paint these)"
+  }
+ ],
+ "image_cap": 2,
+ "minutes_cap": 15,
+ "tool_call_cap": 20,
+ "outputs": [
+  "out/mist_2_3.png"
+ ],
+ "effort": "high",
+ "add_dirs": [],
+ "experiment": "C3-cliffside-v4"
+}

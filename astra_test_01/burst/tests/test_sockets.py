@@ -179,30 +179,38 @@ class AmbientRectangleTests(unittest.TestCase):
                 self.assertFalse(any(_contains(p,poly) for poly in a['blocked']),p)
 
     def test_rectangle_hole_union_and_concavity_largest_and_contained(self):
+        # Full 8-px cells, largest raster rectangle, then an 8-px inset.
         cases=[]
-        a=annotation();cases.append((a,10000))
-        a=annotation();a['blocked']=[[[40,40],[60,40],[60,60],[40,60]]];cases.append((a,4000))
-        a=annotation();a['walkable']=[[[0,0],[60,0],[60,100],[0,100]],[[40,0],[100,0],[100,100],[40,100]]];cases.append((a,10000))
-        a=annotation();a['walkable']=[[[0,0],[100,0],[100,30],[30,30],[30,100],[0,100]]];cases.append((a,3000))
+        a=annotation();cases.append((a,80*80))
+        a=annotation();a['blocked']=[[[40,40],[60,40],[60,60],[40,60]]];cases.append((a,24*80))
+        a=annotation();a['walkable']=[[[0,0],[60,0],[60,100],[0,100]],[[40,0],[100,0],[100,100],[40,100]]];cases.append((a,80*80))
+        a=annotation();a['walkable']=[[[0,0],[100,0],[100,30],[30,30],[30,100],[0,100]]];cases.append((a,80*8))
         for a,area in cases:
             with self.subTest(area=area):
                 rect=largest_walkable_rectangle(a);self.contained(a,rect)
-                self.assertAlmostEqual((rect[2]-rect[0])*(rect[3]-rect[1]),area,delta=.001)
+                self.assertEqual((rect[2]-rect[0])*(rect[3]-rect[1]),area)
+                self.assertTrue(all(v % 8 == 0 for v in rect))
 
     def test_slanted_fractional_global_optimum(self):
         a=annotation();a['walkable']=[[[0,0],[100,0],[0,100]]]
         rect=largest_walkable_rectangle(a);self.contained(a,rect)
-        self.assertAlmostEqual((rect[2]-rect[0])*(rect[3]-rect[1]),2500,delta=.001)
+        # Triangle: a 6x6-cell maximum becomes 4x4 after inset.
+        self.assertEqual((rect[2]-rect[0])*(rect[3]-rect[1]),32*32)
         a['walkable']=[[[0.25,0.25],[99.75,0.25],[99.75,99.75],[0.25,99.75]]]
         rect=largest_walkable_rectangle(a)
-        self.assertAlmostEqual((rect[2]-rect[0])*(rect[3]-rect[1]),99.5**2,delta=.001)
+        # Fractional edges discard their partial cells: 11x11 -> 9x9.
+        self.contained(a,rect)
+        self.assertEqual(rect,[16,16,88,88])
+        self.assertEqual((rect[2]-rect[0])*(rect[3]-rect[1]),72*72)
 
     def test_fixture_room_rectangle_avoids_blocked_pillar(self):
         # Same fixture geometry, sourced from the authorized synthetic test.
         from test_scene_kit import annotation as fixture_annotation
         a=fixture_annotation()
         rect=largest_walkable_rectangle(a);self.contained(a,rect)
-        self.assertAlmostEqual((rect[2]-rect[0])*(rect[3]-rect[1]),230*260,delta=.001)
+        # Raster room corridor is 28x32 full cells before the one-cell inset.
+        self.assertEqual((rect[2]-rect[0])*(rect[3]-rect[1]),208*240)
+        self.assertTrue(all(v % 8 == 0 for v in rect))
 
     def test_bad_geometry_rejected(self):
         a=annotation();a['walkable']=[]

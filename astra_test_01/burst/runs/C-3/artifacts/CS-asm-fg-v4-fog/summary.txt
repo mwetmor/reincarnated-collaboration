@@ -1,0 +1,12 @@
+CS-asm-fg-v4-fog: report only; 17 chunks, 45 seams.
+Foreground: 5376x4096 RGBA, straight alpha; no image generation.
+Frozen clamp matte; 10px temporary green padding; detached components preserved.
+Alpha restricted to Euclidean 6px mask dilation; outside-dilation spill = 0.
+Seam mean of means: 1.572917; worst: 4.326498, ['chunk_1_3', 'chunk_2_3'].
+Fog RGB: [192.60000610351562, 105.5999984741211, 97.89999389648438]; medians mist [255.0, 135.0, 121.0], valley [47.0, 37.0, 44.0].
+Noise: seed 1; 3 octaves; wavelengths 260/130/65px.
+Max (1-h) for 0<a<1: 0.000000000; requested maximum 0.05.
+Top d=0 RGB byte-identical to no-fog assembly: True.
+Inherited partial matte-alpha pixels with h<0.95: 547760.
+Pre-fog chunk IoU range: 0.981546 to 1.000000.
+One glue parse retry; no code files created.

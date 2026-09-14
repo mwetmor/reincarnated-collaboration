@@ -1,0 +1,40 @@
+{
+  "task_id": "CS-objiso-spawn-2",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "objiso_spawn_2.png",
+      "path": "out/objiso_spawn_2.png",
+      "sha256": "2a14f543ef484a202d950edeb2edc0c5067eda18a82ca5c23673b01d1fed31e7",
+      "prompt": "Use case: background-extraction. EDIT TARGET: Image 1, ORIGINAL 1536x1024 sheet. A previous isolation attempt repainted details and produced mottled green; correct these issues by treating this strictly as a background mask operation. Return ONE 1536x1024 image. Preserve original foreground pixels exactly, without sharpening, repainting, relighting, resizing or moving anything. Keep original boulder and touching stone cluster at top-left, original yellow-flowered shrub beside it, original small boulder with touching stones at top-right, and original broken barrel with spilled and detached wooden planks at bottom-left. Preserve moss growing ON rocks and the objects' own shaded sides. Replace ALL terrain pixels with solid RGB(0,255,0), hex #00ff00: dirt, paths, loose detached pebbles, ground grass, ground moss, surrounding vegetation, ALL cast and contact shadows. No dirt or shadow strip may remain at any base. Remove detached stones that do not touch the prop cluster, including isolated stones above the shrub and away from the barrel. Clean bottom silhouettes only where necessary for extraction. Every background pixel must have the identical RGB(0,255,0) value, including existing green: no grain, noise, texture, gradient, halo, glow or blur. Keep original painting, outlines, colours, lighting, camera and exact sheet coordinates and object dimensions. Nothing added. Do not recompose or pack the layout. Flat opaque green, not transparency. Preserve original hand-drawn painted 2D prop artwork.",
+      "references": [
+        {
+          "role": "EDIT target — original prop tile sheet",
+          "path": "in/01_objsheet_spawn_2.png"
+        }
+      ],
+      "elapsed_s": 23.588
+    }
+  ],
+  "calls_used": 2,
+  "retries": [
+    {
+      "reason": "First output repainted prop details and showed variation in the green background.",
+      "change": "Retried from the original with stricter pixel-preservation and uniform RGB background instructions."
+    }
+  ],
+  "self_report": {
+    "obeyed_invariants": false,
+    "concerns": [
+      "Delivered dimensions are 1536×1024, but prop details were visibly redrawn; exact pixel preservation was not achieved.",
+      "Green still appears subtly mottled; exact uniform #00ff00 is unverified.",
+      "Some vegetation remains at prop bases, and the upper-left cluster's left stone changed position."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/objiso_spawn_2.png",
+      "sha256": "2a14f543ef484a202d950edeb2edc0c5067eda18a82ca5c23673b01d1fed31e7"
+    }
+  ]
+}

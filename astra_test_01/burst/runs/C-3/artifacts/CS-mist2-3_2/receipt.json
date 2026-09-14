@@ -1,0 +1,44 @@
+{
+  "task_id": "CS-mist2-3_2",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "mist_3_2.png",
+      "path": "out/mist_3_2.png",
+      "sha256": "bc676978e624b4ad78014bcac8c257cd4510e50d8b15a68e6290cbea12afd323",
+      "prompt": "Use case: lighting-weather. Strict localized EDIT of Image 1. Output ONE 1536x1024 PNG. Image 1 is the original artwork to preserve. Image 2 is a mask guide only: its cyan and white markings must not appear. Previous attempt failed by painting over the left green void and left overlap strip and extending cloud onto the unmasked right cliff. Correct those errors by editing the ORIGINAL Image 1. HARD LOCK every pixel in columns x=0 through 255 and rows y=0 through 255, including existing clouds and PURE GREEN holes at the left edge. Leave the entire unmasked right cliff untouched. Preserve all artwork outside cyan, including exact upper rocks, cracks, plants, grass, flowers, dirt, contours and lighting. Do not blanket the whole lower canvas in cloud. Add mist ONLY in the cyan portion beyond the locked strips: the lower central rock area, roughly from (256,350) to (428,430), then (440,565),(480,597),(550,615),(580,662),(650,686),(690,680),(750,639),(790,644),(840,677),(880,679),(900,671),(960,683),(1040,665),(1100,676),(1224,705),(1230,747),(1255,800),(1250,900),(1241,968),(1280,1018), then along the image bottom back to x=256. These are mask bounds, not a visible line; do not draw polygon edges. In this area lower cliffs fade downward into thick OPAQUE billowing mist, with no lower rock texture visible at the bottom and no exposed rock bottom edge. Use painted cloud forms in lavender and dusky violet with soft rose-peach tops, matching the existing mist in Image 1. Continue naturally from the UNCHANGED left strip mist. Cloud tops may rise at most 40 pixels above mask; do not spread onto other cliff areas. The left green void must remain as original: vivid flat pure #00ff00 with existing rounded cloud boundaries. Any mist boundary against green is soft and rounded, never rectangular. Preserve the original hand-drawn painted 2D style, hand-tapered contours, clean painted material planes, restrained texture. No new objects, characters, text, UI, borders, vignette. Keep composition and all unedited regions exactly identical.",
+      "references": [
+        {
+          "role": "edit target",
+          "path": "in/01_mist2_3_2_canvas.png"
+        },
+        {
+          "role": "mist zone guide",
+          "path": "in/02_mist2_3_2_zone.png"
+        }
+      ],
+      "elapsed_s": 31.193
+    }
+  ],
+  "calls_used": 2,
+  "retries": [
+    {
+      "reason": "First result painted over the green void and changed the left overlap strip, with mist extending onto the unmasked right cliff.",
+      "change": "Retried from original references with explicit locked strip coordinates and localized mist bounds."
+    }
+  ],
+  "self_report": {
+    "obeyed_invariants": false,
+    "concerns": [
+      "Visible horizontal discontinuity near the top overlap boundary at y=256.",
+      "Mist appears to extend beyond the guide onto the lower right cliff.",
+      "Exact pixel preservation outside the zone remains unverified."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/mist_3_2.png",
+      "sha256": "bc676978e624b4ad78014bcac8c257cd4510e50d8b15a68e6290cbea12afd323"
+    }
+  ]
+}

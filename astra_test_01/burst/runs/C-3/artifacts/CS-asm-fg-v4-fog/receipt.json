@@ -1,0 +1,49 @@
+{
+  "task_id": "CS-asm-fg-v4-fog",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [],
+  "calls_used": 0,
+  "retries": [
+    {
+      "reason": "Inline Python indentation error before execution.",
+      "change": "Corrected indentation and completed the output-writing glue."
+    }
+  ],
+  "self_report": {
+    "obeyed_invariants": true,
+    "concerns": [
+      "547760 pixels retain inherited partial matte alpha where haze is below 0.95; fog introduced none of this rock transparency.",
+      "Fog-edge max(1-h) is 0. Top-surface RGB is byte-identical to the no-fog assembly."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/checks.json",
+      "sha256": "d7a3b62b7ea39a0578ad83c202657ab1d67195732e7ed13efb375b9f3b45bdb9"
+    },
+    {
+      "path": "out/fog_detail_crops.png",
+      "sha256": "70f5b62188df7abf702ad018adab9eefeb1bf747d32afd43c353e7b75db4fbc4"
+    },
+    {
+      "path": "out/foreground.png",
+      "sha256": "f6319409309f582dcbcc6401455ebd671347676f227a0391820d81801fbabbcb"
+    },
+    {
+      "path": "out/foreground_preview_1344x1024.png",
+      "sha256": "b7f8aae917c504cc6615e38b9c92940d5832c5337e3b072d12a114ae44c7874a"
+    },
+    {
+      "path": "out/seam_worst_crops.png",
+      "sha256": "00def2e5be818766cdc133382e011ae8e0f3863f5eefda4e558a39537ec44c8f"
+    },
+    {
+      "path": "out/seams.json",
+      "sha256": "e24fa526b4a8316c478c38fdf6e62712cfb207980822b84274c0e38bd1debbe8"
+    },
+    {
+      "path": "out/summary.txt",
+      "sha256": "57e443bb0e65f037f3e4de51b08f9be0baad0e2e497c1fdc0d79e0c3489d61d7"
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "task_id": "CS-asm-fg-v4-band",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [],
+  "calls_used": 0,
+  "retries": [],
+  "self_report": {
+    "obeyed_invariants": true,
+    "concerns": [
+      "Visible cloud-tile and cliff overlap transitions remain.",
+      "Void extents are canvas-censored in 79 columns; 286 face-bearing columns have no band onset.",
+      "Matting used temporary green padding and preserve_particles=True; both are documented.",
+      "Deep-face alpha deficiency count: 0. Mean RGB change below 6000 mm: 0."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/foreground.png",
+      "sha256": "ea9ece21a2f55244fc19e63fdb2fa8c2c96748a172bb5a0be4cc14fa7b055980"
+    },
+    {
+      "path": "out/foreground_preview_1344x1024.png",
+      "sha256": "f8d92e69fe95e7059bf4c13bf529dd805551f6f2a70b5499120bfebe65ccd56d"
+    },
+    {
+      "path": "out/band_detail_crops.png",
+      "sha256": "273440658e64f22b5b40a7e00e62db802ad31eb53d4138206d25caefa719e48b"
+    },
+    {
+      "path": "out/checks.json",
+      "sha256": "0792fbba2332830405561505e566e32fb164a2a5ca91b9a7940751bea5ee14a7"
+    },
+    {
+      "path": "out/summary.txt",
+      "sha256": "656551457cc7009e65a01cf6e6b258b4a124a6b45f383ff17fac7d02e6e722c2"
+    }
+  ]
+}

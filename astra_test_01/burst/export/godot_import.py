@@ -1,7 +1,7 @@
 """Build a self-contained Godot 4.6 review stub; no art transformations.
 
 Usage: python3 -B -m export.godot_import --cells DIR --out PROJECT
-       [--vfx DIR] [--gear-variant DIR] [--scene DIR]
+       [--vfx DIR] [--gear-variant DIR] [--scene DIR | --parallax DIR [--props DIR]]
 Cells can be nested cut outputs or a frames/<animation>/<direction> tree.
 Frames must be <animation>_<direction>_<zero-based-number>.png.
 """
@@ -332,7 +332,7 @@ environment/defaults/default_clear_color=Color(0.09, 0.12, 0.17, 1)
 '''+ '\n'.join(actions)+'\n'
 
 
-def build_project(cells, out, vfx=None, gear_variant=None, scene=None, vfx_kit=None, sockets=None):
+def build_project(cells, out, vfx=None, gear_variant=None, scene=None, vfx_kit=None, sockets=None, parallax=None, props=None):
     started = time.monotonic()
     base = discover_cells(cells)
     advanced = discover_cells(gear_variant) if gear_variant is not None else None
@@ -360,6 +360,18 @@ def build_project(cells, out, vfx=None, gear_variant=None, scene=None, vfx_kit=N
             frames.sort()
             if [i for i, _ in frames] != list(range(len(frames))):
                 raise ValueError('VFX indices must be contiguous from zero: '+name)
+    if props is not None and parallax is None:
+        raise ValueError("--props requires --parallax")
+    props_data = None
+    if props is not None:
+        from export.props_layer import load_props
+        props_data = load_props(props)
+    parallax_data = None
+    if parallax is not None:
+        if scene is not None:
+            raise ValueError("Choose --scene or --parallax")
+        from export.parallax_scene import load_parallax
+        parallax_data = load_parallax(parallax)
     annotation = None
     if scene is not None:
         from export.scene_kit import load_annotation
@@ -378,7 +390,7 @@ def build_project(cells, out, vfx=None, gear_variant=None, scene=None, vfx_kit=N
     if sockets is not None:
         from export.sockets import load_sockets
         socket_data = load_sockets(sockets, base)
-    out = _output(out, [cells, vfx, gear_variant, scene, vfx_kit, sockets])
+    out = _output(out, [cells, vfx, gear_variant, scene, vfx_kit, sockets, parallax, props])
     for entries, prefix, resource in [(base, 'sprites', 'frames/keeper.tres'),
                                        (advanced, 'sprites_advanced', 'frames/keeper_advanced.tres')]:
         if entries is None:
@@ -391,7 +403,10 @@ def build_project(cells, out, vfx=None, gear_variant=None, scene=None, vfx_kit=N
                 (out/relative).parent.mkdir(parents=True, exist_ok=True)
                 shutil.copyfile(source, out/relative)
                 paths.append(relative.as_posix())
-            animations[name] = (paths, FPS[entry['anim']], entry['anim'] not in ('jump', 'cast'))
+            fps = FPS[entry['anim']]
+            if parallax_data is not None and 'movement' in parallax_data and entry['anim'] in ('walk', 'run'):
+                fps = parallax_data['movement'][entry['anim']+'_anim_fps']
+            animations[name] = (paths, fps, entry['anim'] not in ('jump', 'cast'))
         write_spriteframes(out, resource, animations)
     if effects:
         animations = {}
@@ -462,13 +477,19 @@ Godot editor settings and user-data setup still use the engine's normal OS
 locations, which must be writable for a completely clean headless import.
 ''')
     scene_report = _write_tower(out, scene, annotation) if annotation is not None else None
+    parallax_report = None
+    if parallax_data is not None:
+        from export.parallax_scene import write_cliffside
+        parallax_report = write_cliffside(out, parallax_data, props=props_data)
     kit_report = _write_vfx_kit(out, kit, base, cells, socket_data, annotation) if kit is not None else None
     refs = validate_resources(out)
     if scene_report is not None:
         scene_report['resource_references'] = len(validate_resources(out, include_scenes=True))
+    if parallax_report is not None:
+        parallax_report['resource_references'] = len(validate_resources(out, include_scenes=True))
     return {'cells': sorted(base), 'frames': sum(len(e['frames']) for e in base.values()),
             'texture_references': len(refs), 'gear_cells': len(advanced or {}),
-            'vfx_animations': len(effects), **({'vfx_kit': kit_report} if kit_report is not None else {}), **({'scene': scene_report} if scene_report is not None else {}), 'wall_s': time.monotonic()-started}
+            'vfx_animations': len(effects), **({'parallax': parallax_report} if parallax_report is not None else {}), **({'vfx_kit': kit_report} if kit_report is not None else {}), **({'scene': scene_report} if scene_report is not None else {}), 'wall_s': time.monotonic()-started}
 
 
 def _write_tower(out, scene, annotation):
@@ -599,10 +620,12 @@ def main():
     parser.add_argument('--vfx')
     parser.add_argument('--gear-variant')
     parser.add_argument('--scene')
+    parser.add_argument('--parallax')
+    parser.add_argument('--props')
     parser.add_argument('--vfx-kit')
     parser.add_argument('--sockets')
     args = parser.parse_args()
-    print(json.dumps(build_project(args.cells, args.out, args.vfx, args.gear_variant, args.scene, args.vfx_kit, args.sockets), indent=2))
+    print(json.dumps(build_project(args.cells, args.out, args.vfx, args.gear_variant, args.scene, args.vfx_kit, args.sockets, args.parallax, args.props), indent=2))
 
 
 

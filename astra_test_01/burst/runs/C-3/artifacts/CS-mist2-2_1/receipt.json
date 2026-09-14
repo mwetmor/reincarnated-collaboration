@@ -1,0 +1,44 @@
+{
+  "task_id": "CS-mist2-2_1",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "mist_2_1.png",
+      "path": "out/mist_2_1.png",
+      "sha256": "61f87de78b8f2911cbaf22bd22dcfe49f0366931c3760e54a89a05c06686aaa2",
+      "prompt": "Use case: lighting-weather. Precise local EDIT of Image 1. Image 1 is the original artwork to preserve. Image 2 is ONLY a cyan-and-white mask guide, never output its annotations. Deliver one 1536×1024 image. Preserve original pixels and original painting outside the mask as strictly as possible: no restyling, no sharpening, no redraw of textures, no color change. In particular preserve every bridge plank, stone, grass blade, flower, dirt mark, upper cliff detail, all the left cliff, and the tall unmarked strip of rock at the right edge.\nAdd thick opaque painted valley mist ONLY over the cyan guide region on the lower inner RIGHT cliff. The guide starts near (950,400), upper boundary passes (1075,375),(1200,440),(1250,530),(1300,560), then right boundary follows roughly (1290,660),(1335,755),(1355,835),(1385,840),(1380,935),(1430,1018). Left boundary follows x950 to x970 down to the bottom. Mist must not blanket the unmarked rock to the right of that boundary. Only small wisps may extend a little onto green immediately adjacent to the left boundary. No mist elsewhere. Upper billows may rise at most 40 pixels above upper guide line.\nWithin the zone, rock grows progressively hazier downward and disappears completely into solid opaque mist. Cover all bottom rock edges in the zone; opaque billows have a soft rounded cloud underside against flat pure #00ff00 green, with a little green visible beneath rounded underside near bottom-left of zone. Mist forms should be hand-painted billows with clean planes, soft lavender and dusky violet shadows and restrained warm rose-peach light on tops, matching the original hand-drawn painted 2D environment. No smooth gradient fill. Maintain original tapered contours, restrained texture and existing upper-left light outside mist. Every green pixel away from the local mist remains flat pure #00ff00. Never paint cyan or white mask line. No characters, creatures, text, UI, border or vignette. The prior attempt repainted untouched details and spread mist over unmarked right-hand rock; this attempt must preserve those areas exactly and confine the mist to the guide.",
+      "references": [
+        {
+          "role": "IMAGE 1 — painted chunk to edit",
+          "path": "in/01_mist2_2_1_canvas.png"
+        },
+        {
+          "role": "IMAGE 2 — mist zone guide only",
+          "path": "in/02_mist2_2_1_zone.png"
+        }
+      ],
+      "elapsed_s": 52.183
+    }
+  ],
+  "calls_used": 2,
+  "retries": [
+    {
+      "reason": "First output altered painted details outside the zone and spread mist over unmarked right-hand rock.",
+      "change": "Retried from original references with explicit boundary coordinates and stronger preservation instructions."
+    }
+  ],
+  "self_report": {
+    "obeyed_invariants": false,
+    "concerns": [
+      "Retry still visibly changes some painted details outside the marked zone.",
+      "Mist extends above the allowed upper boundary and across some unmarked lower-right rock.",
+      "Exact preservation of green pixels was not verified."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/mist_2_1.png",
+      "sha256": "61f87de78b8f2911cbaf22bd22dcfe49f0366931c3760e54a89a05c06686aaa2"
+    }
+  ]
+}

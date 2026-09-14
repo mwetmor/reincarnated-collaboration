@@ -1,0 +1,43 @@
+{
+  "task_id": "CS-mist2-2_3-ns",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "mist_2_3.png",
+      "path": "out/mist_2_3.png",
+      "sha256": "2cb23578bffa42cccce50ed4fdca22e0e1400be0e68d997a69a9e57116154409",
+      "prompt": "Use case: lighting-weather. EDIT Image 1 only; Image 2 is a spatial mask guide, never an artwork reference. Deliver one 1536x1024 PNG, identical framing and registration to Image 1. Add opaque painted valley mist ONLY in the cyan/white outlined zones in Image 2. Never reproduce cyan tint or white outlines. The zones include the recessed cliff face along the upper-middle left (roughly x560-800, y0-725), the tiny lower-left face tip near x550-590, y900-1024, and the narrow far-right face strip. Respect the actual guide shapes rather than filling these bounding boxes. Within these zones the lower rock grows hazier down its face and is fully swallowed by thick OPAQUE billowing mist so no cut-off bottom rock edges remain visible. Paint cloud forms with soft lavender and dusky violet shadows and sunset rose-peach highlights on billow tops; restrained texture, clean painted planes, hand-drawn 2D animation game style matching the source. The underside has soft rounded cloud lobes against the flat green, not angular polygon edges. Wisps may drift slightly over the green within the short guide band beneath the rocks. Billow tops may rise at most 40 px beyond the upper zone outline. Preserve EXACTLY every unmasked upper cliff face, rocky rim, grass blade, flower, stone, dirt patch, terrain detail, and source lighting; do not repaint or restyle them. Every green pixel away from mist must stay flat pure #00ff00; keep the large central and right green void empty. Opaque mist, no transparency holes. No characters, creatures, text, UI, border, vignette, extra terrain or objects. Source is hand-drawn painted 2D, tapered contour lines and painted planes with restrained surface texture and readable silhouettes. This is a localized mist edit, no composition changes.\nSTRICT SPATIAL CORRECTION: Treat Image 2 cyan area as the exact allowed edit mask. Start fresh from Image 1. Preserve the long unmarked foreground cliff strip between y725 and y895 exactly, including its crisp rock-to-green silhouette; no haze or mist there. The bottom-left tiny mist patch begins only around y930 and is only about 40 px wide. Along the far right the mask is only a narrow strip about 20-40 px wide: do not create broad clouds reaching left into the void. Along the upper-left recessed face, the rightmost mist limit is approximately x800; no spreading to x850 or farther. At y600-710 mist occupies approximately x600-665 only. Match every irregular guide boundary with rounded cloud lobes contained within it, allowing only tiny wisps across its edge. Keep all original rock above and left of the mask pixel-identical. Opaque lavender/peach mist must cover the original cliff bottom edges within the guide. Do not make a continuous fog strip across the unmarked cliff sections.",
+      "references": [
+        {
+          "role": "edit target",
+          "path": "in/01_mist2_2_3_canvas-ns.png"
+        },
+        {
+          "role": "mist zone guide",
+          "path": "in/02_mist2_2_3_zone-ns.png"
+        }
+      ],
+      "elapsed_s": 67.979
+    }
+  ],
+  "calls_used": 2,
+  "retries": [
+    {
+      "reason": "First edit altered the unmarked lower cliff strip and extended mist too far into green.",
+      "change": "Restarted from original references with explicit spatial limits and preservation instructions for the unmarked strip."
+    }
+  ],
+  "self_report": {
+    "obeyed_invariants": false,
+    "concerns": [
+      "Mist still exceeds portions of the guide, especially at the bottom-left tip.",
+      "Exact pixel preservation outside the zone is not verified."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/mist_2_3.png",
+      "sha256": "2cb23578bffa42cccce50ed4fdca22e0e1400be0e68d997a69a9e57116154409"
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+ "text": "GENERATE BURST CS-objiso-spawn-1 — ISOLATE painted props from their own scene crops (Matt fallback, R-C3-61/64). task_id \"CS-objiso-spawn-1\".\n\nIMAGE 1 (1536×1024) is a sheet of tiles on flat PURE GREEN #00ff00. Each tile is a 2× enlargement of a crop from a hand-painted 2D ARPG level, showing props sitting on sunlit dirt and grass: a charred fallen log with two fern clumps and a leafy shrub (tile top-left); a single wooden crate (top-right); a large mossy boulder with a smaller rock beside it (bottom-left); a stacked pair of wooden crates (bottom-right).\nUse image_gen in EDIT mode on IMAGE 1 and deliver ONE 1536×1024 image in which EVERYTHING that is ground — dirt, path texture, pebbles lying on the ground, grass, moss on the ground, and every cast/contact SHADOW on the ground — is replaced by flat PURE GREEN #00ff00, and every PROP stays EXACTLY as painted: same pixels, same position in the sheet, same size, same outline, same colours and lighting, including tufts of grass or moss that grow ON the prop and the prop's own shaded sides. Small stones that belong to a prop cluster (touching it) are part of the prop. Where a prop's base met the ground, finish its bottom edge cleanly (no ground strip, no shadow). Nothing new is added; nothing moves.\nThe green must be one flat colour everywhere with a crisp edge against each prop (no halo, no glow, no blur).\n\nOne image_gen call. ONE retry only if a prop moved, was resized or redrawn differently, ground/shadow remains attached to a prop, or the green is not flat — name the reason. Copy the output from $CODEX_HOME/generated_images/... to out/objiso_spawn_1.png with sha256. No code. No other files. No web.\nRETURN: receipt task_id \"CS-objiso-spawn-1\"; images = the file with prompt, references and elapsed_s; calls_used = the TRUE number of image_gen calls; status; concerns. Never PASS/FAIL.",
+ "references": [
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/CS-clutter-canvases/objsheet_spawn_1.png",
+   "role": "IMAGE 1 — sheet of prop tiles to isolate (EDIT)"
+  }
+ ],
+ "image_cap": 2,
+ "minutes_cap": 15,
+ "tool_call_cap": 20,
+ "outputs": [
+  "out/objiso_spawn_1.png"
+ ],
+ "effort": "high",
+ "add_dirs": [],
+ "experiment": "C3-cliffside-clutter"
+}

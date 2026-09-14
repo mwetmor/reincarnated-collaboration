@@ -1,0 +1,43 @@
+{
+  "task_id": "CS-mist2-2_2",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "mist_2_2.png",
+      "path": "out/mist_2_2.png",
+      "sha256": "25cf09cdf70a6145b1574af75e10b6a6ada27ec57080da0c9a6e4d54aade8b8c",
+      "prompt": "Use case: lighting-weather. EDIT Image 1, the finished painted cliffside game-level chunk. Image 2 is ONLY a spatial guide: cyan tint and white outline mark the allowed mist zone. Never reproduce the guide tint or outline. Deliver ONE image exactly 1536x1024, same framing and all original details retained. Add thick OPAQUE billowing valley mist only over the lower cliff faces and short adjoining green band inside the guide zone. On the left cliff the main zone begins around x610-825 y590 and descends to the bottom; on the right it continues the existing top-right mist down the lower face along the right edge. Preserve the existing top 256 rows and left 256 columns EXACTLY, including existing mist in the top overlap; continue that mist seamlessly below. Outside the guide zone NOTHING changes, except billow tops may rise at most 40 px above its upper outline. The rock grows hazier downward and disappears completely into opaque mist: no lower rock edge visible within the mist zone. Mist has sculpted painted billowing cloud forms, soft lavender and dusky violet shadows, warm rose-peach highlights catching sunset from screen upper-left. Its underside and void-facing silhouette have soft rounded cloud-like lobes against flat pure #00ff00. A few wisps may extend slightly over adjoining green. Do not fill the central green canyon: all green away from the narrow mist bands stays exactly flat pure #00ff00. The upper half of each cliff face, all rocky rims, cliff-top grass, flowers, dirt, stones and all objects remain EXACTLY as painted in Image 1. Preserve their contours, colors, texture, lighting and positions without redrawing them. Same hand-drawn painted 2D animation-game style, tapered dark hand contours, clean painted planes, restrained texture, readable shapes, rich environment. Maintain original elevated three-quarter camera and lighting. No characters, creatures, text, UI, border, vignette, cyan tint, white guide outlines, extra terrain or distant background. This is a localized mist addition to Image 1, with exact preservation of protected regions.\nSTRICT SPATIAL CORRECTION: Work from the original Image 1, not any previous result. The allowed left mist area is extremely narrow and low. There must be NO new mist whatsoever on the left cliff or adjacent green above y=550, except the tiny guide sliver at x770-783 y415-550. Do not put clouds along the upper left cliff edge at y200-550. At y600 the left mist may occupy ONLY approximately x630-803; at y700 ONLY x610-826; at y850 ONLY x620-825; at y1000 ONLY x578-797. Keep left rock outside those bounds intact. Right mist must remain within the cyan guide, from the existing top cloud down to the narrow far-right edge. Keep the first 256 rows and first 256 columns absolutely unchanged. Use the white outline of Image 2 as a precise spatial limit, with rounded cloud edges inside it. Prioritize original pixel preservation and exact local placement over cloud volume. Lower rock in the allowed zone must be hidden by opaque lavender/peach clouds.",
+      "references": [
+        {
+          "role": "edit target",
+          "path": "in/01_mist2_2_2_canvas.png"
+        },
+        {
+          "role": "mist zone guide",
+          "path": "in/02_mist2_2_2_zone.png"
+        }
+      ],
+      "elapsed_s": 34.742
+    }
+  ],
+  "calls_used": 2,
+  "retries": [
+    {
+      "reason": "First output covered left cliff and adjacent green substantially above the permitted mist zone.",
+      "change": "Retried from original references with explicit coordinate limits and stronger preservation instructions."
+    }
+  ],
+  "self_report": {
+    "obeyed_invariants": false,
+    "concerns": [
+      "Retry still visibly extends mist beyond portions of the guide, particularly along the lower right green boundary and left cliff.",
+      "Exact pixel preservation of protected regions and overlap strips was not verified."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/mist_2_2.png",
+      "sha256": "25cf09cdf70a6145b1574af75e10b6a6ada27ec57080da0c9a6e4d54aade8b8c"
+    }
+  ]
+}

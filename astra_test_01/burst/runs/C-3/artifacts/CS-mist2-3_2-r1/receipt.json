@@ -1,0 +1,44 @@
+{
+  "task_id": "CS-mist2-3_2-r1",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "mist_3_2.png",
+      "path": "out/mist_3_2.png",
+      "sha256": "e3da22150866042222ce9cdab0e96d3ef66d56213ea3c8e65e1c64ada0600323",
+      "prompt": "Use case: lighting-weather. EDIT Image 1, the original painted game-level cliff chunk. Image 2 is ONLY a spatial mist-zone guide: cyan and white annotations must never appear in the output. Deliver one 1536x1024 PNG, identical framing and geometry. Add thick OPAQUE billowing valley mist ONLY inside the guide zone, with billow tops permitted at most 40 pixels above its upper boundary. The lower cliff surfaces within this zone become progressively hazier downwards and disappear completely into opaque clouds, with no visible rock bottom edge. Mist has painted rounded cloud forms, soft lavender and dusky violet shadows and warm rose-peach lit billow tops matching the existing sunset mist on the left. Soft rounded cloudy underside against pure #00ff00 wherever there is exposed void. Uncovered green remains exact flat #00ff00. No flat color or gradient substitute for the painted cloud forms. CRITICAL LOCKED OVERLAPS: preserve all existing pixels of the top 256 rows and left 256 columns of Image 1, including existing rocks and mist. Continue their existing rock columns and mist billows naturally ACROSS row 256 and column 256, with absolutely no straight join, changed pattern, sudden cutoff or rectangular patch at either boundary. New mist in the interior must grow seamlessly from the pre-existing left strip mist. Treat the strips as context that flows continuously into the interior, not as separate panels. Outside the indicated zone NOTHING changes: preserve exactly all upper cliff faces, rock cracks, vines, rims, grass, dirt, plateau, lighting and contours. Preserve rightmost cliff outside the zone exactly. Do not spread mist over the upper faces. Match Image 1's hand-drawn painted 2D game art, confident tapered variable-weight dark contour lines and clean painted material planes, restrained texture, no conspicuous grain. Keep the same elevated three-quarter camera, fixed upper-left light and cool shaded rocks. No characters, creatures, text, UI, border or vignette. The goal is localized opaque lower-cliff mist while preserving original terrain and the seamless prepainted overlap strips.\nRETRY CORRECTION — preserve the original left strip EXACTLY. In particular, the bright green openings along the left edge from y=480 through y=1024 must remain precisely as in Image 1. Do not fill them with clouds. Every pixel x<256 and every pixel y<256 is LOCKED, including green and existing cloud shapes. Perform the new mist edit only at x>=256 AND y>=256 within the cyan region. The new clouds must meet existing left-strip clouds smoothly without replacing the strip. Do not make a blanket of clouds over the whole lower-left image. Leave everything outside the cyan guide region untouched, particularly exposed green and the rightmost cliff. In the allowed interior region, obscure lower rocks with opaque lavender/peach billows while matching cloud contours at x=256. Original source Image 1 remains the edit target; Image 2 remains guide only.",
+      "references": [
+        {
+          "role": "edit target",
+          "path": "in/01_mist2_3_2_canvas-r1.png"
+        },
+        {
+          "role": "mist-zone guide only",
+          "path": "in/02_mist2_3_2_zone-r1.png"
+        }
+      ],
+      "elapsed_s": 59.923
+    }
+  ],
+  "calls_used": 2,
+  "retries": [
+    {
+      "reason": "First output changed the locked left strip and covered green openings outside the mist zone.",
+      "change": "Retried from the original references with explicit locked-strip coordinates and preservation of the left-edge green openings."
+    }
+  ],
+  "self_report": {
+    "obeyed_invariants": false,
+    "concerns": [
+      "Visible horizontal rock-pattern join remains near row 256.",
+      "Mist extends beyond portions of the guide boundary, including onto the rightmost cliff.",
+      "Exact pixel preservation of locked strips and upper terrain is not established."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/mist_3_2.png",
+      "sha256": "e3da22150866042222ce9cdab0e96d3ef66d56213ea3c8e65e1c64ada0600323"
+    }
+  ]
+}

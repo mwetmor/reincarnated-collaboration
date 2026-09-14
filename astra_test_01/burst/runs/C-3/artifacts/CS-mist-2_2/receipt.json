@@ -1,0 +1,39 @@
+{
+  "task_id": "CS-mist-2_2",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "mist_2_2.png",
+      "path": "out/mist_2_2.png",
+      "sha256": "b3cbb292a1616e6c612439852827ab0b81fa94fb81b182bc1f18295d3b15403f",
+      "prompt": "Use case: lighting-weather. EDIT IMAGE 1, the supplied finished painted game-level chunk. Deliver exactly one 1536x1024 PNG with identical framing and geometry. Add a mist pass ONLY to the lower cliff faces. The lower part of EVERY cliff face must disappear into a thick OPAQUE bank of billowing valley mist; the rock grows hazier going down and is completely swallowed, with NO visible bottom edge of rock against green. Include both the large central-left cliff wall and the narrow right-edge cliff wall. Continue the already-painted mist at the top seamlessly down along the cliff undersides. Mist is sunset-lit: soft lavender and dusky violet shadows, rose-peach highlights on billow tops, painted cloud forms with volume, never a flat fill or simple gradient. The underside of each mist bank has a soft rounded cloud-like silhouette against the green void; a few wisps may extend locally into green. Keep the broad central empty green canyon open. Every green pixel away from the local mist remains flat pure #00ff00, fully opaque. CRITICAL preservation: top 256 rows and left 256 columns are locked overlap strips and must remain exactly as supplied. Keep all upper cliff faces, rims, grass, dirt, flowers and everything above mist exactly as painted, without redraw, relocation, restyling or color shift. Keep original camera. Style: same hand-drawn painted 2D animation-game art as input, tapered variable-weight dark contours, clean painted planes, restrained surface texture, bold jewel tones, rich environment and local light spill. No characters, creatures, text, UI, border or vignette. No changes outside the local lower-cliff mist addition. RETRY correction: The prior attempt added clouds inside the locked top overlap. Work from the ORIGINAL supplied image again. Absolutely no edits in rows y=0 through y=255 inclusive or columns x=0 through x=255 inclusive. Copy those areas unchanged. Begin all new mist strictly below row 255, continuing from the existing cloud contour at that boundary. Preserve the precise original hard green/cloud silhouette within the locked top strip, including the open green area near x=850 to 1050. Do not add any wisps there. Only lower cliff faces below this boundary receive new mist. All terrain above the mist remains unchanged.",
+      "references": [
+        {
+          "role": "IMAGE 1 — painted chunk to EDIT",
+          "path": "in/01_mist_2_2_canvas.png"
+        }
+      ],
+      "elapsed_s": 28.719
+    }
+  ],
+  "calls_used": 2,
+  "retries": [
+    {
+      "reason": "First output altered the top overlap strip with additional mist.",
+      "change": "Retried from the original with explicit locked pixel ranges and preservation of the existing green/cloud silhouette."
+    }
+  ],
+  "self_report": {
+    "obeyed_invariants": false,
+    "concerns": [
+      "The retry shows a visible horizontal mist discontinuity at the top overlap boundary near row 256.",
+      "Exact pixel preservation and pure-green values were not numerically verified."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/mist_2_2.png",
+      "sha256": "b3cbb292a1616e6c612439852827ab0b81fa94fb81b182bc1f18295d3b15403f"
+    }
+  ]
+}

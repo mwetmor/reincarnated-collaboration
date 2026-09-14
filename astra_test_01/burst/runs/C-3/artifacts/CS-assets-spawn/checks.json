@@ -1,0 +1,362 @@
+{
+  "task_id": "CS-assets-spawn",
+  "report_only": true,
+  "registration": [
+    {
+      "source_obj": "obj_05",
+      "sheet": "1",
+      "crop_box": [
+        896,
+        479,
+        1427,
+        728
+      ],
+      "shift_px": [
+        0,
+        0
+      ],
+      "residual_rgb_mae": 8.731329917907715,
+      "pixels_alpha_ge_200": 25553,
+      "flagged": false,
+      "search_boundary": false,
+      "expected_count": 4,
+      "actual_count": 3,
+      "dropped_components": [],
+      "matte": {
+        "method": "green excess matte + inverse straight-alpha compositing + nearest fully-opaque RGB clamp",
+        "removed_background_or_detached_alpha_dust_pixels": 0,
+        "native_input_alpha": false,
+        "alpha_floor": null,
+        "alpha_floor_removed_pixels": 0
+      },
+      "temporary_green_pad_px": 0,
+      "components": [
+        {
+          "name": "shrub_a",
+          "bbox_tile_px": [
+            350,
+            28,
+            486,
+            205
+          ],
+          "area_alpha_ge_32": 12355
+        },
+        {
+          "name": "charred_log",
+          "bbox_tile_px": [
+            73,
+            41,
+            305,
+            137
+          ],
+          "area_alpha_ge_32": 9520
+        },
+        {
+          "name": "fern_a",
+          "bbox_tile_px": [
+            30,
+            113,
+            155,
+            206
+          ],
+          "area_alpha_ge_32": 5581
+        }
+      ]
+    },
+    {
+      "source_obj": "obj_03",
+      "sheet": "1",
+      "crop_box": [
+        999,
+        239,
+        1210,
+        386
+      ],
+      "shift_px": [
+        0,
+        0
+      ],
+      "residual_rgb_mae": 7.76872444152832,
+      "pixels_alpha_ge_200": 6075,
+      "flagged": false,
+      "search_boundary": false,
+      "expected_count": 1,
+      "actual_count": 1,
+      "dropped_components": [
+        {
+          "component": 2,
+          "area_alpha_ge_32": 1166,
+          "reason": "tile_border",
+          "bbox_tile_px": [
+            0,
+            123,
+            64,
+            147
+          ]
+        }
+      ],
+      "matte": {
+        "method": "green excess matte + inverse straight-alpha compositing + nearest fully-opaque RGB clamp",
+        "removed_background_or_detached_alpha_dust_pixels": 0,
+        "native_input_alpha": false,
+        "alpha_floor": null,
+        "alpha_floor_removed_pixels": 0
+      },
+      "temporary_green_pad_px": 10,
+      "components": [
+        {
+          "name": "crate_single",
+          "bbox_tile_px": [
+            51,
+            20,
+            145,
+            108
+          ],
+          "area_alpha_ge_32": 5206
+        }
+      ]
+    },
+    {
+      "source_obj": "obj_01",
+      "sheet": "1",
+      "crop_box": [
+        154,
+        56,
+        474,
+        239
+      ],
+      "shift_px": [
+        0,
+        0
+      ],
+      "residual_rgb_mae": 7.7230072021484375,
+      "pixels_alpha_ge_200": 10614,
+      "flagged": false,
+      "search_boundary": false,
+      "expected_count": 2,
+      "actual_count": 2,
+      "dropped_components": [],
+      "matte": {
+        "method": "green excess matte + inverse straight-alpha compositing + nearest fully-opaque RGB clamp",
+        "removed_background_or_detached_alpha_dust_pixels": 0,
+        "native_input_alpha": false,
+        "alpha_floor": null,
+        "alpha_floor_removed_pixels": 0
+      },
+      "temporary_green_pad_px": 0,
+      "components": [
+        {
+          "name": "boulder_mossy_large",
+          "bbox_tile_px": [
+            51,
+            28,
+            192,
+            131
+          ],
+          "area_alpha_ge_32": 8352
+        },
+        {
+          "name": "rock_small_a",
+          "bbox_tile_px": [
+            181,
+            86,
+            270,
+            150
+          ],
+          "area_alpha_ge_32": 2897
+        }
+      ]
+    },
+    {
+      "source_obj": "obj_02",
+      "sheet": "1",
+      "crop_box": [
+        976,
+        85,
+        1222,
+        274
+      ],
+      "shift_px": [
+        0,
+        0
+      ],
+      "residual_rgb_mae": 7.23213005065918,
+      "pixels_alpha_ge_200": 8781,
+      "flagged": false,
+      "search_boundary": false,
+      "expected_count": 1,
+      "actual_count": 1,
+      "dropped_components": [],
+      "matte": {
+        "method": "green excess matte + inverse straight-alpha compositing + nearest fully-opaque RGB clamp",
+        "removed_background_or_detached_alpha_dust_pixels": 0,
+        "native_input_alpha": false,
+        "alpha_floor": null,
+        "alpha_floor_removed_pixels": 0
+      },
+      "temporary_green_pad_px": 0,
+      "components": [
+        {
+          "name": "crate_stack2",
+          "bbox_tile_px": [
+            55,
+            22,
+            157,
+            154
+          ],
+          "area_alpha_ge_32": 9108
+        }
+      ]
+    },
+    {
+      "source_obj": "obj_06",
+      "sheet": "2",
+      "crop_box": [
+        355,
+        616,
+        693,
+        778
+      ],
+      "shift_px": [
+        0,
+        0
+      ],
+      "residual_rgb_mae": 12.10684871673584,
+      "pixels_alpha_ge_200": 12042,
+      "flagged": false,
+      "search_boundary": false,
+      "expected_count": 2,
+      "actual_count": 2,
+      "dropped_components": [],
+      "matte": {
+        "method": "green excess matte + inverse straight-alpha compositing + nearest fully-opaque RGB clamp",
+        "removed_background_or_detached_alpha_dust_pixels": 0,
+        "native_input_alpha": false,
+        "alpha_floor": null,
+        "alpha_floor_removed_pixels": 0
+      },
+      "temporary_green_pad_px": 0,
+      "components": [
+        {
+          "name": "boulder_round",
+          "bbox_tile_px": [
+            25,
+            20,
+            178,
+            104
+          ],
+          "area_alpha_ge_32": 7143
+        },
+        {
+          "name": "shrub_flower",
+          "bbox_tile_px": [
+            167,
+            43,
+            277,
+            129
+          ],
+          "area_alpha_ge_32": 5789
+        }
+      ]
+    },
+    {
+      "source_obj": "obj_07",
+      "sheet": "2",
+      "crop_box": [
+        705,
+        663,
+        886,
+        776
+      ],
+      "shift_px": [
+        0,
+        0
+      ],
+      "residual_rgb_mae": 9.146512985229492,
+      "pixels_alpha_ge_200": 3829,
+      "flagged": false,
+      "search_boundary": false,
+      "expected_count": 1,
+      "actual_count": 1,
+      "dropped_components": [],
+      "matte": {
+        "method": "green excess matte + inverse straight-alpha compositing + nearest fully-opaque RGB clamp",
+        "removed_background_or_detached_alpha_dust_pixels": 0,
+        "native_input_alpha": false,
+        "alpha_floor": null,
+        "alpha_floor_removed_pixels": 0
+      },
+      "temporary_green_pad_px": 0,
+      "components": [
+        {
+          "name": "boulder_halfsunk",
+          "bbox_tile_px": [
+            32,
+            21,
+            150,
+            86
+          ],
+          "area_alpha_ge_32": 4194
+        }
+      ]
+    },
+    {
+      "source_obj": "obj_04",
+      "sheet": "2",
+      "crop_box": [
+        895,
+        337,
+        1118,
+        498
+      ],
+      "shift_px": [
+        0,
+        0
+      ],
+      "residual_rgb_mae": 8.222027778625488,
+      "pixels_alpha_ge_200": 6867,
+      "flagged": false,
+      "search_boundary": false,
+      "expected_count": 1,
+      "actual_count": 1,
+      "dropped_components": [],
+      "matte": {
+        "method": "green excess matte + inverse straight-alpha compositing + nearest fully-opaque RGB clamp",
+        "removed_background_or_detached_alpha_dust_pixels": 0,
+        "native_input_alpha": false,
+        "alpha_floor": null,
+        "alpha_floor_removed_pixels": 0
+      },
+      "temporary_green_pad_px": 0,
+      "components": [
+        {
+          "name": "barrel_broken",
+          "bbox_tile_px": [
+            48,
+            23,
+            182,
+            133
+          ],
+          "area_alpha_ge_32": 7251
+        }
+      ]
+    }
+  ],
+  "metrics": {
+    "rgb_mae_inside_tile_regions": 14.241615295410156,
+    "rgb_mae_outside_tile_regions": 11.107515335083008,
+    "rgb_mae_inside_diff_report_region_bboxes": 16.38949203491211,
+    "rgb_mae_outside_diff_report_region_bboxes": 11.010063171386719,
+    "rgb_mae_inside_asset_alpha": 13.48691177368164,
+    "rgb_mae_whole_crop": 11.828776359558105,
+    "tile_region_pixels": 361968,
+    "outside_region_pixels": 1210896
+  },
+  "concerns": [
+    "obj_05: retained 3 components; expected 4.",
+    "shrub_a asset contains shrub_a plus fern_b joined by the prescribed dilation; fern_b is not independently reusable. No manual split applied.",
+    "obj_03 has neighboring-barrel spill at the tile border: temporary 10-px green guard used solely for frozen matte border validation, then removed before downscaling; border component dropped.",
+    "Opaque anchor and footprint threshold interpreted as alpha >= 200; grouping uses alpha >= 32 and 3 iterations of 8-neighbor dilation.",
+    "Shadow blur interpreted as Gaussian sigma 15 px and softening sigma 3 px; pure-black tint, multiply k=1. Asset exclusion is applied before the prescribed final softening."
+  ]
+}

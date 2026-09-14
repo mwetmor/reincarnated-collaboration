@@ -1,0 +1,41 @@
+{
+  "task_id": "CS-clutter-spawn",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "clutter_spawn",
+      "path": "out/clutter_spawn.png",
+      "sha256": "5299a2809fefbd5720781ad5874bd0f1e7f7472bf6ba277cee8996fe2b353981",
+      "prompt": "Use case: precise-object-edit. EDIT Image 1, the original bare 1536x1024 painting. Return exactly one 1536x1024 image. Add sparse outdoor exploration clutter ONLY in the exact placement boxes below, preserving the original painting pixel-for-pixel everywhere outside the added objects and their small local contact shadows. Do not redraw, shift, relight, recolour or rescale any terrain, grass, path, rim or green void. Match the original fixed high elevated three-quarter ARPG perspective and warm upper-left sunset key with cool violet lower-right shadows. Hand-drawn painted 2D, tapered dark hand-drawn contours, clean painted planes, restrained texture, small readable silhouettes. Keep the broad dirt clearing and path open. STRICT OBJECT PLACEMENT: a small group of two separated weathered boulders at x=160..310 y=120..215; a stacked pair of small wooden supply crates wholly inside x=1210..1310 y=190..330; a single separate small crate inside x=1280..1360 y=410..490; a broken barrel inside x=1160..1260 y=550..630; a fallen charred log inside x=1060..1250 y=730..795; one half-sunk boulder inside x=430..505 y=815..870 and another inside x=760..820 y=840..885; low shrubs inside x=1280..1350 y=680..730 and x=550..620 y=835..885; small fern clumps inside x=950..1000 y=790..840 and x=1290..1340 y=805..860; a few small scattered stones only beside these edge placements, without touching other objects. For the requested rim vine, place a compact trailing vine tangle inside x=1320..1390 y=520..610 at the inner rim-side grass; preserve the original rim and green rather than relocating them. The actual visible outer cliff edge is within the excluded border zone, so keep the entire vine within the required safe interior. ALL added objects and shadows must be inside x=120..1416 y=120..904. Absolutely no additions within 120 pixels of any border. Do not add any plants, stones, vines or other details outside these designated locations. No object overlaps or touches any other added object except the two stacked crates: maintain visible gaps. Keep props modest in size and consistent with the terrain. Every object grounded with soft contact shadow in the same light. No characters, creatures, text, UI, border, vignette or extras. Green stays flat pure #00ff00 and unchanged. This is a local additive edit of the reference, not a new version of the painting.",
+      "references": [
+        {
+          "role": "Image 1 — original bare painted crop; edit target",
+          "path": "in/01_clutter_spawn_canvas.png"
+        }
+      ],
+      "elapsed_s": 45.727
+    }
+  ],
+  "calls_used": 2,
+  "retries": [
+    {
+      "reason": "First candidate placed multiple additions within 120 px of image borders and overlapped added objects.",
+      "change": "Restarted from the original target with explicit separated placement boxes and an interior vine placement."
+    }
+  ],
+  "self_report": {
+    "obeyed_invariants": false,
+    "concerns": [
+      "Final image is 1536×1024, but some additions still violate the 120 px margin, including the upper-left boulder.",
+      "The vine sits inland rather than hanging over the cliff; the visible outer rim conflicts with the required border margin.",
+      "Some clutter extends onto dirt beyond the grass edges, although the broad central clearing remains open.",
+      "Exact pixel preservation outside additions was not verified."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/clutter_spawn.png",
+      "sha256": "5299a2809fefbd5720781ad5874bd0f1e7f7472bf6ba277cee8996fe2b353981"
+    }
+  ]
+}

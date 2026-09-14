@@ -1,0 +1,131 @@
+{
+  "assets": [
+    {
+      "name": "tree",
+      "file": "tree.png",
+      "anchor": [
+        49.5,
+        174
+      ],
+      "footprint": {
+        "w": 70,
+        "h": 24
+      },
+      "collide": true,
+      "fade_when_behind": true
+    },
+    {
+      "name": "stone",
+      "file": "stone.png",
+      "anchor": [
+        30,
+        49
+      ],
+      "footprint": {
+        "w": 45,
+        "h": 15
+      },
+      "collide": false,
+      "fade_when_behind": false
+    }
+  ],
+  "instances": [
+    {
+      "asset": "tree",
+      "position": [
+        400,
+        360
+      ]
+    },
+    {
+      "asset": "tree",
+      "position": [
+        750.5,
+        610.25
+      ]
+    },
+    {
+      "asset": "stone",
+      "position": [
+        550,
+        450
+      ]
+    }
+  ],
+  "shadows": [
+    {
+      "file": "shadow.png",
+      "position": [
+        350,
+        340
+      ],
+      "opacity": 0.6
+    },
+    {
+      "file": "shadow.png",
+      "position": [
+        700,
+        590
+      ],
+      "opacity": 0.35
+    }
+  ],
+  "overhead": [
+    {
+      "file": "overhead.png",
+      "position": [
+        300,
+        120
+      ]
+    }
+  ],
+  "near": [
+    {
+      "file": "near.png",
+      "position": [
+        0,
+        0
+      ],
+      "scroll_scale": 1.2
+    }
+  ],
+  "particles": [
+    {
+      "name": "mist_motes",
+      "texture": "mote.png",
+      "rect": [
+        200,
+        200,
+        800,
+        600
+      ],
+      "amount": 37,
+      "lifetime_s": 2.75,
+      "velocity_px_s": [
+        4.5,
+        12
+      ],
+      "direction": [
+        -1,
+        -0.2
+      ],
+      "spread_deg": 23,
+      "scale": [
+        0.2,
+        0.7
+      ],
+      "color_start": [
+        0.3,
+        0.6,
+        0.9,
+        0.8
+      ],
+      "color_end": [
+        0.2,
+        0.3,
+        0.5,
+        0
+      ]
+    }
+  ]
+}

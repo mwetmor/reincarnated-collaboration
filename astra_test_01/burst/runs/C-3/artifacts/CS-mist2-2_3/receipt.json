@@ -1,0 +1,44 @@
+{
+  "task_id": "CS-mist2-2_3",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "mist_2_3.png",
+      "path": "out/mist_2_3.png",
+      "sha256": "89e57ad24a12af369920090632288c7303071a85fb698eb23f90c37cf19ceb5b",
+      "prompt": "Use case: lighting-weather. Precise localized EDIT of IMAGE 1. IMAGE 2 is a strict spatial mask guide, not an appearance reference: cyan fill with white outline specifies the ONLY editable areas. Output ONE 1536x1024 image. Retry correction: the previous attempt spread mist too widely and covered unmarked cliff faces. This time follow the narrow cyan guide boundaries strictly, preserving all unmarked source pixels. Top 256 rows and left 256 columns are locked existing overlap strips: keep them exactly as IMAGE 1. Below y256, add opaque painted lavender/dusky violet mist with rose-peach billow tops ONLY inside the cyan shapes. Main shape runs approximately x560-796 at y256-400, narrows to x600-775 at y500, then x590-665 at y650, and ends at x600-660 y710-725. Its outer edge must NOT swell beyond x800. Rock bottom edges within this shape must be completely swallowed by opaque rounded billows. Preserve the exposed unmarked cliff face below it between y730 and y890, with no mist there. Separate tiny bottom shape is only near x550-592 y930-1024: add just a narrow mist fringe there, not a large cloud. Separate far-right shape is only x1496-1535 below y256, ending around y575: keep the added mist very narrow along the right frame edge. Do not join these separated shapes with mist. Seamlessly continue existing top mist into the main guide zone, with painted cloud forms and a soft rounded underside, never a visible straight cliff bottom. Billows may rise at most 40 pixels above the zone upper edge, with only tiny wisps outside its green-side edge. Every upper cliff face, rim, grass blade, dirt patch and all ground remain EXACTLY as source. Every unaffected green pixel remains flat pure #00ff00. Preserve original hand-drawn painted 2D style, tapered contours, clean painted planes and restrained texture, existing fixed elevated three-quarter view and upper-left illumination. No cyan or white guide marks, characters, creatures, text, UI, frame or vignette. Keep the original composition exactly; only perform the masked mist addition.",
+      "references": [
+        {
+          "role": "IMAGE 1 — painted chunk edit target",
+          "path": "in/01_mist2_2_3_canvas.png"
+        },
+        {
+          "role": "IMAGE 2 — mist-zone spatial guide",
+          "path": "in/02_mist2_2_3_zone.png"
+        }
+      ],
+      "elapsed_s": 20.619
+    }
+  ],
+  "calls_used": 2,
+  "retries": [
+    {
+      "reason": "First edit spread mist outside the guide and covered unmarked cliff sections.",
+      "change": "Retried from the original references with explicit narrow zone coordinates and preservation of the exposed cliff between separate zones."
+    }
+  ],
+  "self_report": {
+    "obeyed_invariants": false,
+    "concerns": [
+      "Visible horizontal join at row 256; continuation is not fully seamless.",
+      "Some mist billows extend beyond the guide outline.",
+      "Exact preservation of all unmarked pixels and pure-green values was not verified."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/mist_2_3.png",
+      "sha256": "89e57ad24a12af369920090632288c7303071a85fb698eb23f90c37cf19ceb5b"
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+CS-asm-fg-v4-band: report only; assembled 17 chunks.
+Foreground: 5376x4096 straight RGBA; no base depth fade.
+Matte: frozen clamp; 12 px temporary green padding; all disconnected components retained.
+Mask restriction: Euclidean 6 px dilation.
+Minimum-error overlap paths: 45; +/-1 px steps; +/-3 px feather.
+Texture wrap 8 px band MAD: a=4.7655, b=5.6014.
+Deep face alpha <0.95: 0 pixels; 0 groups >=100 px.
+Mean final/base RGB difference for d<6000: 0.00000000.
+Cloud onset depth mm p10/p50/p90: {'p10': 9738.7, 'p50': 11370.5, 'p90': 12538.1}.
+Void extent px p10/p50/p90: {'p10': 0.0, 'p50': 167.0, 'p90': 196.0}.
+Void extent canvas-censored columns: 79; no onset columns: 286.
+Noise: seed 7, cubic value noise 420/210/105 px; luminance Gaussian sigma 9 px.
+Preview and four native-resolution crops included; visible tile and cliff joins are recorded.
+Image generation calls: 0; processing seconds: 20.69.

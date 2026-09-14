@@ -1,0 +1,1074 @@
+{
+  "task_id": "CS-assets-spawn",
+  "report_only": true,
+  "asset_count": 11,
+  "expected_asset_count": 12,
+  "crop_origin_level_px": [
+    1517,
+    1847
+  ],
+  "assets": [
+    {
+      "name": "shrub_a",
+      "kind": "shrub_a",
+      "source_obj": "obj_05",
+      "file": "out/assets/shrub_a.png",
+      "size_px": [
+        140,
+        181
+      ],
+      "anchor": [
+        68.5,
+        174
+      ],
+      "anchor_crop_px": [
+        1312.5,
+        679
+      ],
+      "level_position_px": [
+        2829.5,
+        2526
+      ],
+      "footprint_px": {
+        "shape": "ellipse",
+        "x_span_inclusive": [
+          25,
+          102
+        ],
+        "width": 78,
+        "height": 27.299999999999997,
+        "center_asset_px": [
+          63.5,
+          174
+        ]
+      },
+      "light_dir": "upper-left",
+      "register": "H1",
+      "scale_ref": "Keeper 130 px",
+      "provenance": {
+        "clutter edit burst": "CS-clutter-spawn",
+        "isolate burst": "CS-objiso-spawn-1",
+        "sheet": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/CS-objiso-spawn-1/objiso_spawn_1.png",
+        "tile": "obj_05"
+      },
+      "top_left_crop_px": [
+        1244,
+        505
+      ],
+      "component_area_alpha_ge_32": 12355,
+      "contained_kinds": [
+        "shrub_a",
+        "fern_b"
+      ],
+      "concerns": [
+        "Prescribed 3-px grouping joins shrub_a and fern_b into one asset; anchor belongs to lower fern, so shrub is not independently placeable."
+      ]
+    },
+    {
+      "name": "charred_log",
+      "kind": "charred_log",
+      "source_obj": "obj_05",
+      "file": "out/assets/charred_log.png",
+      "size_px": [
+        236,
+        100
+      ],
+      "anchor": [
+        212.0,
+        93
+      ],
+      "anchor_crop_px": [
+        1179.0,
+        611
+      ],
+      "level_position_px": [
+        2696.0,
+        2458
+      ],
+      "footprint_px": {
+        "shape": "ellipse",
+        "x_span_inclusive": [
+          178,
+          218
+        ],
+        "width": 41,
+        "height": 14.35,
+        "center_asset_px": [
+          198.0,
+          93
+        ]
+      },
+      "light_dir": "upper-left",
+      "register": "H1",
+      "scale_ref": "Keeper 130 px",
+      "provenance": {
+        "clutter edit burst": "CS-clutter-spawn",
+        "isolate burst": "CS-objiso-spawn-1",
+        "sheet": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/CS-objiso-spawn-1/objiso_spawn_1.png",
+        "tile": "obj_05"
+      },
+      "top_left_crop_px": [
+        967,
+        518
+      ],
+      "component_area_alpha_ge_32": 9520
+    },
+    {
+      "name": "fern_a",
+      "kind": "fern_a",
+      "source_obj": "obj_05",
+      "file": "out/assets/fern_a.png",
+      "size_px": [
+        129,
+        97
+      ],
+      "anchor": [
+        53.0,
+        90
+      ],
+      "anchor_crop_px": [
+        977.0,
+        680
+      ],
+      "level_position_px": [
+        2494.0,
+        2527
+      ],
+      "footprint_px": {
+        "shape": "ellipse",
+        "x_span_inclusive": [
+          11,
+          65
+        ],
+        "width": 55,
+        "height": 19.25,
+        "center_asset_px": [
+          38.0,
+          90
+        ]
+      },
+      "light_dir": "upper-left",
+      "register": "H1",
+      "scale_ref": "Keeper 130 px",
+      "provenance": {
+        "clutter edit burst": "CS-clutter-spawn",
+        "isolate burst": "CS-objiso-spawn-1",
+        "sheet": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/CS-objiso-spawn-1/objiso_spawn_1.png",
+        "tile": "obj_05"
+      },
+      "top_left_crop_px": [
+        924,
+        590
+      ],
+      "component_area_alpha_ge_32": 5581
+    },
+    {
+      "name": "crate_single",
+      "kind": "crate_single",
+      "source_obj": "obj_03",
+      "file": "out/assets/crate_single.png",
+      "size_px": [
+        98,
+        92
+      ],
+      "anchor": [
+        41.0,
+        85
+      ],
+      "anchor_crop_px": [
+        1089.0,
+        342
+      ],
+      "level_position_px": [
+        2606.0,
+        2189
+      ],
+      "footprint_px": {
+        "shape": "ellipse",
+        "x_span_inclusive": [
+          22,
+          69
+        ],
+        "width": 48,
+        "height": 16.799999999999997,
+        "center_asset_px": [
+          45.5,
+          85
+        ]
+      },
+      "light_dir": "upper-left",
+      "register": "H1",
+      "scale_ref": "Keeper 130 px",
+      "provenance": {
+        "clutter edit burst": "CS-clutter-spawn",
+        "isolate burst": "CS-objiso-spawn-1",
+        "sheet": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/CS-objiso-spawn-1/objiso_spawn_1.png",
+        "tile": "obj_03"
+      },
+      "top_left_crop_px": [
+        1048,
+        257
+      ],
+      "component_area_alpha_ge_32": 5206
+    },
+    {
+      "name": "boulder_mossy_large",
+      "kind": "boulder_mossy_large",
+      "source_obj": "obj_01",
+      "file": "out/assets/boulder_mossy_large.png",
+      "size_px": [
+        145,
+        107
+      ],
+      "anchor": [
+        32.5,
+        101
+      ],
+      "anchor_crop_px": [
+        235.5,
+        183
+      ],
+      "level_position_px": [
+        1752.5,
+        2030
+      ],
+      "footprint_px": {
+        "shape": "ellipse",
+        "x_span_inclusive": [
+          16,
+          81
+        ],
+        "width": 66,
+        "height": 23.099999999999998,
+        "center_asset_px": [
+          48.5,
+          101
+        ]
+      },
+      "light_dir": "upper-left",
+      "register": "H1",
+      "scale_ref": "Keeper 130 px",
+      "provenance": {
+        "clutter edit burst": "CS-clutter-spawn",
+        "isolate burst": "CS-objiso-spawn-1",
+        "sheet": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/CS-objiso-spawn-1/objiso_spawn_1.png",
+        "tile": "obj_01"
+      },
+      "top_left_crop_px": [
+        203,
+        82
+      ],
+      "component_area_alpha_ge_32": 8352
+    },
+    {
+      "name": "rock_small_a",
+      "kind": "rock_small_a",
+      "source_obj": "obj_01",
+      "file": "out/assets/rock_small_a.png",
+      "size_px": [
+        93,
+        68
+      ],
+      "anchor": [
+        33.5,
+        61
+      ],
+      "anchor_crop_px": [
+        366.5,
+        201
+      ],
+      "level_position_px": [
+        1883.5,
+        2048
+      ],
+      "footprint_px": {
+        "shape": "ellipse",
+        "x_span_inclusive": [
+          15,
+          64
+        ],
+        "width": 50,
+        "height": 17.5,
+        "center_asset_px": [
+          39.5,
+          61
+        ]
+      },
+      "light_dir": "upper-left",
+      "register": "H1",
+      "scale_ref": "Keeper 130 px",
+      "provenance": {
+        "clutter edit burst": "CS-clutter-spawn",
+        "isolate burst": "CS-objiso-spawn-1",
+        "sheet": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/CS-objiso-spawn-1/objiso_spawn_1.png",
+        "tile": "obj_01"
+      },
+      "top_left_crop_px": [
+        333,
+        140
+      ],
+      "component_area_alpha_ge_32": 2897
+    },
+    {
+      "name": "crate_stack2",
+      "kind": "crate_stack2",
+      "source_obj": "obj_02",
+      "file": "out/assets/crate_stack2.png",
+      "size_px": [
+        106,
+        136
+      ],
+      "anchor": [
+        57.5,
+        129
+      ],
+      "anchor_crop_px": [
+        1086.5,
+        234
+      ],
+      "level_position_px": [
+        2603.5,
+        2081
+      ],
+      "footprint_px": {
+        "shape": "ellipse",
+        "x_span_inclusive": [
+          28,
+          72
+        ],
+        "width": 45,
+        "height": 15.749999999999998,
+        "center_asset_px": [
+          50.0,
+          129
+        ]
+      },
+      "light_dir": "upper-left",
+      "register": "H1",
+      "scale_ref": "Keeper 130 px",
+      "provenance": {
+        "clutter edit burst": "CS-clutter-spawn",
+        "isolate burst": "CS-objiso-spawn-1",
+        "sheet": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/CS-objiso-spawn-1/objiso_spawn_1.png",
+        "tile": "obj_02"
+      },
+      "top_left_crop_px": [
+        1029,
+        105
+      ],
+      "component_area_alpha_ge_32": 9108
+    },
+    {
+      "name": "boulder_round",
+      "kind": "boulder_round",
+      "source_obj": "obj_06",
+      "file": "out/assets/boulder_round.png",
+      "size_px": [
+        157,
+        88
+      ],
+      "anchor": [
+        62.0,
+        81
+      ],
+      "anchor_crop_px": [
+        440.0,
+        715
+      ],
+      "level_position_px": [
+        1957.0,
+        2562
+      ],
+      "footprint_px": {
+        "shape": "ellipse",
+        "x_span_inclusive": [
+          53,
+          138
+        ],
+        "width": 86,
+        "height": 30.099999999999998,
+        "center_asset_px": [
+          95.5,
+          81
+        ]
+      },
+      "light_dir": "upper-left",
+      "register": "H1",
+      "scale_ref": "Keeper 130 px",
+      "provenance": {
+        "clutter edit burst": "CS-clutter-spawn",
+        "isolate burst": "CS-objiso-spawn-2",
+        "sheet": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/CS-objiso-spawn-2/objiso_spawn_2.png",
+        "tile": "obj_06"
+      },
+      "top_left_crop_px": [
+        378,
+        634
+      ],
+      "component_area_alpha_ge_32": 7143
+    },
+    {
+      "name": "shrub_flower",
+      "kind": "shrub_flower",
+      "source_obj": "obj_06",
+      "file": "out/assets/shrub_flower.png",
+      "size_px": [
+        114,
+        90
+      ],
+      "anchor": [
+        56.5,
+        83
+      ],
+      "anchor_crop_px": [
+        576.5,
+        740
+      ],
+      "level_position_px": [
+        2093.5,
+        2587
+      ],
+      "footprint_px": {
+        "shape": "ellipse",
+        "x_span_inclusive": [
+          10,
+          101
+        ],
+        "width": 92,
+        "height": 32.199999999999996,
+        "center_asset_px": [
+          55.5,
+          83
+        ]
+      },
+      "light_dir": "upper-left",
+      "register": "H1",
+      "scale_ref": "Keeper 130 px",
+      "provenance": {
+        "clutter edit burst": "CS-clutter-spawn",
+        "isolate burst": "CS-objiso-spawn-2",
+        "sheet": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/CS-objiso-spawn-2/objiso_spawn_2.png",
+        "tile": "obj_06"
+      },
+      "top_left_crop_px": [
+        520,
+        657
+      ],
+      "component_area_alpha_ge_32": 5789
+    },
+    {
+      "name": "boulder_halfsunk",
+      "kind": "boulder_halfsunk",
+      "source_obj": "obj_07",
+      "file": "out/assets/boulder_halfsunk.png",
+      "size_px": [
+        122,
+        69
+      ],
+      "anchor": [
+        82.0,
+        62
+      ],
+      "anchor_crop_px": [
+        817.0,
+        744
+      ],
+      "level_position_px": [
+        2334.0,
+        2591
+      ],
+      "footprint_px": {
+        "shape": "ellipse",
+        "x_span_inclusive": [
+          25,
+          98
+        ],
+        "width": 74,
+        "height": 25.9,
+        "center_asset_px": [
+          61.5,
+          62
+        ]
+      },
+      "light_dir": "upper-left",
+      "register": "H1",
+      "scale_ref": "Keeper 130 px",
+      "provenance": {
+        "clutter edit burst": "CS-clutter-spawn",
+        "isolate burst": "CS-objiso-spawn-2",
+        "sheet": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/CS-objiso-spawn-2/objiso_spawn_2.png",
+        "tile": "obj_07"
+      },
+      "top_left_crop_px": [
+        735,
+        682
+      ],
+      "component_area_alpha_ge_32": 4194
+    },
+    {
+      "name": "barrel_broken",
+      "kind": "barrel_broken",
+      "source_obj": "obj_04",
+      "file": "out/assets/barrel_broken.png",
+      "size_px": [
+        138,
+        114
+      ],
+      "anchor": [
+        52.0,
+        108
+      ],
+      "anchor_crop_px": [
+        993.0,
+        466
+      ],
+      "level_position_px": [
+        2510.0,
+        2313
+      ],
+      "footprint_px": {
+        "shape": "ellipse",
+        "x_span_inclusive": [
+          31,
+          65
+        ],
+        "width": 35,
+        "height": 12.25,
+        "center_asset_px": [
+          48.0,
+          108
+        ]
+      },
+      "light_dir": "upper-left",
+      "register": "H1",
+      "scale_ref": "Keeper 130 px",
+      "provenance": {
+        "clutter edit burst": "CS-clutter-spawn",
+        "isolate burst": "CS-objiso-spawn-2",
+        "sheet": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/CS-objiso-spawn-2/objiso_spawn_2.png",
+        "tile": "obj_04"
+      },
+      "top_left_crop_px": [
+        941,
+        358
+      ],
+      "component_area_alpha_ge_32": 7251
+    }
+  ],
+  "shadows": [
+    {
+      "source_obj": "obj_05",
+      "file": "out/shadows/obj_05_shadow.png",
+      "crop_box": [
+        896,
+        479,
+        1427,
+        728
+      ],
+      "level_top_left_px": [
+        2413,
+        2326
+      ],
+      "tint_rgb": [
+        0,
+        0,
+        0
+      ],
+      "multiply_k": 1,
+      "nonzero_alpha_pixels": 51609
+    },
+    {
+      "source_obj": "obj_03",
+      "file": "out/shadows/obj_03_shadow.png",
+      "crop_box": [
+        999,
+        239,
+        1210,
+        386
+      ],
+      "level_top_left_px": [
+        2516,
+        2086
+      ],
+      "tint_rgb": [
+        0,
+        0,
+        0
+      ],
+      "multiply_k": 1,
+      "nonzero_alpha_pixels": 15634
+    },
+    {
+      "source_obj": "obj_01",
+      "file": "out/shadows/obj_01_shadow.png",
+      "crop_box": [
+        154,
+        56,
+        474,
+        239
+      ],
+      "level_top_left_px": [
+        1671,
+        1903
+      ],
+      "tint_rgb": [
+        0,
+        0,
+        0
+      ],
+      "multiply_k": 1,
+      "nonzero_alpha_pixels": 14797
+    },
+    {
+      "source_obj": "obj_02",
+      "file": "out/shadows/obj_02_shadow.png",
+      "crop_box": [
+        976,
+        85,
+        1222,
+        274
+      ],
+      "level_top_left_px": [
+        2493,
+        1932
+      ],
+      "tint_rgb": [
+        0,
+        0,
+        0
+      ],
+      "multiply_k": 1,
+      "nonzero_alpha_pixels": 18502
+    },
+    {
+      "source_obj": "obj_06",
+      "file": "out/shadows/obj_06_shadow.png",
+      "crop_box": [
+        355,
+        616,
+        693,
+        778
+      ],
+      "level_top_left_px": [
+        1872,
+        2463
+      ],
+      "tint_rgb": [
+        0,
+        0,
+        0
+      ],
+      "multiply_k": 1,
+      "nonzero_alpha_pixels": 15713
+    },
+    {
+      "source_obj": "obj_07",
+      "file": "out/shadows/obj_07_shadow.png",
+      "crop_box": [
+        705,
+        663,
+        886,
+        776
+      ],
+      "level_top_left_px": [
+        2222,
+        2510
+      ],
+      "tint_rgb": [
+        0,
+        0,
+        0
+      ],
+      "multiply_k": 1,
+      "nonzero_alpha_pixels": 6279
+    },
+    {
+      "source_obj": "obj_04",
+      "file": "out/shadows/obj_04_shadow.png",
+      "crop_box": [
+        895,
+        337,
+        1118,
+        498
+      ],
+      "level_top_left_px": [
+        2412,
+        2184
+      ],
+      "tint_rgb": [
+        0,
+        0,
+        0
+      ],
+      "multiply_k": 1,
+      "nonzero_alpha_pixels": 18873
+    }
+  ],
+  "registration": [
+    {
+      "source_obj": "obj_05",
+      "sheet": "1",
+      "crop_box": [
+        896,
+        479,
+        1427,
+        728
+      ],
+      "shift_px": [
+        0,
+        0
+      ],
+      "residual_rgb_mae": 8.731329917907715,
+      "pixels_alpha_ge_200": 25553,
+      "flagged": false,
+      "search_boundary": false,
+      "expected_count": 4,
+      "actual_count": 3,
+      "dropped_components": [],
+      "matte": {
+        "method": "green excess matte + inverse straight-alpha compositing + nearest fully-opaque RGB clamp",
+        "removed_background_or_detached_alpha_dust_pixels": 0,
+        "native_input_alpha": false,
+        "alpha_floor": null,
+        "alpha_floor_removed_pixels": 0
+      },
+      "temporary_green_pad_px": 0,
+      "components": [
+        {
+          "name": "shrub_a",
+          "bbox_tile_px": [
+            350,
+            28,
+            486,
+            205
+          ],
+          "area_alpha_ge_32": 12355
+        },
+        {
+          "name": "charred_log",
+          "bbox_tile_px": [
+            73,
+            41,
+            305,
+            137
+          ],
+          "area_alpha_ge_32": 9520
+        },
+        {
+          "name": "fern_a",
+          "bbox_tile_px": [
+            30,
+            113,
+            155,
+            206
+          ],
+          "area_alpha_ge_32": 5581
+        }
+      ]
+    },
+    {
+      "source_obj": "obj_03",
+      "sheet": "1",
+      "crop_box": [
+        999,
+        239,
+        1210,
+        386
+      ],
+      "shift_px": [
+        0,
+        0
+      ],
+      "residual_rgb_mae": 7.76872444152832,
+      "pixels_alpha_ge_200": 6075,
+      "flagged": false,
+      "search_boundary": false,
+      "expected_count": 1,
+      "actual_count": 1,
+      "dropped_components": [
+        {
+          "component": 2,
+          "area_alpha_ge_32": 1166,
+          "reason": "tile_border",
+          "bbox_tile_px": [
+            0,
+            123,
+            64,
+            147
+          ]
+        }
+      ],
+      "matte": {
+        "method": "green excess matte + inverse straight-alpha compositing + nearest fully-opaque RGB clamp",
+        "removed_background_or_detached_alpha_dust_pixels": 0,
+        "native_input_alpha": false,
+        "alpha_floor": null,
+        "alpha_floor_removed_pixels": 0
+      },
+      "temporary_green_pad_px": 10,
+      "components": [
+        {
+          "name": "crate_single",
+          "bbox_tile_px": [
+            51,
+            20,
+            145,
+            108
+          ],
+          "area_alpha_ge_32": 5206
+        }
+      ]
+    },
+    {
+      "source_obj": "obj_01",
+      "sheet": "1",
+      "crop_box": [
+        154,
+        56,
+        474,
+        239
+      ],
+      "shift_px": [
+        0,
+        0
+      ],
+      "residual_rgb_mae": 7.7230072021484375,
+      "pixels_alpha_ge_200": 10614,
+      "flagged": false,
+      "search_boundary": false,
+      "expected_count": 2,
+      "actual_count": 2,
+      "dropped_components": [],
+      "matte": {
+        "method": "green excess matte + inverse straight-alpha compositing + nearest fully-opaque RGB clamp",
+        "removed_background_or_detached_alpha_dust_pixels": 0,
+        "native_input_alpha": false,
+        "alpha_floor": null,
+        "alpha_floor_removed_pixels": 0
+      },
+      "temporary_green_pad_px": 0,
+      "components": [
+        {
+          "name": "boulder_mossy_large",
+          "bbox_tile_px": [
+            51,
+            28,
+            192,
+            131
+          ],
+          "area_alpha_ge_32": 8352
+        },
+        {
+          "name": "rock_small_a",
+          "bbox_tile_px": [
+            181,
+            86,
+            270,
+            150
+          ],
+          "area_alpha_ge_32": 2897
+        }
+      ]
+    },
+    {
+      "source_obj": "obj_02",
+      "sheet": "1",
+      "crop_box": [
+        976,
+        85,
+        1222,
+        274
+      ],
+      "shift_px": [
+        0,
+        0
+      ],
+      "residual_rgb_mae": 7.23213005065918,
+      "pixels_alpha_ge_200": 8781,
+      "flagged": false,
+      "search_boundary": false,
+      "expected_count": 1,
+      "actual_count": 1,
+      "dropped_components": [],
+      "matte": {
+        "method": "green excess matte + inverse straight-alpha compositing + nearest fully-opaque RGB clamp",
+        "removed_background_or_detached_alpha_dust_pixels": 0,
+        "native_input_alpha": false,
+        "alpha_floor": null,
+        "alpha_floor_removed_pixels": 0
+      },
+      "temporary_green_pad_px": 0,
+      "components": [
+        {
+          "name": "crate_stack2",
+          "bbox_tile_px": [
+            55,
+            22,
+            157,
+            154
+          ],
+          "area_alpha_ge_32": 9108
+        }
+      ]
+    },
+    {
+      "source_obj": "obj_06",
+      "sheet": "2",
+      "crop_box": [
+        355,
+        616,
+        693,
+        778
+      ],
+      "shift_px": [
+        0,
+        0
+      ],
+      "residual_rgb_mae": 12.10684871673584,
+      "pixels_alpha_ge_200": 12042,
+      "flagged": false,
+      "search_boundary": false,
+      "expected_count": 2,
+      "actual_count": 2,
+      "dropped_components": [],
+      "matte": {
+        "method": "green excess matte + inverse straight-alpha compositing + nearest fully-opaque RGB clamp",
+        "removed_background_or_detached_alpha_dust_pixels": 0,
+        "native_input_alpha": false,
+        "alpha_floor": null,
+        "alpha_floor_removed_pixels": 0
+      },
+      "temporary_green_pad_px": 0,
+      "components": [
+        {
+          "name": "boulder_round",
+          "bbox_tile_px": [
+            25,
+            20,
+            178,
+            104
+          ],
+          "area_alpha_ge_32": 7143
+        },
+        {
+          "name": "shrub_flower",
+          "bbox_tile_px": [
+            167,
+            43,
+            277,
+            129
+          ],
+          "area_alpha_ge_32": 5789
+        }
+      ]
+    },
+    {
+      "source_obj": "obj_07",
+      "sheet": "2",
+      "crop_box": [
+        705,
+        663,
+        886,
+        776
+      ],
+      "shift_px": [
+        0,
+        0
+      ],
+      "residual_rgb_mae": 9.146512985229492,
+      "pixels_alpha_ge_200": 3829,
+      "flagged": false,
+      "search_boundary": false,
+      "expected_count": 1,
+      "actual_count": 1,
+      "dropped_components": [],
+      "matte": {
+        "method": "green excess matte + inverse straight-alpha compositing + nearest fully-opaque RGB clamp",
+        "removed_background_or_detached_alpha_dust_pixels": 0,
+        "native_input_alpha": false,
+        "alpha_floor": null,
+        "alpha_floor_removed_pixels": 0
+      },
+      "temporary_green_pad_px": 0,
+      "components": [
+        {
+          "name": "boulder_halfsunk",
+          "bbox_tile_px": [
+            32,
+            21,
+            150,
+            86
+          ],
+          "area_alpha_ge_32": 4194
+        }
+      ]
+    },
+    {
+      "source_obj": "obj_04",
+      "sheet": "2",
+      "crop_box": [
+        895,
+        337,
+        1118,
+        498
+      ],
+      "shift_px": [
+        0,
+        0
+      ],
+      "residual_rgb_mae": 8.222027778625488,
+      "pixels_alpha_ge_200": 6867,
+      "flagged": false,
+      "search_boundary": false,
+      "expected_count": 1,
+      "actual_count": 1,
+      "dropped_components": [],
+      "matte": {
+        "method": "green excess matte + inverse straight-alpha compositing + nearest fully-opaque RGB clamp",
+        "removed_background_or_detached_alpha_dust_pixels": 0,
+        "native_input_alpha": false,
+        "alpha_floor": null,
+        "alpha_floor_removed_pixels": 0
+      },
+      "temporary_green_pad_px": 0,
+      "components": [
+        {
+          "name": "barrel_broken",
+          "bbox_tile_px": [
+            48,
+            23,
+            182,
+            133
+          ],
+          "area_alpha_ge_32": 7251
+        }
+      ]
+    }
+  ],
+  "metrics": {
+    "rgb_mae_inside_tile_regions": 14.241615295410156,
+    "rgb_mae_outside_tile_regions": 11.107515335083008,
+    "rgb_mae_inside_diff_report_region_bboxes": 16.38949203491211,
+    "rgb_mae_outside_diff_report_region_bboxes": 11.010063171386719,
+    "rgb_mae_inside_asset_alpha": 13.48691177368164,
+    "rgb_mae_whole_crop": 11.828776359558105,
+    "tile_region_pixels": 361968,
+    "outside_region_pixels": 1210896
+  },
+  "measurement_definitions": {
+    "registration": "All tile alpha>=200 pixels; RGB mean absolute difference, integer dx/dy each [-10,10]; ties minimize shift norm, then dy,dx. Positive shift is right/down.",
+    "component_area": "Count of original alpha>=32 support pixels, not dilated area. Border test on dilated component. All alpha>0 pixels within retained grouping included.",
+    "anchor": "Centre of inclusive occupied x span on lowest alpha>=200 row; integer pixel index coordinates.",
+    "footprint": "Inclusive x span of alpha>=200 in bottom 10 rows; ellipse height 0.35 times width.",
+    "object_regions": "Primary metrics use union of original layout crop_box rectangles; secondary metrics use union of diff report region_bbox_crop_px rectangles.",
+    "premultiplied_resize": "Pillow RGBa mode, LANCZOS, exactly 0.5; no per-asset scaling.",
+    "shadow": "Rec.709 luma in stored RGB space; full-crop Gaussian sigma=15; strength clipped [0,.75], alpha>0 asset mask dilated 2 via 8-neighbors excluded; threshold .06; per-tile sigma=3 zero-padded soften; black RGB; alpha rounded to uint8; k=1."
+  },
+  "concerns": [
+    "obj_05: retained 3 components; expected 4.",
+    "shrub_a asset contains shrub_a plus fern_b joined by the prescribed dilation; fern_b is not independently reusable. No manual split applied.",
+    "obj_03 has neighboring-barrel spill at the tile border: temporary 10-px green guard used solely for frozen matte border validation, then removed before downscaling; border component dropped.",
+    "Opaque anchor and footprint threshold interpreted as alpha >= 200; grouping uses alpha >= 32 and 3 iterations of 8-neighbor dilation.",
+    "Shadow blur interpreted as Gaussian sigma 15 px and softening sigma 3 px; pure-black tint, multiply k=1. Asset exclusion is applied before the prescribed final softening."
+  ]
+}

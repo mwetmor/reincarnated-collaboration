@@ -1,0 +1,26 @@
+{
+ "text": "GENERATE BURST CS-dress-spawn — DRESS the spawn clearing as a layered outdoor ARPG scene: trees first, then props (Matt R-C3-68/72/73). task_id \"CS-dress-spawn\".\n\nIMAGE 1 is a finished, BARE hand-painted 2D level crop (1536×1024) seen from a fixed high three-quarter ARPG camera (Diablo II / Last Epoch style): a sunlit packed-dirt path and clearing inside grassy rocky cliff-top ground at sunset, a rocky rim with PURE GREEN #00ff00 void at the top-left. Sunset key light from the UPPER-LEFT; shadows fall to the LOWER-RIGHT.\nIMAGE 2 is the SAME crop with SCALE FIGURES: the player character (1.75 m tall) pasted at her exact in-game size at five spots, with magenta ground and height ticks. IMAGE 3 is a SIZE CHART drawn in this exact camera projection on grey, left to right: the character; a 0.7 m wooden crate; a 0.9 m upright barrel; a 0.9 m waist-high rock; a 0.9 m shrub; the character; a 5 m dead snag; the character; a mature 8 m tree with a 5.5 m crown (the big circle); the character. Paint every object at the size those drawings and figures dictate. IMAGES 2 and 3 are references only — never paint the figures, magenta lines or grey chart.\nSTORY: this clearing is the last green ground before a forest fire that reached the cliff edge. Use image_gen in EDIT mode on IMAGE 1 and deliver ONE 1536×1024 image: the SAME painting with, in this priority: (1) TWO living mature trees (≈ 7–9 m, crowns ≈ 5–6 m across, as big as IMAGE 3's tree) standing in the grass — one in the right-hand grass, one in the lower-left grass — whose crowns may overhang the edge of the path; (2) ONE scorched dead snag (≈ 4–5 m, black charred trunk, a few broken branches, a faint ember glow in a crack) near the top-left rim; (3) TWO blackened stumps; (4) a small cluster of two or three rocks; (5) a traveller's cache under one of the trees: one or two crates and a barrel at IMAGE 3's sizes; (6) a few shrubs and ferns. Every tree and object stands on the ground with a soft contact shadow; the living trees cast large DAPPLED canopy shadows onto the ground toward the lower-right. Same hand-painted register as IMAGE 1 (tapered dark contours, painted planes, bold jewel tones), same camera angle and scale as the ground.\nRULES: (a) everything that is not an added tree, object or its shadow stays exactly as painted; (b) the main dirt path and the central clearing stay walkable and open (crowns may overhang them, trunks and props may not stand on them); (c) every tree, crown and object lies FULLY inside the image with at least 40 px margin (crowns included) — place tall trees low enough that their crowns fit; (d) no trunk overlaps another trunk; crowns may overlap props behind them; (e) no characters, creatures, text, UI, border or vignette; green stays flat pure #00ff00.\n\nOne image_gen call. ONE retry only if the ground outside the additions was visibly repainted, rule (b)/(c) is broken, the trees are clearly smaller or larger than IMAGE 3's tree relative to the character, or a scale figure/magenta line was painted — name the reason. Copy the output from $CODEX_HOME/generated_images/... to out/dress_spawn.png with sha256. No code. No other files. No web.\nRETURN: receipt task_id \"CS-dress-spawn\"; images = the file with prompt, references and elapsed_s; calls_used = the TRUE number of image_gen calls; status; concerns. Never PASS/FAIL.",
+ "references": [
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/CS-clutter-canvases/clutter_spawn_canvas.png",
+   "role": "IMAGE 1 — the bare painted crop to EDIT"
+  },
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/CS-clutter-canvases/dress_spawn_scale_figures.png",
+   "role": "IMAGE 2 — scale figures (reference only)"
+  },
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/CS-clutter-canvases/dress_size_chart.png",
+   "role": "IMAGE 3 — camera-projected size chart (reference only)"
+  }
+ ],
+ "image_cap": 2,
+ "minutes_cap": 15,
+ "tool_call_cap": 20,
+ "outputs": [
+  "out/dress_spawn.png"
+ ],
+ "effort": "high",
+ "add_dirs": [],
+ "experiment": "C3-cliffside-dress"
+}

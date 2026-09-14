@@ -1,0 +1,37 @@
+{
+  "task_id": "CS-mist2-3_3-ns",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "mist_3_3.png",
+      "path": "out/mist_3_3.png",
+      "sha256": "8db03f2710fce2f1998b35b7a6105f3e4d447dc0aaa62c2e20c5929cf4c28688",
+      "prompt": "Use case: lighting-weather. EDIT Image 1 in place; Image 2 is only a spatial MIST ZONE guide, never an output or style reference. Produce ONE 1536x1024 PNG with the exact original framing and registration. This is a cropped hand-painted 2D cliffside game-level chunk on flat pure #00ff00 void. Within the cyan/white bounded zone in Image 2, add thick OPAQUE billowing valley mist that progressively hazes the lower rock and completely swallows every bottom edge of rock. The cyan area is an allowed edit region, not a request to replace all its rock: retain the upper half of visible faces, and concentrate opaque mist along and just below the existing hanging rock bottom contours, including the tall descending right-hand face all the way to the bottom/right image edge. No exposed cut rock bottom may remain. Painted rounded cloud forms, soft lavender and dusky violet shadows, restrained warm rose-peach highlights on billow tops catching the existing upper-left sunset light. Cloud underside has soft rounded billows against the pure green, fitting the guide's lower boundary, with a few local wisps allowed nearby. Billow tops may rise no more than 40 pixels above the guide upper outline. Leave all pixels outside the guide unchanged except those expressly allowed local wisps/top protrusions. Preserve the entire upper cliff rock texture, contours, cracks, foliage, lighting, and any rims or ground EXACTLY as Image 1. Do not invent cliff-top scenery outside the crop. Every green pixel away from the mist remains flat pure #00ff00. Keep the same hand-drawn painted 2D animation-game style, confident tapered contours, clean painted material planes, restrained surface texture, bold jewel tones. Fixed original camera and cool ambient light with existing warm accents. No cyan tint, white guide outline, text, characters, creatures, UI, border, vignette, background landscape, transparency, or global repaint. Mist must be opaque where it covers the original rock bottom silhouette; it must hide the cut edge rather than merely tinting it.",
+      "references": [
+        {
+          "role": "IMAGE 1 — painted chunk edit target",
+          "path": "in/01_mist2_3_3_canvas-ns.png"
+        },
+        {
+          "role": "IMAGE 2 — mist zone guide only",
+          "path": "in/02_mist2_3_3_zone-ns.png"
+        }
+      ],
+      "elapsed_s": 38.131
+    }
+  ],
+  "calls_used": 1,
+  "retries": [],
+  "self_report": {
+    "obeyed_invariants": true,
+    "concerns": [
+      "Visual inspection shows covered rock bottoms and preserved upper rock details; exact pixel preservation outside the mist zone was not verified."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/mist_3_3.png",
+      "sha256": "8db03f2710fce2f1998b35b7a6105f3e4d447dc0aaa62c2e20c5929cf4c28688"
+    }
+  ]
+}

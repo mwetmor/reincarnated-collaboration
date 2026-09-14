@@ -1,0 +1,40 @@
+{
+  "task_id": "CS-mist-3_1",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "mist_3_1.png",
+      "path": "out/mist_3_1.png",
+      "sha256": "7873ac44e896939dc752d024496b3b6d685e27648ea4fe96c14b8ec76d895a1f",
+      "prompt": "EDIT Image 1, original painted cliff chunk, into one 1536×1024 image. Strict localized mist addition with locked overlap. The entire left 256 columns (x=0 through 255, all y) and top 256 rows (y=0 through 255, all x) MUST be copied unchanged from Image 1. Do not raise, thicken, repaint or alter the existing mist in the left strip. The previous attempt incorrectly changed that left strip: avoid this. Only work to the RIGHT of x=256 and BELOW y=256. Continue the original mist near (256,930) seamlessly toward the lower right, covering the lower portions of exposed rock faces along the bottom edge. Add thick opaque billowing valley mist with lavender/dusky violet shadows and rose-peach lit cloud tops, in the exact painted 2D style of the existing mist. Let rocks become hazier downward and vanish completely into opaque cloud before the bottom canvas boundary. No exposed bottom rock edge. Keep every grass blade, flower, dirt patch, bridge, cliff rim and upper cliff face EXACTLY unchanged. Original camera, original composition, no resizing or reframing. Mist is a local overlay over lower rocks only, with soft rounded painted billows, never flat fill or simple gradient. Any existing pure #00ff00 void pixels away from mist remain pure #00ff00; if the bank ends inside canvas, give it a soft rounded cloud underside against that green. No added green over terrain. No characters, creatures, text, UI, border or vignette. Hand-drawn painted 2D, tapered contours and clean material planes with restrained texture. Highest priority: preserve the original left 256 columns and top 256 rows exactly; all new mist begins beyond these locked strips and joins the existing lower-left mist without a seam.",
+      "references": [
+        {
+          "role": "edit target",
+          "path": "in/01_mist_3_1_canvas.png"
+        }
+      ],
+      "elapsed_s": 23.961
+    }
+  ],
+  "calls_used": 2,
+  "retries": [
+    {
+      "reason": "First output visibly changed the left overlap strip.",
+      "change": "Retried from the original with explicit locked coordinates and stronger overlap-preservation instructions."
+    }
+  ],
+  "self_report": {
+    "obeyed_invariants": false,
+    "concerns": [
+      "Exact pixel preservation of overlap strips and terrain is unverified.",
+      "Mist overlaps some lower-right grass and rim details.",
+      "Cloud underside extends beyond the crop; no green-facing underside is visible."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/mist_3_1.png",
+      "sha256": "7873ac44e896939dc752d024496b3b6d685e27648ea4fe96c14b8ec76d895a1f"
+    }
+  ]
+}

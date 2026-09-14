@@ -1,0 +1,15 @@
+CS-clutter-spawn-x: report only; no overall burst verdict.
+Whole-crop raw D: median=7.667, p75=15.333, p90=33.333.
+After median9: median=5.000, p75=7.333, p90=14.000.
+Otsu box5 threshold=36.000; 14 components >=300px; 7 bbox-merged candidates.
+obj_01: object=19623px shadow=162px; g1 mean=10.099 FAIL; g2 components=4, halo=16.00px FAIL; g3 FAIL.
+obj_02: object=14584px shadow=285px; g1 mean=8.722 FAIL; g2 components=3, halo=16.00px FAIL; g3 FAIL.
+obj_03: object=8448px shadow=318px; g1 mean=11.848 FAIL; g2 components=9, halo=16.00px FAIL; g3 FAIL.
+obj_04: object=10840px shadow=550px; g1 mean=11.819 FAIL; g2 components=19, halo=15.81px FAIL; g3 FAIL.
+obj_05: object=53457px shadow=2538px; g1 mean=15.257 FAIL; g2 components=61, halo=16.00px FAIL; g3 FAIL.
+obj_06: object=16877px shadow=740px; g1 mean=9.719 FAIL; g2 components=13, halo=16.00px FAIL; g3 FAIL.
+obj_07: object=5402px shadow=172px; g1 mean=8.357 FAIL; g2 components=6, halo=15.81px FAIL; g3 FAIL.
+Merged candidates can contain multiple props; difference masks are approximate and may include ground drift.
+Shadow split is color/structure-based and ambiguous with dark material; no semantic correction.
+Halo is conservative radial extent, censored at 16px; g1 literal ring includes shadow.
+Object and shadow files have separate recorded crop origins; calls_used=0.

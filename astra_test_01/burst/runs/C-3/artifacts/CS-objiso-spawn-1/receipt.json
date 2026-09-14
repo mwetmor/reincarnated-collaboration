@@ -1,0 +1,40 @@
+{
+  "task_id": "CS-objiso-spawn-1",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "objiso_spawn_1.png",
+      "path": "out/objiso_spawn_1.png",
+      "sha256": "12444b55a96cb6d648291c72560a27565cf15f0446a5a95adea9496403069f8d",
+      "prompt": "Use case: background-extraction. EDIT IMAGE 1, the provided 1536×1024 prop tile sheet. Deliver ONE 1536×1024 image. Replace EVERYTHING that is ground — dirt, path texture, pebbles lying on the ground, grass, moss on the ground, and every cast/contact SHADOW on the ground — with flat PURE GREEN #00ff00. Preserve every PROP EXACTLY as painted: same pixels, same position in the sheet, same size, same outline, same colours and lighting. Preserve the charred fallen log, both fern clumps and leafy shrub in the top-left tile; single wooden crate in the top-right tile; large mossy boulder and smaller rock in bottom-left; stacked pair of wooden crates in bottom-right. Preserve any existing cropped prop fragments at tile boundaries exactly as cropped. Include tufts of grass or moss growing ON a prop and its own shaded sides. Small stones touching a prop and belonging to its cluster are part of it; remove detached ground stones. Finish each prop's bottom edge cleanly where it met the ground, without ground strips or shadows. Nothing new is added; nothing moves or resizes. Flat opaque #00ff00 everywhere outside props, crisp edges, no halo, glow or blur. Preserve the existing hand-painted 2D artwork without stylistic reinterpretation or relighting. This is solely ground replacement, not a redraw.\nRETRY CORRECTION: The prior attempt changed foliage detail and produced textured green. Work directly from the original input. Preserve original painted pixels inside every prop, including the original subdued fern colours, exact leaf shapes, log bark marks, crate boards and rock facets. Do not sharpen, outline, repaint, simplify or enhance anything. The replacement green must be absolutely uniform RGB(0,255,0), with no texture, noise, shading or colour variation at all. Retain touching cluster stones and original partial props cut off at the tile boundaries. Remove only ground and its shadows.",
+      "references": [
+        {
+          "role": "IMAGE 1 — sheet of prop tiles to isolate (EDIT)",
+          "path": "in/01_objsheet_spawn_1.png"
+        }
+      ],
+      "elapsed_s": 25.438
+    }
+  ],
+  "calls_used": 2,
+  "retries": [
+    {
+      "reason": "First output visibly altered foliage details and showed textured green.",
+      "change": "Retried from the original with stronger pixel-preservation and uniform RGB green instructions."
+    }
+  ],
+  "self_report": {
+    "obeyed_invariants": false,
+    "concerns": [
+      "Delivered dimensions are 1536×1024, but prop details remain visibly altered rather than pixel-identical.",
+      "Green appears textured; exact uniform #00ff00 is not verified.",
+      "Some touching stones and the bottom-edge crate fragment are omitted; possible ground vegetation remains at prop bases."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/objiso_spawn_1.png",
+      "sha256": "12444b55a96cb6d648291c72560a27565cf15f0446a5a95adea9496403069f8d"
+    }
+  ]
+}

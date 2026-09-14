@@ -1,0 +1,39 @@
+{
+  "task_id": "CS-mist-3_2",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "mist_3_2.png",
+      "path": "out/mist_3_2.png",
+      "sha256": "fdab4a57b2e2b0bced0cebe978f39bba116890c25f1605f2f5735dd5b6edfd9e",
+      "prompt": "Use case: lighting-weather. EDIT IMAGE 1, the supplied painted cliffside game chunk. Deliver exactly ONE 1536×1024 image with the original framing and geometry. Add a mist pass only. LOCK the existing top 256 rows and left 256 columns exactly: these are completed overlap strips and must remain unchanged. Continue their lavender/peach painted mist seamlessly into the editable remainder. Preserve every upper cliff face, rocky rim, grass, dirt, plant and all terrain above the new mist exactly as painted. Across the lower portion of EVERY cliff face, add a thick OPAQUE bank of billowing valley mist: rock becomes hazier downward then is completely swallowed, with NO visible bottom rock edge and no exposed rock reaching the bottom in the editable region. Mist has dimensional painted cloud billows, soft lavender and dusky violet shadows, warm rose-peach sunset highlights on billow tops, matching the existing mist. The underside is a soft rounded cloud-like scalloped edge against flat pure #00ff00 empty void, with a few small wisps; leave green below this edge where space permits. Every existing green pixel away from the added mist remains flat pure #00ff00. Do not add a valley or background. Style: same hand-drawn painted 2D game art as the input, tapered hand-drawn contours, clean painted planes, restrained surface texture, bold jewel tones. Preserve the input lighting. No characters, creatures, text, UI, border or vignette. Only introduce the required lower mist and its transition; do not redesign or repaint the upper terrain or either locked overlap strip.\nRETRY CORRECTION: The prior attempt changed the LEFT OVERLAP STRIP. Work from the original attached image again. Treat ALL pixels at x=0 through 255 and ALL pixels at y=0 through 255 as immutable source pixels, including the original rock, green and mist in those strips. Do not haze, paint, extend cloud into, or otherwise touch those strips. Apply the new opaque mist only at x>=256 and y>=256, matching the existing strip boundary seamlessly. Preserve original rock above the new mist without redrawing its texture. The immutable overlap strips take precedence wherever the lower mist would otherwise intrude. Keep 1536×1024.",
+      "references": [
+        {
+          "role": "IMAGE 1 — painted chunk to EDIT",
+          "path": "in/01_mist_3_2_canvas.png"
+        }
+      ],
+      "elapsed_s": 27.352
+    }
+  ],
+  "calls_used": 2,
+  "retries": [
+    {
+      "reason": "Mist visibly altered the lower portion of the locked left overlap strip.",
+      "change": "Retried from the original with explicit immutable pixel-coordinate boundaries."
+    }
+  ],
+  "self_report": {
+    "obeyed_invariants": false,
+    "concerns": [
+      "The retry still appears to alter the lower left overlap strip; exact preservation was not achieved.",
+      "Upper-terrain pixel identity and exact green RGB values were not verified. Output dimensions are confirmed as 1536×1024."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/mist_3_2.png",
+      "sha256": "fdab4a57b2e2b0bced0cebe978f39bba116890c25f1605f2f5735dd5b6edfd9e"
+    }
+  ]
+}

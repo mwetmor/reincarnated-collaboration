@@ -1,0 +1,1362 @@
+{
+  "task_id": "CS-clutter-spawn-x",
+  "report_only": true,
+  "inputs": {
+    "before": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/CS-clutter-canvases/clutter_spawn_canvas.png",
+    "after": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/CS-clutter-spawn/clutter_spawn.png",
+    "origin_metadata": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/CS-clutter-canvases/clutter_spawn.json",
+    "sha256": {
+      "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/CS-clutter-canvases/clutter_spawn_canvas.png": "7a5722d9c00edd27f1946b7889528361b83aa225cf432bf446ce6245ab209711",
+      "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/CS-clutter-spawn/clutter_spawn.png": "5299a2809fefbd5720781ad5874bd0f1e7f7472bf6ba277cee8996fe2b353981",
+      "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/CS-clutter-canvases/clutter_spawn.json": "ccccd756871e485ba963467b3ef93bcfba48ad977319299691beee1cf5e1ec23"
+    },
+    "size_px": [
+      1536,
+      1024
+    ],
+    "level_origin_px": [
+      1517,
+      1847
+    ]
+  },
+  "global_drift": {
+    "D_definition": "mean(abs(AFTER_RGB - BEFORE_RGB)), RGB levels 0..255; whole crop including void",
+    "raw": {
+      "median": 7.666666507720947,
+      "p75": 15.333333015441895,
+      "p90": 33.33333206176758
+    },
+    "median9": {
+      "median": 5.0,
+      "p75": 7.333333492279053,
+      "p90": 14.0
+    },
+    "box5": {
+      "median": 5.426670074462891,
+      "p75": 8.213330268859863,
+      "p90": 15.479995727539062
+    }
+  },
+  "detection": {
+    "otsu_threshold": 36.0,
+    "otsu_histogram_bins": 256,
+    "otsu_histogram_range": [
+      0,
+      256
+    ],
+    "threshold_comparison": ">",
+    "structure_requirement": "5x5 blurred luminance Sobel magnitude difference >4 OR scalar-fit RGB RMS residual >8",
+    "morphology": "binary open 1 iteration then close 3 iterations, cross connectivity; labeling 8-connected",
+    "minimum_component_area_px": 300,
+    "merge": "transitive graph of initial component bbox Euclidean gaps <=12 px; half-open bboxes",
+    "initial_components": [
+      {
+        "id": 1,
+        "bbox_crop_px": [
+          197,
+          88,
+          369,
+          189
+        ],
+        "area_px": 8301
+      },
+      {
+        "id": 2,
+        "bbox_crop_px": [
+          1009,
+          122,
+          1191,
+          246
+        ],
+        "area_px": 10047
+      },
+      {
+        "id": 3,
+        "bbox_crop_px": [
+          337,
+          150,
+          439,
+          204
+        ],
+        "area_px": 2597
+      },
+      {
+        "id": 4,
+        "bbox_crop_px": [
+          1044,
+          278,
+          1163,
+          346
+        ],
+        "area_px": 3662
+      },
+      {
+        "id": 5,
+        "bbox_crop_px": [
+          927,
+          363,
+          1072,
+          468
+        ],
+        "area_px": 6807
+      },
+      {
+        "id": 6,
+        "bbox_crop_px": [
+          1304,
+          512,
+          1347,
+          544
+        ],
+        "area_px": 440
+      },
+      {
+        "id": 7,
+        "bbox_crop_px": [
+          970,
+          524,
+          1226,
+          654
+        ],
+        "area_px": 12668
+      },
+      {
+        "id": 8,
+        "bbox_crop_px": [
+          1305,
+          540,
+          1382,
+          588
+        ],
+        "area_px": 1517
+      },
+      {
+        "id": 9,
+        "bbox_crop_px": [
+          1209,
+          582,
+          1380,
+          683
+        ],
+        "area_px": 6574
+      },
+      {
+        "id": 10,
+        "bbox_crop_px": [
+          934,
+          615,
+          1048,
+          691
+        ],
+        "area_px": 3745
+      },
+      {
+        "id": 11,
+        "bbox_crop_px": [
+          1126,
+          626,
+          1168,
+          659
+        ],
+        "area_px": 535
+      },
+      {
+        "id": 12,
+        "bbox_crop_px": [
+          399,
+          644,
+          534,
+          719
+        ],
+        "area_px": 4228
+      },
+      {
+        "id": 13,
+        "bbox_crop_px": [
+          524,
+          672,
+          649,
+          747
+        ],
+        "area_px": 5575
+      },
+      {
+        "id": 14,
+        "bbox_crop_px": [
+          740,
+          693,
+          856,
+          746
+        ],
+        "area_px": 3144
+      }
+    ],
+    "merge_edges": [
+      {
+        "components": [
+          1,
+          3
+        ],
+        "bbox_distance_px": 0.0
+      },
+      {
+        "components": [
+          6,
+          8
+        ],
+        "bbox_distance_px": 0.0
+      },
+      {
+        "components": [
+          7,
+          9
+        ],
+        "bbox_distance_px": 0.0
+      },
+      {
+        "components": [
+          7,
+          10
+        ],
+        "bbox_distance_px": 0.0
+      },
+      {
+        "components": [
+          7,
+          11
+        ],
+        "bbox_distance_px": 0.0
+      },
+      {
+        "components": [
+          8,
+          9
+        ],
+        "bbox_distance_px": 0.0
+      },
+      {
+        "components": [
+          12,
+          13
+        ],
+        "bbox_distance_px": 0.0
+      }
+    ],
+    "initial_component_count": 14,
+    "merged_candidate_count": 7,
+    "support_refinement": "Grow seeds through D_box5>12 and hue/structure/scalar evidence within 24px of initial masks; 3x3 close once; preserve seed morphology; exact green void excluded. This support completion does not change Otsu candidate detection."
+  },
+  "measurement_definitions": {
+    "bbox": "[x0,y0,x1,y1), exclusive maximum; centroids use integer pixel indices",
+    "object_area": "Final inferred non-shadow binary mask, including all fragments; no largest-component-only cleanup",
+    "shadow_model": "On box5 RGB: k=dot(AFTER,BEFORE)/dot(BEFORE,BEFORE), 0.35<=k<=0.9, RGB RMS residual<=6, circular hue change<=10deg, abs(grad_after-k*grad_before)<=3. Only scalar-model pixels connected to region exterior are shadow; enclosed scalar pixels remain object material.",
+    "clean_shadow": "Exactly one 8-connected shadow component; centroid below AND right of object centroid; at least 75% of shadow pixels below and at least 75% right of object centroid. Zero shadows is not a clean measured split. These are operational definitions for the qualitative clean-shadow criterion, not new registered gates.",
+    "ground_ring": "Euclidean distances 0<distance_to_object<=16, measured on raw D. Literal all-ring and secondary shadow-excluded ground-ring means both recorded.",
+    "halo_width": "Conservative radial extent: maximum Euclidean distance to object among raw D>25 exterior-ring pixels classified ground (not object or separated shadow), up to 16px. At 16px extent is right-censored. No denoising or component removal at gate measurement.",
+    "alpha": "Object: straight AFTER RGB with binary 0/255 alpha. Shadow: black RGB with round(255*(1-k)) alpha on shadow mask. Separate crop origins retained."
+  },
+  "objects": [
+    {
+      "id": "obj_01",
+      "initial_component_ids": [
+        1,
+        3
+      ],
+      "merged_candidate": true,
+      "candidate_bbox_crop_px": [
+        197,
+        88,
+        439,
+        204
+      ],
+      "candidate_bbox_level_px": [
+        1714,
+        1935,
+        1956,
+        2051
+      ],
+      "candidate_area_px": 10898,
+      "region_bbox_crop_px": [
+        178,
+        80,
+        450,
+        215
+      ],
+      "region_bbox_level_px": [
+        1695,
+        1927,
+        1967,
+        2062
+      ],
+      "region_area_px": 19785,
+      "bbox_crop_px": [
+        178,
+        80,
+        450,
+        215
+      ],
+      "bbox_level_px": [
+        1695,
+        1927,
+        1967,
+        2062
+      ],
+      "area_px": 19623,
+      "centroid_crop_px": [
+        299.9236100494318,
+        154.1672017530449
+      ],
+      "centroid_level_px": [
+        1816.9236100494318,
+        2001.167201753045
+      ],
+      "lowest_opaque_row_crop_y": 214,
+      "lowest_opaque_row_level_y": 2061,
+      "footprint_bottom_rows": 12,
+      "footprint_x_span_crop_px_inclusive": [
+        231,
+        420
+      ],
+      "footprint_x_span_level_px_inclusive": [
+        1748,
+        1937
+      ],
+      "footprint_area_px": 413,
+      "object_component_count_8_connected": 4,
+      "object_largest_component_area_px": 19585,
+      "enclosed_scalar_dark_pixels_retained_as_object": 153,
+      "morphology_inferred_object_pixels_without_direct_evidence": 0,
+      "shadow": {
+        "area_px": 162,
+        "bbox_crop_px": [
+          213,
+          84,
+          432,
+          211
+        ],
+        "bbox_level_px": [
+          1730,
+          1931,
+          1949,
+          2058
+        ],
+        "centroid_crop_px": [
+          354.80864197530866,
+          168.9814814814815
+        ],
+        "centroid_level_px": [
+          1871.8086419753085,
+          2015.9814814814815
+        ],
+        "component_count_8_connected": 17,
+        "largest_component_area_px": 56,
+        "largest_component_fraction": 0.345679012345679,
+        "k_median": 0.8236762881278992,
+        "centroid_below_and_right": true,
+        "fraction_below_object_centroid": 0.6234567901234568,
+        "fraction_right_of_object_centroid": 0.9012345679012346,
+        "split_clean": false
+      },
+      "gates": {
+        "g1": {
+          "ring_width_px": 16,
+          "ring_pixels": 13728,
+          "mean_D": 10.098921775817871,
+          "threshold_max_mean_D": 6,
+          "status": "FAIL",
+          "classified_ground_only_ring_pixels": 13566,
+          "classified_ground_only_mean_D": 9.892722129821777,
+          "note": "Literal exterior ring includes separated shadow; ground-only statistic also recorded."
+        },
+        "g2": {
+          "object_components": 4,
+          "required_components": 1,
+          "halo_pixels": 613,
+          "halo_max_outward_extent_px": 16.0,
+          "halo_threshold_D_gt": 25,
+          "halo_max_width_allowed_px": 3,
+          "halo_search_width_px": 16,
+          "halo_extent_right_censored": true,
+          "status": "FAIL"
+        },
+        "g3": {
+          "shadow_separates_cleanly": false,
+          "status": "FAIL"
+        }
+      },
+      "files": {
+        "rgba": "out/objects/obj_01_rgba.png",
+        "rgba_crop_bbox_px": [
+          170,
+          72,
+          458,
+          223
+        ],
+        "rgba_origin_level_px": [
+          1687,
+          1919
+        ],
+        "shadow": "out/objects/obj_01_shadow.png",
+        "shadow_crop_bbox_px": [
+          205,
+          76,
+          440,
+          219
+        ],
+        "shadow_origin_level_px": [
+          1722,
+          1923
+        ]
+      },
+      "concerns": [
+        "Bounding-box merge combines spatial components; candidate may contain multiple props and/or changed ground.",
+        "Shadow scalar-color model is ambiguous with dark object material; no manual semantic correction applied."
+      ]
+    },
+    {
+      "id": "obj_02",
+      "initial_component_ids": [
+        2
+      ],
+      "merged_candidate": false,
+      "candidate_bbox_crop_px": [
+        1009,
+        122,
+        1191,
+        246
+      ],
+      "candidate_bbox_level_px": [
+        2526,
+        1969,
+        2708,
+        2093
+      ],
+      "candidate_area_px": 10047,
+      "region_bbox_crop_px": [
+        1000,
+        109,
+        1198,
+        250
+      ],
+      "region_bbox_level_px": [
+        2517,
+        1956,
+        2715,
+        2097
+      ],
+      "region_area_px": 14869,
+      "bbox_crop_px": [
+        1000,
+        109,
+        1198,
+        250
+      ],
+      "bbox_level_px": [
+        2517,
+        1956,
+        2715,
+        2097
+      ],
+      "area_px": 14584,
+      "centroid_crop_px": [
+        1090.2898381788261,
+        191.38569665386726
+      ],
+      "centroid_level_px": [
+        2607.2898381788264,
+        2038.3856966538672
+      ],
+      "lowest_opaque_row_crop_y": 249,
+      "lowest_opaque_row_level_y": 2096,
+      "footprint_bottom_rows": 12,
+      "footprint_x_span_crop_px_inclusive": [
+        1027,
+        1159
+      ],
+      "footprint_x_span_level_px_inclusive": [
+        2544,
+        2676
+      ],
+      "footprint_area_px": 902,
+      "object_component_count_8_connected": 3,
+      "object_largest_component_area_px": 14582,
+      "enclosed_scalar_dark_pixels_retained_as_object": 340,
+      "morphology_inferred_object_pixels_without_direct_evidence": 0,
+      "shadow": {
+        "area_px": 285,
+        "bbox_crop_px": [
+          1025,
+          117,
+          1196,
+          243
+        ],
+        "bbox_level_px": [
+          2542,
+          1964,
+          2713,
+          2090
+        ],
+        "centroid_crop_px": [
+          1108.5824561403508,
+          204.8
+        ],
+        "centroid_level_px": [
+          2625.5824561403506,
+          2051.8
+        ],
+        "component_count_8_connected": 15,
+        "largest_component_area_px": 119,
+        "largest_component_fraction": 0.41754385964912283,
+        "k_median": 0.7608391046524048,
+        "centroid_below_and_right": true,
+        "fraction_below_object_centroid": 0.8315789473684211,
+        "fraction_right_of_object_centroid": 0.5157894736842106,
+        "split_clean": false
+      },
+      "gates": {
+        "g1": {
+          "ring_width_px": 16,
+          "ring_pixels": 10157,
+          "mean_D": 8.722064018249512,
+          "threshold_max_mean_D": 6,
+          "status": "FAIL",
+          "classified_ground_only_ring_pixels": 9872,
+          "classified_ground_only_mean_D": 7.903768062591553,
+          "note": "Literal exterior ring includes separated shadow; ground-only statistic also recorded."
+        },
+        "g2": {
+          "object_components": 3,
+          "required_components": 1,
+          "halo_pixels": 218,
+          "halo_max_outward_extent_px": 16.0,
+          "halo_threshold_D_gt": 25,
+          "halo_max_width_allowed_px": 3,
+          "halo_search_width_px": 16,
+          "halo_extent_right_censored": true,
+          "status": "FAIL"
+        },
+        "g3": {
+          "shadow_separates_cleanly": false,
+          "status": "FAIL"
+        }
+      },
+      "files": {
+        "rgba": "out/objects/obj_02_rgba.png",
+        "rgba_crop_bbox_px": [
+          992,
+          101,
+          1206,
+          258
+        ],
+        "rgba_origin_level_px": [
+          2509,
+          1948
+        ],
+        "shadow": "out/objects/obj_02_shadow.png",
+        "shadow_crop_bbox_px": [
+          1017,
+          109,
+          1204,
+          251
+        ],
+        "shadow_origin_level_px": [
+          2534,
+          1956
+        ]
+      },
+      "concerns": [
+        "Shadow scalar-color model is ambiguous with dark object material; no manual semantic correction applied."
+      ]
+    },
+    {
+      "id": "obj_03",
+      "initial_component_ids": [
+        4
+      ],
+      "merged_candidate": false,
+      "candidate_bbox_crop_px": [
+        1044,
+        278,
+        1163,
+        346
+      ],
+      "candidate_bbox_level_px": [
+        2561,
+        2125,
+        2680,
+        2193
+      ],
+      "candidate_area_px": 3662,
+      "region_bbox_crop_px": [
+        1023,
+        263,
+        1186,
+        362
+      ],
+      "region_bbox_level_px": [
+        2540,
+        2110,
+        2703,
+        2209
+      ],
+      "region_area_px": 8766,
+      "bbox_crop_px": [
+        1023,
+        263,
+        1186,
+        362
+      ],
+      "bbox_level_px": [
+        2540,
+        2110,
+        2703,
+        2209
+      ],
+      "area_px": 8448,
+      "centroid_crop_px": [
+        1101.3942945075758,
+        312.83345170454544
+      ],
+      "centroid_level_px": [
+        2618.394294507576,
+        2159.8334517045455
+      ],
+      "lowest_opaque_row_crop_y": 361,
+      "lowest_opaque_row_level_y": 2208,
+      "footprint_bottom_rows": 12,
+      "footprint_x_span_crop_px_inclusive": [
+        1062,
+        1099
+      ],
+      "footprint_x_span_level_px_inclusive": [
+        2579,
+        2616
+      ],
+      "footprint_area_px": 163,
+      "object_component_count_8_connected": 9,
+      "object_largest_component_area_px": 8317,
+      "enclosed_scalar_dark_pixels_retained_as_object": 465,
+      "morphology_inferred_object_pixels_without_direct_evidence": 0,
+      "shadow": {
+        "area_px": 318,
+        "bbox_crop_px": [
+          1027,
+          271,
+          1180,
+          350
+        ],
+        "bbox_level_px": [
+          2544,
+          2118,
+          2697,
+          2197
+        ],
+        "centroid_crop_px": [
+          1129.9433962264152,
+          325.07861635220127
+        ],
+        "centroid_level_px": [
+          2646.943396226415,
+          2172.078616352201
+        ],
+        "component_count_8_connected": 22,
+        "largest_component_area_px": 59,
+        "largest_component_fraction": 0.18553459119496854,
+        "k_median": 0.8273928165435791,
+        "centroid_below_and_right": true,
+        "fraction_below_object_centroid": 0.8333333333333334,
+        "fraction_right_of_object_centroid": 0.7484276729559748,
+        "split_clean": false
+      },
+      "gates": {
+        "g1": {
+          "ring_width_px": 16,
+          "ring_pixels": 8419,
+          "mean_D": 11.84764575958252,
+          "threshold_max_mean_D": 6,
+          "status": "FAIL",
+          "classified_ground_only_ring_pixels": 8101,
+          "classified_ground_only_mean_D": 11.312430381774902,
+          "note": "Literal exterior ring includes separated shadow; ground-only statistic also recorded."
+        },
+        "g2": {
+          "object_components": 9,
+          "required_components": 1,
+          "halo_pixels": 686,
+          "halo_max_outward_extent_px": 16.0,
+          "halo_threshold_D_gt": 25,
+          "halo_max_width_allowed_px": 3,
+          "halo_search_width_px": 16,
+          "halo_extent_right_censored": true,
+          "status": "FAIL"
+        },
+        "g3": {
+          "shadow_separates_cleanly": false,
+          "status": "FAIL"
+        }
+      },
+      "files": {
+        "rgba": "out/objects/obj_03_rgba.png",
+        "rgba_crop_bbox_px": [
+          1015,
+          255,
+          1194,
+          370
+        ],
+        "rgba_origin_level_px": [
+          2532,
+          2102
+        ],
+        "shadow": "out/objects/obj_03_shadow.png",
+        "shadow_crop_bbox_px": [
+          1019,
+          263,
+          1188,
+          358
+        ],
+        "shadow_origin_level_px": [
+          2536,
+          2110
+        ]
+      },
+      "concerns": [
+        "Shadow scalar-color model is ambiguous with dark object material; no manual semantic correction applied."
+      ]
+    },
+    {
+      "id": "obj_04",
+      "initial_component_ids": [
+        5
+      ],
+      "merged_candidate": false,
+      "candidate_bbox_crop_px": [
+        927,
+        363,
+        1072,
+        468
+      ],
+      "candidate_bbox_level_px": [
+        2444,
+        2210,
+        2589,
+        2315
+      ],
+      "candidate_area_px": 6807,
+      "region_bbox_crop_px": [
+        919,
+        361,
+        1095,
+        474
+      ],
+      "region_bbox_level_px": [
+        2436,
+        2208,
+        2612,
+        2321
+      ],
+      "region_area_px": 11390,
+      "bbox_crop_px": [
+        919,
+        361,
+        1094,
+        474
+      ],
+      "bbox_level_px": [
+        2436,
+        2208,
+        2611,
+        2321
+      ],
+      "area_px": 10840,
+      "centroid_crop_px": [
+        1010.1973247232472,
+        418.9053505535055
+      ],
+      "centroid_level_px": [
+        2527.197324723247,
+        2265.9053505535057
+      ],
+      "lowest_opaque_row_crop_y": 473,
+      "lowest_opaque_row_level_y": 2320,
+      "footprint_bottom_rows": 12,
+      "footprint_x_span_crop_px_inclusive": [
+        952,
+        1072
+      ],
+      "footprint_x_span_level_px_inclusive": [
+        2469,
+        2589
+      ],
+      "footprint_area_px": 298,
+      "object_component_count_8_connected": 19,
+      "object_largest_component_area_px": 10689,
+      "enclosed_scalar_dark_pixels_retained_as_object": 530,
+      "morphology_inferred_object_pixels_without_direct_evidence": 0,
+      "shadow": {
+        "area_px": 550,
+        "bbox_crop_px": [
+          941,
+          367,
+          1095,
+          465
+        ],
+        "bbox_level_px": [
+          2458,
+          2214,
+          2612,
+          2312
+        ],
+        "centroid_crop_px": [
+          1063.3454545454545,
+          438.7072727272727
+        ],
+        "centroid_level_px": [
+          2580.3454545454542,
+          2285.7072727272725
+        ],
+        "component_count_8_connected": 19,
+        "largest_component_area_px": 205,
+        "largest_component_fraction": 0.37272727272727274,
+        "k_median": 0.8211486339569092,
+        "centroid_below_and_right": true,
+        "fraction_below_object_centroid": 0.82,
+        "fraction_right_of_object_centroid": 0.9854545454545455,
+        "split_clean": false
+      },
+      "gates": {
+        "g1": {
+          "ring_width_px": 16,
+          "ring_pixels": 9416,
+          "mean_D": 11.819314956665039,
+          "threshold_max_mean_D": 6,
+          "status": "FAIL",
+          "classified_ground_only_ring_pixels": 8866,
+          "classified_ground_only_mean_D": 10.778592109680176,
+          "note": "Literal exterior ring includes separated shadow; ground-only statistic also recorded."
+        },
+        "g2": {
+          "object_components": 19,
+          "required_components": 1,
+          "halo_pixels": 635,
+          "halo_max_outward_extent_px": 15.811388300841896,
+          "halo_threshold_D_gt": 25,
+          "halo_max_width_allowed_px": 3,
+          "halo_search_width_px": 16,
+          "halo_extent_right_censored": false,
+          "status": "FAIL"
+        },
+        "g3": {
+          "shadow_separates_cleanly": false,
+          "status": "FAIL"
+        }
+      },
+      "files": {
+        "rgba": "out/objects/obj_04_rgba.png",
+        "rgba_crop_bbox_px": [
+          911,
+          353,
+          1102,
+          482
+        ],
+        "rgba_origin_level_px": [
+          2428,
+          2200
+        ],
+        "shadow": "out/objects/obj_04_shadow.png",
+        "shadow_crop_bbox_px": [
+          933,
+          359,
+          1103,
+          473
+        ],
+        "shadow_origin_level_px": [
+          2450,
+          2206
+        ]
+      },
+      "concerns": [
+        "Shadow scalar-color model is ambiguous with dark object material; no manual semantic correction applied."
+      ]
+    },
+    {
+      "id": "obj_05",
+      "initial_component_ids": [
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "merged_candidate": true,
+      "candidate_bbox_crop_px": [
+        934,
+        512,
+        1382,
+        691
+      ],
+      "candidate_bbox_level_px": [
+        2451,
+        2359,
+        2899,
+        2538
+      ],
+      "candidate_area_px": 25479,
+      "region_bbox_crop_px": [
+        920,
+        503,
+        1403,
+        704
+      ],
+      "region_bbox_level_px": [
+        2437,
+        2350,
+        2920,
+        2551
+      ],
+      "region_area_px": 55995,
+      "bbox_crop_px": [
+        920,
+        503,
+        1403,
+        704
+      ],
+      "bbox_level_px": [
+        2437,
+        2350,
+        2920,
+        2551
+      ],
+      "area_px": 53457,
+      "centroid_crop_px": [
+        1161.218605608246,
+        609.4525506481846
+      ],
+      "centroid_level_px": [
+        2678.218605608246,
+        2456.4525506481846
+      ],
+      "lowest_opaque_row_crop_y": 703,
+      "lowest_opaque_row_level_y": 2550,
+      "footprint_bottom_rows": 12,
+      "footprint_x_span_crop_px_inclusive": [
+        974,
+        1387
+      ],
+      "footprint_x_span_level_px_inclusive": [
+        2491,
+        2904
+      ],
+      "footprint_area_px": 569,
+      "object_component_count_8_connected": 61,
+      "object_largest_component_area_px": 53009,
+      "enclosed_scalar_dark_pixels_retained_as_object": 747,
+      "morphology_inferred_object_pixels_without_direct_evidence": 0,
+      "shadow": {
+        "area_px": 2538,
+        "bbox_crop_px": [
+          935,
+          511,
+          1402,
+          699
+        ],
+        "bbox_level_px": [
+          2452,
+          2358,
+          2919,
+          2546
+        ],
+        "centroid_crop_px": [
+          1188.6973995271867,
+          631.2817178881008
+        ],
+        "centroid_level_px": [
+          2705.6973995271865,
+          2478.281717888101
+        ],
+        "component_count_8_connected": 113,
+        "largest_component_area_px": 302,
+        "largest_component_fraction": 0.11899133175728921,
+        "k_median": 0.7840081453323364,
+        "centroid_below_and_right": true,
+        "fraction_below_object_centroid": 0.731284475965327,
+        "fraction_right_of_object_centroid": 0.5212765957446809,
+        "split_clean": false
+      },
+      "gates": {
+        "g1": {
+          "ring_width_px": 16,
+          "ring_pixels": 33615,
+          "mean_D": 15.25711727142334,
+          "threshold_max_mean_D": 6,
+          "status": "FAIL",
+          "classified_ground_only_ring_pixels": 31077,
+          "classified_ground_only_mean_D": 14.06253433227539,
+          "note": "Literal exterior ring includes separated shadow; ground-only statistic also recorded."
+        },
+        "g2": {
+          "object_components": 61,
+          "required_components": 1,
+          "halo_pixels": 4274,
+          "halo_max_outward_extent_px": 16.0,
+          "halo_threshold_D_gt": 25,
+          "halo_max_width_allowed_px": 3,
+          "halo_search_width_px": 16,
+          "halo_extent_right_censored": true,
+          "status": "FAIL"
+        },
+        "g3": {
+          "shadow_separates_cleanly": false,
+          "status": "FAIL"
+        }
+      },
+      "files": {
+        "rgba": "out/objects/obj_05_rgba.png",
+        "rgba_crop_bbox_px": [
+          912,
+          495,
+          1411,
+          712
+        ],
+        "rgba_origin_level_px": [
+          2429,
+          2342
+        ],
+        "shadow": "out/objects/obj_05_shadow.png",
+        "shadow_crop_bbox_px": [
+          927,
+          503,
+          1410,
+          707
+        ],
+        "shadow_origin_level_px": [
+          2444,
+          2350
+        ]
+      },
+      "concerns": [
+        "Bounding-box merge combines spatial components; candidate may contain multiple props and/or changed ground.",
+        "Shadow scalar-color model is ambiguous with dark object material; no manual semantic correction applied."
+      ]
+    },
+    {
+      "id": "obj_06",
+      "initial_component_ids": [
+        12,
+        13
+      ],
+      "merged_candidate": true,
+      "candidate_bbox_crop_px": [
+        399,
+        644,
+        649,
+        747
+      ],
+      "candidate_bbox_level_px": [
+        1916,
+        2491,
+        2166,
+        2594
+      ],
+      "candidate_area_px": 9803,
+      "region_bbox_crop_px": [
+        379,
+        640,
+        669,
+        754
+      ],
+      "region_bbox_level_px": [
+        1896,
+        2487,
+        2186,
+        2601
+      ],
+      "region_area_px": 17617,
+      "bbox_crop_px": [
+        379,
+        640,
+        669,
+        754
+      ],
+      "bbox_level_px": [
+        1896,
+        2487,
+        2186,
+        2601
+      ],
+      "area_px": 16877,
+      "centroid_crop_px": [
+        525.0519049594122,
+        697.1448124666706
+      ],
+      "centroid_level_px": [
+        2042.0519049594122,
+        2544.1448124666704
+      ],
+      "lowest_opaque_row_crop_y": 753,
+      "lowest_opaque_row_level_y": 2600,
+      "footprint_bottom_rows": 12,
+      "footprint_x_span_crop_px_inclusive": [
+        531,
+        651
+      ],
+      "footprint_x_span_level_px_inclusive": [
+        2048,
+        2168
+      ],
+      "footprint_area_px": 576,
+      "object_component_count_8_connected": 13,
+      "object_largest_component_area_px": 16564,
+      "enclosed_scalar_dark_pixels_retained_as_object": 240,
+      "morphology_inferred_object_pixels_without_direct_evidence": 0,
+      "shadow": {
+        "area_px": 740,
+        "bbox_crop_px": [
+          382,
+          659,
+          660,
+          752
+        ],
+        "bbox_level_px": [
+          1899,
+          2506,
+          2177,
+          2599
+        ],
+        "centroid_crop_px": [
+          544.7054054054054,
+          719.1878378378378
+        ],
+        "centroid_level_px": [
+          2061.705405405405,
+          2566.187837837838
+        ],
+        "component_count_8_connected": 28,
+        "largest_component_area_px": 227,
+        "largest_component_fraction": 0.30675675675675673,
+        "k_median": 0.8171654939651489,
+        "centroid_below_and_right": true,
+        "fraction_below_object_centroid": 0.845945945945946,
+        "fraction_right_of_object_centroid": 0.5851351351351352,
+        "split_clean": false
+      },
+      "gates": {
+        "g1": {
+          "ring_width_px": 16,
+          "ring_pixels": 13102,
+          "mean_D": 9.718949317932129,
+          "threshold_max_mean_D": 6,
+          "status": "FAIL",
+          "classified_ground_only_ring_pixels": 12362,
+          "classified_ground_only_mean_D": 8.691015243530273,
+          "note": "Literal exterior ring includes separated shadow; ground-only statistic also recorded."
+        },
+        "g2": {
+          "object_components": 13,
+          "required_components": 1,
+          "halo_pixels": 381,
+          "halo_max_outward_extent_px": 16.0,
+          "halo_threshold_D_gt": 25,
+          "halo_max_width_allowed_px": 3,
+          "halo_search_width_px": 16,
+          "halo_extent_right_censored": true,
+          "status": "FAIL"
+        },
+        "g3": {
+          "shadow_separates_cleanly": false,
+          "status": "FAIL"
+        }
+      },
+      "files": {
+        "rgba": "out/objects/obj_06_rgba.png",
+        "rgba_crop_bbox_px": [
+          371,
+          632,
+          677,
+          762
+        ],
+        "rgba_origin_level_px": [
+          1888,
+          2479
+        ],
+        "shadow": "out/objects/obj_06_shadow.png",
+        "shadow_crop_bbox_px": [
+          374,
+          651,
+          668,
+          760
+        ],
+        "shadow_origin_level_px": [
+          1891,
+          2498
+        ]
+      },
+      "concerns": [
+        "Bounding-box merge combines spatial components; candidate may contain multiple props and/or changed ground.",
+        "Shadow scalar-color model is ambiguous with dark object material; no manual semantic correction applied."
+      ]
+    },
+    {
+      "id": "obj_07",
+      "initial_component_ids": [
+        14
+      ],
+      "merged_candidate": false,
+      "candidate_bbox_crop_px": [
+        740,
+        693,
+        856,
+        746
+      ],
+      "candidate_bbox_level_px": [
+        2257,
+        2540,
+        2373,
+        2593
+      ],
+      "candidate_area_px": 3144,
+      "region_bbox_crop_px": [
+        729,
+        687,
+        862,
+        752
+      ],
+      "region_bbox_level_px": [
+        2246,
+        2534,
+        2379,
+        2599
+      ],
+      "region_area_px": 5574,
+      "bbox_crop_px": [
+        729,
+        687,
+        862,
+        752
+      ],
+      "bbox_level_px": [
+        2246,
+        2534,
+        2379,
+        2599
+      ],
+      "area_px": 5402,
+      "centroid_crop_px": [
+        797.4983339503888,
+        720.5183265457238
+      ],
+      "centroid_level_px": [
+        2314.4983339503888,
+        2567.5183265457235
+      ],
+      "lowest_opaque_row_crop_y": 751,
+      "lowest_opaque_row_level_y": 2598,
+      "footprint_bottom_rows": 12,
+      "footprint_x_span_crop_px_inclusive": [
+        753,
+        851
+      ],
+      "footprint_x_span_level_px_inclusive": [
+        2270,
+        2368
+      ],
+      "footprint_area_px": 590,
+      "object_component_count_8_connected": 6,
+      "object_largest_component_area_px": 5374,
+      "enclosed_scalar_dark_pixels_retained_as_object": 69,
+      "morphology_inferred_object_pixels_without_direct_evidence": 0,
+      "shadow": {
+        "area_px": 172,
+        "bbox_crop_px": [
+          729,
+          688,
+          862,
+          750
+        ],
+        "bbox_level_px": [
+          2246,
+          2535,
+          2379,
+          2597
+        ],
+        "centroid_crop_px": [
+          811.8197674418604,
+          734.3488372093024
+        ],
+        "centroid_level_px": [
+          2328.8197674418607,
+          2581.3488372093025
+        ],
+        "component_count_8_connected": 22,
+        "largest_component_area_px": 51,
+        "largest_component_fraction": 0.29651162790697677,
+        "k_median": 0.8607733249664307,
+        "centroid_below_and_right": true,
+        "fraction_below_object_centroid": 0.9069767441860465,
+        "fraction_right_of_object_centroid": 0.563953488372093,
+        "split_clean": false
+      },
+      "gates": {
+        "g1": {
+          "ring_width_px": 16,
+          "ring_pixels": 6404,
+          "mean_D": 8.356756210327148,
+          "threshold_max_mean_D": 6,
+          "status": "FAIL",
+          "classified_ground_only_ring_pixels": 6232,
+          "classified_ground_only_mean_D": 7.952236175537109,
+          "note": "Literal exterior ring includes separated shadow; ground-only statistic also recorded."
+        },
+        "g2": {
+          "object_components": 6,
+          "required_components": 1,
+          "halo_pixels": 201,
+          "halo_max_outward_extent_px": 15.811388300841896,
+          "halo_threshold_D_gt": 25,
+          "halo_max_width_allowed_px": 3,
+          "halo_search_width_px": 16,
+          "halo_extent_right_censored": false,
+          "status": "FAIL"
+        },
+        "g3": {
+          "shadow_separates_cleanly": false,
+          "status": "FAIL"
+        }
+      },
+      "files": {
+        "rgba": "out/objects/obj_07_rgba.png",
+        "rgba_crop_bbox_px": [
+          721,
+          679,
+          870,
+          760
+        ],
+        "rgba_origin_level_px": [
+          2238,
+          2526
+        ],
+        "shadow": "out/objects/obj_07_shadow.png",
+        "shadow_crop_bbox_px": [
+          721,
+          680,
+          870,
+          758
+        ],
+        "shadow_origin_level_px": [
+          2238,
+          2527
+        ]
+      },
+      "concerns": [
+        "Shadow scalar-color model is ambiguous with dark object material; no manual semantic correction applied."
+      ]
+    }
+  ],
+  "concerns": [
+    "Detected regions are automatic difference-based candidates, not independently verified semantic object masks.",
+    "The required bbox merge joins some distinct visible props and vegetation edits into compound candidates.",
+    "Ground rerendering and dark materials make object/shadow separation ambiguous; extracted masks may contain changed ground and missing object pixels.",
+    "Per-object ring g1 uses raw D; filtered drift and ground-only ring are diagnostic secondary instruments.",
+    "No overall burst gate verdict is issued."
+  ]
+}
