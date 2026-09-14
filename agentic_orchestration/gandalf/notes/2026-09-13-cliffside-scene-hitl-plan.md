@@ -36,6 +36,8 @@ An **LE-05-like outdoor cliffside path** for the novice Keeper (starter set), dr
 
 **Progress (R-C3-43…58):** checkpoints 1, 1b, 2 and **3 COMPLETE** — first playable delivered (`astra_test_01/burst/runs/C-3/cliffside_final/`). Geometry went v3 → v4.1 on Matt's review (strip removed; organic rock; boulders out → props at checkpoint 5); walkable = all flat tops, 0.5 m rim margin; image cap lifted (R-C3-55). Next: checkpoint 4.
 
+**Clutter method (R-C3-61/62, Matt):** Astra composes clutter by EDITING the bare painted crops; the before/after diff locates every object; extraction by diff only where the pre-registered gate passes (ground drift ≤ 6 in a 16-px ring, one clean mask with ≤ 3-px halo, shadow separates), otherwise Astra repaints that object alone on green, matched to the edit, registered back to the diff position. Every object becomes a catalogued reusable asset. Deferred test for procedural maps: give Astra the asset base and ask it to recommend placement on a new bare map.
+
 **Budget posture:** Grok not needed through checkpoint 5 (existing clips). Astra images per checkpoint are named before it fires. Nothing moves past a checkpoint without Matt's word.
 
 Tracker-delta: game tracker SESSION-DELTA owed at checkpoint 3 (first playable).
