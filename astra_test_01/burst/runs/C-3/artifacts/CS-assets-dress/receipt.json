@@ -1,0 +1,94 @@
+{
+  "task_id": "CS-assets-dress",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [],
+  "calls_used": 0,
+  "retries": [
+    {
+      "reason": "stump_b matte rejected: border green fraction 0.9444.",
+      "change": "Added temporary 10-px green padding for frozen clamp extraction, then removed padding before resizing."
+    }
+  ],
+  "self_report": {
+    "obeyed_invariants": true,
+    "concerns": [
+      "T3l loader accepted nine assets and one shadow texture.",
+      "Five assets exceed scale tolerances: both stumps are too wide; all three rocks are too short.",
+      "All registration shifts are [0,0]; rock_b and rock_c residuals exceed 20.",
+      "tree_living_b, stump_b and rock_a have opaque tile-border contacts.",
+      "stump_b required the documented matte retry.",
+      "Rebuild RGB MAE is 13.0933; vegetation/detail differences remain.",
+      "Gaussian blur interpreted as sigma 11 px; softening as sigma 2 px."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/asset_sheet.png",
+      "sha256": "690fcc14e116f0ab5d04fe58a14f69336e5cbdb0708c46da9bdb94c0608bf302"
+    },
+    {
+      "path": "out/catalogue.json",
+      "sha256": "0152c30e9b2e9d43be488976510faf6c09a6d0d981d61433db91d3d43c013945"
+    },
+    {
+      "path": "out/checks.json",
+      "sha256": "6762f4666010bc0d5da210da92f6f22e9b799b1de04ce9dbfbe439cd3deecd66"
+    },
+    {
+      "path": "out/props/assets/cache_crates_barrel.png",
+      "sha256": "a2da827d72c1ac74c959986d9c3060d2d559f06f1da5388c0982308a7c2242ff"
+    },
+    {
+      "path": "out/props/assets/rock_a.png",
+      "sha256": "de543914e8a07f0999af4706ad1383fc44c1420e35d6a37b1a52d808f34eed0f"
+    },
+    {
+      "path": "out/props/assets/rock_b.png",
+      "sha256": "d9fca93bf5bc4609a79214158b17aa636b8e4f062cb5ffc7236127d5fe31b822"
+    },
+    {
+      "path": "out/props/assets/rock_c.png",
+      "sha256": "ba245e4969dfba926767144fb1ce516e0f488f62030ab6f7de339eb589c099b5"
+    },
+    {
+      "path": "out/props/assets/snag_scorched.png",
+      "sha256": "dd1f102dede1f0333b45af685c3f3edd394b3da11c438e269c72a7f2de9cd3eb"
+    },
+    {
+      "path": "out/props/assets/stump_a.png",
+      "sha256": "771723c83076d549a0842e2e2f282a6ff16f9c60286bb124bb0d950b31a155d6"
+    },
+    {
+      "path": "out/props/assets/stump_b.png",
+      "sha256": "f172e7e7b9d1c2917b551cc12aa29a917f23480e6ac5c1128ee849ce6f866d91"
+    },
+    {
+      "path": "out/props/assets/tree_living_a.png",
+      "sha256": "a92cfa562d2f7d3395652fecfd6773931c30fc4f5d82af668e2d4de7ee752120"
+    },
+    {
+      "path": "out/props/assets/tree_living_b.png",
+      "sha256": "f963dd6e07f7dbe97af83df3d216a432f45ffe242d0194f587a87da399320350"
+    },
+    {
+      "path": "out/props/props.json",
+      "sha256": "577b38505ff1a2e4542da48fe311110cff351f02527c23e2a07139b5089e03dd"
+    },
+    {
+      "path": "out/props/shadow_spawn.png",
+      "sha256": "02ad23752dd7801d3159546083df17dc0fd22a6372ae1d0a7e470278398793c5"
+    },
+    {
+      "path": "out/rebuild.png",
+      "sha256": "b87618517ceb8437fd8c1524a50a00a8d2053cc1bc255212913209ae4844dd44"
+    },
+    {
+      "path": "out/rebuild_vs_after.png",
+      "sha256": "5443cf4564f98509fd0b2a5b0776575292e82a3ef0c60db83ab97f92fff162e2"
+    },
+    {
+      "path": "out/summary.txt",
+      "sha256": "7e9bef37ce21a74244fcdf5de311964878b11a6ebdc25f7626c975ea73d7f187"
+    }
+  ]
+}

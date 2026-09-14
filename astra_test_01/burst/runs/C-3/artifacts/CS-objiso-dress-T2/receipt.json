@@ -1,0 +1,39 @@
+{
+  "task_id": "CS-objiso-dress-T2",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "objiso_dress_T2.png",
+      "path": "out/objiso_dress_T2.png",
+      "sha256": "4dd8e882f2c1746def97d0e792092360065366b00ffa3b93fb638e72c266c0b9",
+      "prompt": "Use case: precise-object-edit. EDIT IMAGE 1, the provided 1536×1024 sheet. Output exactly 1536×1024. Isolate ONLY the existing living mature TREE: its trunk, roots, branches and leafy crown. Replace everything else with flat pure RGB(0,255,0) #00ff00. Remove all ground, grass, shrubs, both wooden crates, barrel, rocks, pebbles and all ground shadows. All background visible through gaps between leaves and branches must also become pure green. Preserve the tree EXACTLY as painted in the source: same pixels wherever visible, same position on the sheet, same size, silhouette, outline, colours, painted detail, shaded sides, and upper-left sunset illumination. Do not recenter, move, resize, relight or redesign it. Retain moss or grass only if actually growing ON the tree. Complete only small portions of trunk/roots hidden by removed objects, matching the existing painting, and finish the root bottom edges cleanly without ground or shadow. Preserve the source's hand-drawn painted 2D linework, clean material planes and restrained surface texture; do not reinterpret its style. Keep the existing large green right and bottom margins unchanged. Crisp edges against flat pure green, no halo, glow or blur. Nothing new is added; nothing moves. Source crown portions cropped by the source inset remain at their existing coordinates; do not invent a new crown or expand the tree.\nRETRY CORRECTION: The previous attempt repainted visible bark and foliage, violating pixel preservation. Work from the ORIGINAL attached image again. This is an extraction, not a new tree painting. Keep every existing tree-interior brush mark, leaf cluster, branch junction, bark highlight, cool shadow colour and root coordinate intact. Change only non-tree pixels to #00ff00, with minimal matching completion where roots were occluded. In particular preserve original trunk texture and crown structure exactly.",
+      "references": [
+        {
+          "role": "IMAGE 1 — sheet to isolate (EDIT)",
+          "path": "in/01_objsheet_dress_T2.png"
+        }
+      ],
+      "elapsed_s": 22.882
+    }
+  ],
+  "calls_used": 2,
+  "retries": [
+    {
+      "reason": "First edit changed visible bark and foliage details.",
+      "change": "Retried from the original reference with stronger pixel-preservation instructions."
+    }
+  ],
+  "self_report": {
+    "obeyed_invariants": false,
+    "concerns": [
+      "The delivered retry still alters some bark, foliage and silhouette details; exact source-pixel preservation was not achieved.",
+      "Green appears flat visually; exact RGB uniformity was not measured."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/objiso_dress_T2.png",
+      "sha256": "4dd8e882f2c1746def97d0e792092360065366b00ffa3b93fb638e72c266c0b9"
+    }
+  ]
+}

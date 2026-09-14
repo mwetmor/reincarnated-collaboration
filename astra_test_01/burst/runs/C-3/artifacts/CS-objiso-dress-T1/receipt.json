@@ -1,0 +1,39 @@
+{
+  "task_id": "CS-objiso-dress-T1",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "objiso_dress_T1.png",
+      "path": "out/objiso_dress_T1.png",
+      "sha256": "1c749c33b0e4fa0864aaeeffee403f3eb4a7d9f384d89c7b21191eb3e4eeb4d8",
+      "prompt": "Use case: precise-object-edit. Edit IMAGE 1, the ORIGINAL source sheet, to isolate ONLY its living mature tree on an EXACTLY uniform solid RGB(0,255,0) background. Output one 1536x1024 PNG. This is a preservation edit: retain original visible tree pixels without repainting, smoothing or restyling its bark or leaves. Keep the full leafy crown, all attached branches, trunk and roots in precisely their source coordinates and original size. Remove the orange ground, dirt, pebbles, grass, ferns, shrubs surrounding the base, BOTH blackened stumps, and every ground shadow. Replace all removed areas and ALL spaces between leaves/branches with pure #00ff00. Preserve source hand-drawn painted 2D contours, leaf detail, colours and upper-left sunlight exactly. Complete ONLY previously occluded trunk base and roots, matching the original visible wood and with a clean bottom edge. Do not move, recenter, resize, relight, or redraw the visible tree. Critical correction: background must be a single flat color #00ff00 throughout, with absolutely no texture, noise, grain, mottling, gradient or lighting variation. Preserve the large right empty green area and outer margins. Crisp edge with no halo, blur, glow or floor shadow. Add no objects or text.",
+      "references": [
+        {
+          "role": "IMAGE 1 — sheet to isolate (EDIT)",
+          "path": "in/01_objsheet_dress_T1.png"
+        }
+      ],
+      "elapsed_s": 22.557
+    }
+  ],
+  "calls_used": 2,
+  "retries": [
+    {
+      "reason": "First output showed apparent background mottling and altered painted details.",
+      "change": "Retried from the original reference, emphasizing uniform RGB(0,255,0) and preservation of visible tree pixels."
+    }
+  ],
+  "self_report": {
+    "obeyed_invariants": false,
+    "concerns": [
+      "Tree isolation is visually complete, but visible painted details changed.",
+      "Background still appears slightly mottled; exact uniform #00ff00 is not verified."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/objiso_dress_T1.png",
+      "sha256": "1c749c33b0e4fa0864aaeeffee403f3eb4a7d9f384d89c7b21191eb3e4eeb4d8"
+    }
+  ]
+}

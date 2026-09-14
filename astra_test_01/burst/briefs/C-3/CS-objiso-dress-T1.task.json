@@ -1,0 +1,18 @@
+{
+ "text": "GENERATE BURST CS-objiso-dress-T1 — ISOLATE painted scenery from its own scene crops (Matt fallback, R-C3-61/64/68). task_id \"CS-objiso-dress-T1\".\n\nIMAGE 1 (1536×1024) is a sheet on flat PURE GREEN #00ff00 holding enlarged crops of a hand-painted 2D ARPG level at sunset (light from the upper-left): ONE living mature tree (trunk, roots at its base, branches and full leafy crown). KEEP ONLY THE TREE. Remove everything else to flat green: the ground, dirt, grass, the shrubs and ferns around its base, the two blackened STUMPS, pebbles, and all shadows on the ground. Where a removed shrub hid the base of the trunk or roots, paint the trunk base and roots complete, matching the tree.\nUse image_gen in EDIT mode on IMAGE 1 and deliver ONE 1536×1024 image in which every kept object stays EXACTLY as painted — same pixels, same position in the sheet, same size, outline, colours and lighting (including its own shaded sides, moss or grass growing ON it) — and everything else is flat PURE GREEN #00ff00 with a crisp edge against each object (no halo, no glow, no blur, no green inside leaf gaps that were sky/ground — gaps between leaves and branches become green too). Where an object's base met the ground, finish its bottom edge cleanly. Nothing new is added; nothing moves.\n\nOne image_gen call. ONE retry only if a kept object moved, was resized or redrawn differently, ground/shadow/removed objects remain, or the green is not flat — name the reason. Copy the output from $CODEX_HOME/generated_images/... to out/objiso_dress_T1.png with sha256. No code. No other files. No web.\nRETURN: receipt task_id \"CS-objiso-dress-T1\"; images = the file with prompt, references and elapsed_s; calls_used = the TRUE number of image_gen calls; status; concerns. Never PASS/FAIL.",
+ "references": [
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/CS-clutter-canvases/objsheet_dress_T1.png",
+   "role": "IMAGE 1 — sheet to isolate (EDIT)"
+  }
+ ],
+ "image_cap": 2,
+ "minutes_cap": 15,
+ "tool_call_cap": 20,
+ "outputs": [
+  "out/objiso_dress_T1.png"
+ ],
+ "effort": "high",
+ "add_dirs": [],
+ "experiment": "C3-cliffside-dress"
+}

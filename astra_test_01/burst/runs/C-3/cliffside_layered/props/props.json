@@ -1,0 +1,208 @@
+{
+  "assets": [
+    {
+      "name": "tree_living_a",
+      "file": "assets/tree_living_a.png",
+      "anchor": [
+        328.013986013986,
+        561
+      ],
+      "footprint": {
+        "w": 80,
+        "h": 64
+      },
+      "collide": true,
+      "fade_when_behind": true
+    },
+    {
+      "name": "tree_living_b",
+      "file": "assets/tree_living_b.png",
+      "anchor": [
+        341.3105590062112,
+        542
+      ],
+      "footprint": {
+        "w": 80,
+        "h": 64
+      },
+      "collide": true,
+      "fade_when_behind": true
+    },
+    {
+      "name": "snag_scorched",
+      "file": "assets/snag_scorched.png",
+      "anchor": [
+        136.1290322580645,
+        281
+      ],
+      "footprint": {
+        "w": 60,
+        "h": 48
+      },
+      "collide": true,
+      "fade_when_behind": true
+    },
+    {
+      "name": "stump_a",
+      "file": "assets/stump_a.png",
+      "anchor": [
+        51.68735083532219,
+        98
+      ],
+      "footprint": {
+        "w": 70,
+        "h": 56
+      },
+      "collide": true,
+      "fade_when_behind": false
+    },
+    {
+      "name": "stump_b",
+      "file": "assets/stump_b.png",
+      "anchor": [
+        95.17901234567901,
+        103
+      ],
+      "footprint": {
+        "w": 70,
+        "h": 56
+      },
+      "collide": true,
+      "fade_when_behind": false
+    },
+    {
+      "name": "cache_crates_barrel",
+      "file": "assets/cache_crates_barrel.png",
+      "anchor": [
+        40.782051282051285,
+        125
+      ],
+      "footprint": {
+        "w": 150,
+        "h": 90
+      },
+      "collide": true,
+      "fade_when_behind": false
+    },
+    {
+      "name": "rock_a",
+      "file": "assets/rock_a.png",
+      "anchor": [
+        40.36054421768708,
+        55
+      ],
+      "footprint": {
+        "w": 80,
+        "h": 64
+      },
+      "collide": true,
+      "fade_when_behind": false
+    },
+    {
+      "name": "rock_b",
+      "file": "assets/rock_b.png",
+      "anchor": [
+        30.905940594059405,
+        62
+      ],
+      "footprint": {
+        "w": 80,
+        "h": 64
+      },
+      "collide": true,
+      "fade_when_behind": false
+    },
+    {
+      "name": "rock_c",
+      "file": "assets/rock_c.png",
+      "anchor": [
+        47.31764705882353,
+        61
+      ],
+      "footprint": {
+        "w": 80,
+        "h": 64
+      },
+      "collide": true,
+      "fade_when_behind": false
+    }
+  ],
+  "instances": [
+    {
+      "asset": "tree_living_a",
+      "position": [
+        1896.0139860139861,
+        2765
+      ]
+    },
+    {
+      "asset": "tree_living_b",
+      "position": [
+        2727.3105590062114,
+        2489
+      ]
+    },
+    {
+      "asset": "snag_scorched",
+      "position": [
+        1743.1290322580644,
+        2169
+      ]
+    },
+    {
+      "asset": "stump_a",
+      "position": [
+        1709.6873508353221,
+        2781
+      ]
+    },
+    {
+      "asset": "stump_b",
+      "position": [
+        2182.179012345679,
+        2769
+      ]
+    },
+    {
+      "asset": "cache_crates_barrel",
+      "position": [
+        2803.7820512820513,
+        2475
+      ]
+    },
+    {
+      "asset": "rock_a",
+      "position": [
+        1772.360544217687,
+        2165
+      ]
+    },
+    {
+      "asset": "rock_b",
+      "position": [
+        2615.9059405940593,
+        2428
+      ]
+    },
+    {
+      "asset": "rock_c",
+      "position": [
+        2656.3176470588232,
+        2535
+      ]
+    }
+  ],
+  "shadows": [
+    {
+      "file": "shadow_spawn.png",
+      "position": [
+        1517,
+        1847
+      ],
+      "opacity": 1.0
+    }
+  ],
+  "overhead": [],
+  "near": [],
+  "particles": []
+}

@@ -1,0 +1,991 @@
+{
+  "assets": [
+    {
+      "name": "tree_living_a",
+      "kind": "tree",
+      "size_px": [
+        666,
+        566
+      ],
+      "anchor": [
+        328.013986013986,
+        561
+      ],
+      "level_position": [
+        1896.0139860139861,
+        2765
+      ],
+      "crop_anchor": [
+        379.013986013986,
+        918
+      ],
+      "crop_top_left": [
+        51,
+        357
+      ],
+      "footprint": {
+        "w": 80,
+        "h": 64
+      },
+      "scale_gate": {
+        "expected_bbox_px": {
+          "height": 594.96,
+          "width": 553.4100000000001
+        },
+        "measured_bbox_px": {
+          "height": 556,
+          "width": 654
+        },
+        "ratios": {
+          "height": 0.9345166061583972,
+          "width": 1.1817639724616467
+        },
+        "tolerance": 0.25,
+        "status": "PASS"
+      },
+      "light": "upper-left",
+      "register": "H1",
+      "registration": {
+        "shift_px": [
+          0,
+          0
+        ],
+        "residual_rgb_mae": 11.07524585723877,
+        "sample_count": 178168,
+        "shift_flag": false,
+        "residual_flag": false,
+        "at_search_boundary": false
+      },
+      "opaque_bbox_in_resized_tile": [
+        18,
+        16,
+        672,
+        572
+      ],
+      "component_filter": {
+        "threshold": 32,
+        "grouping_dilation_px": 3,
+        "dilation_connectivity": "scipy default 4-connected, iterated 3 times",
+        "groups": 1,
+        "kept_groups": [
+          {
+            "label": 1,
+            "support_px": 189896,
+            "touches_dilated_border": true
+          }
+        ],
+        "removed_nonzero_alpha_px": 191024,
+        "opaque_touches_tile_border": false
+      },
+      "matte": {
+        "method": "green excess matte + inverse straight-alpha compositing + nearest fully-opaque RGB clamp",
+        "removed_background_or_detached_alpha_dust_pixels": 0,
+        "native_input_alpha": false,
+        "alpha_floor": null,
+        "alpha_floor_removed_pixels": 0,
+        "temporary_green_padding_px": 0
+      },
+      "provenance": {
+        "dress edit": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/CS-dress-spawn/dress_spawn.png",
+        "isolate burst": "CS-objiso-dress-T1",
+        "sheet": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/CS-objiso-dress-T1/objiso_dress_T1.png",
+        "tile": {
+          "id": "tree_living_a",
+          "crop_box": [
+            39,
+            346,
+            728,
+            921
+          ],
+          "sheet_xy": [
+            24,
+            24
+          ],
+          "sheet_size": [
+            1034,
+            862
+          ],
+          "scale": 1.5
+        }
+      }
+    },
+    {
+      "name": "tree_living_b",
+      "kind": "tree",
+      "size_px": [
+        639,
+        548
+      ],
+      "anchor": [
+        341.3105590062112,
+        542
+      ],
+      "level_position": [
+        2727.3105590062114,
+        2489
+      ],
+      "crop_anchor": [
+        1210.3105590062112,
+        642
+      ],
+      "crop_top_left": [
+        869,
+        100
+      ],
+      "footprint": {
+        "w": 80,
+        "h": 64
+      },
+      "scale_gate": {
+        "expected_bbox_px": {
+          "height": 594.96,
+          "width": 553.4100000000001
+        },
+        "measured_bbox_px": {
+          "height": 540,
+          "width": 631
+        },
+        "ratios": {
+          "height": 0.9076240419524001,
+          "width": 1.140203465784861
+        },
+        "tolerance": 0.25,
+        "status": "PASS"
+      },
+      "light": "upper-left",
+      "register": "H1",
+      "registration": {
+        "shift_px": [
+          0,
+          0
+        ],
+        "residual_rgb_mae": 9.092270851135254,
+        "sample_count": 167771,
+        "shift_flag": false,
+        "residual_flag": false,
+        "at_search_boundary": false
+      },
+      "opaque_bbox_in_resized_tile": [
+        16,
+        0,
+        647,
+        540
+      ],
+      "component_filter": {
+        "threshold": 32,
+        "grouping_dilation_px": 3,
+        "dilation_connectivity": "scipy default 4-connected, iterated 3 times",
+        "groups": 1,
+        "kept_groups": [
+          {
+            "label": 1,
+            "support_px": 176429,
+            "touches_dilated_border": true
+          }
+        ],
+        "removed_nonzero_alpha_px": 176152,
+        "opaque_touches_tile_border": true
+      },
+      "matte": {
+        "method": "green excess matte + inverse straight-alpha compositing + nearest fully-opaque RGB clamp",
+        "removed_background_or_detached_alpha_dust_pixels": 0,
+        "native_input_alpha": false,
+        "alpha_floor": null,
+        "alpha_floor_removed_pixels": 0,
+        "temporary_green_padding_px": 0
+      },
+      "provenance": {
+        "dress edit": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/CS-dress-spawn/dress_spawn.png",
+        "isolate burst": "CS-objiso-dress-T2",
+        "sheet": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/CS-objiso-dress-T2/objiso_dress_T2.png",
+        "tile": {
+          "id": "tree_living_b",
+          "crop_box": [
+            859,
+            102,
+            1506,
+            666
+          ],
+          "sheet_xy": [
+            24,
+            24
+          ],
+          "sheet_size": [
+            970,
+            846
+          ],
+          "scale": 1.5
+        }
+      }
+    },
+    {
+      "name": "snag_scorched",
+      "kind": "snag",
+      "size_px": [
+        168,
+        286
+      ],
+      "anchor": [
+        136.1290322580645,
+        281
+      ],
+      "level_position": [
+        1743.1290322580644,
+        2169
+      ],
+      "crop_anchor": [
+        226.1290322580645,
+        322
+      ],
+      "crop_top_left": [
+        90,
+        41
+      ],
+      "footprint": {
+        "w": 60,
+        "h": 48
+      },
+      "scale_gate": {
+        "expected_bbox_px": {
+          "height": 337.03799999999995,
+          "width": 160.99200000000002
+        },
+        "measured_bbox_px": {
+          "height": 276,
+          "width": 158
+        },
+        "ratios": {
+          "height": 0.8188987591903585,
+          "width": 0.981415225601272
+        },
+        "tolerance": 0.25,
+        "status": "PASS"
+      },
+      "light": "upper-left",
+      "register": "H1",
+      "registration": {
+        "shift_px": [
+          0,
+          0
+        ],
+        "residual_rgb_mae": 15.379218101501465,
+        "sample_count": 11725,
+        "shift_flag": false,
+        "residual_flag": false,
+        "at_search_boundary": false
+      },
+      "opaque_bbox_in_resized_tile": [
+        3,
+        24,
+        161,
+        300
+      ],
+      "component_filter": {
+        "threshold": 32,
+        "grouping_dilation_px": 3,
+        "dilation_connectivity": "scipy default 4-connected, iterated 3 times",
+        "groups": 3,
+        "kept_groups": [
+          {
+            "label": 1,
+            "support_px": 12769,
+            "touches_dilated_border": true
+          }
+        ],
+        "removed_nonzero_alpha_px": 39421,
+        "opaque_touches_tile_border": false
+      },
+      "matte": {
+        "method": "green excess matte + inverse straight-alpha compositing + nearest fully-opaque RGB clamp",
+        "removed_background_or_detached_alpha_dust_pixels": 0,
+        "native_input_alpha": false,
+        "alpha_floor": null,
+        "alpha_floor_removed_pixels": 0,
+        "temporary_green_padding_px": 0
+      },
+      "provenance": {
+        "dress edit": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/CS-dress-spawn/dress_spawn.png",
+        "isolate burst": "CS-objiso-dress-P",
+        "sheet": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/CS-objiso-dress-P/objiso_dress_P.png",
+        "tile": {
+          "id": "snag_scorched",
+          "crop_box": [
+            92,
+            22,
+            274,
+            328
+          ],
+          "sheet_xy": [
+            24,
+            24
+          ],
+          "sheet_size": [
+            364,
+            612
+          ],
+          "scale": 2
+        }
+      }
+    },
+    {
+      "name": "stump_a",
+      "kind": "stump",
+      "size_px": [
+        125,
+        104
+      ],
+      "anchor": [
+        51.68735083532219,
+        98
+      ],
+      "level_position": [
+        1709.6873508353221,
+        2781
+      ],
+      "crop_anchor": [
+        192.6873508353222,
+        934
+      ],
+      "crop_top_left": [
+        141,
+        836
+      ],
+      "footprint": {
+        "w": 70,
+        "h": 56
+      },
+      "scale_gate": {
+        "expected_bbox_px": {
+          "height": 100.62,
+          "width": 80.49600000000001
+        },
+        "measured_bbox_px": {
+          "height": 93,
+          "width": 114
+        },
+        "ratios": {
+          "height": 0.9242695289206917,
+          "width": 1.4162194394752532
+        },
+        "tolerance": 0.25,
+        "status": "FAIL"
+      },
+      "light": "upper-left",
+      "register": "H1",
+      "registration": {
+        "shift_px": [
+          0,
+          0
+        ],
+        "residual_rgb_mae": 13.37305736541748,
+        "sample_count": 5983,
+        "shift_flag": false,
+        "residual_flag": false,
+        "at_search_boundary": false
+      },
+      "opaque_bbox_in_resized_tile": [
+        4,
+        25,
+        118,
+        118
+      ],
+      "component_filter": {
+        "threshold": 32,
+        "grouping_dilation_px": 3,
+        "dilation_connectivity": "scipy default 4-connected, iterated 3 times",
+        "groups": 1,
+        "kept_groups": [
+          {
+            "label": 1,
+            "support_px": 6309,
+            "touches_dilated_border": false
+          }
+        ],
+        "removed_nonzero_alpha_px": 8658,
+        "opaque_touches_tile_border": false
+      },
+      "matte": {
+        "method": "green excess matte + inverse straight-alpha compositing + nearest fully-opaque RGB clamp",
+        "removed_background_or_detached_alpha_dust_pixels": 0,
+        "native_input_alpha": false,
+        "alpha_floor": null,
+        "alpha_floor_removed_pixels": 0,
+        "temporary_green_padding_px": 0
+      },
+      "provenance": {
+        "dress edit": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/CS-dress-spawn/dress_spawn.png",
+        "isolate burst": "CS-objiso-dress-P",
+        "sheet": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/CS-objiso-dress-P/objiso_dress_P.png",
+        "tile": {
+          "id": "stump_a",
+          "crop_box": [
+            142,
+            816,
+            268,
+            944
+          ],
+          "sheet_xy": [
+            360,
+            24
+          ],
+          "sheet_size": [
+            252,
+            256
+          ],
+          "scale": 2
+        }
+      }
+    },
+    {
+      "name": "stump_b",
+      "kind": "stump",
+      "size_px": [
+        127,
+        107
+      ],
+      "anchor": [
+        95.17901234567901,
+        103
+      ],
+      "level_position": [
+        2182.179012345679,
+        2769
+      ],
+      "crop_anchor": [
+        665.179012345679,
+        922
+      ],
+      "crop_top_left": [
+        570,
+        819
+      ],
+      "footprint": {
+        "w": 70,
+        "h": 56
+      },
+      "scale_gate": {
+        "expected_bbox_px": {
+          "height": 100.62,
+          "width": 80.49600000000001
+        },
+        "measured_bbox_px": {
+          "height": 98,
+          "width": 120
+        },
+        "ratios": {
+          "height": 0.9739614390777181,
+          "width": 1.490757304710793
+        },
+        "tolerance": 0.25,
+        "status": "FAIL"
+      },
+      "light": "upper-left",
+      "register": "H1",
+      "registration": {
+        "shift_px": [
+          0,
+          0
+        ],
+        "residual_rgb_mae": 13.128155708312988,
+        "sample_count": 5228,
+        "shift_flag": false,
+        "residual_flag": false,
+        "at_search_boundary": false
+      },
+      "opaque_bbox_in_resized_tile": [
+        0,
+        22,
+        120,
+        120
+      ],
+      "component_filter": {
+        "threshold": 32,
+        "grouping_dilation_px": 3,
+        "dilation_connectivity": "scipy default 4-connected, iterated 3 times",
+        "groups": 3,
+        "kept_groups": [
+          {
+            "label": 3,
+            "support_px": 5581,
+            "touches_dilated_border": true
+          }
+        ],
+        "removed_nonzero_alpha_px": 8630,
+        "opaque_touches_tile_border": true
+      },
+      "matte": {
+        "method": "green excess matte + inverse straight-alpha compositing + nearest fully-opaque RGB clamp",
+        "removed_background_or_detached_alpha_dust_pixels": 0,
+        "native_input_alpha": false,
+        "alpha_floor": null,
+        "alpha_floor_removed_pixels": 0,
+        "temporary_green_padding_px": 10
+      },
+      "provenance": {
+        "dress edit": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/CS-dress-spawn/dress_spawn.png",
+        "isolate burst": "CS-objiso-dress-P",
+        "sheet": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/CS-objiso-dress-P/objiso_dress_P.png",
+        "tile": {
+          "id": "stump_b",
+          "crop_box": [
+            572,
+            802,
+            698,
+            924
+          ],
+          "sheet_xy": [
+            360,
+            260
+          ],
+          "sheet_size": [
+            252,
+            244
+          ],
+          "scale": 2
+        }
+      }
+    },
+    {
+      "name": "cache_crates_barrel",
+      "kind": "cache",
+      "size_px": [
+        140,
+        131
+      ],
+      "anchor": [
+        40.782051282051285,
+        125
+      ],
+      "level_position": [
+        2803.7820512820513,
+        2475
+      ],
+      "crop_anchor": [
+        1286.7820512820513,
+        628
+      ],
+      "crop_top_left": [
+        1246,
+        503
+      ],
+      "footprint": {
+        "w": 150,
+        "h": 90
+      },
+      "scale_gate": {
+        "expected_bbox_px": {
+          "height": 153.054,
+          "width": 150.93
+        },
+        "measured_bbox_px": {
+          "height": 120,
+          "width": 129
+        },
+        "ratios": {
+          "height": 0.784037006546709,
+          "width": 0.8547008547008547
+        },
+        "tolerance": 0.25,
+        "status": "PASS"
+      },
+      "light": "upper-left",
+      "register": "H1",
+      "registration": {
+        "shift_px": [
+          0,
+          0
+        ],
+        "residual_rgb_mae": 14.179849624633789,
+        "sample_count": 10253,
+        "shift_flag": false,
+        "residual_flag": false,
+        "at_search_boundary": false
+      },
+      "opaque_bbox_in_resized_tile": [
+        23,
+        22,
+        152,
+        142
+      ],
+      "component_filter": {
+        "threshold": 32,
+        "grouping_dilation_px": 3,
+        "dilation_connectivity": "scipy default 4-connected, iterated 3 times",
+        "groups": 1,
+        "kept_groups": [
+          {
+            "label": 1,
+            "support_px": 10585,
+            "touches_dilated_border": false
+          }
+        ],
+        "removed_nonzero_alpha_px": 18924,
+        "opaque_touches_tile_border": false
+      },
+      "matte": {
+        "method": "green excess matte + inverse straight-alpha compositing + nearest fully-opaque RGB clamp",
+        "removed_background_or_detached_alpha_dust_pixels": 0,
+        "native_input_alpha": false,
+        "alpha_floor": null,
+        "alpha_floor_removed_pixels": 0,
+        "temporary_green_padding_px": 0
+      },
+      "provenance": {
+        "dress edit": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/CS-dress-spawn/dress_spawn.png",
+        "isolate burst": "CS-objiso-dress-P",
+        "sheet": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/CS-objiso-dress-P/objiso_dress_P.png",
+        "tile": {
+          "id": "cache_crates_barrel",
+          "crop_box": [
+            1229,
+            486,
+            1408,
+            658
+          ],
+          "sheet_xy": [
+            620,
+            24
+          ],
+          "sheet_size": [
+            358,
+            344
+          ],
+          "scale": 2
+        }
+      }
+    },
+    {
+      "name": "rock_a",
+      "kind": "rock",
+      "size_px": [
+        105,
+        60
+      ],
+      "anchor": [
+        40.36054421768708,
+        55
+      ],
+      "level_position": [
+        1772.360544217687,
+        2165
+      ],
+      "crop_anchor": [
+        255.36054421768708,
+        318
+      ],
+      "crop_top_left": [
+        215,
+        263
+      ],
+      "footprint": {
+        "w": 80,
+        "h": 64
+      },
+      "scale_gate": {
+        "expected_bbox_px": {
+          "height": 94.558,
+          "width": 90.558
+        },
+        "measured_bbox_px": {
+          "height": 49,
+          "width": 97
+        },
+        "ratios": {
+          "height": 0.5182004695530785,
+          "width": 1.0711367300514587
+        },
+        "tolerance": 0.25,
+        "status": "FAIL"
+      },
+      "light": "upper-left",
+      "register": "H1",
+      "registration": {
+        "shift_px": [
+          0,
+          0
+        ],
+        "residual_rgb_mae": 11.887575149536133,
+        "sample_count": 3045,
+        "shift_flag": false,
+        "residual_flag": false,
+        "at_search_boundary": false
+      },
+      "opaque_bbox_in_resized_tile": [
+        25,
+        23,
+        122,
+        72
+      ],
+      "component_filter": {
+        "threshold": 32,
+        "grouping_dilation_px": 3,
+        "dilation_connectivity": "scipy default 4-connected, iterated 3 times",
+        "groups": 1,
+        "kept_groups": [
+          {
+            "label": 1,
+            "support_px": 3248,
+            "touches_dilated_border": true
+          }
+        ],
+        "removed_nonzero_alpha_px": 6805,
+        "opaque_touches_tile_border": true
+      },
+      "matte": {
+        "method": "green excess matte + inverse straight-alpha compositing + nearest fully-opaque RGB clamp",
+        "removed_background_or_detached_alpha_dust_pixels": 0,
+        "native_input_alpha": false,
+        "alpha_floor": null,
+        "alpha_floor_removed_pixels": 0,
+        "temporary_green_padding_px": 0
+      },
+      "provenance": {
+        "dress edit": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/CS-dress-spawn/dress_spawn.png",
+        "isolate burst": "CS-objiso-dress-P",
+        "sheet": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/CS-objiso-dress-P/objiso_dress_P.png",
+        "tile": {
+          "id": "rock_a",
+          "crop_box": [
+            196,
+            246,
+            318,
+            334
+          ],
+          "sheet_xy": [
+            1000,
+            24
+          ],
+          "sheet_size": [
+            244,
+            176
+          ],
+          "scale": 2
+        }
+      }
+    },
+    {
+      "name": "rock_b",
+      "kind": "rock",
+      "size_px": [
+        100,
+        68
+      ],
+      "anchor": [
+        30.905940594059405,
+        62
+      ],
+      "level_position": [
+        2615.9059405940593,
+        2428
+      ],
+      "crop_anchor": [
+        1098.9059405940593,
+        581
+      ],
+      "crop_top_left": [
+        1068,
+        519
+      ],
+      "footprint": {
+        "w": 80,
+        "h": 64
+      },
+      "scale_gate": {
+        "expected_bbox_px": {
+          "height": 94.558,
+          "width": 90.558
+        },
+        "measured_bbox_px": {
+          "height": 56,
+          "width": 88
+        },
+        "ratios": {
+          "height": 0.5922291080606611,
+          "width": 0.9717529097374058
+        },
+        "tolerance": 0.25,
+        "status": "FAIL"
+      },
+      "light": "upper-left",
+      "register": "H1",
+      "registration": {
+        "shift_px": [
+          0,
+          0
+        ],
+        "residual_rgb_mae": 21.445112228393555,
+        "sample_count": 3161,
+        "shift_flag": false,
+        "residual_flag": true,
+        "at_search_boundary": false
+      },
+      "opaque_bbox_in_resized_tile": [
+        7,
+        19,
+        95,
+        75
+      ],
+      "component_filter": {
+        "threshold": 32,
+        "grouping_dilation_px": 3,
+        "dilation_connectivity": "scipy default 4-connected, iterated 3 times",
+        "groups": 1,
+        "kept_groups": [
+          {
+            "label": 1,
+            "support_px": 3354,
+            "touches_dilated_border": false
+          }
+        ],
+        "removed_nonzero_alpha_px": 4862,
+        "opaque_touches_tile_border": false
+      },
+      "matte": {
+        "method": "green excess matte + inverse straight-alpha compositing + nearest fully-opaque RGB clamp",
+        "removed_background_or_detached_alpha_dust_pixels": 0,
+        "native_input_alpha": false,
+        "alpha_floor": null,
+        "alpha_floor_removed_pixels": 0,
+        "temporary_green_padding_px": 0
+      },
+      "provenance": {
+        "dress edit": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/CS-dress-spawn/dress_spawn.png",
+        "isolate burst": "CS-objiso-dress-P",
+        "sheet": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/CS-objiso-dress-P/objiso_dress_P.png",
+        "tile": {
+          "id": "rock_b",
+          "crop_box": [
+            1067,
+            506,
+            1168,
+            594
+          ],
+          "sheet_xy": [
+            1000,
+            180
+          ],
+          "sheet_size": [
+            202,
+            176
+          ],
+          "scale": 2
+        }
+      }
+    },
+    {
+      "name": "rock_c",
+      "kind": "rock",
+      "size_px": [
+        98,
+        66
+      ],
+      "anchor": [
+        47.31764705882353,
+        61
+      ],
+      "level_position": [
+        2656.3176470588232,
+        2535
+      ],
+      "crop_anchor": [
+        1139.3176470588235,
+        688
+      ],
+      "crop_top_left": [
+        1092,
+        627
+      ],
+      "footprint": {
+        "w": 80,
+        "h": 64
+      },
+      "scale_gate": {
+        "expected_bbox_px": {
+          "height": 94.558,
+          "width": 90.558
+        },
+        "measured_bbox_px": {
+          "height": 55,
+          "width": 87
+        },
+        "ratios": {
+          "height": 0.5816535882738636,
+          "width": 0.9607102630358444
+        },
+        "tolerance": 0.25,
+        "status": "FAIL"
+      },
+      "light": "upper-left",
+      "register": "H1",
+      "registration": {
+        "shift_px": [
+          0,
+          0
+        ],
+        "residual_rgb_mae": 23.811946868896484,
+        "sample_count": 3047,
+        "shift_flag": false,
+        "residual_flag": true,
+        "at_search_boundary": false
+      },
+      "opaque_bbox_in_resized_tile": [
+        6,
+        21,
+        93,
+        76
+      ],
+      "component_filter": {
+        "threshold": 32,
+        "grouping_dilation_px": 3,
+        "dilation_connectivity": "scipy default 4-connected, iterated 3 times",
+        "groups": 2,
+        "kept_groups": [
+          {
+            "label": 2,
+            "support_px": 3232,
+            "touches_dilated_border": false
+          }
+        ],
+        "removed_nonzero_alpha_px": 4817,
+        "opaque_touches_tile_border": false
+      },
+      "matte": {
+        "method": "green excess matte + inverse straight-alpha compositing + nearest fully-opaque RGB clamp",
+        "removed_background_or_detached_alpha_dust_pixels": 0,
+        "native_input_alpha": false,
+        "alpha_floor": null,
+        "alpha_floor_removed_pixels": 0,
+        "temporary_green_padding_px": 0
+      },
+      "provenance": {
+        "dress edit": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/CS-dress-spawn/dress_spawn.png",
+        "isolate burst": "CS-objiso-dress-P",
+        "sheet": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/CS-objiso-dress-P/objiso_dress_P.png",
+        "tile": {
+          "id": "rock_c",
+          "crop_box": [
+            1092,
+            612,
+            1198,
+            694
+          ],
+          "sheet_xy": [
+            1000,
+            330
+          ],
+          "sheet_size": [
+            212,
+            164
+          ],
+          "scale": 2
+        }
+      }
+    }
+  ],
+  "crop_origin_px": [
+    1517,
+    1847
+  ],
+  "register": "H1",
+  "light": "upper-left"
+}

@@ -1,0 +1,13 @@
+CS-assets-dress — measured report only
+Assets/instances: 9/9; image_gen calls: 0.
+T3l loader: accepted; RGBA textures read: 10.
+Scale gate: 4 within both bands; 5 outside.
+Registration flagged: 2 of 9.
+Rebuild RGB MAE: 13.0933; absolute RGB p95: 47.0.
+Shadow: 1536x1024; Gaussian sigma 11, soften sigma 2; no exclusion under assets.
+Rebuild uses shipped 8-bit shadow alpha and increasing anchor-y asset order.
+stump_b: one retry with temporary 10-px green border; original 94.44% green border rejected.
+Opaque tile-border contacts: 3; see checks.json.
+No corrective scaling applied; sizes use supplied crop boxes.
+Full measurements, assumptions and concerns: checks.json and catalogue.json.
+Visible vegetation/detail differences remain; the prescribed shadow only darkens the bare ground.

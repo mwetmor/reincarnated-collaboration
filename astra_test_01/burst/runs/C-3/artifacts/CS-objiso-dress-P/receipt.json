@@ -1,0 +1,39 @@
+{
+  "task_id": "CS-objiso-dress-P",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "objiso_dress_P",
+      "path": "out/objiso_dress_P.png",
+      "sha256": "ec052588373b97c08860b9e27eb7b0112262cf993d3e12c9ebc7fbc7dafe8550",
+      "prompt": "Use case: background-extraction. EDIT Image 1, the supplied 1536x1024 scenery crop sheet. Deliver one 1536x1024 PNG. This is precise isolation of existing painted objects: preserve their original painted pixels, exact coordinates, sizes, contours, colors, own shaded sides, and upper-left sunset illumination. Do not redesign, repaint, reposition, rescale, relight, or rearrange anything. Keep exactly seven object groups: the tall scorched dead snag with its ember crack at left; the two blackened stumps in the next column; the two wooden crates and barrel group at upper center; and the three rocks in the right column, including small stones touching each rock. Keep the snag's own branches and roots and its ember glow; keep moss or grass growing ON the objects. Remove ALL scenery surrounding these seven groups: dirt, ground, all ground shadows, grass growing from ground, shrubs, ferns, stone rim, intruding other trees and their leaves/branches, and incidental rocks in the snag's crop. Replace removed regions with perfectly flat pure RGB(0,255,0) #00ff00 matching the existing green sheet. All negative spaces and gaps between branches or leaves where ground/background was visible become pure green too. Retain only the exact silhouettes of these objects, finishing bottom edges cleanly where they met ground. Crisp edges without halo, blur, or added glow. Do not remove the ember glow within the snag. Nothing new is added and nothing moves. Preserve original hand-drawn painted 2D artwork with confident dark varying-weight contours, clean material planes and restrained texture. Preserve the source camera. The large empty bottom and right of sheet remain pure green. No labels or new art.",
+      "references": [
+        {
+          "role": "IMAGE 1 — sheet to isolate (EDIT)",
+          "path": "in/01_objsheet_dress_P.png"
+        }
+      ],
+      "elapsed_s": 30.952
+    }
+  ],
+  "calls_used": 2,
+  "retries": [
+    {
+      "reason": "First result redrew object contours and details, especially the snag.",
+      "change": "Retried from the original sheet with stronger background-only and source-pixel preservation instructions. Retry still altered details and lost the ember glow; retained the first result."
+    }
+  ],
+  "self_report": {
+    "obeyed_invariants": false,
+    "concerns": [
+      "Delivered PNG is 1536×1024 with seven isolated object groups, but exact source pixels and silhouettes were not preserved.",
+      "Exact background uniformity at #00ff00 was not numerically verified."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/objiso_dress_P.png",
+      "sha256": "ec052588373b97c08860b9e27eb7b0112262cf993d3e12c9ebc7fbc7dafe8550"
+    }
+  ]
+}

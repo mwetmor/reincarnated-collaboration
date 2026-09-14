@@ -1,0 +1,48 @@
+{
+  "task_id": "CS-dress-spawn",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "dress_spawn",
+      "path": "out/dress_spawn.png",
+      "sha256": "7c98c3dd9ff289f6319f7be4b860f57cdf7639bc95b64cc236ae141b39e1dae1",
+      "prompt": "Use case: precise-object-edit. Edit IMAGE 1 only, preserving its exact 1536×1024 canvas, camera, terrain layout, painted ground details and pure #00ff00 top-left void. Output ONE 1536×1024 PNG. IMAGE 2 is reference only for the exact in-world size of a 1.75 m person; IMAGE 3 is reference only for camera-projected object dimensions. Never reproduce people, magenta marks, grey chart backgrounds or diagrams.\nDress this last green cliff-top clearing before a forest fire, in priority order: TWO living mature trees, ONE scorched dead snag, TWO blackened stumps, a small cluster of 2–3 rocks, a traveller's cache of 1–2 wooden crates and one upright barrel beneath a living tree, and a few shrubs and ferns. All trunks and props must stand entirely on the existing grassy margins, leaving the dirt path and central clearing open and walkable. Crowns may overhang the path.\nTREE SCALE IS CRITICAL: use IMAGE 3's mature 8 m tree with a 5.5 m crown at exactly the reference's projected size relative to the people in IMAGE 2. Two substantial mature trees, approximately 7–9 m tall and crowns 5–6 m wide, not saplings. One stands in the right-hand grass, one in the lower-left grass. Place them low enough to show every branch and leaf with at least 40 px image-edge clearance. Suggested root placements are around (1210,820) and (400,920); retain each root on grass, spread the broad rounded irregular leafy crowns above these roots. Each crown should be about the large circle's diameter in IMAGE 3, around 550 px across, with total tree silhouette roughly 595 px tall. Keep the trunks separate. Crowns can overlap props behind them.\nPlace the 4–5 m charred dead snag beside the top-left grassy rocky rim, with a few broken branches and one faint ember glow in a crack; arrange its base low enough and inward enough to keep its entire silhouette at least 40 px from all image edges. Match IMAGE 3's snag size, roughly 325 px tall. Keep the two blackened stumps on grass. Match IMAGE 3's small props: 0.7 m crates, 0.9 m barrel, 0.9 m waist-high rocks and shrubs. Preserve the scale consistently across the orthographic elevated three-quarter projection.\nStyle: HAND-DRAWN painted 2D, like a frame of modern hand animation. Confident dark hand-drawn contours with visible taper and varying weight, clean painted material planes inside the lines, restrained surface texture, readable silhouettes, no conspicuous grain. Match IMAGE 1's existing painting and its sunset colors exactly. Preserve the fixed elevated approximately 45-degree three-quarter ARPG camera. Lighting stays from SCREEN UPPER-LEFT with cool readable low-value shade and slight key-facing rims; match the existing sunset illumination without relighting the ground. All added objects have soft ground-contact shadows. The living trees cast large DAPPLED canopy shadows toward SCREEN LOWER-RIGHT. The charred crack has only a faint local ember accent.\nSTRICT EDIT INVARIANTS: Change only pixels belonging to added trees, props, foliage or their physically appropriate shadows. All other ground, grass, flowers, pebbles, cliff edges, path texture, lighting and existing details remain EXACTLY as in IMAGE 1. Do not repaint, restyle, move, zoom, crop or reconstruct the background. Keep the main dirt route and central clearing free of trunks and props. Every added object and entire crown lies inside a 40 px safe margin. No overlapping trunks. No characters, creatures, text, UI, frame, border, vignette, chart marks or magenta lines. Existing green void remains flat pure #00ff00 in precisely its original shape. This is a dressed environment crop, not a sprite sheet.\nRETRY CORRECTION — HARD PLACEMENT BOUNDS OVERRIDE SUGGESTED POSITIONS ABOVE: The previous attempt incorrectly cropped the right crown against the top and right edges, cropped the snag at the top, and let the left crown approach the left edge. Re-edit the ORIGINAL bare IMAGE 1. The complete RIGHT tree, including ALL leaves, must fit within x=930..1485 and y=200..850, with its root anchored at (1210,820) on right grass. Do not put its root in the upper-right quadrant. The complete LEFT tree including ALL leaves must fit within x=120..700 and y=330..955, with its root anchored at (400,920) on lower-left grass. The dead snag must fit within x=65..245 and y=45..375, rooted on the rim grass near (110,350); shorten only its very highest broken tip if needed for the 40 px margin while retaining 4–5 m reference scale. These are mandatory placement envelopes, not drawn boxes. Keep the two tree crowns at the chart's mature size, moving them downward to fit rather than shrinking them. Preserve original terrain outside additions exactly. All crates, barrel, stumps, rocks, ferns and shrubs must also have at least 40 px canvas-edge clearance. No marks or diagrams.",
+      "references": [
+        {
+          "role": "IMAGE 1 — bare painted crop; edit target",
+          "path": "in/01_clutter_spawn_canvas.png"
+        },
+        {
+          "role": "IMAGE 2 — in-world scale figures; reference only",
+          "path": "in/02_dress_spawn_scale_figures.png"
+        },
+        {
+          "role": "IMAGE 3 — camera-projected size chart; reference only",
+          "path": "in/03_dress_size_chart.png"
+        }
+      ],
+      "elapsed_s": 39.49
+    }
+  ],
+  "calls_used": 2,
+  "retries": [
+    {
+      "reason": "First output clipped the right crown and dead snag at image edges; the left crown also violated the requested margin.",
+      "change": "Re-edited the original references with explicit placement envelopes and lower tree-root positions."
+    }
+  ],
+  "self_report": {
+    "obeyed_invariants": false,
+    "concerns": [
+      "Crowns appear broader than the size-chart target.",
+      "Canopy shadows do not clearly follow the required lower-right direction.",
+      "Exact preservation of background pixels and literal 40 px margins were not measured; inspection was visual."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/dress_spawn.png",
+      "sha256": "7c98c3dd9ff289f6319f7be4b860f57cdf7639bc95b64cc236ae141b39e1dae1"
+    }
+  ]
+}
