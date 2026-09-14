@@ -1,0 +1,17 @@
+{
+  "object_count": 12,
+  "sheet_count": 3,
+  "minimum_sheets_exhaustive_shelf_partition": 3,
+  "all_tiles_verified_against_resized_source": true,
+  "margins_and_gutters_verified_px": 24,
+  "unused_pixels_pure_green": true,
+  "dimensions_verified": [
+    1536,
+    1024
+  ],
+  "unique_complete_object_assignment": true,
+  "concerns": [
+    "Prescribed change-mask components can split a visual object (obj_06 and obj_11) or merge nearby objects (obj_03 and obj_05); crops retain surrounding ground as specified.",
+    "Unspecified filter conventions were resolved as 3x3 box luminance blur, standard unnormalized Sobel kernels, and Euclidean disk morphology; details are recorded in objects.json."
+  ]
+}

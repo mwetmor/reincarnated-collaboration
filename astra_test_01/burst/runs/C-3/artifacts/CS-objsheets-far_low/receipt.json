@@ -1,0 +1,40 @@
+{
+  "task_id": "CS-objsheets-far_low",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [],
+  "calls_used": 0,
+  "retries": [],
+  "self_report": {
+    "obeyed_invariants": true,
+    "concerns": [
+      "Required component merging produced 2 regions containing multiple visible props.",
+      "Interpreted 3-px luminance blur as a 3×3 box blur; conventions recorded in checks.json."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/candidates.png",
+      "sha256": "4daa3a859649f917f9611578fb7bbc71666e63b6dd2703cbcd5f96e5b5c9a160"
+    },
+    {
+      "path": "out/checks.json",
+      "sha256": "7cbcadcfeb3d0918169c41e05144424e4ddbd5a7fcb5b3e54993d88186c0356e"
+    },
+    {
+      "path": "out/layout.json",
+      "sha256": "05a764eb59a85e151342f39f72bb5802072ce9d3b1d61cb6a337381d527b968f"
+    },
+    {
+      "path": "out/sheet_1.png",
+      "sha256": "9c959b7c8d75758ce59ab2cfaba933ce9958e4c96a3dc89a1438fa5723eb5a7b"
+    },
+    {
+      "path": "out/sheet_2.png",
+      "sha256": "dec54953fe4de88cd017f18da9b4a7a76f31eeafbf25d9f279a8e06d0caea6e8"
+    },
+    {
+      "path": "out/summary.txt",
+      "sha256": "cddca23101091d351160c96a90e46525da6b1f07220efcc48d99576060e3f4f9"
+    }
+  ]
+}

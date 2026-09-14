@@ -1,0 +1,18 @@
+{
+ "text": "GENERATE BURST CS-cathedral — replace one duplicate temple ruin with a BURNING GOTHIC CATHEDRAL in a painted parallax background (Matt R-C3-70/72). task_id \"CS-cathedral\".\n\nIMAGE 1 (1536×1024) is a crop of a hand-painted distant-background layer for a 2D ARPG at sunset: violet mist-filled valleys, jagged rock spires and forested ridges seen from high above. On the large hilltop LEFT OF CENTRE stands a ruined domed classical temple (broken dome, columns, a thin smoke plume). A second, near-identical domed temple elsewhere in the layer makes the two look copy-pasted.\nUse image_gen in EDIT mode on IMAGE 1 and deliver ONE 1536×1024 image in which ONLY that hilltop temple is replaced by the ruins of a GOTHIC CATHEDRAL, recently destroyed and still BURNING: a tall, clearly vertical silhouette — one surviving pointed bell tower or spire (partly broken at the top), a long nave with pointed-arch window openings and broken flying buttresses, a shattered rose window, collapsed roof sections; fire glowing inside the arches, embers and a column of dark smoke rising and drifting to the right. It stands on the SAME hilltop, at the same distance and scale as the old temple (its footprint about as wide; the spire may rise up to ~1.6× the old dome's height), painted in the same style, palette, atmospheric haze and sunset rim light as the rest of IMAGE 1. Keep the hill, the rocks, trees, waterfalls and everything else exactly as painted. Any green area stays pure #00ff00.\n\nOne image_gen call. ONE retry only if the rest of the image was repainted, the cathedral reads as a dome/temple again, its scale is clearly wrong for the distance, or it is not burning — name the reason. Copy the output from $CODEX_HOME/generated_images/... to out/cathedral.png with sha256. No code. No other files. No web.\nRETURN: receipt task_id \"CS-cathedral\"; images = the file with prompt, references and elapsed_s; calls_used = the TRUE number of image_gen calls; status; concerns. Never PASS/FAIL.",
+ "references": [
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/CS-cathedral-canvases/cathedral_canvas.png",
+   "role": "IMAGE 1 — background layer crop to EDIT"
+  }
+ ],
+ "image_cap": 2,
+ "minutes_cap": 15,
+ "tool_call_cap": 20,
+ "outputs": [
+  "out/cathedral.png"
+ ],
+ "effort": "high",
+ "add_dirs": [],
+ "experiment": "C3-cliffside-layers"
+}

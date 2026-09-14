@@ -1,0 +1,12 @@
+Task: CS-assets-far_low
+Assets: 7; instances: 7; shadows: 1
+Frozen loader verdict: accepted
+Rebuild RGB MAE: 9.196; panels 768 x 512 each; AFTER bare tree absent from sheets
+Matte: frozen extract, clamp, preserve_particles=True; premultiplied LANCZOS 1/scale
+Split: alpha >=32; radius-3 dilation; border groups and groups <250 pixels dropped
+Anchors: alpha >=128; bottom six rows; fade if opaque height >200 pixels
+Shadow: luminance ratio, Gaussian sigma 11, threshold .05, clip .7, soften sigma 2
+Footprints: 60 x 40 placeholders; no image generation
+obj_02: shift [0, 0]; residual 11.671; flags []
+obj_01: shift [0, 0]; residual 9.503; flags []
+Read-scope concern: initial SPEC search also printed T3o; unused.

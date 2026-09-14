@@ -1,0 +1,36 @@
+{
+  "task_id": "CS-embers",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "embers",
+      "path": "out/embers.png",
+      "sha256": "f86c8c0c554279e59fb8e53a77ad61a7e9846c4198928a508375e9dae357db26",
+      "prompt": "Create ONE 1536×1024 game particle atlas. This is an isolated sprite asset sheet on EXACT SOLID BLACK RGB(0,0,0), not an illustration of objects in an atmosphere. Absolutely no ambient haze, backdrop illumination, gradients, bloom spilling between cells, vignette or smoke outside the individual smoke sprites. The black background must occupy all margins and all spaces between particles, including wide completely black horizontal and vertical gutters.\nInvisible regular grid: 6 columns × 4 rows, 256×256 cells, exactly 24 sprites. Centre each sprite at x 128,384,640,896,1152,1408 and y 128,384,640,896. Each entire sprite including any local glow fits inside a 110×110 box centred in its cell, leaving at least 73 pixels of exact black padding to every cell edge. Make small sprite assets, not large objects.\nTop row: six varied tiny glowing embers, round spark, diagonal streak, pair of sparks, tapered ember, small star spark, curved streak. White-hot yellow cores through orange to deep red; any soft halo stays tightly inside the 110px sprite box.\nSecond row: six glowing curled burnt leaf/bark scraps, bright orange edges, dark charred centres, varied simple silhouettes.\nThird row: six thin irregular curled ash flakes, pale warm-grey to lavender-grey, softly lit from screen upper-left. NO GLOW, NO HALO around ash: their outer edges meet pure black immediately.\nBottom row: six separate small soft smoke curls, pale lavender-grey, translucent appearance against black. Each wisp fades fully to exact black inside its 110px box; no surrounding atmospheric haze.\nHAND-DRAWN painted 2D animation style, confident tapered hand contour on solid flakes, clean painted planes with restrained surface texture and readable small silhouettes. Soft local edges for glow and smoke only. No scenery, floor, shadows, text, labels, drawn grid, border, watermark. All four rows fully present. Every inter-cell gutter and the entire background must be pure #000000.",
+      "references": [],
+      "elapsed_s": 52.571
+    }
+  ],
+  "calls_used": 2,
+  "retries": [
+    {
+      "reason": "First image contained broad background haze instead of pure black between particles.",
+      "change": "Explicitly required exact-black gutters, prohibited ambient haze, and constrained complete particle footprints to centred 110×110 boxes."
+    }
+  ],
+  "self_report": {
+    "obeyed_invariants": false,
+    "concerns": [
+      "Retry still contains visible coloured haze between particles; background is not uniformly pure #000000.",
+      "Several particles visibly exceed the requested 40–110 px footprint, and halos extend across cell boundaries.",
+      "Surface texture is more conspicuous than the requested restrained hand-drawn register.",
+      "Confirmed 1536×1024 dimensions and four rows of six sprites. Saved unchanged; retry allowance exhausted."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/embers.png",
+      "sha256": "f86c8c0c554279e59fb8e53a77ad61a7e9846c4198928a508375e9dae357db26"
+    }
+  ]
+}

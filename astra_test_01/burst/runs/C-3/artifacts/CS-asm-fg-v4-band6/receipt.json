@@ -1,0 +1,36 @@
+{
+  "task_id": "CS-asm-fg-v4-band6",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [],
+  "calls_used": 0,
+  "retries": [],
+  "self_report": {
+    "obeyed_invariants": true,
+    "concerns": [
+      "Blurred haze p95 improved from 18.83/255 to 10.41/255 but remains above the 8/255 target.",
+      "Visible tile-boundary transitions remain in detail crops 2 and 3."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/foreground.png",
+      "sha256": "79a2a4b5b38dd8e0241632690b369d415205aba6e273504b958fd6bb97e4c908"
+    },
+    {
+      "path": "out/foreground_preview_1344x1024.png",
+      "sha256": "9e82476b6f6d7471dd619d7a24bfd1b64a73769a1e07228b1ed43d04e0140b03"
+    },
+    {
+      "path": "out/edge_detail_crops.png",
+      "sha256": "e8dbc2bbb6df8d4a397feaae79057ff56f72090dc2332f3e74041ee4865ba819"
+    },
+    {
+      "path": "out/checks.json",
+      "sha256": "4020bc70f96cc60b6b55734943b823e10c432c5e8833a0328887ed0160d4c7b5"
+    },
+    {
+      "path": "out/summary.txt",
+      "sha256": "515e0879bfad7a5a72248d788416a8375c2c058cdc01bf8aa3a5c3710ab58084"
+    }
+  ]
+}

@@ -1,0 +1,105 @@
+{
+  "task_id": "CS-assets-far_low",
+  "loader_validation": {
+    "loader": "export.props_layer.load_props",
+    "verdict": "accepted",
+    "assets": 7,
+    "instances": 7,
+    "images": 8
+  },
+  "tiles": [
+    {
+      "sheet": "sheet_1",
+      "tile_id": "obj_02",
+      "registration": {
+        "shift_px": [
+          0,
+          0
+        ],
+        "shift_magnitude_px": 0.0,
+        "residual_rgb_mae": 11.670708656311035,
+        "comparison_pixels": 53439,
+        "alpha_threshold": 200,
+        "search_radius_px": 10,
+        "flags": []
+      },
+      "matte": {
+        "method": "green excess matte + inverse straight-alpha compositing + nearest fully-opaque RGB clamp",
+        "removed_background_or_detached_alpha_dust_pixels": 0,
+        "native_input_alpha": false,
+        "alpha_floor": null,
+        "alpha_floor_removed_pixels": 0
+      },
+      "retained_groups": 2,
+      "dropped_groups": []
+    },
+    {
+      "sheet": "sheet_2",
+      "tile_id": "obj_01",
+      "registration": {
+        "shift_px": [
+          0,
+          0
+        ],
+        "shift_magnitude_px": 0.0,
+        "residual_rgb_mae": 9.502808570861816,
+        "comparison_pixels": 27717,
+        "alpha_threshold": 200,
+        "search_radius_px": 10,
+        "flags": []
+      },
+      "matte": {
+        "method": "green excess matte + inverse straight-alpha compositing + nearest fully-opaque RGB clamp",
+        "removed_background_or_detached_alpha_dust_pixels": 0,
+        "native_input_alpha": false,
+        "alpha_floor": null,
+        "alpha_floor_removed_pixels": 0
+      },
+      "retained_groups": 5,
+      "dropped_groups": []
+    }
+  ],
+  "asset_count": 7,
+  "shadow": {
+    "gaussian_sigma_px": 11,
+    "soften_sigma_px": 2,
+    "threshold": 0.05,
+    "max_before_softening": 0.7,
+    "alpha_max": 178,
+    "nonzero_pixels": 181979,
+    "before_green_mask_applied_before_softening": true
+  },
+  "rebuild": {
+    "panels": [
+      "rebuild",
+      "after",
+      "absolute_diff_x3"
+    ],
+    "panel_size_px": [
+      768,
+      512
+    ],
+    "rgb_mae": 9.195928573608398,
+    "rgb_mae_excluding_before_green": 9.193841934204102,
+    "composite_order": "ascending anchor y"
+  },
+  "conventions": {
+    "opaque_alpha_threshold": 128,
+    "anchor_x": "mean x index of opaque pixels in lowest six image rows ending at lowest opaque row",
+    "grouping": "Euclidean radius-3 dilation; 8-connected labels; area measured on undilated alpha >=32",
+    "border_filter": "dilated group touches tile border",
+    "shift_flag": "Euclidean magnitude >3",
+    "shift_application": "translated crop-space top-left; no wrapping or per-asset adjustment",
+    "matte_preserve_particles": true
+  },
+  "concerns": [
+    "Footprints are the requested 60 x 40 placeholders; shaped footprints remain conductor work.",
+    "SPEC lookup unintentionally printed row T3o in addition to the requested T3l/T3m rows; T3o was not used.",
+    "Visual comparison shows a bare tree in AFTER near crop x=1035, y=230 absent from the isolated-sheet assets; reconstruction is not exact.",
+    "Receipt hashes cover authored deliverables; live wrapper-owned .wrapper-events.jsonl and .wrapper-stderr.txt are excluded because they continue changing."
+  ],
+  "file_inventory_excludes": [
+    "out/.wrapper-events.jsonl",
+    "out/.wrapper-stderr.txt"
+  ]
+}

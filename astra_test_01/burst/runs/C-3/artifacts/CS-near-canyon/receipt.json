@@ -1,0 +1,33 @@
+{
+  "task_id": "CS-near-canyon",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "near_canyon",
+      "path": "out/near_canyon.png",
+      "sha256": "1b302296adab0eb04d4639975e9f998f42c4b5ddea5a0b62148524c34c7671b9",
+      "prompt": "Use case: precise-object-edit. Input Image 1 is the EDIT TARGET. Deliver ONE 1536x1024 image of this exact same in-game frame with just ONE added near-camera foreground object. Preserve all original pixels outside the added object's silhouette as closely as possible. Keep the original character, dirt path, trees, crates, barrel, cliff, sunset clouds, distant valley, framing and both black letterbox bars unchanged.\nAdd a tall weathered SANDSTONE SPIRE, a desert hoodoo with banded red-orange and ochre rock, eroded ledges and a few clinging dry shrubs, in the RIGHT third of the game view. It rises out of the canyon immediately in front of the camera, nearer than the cliff-top ground. Its large cropped shaft extends below the bottom of the game view (behind the preserved bottom black bar); its summit ends around y=320, the upper third of the full frame. Position its silhouette approximately within x=1090..1450, with an irregular narrow summit and substantial shaft, covering no more than about 15% of the full image. It must clearly occlude the canyon clouds and part of the right-hand cliff edge behind it. No cloud veil in front of its shaft: this is a close foreground layer, not a distant rock formation. Never cover the character or dirt path near her.\nPaint the spire bigger, slightly darker and cooler than the lit scene, in partial silhouette with a strong sunset rim along its upper-left edges and very slight optical softness for depth. Match the hand-drawn painted 2D game register: confident tapered dark contours of varying weight, clean painted material planes inside the line, restrained surface texture, bold jewel tones, readable silhouette. Keep the existing elevated three-quarter camera and all original scene lighting. This is a localized object addition, not a scene repaint. No text, no additional objects, no changes to the black bars.",
+      "references": [
+        {
+          "role": "edit target",
+          "path": "in/01_near_canyon_canvas.png"
+        }
+      ],
+      "elapsed_s": 44.118
+    }
+  ],
+  "calls_used": 1,
+  "retries": [],
+  "self_report": {
+    "obeyed_invariants": true,
+    "concerns": [
+      "Minor background texture drift is visible; exact pixel preservation outside the spire is not established."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/near_canyon.png",
+      "sha256": "1b302296adab0eb04d4639975e9f998f42c4b5ddea5a0b62148524c34c7671b9"
+    }
+  ]
+}

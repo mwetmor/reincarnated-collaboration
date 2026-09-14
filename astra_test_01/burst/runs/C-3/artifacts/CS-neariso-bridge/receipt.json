@@ -1,0 +1,39 @@
+{
+  "task_id": "CS-neariso-bridge",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "neariso_bridge",
+      "path": "out/neariso_bridge.png",
+      "sha256": "b5535430c537f55b935dffb389eb06b6df73429ca4aee4f4ae9b6b72b71b3e67",
+      "prompt": "Use case: background-extraction. Precise EDIT of Image 1, the ORIGINAL frame. Output one 1536×1024 PNG. Extract only the foreground cliff-pine branch at upper left onto flat pure #00ff00 RGB(0,255,0). Critical correction: the previous attempt redrew some needles and bark. Do not redraw, simplify, sharpen, recolour, or reinterpret ANY retained pixels. Treat the source branch as locked pixels and change only the surrounding background. Preserve every original needle, bark contour, blue-purple shade, orange rim-light pixel, softness, exact position and scale. Branch remains at its original coordinates, approximately x=0–500 and y=80–405. Preserve the original straight clipping at y=80 and at x=0. Do not fill in clipped branch portions. Replace BOTH black bars and ALL ground, cliffs, clouds, sky, ruins, bridge and character with a single solid perfectly uniform pure #00ff00 colour, no texture, noise, gradient, shadows or halo. All negative-space gaps between the needles and branches must also be green. Retain only original branch pixels, nothing else. No new content. Preserve the hand-drawn painted 2D source exactly. Canvas and composition unchanged.",
+      "references": [
+        {
+          "role": "IMAGE 1 — frame to isolate (EDIT)",
+          "path": "in/01_near_bridge.png"
+        }
+      ],
+      "elapsed_s": 18.554
+    }
+  ],
+  "calls_used": 2,
+  "retries": [
+    {
+      "reason": "First edit changed some needle and bark details.",
+      "change": "Retried from the original image with stronger locked-pixel preservation instructions."
+    }
+  ],
+  "self_report": {
+    "obeyed_invariants": false,
+    "concerns": [
+      "The branch is isolated in its original approximate placement, but painted details still differ from the source.",
+      "Exact RGB #00ff00 uniformity was not numerically verified."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/neariso_bridge.png",
+      "sha256": "b5535430c537f55b935dffb389eb06b6df73429ca4aee4f4ae9b6b72b71b3e67"
+    }
+  ]
+}

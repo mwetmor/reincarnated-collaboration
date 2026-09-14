@@ -1,0 +1,40 @@
+{
+  "task_id": "CS-objiso-bridge-2",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "objiso_bridge_2.png",
+      "path": "out/objiso_bridge_2.png",
+      "sha256": "2213923e4077938484a06695622fda364c84aa4ab017d83a429d74c9ebcfee93",
+      "prompt": "Use case: precise-object-edit. IMAGE 1 is the edit target. Deliver exactly one 1536x1024 PNG, same canvas and registration. Isolate the painted scenery objects from the small scene crop at the upper-left (approximately x24–191, y24–169); the rest of the sheet stays flat pure #00ff00. Preserve the scenery OBJECTS exactly as painted: same pixels, same position, same size, outlines, colors, and upper-left sunset lighting, including their shaded sides and attached details. Remove all ground, dirt, grass, path texture, loose ground pebbles, cliff rims and faces, clouds, bridge deck, parts of other objects cut by the tile edge, and every cast/contact ground shadow, replacing them with flat pure #00ff00. Make gaps between branches/leaves pure green too. Keep the central woody plant/tree or snag and its attached foliage; distinguish attached foliage from surrounding ground vegetation. Where the retained object's base met ground or was hidden, finish only its base and hidden part cleanly in the same paint. Nothing new, nothing moved, nothing enlarged. Do not center the object on the sheet. Keep the tiny object's existing upper-left location. Crisp edges, no halo, glow, or blur. Preserve the original hand-drawn painted 2D medium, confident tapered dark hand contour, clean painted planes, restrained texture. Do not restyle or relight. Opaque pure green background, not transparency.\nRetry correction: the previous attempt changed the original painting into smoother, brighter shapes and introduced mottling in the green. Work from the ORIGINAL supplied image again. This is a careful background deletion, not a redraw. Retain the original dark muted painted tree pixels and branch geometry verbatim. Replace background with the exact solid RGB(0,255,0), entirely uniform throughout the sheet. No texture or color variation in the green. Preserve the original trunk position and silhouette, and all original attached leaf details. Only minimal completion of obscured base is allowed.",
+      "references": [
+        {
+          "role": "IMAGE 1 — sheet to isolate (EDIT)",
+          "path": "in/01_sheet_2.png"
+        }
+      ],
+      "elapsed_s": 15.374
+    }
+  ],
+  "calls_used": 2,
+  "retries": [
+    {
+      "reason": "First output visibly redrew tree details and introduced green background variation.",
+      "change": "Re-edited the original with stronger pixel-preservation and uniform RGB(0,255,0) instructions."
+    }
+  ],
+  "self_report": {
+    "obeyed_invariants": false,
+    "concerns": [
+      "Retry still visibly alters painted details and silhouette; exact pixel preservation was not achieved.",
+      "Green background appears mottled rather than perfectly flat.",
+      "Vegetation or ground-like forms remain attached around the base."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/objiso_bridge_2.png",
+      "sha256": "2213923e4077938484a06695622fda364c84aa4ab017d83a429d74c9ebcfee93"
+    }
+  ]
+}

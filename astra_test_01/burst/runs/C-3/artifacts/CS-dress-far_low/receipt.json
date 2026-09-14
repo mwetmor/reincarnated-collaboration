@@ -1,0 +1,52 @@
+{
+  "task_id": "CS-dress-far_low",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "dress_far_low",
+      "path": "out/dress_far_low.png",
+      "sha256": "2b42e86c9eac4c1430c0f5dd6423e32ac64a644bc258f481270b5a68df270037",
+      "prompt": "Use case: precise-object-edit. Edit IMAGE 1 only, returning one 1536×1024 PNG of the exact same painted cliffside crop with sparse outdoor ARPG set dressing. IMAGE 1 is the immutable background. IMAGE 2 is the same crop with a 1.75 m player and magenta scale ticks, scale reference ONLY. IMAGE 3 is the exact camera-projected size chart: 0.7 m crate, 0.9 m barrel, 0.9 m rock, 0.9 m shrub, 5 m dead snag, 8 m mature tree with 5.5 m crown, interspersed with the player. IMAGE 4 is approved object rendering/style reference ONLY, never copy its layout or individual objects. Do not reproduce figures, ticks, magenta, chart background, or reference panels.\nAdd exactly: two scorched dead snags of 3–5 m, one fallen charred trunk, two blackened stumps, one small cluster of rocks, and one surviving small living tree approximately 4 m tall with its canyon-facing side scorched. The burnt forest is thinning here; keep open space between the objects. Use the figures and chart to size each object naturally in this same camera projection. Place every root and prop entirely on the existing cliff-top grass, safely back from the rocky lip; never rooted on a cliff face, on exposed rim rock, in clouds or in the green void. Choose positions that fit the available plateau and keep ALL added silhouettes including crowns, branch tips and shadows at least 120 px from all four image borders. The upper plateau is shallow on the left, so locate the tall additions farther right/down on grass with sufficient room above them. Two snags can stand on central grass behind the cliff edge; the small living tree can stand on the right plateau with a fully enclosed crown. The fallen trunk, stumps and small rock cluster fit separate open grass pockets between them. No added trunks or props on any packed-dirt path or bridge deck; keep those routes open. No trunk overlaps another trunk. Added objects must not overlap each other except that a crown may overhang an object behind it.\nRendering: HAND-DRAWN painted 2D in the manner of a modern hand-animated action game, confident dark hand-drawn contours with visible taper and varying weight, painted fills in clean material planes, restrained surface texture, readable silhouettes, no conspicuous grain. Match IMAGE 4's object detail and rendering exactly and integrate with IMAGE 1's existing painting. Fixed high elevated three-quarter ARPG camera, matching the ground exactly. Preserve the existing sunset key from SCREEN UPPER-LEFT, deep cool readable shadows toward LOWER-RIGHT, subtle key-facing edge light. Soft contact shadows under additions; living tree casts a dappled canopy shadow toward lower-right. Charred wood has readable dark cool planes, no flames or emissive embers. Only the wood/tree itself is scorched: absolutely no scorch marks or bare-earth patches on the ground.\nABSOLUTE PRESERVATION: Everything outside added object silhouettes and their soft cast/contact shadows stays EXACTLY as painted in IMAGE 1. Preserve all grass, flowers, packed dirt, rocks, rim contours, cliff faces, vines, clouds, original colors and original details. Do not repaint, simplify, relight, move, recrop or restyle the background. Keep the original tiny pure #00ff00 void area exactly unchanged. No characters, creatures, text, UI, border or vignette. One seamless finished edited background, same 1536×1024 composition.\nCORRECTIVE RETRY, strict placement and preservation: The prior candidate put a snag near the top edge, a crown near the right edge, and lost the tiny green void. Start fresh from original IMAGE 1. Use these explicit target bounding boxes in the 1536×1024 coordinate system to guarantee room: first 3 m snag including all branches and roots entirely within x=700..840, y=135..390, rooted around (775,380); second 3.5 m snag entirely within x=920..1070, y=180..480, rooted around (990,465). Living 4 m tree and its entire crown within x=1090..1395, y=200..540, rooted around (1260,525), with its canyon-facing left side blackened. These positions are on grass. Fallen charred trunk entirely within x=455..650,y=215..290. One blackened stump within x=560..625,y=310..365, and one within x=1090..1160,y=405..465. Small rock cluster within x=845..910,y=295..350. Shadows may extend lower-right on grass only but remain inside the 120 px border margin. Do not enlarge these bounding boxes; no branch above y=120 and no crown beyond x=1416. Most important: retain original IMAGE 1 background pixels unaltered outside additions and their shadows, including the tiny bright pure-green patch at the lower-left border around y=930..960. No restyling or simplification of cliff details or grass. No ground scorch patches.",
+      "references": [
+        {
+          "role": "edit target",
+          "path": "in/01_dress_far_low_canvas.png"
+        },
+        {
+          "role": "scale reference only",
+          "path": "in/02_dress_far_low_scale_figures.png"
+        },
+        {
+          "role": "projected size reference only",
+          "path": "in/03_dress_size_chart.png"
+        },
+        {
+          "role": "object rendering reference only",
+          "path": "in/04_dress_spawn.png"
+        }
+      ],
+      "elapsed_s": 40.792
+    }
+  ],
+  "calls_used": 2,
+  "retries": [
+    {
+      "reason": "First generated candidate breached top and right margins and removed the tiny green void.",
+      "change": "Restarted from the original references with explicit object bounds and stronger background-preservation instructions."
+    }
+  ],
+  "self_report": {
+    "obeyed_invariants": false,
+    "concerns": [
+      "Delivered retry still breaches the 120 px margin at the upper snag and right-hand crown.",
+      "Exact background pixel preservation was not verified; visible detail drift remains.",
+      "Two image generations completed. An additional initial invocation attempt was rejected during relative-path validation and produced no image."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/dress_far_low.png",
+      "sha256": "2b42e86c9eac4c1430c0f5dd6423e32ac64a644bc258f481270b5a68df270037"
+    }
+  ]
+}

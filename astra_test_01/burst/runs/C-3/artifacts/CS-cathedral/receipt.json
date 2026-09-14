@@ -1,0 +1,34 @@
+{
+  "task_id": "CS-cathedral",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "cathedral",
+      "path": "out/cathedral.png",
+      "sha256": "1dedd791ccc559abbacb56a01544cdc13e47b673fca1981b8815aa6f4472b0d1",
+      "prompt": "Use case: precise-object-edit. EDIT IMAGE 1, the supplied 1536×1024 painted parallax background. Deliver one image at exactly 1536×1024. Change ONLY the ruined domed classical temple on the large hilltop LEFT OF CENTRE into a recently destroyed, still BURNING GOTHIC CATHEDRAL. Preserve all pixels outside this local architecture and its smoke as faithfully as possible. The replacement stands on the SAME hilltop at the SAME distance, with approximately the same architectural footprint. A tall clearly vertical silhouette: one surviving pointed bell tower/spire partly broken at its top, rising no more than about 1.6 times the old dome's height above its base; a long nave with pointed-arch window openings, broken flying buttresses, shattered rose window and collapsed roof sections. Visible orange fire glows inside the arches, embers rise, and a column of dark smoke rises and drifts RIGHT. No dome. Match the existing hand-drawn painted 2D animation style: confident dark hand-drawn contour with taper and varying weight, clean painted material planes, restrained surface texture, readable distant silhouettes, no conspicuous grain. Match the violet/blue atmospheric haze, cold ambient light and existing sunset rim light from screen upper-left; local warm fire spill on cathedral stone only. Faction architecture: monumental fractured ceremonial stonework, deliberate ornamental geometry, blue/ivory/brass accents. Keep the original elevated three-quarter camera, exact framing, entire hill, surrounding columns outside the replaced building, rocks, trees, waterfalls, all other ruins, mountains, valleys and clouds exactly as painted. Do not repaint or redesign the landscape. Any existing pure green area remains pure #00ff00. This is a localized background architecture edit; preserve the original full landscape canvas.",
+      "references": [
+        {
+          "role": "IMAGE 1 — background layer crop to EDIT",
+          "path": "in/01_cathedral_canvas.png"
+        }
+      ],
+      "elapsed_s": 47.169
+    }
+  ],
+  "calls_used": 1,
+  "retries": [],
+  "self_report": {
+    "obeyed_invariants": true,
+    "concerns": [
+      "Rose-window tracery appears largely intact rather than clearly shattered.",
+      "Landscape preservation was visually inspected; exact pixel equality outside the edit was not verified."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/cathedral.png",
+      "sha256": "1dedd791ccc559abbacb56a01544cdc13e47b673fca1981b8815aa6f4472b0d1"
+    }
+  ]
+}

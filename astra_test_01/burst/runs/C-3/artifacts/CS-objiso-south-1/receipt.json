@@ -1,0 +1,40 @@
+{
+  "task_id": "CS-objiso-south-1",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "objiso_south_1.png",
+      "path": "out/objiso_south_1.png",
+      "sha256": "4eea3118edb92d40b999301854555d9e217b96104b92e9a3aa468e855bb92d0b",
+      "prompt": "EDIT MODE: background extraction of Image 1. Output ONE image exactly 1536x1024. Treat the original image as a locked pixel canvas. Replace background pixels only with exact flat RGB 0,255,0 (#00ff00). Do not recreate or recompose the objects. The previous attempt failed because objects were shifted/enlarged and redrawn, and green had visible texture. This retry must preserve the source object pixels and geometry exactly. Left tree trunk remains centered around x330 with its original base near y540; right tree trunk remains around x1080 with original root extremity near y598. Boulder group remains in its original lower-left location around x110..445,y625..789. Fallen log remains in original location around x650..945,y630..780. These coordinates are preservation guides, not instructions to resize any object. Preserve both original tree crowns and all original branches, mossy boulders, bushes and the fallen log with attached moss and mushrooms. Preserve original outline, size, colors, intrinsic shading and upper-left sunset lighting. Remove all grass carpet, dirt, paths, loose small ground stones, floor vegetation, every contact/cast ground shadow and all background scenery. Isolated distinct bushes may remain, but no island of floor or grass under any object. Replace gaps between leaves and branches with the same exact pure green. Finish obscured object bases cleanly with minimal necessary completion. Remove partial unrelated objects at scene crop edges. Keep original green borders and all sheet positions unchanged. Absolutely uniform pure #00ff00 background, no noise, texture, gradient, halo, glow, blur or shadow. Preserve the original hand-drawn painted 2D style, no style transformation, no new objects, no labels.",
+      "references": [
+        {
+          "role": "IMAGE 1 — sheet to isolate (EDIT)",
+          "path": "in/01_sheet_1.png"
+        }
+      ],
+      "elapsed_s": 25.102
+    }
+  ],
+  "calls_used": 2,
+  "retries": [
+    {
+      "reason": "First edit shifted and redrew objects; green appeared uneven.",
+      "change": "Retried from the original with explicit position guides, locked-pixel preservation, and stricter flat-green constraints."
+    }
+  ],
+  "self_report": {
+    "obeyed_invariants": false,
+    "concerns": [
+      "Retry still visibly alters object details and silhouettes; exact pixel preservation was not achieved.",
+      "Green appears subtly uneven; exact uniform #00ff00 is unverified.",
+      "Vegetation remains around the boulders and log."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/objiso_south_1.png",
+      "sha256": "4eea3118edb92d40b999301854555d9e217b96104b92e9a3aa468e855bb92d0b"
+    }
+  ]
+}

@@ -332,8 +332,13 @@ environment/defaults/default_clear_color=Color(0.09, 0.12, 0.17, 1)
 '''+ '\n'.join(actions)+'\n'
 
 
-def build_project(cells, out, vfx=None, gear_variant=None, scene=None, vfx_kit=None, sockets=None, parallax=None, props=None):
+def build_project(cells, out, vfx=None, gear_variant=None, scene=None, vfx_kit=None, sockets=None, parallax=None, props=None, vfx_kits=None):
     started = time.monotonic()
+    if vfx_kits is not None and (vfx_kit is not None or vfx is not None):
+        raise ValueError('Choose --vfx-kits, --vfx-kit or legacy --vfx')
+    if vfx_kits is not None and sockets is None:
+        raise ValueError('--vfx-kits requires --sockets')
+    kits = _load_vfx_kits(vfx_kits) if vfx_kits is not None else None
     base = discover_cells(cells)
     advanced = discover_cells(gear_variant) if gear_variant is not None else None
     if not base or advanced == {}:
@@ -382,15 +387,16 @@ def build_project(cells, out, vfx=None, gear_variant=None, scene=None, vfx_kit=N
                 raise ValueError('Plate image size differs from plate_size')
             plate.verify()
     kit = _load_vfx_kit(vfx_kit) if vfx_kit is not None else None
-    if sockets is not None and kit is None:
-        raise ValueError('--sockets requires --vfx-kit')
+    if sockets is not None and kit is None and kits is None:
+        raise ValueError('--sockets requires --vfx-kit or --vfx-kits')
     if kit is not None and vfx is not None:
         raise ValueError('Choose legacy --vfx or directional --vfx-kit')
     socket_data = None
     if sockets is not None:
         from export.sockets import load_sockets
         socket_data = load_sockets(sockets, base)
-    out = _output(out, [cells, vfx, gear_variant, scene, vfx_kit, sockets, parallax, props])
+    out = _output(out, [cells, vfx, gear_variant, scene, vfx_kit, sockets, parallax, props,
+                        vfx_kits] + [k['root'] for k in kits or []])
     for entries, prefix, resource in [(base, 'sprites', 'frames/keeper.tres'),
                                        (advanced, 'sprites_advanced', 'frames/keeper_advanced.tres')]:
         if entries is None:
@@ -482,6 +488,7 @@ locations, which must be writable for a completely clean headless import.
         from export.parallax_scene import write_cliffside
         parallax_report = write_cliffside(out, parallax_data, props=props_data)
     kit_report = _write_vfx_kit(out, kit, base, cells, socket_data, annotation) if kit is not None else None
+    kits_report = _write_vfx_kits(out, kits, base, cells, socket_data, annotation) if kits is not None else None
     refs = validate_resources(out)
     if scene_report is not None:
         scene_report['resource_references'] = len(validate_resources(out, include_scenes=True))
@@ -489,7 +496,7 @@ locations, which must be writable for a completely clean headless import.
         parallax_report['resource_references'] = len(validate_resources(out, include_scenes=True))
     return {'cells': sorted(base), 'frames': sum(len(e['frames']) for e in base.values()),
             'texture_references': len(refs), 'gear_cells': len(advanced or {}),
-            'vfx_animations': len(effects), **({'parallax': parallax_report} if parallax_report is not None else {}), **({'vfx_kit': kit_report} if kit_report is not None else {}), **({'scene': scene_report} if scene_report is not None else {}), 'wall_s': time.monotonic()-started}
+            'vfx_animations': len(effects), **({'parallax': parallax_report} if parallax_report is not None else {}), **({'vfx_kit': kit_report} if kit_report is not None else {}), **({'vfx_kits': kits_report} if kits_report is not None else {}), **({'scene': scene_report} if scene_report is not None else {}), 'wall_s': time.monotonic()-started}
 
 
 def _write_tower(out, scene, annotation):
@@ -622,12 +629,51 @@ def main():
     parser.add_argument('--scene')
     parser.add_argument('--parallax')
     parser.add_argument('--props')
-    parser.add_argument('--vfx-kit')
+    kit_group = parser.add_mutually_exclusive_group()
+    kit_group.add_argument('--vfx-kit')
+    kit_group.add_argument('--vfx-kits')
     parser.add_argument('--sockets')
     args = parser.parse_args()
-    print(json.dumps(build_project(args.cells, args.out, args.vfx, args.gear_variant, args.scene, args.vfx_kit, args.sockets, args.parallax, args.props), indent=2))
+    print(json.dumps(build_project(args.cells, args.out, args.vfx, args.gear_variant, args.scene, args.vfx_kit, args.sockets, args.parallax, args.props, args.vfx_kits), indent=2))
 
 
+
+
+def _load_vfx_kits(path):
+    """Validate the whole ordered catalogue before writing any project files.
+
+    Relative kit directories are relative to KITS_JSON, not the shell cwd.
+    Each entry retains the exact T3i kit validation, including impact_range.
+    """
+    path = Path(path).resolve()
+    if not path.is_file():
+        raise ValueError('Missing VFX kits JSON')
+    data = json.loads(path.read_text())
+    if (not isinstance(data, dict) or set(data) != {'kits'}
+            or not isinstance(data['kits'], list) or not 1 <= len(data['kits']) <= 12):
+        raise ValueError('VFX kits requires exactly kits: a list of 1..12 entries')
+    result, names = [], set()
+    for entry in data['kits']:
+        if (not isinstance(entry, dict) or not {'name', 'dir'} <= set(entry)
+                or set(entry) - {'name', 'dir', 'tint'}):
+            raise ValueError('Kit requires name, dir and optional tint only')
+        name = entry['name']
+        if (not isinstance(name, str) or not re.fullmatch(r'[A-Za-z_][A-Za-z0-9_]*', name)
+                or name.casefold() in names):
+            raise ValueError('Kit names must be unique safe identifiers (case-insensitive)')
+        names.add(name.casefold())
+        directory = entry['dir']
+        if not isinstance(directory, str) or not directory or '\x00' in directory:
+            raise ValueError('Kit dir must be a nonempty path')
+        if 'tint' in entry:
+            tint = entry['tint']
+            if (not isinstance(tint, list) or len(tint) != 3
+                    or any(isinstance(v, bool) or not isinstance(v, (float, int))
+                           or not math.isfinite(v) or not 0 <= v <= 1 for v in tint)):
+                raise ValueError('Kit tint must contain three finite components in [0,1]')
+        kit = _load_vfx_kit(path.parent/directory)
+        result.append({**kit, 'name': name, **({'tint': entry['tint']} if 'tint' in entry else {})})
+    return result
 
 
 def _load_vfx_kit(directory):
@@ -830,7 +876,11 @@ func _process(_delta: float) -> void:
 '''
 
 
-def _write_vfx_kit(out, kit, base, cells, socket_data, annotation):
+def _write_vfx_kit(out, kit, base, cells, socket_data, annotation, kit_name=None, tint=None):
+    # Named exports reuse the T3i scene/script templates. The absent-name path
+    # deliberately keeps every legacy byte, filename and report key intact.
+    resource_root = 'vfx' if kit_name is None else 'vfx/'+kit_name
+    prefix = 'frost' if kit_name is None else 'vfx_'+kit_name
     if socket_data is None:
         from export.sockets import build_sockets
         socket_data = build_sockets(cells, out/'sockets.json')
@@ -840,15 +890,15 @@ def _write_vfx_kit(out, kit, base, cells, socket_data, annotation):
     for name in ('flare', 'impact'):
         paths = []
         for source in kit[name]:
-            relative = Path('vfx/sprites')/name/source.name
+            relative = Path(resource_root)/'sprites'/name/source.name
             (out/relative).parent.mkdir(parents=True, exist_ok=True)
             shutil.copyfile(source, out/relative)
             paths.append(relative.as_posix())
-        write_spriteframes(out, 'vfx/'+name+'.tres', {name: (paths, 20, False)})
+        write_spriteframes(out, resource_root+'/'+name+'.tres', {name: (paths, 20, False)})
         counts[name] = len(paths)
-    (out/'scripts/frost_bolt.gd').write_text(BOLT_SCRIPT)
-    (out/'scripts/frost_impact.gd').write_text(IMPACT_SCRIPT)
-    (out/'scenes/frost_bolt.tscn').write_text('''[gd_scene load_steps=8 format=3]
+    (out/f'scripts/{prefix}_bolt.gd').write_text(BOLT_SCRIPT.replace('scenes/frost_impact.tscn', f'scenes/{prefix}_impact.tscn'))
+    (out/f'scripts/{prefix}_impact.gd').write_text(IMPACT_SCRIPT)
+    bolt_scene = '''[gd_scene load_steps=8 format=3]
 
 [ext_resource type="Script" path="res://scripts/frost_bolt.gd" id="Script"]
 
@@ -883,8 +933,16 @@ scale_amount_min = 0.1
 scale_amount_max = 0.2
 scale_amount_curve = SubResource("Shrink")
 color_ramp = SubResource("CometColors")
-''')
-    (out/'scenes/frost_impact.tscn').write_text('''[gd_scene load_steps=8 format=3]
+'''
+    if tint is not None:
+        # Replace every travel-gradient RGB stop; retain the T3i alpha envelope.
+        def recolor(match):
+            values = [float(v) for v in match[1].split(',')]
+            values = [v for i in range(0, len(values), 4) for v in (*tint, values[i+3])]
+            return 'colors = PackedColorArray('+', '.join(format(v, '.12g') for v in values)+')'
+        bolt_scene = re.sub(r'colors = PackedColorArray\(([^)]+)\)', recolor, bolt_scene)
+    (out/f'scenes/{prefix}_bolt.tscn').write_text(bolt_scene.replace('scripts/frost_bolt.gd', f'scripts/{prefix}_bolt.gd'))
+    impact_scene = '''[gd_scene load_steps=8 format=3]
 
 [ext_resource type="Script" path="res://scripts/frost_impact.gd" id="Script"]
 [ext_resource type="SpriteFrames" path="res://vfx/impact.tres" id="Frames"]
@@ -911,11 +969,14 @@ initial_velocity_min = 120.0
 initial_velocity_max = 260.0
 scale_amount_curve = SubResource("Shrink")
 color_ramp = SubResource("CometColors")
-''')
+'''
+    (out/f'scenes/{prefix}_impact.tscn').write_text(impact_scene.replace(
+        'scripts/frost_impact.gd', f'scripts/{prefix}_impact.gd').replace('vfx/impact.tres', resource_root+'/impact.tres'))
     keeper = KEEPER_SCRIPT.replace('    base_frames = sprite.sprite_frames', '    _load_directional_kit()\n    base_frames = sprite.sprite_frames')
     keeper = keeper.replace('        state = "cast"\n', '        cast_fired = false\n        state = "cast"\n')
     keeper = keeper.replace('        _spawn_frost()', '        _cast_frame_changed()')
-    (out/'scripts/keeper.gd').write_text(keeper+DIRECTIONAL_KEEPER)
+    if kit_name is None:
+        (out/'scripts/keeper.gd').write_text(keeper+DIRECTIONAL_KEEPER)
     rectangle = None
     rectangle_report = None
     if annotation is not None:
@@ -990,6 +1051,71 @@ scale_amount_max = 0.2
             'missing_sockets': sum(p is None for c in socket_data['cells'].values() for p in c['sockets']),
             'ambient_rectangle': rectangle, 'ambient_rectangle_report': rectangle_report,
             'resource_references': len(references)}
+
+
+PICKER_SCRIPT = '''
+# Selection is live; cast_kit_index is captured before playing the cast frames.
+var vfx_kit_index: int = 0
+var cast_kit_index: int = 0
+var vfx_label: Label
+
+func _load_vfx_picker() -> void:
+    var hud := CanvasLayer.new()
+    hud.name = "VFXPicker"
+    hud.layer = 10
+    add_child(hud)
+    vfx_label = Label.new()
+    vfx_label.name = "Label"
+    vfx_label.position = Vector2(16, 16)
+    vfx_label.mouse_filter = Control.MOUSE_FILTER_IGNORE
+    vfx_label.add_theme_font_size_override("font_size", 22)
+    vfx_label.add_theme_color_override("font_color", Color.WHITE)
+    vfx_label.add_theme_color_override("font_outline_color", Color(0.04, 0.05, 0.08, 1))
+    vfx_label.add_theme_constant_override("outline_size", 4)
+    hud.add_child(vfx_label)
+    _update_vfx_label()
+
+func _update_vfx_label() -> void:
+    vfx_label.text = "VFX: " + VFX_KITS[vfx_kit_index]["name"] + "  (Tab)"
+'''
+
+
+def _write_vfx_kits(out, kits, base, cells, socket_data, annotation):
+    reports, entries = [], []
+    for index, kit in enumerate(kits):
+        name = kit['name']
+        report = _write_vfx_kit(out, kit, base, cells, socket_data,
+                                annotation if index == 0 else None,
+                                kit_name=name, tint=kit.get('tint'))
+        reports.append({'name': name, **report})
+        entries.append({'name': name, 'flare': f'res://vfx/{name}/flare.tres',
+                        'bolt': f'res://scenes/vfx_{name}_bolt.tscn'})
+    keeper = KEEPER_SCRIPT.replace('    base_frames = sprite.sprite_frames',
+                                   '    _load_directional_kit()\n    _load_vfx_picker()\n    base_frames = sprite.sprite_frames')
+    keeper = keeper.replace('func _physics_process(delta: float) -> void:\n',
+                            'func _physics_process(delta: float) -> void:\n'
+                            '    if Input.is_action_just_pressed("vfx_cycle"):\n'
+                            '        vfx_kit_index = (vfx_kit_index + 1) % VFX_KITS.size()\n'
+                            '        _update_vfx_label()\n')
+    keeper = keeper.replace('        state = "cast"\n',
+                            '        cast_kit_index = vfx_kit_index\n        cast_fired = false\n        state = "cast"\n')
+    keeper = keeper.replace('        _spawn_frost()', '        _cast_frame_changed()')
+    directional = DIRECTIONAL_KEEPER.replace('preload("res://vfx/flare.tres")',
+                                            'load(VFX_KITS[cast_kit_index]["flare"])')
+    directional = directional.replace('preload("res://scenes/frost_bolt.tscn")',
+                                      'load(VFX_KITS[cast_kit_index]["bolt"])')
+    (out/'scripts/keeper.gd').write_text(keeper+directional+'\nconst VFX_KITS = '+
+                                       json.dumps(entries, allow_nan=False)+'\n'+PICKER_SCRIPT)
+    settings = out/'project.godot'
+    settings.write_text(settings.read_text()+
+                        'vfx_cycle={"deadzone":0.2,"events":[Object(InputEventKey,"physical_keycode":4194306)]}\n')
+    credits = ''.join(kit['credits'] for kit in kits)
+    (out/'CREDITS_VFX.txt').write_text(credits)
+    readme = out/'README.md'
+    readme.write_text(readme.read_text()+'\nTab cycles the ordered VFX kits; the HUD shows the selection.\n'
+                      'Casts retain their starting kit through release, travel and impact.\n')
+    return {'kits': reports, 'credits': credits,
+            'resource_references': len(validate_resources(out, include_scenes=True))}
 
 
 if __name__ == '__main__':

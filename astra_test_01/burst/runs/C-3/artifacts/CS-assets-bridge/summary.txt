@@ -1,0 +1,12 @@
+CS-assets-bridge: report only.
+Assets: 5; instances: 5; shadows: 1.
+Frozen loader accepted: True.
+Matte: frozen clamp, preserve_particles=True; premultiplied LANCZOS resize.
+Split: alpha>=32, radius-3 disk dilation, border groups and support<250 removed.
+obj_01: shift=[0, 0], residual=12.912, assets=4.
+obj_02: shift=[0, 0], residual=12.886, assets=1.
+obj_03: omitted; frozen matte rejected nonuniform tile border (57.13% green).
+Rebuild mean absolute RGB error: 8.357; panels: rebuild | AFTER | abs(diff)*3.
+Shadow: Rec.709 luminance; sigma 11px blur, sigma 2px soften; requested ratio formula.
+Opaque anchor/fade threshold: alpha>=128; footprints 60x40 placeholders.
+Three border groups dropped; obj_03 omitted; no image generation.

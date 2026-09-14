@@ -1,0 +1,265 @@
+{
+  "crop": "west",
+  "origin_px": [
+    0,
+    2600
+  ],
+  "assets": [
+    {
+      "name": "west_obj_01_a",
+      "size_px": [
+        80,
+        169
+      ],
+      "anchor": [
+        23.304054054054053,
+        163
+      ],
+      "level_position": [
+        309.30405405405406,
+        2830
+      ],
+      "crop_top_left_px": [
+        286,
+        67
+      ],
+      "opaque_height_px": 158,
+      "alpha32_pixels": 4910,
+      "registration": {
+        "tile_id": "obj_01",
+        "shift_px": [
+          0,
+          0
+        ],
+        "shift_magnitude_px": 0.0,
+        "residual_rgb_mae": 7.677272319793701,
+        "sample_pixels": 4463,
+        "flagged": false,
+        "search_boundary": false,
+        "shift_clipped_alpha32_pixels": 0
+      },
+      "provenance": {
+        "sheet": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/CS-objiso-west-1/objiso_west_1.png",
+        "sheet_id": "sheet_1",
+        "tile_id": "obj_01",
+        "crop_box": [
+          242,
+          59,
+          376,
+          275
+        ],
+        "sheet_xy": [
+          1166,
+          24
+        ],
+        "sheet_size": [
+          268,
+          432
+        ],
+        "scale": 2,
+        "layout": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/CS-objsheets-west/layout.json",
+        "after": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/CS-dress-west-r1/dress_west.png",
+        "matte_module": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/gates/matte.py",
+        "matte": {
+          "method": "green excess matte + inverse straight-alpha compositing + nearest fully-opaque RGB clamp",
+          "removed_background_or_detached_alpha_dust_pixels": 0,
+          "native_input_alpha": false,
+          "alpha_floor": null,
+          "alpha_floor_removed_pixels": 0
+        }
+      }
+    },
+    {
+      "name": "west_obj_02_a",
+      "size_px": [
+        137,
+        120
+      ],
+      "anchor": [
+        73.87349397590361,
+        114
+      ],
+      "level_position": [
+        513.8734939759036,
+        2791
+      ],
+      "crop_top_left_px": [
+        440,
+        77
+      ],
+      "opaque_height_px": 108,
+      "alpha32_pixels": 10696,
+      "registration": {
+        "tile_id": "obj_02",
+        "shift_px": [
+          0,
+          0
+        ],
+        "shift_magnitude_px": 0.0,
+        "residual_rgb_mae": 16.919145584106445,
+        "sample_pixels": 294201,
+        "flagged": false,
+        "search_boundary": false,
+        "shift_clipped_alpha32_pixels": 0
+      },
+      "provenance": {
+        "sheet": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/CS-objiso-west-1/objiso_west_1.png",
+        "sheet_id": "sheet_1",
+        "tile_id": "obj_02",
+        "crop_box": [
+          390,
+          70,
+          1508,
+          950
+        ],
+        "sheet_xy": [
+          24,
+          24
+        ],
+        "sheet_size": [
+          1118,
+          880
+        ],
+        "scale": 1,
+        "layout": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/CS-objsheets-west/layout.json",
+        "after": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/CS-dress-west-r1/dress_west.png",
+        "matte_module": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/gates/matte.py",
+        "matte": {
+          "method": "green excess matte + inverse straight-alpha compositing + nearest fully-opaque RGB clamp",
+          "removed_background_or_detached_alpha_dust_pixels": 0,
+          "native_input_alpha": false,
+          "alpha_floor": null,
+          "alpha_floor_removed_pixels": 0
+        }
+      }
+    },
+    {
+      "name": "west_obj_02_b",
+      "size_px": [
+        292,
+        365
+      ],
+      "anchor": [
+        165.13492063492063,
+        359
+      ],
+      "level_position": [
+        613.1349206349206,
+        3501
+      ],
+      "crop_top_left_px": [
+        448,
+        542
+      ],
+      "opaque_height_px": 353,
+      "alpha32_pixels": 47147,
+      "registration": {
+        "tile_id": "obj_02",
+        "shift_px": [
+          0,
+          0
+        ],
+        "shift_magnitude_px": 0.0,
+        "residual_rgb_mae": 16.919145584106445,
+        "sample_pixels": 294201,
+        "flagged": false,
+        "search_boundary": false,
+        "shift_clipped_alpha32_pixels": 0
+      },
+      "provenance": {
+        "sheet": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/CS-objiso-west-1/objiso_west_1.png",
+        "sheet_id": "sheet_1",
+        "tile_id": "obj_02",
+        "crop_box": [
+          390,
+          70,
+          1508,
+          950
+        ],
+        "sheet_xy": [
+          24,
+          24
+        ],
+        "sheet_size": [
+          1118,
+          880
+        ],
+        "scale": 1,
+        "layout": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/CS-objsheets-west/layout.json",
+        "after": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/CS-dress-west-r1/dress_west.png",
+        "matte_module": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/gates/matte.py",
+        "matte": {
+          "method": "green excess matte + inverse straight-alpha compositing + nearest fully-opaque RGB clamp",
+          "removed_background_or_detached_alpha_dust_pixels": 0,
+          "native_input_alpha": false,
+          "alpha_floor": null,
+          "alpha_floor_removed_pixels": 0
+        }
+      }
+    },
+    {
+      "name": "west_obj_02_c",
+      "size_px": [
+        866,
+        630
+      ],
+      "anchor": [
+        274.0042016806723,
+        624
+      ],
+      "level_position": [
+        918.0042016806723,
+        3442
+      ],
+      "crop_top_left_px": [
+        644,
+        218
+      ],
+      "opaque_height_px": 619,
+      "alpha32_pixels": 259367,
+      "registration": {
+        "tile_id": "obj_02",
+        "shift_px": [
+          0,
+          0
+        ],
+        "shift_magnitude_px": 0.0,
+        "residual_rgb_mae": 16.919145584106445,
+        "sample_pixels": 294201,
+        "flagged": false,
+        "search_boundary": false,
+        "shift_clipped_alpha32_pixels": 0
+      },
+      "provenance": {
+        "sheet": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/CS-objiso-west-1/objiso_west_1.png",
+        "sheet_id": "sheet_1",
+        "tile_id": "obj_02",
+        "crop_box": [
+          390,
+          70,
+          1508,
+          950
+        ],
+        "sheet_xy": [
+          24,
+          24
+        ],
+        "sheet_size": [
+          1118,
+          880
+        ],
+        "scale": 1,
+        "layout": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/CS-objsheets-west/layout.json",
+        "after": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/CS-dress-west-r1/dress_west.png",
+        "matte_module": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/gates/matte.py",
+        "matte": {
+          "method": "green excess matte + inverse straight-alpha compositing + nearest fully-opaque RGB clamp",
+          "removed_background_or_detached_alpha_dust_pixels": 0,
+          "native_input_alpha": false,
+          "alpha_floor": null,
+          "alpha_floor_removed_pixels": 0
+        }
+      }
+    }
+  ]
+}

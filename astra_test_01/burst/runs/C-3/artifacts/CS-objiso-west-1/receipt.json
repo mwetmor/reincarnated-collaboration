@@ -1,0 +1,40 @@
+{
+  "task_id": "CS-objiso-west-1",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "objiso_west_1.png",
+      "path": "out/objiso_west_1.png",
+      "sha256": "522e5b36dcfc99ef43474833826fdbdf344d83697d8c0f44fe11e7645a6731eb",
+      "prompt": "Use case: background-extraction. EDIT Image 1, the supplied 1536×1024 scenery sheet. Deliver exactly one 1536×1024 PNG. Preserve the existing scenery objects EXACTLY as painted, at their identical original pixel coordinates, sizes, shapes, outlines, colours and upper-left sunset lighting. Keep the three trees in the large left tile, the large mossy boulder near its upper-left, and the wooden signpost in the small upper-right tile. Preserve object-owned foliage, branches, bark, moss, wood, shaded sides and contours. Remove all scenery background to opaque flat pure #00ff00: all dirt, path, grass ground cover, flowers, loose ground pebbles, all cast/contact shadows, and any fragments of other objects cut by tile edges. Remove ground vegetation and loose stones around the signpost and around tree roots. Gaps between branches and leaves must also become pure green. Finish bases and any hidden portions cleanly where ground vegetation obscured them, matching the existing object. Do not move, rescale, recompose, relight or redesign any object. Maintain the source hand-drawn painted 2D style, tapered dark contours, painted clean planes and restrained texture. This is a precise background removal edit, not a new illustration. Keep the original sheet dimensions and all existing green margins unchanged. Everything except the isolated objects must be one perfectly uniform opaque RGB(0,255,0), with crisp edges and no halo, glow, blur, gradient, shadow or ground island. No new objects or text.",
+      "references": [
+        {
+          "role": "IMAGE 1 — sheet to isolate (EDIT)",
+          "path": "in/01_sheet_1.png"
+        }
+      ],
+      "elapsed_s": 20.073
+    }
+  ],
+  "calls_used": 2,
+  "retries": [
+    {
+      "reason": "First result visibly redrew some object details; green appeared uneven.",
+      "change": "Retried from the original with stronger pixel-preservation and uniform-green instructions. Retry retained unwanted vegetation; selected the cleaner first result."
+    }
+  ],
+  "self_report": {
+    "obeyed_invariants": false,
+    "concerns": [
+      "Some painted details changed; exact source-pixel preservation was not achieved.",
+      "Perfectly uniform #00ff00 background remains unverified.",
+      "Small vegetation details remain along the boulder base."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/objiso_west_1.png",
+      "sha256": "522e5b36dcfc99ef43474833826fdbdf344d83697d8c0f44fe11e7645a6731eb"
+    }
+  ]
+}

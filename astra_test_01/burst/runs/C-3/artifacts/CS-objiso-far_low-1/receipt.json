@@ -1,0 +1,39 @@
+{
+  "task_id": "CS-objiso-far_low-1",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "objiso_far_low_1.png",
+      "path": "out/objiso_far_low_1.png",
+      "sha256": "13ddca24cefc63e08838af4cff941bcd5b48e16125fc50cc05522fe8f5503e9e",
+      "prompt": "EDIT the original Image 1 as a strict background extraction, ONE image exactly 1536x1024. Replace background with opaque flat pure #00ff00. Retain ONLY the complete large leafy tree on the right and the small stump below-left, in their exact original positions and sizes. Remove the left dead snag intersecting the tile top, all edge-cut objects, every ground surface, all grass/flowers, dirt, path, loose stones, rocks belonging to the path or ground rim, and ALL ground contact/cast shadows. Make background openings between leaves and branches pure green too. CRITICAL CORRECTION: preserve the original object pixels and the original restrained painterly detail; do not strengthen dark contours, sharpen, boost contrast or saturation, simplify or change foliage clusters, or repaint bark. Maintain the exact original foliage silhouette, leaf highlights, branch shapes and shaded trunk planes. Only minimally complete grass-obscured root edges using the same original paint. No added vegetation around bases, no halos, no blur, no glow, no shadow on green. Every non-object pixel must be RGB(0,255,0), perfectly uniform. Nothing moves, no scaling, no recentering, no new objects. Preserve original upper-left light and hand-drawn painted 2D appearance exactly. The operation is removal of surrounding scenery while keeping the original two complete objects unchanged.",
+      "references": [
+        {
+          "role": "IMAGE 1 — sheet to isolate (EDIT)",
+          "path": "in/01_sheet_1.png"
+        }
+      ],
+      "elapsed_s": 19.052
+    }
+  ],
+  "calls_used": 2,
+  "retries": [
+    {
+      "reason": "First edit strengthened outlines and changed painted details.",
+      "change": "Retried from the original with explicit constraints against sharpening, increased contrast, and repainting."
+    }
+  ],
+  "self_report": {
+    "obeyed_invariants": false,
+    "concerns": [
+      "Delivered dimensions are 1536×1024; exact original object pixels were not preserved. Foliage, bark and root details show changes after retry.",
+      "Green appears uniform visually; exact RGB uniformity was not measured."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/objiso_far_low_1.png",
+      "sha256": "13ddca24cefc63e08838af4cff941bcd5b48e16125fc50cc05522fe8f5503e9e"
+    }
+  ]
+}

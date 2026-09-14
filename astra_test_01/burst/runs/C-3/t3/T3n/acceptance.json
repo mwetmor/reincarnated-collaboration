@@ -1,0 +1,198 @@
+{
+  "task_id": "T3n",
+  "synthetic": {
+    "known_stride_frames": 30,
+    "unforced_period_frames": 60,
+    "forced": {
+      "period": {
+        "frames": 30,
+        "seconds": 1.0,
+        "source": "forced",
+        "confidence": 0.9998069400492761,
+        "bob_frames": 15.0,
+        "bob_seconds": 0.5,
+        "notes": "confidence measures observed autocorrelation, not the forced period"
+      },
+      "start": 92,
+      "end_exclusive": 122,
+      "native_span": 30,
+      "native_members": 30,
+      "output_indices_native": [
+        92,
+        94,
+        97,
+        100,
+        102,
+        104,
+        107,
+        110,
+        112,
+        114,
+        117,
+        120
+      ],
+      "wall_s": 2.9257031659944914
+    },
+    "criterion_native_span": 30,
+    "invalid_periods_rejected": [
+      3,
+      151,
+      30.5
+    ],
+    "cli_usable_limit": {
+      "total_native_frames": 150,
+      "usable_before_t_max": 132,
+      "rejected_N": 133
+    },
+    "steps_per_loop": {
+      "expected": [
+        2,
+        4
+      ],
+      "measured": [
+        2,
+        4
+      ],
+      "confidence": [
+        1.0,
+        1.0
+      ]
+    },
+    "registration_default_compatibility": {
+      "byte_comparison_identical": true,
+      "baseline_file": "registration_baseline.json",
+      "controls": [
+        "perf_counter fixed at zero",
+        "output prefix replaced",
+        "tool_sha256 replaced"
+      ],
+      "limitation": "Uncontrolled registration bytes vary with timing, output paths and source hash; all other serialized bytes are identical."
+    }
+  },
+  "real_cells": {
+    "walk_S": {
+      "steps": 2,
+      "confidence": 0.7990196078431372,
+      "method": "head_top_y_fft_power"
+    },
+    "walk_SW": {
+      "steps": 4,
+      "confidence": 0.925,
+      "method": "head_top_y_fft_power"
+    },
+    "walk_W": {
+      "steps": 4,
+      "confidence": 0.8728813559322034,
+      "method": "head_top_y_fft_power"
+    },
+    "walk_NW": {
+      "steps": 2,
+      "confidence": 0.8973509933774835,
+      "method": "head_top_y_fft_power"
+    },
+    "walk_N": {
+      "steps": 2,
+      "confidence": 0.754054054054054,
+      "method": "head_top_y_fft_power"
+    },
+    "walk_NE": {
+      "steps": 2,
+      "confidence": 0.8777777777777778,
+      "method": "head_top_y_fft_power"
+    },
+    "walk_E": {
+      "steps": 4,
+      "confidence": 0.9029411764705882,
+      "method": "head_top_y_fft_power"
+    },
+    "walk_SE": {
+      "steps": 2,
+      "confidence": 0.9336734693877551,
+      "method": "head_top_y_fft_power"
+    },
+    "run_S": {
+      "steps": 2,
+      "confidence": 0.8714285714285713,
+      "method": "head_top_y_fft_power"
+    },
+    "run_SW": {
+      "steps": 2,
+      "confidence": 0.8414948453608248,
+      "method": "head_top_y_fft_power"
+    },
+    "run_W": {
+      "steps": 2,
+      "confidence": 0.8055555555555556,
+      "method": "head_top_y_fft_power"
+    },
+    "run_NW": {
+      "steps": 2,
+      "confidence": 0.8240740740740741,
+      "method": "head_top_y_fft_power"
+    },
+    "run_N": {
+      "steps": 2,
+      "confidence": 0.911144578313253,
+      "method": "head_top_y_fft_power"
+    },
+    "run_NE": {
+      "steps": 2,
+      "confidence": 0.7854406130268199,
+      "method": "head_top_y_fft_power"
+    },
+    "run_E": {
+      "steps": 2,
+      "confidence": 0.9701492537313433,
+      "method": "head_top_y_fft_power"
+    },
+    "run_SE": {
+      "steps": 2,
+      "confidence": 0.9615384615384617,
+      "method": "head_top_y_fft_power"
+    }
+  },
+  "real_cells_wall_s": 0.8276754999969853,
+  "focused_tests": {
+    "video_cut": {
+      "tests_run": 40,
+      "successful": 40,
+      "wall_s": 18.656
+    },
+    "steps_per_loop": {
+      "tests_run": 8,
+      "successful": 8,
+      "wall_s": 0.169
+    }
+  },
+  "full_suite": {
+    "tests_run": 405,
+    "successful": 395,
+    "red_assertions": 10,
+    "errors": 0,
+    "red_names": [
+      "test_godot_import.GodotImportTests.test_headless_state_machine_input_map_gear_vfx_and_nearest_fallback",
+      "test_oracle_walk.Tests.test_synthetic_contract_and_grid",
+      "test_oracles_motif.Tests.test_f04_outside_at_least_three",
+      "test_oracles_motif.Tests.test_named_genuine_annuli_retained (center=[113, 201])",
+      "test_oracles_motif.Tests.test_named_genuine_annuli_retained (center=[111, 311])",
+      "test_oracles_motif.Tests.test_named_genuine_annuli_retained (center=[170, 253])",
+      "test_parallax_scene.ParallaxSceneTests.test_headless_cliffside_follow_camera_parallax_and_projectile_collision",
+      "test_props_layer.PropsLayerTests.test_headless_occlusion_fade_restore_overhead_near_and_particles",
+      "test_scene_kit.SceneKitTests.test_headless_tower_import_run_and_physics",
+      "test_sockets.SocketTests.test_headless_directional_release_and_resources"
+    ],
+    "runner_wall_s": 159.001185000001,
+    "unittest_wall_s": 156.877,
+    "regression_lock_green": true,
+    "new_reds": []
+  },
+  "wall_s_since_first_clock": 533.929723,
+  "wall_cap_s": 2400,
+  "image_calls": 0,
+  "decoded_temporaries_remaining": 0,
+  "audit_concerns": [
+    "Initial SPEC extraction printed other lap-2 rows before the requested sections were read precisely.",
+    "The explicitly requested full suite refreshed eight existing test-report artifacts outside runs/C-3/t3/T3n; no other test source files were edited."
+  ],
+  "spectrum_definition": "Dominant bin share of one-sided non-DC rFFT power (squared magnitude)."
+}

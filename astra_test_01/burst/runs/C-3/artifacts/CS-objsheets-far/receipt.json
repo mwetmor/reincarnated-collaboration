@@ -1,0 +1,49 @@
+{
+  "task_id": "CS-objsheets-far",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [],
+  "calls_used": 0,
+  "retries": [],
+  "self_report": {
+    "obeyed_invariants": true,
+    "concerns": [
+      "Detected 12 objects; three sheets verified as the minimum shelf packing. The prescribed mask splits one visual object and merges some neighboring objects.",
+      "Filter conventions are documented in out/objects.json.",
+      "Live wrapper logs are excluded from the artifact manifest."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/candidates.png",
+      "sha256": "5abec807ff980ff3ff075761aec8e824fb457b16d65e5a0840d7668825b5f73c"
+    },
+    {
+      "path": "out/checks.json",
+      "sha256": "f453e2fa5332ad447351f48f486bcf8b98b74772e3dc058f0e25cf234d4717dd"
+    },
+    {
+      "path": "out/layout.json",
+      "sha256": "a30dfd0a4b37a47ef7a272af958463b985ec34bb7e9c5fd2119484631cbc8e6a"
+    },
+    {
+      "path": "out/objects.json",
+      "sha256": "a1b385f00b721ed3ee0c56598588c62f24c8550a60c08e2559592f7e560500c2"
+    },
+    {
+      "path": "out/sheet_1.png",
+      "sha256": "3e30410dca03322f901ec85eb7b8d3556be26357a7926061bee76a27b4d12e2d"
+    },
+    {
+      "path": "out/sheet_2.png",
+      "sha256": "f25547f3f355f0ae8ebcce9433dc91ca6b2b17997c6d98c98c65288ae52607be"
+    },
+    {
+      "path": "out/sheet_3.png",
+      "sha256": "4e3c9daf58c0cdb7e9735cbac223f57677f1de549fbdf925a5d05014d05771ab"
+    },
+    {
+      "path": "out/summary.txt",
+      "sha256": "471770e12ba04809b2d39c3ed4065b3b9787a76d11135f9c4ebd25dc5c315301"
+    }
+  ]
+}

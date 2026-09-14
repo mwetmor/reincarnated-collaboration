@@ -24,7 +24,10 @@ FIELDS = {
     'near': {'file', 'position', 'scroll_scale'},
     'particles': {'name', 'texture', 'rect', 'amount', 'lifetime_s', 'velocity_px_s',
                   'direction', 'spread_deg', 'scale', 'color_start', 'color_end'},
+    'glows': {'texture', 'position', 'scale', 'color', 'flicker_hz', 'flicker_amount', 'z_parent'},
 }
+OPTIONAL_FIELDS = {'particles': {'gravity', 'angular_velocity', 'scale_curve', 'additive'},
+                   'glows': {'sort_y'}}
 
 
 def _fields(value, fields, label):
@@ -60,7 +63,8 @@ def load_props(directory):
     from export.godot_import import local_file
     root = Path(directory).resolve()
     data = json.loads(local_file(root/'props.json', root).read_text())
-    _fields(data, COLLECTIONS, 'props.json')
+    if not isinstance(data, dict) or set(data) - (set(COLLECTIONS) | {'glows'}) or not set(COLLECTIONS) <= set(data):
+        raise ValueError('props.json requires six legacy collections and optional glows only')
     images = {}
 
     def png(file):
@@ -84,13 +88,17 @@ def load_props(directory):
         return images[file]
 
     names = set()
-    for collection in ('assets', 'instances', 'shadows', 'overhead', 'near', 'particles'):
+    for collection in ('assets', 'instances', 'shadows', 'overhead', 'near', 'particles', 'glows'):
+        if collection not in data:
+            continue
         entries = data[collection]
         if not isinstance(entries, list):
             raise ValueError(collection + ' must be a list')
         particle_names = set()
         for item in entries:
-            _fields(item, FIELDS[collection], collection)
+            if (not isinstance(item, dict) or not FIELDS[collection] <= set(item)
+                    or set(item) - FIELDS[collection] - OPTIONAL_FIELDS.get(collection, set())):
+                raise ValueError(collection + ' has missing or unknown fields')
             if 'position' in item:
                 _values(item['position'], 2, 'position')
             if 'file' in item:
@@ -140,6 +148,29 @@ def load_props(directory):
                 for key in ('color_start', 'color_end'):
                     if any(not 0 <= v <= 1 for v in _values(item[key], 4, key)):
                         raise ValueError(key + ' components must be in [0,1]')
+                if 'gravity' in item:
+                    _values(item['gravity'], 2, 'gravity')
+                if 'angular_velocity' in item:
+                    lo, hi = _values(item['angular_velocity'], 2, 'angular_velocity')
+                    if hi < lo:
+                        raise ValueError('angular_velocity requires ordered bounds')
+                if 'scale_curve' in item:
+                    if any(v < 0 for v in _values(item['scale_curve'], 2, 'scale_curve')):
+                        raise ValueError('scale_curve requires nonnegative endpoints')
+                if 'additive' in item and not isinstance(item['additive'], bool):
+                    raise ValueError('additive must be boolean')
+            elif collection == 'glows':
+                png(item['texture'])
+                _positive(item['scale'], 'glow scale')
+                if any(not 0 <= v <= 1 for v in _values(item['color'], 4, 'glow color')):
+                    raise ValueError('glow color components must be in [0,1]')
+                for key, lo, hi in (('flicker_hz', .5, 20), ('flicker_amount', 0, .9)):
+                    if not _number(item[key]) or not lo <= item[key] <= hi:
+                        raise ValueError(key + f' must be finite in [{lo},{hi}]')
+                if item['z_parent'] not in ('actors', 'overhead'):
+                    raise ValueError('glow z_parent must be actors or overhead')
+                if 'sort_y' in item and not _number(item['sort_y']):
+                    raise ValueError('glow sort_y must be finite')
     return {**data, 'root': root, 'images': images}
 
 
@@ -322,6 +353,61 @@ def ellipse(footprint):
     return points
 
 
+GLOW_FLICKER_SCRIPT = '''extends Sprite2D
+@export var flicker_hz: float = 4.0
+@export var flicker_amount: float = 0.4
+# Stable seed per manifest entry: phases differ per instance, never per frame.
+@export var phase_seed: int = 1
+var phases: Vector3
+var elapsed: float = 0.0
+var base_alpha: float
+var base_scale: Vector2
+var centre_offset: Vector2
+
+func _ready() -> void:
+    var rng := RandomNumberGenerator.new()
+    rng.seed = phase_seed
+    phases = Vector3(rng.randf_range(0, TAU), rng.randf_range(0, TAU), rng.randf_range(0, TAU))
+    base_alpha = modulate.a
+    base_scale = scale
+    centre_offset = offset * scale
+
+func _process(delta: float) -> void:
+    elapsed += delta
+    var t: float = elapsed * TAU * flicker_hz
+    var n: float = (sin(t + phases.x) + sin(t * 1.73 + phases.y) + sin(t * 2.61 + phases.z)) / 3.0
+    var factor: float = 1.0 + flicker_amount * n
+    modulate.a = base_alpha * factor
+    scale = base_scale * factor
+    # Keep the visual centre fixed while the node's y-sort anchor stays fixed.
+    offset = centre_offset / scale
+'''
+
+
+def _glow_sort_y(entry, props):
+    """sort_y is the owning anchor y; the glow node sorts one pixel after it.
+
+    Without an override choose the closest prop centre whose displayed bounds
+    contain the glow; otherwise the closest prop anchor. Ties use manifest
+    order. Standalone glows use their own centre y. No pixel art is changed.
+    """
+    if 'sort_y' in entry:
+        return entry['sort_y'] + 1
+    assets = {a['name']: a for a in props['assets']}
+    candidates, containing = [], []
+    x, y = entry['position']
+    for instance in props['instances']:
+        asset = assets[instance['asset']]
+        px, py = instance['position']
+        ax, ay = asset['anchor']
+        w, h = props['images'][asset['file']]['size']
+        candidates.append(((x-px)**2+(y-py)**2, py))
+        if px-ax <= x <= px-ax+w and py-ay <= y <= py-ay+h:
+            containing.append(((x-(px-ax+w/2))**2+(y-(py-ay+h/2))**2, py))
+    matches = containing or candidates
+    return (min(matches, key=lambda p: p[0])[1] if matches else y) + 1
+
+
 def write_layers(out, props, body_width=48.0):
     """Return scene fragments; copy validated textures without transforming art."""
     out = Path(out)
@@ -333,6 +419,7 @@ def write_layers(out, props, body_width=48.0):
     used = {a['file'] for a in props['assets'] if any(i['asset'] == a['name'] for i in props['instances'])}
     used.update(e['file'] for key in ('shadows', 'overhead', 'near') for e in props[key])
     used.update(e['texture'] for e in props['particles'])
+    used.update(e['texture'] for e in props.get('glows', []))
     for i, file in enumerate(props['images']):
         ident = f'PropsTexture{i}'
         dest = 'props/'+file
@@ -346,6 +433,11 @@ def write_layers(out, props, body_width=48.0):
     if fade_used:
         (out/'scripts/occlusion_fade.gd').write_text(OCCLUSION_SCRIPT)
         external.append('[ext_resource type="Script" path="res://scripts/occlusion_fade.gd" id="OcclusionFade"]')
+    if props.get('glows'):
+        (out/'scripts/glow_flicker.gd').write_text(GLOW_FLICKER_SCRIPT)
+        external.append('[ext_resource type="Script" path="res://scripts/glow_flicker.gd" id="GlowFlicker"]')
+    if props.get('glows') or any(e.get('additive', False) for e in props['particles']):
+        subresources.append('[sub_resource type="CanvasItemMaterial" id="PropsAdditive"]\nblend_mode = 1\n')
 
     def sprite(name, parent, file, position, offset=(0, 0)):
         return (f'\n[node name="{name}" type="Sprite2D" parent="{parent}"]\n'
@@ -376,6 +468,19 @@ def write_layers(out, props, body_width=48.0):
             collisions += (f'\n[node name="PropCollision_{i}" type="CollisionPolygon2D" parent="Walls"]\n'
                            f'position = {_vector(instance["position"])}\npolygon = {_packed(ellipse(asset["footprint"]))}\n')
     after += '\n[node name="Overhead" type="Node2D" parent="."]\nz_index = 3\n'
+    for i, entry in enumerate(props.get('glows', [])):
+        parent = 'Actors' if entry['z_parent'] == 'actors' else 'Overhead'
+        x, y = entry['position']
+        sort_y = _glow_sort_y(entry, props) if parent == 'Actors' else y
+        after += (f'\n[node name="Glow_{i}" type="Sprite2D" parent="{parent}"]\n'
+                  f'position = {_vector([x, sort_y])}\ncentered = true\n'
+                  f'offset = {_vector([0, (y-sort_y)/entry["scale"]])}\n'
+                  f'scale = {_vector([entry["scale"]]*2)}\n'
+                  f'texture = ExtResource("{textures[entry["texture"]]}")\n'
+                  'material = SubResource("PropsAdditive")\nscript = ExtResource("GlowFlicker")\n'
+                  'modulate = Color('+', '.join(format(v, '.12g') for v in entry['color'])+')\n'
+                  f'flicker_hz = {entry["flicker_hz"]:.12g}\nflicker_amount = {entry["flicker_amount"]:.12g}\n'
+                  f'phase_seed = {i+1}\n')
     for i, entry in enumerate(props['overhead']):
         after += sprite(f'Overhead_{i}', 'Overhead', entry['file'], entry['position'])
         after += fade(entry['file'], [0, 0], 1, '../../Actors/Keeper')
@@ -397,10 +502,25 @@ def write_layers(out, props, body_width=48.0):
                   'local_coords = false\nemitting = true\nemission_shape = 3\n'
                   f'emission_rect_extents = {_vector([(x1-x0)/2, (y1-y0)/2])}\n'
                   f'direction = {_vector(entry["direction"])}\nspread = {entry["spread_deg"]:.12g}\n'
-                  'gravity = Vector2(0, 0)\n'
+                  f'gravity = {_vector(entry.get("gravity", [0, 0]))}\n'
                   f'initial_velocity_min = {entry["velocity_px_s"][0]:.12g}\ninitial_velocity_max = {entry["velocity_px_s"][1]:.12g}\n'
                   f'scale_amount_min = {entry["scale"][0]:.12g}\nscale_amount_max = {entry["scale"][1]:.12g}\n'
                   f'color_ramp = SubResource("PropsGradient{i}")\n')
+        if 'angular_velocity' in entry:
+            lo, hi = entry['angular_velocity']
+            after += f'angular_velocity_min = {lo:.12g}\nangular_velocity_max = {hi:.12g}\n'
+        if 'scale_curve' in entry:
+            start, end = entry['scale_curve']
+            # Curve._data requires Variant::FLOAT tangents even for integers.
+            slope = repr(float(end-start))
+            subresources.append(f'[sub_resource type="Curve" id="PropsScale{i}"]\n'
+                                f'min_value = {min(0, start, end):.12g}\nmax_value = {max(1, start, end):.12g}\n'
+                                f'_data = [Vector2(0, {start:.12g}), 0.0, {slope}, 0, 0, '
+                                f'Vector2(1, {end:.12g}), {slope}, 0.0, 0, 0]\npoint_count = 2\n')
+            after += f'scale_amount_curve = SubResource("PropsScale{i}")\n'
+        if entry.get('additive', False):
+            after += 'material = SubResource("PropsAdditive")\n'
     return {'external': external, 'subresources': subresources, 'before_keeper': before,
             'after_keeper': after, 'collisions': collisions,
-            'counts': {k: len(props[k]) for k in COLLECTIONS}}
+            'counts': {**{k: len(props[k]) for k in COLLECTIONS},
+                       **({'glows': len(props['glows'])} if 'glows' in props else {})}}

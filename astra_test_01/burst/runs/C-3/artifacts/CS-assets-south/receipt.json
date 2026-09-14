@@ -1,0 +1,58 @@
+{
+  "task_id": "CS-assets-south",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [],
+  "calls_used": 0,
+  "retries": [],
+  "self_report": {
+    "obeyed_invariants": false,
+    "concerns": [
+      "Initial SPEC selector also displayed adjacent T3o rows, exceeding the requested T3l/T3m read scope.",
+      "Required border filter excluded the left tree; three assets remain. Frozen loader accepted the package.",
+      "Footprints remain the requested 60×40 placeholders.",
+      "Wrapper-owned live .wrapper-* logs are excluded from deliverable hashes."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/asset_sheet.png",
+      "sha256": "80362f32f2d287169538c2d42c355ac2b2350f2a0c644a65e2ed6bd3b1cdafe5"
+    },
+    {
+      "path": "out/catalogue.json",
+      "sha256": "b7195b033eeb533677042c0831096aaada3dafe5f2d6ab9cc62ee229b38d3a94"
+    },
+    {
+      "path": "out/checks.json",
+      "sha256": "10acc211d1b2a9ada75338348f347a479297a44d727c9697707e99fd08cde683"
+    },
+    {
+      "path": "out/props/assets/south_obj_01_a.png",
+      "sha256": "70b5544ca8082db204487e7fe9b84918772db7afb78ce96049dfc4e6aa5430e8"
+    },
+    {
+      "path": "out/props/assets/south_obj_01_b.png",
+      "sha256": "8c0015dd06816209559d24194c06e4e9a3b949d964bbe08cc04d7cd046527061"
+    },
+    {
+      "path": "out/props/assets/south_obj_01_c.png",
+      "sha256": "8375ff8f6f6a9b68336748fb9eab9c24b1ceba58b61fb81b218687ad9ddd1174"
+    },
+    {
+      "path": "out/props/props.json",
+      "sha256": "6e6a4f5fd9fa7ae523c62395d42df6c9e8e4f04e516f1d7d0195e0484c6d540b"
+    },
+    {
+      "path": "out/props/shadow_south.png",
+      "sha256": "461e2d4558aa7ee13e4032aefd58cd732553b5e3ae1821708d1f9e36ae803e20"
+    },
+    {
+      "path": "out/rebuild_vs_after.png",
+      "sha256": "df84af00f7ea3cb8ac2f1735a0e6d3d9ab9ebbe632270ba7666d741a2621d910"
+    },
+    {
+      "path": "out/summary.txt",
+      "sha256": "d4ccea4d0baf31b3fae06681e8ac6d76a8da7ba4429fe614ad0d5cfcd0efe177"
+    }
+  ]
+}

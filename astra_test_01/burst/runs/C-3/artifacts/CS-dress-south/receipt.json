@@ -1,0 +1,53 @@
+{
+  "task_id": "CS-dress-south",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "dress_south",
+      "path": "out/dress_south.png",
+      "sha256": "3d8cf9eae40bde008dd7b75d76c87c62a9ec76341a3ea1679ecaa160a1ede4e7",
+      "prompt": "Use case: precise-object-edit. Edit IMAGE 1 only. Deliver one 1536×1024 PNG of this exact existing painted southern grass level crop with added outdoor scenery. IMAGE 1 is the immutable base painting. IMAGE 2 is the same crop with 1.75 m scale figures and magenta ticks, for measuring object scale ONLY. IMAGE 3 is the camera-projected size chart: character, 0.7 m crate, 0.9 m barrel, 0.9 m rock, 0.9 m shrub, character, 5 m dead snag, character, mature 8 m tree with 5.5 m crown, character. IMAGE 4 is rendering/style reference ONLY; match its hand-painted object treatment and detail without copying its objects or layout. Never transfer figures, magenta marks, chart background, or other reference artifacts.\nAdd exactly two living mature trees, approximately 7–9 m tall with crowns about 5 m across, respecting the exact projection and world size evidenced in images 2 and 3. One tree has its east/right-facing side scorched and leafless, with bare charred branches on that side and a living leafy remainder. No ground scorching. Add one mossy boulder with two smaller rocks, one fallen moss-covered log, shrubs, ferns, and a few wildflower clumps. This is southern grass, mostly alive. All additions stand on the grass.\nComposition: fit two substantial mature trees comfortably inside the crop, with separated trunks, one in the left interior and the other in the right interior. Their crowns should be roughly 500–550 pixels across according to the supplied chart, not tiny saplings. Allow ample room vertically for the mature trees. Place the boulder group and fallen log in separate remaining grassy spaces. ALL added objects, including every crown, branch, fern and flower, must lie fully within the rectangle x=120..1416, y=120..904, with at least 120 pixels margin to every image border. Keep trunks and props off the top-left dirt path. Objects do not overlap one another except that a tree crown may overhang something behind it. No trunk overlaps another trunk.\nRendering: HAND-DRAWN painted 2D, confident tapered dark contours with variable line weight, clean painted material planes, restrained texture, readable silhouettes, rich jewel-toned local colors. Match IMAGE 4's object rendering exactly and match IMAGE 1's fixed elevated three-quarter ARPG camera and existing sunset key light from screen upper-left, shadows toward lower-right. Soft contact shadows anchor additions, with dappled canopy shadows toward lower-right. Preserve the existing painting's palette and light.\nSTRICT PRESERVATION: Everything outside the added objects and their physically appropriate shadows remains exactly as painted in IMAGE 1. Preserve original grass blades, flower patches, scattered stones, dirt path, composition, framing, ground texture and every existing feature. Do not repaint or relight the ground. Do not introduce cliffs, clouds, bridges or void where none appear in this crop. Any existing green void must remain flat pure #00ff00. Dirt paths and any bridge decks stay open. No characters, creatures, text, UI, guides, borders, or vignette. Output is the SAME base painting with localized additions only.\nRETRY CORRECTION: The previous attempt broke the 120 px margin: crowns reached too close to the top and side borders, and the log extended below y=904. Rebuild the additions on ORIGINAL IMAGE 1 with these tighter placement bounds. LEFT TREE: all crown foliage and branch tips inside x=180..710 and y=165..535; trunk base near (455,715). RIGHT TREE: all foliage and bare east-facing branch tips inside x=835..1350 and y=165..555; trunk base near (1100,745). Maintain mature tree proportions and the measured scale. BOULDER GROUP: within x=235..530, y=750..875, one mossy boulder and TWO clearly visible smaller separate rocks. FALLEN LOG: within x=750..1080, y=780..865, separate from trunks and rocks. All added shrubs/ferns/flowers stay within x=165..1370 and y=145..880, arranged without overlapping the other objects except crown-over-background occlusion. These coordinate bounds are placement instructions, never draw boxes or lines. The outermost 120 pixel border strip must contain only the original unchanged image. Keep every existing patch of ground untouched outside actual added silhouettes and shadows. Deliver exactly 1536×1024.",
+      "references": [
+        {
+          "role": "edit target",
+          "path": "in/01_dress_south_canvas.png"
+        },
+        {
+          "role": "scale figures reference only",
+          "path": "in/02_dress_south_scale_figures.png"
+        },
+        {
+          "role": "camera-projected size chart reference only",
+          "path": "in/03_dress_size_chart.png"
+        },
+        {
+          "role": "approved object style reference only",
+          "path": "in/04_dress_spawn.png"
+        }
+      ],
+      "elapsed_s": 99.354
+    }
+  ],
+  "calls_used": 2,
+  "retries": [
+    {
+      "reason": "First output violated the 120 px border margin with tree crowns and the fallen log.",
+      "change": "Retried from the original canvas with tighter explicit placement bounds and emphasized two smaller rocks."
+    }
+  ],
+  "self_report": {
+    "obeyed_invariants": false,
+    "concerns": [
+      "Right tree branch tips still intrude into the required 120 px right border margin.",
+      "Some added vegetation overlaps props and trunk bases beyond the permitted crown overlap.",
+      "Boulder group appears to include three smaller rocks rather than two.",
+      "Exact pixel preservation outside additions was not verified."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/dress_south.png",
+      "sha256": "3d8cf9eae40bde008dd7b75d76c87c62a9ec76341a3ea1679ecaa160a1ede4e7"
+    }
+  ]
+}

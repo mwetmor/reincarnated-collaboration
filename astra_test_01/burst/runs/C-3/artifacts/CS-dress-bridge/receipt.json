@@ -1,0 +1,54 @@
+{
+  "task_id": "CS-dress-bridge",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "dress_bridge.png",
+      "path": "out/dress_bridge.png",
+      "sha256": "20e540a2739e5bd79bda2a57fef77a11b12631d9f9609ebd20e8a449a0a48b75",
+      "prompt": "Use case: precise-object-edit. EDIT IMAGE 1 in place. Deliver one 1536×1024 PNG with exactly its original framing.\nINPUT ROLES: Image 1 is the sole edit target, the finished bare painted bridge approach. Image 2 is the same crop with player scale figures and magenta measuring ticks, reference ONLY. Image 3 is a camera-projected size chart, reference ONLY: 1.75m character, 0.7m crate, 0.9m barrel, 0.9m rock, 0.9m shrub, character, 5m snag, character, 8m tree with 5.5m crown, character. Image 4 is the approved dressing style reference ONLY. Do not copy its object layouts or individual objects.\nTASK: Dress this bridge approach where a forest fire reached the cliff edge. Add two scorched dead snags, charred dark trunks 3–5m tall, with a few broken branches and a faint ember glow in one crack, standing on the cliff-top grass near the rims. Add two blackened stumps, one smouldering with a thin wisp of smoke. Add one charred fallen log in the grass. By the south/lower-left end of the bridge, beside its posts but entirely off the bridge deck and dirt path, add a toppled wooden signpost with no lettering, a coil of rope, and one small wooden crate. Add a few small blackened leafless bushes. Fit the additions into the available grassy perimeter without crowding or overlap; keep the open dirt thoroughfare and entire bridge deck clear. The two snags can occupy separated grassy sites along the upper-left rim of the foreground platform, with bases near (350,610) and (520,515), adjusted only as necessary to stay firmly on grass and avoid other objects. Objects must match the metric scale demonstrated by references 2 and 3.\nSTYLE: hand-drawn painted 2D, confident tapered dark hand-drawn contours with varying weight, painted clean material planes, restrained surface texture, readable silhouettes, no conspicuous grain. Match Image 4's object rendering and detail exactly, and integrate with Image 1's existing brushwork and elevated three-quarter camera. Preserve the existing sunset key from screen upper-left, cool readable shadows extending lower-right; use soft contact shadows anchoring every object on grass. Ember glow is tiny and restrained. This is an environmental crop, not a sprite sheet.\nIMMUTABLE BASE: Everything except the new objects and their small shadows must remain EXACTLY as painted in Image 1. Retain original pixels, geometry, colors, detail, framing and lighting of the grass, dirt path, rocky rims, cliff faces, cloud banks, bridge, bridge posts and green void. No ground scorch marks, repainting, global restyling, new terrain, shifting, resizing or cropping. Preserve flat pure #00ff00 in all uncovered void areas.\nSTRICT PLACEMENT: Every added object including its branches, smoke and any shadow must be fully within a 120px inset from all four image borders. All bases rest ON cliff-top grass, never a cliff face, cloud, green void, dirt path, or bridge deck. No trunk overlaps another trunk; no added objects overlap each other. Keep the dirt path and bridge deck open. No living trees are requested. No characters, creatures, scale figures, magenta lines, gray chart, text, UI, border or vignette. Return only the same painting with these localized additions.",
+      "references": [
+        {
+          "role": "edit target",
+          "path": "in/01_dress_bridge_canvas.png"
+        },
+        {
+          "role": "scale reference only",
+          "path": "in/02_dress_bridge_scale_figures.png"
+        },
+        {
+          "role": "camera-projected size reference only",
+          "path": "in/03_dress_size_chart.png"
+        },
+        {
+          "role": "approved object style reference only",
+          "path": "in/04_dress_spawn.png"
+        }
+      ],
+      "elapsed_s": 77.267
+    }
+  ],
+  "calls_used": 2,
+  "retries": [
+    {
+      "reason": "First candidate placed bushes within the 120px border margin and overlapped the fallen log with snag roots.",
+      "change": "Retried from the original references with explicit placement coordinates, inset bounds and object separation. Retry introduced larger cloud/void changes and a bottom-margin violation; retained the first candidate."
+    }
+  ],
+  "self_report": {
+    "obeyed_invariants": false,
+    "concerns": [
+      "Selected image has bushes within the required left-border margin and overlapping additions.",
+      "Only one stump is clearly visible; requested thin smoke is not clearly visible.",
+      "Ember glow appears on multiple objects rather than one faint crack.",
+      "Some cloud-edge changes are visible; exact preservation of uncovered pixels and pure green was not established.",
+      "Delivered PNG is 1536×1024. Both permitted image calls are exhausted."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/dress_bridge.png",
+      "sha256": "20e540a2739e5bd79bda2a57fef77a11b12631d9f9609ebd20e8a449a0a48b75"
+    }
+  ]
+}

@@ -1,0 +1,68 @@
+{
+  "task_id": "CS-assets-bridge",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [],
+  "calls_used": 0,
+  "retries": [],
+  "self_report": {
+    "obeyed_invariants": true,
+    "concerns": [
+      "Frozen loader accepted five assets and one shadow.",
+      "obj_03 omitted: frozen matte rejected its 57.13% green tile border.",
+      "Three groups dropped under the required tile-border rule.",
+      "Processed tiles registered at [0,0]; residuals 12.912 and 12.886.",
+      "Footprints remain requested 60×40 placeholders.",
+      "File manifest excludes live wrapper-owned audit logs."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/asset_sheet.png",
+      "sha256": "0a82ae716973023b9aaf0af30fbe48454f32e9881ca0704fc11f686804adff9c"
+    },
+    {
+      "path": "out/catalogue.json",
+      "sha256": "24b2596f0cc9f188dab2155732ae4ba86f5352dbc5021dca560a9010ff34a962"
+    },
+    {
+      "path": "out/checks.json",
+      "sha256": "fb490a5165e08e165f1a76f2654dc74f39ca9fef1715e1d546997f597b890abb"
+    },
+    {
+      "path": "out/props/assets/bridge_obj_01_a.png",
+      "sha256": "4fcfa9dfe6cb307a3ebbcd345c9ce2a6344789cc3dc8a3e8ae17f8ad63b7f79e"
+    },
+    {
+      "path": "out/props/assets/bridge_obj_01_b.png",
+      "sha256": "cdf20129d9f3c2e43901e10e587b142a81093a3827e005a43f00b4ba9398721c"
+    },
+    {
+      "path": "out/props/assets/bridge_obj_01_c.png",
+      "sha256": "7a10bee4064527d93e72396b9d8536a04ff9075341fce23cac597b1dac204099"
+    },
+    {
+      "path": "out/props/assets/bridge_obj_01_d.png",
+      "sha256": "c731f7e113867acd4df703eccd8a9abac7d6f0d263d265db787abd7c2612f4fe"
+    },
+    {
+      "path": "out/props/assets/bridge_obj_02_a.png",
+      "sha256": "cc21f4172a4dba58e533de8d14a0481c938c55d16361d07c3410718403f6b1b7"
+    },
+    {
+      "path": "out/props/props.json",
+      "sha256": "650bd5380900504c756536fd1f484a4ac40ea770c118db6cc8ca18867baf0b90"
+    },
+    {
+      "path": "out/props/shadow_bridge.png",
+      "sha256": "4f587d07b03288e78052405ba94a47786dfdce21a8305236e4ce16fd5c993996"
+    },
+    {
+      "path": "out/rebuild_vs_after.png",
+      "sha256": "2e56b2a95185fa5d4e817d14e3f8d337ebc317c6310d833e5299a2a4c03d4dfa"
+    },
+    {
+      "path": "out/summary.txt",
+      "sha256": "e11ad4e40244f9d5ba67dd707a9591457c6aef0c5055d1b465aec7103cd861b1"
+    }
+  ]
+}

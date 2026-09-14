@@ -1,0 +1,113 @@
+{
+  "task_id": "CS-objsheets-west",
+  "origin_px": [
+    0,
+    2600
+  ],
+  "otsu_threshold": 39.02049255371094,
+  "T": 39.02049255371094,
+  "components_total": 50,
+  "components_kept_before_merge": 6,
+  "discarded_component_count": 44,
+  "discarded_below_700": 44,
+  "discarded_insufficient_top_support": 0,
+  "object_count": 2,
+  "sheet_count": 1,
+  "conventions": {
+    "rgb_box_blur": "5x5, float32, reflect boundary",
+    "luminance": "0.299 R + 0.587 G + 0.114 B",
+    "structural_blur": "3x3 box, reflect boundary",
+    "sobel": "unnormalized scipy.ndimage.sobel Euclidean magnitude, reflect boundary",
+    "morphology": "Euclidean disks: structural dilation radius 4, opening radius 2, closing radius 6, cliff-top dilation radius 24",
+    "otsu": "256-bin histogram on float change map; maximum between-class variance",
+    "merge": "transitive intersection of individual component boxes each grown by 10; half-open coordinates",
+    "packing": "first-fit decreasing-height shelves; width descending for equal heights; reuse shelves before adding shelves",
+    "resize_dimensions": "round padded size times scale to nearest integer"
+  },
+  "verification": {
+    "unique_complete_placement": true,
+    "sheet_dimensions": [
+      1536,
+      1024
+    ],
+    "candidate_dimensions": [
+      1536,
+      1024
+    ],
+    "margins_at_least_24": true,
+    "gutters_at_least_24": true,
+    "no_tile_overlap": true,
+    "tiles_equal_resized_after_crops": true,
+    "sheet_count_is_minimum": true,
+    "minimum_sheet_count_reason": "All nonempty candidates fit on one sheet."
+  },
+  "objects": [
+    {
+      "bbox": [
+        258,
+        75,
+        360,
+        259
+      ],
+      "area": 5678,
+      "top_support_area": 5678,
+      "crop_box": [
+        242,
+        59,
+        376,
+        275
+      ],
+      "component_ids": [
+        1
+      ],
+      "id": "obj_01",
+      "scale": 2,
+      "sheet_size": [
+        268,
+        432
+      ],
+      "sheet": "sheet_1",
+      "sheet_xy": [
+        1166,
+        24
+      ]
+    },
+    {
+      "bbox": [
+        406,
+        86,
+        1492,
+        934
+      ],
+      "area": 314515,
+      "top_support_area": 314515,
+      "crop_box": [
+        390,
+        70,
+        1508,
+        950
+      ],
+      "component_ids": [
+        2,
+        9,
+        16,
+        23,
+        31
+      ],
+      "id": "obj_02",
+      "scale": 1,
+      "sheet_size": [
+        1118,
+        880
+      ],
+      "sheet": "sheet_1",
+      "sheet_xy": [
+        24,
+        24
+      ]
+    }
+  ],
+  "concerns": [
+    "The prescribed component/bounding-box merge groups multiple trees, a rock, and intervening ground into obj_02; the two candidates are change-region groups, not a semantic count of individual props."
+  ]
+}

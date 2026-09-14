@@ -1,0 +1,1097 @@
+[
+  {
+    "name": "bands_measure_walk",
+    "subject": "N_run",
+    "value": null,
+    "band": {
+      "floor": null,
+      "target": null,
+      "ceiling": null
+    },
+    "passed": null,
+    "proposed": false,
+    "unit": "",
+    "notes": "ValueError: gait intent requires 12 frames and 12 candidate phases"
+  },
+  {
+    "name": "g6_seam",
+    "subject": "",
+    "value": 0.946539560953776,
+    "band": {
+      "floor": null,
+      "target": null,
+      "ceiling": null
+    },
+    "passed": null,
+    "proposed": false,
+    "unit": "rgb_mad",
+    "notes": "{\"definition\": \"literal minimum internal\", \"adjacent_and_seam\": [{\"canvas\": 1.5613123575846355, \"foreground_union\": 24.47313242445986}, {\"canvas\": 1.2540944417317708, \"foreground_union\": 20.790067244250512}, {\"canvas\": 1.6618970235188801, \"foreground_union\": 26.110658275896515}, {\"canvas\": 1.1859639485677083, \"foreground_union\": 19.227740326138495}, {\"canvas\": 1.237347920735677, \"foreground_union\": 20.851332819062314}, {\"canvas\": 1.0069618225097656, \"foreground_union\": 16.874576487885957}, {\"canvas\": 1.2786827087402344, \"foreground_union\": 20.49269425933851}, {\"canvas\": 0.946539560953776, \"foreground_union\": 15.592890508808312}]}"
+  },
+  {
+    "name": "g6b",
+    "subject": "",
+    "value": 0.946539560953776,
+    "band": {
+      "floor": null,
+      "target": null,
+      "ceiling": null
+    },
+    "passed": null,
+    "proposed": false,
+    "unit": "rgb_mad",
+    "notes": "{\"definition\": \"median internal\", \"adjacent_and_seam\": [{\"canvas\": 1.5613123575846355, \"foreground_union\": 24.47313242445986}, {\"canvas\": 1.2540944417317708, \"foreground_union\": 20.790067244250512}, {\"canvas\": 1.6618970235188801, \"foreground_union\": 26.110658275896515}, {\"canvas\": 1.1859639485677083, \"foreground_union\": 19.227740326138495}, {\"canvas\": 1.237347920735677, \"foreground_union\": 20.851332819062314}, {\"canvas\": 1.0069618225097656, \"foreground_union\": 16.874576487885957}, {\"canvas\": 1.2786827087402344, \"foreground_union\": 20.49269425933851}, {\"canvas\": 0.946539560953776, \"foreground_union\": 15.592890508808312}]}"
+  },
+  {
+    "name": "g6c",
+    "subject": "",
+    "value": 0.7981183256851224,
+    "band": {
+      "floor": null,
+      "target": null,
+      "ceiling": null
+    },
+    "passed": null,
+    "proposed": false,
+    "unit": "ratio",
+    "notes": "{\"seam_pair\": [7, 0], \"homologue_pair\": [3, 4], \"seam_mad\": 0.946539560953776, \"homologue_mad\": 1.1859639485677083, \"ratio_infinite\": false, \"comparison\": \"seam MAD <= 1.25 * half-cycle homologue MAD\"}"
+  },
+  {
+    "name": "g1_size_stability_max",
+    "subject": "N_run",
+    "value": 0.07509881422924902,
+    "band": {
+      "floor": null,
+      "target": null,
+      "ceiling": null
+    },
+    "passed": null,
+    "proposed": false,
+    "unit": "fraction",
+    "notes": "[{\"index\": 0, \"id\": \"g1_height\", \"subject\": \"\", \"passed\": null, \"value\": 0.0513833992094862, \"threshold\": 0.03, \"op\": \"<=\", \"unit\": \"fraction\", \"evidence\": [], \"notes\": \"height_px=240; master_height_px=253\"}, {\"index\": 1, \"id\": \"g1_height\", \"subject\": \"\", \"passed\": null, \"value\": 0.007905138339920903, \"threshold\": 0.03, \"op\": \"<=\", \"unit\": \"fraction\", \"evidence\": [], \"notes\": \"height_px=251; master_height_px=253\"}, {\"index\": 2, \"id\": \"g1_height\", \"subject\": \"\", \"passed\": null, \"value\": 0.01976284584980248, \"threshold\": 0.03, \"op\": \"<=\", \"unit\": \"fraction\", \"evidence\": [], \"notes\": \"height_px=258; master_height_px=253\"}, {\"index\": 3, \"id\": \"g1_height\", \"subject\": \"\", \"passed\": null, \"value\": 0.07509881422924902, \"threshold\": 0.03, \"op\": \"<=\", \"unit\": \"fraction\", \"evidence\": [], \"notes\": \"height_px=234; master_height_px=253\"}, {\"index\": 4, \"id\": \"g1_height\", \"subject\": \"\", \"passed\": null, \"value\": 0.055335968379446654, \"threshold\": 0.03, \"op\": \"<=\", \"unit\": \"fraction\", \"evidence\": [], \"notes\": \"height_px=239; master_height_px=253\"}, {\"index\": 5, \"id\": \"g1_height\", \"subject\": \"\", \"passed\": null, \"value\": 0.011857707509881465, \"threshold\": 0.03, \"op\": \"<=\", \"unit\": \"fraction\", \"evidence\": [], \"notes\": \"height_px=250; master_height_px=253\"}, {\"index\": 6, \"id\": \"g1_height\", \"subject\": \"\", \"passed\": null, \"value\": 0.035573122529644285, \"threshold\": 0.03, \"op\": \"<=\", \"unit\": \"fraction\", \"evidence\": [], \"notes\": \"height_px=244; master_height_px=253\"}, {\"index\": 7, \"id\": \"g1_height\", \"subject\": \"\", \"passed\": null, \"value\": 0.07509881422924902, \"threshold\": 0.03, \"op\": \"<=\", \"unit\": \"fraction\", \"evidence\": [], \"notes\": \"height_px=234; master_height_px=253\"}]"
+  },
+  {
+    "name": "head_pitch",
+    "subject": "clip",
+    "value": {
+      "frames": [
+        {
+          "head_top_y": 160,
+          "head_h": 34,
+          "face_area": 77,
+          "head_area": 1455,
+          "face_fraction": 0.052920962199312714,
+          "face_centroid_y": 170.0909090909091,
+          "pitch_proxy": 0.2967914438502674,
+          "reason": null,
+          "index": 0,
+          "time_s": 0.0,
+          "delta": -0.30030565324682973,
+          "head_down": false,
+          "delta_reason": null
+        },
+        {
+          "head_top_y": 153,
+          "head_h": 36,
+          "face_area": 78,
+          "head_area": 1253,
+          "face_fraction": 0.06225059856344772,
+          "face_centroid_y": 172.28205128205127,
+          "pitch_proxy": 0.5356125356125356,
+          "reason": null,
+          "index": 1,
+          "time_s": 0.08333333333333333,
+          "delta": -0.061484561484561495,
+          "head_down": false,
+          "delta_reason": null
+        },
+        {
+          "head_top_y": 147,
+          "head_h": 37,
+          "face_area": 90,
+          "head_area": 1434,
+          "face_fraction": 0.06276150627615062,
+          "face_centroid_y": 159.53333333333333,
+          "pitch_proxy": 0.3387387387387387,
+          "reason": null,
+          "index": 2,
+          "time_s": 0.16666666666666666,
+          "delta": -0.2583583583583584,
+          "head_down": false,
+          "delta_reason": null
+        },
+        {
+          "head_top_y": 158,
+          "head_h": 33,
+          "face_area": 76,
+          "head_area": 1687,
+          "face_fraction": 0.045050385299347954,
+          "face_centroid_y": 165.97368421052633,
+          "pitch_proxy": 0.24162679425837322,
+          "reason": null,
+          "index": 3,
+          "time_s": 0.25,
+          "delta": -0.35547030283872394,
+          "head_down": false,
+          "delta_reason": null
+        },
+        {
+          "head_top_y": 160,
+          "head_h": 34,
+          "face_area": 83,
+          "head_area": 1428,
+          "face_fraction": 0.05812324929971989,
+          "face_centroid_y": 171.14457831325302,
+          "pitch_proxy": 0.32778171509567683,
+          "reason": null,
+          "index": 4,
+          "time_s": 0.3333333333333333,
+          "delta": -0.2693153820014203,
+          "head_down": false,
+          "delta_reason": null
+        },
+        {
+          "head_top_y": 153,
+          "head_h": 35,
+          "face_area": 76,
+          "head_area": 1267,
+          "face_fraction": 0.05998421468034728,
+          "face_centroid_y": 164.53947368421052,
+          "pitch_proxy": 0.3296992481203007,
+          "reason": null,
+          "index": 5,
+          "time_s": 0.4166666666666667,
+          "delta": -0.2673978489767964,
+          "head_down": false,
+          "delta_reason": null
+        },
+        {
+          "head_top_y": 151,
+          "head_h": 35,
+          "face_area": 92,
+          "head_area": 1543,
+          "face_fraction": 0.059624108878807515,
+          "face_centroid_y": 162.47826086956522,
+          "pitch_proxy": 0.3279503105590062,
+          "reason": null,
+          "index": 6,
+          "time_s": 0.5,
+          "delta": -0.26914678653809093,
+          "head_down": false,
+          "delta_reason": null
+        },
+        {
+          "head_top_y": 159,
+          "head_h": 33,
+          "face_area": 102,
+          "head_area": 1596,
+          "face_fraction": 0.06390977443609022,
+          "face_centroid_y": 169.51960784313727,
+          "pitch_proxy": 0.31877599524658345,
+          "reason": null,
+          "index": 7,
+          "time_s": 0.5833333333333334,
+          "delta": -0.2783211018505137,
+          "head_down": false,
+          "delta_reason": null
+        }
+      ],
+      "rest": {
+        "head_top_y": 148,
+        "head_h": 36,
+        "face_area": 111,
+        "head_area": 981,
+        "face_fraction": 0.11314984709480122,
+        "face_centroid_y": 169.4954954954955,
+        "pitch_proxy": 0.5970970970970971,
+        "reason": null
+      },
+      "skin_lab": [
+        40.69461318155161,
+        15.9026116827094,
+        30.507037473604104
+      ],
+      "first_second_mean_delta": -0.2574749994119119,
+      "first_second_evaluable_frames": 8,
+      "first_second_head_down": false,
+      "first_second_reason": null,
+      "calibration": {
+        "head_fraction": 0.14,
+        "skin_lab_tol": 20.0,
+        "hair_dark_L": 30.0,
+        "minimum_face_fraction": 0.02,
+        "head_down_delta": 0.05
+      }
+    },
+    "band": {
+      "floor": null,
+      "target": null,
+      "ceiling": null
+    },
+    "passed": null,
+    "proposed": false,
+    "unit": "fraction_head_h",
+    "notes": "Colour-bin face-height proxy; no claim to an anatomical angle.\n\nProvisional calibration, fixed before real-clip evaluation: CIE76 tolerance\n20 Lab units, head top 14% of largest alpha component height, hair L<30,\nminimum visible face fraction .02; delta>.05 head heights marks head down.\nThe .05 threshold is one quarter of the specified synthetic .20 displacement,\nnot fitted to the real-clip window means. Upright rest selection is explicit."
+  },
+  {
+    "name": "coherence",
+    "subject": "out/cut/frames/run/N",
+    "value": {
+      "head": {
+        "max_residual_mad": 7.382045269012451,
+        "raw_mad_at_max_residual": 9.289912223815918,
+        "max_raw_mad": 9.368185043334961,
+        "worst_pair": [
+          2,
+          3
+        ],
+        "bounds": [
+          183,
+          147,
+          309,
+          193
+        ],
+        "search_core": [
+          183,
+          147,
+          309,
+          193
+        ],
+        "classification": "redrawn",
+        "pairs": [
+          {
+            "pair": [
+              0,
+              1
+            ],
+            "raw_mad": 8.641189575195312,
+            "residual_mad": 6.266735553741455,
+            "translation_xy": [
+              -2,
+              -6
+            ],
+            "classification": "redrawn"
+          },
+          {
+            "pair": [
+              1,
+              2
+            ],
+            "raw_mad": 9.368185043334961,
+            "residual_mad": 4.3215436935424805,
+            "translation_xy": [
+              -3,
+              -4
+            ],
+            "classification": "carried"
+          },
+          {
+            "pair": [
+              2,
+              3
+            ],
+            "raw_mad": 9.289912223815918,
+            "residual_mad": 7.382045269012451,
+            "translation_xy": [
+              2,
+              5
+            ],
+            "classification": "redrawn"
+          },
+          {
+            "pair": [
+              3,
+              4
+            ],
+            "raw_mad": 8.29997730255127,
+            "residual_mad": 6.168449401855469,
+            "translation_xy": [
+              4,
+              3
+            ],
+            "classification": "redrawn"
+          },
+          {
+            "pair": [
+              4,
+              5
+            ],
+            "raw_mad": 8.286979675292969,
+            "residual_mad": 5.282206058502197,
+            "translation_xy": [
+              4,
+              -6
+            ],
+            "classification": "redrawn"
+          },
+          {
+            "pair": [
+              5,
+              6
+            ],
+            "raw_mad": 7.780020713806152,
+            "residual_mad": 5.059121131896973,
+            "translation_xy": [
+              3,
+              -3
+            ],
+            "classification": "redrawn"
+          },
+          {
+            "pair": [
+              6,
+              7
+            ],
+            "raw_mad": 7.850069046020508,
+            "residual_mad": 6.247354507446289,
+            "translation_xy": [
+              0,
+              6
+            ],
+            "classification": "redrawn"
+          }
+        ]
+      },
+      "shoulders_chest": {
+        "max_residual_mad": 25.633220672607422,
+        "raw_mad_at_max_residual": 37.93318176269531,
+        "max_raw_mad": 37.93318176269531,
+        "worst_pair": [
+          2,
+          3
+        ],
+        "bounds": [
+          183,
+          193,
+          309,
+          263
+        ],
+        "search_core": [
+          183,
+          193,
+          309,
+          263
+        ],
+        "classification": "redrawn",
+        "pairs": [
+          {
+            "pair": [
+              0,
+              1
+            ],
+            "raw_mad": 34.26179122924805,
+            "residual_mad": 20.816553115844727,
+            "translation_xy": [
+              0,
+              -6
+            ],
+            "classification": "redrawn"
+          },
+          {
+            "pair": [
+              1,
+              2
+            ],
+            "raw_mad": 24.976491928100586,
+            "residual_mad": 13.536809921264648,
+            "translation_xy": [
+              -1,
+              -5
+            ],
+            "classification": "redrawn"
+          },
+          {
+            "pair": [
+              2,
+              3
+            ],
+            "raw_mad": 37.93318176269531,
+            "residual_mad": 25.633220672607422,
+            "translation_xy": [
+              -1,
+              6
+            ],
+            "classification": "redrawn"
+          },
+          {
+            "pair": [
+              3,
+              4
+            ],
+            "raw_mad": 23.45619773864746,
+            "residual_mad": 19.02362060546875,
+            "translation_xy": [
+              0,
+              5
+            ],
+            "classification": "redrawn"
+          },
+          {
+            "pair": [
+              4,
+              5
+            ],
+            "raw_mad": 25.183107376098633,
+            "residual_mad": 17.288585662841797,
+            "translation_xy": [
+              1,
+              -6
+            ],
+            "classification": "redrawn"
+          },
+          {
+            "pair": [
+              5,
+              6
+            ],
+            "raw_mad": 15.527664184570312,
+            "residual_mad": 9.014020919799805,
+            "translation_xy": [
+              2,
+              -2
+            ],
+            "classification": "redrawn"
+          },
+          {
+            "pair": [
+              6,
+              7
+            ],
+            "raw_mad": 25.158578872680664,
+            "residual_mad": 14.51659107208252,
+            "translation_xy": [
+              1,
+              6
+            ],
+            "classification": "redrawn"
+          }
+        ]
+      },
+      "hips": {
+        "max_residual_mad": 10.3173246383667,
+        "raw_mad_at_max_residual": 12.075023651123047,
+        "max_raw_mad": 12.075023651123047,
+        "worst_pair": [
+          0,
+          1
+        ],
+        "bounds": [
+          183,
+          263,
+          309,
+          302
+        ],
+        "search_core": [
+          183,
+          263,
+          309,
+          302
+        ],
+        "classification": "redrawn",
+        "pairs": [
+          {
+            "pair": [
+              0,
+              1
+            ],
+            "raw_mad": 12.075023651123047,
+            "residual_mad": 10.3173246383667,
+            "translation_xy": [
+              -4,
+              5
+            ],
+            "classification": "redrawn"
+          },
+          {
+            "pair": [
+              1,
+              2
+            ],
+            "raw_mad": 7.348121166229248,
+            "residual_mad": 4.735992431640625,
+            "translation_xy": [
+              -1,
+              -6
+            ],
+            "classification": "redrawn"
+          },
+          {
+            "pair": [
+              2,
+              3
+            ],
+            "raw_mad": 9.710893630981445,
+            "residual_mad": 6.440917015075684,
+            "translation_xy": [
+              1,
+              6
+            ],
+            "classification": "redrawn"
+          },
+          {
+            "pair": [
+              3,
+              4
+            ],
+            "raw_mad": 9.221475601196289,
+            "residual_mad": 7.305386066436768,
+            "translation_xy": [
+              2,
+              4
+            ],
+            "classification": "redrawn"
+          },
+          {
+            "pair": [
+              4,
+              5
+            ],
+            "raw_mad": 7.950956344604492,
+            "residual_mad": 5.770044803619385,
+            "translation_xy": [
+              2,
+              -6
+            ],
+            "classification": "redrawn"
+          },
+          {
+            "pair": [
+              5,
+              6
+            ],
+            "raw_mad": 6.549789905548096,
+            "residual_mad": 6.1039886474609375,
+            "translation_xy": [
+              1,
+              0
+            ],
+            "classification": "redrawn"
+          },
+          {
+            "pair": [
+              6,
+              7
+            ],
+            "raw_mad": 7.490231990814209,
+            "residual_mad": 4.969407081604004,
+            "translation_xy": [
+              1,
+              6
+            ],
+            "classification": "redrawn"
+          }
+        ]
+      },
+      "legs": {
+        "max_residual_mad": 8.681051254272461,
+        "raw_mad_at_max_residual": 8.7697172164917,
+        "max_raw_mad": 8.881696701049805,
+        "worst_pair": [
+          5,
+          6
+        ],
+        "bounds": [
+          183,
+          302,
+          309,
+          366
+        ],
+        "search_core": [
+          183,
+          302,
+          309,
+          366
+        ],
+        "classification": "redrawn",
+        "pairs": [
+          {
+            "pair": [
+              0,
+              1
+            ],
+            "raw_mad": 8.881696701049805,
+            "residual_mad": 8.044270515441895,
+            "translation_xy": [
+              -1,
+              -2
+            ],
+            "classification": "redrawn"
+          },
+          {
+            "pair": [
+              1,
+              2
+            ],
+            "raw_mad": 7.420965671539307,
+            "residual_mad": 6.574446201324463,
+            "translation_xy": [
+              0,
+              -6
+            ],
+            "classification": "redrawn"
+          },
+          {
+            "pair": [
+              2,
+              3
+            ],
+            "raw_mad": 7.212177753448486,
+            "residual_mad": 6.061921119689941,
+            "translation_xy": [
+              1,
+              6
+            ],
+            "classification": "redrawn"
+          },
+          {
+            "pair": [
+              3,
+              4
+            ],
+            "raw_mad": 5.88467264175415,
+            "residual_mad": 5.368799686431885,
+            "translation_xy": [
+              1,
+              3
+            ],
+            "classification": "redrawn"
+          },
+          {
+            "pair": [
+              4,
+              5
+            ],
+            "raw_mad": 6.089450836181641,
+            "residual_mad": 5.396535873413086,
+            "translation_xy": [
+              -1,
+              1
+            ],
+            "classification": "redrawn"
+          },
+          {
+            "pair": [
+              5,
+              6
+            ],
+            "raw_mad": 8.7697172164917,
+            "residual_mad": 8.681051254272461,
+            "translation_xy": [
+              -1,
+              2
+            ],
+            "classification": "redrawn"
+          },
+          {
+            "pair": [
+              6,
+              7
+            ],
+            "raw_mad": 8.021577835083008,
+            "residual_mad": 7.112681865692139,
+            "translation_xy": [
+              2,
+              1
+            ],
+            "classification": "redrawn"
+          }
+        ]
+      },
+      "feet": {
+        "max_residual_mad": 4.346493244171143,
+        "raw_mad_at_max_residual": 5.901641368865967,
+        "max_raw_mad": 6.073395729064941,
+        "worst_pair": [
+          6,
+          7
+        ],
+        "bounds": [
+          183,
+          366,
+          309,
+          405
+        ],
+        "search_core": [
+          183,
+          366,
+          309,
+          405
+        ],
+        "classification": "redrawn",
+        "pairs": [
+          {
+            "pair": [
+              0,
+              1
+            ],
+            "raw_mad": 3.179283618927002,
+            "residual_mad": 2.986365556716919,
+            "translation_xy": [
+              0,
+              -1
+            ],
+            "classification": "redrawn"
+          },
+          {
+            "pair": [
+              1,
+              2
+            ],
+            "raw_mad": 3.634310245513916,
+            "residual_mad": 3.1743996143341064,
+            "translation_xy": [
+              1,
+              6
+            ],
+            "classification": "redrawn"
+          },
+          {
+            "pair": [
+              2,
+              3
+            ],
+            "raw_mad": 4.734568119049072,
+            "residual_mad": 4.008682727813721,
+            "translation_xy": [
+              0,
+              6
+            ],
+            "classification": "redrawn"
+          },
+          {
+            "pair": [
+              3,
+              4
+            ],
+            "raw_mad": 4.210080146789551,
+            "residual_mad": 2.8274996280670166,
+            "translation_xy": [
+              -1,
+              6
+            ],
+            "classification": "redrawn"
+          },
+          {
+            "pair": [
+              4,
+              5
+            ],
+            "raw_mad": 4.231244087219238,
+            "residual_mad": 3.02028226852417,
+            "translation_xy": [
+              -3,
+              1
+            ],
+            "classification": "redrawn"
+          },
+          {
+            "pair": [
+              5,
+              6
+            ],
+            "raw_mad": 6.073395729064941,
+            "residual_mad": 3.934744358062744,
+            "translation_xy": [
+              -6,
+              6
+            ],
+            "classification": "redrawn"
+          },
+          {
+            "pair": [
+              6,
+              7
+            ],
+            "raw_mad": 5.901641368865967,
+            "residual_mad": 4.346493244171143,
+            "translation_xy": [
+              -3,
+              6
+            ],
+            "classification": "redrawn"
+          }
+        ]
+      },
+      "arms_left": {
+        "max_residual_mad": 19.368392944335938,
+        "raw_mad_at_max_residual": 24.59272575378418,
+        "max_raw_mad": 24.59272575378418,
+        "worst_pair": [
+          2,
+          3
+        ],
+        "bounds": [
+          183,
+          193,
+          211,
+          302
+        ],
+        "search_core": [
+          183,
+          193,
+          211,
+          302
+        ],
+        "classification": "redrawn",
+        "pairs": [
+          {
+            "pair": [
+              0,
+              1
+            ],
+            "raw_mad": 15.335081100463867,
+            "residual_mad": 8.841306686401367,
+            "translation_xy": [
+              -6,
+              -4
+            ],
+            "classification": "redrawn"
+          },
+          {
+            "pair": [
+              1,
+              2
+            ],
+            "raw_mad": 20.306684494018555,
+            "residual_mad": 10.967671394348145,
+            "translation_xy": [
+              -6,
+              -6
+            ],
+            "classification": "redrawn"
+          },
+          {
+            "pair": [
+              2,
+              3
+            ],
+            "raw_mad": 24.59272575378418,
+            "residual_mad": 19.368392944335938,
+            "translation_xy": [
+              -6,
+              6
+            ],
+            "classification": "redrawn"
+          },
+          {
+            "pair": [
+              3,
+              4
+            ],
+            "raw_mad": 12.911643028259277,
+            "residual_mad": 9.021734237670898,
+            "translation_xy": [
+              3,
+              5
+            ],
+            "classification": "redrawn"
+          },
+          {
+            "pair": [
+              4,
+              5
+            ],
+            "raw_mad": 4.7193098068237305,
+            "residual_mad": 3.547619104385376,
+            "translation_xy": [
+              4,
+              -6
+            ],
+            "classification": "redrawn"
+          },
+          {
+            "pair": [
+              5,
+              6
+            ],
+            "raw_mad": 0.09545653313398361,
+            "residual_mad": 0.006225425750017166,
+            "translation_xy": [
+              -4,
+              0
+            ],
+            "classification": "carried"
+          },
+          {
+            "pair": [
+              6,
+              7
+            ],
+            "raw_mad": 1.0115771293640137,
+            "residual_mad": 0.04281345382332802,
+            "translation_xy": [
+              -3,
+              5
+            ],
+            "classification": "carried"
+          }
+        ]
+      },
+      "arms_right": {
+        "max_residual_mad": 20.127347946166992,
+        "raw_mad_at_max_residual": 31.89897346496582,
+        "max_raw_mad": 31.89897346496582,
+        "worst_pair": [
+          0,
+          1
+        ],
+        "bounds": [
+          281,
+          193,
+          309,
+          302
+        ],
+        "search_core": [
+          281,
+          193,
+          309,
+          302
+        ],
+        "classification": "redrawn",
+        "pairs": [
+          {
+            "pair": [
+              0,
+              1
+            ],
+            "raw_mad": 31.89897346496582,
+            "residual_mad": 20.127347946166992,
+            "translation_xy": [
+              -3,
+              -6
+            ],
+            "classification": "redrawn"
+          },
+          {
+            "pair": [
+              1,
+              2
+            ],
+            "raw_mad": 17.23765754699707,
+            "residual_mad": 5.8653340339660645,
+            "translation_xy": [
+              -2,
+              -5
+            ],
+            "classification": "carried"
+          },
+          {
+            "pair": [
+              2,
+              3
+            ],
+            "raw_mad": 24.22280502319336,
+            "residual_mad": 15.28069019317627,
+            "translation_xy": [
+              1,
+              6
+            ],
+            "classification": "redrawn"
+          },
+          {
+            "pair": [
+              3,
+              4
+            ],
+            "raw_mad": 19.081912994384766,
+            "residual_mad": 11.051332473754883,
+            "translation_xy": [
+              2,
+              4
+            ],
+            "classification": "redrawn"
+          },
+          {
+            "pair": [
+              4,
+              5
+            ],
+            "raw_mad": 21.07503318786621,
+            "residual_mad": 9.87177848815918,
+            "translation_xy": [
+              2,
+              -6
+            ],
+            "classification": "carried"
+          },
+          {
+            "pair": [
+              5,
+              6
+            ],
+            "raw_mad": 17.204893112182617,
+            "residual_mad": 5.823503494262695,
+            "translation_xy": [
+              3,
+              -2
+            ],
+            "classification": "carried"
+          },
+          {
+            "pair": [
+              6,
+              7
+            ],
+            "raw_mad": 25.578527450561523,
+            "residual_mad": 12.109545707702637,
+            "translation_xy": [
+              1,
+              6
+            ],
+            "classification": "carried"
+          }
+        ]
+      }
+    },
+    "band": {
+      "floor": null,
+      "target": null,
+      "ceiling": null
+    },
+    "passed": null,
+    "proposed": false,
+    "unit": "rgb_mad",
+    "notes": "Report replaces LOCK/MOTION interpretation; worst consecutive residual, fixed support; no verdict."
+  },
+  {
+    "name": "rim_luma_excess_mean",
+    "subject": "N_run",
+    "value": 1.1230644672174872,
+    "band": {
+      "floor": null,
+      "target": null,
+      "ceiling": null
+    },
+    "passed": null,
+    "proposed": false,
+    "unit": "luma_0_255",
+    "notes": "[{\"index\": 0, \"id\": \"matte_quality.rim_luma_excess\", \"subject\": \"\", \"passed\": null, \"value\": -1.070713448210718, \"threshold\": null, \"op\": \"<=\", \"unit\": \"luma_0_255\", \"evidence\": [], \"notes\": \"Partial-alpha composite mean minus opaque ring mean; Euclidean 1\\u20133 px; Rec.709 display luma.\", \"metrics\": {\"partial_band_pixels\": 4441, \"opaque_ring_pixels\": 3772, \"partial_band_mean\": 57.49239742135449, \"opaque_ring_mean\": 58.56311086956521, \"bg\": [58, 63, 74]}}, {\"index\": 1, \"id\": \"matte_quality.rim_luma_excess\", \"subject\": \"\", \"passed\": null, \"value\": 0.6001854593602971, \"threshold\": null, \"op\": \"<=\", \"unit\": \"luma_0_255\", \"evidence\": [], \"notes\": \"Partial-alpha composite mean minus opaque ring mean; Euclidean 1\\u20133 px; Rec.709 display luma.\", \"metrics\": {\"partial_band_pixels\": 4313, \"opaque_ring_pixels\": 3558, \"partial_band_mean\": 62.17196055773016, \"opaque_ring_mean\": 61.57177509836986, \"bg\": [58, 63, 74]}}, {\"index\": 2, \"id\": \"matte_quality.rim_luma_excess\", \"subject\": \"\", \"passed\": null, \"value\": 0.6562578483839232, \"threshold\": null, \"op\": \"<=\", \"unit\": \"luma_0_255\", \"evidence\": [], \"notes\": \"Partial-alpha composite mean minus opaque ring mean; Euclidean 1\\u20133 px; Rec.709 display luma.\", \"metrics\": {\"partial_band_pixels\": 3989, \"opaque_ring_pixels\": 3501, \"partial_band_mean\": 59.75148835395376, \"opaque_ring_mean\": 59.09523050556984, \"bg\": [58, 63, 74]}}, {\"index\": 3, \"id\": \"matte_quality.rim_luma_excess\", \"subject\": \"\", \"passed\": null, \"value\": 0.9003492482062114, \"threshold\": null, \"op\": \"<=\", \"unit\": \"luma_0_255\", \"evidence\": [], \"notes\": \"Partial-alpha composite mean minus opaque ring mean; Euclidean 1\\u20133 px; Rec.709 display luma.\", \"metrics\": {\"partial_band_pixels\": 4386, \"opaque_ring_pixels\": 3729, \"partial_band_mean\": 58.2264746973883, \"opaque_ring_mean\": 57.326125449182086, \"bg\": [58, 63, 74]}}, {\"index\": 4, \"id\": \"matte_quality.rim_luma_excess\", \"subject\": \"\", \"passed\": null, \"value\": 1.1983291009764372, \"threshold\": null, \"op\": \"<=\", \"unit\": \"luma_0_255\", \"evidence\": [], \"notes\": \"Partial-alpha composite mean minus opaque ring mean; Euclidean 1\\u20133 px; Rec.709 display luma.\", \"metrics\": {\"partial_band_pixels\": 4283, \"opaque_ring_pixels\": 3684, \"partial_band_mean\": 57.72906433441834, \"opaque_ring_mean\": 56.5307352334419, \"bg\": [58, 63, 74]}}, {\"index\": 5, \"id\": \"matte_quality.rim_luma_excess\", \"subject\": \"\", \"passed\": null, \"value\": 1.7793068926543683, \"threshold\": null, \"op\": \"<=\", \"unit\": \"luma_0_255\", \"evidence\": [], \"notes\": \"Partial-alpha composite mean minus opaque ring mean; Euclidean 1\\u20133 px; Rec.709 display luma.\", \"metrics\": {\"partial_band_pixels\": 4181, \"opaque_ring_pixels\": 3624, \"partial_band_mean\": 59.43848123040271, \"opaque_ring_mean\": 57.65917433774834, \"bg\": [58, 63, 74]}}, {\"index\": 6, \"id\": \"matte_quality.rim_luma_excess\", \"subject\": \"\", \"passed\": null, \"value\": 3.8595644563469733, \"threshold\": null, \"op\": \"<=\", \"unit\": \"luma_0_255\", \"evidence\": [], \"notes\": \"Partial-alpha composite mean minus opaque ring mean; Euclidean 1\\u20133 px; Rec.709 display luma.\", \"metrics\": {\"partial_band_pixels\": 4349, \"opaque_ring_pixels\": 3681, \"partial_band_mean\": 58.09770561364118, \"opaque_ring_mean\": 54.23814115729421, \"bg\": [58, 63, 74]}}, {\"index\": 7, \"id\": \"matte_quality.rim_luma_excess\", \"subject\": \"\", \"passed\": null, \"value\": 1.061236180022405, \"threshold\": null, \"op\": \"<=\", \"unit\": \"luma_0_255\", \"evidence\": [], \"notes\": \"Partial-alpha composite mean minus opaque ring mean; Euclidean 1\\u20133 px; Rec.709 display luma.\", \"metrics\": {\"partial_band_pixels\": 4578, \"opaque_ring_pixels\": 3835, \"partial_band_mean\": 57.65497140818407, \"opaque_ring_mean\": 56.59373522816166, \"bg\": [58, 63, 74]}}]"
+  },
+  {
+    "name": "closure_0_7",
+    "subject": "N_run",
+    "value": 1.126404839176909,
+    "band": {
+      "floor": null,
+      "target": null,
+      "ceiling": null
+    },
+    "passed": null,
+    "proposed": false,
+    "unit": "rgb_mad",
+    "notes": "Frozen video_cut._mad: mean over canvas pixels and RGB channels of abs(RGB_a * alpha_a/255 - RGB_b * alpha_b/255), composited on black; no alignment."
+  },
+  {
+    "name": "closure_7_rest",
+    "subject": "N_run",
+    "value": 2.0957703514854225,
+    "band": {
+      "floor": null,
+      "target": null,
+      "ceiling": null
+    },
+    "passed": null,
+    "proposed": false,
+    "unit": "rgb_mad",
+    "notes": "Frozen video_cut._mad: mean over canvas pixels and RGB channels of abs(RGB_a * alpha_a/255 - RGB_b * alpha_b/255), composited on black; no alignment."
+  }
+]

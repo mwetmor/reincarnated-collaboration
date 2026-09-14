@@ -1,0 +1,103 @@
+{
+  "task_id": "T3n",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [],
+  "calls_used": 0,
+  "retries": [],
+  "self_report": {
+    "obeyed_invariants": false,
+    "concerns": [
+      "Read-scope deviation: initial SPEC extraction also printed the other lap-2 rows. The requested full-suite command refreshed eight existing test-report artifacts outside the T3n output directory; all are listed below.",
+      "Synthetic stride: unforced period 60; forced period 30, bob_frames 15, confidence unchanged at 0.99980694. Selection [92,122) contains exactly 30 native frames. Invalid integer bounds and non-integer values are rejected.",
+      "Default registration matches pre-change bytes with timing, output paths and tool_sha256 controlled. Uncontrolled registration bytes necessarily differ in those fields.",
+      "Synthetic bob counts: measured 2 and 4, matching both criteria. Confidence uses the dominant bin's share of non-DC FFT power.",
+      "All 16 real cells measured. Direction order S SW W NW N NE E SE: walk=[2,4,4,2,2,2,4,2]; run=[2,2,2,2,2,2,2,2]. Walk E/W/SW=4 and S=2 match the criteria. Full confidence values are in real_cells.json.",
+      "Focused tests: 48 run, 48 successful. Full suite: tests_run=405, successful=395, red assertions=10, errors=0; no new reds; regression lock green.",
+      "Standing reds: test_oracle_walk.Tests.test_synthetic_contract_and_grid; test_oracles_motif.Tests.test_f04_outside_at_least_three; test_oracles_motif.Tests.test_named_genuine_annuli_retained at centers [113,201], [111,311], [170,253].",
+      "Sandbox Godot reds: test_godot_import.GodotImportTests.test_headless_state_machine_input_map_gear_vfx_and_nearest_fallback; test_parallax_scene.ParallaxSceneTests.test_headless_cliffside_follow_camera_parallax_and_projectile_collision; test_props_layer.PropsLayerTests.test_headless_occlusion_fade_restore_overhead_near_and_particles; test_scene_kit.SceneKitTests.test_headless_tower_import_run_and_physics; test_sockets.SocketTests.test_headless_directional_release_and_resources.",
+      "Wall times: 533.93 s through acceptance capture versus 2400 s cap; full suite 159.001 s; focused cutter tests 18.656 s; step tests 0.169 s; real measurements 0.828 s; forced fixture cut 2.926 s. Remaining decoded temporary PNGs: 0."
+    ]
+  },
+  "files": [
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/oracle/steps_per_loop.py",
+      "sha256": "32550a54658e08d746013535837be2a76a03273e8f09841ee8ad91e5dfac48e5"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/oracle/video_cut.py",
+      "sha256": "833d24c50353c599f1ccb544d0d1a2d767fd94775946c077a111cc79e3f15e33"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/t3/T3n/acceptance.json",
+      "sha256": "d88d494f838bcc8e1ae5a3907787e63815948f39f8ff6220b2194286339f3ca4"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/t3/T3n/baseline_provenance.json",
+      "sha256": "afcd9b8d9e3500e6236b719f9b0b532ae64184ba066a223c87fa55d8198c830f"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/t3/T3n/full_suite.log",
+      "sha256": "365cd1f7d0f93b2af6662560814697fd50a2536b650a5c93a4c5bb0e76c52c40"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/t3/T3n/real_cells.json",
+      "sha256": "dec67a06020bf0b40c7bc2a5041b6a3bb51668a851e38c3988965469803b3e34"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/t3/T3n/registration_baseline.json",
+      "sha256": "a5fd7fd8fee820ca882be77c0693d379782a1e4530f3d5cc42d7de04a91ad8c5"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/t3/T3n/steps_tests.log",
+      "sha256": "0c1c400f33bd8125fbccffd2965c00023ba1043b83fb7cae058822047a8f714c"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/t3/T3n/stride_30.mkv",
+      "sha256": "a2a44a2ea96d4fa0be72a597a28f6d7daff61b1f117137baeebb0d9fa8becb0b"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/t3/T3n/video_cut_tests.log",
+      "sha256": "b6449c868c3dd97e866fff8762fca38ef2060448c2e9407a5df1120396e27e03"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/gates_regression_diff.json",
+      "sha256": "c8864b881f6646a530b06271dfb4d801767aa46db6184abad8bba4761cafbe80"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/oracles_acceptance_measurements.json",
+      "sha256": "39949a5e5c6afe3bf7e19061f5aa2859e15d85b70803b0430ced6471c998f3d0"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/oracles_palette_measurements.json",
+      "sha256": "d644692970ba376c582468b225308f6c3d6e9c7c8b5a0c73187689d2e1cbac25"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/oracles_silhouette_measurements.json",
+      "sha256": "1dc9e68b72691bf50e1773cdfcc5cad8d8990731cfb2a012956acb826aaa637f"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/parts_measurements.json",
+      "sha256": "daef6067a663ac0f199506bfbbb229a351bd7ce0fac4cb670dcac047026f8994"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/sheet_consistency_calibration.json",
+      "sha256": "3b8076d4a4b4e3b06920e067b3c5c665d6a0a441afd3f4725cbfafdb3df463ab"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/t0c_suite_output.txt",
+      "sha256": "5eeaa4daacd6d4aa6c3412a219537eab64d2fc25505695bd4417eb6413943c94"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/t0c_summary.json",
+      "sha256": "9b34b8388d90a580e6369fc38f977539444580fac1420c2ee0c837b2a635f38a"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_steps_per_loop.py",
+      "sha256": "6ed4834feba5d87e4c6a428684df1b4389567e8bc7087bda6f6d8a5aa3794050"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_video_cut.py",
+      "sha256": "e0b4570ec67dfa94ea0b5bea5f4baac67a41f878a01ee94eb122ae779e878c15"
+    }
+  ]
+}

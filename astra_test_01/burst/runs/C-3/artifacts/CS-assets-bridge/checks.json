@@ -1,0 +1,195 @@
+{
+  "task_id": "CS-assets-bridge",
+  "tiles": [
+    {
+      "tile_id": "obj_01",
+      "sheet": "sheet_1",
+      "crop_box": [
+        50,
+        212,
+        594,
+        777
+      ],
+      "matte": {
+        "method": "green excess matte + inverse straight-alpha compositing + nearest fully-opaque RGB clamp",
+        "removed_background_or_detached_alpha_dust_pixels": 0,
+        "native_input_alpha": false,
+        "alpha_floor": null,
+        "alpha_floor_removed_pixels": 0
+      },
+      "registration": {
+        "shift_px": [
+          0,
+          0
+        ],
+        "residual_mean_abs_rgb": 12.912150382995605,
+        "opaque_samples": 41939,
+        "shift_flag": false,
+        "residual_flag": false,
+        "search_boundary": false
+      },
+      "groups": [
+        {
+          "label": 1,
+          "support_px": 12138,
+          "dropped_reasons": []
+        },
+        {
+          "label": 2,
+          "support_px": 754,
+          "dropped_reasons": [
+            "touches_tile_border"
+          ]
+        },
+        {
+          "label": 3,
+          "support_px": 17682,
+          "dropped_reasons": []
+        },
+        {
+          "label": 4,
+          "support_px": 1094,
+          "dropped_reasons": []
+        },
+        {
+          "label": 5,
+          "support_px": 3318,
+          "dropped_reasons": []
+        },
+        {
+          "label": 6,
+          "support_px": 14056,
+          "dropped_reasons": [
+            "touches_tile_border"
+          ]
+        }
+      ],
+      "assets": [
+        "bridge_obj_01_a",
+        "bridge_obj_01_b",
+        "bridge_obj_01_c",
+        "bridge_obj_01_d"
+      ],
+      "resized_px": [
+        544,
+        565
+      ]
+    },
+    {
+      "tile_id": "obj_02",
+      "sheet": "sheet_1",
+      "crop_box": [
+        739,
+        724,
+        1006,
+        834
+      ],
+      "matte": {
+        "method": "green excess matte + inverse straight-alpha compositing + nearest fully-opaque RGB clamp",
+        "removed_background_or_detached_alpha_dust_pixels": 0,
+        "native_input_alpha": false,
+        "alpha_floor": null,
+        "alpha_floor_removed_pixels": 0
+      },
+      "registration": {
+        "shift_px": [
+          0,
+          0
+        ],
+        "residual_mean_abs_rgb": 12.88626766204834,
+        "opaque_samples": 6316,
+        "shift_flag": false,
+        "residual_flag": false,
+        "search_boundary": false
+      },
+      "groups": [
+        {
+          "label": 1,
+          "support_px": 3419,
+          "dropped_reasons": []
+        },
+        {
+          "label": 2,
+          "support_px": 3305,
+          "dropped_reasons": [
+            "touches_tile_border"
+          ]
+        }
+      ],
+      "assets": [
+        "bridge_obj_02_a"
+      ],
+      "resized_px": [
+        267,
+        110
+      ]
+    },
+    {
+      "tile_id": "obj_03",
+      "sheet": "sheet_2",
+      "crop_box": [
+        654,
+        830,
+        738,
+        903
+      ],
+      "matte_error": "No native alpha or uniform green plate: border green fraction 0.5713",
+      "registration": null,
+      "assets": []
+    }
+  ],
+  "concerns": [
+    "obj_03 omitted: frozen matte rejected tile: No native alpha or uniform green plate: border green fraction 0.5713",
+    "Footprints are requested 60x40 placeholders; shaped footprints remain conductor work.",
+    "Three connected groups were omitted under the required tile-border rule; reconstruction therefore omits those objects as well as obj_03."
+  ],
+  "parameters": {
+    "matte": {
+      "edge_mode": "clamp",
+      "preserve_particles": true
+    },
+    "resize": "Pillow RGBa premultiplied LANCZOS to crop_box dimensions",
+    "registration": {
+      "range_px": 10,
+      "alpha_threshold": 200,
+      "objective": "mean absolute RGB channel difference",
+      "flag_shift": "max(abs(dx),abs(dy)) > 3",
+      "flag_residual": 22
+    },
+    "groups": {
+      "alpha_threshold": 32,
+      "dilation": "Euclidean disk radius 3 pixels",
+      "minimum_original_support_px": 250,
+      "border_test": "dilated connected group touches tile boundary"
+    },
+    "opaque_threshold": 128,
+    "shadow": {
+      "luminance_coefficients": [
+        0.2126,
+        0.7152,
+        0.0722
+      ],
+      "gaussian_sigma_px": 11,
+      "soften_sigma_px": 2,
+      "zero_luminance_ratio": 1
+    },
+    "footprint": "60x40 placeholder"
+  },
+  "loader": {
+    "accepted": true,
+    "asset_count": 5,
+    "instance_count": 5,
+    "image_count": 6
+  },
+  "reconstruction": {
+    "mean_abs_rgb": 8.357118606567383,
+    "p95_abs_rgb": 30.0,
+    "shadow_nonzero_pixels": 136712
+  },
+  "asset_count": 5,
+  "omitted_tiles": [
+    "obj_03"
+  ],
+  "dropped_border_groups": 3,
+  "receipt_file_scope": "Authored deliverables only; live wrapper-owned .wrapper-* audit logs are excluded."
+}

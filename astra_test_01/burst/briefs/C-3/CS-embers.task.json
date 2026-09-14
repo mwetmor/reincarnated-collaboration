@@ -1,0 +1,13 @@
+{
+ "text": "GENERATE BURST CS-embers — particle sprite sheet: EMBERS and ASH for the burning-forest cliffside (Matt R-C3-68/79). task_id \"CS-embers\".\n\nPaint ONE 1536×1024 image on PURE BLACK #000000 containing a clean grid of 24 separate, isolated particle sprites for a hand-painted 2D ARPG (Hades-like painted register), each centred in its own cell of a 6-column × 4-row grid (cells 256×256), each particle about 40–110 px across and never touching its cell border:\nROW 1 — six glowing EMBERS: small bright sparks, white-hot yellow core fading through orange to deep red, with a soft glow halo; varied shapes (round spark, elongated streak, tiny cluster of two sparks).\nROW 2 — six larger EMBER FLAKES: glowing curled scraps of burnt leaf/bark with bright orange edges and dark charred centres.\nROW 3 — six ASH FLAKES: pale warm-grey to lavender-grey drifting ash, thin irregular curled flakes, softly lit from the upper-left, no glow.\nROW 4 — six SOFT SMOKE WISPS: small translucent curls of pale lavender-grey smoke, soft edges.\nEverything not a particle is pure black (black = fully transparent in the game). No text, labels, grid lines, border or vignette.\n\nOne image_gen call. ONE retry only if particles touch cell borders, the background is not pure black, or a row is missing — name the reason. Copy the output from $CODEX_HOME/generated_images/... to out/embers.png with sha256. No code. No other files. No web.\nRETURN: receipt task_id \"CS-embers\"; images = the file with prompt, references and elapsed_s; calls_used = the TRUE number of image_gen calls; status; concerns. Never PASS/FAIL.",
+ "references": [],
+ "image_cap": 2,
+ "minutes_cap": 15,
+ "tool_call_cap": 20,
+ "outputs": [
+  "out/embers.png"
+ ],
+ "effort": "high",
+ "add_dirs": [],
+ "experiment": "C3-cliffside-dress"
+}

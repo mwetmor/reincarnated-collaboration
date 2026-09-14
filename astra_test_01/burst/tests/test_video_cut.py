@@ -570,5 +570,137 @@ class CLITests(unittest.TestCase):
         self.assertIn('out must be empty',repeated.stderr)
 
 
+class ForcedPeriodTests(unittest.TestCase):
+    setUp = Tests.setUp
+    fixture = ROOT/'runs/C-3/t3/T3n'
+
+    @staticmethod
+    def series(n=150):
+        # Two local bobs per true 30-frame stride, unequal in height. The
+        # strongest autocorrelation is 30; the old doubling yields stride 60.
+        t = np.arange(n)
+        y = 40+8*np.cos(2*np.pi*t/30)+4*np.cos(2*np.pi*t/15)
+        return {'head_top_y':y.tolist()}
+
+    def test_double_stride_override_and_exact_selection(self):
+        for kind in ('walk','run'):
+            with self.subTest(kind=kind):
+                series = self.series()
+                observed = vc.detect_period(kind,series,30)
+                forced = vc.detect_period(kind,series,30,period_frames=30)
+                self.assertEqual(observed['frames'],60)
+                self.assertEqual((forced['source'],forced['frames'],forced['bob_frames']),
+                                 ('forced',30,15))
+                self.assertEqual(forced['seconds'],1.)
+                self.assertEqual(forced['bob_seconds'],.5)
+                self.assertEqual(forced['confidence'],observed['confidence'])
+                cut = vc.select_cycle(kind,series,forced,30,4.4,n=12)
+                self.assertIsNotNone(cut['start'])
+                self.assertEqual(cut['end_exclusive']-cut['start'],30)
+                self.assertEqual(len(cut['indices_native']),30)
+                self.assertTrue(all(c['end_exclusive']-c['start']==30 for c in cut['candidates']))
+
+    def test_none_is_identical_for_all_legacy_paths(self):
+        cases = [('walk',self.series(),{}), ('run',self.series(),{}),
+                 ('idle',{'chest_w':[20.]*150},{'prompted_s':2}),
+                 ('walk',{'head_top_y':[20.]*150},{}),
+                 ('run',{'head_top_y':[20.]*150},{'sibling_stride_frames':34})]
+        for kind,series,kwargs in cases:
+            with self.subTest(kind=kind,kwargs=kwargs):
+                old = vc.detect_period(kind,series,30,**kwargs)
+                new = vc.detect_period(kind,series,30,period_frames=None,**kwargs)
+                self.assertEqual(json.dumps(old),json.dumps(new))
+
+    def test_invalid_periods_and_wrong_kind(self):
+        for bad in (3,0,-1,151,30.,30.5,'30',True,np.bool_(True),float('nan'),float('inf')):
+            with self.subTest(period=bad), self.assertRaises(ValueError):
+                vc.detect_period('walk',self.series(),30,period_frames=bad)
+        with self.assertRaises(ValueError):
+            vc.detect_period('idle',{'chest_w':[1.]*150},30,period_frames=30)
+        with self.assertRaises(ValueError):
+            vc.detect_period('walk',{'head_top_y':[]},30,period_frames=4)
+
+    def test_boundaries_odd_period_and_native_half_rate_offset(self):
+        for n in (4,31,150,np.int64(30)):
+            with self.subTest(n=n):
+                forced = vc.detect_period('run',self.series(),30,period_frames=n)
+                self.assertEqual(forced['frames'],n)
+                self.assertEqual(forced['bob_frames'],n/2)
+        series = self.series()
+        half = {'head_top_y':series['head_top_y'][::2],
+                'indices_native':list(range(100,250,2))}
+        p = vc.detect_period('walk',half,30,period_frames=31)
+        cut = vc.select_cycle('walk',half,p,30,9)
+        self.assertEqual(cut['end_exclusive']-cut['start'],31)
+        self.assertTrue(all(i%2==0 for i in cut['indices_native']))
+        self.assertEqual(vc.detect_period('walk',half,30,period_frames=150)['frames'],150)
+        with self.assertRaises(ValueError): vc.detect_period('walk',half,30,period_frames=151)
+
+    def test_forced_low_confidence_is_not_fabricated(self):
+        series = {'head_top_y':[40.]*150}
+        forced = vc.detect_period('walk',series,30,sibling_stride_frames=60,period_frames=30)
+        self.assertEqual(forced['frames'],30)
+        self.assertEqual(forced['source'],'forced')
+        self.assertEqual(forced['confidence'],vc.detect_period('walk',series,30)['confidence'])
+        self.assertLess(forced['confidence'],.3)
+        self.assertIsNone(vc.select_cycle('walk',series,forced,30,4.4)['start'])
+
+    def cli_args(self, out):
+        return ['--clip',str(self.fixture/'stride_30.mkv'),'--kind','walk',
+                '--direction','E','--n','12','--fps-out','12','--out',str(out)]
+
+    def test_cli_unused_matches_prechange_registration_bytes(self):
+        import contextlib
+        import io
+        out = self.base/'baseline'
+        # Control only volatile runtime/provenance fields. All selection,
+        # matte, tracking, transform, resampling and report bytes are locked.
+        with patch.object(vc.time,'perf_counter',return_value=0.), contextlib.redirect_stdout(io.StringIO()):
+            vc.main(self.cli_args(out))
+        raw = (out/'registration.json').read_text()
+        report = json.loads(raw)
+        raw = raw.replace(str(out),'<OUT>').replace(report['tool_sha256'],'<TOOL_SHA256>')
+        self.assertEqual(raw.encode(),(self.fixture/'registration_baseline.json').read_bytes())
+        self.assertEqual(report['period']['frames'],60)
+        self.assertFalse((out/'tmp').exists())
+
+    def test_cli_forced_30_and_invalid_native_limit(self):
+        out = self.base/'forced'
+        result = subprocess.run([sys.executable,'-B','-m','oracle.video_cut',
+            *self.cli_args(out),'--period-frames','30'],cwd=ROOT,capture_output=True,text=True)
+        self.assertEqual(result.returncode,0,result.stderr)
+        report = json.loads((out/'registration.json').read_text())
+        self.assertEqual(report['period']['frames'],30)
+        self.assertEqual(report['period']['source'],'forced')
+        self.assertEqual(report['selection']['end_exclusive']-report['selection']['start'],30)
+        self.assertEqual(len(report['selection']['indices_native']),30)
+        self.assertEqual(len(report['output_frames']),12)
+        self.assertFalse((out/'tmp').exists())
+        # Full clip has 150 frames, but only 132 are usable before t_max=4.4.
+        for extra in (['--period-frames','133'],['--period-frames','151'],
+                      ['--period-frames','30','--t-max-s','.9'],
+                      ['--period-frames','30','--min-start-s','4']):
+            invalid = self.base/'invalid'
+            with self.subTest(extra=extra), self.assertRaisesRegex(ValueError,'usable native frames'):
+                vc.main(self.cli_args(invalid)+extra)
+            self.assertFalse(invalid.exists())
+
+    def test_cli_bad_periods_rejected_before_decoding_or_writes(self):
+        import contextlib
+        import io
+        out = self.base/'invalid'
+        for bad in ('3','0','-1','30.5','30.0','x'):
+            error = ValueError if bad in ('3','0','-1') else SystemExit
+            with self.subTest(period=bad), patch.object(vc.subprocess,'run') as run:
+                with contextlib.redirect_stderr(io.StringIO()), self.assertRaises(error):
+                    vc.main(self.cli_args(out)+['--period-frames',bad])
+                run.assert_not_called()
+                self.assertFalse(out.exists())
+        for kind in ('idle','jump','cast'):
+            args = self.cli_args(out); args[3] = kind
+            with self.subTest(kind=kind), self.assertRaisesRegex(ValueError,'requires walk or run'):
+                vc.main(args+['--period-frames','30'])
+
+
 if __name__ == '__main__':
     unittest.main()

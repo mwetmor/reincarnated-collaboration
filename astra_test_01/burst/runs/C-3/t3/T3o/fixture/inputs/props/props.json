@@ -1,0 +1,119 @@
+{
+  "instances": [
+    {
+      "asset": "brazier",
+      "position": [
+        100,
+        200
+      ]
+    }
+  ],
+  "particles": [
+    {
+      "name": "embers",
+      "texture": "glow.png",
+      "rect": [
+        90,
+        140,
+        110,
+        160
+      ],
+      "amount": 12,
+      "lifetime_s": 1.5,
+      "velocity_px_s": [
+        10,
+        30
+      ],
+      "direction": [
+        0,
+        -1
+      ],
+      "spread_deg": 15,
+      "scale": [
+        0.1,
+        0.2
+      ],
+      "color_start": [
+        1,
+        0.7,
+        0.2,
+        0.8
+      ],
+      "color_end": [
+        1,
+        0.2,
+        0.05,
+        0
+      ],
+      "gravity": [
+        3,
+        -24
+      ],
+      "angular_velocity": [
+        -30,
+        50
+      ],
+      "scale_curve": [
+        1,
+        0
+      ],
+      "additive": true
+    }
+  ],
+  "assets": [
+    {
+      "name": "brazier",
+      "file": "prop.png",
+      "anchor": [
+        16,
+        64
+      ],
+      "footprint": {
+        "w": 20,
+        "h": 12
+      },
+      "collide": false,
+      "fade_when_behind": false
+    }
+  ],
+  "shadows": [],
+  "overhead": [],
+  "near": [],
+  "glows": [
+    {
+      "texture": "glow.png",
+      "position": [
+        100,
+        154
+      ],
+      "scale": 2,
+      "color": [
+        1,
+        0.5,
+        0.1,
+        0.5
+      ],
+      "flicker_hz": 4,
+      "flicker_amount": 0.6,
+      "z_parent": "actors",
+      "sort_y": 200
+    },
+    {
+      "texture": "glow.png",
+      "position": [
+        130,
+        120
+      ],
+      "scale": 0.5,
+      "color": [
+        0.4,
+        0.7,
+        1,
+        0.4
+      ],
+      "flicker_hz": 6,
+      "flicker_amount": 0.3,
+      "z_parent": "overhead"
+    }
+  ]
+}

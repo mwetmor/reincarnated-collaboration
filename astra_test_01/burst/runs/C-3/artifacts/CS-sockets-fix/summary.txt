@@ -1,0 +1,12 @@
+CS-sockets-fix: report only; 64 frames, 8 directions; zero image-generation calls.
+CHANGED (>40 px): 17; unevaluable: 1; reproduced instrument mismatches: 0.
+Changed frames (zero based): cast_SW:0,1,2; cast_N:4,5,6; cast_E:0,1,2,3,4,6,7; cast_SE:1,5,6,7
+Ends: opaque pixels within 3 px of frozen tip/slope line; contiguous perpendicular width <=12 px sampled at 0.5 px.
+End coordinates are extreme projections on that line, rounded to nearest canvas pixel for sockets.
+Head cues: union of cool/neutral, purple, glow minus brass; shares use opaque pixels within radius-14 discs, 6 px inward.
+Viterbi: unary -4*(chosen cue-other cue); transition Euclidean head displacement/60; no loop-closing transition.
+Margin = chosen head_score minus other; assignment_margin = best alternative-state path cost minus chosen-state path cost.
+Original instrument measurement fields retained; corrected positions are in sockets; tip remains original alpha-only result.
+Visual concern: apparent butt selections remain/newly occur in SW 0-2, E 0-4/6-7, SE 1/5-7; algorithm retained without overrides.
+18 negative local cue margins; S4 unevaluable and unchanged. Jumps: cast_N 3->4: 190.0->75.2px; cast_N 6->7: 172.0->61.2px; cast_SE 4->5: 150.5->91.8px; cast_NE 0->1: 117.1->117.1px.
+Sheet rows S SW W NW N NE E SE; exact 56..456 x 0..400 crop at 0.64 scale. No manual overrides.

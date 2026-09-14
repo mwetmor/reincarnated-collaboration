@@ -1,0 +1,74 @@
+{
+  "task_id": "CS-assets-far_low",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [],
+  "calls_used": 0,
+  "retries": [],
+  "self_report": {
+    "obeyed_invariants": false,
+    "concerns": [
+      "Frozen loader accepted seven assets and one shadow. Footprints remain the requested placeholders.",
+      "Initial SPEC search unintentionally printed T3o alongside the requested T3l/T3m rows; T3o was unused.",
+      "A bare tree visible in AFTER is absent from the isolated-sheet assets; reconstruction is not exact.",
+      "Hashes exclude the two live, wrapper-owned .wrapper-* logs because they continue changing."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/asset_sheet.png",
+      "sha256": "b7794d9d89fdee198c6afaae0618290d19b034378d1587750bdf1072b8e87360"
+    },
+    {
+      "path": "out/catalogue.json",
+      "sha256": "28e7fd390f1a8e5422c0437787e8debbfd60c60db2a6be80f4275b3379b5b8c9"
+    },
+    {
+      "path": "out/checks.json",
+      "sha256": "369093fbf19d159edb8b828c24c4c0369d861b39884a3a502ae874369aa2f507"
+    },
+    {
+      "path": "out/props/assets/far_low_obj_01_a.png",
+      "sha256": "519ee66917e0968f493a864d5f1e2b3ade2c9bf70ec48621d2eda9dfe61ff6e2"
+    },
+    {
+      "path": "out/props/assets/far_low_obj_01_b.png",
+      "sha256": "98e41e3653e50bb649a0c56e389e4ab20c134d7ed066a03e2da753fdd0eb231b"
+    },
+    {
+      "path": "out/props/assets/far_low_obj_01_c.png",
+      "sha256": "7a2383357027a2db706dea2115b67c7ef2f886ac34ad74ee4b11bf703d620abe"
+    },
+    {
+      "path": "out/props/assets/far_low_obj_01_d.png",
+      "sha256": "5ff48d55213da96fda51b896d849acbcc5e756c1f2322e3b126646440b3e5dc4"
+    },
+    {
+      "path": "out/props/assets/far_low_obj_01_e.png",
+      "sha256": "693656f23c5902fcc2dfad91beaa16b13f7be9c7ecf1f71343c997d07d1912bf"
+    },
+    {
+      "path": "out/props/assets/far_low_obj_02_a.png",
+      "sha256": "3266ad359c09396daff27aa49f1bc41e9283060f81c10f11d0cd0ab70fa914f5"
+    },
+    {
+      "path": "out/props/assets/far_low_obj_02_b.png",
+      "sha256": "11ece8020887ce1d389acbd68341f413c2b98b8efdd57b97b145580d4d1fea5c"
+    },
+    {
+      "path": "out/props/props.json",
+      "sha256": "dea2c6f4fda843f56aecc469f5586319a9e12b37aca041482d1797e6b3f6f94e"
+    },
+    {
+      "path": "out/props/shadow_far_low.png",
+      "sha256": "9b9acaa75e5c694045cfb814cf1d6efee56a855c04a0fc0c339b8ada73adbdea"
+    },
+    {
+      "path": "out/rebuild_vs_after.png",
+      "sha256": "f04f0d91d6dab9bbd9ebbebc49ab2ce19c4a0de3b0b273d2eede68770d5d136b"
+    },
+    {
+      "path": "out/summary.txt",
+      "sha256": "e692c5cb543ac792e6478c06c8d7df16c25c5964343426d5422db2907e52e484"
+    }
+  ]
+}

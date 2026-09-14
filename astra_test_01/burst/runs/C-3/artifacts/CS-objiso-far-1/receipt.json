@@ -1,0 +1,40 @@
+{
+  "task_id": "CS-objiso-far-1",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "objiso_far_1.png",
+      "path": "out/objiso_far_1.png",
+      "sha256": "f53504e1db6fc5c1e122ce8012c3e41b3d3a0e3953ee88e3385cf6bcc4f06704",
+      "prompt": "EDIT the original IMAGE 1 as a precise background extraction. Output exactly 1536×1024. Retry correction: the previous attempt redrew bark and introduced texture into the green. Preserve the original visible object pixels and original contours with maximum fidelity. Do not simplify, sharpen, restyle or repaint the bark. Keep exact original positions and sizes. Isolate the top-left stump, the large lower-left dead tree, the central dead tree with its orange ember fissure, and the central snag of the upper-right crop. Retain their original shaded sides and attached embers. Complete only roots hidden by ground or cropped at the bottom of the upper-right tile, using the minimum necessary matching continuation. Replace ALL other pixels with one perfectly flat uniform RGB(0,255,0), hex #00ff00, with absolutely no noise, grain, shading, texture, gradient or shadows in the green. Remove all terrain, grass, flowers, paths, stones, loose pebbles and cast/contact shadows; remove incidental objects cut by tile boundaries. Branch gaps must also be exactly #00ff00. Preserve original branch geometry and hand-painted 2D style without embellishment. No object may move, scale, rotate or be rearranged. Crisp cutout edges without halos. This is background replacement on the supplied original image, keeping the subjects untouched except necessary base completion.",
+      "references": [
+        {
+          "role": "IMAGE 1 — sheet to isolate (EDIT)",
+          "path": "in/01_sheet_1.png"
+        }
+      ],
+      "elapsed_s": 19.94
+    }
+  ],
+  "calls_used": 2,
+  "retries": [
+    {
+      "reason": "First edit changed bark details and showed variation in the green background.",
+      "change": "Retried from the original with stronger pixel-preservation and uniform RGB(0,255,0) constraints."
+    }
+  ],
+  "self_report": {
+    "obeyed_invariants": false,
+    "concerns": [
+      "The retry still visibly changes bark details and some branch contours.",
+      "Background appears slightly textured; exact uniform #00ff00 is not established.",
+      "A possible loose stone remains at the large left snag's base."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/objiso_far_1.png",
+      "sha256": "f53504e1db6fc5c1e122ce8012c3e41b3d3a0e3953ee88e3385cf6bcc4f06704"
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "task_id": "CS-dress-far",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "dress_far.png",
+      "path": "out/dress_far.png",
+      "sha256": "512f1bab9c1db29ee0b302a2b22614c8e3fd168848e13d4dd7d7149d9fa3598a",
+      "prompt": "Use case: precise-object-edit. Edit IMAGE 1 only. Output exactly one 1536×1024 PNG: the identical finished bare painted cliffside crop with added burnt-forest dressing. IMAGE 2 is reference-only, showing the 1.75 m player at exact in-world scale. IMAGE 3 is reference-only camera-projected size chart: character, 0.7 m crate, 0.9 m barrel, 0.9 m rock, 0.9 m shrub, character, 5 m dead snag, character, 8 m mature tree with 5.5 m crown, character. IMAGE 4 is reference-only approved object rendering/style: match its materials and detail, never copy its layout or objects. Never paint any reference figures, magenta lines or grey chart.\nAdd exactly FIVE scorched dead snags, varied heights 3–6 m, blackened trunks with readable cool dark planes, broken bare limbs, and just two snags with small glowing ember cracks. Distribute irregularly across the cliff-top grass, at different depths, never in a row. Add exactly THREE blackened stumps, TWO soot-darkened boulders, and a few small leafless burnt bushes. Use the chart and figure references for all relative physical sizes and camera projection. Each object stands on existing grassy plateau, with a soft contact shadow toward screen lower-right. Snags are bare, without leafy crowns. Each silhouette is separate: no trunk overlaps another trunk and no objects overlap each other. Keep ample natural open grass between them.\nComposition constraints: EVERY added object including all branch tips and its shadow must remain completely inside the rectangle x=120 to 1416, y=120 to 904, providing at least 120 px margin to EVERY border. Place taller snags deep enough into the image that their tops remain below y=120. All bases must be on grass, never dirt path, bridge deck, cliff face or green void. Keep dirt path and bridge open.\nPRESERVATION IS CRITICAL: everything outside the added objects and their soft shadows stays EXACTLY as IMAGE 1. Preserve original ground texture, grass, wildflowers, existing stones, packed-dirt path, rims, cliff faces, bridge fragment and green corner at original pixel positions. No ground scorch marks, ash beds, cleared grass, repainting, relighting, reframing, resizing or camera changes. Green void remains flat pure #00ff00. This is a local additive edit, not a repaint of the scene.\nStyle: HAND-DRAWN painted 2D, like a frame of modern hand-animated action gameplay. Confident tapered dark contours of varying weight, painted fills in clean planes, restrained surface texture, readable small silhouettes, no conspicuous grain. Match the supplied approved painting's detail exactly. Fixed elevated three-quarter ARPG camera, same projection as the ground. Preserve the crop's sunset key from SCREEN UPPER-LEFT and its existing palette, with cool readable shadows toward LOWER-RIGHT. No characters, creatures, text, UI, border, or vignette. Deliver only the edited scene.\nRETRY CORRECTION: The prior attempt broke the border margin and put a stump on the path edge. Start again from pristine IMAGE 1, not the prior output. Enforce all preservation constraints above. Use these approximate grass-root positions in the 1536×1024 image, and keep each object's complete silhouette separate: five snags rooted at (840,500), (1210,475), (440,810), (800,860), (1250,850). Their respective physical heights are approximately 4.7 m, 4.2 m, 3.6 m, 3.9 m, 5.1 m, using the chart projection. NO branch tip above y=140; no part beyond x=1395 or below y=890. Three small stumps rooted near (650,620), (1030,580), (1030,865). Two soot-darkened boulders centered near (630,800) and (1050,380). Three modest leafless burnt bushes near (960,330), (1110,710), (570,680). Keep their footprints small and separated. These are placement instructions only, never draw markers. Do not add grass islands, dirt patches, ash, or scorch marks beneath any object. Preserve the surrounding ground exactly. Keep all path and bridge pixels untouched except a branch overhang or soft cast shadow if needed. The complete added silhouettes must satisfy the 120 px margin, including upper tips; this is essential.",
+      "references": [
+        {
+          "role": "Edit target — bare painted crop",
+          "path": "in/01_dress_far_canvas.png"
+        },
+        {
+          "role": "Scale figures — reference only",
+          "path": "in/02_dress_far_scale_figures.png"
+        },
+        {
+          "role": "Camera-projected size chart — reference only",
+          "path": "in/03_dress_size_chart.png"
+        },
+        {
+          "role": "Approved object style — reference only",
+          "path": "in/04_dress_spawn.png"
+        }
+      ],
+      "elapsed_s": 51.745
+    }
+  ],
+  "calls_used": 2,
+  "retries": [
+    {
+      "reason": "Two snag tips violated the 120 px top margin, and a stump stood on the path edge.",
+      "change": "Repeated the edit from the original crop with explicit interior grass positions and silhouette bounds."
+    }
+  ],
+  "self_report": {
+    "obeyed_invariants": false,
+    "concerns": [
+      "Ground texture appears softened outside the additions; exact preservation was not achieved with confidence."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/dress_far.png",
+      "sha256": "512f1bab9c1db29ee0b302a2b22614c8e3fd168848e13d4dd7d7149d9fa3598a"
+    }
+  ]
+}

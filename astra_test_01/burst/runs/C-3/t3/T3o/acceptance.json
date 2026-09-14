@@ -1,0 +1,200 @@
+{
+  "task_id": "T3o",
+  "suite": {
+    "tests_run": 424,
+    "successful_tests": 412,
+    "elapsed_s": 164.50742537499173
+  },
+  "suite_summary_keys": [
+    "tests_run",
+    "successful_tests",
+    "failures",
+    "errors",
+    "skipped",
+    "elapsed_s",
+    "regression",
+    "acceptance",
+    "palette",
+    "silhouette",
+    "parts",
+    "o3b_calibration",
+    "f5_calibration",
+    "matte_quality_calibration",
+    "sheet_consistency_calibration"
+  ],
+  "reds": [
+    "test_headless_state_machine_input_map_gear_vfx_and_nearest_fallback (test_godot_import.GodotImportTests.test_headless_state_machine_input_map_gear_vfx_and_nearest_fallback)",
+    "test_synthetic_contract_and_grid (test_oracle_walk.Tests.test_synthetic_contract_and_grid)",
+    "test_f04_outside_at_least_three (test_oracles_motif.Tests.test_f04_outside_at_least_three)",
+    "test_named_genuine_annuli_retained (test_oracles_motif.Tests.test_named_genuine_annuli_retained) (center=[113, 201])",
+    "test_named_genuine_annuli_retained (test_oracles_motif.Tests.test_named_genuine_annuli_retained) (center=[111, 311])",
+    "test_named_genuine_annuli_retained (test_oracles_motif.Tests.test_named_genuine_annuli_retained) (center=[170, 253])",
+    "test_headless_cliffside_follow_camera_parallax_and_projectile_collision (test_parallax_scene.ParallaxSceneTests.test_headless_cliffside_follow_camera_parallax_and_projectile_collision)",
+    "test_headless_occlusion_fade_restore_overhead_near_and_particles (test_props_layer.PropsLayerTests.test_headless_occlusion_fade_restore_overhead_near_and_particles)",
+    "test_headless_tower_import_run_and_physics (test_scene_kit.SceneKitTests.test_headless_tower_import_run_and_physics)",
+    "test_headless_directional_release_and_resources (test_sockets.SocketTests.test_headless_directional_release_and_resources)",
+    "Cannot save file '/Users/admin/Library/Application Support/Godot/editor_settings-4.6.tres'.",
+    "Error saving editor settings to /Users/admin/Library/Application Support/Godot/editor_settings-4.6.tres",
+    "Condition \"ret != noErr\" is true. Returning: \"\"",
+    "test_headless_glow_sixty_samples_extrema_range_and_particle_properties (test_vfx_picker.LivingEmbersTests.test_headless_glow_sixty_samples_extrema_range_and_particle_properties)",
+    "Cannot save file '/Users/admin/Library/Application Support/Godot/editor_settings-4.6.tres'.",
+    "Error saving editor settings to /Users/admin/Library/Application Support/Godot/editor_settings-4.6.tres",
+    "Condition \"ret != noErr\" is true. Returning: \"\"",
+    "test_headless_tab_twice_cast_scene_labels_and_inflight_kit_lock (test_vfx_picker.VfxPickerTests.test_headless_tab_twice_cast_scene_labels_and_inflight_kit_lock)",
+    "Cannot save file '/Users/admin/Library/Application Support/Godot/editor_settings-4.6.tres'.",
+    "Error saving editor settings to /Users/admin/Library/Application Support/Godot/editor_settings-4.6.tres",
+    "Condition \"ret != noErr\" is true. Returning: \"\""
+  ],
+  "picker": {
+    "bolt_paths": [
+      "res://scenes/vfx_alpha_bolt.tscn",
+      "res://scenes/vfx_zeta_bolt.tscn"
+    ],
+    "errors": 0,
+    "inflight_kit": "zeta",
+    "labels": [
+      "VFX: alpha  (Tab)",
+      "VFX: zeta  (Tab)"
+    ]
+  },
+  "glow": {
+    "alpha_range": 0.45359006524086,
+    "base_alpha": 0.5,
+    "duration_s": 1.0,
+    "errors": 0,
+    "extrema": 21,
+    "flicker_amount": 0.6,
+    "fps": 60,
+    "minimum_range": 0.15,
+    "samples": 60
+  },
+  "synthetic": {
+    "kits": 2,
+    "required_kits": 2,
+    "frames_per_kit": {
+      "zeta": {
+        "flare": 2,
+        "impact": 2
+      },
+      "alpha": {
+        "flare": 3,
+        "impact": 3
+      }
+    },
+    "spriteframe_resources": 4,
+    "required_spriteframe_resources": 4,
+    "bolt_impact_scenes": 4,
+    "required_bolt_impact_scenes": 4,
+    "resource_references_resolved": 26,
+    "unresolved_resource_references": 0,
+    "socket_cells": 1,
+    "socket_frames": 4,
+    "release_index": 2,
+    "tab_physical_keycode": 4194306,
+    "kit_order": [
+      "zeta",
+      "alpha"
+    ],
+    "hud": {
+      "layer": 10,
+      "position": [
+        16,
+        16
+      ],
+      "font_size": 22,
+      "font_color": "white",
+      "outline": "dark"
+    },
+    "credits_concatenation_chars": 41,
+    "legacy_text_files_identical": 18,
+    "legacy_text_files_required": 18,
+    "required_bad_catalogue_cases_rejected_before_output": 5,
+    "required_bad_glow_cases_rejected_before_output": 3,
+    "glows": 2,
+    "required_glows": 2,
+    "particles": 1,
+    "required_particles": 1,
+    "glow_actor_sort_y": 201,
+    "owner_anchor_y": 200,
+    "particle_gravity": [
+      3,
+      -24
+    ],
+    "particle_angular_velocity": [
+      -30,
+      50
+    ],
+    "particle_linear_scale_curve": [
+      1,
+      0
+    ],
+    "particle_additive": true,
+    "targeted_test_methods": 19,
+    "nonheadless_successful": 17,
+    "headless_runtime_assertion_errors": 0,
+    "headless_environment_reds": 2
+  },
+  "real_catalogue": {
+    "kits": [
+      {
+        "name": "frost",
+        "flare_frames": 9,
+        "impact_frames": 14,
+        "credits_chars": 303
+      },
+      {
+        "name": "fire",
+        "flare_frames": 9,
+        "impact_frames": 9,
+        "credits_chars": 252
+      },
+      {
+        "name": "lightning",
+        "flare_frames": 8,
+        "impact_frames": 7,
+        "credits_chars": 248
+      },
+      {
+        "name": "arcane",
+        "flare_frames": 14,
+        "impact_frames": 7,
+        "credits_chars": 254
+      },
+      {
+        "name": "holy",
+        "flare_frames": 9,
+        "impact_frames": 12,
+        "credits_chars": 297
+      },
+      {
+        "name": "poison",
+        "flare_frames": 9,
+        "impact_frames": 17,
+        "credits_chars": 244
+      }
+    ],
+    "count": 6,
+    "required_count": 6,
+    "wall_s": 0.025530166996759363
+  },
+  "wall_s": 928.956385,
+  "wall_cap_s": 2400,
+  "fixture_export_wall_s": 0.025146749991108663,
+  "runner_regenerated_reports": [
+    "tests/gates_regression_diff.json",
+    "tests/oracles_palette_measurements.json",
+    "tests/t0c_suite_output.txt",
+    "tests/oracles_acceptance_measurements.json",
+    "tests/sheet_consistency_calibration.json",
+    "tests/oracles_silhouette_measurements.json",
+    "tests/t0c_summary.json",
+    "tests/parts_measurements.json"
+  ],
+  "temporary_files_remaining": 0,
+  "notes": [
+    "Godot probes both completed their runtime assertions; engine certificate/editor-settings errors retain the sandbox reds.",
+    "Full-suite command regenerated its eight standard test report files; these are listed in the receipt.",
+    "sort_y means owning prop anchor y before +1; omitted ownership uses the documented deterministic spatial inference.",
+    "Legacy particle rect remains xyxy about its centre; local_coords=false is unchanged."
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "task_id": "CS-objiso-far_low-2",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "objiso_far_low_2.png",
+      "path": "out/objiso_far_low_2.png",
+      "sha256": "9f166186af60a9381931fc3ca0e4a0c2b88ca045fb4a2674d4f2c3421b516ac7",
+      "prompt": "Use case: background-extraction. EDIT IMAGE 1, the supplied 1536×1024 sheet. Deliver ONE 1536×1024 PNG. Isolate the existing painted scenery objects in their exact original sheet positions. Preserve the original object pixels, size, silhouette, outline, colours, material details and upper-left sunset lighting. Preserve the fallen diagonal log at left, the tall dead snag with branches and roots near centre, the short stump below-left of it, and the complete freestanding rocks, including the upper-left boulder and lower-right rock cluster. Do not keep path paving or edge-clipped terrain rocks. Replace EVERYTHING ELSE with flat pure RGB (0,255,0) #00ff00, matching the original green margins: all ground, dirt, grass, flowers, ground vegetation, paths, loose pebbles, cliff rims/faces, objects cut by the tile edge, and all ground cast/contact shadows. Green must also fill gaps between branches and roots. Preserve shaded sides belonging to objects themselves. Cleanly complete only small hidden base portions where objects met ground or vegetation, matching the original object. Nothing new, nothing moved, nothing resized, no rearrangement, no repainting or stylistic reinterpretation. Keep the original hand-drawn painted 2D appearance, confident tapered dark contours, clean material planes and restrained texture. Crisp object edges against one perfectly flat green colour, no halo, glow, blur, ground patches or shadows. The large existing green right and bottom margins remain unchanged.",
+      "references": [
+        {
+          "role": "IMAGE 1 — sheet to isolate (EDIT)",
+          "path": "in/01_sheet_2.png"
+        }
+      ],
+      "elapsed_s": 16.412
+    }
+  ],
+  "calls_used": 2,
+  "retries": [
+    {
+      "reason": "First result altered bark and rock details; green appeared nonuniform.",
+      "change": "Retried from the original with stronger pixel-preservation and uniform-green instructions. Retry moved the upper-left boulder; retained the first result."
+    }
+  ],
+  "self_report": {
+    "obeyed_invariants": false,
+    "concerns": [
+      "Object details were redrawn rather than preserved pixel-for-pixel.",
+      "Green appears nonuniform; exact #00ff00 was not verified.",
+      "Delivered the first candidate after exhausting the permitted retry."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/objiso_far_low_2.png",
+      "sha256": "9f166186af60a9381931fc3ca0e4a0c2b88ca045fb4a2674d4f2c3421b516ac7"
+    }
+  ]
+}

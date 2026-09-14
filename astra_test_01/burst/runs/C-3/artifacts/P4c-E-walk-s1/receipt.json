@@ -1,0 +1,35 @@
+{
+  "task_id": "P4c-E-walk-s1",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [],
+  "calls_used": 0,
+  "retries": [],
+  "self_report": {
+    "obeyed_invariants": true,
+    "concerns": [
+      "bands_measure.W6: frozen estimator unresolved",
+      "W2_max_1_cycle_fraction not computed: only one maximum was observed; proposal score remains null."
+    ]
+  },
+  "files": [
+    {"path":"out/checks.json","sha256":"f05b7d7d0ce33e1a6a899e09465727d8d8b3b695a456469d645dcefaba5aa894"},
+    {"path":"out/grid.png","sha256":"83b1ddb2f338898db4467b2e25c8c16a0e44c757efaacb686fdd6cd7fbba9ede"},
+    {"path":"out/first_second.png","sha256":"768a794a74c2809ac62bbfc113f17d1b9f38242bf5b9018aa827103e0edf389c"},
+    {"path":"out/cut/registration.json","sha256":"b7832bfa078752ee0352ff9288c1d54d79cdceb0d0dd40a4aa6f498bc0d7f92c"},
+    {"path":"out/cut/series.json","sha256":"ca72a2ae5d967ecf5523a382b362517e472b940c1cd01a1b0a224e8658e95076"},
+    {"path":"out/cut/frames/rest/E/rest_E.png","sha256":"905cd96f5d93338e34bf93a955f08d8f79f553cedbda552552adbfb4f14c5296"},
+    {"path":"out/cut/frames/walk/E/walk_E_00.png","sha256":"56a195534725cb6162af0e8bd4eeff9a29e9689032a259b06b6bf2602d750501"},
+    {"path":"out/cut/frames/walk/E/walk_E_01.png","sha256":"b363455bbbbe44879a792cc4fbc30aecd9ec06c64288809b81f347fb62223d8a"},
+    {"path":"out/cut/frames/walk/E/walk_E_02.png","sha256":"3693be8dfc2016d55017b2ba70c953a3d67f68eb36c47380363411f3243f0232"},
+    {"path":"out/cut/frames/walk/E/walk_E_03.png","sha256":"981824ca01224109a60ac19ecb3c08a17f2ae6f5330675dde5ca432456cfa6ec"},
+    {"path":"out/cut/frames/walk/E/walk_E_04.png","sha256":"358e7c3c2649b3b1febe9b4ececb752865fe8626db1b70e4ea8203f6c565a8f8"},
+    {"path":"out/cut/frames/walk/E/walk_E_05.png","sha256":"9e72092fc51e4272511d9d98287eff1af0b3c02a0eb54ca633272ff9ae9457c2"},
+    {"path":"out/cut/frames/walk/E/walk_E_06.png","sha256":"cb743dcde88fc2b54f94ffeb465651af374311d02d7ed56b76fecec6a43eea0a"},
+    {"path":"out/cut/frames/walk/E/walk_E_07.png","sha256":"f0bb82172519b186fd2d4d3bf843befe8e8a6080b4792f089915e03f41ab5bdc"},
+    {"path":"out/cut/frames/walk/E/walk_E_08.png","sha256":"0200aa01aa27fd3a302d92cd90ccbfe8998a2930512593db97e939c9a51efda7"},
+    {"path":"out/cut/frames/walk/E/walk_E_09.png","sha256":"9add97c6c5081857cfabec72621a929687b7b27e8ecc399fdc413ccbc24dd14f"},
+    {"path":"out/cut/frames/walk/E/walk_E_10.png","sha256":"ca4bdf8886dfd3a6aaff3a380ffa23c0dce2e6e8fcf712e31d611978e0106af4"},
+    {"path":"out/cut/frames/walk/E/walk_E_11.png","sha256":"7c54a4d0275e0ff3c8e12908ada793d6ae6d65a9031908f2c0df0c9c28361edb"},
+    {"path":"out/cut/sheets/walk_E_strip.png","sha256":"706d7fad0445d386e4c5a7fd73ae9f3b6db0098b6528e56a2670354a18ab9f16"}
+  ]
+}

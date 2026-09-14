@@ -1,0 +1,52 @@
+{
+  "task_id": "CS-dress-west-r1",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "dress_west",
+      "path": "out/dress_west.png",
+      "sha256": "567637f040f7b9186be933aa65d2f119c2ac34dfda861187eeabdf0251782f9c",
+      "prompt": "Use case: precise-object-edit. EDIT IMAGE 1, the bare west-path painting. Deliver one 1536×1024 image, with the original painting preserved exactly except for added objects and their shadows.\nINPUT ROLES: Image 1 is the sole edit target. Image 2 is the same crop with 1.75 m player scale figures and magenta measurements, for scale reference ONLY. Image 3 is the camera-projected size chart, reference ONLY: character, 0.7 m crate, 0.9 m barrel, 0.9 m rock, 0.9 m shrub, character, 5 m snag, character, mature 8 m tree with 5.5 m crown, character. Image 4 is approved object rendering/style ONLY; do not copy its layout or individual objects.\nAdd a living grove edge: exactly THREE living trees of different sizes, one mature about 8 m with a 5 m crown and two younger about 4–5 m; ONE large mossy boulder; ONE weathered wooden waymarker post beside the path, with blank unlettered directional wood; bushes, ferns, wildflower clumps. Respect the scale chart and the figures. All roots and props must stand on existing cliff-top GRASS. The broad diagonal dirt path remains open, with no trunks or props standing on dirt.\nPlacement guidance to fit the existing grass and strict border clearance: put the mature tree rooted near (1070,830), its broad crown approximately x820–1320 and top near y230. One younger tree rooted around (680,880), and the other on the right grass near (1320,770), with their complete silhouettes kept inside the safe area. Put the waymarker on the upper-left grass beside the road, and place the mossy boulder and undergrowth in free grassy pockets. These coordinates are layout guidance; prioritize grass support, chart scale and full 120 px clearance.\nHARD INVARIANTS: Preserve the original camera, crop, composition and all original ground marks, grass, path, rocky rims, cliff faces, cloud banks and any bridge exactly. Add only the named objects and soft contact/canopy shadows. No scorches, no terrain repainting or altered lighting of the base. Every added object INCLUDING ALL CROWN TIPS must lie fully inside x=120..1416, y=120..904. No trunks overlap other trunks. Objects do not overlap each other except where a crown naturally covers something behind it. Crowns may overhang the path. Every object stands on grass, never cliff faces, clouds or the flat green void. Keep green void exactly pure #00ff00.\nSTYLE: Match IMAGE 4's hand-drawn painted 2D object rendering, detail and material planes, with confident tapered dark contours of varying weight and restrained texture. The line carries the silhouette; clean painted planes, readable small silhouettes, no conspicuous grain. Same elevated three-quarter ARPG camera projection as IMAGE 1 and the chart. Match the existing upper-left sunset key, cool dark readable shadows and golden highlights; dappled canopy shadows fall lower-right. Preserve the original scene palette. No characters, creatures, scale figures, magenta marks, gray chart, text, UI, border or vignette. This is a landscape edit, not a sprite sheet.\nRETRY CORRECTION — regenerate this edit from the ORIGINAL Image 1, not from a prior dressed result. The prior attempt violated the border margin: right tree crown clipped at right edge, waymarker and extra boulder too near top, and added undergrowth reached bottom/right edges. Correct only this layout failure while retaining all task requirements. EXACT SAFE PLACEMENT BOUNDS, in the 1536×1024 output coordinate system: mature tree entire silhouette in rectangle (800,220)–(1270,875), with root (1060,835); left younger tree entire silhouette in (510,520)–(790,895), root (670,875); right younger tree entire silhouette in (1180,410)–(1405,790), root (1310,760). All leaves and roots must fit these boxes. Blank wooden waymarker entire silhouette in (270,145)–(355,325), rooted on existing upper-left grass near (300,315). Exactly ONE mossy boulder, entire silhouette in (440,135)–(585,240), supported by existing grass there. No second boulder. Small added bushes, ferns and flowers only in free grass patches fully within (150,140)–(1400,890), individually separated from the tree trunks and boulder. Do not add a continuous blanket of new vegetation. Keep the entire 120 px perimeter strip of Image 1 wholly unchanged, with no additions or shadows in that strip. Preserve each original grass blade, road rock and road groove outside the local additions. Never allow any crown to touch a border.",
+      "references": [
+        {
+          "role": "edit target",
+          "path": "in/01_dress_west_canvas.png"
+        },
+        {
+          "role": "scale reference only",
+          "path": "in/02_dress_west_scale_figures.png"
+        },
+        {
+          "role": "camera-projected size reference only",
+          "path": "in/03_dress_size_chart.png"
+        },
+        {
+          "role": "approved object style reference only",
+          "path": "in/04_dress_spawn.png"
+        }
+      ],
+      "elapsed_s": 29.393
+    }
+  ],
+  "calls_used": 2,
+  "retries": [
+    {
+      "reason": "First output violated the 120 px border margin, including a clipped right tree crown and additions near the top and bottom borders.",
+      "change": "Repeated the edit from the original references with explicit object bounding rectangles and an unchanged perimeter requirement."
+    }
+  ],
+  "self_report": {
+    "obeyed_invariants": false,
+    "concerns": [
+      "The delivered retry still violates the 120 px margin: the waymarker and boulder extend above y=120, and the right tree crown extends beyond x=1416.",
+      "Exact preservation of ground outside additions is not established; localized vegetation changes remain visible.",
+      "The image cap is exhausted; no further correction attempted."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/dress_west.png",
+      "sha256": "567637f040f7b9186be933aa65d2f119c2ac34dfda861187eeabdf0251782f9c"
+    }
+  ]
+}

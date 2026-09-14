@@ -1,0 +1,14 @@
+CS-asm-fg-v4-band6 — report only
+Output: 5376x4096 straight-alpha RGBA; six black-backed edge edits.
+Union R: 1926716 pixels; normalized overlaps and prescribed spatial fade.
+Matting: radius24 opaque-interior reference, nearest extension, smoothstep alpha.
+Tone: normalized sigma40 RGB gain, nearest extension, clamp [0.8,1.25].
+DEEP >13000 alpha<0.95: 0; exposed underside: 0.
+Shallow/TOP mean absolute RGBA differences: 0.00000000 / 0.00000000 byte levels.
+VOID-in-R translucent share: 0.274814.
+Band6 haze mean / blurred signed p95: 2.825847 / 10.410109 byte levels.
+Band5 same-mask haze mean / blurred signed p95: 7.502226 / 18.832491 byte levels.
+Blurred absolute p95 band6 / band5: 10.410109 / 18.847008.
+Detail grid: band4 locations; gray top row, forest median bottom row.
+Concerns: blurred haze p95 exceeds 8/255; visible tile-boundary transitions in detail crops 2 and 3.
+Image-generation calls: 0.

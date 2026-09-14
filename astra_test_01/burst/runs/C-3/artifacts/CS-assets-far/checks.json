@@ -1,0 +1,718 @@
+{
+  "task_id": "CS-assets-far",
+  "loader": {
+    "result": "accepted",
+    "loader": "export.props_layer.load_props",
+    "assets": 9,
+    "instances": 9,
+    "images": 10
+  },
+  "tiles": [
+    {
+      "tile_id": "obj_05",
+      "sheet": "sheet_1",
+      "source": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/CS-objiso-far-1/objiso_far_1.png",
+      "crop_box": [
+        615,
+        520,
+        893,
+        899
+      ],
+      "sheet_xy": [
+        24,
+        24
+      ],
+      "sheet_size": [
+        556,
+        758
+      ],
+      "scale": 2,
+      "matte_padding_px": 0,
+      "groups": [
+        {
+          "group": 1,
+          "support_pixels": 3265,
+          "support_bbox": [
+            22,
+            18,
+            104,
+            87
+          ],
+          "touches_tile_border": false,
+          "disposition": "retained",
+          "asset": "far_obj_05_a"
+        },
+        {
+          "group": 2,
+          "support_pixels": 9749,
+          "support_bbox": [
+            129,
+            110,
+            258,
+            358
+          ],
+          "touches_tile_border": false,
+          "disposition": "retained",
+          "asset": "far_obj_05_b"
+        }
+      ],
+      "matte": {
+        "method": "green excess matte + inverse straight-alpha compositing + nearest fully-opaque RGB clamp",
+        "removed_background_or_detached_alpha_dust_pixels": 0,
+        "native_input_alpha": false,
+        "alpha_floor": null,
+        "alpha_floor_removed_pixels": 0
+      },
+      "registration": {
+        "shift_px": [
+          0,
+          0
+        ],
+        "shift_norm_px": 0.0,
+        "residual_rgb_mae": 9.54162883758545,
+        "sample_pixels": 11975,
+        "flag_shift_gt_3": false,
+        "flag_residual_gt_22": false,
+        "at_search_boundary": false
+      },
+      "extraction_result": "processed",
+      "asset_count": 2
+    },
+    {
+      "tile_id": "obj_02",
+      "sheet": "sheet_1",
+      "source": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/CS-objiso-far-1/objiso_far_1.png",
+      "crop_box": [
+        687,
+        190,
+        936,
+        522
+      ],
+      "sheet_xy": [
+        604,
+        24
+      ],
+      "sheet_size": [
+        498,
+        664
+      ],
+      "scale": 2,
+      "matte_padding_px": 0,
+      "groups": [
+        {
+          "group": 1,
+          "support_pixels": 9769,
+          "support_bbox": [
+            13,
+            13,
+            138,
+            283
+          ],
+          "touches_tile_border": false,
+          "disposition": "retained",
+          "asset": "far_obj_02_a"
+        }
+      ],
+      "matte": {
+        "method": "green excess matte + inverse straight-alpha compositing + nearest fully-opaque RGB clamp",
+        "removed_background_or_detached_alpha_dust_pixels": 0,
+        "native_input_alpha": false,
+        "alpha_floor": null,
+        "alpha_floor_removed_pixels": 0
+      },
+      "registration": {
+        "shift_px": [
+          0,
+          0
+        ],
+        "shift_norm_px": 0.0,
+        "residual_rgb_mae": 10.436749458312988,
+        "sample_pixels": 8967,
+        "flag_shift_gt_3": false,
+        "flag_residual_gt_22": false,
+        "at_search_boundary": false
+      },
+      "extraction_result": "processed",
+      "asset_count": 1
+    },
+    {
+      "tile_id": "obj_06",
+      "sheet": "sheet_1",
+      "source": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/CS-objiso-far-1/objiso_far_1.png",
+      "crop_box": [
+        343,
+        549,
+        448,
+        719
+      ],
+      "sheet_xy": [
+        1126,
+        24
+      ],
+      "sheet_size": [
+        210,
+        340
+      ],
+      "scale": 2,
+      "matte_padding_px": 12,
+      "groups": [
+        {
+          "group": 1,
+          "support_pixels": 5065,
+          "support_bbox": [
+            11,
+            14,
+            105,
+            170
+          ],
+          "touches_tile_border": true,
+          "disposition": "dropped",
+          "reason": "tile_border"
+        }
+      ],
+      "initial_matte_error": "No native alpha or uniform green plate: border green fraction 0.9064",
+      "matte": {
+        "method": "green excess matte + inverse straight-alpha compositing + nearest fully-opaque RGB clamp",
+        "removed_background_or_detached_alpha_dust_pixels": 0,
+        "native_input_alpha": false,
+        "alpha_floor": null,
+        "alpha_floor_removed_pixels": 0
+      },
+      "registration": {
+        "shift_px": [
+          -1,
+          0
+        ],
+        "shift_norm_px": 1.0,
+        "residual_rgb_mae": 12.373536109924316,
+        "sample_pixels": 4610,
+        "flag_shift_gt_3": false,
+        "flag_residual_gt_22": false,
+        "at_search_boundary": false
+      },
+      "extraction_result": "processed",
+      "asset_count": 0
+    },
+    {
+      "tile_id": "obj_07",
+      "sheet": "sheet_2",
+      "source": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/CS-objiso-far-2/objiso_far_2.png",
+      "crop_box": [
+        1191,
+        549,
+        1437,
+        877
+      ],
+      "sheet_xy": [
+        24,
+        24
+      ],
+      "sheet_size": [
+        492,
+        656
+      ],
+      "scale": 2,
+      "matte_padding_px": 0,
+      "groups": [
+        {
+          "group": 1,
+          "support_pixels": 9886,
+          "support_bbox": [
+            22,
+            14,
+            124,
+            280
+          ],
+          "touches_tile_border": false,
+          "disposition": "retained",
+          "asset": "far_obj_07_a"
+        }
+      ],
+      "matte": {
+        "method": "green excess matte + inverse straight-alpha compositing + nearest fully-opaque RGB clamp",
+        "removed_background_or_detached_alpha_dust_pixels": 0,
+        "native_input_alpha": false,
+        "alpha_floor": null,
+        "alpha_floor_removed_pixels": 0
+      },
+      "registration": {
+        "shift_px": [
+          0,
+          0
+        ],
+        "shift_norm_px": 0.0,
+        "residual_rgb_mae": 10.894203186035156,
+        "sample_pixels": 9200,
+        "flag_shift_gt_3": false,
+        "flag_residual_gt_22": false,
+        "at_search_boundary": false
+      },
+      "extraction_result": "processed",
+      "asset_count": 1
+    },
+    {
+      "tile_id": "obj_01",
+      "sheet": "sheet_2",
+      "source": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/CS-objiso-far-2/objiso_far_2.png",
+      "crop_box": [
+        1195,
+        166,
+        1406,
+        487
+      ],
+      "sheet_xy": [
+        540,
+        24
+      ],
+      "sheet_size": [
+        422,
+        642
+      ],
+      "scale": 2,
+      "matte_padding_px": 0,
+      "groups": [
+        {
+          "group": 1,
+          "support_pixels": 9866,
+          "support_bbox": [
+            18,
+            7,
+            139,
+            274
+          ],
+          "touches_tile_border": false,
+          "disposition": "retained",
+          "asset": "far_obj_01_a"
+        }
+      ],
+      "matte": {
+        "method": "green excess matte + inverse straight-alpha compositing + nearest fully-opaque RGB clamp",
+        "removed_background_or_detached_alpha_dust_pixels": 0,
+        "native_input_alpha": false,
+        "alpha_floor": null,
+        "alpha_floor_removed_pixels": 0
+      },
+      "registration": {
+        "shift_px": [
+          0,
+          0
+        ],
+        "shift_norm_px": 0.0,
+        "residual_rgb_mae": 10.998281478881836,
+        "sample_pixels": 9117,
+        "flag_shift_gt_3": false,
+        "flag_residual_gt_22": false,
+        "at_search_boundary": false
+      },
+      "extraction_result": "processed",
+      "asset_count": 1
+    },
+    {
+      "tile_id": "obj_03",
+      "sheet": "sheet_2",
+      "source": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/CS-objiso-far-2/objiso_far_2.png",
+      "crop_box": [
+        937,
+        238,
+        1199,
+        432
+      ],
+      "sheet_xy": [
+        986,
+        24
+      ],
+      "sheet_size": [
+        524,
+        388
+      ],
+      "scale": 2,
+      "matte_padding_px": 0,
+      "groups": [
+        {
+          "group": 1,
+          "support_pixels": 2919,
+          "support_bbox": [
+            0,
+            7,
+            89,
+            88
+          ],
+          "touches_tile_border": true,
+          "disposition": "dropped",
+          "reason": "tile_border"
+        },
+        {
+          "group": 2,
+          "support_pixels": 7265,
+          "support_bbox": [
+            81,
+            89,
+            207,
+            171
+          ],
+          "touches_tile_border": false,
+          "disposition": "retained",
+          "asset": "far_obj_03_a"
+        }
+      ],
+      "matte": {
+        "method": "green excess matte + inverse straight-alpha compositing + nearest fully-opaque RGB clamp",
+        "removed_background_or_detached_alpha_dust_pixels": 0,
+        "native_input_alpha": false,
+        "alpha_floor": null,
+        "alpha_floor_removed_pixels": 0
+      },
+      "registration": {
+        "shift_px": [
+          0,
+          0
+        ],
+        "shift_norm_px": 0.0,
+        "residual_rgb_mae": 12.667113304138184,
+        "sample_pixels": 8962,
+        "flag_shift_gt_3": false,
+        "flag_residual_gt_22": false,
+        "at_search_boundary": false
+      },
+      "extraction_result": "processed",
+      "asset_count": 1
+    },
+    {
+      "tile_id": "obj_10",
+      "sheet": "sheet_2",
+      "source": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/CS-objiso-far-2/objiso_far_2.png",
+      "crop_box": [
+        521,
+        710,
+        692,
+        836
+      ],
+      "sheet_xy": [
+        24,
+        704
+      ],
+      "sheet_size": [
+        342,
+        252
+      ],
+      "scale": 2,
+      "matte_padding_px": 0,
+      "groups": [
+        {
+          "group": 1,
+          "support_pixels": 7637,
+          "support_bbox": [
+            16,
+            14,
+            144,
+            100
+          ],
+          "touches_tile_border": false,
+          "disposition": "retained",
+          "asset": "far_obj_10_a"
+        }
+      ],
+      "matte": {
+        "method": "green excess matte + inverse straight-alpha compositing + nearest fully-opaque RGB clamp",
+        "removed_background_or_detached_alpha_dust_pixels": 0,
+        "native_input_alpha": false,
+        "alpha_floor": null,
+        "alpha_floor_removed_pixels": 0
+      },
+      "registration": {
+        "shift_px": [
+          0,
+          0
+        ],
+        "shift_norm_px": 0.0,
+        "residual_rgb_mae": 8.878812789916992,
+        "sample_pixels": 7377,
+        "flag_shift_gt_3": false,
+        "flag_residual_gt_22": false,
+        "at_search_boundary": false
+      },
+      "extraction_result": "processed",
+      "asset_count": 1
+    },
+    {
+      "tile_id": "obj_08",
+      "sheet": "sheet_2",
+      "source": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/CS-objiso-far-2/objiso_far_2.png",
+      "crop_box": [
+        512,
+        558,
+        612,
+        682
+      ],
+      "sheet_xy": [
+        390,
+        704
+      ],
+      "sheet_size": [
+        200,
+        248
+      ],
+      "scale": 2,
+      "matte_padding_px": 0,
+      "groups": [
+        {
+          "group": 1,
+          "support_pixels": 4482,
+          "support_bbox": [
+            5,
+            0,
+            100,
+            102
+          ],
+          "touches_tile_border": true,
+          "disposition": "dropped",
+          "reason": "tile_border"
+        }
+      ],
+      "matte": {
+        "method": "green excess matte + inverse straight-alpha compositing + nearest fully-opaque RGB clamp",
+        "removed_background_or_detached_alpha_dust_pixels": 0,
+        "native_input_alpha": false,
+        "alpha_floor": null,
+        "alpha_floor_removed_pixels": 0
+      },
+      "registration": {
+        "shift_px": [
+          0,
+          0
+        ],
+        "shift_norm_px": 0.0,
+        "residual_rgb_mae": 20.56558609008789,
+        "sample_pixels": 3268,
+        "flag_shift_gt_3": false,
+        "flag_residual_gt_22": false,
+        "at_search_boundary": false
+      },
+      "extraction_result": "processed",
+      "asset_count": 0
+    },
+    {
+      "tile_id": "obj_12",
+      "sheet": "sheet_2",
+      "source": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/CS-objiso-far-2/objiso_far_2.png",
+      "crop_box": [
+        1029,
+        812,
+        1171,
+        930
+      ],
+      "sheet_xy": [
+        614,
+        704
+      ],
+      "sheet_size": [
+        284,
+        236
+      ],
+      "scale": 2,
+      "matte_padding_px": 0,
+      "groups": [
+        {
+          "group": 1,
+          "support_pixels": 4065,
+          "support_bbox": [
+            8,
+            14,
+            99,
+            94
+          ],
+          "touches_tile_border": false,
+          "disposition": "retained",
+          "asset": "far_obj_12_a"
+        }
+      ],
+      "matte": {
+        "method": "green excess matte + inverse straight-alpha compositing + nearest fully-opaque RGB clamp",
+        "removed_background_or_detached_alpha_dust_pixels": 0,
+        "native_input_alpha": false,
+        "alpha_floor": null,
+        "alpha_floor_removed_pixels": 0
+      },
+      "registration": {
+        "shift_px": [
+          0,
+          0
+        ],
+        "shift_norm_px": 0.0,
+        "residual_rgb_mae": 12.31460952758789,
+        "sample_pixels": 3792,
+        "flag_shift_gt_3": false,
+        "flag_residual_gt_22": false,
+        "at_search_boundary": false
+      },
+      "extraction_result": "processed",
+      "asset_count": 1
+    },
+    {
+      "tile_id": "obj_11",
+      "sheet": "sheet_2",
+      "source": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/CS-objiso-far-2/objiso_far_2.png",
+      "crop_box": [
+        352,
+        715,
+        518,
+        822
+      ],
+      "sheet_xy": [
+        922,
+        704
+      ],
+      "sheet_size": [
+        332,
+        214
+      ],
+      "scale": 2,
+      "matte_padding_px": 0,
+      "groups": [],
+      "initial_matte_error": "Empty extracted subject",
+      "extraction_result": "unavailable",
+      "retry_matte_error": "Empty extracted subject",
+      "registration": null
+    },
+    {
+      "tile_id": "obj_09",
+      "sheet": "sheet_2",
+      "source": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/CS-objiso-far-2/objiso_far_2.png",
+      "crop_box": [
+        1084,
+        626,
+        1177,
+        729
+      ],
+      "sheet_xy": [
+        1278,
+        704
+      ],
+      "sheet_size": [
+        186,
+        206
+      ],
+      "scale": 2,
+      "matte_padding_px": 12,
+      "groups": [
+        {
+          "group": 1,
+          "support_pixels": 3025,
+          "support_bbox": [
+            0,
+            0,
+            87,
+            87
+          ],
+          "touches_tile_border": true,
+          "disposition": "dropped",
+          "reason": "tile_border"
+        }
+      ],
+      "initial_matte_error": "No native alpha or uniform green plate: border green fraction 0.9397",
+      "matte": {
+        "method": "green excess matte + inverse straight-alpha compositing + nearest fully-opaque RGB clamp",
+        "removed_background_or_detached_alpha_dust_pixels": 0,
+        "native_input_alpha": false,
+        "alpha_floor": null,
+        "alpha_floor_removed_pixels": 0
+      },
+      "registration": {
+        "shift_px": [
+          0,
+          0
+        ],
+        "shift_norm_px": 0.0,
+        "residual_rgb_mae": 20.855268478393555,
+        "sample_pixels": 2135,
+        "flag_shift_gt_3": false,
+        "flag_residual_gt_22": false,
+        "at_search_boundary": false
+      },
+      "extraction_result": "processed",
+      "asset_count": 0
+    },
+    {
+      "tile_id": "obj_04",
+      "sheet": "sheet_3",
+      "source": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/CS-objiso-far-3/objiso_far_3.png",
+      "crop_box": [
+        984,
+        470,
+        1183,
+        622
+      ],
+      "sheet_xy": [
+        24,
+        24
+      ],
+      "sheet_size": [
+        398,
+        304
+      ],
+      "scale": 2,
+      "matte_padding_px": 0,
+      "groups": [
+        {
+          "group": 1,
+          "support_pixels": 3325,
+          "support_bbox": [
+            11,
+            14,
+            93,
+            98
+          ],
+          "touches_tile_border": false,
+          "disposition": "retained",
+          "asset": "far_obj_04_a"
+        }
+      ],
+      "matte": {
+        "method": "green excess matte + inverse straight-alpha compositing + nearest fully-opaque RGB clamp",
+        "removed_background_or_detached_alpha_dust_pixels": 0,
+        "native_input_alpha": false,
+        "alpha_floor": null,
+        "alpha_floor_removed_pixels": 0
+      },
+      "registration": {
+        "shift_px": [
+          0,
+          0
+        ],
+        "shift_norm_px": 0.0,
+        "residual_rgb_mae": 12.376461029052734,
+        "sample_pixels": 3022,
+        "flag_shift_gt_3": false,
+        "flag_residual_gt_22": false,
+        "at_search_boundary": false
+      },
+      "extraction_result": "processed",
+      "asset_count": 1
+    }
+  ],
+  "metrics": {
+    "rebuild_vs_after_rgb_mae": 12.424368858337402,
+    "rebuild_vs_after_rgb_rmse": 20.722274780273438,
+    "shadow_alpha_max": 173,
+    "shadow_nonzero_pixels": 242214
+  },
+  "methods": {
+    "matte": "frozen extract(edge_mode=clamp, preserve_particles=True); temporary 12-px green pad only on diagnosed matte retry, cropped off before resizing",
+    "resize": "uniform 1/scale, Pillow RGBa premultiplied LANCZOS then RGBA",
+    "registration": "all alpha>=200 pixels; mean absolute RGB channel difference; integer shifts +/-10; flag Euclidean shift norm >3 or residual >22",
+    "split": "alpha>=32 support, radius-3 Euclidean grouping dilation, 8-connected labeling; border test on dilated group; area count on original support; preserve owned nonzero-alpha fringe",
+    "opaque": "alpha>=128, matching frozen loader",
+    "anchor": "mean x pixel index across last six occupied opaque rows; maximum opaque y+1",
+    "shadow": "Rec.709 luminance of supplied RGB values; scipy Gaussian sigma 11 px reflect; threshold and green exclusion before sigma 2 px softening; 8-bit alpha saved",
+    "rebuild": "BEFORE*(1-s), then straight-alpha assets in ascending anchor-y; each panel 768x512",
+    "footprints": "60x40 placeholder ellipse; conductor derives shaped footprints"
+  },
+  "concerns": [
+    "obj_06: no groups retained after tile-border and 250-pixel filters.",
+    "obj_08: no groups retained after tile-border and 250-pixel filters.",
+    "obj_11: no asset extracted; frozen matte reports Empty extracted subject.",
+    "obj_09: no groups retained after tile-border and 250-pixel filters.",
+    "Initial SPEC search also returned the T3o row because its text references T3m; only T3l/T3m were used for the package."
+  ],
+  "instrument_verdict": "report_only"
+}

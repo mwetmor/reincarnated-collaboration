@@ -1,0 +1,40 @@
+{
+  "task_id": "CS-objiso-far-3",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "objiso_far_3.png",
+      "path": "out/objiso_far_3.png",
+      "sha256": "86793f74d89db7cc1ed10cfcca881195609c301ab6ce79913c6d8dc4f26350a8",
+      "prompt": "Use case: background-extraction. EDIT the original Image 1. Output one 1536×1024 PNG. This is precise background removal: keep the original stump's visible painted pixels unchanged at their exact original coordinates. The sole object is the jagged dark hollow stump near the upper-left corner. Remove the rectangular meadow tile surrounding it, including every flower, grass blade, bush, loose rock, ground texture and ground shadow. Replace background with exactly solid RGB(0,255,0), hex #00ff00, perfectly uniform across the entire canvas and all object gaps: no texture, noise, color variation, gradient or vignette. Keep original stump size, position, silhouette, broken top, bark marks and original upper-left lighting exactly. Do not repaint, sharpen, smooth, enhance or redesign the stump. Only complete small root portions concealed by foreground vegetation, matching the original roots; do not extend roots sideways or enlarge its silhouette. Keep only moss physically attached to wood. No earth island, grass fringe, contact shadow, halo or blur. The existing empty green region must stay unchanged. The prior attempt repainted the bark and introduced green variation; avoid both errors by changing only background pixels and the minimally occluded base. Preserve the source hand-drawn painted 2D medium.",
+      "references": [
+        {
+          "role": "EDIT target — original scenery sheet",
+          "path": "in/01_sheet_3.png"
+        }
+      ],
+      "elapsed_s": 14.391
+    }
+  ],
+  "calls_used": 2,
+  "retries": [
+    {
+      "reason": "First output visibly repainted stump details and introduced variation in the green background.",
+      "change": "Retried from the original sheet, emphasizing unchanged visible pixels, minimal root completion, and uniform RGB(0,255,0)."
+    }
+  ],
+  "self_report": {
+    "obeyed_invariants": false,
+    "concerns": [
+      "Delivered dimensions verified as 1536×1024.",
+      "Retry still visibly changes bark details and root contours; exact pixel preservation was not achieved.",
+      "Background appears to retain slight variation; exact uniform #00ff00 is not established."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/objiso_far_3.png",
+      "sha256": "86793f74d89db7cc1ed10cfcca881195609c301ab6ce79913c6d8dc4f26350a8"
+    }
+  ]
+}

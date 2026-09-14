@@ -1,0 +1,82 @@
+{
+  "assets": [
+    {
+      "name": "south_obj_01_a",
+      "file": "assets/south_obj_01_a.png",
+      "anchor": [
+        266.57615894039736,
+        223
+      ],
+      "footprint": {
+        "w": 60,
+        "h": 40
+      },
+      "collide": true,
+      "fade_when_behind": true
+    },
+    {
+      "name": "south_obj_01_b",
+      "file": "assets/south_obj_01_b.png",
+      "anchor": [
+        273.032967032967,
+        181
+      ],
+      "footprint": {
+        "w": 60,
+        "h": 40
+      },
+      "collide": true,
+      "fade_when_behind": false
+    },
+    {
+      "name": "south_obj_01_c",
+      "file": "assets/south_obj_01_c.png",
+      "anchor": [
+        381.3285714285714,
+        568
+      ],
+      "footprint": {
+        "w": 60,
+        "h": 40
+      },
+      "collide": true,
+      "fade_when_behind": true
+    }
+  ],
+  "instances": [
+    {
+      "asset": "south_obj_01_a",
+      "position": [
+        1775.5761589403974,
+        3791
+      ]
+    },
+    {
+      "asset": "south_obj_01_b",
+      "position": [
+        2317.032967032967,
+        3780
+      ]
+    },
+    {
+      "asset": "south_obj_01_c",
+      "position": [
+        2521.328571428571,
+        3610
+      ]
+    }
+  ],
+  "shadows": [
+    {
+      "file": "shadow_south.png",
+      "position": [
+        1300,
+        2900
+      ],
+      "opacity": 1.0
+    }
+  ],
+  "overhead": [],
+  "near": [],
+  "particles": []
+}

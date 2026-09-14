@@ -1,0 +1,40 @@
+{
+  "task_id": "CS-objiso-far-2",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "objiso_far_2.png",
+      "path": "out/objiso_far_2.png",
+      "sha256": "1d16334e8045b0bff4aa71dd9e8a8c95260b38ea8fbaf7c4b9c4927966e3c27f",
+      "prompt": "EDIT the ORIGINAL supplied IMAGE 1 directly. Output one 1536×1024 PNG. This is background removal with strict source-pixel preservation. A previous attempt redrew the small bushes and tree contours; correct that by retaining the exact visible original objects, without illustration regeneration. At each original coordinate keep the original painted pixels of the two tall snags, attached ember, upper-right boulder and small dead tree, bottom-left boulder, bottom small woody bush, bottom central stump, and bottom-right woody bush. Preserve the small bush's original thin branch shapes and attached yellow tips; do not replace it with a larger generic bare tree. Every original branch must keep its length, shape, position and thickness. Keep the rock cracks, bark details, original colours, own shaded sides, original upper-left lighting, object sizes and positions exactly. Replace all surrounding ground, grass, wildflowers, paths, dirt, loose pebbles, every ground shadow and cut-off peripheral objects with EXACTLY solid RGB(0,255,0), hexadecimal #00ff00, at every background pixel. No gradient, texture, noise, lighting or colour variation in the green. Remove the partial rock clipped against the upper-left tile left edge, and the large tree base whose trunk is cut by the top edge of the lower tile near x=1000. All original green sheet gutters remain precisely unchanged. Gaps among retained branches and roots become the same pure green. Finish only tiny occluded portions at retained object bases cleanly with matching object material, without attached grass, flowers, earth, shadow or new sprawling roots. Preserve the existing hand-drawn painted 2D look exactly. No new objects, no movement, no resizing, no changed silhouette, no halo or blur. Pure opaque green, not transparency.",
+      "references": [
+        {
+          "role": "IMAGE 1 — sheet to isolate (EDIT)",
+          "path": "in/01_sheet_2.png"
+        }
+      ],
+      "elapsed_s": 30.696
+    }
+  ],
+  "calls_used": 2,
+  "retries": [
+    {
+      "reason": "First output redrew small bushes and altered object contours.",
+      "change": "Retried from the original sheet with stronger source-pixel, branch-shape, and uniform-green constraints."
+    }
+  ],
+  "self_report": {
+    "obeyed_invariants": false,
+    "concerns": [
+      "Retry still visibly changes branch silhouettes and painted details; exact pixel preservation was not achieved.",
+      "Background appears green, but exact #00ff00 uniformity was not verified.",
+      "Delivered dimensions verified as 1536×1024."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/objiso_far_2.png",
+      "sha256": "1d16334e8045b0bff4aa71dd9e8a8c95260b38ea8fbaf7c4b9c4927966e3c27f"
+    }
+  ]
+}

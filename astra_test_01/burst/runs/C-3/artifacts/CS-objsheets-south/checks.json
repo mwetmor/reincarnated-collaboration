@@ -1,0 +1,65 @@
+{
+  "object_count": 1,
+  "sheet_count": 1,
+  "threshold": 30.823593139648438,
+  "otsu": 30.823593139648438,
+  "component_count": 67,
+  "discarded_component_count": 62,
+  "retained_components_before_merge": 5,
+  "origin_px": [
+    1300,
+    2900
+  ],
+  "objects": [
+    {
+      "bbox": [
+        154,
+        139,
+        1505,
+        897
+      ],
+      "area": 356888,
+      "component_labels": [
+        1,
+        2,
+        22,
+        45,
+        46
+      ],
+      "id": "obj_01",
+      "crop_box": [
+        138,
+        123,
+        1521,
+        913
+      ],
+      "scale": 1,
+      "sheet_size": [
+        1383,
+        790
+      ]
+    }
+  ],
+  "conventions": {
+    "luminance": "Rec.601",
+    "blur": "scipy uniform_filter: 5x5 RGB and 3x3 luminance, reflect boundary",
+    "sobel": "scipy.ndimage.sobel unnormalized magnitude",
+    "morphology": "Euclidean disks of radii 4, 2, 6, 24 pixels",
+    "merge": "transitive union of intersections of original component bboxes grown 10 px",
+    "packing": "height-descending best-fit shelves; new shelves use best-fit sheet; dimensions rounded to nearest integer"
+  },
+  "verification": {
+    "depth_crop_unique_values": {
+      "0": 1572864
+    },
+    "sheet_dimensions_verified": true,
+    "tile_source_pixels_verified": true,
+    "margins_gutters_nonoverlap_verified": true,
+    "unused_sheet_background_verified": "#00ff00",
+    "candidates_dimensions_verified": true
+  },
+  "concerns": [
+    "Depth crop is entirely 0; the cliff-top proximity filter cannot discriminate regions in this crop.",
+    "The prescribed bbox-intersection merge combines all five retained components into one broad candidate, not individually isolated props."
+  ]
+}

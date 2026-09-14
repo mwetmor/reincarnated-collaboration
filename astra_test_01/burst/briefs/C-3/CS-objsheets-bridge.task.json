@@ -1,0 +1,14 @@
+{
+ "text": "CHECK BURST CS-objsheets-bridge — locate the objects Astra added to a dressed crop and pack them onto isolation sheets (R-C3-61/64/79). REPORT ONLY. task_id \"CS-objsheets-bridge\".\n\nInputs (read-only): BEFORE /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/CS-dress-canvases/dress_bridge_canvas.png (bare crop 1536×1024, #00ff00 = void); AFTER /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/CS-dress-bridge/dress_bridge.png (same crop with trees/snags/stumps/rocks/props added by an image edit that may also have re-rendered the ground slightly); crop origin in level px /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/CS-dress-canvases/dress_bridge.json (origin_px); level depth map /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/CS-guides-v4/ortho_canvas_v4_depth_mm.png (uint16 mm; 0 = cliff-top surfaces; 65535 = not foreground) — crop it at origin_px. python glue PIL/numpy/scipy(/skimage); no new tool files.\n\nSTEP 1 — CHANGE MAP: D = mean |RGB| of AFTER − BEFORE after a 5×5 box blur of both; T = max(Otsu(D), 28); M = D > T AND a structural change (|Sobel magnitude difference| on 3-px-blurred luminance > 18, dilated 4 px) ; open 2, close 6.\nSTEP 2 — OBJECTS: connected components of M (8-connected); keep components ≥ 700 px that contain at least 150 px lying on cliff-top surface pixels (crop depth == 0) dilated by 24 px (objects stand on the tops; crowns may extend over faces/void); discard the rest (edit drift on clouds/faces). Merge components whose bounding boxes (each grown by 10 px) intersect. For each object: bbox, area, and a 16-px padded crop_box clipped to the crop.\nSTEP 3 — PACK: per object choose scale s = the largest of {2, 1.5, 1} with padded size × s ≤ (1488, 976); shelf-pack tiles (sorted by height, 24-px gutters, 24-px sheet margins) onto as few 1536×1024 sheets filled with #00ff00 as possible; each tile = AFTER crop_box resized ×s (LANCZOS). Never overlap tiles.\nSTEP 4 — OUTPUTS: out/sheet_<n>.png (n = 1, 2, …); out/layout.json = {\"sheet_<n>\": [{id, crop_box:[x0,y0,x1,y1], sheet_xy:[x,y], sheet_size:[w,h], scale}]} with ids obj_01…; out/candidates.png = AFTER with every object bbox outlined in magenta and labelled, 1536×1024; out/summary.txt ≤ 10 lines (object count, sheet count, T, discarded component count). No image_gen. No writes outside out/. No web. calls_used 0. Deliver within 12 minutes.\nRETURN: receipt task_id \"CS-objsheets-bridge\"; images []; files: every out/ file with sha256; status; concerns. Never PASS/FAIL.",
+ "references": [],
+ "image_cap": 0,
+ "minutes_cap": 15,
+ "tool_call_cap": 20,
+ "outputs": [
+  "out/layout.json",
+  "out/candidates.png"
+ ],
+ "effort": "high",
+ "add_dirs": [],
+ "experiment": "C3-cliffside-dress"
+}

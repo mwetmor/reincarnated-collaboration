@@ -1,0 +1,40 @@
+{
+  "task_id": "CS-objiso-bridge-1",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "objiso_bridge_1.png",
+      "path": "out/objiso_bridge_1.png",
+      "sha256": "ca17772ce4b44e62a56aa550873e00cf828b5c1b149eca8748f904186cf10a79",
+      "prompt": "Use case: background-extraction. EDIT ONLY the supplied original Image 1. Output one 1536x1024 PNG. This is a precise cutout operation: retain the original object pixels, do not repaint them. The prior attempt redrew bark, bushes, rope and crate and produced uneven green; correct those errors by preserving original painted interiors and using a SOLID RGB(0,255,0) background, every background pixel identical, absolutely no texture or noise. Keep each original object at its exact original coordinates and original size. Retain the two tall burnt trees, stump, fallen burnt log with attached wisps, complete dead shrubs, rope coil and wooden crate. Remove the edge-cut signpost and edge-cut tree in the upper-right tile and the edge-cut crate on the large tile right edge. Remove all earth, grass, flowers, cliff rocks, loose pebbles, path and every cast or contact ground shadow, replacing with exact #00ff00. Thread this same solid green through branch gaps and rope gaps. Keep all original own-surface shading, highlights and embers without changes. Only minimally complete previously hidden bases. NO redesigning, no line cleanup, no smoother new bark, no new branches, no enhanced contrast or sharpened illustration. Preserve original outlines, colors, light, hand-drawn painted 2D medium and camera. Nothing moves or changes size. The result must look exactly like the source with just the surrounding scene erased to one perfectly flat green color, with clean crisp object edges.",
+      "references": [
+        {
+          "role": "IMAGE 1 — sheet to isolate (EDIT)",
+          "path": "in/01_sheet_1.png"
+        }
+      ],
+      "elapsed_s": 20.697
+    }
+  ],
+  "calls_used": 2,
+  "retries": [
+    {
+      "reason": "First output visibly redrew object details and showed uneven green.",
+      "change": "Retried from the original with stronger pixel-preservation and uniform RGB(0,255,0) instructions."
+    }
+  ],
+  "self_report": {
+    "obeyed_invariants": false,
+    "concerns": [
+      "Output dimensions are confirmed as 1536×1024, but object details remain visibly redrawn rather than pixel-identical.",
+      "Green appears uneven; exact uniform #00ff00 is not established.",
+      "Retry allowance exhausted."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/objiso_bridge_1.png",
+      "sha256": "ca17772ce4b44e62a56aa550873e00cf828b5c1b149eca8748f904186cf10a79"
+    }
+  ]
+}

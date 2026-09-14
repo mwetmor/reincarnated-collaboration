@@ -1,0 +1,37 @@
+{
+  "task_id": "CS-objsheets-south",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [],
+  "calls_used": 0,
+  "retries": [],
+  "self_report": {
+    "obeyed_invariants": true,
+    "concerns": [
+      "Depth crop is entirely zero; cliff-top filtering cannot discriminate regions.",
+      "The prescribed merge combines five retained components into one broad candidate on one sheet, rather than individually isolated props.",
+      "File manifest excludes mutable wrapper-owned logs."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/candidates.png",
+      "sha256": "e7681df7fb77d0156384d69a97c3008f8c3c78975370e94c79097440b05acfbb"
+    },
+    {
+      "path": "out/checks.json",
+      "sha256": "cf72b73350b28a4853a526dc563b302eeacd6a7ce7f482f580e4dd379cc4e4f9"
+    },
+    {
+      "path": "out/layout.json",
+      "sha256": "7f4da77c3fb9b84a160cb4c006acd6cbf3c49278b8a5cc461d4febce7f5644bd"
+    },
+    {
+      "path": "out/sheet_1.png",
+      "sha256": "c688e2c7dc99543f83994087e0b78a35e92d30246d95e4c92ea8ade287e880fa"
+    },
+    {
+      "path": "out/summary.txt",
+      "sha256": "7066993aea08d2d97de1f8f0e15c77f5434fb2699df447a246d0fb3485483b7e"
+    }
+  ]
+}

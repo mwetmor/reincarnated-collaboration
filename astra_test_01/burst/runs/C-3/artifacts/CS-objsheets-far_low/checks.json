@@ -1,0 +1,96 @@
+{
+  "task_id": "CS-objsheets-far_low",
+  "origin_px": [
+    3840,
+    1150
+  ],
+  "threshold": 29.118489583333456,
+  "otsu": 29.118489583333456,
+  "component_count": 25,
+  "discarded_component_count": 19,
+  "object_count": 2,
+  "sheet_count": 2,
+  "objects": [
+    {
+      "bbox": [
+        395,
+        37,
+        933,
+        340
+      ],
+      "area": 32049,
+      "support_px": 32049,
+      "labels": [
+        1,
+        13,
+        2
+      ],
+      "id": "obj_01",
+      "crop_box": [
+        379,
+        21,
+        949,
+        356
+      ],
+      "scale": 2,
+      "sheet_size": [
+        1140,
+        670
+      ]
+    },
+    {
+      "bbox": [
+        963,
+        141,
+        1530,
+        503
+      ],
+      "area": 62344,
+      "support_px": 62344,
+      "labels": [
+        7,
+        8,
+        25
+      ],
+      "id": "obj_02",
+      "crop_box": [
+        947,
+        125,
+        1536,
+        519
+      ],
+      "scale": 2,
+      "sheet_size": [
+        1178,
+        788
+      ]
+    }
+  ],
+  "notes": [
+    "Explicitly named read-only inputs accessed outside the workdir as authorized by TASK.",
+    "The unspecified 3-px luminance blur was interpreted as a 3x3 box blur."
+  ],
+  "verification": [
+    {
+      "sheet": "sheet_1",
+      "size": [
+        1536,
+        1024
+      ],
+      "tile_count": 1,
+      "within_margins": true,
+      "nonoverlap_with_gutters": true
+    },
+    {
+      "sheet": "sheet_2",
+      "size": [
+        1536,
+        1024
+      ],
+      "tile_count": 1,
+      "within_margins": true,
+      "nonoverlap_with_gutters": true
+    }
+  ],
+  "minimum_sheet_count_evidence": "Both tiles exceed half the usable width and half the usable height, so they cannot share a sheet."
+}

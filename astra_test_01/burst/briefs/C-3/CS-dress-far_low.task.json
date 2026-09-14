@@ -1,0 +1,30 @@
+{
+ "text": "GENERATE BURST CS-dress-far_low — DRESS a crop of the painted cliffside level as a layered outdoor ARPG scene (Matt R-C3-68/73/79). task_id \"CS-dress-far_low\".\n\nIMAGE 1 is a finished, BARE hand-painted 2D level crop (1536×1024) seen from a fixed high three-quarter ARPG camera (Diablo II / Last Epoch style): cliff-top grass and packed-dirt path at sunset, rocky rims, cliff faces and cloud banks; PURE GREEN #00ff00 = empty void. Sunset key light from the UPPER-LEFT; shadows fall to the LOWER-RIGHT.\nIMAGE 2 is the SAME crop with SCALE FIGURES: the player character (1.75 m tall) pasted at her exact in-game size, with magenta ground and height ticks. IMAGE 3 is a SIZE CHART drawn in this exact camera projection: the character; a 0.7 m crate; a 0.9 m barrel; a 0.9 m rock; a 0.9 m shrub; the character; a 5 m dead snag; the character; a mature 8 m tree with a 5.5 m crown (the big circle); the character. IMAGE 4 is an APPROVED dressed crop of the same level — match its object style, detail and rendering exactly (not its layout). Paint every object at the size the figures and chart dictate. IMAGES 2–4 are references only — never paint figures, magenta lines, the grey chart, or copies of IMAGE 4's objects.\nThis crop is the lower FAR PLATEAU, where the burnt forest thins. Add: (1) two or three scorched dead snags (3–5 m); (2) a fallen charred trunk; (3) two blackened stumps; (4) a small cluster of rocks; (5) one surviving small living tree (≈ 4 m) with a scorched side facing the canyon.\nUse image_gen in EDIT mode on IMAGE 1 and deliver ONE 1536×1024 image: the SAME painting with those additions. Every tree and object stands ON the cliff-top grass (never on a cliff face, in a cloud, or on the green void) with a soft contact shadow in the same light; living trees cast dappled canopy shadows toward the lower-right. Same hand-painted register (tapered dark contours, painted planes, bold jewel tones), same camera angle and scale as the ground.\nRULES: (a) everything that is not an added object or its shadow stays exactly as painted — no ground scorch marks, no repainting of grass, path, rims, faces, clouds or bridge; (b) the dirt path and the bridge deck stay open — trunks and props never stand on them (crowns may overhang); (c) every object, crown included, lies FULLY inside the image with at least 120 px margin from every border; (d) no trunk overlaps another trunk; objects do not overlap each other except a crown over something behind it; (e) no characters, creatures, text, UI, border or vignette; green stays flat pure #00ff00.\n\nOne image_gen call. ONE retry only if the ground outside the additions was visibly repainted, a rule (a)–(d) is broken, objects are clearly off-scale relative to the figures and chart, or a figure/magenta line was painted — name the reason. Copy the output from $CODEX_HOME/generated_images/... to out/dress_far_low.png with sha256. No code. No other files. No web.\nRETURN: receipt task_id \"CS-dress-far_low\"; images = the file with prompt, references and elapsed_s; calls_used = the TRUE number of image_gen calls; status; concerns. Never PASS/FAIL.",
+ "references": [
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/CS-dress-canvases/dress_far_low_canvas.png",
+   "role": "IMAGE 1 — the bare painted crop to EDIT"
+  },
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/CS-dress-canvases/dress_far_low_scale_figures.png",
+   "role": "IMAGE 2 — scale figures (reference only)"
+  },
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/CS-clutter-canvases/dress_size_chart.png",
+   "role": "IMAGE 3 — camera-projected size chart (reference only)"
+  },
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/CS-dress-spawn/dress_spawn.png",
+   "role": "IMAGE 4 — approved dressed crop (style reference only)"
+  }
+ ],
+ "image_cap": 2,
+ "minutes_cap": 15,
+ "tool_call_cap": 20,
+ "outputs": [
+  "out/dress_far_low.png"
+ ],
+ "effort": "high",
+ "add_dirs": [],
+ "experiment": "C3-cliffside-dress"
+}

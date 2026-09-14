@@ -210,20 +210,36 @@ def _native_indices(series, n):
     return a, int(a[1]-a[0]) if len(a)>1 else 1
 
 
-def detect_period(kind, series, fps, prompted_s=None, sibling_stride_frames=None):
-    """Reuse the frozen >=2-cycle autocorrelation helper, confidence >= .3."""
+def detect_period(kind, series, fps, prompted_s=None, sibling_stride_frames=None,
+                  period_frames=None):
+    """Reuse autocorrelation; optionally force a walk/run stride in native frames.
+
+    Confidence always describes the observed autocorrelation. The usable native
+    span is the supplied series length times its sampling step (also at half
+    rate). None preserves the original detection and fallback behaviour.
+    """
     _positive(fps, 'fps')
     if kind not in ('walk', 'run', 'idle'):
         raise ValueError('loop kind must be walk, run or idle')
     values = np.asarray(series['chest_w' if kind == 'idle' else 'head_top_y'], dtype=float)
     _, step = _native_indices(series, len(values))
+    if period_frames is not None:
+        period_frames = _integer(period_frames, 'period_frames', 4)
+        if kind not in ('walk', 'run'):
+            raise ValueError('period_frames requires walk or run')
+        if period_frames > len(values)*step:
+            raise ValueError('period_frames exceeds the clip usable native frames')
     usable = values.ndim == 1 and len(values)>=6 and np.isfinite(values).all()
     measured = values
     if usable and kind != 'idle':
         measured = signal.detrend(values, type='linear')
     p, _, confidence = autocorrelation_period(measured, fps/step)
     bob = None
-    if p is not None and confidence >= PERIOD_CONFIDENCE:
+    if period_frames is not None:
+        frames = period_frames
+        bob = frames/2
+        source = 'forced'
+    elif p is not None and confidence >= PERIOD_CONFIDENCE:
         bob = int(p*step) if kind != 'idle' else None
         frames = int(p*step*(2 if kind != 'idle' else 1))
         source = 'chest_width_autocorr' if kind == 'idle' else 'head_bob_autocorr'
@@ -239,7 +255,9 @@ def detect_period(kind, series, fps, prompted_s=None, sibling_stride_frames=None
     return dict(frames=frames, seconds=frames/fps if frames is not None else None,
         source=source, confidence=float(confidence), bob_frames=bob,
         bob_seconds=bob/fps if bob is not None else None,
-        notes='confidence measures observed autocorrelation, not the prompted/sibling prior')
+        notes=('confidence measures observed autocorrelation, not the forced period'
+               if period_frames is not None else
+               'confidence measures observed autocorrelation, not the prompted/sibling prior'))
 
 
 def _rgb(frame):
@@ -695,6 +713,8 @@ def main(argv=None):
     parser.add_argument('--min-start-s',type=float,default=0)
     parser.add_argument('--prompted-period-s',type=float,default=2.0)
     parser.add_argument('--sibling-stride-frames',type=int)
+    parser.add_argument('--period-frames',type=int,
+                        help='force walk/run stride length in native frames (integer >= 4)')
     parser.add_argument('--half-rate',action='store_true')
     parser.add_argument('--exclude-native-json',type=Path,
                         help='JSON list of native indices, or object with exclude_native list; loops only')
@@ -706,6 +726,10 @@ def main(argv=None):
         raise ValueError('min_start_s must be in [0,t_max_s)')
     if args.sibling_stride_frames is not None:
         _integer(args.sibling_stride_frames,'sibling_stride_frames',2)
+    if args.period_frames is not None:
+        _integer(args.period_frames,'period_frames',4)
+        if args.kind not in ('walk','run'):
+            raise ValueError('--period-frames requires walk or run')
     excluded = []
     exclusion_file_sha256 = None
     if args.exclude_native_json is not None:
@@ -730,6 +754,10 @@ def main(argv=None):
     stamps = [float(f['best_effort_timestamp_time']) for f in json.loads(probe.stdout)['frames']]
     if not stamps:
         raise ValueError('clip contains no frames')
+    if args.period_frames is not None:
+        usable = sum(args.min_start_s <= t-stamps[0] < args.t_max_s for t in stamps)
+        if args.period_frames > usable:
+            raise ValueError('period_frames exceeds the clip usable native frames')
     args.out.mkdir(parents=True,exist_ok=True)
     temporary_root = args.out/'tmp'; temporary_root.mkdir()
     record = dict(kind=args.kind,direction=args.direction,clip=str(args.clip.resolve()),
@@ -764,7 +792,7 @@ def main(argv=None):
             tick = time.perf_counter()
             if args.kind in ('idle','walk','run'):
                 period = detect_period(args.kind,series,meta['fps'],args.prompted_period_s,
-                                       args.sibling_stride_frames)
+                                       args.sibling_stride_frames,period_frames=args.period_frames)
                 record['period'] = period
                 selection = select_cycle(args.kind,series,period,meta['fps'],args.t_max_s,args.min_start_s,
                                          exclude_native=excluded,n=args.n)

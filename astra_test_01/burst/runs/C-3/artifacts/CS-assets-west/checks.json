@@ -1,0 +1,133 @@
+{
+  "task_id": "CS-assets-west",
+  "registration": [
+    {
+      "tile_id": "obj_02",
+      "shift_px": [
+        0,
+        0
+      ],
+      "shift_magnitude_px": 0.0,
+      "residual_rgb_mae": 16.919145584106445,
+      "sample_pixels": 294201,
+      "flagged": false,
+      "search_boundary": false,
+      "shift_clipped_alpha32_pixels": 0
+    },
+    {
+      "tile_id": "obj_01",
+      "shift_px": [
+        0,
+        0
+      ],
+      "shift_magnitude_px": 0.0,
+      "residual_rgb_mae": 7.677272319793701,
+      "sample_pixels": 4463,
+      "flagged": false,
+      "search_boundary": false,
+      "shift_clipped_alpha32_pixels": 0
+    }
+  ],
+  "split": [
+    {
+      "tile_id": "obj_02",
+      "groups_found": 3,
+      "groups_retained": 3,
+      "dropped": [],
+      "matte": {
+        "method": "green excess matte + inverse straight-alpha compositing + nearest fully-opaque RGB clamp",
+        "removed_background_or_detached_alpha_dust_pixels": 0,
+        "native_input_alpha": false,
+        "alpha_floor": null,
+        "alpha_floor_removed_pixels": 0
+      }
+    },
+    {
+      "tile_id": "obj_01",
+      "groups_found": 1,
+      "groups_retained": 1,
+      "dropped": [],
+      "matte": {
+        "method": "green excess matte + inverse straight-alpha compositing + nearest fully-opaque RGB clamp",
+        "removed_background_or_detached_alpha_dust_pixels": 0,
+        "native_input_alpha": false,
+        "alpha_floor": null,
+        "alpha_floor_removed_pixels": 0
+      }
+    }
+  ],
+  "concerns": [
+    "Initial SPEC search also returned the T3o row because it referenced T3m; only T3l/T3m were used for the package.",
+    "Footprints are the required 60\u00d740 placeholders; shaped footprints remain conductor work.",
+    "Shadow ratio also responds to object colour and other BEFORE/AFTER changes; no object exclusion was requested.",
+    "Large central and right-hand trees connect under the required grouping rule and are packaged together as west_obj_02_c; they are not independently reusable."
+  ],
+  "conventions": {
+    "matte": "frozen extract(edge_mode=clamp, preserve_particles=True); retain detached groups for STEP 3",
+    "resize": "Pillow RGBa premultiplied LANCZOS to crop_box dimensions",
+    "registration": "mean absolute RGB channel error over alpha >= 200; integer dx,dy in [-10,10]; ties prefer shortest shift",
+    "shift_flag": "Euclidean shift magnitude > 3 or RGB residual > 22",
+    "grouping": "Euclidean disk radius 3 dilation; 8-connected groups; counts and border-touch test use original alpha >= 32 support, not added dilation pixels",
+    "opaque": "alpha >= 128 (frozen loader convention)",
+    "anchor": "x mean of opaque pixel centres in bottom six occupied rows; y lowest opaque row + 1",
+    "shadow": "Rec.709 luminance on 0..255 RGB; scipy Gaussian sigma 11 px before ratio; threshold then Gaussian sigma 2 px",
+    "output_scope": "Receipt covers authored deliverables, excluding live wrapper-owned dotfiles"
+  },
+  "loader": {
+    "verdict": "accepted",
+    "call": "export.props_layer.load_props(out/props)",
+    "counts": {
+      "assets": 4,
+      "instances": 4,
+      "shadows": 1,
+      "overhead": 0,
+      "near": 0,
+      "particles": 0
+    },
+    "image_count": 5
+  },
+  "rebuild": {
+    "rgb_mae": 13.493885040283203,
+    "panel_order": [
+      "BEFORE \u00d7 (1 \u2212 s) + assets sorted by anchor y",
+      "AFTER",
+      "absolute RGB difference \u00d7 3"
+    ],
+    "panel_size_px": [
+      768,
+      512
+    ]
+  },
+  "shadow": {
+    "size_px": [
+      1536,
+      1024
+    ],
+    "max_alpha": 178,
+    "nonzero_pixels": 558862
+  },
+  "assets_count": 4,
+  "input_sha256": {
+    "sheet_1": "522e5b36dcfc99ef43474833826fdbdf344d83697d8c0f44fe11e7645a6731eb",
+    "layout": "4322cd084e5444233be58ed4e607e5036fa814f39593609a0e919377a435de1c",
+    "before": "d7e8323b843bd63a3cadce69fc491374762837f898869869f15af2c44ba684c0",
+    "after": "567637f040f7b9186be933aa65d2f119c2ac34dfda861187eeabdf0251782f9c",
+    "origin": "fa56bc297ea0f26f57b319b227f423ef09c4631c7965bc783c14dbc7140a49c2"
+  },
+  "corrections": [
+    {
+      "reason": "Initial border test included the added grouping dilation and incorrectly dropped a group with a 3-pixel alpha-support margin.",
+      "change": "Test tile-border contact on original alpha >= 32 support; retain the connected central/right tree group."
+    }
+  ],
+  "verification": {
+    "manifest_catalogue_names_agree": true,
+    "asset_rgba_and_sizes_agree": true,
+    "anchor_positions_agree": true,
+    "triptych_size_px": [
+      2304,
+      512
+    ],
+    "summary_lines": 12
+  }
+}

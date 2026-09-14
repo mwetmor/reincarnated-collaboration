@@ -1,0 +1,39 @@
+{
+  "task_id": "CS-near-bridge",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "near_bridge",
+      "path": "out/near_bridge.png",
+      "sha256": "ee605eaf35979f3ee4426c9a68b4ba18c7a319e9ac6909339274733e96ec11a8",
+      "prompt": "Use case: precise-object-edit. Image 1 is the ORIGINAL edit target. Make a strictly localized additive edit to this original image, output 1536×1024. Add ONE very close foreground gnarled, twisted cliff-pine branch entering from the top-left of the game view, cropped at the left edge and at y=80 beneath the black top bar. Thick contorted wood with a few clusters of dark needles, large apparent scale, confined to x=0–520 and y=80–350, painted coverage below 10 percent of the full frame. Near-silhouette cool blue-violet wood and deep blue-green needles, narrow warm sunset upper-edge rim, very slight foreground softness. Hand-drawn painted 2D with tapered varying-weight dark contours, clean painted planes and restrained texture, matching the game's register. CRITICAL PRESERVATION: treat all pixels outside this localized top-left branch insertion as locked original artwork. Preserve the exact original character, face, hair, clothing, pose, path stones and textures, grasses, cliff edges, bridge planks and nails, clouds, mountains and ruins, colors and lighting. Do not regenerate or repaint the surrounding scene. The character, path and bridge must remain entirely unobstructed. Keep the original 1536×1024 framing and both black bars exactly intact, with nothing drawn onto the bars. No other additions. This is a local foreground overlay onto the supplied original, with the rest of the original retained unchanged.",
+      "references": [
+        {
+          "role": "original in-game frame to edit",
+          "path": "in/01_near_bridge_canvas.png"
+        }
+      ],
+      "elapsed_s": 33.607
+    }
+  ],
+  "calls_used": 2,
+  "retries": [
+    {
+      "reason": "First edit altered scene details outside the branch insertion.",
+      "change": "Retried from the original with stronger localized-edit and original-pixel preservation instructions."
+    }
+  ],
+  "self_report": {
+    "obeyed_invariants": false,
+    "concerns": [
+      "Scene detail changes remain outside the branch region after retry; exact preservation was not achieved.",
+      "Foreground branch leaves the character, bridge deck, path, and black bars unobstructed."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/near_bridge.png",
+      "sha256": "ee605eaf35979f3ee4426c9a68b4ba18c7a319e9ac6909339274733e96ec11a8"
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+ "text": "GENERATE BURST CS-objiso-south-1 — ISOLATE painted scenery objects from their own scene crops (Matt fallback, R-C3-61/64/79). task_id \"CS-objiso-south-1\".\n\nIMAGE 1 (1536×1024) is a sheet on flat PURE GREEN #00ff00 holding enlarged crops (tiles) of a hand-painted 2D ARPG level at sunset (light from the upper-left). Each tile is centred on one or more added scenery objects — trees, dead snags, stumps, logs, rocks, bushes, crates, posts, signposts, rope — standing on grass, dirt or rock.\nUse image_gen in EDIT mode on IMAGE 1 and deliver ONE 1536×1024 image in which, in every tile, the scenery OBJECTS stay EXACTLY as painted — same pixels, same position in the sheet, same size, outline, colours and lighting (including their own shaded sides, moss, embers or smoke wisps attached to them) — and everything else is flat PURE GREEN #00ff00: ground, dirt, grass, path texture, pebbles lying loose on the ground, cliff rims and faces, clouds, the bridge deck, parts of other objects cut by the tile edge, and every cast or contact SHADOW on the ground. Gaps between branches and leaves become green too. Where an object's base met the ground or was hidden by a bush or another object, finish its base cleanly and complete the hidden part matching the object. Nothing new is added; nothing moves. The green is one flat colour with a crisp edge against each object (no halo, glow or blur).\n\nOne image_gen call. ONE retry only if an object moved, was resized or redrawn differently, ground/shadow remains attached, or the green is not flat — name the reason. Copy the output from $CODEX_HOME/generated_images/... to out/objiso_south_1.png with sha256. No code. No other files. No web.\nRETURN: receipt task_id \"CS-objiso-south-1\"; images = the file with prompt, references and elapsed_s; calls_used = the TRUE number of image_gen calls; status; concerns. Never PASS/FAIL.",
+ "references": [
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/CS-objsheets-south/sheet_1.png",
+   "role": "IMAGE 1 — sheet to isolate (EDIT)"
+  }
+ ],
+ "image_cap": 2,
+ "minutes_cap": 15,
+ "tool_call_cap": 20,
+ "outputs": [
+  "out/objiso_south_1.png"
+ ],
+ "effort": "high",
+ "add_dirs": [],
+ "experiment": "C3-cliffside-dress"
+}

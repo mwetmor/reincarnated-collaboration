@@ -1,0 +1,34 @@
+{
+  "task_id": "CS-sockets-fix",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [],
+  "calls_used": 0,
+  "retries": [],
+  "self_report": {
+    "obeyed_invariants": true,
+    "concerns": [
+      "17 frames changed; North frames 4–6 now select the right-hand crystal end.",
+      "Specified algorithm produces apparent butt selections in SW 0–2, E 0–4/6–7, and SE 1/5–7; no manual overrides applied.",
+      "South frame 4 is unevaluable and retains its original socket; 18 assignments have negative local cue margins.",
+      "NE frame 0→1 socket jump remains 117.1 px."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/sockets.json",
+      "sha256": "f1b97d530a66871386d756888455f6e5cf985324730d9d61782d72472f0cbfcf"
+    },
+    {
+      "path": "out/sockets_sheet.png",
+      "sha256": "1e7fe39856f2bce6c2481f63dc7084dca779c09b48f8d4b760798bb74702af0c"
+    },
+    {
+      "path": "out/changes.json",
+      "sha256": "8eeace4b8ec8f67598af70e4c4297d950141e81c452f7b4f23aaba135c6d243b"
+    },
+    {
+      "path": "out/summary.txt",
+      "sha256": "97bb4d48fdbb5dce2b4f98f333fac592f4e1ff9c8ad0a9b2d61c88b4f67a34bf"
+    }
+  ]
+}

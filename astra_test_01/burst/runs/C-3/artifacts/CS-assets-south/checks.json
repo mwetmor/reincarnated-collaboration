@@ -1,0 +1,161 @@
+{
+  "task_id": "CS-assets-south",
+  "registration": [
+    {
+      "tile": "obj_01",
+      "shift_px": [
+        0,
+        0
+      ],
+      "residual_mean_abs_rgb": 17.853897094726562,
+      "sample_pixels": 357899,
+      "search_radius_px": 10,
+      "shift_magnitude_l2_px": 0.0,
+      "flag_shift_gt_3": false,
+      "flag_residual_gt_22": false,
+      "search_boundary": false
+    }
+  ],
+  "matte": [
+    {
+      "tile": "obj_01",
+      "method": "green excess matte + inverse straight-alpha compositing + nearest fully-opaque RGB clamp",
+      "removed_background_or_detached_alpha_dust_pixels": 0,
+      "native_input_alpha": false,
+      "alpha_floor": null,
+      "alpha_floor_removed_pixels": 0
+    }
+  ],
+  "discarded_groups": [
+    {
+      "tile": "obj_01",
+      "component": 1,
+      "area_alpha_ge_32_px": 157244,
+      "tile_bbox": [
+        0,
+        11,
+        594,
+        523
+      ],
+      "touches_tile_border": true,
+      "reasons": [
+        "touches_tile_border"
+      ]
+    },
+    {
+      "tile": "obj_01",
+      "component": 3,
+      "area_alpha_ge_32_px": 1,
+      "tile_bbox": [
+        1017,
+        36,
+        1018,
+        37
+      ],
+      "touches_tile_border": false,
+      "reasons": [
+        "area_below_250"
+      ]
+    }
+  ],
+  "asset_count": 3,
+  "origin_px": [
+    1300,
+    2900
+  ],
+  "loader_validation": {
+    "loader": "export.props_layer.load_props",
+    "verdict": "accepted",
+    "assets": 3,
+    "instances": 3,
+    "images": {
+      "assets/south_obj_01_a.png": {
+        "size": [
+          377,
+          228
+        ],
+        "bbox": [
+          6,
+          5,
+          371,
+          223
+        ]
+      },
+      "assets/south_obj_01_b.png": {
+        "size": [
+          386,
+          186
+        ],
+        "bbox": [
+          6,
+          6,
+          380,
+          181
+        ]
+      },
+      "assets/south_obj_01_c.png": {
+        "size": [
+          623,
+          573
+        ],
+        "bbox": [
+          6,
+          6,
+          617,
+          568
+        ]
+      },
+      "shadow_south.png": {
+        "size": [
+          1536,
+          1024
+        ],
+        "bbox": [
+          259,
+          222,
+          1268,
+          876
+        ]
+      }
+    }
+  },
+  "methods": {
+    "luminance": "Rec.709 weighted RGB in input sample space",
+    "luminance_gaussian_sigma_px": 11,
+    "shadow_soften_gaussian_sigma_px": 2,
+    "shadow_threshold": 0.05,
+    "shadow_max_pre_soften": 0.7,
+    "shift_flag_norm": "Euclidean magnitude",
+    "asset_sheet_scale": 1,
+    "rebuild_panel_order": [
+      "BEFORE times (1-s) plus assets sorted by anchor y",
+      "AFTER",
+      "absolute difference times 3"
+    ],
+    "panel_size_px": [
+      768,
+      512
+    ]
+  },
+  "rebuild_metrics": {
+    "mean_abs_rgb": 18.034446716308594,
+    "p95_abs_channel": 65.0,
+    "max_abs_channel": 254.0
+  },
+  "shadow": {
+    "size_px": [
+      1536,
+      1024
+    ],
+    "nonzero_alpha_px": 590185,
+    "max_alpha": 176
+  },
+  "invariant_deviations": [
+    "SPEC read selector displayed adjacent T3o rows."
+  ],
+  "concerns": [
+    "Left tree excluded by required border-touch rule (157244 pixels at alpha >=32).",
+    "Footprints remain requested 60 x 40 placeholders for conductor shaping.",
+    "Initial SPEC selector also displayed adjacent T3o rows; requested read scope was T3l/T3m rows only."
+  ]
+}

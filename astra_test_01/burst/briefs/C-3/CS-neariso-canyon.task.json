@@ -1,0 +1,18 @@
+{
+ "text": "GENERATE BURST CS-neariso-canyon — ISOLATE one near-camera object from a painted game frame (R-C3-79). task_id \"CS-neariso-canyon\".\n\nIMAGE 1 (1536×1024) is a hand-painted 2D ARPG frame containing the tall red-orange SANDSTONE SPIRE (hoodoo) rising in the right part of the frame, which passes close in front of the camera. Use image_gen in EDIT mode on IMAGE 1 and deliver ONE 1536×1024 image in which ONLY that object stays EXACTLY as painted — same pixels, position, size, outline, colours, rim light and softness — and EVERYTHING else (the ground, cliffs, clouds, sky, background, the character, the bridge, the black bars) becomes flat PURE GREEN #00ff00 with a crisp edge against the object (no halo). Where the frame's border or the black bars cut the object, leave it cut straight (do not extend it). Gaps between needles/branches/rock become green. Nothing added, nothing moved.\n\nOne image_gen call. ONE retry only if the object moved or changed, anything else remains, or the green is not flat — name the reason. Copy the output from $CODEX_HOME/generated_images/... to out/neariso_canyon.png with sha256. No code. No other files. No web.\nRETURN: receipt task_id \"CS-neariso-canyon\"; images = the file with prompt, references and elapsed_s; calls_used = the TRUE number of image_gen calls; status; concerns. Never PASS/FAIL.",
+ "references": [
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/CS-near-canyon/near_canyon.png",
+   "role": "IMAGE 1 — frame to isolate (EDIT)"
+  }
+ ],
+ "image_cap": 2,
+ "minutes_cap": 15,
+ "tool_call_cap": 20,
+ "outputs": [
+  "out/neariso_canyon.png"
+ ],
+ "effort": "high",
+ "add_dirs": [],
+ "experiment": "C3-cliffside-near"
+}

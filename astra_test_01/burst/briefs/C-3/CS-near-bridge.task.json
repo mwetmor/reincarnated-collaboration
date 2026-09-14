@@ -1,0 +1,18 @@
+{
+ "text": "GENERATE BURST CS-near-bridge — NEAR-CAMERA LAYER SAMPLE: add one foreground object passing close in front of the camera, Hades-style (Matt R-C3-68/79). task_id \"CS-near-bridge\".\n\nIMAGE 1 (1536×1024) is an in-game frame of a hand-painted 2D ARPG (black bars top and bottom are not part of the game view): a sunset cliffside, the player character standing on the path, a canyon of sunset clouds and a painted valley beyond.\nUse image_gen in EDIT mode on IMAGE 1 and deliver ONE 1536×1024 image that is the SAME frame with ONE added near-camera object: a gnarled, twisted CLIFF-PINE BRANCH with clusters of dark needles reaching into the frame from the TOP-LEFT corner, very close to the camera, as if growing from a high rock face just above and in front of the viewer — so it appears LARGE, crossing only the top-left part of the frame. Paint it darker and cooler than the lit scene (near-silhouette with a warm sunset rim light on its upper edges), with a very slight softness for depth. It must NOT cover the character, the bridge deck or the path; it covers at most ~10 % of the frame. Keep everything else exactly as it is, including the character and the black bars. The object is fully painted in the game's hand-painted register (tapered dark contours, painted planes, bold jewel tones).\n\nOne image_gen call. ONE retry only if the object covers the character, the rest of the frame was repainted, or the object reads as distant rather than close to the camera — name the reason. Copy the output from $CODEX_HOME/generated_images/... to out/near_bridge.png with sha256. No code. No other files. No web.\nRETURN: receipt task_id \"CS-near-bridge\"; images = the file with prompt, references and elapsed_s; calls_used = the TRUE number of image_gen calls; status; concerns. Never PASS/FAIL.",
+ "references": [
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/CS-near-canvases/near_bridge_canvas.png",
+   "role": "IMAGE 1 — in-game frame to EDIT"
+  }
+ ],
+ "image_cap": 2,
+ "minutes_cap": 15,
+ "tool_call_cap": 20,
+ "outputs": [
+  "out/near_bridge.png"
+ ],
+ "effort": "high",
+ "add_dirs": [],
+ "experiment": "C3-cliffside-near"
+}

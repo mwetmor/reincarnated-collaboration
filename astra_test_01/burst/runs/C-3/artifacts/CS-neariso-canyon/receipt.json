@@ -1,0 +1,39 @@
+{
+  "task_id": "CS-neariso-canyon",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "neariso_canyon",
+      "path": "out/neariso_canyon.png",
+      "sha256": "821e65ad576155bac22485405f313a2d92a98146442df284485b14759f8b9486",
+      "prompt": "Use case: background-extraction. EDIT Image 1, the supplied 1536x1024 painted game frame. Deliver exactly one 1536x1024 image. Isolate ONLY the tall red-orange sandstone spire (hoodoo) in the right foreground, from its small flat cap near (1281,254) through its widening rocky base cut off at y=943. Preserve this object EXACTLY as painted in the source: same pixels, position, size, outline, colours, dark hand-drawn contours, painted planes, rim light, softness, details and attached sparse twigs. Do not redraw, reinterpret, relight, move, rescale or sharpen the object. Replace EVERYTHING outside its silhouette with perfectly flat pure RGB(0,255,0), hex #00ff00: all ground, cliffs, clouds, sky, background, character, trees, props and both black bars. The spire must stay in its original right-side location and keep the straight lower cut at y=943 where the original black bar begins; below this cut is green, never extended rock. All gaps between twigs and rocks become pure green. Crisp accurate edge against green with no halo or green spill. Nothing added. Preserve original canvas and object coordinates.\nCORRECTION FOR RETRY: The previous attempt repainted the rock surface, changing small cracks, highlights and vegetation. This is a strict extraction, not a new painting. Copy the original Image 1 spire interior without alteration, retaining every original crack and brush mark. Change ONLY exterior pixels to solid #00ff00. Use original Image 1 as the sole source, and preserve its exact silhouette and all internal pixel colours.",
+      "references": [
+        {
+          "role": "IMAGE 1 — frame to isolate (EDIT)",
+          "path": "in/01_near_canyon.png"
+        }
+      ],
+      "elapsed_s": 19.755
+    }
+  ],
+  "calls_used": 2,
+  "retries": [
+    {
+      "reason": "First edit changed painted rock details and vegetation.",
+      "change": "Repeated edit from the original with stronger instructions to preserve interior pixels."
+    }
+  ],
+  "self_report": {
+    "obeyed_invariants": false,
+    "concerns": [
+      "The retry still visibly changes surface details; exact source-pixel preservation was not achieved.",
+      "Output dimensions are confirmed as 1536×1024. Exact background RGB uniformity was not measured."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/neariso_canyon.png",
+      "sha256": "821e65ad576155bac22485405f313a2d92a98146442df284485b14759f8b9486"
+    }
+  ]
+}

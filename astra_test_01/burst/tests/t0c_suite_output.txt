@@ -339,6 +339,14 @@ test_raised_above_head_does_not_define_head_top (test_staff_tip.StaffTipTests.te
 test_real_cast_anchors (test_staff_tip.StaffTipTests.test_real_cast_anchors) ... ok
 test_real_walk_e_staff_line (test_staff_tip.StaffTipTests.test_real_walk_e_staff_line) ... ok
 test_vertical_three_pixel_staff (test_staff_tip.StaffTipTests.test_vertical_three_pixel_staff) ... ok
+test_cell_root_excludes_rest_and_sheets_and_cli_prints_json (test_steps_per_loop.StepsPerLoopTests.test_cell_root_excludes_rest_and_sheets_and_cli_prints_json) ... ok
+test_confidence_is_dominant_share_of_non_dc_power (test_steps_per_loop.StepsPerLoopTests.test_confidence_is_dominant_share_of_non_dc_power) ... ok
+test_empty_alpha_rgb_and_mismatched_canvas_rejected (test_steps_per_loop.StepsPerLoopTests.test_empty_alpha_rgb_and_mismatched_canvas_rejected) ... ok
+test_flat_loop_has_no_fabricated_steps (test_steps_per_loop.StepsPerLoopTests.test_flat_loop_has_no_fabricated_steps) ... ok
+test_mean_offset_and_alpha_threshold (test_steps_per_loop.StepsPerLoopTests.test_mean_offset_and_alpha_threshold) ... ok
+test_missing_empty_short_and_mixed_loops_rejected (test_steps_per_loop.StepsPerLoopTests.test_missing_empty_short_and_mixed_loops_rejected) ... ok
+test_nyquist_bin_is_included (test_steps_per_loop.StepsPerLoopTests.test_nyquist_bin_is_included) ... ok
+test_two_and_four_bobs_in_twelve_registered_frames (test_steps_per_loop.StepsPerLoopTests.test_two_and_four_bobs_in_twelve_registered_frames) ... ok
 test_near_far_roles_and_proposed_null (test_t3c_fixes.Tests.test_near_far_roles_and_proposed_null) ... ok
 test_ours_explicit_out_and_unchanged_default (test_t3c_fixes.Tests.test_ours_explicit_out_and_unchanged_default) ... ok
 test_weak_resultant_null_and_directional_gradient (test_t3c_fixes.Tests.test_weak_resultant_null_and_directional_gradient) ... ok
@@ -357,6 +365,25 @@ test_known_bad_opaque_tail_and_secondary_peak (test_vfx_lifecycle.TestVfxLifecyc
 test_schema_and_input_errors (test_vfx_lifecycle.TestVfxLifecycle.test_schema_and_input_errors) ... ok
 test_travel_symmetry_and_seam (test_vfx_lifecycle.TestVfxLifecycle.test_travel_symmetry_and_seam) ... ok
 test_wrong_count_and_fps (test_vfx_lifecycle.TestVfxLifecycle.test_wrong_count_and_fps) ... ok
+test_glow_boundary_values_and_particle_curve_growth_zero_endpoints (test_vfx_picker.LivingEmbersTests.test_glow_boundary_values_and_particle_curve_growth_zero_endpoints) ... ok
+test_glow_unknown_missing_numeric_texture_and_type_validation (test_vfx_picker.LivingEmbersTests.test_glow_unknown_missing_numeric_texture_and_type_validation) ... ok
+test_headless_glow_sixty_samples_extrema_range_and_particle_properties (test_vfx_picker.LivingEmbersTests.test_headless_glow_sixty_samples_extrema_range_and_particle_properties) ... FAIL
+test_invalid_glow_hz_amount_parent_before_output (test_vfx_picker.LivingEmbersTests.test_invalid_glow_hz_amount_parent_before_output) ... ok
+test_no_glows_or_new_keys_preserves_all_legacy_layer_text (test_vfx_picker.LivingEmbersTests.test_no_glows_or_new_keys_preserves_all_legacy_layer_text) ... ok
+test_owner_sort_inference_override_ties_and_standalone (test_vfx_picker.LivingEmbersTests.test_owner_sort_inference_override_ties_and_standalone) ... ok
+test_particle_optional_invalid_shapes_ranges_booleans_unknown (test_vfx_picker.LivingEmbersTests.test_particle_optional_invalid_shapes_ranges_booleans_unknown) ... ok
+test_three_sine_normalisation_numerical_envelope_and_extrema (test_vfx_picker.LivingEmbersTests.test_three_sine_normalisation_numerical_envelope_and_extrema) ... ok
+test_two_glows_additive_script_position_scale_color_sort_and_particles (test_vfx_picker.LivingEmbersTests.test_two_glows_additive_script_position_scale_color_sort_and_particles) ... ok
+test_catalogue_unknown_keys_shapes_identifiers_tints_and_empty_rejected (test_vfx_picker.VfxPickerTests.test_catalogue_unknown_keys_shapes_identifiers_tints_and_empty_rejected) ... ok
+test_cli_mutual_exclusion_requires_sockets_and_success (test_vfx_picker.VfxPickerTests.test_cli_mutual_exclusion_requires_sockets_and_success) ... ok
+test_conflicting_options_missing_sockets_and_overlapping_kit_before_output (test_vfx_picker.VfxPickerTests.test_conflicting_options_missing_sockets_and_overlapping_kit_before_output) ... ok
+test_duplicate_missing_invalid_and_thirteen_kits_before_output (test_vfx_picker.VfxPickerTests.test_duplicate_missing_invalid_and_thirteen_kits_before_output) ... ok
+test_every_kit_resources_scenes_counts_order_tab_label_and_credits (test_vfx_picker.VfxPickerTests.test_every_kit_resources_scenes_counts_order_tab_label_and_credits) ... ok
+test_headless_tab_twice_cast_scene_labels_and_inflight_kit_lock (test_vfx_picker.VfxPickerTests.test_headless_tab_twice_cast_scene_labels_and_inflight_kit_lock) ... FAIL
+test_one_and_twelve_kits_and_relative_path_resolution (test_vfx_picker.VfxPickerTests.test_one_and_twelve_kits_and_relative_path_resolution) ... ok
+test_real_six_kit_catalogue_validation (test_vfx_picker.VfxPickerTests.test_real_six_kit_catalogue_validation) ... ok
+test_single_kit_and_legacy_props_all_text_byte_identical_to_t3m (test_vfx_picker.VfxPickerTests.test_single_kit_and_legacy_props_all_text_byte_identical_to_t3m) ... ok
+test_tint_changes_every_travel_rgb_stop_default_is_exact (test_vfx_picker.VfxPickerTests.test_tint_changes_every_travel_rgb_stop_default_is_exact) ... ok
 test_cli_bad_exclusions_rejected_before_decoding_or_writes (test_video_cut.CLITests.test_cli_bad_exclusions_rejected_before_decoding_or_writes) ... ok
 test_cli_exclusion_json_forms_hits_hashes_and_no_fallback (test_video_cut.CLITests.test_cli_exclusion_json_forms_hits_hashes_and_no_fallback) ... ok
 test_cli_synthetic_idle_half_rate_and_audit (test_video_cut.CLITests.test_cli_synthetic_idle_half_rate_and_audit) ... ok
@@ -368,6 +395,14 @@ test_half_rate_offset_checks_actual_snapped_indices (test_video_cut.ExclusionTes
 test_optimal_blink_chooses_next_clean_closure_and_reports_hit (test_video_cut.ExclusionTests.test_optimal_blink_chooses_next_clean_closure_and_reports_hit) ... ok
 test_rounding_clamps_before_exclusion_and_default_count (test_video_cut.ExclusionTests.test_rounding_clamps_before_exclusion_and_default_count) ... ok
 test_walk_and_run_exclusions_preserve_latest_clean_down (test_video_cut.ExclusionTests.test_walk_and_run_exclusions_preserve_latest_clean_down) ... ok
+test_boundaries_odd_period_and_native_half_rate_offset (test_video_cut.ForcedPeriodTests.test_boundaries_odd_period_and_native_half_rate_offset) ... ok
+test_cli_bad_periods_rejected_before_decoding_or_writes (test_video_cut.ForcedPeriodTests.test_cli_bad_periods_rejected_before_decoding_or_writes) ... ok
+test_cli_forced_30_and_invalid_native_limit (test_video_cut.ForcedPeriodTests.test_cli_forced_30_and_invalid_native_limit) ... ok
+test_cli_unused_matches_prechange_registration_bytes (test_video_cut.ForcedPeriodTests.test_cli_unused_matches_prechange_registration_bytes) ... ok
+test_double_stride_override_and_exact_selection (test_video_cut.ForcedPeriodTests.test_double_stride_override_and_exact_selection) ... ok
+test_forced_low_confidence_is_not_fabricated (test_video_cut.ForcedPeriodTests.test_forced_low_confidence_is_not_fabricated) ... ok
+test_invalid_periods_and_wrong_kind (test_video_cut.ForcedPeriodTests.test_invalid_periods_and_wrong_kind) ... ok
+test_none_is_identical_for_all_legacy_paths (test_video_cut.ForcedPeriodTests.test_none_is_identical_for_all_legacy_paths) ... ok
 test_cast_gather_release_and_order (test_video_cut.OneShotTests.test_cast_gather_release_and_order) ... ok
 test_incomplete_events_never_fabricate_settle (test_video_cut.OneShotTests.test_incomplete_events_never_fabricate_settle) ... ok
 test_invalid_tracking_and_arguments (test_video_cut.OneShotTests.test_invalid_tracking_and_arguments) ... ok
@@ -402,7 +437,7 @@ FAIL: test_headless_state_machine_input_map_gear_vfx_and_nearest_fallback (test_
 Traceback (most recent call last):
   File "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_godot_import.py", line 162, in test_headless_state_machine_input_map_gear_vfx_and_nearest_fallback
     self.assertEqual(proc.returncode, 0, log)
-AssertionError: -6 != 0 : ERROR: Failed to open 'user://logs/godot2026-09-13T22.46.16.log'.
+AssertionError: -6 != 0 : ERROR: Failed to open 'user://logs/godot2026-09-14T00.55.23.log'.
    at: copy (core/io/dir_access.cpp:423)
 
 ================================================================
@@ -469,7 +504,7 @@ FAIL: test_headless_cliffside_follow_camera_parallax_and_projectile_collision (t
 Traceback (most recent call last):
   File "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_parallax_scene.py", line 370, in test_headless_cliffside_follow_camera_parallax_and_projectile_collision
     self.assertEqual(proc.returncode, 0, log)
-AssertionError: -6 != 0 : ERROR: Failed to open 'user://logs/godot2026-09-13T22.47.35.log'.
+AssertionError: -6 != 0 : ERROR: Failed to open 'user://logs/godot2026-09-14T00.56.39.log'.
    at: copy (core/io/dir_access.cpp:423)
 
 ================================================================
@@ -494,7 +529,7 @@ FAIL: test_headless_occlusion_fade_restore_overhead_near_and_particles (test_pro
 Traceback (most recent call last):
   File "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_props_layer.py", line 342, in test_headless_occlusion_fade_restore_overhead_near_and_particles
     self.assertEqual(proc.returncode, 0, log)
-AssertionError: -6 != 0 : ERROR: Failed to open 'user://logs/godot2026-09-13T22.47.51.log'.
+AssertionError: -6 != 0 : ERROR: Failed to open 'user://logs/godot2026-09-14T00.56.54.log'.
    at: copy (core/io/dir_access.cpp:423)
 
 ================================================================
@@ -519,7 +554,7 @@ FAIL: test_headless_tower_import_run_and_physics (test_scene_kit.SceneKitTests.t
 Traceback (most recent call last):
   File "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_scene_kit.py", line 328, in test_headless_tower_import_run_and_physics
     self.assertEqual(proc.returncode, 0, log)
-AssertionError: -6 != 0 : ERROR: Failed to open 'user://logs/godot2026-09-13T22.48.00.log'.
+AssertionError: -6 != 0 : ERROR: Failed to open 'user://logs/godot2026-09-14T00.57.02.log'.
    at: copy (core/io/dir_access.cpp:423)
 
 ================================================================
@@ -561,7 +596,57 @@ ERROR: Cannot save file '/Users/admin/Library/Application Support/Godot/editor_s
 ERROR: Error saving editor settings to /Users/admin/Library/Application Support/Godot/editor_settings-4.6.tres
 ERROR: Condition "ret != noErr" is true. Returning: ""
 
+======================================================================
+FAIL: test_headless_glow_sixty_samples_extrema_range_and_particle_properties (test_vfx_picker.LivingEmbersTests.test_headless_glow_sixty_samples_extrema_range_and_particle_properties)
 ----------------------------------------------------------------------
-Ran 389 tests in 155.188s
+Traceback (most recent call last):
+  File "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_vfx_picker.py", line 423, in test_headless_glow_sixty_samples_extrema_range_and_particle_properties
+    run_headless(self, out, 'glow_probe.gd')
+  File "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_vfx_picker.py", line 119, in run_headless
+    test.assertEqual(engine_errors, [], '\n'.join(engine_errors))
+AssertionError: Lists differ: ['ERROR: Condition "ret != noErr" is true.[285 chars] ""'] != []
 
-FAILED (failures=10)
+First list contains 4 additional elements.
+First extra element 0:
+'ERROR: Condition "ret != noErr" is true. Returning: ""'
+
++ []
+- ['ERROR: Condition "ret != noErr" is true. Returning: ""',
+-  "ERROR: Cannot save file '/Users/admin/Library/Application "
+-  "Support/Godot/editor_settings-4.6.tres'.",
+-  'ERROR: Error saving editor settings to /Users/admin/Library/Application '
+-  'Support/Godot/editor_settings-4.6.tres',
+-  'ERROR: Condition "ret != noErr" is true. Returning: ""'] : ERROR: Condition "ret != noErr" is true. Returning: ""
+ERROR: Cannot save file '/Users/admin/Library/Application Support/Godot/editor_settings-4.6.tres'.
+ERROR: Error saving editor settings to /Users/admin/Library/Application Support/Godot/editor_settings-4.6.tres
+ERROR: Condition "ret != noErr" is true. Returning: ""
+
+======================================================================
+FAIL: test_headless_tab_twice_cast_scene_labels_and_inflight_kit_lock (test_vfx_picker.VfxPickerTests.test_headless_tab_twice_cast_scene_labels_and_inflight_kit_lock)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_vfx_picker.py", line 282, in test_headless_tab_twice_cast_scene_labels_and_inflight_kit_lock
+    run_headless(self, out, 'picker_probe.gd')
+  File "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_vfx_picker.py", line 119, in run_headless
+    test.assertEqual(engine_errors, [], '\n'.join(engine_errors))
+AssertionError: Lists differ: ['ERROR: Condition "ret != noErr" is true.[285 chars] ""'] != []
+
+First list contains 4 additional elements.
+First extra element 0:
+'ERROR: Condition "ret != noErr" is true. Returning: ""'
+
++ []
+- ['ERROR: Condition "ret != noErr" is true. Returning: ""',
+-  "ERROR: Cannot save file '/Users/admin/Library/Application "
+-  "Support/Godot/editor_settings-4.6.tres'.",
+-  'ERROR: Error saving editor settings to /Users/admin/Library/Application '
+-  'Support/Godot/editor_settings-4.6.tres',
+-  'ERROR: Condition "ret != noErr" is true. Returning: ""'] : ERROR: Condition "ret != noErr" is true. Returning: ""
+ERROR: Cannot save file '/Users/admin/Library/Application Support/Godot/editor_settings-4.6.tres'.
+ERROR: Error saving editor settings to /Users/admin/Library/Application Support/Godot/editor_settings-4.6.tres
+ERROR: Condition "ret != noErr" is true. Returning: ""
+
+----------------------------------------------------------------------
+Ran 424 tests in 162.943s
+
+FAILED (failures=12)

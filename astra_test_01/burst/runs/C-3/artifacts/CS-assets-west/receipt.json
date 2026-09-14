@@ -1,0 +1,68 @@
+{
+  "task_id": "CS-assets-west",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [],
+  "calls_used": 0,
+  "retries": [
+    {
+      "reason": "Initial border test included grouping dilation pixels.",
+      "change": "Tested original alpha support instead; retained the connected central/right tree group."
+    }
+  ],
+  "self_report": {
+    "obeyed_invariants": false,
+    "concerns": [
+      "Initial SPEC search incidentally returned T3o, exceeding the requested row-only read scope.",
+      "Frozen loader accepted four assets and one shadow. Both registration shifts are [0,0]; residuals are 16.919 and 7.677.",
+      "Central and right-hand trees form one connected asset and cannot be reused independently.",
+      "Footprints remain required placeholders; shadow estimation includes object-colour changes.",
+      "File list excludes live wrapper-owned dotfiles."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/asset_sheet.png",
+      "sha256": "62e754033654833d9c3473dc26048bf8cd65ce8b2718ad03af531ba64a490bc4"
+    },
+    {
+      "path": "out/catalogue.json",
+      "sha256": "6fd8bf8b14e609a25d1f6e75464e903de2d674b20b05c744f60caea4c07d35cc"
+    },
+    {
+      "path": "out/checks.json",
+      "sha256": "8608762c90c65255782f93f4f08c4961e0e399712b7a5ee3c37c3869dec0fe60"
+    },
+    {
+      "path": "out/props/assets/west_obj_01_a.png",
+      "sha256": "e3df3a8c93e02e56cc6563e399d9608641d16a1e86bf977b6e913ca9d02841fd"
+    },
+    {
+      "path": "out/props/assets/west_obj_02_a.png",
+      "sha256": "223a8fe8d342c97fa3fafea0883a9eecea5db93d94de9fed5d9a099978c8dee0"
+    },
+    {
+      "path": "out/props/assets/west_obj_02_b.png",
+      "sha256": "6d36f25cb353379cecb7eb286bda42846017ecfb27705f8527f2ce172eb941c5"
+    },
+    {
+      "path": "out/props/assets/west_obj_02_c.png",
+      "sha256": "ccc9296fa7f6bb947d88f0a9cd9c681683b9446491630da889ffa4ca50747b0d"
+    },
+    {
+      "path": "out/props/props.json",
+      "sha256": "42f7387685ba33e19b250e85b5f02ae9d05f714ed64262fcceb42031a9a2096e"
+    },
+    {
+      "path": "out/props/shadow_west.png",
+      "sha256": "0247f6730e53a887c8a6c8291a75fa79b8f90b1ba410731d5ba3326b0a395914"
+    },
+    {
+      "path": "out/rebuild_vs_after.png",
+      "sha256": "060467cbc5b4b312e2a6382edbad3a69f31053300aa76271d6c367eb20ac29d3"
+    },
+    {
+      "path": "out/summary.txt",
+      "sha256": "7d2fe510157484dca820df6d9defad122b113d9fe902ae0554593187fd84b3a4"
+    }
+  ]
+}

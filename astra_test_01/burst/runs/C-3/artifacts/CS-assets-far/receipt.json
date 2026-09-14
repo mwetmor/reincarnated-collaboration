@@ -1,0 +1,87 @@
+{
+  "task_id": "CS-assets-far",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [],
+  "calls_used": 0,
+  "retries": [
+    {
+      "reason": "Two tiles failed the matte border check; one tile was empty.",
+      "change": "Retried with temporary green padding, removed before resizing. The empty tile remained unavailable."
+    }
+  ],
+  "self_report": {
+    "obeyed_invariants": false,
+    "concerns": [
+      "Delivered nine assets and one shadow; frozen props loader accepted the package. No registration thresholds exceeded.",
+      "Four border-touching groups were dropped; obj_11 was empty. Tiles obj_06, obj_08, obj_09 and obj_11 yielded no assets.",
+      "Initial SPEC search inadvertently displayed T3o alongside the requested T3l/T3m rows.",
+      "Live wrapper-owned logs are excluded from the artifact hashes."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/asset_sheet.png",
+      "sha256": "b69d02404f6b5678dac4625fbbff8bc0bafbf95cdb106bc9505dd79ecd98bdcc"
+    },
+    {
+      "path": "out/catalogue.json",
+      "sha256": "f6f3e0867889b4bfdaa9c17905b4f9e227723ddd49d374cdbee4569e7a283700"
+    },
+    {
+      "path": "out/checks.json",
+      "sha256": "29a03da99909d3e384384695bfb5c37eda384b5fc034c22ee95c6684cac6b1ca"
+    },
+    {
+      "path": "out/props/assets/far_obj_01_a.png",
+      "sha256": "1cf8a8f8bcdaf905bcb000408485406dcfe0574a09adb5a3cf5524e69c84b527"
+    },
+    {
+      "path": "out/props/assets/far_obj_02_a.png",
+      "sha256": "bf0475e7acbb6dbb283ce42dd6ddaf5bd89ba6fb28517c5569050fd919fca627"
+    },
+    {
+      "path": "out/props/assets/far_obj_03_a.png",
+      "sha256": "d1637d472dece452c9c29a2ad0ec9ebd919aebea91fc890031ceee3fbbfe658f"
+    },
+    {
+      "path": "out/props/assets/far_obj_04_a.png",
+      "sha256": "7d5aa9221ed18a0283e416ede0ffb6e18cffe058627ac973c3002c24fb53c3fb"
+    },
+    {
+      "path": "out/props/assets/far_obj_05_a.png",
+      "sha256": "8f3755ac1c70c81b9f91623c66797a8f90fa54511196a06329da0e905ad5f19b"
+    },
+    {
+      "path": "out/props/assets/far_obj_05_b.png",
+      "sha256": "3da9d3661e1ff248315a37f38186efcf30a3b01d733fc9531cc177cc95ab0426"
+    },
+    {
+      "path": "out/props/assets/far_obj_07_a.png",
+      "sha256": "fedbe4f67ba60d5836f39f01b6cdceae634ad1864bc2da0ef13fdc1dcb3f32da"
+    },
+    {
+      "path": "out/props/assets/far_obj_10_a.png",
+      "sha256": "8eec74eb7ca4ef69efe6c3d0f2a1b67782218c1103115c40c310fe8c6f35efec"
+    },
+    {
+      "path": "out/props/assets/far_obj_12_a.png",
+      "sha256": "42b99db71209d0cfe4f2aab7295ec02dc1c7d1335b19c27f91a2d7776c56e432"
+    },
+    {
+      "path": "out/props/props.json",
+      "sha256": "8ce2cdc55fde53addefe8ac10858d3a922f592ea6151984acbb1352e339bffc0"
+    },
+    {
+      "path": "out/props/shadow_far.png",
+      "sha256": "a3f6512d0ab6702b0ac6b055d0bcb127b70f7e107d25e56d2469c63f08337bf7"
+    },
+    {
+      "path": "out/rebuild_vs_after.png",
+      "sha256": "97ba2ed594f1058cf816a729116837d020bfd67a109464c12ab6fcb413bb9f19"
+    },
+    {
+      "path": "out/summary.txt",
+      "sha256": "bbef51ac34a2a394d2bbdb791c70e73aa86aa6e145ff9741b04edb7b00c126cf"
+    }
+  ]
+}

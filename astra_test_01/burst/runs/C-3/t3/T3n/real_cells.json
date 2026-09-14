@@ -1,0 +1,295 @@
+{
+  "cells": {
+    "walk_S": {
+      "steps": 2,
+      "confidence": 0.7990196078431372,
+      "method": "head_top_y_fft_power"
+    },
+    "walk_SW": {
+      "steps": 4,
+      "confidence": 0.925,
+      "method": "head_top_y_fft_power"
+    },
+    "walk_W": {
+      "steps": 4,
+      "confidence": 0.8728813559322034,
+      "method": "head_top_y_fft_power"
+    },
+    "walk_NW": {
+      "steps": 2,
+      "confidence": 0.8973509933774835,
+      "method": "head_top_y_fft_power"
+    },
+    "walk_N": {
+      "steps": 2,
+      "confidence": 0.754054054054054,
+      "method": "head_top_y_fft_power"
+    },
+    "walk_NE": {
+      "steps": 2,
+      "confidence": 0.8777777777777778,
+      "method": "head_top_y_fft_power"
+    },
+    "walk_E": {
+      "steps": 4,
+      "confidence": 0.9029411764705882,
+      "method": "head_top_y_fft_power"
+    },
+    "walk_SE": {
+      "steps": 2,
+      "confidence": 0.9336734693877551,
+      "method": "head_top_y_fft_power"
+    },
+    "run_S": {
+      "steps": 2,
+      "confidence": 0.8714285714285713,
+      "method": "head_top_y_fft_power"
+    },
+    "run_SW": {
+      "steps": 2,
+      "confidence": 0.8414948453608248,
+      "method": "head_top_y_fft_power"
+    },
+    "run_W": {
+      "steps": 2,
+      "confidence": 0.8055555555555556,
+      "method": "head_top_y_fft_power"
+    },
+    "run_NW": {
+      "steps": 2,
+      "confidence": 0.8240740740740741,
+      "method": "head_top_y_fft_power"
+    },
+    "run_N": {
+      "steps": 2,
+      "confidence": 0.911144578313253,
+      "method": "head_top_y_fft_power"
+    },
+    "run_NE": {
+      "steps": 2,
+      "confidence": 0.7854406130268199,
+      "method": "head_top_y_fft_power"
+    },
+    "run_E": {
+      "steps": 2,
+      "confidence": 0.9701492537313433,
+      "method": "head_top_y_fft_power"
+    },
+    "run_SE": {
+      "steps": 2,
+      "confidence": 0.9615384615384617,
+      "method": "head_top_y_fft_power"
+    }
+  },
+  "wall_s": 0.8276754999969853,
+  "results": [
+    {
+      "id": "steps_per_loop",
+      "subject": "walk/S",
+      "passed": null,
+      "value": 2,
+      "threshold": null,
+      "op": "report",
+      "unit": "bobs_per_loop",
+      "evidence": [
+        "runs/C-3/cells/walk_S/frames"
+      ],
+      "notes": "head_top_y_fft_power; confidence=0.7990196078431372"
+    },
+    {
+      "id": "steps_per_loop",
+      "subject": "walk/SW",
+      "passed": null,
+      "value": 4,
+      "threshold": null,
+      "op": "report",
+      "unit": "bobs_per_loop",
+      "evidence": [
+        "runs/C-3/cells/walk_SW/frames"
+      ],
+      "notes": "head_top_y_fft_power; confidence=0.925"
+    },
+    {
+      "id": "steps_per_loop",
+      "subject": "walk/W",
+      "passed": null,
+      "value": 4,
+      "threshold": null,
+      "op": "report",
+      "unit": "bobs_per_loop",
+      "evidence": [
+        "runs/C-3/cells/walk_W/frames"
+      ],
+      "notes": "head_top_y_fft_power; confidence=0.8728813559322034"
+    },
+    {
+      "id": "steps_per_loop",
+      "subject": "walk/NW",
+      "passed": null,
+      "value": 2,
+      "threshold": null,
+      "op": "report",
+      "unit": "bobs_per_loop",
+      "evidence": [
+        "runs/C-3/cells/walk_NW/frames"
+      ],
+      "notes": "head_top_y_fft_power; confidence=0.8973509933774835"
+    },
+    {
+      "id": "steps_per_loop",
+      "subject": "walk/N",
+      "passed": null,
+      "value": 2,
+      "threshold": null,
+      "op": "report",
+      "unit": "bobs_per_loop",
+      "evidence": [
+        "runs/C-3/cells/walk_N/frames"
+      ],
+      "notes": "head_top_y_fft_power; confidence=0.754054054054054"
+    },
+    {
+      "id": "steps_per_loop",
+      "subject": "walk/NE",
+      "passed": null,
+      "value": 2,
+      "threshold": null,
+      "op": "report",
+      "unit": "bobs_per_loop",
+      "evidence": [
+        "runs/C-3/cells/walk_NE/frames"
+      ],
+      "notes": "head_top_y_fft_power; confidence=0.8777777777777778"
+    },
+    {
+      "id": "steps_per_loop",
+      "subject": "walk/E",
+      "passed": null,
+      "value": 4,
+      "threshold": null,
+      "op": "report",
+      "unit": "bobs_per_loop",
+      "evidence": [
+        "runs/C-3/cells/walk_E/frames"
+      ],
+      "notes": "head_top_y_fft_power; confidence=0.9029411764705882"
+    },
+    {
+      "id": "steps_per_loop",
+      "subject": "walk/SE",
+      "passed": null,
+      "value": 2,
+      "threshold": null,
+      "op": "report",
+      "unit": "bobs_per_loop",
+      "evidence": [
+        "runs/C-3/cells/walk_SE/frames"
+      ],
+      "notes": "head_top_y_fft_power; confidence=0.9336734693877551"
+    },
+    {
+      "id": "steps_per_loop",
+      "subject": "run/S",
+      "passed": null,
+      "value": 2,
+      "threshold": null,
+      "op": "report",
+      "unit": "bobs_per_loop",
+      "evidence": [
+        "runs/C-3/cells/run_S/frames"
+      ],
+      "notes": "head_top_y_fft_power; confidence=0.8714285714285713"
+    },
+    {
+      "id": "steps_per_loop",
+      "subject": "run/SW",
+      "passed": null,
+      "value": 2,
+      "threshold": null,
+      "op": "report",
+      "unit": "bobs_per_loop",
+      "evidence": [
+        "runs/C-3/cells/run_SW/frames"
+      ],
+      "notes": "head_top_y_fft_power; confidence=0.8414948453608248"
+    },
+    {
+      "id": "steps_per_loop",
+      "subject": "run/W",
+      "passed": null,
+      "value": 2,
+      "threshold": null,
+      "op": "report",
+      "unit": "bobs_per_loop",
+      "evidence": [
+        "runs/C-3/cells/run_W/frames"
+      ],
+      "notes": "head_top_y_fft_power; confidence=0.8055555555555556"
+    },
+    {
+      "id": "steps_per_loop",
+      "subject": "run/NW",
+      "passed": null,
+      "value": 2,
+      "threshold": null,
+      "op": "report",
+      "unit": "bobs_per_loop",
+      "evidence": [
+        "runs/C-3/cells/run_NW/frames"
+      ],
+      "notes": "head_top_y_fft_power; confidence=0.8240740740740741"
+    },
+    {
+      "id": "steps_per_loop",
+      "subject": "run/N",
+      "passed": null,
+      "value": 2,
+      "threshold": null,
+      "op": "report",
+      "unit": "bobs_per_loop",
+      "evidence": [
+        "runs/C-3/cells/run_N/frames"
+      ],
+      "notes": "head_top_y_fft_power; confidence=0.911144578313253"
+    },
+    {
+      "id": "steps_per_loop",
+      "subject": "run/NE",
+      "passed": null,
+      "value": 2,
+      "threshold": null,
+      "op": "report",
+      "unit": "bobs_per_loop",
+      "evidence": [
+        "runs/C-3/cells/run_NE/frames"
+      ],
+      "notes": "head_top_y_fft_power; confidence=0.7854406130268199"
+    },
+    {
+      "id": "steps_per_loop",
+      "subject": "run/E",
+      "passed": null,
+      "value": 2,
+      "threshold": null,
+      "op": "report",
+      "unit": "bobs_per_loop",
+      "evidence": [
+        "runs/C-3/cells/run_E/frames"
+      ],
+      "notes": "head_top_y_fft_power; confidence=0.9701492537313433"
+    },
+    {
+      "id": "steps_per_loop",
+      "subject": "run/SE",
+      "passed": null,
+      "value": 2,
+      "threshold": null,
+      "op": "report",
+      "unit": "bobs_per_loop",
+      "evidence": [
+        "runs/C-3/cells/run_SE/frames"
+      ],
+      "notes": "head_top_y_fft_power; confidence=0.9615384615384617"
+    }
+  ]
+}

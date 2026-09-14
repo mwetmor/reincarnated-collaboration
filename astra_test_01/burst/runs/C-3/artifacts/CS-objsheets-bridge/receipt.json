@@ -1,0 +1,41 @@
+{
+  "task_id": "CS-objsheets-bridge",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [],
+  "calls_used": 0,
+  "retries": [],
+  "self_report": {
+    "obeyed_invariants": true,
+    "concerns": [
+      "Three merged regions packed onto two sheets. Detection bounds group multiple props and may omit low-change portions.",
+      "Unspecified blur/Sobel conventions were resolved as Gaussian sigma 3 and unnormalized SciPy Sobel; details recorded in checks.json.",
+      "File manifest covers all task outputs; mutable wrapper-owned logs are excluded."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/candidates.png",
+      "sha256": "e28325a084c8749526d999d4aaa2f61d1642f0f9aad2db61f0b78afb9c29620f"
+    },
+    {
+      "path": "out/checks.json",
+      "sha256": "86807265162829c5f80b4ac98605f8da1862e755790447f4b71758a263d09eb9"
+    },
+    {
+      "path": "out/layout.json",
+      "sha256": "65ee99a40bb6853528a0ad53627da49171320f023f791900dd518c5667342e4e"
+    },
+    {
+      "path": "out/sheet_1.png",
+      "sha256": "9698aaeeca2f0179c4c229abccf3ea83e5a9689ef254cbc92f464bd6e124d8c4"
+    },
+    {
+      "path": "out/sheet_2.png",
+      "sha256": "053a1f227453416b349956f1597843de9aa1b31bd8d189e23ac0440f2b0fa792"
+    },
+    {
+      "path": "out/summary.txt",
+      "sha256": "3d7cd281e971682b4ab072219cb0cdb9d108ba19578367e5eff95e5acaa90603"
+    }
+  ]
+}

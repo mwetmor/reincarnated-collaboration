@@ -1,0 +1,315 @@
+{
+  "task_id": "CS-asm-fg-v4-band6",
+  "canvas_px": [
+    5376,
+    4096
+  ],
+  "calls_used": 0,
+  "method": {
+    "cloud0": "a0>=0.5 AND (VOID OR (DEEP AND depth>8000)); literal supplied mask, no extra colour classifier",
+    "EDGE0": "cloud0 within Euclidean distance <=2 of VOID with a0<0.5",
+    "inside_distance": "Euclidean distance to non-cloud0 in full level canvas",
+    "R": "distance to EDGE0 <=150 AND (VOID OR cloud0) AND depth>9000; restricted to supplied tile footprints",
+    "weight": "1 through 60px, 1-smoothstep((d-60)/90) through 150px; overlapping tile premultiplied edits normalized by sum of weights, shared spatial fade applied once",
+    "matting": "Edited max RGB; exact disc radius24 masked grey dilation at opaque interior references, nearest reference extension; smoothstep(0.03,0.97); black <=6/255 => alpha0",
+    "tone": "Normalized Gaussian sigma40 per-channel convolution on opaque interior AND alpha_e>=0.95; gains sampled at valid pixels, extended by nearest valid pixel, clipped [0.8,1.25]; corrected RGB clipped [0,255]",
+    "deep_compositing": "Premultiplied lerp BASE to edited-over-BASE; recover straight RGB using blended over alpha; assign specified max(a0,lerp(a0,alpha_e,w)) alpha separately",
+    "force_precedence": "Explicit global DEEP alpha force rules supersede outside-R preservation; TOP restored exactly",
+    "difference_norm": "Primary |E-ORIGINAL| is max absolute RGB channel; mean absolute channel fractions also reported",
+    "haze": "Rec709 luminance of straight RGB bytes; full-canvas Gaussian sigma25 of signed delta, sampled on cloud0 interior distance>=60 AND union R. Signed and absolute p95 both reported.",
+    "forest_background": "Per-channel median of all forest_valley RGB pixels; nonzero-alpha median separately recorded",
+    "grid": "2 rows x 4 columns; top #3a3f4a, bottom forest median; same band4 bboxes"
+  },
+  "mask_counts": {
+    "cloud0": 2034518,
+    "EDGE0": 22361,
+    "union_R": 1926716,
+    "ROCKVIS": 10864489
+  },
+  "a_deep_gt13000_alpha_below095": {
+    "count": 0,
+    "target_count": 0
+  },
+  "b_exposed_underside": {
+    "count": 0,
+    "target_count": 0
+  },
+  "c_preservation": {
+    "depth_le9000_mean_abs_RGBA_255": 0.0,
+    "depth_le9000_per_channel_mean_abs_255": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "depth_le9000_max_abs_255": 0.0,
+    "TOP_mean_abs_RGBA_255": 0.0,
+    "TOP_max_abs_255": 0.0,
+    "target": 0
+  },
+  "d_tiles": [
+    {
+      "id": "2688_768",
+      "x": 2688,
+      "y": 768,
+      "edge0_pixels": 2546,
+      "R_pixels": 276409,
+      "opacity_reference_pixels": 205721,
+      "tone_reference_pixels": 134668,
+      "gain_mean_abs_minus_one_before_clip_entire_tile": 0.017030218616127968,
+      "gain_mean_abs_minus_one_before_clip_R": 0.017018059268593788,
+      "gain_mean_abs_minus_one_before_clip_reference": 0.012667832896113396,
+      "gain_mean_abs_minus_one_before_clip_per_channel": [
+        0.016849791631102562,
+        0.017642268911004066,
+        0.016478734090924263
+      ],
+      "gain_clipped_fraction": 0.0,
+      "edited_difference_gt30_fraction_R": 0.09497881762171276,
+      "edited_difference_gt30_fraction_outside_R": 0.05034112252257116,
+      "edited_mean_abs_RGB_gt30_fraction_R": 0.08180630876708067,
+      "edited_mean_abs_RGB_gt30_fraction_outside_R": 0.024517626913390746
+    },
+    {
+      "id": "2688_1536",
+      "x": 2688,
+      "y": 1536,
+      "edge0_pixels": 6250,
+      "R_pixels": 564298,
+      "opacity_reference_pixels": 457439,
+      "tone_reference_pixels": 295545,
+      "gain_mean_abs_minus_one_before_clip_entire_tile": 0.03550729155540466,
+      "gain_mean_abs_minus_one_before_clip_R": 0.03143799304962158,
+      "gain_mean_abs_minus_one_before_clip_reference": 0.02518199011683464,
+      "gain_mean_abs_minus_one_before_clip_per_channel": [
+        0.03574179485440254,
+        0.03711123764514923,
+        0.03370515629649162
+      ],
+      "gain_clipped_fraction": 0.013811747233072916,
+      "edited_difference_gt30_fraction_R": 0.23332175552633538,
+      "edited_difference_gt30_fraction_outside_R": 0.096299101893183,
+      "edited_mean_abs_RGB_gt30_fraction_R": 0.1978156931266813,
+      "edited_mean_abs_RGB_gt30_fraction_outside_R": 0.05632749864659328
+    },
+    {
+      "id": "2688_2304",
+      "x": 2688,
+      "y": 2304,
+      "edge0_pixels": 5049,
+      "R_pixels": 636581,
+      "opacity_reference_pixels": 303947,
+      "tone_reference_pixels": 180854,
+      "gain_mean_abs_minus_one_before_clip_entire_tile": 0.05336761102080345,
+      "gain_mean_abs_minus_one_before_clip_R": 0.0577973835170269,
+      "gain_mean_abs_minus_one_before_clip_reference": 0.02312447875738144,
+      "gain_mean_abs_minus_one_before_clip_per_channel": [
+        0.06353141367435455,
+        0.0743296816945076,
+        0.022491803392767906
+      ],
+      "gain_clipped_fraction": 0.03171581692165799,
+      "edited_difference_gt30_fraction_R": 0.22228278883598473,
+      "edited_difference_gt30_fraction_outside_R": 0.07598770884444127,
+      "edited_mean_abs_RGB_gt30_fraction_R": 0.182650754577972,
+      "edited_mean_abs_RGB_gt30_fraction_outside_R": 0.03898927995061322
+    },
+    {
+      "id": "3840_2304",
+      "x": 3840,
+      "y": 2304,
+      "edge0_pixels": 6962,
+      "R_pixels": 686879,
+      "opacity_reference_pixels": 935105,
+      "tone_reference_pixels": 587229,
+      "gain_mean_abs_minus_one_before_clip_entire_tile": 0.024674229323863983,
+      "gain_mean_abs_minus_one_before_clip_R": 0.03411217778921127,
+      "gain_mean_abs_minus_one_before_clip_reference": 0.01291201077401638,
+      "gain_mean_abs_minus_one_before_clip_per_channel": [
+        0.022242197766900063,
+        0.027598274871706963,
+        0.024313753470778465
+      ],
+      "gain_clipped_fraction": 0.0,
+      "edited_difference_gt30_fraction_R": 0.2986202810101925,
+      "edited_difference_gt30_fraction_outside_R": 0.00321788743601754,
+      "edited_mean_abs_RGB_gt30_fraction_R": 0.2688595807995295,
+      "edited_mean_abs_RGB_gt30_fraction_outside_R": 0.001606121999808123
+    },
+    {
+      "id": "2688_3072",
+      "x": 2688,
+      "y": 3072,
+      "edge0_pixels": 2570,
+      "R_pixels": 275797,
+      "opacity_reference_pixels": 18295,
+      "tone_reference_pixels": 12823,
+      "gain_mean_abs_minus_one_before_clip_entire_tile": 0.08925672620534897,
+      "gain_mean_abs_minus_one_before_clip_R": 0.0818091556429863,
+      "gain_mean_abs_minus_one_before_clip_reference": 0.05662870034575462,
+      "gain_mean_abs_minus_one_before_clip_per_channel": [
+        0.099537692964077,
+        0.10935404151678085,
+        0.05822277441620827
+      ],
+      "gain_clipped_fraction": 0.02109506395128038,
+      "edited_difference_gt30_fraction_R": 0.23085095196829553,
+      "edited_difference_gt30_fraction_outside_R": 0.0574395925576705,
+      "edited_mean_abs_RGB_gt30_fraction_R": 0.17794972389112282,
+      "edited_mean_abs_RGB_gt30_fraction_outside_R": 0.026660920368801303
+    },
+    {
+      "id": "3840_3072",
+      "x": 3840,
+      "y": 3072,
+      "edge0_pixels": 3250,
+      "R_pixels": 381305,
+      "opacity_reference_pixels": 98364,
+      "tone_reference_pixels": 65373,
+      "gain_mean_abs_minus_one_before_clip_entire_tile": 0.01085683237761259,
+      "gain_mean_abs_minus_one_before_clip_R": 0.008873878978192806,
+      "gain_mean_abs_minus_one_before_clip_reference": 0.005476479884237051,
+      "gain_mean_abs_minus_one_before_clip_per_channel": [
+        0.008978196419775486,
+        0.008461974561214447,
+        0.015111390501260757
+      ],
+      "gain_clipped_fraction": 0.0,
+      "edited_difference_gt30_fraction_R": 0.16859469453587023,
+      "edited_difference_gt30_fraction_outside_R": 5.035419983399899e-05,
+      "edited_mean_abs_RGB_gt30_fraction_R": 0.16285388337420176,
+      "edited_mean_abs_RGB_gt30_fraction_outside_R": 5.035419983399899e-06
+    }
+  ],
+  "e_void_alpha_histogram_in_R": {
+    "pixel_count": 1763986,
+    "bin_edges": [
+      0,
+      0.001,
+      0.05,
+      0.1,
+      0.25,
+      0.5,
+      0.75,
+      0.95,
+      0.999,
+      1.000001
+    ],
+    "counts": [
+      714456,
+      52777,
+      21632,
+      41056,
+      91101,
+      74767,
+      256212,
+      195287,
+      316698
+    ],
+    "shares": [
+      0.40502362263646086,
+      0.029919171694106416,
+      0.012263135875228036,
+      0.023274561135972736,
+      0.05164496770382531,
+      0.04238525702584941,
+      0.14524605070561786,
+      0.11070779473306477,
+      0.17953543848987463
+    ],
+    "translucent_share_005_095_exclusive": 0.27481397244649336
+  },
+  "f_haze": {
+    "band6": {
+      "pixel_count": 412525,
+      "mean_luminance_difference_255": 2.8258466720581055,
+      "mean_luminance_difference_normalized": 0.011081751435995102,
+      "blur25_signed_p95_255": 10.41010856628418,
+      "blur25_signed_p95_normalized": 0.040823955088853836,
+      "blur25_abs_p95_255": 10.41010856628418,
+      "blur25_abs_p95_normalized": 0.040823955088853836,
+      "unblurred_abs_p95_255": 21.496198654174805
+    },
+    "band5_same_mask": {
+      "pixel_count": 412525,
+      "mean_luminance_difference_255": 7.502225875854492,
+      "mean_luminance_difference_normalized": 0.02942049317061901,
+      "blur25_signed_p95_255": 18.832490921020508,
+      "blur25_signed_p95_normalized": 0.07385290414094925,
+      "blur25_abs_p95_255": 18.847007751464844,
+      "blur25_abs_p95_normalized": 0.07390983402729034,
+      "unblurred_abs_p95_255": 33.846797943115234
+    },
+    "targets_normalized": {
+      "absolute_mean_lt": 0.011764705882352941,
+      "blur25_p95_lt": 0.03137254901960784
+    }
+  },
+  "forced_pixels": {
+    "deep_gt15000": 0,
+    "underside_alpha_and_nearest_cloud_colour": 0,
+    "outside_union_R": 0
+  },
+  "outside_R_changed_pixels": 0,
+  "edge_detail_crops": [
+    {
+      "bbox": [
+        3348,
+        1899,
+        3988,
+        2539
+      ],
+      "void_edge_pixels": 4525
+    },
+    {
+      "bbox": [
+        4564,
+        2830,
+        5204,
+        3470
+      ],
+      "void_edge_pixels": 4102
+    },
+    {
+      "bbox": [
+        3923,
+        2539,
+        4563,
+        3179
+      ],
+      "void_edge_pixels": 3343
+    },
+    {
+      "bbox": [
+        2871,
+        1213,
+        3511,
+        1853
+      ],
+      "void_edge_pixels": 1713
+    }
+  ],
+  "edge_detail_backgrounds": [
+    [
+      58,
+      63,
+      74
+    ],
+    [
+      33.0,
+      27.0,
+      34.0
+    ]
+  ],
+  "forest_nonzero_alpha_median_rgb": [
+    46.0,
+    37.0,
+    44.0
+  ],
+  "elapsed_s": 38.883,
+  "concerns": [
+    "Signed p95 blurred interior luminance difference reaches or exceeds 8/255.",
+    "Visible horizontal/rectangular tile-boundary transitions remain in detail crops 2 and 3."
+  ],
+  "visual_review": "Preview and both-background detail grid inspected. Straight horizontal/rectangular transitions remain visible in the second and third detail crops; residual tile-boundary discontinuities are reported without altering the prescribed overlap method."
+}
