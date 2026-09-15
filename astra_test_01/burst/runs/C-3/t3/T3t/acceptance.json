@@ -1,0 +1,47 @@
+{
+  "id": "effect_kit_acceptance",
+  "subject": "T3t/synthetic",
+  "passed": null,
+  "value": {
+    "phases": 4,
+    "frames_per_phase": 2,
+    "native_size": [
+      16,
+      16
+    ],
+    "pixel_scale": 3,
+    "output_size": [
+      48,
+      48
+    ],
+    "tinted_rgb": [
+      32,
+      64,
+      128
+    ],
+    "hue_error_turns": 0.0,
+    "white_core_min": 255,
+    "nearest_exact": true,
+    "durations_s": [
+      0.03333333333333333,
+      0.08333333333333333
+    ],
+    "expected_durations_s": [
+      0.03333333333333333,
+      0.08333333333333333
+    ],
+    "legacy_bolt_byte_identical": true,
+    "resource_references": 61
+  },
+  "threshold": null,
+  "op": null,
+  "unit": "mixed",
+  "evidence": [
+    "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/t3/T3t/synthetic_fixture.zip"
+  ],
+  "notes": "Archive contains explicit source PNGs, effect definition, built kit, mixed picker project and effect_probe.gd. Extract into a writable directory to review. Runtime assertions are recorded in targeted_suite.log.",
+  "build_wall_s": 0.007168582997110207,
+  "export_wall_s": 0.05086204200051725,
+  "wall_s": 0.24036195900043822,
+  "archive_members": 135
+}

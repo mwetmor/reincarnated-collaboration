@@ -1,0 +1,625 @@
+{
+  "schema_version": 1,
+  "source": "agentic_orchestration/legolas/research/2026-09-14-vfx-oracles/findings.md \u00a7 2",
+  "committed": false,
+  "proposed": true,
+  "tolerance_policy": "No blanket tolerance is stated in findings \u00a72. Numeric source bands use tolerance 0; decay uses explicit SPEC \u00b10.08. These are descriptive reference bands, not committed shipping gates.",
+  "scope_conflict": "All E1/E2/E4 rise min-max is [0,6] and necessarily includes 6. SPEC reject-6 test is implemented beside it as explicit E1/E4 fast-strike subgroup [0,1]. No source value is removed.",
+  "exemplars": {
+    "E1": {
+      "rise_frames": [
+        0,
+        1
+      ],
+      "life_frames": 4,
+      "white_core_fraction": [
+        0.01,
+        0.02
+      ],
+      "hue_sd_deg": [
+        10,
+        18
+      ],
+      "bright_s": [
+        0.2,
+        0.27
+      ],
+      "dim_s": [
+        0.49,
+        0.61
+      ],
+      "width_px": [
+        80,
+        130
+      ],
+      "width_bh": [
+        0.7,
+        1.1
+      ],
+      "height_bh_lower_bounds": [
+        5.5,
+        7.7
+      ],
+      "drawing_fps": 60,
+      "Lstar_modes": 2
+    },
+    "E2": {
+      "rise_frames": 6,
+      "energy_half_frames": 7,
+      "life_frames": [
+        16,
+        20
+      ],
+      "white_core_frames": [
+        0,
+        3,
+        6,
+        10
+      ],
+      "white_core_fraction": [
+        0.28,
+        0.4,
+        0.2,
+        0.03
+      ],
+      "hue_sd_deg": [
+        12,
+        15
+      ],
+      "flash_contaminated_hue_sd_deg": 42,
+      "bright_s": [
+        0.02,
+        0.1
+      ],
+      "dim_s": [
+        0.44,
+        0.64
+      ],
+      "decay_bright_s": [
+        0.73,
+        0.79
+      ],
+      "width_px": [
+        210,
+        245
+      ],
+      "width_bh": [
+        1.8,
+        2.2
+      ],
+      "drawing_fps": 60,
+      "Lstar_modes": 2
+    },
+    "E4": {
+      "rise_frames": 0,
+      "body_frames": [
+        5,
+        6
+      ],
+      "residue_life_lower_s": 0.8,
+      "decay_pillar_1": [
+        1,
+        0.85,
+        0.53,
+        0.35,
+        0.24,
+        0.2
+      ],
+      "decay_pillar_2": [
+        1,
+        0.91,
+        0.57,
+        0.37,
+        0.29,
+        0.26
+      ],
+      "residue_pillar_1": {
+        "frame": 23,
+        "fraction": 0.15
+      },
+      "residue_pillar_2": {
+        "frame": 17,
+        "fraction": 0.21
+      },
+      "white_core_fraction": [
+        0.19,
+        0.21,
+        0.26,
+        0.26,
+        0.17,
+        0.08
+      ],
+      "hue_sd_deg": [
+        12,
+        14
+      ],
+      "body_median_s": [
+        0.74,
+        0.78
+      ],
+      "width_px": [
+        524,
+        639
+      ],
+      "width_bh": [
+        4.4,
+        5.4
+      ],
+      "height_px_lower_bounds": [
+        782,
+        853
+      ],
+      "height_bh_lower_bounds": [
+        6.6,
+        7.2
+      ],
+      "drawing_fps": 60,
+      "Lstar_modes": 2
+    }
+  },
+  "bands": [
+    {
+      "id": "O1_rise_strike",
+      "path": "O1.rise_frames",
+      "min": 0,
+      "max": 1,
+      "unit": "frames",
+      "exemplars": [
+        "E1",
+        "E4"
+      ],
+      "tolerance": 0,
+      "source_values": [
+        0,
+        1
+      ],
+      "notes": "Fast-strike subgroup: E1 <=1, E4 0. Required acceptance distinguishes rise 1 from 6; E2 body expansion is separate, not discarded.",
+      "inspect_only": false,
+      "evidence": [
+        "agentic_orchestration/legolas/research/2026-09-14-vfx-oracles/findings.md \u00a7 2"
+      ]
+    },
+    {
+      "id": "O1_rise_all_exemplars",
+      "path": "O1.rise_frames",
+      "min": 0,
+      "max": 6,
+      "unit": "frames",
+      "exemplars": [
+        "E1",
+        "E2",
+        "E4"
+      ],
+      "tolerance": 0,
+      "source_values": [
+        0,
+        1,
+        6
+      ],
+      "notes": "All-exemplar min-max; E2 body peak +6. Descriptive: cannot reject 6 against this aggregate.",
+      "inspect_only": false,
+      "evidence": [
+        "agentic_orchestration/legolas/research/2026-09-14-vfx-oracles/findings.md \u00a7 2"
+      ]
+    },
+    {
+      "id": "O1_decay_0",
+      "path": "O1.decay_area_over_peak.0",
+      "min": 0.92,
+      "max": 1.08,
+      "unit": "fraction",
+      "exemplars": [
+        "E4 pillar 1",
+        "E4 pillar 2"
+      ],
+      "tolerance": 0.08,
+      "source_values": [
+        1,
+        1
+      ],
+      "notes": "SPEC acceptance tolerance \u00b10.08; both exemplars retained. E2 decay uses energy, not support area, so is not pooled.",
+      "inspect_only": false,
+      "evidence": [
+        "agentic_orchestration/legolas/research/2026-09-14-vfx-oracles/findings.md \u00a7 2"
+      ]
+    },
+    {
+      "id": "O1_decay_1",
+      "path": "O1.decay_area_over_peak.1",
+      "min": 0.77,
+      "max": 0.99,
+      "unit": "fraction",
+      "exemplars": [
+        "E4 pillar 1",
+        "E4 pillar 2"
+      ],
+      "tolerance": 0.08,
+      "source_values": [
+        0.85,
+        0.91
+      ],
+      "notes": "SPEC acceptance tolerance \u00b10.08; both exemplars retained. E2 decay uses energy, not support area, so is not pooled.",
+      "inspect_only": false,
+      "evidence": [
+        "agentic_orchestration/legolas/research/2026-09-14-vfx-oracles/findings.md \u00a7 2"
+      ]
+    },
+    {
+      "id": "O1_decay_2",
+      "path": "O1.decay_area_over_peak.2",
+      "min": 0.45,
+      "max": 0.6499999999999999,
+      "unit": "fraction",
+      "exemplars": [
+        "E4 pillar 1",
+        "E4 pillar 2"
+      ],
+      "tolerance": 0.08,
+      "source_values": [
+        0.53,
+        0.57
+      ],
+      "notes": "SPEC acceptance tolerance \u00b10.08; both exemplars retained. E2 decay uses energy, not support area, so is not pooled.",
+      "inspect_only": false,
+      "evidence": [
+        "agentic_orchestration/legolas/research/2026-09-14-vfx-oracles/findings.md \u00a7 2"
+      ]
+    },
+    {
+      "id": "O1_decay_3",
+      "path": "O1.decay_area_over_peak.3",
+      "min": 0.26999999999999996,
+      "max": 0.45,
+      "unit": "fraction",
+      "exemplars": [
+        "E4 pillar 1",
+        "E4 pillar 2"
+      ],
+      "tolerance": 0.08,
+      "source_values": [
+        0.35,
+        0.37
+      ],
+      "notes": "SPEC acceptance tolerance \u00b10.08; both exemplars retained. E2 decay uses energy, not support area, so is not pooled.",
+      "inspect_only": false,
+      "evidence": [
+        "agentic_orchestration/legolas/research/2026-09-14-vfx-oracles/findings.md \u00a7 2"
+      ]
+    },
+    {
+      "id": "O1_decay_4",
+      "path": "O1.decay_area_over_peak.4",
+      "min": 0.15999999999999998,
+      "max": 0.37,
+      "unit": "fraction",
+      "exemplars": [
+        "E4 pillar 1",
+        "E4 pillar 2"
+      ],
+      "tolerance": 0.08,
+      "source_values": [
+        0.24,
+        0.29
+      ],
+      "notes": "SPEC acceptance tolerance \u00b10.08; both exemplars retained. E2 decay uses energy, not support area, so is not pooled.",
+      "inspect_only": false,
+      "evidence": [
+        "agentic_orchestration/legolas/research/2026-09-14-vfx-oracles/findings.md \u00a7 2"
+      ]
+    },
+    {
+      "id": "O1_decay_5",
+      "path": "O1.decay_area_over_peak.5",
+      "min": 0.12000000000000001,
+      "max": 0.34,
+      "unit": "fraction",
+      "exemplars": [
+        "E4 pillar 1",
+        "E4 pillar 2"
+      ],
+      "tolerance": 0.08,
+      "source_values": [
+        0.2,
+        0.26
+      ],
+      "notes": "SPEC acceptance tolerance \u00b10.08; both exemplars retained. E2 decay uses energy, not support area, so is not pooled.",
+      "inspect_only": false,
+      "evidence": [
+        "agentic_orchestration/legolas/research/2026-09-14-vfx-oracles/findings.md \u00a7 2"
+      ]
+    },
+    {
+      "id": "O1_half_area",
+      "path": "O1.frames_to_half",
+      "min": 3,
+      "max": 3,
+      "unit": "frames",
+      "exemplars": [
+        "E4 pillar 1",
+        "E4 pillar 2"
+      ],
+      "tolerance": 0,
+      "source_values": [
+        3,
+        3
+      ],
+      "notes": "Derived first area <=.5 at +3. E2 energy halve +7 is a different observable.",
+      "inspect_only": false,
+      "evidence": [
+        "agentic_orchestration/legolas/research/2026-09-14-vfx-oracles/findings.md \u00a7 2"
+      ]
+    },
+    {
+      "id": "O2_life_finite",
+      "path": "O2.visible_life_frames",
+      "min": 4,
+      "max": 20,
+      "unit": "frames",
+      "exemplars": [
+        "E1",
+        "E2"
+      ],
+      "tolerance": 0,
+      "source_values": [
+        4,
+        16,
+        20
+      ],
+      "notes": "E4 residue >=0.8s is censored; body 5-6 frames is not total visible life.",
+      "inspect_only": false,
+      "evidence": [
+        "agentic_orchestration/legolas/research/2026-09-14-vfx-oracles/findings.md \u00a7 2"
+      ]
+    },
+    {
+      "id": "O3_core_peak",
+      "path": "O3.core_frac_at_peak",
+      "min": 0.01,
+      "max": 0.2,
+      "unit": "fraction",
+      "exemplars": [
+        "E1",
+        "E2",
+        "E4"
+      ],
+      "tolerance": 0,
+      "source_values": [
+        0.01,
+        0.02,
+        0.2,
+        0.19
+      ],
+      "notes": "E2 body-area peak +6 has .20 white fraction; .28 onset and .40 +3 are retained in exemplar data, not mislabelled peak.",
+      "inspect_only": false,
+      "evidence": [
+        "agentic_orchestration/legolas/research/2026-09-14-vfx-oracles/findings.md \u00a7 2"
+      ]
+    },
+    {
+      "id": "O4_hue",
+      "path": "O4.hue_sd_deg_at_peak",
+      "min": 10,
+      "max": 18,
+      "unit": "degrees",
+      "exemplars": [
+        "E1",
+        "E2",
+        "E4"
+      ],
+      "tolerance": 0,
+      "source_values": [
+        10,
+        18,
+        12,
+        15,
+        12,
+        14
+      ],
+      "notes": "E2 contaminated flash frame 42 degrees excluded from body-peak band; retained in exemplar data.",
+      "inspect_only": false,
+      "evidence": [
+        "agentic_orchestration/legolas/research/2026-09-14-vfx-oracles/findings.md \u00a7 2"
+      ]
+    },
+    {
+      "id": "O5_bright",
+      "path": "O5.bright_15_median_at_peak",
+      "min": 0.02,
+      "max": 0.27,
+      "unit": "saturation",
+      "exemplars": [
+        "E1",
+        "E2"
+      ],
+      "tolerance": 0,
+      "source_values": [
+        0.2,
+        0.27,
+        0.02,
+        0.1
+      ],
+      "notes": "Source brightest 10-20%; implementation fixed at 15%. E4 body median .74-.78 is not core S.",
+      "inspect_only": false,
+      "evidence": [
+        "agentic_orchestration/legolas/research/2026-09-14-vfx-oracles/findings.md \u00a7 2"
+      ]
+    },
+    {
+      "id": "O5_dim",
+      "path": "O5.dim_25_median_at_peak",
+      "min": 0.44,
+      "max": 0.64,
+      "unit": "saturation",
+      "exemplars": [
+        "E1",
+        "E2"
+      ],
+      "tolerance": 0,
+      "source_values": [
+        0.49,
+        0.61,
+        0.44,
+        0.64
+      ],
+      "notes": "Source dimmest 25-30%; implementation fixed at 25%.",
+      "inspect_only": false,
+      "evidence": [
+        "agentic_orchestration/legolas/research/2026-09-14-vfx-oracles/findings.md \u00a7 2"
+      ]
+    },
+    {
+      "id": "O6_width_px",
+      "path": "O6.width_px",
+      "min": 80,
+      "max": 639,
+      "unit": "pixels",
+      "exemplars": [
+        "E1",
+        "E2",
+        "E4"
+      ],
+      "tolerance": 0,
+      "source_values": [
+        80,
+        130,
+        210,
+        245,
+        524,
+        639
+      ],
+      "notes": "",
+      "inspect_only": false,
+      "evidence": [
+        "agentic_orchestration/legolas/research/2026-09-14-vfx-oracles/findings.md \u00a7 2"
+      ]
+    },
+    {
+      "id": "O6_width_bh",
+      "path": "O6.width_bh",
+      "min": 0.7,
+      "max": 5.4,
+      "unit": "body_heights",
+      "exemplars": [
+        "E1",
+        "E2",
+        "E4"
+      ],
+      "tolerance": 0,
+      "source_values": [
+        0.7,
+        1.1,
+        1.8,
+        2.2,
+        4.4,
+        5.4
+      ],
+      "notes": "Source action-pose correction differs from default 130 px; caller supplies body_h_px.",
+      "inspect_only": false,
+      "evidence": [
+        "agentic_orchestration/legolas/research/2026-09-14-vfx-oracles/findings.md \u00a7 2"
+      ]
+    },
+    {
+      "id": "O6_height_bh",
+      "path": "O6.height_bh",
+      "min": null,
+      "max": null,
+      "unit": "body_heights",
+      "exemplars": [
+        "E1",
+        "E4"
+      ],
+      "tolerance": 0,
+      "source_values": [],
+      "notes": "Off-screen heights are lower bounds >=5.5-7.7 / >=6.6-7.2 BH, not a finite universal band. No E2 vertical value.",
+      "inspect_only": false,
+      "evidence": [
+        "agentic_orchestration/legolas/research/2026-09-14-vfx-oracles/findings.md \u00a7 2"
+      ]
+    },
+    {
+      "id": "O8_rate",
+      "path": "O8.unique_frames_per_s",
+      "min": 60,
+      "max": 60,
+      "unit": "frames/s",
+      "exemplars": [
+        "E1",
+        "E2",
+        "E4"
+      ],
+      "tolerance": 0,
+      "source_values": [
+        60,
+        60,
+        60
+      ],
+      "notes": "Measured source nominal 60 fps; exact RGBA compare may count compression noise as changes.",
+      "inspect_only": false,
+      "evidence": [
+        "agentic_orchestration/legolas/research/2026-09-14-vfx-oracles/findings.md \u00a7 2"
+      ]
+    },
+    {
+      "id": "O10_modes",
+      "path": "O10.count_at_peak",
+      "min": 2,
+      "max": 2,
+      "unit": "modes",
+      "exemplars": [
+        "E1",
+        "E2",
+        "E4"
+      ],
+      "tolerance": 0,
+      "source_values": [
+        2,
+        2,
+        2
+      ],
+      "notes": "Uncalibrated and mask-sensitive; inspect-only.",
+      "inspect_only": true,
+      "evidence": [
+        "agentic_orchestration/legolas/research/2026-09-14-vfx-oracles/findings.md \u00a7 2"
+      ]
+    },
+    {
+      "id": "residue",
+      "path": "residue_fraction",
+      "min": 0.15,
+      "max": 0.26,
+      "unit": "fraction",
+      "exemplars": [
+        "E4 pillar 1",
+        "E4 pillar 2"
+      ],
+      "tolerance": 0,
+      "source_values": [
+        0.15,
+        0.2,
+        0.21,
+        0.26
+      ],
+      "notes": "Cut-dependent source anchors: .20 at +5/.15 at +23, .26 at +5/.21 at +17. Not a universal shipping bound.",
+      "inspect_only": false,
+      "evidence": [
+        "agentic_orchestration/legolas/research/2026-09-14-vfx-oracles/findings.md \u00a7 2"
+      ]
+    },
+    {
+      "id": "straight_alpha_edges",
+      "path": "straight_alpha_edges.count",
+      "min": null,
+      "max": null,
+      "unit": "pixels",
+      "exemplars": [],
+      "tolerance": 0,
+      "source_values": [],
+      "notes": "No quantitative source calibration; report count only.",
+      "inspect_only": true,
+      "evidence": [
+        "agentic_orchestration/legolas/research/2026-09-14-vfx-oracles/findings.md \u00a7 2"
+      ]
+    }
+  ]
+}

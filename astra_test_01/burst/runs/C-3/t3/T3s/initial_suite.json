@@ -1,0 +1,28 @@
+{
+  "tests_run": 462,
+  "successful_tests": 450,
+  "errors": [],
+  "skipped": [],
+  "elapsed_s": 189.03425904200049,
+  "regression": {
+    "tolerance": 0.001,
+    "compared": 1880,
+    "differences": [],
+    "within_tolerance": true
+  },
+  "reds": [
+    "test_godot_import.GodotImportTests.test_headless_state_machine_input_map_gear_vfx_and_nearest_fallback",
+    "test_oracle_walk.Tests.test_synthetic_contract_and_grid",
+    "test_oracles_motif.Tests.test_f04_outside_at_least_three",
+    "test_oracles_motif.Tests.test_named_genuine_annuli_retained (center=[113, 201])",
+    "test_oracles_motif.Tests.test_named_genuine_annuli_retained (center=[111, 311])",
+    "test_oracles_motif.Tests.test_named_genuine_annuli_retained (center=[170, 253])",
+    "test_parallax_scene.ParallaxSceneTests.test_headless_cliffside_follow_camera_parallax_and_projectile_collision",
+    "test_props_layer.PropsLayerTests.test_headless_occlusion_fade_restore_overhead_near_and_particles",
+    "test_scene_kit.SceneKitTests.test_headless_tower_import_run_and_physics",
+    "test_sockets.SocketTests.test_headless_directional_release_and_resources",
+    "test_vfx_picker.LivingEmbersTests.test_headless_glow_sixty_samples_extrema_range_and_particle_properties",
+    "test_vfx_picker.VfxPickerTests.test_headless_tab_twice_cast_scene_labels_and_inflight_kit_lock"
+  ],
+  "wall_seconds": 189.17924437500187
+}

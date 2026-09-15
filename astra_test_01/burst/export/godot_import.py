@@ -119,17 +119,29 @@ def _output(out, inputs):
     return out
 
 
-def write_spriteframes(out, resource, animations):
-    """Write SpriteFrames from {name: (relative_texture_paths, fps, loop)}."""
+def write_spriteframes(out, resource, animations, frame_durations=None):
+    """Write SpriteFrames from {name: (relative_texture_paths, fps, loop)}.
+
+    Optional frame_durations maps every name to per-frame seconds. Godot stores
+    seconds * fps as its duration multiplier. Omission retains legacy bytes.
+    """
+    if frame_durations is not None:
+        if set(frame_durations) != set(animations):
+            raise ValueError('Durations must match animations')
+        for name, (paths, fps, loop) in animations.items():
+            values = frame_durations[name]
+            if len(values) != len(paths) or any(isinstance(v, bool) or not isinstance(v, (int, float)) or not math.isfinite(v) or v <= 0 for v in values):
+                raise ValueError('Durations must be positive and match frame counts')
     textures = []
     blocks = []
     for name, (paths, fps, loop) in sorted(animations.items()):
         frames = []
-        for path in paths:
+        for index, path in enumerate(paths):
             local_file(out/path, out)
             ident = str(len(textures)+1)
             textures.append(f'[ext_resource type="Texture2D" path="res://{path}" id="{ident}"]')
-            frames.append('{"duration": 1.0, "texture": ExtResource("'+ident+'")}')
+            duration = '1.0' if frame_durations is None else repr(float(frame_durations[name][index])*fps)
+            frames.append('{"duration": '+duration+', "texture": ExtResource("'+ident+'")}')
         blocks.append('{"frames": ['+',\n'.join(frames)+'], "loop": '+str(loop).lower()+
                       ', "name": &'+json.dumps(name)+', "speed": '+str(float(fps))+'}')
     target = out/resource
@@ -706,6 +718,13 @@ def _load_vfx_kit(directory):
                 raise ValueError('impact_range must be inclusive [first,last] frame indices')
             frames = frames[r[0]:r[1]+1]
         result[name] = [p for _, p in frames]
+    if (root/'kit.json').exists():
+        from export.effect_kit import load_kit
+        result['effect'] = load_kit(root)
+        # Metadata is authoritative for authored frame order and durations.
+        for phase, record in result['effect']['phases'].items():
+            name = 'flare' if phase == 'cast' else phase
+            result[name] = [root/f['file'] for f in record['frames']]
     return result
 
 
@@ -972,6 +991,8 @@ color_ramp = SubResource("CometColors")
 '''
     (out/f'scenes/{prefix}_impact.tscn').write_text(impact_scene.replace(
         'scripts/frost_impact.gd', f'scripts/{prefix}_impact.gd').replace('vfx/impact.tres', resource_root+'/impact.tres'))
+    if 'effect' in kit:
+        _write_authored_effect(out, kit, resource_root, prefix, counts)
     keeper = KEEPER_SCRIPT.replace('    base_frames = sprite.sprite_frames', '    _load_directional_kit()\n    base_frames = sprite.sprite_frames')
     keeper = keeper.replace('        state = "cast"\n', '        cast_fired = false\n        state = "cast"\n')
     keeper = keeper.replace('        _spawn_frost()', '        _cast_frame_changed()')
@@ -1051,6 +1072,129 @@ scale_amount_max = 0.2
             'missing_sockets': sum(p is None for c in socket_data['cells'].values() for p in c['sockets']),
             'ambient_rectangle': rectangle, 'ambient_rectangle_report': rectangle_report,
             'resource_references': len(references)}
+
+
+def _write_authored_effect(out, kit, resource_root, prefix, counts):
+    """Author-kit-only scene path; the legacy templates above stay byte-stable."""
+    from export.effect_kit import LAYER_SCRIPT, AUTHORED_BOLT, AUTHORED_IMPACT
+    data = kit['effect']
+    layers = data['layers']
+    phase_durations = {}
+    for phase, definition in data['phases'].items():
+        name = 'flare' if phase == 'cast' else phase
+        paths, durations = [], []
+        for source, frame in zip(kit[name], definition['frames']):
+            relative = Path(resource_root)/'sprites'/name/source.name
+            (out/relative).parent.mkdir(parents=True, exist_ok=True)
+            shutil.copyfile(source, out/relative)
+            paths.append(relative.as_posix())
+            durations.append(frame['hold_frames']/60)
+        write_spriteframes(out, resource_root+'/'+name+'.tres',
+                           {name: (paths, 1, phase == 'travel')}, {name: durations})
+        counts[name] = len(paths)
+        phase_durations[name] = sum(durations)
+    exported_metadata = json.loads(json.dumps(data))
+    for phase, definition in exported_metadata['phases'].items():
+        name = 'flare' if phase == 'cast' else phase
+        definition['sheet'] = 'sprites/'+name+'/'+Path(definition['sheet']).name
+        for frame in definition['frames']:
+            frame['file'] = 'sprites/'+name+'/'+Path(frame['file']).name
+    (out/resource_root/'kit.json').write_text(json.dumps(exported_metadata, indent=2)+'\n')
+    textures = {}
+    for name, key in (('decal', 'file'), ('particles', 'texture')):
+        if key in layers.get(name, {}):
+            relative = Path(resource_root)/'layers'/Path(layers[name][key]).name
+            (out/relative).parent.mkdir(parents=True, exist_ok=True)
+            shutil.copyfile(kit['root']/layers[name][key], out/relative)
+            textures[name] = relative.as_posix()
+    def number(v): return format(float(v), '.12g')
+    def vector(x, y): return 'Vector2('+number(x)+', '+number(y)+')'
+    def color(rgb, alpha=1): return 'Color('+', '.join(number(v) for v in (*rgb, alpha))+')'
+    floor = layers.get('floor_light', {})
+    flash = layers.get('flash', {})
+    decal = layers.get('decal', {})
+    particles = layers.get('particles', {})
+    stop = layers.get('hitstop', {})
+    shake = layers.get('shake', {})
+    constants = (
+        'const FLOOR_DURATION = '+repr(float(floor.get('duration_s', 0)))+'\n'+
+        'const FLASH_DURATION = '+repr(float(flash.get('duration_s', 0)))+'\n'+
+        'const FLASH_TO = '+repr(float(flash.get('scale_to', 1)))+'\n'+
+        'const DECAL_DURATION = '+repr(float(decal.get('duration_s', 0)))+'\n')
+    tail = max(.001, particles.get('lifetime_s', 0), floor.get('duration_s', 0), flash.get('duration_s', 0), decal.get('duration_s', 0))
+    total = max(phase_durations['impact']+phase_durations.get('residual', 0), tail)+.05
+    with Image.open(kit['travel'][0]) as im: streak_offset = im.width/2
+    for phase, template in (('travel', AUTHORED_BOLT), ('impact', AUTHORED_IMPACT)):
+        kind = 'bolt' if phase == 'travel' else 'impact'
+        script = template + constants + LAYER_SCRIPT
+        if kind == 'bolt':
+            script += 'const IMPACT_PATH = '+json.dumps('res://scenes/'+prefix+'_impact.tscn')+'\n'
+            script += 'const TAIL_DURATION = '+repr(float(tail))+'\n'
+            script += 'const STREAK_OFFSET = '+repr(float(streak_offset))+'\n'
+        else:
+            script += 'const BODY_DURATION = '+repr(phase_durations['impact'])+'\n'
+            script += 'const TOTAL_DURATION = '+repr(total)+'\n'
+        (out/f'scripts/{prefix}_{kind}.gd').write_text(script)
+        ext = [f'[ext_resource type="Script" path="res://scripts/{prefix}_{kind}.gd" id="Script"]',
+               f'[ext_resource type="SpriteFrames" path="res://{resource_root}/{phase}.tres" id="Frames"]']
+        sub = []
+        nodes = [f'[node name="Effect{kind.title()}" type="'+('Area2D' if kind == 'bolt' else 'Node2D')+'"]\n'
+                 'texture_filter = 1\nscript = ExtResource("Script")\n'
+                 f'ground_squash = {number(data["ground_squash"])}\n'
+                 f'hitstop_duration = {number(stop.get("duration_s", 0))}\n'
+                 f'hitstop_time_scale = {number(stop.get("time_scale", 1))}\n'
+                 f'shake_distance = {number(shake.get("distance", 0))}\n'
+                 f'shake_duration = {number(shake.get("duration_s", 0))}\n']
+        if kind == 'bolt':
+            nodes[0] += 'collision_layer = 0\ncollision_mask = 1\nspeed_px_s = '+number(data['phases']['travel'].get('speed_px_s', 520))+'\n'
+            sub.append('[sub_resource type="CircleShape2D" id="HitShape"]\nradius = 3.0\n')
+            nodes.append('[node name="CollisionShape2D" type="CollisionShape2D" parent="."]\nshape = SubResource("HitShape")\n')
+        nodes.append('[node name="Ground" type="Node2D" parent="."]\n')
+        def material(name, mode):
+            declaration = f'[sub_resource type="CanvasItemMaterial" id="{name}"]\nblend_mode = {mode}\n'
+            if declaration not in sub: sub.append(declaration)
+            return f'material = SubResource("{name}")\n'
+        def animated(name, extra='', resource='Frames', parent='Ground'):
+            nodes.append(f'[node name="{name}" type="AnimatedSprite2D" parent="{parent}"]\n'
+                         f'sprite_frames = ExtResource("{resource}")\n'+extra)
+        if layers.get('dark_duplicate', False):
+            animated('DarkDuplicate', 'z_index = -1\nmodulate = Color(0, 0, 0, 1)\n'+material('Mix', 0))
+        animated('Travel' if kind == 'bolt' else 'Shatter', material('Mix', 0))
+        if 'glow' in layers:
+            glow = layers['glow']
+            animated('Glow', material('Additive', 1)+'scale = '+vector(glow['scale'], glow['scale'])+'\nmodulate = '+color([1,1,1], glow['alpha'])+'\n')
+        if kind == 'bolt' and data['phases']['travel'].get('streak', False):
+            animated('Streak', 'z_index = -2\nscale = Vector2(1.5, 1)\nmodulate = Color(1, 1, 1, 0.35)\n'+material('Additive', 1))
+        if flash:
+            animated('Flash', material('Additive', 1)+'scale = '+vector(flash['scale_from'], flash['scale_from'])+'\nmodulate = '+color([1,1,1], flash['alpha'])+'\n')
+        if floor:
+            sub.append('[sub_resource type="Gradient" id="FloorColors"]\ncolors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)\n')
+            sub.append('[sub_resource type="GradientTexture2D" id="FloorDisc"]\ngradient = SubResource("FloorColors")\nwidth = 32\nheight = 32\nfill = 1\nfill_from = Vector2(0.5, 0.5)\nfill_to = Vector2(1, 0.5)\n')
+            radius = floor['radius_px']/16
+            nodes.append('[node name="FloorLight" type="Sprite2D" parent="."]\nz_index = -3\ntexture = SubResource("FloorDisc")\n'+material('Additive', 1)+
+                         'scale = '+vector(radius, radius*data['ground_squash'])+'\nmodulate = '+color(data['tint'])+'\n')
+        if decal:
+            if 'decal' in textures:
+                ext.append(f'[ext_resource type="Texture2D" path="res://{textures["decal"]}" id="DecalTexture"]')
+            else:
+                relative = Path(resource_root)/'sprites'/phase/kit[phase][0].name
+                ext.append(f'[ext_resource type="Texture2D" path="res://{relative.as_posix()}" id="DecalTexture"]')
+            nodes.append('[node name="Decal" type="Sprite2D" parent="."]\nz_index = -4\ntexture = ExtResource("DecalTexture")\n'+material('Mix', 0)+'scale = '+vector(1, data['ground_squash'])+'\n')
+        if particles:
+            ext.append(f'[ext_resource type="Texture2D" path="res://{textures["particles"]}" id="ParticleTexture"]')
+            velocity = particles['velocity_px_s']
+            lo, hi = velocity if isinstance(velocity, list) else (velocity, velocity)
+            nodes.append('[node name="Particles" type="CPUParticles2D" parent="."]\ntexture = ExtResource("ParticleTexture")\n'+material('Additive', 1)+
+                         'local_coords = false\ngravity = Vector2(0, 0)\n'
+                         f'one_shot = {str(kind == "impact").lower()}\nexplosiveness = {1 if kind == "impact" else 0}\n'
+                         f'amount = {particles["amount"]}\nlifetime = {number(particles["lifetime_s"])}\n'
+                         f'direction = {vector(*particles["direction"])}\nspread = {number(particles["spread_deg"])}\n'
+                         f'initial_velocity_min = {number(lo)}\ninitial_velocity_max = {number(hi)}\n')
+        if kind == 'impact' and 'residual' in data['phases']:
+            ext.append(f'[ext_resource type="SpriteFrames" path="res://{resource_root}/residual.tres" id="ResidualFrames"]')
+            animated('Residual', 'visible = false\nz_index = -2\n'+material('Mix', 0), 'ResidualFrames', '.')
+        text = f'[gd_scene load_steps={1+len(ext)+len(sub)} format=3]\n\n'+'\n'.join(ext)+'\n\n'+'\n'.join(sub)+'\n'.join(nodes)
+        (out/f'scenes/{prefix}_{kind}.tscn').write_text(text)
 
 
 PICKER_SCRIPT = '''

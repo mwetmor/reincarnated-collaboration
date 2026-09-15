@@ -1,0 +1,130 @@
+{
+  "task_id": "T3t",
+  "passed": null,
+  "full_suite": {
+    "tests_run": 478,
+    "successful_tests": 465,
+    "elapsed_s": 192.03177733399934,
+    "successful_method_events": 467,
+    "method_reds": 10,
+    "subtest_reds": 3,
+    "errors": 0,
+    "skips": 0,
+    "count_note": "Frozen runner reports tests_run minus red records; three annulus subtest records belong to one method."
+  },
+  "targeted_suite": {
+    "tests_run": 15,
+    "successful_tests": 14,
+    "sandbox_reds": 1,
+    "elapsed_s": 5.026
+  },
+  "acceptance": {
+    "phases": 4,
+    "frames_per_phase": 2,
+    "native_size": [
+      16,
+      16
+    ],
+    "pixel_scale": 3,
+    "output_size": [
+      48,
+      48
+    ],
+    "tinted_rgb": [
+      32,
+      64,
+      128
+    ],
+    "hue_error_turns": 0.0,
+    "white_core_min": 255,
+    "nearest_exact": true,
+    "durations_s": [
+      0.03333333333333333,
+      0.08333333333333333
+    ],
+    "expected_durations_s": [
+      0.03333333333333333,
+      0.08333333333333333
+    ],
+    "legacy_bolt_byte_identical": true,
+    "resource_references": 61
+  },
+  "runtime": {
+    "collision_impacts": [
+      "res://scenes/vfx_synthetic_ice_impact.tscn",
+      "res://scenes/vfx_synthetic_ice_impact.tscn"
+    ],
+    "errors": 0,
+    "rotation_degrees": [
+      0.0,
+      -90.0
+    ]
+  },
+  "legacy_regression_lock_successful": true,
+  "reds": [
+    {
+      "kind": "addFailure",
+      "test": "test_godot_import.GodotImportTests.test_headless_state_machine_input_map_gear_vfx_and_nearest_fallback"
+    },
+    {
+      "kind": "addFailure",
+      "test": "test_oracle_walk.Tests.test_synthetic_contract_and_grid"
+    },
+    {
+      "kind": "addFailure",
+      "test": "test_oracles_motif.Tests.test_f04_outside_at_least_three"
+    },
+    {
+      "kind": "subtest_red",
+      "test": "test_oracles_motif.Tests.test_named_genuine_annuli_retained (center=[113, 201])"
+    },
+    {
+      "kind": "subtest_red",
+      "test": "test_oracles_motif.Tests.test_named_genuine_annuli_retained (center=[111, 311])"
+    },
+    {
+      "kind": "subtest_red",
+      "test": "test_oracles_motif.Tests.test_named_genuine_annuli_retained (center=[170, 253])"
+    },
+    {
+      "kind": "addFailure",
+      "test": "test_parallax_scene.ParallaxSceneTests.test_headless_cliffside_follow_camera_parallax_and_projectile_collision"
+    },
+    {
+      "kind": "addFailure",
+      "test": "test_props_layer.PropsLayerTests.test_headless_occlusion_fade_restore_overhead_near_and_particles"
+    },
+    {
+      "kind": "addFailure",
+      "test": "test_scene_kit.SceneKitTests.test_headless_tower_import_run_and_physics"
+    },
+    {
+      "kind": "addFailure",
+      "test": "test_sockets.SocketTests.test_headless_directional_release_and_resources"
+    },
+    {
+      "kind": "addFailure",
+      "test": "test_vfx_picker.AuthoredEffectPickerTests.test_headless_authored_cast_east_north_collision_timing_and_feedback_cleanup"
+    },
+    {
+      "kind": "addFailure",
+      "test": "test_vfx_picker.LivingEmbersTests.test_headless_glow_sixty_samples_extrema_range_and_particle_properties"
+    },
+    {
+      "kind": "addFailure",
+      "test": "test_vfx_picker.VfxPickerTests.test_headless_tab_twice_cast_scene_labels_and_inflight_kit_lock"
+    }
+  ],
+  "wall_s": {
+    "build": 0.007168582997110207,
+    "export": 0.05086204200051725,
+    "first_full_suite": 190.60585424999954,
+    "final_full_suite": 192.03177733399934
+  },
+  "notes": [
+    "All 13 red records are the named standing motif/walk-grid records or sandbox-only Godot tests.",
+    "Authored runtime: 0 degree E and -90 degree N; 2 collision impacts; 0 assertion errors.",
+    "Fixture ZIP has 135 members and validates after relocation: 2 kits, 61 resource references.",
+    "All temporary fixture directories removed; no decoded video frames retained by T3t."
+  ]
+}

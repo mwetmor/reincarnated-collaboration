@@ -1,0 +1,52 @@
+test_dict_paths_no_cwd_mutation_and_output_overlap_stale_rejected (test_effect_kit.EffectKitTests.test_dict_paths_no_cwd_mutation_and_output_overlap_stale_rejected) ... ok
+test_every_asset_validated_missing_corrupt_and_color_before_output (test_effect_kit.EffectKitTests.test_every_asset_validated_missing_corrupt_and_color_before_output) ... ok
+test_generated_metadata_rejects_unknown_missing_and_escaping_assets (test_effect_kit.EffectKitTests.test_generated_metadata_rejects_unknown_missing_and_escaping_assets) ... ok
+test_holds_are_seconds_at_speed_one_in_every_resource (test_effect_kit.EffectKitTests.test_holds_are_seconds_at_speed_one_in_every_resource) ... ok
+test_invalid_numbers_booleans_holds_ranges_and_shapes (test_effect_kit.EffectKitTests.test_invalid_numbers_booleans_holds_ranges_and_shapes) ... ok
+test_minimal_definition_optional_layers_residual_and_travel_defaults (test_effect_kit.EffectKitTests.test_minimal_definition_optional_layers_residual_and_travel_defaults) ... ok
+test_missing_and_unknown_keys_at_all_schema_levels (test_effect_kit.EffectKitTests.test_missing_and_unknown_keys_at_all_schema_levels) ... ok
+test_scale_boundaries_and_white_threshold (test_effect_kit.EffectKitTests.test_scale_boundaries_and_white_threshold) ... ok
+test_spriteframe_duration_extension_default_bytes_and_invalid_before_resource (test_effect_kit.EffectKitTests.test_spriteframe_duration_extension_default_bytes_and_invalid_before_resource) ... ok
+test_two_frame_phases_hue_white_core_alpha_nearest_and_dimensions (test_effect_kit.EffectKitTests.test_two_frame_phases_hue_white_core_alpha_nearest_and_dimensions) ... ok
+test_authored_kit_own_travel_durations_layers_and_feedback_parameters (test_vfx_picker.AuthoredEffectPickerTests.test_authored_kit_own_travel_durations_layers_and_feedback_parameters) ... ok
+test_corrupt_authored_metadata_rejected_before_project_output (test_vfx_picker.AuthoredEffectPickerTests.test_corrupt_authored_metadata_rejected_before_project_output) ... ok
+test_headless_authored_cast_east_north_collision_timing_and_feedback_cleanup (test_vfx_picker.AuthoredEffectPickerTests.test_headless_authored_cast_east_north_collision_timing_and_feedback_cleanup) ... FAIL
+test_minimal_layers_and_optional_decal_fallback (test_vfx_picker.AuthoredEffectPickerTests.test_minimal_layers_and_optional_decal_fallback) ... ok
+test_mixed_catalogue_legacy_scenes_and_scripts_byte_identical (test_vfx_picker.AuthoredEffectPickerTests.test_mixed_catalogue_legacy_scenes_and_scripts_byte_identical) ... ok
+
+======================================================================
+FAIL: test_headless_authored_cast_east_north_collision_timing_and_feedback_cleanup (test_vfx_picker.AuthoredEffectPickerTests.test_headless_authored_cast_east_north_collision_timing_and_feedback_cleanup)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_vfx_picker.py", line 519, in test_headless_authored_cast_east_north_collision_timing_and_feedback_cleanup
+    run_headless(self, self.project, 'effect_probe.gd')
+  File "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_vfx_picker.py", line 119, in run_headless
+    test.assertEqual(engine_errors, [], '\n'.join(engine_errors))
+AssertionError: Lists differ: ['ERROR: Condition "ret != noErr" is true.[285 chars] ""'] != []
+
+First list contains 4 additional elements.
+First extra element 0:
+'ERROR: Condition "ret != noErr" is true. Returning: ""'
+
++ []
+- ['ERROR: Condition "ret != noErr" is true. Returning: ""',
+-  "ERROR: Cannot save file '/Users/admin/Library/Application "
+-  "Support/Godot/editor_settings-4.6.tres'.",
+-  'ERROR: Error saving editor settings to /Users/admin/Library/Application '
+-  'Support/Godot/editor_settings-4.6.tres',
+-  'ERROR: Condition "ret != noErr" is true. Returning: ""'] : ERROR: Condition "ret != noErr" is true. Returning: ""
+ERROR: Cannot save file '/Users/admin/Library/Application Support/Godot/editor_settings-4.6.tres'.
+ERROR: Error saving editor settings to /Users/admin/Library/Application Support/Godot/editor_settings-4.6.tres
+ERROR: Condition "ret != noErr" is true. Returning: ""
+
+----------------------------------------------------------------------
+Ran 15 tests in 5.026s
+
+FAILED (failures=1)
+Godot Engine v4.6.3.stable.official.7d41c59c4 - https://godotengine.org
+
+T3T_RUNTIME={"collision_impacts":["res://scenes/vfx_synthetic_ice_impact.tscn","res://scenes/vfx_synthetic_ice_impact.tscn"],"errors":0,"rotation_degrees":[0.0,-90.0]}
+T3O_RUNTIME_ASSERTIONS=complete
+ERROR: Condition "ret != noErr" is true. Returning: ""
+   at: get_system_ca_certificates (platform/macos/os_macos.mm:1028)
+

@@ -1,0 +1,303 @@
+{
+  "unit_tests": {
+    "tests_run": 17,
+    "successful": true,
+    "failures": 0,
+    "errors": 0,
+    "wall_seconds": 1.3706594590003078
+  },
+  "synthetic": {
+    "quantities": {
+      "rise_frames": {
+        "measured": 1,
+        "expected": 1,
+        "absolute_error": 0,
+        "relative_error": 0.0,
+        "allowed_relative_error": 0.05
+      },
+      "rise_ms": {
+        "measured": 16.666666666666668,
+        "expected": 16.666666666666668,
+        "absolute_error": 0.0,
+        "relative_error": 0.0,
+        "allowed_relative_error": 0.05
+      },
+      "peak_frame": {
+        "measured": 1,
+        "expected": 1,
+        "absolute_error": 0,
+        "relative_error": 0.0,
+        "allowed_relative_error": 0.05
+      },
+      "half_frame": {
+        "measured": 4,
+        "expected": 4,
+        "absolute_error": 0,
+        "relative_error": 0.0,
+        "allowed_relative_error": 0.05
+      },
+      "frames_to_half": {
+        "measured": 3,
+        "expected": 3,
+        "absolute_error": 0,
+        "relative_error": 0.0,
+        "allowed_relative_error": 0.05
+      },
+      "ms_to_half": {
+        "measured": 50.0,
+        "expected": 50.0,
+        "absolute_error": 0.0,
+        "relative_error": 0.0,
+        "allowed_relative_error": 0.05
+      },
+      "residue_fraction": {
+        "measured": 0.2,
+        "expected": 0.2,
+        "absolute_error": 0.0,
+        "relative_error": 0.0,
+        "allowed_relative_error": 0.05
+      },
+      "white_core_fraction": {
+        "measured": 0.3,
+        "expected": 0.3,
+        "absolute_error": 0.0,
+        "relative_error": 0.0,
+        "allowed_relative_error": 0.05
+      },
+      "hue_sd_deg": {
+        "measured": 8.04136213924217,
+        "expected": 8.0,
+        "absolute_error": 0.04136213924216925,
+        "relative_error": 0.005170267405271156,
+        "allowed_relative_error": 0.05
+      },
+      "value_bands": {
+        "measured": 3,
+        "expected": 3,
+        "absolute_error": 0,
+        "relative_error": 0.0,
+        "allowed_relative_error": 0.05
+      },
+      "peak_area_px": {
+        "measured": 10000,
+        "expected": 10000,
+        "absolute_error": 0,
+        "relative_error": 0.0,
+        "allowed_relative_error": 0.05
+      },
+      "bright_s": {
+        "measured": 0.0,
+        "expected": 0.0,
+        "absolute_error": 0.0,
+        "relative_error": 0.0,
+        "allowed_relative_error": 0.05
+      },
+      "dim_s": {
+        "measured": 0.7977528089887641,
+        "expected": 0.8,
+        "absolute_error": 0.0022471910112359383,
+        "relative_error": 0.002808988764044923,
+        "allowed_relative_error": 0.05
+      },
+      "straight_alpha_edges": {
+        "measured": 0,
+        "expected": 0,
+        "absolute_error": 0,
+        "relative_error": 0.0,
+        "allowed_relative_error": 0.05
+      },
+      "width_px": {
+        "measured": 100,
+        "expected": 100,
+        "absolute_error": 0,
+        "relative_error": 0.0,
+        "allowed_relative_error": 0.05
+      },
+      "height_px": {
+        "measured": 100,
+        "expected": 100,
+        "absolute_error": 0,
+        "relative_error": 0.0,
+        "allowed_relative_error": 0.05
+      },
+      "width_bh": {
+        "measured": 0.7692307692307693,
+        "expected": 0.7692307692307693,
+        "absolute_error": 0.0,
+        "relative_error": 0.0,
+        "allowed_relative_error": 0.05
+      },
+      "height_bh": {
+        "measured": 0.7692307692307693,
+        "expected": 0.7692307692307693,
+        "absolute_error": 0.0,
+        "relative_error": 0.0,
+        "allowed_relative_error": 0.05
+      },
+      "unique_frames": {
+        "measured": 30,
+        "expected": 30,
+        "absolute_error": 0,
+        "relative_error": 0.0,
+        "allowed_relative_error": 0.05
+      },
+      "unique_frames_per_s": {
+        "measured": 60.0,
+        "expected": 60.0,
+        "absolute_error": 0.0,
+        "relative_error": 0.0,
+        "allowed_relative_error": 0.05
+      },
+      "observed_life_frames": {
+        "measured": 30,
+        "expected": 30,
+        "absolute_error": 0,
+        "relative_error": 0.0,
+        "allowed_relative_error": 0.05
+      },
+      "observed_life_ms": {
+        "measured": 500.0,
+        "expected": 500.0,
+        "absolute_error": 0.0,
+        "relative_error": 0.0,
+        "allowed_relative_error": 0.05
+      }
+    },
+    "envelope_max_relative_error": 0.0,
+    "life_censored": true,
+    "white_core_classification": "flash-first",
+    "wall_seconds": 0.06559787500009406,
+    "half_frame_definition": "Absolute zero-based half frame 4; peak frame 1; frames-to-half is 3 after peak."
+  },
+  "atlas": {
+    "raw": {
+      "measured": [
+        1.0,
+        0.9999338828797758,
+        0.9998892091498947,
+        0.999790926944156,
+        0.999805222537718,
+        0.9998427484708182
+      ],
+      "criterion": [
+        1.0,
+        0.85,
+        0.53,
+        0.35,
+        0.24,
+        0.2
+      ],
+      "tolerance_per_step": 0.08,
+      "absolute_errors": [
+        0.0,
+        0.14993388287977583,
+        0.4698892091498946,
+        0.6497909269441561,
+        0.759805222537718,
+        0.7998427484708182
+      ],
+      "peak_frame": 6,
+      "rise_frames": 6,
+      "enough_decay_steps": true
+    },
+    "source_assisted_diagnostic": {
+      "measured": [
+        1.0,
+        0.8966282242135323,
+        0.5537219284171015,
+        0.35175713483048443,
+        0.2279438597304201,
+        0.20959342906295797
+      ],
+      "criterion": [
+        1.0,
+        0.85,
+        0.53,
+        0.35,
+        0.24,
+        0.2
+      ],
+      "tolerance_per_step": 0.08,
+      "absolute_errors": [
+        0.0,
+        0.0466282242135323,
+        0.023721928417101523,
+        0.0017571348304844525,
+        0.01205614026957988,
+        0.009593429062957959
+      ],
+      "peak_frame": 6,
+      "rise_frames": 6,
+      "enough_decay_steps": true
+    },
+    "native_webp_durations_ms": [
+      17
+    ],
+    "frames": 35,
+    "wall_seconds": 13.022500125000079,
+    "input_mismatch": "Raw sample is opaque gameplay crop, not RGB on black; no frames/ exists. Literal black support covers scenery."
+  },
+  "reference_rise": {
+    "fast_strike_band": [
+      0,
+      1
+    ],
+    "all_exemplar_band": [
+      0,
+      6
+    ],
+    "rise_1_in_strike_band": true,
+    "rise_6_in_strike_band": false,
+    "source_conflict": "E2 body rise is 6, so all-exemplar min-max necessarily includes 6; subgroup explicitly reported."
+  },
+  "timing_units": "durations ms; fps scalar Hz",
+  "temporary_decoded_frames_removed": true,
+  "full_suite": {
+    "tests_run": 463,
+    "successful_tests": 451,
+    "successful": false,
+    "errors": [],
+    "skipped": [],
+    "elapsed_s": 186.8416040839984,
+    "wall_seconds": 186.9640767080018,
+    "regression": {
+      "tolerance": 0.001,
+      "compared": 1880,
+      "differences": [],
+      "within_tolerance": true
+    },
+    "returncode": 1,
+    "reds": [
+      "test_godot_import.GodotImportTests.test_headless_state_machine_input_map_gear_vfx_and_nearest_fallback",
+      "test_oracle_walk.Tests.test_synthetic_contract_and_grid",
+      "test_oracles_motif.Tests.test_f04_outside_at_least_three",
+      "test_oracles_motif.Tests.test_named_genuine_annuli_retained (center=[113, 201])",
+      "test_oracles_motif.Tests.test_named_genuine_annuli_retained (center=[111, 311])",
+      "test_oracles_motif.Tests.test_named_genuine_annuli_retained (center=[170, 253])",
+      "test_parallax_scene.ParallaxSceneTests.test_headless_cliffside_follow_camera_parallax_and_projectile_collision",
+      "test_props_layer.PropsLayerTests.test_headless_occlusion_fade_restore_overhead_near_and_particles",
+      "test_scene_kit.SceneKitTests.test_headless_tower_import_run_and_physics",
+      "test_sockets.SocketTests.test_headless_directional_release_and_resources",
+      "test_vfx_picker.LivingEmbersTests.test_headless_glow_sixty_samples_extrema_range_and_particle_properties",
+      "test_vfx_picker.VfxPickerTests.test_headless_tab_twice_cast_scene_labels_and_inflight_kit_lock"
+    ]
+  },
+  "wall_seconds_from_first_tool": 1016.0892820358276,
+  "suite_generated_reports": [
+    "tests/gates_regression_diff.json",
+    "tests/oracles_acceptance_measurements.json",
+    "tests/oracles_palette_measurements.json",
+    "tests/oracles_silhouette_measurements.json",
+    "tests/parts_measurements.json",
+    "tests/sheet_consistency_calibration.json",
+    "tests/t0c_suite_output.txt",
+    "tests/t0c_summary.json"
+  ],
+  "temporary_decoded_frames_remaining": 0,
+  "method_limitations": [
+    "Raw atlas is gameplay scenery, not an isolated black plate; five of six raw decay deviations exceed 0.08. Source-assisted isolation is diagnostic only.",
+    "All-exemplar rise band [0,6] necessarily includes E2=6; explicit E1/E4 strike band [0,1] implements required 1-vs-6 comparison without dropping E2.",
+    "No blanket tolerance stated in source: zero except SPEC decay tolerance 0.08. All bundled bands proposed/uncommitted; O10 inspect only.",
+    "Straight-alpha-edge count explicitly means partial-alpha boundary pixels whose max RGB exceeds alpha; not a calibrated encoding verdict or geometric straight-line detector."
+  ]
+}

@@ -423,6 +423,182 @@ class LivingEmbersTests(unittest.TestCase):
         run_headless(self, out, 'glow_probe.gd')
 
 
+class AuthoredEffectPickerTests(unittest.TestCase):
+    """T3t extension: mixed catalogue, legacy byte lock and real engine probe."""
+    def setUp(self):
+        from test_effect_kit import picker_fixture
+        temporary = ROOT/'tests/tmp'
+        temporary.mkdir(parents=True, exist_ok=True)
+        self.tmp = tempfile.TemporaryDirectory(prefix='authored-picker-', dir=temporary)
+        self.addCleanup(self.tmp.cleanup)
+        self.root = Path(self.tmp.name)
+        self.fixture = picker_fixture(self.root/'fixture', ROOT/'runs/C-3/vfx_kits/frost')
+        self.project = self.fixture['project']
+
+    def test_mixed_catalogue_legacy_scenes_and_scripts_byte_identical(self):
+        from export.godot_import import BOLT_SCRIPT, IMPACT_SCRIPT
+        catalogue = self.root/'legacy.json'
+        catalogue.write_text(json.dumps({'kits': [{'name': 'frost', 'dir': str(self.fixture['legacy'])}]}))
+        legacy = self.root/'legacy-project'
+        build_project(self.fixture['cells'], legacy, sockets=self.fixture['sockets'], vfx_kits=catalogue)
+        for relative in ('scenes/vfx_frost_bolt.tscn', 'scenes/vfx_frost_impact.tscn',
+                         'scripts/vfx_frost_bolt.gd', 'scripts/vfx_frost_impact.gd',
+                         'vfx/frost/flare.tres', 'vfx/frost/impact.tres'):
+            self.assertEqual((legacy/relative).read_bytes(), (self.project/relative).read_bytes(), relative)
+        self.assertEqual((self.project/'scenes/vfx_frost_bolt.tscn').read_bytes(),
+                         (ROOT/'runs/C-3/cliffside_v10/scenes/vfx_frost_bolt.tscn').read_bytes())
+        self.assertEqual((self.project/'scripts/vfx_frost_bolt.gd').read_text(),
+                         BOLT_SCRIPT.replace('scenes/frost_impact.tscn', 'scenes/vfx_frost_impact.tscn'))
+        self.assertEqual((self.project/'scripts/vfx_frost_impact.gd').read_text(), IMPACT_SCRIPT)
+
+    def test_authored_kit_own_travel_durations_layers_and_feedback_parameters(self):
+        project = self.project
+        for kind in ('bolt', 'impact'):
+            scene = (project/f'scenes/vfx_synthetic_ice_{kind}.tscn').read_text()
+            for name in ('DarkDuplicate', 'Glow', 'FloorLight', 'Flash', 'Decal', 'Particles'):
+                self.assertIn(f'[node name="{name}"', scene)
+            for token in ('blend_mode = 1', 'blend_mode = 0', 'hitstop_duration = 0.08',
+                          'hitstop_time_scale = 0.1', 'shake_distance = 3', 'shake_duration = 0.12',
+                          'ground_squash = 0.6', 'texture_filter = 1'):
+                self.assertIn(token, scene)
+            script = (project/f'scripts/vfx_synthetic_ice_{kind}.gd').read_text()
+            for token in ('Engine.time_scale = hitstop_time_scale', 'camera.offset = baseline',
+                          '"modulate:a", 0.0, FLOOR_DURATION', '"scale", Vector2.ONE * FLASH_TO',
+                          '"modulate:a", 0.0, DECAL_DURATION', 'set_ignore_time_scale(true)'):
+                self.assertIn(token, script)
+        bolt = (project/'scenes/vfx_synthetic_ice_bolt.tscn').read_text()
+        self.assertIn('res://vfx/synthetic_ice/travel.tres', bolt)
+        self.assertIn('speed_px_s = 360', bolt)
+        self.assertIn('[node name="Streak"', bolt)
+        for phase in ('flare', 'travel', 'impact', 'residual'):
+            text = (project/f'vfx/synthetic_ice/{phase}.tres').read_text()
+            durations = [float(v) for v in re.findall(r'"duration": ([0-9.e+-]+)', text)]
+            self.assertEqual(durations, [2/60,5/60])
+            for source in (self.fixture['kit']/phase).glob('*.png'):
+                self.assertEqual(source.read_bytes(), (project/f'vfx/synthetic_ice/sprites/{phase}'/source.name).read_bytes())
+        self.assertGreater(len(validate_resources(project, True)), 0)
+        self.assertIn('[node name="Residual"', (project/'scenes/vfx_synthetic_ice_impact.tscn').read_text())
+
+    def test_corrupt_authored_metadata_rejected_before_project_output(self):
+        kit = self.fixture['kit']
+        data = json.loads((kit/'kit.json').read_text())
+        for change in ('unknown', 'hold', 'asset', 'layer'):
+            bad = copy.deepcopy(data)
+            if change == 'unknown': bad['unexpected'] = 1
+            elif change == 'hold': bad['phases']['travel']['frames'][0]['hold_frames'] = 0
+            elif change == 'asset': bad['phases']['residual']['frames'][0]['file'] = 'missing.png'
+            else: bad['layers']['glow']['alpha'] = 2
+            (kit/'kit.json').write_text(json.dumps(bad))
+            out = self.root/'invalid-project'
+            with self.subTest(change=change), self.assertRaises(ValueError):
+                build_project(self.fixture['cells'], out, vfx_kits=self.fixture['catalogue'], sockets=self.fixture['sockets'])
+            self.assertFalse(out.exists())
+
+    def test_minimal_layers_and_optional_decal_fallback(self):
+        from export.effect_kit import build
+        data = json.loads(self.fixture['definition'].read_text())
+        data['layers'] = {'decal': {'duration_s': 1}}
+        del data['phases']['residual']
+        data['phases']['travel']['streak'] = False
+        self.fixture['definition'].write_text(json.dumps(data))
+        kit = self.root/'minimal-kit'
+        build(self.fixture['definition'], kit)
+        catalogue = self.root/'minimal.json'
+        catalogue.write_text(json.dumps({'kits': [{'name':'minimal','dir':str(kit)}]}))
+        out = self.root/'minimal-project'
+        build_project(self.fixture['cells'], out, sockets=self.fixture['sockets'], vfx_kits=catalogue)
+        text = (out/'scenes/vfx_minimal_bolt.tscn').read_text()
+        self.assertIn('[node name="Decal"',text)
+        for name in ('DarkDuplicate','Glow','Flash','FloorLight','Streak','Particles','Residual'):
+            self.assertNotIn(f'[node name="{name}"',text)
+        validate_resources(out,True)
+
+    @unittest.skipUnless(Path(GODOT).is_file(), 'Godot binary unavailable')
+    def test_headless_authored_cast_east_north_collision_timing_and_feedback_cleanup(self):
+        (self.project/'effect_probe.gd').write_text(EFFECT_PROBE)
+        run_headless(self, self.project, 'effect_probe.gd')
+
+
+EFFECT_PROBE = '''extends SceneTree
+var errors: int = 0
+func check(ok: bool, message: String) -> void:
+    if not ok:
+        errors += 1
+        printerr("T3O_ASSERTION: ", message)
+func _initialize() -> void:
+    call_deferred("probe")
+func probe() -> void:
+    var scene: Node2D = load("res://scenes/main.tscn").instantiate()
+    root.add_child(scene)
+    await process_frame
+    var keeper: CharacterBody2D = scene.get_node("Keeper")
+    keeper.set_physics_process(false)
+    var angles: Array = []
+    var collision_paths: Array = []
+    var baseline: float = Engine.time_scale
+    var camera: Camera2D = keeper.get_node("Camera2D")
+    var camera_offset: Vector2 = camera.offset
+    for facing in ["E", "N"]:
+        keeper.state = "cast"
+        keeper.facing = facing
+        keeper.cast_fired = false
+        keeper.cast_kit_index = 0
+        keeper.sprite.play("cast_" + facing)
+        keeper.sprite.pause()
+        keeper.sprite.frame = 2
+        check(keeper.cast_fired, "socket release " + facing)
+        var bolt: Area2D = scene.get_child(scene.get_child_count()-1)
+        bolt.set_physics_process(false)
+        check(bolt.scene_file_path == "res://scenes/vfx_synthetic_ice_bolt.tscn", "authored bolt")
+        var travel: AnimatedSprite2D = bolt.get_node("Ground/Travel")
+        var angle: float = 0.0 if facing == "E" else -90.0
+        angles.append(travel.rotation_degrees)
+        check(absf(travel.rotation_degrees-angle) < 0.001, "travel rotation")
+        check(bolt.get_node("Ground").scale.is_equal_approx(Vector2(1,0.6)), "ground squash")
+        check(travel.sprite_frames.resource_path == "res://vfx/synthetic_ice/travel.tres", "own travel")
+        check(is_equal_approx(travel.sprite_frames.get_frame_duration("travel",0) / travel.sprite_frames.get_animation_speed("travel"), 2.0/60.0), "first hold")
+        check(is_equal_approx(travel.sprite_frames.get_frame_duration("travel",1), 5.0/60.0), "second hold")
+        check(bolt.get_node("Ground/Glow").material.blend_mode == CanvasItemMaterial.BLEND_MODE_ADD, "additive glow")
+        check(bolt.get_node("Ground/DarkDuplicate").material.blend_mode == CanvasItemMaterial.BLEND_MODE_MIX, "mix duplicate")
+        check(bolt.get_node("Ground/DarkDuplicate").modulate == Color.BLACK, "black duplicate")
+        var old_position: Vector2 = bolt.position
+        bolt._physics_process(0.01)
+        check(is_equal_approx(bolt.position.distance_to(old_position), 3.6), "authored speed")
+        bolt._on_body_entered(keeper)
+        check(not bolt.expired, "caster ignored")
+        var wall := StaticBody2D.new()
+        scene.add_child(wall)
+        bolt._on_body_entered(wall)
+        check(bolt.expired, "collision expires bolt")
+        var impact: Node2D = scene.get_child(scene.get_child_count()-1)
+        collision_paths.append(impact.scene_file_path)
+        check(impact.scene_file_path == "res://scenes/vfx_synthetic_ice_impact.tscn", "collision impact")
+        check(impact.global_position.distance_to(bolt.global_position) < 0.001, "impact position")
+        check(is_equal_approx(Engine.time_scale, 0.1), "hitstop active")
+        check(camera.offset.distance_to(camera_offset) > 0, "shake active")
+        # Stop restoration is owned by the tree, so early effect deletion is safe.
+        if facing == "E":
+            impact.queue_free()
+        await create_timer(0.22, true, false, true).timeout
+        check(is_equal_approx(Engine.time_scale, baseline), "hitstop baseline restored")
+        check(camera.offset.distance_to(camera_offset) < 0.001, "camera offset restored")
+        if facing == "N":
+            check(not impact.get_node("Ground").visible, "body hides after held frames")
+            check(impact.get_node("Residual").is_playing(), "residual follows impact")
+            await create_timer(0.2, true, false, true).timeout
+            check(not impact.get_node("Residual").visible, "residual hides when finished")
+            check(impact.get_node("Ground/Flash").modulate.a < 0.001, "flash faded")
+            check(impact.get_node("FloorLight").modulate.a < 0.001, "floor light faded")
+            check(impact.get_node("Decal").modulate.a > 0.0, "decal outlives impact")
+        keeper.state = "idle"
+    print("T3T_RUNTIME=" + JSON.stringify({"rotation_degrees":angles,"collision_impacts":collision_paths,"errors":errors}))
+    if errors == 0: print("T3O_RUNTIME_ASSERTIONS=complete")
+    scene.queue_free()
+    await process_frame
+    quit(0 if errors == 0 else 7)
+'''
+
+
 PICKER_PROBE = '''extends SceneTree
 var errors: int = 0
 var keeper: CharacterBody2D
