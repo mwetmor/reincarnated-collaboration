@@ -53,3 +53,11 @@ Three attempts rejected: extracted painted shadows at source strength (v9: too f
 3. Others to look for: Godot 2D light occluders with a sun light (real-time, register risk), normal/height maps from the paint (Sprite Illuminator-class), shadow sprites re-painted by Astra per object in register.
 
 Gate to re-open: a method note + one A/B chunk; not before the web playtest ships.
+
+## Scene-style references (Matt 2026-09-15, R-C3-113/114/115)
+
+- **Diablo 2** — the scene's weight and darkness; density of things; pre-rendered-isometric lineage.
+- **Bastion** (Supergiant 2011) — the painted-scene pole: hand-painted 2D isometric world, storybook clarity, warm saturated palette, bold chunky silhouettes, high detail that stays legible on a simple value structure. Closest shipped analogue to the cliffside register. Devices to remember: the world assembling itself underfoot (a presentation device for procedural maps — *Rise*); the narrator as a voice across time (kin to the spirit guide from the future).
+- **Secret of Evermore** — the *feel* (displaced kid, journey through eras, wonder with unease), not a visual register.
+- **Earthbound** — THEME ONLY (teen into the future); never a style reference.
+- **Chronicon / Children of Morta / The Slormancer** — VFX references under measurement (Legolas), not scene references.
