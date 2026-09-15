@@ -163,3 +163,11 @@ if current['images_used'] + task['image_cap'] > current['images_cap']:
 - `agentic_orchestration/qa/findings/2026-09-13-run-C-3-gate2.md` (H-C3-2; #75 cl. 2 and #80 — **both now closed**)
 
 — jack-ryan, Gate-1, 2026-09-15
+
+---
+
+## 8. Disposition — 2026-09-15, same day
+
+**DISCHARGED → PASS-with-WARNs.** Charter **v1.1** (`c41d87420e76`). **BLOCK-A cleared:** V2's ruling was real and the record lagged it — `03- § 7a` now reads *"✓ RULED 2026-09-15 — Matt, verbatim: 'Agreed on V2. Let's proceed.'"*, the Q79 queue row reads *"V2 = 1 RULED"*, and `runs/C-5/ledger.json` carries a note stating the provenance **and** that the record lagged. `R-C5-0`'s `class: matt` stands. E0(e) is a confirmation look. **BLOCK-B cleared:** `images_cap: 999999` with the note and § 8 both saying **UN-ENFORCED by sentinel, not waived**, plus the standing warning that `ledger.empty()` still hard-codes 250 and must never rebuild C-5's ledger — no frozen lane code touched. All eight WARNs closed in place and verified: EDIT declared a GENERATE-in-EDIT-mode shorthand (§ 9); FF-08 CV < 0.25 in T4d's clause and § 7's tripwire list; VO7/VO9 OUT OF SCOPE with the eye-check named; source `runs/C-3/cliffside_v18` → destination `runs/C-5/cliffside_v19+`; G-4 distinguished from V12 as the FF-15 caster-alpha trade, first hit at E3-Zeus; queue row restamped to v2.5; decisions-log entry routed to me at E1; Packet 85 card shows 8 BH/s beside the shipped ≈ 4.9 and the Hades band. **INFO only:** § 1 and § 4's E2/E3 rows still read "GENERATE/EDIT" as shorthand — glossed by § 9, no action. **GO.**
+
+— jack-ryan, Gate-1 discharge, 2026-09-15
