@@ -2,7 +2,7 @@
   "run": "C-5",
   "charter": "agentic_orchestration/gandalf/notes/2026-09-15-vfx-run-C-5-charter.md",
   "charter_sha256_12": "c41d87420e76",
-  "images_used": 10,
+  "images_used": 12,
   "images_cap": 999999,
   "images_cap_note": "SENTINEL 999999 — the run image cap is UN-ENFORCED by sentinel (Matt V20, 2026-09-15: \"no image budget\"); images_used is counted and reported at every packet. run_burst.py:158 integer-compares this field; null crashed it (jack-ryan Gate-1 BLOCK-B).",
   "bursts": [
@@ -328,6 +328,170 @@
       "codex_version": "codex-cli 0.153.4",
       "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
       "exit": 2
+    },
+    {
+      "id": "CS-objiso-clearing-2-r1",
+      "type": "GENERATE",
+      "experiment": "C5-P0a",
+      "brief_sha256": "d1c5bbd56ae5852256536047f94397aa71a40110731df2a3f7ba43732593b64d",
+      "started": "2026-09-15T20:11:56.838651+00:00",
+      "ended": "2026-09-15T20:14:31.268313+00:00",
+      "minutes": 2.5737937541666422,
+      "image_calls": 2,
+      "tool_calls": 5,
+      "audit": {
+        "violations": [],
+        "image_calls": 2,
+        "tool_calls": 5,
+        "tools_seen": {
+          "command_execution": 5
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0a6b2-9644-7b21-bb07-a6a6fa835205/exec-6294ec10-d9c2-4315-99b9-328555ea91b7.png",
+            "sha256": "0ffb3a91e3f8953cced22450d7054adb2b8e89e795866a3a63104a7d3052f3b9"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0a6b2-9644-7b21-bb07-a6a6fa835205/exec-7b5a0b8a-e77c-4514-9f6e-6bcefd848ab2.png",
+            "sha256": "4ef5ce4a8213ccf8dd3812ed34496cec03bfc637357bff52a48d3400ba0352d2"
+          }
+        ]
+      },
+      "receipt_sha256": "68ceb69c3b82e3da39f2c92f242faf436edfc161f9bb729c509f9eb3c3139629",
+      "artifacts": [
+        {
+          "name": "objiso_clearing_2.png",
+          "sha256": "4ef5ce4a8213ccf8dd3812ed34496cec03bfc637357bff52a48d3400ba0352d2"
+        },
+        {
+          "name": "exec-6294ec10-d9c2-4315-99b9-328555ea91b7.provenance.json",
+          "sha256": "0114b0b5d7e4c36275cb9bbb89bbebce782a3bd9c6b7b6247a808e85a2726e6d"
+        },
+        {
+          "name": "exec-7b5a0b8a-e77c-4514-9f6e-6bcefd848ab2.provenance.json",
+          "sha256": "8acbfa23030ae59cb75c1bbcfd08f0bc020b49c174a7e563ed976605b2e98255"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0a6b2-9644-7b21-bb07-a6a6fa835205/exec-6294ec10-d9c2-4315-99b9-328555ea91b7.png",
+          "sha256": "0ffb3a91e3f8953cced22450d7054adb2b8e89e795866a3a63104a7d3052f3b9"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0a6b2-9644-7b21-bb07-a6a6fa835205/exec-7b5a0b8a-e77c-4514-9f6e-6bcefd848ab2.png",
+          "sha256": "4ef5ce4a8213ccf8dd3812ed34496cec03bfc637357bff52a48d3400ba0352d2"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
+    },
+    {
+      "id": "CS-assets-clearing",
+      "type": "CHECK",
+      "experiment": "C5-P0a",
+      "brief_sha256": "aec5ffee9c7192dd862ef274693da1ef8865e2e7317554886cabcf699ec2b117",
+      "started": "2026-09-15T20:15:37.968257+00:00",
+      "ended": "2026-09-15T20:21:37.023880+00:00",
+      "minutes": 5.9844610027833065,
+      "image_calls": 0,
+      "tool_calls": 7,
+      "audit": {
+        "violations": [],
+        "image_calls": 0,
+        "tool_calls": 7,
+        "tools_seen": {
+          "command_execution": 7
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": []
+      },
+      "receipt_sha256": "e488ffcf6b84b36865a0a66c4114cc299758fef019557988c002b4e32206448b",
+      "artifacts": [
+        {
+          "name": "assets.json",
+          "sha256": "8fa79ec784946f0d88663f646649004a52bfce99bd237bb455f3a2a27432649c"
+        },
+        {
+          "name": "assets/dummy_brute_1.png",
+          "sha256": "6f457cdb867ee7d55a2e0b296700ea3c49655d91f9e272b7ded2e4783cb89aa0"
+        },
+        {
+          "name": "assets/dummy_hound_1.png",
+          "sha256": "c66d6bf0cba2b8baac2dc4a2a3c686f05b29e448950ff03981fb756e8b8b318d"
+        },
+        {
+          "name": "assets/dummy_humanoid_1.png",
+          "sha256": "9835558feb48c1646a957763676922e0f35f8cb9b02138b7b5578a2b1fce466e"
+        },
+        {
+          "name": "assets/dummy_humanoid_2.png",
+          "sha256": "47e0bb17ba9c102c35af9bf1054de4f9b49e843b395d866417624fb676ef659f"
+        },
+        {
+          "name": "assets/dummy_humanoid_3.png",
+          "sha256": "54f43c7bd7edbaff2a24e7c16add5137d2ebde44dcf301a50b163c99af4021ee"
+        },
+        {
+          "name": "assets/dummy_rat_1.png",
+          "sha256": "3e9f65ac7c467ec594abcd1a85d8ccc1855d6465916b8a852ccbec4cd73f687e"
+        },
+        {
+          "name": "assets/dummy_rat_2.png",
+          "sha256": "b0e8323698a3abcb9ba11ca5ae7ae115f517599dfdb6d3a6efb48c0a794da8bb"
+        },
+        {
+          "name": "assets/dummy_rat_3.png",
+          "sha256": "3e11673aaf0c1e93c1a508da5fc82f5605bcd7346ecb8b71d688956fb2a2d53c"
+        },
+        {
+          "name": "checks.json",
+          "sha256": "98eaef3dc0210477f2a707bbe538110cd9f5a08199aae8d54402c617fb09df24"
+        },
+        {
+          "name": "placement.json",
+          "sha256": "0a1f4f5e51d75e420db0fa8a3f8152430db5f4af848e544dbbf2037ae32517c0"
+        },
+        {
+          "name": "props_clearing.json",
+          "sha256": "ee869bf9fceba7ea4842abbf3100e0f2ed1fed4894aafd6c36a03a1b601ec505"
+        },
+        {
+          "name": "rebuild.png",
+          "sha256": "1e2b1bc7727768287f94b27d5e22b45b479d246d116b11f2017b67b17fe1820a"
+        },
+        {
+          "name": "rebuild_vs_after.png",
+          "sha256": "8c2e289af5c4ef828d8bcfa0b09d25a5d95632ccbb052303bf1f0f4809784d8f"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
     }
   ],
   "experiments": [],
@@ -336,6 +500,11 @@
       "id": "M-C5-CLEARING-DRESSED",
       "note": "CS-dress-clearing-r1 DELIVERED (exit 0, 2 images, sha 63d89e28…): seven training dummies in register on the far-plateau clearing; conductor eyeball PASS (grounded, shadows lower-right, painting preserved). Object sheets cut: 9 tiles / 3 sheets (7 dummies + 2 drift patches; colossus tile includes the club humanoid — separated at isolation).",
       "ts": "2026-09-15T16:09:06"
+    },
+    {
+      "id": "M-C5-DUMMIES-ISOLATED",
+      "note": "All seven dummies isolated on #00ff00 (sheets 1, 2-r1, 3 DELIVERED; edge slivers = tile bleed, dropped at catalogue).",
+      "ts": "2026-09-15T16:14:50"
     }
   ],
   "halts": [],
@@ -367,6 +536,13 @@
       "veto_open": true,
       "ruling": "CS-objiso-clearing-2 VOID — same receipt-path defect as R-C5-2 (the objiso generator reused the ambiguous `images = 1 or 2` RETURN line; conductor defect, now fixed in mk_objsheet_c5.py). Sheets 1 and 3 DELIVERED clean. Re-drive CS-objiso-clearing-2-r1 with the fixed line. Not consecutive VOIDs (D, D, D between) — no HALT; recorded as the second instance of one brief-shape defect.",
       "ts": "2026-09-15T16:11:56"
+    },
+    {
+      "id": "R-C5-4",
+      "class": "conductor",
+      "veto_open": true,
+      "ruling": "CS-assets-clearing DELIVERED: 8 components ≥ 2,500 sheet px; dummy_rat_2 (21×78 px, from the colossus tile) is the HOUND HINDQUARTERS bled across the tile boundary (crop x 1130–1215 overlap) — dropped from CS-props-v19; seven dummies stand. Rebuild error 11–26/255 (humanoid_3 44 = its 10-px collision shift). Cow relocated (4230,618) → (4600,830), no displacement needed. Kind names are size-class only (humanoid_1 = the painted brute at 220 px; brute_1 = the colossus at 340 px) — cosmetic, kept. Tile-overlap lesson for mk_objsheet_c5: crop boxes must not overlap; next run splits shared bands.",
+      "ts": "2026-09-15T16:22:33"
     }
   ],
   "grok_calls": [],

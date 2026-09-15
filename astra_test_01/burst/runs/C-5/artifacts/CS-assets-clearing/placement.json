@@ -1,0 +1,170 @@
+{
+  "task_id": "CS-assets-clearing",
+  "crop_origin": [
+    3136.0,
+    128.0
+  ],
+  "cow": {
+    "asset": "cow_carcass",
+    "old": [
+      4230.0,
+      618.0
+    ],
+    "requested": [
+      4600,
+      830
+    ],
+    "new": [
+      4600.0,
+      830.0
+    ],
+    "displacement_from_requested_px": 0,
+    "old_to_new_delta": [
+      370.0,
+      212.0
+    ]
+  },
+  "dummies": [
+    {
+      "asset": "dummy_humanoid_1",
+      "kind": "humanoid",
+      "height_px": 220,
+      "position": [
+        4038.75,
+        450.0
+      ],
+      "source_level_position": [
+        4038.75,
+        450.0
+      ],
+      "shifts": [],
+      "footprint_inside_walkable": true
+    },
+    {
+      "asset": "dummy_rat_1",
+      "kind": "rat",
+      "height_px": 75,
+      "position": [
+        4221.25,
+        398.0
+      ],
+      "source_level_position": [
+        4221.25,
+        398.0
+      ],
+      "shifts": [],
+      "footprint_inside_walkable": true
+    },
+    {
+      "asset": "dummy_brute_1",
+      "kind": "brute",
+      "height_px": 340,
+      "position": [
+        4370.507042253521,
+        494.8732394366197
+      ],
+      "source_level_position": [
+        4370.507042253521,
+        494.8732394366197
+      ],
+      "shifts": [],
+      "footprint_inside_walkable": true
+    },
+    {
+      "asset": "dummy_humanoid_2",
+      "kind": "humanoid",
+      "height_px": 177,
+      "position": [
+        3911.25,
+        596.0
+      ],
+      "source_level_position": [
+        3911.25,
+        596.0
+      ],
+      "shifts": [],
+      "footprint_inside_walkable": true
+    },
+    {
+      "asset": "dummy_humanoid_3",
+      "kind": "humanoid",
+      "height_px": 192,
+      "position": [
+        4525.718309859155,
+        650.5070422535211
+      ],
+      "source_level_position": [
+        4525.718309859155,
+        660.5070422535211
+      ],
+      "shifts": [
+        {
+          "old": [
+            4525.718309859155,
+            660.5070422535211
+          ],
+          "new": [
+            4525.718309859155,
+            650.5070422535211
+          ],
+          "delta": [
+            0.0,
+            -10.0
+          ],
+          "distance_px": 10.0,
+          "initial_overlaps": [
+            "far_obj_05_a"
+          ],
+          "initial_footprint_inside_walkable": true
+        }
+      ],
+      "footprint_inside_walkable": true
+    },
+    {
+      "asset": "dummy_rat_2",
+      "kind": "rat",
+      "height_px": 78,
+      "position": [
+        4275.859154929577,
+        585.0140845070423
+      ],
+      "source_level_position": [
+        4275.859154929577,
+        585.0140845070423
+      ],
+      "shifts": [],
+      "footprint_inside_walkable": true
+    },
+    {
+      "asset": "dummy_hound_1",
+      "kind": "hound",
+      "height_px": 110,
+      "position": [
+        4222.25,
+        609.5
+      ],
+      "source_level_position": [
+        4222.25,
+        609.5
+      ],
+      "shifts": [],
+      "footprint_inside_walkable": true
+    },
+    {
+      "asset": "dummy_rat_3",
+      "kind": "rat",
+      "height_px": 76,
+      "position": [
+        4248.75,
+        752.5
+      ],
+      "source_level_position": [
+        4248.75,
+        752.5
+      ],
+      "shifts": [],
+      "footprint_inside_walkable": true
+    }
+  ],
+  "unresolved": []
+}

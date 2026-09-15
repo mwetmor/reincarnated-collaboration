@@ -1,0 +1,1526 @@
+{
+  "task_id": "CS-assets-clearing",
+  "report_only": true,
+  "expected_dummy_count": 7,
+  "dummy_count_found": 8,
+  "dropped_residues": [
+    {
+      "sheet": 1,
+      "component": 3,
+      "area_sheet_px": 1029,
+      "sheet_bbox": [
+        573,
+        227,
+        587,
+        327
+      ]
+    },
+    {
+      "sheet": 2,
+      "component": 1,
+      "area_sheet_px": 1160,
+      "sheet_bbox": [
+        1201,
+        35,
+        1227,
+        91
+      ]
+    }
+  ],
+  "matting": [
+    {
+      "sheet": 1,
+      "options": {
+        "preserve_particles": true,
+        "alpha_floor": 40,
+        "edge_mode": "clamp"
+      },
+      "metadata": {
+        "method": "green excess matte + inverse straight-alpha compositing + nearest fully-opaque RGB clamp",
+        "removed_background_or_detached_alpha_dust_pixels": 0,
+        "native_input_alpha": false,
+        "alpha_floor": 40,
+        "alpha_floor_removed_pixels": 1491254
+      }
+    },
+    {
+      "sheet": 2,
+      "options": {
+        "preserve_particles": true,
+        "alpha_floor": 40,
+        "edge_mode": "clamp"
+      },
+      "metadata": {
+        "method": "green excess matte + inverse straight-alpha compositing + nearest fully-opaque RGB clamp",
+        "removed_background_or_detached_alpha_dust_pixels": 0,
+        "native_input_alpha": false,
+        "alpha_floor": 40,
+        "alpha_floor_removed_pixels": 1407366
+      }
+    },
+    {
+      "sheet": 3,
+      "options": {
+        "preserve_particles": true,
+        "alpha_floor": 40,
+        "edge_mode": "clamp"
+      },
+      "metadata": {
+        "method": "green excess matte + inverse straight-alpha compositing + nearest fully-opaque RGB clamp",
+        "removed_background_or_detached_alpha_dust_pixels": 0,
+        "native_input_alpha": false,
+        "alpha_floor": 40,
+        "alpha_floor_removed_pixels": 1539020
+      }
+    }
+  ],
+  "component_connectivity": 4,
+  "component_alpha_threshold": 8,
+  "component_area_min_sheet_px": 2500,
+  "instrument_concern": "Unrefined preserve-particles matte alpha > 8 joins each entire sheet due to green plate residual alpha (typically 11-15). Used frozen alpha_floor=40 plus preserve_particles=True before the literal connected-component test. These options are reported, not a silent threshold change.",
+  "fragment_concern": "Sheet 2 component 5 is a clipped 3040-pixel fragment; retained because literal area rule classifies it as DUMMY, producing eight assets.",
+  "placement_method": "Smallest Euclidean displacement on a 1-level-pixel offset grid; dirt-color score breaks equal-distance ties. Declared rectangle footprints retained, tested analytically against ellipse; ellipse pairs use exact scaled-circle or Perram-Wertheim tests. Full dummy ellipses must lie in a walkable polygon and outside blocked polygons.",
+  "cow": {
+    "asset": "cow_carcass",
+    "old": [
+      4230.0,
+      618.0
+    ],
+    "requested": [
+      4600,
+      830
+    ],
+    "new": [
+      4600.0,
+      830.0
+    ],
+    "displacement_from_requested_px": 0,
+    "old_to_new_delta": [
+      370.0,
+      212.0
+    ]
+  },
+  "existing_instance_bboxes_after_cow_move": [
+    {
+      "instance_index": 0,
+      "asset": "tree_living_a",
+      "position": [
+        1896.0139860139861,
+        2765
+      ],
+      "px_size": [
+        666,
+        566
+      ],
+      "level_bbox": [
+        1568.0,
+        2204.0,
+        2234.0,
+        2770.0
+      ],
+      "anchor": [
+        328.013986013986,
+        561
+      ],
+      "footprint": {
+        "w": 166,
+        "h": 40,
+        "offset": [
+          -7.01,
+          -20.0
+        ],
+        "shape": "rect"
+      }
+    },
+    {
+      "instance_index": 1,
+      "asset": "tree_living_b",
+      "position": [
+        2727.3105590062114,
+        2489
+      ],
+      "px_size": [
+        639,
+        548
+      ],
+      "level_bbox": [
+        2386.0,
+        1947.0,
+        3025.0,
+        2495.0
+      ],
+      "anchor": [
+        341.3105590062112,
+        542
+      ],
+      "footprint": {
+        "w": 122,
+        "h": 40,
+        "offset": [
+          8.69,
+          -20.0
+        ],
+        "shape": "rect"
+      }
+    },
+    {
+      "instance_index": 2,
+      "asset": "snag_scorched",
+      "position": [
+        1743.1290322580644,
+        2169
+      ],
+      "px_size": [
+        168,
+        286
+      ],
+      "level_bbox": [
+        1607.0,
+        1888.0,
+        1775.0,
+        2174.0
+      ],
+      "anchor": [
+        136.1290322580645,
+        281
+      ],
+      "footprint": {
+        "w": 143,
+        "h": 40,
+        "offset": [
+          -59.63,
+          -20.0
+        ],
+        "shape": "rect"
+      }
+    },
+    {
+      "instance_index": 3,
+      "asset": "stump_a",
+      "position": [
+        1709.6873508353221,
+        2781
+      ],
+      "px_size": [
+        125,
+        104
+      ],
+      "level_bbox": [
+        1658.0,
+        2683.0,
+        1783.0,
+        2787.0
+      ],
+      "anchor": [
+        51.68735083532219,
+        98
+      ],
+      "footprint": {
+        "w": 114,
+        "h": 51,
+        "offset": [
+          10.31,
+          -25.5
+        ],
+        "shape": "rect"
+      }
+    },
+    {
+      "instance_index": 4,
+      "asset": "stump_b",
+      "position": [
+        2182.179012345679,
+        2769
+      ],
+      "px_size": [
+        127,
+        107
+      ],
+      "level_bbox": [
+        2087.0,
+        2666.0,
+        2214.0,
+        2773.0
+      ],
+      "anchor": [
+        95.17901234567901,
+        103
+      ],
+      "footprint": {
+        "w": 120,
+        "h": 54,
+        "offset": [
+          -33.18,
+          -27.0
+        ],
+        "shape": "rect"
+      }
+    },
+    {
+      "instance_index": 5,
+      "asset": "cache_crates_barrel",
+      "position": [
+        2803.7820512820513,
+        2475
+      ],
+      "px_size": [
+        140,
+        131
+      ],
+      "level_bbox": [
+        2763.0,
+        2350.0,
+        2903.0,
+        2481.0
+      ],
+      "anchor": [
+        40.782051282051285,
+        125
+      ],
+      "footprint": {
+        "w": 129,
+        "h": 58,
+        "offset": [
+          29.72,
+          -29.0
+        ],
+        "shape": "rect"
+      }
+    },
+    {
+      "instance_index": 6,
+      "asset": "rock_a",
+      "position": [
+        1772.360544217687,
+        2165
+      ],
+      "px_size": [
+        105,
+        60
+      ],
+      "level_bbox": [
+        1732.0,
+        2110.0,
+        1837.0,
+        2170.0
+      ],
+      "anchor": [
+        40.36054421768708,
+        55
+      ],
+      "footprint": {
+        "w": 97,
+        "h": 43,
+        "offset": [
+          14.14,
+          -21.5
+        ],
+        "shape": "rect"
+      }
+    },
+    {
+      "instance_index": 7,
+      "asset": "rock_b",
+      "position": [
+        2615.9059405940593,
+        2428
+      ],
+      "px_size": [
+        100,
+        68
+      ],
+      "level_bbox": [
+        2585.0,
+        2366.0,
+        2685.0,
+        2434.0
+      ],
+      "anchor": [
+        30.905940594059405,
+        62
+      ],
+      "footprint": {
+        "w": 77,
+        "h": 34,
+        "offset": [
+          13.59,
+          -17.0
+        ],
+        "shape": "rect"
+      }
+    },
+    {
+      "instance_index": 8,
+      "asset": "rock_c",
+      "position": [
+        2656.3176470588232,
+        2535
+      ],
+      "px_size": [
+        98,
+        66
+      ],
+      "level_bbox": [
+        2608.9999999999995,
+        2474.0,
+        2706.9999999999995,
+        2540.0
+      ],
+      "anchor": [
+        47.31764705882353,
+        61
+      ],
+      "footprint": {
+        "w": 87,
+        "h": 39,
+        "offset": [
+          2.18,
+          -19.5
+        ],
+        "shape": "rect"
+      }
+    },
+    {
+      "instance_index": 9,
+      "asset": "bridge_obj_01_a",
+      "position": [
+        2588.412213740458,
+        1352
+      ],
+      "px_size": [
+        231,
+        270
+      ],
+      "level_bbox": [
+        2496.0,
+        1088.0,
+        2727.0,
+        1358.0
+      ],
+      "anchor": [
+        92.41221374045801,
+        264
+      ],
+      "footprint": {
+        "w": 151,
+        "h": 40,
+        "offset": [
+          10.09,
+          -20.0
+        ],
+        "shape": "rect"
+      }
+    },
+    {
+      "instance_index": 10,
+      "asset": "bridge_obj_01_c",
+      "position": [
+        2829.1049723756905,
+        1286
+      ],
+      "px_size": [
+        94,
+        82
+      ],
+      "level_bbox": [
+        2792.0,
+        1210.0,
+        2886.0,
+        1292.0
+      ],
+      "anchor": [
+        37.10497237569061,
+        76
+      ],
+      "footprint": {
+        "w": 83,
+        "h": 37,
+        "offset": [
+          10.4,
+          -18.5
+        ],
+        "shape": "rect"
+      }
+    },
+    {
+      "instance_index": 11,
+      "asset": "bridge_obj_02_a",
+      "position": [
+        3199.0315789473684,
+        1486
+      ],
+      "px_size": [
+        105,
+        57
+      ],
+      "level_bbox": [
+        3154.0,
+        1435.0,
+        3259.0,
+        1492.0
+      ],
+      "anchor": [
+        45.03157894736842,
+        51
+      ],
+      "footprint": {
+        "w": 94,
+        "h": 42,
+        "offset": [
+          7.97,
+          -21.0
+        ],
+        "shape": "rect"
+      }
+    },
+    {
+      "instance_index": 12,
+      "asset": "far_obj_05_a",
+      "position": [
+        4511.658064516129,
+        706
+      ],
+      "px_size": [
+        92,
+        79
+      ],
+      "level_bbox": [
+        4472.0,
+        633.0,
+        4564.0,
+        712.0
+      ],
+      "anchor": [
+        39.65806451612903,
+        73
+      ],
+      "footprint": {
+        "w": 81,
+        "h": 36,
+        "offset": [
+          6.84,
+          -18.0
+        ],
+        "shape": "rect"
+      }
+    },
+    {
+      "instance_index": 13,
+      "asset": "far_obj_05_b",
+      "position": [
+        4640.760736196319,
+        977
+      ],
+      "px_size": [
+        139,
+        258
+      ],
+      "level_bbox": [
+        4579.0,
+        725.0,
+        4718.0,
+        983.0
+      ],
+      "anchor": [
+        61.760736196319016,
+        252
+      ],
+      "footprint": {
+        "w": 101,
+        "h": 40,
+        "offset": [
+          3.74,
+          -20.0
+        ],
+        "shape": "rect"
+      }
+    },
+    {
+      "instance_index": 14,
+      "asset": "far_obj_02_a",
+      "position": [
+        4593.315789473684,
+        573
+      ],
+      "px_size": [
+        135,
+        280
+      ],
+      "level_bbox": [
+        4535.0,
+        298.0,
+        4670.0,
+        578.0
+      ],
+      "anchor": [
+        58.31578947368421,
+        275
+      ],
+      "footprint": {
+        "w": 98,
+        "h": 40,
+        "offset": [
+          8.68,
+          -20.0
+        ],
+        "shape": "rect"
+      }
+    },
+    {
+      "instance_index": 15,
+      "asset": "far_obj_07_a",
+      "position": [
+        5139.830508474576,
+        928
+      ],
+      "px_size": [
+        112,
+        276
+      ],
+      "level_bbox": [
+        5048.0,
+        658.0,
+        5160.0,
+        934.0
+      ],
+      "anchor": [
+        91.83050847457628,
+        270
+      ],
+      "footprint": {
+        "w": 94,
+        "h": 40,
+        "offset": [
+          -39.83,
+          -20.0
+        ],
+        "shape": "rect"
+      }
+    },
+    {
+      "instance_index": 16,
+      "asset": "far_obj_01_a",
+      "position": [
+        5102.417061611374,
+        540
+      ],
+      "px_size": [
+        131,
+        277
+      ],
+      "level_bbox": [
+        5048.0,
+        268.0,
+        5179.0,
+        545.0
+      ],
+      "anchor": [
+        54.41706161137441,
+        272
+      ],
+      "footprint": {
+        "w": 95,
+        "h": 40,
+        "offset": [
+          -1.92,
+          -20.0
+        ],
+        "shape": "rect"
+      }
+    },
+    {
+      "instance_index": 17,
+      "asset": "far_obj_03_a",
+      "position": [
+        4914.355670103093,
+        508
+      ],
+      "px_size": [
+        136,
+        92
+      ],
+      "level_bbox": [
+        4853.0,
+        422.0,
+        4989.0,
+        514.0
+      ],
+      "anchor": [
+        61.355670103092784,
+        86
+      ],
+      "footprint": {
+        "w": 125,
+        "h": 56,
+        "offset": [
+          6.14,
+          -28.0
+        ],
+        "shape": "rect"
+      }
+    },
+    {
+      "instance_index": 18,
+      "asset": "far_obj_10_a",
+      "position": [
+        4440.941176470588,
+        909
+      ],
+      "px_size": [
+        138,
+        96
+      ],
+      "level_bbox": [
+        4372.0,
+        819.0,
+        4510.0,
+        915.0
+      ],
+      "anchor": [
+        68.94117647058823,
+        90
+      ],
+      "footprint": {
+        "w": 127,
+        "h": 57,
+        "offset": [
+          -0.44,
+          -28.5
+        ],
+        "shape": "rect"
+      }
+    },
+    {
+      "instance_index": 19,
+      "asset": "far_obj_12_a",
+      "position": [
+        4918.122950819672,
+        1005
+      ],
+      "px_size": [
+        101,
+        90
+      ],
+      "level_bbox": [
+        4872.0,
+        921.0,
+        4973.0,
+        1011.0
+      ],
+      "anchor": [
+        46.122950819672134,
+        84
+      ],
+      "footprint": {
+        "w": 89,
+        "h": 40,
+        "offset": [
+          4.38,
+          -20.0
+        ],
+        "shape": "rect"
+      }
+    },
+    {
+      "instance_index": 20,
+      "asset": "far_obj_04_a",
+      "position": [
+        4877.443396226415,
+        667
+      ],
+      "px_size": [
+        92,
+        94
+      ],
+      "level_bbox": [
+        4830.0,
+        579.0,
+        4922.0,
+        673.0
+      ],
+      "anchor": [
+        47.443396226415096,
+        88
+      ],
+      "footprint": {
+        "w": 82,
+        "h": 36,
+        "offset": [
+          -1.44,
+          -18.0
+        ],
+        "shape": "rect"
+      }
+    },
+    {
+      "instance_index": 21,
+      "asset": "far_low_obj_02_a",
+      "position": [
+        4995.954545454546,
+        1610
+      ],
+      "px_size": [
+        122,
+        91
+      ],
+      "level_bbox": [
+        4932.000000000001,
+        1524.0,
+        5054.000000000001,
+        1615.0
+      ],
+      "anchor": [
+        63.95454545454545,
+        86
+      ],
+      "footprint": {
+        "w": 111,
+        "h": 49,
+        "offset": [
+          -2.45,
+          -24.5
+        ],
+        "shape": "rect"
+      }
+    },
+    {
+      "instance_index": 22,
+      "asset": "far_low_obj_02_b",
+      "position": [
+        5160.0,
+        1630
+      ],
+      "px_size": [
+        318,
+        356
+      ],
+      "level_bbox": [
+        5011.0,
+        1280.0,
+        5329.0,
+        1636.0
+      ],
+      "anchor": [
+        149.0,
+        350
+      ],
+      "footprint": {
+        "w": 106,
+        "h": 40,
+        "offset": [
+          8.0,
+          -20.0
+        ],
+        "shape": "rect"
+      }
+    },
+    {
+      "instance_index": 23,
+      "asset": "far_low_obj_01_a",
+      "position": [
+        4432.483516483517,
+        1359
+      ],
+      "px_size": [
+        236,
+        128
+      ],
+      "level_bbox": [
+        4232.0,
+        1236.0,
+        4468.0,
+        1364.0
+      ],
+      "anchor": [
+        200.4835164835165,
+        123
+      ],
+      "footprint": {
+        "w": 160,
+        "h": 72,
+        "offset": [
+          -50.48,
+          -36.0
+        ],
+        "shape": "rect"
+      }
+    },
+    {
+      "instance_index": 24,
+      "asset": "far_low_obj_01_b",
+      "position": [
+        4364.426666666666,
+        1268
+      ],
+      "px_size": [
+        72,
+        56
+      ],
+      "level_bbox": [
+        4333.0,
+        1217.0,
+        4405.0,
+        1273.0
+      ],
+      "anchor": [
+        31.426666666666666,
+        51
+      ],
+      "footprint": {
+        "w": 61,
+        "h": 30,
+        "offset": [
+          5.07,
+          -15.0
+        ],
+        "shape": "rect"
+      }
+    },
+    {
+      "instance_index": 25,
+      "asset": "far_low_obj_01_c",
+      "position": [
+        4430.156521739131,
+        1472
+      ],
+      "px_size": [
+        100,
+        83
+      ],
+      "level_bbox": [
+        4383.0,
+        1394.0,
+        4483.0,
+        1477.0
+      ],
+      "anchor": [
+        47.15652173913043,
+        78
+      ],
+      "footprint": {
+        "w": 89,
+        "h": 40,
+        "offset": [
+          3.34,
+          -20.0
+        ],
+        "shape": "rect"
+      }
+    },
+    {
+      "instance_index": 26,
+      "asset": "far_low_obj_01_d",
+      "position": [
+        4600.944444444444,
+        1420
+      ],
+      "px_size": [
+        139,
+        252
+      ],
+      "level_bbox": [
+        4500.0,
+        1174.0,
+        4639.0,
+        1426.0
+      ],
+      "anchor": [
+        100.94444444444444,
+        246
+      ],
+      "footprint": {
+        "w": 107,
+        "h": 40,
+        "offset": [
+          -41.44,
+          -20.0
+        ],
+        "shape": "rect"
+      }
+    },
+    {
+      "instance_index": 27,
+      "asset": "far_low_obj_01_e",
+      "position": [
+        4724.386363636364,
+        1489
+      ],
+      "px_size": [
+        103,
+        86
+      ],
+      "level_bbox": [
+        4650.0,
+        1408.0,
+        4753.0,
+        1494.0
+      ],
+      "anchor": [
+        74.38636363636364,
+        81
+      ],
+      "footprint": {
+        "w": 92,
+        "h": 41,
+        "offset": [
+          -22.39,
+          -20.5
+        ],
+        "shape": "rect"
+      }
+    },
+    {
+      "instance_index": 28,
+      "asset": "south_obj_01_a",
+      "position": [
+        1775.5761589403974,
+        3791
+      ],
+      "px_size": [
+        377,
+        228
+      ],
+      "level_bbox": [
+        1509.0,
+        3568.0,
+        1886.0,
+        3796.0
+      ],
+      "anchor": [
+        266.57615894039736,
+        223
+      ],
+      "footprint": {
+        "w": 362,
+        "h": 72,
+        "offset": [
+          -76.58,
+          -36.0
+        ],
+        "shape": "rect"
+      }
+    },
+    {
+      "instance_index": 29,
+      "asset": "south_obj_01_b",
+      "position": [
+        2317.032967032967,
+        3780
+      ],
+      "px_size": [
+        386,
+        186
+      ],
+      "level_bbox": [
+        2044.0,
+        3599.0,
+        2430.0,
+        3785.0
+      ],
+      "anchor": [
+        273.032967032967,
+        181
+      ],
+      "footprint": {
+        "w": 374,
+        "h": 72,
+        "offset": [
+          -80.03,
+          -36.0
+        ],
+        "shape": "rect"
+      }
+    },
+    {
+      "instance_index": 30,
+      "asset": "south_obj_01_c",
+      "position": [
+        2521.328571428571,
+        3610
+      ],
+      "px_size": [
+        623,
+        573
+      ],
+      "level_bbox": [
+        2140.0,
+        3042.0,
+        2763.0,
+        3615.0
+      ],
+      "anchor": [
+        381.3285714285714,
+        568
+      ],
+      "footprint": {
+        "w": 214,
+        "h": 40,
+        "offset": [
+          -32.33,
+          -20.0
+        ],
+        "shape": "rect"
+      }
+    },
+    {
+      "instance_index": 31,
+      "asset": "west_obj_01_a",
+      "position": [
+        309.30405405405406,
+        2830
+      ],
+      "px_size": [
+        80,
+        169
+      ],
+      "level_bbox": [
+        286.0,
+        2667.0,
+        366.0,
+        2836.0
+      ],
+      "anchor": [
+        23.304054054054053,
+        163
+      ],
+      "footprint": {
+        "w": 33,
+        "h": 30,
+        "offset": [
+          -0.8,
+          -15.0
+        ],
+        "shape": "rect"
+      }
+    },
+    {
+      "instance_index": 32,
+      "asset": "west_obj_02_a",
+      "position": [
+        513.8734939759036,
+        2791
+      ],
+      "px_size": [
+        137,
+        120
+      ],
+      "level_bbox": [
+        439.99999999999994,
+        2677.0,
+        577.0,
+        2797.0
+      ],
+      "anchor": [
+        73.87349397590361,
+        114
+      ],
+      "footprint": {
+        "w": 126,
+        "h": 56,
+        "offset": [
+          -5.87,
+          -28.0
+        ],
+        "shape": "rect"
+      }
+    },
+    {
+      "instance_index": 33,
+      "asset": "west_obj_02_b",
+      "position": [
+        613.1349206349206,
+        3501
+      ],
+      "px_size": [
+        292,
+        365
+      ],
+      "level_bbox": [
+        448.0,
+        3142.0,
+        740.0,
+        3507.0
+      ],
+      "anchor": [
+        165.13492063492063,
+        359
+      ],
+      "footprint": {
+        "w": 60,
+        "h": 40,
+        "offset": [
+          -7.13,
+          -20.0
+        ],
+        "shape": "rect"
+      }
+    },
+    {
+      "instance_index": 34,
+      "asset": "west_obj_02_c",
+      "position": [
+        918.0042016806723,
+        3442
+      ],
+      "px_size": [
+        866,
+        630
+      ],
+      "level_bbox": [
+        644.0,
+        2818.0,
+        1510.0,
+        3448.0
+      ],
+      "anchor": [
+        274.0042016806723,
+        624
+      ],
+      "footprint": {
+        "w": 198,
+        "h": 40,
+        "offset": [
+          44.0,
+          -20.0
+        ],
+        "shape": "rect"
+      }
+    },
+    {
+      "instance_index": 35,
+      "asset": "bridge_post_0",
+      "position": [
+        3238.5,
+        1428.0
+      ],
+      "px_size": [
+        39,
+        110
+      ],
+      "level_bbox": [
+        3220.0,
+        1318.0,
+        3259.0,
+        1428.0
+      ],
+      "anchor": [
+        18.5,
+        110.0
+      ],
+      "footprint": {
+        "w": 39.3,
+        "h": 33.0,
+        "offset": [
+          1.4,
+          -16.2
+        ],
+        "shape": "rect"
+      }
+    },
+    {
+      "instance_index": 36,
+      "asset": "bridge_post_1",
+      "position": [
+        2996.0,
+        1247.0
+      ],
+      "px_size": [
+        38,
+        105
+      ],
+      "level_bbox": [
+        2978.0,
+        1142.0,
+        3016.0,
+        1247.0
+      ],
+      "anchor": [
+        18.0,
+        105.0
+      ],
+      "footprint": {
+        "w": 39.3,
+        "h": 33.0,
+        "offset": [
+          0.3,
+          -15.3
+        ],
+        "shape": "rect"
+      }
+    },
+    {
+      "instance_index": 37,
+      "asset": "bridge_post_2",
+      "position": [
+        3922.0,
+        836.0
+      ],
+      "px_size": [
+        43,
+        105
+      ],
+      "level_bbox": [
+        3901.0,
+        731.0,
+        3944.0,
+        836.0
+      ],
+      "anchor": [
+        21.0,
+        105.0
+      ],
+      "footprint": {
+        "w": 39.3,
+        "h": 33.0,
+        "offset": [
+          1.5,
+          -13.4
+        ],
+        "shape": "rect"
+      }
+    },
+    {
+      "instance_index": 38,
+      "asset": "bridge_post_3",
+      "position": [
+        3680.0,
+        656.0
+      ],
+      "px_size": [
+        41,
+        104
+      ],
+      "level_bbox": [
+        3661.0,
+        552.0,
+        3702.0,
+        656.0
+      ],
+      "anchor": [
+        19.0,
+        104.0
+      ],
+      "footprint": {
+        "w": 39.3,
+        "h": 33.0,
+        "offset": [
+          -0.2,
+          -13.5
+        ],
+        "shape": "rect"
+      }
+    },
+    {
+      "instance_index": 39,
+      "asset": "cow_carcass",
+      "position": [
+        4600.0,
+        830.0
+      ],
+      "px_size": [
+        240,
+        116
+      ],
+      "level_bbox": [
+        4478.5,
+        714.0,
+        4718.5,
+        830.0
+      ],
+      "anchor": [
+        121.5,
+        116.0
+      ],
+      "footprint": {
+        "w": 235,
+        "h": 58,
+        "offset": [
+          -4.0,
+          -29.0
+        ],
+        "shape": "rect"
+      }
+    },
+    {
+      "instance_index": 40,
+      "asset": "raven_perched",
+      "position": [
+        3681.0,
+        657.0
+      ],
+      "px_size": [
+        48,
+        150
+      ],
+      "level_bbox": [
+        3663.4661308840414,
+        507.0,
+        3711.4661308840414,
+        657.0
+      ],
+      "anchor": [
+        17.53386911595867,
+        150.0
+      ],
+      "footprint": {
+        "w": 8,
+        "h": 6
+      }
+    }
+  ],
+  "placement_shifts": [
+    {
+      "asset": "dummy_humanoid_3",
+      "shifts": [
+        {
+          "old": [
+            4525.718309859155,
+            660.5070422535211
+          ],
+          "new": [
+            4525.718309859155,
+            650.5070422535211
+          ],
+          "delta": [
+            0.0,
+            -10.0
+          ],
+          "distance_px": 10.0,
+          "initial_overlaps": [
+            "far_obj_05_a"
+          ],
+          "initial_footprint_inside_walkable": true
+        }
+      ]
+    }
+  ],
+  "unresolved_placements": [],
+  "final_dummy_footprint_overlaps": [],
+  "per_dummy_rebuild_errors": [
+    {
+      "asset": "dummy_humanoid_1",
+      "placed_mean_abs_rgb_error_255": 13.85155862557563,
+      "placed_alpha_weighted_mae_255": 13.40690188651305,
+      "source_mean_abs_rgb_error_255": 13.85155862557563,
+      "source_alpha_weighted_mae_255": 13.40690188651305
+    },
+    {
+      "asset": "dummy_rat_1",
+      "placed_mean_abs_rgb_error_255": 11.41341719077568,
+      "placed_alpha_weighted_mae_255": 10.211561249056611,
+      "source_mean_abs_rgb_error_255": 11.41341719077568,
+      "source_alpha_weighted_mae_255": 10.211561249056611
+    },
+    {
+      "asset": "dummy_brute_1",
+      "placed_mean_abs_rgb_error_255": 11.123868178076624,
+      "placed_alpha_weighted_mae_255": 10.579301882952487,
+      "source_mean_abs_rgb_error_255": 11.123868178076624,
+      "source_alpha_weighted_mae_255": 10.579301882952487
+    },
+    {
+      "asset": "dummy_humanoid_2",
+      "placed_mean_abs_rgb_error_255": 12.119653587840228,
+      "placed_alpha_weighted_mae_255": 11.67939972861963,
+      "source_mean_abs_rgb_error_255": 12.119653587840228,
+      "source_alpha_weighted_mae_255": 11.67939972861963
+    },
+    {
+      "asset": "dummy_humanoid_3",
+      "placed_mean_abs_rgb_error_255": 43.83695317313617,
+      "placed_alpha_weighted_mae_255": 44.31483757684977,
+      "source_mean_abs_rgb_error_255": 16.360597658656808,
+      "source_alpha_weighted_mae_255": 15.957289990734346
+    },
+    {
+      "asset": "dummy_rat_2",
+      "placed_mean_abs_rgb_error_255": 19.96647324306899,
+      "placed_alpha_weighted_mae_255": 17.755166069774493,
+      "source_mean_abs_rgb_error_255": 19.96647324306899,
+      "source_alpha_weighted_mae_255": 17.755166069774493
+    },
+    {
+      "asset": "dummy_hound_1",
+      "placed_mean_abs_rgb_error_255": 13.331790772682654,
+      "placed_alpha_weighted_mae_255": 12.53637257092149,
+      "source_mean_abs_rgb_error_255": 13.331790772682654,
+      "source_alpha_weighted_mae_255": 12.53637257092149
+    },
+    {
+      "asset": "dummy_rat_3",
+      "placed_mean_abs_rgb_error_255": 25.500744522442034,
+      "placed_alpha_weighted_mae_255": 24.35283122109966,
+      "source_mean_abs_rgb_error_255": 25.500744522442034,
+      "source_alpha_weighted_mae_255": 24.35283122109966
+    }
+  ],
+  "max_per_dummy_rebuild_error_255": 43.83695317313617,
+  "max_source_position_rebuild_error_255": 25.500744522442034,
+  "drift": {
+    "after_vs_before_pixels_changed_outside_placed_dummy_bboxes": 1416821,
+    "after_vs_before_pixels_changed_outside_source_dummy_bboxes": 1416820,
+    "total_changed_pixels": 1572417,
+    "definition": "Exact any-channel RGB difference AFTER vs BEFORE; no tolerance. Source-bbox companion separates placement shifts from drift."
+  },
+  "props_instance_count": 49,
+  "existing_asset_path_base": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/cliffside_v18/props",
+  "deployment_note": "Existing asset and FX paths preserved verbatim; merge out/assets into existing scene props/assets and deploy props_clearing.json beside those existing assets.",
+  "rebuild_scope": "BEFORE plus dummy assets only, as requested; existing props and cow are represented in props_clearing.json, not additionally composited.",
+  "cow_flies_note": "Original cow_flies swarm retained unchanged at [4233.3,554.2]; only cow instance relocation requested.",
+  "literal_unfloored_diagnostic": {
+    "options": {
+      "preserve_particles": true,
+      "alpha_floor": null,
+      "edge_mode": "clamp"
+    },
+    "sheets": [
+      {
+        "sheet": 1,
+        "largest_component_area_px": 1572096,
+        "largest_component_bbox": [
+          0,
+          0,
+          1536,
+          1024
+        ]
+      },
+      {
+        "sheet": 2,
+        "largest_component_area_px": 1570182,
+        "largest_component_bbox": [
+          0,
+          0,
+          1536,
+          1024
+        ]
+      },
+      {
+        "sheet": 3,
+        "largest_component_area_px": 1571579,
+        "largest_component_bbox": [
+          0,
+          0,
+          1536,
+          1024
+        ]
+      }
+    ],
+    "note": "At alpha > 8, retained plate alpha joins each sheet into one large component; default preserve_particles=False instead retains only the largest opaque subject. The requested seven-object result is not supported by literal default options."
+  },
+  "method_deviations": [
+    "Frozen matte opt-ins preserve_particles=True and alpha_floor=40 were used to make multi-object extraction possible; the alpha-floor refinement was not preregistered in the task.",
+    "Eight assets and instances were retained by the literal area cutoff, rather than the expected seven.",
+    "Minimum displacement is measured on a one-pixel offset grid, not continuous coordinates."
+  ],
+  "verification": {
+    "pngs_decoded": 10,
+    "asset_dimensions_match_catalogue": true,
+    "asset_alpha_bboxes_equal_full_asset_extents": true,
+    "bottom_centre_anchors": true,
+    "all_dummy_instances_present_once": true,
+    "all_dummy_footprints_inside_walkable": true,
+    "no_remaining_dummy_footprint_overlaps": true,
+    "props_instances": 49
+  },
+  "receipt_file_scope": "All task-produced deliverables; excludes pre-existing wrapper-owned .wrapper-events.jsonl and .wrapper-stderr.txt, which continue changing while the receipt is emitted."
+}
