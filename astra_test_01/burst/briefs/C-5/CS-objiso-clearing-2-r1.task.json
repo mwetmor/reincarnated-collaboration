@@ -1,0 +1,18 @@
+{
+ "text": "GENERATE BURST CS-objiso-clearing-2-r1 — ISOLATE painted training dummies from their own scene crops (Run C-5 P0-a; the props method, Matt R-C3-61/64). task_id \"CS-objiso-clearing-2-r1\".\n\nIMAGE 1 (1536×1024) is a sheet of 3 tiles on flat PURE GREEN #00ff00. Each tile is an enlargement of a crop from a hand-painted 2D ARPG level, showing a static straw-and-timber training dummy standing on sunlit dirt or grass (some tiles may hold two dummies or a dummy plus a stray stone).\nUse image_gen in EDIT mode on IMAGE 1 and deliver ONE 1536×1024 image in which EVERYTHING that is ground — dirt, path texture, pebbles lying on the ground, grass, and every cast/contact SHADOW on the ground — is replaced by flat PURE GREEN #00ff00, and every DUMMY stays EXACTLY as painted: same pixels, same position in the sheet, same size, same outline, same colours and lighting, including its post, base, ropes and any straw touching the ground. Where a base met the ground, finish its bottom edge cleanly (no ground strip, no shadow). Nothing new is added; nothing moves.\nThe green must be one flat colour everywhere with a crisp edge against each dummy (no halo, no glow, no blur).\n\nOne image_gen call. ONE retry only if a dummy moved, was resized or redrawn differently, ground/shadow remains attached to a dummy, or the green is not flat — name the reason. Copy the output from $CODEX_HOME/generated_images/... to out/objiso_clearing_2.png with sha256. No code. No other files. No web.\nRETURN: the receipt (task_id \"CS-objiso-clearing-2-r1\"): files = [out/objiso_clearing_2.png with sha256]; images = the INTEGER COUNT of image_gen calls made (1 or 2) — NOT a list, and NEVER a path under $CODEX_HOME/generated_images (a discarded attempt is not referenced anywhere in the receipt); calls_used; status DELIVERED / DELIVERED_WITH_CONCERNS with concerns listed honestly.",
+ "references": [
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/artifacts/CS-objsheets-clearing/objsheet_clearing_2.png",
+   "role": "IMAGE 1 — sheet of dummy tiles to isolate (EDIT)"
+  }
+ ],
+ "image_cap": 2,
+ "minutes_cap": 15,
+ "tool_call_cap": 20,
+ "outputs": [
+  "out/objiso_clearing_2.png"
+ ],
+ "effort": "high",
+ "add_dirs": [],
+ "experiment": "C5-P0a"
+}

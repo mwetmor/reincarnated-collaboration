@@ -2,7 +2,7 @@
   "run": "C-5",
   "charter": "agentic_orchestration/gandalf/notes/2026-09-15-vfx-run-C-5-charter.md",
   "charter_sha256_12": "c41d87420e76",
-  "images_used": 4,
+  "images_used": 10,
   "images_cap": 999999,
   "images_cap_note": "SENTINEL 999999 — the run image cap is UN-ENFORCED by sentinel (Matt V20, 2026-09-15: \"no image budget\"); images_used is counted and reported at every packet. run_burst.py:158 integer-compares this field; null crashed it (jack-ryan Gate-1 BLOCK-B).",
   "bursts": [
@@ -132,6 +132,202 @@
       "codex_version": "codex-cli 0.153.4",
       "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
       "exit": 0
+    },
+    {
+      "id": "CS-objiso-clearing-1",
+      "type": "GENERATE",
+      "experiment": "C5-P0a",
+      "brief_sha256": "0bd197b2b0b2432633df6fa9d0c1af243bb2448b25f1a4dd280711da6d8772ea",
+      "started": "2026-09-15T20:09:06.799339+00:00",
+      "ended": "2026-09-15T20:11:08.634679+00:00",
+      "minutes": 2.03056533125,
+      "image_calls": 2,
+      "tool_calls": 2,
+      "audit": {
+        "violations": [],
+        "image_calls": 2,
+        "tool_calls": 2,
+        "tools_seen": {
+          "command_execution": 2
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0a6af-fe84-7ec2-823a-914c07c044c8/exec-278c9634-7e51-42e7-85e5-665374b9795b.png",
+            "sha256": "d8af7ad46ded303ea80393f569cfbd7fe69e9330dc2a8c013e4ff2b0a5a7da73"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0a6af-fe84-7ec2-823a-914c07c044c8/exec-5cb99d64-00b1-4bd3-aa6d-ef48abf55062.png",
+            "sha256": "5c51b8b14c28f46dcf928343820156e13e93ac3dffea5fce517aa48c69caf106"
+          }
+        ]
+      },
+      "receipt_sha256": "220714cbe46a53863fd401bd82c57e0f890c3b9c5165abf657fa20643ef93232",
+      "artifacts": [
+        {
+          "name": "objiso_clearing_1.png",
+          "sha256": "5c51b8b14c28f46dcf928343820156e13e93ac3dffea5fce517aa48c69caf106"
+        },
+        {
+          "name": "exec-278c9634-7e51-42e7-85e5-665374b9795b.provenance.json",
+          "sha256": "5989e3b67601cb7a073cbfe556d388fda3ebd362473e10a02ba8e1e6907c2edb"
+        },
+        {
+          "name": "exec-5cb99d64-00b1-4bd3-aa6d-ef48abf55062.provenance.json",
+          "sha256": "39f00313ce2c9f1091c9eb11ba0bc64a17fc26c5ece30321bb583c5f0bb012a6"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0a6af-fe84-7ec2-823a-914c07c044c8/exec-278c9634-7e51-42e7-85e5-665374b9795b.png",
+          "sha256": "d8af7ad46ded303ea80393f569cfbd7fe69e9330dc2a8c013e4ff2b0a5a7da73"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0a6af-fe84-7ec2-823a-914c07c044c8/exec-5cb99d64-00b1-4bd3-aa6d-ef48abf55062.png",
+          "sha256": "5c51b8b14c28f46dcf928343820156e13e93ac3dffea5fce517aa48c69caf106"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
+    },
+    {
+      "id": "CS-objiso-clearing-3",
+      "type": "GENERATE",
+      "experiment": "C5-P0a",
+      "brief_sha256": "3f83430f79b942c3abdce5a2071da9d489ebc6adc59b375f02b694ddbc67eb68",
+      "started": "2026-09-15T20:09:06.799344+00:00",
+      "ended": "2026-09-15T20:11:15.088632+00:00",
+      "minutes": 2.1381278409833007,
+      "image_calls": 2,
+      "tool_calls": 2,
+      "audit": {
+        "violations": [],
+        "image_calls": 2,
+        "tool_calls": 2,
+        "tools_seen": {
+          "command_execution": 2
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0a6af-fe84-7e00-87fc-d691ff84e2ac/exec-046e6219-b338-4e29-9961-dc93b690f46b.png",
+            "sha256": "c6aa4a996c1144e55a56970183fad75eacd428e1e2ec8a642ce5bbfc9703d3c7"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0a6af-fe84-7e00-87fc-d691ff84e2ac/exec-c79fb359-1a93-4fa3-a0ee-82831f38370b.png",
+            "sha256": "7ca41e7fb34be58e429159e12166e069683e34934202682d39f59ead94023dee"
+          }
+        ]
+      },
+      "receipt_sha256": "6f021ed9548bcac51c27f800bf3ae4001a2af6fdf7714954f9e94b98dd980d44",
+      "artifacts": [
+        {
+          "name": "objiso_clearing_3.png",
+          "sha256": "7ca41e7fb34be58e429159e12166e069683e34934202682d39f59ead94023dee"
+        },
+        {
+          "name": "exec-046e6219-b338-4e29-9961-dc93b690f46b.provenance.json",
+          "sha256": "f9408e03faefe2ba758b5983ab966c74d16c2bdd664412b618675c946ef2dac9"
+        },
+        {
+          "name": "exec-c79fb359-1a93-4fa3-a0ee-82831f38370b.provenance.json",
+          "sha256": "2cea3c31a8394dc93684ec59c69c8892c2ec1875f804818937c0a7ae16ccf43d"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0a6af-fe84-7e00-87fc-d691ff84e2ac/exec-046e6219-b338-4e29-9961-dc93b690f46b.png",
+          "sha256": "c6aa4a996c1144e55a56970183fad75eacd428e1e2ec8a642ce5bbfc9703d3c7"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0a6af-fe84-7e00-87fc-d691ff84e2ac/exec-c79fb359-1a93-4fa3-a0ee-82831f38370b.png",
+          "sha256": "7ca41e7fb34be58e429159e12166e069683e34934202682d39f59ead94023dee"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
+    },
+    {
+      "id": "CS-objiso-clearing-2",
+      "type": "GENERATE",
+      "experiment": "C5-P0a",
+      "brief_sha256": "f2e53b7d102953fd6ea67bdbd4c886977953cb360725aa6bd588d3d0c0eb6447",
+      "started": "2026-09-15T20:09:06.799344+00:00",
+      "ended": "2026-09-15T20:11:28.145596+00:00",
+      "minutes": 2.3557418916666695,
+      "image_calls": 2,
+      "tool_calls": 2,
+      "audit": {
+        "violations": [
+          "artifact outside permitted roots: /Users/admin/.codex/generated_images/01a0a6af-fe84-7b11-9508-6b96631476e6/exec-52df68be-13e0-4d3c-a903-ba33b75e50a1.png"
+        ],
+        "image_calls": 2,
+        "tool_calls": 2,
+        "tools_seen": {
+          "command_execution": 2
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0a6af-fe84-7b11-9508-6b96631476e6/exec-52df68be-13e0-4d3c-a903-ba33b75e50a1.png",
+            "sha256": "998a7840d1079d10974b26a3698beb93d0267fc98f8fe6e50afc2bf028c59ba1"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0a6af-fe84-7b11-9508-6b96631476e6/exec-5a26835b-678f-4153-952a-949e79f32f11.png",
+            "sha256": "6924bedbf6b826b347721a4a0e4318189a72b8da75266dd02306ab1aab434b87"
+          }
+        ]
+      },
+      "receipt_sha256": "6c7fc020ca59a015d531f1299d0414a3f9c9bd3266b998696340249173497a9c",
+      "artifacts": [],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0a6af-fe84-7b11-9508-6b96631476e6/exec-52df68be-13e0-4d3c-a903-ba33b75e50a1.png",
+          "sha256": "998a7840d1079d10974b26a3698beb93d0267fc98f8fe6e50afc2bf028c59ba1"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0a6af-fe84-7b11-9508-6b96631476e6/exec-5a26835b-678f-4153-952a-949e79f32f11.png",
+          "sha256": "6924bedbf6b826b347721a4a0e4318189a72b8da75266dd02306ab1aab434b87"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 2
     }
   ],
   "experiments": [],
@@ -164,6 +360,13 @@
       "veto_open": true,
       "ruling": "CS-dress-clearing VOID (exit 2): audit `artifact outside permitted roots` — the receipt listed the DISCARDED first attempt by its ~/.codex/generated_images path. writes_outside_out empty; out/dress_clearing.png (= retry exec-36c14822, sha 2aa08877…) is clean and in register (seven grounded dummies; Astra concerns: rats on peg legs not stakes; some background detail repainted). Root cause = the brief line `images = 1 or 2` read as an image LIST; conductor brief defect. Disposition: VOID stands per lane law; re-drive as CS-dress-clearing-r1 with the RETURN line fixed (images = COUNT; files only under out/). A second VOID → HALT to Matt.",
       "ts": "2026-09-15T16:04:46"
+    },
+    {
+      "id": "R-C5-3",
+      "class": "conductor",
+      "veto_open": true,
+      "ruling": "CS-objiso-clearing-2 VOID — same receipt-path defect as R-C5-2 (the objiso generator reused the ambiguous `images = 1 or 2` RETURN line; conductor defect, now fixed in mk_objsheet_c5.py). Sheets 1 and 3 DELIVERED clean. Re-drive CS-objiso-clearing-2-r1 with the fixed line. Not consecutive VOIDs (D, D, D between) — no HALT; recorded as the second instance of one brief-shape defect.",
+      "ts": "2026-09-15T16:11:56"
     }
   ],
   "grok_calls": [],
