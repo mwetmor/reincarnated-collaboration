@@ -43,3 +43,13 @@ An **LE-05-like outdoor cliffside path** for the novice Keeper (starter set), dr
 Tracker-delta: game tracker SESSION-DELTA owed at checkpoint 3 (first playable).
 
 — gandalf, 2026-09-13
+
+## OPEN — ground shadows (Matt ruling R-C3-109, 2026-09-15)
+
+Three attempts rejected: extracted painted shadows at source strength (v9: too faint), synthetic per-prop contact ellipses (v10: "no good at all"), extracted shadows boosted ×1.6 and masked to prop vicinity (v11/v13: "no good"). The layer is **removed entirely** (v14; cow contact shadow kept) so the mobile playtest ships. Open research item — candidate methods, none tried:
+
+1. **Astra paints the shadows in** — the dressed chunks and the isolated objects are painted WITH their cast shadows as part of the picture (the shadow is paint, not a layer); requires the object-isolation pass to carry the shadow footprint on the ground plane, or a final shadow-only repaint pass over the assembled scene.
+2. **Grey-room shadow layer before painting** — author the shadow geometry in the grey room (blockout) so the paint pass carries it natively, then augment the painted layer at runtime with particles/lighting (Hades' baked-shadow + dynamic-light split).
+3. Others to look for: Godot 2D light occluders with a sun light (real-time, register risk), normal/height maps from the paint (Sprite Illuminator-class), shadow sprites re-painted by Astra per object in register.
+
+Gate to re-open: a method note + one A/B chunk; not before the web playtest ships.
