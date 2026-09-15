@@ -1,0 +1,89 @@
+[gd_scene load_steps=10 format=3]
+
+[ext_resource type="Script" path="res://scripts/vfx_frozen_orb_impact.gd" id="Script"]
+[ext_resource type="SpriteFrames" path="res://vfx/frozen_orb/impact.tres" id="Frames"]
+[ext_resource type="Texture2D" path="res://vfx/frozen_orb/sprites/impact/impact_00.png" id="DecalTexture"]
+[ext_resource type="Texture2D" path="res://vfx/frozen_orb/layers/particles.png" id="ParticleTexture"]
+[ext_resource type="SpriteFrames" path="res://vfx/frozen_orb/residual.tres" id="ResidualFrames"]
+
+[sub_resource type="CanvasItemMaterial" id="Mix"]
+blend_mode = 0
+
+[sub_resource type="CanvasItemMaterial" id="Additive"]
+blend_mode = 1
+
+[sub_resource type="Gradient" id="FloorColors"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="FloorDisc"]
+gradient = SubResource("FloorColors")
+width = 32
+height = 32
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.5)
+[node name="EffectImpact" type="Node2D"]
+texture_filter = 1
+script = ExtResource("Script")
+ground_squash = 0.58
+hitstop_duration = 0.06
+hitstop_time_scale = 0.1
+shake_distance = 3
+shake_duration = 0.12
+
+[node name="Ground" type="Node2D" parent="."]
+
+[node name="DarkDuplicate" type="AnimatedSprite2D" parent="Ground"]
+sprite_frames = ExtResource("Frames")
+z_index = -1
+modulate = Color(0, 0, 0, 1)
+material = SubResource("Mix")
+
+[node name="Shatter" type="AnimatedSprite2D" parent="Ground"]
+sprite_frames = ExtResource("Frames")
+material = SubResource("Mix")
+
+[node name="Glow" type="AnimatedSprite2D" parent="Ground"]
+sprite_frames = ExtResource("Frames")
+material = SubResource("Additive")
+scale = Vector2(1.15, 1.15)
+modulate = Color(1, 1, 1, 0.55)
+
+[node name="Flash" type="AnimatedSprite2D" parent="Ground"]
+sprite_frames = ExtResource("Frames")
+material = SubResource("Additive")
+scale = Vector2(1.2, 1.2)
+modulate = Color(1, 1, 1, 0.5)
+
+[node name="FloorLight" type="Sprite2D" parent="."]
+z_index = -3
+texture = SubResource("FloorDisc")
+material = SubResource("Additive")
+scale = Vector2(5.625, 3.2625)
+modulate = Color(0.62, 0.86, 1, 1)
+
+[node name="Decal" type="Sprite2D" parent="."]
+z_index = -4
+texture = ExtResource("DecalTexture")
+material = SubResource("Mix")
+scale = Vector2(1, 0.58)
+
+[node name="Particles" type="CPUParticles2D" parent="."]
+texture = ExtResource("ParticleTexture")
+material = SubResource("Additive")
+local_coords = false
+gravity = Vector2(0, 0)
+one_shot = true
+explosiveness = 1
+amount = 10
+lifetime = 0.7
+direction = Vector2(0, -1)
+spread = 180
+initial_velocity_min = 120
+initial_velocity_max = 260
+
+[node name="Residual" type="AnimatedSprite2D" parent="."]
+sprite_frames = ExtResource("ResidualFrames")
+visible = false
+z_index = -2
+material = SubResource("Mix")
