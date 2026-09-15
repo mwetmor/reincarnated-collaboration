@@ -1,0 +1,98 @@
+{
+  "run": "C-6",
+  "charter": "agentic_orchestration/gandalf/notes/2026-09-15-c6-necromancer-master-design.md (design note; charter follows the master decision)",
+  "charter_sha256_12": null,
+  "images_used": 2,
+  "images_cap": 999999,
+  "images_cap_note": "SENTINEL \u2014 Matt V20 posture carried (no image budget; counted, reported)",
+  "bursts": [
+    {
+      "id": "N1-master-cam-01",
+      "type": "GENERATE",
+      "experiment": "C6-N1",
+      "brief_sha256": "5a77cfabadcda32c548a0032858e8660ee7a7b4512364535f72a50cfacdc26df",
+      "started": "2026-09-15T22:51:13.977150+00:00",
+      "ended": "2026-09-15T22:53:59.700212+00:00",
+      "minutes": 2.762048636116621,
+      "image_calls": 2,
+      "tool_calls": 2,
+      "audit": {
+        "violations": [],
+        "image_calls": 2,
+        "tool_calls": 2,
+        "tools_seen": {
+          "command_execution": 2
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0a744-6b53-7430-97ff-0a6321936f85/exec-56731d20-25dd-4988-8093-9afb9153d121.png",
+            "sha256": "3aeb5f8abe7fdaa9dbb3cac61db7186974d8cc55d98b147ebb4bc57781160647"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0a744-6b53-7430-97ff-0a6321936f85/exec-6a5ef28b-0b07-462d-8676-57bbffe7ad09.png",
+            "sha256": "de00674db9dd10bc4bc2f2b90ba312608567ab748b6c447881edaee12e0cac08"
+          }
+        ]
+      },
+      "receipt_sha256": "635b9be39028f5e5c0bb1ffc4d5d9b465b64935bbca967a00f38fe33b7865dc6",
+      "artifacts": [
+        {
+          "name": "necro_master_cam.png",
+          "sha256": "de00674db9dd10bc4bc2f2b90ba312608567ab748b6c447881edaee12e0cac08"
+        },
+        {
+          "name": "exec-56731d20-25dd-4988-8093-9afb9153d121.provenance.json",
+          "sha256": "eca18e52f11e7213fa94f6c5d6efa36594f5e227969d94aeffe4af084e554518"
+        },
+        {
+          "name": "exec-6a5ef28b-0b07-462d-8676-57bbffe7ad09.provenance.json",
+          "sha256": "518e11395925b537cf7a97105f6fefe717c8737cd759a21390afd9e57b773a23"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0a744-6b53-7430-97ff-0a6321936f85/exec-56731d20-25dd-4988-8093-9afb9153d121.png",
+          "sha256": "3aeb5f8abe7fdaa9dbb3cac61db7186974d8cc55d98b147ebb4bc57781160647"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0a744-6b53-7430-97ff-0a6321936f85/exec-6a5ef28b-0b07-462d-8676-57bbffe7ad09.png",
+          "sha256": "de00674db9dd10bc4bc2f2b90ba312608567ab748b6c447881edaee12e0cac08"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
+    }
+  ],
+  "experiments": [],
+  "milestones": [],
+  "halts": [],
+  "rulings": [
+    {
+      "id": "R-C6-0",
+      "class": "matt",
+      "veto_open": false,
+      "ts": "2026-09-15T22:50:23Z",
+      "ruling": "Character 2 = end-game Necromancer. Matt: text-designed (Blizzard render = design read only, never attached); grip classes accepted (2H-polearm / 1H+off-hand / empty caster; weapons as socketed layers; scythe = a layer); STOP after the master until Matt decides it. Matt generated the DESIGN master in the ChatGPT app (first-party) \u2014 camera at eye level; Matt: \"take my image and prompt around it to reach the size / angle\" \u2192 N1-master-cam-01 re-mints at the scene camera with the Keeper rest frame as IMAGE 1."
+    }
+  ],
+  "grok_calls": [],
+  "notes": [
+    {
+      "note": "Ledger opened; Grok shelved (Q78 b) until loops \u2014 un-shelve is Matt's.",
+      "ts": "2026-09-15T22:50:23Z"
+    }
+  ]
+}

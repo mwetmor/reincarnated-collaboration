@@ -1,0 +1,26 @@
+{
+ "text": "GENERATE BURST N1-master-cam-01 — RE-MINT the Necromancer's DESIGN master at the scene CAMERA, SCALE and GROUND LINE (Run C-6, character 2; Matt 2026-09-15: \"take my image and prompt around it to reach the size / angle\"). task_id \"N1-master-cam-01\".\n\nIMAGE 1 is the approved player character (the Keeper) at rest, facing the camera, on flat PURE GREEN #00ff00: a 512×512 canvas, the figure 240 px tall, feet on the ground line near y≈480, seen from the game's FIXED HIGH THREE-QUARTER camera (Diablo II / Last Epoch style — the camera looks DOWN at roughly 53°: the top of the head and the shoulders are seen from above, the feet are foreshortened on the ground plane, the ground is UNDER the figure). Its register is the register: tapered dark contours, flat painted planes, no gradient haze, no glow. IMAGE 2 is the APPROVED DESIGN of the character to draw — a tall gaunt necromancer: long straight bone-white hair, chalk-pale skin, dark-ringed eyes; a dark charcoal cuirass with a bone-white ribcage relief over fine chain; a long split skirt of dark panels; ridged steel greaves; pointed sabatons; a great curved bone horn rising from the LEFT shoulder pauldron; a brown belt with a steel ring; heavy black tapered line, ornate steel plates. IMAGE 2 is drawn at eye level — that is the ONLY thing wrong with it. IMAGE 3 is the size chart in the game camera (reference only).\n\nUse image_gen in EDIT mode on IMAGE 2 and deliver ONE 512×512 image: the SAME man, the same armour, ornament, hair, palette and line, RE-DRAWN from IMAGE 1's camera — the same downward angle, the same foreshortening of the feet, the same ground line, the same 240-px figure height, standing facing the camera like IMAGE 1 (south). Both hands CLOSED in a two-handed polearm grip stance — the left fist raised at chest height, the right fist low at the hip, both closed around a long haft that is NOT drawn (no weapon). Flat #00ff00 everywhere else with a crisp edge; no shadow, no props, no text. Keep every design element of IMAGE 2; change only camera, pose of the hands, scale and canvas.\n\nOne image_gen call. ONE retry only if the camera is still eye-level (feet seen from the side / no foreshortening), the figure is not ~240 px tall, a hand is open, a weapon appears, or the register softens — name the reason. Copy the output from $CODEX_HOME/generated_images/... to out/necro_master_cam.png with sha256. No code. No other files. No web.\nRETURN: the receipt (task_id \"N1-master-cam-01\"): files = [exactly one entry: out/necro_master_cam.png with its sha256]; images = the INTEGER COUNT of image_gen calls made (1 or 2) — NOT a list, and NEVER a path under $CODEX_HOME/generated_images; calls_used; status DELIVERED / DELIVERED_WITH_CONCERNS with concerns listed honestly.",
+ "references": [
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-6/artifacts/N1-refs/keeper_rest_S.png",
+   "role": "IMAGE 1 — the Keeper at rest: camera, scale, ground line, register (reference only)"
+  },
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-6/artifacts/N1-refs/necro_design_master_v1.png",
+   "role": "IMAGE 2 — the approved DESIGN master to EDIT (Matt, first-party)"
+  },
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/CS-clutter-canvases/dress_size_chart.png",
+   "role": "IMAGE 3 — camera-projected size chart (reference only)"
+  }
+ ],
+ "image_cap": 2,
+ "minutes_cap": 15,
+ "tool_call_cap": 20,
+ "outputs": [
+  "out/necro_master_cam.png"
+ ],
+ "effort": "high",
+ "add_dirs": [],
+ "experiment": "C6-N1"
+}
