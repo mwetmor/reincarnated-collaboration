@@ -1185,6 +1185,7 @@ def _write_authored_effect(out, kit, resource_root, prefix, counts):
             velocity = particles['velocity_px_s']
             lo, hi = velocity if isinstance(velocity, list) else (velocity, velocity)
             nodes.append('[node name="Particles" type="CPUParticles2D" parent="."]\ntexture = ExtResource("ParticleTexture")\n'+material('Additive', 1)+
+                         'modulate = '+color(data['tint'])+'\n'+
                          'local_coords = false\ngravity = Vector2(0, 0)\n'
                          f'one_shot = {str(kind == "impact").lower()}\nexplosiveness = {1 if kind == "impact" else 0}\n'
                          f'amount = {particles["amount"]}\nlifetime = {number(particles["lifetime_s"])}\n'

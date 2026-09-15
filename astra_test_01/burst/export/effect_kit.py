@@ -19,7 +19,7 @@ import numpy as np
 from PIL import Image
 
 PHASES = {'cast': 'flare', 'travel': 'travel', 'impact': 'impact', 'residual': 'residual'}
-TOP = {'name', 'element', 'tint', 'phases', 'layers', 'ground_squash', 'pixel_scale', 'phase_scale'}
+TOP = {'name', 'element', 'element_class', 'tint', 'phases', 'layers', 'ground_squash', 'pixel_scale', 'phase_scale'}
 LAYER_KEYS = {
     'glow': {'alpha', 'scale'}, 'floor_light': {'duration_s', 'radius_px'},
     'flash': {'duration_s', 'alpha', 'scale_from', 'scale_to'},
@@ -65,11 +65,13 @@ def _png(value, root, grayscale=False, confined=False):
 
 
 def _validate(data, root, runtime=False):
-    _keys(data, TOP, TOP-{'phase_scale'}, 'effect')
+    _keys(data, TOP, TOP-{'phase_scale', 'element_class'}, 'effect')
     if not isinstance(data['name'], str) or not re.fullmatch(r'[A-Za-z_][A-Za-z0-9_]*', data['name']):
         raise ValueError('name must be a safe identifier')
     if not isinstance(data['element'], str) or not data['element'].strip():
         raise ValueError('element must be nonempty text')
+    if data.get('element_class', 'strike') not in ('strike', 'holy', 'field'):
+        raise ValueError('element_class must be strike, holy or field')
     tint = data['tint']
     if isinstance(tint, dict):
         _keys(tint, {'core', 'rim', 'hue_shift_deg_per_band', 'white_core_keep'},
@@ -112,7 +114,9 @@ def _validate(data, root, runtime=False):
             if not isinstance(layer, bool): raise ValueError('dark_duplicate must be boolean')
             continue
         fields = LAYER_KEYS[name]
-        _keys(layer, fields, fields-({'file'} if name == 'decal' else set()), name)
+        optional = ({'file'} if name == 'decal' else
+                    {'amount', 'lifetime_s'} if name == 'particles' else set())
+        _keys(layer, fields, fields-optional, name)
         for key, value in layer.items():
             if key in ('file', 'texture'):
                 assets[value] = _png(value, root, key == 'texture' and not runtime, runtime)
@@ -153,6 +157,9 @@ def load_kit(directory, preserve_ramp=False):
         raise ValueError('kit.json escapes its directory')
     data = json.loads(path.read_text())
     _validate(data, root, runtime=True)
+    if 'particles' in data['layers']:
+        data['layers']['particles'].setdefault('amount', 8)
+        data['layers']['particles'].setdefault('lifetime_s', .5)
     if isinstance(data['tint'], dict) and not preserve_ramp:
         data['tint'] = data['tint']['core']
     return data
@@ -199,6 +206,27 @@ def _tint(path, tint, scale, phase_scale=1, band_levels=None):
     return image
 
 
+def _tint_particles(path, tint, scale):
+    """Multiply by core/plain RGB, without white preservation or ramp bands.
+
+    A proportional brightness ceiling of 250 retains hue even on white input.
+    Small motes (at most 4 px) use body pixel_scale capped at 4 px. Larger
+    legacy textures retain their historical size contract.
+    Alpha is untouched; no white_core_keep setting affects particles.
+    """
+    with Image.open(path) as image:
+        pixels = np.array(image.convert('RGBA'))
+    colour = tint['core'] if isinstance(tint, dict) else tint
+    rgb = pixels[..., :3].astype(float)*np.array(colour)
+    peak = rgb.max(axis=2, keepdims=True)
+    rgb *= np.minimum(1, 250/np.maximum(peak, 1))
+    pixels[..., :3] = np.rint(rgb).astype(np.uint8)
+    image = Image.fromarray(pixels)
+    factor = min(scale, 4/max(image.size)) if max(image.size) <= 4 else scale
+    image = image.resize(tuple(max(1, int(v*factor)) for v in image.size), Image.Resampling.NEAREST)
+    return image
+
+
 def build(effect_json, out_dir):
     """Validate then tint/upscale explicit frame PNGs into a self-contained kit."""
     started = time.monotonic()
@@ -216,6 +244,10 @@ def build(effect_json, out_dir):
     from export.godot_import import write_spriteframes
     out.mkdir(parents=True, exist_ok=True)
     metadata = copy.deepcopy(data)
+    metadata.setdefault('element_class', 'strike')
+    if 'particles' in metadata['layers']:
+        metadata['layers']['particles'].setdefault('amount', 8)
+        metadata['layers']['particles'].setdefault('lifetime_s', .5)
     if isinstance(data['tint'], dict):
         metadata['tint'].setdefault('hue_shift_deg_per_band', 0)
         metadata['tint'].setdefault('white_core_keep', .92)
@@ -252,7 +284,8 @@ def build(effect_json, out_dir):
         if key in layer:
             file = f'layers/{name}.png'
             (out/'layers').mkdir(exist_ok=True)
-            _tint(assets[layer[key]], data['tint'], data['pixel_scale']).save(out/file)
+            tint_image = _tint_particles if name == 'particles' else _tint
+            tint_image(assets[layer[key]], data['tint'], data['pixel_scale']).save(out/file)
             layer[key] = file
     (out/'kit.json').write_text(json.dumps(metadata, indent=2, allow_nan=False)+'\n')
     (out/'vfx_select.json').write_text(json.dumps({'source': 'effect_kit', 'name': data['name']})+'\n')

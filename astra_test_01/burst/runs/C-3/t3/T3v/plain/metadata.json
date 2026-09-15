@@ -1,0 +1,111 @@
+{
+  "name": "synthetic_ice",
+  "element": "frost",
+  "tint": [
+    0.2,
+    0.6,
+    0.8
+  ],
+  "pixel_scale": 3,
+  "ground_squash": 0.6,
+  "phases": {
+    "cast": {
+      "sheet": "flare/flare_00.png",
+      "frames": [
+        {
+          "file": "flare/flare_00.png",
+          "hold_frames": 2
+        },
+        {
+          "file": "flare/flare_01.png",
+          "hold_frames": 5
+        }
+      ]
+    },
+    "travel": {
+      "sheet": "travel/travel_00.png",
+      "frames": [
+        {
+          "file": "travel/travel_00.png",
+          "hold_frames": 2
+        },
+        {
+          "file": "travel/travel_01.png",
+          "hold_frames": 5
+        }
+      ],
+      "speed_px_s": 360,
+      "streak": true
+    },
+    "impact": {
+      "sheet": "impact/impact_00.png",
+      "frames": [
+        {
+          "file": "impact/impact_00.png",
+          "hold_frames": 2
+        },
+        {
+          "file": "impact/impact_01.png",
+          "hold_frames": 5
+        }
+      ]
+    },
+    "residual": {
+      "sheet": "residual/residual_00.png",
+      "frames": [
+        {
+          "file": "residual/residual_00.png",
+          "hold_frames": 2
+        },
+        {
+          "file": "residual/residual_01.png",
+          "hold_frames": 5
+        }
+      ]
+    }
+  },
+  "layers": {
+    "dark_duplicate": true,
+    "glow": {
+      "alpha": 0.4,
+      "scale": 1.2
+    },
+    "floor_light": {
+      "duration_s": 0.2,
+      "radius_px": 24
+    },
+    "flash": {
+      "duration_s": 0.1,
+      "alpha": 0.5,
+      "scale_from": 1.2,
+      "scale_to": 1
+    },
+    "decal": {
+      "file": "layers/decal.png",
+      "duration_s": 1.5
+    },
+    "hitstop": {
+      "duration_s": 0.08,
+      "time_scale": 0.1
+    },
+    "shake": {
+      "distance": 3,
+      "duration_s": 0.12
+    },
+    "particles": {
+      "texture": "layers/particles.png",
+      "velocity_px_s": [
+        10,
+        30
+      ],
+      "direction": [
+        1,
+        0
+      ],
+      "spread_deg": 15,
+      "amount": 8,
+      "lifetime_s": 0.5
+    }
+  },
+  "element_class": "strike"
+}

@@ -1,0 +1,121 @@
+{
+  "id": "t3v_suite_summary",
+  "subject": "T3v",
+  "passed": null,
+  "value": {
+    "targeted": {
+      "tests_run": 30,
+      "successful": 30,
+      "wall_s": 1.698
+    },
+    "full_runs": {
+      "full-suite.log": {
+        "tests_run": 498,
+        "successful_tests": 485,
+        "elapsed_s": 196.03731445800076
+      },
+      "full-suite-detailed.log": {
+        "tests_run": 498,
+        "successful_tests": 485,
+        "elapsed_s": 191.97296837500107
+      }
+    },
+    "reds": [
+      {
+        "id": "test_godot_import.GodotImportTests.test_headless_state_machine_input_map_gear_vfx_and_nearest_fallback",
+        "kind": "failure",
+        "reason": ""
+      },
+      {
+        "id": "test_oracle_walk.Tests.test_synthetic_contract_and_grid",
+        "kind": "failure",
+        "reason": "AssertionError: 60 != 65 within 2 delta (5 difference) : head_ref_y"
+      },
+      {
+        "id": "test_oracles_motif.Tests.test_f04_outside_at_least_three",
+        "kind": "failure",
+        "reason": "AssertionError: 2 not greater than or equal to 3"
+      },
+      {
+        "id": "test_oracles_motif.Tests.test_named_genuine_annuli_retained (center=[113, 201])",
+        "kind": "failure",
+        "reason": "AssertionError: 'rejected' unexpectedly found in {'angular_support': 0.7708333333333334, 'center': [113.0, 201.0], 'hollow_score': 0.3125, 'inner_opposed_support': 0.3125, 'inside': False, 'lab_band_surround': 11.57642176150743, 'lab_center_band': 11.062059961818727, 'lab_center_surround': 22.610550201280017, 'lab_color_return': 0.0, 'radius': 30.0, 'rejected': 'not_annulus', 'score': 0.7074940354497125}"
+      },
+      {
+        "id": "test_oracles_motif.Tests.test_named_genuine_annuli_retained (center=[111, 311])",
+        "kind": "failure",
+        "reason": "AssertionError: 'rejected' unexpectedly found in {'angular_support': 0.75, 'center': [111.0, 311.0], 'hollow_score': 0.16666666666666666, 'inner_opposed_support': 0.16666666666666666, 'inside': False, 'lab_band_surround': 21.229621366461696, 'lab_center_band': 18.63219308325294, 'lab_center_surround': 39.74946870785732, 'lab_color_return': 0.0, 'radius': 27.0, 'rejected': 'not_annulus', 'score': 0.5281963253811909}"
+      },
+      {
+        "id": "test_oracles_motif.Tests.test_named_genuine_annuli_retained (center=[170, 253])",
+        "kind": "failure",
+        "reason": "AssertionError: 'rejected' unexpectedly found in {'angular_support': 0.8333333333333334, 'center': [170.0, 253.0], 'hollow_score': 0.08333333333333333, 'inner_opposed_support': 0.08333333333333333, 'inside': False, 'lab_band_surround': 12.987929666149537, 'lab_center_band': 18.508563966712764, 'lab_center_surround': 30.467977867785994, 'lab_color_return': 0.0, 'radius': 8.0, 'rejected': 'not_annulus', 'score': 0.6366616733180586}"
+      },
+      {
+        "id": "test_parallax_scene.ParallaxSceneTests.test_headless_cliffside_follow_camera_parallax_and_projectile_collision",
+        "kind": "failure",
+        "reason": ""
+      },
+      {
+        "id": "test_props_layer.PropsLayerTests.test_headless_occlusion_fade_restore_overhead_near_and_particles",
+        "kind": "failure",
+        "reason": ""
+      },
+      {
+        "id": "test_scene_kit.SceneKitTests.test_headless_tower_import_run_and_physics",
+        "kind": "failure",
+        "reason": ""
+      },
+      {
+        "id": "test_sockets.SocketTests.test_headless_directional_release_and_resources",
+        "kind": "failure",
+        "reason": "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      },
+      {
+        "id": "test_vfx_picker.AuthoredEffectPickerTests.test_headless_authored_cast_east_north_collision_timing_and_feedback_cleanup",
+        "kind": "failure",
+        "reason": "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      },
+      {
+        "id": "test_vfx_picker.LivingEmbersTests.test_headless_glow_sixty_samples_extrema_range_and_particle_properties",
+        "kind": "failure",
+        "reason": "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      },
+      {
+        "id": "test_vfx_picker.VfxPickerTests.test_headless_tab_twice_cast_scene_labels_and_inflight_kit_lock",
+        "kind": "failure",
+        "reason": "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      }
+    ],
+    "result_counts": [
+      {
+        "tests_run": 498,
+        "failure_entries": 13,
+        "error_entries": 0,
+        "skipped": 0
+      }
+    ],
+    "persistent_writes_outside_tmp_and_T3v": [
+      "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/gates_regression_diff.json",
+      "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/oracles_acceptance_measurements.json",
+      "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/oracles_palette_measurements.json",
+      "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/oracles_silhouette_measurements.json",
+      "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/parts_measurements.json",
+      "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/sheet_consistency_calibration.json",
+      "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/t0c_suite_output.txt",
+      "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/t0c_summary.json"
+    ]
+  },
+  "threshold": {
+    "targeted_successful": 30,
+    "full_suite": "only named standing reds"
+  },
+  "op": "report",
+  "unit": "tests",
+  "evidence": [
+    "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/t3/T3v/suite-details.json",
+    "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/t3/T3v/targeted-final.log",
+    "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/t3/T3v/full-suite.log"
+  ],
+  "notes": "Exact runner invoked first; repeated with unittest result capture because its console prints aggregates without red names. Source code unchanged between the two full runs."
+}

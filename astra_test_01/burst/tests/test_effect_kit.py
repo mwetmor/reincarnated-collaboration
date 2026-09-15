@@ -306,11 +306,15 @@ class TintRampTests(unittest.TestCase):
         return out
 
     def test_ramp_t3t_literal_o4_acceptance(self):
-        result = measure(self.build_data()/'impact', [1000*2/60, 1000*5/60])
+        kit = ROOT/'runs/C-3/vfx_kits/frozen_orb_v3'
+        frames = load_kit(kit)['phases']['impact']['frames']
+        result = measure(kit/'impact', [1000*f['hold_frames']/60 for f in frames])
         self.assertGreaterEqual(result['O4']['hue_sd_deg_at_peak'], 8)
 
     def test_ramp_t3t_literal_o5_acceptance(self):
-        result = measure(self.build_data()/'impact', [1000*2/60, 1000*5/60])
+        kit = ROOT/'runs/C-3/vfx_kits/frozen_orb_v3'
+        frames = load_kit(kit)['phases']['impact']['frames']
+        result = measure(kit/'impact', [1000*f['hold_frames']/60 for f in frames])
         self.assertLess(result['O5']['bright_15_median_at_peak'],
                         result['O5']['dim_25_median_at_peak'])
 
@@ -565,6 +569,188 @@ def measure_frozen_orb_ramp(root):
               'wall_s':time.monotonic()-started}
     (root/'diagnostic.json').write_text(json.dumps(result,indent=2)+'\n')
     return result
+
+
+PARTICLE_ARTIFACTS = ROOT/'runs/C-3/t3/T3v'
+
+
+def particle_fixture(root, tint, element_class=None):
+    """Four-pixel greyscale mote, including partial and zero alpha."""
+    path, data = definition_fixture(root)
+    rgba = np.full((4, 4, 4), 255, dtype=np.uint8)
+    rgba[..., 3] = np.array([0, 64, 128, 255], dtype=np.uint8)[:, None]
+    Image.fromarray(rgba).save(path.parent/'mote.png')
+    data['tint'] = copy.deepcopy(tint)
+    data['layers']['particles'] = {'texture': 'mote.png', 'velocity_px_s': [10, 30],
+                                   'direction': [1, 0], 'spread_deg': 15}
+    if element_class is not None:
+        data['element_class'] = element_class
+    path.write_text(json.dumps(data, indent=2)+'\n')
+    return path, data
+
+
+def particle_scenes(kit_path, out, name='synthetic_ice'):
+    from export.godot_import import _load_vfx_kit, _write_authored_effect
+    for part in ('scripts', 'scenes', 'vfx/'+name):
+        (out/part).mkdir(parents=True, exist_ok=True)
+    _write_authored_effect(out, _load_vfx_kit(kit_path), 'vfx/'+name, 'vfx_'+name, {})
+    return out
+
+
+def particle_node(text):
+    marker = '[node name="Particles" type="CPUParticles2D" parent="."]\n'
+    return text.split(marker, 1)[1].split('[node ', 1)[0]
+
+
+def t3v_regression(root):
+    """Compare pre-change captures; normalize only the requested additions."""
+    baseline = json.loads((PARTICLE_ARTIFACTS/'baseline.json').read_text())
+    fixture = picker_fixture(root/'synthetic')
+    comparisons = {}
+
+    def compare(label, directory, expected, tint=None):
+        actual = {str(p.relative_to(directory)): p for p in directory.rglob('*') if p.is_file()}
+        result = {'file_set_equal': set(actual) == set(expected), 'identical': [],
+                  'allowed_changes': [], 'unexpected_changes': []}
+        for name, digest in expected.items():
+            if name not in actual:
+                result['unexpected_changes'].append(name)
+                continue
+            raw = actual[name].read_bytes()
+            if hashlib.sha256(raw).hexdigest() == digest:
+                result['identical'].append(name)
+                continue
+            normalized = raw
+            if name.endswith('kit.json'):
+                data = json.loads(raw)
+                if data.pop('element_class', None) != 'strike':
+                    result['unexpected_changes'].append(name)
+                    continue
+                normalized = (json.dumps(data, indent=2)+'\n').encode()
+            elif name.endswith('.tscn') and b'[node name="Particles"' in raw:
+                text = raw.decode()
+                node = particle_node(text)
+                colour = ', '.join(format(float(v), '.12g') for v in (*tint, 1))
+                line = 'modulate = Color('+colour+')\n'
+                if node.count(line) != 1:
+                    result['unexpected_changes'].append(name)
+                    continue
+                normalized = text.replace(node, node.replace(line, '', 1), 1).encode()
+            elif name.endswith('layers/particles.png'):
+                result['allowed_changes'].append(name)
+                continue
+            key = ('allowed_changes' if hashlib.sha256(normalized).hexdigest() == digest
+                   else 'unexpected_changes')
+            result[key].append(name)
+        comparisons[label] = result
+
+    for key in ('kit', 'project'):
+        compare('synthetic/'+key, fixture[key], baseline['synthetic'][key], [.25, .5, 1])
+    for name in ('frozen_orb_v3', 'zeus_chain'):
+        kit = ROOT/'runs/C-3/vfx_kits'/name
+        target = particle_scenes(kit, root/name, name)
+        compare(name, target, baseline['real'][name], load_kit(kit)['tint'])
+    return comparisons
+
+
+class TintedParticleTests(unittest.TestCase):
+    def setUp(self):
+        TMP.mkdir(parents=True, exist_ok=True)
+        self.tmp = tempfile.TemporaryDirectory(prefix='t3v-', dir=TMP)
+        self.addCleanup(self.tmp.cleanup)
+        self.root = Path(self.tmp.name)
+
+    def test_ramp_core_without_white_preservation_and_plain_tint(self):
+        cases = [('ramp', {'core': [.9, .99, 1], 'rim': [1, 0, 0],
+                           'white_core_keep': .8, 'hue_shift_deg_per_band': 60}, [225, 248, 250]),
+                 ('plain', [.2, .6, .8], [51, 153, 204]),
+                 ('neutral', [1, 1, 1], [250, 250, 250]),
+                 ('black', [0, 0, 0], [0, 0, 0])]
+        for label, tint, expected in cases:
+            with self.subTest(label=label):
+                path, data = particle_fixture(self.root/label, tint)
+                original = copy.deepcopy(data)
+                out = self.root/(label+'-kit')
+                build(path, out)
+                with Image.open(out/'layers/particles.png') as image:
+                    pixels = np.array(image)
+                    self.assertEqual(image.size, (4, 4))
+                np.testing.assert_allclose(pixels[..., :3], np.broadcast_to(expected, (4, 4, 3)), atol=1, rtol=0)
+                colour = tint['core'] if isinstance(tint, dict) else tint
+                hue = colorsys.rgb_to_hsv(*pixels[0, 0, :3].astype(float))[0]
+                target_hue = colorsys.rgb_to_hsv(*colour)[0]
+                self.assertLessEqual(abs((hue-target_hue+.5) % 1-.5)*360, 2)
+                self.assertLessEqual(int(pixels[..., :3].max()), 250)
+                with Image.open(path.parent/'mote.png') as source:
+                    np.testing.assert_array_equal(pixels[..., 3], np.array(source)[..., 3])
+                self.assertEqual(json.loads(path.read_text()), original)
+                meta = load_kit(out)
+                self.assertEqual(meta['element_class'], 'strike')
+                self.assertEqual(meta['layers']['particles']['amount'], 8)
+                self.assertEqual(meta['layers']['particles']['lifetime_s'], .5)
+                # Known-bad control: the original body tint turns this mote white.
+                old = np.array(_tint(path.parent/'mote.png', tint, 1))
+                self.assertTrue(np.any(old[..., :3] == 255))
+
+    def test_small_mote_cap_across_pixel_scales_and_ramp_thresholds(self):
+        from export.effect_kit import _tint_particles
+        for size in ((1, 1), (2, 4), (4, 4)):
+            path = self.root/'mote.png'
+            Image.new('RGBA', size, (255, 255, 255, 128)).save(path)
+            for scale in (1, 3, 8):
+                outputs = []
+                for keep in (.8, .92, 1):
+                    image = _tint_particles(path, dict(RAMP, white_core_keep=keep), scale)
+                    self.assertLessEqual(max(image.size), 4)
+                    outputs.append(np.array(image))
+                np.testing.assert_array_equal(outputs[0], outputs[1])
+                np.testing.assert_array_equal(outputs[1], outputs[2])
+
+    def test_bolt_and_impact_particle_node_modulate_and_defaults(self):
+        for label, tint, colour in [('ramp', {'core': [.9, .99, 1], 'rim': [1, 0, 0]},
+                                     'Color(0.9, 0.99, 1, 1)'),
+                                    ('plain', [.2, .6, .8], 'Color(0.2, 0.6, 0.8, 1)')]:
+            path, _ = particle_fixture(self.root/label, tint)
+            kit = self.root/(label+'-kit'); build(path, kit)
+            project = particle_scenes(kit, self.root/(label+'-project'))
+            for kind in ('bolt', 'impact'):
+                node = particle_node((project/f'scenes/vfx_synthetic_ice_{kind}.tscn').read_text())
+                self.assertIn('modulate = '+colour+'\n', node)
+                self.assertIn('amount = 8\nlifetime = 0.5\n', node)
+                self.assertIn('one_shot = '+str(kind == 'impact').lower(), node)
+            (project/'project.godot').write_text(
+                '[application]\nrun/main_scene="res://scenes/vfx_synthetic_ice_bolt.tscn"\n')
+            self.assertGreater(len(validate_resources(project, True)), 0)
+
+    def test_element_classes_and_explicit_particle_settings(self):
+        for value in ('strike', 'holy', 'field'):
+            path, data = particle_fixture(self.root/value, [.2, .6, .8], value)
+            data['layers']['particles'].update(amount=16, lifetime_s=.7)
+            path.write_text(json.dumps(data))
+            out = self.root/(value+'-kit'); build(path, out)
+            self.assertEqual(load_kit(out)['element_class'], value)
+            self.assertEqual(load_kit(out)['layers']['particles']['amount'], 16)
+            self.assertEqual(load_kit(out)['layers']['particles']['lifetime_s'], .7)
+            project = particle_scenes(out, self.root/(value+'-project'))
+            self.assertEqual(json.loads((project/'vfx/synthetic_ice/kit.json').read_text())['element_class'], value)
+
+    def test_unknown_element_classes_rejected_before_output_and_at_load(self):
+        path, data = particle_fixture(self.root/'inputs', [.2, .6, .8])
+        out = self.root/'kit'; build(path, out)
+        metadata = json.loads((out/'kit.json').read_text())
+        for value in ('unknown', 'Strike', '', None, True, 1, [], {}):
+            with self.subTest(value=value):
+                path.write_text(json.dumps(dict(data, element_class=value)))
+                with self.assertRaises(ValueError): build(path, self.root/'bad')
+                self.assertFalse((self.root/'bad').exists())
+                (out/'kit.json').write_text(json.dumps(dict(metadata, element_class=value)))
+                with self.assertRaises(ValueError): load_kit(out)
+
+    def test_regression_byte_lock_synthetic_and_two_existing_kit_exports(self):
+        for name, result in t3v_regression(self.root).items():
+            with self.subTest(kit=name):
+                self.assertTrue(result['file_set_equal'])
+                self.assertEqual(result['unexpected_changes'], [])
 
 
 if __name__ == '__main__':

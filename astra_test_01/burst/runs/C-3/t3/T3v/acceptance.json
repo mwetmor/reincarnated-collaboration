@@ -1,0 +1,304 @@
+{
+  "id": "t3v_tinted_particles_acceptance",
+  "subject": "T3v",
+  "passed": null,
+  "value": {
+    "synthetic": {
+      "ramp": {
+        "mean_visible_rgb": [
+          225.0,
+          247.0,
+          250.0
+        ],
+        "max_channel": 250,
+        "size_px": [
+          4,
+          4
+        ],
+        "hue_deg": 187.20000000000002,
+        "core_hue_deg": 186.00000000000003,
+        "hue_error_deg": 1.1999999999999886,
+        "scenes": {
+          "bolt": {
+            "modulate": "Color(0.9, 0.99, 1, 1)",
+            "amount": "8",
+            "lifetime": "0.5"
+          },
+          "impact": {
+            "modulate": "Color(0.9, 0.99, 1, 1)",
+            "amount": "8",
+            "lifetime": "0.5"
+          }
+        },
+        "element_class": "strike",
+        "build_wall_s": 0.023118875000363914
+      },
+      "plain": {
+        "mean_visible_rgb": [
+          51.0,
+          153.0,
+          204.0
+        ],
+        "max_channel": 204,
+        "size_px": [
+          4,
+          4
+        ],
+        "hue_deg": 199.99999999999997,
+        "core_hue_deg": 199.99999999999997,
+        "hue_error_deg": 0.0,
+        "scenes": {
+          "bolt": {
+            "modulate": "Color(0.2, 0.6, 0.8, 1)",
+            "amount": "8",
+            "lifetime": "0.5"
+          },
+          "impact": {
+            "modulate": "Color(0.2, 0.6, 0.8, 1)",
+            "amount": "8",
+            "lifetime": "0.5"
+          }
+        },
+        "element_class": "strike",
+        "build_wall_s": 0.006862250000267522
+      }
+    },
+    "regression": {
+      "synthetic/kit": {
+        "file_set_equal": true,
+        "identical": [
+          "CREDITS.txt",
+          "flare/flare_00.png",
+          "flare/flare_01.png",
+          "flare.tres",
+          "impact/impact_00.png",
+          "impact/impact_01.png",
+          "impact.tres",
+          "layers/decal.png",
+          "residual/residual_00.png",
+          "residual/residual_01.png",
+          "residual.tres",
+          "travel/travel_00.png",
+          "travel/travel_01.png",
+          "travel.tres",
+          "vfx_select.json"
+        ],
+        "allowed_changes": [
+          "kit.json",
+          "layers/particles.png"
+        ],
+        "unexpected_changes": []
+      },
+      "synthetic/project": {
+        "file_set_equal": true,
+        "identical": [
+          "CREDITS_VFX.txt",
+          "README.md",
+          "frames/keeper.tres",
+          "project.godot",
+          "scenes/main.tscn",
+          "scenes/vfx_frost_bolt.tscn",
+          "scenes/vfx_frost_impact.tscn",
+          "scripts/keeper.gd",
+          "scripts/vfx_frost_bolt.gd",
+          "scripts/vfx_frost_impact.gd",
+          "scripts/vfx_synthetic_ice_bolt.gd",
+          "scripts/vfx_synthetic_ice_impact.gd",
+          "sockets.json",
+          "sprites/cast/E/cast_E_0.png",
+          "sprites/cast/E/cast_E_1.png",
+          "sprites/cast/E/cast_E_2.png",
+          "sprites/cast/E/cast_E_3.png",
+          "sprites/cast/N/cast_N_0.png",
+          "sprites/cast/N/cast_N_1.png",
+          "sprites/cast/N/cast_N_2.png",
+          "sprites/cast/N/cast_N_3.png",
+          "sprites/cast/S/cast_S_0.png",
+          "sprites/cast/S/cast_S_1.png",
+          "sprites/cast/S/cast_S_2.png",
+          "sprites/cast/S/cast_S_3.png",
+          "sprites/idle/E/idle_E_0.png",
+          "sprites/idle/N/idle_N_0.png",
+          "sprites/idle/S/idle_S_0.png",
+          "vfx/frost/flare.tres",
+          "vfx/frost/impact.tres",
+          "vfx/frost/sprites/flare/flare_0.png",
+          "vfx/frost/sprites/flare/flare_1.png",
+          "vfx/frost/sprites/impact/impact_0.png",
+          "vfx/frost/sprites/impact/impact_1.png",
+          "vfx/synthetic_ice/flare.tres",
+          "vfx/synthetic_ice/impact.tres",
+          "vfx/synthetic_ice/layers/decal.png",
+          "vfx/synthetic_ice/residual.tres",
+          "vfx/synthetic_ice/sprites/flare/flare_00.png",
+          "vfx/synthetic_ice/sprites/flare/flare_01.png",
+          "vfx/synthetic_ice/sprites/impact/impact_00.png",
+          "vfx/synthetic_ice/sprites/impact/impact_01.png",
+          "vfx/synthetic_ice/sprites/residual/residual_00.png",
+          "vfx/synthetic_ice/sprites/residual/residual_01.png",
+          "vfx/synthetic_ice/sprites/travel/travel_00.png",
+          "vfx/synthetic_ice/sprites/travel/travel_01.png",
+          "vfx/synthetic_ice/travel.tres"
+        ],
+        "allowed_changes": [
+          "scenes/vfx_synthetic_ice_bolt.tscn",
+          "scenes/vfx_synthetic_ice_impact.tscn",
+          "vfx/synthetic_ice/kit.json",
+          "vfx/synthetic_ice/layers/particles.png"
+        ],
+        "unexpected_changes": []
+      },
+      "frozen_orb_v3": {
+        "file_set_equal": true,
+        "identical": [
+          "scripts/vfx_frozen_orb_v3_bolt.gd",
+          "scripts/vfx_frozen_orb_v3_impact.gd",
+          "vfx/frozen_orb_v3/flare.tres",
+          "vfx/frozen_orb_v3/impact.tres",
+          "vfx/frozen_orb_v3/kit.json",
+          "vfx/frozen_orb_v3/layers/particles.png",
+          "vfx/frozen_orb_v3/residual.tres",
+          "vfx/frozen_orb_v3/sprites/flare/flare_00.png",
+          "vfx/frozen_orb_v3/sprites/flare/flare_01.png",
+          "vfx/frozen_orb_v3/sprites/flare/flare_02.png",
+          "vfx/frozen_orb_v3/sprites/flare/flare_03.png",
+          "vfx/frozen_orb_v3/sprites/flare/flare_04.png",
+          "vfx/frozen_orb_v3/sprites/flare/flare_05.png",
+          "vfx/frozen_orb_v3/sprites/impact/impact_00.png",
+          "vfx/frozen_orb_v3/sprites/impact/impact_01.png",
+          "vfx/frozen_orb_v3/sprites/impact/impact_02.png",
+          "vfx/frozen_orb_v3/sprites/impact/impact_03.png",
+          "vfx/frozen_orb_v3/sprites/impact/impact_04.png",
+          "vfx/frozen_orb_v3/sprites/residual/residual_00.png",
+          "vfx/frozen_orb_v3/sprites/residual/residual_01.png",
+          "vfx/frozen_orb_v3/sprites/residual/residual_02.png",
+          "vfx/frozen_orb_v3/sprites/residual/residual_03.png",
+          "vfx/frozen_orb_v3/sprites/travel/travel_00.png",
+          "vfx/frozen_orb_v3/sprites/travel/travel_01.png",
+          "vfx/frozen_orb_v3/sprites/travel/travel_02.png",
+          "vfx/frozen_orb_v3/sprites/travel/travel_03.png",
+          "vfx/frozen_orb_v3/sprites/travel/travel_04.png",
+          "vfx/frozen_orb_v3/sprites/travel/travel_05.png",
+          "vfx/frozen_orb_v3/travel.tres"
+        ],
+        "allowed_changes": [
+          "scenes/vfx_frozen_orb_v3_bolt.tscn",
+          "scenes/vfx_frozen_orb_v3_impact.tscn"
+        ],
+        "unexpected_changes": []
+      },
+      "zeus_chain": {
+        "file_set_equal": true,
+        "identical": [
+          "scenes/vfx_zeus_chain_bolt.tscn",
+          "scenes/vfx_zeus_chain_impact.tscn",
+          "scripts/vfx_zeus_chain_bolt.gd",
+          "scripts/vfx_zeus_chain_impact.gd",
+          "vfx/zeus_chain/flare.tres",
+          "vfx/zeus_chain/impact.tres",
+          "vfx/zeus_chain/kit.json",
+          "vfx/zeus_chain/residual.tres",
+          "vfx/zeus_chain/sprites/flare/flare_00.png",
+          "vfx/zeus_chain/sprites/flare/flare_01.png",
+          "vfx/zeus_chain/sprites/flare/flare_02.png",
+          "vfx/zeus_chain/sprites/flare/flare_03.png",
+          "vfx/zeus_chain/sprites/flare/flare_04.png",
+          "vfx/zeus_chain/sprites/flare/flare_05.png",
+          "vfx/zeus_chain/sprites/impact/impact_00.png",
+          "vfx/zeus_chain/sprites/impact/impact_01.png",
+          "vfx/zeus_chain/sprites/impact/impact_02.png",
+          "vfx/zeus_chain/sprites/impact/impact_03.png",
+          "vfx/zeus_chain/sprites/impact/impact_04.png",
+          "vfx/zeus_chain/sprites/impact/impact_05.png",
+          "vfx/zeus_chain/sprites/residual/residual_00.png",
+          "vfx/zeus_chain/sprites/residual/residual_01.png",
+          "vfx/zeus_chain/sprites/residual/residual_02.png",
+          "vfx/zeus_chain/sprites/residual/residual_03.png",
+          "vfx/zeus_chain/sprites/travel/travel_00.png",
+          "vfx/zeus_chain/sprites/travel/travel_01.png",
+          "vfx/zeus_chain/sprites/travel/travel_02.png",
+          "vfx/zeus_chain/sprites/travel/travel_03.png",
+          "vfx/zeus_chain/sprites/travel/travel_04.png",
+          "vfx/zeus_chain/sprites/travel/travel_05.png",
+          "vfx/zeus_chain/travel.tres"
+        ],
+        "allowed_changes": [],
+        "unexpected_changes": []
+      }
+    },
+    "real_impact": {
+      "frames": 5,
+      "O4_hue_sd_deg": 10.77606603178787,
+      "O5_bright_15_median": 0.2514619883040935,
+      "O5_dim_25_median": 0.627906976744186
+    },
+    "element_class_tests": {
+      "accepted": [
+        "strike",
+        "holy",
+        "field"
+      ],
+      "rejected_values": [
+        "unknown",
+        "Strike",
+        "",
+        null,
+        true,
+        1,
+        [],
+        {}
+      ],
+      "build_rejections": 8,
+      "runtime_rejections": 8,
+      "default": "strike"
+    },
+    "zeus_live_scene": {
+      "id": "zeus_chain_live_scene_particle_line",
+      "passed": null,
+      "value": {
+        "matches_reference_except_particle_modulate": true,
+        "particle_modulate_count": 1,
+        "reference_sha256": "910f97d22e4bca8d1b4e39229dbaa5055679df53289f43c278043702c7009fd2",
+        "normalized_sha256": "910f97d22e4bca8d1b4e39229dbaa5055679df53289f43c278043702c7009fd2"
+      },
+      "threshold": {
+        "matches_reference_except_particle_modulate": true,
+        "particle_modulate_count": 1
+      },
+      "op": "report",
+      "unit": "mixed",
+      "evidence": [
+        "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/t3/T3v/zeus-live-bolt.tscn"
+      ],
+      "notes": "The built zeus_chain kit has no particles layer, but the supplied cliffside_v16 bolt does. For this read-only reconstruction, attach the frozen_orb_v3 particle layer and texture to a temporary copy: its explicit values match the existing live scene. No original kit or scene is modified. This is a scene re-export check, not an original-source kit rebuild.",
+      "wall_s": 0.09415912499753176
+    }
+  },
+  "threshold": {
+    "mote_max_px": 4,
+    "max_rgb": 250,
+    "particle_amount_default": 8,
+    "particle_lifetime_s_default": 0.5,
+    "hue_quantization_tolerance_deg": 2,
+    "O4_hue_sd_deg_min": 8,
+    "O5_bright_vs_dim": "strictly less",
+    "element_classes": [
+      "strike",
+      "holy",
+      "field"
+    ],
+    "unexpected_byte_changes": 0
+  },
+  "op": "report",
+  "unit": "mixed",
+  "evidence": [
+    "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/t3/T3v/ramp/particles.png",
+    "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/t3/T3v/ramp/bolt.tscn",
+    "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/t3/T3v/ramp/impact.tscn",
+    "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/t3/T3v/plain/particles.png",
+    "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/t3/T3v/plain/bolt.tscn",
+    "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/t3/T3v/plain/impact.tscn"
+  ],
+  "notes": "The 2-degree hue tolerance is a diagnostic for 8-bit quantization, not a replacement gate. All legacy source textures larger than 4 px retain their existing size behavior to preserve the unchanged T3u size test. New <=4 px source motes cap scaling at 4 px. Original greyscale definitions for the real kits were outside the allowed read set: real checks re-export built kits, not an original-source rebuild. The required element_class addition is recorded as an explicit kit.json byte exception.",
+  "wall_s": 0.5903742919981596
+}
