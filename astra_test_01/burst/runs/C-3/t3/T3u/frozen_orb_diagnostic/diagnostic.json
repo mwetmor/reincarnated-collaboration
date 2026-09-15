@@ -1,0 +1,36 @@
+{
+  "id": "t3u_frozen_orb_diagnostic",
+  "subject": "Frozen Orb impact, recovered greys",
+  "passed": null,
+  "value": {
+    "recorded": {
+      "hue_sd_deg": 0.3407968276848721,
+      "bright_15_median_s": 0.38150289017341044,
+      "dim_25_median_s": 0.3777777777777778
+    },
+    "remeasured": {
+      "hue_sd_deg": 0.3407968276827331,
+      "bright_15_median_s": 0.38150289017341044,
+      "dim_25_median_s": 0.3777777777777778
+    },
+    "ramp": {
+      "hue_sd_deg": 10.841758768879444,
+      "bright_15_median_s": 0.301775147928994,
+      "dim_25_median_s": 0.7804878048780487
+    },
+    "source_grey_levels_bright_to_dark": [
+      255,
+      173,
+      107,
+      45
+    ]
+  },
+  "threshold": null,
+  "op": "report",
+  "unit": "mixed",
+  "evidence": [
+    "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/t3/T3u/frozen_orb_diagnostic/measure.json"
+  ],
+  "notes": "Diagnostic, not the literal T3t acceptance fixture. Unit blue recovers nonwhite greys; original white greys are unavailable and represented by 255. No extra resizing.",
+  "wall_s": 0.09950145900074858
+}

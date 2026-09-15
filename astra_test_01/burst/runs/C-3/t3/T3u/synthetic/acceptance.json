@@ -1,0 +1,84 @@
+{
+  "id": "t3u_tint_ramp_acceptance",
+  "subject": "T3t unchanged 16x16 fixture",
+  "passed": null,
+  "value": {
+    "hue_sd_deg": 5.343939346317721,
+    "bright_15_median_s": 0.0,
+    "dim_25_median_s": 0.0,
+    "white_core_min": 255,
+    "baseline_byte_comparisons": {
+      "kit": {
+        "CREDITS.txt": true,
+        "flare/flare_00.png": true,
+        "flare/flare_01.png": true,
+        "flare.tres": true,
+        "impact/impact_00.png": true,
+        "impact/impact_01.png": true,
+        "impact.tres": true,
+        "kit.json": true,
+        "layers/decal.png": true,
+        "layers/particles.png": true,
+        "residual/residual_00.png": true,
+        "residual/residual_01.png": true,
+        "residual.tres": true,
+        "travel/travel_00.png": true,
+        "travel/travel_01.png": true,
+        "travel.tres": true,
+        "vfx_select.json": true
+      },
+      "project": {
+        "scenes/main.tscn": true,
+        "scenes/vfx_frost_bolt.tscn": true,
+        "scenes/vfx_frost_impact.tscn": true,
+        "scenes/vfx_synthetic_ice_bolt.tscn": true,
+        "scenes/vfx_synthetic_ice_impact.tscn": true,
+        "scripts/keeper.gd": true,
+        "scripts/vfx_frost_bolt.gd": true,
+        "scripts/vfx_frost_impact.gd": true,
+        "scripts/vfx_synthetic_ice_bolt.gd": true,
+        "scripts/vfx_synthetic_ice_impact.gd": true
+      }
+    },
+    "legacy_scenes_byte_identical": {
+      "vfx_frost_impact.tscn": true,
+      "vfx_frost_bolt.tscn": true
+    },
+    "phase_dimensions": {
+      "flare": [
+        48,
+        48
+      ],
+      "travel": [
+        48,
+        48
+      ],
+      "impact": [
+        96,
+        96
+      ],
+      "residual": [
+        24,
+        24
+      ]
+    },
+    "resource_references": 42
+  },
+  "threshold": {
+    "hue_sd_deg_min": 8,
+    "bright_vs_dim": "strictly less",
+    "white_core_min": 250,
+    "baseline_byte_comparisons": "all identical",
+    "legacy_scenes": "all identical"
+  },
+  "op": "report",
+  "unit": "mixed",
+  "evidence": [
+    "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/t3/T3u/synthetic/measure.json",
+    "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/t3/T3u/synthetic/kit/kit.json"
+  ],
+  "notes": "Literal fixture retained: opaque zero grey makes dim-25 median zero; only 64 and 128 bands exceed S>.3. No replacement acceptance fixture.",
+  "build_wall_s": 0.010930791999271605,
+  "picker_wall_s": 0.03947208300087368,
+  "wall_s": 0.5121112079978047
+}

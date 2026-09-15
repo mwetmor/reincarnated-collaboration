@@ -1,0 +1,172 @@
+{
+  "id": "T3u",
+  "subject": "tint ramp effect kits",
+  "passed": null,
+  "value": {
+    "synthetic": {
+      "hue_sd_deg": 5.343939346317721,
+      "bright_15_median_s": 0.0,
+      "dim_25_median_s": 0.0,
+      "white_core_min": 255,
+      "baseline_byte_comparisons": {
+        "kit": {
+          "CREDITS.txt": true,
+          "flare/flare_00.png": true,
+          "flare/flare_01.png": true,
+          "flare.tres": true,
+          "impact/impact_00.png": true,
+          "impact/impact_01.png": true,
+          "impact.tres": true,
+          "kit.json": true,
+          "layers/decal.png": true,
+          "layers/particles.png": true,
+          "residual/residual_00.png": true,
+          "residual/residual_01.png": true,
+          "residual.tres": true,
+          "travel/travel_00.png": true,
+          "travel/travel_01.png": true,
+          "travel.tres": true,
+          "vfx_select.json": true
+        },
+        "project": {
+          "scenes/main.tscn": true,
+          "scenes/vfx_frost_bolt.tscn": true,
+          "scenes/vfx_frost_impact.tscn": true,
+          "scenes/vfx_synthetic_ice_bolt.tscn": true,
+          "scenes/vfx_synthetic_ice_impact.tscn": true,
+          "scripts/keeper.gd": true,
+          "scripts/vfx_frost_bolt.gd": true,
+          "scripts/vfx_frost_impact.gd": true,
+          "scripts/vfx_synthetic_ice_bolt.gd": true,
+          "scripts/vfx_synthetic_ice_impact.gd": true
+        }
+      },
+      "legacy_scenes_byte_identical": {
+        "vfx_frost_impact.tscn": true,
+        "vfx_frost_bolt.tscn": true
+      },
+      "phase_dimensions": {
+        "flare": [
+          48,
+          48
+        ],
+        "travel": [
+          48,
+          48
+        ],
+        "impact": [
+          96,
+          96
+        ],
+        "residual": [
+          24,
+          24
+        ]
+      },
+      "resource_references": 42
+    },
+    "frozen_orb_diagnostic": {
+      "recorded": {
+        "hue_sd_deg": 0.3407968276848721,
+        "bright_15_median_s": 0.38150289017341044,
+        "dim_25_median_s": 0.3777777777777778
+      },
+      "remeasured": {
+        "hue_sd_deg": 0.3407968276827331,
+        "bright_15_median_s": 0.38150289017341044,
+        "dim_25_median_s": 0.3777777777777778
+      },
+      "ramp": {
+        "hue_sd_deg": 10.841758768879444,
+        "bright_15_median_s": 0.301775147928994,
+        "dim_25_median_s": 0.7804878048780487
+      },
+      "source_grey_levels_bright_to_dark": [
+        255,
+        173,
+        107,
+        45
+      ]
+    },
+    "validation": {
+      "invalid_ramp_cases_rejected": 34,
+      "invalid_phase_scale_cases_rejected": 10,
+      "invalid_particle_cases_rejected": 3,
+      "invalid_runtime_metadata_cases_rejected": 2,
+      "scalar_mapping_cases": 1024,
+      "phase_scale_bounds_tested": [
+        0.5,
+        4
+      ],
+      "phase_scale_default": 1,
+      "ramp_hue_defaults_deg": 0,
+      "ramp_white_default": 0.92
+    },
+    "full_suite": {
+      "tests_run": 492,
+      "successful_tests": 477,
+      "successful": false,
+      "elapsed_s": 195.9739368749979,
+      "regression": {
+        "tolerance": 0.001,
+        "compared": 1880,
+        "differences": [],
+        "within_tolerance": true
+      }
+    },
+    "red_tests": [
+      "test_effect_kit.TintRampTests.test_ramp_t3t_literal_o4_acceptance",
+      "test_effect_kit.TintRampTests.test_ramp_t3t_literal_o5_acceptance",
+      "test_godot_import.GodotImportTests.test_headless_state_machine_input_map_gear_vfx_and_nearest_fallback",
+      "test_oracle_walk.Tests.test_synthetic_contract_and_grid",
+      "test_oracles_motif.Tests.test_f04_outside_at_least_three",
+      "test_oracles_motif.Tests.test_named_genuine_annuli_retained (center=[113, 201])",
+      "test_oracles_motif.Tests.test_named_genuine_annuli_retained (center=[111, 311])",
+      "test_oracles_motif.Tests.test_named_genuine_annuli_retained (center=[170, 253])",
+      "test_parallax_scene.ParallaxSceneTests.test_headless_cliffside_follow_camera_parallax_and_projectile_collision",
+      "test_props_layer.PropsLayerTests.test_headless_occlusion_fade_restore_overhead_near_and_particles",
+      "test_scene_kit.SceneKitTests.test_headless_tower_import_run_and_physics",
+      "test_sockets.SocketTests.test_headless_directional_release_and_resources",
+      "test_vfx_picker.AuthoredEffectPickerTests.test_headless_authored_cast_east_north_collision_timing_and_feedback_cleanup",
+      "test_vfx_picker.LivingEmbersTests.test_headless_glow_sixty_samples_extrema_range_and_particle_properties",
+      "test_vfx_picker.VfxPickerTests.test_headless_tab_twice_cast_scene_labels_and_inflight_kit_lock"
+    ],
+    "unit_suite": {
+      "tests_run": 24,
+      "successful": false,
+      "successful_test_methods": 22,
+      "failures": [
+        "test_effect_kit.TintRampTests.test_ramp_t3t_literal_o4_acceptance",
+        "test_effect_kit.TintRampTests.test_ramp_t3t_literal_o5_acceptance"
+      ],
+      "errors": [],
+      "wall_s": 0.935,
+      "notes": "Literal T3t acceptance retained; other instrument and regression tests succeeded."
+    },
+    "oracle_unchanged": true
+  },
+  "threshold": {
+    "hue_sd_deg_min": 8,
+    "bright_vs_dim": "strictly less",
+    "white_core_min": 250,
+    "baseline_byte_comparisons": "all identical",
+    "legacy_scenes": "all identical"
+  },
+  "op": "report",
+  "unit": "mixed",
+  "evidence": [
+    "runs/C-3/t3/T3u/synthetic/acceptance.json",
+    "runs/C-3/t3/T3u/frozen_orb_diagnostic/diagnostic.json",
+    "runs/C-3/t3/T3u/full_suite_summary.json"
+  ],
+  "notes": "Literal unchanged T3t fixture does not meet O4/O5 acceptance; opaque black forces dim median zero and only grey 64/128 exceed S>.3. No bar, fixture or oracle changed. Frozen Orb recovery is diagnostic only: original white source levels are unavailable. Runtime load_kit uses core RGB for single-colour auxiliary lights; preserve_ramp=True exposes authored ramp. Phase scale is baked after pixel scale using NEAREST; fractional sizes round half up. Mandated suite regenerated eight standard tests reports, included in receipt inventory.",
+  "wall_s": {
+    "synthetic_build": 0.010930791999271605,
+    "synthetic_picker": 0.03947208300087368,
+    "synthetic_acceptance": 0.5121112079978047,
+    "frozen_orb_diagnostic": 0.09950145900074858,
+    "first_full_suite": 198.05518479200327,
+    "final_full_suite_process": 196.1064108749997,
+    "burst_at_inventory": 845.768449
+  }
+}

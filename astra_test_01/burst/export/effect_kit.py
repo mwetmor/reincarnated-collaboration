@@ -8,6 +8,7 @@ residual and individual layers may be omitted. Travel defaults: 520 px/s,
 streak=False. Omitted layers are disabled. Holds are integer 60 Hz ticks.
 """
 import copy
+import colorsys
 import json
 import math
 from pathlib import Path
@@ -18,7 +19,7 @@ import numpy as np
 from PIL import Image
 
 PHASES = {'cast': 'flare', 'travel': 'travel', 'impact': 'impact', 'residual': 'residual'}
-TOP = {'name', 'element', 'tint', 'phases', 'layers', 'ground_squash', 'pixel_scale'}
+TOP = {'name', 'element', 'tint', 'phases', 'layers', 'ground_squash', 'pixel_scale', 'phase_scale'}
 LAYER_KEYS = {
     'glow': {'alpha', 'scale'}, 'floor_light': {'duration_s', 'radius_px'},
     'flash': {'duration_s', 'alpha', 'scale_from', 'scale_to'},
@@ -64,16 +65,28 @@ def _png(value, root, grayscale=False, confined=False):
 
 
 def _validate(data, root, runtime=False):
-    _keys(data, TOP, TOP, 'effect')
+    _keys(data, TOP, TOP-{'phase_scale'}, 'effect')
     if not isinstance(data['name'], str) or not re.fullmatch(r'[A-Za-z_][A-Za-z0-9_]*', data['name']):
         raise ValueError('name must be a safe identifier')
     if not isinstance(data['element'], str) or not data['element'].strip():
         raise ValueError('element must be nonempty text')
     tint = data['tint']
-    if not isinstance(tint, list) or len(tint) != 3:
-        raise ValueError('tint requires three components')
-    for v in tint: _number(v, 0, 1, 'tint')
+    if isinstance(tint, dict):
+        _keys(tint, {'core', 'rim', 'hue_shift_deg_per_band', 'white_core_keep'},
+              {'core', 'rim'}, 'tint ramp')
+        _number(tint.get('hue_shift_deg_per_band', 0), -60, 60, 'hue_shift_deg_per_band')
+        _number(tint.get('white_core_keep', .92), .8, 1, 'white_core_keep')
+        colours = [tint['core'], tint['rim']]
+    else:
+        colours = [tint]
+    for colour in colours:
+        if not isinstance(colour, list) or len(colour) != 3:
+            raise ValueError('tint requires three components per colour')
+        for v in colour: _number(v, 0, 1, 'tint')
     _number(data['pixel_scale'], 1, 8, 'pixel_scale', True)
+    _keys(data.get('phase_scale', {}), set(PHASES), set(), 'phase_scale')
+    for value in data.get('phase_scale', {}).values():
+        _number(value, .5, 4, 'phase_scale')
     _number(data['ground_squash'], .5, .65, 'ground_squash')
     _keys(data['phases'], set(PHASES), {'cast', 'travel', 'impact'}, 'phases')
     assets = {}
@@ -91,6 +104,8 @@ def _validate(data, root, runtime=False):
             _number(phase.get('speed_px_s', 520), 1e-9, math.inf, 'speed_px_s')
             if not isinstance(phase.get('streak', False), bool):
                 raise ValueError('streak must be boolean')
+    frame_paths = {assets[frame['file']] for phase in data['phases'].values()
+                   for frame in phase['frames']}
     _keys(data['layers'], set(LAYER_KEYS)|{'dark_duplicate'}, set(), 'layers')
     for name, layer in data['layers'].items():
         if name == 'dark_duplicate':
@@ -100,7 +115,11 @@ def _validate(data, root, runtime=False):
         _keys(layer, fields, fields-({'file'} if name == 'decal' else set()), name)
         for key, value in layer.items():
             if key in ('file', 'texture'):
-                assets[value] = _png(value, root, False, runtime)
+                assets[value] = _png(value, root, key == 'texture' and not runtime, runtime)
+                if key == 'texture' and not runtime and assets[value] not in frame_paths:
+                    with Image.open(assets[value]) as image:
+                        if max(image.size) > 16:
+                            raise ValueError('Independent particle texture must be at most 16 px per side')
             elif key == 'direction':
                 if not isinstance(value, list) or len(value) != 2:
                     raise ValueError('direction requires two components')
@@ -120,27 +139,64 @@ def _validate(data, root, runtime=False):
     return assets
 
 
-def load_kit(directory):
-    """Validate generated kit metadata and every asset before project creation."""
+def load_kit(directory, preserve_ramp=False):
+    """Validate assets and return metadata suitable for existing scene writers.
+
+    Body colour and phase sizes are baked into PNGs. Existing scene writers
+    use a single RGB tint for auxiliary lights; a ramp supplies its core RGB
+    there. ``preserve_ramp=True`` returns the complete authored ramp instead.
+    Neither view mutates kit.json; legacy metadata is returned unchanged.
+    """
     root = Path(directory).resolve()
     path = root/'kit.json'
     if not path.resolve().is_relative_to(root):
         raise ValueError('kit.json escapes its directory')
     data = json.loads(path.read_text())
     _validate(data, root, runtime=True)
+    if isinstance(data['tint'], dict) and not preserve_ramp:
+        data['tint'] = data['tint']['core']
     return data
 
 
-def _tint(path, tint, scale):
+def _tint(path, tint, scale, phase_scale=1, band_levels=None):
+    """Tint, then NEAREST pixel-scale and phase-scale in separate steps.
+
+    Ramp bands are visible source grey levels, bright to dark, shared across
+    each phase's sheet and frames. Hidden RGB never introduces a ramp band.
+    Fractional phase sizes round to nearest integer (half up), minimum one.
+    Legacy list tint deliberately retains its original byte arithmetic.
+    """
     with Image.open(path) as im:
         pixels = np.array(im.convert('RGBA'))
     # RGB channels are equal on visible body pixels; retain transparent RGB too.
     luminance = pixels[..., :3].astype(float) @ np.array([.2126, .7152, .0722])
-    rgb = np.rint(pixels[..., :3].astype(float)*np.array(tint)).astype(np.uint8)
-    rgb[luminance >= .92*255] = 255
+    if isinstance(tint, dict):
+        grey = np.rint(luminance).astype(np.uint8)
+        levels = (np.unique(grey[pixels[..., 3] > 0])[::-1]
+                  if band_levels is None else band_levels)
+        lookup = np.zeros((256, 3), dtype=np.uint8)
+        core, rim = np.array(tint['core']), np.array(tint['rim'])
+        for band, level in enumerate(levels):
+            light = float(level)/255
+            weight = light*light*(3-2*light)
+            colour = (rim+(core-rim)*weight)*light
+            h, s, v = colorsys.rgb_to_hsv(*colour)
+            h = (h+tint.get('hue_shift_deg_per_band', 0)*band/360) % 1
+            lookup[level] = np.rint(np.array(colorsys.hsv_to_rgb(h, s, v))*255).astype(np.uint8)
+        rgb = pixels[..., :3].copy()
+        visible = pixels[..., 3] > 0
+        rgb[visible] = lookup[grey[visible]]
+        rgb[visible & (grey/255 >= tint.get('white_core_keep', .92))] = 255
+    else:
+        rgb = np.rint(pixels[..., :3].astype(float)*np.array(tint)).astype(np.uint8)
+        rgb[luminance >= .92*255] = 255
     pixels[..., :3] = rgb
     image = Image.fromarray(pixels)
-    return image.resize((image.width*scale, image.height*scale), Image.Resampling.NEAREST)
+    image = image.resize((image.width*scale, image.height*scale), Image.Resampling.NEAREST)
+    if phase_scale != 1:
+        size = tuple(max(1, int(math.floor(v*phase_scale+.5))) for v in image.size)
+        image = image.resize(size, Image.Resampling.NEAREST)
+    return image
 
 
 def build(effect_json, out_dir):
@@ -160,14 +216,28 @@ def build(effect_json, out_dir):
     from export.godot_import import write_spriteframes
     out.mkdir(parents=True, exist_ok=True)
     metadata = copy.deepcopy(data)
+    if isinstance(data['tint'], dict):
+        metadata['tint'].setdefault('hue_shift_deg_per_band', 0)
+        metadata['tint'].setdefault('white_core_keep', .92)
+    if isinstance(data['tint'], dict) or 'phase_scale' in data:
+        metadata['phase_scale'] = {phase: data.get('phase_scale', {}).get(phase, 1) for phase in PHASES}
     counts = {}
     for phase, definition in data['phases'].items():
         name = PHASES[phase]
         (out/name).mkdir()
         frames = []
+        band_levels = None
+        if isinstance(data['tint'], dict):
+            levels = set()
+            for source in {definition['sheet']} | {f['file'] for f in definition['frames']}:
+                with Image.open(assets[source]) as image:
+                    rgba = np.array(image.convert('RGBA'))
+                levels.update(np.unique(rgba[..., 0][rgba[..., 3] > 0]).tolist())
+            band_levels = sorted(levels, reverse=True)
         for i, frame in enumerate(definition['frames']):
             file = f'{name}/{name}_{i:02d}.png'
-            _tint(assets[frame['file']], data['tint'], data['pixel_scale']).save(out/file)
+            _tint(assets[frame['file']], data['tint'], data['pixel_scale'],
+                  data.get('phase_scale', {}).get(phase, 1), band_levels).save(out/file)
             frames.append({'file': file, 'hold_frames': frame['hold_frames']})
         metadata['phases'][phase]['frames'] = frames
         metadata['phases'][phase]['sheet'] = frames[0]['file']

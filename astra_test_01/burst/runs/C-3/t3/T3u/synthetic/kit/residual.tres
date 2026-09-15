@@ -1,0 +1,8 @@
+[gd_resource type="SpriteFrames" load_steps=3 format=3]
+
+[ext_resource type="Texture2D" path="res://residual/residual_00.png" id="1"]
+[ext_resource type="Texture2D" path="res://residual/residual_01.png" id="2"]
+
+[resource]
+animations = [{"frames": [{"duration": 0.03333333333333333, "texture": ExtResource("1")},
+{"duration": 0.08333333333333333, "texture": ExtResource("2")}], "loop": false, "name": &"residual", "speed": 1.0}]

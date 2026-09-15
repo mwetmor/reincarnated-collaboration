@@ -35536,9 +35536,649 @@
       "codex_version": "codex-cli 0.153.4",
       "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
       "exit": 0
+    },
+    {
+      "id": "CS-vfx-frozenorb-sheets-v2",
+      "type": "GENERATE",
+      "experiment": "C3-vfx-breadth",
+      "brief_sha256": "59bc73ca0766803e1d967935147caafeacfdae52fe645d58d458f68f2ea5ebb5",
+      "started": "2026-09-15T02:11:10.132825+00:00",
+      "ended": "2026-09-15T02:13:13.049709+00:00",
+      "minutes": 2.0485892854167105,
+      "image_calls": 1,
+      "tool_calls": 2,
+      "audit": {
+        "violations": [],
+        "image_calls": 1,
+        "tool_calls": 2,
+        "tools_seen": {
+          "command_execution": 2
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0a2d5-1d57-7ab3-b757-127ba5f98f6c/exec-cc295aeb-5e37-4966-8d68-0ce58b8c9506.png",
+            "sha256": "4fd7296c0b58d1ae916388e02da9c0e7dda07128030e7604723aec8caa0a1f0a"
+          }
+        ]
+      },
+      "receipt_sha256": "ba0c456cabde86f0aee158b2f2be9a030a543de51ce2c889252caa210ac55bc3",
+      "artifacts": [
+        {
+          "name": "frozenorb_sheets_v2.png",
+          "sha256": "4fd7296c0b58d1ae916388e02da9c0e7dda07128030e7604723aec8caa0a1f0a"
+        },
+        {
+          "name": "exec-cc295aeb-5e37-4966-8d68-0ce58b8c9506.provenance.json",
+          "sha256": "166ada91cee762c5d237d377e7803704d51049e0e5d915a1d9417563b71f9481"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0a2d5-1d57-7ab3-b757-127ba5f98f6c/exec-cc295aeb-5e37-4966-8d68-0ce58b8c9506.png",
+          "sha256": "4fd7296c0b58d1ae916388e02da9c0e7dda07128030e7604723aec8caa0a1f0a"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
+    },
+    {
+      "id": "T3u",
+      "type": "TOOLING",
+      "experiment": "C3-T3",
+      "brief_sha256": "35b40ed7da7732a2c6b1379c55c3a0f7a999d101036b7fa37dbea5992add9e03",
+      "started": "2026-09-15T02:11:23.590634+00:00",
+      "ended": "2026-09-15T02:33:48.829432+00:00",
+      "minutes": 22.422329538199968,
+      "image_calls": 0,
+      "tool_calls": 35,
+      "audit": {
+        "violations": [],
+        "image_calls": 0,
+        "tool_calls": 35,
+        "tools_seen": {
+          "command_execution": 30,
+          "file_change": 5
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": []
+      },
+      "receipt_sha256": "55743bf183a18027707821ee7d9ff2997ffcce35327886aeb4365d971e1ea918",
+      "artifacts": [],
+      "artifacts_in_place": [
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "export/effect_kit.py",
+          "sha256": "d88259b543667e8699471c36fb93d2f57c33e3f23230c019f9232261a6c20890"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3u/baseline.json",
+          "sha256": "f6967055d7e33a92ed6cfd2ad4945407aa2d40adb2c897af05403b1f3752d750"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3u/frozen_orb_diagnostic/diagnostic.json",
+          "sha256": "8079455d03636c67efd8b14d8533df4a38bb6a27f68f00cbcb2c3154470f7105"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3u/frozen_orb_diagnostic/measure.json",
+          "sha256": "a39bbeeef49482bf65bc44ca3545336fe528ca14bfdfdd3e252d16b5a10076ae"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3u/frozen_orb_diagnostic/ramp/impact_00.png",
+          "sha256": "02f08ad2ddfed9d0b7c4bf9e90f56b5e182af7d55357a9b979664ad7e8f8df28"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3u/frozen_orb_diagnostic/ramp/impact_01.png",
+          "sha256": "647128d003948903d7c2f913b8e1d237d30ee767754798624a1c25146ac61ad7"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3u/frozen_orb_diagnostic/ramp/impact_02.png",
+          "sha256": "cc2dcedb45f10cee67c8f9bfc66028e24f7990b9489f72210599e128c85492f2"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3u/frozen_orb_diagnostic/ramp/impact_03.png",
+          "sha256": "00dea763060db05f39151717e402f1fb3a2806282cfb20feeb937b04c5d9b3e1"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3u/frozen_orb_diagnostic/ramp/impact_04.png",
+          "sha256": "eb7e4643724e56790f6888566fcd0b6b5bbddefa83557556c3533b818c34c62a"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3u/frozen_orb_diagnostic/ramp/impact_05.png",
+          "sha256": "010b98fb9804a5a493704d88c4d74f8c5f980c5c0a6cc7a550b333a6ea1a66dc"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3u/frozen_orb_diagnostic/source/impact_00.png",
+          "sha256": "5053379d60092fc3c7a4fad67abf66024c8a07329de7684e507f4ae640e13fad"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3u/frozen_orb_diagnostic/source/impact_01.png",
+          "sha256": "9605645b4c6b01b7056aa60e1d7b4f9e155ad50483ca303b70d95ccb2b129f44"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3u/frozen_orb_diagnostic/source/impact_02.png",
+          "sha256": "c5d18d06d5211221fb4fe19a2bf4134daebb3383d7d247fb26d16ddc1aa69e4d"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3u/frozen_orb_diagnostic/source/impact_03.png",
+          "sha256": "c204a67939348c24257c9f9c5d0549686762ee7d033ecb33d6141d24e822fc0c"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3u/frozen_orb_diagnostic/source/impact_04.png",
+          "sha256": "a198dec5e30a55005c27e2dc54f246d958bbec618229bd7122622e6ad38088b3"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3u/frozen_orb_diagnostic/source/impact_05.png",
+          "sha256": "4e41df450e07fb5960fd2fb896a8b85f1874c1c1f346d7993b254af7c4a4d5ff"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3u/full_suite.log",
+          "sha256": "00c182e49fe7cf3463f93c5d9e1045b973a81e801e51dcd04c64520ff9c30477"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3u/full_suite_summary.json",
+          "sha256": "0c79ef9c78c28342af8c29561643bd6959647931b27ddbbf22472197841a4aad"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3u/full_suite_timing.json",
+          "sha256": "381b3b034fee62877a4ed1709ee6c0da6a7a81b20cd210d093d927f03238e23b"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3u/synthetic/acceptance.json",
+          "sha256": "475d8e804125e43f5947645d9fcc90e7608212cafca534e1ef955d071df60cfc"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3u/synthetic/inputs/effect.json",
+          "sha256": "bf790e1902c217556bf72c5e1953c4b63376e2af15a2b0926442f2608c3b5067"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3u/synthetic/inputs/frame_0.png",
+          "sha256": "18a93a08d505ba119bfef2d2f85f0ed78aa5e9ed58c3c984561abb94d07eb068"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3u/synthetic/inputs/frame_1.png",
+          "sha256": "2f2b3fd4038a305da7e4f23a510bc7c6c1c5fceda39e55c39f47df610212a1ca"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3u/synthetic/kit/CREDITS.txt",
+          "sha256": "ee20dca27d9f175dc6dd1e0c0f62c687f7e96568b0db6055ccfaa09fe0bf5778"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3u/synthetic/kit/flare.tres",
+          "sha256": "53992a3b9a0c7ef9eb8080818a1d6eb8836c9776851e563ef762f8f749f2837e"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3u/synthetic/kit/flare/flare_00.png",
+          "sha256": "f43d7cc8d2acaaba66edb6928d52e758ab507f7334a69eb532460c4d7e8fe64f"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3u/synthetic/kit/flare/flare_01.png",
+          "sha256": "154808de3415efc87e0959bc11c738c0b338357700fd25e1d897c642665c32cd"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3u/synthetic/kit/impact.tres",
+          "sha256": "90032c676042fdb292e38bf53eb55bb9cc6e2aa74b922373f835ed0dfb3e96c4"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3u/synthetic/kit/impact/impact_00.png",
+          "sha256": "c0882305f18fc3ec1f71a98911a48fb15df6c523ad2da6fe64121702f1d0ef3a"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3u/synthetic/kit/impact/impact_01.png",
+          "sha256": "06fc06e3b44c122675df5bcfc994f417b29ff6e77c8e526bad909ac63e1b1c46"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3u/synthetic/kit/kit.json",
+          "sha256": "7803d0e1b2df3929189015a18078a14ee5831677dbae81e04678772b52701f79"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3u/synthetic/kit/layers/decal.png",
+          "sha256": "f43d7cc8d2acaaba66edb6928d52e758ab507f7334a69eb532460c4d7e8fe64f"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3u/synthetic/kit/layers/particles.png",
+          "sha256": "154808de3415efc87e0959bc11c738c0b338357700fd25e1d897c642665c32cd"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3u/synthetic/kit/residual.tres",
+          "sha256": "31e994a08398f8ab0352bc9181f2199f77f86514c142db04473b012e6d77a8a0"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3u/synthetic/kit/residual/residual_00.png",
+          "sha256": "5dc7ed6f70dc1bb37c91ce260464caf3f5165128872c770d5376afd143cb98dc"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3u/synthetic/kit/residual/residual_01.png",
+          "sha256": "900f6dcac41ba0a541e6bbb92991cee1dc1dc6897a9b59cc9f4499c4fd571a7c"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3u/synthetic/kit/travel.tres",
+          "sha256": "8c45cf323a7d7546741bff67968808040fca18034ed3c166ce06e6e54397b942"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3u/synthetic/kit/travel/travel_00.png",
+          "sha256": "f43d7cc8d2acaaba66edb6928d52e758ab507f7334a69eb532460c4d7e8fe64f"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3u/synthetic/kit/travel/travel_01.png",
+          "sha256": "154808de3415efc87e0959bc11c738c0b338357700fd25e1d897c642665c32cd"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3u/synthetic/kit/vfx_select.json",
+          "sha256": "dda2cc9f6042f819d0eb4baff431bbe7e3c7a533d0ca04857eb36ddf5d85eed2"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3u/synthetic/measure.json",
+          "sha256": "b17ab7460700337cf9969fed7dc897fe8d38188d80e1f59829793fa1cd6445f2"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3u/tooling_report.json",
+          "sha256": "7e4d0c2e8fcdfdc28ff483917b167e0561f7f47da07a91243f03c346e9c9c640"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3u/unit_summary.json",
+          "sha256": "432d56f43e572b712be14b8ded48815c4a8e8f7e4f235112b8a24cb4d83124f8"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-3/t3/T3u/unit_tests.log",
+          "sha256": "dee848417c5461820ec25af24c19de55266c5917198577d64cf468b3a59a9b2b"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "tests/gates_regression_diff.json",
+          "sha256": "c8864b881f6646a530b06271dfb4d801767aa46db6184abad8bba4761cafbe80"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "tests/oracles_acceptance_measurements.json",
+          "sha256": "39949a5e5c6afe3bf7e19061f5aa2859e15d85b70803b0430ced6471c998f3d0"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "tests/oracles_palette_measurements.json",
+          "sha256": "d644692970ba376c582468b225308f6c3d6e9c7c8b5a0c73187689d2e1cbac25"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "tests/oracles_silhouette_measurements.json",
+          "sha256": "1dc9e68b72691bf50e1773cdfcc5cad8d8990731cfb2a012956acb826aaa637f"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "tests/parts_measurements.json",
+          "sha256": "daef6067a663ac0f199506bfbbb229a351bd7ce0fac4cb670dcac047026f8994"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "tests/sheet_consistency_calibration.json",
+          "sha256": "3b8076d4a4b4e3b06920e067b3c5c665d6a0a441afd3f4725cbfafdb3df463ab"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "tests/t0c_suite_output.txt",
+          "sha256": "4b2954119c920a0a372fe0fb575a25ff4c85b97bd0dac5df11f103129b644a28"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "tests/t0c_summary.json",
+          "sha256": "5d376c12e5a669f24d51a56da5a6a42bf116c99d33807f7a2ace1a4e2f7ca58a"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "tests/test_effect_kit.py",
+          "sha256": "92746540d033a5346397f1b2c67312612274c4f92bd54d75efcaf9b9ac6ab6d4"
+        }
+      ],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
+    },
+    {
+      "id": "CS-pack-web2",
+      "type": "PACK",
+      "experiment": "C3-cliffside-v3",
+      "brief_sha256": "b5bfd8ad58fcce0f52e6886842b73e33304b6db902840a5c96c79888bb7d0b4f",
+      "started": "2026-09-15T02:34:33.777829+00:00",
+      "ended": "2026-09-15T02:35:56.145341+00:00",
+      "minutes": 1.37281311041667,
+      "image_calls": 0,
+      "tool_calls": 6,
+      "audit": {
+        "violations": [],
+        "image_calls": 0,
+        "tool_calls": 6,
+        "tools_seen": {
+          "command_execution": 6
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": []
+      },
+      "receipt_sha256": "7545a4d8fa3bd042db2433ee0483c7f070a189f9bbe591a921e39b0ee797e49f",
+      "artifacts": [
+        {
+          "name": "README_scene.txt",
+          "sha256": "9f369a6fb038f1cac954fb12a384f8def792749b2cefee0c102a681477982e4b"
+        },
+        {
+          "name": "exporter.json",
+          "sha256": "eeff27cedb5518a73c71c23854b0201fac44debbe09dea3317b0f4fca713b51e"
+        },
+        {
+          "name": "godot/project.godot",
+          "sha256": "6a8166148fc0b3e54f8589a0a716379636040f615b0f827ea49f2dfe7a6c5deb"
+        },
+        {
+          "name": "godot/scenes/cliffside.tscn",
+          "sha256": "fda4c82907189c3c216080a1d1c6c5ea9d0ace1b28c54762589cdde49e5a7f7b"
+        },
+        {
+          "name": "godot/scenes/main.tscn",
+          "sha256": "a7ff2b1ba99ca306dacd7fbee1556fbfbed54d72cc8e3c01ab72e1aba58b874d"
+        },
+        {
+          "name": "godot/scenes/vfx_frozen_orb_bolt.tscn",
+          "sha256": "e39c428437fc353afee230a0f7581eee63cdf23b01ab525da252fe62eac8337c"
+        },
+        {
+          "name": "godot/scenes/vfx_frozen_orb_impact.tscn",
+          "sha256": "3877e7b912032df15c58b1ef774d851ad91affa9d1a7e5b0c8fdefb05ae27deb"
+        },
+        {
+          "name": "godot/scripts/fly_swarm.gd",
+          "sha256": "8603f91597f1f8aeb74b6238a6a2860c3ac807b4c67edca13f56f40b08b33423"
+        },
+        {
+          "name": "godot/scripts/glow_flicker.gd",
+          "sha256": "fee0db3aa00b834bc1f6198886c6e476f45b91fd012ce641a0145e97ec857671"
+        },
+        {
+          "name": "godot/scripts/keeper.gd",
+          "sha256": "dfff4b5c963946378c72859be89b683ce1cc38ce630dab9007df0b7047c2064b"
+        },
+        {
+          "name": "godot/scripts/occlusion_fade.gd",
+          "sha256": "96d37de2e8c7790cb00815fb1f939389872874ba23b43dc017d8530d3db62f61"
+        },
+        {
+          "name": "godot/scripts/vfx_frozen_orb_bolt.gd",
+          "sha256": "201da021ac4535e149e654057bfa4f2ff534f4f3387dfecabd76e758cb2a1047"
+        },
+        {
+          "name": "godot/scripts/vfx_frozen_orb_impact.gd",
+          "sha256": "0a9e2855d3fc34f4963e7a2989522fd68beceab4ee0e18248fb964cfadbb1123"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
+    },
+    {
+      "id": "CS-pack-v14",
+      "type": "PACK",
+      "experiment": "C3-cliffside-v3",
+      "brief_sha256": "9928633cb16024caa80d4a66ae989f26348637643174ede7ddef8898e3847b89",
+      "started": "2026-09-15T02:34:33.777830+00:00",
+      "ended": "2026-09-15T02:36:41.898046+00:00",
+      "minutes": 2.135372335416711,
+      "image_calls": 0,
+      "tool_calls": 3,
+      "audit": {
+        "violations": [],
+        "image_calls": 0,
+        "tool_calls": 3,
+        "tools_seen": {
+          "command_execution": 3
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": []
+      },
+      "receipt_sha256": "5d2797ac7e0e286ff27dc39157146782e6d28d9900c3667579a8bef63c597d8b",
+      "artifacts": [
+        {
+          "name": "README_scene.txt",
+          "sha256": "2b54f133aa4811211ae4f97f4935b456d4d20ef31ee08eb314f1f0e3e9771675"
+        },
+        {
+          "name": "exporter.json",
+          "sha256": "a4c1d7b536c5deafe3a9e77a736f6cc4102f0e1edfd1ea1f2f2d5ce999fdfd0d"
+        },
+        {
+          "name": "godot/project.godot",
+          "sha256": "6a8166148fc0b3e54f8589a0a716379636040f615b0f827ea49f2dfe7a6c5deb"
+        },
+        {
+          "name": "godot/scenes/cliffside.tscn",
+          "sha256": "fda4c82907189c3c216080a1d1c6c5ea9d0ace1b28c54762589cdde49e5a7f7b"
+        },
+        {
+          "name": "godot/scenes/main.tscn",
+          "sha256": "a7ff2b1ba99ca306dacd7fbee1556fbfbed54d72cc8e3c01ab72e1aba58b874d"
+        },
+        {
+          "name": "godot/scenes/vfx_arcane_bolt.tscn",
+          "sha256": "b88e7c70d84981aff3f1040f51ec64567aba6941f5df7f4e3edd71861b2a45dd"
+        },
+        {
+          "name": "godot/scenes/vfx_arcane_impact.tscn",
+          "sha256": "5a00cb38e8ece227ea927b39b5b75902e27a57c826bf5a74fc3e7e74a2ab6b1c"
+        },
+        {
+          "name": "godot/scenes/vfx_fire_bolt.tscn",
+          "sha256": "8ef515ccff116ed15fabf4da8d0051f1e08847da1889b19ce34753666fff4c50"
+        },
+        {
+          "name": "godot/scenes/vfx_fire_impact.tscn",
+          "sha256": "0bb0d93b8ff4c4b902222c86ec0832a7b6444b6164785dd1dc14c3990614a563"
+        },
+        {
+          "name": "godot/scenes/vfx_frost_bolt.tscn",
+          "sha256": "9072f94f22043a46d31dcd5ee36a4c81124b870621025667e15563a26dfa3a1d"
+        },
+        {
+          "name": "godot/scenes/vfx_frost_impact.tscn",
+          "sha256": "9b004cf19178f00c719d3b31c2e09c892e2b763cbc0b85ff481b2c5d2dcd0436"
+        },
+        {
+          "name": "godot/scenes/vfx_frozen_orb_bolt.tscn",
+          "sha256": "e39c428437fc353afee230a0f7581eee63cdf23b01ab525da252fe62eac8337c"
+        },
+        {
+          "name": "godot/scenes/vfx_frozen_orb_impact.tscn",
+          "sha256": "3877e7b912032df15c58b1ef774d851ad91affa9d1a7e5b0c8fdefb05ae27deb"
+        },
+        {
+          "name": "godot/scenes/vfx_holy_bolt.tscn",
+          "sha256": "ba5df4823033a22156f1c393908bb5db5c6d97ef2229a11f7791997d09e1053e"
+        },
+        {
+          "name": "godot/scenes/vfx_holy_impact.tscn",
+          "sha256": "93bfd23c156cf0822e3677a061a1eff5d15042c2cd50d175ae5bb7957d3d5e32"
+        },
+        {
+          "name": "godot/scenes/vfx_lightning_bolt.tscn",
+          "sha256": "4d57684ed3c6183c938ef9f5f605482cf9871f628e4b71970c0e306d940414ce"
+        },
+        {
+          "name": "godot/scenes/vfx_lightning_impact.tscn",
+          "sha256": "968e8ab1c24263324f2de1e293d183e980691de934805d33a87eabf7004370d7"
+        },
+        {
+          "name": "godot/scenes/vfx_poison_bolt.tscn",
+          "sha256": "7edc105cfd79ee2ee6f7dbe04dda9c50e328b80e606070dc08453573ff0da68f"
+        },
+        {
+          "name": "godot/scenes/vfx_poison_impact.tscn",
+          "sha256": "a95667b757becfd6091508a1cc142b90e31569a452855500423da46b3d1eb0fc"
+        },
+        {
+          "name": "godot/scripts/fly_swarm.gd",
+          "sha256": "8603f91597f1f8aeb74b6238a6a2860c3ac807b4c67edca13f56f40b08b33423"
+        },
+        {
+          "name": "godot/scripts/glow_flicker.gd",
+          "sha256": "fee0db3aa00b834bc1f6198886c6e476f45b91fd012ce641a0145e97ec857671"
+        },
+        {
+          "name": "godot/scripts/keeper.gd",
+          "sha256": "25f4bfb879bcad90273e59aae820cfb381b759e37061bfc5a5729241490cbd4b"
+        },
+        {
+          "name": "godot/scripts/occlusion_fade.gd",
+          "sha256": "96d37de2e8c7790cb00815fb1f939389872874ba23b43dc017d8530d3db62f61"
+        },
+        {
+          "name": "godot/scripts/vfx_arcane_bolt.gd",
+          "sha256": "f2f125c5741744ce22eca27fd8758dc177f6fdab80a9e1cc6cc61ba217092a56"
+        },
+        {
+          "name": "godot/scripts/vfx_arcane_impact.gd",
+          "sha256": "2f53be38f198744ff7f39b9281e2c82b06836c37a6f3bbc89e85d54bd1fc4105"
+        },
+        {
+          "name": "godot/scripts/vfx_fire_bolt.gd",
+          "sha256": "d028438ad68c7945fe1fa564b56011ec9191249fba9ffd22728f962bc0b7db0c"
+        },
+        {
+          "name": "godot/scripts/vfx_fire_impact.gd",
+          "sha256": "2f53be38f198744ff7f39b9281e2c82b06836c37a6f3bbc89e85d54bd1fc4105"
+        },
+        {
+          "name": "godot/scripts/vfx_frost_bolt.gd",
+          "sha256": "089166038a02d025aa7e3f18869c47547ff9d63689e413f9d1d647699c2a90c5"
+        },
+        {
+          "name": "godot/scripts/vfx_frost_impact.gd",
+          "sha256": "2f53be38f198744ff7f39b9281e2c82b06836c37a6f3bbc89e85d54bd1fc4105"
+        },
+        {
+          "name": "godot/scripts/vfx_frozen_orb_bolt.gd",
+          "sha256": "201da021ac4535e149e654057bfa4f2ff534f4f3387dfecabd76e758cb2a1047"
+        },
+        {
+          "name": "godot/scripts/vfx_frozen_orb_impact.gd",
+          "sha256": "0a9e2855d3fc34f4963e7a2989522fd68beceab4ee0e18248fb964cfadbb1123"
+        },
+        {
+          "name": "godot/scripts/vfx_holy_bolt.gd",
+          "sha256": "5a7f8795810d152ff77865c5403dadfb1463f989050ca963109a63324916ac56"
+        },
+        {
+          "name": "godot/scripts/vfx_holy_impact.gd",
+          "sha256": "2f53be38f198744ff7f39b9281e2c82b06836c37a6f3bbc89e85d54bd1fc4105"
+        },
+        {
+          "name": "godot/scripts/vfx_lightning_bolt.gd",
+          "sha256": "dd52ee182c3dc509f70e3e416df917cd0e1f71c66069ed329bef2a8033e6a32c"
+        },
+        {
+          "name": "godot/scripts/vfx_lightning_impact.gd",
+          "sha256": "2f53be38f198744ff7f39b9281e2c82b06836c37a6f3bbc89e85d54bd1fc4105"
+        },
+        {
+          "name": "godot/scripts/vfx_poison_bolt.gd",
+          "sha256": "066b5ac96659509943d956deed285ed4653351178f307095e7030db06685ebce"
+        },
+        {
+          "name": "godot/scripts/vfx_poison_impact.gd",
+          "sha256": "2f53be38f198744ff7f39b9281e2c82b06836c37a6f3bbc89e85d54bd1fc4105"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
     }
   ],
-  "images_used": 233,
+  "images_used": 234,
   "images_cap": 1000,
   "experiments": {},
   "milestones": [
@@ -36544,6 +37184,34 @@
       "veto_open": true,
       "ruling": "v13 (pixel_scale 3) staged, probed, Desktop 82 re-pointed. Travel orb now ~0.6 BH with a mist streak - reads as painted-pixel ice; impact sequence captured (8 frames): shatter disc -> shard burst -> dark fragments, correct order and timing, but the impact drawing is still small (~0.5 BH; D2 Frozen Orb and the Hades bands want 1-1.5 BH) and the particle motes render as large white squares (8 px texture x 3 = 24 px blocks). Next kit iteration (parameters only, no lane change): impact-phase scale x2 (needs a per-phase scale in T3u - added to its scope as `phase_scale`), particle texture 3 px mote or the shard dart, particle count 10 -> 16 with gravity-less radial spread. Legolas video-generation findings filed and pushed (agentic_orchestration/legolas/research/2026-09-15-video-generation-alternatives/findings.md).",
       "ts": "2026-09-15T03:40:00"
+    },
+    {
+      "id": "R-C3-109",
+      "class": "matt",
+      "veto_open": false,
+      "ruling": "Matt (2026-09-15): the boosted extracted-shadow layer (v11/v13) is NO GOOD; remove the ground-shadow layer entirely for now so the Vercel mobile playtest can ship (the cow's accepted contact shadow is kept - one line to drop if Matt wants it gone too). Shadows become an OPEN RESEARCH ITEM: candidate methods (a) Astra paints all shadows into the picture (chunks + objects), (b) a shadow layer authored in the grey room BEFORE painting so the paint carries it, then augment the painted layer with particles/lighting; look for further methods later. v14 = v11 minus the shadow sprites; CS-pack-web2 re-export for the public build; drax told.",
+      "ts": "2026-09-15T03:55:00"
+    },
+    {
+      "id": "R-C3-110",
+      "class": "matt",
+      "veto_open": false,
+      "ruling": "Matt (2026-09-15): ship the mobile playtest scene FIRST - without VFX or with the basic (not great) Frozen Orb as is; do not gate the web build on kit quality. PLAN: once the six-kit VFX bake-off is finished, load the full bake-off into the web build (re-export with the bake-off kits + redeploy). Web-build sequence therefore: v14 (no shadows) -> CS-pack-web2 (frozen_orb basic) -> drax deploy; later: CS-pack-web3 with the bake-off kits.",
+      "ts": "2026-09-15T04:10:00"
+    },
+    {
+      "id": "R-C3-111",
+      "class": "conductor",
+      "veto_open": true,
+      "ruling": "T3u (tint ramp + phase_scale + particle texture validation) ACCEPTED WITH TWO DOCUMENTED REDS. Outside-sandbox run: 48 tests, 2 failures = the two literal-acceptance tests on the 16x16 synthetic fixture (hue SD 5.3 deg < 8; O5 medians 0.0/0.0) - the SPEC row asked a 2-frame 16x16 fixture for numbers it cannot carry (conductor error in the acceptance clause, not the builder). The builder itself meets the purpose on the real sheet: Frozen Orb impact frames re-tinted with the ramp measure hue SD 10.8 deg (Hades band 10-18), bright-15 % median S .30 vs dim-25 % .78 (ordering correct; both a little above the .02-.27 / .44-.64 bands - ramp colours are a knob), white core kept, plain-tint kits byte-identical (17 kit files + 10 project files), legacy picker scenes byte-identical, 34/10/3/2 invalid cases rejected. SPEC row amended so the O4/O5 gate is measured on the >= 4-band real sheet; a small T3u-fix TOOLING (re-point the two tests to that fixture) is queued for the next TOOLING window. Freeze + restamp follow.",
+      "ts": "2026-09-15T02:40:00Z"
+    },
+    {
+      "id": "R-C3-112",
+      "class": "conductor",
+      "veto_open": true,
+      "ruling": "Frozen Orb kit v2: re-drawn no-glow sheet (CS-vfx-frozenorb-sheets-v2, register landed: hard edges, no haze) cut at tighter value thresholds (white core 6-12 % of body, 4 bands), built with T3u: ramp core [.90,.99,1] -> rim [.32,.40,.92], hue shift 20 deg/band, pixel_scale 3, phase_scale impact 1.6 / residual 1.3, 4 px mote particles x16. Oracle on the impact body (flash disc excluded - Hades carries the flash as a layer, not a flipbook frame): O4 hue SD 11.4 deg (band 10-18) IN, O5 bright .23 / dim .60 IN, rise 0 IN, half at 3 IN, extent 2.0 BH IN, residue .29 (band .15-.26, slightly high), decay_2 .67 (band .45-.65, slightly slow) - the two residual misses are hold-timing knobs. kits_v3.json = frozen_orb_v2 first; CS-pack-v15 fired (= v14 no-shadows + kit v2) for Desktop 82.",
+      "ts": "2026-09-15T02:50:00Z"
     }
   ],
   "grok_calls": [
@@ -37839,6 +38507,18 @@
     {
       "note": "Matt 2026-09-15: Godot export templates installed (current version = 4.6.3.stable) - the Vercel phone-playtest web build (R-C3-102) is unblocked. Conductor: CS-pack-web PACK fired (kits_web.json = frozen_orb only; no third-party library VFX in the public build); drax dispatched (named sub-agent) for the HTML5 export (threads off, GL Compatibility, touch controls on the existing input actions), hosting as a static route on reincarnated-loadout, push authorized by Matt ask, deploy-truth gate.",
       "ts": "2026-09-15T03:20:00"
+    },
+    {
+      "note": "Matt (2026-09-15) amends R-C3-109: the cow's contact shadow is one of the worst - remove it too. v14 ships with NO shadow layer at all.",
+      "ts": "2026-09-15T04:00:00"
+    },
+    {
+      "note": "Matt (2026-09-15): Chronicon's VFX (not its art register) are worth looking into for our game. Conductor: Chronicon is absent from the 54-sample atlas; Legolas commissioned to pull 6-8 samples (study-only, local store), measure with T3s vfx_measure + atlas traits, three-column Chronicon/Hades/D2R comparison, process note. Design read: Chronicon = pixel-particle grammar (chunky square particles, additive core, hard pixel trails, count over shape, screen shake) over LOW-DETAIL pixel scenery; the density reads because the ground is quiet. Over our painted ground the same density risks mud - the test is legibility over painted detail, so the bake-off kit for it is le-lightning-blast / poe1-pconc (particle-dense families), judged with the oracle plus a painted-background legibility check.",
+      "ts": "2026-09-15T02:20:00Z"
+    },
+    {
+      "note": "Matt (2026-09-15): Children of Morta's trailer - VFX even better than Chronicon's, and its painted-pixel register is close to our painted world (ours has more detail). Conductor: Legolas pull extended to CoM (6-8 samples, four-column comparison Chronicon/CoM/Hades/D2R, plus HOW CoM keeps effects legible over detailed painted ground). Design read: CoM is the closest shipped analogue to our exact problem - drawn flipbook effects with hard pixel edges + additive light + particle count over a detailed painted-pixel ground; candidate to join/replace Hades as the primary outcome oracle for the painted-pixel direction once measured (fork for Matt after data, not before).",
+      "ts": "2026-09-15T02:25:00Z"
     }
   ],
   "images_cap_note": "Matt R-C3-55 removed the cap (was 120); set to 1000 because lane/run_burst.py compares the cap numerically"

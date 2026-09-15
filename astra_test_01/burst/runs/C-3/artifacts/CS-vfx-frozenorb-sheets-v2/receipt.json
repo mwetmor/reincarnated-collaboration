@@ -1,0 +1,30 @@
+{
+  "task_id": "CS-vfx-frozenorb-sheets-v2",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "frozenorb_sheets_v2.png",
+      "path": "out/frozenorb_sheets_v2.png",
+      "sha256": "4fd7296c0b58d1ae916388e02da9c0e7dda07128030e7604723aec8caa0a1f0a",
+      "prompt": "Use case: stylized-concept. Create ONE 1536×1024 raster sprite effect sheet for FROZEN ORB. Flat PURE BLACK #000000 background, exactly 6 columns × 4 rows of 256×256 cells, 24 drawings total. Each drawing centred in its own cell with clear empty margins and never touching any cell edge. GREYSCALE ONLY, exactly FIVE permitted values: #000000 background, #404040 dark grey, #808080 mid grey, #C0C0C0 light grey, #FFFFFF white. Hand-painted small-native-size sprite aesthetic, hard stair-stepped shapes as if drawn with a 1-px pencil at 64×64 per cell and enlarged 4× with nearest-neighbour. 3–4 flat value steps within each drawing, white core, dark grey rim/interior holes. ABSOLUTELY NO soft gradients, glow, haze, bloom, radial light falloff, blur, anti-aliasing or outline strokes. Every mark must be a solid hard-edged block in the five-value palette. For luminosity use solid light-grey blocks, never a glow. Ice/frost design with crystals, shards and stylized frost mist represented ONLY by discrete solid clusters. Readable at 25% size, 64px cells.\nROW 1 — CAST, six frames left to right in time: a swirl of frost gathering at a point, growing from a few motes into a bright compact orb with white core.\nROW 2 — TRAVEL, six frames: orb in flight facing RIGHT, bright crystalline sphere with short frost-mist streak trailing LEFT. Vary spinning facets and solid-cluster mist across frames to form a loop.\nROW 3 — IMPACT, six frames: frame 1 flat white flash disc; then radial ice shards burst outward with a ring; then shards thin and ring breaks; last frame a few small dark fragments. All rings are hard stepped bands, all debris remains inside each cell.\nROW 4 — RESIDUAL + SHARD, six frames: first four cells show a ground frost patch, flat ellipse wider than tall, fading in discrete value steps. Cells 5 and 6 show one single ice shard projectile facing RIGHT, small bright dart with tiny solid-cluster mist tail, two spin variants.\nNo labels, grid lines, text, border or anything between cells. No colour. Pure black background everywhere outside the hard-edged effect shapes. Deliver exactly 1536×1024.",
+      "references": [],
+      "elapsed_s": 47.354
+    }
+  ],
+  "calls_used": 1,
+  "retries": [],
+  "self_report": {
+    "obeyed_invariants": false,
+    "concerns": [
+      "Followed the task-specific black-background, greyscale 6×4 specification, which conflicts with the frozen register's green-background, hand-drawn 2×2 requirements.",
+      "Exact five-value palette and absence of anti-aliasing were not verified pixel-by-pixel.",
+      "Residual frost frames 3 and 4 show limited visible value fading."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/frozenorb_sheets_v2.png",
+      "sha256": "4fd7296c0b58d1ae916388e02da9c0e7dda07128030e7604723aec8caa0a1f0a"
+    }
+  ]
+}

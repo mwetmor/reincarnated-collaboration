@@ -5,6 +5,8 @@ No source artwork or external image-generation services are involved.
 """
 import colorsys
 import copy
+import hashlib
+import io
 import json
 import math
 from pathlib import Path
@@ -17,12 +19,15 @@ import unittest
 
 import numpy as np
 from PIL import Image
-from export.effect_kit import build, load_kit
+from export.effect_kit import build, load_kit, _tint
 from export.godot_import import build_project, validate_resources, write_spriteframes
+from oracle.vfx_measure import measure
 
 ROOT = Path(__file__).resolve().parents[1]
 ARTIFACTS = ROOT/'runs/C-3/t3/T3t'
 TMP = ROOT/'tests/tmp'
+RAMP_ARTIFACTS = ROOT/'runs/C-3/t3/T3u'
+RAMP = {'core': [.85, .95, 1], 'rim': [.15, .3, .9], 'hue_shift_deg_per_band': 8}
 
 
 def definition_fixture(root):
@@ -54,10 +59,15 @@ def definition_fixture(root):
     return path, data
 
 
-def picker_fixture(root, legacy=None):
+def picker_fixture(root, legacy=None, tint=None, phase_scale=None):
     """Tiny E/N/S cells and measured sockets; return kit and exported project."""
     root = Path(root).resolve()
     path, data = definition_fixture(root/'inputs')
+    if tint is not None:
+        data['tint'] = copy.deepcopy(tint)
+    if phase_scale is not None:
+        data['phase_scale'] = copy.deepcopy(phase_scale)
+    path.write_text(json.dumps(data, indent=2)+'\n')
     kit = root/'kit'
     report = build(path, kit)
     cells = root/'inputs/cells'
@@ -280,8 +290,289 @@ class EffectKitTests(unittest.TestCase):
             self.assertFalse((self.root/'bad.tres').exists())
 
 
+class TintRampTests(unittest.TestCase):
+    def setUp(self):
+        TMP.mkdir(parents=True, exist_ok=True)
+        self.tmp = tempfile.TemporaryDirectory(prefix='t3u-', dir=TMP)
+        self.addCleanup(self.tmp.cleanup)
+        self.root = Path(self.tmp.name)
+        self.path, self.data = definition_fixture(self.root/'inputs')
+        self.data['tint'] = copy.deepcopy(RAMP)
+
+    def build_data(self, data=None, name='kit'):
+        self.path.write_text(json.dumps(self.data if data is None else data))
+        out = self.root/name
+        build(self.path, out)
+        return out
+
+    def test_ramp_t3t_literal_o4_acceptance(self):
+        result = measure(self.build_data()/'impact', [1000*2/60, 1000*5/60])
+        self.assertGreaterEqual(result['O4']['hue_sd_deg_at_peak'], 8)
+
+    def test_ramp_t3t_literal_o5_acceptance(self):
+        result = measure(self.build_data()/'impact', [1000*2/60, 1000*5/60])
+        self.assertLess(result['O5']['bright_15_median_at_peak'],
+                        result['O5']['dim_25_median_at_peak'])
+
+    def test_mapping_matches_smoothstep_multiply_then_hsv_for_every_byte(self):
+        # Independent scalar reference, including hue wrap and endpoint clamps.
+        source = np.zeros((16,16,4), dtype=np.uint8)
+        source[..., :3] = np.arange(256, dtype=np.uint8).reshape(16,16,1)
+        source[..., 3] = 255
+        p = self.root/'levels.png'; Image.fromarray(source).save(p)
+        for shift in (-60, 0, 8, 60):
+            tint = dict(RAMP, hue_shift_deg_per_band=shift)
+            actual = np.array(_tint(p, tint, 1))
+            for grey in range(256):
+                light = grey/255
+                t = 3*light**2-2*light**3
+                base = [grey*((1-t)*rim+t*core)/255 for rim,core in zip(tint['rim'],tint['core'])]
+                h,s,v = colorsys.rgb_to_hsv(*base)
+                target = ([255]*3 if light >= .92 else
+                          [round(x*255) for x in colorsys.hsv_to_rgb((h+(255-grey)*shift/360)%1,s,v)])
+                np.testing.assert_array_equal(actual[grey//16,grey%16,:3], target)
+
+    def test_sheet_band_indices_stable_when_frame_omits_bright_levels(self):
+        # Sheet defines all four bands; sparse frame keeps dark band's index 3.
+        sheet = np.array([[[v,v,v,255] for v in (255,192,128,64)]], dtype=np.uint8)
+        Image.fromarray(sheet).save(self.root/'inputs/frame_0.png')
+        Image.fromarray(sheet[:,3:]).save(self.root/'inputs/frame_1.png')
+        out = self.build_data()
+        first = np.array(Image.open(out/'impact/impact_00.png'))
+        sparse = np.array(Image.open(out/'impact/impact_01.png'))
+        np.testing.assert_array_equal(first[0,-1], sparse[0,0])
+
+    def test_white_core_thresholds_alpha_hidden_rgb_and_zero_saturation(self):
+        for keep in (.8,.92,1):
+            tint = dict(RAMP, white_core_keep=keep)
+            path = self.root/'inputs/frame_0.png'
+            source = np.array(Image.open(path))
+            actual = np.array(_tint(path,tint,1))
+            np.testing.assert_array_equal(actual[...,3],source[...,3])
+            white = (source[...,0]/255 >= keep) & (source[...,3] > 0)
+            self.assertGreaterEqual(int(actual[white,:3].min()),250)
+            np.testing.assert_array_equal(actual[source[...,3] == 0],source[source[...,3] == 0])
+        neutral = {'core':[1,1,1], 'rim':[1,1,1], 'hue_shift_deg_per_band':60}
+        image = np.array(_tint(path,neutral,1))
+        np.testing.assert_array_equal(image[...,0],image[...,1])
+        np.testing.assert_array_equal(image[...,1],image[...,2])
+
+    def test_plain_tint_png_bytes_match_t3t_arithmetic(self):
+        self.data['tint'] = [.25,.5,1]
+        out = self.build_data()
+        for phase in ('flare','travel','impact','residual'):
+            for i in range(2):
+                pixels = np.array(Image.open(self.root/f'inputs/frame_{i}.png'))
+                grey = pixels[...,:3].astype(float) @ np.array([.2126,.7152,.0722])
+                pixels[...,:3] = np.rint(pixels[...,:3]*np.array([.25,.5,1])).astype(np.uint8)
+                pixels[grey >= .92*255,:3] = 255
+                image = Image.fromarray(pixels).resize((48,48),Image.Resampling.NEAREST)
+                stream = io.BytesIO();image.save(stream,format='PNG')
+                self.assertEqual((out/phase/f'{phase}_{i:02d}.png').read_bytes(),stream.getvalue())
+        self.assertNotIn('phase_scale',load_kit(out))
+
+    def test_ramp_defaults_and_runtime_view_preserve_authored_json(self):
+        self.data['tint'] = {k:RAMP[k] for k in ('core','rim')}
+        out = self.build_data()
+        before = (out/'kit.json').read_bytes()
+        raw = load_kit(out,preserve_ramp=True)
+        self.assertEqual(raw['tint'],dict(self.data['tint'],hue_shift_deg_per_band=0,white_core_keep=.92))
+        self.assertEqual(raw['phase_scale'],dict.fromkeys(('cast','travel','impact','residual'),1))
+        self.assertEqual(load_kit(out)['tint'],RAMP['core'])
+        self.assertEqual((out/'kit.json').read_bytes(),before)
+
+    def test_phase_scale_two_nearest_steps_boundaries_and_layers_unchanged(self):
+        baseline = self.build_data(name='unscaled')
+        self.data['phase_scale'] = {'cast':.5,'travel':1.125,'impact':4,'residual':2}
+        out = self.build_data()
+        for phase,name in [('cast','flare'),('travel','travel'),('impact','impact'),('residual','residual')]:
+            scale = self.data['phase_scale'][phase]
+            size = int(math.floor(48*scale+.5))
+            original = Image.open(baseline/name/f'{name}_00.png')
+            actual = Image.open(out/name/f'{name}_00.png')
+            self.assertEqual(actual.size,(size,size))
+            np.testing.assert_array_equal(actual,original.resize((size,size),Image.Resampling.NEAREST))
+        for p in (baseline/'layers').glob('*.png'):
+            self.assertEqual(p.read_bytes(),(out/'layers'/p.name).read_bytes())
+
+    def test_fractional_scale_rounds_half_up_after_pixel_scale(self):
+        path = self.root/'small.png';Image.new('RGBA',(3,5),(128,128,128,255)).save(path)
+        self.assertEqual(_tint(path,RAMP,1,.5).size,(2,3))
+
+    def test_picker_ramp_and_legacy_scenes_and_scaled_resource_bytes(self):
+        plain = picker_fixture(self.root/'plain')
+        ramp = picker_fixture(self.root/'ramp',tint=RAMP,phase_scale={'impact':2,'residual':.5})
+        legacy_scenes = sorted((plain['project']/'scenes').glob('vfx_frost_*.tscn'))
+        self.assertTrue(legacy_scenes)
+        for p in legacy_scenes:
+            self.assertEqual(p.read_bytes(),(ramp['project']/'scenes'/p.name).read_bytes())
+        for p in (plain['project']/'scripts').glob('vfx_*.gd'):
+            self.assertEqual(p.read_bytes(),(ramp['project']/'scripts'/p.name).read_bytes())
+        project_kit = ramp['project']/'vfx/synthetic_ice'
+        for phase,size in [('impact',96),('travel',48),('residual',24)]:
+            with Image.open(project_kit/f'sprites/{phase}/{phase}_00.png') as image:
+                self.assertEqual(image.size,(size,size))
+        for p in ramp['kit'].rglob('*.png'):
+            relative = p.relative_to(ramp['kit'])
+            target = project_kit/relative if relative.parts[0] == 'layers' else project_kit/'sprites'/relative
+            self.assertEqual(p.read_bytes(),target.read_bytes())
+        scene = (ramp['project']/'scenes/vfx_synthetic_ice_impact.tscn').read_text()
+        self.assertIn('res://vfx/synthetic_ice/impact.tres',scene)
+        self.assertIn('texture_filter = 1',scene)
+        self.assertIn('modulate = Color(0.85, 0.95, 1, 1)',scene)
+        self.assertGreater(len(validate_resources(ramp['project'],True)),0)
+
+    def test_invalid_ramps_and_scales_rejected_before_output(self):
+        cases = [None,[],{}, {'core':[1,1,1]},dict(RAMP,unknown=0)]
+        for field in ('core','rim'):
+            for value in (None,[1,1],[1,1,1,1],[-.01,0,0],[1.01,0,0],[True,0,0],[float('nan'),0,0],[float('inf'),0,0]):
+                cases.append(dict(RAMP,**{field:value}))
+        for field,values in [('hue_shift_deg_per_band',[-60.01,60.01,True,None,float('nan'),float('inf'),'8']),
+                             ('white_core_keep',[.7999,1.001,True,None,float('nan'),'0.92'])]:
+            cases.extend(dict(RAMP,**{field:v}) for v in values)
+        variants = [dict(self.data,tint=t) for t in cases]
+        variants += [dict(self.data,phase_scale=s) for s in (None,[],{'unknown':1})]
+        variants += [dict(self.data,phase_scale={'impact':v}) for v in (.49,4.01,True,None,float('nan'),float('inf'),'2')]
+        for i,data in enumerate(variants):
+            with self.subTest(case=i), self.assertRaises(ValueError): self.build_data(data)
+            self.assertFalse((self.root/'kit').exists())
+
+    def test_particle_independent_grayscale_size_and_frame_exception(self):
+        independent = self.root/'inputs/particle.png'
+        self.data['layers']['particles']['texture'] = 'particle.png'
+        for size in ((1,1),(16,16),(16,1)):
+            Image.new('L',size,128).save(independent)
+            out = self.build_data(name='particle-'+str(size))
+            with Image.open(out/'layers/particles.png') as image:
+                self.assertEqual(image.size,tuple(3*v for v in size))
+            load_kit(out)
+        for size,colour in [((17,1),(128,128,128)),((1,17),(128,128,128)),((16,16),(128,127,128))]:
+            Image.new('RGB',size,colour).save(independent)
+            with self.subTest(size=size,colour=colour), self.assertRaises(ValueError): self.build_data()
+            self.assertFalse((self.root/'kit').exists())
+        Image.new('RGBA',(32,24),(128,128,128,255)).save(self.root/'inputs/frame_1.png')
+        self.data['layers']['particles']['texture'] = 'frame_1.png'
+        with Image.open(self.build_data()/'layers/particles.png') as image:
+            self.assertEqual(image.size,(96,72))
+
+    def test_four_band_diagnostic_measures_hue_and_saturation_known_bad_control(self):
+        source = np.zeros((16,16,4),dtype=np.uint8)
+        for i,grey in enumerate((255,160,96,32)):
+            source[:,i*4:(i+1)*4,:3] = grey
+        source[...,3] = 255
+        path = self.root/'four-band.png';Image.fromarray(source).save(path)
+        for label,tint in [('ramp',RAMP),('flat',[.25,.5,1])]:
+            out = self.root/label;out.mkdir()
+            _tint(path,tint,1).save(out/'frame.png')
+            result = measure(out,60)
+            if label == 'ramp':
+                self.assertGreaterEqual(result['O4']['hue_sd_deg_at_peak'],8)
+                self.assertLess(result['O5']['bright_15_median_at_peak'],result['O5']['dim_25_median_at_peak'])
+            else:
+                self.assertLess(result['O4']['hue_sd_deg_at_peak'],1)
+
+    def test_runtime_invalid_ramp_and_scale_rejected(self):
+        out = self.build_data()
+        original = json.loads((out/'kit.json').read_text())
+        for data in (dict(original,tint=dict(RAMP,hue_shift_deg_per_band=61)),
+                     dict(original,phase_scale={'impact':0})):
+            (out/'kit.json').write_text(json.dumps(data))
+            with self.assertRaises(ValueError): load_kit(out)
+
+
+def measure_ramp_fixture(root):
+    """Literal T3t acceptance, recorded without substituting a different mask."""
+    started = time.monotonic()
+    root = Path(root).resolve();root.mkdir(parents=True,exist_ok=True)
+    path,data = definition_fixture(root/'inputs')
+    data['tint'] = copy.deepcopy(RAMP)
+    data['phase_scale'] = {'impact':2,'residual':.5}
+    path.write_text(json.dumps(data,indent=2)+'\n')
+    report = build(path,root/'kit')
+    measured = measure(root/'kit/impact',[1000*2/60,1000*5/60])
+    (root/'measure.json').write_text(json.dumps(measured,indent=2)+'\n')
+    with tempfile.TemporaryDirectory(prefix='t3u-acceptance-',dir=TMP) as tmp:
+        plain = picker_fixture(Path(tmp)/'plain')
+        ramp = picker_fixture(Path(tmp)/'ramp',tint=RAMP,phase_scale=data['phase_scale'])
+        baseline = json.loads((RAMP_ARTIFACTS/'baseline.json').read_text())
+        comparisons = {}
+        for key in ('kit','project'):
+            comparisons[key] = {name:hashlib.sha256((plain[key]/name).read_bytes()).hexdigest() == digest
+                                for name,digest in baseline[key].items()}
+        legacy = {p.name:p.read_bytes() == (ramp['project']/'scenes'/p.name).read_bytes()
+                  for p in (plain['project']/'scenes').glob('vfx_frost_*.tscn')}
+        resources = len(validate_resources(ramp['project'],True))
+        picker_wall = ramp['export_report']['wall_s']
+    pixels = np.array(Image.open(root/'kit/impact/impact_00.png'))
+    result = {'id':'t3u_tint_ramp_acceptance','subject':'T3t unchanged 16x16 fixture','passed':None,
+              'value':{'hue_sd_deg':measured['O4']['hue_sd_deg_at_peak'],
+                       'bright_15_median_s':measured['O5']['bright_15_median_at_peak'],
+                       'dim_25_median_s':measured['O5']['dim_25_median_at_peak'],
+                       'white_core_min':int(pixels[:,48:72,:3].min()),
+                       'baseline_byte_comparisons':comparisons,'legacy_scenes_byte_identical':legacy,
+                       'phase_dimensions':{name:list(Image.open(root/f'kit/{name}/{name}_00.png').size)
+                                           for name in ('flare','travel','impact','residual')},
+                       'resource_references':resources},
+              'threshold':{'hue_sd_deg_min':8,'bright_vs_dim':'strictly less','white_core_min':250,
+                           'baseline_byte_comparisons':'all identical','legacy_scenes':'all identical'},
+              'op':'report','unit':'mixed','evidence':[str(root/'measure.json'),str(root/'kit/kit.json')],
+              'notes':'Literal fixture retained: opaque zero grey makes dim-25 median zero; only 64 and 128 bands exceed S>.3. No replacement acceptance fixture.',
+              'build_wall_s':report['wall_s'],'picker_wall_s':picker_wall,'wall_s':time.monotonic()-started}
+    (root/'acceptance.json').write_text(json.dumps(result,indent=2)+'\n')
+    return result
+
+
+def measure_frozen_orb_ramp(root):
+    """Diagnostic only: recover nonwhite greys from Frozen Orb's unit blue tint.
+
+    Source white levels were collapsed by T3t and cannot be reconstructed;
+    preserve them as 255. Already scaled frames retain their native size.
+    The original kit and its stored measurement are never rewritten.
+    """
+    started = time.monotonic()
+    root = Path(root).resolve();root.mkdir(parents=True,exist_ok=True)
+    frozen = ROOT/'runs/C-3/vfx_kits/frozen_orb'
+    definition = json.loads((frozen/'kit.json').read_text())
+    if definition['tint'][2] != 1:
+        raise ValueError('Diagnostic recovery requires original blue tint exactly one')
+    frames = definition['phases']['impact']['frames']
+    timing = [f['hold_frames']*1000/60 for f in frames]
+    baseline = measure(frozen/'impact',timing)
+    recorded = json.loads((ROOT/'runs/C-3/artifacts/CS-vfx-frozenorb-kit-in/measure/fo_impact_measure.json').read_text())
+    source,out = root/'source',root/'ramp'
+    source.mkdir();out.mkdir()
+    levels = set()
+    for frame in frames:
+        with Image.open(frozen/frame['file']) as image:
+            rgba = np.array(image.convert('RGBA'))
+        rgba[...,:3] = rgba[...,2,None]
+        levels.update(np.unique(rgba[...,0][rgba[...,3]>0]).tolist())
+        Image.fromarray(rgba).save(source/Path(frame['file']).name)
+    for path in sorted(source.glob('*.png')):
+        _tint(path,RAMP,1,band_levels=sorted(levels,reverse=True)).save(out/path.name)
+    measured = measure(out,timing)
+    (root/'measure.json').write_text(json.dumps(measured,indent=2)+'\n')
+    def quantities(m):
+        return {'hue_sd_deg':m['O4']['hue_sd_deg_at_peak'],
+                'bright_15_median_s':m['O5']['bright_15_median_at_peak'],
+                'dim_25_median_s':m['O5']['dim_25_median_at_peak']}
+    result = {'id':'t3u_frozen_orb_diagnostic','subject':'Frozen Orb impact, recovered greys','passed':None,
+              'value':{'recorded':quantities(recorded),'remeasured':quantities(baseline),
+                       'ramp':quantities(measured),'source_grey_levels_bright_to_dark':sorted(levels,reverse=True)},
+              'threshold':None,'op':'report','unit':'mixed',
+              'evidence':[str(root/'measure.json')],
+              'notes':'Diagnostic, not the literal T3t acceptance fixture. Unit blue recovers nonwhite greys; original white greys are unavailable and represented by 255. No extra resizing.',
+              'wall_s':time.monotonic()-started}
+    (root/'diagnostic.json').write_text(json.dumps(result,indent=2)+'\n')
+    return result
+
+
 if __name__ == '__main__':
     if len(sys.argv) == 3 and sys.argv[1] == '--fixture':
         print(json.dumps(measure_fixture(sys.argv[2]), indent=2))
+    elif len(sys.argv) == 3 and sys.argv[1] == '--ramp-fixture':
+        print(json.dumps(measure_ramp_fixture(sys.argv[2]), indent=2))
+    elif len(sys.argv) == 3 and sys.argv[1] == '--frozen-orb-ramp':
+        print(json.dumps(measure_frozen_orb_ramp(sys.argv[2]), indent=2))
     else:
         unittest.main()

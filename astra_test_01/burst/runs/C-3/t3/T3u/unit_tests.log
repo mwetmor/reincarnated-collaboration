@@ -1,0 +1,45 @@
+test_dict_paths_no_cwd_mutation_and_output_overlap_stale_rejected (test_effect_kit.EffectKitTests.test_dict_paths_no_cwd_mutation_and_output_overlap_stale_rejected) ... ok
+test_every_asset_validated_missing_corrupt_and_color_before_output (test_effect_kit.EffectKitTests.test_every_asset_validated_missing_corrupt_and_color_before_output) ... ok
+test_generated_metadata_rejects_unknown_missing_and_escaping_assets (test_effect_kit.EffectKitTests.test_generated_metadata_rejects_unknown_missing_and_escaping_assets) ... ok
+test_holds_are_seconds_at_speed_one_in_every_resource (test_effect_kit.EffectKitTests.test_holds_are_seconds_at_speed_one_in_every_resource) ... ok
+test_invalid_numbers_booleans_holds_ranges_and_shapes (test_effect_kit.EffectKitTests.test_invalid_numbers_booleans_holds_ranges_and_shapes) ... ok
+test_minimal_definition_optional_layers_residual_and_travel_defaults (test_effect_kit.EffectKitTests.test_minimal_definition_optional_layers_residual_and_travel_defaults) ... ok
+test_missing_and_unknown_keys_at_all_schema_levels (test_effect_kit.EffectKitTests.test_missing_and_unknown_keys_at_all_schema_levels) ... ok
+test_scale_boundaries_and_white_threshold (test_effect_kit.EffectKitTests.test_scale_boundaries_and_white_threshold) ... ok
+test_spriteframe_duration_extension_default_bytes_and_invalid_before_resource (test_effect_kit.EffectKitTests.test_spriteframe_duration_extension_default_bytes_and_invalid_before_resource) ... ok
+test_two_frame_phases_hue_white_core_alpha_nearest_and_dimensions (test_effect_kit.EffectKitTests.test_two_frame_phases_hue_white_core_alpha_nearest_and_dimensions) ... ok
+test_four_band_diagnostic_measures_hue_and_saturation_known_bad_control (test_effect_kit.TintRampTests.test_four_band_diagnostic_measures_hue_and_saturation_known_bad_control) ... ok
+test_fractional_scale_rounds_half_up_after_pixel_scale (test_effect_kit.TintRampTests.test_fractional_scale_rounds_half_up_after_pixel_scale) ... ok
+test_invalid_ramps_and_scales_rejected_before_output (test_effect_kit.TintRampTests.test_invalid_ramps_and_scales_rejected_before_output) ... ok
+test_mapping_matches_smoothstep_multiply_then_hsv_for_every_byte (test_effect_kit.TintRampTests.test_mapping_matches_smoothstep_multiply_then_hsv_for_every_byte) ... ok
+test_particle_independent_grayscale_size_and_frame_exception (test_effect_kit.TintRampTests.test_particle_independent_grayscale_size_and_frame_exception) ... ok
+test_phase_scale_two_nearest_steps_boundaries_and_layers_unchanged (test_effect_kit.TintRampTests.test_phase_scale_two_nearest_steps_boundaries_and_layers_unchanged) ... ok
+test_picker_ramp_and_legacy_scenes_and_scaled_resource_bytes (test_effect_kit.TintRampTests.test_picker_ramp_and_legacy_scenes_and_scaled_resource_bytes) ... ok
+test_plain_tint_png_bytes_match_t3t_arithmetic (test_effect_kit.TintRampTests.test_plain_tint_png_bytes_match_t3t_arithmetic) ... ok
+test_ramp_defaults_and_runtime_view_preserve_authored_json (test_effect_kit.TintRampTests.test_ramp_defaults_and_runtime_view_preserve_authored_json) ... ok
+test_ramp_t3t_literal_o4_acceptance (test_effect_kit.TintRampTests.test_ramp_t3t_literal_o4_acceptance) ... FAIL
+test_ramp_t3t_literal_o5_acceptance (test_effect_kit.TintRampTests.test_ramp_t3t_literal_o5_acceptance) ... FAIL
+test_runtime_invalid_ramp_and_scale_rejected (test_effect_kit.TintRampTests.test_runtime_invalid_ramp_and_scale_rejected) ... ok
+test_sheet_band_indices_stable_when_frame_omits_bright_levels (test_effect_kit.TintRampTests.test_sheet_band_indices_stable_when_frame_omits_bright_levels) ... ok
+test_white_core_thresholds_alpha_hidden_rgb_and_zero_saturation (test_effect_kit.TintRampTests.test_white_core_thresholds_alpha_hidden_rgb_and_zero_saturation) ... ok
+
+======================================================================
+FAIL: test_ramp_t3t_literal_o4_acceptance (test_effect_kit.TintRampTests.test_ramp_t3t_literal_o4_acceptance)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_effect_kit.py", line 310, in test_ramp_t3t_literal_o4_acceptance
+    self.assertGreaterEqual(result['O4']['hue_sd_deg_at_peak'], 8)
+AssertionError: 5.343939346317721 not greater than or equal to 8
+
+======================================================================
+FAIL: test_ramp_t3t_literal_o5_acceptance (test_effect_kit.TintRampTests.test_ramp_t3t_literal_o5_acceptance)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_effect_kit.py", line 314, in test_ramp_t3t_literal_o5_acceptance
+    self.assertLess(result['O5']['bright_15_median_at_peak'],
+AssertionError: 0.0 not less than 0.0
+
+----------------------------------------------------------------------
+Ran 24 tests in 0.935s
+
+FAILED (failures=2)

@@ -1,0 +1,826 @@
+{
+  "schema_version": 1,
+  "subject": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/t3/T3u/synthetic/kit/impact",
+  "n_frames": 2,
+  "canvas_wh": [
+    96,
+    96
+  ],
+  "plate": "alpha",
+  "body_h_px": 130.0,
+  "fps": null,
+  "durations_ms": [
+    33.333333333333336,
+    83.33333333333333
+  ],
+  "duration_ms": 116.66666666666666,
+  "frame_files": [
+    "impact_00.png",
+    "impact_01.png"
+  ],
+  "method": {
+    "mask": "alpha > 0",
+    "duration_unit": "ms",
+    "residue": "last frame area / peak area",
+    "O10": "100 L* bins; sigma=1; distance=5; prominence=5% of max",
+    "straight_alpha_edges": "partial-alpha boundary pixels with max(RGB) > alpha"
+  },
+  "O1": {
+    "area_px": [
+      8064,
+      8064
+    ],
+    "peak_area_px": 8064,
+    "envelope_area_over_peak": [
+      1.0,
+      1.0
+    ],
+    "onset_frame": 0,
+    "peak_frame": 0,
+    "rise_frames": 0,
+    "rise_ms": 0.0,
+    "half_frame": null,
+    "frames_to_half": null,
+    "ms_to_half": null,
+    "decay_area_over_peak": [
+      1.0,
+      1.0
+    ]
+  },
+  "O2": {
+    "visible_life_frames": null,
+    "visible_life_ms": null,
+    "end_frame": null,
+    "censored": true,
+    "observed_life_frames": 2,
+    "observed_life_ms": 116.66666666666666
+  },
+  "O3": {
+    "white_core_fraction": [
+      0.2857142857142857,
+      0.2857142857142857
+    ],
+    "core_frac_at_peak": 0.2857142857142857,
+    "core_max_frame": 0,
+    "classification": "flash-first"
+  },
+  "O4": {
+    "series": [
+      {
+        "sd_deg": 5.343939346317721,
+        "mean_deg": 251.01257479894002,
+        "n": 3456
+      },
+      {
+        "sd_deg": 5.343939346317721,
+        "mean_deg": 251.01257479894002,
+        "n": 3456
+      }
+    ],
+    "hue_sd_deg_at_peak": 5.343939346317721
+  },
+  "O5": {
+    "series": [
+      {
+        "bright_15_median": 0.0,
+        "dim_25_median": 0.0,
+        "median": 0.16239316239316232
+      },
+      {
+        "bright_15_median": 0.0,
+        "dim_25_median": 0.0,
+        "median": 0.16239316239316232
+      }
+    ],
+    "bright_15_median_at_peak": 0.0,
+    "dim_25_median_at_peak": 0.0
+  },
+  "O6": {
+    "bbox_at_peak": [
+      0,
+      0,
+      84,
+      96
+    ],
+    "width_px": 84,
+    "height_px": 96,
+    "width_bh": 0.6461538461538462,
+    "height_bh": 0.7384615384615385
+  },
+  "O8": {
+    "unique_frames": 2,
+    "unique_frames_per_s": 17.142857142857146,
+    "drawing_changes": 1,
+    "drawing_runs": 2,
+    "drawing_runs_per_s": 17.142857142857146,
+    "frame_sha256": [
+      "3012c526195bfcea693d46885bca864005b04f310bc2127661ee4e7d83d7b554",
+      "a9a9542feda5f2663238295e0c25499482dae1b822804c8c9a4364f219b132c7"
+    ],
+    "method": "exact decoded RGBA bytes; globally distinct frames / full playback seconds"
+  },
+  "O10": {
+    "series": [
+      {
+        "count": 5,
+        "centers_Lstar": [
+          0.5,
+          8.5,
+          30.5,
+          83.5,
+          99.5
+        ],
+        "histogram": [
+          1152,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1152,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          2304,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1152,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          2304
+        ]
+      },
+      {
+        "count": 5,
+        "centers_Lstar": [
+          0.5,
+          8.5,
+          30.5,
+          83.5,
+          99.5
+        ],
+        "histogram": [
+          1152,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1152,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          2304,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1152,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          2304
+        ]
+      }
+    ],
+    "count_at_peak": 5,
+    "inspect_only": true
+  },
+  "straight_alpha_edges": {
+    "per_frame": [
+      0,
+      0
+    ],
+    "count": 0,
+    "available": true
+  },
+  "residue_fraction": 1.0,
+  "results": [
+    {
+      "id": "O1",
+      "subject": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/t3/T3u/synthetic/kit/impact",
+      "passed": null,
+      "value": {
+        "area_px": [
+          8064,
+          8064
+        ],
+        "peak_area_px": 8064,
+        "envelope_area_over_peak": [
+          1.0,
+          1.0
+        ],
+        "onset_frame": 0,
+        "peak_frame": 0,
+        "rise_frames": 0,
+        "rise_ms": 0.0,
+        "half_frame": null,
+        "frames_to_half": null,
+        "ms_to_half": null,
+        "decay_area_over_peak": [
+          1.0,
+          1.0
+        ]
+      },
+      "threshold": null,
+      "op": "report",
+      "unit": "mixed",
+      "evidence": [
+        "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/t3/T3u/synthetic/kit/impact/impact_00.png",
+        "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/t3/T3u/synthetic/kit/impact/impact_01.png"
+      ],
+      "notes": "Measurement only."
+    },
+    {
+      "id": "O2",
+      "subject": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/t3/T3u/synthetic/kit/impact",
+      "passed": null,
+      "value": {
+        "visible_life_frames": null,
+        "visible_life_ms": null,
+        "end_frame": null,
+        "censored": true,
+        "observed_life_frames": 2,
+        "observed_life_ms": 116.66666666666666
+      },
+      "threshold": null,
+      "op": "report",
+      "unit": "mixed",
+      "evidence": [
+        "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/t3/T3u/synthetic/kit/impact/impact_00.png",
+        "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/t3/T3u/synthetic/kit/impact/impact_01.png"
+      ],
+      "notes": "Measurement only."
+    },
+    {
+      "id": "O3",
+      "subject": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/t3/T3u/synthetic/kit/impact",
+      "passed": null,
+      "value": {
+        "white_core_fraction": [
+          0.2857142857142857,
+          0.2857142857142857
+        ],
+        "core_frac_at_peak": 0.2857142857142857,
+        "core_max_frame": 0,
+        "classification": "flash-first"
+      },
+      "threshold": null,
+      "op": "report",
+      "unit": "mixed",
+      "evidence": [
+        "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/t3/T3u/synthetic/kit/impact/impact_00.png",
+        "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/t3/T3u/synthetic/kit/impact/impact_01.png"
+      ],
+      "notes": "Measurement only."
+    },
+    {
+      "id": "O4",
+      "subject": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/t3/T3u/synthetic/kit/impact",
+      "passed": null,
+      "value": {
+        "series": [
+          {
+            "sd_deg": 5.343939346317721,
+            "mean_deg": 251.01257479894002,
+            "n": 3456
+          },
+          {
+            "sd_deg": 5.343939346317721,
+            "mean_deg": 251.01257479894002,
+            "n": 3456
+          }
+        ],
+        "hue_sd_deg_at_peak": 5.343939346317721
+      },
+      "threshold": null,
+      "op": "report",
+      "unit": "mixed",
+      "evidence": [
+        "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/t3/T3u/synthetic/kit/impact/impact_00.png",
+        "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/t3/T3u/synthetic/kit/impact/impact_01.png"
+      ],
+      "notes": "Measurement only."
+    },
+    {
+      "id": "O5",
+      "subject": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/t3/T3u/synthetic/kit/impact",
+      "passed": null,
+      "value": {
+        "series": [
+          {
+            "bright_15_median": 0.0,
+            "dim_25_median": 0.0,
+            "median": 0.16239316239316232
+          },
+          {
+            "bright_15_median": 0.0,
+            "dim_25_median": 0.0,
+            "median": 0.16239316239316232
+          }
+        ],
+        "bright_15_median_at_peak": 0.0,
+        "dim_25_median_at_peak": 0.0
+      },
+      "threshold": null,
+      "op": "report",
+      "unit": "mixed",
+      "evidence": [
+        "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/t3/T3u/synthetic/kit/impact/impact_00.png",
+        "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/t3/T3u/synthetic/kit/impact/impact_01.png"
+      ],
+      "notes": "Measurement only."
+    },
+    {
+      "id": "O6",
+      "subject": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/t3/T3u/synthetic/kit/impact",
+      "passed": null,
+      "value": {
+        "bbox_at_peak": [
+          0,
+          0,
+          84,
+          96
+        ],
+        "width_px": 84,
+        "height_px": 96,
+        "width_bh": 0.6461538461538462,
+        "height_bh": 0.7384615384615385
+      },
+      "threshold": null,
+      "op": "report",
+      "unit": "mixed",
+      "evidence": [
+        "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/t3/T3u/synthetic/kit/impact/impact_00.png",
+        "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/t3/T3u/synthetic/kit/impact/impact_01.png"
+      ],
+      "notes": "Measurement only."
+    },
+    {
+      "id": "O8",
+      "subject": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/t3/T3u/synthetic/kit/impact",
+      "passed": null,
+      "value": {
+        "unique_frames": 2,
+        "unique_frames_per_s": 17.142857142857146,
+        "drawing_changes": 1,
+        "drawing_runs": 2,
+        "drawing_runs_per_s": 17.142857142857146,
+        "frame_sha256": [
+          "3012c526195bfcea693d46885bca864005b04f310bc2127661ee4e7d83d7b554",
+          "a9a9542feda5f2663238295e0c25499482dae1b822804c8c9a4364f219b132c7"
+        ],
+        "method": "exact decoded RGBA bytes; globally distinct frames / full playback seconds"
+      },
+      "threshold": null,
+      "op": "report",
+      "unit": "mixed",
+      "evidence": [
+        "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/t3/T3u/synthetic/kit/impact/impact_00.png",
+        "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/t3/T3u/synthetic/kit/impact/impact_01.png"
+      ],
+      "notes": "Measurement only."
+    },
+    {
+      "id": "O10",
+      "subject": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/t3/T3u/synthetic/kit/impact",
+      "passed": null,
+      "value": {
+        "series": [
+          {
+            "count": 5,
+            "centers_Lstar": [
+              0.5,
+              8.5,
+              30.5,
+              83.5,
+              99.5
+            ],
+            "histogram": [
+              1152,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1152,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              2304,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1152,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              2304
+            ]
+          },
+          {
+            "count": 5,
+            "centers_Lstar": [
+              0.5,
+              8.5,
+              30.5,
+              83.5,
+              99.5
+            ],
+            "histogram": [
+              1152,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1152,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              2304,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1152,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              2304
+            ]
+          }
+        ],
+        "count_at_peak": 5,
+        "inspect_only": true
+      },
+      "threshold": null,
+      "op": "report",
+      "unit": "mixed",
+      "evidence": [
+        "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/t3/T3u/synthetic/kit/impact/impact_00.png",
+        "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/t3/T3u/synthetic/kit/impact/impact_01.png"
+      ],
+      "notes": "Inspect only; uncalibrated mode counter."
+    },
+    {
+      "id": "straight_alpha_edges",
+      "subject": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/t3/T3u/synthetic/kit/impact",
+      "passed": null,
+      "value": {
+        "per_frame": [
+          0,
+          0
+        ],
+        "count": 0,
+        "available": true
+      },
+      "threshold": null,
+      "op": "report",
+      "unit": "pixels",
+      "evidence": [
+        "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/t3/T3u/synthetic/kit/impact/impact_00.png",
+        "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/t3/T3u/synthetic/kit/impact/impact_01.png"
+      ],
+      "notes": "Straight-alpha-compatible boundary evidence; not an alpha encoding verdict."
+    },
+    {
+      "id": "residue_fraction",
+      "subject": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/t3/T3u/synthetic/kit/impact",
+      "passed": null,
+      "value": 1.0,
+      "threshold": null,
+      "op": "report",
+      "unit": "fraction",
+      "evidence": [
+        "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/t3/T3u/synthetic/kit/impact/impact_00.png",
+        "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/t3/T3u/synthetic/kit/impact/impact_01.png"
+      ],
+      "notes": "Final-frame support / peak support; cut-dependent."
+    }
+  ]
+}
