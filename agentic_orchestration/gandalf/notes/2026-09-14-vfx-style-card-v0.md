@@ -34,11 +34,14 @@ Three trailers in one sitting set the poles. **CrossCode** = the fully-retro pol
 
 **The thesis, verbatim in intent:** *nostalgic feel without full retro — Earthbound meets Diablo 2 — a unique style that does not merge them but pulls from both, plus its own special flourish (flourish the way Hades and Children of Morta have flourish; not theirs).*
 
-**What each pole contributes (reading, not ruling):**
+**Correction (Matt, minutes later):** *"my Earthbound reference is only for the comparison of a teenager who goes to the future, which is where our story starts off… also the feel of Secret of Evermore."* So Earthbound is a **story-frame** comparison, not a visual one — an ordinary teenager whose adventure runs into the future; ours *begins* there. And the **feel** to hold is **Secret of Evermore** (Square USA, 1995): a boy thrown out of his small town into a world assembled from eras, wandering it with a companion, strange and lonely and wondrous at once, magic that is craft (alchemy from gathered ingredients), SNES-era painted-looking backgrounds. (An earlier draft of this section read Earthbound as a visual-clarity pole — flat shapes, PSI ornament — that reading is withdrawn; nothing of it is ruled.)
+
+**What each reference contributes (reading, not ruling):**
 - **Diablo 2** → the scene: painted, dark, weighty, dense with things; pre-rendered-isometric lineage. This is already the cliffside. Effects bold and few against a dense floor.
-- **Earthbound** → the *clarity*: flat bold shapes, few colours per effect, hard edges, high contrast, deadpan legibility; the PSI-attack ornament (concentric rings, hard bands, colour-cycling) as the nostalgia cue that reads as "remembered" rather than "retro". Our 4-band painted-pixel silhouettes with white core + dark duplicate are already on this vector; Frozen Orb v2 is the first instance.
+- **Earthbound** → the story frame only: the teenager-into-the-future comparison for where *Reap. Die. Rise.* opens (story-side: `canonical/reap-die-rise-story/`).
+- **Secret of Evermore** → the *feel*: displaced-kid wonder and unease; a journey through eras; companionship; magic as gathered craft; melancholy without grimdark. The nostalgia lives in this tone and in SNES-era adventure pacing, not in a pixel grid.
 - **Flourish** (Hades / CoM as evidence that it exists, not as source) → a *signature reaction layer* of our own: hit-stop, flash, floor light, shake, and the world answering the spell (embers lifting, ash, ravens). The signature is still to be found; candidate motif: the death-faith frame — effects that *reap* (harvest lines, husks, the swing of a scythe in the dissolve).
 
-**Anti-patterns named:** pixel grid on the scene (retro pole); Chronicon density over our detail (mud); merging the two poles into a pastel-flat D2 (the Earthbound-skin failure).
+**Anti-patterns named:** pixel grid on the scene (retro pole); Chronicon density over our detail (mud); merging the references into a pastel-flat D2 (the SNES-skin failure).
 
 **Gate to fold into `canonical/reap-die-rise-story/style-register.md`:** the Chronicon + CoM measurements (Legolas, in flight) and two more kits from the breadth test judged against this thesis.
