@@ -37753,6 +37753,348 @@
       "codex_version": "codex-cli 0.153.4",
       "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
       "exit": 0
+    },
+    {
+      "id": "CS-pack-v18",
+      "type": "PACK",
+      "experiment": "C3-cliffside-v3",
+      "brief_sha256": "b900d1104eb1db5bf5240e224cfb0a9d538ba97743f981f9cdf891bff4593645",
+      "started": "2026-09-15T04:17:47.181528+00:00",
+      "ended": "2026-09-15T04:19:26.905763+00:00",
+      "minutes": 1.662061138883352,
+      "image_calls": 0,
+      "tool_calls": 3,
+      "audit": {
+        "violations": [],
+        "image_calls": 0,
+        "tool_calls": 3,
+        "tools_seen": {
+          "command_execution": 3
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": []
+      },
+      "receipt_sha256": "dcc809df1b7078853668cb14a16d97a8adadaa845803ec264a5142b3f5ac0aab",
+      "artifacts": [
+        {
+          "name": "README_scene.txt",
+          "sha256": "2acfd87fe191cc596399982d22479368184fd13b4bcea963ee303fb4f500e58a"
+        },
+        {
+          "name": "exporter.json",
+          "sha256": "9777e3e712c45e55adada4c6433f078f325f32b76fed4b3153f46136382e7af5"
+        },
+        {
+          "name": "godot/project.godot",
+          "sha256": "6a8166148fc0b3e54f8589a0a716379636040f615b0f827ea49f2dfe7a6c5deb"
+        },
+        {
+          "name": "godot/scenes/cliffside.tscn",
+          "sha256": "fda4c82907189c3c216080a1d1c6c5ea9d0ace1b28c54762589cdde49e5a7f7b"
+        },
+        {
+          "name": "godot/scenes/main.tscn",
+          "sha256": "a7ff2b1ba99ca306dacd7fbee1556fbfbed54d72cc8e3c01ab72e1aba58b874d"
+        },
+        {
+          "name": "godot/scenes/vfx_blackwater_cocktail_bolt.tscn",
+          "sha256": "0b350d65d4b873f39f5cdddf967732b2bc3057beed8da889b95b0a7fed2cdc48"
+        },
+        {
+          "name": "godot/scenes/vfx_blackwater_cocktail_impact.tscn",
+          "sha256": "a284c3b6e06747f400bbd0cfa61487cb6f09a8053195cfc0ecc1378d617b8a9f"
+        },
+        {
+          "name": "godot/scenes/vfx_frozen_orb_bolt.tscn",
+          "sha256": "f9716fe4d35c3bf2a0cda316503c8d1b6f0fdbae32b0b50492b50d73a066a588"
+        },
+        {
+          "name": "godot/scenes/vfx_frozen_orb_impact.tscn",
+          "sha256": "d11d92ea42b15b9bd4b49e520e94b5c9822614d691b43dc68860a16b680db44a"
+        },
+        {
+          "name": "godot/scenes/vfx_healing_hands_bolt.tscn",
+          "sha256": "38aef1ebe4db67d1bd0a87b92f083d2afa6b32d1c6d7832a6b0793a526e93434"
+        },
+        {
+          "name": "godot/scenes/vfx_healing_hands_impact.tscn",
+          "sha256": "3f54bb70a781e4665b96d36ef797de7b93f6122210290a63c5329e8c13a0c4a4"
+        },
+        {
+          "name": "godot/scenes/vfx_lightning_blast_bolt.tscn",
+          "sha256": "d0baa8b338eb37ab170031f6e773b7f5a2e00122abe9afb9e3ff26c81bc2d181"
+        },
+        {
+          "name": "godot/scenes/vfx_lightning_blast_impact.tscn",
+          "sha256": "a50b1632e8df701ac4a0819c367172c4dcb19617c60c9698cb23544f5f21018a"
+        },
+        {
+          "name": "godot/scenes/vfx_poisonous_concoction_bolt.tscn",
+          "sha256": "0ab90268a5496469368cb5edf43a7ea7949879ccf920ab948fee8578c9bc4953"
+        },
+        {
+          "name": "godot/scenes/vfx_poisonous_concoction_impact.tscn",
+          "sha256": "ed1434cc91437b846af1c66f0eb0aea9e520a5bce1ce101057c00384035380fd"
+        },
+        {
+          "name": "godot/scenes/vfx_zeus_chain_bolt.tscn",
+          "sha256": "d235401fb8521b13d278e05c07a50e9c049c1f13c0e3e6a5aa4c3895a1db36b2"
+        },
+        {
+          "name": "godot/scenes/vfx_zeus_chain_impact.tscn",
+          "sha256": "e35bc39e1fbaeffa4cb5118878d3cfd77c823e7d3ac1c3fc9a36e80fb4a06388"
+        },
+        {
+          "name": "godot/scripts/fly_swarm.gd",
+          "sha256": "8603f91597f1f8aeb74b6238a6a2860c3ac807b4c67edca13f56f40b08b33423"
+        },
+        {
+          "name": "godot/scripts/glow_flicker.gd",
+          "sha256": "fee0db3aa00b834bc1f6198886c6e476f45b91fd012ce641a0145e97ec857671"
+        },
+        {
+          "name": "godot/scripts/keeper.gd",
+          "sha256": "b123848ec7ca9419d567e520fc8572b9cac9a1a2287fec25381643091bf9de5c"
+        },
+        {
+          "name": "godot/scripts/occlusion_fade.gd",
+          "sha256": "96d37de2e8c7790cb00815fb1f939389872874ba23b43dc017d8530d3db62f61"
+        },
+        {
+          "name": "godot/scripts/vfx_blackwater_cocktail_bolt.gd",
+          "sha256": "bfa400923fcd6824485687a7625d28191119e834d72503e908cb80bdce2ccbee"
+        },
+        {
+          "name": "godot/scripts/vfx_blackwater_cocktail_impact.gd",
+          "sha256": "2dc30334729b9945f7120b1fbc7edbaeeea0674410044cc788e5d4d78949273b"
+        },
+        {
+          "name": "godot/scripts/vfx_frozen_orb_bolt.gd",
+          "sha256": "ec58f936ae840b4ff723508a7f2d45ba87132699a0cbd2c35c1ef0e4fb571c9e"
+        },
+        {
+          "name": "godot/scripts/vfx_frozen_orb_impact.gd",
+          "sha256": "c904b669a64b4ad655a3a96babac00966c46fd9df07b2e87be48dd5eadca5c41"
+        },
+        {
+          "name": "godot/scripts/vfx_healing_hands_bolt.gd",
+          "sha256": "de27b8bd05281131d2a0833dc2feef7514efb5ac8dbbe05c2dfc05459cbdbbbf"
+        },
+        {
+          "name": "godot/scripts/vfx_healing_hands_impact.gd",
+          "sha256": "2dc30334729b9945f7120b1fbc7edbaeeea0674410044cc788e5d4d78949273b"
+        },
+        {
+          "name": "godot/scripts/vfx_lightning_blast_bolt.gd",
+          "sha256": "45a6ae928ff0f6d7aad9028c99e0d743f80e5fedb2f5cf8cd79e49d285dd33b5"
+        },
+        {
+          "name": "godot/scripts/vfx_lightning_blast_impact.gd",
+          "sha256": "2dc30334729b9945f7120b1fbc7edbaeeea0674410044cc788e5d4d78949273b"
+        },
+        {
+          "name": "godot/scripts/vfx_poisonous_concoction_bolt.gd",
+          "sha256": "8491c236bd11f4de34d3ce955ea34507ff380da78d48bf87dab23edeac48cf41"
+        },
+        {
+          "name": "godot/scripts/vfx_poisonous_concoction_impact.gd",
+          "sha256": "2dc30334729b9945f7120b1fbc7edbaeeea0674410044cc788e5d4d78949273b"
+        },
+        {
+          "name": "godot/scripts/vfx_zeus_chain_bolt.gd",
+          "sha256": "1361f6605055e6b82157c8b51a92fdb18049187a51a249ccbb4fb46781ed505e"
+        },
+        {
+          "name": "godot/scripts/vfx_zeus_chain_impact.gd",
+          "sha256": "2dc30334729b9945f7120b1fbc7edbaeeea0674410044cc788e5d4d78949273b"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
+    },
+    {
+      "id": "CS-pack-web6",
+      "type": "PACK",
+      "experiment": "C3-cliffside-v3",
+      "brief_sha256": "1d16065aeba01f2aa6802a9d42d039a12f938758bb719157881334a0799aebf4",
+      "started": "2026-09-15T04:17:47.181529+00:00",
+      "ended": "2026-09-15T04:19:41.470290+00:00",
+      "minutes": 1.9048013625000142,
+      "image_calls": 0,
+      "tool_calls": 5,
+      "audit": {
+        "violations": [],
+        "image_calls": 0,
+        "tool_calls": 5,
+        "tools_seen": {
+          "command_execution": 5
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": []
+      },
+      "receipt_sha256": "d92dbafe71b44b1124fad8a12475adcd517ce4e812b7b11bce058e862dffc38d",
+      "artifacts": [
+        {
+          "name": "README_scene.txt",
+          "sha256": "e8924db1302e413f2490015bce72ce2f8eb5120a62bc8fd7f24cb1f7b9d0e2d1"
+        },
+        {
+          "name": "exporter.json",
+          "sha256": "7d7fcebddda41df0718914e3e135f12d4e1138bc13a96f68fb65265ba8103355"
+        },
+        {
+          "name": "godot/project.godot",
+          "sha256": "6a8166148fc0b3e54f8589a0a716379636040f615b0f827ea49f2dfe7a6c5deb"
+        },
+        {
+          "name": "godot/scenes/cliffside.tscn",
+          "sha256": "fda4c82907189c3c216080a1d1c6c5ea9d0ace1b28c54762589cdde49e5a7f7b"
+        },
+        {
+          "name": "godot/scenes/main.tscn",
+          "sha256": "a7ff2b1ba99ca306dacd7fbee1556fbfbed54d72cc8e3c01ab72e1aba58b874d"
+        },
+        {
+          "name": "godot/scenes/vfx_blackwater_cocktail_bolt.tscn",
+          "sha256": "0b350d65d4b873f39f5cdddf967732b2bc3057beed8da889b95b0a7fed2cdc48"
+        },
+        {
+          "name": "godot/scenes/vfx_blackwater_cocktail_impact.tscn",
+          "sha256": "a284c3b6e06747f400bbd0cfa61487cb6f09a8053195cfc0ecc1378d617b8a9f"
+        },
+        {
+          "name": "godot/scenes/vfx_frozen_orb_bolt.tscn",
+          "sha256": "f9716fe4d35c3bf2a0cda316503c8d1b6f0fdbae32b0b50492b50d73a066a588"
+        },
+        {
+          "name": "godot/scenes/vfx_frozen_orb_impact.tscn",
+          "sha256": "d11d92ea42b15b9bd4b49e520e94b5c9822614d691b43dc68860a16b680db44a"
+        },
+        {
+          "name": "godot/scenes/vfx_healing_hands_bolt.tscn",
+          "sha256": "38aef1ebe4db67d1bd0a87b92f083d2afa6b32d1c6d7832a6b0793a526e93434"
+        },
+        {
+          "name": "godot/scenes/vfx_healing_hands_impact.tscn",
+          "sha256": "3f54bb70a781e4665b96d36ef797de7b93f6122210290a63c5329e8c13a0c4a4"
+        },
+        {
+          "name": "godot/scenes/vfx_lightning_blast_bolt.tscn",
+          "sha256": "d0baa8b338eb37ab170031f6e773b7f5a2e00122abe9afb9e3ff26c81bc2d181"
+        },
+        {
+          "name": "godot/scenes/vfx_lightning_blast_impact.tscn",
+          "sha256": "a50b1632e8df701ac4a0819c367172c4dcb19617c60c9698cb23544f5f21018a"
+        },
+        {
+          "name": "godot/scenes/vfx_poisonous_concoction_bolt.tscn",
+          "sha256": "0ab90268a5496469368cb5edf43a7ea7949879ccf920ab948fee8578c9bc4953"
+        },
+        {
+          "name": "godot/scenes/vfx_poisonous_concoction_impact.tscn",
+          "sha256": "ed1434cc91437b846af1c66f0eb0aea9e520a5bce1ce101057c00384035380fd"
+        },
+        {
+          "name": "godot/scenes/vfx_zeus_chain_bolt.tscn",
+          "sha256": "d235401fb8521b13d278e05c07a50e9c049c1f13c0e3e6a5aa4c3895a1db36b2"
+        },
+        {
+          "name": "godot/scenes/vfx_zeus_chain_impact.tscn",
+          "sha256": "e35bc39e1fbaeffa4cb5118878d3cfd77c823e7d3ac1c3fc9a36e80fb4a06388"
+        },
+        {
+          "name": "godot/scripts/fly_swarm.gd",
+          "sha256": "8603f91597f1f8aeb74b6238a6a2860c3ac807b4c67edca13f56f40b08b33423"
+        },
+        {
+          "name": "godot/scripts/glow_flicker.gd",
+          "sha256": "fee0db3aa00b834bc1f6198886c6e476f45b91fd012ce641a0145e97ec857671"
+        },
+        {
+          "name": "godot/scripts/keeper.gd",
+          "sha256": "b123848ec7ca9419d567e520fc8572b9cac9a1a2287fec25381643091bf9de5c"
+        },
+        {
+          "name": "godot/scripts/occlusion_fade.gd",
+          "sha256": "96d37de2e8c7790cb00815fb1f939389872874ba23b43dc017d8530d3db62f61"
+        },
+        {
+          "name": "godot/scripts/vfx_blackwater_cocktail_bolt.gd",
+          "sha256": "bfa400923fcd6824485687a7625d28191119e834d72503e908cb80bdce2ccbee"
+        },
+        {
+          "name": "godot/scripts/vfx_blackwater_cocktail_impact.gd",
+          "sha256": "2dc30334729b9945f7120b1fbc7edbaeeea0674410044cc788e5d4d78949273b"
+        },
+        {
+          "name": "godot/scripts/vfx_frozen_orb_bolt.gd",
+          "sha256": "ec58f936ae840b4ff723508a7f2d45ba87132699a0cbd2c35c1ef0e4fb571c9e"
+        },
+        {
+          "name": "godot/scripts/vfx_frozen_orb_impact.gd",
+          "sha256": "c904b669a64b4ad655a3a96babac00966c46fd9df07b2e87be48dd5eadca5c41"
+        },
+        {
+          "name": "godot/scripts/vfx_healing_hands_bolt.gd",
+          "sha256": "de27b8bd05281131d2a0833dc2feef7514efb5ac8dbbe05c2dfc05459cbdbbbf"
+        },
+        {
+          "name": "godot/scripts/vfx_healing_hands_impact.gd",
+          "sha256": "2dc30334729b9945f7120b1fbc7edbaeeea0674410044cc788e5d4d78949273b"
+        },
+        {
+          "name": "godot/scripts/vfx_lightning_blast_bolt.gd",
+          "sha256": "45a6ae928ff0f6d7aad9028c99e0d743f80e5fedb2f5cf8cd79e49d285dd33b5"
+        },
+        {
+          "name": "godot/scripts/vfx_lightning_blast_impact.gd",
+          "sha256": "2dc30334729b9945f7120b1fbc7edbaeeea0674410044cc788e5d4d78949273b"
+        },
+        {
+          "name": "godot/scripts/vfx_poisonous_concoction_bolt.gd",
+          "sha256": "8491c236bd11f4de34d3ce955ea34507ff380da78d48bf87dab23edeac48cf41"
+        },
+        {
+          "name": "godot/scripts/vfx_poisonous_concoction_impact.gd",
+          "sha256": "2dc30334729b9945f7120b1fbc7edbaeeea0674410044cc788e5d4d78949273b"
+        },
+        {
+          "name": "godot/scripts/vfx_zeus_chain_bolt.gd",
+          "sha256": "1361f6605055e6b82157c8b51a92fdb18049187a51a249ccbb4fb46781ed505e"
+        },
+        {
+          "name": "godot/scripts/vfx_zeus_chain_impact.gd",
+          "sha256": "2dc30334729b9945f7120b1fbc7edbaeeea0674410044cc788e5d4d78949273b"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
     }
   ],
   "images_used": 244,
@@ -40225,6 +40567,10 @@
     {
       "note": "kits_v8: all six kits rebuilt with T3v tinted 3 px particles (amount 8), flash alpha .35, element_class (strike/field/holy). CS-pack-v18 (scene) + CS-pack-web6 (public) fired to follow web5 on the same URL.",
       "ts": "2026-09-15T07:10:00Z"
+    },
+    {
+      "note": "v18 (kits_v8: tinted particles, flash .35) staged + probed with a warm-up cast: all SIX kits register collision impacts (80/123/123/178/204/81 impact-frames), shadows 0. Desktop 83 = v18. web6 export ready for drax (after web5).",
+      "ts": "2026-09-15T07:30:00Z"
     }
   ],
   "images_cap_note": "Matt R-C3-55 removed the cap (was 120); set to 1000 because lane/run_burst.py compares the cap numerically"
