@@ -2,7 +2,7 @@
   "run": "C-5",
   "charter": "agentic_orchestration/gandalf/notes/2026-09-15-vfx-run-C-5-charter.md",
   "charter_sha256_12": "c41d87420e76",
-  "images_used": 2,
+  "images_used": 4,
   "images_cap": 999999,
   "images_cap_note": "SENTINEL 999999 — the run image cap is UN-ENFORCED by sentinel (Matt V20, 2026-09-15: \"no image budget\"); images_used is counted and reported at every packet. run_burst.py:158 integer-compares this field; null crashed it (jack-ryan Gate-1 BLOCK-B).",
   "bursts": [
@@ -63,10 +63,85 @@
       "codex_version": "codex-cli 0.153.4",
       "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
       "exit": 2
+    },
+    {
+      "id": "CS-dress-clearing-r1",
+      "type": "GENERATE",
+      "experiment": "C5-P0a",
+      "brief_sha256": "1bae687228a382ec8d3eee6d7284ac304e80941c3c08e8dc5862686748187eaf",
+      "started": "2026-09-15T20:04:46.573248+00:00",
+      "ended": "2026-09-15T20:08:19.654787+00:00",
+      "minutes": 3.5513143583333053,
+      "image_calls": 2,
+      "tool_calls": 5,
+      "audit": {
+        "violations": [],
+        "image_calls": 2,
+        "tool_calls": 5,
+        "tools_seen": {
+          "command_execution": 5
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0a6ac-058b-7eb0-af69-4c8256f24f14/exec-871db10c-978a-4fe6-b652-d45e7c9e1f9d.png",
+            "sha256": "ba0ee91ec72dcde915706b42d7ea2e4be192dec715edaf779c30407ebd60f5b7"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0a6ac-058b-7eb0-af69-4c8256f24f14/exec-e72bb094-6eeb-46ee-a1b3-868ba102a416.png",
+            "sha256": "63d89e28ea52a368bf7e3aee2776fc84f717ee1b638a4b2ad80ea705f6f2cdd0"
+          }
+        ]
+      },
+      "receipt_sha256": "31b0e7d06ffd2a246a61589dadc6720d04a22f3c4b7e6dcb85d199e4762d65ab",
+      "artifacts": [
+        {
+          "name": "dress_clearing.png",
+          "sha256": "63d89e28ea52a368bf7e3aee2776fc84f717ee1b638a4b2ad80ea705f6f2cdd0"
+        },
+        {
+          "name": "exec-871db10c-978a-4fe6-b652-d45e7c9e1f9d.provenance.json",
+          "sha256": "d35dc6923479404a1ee160433d6393a6c6b941cc81ea009e54894b68ba379b36"
+        },
+        {
+          "name": "exec-e72bb094-6eeb-46ee-a1b3-868ba102a416.provenance.json",
+          "sha256": "5845fe7dfad00b2fa97e5acbeced9cb23ce215d7931ca9f43d1b18e7db5ffc3d"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0a6ac-058b-7eb0-af69-4c8256f24f14/exec-871db10c-978a-4fe6-b652-d45e7c9e1f9d.png",
+          "sha256": "ba0ee91ec72dcde915706b42d7ea2e4be192dec715edaf779c30407ebd60f5b7"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0a6ac-058b-7eb0-af69-4c8256f24f14/exec-e72bb094-6eeb-46ee-a1b3-868ba102a416.png",
+          "sha256": "63d89e28ea52a368bf7e3aee2776fc84f717ee1b638a4b2ad80ea705f6f2cdd0"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
     }
   ],
   "experiments": [],
-  "milestones": [],
+  "milestones": [
+    {
+      "id": "M-C5-CLEARING-DRESSED",
+      "note": "CS-dress-clearing-r1 DELIVERED (exit 0, 2 images, sha 63d89e28…): seven training dummies in register on the far-plateau clearing; conductor eyeball PASS (grounded, shadows lower-right, painting preserved). Object sheets cut: 9 tiles / 3 sheets (7 dummies + 2 drift patches; colossus tile includes the club humanoid — separated at isolation).",
+      "ts": "2026-09-15T16:09:06"
+    }
+  ],
   "halts": [],
   "rulings": [
     {
