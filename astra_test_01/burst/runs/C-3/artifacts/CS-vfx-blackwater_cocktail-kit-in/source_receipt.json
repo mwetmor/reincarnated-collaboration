@@ -1,0 +1,36 @@
+{
+  "task_id": "CS-vfx-bwc-sheets-v2",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "bwc_sheets_v2",
+      "path": "out/bwc_sheets_v2.png",
+      "sha256": "d688372fe521d8d33ed345eb48878cd4446f4be145e45ef38c8545026608be8e",
+      "prompt": "Create a 1536×1024 PNG containing a greyscale burning-oil flask animation sprite sheet. Exactly 6 columns × 4 rows of invisible 256×256 cells. 24 centered sprites, generous empty margins, no touching cell boundaries. No text, labels, lines, borders, characters, or scenery.\nCRITICAL: Start with a solid #000000 canvas and leave all empty space solid #000000. The background must be uniformly absolute black from edge to edge and directly adjacent to every sprite. There are NO halos around sprites. Everything is opaque flat hard-edged shapes. No atmospheric effects, gradients, illumination of surrounding space, glow, bloom, haze, fog, blur, shadows on background, vignette or antialiasing. This is a five-ink bitmap atlas, not an illuminated scene. Only five RGB values exist: black #000000, dark grey #404040, mid grey #808080, light grey #C0C0C0, white #FFFFFF. Hard chunky square stair-step edges like sprites drawn at 64×64 then enlarged 4× using nearest-neighbour. Hand-painted small-sprite shape design with three flat grey planes, no outline strokes. White limited to tiny single-square fuse sparks and very small flame-core centers. Flask glass mid grey, readable against absolute black. Fire drawn as flat jagged light grey and mid grey shapes with dark grey rims and black interior holes. Smoke drawn as discrete opaque dark grey chunks, never transparent cloudy haze.\nROW 1: six cast frames of a small round flask swinging and being released, tiny fuse spark progressively brighter; final flask tilted and released. No hand visible.\nROW 2: six travel frames, same flask tumbling toward RIGHT in six successive rotations, short hard square fuse-spark trails to LEFT.\nROW 3: six impact frames. First: low flat oil splash and glass shards, light grey maximum, no white disc. Second: low wide flame tongues erupt. Third and fourth: expanding broader oily flames with a few dark grey smoke chunks. Fifth: declining flames. Sixth: thinning tongues and smoke. Keep each sprite within its cell.\nROW 4: first four cells: same-size wide flat elliptical burning pool viewed from elevated three-quarter angle, much wider than tall, low flame tongues along rim, four looping variations. Last two cells: each one small oil-drop ember facing RIGHT, two variants.\nKeep all four rows and all six columns. Sprites readable at quarter size. The surrounding canvas is ABSOLUTE PURE BLACK #000000 without any grey aura. Draw fire as solid jagged grey shapes, not light-emitting objects.",
+      "references": [],
+      "elapsed_s": 45.142
+    }
+  ],
+  "calls_used": 2,
+  "retries": [
+    {
+      "reason": "First image visibly contained broad grey background haze and soft glow.",
+      "change": "Regenerated with stronger absolute-black canvas and opaque five-value shape instructions."
+    }
+  ],
+  "self_report": {
+    "obeyed_invariants": false,
+    "concerns": [
+      "Retry still visibly contains grey background haze, glow, and gradients; pure-black background and exact five-value palette requirements are unmet.",
+      "Some travel-frame spark trails do not point left, and final embers do not clearly face right.",
+      "Task-specific style, black plate, and 6×4 layout were followed over conflicting frozen register constraints.",
+      "Retry limit reached; output copied unchanged without post-processing."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/bwc_sheets_v2.png",
+      "sha256": "d688372fe521d8d33ed345eb48878cd4446f4be145e45ef38c8545026608be8e"
+    }
+  ]
+}

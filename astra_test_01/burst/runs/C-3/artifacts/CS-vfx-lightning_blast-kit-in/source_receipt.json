@@ -1,0 +1,30 @@
+{
+  "task_id": "CS-vfx-lightning-sheets",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "lightning_sheets",
+      "path": "out/lightning_sheets.png",
+      "sha256": "6b765464f0eb29baac89de340357599b69017f1e229947ee66bb6c3790c39565",
+      "prompt": "Use case: stylized-concept. Asset: LIGHTNING BLAST greyscale effect animation sprite sheet. Generate ONE image exactly 1536 x 1024 pixels. Flat PURE BLACK #000000 background, a black void: every background pixel exactly black. No grey fog, gradient, vignette, atmosphere, background lighting, glow, haze, bloom, radial falloff, blur or anti-aliasing. Six columns by four rows of 256 x 256 cells, 24 separate drawings centered in their cells with generous black margins, nothing touching cell edges or between cells. No labels, grid lines, text, borders or other objects.\nStyle: hand-painted small-native-size sprite effects, hard-edged shapes with hard stair-stepped edges as if drawn with a 1-px pencil at 64 px and enlarged 4x nearest-neighbour. Exactly FIVE values only: black #000000, dark grey #404040, mid grey #808080, light grey #C0C0C0, white #FFFFFF. Flat value steps, dark grey rim/interior holes, no outline strokes. White only for the tiniest spark or very center of a core, never entire shapes. Thin jagged lightning, hard steps, readable at 25 percent size. If light is needed use hard light-grey pixels, never glow. Original 1990s 16-bit hand-painted sprite effect vocabulary.\nROW 1 CAST, six frames left to right in time: small crackling arcs gather into a tight sparking ball at a point, growing brighter; frame 6 is a compact charged orb with short arcs leaping off it.\nROW 2 TRAVEL, six frames: jagged forked bolt segments facing RIGHT, thin zig-zag main stroke with 2-3 small forks and a few sparks trailing LEFT. Different zig-zag path in each frame for a loop.\nROW 3 IMPACT, six frames: frame 1 small bright fork star at strike point, no white disc; then 4-6 radiating jagged arcs burst outward; then arcs thin and break into sparks; final frame a few small drifting sparks. Make clear temporal progression through six separate centered cells.\nROW 4 RESIDUAL + SPARK: frames 1-4 flat scorched ground patches, ellipses wider than tall, short static arcs flickering over each, four loop variations of the same size. Frames 5-6 each contain ONE single small spark/arc fragment facing RIGHT, two variants.\nStrict priority: pure black untouched background and gutters; greyscale five-value hard shapes; all four rows and all six columns; no soft luminous edges. Deliver the single complete sheet.",
+      "references": [],
+      "elapsed_s": 41.083
+    }
+  ],
+  "calls_used": 1,
+  "retries": [],
+  "self_report": {
+    "obeyed_invariants": false,
+    "concerns": [
+      "Task-specific style, background and layout conflict with the register card; followed the task-specific requirements.",
+      "Edges appear to contain intermediate greys; exact five-value palette and absence of anti-aliasing are unverified.",
+      "Background appears black visually; exact #000000 throughout is unverified."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/lightning_sheets.png",
+      "sha256": "6b765464f0eb29baac89de340357599b69017f1e229947ee66bb6c3790c39565"
+    }
+  ]
+}

@@ -36489,9 +36489,238 @@
       "codex_version": "codex-cli 0.153.4",
       "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
       "exit": 0
+    },
+    {
+      "id": "CS-vfx-bwc-sheets-v2",
+      "type": "GENERATE",
+      "experiment": "C3-vfx-breadth",
+      "brief_sha256": "a01351d689fd7df3f0d5735c1e923914f64d66628f4dc6c62b8af163ff3b5f4d",
+      "started": "2026-09-15T03:40:20.363750+00:00",
+      "ended": "2026-09-15T03:43:36.365728+00:00",
+      "minutes": 3.2667397631833714,
+      "image_calls": 2,
+      "tool_calls": 2,
+      "audit": {
+        "violations": [],
+        "image_calls": 2,
+        "tool_calls": 2,
+        "tools_seen": {
+          "command_execution": 2
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0a326-be53-7a41-b0e9-01c13dd7c05d/exec-d87e2530-d137-4d33-b2ec-69d2ecd7c645.png",
+            "sha256": "d688372fe521d8d33ed345eb48878cd4446f4be145e45ef38c8545026608be8e"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0a326-be53-7a41-b0e9-01c13dd7c05d/exec-eefab138-5d36-4c07-acac-5695263d1533.png",
+            "sha256": "d9e0ac87e07c4b22849e2656e90ad3b902d913ebec072b2ae81fa2e004110ea8"
+          }
+        ]
+      },
+      "receipt_sha256": "7b9ac907cad12252cf9f522e3856ee53dc388ec9e6ff0c06817373a84a93dd9e",
+      "artifacts": [
+        {
+          "name": "bwc_sheets_v2.png",
+          "sha256": "d688372fe521d8d33ed345eb48878cd4446f4be145e45ef38c8545026608be8e"
+        },
+        {
+          "name": "exec-d87e2530-d137-4d33-b2ec-69d2ecd7c645.provenance.json",
+          "sha256": "f1ead60e7fa9820d359ab2e7af6e804e1574cbcaa1dbb50ec9d020aadcbc34b5"
+        },
+        {
+          "name": "exec-eefab138-5d36-4c07-acac-5695263d1533.provenance.json",
+          "sha256": "8241edf30dcb2ba390e46bcd17f2dee57daf08d70e341be711e3fd52d77c2bee"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0a326-be53-7a41-b0e9-01c13dd7c05d/exec-d87e2530-d137-4d33-b2ec-69d2ecd7c645.png",
+          "sha256": "d688372fe521d8d33ed345eb48878cd4446f4be145e45ef38c8545026608be8e"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0a326-be53-7a41-b0e9-01c13dd7c05d/exec-eefab138-5d36-4c07-acac-5695263d1533.png",
+          "sha256": "d9e0ac87e07c4b22849e2656e90ad3b902d913ebec072b2ae81fa2e004110ea8"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
+    },
+    {
+      "id": "CS-vfx-pconc-sheets",
+      "type": "GENERATE",
+      "experiment": "C3-vfx-breadth",
+      "brief_sha256": "1cb51c4571f44b998ca5b7432387672518fdad920b13d22d092467327e96c630",
+      "started": "2026-09-15T03:40:57.167019+00:00",
+      "ended": "2026-09-15T03:43:48.266121+00:00",
+      "minutes": 2.8516866513832912,
+      "image_calls": 2,
+      "tool_calls": 4,
+      "audit": {
+        "violations": [],
+        "image_calls": 2,
+        "tool_calls": 4,
+        "tools_seen": {
+          "command_execution": 4
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0a327-4deb-7581-a041-45712cceecad/exec-3f18c432-2f2f-4a98-bcc0-72044854ec32.png",
+            "sha256": "bee8dad3c2620cf9dd5901d451adf3f0c87935a85d27e60f35f6123f3fc7f7f5"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0a327-4deb-7581-a041-45712cceecad/exec-496a1f7d-38e7-4d5f-9d0a-ded1f4e6f751.png",
+            "sha256": "d0f281b014d8efe9678b17be6bddd7ebeba206d949c50f07dfcb12f5eab120a5"
+          }
+        ]
+      },
+      "receipt_sha256": "fc9ac9c1629bbea461ef2acb1030c96d59e7c198ac325be937b74f8cdf2464bf",
+      "artifacts": [
+        {
+          "name": "pconc_sheets.png",
+          "sha256": "d0f281b014d8efe9678b17be6bddd7ebeba206d949c50f07dfcb12f5eab120a5"
+        },
+        {
+          "name": "exec-3f18c432-2f2f-4a98-bcc0-72044854ec32.provenance.json",
+          "sha256": "8cfee0300d576b8a24b6581e068a13f1ad8669481fe6f1cbb9563cdd4796ff05"
+        },
+        {
+          "name": "exec-496a1f7d-38e7-4d5f-9d0a-ded1f4e6f751.provenance.json",
+          "sha256": "6933f22685508d984738fe9a14633efbb2636c4e175be964f3c8a2522e3217c1"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0a327-4deb-7581-a041-45712cceecad/exec-3f18c432-2f2f-4a98-bcc0-72044854ec32.png",
+          "sha256": "bee8dad3c2620cf9dd5901d451adf3f0c87935a85d27e60f35f6123f3fc7f7f5"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0a327-4deb-7581-a041-45712cceecad/exec-496a1f7d-38e7-4d5f-9d0a-ded1f4e6f751.png",
+          "sha256": "d0f281b014d8efe9678b17be6bddd7ebeba206d949c50f07dfcb12f5eab120a5"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
+    },
+    {
+      "id": "CS-pack-web3",
+      "type": "PACK",
+      "experiment": "C3-cliffside-v3",
+      "brief_sha256": "2576f3c95fb1c823689a7231a64b6051940630817a20ed504ff33e2bdf3e4743",
+      "started": "2026-09-15T03:43:13.796954+00:00",
+      "ended": "2026-09-15T03:44:49.473369+00:00",
+      "minutes": 1.5946214034666506,
+      "image_calls": 0,
+      "tool_calls": 8,
+      "audit": {
+        "violations": [],
+        "image_calls": 0,
+        "tool_calls": 8,
+        "tools_seen": {
+          "command_execution": 8
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": []
+      },
+      "receipt_sha256": "f96366c6e4c57ad0b610aba432d3a8f9764693b4f34f1a47d8f57720fb649d55",
+      "artifacts": [
+        {
+          "name": "README_scene.txt",
+          "sha256": "b5cfa0e35eb52c709440e090a7a883b80e6b047e57580e04e4defbec5005691c"
+        },
+        {
+          "name": "exporter.json",
+          "sha256": "254058b78a07c964c470c63cbcbdbc63a81ea0c7b810afd80e493b7c9dfcc6ca"
+        },
+        {
+          "name": "godot/project.godot",
+          "sha256": "6a8166148fc0b3e54f8589a0a716379636040f615b0f827ea49f2dfe7a6c5deb"
+        },
+        {
+          "name": "godot/scenes/cliffside.tscn",
+          "sha256": "fda4c82907189c3c216080a1d1c6c5ea9d0ace1b28c54762589cdde49e5a7f7b"
+        },
+        {
+          "name": "godot/scenes/main.tscn",
+          "sha256": "a7ff2b1ba99ca306dacd7fbee1556fbfbed54d72cc8e3c01ab72e1aba58b874d"
+        },
+        {
+          "name": "godot/scenes/vfx_frozen_orb_v3_bolt.tscn",
+          "sha256": "5214850aa9e2fe7909a44946e70a6422285262e15803dabfb4bc52aa226dc556"
+        },
+        {
+          "name": "godot/scenes/vfx_frozen_orb_v3_impact.tscn",
+          "sha256": "9003dca81391d4aafc1189eaab782de121a6628aa7fa1ba66794b4479a7a8b35"
+        },
+        {
+          "name": "godot/scripts/fly_swarm.gd",
+          "sha256": "8603f91597f1f8aeb74b6238a6a2860c3ac807b4c67edca13f56f40b08b33423"
+        },
+        {
+          "name": "godot/scripts/glow_flicker.gd",
+          "sha256": "fee0db3aa00b834bc1f6198886c6e476f45b91fd012ce641a0145e97ec857671"
+        },
+        {
+          "name": "godot/scripts/keeper.gd",
+          "sha256": "c933aeae4ae16a313332faf8c3189f8e180477f452f653039b8a1a33756b44e3"
+        },
+        {
+          "name": "godot/scripts/occlusion_fade.gd",
+          "sha256": "96d37de2e8c7790cb00815fb1f939389872874ba23b43dc017d8530d3db62f61"
+        },
+        {
+          "name": "godot/scripts/vfx_frozen_orb_v3_bolt.gd",
+          "sha256": "4a02415c160e32e503b27abedecc5b0b4206be43915a0d6f4a0f4388538fe6a6"
+        },
+        {
+          "name": "godot/scripts/vfx_frozen_orb_v3_impact.gd",
+          "sha256": "c904b669a64b4ad655a3a96babac00966c46fd9df07b2e87be48dd5eadca5c41"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
     }
   ],
-  "images_used": 237,
+  "images_used": 241,
   "images_cap": 1000,
   "experiments": {},
   "milestones": [
@@ -38918,6 +39147,14 @@
     {
       "note": "Matt: push. reincarnated-engine main pushed (20e778a8 decisions-log: painted-2D scene builder adopted / 3D + Synty retired; carried star-lord a891f8a6 as an ancestor per the branch-state push posture).",
       "ts": "2026-09-15T04:50:00Z"
+    },
+    {
+      "note": "Blackwater Cocktail sheets: Astra put BOTH drives (v1, v2 with the black-void hard rule) on a grey haze (v2: 0 % black pixels, median L 86) - fire subjects pull an atmospheric glow the model will not drop; the Frozen Orb (ice) sat on black. Method instead of a third drive: signed-haze cut (conductor glue cut_signed.py): local median haze estimate; brighter-than-haze -> light bands, darker-than-haze -> dark band (keeps the flask body). Register of the drawings themselves is right (pixel flask, fuse spark, low fire tongues, burning pool).",
+      "ts": "2026-09-15T05:10:00Z"
+    },
+    {
+      "note": "Breadth kits 2-4 sheets landed: Blackwater (2 drives, both on grey haze - fire subjects pull atmosphere), Poisonous Concoction (haze; drawings excellent - flask, bubbles, pool), Lightning Blast (on black, 93 % black pixels, cleanest sheet of the run). Signed-haze cut recovers fire/pool/poison; the BWC flask body is nearly haze-luminance and is lost to highlights: FINDING - a dark-bodied projectile (glass flask, thrown object) cannot live in a greyscale tinted-LIGHT sheet; it needs its own coloured object sprite (or a green-plate isolation like the props). Kits 2-4 built with per-element ramps (fire pale-yellow -> deep orange-red; poison pale-lime -> deep green; lightning pale-cyan -> violet-blue); impact bodies measured: hue IN for fire/poison, lightning 9.2 (just under); saturation: fire rim .86 too saturated / bright .42 (fire wants a paler core), poison bright .35; lightning IN/IN; residues high for fire/poison (pool phases hold long by design). kits_v5.json = frozen_orb_v3 + blackwater_cocktail + poisonous_concoction + lightning_blast. Kits 5-6 sheets fired (Zeus chain, Healing Hands).",
+      "ts": "2026-09-15T05:30:00Z"
     }
   ],
   "images_cap_note": "Matt R-C3-55 removed the cap (was 120); set to 1000 because lane/run_burst.py compares the cap numerically"

@@ -1,0 +1,35 @@
+{
+  "task_id": "CS-vfx-pconc-sheets",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "pconc_sheets",
+      "path": "out/pconc_sheets.png",
+      "sha256": "d0f281b014d8efe9678b17be6bddd7ebeba206d949c50f07dfcb12f5eab120a5",
+      "prompt": "Use case: stylized-concept. Asset: poisonous-concoction animation effect sheet.\nCreate ONE 1536×1024 image: exactly 6 columns × 4 rows of invisible 256×256 cells, 24 separate drawings, each centered within its cell with generous black margins. No labels, text, grid lines, borders or marks between cells.\nBACKGROUND HARD RULE: flat PURE BLACK #000000 black void everywhere outside the sprites. No grey fog, gradient, vignette, atmosphere, lighting, glow, haze, bloom, blur or radial falloff anywhere.\nGREYSCALE PAINTED-PIXEL register: hand-painted small-native-size game effect sprites, hard-edged shapes with hard stair-stepped edges, as if drawn using a 1-px pencil at 64×64 per cell then enlarged 4× by nearest-neighbour. Exactly FIVE permitted values: #000000, #404040, #808080, #C0C0C0, #FFFFFF. Three or four flat value steps inside each shape. No smooth shading, no anti-aliasing, no outline strokes. Pure white only in tiny pinpoint core accents, never whole shapes. Use light grey for larger highlights; dark grey rims and interior holes. Every drawing must read at 25 percent size. No colour. No modern glowing rendering. If tempted to make a glow, use a discrete ring of light-grey square pixels instead.\nSubject: a thrown poison flask, small round MID-GREY glass body visible against black, thick bubbling liquid, bursting caustic puddle with fat bubbles and rising droplets, lingering bubbling pool. No characters or hands.\nROW 1 — CAST, 6 chronological frames: a small flask of thick liquid raised and shaken, bubbles rising inside and a few droplets flicking off; vary the shake over frames 1–5; frame 6 flask released, tilted, liquid sloshing.\nROW 2 — TRAVEL, 6 frames: flask tumbling in flight toward RIGHT, liquid sloshing inside, short droplet trail to LEFT; each frame a different rotation that forms a loop.\nROW 3 — IMPACT, 6 chronological frames: frame 1 low flat thick-liquid splash with glass shards, no white disc; frames 2–3 fat bubbles swelling from puddle; frames 4–5 wide low burst of popping bubbles and outward droplets; frame 6 only a few bursting bubbles and drips. Keep all effects within their cells.\nROW 4 — RESIDUAL + DROPLET: frames 1–4 a wide flat ground pool, ellipse wider than tall, same size across four looping variations, fat bubbles rising and popping along pool. Frames 5–6 each ONE single fat droplet facing RIGHT with a tiny leftward trail, two variants.\nAll 24 cells must be present, aligned precisely. Nothing touches a cell edge. Background is uniformly exactly #000000.\nRETRY CORRECTION — highest priority: The prior attempt incorrectly put a continuous grey cloudy haze behind everything. This image must instead use a solid RGB(0,0,0) canvas, like sprites pasted onto an empty black bitmap. ALL empty space, corners, gaps and areas immediately adjoining silhouettes are pure black. Remove every luminous aura. Sprite interiors themselves must also use only solid discrete palette patches, no gradients or soft highlights. Depict droplets as directional teardrops pointing right. Preserve the exact 6 by 4 arrangement and all row content. Do not depict a surface, cast shadows, environmental illumination or atmospheric effects.",
+      "references": [],
+      "elapsed_s": 43.165
+    }
+  ],
+  "calls_used": 2,
+  "retries": [
+    {
+      "reason": "First image showed pervasive grey background haze and gradients.",
+      "change": "Reinforced solid RGB(0,0,0) empty space and discrete flat palette patches in a fresh generation."
+    }
+  ],
+  "self_report": {
+    "obeyed_invariants": false,
+    "concerns": [
+      "Retry still visibly contains grey background haze and gradients, violating the pure-black background and five-value palette requirements.",
+      "Used the task-specific sheet style, dimensions and background where they conflict with the frozen register card.",
+      "Saved the unmodified retry for conductor review; image-call cap reached."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/pconc_sheets.png",
+      "sha256": "d0f281b014d8efe9678b17be6bddd7ebeba206d949c50f07dfcb12f5eab120a5"
+    }
+  ]
+}
