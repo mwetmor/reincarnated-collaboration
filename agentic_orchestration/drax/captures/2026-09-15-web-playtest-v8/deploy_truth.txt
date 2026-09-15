@@ -1,0 +1,79 @@
+DEPLOY TRUTH — CS-pack-web8 (cliffside, necromancer master prop at the bridgehead)
+drax, 2026-09-15
+
+URL           https://reincarnated-loadout.vercel.app/playtest/cliffside/
+Source        astra_test_01/burst/runs/C-5/artifacts/CS-pack-v21/godot (C-5; read-only, untouched)
+Build         reincarnated-godot/web/build_playtest.sh <src> cliffside   (Godot 4.6.3, gl_compatibility, threads OFF)
+Loadout commit  7546bce5b61b71b7ee90297b1af24a2292db2cee  (pushed f63ca88..7546bce main)
+Godot commit    0ea4365f5127b82cc6caf8126e89f472e17848f0  (web/cliffside mirror; not pushed)
+
+Build-script change: NONE. web7's procedure ran byte-for-byte on the new source.
+The overlay pruned six orphaned *.uid sidecars (the old per-kit vfx_*_bolt.gd scripts
+that kits_v9 replaced) — that is the existing prune step doing its job, not a change.
+
+== what is new vs web7 ==
+kits_v9 (T4a shared-material migration of the six kits), T4b G1 component,
+T4f per-skill pierce + FULL/PARTIAL contact labels, and a new static prop
+necro_master_still at (3840, 720) — the C-6 necromancer design master, standing
+beside bridge_post_2 (3922, 836) / bridge_post_3 (3680, 656) at the far bridgehead.
+
+== license fence ==
+overlay: clean (no library VFX packs) — kits_v9 are blackwater_cocktail, frozen_orb,
+  healing_hands, lightning_blast, poisonous_concoction, zeus_chain (all self-authored)
+index.pck grep for library names: no match (build would exit 3)
+CREDITS_VFX.txt in the source names exactly those six; no license is inferred for any of them.
+
+== production HTTP (plain GET, no -L) ==
+200  text/html; charset=utf-8     5994       https://reincarnated-loadout.vercel.app/playtest/cliffside/
+200  text/html; charset=utf-8     5994       https://reincarnated-loadout.vercel.app/playtest/cliffside/index.html
+200  application/javascript; charset=utf-8  315759   https://reincarnated-loadout.vercel.app/playtest/cliffside/index.js
+200  application/wasm             37700666   https://reincarnated-loadout.vercel.app/playtest/cliffside/index.wasm
+200  application/octet-stream     35778288   https://reincarnated-loadout.vercel.app/playtest/cliffside/index.pck
+200  text/html; charset=utf-8     5994       https://reincarnated-loadout.vercel.app/playtest/cliffside   (slash-less)
+200  text/html; charset=utf-8     3043       https://reincarnated-loadout.vercel.app/playtest/            (landing)
+
+== pck identity ==
+local   8ea495517df1b32f2f2c0145f3626485322f8313fe765c1daff4d2a322737160  35778288 B
+live    8ea495517df1b32f2f2c0145f3626485322f8313fe765c1daff4d2a322737160  35778288 B  (full download, matches)
+web7 pck was 35332972 B (+445316 B). index.wasm (37700666 B) and index.js (315759 B)
+byte-identical to web7 — same Godot 4.6.3, so only index.pck and the pck size recorded
+in index.html's GODOT_CONFIG changed in the deployed tree.
+
+== headless boot on production ==
+phone-landscape 844x390, Chrome headless swiftshader (web/_overlay/boot_test.js):
+booted=true boot_ms=13095
+200 application/javascript; charset=utf-8  .../index.js
+200 application/octet-stream               .../index.pck
+200 application/wasm                       .../index.wasm
+console: 0 pageerror, 0 Godot errors; only the two WebGL 'GPU stall due to ReadPixels'
+  perf warnings (swiftshader artifact, present for web6 and web7 too).
+joystick: live_02_touch_run_east.png — keeper ran east under touch drag.
+CAST:     live_03_touch_cast_held.png / live_04_after_cast.png — cast pose entered from the CAST button.
+keyboard: live_05_keyboard_north.png — W still moves (overlay does not eat keys).
+CAST button unchanged on mobile per Matt ruling: no tap-to-cast, no targeting.
+
+== necromancer master visible? YES ==
+The master is NOT at the spawn point. It stands at the far bridgehead across the rope
+bridge, on the clearing side, beside the bridge post. Route driven on production
+(1280x720 @ dsf 1.5, keyboard, shift-run): run E 6 s -> run NE 16 s -> run N 6 s.
+live_necro_00_spawn.png                 spawn view for contrast (no master, no dummies).
+live_necro_01_bridgehead.png            keeper steps off the bridge; the master stands
+                                        immediately right of him, beside bridge_post_2.
+live_necro_02_clearing_with_master.png  the walk-around frame — master at the bridgehead
+                                        on the left, all SEVEN dummies and the cow carcass
+                                        across the clearing, keeper at right for scale.
+live_necro_03_north_of_master.png       viewed from north of the master.
+
+Scale, measured (alpha ink bbox x draw scale, not eyeballed):
+  necro_master_still   sheet 70x130   ink 70x130   drawn 70 x 130 world px
+  keeper idle_SE_00    sheet 512x512  ink 98x242   drawn 53 x 131 world px  (sprite scale 0.541666)
+So the master is minted to the keeper's figure height almost exactly (130 vs 131 px) and
+reads about 1.3x the keeper's width. Descriptive only — the register call is Matt's.
+
+== caveats ==
+Unchanged from web7: iOS texture memory ~45 MB first download, the six big parallax/tile
+  textures import as lossy WebP q0.9, and parallax/tiles/tile_0_0.png is 4096x4096 (at the
+  GLES3 max-texture-size floor; devices reporting exactly 4096 are fine).
+The necromancer prop adds 20156 B of source PNG — it is 70x130, well under the 2048 px
+  lossy threshold, so it imports lossless. No new large texture in this build.
+Single-threaded build (no SharedArrayBuffer), so no COOP/COEP headers are needed on Vercel.
