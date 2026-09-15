@@ -38777,6 +38777,10 @@
     {
       "note": "Web playtest caveats (drax): iOS memory ~700 MB decoded textures (416 Keeper frames at 512x512 = ~416 MB) - older iPhones may crash the tab; fix = mobile GPU texture compression (ASTC/ETC2, bigger pck) or fewer/smaller frames; mist.png 4340 px wide exceeds the 4096 limit of some older Android GPUs; fixed 16:9 (black bars on wide phones); first load ~45 MB (Wi-Fi advised); Vercel CLI login expired on this Mac (git-push deploys work). Needs Matt: a real-phone test.",
       "ts": "2026-09-15T03:31:00Z"
+    },
+    {
+      "note": "Frozen Orb kit v3 (style card v0.2 applied): white disc frame dropped from the impact flipbook (flash layer 0.1 s a.6 carries it), ramp core [.88,1,1] -> rim [.30,.34,.96] shift 16 -> impact body O4 10.8 deg / O5 .25 / .63 all IN band, core .066, extent 2.0 BH; residue .29 unchanged (hold knob). kits_v4.json = frozen_orb_v3 first; NOT exported yet - the web/scene stay at v15/web2 until the bake-off re-export (R-C3-110). Breadth kit 2 fired: CS-vfx-bwc-sheets (Grim Dawn Blackwater Cocktail) with the v2 no-glow prompt pattern + v0.2 no-white rule.",
+      "ts": "2026-09-15T04:40:00Z"
     }
   ],
   "images_cap_note": "Matt R-C3-55 removed the cap (was 120); set to 1000 because lane/run_burst.py compares the cap numerically"
