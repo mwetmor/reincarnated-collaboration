@@ -27,3 +27,18 @@ directionality / facing-lock · frame-to-frame boil ("choppiness on top of smoot
 One register holding, at once: pale D2 ice (Frozen Orb), smoky GD fire (Blackwater Cocktail), sickly PoE green (Poisonous Concoction), clean LE lightning (Lightning Blast), a painted Hades hit (Zeus chain), warm holy aura (Healing Hands) — each keeping its own identity. Any kit that cannot be made to read under §1–§3 falsifies the line that blocks it; the card is corrected, not the kit.
 
 — gandalf, 2026-09-14
+
+## v0.1 — the nostalgia vector (Matt 2026-09-15, R-C3-113)
+
+Three trailers in one sitting set the poles. **CrossCode** = the fully-retro pole: true pixel grid, chip-tune-era framing; Matt likes its VFX and does *not* want to go that retro. **Chronicon** = particle-grammar density over quiet pixel ground. **Children of Morta** = drawn flipbook effects with hard pixel edges, a dark underlay and a local light layer, legible over a painted-pixel world close to ours (ours carries more detail).
+
+**The thesis, verbatim in intent:** *nostalgic feel without full retro — Earthbound meets Diablo 2 — a unique style that does not merge them but pulls from both, plus its own special flourish (flourish the way Hades and Children of Morta have flourish; not theirs).*
+
+**What each pole contributes (reading, not ruling):**
+- **Diablo 2** → the scene: painted, dark, weighty, dense with things; pre-rendered-isometric lineage. This is already the cliffside. Effects bold and few against a dense floor.
+- **Earthbound** → the *clarity*: flat bold shapes, few colours per effect, hard edges, high contrast, deadpan legibility; the PSI-attack ornament (concentric rings, hard bands, colour-cycling) as the nostalgia cue that reads as "remembered" rather than "retro". Our 4-band painted-pixel silhouettes with white core + dark duplicate are already on this vector; Frozen Orb v2 is the first instance.
+- **Flourish** (Hades / CoM as evidence that it exists, not as source) → a *signature reaction layer* of our own: hit-stop, flash, floor light, shake, and the world answering the spell (embers lifting, ash, ravens). The signature is still to be found; candidate motif: the death-faith frame — effects that *reap* (harvest lines, husks, the swing of a scythe in the dissolve).
+
+**Anti-patterns named:** pixel grid on the scene (retro pole); Chronicon density over our detail (mud); merging the two poles into a pastel-flat D2 (the Earthbound-skin failure).
+
+**Gate to fold into `canonical/reap-die-rise-story/style-register.md`:** the Chronicon + CoM measurements (Legolas, in flight) and two more kits from the breadth test judged against this thesis.
