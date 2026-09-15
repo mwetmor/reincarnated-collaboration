@@ -5,7 +5,7 @@
 **Date:** 2026-09-15
 **Author:** gandalf (CANON-STEWARD / SPEC-AUTHOR; RUN-CONDUCTOR of Run C-3)
 **Status:** v1.0 — canonized from Run C-3 lap 2 (the cliffside scene, v3 → v15 + web2). Ground shadows OPEN (§ 4).
-**Authority:** Matt 2026-09-15 — R-C3-102: *"officially canonize this as our scene builder workflow. We are leaving Synty behind and crossing 3D scenes off our project plan."* · R-C3-103 (roles and models, mandatory) · R-C3-109/110 (shadows open; ship the playtest first) · R-C3-113/114/115 (scene references). Rulings live in `astra_test_01/burst/runs/C-3/ledger.json`.
+**Authority:** Matt 2026-09-15 — R-C3-102 (ledger text): *"once the shadows are finalized, CANONIZE this pipeline as the official scene-builder workflow; Synty left behind; 3D scenes crossed off the plan"*. **Precondition state:** the shadow layer was REMOVED entirely for the mobile playtest (R-C3-109 + amendment) and ground shadows remain OPEN (§ 4.1); this doc treats "removed for now" as the finalized shipping state — **Matt confirmation owed** (jack-ryan Gate-1 BLOCK 2026-09-15; the retirement clause stands regardless). · R-C3-103 (roles and models, mandatory) · R-C3-109/110 (shadows open; ship the playtest first) · R-C3-113/114/115 (scene references). Rulings live in `astra_test_01/burst/runs/C-3/ledger.json`.
 **Companion docs:**
 - `canonical/reap-die-rise-game/painted-2d-pipeline/00-system.md` — the lane system description (bursts, wrapper audit, oracles, freeze manifest, SYNC table)
 - `canonical/reap-die-rise-game/painted-2d-pipeline/mechanical-process.md` — agent-facing burst recipe + invariants
@@ -23,19 +23,19 @@
 - **Labour split:** ChatGPT (`gpt-6-astra`, HIGH) paints, isolates, checks, packs and builds the tooling; Grok (`image_to_video`) turns character stills into motion clips; gandalf conducts; drax builds the grey room and the Godot/web presentation; Legolas researches; **Matt rules at every checkpoint** (§ 2).
 - **The loop:** grey room → walkable → chunk paint → cloud band → parallax → dressing → layered world → JSON manifests → PACK → headless proof → Desktop review → Matt notes → next version (§ 3). The cliffside went v3 → v15 on this loop.
 - **Not yet solved:** ground shadows (three methods rejected), Astra-placed reusable assets (deferred to procedural maps), VFX (own lane) (§ 4).
-- **Proven in public:** the cliffside plays on phones at `https://reincarnated-loadout.vercel.app/playtest` (§ 6).
+- **Live on the web:** the cliffside is deployed for phones at `https://reincarnated-loadout.vercel.app/playtest` — deploy verified headless (boot, checksum, 200s); **no real-phone test yet** (§ 6, Matt to-do).
 
 ---
 
 ## 1. Scope and ruling
 
-**Ruled (R-C3-102, Matt 2026-09-15):** the painted-2D pipeline that built the cliffside is the official scene-builder workflow. **Crossed off the project plan:** 3D scenes, and Synty as the scene asset source.
+**Ruled (R-C3-102, Matt 2026-09-15):** the painted-2D pipeline that built the cliffside is the official scene-builder workflow (precondition "once the shadows are finalized" — see the Authority line; confirmation owed). **Crossed off the project plan:** 3D scenes, and Synty as the scene asset source.
 
 **What that retires, and where it is recorded:**
 
 | Retired | Recorded at |
 |---|---|
-| 3D scene authoring (Synty POLYGON kits assembled in Godot 3D) as the scene path | ledger R-C3-102 · this doc · game tracker SESSION-DELTA 2026-09-15 · proposed decisions-log entry (jack-ryan to ratify; not yet written) |
+| 3D scene authoring (Synty POLYGON kits assembled in Godot 3D) as the scene path | ledger R-C3-102 · this doc · game tracker SESSION-DELTA 2026-09-15 · decisions-log entry ratified by jack-ryan (engine `20e778a8`, 2026-09-15) |
 | The `00-system.md § 1` clause *"the 3D Synty/Godot register (`style-register.md`) still the locked register until X2–X6 evidence"* — for scenes | superseded by R-C3-102; `00-index.md` pointer line |
 
 **Reconciliation owed (partial supersession — reconcile in place, never amputate, `canonical-doc-format § 6.4`):** Synty/3D-register text is still load-bearing-looking in `canonical/reap-die-rise-story/style-register.md` (register lock, sub-fork A), the game tracker (PART A4 king-rig on the Synty map pack; PART B4 Godot/Synty asset binding; PART B1/B2 3D descent floors; PART C ravine carry-forward), `reap-die-rise-game/ensemble-asset-pipeline-spec.md`, `current-to-end-state/pipeline-game.md`, and several engine-spec docs (e.g. `gear-spec-generation-deferred-architecture-2026-06-16.md`, `godot-agent-contract.md`, `performance-target-specs.md`), plus `matt_decision_needed/2026-08-24-vfx-frame-retention-vs-synty-licence.md`. **OPEN — scope:** the ruling names *scenes* and *Synty*; whether it also retires the 3D character/gear mannequin route in the ensemble spec is not stated in the sources and is not assumed here.
@@ -57,7 +57,7 @@
 
 **Future step-down goals — recorded as GOALS, not done (R-C3-103):**
 - **(a) ChatGPT model: Astra → "Sol"** (Matt's term). **OPEN:** the model id is not pinned; test on one bounded burst (same brief, same gate) before any profile change; the profile row in `00-system.md § 7 SYNC` changes in the same commit.
-- **(b) Step down from Grok video generation.** Video generation is the bottleneck (one clip per character × gear tier × direction × motion × ability). Evidence: `agentic_orchestration/legolas/research/2026-09-15-video-generation-alternatives/findings.md` — bake-off shortlist (Seedance 1.5 Pro · Kling v3 Standard · Veo 3.1 Lite; probe ≈ $14.40, cap $20) and **route R1 pose-driven transfer first** (Godot mannequin driving walk → Wan 2.2 Animate Move / Kling 2.6 Motion Control; identical timing and silhouette across gear tiers; first experiment < $2). Not commissioned as a run; Matt gate.
+- **(b) Step down from Grok video generation.** Video generation is the bottleneck (one clip per character × gear tier × direction × motion × ability). Evidence: `agentic_orchestration/legolas/research/2026-09-15-video-generation-alternatives/findings.md` — bake-off shortlist (Seedance 1.5 Pro · Kling v3 Standard · Veo 3.1 Lite; probe ≈ $14.40, cap $20) and **route R1 pose-driven transfer first** (Godot mannequin driving walk → Wan 2.2 Animate Move / Kling 2.6 Motion Control; identical timing and silhouette across gear tiers; first experiment < $2). Not commissioned as a run; Matt gate — and R1's mannequin is exactly what the open decision `canonical/matt_decision_needed/2026-09-15-does-the-3d-retirement-cover-the-character-mannequin-route.md` rules on.
 
 ---
 
