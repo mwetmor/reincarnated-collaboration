@@ -157,8 +157,11 @@ def validate_resources(project, include_scenes=False):
     references = []
     for resource in sorted(root.rglob('*.tres')):
         text = resource.read_text()
-        if not text.startswith('[gd_resource type="SpriteFrames"') or 'animations = [' not in text:
-            raise ValueError('Not a SpriteFrames resource: '+str(resource))
+        spriteframes = text.startswith('[gd_resource type="SpriteFrames"')
+        shader_material = text.startswith('[gd_resource type="ShaderMaterial"')
+        if not ((spriteframes and 'animations = [' in text) or
+                (shader_material and 'shader = ExtResource(' in text)):
+            raise ValueError('Not a SpriteFrames or ShaderMaterial resource: '+str(resource))
         for path in re.findall(r'path="res://([^"\n]+)"', text):
             local_file(root/path, root)
             references.append(path)
@@ -684,6 +687,8 @@ def _load_vfx_kits(path):
                            or not math.isfinite(v) or not 0 <= v <= 1 for v in tint)):
                 raise ValueError('Kit tint must contain three finite components in [0,1]')
         kit = _load_vfx_kit(path.parent/directory)
+        if 'effect' in kit and 'tint' in entry:
+            raise ValueError('tint multiply-tint override is retired for material kits')
         result.append({**kit, 'name': name, **({'tint': entry['tint']} if 'tint' in entry else {})})
     return result
 
@@ -895,6 +900,21 @@ func _process(_delta: float) -> void:
 '''
 
 
+def _authored_flare_script(script, resource_root, prefix, data):
+    fields = {'res://'+resource_root+'/sprites/'+source: 'res://'+resource_root+'/'+field
+              for source, field in data['distance_fields'].items() if source.startswith('flare/')}
+    old = ('    var additive := CanvasItemMaterial.new()\n'
+           '    additive.blend_mode = CanvasItemMaterial.BLEND_MODE_ADD\n'
+           '    flare.material = additive\n')
+    new = ('    flare.material = load("res://'+resource_root+'/materials/Additive.tres")\n'
+           '    flare.animation = &"flare"\n'
+           '    preload("res://scripts/'+prefix+'_material.gd").bind(flare, '+json.dumps(fields)+')\n')
+    script = script.replace(old, new)
+    scale = data.get('phase_scale', {}).get('cast', 1)
+    return script.replace('flare.scale = Vector2.ONE * art_scale',
+                          'flare.scale = Vector2.ONE * art_scale * '+repr(float(scale)))
+
+
 def _write_vfx_kit(out, kit, base, cells, socket_data, annotation, kit_name=None, tint=None):
     # Named exports reuse the T3i scene/script templates. The absent-name path
     # deliberately keeps every legacy byte, filename and report key intact.
@@ -997,7 +1017,7 @@ color_ramp = SubResource("CometColors")
     keeper = keeper.replace('        state = "cast"\n', '        cast_fired = false\n        state = "cast"\n')
     keeper = keeper.replace('        _spawn_frost()', '        _cast_frame_changed()')
     if kit_name is None:
-        (out/'scripts/keeper.gd').write_text(keeper+DIRECTIONAL_KEEPER)
+        (out/'scripts/keeper.gd').write_text(keeper+(_authored_flare_script(DIRECTIONAL_KEEPER, resource_root, prefix, kit['effect']) if 'effect' in kit else DIRECTIONAL_KEEPER))
     rectangle = None
     rectangle_report = None
     if annotation is not None:
@@ -1076,7 +1096,8 @@ scale_amount_max = 0.2
 
 def _write_authored_effect(out, kit, resource_root, prefix, counts):
     """Author-kit-only scene path; the legacy templates above stay byte-stable."""
-    from export.effect_kit import LAYER_SCRIPT, AUTHORED_BOLT, AUTHORED_IMPACT
+    from export.effect_kit import (LAYER_SCRIPT, AUTHORED_BOLT, AUTHORED_IMPACT,
+                                   MATERIAL_BINDING_SCRIPT, write_vfx_material, distance_field)
     data = kit['effect']
     layers = data['layers']
     phase_durations = {}
@@ -1099,7 +1120,6 @@ def _write_authored_effect(out, kit, resource_root, prefix, counts):
         definition['sheet'] = 'sprites/'+name+'/'+Path(definition['sheet']).name
         for frame in definition['frames']:
             frame['file'] = 'sprites/'+name+'/'+Path(frame['file']).name
-    (out/resource_root/'kit.json').write_text(json.dumps(exported_metadata, indent=2)+'\n')
     textures = {}
     for name, key in (('decal', 'file'), ('particles', 'texture')):
         if key in layers.get(name, {}):
@@ -1107,6 +1127,39 @@ def _write_authored_effect(out, kit, resource_root, prefix, counts):
             (out/relative).parent.mkdir(parents=True, exist_ok=True)
             shutil.copyfile(kit['root']/layers[name][key], out/relative)
             textures[name] = relative.as_posix()
+            exported_metadata['layers'][name][key] = 'layers/'+Path(layers[name][key]).name
+    fields = {}
+    exported_metadata['distance_fields'] = {}
+    for source, field in data['distance_fields'].items():
+        relative_source = source if source.startswith('layers/') else 'sprites/'+source
+        destination = Path(resource_root)/field
+        (out/destination).parent.mkdir(parents=True, exist_ok=True)
+        shutil.copyfile(kit['root']/field, out/destination)
+        fields['res://'+resource_root+'/'+relative_source] = 'res://'+destination.as_posix()
+        exported_metadata['distance_fields'][relative_source] = field
+    (out/resource_root/'kit.json').write_text(json.dumps(exported_metadata, indent=2)+'\n')
+    floor_texture = None
+    if 'floor_light' in layers:
+        import numpy as np
+        y, x = np.indices((32, 32))
+        alpha = np.clip(1-np.hypot(x-15.5, y-15.5)/16, 0, 1)
+        pixels = np.full((32, 32, 4), 255, dtype=np.uint8)
+        pixels[..., 3] = np.rint(alpha*255).astype(np.uint8)
+        floor_texture = resource_root+'/auxiliary/floor.png'
+        floor_field = resource_root+'/auxiliary/floor_distance.png'
+        (out/floor_texture).parent.mkdir(parents=True, exist_ok=True)
+        Image.fromarray(pixels).save(out/floor_texture)
+        Image.fromarray(distance_field(pixels)).save(out/floor_field)
+        fields['res://'+floor_texture] = 'res://'+floor_field
+    binding_path = f'scripts/{prefix}_material.gd'
+    (out/binding_path).write_text('extends RefCounted\n'+MATERIAL_BINDING_SCRIPT)
+    first_field = resource_root+'/'+next(iter(data['distance_fields'].values()))
+    materials = {}
+    for label, mode, dark in (('Body', data['material']['blend_mode'], False),
+                              ('Mix', 'MIX', False), ('Additive', 'ADD', False), ('Dark', 'MIX', True)):
+        resource = resource_root+'/materials/'+label+'.tres'
+        write_vfx_material(out, resource, dict(data['material'], blend_mode=mode), first_field, dark)
+        materials[label] = resource
     def number(v): return format(float(v), '.12g')
     def vector(x, y): return 'Vector2('+number(x)+', '+number(y)+')'
     def color(rgb, alpha=1): return 'Color('+', '.join(number(v) for v in (*rgb, alpha))+')'
@@ -1127,6 +1180,11 @@ def _write_authored_effect(out, kit, resource_root, prefix, counts):
     for phase, template in (('travel', AUTHORED_BOLT), ('impact', AUTHORED_IMPACT)):
         kind = 'bolt' if phase == 'travel' else 'impact'
         script = template + constants + LAYER_SCRIPT
+        script = script.replace('func _ready() -> void:\n',
+                                'func _ready() -> void:\n    _bind_vfx_materials()\n')
+        script += ('\nconst VFX_FIELDS = '+json.dumps(fields)+'\n'
+                   'func _bind_vfx_materials() -> void:\n'
+                   '    preload("res://'+binding_path+'").bind_tree(self, VFX_FIELDS)\n')
         if kind == 'bolt':
             script += 'const IMPACT_PATH = '+json.dumps('res://scenes/'+prefix+'_impact.tscn')+'\n'
             script += 'const TAIL_DURATION = '+repr(float(tail))+'\n'
@@ -1139,7 +1197,7 @@ def _write_authored_effect(out, kit, resource_root, prefix, counts):
                f'[ext_resource type="SpriteFrames" path="res://{resource_root}/{phase}.tres" id="Frames"]']
         sub = []
         nodes = [f'[node name="Effect{kind.title()}" type="'+('Area2D' if kind == 'bolt' else 'Node2D')+'"]\n'
-                 'texture_filter = 1\nscript = ExtResource("Script")\n'
+                 'texture_filter = 2\nscript = ExtResource("Script")\n'
                  f'ground_squash = {number(data["ground_squash"])}\n'
                  f'hitstop_duration = {number(stop.get("duration_s", 0))}\n'
                  f'hitstop_time_scale = {number(stop.get("time_scale", 1))}\n'
@@ -1151,15 +1209,25 @@ def _write_authored_effect(out, kit, resource_root, prefix, counts):
             nodes.append('[node name="CollisionShape2D" type="CollisionShape2D" parent="."]\nshape = SubResource("HitShape")\n')
         nodes.append('[node name="Ground" type="Node2D" parent="."]\n')
         def material(name, mode):
-            declaration = f'[sub_resource type="CanvasItemMaterial" id="{name}"]\nblend_mode = {mode}\n'
-            if declaration not in sub: sub.append(declaration)
-            return f'material = SubResource("{name}")\n'
+            declaration = f'[ext_resource type="Material" path="res://{materials[name]}" id="Material{name}"]'
+            if declaration not in ext: ext.append(declaration)
+            return f'material = ExtResource("Material{name}")\n'
         def animated(name, extra='', resource='Frames', parent='Ground'):
+            phase_name = 'residual' if name == 'Residual' else phase
+            scale = data.get('phase_scale', {}).get(phase_name, 1)
+            # Layer-specific scales multiply the authored phase scale at runtime.
+            if 'scale = Vector2(' in extra:
+                extra = re.sub(r'scale = Vector2\(([^,]+), ([^)]+)\)',
+                               lambda m: 'scale = '+vector(float(m[1])*scale, float(m[2])*scale), extra)
+            else:
+                extra += 'scale = '+vector(scale, scale)+'\n'
             nodes.append(f'[node name="{name}" type="AnimatedSprite2D" parent="{parent}"]\n'
-                         f'sprite_frames = ExtResource("{resource}")\n'+extra)
+                         'texture_filter = 2\n'
+                         f'sprite_frames = ExtResource("{resource}")\n'
+                         f'animation = &"{phase_name}"\n'+extra)
         if layers.get('dark_duplicate', False):
-            animated('DarkDuplicate', 'z_index = -1\nmodulate = Color(0, 0, 0, 1)\n'+material('Mix', 0))
-        animated('Travel' if kind == 'bolt' else 'Shatter', material('Mix', 0))
+            animated('DarkDuplicate', 'z_index = -1\n'+material('Dark', 0))
+        animated('Travel' if kind == 'bolt' else 'Shatter', material('Body', 0))
         if 'glow' in layers:
             glow = layers['glow']
             animated('Glow', material('Additive', 1)+'scale = '+vector(glow['scale'], glow['scale'])+'\nmodulate = '+color([1,1,1], glow['alpha'])+'\n')
@@ -1168,24 +1236,23 @@ def _write_authored_effect(out, kit, resource_root, prefix, counts):
         if flash:
             animated('Flash', material('Additive', 1)+'scale = '+vector(flash['scale_from'], flash['scale_from'])+'\nmodulate = '+color([1,1,1], flash['alpha'])+'\n')
         if floor:
-            sub.append('[sub_resource type="Gradient" id="FloorColors"]\ncolors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)\n')
-            sub.append('[sub_resource type="GradientTexture2D" id="FloorDisc"]\ngradient = SubResource("FloorColors")\nwidth = 32\nheight = 32\nfill = 1\nfill_from = Vector2(0.5, 0.5)\nfill_to = Vector2(1, 0.5)\n')
+            ext.append(f'[ext_resource type="Texture2D" path="res://{floor_texture}" id="FloorTexture"]')
             radius = floor['radius_px']/16
-            nodes.append('[node name="FloorLight" type="Sprite2D" parent="."]\nz_index = -3\ntexture = SubResource("FloorDisc")\n'+material('Additive', 1)+
-                         'scale = '+vector(radius, radius*data['ground_squash'])+'\nmodulate = '+color(data['tint'])+'\n')
+            nodes.append('[node name="FloorLight" type="Sprite2D" parent="."]\ntexture_filter = 2\nz_index = -3\ntexture = ExtResource("FloorTexture")\n'+material('Additive', 1)+
+                         'scale = '+vector(radius, radius*data['ground_squash'])+'\nmodulate = Color(1, 1, 1, 1)\n')
         if decal:
             if 'decal' in textures:
                 ext.append(f'[ext_resource type="Texture2D" path="res://{textures["decal"]}" id="DecalTexture"]')
             else:
                 relative = Path(resource_root)/'sprites'/phase/kit[phase][0].name
                 ext.append(f'[ext_resource type="Texture2D" path="res://{relative.as_posix()}" id="DecalTexture"]')
-            nodes.append('[node name="Decal" type="Sprite2D" parent="."]\nz_index = -4\ntexture = ExtResource("DecalTexture")\n'+material('Mix', 0)+'scale = '+vector(1, data['ground_squash'])+'\n')
+            nodes.append('[node name="Decal" type="Sprite2D" parent="."]\ntexture_filter = 2\nz_index = -4\ntexture = ExtResource("DecalTexture")\n'+material('Mix', 0)+'scale = '+vector(1, data['ground_squash'])+'\n')
         if particles:
             ext.append(f'[ext_resource type="Texture2D" path="res://{textures["particles"]}" id="ParticleTexture"]')
             velocity = particles['velocity_px_s']
             lo, hi = velocity if isinstance(velocity, list) else (velocity, velocity)
             nodes.append('[node name="Particles" type="CPUParticles2D" parent="."]\ntexture = ExtResource("ParticleTexture")\n'+material('Additive', 1)+
-                         'modulate = '+color(data['tint'])+'\n'+
+                         'texture_filter = 2\nmodulate = Color(1, 1, 1, 1)\n'+
                          'local_coords = false\ngravity = Vector2(0, 0)\n'
                          f'one_shot = {str(kind == "impact").lower()}\nexplosiveness = {1 if kind == "impact" else 0}\n'
                          f'amount = {particles["amount"]}\nlifetime = {number(particles["lifetime_s"])}\n'
@@ -1249,6 +1316,24 @@ def _write_vfx_kits(out, kits, base, cells, socket_data, annotation):
                                             'load(VFX_KITS[cast_kit_index]["flare"])')
     directional = directional.replace('preload("res://scenes/frost_bolt.tscn")',
                                       'load(VFX_KITS[cast_kit_index]["bolt"])')
+    if any('effect' in kit for kit in kits):
+        old = ('    var additive := CanvasItemMaterial.new()\n'
+               '    additive.blend_mode = CanvasItemMaterial.BLEND_MODE_ADD\n'
+               '    flare.material = additive\n')
+        alternatives = []
+        for index, kit in enumerate(kits):
+            if 'effect' in kit:
+                resource_root, prefix = 'vfx/'+kit['name'], 'vfx_'+kit['name']
+                bound = _authored_flare_script(old, resource_root, prefix, kit['effect'])
+                scale = kit['effect'].get('phase_scale', {}).get('cast', 1)
+                bound += '    flare.set_meta("phase_scale", '+repr(float(scale))+')\n'
+                alternatives.append(('if' if not alternatives else 'elif')+
+                                    ' cast_kit_index == '+str(index)+':\n'+
+                                    ''.join('    '+line+'\n' for line in bound.rstrip().splitlines()))
+        alternatives.append('else:\n'+''.join('    '+line+'\n' for line in old.rstrip().splitlines()))
+        directional = directional.replace(old, ''.join('    '+part if part.startswith(('if ', 'elif ', 'else:')) else part for part in alternatives))
+        directional = directional.replace('flare.scale = Vector2.ONE * art_scale',
+                                          'flare.scale = Vector2.ONE * art_scale * float(flare.get_meta("phase_scale", 1.0))')
     (out/'scripts/keeper.gd').write_text(keeper+directional+'\nconst VFX_KITS = '+
                                        json.dumps(entries, allow_nan=False)+'\n'+PICKER_SCRIPT)
     settings = out/'project.godot'

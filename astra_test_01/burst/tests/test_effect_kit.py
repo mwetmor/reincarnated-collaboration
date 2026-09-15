@@ -1,4 +1,4 @@
-"""T3t: explicit authored frames, strict validation, timing and picker layers.
+"""T3t..T4a: indexed frames, strict validation, timing and shared palette materials.
 
 Fixture CLI writes only the requested T3t directory. Tests use tests/tmp.
 No source artwork or external image-generation services are involved.
@@ -19,7 +19,8 @@ import unittest
 
 import numpy as np
 from PIL import Image
-from export.effect_kit import build, load_kit, _tint
+from export.effect_kit import (build, load_kit, _tint, distance_field, material_pixels,
+                               validate_material, shader_source, write_vfx_material)
 from export.godot_import import build_project, validate_resources, write_spriteframes
 from oracle.vfx_measure import measure
 
@@ -27,6 +28,8 @@ ROOT = Path(__file__).resolve().parents[1]
 ARTIFACTS = ROOT/'runs/C-3/t3/T3t'
 TMP = ROOT/'tests/tmp'
 RAMP_ARTIFACTS = ROOT/'runs/C-3/t3/T3u'
+PALETTE = [[12/255, 30/255, 60/255, 1], [42/255, 86/255, 156/255, 1],
+           [80/255, 175/255, 225/255, 1], [220/255, 244/255, 250/255, 1]]
 RAMP = {'core': [.85, .95, 1], 'rim': [.15, .3, .9], 'hue_shift_deg_per_band': 8}
 
 
@@ -34,14 +37,14 @@ def definition_fixture(root):
     root = Path(root).resolve()
     root.mkdir(parents=True, exist_ok=True)
     pixels = np.zeros((16, 16, 4), dtype=np.uint8)
-    values = [0, 64, 128, 234, 235, 255, 128, 64]
+    values = [0, 85, 170, 255, 255, 255, 170, 85]
     for i, value in enumerate(values):
         pixels[:, 2*i:2*i+2, :3] = value
         pixels[:, 2*i:2*i+2, 3] = 128 if i == 6 else (0 if i == 7 else 255)
     for i in range(2):
         Image.fromarray(np.roll(pixels, i, axis=1)).save(root/f'frame_{i}.png')
-    data = {'name': 'synthetic_ice', 'element': 'frost', 'tint': [.25, .5, 1],
-            'pixel_scale': 3, 'ground_squash': .6,
+    data = {'name': 'synthetic_ice', 'element': 'frost', 'material': {'palette': copy.deepcopy(PALETTE)},
+            'ground_squash': .6,
             'phases': {phase: {'sheet': 'frame_0.png', 'frames': [
                 {'file': 'frame_0.png', 'hold_frames': 2},
                 {'file': 'frame_1.png', 'hold_frames': 5}]} for phase in ('cast', 'travel', 'impact', 'residual')},
@@ -64,7 +67,7 @@ def picker_fixture(root, legacy=None, tint=None, phase_scale=None):
     root = Path(root).resolve()
     path, data = definition_fixture(root/'inputs')
     if tint is not None:
-        data['tint'] = copy.deepcopy(tint)
+        data['material'] = {'palette': copy.deepcopy(PALETTE)}
     if phase_scale is not None:
         data['phase_scale'] = copy.deepcopy(phase_scale)
     path.write_text(json.dumps(data, indent=2)+'\n')
@@ -140,25 +143,14 @@ class EffectKitTests(unittest.TestCase):
         with self.assertRaises(ValueError): build(self.path, self.out)
         self.assertFalse(self.out.exists(), 'Validation must precede all output')
 
-    def test_two_frame_phases_hue_white_core_alpha_nearest_and_dimensions(self):
+    def test_native_index_frames_alpha_and_dimensions(self):
         report = build(self.path, self.out)
         self.assertIsNone(report['passed'])
         for phase in ('flare', 'travel', 'impact', 'residual'):
             self.assertEqual(len(list((self.out/phase).glob('*.png'))), 2)
-            pixels = np.array(Image.open(self.out/phase/f'{phase}_00.png'))
-            self.assertEqual(pixels.shape, (48,48,4))
-            np.testing.assert_array_equal(pixels[0,12,:3], [32,64,128])
-            hue = colorsys.rgb_to_hsv(*pixels[0,12,:3].astype(float))[0]
-            self.assertAlmostEqual(hue, colorsys.rgb_to_hsv(.25,.5,1)[0], places=12)
-            self.assertGreaterEqual(int(pixels[:,24:36,:3].min()), 250)
-            self.assertEqual(int(pixels[0,36,3]), 128)
-            self.assertEqual(int(pixels[0,42,3]), 0)
-            np.testing.assert_array_equal(pixels, np.repeat(np.repeat(pixels[::3,::3],3,0),3,1))
-            self.assertEqual(set(map(tuple, pixels.reshape(-1,4))),
-                {(0,0,0,255), (16,32,64,255), (32,64,128,255), (58,117,234,255),
-                 (255,255,255,255), (32,64,128,128), (16,32,64,0)})
-        self.assertTrue((self.out/'CREDITS.txt').is_file())
-        self.assertTrue((self.out/'vfx_select.json').is_file())
+            with Image.open(self.out/phase/f'{phase}_00.png') as actual, Image.open(self.path.parent/'frame_0.png') as source:
+                self.assertEqual(actual.size, (16,16))
+                np.testing.assert_array_equal(actual, source)
         self.assertEqual(load_kit(self.out)['layers']['hitstop'], {'duration_s': .08, 'time_scale': .1})
 
     def test_holds_are_seconds_at_speed_one_in_every_resource(self):
@@ -169,16 +161,13 @@ class EffectKitTests(unittest.TestCase):
             self.assertIn('"speed": 1.0', text)
             self.assertIn('"loop": '+str(phase == 'travel').lower(), text)
 
-    def test_scale_boundaries_and_white_threshold(self):
+    def test_retired_pixel_scale_rejected_without_output(self):
         for scale in range(1,9):
-            data = copy.deepcopy(self.data);data['pixel_scale'] = scale
+            data = dict(self.data, pixel_scale=scale)
             self.path.write_text(json.dumps(data))
-            out = self.root/f'scale-{scale}'
-            build(self.path, out)
-            pixels = np.array(Image.open(out/'flare/flare_00.png'))
-            self.assertEqual(pixels.shape[:2], (16*scale,16*scale))
-            np.testing.assert_array_equal(pixels[0,6*scale,:3], [58,117,234])
-            np.testing.assert_array_equal(pixels[0,8*scale,:3], [255,255,255])
+            with self.assertRaisesRegex(ValueError, 'pixel_scale'):
+                build(self.path, self.out)
+            self.assertFalse(self.out.exists())
 
     def test_minimal_definition_optional_layers_residual_and_travel_defaults(self):
         data = copy.deepcopy(self.data)
@@ -201,7 +190,7 @@ class EffectKitTests(unittest.TestCase):
             for key in path: item = item[key]
             item['unexpected'] = 1
             with self.subTest(unknown=path): self.reject(data)
-        for path, key in [((), 'name'), ((), 'tint'), (('phases',), 'travel'),
+        for path, key in [((), 'name'), ((), 'material'), (('phases',), 'travel'),
                           (('phases','cast'), 'sheet'), (('phases','cast','frames',0), 'hold_frames'),
                           (('layers','glow'), 'alpha'), (('layers','particles'), 'texture')]:
             data = copy.deepcopy(self.data);item = data
@@ -297,7 +286,7 @@ class TintRampTests(unittest.TestCase):
         self.addCleanup(self.tmp.cleanup)
         self.root = Path(self.tmp.name)
         self.path, self.data = definition_fixture(self.root/'inputs')
-        self.data['tint'] = copy.deepcopy(RAMP)
+        self.data['material'] = {'palette': copy.deepcopy(PALETTE)}
 
     def build_data(self, data=None, name='kit'):
         self.path.write_text(json.dumps(self.data if data is None else data))
@@ -305,18 +294,15 @@ class TintRampTests(unittest.TestCase):
         build(self.path, out)
         return out
 
-    def test_ramp_t3t_literal_o4_acceptance(self):
-        kit = ROOT/'runs/C-3/vfx_kits/frozen_orb_v3'
-        frames = load_kit(kit)['phases']['impact']['frames']
-        result = measure(kit/'impact', [1000*f['hold_frames']/60 for f in frames])
-        self.assertGreaterEqual(result['O4']['hue_sd_deg_at_peak'], 8)
+    def test_legacy_kit_white_core_keep_rejected_at_load(self):
+        with self.assertRaisesRegex(ValueError, 'white_core_keep'):
+            load_kit(ROOT/'runs/C-3/vfx_kits/frozen_orb_v3')
 
-    def test_ramp_t3t_literal_o5_acceptance(self):
-        kit = ROOT/'runs/C-3/vfx_kits/frozen_orb_v3'
-        frames = load_kit(kit)['phases']['impact']['frames']
-        result = measure(kit/'impact', [1000*f['hold_frames']/60 for f in frames])
-        self.assertLess(result['O5']['bright_15_median_at_peak'],
-                        result['O5']['dim_25_median_at_peak'])
+    def test_legacy_kit_white_core_keep_rejected_before_build(self):
+        legacy = ROOT/'runs/C-3/vfx_kits/frozen_orb_v3/kit.json'
+        with self.assertRaisesRegex(ValueError, 'white_core_keep'):
+            build(legacy, self.root/'kit')
+        self.assertFalse((self.root/'kit').exists())
 
     def test_mapping_matches_smoothstep_multiply_then_hsv_for_every_byte(self):
         # Independent scalar reference, including hue wrap and endpoint clamps.
@@ -338,7 +324,7 @@ class TintRampTests(unittest.TestCase):
 
     def test_sheet_band_indices_stable_when_frame_omits_bright_levels(self):
         # Sheet defines all four bands; sparse frame keeps dark band's index 3.
-        sheet = np.array([[[v,v,v,255] for v in (255,192,128,64)]], dtype=np.uint8)
+        sheet = np.array([[[v,v,v,255] for v in (255,170,85,0)]], dtype=np.uint8)
         Image.fromarray(sheet).save(self.root/'inputs/frame_0.png')
         Image.fromarray(sheet[:,3:]).save(self.root/'inputs/frame_1.png')
         out = self.build_data()
@@ -361,70 +347,57 @@ class TintRampTests(unittest.TestCase):
         np.testing.assert_array_equal(image[...,0],image[...,1])
         np.testing.assert_array_equal(image[...,1],image[...,2])
 
-    def test_plain_tint_png_bytes_match_t3t_arithmetic(self):
-        self.data['tint'] = [.25,.5,1]
+    def test_plain_multiply_tint_rejected_at_build_and_load(self):
         out = self.build_data()
-        for phase in ('flare','travel','impact','residual'):
-            for i in range(2):
-                pixels = np.array(Image.open(self.root/f'inputs/frame_{i}.png'))
-                grey = pixels[...,:3].astype(float) @ np.array([.2126,.7152,.0722])
-                pixels[...,:3] = np.rint(pixels[...,:3]*np.array([.25,.5,1])).astype(np.uint8)
-                pixels[grey >= .92*255,:3] = 255
-                image = Image.fromarray(pixels).resize((48,48),Image.Resampling.NEAREST)
-                stream = io.BytesIO();image.save(stream,format='PNG')
-                self.assertEqual((out/phase/f'{phase}_{i:02d}.png').read_bytes(),stream.getvalue())
-        self.assertNotIn('phase_scale',load_kit(out))
+        for tint in ([.25,.5,1], RAMP):
+            with self.assertRaisesRegex(ValueError, 'tint'):
+                self.build_data(dict(self.data, tint=tint), 'bad')
+            meta = json.loads((out/'kit.json').read_text())
+            meta['tint'] = tint
+            (out/'kit.json').write_text(json.dumps(meta))
+            with self.assertRaisesRegex(ValueError, 'tint'): load_kit(out)
 
-    def test_ramp_defaults_and_runtime_view_preserve_authored_json(self):
-        self.data['tint'] = {k:RAMP[k] for k in ('core','rim')}
+    def test_material_defaults_and_runtime_view_preserve_authored_json(self):
         out = self.build_data()
         before = (out/'kit.json').read_bytes()
-        raw = load_kit(out,preserve_ramp=True)
-        self.assertEqual(raw['tint'],dict(self.data['tint'],hue_shift_deg_per_band=0,white_core_keep=.92))
-        self.assertEqual(raw['phase_scale'],dict.fromkeys(('cast','travel','impact','residual'),1))
-        self.assertEqual(load_kit(out)['tint'],RAMP['core'])
-        self.assertEqual((out/'kit.json').read_bytes(),before)
+        raw = load_kit(out, preserve_ramp=True)
+        self.assertEqual(raw['material'], dict(palette=PALETTE, blend_mode='MIX', light_participation=False, erode=0., dissolve=0.))
+        self.assertEqual(load_kit(out), raw)
+        self.assertEqual((out/'kit.json').read_bytes(), before)
 
-    def test_phase_scale_two_nearest_steps_boundaries_and_layers_unchanged(self):
+    def test_phase_scale_is_runtime_only_and_native_pngs_unchanged(self):
         baseline = self.build_data(name='unscaled')
         self.data['phase_scale'] = {'cast':.5,'travel':1.125,'impact':4,'residual':2}
         out = self.build_data()
-        for phase,name in [('cast','flare'),('travel','travel'),('impact','impact'),('residual','residual')]:
-            scale = self.data['phase_scale'][phase]
-            size = int(math.floor(48*scale+.5))
-            original = Image.open(baseline/name/f'{name}_00.png')
-            actual = Image.open(out/name/f'{name}_00.png')
-            self.assertEqual(actual.size,(size,size))
-            np.testing.assert_array_equal(actual,original.resize((size,size),Image.Resampling.NEAREST))
-        for p in (baseline/'layers').glob('*.png'):
-            self.assertEqual(p.read_bytes(),(out/'layers'/p.name).read_bytes())
+        for p in baseline.rglob('*.png'):
+            self.assertEqual(p.read_bytes(), (out/p.relative_to(baseline)).read_bytes())
+        project = particle_scenes(out, self.root/'project')
+        scene = (project/'scenes/vfx_synthetic_ice_impact.tscn').read_text()
+        self.assertIn('scale = Vector2(4, 4)', scene)
+        self.assertIn('scale = Vector2(2, 2)', scene)
 
     def test_fractional_scale_rounds_half_up_after_pixel_scale(self):
         path = self.root/'small.png';Image.new('RGBA',(3,5),(128,128,128,255)).save(path)
         self.assertEqual(_tint(path,RAMP,1,.5).size,(2,3))
 
-    def test_picker_ramp_and_legacy_scenes_and_scaled_resource_bytes(self):
+    def test_picker_palette_and_legacy_scenes_byte_lock(self):
         plain = picker_fixture(self.root/'plain')
-        ramp = picker_fixture(self.root/'ramp',tint=RAMP,phase_scale={'impact':2,'residual':.5})
-        legacy_scenes = sorted((plain['project']/'scenes').glob('vfx_frost_*.tscn'))
-        self.assertTrue(legacy_scenes)
-        for p in legacy_scenes:
-            self.assertEqual(p.read_bytes(),(ramp['project']/'scenes'/p.name).read_bytes())
-        for p in (plain['project']/'scripts').glob('vfx_*.gd'):
-            self.assertEqual(p.read_bytes(),(ramp['project']/'scripts'/p.name).read_bytes())
-        project_kit = ramp['project']/'vfx/synthetic_ice'
-        for phase,size in [('impact',96),('travel',48),('residual',24)]:
-            with Image.open(project_kit/f'sprites/{phase}/{phase}_00.png') as image:
-                self.assertEqual(image.size,(size,size))
-        for p in ramp['kit'].rglob('*.png'):
-            relative = p.relative_to(ramp['kit'])
-            target = project_kit/relative if relative.parts[0] == 'layers' else project_kit/'sprites'/relative
-            self.assertEqual(p.read_bytes(),target.read_bytes())
+        ramp = picker_fixture(self.root/'ramp', phase_scale={'impact':2,'residual':.5})
+        legacy = sorted((plain['project']/'scenes').glob('vfx_frost_*.tscn'))
+        self.assertTrue(legacy)
+        for p in legacy:
+            self.assertEqual(p.read_bytes(), (ramp['project']/'scenes'/p.name).read_bytes())
+        for p in (plain['project']/'scripts').glob('vfx_frost*.gd'):
+            self.assertEqual(p.read_bytes(), (ramp['project']/'scripts'/p.name).read_bytes())
         scene = (ramp['project']/'scenes/vfx_synthetic_ice_impact.tscn').read_text()
-        self.assertIn('res://vfx/synthetic_ice/impact.tres',scene)
-        self.assertIn('texture_filter = 1',scene)
-        self.assertIn('modulate = Color(0.85, 0.95, 1, 1)',scene)
-        self.assertGreater(len(validate_resources(ramp['project'],True)),0)
+        self.assertIn('texture_filter = 2', scene)
+        self.assertNotIn('texture_filter = 1', scene)
+        self.assertIn('MaterialBody', scene)
+        self.assertGreater(len(validate_resources(ramp['project'], True)), 0)
+        self.assertEqual(load_kit(ramp['project']/'vfx/synthetic_ice')['material']['palette'], PALETTE)
+        keeper = (ramp['project']/'scripts/keeper.gd').read_text()
+        self.assertIn('materials/Additive.tres', keeper)
+        self.assertIn('material.gd").bind(flare', keeper)
 
     def test_invalid_ramps_and_scales_rejected_before_output(self):
         cases = [None,[],{}, {'core':[1,1,1]},dict(RAMP,unknown=0)]
@@ -445,19 +418,19 @@ class TintRampTests(unittest.TestCase):
         independent = self.root/'inputs/particle.png'
         self.data['layers']['particles']['texture'] = 'particle.png'
         for size in ((1,1),(16,16),(16,1)):
-            Image.new('L',size,128).save(independent)
+            Image.new('L',size,85).save(independent)
             out = self.build_data(name='particle-'+str(size))
             with Image.open(out/'layers/particles.png') as image:
-                self.assertEqual(image.size,tuple(3*v for v in size))
+                self.assertEqual(image.size,size)
             load_kit(out)
         for size,colour in [((17,1),(128,128,128)),((1,17),(128,128,128)),((16,16),(128,127,128))]:
             Image.new('RGB',size,colour).save(independent)
             with self.subTest(size=size,colour=colour), self.assertRaises(ValueError): self.build_data()
             self.assertFalse((self.root/'kit').exists())
-        Image.new('RGBA',(32,24),(128,128,128,255)).save(self.root/'inputs/frame_1.png')
+        Image.new('RGBA',(32,24),(85,85,85,255)).save(self.root/'inputs/frame_1.png')
         self.data['layers']['particles']['texture'] = 'frame_1.png'
         with Image.open(self.build_data()/'layers/particles.png') as image:
-            self.assertEqual(image.size,(96,72))
+            self.assertEqual(image.size,(32,24))
 
     def test_four_band_diagnostic_measures_hue_and_saturation_known_bad_control(self):
         source = np.zeros((16,16,4),dtype=np.uint8)
@@ -580,7 +553,7 @@ def particle_fixture(root, tint, element_class=None):
     rgba = np.full((4, 4, 4), 255, dtype=np.uint8)
     rgba[..., 3] = np.array([0, 64, 128, 255], dtype=np.uint8)[:, None]
     Image.fromarray(rgba).save(path.parent/'mote.png')
-    data['tint'] = copy.deepcopy(tint)
+    data['material'] = {'palette': copy.deepcopy(PALETTE)}
     data['layers']['particles'] = {'texture': 'mote.png', 'velocity_px_s': [10, 30],
                                    'direction': [1, 0], 'spread_deg': 15}
     if element_class is not None:
@@ -660,37 +633,15 @@ class TintedParticleTests(unittest.TestCase):
         self.addCleanup(self.tmp.cleanup)
         self.root = Path(self.tmp.name)
 
-    def test_ramp_core_without_white_preservation_and_plain_tint(self):
-        cases = [('ramp', {'core': [.9, .99, 1], 'rim': [1, 0, 0],
-                           'white_core_keep': .8, 'hue_shift_deg_per_band': 60}, [225, 248, 250]),
-                 ('plain', [.2, .6, .8], [51, 153, 204]),
-                 ('neutral', [1, 1, 1], [250, 250, 250]),
-                 ('black', [0, 0, 0], [0, 0, 0])]
-        for label, tint, expected in cases:
-            with self.subTest(label=label):
-                path, data = particle_fixture(self.root/label, tint)
-                original = copy.deepcopy(data)
-                out = self.root/(label+'-kit')
-                build(path, out)
-                with Image.open(out/'layers/particles.png') as image:
-                    pixels = np.array(image)
-                    self.assertEqual(image.size, (4, 4))
-                np.testing.assert_allclose(pixels[..., :3], np.broadcast_to(expected, (4, 4, 3)), atol=1, rtol=0)
-                colour = tint['core'] if isinstance(tint, dict) else tint
-                hue = colorsys.rgb_to_hsv(*pixels[0, 0, :3].astype(float))[0]
-                target_hue = colorsys.rgb_to_hsv(*colour)[0]
-                self.assertLessEqual(abs((hue-target_hue+.5) % 1-.5)*360, 2)
-                self.assertLessEqual(int(pixels[..., :3].max()), 250)
-                with Image.open(path.parent/'mote.png') as source:
-                    np.testing.assert_array_equal(pixels[..., 3], np.array(source)[..., 3])
-                self.assertEqual(json.loads(path.read_text()), original)
-                meta = load_kit(out)
-                self.assertEqual(meta['element_class'], 'strike')
-                self.assertEqual(meta['layers']['particles']['amount'], 8)
-                self.assertEqual(meta['layers']['particles']['lifetime_s'], .5)
-                # Known-bad control: the original body tint turns this mote white.
-                old = np.array(_tint(path.parent/'mote.png', tint, 1))
-                self.assertTrue(np.any(old[..., :3] == 255))
+    def test_particles_use_native_indices_and_independent_alpha(self):
+        path, data = particle_fixture(self.root/'source', None)
+        out = self.root/'kit'
+        build(path, out)
+        with Image.open(path.parent/'mote.png') as source, Image.open(out/'layers/particles.png') as result:
+            np.testing.assert_array_equal(result, source)
+            rendered = material_pixels(np.array(result), PALETTE)
+            np.testing.assert_array_equal(rendered[..., 3], np.array(source)[..., 3])
+        self.assertEqual(load_kit(out)['layers']['particles']['amount'], 8)
 
     def test_small_mote_cap_across_pixel_scales_and_ramp_thresholds(self):
         from export.effect_kit import _tint_particles
@@ -706,21 +657,18 @@ class TintedParticleTests(unittest.TestCase):
                 np.testing.assert_array_equal(outputs[0], outputs[1])
                 np.testing.assert_array_equal(outputs[1], outputs[2])
 
-    def test_bolt_and_impact_particle_node_modulate_and_defaults(self):
-        for label, tint, colour in [('ramp', {'core': [.9, .99, 1], 'rim': [1, 0, 0]},
-                                     'Color(0.9, 0.99, 1, 1)'),
-                                    ('plain', [.2, .6, .8], 'Color(0.2, 0.6, 0.8, 1)')]:
-            path, _ = particle_fixture(self.root/label, tint)
-            kit = self.root/(label+'-kit'); build(path, kit)
-            project = particle_scenes(kit, self.root/(label+'-project'))
-            for kind in ('bolt', 'impact'):
-                node = particle_node((project/f'scenes/vfx_synthetic_ice_{kind}.tscn').read_text())
-                self.assertIn('modulate = '+colour+'\n', node)
-                self.assertIn('amount = 8\nlifetime = 0.5\n', node)
-                self.assertIn('one_shot = '+str(kind == 'impact').lower(), node)
-            (project/'project.godot').write_text(
-                '[application]\nrun/main_scene="res://scenes/vfx_synthetic_ice_bolt.tscn"\n')
-            self.assertGreater(len(validate_resources(project, True)), 0)
+    def test_bolt_and_impact_particles_have_linear_shader_and_defaults(self):
+        path, _ = particle_fixture(self.root/'source', None)
+        kit = self.root/'kit'; build(path, kit)
+        project = particle_scenes(kit, self.root/'project')
+        for kind in ('bolt', 'impact'):
+            node = particle_node((project/f'scenes/vfx_synthetic_ice_{kind}.tscn').read_text())
+            self.assertIn('texture_filter = 2', node)
+            self.assertIn('MaterialAdditive', node)
+            self.assertIn('modulate = Color(1, 1, 1, 1)', node)
+            self.assertIn('amount = 8\nlifetime = 0.5', node)
+        (project/'project.godot').write_text('[application]\nrun/main_scene="res://scenes/vfx_synthetic_ice_bolt.tscn"\n')
+        self.assertGreater(len(validate_resources(project, True)), 0)
 
     def test_element_classes_and_explicit_particle_settings(self):
         for value in ('strike', 'holy', 'field'):
@@ -746,15 +694,449 @@ class TintedParticleTests(unittest.TestCase):
                 (out/'kit.json').write_text(json.dumps(dict(metadata, element_class=value)))
                 with self.assertRaises(ValueError): load_kit(out)
 
-    def test_regression_byte_lock_synthetic_and_two_existing_kit_exports(self):
-        for name, result in t3v_regression(self.root).items():
-            with self.subTest(kit=name):
-                self.assertTrue(result['file_set_equal'])
-                self.assertEqual(result['unexpected_changes'], [])
+    def test_non_authored_export_byte_lock_and_legacy_validation(self):
+        first = picker_fixture(self.root/'first')
+        second = picker_fixture(self.root/'second', phase_scale={'impact':2})
+        for part in ('scenes', 'scripts'):
+            names = list((first['project']/part).glob('vfx_frost*'))
+            self.assertTrue(names)
+            for file in names:
+                self.assertEqual(file.read_bytes(), (second['project']/part/file.name).read_bytes())
+        with self.assertRaisesRegex(ValueError, 'white_core_keep'):
+            load_kit(ROOT/'runs/C-3/vfx_kits/frozen_orb_v3')
+
+
+def material_fixture():
+    """Literal T4a 64x64 fixture: four equally covered opaque index bands."""
+    pixels = np.full((64, 64, 4), 255, dtype=np.uint8)
+    for band, level in enumerate((0, 85, 170, 255)):
+        pixels[:, band*16:(band+1)*16, :3] = level
+    return pixels
+
+
+def assert_render_proof(test, report):
+    """Conductor result checks. Missing/dummy rendering can never be accepted."""
+    test.assertEqual(report['renderer'], 'gl_compatibility')
+    test.assertTrue(report['shader_loaded'])
+    test.assertTrue(report['rendered_frame_available'])
+    test.assertLessEqual(report['palette_max_delta_255'], 1)
+    test.assertEqual(report['index_0_min_alpha_255'], 255)
+    test.assertEqual(report['erode_removed_percent'][0], 0)
+    test.assertLessEqual(abs(report['erode_removed_percent'][1]-50), 3)
+    test.assertEqual(report['erode_removed_percent'][2], 100)
+    test.assertEqual(report['dissolve_05_removed_per_band'], [0, 0, 0, 1024])
+    test.assertLessEqual(report['dissolve_retained_rgb_max_delta_255'], 1)
+    test.assertLessEqual(report['add_black_mix_max_delta_255'], 1)
+
+
+class SharedVFXMaterialTests(unittest.TestCase):
+    def setUp(self):
+        TMP.mkdir(parents=True, exist_ok=True)
+        self.tmp = tempfile.TemporaryDirectory(prefix='t4a-', dir=TMP)
+        self.addCleanup(self.tmp.cleanup)
+        self.root = Path(self.tmp.name)
+        self.rgba = material_fixture()
+        self.field = distance_field(self.rgba)
+
+    def test_exact_four_band_palette_including_opaque_dark_index(self):
+        actual = material_pixels(self.rgba, PALETTE)
+        for band in range(4):
+            expected = np.rint(np.asarray(PALETTE[band])*255).astype(np.uint8)
+            np.testing.assert_array_equal(actual[:, band*16:(band+1)*16],
+                                          np.broadcast_to(expected, (64,16,4)))
+        self.assertEqual(int(actual[:,:16,3].min()), 255)
+
+    def test_coverage_is_independent_of_luminance_and_palette_alpha(self):
+        self.rgba[..., :3] = 0
+        self.rgba[..., 3] = np.arange(64, dtype=np.uint8)[:,None]*4
+        palette = copy.deepcopy(PALETTE); palette[0][3] = .5
+        actual = material_pixels(self.rgba, palette)
+        np.testing.assert_array_equal(actual[...,3], np.rint(self.rgba[...,3]*.5))
+        # Zero-index coverage includes partial, opaque and transparent pixels.
+        self.rgba[...,3] = 255
+        self.assertTrue((material_pixels(self.rgba, PALETTE)[...,3] == 255).all())
+
+    def test_erode_zero_half_one_coverage_and_centre_out_order(self):
+        removed = []
+        for erode in (0, .5, 1):
+            actual = material_pixels(self.rgba, PALETTE, self.field, erode=erode)
+            removed.append(100*(1-actual[...,3].sum()/self.rgba[...,3].sum()))
+        self.assertEqual(removed[0], 0)
+        self.assertLessEqual(abs(removed[1]-50), 3)
+        self.assertEqual(removed[2], 100)
+        half = material_pixels(self.rgba, PALETTE, self.field, erode=.5)
+        self.assertEqual(half[32,32,3], 0)
+        self.assertEqual(half[0,0,3], 255)
+        self.assertTrue(np.all(distance_field(np.zeros_like(self.rgba)) == 255))
+
+    def test_distance_quantiles_respect_partial_coverage(self):
+        self.rgba[:32,:,3] = 64
+        field = distance_field(self.rgba)
+        half = material_pixels(self.rgba, PALETTE, field, erode=.5)
+        removed = 100*(1-half[...,3].sum()/self.rgba[...,3].sum())
+        self.assertLessEqual(abs(removed-50), 3)
+
+    def test_dissolve_half_removes_brightest_only_and_holds_hue(self):
+        original = material_pixels(self.rgba, PALETTE)
+        half = material_pixels(self.rgba, PALETTE, dissolve=.5)
+        np.testing.assert_array_equal(original[:,:48], half[:,:48])
+        self.assertEqual(np.count_nonzero(half[:,48:,3]), 0)
+        np.testing.assert_array_equal(original[...,:3], half[...,:3])
+        for amount, remaining in ((0,4096), (.49,4096), (.5,3072), (.7,2048), (.9,1024), (1,0)):
+            with self.subTest(amount=amount):
+                self.assertEqual(np.count_nonzero(material_pixels(self.rgba, PALETTE, dissolve=amount)[...,3]), remaining)
+
+    def test_premultiplied_alpha_is_applied_exactly_once(self):
+        self.rgba[...,3] = 128
+        straight = material_pixels(self.rgba, PALETTE)
+        premult = material_pixels(self.rgba, PALETTE, blend_mode='PREMULT_ALPHA')
+        np.testing.assert_allclose(premult[...,:3], np.rint(straight[...,:3].astype(float)*128/255.), atol=1)
+        np.testing.assert_array_equal(premult[...,3], straight[...,3])
+        self.assertTrue(np.all(material_pixels(self.rgba, PALETTE, dark_duplicate=True)[...,:3] == 0))
+
+    def test_all_six_compatibility_variants_and_material_parameters(self):
+        Image.fromarray(self.field).save(self.root/'distance.png')
+        for mode in ('MIX', 'ADD', 'PREMULT_ALPHA'):
+            for lit in (False, True):
+                config = dict(palette=PALETTE, blend_mode=mode, light_participation=lit, erode=.25, dissolve=.5)
+                resource = write_vfx_material(self.root, mode+str(lit)+'.tres', config, 'distance.png')
+                text = resource.read_text()
+                self.assertIn('type="ShaderMaterial"', text)
+                self.assertIn('shader_parameter/erode = 0.25', text)
+                self.assertIn('shader_parameter/dissolve = 0.5', text)
+                self.assertIn('shader_parameter/palette_0 = Color(', text)
+                shader = shader_source(mode, lit)
+                self.assertEqual('unshaded' in shader, not lit)
+                self.assertIn('PREMULTIPLIED = '+str(mode == 'PREMULT_ALPHA').lower(), shader)
+                self.assertNotIn('filter_nearest', shader)
+                self.assertNotIn('hint_screen_texture', shader)
+                self.assertIn('filter_linear', shader)
+        self.assertGreater(len(validate_resources(self.root)), 0)
+
+    def test_invalid_material_values_and_nonindex_assets_rejected_before_output(self):
+        path, data = definition_fixture(self.root/'source')
+        variants = [dict(palette=p) for p in (None, [], [[0,0,0,1]]*3, [[0,0,0]]*4)]
+        variants += [dict(palette=PALETTE, **{k:v}) for k, values in {
+            'erode':[-.1,1.1,True,float('nan')], 'dissolve':[-.1,1.1,None],
+            'blend_mode':['MULTIPLY',None,0], 'light_participation':[1,None,'yes']}.items() for v in values]
+        variants += [dict(palette=[[0,0,0,v]]*4) for v in (-.1,1.1,True,float('inf'))]
+        for material in variants:
+            with self.subTest(material=material), self.assertRaises(ValueError):
+                build(dict(data, material=material), self.root/'bad')
+            self.assertFalse((self.root/'bad').exists())
+        for level in (1,64,128,254):
+            Image.new('RGBA', (16,16), (level,level,level,255)).save(path.parent/'frame_0.png')
+            with self.assertRaisesRegex(ValueError, '0/85/170/255'): build(path, self.root/'bad')
+            self.assertFalse((self.root/'bad').exists())
+
+    def test_distance_fields_complete_confined_and_matching_dimensions(self):
+        path, _ = definition_fixture(self.root/'source')
+        kit = self.root/'kit'; build(path, kit)
+        original = json.loads((kit/'kit.json').read_text())
+        for value in ({}, {'flare/flare_00.png':'../source/frame_0.png'}, None):
+            (kit/'kit.json').write_text(json.dumps(dict(original, distance_fields=value)))
+            with self.assertRaisesRegex(ValueError, 'distance_fields'): load_kit(kit)
+        first = next(iter(original['distance_fields'].values()))
+        (kit/'kit.json').write_text(json.dumps(original))
+        Image.new('L', (1,1)).save(kit/first)
+        with self.assertRaisesRegex(ValueError, 'dimensions'): load_kit(kit)
+
+    def test_every_material_sprite_is_linear_and_animation_fields_are_bound(self):
+        fixture = picker_fixture(self.root/'fixture')
+        project = fixture['project']
+        for kind in ('bolt','impact'):
+            scene = (project/f'scenes/vfx_synthetic_ice_{kind}.tscn').read_text()
+            nodes = re.split(r'(?=\[node )', scene)[1:]
+            sprites = [n for n in nodes if any(f'type="{t}"' in n.splitlines()[0] for t in ('Sprite2D','AnimatedSprite2D','CPUParticles2D'))]
+            self.assertTrue(sprites)
+            for node in sprites:
+                self.assertIn('texture_filter = 2', node)
+                self.assertRegex(node, r'material = ExtResource\("Material')
+            script = (project/f'scripts/vfx_synthetic_ice_{kind}.gd').read_text()
+            self.assertIn('_bind_vfx_materials()', script)
+            self.assertIn('distance/', script)
+        binder = (project/'scripts/vfx_synthetic_ice_material.gd').read_text()
+        self.assertIn('frame_changed.connect', binder)
+        self.assertIn('animation_changed.connect', binder)
+        self.assertIn('node.material.duplicate()', binder)
+        dark = (project/'vfx/synthetic_ice/materials/Dark.tres').read_text()
+        self.assertIn('shader_parameter/dark_duplicate = true', dark)
+        self.assertIn('vfx_material_mix_unlit.gdshader', dark)
+
+    def test_RED_dark_index_rendered_transparent_is_rejected(self):
+        report = self._good_report()
+        report['index_0_min_alpha_255'] = 0
+        with self.assertRaises(AssertionError): assert_render_proof(self, report)
+
+    def test_RED_material_failing_to_load_on_Compatibility_is_rejected(self):
+        for key, value in (('shader_loaded',False), ('renderer','forward_plus'), ('rendered_frame_available',False)):
+            report = self._good_report(); report[key] = value
+            with self.subTest(key=key), self.assertRaises(AssertionError): assert_render_proof(self, report)
+
+    def test_RED_legacy_white_core_keep_validation_names_key(self):
+        path, data = definition_fixture(self.root/'source')
+        data['material']['white_core_keep'] = .92
+        path.write_text(json.dumps(data))
+        with self.assertRaisesRegex(ValueError, 'white_core_keep'): build(path, self.root/'bad')
+        self.assertFalse((self.root/'bad').exists())
+
+    def test_render_proof_guard_rejects_wrong_colour_erosion_and_dissolve(self):
+        assert_render_proof(self, self._good_report())
+        for key, value in (('palette_max_delta_255',2), ('erode_removed_percent',[0,54,100]),
+                           ('dissolve_05_removed_per_band',[0,0,1024,1024]),
+                           ('dissolve_retained_rgb_max_delta_255',2), ('add_black_mix_max_delta_255',2)):
+            report = self._good_report(); report[key] = value
+            with self.subTest(key=key), self.assertRaises(AssertionError): assert_render_proof(self, report)
+
+    def test_proof_fixture_resources_and_scene_include_both_blends(self):
+        root = self.root/'proof'
+        report = material_proof_fixture(root)
+        self.assertIsNone(report['passed'])
+        self.assertIsNone(report['value']['compatibility_render'])
+        self.assertGreater(len((root/'project.godot').read_text().splitlines()), 10)
+        self.assertGreater(len(validate_resources(root, True)), 0)
+        script = (root/'proof.gd').read_text()
+        self.assertIn('sprite(view, material("Dark"), -1)', script)
+        self.assertIn('render(material("ADD_unlit"), true)', script)
+        self.assertIn('Dark index rendered transparent', script)
+        self.assertIn('No rendered frame', script)
+        self.assertIn('Compatibility shader compile/uniform check failed', script)
+        self.assertEqual(len(list((root/'materials').glob('*.gdshader'))), 6)
+
+    @staticmethod
+    def _good_report():
+        return {'renderer':'gl_compatibility', 'shader_loaded':True, 'rendered_frame_available':True,
+                'palette_max_delta_255':0, 'index_0_min_alpha_255':255,
+                'erode_removed_percent':[0,50,100], 'dissolve_05_removed_per_band':[0,0,0,1024],
+                'dissolve_retained_rgb_max_delta_255':0, 'add_black_mix_max_delta_255':0}
+
+
+MATERIAL_PROOF_SCRIPT = '''extends SceneTree
+
+var report: Dictionary = {"renderer": "", "shader_loaded": false,
+    "rendered_frame_available": false, "errors": []}
+var failed: bool = false
+var palette: Array = []
+var source: Texture2D
+
+func _initialize() -> void:
+    _run.call_deferred()
+
+func need(condition: bool, reason: String) -> bool:
+    if not condition:
+        report.errors.append(reason)
+        failed = true
+        push_error(reason)
+    return condition
+
+func material(name: String) -> ShaderMaterial:
+    var loaded: Resource = load("res://materials/" + name + ".tres")
+    if not need(loaded is ShaderMaterial, "Compatibility ShaderMaterial did not load: " + name):
+        return null
+    var result: ShaderMaterial = loaded.duplicate()
+    if name == "MIX_unlit" and OS.get_cmdline_user_args().has("--known-bad-compatibility"):
+        result.shader = Shader.new()
+        result.shader.code = "shader_type canvas_item; void fragment() { COLOR = missing_symbol; }"
+    if not need(result.shader != null, "Missing shader: " + name):
+        return null
+    var names: Array = []
+    for uniform in result.shader.get_shader_uniform_list():
+        names.append(String(uniform.name))
+    if not need(names.has("palette_0") and names.has("erode") and names.has("dissolve"),
+                "Compatibility shader compile/uniform check failed: " + name):
+        return null
+    return result
+
+func sprite(view: SubViewport, paint: Material, z: int) -> Sprite2D:
+    var node := Sprite2D.new()
+    node.texture = source
+    node.material = paint
+    node.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR
+    node.position = Vector2(32, 32)
+    node.z_index = z
+    view.add_child(node)
+    return node
+
+func render(paint: ShaderMaterial, composite: bool = false) -> Image:
+    var view := SubViewport.new()
+    view.size = Vector2i(64, 64)
+    view.disable_3d = true
+    view.transparent_bg = true
+    view.world_2d = World2D.new()
+    view.render_target_update_mode = SubViewport.UPDATE_ALWAYS
+    root.add_child(view)
+    if composite:
+        var background := ColorRect.new()
+        background.size = Vector2(64, 64)
+        background.color = Color(0.1, 0.2, 0.3, 1)
+        background.z_index = -2
+        view.add_child(background)
+        sprite(view, material("Dark"), -1)
+    sprite(view, paint, 0)
+    # Bounded wait: dummy --headless rendering never emits frame_post_draw.
+    for frame in range(8):
+        await process_frame
+    var image: Image = view.get_texture().get_image()
+    view.queue_free()
+    if not need(image != null and not image.is_empty(),
+                "No rendered frame: a dummy headless renderer is not a Compatibility proof"):
+        return null
+    image.convert(Image.FORMAT_RGBA8)
+    return image
+
+func expected(x: int) -> Color:
+    var entry: Array = palette[x / 16]
+    return Color(entry[0], entry[1], entry[2], entry[3])
+
+func max_delta(image: Image, width: int = 64) -> float:
+    var delta: float = 0
+    for y in range(64):
+        for x in range(width):
+            var a: Color = image.get_pixel(x, y)
+            var b: Color = expected(x)
+            delta = maxf(delta, maxf(absf(a.r-b.r), maxf(absf(a.g-b.g), absf(a.b-b.b))) * 255)
+    return delta
+
+func save_image(image: Image, name: String) -> void:
+    var error: Error = image.save_png("res://rendered/" + name + ".png")
+    need(error == OK, "Cannot write rendered evidence: " + name)
+
+func finish() -> void:
+    var file := FileAccess.open("res://rendered/render_proof.json", FileAccess.WRITE)
+    if file != null:
+        file.store_string(JSON.stringify(report, "  ") + "\n")
+    else:
+        failed = true
+    print(JSON.stringify(report))
+    quit(1 if failed else 0)
+
+func _run() -> void:
+    DirAccess.make_dir_recursive_absolute(ProjectSettings.globalize_path("res://rendered"))
+    report.renderer = RenderingServer.get_current_rendering_method()
+    report.engine_version = Engine.get_version_info().string
+    if not need(report.renderer == "gl_compatibility", "Renderer must be gl_compatibility"):
+        finish()
+        return
+    palette = JSON.parse_string(FileAccess.get_file_as_string("res://palette.json"))
+    source = load("res://indices.png")
+    var mix: ShaderMaterial = material("MIX_unlit")
+    for variant in ["MIX_lit", "ADD_unlit", "ADD_lit", "PREMULT_ALPHA_unlit", "PREMULT_ALPHA_lit", "Dark"]:
+        material(variant)
+    if failed:
+        finish()
+        return
+    report.shader_loaded = true
+    if OS.get_cmdline_user_args().has("--known-bad-dark-index"):
+        mix.set_shader_parameter("palette_0", Color(0.05, 0.1, 0.2, 0))
+    var baseline: Image = await render(mix)
+    if baseline == null:
+        finish()
+        return
+    report.rendered_frame_available = true
+    save_image(baseline, "palette")
+    report.palette_max_delta_255 = max_delta(baseline)
+    var dark_alpha: int = 255
+    for y in range(64):
+        for x in range(16):
+            dark_alpha = mini(dark_alpha, roundi(baseline.get_pixel(x,y).a*255))
+    report.index_0_min_alpha_255 = dark_alpha
+    need(report.palette_max_delta_255 <= 1.00001, "Ramp colour delta exceeds 1/255")
+    need(dark_alpha == 255, "Dark index rendered transparent")
+    var removed: Array = []
+    for amount in [0.0, 0.5, 1.0]:
+        var paint: ShaderMaterial = material("MIX_unlit")
+        paint.set_shader_parameter("erode", amount)
+        var frame: Image = await render(paint)
+        if frame == null:
+            finish()
+            return
+        save_image(frame, "erode_" + str(amount))
+        var coverage: float = 0
+        for y in range(64):
+            for x in range(64):
+                coverage += frame.get_pixel(x,y).a
+        removed.append(100.0*(1.0-coverage/4096.0))
+    report.erode_removed_percent = removed
+    need(removed[0] == 0 and absf(removed[1]-50) <= 3 and removed[2] == 100,
+         "Erosion coverage must be 0 / 50+-3 / 100 percent")
+    var dissolved: ShaderMaterial = material("MIX_unlit")
+    dissolved.set_shader_parameter("dissolve", 0.5)
+    var half: Image = await render(dissolved)
+    if half == null:
+        finish()
+        return
+    save_image(half, "dissolve_05")
+    var dropped: Array = [0,0,0,0]
+    for y in range(64):
+        for x in range(64):
+            if half.get_pixel(x,y).a < 0.5:
+                dropped[x/16] += 1
+    report.dissolve_05_removed_per_band = dropped
+    report.dissolve_retained_rgb_max_delta_255 = max_delta(half, 48)
+    need(dropped == [0,0,0,1024], "Dissolve 0.5 must remove the brightest band and no other")
+    need(report.dissolve_retained_rgb_max_delta_255 <= 1.00001, "Dissolve changed retained hue")
+    var composite: Image = await render(material("ADD_unlit"), true)
+    if composite == null:
+        finish()
+        return
+    save_image(composite, "add_over_black_mix")
+    report.add_black_mix_max_delta_255 = max_delta(composite)
+    need(report.add_black_mix_max_delta_255 <= 1.00001, "ADD over black MIX duplicate composite differs")
+    report.variants_rendered = []
+    for variant in ["MIX_lit", "ADD_lit", "PREMULT_ALPHA_unlit", "PREMULT_ALPHA_lit"]:
+        var frame: Image = await render(material(variant))
+        if frame == null:
+            finish()
+            return
+        save_image(frame, variant)
+        need(max_delta(frame) <= 1.00001, "Variant did not render exact palette: " + variant)
+        report.variants_rendered.append(variant)
+    finish()
+'''
+
+
+def material_proof_fixture(root):
+    """Prepare deterministic CPU quantities and the conductor's Godot project."""
+    started = time.monotonic()
+    root = Path(root).resolve()
+    root.mkdir(parents=True, exist_ok=True)
+    pixels = material_fixture()
+    field = distance_field(pixels)
+    Image.fromarray(pixels).save(root/'indices.png')
+    Image.fromarray(field).save(root/'distance.png')
+    (root/'palette.json').write_text(json.dumps(PALETTE, indent=2)+'\n')
+    for mode in ('MIX','ADD','PREMULT_ALPHA'):
+        for lit in (False, True):
+            label = mode+('_lit' if lit else '_unlit')
+            write_vfx_material(root, 'materials/'+label+'.tres',
+                               dict(palette=PALETTE, blend_mode=mode, light_participation=lit), 'distance.png')
+    write_vfx_material(root, 'materials/Dark.tres', dict(palette=PALETTE), 'distance.png', True)
+    (root/'proof.gd').write_text(MATERIAL_PROOF_SCRIPT)
+    (root/'proof.tscn').write_text('[gd_scene format=3]\n[node name="T4aProof" type="Node2D"]\n')
+    (root/'project.godot').write_text('config_version=5\n[application]\nconfig/name="T4a Compatibility material proof"\nrun/main_scene="res://proof.tscn"\n[display]\nwindow/size/viewport_width=64\nwindow/size/viewport_height=64\n[rendering]\nrenderer/rendering_method="gl_compatibility"\nrenderer/rendering_method.mobile="gl_compatibility"\ntextures/default_filters/use_nearest_mipmap_filter=false\ntextures/canvas_textures/default_texture_filter=2\n')
+    baseline = material_pixels(pixels, PALETTE)
+    eroded = [material_pixels(pixels, PALETTE, field, erode=value) for value in (0,.5,1)]
+    half = material_pixels(pixels, PALETTE, dissolve=.5)
+    value = {'instrument':'CPU reference, not rendered acceptance',
+             'palette_max_delta_255':int(np.abs(baseline.astype(int)-np.repeat(np.rint(np.asarray(PALETTE)*255).astype(int),16,axis=0)[None,:,:]).max()), 'index_0_min_alpha_255':int(baseline[:,:16,3].min()),
+             'erode_removed_percent':[float(100*(1-image[...,3].sum()/pixels[...,3].sum())) for image in eroded],
+             'dissolve_05_removed_per_band':[int(np.count_nonzero(half[:,i*16:(i+1)*16,3] == 0)) for i in range(4)],
+             'dissolve_retained_rgb_max_delta_255':int(np.abs(half[:,:48,:3].astype(int)-baseline[:,:48,:3]).max()),
+             'compatibility_render':None, 'add_black_mix_render':None, 'shader_variants':6}
+    report = {'id':'t4a_material_reference', 'subject':'64x64 four-band fixture', 'passed':None,
+              'value':value, 'threshold':{'palette_max_delta_255':1, 'index_0_min_alpha_255':255,
+                'erode_removed_percent':[0,'50 +/- 3',100], 'dissolve_05_removed_per_band':[0,0,0,1024]},
+              'op':'report', 'unit':'mixed', 'evidence':[str(root/'indices.png'),str(root/'proof.gd')],
+              'notes':'Conductor must run real Compatibility rendering outside sandbox; CPU metrics do not satisfy rendered-frame acceptance.',
+              'wall_s':time.monotonic()-started}
+    (root/'cpu_reference.json').write_text(json.dumps(report, indent=2)+'\n')
+    return report
 
 
 if __name__ == '__main__':
-    if len(sys.argv) == 3 and sys.argv[1] == '--fixture':
+    if len(sys.argv) == 3 and sys.argv[1] == '--material-fixture':
+        print(json.dumps(material_proof_fixture(sys.argv[2]), indent=2))
+    elif len(sys.argv) == 3 and sys.argv[1] == '--fixture':
         print(json.dumps(measure_fixture(sys.argv[2]), indent=2))
     elif len(sys.argv) == 3 and sys.argv[1] == '--ramp-fixture':
         print(json.dumps(measure_ramp_fixture(sys.argv[2]), indent=2))

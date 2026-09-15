@@ -1,4 +1,4 @@
-"""Build an authored effect kit from a dict or JSON path.
+"""Build an indexed, painted effect kit from a dict or JSON path.
 
 Paths in a JSON definition resolve beside that JSON (dict paths resolve from
 cwd). A phase's sheet identifies its source PNG; frame.file is an explicit
@@ -6,6 +6,10 @@ PNG, relative to the definition, not an implicit atlas rectangle. Repeating a
 file is supported. No grid geometry is guessed. Cast/travel/impact are required;
 residual and individual layers may be omitted. Travel defaults: 520 px/s,
 streak=False. Omitted layers are disabled. Holds are integer 60 Hz ticks.
+T4a material.palette is four RGBA colours for indices 0/85/170/255. PNG alpha
+is independent coverage. Native PNG dimensions are retained; phase_scale is
+runtime geometry with LINEAR filtering. tint/white_core_keep/pixel_scale kits
+are rejected. Private _tint helpers remain diagnostic-only for old byte locks.
 """
 import copy
 import colorsys
@@ -19,7 +23,7 @@ import numpy as np
 from PIL import Image
 
 PHASES = {'cast': 'flare', 'travel': 'travel', 'impact': 'impact', 'residual': 'residual'}
-TOP = {'name', 'element', 'element_class', 'tint', 'phases', 'layers', 'ground_squash', 'pixel_scale', 'phase_scale'}
+TOP = {'name', 'element', 'element_class', 'tint', 'phases', 'layers', 'ground_squash', 'pixel_scale', 'phase_scale', 'material', 'distance_fields'}
 LAYER_KEYS = {
     'glow': {'alpha', 'scale'}, 'floor_light': {'duration_s', 'radius_px'},
     'flash': {'duration_s', 'alpha', 'scale_from', 'scale_to'},
@@ -64,28 +68,183 @@ def _png(value, root, grayscale=False, confined=False):
     return path
 
 
+# T4a: render state is selected at resource creation; Godot render_mode cannot
+# be changed by a uniform. The fragment program is shared by all variants.
+MATERIAL_DEFAULTS = {'blend_mode': 'MIX', 'light_participation': False,
+                     'erode': 0.0, 'dissolve': 0.0}
+
+
+def validate_material(material):
+    """Four low-to-high RGBA bands; coverage is always source alpha."""
+    _keys(material, {'palette', *MATERIAL_DEFAULTS}, {'palette'}, 'material')
+    palette = material['palette']
+    if not isinstance(palette, list) or len(palette) != 4:
+        raise ValueError('material.palette requires four RGBA colours')
+    for colour in palette:
+        if not isinstance(colour, list) or len(colour) != 4:
+            raise ValueError('material.palette requires four RGBA colours')
+        for v in colour: _number(v, 0, 1, 'material.palette')
+    if material.get('blend_mode', 'MIX') not in ('MIX', 'ADD', 'PREMULT_ALPHA'):
+        raise ValueError('material.blend_mode must be MIX, ADD or PREMULT_ALPHA')
+    if not isinstance(material.get('light_participation', False), bool):
+        raise ValueError('material.light_participation must be boolean')
+    for name in ('erode', 'dissolve'):
+        _number(material.get(name, 0), 0, 1, 'material.'+name)
+    return {**MATERIAL_DEFAULTS, **copy.deepcopy(material)}
+
+
+def _reject_retired(data):
+    if isinstance(data, dict):
+        if 'white_core_keep' in data:
+            raise ValueError('white_core_keep is retired; supply four explicit material.palette RGBA entries')
+        for value in data.values(): _reject_retired(value)
+    elif isinstance(data, list):
+        for value in data: _reject_retired(value)
+
+
+def distance_field(rgba):
+    """Centre-out coverage quantiles, encoded as an independent 8-bit texture.
+
+    Equal-radius pixels share a threshold. Coverage-weighted ranks make erode
+    approximately a removed-alpha fraction even for irregular painted masks.
+    The centre is the alpha centroid; disconnected components share this centre.
+    Zero and one are reserved for the exact no-erosion/all-erosion endpoints.
+    """
+    rgba = np.asarray(rgba)
+    if rgba.ndim != 3 or rgba.shape[2] != 4 or rgba.dtype != np.uint8:
+        raise ValueError('distance_field requires uint8 HxWx4 RGBA')
+    alpha = rgba[..., 3].astype(float)
+    out = np.full(alpha.shape, 255, dtype=np.uint8)
+    visible = alpha > 0
+    total = alpha.sum()
+    if not total: return out
+    y, x = np.indices(alpha.shape)
+    cx, cy = (x*alpha).sum()/total, (y*alpha).sum()/total
+    radii = np.round(((x-cx)**2+(y-cy)**2)[visible], 10)
+    _, inverse = np.unique(radii, return_inverse=True)
+    weights = np.bincount(inverse, weights=alpha[visible])
+    ranks = (np.cumsum(weights)-weights/2)/total
+    out[visible] = np.clip(np.rint(ranks[inverse]*255), 1, 254).astype(np.uint8)
+    return out
+
+
+def material_pixels(rgba, palette, distance=None, erode=0.0, dissolve=0.0,
+                    blend_mode='MIX', dark_duplicate=False):
+    """CPU reference only, never represented as a Godot rendered-frame proof."""
+    validate_material(dict(palette=palette, erode=erode, dissolve=dissolve, blend_mode=blend_mode))
+    rgba = np.asarray(rgba)
+    if rgba.ndim != 3 or rgba.shape[2] != 4 or rgba.dtype != np.uint8:
+        raise ValueError('material_pixels requires uint8 HxWx4 RGBA')
+    bands = np.floor(rgba[..., 0].astype(float)/85+.5).astype(int)
+    result = np.asarray(palette, dtype=float)[bands].copy()
+    result[..., 3] *= rgba[..., 3]/255
+    if erode:
+        if distance is None or np.shape(distance) != rgba.shape[:2]:
+            raise ValueError('erode requires a matching distance texture')
+        result[..., 3] *= (np.asarray(distance)/255 >= erode) & (erode < 1)
+    result[..., 3] *= dissolve < (1-bands/6)
+    if dark_duplicate: result[..., :3] = 0
+    if blend_mode == 'PREMULT_ALPHA': result[..., :3] *= result[..., 3, None]
+    return np.clip(np.rint(result*255), 0, 255).astype(np.uint8)
+
+
+def shader_source(blend_mode='MIX', light_participation=False):
+    """Compatibility variants use only CanvasItem fragment operations."""
+    validate_material({'palette': [[0, 0, 0, 1]]*4,
+                       'blend_mode': blend_mode, 'light_participation': light_participation})
+    modes = {'MIX': 'blend_mix', 'ADD': 'blend_add', 'PREMULT_ALPHA': 'blend_premul_alpha'}
+    mode = modes[blend_mode]+('' if light_participation else ', unshaded')
+    source = Path(__file__).with_name('vfx_material.gdshader').read_text()
+    source = source.replace('render_mode blend_mix, unshaded;', 'render_mode '+mode+';')
+    return source.replace('const bool PREMULTIPLIED = false;',
+                          'const bool PREMULTIPLIED = '+str(blend_mode == 'PREMULT_ALPHA').lower()+';')
+
+
+
+def write_vfx_material(out, resource, material, distance_texture, dark_duplicate=False):
+    """Write a ShaderMaterial and its fixed-blend/light shader variant.
+
+    Paths are project-relative; the distance texture must already exist.
+    Material uniforms can be edited/tweened after instantiation. To change
+    blend/light state select another material produced by this function.
+    """
+    out = Path(out).resolve()
+    material = validate_material(material)
+    if not isinstance(dark_duplicate, bool):
+        raise ValueError('dark_duplicate must be boolean')
+    target = out/resource
+    if (not target.resolve().is_relative_to(out) or target.suffix != '.tres'
+            or any(c in str(resource) for c in ('"', '\\', '\n', '\r'))):
+        raise ValueError('material resource must be a confined .tres path')
+    field = _png(distance_texture, out, confined=True)
+    mode, lit = material['blend_mode'], material['light_participation']
+    shader = target.parent/f'vfx_material_{mode.lower()}_{"lit" if lit else "unlit"}.gdshader'
+    shader_rel = shader.relative_to(out).as_posix()
+    target.parent.mkdir(parents=True, exist_ok=True)
+    shader.write_text(shader_source(mode, lit))
+    lines = ['[gd_resource type="ShaderMaterial" load_steps=3 format=3]',
+             f'[ext_resource type="Shader" path="res://{shader_rel}" id="Shader"]',
+             f'[ext_resource type="Texture2D" path="res://{field.relative_to(out).as_posix()}" id="Distance"]',
+             '[resource]', 'resource_local_to_scene = true', 'shader = ExtResource("Shader")',
+             'shader_parameter/distance_texture = ExtResource("Distance")']
+    for i, colour in enumerate(material['palette']):
+        lines.append(f'shader_parameter/palette_{i} = Color('+', '.join(format(float(v), '.12g') for v in colour)+')')
+    for name in ('erode', 'dissolve'):
+        lines.append('shader_parameter/'+name+' = '+repr(float(material[name])))
+    lines.append('shader_parameter/dark_duplicate = '+str(dark_duplicate).lower())
+    target.write_text('\n'.join(lines)+'\n')
+    return target
+
+
+MATERIAL_BINDING_SCRIPT = '''
+# ShaderMaterial instances belong to individual sprites, including duplicates.
+# A new animation frame always selects its own distance field.
+static func bind(node: CanvasItem, fields: Dictionary) -> void:
+    node.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR
+    if not node.material is ShaderMaterial:
+        return
+    node.material = node.material.duplicate()
+    if node is AnimatedSprite2D:
+        var animated: AnimatedSprite2D = node as AnimatedSprite2D
+        animated.frame_changed.connect(update.bind(node, fields))
+        animated.animation_changed.connect(update.bind(node, fields))
+    update(node, fields)
+
+static func update(node: CanvasItem, fields: Dictionary) -> void:
+    var texture: Texture2D
+    if node is AnimatedSprite2D:
+        var animated: AnimatedSprite2D = node as AnimatedSprite2D
+        texture = animated.sprite_frames.get_frame_texture(animated.animation, animated.frame)
+    elif node is Sprite2D:
+        texture = (node as Sprite2D).texture
+    elif node is CPUParticles2D:
+        texture = (node as CPUParticles2D).texture
+    if texture != null and fields.has(texture.resource_path):
+        var paint: ShaderMaterial = node.material as ShaderMaterial
+        paint.set_shader_parameter("distance_texture", load(fields[texture.resource_path]))
+
+static func bind_tree(node: Node, fields: Dictionary) -> void:
+    if node is CanvasItem:
+        bind(node, fields)
+    for child in node.get_children():
+        bind_tree(child, fields)
+'''
+
 def _validate(data, root, runtime=False):
-    _keys(data, TOP, TOP-{'phase_scale', 'element_class'}, 'effect')
+    _reject_retired(data)
+    if isinstance(data, dict) and 'tint' in data:
+        raise ValueError('tint multiply-tint/ramp baking is retired; use material.palette')
+    if isinstance(data, dict) and 'pixel_scale' in data:
+        raise ValueError('pixel_scale is retired; native sprites use LINEAR filtering')
+    _keys(data, TOP-{'tint', 'pixel_scale'},
+          {'name', 'element', 'phases', 'layers', 'ground_squash', 'material'}, 'effect')
     if not isinstance(data['name'], str) or not re.fullmatch(r'[A-Za-z_][A-Za-z0-9_]*', data['name']):
         raise ValueError('name must be a safe identifier')
     if not isinstance(data['element'], str) or not data['element'].strip():
         raise ValueError('element must be nonempty text')
     if data.get('element_class', 'strike') not in ('strike', 'holy', 'field'):
         raise ValueError('element_class must be strike, holy or field')
-    tint = data['tint']
-    if isinstance(tint, dict):
-        _keys(tint, {'core', 'rim', 'hue_shift_deg_per_band', 'white_core_keep'},
-              {'core', 'rim'}, 'tint ramp')
-        _number(tint.get('hue_shift_deg_per_band', 0), -60, 60, 'hue_shift_deg_per_band')
-        _number(tint.get('white_core_keep', .92), .8, 1, 'white_core_keep')
-        colours = [tint['core'], tint['rim']]
-    else:
-        colours = [tint]
-    for colour in colours:
-        if not isinstance(colour, list) or len(colour) != 3:
-            raise ValueError('tint requires three components per colour')
-        for v in colour: _number(v, 0, 1, 'tint')
-    _number(data['pixel_scale'], 1, 8, 'pixel_scale', True)
+    validate_material(data['material'])
     _keys(data.get('phase_scale', {}), set(PHASES), set(), 'phase_scale')
     for value in data.get('phase_scale', {}).values():
         _number(value, .5, 4, 'phase_scale')
@@ -140,16 +299,29 @@ def _validate(data, root, runtime=False):
                 hi = 1 if key in ('alpha', 'time_scale') else (180 if key == 'spread_deg' else math.inf)
                 if key == 'amount': lo, hi = 1, 512
                 _number(value, lo, hi, key, key == 'amount')
+    for path in set(assets.values()):
+        with Image.open(path) as image: rgba = np.array(image.convert('RGBA'))
+        rgb = rgba[..., :3][rgba[..., 3] > 0]
+        if np.any(rgb[:, 0] != rgb[:, 1]) or np.any(rgb[:, 1] != rgb[:, 2]) or not np.isin(rgb, [0, 85, 170, 255]).all():
+            raise ValueError('material source indices must be greyscale 0/85/170/255: '+str(path))
+    if runtime:
+        fields = data.get('distance_fields')
+        if not isinstance(fields, dict) or set(fields) != set(assets):
+            raise ValueError('distance_fields must map every kit texture')
+        for source, field in fields.items():
+            field_path = _png(field, root, confined=True)
+            with Image.open(assets[source]) as a, Image.open(field_path) as b:
+                if a.size != b.size or b.mode != 'L':
+                    raise ValueError('distance_fields must be L textures matching source dimensions')
+    elif 'distance_fields' in data:
+        raise ValueError('distance_fields is builder-owned output metadata')
     return assets
 
 
 def load_kit(directory, preserve_ramp=False):
-    """Validate assets and return metadata suitable for existing scene writers.
+    """Validate a material kit. preserve_ramp remains a no-op API argument.
 
-    Body colour and phase sizes are baked into PNGs. Existing scene writers
-    use a single RGB tint for auxiliary lights; a ramp supplies its core RGB
-    there. ``preserve_ramp=True`` returns the complete authored ramp instead.
-    Neither view mutates kit.json; legacy metadata is returned unchanged.
+    Legacy baked-tint kits are rejected explicitly, never silently migrated.
     """
     root = Path(directory).resolve()
     path = root/'kit.json'
@@ -160,8 +332,7 @@ def load_kit(directory, preserve_ramp=False):
     if 'particles' in data['layers']:
         data['layers']['particles'].setdefault('amount', 8)
         data['layers']['particles'].setdefault('lifetime_s', .5)
-    if isinstance(data['tint'], dict) and not preserve_ramp:
-        data['tint'] = data['tint']['core']
+    data['material'] = validate_material(data['material'])
     return data
 
 
@@ -228,7 +399,7 @@ def _tint_particles(path, tint, scale):
 
 
 def build(effect_json, out_dir):
-    """Validate then tint/upscale explicit frame PNGs into a self-contained kit."""
+    """Build native index textures and independent distance fields, no tint/resize."""
     started = time.monotonic()
     if isinstance(effect_json, (str, Path)):
         path = Path(effect_json).resolve()
@@ -237,39 +408,36 @@ def build(effect_json, out_dir):
         data, root = copy.deepcopy(effect_json), Path.cwd()
     assets = _validate(data, root)
     out = Path(out_dir).resolve()
-    if any(p.is_relative_to(out) for p in assets.values()):
+    if any(p.is_relative_to(out) or out == p for p in assets.values()):
         raise ValueError('Output overlaps input assets')
     if out.exists() and (not out.is_dir() or any(out.iterdir())):
         raise ValueError('Output must be empty')
     from export.godot_import import write_spriteframes
     out.mkdir(parents=True, exist_ok=True)
     metadata = copy.deepcopy(data)
+    metadata['material'] = validate_material(data['material'])
+    metadata['distance_fields'] = {}
     metadata.setdefault('element_class', 'strike')
     if 'particles' in metadata['layers']:
         metadata['layers']['particles'].setdefault('amount', 8)
         metadata['layers']['particles'].setdefault('lifetime_s', .5)
-    if isinstance(data['tint'], dict):
-        metadata['tint'].setdefault('hue_shift_deg_per_band', 0)
-        metadata['tint'].setdefault('white_core_keep', .92)
-    if isinstance(data['tint'], dict) or 'phase_scale' in data:
-        metadata['phase_scale'] = {phase: data.get('phase_scale', {}).get(phase, 1) for phase in PHASES}
+
+    def copy_index(source, file):
+        with Image.open(assets[source]) as im: rgba = np.array(im.convert('RGBA'))
+        (out/file).parent.mkdir(parents=True, exist_ok=True)
+        Image.fromarray(rgba).save(out/file)
+        field = 'distance/'+file
+        (out/field).parent.mkdir(parents=True, exist_ok=True)
+        Image.fromarray(distance_field(rgba)).save(out/field)
+        metadata['distance_fields'][file] = field
+
     counts = {}
     for phase, definition in data['phases'].items():
         name = PHASES[phase]
-        (out/name).mkdir()
         frames = []
-        band_levels = None
-        if isinstance(data['tint'], dict):
-            levels = set()
-            for source in {definition['sheet']} | {f['file'] for f in definition['frames']}:
-                with Image.open(assets[source]) as image:
-                    rgba = np.array(image.convert('RGBA'))
-                levels.update(np.unique(rgba[..., 0][rgba[..., 3] > 0]).tolist())
-            band_levels = sorted(levels, reverse=True)
         for i, frame in enumerate(definition['frames']):
             file = f'{name}/{name}_{i:02d}.png'
-            _tint(assets[frame['file']], data['tint'], data['pixel_scale'],
-                  data.get('phase_scale', {}).get(phase, 1), band_levels).save(out/file)
+            copy_index(frame['file'], file)
             frames.append({'file': file, 'hold_frames': frame['hold_frames']})
         metadata['phases'][phase]['frames'] = frames
         metadata['phases'][phase]['sheet'] = frames[0]['file']
@@ -283,16 +451,19 @@ def build(effect_json, out_dir):
         layer = metadata['layers'].get(name, {})
         if key in layer:
             file = f'layers/{name}.png'
-            (out/'layers').mkdir(exist_ok=True)
-            tint_image = _tint_particles if name == 'particles' else _tint
-            tint_image(assets[layer[key]], data['tint'], data['pixel_scale']).save(out/file)
+            copy_index(layer[key], file)
             layer[key] = file
+    for mode in ('MIX', 'ADD', 'PREMULT_ALPHA'):
+        for lit in (False, True):
+            name = f'vfx_material_{mode.lower()}_{"lit" if lit else "unlit"}.gdshader'
+            (out/name).write_text(shader_source(mode, lit))
     (out/'kit.json').write_text(json.dumps(metadata, indent=2, allow_nan=False)+'\n')
     (out/'vfx_select.json').write_text(json.dumps({'source': 'effect_kit', 'name': data['name']})+'\n')
     (out/'CREDITS.txt').write_text('Effect '+data['name']+' ('+data['element']+'). Source assets supplied by the effect definition; no license is inferred.\n')
     return {'id': 'effect_kit', 'subject': data['name'], 'passed': None, 'value': counts,
             'threshold': None, 'op': None, 'unit': 'frames', 'evidence': [str(out/'kit.json')],
-            'notes': 'Authored frame kit; holds measured in 60 Hz ticks.', 'wall_s': time.monotonic()-started}
+            'notes': 'Native index frames, independent coverage alpha, LINEAR runtime palette material.',
+            'wall_s': time.monotonic()-started}
 
 
 # Shared runtime fragment is embedded only in authored-kit scripts. Timers for
