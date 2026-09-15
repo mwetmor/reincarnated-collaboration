@@ -14,6 +14,9 @@ What is known about how Subworld makes their VFX: engine (GameMaker), pixel-part
 ## 4. Deliverable (text return; gandalf files it at `agentic_orchestration/legolas/research/2026-09-15-chronicon-vfx/findings.md`)
 1. Sample list with sources; 2. measurement table + the three-column comparison; 3. process note; 4. a one-paragraph "what carries to a painted-pixel register at 64–128 px native over painted backgrounds" (state what would break: legibility over painted detail, density vs contour); 5. gaps.
 
+## 4b. Extension (Matt 2026-09-15, sent to the running agent): CHILDREN OF MORTA (Dead Mage, 2019, Steam 330020)
+Same pull, same schema (`children-of-morta-<family>/`), same measures; comparison becomes four columns Chronicon / Children of Morta / Hades / D2R. Matt's observation: CoM's painted-pixel world is close to our painted register (ours has more detail) and its VFX read even better than Chronicon's. For CoM also record HOW the effects stay legible over detailed painted ground (dark separation / outline, local light layer, ground darkening during casts, effect pixel grid vs scene grid, palette contrast per element), MEASURED / INFERRED.
+
 ## 5. Host guardrails (hard)
 Serial only, no sub-agents; **one decode at a time**, ffmpeg/python under 1.5 GB RSS (the watchdog kills > 2 GB); stream, never load a whole video into memory; no model downloads. Do not write into the repo; the atlas store under `~/Games/vendor/` is the only write target.
 
