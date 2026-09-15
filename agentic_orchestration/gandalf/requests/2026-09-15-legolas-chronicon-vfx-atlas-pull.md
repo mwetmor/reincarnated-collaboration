@@ -17,6 +17,9 @@ What is known about how Subworld makes their VFX: engine (GameMaker), pixel-part
 ## 4b. Extension (Matt 2026-09-15, sent to the running agent): CHILDREN OF MORTA (Dead Mage, 2019, Steam 330020)
 Same pull, same schema (`children-of-morta-<family>/`), same measures; comparison becomes four columns Chronicon / Children of Morta / Hades / D2R. Matt's observation: CoM's painted-pixel world is close to our painted register (ours has more detail) and its VFX read even better than Chronicon's. For CoM also record HOW the effects stay legible over detailed painted ground (dark separation / outline, local light layer, ground darkening during casts, effect pixel grid vs scene grid, palette contrast per element), MEASURED / INFERRED.
 
+## 4c. Second extension (Matt 2026-09-15): THE SLORMANCER (Slormite Studios, Steam 1104280)
+Same pull (`slormancer-<family>/`), same measures; comparison becomes five columns Chronicon / Children of Morta / Slormancer / Hades / D2R. Matt: "exceptional VFX which seem to be in the painted or pixel style — unsure — but they hit the register and look great across the screen." Decide painted vs pixel (vs pixel with painterly value work) BY MEASUREMENT (grid regularity, edge hardness, band count, anti-aliasing) and describe how legibility holds across the screen at full density.
+
 ## 5. Host guardrails (hard)
 Serial only, no sub-agents; **one decode at a time**, ffmpeg/python under 1.5 GB RSS (the watchdog kills > 2 GB); stream, never load a whole video into memory; no model downloads. Do not write into the repo; the atlas store under `~/Games/vendor/` is the only write target.
 
