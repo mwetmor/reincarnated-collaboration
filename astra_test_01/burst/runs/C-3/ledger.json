@@ -38293,6 +38293,13 @@
       "veto_open": false,
       "ruling": "Matt (2026-09-15): before ruling on the hybrid oracle, wants to SEE a VFX built to that spec - when one is finished, push it to Vercel to test. Conductor: Frozen Orb v3 is that VFX (v0.2 rules: no white flipbook frame, ramp core/rim in the Hades hue/sat bands, and the CoM/Slormancer legibility layer - bright soft halo glow a.75 x1.35, floor light .35 s r140, flash as a 0.1 s layer). CS-pack-web3 fired (kits_web2.json = frozen_orb_v3 only) -> drax build_playtest.sh -> redeploy; push to reincarnated-loadout authorized by this ask.",
       "ts": "2026-09-15T05:00:00Z"
+    },
+    {
+      "id": "R-C3-121",
+      "class": "conductor",
+      "veto_open": true,
+      "ruling": "The effect-kit builder validates the particle texture as GREYSCALE and never tints it, so every kit particle renders white - the untintable white motes were the v16 white-out. Bake-off kits rebuilt WITHOUT the particles layer (drawn shards/sparks carry the debris) + impact phase_scale 2.0 / residual 1.6 -> kits_v7; CS-pack-v17 (scene) + CS-pack-web5 (public) fired. T3v TOOLING specced (SPEC row + brief): particles tinted by the ramp core at build + particle node modulate in the generated scenes, the two T3u literal tests re-pointed at the real-sheet fixture, element_class in kit.json for future band selection (holy/field vs strike). Fires after v17 is staged (TOOLING fence).",
+      "ts": "2026-09-15T06:25:00Z"
     }
   ],
   "grok_calls": [
@@ -39632,6 +39639,10 @@
     {
       "note": "Kits 5-6: Zeus chain sheet on black (88 % black; thunderhead cast, jump-kink chain bolt, ring-fork impact, ground ring - excellent); Healing Hands on haze (holy subject -> atmosphere; signed cut). Built with ramps (zeus warm-white -> blue-violet; healing warm white -> gold). kits_v6.json = all six self-authored kits. CS-pack-v16 (scene, Desktop 83) + CS-pack-web4 (public bake-off build, R-C3-110) fired.",
       "ts": "2026-09-15T05:50:00Z"
+    },
+    {
+      "note": "v16 six-kit probe eyeball: bodies register but 16 WHITE 12-px particle motes per impact dominate every kit (the white-out the v0.2 rules forbid; the builder accepts a coloured particle texture, so the motes were never tinted) and the impact drawings read under-size in scene (drawing occupies ~half the 64 px cell). Parameter fix, all six kits: per-element pre-tinted 3 px motes, amount 8, lifetime .5 s; phase_scale impact 2.0 / residual >= 1.6. kits_v7; CS-pack-v17 (Desktop 83 re-point) + CS-pack-web5 (public) fired; drax told to skip web4 for web5. frozen_orb_v3 first-cast produced no impact in the v16 probe window - re-probed in v17 with a longer initial wait.",
+      "ts": "2026-09-15T06:15:00Z"
     }
   ],
   "images_cap_note": "Matt R-C3-55 removed the cap (was 120); set to 1000 because lane/run_burst.py compares the cap numerically"

@@ -153,20 +153,6 @@
     "shake": {
       "distance": 3,
       "duration_s": 0.12
-    },
-    "particles": {
-      "texture": "layers/particles.png",
-      "amount": 16,
-      "lifetime_s": 0.7,
-      "velocity_px_s": [
-        90,
-        220
-      ],
-      "direction": [
-        0,
-        -1
-      ],
-      "spread_deg": 180
     }
   },
   "ground_squash": 0.6,
@@ -174,7 +160,7 @@
   "phase_scale": {
     "cast": 1,
     "travel": 1,
-    "impact": 1.5,
-    "residual": 1.2
+    "impact": 2.0,
+    "residual": 1.6
   }
 }
