@@ -1503,6 +1503,278 @@
       "codex_version": "codex-cli 0.153.4",
       "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
       "exit": 0
+    },
+    {
+      "id": "CS-pack-v20",
+      "type": "PACK",
+      "experiment": "C5-P0b",
+      "brief_sha256": "5e78017d17f6dfb02783f271ef7a4034a3b2ef0d1ee02f4eb00688bd10af4af8",
+      "started": "2026-09-15T22:55:21.078219+00:00",
+      "ended": "2026-09-15T22:56:03.228834+00:00",
+      "minutes": 0.7025087631832624,
+      "image_calls": 0,
+      "tool_calls": 4,
+      "audit": {
+        "violations": [],
+        "image_calls": 0,
+        "tool_calls": 4,
+        "tools_seen": {
+          "command_execution": 4
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [],
+        "execution_error": "receipt reports unsuccessful execution"
+      },
+      "receipt_sha256": "6c4c86a045909bb7bfbb44fd7086ec7edf9f77be762ccaa1c3cfeb70e44f41dd",
+      "artifacts": [],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 3
+    },
+    {
+      "id": "CS-pack-v20-grey",
+      "type": "PACK",
+      "experiment": "C5-P0b",
+      "brief_sha256": "610f1af757687aec910dd09f8480b41e69b038873e74ce47e5e441db4c29f8d3",
+      "started": "2026-09-15T22:55:21.078223+00:00",
+      "ended": "2026-09-15T22:56:18.737887+00:00",
+      "minutes": 0.9609940812499796,
+      "image_calls": 0,
+      "tool_calls": 5,
+      "audit": {
+        "violations": [],
+        "image_calls": 0,
+        "tool_calls": 5,
+        "tools_seen": {
+          "command_execution": 5
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [],
+        "execution_error": "receipt reports unsuccessful execution"
+      },
+      "receipt_sha256": "43dcddab2a1a20e2ee3812fcfbb2db81415d58db8b0f29fcd7c0037e67a68afa",
+      "artifacts": [],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 3
+    },
+    {
+      "id": "CS-pack-v20-r1",
+      "type": "PACK",
+      "experiment": "C5-P0b",
+      "brief_sha256": "6a27c6e8d472ab27fbec0398227e7b6142de90334d3514bbb310eefaeaf7a750",
+      "started": "2026-09-15T22:57:39.241798+00:00",
+      "ended": "2026-09-15T22:59:26.197461+00:00",
+      "minutes": 1.7825941118166762,
+      "image_calls": 0,
+      "tool_calls": 5,
+      "audit": {
+        "violations": [],
+        "image_calls": 0,
+        "tool_calls": 5,
+        "tools_seen": {
+          "command_execution": 5
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": []
+      },
+      "receipt_sha256": "efa9c824edbbc22e0d2dacc4a03a781fafb34268ca593898527910950dc799e7",
+      "artifacts": [
+        {
+          "name": "README_scene.txt",
+          "sha256": "e638c159eddb4d9af4f13b617249a94dc634830b2d2e96671c309eaa7928ed5d"
+        },
+        {
+          "name": "exporter.json",
+          "sha256": "0acf72ec70062422188c3c8dfe6156bed542b70c94d3e53824a8367fccd44976"
+        },
+        {
+          "name": "godot/project.godot",
+          "sha256": "6a8166148fc0b3e54f8589a0a716379636040f615b0f827ea49f2dfe7a6c5deb"
+        },
+        {
+          "name": "godot/scenes/cliffside.tscn",
+          "sha256": "ebf4b7558de3406c81ae593286bf1dab923f2bb9d0e4a9bb17e47c1e17735af1"
+        },
+        {
+          "name": "godot/scenes/main.tscn",
+          "sha256": "a7ff2b1ba99ca306dacd7fbee1556fbfbed54d72cc8e3c01ab72e1aba58b874d"
+        },
+        {
+          "name": "godot/scenes/vfx_blackwater_cocktail_impact.tscn",
+          "sha256": "e5ddd467c72eb10b42d5b85ea1f5a151941a3c1ec4ae6fbdf463815e21409bf3"
+        },
+        {
+          "name": "godot/scenes/vfx_frozen_orb_impact.tscn",
+          "sha256": "16985b18f3cbc32bf899010a609b760725cc0e1a3f46ecc4bde7e5816eeab3ac"
+        },
+        {
+          "name": "godot/scenes/vfx_healing_hands_impact.tscn",
+          "sha256": "8c75c6faca42086fdbd4ea27156b19e72db7a4cd3ec675bffd721d9946da9957"
+        },
+        {
+          "name": "godot/scenes/vfx_lightning_blast_impact.tscn",
+          "sha256": "8c9987d3965f65198347dd64d4f980aa98bc519da9e4c86889e91a789aa0f699"
+        },
+        {
+          "name": "godot/scenes/vfx_poisonous_concoction_impact.tscn",
+          "sha256": "ba602145d646797ab6c1671124f2259556c4a8e2f50de219c42cd5f9c7a48aec"
+        },
+        {
+          "name": "godot/scenes/vfx_zeus_chain_impact.tscn",
+          "sha256": "fc5c7695c0521460c88ce4b15e3981ac5a400039ee9d94d64285b83db9d758a7"
+        },
+        {
+          "name": "godot/scripts/fly_swarm.gd",
+          "sha256": "8603f91597f1f8aeb74b6238a6a2860c3ac807b4c67edca13f56f40b08b33423"
+        },
+        {
+          "name": "godot/scripts/glow_flicker.gd",
+          "sha256": "fee0db3aa00b834bc1f6198886c6e476f45b91fd012ce641a0145e97ec857671"
+        },
+        {
+          "name": "godot/scripts/keeper.gd",
+          "sha256": "386c0cc6c2f88ec9a68e0294dc7caa0efb2bc1a1d5579f05090ab8974e568f44"
+        },
+        {
+          "name": "godot/scripts/occlusion_fade.gd",
+          "sha256": "96d37de2e8c7790cb00815fb1f939389872874ba23b43dc017d8530d3db62f61"
+        },
+        {
+          "name": "godot/scripts/vfx_blackwater_cocktail_impact.gd",
+          "sha256": "ee7746d714018555bb06d3946e61704cfafae5859da57748f7482f446ef34cac"
+        },
+        {
+          "name": "godot/scripts/vfx_blackwater_cocktail_material.gd",
+          "sha256": "596472d72bfc8e56af2139756e7cb21b948be6c29192a7d4fb7b2fbe042315d1"
+        },
+        {
+          "name": "godot/scripts/vfx_contact_label.gd",
+          "sha256": "1d79a93b4c9509a28f67b975f0b9474ed6e0baa4471ff749ae8048bd644a33fe"
+        },
+        {
+          "name": "godot/scripts/vfx_frozen_orb_impact.gd",
+          "sha256": "77eafbb9e96eef5233045309122e9729a812d59d06f2247e02541b06d9fbf55c"
+        },
+        {
+          "name": "godot/scripts/vfx_frozen_orb_material.gd",
+          "sha256": "596472d72bfc8e56af2139756e7cb21b948be6c29192a7d4fb7b2fbe042315d1"
+        },
+        {
+          "name": "godot/scripts/vfx_g1.gd",
+          "sha256": "99cec009ff894fdbffe6510a4c76576c8e38b49ce24f02fae62127743208a9d7"
+        },
+        {
+          "name": "godot/scripts/vfx_healing_hands_impact.gd",
+          "sha256": "4257300a57e9d823fbffd593a74435e80d5191324e1db167335b466fd3d02c46"
+        },
+        {
+          "name": "godot/scripts/vfx_healing_hands_material.gd",
+          "sha256": "596472d72bfc8e56af2139756e7cb21b948be6c29192a7d4fb7b2fbe042315d1"
+        },
+        {
+          "name": "godot/scripts/vfx_lightning_blast_impact.gd",
+          "sha256": "fe13db8454b494f19cdc5442532eea4acc702d31c60d5c4f2c9108772f4c12b5"
+        },
+        {
+          "name": "godot/scripts/vfx_lightning_blast_material.gd",
+          "sha256": "596472d72bfc8e56af2139756e7cb21b948be6c29192a7d4fb7b2fbe042315d1"
+        },
+        {
+          "name": "godot/scripts/vfx_poisonous_concoction_impact.gd",
+          "sha256": "356743d5918f37c290a977857c400ca9b5ed3344cdb8e1c404bcac50136f8f69"
+        },
+        {
+          "name": "godot/scripts/vfx_poisonous_concoction_material.gd",
+          "sha256": "596472d72bfc8e56af2139756e7cb21b948be6c29192a7d4fb7b2fbe042315d1"
+        },
+        {
+          "name": "godot/scripts/vfx_zeus_chain_impact.gd",
+          "sha256": "27cbfd483d68b02937dee96432d13c4bfaed826380e6df15c6eac69364e64a43"
+        },
+        {
+          "name": "godot/scripts/vfx_zeus_chain_material.gd",
+          "sha256": "596472d72bfc8e56af2139756e7cb21b948be6c29192a7d4fb7b2fbe042315d1"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
+    },
+    {
+      "id": "CS-pack-v20-grey-r1",
+      "type": "PACK",
+      "experiment": "C5-P0b",
+      "brief_sha256": "4a7ceab82293fa14daf3593d2bf1c7f647b9557f3aca0a075ae736c37428d2ba",
+      "started": "2026-09-15T22:57:39.241801+00:00",
+      "ended": "2026-09-15T22:59:37.929381+00:00",
+      "minutes": 1.978125497916699,
+      "image_calls": 0,
+      "tool_calls": 7,
+      "audit": {
+        "violations": [],
+        "image_calls": 0,
+        "tool_calls": 7,
+        "tools_seen": {
+          "command_execution": 7
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [],
+        "execution_error": "receipt reports unsuccessful execution"
+      },
+      "receipt_sha256": "95ba6a2291d25b2b4211be8d28fa8f8969888032d16786ca0241f287935d4b9c",
+      "artifacts": [],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 3
     }
   ],
   "experiments": [],
@@ -1531,6 +1803,11 @@
       "id": "M-C6-N1-CAM",
       "note": "N1-master-cam-01 DELIVERED (2 image calls; sha de00674d…): the app design master re-drawn from the scene camera — identity intact, both fists closed on the haft line; native 1254² / 706-px figure (registration step scales to the 240-px cell). Conductor eye: camera PASS by comparison with keeper_rest_S; awaiting Matt master decision. C-6 STOPS here per ruling.",
       "ts": "2026-09-15T18:54:45"
+    },
+    {
+      "id": "M-C5-PACKET-85",
+      "note": "Packet 85 (painted): first cast at a dummy on cliffside_v20 (kits_v9); clip + stills on the Desktop; grey variant owed (F-C5-3); capture-cadence defect noted (probe).",
+      "ts": "2026-09-15T19:02:41"
     }
   ],
   "halts": [],
@@ -1618,6 +1895,13 @@
       "veto_open": true,
       "ruling": "T4f + T4f-r1 ACCEPTED. Outside the sandbox: pierce probe on the seven-dummy export — 7 live targets; unlimited pierce 3/3 ordered contacts FULL/PARTIAL/PARTIAL; pierce 0 → 1 FULL; chain hops FULL; exactly one strike response per cast in every scenario; labels pooled (3 nodes), max lifetime 0.606 s; kit byte-lock 33/33 (pierce default normalised). r1 root cause: T4f conflated target selection with collision eligibility (swept only ) — legacy Area2D/StaticBody bodies now collide again; frozen fixtures green. Full suite outside the sandbox 545/540 = the five standing reds only (T4a's material test now green). Freeze ceffce819dc5, SYNC restamped. Next: CS-pack-v20 + v20-grey → Packet 85 grey bolt clip → T4d.",
       "ts": "2026-09-15T18:55:19"
+    },
+    {
+      "id": "R-C5-12",
+      "class": "conductor",
+      "veto_open": true,
+      "ruling": "CS-pack-v20-r1 DELIVERED on kits_v9 (416 frames, 595 textures); cliffside_v20 staged, import 0 errors; painted cast capture at a dummy 91 frames → cast_painted.mp4. CS-pack-v20-grey-r1 FAILED: T4b grey path → validate_resources `Invalid scene external resource references` = F-C5-3, folded into T4d with F-C5-2. Packet 85 ships with the PAINTED cast clip (pierce + FULL/PARTIAL live in the real scene); the grey-body variant is owed after T4d.",
+      "ts": "2026-09-15T19:01:45"
     }
   ],
   "grok_calls": [],
@@ -1641,6 +1925,14 @@
     {
       "note": "T4c DELIVERED_WITH_CONCERNS: replay hooks + sheet_pack + headless proofs pass in-sandbox (physics 30/30 @60 Hz; 512² crop; 91 drawables hidden; floor light/hit-stop/shake live; synthetic 19/19); graphical bake 0/126 frames in-sandbox — conductor runs the bake twice outside the sandbox for byte identity, scene exclusion and VO1 on 4 backgrounds (report-not-stop). Matt rulings: no targeting protocol; CAST button stays; ranges unchanged; T4f v2 = pierce per skill + FULL/PARTIAL text + T4a test re-point (SPEC row rewritten).",
       "ts": "2026-09-15T17:51:35"
+    },
+    {
+      "note": "CORRIGENDUM to R-C5-11: the phrase should read \"swept only the vfx_targets group\" — the word vfx_targets was lost to a zsh backtick substitution when the ruling was appended (conductor tooling defect; rulings are RECORD, so corrected forward, not edited).",
+      "ts": "2026-09-15T18:55:38"
+    },
+    {
+      "note": "CS-pack-v20 + v20-grey FAILED (exit 3): kits_v8 carries the retired white_core_keep (T4a rejects by design). Minted runs/C-5/vfx_kits/kits_v9.json as DATA via T4f build_export.py recipe (drop tint/pixel_scale, pierce, four baked colours → material.palette, index-quantised frames); re-fired as -r1.",
+      "ts": "2026-09-15T18:57:39"
     }
   ]
 }
