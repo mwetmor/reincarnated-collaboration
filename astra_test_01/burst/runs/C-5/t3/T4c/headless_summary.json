@@ -1,0 +1,27 @@
+{
+  "requested_frame": 30,
+  "observed_frame": 30,
+  "physics_hz": 60,
+  "native_crop": [
+    512,
+    512
+  ],
+  "seed_controls": [
+    {
+      "class": "CPUParticles2D",
+      "fixed_seed_supported": true,
+      "node": "Particles",
+      "seed": 1
+    }
+  ],
+  "hidden_drawables": 91,
+  "maximum_visible_hidden_drawables": 0,
+  "hitstop_time_scales": [
+    0.1,
+    1.0
+  ],
+  "maximum_shake_px": 3.0,
+  "floor_light_live_frames": 31,
+  "wall_s": 2.154024916999333,
+  "rendering_performed": false
+}

@@ -347,10 +347,12 @@ environment/defaults/default_clear_color=Color(0.09, 0.12, 0.17, 1)
 '''+ '\n'.join(actions)+'\n'
 
 
-def build_project(cells, out, vfx=None, gear_variant=None, scene=None, vfx_kit=None, sockets=None, parallax=None, props=None, vfx_kits=None, vfx_grey=False):
+def build_project(cells, out, vfx=None, gear_variant=None, scene=None, vfx_kit=None, sockets=None, parallax=None, props=None, vfx_kits=None, vfx_grey=False, bake=False):
     started = time.monotonic()
     if not isinstance(vfx_grey, bool):
         raise ValueError('vfx_grey must be boolean')
+    if not isinstance(bake, bool):
+        raise ValueError('bake must be boolean')
     if vfx_kits is not None and (vfx_kit is not None or vfx is not None):
         raise ValueError('Choose --vfx-kits, --vfx-kit or legacy --vfx')
     if vfx_kits is not None and sockets is None:
@@ -508,6 +510,9 @@ locations, which must be writable for a completely clean headless import.
     kits_report = _write_vfx_kits(out, kits, base, cells, socket_data, annotation) if kits is not None else None
     if vfx_grey:
         _grey_vfx(out)
+    if bake:
+        from export.replay import install_hooks
+        install_hooks(out)
     refs = validate_resources(out)
     if scene_report is not None:
         scene_report['resource_references'] = len(validate_resources(out, include_scenes=True))
@@ -653,8 +658,9 @@ def main():
     kit_group.add_argument('--vfx-kits')
     parser.add_argument('--sockets')
     parser.add_argument('--vfx-grey', action='store_true')
+    parser.add_argument('--bake', action='store_true', help='Effect-only 512x512 transparent viewport and replay hooks')
     args = parser.parse_args()
-    print(json.dumps(build_project(args.cells, args.out, args.vfx, args.gear_variant, args.scene, args.vfx_kit, args.sockets, args.parallax, args.props, args.vfx_kits, args.vfx_grey), indent=2))
+    print(json.dumps(build_project(args.cells, args.out, args.vfx, args.gear_variant, args.scene, args.vfx_kit, args.sockets, args.parallax, args.props, args.vfx_kits, args.vfx_grey, args.bake), indent=2))
 
 
 
