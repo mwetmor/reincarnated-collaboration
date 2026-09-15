@@ -2,10 +2,69 @@
   "run": "C-5",
   "charter": "agentic_orchestration/gandalf/notes/2026-09-15-vfx-run-C-5-charter.md",
   "charter_sha256_12": "c41d87420e76",
-  "images_used": 0,
+  "images_used": 2,
   "images_cap": 999999,
   "images_cap_note": "SENTINEL 999999 — the run image cap is UN-ENFORCED by sentinel (Matt V20, 2026-09-15: \"no image budget\"); images_used is counted and reported at every packet. run_burst.py:158 integer-compares this field; null crashed it (jack-ryan Gate-1 BLOCK-B).",
-  "bursts": [],
+  "bursts": [
+    {
+      "id": "CS-dress-clearing",
+      "type": "GENERATE",
+      "experiment": "C5-P0a",
+      "brief_sha256": "59c408a79bbcbb67fce2b968688e444994608978234142ff85e78cce91d98f4a",
+      "started": "2026-09-15T20:00:17.862547+00:00",
+      "ended": "2026-09-15T20:03:37.651888+00:00",
+      "minutes": 3.329782253466692,
+      "image_calls": 2,
+      "tool_calls": 2,
+      "audit": {
+        "violations": [
+          "artifact outside permitted roots: /Users/admin/.codex/generated_images/01a0a6a7-f2ef-75e2-8bca-d5ac4a0e5a42/exec-d9e4e463-8666-492e-8965-638fc598fab5.png"
+        ],
+        "image_calls": 2,
+        "tool_calls": 2,
+        "tools_seen": {
+          "command_execution": 2
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0a6a7-f2ef-75e2-8bca-d5ac4a0e5a42/exec-36c14822-ad05-416b-97c7-9fdf23134206.png",
+            "sha256": "2aa088773517e73b889e4f706ff7668624d0124d7838b3f7763dc990debe535f"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0a6a7-f2ef-75e2-8bca-d5ac4a0e5a42/exec-d9e4e463-8666-492e-8965-638fc598fab5.png",
+            "sha256": "6a1238ba33db80448a36615fc7cef795fce98210c980cdc217f4708170e64f45"
+          }
+        ]
+      },
+      "receipt_sha256": "9c86b9280fd6d2a80b24f7c746b51468a20c46989cbd6ed516aab7e8f412cf42",
+      "artifacts": [],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0a6a7-f2ef-75e2-8bca-d5ac4a0e5a42/exec-36c14822-ad05-416b-97c7-9fdf23134206.png",
+          "sha256": "2aa088773517e73b889e4f706ff7668624d0124d7838b3f7763dc990debe535f"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0a6a7-f2ef-75e2-8bca-d5ac4a0e5a42/exec-d9e4e463-8666-492e-8965-638fc598fab5.png",
+          "sha256": "6a1238ba33db80448a36615fc7cef795fce98210c980cdc217f4708170e64f45"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 2
+    }
+  ],
   "experiments": [],
   "milestones": [],
   "halts": [],
@@ -23,6 +82,13 @@
       "veto_open": true,
       "ruling": "GO — jack-ryan Gate-1 on charter v1.1 DISCHARGED (PASS-with-WARNs; qa/findings/2026-09-15-run-C-5-charter-gate1.md @ 8cba3564). Phase P0-a opens: CS-dress-clearing (GENERATE, edit mode) fires alone; T4a TOOLING follows serially. Matt pre-viewed the clearing window (Packet 84-pre).",
       "ts": "2026-09-15T16:00:12"
+    },
+    {
+      "id": "R-C5-2",
+      "class": "conductor",
+      "veto_open": true,
+      "ruling": "CS-dress-clearing VOID (exit 2): audit `artifact outside permitted roots` — the receipt listed the DISCARDED first attempt by its ~/.codex/generated_images path. writes_outside_out empty; out/dress_clearing.png (= retry exec-36c14822, sha 2aa08877…) is clean and in register (seven grounded dummies; Astra concerns: rats on peg legs not stakes; some background detail repainted). Root cause = the brief line `images = 1 or 2` read as an image LIST; conductor brief defect. Disposition: VOID stands per lane law; re-drive as CS-dress-clearing-r1 with the RETURN line fixed (images = COUNT; files only under out/). A second VOID → HALT to Matt.",
+      "ts": "2026-09-15T16:04:46"
     }
   ],
   "grok_calls": [],

@@ -1,0 +1,30 @@
+{
+ "text": "GENERATE BURST CS-dress-clearing — DRESS a crop of the painted cliffside level with a PACK OF PLACEHOLDER MONSTERS (static, non-animated training dummies) for the VFX run (Matt R-C3-123(2); Run C-5 charter P0-a; Q79 V10). task_id \"CS-dress-clearing-r1\".\n\nIMAGE 1 is a finished, BARE hand-painted 2D level crop (1536×1024) seen from a fixed high three-quarter ARPG camera (Diablo II / Last Epoch style): a cliff-top clearing at sunset — packed-dirt path, grass, rocky rim, the landing of a wooden bridge at the lower-left; PURE GREEN #00ff00 = empty void. Sunset key light from the UPPER-LEFT; shadows fall to the LOWER-RIGHT.\nIMAGE 2 is the SAME crop with SCALE FIGURES: the player character (1.75 m tall, 130 px on screen) pasted at her exact in-game size, with magenta ground and height ticks. IMAGE 3 is a SIZE CHART drawn in this exact camera projection (the character beside a 0.7 m crate, 0.9 m barrel, 0.9 m rock, 0.9 m shrub, a 5 m snag, an 8 m tree). IMAGE 4 is an APPROVED dressed crop of the same level — match its object style, detail and rendering exactly (not its layout). IMAGES 2–4 are references only — never paint figures, magenta lines, the grey chart, or copies of IMAGE 4's objects.\nAdd to this clearing, standing ON the dirt and grass (never on the bridge deck, the cliff face, or the green void), well separated (at least one character-width apart, none within 2 m of the rim) so each can be hit by a spell on its own: SEVEN STATIC TRAINING DUMMIES spanning the size classes a monster pack would — (1) two RAT-sized: a straw-stuffed sack-rat impaled upright on a single low wooden stake driven into the ground (no legs), ~0.5 m; (2) one HOUND-sized: a burlap-and-wood hound shape on four peg legs, ~0.9 m at the shoulder; (3) two HUMANOID: classic straw-and-sacking practice dummies on a post, 1.75 m — one with a wooden shield, one with a padded club; (4) one BRUTE: a broad 2.4 m straw ogre on a heavy post with a sacking head and rope-bound arms; (5) one LARGE: a 3.5 m wicker-and-timber colossus frame, sacking torso, standing on a broad wooden base. All are inert objects — stitched sack features only, no living creatures. Materials: straw, burlap, rope, weathered timber, a little rusted iron — in the same hand-painted register as IMAGE 4 (tapered dark contours, painted planes, bold jewel tones), each with a soft contact shadow toward the lower-right.\nUse image_gen in EDIT mode on IMAGE 1 and deliver ONE 1536×1024 image: the SAME painting with those additions. Everything that is not an added dummy or its shadow stays exactly as painted — no repainting of grass, path, rim, bridge or sky, no scorch marks, no extra props.\nOne image_gen call. ONE retry only if a dummy stands off the ground, the register drifts (soft/photographic), fewer than seven dummies are present, or the base painting was altered — name the reason. Copy the output from $CODEX_HOME/generated_images/... to out/dress_clearing.png with sha256. No code. No other files. No web.\nRETURN: the receipt (task_id \"CS-dress-clearing-r1\"): files = [out/dress_clearing.png with sha256]; images = 1 or 2; calls_used; status DELIVERED / DELIVERED_WITH_CONCERNS with concerns listed honestly.",
+ "references": [
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/artifacts/CS-dress-canvases/dress_clearing_canvas.png",
+   "role": "IMAGE 1 — the bare painted crop to EDIT"
+  },
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/artifacts/CS-dress-canvases/dress_clearing_scale_figures.png",
+   "role": "IMAGE 2 — scale figures (reference only)"
+  },
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/CS-clutter-canvases/dress_size_chart.png",
+   "role": "IMAGE 3 — camera-projected size chart (reference only)"
+  },
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/CS-dress-spawn/dress_spawn.png",
+   "role": "IMAGE 4 — approved dressed crop (style reference only)"
+  }
+ ],
+ "image_cap": 2,
+ "minutes_cap": 15,
+ "tool_call_cap": 20,
+ "outputs": [
+  "out/dress_clearing.png"
+ ],
+ "effort": "high",
+ "add_dirs": [],
+ "experiment": "C5-P0a"
+}
