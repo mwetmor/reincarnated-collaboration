@@ -34900,6 +34900,364 @@
       "codex_version": "codex-cli 0.153.4",
       "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
       "exit": 0
+    },
+    {
+      "id": "CS-pack-v11",
+      "type": "PACK",
+      "experiment": "C3-cliffside-v3",
+      "brief_sha256": "acca6aafd0b5b88fb4261bffc7b04eaaee25601df12bae99254387b535a763f7",
+      "started": "2026-09-15T01:56:27.728616+00:00",
+      "ended": "2026-09-15T01:58:26.391459+00:00",
+      "minutes": 1.9776890382000298,
+      "image_calls": 0,
+      "tool_calls": 5,
+      "audit": {
+        "violations": [],
+        "image_calls": 0,
+        "tool_calls": 5,
+        "tools_seen": {
+          "command_execution": 5
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": []
+      },
+      "receipt_sha256": "f834c94d25e00eb35e29c025e2b5a514c25dd047a5e84f63e49e00a7f6e60937",
+      "artifacts": [
+        {
+          "name": "README_scene.txt",
+          "sha256": "c0fb88c8511f97487af23d793763de37c26bd318ad6c4db68f419e78b527fd2a"
+        },
+        {
+          "name": "exporter.json",
+          "sha256": "86838add5d583cd45aabdfc7b2f1715d451b7a92e643f1a094655cbde9528274"
+        },
+        {
+          "name": "godot/project.godot",
+          "sha256": "6a8166148fc0b3e54f8589a0a716379636040f615b0f827ea49f2dfe7a6c5deb"
+        },
+        {
+          "name": "godot/scenes/cliffside.tscn",
+          "sha256": "218525aa7ec75a13896d113c6a603cffce1fde09945f961302c71ebac267b804"
+        },
+        {
+          "name": "godot/scenes/main.tscn",
+          "sha256": "a7ff2b1ba99ca306dacd7fbee1556fbfbed54d72cc8e3c01ab72e1aba58b874d"
+        },
+        {
+          "name": "godot/scenes/vfx_arcane_bolt.tscn",
+          "sha256": "b88e7c70d84981aff3f1040f51ec64567aba6941f5df7f4e3edd71861b2a45dd"
+        },
+        {
+          "name": "godot/scenes/vfx_arcane_impact.tscn",
+          "sha256": "5a00cb38e8ece227ea927b39b5b75902e27a57c826bf5a74fc3e7e74a2ab6b1c"
+        },
+        {
+          "name": "godot/scenes/vfx_fire_bolt.tscn",
+          "sha256": "8ef515ccff116ed15fabf4da8d0051f1e08847da1889b19ce34753666fff4c50"
+        },
+        {
+          "name": "godot/scenes/vfx_fire_impact.tscn",
+          "sha256": "0bb0d93b8ff4c4b902222c86ec0832a7b6444b6164785dd1dc14c3990614a563"
+        },
+        {
+          "name": "godot/scenes/vfx_frost_bolt.tscn",
+          "sha256": "9072f94f22043a46d31dcd5ee36a4c81124b870621025667e15563a26dfa3a1d"
+        },
+        {
+          "name": "godot/scenes/vfx_frost_impact.tscn",
+          "sha256": "9b004cf19178f00c719d3b31c2e09c892e2b763cbc0b85ff481b2c5d2dcd0436"
+        },
+        {
+          "name": "godot/scenes/vfx_holy_bolt.tscn",
+          "sha256": "ba5df4823033a22156f1c393908bb5db5c6d97ef2229a11f7791997d09e1053e"
+        },
+        {
+          "name": "godot/scenes/vfx_holy_impact.tscn",
+          "sha256": "93bfd23c156cf0822e3677a061a1eff5d15042c2cd50d175ae5bb7957d3d5e32"
+        },
+        {
+          "name": "godot/scenes/vfx_lightning_bolt.tscn",
+          "sha256": "4d57684ed3c6183c938ef9f5f605482cf9871f628e4b71970c0e306d940414ce"
+        },
+        {
+          "name": "godot/scenes/vfx_lightning_impact.tscn",
+          "sha256": "968e8ab1c24263324f2de1e293d183e980691de934805d33a87eabf7004370d7"
+        },
+        {
+          "name": "godot/scenes/vfx_poison_bolt.tscn",
+          "sha256": "7edc105cfd79ee2ee6f7dbe04dda9c50e328b80e606070dc08453573ff0da68f"
+        },
+        {
+          "name": "godot/scenes/vfx_poison_impact.tscn",
+          "sha256": "a95667b757becfd6091508a1cc142b90e31569a452855500423da46b3d1eb0fc"
+        },
+        {
+          "name": "godot/scripts/fly_swarm.gd",
+          "sha256": "8603f91597f1f8aeb74b6238a6a2860c3ac807b4c67edca13f56f40b08b33423"
+        },
+        {
+          "name": "godot/scripts/glow_flicker.gd",
+          "sha256": "fee0db3aa00b834bc1f6198886c6e476f45b91fd012ce641a0145e97ec857671"
+        },
+        {
+          "name": "godot/scripts/keeper.gd",
+          "sha256": "a79b7ea7b62678519f92fdab3b5ab80aa75220dfd480479fb4c254ca9a406275"
+        },
+        {
+          "name": "godot/scripts/occlusion_fade.gd",
+          "sha256": "96d37de2e8c7790cb00815fb1f939389872874ba23b43dc017d8530d3db62f61"
+        },
+        {
+          "name": "godot/scripts/vfx_arcane_bolt.gd",
+          "sha256": "f2f125c5741744ce22eca27fd8758dc177f6fdab80a9e1cc6cc61ba217092a56"
+        },
+        {
+          "name": "godot/scripts/vfx_arcane_impact.gd",
+          "sha256": "2f53be38f198744ff7f39b9281e2c82b06836c37a6f3bbc89e85d54bd1fc4105"
+        },
+        {
+          "name": "godot/scripts/vfx_fire_bolt.gd",
+          "sha256": "d028438ad68c7945fe1fa564b56011ec9191249fba9ffd22728f962bc0b7db0c"
+        },
+        {
+          "name": "godot/scripts/vfx_fire_impact.gd",
+          "sha256": "2f53be38f198744ff7f39b9281e2c82b06836c37a6f3bbc89e85d54bd1fc4105"
+        },
+        {
+          "name": "godot/scripts/vfx_frost_bolt.gd",
+          "sha256": "089166038a02d025aa7e3f18869c47547ff9d63689e413f9d1d647699c2a90c5"
+        },
+        {
+          "name": "godot/scripts/vfx_frost_impact.gd",
+          "sha256": "2f53be38f198744ff7f39b9281e2c82b06836c37a6f3bbc89e85d54bd1fc4105"
+        },
+        {
+          "name": "godot/scripts/vfx_holy_bolt.gd",
+          "sha256": "5a7f8795810d152ff77865c5403dadfb1463f989050ca963109a63324916ac56"
+        },
+        {
+          "name": "godot/scripts/vfx_holy_impact.gd",
+          "sha256": "2f53be38f198744ff7f39b9281e2c82b06836c37a6f3bbc89e85d54bd1fc4105"
+        },
+        {
+          "name": "godot/scripts/vfx_lightning_bolt.gd",
+          "sha256": "dd52ee182c3dc509f70e3e416df917cd0e1f71c66069ed329bef2a8033e6a32c"
+        },
+        {
+          "name": "godot/scripts/vfx_lightning_impact.gd",
+          "sha256": "2f53be38f198744ff7f39b9281e2c82b06836c37a6f3bbc89e85d54bd1fc4105"
+        },
+        {
+          "name": "godot/scripts/vfx_poison_bolt.gd",
+          "sha256": "066b5ac96659509943d956deed285ed4653351178f307095e7030db06685ebce"
+        },
+        {
+          "name": "godot/scripts/vfx_poison_impact.gd",
+          "sha256": "2f53be38f198744ff7f39b9281e2c82b06836c37a6f3bbc89e85d54bd1fc4105"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
+    },
+    {
+      "id": "CS-pack-v12",
+      "type": "PACK",
+      "experiment": "C3-cliffside-v3",
+      "brief_sha256": "8cce5878f661f93f89652f4d36b9e917849983ba9bc5b6fcba77ce3f1f59bd4c",
+      "started": "2026-09-15T01:58:55.723586+00:00",
+      "ended": "2026-09-15T02:01:04.811178+00:00",
+      "minutes": 2.151430736099974,
+      "image_calls": 0,
+      "tool_calls": 5,
+      "audit": {
+        "violations": [],
+        "image_calls": 0,
+        "tool_calls": 5,
+        "tools_seen": {
+          "command_execution": 5
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": []
+      },
+      "receipt_sha256": "c0069994e6f59c7b66f499ae9f281e3b9712859698e450dce689e1ec167a8f73",
+      "artifacts": [
+        {
+          "name": "README_scene.txt",
+          "sha256": "359555dda097aebd6c75217c0bb6ec7e811858cec52c94f434a047d0f528012c"
+        },
+        {
+          "name": "exporter.json",
+          "sha256": "061fdc022210f4986c315f5db8976a368bb4091e97313307c9d1cd6910e662cb"
+        },
+        {
+          "name": "godot/project.godot",
+          "sha256": "6a8166148fc0b3e54f8589a0a716379636040f615b0f827ea49f2dfe7a6c5deb"
+        },
+        {
+          "name": "godot/scenes/cliffside.tscn",
+          "sha256": "218525aa7ec75a13896d113c6a603cffce1fde09945f961302c71ebac267b804"
+        },
+        {
+          "name": "godot/scenes/main.tscn",
+          "sha256": "a7ff2b1ba99ca306dacd7fbee1556fbfbed54d72cc8e3c01ab72e1aba58b874d"
+        },
+        {
+          "name": "godot/scenes/vfx_arcane_bolt.tscn",
+          "sha256": "b88e7c70d84981aff3f1040f51ec64567aba6941f5df7f4e3edd71861b2a45dd"
+        },
+        {
+          "name": "godot/scenes/vfx_arcane_impact.tscn",
+          "sha256": "5a00cb38e8ece227ea927b39b5b75902e27a57c826bf5a74fc3e7e74a2ab6b1c"
+        },
+        {
+          "name": "godot/scenes/vfx_fire_bolt.tscn",
+          "sha256": "8ef515ccff116ed15fabf4da8d0051f1e08847da1889b19ce34753666fff4c50"
+        },
+        {
+          "name": "godot/scenes/vfx_fire_impact.tscn",
+          "sha256": "0bb0d93b8ff4c4b902222c86ec0832a7b6444b6164785dd1dc14c3990614a563"
+        },
+        {
+          "name": "godot/scenes/vfx_frost_bolt.tscn",
+          "sha256": "9072f94f22043a46d31dcd5ee36a4c81124b870621025667e15563a26dfa3a1d"
+        },
+        {
+          "name": "godot/scenes/vfx_frost_impact.tscn",
+          "sha256": "9b004cf19178f00c719d3b31c2e09c892e2b763cbc0b85ff481b2c5d2dcd0436"
+        },
+        {
+          "name": "godot/scenes/vfx_frozen_orb_bolt.tscn",
+          "sha256": "e39c428437fc353afee230a0f7581eee63cdf23b01ab525da252fe62eac8337c"
+        },
+        {
+          "name": "godot/scenes/vfx_frozen_orb_impact.tscn",
+          "sha256": "3877e7b912032df15c58b1ef774d851ad91affa9d1a7e5b0c8fdefb05ae27deb"
+        },
+        {
+          "name": "godot/scenes/vfx_holy_bolt.tscn",
+          "sha256": "ba5df4823033a22156f1c393908bb5db5c6d97ef2229a11f7791997d09e1053e"
+        },
+        {
+          "name": "godot/scenes/vfx_holy_impact.tscn",
+          "sha256": "93bfd23c156cf0822e3677a061a1eff5d15042c2cd50d175ae5bb7957d3d5e32"
+        },
+        {
+          "name": "godot/scenes/vfx_lightning_bolt.tscn",
+          "sha256": "4d57684ed3c6183c938ef9f5f605482cf9871f628e4b71970c0e306d940414ce"
+        },
+        {
+          "name": "godot/scenes/vfx_lightning_impact.tscn",
+          "sha256": "968e8ab1c24263324f2de1e293d183e980691de934805d33a87eabf7004370d7"
+        },
+        {
+          "name": "godot/scenes/vfx_poison_bolt.tscn",
+          "sha256": "7edc105cfd79ee2ee6f7dbe04dda9c50e328b80e606070dc08453573ff0da68f"
+        },
+        {
+          "name": "godot/scenes/vfx_poison_impact.tscn",
+          "sha256": "a95667b757becfd6091508a1cc142b90e31569a452855500423da46b3d1eb0fc"
+        },
+        {
+          "name": "godot/scripts/fly_swarm.gd",
+          "sha256": "8603f91597f1f8aeb74b6238a6a2860c3ac807b4c67edca13f56f40b08b33423"
+        },
+        {
+          "name": "godot/scripts/glow_flicker.gd",
+          "sha256": "fee0db3aa00b834bc1f6198886c6e476f45b91fd012ce641a0145e97ec857671"
+        },
+        {
+          "name": "godot/scripts/keeper.gd",
+          "sha256": "25f4bfb879bcad90273e59aae820cfb381b759e37061bfc5a5729241490cbd4b"
+        },
+        {
+          "name": "godot/scripts/occlusion_fade.gd",
+          "sha256": "96d37de2e8c7790cb00815fb1f939389872874ba23b43dc017d8530d3db62f61"
+        },
+        {
+          "name": "godot/scripts/vfx_arcane_bolt.gd",
+          "sha256": "f2f125c5741744ce22eca27fd8758dc177f6fdab80a9e1cc6cc61ba217092a56"
+        },
+        {
+          "name": "godot/scripts/vfx_arcane_impact.gd",
+          "sha256": "2f53be38f198744ff7f39b9281e2c82b06836c37a6f3bbc89e85d54bd1fc4105"
+        },
+        {
+          "name": "godot/scripts/vfx_fire_bolt.gd",
+          "sha256": "d028438ad68c7945fe1fa564b56011ec9191249fba9ffd22728f962bc0b7db0c"
+        },
+        {
+          "name": "godot/scripts/vfx_fire_impact.gd",
+          "sha256": "2f53be38f198744ff7f39b9281e2c82b06836c37a6f3bbc89e85d54bd1fc4105"
+        },
+        {
+          "name": "godot/scripts/vfx_frost_bolt.gd",
+          "sha256": "089166038a02d025aa7e3f18869c47547ff9d63689e413f9d1d647699c2a90c5"
+        },
+        {
+          "name": "godot/scripts/vfx_frost_impact.gd",
+          "sha256": "2f53be38f198744ff7f39b9281e2c82b06836c37a6f3bbc89e85d54bd1fc4105"
+        },
+        {
+          "name": "godot/scripts/vfx_frozen_orb_bolt.gd",
+          "sha256": "05d9009486152b3fdae1585ee7ba19dee2dff7719f46a406c9a3f30cfed38e29"
+        },
+        {
+          "name": "godot/scripts/vfx_frozen_orb_impact.gd",
+          "sha256": "0a9e2855d3fc34f4963e7a2989522fd68beceab4ee0e18248fb964cfadbb1123"
+        },
+        {
+          "name": "godot/scripts/vfx_holy_bolt.gd",
+          "sha256": "5a7f8795810d152ff77865c5403dadfb1463f989050ca963109a63324916ac56"
+        },
+        {
+          "name": "godot/scripts/vfx_holy_impact.gd",
+          "sha256": "2f53be38f198744ff7f39b9281e2c82b06836c37a6f3bbc89e85d54bd1fc4105"
+        },
+        {
+          "name": "godot/scripts/vfx_lightning_bolt.gd",
+          "sha256": "dd52ee182c3dc509f70e3e416df917cd0e1f71c66069ed329bef2a8033e6a32c"
+        },
+        {
+          "name": "godot/scripts/vfx_lightning_impact.gd",
+          "sha256": "2f53be38f198744ff7f39b9281e2c82b06836c37a6f3bbc89e85d54bd1fc4105"
+        },
+        {
+          "name": "godot/scripts/vfx_poison_bolt.gd",
+          "sha256": "066b5ac96659509943d956deed285ed4653351178f307095e7030db06685ebce"
+        },
+        {
+          "name": "godot/scripts/vfx_poison_impact.gd",
+          "sha256": "2f53be38f198744ff7f39b9281e2c82b06836c37a6f3bbc89e85d54bd1fc4105"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
     }
   ],
   "images_used": 233,
@@ -35880,6 +36238,27 @@
       "veto_open": true,
       "ruling": "T3s (VFX oracle measurer: oracle/vfx_measure.py + oracle/vfx_reference_hades.json, 17 unit tests; synthetic envelope reproduced within 0/5 %; Hecate pillar loop measured) and T3t (effect-kit builder export/effect_kit.py + kit.json layer stack in godot_import; tint hue error 0, white core 255, nearest exact, holds -> durations, legacy bolt byte-identical, headless cast E/N rotation 0/-90 with impact spawn) ACCEPTED. Conductor ran test_vfx_measure + test_effect_kit + test_vfx_picker outside the sandbox: 51 tests OK; the single in-sandbox red (CoreAudio ret != noErr) is the known sandbox artefact. Full-suite reds unchanged vs T3r (12 pre-existing sandbox reds). Freeze + restamp follow.",
       "ts": "2026-09-15T02:20:00"
+    },
+    {
+      "id": "R-C3-105",
+      "class": "conductor",
+      "veto_open": true,
+      "ruling": "v11 built (conductor glue build_v11.py from CS-props-v10): 1 orphan glow + 2 crack emitters (the floating-snag remnant at ~(2927,1086)) dropped by sprite-bbox ownership; the six extracted painted shadow sprites from v9 restored, boosted (alpha^0.72 x1.6, cap 0.85) and masked to prop vicinity (soft ellipses per instance); the cow keeps its synthetic contact shadow. CS-pack-v11 exported by Astra (PACK); headless proof: Shadows node 7 sprites, add-blend glows 7, nothing within 60 px of the orphan position; screenshots at spawn/bridge/cow/south. Conductor eyeball: shadows now pronounced (spawn tree pool is at the cap); gain is a knob if Matt wants it between v9 and v11. Frozen Orb kit built with T3t (runs/C-3/vfx_kits/frozen_orb: 6/6/6/4 frames, tint ice, full layer stack); kits_v2.json puts it first in the Tab picker; CS-pack-v12 fired = v11 + Frozen Orb kit → Desktop 82.",
+      "ts": "2026-09-15T02:45:00"
+    },
+    {
+      "id": "R-C3-106",
+      "class": "conductor",
+      "veto_open": true,
+      "ruling": "First oracle read of the Frozen Orb kit (T3s vfx_measure on the built impact + cast frames, alpha plate, body 130 px, holds as durations; runtime layers flash/light/decal not in these frames). IMPACT: envelope in band (decay 1.0/.90/.61, half at 3 frames, residue .21), extent .83 BH, white core flash-first (42 % at frame 0), 4 value bands by construction. OUT: hue SD 0.3 deg vs Hades 10-18 (a single multiply tint gives one hue), O5 saturation flat (.38/.38 vs bright .02-.27 desaturated / dim .44-.64 saturated), rate 27 unique frames/s vs 60 (our holds - a register choice, not chased), modes 4 vs 2 (idem). CAST is a build-up, the strike bands do not apply. Consequence: T3u tint RAMP (core colour desaturated/pale -> rim colour saturated/deep, mapped by luminance, per-band hue shift) in the kit builder - the one change that moves O4 and O5 into band without touching the drawings. Measurements filed runs/C-3/artifacts/CS-vfx-frozenorb-kit-in/measure/.",
+      "ts": "2026-09-15T02:55:00"
+    },
+    {
+      "id": "R-C3-107",
+      "class": "conductor",
+      "veto_open": true,
+      "ruling": "v12 = v11 + Frozen Orb kit first in the Tab picker (kits_v2.json). Probe: label VFX: frozen_orb, cast east into the cow spawns vfx_frozen_orb_impact on collision (17 impact node-frames), cast north spawns a second bolt; screenshots cast/travel/impact/north. Eyeball: the cast orb at the staff tip reads as painted-pixel ice (pale cyan crystal, white core) - the register is there; in flight the orb is ~0.3 BH with a short white streak (undersized vs the 0.7-1.0 BH oracle band and vs D2 Frozen Orb), and the impact instant shows mostly the white mote particles. Ruling: rebuild the kit at pixel_scale 3 (native 64 -> 192 px canvas, orb ~1.2 BH) - a kit.json parameter, no lane change - and re-export as v13; Desktop 82 points at v13. Next probe captures an impact frame sequence to verify the impact sprite + flash + floor light render. T3u (tint ramp) and the no-glow sheet re-drive fire after v13 is staged (TOOLING fence).",
+      "ts": "2026-09-15T03:10:00"
     }
   ],
   "grok_calls": [
