@@ -36493,6 +36493,11 @@
       "id": "M-C3-T3st",
       "what": "T3s oracle measurer + T3t effect-kit builder accepted; VFX breadth-test tooling complete",
       "ts": "2026-09-15T02:20:00"
+    },
+    {
+      "id": "M-C3-web-playtest",
+      "what": "Cliffside mobile playtest LIVE: https://reincarnated-loadout.vercel.app/playtest (shadow-free CS-pack-web2, Frozen Orb only, touch overlay, GL Compatibility, threads off; .pck 34.8 MB after lossy WebP on tiles/parallax, ~45 MB download; deploy-truth verified by drax: 200s, wasm mime, pck checksum, headless boot 5.9 s, joystick + CAST proven). Repeatable: reincarnated-godot/web/build_playtest.sh <src>/out/godot cliffside (license check stops any third-party kit). Loadout commits ef5e544/c84352e pushed; godot 60c1063/8b260b1 local only.",
+      "ts": "2026-09-15T03:30:00Z"
     }
   ],
   "halts": [
@@ -38735,6 +38740,10 @@
     {
       "note": "Matt (2026-09-15): The Slormancer trailer - exceptional VFX, painted-or-pixel unsure, hit the register and look great across the screen. Legolas pull extended to a third title; five-column comparison; painted-vs-pixel decided by measurement.",
       "ts": "2026-09-15T03:15:00Z"
+    },
+    {
+      "note": "Web playtest caveats (drax): iOS memory ~700 MB decoded textures (416 Keeper frames at 512x512 = ~416 MB) - older iPhones may crash the tab; fix = mobile GPU texture compression (ASTC/ETC2, bigger pck) or fewer/smaller frames; mist.png 4340 px wide exceeds the 4096 limit of some older Android GPUs; fixed 16:9 (black bars on wide phones); first load ~45 MB (Wi-Fi advised); Vercel CLI login expired on this Mac (git-push deploys work). Needs Matt: a real-phone test.",
+      "ts": "2026-09-15T03:31:00Z"
     }
   ],
   "images_cap_note": "Matt R-C3-55 removed the cap (was 120); set to 1000 because lane/run_burst.py compares the cap numerically"
