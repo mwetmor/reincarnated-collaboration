@@ -207,7 +207,7 @@ test_cut_diagnostic_sheets_and_rest_are_not_cells (test_godot_import.GodotImport
 test_empty_overlapping_nonempty_and_escaping_inputs_rejected (test_godot_import.GodotImportTests.test_empty_overlapping_nonempty_and_escaping_inputs_rejected) ... ok
 test_gap_duplicate_malformed_and_wrong_canvas_rejected (test_godot_import.GodotImportTests.test_gap_duplicate_malformed_and_wrong_canvas_rejected) ... ok
 test_gear_vfx_and_bad_vfx (test_godot_import.GodotImportTests.test_gear_vfx_and_bad_vfx) ... ok
-test_headless_state_machine_input_map_gear_vfx_and_nearest_fallback (test_godot_import.GodotImportTests.test_headless_state_machine_input_map_gear_vfx_and_nearest_fallback) ... ok
+test_headless_state_machine_input_map_gear_vfx_and_nearest_fallback (test_godot_import.GodotImportTests.test_headless_state_machine_input_map_gear_vfx_and_nearest_fallback) ... FAIL
 test_missing_texture_and_undeclared_resource_rejected (test_godot_import.GodotImportTests.test_missing_texture_and_undeclared_resource_rejected) ... ok
 test_numeric_order_and_native_fps_ignored (test_godot_import.GodotImportTests.test_numeric_order_and_native_fps_ignored) ... ok
 test_back_view_and_absent_rest_are_null (test_head_pitch.Tests.test_back_view_and_absent_rest_are_null) ... ok
@@ -296,7 +296,7 @@ test_bad_walkable_schema_geometry_spawn_and_bounds (test_parallax_scene.Parallax
 test_bounded_complement_clips_exactly_and_preserves_blocked (test_parallax_scene.ParallaxSceneTests.test_bounded_complement_clips_exactly_and_preserves_blocked) ... ok
 test_camera_fraction_and_known_bad_camera (test_parallax_scene.ParallaxSceneTests.test_camera_fraction_and_known_bad_camera) ... ok
 test_cli_parallax_and_directional_kit (test_parallax_scene.ParallaxSceneTests.test_cli_parallax_and_directional_kit) ... ok
-test_headless_cliffside_follow_camera_parallax_and_projectile_collision (test_parallax_scene.ParallaxSceneTests.test_headless_cliffside_follow_camera_parallax_and_projectile_collision) ... ok
+test_headless_cliffside_follow_camera_parallax_and_projectile_collision (test_parallax_scene.ParallaxSceneTests.test_headless_cliffside_follow_camera_parallax_and_projectile_collision) ... FAIL
 test_large_fixture_exact_tiles_layers_collision_camera_and_resources (test_parallax_scene.ParallaxSceneTests.test_large_fixture_exact_tiles_layers_collision_camera_and_resources) ... ok
 test_missing_export_texture_is_detected (test_parallax_scene.ParallaxSceneTests.test_missing_export_texture_is_detected) ... ok
 test_optional_mist_is_a_normal_layer_and_stable_z_ties (test_parallax_scene.ParallaxSceneTests.test_optional_mist_is_a_normal_layer_and_stable_z_ties) ... ok
@@ -350,7 +350,7 @@ test_collision_ellipses_at_anchors_and_noncollider_absent (test_props_layer.Prop
 test_coverage_alpha_holes_union_threshold_and_blocked_samples (test_props_layer.PropsLayerTests.test_coverage_alpha_holes_union_threshold_and_blocked_samples) ... ok
 test_coverage_camera_anchor_limits_and_invalid_sampling (test_props_layer.PropsLayerTests.test_coverage_camera_anchor_limits_and_invalid_sampling) ... ok
 test_every_collection_unknown_and_missing_keys_and_wrong_types (test_props_layer.PropsLayerTests.test_every_collection_unknown_and_missing_keys_and_wrong_types) ... ok
-test_headless_occlusion_fade_restore_overhead_near_and_particles (test_props_layer.PropsLayerTests.test_headless_occlusion_fade_restore_overhead_near_and_particles) ... ok
+test_headless_occlusion_fade_restore_overhead_near_and_particles (test_props_layer.PropsLayerTests.test_headless_occlusion_fade_restore_overhead_near_and_particles) ... FAIL
 test_known_half_coverage_exact_and_empty_layer_zero (test_props_layer.PropsLayerTests.test_known_half_coverage_exact_and_empty_layer_zero) ... ok
 test_layers_anchors_y_sort_z_order_and_fade_assignment (test_props_layer.PropsLayerTests.test_layers_anchors_y_sort_z_order_and_fade_assignment) ... ok
 test_missing_escaping_absolute_symlink_wrong_mode_and_nonpng_assets (test_props_layer.PropsLayerTests.test_missing_escaping_absolute_symlink_wrong_mode_and_nonpng_assets) ... ok
@@ -399,7 +399,7 @@ test_concave_floor_and_disconnected_island (test_scene_kit.SceneKitTests.test_co
 test_cut_plate_mismatch_and_empty_occluders (test_scene_kit.SceneKitTests.test_cut_plate_mismatch_and_empty_occluders) ... ok
 test_degenerate_crossed_repeated_and_outside_polygons_rejected (test_scene_kit.SceneKitTests.test_degenerate_crossed_repeated_and_outside_polygons_rejected) ... ok
 test_full_plate_floor_and_winding_reversal (test_scene_kit.SceneKitTests.test_full_plate_floor_and_winding_reversal) ... ok
-test_headless_tower_import_run_and_physics (test_scene_kit.SceneKitTests.test_headless_tower_import_run_and_physics) ... ok
+test_headless_tower_import_run_and_physics (test_scene_kit.SceneKitTests.test_headless_tower_import_run_and_physics) ... FAIL
 test_load_valid_roundtrip (test_scene_kit.SceneKitTests.test_load_valid_roundtrip) ... ok
 test_missing_scene_files_overlap_and_bad_plate_rejected_before_output (test_scene_kit.SceneKitTests.test_missing_scene_files_overlap_and_bad_plate_rejected_before_output) ... ok
 test_old_sandbox_is_byte_identical_with_scene_option (test_scene_kit.SceneKitTests.test_old_sandbox_is_byte_identical_with_scene_option) ... ok
@@ -425,7 +425,7 @@ test_rectangle_hole_union_and_concavity_largest_and_contained (test_sockets.Ambi
 test_slanted_fractional_global_optimum (test_sockets.AmbientRectangleTests.test_slanted_fractional_global_optimum) ... ok
 test_all_new_resources_release_transform_directions_and_credits (test_sockets.SocketTests.test_all_new_resources_release_transform_directions_and_credits) ... ok
 test_default_override_all_cells_and_invalid_release (test_sockets.SocketTests.test_default_override_all_cells_and_invalid_release) ... ok
-test_headless_directional_release_and_resources (test_sockets.SocketTests.test_headless_directional_release_and_resources) ... ok
+test_headless_directional_release_and_resources (test_sockets.SocketTests.test_headless_directional_release_and_resources) ... FAIL
 test_invalid_kit_gap_range_rgb_and_missing_credit (test_sockets.SocketTests.test_invalid_kit_gap_range_rgb_and_missing_credit) ... ok
 test_missing_coordinate_is_explicit_and_malformed_rejected (test_sockets.SocketTests.test_missing_coordinate_is_explicit_and_malformed_rejected) ... ok
 test_real_cast_coverage (test_sockets.SocketTests.test_real_cast_coverage) ... ok
@@ -488,13 +488,13 @@ test_palest_saturated_band_and_legacy_are_distinct (test_vfx_measure.VFXMeasureT
 test_white_core_thresholds_and_hue_wrap (test_vfx_measure.VFXMeasureTests.test_white_core_thresholds_and_hue_wrap) ... ok
 test_authored_kit_own_travel_durations_layers_and_feedback_parameters (test_vfx_picker.AuthoredEffectPickerTests.test_authored_kit_own_travel_durations_layers_and_feedback_parameters) ... ok
 test_corrupt_authored_metadata_rejected_before_project_output (test_vfx_picker.AuthoredEffectPickerTests.test_corrupt_authored_metadata_rejected_before_project_output) ... ok
-test_headless_authored_cast_east_north_collision_timing_and_feedback_cleanup (test_vfx_picker.AuthoredEffectPickerTests.test_headless_authored_cast_east_north_collision_timing_and_feedback_cleanup) ... ok
+test_headless_authored_cast_east_north_collision_timing_and_feedback_cleanup (test_vfx_picker.AuthoredEffectPickerTests.test_headless_authored_cast_east_north_collision_timing_and_feedback_cleanup) ... FAIL
 test_minimal_layers_and_optional_decal_fallback (test_vfx_picker.AuthoredEffectPickerTests.test_minimal_layers_and_optional_decal_fallback) ... ok
 test_mixed_catalogue_legacy_scenes_and_scripts_byte_identical (test_vfx_picker.AuthoredEffectPickerTests.test_mixed_catalogue_legacy_scenes_and_scripts_byte_identical) ... ok
 test_event_instrument_known_bad_delay_first_miss_unresolved_order (test_vfx_picker.G1ComponentTests.test_event_instrument_known_bad_delay_first_miss_unresolved_order) ... ok
 test_grey_all_body_rgb_128_exact_alpha_and_default_bytes (test_vfx_picker.G1ComponentTests.test_grey_all_body_rgb_128_exact_alpha_and_default_bytes) ... ok
-test_headless_first_cast_contact_cursor_pool_cancel_and_picker (test_vfx_picker.G1ComponentTests.test_headless_first_cast_contact_cursor_pool_cancel_and_picker) ... ok
-test_headless_pierce_contacts_labels_pool_and_phase_callbacks (test_vfx_picker.G1ComponentTests.test_headless_pierce_contacts_labels_pool_and_phase_callbacks) ... ok
+test_headless_first_cast_contact_cursor_pool_cancel_and_picker (test_vfx_picker.G1ComponentTests.test_headless_first_cast_contact_cursor_pool_cancel_and_picker) ... FAIL
+test_headless_pierce_contacts_labels_pool_and_phase_callbacks (test_vfx_picker.G1ComponentTests.test_headless_pierce_contacts_labels_pool_and_phase_callbacks) ... FAIL
 test_omitted_pierce_matches_pre_t4f_33_file_byte_lock (test_vfx_picker.G1ComponentTests.test_omitted_pierce_matches_pre_t4f_33_file_byte_lock) ... ok
 test_pierce_config_defaults_palette_range_and_feedback_gates (test_vfx_picker.G1ComponentTests.test_pierce_config_defaults_palette_range_and_feedback_gates) ... ok
 test_pierce_instrument_known_bad_order_strike_duplicate_lifetime_and_class (test_vfx_picker.G1ComponentTests.test_pierce_instrument_known_bad_order_strike_duplicate_lifetime_and_class) ... ok
@@ -503,7 +503,7 @@ test_pierce_phase_classification_chain_field_shard (test_vfx_picker.G1ComponentT
 test_shared_component_no_legacy_bolts_and_cast_ready_gate (test_vfx_picker.G1ComponentTests.test_shared_component_no_legacy_bolts_and_cast_ready_gate) ... ok
 test_glow_boundary_values_and_particle_curve_growth_zero_endpoints (test_vfx_picker.LivingEmbersTests.test_glow_boundary_values_and_particle_curve_growth_zero_endpoints) ... ok
 test_glow_unknown_missing_numeric_texture_and_type_validation (test_vfx_picker.LivingEmbersTests.test_glow_unknown_missing_numeric_texture_and_type_validation) ... ok
-test_headless_glow_sixty_samples_extrema_range_and_particle_properties (test_vfx_picker.LivingEmbersTests.test_headless_glow_sixty_samples_extrema_range_and_particle_properties) ... ok
+test_headless_glow_sixty_samples_extrema_range_and_particle_properties (test_vfx_picker.LivingEmbersTests.test_headless_glow_sixty_samples_extrema_range_and_particle_properties) ... FAIL
 test_invalid_glow_hz_amount_parent_before_output (test_vfx_picker.LivingEmbersTests.test_invalid_glow_hz_amount_parent_before_output) ... ok
 test_no_glows_or_new_keys_preserves_all_legacy_layer_text (test_vfx_picker.LivingEmbersTests.test_no_glows_or_new_keys_preserves_all_legacy_layer_text) ... ok
 test_owner_sort_inference_override_ties_and_standalone (test_vfx_picker.LivingEmbersTests.test_owner_sort_inference_override_ties_and_standalone) ... ok
@@ -515,7 +515,7 @@ test_cli_mutual_exclusion_requires_sockets_and_success (test_vfx_picker.VfxPicke
 test_conflicting_options_missing_sockets_and_overlapping_kit_before_output (test_vfx_picker.VfxPickerTests.test_conflicting_options_missing_sockets_and_overlapping_kit_before_output) ... ok
 test_duplicate_missing_invalid_and_thirteen_kits_before_output (test_vfx_picker.VfxPickerTests.test_duplicate_missing_invalid_and_thirteen_kits_before_output) ... ok
 test_every_kit_resources_scenes_counts_order_tab_label_and_credits (test_vfx_picker.VfxPickerTests.test_every_kit_resources_scenes_counts_order_tab_label_and_credits) ... ok
-test_headless_tab_twice_cast_scene_labels_and_inflight_kit_lock (test_vfx_picker.VfxPickerTests.test_headless_tab_twice_cast_scene_labels_and_inflight_kit_lock) ... ok
+test_headless_tab_twice_cast_scene_labels_and_inflight_kit_lock (test_vfx_picker.VfxPickerTests.test_headless_tab_twice_cast_scene_labels_and_inflight_kit_lock) ... FAIL
 test_one_and_twelve_kits_and_relative_path_resolution (test_vfx_picker.VfxPickerTests.test_one_and_twelve_kits_and_relative_path_resolution) ... ok
 test_real_six_kit_catalogue_validation (test_vfx_picker.VfxPickerTests.test_real_six_kit_catalogue_validation) ... ok
 test_single_kit_and_legacy_props_all_text_byte_identical_to_t3m (test_vfx_picker.VfxPickerTests.test_single_kit_and_legacy_props_all_text_byte_identical_to_t3m) ... ok
@@ -576,6 +576,31 @@ test_strict_white_thresholds (test_white_gate.WhiteGateTests.test_strict_white_t
 test_total_at_attributable_peak_and_first_tie (test_white_gate.WhiteGateTests.test_total_at_attributable_peak_and_first_tie) ... ok
 
 ======================================================================
+FAIL: test_headless_state_machine_input_map_gear_vfx_and_nearest_fallback (test_godot_import.GodotImportTests.test_headless_state_machine_input_map_gear_vfx_and_nearest_fallback)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_godot_import.py", line 162, in test_headless_state_machine_input_map_gear_vfx_and_nearest_fallback
+    self.assertEqual(proc.returncode, 0, log)
+AssertionError: -6 != 0 : ERROR: Failed to open 'user://logs/godot2026-09-15T19.24.43.log'.
+   at: copy (core/io/dir_access.cpp:423)
+
+================================================================
+handle_crash: Program crashed with signal 11
+Engine version: Godot Engine v4.6.3.stable.official (7d41c59c457bd5a245092b4e7eb2d833e3b3f8c3)
+Dumping the backtrace. Please include this when reporting the bug on: https://github.com/godotengine/godot/issues
+[1] 1   libsystem_platform.dylib            0x000000018222d6a4 _sigtramp + 56
+[2] RotatedFileLogger::rotate_file() (in Godot) + 1160
+[3] RotatedFileLogger::rotate_file() (in Godot) + 1160
+[4] RotatedFileLogger::RotatedFileLogger(String const&, int) (in Godot) + 80
+[5] Main::setup(char const*, int, char**, bool) (in Godot) + 18880
+[6] OS_MacOS_Headless::run() (in Godot) + 68
+[7] main (in Godot) + 924
+[8] 8   dyld                                0x0000000181e52b98 start + 6076
+-- END OF C++ BACKTRACE --
+================================================================
+
+
+======================================================================
 FAIL: test_synthetic_contract_and_grid (test_oracle_walk.Tests.test_synthetic_contract_and_grid)
 ----------------------------------------------------------------------
 Traceback (most recent call last):
@@ -617,7 +642,230 @@ Traceback (most recent call last):
     self.assertNotIn('rejected',peak)
 AssertionError: 'rejected' unexpectedly found in {'angular_support': 0.8333333333333334, 'center': [170.0, 253.0], 'hollow_score': 0.08333333333333333, 'inner_opposed_support': 0.08333333333333333, 'inside': False, 'lab_band_surround': 12.987929666149537, 'lab_center_band': 18.508563966712764, 'lab_center_surround': 30.467977867785994, 'lab_color_return': 0.0, 'radius': 8.0, 'rejected': 'not_annulus', 'score': 0.6366616733180586}
 
+======================================================================
+FAIL: test_headless_cliffside_follow_camera_parallax_and_projectile_collision (test_parallax_scene.ParallaxSceneTests.test_headless_cliffside_follow_camera_parallax_and_projectile_collision)
 ----------------------------------------------------------------------
-Ran 568 tests in 221.945s
+Traceback (most recent call last):
+  File "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_parallax_scene.py", line 370, in test_headless_cliffside_follow_camera_parallax_and_projectile_collision
+    self.assertEqual(proc.returncode, 0, log)
+AssertionError: -6 != 0 : ERROR: Failed to open 'user://logs/godot2026-09-15T19.26.02.log'.
+   at: copy (core/io/dir_access.cpp:423)
 
-FAILED (failures=5)
+================================================================
+handle_crash: Program crashed with signal 11
+Engine version: Godot Engine v4.6.3.stable.official (7d41c59c457bd5a245092b4e7eb2d833e3b3f8c3)
+Dumping the backtrace. Please include this when reporting the bug on: https://github.com/godotengine/godot/issues
+[1] 1   libsystem_platform.dylib            0x000000018222d6a4 _sigtramp + 56
+[2] RotatedFileLogger::rotate_file() (in Godot) + 1160
+[3] RotatedFileLogger::rotate_file() (in Godot) + 1160
+[4] RotatedFileLogger::RotatedFileLogger(String const&, int) (in Godot) + 80
+[5] Main::setup(char const*, int, char**, bool) (in Godot) + 18880
+[6] OS_MacOS_Headless::run() (in Godot) + 68
+[7] main (in Godot) + 924
+[8] 8   dyld                                0x0000000181e52b98 start + 6076
+-- END OF C++ BACKTRACE --
+================================================================
+
+
+======================================================================
+FAIL: test_headless_occlusion_fade_restore_overhead_near_and_particles (test_props_layer.PropsLayerTests.test_headless_occlusion_fade_restore_overhead_near_and_particles)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_props_layer.py", line 342, in test_headless_occlusion_fade_restore_overhead_near_and_particles
+    self.assertEqual(proc.returncode, 0, log)
+AssertionError: -6 != 0 : ERROR: Failed to open 'user://logs/godot2026-09-15T19.26.35.log'.
+   at: copy (core/io/dir_access.cpp:423)
+
+================================================================
+handle_crash: Program crashed with signal 11
+Engine version: Godot Engine v4.6.3.stable.official (7d41c59c457bd5a245092b4e7eb2d833e3b3f8c3)
+Dumping the backtrace. Please include this when reporting the bug on: https://github.com/godotengine/godot/issues
+[1] 1   libsystem_platform.dylib            0x000000018222d6a4 _sigtramp + 56
+[2] RotatedFileLogger::rotate_file() (in Godot) + 1160
+[3] RotatedFileLogger::rotate_file() (in Godot) + 1160
+[4] RotatedFileLogger::RotatedFileLogger(String const&, int) (in Godot) + 80
+[5] Main::setup(char const*, int, char**, bool) (in Godot) + 18880
+[6] OS_MacOS_Headless::run() (in Godot) + 68
+[7] main (in Godot) + 924
+[8] 8   dyld                                0x0000000181e52b98 start + 6076
+-- END OF C++ BACKTRACE --
+================================================================
+
+
+======================================================================
+FAIL: test_headless_tower_import_run_and_physics (test_scene_kit.SceneKitTests.test_headless_tower_import_run_and_physics)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_scene_kit.py", line 328, in test_headless_tower_import_run_and_physics
+    self.assertEqual(proc.returncode, 0, log)
+AssertionError: -6 != 0 : ERROR: Failed to open 'user://logs/godot2026-09-15T19.26.44.log'.
+   at: copy (core/io/dir_access.cpp:423)
+
+================================================================
+handle_crash: Program crashed with signal 11
+Engine version: Godot Engine v4.6.3.stable.official (7d41c59c457bd5a245092b4e7eb2d833e3b3f8c3)
+Dumping the backtrace. Please include this when reporting the bug on: https://github.com/godotengine/godot/issues
+[1] 1   libsystem_platform.dylib            0x000000018222d6a4 _sigtramp + 56
+[2] RotatedFileLogger::rotate_file() (in Godot) + 1160
+[3] RotatedFileLogger::rotate_file() (in Godot) + 1160
+[4] RotatedFileLogger::RotatedFileLogger(String const&, int) (in Godot) + 80
+[5] Main::setup(char const*, int, char**, bool) (in Godot) + 18880
+[6] OS_MacOS_Headless::run() (in Godot) + 68
+[7] main (in Godot) + 924
+[8] 8   dyld                                0x0000000181e52b98 start + 6076
+-- END OF C++ BACKTRACE --
+================================================================
+
+
+======================================================================
+FAIL: test_headless_directional_release_and_resources (test_sockets.SocketTests.test_headless_directional_release_and_resources)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_sockets.py", line 169, in test_headless_directional_release_and_resources
+    self.assertEqual(engine_errors,[], '\n'.join(engine_errors))
+AssertionError: Lists differ: ['ERROR: Condition "ret != noErr" is true.[285 chars] ""'] != []
+
+First list contains 4 additional elements.
+First extra element 0:
+'ERROR: Condition "ret != noErr" is true. Returning: ""'
+
++ []
+- ['ERROR: Condition "ret != noErr" is true. Returning: ""',
+-  "ERROR: Cannot save file '/Users/admin/Library/Application "
+-  "Support/Godot/editor_settings-4.6.tres'.",
+-  'ERROR: Error saving editor settings to /Users/admin/Library/Application '
+-  'Support/Godot/editor_settings-4.6.tres',
+-  'ERROR: Condition "ret != noErr" is true. Returning: ""'] : ERROR: Condition "ret != noErr" is true. Returning: ""
+ERROR: Cannot save file '/Users/admin/Library/Application Support/Godot/editor_settings-4.6.tres'.
+ERROR: Error saving editor settings to /Users/admin/Library/Application Support/Godot/editor_settings-4.6.tres
+ERROR: Condition "ret != noErr" is true. Returning: ""
+
+======================================================================
+FAIL: test_headless_authored_cast_east_north_collision_timing_and_feedback_cleanup (test_vfx_picker.AuthoredEffectPickerTests.test_headless_authored_cast_east_north_collision_timing_and_feedback_cleanup)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_vfx_picker.py", line 518, in test_headless_authored_cast_east_north_collision_timing_and_feedback_cleanup
+    run_headless(self, self.project, 'effect_probe.gd')
+  File "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_vfx_picker.py", line 119, in run_headless
+    test.assertEqual(engine_errors, [], '\n'.join(engine_errors))
+AssertionError: Lists differ: ['ERROR: Condition "ret != noErr" is true.[285 chars] ""'] != []
+
+First list contains 4 additional elements.
+First extra element 0:
+'ERROR: Condition "ret != noErr" is true. Returning: ""'
+
++ []
+- ['ERROR: Condition "ret != noErr" is true. Returning: ""',
+-  "ERROR: Cannot save file '/Users/admin/Library/Application "
+-  "Support/Godot/editor_settings-4.6.tres'.",
+-  'ERROR: Error saving editor settings to /Users/admin/Library/Application '
+-  'Support/Godot/editor_settings-4.6.tres',
+-  'ERROR: Condition "ret != noErr" is true. Returning: ""'] : ERROR: Condition "ret != noErr" is true. Returning: ""
+ERROR: Cannot save file '/Users/admin/Library/Application Support/Godot/editor_settings-4.6.tres'.
+ERROR: Error saving editor settings to /Users/admin/Library/Application Support/Godot/editor_settings-4.6.tres
+ERROR: Condition "ret != noErr" is true. Returning: ""
+
+======================================================================
+FAIL: test_headless_first_cast_contact_cursor_pool_cancel_and_picker (test_vfx_picker.G1ComponentTests.test_headless_first_cast_contact_cursor_pool_cancel_and_picker)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_vfx_picker.py", line 835, in test_headless_first_cast_contact_cursor_pool_cancel_and_picker
+    run_headless(self, out, 'probe_vfx.gd')
+  File "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_vfx_picker.py", line 119, in run_headless
+    test.assertEqual(engine_errors, [], '\n'.join(engine_errors))
+AssertionError: Lists differ: ['ERROR: Condition "ret != noErr" is true.[285 chars] ""'] != []
+
+First list contains 4 additional elements.
+First extra element 0:
+'ERROR: Condition "ret != noErr" is true. Returning: ""'
+
++ []
+- ['ERROR: Condition "ret != noErr" is true. Returning: ""',
+-  "ERROR: Cannot save file '/Users/admin/Library/Application "
+-  "Support/Godot/editor_settings-4.6.tres'.",
+-  'ERROR: Error saving editor settings to /Users/admin/Library/Application '
+-  'Support/Godot/editor_settings-4.6.tres',
+-  'ERROR: Condition "ret != noErr" is true. Returning: ""'] : ERROR: Condition "ret != noErr" is true. Returning: ""
+ERROR: Cannot save file '/Users/admin/Library/Application Support/Godot/editor_settings-4.6.tres'.
+ERROR: Error saving editor settings to /Users/admin/Library/Application Support/Godot/editor_settings-4.6.tres
+ERROR: Condition "ret != noErr" is true. Returning: ""
+
+======================================================================
+FAIL: test_headless_pierce_contacts_labels_pool_and_phase_callbacks (test_vfx_picker.G1ComponentTests.test_headless_pierce_contacts_labels_pool_and_phase_callbacks)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_vfx_picker.py", line 935, in test_headless_pierce_contacts_labels_pool_and_phase_callbacks
+    run_headless(self, fixture['project'], 'probe_pierce.gd')
+  File "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_vfx_picker.py", line 119, in run_headless
+    test.assertEqual(engine_errors, [], '\n'.join(engine_errors))
+AssertionError: Lists differ: ['ERROR: Condition "ret != noErr" is true.[285 chars] ""'] != []
+
+First list contains 4 additional elements.
+First extra element 0:
+'ERROR: Condition "ret != noErr" is true. Returning: ""'
+
++ []
+- ['ERROR: Condition "ret != noErr" is true. Returning: ""',
+-  "ERROR: Cannot save file '/Users/admin/Library/Application "
+-  "Support/Godot/editor_settings-4.6.tres'.",
+-  'ERROR: Error saving editor settings to /Users/admin/Library/Application '
+-  'Support/Godot/editor_settings-4.6.tres',
+-  'ERROR: Condition "ret != noErr" is true. Returning: ""'] : ERROR: Condition "ret != noErr" is true. Returning: ""
+ERROR: Cannot save file '/Users/admin/Library/Application Support/Godot/editor_settings-4.6.tres'.
+ERROR: Error saving editor settings to /Users/admin/Library/Application Support/Godot/editor_settings-4.6.tres
+ERROR: Condition "ret != noErr" is true. Returning: ""
+
+======================================================================
+FAIL: test_headless_glow_sixty_samples_extrema_range_and_particle_properties (test_vfx_picker.LivingEmbersTests.test_headless_glow_sixty_samples_extrema_range_and_particle_properties)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_vfx_picker.py", line 420, in test_headless_glow_sixty_samples_extrema_range_and_particle_properties
+    run_headless(self, out, 'glow_probe.gd')
+  File "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_vfx_picker.py", line 119, in run_headless
+    test.assertEqual(engine_errors, [], '\n'.join(engine_errors))
+AssertionError: Lists differ: ['ERROR: Condition "ret != noErr" is true.[285 chars] ""'] != []
+
+First list contains 4 additional elements.
+First extra element 0:
+'ERROR: Condition "ret != noErr" is true. Returning: ""'
+
++ []
+- ['ERROR: Condition "ret != noErr" is true. Returning: ""',
+-  "ERROR: Cannot save file '/Users/admin/Library/Application "
+-  "Support/Godot/editor_settings-4.6.tres'.",
+-  'ERROR: Error saving editor settings to /Users/admin/Library/Application '
+-  'Support/Godot/editor_settings-4.6.tres',
+-  'ERROR: Condition "ret != noErr" is true. Returning: ""'] : ERROR: Condition "ret != noErr" is true. Returning: ""
+ERROR: Cannot save file '/Users/admin/Library/Application Support/Godot/editor_settings-4.6.tres'.
+ERROR: Error saving editor settings to /Users/admin/Library/Application Support/Godot/editor_settings-4.6.tres
+ERROR: Condition "ret != noErr" is true. Returning: ""
+
+======================================================================
+FAIL: test_headless_tab_twice_cast_scene_labels_and_inflight_kit_lock (test_vfx_picker.VfxPickerTests.test_headless_tab_twice_cast_scene_labels_and_inflight_kit_lock)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_vfx_picker.py", line 279, in test_headless_tab_twice_cast_scene_labels_and_inflight_kit_lock
+    run_headless(self, out, 'picker_probe.gd')
+  File "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_vfx_picker.py", line 119, in run_headless
+    test.assertEqual(engine_errors, [], '\n'.join(engine_errors))
+AssertionError: Lists differ: ['ERROR: Condition "ret != noErr" is true.[285 chars] ""'] != []
+
+First list contains 4 additional elements.
+First extra element 0:
+'ERROR: Condition "ret != noErr" is true. Returning: ""'
+
++ []
+- ['ERROR: Condition "ret != noErr" is true. Returning: ""',
+-  "ERROR: Cannot save file '/Users/admin/Library/Application "
+-  "Support/Godot/editor_settings-4.6.tres'.",
+-  'ERROR: Error saving editor settings to /Users/admin/Library/Application '
+-  'Support/Godot/editor_settings-4.6.tres',
+-  'ERROR: Condition "ret != noErr" is true. Returning: ""'] : ERROR: Condition "ret != noErr" is true. Returning: ""
+ERROR: Cannot save file '/Users/admin/Library/Application Support/Godot/editor_settings-4.6.tres'.
+ERROR: Error saving editor settings to /Users/admin/Library/Application Support/Godot/editor_settings-4.6.tres
+ERROR: Condition "ret != noErr" is true. Returning: ""
+
+----------------------------------------------------------------------
+Ran 568 tests in 216.735s
+
+FAILED (failures=15)

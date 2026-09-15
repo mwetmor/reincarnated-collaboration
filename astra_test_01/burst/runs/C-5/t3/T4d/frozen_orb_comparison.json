@@ -1,0 +1,36 @@
+{
+  "unchanged_quantities": {
+    "VO1": true,
+    "VO2": true,
+    "VO3_white_legacy": true,
+    "VO4": true,
+    "VO5": true,
+    "VO6": true,
+    "VO8": true,
+    "VO10": true,
+    "straight_alpha_edges": true,
+    "residue_fraction": true
+  },
+  "changed_quantities": 0,
+  "VO3": {
+    "palest_saturated_fraction": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "fraction_at_peak": 0.0,
+    "classifier": "V > 0.85 and S >= 0.25 over effect pixels"
+  },
+  "frames": 5,
+  "fixture_sha256": {
+    "impact_00.png": "aa97aafffbd3108d2807378ee50ddc6188d445a718380d44d78fdc190ba5a976",
+    "impact_01.png": "8cf34abe5b09f1cee5d0f86893b5c72c628d0264bc83a4b3336a1bece28b9404",
+    "impact_02.png": "92333946a46639f2e0a8c81eb8ea561a7e31cafaac043a686fc600bb57241abf",
+    "impact_03.png": "e62951055a1c3c88a4c5a285a0c9f6ea2f850f568c6877c186b1882935865c1b",
+    "impact_04.png": "a619cf714690ba71c1a6cd2758f191e6ffe48712b929c470c5d345a3d1f232b2"
+  },
+  "wall_s": 0.038366084001609124,
+  "comparison_scope": "Pre-edit measurer, same supplied Frozen Orb v3 fixture at 60 fps; archived R-C3-112 receipt not in read scope."
+}

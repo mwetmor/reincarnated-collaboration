@@ -1,0 +1,18 @@
+{
+ "text": "GENERATE BURST N1-master-cam-02 — ARM CORRECTION on the camera master (Run C-6; Matt 2026-09-15: \"the image is perfect except that the arm making the fist needs to be the right arm\"). task_id \"N1-master-cam-02\".\n\nIMAGE 1 is the approved camera master of the Necromancer on flat PURE GREEN #00ff00 (1254×1254): a tall gaunt man in bone-ribbed charcoal armour, long white hair, a great bone horn on HIS LEFT shoulder (the viewer's right), seen from the game's high three-quarter camera. He stands in a two-handed polearm grip: at present HIS LEFT fist (viewer's right) is raised at chest height and HIS RIGHT fist (viewer's left) hangs low at the hip.\n\nUse image_gen in EDIT mode on IMAGE 1 and deliver ONE image of the same size in which the ARMS are SWAPPED IN POSE ONLY: HIS RIGHT fist (the viewer's LEFT) is raised, closed, at chest height in front of the ribcage plate; HIS LEFT fist (the viewer's RIGHT, on the horned side) hangs low, closed, at the hip. Do NOT mirror the image; the horn stays on his left shoulder (viewer's right), the belt buckle, hair, face, feet, camera, scale and position stay exactly where they are. Every other pixel of the figure and the green plate stays as painted. Both hands closed; no weapon, no shadow, no props, no text.\n\nOne image_gen call. ONE retry only if the horn changed shoulder, the figure moved or resized, a hand is open, or anything beyond the two arms changed — name the reason. Copy the output from $CODEX_HOME/generated_images/... to out/necro_master_cam_02.png with sha256. No code. No other files. No web.\nRETURN: the receipt (task_id \"N1-master-cam-02\"): files = [exactly one entry: out/necro_master_cam_02.png with its sha256]; images = the INTEGER COUNT of image_gen calls made (1 or 2) — NOT a list, and NEVER a path under $CODEX_HOME/generated_images; calls_used; status DELIVERED / DELIVERED_WITH_CONCERNS with concerns listed honestly.",
+ "references": [
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-6/artifacts/N1-master-cam-01/necro_master_cam.png",
+   "role": "IMAGE 1 — the camera master to EDIT (arms only)"
+  }
+ ],
+ "image_cap": 2,
+ "minutes_cap": 15,
+ "tool_call_cap": 20,
+ "outputs": [
+  "out/necro_master_cam_02.png"
+ ],
+ "effort": "high",
+ "add_dirs": [],
+ "experiment": "C6-N1"
+}

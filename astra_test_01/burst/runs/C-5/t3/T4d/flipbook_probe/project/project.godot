@@ -1,0 +1,17 @@
+config_version=5
+[application]
+config/name="T4d flipbook alpha probe"
+run/main_scene="res://scenes/main.tscn"
+[display]
+window/size/viewport_width=64
+window/size/viewport_height=64
+[rendering]
+viewport/transparent_background=true
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"
+environment/defaults/default_clear_color=Color(0,0,0,1)
+
+[physics]
+common/physics_ticks_per_second=60
+
+[autoload]

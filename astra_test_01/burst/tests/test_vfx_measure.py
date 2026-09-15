@@ -14,7 +14,7 @@ from PIL import Image
 from oracle.vfx_measure import compare, measure
 
 ROOT = Path(__file__).resolve().parents[1]
-OUT = ROOT/'runs/C-3/t3/T3s'
+OUT = ROOT/'tests'
 REFERENCE = ROOT/'oracle/vfx_reference_hades.json'
 
 
@@ -74,39 +74,39 @@ class VFXMeasureTests(unittest.TestCase):
         frames, expected = synthetic_frames()
         result = self.sample(frames)
         checks = {
-            'rise_frames': result['O1']['rise_frames'], 'rise_ms': result['O1']['rise_ms'],
-            'peak_frame': result['O1']['peak_frame'], 'half_frame': result['O1']['half_frame'],
-            'frames_to_half': result['O1']['frames_to_half'], 'ms_to_half': result['O1']['ms_to_half'],
+            'rise_frames': result['VO1']['rise_frames'], 'rise_ms': result['VO1']['rise_ms'],
+            'peak_frame': result['VO1']['peak_frame'], 'half_frame': result['VO1']['half_frame'],
+            'frames_to_half': result['VO1']['frames_to_half'], 'ms_to_half': result['VO1']['ms_to_half'],
             'residue_fraction': result['residue_fraction'],
-            'white_core_fraction': result['O3']['core_frac_at_peak'],
-            'hue_sd_deg': result['O4']['hue_sd_deg_at_peak'], 'value_bands': result['O10']['count_at_peak'],
-            'peak_area_px': result['O1']['peak_area_px'],
-            'bright_s': result['O5']['bright_15_median_at_peak'],
-            'dim_s': result['O5']['dim_25_median_at_peak'],
+            'white_core_fraction': result['VO3_white_legacy']['core_frac_at_peak'],
+            'hue_sd_deg': result['VO4']['hue_sd_deg_at_peak'], 'value_bands': result['VO10']['count_at_peak'],
+            'peak_area_px': result['VO1']['peak_area_px'],
+            'bright_s': result['VO5']['bright_15_median_at_peak'],
+            'dim_s': result['VO5']['dim_25_median_at_peak'],
             'straight_alpha_edges': result['straight_alpha_edges']['count']}
-        checks.update({k: result['O6'][k] for k in ('width_px', 'height_px', 'width_bh', 'height_bh')})
-        checks.update({k: result['O8'][k] for k in ('unique_frames', 'unique_frames_per_s')})
-        checks.update({k: result['O2'][k] for k in ('observed_life_frames', 'observed_life_ms')})
+        checks.update({k: result['VO6'][k] for k in ('width_px', 'height_px', 'width_bh', 'height_bh')})
+        checks.update({k: result['VO8'][k] for k in ('unique_frames', 'unique_frames_per_s')})
+        checks.update({k: result['VO2'][k] for k in ('observed_life_frames', 'observed_life_ms')})
         for name, measured in checks.items():
             with self.subTest(quantity=name):
                 self.assertAlmostEqual(measured, expected[name], delta=abs(expected[name])*.05)
-        np.testing.assert_allclose(result['O1']['envelope_area_over_peak'], expected['envelope'], rtol=.05)
-        self.assertEqual(result['O3']['classification'], 'flash-first')
-        self.assertIsNone(result['O2']['visible_life_frames'])
-        self.assertTrue(result['O2']['censored'])
-        self.assertTrue(result['O10']['inspect_only'])
+        np.testing.assert_allclose(result['VO1']['envelope_area_over_peak'], expected['envelope'], rtol=.05)
+        self.assertEqual(result['VO3_white_legacy']['classification'], 'flash-first')
+        self.assertIsNone(result['VO2']['visible_life_frames'])
+        self.assertTrue(result['VO2']['censored'])
+        self.assertTrue(result['VO10']['inspect_only'])
         self.assertTrue(all(row['passed'] is None for row in result['results']))
-        rate = next(row for row in compare(result, REFERENCE) if row['id'] == 'O8_rate')
+        rate = next(row for row in compare(result, REFERENCE) if row['id'] == 'VO8_rate')
         self.assertIs(rate['in_band'], True)
         json.dumps(result, allow_nan=False)
 
     def test_flat_value_is_one_mode_and_achromatic_hue_is_missing(self):
         a = np.full((10, 10, 4), [128, 128, 128, 255], np.uint8)
         r = self.sample([a])
-        self.assertEqual(r['O10']['count_at_peak'], 1)
-        self.assertIsNone(r['O4']['hue_sd_deg_at_peak'])
-        self.assertEqual(r['O4']['series'][0]['n'], 0)
-        self.assertIsNone(next(row for row in compare(r, REFERENCE) if row['id'] == 'O10_modes')['passed'])
+        self.assertEqual(r['VO10']['count_at_peak'], 1)
+        self.assertIsNone(r['VO4']['hue_sd_deg_at_peak'])
+        self.assertEqual(r['VO4']['series'][0]['n'], 0)
+        self.assertIsNone(next(row for row in compare(r, REFERENCE) if row['id'] == 'VO10_modes')['passed'])
 
     def test_finite_life_and_irregular_durations(self):
         frames = []
@@ -115,25 +115,25 @@ class VFXMeasureTests(unittest.TestCase):
             a.reshape(-1, 4)[:n] = [30, 90, 180, 255]
             frames.append(a)
         r = self.sample(frames, [10, 20, 30, 40, 50, 60])
-        self.assertEqual(r['O1']['onset_frame'], 1)
-        self.assertEqual(r['O1']['rise_ms'], 20)
-        self.assertEqual(r['O1']['frames_to_half'], 1)
-        self.assertEqual(r['O1']['ms_to_half'], 30)
-        self.assertEqual(r['O2']['end_frame'], 5)  # exactly .10 at 4 is still visible
-        self.assertEqual(r['O2']['visible_life_frames'], 4)
-        self.assertEqual(r['O2']['visible_life_ms'], 140)
-        self.assertFalse(r['O2']['censored'])
-        self.assertIsNone(r['O3']['white_core_fraction'][0])
+        self.assertEqual(r['VO1']['onset_frame'], 1)
+        self.assertEqual(r['VO1']['rise_ms'], 20)
+        self.assertEqual(r['VO1']['frames_to_half'], 1)
+        self.assertEqual(r['VO1']['ms_to_half'], 30)
+        self.assertEqual(r['VO2']['end_frame'], 5)  # exactly .10 at 4 is still visible
+        self.assertEqual(r['VO2']['visible_life_frames'], 4)
+        self.assertEqual(r['VO2']['visible_life_ms'], 140)
+        self.assertFalse(r['VO2']['censored'])
+        self.assertIsNone(r['VO3_white_legacy']['white_core_fraction'][0])
         self.assertEqual(r['residue_fraction'], 0)
 
     def test_core_last_and_no_core(self):
         a = np.full((4, 4, 4), [30, 180, 90, 255], np.uint8)
         b = a.copy(); b[:2, :, :3] = 255
         r = self.sample([a, b])
-        self.assertEqual(r['O3']['classification'], 'core-last')
-        self.assertEqual(r['O1']['peak_frame'], 0)
+        self.assertEqual(r['VO3_white_legacy']['classification'], 'core-last')
+        self.assertEqual(r['VO1']['peak_frame'], 0)
         r = self.sample([a, a])
-        self.assertEqual(r['O3']['classification'], 'no-core')
+        self.assertEqual(r['VO3_white_legacy']['classification'], 'no-core')
 
     def test_white_core_thresholds_and_hue_wrap(self):
         rgb = [np.round(np.array(colorsys.hsv_to_rgb(h/360, 1., .8))*255).astype(np.uint8)
@@ -141,8 +141,8 @@ class VFXMeasureTests(unittest.TestCase):
         a = np.array([[[*rgb[0], 255], [*rgb[1], 255], [255, 255, 255, 255],
                        [242, 242, 242, 255], [255, 190, 190, 255]]], np.uint8)
         r = self.sample([a])
-        self.assertAlmostEqual(r['O3']['core_frac_at_peak'], .2)
-        self.assertLess(r['O4']['hue_sd_deg_at_peak'], 1.1)
+        self.assertAlmostEqual(r['VO3_white_legacy']['core_frac_at_peak'], .2)
+        self.assertLess(r['VO4']['hue_sd_deg_at_peak'], 1.1)
 
     def test_alpha_edges_and_hidden_rgb(self):
         a = np.zeros((5, 5, 4), np.uint8)
@@ -150,34 +150,34 @@ class VFXMeasureTests(unittest.TestCase):
         a[1, 1] = [255, 255, 255, 128]
         a[0, 0] = [255, 255, 255, 0]
         r = self.sample([a])
-        self.assertEqual(r['O1']['peak_area_px'], 9)
+        self.assertEqual(r['VO1']['peak_area_px'], 9)
         self.assertEqual(r['straight_alpha_edges']['count'], 1)
-        self.assertEqual(r['O6']['bbox_at_peak'], [1, 1, 4, 4])
+        self.assertEqual(r['VO6']['bbox_at_peak'], [1, 1, 4, 4])
 
     def test_exact_unique_vs_consecutive_drawings(self):
         a = np.full((2, 2, 4), [1, 2, 3, 255], np.uint8)
         b = a.copy(); b[0, 0, 0] = 2
         r = self.sample([a, b, a], 30)
-        self.assertEqual(r['O8']['unique_frames'], 2)
-        self.assertAlmostEqual(r['O8']['unique_frames_per_s'], 20)
-        self.assertEqual(r['O8']['drawing_changes'], 2)
-        self.assertAlmostEqual(r['O8']['drawing_runs_per_s'], 30)
+        self.assertEqual(r['VO8']['unique_frames'], 2)
+        self.assertAlmostEqual(r['VO8']['unique_frames_per_s'], 20)
+        self.assertEqual(r['VO8']['drawing_changes'], 2)
+        self.assertAlmostEqual(r['VO8']['drawing_runs_per_s'], 30)
 
     def test_black_exact_support_and_no_alpha_claim(self):
         a = np.zeros((5, 5, 3), np.uint8)
         a[2, 2] = [1, 0, 0]
         r = self.sample([a], plate='black')
-        self.assertEqual(r['O1']['peak_area_px'], 1)
+        self.assertEqual(r['VO1']['peak_area_px'], 1)
         self.assertIsNone(r['straight_alpha_edges']['count'])
         self.assertFalse(r['straight_alpha_edges']['available'])
 
     def test_empty_support_is_unevaluable_not_zero_life(self):
         r = self.sample([np.zeros((3, 3, 4), np.uint8)]*2)
-        self.assertIsNone(r['O1']['peak_frame'])
-        self.assertIsNone(r['O2']['visible_life_frames'])
-        self.assertIsNone(r['O4']['hue_sd_deg_at_peak'])
+        self.assertIsNone(r['VO1']['peak_frame'])
+        self.assertIsNone(r['VO2']['visible_life_frames'])
+        self.assertIsNone(r['VO4']['hue_sd_deg_at_peak'])
         self.assertIsNone(r['residue_fraction'])
-        self.assertEqual(r['O1']['envelope_area_over_peak'], [None, None])
+        self.assertEqual(r['VO1']['envelope_area_over_peak'], [None, None])
         json.dumps(r, allow_nan=False)
 
     def test_natural_frame_order(self):
@@ -186,7 +186,7 @@ class VFXMeasureTests(unittest.TestCase):
         p = write_frames(self.path/'frames', [a, b], ['frame10.png', 'frame2.png'])
         r = measure(p, 60)
         self.assertEqual(r['frame_files'], ['frame2.png', 'frame10.png'])
-        self.assertEqual(r['O1']['rise_frames'], 1)
+        self.assertEqual(r['VO1']['rise_frames'], 1)
 
     def test_malformed_no_frames_and_mixed_sizes(self):
         with self.assertRaises(ValueError):
@@ -215,9 +215,9 @@ class VFXMeasureTests(unittest.TestCase):
 
     def test_compare_rise_1_and_6_with_source_conflict_exposed(self):
         for rise, expected in ((1, True), (6, False)):
-            rows = compare({'O1': {'rise_frames': rise}}, REFERENCE)
-            strike = next(r for r in rows if r['id'] == 'O1_rise_strike')
-            aggregate = next(r for r in rows if r['id'] == 'O1_rise_all_exemplars')
+            rows = compare({'VO1': {'rise_frames': rise}}, REFERENCE)
+            strike = next(r for r in rows if r['id'] == 'VO1_rise_strike')
+            aggregate = next(r for r in rows if r['id'] == 'VO1_rise_all_exemplars')
             self.assertIs(strike['in_band'], expected)
             self.assertEqual(strike['threshold'], {'min': 0, 'max': 1})
             self.assertIs(aggregate['in_band'], True)
@@ -234,8 +234,8 @@ class VFXMeasureTests(unittest.TestCase):
         for flag, val in (('proposed', True), ('committed', False), ('inspect_only', True)):
             changed = copy.deepcopy(ref); changed['bands'][0][flag] = val
             self.assertIsNone(compare({'x': 1}, changed)[0]['passed'])
-        ref['bands'][0]['path'] = 'O10.count_at_peak'
-        self.assertIsNone(compare({'O10': {'count_at_peak': 2}}, ref)[0]['passed'])
+        ref['bands'][0]['path'] = 'VO10.count_at_peak'
+        self.assertIsNone(compare({'VO10': {'count_at_peak': 2}}, ref)[0]['passed'])
 
     def test_compare_invalid_and_open_bounds(self):
         ref = {'bands': [dict(path='x', min=1, max=None)]}
@@ -259,6 +259,30 @@ class VFXMeasureTests(unittest.TestCase):
         self.assertTrue(result['comparison'])
         bad = subprocess.run(command+['--fps', '0'], cwd=ROOT, capture_output=True, text=True)
         self.assertNotEqual(bad.returncode, 0)
+
+
+    def test_palest_saturated_band_and_legacy_are_distinct(self):
+        # V=.85 excluded, S=.25 included; white is legacy-only; hidden RGB ignored.
+        a = np.array([[[255,255,255,255], [240,180,180,255], [216,0,0,255],
+                       [217,0,0,255], [255,192,192,255], [255,0,0,0]]], np.uint8)
+        r = self.sample([a])
+        self.assertEqual(r['VO3']['fraction_at_peak'], .4)
+        self.assertEqual(r['VO3_white_legacy']['core_frac_at_peak'], .4)
+        self.assertEqual(r['VO3']['palest_saturated_fraction'], [.4])
+
+    def test_no_bare_metric_keys_including_legacy_reference_comparison(self):
+        import re
+        r = self.sample([np.full((4,4,4),255,np.uint8)])
+        r['comparison'] = compare(r, REFERENCE)
+        self.assertIsNone(re.search(r'"'+'O'+r'\d+[^" ]*"\s*:', json.dumps(r)))
+        self.assertTrue(all(re.match('O'+r'\d', row['id']) is None for row in r['comparison']))
+        legacy_name = 'O'+'3'
+        ref = {'bands':[{'id':legacy_name+'_core','path':legacy_name+'.core_frac_at_peak','min':0,'max':1}]}
+        comparison = compare(r,ref)[0]
+        self.assertEqual(comparison['path'],'VO3_white_legacy.core_frac_at_peak')
+        self.assertEqual(comparison['value'],1.)
+        self.assertNotIn(legacy_name,r)
+        self.assertEqual(r[legacy_name],r['VO3_white_legacy'])
 
 
 if __name__ == '__main__':

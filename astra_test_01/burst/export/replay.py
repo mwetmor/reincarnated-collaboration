@@ -82,6 +82,7 @@ var captures: int = 0
 var started: bool = false
 var flip_sprite: Sprite2D
 var flip_paths: Array = []
+var flip_textures: Array[ImageTexture] = []
 
 func _initialize() -> void:
     config = JSON.parse_string(FileAccess.get_file_as_string("res://replay_config.json"))
@@ -133,11 +134,28 @@ func _setup() -> void:
         # The flipbook is screen-space: its recorded shake is not applied twice.
         if is_instance_valid(effect):
             effect.hide()
+        # Upload once, before frame_pre_draw. Retain strong references for the
+        # entire run: replacing/freeing an ImageTexture during frame_pre_draw
+        # can leave the renderer drawing its white fallback texture.
+        for path in flip_paths:
+            var image := Image.new()
+            var error := image.load(str(path))
+            if error != OK or image.is_empty() or image.get_size() != root.size or image.get_format() != Image.FORMAT_RGBA8:
+                report.flipbook_error = {"path": str(path), "load_error": error}
+                push_error("Invalid flipbook RGBA image: " + str(path))
+                _finish()
+                return
+            flip_textures.append(ImageTexture.create_from_image(image))
+        report.flipbook_loaded = flip_textures.size()
         var overlay := CanvasLayer.new()
         overlay.layer = 100
         root.add_child(overlay)
         flip_sprite = Sprite2D.new()
-        flip_sprite.centered = false
+        # Native bake pivot is the crop centre, at the effect origin. The
+        # screen-space crop already records camera shake; do not shake twice.
+        flip_sprite.centered = true
+        flip_sprite.position = Vector2(root.size) * 0.5
+        flip_sprite.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
         overlay.add_child(flip_sprite)
         _set_flip_frame()
         RenderingServer.frame_pre_draw.connect(_set_flip_frame)
@@ -148,9 +166,8 @@ func _setup() -> void:
     started = true
 
 func _set_flip_frame() -> void:
-    if not flip_paths.is_empty():
-        var path: String = str(flip_paths[mini(captures, flip_paths.size() - 1)])
-        flip_sprite.texture = ImageTexture.create_from_image(Image.load_from_file(path))
+    if not flip_textures.is_empty():
+        flip_sprite.texture = flip_textures[mini(captures, flip_textures.size() - 1)]
 
 func seed_particles(node: Node) -> void:
     if node is GPUParticles2D or node is CPUParticles2D:

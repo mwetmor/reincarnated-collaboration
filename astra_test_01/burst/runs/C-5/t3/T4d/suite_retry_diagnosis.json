@@ -1,0 +1,16 @@
+{
+  "prior_tests_run": 568,
+  "prior_successful": 545,
+  "extra_cleanup_errors": [
+    "test_deps_ledger.Tests.test_cycle_and_invalid_are_atomic",
+    "test_deps_ledger.Tests.test_human_protection",
+    "test_deps_ledger.Tests.test_transitive_diamond_slot_and_unrelated",
+    "test_lane.LaneTests.test_ledger_atomic_replacement_and_rollback",
+    "test_lane.LaneTests.test_wrapper_roundtrip_error_timeout_and_void",
+    "test_ledger.ModuleTests.test_provenance_and_authoritative_image_budget",
+    "test_ref_provenance.Tests.test_first_party_and_symlink_escape",
+    "test_run_burst.ModuleTests.test_wrapper_image_truth_and_tooling_in_place"
+  ],
+  "diagnosis": "Output relocation resolved shutil.rmtree dir_fd-relative names against cwd; preserve descriptor-relative operations unchanged. No source test/assertion edits.",
+  "change": "stat/mkdir/unlink/rmdir bypass path remapping when dir_fd is supplied."
+}

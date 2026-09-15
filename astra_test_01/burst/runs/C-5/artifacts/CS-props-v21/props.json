@@ -1,0 +1,2044 @@
+{
+ "assets": [
+  {
+   "name": "tree_living_a",
+   "file": "assets/tree_living_a.png",
+   "anchor": [
+    328.013986013986,
+    561
+   ],
+   "footprint": {
+    "w": 166,
+    "h": 40,
+    "offset": [
+     -7.01,
+     -20.0
+    ],
+    "shape": "rect"
+   },
+   "collide": true,
+   "fade_when_behind": true
+  },
+  {
+   "name": "tree_living_b",
+   "file": "assets/tree_living_b.png",
+   "anchor": [
+    341.3105590062112,
+    542
+   ],
+   "footprint": {
+    "w": 122,
+    "h": 40,
+    "offset": [
+     8.69,
+     -20.0
+    ],
+    "shape": "rect"
+   },
+   "collide": true,
+   "fade_when_behind": true
+  },
+  {
+   "name": "snag_scorched",
+   "file": "assets/snag_scorched.png",
+   "anchor": [
+    136.1290322580645,
+    281
+   ],
+   "footprint": {
+    "w": 143,
+    "h": 40,
+    "offset": [
+     -59.63,
+     -20.0
+    ],
+    "shape": "rect"
+   },
+   "collide": true,
+   "fade_when_behind": true
+  },
+  {
+   "name": "stump_a",
+   "file": "assets/stump_a.png",
+   "anchor": [
+    51.68735083532219,
+    98
+   ],
+   "footprint": {
+    "w": 114,
+    "h": 51,
+    "offset": [
+     10.31,
+     -25.5
+    ],
+    "shape": "rect"
+   },
+   "collide": true,
+   "fade_when_behind": false
+  },
+  {
+   "name": "stump_b",
+   "file": "assets/stump_b.png",
+   "anchor": [
+    95.17901234567901,
+    103
+   ],
+   "footprint": {
+    "w": 120,
+    "h": 54,
+    "offset": [
+     -33.18,
+     -27.0
+    ],
+    "shape": "rect"
+   },
+   "collide": true,
+   "fade_when_behind": false
+  },
+  {
+   "name": "cache_crates_barrel",
+   "file": "assets/cache_crates_barrel.png",
+   "anchor": [
+    40.782051282051285,
+    125
+   ],
+   "footprint": {
+    "w": 129,
+    "h": 58,
+    "offset": [
+     29.72,
+     -29.0
+    ],
+    "shape": "rect"
+   },
+   "collide": true,
+   "fade_when_behind": false
+  },
+  {
+   "name": "rock_a",
+   "file": "assets/rock_a.png",
+   "anchor": [
+    40.36054421768708,
+    55
+   ],
+   "footprint": {
+    "w": 97,
+    "h": 43,
+    "offset": [
+     14.14,
+     -21.5
+    ],
+    "shape": "rect"
+   },
+   "collide": true,
+   "fade_when_behind": false
+  },
+  {
+   "name": "rock_b",
+   "file": "assets/rock_b.png",
+   "anchor": [
+    30.905940594059405,
+    62
+   ],
+   "footprint": {
+    "w": 77,
+    "h": 34,
+    "offset": [
+     13.59,
+     -17.0
+    ],
+    "shape": "rect"
+   },
+   "collide": false,
+   "fade_when_behind": false
+  },
+  {
+   "name": "rock_c",
+   "file": "assets/rock_c.png",
+   "anchor": [
+    47.31764705882353,
+    61
+   ],
+   "footprint": {
+    "w": 87,
+    "h": 39,
+    "offset": [
+     2.18,
+     -19.5
+    ],
+    "shape": "rect"
+   },
+   "collide": false,
+   "fade_when_behind": false
+  },
+  {
+   "name": "bridge_obj_01_a",
+   "file": "assets/bridge_obj_01_a.png",
+   "anchor": [
+    92.41221374045801,
+    264
+   ],
+   "footprint": {
+    "w": 151,
+    "h": 40,
+    "offset": [
+     10.09,
+     -20.0
+    ],
+    "shape": "rect"
+   },
+   "collide": true,
+   "fade_when_behind": true
+  },
+  {
+   "name": "bridge_obj_01_c",
+   "file": "assets/bridge_obj_01_c.png",
+   "anchor": [
+    37.10497237569061,
+    76
+   ],
+   "footprint": {
+    "w": 83,
+    "h": 37,
+    "offset": [
+     10.4,
+     -18.5
+    ],
+    "shape": "rect"
+   },
+   "collide": true,
+   "fade_when_behind": false
+  },
+  {
+   "name": "bridge_obj_02_a",
+   "file": "assets/bridge_obj_02_a.png",
+   "anchor": [
+    45.03157894736842,
+    51
+   ],
+   "footprint": {
+    "w": 94,
+    "h": 42,
+    "offset": [
+     7.97,
+     -21.0
+    ],
+    "shape": "rect"
+   },
+   "collide": true,
+   "fade_when_behind": false
+  },
+  {
+   "name": "far_obj_05_a",
+   "file": "assets/far_obj_05_a.png",
+   "anchor": [
+    39.65806451612903,
+    73
+   ],
+   "footprint": {
+    "w": 81,
+    "h": 36,
+    "offset": [
+     6.84,
+     -18.0
+    ],
+    "shape": "rect"
+   },
+   "collide": false,
+   "fade_when_behind": false
+  },
+  {
+   "name": "far_obj_05_b",
+   "file": "assets/far_obj_05_b.png",
+   "anchor": [
+    61.760736196319016,
+    252
+   ],
+   "footprint": {
+    "w": 101,
+    "h": 40,
+    "offset": [
+     3.74,
+     -20.0
+    ],
+    "shape": "rect"
+   },
+   "collide": true,
+   "fade_when_behind": true
+  },
+  {
+   "name": "far_obj_02_a",
+   "file": "assets/far_obj_02_a.png",
+   "anchor": [
+    58.31578947368421,
+    275
+   ],
+   "footprint": {
+    "w": 98,
+    "h": 40,
+    "offset": [
+     8.68,
+     -20.0
+    ],
+    "shape": "rect"
+   },
+   "collide": true,
+   "fade_when_behind": true
+  },
+  {
+   "name": "far_obj_07_a",
+   "file": "assets/far_obj_07_a.png",
+   "anchor": [
+    91.83050847457628,
+    270
+   ],
+   "footprint": {
+    "w": 94,
+    "h": 40,
+    "offset": [
+     -39.83,
+     -20.0
+    ],
+    "shape": "rect"
+   },
+   "collide": true,
+   "fade_when_behind": true
+  },
+  {
+   "name": "far_obj_01_a",
+   "file": "assets/far_obj_01_a.png",
+   "anchor": [
+    54.41706161137441,
+    272
+   ],
+   "footprint": {
+    "w": 95,
+    "h": 40,
+    "offset": [
+     -1.92,
+     -20.0
+    ],
+    "shape": "rect"
+   },
+   "collide": true,
+   "fade_when_behind": true
+  },
+  {
+   "name": "far_obj_03_a",
+   "file": "assets/far_obj_03_a.png",
+   "anchor": [
+    61.355670103092784,
+    86
+   ],
+   "footprint": {
+    "w": 125,
+    "h": 56,
+    "offset": [
+     6.14,
+     -28.0
+    ],
+    "shape": "rect"
+   },
+   "collide": true,
+   "fade_when_behind": false
+  },
+  {
+   "name": "far_obj_10_a",
+   "file": "assets/far_obj_10_a.png",
+   "anchor": [
+    68.94117647058823,
+    90
+   ],
+   "footprint": {
+    "w": 127,
+    "h": 57,
+    "offset": [
+     -0.44,
+     -28.5
+    ],
+    "shape": "rect"
+   },
+   "collide": true,
+   "fade_when_behind": false
+  },
+  {
+   "name": "far_obj_12_a",
+   "file": "assets/far_obj_12_a.png",
+   "anchor": [
+    46.122950819672134,
+    84
+   ],
+   "footprint": {
+    "w": 89,
+    "h": 40,
+    "offset": [
+     4.38,
+     -20.0
+    ],
+    "shape": "rect"
+   },
+   "collide": true,
+   "fade_when_behind": false
+  },
+  {
+   "name": "far_obj_04_a",
+   "file": "assets/far_obj_04_a.png",
+   "anchor": [
+    47.443396226415096,
+    88
+   ],
+   "footprint": {
+    "w": 82,
+    "h": 36,
+    "offset": [
+     -1.44,
+     -18.0
+    ],
+    "shape": "rect"
+   },
+   "collide": true,
+   "fade_when_behind": false
+  },
+  {
+   "name": "far_low_obj_02_a",
+   "file": "assets/far_low_obj_02_a.png",
+   "anchor": [
+    63.95454545454545,
+    86
+   ],
+   "footprint": {
+    "w": 111,
+    "h": 49,
+    "offset": [
+     -2.45,
+     -24.5
+    ],
+    "shape": "rect"
+   },
+   "collide": true,
+   "fade_when_behind": false
+  },
+  {
+   "name": "far_low_obj_02_b",
+   "file": "assets/far_low_obj_02_b.png",
+   "anchor": [
+    149.0,
+    350
+   ],
+   "footprint": {
+    "w": 106,
+    "h": 40,
+    "offset": [
+     8.0,
+     -20.0
+    ],
+    "shape": "rect"
+   },
+   "collide": true,
+   "fade_when_behind": true
+  },
+  {
+   "name": "far_low_obj_01_a",
+   "file": "assets/far_low_obj_01_a.png",
+   "anchor": [
+    200.4835164835165,
+    123
+   ],
+   "footprint": {
+    "w": 160,
+    "h": 72,
+    "offset": [
+     -50.48,
+     -36.0
+    ],
+    "shape": "rect"
+   },
+   "collide": true,
+   "fade_when_behind": false
+  },
+  {
+   "name": "far_low_obj_01_b",
+   "file": "assets/far_low_obj_01_b.png",
+   "anchor": [
+    31.426666666666666,
+    51
+   ],
+   "footprint": {
+    "w": 61,
+    "h": 30,
+    "offset": [
+     5.07,
+     -15.0
+    ],
+    "shape": "rect"
+   },
+   "collide": false,
+   "fade_when_behind": false
+  },
+  {
+   "name": "far_low_obj_01_c",
+   "file": "assets/far_low_obj_01_c.png",
+   "anchor": [
+    47.15652173913043,
+    78
+   ],
+   "footprint": {
+    "w": 89,
+    "h": 40,
+    "offset": [
+     3.34,
+     -20.0
+    ],
+    "shape": "rect"
+   },
+   "collide": true,
+   "fade_when_behind": false
+  },
+  {
+   "name": "far_low_obj_01_d",
+   "file": "assets/far_low_obj_01_d.png",
+   "anchor": [
+    100.94444444444444,
+    246
+   ],
+   "footprint": {
+    "w": 107,
+    "h": 40,
+    "offset": [
+     -41.44,
+     -20.0
+    ],
+    "shape": "rect"
+   },
+   "collide": true,
+   "fade_when_behind": true
+  },
+  {
+   "name": "far_low_obj_01_e",
+   "file": "assets/far_low_obj_01_e.png",
+   "anchor": [
+    74.38636363636364,
+    81
+   ],
+   "footprint": {
+    "w": 92,
+    "h": 41,
+    "offset": [
+     -22.39,
+     -20.5
+    ],
+    "shape": "rect"
+   },
+   "collide": true,
+   "fade_when_behind": false
+  },
+  {
+   "name": "south_obj_01_a",
+   "file": "assets/south_obj_01_a.png",
+   "anchor": [
+    266.57615894039736,
+    223
+   ],
+   "footprint": {
+    "w": 362,
+    "h": 72,
+    "offset": [
+     -76.58,
+     -36.0
+    ],
+    "shape": "rect"
+   },
+   "collide": true,
+   "fade_when_behind": false
+  },
+  {
+   "name": "south_obj_01_b",
+   "file": "assets/south_obj_01_b.png",
+   "anchor": [
+    273.032967032967,
+    181
+   ],
+   "footprint": {
+    "w": 374,
+    "h": 72,
+    "offset": [
+     -80.03,
+     -36.0
+    ],
+    "shape": "rect"
+   },
+   "collide": true,
+   "fade_when_behind": false
+  },
+  {
+   "name": "south_obj_01_c",
+   "file": "assets/south_obj_01_c.png",
+   "anchor": [
+    381.3285714285714,
+    568
+   ],
+   "footprint": {
+    "w": 214,
+    "h": 40,
+    "offset": [
+     -32.33,
+     -20.0
+    ],
+    "shape": "rect"
+   },
+   "collide": true,
+   "fade_when_behind": true
+  },
+  {
+   "name": "west_obj_01_a",
+   "file": "assets/west_obj_01_a.png",
+   "anchor": [
+    23.304054054054053,
+    163
+   ],
+   "footprint": {
+    "w": 33,
+    "h": 30,
+    "offset": [
+     -0.8,
+     -15.0
+    ],
+    "shape": "rect"
+   },
+   "collide": true,
+   "fade_when_behind": false
+  },
+  {
+   "name": "west_obj_02_a",
+   "file": "assets/west_obj_02_a.png",
+   "anchor": [
+    73.87349397590361,
+    114
+   ],
+   "footprint": {
+    "w": 126,
+    "h": 56,
+    "offset": [
+     -5.87,
+     -28.0
+    ],
+    "shape": "rect"
+   },
+   "collide": true,
+   "fade_when_behind": false
+  },
+  {
+   "name": "west_obj_02_b",
+   "file": "assets/west_obj_02_b.png",
+   "anchor": [
+    165.13492063492063,
+    359
+   ],
+   "footprint": {
+    "w": 60,
+    "h": 40,
+    "offset": [
+     -7.13,
+     -20.0
+    ],
+    "shape": "rect"
+   },
+   "collide": true,
+   "fade_when_behind": true
+  },
+  {
+   "name": "west_obj_02_c",
+   "file": "assets/west_obj_02_c.png",
+   "anchor": [
+    274.0042016806723,
+    624
+   ],
+   "footprint": {
+    "w": 198,
+    "h": 40,
+    "offset": [
+     44.0,
+     -20.0
+    ],
+    "shape": "rect"
+   },
+   "collide": true,
+   "fade_when_behind": true
+  },
+  {
+   "name": "bridge_post_0",
+   "file": "assets/bridge_post_0.png",
+   "anchor": [
+    18.5,
+    110.0
+   ],
+   "footprint": {
+    "w": 39.3,
+    "h": 33.0,
+    "offset": [
+     1.4,
+     -16.2
+    ],
+    "shape": "rect"
+   },
+   "collide": true,
+   "fade_when_behind": false
+  },
+  {
+   "name": "bridge_post_1",
+   "file": "assets/bridge_post_1.png",
+   "anchor": [
+    18.0,
+    105.0
+   ],
+   "footprint": {
+    "w": 39.3,
+    "h": 33.0,
+    "offset": [
+     0.3,
+     -15.3
+    ],
+    "shape": "rect"
+   },
+   "collide": true,
+   "fade_when_behind": false
+  },
+  {
+   "name": "bridge_post_2",
+   "file": "assets/bridge_post_2.png",
+   "anchor": [
+    21.0,
+    105.0
+   ],
+   "footprint": {
+    "w": 39.3,
+    "h": 33.0,
+    "offset": [
+     1.5,
+     -13.4
+    ],
+    "shape": "rect"
+   },
+   "collide": true,
+   "fade_when_behind": false
+  },
+  {
+   "name": "bridge_post_3",
+   "file": "assets/bridge_post_3.png",
+   "anchor": [
+    19.0,
+    104.0
+   ],
+   "footprint": {
+    "w": 39.3,
+    "h": 33.0,
+    "offset": [
+     -0.2,
+     -13.5
+    ],
+    "shape": "rect"
+   },
+   "collide": true,
+   "fade_when_behind": false
+  },
+  {
+   "name": "cow_carcass",
+   "file": "assets/cow_carcass.png",
+   "anchor": [
+    121.5,
+    116.0
+   ],
+   "footprint": {
+    "w": 235,
+    "h": 58,
+    "offset": [
+     -4.0,
+     -29.0
+    ],
+    "shape": "rect"
+   },
+   "collide": true,
+   "fade_when_behind": false
+  },
+  {
+   "name": "raven_perched",
+   "file": "assets/raven_perched.png",
+   "anchor": [
+    17.53386911595867,
+    150.0
+   ],
+   "footprint": {
+    "w": 8,
+    "h": 6
+   },
+   "collide": false,
+   "fade_when_behind": false
+  },
+  {
+   "name": "dummy_humanoid_1",
+   "file": "assets/dummy_humanoid_1.png",
+   "anchor": [
+    96.0,
+    220
+   ],
+   "footprint": {
+    "w": 153.60000000000002,
+    "h": 67.19999999999999,
+    "offset": [
+     0,
+     0
+    ],
+    "shape": "ellipse"
+   },
+   "collide": true,
+   "fade_when_behind": false
+  },
+  {
+   "name": "dummy_rat_1",
+   "file": "assets/dummy_rat_1.png",
+   "anchor": [
+    15.0,
+    75
+   ],
+   "footprint": {
+    "w": 24.0,
+    "h": 10.5,
+    "offset": [
+     0,
+     0
+    ],
+    "shape": "ellipse"
+   },
+   "collide": true,
+   "fade_when_behind": false
+  },
+  {
+   "name": "dummy_brute_1",
+   "file": "assets/dummy_brute_1.png",
+   "anchor": [
+    86.5,
+    340
+   ],
+   "footprint": {
+    "w": 138.4,
+    "h": 60.55,
+    "offset": [
+     0,
+     0
+    ],
+    "shape": "ellipse"
+   },
+   "collide": true,
+   "fade_when_behind": false
+  },
+  {
+   "name": "dummy_humanoid_2",
+   "file": "assets/dummy_humanoid_2.png",
+   "anchor": [
+    44.0,
+    177
+   ],
+   "footprint": {
+    "w": 70.4,
+    "h": 30.799999999999997,
+    "offset": [
+     0,
+     0
+    ],
+    "shape": "ellipse"
+   },
+   "collide": true,
+   "fade_when_behind": false
+  },
+  {
+   "name": "dummy_humanoid_3",
+   "file": "assets/dummy_humanoid_3.png",
+   "anchor": [
+    53.5,
+    192
+   ],
+   "footprint": {
+    "w": 85.60000000000001,
+    "h": 37.449999999999996,
+    "offset": [
+     0,
+     0
+    ],
+    "shape": "ellipse"
+   },
+   "collide": true,
+   "fade_when_behind": false
+  },
+  {
+   "name": "dummy_hound_1",
+   "file": "assets/dummy_hound_1.png",
+   "anchor": [
+    65.0,
+    110
+   ],
+   "footprint": {
+    "w": 104.0,
+    "h": 45.5,
+    "offset": [
+     0,
+     0
+    ],
+    "shape": "ellipse"
+   },
+   "collide": true,
+   "fade_when_behind": false
+  },
+  {
+   "name": "dummy_rat_3",
+   "file": "assets/dummy_rat_3.png",
+   "anchor": [
+    15.0,
+    76
+   ],
+   "footprint": {
+    "w": 24.0,
+    "h": 10.5,
+    "offset": [
+     0,
+     0
+    ],
+    "shape": "ellipse"
+   },
+   "collide": true,
+   "fade_when_behind": false
+  },
+  {
+   "name": "necro_master_still",
+   "file": "assets/necro_master_still.png",
+   "anchor": [
+    35.0,
+    130.0
+   ],
+   "footprint": {
+    "w": 56.0,
+    "h": 24.5,
+    "offset": [
+     0,
+     0
+    ],
+    "shape": "ellipse"
+   },
+   "collide": true,
+   "fade_when_behind": false
+  }
+ ],
+ "instances": [
+  {
+   "asset": "tree_living_a",
+   "position": [
+    1896.0139860139861,
+    2765
+   ]
+  },
+  {
+   "asset": "tree_living_b",
+   "position": [
+    2727.3105590062114,
+    2489
+   ]
+  },
+  {
+   "asset": "snag_scorched",
+   "position": [
+    1743.1290322580644,
+    2169
+   ]
+  },
+  {
+   "asset": "stump_a",
+   "position": [
+    1709.6873508353221,
+    2781
+   ]
+  },
+  {
+   "asset": "stump_b",
+   "position": [
+    2182.179012345679,
+    2769
+   ]
+  },
+  {
+   "asset": "cache_crates_barrel",
+   "position": [
+    2803.7820512820513,
+    2475
+   ]
+  },
+  {
+   "asset": "rock_a",
+   "position": [
+    1772.360544217687,
+    2165
+   ]
+  },
+  {
+   "asset": "rock_b",
+   "position": [
+    2615.9059405940593,
+    2428
+   ]
+  },
+  {
+   "asset": "rock_c",
+   "position": [
+    2656.3176470588232,
+    2535
+   ]
+  },
+  {
+   "asset": "bridge_obj_01_a",
+   "position": [
+    2588.412213740458,
+    1352
+   ]
+  },
+  {
+   "asset": "bridge_obj_01_c",
+   "position": [
+    2829.1049723756905,
+    1286
+   ]
+  },
+  {
+   "asset": "bridge_obj_02_a",
+   "position": [
+    3199.0315789473684,
+    1486
+   ]
+  },
+  {
+   "asset": "far_obj_05_a",
+   "position": [
+    4511.658064516129,
+    706
+   ]
+  },
+  {
+   "asset": "far_obj_05_b",
+   "position": [
+    4640.760736196319,
+    977
+   ]
+  },
+  {
+   "asset": "far_obj_02_a",
+   "position": [
+    4593.315789473684,
+    573
+   ]
+  },
+  {
+   "asset": "far_obj_07_a",
+   "position": [
+    5139.830508474576,
+    928
+   ]
+  },
+  {
+   "asset": "far_obj_01_a",
+   "position": [
+    5102.417061611374,
+    540
+   ]
+  },
+  {
+   "asset": "far_obj_03_a",
+   "position": [
+    4914.355670103093,
+    508
+   ]
+  },
+  {
+   "asset": "far_obj_10_a",
+   "position": [
+    4440.941176470588,
+    909
+   ]
+  },
+  {
+   "asset": "far_obj_12_a",
+   "position": [
+    4918.122950819672,
+    1005
+   ]
+  },
+  {
+   "asset": "far_obj_04_a",
+   "position": [
+    4877.443396226415,
+    667
+   ]
+  },
+  {
+   "asset": "far_low_obj_02_a",
+   "position": [
+    4995.954545454546,
+    1610
+   ]
+  },
+  {
+   "asset": "far_low_obj_02_b",
+   "position": [
+    5160.0,
+    1630
+   ]
+  },
+  {
+   "asset": "far_low_obj_01_a",
+   "position": [
+    4432.483516483517,
+    1359
+   ]
+  },
+  {
+   "asset": "far_low_obj_01_b",
+   "position": [
+    4364.426666666666,
+    1268
+   ]
+  },
+  {
+   "asset": "far_low_obj_01_c",
+   "position": [
+    4430.156521739131,
+    1472
+   ]
+  },
+  {
+   "asset": "far_low_obj_01_d",
+   "position": [
+    4600.944444444444,
+    1420
+   ]
+  },
+  {
+   "asset": "far_low_obj_01_e",
+   "position": [
+    4724.386363636364,
+    1489
+   ]
+  },
+  {
+   "asset": "south_obj_01_a",
+   "position": [
+    1775.5761589403974,
+    3791
+   ]
+  },
+  {
+   "asset": "south_obj_01_b",
+   "position": [
+    2317.032967032967,
+    3780
+   ]
+  },
+  {
+   "asset": "south_obj_01_c",
+   "position": [
+    2521.328571428571,
+    3610
+   ]
+  },
+  {
+   "asset": "west_obj_01_a",
+   "position": [
+    309.30405405405406,
+    2830
+   ]
+  },
+  {
+   "asset": "west_obj_02_a",
+   "position": [
+    513.8734939759036,
+    2791
+   ]
+  },
+  {
+   "asset": "west_obj_02_b",
+   "position": [
+    613.1349206349206,
+    3501
+   ]
+  },
+  {
+   "asset": "west_obj_02_c",
+   "position": [
+    918.0042016806723,
+    3442
+   ]
+  },
+  {
+   "asset": "bridge_post_0",
+   "position": [
+    3238.5,
+    1428.0
+   ]
+  },
+  {
+   "asset": "bridge_post_1",
+   "position": [
+    2996.0,
+    1247.0
+   ]
+  },
+  {
+   "asset": "bridge_post_2",
+   "position": [
+    3922.0,
+    836.0
+   ]
+  },
+  {
+   "asset": "bridge_post_3",
+   "position": [
+    3680.0,
+    656.0
+   ]
+  },
+  {
+   "asset": "cow_carcass",
+   "position": [
+    4600.0,
+    830.0
+   ]
+  },
+  {
+   "asset": "raven_perched",
+   "position": [
+    3681.0,
+    657.0
+   ]
+  },
+  {
+   "asset": "dummy_humanoid_1",
+   "position": [
+    4038.75,
+    450.0
+   ]
+  },
+  {
+   "asset": "dummy_rat_1",
+   "position": [
+    4221.25,
+    398.0
+   ]
+  },
+  {
+   "asset": "dummy_brute_1",
+   "position": [
+    4370.507042253521,
+    494.8732394366197
+   ]
+  },
+  {
+   "asset": "dummy_humanoid_2",
+   "position": [
+    3911.25,
+    596.0
+   ]
+  },
+  {
+   "asset": "dummy_humanoid_3",
+   "position": [
+    4525.718309859155,
+    650.5070422535211
+   ]
+  },
+  {
+   "asset": "dummy_hound_1",
+   "position": [
+    4222.25,
+    609.5
+   ]
+  },
+  {
+   "asset": "dummy_rat_3",
+   "position": [
+    4248.75,
+    752.5
+   ]
+  },
+  {
+   "asset": "necro_master_still",
+   "position": [
+    3840.0,
+    720.0
+   ]
+  }
+ ],
+ "shadows": [],
+ "overhead": [],
+ "near": [
+  {
+   "file": "near/near_spire.png",
+   "position": [
+    3397.5,
+    3078.0
+   ],
+   "scroll_scale": 1.25,
+   "fade": false
+  }
+ ],
+ "particles": [
+  {
+   "name": "crack_embers_1",
+   "texture": "fx/ember_1.png",
+   "rect": [
+    1673.7,
+    2036.7,
+    1685.7,
+    2048.7
+   ],
+   "amount": 10,
+   "lifetime_s": 1.3,
+   "velocity_px_s": [
+    18,
+    55
+   ],
+   "direction": [
+    0.15,
+    -1
+   ],
+   "spread_deg": 28,
+   "scale": [
+    0.05,
+    0.11
+   ],
+   "color_start": [
+    1,
+    0.85,
+    0.5,
+    1
+   ],
+   "color_end": [
+    1,
+    0.25,
+    0.05,
+    0
+   ],
+   "gravity": [
+    6,
+    -10
+   ],
+   "angular_velocity": [
+    -90,
+    90
+   ],
+   "scale_curve": [
+    1.0,
+    0.3
+   ],
+   "additive": true
+  },
+  {
+   "name": "crack_embers_2",
+   "texture": "fx/ember_3.png",
+   "rect": [
+    1715.5,
+    2696.0,
+    1727.5,
+    2708.0
+   ],
+   "amount": 10,
+   "lifetime_s": 1.3,
+   "velocity_px_s": [
+    18,
+    55
+   ],
+   "direction": [
+    0.15,
+    -1
+   ],
+   "spread_deg": 28,
+   "scale": [
+    0.05,
+    0.11
+   ],
+   "color_start": [
+    1,
+    0.85,
+    0.5,
+    1
+   ],
+   "color_end": [
+    1,
+    0.25,
+    0.05,
+    0
+   ],
+   "gravity": [
+    6,
+    -10
+   ],
+   "angular_velocity": [
+    -90,
+    90
+   ],
+   "scale_curve": [
+    1.0,
+    0.3
+   ],
+   "additive": true
+  },
+  {
+   "name": "crack_smoke_2",
+   "texture": "fx/smoke_2.png",
+   "rect": [
+    1717.5,
+    2692.0,
+    1725.5,
+    2702.0
+   ],
+   "amount": 4,
+   "lifetime_s": 2.6,
+   "velocity_px_s": [
+    10,
+    22
+   ],
+   "direction": [
+    0.2,
+    -1
+   ],
+   "spread_deg": 12,
+   "scale": [
+    0.18,
+    0.3
+   ],
+   "color_start": [
+    0.75,
+    0.7,
+    0.8,
+    0.45
+   ],
+   "color_end": [
+    0.6,
+    0.55,
+    0.7,
+    0
+   ],
+   "gravity": [
+    4,
+    -2
+   ],
+   "angular_velocity": [
+    -20,
+    20
+   ],
+   "scale_curve": [
+    0.6,
+    1.4
+   ],
+   "additive": false
+  },
+  {
+   "name": "crack_embers_3",
+   "texture": "fx/ember_1.png",
+   "rect": [
+    2622.2,
+    1250.3,
+    2634.2,
+    1262.3
+   ],
+   "amount": 10,
+   "lifetime_s": 1.3,
+   "velocity_px_s": [
+    18,
+    55
+   ],
+   "direction": [
+    0.15,
+    -1
+   ],
+   "spread_deg": 28,
+   "scale": [
+    0.05,
+    0.11
+   ],
+   "color_start": [
+    1,
+    0.85,
+    0.5,
+    1
+   ],
+   "color_end": [
+    1,
+    0.25,
+    0.05,
+    0
+   ],
+   "gravity": [
+    6,
+    -10
+   ],
+   "angular_velocity": [
+    -90,
+    90
+   ],
+   "scale_curve": [
+    1.0,
+    0.3
+   ],
+   "additive": true
+  },
+  {
+   "name": "crack_smoke_3",
+   "texture": "fx/smoke_2.png",
+   "rect": [
+    2624.2,
+    1246.3,
+    2632.2,
+    1256.3
+   ],
+   "amount": 4,
+   "lifetime_s": 2.6,
+   "velocity_px_s": [
+    10,
+    22
+   ],
+   "direction": [
+    0.2,
+    -1
+   ],
+   "spread_deg": 12,
+   "scale": [
+    0.18,
+    0.3
+   ],
+   "color_start": [
+    0.75,
+    0.7,
+    0.8,
+    0.45
+   ],
+   "color_end": [
+    0.6,
+    0.55,
+    0.7,
+    0
+   ],
+   "gravity": [
+    4,
+    -2
+   ],
+   "angular_velocity": [
+    -20,
+    20
+   ],
+   "scale_curve": [
+    0.6,
+    1.4
+   ],
+   "additive": false
+  },
+  {
+   "name": "crack_embers_4",
+   "texture": "fx/ember_3.png",
+   "rect": [
+    2832.8,
+    1229.2,
+    2844.8,
+    1241.2
+   ],
+   "amount": 10,
+   "lifetime_s": 1.3,
+   "velocity_px_s": [
+    18,
+    55
+   ],
+   "direction": [
+    0.15,
+    -1
+   ],
+   "spread_deg": 28,
+   "scale": [
+    0.05,
+    0.11
+   ],
+   "color_start": [
+    1,
+    0.85,
+    0.5,
+    1
+   ],
+   "color_end": [
+    1,
+    0.25,
+    0.05,
+    0
+   ],
+   "gravity": [
+    6,
+    -10
+   ],
+   "angular_velocity": [
+    -90,
+    90
+   ],
+   "scale_curve": [
+    1.0,
+    0.3
+   ],
+   "additive": true
+  },
+  {
+   "name": "crack_smoke_4",
+   "texture": "fx/smoke_2.png",
+   "rect": [
+    2834.8,
+    1225.2,
+    2842.8,
+    1235.2
+   ],
+   "amount": 4,
+   "lifetime_s": 2.6,
+   "velocity_px_s": [
+    10,
+    22
+   ],
+   "direction": [
+    0.2,
+    -1
+   ],
+   "spread_deg": 12,
+   "scale": [
+    0.18,
+    0.3
+   ],
+   "color_start": [
+    0.75,
+    0.7,
+    0.8,
+    0.45
+   ],
+   "color_end": [
+    0.6,
+    0.55,
+    0.7,
+    0
+   ],
+   "gravity": [
+    4,
+    -2
+   ],
+   "angular_velocity": [
+    -20,
+    20
+   ],
+   "scale_curve": [
+    0.6,
+    1.4
+   ],
+   "additive": false
+  },
+  {
+   "name": "crack_embers_6",
+   "texture": "fx/ember_3.png",
+   "rect": [
+    4596.4,
+    500.8,
+    4608.4,
+    512.8
+   ],
+   "amount": 10,
+   "lifetime_s": 1.3,
+   "velocity_px_s": [
+    18,
+    55
+   ],
+   "direction": [
+    0.15,
+    -1
+   ],
+   "spread_deg": 28,
+   "scale": [
+    0.05,
+    0.11
+   ],
+   "color_start": [
+    1,
+    0.85,
+    0.5,
+    1
+   ],
+   "color_end": [
+    1,
+    0.25,
+    0.05,
+    0
+   ],
+   "gravity": [
+    6,
+    -10
+   ],
+   "angular_velocity": [
+    -90,
+    90
+   ],
+   "scale_curve": [
+    1.0,
+    0.3
+   ],
+   "additive": true
+  },
+  {
+   "name": "crack_embers_7",
+   "texture": "fx/ember_1.png",
+   "rect": [
+    5094.9,
+    840.7,
+    5106.9,
+    852.7
+   ],
+   "amount": 10,
+   "lifetime_s": 1.3,
+   "velocity_px_s": [
+    18,
+    55
+   ],
+   "direction": [
+    0.15,
+    -1
+   ],
+   "spread_deg": 28,
+   "scale": [
+    0.05,
+    0.11
+   ],
+   "color_start": [
+    1,
+    0.85,
+    0.5,
+    1
+   ],
+   "color_end": [
+    1,
+    0.25,
+    0.05,
+    0
+   ],
+   "gravity": [
+    6,
+    -10
+   ],
+   "angular_velocity": [
+    -90,
+    90
+   ],
+   "scale_curve": [
+    1.0,
+    0.3
+   ],
+   "additive": true
+  },
+  {
+   "name": "crack_embers_8",
+   "texture": "fx/ember_3.png",
+   "rect": [
+    2512.0,
+    3286.2,
+    2524.0,
+    3298.2
+   ],
+   "amount": 10,
+   "lifetime_s": 1.3,
+   "velocity_px_s": [
+    18,
+    55
+   ],
+   "direction": [
+    0.15,
+    -1
+   ],
+   "spread_deg": 28,
+   "scale": [
+    0.05,
+    0.11
+   ],
+   "color_start": [
+    1,
+    0.85,
+    0.5,
+    1
+   ],
+   "color_end": [
+    1,
+    0.25,
+    0.05,
+    0
+   ],
+   "gravity": [
+    6,
+    -10
+   ],
+   "angular_velocity": [
+    -90,
+    90
+   ],
+   "scale_curve": [
+    1.0,
+    0.3
+   ],
+   "additive": true
+  },
+  {
+   "name": "canyon_embers",
+   "texture": "fx/ember_5.png",
+   "rect": [
+    2950,
+    1450,
+    3700,
+    3900
+   ],
+   "amount": 70,
+   "lifetime_s": 4.5,
+   "velocity_px_s": [
+    25,
+    70
+   ],
+   "direction": [
+    0.1,
+    -1
+   ],
+   "spread_deg": 25,
+   "scale": [
+    0.04,
+    0.09
+   ],
+   "color_start": [
+    1,
+    0.8,
+    0.45,
+    0.9
+   ],
+   "color_end": [
+    1,
+    0.3,
+    0.05,
+    0
+   ],
+   "gravity": [
+    8,
+    -6
+   ],
+   "angular_velocity": [
+    -60,
+    60
+   ],
+   "scale_curve": [
+    1.0,
+    0.4
+   ],
+   "additive": true
+  },
+  {
+   "name": "canyon_flakes",
+   "texture": "fx/flake_2.png",
+   "rect": [
+    2950,
+    1450,
+    3700,
+    3900
+   ],
+   "amount": 14,
+   "lifetime_s": 6.0,
+   "velocity_px_s": [
+    15,
+    40
+   ],
+   "direction": [
+    0.2,
+    -1
+   ],
+   "spread_deg": 35,
+   "scale": [
+    0.07,
+    0.12
+   ],
+   "color_start": [
+    1,
+    1,
+    1,
+    0.9
+   ],
+   "color_end": [
+    1,
+    0.6,
+    0.4,
+    0
+   ],
+   "gravity": [
+    10,
+    -3
+   ],
+   "angular_velocity": [
+    -120,
+    120
+   ],
+   "scale_curve": [
+    1.0,
+    0.6
+   ],
+   "additive": false
+  }
+ ],
+ "glows": [
+  {
+   "texture": "fx/glow.png",
+   "position": [
+    1679.7,
+    2042.7
+   ],
+   "scale": 1.2,
+   "color": [
+    1.0,
+    0.45,
+    0.12,
+    0.85
+   ],
+   "flicker_hz": 4.7,
+   "flicker_amount": 0.35,
+   "z_parent": "actors",
+   "sort_y": 2170
+  },
+  {
+   "texture": "fx/glow.png",
+   "position": [
+    1721.5,
+    2702.0
+   ],
+   "scale": 0.76,
+   "color": [
+    1.0,
+    0.45,
+    0.12,
+    0.85
+   ],
+   "flicker_hz": 5.4,
+   "flicker_amount": 0.35,
+   "z_parent": "actors",
+   "sort_y": 2782
+  },
+  {
+   "texture": "fx/glow.png",
+   "position": [
+    2628.2,
+    1256.3
+   ],
+   "scale": 1.2,
+   "color": [
+    1.0,
+    0.45,
+    0.12,
+    0.85
+   ],
+   "flicker_hz": 6.1,
+   "flicker_amount": 0.35,
+   "z_parent": "actors",
+   "sort_y": 1353
+  },
+  {
+   "texture": "fx/glow.png",
+   "position": [
+    2838.8,
+    1235.2
+   ],
+   "scale": 0.6,
+   "color": [
+    1.0,
+    0.45,
+    0.12,
+    0.85
+   ],
+   "flicker_hz": 6.8,
+   "flicker_amount": 0.35,
+   "z_parent": "actors",
+   "sort_y": 1287
+  },
+  {
+   "texture": "fx/glow.png",
+   "position": [
+    4602.4,
+    506.8
+   ],
+   "scale": 0.96,
+   "color": [
+    1.0,
+    0.45,
+    0.12,
+    0.85
+   ],
+   "flicker_hz": 4.7,
+   "flicker_amount": 0.35,
+   "z_parent": "actors",
+   "sort_y": 574
+  },
+  {
+   "texture": "fx/glow.png",
+   "position": [
+    5100.9,
+    846.7
+   ],
+   "scale": 0.99,
+   "color": [
+    1.0,
+    0.45,
+    0.12,
+    0.85
+   ],
+   "flicker_hz": 5.4,
+   "flicker_amount": 0.35,
+   "z_parent": "actors",
+   "sort_y": 929
+  },
+  {
+   "texture": "fx/glow.png",
+   "position": [
+    2518.0,
+    3292.2
+   ],
+   "scale": 1.18,
+   "color": [
+    1.0,
+    0.45,
+    0.12,
+    0.85
+   ],
+   "flicker_hz": 6.1,
+   "flicker_amount": 0.35,
+   "z_parent": "actors",
+   "sort_y": 3611
+  }
+ ],
+ "swarms": [
+  {
+   "name": "cow_flies",
+   "texture": "fx/fly.png",
+   "position": [
+    4233.3,
+    554.2
+   ],
+   "radius_px": 34,
+   "count": 14,
+   "speed_px_s": [
+    90,
+    220
+   ],
+   "land_time_s": [
+    0.25,
+    1.1
+   ],
+   "flight_time_s": [
+    0.3,
+    1.2
+   ],
+   "jitter_px": 3.0,
+   "sort_y": 619.0
+  }
+ ]
+}

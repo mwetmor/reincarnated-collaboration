@@ -1,0 +1,52 @@
+{
+  "command": [
+    "/Applications/Godot.app/Contents/MacOS/Godot",
+    "--path",
+    "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4d/flipbook_probe/project",
+    "--audio-driver",
+    "Dummy",
+    "--log-file",
+    "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4d/flipbook_probe/black/engine.log",
+    "--disable-vsync",
+    "--fixed-fps",
+    "60",
+    "--quit-after",
+    "120",
+    "--script",
+    "res://replay_probe.gd",
+    "--",
+    "--bake"
+  ],
+  "returncode": 0,
+  "timed_out": false,
+  "wall_s": 0.5318926670006476,
+  "config": {
+    "world": "res://scenes/main.tscn",
+    "effect": "res://scenes/effect.tscn",
+    "frame": 1,
+    "frames": 3,
+    "seed": 1,
+    "crop": [
+      64,
+      64
+    ],
+    "origin": [
+      32,
+      32
+    ],
+    "bake": false,
+    "blank": false,
+    "report": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4d/flipbook_probe/black/probe.json",
+    "capture": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4d/flipbook_probe/black/capture.png",
+    "background": "black",
+    "background_path": null,
+    "flipbook": [
+      "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4d/flipbook_probe/external_rgba/fx00000000.png",
+      "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4d/flipbook_probe/external_rgba/fx00000001.png",
+      "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4d/flipbook_probe/external_rgba/fx00000002.png"
+    ],
+    "probe_only": false
+  },
+  "engine_errors": [],
+  "probe_exists": true
+}

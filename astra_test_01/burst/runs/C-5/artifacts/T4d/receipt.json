@@ -1,0 +1,150 @@
+{
+  "task_id": "T4d",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [],
+  "calls_used": 0,
+  "retries": [
+    {
+      "reason": "The suite output-relocation helper caused eight directory-cleanup errors.",
+      "change": "Preserved dir_fd-relative operations and reran the unchanged suite; those eight errors cleared."
+    }
+  ],
+  "self_report": {
+    "obeyed_invariants": false,
+    "concerns": [
+      "Read-scope deviation: the initial SPEC filter displayed additional section 7 rows beyond the authorized introduction and T4d row.",
+      "Synthetic attributable-white peak: 4.000%, criterion 4.0 ± 0.2%. Expiry delay: 12 frames, expected 12. Delivered measurement JSON contains zero bare legacy metric keys.",
+      "Frozen Orb: 10 retained quantities serialize identically across all five supplied frames; zero differences. New VO3 is 0.0 in every frame. Comparison used the pre-edit measurer; the archived R-C3-112 report was outside the read scope.",
+      "Two 960×540 baselines are staged under T4d/baselines. Dirt: 0.0719521605% white, origin [1806,2137]. Foliage: 0.1612654321%, origin [1920,3230]. The required runs/C-5/baselines/white_baseline.json remains absent because the later write restriction forbids that location. These are source-plate composites, not engine captures.",
+      "Grey export: 131 body frames, 10077144 pixels, zero alpha differences, zero non-midgrey pixels, 653 resource references and zero validation errors; 2.802 seconds.",
+      "Flipbook: three cached RGBA textures loaded on each of three backgrounds. Viewport rendering aborted with exit -6 on all three; zero rendered frames were available for alpha validation. A conductor-run render probe is delivered. Texture lifetime/upload timing remains a candidate diagnosis pending renderer confirmation.",
+      "Focused tests: 40/40 successful in 4.420 seconds. Final full suite: tests_run=568, successful=553, 15 red entries, 218.297 seconds wall. Regression: 1880 comparisons, zero differences at tolerance 0.001.",
+      "Standing reds: test_oracle_walk.Tests.test_synthetic_contract_and_grid; test_oracles_motif.Tests.test_f04_outside_at_least_three; test_oracles_motif.Tests.test_named_genuine_annuli_retained (center=[113,201]); test_oracles_motif.Tests.test_named_genuine_annuli_retained (center=[111,311]); test_oracles_motif.Tests.test_named_genuine_annuli_retained (center=[170,253]). test_k3_combat_report_only was successful.",
+      "Godot environment reds: test_godot_import.GodotImportTests.test_headless_state_machine_input_map_gear_vfx_and_nearest_fallback; test_parallax_scene.ParallaxSceneTests.test_headless_cliffside_follow_camera_parallax_and_projectile_collision; test_props_layer.PropsLayerTests.test_headless_occlusion_fade_restore_overhead_near_and_particles; test_scene_kit.SceneKitTests.test_headless_tower_import_run_and_physics; test_sockets.SocketTests.test_headless_directional_release_and_resources.",
+      "Additional Godot environment reds: test_vfx_picker.AuthoredEffectPickerTests.test_headless_authored_cast_east_north_collision_timing_and_feedback_cleanup; test_vfx_picker.G1ComponentTests.test_headless_first_cast_contact_cursor_pool_cancel_and_picker; test_vfx_picker.G1ComponentTests.test_headless_pierce_contacts_labels_pool_and_phase_callbacks; test_vfx_picker.LivingEmbersTests.test_headless_glow_sixty_samples_extrema_range_and_particle_properties; test_vfx_picker.VfxPickerTests.test_headless_tab_twice_cast_scene_labels_and_inflight_kit_lock.",
+      "Suite report writes and temporary directories were relocated without changing assertions. Packaging elapsed 1504.710 seconds against the 2400-second cap; temporary artifacts were removed."
+    ]
+  },
+  "files": [
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/export/replay.py",
+      "sha256": "6bd5acd9c45da02e2126b436afe19caaeca2193776929c95490102a69533dfb1"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/export/godot_import.py",
+      "sha256": "6a6e678e8db674a690c2f28ed12a53839baf6d6ce718f46df2da0b991f215bb0"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/oracle/vfx_measure.py",
+      "sha256": "ed5bb902260d5940ac5a2a064c9437f06d84632954aa23e013c560681e330a4f"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/oracle/white_gate.py",
+      "sha256": "6dfc6191406096c52fe56586be4ff921fc8f70a9d4b12f67609dd4746604d5fe"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/oracle/event_gates.py",
+      "sha256": "8fd2f88877df4f39f373a85c88f9727bf08711658336d57148d8a801d309497d"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_vfx_measure.py",
+      "sha256": "b33425cca194620fcde9b0f63037b6a0497c7d53f44125d3307375778990a7b9"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_white_gate.py",
+      "sha256": "7ad9d772f4df6dc6409dc8cfbb4bf269bfd2e73c484214b669609569e4659466"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_event_gates.py",
+      "sha256": "c864a7fc55eacbbe0b5f152ebc19d6e2d621aa2b33354864e71774d426816c38"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_t4d_export.py",
+      "sha256": "b7d353ed8493c4b493ef4c5c2781546f8608a18177eb099031776f1df8cdd07d"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/probe_t4d_flipbook.py",
+      "sha256": "6cfb11103e8d4352f7dd5753936557a60574aa745744b21b5ca9b642a3099b78"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/acceptance_t4d.py",
+      "sha256": "0273e72d19da0324efd0235ffb1d13c1ed0ebbbd17599b5c820fe7b0aafeb525"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4d/README.md",
+      "sha256": "a21e12038aecb376632a93354ddc2f1897d8c4b3652f6fb434ee7ed5dd40654c"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4d/baselines/dirt_spawn.png",
+      "sha256": "5059690fe377cba029f8955fc06ffa4139741e2fddd8d84798d06deb8fffe404"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4d/baselines/foliage.png",
+      "sha256": "c0219173af59c542a5d35091205fe0f6b99028f19f997d14b73d9cf9f05dcbd4"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4d/baselines/white_baseline.json",
+      "sha256": "7d487ae1a1d25fbdb73d6e4ce085560a528d812040c2597053e37c910913c70c"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4d/delivery_summary.json",
+      "sha256": "8408d6665073c5a11ae608f4feb2bac14f4385ea8ed1217864f496551c64d6ef"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4d/flipbook_headless.json",
+      "sha256": "75d8d736c57a18ce3e0ca6ff1ad3de357793131f5f034652bbf7d35d2b05c3df"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4d/flipbook_render.json",
+      "sha256": "bdb9a2ce11ec9736056a8a9471ae5482ee65ae8259666fd867ffffe617195dec"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4d/focused_suite.log",
+      "sha256": "949f034af644a58626015713918b4eba344f4cfd6470e6efbcd494c7a5deae38"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4d/frozen_orb_before_vo.json",
+      "sha256": "ad79f81da9d92c9d8668ad063db57905c689f07e74c20b3e6a3eb848d187f504"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4d/frozen_orb_comparison.json",
+      "sha256": "109a65da99bdf84285a83e3a36fc2aa38485790ed2c284f31feca48dccf8dbd9"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4d/frozen_orb_vo.json",
+      "sha256": "fc419f7c59f04c05dc93c02687f397d8e5a6704f5f253737c15a1ef4c45bfa87"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4d/full_suite_output.txt",
+      "sha256": "cea9464044968df16275b4c1988a8c93b77967a84178feabc71bc97bfdfd7a9e"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4d/full_suite_process.log",
+      "sha256": "2121b1b6df99342176dc153c7a9edff3cf952a4ddfc0f84ad58927820c3379a7"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4d/full_suite_summary.json",
+      "sha256": "9fe0ab946d35ecc9926ba16aa9f910bdeab8b271f0936b27ae2a7be31deb7264"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4d/grey_export_acceptance.json",
+      "sha256": "e73852ef020cb6c95bc56f60a39dd84d42b58160669352fa9a42a2e1a6314114"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4d/measurement_acceptance.json",
+      "sha256": "8dba3cce44465ca7abc4c10059a928a50714ec01e0c280536832ee1e375dd1e3"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4d/replay_probe.gd",
+      "sha256": "83e9ac24e2610193ce713da461a77e4d3df4b246696f3e0509eed2b0d936df42"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4d/run_full_suite.py",
+      "sha256": "5cbf0b33ebd02896660014c54a83994ea5f44f403f470b8c1e77659ed09baab4"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4d/suite_retry_diagnosis.json",
+      "sha256": "98120ab48f9be1a695348e00feb76d74b4d9d60cd7b64e75667ca168739fd6ab"
+    }
+  ]
+}

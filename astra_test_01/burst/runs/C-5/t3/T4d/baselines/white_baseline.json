@@ -1,0 +1,449 @@
+{
+  "intended_path": "runs/C-5/baselines/white_baseline.json",
+  "staged_because": "Later task constraint forbids writes under runs except runs/C-5/t3/T4d/",
+  "baselines": {
+    "dirt_spawn": {
+      "subject": "dirt_spawn",
+      "crop_origin_xy": [
+        0,
+        0
+      ],
+      "crop_bounds_xyxy": [
+        0,
+        0,
+        960,
+        540
+      ],
+      "crop_wh": [
+        960,
+        540
+      ],
+      "impact_xy": [
+        480.0,
+        270.0
+      ],
+      "denominator_px": 518400,
+      "classifier": "V > 0.95 and S < 0.20",
+      "attribution": "effect_white AND NOT clean_plate_white; exact spatial differencing",
+      "peak_rule": "first maximum attributable white; all peak quantities at that frame",
+      "mean_rule": "arithmetic mean over every captured frame",
+      "n_frames": 1,
+      "peak": {
+        "total": {
+          "pixels": 373,
+          "percent": 0.07195216049382716
+        },
+        "baseline": {
+          "pixels": 373,
+          "percent": 0.07195216049382716
+        },
+        "attributable": {
+          "pixels": 0,
+          "percent": 0.0
+        },
+        "removed_baseline": {
+          "pixels": 0,
+          "percent": 0.0
+        },
+        "frame": 0
+      },
+      "mean": {
+        "total": {
+          "pixels": 373.0,
+          "percent": 0.07195216049382716
+        },
+        "baseline": {
+          "pixels": 373.0,
+          "percent": 0.07195216049382716
+        },
+        "attributable": {
+          "pixels": 0.0,
+          "percent": 0.0
+        },
+        "removed_baseline": {
+          "pixels": 0.0,
+          "percent": 0.0
+        }
+      },
+      "per_frame": [
+        {
+          "total": {
+            "pixels": 373,
+            "percent": 0.07195216049382716
+          },
+          "baseline": {
+            "pixels": 373,
+            "percent": 0.07195216049382716
+          },
+          "attributable": {
+            "pixels": 0,
+            "percent": 0.0
+          },
+          "removed_baseline": {
+            "pixels": 0,
+            "percent": 0.0
+          },
+          "frame": 0
+        }
+      ],
+      "results": [
+        {
+          "id": "white_peak",
+          "subject": "dirt_spawn",
+          "passed": null,
+          "value": {
+            "total": {
+              "pixels": 373,
+              "percent": 0.07195216049382716
+            },
+            "baseline": {
+              "pixels": 373,
+              "percent": 0.07195216049382716
+            },
+            "attributable": {
+              "pixels": 0,
+              "percent": 0.0
+            },
+            "removed_baseline": {
+              "pixels": 0,
+              "percent": 0.0
+            },
+            "frame": 0
+          },
+          "threshold": null,
+          "op": "report",
+          "unit": "percent_of_crop",
+          "evidence": [
+            "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4d/baselines/dirt_spawn.png"
+          ],
+          "notes": "Measurement only; no white budget supplied."
+        },
+        {
+          "id": "white_mean",
+          "subject": "dirt_spawn",
+          "passed": null,
+          "value": {
+            "total": {
+              "pixels": 373.0,
+              "percent": 0.07195216049382716
+            },
+            "baseline": {
+              "pixels": 373.0,
+              "percent": 0.07195216049382716
+            },
+            "attributable": {
+              "pixels": 0.0,
+              "percent": 0.0
+            },
+            "removed_baseline": {
+              "pixels": 0.0,
+              "percent": 0.0
+            }
+          },
+          "threshold": null,
+          "op": "report",
+          "unit": "percent_of_crop",
+          "evidence": [
+            "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4d/baselines/dirt_spawn.png"
+          ],
+          "notes": "Measurement only; no white budget supplied."
+        }
+      ],
+      "clear_rgba": [
+        23,
+        31,
+        43,
+        255
+      ],
+      "source_crop_origin_xy": [
+        1806,
+        2137
+      ],
+      "source_impact_xy": [
+        2285.62,
+        2407.32
+      ],
+      "source_crop_bounds_xyxy": [
+        1806,
+        2137,
+        2766,
+        2677
+      ],
+      "source_nonopaque_pixels": 0,
+      "foreground_nonopaque_pixels": 3240,
+      "sources": [
+        {
+          "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/cliffside_v18/parallax/layers/sky.png",
+          "sha256": "29ba10fc269a88b4f9b1d80813d26b950799921c643e2eede520c826ed01a1ae",
+          "offset_xy": [
+            0,
+            0
+          ]
+        },
+        {
+          "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/cliffside_v18/parallax/layers/far_ruins.png",
+          "sha256": "9b4678c568aad67ed32837659d34fbffb0ac2751283d4c0cd8e7e5872f70a64a",
+          "offset_xy": [
+            0,
+            -416
+          ]
+        },
+        {
+          "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/cliffside_v18/parallax/layers/forest_valley.png",
+          "sha256": "7d8f6d4fde6b21347d0481c1ef1ebec99ca7259c14f11ded9707914071dc2bc8",
+          "offset_xy": [
+            0,
+            537
+          ]
+        },
+        {
+          "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/cliffside_v18/parallax/layers/mist.png",
+          "sha256": "2832c2c262533a487e61586beed68337bf6ba1da64a6f14176d33dfa9ffa0202",
+          "offset_xy": [
+            0,
+            568
+          ]
+        },
+        {
+          "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/cliffside_v18/parallax/tiles/tile_0_0.png",
+          "sha256": "1756154844981936a806b58bd6003e911b99110afe77013374b8048a8629046c",
+          "offset_xy": [
+            0,
+            0
+          ]
+        },
+        {
+          "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/cliffside_v18/parallax/tiles/tile_4096_0.png",
+          "sha256": "664dada2572fd38f37c2a245d32281f2387623fa26944411e6b10761826d6739",
+          "offset_xy": [
+            4096,
+            0
+          ]
+        }
+      ],
+      "baseline_kind": "native source-plate reconstruction at authored layer offsets; no engine capture, camera-scroll correction or props"
+    },
+    "foliage": {
+      "subject": "foliage",
+      "crop_origin_xy": [
+        0,
+        0
+      ],
+      "crop_bounds_xyxy": [
+        0,
+        0,
+        960,
+        540
+      ],
+      "crop_wh": [
+        960,
+        540
+      ],
+      "impact_xy": [
+        480.0,
+        270.0
+      ],
+      "denominator_px": 518400,
+      "classifier": "V > 0.95 and S < 0.20",
+      "attribution": "effect_white AND NOT clean_plate_white; exact spatial differencing",
+      "peak_rule": "first maximum attributable white; all peak quantities at that frame",
+      "mean_rule": "arithmetic mean over every captured frame",
+      "n_frames": 1,
+      "peak": {
+        "total": {
+          "pixels": 836,
+          "percent": 0.16126543209876543
+        },
+        "baseline": {
+          "pixels": 836,
+          "percent": 0.16126543209876543
+        },
+        "attributable": {
+          "pixels": 0,
+          "percent": 0.0
+        },
+        "removed_baseline": {
+          "pixels": 0,
+          "percent": 0.0
+        },
+        "frame": 0
+      },
+      "mean": {
+        "total": {
+          "pixels": 836.0,
+          "percent": 0.16126543209876543
+        },
+        "baseline": {
+          "pixels": 836.0,
+          "percent": 0.16126543209876543
+        },
+        "attributable": {
+          "pixels": 0.0,
+          "percent": 0.0
+        },
+        "removed_baseline": {
+          "pixels": 0.0,
+          "percent": 0.0
+        }
+      },
+      "per_frame": [
+        {
+          "total": {
+            "pixels": 836,
+            "percent": 0.16126543209876543
+          },
+          "baseline": {
+            "pixels": 836,
+            "percent": 0.16126543209876543
+          },
+          "attributable": {
+            "pixels": 0,
+            "percent": 0.0
+          },
+          "removed_baseline": {
+            "pixels": 0,
+            "percent": 0.0
+          },
+          "frame": 0
+        }
+      ],
+      "results": [
+        {
+          "id": "white_peak",
+          "subject": "foliage",
+          "passed": null,
+          "value": {
+            "total": {
+              "pixels": 836,
+              "percent": 0.16126543209876543
+            },
+            "baseline": {
+              "pixels": 836,
+              "percent": 0.16126543209876543
+            },
+            "attributable": {
+              "pixels": 0,
+              "percent": 0.0
+            },
+            "removed_baseline": {
+              "pixels": 0,
+              "percent": 0.0
+            },
+            "frame": 0
+          },
+          "threshold": null,
+          "op": "report",
+          "unit": "percent_of_crop",
+          "evidence": [
+            "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4d/baselines/foliage.png"
+          ],
+          "notes": "Measurement only; no white budget supplied."
+        },
+        {
+          "id": "white_mean",
+          "subject": "foliage",
+          "passed": null,
+          "value": {
+            "total": {
+              "pixels": 836.0,
+              "percent": 0.16126543209876543
+            },
+            "baseline": {
+              "pixels": 836.0,
+              "percent": 0.16126543209876543
+            },
+            "attributable": {
+              "pixels": 0.0,
+              "percent": 0.0
+            },
+            "removed_baseline": {
+              "pixels": 0.0,
+              "percent": 0.0
+            }
+          },
+          "threshold": null,
+          "op": "report",
+          "unit": "percent_of_crop",
+          "evidence": [
+            "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4d/baselines/foliage.png"
+          ],
+          "notes": "Measurement only; no white budget supplied."
+        }
+      ],
+      "clear_rgba": [
+        23,
+        31,
+        43,
+        255
+      ],
+      "source_crop_origin_xy": [
+        1920,
+        3230
+      ],
+      "source_impact_xy": [
+        2400,
+        3500
+      ],
+      "source_crop_bounds_xyxy": [
+        1920,
+        3230,
+        2880,
+        3770
+      ],
+      "source_nonopaque_pixels": 0,
+      "foreground_nonopaque_pixels": 23723,
+      "sources": [
+        {
+          "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/cliffside_v18/parallax/layers/sky.png",
+          "sha256": "29ba10fc269a88b4f9b1d80813d26b950799921c643e2eede520c826ed01a1ae",
+          "offset_xy": [
+            0,
+            0
+          ]
+        },
+        {
+          "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/cliffside_v18/parallax/layers/far_ruins.png",
+          "sha256": "9b4678c568aad67ed32837659d34fbffb0ac2751283d4c0cd8e7e5872f70a64a",
+          "offset_xy": [
+            0,
+            -416
+          ]
+        },
+        {
+          "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/cliffside_v18/parallax/layers/forest_valley.png",
+          "sha256": "7d8f6d4fde6b21347d0481c1ef1ebec99ca7259c14f11ded9707914071dc2bc8",
+          "offset_xy": [
+            0,
+            537
+          ]
+        },
+        {
+          "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/cliffside_v18/parallax/layers/mist.png",
+          "sha256": "2832c2c262533a487e61586beed68337bf6ba1da64a6f14176d33dfa9ffa0202",
+          "offset_xy": [
+            0,
+            568
+          ]
+        },
+        {
+          "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/cliffside_v18/parallax/tiles/tile_0_0.png",
+          "sha256": "1756154844981936a806b58bd6003e911b99110afe77013374b8048a8629046c",
+          "offset_xy": [
+            0,
+            0
+          ]
+        },
+        {
+          "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/cliffside_v18/parallax/tiles/tile_4096_0.png",
+          "sha256": "664dada2572fd38f37c2a245d32281f2387623fa26944411e6b10761826d6739",
+          "offset_xy": [
+            4096,
+            0
+          ]
+        }
+      ],
+      "baseline_kind": "native source-plate reconstruction at authored layer offsets; no engine capture, camera-scroll correction or props"
+    }
+  },
+  "wall_s": 4.279331792000448
+}

@@ -1,0 +1,305 @@
+{
+  "white_synthetic": {
+    "subject": "synthetic_4_percent",
+    "crop_origin_xy": [
+      0,
+      0
+    ],
+    "crop_bounds_xyxy": [
+      0,
+      0,
+      960,
+      540
+    ],
+    "crop_wh": [
+      960,
+      540
+    ],
+    "impact_xy": [
+      480.0,
+      270.0
+    ],
+    "denominator_px": 518400,
+    "classifier": "V > 0.95 and S < 0.20",
+    "attribution": "effect_white AND NOT clean_plate_white; exact spatial differencing",
+    "peak_rule": "first maximum attributable white; all peak quantities at that frame",
+    "mean_rule": "arithmetic mean over every captured frame",
+    "n_frames": 3,
+    "peak": {
+      "total": {
+        "pixels": 20736,
+        "percent": 4.0
+      },
+      "baseline": {
+        "pixels": 0,
+        "percent": 0.0
+      },
+      "attributable": {
+        "pixels": 20736,
+        "percent": 4.0
+      },
+      "removed_baseline": {
+        "pixels": 0,
+        "percent": 0.0
+      },
+      "frame": 1
+    },
+    "mean": {
+      "total": {
+        "pixels": 6912.0,
+        "percent": 1.3333333333333333
+      },
+      "baseline": {
+        "pixels": 0.0,
+        "percent": 0.0
+      },
+      "attributable": {
+        "pixels": 6912.0,
+        "percent": 1.3333333333333333
+      },
+      "removed_baseline": {
+        "pixels": 0.0,
+        "percent": 0.0
+      }
+    },
+    "per_frame": [
+      {
+        "total": {
+          "pixels": 0,
+          "percent": 0.0
+        },
+        "baseline": {
+          "pixels": 0,
+          "percent": 0.0
+        },
+        "attributable": {
+          "pixels": 0,
+          "percent": 0.0
+        },
+        "removed_baseline": {
+          "pixels": 0,
+          "percent": 0.0
+        },
+        "frame": 0
+      },
+      {
+        "total": {
+          "pixels": 20736,
+          "percent": 4.0
+        },
+        "baseline": {
+          "pixels": 0,
+          "percent": 0.0
+        },
+        "attributable": {
+          "pixels": 20736,
+          "percent": 4.0
+        },
+        "removed_baseline": {
+          "pixels": 0,
+          "percent": 0.0
+        },
+        "frame": 1
+      },
+      {
+        "total": {
+          "pixels": 0,
+          "percent": 0.0
+        },
+        "baseline": {
+          "pixels": 0,
+          "percent": 0.0
+        },
+        "attributable": {
+          "pixels": 0,
+          "percent": 0.0
+        },
+        "removed_baseline": {
+          "pixels": 0,
+          "percent": 0.0
+        },
+        "frame": 2
+      }
+    ],
+    "results": [
+      {
+        "id": "white_peak",
+        "subject": "synthetic_4_percent",
+        "passed": null,
+        "value": {
+          "total": {
+            "pixels": 20736,
+            "percent": 4.0
+          },
+          "baseline": {
+            "pixels": 0,
+            "percent": 0.0
+          },
+          "attributable": {
+            "pixels": 20736,
+            "percent": 4.0
+          },
+          "removed_baseline": {
+            "pixels": 0,
+            "percent": 0.0
+          },
+          "frame": 1
+        },
+        "threshold": null,
+        "op": "report",
+        "unit": "percent_of_crop",
+        "evidence": [],
+        "notes": "Measurement only; no white budget supplied."
+      },
+      {
+        "id": "white_mean",
+        "subject": "synthetic_4_percent",
+        "passed": null,
+        "value": {
+          "total": {
+            "pixels": 6912.0,
+            "percent": 1.3333333333333333
+          },
+          "baseline": {
+            "pixels": 0.0,
+            "percent": 0.0
+          },
+          "attributable": {
+            "pixels": 6912.0,
+            "percent": 1.3333333333333333
+          },
+          "removed_baseline": {
+            "pixels": 0.0,
+            "percent": 0.0
+          }
+        },
+        "threshold": null,
+        "op": "report",
+        "unit": "percent_of_crop",
+        "evidence": [],
+        "notes": "Measurement only; no white budget supplied."
+      }
+    ]
+  },
+  "late_expiry": [
+    {
+      "id": "activation_lag",
+      "subject": "effect",
+      "passed": null,
+      "value": {
+        "observed_frame": 10,
+        "event": "contact",
+        "stamped_frame": 10,
+        "lag_frames": 0,
+        "lag_ms": 0.0,
+        "event_matches": 1,
+        "sample_gaps": []
+      },
+      "threshold": null,
+      "op": "report",
+      "unit": "frames",
+      "evidence": [],
+      "notes": "Measurement only; no committed tolerance."
+    },
+    {
+      "id": "expiry_lag",
+      "subject": "effect",
+      "passed": null,
+      "value": {
+        "observed_frame": 72,
+        "event": "expire",
+        "stamped_frame": 60,
+        "lag_frames": 12,
+        "lag_ms": 200.0,
+        "event_matches": 1,
+        "sample_gaps": []
+      },
+      "threshold": null,
+      "op": "report",
+      "unit": "frames",
+      "evidence": [],
+      "notes": "Measurement only; no committed tolerance."
+    }
+  ],
+  "field_radius": {
+    "id": "field_boundary",
+    "subject": "effect",
+    "passed": null,
+    "value": {
+      "radius_px": 10.0,
+      "samples": 4,
+      "signed_error_px": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "max_abs_error_px": 0.0,
+      "mean_abs_error_px": 0.0
+    },
+    "threshold": null,
+    "op": "report",
+    "unit": "pixels",
+    "evidence": [],
+    "notes": "Measurement only; no committed tolerance."
+  },
+  "aura_drift": {
+    "id": "aura_attachment_drift",
+    "subject": "effect",
+    "passed": null,
+    "value": {
+      "per_sample_px": [
+        0.0,
+        5.0
+      ],
+      "max_px": 5.0,
+      "mean_px": 2.5,
+      "offset_xy": [
+        0.0,
+        0.0
+      ]
+    },
+    "threshold": null,
+    "op": "report",
+    "unit": "pixels",
+    "evidence": [],
+    "notes": "Measurement only; no committed tolerance."
+  },
+  "interval_cv": {
+    "id": "FF-08_interval_cv",
+    "subject": "effect",
+    "passed": null,
+    "value": {
+      "intervals_frames": [
+        10,
+        20
+      ],
+      "mean_frames": 15.0,
+      "population_sd_frames": 5.0,
+      "cv": 0.3333333333333333,
+      "ddof": 0
+    },
+    "threshold": null,
+    "op": "report",
+    "unit": "coefficient_of_variation",
+    "evidence": [],
+    "notes": "Measurement only; no committed tolerance."
+  },
+  "baselines": {
+    "dirt_spawn": {
+      "percent": 0.07195216049382716,
+      "crop_origin_xy": [
+        1806,
+        2137
+      ]
+    },
+    "foliage": {
+      "percent": 0.16126543209876543,
+      "crop_origin_xy": [
+        1920,
+        3230
+      ]
+    }
+  },
+  "wall_s": 4.31762187500135
+}

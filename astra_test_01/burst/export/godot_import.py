@@ -1751,6 +1751,14 @@ def _grey_vfx(out):
         text = path.read_text()
         text = re.sub(r'(^\[node name="(?:Travel|Shatter|Residual|Head)"[^\n]*\n)(.*?)(?=\n\[|\Z)',
                       lambda m: m[1]+re.sub(r'^material = .*\n', '', m[2], flags=re.M), text, flags=re.M|re.S)
+        # Removing a body material also removes its last ExtResource use.
+        # Keep declarations only while referenced (shared glow/light materials
+        # must survive), and maintain the scene's exact load_steps count.
+        used = set(re.findall(r'ExtResource\("([^\"]+)"\)', text))
+        text = re.sub(r'^\[ext_resource [^\n]+ id="([^\"]+)"\]\n',
+                      lambda m: m[0] if m[1] in used else '', text, flags=re.M)
+        steps = 1 + len(re.findall(r'^\[(?:ext_resource|sub_resource) ', text, re.M))
+        text = re.sub(r'(?<=load_steps=)\d+', str(steps), text, count=1)
         path.write_text(text)
     keeper = out/'scripts/keeper.gd'
     text = keeper.read_text()

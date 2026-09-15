@@ -8,7 +8,7 @@ Onset is first nonempty support, peak is first maximum, half is first <= 50%
 after peak, life ends at first < 10% after peak. Missing crossings are censored
 and returned as null, with an observed lower bound. Residue is final/peak area.
 
-O10 uses 100 one-L* bins, Gaussian sigma=1 bin, peaks separated by >=5 bins
+VO10 uses 100 one-L* bins, Gaussian sigma=1 bin, peaks separated by >=5 bins
 with >=5% maximum-height prominence. It is inspect-only, not calibrated.
 Straight-alpha edges counts partial-alpha boundary pixels whose RGB maximum
 exceeds alpha; these prove incompatibility with bounded premultiplied RGB,
@@ -86,8 +86,40 @@ def _row(identifier, subject, value, unit, notes, evidence):
                 threshold=None, op='report', unit=unit, evidence=evidence, notes=notes)
 
 
+def _vo_names(value):
+    """Read legacy references without emitting legacy metric names.
+
+    Historical white-core reference bands retain their original meaning by
+    targeting VO3_white_legacy, never the new saturated-band population.
+    """
+    if isinstance(value, dict):
+        return {_vo_names(k): _vo_names(v) for k, v in value.items()}
+    if isinstance(value, list):
+        return [_vo_names(v) for v in value]
+    if isinstance(value, str):
+        return re.sub(r'\b' + 'O' + r'(\d+)',
+                      lambda m: 'VO3_white_legacy' if m[1] == '3' else 'V' + m[0], value)
+    return value
+
+
+class _Measurements(dict):
+    """Deprecated lookup aliases only; iteration/JSON contain VO names only.
+
+    Existing Python consumers can continue reading their historical quantities.
+    Membership, keys(), items(), copied dicts and serialized reports are VO-only.
+    """
+    def __missing__(self, key):
+        translated = _vo_names(key)
+        if translated != key and translated in self:
+            return self[translated]
+        raise KeyError(key)
+
+
 def measure(frames_dir, fps_or_durations, body_h_px=130, plate='alpha'):
-    """Return JSON-compatible O1/O2/O3/O4/O5/O6/O8/O10 and §1 rows.
+    """Return VO1/VO2/VO3/VO4/VO5/VO6/VO8/VO10, VO3_white_legacy and §1 rows.
+
+    VO3 measures V > .85 and S >= .25 over effect pixels. Legacy white-core
+    quantities remain byte-identical under VO3_white_legacy.
 
     Exact drawing identity includes every decoded RGBA byte, even hidden RGB.
     Unique frames/s = globally distinct drawings / full playback seconds;
@@ -114,7 +146,7 @@ def measure(frames_dir, fps_or_durations, body_h_px=130, plate='alpha'):
     # 60 drawings/s sequence must not become 59.99999999999997 against [60,60]).
     starts = (np.arange(len(paths)+1, dtype=float)*1000./fps if fps is not None
               else np.r_[0., np.cumsum(durations)])
-    area, cores, hues, sats, boxes, modes, edges, hashes = [], [], [], [], [], [], [], []
+    area, cores, pales, hues, sats, boxes, modes, edges, hashes = [], [], [], [], [], [], [], [], []
     size = None
     for path in paths:
         with Image.open(path) as im:
@@ -136,13 +168,17 @@ def measure(frames_dir, fps_or_durations, body_h_px=130, plate='alpha'):
         else:
             edges.append(None)
         if not count:
-            cores.append(None); hues.append(dict(sd_deg=None, mean_deg=None, n=0))
+            cores.append(None); pales.append(None); hues.append(dict(sd_deg=None, mean_deg=None, n=0))
             sats.append(dict(bright_15_median=None, dim_25_median=None, median=None))
             boxes.append(None); modes.append(dict(count=None, centers_Lstar=[], histogram=[]))
             continue
         pixels = rgb[mask]
         h, s, v = _hsv(pixels)
         cores.append(float(np.mean((v > .95) & (s < .25))))
+        # Integer comparison keeps inclusive S=.25 exact at byte boundaries.
+        byte_pixels = rgba[..., :3][mask].astype(np.int16)
+        hi, lo = byte_pixels.max(axis=-1), byte_pixels.min(axis=-1)
+        pales.append(float(np.mean((hi > .85*255) & (4*(hi-lo) >= hi))))
         angles = np.deg2rad(h[s > .3])
         if len(angles):
             z = np.exp(1j*angles).mean()
@@ -178,42 +214,45 @@ def measure(frames_dir, fps_or_durations, body_h_px=130, plate='alpha'):
     width, height = (bbox[2]-bbox[0], bbox[3]-bbox[1]) if bbox else (None, None)
     seconds = float(starts[-1]/1000)
     changes = sum(a != b for a, b in zip(hashes, hashes[1:]))
-    data = dict(schema_version=1, subject=str(root), n_frames=len(paths), canvas_wh=list(size),
+    data = _Measurements(schema_version=2, subject=str(root), n_frames=len(paths), canvas_wh=list(size),
                 plate=plate, body_h_px=body_h_px, fps=fps, durations_ms=durations.tolist(),
                 duration_ms=float(starts[-1]), frame_files=[p.name for p in paths],
                 method=dict(mask='alpha > 0' if plate == 'alpha' else 'max(R,G,B) > 0',
                             duration_unit='ms', residue='last frame area / peak area',
-                            O10='100 L* bins; sigma=1; distance=5; prominence=5% of max',
+                            VO10='100 L* bins; sigma=1; distance=5; prominence=5% of max',
                             straight_alpha_edges='partial-alpha boundary pixels with max(RGB) > alpha'))
-    data['O1'] = dict(area_px=area, peak_area_px=peak_area, envelope_area_over_peak=norm,
+    data['VO1'] = dict(area_px=area, peak_area_px=peak_area, envelope_area_over_peak=norm,
                       onset_frame=onset, peak_frame=peak, rise_frames=difference(onset, peak),
                       rise_ms=elapsed(onset, peak), half_frame=half,
                       frames_to_half=difference(peak, half), ms_to_half=elapsed(peak, half),
                       decay_area_over_peak=norm[peak:] if peak is not None else [])
-    data['O2'] = dict(visible_life_frames=difference(onset, end), visible_life_ms=elapsed(onset, end),
+    data['VO2'] = dict(visible_life_frames=difference(onset, end), visible_life_ms=elapsed(onset, end),
                       end_frame=end, censored=onset is not None and end is None,
                       observed_life_frames=difference(onset, end if end is not None else len(area)),
                       observed_life_ms=elapsed(onset, end if end is not None else len(area)))
-    data['O3'] = dict(white_core_fraction=cores, core_frac_at_peak=cores[peak] if peak is not None else None,
+    data['VO3_white_legacy'] = dict(white_core_fraction=cores, core_frac_at_peak=cores[peak] if peak is not None else None,
                       core_max_frame=core_frame, classification=order)
-    data['O4'] = dict(series=hues, hue_sd_deg_at_peak=hues[peak]['sd_deg'] if peak is not None else None)
-    data['O5'] = dict(series=sats, bright_15_median_at_peak=sats[peak]['bright_15_median'] if peak is not None else None,
+    data['VO3'] = dict(palest_saturated_fraction=pales,
+                       fraction_at_peak=pales[peak] if peak is not None else None,
+                       classifier='V > 0.85 and S >= 0.25 over effect pixels')
+    data['VO4'] = dict(series=hues, hue_sd_deg_at_peak=hues[peak]['sd_deg'] if peak is not None else None)
+    data['VO5'] = dict(series=sats, bright_15_median_at_peak=sats[peak]['bright_15_median'] if peak is not None else None,
                       dim_25_median_at_peak=sats[peak]['dim_25_median'] if peak is not None else None)
-    data['O6'] = dict(bbox_at_peak=bbox, width_px=width, height_px=height,
+    data['VO6'] = dict(bbox_at_peak=bbox, width_px=width, height_px=height,
                       width_bh=width/body_h_px if width is not None else None,
                       height_bh=height/body_h_px if height is not None else None)
-    data['O8'] = dict(unique_frames=len(set(hashes)), unique_frames_per_s=len(set(hashes))/seconds,
+    data['VO8'] = dict(unique_frames=len(set(hashes)), unique_frames_per_s=len(set(hashes))/seconds,
                       drawing_changes=changes, drawing_runs=changes+1, drawing_runs_per_s=(changes+1)/seconds,
                       frame_sha256=hashes, method='exact decoded RGBA bytes; globally distinct frames / full playback seconds')
-    data['O10'] = dict(series=modes, count_at_peak=modes[peak]['count'] if peak is not None else None,
+    data['VO10'] = dict(series=modes, count_at_peak=modes[peak]['count'] if peak is not None else None,
                        inspect_only=True)
     data['straight_alpha_edges'] = dict(per_frame=edges, count=sum(x for x in edges if x is not None) if plate == 'alpha' else None,
                                         available=plate == 'alpha')
     data['residue_fraction'] = norm[-1]
     evidence = [str(p) for p in paths]
     data['results'] = [_row(k, str(root), data[k], 'mixed',
-                            'Inspect only; uncalibrated mode counter.' if k == 'O10' else 'Measurement only.', evidence)
-                       for k in ('O1', 'O2', 'O3', 'O4', 'O5', 'O6', 'O8', 'O10')]
+                            'Inspect only; uncalibrated mode counter.' if k == 'VO10' else 'Measurement only.', evidence)
+                       for k in ('VO1', 'VO2', 'VO3', 'VO3_white_legacy', 'VO4', 'VO5', 'VO6', 'VO8', 'VO10')]
     data['results'] += [_row('straight_alpha_edges', str(root), data['straight_alpha_edges'], 'pixels',
                              'Straight-alpha-compatible boundary evidence; not an alpha encoding verdict.', evidence),
                         _row('residue_fraction', str(root), norm[-1], 'fraction',
@@ -232,7 +271,7 @@ def compare(measure_json, reference_json):
     """
     def read(value):
         return json.loads(Path(value).read_text()) if isinstance(value, (str, Path)) else value
-    measured, reference = read(measure_json), read(reference_json)
+    measured, reference = _vo_names(read(measure_json)), _vo_names(read(reference_json))
     rows = []
     for band in reference['bands']:
         value = measured
@@ -249,7 +288,7 @@ def compare(measure_json, reference_json):
             raise ValueError('reference min exceeds max')
         valid = isinstance(value, numbers.Real) and not isinstance(value, bool) and math.isfinite(value)
         inside = bool((low is None or value >= low) and (high is None or value <= high)) if valid and (low is not None or high is not None) else None
-        inspect = band.get('inspect_only', False) or band['path'].startswith('O10.')
+        inspect = band.get('inspect_only', False) or band['path'].startswith('VO10.')
         committed = band.get('committed', reference.get('committed', False)) is True
         proposed = band.get('proposed', reference.get('proposed', False)) is True
         row = _row(band.get('id', band['path']), measured.get('subject', 'vfx'), value,
