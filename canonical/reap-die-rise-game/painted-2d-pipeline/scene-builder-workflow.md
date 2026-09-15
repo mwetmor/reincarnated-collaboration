@@ -5,7 +5,7 @@
 **Date:** 2026-09-15
 **Author:** gandalf (CANON-STEWARD / SPEC-AUTHOR; RUN-CONDUCTOR of Run C-3)
 **Status:** v1.0 — canonized from Run C-3 lap 2 (the cliffside scene, v3 → v15 + web2). Ground shadows OPEN (§ 4).
-**Authority:** Matt 2026-09-15 — R-C3-102 (ledger text): *"once the shadows are finalized, CANONIZE this pipeline as the official scene-builder workflow; Synty left behind; 3D scenes crossed off the plan"*. **Precondition state:** the shadow layer was REMOVED entirely for the mobile playtest (R-C3-109 + amendment) and ground shadows remain OPEN (§ 4.1); this doc treats "removed for now" as the finalized shipping state — **Matt confirmation owed** (jack-ryan Gate-1 BLOCK 2026-09-15; the retirement clause stands regardless). · R-C3-103 (roles and models, mandatory) · R-C3-109/110 (shadows open; ship the playtest first) · R-C3-113/114/115 (scene references). Rulings live in `astra_test_01/burst/runs/C-3/ledger.json`.
+**Authority:** Matt 2026-09-15 — R-C3-102 (ledger text): *"once the shadows are finalized, CANONIZE this pipeline as the official scene-builder workflow; Synty left behind; 3D scenes crossed off the plan"*. **Precondition state:** the shadow layer was REMOVED entirely for the mobile playtest (R-C3-109 + amendment) and ground shadows remain OPEN (§ 4.1); **Matt confirmed 2026-09-15 (R-C3-119): "the Godot scene with shadow layer removed meets expectations and is now canon"** — the precondition is satisfied by that ruling; ground shadows stay an open research item (§ 4.1). (jack-ryan Gate-1 BLOCK of the same date closed by this confirmation.) · R-C3-103 (roles and models, mandatory) · R-C3-109/110 (shadows open; ship the playtest first) · R-C3-113/114/115 (scene references). Rulings live in `astra_test_01/burst/runs/C-3/ledger.json`.
 **Companion docs:**
 - `canonical/reap-die-rise-game/painted-2d-pipeline/00-system.md` — the lane system description (bursts, wrapper audit, oracles, freeze manifest, SYNC table)
 - `canonical/reap-die-rise-game/painted-2d-pipeline/mechanical-process.md` — agent-facing burst recipe + invariants
@@ -23,13 +23,13 @@
 - **Labour split:** ChatGPT (`gpt-6-astra`, HIGH) paints, isolates, checks, packs and builds the tooling; Grok (`image_to_video`) turns character stills into motion clips; gandalf conducts; drax builds the grey room and the Godot/web presentation; Legolas researches; **Matt rules at every checkpoint** (§ 2).
 - **The loop:** grey room → walkable → chunk paint → cloud band → parallax → dressing → layered world → JSON manifests → PACK → headless proof → Desktop review → Matt notes → next version (§ 3). The cliffside went v3 → v15 on this loop.
 - **Not yet solved:** ground shadows (three methods rejected), Astra-placed reusable assets (deferred to procedural maps), VFX (own lane) (§ 4).
-- **Live on the web:** the cliffside is deployed for phones at `https://reincarnated-loadout.vercel.app/playtest` — deploy verified headless (boot, checksum, 200s); **no real-phone test yet** (§ 6, Matt to-do).
+- **Live on the web:** the cliffside is deployed for phones at `https://reincarnated-loadout.vercel.app/playtest` — deploy verified headless (boot, checksum, 200s) and **played on an iPhone by Matt: "exceptionally well" (R-C3-119)** (§ 6).
 
 ---
 
 ## 1. Scope and ruling
 
-**Ruled (R-C3-102, Matt 2026-09-15):** the painted-2D pipeline that built the cliffside is the official scene-builder workflow (precondition "once the shadows are finalized" — see the Authority line; confirmation owed). **Crossed off the project plan:** 3D scenes, and Synty as the scene asset source.
+**Ruled (R-C3-102, Matt 2026-09-15):** the painted-2D pipeline that built the cliffside is the official scene-builder workflow (precondition "once the shadows are finalized" satisfied by R-C3-119: shadow layer removed = the canon state). **Crossed off the project plan:** 3D scenes, and Synty as the scene asset source.
 
 **What that retires, and where it is recorded:**
 
@@ -123,7 +123,7 @@ Scene register in force for the cliffside: H1 line register with Hades-flavoured
 **Vercel mobile playtest — LIVE (M-C3-web-playtest):** `https://reincarnated-loadout.vercel.app/playtest` (landing) → `/playtest/cliffside/`. Build: shadow-free `CS-pack-web2`, Frozen Orb only, GL Compatibility, threads off, touch overlay (left joystick, run past 60 %; CAST / JUMP / VFX), large textures as lossy WebP (.pck 34.8 MB, ~45 MB download); deploy-truth verified by drax (200s, wasm mime, pck checksum, headless boot 5.9 s, joystick + CAST).
 - **Build script:** `reincarnated-godot/web/build_playtest.sh <SOURCE>/out/godot <route>`; deploy = commit `public/playtest` in `reincarnated-loadout` and push `main` (push needs Matt authorization) — `reincarnated-godot/web/README.md`.
 - **License rule:** only self-authored VFX kits ship publicly. The overlay's license fence fails the build if library packs (`vfx_frost/fire/lightning/arcane/holy/poison`, CreativeKind, Gigapack) are present and greps the exported `.pck`; public builds use `kits_web.json`.
-- **Known caveats (drax):** iOS decoded-texture memory ~700 MB (416 Keeper frames at 512²); `mist.png` 4340 px exceeds some older Android GPUs' 4096 limit; fixed 16:9. Real-phone test is Matt's: `canonical/matt_to_do/2026-09-15-phone-playtest-cliffside.md`.
+- **Known caveats (drax):** iOS decoded-texture memory ~700 MB (416 Keeper frames at 512²); `mist.png` 4340 px exceeds some older Android GPUs' 4096 limit; fixed 16:9. Real-phone test DONE: Matt, iPhone, "played exceptionally well" (R-C3-119; to-do closed). Older-device memory and the Android 4096-px caveat remain untested.
 
 ---
 

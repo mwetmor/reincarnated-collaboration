@@ -36498,6 +36498,11 @@
       "id": "M-C3-web-playtest",
       "what": "Cliffside mobile playtest LIVE: https://reincarnated-loadout.vercel.app/playtest (shadow-free CS-pack-web2, Frozen Orb only, touch overlay, GL Compatibility, threads off; .pck 34.8 MB after lossy WebP on tiles/parallax, ~45 MB download; deploy-truth verified by drax: 200s, wasm mime, pck checksum, headless boot 5.9 s, joystick + CAST proven). Repeatable: reincarnated-godot/web/build_playtest.sh <src>/out/godot cliffside (license check stops any third-party kit). Loadout commits ef5e544/c84352e pushed; godot 60c1063/8b260b1 local only.",
       "ts": "2026-09-15T03:30:00Z"
+    },
+    {
+      "id": "M-C3-SCENE-CANON",
+      "what": "Painted-2D scene-builder workflow CANON with Matt confirmation (shadow-free v15/web2 = the canon state); iPhone playtest passed.",
+      "ts": "2026-09-15T04:30:00Z"
     }
   ],
   "halts": [
@@ -37446,6 +37451,13 @@
       "veto_open": true,
       "ruling": "Legolas three-title VFX atlas pull filed (18 samples; atlas 72). Findings: Chronicon = effects off-grid at screen res + bloom, 22 % near-white at density (white-out); Children of Morta = ~3-px pixel shape sprites + HD glow/floor light, ~no white, no dark outline, legibility by bright halo + saturation; The Slormancer = mixed (signature shapes on the x4 grid with flat 2-4 bands, fire/novas soft), ~no white, black void shapes, rooms lit in the element colour. Style card v0.2 written (DRIFT-CRITIC on v0): white core -> palest saturated band (white only as the flash LAYER); dark duplicate demoted, halo + floor light promoted as the default separation; burst extent capped 3-6 BH; shape sprites on their own pixel grid; hue rule withdrawn. FORK for Matt: hybrid oracle - Hades timing bands + CoM/Slormancer legibility bands (recommendation: adopt). Kit v3 consequence: drop the white disc frame from the Frozen Orb impact flipbook (flash layer carries it).",
       "ts": "2026-09-15T04:20:00Z"
+    },
+    {
+      "id": "R-C3-119",
+      "class": "matt",
+      "veto_open": false,
+      "ruling": "Matt (2026-09-15): the Godot scene with the shadow layer removed MEETS EXPECTATIONS and is now CANON (R-C3-102 precondition satisfied; jack-ryan Gate-1 BLOCK closed). The web playtest played EXCEPTIONALLY WELL on the iPhone (real-phone test passed; older-device memory + Android 4096-px caveats untested). Canon doc Authority line closed; matt_to_do phone test DONE; tracker delta appended. Engine decisions-log commit 20e778a8 still unpushed (no explicit push word).",
+      "ts": "2026-09-15T04:30:00Z"
     }
   ],
   "grok_calls": [
