@@ -9,3 +9,6 @@
 **Asks:** (1) amend `drax.md` / `AGENTS.md` to name the painted-2D lane + Compatibility; (2) a MIGRATION note for the exporter↔hand-authored boundary; (3) the "grey room" word now means two things (drax's static terrain guide vs the VFX **motion fixture**) — the dispatch vocabulary must use *motion fixture* for the latter.
 
 Blocks nothing until Matt rules Q79 V10/V17; then it blocks the P-0 dispatch.
+
+
+**⟲ NARROWED 2026-09-15 (Matt V10):** the fixture is the *current cliffside scene* in the Astra lane; the monster pack is Astra-painted; the G1 component / targeting / replay land in the exporter (Astra TOOLING); **drax assists on grey-box and Godot systems as needed** — no drax-owned fixture repo. Asks (1) and (3) stand (name the lane in drax's charter; "motion fixture" vocabulary); ask (2) reduces to: drax edits inside exporter-generated trees must be handed back as exporter changes, never left as hand-edits the next PACK overwrites.
