@@ -1,6 +1,6 @@
-# Prior scorecard — what Astra session 1 and Legolas probe 1 changed (interim; probe 2 + sessions 2–3 pending)
+# Prior scorecard — what Astra session 1 and Legolas probe 1 changed (closed 2026-09-15 after probe 2 + sessions 2–3 + Gate-1)
 
-> **STATUS:** WORKING — gandalf (ARCHITECT), 2026-09-15. Scores `01-conductor-prior.md` § P2/P3 against `02a-astra-session-1.md` and `legolas/research/2026-09-15-vfx-grammar-and-authoring-split/findings.md`. Updated once when the remaining inputs land.
+> **STATUS:** WORKING — gandalf (ARCHITECT), 2026-09-15. Scores `01-conductor-prior.md` § P2/P3 against `02a-astra-session-1.md` and `legolas/research/2026-09-15-vfx-grammar-and-authoring-split/findings.md`. Closed 2026-09-15 (Gate-1 WARN-16 caught it stale).
 
 | Prediction | Prior confidence | Outcome | What it changed |
 |---|---|---|---|
@@ -12,8 +12,8 @@
 | A-6 prohibition-heavy prose harmful; want reference + positive description + plate | 0.85 | **CONFIRMED** (S1 § 6: overloaded, contradictory, retro cues, "read at 64 px" unrelated to Keeper, retry criteria favoured file appearance) | Adds: one primitive per call; three-image packet with stated roles; native 1:1 preview alongside enlargement |
 | L-1 ≤ 12 templates cover ≥ 80 % of key skills | 0.6 | **CONFIRMED on the emitted corpus** (6 families → 88 %, 10 → 99.5 %); **REFUTED on the reference corpus** (6 → 53 %) because nine engine geometries were never emitted | The denominator is a design decision (G-8). The engine's melee/motion half being dead code is a cross-seam finding, not a VFX one |
 | L-2 painted-2D games compose shared primitives at runtime; flipbook = burst core only | 0.65 | **CONFIRMED strongly** — no well-documented painted-2D action game hand-draws per effect except Cuphead/HLD (single-hand, multi-year); Hades 66 % of FX own no asset | The four coherence mechanisms; three are runtime; the **fixed layer stack** is the strongest single one |
-| L-3 Godot-native procedural is the only free, host-feasible, timing-exact motion source | 0.7 | pending probe 2 | — |
-| L-4 no video model yields a usable alpha effect loop | 0.7 | pending probe 2 | — |
+| L-3 Godot-native procedural is the only free, host-feasible, timing-exact motion source | 0.7 | **CONFIRMED** (probe 2: Godot native 29/30; EmberGen Windows-only; Blender at its stated minimum; Houdini 50 GB; Effekseer = second stack) — by documentation read, not execution (Gate-1 WARN-3); each mechanism is an E0 gate | — |
+| L-4 no video model yields a usable alpha effect loop | 0.7 | **CONFIRMED as a search negative** (no hosted RGBA endpoint *found*; nothing tested) | Matt then ruled V15 no-video-first, mooting it for effects |
 
 **Where the prior was wrong in ways that matter for the design:**
 1. I framed coherence as *alphabet size*; both inputs say it is the **invariant layer stack + runtime tint** first, alphabet second (H-B bounded as "≤ ~12 per element **plus** a shared constant layer").

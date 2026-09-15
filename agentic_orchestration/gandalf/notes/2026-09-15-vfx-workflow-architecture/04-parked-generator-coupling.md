@@ -7,7 +7,7 @@
 ## What was removed from the proposal
 
 1. **`VfxSkillSpec` as a resolution layer over emitted data** (two emission schemas — `kit_space/kits/*.json` with `geometry_type` but prose effects and no `effect_category`; `seasons/*/classes/*.json` with `effect_category` + structured effects but no geometry; 603 null geometries; `roll`/`persistent_zone`/`projectile` values outside `VALID_GEOMETRY_TYPES`). → v2 Contract I is six hand-authored specs from the source games.
-2. **Eleven grammar families indexed by the engine's 26-type palette** and the coverage curves (6 families → 88 % emitted / 53 % reference; 10 → 99.5 %). → v2 needs four grammars for six skills; the corpus taxonomy stays a naming reference only.
+2. **Eleven grammar families indexed by the engine's 26-type palette** and the coverage curves (6 families → 88 % emitted; **53.3 % for six reference *archetypes*, not families** — corrected per Astra S3 § 1 / Gate-1 INFO-3; 10 families → 99.5 % emitted). → v2 needs four grammars for six skills; the corpus taxonomy stays a naming reference only.
 3. **Cross-seam findings** (below) — real, but not this workstream's.
 4. **A sixth "shadow" treatment** proposed because it exists in the emitted corpus. → five treatments, the ones the six skills use.
 5. **Coverage-denominator fork (V10 v1)** and the "melee sweep + displacement fixture before calling it complete" requirement.
