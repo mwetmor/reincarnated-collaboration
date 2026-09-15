@@ -36718,9 +36718,135 @@
       "codex_version": "codex-cli 0.153.4",
       "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
       "exit": 0
+    },
+    {
+      "id": "CS-vfx-zeus-sheets",
+      "type": "GENERATE",
+      "experiment": "C3-vfx-breadth",
+      "brief_sha256": "8b77cd8d1d55c7704d4614d4a0671eac02a06e2a326ce458315a0867bcb3bfa9",
+      "started": "2026-09-15T03:47:20.135077+00:00",
+      "ended": "2026-09-15T03:49:10.624389+00:00",
+      "minutes": 1.8415103895833453,
+      "image_calls": 1,
+      "tool_calls": 2,
+      "audit": {
+        "violations": [],
+        "image_calls": 1,
+        "tool_calls": 2,
+        "tools_seen": {
+          "command_execution": 2
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0a32d-26bb-7f73-8ef7-eff5530eea59/exec-a0288444-73ce-4402-8d26-b51b333c7582.png",
+            "sha256": "782740dac43bf6effe1339b428a55df61ce0811bfe64f71e0f3c6a4036061a6d"
+          }
+        ]
+      },
+      "receipt_sha256": "5ce5d64e584cfa3f0b2c56623a61453ba552499fdfda83346dacfdfed425b4d6",
+      "artifacts": [
+        {
+          "name": "zeus_sheets.png",
+          "sha256": "782740dac43bf6effe1339b428a55df61ce0811bfe64f71e0f3c6a4036061a6d"
+        },
+        {
+          "name": "exec-a0288444-73ce-4402-8d26-b51b333c7582.provenance.json",
+          "sha256": "3394557798d069ae4eec3a1592cbd30c28da02d0fcc740e028595046551c746d"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0a32d-26bb-7f73-8ef7-eff5530eea59/exec-a0288444-73ce-4402-8d26-b51b333c7582.png",
+          "sha256": "782740dac43bf6effe1339b428a55df61ce0811bfe64f71e0f3c6a4036061a6d"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
+    },
+    {
+      "id": "CS-vfx-healing-sheets",
+      "type": "GENERATE",
+      "experiment": "C3-vfx-breadth",
+      "brief_sha256": "a02cec21ea386311ef44338413ef85196e76818c8a3ee9c40144116940839860",
+      "started": "2026-09-15T03:47:20.135089+00:00",
+      "ended": "2026-09-15T03:50:06.086450+00:00",
+      "minutes": 2.7658918555666485,
+      "image_calls": 2,
+      "tool_calls": 2,
+      "audit": {
+        "violations": [],
+        "image_calls": 2,
+        "tool_calls": 2,
+        "tools_seen": {
+          "command_execution": 2
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0a32d-26bb-7011-bec3-9980b3b09797/exec-3d902634-495b-4abe-854d-cab31b28dacf.png",
+            "sha256": "578d19adc242736b4d6401f1c0eadc2e2f3f6bfcc78f3e79548898cb438b3503"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0a32d-26bb-7011-bec3-9980b3b09797/exec-b7184df6-3715-44e9-a449-a1684fd2661d.png",
+            "sha256": "8102c3615933236d267b3d175e6b36cf743d61afa35f3c3c379fb8caa4a15c3a"
+          }
+        ]
+      },
+      "receipt_sha256": "2357f626021e82def85228936c7f8ef79159f55e4da9ad9c74bee370436abb06",
+      "artifacts": [
+        {
+          "name": "healing_sheets.png",
+          "sha256": "8102c3615933236d267b3d175e6b36cf743d61afa35f3c3c379fb8caa4a15c3a"
+        },
+        {
+          "name": "exec-3d902634-495b-4abe-854d-cab31b28dacf.provenance.json",
+          "sha256": "fada4d910ac81a04e16fc405d2cb62ae1c5848b061d1589bc43e9fe4e5dbd7b7"
+        },
+        {
+          "name": "exec-b7184df6-3715-44e9-a449-a1684fd2661d.provenance.json",
+          "sha256": "9ae66a7dd5eb7998eb3b90e559657d866ff30c56a702e7480399ad5b594f7360"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0a32d-26bb-7011-bec3-9980b3b09797/exec-3d902634-495b-4abe-854d-cab31b28dacf.png",
+          "sha256": "578d19adc242736b4d6401f1c0eadc2e2f3f6bfcc78f3e79548898cb438b3503"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0a32d-26bb-7011-bec3-9980b3b09797/exec-b7184df6-3715-44e9-a449-a1684fd2661d.png",
+          "sha256": "8102c3615933236d267b3d175e6b36cf743d61afa35f3c3c379fb8caa4a15c3a"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
     }
   ],
-  "images_used": 241,
+  "images_used": 244,
   "images_cap": 1000,
   "experiments": {},
   "milestones": [
@@ -39155,6 +39281,10 @@
     {
       "note": "Breadth kits 2-4 sheets landed: Blackwater (2 drives, both on grey haze - fire subjects pull atmosphere), Poisonous Concoction (haze; drawings excellent - flask, bubbles, pool), Lightning Blast (on black, 93 % black pixels, cleanest sheet of the run). Signed-haze cut recovers fire/pool/poison; the BWC flask body is nearly haze-luminance and is lost to highlights: FINDING - a dark-bodied projectile (glass flask, thrown object) cannot live in a greyscale tinted-LIGHT sheet; it needs its own coloured object sprite (or a green-plate isolation like the props). Kits 2-4 built with per-element ramps (fire pale-yellow -> deep orange-red; poison pale-lime -> deep green; lightning pale-cyan -> violet-blue); impact bodies measured: hue IN for fire/poison, lightning 9.2 (just under); saturation: fire rim .86 too saturated / bright .42 (fire wants a paler core), poison bright .35; lightning IN/IN; residues high for fire/poison (pool phases hold long by design). kits_v5.json = frozen_orb_v3 + blackwater_cocktail + poisonous_concoction + lightning_blast. Kits 5-6 sheets fired (Zeus chain, Healing Hands).",
       "ts": "2026-09-15T05:30:00Z"
+    },
+    {
+      "note": "Kits 5-6: Zeus chain sheet on black (88 % black; thunderhead cast, jump-kink chain bolt, ring-fork impact, ground ring - excellent); Healing Hands on haze (holy subject -> atmosphere; signed cut). Built with ramps (zeus warm-white -> blue-violet; healing warm white -> gold). kits_v6.json = all six self-authored kits. CS-pack-v16 (scene, Desktop 83) + CS-pack-web4 (public bake-off build, R-C3-110) fired.",
+      "ts": "2026-09-15T05:50:00Z"
     }
   ],
   "images_cap_note": "Matt R-C3-55 removed the cap (was 120); set to 1000 because lane/run_burst.py compares the cap numerically"

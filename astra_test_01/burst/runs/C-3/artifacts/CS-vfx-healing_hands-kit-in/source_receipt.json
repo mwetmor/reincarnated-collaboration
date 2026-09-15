@@ -1,0 +1,35 @@
+{
+  "task_id": "CS-vfx-healing-sheets",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "healing_sheets",
+      "path": "out/healing_sheets.png",
+      "sha256": "8102c3615933236d267b3d175e6b36cf743d61afa35f3c3c379fb8caa4a15c3a",
+      "prompt": "Use case: stylized-concept. Generate ONE 1536×1024 greyscale HEALING HANDS spell sprite sheet. Exactly 6 columns × 4 rows, 24 equal 256×256 cells. Each drawing centered within its cell with ample black margin, never touching any cell edge. No labels, text, grid lines, borders or watermark.\nBACKGROUND: flat PURE BLACK #000000 black void. Every background pixel exactly #000000. No grey fog, gradient, vignette, atmosphere, background lighting or floor shadow.\nSTYLE: PAINTED-PIXEL small-native-size hand-painted sprites, hard stair-stepped edges, 3–4 flat value steps, as if drawn with a 1-px pencil at 64 px then enlarged 4x nearest-neighbour. Every pixel exactly one of FIVE values: #000000, #404040, #808080, #C0C0C0, #FFFFFF. Greyscale only. Primarily mid and light grey shapes with dark grey rims and interior holes. White only at the tiniest central core points, never whole shapes. Absolutely no soft gradients, glow, haze, bloom, radial falloff, blur, anti-aliasing or outline strokes. Readable at 25 percent size, 64 px per cell. If radiance is needed, use discrete hard-edged light-grey rays, rings and motes. Holy healing character conveyed through open hands, rising light motes, gentle radiant bursts, wide elliptical ground rings, floating leaf/feather motes. No environment or full character.\nROW 1 — CAST, six frames left to right: two small open-hand shapes cupped together with light motes gathering between them, growing through successive frames into a compact radiant knot with short rays; frame 6 the knot flares. Hands rendered with flat grey steps.\nROW 2 — TRAVEL, six frames: small radiant pulse facing RIGHT, a compact ray-star with a short trail of rising motes to the LEFT; each successive frame rays rotate for a loop. Consistent pulse size and center.\nROW 3 — IMPACT, six frames: frame 1 small ray-star at target, no white disc; frames 2–4 ring of short rays expands outward and motes rise; frame 5 rays thin into floating motes; frame 6 just a few rising motes.\nROW 4 — RESIDUAL + MOTE, six frames: frames 1–4 wide flat ground ring, ellipse wider than tall, with rising motes, four looping variations with same ring dimensions; frames 5–6 each exactly one single small leaf-like rising light mote facing RIGHT, two variants.\nAll 24 cells distinct and isolated. No material between cells. Flat pure black background is the highest priority.\nCRITICAL CORRECTION FOR RETRY: The previous attempt incorrectly filled the background with broad grey fog and soft halos. Start fresh. Treat this as a flat indexed-palette sprite atlas on an opaque solid black digital canvas. The entire negative space MUST be RGB(0,0,0), including inside rings and between motes and fingers. No pixel outside the physical sprite silhouettes may be grey. There is NO emitted illumination whatsoever. All apparent light is represented ONLY by solid grey geometric pixel clusters. Each ray, mote, hand, star and ellipse is a crisp cutout of flat palette blocks pasted onto solid black. No luminous aura, no soft shadow, no diffuse fields. Five exact solid values only. The black canvas must occupy at least 85 percent of the image. Preserve all 24 cells and all row specifications.",
+      "references": [],
+      "elapsed_s": 40.449
+    }
+  ],
+  "calls_used": 2,
+  "retries": [
+    {
+      "reason": "First image contained broad grey background haze and soft halos.",
+      "change": "Regenerated with stronger instructions for solid black negative space, flat palette blocks, and zero emitted illumination."
+    }
+  ],
+  "self_report": {
+    "obeyed_invariants": false,
+    "concerns": [
+      "Retry still contains grey background haze and soft gradients; pure-black background and exact five-value palette requirements are unmet.",
+      "Task-specific style, background, and sheet dimensions conflict with the register card; generation followed the task-specific requirements.",
+      "Retry allowance exhausted. Saved the second generation without modification."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/healing_sheets.png",
+      "sha256": "8102c3615933236d267b3d175e6b36cf743d61afa35f3c3c379fb8caa4a15c3a"
+    }
+  ]
+}

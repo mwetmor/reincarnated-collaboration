@@ -1,0 +1,29 @@
+{
+  "task_id": "CS-vfx-zeus-sheets",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "zeus_sheets",
+      "path": "out/zeus_sheets.png",
+      "sha256": "782740dac43bf6effe1339b428a55df61ce0811bfe64f71e0f3c6a4036061a6d",
+      "prompt": "Use case: stylized-concept. Asset type: game spell animation sprite sheet.\nCreate ONE 1536×1024 image: exactly 6 columns × 4 rows of 256×256 cells, 24 separate drawings total. Every drawing centered inside its cell with generous black margins, never touching an edge. No labels, grid lines, text, border, or objects between cells.\nBACKGROUND HARD RULE: flat PURE BLACK #000000 black void. Every background pixel exactly #000000. No grey fog, gradient, vignette, atmosphere, background illumination, glow, haze, bloom, radial light falloff, or blur anywhere.\nGREYSCALE ONLY. Use exactly FIVE allowed pixel values: #000000 background, #404040 dark grey, #808080 mid grey, #C0C0C0 light grey, #FFFFFF white. White only for tiny sparks and the tiniest centers of lightning cores, never whole shapes. Each sprite uses hard-edged hand-painted shapes with 3–4 flat value steps, light-grey cores, dark-grey rims and interior holes. Hard stair-stepped edges as if drawn with a 1-px pencil at 64×64 and enlarged 4× with nearest-neighbour. Absolutely no anti-aliasing, soft gradients, outline strokes, smooth contours or smooth lighting. Old 16-bit sprite-effect craftsmanship with restrained detail and clean value planes. Every drawing must read at 25% size, 64px per cell. If tempted to make anything glow, use a hard ring of light-grey square pixels instead.\nSubject: divine CHAIN LIGHTNING: thunderhead charge, thick ornamental forked bolt that jumps between points, branching strike with a small halo ring, lingering sparks. Bolts are thick with angular stepped geometry.\nROW 1, CAST, six frames left to right: a small storm-cloud curl forming above a point with arcs crackling downward; progressively grows to a charged knot; frame 6 the knot flares with three short forks. Cloud is made of flat grey stepped shapes, not fog.\nROW 2, TRAVEL, six frames left to right: each is a thick forked chain-bolt segment facing RIGHT with one clear JUMP kink in its middle and short branches, small sparks trailing LEFT. Each frame a different path for looping animation.\nROW 3, IMPACT, six frames left to right: frame 1 a small branching bright star, no white disc; frames 2–3 a ring of 6–8 thick forks bursting outward with a thin hard halo ring; frames 4–5 forks thin and ring breaks into sparks; frame 6 drifting sparks only.\nROW 4, RESIDUAL + SPARK, six frames left to right: frames 1–4 a flat scorched ground ring, an ellipse wider than tall, with small arcs jumping across it; four looping variations of the same size. Frames 5–6 each show ONE single thick spark fragment facing RIGHT, two variants.\nOnly the specified effects. Keep all 24 cells isolated and all four rows complete.",
+      "references": [],
+      "elapsed_s": 38.5
+    }
+  ],
+  "calls_used": 1,
+  "retries": [],
+  "self_report": {
+    "obeyed_invariants": false,
+    "concerns": [
+      "Followed the task-specific black background, stepped sprite style, and 1536×1024 layout where they conflict with the register card.",
+      "Some edges appear softened; exact five-value palette and uniformly #000000 background were not verified pixel-by-pixel."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/zeus_sheets.png",
+      "sha256": "782740dac43bf6effe1339b428a55df61ce0811bfe64f71e0f3c6a4036061a6d"
+    }
+  ]
+}
