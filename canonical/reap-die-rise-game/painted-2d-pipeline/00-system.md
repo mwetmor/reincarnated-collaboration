@@ -8,6 +8,7 @@
 **Authority:** Matt 2026-09-11 — *"add this section into canonical so that yourself and other agents can reference it … a system description with links and pipeline flow which is all human readable so that I can stay in sync and track the architecture across sessions in case there is agentic drift"*; rulings F1–F10 (charter § 10)
 **Companion docs:**
 - `canonical/reap-die-rise-game/painted-2d-pipeline/mechanical-process.md` — the agent-facing twin (what executes; enforcement)
+- **See also:** `canonical/reap-die-rise-game/painted-2d-pipeline/scene-builder-workflow.md` — THE scene-builder workflow (Matt R-C3-102, 2026-09-15; 3D scenes + Synty crossed off — supersedes § 1's register-lock clause for scenes)
 - `agentic_orchestration/gandalf/notes/2026-09-11-astra-burst-lane-run-charter.md` — Run C-1 charter (register card, burst rules, rubric, slate, HALT rules, ARCHITECT gate)
 - `astra_test_01/burst/SPEC.md` — the software build contract (T0 modules, oracles O1–O9, bible schema, T1–T5 roadmap)
 - `agentic_orchestration/gandalf/notes/2026-09-11-astra-burst-lane-review-and-architecture.md` — why this exists (the TEST-02 verdict) + the rulings ledger

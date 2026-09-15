@@ -31,3 +31,5 @@ The **playable-product specs** — the third spec home beside `reap-die-rise-sto
 ## Painted-2D art pipeline (born 2026-09-11)
 
 `painted-2d-pipeline/00-system.md` (human-readable system description, FLOW-declared, hash-synced) + `painted-2d-pipeline/mechanical-process.md` (agent-facing twin: invariants, burst recipe, enforcement, drift alarms). The Astra burst lane that tests — and, if it passes, produces — painted-2D characters, VFX and scene plates 100 % via Astra (Matt rulings F1–F10, 2026-09-11). The 3D register lock stands until X2–X6 evidence.
+
+`painted-2d-pipeline/scene-builder-workflow.md` — **CURRENT (2026-09-15, Matt R-C3-102): THE scene-builder workflow** (painted-2D; roles + exact models; grey room → PACK → Matt loop); **3D scenes + Synty crossed off the plan — supersedes the "3D register lock stands" clause above for scenes.**
