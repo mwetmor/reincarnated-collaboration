@@ -1,0 +1,531 @@
+{
+  "metrics": [
+    {
+      "id": "t3q_near_entries",
+      "subject": "synthetic_near",
+      "passed": null,
+      "value": 1,
+      "threshold": 1,
+      "op": "==",
+      "unit": "count",
+      "evidence": [
+        "fixture_project/scenes/cliffside.tscn"
+      ],
+      "notes": "Instrument only; conductor owns acceptance."
+    },
+    {
+      "id": "t3q_near_effect_children",
+      "subject": "synthetic_near",
+      "passed": null,
+      "value": 2,
+      "threshold": 2,
+      "op": "==",
+      "unit": "count",
+      "evidence": [
+        "fixture_project/scenes/cliffside.tscn"
+      ],
+      "notes": "Instrument only; conductor owns acceptance."
+    },
+    {
+      "id": "t3q_glow_local_x",
+      "subject": "synthetic_near",
+      "passed": null,
+      "value": 10.0,
+      "threshold": 10,
+      "op": "==",
+      "unit": "px",
+      "evidence": [
+        "fixture_project/scenes/cliffside.tscn"
+      ],
+      "notes": "Instrument only; conductor owns acceptance."
+    },
+    {
+      "id": "t3q_glow_local_y",
+      "subject": "synthetic_near",
+      "passed": null,
+      "value": 20.0,
+      "threshold": 20,
+      "op": "==",
+      "unit": "px",
+      "evidence": [
+        "fixture_project/scenes/cliffside.tscn"
+      ],
+      "notes": "Instrument only; conductor owns acceptance."
+    },
+    {
+      "id": "t3q_emitter_local_x",
+      "subject": "synthetic_near",
+      "passed": null,
+      "value": 10.0,
+      "threshold": 10,
+      "op": "==",
+      "unit": "px",
+      "evidence": [
+        "fixture_project/scenes/cliffside.tscn"
+      ],
+      "notes": "Instrument only; conductor owns acceptance."
+    },
+    {
+      "id": "t3q_emitter_local_y",
+      "subject": "synthetic_near",
+      "passed": null,
+      "value": 30.0,
+      "threshold": 30,
+      "op": "==",
+      "unit": "px",
+      "evidence": [
+        "fixture_project/scenes/cliffside.tscn"
+      ],
+      "notes": "Instrument only; conductor owns acceptance."
+    },
+    {
+      "id": "t3q_emitter_local_half_extent_x",
+      "subject": "synthetic_near",
+      "passed": null,
+      "value": 15.0,
+      "threshold": 15,
+      "op": "==",
+      "unit": "px",
+      "evidence": [
+        "fixture_project/scenes/cliffside.tscn"
+      ],
+      "notes": "Instrument only; conductor owns acceptance."
+    },
+    {
+      "id": "t3q_emitter_local_half_extent_y",
+      "subject": "synthetic_near",
+      "passed": null,
+      "value": 20.0,
+      "threshold": 20,
+      "op": "==",
+      "unit": "px",
+      "evidence": [
+        "fixture_project/scenes/cliffside.tscn"
+      ],
+      "notes": "Instrument only; conductor owns acceptance."
+    },
+    {
+      "id": "t3q_emitter_local_coords",
+      "subject": "synthetic_near",
+      "passed": null,
+      "value": true,
+      "threshold": true,
+      "op": "==",
+      "unit": "boolean",
+      "evidence": [
+        "fixture_project/scenes/cliffside.tscn"
+      ],
+      "notes": "Instrument only; conductor owns acceptance."
+    },
+    {
+      "id": "t3q_legacy_particle_world_coords",
+      "subject": "synthetic_near",
+      "passed": null,
+      "value": true,
+      "threshold": true,
+      "op": "==",
+      "unit": "boolean",
+      "evidence": [
+        "fixture_project/scenes/cliffside.tscn"
+      ],
+      "notes": "Instrument only; conductor owns acceptance."
+    },
+    {
+      "id": "t3q_missing_resources",
+      "subject": "synthetic_near",
+      "passed": null,
+      "value": 0,
+      "threshold": 0,
+      "op": "==",
+      "unit": "count",
+      "evidence": [
+        "fixture_project/scenes/cliffside.tscn"
+      ],
+      "notes": "Instrument only; conductor owns acceptance."
+    },
+    {
+      "id": "t3q_known_bad_rejections",
+      "subject": "synthetic_near",
+      "passed": null,
+      "value": 46,
+      "threshold": 46,
+      "op": "==",
+      "unit": "count",
+      "evidence": [
+        "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_props_layer.py"
+      ],
+      "notes": "Instrument only; conductor owns acceptance."
+    },
+    {
+      "id": "t3q_known_bad_output_directories",
+      "subject": "synthetic_near",
+      "passed": null,
+      "value": 0,
+      "threshold": 0,
+      "op": "==",
+      "unit": "count",
+      "evidence": [
+        "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_props_layer.py"
+      ],
+      "notes": "Instrument only; conductor owns acceptance."
+    },
+    {
+      "id": "t3q_legacy_matching_text_files",
+      "subject": "synthetic_near",
+      "passed": null,
+      "value": 11,
+      "threshold": 11,
+      "op": "==",
+      "unit": "count",
+      "evidence": [
+        "t3p_baseline.json"
+      ],
+      "notes": "Instrument only; conductor owns acceptance."
+    },
+    {
+      "id": "t3q_t3p_matching_text_files",
+      "subject": "synthetic_near",
+      "passed": null,
+      "value": 12,
+      "threshold": 12,
+      "op": "==",
+      "unit": "count",
+      "evidence": [
+        "t3p_baseline.json"
+      ],
+      "notes": "Instrument only; conductor owns acceptance."
+    },
+    {
+      "evidence": [
+        "fixture_project/probe.gd"
+      ],
+      "id": "t3q_camera_motion_0",
+      "notes": "Engine measurement; conductor owns acceptance.",
+      "op": ">=",
+      "passed": null,
+      "subject": "synthetic_near",
+      "threshold": 100.0,
+      "unit": "px",
+      "value": 233.238082885742
+    },
+    {
+      "evidence": [
+        "fixture_project/probe.gd"
+      ],
+      "id": "t3q_near_motion_0",
+      "notes": "Engine measurement; conductor owns acceptance.",
+      "op": ">=",
+      "passed": null,
+      "subject": "synthetic_near",
+      "threshold": 1.0,
+      "unit": "px",
+      "value": 58.3095207214355
+    },
+    {
+      "evidence": [
+        "fixture_project/probe.gd"
+      ],
+      "id": "t3q_glow_tracking_error_0",
+      "notes": "Engine measurement; conductor owns acceptance.",
+      "op": "<=",
+      "passed": null,
+      "subject": "synthetic_near",
+      "threshold": 0.5,
+      "unit": "px",
+      "value": 0.0
+    },
+    {
+      "evidence": [
+        "fixture_project/probe.gd"
+      ],
+      "id": "t3q_emitter_tracking_error_0",
+      "notes": "Engine measurement; conductor owns acceptance.",
+      "op": "<=",
+      "passed": null,
+      "subject": "synthetic_near",
+      "threshold": 0.5,
+      "unit": "px",
+      "value": 0.0
+    },
+    {
+      "evidence": [
+        "fixture_project/probe.gd"
+      ],
+      "id": "t3q_actors_world_motion_0",
+      "notes": "Engine measurement; conductor owns acceptance.",
+      "op": "<=",
+      "passed": null,
+      "subject": "synthetic_near",
+      "threshold": 0.5,
+      "unit": "px",
+      "value": 0.0
+    },
+    {
+      "evidence": [
+        "fixture_project/probe.gd"
+      ],
+      "id": "t3q_actors_near_delta_difference_0",
+      "notes": "Engine measurement; conductor owns acceptance.",
+      "op": ">=",
+      "passed": null,
+      "subject": "synthetic_near",
+      "threshold": 1.0,
+      "unit": "px",
+      "value": 58.3095207214355
+    },
+    {
+      "evidence": [
+        "fixture_project/probe.gd"
+      ],
+      "id": "t3q_glow_screen_tracking_error_0",
+      "notes": "Engine measurement; conductor owns acceptance.",
+      "op": "<=",
+      "passed": null,
+      "subject": "synthetic_near",
+      "threshold": 0.5,
+      "unit": "px",
+      "value": 0.0
+    },
+    {
+      "evidence": [
+        "fixture_project/probe.gd"
+      ],
+      "id": "t3q_glow_local_error_0",
+      "notes": "Engine measurement; conductor owns acceptance.",
+      "op": "<=",
+      "passed": null,
+      "subject": "synthetic_near",
+      "threshold": 0.01,
+      "unit": "px",
+      "value": 0.0
+    },
+    {
+      "evidence": [
+        "fixture_project/probe.gd"
+      ],
+      "id": "t3q_near_scroll_error_0",
+      "notes": "Engine measurement; conductor owns acceptance.",
+      "op": "<=",
+      "passed": null,
+      "subject": "synthetic_near",
+      "threshold": 0.5,
+      "unit": "px",
+      "value": 0.0
+    },
+    {
+      "evidence": [
+        "fixture_project/probe.gd"
+      ],
+      "id": "t3q_camera_motion_1",
+      "notes": "Engine measurement; conductor owns acceptance.",
+      "op": ">=",
+      "passed": null,
+      "subject": "synthetic_near",
+      "threshold": 100.0,
+      "unit": "px",
+      "value": 329.848449707031
+    },
+    {
+      "evidence": [
+        "fixture_project/probe.gd"
+      ],
+      "id": "t3q_near_motion_1",
+      "notes": "Engine measurement; conductor owns acceptance.",
+      "op": ">=",
+      "passed": null,
+      "subject": "synthetic_near",
+      "threshold": 1.0,
+      "unit": "px",
+      "value": 82.4621124267578
+    },
+    {
+      "evidence": [
+        "fixture_project/probe.gd"
+      ],
+      "id": "t3q_glow_tracking_error_1",
+      "notes": "Engine measurement; conductor owns acceptance.",
+      "op": "<=",
+      "passed": null,
+      "subject": "synthetic_near",
+      "threshold": 0.5,
+      "unit": "px",
+      "value": 0.0
+    },
+    {
+      "evidence": [
+        "fixture_project/probe.gd"
+      ],
+      "id": "t3q_emitter_tracking_error_1",
+      "notes": "Engine measurement; conductor owns acceptance.",
+      "op": "<=",
+      "passed": null,
+      "subject": "synthetic_near",
+      "threshold": 0.5,
+      "unit": "px",
+      "value": 0.0
+    },
+    {
+      "evidence": [
+        "fixture_project/probe.gd"
+      ],
+      "id": "t3q_actors_world_motion_1",
+      "notes": "Engine measurement; conductor owns acceptance.",
+      "op": "<=",
+      "passed": null,
+      "subject": "synthetic_near",
+      "threshold": 0.5,
+      "unit": "px",
+      "value": 0.0
+    },
+    {
+      "evidence": [
+        "fixture_project/probe.gd"
+      ],
+      "id": "t3q_actors_near_delta_difference_1",
+      "notes": "Engine measurement; conductor owns acceptance.",
+      "op": ">=",
+      "passed": null,
+      "subject": "synthetic_near",
+      "threshold": 1.0,
+      "unit": "px",
+      "value": 82.4621124267578
+    },
+    {
+      "evidence": [
+        "fixture_project/probe.gd"
+      ],
+      "id": "t3q_glow_screen_tracking_error_1",
+      "notes": "Engine measurement; conductor owns acceptance.",
+      "op": "<=",
+      "passed": null,
+      "subject": "synthetic_near",
+      "threshold": 0.5,
+      "unit": "px",
+      "value": 0.0
+    },
+    {
+      "evidence": [
+        "fixture_project/probe.gd"
+      ],
+      "id": "t3q_glow_local_error_1",
+      "notes": "Engine measurement; conductor owns acceptance.",
+      "op": "<=",
+      "passed": null,
+      "subject": "synthetic_near",
+      "threshold": 0.01,
+      "unit": "px",
+      "value": 0.0
+    },
+    {
+      "evidence": [
+        "fixture_project/probe.gd"
+      ],
+      "id": "t3q_near_scroll_error_1",
+      "notes": "Engine measurement; conductor owns acceptance.",
+      "op": "<=",
+      "passed": null,
+      "subject": "synthetic_near",
+      "threshold": 0.5,
+      "unit": "px",
+      "value": 0.0
+    }
+  ],
+  "targeted_tests": {
+    "tests_run": 6,
+    "successful": true,
+    "successful_tests": 6,
+    "wall_s": 5.231
+  },
+  "resource_references": 21,
+  "headless": {
+    "fixture_export_wall_s": 0.2860715410006378,
+    "engine_runs": [
+      {
+        "stage": "import",
+        "returncode": 0,
+        "wall_s": 2.628455791000306
+      },
+      {
+        "stage": "probe",
+        "returncode": 0,
+        "wall_s": 0.29191925000122865
+      }
+    ],
+    "runtime_assertions_complete": true
+  },
+  "notes": [
+    "No real clip is required by the T3q row.",
+    "Initial SPEC extraction printed section 2 lines 26-150 beyond the requested sections.",
+    "Requested read-only cliffside_v8b/scenes/frost_bolt.tscn does not exist.",
+    "Runner reports 427 successful_tests by subtracting 12 red records; unittest addSuccess counts 429 successful methods, because three annulus subtests belong to one method.",
+    "Seven standing headless reds: four Godot user-log crashes and three certificate/editor-settings error assertions inside the sandbox. T3q uses a writable explicit log path and its runtime checks complete."
+  ],
+  "full_suite": {
+    "command_run": {
+      "command": "PYTHONDONTWRITEBYTECODE=1 python3 -B tests/run_t0c.py",
+      "returncode": 1,
+      "wall_s": 181.16972687499947
+    },
+    "tests_run": 439,
+    "successful": false,
+    "runner_successful_tests": 427,
+    "successful_test_methods": 429,
+    "red_records": 12,
+    "red_test_methods": 10,
+    "skipped": 0,
+    "capture_wall_s": 177.5284864159985,
+    "reds": [
+      {
+        "kind": "failure",
+        "test": "test_godot_import.GodotImportTests.test_headless_state_machine_input_map_gear_vfx_and_nearest_fallback"
+      },
+      {
+        "kind": "failure",
+        "test": "test_oracle_walk.Tests.test_synthetic_contract_and_grid"
+      },
+      {
+        "kind": "failure",
+        "test": "test_oracles_motif.Tests.test_f04_outside_at_least_three"
+      },
+      {
+        "kind": "failure",
+        "test": "test_oracles_motif.Tests.test_named_genuine_annuli_retained (center=[113, 201])"
+      },
+      {
+        "kind": "failure",
+        "test": "test_oracles_motif.Tests.test_named_genuine_annuli_retained (center=[111, 311])"
+      },
+      {
+        "kind": "failure",
+        "test": "test_oracles_motif.Tests.test_named_genuine_annuli_retained (center=[170, 253])"
+      },
+      {
+        "kind": "failure",
+        "test": "test_parallax_scene.ParallaxSceneTests.test_headless_cliffside_follow_camera_parallax_and_projectile_collision"
+      },
+      {
+        "kind": "failure",
+        "test": "test_props_layer.PropsLayerTests.test_headless_occlusion_fade_restore_overhead_near_and_particles"
+      },
+      {
+        "kind": "failure",
+        "test": "test_scene_kit.SceneKitTests.test_headless_tower_import_run_and_physics"
+      },
+      {
+        "kind": "failure",
+        "test": "test_sockets.SocketTests.test_headless_directional_release_and_resources"
+      },
+      {
+        "kind": "failure",
+        "test": "test_vfx_picker.LivingEmbersTests.test_headless_glow_sixty_samples_extrema_range_and_particle_properties"
+      },
+      {
+        "kind": "failure",
+        "test": "test_vfx_picker.VfxPickerTests.test_headless_tab_twice_cast_scene_labels_and_inflight_kit_lock"
+      }
+    ],
+    "t3q_successful_tests": 6
+  },
+  "wall_s_since_first_recorded_clock": 872.841118,
+  "minutes_cap": 40
+}

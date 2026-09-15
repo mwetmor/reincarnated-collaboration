@@ -1,0 +1,40 @@
+{
+  "task_id": "CS-objiso-cow",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "objiso_cow",
+      "path": "out/objiso_cow.png",
+      "sha256": "9961b3dcb632f2885315a281c444018e14e75295a8d5cdd441ae2c3ef5339a9b",
+      "prompt": "EDIT IMAGE 1 with a STRICT background-only replacement. Output exactly 1536×1024. The original cow must stay pixel-identical: preserve its original soft painted detail, muted colours, wound, burnt patches, anatomy, silhouette, exact position and size. Do not sharpen or redraw the cow. Remove the entire orange ground rectangle including ALL rocks, dirt, grass and every contact/cast shadow, replacing them with a single completely uniform opaque colour RGB(0,255,0), hex #00ff00. Preserve the existing surrounding pure-green canvas identically. No green texture, grain, gradient, lighting, vignette or noise. All non-cow pixels must be precisely #00ff00. Remove the stone beneath its neck and all small stones; green also occupies the open spaces under the belly, between limbs and inside the tail loop. Clean crisp cow boundary, no halo or blur. Nothing new added, nothing moved. Keep the cow at its existing coordinates approximately x98..822 y95..441, in the upper-left with the full original large empty canvas. Preserve the original hand-painted 2D look without any stylistic transformation. Retry diagnosis: the previous extraction repainted/sharpened cow details and introduced variation in the green; correct those issues by retaining source cow pixels and using truly flat green.",
+      "references": [
+        {
+          "role": "IMAGE 1 — cow tile to isolate (EDIT)",
+          "path": "in/01_cow_sheet.png"
+        }
+      ],
+      "elapsed_s": 17.258
+    }
+  ],
+  "calls_used": 2,
+  "retries": [
+    {
+      "reason": "First output changed cow details and showed apparent texture in the green.",
+      "change": "Retried from original with stronger source-pixel preservation and uniform RGB(0,255,0) instructions."
+    }
+  ],
+  "self_report": {
+    "obeyed_invariants": false,
+    "concerns": [
+      "Ground, stones and shadows are visually removed, but cow details remain visibly altered from the original.",
+      "Green appears subtly textured; exact uniform #00ff00 is not verified.",
+      "Retry allowance exhausted."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/objiso_cow.png",
+      "sha256": "9961b3dcb632f2885315a281c444018e14e75295a8d5cdd441ae2c3ef5339a9b"
+    }
+  ]
+}

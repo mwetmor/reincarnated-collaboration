@@ -1,0 +1,43 @@
+{
+  "task_id": "CS-near3-limb-bottom",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "near3_limb_bottom",
+      "path": "out/near3_limb_bottom.png",
+      "sha256": "e754ba2ea2037a93edc28053b91c3d275f7d51c1f4a699ad83088947bacf83ab",
+      "prompt": "Edit this pine-limb image. REQUIRED CHANGE: replace the entire dark blurred background with flat opaque PURE GREEN #00ff00 (RGB 0,255,0). Every background pixel, including gaps among branches and needles, must be uniform pure green, with NO gradient, NO vignette, NO glow, NO background shadows, NO texture. Keep the hand-drawn painted 2D pine limb, twisted grey-violet bark, dark blue-green needles and thin warm upper-edge rim. Keep the portrait 1024×1536 canvas. Keep the thick base continuing through and cropped flush at the BOTTOM border near the right third: no gap, no visible root or cut end. Keep the limb rising and leaning LEFT across the upper half, with 5–8 needle clusters. Keep the entire limb and all needles away from the top, left and right borders with clear green margins; only its thick base touches the bottom edge. No other objects or text. This is a green-screen foreground asset: the background MUST BE PURE #00ff00.",
+      "references": [
+        {
+          "role": "Approved branch style reference for initial generation",
+          "path": "in/01_near_bridge.png"
+        },
+        {
+          "role": "Initial generation used as retry edit target",
+          "path": "/Users/admin/.codex/generated_images/01a0a246-3d4d-73f3-8b0f-44238ca75bb3/exec-a89fadde-890c-42e5-b633-8d216e85701d.png"
+        }
+      ],
+      "elapsed_s": 19.56
+    }
+  ],
+  "calls_used": 2,
+  "retries": [
+    {
+      "reason": "Initial generation had a dark background instead of flat pure green.",
+      "change": "Requested replacement of the entire background with pure #00ff00 while preserving the limb."
+    }
+  ],
+  "self_report": {
+    "obeyed_invariants": true,
+    "concerns": [
+      "Exact background RGB uniformity was not measured.",
+      "Subdivided needle tufts may read as more than eight clusters."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/near3_limb_bottom.png",
+      "sha256": "e754ba2ea2037a93edc28053b91c3d275f7d51c1f4a699ad83088947bacf83ab"
+    }
+  ]
+}

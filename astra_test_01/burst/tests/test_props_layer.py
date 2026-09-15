@@ -991,8 +991,254 @@ def build_t3p_fixture(directory):
     return out
 
 
+# T3q: parented effect coordinates and the pre-edit T3p text lock.
+T3Q_ROOT = Path(__file__).resolve().parents[1]/'runs/C-3/t3/T3q'
+
+
+def t3q_props(data):
+    """One near sprite with local effects and unparented comparison effects."""
+    data = copy.deepcopy(data)
+    data['near'][0].update(position=[137, 241], scroll_scale=1.25, fade=False)
+    glow = {'texture': 'mote.png', 'position': [10, 20], 'scale': 2,
+            'color': [.2, .5, 1, .7], 'flicker_hz': 4, 'flicker_amount': .3,
+            'z_parent': 'near:0', 'sort_y': 999}
+    data['glows'] = [glow, dict(glow, z_parent='actors', position=[400, 320]),
+                     dict(glow, z_parent='overhead', position=[80, 60])]
+    emitter = dict(data['particles'][0], name='near_motes', z_parent='near:0',
+                   rect=[-5, 10, 25, 50], gravity=[0, -4], angular_velocity=[-5, 10],
+                   scale_curve=[1, .2], additive=True)
+    data['particles'].insert(0, emitter)
+    return data
+
+
+class PropsLayerT3qTests(unittest.TestCase):
+    setUp = PropsLayerTests.setUp
+    export = PropsLayerTests.export
+    reject = PropsLayerTests.reject
+
+    def configured(self):
+        self.data = t3q_props(self.data)
+        (self.props/'props.json').write_text(json.dumps(self.data, indent=2)+'\n')
+
+    def test_near_children_local_position_rect_and_world_defaults(self):
+        self.configured()
+        out, report, text = self.export()
+        nodes = scene_nodes(text)
+        parent = 'Near_0/NearSprite_0'
+        for name, kind in (('Glow_0', 'Sprite2D'), ('Particles_near_motes', 'CPUParticles2D')):
+            header = f'[node name="{name}" type="{kind}" parent="{parent}"]'
+            self.assertIn(header, text)
+            self.assertLess(text.index('[node name="NearSprite_0"'), text.index(header))
+        self.assertEqual(vector(nodes['NearSprite_0'], 'position'), [0, 0])
+        self.assertEqual(vector(nodes['NearSprite_0'], 'offset'), [0, 0])
+        self.assertIn('centered = false', nodes['NearSprite_0'])
+        self.assertEqual(vector(nodes['Glow_0'], 'position'), [10, 20])
+        self.assertEqual(vector(nodes['Glow_0'], 'offset'), [0, 0])
+        self.assertEqual(vector(nodes['Glow_0'], 'scale'), [2, 2])
+        self.assertEqual(vector(nodes['Near_0'], 'scroll_scale'), [1.25, 1.25])
+        self.assertEqual(vector(nodes['Near_0'], 'scroll_offset'), [137, 241])
+        self.assertEqual(vector(nodes['Particles_near_motes'], 'position'), [10, 30])
+        self.assertEqual(vector(nodes['Particles_near_motes'], 'emission_rect_extents'), [15, 20])
+        self.assertIn('local_coords = true', nodes['Particles_near_motes'])
+        self.assertIn('material = SubResource("PropsAdditive")', nodes['Particles_near_motes'])
+        self.assertIn('scale_amount_curve = SubResource("PropsScale0")', nodes['Particles_near_motes'])
+        self.assertIn('[node name="Glow_1" type="Sprite2D" parent="Actors"]', text)
+        self.assertEqual(vector(nodes['Glow_1'], 'position'), [400, 1000])
+        self.assertEqual(vector(nodes['Glow_1'], 'offset'), [0, -340])
+        self.assertIn('[node name="Glow_2" type="Sprite2D" parent="Overhead"]', text)
+        self.assertEqual(vector(nodes['Glow_2'], 'position'), [80, 60])
+        self.assertIn('[node name="Particles_mist_motes" type="CPUParticles2D" parent="Air"]', text)
+        self.assertIn('local_coords = false', nodes['Particles_mist_motes'])
+        self.assertEqual(report['parallax']['props']['glows'], 3)
+        self.assertEqual(report['parallax']['props']['particles'], 2)
+        self.assertTrue(validate_resources(out, include_scenes=True))
+        for file in load_props(self.props)['images']:
+            self.assertEqual((out/'props'/file).read_bytes(), (self.props/file).read_bytes())
+
+    def test_second_near_index_and_default_fade_attach_to_correct_sprite(self):
+        self.configured()
+        self.data['near'].append(dict(self.data['near'][0], position=[900, -200], scroll_scale=1.6))
+        del self.data['near'][1]['fade']
+        self.data['glows'][0]['z_parent'] = 'near:1'
+        self.data['particles'][0]['z_parent'] = 'near:1'
+        (self.props/'props.json').write_text(json.dumps(self.data))
+        _, _, text = self.export()
+        nodes = scene_nodes(text)
+        self.assertIn('script = ExtResource("OcclusionFade")', nodes['NearSprite_1'])
+        for name, kind in (('Glow_0', 'Sprite2D'), ('Particles_near_motes', 'CPUParticles2D')):
+            header = f'[node name="{name}" type="{kind}" parent="Near_1/NearSprite_1"]'
+            self.assertIn(header, text)
+            self.assertLess(text.index('[node name="NearSprite_1"'), text.index(header))
+        self.assertEqual(vector(nodes['Glow_0'], 'position'), [10, 20])
+        self.assertEqual(vector(nodes['Particles_near_motes'], 'position'), [10, 30])
+
+    def test_invalid_indices_types_and_syntax_rejected_before_output(self):
+        self.configured()
+        bad_values = ('near:1', 'near:99999', 'near:x', 'near:', 'near:-1', 'near:0.0',
+                      'near:+0', 'near: 0', 'near:0 ', 'near:0\n', 'near:0/../Actors',
+                      'near:٠', 'Near:0', '', 'ground', None, True, 0, 0.0, [], {})
+        for group in ('glows', 'particles'):
+            for value in bad_values:
+                bad = copy.deepcopy(self.data)
+                bad[group][0]['z_parent'] = value
+                with self.subTest(group=group, parent=value):
+                    self.reject(bad)
+
+    def test_near_reference_without_any_near_entries_rejected_before_output(self):
+        self.configured()
+        for group in ('glows', 'particles'):
+            for value in ('near:0', 'near:'):
+                bad = copy.deepcopy(self.data)
+                bad['near'] = []
+                # Isolate the offending entry from the other parented effect.
+                bad['glows'][0]['z_parent'] = 'actors'
+                bad['particles'][0].pop('z_parent')
+                bad[group][0]['z_parent'] = value
+                with self.subTest(group=group, parent=value):
+                    self.reject(bad)
+
+    def test_t3p_fixtures_byte_identical_all_text(self):
+        baselines = json.loads((T3Q_ROOT/'t3p_baseline.json').read_text())
+        class OrderedCollections(set):
+            def __iter__(self):
+                return iter(('assets', 'near', 'shadows', 'instances', 'particles', 'overhead'))
+        for variant, baseline in baselines.items():
+            (self.props/'props.json').write_text(json.dumps(baseline['manifest'], indent=2)+'\n')
+            out = self.root/variant
+            with self.subTest(variant=variant), patch('time.monotonic', return_value=0.0), patch(
+                    'export.props_layer.COLLECTIONS', OrderedCollections(baseline['manifest'])):
+                build_project(self.cells, out, parallax=self.source, props=self.props)
+                self.assertEqual(text_hashes(out), baseline['text_sha256'])
+
+    @unittest.skipUnless(Path(GODOT).is_file(), 'Godot binary unavailable')
+    def test_headless_camera_tracks_near_glow_emitter_but_not_actors_glow(self):
+        self.configured()
+        out, _, _ = self.export()
+        (out/'probe.gd').write_text(T3Q_PROBE)
+        logs = []
+        for args in (['--import'], ['--script', 'res://probe.gd']):
+            proc = subprocess.run([GODOT, '--headless', '--path', str(out),
+                                   '--log-file', str(self.root/'godot.log'), *args],
+                                  capture_output=True, text=True, timeout=45)
+            log = proc.stdout+proc.stderr
+            logs.append(log)
+            self.assertEqual(proc.returncode, 0, log)
+            self.assertNotIn('SCRIPT ERROR', log)
+            self.assertNotIn('T3Q_ASSERTION:', log)
+        self.assertIn('T3Q_RUNTIME_ASSERTIONS=complete', logs[-1])
+        rows = [json.loads(line.split('=', 1)[1]) for line in logs[-1].splitlines()
+                if line.startswith('T3Q_MEASURE=')]
+        self.assertEqual(len(rows), 18)
+        for row in rows:
+            if row['op'] == '<=':
+                self.assertLessEqual(row['value'], row['threshold'], row['id'])
+            else:
+                self.assertGreaterEqual(row['value'], row['threshold'], row['id'])
+
+
+T3Q_PROBE = '''extends SceneTree
+var errors: int = 0
+
+func check(value: bool, message: String) -> void:
+    if not value:
+        errors += 1
+        printerr("T3Q_ASSERTION: ", message)
+
+func record(label: String, value: float, threshold: float, op: String) -> void:
+    print("T3Q_MEASURE=", JSON.stringify({"id": "t3q_" + label, "subject": "synthetic_near",
+        "passed": null, "value": value, "threshold": threshold, "op": op, "unit": "px",
+        "evidence": ["fixture_project/probe.gd"], "notes": "Engine measurement; conductor owns acceptance."}))
+    check(value <= threshold if op == "<=" else value >= threshold, label)
+
+func _initialize() -> void:
+    call_deferred("probe")
+
+func probe() -> void:
+    root.size = Vector2i(1920, 1080)
+    var scene: Node2D = load("res://scenes/cliffside.tscn").instantiate()
+    root.add_child(scene)
+    await process_frame
+    var keeper: Node2D = scene.get_node("Actors/Keeper")
+    keeper.set_physics_process(false)
+    var camera: Camera2D = keeper.get_node("Camera2D")
+    camera.position_smoothing_enabled = false
+    camera.limit_left = -100000
+    camera.limit_top = -100000
+    camera.limit_right = 100000
+    camera.limit_bottom = 100000
+    var near_sprite: Sprite2D = scene.get_node("Near_0/NearSprite_0")
+    var glow: Sprite2D = scene.get_node("Near_0/NearSprite_0/Glow_0")
+    var emitter: CPUParticles2D = scene.get_node("Near_0/NearSprite_0/Particles_near_motes")
+    var actors_glow: Sprite2D = scene.get_node("Actors/Glow_1")
+    var air: CPUParticles2D = scene.get_node("Air/Particles_mist_motes")
+    check(glow.get_parent() == near_sprite, "glow parent is near sprite")
+    check(emitter.get_parent() == near_sprite, "emitter parent is near sprite")
+    check(glow.position == Vector2(10, 20), "glow local position")
+    check(glow.offset == Vector2.ZERO, "near ignores world y-sort override")
+    check(not near_sprite.centered and near_sprite.offset == Vector2.ZERO, "origin is top-left pixel")
+    check(emitter.local_coords and not air.local_coords, "local versus world particles")
+    check(emitter.position == Vector2(10, 30), "local emission rect centre")
+    check(emitter.emission_rect_extents == Vector2(15, 20), "local emission rect extents")
+    camera.make_current()
+    keeper.position = Vector2(2000, 1400)
+    camera.force_update_scroll()
+    await process_frame
+    await process_frame
+    for cycle in range(2):
+        var before_camera: Vector2 = camera.get_screen_center_position()
+        var before_near: Vector2 = near_sprite.global_position
+        var before_glow: Vector2 = glow.global_position
+        var before_emitter: Vector2 = emitter.global_position
+        var before_actors: Vector2 = actors_glow.global_position
+        var before_near_screen: Vector2 = near_sprite.get_global_transform_with_canvas().origin
+        var before_glow_screen: Vector2 = glow.get_global_transform_with_canvas().origin
+        keeper.position += Vector2(200, 120) if cycle == 0 else Vector2(-320, 80)
+        camera.force_update_scroll()
+        await process_frame
+        await process_frame
+        var camera_delta: Vector2 = camera.get_screen_center_position() - before_camera
+        var sprite_delta: Vector2 = near_sprite.global_position - before_near
+        var glow_delta: Vector2 = glow.global_position - before_glow
+        var emitter_delta: Vector2 = emitter.global_position - before_emitter
+        var actors_delta: Vector2 = actors_glow.global_position - before_actors
+        var sprite_screen_delta: Vector2 = near_sprite.get_global_transform_with_canvas().origin - before_near_screen
+        var glow_screen_delta: Vector2 = glow.get_global_transform_with_canvas().origin - before_glow_screen
+        var suffix: String = "_" + str(cycle)
+        record("camera_motion" + suffix, camera_delta.length(), 100.0, ">=")
+        record("near_motion" + suffix, sprite_delta.length(), 1.0, ">=")
+        record("glow_tracking_error" + suffix, (glow_delta - sprite_delta).length(), 0.5, "<=")
+        record("emitter_tracking_error" + suffix, (emitter_delta - sprite_delta).length(), 0.5, "<=")
+        record("actors_world_motion" + suffix, actors_delta.length(), 0.5, "<=")
+        record("actors_near_delta_difference" + suffix, (actors_delta - sprite_delta).length(), 1.0, ">=")
+        record("glow_screen_tracking_error" + suffix, (glow_screen_delta - sprite_screen_delta).length(), 0.5, "<=")
+        record("glow_local_error" + suffix, glow.position.distance_to(Vector2(10, 20)), 0.01, "<=")
+        record("near_scroll_error" + suffix, (sprite_screen_delta + camera_delta * 1.25).length(), 0.5, "<=")
+    if errors == 0:
+        print("T3Q_RUNTIME_ASSERTIONS=complete")
+    scene.queue_free()
+    await process_frame
+    quit(0 if errors == 0 else 7)
+'''
+
+
+def build_t3q_fixture(directory):
+    """Persistent one-near fixture, with world effects as camera-motion controls."""
+    root = Path(directory)
+    root.mkdir(parents=True, exist_ok=True)
+    source, cells, _, _ = make_inputs(root/'fixture_inputs', (1200, 900))
+    props = root/'fixture_inputs/props'
+    data = t3q_props(make_props(props))
+    (props/'props.json').write_text(json.dumps(data, indent=2)+'\n')
+    out = root/'fixture_project'
+    build_project(cells, out, parallax=source, props=props)
+    (out/'probe.gd').write_text(T3Q_PROBE)
+    return out
+
+
 if __name__ == '__main__':
-    if len(sys.argv) == 3 and sys.argv[1] == '--fixture-t3p':
+    if len(sys.argv) == 3 and sys.argv[1] == '--fixture-t3q':
+        print(build_t3q_fixture(sys.argv[2]))
+    elif len(sys.argv) == 3 and sys.argv[1] == '--fixture-t3p':
         print(build_t3p_fixture(sys.argv[2]))
     elif len(sys.argv) == 3 and sys.argv[1] == '--fixture-t3m':
         print(build_t3m_fixture(sys.argv[2]))

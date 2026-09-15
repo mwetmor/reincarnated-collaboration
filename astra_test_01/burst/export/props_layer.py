@@ -4,6 +4,9 @@ PNG bytes are copied unchanged. Opaque support means alpha >= 128 (including
 for bounding boxes and coverage); near fade uses the full displayed rectangle.
 Coverage counts the union, before runtime fading, at viewport pixel centres.
 Near entries may set fade=false to omit fading; absent fade defaults to true.
+Glows and particles can use z_parent='near:<index>' to attach to that near
+sprite. Position/rect then use its top-left texture pixel as local origin;
+near particles use local_coords=true. Omitted particle z_parent retains Air.
 """
 import json
 import math
@@ -27,7 +30,7 @@ FIELDS = {
                   'direction', 'spread_deg', 'scale', 'color_start', 'color_end'},
     'glows': {'texture', 'position', 'scale', 'color', 'flicker_hz', 'flicker_amount', 'z_parent'},
 }
-OPTIONAL_FIELDS = {'particles': {'gravity', 'angular_velocity', 'scale_curve', 'additive'},
+OPTIONAL_FIELDS = {'particles': {'gravity', 'angular_velocity', 'scale_curve', 'additive', 'z_parent'},
                    'glows': {'sort_y'}, 'near': {'fade'}}
 
 
@@ -52,6 +55,16 @@ def _name(value, seen):
             or value in seen):
         raise ValueError('Names must be unique safe node names')
     seen.add(value)
+
+
+def _near_parent(value, near_count):
+    """Validate a near reference and return its top-left Sprite2D node path."""
+    if not isinstance(value, str) or not re.fullmatch(r'near:[0-9]+', value):
+        raise ValueError('z_parent must reference near:<nonnegative integer index>')
+    index = int(value[5:])
+    if index >= near_count:
+        raise ValueError('z_parent near index out of range')
+    return f'Near_{index}/NearSprite_{index}'
 
 
 def load_props(directory):
@@ -132,6 +145,8 @@ def load_props(directory):
                 if 'fade' in item and not isinstance(item['fade'], bool):
                     raise ValueError('near fade must be boolean')
             elif collection == 'particles':
+                if 'z_parent' in item:
+                    _near_parent(item['z_parent'], len(data['near']))
                 _name(item['name'], particle_names)
                 png(item['texture'])
                 _rectangle(item['rect'], 'particle rect')
@@ -171,7 +186,7 @@ def load_props(directory):
                     if not _number(item[key]) or not lo <= item[key] <= hi:
                         raise ValueError(key + f' must be finite in [{lo},{hi}]')
                 if item['z_parent'] not in ('actors', 'overhead'):
-                    raise ValueError('glow z_parent must be actors or overhead')
+                    _near_parent(item['z_parent'], len(data['near']))
                 if 'sort_y' in item and not _number(item['sort_y']):
                     raise ValueError('glow sort_y must be finite')
     return {**data, 'root': root, 'images': images}
@@ -471,11 +486,14 @@ def write_layers(out, props, body_width=48.0):
             collisions += (f'\n[node name="PropCollision_{i}" type="CollisionPolygon2D" parent="Walls"]\n'
                            f'position = {_vector(instance["position"])}\npolygon = {_packed(ellipse(asset["footprint"]))}\n')
     after += '\n[node name="Overhead" type="Node2D" parent="."]\nz_index = 3\n'
+    near_glows = ''
     for i, entry in enumerate(props.get('glows', [])):
-        parent = 'Actors' if entry['z_parent'] == 'actors' else 'Overhead'
+        near_parented = entry['z_parent'] not in ('actors', 'overhead')
+        parent = (_near_parent(entry['z_parent'], len(props['near'])) if near_parented
+                  else 'Actors' if entry['z_parent'] == 'actors' else 'Overhead')
         x, y = entry['position']
         sort_y = _glow_sort_y(entry, props) if parent == 'Actors' else y
-        after += (f'\n[node name="Glow_{i}" type="Sprite2D" parent="{parent}"]\n'
+        glow = (f'\n[node name="Glow_{i}" type="Sprite2D" parent="{parent}"]\n'
                   f'position = {_vector([x, sort_y])}\ncentered = true\n'
                   f'offset = {_vector([0, (y-sort_y)/entry["scale"]])}\n'
                   f'scale = {_vector([entry["scale"]]*2)}\n'
@@ -484,6 +502,10 @@ def write_layers(out, props, body_width=48.0):
                   'modulate = Color('+', '.join(format(v, '.12g') for v in entry['color'])+')\n'
                   f'flicker_hz = {entry["flicker_hz"]:.12g}\nflicker_amount = {entry["flicker_amount"]:.12g}\n'
                   f'phase_seed = {i+1}\n')
+        if near_parented:
+            near_glows += glow
+        else:
+            after += glow
     for i, entry in enumerate(props['overhead']):
         after += sprite(f'Overhead_{i}', 'Overhead', entry['file'], entry['position'])
         after += fade(entry['file'], [0, 0], 1, '../../Actors/Keeper')
@@ -494,16 +516,20 @@ def write_layers(out, props, body_width=48.0):
         after += sprite(f'NearSprite_{i}', f'Near_{i}', entry['file'], [0, 0])
         if entry.get('fade', True):
             after += fade(entry['file'], [0, 0], 2, '../../Actors/Keeper')
+    # PackedScene requires each parent to be declared before its children.
+    after += near_glows
     after += '\n[node name="Air" type="Node2D" parent="."]\nz_index = 5\n'
     for i, entry in enumerate(props['particles']):
+        near_parented = 'z_parent' in entry
+        parent = _near_parent(entry['z_parent'], len(props['near'])) if near_parented else 'Air'
         x0, y0, x1, y1 = entry['rect']
         colors = entry['color_start']+entry['color_end']
         subresources.append(f'[sub_resource type="Gradient" id="PropsGradient{i}"]\noffsets = PackedFloat32Array(0, 1)\ncolors = PackedColorArray('+', '.join(format(v, '.12g') for v in colors)+')\n')
-        after += (f'\n[node name="Particles_{entry["name"]}" type="CPUParticles2D" parent="Air"]\n'
+        after += (f'\n[node name="Particles_{entry["name"]}" type="CPUParticles2D" parent="{parent}"]\n'
                   f'position = {_vector([(x0+x1)/2, (y0+y1)/2])}\n'
                   f'texture = ExtResource("{textures[entry["texture"]]}")\n'
                   f'amount = {entry["amount"]}\nlifetime = {entry["lifetime_s"]:.12g}\n'
-                  'local_coords = false\nemitting = true\nemission_shape = 3\n'
+                  f'local_coords = {str(near_parented).lower()}\nemitting = true\nemission_shape = 3\n'
                   f'emission_rect_extents = {_vector([(x1-x0)/2, (y1-y0)/2])}\n'
                   f'direction = {_vector(entry["direction"])}\nspread = {entry["spread_deg"]:.12g}\n'
                   f'gravity = {_vector(entry.get("gravity", [0, 0]))}\n'

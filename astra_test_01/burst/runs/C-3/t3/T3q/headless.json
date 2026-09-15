@@ -1,0 +1,252 @@
+{
+  "fixture_export_wall_s": 0.2860715410006378,
+  "engine_runs": [
+    {
+      "stage": "import",
+      "returncode": 0,
+      "wall_s": 2.628455791000306
+    },
+    {
+      "stage": "probe",
+      "returncode": 0,
+      "wall_s": 0.29191925000122865
+    }
+  ],
+  "measurements": [
+    {
+      "evidence": [
+        "fixture_project/probe.gd"
+      ],
+      "id": "t3q_camera_motion_0",
+      "notes": "Engine measurement; conductor owns acceptance.",
+      "op": ">=",
+      "passed": null,
+      "subject": "synthetic_near",
+      "threshold": 100.0,
+      "unit": "px",
+      "value": 233.238082885742
+    },
+    {
+      "evidence": [
+        "fixture_project/probe.gd"
+      ],
+      "id": "t3q_near_motion_0",
+      "notes": "Engine measurement; conductor owns acceptance.",
+      "op": ">=",
+      "passed": null,
+      "subject": "synthetic_near",
+      "threshold": 1.0,
+      "unit": "px",
+      "value": 58.3095207214355
+    },
+    {
+      "evidence": [
+        "fixture_project/probe.gd"
+      ],
+      "id": "t3q_glow_tracking_error_0",
+      "notes": "Engine measurement; conductor owns acceptance.",
+      "op": "<=",
+      "passed": null,
+      "subject": "synthetic_near",
+      "threshold": 0.5,
+      "unit": "px",
+      "value": 0.0
+    },
+    {
+      "evidence": [
+        "fixture_project/probe.gd"
+      ],
+      "id": "t3q_emitter_tracking_error_0",
+      "notes": "Engine measurement; conductor owns acceptance.",
+      "op": "<=",
+      "passed": null,
+      "subject": "synthetic_near",
+      "threshold": 0.5,
+      "unit": "px",
+      "value": 0.0
+    },
+    {
+      "evidence": [
+        "fixture_project/probe.gd"
+      ],
+      "id": "t3q_actors_world_motion_0",
+      "notes": "Engine measurement; conductor owns acceptance.",
+      "op": "<=",
+      "passed": null,
+      "subject": "synthetic_near",
+      "threshold": 0.5,
+      "unit": "px",
+      "value": 0.0
+    },
+    {
+      "evidence": [
+        "fixture_project/probe.gd"
+      ],
+      "id": "t3q_actors_near_delta_difference_0",
+      "notes": "Engine measurement; conductor owns acceptance.",
+      "op": ">=",
+      "passed": null,
+      "subject": "synthetic_near",
+      "threshold": 1.0,
+      "unit": "px",
+      "value": 58.3095207214355
+    },
+    {
+      "evidence": [
+        "fixture_project/probe.gd"
+      ],
+      "id": "t3q_glow_screen_tracking_error_0",
+      "notes": "Engine measurement; conductor owns acceptance.",
+      "op": "<=",
+      "passed": null,
+      "subject": "synthetic_near",
+      "threshold": 0.5,
+      "unit": "px",
+      "value": 0.0
+    },
+    {
+      "evidence": [
+        "fixture_project/probe.gd"
+      ],
+      "id": "t3q_glow_local_error_0",
+      "notes": "Engine measurement; conductor owns acceptance.",
+      "op": "<=",
+      "passed": null,
+      "subject": "synthetic_near",
+      "threshold": 0.01,
+      "unit": "px",
+      "value": 0.0
+    },
+    {
+      "evidence": [
+        "fixture_project/probe.gd"
+      ],
+      "id": "t3q_near_scroll_error_0",
+      "notes": "Engine measurement; conductor owns acceptance.",
+      "op": "<=",
+      "passed": null,
+      "subject": "synthetic_near",
+      "threshold": 0.5,
+      "unit": "px",
+      "value": 0.0
+    },
+    {
+      "evidence": [
+        "fixture_project/probe.gd"
+      ],
+      "id": "t3q_camera_motion_1",
+      "notes": "Engine measurement; conductor owns acceptance.",
+      "op": ">=",
+      "passed": null,
+      "subject": "synthetic_near",
+      "threshold": 100.0,
+      "unit": "px",
+      "value": 329.848449707031
+    },
+    {
+      "evidence": [
+        "fixture_project/probe.gd"
+      ],
+      "id": "t3q_near_motion_1",
+      "notes": "Engine measurement; conductor owns acceptance.",
+      "op": ">=",
+      "passed": null,
+      "subject": "synthetic_near",
+      "threshold": 1.0,
+      "unit": "px",
+      "value": 82.4621124267578
+    },
+    {
+      "evidence": [
+        "fixture_project/probe.gd"
+      ],
+      "id": "t3q_glow_tracking_error_1",
+      "notes": "Engine measurement; conductor owns acceptance.",
+      "op": "<=",
+      "passed": null,
+      "subject": "synthetic_near",
+      "threshold": 0.5,
+      "unit": "px",
+      "value": 0.0
+    },
+    {
+      "evidence": [
+        "fixture_project/probe.gd"
+      ],
+      "id": "t3q_emitter_tracking_error_1",
+      "notes": "Engine measurement; conductor owns acceptance.",
+      "op": "<=",
+      "passed": null,
+      "subject": "synthetic_near",
+      "threshold": 0.5,
+      "unit": "px",
+      "value": 0.0
+    },
+    {
+      "evidence": [
+        "fixture_project/probe.gd"
+      ],
+      "id": "t3q_actors_world_motion_1",
+      "notes": "Engine measurement; conductor owns acceptance.",
+      "op": "<=",
+      "passed": null,
+      "subject": "synthetic_near",
+      "threshold": 0.5,
+      "unit": "px",
+      "value": 0.0
+    },
+    {
+      "evidence": [
+        "fixture_project/probe.gd"
+      ],
+      "id": "t3q_actors_near_delta_difference_1",
+      "notes": "Engine measurement; conductor owns acceptance.",
+      "op": ">=",
+      "passed": null,
+      "subject": "synthetic_near",
+      "threshold": 1.0,
+      "unit": "px",
+      "value": 82.4621124267578
+    },
+    {
+      "evidence": [
+        "fixture_project/probe.gd"
+      ],
+      "id": "t3q_glow_screen_tracking_error_1",
+      "notes": "Engine measurement; conductor owns acceptance.",
+      "op": "<=",
+      "passed": null,
+      "subject": "synthetic_near",
+      "threshold": 0.5,
+      "unit": "px",
+      "value": 0.0
+    },
+    {
+      "evidence": [
+        "fixture_project/probe.gd"
+      ],
+      "id": "t3q_glow_local_error_1",
+      "notes": "Engine measurement; conductor owns acceptance.",
+      "op": "<=",
+      "passed": null,
+      "subject": "synthetic_near",
+      "threshold": 0.01,
+      "unit": "px",
+      "value": 0.0
+    },
+    {
+      "evidence": [
+        "fixture_project/probe.gd"
+      ],
+      "id": "t3q_near_scroll_error_1",
+      "notes": "Engine measurement; conductor owns acceptance.",
+      "op": "<=",
+      "passed": null,
+      "subject": "synthetic_near",
+      "threshold": 0.5,
+      "unit": "px",
+      "value": 0.0
+    }
+  ],
+  "runtime_assertions_complete": true
+}

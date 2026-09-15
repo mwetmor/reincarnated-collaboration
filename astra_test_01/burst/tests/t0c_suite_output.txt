@@ -273,6 +273,12 @@ test_no_fade_key_byte_identical_to_t3o_all_text (test_props_layer.PropsLayerT3pT
 test_non_boolean_fade_rejected_before_any_output (test_props_layer.PropsLayerT3pTests.test_non_boolean_fade_rejected_before_any_output) ... ok
 test_opaque_near_keeps_other_layers_fade_resources (test_props_layer.PropsLayerT3pTests.test_opaque_near_keeps_other_layers_fade_resources) ... ok
 test_unknown_keys_and_fade_on_other_collections_rejected (test_props_layer.PropsLayerT3pTests.test_unknown_keys_and_fade_on_other_collections_rejected) ... ok
+test_headless_camera_tracks_near_glow_emitter_but_not_actors_glow (test_props_layer.PropsLayerT3qTests.test_headless_camera_tracks_near_glow_emitter_but_not_actors_glow) ... ok
+test_invalid_indices_types_and_syntax_rejected_before_output (test_props_layer.PropsLayerT3qTests.test_invalid_indices_types_and_syntax_rejected_before_output) ... ok
+test_near_children_local_position_rect_and_world_defaults (test_props_layer.PropsLayerT3qTests.test_near_children_local_position_rect_and_world_defaults) ... ok
+test_near_reference_without_any_near_entries_rejected_before_output (test_props_layer.PropsLayerT3qTests.test_near_reference_without_any_near_entries_rejected_before_output) ... ok
+test_second_near_index_and_default_fade_attach_to_correct_sprite (test_props_layer.PropsLayerT3qTests.test_second_near_index_and_default_fade_attach_to_correct_sprite) ... ok
+test_t3p_fixtures_byte_identical_all_text (test_props_layer.PropsLayerT3qTests.test_t3p_fixtures_byte_identical_all_text) ... ok
 test_absent_movement_props_byte_identical_to_frozen_t3k_all_text (test_props_layer.PropsLayerTests.test_absent_movement_props_byte_identical_to_frozen_t3k_all_text) ... ok
 test_bad_numbers_names_booleans_and_ranges (test_props_layer.PropsLayerTests.test_bad_numbers_names_booleans_and_ranges) ... ok
 test_cli_props_and_requires_parallax (test_props_layer.PropsLayerTests.test_cli_props_and_requires_parallax) ... ok
@@ -446,21 +452,21 @@ FAIL: test_headless_state_machine_input_map_gear_vfx_and_nearest_fallback (test_
 Traceback (most recent call last):
   File "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_godot_import.py", line 162, in test_headless_state_machine_input_map_gear_vfx_and_nearest_fallback
     self.assertEqual(proc.returncode, 0, log)
-AssertionError: -6 != 0 : ERROR: Failed to open 'user://logs/godot2026-09-14T09.46.52.log'.
+AssertionError: -6 != 0 : ERROR: Failed to open 'user://logs/godot2026-09-14T19.52.25.log'.
    at: copy (core/io/dir_access.cpp:423)
 
 ================================================================
 handle_crash: Program crashed with signal 11
 Engine version: Godot Engine v4.6.3.stable.official (7d41c59c457bd5a245092b4e7eb2d833e3b3f8c3)
 Dumping the backtrace. Please include this when reporting the bug on: https://github.com/godotengine/godot/issues
-[1] 1   libsystem_platform.dylib            0x0000000187ad56a4 _sigtramp + 56
+[1] 1   libsystem_platform.dylib            0x00000001994256a4 _sigtramp + 56
 [2] RotatedFileLogger::rotate_file() (in Godot) + 1160
 [3] RotatedFileLogger::rotate_file() (in Godot) + 1160
 [4] RotatedFileLogger::RotatedFileLogger(String const&, int) (in Godot) + 80
 [5] Main::setup(char const*, int, char**, bool) (in Godot) + 18880
 [6] OS_MacOS_Headless::run() (in Godot) + 68
 [7] main (in Godot) + 924
-[8] 8   dyld                                0x00000001876fab98 start + 6076
+[8] 8   dyld                                0x000000019904ab98 start + 6076
 -- END OF C++ BACKTRACE --
 ================================================================
 
@@ -513,21 +519,21 @@ FAIL: test_headless_cliffside_follow_camera_parallax_and_projectile_collision (t
 Traceback (most recent call last):
   File "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_parallax_scene.py", line 370, in test_headless_cliffside_follow_camera_parallax_and_projectile_collision
     self.assertEqual(proc.returncode, 0, log)
-AssertionError: -6 != 0 : ERROR: Failed to open 'user://logs/godot2026-09-14T09.48.11.log'.
+AssertionError: -6 != 0 : ERROR: Failed to open 'user://logs/godot2026-09-14T19.53.42.log'.
    at: copy (core/io/dir_access.cpp:423)
 
 ================================================================
 handle_crash: Program crashed with signal 11
 Engine version: Godot Engine v4.6.3.stable.official (7d41c59c457bd5a245092b4e7eb2d833e3b3f8c3)
 Dumping the backtrace. Please include this when reporting the bug on: https://github.com/godotengine/godot/issues
-[1] 1   libsystem_platform.dylib            0x0000000187ad56a4 _sigtramp + 56
+[1] 1   libsystem_platform.dylib            0x00000001994256a4 _sigtramp + 56
 [2] RotatedFileLogger::rotate_file() (in Godot) + 1160
 [3] RotatedFileLogger::rotate_file() (in Godot) + 1160
 [4] RotatedFileLogger::RotatedFileLogger(String const&, int) (in Godot) + 80
 [5] Main::setup(char const*, int, char**, bool) (in Godot) + 18880
 [6] OS_MacOS_Headless::run() (in Godot) + 68
 [7] main (in Godot) + 924
-[8] 8   dyld                                0x00000001876fab98 start + 6076
+[8] 8   dyld                                0x000000019904ab98 start + 6076
 -- END OF C++ BACKTRACE --
 ================================================================
 
@@ -538,21 +544,21 @@ FAIL: test_headless_occlusion_fade_restore_overhead_near_and_particles (test_pro
 Traceback (most recent call last):
   File "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_props_layer.py", line 342, in test_headless_occlusion_fade_restore_overhead_near_and_particles
     self.assertEqual(proc.returncode, 0, log)
-AssertionError: -6 != 0 : ERROR: Failed to open 'user://logs/godot2026-09-14T09.48.33.log'.
+AssertionError: -6 != 0 : ERROR: Failed to open 'user://logs/godot2026-09-14T19.54.07.log'.
    at: copy (core/io/dir_access.cpp:423)
 
 ================================================================
 handle_crash: Program crashed with signal 11
 Engine version: Godot Engine v4.6.3.stable.official (7d41c59c457bd5a245092b4e7eb2d833e3b3f8c3)
 Dumping the backtrace. Please include this when reporting the bug on: https://github.com/godotengine/godot/issues
-[1] 1   libsystem_platform.dylib            0x0000000187ad56a4 _sigtramp + 56
+[1] 1   libsystem_platform.dylib            0x00000001994256a4 _sigtramp + 56
 [2] RotatedFileLogger::rotate_file() (in Godot) + 1160
 [3] RotatedFileLogger::rotate_file() (in Godot) + 1160
 [4] RotatedFileLogger::RotatedFileLogger(String const&, int) (in Godot) + 80
 [5] Main::setup(char const*, int, char**, bool) (in Godot) + 18880
 [6] OS_MacOS_Headless::run() (in Godot) + 68
 [7] main (in Godot) + 924
-[8] 8   dyld                                0x00000001876fab98 start + 6076
+[8] 8   dyld                                0x000000019904ab98 start + 6076
 -- END OF C++ BACKTRACE --
 ================================================================
 
@@ -563,21 +569,21 @@ FAIL: test_headless_tower_import_run_and_physics (test_scene_kit.SceneKitTests.t
 Traceback (most recent call last):
   File "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_scene_kit.py", line 328, in test_headless_tower_import_run_and_physics
     self.assertEqual(proc.returncode, 0, log)
-AssertionError: -6 != 0 : ERROR: Failed to open 'user://logs/godot2026-09-14T09.48.42.log'.
+AssertionError: -6 != 0 : ERROR: Failed to open 'user://logs/godot2026-09-14T19.54.16.log'.
    at: copy (core/io/dir_access.cpp:423)
 
 ================================================================
 handle_crash: Program crashed with signal 11
 Engine version: Godot Engine v4.6.3.stable.official (7d41c59c457bd5a245092b4e7eb2d833e3b3f8c3)
 Dumping the backtrace. Please include this when reporting the bug on: https://github.com/godotengine/godot/issues
-[1] 1   libsystem_platform.dylib            0x0000000187ad56a4 _sigtramp + 56
+[1] 1   libsystem_platform.dylib            0x00000001994256a4 _sigtramp + 56
 [2] RotatedFileLogger::rotate_file() (in Godot) + 1160
 [3] RotatedFileLogger::rotate_file() (in Godot) + 1160
 [4] RotatedFileLogger::RotatedFileLogger(String const&, int) (in Godot) + 80
 [5] Main::setup(char const*, int, char**, bool) (in Godot) + 18880
 [6] OS_MacOS_Headless::run() (in Godot) + 68
 [7] main (in Godot) + 924
-[8] 8   dyld                                0x00000001876fab98 start + 6076
+[8] 8   dyld                                0x000000019904ab98 start + 6076
 -- END OF C++ BACKTRACE --
 ================================================================
 
@@ -656,6 +662,6 @@ ERROR: Error saving editor settings to /Users/admin/Library/Application Support/
 ERROR: Condition "ret != noErr" is true. Returning: ""
 
 ----------------------------------------------------------------------
-Ran 433 tests in 174.052s
+Ran 439 tests in 176.142s
 
 FAILED (failures=12)

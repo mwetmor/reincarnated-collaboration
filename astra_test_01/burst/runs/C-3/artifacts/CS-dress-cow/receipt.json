@@ -1,0 +1,43 @@
+{
+  "task_id": "CS-dress-cow",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "dress_cow.png",
+      "path": "out/dress_cow.png",
+      "sha256": "343a39b69f9b1ffadfa400fc769105da90f510cbd557b6cbcd76eb42beba4d12",
+      "prompt": "Use case: precise-object-edit. EDIT IMAGE 1 (original bare cliffside painting), with IMAGE 2 used ONLY as a scale ruler; do not paint any people or magenta. Output exactly one 1536x1024 image. Make a tiny localized addition only. Add one DEAD farm cow lying limp on its side, with singed blackened hide, a charred flank, and stomach flayed open exposing dark red flesh. Soft contact shadow beneath it. CRITICAL SCALE CORRECTION: the previous attempt was over twice too large. The human figures in IMAGE 2 are only about 130 pixels tall. This 2.4 m cow must have a nose-to-rump length of approximately 180 pixels, NOT 400 pixels. Fit the ENTIRE cow, legs, tail and soft shadow within the small rectangle x=285 to 495, y=315 to 415. Center around (390,365) on the dirt shoulder, off the path centre, away from the cliff rim and at least 150 pixels from all borders. It is a small environmental prop, never a focal closeup. Match the existing elevated three-quarter camera, sunset key from screen upper-left, hand-drawn painted 2D style with tapered variable-weight dark contours, clean painted planes, restrained texture, readable silhouette and scene colors. Preserve IMAGE 1 verbatim everywhere outside that tiny cow-and-shadow rectangle: the precise original rocks, dirt strokes, grass, flowers, cliff, bridge, clouds, color and lighting. Keep flat pure #00ff00 void precisely unchanged. No flies, no added objects or burnt ground, no figures, no guides, no text, no framing or background changes.",
+      "references": [
+        {
+          "role": "IMAGE 1 — bare painted crop to EDIT",
+          "path": "in/01_cow_canvas.png"
+        },
+        {
+          "role": "IMAGE 2 — scale figures, reference only",
+          "path": "in/02_cow_scale_figures.png"
+        }
+      ],
+      "elapsed_s": 25.307
+    }
+  ],
+  "calls_used": 2,
+  "retries": [
+    {
+      "reason": "First cow was clearly oversized against the scale figures.",
+      "change": "Retried from the original references with an explicit approximately 180-pixel nose-to-rump length and localized placement bounds."
+    }
+  ],
+  "self_report": {
+    "obeyed_invariants": false,
+    "concerns": [
+      "Background details show slight regeneration; exact preservation outside the cow and shadow was not achieved.",
+      "Retry corrected the major scale error, but placement extends beyond the requested prompt rectangle."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/dress_cow.png",
+      "sha256": "343a39b69f9b1ffadfa400fc769105da90f510cbd557b6cbcd76eb42beba4d12"
+    }
+  ]
+}

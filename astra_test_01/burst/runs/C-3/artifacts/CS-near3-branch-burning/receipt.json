@@ -1,0 +1,39 @@
+{
+  "task_id": "CS-near3-branch-burning",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "near3_branch_burning",
+      "path": "out/near3_branch_burning.png",
+      "sha256": "fe01d276dd77f8aa3b3abe04428887e9de8ff1fa8dc65846901dfb1a8565b780",
+      "prompt": "Use case: precise-object-edit. Image 1 is the edit target: a 1536×1024 near-camera gnarled cliff-pine branch sprite on flat pure #00ff00. Deliver ONE edited image at exactly 1536×1024. Preserve the same branch in precisely the same position, size, silhouette, bark geometry and needle-cluster arrangement. Keep the outline and all unburnt parts exactly as painted, including existing sunset rim light on upper edges. Change only localized burning details: several lower needle clusters are charred near-black with readable cool shadows and glowing orange-red ember edges; exactly three small painted flames lick upward from lower clusters, with hard edges and three clean tones (white-yellow core, orange body, dark red edge). Add thin glowing orange-red cracks along the underside of the bark, and a few discrete painted sparks immediately above the flames. The fire is catching from below; do not depict a forest or other scenery. Style: hand-drawn painted 2D animation frame, confident dark hand-drawn contour with taper and varying weight, clean painted material planes, restrained surface texture, readable small silhouettes. Match the existing illustration closely. Keep deep cool low-value ambient and existing fixed upper-left illumination; localized fire color belongs only to burning surfaces, flames and sparks. The entire background must remain perfectly flat pure #00ff00, including between needles and branches; absolutely no glow haze, bloom, smoke, gradients, ground shadow, text or added objects. Do not move, resize, rotate, reframe, redraw or reshape the branch. Preserve original canvas margins and top trunk cutoff. Only the added flames and sparks may extend beyond the existing object silhouette.",
+      "references": [
+        {
+          "role": "edit target",
+          "path": "in/01_branch_burn_canvas.png"
+        }
+      ],
+      "elapsed_s": 24.524
+    }
+  ],
+  "calls_used": 2,
+  "retries": [
+    {
+      "reason": "First output's green background appeared subtly mottled.",
+      "change": "Retried from the original with stronger uniform RGB(0,255,0) instructions. Retry produced a dark background with glow; retained the first output."
+    }
+  ],
+  "self_report": {
+    "obeyed_invariants": false,
+    "concerns": [
+      "Delivered image is 1536×1024 with visible flames and embers, but background appears subtly mottled; exact pure-green preservation is unverified.",
+      "Exact pixel preservation of the branch outline and unburnt paint is unverified."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/near3_branch_burning.png",
+      "sha256": "fe01d276dd77f8aa3b3abe04428887e9de8ff1fa8dc65846901dfb1a8565b780"
+    }
+  ]
+}

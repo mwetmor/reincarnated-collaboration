@@ -1,0 +1,22 @@
+{
+ "text": "GENERATE BURST CS-dress-cow — add a DEAD COW carcass to the burnt ground of the painted cliffside (Matt R-C3-95). task_id \"CS-dress-cow\".\n\nIMAGE 1 is a finished hand-painted 2D ARPG level crop (1536×1024; fixed high three-quarter camera; sunset light from the upper-left; grass, dirt, burnt snags, a cliff rim; PURE GREEN #00ff00 = void). IMAGE 2 is the same crop with SCALE FIGURES: the player character (1.75 m) at her exact in-game size with magenta ground and height ticks — reference only, never paint the figures or magenta.\nUse image_gen in EDIT mode on IMAGE 1 and deliver ONE 1536×1024 image that is the SAME painting with ONE added object on open grass or dirt (not on the path centre, not on the rim, at least 150 px from every border): a DEAD COW lying on its side, a real farm cow (about 2.4 m long nose to rump — roughly 1.4× the character's height in length), slightly BURNT (patches of singed, blackened hide, one charred flank), its stomach FLAYED OPEN showing dark red flesh; a soft contact shadow under it in the scene light; in the same hand-painted register as the level (tapered dark contours, painted planes, bold jewel tones), same camera angle and scale as the ground. Do NOT paint flies (they are added as particles). Everything that is not the cow and its shadow stays exactly as painted; the green stays flat pure #00ff00.\n\nOne image_gen call. ONE retry only if the ground outside the cow was visibly repainted, the cow is clearly off-scale against the figures, it stands rather than lies, or the stomach is not flayed — name the reason. Copy the output from $CODEX_HOME/generated_images/... to out/dress_cow.png with sha256. No code. No other files. No web.\nRETURN: receipt task_id \"CS-dress-cow\"; images = the file with prompt, references and elapsed_s; calls_used = the TRUE number of image_gen calls; status; concerns. Never PASS/FAIL.",
+ "references": [
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/CS-v9-canvases/cow_canvas.png",
+   "role": "IMAGE 1 — bare painted crop to EDIT"
+  },
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/CS-v9-canvases/cow_scale_figures.png",
+   "role": "IMAGE 2 — scale figures (reference only)"
+  }
+ ],
+ "image_cap": 2,
+ "minutes_cap": 15,
+ "tool_call_cap": 20,
+ "outputs": [
+  "out/dress_cow.png"
+ ],
+ "effort": "high",
+ "add_dirs": [],
+ "experiment": "C3-cliffside-dress"
+}

@@ -1,0 +1,43 @@
+{
+  "task_id": "CS-near3-limb-left",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "near3_limb_left.png",
+      "path": "out/near3_limb_left.png",
+      "sha256": "702ed9cdfe620b5db2e58691b29e54002c31e91afd8dd83a0209b415e033676d",
+      "prompt": "Use case: precise-object-edit. Edit IMAGE 1 (the isolated pine limb candidate). IMAGE 2 is the approved branch STYLE REFERENCE only. Deliver ONE landscape PNG 1536x1024. REQUIRED CORRECTION: replace the ENTIRE dark gradient backdrop with a uniform, perfectly flat, bright PURE GREEN #00ff00 (RGB 0,255,0). Every background pixel outside the limb, and every opening between twigs and needles, must be that same solid green. No vignette, black, brown, glow, haze, shadows, gradient, or texture anywhere in the background. Keep the hand-drawn painted 2D cliff-pine limb: gnarled grey-violet bark in clean cool shadow planes, dark blue-green needle tufts, tapered varied dark contours and a narrow warm sunset rim on its upper edges, matching the top-left branch in IMAGE 2. Preserve one long connected limb, thick base cropped FLUSH by the LEFT image border at the upper third, with no visible starting point, stump, end grain, or trunk junction. Retain its dipping and rising twisting form, thinning twigs and 5–8 needle clusters. Bring the farthest-right needle tip to approximately x=1350 of 1536 (88 percent width) to leave a generous pure-green right margin. The limb and all needles must remain clear of the top, right and bottom edges. The base must still continue beyond the left image boundary. Restrained bark texture, no conspicuous grain, very slight near-camera softness. No other objects, scenery, text, borders, letterboxing. Solid pure #00ff00 green backdrop is mandatory.",
+      "references": [
+        {
+          "role": "Edit target: first generated candidate",
+          "path": "/Users/admin/.codex/generated_images/01a0a246-3d4d-7642-a46b-1bd8ec850d9c/exec-5c64d54b-d1d5-4db1-a66d-a8794675e815.png"
+        },
+        {
+          "role": "Approved near-camera branch style reference",
+          "path": "in/01_near_bridge.png"
+        }
+      ],
+      "elapsed_s": 19.355
+    }
+  ],
+  "calls_used": 2,
+  "retries": [
+    {
+      "reason": "First candidate had a dark gradient background instead of flat pure green.",
+      "change": "Requested solid #00ff00 throughout the background and a larger right margin while preserving the limb."
+    }
+  ],
+  "self_report": {
+    "obeyed_invariants": true,
+    "concerns": [
+      "Background appears uniformly green; exact #00ff00 pixel values were not independently measured.",
+      "Rightmost needles reach approximately 92% of canvas width, slightly beyond the requested 75–90%."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/near3_limb_left.png",
+      "sha256": "702ed9cdfe620b5db2e58691b29e54002c31e91afd8dd83a0209b415e033676d"
+    }
+  ]
+}

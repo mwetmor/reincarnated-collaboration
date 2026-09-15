@@ -1,0 +1,18 @@
+{
+ "text": "GENERATE BURST CS-near3-branch-burning — make the near-camera pine branch BURNING (Matt R-C3-95). task_id \"CS-near3-branch-burning\".\n\nIMAGE 1 (1536×1024) is a hand-painted gnarled cliff-pine branch with needle clusters on flat PURE GREEN #00ff00 (a near-camera foreground sprite; sunset rim light on its upper edges).\nUse image_gen in EDIT mode on IMAGE 1 and deliver ONE 1536×1024 image in which the SAME branch — same position, size, silhouette and needle clusters — is now catching fire from the forest fire below: several needle clusters are charred black with GLOWING ORANGE-RED EMBER edges, two or three small painted FLAMES (hard-edged, painted, 2–3 tones: white-yellow core, orange body, dark red edge) lick up from the lower clusters, thin glowing cracks run along the underside of the bark, and a few painted sparks sit just above the flames. Keep the branch's outline and unburnt parts exactly as painted; the green stays flat pure #00ff00 everywhere else (no glow haze on the green).\n\nOne image_gen call. ONE retry only if the branch moved or changed silhouette, the green got hazy, or there are no visible flames/embers — name the reason. Copy the output from $CODEX_HOME/generated_images/... to out/near3_branch_burning.png with sha256. No code. No other files. No web.\nRETURN: receipt task_id \"CS-near3-branch-burning\"; images = the file with prompt, references and elapsed_s; calls_used = the TRUE number of image_gen calls; status; concerns. Never PASS/FAIL.",
+ "references": [
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/CS-v9-canvases/branch_burn_canvas.png",
+   "role": "IMAGE 1 — branch sprite to EDIT"
+  }
+ ],
+ "image_cap": 2,
+ "minutes_cap": 15,
+ "tool_call_cap": 20,
+ "outputs": [
+  "out/near3_branch_burning.png"
+ ],
+ "effort": "high",
+ "add_dirs": [],
+ "experiment": "C3-cliffside-near"
+}
