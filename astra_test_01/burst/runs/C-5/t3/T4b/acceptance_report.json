@@ -1,0 +1,269 @@
+{
+  "full_suite": {
+    "tests_run": 520,
+    "successful_tests": 505,
+    "elapsed_s": 197.29619883300256
+  },
+  "red_count": 15,
+  "reds": [
+    {
+      "kind": "addError",
+      "test": "test_every_material_sprite_is_linear_and_animation_fields_are_bound (test_effect_kit.SharedVFXMaterialTests.test_every_material_sprite_is_linear_and_animation_fields_are_bound)",
+      "exception": "[Errno 2] No such file or directory: '/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/tmp/t4a-ivfbapsg/fixture/project/scenes/vfx_synthetic_ice_bolt.tscn'"
+    },
+    {
+      "kind": "addFailure",
+      "test": "test_headless_state_machine_input_map_gear_vfx_and_nearest_fallback (test_godot_import.GodotImportTests.test_headless_state_machine_input_map_gear_vfx_and_nearest_fallback)",
+      "exception": "-6 != 0 : ERROR: Failed to open 'user://logs/godot2026-09-15T17.18.53.log'.\n   at: copy (core/io/dir_access.cpp:423)\n\n================================================================\nhandle_crash: Program crashed with signal 11\nEngine version: Godot Engine v4.6.3.stable.official (7d41c59c457bd5a245092b4e7eb2d833e3b3f8c3)\nDumping the backtrace. Please include this when reporting the bug on: https://github.com/godotengine/godot/issues\n[1] 1   libsystem_platform.dylib            0x000000018222d6a4 _sigtramp + 56\n[2] RotatedFileLogger::rotate_file() (in Godot) + 1160\n[3] RotatedFileLogger::rotate_file() (in Godot) + 1160\n[4] RotatedFileLogger::RotatedFileLogger(String const&, int) (in Godot) + 80\n[5] Main::setup(char const*, int, char**, bool) (in Godot) + 18880\n[6] OS_MacOS_Headless::run() (in Godot) + 68\n[7] main (in Godot) + 924\n[8] 8   dyld                                0x0000000181e52b98 start + 6076\n-- END OF C++ BACKTRACE --\n================================================================\n"
+    },
+    {
+      "kind": "addFailure",
+      "test": "test_synthetic_contract_and_grid (test_oracle_walk.Tests.test_synthetic_contract_and_grid)",
+      "exception": "60 != 65 within 2 delta (5 difference) : head_ref_y"
+    },
+    {
+      "kind": "addFailure",
+      "test": "test_f04_outside_at_least_three (test_oracles_motif.Tests.test_f04_outside_at_least_three)",
+      "exception": "2 not greater than or equal to 3"
+    },
+    {
+      "kind": "addSubTest",
+      "test": "test_named_genuine_annuli_retained (test_oracles_motif.Tests.test_named_genuine_annuli_retained) (center=[113, 201])",
+      "exception": "'rejected' unexpectedly found in {'angular_support': 0.7708333333333334, 'center': [113.0, 201.0], 'hollow_score': 0.3125, 'inner_opposed_support': 0.3125, 'inside': False, 'lab_band_surround': 11.57642176150743, 'lab_center_band': 11.062059961818727, 'lab_center_surround': 22.610550201280017, 'lab_color_return': 0.0, 'radius': 30.0, 'rejected': 'not_annulus', 'score': 0.7074940354497125}"
+    },
+    {
+      "kind": "addSubTest",
+      "test": "test_named_genuine_annuli_retained (test_oracles_motif.Tests.test_named_genuine_annuli_retained) (center=[111, 311])",
+      "exception": "'rejected' unexpectedly found in {'angular_support': 0.75, 'center': [111.0, 311.0], 'hollow_score': 0.16666666666666666, 'inner_opposed_support': 0.16666666666666666, 'inside': False, 'lab_band_surround': 21.229621366461696, 'lab_center_band': 18.63219308325294, 'lab_center_surround': 39.74946870785732, 'lab_color_return': 0.0, 'radius': 27.0, 'rejected': 'not_annulus', 'score': 0.5281963253811909}"
+    },
+    {
+      "kind": "addSubTest",
+      "test": "test_named_genuine_annuli_retained (test_oracles_motif.Tests.test_named_genuine_annuli_retained) (center=[170, 253])",
+      "exception": "'rejected' unexpectedly found in {'angular_support': 0.8333333333333334, 'center': [170.0, 253.0], 'hollow_score': 0.08333333333333333, 'inner_opposed_support': 0.08333333333333333, 'inside': False, 'lab_band_surround': 12.987929666149537, 'lab_center_band': 18.508563966712764, 'lab_center_surround': 30.467977867785994, 'lab_color_return': 0.0, 'radius': 8.0, 'rejected': 'not_annulus', 'score': 0.6366616733180586}"
+    },
+    {
+      "kind": "addFailure",
+      "test": "test_headless_cliffside_follow_camera_parallax_and_projectile_collision (test_parallax_scene.ParallaxSceneTests.test_headless_cliffside_follow_camera_parallax_and_projectile_collision)",
+      "exception": "-6 != 0 : ERROR: Failed to open 'user://logs/godot2026-09-15T17.20.10.log'.\n   at: copy (core/io/dir_access.cpp:423)\n\n================================================================\nhandle_crash: Program crashed with signal 11\nEngine version: Godot Engine v4.6.3.stable.official (7d41c59c457bd5a245092b4e7eb2d833e3b3f8c3)\nDumping the backtrace. Please include this when reporting the bug on: https://github.com/godotengine/godot/issues\n[1] 1   libsystem_platform.dylib            0x000000018222d6a4 _sigtramp + 56\n[2] RotatedFileLogger::rotate_file() (in Godot) + 1160\n[3] RotatedFileLogger::rotate_file() (in Godot) + 1160\n[4] RotatedFileLogger::RotatedFileLogger(String const&, int) (in Godot) + 80\n[5] Main::setup(char const*, int, char**, bool) (in Godot) + 18880\n[6] OS_MacOS_Headless::run() (in Godot) + 68\n[7] main (in Godot) + 924\n[8] 8   dyld                                0x0000000181e52b98 start + 6076\n-- END OF C++ BACKTRACE --\n================================================================\n"
+    },
+    {
+      "kind": "addFailure",
+      "test": "test_headless_occlusion_fade_restore_overhead_near_and_particles (test_props_layer.PropsLayerTests.test_headless_occlusion_fade_restore_overhead_near_and_particles)",
+      "exception": "-6 != 0 : ERROR: Failed to open 'user://logs/godot2026-09-15T17.20.42.log'.\n   at: copy (core/io/dir_access.cpp:423)\n\n================================================================\nhandle_crash: Program crashed with signal 11\nEngine version: Godot Engine v4.6.3.stable.official (7d41c59c457bd5a245092b4e7eb2d833e3b3f8c3)\nDumping the backtrace. Please include this when reporting the bug on: https://github.com/godotengine/godot/issues\n[1] 1   libsystem_platform.dylib            0x000000018222d6a4 _sigtramp + 56\n[2] RotatedFileLogger::rotate_file() (in Godot) + 1160\n[3] RotatedFileLogger::rotate_file() (in Godot) + 1160\n[4] RotatedFileLogger::RotatedFileLogger(String const&, int) (in Godot) + 80\n[5] Main::setup(char const*, int, char**, bool) (in Godot) + 18880\n[6] OS_MacOS_Headless::run() (in Godot) + 68\n[7] main (in Godot) + 924\n[8] 8   dyld                                0x0000000181e52b98 start + 6076\n-- END OF C++ BACKTRACE --\n================================================================\n"
+    },
+    {
+      "kind": "addFailure",
+      "test": "test_headless_tower_import_run_and_physics (test_scene_kit.SceneKitTests.test_headless_tower_import_run_and_physics)",
+      "exception": "-6 != 0 : ERROR: Failed to open 'user://logs/godot2026-09-15T17.20.51.log'.\n   at: copy (core/io/dir_access.cpp:423)\n\n================================================================\nhandle_crash: Program crashed with signal 11\nEngine version: Godot Engine v4.6.3.stable.official (7d41c59c457bd5a245092b4e7eb2d833e3b3f8c3)\nDumping the backtrace. Please include this when reporting the bug on: https://github.com/godotengine/godot/issues\n[1] 1   libsystem_platform.dylib            0x000000018222d6a4 _sigtramp + 56\n[2] RotatedFileLogger::rotate_file() (in Godot) + 1160\n[3] RotatedFileLogger::rotate_file() (in Godot) + 1160\n[4] RotatedFileLogger::RotatedFileLogger(String const&, int) (in Godot) + 80\n[5] Main::setup(char const*, int, char**, bool) (in Godot) + 18880\n[6] OS_MacOS_Headless::run() (in Godot) + 68\n[7] main (in Godot) + 924\n[8] 8   dyld                                0x0000000181e52b98 start + 6076\n-- END OF C++ BACKTRACE --\n================================================================\n"
+    },
+    {
+      "kind": "addFailure",
+      "test": "test_headless_directional_release_and_resources (test_sockets.SocketTests.test_headless_directional_release_and_resources)",
+      "exception": "Lists differ: ['ERROR: Condition \"ret != noErr\" is true.[285 chars] \"\"'] != []\n\nFirst list contains 4 additional elements.\nFirst extra element 0:\n'ERROR: Condition \"ret != noErr\" is true. Returning: \"\"'\n\n+ []\n- ['ERROR: Condition \"ret != noErr\" is true. Returning: \"\"',\n-  \"ERROR: Cannot save file '/Users/admin/Library/Application \"\n-  \"Support/Godot/editor_settings-4.6.tres'.\",\n-  'ERROR: Error saving editor settings to /Users/admin/Library/Application '\n-  'Support/Godot/editor_settings-4.6.tres',\n-  'ERROR: Condition \"ret != noErr\" is true. Returning: \"\"'] : ERROR: Condition \"ret != noErr\" is true. Returning: \"\"\nERROR: Cannot save file '/Users/admin/Library/Application Support/Godot/editor_settings-4.6.tres'.\nERROR: Error saving editor settings to /Users/admin/Library/Application Support/Godot/editor_settings-4.6.tres\nERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+    },
+    {
+      "kind": "addFailure",
+      "test": "test_headless_authored_cast_east_north_collision_timing_and_feedback_cleanup (test_vfx_picker.AuthoredEffectPickerTests.test_headless_authored_cast_east_north_collision_timing_and_feedback_cleanup)",
+      "exception": "Lists differ: ['ERROR: Condition \"ret != noErr\" is true.[285 chars] \"\"'] != []\n\nFirst list contains 4 additional elements.\nFirst extra element 0:\n'ERROR: Condition \"ret != noErr\" is true. Returning: \"\"'\n\n+ []\n- ['ERROR: Condition \"ret != noErr\" is true. Returning: \"\"',\n-  \"ERROR: Cannot save file '/Users/admin/Library/Application \"\n-  \"Support/Godot/editor_settings-4.6.tres'.\",\n-  'ERROR: Error saving editor settings to /Users/admin/Library/Application '\n-  'Support/Godot/editor_settings-4.6.tres',\n-  'ERROR: Condition \"ret != noErr\" is true. Returning: \"\"'] : ERROR: Condition \"ret != noErr\" is true. Returning: \"\"\nERROR: Cannot save file '/Users/admin/Library/Application Support/Godot/editor_settings-4.6.tres'.\nERROR: Error saving editor settings to /Users/admin/Library/Application Support/Godot/editor_settings-4.6.tres\nERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+    },
+    {
+      "kind": "addFailure",
+      "test": "test_headless_first_cast_contact_cursor_pool_cancel_and_picker (test_vfx_picker.G1ComponentTests.test_headless_first_cast_contact_cursor_pool_cancel_and_picker)",
+      "exception": "Lists differ: ['ERROR: Condition \"ret != noErr\" is true.[285 chars] \"\"'] != []\n\nFirst list contains 4 additional elements.\nFirst extra element 0:\n'ERROR: Condition \"ret != noErr\" is true. Returning: \"\"'\n\n+ []\n- ['ERROR: Condition \"ret != noErr\" is true. Returning: \"\"',\n-  \"ERROR: Cannot save file '/Users/admin/Library/Application \"\n-  \"Support/Godot/editor_settings-4.6.tres'.\",\n-  'ERROR: Error saving editor settings to /Users/admin/Library/Application '\n-  'Support/Godot/editor_settings-4.6.tres',\n-  'ERROR: Condition \"ret != noErr\" is true. Returning: \"\"'] : ERROR: Condition \"ret != noErr\" is true. Returning: \"\"\nERROR: Cannot save file '/Users/admin/Library/Application Support/Godot/editor_settings-4.6.tres'.\nERROR: Error saving editor settings to /Users/admin/Library/Application Support/Godot/editor_settings-4.6.tres\nERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+    },
+    {
+      "kind": "addFailure",
+      "test": "test_headless_glow_sixty_samples_extrema_range_and_particle_properties (test_vfx_picker.LivingEmbersTests.test_headless_glow_sixty_samples_extrema_range_and_particle_properties)",
+      "exception": "Lists differ: ['ERROR: Condition \"ret != noErr\" is true.[285 chars] \"\"'] != []\n\nFirst list contains 4 additional elements.\nFirst extra element 0:\n'ERROR: Condition \"ret != noErr\" is true. Returning: \"\"'\n\n+ []\n- ['ERROR: Condition \"ret != noErr\" is true. Returning: \"\"',\n-  \"ERROR: Cannot save file '/Users/admin/Library/Application \"\n-  \"Support/Godot/editor_settings-4.6.tres'.\",\n-  'ERROR: Error saving editor settings to /Users/admin/Library/Application '\n-  'Support/Godot/editor_settings-4.6.tres',\n-  'ERROR: Condition \"ret != noErr\" is true. Returning: \"\"'] : ERROR: Condition \"ret != noErr\" is true. Returning: \"\"\nERROR: Cannot save file '/Users/admin/Library/Application Support/Godot/editor_settings-4.6.tres'.\nERROR: Error saving editor settings to /Users/admin/Library/Application Support/Godot/editor_settings-4.6.tres\nERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+    },
+    {
+      "kind": "addFailure",
+      "test": "test_headless_tab_twice_cast_scene_labels_and_inflight_kit_lock (test_vfx_picker.VfxPickerTests.test_headless_tab_twice_cast_scene_labels_and_inflight_kit_lock)",
+      "exception": "Lists differ: ['ERROR: Condition \"ret != noErr\" is true.[285 chars] \"\"'] != []\n\nFirst list contains 4 additional elements.\nFirst extra element 0:\n'ERROR: Condition \"ret != noErr\" is true. Returning: \"\"'\n\n+ []\n- ['ERROR: Condition \"ret != noErr\" is true. Returning: \"\"',\n-  \"ERROR: Cannot save file '/Users/admin/Library/Application \"\n-  \"Support/Godot/editor_settings-4.6.tres'.\",\n-  'ERROR: Error saving editor settings to /Users/admin/Library/Application '\n-  'Support/Godot/editor_settings-4.6.tres',\n-  'ERROR: Condition \"ret != noErr\" is true. Returning: \"\"'] : ERROR: Condition \"ret != noErr\" is true. Returning: \"\"\nERROR: Cannot save file '/Users/admin/Library/Application Support/Godot/editor_settings-4.6.tres'.\nERROR: Error saving editor settings to /Users/admin/Library/Application Support/Godot/editor_settings-4.6.tres\nERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+    }
+  ],
+  "targeted": {
+    "tests_run": 22,
+    "successful": false,
+    "successful_tests": 19,
+    "wall_s": 12.893536916999437,
+    "errors": [],
+    "failures": [
+      [
+        "test_headless_tab_twice_cast_scene_labels_and_inflight_kit_lock (test_vfx_picker.VfxPickerTests.test_headless_tab_twice_cast_scene_labels_and_inflight_kit_lock)",
+        "Traceback (most recent call last):\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_vfx_picker.py\", line 279, in test_headless_tab_twice_cast_scene_labels_and_inflight_kit_lock\n    run_headless(self, out, 'picker_probe.gd')\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_vfx_picker.py\", line 119, in run_headless\n    test.assertEqual(engine_errors, [], '\\n'.join(engine_errors))\nAssertionError: Lists differ: ['ERROR: Condition \"ret != noErr\" is true.[285 chars] \"\"'] != []\n\nFirst list contains 4 additional elements.\nFirst extra element 0:\n'ERROR: Condition \"ret != noErr\" is true. Returning: \"\"'\n\n+ []\n- ['ERROR: Condition \"ret != noErr\" is true. Returning: \"\"',\n-  \"ERROR: Cannot save file '/Users/admin/Library/Application \"\n-  \"Support/Godot/editor_settings-4.6.tres'.\",\n-  'ERROR: Error saving editor settings to /Users/admin/Library/Application '\n-  'Support/Godot/editor_settings-4.6.tres',\n-  'ERROR: Condition \"ret != noErr\" is true. Returning: \"\"'] : ERROR: Condition \"ret != noErr\" is true. Returning: \"\"\nERROR: Cannot save file '/Users/admin/Library/Application Support/Godot/editor_settings-4.6.tres'.\nERROR: Error saving editor settings to /Users/admin/Library/Application Support/Godot/editor_settings-4.6.tres\nERROR: Condition \"ret != noErr\" is true. Returning: \"\"\n"
+      ],
+      [
+        "test_headless_authored_cast_east_north_collision_timing_and_feedback_cleanup (test_vfx_picker.AuthoredEffectPickerTests.test_headless_authored_cast_east_north_collision_timing_and_feedback_cleanup)",
+        "Traceback (most recent call last):\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_vfx_picker.py\", line 518, in test_headless_authored_cast_east_north_collision_timing_and_feedback_cleanup\n    run_headless(self, self.project, 'effect_probe.gd')\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_vfx_picker.py\", line 119, in run_headless\n    test.assertEqual(engine_errors, [], '\\n'.join(engine_errors))\nAssertionError: Lists differ: ['ERROR: Condition \"ret != noErr\" is true.[285 chars] \"\"'] != []\n\nFirst list contains 4 additional elements.\nFirst extra element 0:\n'ERROR: Condition \"ret != noErr\" is true. Returning: \"\"'\n\n+ []\n- ['ERROR: Condition \"ret != noErr\" is true. Returning: \"\"',\n-  \"ERROR: Cannot save file '/Users/admin/Library/Application \"\n-  \"Support/Godot/editor_settings-4.6.tres'.\",\n-  'ERROR: Error saving editor settings to /Users/admin/Library/Application '\n-  'Support/Godot/editor_settings-4.6.tres',\n-  'ERROR: Condition \"ret != noErr\" is true. Returning: \"\"'] : ERROR: Condition \"ret != noErr\" is true. Returning: \"\"\nERROR: Cannot save file '/Users/admin/Library/Application Support/Godot/editor_settings-4.6.tres'.\nERROR: Error saving editor settings to /Users/admin/Library/Application Support/Godot/editor_settings-4.6.tres\nERROR: Condition \"ret != noErr\" is true. Returning: \"\"\n"
+      ],
+      [
+        "test_headless_first_cast_contact_cursor_pool_cancel_and_picker (test_vfx_picker.G1ComponentTests.test_headless_first_cast_contact_cursor_pool_cancel_and_picker)",
+        "Traceback (most recent call last):\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_vfx_picker.py\", line 835, in test_headless_first_cast_contact_cursor_pool_cancel_and_picker\n    run_headless(self, out, 'probe_vfx.gd')\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_vfx_picker.py\", line 119, in run_headless\n    test.assertEqual(engine_errors, [], '\\n'.join(engine_errors))\nAssertionError: Lists differ: ['ERROR: Condition \"ret != noErr\" is true.[285 chars] \"\"'] != []\n\nFirst list contains 4 additional elements.\nFirst extra element 0:\n'ERROR: Condition \"ret != noErr\" is true. Returning: \"\"'\n\n+ []\n- ['ERROR: Condition \"ret != noErr\" is true. Returning: \"\"',\n-  \"ERROR: Cannot save file '/Users/admin/Library/Application \"\n-  \"Support/Godot/editor_settings-4.6.tres'.\",\n-  'ERROR: Error saving editor settings to /Users/admin/Library/Application '\n-  'Support/Godot/editor_settings-4.6.tres',\n-  'ERROR: Condition \"ret != noErr\" is true. Returning: \"\"'] : ERROR: Condition \"ret != noErr\" is true. Returning: \"\"\nERROR: Cannot save file '/Users/admin/Library/Application Support/Godot/editor_settings-4.6.tres'.\nERROR: Error saving editor settings to /Users/admin/Library/Application Support/Godot/editor_settings-4.6.tres\nERROR: Condition \"ret != noErr\" is true. Returning: \"\"\n"
+      ]
+    ]
+  },
+  "export": {
+    "export_wall_s": 2.569641500002035,
+    "kits": 6,
+    "target_assets": 7,
+    "target_instances": 7,
+    "legacy_bolt_scripts": 0,
+    "resource_references": 727,
+    "grey_body_pngs": 131,
+    "alpha_different_pixels": 0,
+    "grey_rgb_different_components": 0,
+    "material_note": "v19 has retired tint/pixel_scale metadata; copied art was adapted to the four-color cold material palette for this export."
+  },
+  "runtime": [
+    {
+      "project": "painted",
+      "wall_s": 2.6679411669974797,
+      "returncode": 0,
+      "runtime": {
+        "errors": [],
+        "measurements": {
+          "cursor_error_px": 0.0,
+          "first_cast_contacts": 1,
+          "live_dummy_contacts": 1,
+          "live_target_count": 7,
+          "released_before_first_physics": 0
+        }
+      },
+      "instruments": [
+        {
+          "id": "g1_contact_lag",
+          "subject": "g1",
+          "passed": true,
+          "value": 0,
+          "threshold": 1,
+          "op": "<=",
+          "unit": "frames",
+          "evidence": [
+            "out/events.json"
+          ],
+          "notes": "Measured probe evidence; no visual/style verdict."
+        },
+        {
+          "id": "g1_first_cast",
+          "subject": "g1",
+          "passed": true,
+          "value": 1,
+          "threshold": 1,
+          "op": "==",
+          "unit": "contacts",
+          "evidence": [
+            "out/events.json"
+          ],
+          "notes": "Measured probe evidence; no visual/style verdict."
+        },
+        {
+          "id": "g1_unresolved_releases",
+          "subject": "g1",
+          "passed": true,
+          "value": 0,
+          "threshold": 0,
+          "op": "==",
+          "unit": "effects",
+          "evidence": [
+            "out/events.json"
+          ],
+          "notes": "Measured probe evidence; no visual/style verdict."
+        },
+        {
+          "id": "g1_event_order",
+          "subject": "g1",
+          "passed": true,
+          "value": 1,
+          "threshold": 1,
+          "op": "==",
+          "unit": "boolean",
+          "evidence": [
+            "out/events.json"
+          ],
+          "notes": "Measured probe evidence; no visual/style verdict."
+        }
+      ]
+    },
+    {
+      "project": "grey",
+      "wall_s": 2.5255199589992117,
+      "returncode": 0,
+      "runtime": {
+        "errors": [],
+        "measurements": {
+          "cursor_error_px": 0.0,
+          "first_cast_contacts": 1,
+          "live_dummy_contacts": 1,
+          "live_target_count": 7,
+          "released_before_first_physics": 0
+        }
+      },
+      "instruments": [
+        {
+          "id": "g1_contact_lag",
+          "subject": "g1",
+          "passed": true,
+          "value": 0,
+          "threshold": 1,
+          "op": "<=",
+          "unit": "frames",
+          "evidence": [
+            "out/events.json"
+          ],
+          "notes": "Measured probe evidence; no visual/style verdict."
+        },
+        {
+          "id": "g1_first_cast",
+          "subject": "g1",
+          "passed": true,
+          "value": 1,
+          "threshold": 1,
+          "op": "==",
+          "unit": "contacts",
+          "evidence": [
+            "out/events.json"
+          ],
+          "notes": "Measured probe evidence; no visual/style verdict."
+        },
+        {
+          "id": "g1_unresolved_releases",
+          "subject": "g1",
+          "passed": true,
+          "value": 0,
+          "threshold": 0,
+          "op": "==",
+          "unit": "effects",
+          "evidence": [
+            "out/events.json"
+          ],
+          "notes": "Measured probe evidence; no visual/style verdict."
+        },
+        {
+          "id": "g1_event_order",
+          "subject": "g1",
+          "passed": true,
+          "value": 1,
+          "threshold": 1,
+          "op": "==",
+          "unit": "boolean",
+          "evidence": [
+            "out/events.json"
+          ],
+          "notes": "Measured probe evidence; no visual/style verdict."
+        }
+      ]
+    }
+  ],
+  "elapsed_wall_s_from_first_tool": 1121.3813610076904,
+  "notes": [
+    "Output path resolves the task conflict in favor of its explicit runs/C-5/t3/T4b write restriction.",
+    "Six legacy catalogue kits exist in the supplied scene, not seven; all six use the shared projectile.",
+    "Authored fixture already produced material.palette with four RGBA entries; stale material/filter assertions were migrated and palette shape is now asserted.",
+    "Godot runtime assertions complete but sandbox certificate/editor-settings diagnostics keep headless unittest wrappers red.",
+    "No source live scene files were modified. Expanded project staging and imported caches were deleted after archiving.",
+    "One additional structural red remains: test_effect_kit.SharedVFXMaterialTests.test_every_material_sprite_is_linear_and_animation_fields_are_bound opens the retired scenes/vfx_synthetic_ice_bolt.tscn. This test file is outside the authorized edit scope; restoring per-kit bolt generation would contradict T4b.",
+    "Final full-suite red census: 5 standing motif/walk subtests, 9 sandbox headless checks, 1 stale per-kit scene assertion. test_k3_combat_report_only is not red in this checkout.",
+    "New catalogue effects explicitly use LINEAR filtering; the legacy single-kit export remains byte-compatible as required by the regression lock."
+  ]
+}

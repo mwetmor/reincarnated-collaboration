@@ -26,7 +26,7 @@ from test_props_layer import make_props, make_inputs, text_hashes
 
 ROOT = Path(__file__).resolve().parents[1]
 ARTIFACTS = ROOT/'runs/C-3/t3/T3o'
-TMP = ARTIFACTS/'tmp'
+TMP = ROOT/'tests/tmp'
 GODOT = '/Applications/Godot.app/Contents/MacOS/Godot'
 LEGACY_ORDER = ('instances', 'particles', 'assets', 'shadows', 'overhead', 'near')
 
@@ -155,13 +155,13 @@ class VfxPickerTests(unittest.TestCase):
                 self.assertIn('"speed": 20.0', resource.read_text())
                 for source in (self.kits.parent/name/kind).glob('*.png'):
                     self.assertEqual(source.read_bytes(), (out/f'vfx/{name}/sprites/{kind}'/source.name).read_bytes())
-            for kind in ('bolt', 'impact'):
-                self.assertTrue((out/f'scenes/vfx_{name}_{kind}.tscn').is_file())
-            bolt = (out/f'scripts/vfx_{name}_bolt.gd').read_text()
-            self.assertIn(f'preload("res://scenes/vfx_{name}_impact.tscn")', bolt)
-            for token in ('520.0 * spell_scale', '650.0 * spell_scale', 'intersect_ray(query)',
-                          'body is StaticBody2D', '$Trail.direction = -direction'):
-                self.assertIn(token, bolt)
+            self.assertTrue((out/f'scenes/vfx_{name}_impact.tscn').is_file())
+            self.assertFalse((out/f'scripts/vfx_{name}_bolt.gd').exists())
+            self.assertFalse((out/f'scenes/vfx_{name}_bolt.tscn').exists())
+        self.assertTrue((out/'scenes/vfx/g1_projectile.tscn').is_file())
+        bolt = (out/'scripts/vfx_g1.gd').read_text()
+        for token in ('area_entered.connect', 'space.cast_motion(query)', '"release"', '"contact"', '"expire"', '"cancel"'):
+            self.assertIn(token, bolt)
         settings = (out/'project.godot').read_text()
         self.assertIn('vfx_cycle={"deadzone":0.2,"events":[Object(InputEventKey,"physical_keycode":4194306)]}', settings)
         keeper = (out/'scripts/keeper.gd').read_text()
@@ -171,7 +171,7 @@ class VfxPickerTests(unittest.TestCase):
                       '"font_color", Color.WHITE', '"font_outline_color"',
                       '"VFX: " + VFX_KITS[vfx_kit_index]["name"] + "  (Tab)"',
                       'load(VFX_KITS[cast_kit_index]["flare"])',
-                      'load(VFX_KITS[cast_kit_index]["bolt"])'):
+                      'G1.acquire(get_parent(), kit, socket, destination, self, art_scale)'):
             self.assertIn(token, keeper)
         self.assertLess(keeper.index('cast_kit_index = vfx_kit_index'), keeper.index('        state = "cast"'))
         self.assertLess(keeper.index('is_action_just_pressed("vfx_cycle")'), keeper.index('if state == "jump" or state == "cast":'))
@@ -183,14 +183,11 @@ class VfxPickerTests(unittest.TestCase):
 
     def test_tint_changes_every_travel_rgb_stop_default_is_exact(self):
         out, _ = self.export()
-        default = (out/'scenes/vfx_zeta_bolt.tscn').read_text()
-        self.assertIn(RADIAL_RESOURCES, default)
-        tinted = (out/'scenes/vfx_alpha_bolt.tscn').read_text()
-        for row in re.findall(r'colors = PackedColorArray\(([^)]+)\)', tinted):
-            values = [float(v) for v in row.split(',')]
-            self.assertEqual([values[i:i+3] for i in range(0, len(values), 4)], [[1, .2, .05]]*3)
-        self.assertIn('1, 0.2, 0.05, 0.7', tinted)
-        self.assertIn('1, 0.2, 0.05, 0.8', tinted)
+        keeper = (out/'scripts/keeper.gd').read_text()
+        entries = json.loads(re.search(r'^const VFX_KITS = (.+)$', keeper, re.M)[1])
+        self.assertEqual(entries[0]['trail_color'], [.35, .65, .8, .6])
+        self.assertEqual(entries[1]['trail_color'], [1, .2, .05, .6])
+        self.assertEqual(entries[0]['bolt'], entries[1]['bolt'])
 
     def test_duplicate_missing_invalid_and_thirteen_kits_before_output(self):
         bads = []
@@ -441,35 +438,37 @@ class AuthoredEffectPickerTests(unittest.TestCase):
         catalogue.write_text(json.dumps({'kits': [{'name': 'frost', 'dir': str(self.fixture['legacy'])}]}))
         legacy = self.root/'legacy-project'
         build_project(self.fixture['cells'], legacy, sockets=self.fixture['sockets'], vfx_kits=catalogue)
-        for relative in ('scenes/vfx_frost_bolt.tscn', 'scenes/vfx_frost_impact.tscn',
-                         'scripts/vfx_frost_bolt.gd', 'scripts/vfx_frost_impact.gd',
-                         'vfx/frost/flare.tres', 'vfx/frost/impact.tres'):
+        for relative in ('scenes/vfx_frost_impact.tscn', 'scripts/vfx_frost_impact.gd',
+                         'vfx/frost/flare.tres', 'vfx/frost/impact.tres',
+                         'scenes/vfx/g1_projectile.tscn', 'scripts/vfx_g1.gd'):
             self.assertEqual((legacy/relative).read_bytes(), (self.project/relative).read_bytes(), relative)
-        self.assertEqual((self.project/'scenes/vfx_frost_bolt.tscn').read_bytes(),
-                         (ROOT/'runs/C-3/cliffside_v10/scenes/vfx_frost_bolt.tscn').read_bytes())
-        self.assertEqual((self.project/'scripts/vfx_frost_bolt.gd').read_text(),
-                         BOLT_SCRIPT.replace('scenes/frost_impact.tscn', 'scenes/vfx_frost_impact.tscn'))
+        self.assertFalse((self.project/'scripts/vfx_frost_bolt.gd').exists())
         self.assertEqual((self.project/'scripts/vfx_frost_impact.gd').read_text(), IMPACT_SCRIPT)
 
     def test_authored_kit_own_travel_durations_layers_and_feedback_parameters(self):
         project = self.project
-        for kind in ('bolt', 'impact'):
+        metadata = json.loads((self.fixture['kit']/'kit.json').read_text())
+        self.assertNotIn('tint', metadata)
+        self.assertEqual(len(metadata['material']['palette']), 4)
+        self.assertTrue(all(len(c) == 4 for c in metadata['material']['palette']))
+        for kind in ('impact',):
             scene = (project/f'scenes/vfx_synthetic_ice_{kind}.tscn').read_text()
             for name in ('DarkDuplicate', 'Glow', 'FloorLight', 'Flash', 'Decal', 'Particles'):
                 self.assertIn(f'[node name="{name}"', scene)
-            for token in ('blend_mode = 1', 'blend_mode = 0', 'hitstop_duration = 0.08',
+            for token in ('materials/Additive.tres', 'materials/Body.tres', 'hitstop_duration = 0.08',
                           'hitstop_time_scale = 0.1', 'shake_distance = 3', 'shake_duration = 0.12',
-                          'ground_squash = 0.6', 'texture_filter = 1'):
+                          'ground_squash = 0.6', 'texture_filter = 2'):
                 self.assertIn(token, scene)
             script = (project/f'scripts/vfx_synthetic_ice_{kind}.gd').read_text()
             for token in ('Engine.time_scale = hitstop_time_scale', 'camera.offset = baseline',
                           '"modulate:a", 0.0, FLOOR_DURATION', '"scale", Vector2.ONE * FLASH_TO',
                           '"modulate:a", 0.0, DECAL_DURATION', 'set_ignore_time_scale(true)'):
                 self.assertIn(token, script)
-        bolt = (project/'scenes/vfx_synthetic_ice_bolt.tscn').read_text()
-        self.assertIn('res://vfx/synthetic_ice/travel.tres', bolt)
-        self.assertIn('speed_px_s = 360', bolt)
-        self.assertIn('[node name="Streak"', bolt)
+        keeper = (project/'scripts/keeper.gd').read_text()
+        entries = json.loads(re.search(r'^const VFX_KITS = (.+)$', keeper, re.M)[1])
+        self.assertEqual(entries[0]['head'], 'res://vfx/synthetic_ice/travel.tres')
+        self.assertEqual(entries[0]['speed_px_s'], 360)
+        self.assertIn('type="Line2D"', (project/'scenes/vfx/g1_projectile.tscn').read_text())
         for phase in ('flare', 'travel', 'impact', 'residual'):
             text = (project/f'vfx/synthetic_ice/{phase}.tres').read_text()
             durations = [float(v) for v in re.findall(r'"duration": ([0-9.e+-]+)', text)]
@@ -507,7 +506,7 @@ class AuthoredEffectPickerTests(unittest.TestCase):
         catalogue.write_text(json.dumps({'kits': [{'name':'minimal','dir':str(kit)}]}))
         out = self.root/'minimal-project'
         build_project(self.fixture['cells'], out, sockets=self.fixture['sockets'], vfx_kits=catalogue)
-        text = (out/'scenes/vfx_minimal_bolt.tscn').read_text()
+        text = (out/'scenes/vfx_minimal_impact.tscn').read_text()
         self.assertIn('[node name="Decal"',text)
         for name in ('DarkDuplicate','Glow','Flash','FloorLight','Streak','Particles','Residual'):
             self.assertNotIn(f'[node name="{name}"',text)
@@ -533,6 +532,7 @@ func probe() -> void:
     await process_frame
     var keeper: CharacterBody2D = scene.get_node("Keeper")
     keeper.set_physics_process(false)
+    await physics_frame
     var angles: Array = []
     var collision_paths: Array = []
     var baseline: float = Engine.time_scale
@@ -543,32 +543,31 @@ func probe() -> void:
         keeper.facing = facing
         keeper.cast_fired = false
         keeper.cast_kit_index = 0
+        keeper.vfx_cursor_override = keeper.global_position + keeper.FACING_VECTORS[facing] * 400.0
         keeper.sprite.play("cast_" + facing)
         keeper.sprite.pause()
         keeper.sprite.frame = 2
         check(keeper.cast_fired, "socket release " + facing)
-        var bolt: Area2D = scene.get_child(scene.get_child_count()-1)
+        var bolt: Area2D = get_nodes_in_group("vfx_g1_pool")[0]
         bolt.set_physics_process(false)
-        check(bolt.scene_file_path == "res://scenes/vfx_synthetic_ice_bolt.tscn", "authored bolt")
-        var travel: AnimatedSprite2D = bolt.get_node("Ground/Travel")
-        var angle: float = 0.0 if facing == "E" else -90.0
+        check(bolt.scene_file_path == "res://scenes/vfx/g1_projectile.tscn", "authored bolt")
+        var travel: AnimatedSprite2D = bolt.get_node("Head")
+        var angle: float = bolt.direction.angle() * 180.0 / PI
         angles.append(travel.rotation_degrees)
         check(absf(travel.rotation_degrees-angle) < 0.001, "travel rotation")
-        check(bolt.get_node("Ground").scale.is_equal_approx(Vector2(1,0.6)), "ground squash")
+        check(travel.scale.is_equal_approx(Vector2(1,0.6)), "ground squash")
         check(travel.sprite_frames.resource_path == "res://vfx/synthetic_ice/travel.tres", "own travel")
         check(is_equal_approx(travel.sprite_frames.get_frame_duration("travel",0) / travel.sprite_frames.get_animation_speed("travel"), 2.0/60.0), "first hold")
         check(is_equal_approx(travel.sprite_frames.get_frame_duration("travel",1), 5.0/60.0), "second hold")
-        check(bolt.get_node("Ground/Glow").material.blend_mode == CanvasItemMaterial.BLEND_MODE_ADD, "additive glow")
-        check(bolt.get_node("Ground/DarkDuplicate").material.blend_mode == CanvasItemMaterial.BLEND_MODE_MIX, "mix duplicate")
-        check(bolt.get_node("Ground/DarkDuplicate").modulate == Color.BLACK, "black duplicate")
+        check(travel.material is ShaderMaterial, "painted head material")
         var old_position: Vector2 = bolt.position
         bolt._physics_process(0.01)
         check(is_equal_approx(bolt.position.distance_to(old_position), 3.6), "authored speed")
-        bolt._on_body_entered(keeper)
-        check(not bolt.expired, "caster ignored")
-        var wall := StaticBody2D.new()
-        scene.add_child(wall)
-        bolt._on_body_entered(wall)
+        var target := Area2D.new()
+        scene.add_child(target)
+        bolt.resolved.target = target
+        bolt.resolved.kind = "prop"
+        bolt._on_area_entered(target)
         check(bolt.expired, "collision expires bolt")
         var impact: Node2D = scene.get_child(scene.get_child_count()-1)
         collision_paths.append(impact.scene_file_path)
@@ -632,12 +631,13 @@ func start_cast() -> void:
     check(keeper.state == "cast", "entered cast")
     check(not keeper.cast_fired, "not released at frame zero")
 func release_bolt() -> Area2D:
+    keeper.vfx_cursor_override = keeper._socket_world() + Vector2(0,650)
     keeper.sprite.frame = 2
     check(keeper.cast_fired, "released at socket frame two")
-    var bolt: Area2D = scene.get_child(scene.get_child_count()-1)
+    var bolt: Area2D = get_nodes_in_group("vfx_g1_pool")[0]
     bolt.set_physics_process(false)
     check(bolt.global_position.distance_to(keeper._socket_world()) < 0.001, "staff socket")
-    check(bolt.direction == Vector2.DOWN, "direction retained")
+    check(bolt.resolved.kind == "cursor", "cursor resolved")
     return bolt
 func probe() -> void:
     scene = load("res://scenes/main.tscn").instantiate()
@@ -645,6 +645,7 @@ func probe() -> void:
     await process_frame
     keeper = scene.get_node("Keeper")
     keeper.set_physics_process(false)
+    await physics_frame
     keeper.sprite.pause()
     check(InputMap.action_get_events("vfx_cycle")[0].physical_keycode == 4194306, "Tab binding")
     check(keeper.VFX_KITS[0].name == "zeta" and keeper.VFX_KITS[1].name == "alpha", "manifest order")
@@ -664,11 +665,12 @@ func probe() -> void:
         start_cast()
         var bolt: Area2D = release_bolt()
         paths.append(bolt.scene_file_path)
-        check(bolt.scene_file_path == "res://scenes/vfx_"+expected+"_bolt.tscn", "cycled bolt " + expected)
+        check(bolt.config.name == expected, "cycled bolt " + expected)
         var flare: AnimatedSprite2D = keeper.active_flare
         check(flare.sprite_frames.resource_path == "res://vfx/"+expected+"/flare.tres", "matching flare")
         bolt._physics_process(10.0)
-        check(bolt.expired and is_equal_approx(bolt.distance, 650.0), "range impact")
+        bolt._physics_process(0.0)
+        check(bolt.expired, "cursor impact")
         var impact: Node2D = scene.get_child(scene.get_child_count()-1)
         check(impact.scene_file_path == "res://scenes/vfx_"+expected+"_impact.tscn", "matching impact")
     # Start kit one, change selection before release: the entire cast stays one.
@@ -679,15 +681,15 @@ func probe() -> void:
     check(keeper.vfx_label.text == "VFX: alpha  (Tab)", "label changes during cast")
     check(keeper.cast_kit_index == 0, "release snapshot unchanged")
     var inflight: Area2D = release_bolt()
-    check(inflight.scene_file_path == "res://scenes/vfx_zeta_bolt.tscn", "pre-release kit lock")
+    check(inflight.config.name == "zeta", "pre-release kit lock")
     await process_frame
     tab()
-    inflight._on_body_entered(keeper)
-    check(not inflight.expired, "ignore caster collision")
-    var wall := StaticBody2D.new()
-    scene.add_child(wall)
-    inflight._on_body_entered(wall)
-    check(inflight.expired, "static collision")
+    var target := Area2D.new()
+    scene.add_child(target)
+    inflight.resolved.target = target
+    inflight.resolved.kind = "prop"
+    inflight._on_area_entered(target)
+    check(inflight.expired, "target collision")
     var impact: Node2D = scene.get_child(scene.get_child_count()-1)
     check(impact.scene_file_path == "res://scenes/vfx_zeta_impact.tscn", "in-flight impact kit lock")
     var report := {"bolt_paths": paths, "labels": labels, "inflight_kit": "zeta", "errors": errors}
@@ -762,3 +764,75 @@ if __name__ == '__main__':
         print(json.dumps({'project': str(project), **report}, indent=2))
     else:
         unittest.main()
+
+
+class G1ComponentTests(unittest.TestCase):
+    def setUp(self):
+        TMP.mkdir(parents=True, exist_ok=True)
+        self.tmp = tempfile.TemporaryDirectory(prefix='g1-', dir=TMP)
+        self.addCleanup(self.tmp.cleanup)
+        self.root = Path(self.tmp.name)
+        self.cells, self.sockets, self.kits, self.props = fixture_inputs(self.root/'inputs')
+
+    def test_shared_component_no_legacy_bolts_and_cast_ready_gate(self):
+        out = self.root/'project'
+        build_project(self.cells, out, sockets=self.sockets, vfx_kits=self.kits)
+        self.assertEqual(list((out/'scripts').glob('vfx_*_bolt.gd')), [])
+        scene = (out/'scenes/vfx/g1_projectile.tscn').read_text()
+        self.assertIn('type="AnimatedSprite2D"', scene)
+        self.assertIn('type="Line2D"', scene)
+        self.assertNotIn('texture_filter = 1', scene)
+        self.assertEqual(scene.count('texture_filter = 2'), 3)
+        keeper = (out/'scripts/keeper.gd').read_text()
+        self.assertIn('if not cast_ready:\n        await get_tree().physics_frame', keeper)
+        self.assertLess(keeper.index('var kit: Dictionary = VFX_KITS[cast_kit_index]'), keeper.index('await get_tree().physics_frame'))
+        validate_resources(out, True)
+
+    def test_grey_all_body_rgb_128_exact_alpha_and_default_bytes(self):
+        import numpy as np
+        painted, grey = self.root/'painted', self.root/'grey'
+        build_project(self.cells, painted, sockets=self.sockets, vfx_kits=self.kits)
+        build_project(self.cells, grey, sockets=self.sockets, vfx_kits=self.kits, vfx_grey=True)
+        count = 0
+        for source in (painted/'vfx').rglob('*.png'):
+            with Image.open(source) as im: a = np.array(im)
+            with Image.open(grey/source.relative_to(painted)) as im: b = np.array(im)
+            self.assertTrue(np.array_equal(a[..., 3], b[..., 3]))
+            self.assertTrue(np.all(b[..., :3] == 128))
+            count += 1
+        self.assertEqual(count, 10)
+        with self.assertRaises(ValueError):
+            build_project(self.cells, self.root/'bad', vfx_grey=1)
+        self.assertFalse((self.root/'bad').exists())
+
+    def test_event_instrument_known_bad_delay_first_miss_unresolved_order(self):
+        from export.godot_import import evaluate_g1_events
+        good = [dict(effect_id=1, event='release', age_frames=0, target_kind='prop', target_point=[30,20]),
+                dict(effect_id=1, event='contact', age_frames=4, collision_age_frames=3),
+                dict(effect_id=1, event='expire', age_frames=4)]
+        self.assertTrue(all(r['passed'] for r in evaluate_g1_events(good)))
+        mutations = []
+        late = copy.deepcopy(good); late[1]['collision_age_frames'] = 2
+        mutations.append(('g1_contact_lag', late))
+        mutations.append(('g1_first_cast', [good[0],good[2]]))
+        unresolved = copy.deepcopy(good); unresolved[0].pop('target_point')
+        mutations.append(('g1_unresolved_releases', unresolved))
+        reversed_age = copy.deepcopy(good); reversed_age[2]['age_frames'] = 1
+        mutations.append(('g1_event_order', reversed_age))
+        for key, evidence in mutations:
+            with self.subTest(key=key):
+                rows = {r['id']:r for r in evaluate_g1_events(evidence)}
+                self.assertIs(rows[key]['passed'], False)
+        self.assertTrue(all(r['passed'] is None for r in evaluate_g1_events([])))
+        for evidence in (None, [{}], [dict(effect_id=1,event='bogus',age_frames=0)],
+                         [dict(effect_id=1,event='release',age_frames=True)]):
+            with self.assertRaises(ValueError): evaluate_g1_events(evidence)
+
+    @unittest.skipUnless(Path(GODOT).is_file(), 'Godot binary unavailable')
+    def test_headless_first_cast_contact_cursor_pool_cancel_and_picker(self):
+        out = self.root/'project'
+        build_project(self.cells, out, sockets=self.sockets, vfx_kits=self.kits)
+        run_headless(self, out, 'probe_vfx.gd')
+        from export.godot_import import evaluate_g1_events
+        rows = evaluate_g1_events(json.loads((out/'out/events.json').read_text()))
+        self.assertTrue(all(r['passed'] for r in rows))

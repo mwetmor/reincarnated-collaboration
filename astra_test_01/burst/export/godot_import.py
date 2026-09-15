@@ -347,8 +347,10 @@ environment/defaults/default_clear_color=Color(0.09, 0.12, 0.17, 1)
 '''+ '\n'.join(actions)+'\n'
 
 
-def build_project(cells, out, vfx=None, gear_variant=None, scene=None, vfx_kit=None, sockets=None, parallax=None, props=None, vfx_kits=None):
+def build_project(cells, out, vfx=None, gear_variant=None, scene=None, vfx_kit=None, sockets=None, parallax=None, props=None, vfx_kits=None, vfx_grey=False):
     started = time.monotonic()
+    if not isinstance(vfx_grey, bool):
+        raise ValueError('vfx_grey must be boolean')
     if vfx_kits is not None and (vfx_kit is not None or vfx is not None):
         raise ValueError('Choose --vfx-kits, --vfx-kit or legacy --vfx')
     if vfx_kits is not None and sockets is None:
@@ -504,6 +506,8 @@ locations, which must be writable for a completely clean headless import.
         parallax_report = write_cliffside(out, parallax_data, props=props_data)
     kit_report = _write_vfx_kit(out, kit, base, cells, socket_data, annotation) if kit is not None else None
     kits_report = _write_vfx_kits(out, kits, base, cells, socket_data, annotation) if kits is not None else None
+    if vfx_grey:
+        _grey_vfx(out)
     refs = validate_resources(out)
     if scene_report is not None:
         scene_report['resource_references'] = len(validate_resources(out, include_scenes=True))
@@ -648,8 +652,9 @@ def main():
     kit_group.add_argument('--vfx-kit')
     kit_group.add_argument('--vfx-kits')
     parser.add_argument('--sockets')
+    parser.add_argument('--vfx-grey', action='store_true')
     args = parser.parse_args()
-    print(json.dumps(build_project(args.cells, args.out, args.vfx, args.gear_variant, args.scene, args.vfx_kit, args.sockets, args.parallax, args.props, args.vfx_kits), indent=2))
+    print(json.dumps(build_project(args.cells, args.out, args.vfx, args.gear_variant, args.scene, args.vfx_kit, args.sockets, args.parallax, args.props, args.vfx_kits, args.vfx_grey), indent=2))
 
 
 
@@ -915,7 +920,7 @@ def _authored_flare_script(script, resource_root, prefix, data):
                           'flare.scale = Vector2.ONE * art_scale * '+repr(float(scale)))
 
 
-def _write_vfx_kit(out, kit, base, cells, socket_data, annotation, kit_name=None, tint=None):
+def _write_vfx_kit(out, kit, base, cells, socket_data, annotation, kit_name=None, tint=None, shared_projectile=False):
     # Named exports reuse the T3i scene/script templates. The absent-name path
     # deliberately keeps every legacy byte, filename and report key intact.
     resource_root = 'vfx' if kit_name is None else 'vfx/'+kit_name
@@ -935,7 +940,8 @@ def _write_vfx_kit(out, kit, base, cells, socket_data, annotation, kit_name=None
             paths.append(relative.as_posix())
         write_spriteframes(out, resource_root+'/'+name+'.tres', {name: (paths, 20, False)})
         counts[name] = len(paths)
-    (out/f'scripts/{prefix}_bolt.gd').write_text(BOLT_SCRIPT.replace('scenes/frost_impact.tscn', f'scenes/{prefix}_impact.tscn'))
+    if not shared_projectile:
+        (out/f'scripts/{prefix}_bolt.gd').write_text(BOLT_SCRIPT.replace('scenes/frost_impact.tscn', f'scenes/{prefix}_impact.tscn'))
     (out/f'scripts/{prefix}_impact.gd').write_text(IMPACT_SCRIPT)
     bolt_scene = '''[gd_scene load_steps=8 format=3]
 
@@ -980,7 +986,8 @@ color_ramp = SubResource("CometColors")
             values = [v for i in range(0, len(values), 4) for v in (*tint, values[i+3])]
             return 'colors = PackedColorArray('+', '.join(format(v, '.12g') for v in values)+')'
         bolt_scene = re.sub(r'colors = PackedColorArray\(([^)]+)\)', recolor, bolt_scene)
-    (out/f'scenes/{prefix}_bolt.tscn').write_text(bolt_scene.replace('scripts/frost_bolt.gd', f'scripts/{prefix}_bolt.gd'))
+    if not shared_projectile:
+        (out/f'scenes/{prefix}_bolt.tscn').write_text(bolt_scene.replace('scripts/frost_bolt.gd', f'scripts/{prefix}_bolt.gd'))
     impact_scene = '''[gd_scene load_steps=8 format=3]
 
 [ext_resource type="Script" path="res://scripts/frost_impact.gd" id="Script"]
@@ -1012,7 +1019,7 @@ color_ramp = SubResource("CometColors")
     (out/f'scenes/{prefix}_impact.tscn').write_text(impact_scene.replace(
         'scripts/frost_impact.gd', f'scripts/{prefix}_impact.gd').replace('vfx/impact.tres', resource_root+'/impact.tres'))
     if 'effect' in kit:
-        _write_authored_effect(out, kit, resource_root, prefix, counts)
+        _write_authored_effect(out, kit, resource_root, prefix, counts, shared_projectile=shared_projectile)
     keeper = KEEPER_SCRIPT.replace('    base_frames = sprite.sprite_frames', '    _load_directional_kit()\n    base_frames = sprite.sprite_frames')
     keeper = keeper.replace('        state = "cast"\n', '        cast_fired = false\n        state = "cast"\n')
     keeper = keeper.replace('        _spawn_frost()', '        _cast_frame_changed()')
@@ -1094,7 +1101,7 @@ scale_amount_max = 0.2
             'resource_references': len(references)}
 
 
-def _write_authored_effect(out, kit, resource_root, prefix, counts):
+def _write_authored_effect(out, kit, resource_root, prefix, counts, shared_projectile=False):
     """Author-kit-only scene path; the legacy templates above stay byte-stable."""
     from export.effect_kit import (LAYER_SCRIPT, AUTHORED_BOLT, AUTHORED_IMPACT,
                                    MATERIAL_BINDING_SCRIPT, write_vfx_material, distance_field)
@@ -1178,6 +1185,8 @@ def _write_authored_effect(out, kit, resource_root, prefix, counts):
     total = max(phase_durations['impact']+phase_durations.get('residual', 0), tail)+.05
     with Image.open(kit['travel'][0]) as im: streak_offset = im.width/2
     for phase, template in (('travel', AUTHORED_BOLT), ('impact', AUTHORED_IMPACT)):
+        if shared_projectile and phase == 'travel':
+            continue
         kind = 'bolt' if phase == 'travel' else 'impact'
         script = template + constants + LAYER_SCRIPT
         script = script.replace('func _ready() -> void:\n',
@@ -1294,14 +1303,18 @@ func _update_vfx_label() -> void:
 
 def _write_vfx_kits(out, kits, base, cells, socket_data, annotation):
     reports, entries = [], []
+    _write_g1_component(out)
     for index, kit in enumerate(kits):
         name = kit['name']
         report = _write_vfx_kit(out, kit, base, cells, socket_data,
                                 annotation if index == 0 else None,
-                                kit_name=name, tint=kit.get('tint'))
+                                kit_name=name, tint=kit.get('tint'), shared_projectile=True)
         reports.append({'name': name, **report})
-        entries.append({'name': name, 'flare': f'res://vfx/{name}/flare.tres',
-                        'bolt': f'res://scenes/vfx_{name}_bolt.tscn'})
+        entries.append(_g1_config(kit))
+        for old in (out/f'scripts/vfx_{name}_bolt.gd', out/f'scenes/vfx_{name}_bolt.tscn'):
+            old.unlink(missing_ok=True)
+        impact = out/f'scenes/vfx_{name}_impact.tscn'
+        impact.write_text(impact.read_text().replace('script = ExtResource("Script")', 'texture_filter = 2\nscript = ExtResource("Script")', 1))
     keeper = KEEPER_SCRIPT.replace('    base_frames = sprite.sprite_frames',
                                    '    _load_directional_kit()\n    _load_vfx_picker()\n    base_frames = sprite.sprite_frames')
     keeper = keeper.replace('func _physics_process(delta: float) -> void:\n',
@@ -1334,6 +1347,7 @@ def _write_vfx_kits(out, kits, base, cells, socket_data, annotation):
         directional = directional.replace(old, ''.join('    '+part if part.startswith(('if ', 'elif ', 'else:')) else part for part in alternatives))
         directional = directional.replace('flare.scale = Vector2.ONE * art_scale',
                                           'flare.scale = Vector2.ONE * art_scale * float(flare.get_meta("phase_scale", 1.0))')
+    directional = _g1_directional(directional)
     (out/'scripts/keeper.gd').write_text(keeper+directional+'\nconst VFX_KITS = '+
                                        json.dumps(entries, allow_nan=False)+'\n'+PICKER_SCRIPT)
     settings = out/'project.godot'
@@ -1346,6 +1360,515 @@ def _write_vfx_kits(out, kits, base, cells, socket_data, annotation):
                       'Casts retain their starting kit through release, travel and impact.\n')
     return {'kits': reports, 'credits': credits,
             'resource_references': len(validate_resources(out, include_scenes=True))}
+
+
+
+G1_SCENE = '''[gd_scene load_steps=3 format=3]
+[ext_resource type="Script" path="res://scripts/vfx_g1.gd" id="G1"]
+[sub_resource type="CircleShape2D" id="HeadShape"]
+radius = 3.0
+[node name="G1Projectile" type="Area2D"]
+texture_filter = 2
+script = ExtResource("G1")
+collision_layer = 0
+collision_mask = 2
+monitoring = false
+monitorable = false
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("HeadShape")
+[node name="Head" type="AnimatedSprite2D" parent="."]
+texture_filter = 2
+[node name="Trail" type="Line2D" parent="."]
+texture_filter = 2
+top_level = true
+width = 3.0
+default_color = Color(0.35, 0.65, 0.8, 0.6)
+antialiased = true
+'''
+
+G1_SCRIPT = '''extends Area2D
+# Physics clock, independent of hitstop/time_scale and accumulated delta rounding.
+static var events: Array = []
+static var next_id: int = 0
+var effect_id: int = 0
+var release_tick: int = 0
+var active: bool = false
+var expired: bool = true
+var direction: Vector2 = Vector2.ZERO
+var spell_scale: float = 1.0
+var caster: Node2D
+var config: Dictionary = {}
+var resolved: Dictionary = {}
+var distance: float = 0.0
+var arrival_pending: bool = false
+
+static func resolve_target(tree: SceneTree, origin: Vector2, facing: Vector2, cursor: Vector2, range_px: float = 650.0, cone_degrees: float = 30.0) -> Dictionary:
+    if not origin.is_finite() or not cursor.is_finite() or not facing.is_finite() or facing.is_zero_approx() or not is_finite(range_px) or range_px <= 0.0 or not is_finite(cone_degrees) or cone_degrees < 0.0 or cone_degrees > 180.0:
+        return {}
+    var best: Area2D = null
+    var best_distance: float = INF
+    var axis: Vector2 = facing.normalized()
+    for candidate in tree.get_nodes_in_group("vfx_targets"):
+        if not candidate is Area2D or not candidate.is_inside_tree() or candidate.is_queued_for_deletion():
+            continue
+        var offset: Vector2 = candidate.global_position - origin
+        var length: float = offset.length()
+        if length <= range_px and (length <= 0.000001 or axis.dot(offset / length) >= cos(deg_to_rad(cone_degrees)) - 0.000001) and length < best_distance:
+            best = candidate
+            best_distance = length
+    return {"point": best.global_position if best != null else cursor, "target": best, "kind": "prop" if best != null else "cursor"}
+
+static func acquire(parent: Node2D, kit: Dictionary, origin: Vector2, destination: Dictionary, owner_node: Node2D = null, art_scale: float = 1.0) -> Area2D:
+    # Invalid resolution never creates a node and never records a release.
+    if not destination.has("point") or not destination.point is Vector2 or not destination.point.is_finite() or not origin.is_finite() or not is_finite(art_scale) or art_scale <= 0.0:
+        return null
+    if destination.get("kind", "") not in ["prop", "cursor"] or (destination.get("kind") == "prop" and not is_instance_valid(destination.get("target"))):
+        return null
+    if not kit.has("head") or not kit.has("impact") or not ResourceLoader.exists(kit.head) or not ResourceLoader.exists(kit.impact):
+        return null
+    var projectile: Area2D = null
+    for candidate in parent.get_tree().get_nodes_in_group("vfx_g1_pool"):
+        if candidate.get_parent() == parent and not candidate.active and not candidate.is_queued_for_deletion():
+            projectile = candidate
+            break
+    if projectile == null:
+        projectile = load("res://scenes/vfx/g1_projectile.tscn").instantiate()
+        parent.add_child(projectile)
+    projectile.release(kit, origin, destination, owner_node, art_scale)
+    return projectile
+
+func _ready() -> void:
+    add_to_group("vfx_g1_pool")
+    area_entered.connect(_on_area_entered)
+    set_physics_process(false)
+    hide()
+
+func age_frames() -> int:
+    return roundi(float(Engine.get_physics_frames() - release_tick) * 60.0 / Engine.physics_ticks_per_second)
+
+func _record(event: String, collision_frame: int = -1) -> void:
+    var point: Vector2 = resolved.point
+    var entry: Dictionary = {"effect_id": effect_id, "event": event, "age_frames": age_frames(), "kit": config.name, "target_kind": resolved.kind, "target_point": [point.x, point.y]}
+    if collision_frame >= 0:
+        entry["collision_age_frames"] = collision_frame
+        entry["contact_lag_frames"] = age_frames() - collision_frame
+    events.append(entry)
+
+func release(kit: Dictionary, origin: Vector2, destination: Dictionary, owner_node: Node2D = null, art_scale: float = 1.0) -> void:
+    config = kit.duplicate(true)
+    resolved = destination.duplicate()
+    caster = owner_node
+    spell_scale = art_scale
+    global_position = origin
+    direction = origin.direction_to(resolved.point)
+    distance = 0.0
+    arrival_pending = false
+    active = true
+    expired = false
+    next_id += 1
+    effect_id = next_id
+    release_tick = Engine.get_physics_frames()
+    for connection in $Head.frame_changed.get_connections():
+        $Head.frame_changed.disconnect(connection.callable)
+    for connection in $Head.animation_changed.get_connections():
+        $Head.animation_changed.disconnect(connection.callable)
+    $Head.sprite_frames = load(config.head)
+    $Head.material = load(config.material) if config.get("material", "") != "" else null
+    $Head.modulate = Color.WHITE
+    var phase_scale: float = float(config.get("phase_scale", 1.0)) * spell_scale
+    $Head.scale = Vector2(phase_scale, phase_scale * float(config.get("ground_squash", 1.0)))
+    $Head.rotation = direction.angle()
+    $Head.stop()
+    $Head.frame = 0
+    $Head.play(config.animation)
+    $Head.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR
+    if config.get("binding", "") != "":
+        load(config.binding).bind($Head, config.fields)
+    $Trail.clear_points()
+    $Trail.global_position = Vector2.ZERO
+    $Trail.add_point(origin)
+    var tint: Array = config.get("trail_color", [0.35, 0.65, 0.8, 0.6])
+    $Trail.default_color = Color(tint[0], tint[1], tint[2], tint[3])
+    $Trail.show()
+    $CollisionShape2D.shape = $CollisionShape2D.shape.duplicate()
+    $CollisionShape2D.shape.radius = 3.0 * spell_scale
+    set_deferred("monitoring", true)
+    show()
+    set_physics_process(true)
+    _record("release")
+
+func _physics_process(delta: float) -> void:
+    if not active:
+        return
+    if resolved.kind == "prop" and not is_instance_valid(resolved.target):
+        cancel()
+        return
+    if arrival_pending:
+        # Let overlap signals observe the final position for one physics frame.
+        if resolved.kind == "prop":
+            for area in get_overlapping_areas():
+                _on_area_entered(area)
+            if active:
+                cancel()
+        else:
+            _spawn_impact()
+            expire()
+        return
+    var remaining: float = global_position.distance_to(resolved.point)
+    var step: float = minf(float(config.get("speed_px_s", 520.0)) * spell_scale * delta, remaining)
+    var motion: Vector2 = global_position.direction_to(resolved.point) * step
+    # Sweep the head footprint to avoid tunnelling through narrow dummy feet.
+    var query := PhysicsShapeQueryParameters2D.new()
+    query.shape = $CollisionShape2D.shape
+    query.transform = global_transform
+    query.motion = motion
+    query.collision_mask = 2
+    query.collide_with_areas = true
+    query.collide_with_bodies = false
+    var excluded: Array[RID] = []
+    for area in get_tree().get_nodes_in_group("vfx_targets"):
+        if area != resolved.get("target"):
+            excluded.append(area.get_rid())
+    query.exclude = excluded
+    var space: PhysicsDirectSpaceState2D = get_world_2d().direct_space_state
+    var fractions: PackedFloat32Array = space.cast_motion(query)
+    var fraction: float = fractions[1] if fractions.size() == 2 else 1.0
+    global_position += motion * fraction
+    query.transform = global_transform
+    query.motion = Vector2.ZERO
+    query.margin = 0.01
+    for hit in space.intersect_shape(query):
+        if hit.collider == resolved.get("target"):
+            _on_area_entered(hit.collider)
+            return
+    if fraction < 1.0:
+        # Unselected footprints do not block a cursor-directed effect.
+        global_position += motion * (1.0 - fraction)
+    distance += step
+    $Trail.add_point(global_position)
+    while $Trail.get_point_count() > 12:
+        $Trail.remove_point(0)
+    arrival_pending = remaining <= step + 0.001
+
+func _on_area_entered(area: Area2D) -> void:
+    if not active or area != resolved.get("target"):
+        return
+    var collision_frame: int = age_frames()
+    _record("contact", collision_frame)
+    _spawn_impact()
+    expire()
+
+func _spawn_impact() -> void:
+    var impact: Node2D = load(config.impact).instantiate()
+    impact.set("spell_scale", spell_scale)
+    impact.set("caster", caster)
+    impact.set("direction", direction)
+    impact.position = get_parent().to_local(global_position)
+    get_parent().add_child(impact)
+
+func expire() -> void:
+    if active:
+        _record("expire")
+        _recycle()
+
+func cancel() -> void:
+    if active:
+        _record("cancel")
+        _recycle()
+
+func _recycle() -> void:
+    active = false
+    expired = true
+    set_deferred("monitoring", false)
+    set_physics_process(false)
+    $Head.stop()
+    $Trail.clear_points()
+    $Trail.hide()
+    hide()
+'''
+
+
+def _g1_config(kit):
+    name = kit['name']
+    root = 'vfx/'+name
+    data = kit.get('effect', {})
+    authored = bool(data)
+    fields = {'res://'+root+'/sprites/'+source: 'res://'+root+'/'+field
+              for source, field in data.get('distance_fields', {}).items() if source.startswith('travel/')}
+    return {'name': name, 'flare': 'res://'+root+'/flare.tres',
+            'bolt': 'res://scenes/vfx/g1_projectile.tscn',
+            'head': 'res://'+root+('/travel.tres' if authored else '/flare.tres'),
+            'animation': 'travel' if authored else 'flare',
+            'impact': 'res://scenes/vfx_'+name+'_impact.tscn',
+            'speed_px_s': data.get('phases', {}).get('travel', {}).get('speed_px_s', 520.0),
+            'range_px': 650.0, 'ground_squash': data.get('ground_squash', 1.0),
+            'phase_scale': data.get('phase_scale', {}).get('travel', 1.0),
+            'material': 'res://'+root+'/materials/Body.tres' if authored else '',
+            'binding': 'res://scripts/vfx_'+name+'_material.gd' if authored else '',
+            'fields': fields, 'trail_color': list(kit.get('tint', [.35, .65, .8]))+[.6]}
+
+
+def _g1_directional(script):
+    script = script.replace('var socket_cells: Dictionary = {}',
+                            'var socket_cells: Dictionary = {}\nvar cast_ready: bool = false\n'
+                            'var vfx_cursor_override: Variant = null\n'
+                            'const G1 = preload("res://scripts/vfx_g1.gd")')
+    script = script.replace('    sprite.frame_changed.connect(_cast_frame_changed)',
+                            '    sprite.frame_changed.connect(_cast_frame_changed)\n'
+                            '    get_tree().physics_frame.connect(_g1_cast_ready, CONNECT_ONE_SHOT)')
+    start = script.index('    var bolt: Area2D = ')
+    end = script.index('\nfunc _process(', start)
+    script = script[:start]+'''    var kit: Dictionary = VFX_KITS[cast_kit_index].duplicate(true)
+    var cursor: Vector2 = get_global_mouse_position() if vfx_cursor_override == null else vfx_cursor_override
+    var destination: Dictionary = G1.resolve_target(get_tree(), global_position, direction, cursor, float(kit.range_px) * art_scale)
+    if not cast_ready:
+        await get_tree().physics_frame
+    if not is_inside_tree():
+        return
+    G1.acquire(get_parent(), kit, socket, destination, self, art_scale)
+
+func _g1_cast_ready() -> void:
+    cast_ready = true
+
+func _unhandled_input(event: InputEvent) -> void:
+    if event is InputEventScreenTouch and event.pressed:
+        vfx_cursor_override = get_canvas_transform().affine_inverse() * event.position
+    elif event is InputEventMouseMotion or event is InputEventMouseButton:
+        vfx_cursor_override = null
+''' + script[end:]
+    return script.replace('    flare.sprite_frames = ', '    flare.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR\n    flare.sprite_frames = ')
+
+
+def _write_g1_component(out):
+    (out/'scenes/vfx').mkdir(parents=True, exist_ok=True)
+    (out/'scenes/vfx/g1_projectile.tscn').write_text(G1_SCENE)
+    (out/'scripts/vfx_g1.gd').write_text(G1_SCRIPT)
+    (out/'probe_vfx.gd').write_text(G1_PROBE)
+
+
+def _grey_vfx(out):
+    """Mid-grey body texels with byte-identical source alpha; disable recolouring."""
+    for path in (out/'vfx').rglob('*.png'):
+        if 'sprites' not in path.parts:
+            continue
+        with Image.open(path) as source:
+            image = source.convert('RGBA')
+            alpha = image.getchannel('A')
+            grey = Image.new('RGBA', image.size, (128, 128, 128, 255))
+            grey.putalpha(alpha)
+            grey.save(path)
+    # Body rendering bypasses the painted shader so palette/edge lighting cannot
+    # recolour the diagnostic silhouette. Optional light layers stay unchanged.
+    for path in (out/'scenes').rglob('*.tscn'):
+        text = path.read_text()
+        text = re.sub(r'(^\[node name="(?:Travel|Shatter|Residual|Head)"[^\n]*\n)(.*?)(?=\n\[|\Z)',
+                      lambda m: m[1]+re.sub(r'^material = .*\n', '', m[2], flags=re.M), text, flags=re.M|re.S)
+        path.write_text(text)
+    keeper = out/'scripts/keeper.gd'
+    text = keeper.read_text()
+    text = re.sub(r'"material": "[^"]+"', '"material": ""', text)
+    text = re.sub(r'"binding": "[^"]+"', '"binding": ""', text)
+    text = re.sub(r'    flare.material = load\([^\n]+\n', '    flare.material = null\n', text)
+    text = re.sub(r'^    +preload\([^\n]+\.bind\(flare,[^\n]+\n', '', text, flags=re.M)
+    keeper.write_text(text)
+
+
+G1_PROBE = '''extends SceneTree
+const G1 = preload("res://scripts/vfx_g1.gd")
+var errors: Array = []
+var measurements: Dictionary = {}
+func check(ok: bool, message: String) -> void:
+    if not ok:
+        errors.append(message)
+        printerr("G1_ASSERTION: ", message)
+func _initialize() -> void:
+    call_deferred("probe")
+func dummy(parent: Node2D, point: Vector2, label: String) -> Area2D:
+    var area := Area2D.new()
+    area.name = label
+    area.position = point
+    area.collision_layer = 2
+    area.collision_mask = 0
+    area.monitoring = false
+    var shape := CollisionShape2D.new()
+    var rectangle := RectangleShape2D.new()
+    rectangle.size = Vector2(30, 20)
+    shape.shape = rectangle
+    area.add_child(shape)
+    parent.add_child(area)
+    area.add_to_group("vfx_targets")
+    return area
+func wait_effect(effect: Area2D, budget: int = 300) -> void:
+    for i in range(budget):
+        if not effect.active:
+            return
+        await physics_frame
+    check(false, "effect exceeded physics frame budget")
+    effect.cancel()
+func probe() -> void:
+    Engine.physics_ticks_per_second = 60
+    G1.events.clear()
+    var main_path: String = ProjectSettings.get_setting("application/run/main_scene", "res://scenes/main.tscn")
+    var main: Node2D = load(main_path).instantiate()
+    root.add_child(main)
+    var keeper: CharacterBody2D = main.find_child("Keeper", true, false)
+    keeper.set_physics_process(false)
+    keeper.sprite.pause()
+    var parent: Node2D = keeper.get_parent()
+    var original_targets: Array = get_nodes_in_group("vfx_targets")
+    measurements["live_target_count"] = original_targets.size()
+    for target in original_targets:
+        target.remove_from_group("vfx_targets")
+    var target := dummy(parent, keeper.position + Vector2(0,100), "ProbeTarget")
+    # Fire in the scene-load turn, before the first physics frame.
+    keeper.facing = "S"
+    keeper.state = "cast"
+    keeper.cast_kit_index = 0
+    keeper.cast_fired = false
+    keeper.sprite.play("cast_S")
+    keeper.sprite.pause()
+    var cell: Dictionary = keeper.socket_cells["cast_S"]
+    keeper.sprite.frame = int(cell.release_index)
+    keeper._cast_frame_changed()
+    measurements["released_before_first_physics"] = G1.events.size()
+    check(G1.events.is_empty(), "first cast must wait a physics frame")
+    await physics_frame
+    await process_frame
+    var pool: Array = get_nodes_in_group("vfx_g1_pool")
+    check(pool.size() == 1, "first cast creates one resolved effect")
+    if pool.is_empty():
+        finish()
+        return
+    var first: Area2D = pool[0]
+    var head_id: int = first.get_node("Head").get_instance_id()
+    await wait_effect(first)
+    var contacts: Array = G1.events.filter(func(e): return e.event == "contact" and e.effect_id == first.effect_id)
+    measurements["first_cast_contacts"] = contacts.size()
+    check(contacts.size() == 1, "first cast registers exactly one contact")
+    for event in contacts:
+        check(event.age_frames - event.collision_age_frames <= 1, "contact delay <= one frame")
+    # Nearest in inclusive facing cone and inclusive range, plus cursor fallback.
+    var origin: Vector2 = keeper.global_position
+    var near := dummy(parent, parent.to_local(origin + Vector2(60,0)), "Near")
+    var far := dummy(parent, parent.to_local(origin + Vector2(90,0)), "Far")
+    var outside := dummy(parent, parent.to_local(origin + Vector2(10,30)), "Outside")
+    var resolved: Dictionary = G1.resolve_target(self, origin, Vector2.RIGHT, origin + Vector2(-70, -30), 100.0)
+    check(resolved.target == near, "nearest target inside cone")
+    near.remove_from_group("vfx_targets")
+    far.remove_from_group("vfx_targets")
+    outside.remove_from_group("vfx_targets")
+    target.remove_from_group("vfx_targets")
+    var boundary := dummy(parent, parent.to_local(origin + Vector2.RIGHT.rotated(deg_to_rad(30.0)) * 100.0), "Boundary")
+    check(G1.resolve_target(self, origin, Vector2.RIGHT, origin, 100.01).target == boundary, "inclusive 30 degree cone")
+    check(G1.resolve_target(self, origin, Vector2.RIGHT, origin, 99.0).kind == "cursor", "range excludes farther target")
+    boundary.position = parent.to_local(origin + Vector2.RIGHT.rotated(deg_to_rad(30.1)) * 60.0)
+    check(G1.resolve_target(self, origin, Vector2.RIGHT, origin, 100.0).kind == "cursor", "outside 30 degree cone")
+    boundary.remove_from_group("vfx_targets")
+    near.add_to_group("vfx_targets")
+    far.add_to_group("vfx_targets")
+    outside.add_to_group("vfx_targets")
+    target.add_to_group("vfx_targets")
+    var cursor: Vector2 = origin + Vector2(-70, -30)
+    var fallback: Dictionary = G1.resolve_target(self, origin, Vector2.LEFT, cursor, 100.0)
+    check(fallback.kind == "cursor" and fallback.point == cursor, "no cone target resolves exact cursor")
+    measurements["cursor_error_px"] = fallback.point.distance_to(cursor)
+    var kit: Dictionary = keeper.VFX_KITS[0].duplicate(true)
+    var second: Area2D = G1.acquire(parent, kit, origin, fallback, keeper)
+    check(second.get_node("Head").get_instance_id() == head_id, "pooled head reused")
+    check(second.get_node("Head").texture_filter == CanvasItem.TEXTURE_FILTER_LINEAR, "linear head")
+    await wait_effect(second)
+    check(second.global_position.distance_to(cursor) <= 0.001, "cursor effect reaches point")
+    var count: int = get_nodes_in_group("vfx_g1_pool").size()
+    check(G1.acquire(parent, kit, origin, {}, keeper) == null, "unresolved spawn rejected")
+    check(G1.acquire(parent, kit, origin, {"point": origin}, keeper) == null, "incomplete resolution rejected")
+    check(get_nodes_in_group("vfx_g1_pool").size() == count, "invalid spawn allocates nothing")
+    var cancelled: Area2D = G1.acquire(parent, kit, origin, fallback, keeper)
+    cancelled.cancel()
+    cancelled.cancel()
+    # Real target footprints in the unmodified scene geometry.
+    for area in [target, near, far, outside]:
+        area.remove_from_group("vfx_targets")
+    for area in original_targets:
+        area.add_to_group("vfx_targets")
+    if not original_targets.is_empty():
+        var live: Area2D = original_targets[0]
+        var start: Vector2 = live.global_position + Vector2(-80,0)
+        var live_resolution: Dictionary = G1.resolve_target(self, start, Vector2.RIGHT, start, 200.0)
+        var real_effect: Area2D = G1.acquire(parent, kit, start, live_resolution, keeper)
+        await wait_effect(real_effect)
+        var real_contacts: Array = G1.events.filter(func(e): return e.event == "contact" and e.effect_id == real_effect.effect_id)
+        measurements["live_dummy_contacts"] = real_contacts.size()
+        check(real_contacts.size() == 1, "live dummy footprint collision")
+    # The picker still changes only future releases.
+    await process_frame
+    var old_kit: int = keeper.vfx_kit_index
+    var event := InputEventKey.new()
+    event.physical_keycode = KEY_TAB
+    event.pressed = true
+    Input.parse_input_event(event)
+    Input.flush_buffered_events()
+    keeper._physics_process(0.0)
+    event = InputEventKey.new()
+    event.physical_keycode = KEY_TAB
+    event.pressed = false
+    Input.parse_input_event(event)
+    Input.flush_buffered_events()
+    check(keeper.vfx_kit_index == (old_kit+1) % keeper.VFX_KITS.size(), "Tab picker cycles")
+    check(keeper.vfx_label.text.begins_with("VFX: " + keeper.VFX_KITS[keeper.vfx_kit_index].name), "Tab label follows selection")
+    finish()
+func finish() -> void:
+    DirAccess.make_dir_recursive_absolute("res://out")
+    var file := FileAccess.open("res://out/events.json", FileAccess.WRITE)
+    file.store_string(JSON.stringify(G1.events, "  "))
+    file.close()
+    file = FileAccess.open("res://out/probe_vfx.json", FileAccess.WRITE)
+    file.store_string(JSON.stringify({"measurements": measurements, "errors": errors}, "  "))
+    file.close()
+    print("G1_RUNTIME=" + JSON.stringify({"measurements": measurements, "errors": errors}))
+    if errors.is_empty(): print("T3O_RUNTIME_ASSERTIONS=complete")
+    quit(0 if errors.is_empty() else 7)
+'''
+
+
+def evaluate_g1_events(events):
+    """Report measured event invariants; malformed or absent evidence is unknown."""
+    if not isinstance(events, list):
+        raise ValueError('events must be a list')
+    groups = {}
+    for event in events:
+        if not isinstance(event, dict) or not {'effect_id', 'event', 'age_frames'} <= event.keys():
+            raise ValueError('event requires effect_id, event and age_frames')
+        if event['event'] not in ('release', 'contact', 'expire', 'cancel'):
+            raise ValueError('unknown G1 event')
+        age = event['age_frames']
+        if isinstance(age, bool) or not isinstance(age, int) or age < 0:
+            raise ValueError('age_frames must be a nonnegative integer')
+        groups.setdefault(event['effect_id'], []).append(event)
+    contacts = [e for e in events if e['event'] == 'contact']
+    lags = [e['age_frames']-e['collision_age_frames'] for e in contacts if isinstance(e.get('collision_age_frames'), int)]
+    releases = [e for e in events if e['event'] == 'release']
+    def resolved(e):
+        p = e.get('target_point')
+        return (e.get('target_kind') in ('prop', 'cursor') and isinstance(p, list) and len(p) == 2
+                and all(isinstance(v, (int, float)) and not isinstance(v, bool) and math.isfinite(v) for v in p))
+    missing = sum(not resolved(e) for e in releases)
+    first = groups.get(releases[0]['effect_id'], []) if releases else []
+    first_contacts = sum(e['event'] == 'contact' for e in first)
+    ordered = all([e['age_frames'] for e in es] == sorted(e['age_frames'] for e in es)
+                  and es[0]['event'] == 'release' and es[0]['age_frames'] == 0
+                  and sum(e['event'] == 'release' for e in es) == 1
+                  and es[-1]['event'] in ('expire', 'cancel')
+                  and sum(e['event'] in ('expire', 'cancel') for e in es) == 1
+                  for es in groups.values())
+    values = [('g1_contact_lag', max(lags) if lags else None, 1, '<=', 'frames',
+               bool(lags) and len(lags) == len(contacts) and min(lags) >= 0),
+              ('g1_first_cast', first_contacts if releases else None, 1, '==', 'contacts', bool(releases)),
+              ('g1_unresolved_releases', missing if releases else None, 0, '==', 'effects', bool(releases)),
+              ('g1_event_order', int(ordered) if groups else None, 1, '==', 'boolean', bool(groups))]
+    return [{'id': name, 'subject': 'g1', 'passed': None if value is None else bool(valid and (value <= threshold if op == '<=' else value == threshold)),
+             'value': value, 'threshold': threshold, 'op': op, 'unit': unit,
+             'evidence': ['out/events.json'], 'notes': 'Measured probe evidence; no visual/style verdict.'}
+            for name, value, threshold, op, unit, valid in values]
 
 
 if __name__ == '__main__':

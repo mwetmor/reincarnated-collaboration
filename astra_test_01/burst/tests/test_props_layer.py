@@ -1491,3 +1491,50 @@ if __name__ == '__main__':
         print(json.dumps(build_fixture(sys.argv[2]), indent=2))
     else:
         unittest.main()
+
+
+class G1TargetPropsTests(unittest.TestCase):
+    def setUp(self):
+        base = Path(__file__).resolve().parent/'tmp'
+        base.mkdir(parents=True, exist_ok=True)
+        self.tmp = tempfile.TemporaryDirectory(prefix='g1-target-', dir=base)
+        self.addCleanup(self.tmp.cleanup)
+        self.root = Path(self.tmp.name)
+        self.props = self.root/'props'
+        self.data = make_props(self.props)
+
+    def write(self, data):
+        (self.props/'props.json').write_text(json.dumps(data))
+        return load_props(self.props)
+
+    def fragments(self, data, suffix):
+        out = self.root/suffix
+        (out/'scripts').mkdir(parents=True)
+        return write_layers(out, self.write(data))
+
+    def test_target_false_and_absent_preserve_all_scene_fragments(self):
+        original = self.fragments(self.data, 'original')
+        for a in self.data['assets']: a['target'] = False
+        explicit = self.fragments(self.data, 'explicit')
+        self.assertEqual(original, explicit)
+
+    def test_targets_per_instance_footprint_offset_rectangle_and_nonblocking(self):
+        self.data['assets'][0]['target'] = True
+        self.data['assets'][1]['target'] = True
+        self.data['assets'][1]['footprint'].update(shape='rect', offset=[7, -3])
+        result = self.fragments(self.data, 'targets')
+        text = result['after_keeper']
+        self.assertEqual(text.count('groups=["vfx_targets"]'), 3)
+        self.assertEqual(text.count('collision_layer = 2'), 3)
+        self.assertIn('metadata/asset = "stone"', text)
+        self.assertIn('parent="Actors/VfxTarget_2"', text)
+        self.assertIn('polygon = PackedVector2Array(-15.5, -10.5, 29.5, -10.5, 29.5, 4.5, -15.5, 4.5)', text)
+        self.assertNotIn('PropCollision_2', result['collisions'])
+
+    def test_target_rejects_non_boolean_and_instance_key(self):
+        for value in (None, 0, 1, 'true', [], {}):
+            bad = copy.deepcopy(self.data)
+            bad['assets'][0]['target'] = value
+            with self.subTest(value=value), self.assertRaises(ValueError): self.write(bad)
+        self.data['instances'][0]['target'] = True
+        with self.assertRaises(ValueError): self.write(self.data)

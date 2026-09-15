@@ -926,6 +926,155 @@
       "codex_version": "codex-cli 0.153.4",
       "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
       "exit": 0
+    },
+    {
+      "id": "T4b",
+      "type": "TOOLING",
+      "experiment": "C5-T4",
+      "brief_sha256": "136e814bfe56240beb8213ca41ec42d484bcf225047ab15cf017d54b224a9ed5",
+      "started": "2026-09-15T21:04:05.264855+00:00",
+      "ended": "2026-09-15T21:24:16.007483+00:00",
+      "minutes": 20.18011150000002,
+      "image_calls": 0,
+      "tool_calls": 35,
+      "audit": {
+        "violations": [],
+        "image_calls": 0,
+        "tool_calls": 35,
+        "tools_seen": {
+          "command_execution": 35
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": []
+      },
+      "receipt_sha256": "4fbb89be9deddb2aaf74f9857fc103fc31a5f36b67962e1e8de703b7dee4daee",
+      "artifacts": [],
+      "artifacts_in_place": [
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "export/godot_import.py",
+          "sha256": "f73c90c9ec23f3a3c60756030206d4a705814b53dd10e4600f3711b1ef3c9ec8"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "export/props_layer.py",
+          "sha256": "bcd8c350e083263ec8053e7a892c1dea51c02f3df98e563b6a02d28b07531ca6"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-5/t3/T4b/README.md",
+          "sha256": "a674294fcf0fa5bead10de068a6565735fcfc1174ed434a33c7c4692bde0265a"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-5/t3/T4b/acceptance_report.json",
+          "sha256": "27007f06ee265b0165a66e709e977080f5c6f03243b63e1b2121cef4c629c197"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-5/t3/T4b/export_report.json",
+          "sha256": "41310fdf7ad9a2bc49676f17d33698a5252b382bc688e83240b27983f2fd87ad"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-5/t3/T4b/files.json",
+          "sha256": "ef74908f9241df5fefc12d63ceea49ba8fb9746c97c849e7567a653807eeeb36"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-5/t3/T4b/final_probe.log",
+          "sha256": "687f92e51152abb3de8e10c2e443faa8db960aeb014676d70fe95251565dd381"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-5/t3/T4b/full_suite_final.log",
+          "sha256": "d7f3bc4974cf883b53870e3cefc52d39c301d6fd85fb521684be604ab59955a9"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-5/t3/T4b/full_suite_reds.json",
+          "sha256": "f1db8ae092d55ab14534e1e17ff94789e8dd04f21a156cb76f336928e17c7de6"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-5/t3/T4b/grey_events.json",
+          "sha256": "3da2ac2f3414a643ea54d2c12bb1ef8def0a56769fa1c5f551b75f935b7680f9"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-5/t3/T4b/grey_project.zip",
+          "sha256": "7d1f036acf688735811c4c310bed8249d6c654c8d3945e5a070ecf9cabf04dd3"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-5/t3/T4b/grey_runtime.log",
+          "sha256": "687f92e51152abb3de8e10c2e443faa8db960aeb014676d70fe95251565dd381"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-5/t3/T4b/painted_events.json",
+          "sha256": "3da2ac2f3414a643ea54d2c12bb1ef8def0a56769fa1c5f551b75f935b7680f9"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-5/t3/T4b/painted_project.zip",
+          "sha256": "294103636849457cd6864f576312efe9ce5c88178157bce1c36911d74baaba70"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-5/t3/T4b/painted_runtime.log",
+          "sha256": "687f92e51152abb3de8e10c2e443faa8db960aeb014676d70fe95251565dd381"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-5/t3/T4b/probe_vfx.gd",
+          "sha256": "5e3ce2657166cf3c005de37ea76d1e2afcbd450b478872fa423ed762f40c0efe"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-5/t3/T4b/runtime_report.json",
+          "sha256": "9f7558ed6cc242ffe74ed0c0a66e7518b0cab8c7797585373e96e111ae824321"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-5/t3/T4b/static_tests.json",
+          "sha256": "f2f9d3c5569f35033fed3b52e74ca14e65c4bee95bda124a6501f9569e4cd6f5"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-5/t3/T4b/targeted_final.json",
+          "sha256": "9fa72c196a695044a48402a45acf4662bce918485c156691de36451b66b2ec9b"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-5/t3/T4b/targeted_final.log",
+          "sha256": "9ddebf2718c2f348489e9dc6284c5089319b5507bb8133207757fb935ed2d3e9"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "tests/test_props_layer.py",
+          "sha256": "0f94cd13e5110116e5665a62fbe54dcd480341ce8e8f5719b0912e9ebf0b6f1e"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "tests/test_vfx_picker.py",
+          "sha256": "9149f628987b5bb1cedd59607e25e1fda901cb9852797185421d38d48ecf5239"
+        }
+      ],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
     }
   ],
   "experiments": [],
@@ -1003,6 +1152,13 @@
       "veto_open": true,
       "ruling": "T4a ACCEPTED-WITH-FINDING. Rendered proof on real gl_compatibility (Metal GL 4.1, Godot 4.6.3): palette Δ 0/255, index-0 alpha 255, erosion 0/49.8/100 %, dissolve 0.5 removes band 3 only, ADD over black MIX Δ 0, errors []; six render_mode variants, no Forward+ dependency; every sprite LINEAR; white_core_keep / tint / pixel_scale retired with named validation errors (frozen_orb_v3 rejected at build and load). Full suite outside the sandbox 513/506: five standing reds + F-C5-1 = test_vfx_picker authored-kit test still builds on the retired tint path (spec-consistent rejection, test un-migrated) — migration clause folded into T4b. Freeze + SYNC restamp follow.",
       "ts": "2026-09-15T17:03:19"
+    },
+    {
+      "id": "R-C5-8",
+      "class": "conductor",
+      "veto_open": true,
+      "ruling": "T4b ACCEPTED. Outside-sandbox probe on the painted cliffside_v19 export: contact lag 0 frames, first-cast contact 1, live dummy contact 1, 7 live targets, 0 unresolved releases, cursor error 0 px; events.json carries age_frames at 60 Hz. Grey substitution pixel-exact (131 PNGs, 0 alpha diffs). Full suite outside the sandbox 520/514 = five standing reds + T4a's test_every_material_sprite… (opens a scene T4b retired) — re-pointed in T4f. F-C5-1 closed (both picker tests green). Freeze 227ad0700b6a, SYNC restamped. Matt 2026-09-15: pierce-per-skill AGREED (T4f F6); F1–F5 elicited, awaiting his letters.",
+      "ts": "2026-09-15T17:29:42"
     }
   ],
   "grok_calls": [],

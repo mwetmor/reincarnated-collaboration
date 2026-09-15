@@ -36,7 +36,7 @@ FIELDS = {
     'swarms': {'name', 'texture', 'position', 'radius_px', 'count', 'speed_px_s',
                'land_time_s', 'flight_time_s', 'jitter_px'},
 }
-OPTIONAL_FIELDS = {'particles': {'gravity', 'angular_velocity', 'scale_curve', 'additive', 'z_parent'},
+OPTIONAL_FIELDS = {'assets': {'target'}, 'particles': {'gravity', 'angular_velocity', 'scale_curve', 'additive', 'z_parent'},
                    'glows': {'sort_y'}, 'near': {'fade'}, 'swarms': {'sort_y'}}
 
 
@@ -140,6 +140,8 @@ def load_props(directory):
                     raise ValueError('footprint shape must be ellipse or rect')
                 if any(not isinstance(item[k], bool) for k in ('collide', 'fade_when_behind')):
                     raise ValueError('collide and fade_when_behind must be booleans')
+                if 'target' in item and not isinstance(item['target'], bool):
+                    raise ValueError('target must be boolean')
             elif collection == 'instances':
                 if not isinstance(item['asset'], str) or item['asset'] not in names:
                     raise ValueError('Instance references unknown asset')
@@ -593,6 +595,8 @@ def write_layers(out, props, body_width=48.0):
         after += sprite(f'Prop_{i}', 'Actors', asset['file'], instance['position'], offset)
         if asset['fade_when_behind']:
             after += fade(asset['file'], offset, 0, '../Keeper')
+        if asset.get('target', False):
+            after += target_fragment(i, instance, asset)
         if asset['collide']:
             collisions += (f'\n[node name="PropCollision_{i}" type="CollisionPolygon2D" parent="Walls"]\n'
                            f'position = {_vector(instance["position"])}\npolygon = {_packed(ellipse(asset["footprint"]))}\n')
@@ -684,3 +688,13 @@ def write_layers(out, props, body_width=48.0):
             'counts': {**{k: len(props[k]) for k in COLLECTIONS},
                        **({'glows': len(props['glows'])} if 'glows' in props else {}),
                        **({'swarms': len(props['swarms'])} if 'swarms' in props else {})}}
+
+
+def target_fragment(index, instance, asset):
+    """An independent sensing footprint, even for nonblocking target props."""
+    return (f'\n[node name="VfxTarget_{index}" type="Area2D" parent="Actors" groups=["vfx_targets"]]\n'
+            f'position = {_vector(instance["position"])}\n'
+            'collision_layer = 2\ncollision_mask = 0\nmonitoring = false\nmonitorable = true\n'
+            f'metadata/asset = "{asset["name"]}"\n'
+            f'\n[node name="Footprint" type="CollisionPolygon2D" parent="Actors/VfxTarget_{index}"]\n'
+            f'polygon = {_packed(ellipse(asset["footprint"]))}\n')
