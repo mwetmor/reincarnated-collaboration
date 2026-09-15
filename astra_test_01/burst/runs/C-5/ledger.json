@@ -1,10 +1,10 @@
 {
  "run": "C-5",
  "charter": "agentic_orchestration/gandalf/notes/2026-09-15-vfx-run-C-5-charter.md",
- "charter_sha256_12": "d2bc7eb4f0ee",
+ "charter_sha256_12": "c41d87420e76",
  "images_used": 0,
- "images_cap": null,
- "images_cap_note": "WAIVED by Matt V20 2026-09-15 — counted and reported, never gated",
+ "images_cap": 999999,
+ "images_cap_note": "SENTINEL 999999 — the run image cap is UN-ENFORCED by sentinel (Matt V20, 2026-09-15: \"no image budget\"); images_used is counted and reported at every packet. run_burst.py:158 integer-compares this field; null crashed it (jack-ryan Gate-1 BLOCK-B).",
  "bursts": [],
  "experiments": [],
  "milestones": [],
@@ -23,6 +23,14 @@
   {
    "note": "Ledger opened at charter v1.0; GO awaits jack-ryan Gate-1 on the charter.",
    "ts": "2026-09-15T19:51:44Z"
+  },
+  {
+   "note": "V2 provenance: Matt 2026-09-15 in-session, verbatim \"Agreed on V2. Let's proceed\" (after the measured scene fact: 1:1 linear-filtered painting, no pixel step). The queue row and 03- § 7a lagged the ruling; restamped 2026-09-15 (Gate-1 BLOCK-A).",
+   "ts": "2026-09-15T19:58:50Z"
+  },
+  {
+   "note": "Charter v1.1 (Gate-1 discharge edits) sha256[:12] c41d87420e76",
+   "ts": "2026-09-15T19:58:50Z"
   }
  ]
 }
