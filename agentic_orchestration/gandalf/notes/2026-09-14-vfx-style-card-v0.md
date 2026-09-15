@@ -45,3 +45,18 @@ Three trailers in one sitting set the poles. **CrossCode** = the fully-retro pol
 **Anti-patterns named:** pixel grid on the scene (retro pole); Chronicon density over our detail (mud); merging the references into a pastel-flat D2 (the SNES-skin failure).
 
 **Gate to fold into `canonical/reap-die-rise-story/style-register.md`:** the Chronicon + CoM measurements (Legolas, in flight) and two more kits from the breadth test judged against this thesis.
+
+## v0.2 — measured corrections from Chronicon / Children of Morta / The Slormancer (Legolas 2026-09-15; `legolas/research/2026-09-15-chronicon-com-slormancer-vfx/findings.md`)
+
+⚠ SWITCH: SPEC-AUTHOR → DRIFT-CRITIC (judging my own v0 hypothesis against the measurements).
+
+**Held:** painted-pixel *shape* sprites on the art grid + a separate real-time light layer is exactly the split Children of Morta and The Slormancer ship (CoM: ~3-px pixel shapes + HD glow/light; Slormancer: ×4-grid banded shapes for the signature skills, soft screen-res particles for fire/novas). Flat 2–4 value bands held (Slormancer wave: 3 flat bands, flat-run share .93).
+
+**Corrected:**
+1. **White.** v0 asked for a white core (Hades 13–40 %). The two games that stay legible over painted-pixel ground use **almost no white** (CoM 0.1 % near-white at its densest; Slormancer 0.1 % at 19–24 % effect coverage), and Chronicon's white-out (22 % near-white) is the named failure. → **Cores are the palest saturated band, not white; white only as the 0.1 s flash LAYER, never as a flipbook frame.** (Frozen Orb kit: drop the white disc frame `impact_00`; the flash layer already exists.)
+2. **Dark separation.** v0 assumed a Hades-style dark duplicate underlay. CoM has **no dark outline or duplicate** on effects; Slormancer's negative contrast comes from **black void shapes** and dark character outlines, not from a duplicate. Legibility over detailed ground is carried by **brightness separation: a bright soft halo (+.16 to +.41 over the ground) + floor light (ground brightens +.07–.09), saturation high, hue contrast opportunistic.** → dark duplicate demoted to an option for Hades-class strikes; **halo + floor light promoted to the default separation.**
+3. **Extent.** These effects span 10–16 body-heights at peak; at our 64–128 px native a character is 64–128 art pixels tall, and that density leaves nothing for a painted contour. → **Cap burst width at 3–6 BH (Hades' range); full-screen ornaments are rare punctuation, never the grammar.**
+4. **Resolution mixing.** Chronicon draws effects off its art grid at screen resolution next to pixel characters — the mixed-resolution softness is a named anti-pattern for us. → **Shape sprites on the effect's own pixel grid (pixel_scale), only light/glow/particles at screen resolution.**
+5. **Hue rule withdrawn.** Effect-vs-ground hue distance runs 6–165° in CoM and 2–11° in Slormancer's tinted rooms: hue contrast is not what carries legibility. → separation by brightness/halo/void, never by palette rule.
+
+**Oracle consequence (fork for Matt, R-C3-118):** Hades keeps the *timing* bands (strike rise, decay, half-life) — no other reference has measured flipbook timing; CoM + Slormancer supply the *legibility* bands (near-white ≤ 2 %, halo +.16–.41, floor light +.07–.09, extent 3–6 BH, white-free banded cores, S median ≥ .5). A hybrid reference file `oracle/vfx_reference_hybrid.json` would encode both.
