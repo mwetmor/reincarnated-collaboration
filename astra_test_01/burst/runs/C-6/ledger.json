@@ -4,7 +4,7 @@
   "charter_sha256_12": null,
   "images_used": 4,
   "images_cap": 999999,
-  "images_cap_note": "SENTINEL \u2014 Matt V20 posture carried (no image budget; counted, reported)",
+  "images_cap_note": "SENTINEL — Matt V20 posture carried (no image budget; counted, reported)",
   "bursts": [
     {
       "id": "N1-master-cam-01",
@@ -146,7 +146,13 @@
     }
   ],
   "experiments": [],
-  "milestones": [],
+  "milestones": [
+    {
+      "id": "M-C6-N1-SCENE",
+      "note": "N1-master-cam-02 (right-hand fist corrected) placed in cliffside_v21 as prop necro_master_still (3840,720) via CS-props-v21; Keeper walk-around + 4 stills captured → Desktop Packet 86; sent to Matt. C-6 STOPS here pending the master decision (no turnaround/loops until ruled).",
+      "ts": "2026-09-15T19:43:11"
+    }
+  ],
   "halts": [],
   "rulings": [
     {
@@ -154,13 +160,13 @@
       "class": "matt",
       "veto_open": false,
       "ts": "2026-09-15T22:50:23Z",
-      "ruling": "Character 2 = end-game Necromancer. Matt: text-designed (Blizzard render = design read only, never attached); grip classes accepted (2H-polearm / 1H+off-hand / empty caster; weapons as socketed layers; scythe = a layer); STOP after the master until Matt decides it. Matt generated the DESIGN master in the ChatGPT app (first-party) \u2014 camera at eye level; Matt: \"take my image and prompt around it to reach the size / angle\" \u2192 N1-master-cam-01 re-mints at the scene camera with the Keeper rest frame as IMAGE 1."
+      "ruling": "Character 2 = end-game Necromancer. Matt: text-designed (Blizzard render = design read only, never attached); grip classes accepted (2H-polearm / 1H+off-hand / empty caster; weapons as socketed layers; scythe = a layer); STOP after the master until Matt decides it. Matt generated the DESIGN master in the ChatGPT app (first-party) — camera at eye level; Matt: \"take my image and prompt around it to reach the size / angle\" → N1-master-cam-01 re-mints at the scene camera with the Keeper rest frame as IMAGE 1."
     }
   ],
   "grok_calls": [],
   "notes": [
     {
-      "note": "Ledger opened; Grok shelved (Q78 b) until loops \u2014 un-shelve is Matt's.",
+      "note": "Ledger opened; Grok shelved (Q78 b) until loops — un-shelve is Matt's.",
       "ts": "2026-09-15T22:50:23Z"
     }
   ]
