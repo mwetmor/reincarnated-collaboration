@@ -279,6 +279,13 @@ test_near_children_local_position_rect_and_world_defaults (test_props_layer.Prop
 test_near_reference_without_any_near_entries_rejected_before_output (test_props_layer.PropsLayerT3qTests.test_near_reference_without_any_near_entries_rejected_before_output) ... ok
 test_second_near_index_and_default_fade_attach_to_correct_sprite (test_props_layer.PropsLayerT3qTests.test_second_near_index_and_default_fade_attach_to_correct_sprite) ... ok
 test_t3p_fixtures_byte_identical_all_text (test_props_layer.PropsLayerT3qTests.test_t3p_fixtures_byte_identical_all_text) ... ok
+test_five_flies_anchor_defaults_texture_seeds_and_resources (test_props_layer.PropsLayerT3rTests.test_five_flies_anchor_defaults_texture_seeds_and_resources) ... ok
+test_headless_3s_60fps_land_flight_radius_unique_and_repeatable (test_props_layer.PropsLayerT3rTests.test_headless_3s_60fps_land_flight_radius_unique_and_repeatable) ... ok
+test_invalid_count_radius_jitter_ranges_and_sort_before_output (test_props_layer.PropsLayerT3rTests.test_invalid_count_radius_jitter_ranges_and_sort_before_output) ... ok
+test_sort_override_multiple_swarms_counts_one_and_forty (test_props_layer.PropsLayerT3rTests.test_sort_override_multiple_swarms_counts_one_and_forty) ... ok
+test_t3q_fixture_all_text_byte_identical_and_empty_has_no_script (test_props_layer.PropsLayerT3rTests.test_t3q_fixture_all_text_byte_identical_and_empty_has_no_script) ... ok
+test_trace_instrument_rejects_stationary_synchronized_fast_and_escaping (test_props_layer.PropsLayerT3rTests.test_trace_instrument_rejects_stationary_synchronized_fast_and_escaping) ... ok
+test_unknown_missing_collection_names_positions_and_png_before_output (test_props_layer.PropsLayerT3rTests.test_unknown_missing_collection_names_positions_and_png_before_output) ... ok
 test_absent_movement_props_byte_identical_to_frozen_t3k_all_text (test_props_layer.PropsLayerTests.test_absent_movement_props_byte_identical_to_frozen_t3k_all_text) ... ok
 test_bad_numbers_names_booleans_and_ranges (test_props_layer.PropsLayerTests.test_bad_numbers_names_booleans_and_ranges) ... ok
 test_cli_props_and_requires_parallax (test_props_layer.PropsLayerTests.test_cli_props_and_requires_parallax) ... ok
@@ -452,7 +459,7 @@ FAIL: test_headless_state_machine_input_map_gear_vfx_and_nearest_fallback (test_
 Traceback (most recent call last):
   File "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_godot_import.py", line 162, in test_headless_state_machine_input_map_gear_vfx_and_nearest_fallback
     self.assertEqual(proc.returncode, 0, log)
-AssertionError: -6 != 0 : ERROR: Failed to open 'user://logs/godot2026-09-14T19.52.25.log'.
+AssertionError: -6 != 0 : ERROR: Failed to open 'user://logs/godot2026-09-14T20.56.13.log'.
    at: copy (core/io/dir_access.cpp:423)
 
 ================================================================
@@ -519,7 +526,7 @@ FAIL: test_headless_cliffside_follow_camera_parallax_and_projectile_collision (t
 Traceback (most recent call last):
   File "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_parallax_scene.py", line 370, in test_headless_cliffside_follow_camera_parallax_and_projectile_collision
     self.assertEqual(proc.returncode, 0, log)
-AssertionError: -6 != 0 : ERROR: Failed to open 'user://logs/godot2026-09-14T19.53.42.log'.
+AssertionError: -6 != 0 : ERROR: Failed to open 'user://logs/godot2026-09-14T20.57.31.log'.
    at: copy (core/io/dir_access.cpp:423)
 
 ================================================================
@@ -544,7 +551,7 @@ FAIL: test_headless_occlusion_fade_restore_overhead_near_and_particles (test_pro
 Traceback (most recent call last):
   File "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_props_layer.py", line 342, in test_headless_occlusion_fade_restore_overhead_near_and_particles
     self.assertEqual(proc.returncode, 0, log)
-AssertionError: -6 != 0 : ERROR: Failed to open 'user://logs/godot2026-09-14T19.54.07.log'.
+AssertionError: -6 != 0 : ERROR: Failed to open 'user://logs/godot2026-09-14T20.58.03.log'.
    at: copy (core/io/dir_access.cpp:423)
 
 ================================================================
@@ -569,7 +576,7 @@ FAIL: test_headless_tower_import_run_and_physics (test_scene_kit.SceneKitTests.t
 Traceback (most recent call last):
   File "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_scene_kit.py", line 328, in test_headless_tower_import_run_and_physics
     self.assertEqual(proc.returncode, 0, log)
-AssertionError: -6 != 0 : ERROR: Failed to open 'user://logs/godot2026-09-14T19.54.16.log'.
+AssertionError: -6 != 0 : ERROR: Failed to open 'user://logs/godot2026-09-14T20.58.12.log'.
    at: copy (core/io/dir_access.cpp:423)
 
 ================================================================
@@ -662,6 +669,6 @@ ERROR: Error saving editor settings to /Users/admin/Library/Application Support/
 ERROR: Condition "ret != noErr" is true. Returning: ""
 
 ----------------------------------------------------------------------
-Ran 439 tests in 176.142s
+Ran 446 tests in 184.800s
 
 FAILED (failures=12)

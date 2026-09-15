@@ -7,8 +7,12 @@ Near entries may set fade=false to omit fading; absent fade defaults to true.
 Glows and particles can use z_parent='near:<index>' to attach to that near
 sprite. Position/rect then use its top-left texture pixel as local origin;
 near particles use local_coords=true. Omitted particle z_parent retains Air.
+Optional swarms are actor children with a fixed sort anchor and independent,
+seeded FLIGHT/LAND clocks. Their radius, speed and time bounds are positive;
+jitter is nonnegative. An absent swarms key preserves legacy export bytes.
 """
 import json
+import hashlib
 import math
 from pathlib import Path
 import re
@@ -29,9 +33,11 @@ FIELDS = {
     'particles': {'name', 'texture', 'rect', 'amount', 'lifetime_s', 'velocity_px_s',
                   'direction', 'spread_deg', 'scale', 'color_start', 'color_end'},
     'glows': {'texture', 'position', 'scale', 'color', 'flicker_hz', 'flicker_amount', 'z_parent'},
+    'swarms': {'name', 'texture', 'position', 'radius_px', 'count', 'speed_px_s',
+               'land_time_s', 'flight_time_s', 'jitter_px'},
 }
 OPTIONAL_FIELDS = {'particles': {'gravity', 'angular_velocity', 'scale_curve', 'additive', 'z_parent'},
-                   'glows': {'sort_y'}, 'near': {'fade'}}
+                   'glows': {'sort_y'}, 'near': {'fade'}, 'swarms': {'sort_y'}}
 
 
 def _fields(value, fields, label):
@@ -70,15 +76,16 @@ def _near_parent(value, near_count):
 def load_props(directory):
     """Read strict props.json and all relative RGBA PNGs before any writes.
 
-    Returns the six manifest collections plus root and image metadata. No
+    Returns the six legacy collections, supplied optional collections, and
+    root and image metadata. No
     catalogue-specific keys are silently accepted; catalogue data must first
     be mapped explicitly to the props.json contract.
     """
     from export.godot_import import local_file
     root = Path(directory).resolve()
     data = json.loads(local_file(root/'props.json', root).read_text())
-    if not isinstance(data, dict) or set(data) - (set(COLLECTIONS) | {'glows'}) or not set(COLLECTIONS) <= set(data):
-        raise ValueError('props.json requires six legacy collections and optional glows only')
+    if not isinstance(data, dict) or set(data) - (set(COLLECTIONS) | {'glows', 'swarms'}) or not set(COLLECTIONS) <= set(data):
+        raise ValueError('props.json requires six legacy collections; optional glows and swarms only')
     images = {}
 
     def png(file):
@@ -102,7 +109,7 @@ def load_props(directory):
         return images[file]
 
     names = set()
-    for collection in ('assets', 'instances', 'shadows', 'overhead', 'near', 'particles', 'glows'):
+    for collection in ('assets', 'instances', 'shadows', 'overhead', 'near', 'particles', 'glows', 'swarms'):
         if collection not in data:
             continue
         entries = data[collection]
@@ -177,6 +184,21 @@ def load_props(directory):
                         raise ValueError('scale_curve requires nonnegative endpoints')
                 if 'additive' in item and not isinstance(item['additive'], bool):
                     raise ValueError('additive must be boolean')
+            elif collection == 'swarms':
+                _name(item['name'], particle_names)
+                png(item['texture'])
+                _positive(item['radius_px'], 'radius_px')
+                count = item['count']
+                if isinstance(count, bool) or not isinstance(count, int) or not 1 <= count <= 40:
+                    raise ValueError('swarm count must be integer 1..40')
+                for key in ('speed_px_s', 'land_time_s', 'flight_time_s'):
+                    lo, hi = _values(item[key], 2, key)
+                    if lo <= 0 or hi < lo:
+                        raise ValueError(key + ' requires ordered positive bounds')
+                if not _number(item['jitter_px']) or item['jitter_px'] < 0:
+                    raise ValueError('jitter_px must be finite and nonnegative')
+                if 'sort_y' in item and not _number(item['sort_y']):
+                    raise ValueError('swarm sort_y must be finite')
             elif collection == 'glows':
                 png(item['texture'])
                 _positive(item['scale'], 'glow scale')
@@ -402,6 +424,91 @@ func _process(delta: float) -> void:
 '''
 
 
+FLY_SWARM_SCRIPT = '''extends Node2D
+# One y-sort anchor for the whole swarm; centre is local to that anchor.
+@export var centre: Vector2 = Vector2.ZERO
+@export var radius_px: float = 30.0
+@export var speed_px_s: Vector2 = Vector2(70.0, 110.0)
+@export var land_time_s: Vector2 = Vector2(0.14, 0.22)
+@export var flight_time_s: Vector2 = Vector2(0.25, 0.38)
+@export var jitter_px: float = 0.15
+@export var fly_seeds: PackedInt64Array
+enum State { FLIGHT, LAND }
+var flies: Array[Dictionary] = []
+
+func _point(rng: RandomNumberGenerator) -> Vector2:
+    # Exactly 60% probability in the inner half-radius disk, 40% in the
+    # outer annulus. Square-root radial sampling is uniform by area in each.
+    var inner: bool = rng.randf() < 0.6
+    var angle: float = rng.randf_range(0.0, TAU)
+    var radius: float = sqrt(rng.randf_range(0.0, 0.25) if inner else rng.randf_range(0.25, 1.0))
+    return Vector2.from_angle(angle) * radius * radius_px
+
+func _ready() -> void:
+    for i in range(fly_seeds.size()):
+        var rng := RandomNumberGenerator.new()
+        rng.seed = fly_seeds[i]
+        var fly: Dictionary = {"rng": rng, "sprite": get_node("Fly_" + str(i)),
+            "base": _point(rng), "elapsed": 0.0,
+            "phase": Vector2(rng.randf_range(0.0, TAU), rng.randf_range(0.0, TAU)),
+            "hz": Vector2(rng.randf_range(8.0, 14.0), rng.randf_range(8.0, 14.0)),
+            "twitch": rng.randf_range(1.0, 1.4)}
+        _flight(fly)
+        # Warm each independent clock to a random point in its first cycle.
+        _advance(fly, rng.randf_range(0.0, flight_time_s.y + land_time_s.y))
+        _paint(fly)
+        flies.append(fly)
+
+func _flight(fly: Dictionary) -> void:
+    var rng: RandomNumberGenerator = fly.rng
+    fly.state = State.FLIGHT
+    fly.target = _point(rng)
+    fly.speed = rng.randf_range(speed_px_s.x, speed_px_s.y)
+    fly.remaining = rng.randf_range(flight_time_s.x, flight_time_s.y)
+
+func _land(fly: Dictionary) -> void:
+    var rng: RandomNumberGenerator = fly.rng
+    fly.state = State.LAND
+    # On a flight timeout the reached point becomes the landing target.
+    # Never teleport to a distant target when the flight budget expires.
+    fly.target = fly.base
+    fly.land_elapsed = 0.0
+    fly.remaining = rng.randf_range(land_time_s.x, land_time_s.y)
+
+func _advance(fly: Dictionary, delta: float) -> void:
+    var left: float = delta
+    while left > 0.0000001:
+        var step: float = minf(left, minf(1.0 / 120.0, fly.remaining))
+        fly.elapsed += step
+        fly.remaining -= step
+        left -= step
+        if fly.state == State.FLIGHT:
+            fly.base = (fly.base as Vector2).move_toward(fly.target, fly.speed * step)
+            if (fly.base as Vector2).distance_to(fly.target) <= 2.0 or fly.remaining <= 0.0000001:
+                _land(fly)
+        else:
+            fly.land_elapsed += step
+            if fly.remaining <= 0.0000001:
+                _flight(fly)
+
+func _paint(fly: Dictionary) -> void:
+    var displacement: Vector2
+    if fly.state == State.FLIGHT:
+        displacement = Vector2(sin(TAU * fly.hz.x * fly.elapsed + fly.phase.x),
+            sin(TAU * fly.hz.y * fly.elapsed + fly.phase.y)) * jitter_px
+    else:
+        # A 1..1.4 px twitch stays below 3 px peak-to-peak in any interval.
+        displacement = Vector2.from_angle(fly.phase.x) * fly.twitch * sin(fly.land_elapsed * TAU * 3.0)
+    # Both-axis jitter and edge twitches cannot escape the contracted disk.
+    fly.sprite.position = centre + ((fly.base as Vector2) + displacement).limit_length(radius_px + jitter_px)
+
+func _physics_process(delta: float) -> void:
+    for fly in flies:
+        _advance(fly, delta)
+        _paint(fly)
+'''
+
+
 def _glow_sort_y(entry, props):
     """sort_y is the owning anchor y; the glow node sorts one pixel after it.
 
@@ -438,6 +545,7 @@ def write_layers(out, props, body_width=48.0):
     used.update(e['file'] for key in ('shadows', 'overhead', 'near') for e in props[key])
     used.update(e['texture'] for e in props['particles'])
     used.update(e['texture'] for e in props.get('glows', []))
+    used.update(e['texture'] for e in props.get('swarms', []))
     for i, file in enumerate(props['images']):
         ident = f'PropsTexture{i}'
         dest = 'props/'+file
@@ -454,6 +562,9 @@ def write_layers(out, props, body_width=48.0):
     if props.get('glows'):
         (out/'scripts/glow_flicker.gd').write_text(GLOW_FLICKER_SCRIPT)
         external.append('[ext_resource type="Script" path="res://scripts/glow_flicker.gd" id="GlowFlicker"]')
+    if props.get('swarms'):
+        (out/'scripts/fly_swarm.gd').write_text(FLY_SWARM_SCRIPT)
+        external.append('[ext_resource type="Script" path="res://scripts/fly_swarm.gd" id="FlySwarm"]')
     if props.get('glows') or any(e.get('additive', False) for e in props['particles']):
         subresources.append('[sub_resource type="CanvasItemMaterial" id="PropsAdditive"]\nblend_mode = 1\n')
 
@@ -485,6 +596,24 @@ def write_layers(out, props, body_width=48.0):
         if asset['collide']:
             collisions += (f'\n[node name="PropCollision_{i}" type="CollisionPolygon2D" parent="Walls"]\n'
                            f'position = {_vector(instance["position"])}\npolygon = {_packed(ellipse(asset["footprint"]))}\n')
+    for entry in props.get('swarms', []):
+        x, y = entry['position']
+        sort_y = entry.get('sort_y', y + 1)
+        name = 'Swarm_' + entry['name']
+        # Explicit stable per-fly seeds, independent of Python hash randomization.
+        seeds = [int.from_bytes(hashlib.sha256(f'{name}:{i}'.encode()).digest()[:8], 'big')
+                 & 0x7fffffffffffffff for i in range(entry['count'])]
+        after += (f'\n[node name="{name}" type="Node2D" parent="Actors"]\n'
+                  f'position = {_vector([x, sort_y])}\nscript = ExtResource("FlySwarm")\n'
+                  f'centre = {_vector([0, y-sort_y])}\nradius_px = {entry["radius_px"]:.12g}\n'
+                  f'jitter_px = {entry["jitter_px"]:.12g}\n'
+                  'fly_seeds = PackedInt64Array('+', '.join(map(str, seeds))+')\n')
+        for key in ('speed_px_s', 'land_time_s', 'flight_time_s'):
+            after += f'{key} = {_vector(entry[key])}\n'
+        for i in range(entry['count']):
+            after += (f'\n[node name="Fly_{i}" type="Sprite2D" parent="Actors/{name}"]\n'
+                      f'position = {_vector([0, y-sort_y])}\n'
+                      f'texture = ExtResource("{textures[entry["texture"]]}")\ncentered = true\n')
     after += '\n[node name="Overhead" type="Node2D" parent="."]\nz_index = 3\n'
     near_glows = ''
     for i, entry in enumerate(props.get('glows', [])):
@@ -553,4 +682,5 @@ def write_layers(out, props, body_width=48.0):
     return {'external': external, 'subresources': subresources, 'before_keeper': before,
             'after_keeper': after, 'collisions': collisions,
             'counts': {**{k: len(props[k]) for k in COLLECTIONS},
-                       **({'glows': len(props['glows'])} if 'glows' in props else {})}}
+                       **({'glows': len(props['glows'])} if 'glows' in props else {}),
+                       **({'swarms': len(props['swarms'])} if 'swarms' in props else {})}}

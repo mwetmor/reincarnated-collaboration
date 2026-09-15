@@ -1,0 +1,18 @@
+{
+ "text": "GENERATE BURST CS-prop-raven — a PERCHED RAVEN prop on green for the painted cliffside (Matt R-C3-97). task_id \"CS-prop-raven\".\n\nIMAGE 1 is an approved in-game frame of the hand-painted 2D ARPG level (fixed high three-quarter camera, sunset key light from the upper-left, cool violet shadows) — the style reference: confident tapered dark contours, painted planes in clean colours, restrained texture.\nPaint ONE 1024×1024 image on flat PURE GREEN #00ff00 containing ONE large common raven, seen from the same high three-quarter camera, PERCHED on the flat square top of a short dark-wood post (paint only the top 6–8 cm of the post under its feet, as a small flat brown square cap), body turned three-quarters toward the viewer's lower-right, head turned to look left, beak slightly open, glossy black plumage with dark blue-violet sheen and a warm sunset rim light on its back and head, feet gripping the post edge. The raven fills about 70 % of the image height. Everything else is flat pure #00ff00 (no shadow on the green). No text, border, other objects.\n\nOne image_gen call. ONE retry only if the raven is not perched on a post cap, the green is not flat, or the style clearly departs from IMAGE 1 — name the reason. Copy the output from $CODEX_HOME/generated_images/... to out/prop_raven.png with sha256. No code. No other files. No web.\nRETURN: receipt task_id \"CS-prop-raven\"; images = the file with prompt, references and elapsed_s; calls_used = the TRUE number of image_gen calls; status; concerns. Never PASS/FAIL.",
+ "references": [
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/CS-near-bridge/near_bridge.png",
+   "role": "IMAGE 1 — approved level look (style reference)"
+  }
+ ],
+ "image_cap": 2,
+ "minutes_cap": 15,
+ "tool_call_cap": 20,
+ "outputs": [
+  "out/prop_raven.png"
+ ],
+ "effort": "high",
+ "add_dirs": [],
+ "experiment": "C3-cliffside-dress"
+}

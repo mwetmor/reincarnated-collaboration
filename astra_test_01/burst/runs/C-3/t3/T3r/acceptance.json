@@ -1,0 +1,499 @@
+{
+  "elapsed_s": 3.0638907499997003,
+  "engine_runs": [
+    {
+      "args": [
+        "--import"
+      ],
+      "returncode": 0,
+      "log": "Godot Engine v4.6.3.stable.official.7d41c59c4 - https://godotengine.org\n\n[   0% ] \u001b[90m\u001b[1mfirst_scan_filesystem\u001b[22m | Started Project initialization (5 steps)\u001b[39m\u001b[0m\n[   0% ] \u001b[90m\u001b[1mfirst_scan_filesystem\u001b[22m | Scanning file structure...\u001b[39m\u001b[0m\n[  16% ] \u001b[90m\u001b[1mfirst_scan_filesystem\u001b[22m | Loading global class names...\u001b[39m\u001b[0m\n[  33% ] \u001b[90m\u001b[1mfirst_scan_filesystem\u001b[22m | Verifying GDExtensions...\u001b[39m\u001b[0m\n[  50% ] \u001b[90m\u001b[1mfirst_scan_filesystem\u001b[22m | Creating autoload scripts...\u001b[39m\u001b[0m\n[  66% ] \u001b[90m\u001b[1mfirst_scan_filesystem\u001b[22m | Initializing plugins...\u001b[39m\u001b[0m\n[  83% ] \u001b[90m\u001b[1mfirst_scan_filesystem\u001b[22m | Starting file scan...\u001b[39m\u001b[0m\n\u001b[92m[ DONE ]\u001b[39m \u001b[1mfirst_scan_filesystem\u001b[22m\n\u001b[0m\n[   0% ] \u001b[90m\u001b[1mupdate_scripts_classes\u001b[22m | Started Registering global classes... (3 steps)\u001b[39m\u001b[0m\n[   0% ] \u001b[90m\u001b[1mupdate_scripts_classes\u001b[22m | \u001b[39m\u001b[0m\n[  25% ] \u001b[90m\u001b[1mupdate_scripts_classes\u001b[22m | \u001b[39m\u001b[0m\n[  50% ] \u001b[90m\u001b[1mupdate_scripts_classes\u001b[22m | \u001b[39m\u001b[0m\n\u001b[92m[ DONE ]\u001b[39m \u001b[1mupdate_scripts_classes\u001b[22m\n\u001b[0m\n[   0% ] \u001b[90m\u001b[1m_update_scan_actions\u001b[22m | Started Scanning actions... (9 steps)\u001b[39m\u001b[0m\n[   0% ] \u001b[90m\u001b[1m_update_scan_actions\u001b[22m | far.png\u001b[39m\u001b[0m\n[  10% ] \u001b[90m\u001b[1m_update_scan_actions\u001b[22m | near.png\u001b[39m\u001b[0m\n[  20% ] \u001b[90m\u001b[1m_update_scan_actions\u001b[22m | tile_0_0.png\u001b[39m\u001b[0m\n[  30% ] \u001b[90m\u001b[1m_update_scan_actions\u001b[22m | shadow.png\u001b[39m\u001b[0m\n[  40% ] \u001b[90m\u001b[1m_update_scan_actions\u001b[22m | mote.png\u001b[39m\u001b[0m\n[  50% ] \u001b[90m\u001b[1m_update_scan_actions\u001b[22m | cast_E_0.png\u001b[39m\u001b[0m\n[  60% ] \u001b[90m\u001b[1m_update_scan_actions\u001b[22m | idle_S_0.png\u001b[39m\u001b[0m\n[  70% ] \u001b[90m\u001b[1m_update_scan_actions\u001b[22m | run_E_0.png\u001b[39m\u001b[0m\n[  80% ] \u001b[90m\u001b[1m_update_scan_actions\u001b[22m | walk_E_0.png\u001b[39m\u001b[0m\n\u001b[92m[ DONE ]\u001b[39m \u001b[1m_update_scan_actions\u001b[22m\n\u001b[0m\n[   0% ] \u001b[90m\u001b[1mreimport\u001b[22m | Started (Re)Importing Assets (9 steps)\u001b[39m\u001b[0m\n[   0% ] \u001b[90m\u001b[1mreimport\u001b[22m | Preparing files to reimport...\u001b[39m\u001b[0m\n[  10% ] \u001b[90m\u001b[1mreimport\u001b[22m | Preparing files to reimport...\u001b[39m\u001b[0m\n[  20% ] \u001b[90m\u001b[1mreimport\u001b[22m | Preparing files to reimport...\u001b[39m\u001b[0m\n[  30% ] \u001b[90m\u001b[1mreimport\u001b[22m | Preparing files to reimport...\u001b[39m\u001b[0m\n[  40% ] \u001b[90m\u001b[1mreimport\u001b[22m | Preparing files to reimport...\u001b[39m\u001b[0m\n[  50% ] \u001b[90m\u001b[1mreimport\u001b[22m | Preparing files to reimport...\u001b[39m\u001b[0m\n[  60% ] \u001b[90m\u001b[1mreimport\u001b[22m | Preparing files to reimport...\u001b[39m\u001b[0m\n[  70% ] \u001b[90m\u001b[1mreimport\u001b[22m | Preparing files to reimport...\u001b[39m\u001b[0m\n[  80% ] \u001b[90m\u001b[1mreimport\u001b[22m | Preparing files to reimport...\u001b[39m\u001b[0m\n[   0% ] \u001b[90m\u001b[1mreimport\u001b[22m | Executing pre-reimport operations...\u001b[39m\u001b[0m\n[   0% ] \u001b[90m\u001b[1mreimport\u001b[22m | far.png\u001b[39m\u001b[0m\n[  10% ] \u001b[90m\u001b[1mreimport\u001b[22m | near.png\u001b[39m\u001b[0m\n[  20% ] \u001b[90m\u001b[1mreimport\u001b[22m | tile_0_0.png\u001b[39m\u001b[0m\n[  30% ] \u001b[90m\u001b[1mreimport\u001b[22m | shadow.png\u001b[39m\u001b[0m\n[  40% ] \u001b[90m\u001b[1mreimport\u001b[22m | mote.png\u001b[39m\u001b[0m\n[  50% ] \u001b[90m\u001b[1mreimport\u001b[22m | cast_E_0.png\u001b[39m\u001b[0m\n[  60% ] \u001b[90m\u001b[1mreimport\u001b[22m | idle_S_0.png\u001b[39m\u001b[0m\n[  70% ] \u001b[90m\u001b[1mreimport\u001b[22m | run_E_0.png\u001b[39m\u001b[0m\n[  80% ] \u001b[90m\u001b[1mreimport\u001b[22m | walk_E_0.png\u001b[39m\u001b[0m\n[  90% ] \u001b[90m\u001b[1mreimport\u001b[22m | Finalizing Asset Import...\u001b[39m\u001b[0m\n\u001b[92m[ DONE ]\u001b[39m \u001b[1mreimport\u001b[22m\n\u001b[0m\n[   0% ] \u001b[90m\u001b[1mreimport\u001b[22m | Started (Re)Importing Assets (9 steps)\u001b[39m\u001b[0m\n[   0% ] \u001b[90m\u001b[1mreimport\u001b[22m | Executing post-reimport operations...\u001b[39m\u001b[0m\n\u001b[92m[ DONE ]\u001b[39m \u001b[1mreimport\u001b[22m\n\u001b[0m\n[   0% ] \u001b[90m\u001b[1mloading_editor_layout\u001b[22m | Started Loading editor (5 steps)\u001b[39m\u001b[0m\n[   0% ] \u001b[90m\u001b[1mloading_editor_layout\u001b[22m | Loading editor layout...\u001b[39m\u001b[0m\n[  16% ] \u001b[90m\u001b[1mloading_editor_layout\u001b[22m | Loading docks...\u001b[39m\u001b[0m\n\u001b[92m[ DONE ]\u001b[39m \u001b[1mloading_editor_layout\u001b[22m\n\u001b[0m\nERROR: Condition \"ret != noErr\" is true. Returning: \"\"\n   at: get_system_ca_certificates (platform/macos/os_macos.mm:1028)\nERROR: Cannot save file '/Users/admin/Library/Application Support/Godot/editor_settings-4.6.tres'.\n   at: save (scene/resources/resource_format_text.cpp:1756)\nERROR: Error saving editor settings to /Users/admin/Library/Application Support/Godot/editor_settings-4.6.tres\n   at: save (editor/settings/editor_settings.cpp:1404)"
+    },
+    {
+      "args": [
+        "--script",
+        "res://probe.gd"
+      ],
+      "returncode": 0,
+      "log": "Godot Engine v4.6.3.stable.official.7d41c59c4 - https://godotengine.org\n\nERROR: Condition \"ret != noErr\" is true. Returning: \"\"\n   at: get_system_ca_certificates (platform/macos/os_macos.mm:1028)"
+    },
+    {
+      "args": [
+        "--script",
+        "res://probe.gd"
+      ],
+      "returncode": 0,
+      "log": "Godot Engine v4.6.3.stable.official.7d41c59c4 - https://godotengine.org\n\nERROR: Condition \"ret != noErr\" is true. Returning: \"\"\n   at: get_system_ca_certificates (platform/macos/os_macos.mm:1028)"
+    }
+  ],
+  "repeatable": true,
+  "measurements": [
+    {
+      "id": "t3r_radius",
+      "subject": "fly_0",
+      "passed": null,
+      "value": 26.908207284579607,
+      "threshold": 30.15,
+      "op": "<=",
+      "unit": "px",
+      "evidence": [
+        "headless_samples.json"
+      ],
+      "notes": "Measured instrument; conductor owns acceptance."
+    },
+    {
+      "id": "t3r_land_intervals",
+      "subject": "fly_0",
+      "passed": null,
+      "value": 5,
+      "threshold": 2,
+      "op": ">=",
+      "unit": "intervals",
+      "evidence": [
+        "headless_samples.json"
+      ],
+      "notes": "Measured instrument; conductor owns acceptance."
+    },
+    {
+      "id": "t3r_separating_flights",
+      "subject": "fly_0",
+      "passed": null,
+      "value": 4,
+      "threshold": 1,
+      "op": ">=",
+      "unit": "intervals",
+      "evidence": [
+        "headless_samples.json"
+      ],
+      "notes": "Measured instrument; conductor owns acceptance."
+    },
+    {
+      "id": "t3r_flight_speed_min",
+      "subject": "fly_0",
+      "passed": null,
+      "value": 76.19432781974454,
+      "threshold": 49.0,
+      "op": ">=",
+      "unit": "px/s",
+      "evidence": [
+        "headless_samples.json"
+      ],
+      "notes": "Measured instrument; conductor owns acceptance."
+    },
+    {
+      "id": "t3r_flight_speed_max",
+      "subject": "fly_0",
+      "passed": null,
+      "value": 109.84393817596336,
+      "threshold": 143.0,
+      "op": "<=",
+      "unit": "px/s",
+      "evidence": [
+        "headless_samples.json"
+      ],
+      "notes": "Measured instrument; conductor owns acceptance."
+    },
+    {
+      "id": "t3r_radius",
+      "subject": "fly_1",
+      "passed": null,
+      "value": 16.47863675492627,
+      "threshold": 30.15,
+      "op": "<=",
+      "unit": "px",
+      "evidence": [
+        "headless_samples.json"
+      ],
+      "notes": "Measured instrument; conductor owns acceptance."
+    },
+    {
+      "id": "t3r_land_intervals",
+      "subject": "fly_1",
+      "passed": null,
+      "value": 7,
+      "threshold": 2,
+      "op": ">=",
+      "unit": "intervals",
+      "evidence": [
+        "headless_samples.json"
+      ],
+      "notes": "Measured instrument; conductor owns acceptance."
+    },
+    {
+      "id": "t3r_separating_flights",
+      "subject": "fly_1",
+      "passed": null,
+      "value": 6,
+      "threshold": 1,
+      "op": ">=",
+      "unit": "intervals",
+      "evidence": [
+        "headless_samples.json"
+      ],
+      "notes": "Measured instrument; conductor owns acceptance."
+    },
+    {
+      "id": "t3r_flight_speed_min",
+      "subject": "fly_1",
+      "passed": null,
+      "value": 74.26899768851605,
+      "threshold": 49.0,
+      "op": ">=",
+      "unit": "px/s",
+      "evidence": [
+        "headless_samples.json"
+      ],
+      "notes": "Measured instrument; conductor owns acceptance."
+    },
+    {
+      "id": "t3r_flight_speed_max",
+      "subject": "fly_1",
+      "passed": null,
+      "value": 116.05217792932494,
+      "threshold": 143.0,
+      "op": "<=",
+      "unit": "px/s",
+      "evidence": [
+        "headless_samples.json"
+      ],
+      "notes": "Measured instrument; conductor owns acceptance."
+    },
+    {
+      "id": "t3r_radius",
+      "subject": "fly_2",
+      "passed": null,
+      "value": 26.419184815211015,
+      "threshold": 30.15,
+      "op": "<=",
+      "unit": "px",
+      "evidence": [
+        "headless_samples.json"
+      ],
+      "notes": "Measured instrument; conductor owns acceptance."
+    },
+    {
+      "id": "t3r_land_intervals",
+      "subject": "fly_2",
+      "passed": null,
+      "value": 7,
+      "threshold": 2,
+      "op": ">=",
+      "unit": "intervals",
+      "evidence": [
+        "headless_samples.json"
+      ],
+      "notes": "Measured instrument; conductor owns acceptance."
+    },
+    {
+      "id": "t3r_separating_flights",
+      "subject": "fly_2",
+      "passed": null,
+      "value": 6,
+      "threshold": 1,
+      "op": ">=",
+      "unit": "intervals",
+      "evidence": [
+        "headless_samples.json"
+      ],
+      "notes": "Measured instrument; conductor owns acceptance."
+    },
+    {
+      "id": "t3r_flight_speed_min",
+      "subject": "fly_2",
+      "passed": null,
+      "value": 73.18852112168301,
+      "threshold": 49.0,
+      "op": ">=",
+      "unit": "px/s",
+      "evidence": [
+        "headless_samples.json"
+      ],
+      "notes": "Measured instrument; conductor owns acceptance."
+    },
+    {
+      "id": "t3r_flight_speed_max",
+      "subject": "fly_2",
+      "passed": null,
+      "value": 94.80977879753351,
+      "threshold": 143.0,
+      "op": "<=",
+      "unit": "px/s",
+      "evidence": [
+        "headless_samples.json"
+      ],
+      "notes": "Measured instrument; conductor owns acceptance."
+    },
+    {
+      "id": "t3r_radius",
+      "subject": "fly_3",
+      "passed": null,
+      "value": 22.538539880767217,
+      "threshold": 30.15,
+      "op": "<=",
+      "unit": "px",
+      "evidence": [
+        "headless_samples.json"
+      ],
+      "notes": "Measured instrument; conductor owns acceptance."
+    },
+    {
+      "id": "t3r_land_intervals",
+      "subject": "fly_3",
+      "passed": null,
+      "value": 6,
+      "threshold": 2,
+      "op": ">=",
+      "unit": "intervals",
+      "evidence": [
+        "headless_samples.json"
+      ],
+      "notes": "Measured instrument; conductor owns acceptance."
+    },
+    {
+      "id": "t3r_separating_flights",
+      "subject": "fly_3",
+      "passed": null,
+      "value": 5,
+      "threshold": 1,
+      "op": ">=",
+      "unit": "intervals",
+      "evidence": [
+        "headless_samples.json"
+      ],
+      "notes": "Measured instrument; conductor owns acceptance."
+    },
+    {
+      "id": "t3r_flight_speed_min",
+      "subject": "fly_3",
+      "passed": null,
+      "value": 80.66154697078777,
+      "threshold": 49.0,
+      "op": ">=",
+      "unit": "px/s",
+      "evidence": [
+        "headless_samples.json"
+      ],
+      "notes": "Measured instrument; conductor owns acceptance."
+    },
+    {
+      "id": "t3r_flight_speed_max",
+      "subject": "fly_3",
+      "passed": null,
+      "value": 107.75902586481573,
+      "threshold": 143.0,
+      "op": "<=",
+      "unit": "px/s",
+      "evidence": [
+        "headless_samples.json"
+      ],
+      "notes": "Measured instrument; conductor owns acceptance."
+    },
+    {
+      "id": "t3r_radius",
+      "subject": "fly_4",
+      "passed": null,
+      "value": 26.369991313508407,
+      "threshold": 30.15,
+      "op": "<=",
+      "unit": "px",
+      "evidence": [
+        "headless_samples.json"
+      ],
+      "notes": "Measured instrument; conductor owns acceptance."
+    },
+    {
+      "id": "t3r_land_intervals",
+      "subject": "fly_4",
+      "passed": null,
+      "value": 6,
+      "threshold": 2,
+      "op": ">=",
+      "unit": "intervals",
+      "evidence": [
+        "headless_samples.json"
+      ],
+      "notes": "Measured instrument; conductor owns acceptance."
+    },
+    {
+      "id": "t3r_separating_flights",
+      "subject": "fly_4",
+      "passed": null,
+      "value": 5,
+      "threshold": 1,
+      "op": ">=",
+      "unit": "intervals",
+      "evidence": [
+        "headless_samples.json"
+      ],
+      "notes": "Measured instrument; conductor owns acceptance."
+    },
+    {
+      "id": "t3r_flight_speed_min",
+      "subject": "fly_4",
+      "passed": null,
+      "value": 72.10349628792201,
+      "threshold": 49.0,
+      "op": ">=",
+      "unit": "px/s",
+      "evidence": [
+        "headless_samples.json"
+      ],
+      "notes": "Measured instrument; conductor owns acceptance."
+    },
+    {
+      "id": "t3r_flight_speed_max",
+      "subject": "fly_4",
+      "passed": null,
+      "value": 108.32294234867656,
+      "threshold": 143.0,
+      "op": "<=",
+      "unit": "px/s",
+      "evidence": [
+        "headless_samples.json"
+      ],
+      "notes": "Measured instrument; conductor owns acceptance."
+    },
+    {
+      "id": "t3r_identical_trace_pairs",
+      "subject": "synthetic_swarm",
+      "passed": null,
+      "value": 0,
+      "threshold": 0,
+      "op": "==",
+      "unit": "pairs",
+      "evidence": [
+        "headless_samples.json"
+      ],
+      "notes": "Measured instrument; conductor owns acceptance."
+    },
+    {
+      "id": "t3r_land_min_duration",
+      "subject": "fly_0",
+      "passed": null,
+      "value": 0.15,
+      "threshold": 0.14,
+      "op": ">=",
+      "unit": "s",
+      "evidence": [
+        "headless_samples.json"
+      ],
+      "notes": "Geometry/duration of counted LAND intervals; 60 Hz sampled lower bound on duration."
+    },
+    {
+      "id": "t3r_land_max_diameter",
+      "subject": "fly_0",
+      "passed": null,
+      "value": 2.2141858165224146,
+      "threshold": 3,
+      "op": "<",
+      "unit": "px",
+      "evidence": [
+        "headless_samples.json"
+      ],
+      "notes": "Geometry/duration of counted LAND intervals; 60 Hz sampled lower bound on duration."
+    },
+    {
+      "id": "t3r_land_min_duration",
+      "subject": "fly_1",
+      "passed": null,
+      "value": 0.15,
+      "threshold": 0.14,
+      "op": ">=",
+      "unit": "s",
+      "evidence": [
+        "headless_samples.json"
+      ],
+      "notes": "Geometry/duration of counted LAND intervals; 60 Hz sampled lower bound on duration."
+    },
+    {
+      "id": "t3r_land_max_diameter",
+      "subject": "fly_1",
+      "passed": null,
+      "value": 1.6013328297435967,
+      "threshold": 3,
+      "op": "<",
+      "unit": "px",
+      "evidence": [
+        "headless_samples.json"
+      ],
+      "notes": "Geometry/duration of counted LAND intervals; 60 Hz sampled lower bound on duration."
+    },
+    {
+      "id": "t3r_land_min_duration",
+      "subject": "fly_2",
+      "passed": null,
+      "value": 0.15,
+      "threshold": 0.14,
+      "op": ">=",
+      "unit": "s",
+      "evidence": [
+        "headless_samples.json"
+      ],
+      "notes": "Geometry/duration of counted LAND intervals; 60 Hz sampled lower bound on duration."
+    },
+    {
+      "id": "t3r_land_max_diameter",
+      "subject": "fly_2",
+      "passed": null,
+      "value": 2.118921295365413,
+      "threshold": 3,
+      "op": "<",
+      "unit": "px",
+      "evidence": [
+        "headless_samples.json"
+      ],
+      "notes": "Geometry/duration of counted LAND intervals; 60 Hz sampled lower bound on duration."
+    },
+    {
+      "id": "t3r_land_min_duration",
+      "subject": "fly_3",
+      "passed": null,
+      "value": 0.16666666666666666,
+      "threshold": 0.14,
+      "op": ">=",
+      "unit": "s",
+      "evidence": [
+        "headless_samples.json"
+      ],
+      "notes": "Geometry/duration of counted LAND intervals; 60 Hz sampled lower bound on duration."
+    },
+    {
+      "id": "t3r_land_max_diameter",
+      "subject": "fly_3",
+      "passed": null,
+      "value": 2.3525911604900585,
+      "threshold": 3,
+      "op": "<",
+      "unit": "px",
+      "evidence": [
+        "headless_samples.json"
+      ],
+      "notes": "Geometry/duration of counted LAND intervals; 60 Hz sampled lower bound on duration."
+    },
+    {
+      "id": "t3r_land_min_duration",
+      "subject": "fly_4",
+      "passed": null,
+      "value": 0.16666666666666666,
+      "threshold": 0.14,
+      "op": ">=",
+      "unit": "s",
+      "evidence": [
+        "headless_samples.json"
+      ],
+      "notes": "Geometry/duration of counted LAND intervals; 60 Hz sampled lower bound on duration."
+    },
+    {
+      "id": "t3r_land_max_diameter",
+      "subject": "fly_4",
+      "passed": null,
+      "value": 1.739432667740551,
+      "threshold": 3,
+      "op": "<",
+      "unit": "px",
+      "evidence": [
+        "headless_samples.json"
+      ],
+      "notes": "Geometry/duration of counted LAND intervals; 60 Hz sampled lower bound on duration."
+    }
+  ]
+}

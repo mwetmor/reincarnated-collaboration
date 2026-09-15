@@ -1,0 +1,40 @@
+{
+  "task_id": "CS-prop-raven",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "prop_raven",
+      "path": "out/prop_raven.png",
+      "sha256": "990ab16b45f5670cc0681e00c8f2165522e27adbde9b474512317f289a0fe1f1",
+      "prompt": "Generate ONE 1024×1024 square image. The entire canvas background MUST be solid opaque bright chroma green RGB(0,255,0), hex #00ff00. Green must be visibly present across the whole background. This is a green-background painting, not a transparent cutout. Do not remove the green background.\nPaint one common raven perched on a tiny square brown wooden post cap. Show ONLY a short 6–8 cm slice of wood under the feet, with a flat square top and very shallow sides, fully within the canvas; no long post extending downward. Feet grip the square cap edge. Raven and cap completely inside the canvas with generous green margins, raven about 70% of image height. Body turned three-quarters toward viewer lower-right, head looking left, beak slightly open. Glossy black feathers with dark blue-violet sheen and warm sunset rim on back and head from screen upper-left.\nIMAGE 1 is reference for painting style and camera only. Match the elevated high three-quarter ARPG camera and the hand-drawn 2D painted level look: confident tapered dark contours of varying weight, clean painted colour planes, restrained texture and simple feather groupings, cool violet shadows. One frame of hand-drawn animation, readable silhouette. No landscape, no other objects, no text, no border, no shadow on the green. The final image must retain the opaque pure #00ff00 background.",
+      "references": [
+        {
+          "role": "Approved level look — style and camera reference",
+          "path": "in/01_near_bridge.png"
+        }
+      ],
+      "elapsed_s": 21.97
+    }
+  ],
+  "calls_used": 2,
+  "retries": [
+    {
+      "reason": "First output lacked the required green background and showed excessive post length.",
+      "change": "Emphasized retaining opaque green and showing only a shallow square post cap."
+    }
+  ],
+  "self_report": {
+    "obeyed_invariants": false,
+    "concerns": [
+      "Tool returned 1254×1254 instead of requested 1024×1024; copied without modification.",
+      "Raven occupies more than the requested approximately 70% height; body direction and camera elevation are imperfect.",
+      "Background appears uniformly green; exact #00ff00 was not measured."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/prop_raven.png",
+      "sha256": "990ab16b45f5670cc0681e00c8f2165522e27adbde9b474512317f289a0fe1f1"
+    }
+  ]
+}

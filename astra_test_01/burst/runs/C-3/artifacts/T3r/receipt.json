@@ -1,0 +1,240 @@
+{
+  "task_id": "T3r",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [],
+  "calls_used": 0,
+  "retries": [
+    {
+      "reason": "The mandated suite printed counts without red-test names.",
+      "change": "Repeated the unmodified suite with in-memory unittest hooks to capture names and tracebacks."
+    }
+  ],
+  "self_report": {
+    "obeyed_invariants": true,
+    "concerns": [
+      "Implemented swarm validation, scene export, seeded FLIGHT/LAND behavior, and 7 successful T3r tests. Fixture: 5 Sprite2D flies beneath 1 Node2D in Actors; radius 30 px; default sort_y 321; explicit sort_y -17.25 verified.",
+      "181 samples cover 3 seconds at 60 Hz. Per-fly qualifying LAND counts: [5,7,7,6,6] versus >=2; separating FLIGHT counts: [4,6,6,5,5] versus >=1. Minimum counted LAND durations: [0.15,0.15,0.15,0.166667,0.166667] seconds versus >=0.14. Maximum LAND diameters: [2.214186,1.601333,2.118921,2.352591,1.739433] px versus <3.",
+      "Per-fly flight-bout mean-speed ranges: [76.194328,109.843938], [74.268998,116.052178], [73.188521,94.809779], [80.661547,107.759026], [72.103496,108.322942] px/s versus permitted [49,143]. Maximum radii: [26.908207,16.478637,26.419185,22.538540,26.369991] px versus <=30.15. Identical trace pairs: 0 versus 0 required. Two fresh engine runs produced identical samples.",
+      "79 invalid manifests rejected before output, including count 0/41, radius 0, and reversed ranges. T3q compatibility: 12/12 text hashes identical, 0 differences. Resource references validated: 15.",
+      "Both full-suite runs reported tests_run=446, successful_tests=434, with 12 red entries in 10 test methods. Diagnostic addSuccess counted 436 methods; the runner subtracts all three annulus subtest reds separately. All 7 T3r tests were successful; no additional reds.",
+      "Standing red: test_oracle_walk.Tests.test_synthetic_contract_and_grid — head_ref_y difference 5 versus tolerance 2.",
+      "Standing red: test_oracles_motif.Tests.test_f04_outside_at_least_three — outside count 2 versus >=3.",
+      "Standing reds: test_oracles_motif.Tests.test_named_genuine_annuli_retained (center=[113,201]); (center=[111,311]); (center=[170,253]) — all three retained rejection labels.",
+      "Sandbox red: test_godot_import.GodotImportTests.test_headless_state_machine_input_map_gear_vfx_and_nearest_fallback.",
+      "Sandbox red: test_parallax_scene.ParallaxSceneTests.test_headless_cliffside_follow_camera_parallax_and_projectile_collision.",
+      "Sandbox red: test_props_layer.PropsLayerTests.test_headless_occlusion_fade_restore_overhead_near_and_particles.",
+      "Sandbox red: test_scene_kit.SceneKitTests.test_headless_tower_import_run_and_physics.",
+      "Sandbox red: test_sockets.SocketTests.test_headless_directional_release_and_resources.",
+      "Sandbox red: test_vfx_picker.LivingEmbersTests.test_headless_glow_sixty_samples_extrema_range_and_particle_properties.",
+      "Sandbox red: test_vfx_picker.VfxPickerTests.test_headless_tab_twice_cast_scene_labels_and_inflight_kit_lock.",
+      "T3r engine invocations returned [0,0,0], with 0 script errors; sandbox certificate/editor-settings diagnostics remain recorded. Requested reference cliffside_v9/scenes/frost_bolt.tscn was absent. No real-clip acceptance is specified for T3r.",
+      "Wall times: targeted tests 5.865 s; fixture acceptance 3.064 s; full suites 189.824 s and 186.191 s. Work-wall checkpoint 999.811 s versus 2400 s cap. Remaining new test temporaries: 0 files, 0 bytes. Generated Godot import caches removed."
+    ]
+  },
+  "files": [
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/export/props_layer.py",
+      "sha256": "b4f047da0294e305876f37d1fdb8a04d8a5bef022911e1708e100765d3e60f34"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_props_layer.py",
+      "sha256": "50178d35e9f981dc273fae1d76556e8385739dd92b4bf833e802a0257d388176"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/t3/T3r/README.md",
+      "sha256": "57cf684331e25bcafeac00f2fac5bcb3c6eb3322ddfe55666b7d617d5b6ed83d"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/t3/T3r/acceptance.json",
+      "sha256": "fc5772a2af382c44fa099345d6d84bab0174567e632332451add2c4cabc54f54"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/t3/T3r/fixture_inputs/cells/cast_E_0.png",
+      "sha256": "1a7feed48a5813370338ece7fb5c53b1ab8fd91017b1e333d639ab633de053ea"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/t3/T3r/fixture_inputs/cells/idle_S_0.png",
+      "sha256": "1a7feed48a5813370338ece7fb5c53b1ab8fd91017b1e333d639ab633de053ea"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/t3/T3r/fixture_inputs/cells/run_E_0.png",
+      "sha256": "1a7feed48a5813370338ece7fb5c53b1ab8fd91017b1e333d639ab633de053ea"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/t3/T3r/fixture_inputs/cells/walk_E_0.png",
+      "sha256": "1a7feed48a5813370338ece7fb5c53b1ab8fd91017b1e333d639ab633de053ea"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/t3/T3r/fixture_inputs/input/foreground.png",
+      "sha256": "3f7e9edb59507a6530899e72026588480d7e760f0079e11b17cda10112729053"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/t3/T3r/fixture_inputs/input/layers/far.png",
+      "sha256": "e03fd6d805ecbcb270bb1350724eab59f879e0ae85f44dbbfa4ecc6408cd692e"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/t3/T3r/fixture_inputs/input/layers/near.png",
+      "sha256": "66e02f0e1415fac78ec709f24300a01bfe32ae849624b9596d3b2e7ae9187502"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/t3/T3r/fixture_inputs/input/parallax.json",
+      "sha256": "e7677434d57020847c73b5c44314a44b7f7ae806ba454e07a32d31d64949beeb"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/t3/T3r/fixture_inputs/input/walkable.json",
+      "sha256": "e90ccc92a55be3d1c9a29c05a7322d0a5bf380562a24743fb20fc6f821062a86"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/t3/T3r/fixture_inputs/kit/CREDITS.txt",
+      "sha256": "e7c5bb5e9c21af9e3583d339ea5b15be79672b2bae5066d35cf594fe5c63859d"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/t3/T3r/fixture_inputs/kit/flare/flare_0.png",
+      "sha256": "e57d9554e22bf63de6ad8454396a80546bc49bc53e4f3b616316e0bff271f3c1"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/t3/T3r/fixture_inputs/kit/impact/impact_0.png",
+      "sha256": "e57d9554e22bf63de6ad8454396a80546bc49bc53e4f3b616316e0bff271f3c1"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/t3/T3r/fixture_inputs/props/mote.png",
+      "sha256": "a6621dd05b703e56b79ccc53ba2cb24104df45cdc652c6090a6084e64e4d1394"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/t3/T3r/fixture_inputs/props/near.png",
+      "sha256": "3f5afe94753416536d0912e4711ffef0e4b8d65c2e34ae8493d0c98810ff4883"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/t3/T3r/fixture_inputs/props/overhead.png",
+      "sha256": "aa96db52d1232d024b61a840d0a4340d3c2b1337392c524c0a0175e7bf236961"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/t3/T3r/fixture_inputs/props/props.json",
+      "sha256": "fc1ba0dd7ab0a77c651709d07af2fb953d45fc8d8be50d7890cf3b7cf95ff12a"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/t3/T3r/fixture_inputs/props/shadow.png",
+      "sha256": "5692cf79c0a18c8aa630689d120aab4f2d0f18a10f98bb73b076887c07a7a25b"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/t3/T3r/fixture_inputs/props/stone.png",
+      "sha256": "2bb9f6491727a1b7497c9a1482adaba6e78c85e4dbf3b5a5f99249f05451e1dc"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/t3/T3r/fixture_inputs/props/tree.png",
+      "sha256": "5e37c75ed7e9066eebaf89a79c7d2c45641bb3297c8c755cb4566890c78a0454"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/t3/T3r/fixture_inputs/sockets.json",
+      "sha256": "4147efdddc15b8d08af327fa1de5a4f8c9a60fd3bde31145907bf24f1d3270a1"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/t3/T3r/fixture_project/README.md",
+      "sha256": "d56e3f32e2cf8a45d4f1fa4bfe0c5e54a5e89007ad2a328e8fe09c6118202f40"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/t3/T3r/fixture_project/frames/keeper.tres",
+      "sha256": "039613597231247f133ba55b2d752810b8b64121d552f3e1e7f686b909340cfa"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/t3/T3r/fixture_project/parallax/export.json",
+      "sha256": "bcf2732f300f665f5fb1c8a7e3ee86a46831a3bb34bdb67879a2fce2ae8203d5"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/t3/T3r/fixture_project/parallax/layers/far.png",
+      "sha256": "e03fd6d805ecbcb270bb1350724eab59f879e0ae85f44dbbfa4ecc6408cd692e"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/t3/T3r/fixture_project/parallax/layers/near.png",
+      "sha256": "66e02f0e1415fac78ec709f24300a01bfe32ae849624b9596d3b2e7ae9187502"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/t3/T3r/fixture_project/parallax/parallax.json",
+      "sha256": "e7677434d57020847c73b5c44314a44b7f7ae806ba454e07a32d31d64949beeb"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/t3/T3r/fixture_project/parallax/shadow.png",
+      "sha256": "d1227c4b30c8677d8c09a72a5341ba386487f7929c8fa4c13055240021c39935"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/t3/T3r/fixture_project/parallax/tiles/tile_0_0.png",
+      "sha256": "3f7e9edb59507a6530899e72026588480d7e760f0079e11b17cda10112729053"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/t3/T3r/fixture_project/parallax/walkable.json",
+      "sha256": "e90ccc92a55be3d1c9a29c05a7322d0a5bf380562a24743fb20fc6f821062a86"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/t3/T3r/fixture_project/probe.gd",
+      "sha256": "088ac19017f537ebc7d93284a06a3abc130848337ad1ffeed547c49669161e0e"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/t3/T3r/fixture_project/project.godot",
+      "sha256": "2e99461d74d52642cb886e8a7062aaa8db73639eedb535603e5943cebd4aabba"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/t3/T3r/fixture_project/props/mote.png",
+      "sha256": "a6621dd05b703e56b79ccc53ba2cb24104df45cdc652c6090a6084e64e4d1394"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/t3/T3r/fixture_project/props/props.json",
+      "sha256": "fc1ba0dd7ab0a77c651709d07af2fb953d45fc8d8be50d7890cf3b7cf95ff12a"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/t3/T3r/fixture_project/scenes/cliffside.tscn",
+      "sha256": "b96535743e0e577db5723555dfc70d3a993d1d7c9bba2a705ae4bfe22464d2d5"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/t3/T3r/fixture_project/scenes/main.tscn",
+      "sha256": "a7ff2b1ba99ca306dacd7fbee1556fbfbed54d72cc8e3c01ab72e1aba58b874d"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/t3/T3r/fixture_project/scripts/fly_swarm.gd",
+      "sha256": "8603f91597f1f8aeb74b6238a6a2860c3ac807b4c67edca13f56f40b08b33423"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/t3/T3r/fixture_project/scripts/keeper.gd",
+      "sha256": "89e9e64440aa00541acf90980852293abb81e345295f6d9bd9d771f7d3b67399"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/t3/T3r/fixture_project/sprites/cast/E/cast_E_0.png",
+      "sha256": "1a7feed48a5813370338ece7fb5c53b1ab8fd91017b1e333d639ab633de053ea"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/t3/T3r/fixture_project/sprites/idle/S/idle_S_0.png",
+      "sha256": "1a7feed48a5813370338ece7fb5c53b1ab8fd91017b1e333d639ab633de053ea"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/t3/T3r/fixture_project/sprites/run/E/run_E_0.png",
+      "sha256": "1a7feed48a5813370338ece7fb5c53b1ab8fd91017b1e333d639ab633de053ea"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/t3/T3r/fixture_project/sprites/walk/E/walk_E_0.png",
+      "sha256": "1a7feed48a5813370338ece7fb5c53b1ab8fd91017b1e333d639ab633de053ea"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/t3/T3r/full_suite.log",
+      "sha256": "464bee684d8fb85f1591310dfbfb041fae7f27f8b83906fa1730cc03be78b671"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/t3/T3r/full_suite_diagnostics.log",
+      "sha256": "06f987d6b07e6241ecd883a1f8d04ca6bb5cba22178b6639b9e294f8021c31f8"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/t3/T3r/headless_samples.json",
+      "sha256": "f8e1dedf29e7fc26d7437f450537a34db43e443d3d230fa0bf631b1752888b3c"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/t3/T3r/suite_diagnostics.json",
+      "sha256": "e8d411f6c23ae2106621d022e5aa0af95cd48aae6879d943049dcb05888a7fbc"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/t3/T3r/summary.json",
+      "sha256": "c0588d531b0c1575e0319eabc1796c7bcc175eac16b84ef12ec65ea30184b20f"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/t3/T3r/t3q_baseline.json",
+      "sha256": "1f0eae0e109127bea06835de4101dd984b1562cbca2f22bea1b23ad517fae694"
+    }
+  ]
+}

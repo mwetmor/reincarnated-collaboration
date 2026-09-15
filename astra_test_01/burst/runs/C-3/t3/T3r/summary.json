@@ -1,0 +1,51 @@
+{
+  "task_id": "T3r",
+  "suite_runs": [
+    {
+      "log": "full_suite.log",
+      "tests_run": 446,
+      "successful_tests": 434,
+      "elapsed_s": 189.82383870800004
+    },
+    {
+      "log": "full_suite_diagnostics.log",
+      "tests_run": 446,
+      "successful_tests": 434,
+      "elapsed_s": 186.19132399999944
+    }
+  ],
+  "reds": [
+    "test_godot_import.GodotImportTests.test_headless_state_machine_input_map_gear_vfx_and_nearest_fallback",
+    "test_oracle_walk.Tests.test_synthetic_contract_and_grid",
+    "test_oracles_motif.Tests.test_f04_outside_at_least_three",
+    "test_oracles_motif.Tests.test_named_genuine_annuli_retained (center=[113, 201])",
+    "test_oracles_motif.Tests.test_named_genuine_annuli_retained (center=[111, 311])",
+    "test_oracles_motif.Tests.test_named_genuine_annuli_retained (center=[170, 253])",
+    "test_parallax_scene.ParallaxSceneTests.test_headless_cliffside_follow_camera_parallax_and_projectile_collision",
+    "test_props_layer.PropsLayerTests.test_headless_occlusion_fade_restore_overhead_near_and_particles",
+    "test_scene_kit.SceneKitTests.test_headless_tower_import_run_and_physics",
+    "test_sockets.SocketTests.test_headless_directional_release_and_resources",
+    "test_vfx_picker.LivingEmbersTests.test_headless_glow_sixty_samples_extrema_range_and_particle_properties",
+    "test_vfx_picker.VfxPickerTests.test_headless_tab_twice_cast_scene_labels_and_inflight_kit_lock"
+  ],
+  "red_entries": 12,
+  "red_test_methods": 10,
+  "t3r_tests_successful": 7,
+  "diagnostic_success_callbacks": 436,
+  "count_note": "Unmodified runner reports successful_tests=434 by subtracting 12 red entries from 446 tests. Unittest addSuccess recorded 436 test methods: the 3 annulus subtest reds belong to one method.",
+  "baseline_text_files": 12,
+  "baseline_differing_text_files": 0,
+  "fixture_swarm_nodes": 1,
+  "fixture_fly_sprites": 5,
+  "fixture_sort_y": 321,
+  "sort_y_override_test": -17.25,
+  "invalid_manifest_cases_rejected": 79,
+  "wall_s_at_report": 999.811417,
+  "missing_reference": "runs/C-3/cliffside_v9/scenes/frost_bolt.tscn",
+  "image_calls": 0,
+  "notes": [
+    "All red entries match the named standing reds or sandbox-only Godot errors.",
+    "No real clip acceptance is specified by the T3r row.",
+    "No decoded video frames were created by T3r; generated Godot import caches removed."
+  ]
+}

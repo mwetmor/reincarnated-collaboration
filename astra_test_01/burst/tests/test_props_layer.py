@@ -1235,8 +1235,253 @@ def build_t3q_fixture(directory):
     return out
 
 
+T3R_ROOT = Path(__file__).resolve().parents[1]/'runs/C-3/t3/T3r'
+
+
+def t3r_swarm(**overrides):
+    return dict({'name': 'flies', 'texture': 'mote.png', 'position': [400, 320],
+                 'radius_px': 30, 'count': 5, 'speed_px_s': [70, 110],
+                 'land_time_s': [.14, .22], 'flight_time_s': [.25, .38],
+                 'jitter_px': .15}, **overrides)
+
+
+def swarm_measurements(samples, config):
+    """Measure displayed traces; recorded states delimit FLIGHT/LAND bouts.
+
+    LAND requires minimum duration and <3 px total diameter. Initial partial
+    bouts are excluded. FLIGHT speed is displayed path length / time. Includes
+    sample zero and 180 fixed 1/60 steps. Results stay null for the conductor.
+    """
+    import numpy as np
+    rows = []
+
+    def record(label, value, threshold, op, unit, subject='synthetic_swarm'):
+        rows.append({'id': 't3r_'+label, 'subject': subject, 'passed': None,
+                     'value': value, 'threshold': threshold, 'op': op, 'unit': unit,
+                     'evidence': ['headless_samples.json'],
+                     'notes': 'Measured instrument; conductor owns acceptance.'})
+
+    positions = np.array([[f['position'] for f in sample] for sample in samples], dtype=float)
+    if positions.shape != (181, config['count'], 2) or not np.isfinite(positions).all():
+        raise ValueError('Expected 181 finite samples of every fly at 60 Hz')
+    for i in range(config['count']):
+        subject = 'fly_'+str(i)
+        trace = positions[:, i]
+        states = [s[i]['state'] for s in samples]
+        if any(state not in (0, 1) for state in states):
+            raise ValueError('Unknown fly state')
+        record('radius', float(np.linalg.norm(trace-config['position'], axis=1).max()),
+               config['radius_px']+config['jitter_px'], '<=', 'px', subject)
+        bouts, start = [], 0
+        for j in range(1, len(states)+1):
+            if j == len(states) or states[j] != states[start]:
+                bouts.append((states[start], start, j))
+                start = j
+        lands, flight_speeds, separating = [], [], 0
+        for state, start, end in bouts:
+            if state == 1:
+                segment = trace[start:end]
+                diameter = float(np.linalg.norm(segment[:, None]-segment[None, :], axis=2).max())
+                duration = (end-start-1)/60
+                if start > 0 and duration >= config['land_time_s'][0] and diameter < 3:
+                    lands.append((start, end))
+            elif end-start >= 3:
+                speed = float(np.linalg.norm(np.diff(trace[start:end], axis=0), axis=1).mean()*60)
+                flight_speeds.append(speed)
+        for a, b in zip(lands, lands[1:]):
+            separating += int(any(state == 0 and start >= a[1] and end <= b[0]
+                                  and end-start >= 3 for state, start, end in bouts))
+        record('land_intervals', len(lands), 2, '>=', 'intervals', subject)
+        record('separating_flights', separating, 1, '>=', 'intervals', subject)
+        record('flight_speed_min', min(flight_speeds) if flight_speeds else None,
+               config['speed_px_s'][0]*.7, '>=', 'px/s', subject)
+        record('flight_speed_max', max(flight_speeds) if flight_speeds else None,
+               config['speed_px_s'][1]*1.3, '<=', 'px/s', subject)
+    duplicates = sum(np.array_equal(positions[:, i], positions[:, j])
+                     for i in range(config['count']) for j in range(i))
+    record('identical_trace_pairs', duplicates, 0, '==', 'pairs')
+    return rows
+
+
+T3R_PROBE = '''extends SceneTree
+func _initialize() -> void:
+    call_deferred("probe")
+
+func probe() -> void:
+    var scene: Node2D = load("res://scenes/cliffside.tscn").instantiate()
+    root.add_child(scene)
+    scene.get_node("Actors/Keeper").set_physics_process(false)
+    var swarm: Node2D = scene.get_node("Actors/Swarm_flies")
+    swarm.set_physics_process(false)
+    var samples: Array = []
+    for frame in range(181):
+        if frame > 0:
+            swarm._physics_process(1.0 / 60.0)
+        var sample: Array = []
+        for fly in swarm.flies:
+            var p: Vector2 = fly.sprite.global_position
+            sample.append({"position": [p.x, p.y], "state": fly.state})
+        samples.append(sample)
+    print("T3R_SAMPLES=", JSON.stringify(samples))
+    scene.free()
+    quit(0)
+'''
+
+
+class PropsLayerT3rTests(unittest.TestCase):
+    setUp = PropsLayerTests.setUp
+    export = PropsLayerTests.export
+    reject = PropsLayerTests.reject
+
+    def configured(self, **overrides):
+        self.data['swarms'] = [t3r_swarm(**overrides)]
+        (self.props/'props.json').write_text(json.dumps(self.data, indent=2)+'\n')
+
+    def test_five_flies_anchor_defaults_texture_seeds_and_resources(self):
+        self.configured()
+        out, report, text = self.export()
+        nodes = scene_nodes(text)
+        self.assertIn('y_sort_enabled = true', nodes['Actors'])
+        self.assertIn('[node name="Swarm_flies" type="Node2D" parent="Actors"]', text)
+        self.assertEqual(vector(nodes['Swarm_flies'], 'position'), [400, 321])
+        self.assertEqual(vector(nodes['Swarm_flies'], 'centre'), [0, -1])
+        self.assertNotIn('y_sort_enabled', nodes['Swarm_flies'])
+        self.assertNotIn('z_index', nodes['Swarm_flies'])
+        self.assertEqual(len(re.findall(r'type="Sprite2D" parent="Actors/Swarm_flies"', text)), 5)
+        seeds = re.search(r'fly_seeds = PackedInt64Array\(([^)]+)\)', text)[1].split(', ')
+        self.assertEqual(len(set(seeds)), 5)
+        self.assertEqual(report['parallax']['props']['swarms'], 1)
+        self.assertEqual((out/'props/mote.png').read_bytes(), (self.props/'mote.png').read_bytes())
+        self.assertTrue(validate_resources(out, include_scenes=True))
+        again = self.root/'again'
+        build_project(self.cells, again, parallax=self.source, props=self.props)
+        self.assertEqual(text, (again/'scenes/cliffside.tscn').read_text())
+        self.assertEqual((out/'scripts/fly_swarm.gd').read_bytes(), (again/'scripts/fly_swarm.gd').read_bytes())
+
+    def test_sort_override_multiple_swarms_counts_one_and_forty(self):
+        self.configured(sort_y=-17.25, count=1, jitter_px=0)
+        self.data['swarms'].append(t3r_swarm(name='other', count=40))
+        (self.props/'props.json').write_text(json.dumps(self.data))
+        _, _, text = self.export()
+        nodes = scene_nodes(text)
+        self.assertEqual(vector(nodes['Swarm_flies'], 'position'), [400, -17.25])
+        self.assertEqual(vector(nodes['Swarm_flies'], 'centre'), [0, 337.25])
+        self.assertEqual(len(re.findall(r'type="Sprite2D" parent="Actors/Swarm_', text)), 41)
+        seeds = [int(v) for group in re.findall(r'fly_seeds = PackedInt64Array\(([^)]+)\)', text)
+                 for v in group.split(', ')]
+        self.assertEqual(len(set(seeds)), 41)
+
+    def test_invalid_count_radius_jitter_ranges_and_sort_before_output(self):
+        self.configured()
+        cases = {'count': [0, 41, -1, True, 1.5, '5', None],
+                 'radius_px': [0, -1, True, '30', None, float('nan'), float('inf')],
+                 'jitter_px': [-1, True, None, float('nan'), float('inf')],
+                 'sort_y': [True, None, '0', float('nan'), float('inf')]}
+        for key in ('speed_px_s', 'land_time_s', 'flight_time_s'):
+            cases[key] = [[2, 1], [0, 1], [-1, 2], [True, 2], [1, float('inf')],
+                          [float('nan'), 2], [1], [1, 2, 3], '1,2', None]
+        for key, values in cases.items():
+            for value in values:
+                bad = copy.deepcopy(self.data)
+                bad['swarms'][0][key] = value
+                with self.subTest(key=key, value=value): self.reject(bad)
+
+    def test_unknown_missing_collection_names_positions_and_png_before_output(self):
+        self.configured()
+        bads = []
+        for key in t3r_swarm():
+            bad = copy.deepcopy(self.data); del bad['swarms'][0][key]; bads.append(bad)
+        for value in (None, {}, 5, 'flies'):
+            bad = copy.deepcopy(self.data); bad['swarms'] = value; bads.append(bad)
+        for key, value in [('unknown', 1), ('position', [1]), ('position', [True, 2]),
+                           ('position', [float('inf'), 2]), ('name', '../escape'),
+                           ('name', ''), ('name', True), ('texture', '../mote.png'),
+                           ('texture', '/mote.png'), ('texture', 'missing.png')]:
+            bad = copy.deepcopy(self.data); bad['swarms'][0][key] = value; bads.append(bad)
+        bad = copy.deepcopy(self.data); bad['swarms'] *= 2; bads.append(bad)
+        for i, bad in enumerate(bads):
+            with self.subTest(case=i): self.reject(bad)
+        Image.new('RGB', (4, 4)).save(self.props/'rgb.png')
+        bad = copy.deepcopy(self.data); bad['swarms'][0]['texture'] = 'rgb.png'
+        self.reject(bad)
+
+    def test_t3q_fixture_all_text_byte_identical_and_empty_has_no_script(self):
+        baseline = json.loads((T3R_ROOT/'t3q_baseline.json').read_text())
+        (self.props/'props.json').write_text(json.dumps(baseline['manifest'], indent=2)+'\n')
+        class OrderedCollections(set):
+            def __iter__(self):
+                return iter(('assets', 'near', 'shadows', 'instances', 'particles', 'overhead'))
+        with patch('time.monotonic', return_value=0.0), patch('export.props_layer.COLLECTIONS',
+                OrderedCollections(set(baseline['manifest'])-{'glows'})):
+            out, _, text = self.export()
+        self.assertEqual(text_hashes(out), baseline['text_sha256'])
+        self.assertNotIn('FlySwarm', text)
+        self.assertFalse((out/'scripts/fly_swarm.gd').exists())
+        self.data['swarms'] = []
+        (self.props/'props.json').write_text(json.dumps(self.data))
+        empty = self.root/'empty'
+        build_project(self.cells, empty, parallax=self.source, props=self.props)
+        self.assertFalse((empty/'scripts/fly_swarm.gd').exists())
+
+    def test_trace_instrument_rejects_stationary_synchronized_fast_and_escaping(self):
+        config = t3r_swarm(count=2)
+        samples = [[{'position': [400, 320], 'state': 1} for _ in range(2)] for _ in range(181)]
+        rows = swarm_measurements(samples, config)
+        self.assertEqual(rows[-1]['value'], 1)
+        self.assertEqual(rows[1]['value'], 0)
+        self.assertIsNone(rows[3]['value'])
+        for n, sample in enumerate(samples):
+            for fly in sample: fly.update(position=[400+n*10, 320], state=0)
+        rows = swarm_measurements(samples, config)
+        self.assertGreater(rows[0]['value'], rows[0]['threshold'])
+        self.assertGreater(rows[4]['value'], rows[4]['threshold'])
+        with self.assertRaises(ValueError): swarm_measurements(samples[:-1], config)
+        self.assertTrue(all(row['passed'] is None for row in rows))
+
+    @unittest.skipUnless(Path(GODOT).is_file(), 'Godot binary unavailable')
+    def test_headless_3s_60fps_land_flight_radius_unique_and_repeatable(self):
+        self.configured()
+        out, _, _ = self.export()
+        (out/'probe.gd').write_text(T3R_PROBE)
+        traces = []
+        for args in (['--import'], ['--script', 'res://probe.gd'], ['--script', 'res://probe.gd']):
+            proc = subprocess.run([GODOT, '--headless', '--path', str(out),
+                                   '--log-file', str(self.root/'godot.log'), *args],
+                                  capture_output=True, text=True, timeout=45)
+            log = proc.stdout+proc.stderr
+            self.assertEqual(proc.returncode, 0, log)
+            self.assertNotIn('SCRIPT ERROR', log)
+            for line in log.splitlines():
+                if line.startswith('T3R_SAMPLES='): traces.append(json.loads(line.split('=', 1)[1]))
+        self.assertEqual(len(traces), 2)
+        self.assertEqual(traces[0], traces[1])
+        for row in swarm_measurements(traces[0], self.data['swarms'][0]):
+            with self.subTest(id=row['id'], subject=row['subject']):
+                self.assertIsNotNone(row['value'])
+                if row['op'] == '<=': self.assertLessEqual(row['value'], row['threshold'])
+                elif row['op'] == '>=': self.assertGreaterEqual(row['value'], row['threshold'])
+                else: self.assertEqual(row['value'], row['threshold'])
+
+
+def build_t3r_fixture(directory):
+    root = Path(directory)
+    root.mkdir(parents=True, exist_ok=True)
+    source, cells, _, _ = make_inputs(root/'fixture_inputs', (1200, 900))
+    props = root/'fixture_inputs/props'
+    make_props(props)
+    data = {key: [] for key in ('assets', 'instances', 'shadows', 'overhead', 'near', 'particles')}
+    data['swarms'] = [t3r_swarm()]
+    (props/'props.json').write_text(json.dumps(data, indent=2)+'\n')
+    out = root/'fixture_project'
+    build_project(cells, out, parallax=source, props=props)
+    (out/'probe.gd').write_text(T3R_PROBE)
+    return out
+
+
 if __name__ == '__main__':
-    if len(sys.argv) == 3 and sys.argv[1] == '--fixture-t3q':
+    if len(sys.argv) == 3 and sys.argv[1] == '--fixture-t3r':
+        print(build_t3r_fixture(sys.argv[2]))
+    elif len(sys.argv) == 3 and sys.argv[1] == '--fixture-t3q':
         print(build_t3q_fixture(sys.argv[2]))
     elif len(sys.argv) == 3 and sys.argv[1] == '--fixture-t3p':
         print(build_t3p_fixture(sys.argv[2]))
