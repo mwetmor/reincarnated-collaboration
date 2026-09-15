@@ -40221,6 +40221,10 @@
     {
       "note": "v17 probe: the very FIRST cast in a fresh scene spawns a bolt that never registers an impact (58 bolt-frames, 0 impact-frames); the 2nd and 3rd casts on the same kit impact normally - a first-cast warm-up quirk of the exported scene, not a kit defect (it explains the empty kit-0 column in the v16/v17 sheets and the shifted columns after it). Logged for T3v/T3w: cast-ready gate on the first physics frame. Visual read v17: fire pool and shard bursts now read at size; the 0.1 s flash layer at alpha .55 x1.3 is a large white disc at 2x impact scale - flash alpha knob (-> .35) for the next pass. Desktop 83 = v17; web5 to drax.",
       "ts": "2026-09-15T06:45:00Z"
+    },
+    {
+      "note": "kits_v8: all six kits rebuilt with T3v tinted 3 px particles (amount 8), flash alpha .35, element_class (strike/field/holy). CS-pack-v18 (scene) + CS-pack-web6 (public) fired to follow web5 on the same URL.",
+      "ts": "2026-09-15T07:10:00Z"
     }
   ],
   "images_cap_note": "Matt R-C3-55 removed the cap (was 120); set to 1000 because lane/run_burst.py compares the cap numerically"
