@@ -12,3 +12,10 @@ Matt, verbatim: *"You're right we do not need or want cast order or cast lock. T
 - SPEC § 7 lap 3 T4f row rewritten: tap-to-cast + cone fallback; no lock/cycle/toggle; per-skill `range` (null = unbounded) + `pierce` in kit.json; FULL/PARTIAL floating label on `contact` events with a `contact_class` field (primary / secondary); T4a test re-point kept.
 - drax: overlay v8 — CAST button removed; tap = cast; joystick + JUMP + VFX remain. Fires with the next web build after T4f lands.
 - Packet 85 (grey bolt at a dummy) is judged under this protocol.
+
+## ⟲ REVERSED (Matt, minutes later, verbatim): *"Actually, I made this too complex. Just leave the cast button as is on mobile.. don't add tap to cast, that would be confusing. Also bonnets for targeting."* (read: nothing for targeting)
+- **R1 WITHDRAWN:** CAST button stays on mobile; no tap-to-cast; **no targeting protocol** — aim remains T4b's rule (nearest `target` in the facing cone; cursor on desktop). Back row reached by repositioning or by a piercing skill.
+- **R2 WITHDRAWN with it:** kit ranges stay as they are today.
+- **R3 STANDS:** FULL / PARTIAL text over a hit dummy (definition as proposed; Matt may amend).
+- **Pierce per skill STANDS** (Frozen Orb −1; others 0; strike response once per cast).
+- **T4f v2 = pierce per skill + FULL/PARTIAL contact text + the T4a test re-point.** No overlay change for drax.
