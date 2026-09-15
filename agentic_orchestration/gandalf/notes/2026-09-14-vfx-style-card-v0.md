@@ -38,7 +38,7 @@ Three trailers in one sitting set the poles. **CrossCode** = the fully-retro pol
 
 **What each reference contributes (reading, not ruling):**
 - **Diablo 2** → the scene: painted, dark, weighty, dense with things; pre-rendered-isometric lineage. This is already the cliffside. Effects bold and few against a dense floor.
-- **Earthbound** → the story frame only: the teenager-into-the-future comparison for where *Reap. Die. Rise.* opens (story-side: `canonical/reap-die-rise-story/`).
+- **Earthbound** → **THEME ONLY — none of its style** (Matt, explicit): the teenager-into-the-future comparison for where *Reap. Die. Rise.* opens (story-side: `canonical/reap-die-rise-story/`). Earthbound must never appear as a visual, palette, UI or VFX reference in any brief, register card or style anchor.
 - **Secret of Evermore** → the *feel*: displaced-kid wonder and unease; a journey through eras; companionship; magic as gathered craft; melancholy without grimdark. The nostalgia lives in this tone and in SNES-era adventure pacing, not in a pixel grid.
 - **Flourish** (Hades / CoM as evidence that it exists, not as source) → a *signature reaction layer* of our own: hit-stop, flash, floor light, shake, and the world answering the spell (embers lifting, ash, ravens). The signature is still to be found; candidate motif: the death-faith frame — effects that *reap* (harvest lines, husks, the swing of a scythe in the dissolve).
 
