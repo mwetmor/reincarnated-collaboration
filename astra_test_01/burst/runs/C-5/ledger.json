@@ -1,36 +1,43 @@
 {
- "run": "C-5",
- "charter": "agentic_orchestration/gandalf/notes/2026-09-15-vfx-run-C-5-charter.md",
- "charter_sha256_12": "c41d87420e76",
- "images_used": 0,
- "images_cap": 999999,
- "images_cap_note": "SENTINEL 999999 — the run image cap is UN-ENFORCED by sentinel (Matt V20, 2026-09-15: \"no image budget\"); images_used is counted and reported at every packet. run_burst.py:158 integer-compares this field; null crashed it (jack-ryan Gate-1 BLOCK-B).",
- "bursts": [],
- "experiments": [],
- "milestones": [],
- "halts": [],
- "rulings": [
-  {
-   "id": "R-C5-0",
-   "class": "matt",
-   "veto_open": false,
-   "ts": "2026-09-15T19:51:44Z",
-   "ruling": "Q79 RULED in full (see 03-architecture.md § 7a): V1 A and B never C · V2 = 1 match the scene · V9 compat-preferred register-first · V10 Astra paints the monster pack into a clearing in the current scene, drax assists · V17 no ceiling, Matt is the brake · V20 no image budget · all other recommendations accepted. Q78(a) resolved by supersession (H-C3-2 discharged). Grok shelved. Matt: \"Let's proceed.\""
-  }
- ],
- "grok_calls": [],
- "notes": [
-  {
-   "note": "Ledger opened at charter v1.0; GO awaits jack-ryan Gate-1 on the charter.",
-   "ts": "2026-09-15T19:51:44Z"
-  },
-  {
-   "note": "V2 provenance: Matt 2026-09-15 in-session, verbatim \"Agreed on V2. Let's proceed\" (after the measured scene fact: 1:1 linear-filtered painting, no pixel step). The queue row and 03- § 7a lagged the ruling; restamped 2026-09-15 (Gate-1 BLOCK-A).",
-   "ts": "2026-09-15T19:58:50Z"
-  },
-  {
-   "note": "Charter v1.1 (Gate-1 discharge edits) sha256[:12] c41d87420e76",
-   "ts": "2026-09-15T19:58:50Z"
-  }
- ]
+  "run": "C-5",
+  "charter": "agentic_orchestration/gandalf/notes/2026-09-15-vfx-run-C-5-charter.md",
+  "charter_sha256_12": "c41d87420e76",
+  "images_used": 0,
+  "images_cap": 999999,
+  "images_cap_note": "SENTINEL 999999 — the run image cap is UN-ENFORCED by sentinel (Matt V20, 2026-09-15: \"no image budget\"); images_used is counted and reported at every packet. run_burst.py:158 integer-compares this field; null crashed it (jack-ryan Gate-1 BLOCK-B).",
+  "bursts": [],
+  "experiments": [],
+  "milestones": [],
+  "halts": [],
+  "rulings": [
+    {
+      "id": "R-C5-0",
+      "class": "matt",
+      "veto_open": false,
+      "ts": "2026-09-15T19:51:44Z",
+      "ruling": "Q79 RULED in full (see 03-architecture.md § 7a): V1 A and B never C · V2 = 1 match the scene · V9 compat-preferred register-first · V10 Astra paints the monster pack into a clearing in the current scene, drax assists · V17 no ceiling, Matt is the brake · V20 no image budget · all other recommendations accepted. Q78(a) resolved by supersession (H-C3-2 discharged). Grok shelved. Matt: \"Let's proceed.\""
+    },
+    {
+      "id": "R-C5-1",
+      "class": "conductor",
+      "veto_open": true,
+      "ruling": "GO — jack-ryan Gate-1 on charter v1.1 DISCHARGED (PASS-with-WARNs; qa/findings/2026-09-15-run-C-5-charter-gate1.md @ 8cba3564). Phase P0-a opens: CS-dress-clearing (GENERATE, edit mode) fires alone; T4a TOOLING follows serially. Matt pre-viewed the clearing window (Packet 84-pre).",
+      "ts": "2026-09-15T16:00:12"
+    }
+  ],
+  "grok_calls": [],
+  "notes": [
+    {
+      "note": "Ledger opened at charter v1.0; GO awaits jack-ryan Gate-1 on the charter.",
+      "ts": "2026-09-15T19:51:44Z"
+    },
+    {
+      "note": "V2 provenance: Matt 2026-09-15 in-session, verbatim \"Agreed on V2. Let's proceed\" (after the measured scene fact: 1:1 linear-filtered painting, no pixel step). The queue row and 03- § 7a lagged the ruling; restamped 2026-09-15 (Gate-1 BLOCK-A).",
+      "ts": "2026-09-15T19:58:50Z"
+    },
+    {
+      "note": "Charter v1.1 (Gate-1 discharge edits) sha256[:12] c41d87420e76",
+      "ts": "2026-09-15T19:58:50Z"
+    }
+  ]
 }
