@@ -836,3 +836,121 @@ class G1ComponentTests(unittest.TestCase):
         from export.godot_import import evaluate_g1_events
         rows = evaluate_g1_events(json.loads((out/'out/events.json').read_text()))
         self.assertTrue(all(r['passed'] for r in rows))
+
+    def test_pierce_metadata_default_explicit_and_known_bad(self):
+        from test_effect_kit import definition_fixture
+        from export.effect_kit import build, load_kit
+        path, data = definition_fixture(self.root/'source')
+        for value in (None, 0, 1, 3, -1):
+            definition = copy.deepcopy(data)
+            if value is not None: definition['pierce'] = value
+            path.write_text(json.dumps(definition))
+            out = self.root/('kit_'+str(value))
+            build(path, out)
+            self.assertEqual(load_kit(out)['pierce'], 0 if value is None else value)
+        omitted, explicit = self.root/'kit_None', self.root/'kit_0'
+        self.assertEqual({p.relative_to(omitted):p.read_bytes() for p in omitted.rglob('*') if p.is_file()},
+                         {p.relative_to(explicit):p.read_bytes() for p in explicit.rglob('*') if p.is_file()})
+        for value in (-2, True, False, 1.5, '1', None, [], float('inf')):
+            with self.subTest(value=value):
+                definition = dict(data, pierce=value)
+                path.write_text(json.dumps(definition))
+                with self.assertRaisesRegex(ValueError, 'pierce'):
+                    build(path, self.root/'bad')
+                self.assertFalse((self.root/'bad').exists())
+        metadata = json.loads((omitted/'kit.json').read_text())
+        metadata.pop('pierce')
+        (omitted/'kit.json').write_text(json.dumps(metadata))
+        self.assertEqual(load_kit(omitted)['pierce'], 0)
+
+    def test_pierce_config_defaults_palette_range_and_feedback_gates(self):
+        from test_effect_kit import picker_fixture
+        from export.godot_import import _g1_config
+        fixture = picker_fixture(self.root/'authored')
+        kit = _load_vfx_kits(fixture['catalogue'])[0]
+        config = _g1_config(kit)
+        self.assertEqual(config['pierce'], 0)
+        self.assertEqual(config['range_px'], 650.0)
+        self.assertEqual(config['palette_3'], kit['effect']['material']['palette'][3])
+        kit['effect']['pierce'] = -1
+        self.assertEqual(_g1_config(kit)['pierce'], -1)
+        impact = (fixture['project']/'scripts/vfx_synthetic_ice_impact.gd').read_text()
+        self.assertIn('if get_meta("strike_response", true):\n        _feedback()', impact)
+        self.assertIn('if not get_meta("strike_response", true) and has_node("Ground/Flash"):', impact)
+        label = (fixture['project']/'scripts/vfx_contact_label.gd').read_text()
+        for token in ('LIFETIME_S: float = 0.6', 'RISE_PX: float = 40.0', 'Time.get_ticks_usec()', '"font_size", 22', 'font_outline_color'):
+            self.assertIn(token, label)
+
+    @staticmethod
+    def _pierce_evidence():
+        events = [dict(effect_id=1, event='contact', body_index=i, phase='head',
+                       contact_class='primary' if i == 0 else 'secondary',
+                       contact_distance_px=60+i*80, strike_response=i == 0) for i in range(3)]
+        labels = [dict(effect_id=1, body_index=i, text='FULL' if i == 0 else 'PARTIAL',
+                       lifetime_s=.61, rise_px=40) for i in range(3)]
+        return events, labels
+
+    def test_pierce_instrument_known_bad_order_strike_duplicate_lifetime_and_class(self):
+        from export.godot_import import evaluate_pierce_events
+        events, labels = self._pierce_evidence()
+        self.assertTrue(all(r['passed'] for r in evaluate_pierce_events(events, labels)))
+        mutations = []
+        bad = copy.deepcopy(events); bad[2]['contact_distance_px'] = 1
+        mutations.append(('pierce_distance_order', bad, labels))
+        bad = copy.deepcopy(events); bad[1]['strike_response'] = True
+        mutations.append(('pierce_strike_once', bad, labels))
+        mutations.append(('pierce_labels_unique', events, labels+[labels[0]]))
+        bad = copy.deepcopy(labels); bad[0]['lifetime_s'] = .801
+        mutations.append(('pierce_label_lifetime', events, bad))
+        bad = copy.deepcopy(labels); bad[0]['text'] = 'PARTIAL'
+        mutations.append(('pierce_contact_text', events, bad))
+        bad = copy.deepcopy(events); bad[1]['contact_class'] = 'primary'
+        mutations.append(('pierce_contact_text', bad, labels))
+        bad = copy.deepcopy(labels); bad[0]['rise_px'] = 39
+        mutations.append(('pierce_label_rise', events, bad))
+        for key, e, l in mutations:
+            with self.subTest(key=key):
+                self.assertIs({r['id']:r['passed'] for r in evaluate_pierce_events(e,l)}[key], False)
+        self.assertTrue(all(r['passed'] is None for r in evaluate_pierce_events([], [])))
+        bad = copy.deepcopy(labels); bad[0]['lifetime_s'] = None
+        self.assertIsNone({r['id']:r['passed'] for r in evaluate_pierce_events(events,bad)}['pierce_label_lifetime'])
+        bad = copy.deepcopy(events); bad[0]['contact_distance_px'] = float('nan')
+        with self.assertRaises(ValueError): evaluate_pierce_events(bad,labels)
+
+    def test_pierce_phase_classification_chain_field_shard(self):
+        from export.godot_import import evaluate_pierce_events
+        for phases, classes in ((['chain_hop']*3, ['primary']*3),
+                                (['field_centre','rim','shard'], ['primary','secondary','secondary'])):
+            events, labels = self._pierce_evidence()
+            for event, label, phase, cls in zip(events,labels,phases,classes):
+                event.update(phase=phase, contact_class=cls)
+                label['text'] = 'FULL' if cls == 'primary' else 'PARTIAL'
+            self.assertTrue(all(r['passed'] for r in evaluate_pierce_events(events, labels)))
+
+    @unittest.skipUnless(Path(GODOT).is_file(), 'Godot binary unavailable')
+    def test_headless_pierce_contacts_labels_pool_and_phase_callbacks(self):
+        from test_effect_kit import picker_fixture
+        from export.godot_import import evaluate_pierce_events
+        fixture = picker_fixture(self.root/'authored')
+        run_headless(self, fixture['project'], 'probe_pierce.gd')
+        report = json.loads((fixture['project']/'out/probe_pierce.json').read_text())
+        self.assertEqual(report['errors'], [])
+        self.assertTrue(all(row['passed'] for row in evaluate_pierce_events(report['events'], report['labels'])))
+
+    def test_omitted_pierce_matches_pre_t4f_33_file_byte_lock(self):
+        from test_effect_kit import definition_fixture
+        from export.effect_kit import build
+        path, _ = definition_fixture(self.root/'source')
+        out = self.root/'byte_lock'
+        build(path, out)
+        digest = hashlib.sha256()
+        files = [p for p in sorted(out.rglob('*')) if p.is_file()]
+        self.assertEqual(len(files), 33)
+        for path in files:
+            data = path.read_bytes()
+            if path.name == 'kit.json':
+                metadata = json.loads(data)
+                self.assertEqual(metadata.pop('pierce'), 0)
+                data = (json.dumps(metadata, indent=2, allow_nan=False)+'\n').encode()
+            digest.update(path.relative_to(out).as_posix().encode()+b'\0'+data)
+        self.assertEqual(digest.hexdigest(), '2495fc1bd2f2d8b3dbee84d527a05632ddb35d418964b8fcb28a3686815548bf')

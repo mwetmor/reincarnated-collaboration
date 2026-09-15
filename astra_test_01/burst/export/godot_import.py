@@ -1195,6 +1195,10 @@ def _write_authored_effect(out, kit, resource_root, prefix, counts, shared_proje
             continue
         kind = 'bolt' if phase == 'travel' else 'impact'
         script = template + constants + LAYER_SCRIPT
+        if shared_projectile and kind == 'impact':
+            script = script.replace('    _feedback()\n', '    if get_meta("strike_response", true):\n        _feedback()\n')
+            script = script.replace('    _start_layers("impact")',
+                                    '    if not get_meta("strike_response", true) and has_node("Ground/Flash"):\n        $Ground/Flash.hide()\n    _start_layers("impact")')
         script = script.replace('func _ready() -> void:\n',
                                 'func _ready() -> void:\n    _bind_vfx_materials()\n')
         script += ('\nconst VFX_FIELDS = '+json.dumps(fields)+'\n'
@@ -1407,6 +1411,12 @@ var config: Dictionary = {}
 var resolved: Dictionary = {}
 var distance: float = 0.0
 var arrival_pending: bool = false
+var remaining_pierce: int = 0
+var contacted: Dictionary = {}
+var strike_fired: bool = false
+var cast_origin: Vector2 = Vector2.ZERO
+var travel_end: Vector2 = Vector2.ZERO
+static var label_events: Array = []
 
 static func resolve_target(tree: SceneTree, origin: Vector2, facing: Vector2, cursor: Vector2, range_px: float = 650.0, cone_degrees: float = 30.0) -> Dictionary:
     if not origin.is_finite() or not cursor.is_finite() or not facing.is_finite() or facing.is_zero_approx() or not is_finite(range_px) or range_px <= 0.0 or not is_finite(cone_degrees) or cone_degrees < 0.0 or cone_degrees > 180.0:
@@ -1430,6 +1440,8 @@ static func acquire(parent: Node2D, kit: Dictionary, origin: Vector2, destinatio
         return null
     if destination.get("kind", "") not in ["prop", "cursor"] or (destination.get("kind") == "prop" and not is_instance_valid(destination.get("target"))):
         return null
+    if typeof(kit.get("pierce", 0)) != TYPE_INT or int(kit.get("pierce", 0)) < -1:
+        return null
     if not kit.has("head") or not kit.has("impact") or not ResourceLoader.exists(kit.head) or not ResourceLoader.exists(kit.impact):
         return null
     var projectile: Area2D = null
@@ -1446,6 +1458,7 @@ static func acquire(parent: Node2D, kit: Dictionary, origin: Vector2, destinatio
 func _ready() -> void:
     add_to_group("vfx_g1_pool")
     area_entered.connect(_on_area_entered)
+    body_entered.connect(_on_body_entered)
     set_physics_process(false)
     hide()
 
@@ -1468,6 +1481,11 @@ func release(kit: Dictionary, origin: Vector2, destination: Dictionary, owner_no
     global_position = origin
     direction = origin.direction_to(resolved.point)
     distance = 0.0
+    remaining_pierce = int(config.get("pierce", 0))
+    contacted.clear()
+    strike_fired = false
+    cast_origin = origin
+    travel_end = resolved.point if remaining_pierce == 0 else origin + direction * float(config.get("range_px", 650.0)) * spell_scale
     arrival_pending = false
     active = true
     expired = false
@@ -1506,70 +1524,130 @@ func release(kit: Dictionary, origin: Vector2, destination: Dictionary, owner_no
 func _physics_process(delta: float) -> void:
     if not active:
         return
-    if resolved.kind == "prop" and not is_instance_valid(resolved.target):
+    if resolved.kind == "prop" and not is_instance_valid(resolved.target) and contacted.is_empty():
         cancel()
         return
-    if arrival_pending:
-        # Let overlap signals observe the final position for one physics frame.
-        if resolved.kind == "prop":
-            for area in get_overlapping_areas():
-                _on_area_entered(area)
-            if active:
-                cancel()
-        else:
-            _spawn_impact()
-            expire()
-        return
-    var remaining: float = global_position.distance_to(resolved.point)
-    var step: float = minf(float(config.get("speed_px_s", 520.0)) * spell_scale * delta, remaining)
-    var motion: Vector2 = global_position.direction_to(resolved.point) * step
-    # Sweep the head footprint to avoid tunnelling through narrow dummy feet.
+    var remaining: float = global_position.distance_to(travel_end)
+    var range_left: float = maxf(0.0, float(config.get("range_px", 650.0)) * spell_scale - distance)
+    var step: float = minf(float(config.get("speed_px_s", 520.0)) * spell_scale * delta, minf(remaining, range_left))
+    var motion: Vector2 = global_position.direction_to(travel_end) * step
+    var start: Vector2 = global_position
+    var hits: Array = []
+    var space: PhysicsDirectSpaceState2D = get_world_2d().direct_space_state
+    # Enumerate every collision body, including untagged legacy fixtures.
+    # Exclude each hit and repeat from the same start; dispatch in distance order.
     var query := PhysicsShapeQueryParameters2D.new()
     query.shape = $CollisionShape2D.shape
-    query.transform = global_transform
-    query.motion = motion
-    query.collision_mask = 2
+    query.collision_mask = collision_mask
     query.collide_with_areas = true
-    query.collide_with_bodies = false
-    var excluded: Array[RID] = []
-    for area in get_tree().get_nodes_in_group("vfx_targets"):
-        if area != resolved.get("target"):
-            excluded.append(area.get_rid())
-    query.exclude = excluded
-    var space: PhysicsDirectSpaceState2D = get_world_2d().direct_space_state
-    var fractions: PackedFloat32Array = space.cast_motion(query)
-    var fraction: float = fractions[1] if fractions.size() == 2 else 1.0
-    global_position += motion * fraction
-    query.transform = global_transform
-    query.motion = Vector2.ZERO
+    query.collide_with_bodies = true
     query.margin = 0.01
-    for hit in space.intersect_shape(query):
-        if hit.collider == resolved.get("target"):
-            _on_area_entered(hit.collider)
+    var excluded: Array[RID] = [get_rid()]
+    if caster is CollisionObject2D and is_instance_valid(caster):
+        excluded.append(caster.get_rid())
+    for id in contacted:
+        var body = instance_from_id(id)
+        if is_instance_valid(body) and body is CollisionObject2D:
+            excluded.append(body.get_rid())
+    while true:
+        query.exclude = excluded
+        query.transform = global_transform
+        query.motion = Vector2.ZERO
+        var overlaps: Array = space.intersect_shape(query)
+        var fraction: float = 0.0
+        if overlaps.is_empty():
+            query.motion = motion
+            var fractions: PackedFloat32Array = space.cast_motion(query)
+            fraction = fractions[1] if fractions.size() == 2 else 1.0
+            query.motion = Vector2.ZERO
+            query.transform.origin = start + motion * fraction
+            overlaps = space.intersect_shape(query)
+        if overlaps.is_empty():
+            break
+        for hit in overlaps:
+            var body: CollisionObject2D = hit.collider
+            excluded.append(body.get_rid())
+            hits.append({"area": body, "fraction": fraction, "along": (body.global_position - cast_origin).dot(direction)})
+    hits.sort_custom(func(a, b): return a.fraction < b.fraction if not is_equal_approx(a.fraction, b.fraction) else a.along < b.along)
+    for hit in hits:
+        global_position = start + motion * float(hit.fraction)
+        contact_body(hit.area)
+        if not active:
             return
-    if fraction < 1.0:
-        # Unselected footprints do not block a cursor-directed effect.
-        global_position += motion * (1.0 - fraction)
+    global_position = start + motion
     distance += step
     $Trail.add_point(global_position)
     while $Trail.get_point_count() > 12:
         $Trail.remove_point(0)
-    arrival_pending = remaining <= step + 0.001
+    if remaining <= step + 0.001 or range_left <= step + 0.001:
+        if contacted.is_empty() and resolved.kind == "cursor":
+            _spawn_impact(false)
+        if contacted.is_empty() and resolved.kind == "prop":
+            cancel()
+        else:
+            expire()
 
 func _on_area_entered(area: Area2D) -> void:
-    if not active or area != resolved.get("target"):
-        return
-    var collision_frame: int = age_frames()
-    _record("contact", collision_frame)
-    _spawn_impact()
-    expire()
+    # Swept queries own pierce ordering; overlap callbacks must not race them.
+    if int(config.get("pierce", 0)) == 0:
+        contact_body(area)
 
-func _spawn_impact() -> void:
+func _on_body_entered(body: Node2D) -> void:
+    if int(config.get("pierce", 0)) == 0 and body is StaticBody2D:
+        contact_body(body)
+
+func contact_body(area: CollisionObject2D, phase: String = "head") -> void:
+    # Phase producers (chain hops, shards, field centre/rim) share the cast ledger.
+    if not active or not is_instance_valid(area) or area == caster or contacted.has(area.get_instance_id()):
+        return
+    if phase not in ["head", "chain_hop", "field_centre", "shard", "rim"]:
+        return
+    var contact_class: String = "primary"
+    if phase in ["shard", "rim"] or (phase == "head" and not contacted.is_empty()):
+        contact_class = "secondary"
+    var body_index: int = int(area.get_meta("body_index", get_tree().get_nodes_in_group("vfx_targets").find(area) if area.is_in_group("vfx_targets") else area.get_instance_id()))
+    contacted[area.get_instance_id()] = true
+    _record("contact", age_frames())
+    var entry: Dictionary = events[-1]
+    entry["body_index"] = body_index
+    entry["contact_class"] = contact_class
+    entry["phase"] = phase
+    entry["contact_distance_px"] = cast_origin.distance_to(area.global_position)
+    entry["strike_response"] = not strike_fired
+    if area.is_in_group("vfx_targets"):
+        _contact_label(area, body_index, contact_class)
+    _spawn_impact(not strike_fired, area.global_position if area.is_in_group("vfx_targets") else global_position)
+    strike_fired = true
+    if phase == "head":
+        if remaining_pierce == 0:
+            expire()
+        elif remaining_pierce > 0:
+            remaining_pierce -= 1
+
+func _contact_label(area: CollisionObject2D, body_index: int, contact_class: String) -> void:
+    var label: Label = null
+    for candidate in get_tree().get_nodes_in_group("vfx_contact_labels"):
+        if candidate.get_parent() == get_parent() and not candidate.visible:
+            label = candidate
+            break
+    if label == null:
+        label = Label.new()
+        label.set_script(load("res://scripts/vfx_contact_label.gd"))
+        get_parent().add_child(label)
+    var colour: Array = config.get("palette_3", [0.35, 0.65, 0.8, 1.0])
+    var anchor: Vector2 = area.global_position + Vector2(0, -70)
+    var prop: Node = area.get_parent().get_node_or_null("Prop_" + String(area.name).trim_prefix("VfxTarget_"))
+    if prop is Sprite2D:
+        anchor = area.global_position + Vector2(0, prop.get_rect().position.y * prop.global_scale.y - 8.0)
+    label.show_contact(anchor, "FULL" if contact_class == "primary" else "PARTIAL", Color(colour[0], colour[1], colour[2], colour[3]), effect_id, body_index, label_events)
+
+func _spawn_impact(strike_response: bool = true, point: Variant = null) -> void:
     var impact: Node2D = load(config.impact).instantiate()
+    impact.set_meta("strike_response", strike_response)
     impact.set("spell_scale", spell_scale)
     impact.set("caster", caster)
     impact.set("direction", direction)
-    impact.position = get_parent().to_local(global_position)
+    impact.position = get_parent().to_local(global_position if point == null else point)
     get_parent().add_child(impact)
 
 func expire() -> void:
@@ -1607,6 +1685,8 @@ def _g1_config(kit):
             'animation': 'travel' if authored else 'flare',
             'impact': 'res://scenes/vfx_'+name+'_impact.tscn',
             'speed_px_s': data.get('phases', {}).get('travel', {}).get('speed_px_s', 520.0),
+            'pierce': data.get('pierce', 0),
+            'palette_3': data.get('material', {}).get('palette', [[.35, .65, .8, 1]]*4)[3],
             'range_px': 650.0, 'ground_squash': data.get('ground_squash', 1.0),
             'phase_scale': data.get('phase_scale', {}).get('travel', 1.0),
             'material': 'res://'+root+'/materials/Body.tres' if authored else '',
@@ -1649,6 +1729,8 @@ def _write_g1_component(out):
     (out/'scenes/vfx').mkdir(parents=True, exist_ok=True)
     (out/'scenes/vfx/g1_projectile.tscn').write_text(G1_SCENE)
     (out/'scripts/vfx_g1.gd').write_text(G1_SCRIPT)
+    (out/'scripts/vfx_contact_label.gd').write_text(CONTACT_LABEL_SCRIPT)
+    (out/'probe_pierce.gd').write_text(PIERCE_PROBE)
     (out/'probe_vfx.gd').write_text(G1_PROBE)
 
 
@@ -1875,6 +1957,234 @@ def evaluate_g1_events(events):
              'value': value, 'threshold': threshold, 'op': op, 'unit': unit,
              'evidence': ['out/events.json'], 'notes': 'Measured probe evidence; no visual/style verdict.'}
             for name, value, threshold, op, unit, valid in values]
+
+
+
+
+CONTACT_LABEL_SCRIPT = '''extends Label
+const LIFETIME_S: float = 0.6
+const RISE_PX: float = 40.0
+var started_usec: int = 0
+var start_point: Vector2
+var evidence: Dictionary
+func _ready() -> void:
+    add_to_group("vfx_contact_labels")
+    texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR
+    mouse_filter = Control.MOUSE_FILTER_IGNORE
+    z_index = 100
+    add_theme_font_size_override("font_size", 22)
+    add_theme_color_override("font_outline_color", Color(0.04, 0.05, 0.08, 1))
+    add_theme_constant_override("outline_size", 4)
+    hide()
+    set_process(false)
+func show_contact(point: Vector2, words: String, colour: Color, cast_id: int, body_index: int, events: Array) -> void:
+    text = words
+    add_theme_color_override("font_color", colour)
+    reset_size()
+    start_point = point + Vector2(-size.x * 0.5, -size.y)
+    global_position = start_point
+    modulate.a = 1.0
+    started_usec = Time.get_ticks_usec()
+    evidence = {"effect_id": cast_id, "body_index": body_index, "text": words, "label_id": get_instance_id(), "lifetime_s": null, "rise_px": null}
+    events.append(evidence)
+    show()
+    set_process(true)
+func _process(_delta: float) -> void:
+    var elapsed: float = float(Time.get_ticks_usec() - started_usec) / 1000000.0
+    var progress: float = minf(elapsed / LIFETIME_S, 1.0)
+    global_position = start_point + Vector2(0, -RISE_PX * progress)
+    modulate.a = 1.0 - progress
+    if progress >= 1.0:
+        evidence["lifetime_s"] = elapsed
+        evidence["rise_px"] = RISE_PX
+        hide()
+        set_process(false)
+'''
+
+
+PIERCE_PROBE = '''extends SceneTree
+const G1 = preload("res://scripts/vfx_g1.gd")
+var errors: Array = []
+var measurements: Dictionary = {}
+var scenarios: Dictionary = {}
+func check(ok: bool, message: String) -> void:
+    if not ok:
+        errors.append(message)
+        printerr("PIERCE_ASSERTION: ", message)
+func _initialize() -> void:
+    call_deferred("probe")
+func dummy(parent: Node2D, point: Vector2, index: int) -> Area2D:
+    var area := Area2D.new()
+    area.position = point
+    area.collision_layer = 2
+    area.collision_mask = 0
+    area.monitoring = false
+    var shape := CollisionShape2D.new()
+    var rectangle := RectangleShape2D.new()
+    rectangle.size = Vector2(16, 12)
+    shape.shape = rectangle
+    area.add_child(shape)
+    parent.add_child(area)
+    area.add_to_group("vfx_targets")
+    area.set_meta("body_index", index)
+    return area
+func probe() -> void:
+    Engine.physics_ticks_per_second = 60
+    G1.events.clear()
+    G1.label_events.clear()
+    var main: Node2D = load(ProjectSettings.get_setting("application/run/main_scene")).instantiate()
+    root.add_child(main)
+    var keeper: CharacterBody2D = main.find_child("Keeper", true, false)
+    keeper.set_physics_process(false)
+    keeper.sprite.pause()
+    var parent: Node2D = keeper.get_parent()
+    var origin: Vector2 = keeper.global_position + Vector2(0, -300)
+    var targets: Array = get_nodes_in_group("vfx_targets")
+    measurements["live_target_count"] = targets.size()
+    for i in range(targets.size()):
+        targets[i].global_position = origin + Vector2(500, 300 + i * 50)
+    if targets.size() < 3:
+        for i in range(3 - targets.size()):
+            targets.append(dummy(parent, Vector2.ZERO, i))
+    # Deliberately reverse group enumeration relative to physical distance.
+    var ordered: Array = [targets[2], targets[1], targets[0]]
+    for i in range(3):
+        ordered[i].global_position = origin + Vector2((120 + i * 180) * keeper.sprite.global_transform.x.length(), 0)
+        ordered[i].set_meta("body_index", i)
+    await physics_frame
+    await physics_frame
+    var kit: Dictionary = keeper.VFX_KITS[0].duplicate(true)
+    var chain: Dictionary = kit.duplicate(true)
+    for candidate in keeper.VFX_KITS:
+        if candidate.name == "frozen_orb": kit = candidate.duplicate(true)
+        if "chain" in candidate.name: chain = candidate.duplicate(true)
+    measurements["range_px"] = kit.range_px
+    measurements["art_scale"] = keeper.sprite.global_transform.x.length()
+    measurements["effective_range_px"] = float(kit.range_px) * keeper.sprite.global_transform.x.length()
+    measurements["catalogue_pierce"] = keeper.VFX_KITS.map(func(k): return {"name": k.name, "pierce": k.pierce})
+    kit.pierce = -1
+    await cast_case("unlimited", parent, keeper, kit, origin, ordered, ["primary", "secondary", "secondary"])
+    kit.pierce = 0
+    await cast_case("zero", parent, keeper, kit, origin, ordered, ["primary"])
+    kit.pierce = 1
+    await cast_case("one", parent, keeper, kit, origin, ordered, ["primary", "secondary"])
+    kit.pierce = -1
+    kit.speed_px_s = 60000.0
+    await cast_case("fast_sweep", parent, keeper, kit, origin, ordered, ["primary", "secondary", "secondary"])
+    # Explicit phase callbacks exercise chain/field/shard classification; no new aim protocol.
+    await phase_case("chain_hops", parent, keeper, chain, origin, ordered, ["chain_hop", "chain_hop", "chain_hop"], ["primary", "primary", "primary"])
+    await phase_case("field_and_shard", parent, keeper, kit, origin, ordered, ["field_centre", "rim", "shard"], ["primary", "secondary", "secondary"])
+    measurements["label_pool_size"] = get_nodes_in_group("vfx_contact_labels").size()
+    check(measurements.label_pool_size == 3, "labels must reuse a pool of three")
+    for label in G1.label_events:
+        check(label.lifetime_s != null and float(label.lifetime_s) <= 0.8, "label lifetime <= 0.8 s")
+        check(label.rise_px == 40.0, "label rises exactly 40 px")
+    for label in get_nodes_in_group("vfx_contact_labels"):
+        check(not label.visible, "labels all recycled")
+        check(label.get_theme_font_size("font_size") == 22, "font size 22")
+        check(label.get_theme_constant("outline_size") > 0, "dark outline")
+    measurements["label_count"] = G1.label_events.size()
+    var report: Dictionary = {"measurements": measurements, "scenarios": scenarios, "events": G1.events, "labels": G1.label_events, "errors": errors}
+    DirAccess.make_dir_recursive_absolute("res://out")
+    var file := FileAccess.open("res://out/probe_pierce.json", FileAccess.WRITE)
+    file.store_string(JSON.stringify(report, "  "))
+    file.close()
+    print("PIERCE_RUNTIME=" + JSON.stringify({"measurements": measurements, "scenarios": scenarios, "errors": errors}))
+    if errors.is_empty(): print("T3O_RUNTIME_ASSERTIONS=complete")
+    quit(0 if errors.is_empty() else 7)
+func cast_case(name: String, parent: Node2D, keeper: Node2D, kit: Dictionary, origin: Vector2, bodies: Array, expected: Array) -> void:
+    var destination: Dictionary = G1.resolve_target(self, origin, Vector2.RIGHT, origin + Vector2(300, 0), float(kit.range_px) * keeper.sprite.global_transform.x.length())
+    check(destination.target == bodies[0], "aim remains nearest in facing cone")
+    var effect: Area2D = G1.acquire(parent, kit, origin, destination, keeper, keeper.sprite.global_transform.x.length())
+    var id: int = effect.effect_id
+    for i in range(300):
+        if not effect.active: break
+        await physics_frame
+    check(not effect.active, name + " expires within 300 ticks")
+    effect.cancel()
+    await create_timer(0.65, true, false, true).timeout
+    verify_case(name, id, expected)
+func phase_case(name: String, parent: Node2D, keeper: Node2D, kit: Dictionary, origin: Vector2, bodies: Array, phases: Array, expected: Array) -> void:
+    var effect: Area2D = G1.acquire(parent, kit, origin, {"kind": "prop", "point": bodies[0].global_position, "target": bodies[0]}, keeper, keeper.sprite.global_transform.x.length())
+    effect.set_physics_process(false)
+    var id: int = effect.effect_id
+    for i in range(3):
+        effect.contact_body(bodies[i], phases[i])
+        effect.contact_body(bodies[i], phases[i]) # duplicate callbacks must do nothing
+    var colour: Array = kit.palette_3
+    for label in get_nodes_in_group("vfx_contact_labels"):
+        if label.visible:
+            check(label.get_theme_color("font_color") == Color(colour[0], colour[1], colour[2], colour[3]), name + " palette_3 colour")
+    effect.expire()
+    await create_timer(0.65, true, false, true).timeout
+    verify_case(name, id, expected)
+func verify_case(name: String, id: int, expected: Array) -> void:
+    var contacts: Array = G1.events.filter(func(e): return e.event == "contact" and e.effect_id == id)
+    var labels: Array = G1.label_events.filter(func(e): return e.effect_id == id)
+    var classes: Array = contacts.map(func(e): return e.contact_class)
+    var words: Array = labels.map(func(e): return e.text)
+    var expected_words: Array = expected.map(func(c): return "FULL" if c == "primary" else "PARTIAL")
+    var strikes: int = contacts.filter(func(e): return e.strike_response).size()
+    check(classes == expected, name + " contact classes/count")
+    check(words == expected_words, name + " FULL/PARTIAL labels/count")
+    check(strikes == 1, name + " one strike response")
+    var last_distance: float = -1.0
+    var seen: Dictionary = {}
+    for contact in contacts:
+        check(float(contact.contact_distance_px) >= last_distance, name + " distance order")
+        last_distance = float(contact.contact_distance_px)
+        check(not seen.has(contact.body_index), name + " one contact per body")
+        seen[contact.body_index] = true
+    scenarios[name] = {"classes": classes, "labels": words, "strike_responses": strikes, "contacts": contacts.size()}
+'''
+
+
+def evaluate_pierce_events(events, labels):
+    """Independent contact/label instrument; absent evidence stays unevaluable."""
+    if not isinstance(events, list) or not isinstance(labels, list):
+        raise ValueError('events and labels must be arrays')
+    contacts = [e for e in events if isinstance(e, dict) and e.get('event') == 'contact']
+    for e in contacts:
+        if (not {'effect_id', 'body_index', 'contact_class', 'phase', 'contact_distance_px', 'strike_response'} <= e.keys()
+                or e['contact_class'] not in ('primary', 'secondary')
+                or not isinstance(e['strike_response'], bool)
+                or isinstance(e['contact_distance_px'], bool)
+                or not isinstance(e['contact_distance_px'], (int, float))
+                or not math.isfinite(e['contact_distance_px']) or e['contact_distance_px'] < 0):
+            raise ValueError('malformed contact evidence')
+    for e in labels:
+        if not isinstance(e, dict) or not {'effect_id', 'body_index', 'text', 'lifetime_s', 'rise_px'} <= e.keys():
+            raise ValueError('malformed label evidence')
+        for key in ('lifetime_s', 'rise_px'):
+            if e[key] is not None and (isinstance(e[key], bool) or not isinstance(e[key], (int,float)) or not math.isfinite(e[key]) or e[key] < 0):
+                raise ValueError('malformed label numeric evidence')
+    grouped = {}
+    for e in contacts: grouped.setdefault(e['effect_id'], []).append(e)
+    inversions = sum(a['contact_distance_px'] > b['contact_distance_px']
+                     for group in grouped.values() for a, b in zip(group, group[1:])
+                     if a['phase'] == b['phase'] == 'head')
+    strike_max = max((sum(e['strike_response'] for e in group) for group in grouped.values()), default=0)
+    label_keys = [(e['effect_id'], e['body_index']) for e in labels]
+    duplicate_labels = len(label_keys) - len(set(label_keys))
+    lifetimes = [e['lifetime_s'] for e in labels]
+    wrong = 0
+    for group in grouped.values():
+        for index, e in enumerate(group):
+            expected = 'secondary' if e['phase'] in ('rim', 'shard') or (e['phase'] == 'head' and index > 0) else 'primary'
+            wrong += e['contact_class'] != expected
+            matches = [label for label in labels if (label['effect_id'], label['body_index']) == (e['effect_id'], e['body_index'])]
+            wrong += len(matches) != 1 or (bool(matches) and matches[0]['text'] != ('FULL' if expected == 'primary' else 'PARTIAL'))
+    def row(name, value, threshold, op, unit, known=True):
+        ok = value <= threshold if op == '<=' else value == threshold
+        return {'id': name, 'subject': 'pierce', 'passed': ok if contacts and known else None,
+                'value': value if contacts and known else None, 'threshold': threshold, 'op': op,
+                'unit': unit, 'evidence': [], 'notes': 'T4f measured contact/label evidence.'}
+    return [row('pierce_distance_order', inversions, 0, '==', 'inversions'),
+            row('pierce_strike_once', strike_max, 1, '<=', 'responses_per_cast'),
+            row('pierce_labels_unique', duplicate_labels, 0, '==', 'duplicates'),
+            row('pierce_label_lifetime', max((v for v in lifetimes if v is not None), default=0), .8, '<=', 'seconds', bool(lifetimes) and None not in lifetimes),
+            row('pierce_contact_text', wrong, 0, '==', 'mismatches'),
+            row('pierce_label_rise', sum(e['rise_px'] != 40 for e in labels), 0, '==', 'mismatches', bool(labels))]
 
 
 if __name__ == '__main__':

@@ -1,0 +1,149 @@
+--- a/export/godot_import.py
++++ b/export/godot_import.py
+@@ -1458,6 +1458,7 @@
+ func _ready() -> void:
+     add_to_group("vfx_g1_pool")
+     area_entered.connect(_on_area_entered)
++    body_entered.connect(_on_body_entered)
+     set_physics_process(false)
+     hide()
+ 
+@@ -1527,46 +1528,46 @@
+         cancel()
+         return
+     var remaining: float = global_position.distance_to(travel_end)
+-    var step: float = minf(float(config.get("speed_px_s", 520.0)) * spell_scale * delta, remaining)
++    var range_left: float = maxf(0.0, float(config.get("range_px", 650.0)) * spell_scale - distance)
++    var step: float = minf(float(config.get("speed_px_s", 520.0)) * spell_scale * delta, minf(remaining, range_left))
+     var motion: Vector2 = global_position.direction_to(travel_end) * step
+     var start: Vector2 = global_position
+-    var targets: Array = get_tree().get_nodes_in_group("vfx_targets")
+     var hits: Array = []
+     var space: PhysicsDirectSpaceState2D = get_world_2d().direct_space_state
+-    # Sweep separately per body, then sort: physics query enumeration is not distance order.
+-    for area in targets:
+-        if not area is Area2D or contacted.has(area.get_instance_id()):
+-            continue
+-        if int(config.get("pierce", 0)) == 0 and area != resolved.get("target"):
+-            continue
+-        var query := PhysicsShapeQueryParameters2D.new()
+-        query.shape = $CollisionShape2D.shape
++    # Enumerate every collision body, including untagged legacy fixtures.
++    # Exclude each hit and repeat from the same start; dispatch in distance order.
++    var query := PhysicsShapeQueryParameters2D.new()
++    query.shape = $CollisionShape2D.shape
++    query.collision_mask = collision_mask
++    query.collide_with_areas = true
++    query.collide_with_bodies = true
++    query.margin = 0.01
++    var excluded: Array[RID] = [get_rid()]
++    if caster is CollisionObject2D and is_instance_valid(caster):
++        excluded.append(caster.get_rid())
++    for id in contacted:
++        var body = instance_from_id(id)
++        if is_instance_valid(body) and body is CollisionObject2D:
++            excluded.append(body.get_rid())
++    while true:
++        query.exclude = excluded
+         query.transform = global_transform
+-        query.motion = motion
+-        query.collision_mask = 2
+-        query.collide_with_areas = true
+-        query.collide_with_bodies = false
+-        var excluded: Array[RID] = []
+-        for other in targets:
+-            if other != area:
+-                excluded.append(other.get_rid())
+-        query.exclude = excluded
+-        var fractions: PackedFloat32Array = space.cast_motion(query)
+-        var fraction: float = fractions[1] if fractions.size() == 2 else 1.0
+         query.motion = Vector2.ZERO
+-        query.margin = 0.01
+-        # cast_motion ignores shapes already overlapping the head.
+-        var touching: bool = false
+-        for hit in space.intersect_shape(query):
+-            if hit.collider == area:
+-                touching = true
+-                fraction = 0.0
+-        query.transform.origin = start + motion * fraction
+-        for hit in space.intersect_shape(query):
+-            if hit.collider == area:
+-                touching = true
+-        if touching:
+-            hits.append({"area": area, "fraction": fraction, "along": (area.global_position - cast_origin).dot(direction)})
++        var overlaps: Array = space.intersect_shape(query)
++        var fraction: float = 0.0
++        if overlaps.is_empty():
++            query.motion = motion
++            var fractions: PackedFloat32Array = space.cast_motion(query)
++            fraction = fractions[1] if fractions.size() == 2 else 1.0
++            query.motion = Vector2.ZERO
++            query.transform.origin = start + motion * fraction
++            overlaps = space.intersect_shape(query)
++        if overlaps.is_empty():
++            break
++        for hit in overlaps:
++            var body: CollisionObject2D = hit.collider
++            excluded.append(body.get_rid())
++            hits.append({"area": body, "fraction": fraction, "along": (body.global_position - cast_origin).dot(direction)})
+     hits.sort_custom(func(a, b): return a.fraction < b.fraction if not is_equal_approx(a.fraction, b.fraction) else a.along < b.along)
+     for hit in hits:
+         global_position = start + motion * float(hit.fraction)
+@@ -1578,7 +1579,7 @@
+     $Trail.add_point(global_position)
+     while $Trail.get_point_count() > 12:
+         $Trail.remove_point(0)
+-    if remaining <= step + 0.001:
++    if remaining <= step + 0.001 or range_left <= step + 0.001:
+         if contacted.is_empty() and resolved.kind == "cursor":
+             _spawn_impact(false)
+         if contacted.is_empty() and resolved.kind == "prop":
+@@ -1588,19 +1589,23 @@
+ 
+ func _on_area_entered(area: Area2D) -> void:
+     # Swept queries own pierce ordering; overlap callbacks must not race them.
+-    if int(config.get("pierce", 0)) == 0 and area == resolved.get("target"):
++    if int(config.get("pierce", 0)) == 0:
+         contact_body(area)
+ 
+-func contact_body(area: Area2D, phase: String = "head") -> void:
++func _on_body_entered(body: Node2D) -> void:
++    if int(config.get("pierce", 0)) == 0 and body is StaticBody2D:
++        contact_body(body)
++
++func contact_body(area: CollisionObject2D, phase: String = "head") -> void:
+     # Phase producers (chain hops, shards, field centre/rim) share the cast ledger.
+-    if not active or not is_instance_valid(area) or not area.is_in_group("vfx_targets") or contacted.has(area.get_instance_id()):
++    if not active or not is_instance_valid(area) or area == caster or contacted.has(area.get_instance_id()):
+         return
+     if phase not in ["head", "chain_hop", "field_centre", "shard", "rim"]:
+         return
+     var contact_class: String = "primary"
+     if phase in ["shard", "rim"] or (phase == "head" and not contacted.is_empty()):
+         contact_class = "secondary"
+-    var body_index: int = int(area.get_meta("body_index", get_tree().get_nodes_in_group("vfx_targets").find(area)))
++    var body_index: int = int(area.get_meta("body_index", get_tree().get_nodes_in_group("vfx_targets").find(area) if area.is_in_group("vfx_targets") else area.get_instance_id()))
+     contacted[area.get_instance_id()] = true
+     _record("contact", age_frames())
+     var entry: Dictionary = events[-1]
+@@ -1609,8 +1614,9 @@
+     entry["phase"] = phase
+     entry["contact_distance_px"] = cast_origin.distance_to(area.global_position)
+     entry["strike_response"] = not strike_fired
+-    _contact_label(area, body_index, contact_class)
+-    _spawn_impact(not strike_fired, area.global_position)
++    if area.is_in_group("vfx_targets"):
++        _contact_label(area, body_index, contact_class)
++    _spawn_impact(not strike_fired, area.global_position if area.is_in_group("vfx_targets") else global_position)
+     strike_fired = true
+     if phase == "head":
+         if remaining_pierce == 0:
+@@ -1618,7 +1624,7 @@
+         elif remaining_pierce > 0:
+             remaining_pierce -= 1
+ 
+-func _contact_label(area: Area2D, body_index: int, contact_class: String) -> void:
++func _contact_label(area: CollisionObject2D, body_index: int, contact_class: String) -> void:
+     var label: Label = null
+     for candidate in get_tree().get_nodes_in_group("vfx_contact_labels"):
+         if candidate.get_parent() == get_parent() and not candidate.visible:

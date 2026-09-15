@@ -23,7 +23,7 @@ import numpy as np
 from PIL import Image
 
 PHASES = {'cast': 'flare', 'travel': 'travel', 'impact': 'impact', 'residual': 'residual'}
-TOP = {'name', 'element', 'element_class', 'tint', 'phases', 'layers', 'ground_squash', 'pixel_scale', 'phase_scale', 'material', 'distance_fields'}
+TOP = {'name', 'element', 'element_class', 'tint', 'phases', 'layers', 'ground_squash', 'pixel_scale', 'phase_scale', 'material', 'distance_fields', 'pierce'}
 LAYER_KEYS = {
     'glow': {'alpha', 'scale'}, 'floor_light': {'duration_s', 'radius_px'},
     'flash': {'duration_s', 'alpha', 'scale_from', 'scale_to'},
@@ -244,6 +244,7 @@ def _validate(data, root, runtime=False):
         raise ValueError('element must be nonempty text')
     if data.get('element_class', 'strike') not in ('strike', 'holy', 'field'):
         raise ValueError('element_class must be strike, holy or field')
+    _number(data.get('pierce', 0), -1, math.inf, 'pierce', True)
     validate_material(data['material'])
     _keys(data.get('phase_scale', {}), set(PHASES), set(), 'phase_scale')
     for value in data.get('phase_scale', {}).values():
@@ -332,6 +333,7 @@ def load_kit(directory, preserve_ramp=False):
     if 'particles' in data['layers']:
         data['layers']['particles'].setdefault('amount', 8)
         data['layers']['particles'].setdefault('lifetime_s', .5)
+    data.setdefault('pierce', 0)
     data['material'] = validate_material(data['material'])
     return data
 
@@ -415,9 +417,11 @@ def build(effect_json, out_dir):
     from export.godot_import import write_spriteframes
     out.mkdir(parents=True, exist_ok=True)
     metadata = copy.deepcopy(data)
+    metadata.pop('pierce', None)
     metadata['material'] = validate_material(data['material'])
     metadata['distance_fields'] = {}
     metadata.setdefault('element_class', 'strike')
+    metadata['pierce'] = data.get('pierce', 0)
     if 'particles' in metadata['layers']:
         metadata['layers']['particles'].setdefault('amount', 8)
         metadata['layers']['particles'].setdefault('lifetime_s', .5)

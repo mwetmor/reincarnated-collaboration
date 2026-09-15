@@ -844,17 +844,26 @@ class SharedVFXMaterialTests(unittest.TestCase):
     def test_every_material_sprite_is_linear_and_animation_fields_are_bound(self):
         fixture = picker_fixture(self.root/'fixture')
         project = fixture['project']
-        for kind in ('bolt','impact'):
-            scene = (project/f'scenes/vfx_synthetic_ice_{kind}.tscn').read_text()
-            nodes = re.split(r'(?=\[node )', scene)[1:]
-            sprites = [n for n in nodes if any(f'type="{t}"' in n.splitlines()[0] for t in ('Sprite2D','AnimatedSprite2D','CPUParticles2D'))]
-            self.assertTrue(sprites)
-            for node in sprites:
-                self.assertIn('texture_filter = 2', node)
-                self.assertRegex(node, r'material = ExtResource\("Material')
-            script = (project/f'scripts/vfx_synthetic_ice_{kind}.gd').read_text()
-            self.assertIn('_bind_vfx_materials()', script)
-            self.assertIn('distance/', script)
+        component = (project/'scenes/vfx/g1_projectile.tscn').read_text()
+        head = next(n for n in re.split(r'(?=\[node )', component) if 'name="Head"' in n)
+        self.assertIn('type="AnimatedSprite2D"', head)
+        self.assertIn('texture_filter = 2', head)
+        script = (project/'scripts/vfx_g1.gd').read_text()
+        self.assertIn('$Head.material = load(config.material)', script)
+        self.assertIn('load(config.binding).bind($Head, config.fields)', script)
+        keeper = (project/'scripts/keeper.gd').read_text()
+        self.assertIn('res://vfx/synthetic_ice/materials/Body.tres', keeper)
+        self.assertIn('res://vfx/synthetic_ice/distance/travel/', keeper)
+        scene = (project/'scenes/vfx_synthetic_ice_impact.tscn').read_text()
+        nodes = re.split(r'(?=\[node )', scene)[1:]
+        sprites = [n for n in nodes if any(f'type="{t}"' in n.splitlines()[0] for t in ('Sprite2D','AnimatedSprite2D','CPUParticles2D'))]
+        self.assertTrue(sprites)
+        for node in sprites:
+            self.assertIn('texture_filter = 2', node)
+            self.assertRegex(node, r'material = ExtResource\("Material')
+        script = (project/'scripts/vfx_synthetic_ice_impact.gd').read_text()
+        self.assertIn('_bind_vfx_materials()', script)
+        self.assertIn('distance/', script)
         binder = (project/'scripts/vfx_synthetic_ice_material.gd').read_text()
         self.assertIn('frame_changed.connect', binder)
         self.assertIn('animation_changed.connect', binder)
