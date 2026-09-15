@@ -1,0 +1,54 @@
+DEPLOY TRUTH — CS-pack-web7 (cliffside, seven training dummies)
+drax, 2026-09-15
+
+URL           https://reincarnated-loadout.vercel.app/playtest/cliffside/
+Source        astra_test_01/burst/runs/C-5/artifacts/CS-pack-v19-r1/godot (C-5 P0-a; read-only)
+Build         reincarnated-godot/web/build_playtest.sh <src> cliffside   (Godot 4.6.3, gl_compatibility, threads OFF)
+Loadout commit  33b04dbcd89581ceb006a7a47da6ac05f5f6667b  (pushed 9d4c47f..33b04db main)
+Godot commit    8702911f2fa9ab99c8cc43e850284127f7beca7f  (web/cliffside mirror; not pushed)
+
+== license fence ==
+overlay: clean (no library VFX packs) — kits are blackwater_cocktail, frozen_orb, healing_hands, lightning_blast, poisonous_concoction, zeus_chain (all self-authored, kits_v8)
+index.pck grep for library names: no match (build would exit 3)
+
+== production HTTP (plain GET) ==
+200  text/html; charset=utf-8  5994  https://reincarnated-loadout.vercel.app/playtest/cliffside/
+200  text/html; charset=utf-8  5994  https://reincarnated-loadout.vercel.app/playtest/cliffside/index.html
+200  application/javascript; charset=utf-8  315759  https://reincarnated-loadout.vercel.app/playtest/cliffside/index.js
+200  application/wasm  37700666  https://reincarnated-loadout.vercel.app/playtest/cliffside/index.wasm
+200  application/octet-stream  35332972  https://reincarnated-loadout.vercel.app/playtest/cliffside/index.pck
+200  slash-less /playtest/cliffside
+200  /playtest/ landing
+
+== pck identity ==
+local   80a4f8bc59bc71172f048dc74037323a36d9b996f891c1203de6b2dddc9a34fc  35332972 B
+live    80a4f8bc59bc71172f048dc74037323a36d9b996f891c1203de6b2dddc9a34fc  35332972 B  (full download, matches)
+web6 pck was 35123448 B; wasm (37700666 B) and index.js (315759 B) byte-identical to web6.
+
+== headless boot on production ==
+phone-landscape 844x390, Chrome headless swiftshader (web/_overlay/boot_test.js):
+booted=true boot_ms=21650
+200 application/javascript; charset=utf-8  https://reincarnated-loadout.vercel.app/playtest/cliffside/index.js
+200 application/octet-stream  https://reincarnated-loadout.vercel.app/playtest/cliffside/index.pck
+200 application/wasm  https://reincarnated-loadout.vercel.app/playtest/cliffside/index.wasm
+console: 0 pageerror, 0 Godot errors; only two WebGL 'GPU stall due to ReadPixels' perf warnings (swiftshader artifact, also present for web6).
+joystick: live_02_touch_run_east.png — keeper ran east under touch drag.
+CAST:     live_03_touch_cast_held.png / live_04_after_cast.png — cast pose entered from the CAST button.
+keyboard: live_05_keyboard_north.png — W still moves (overlay does not eat keys).
+
+== dummies visible? YES ==
+The dummies are NOT at the spawn point — they stand in the far-plateau clearing across the rope bridge,
+north-east of where the keeper starts. Route driven on production (1280x720, keyboard):
+  run E 6 s -> run NE 14 s -> run N 6 s.
+live_dummies_01_clearing.png    all SEVEN dummies in frame (3 humanoid, brute on its stand, hound, 2 rats)
+                                 + the relocated cow carcass at the clearing's south-east edge.
+live_dummies_03_cast_t2.png     Frozen Orb bolt in flight toward the dummy line — cast works on production.
+live_walk_00_spawn.png          spawn view for contrast (no dummies in frame).
+live_walk_10_run_ne.png / live_walk_11_arrived.png   the bridge crossing en route.
+
+== caveats ==
+iOS texture memory: ~45 MB first download and the 6 big parallax/tile textures import as lossy WebP q0.9;
+  unchanged from web6, which Matt ran on device. The seven dummy sprites add 209 KB to the pck — negligible.
+Android 4096 px: parallax/tiles/tile_0_0.png is 4096x4096, at the GLES3 max-texture-size floor. Devices that
+  report exactly 4096 are fine; anything lower would drop that tile. Unchanged from web6 — no new large texture.
+Single-threaded build (no SharedArrayBuffer), so no COOP/COEP headers are needed on Vercel.
