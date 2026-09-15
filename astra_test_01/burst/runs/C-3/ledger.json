@@ -36363,9 +36363,135 @@
       "codex_version": "codex-cli 0.153.4",
       "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
       "exit": 0
+    },
+    {
+      "id": "CS-vfx-bwc-sheets",
+      "type": "GENERATE",
+      "experiment": "C3-vfx-breadth",
+      "brief_sha256": "883bbe95a0449abb703ed818c8d161d43648af5d0c179de074802f8a5cfeae2c",
+      "started": "2026-09-15T03:35:32.817151+00:00",
+      "ended": "2026-09-15T03:38:54.274715+00:00",
+      "minutes": 3.357667806250053,
+      "image_calls": 2,
+      "tool_calls": 4,
+      "audit": {
+        "violations": [],
+        "image_calls": 2,
+        "tool_calls": 4,
+        "tools_seen": {
+          "command_execution": 4
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0a322-6202-7753-bb88-647855d0c9c9/exec-43200e26-4566-4c00-bdd3-adf1b4e8445f.png",
+            "sha256": "6fec86e5f8708dd8fb3e7cebdda89fd4b1d964067e617dd50746f93a1dd058d4"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0a322-6202-7753-bb88-647855d0c9c9/exec-d9ad15f6-ac46-48b3-a228-336b26d3491e.png",
+            "sha256": "c9fe6a23b71189078e4423774950d54d8273e469c1c2bc393caa0c6f9d82a3f6"
+          }
+        ]
+      },
+      "receipt_sha256": "aa23fe8efad26dceeb8327abaa84c4cc419493b197298d92ab9ae51050f04cb4",
+      "artifacts": [
+        {
+          "name": "bwc_sheets.png",
+          "sha256": "c9fe6a23b71189078e4423774950d54d8273e469c1c2bc393caa0c6f9d82a3f6"
+        },
+        {
+          "name": "exec-43200e26-4566-4c00-bdd3-adf1b4e8445f.provenance.json",
+          "sha256": "00d826e4b562bfc127683c4048c171a22c9eba91ccccc7cc536b88c3a8f1b7ac"
+        },
+        {
+          "name": "exec-d9ad15f6-ac46-48b3-a228-336b26d3491e.provenance.json",
+          "sha256": "47762bacc18cc6ad2183b13c02b2dd4f29f142a111d7032fad2a09efb554d5b8"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0a322-6202-7753-bb88-647855d0c9c9/exec-43200e26-4566-4c00-bdd3-adf1b4e8445f.png",
+          "sha256": "6fec86e5f8708dd8fb3e7cebdda89fd4b1d964067e617dd50746f93a1dd058d4"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0a322-6202-7753-bb88-647855d0c9c9/exec-d9ad15f6-ac46-48b3-a228-336b26d3491e.png",
+          "sha256": "c9fe6a23b71189078e4423774950d54d8273e469c1c2bc393caa0c6f9d82a3f6"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
+    },
+    {
+      "id": "CS-vfx-lightning-sheets",
+      "type": "GENERATE",
+      "experiment": "C3-vfx-breadth",
+      "brief_sha256": "6749d1c27595527ced0027432671d3a5729f8b1011edc9248b35701f9281a6c5",
+      "started": "2026-09-15T03:40:57.167017+00:00",
+      "ended": "2026-09-15T03:42:47.525673+00:00",
+      "minutes": 1.839332674299961,
+      "image_calls": 1,
+      "tool_calls": 4,
+      "audit": {
+        "violations": [],
+        "image_calls": 1,
+        "tool_calls": 4,
+        "tools_seen": {
+          "command_execution": 4
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0a327-4deb-7a13-a12a-ae1b419fd6a0/exec-d160a32f-7e02-42c3-8b15-d0787714f318.png",
+            "sha256": "6b765464f0eb29baac89de340357599b69017f1e229947ee66bb6c3790c39565"
+          }
+        ]
+      },
+      "receipt_sha256": "091ddf60af9d3ae57db9b2f0f07786d7b2aeb9952550b2849581c00a287b6554",
+      "artifacts": [
+        {
+          "name": "lightning_sheets.png",
+          "sha256": "6b765464f0eb29baac89de340357599b69017f1e229947ee66bb6c3790c39565"
+        },
+        {
+          "name": "exec-d160a32f-7e02-42c3-8b15-d0787714f318.provenance.json",
+          "sha256": "5b2105d5aa7f4ac94d657ec15c439b116c9a7e47916ebfbae44e1cd89e6bfd8f"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0a327-4deb-7a13-a12a-ae1b419fd6a0/exec-d160a32f-7e02-42c3-8b15-d0787714f318.png",
+          "sha256": "6b765464f0eb29baac89de340357599b69017f1e229947ee66bb6c3790c39565"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
     }
   ],
-  "images_used": 234,
+  "images_used": 237,
   "images_cap": 1000,
   "experiments": {},
   "milestones": [
@@ -37458,6 +37584,13 @@
       "veto_open": false,
       "ruling": "Matt (2026-09-15): the Godot scene with the shadow layer removed MEETS EXPECTATIONS and is now CANON (R-C3-102 precondition satisfied; jack-ryan Gate-1 BLOCK closed). The web playtest played EXCEPTIONALLY WELL on the iPhone (real-phone test passed; older-device memory + Android 4096-px caveats untested). Canon doc Authority line closed; matt_to_do phone test DONE; tracker delta appended. Engine decisions-log commit 20e778a8 still unpushed (no explicit push word).",
       "ts": "2026-09-15T04:30:00Z"
+    },
+    {
+      "id": "R-C3-120",
+      "class": "matt",
+      "veto_open": false,
+      "ruling": "Matt (2026-09-15): before ruling on the hybrid oracle, wants to SEE a VFX built to that spec - when one is finished, push it to Vercel to test. Conductor: Frozen Orb v3 is that VFX (v0.2 rules: no white flipbook frame, ramp core/rim in the Hades hue/sat bands, and the CoM/Slormancer legibility layer - bright soft halo glow a.75 x1.35, floor light .35 s r140, flash as a 0.1 s layer). CS-pack-web3 fired (kits_web2.json = frozen_orb_v3 only) -> drax build_playtest.sh -> redeploy; push to reincarnated-loadout authorized by this ask.",
+      "ts": "2026-09-15T05:00:00Z"
     }
   ],
   "grok_calls": [
