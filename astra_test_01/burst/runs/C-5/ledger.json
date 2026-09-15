@@ -492,6 +492,216 @@
       "codex_version": "codex-cli 0.153.4",
       "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
       "exit": 0
+    },
+    {
+      "id": "CS-pack-v19",
+      "type": "PACK",
+      "experiment": "C5-P0a",
+      "brief_sha256": "2b3c815b2965e5e265cd429f8b5735ed93ef72b95d67e290d426eac02f59fa22",
+      "started": "2026-09-15T20:22:33.605944+00:00",
+      "ended": "2026-09-15T20:23:19.838319+00:00",
+      "minutes": 0.7705329555499703,
+      "image_calls": 0,
+      "tool_calls": 2,
+      "audit": {
+        "violations": [],
+        "image_calls": 0,
+        "tool_calls": 2,
+        "tools_seen": {
+          "command_execution": 2
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [],
+        "execution_error": "receipt reports unsuccessful execution"
+      },
+      "receipt_sha256": "103db5d059a9f64f411105bf00abaf723793e0ac96c65abfea2669d3e6925f2b",
+      "artifacts": [],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 3
+    },
+    {
+      "id": "CS-pack-v19-r1",
+      "type": "PACK",
+      "experiment": "C5-P0a",
+      "brief_sha256": "e308cc4470bda4b884789193dd9e1d77d54d433f3c513d2ba736e44839e7caeb",
+      "started": "2026-09-15T20:23:56.397035+00:00",
+      "ended": "2026-09-15T20:25:48.681525+00:00",
+      "minutes": 1.8713919083333772,
+      "image_calls": 0,
+      "tool_calls": 3,
+      "audit": {
+        "violations": [],
+        "image_calls": 0,
+        "tool_calls": 3,
+        "tools_seen": {
+          "command_execution": 3
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": []
+      },
+      "receipt_sha256": "fcf3a55fd8c8e6ff8c7f6594b9fb2a030d754ea8abdb93680414c6e5eb9a61d8",
+      "artifacts": [
+        {
+          "name": "README_scene.txt",
+          "sha256": "a1483255316c2ff8457f15813dc2eab2d572dec3c0791566cb902189e6c90668"
+        },
+        {
+          "name": "exporter.json",
+          "sha256": "a4dc5bd32cd372b03e82ff045b8fb639dff85c8945e002375985abbdd4941183"
+        },
+        {
+          "name": "godot/project.godot",
+          "sha256": "6a8166148fc0b3e54f8589a0a716379636040f615b0f827ea49f2dfe7a6c5deb"
+        },
+        {
+          "name": "godot/scenes/cliffside.tscn",
+          "sha256": "ebf4b7558de3406c81ae593286bf1dab923f2bb9d0e4a9bb17e47c1e17735af1"
+        },
+        {
+          "name": "godot/scenes/main.tscn",
+          "sha256": "a7ff2b1ba99ca306dacd7fbee1556fbfbed54d72cc8e3c01ab72e1aba58b874d"
+        },
+        {
+          "name": "godot/scenes/vfx_blackwater_cocktail_bolt.tscn",
+          "sha256": "0b350d65d4b873f39f5cdddf967732b2bc3057beed8da889b95b0a7fed2cdc48"
+        },
+        {
+          "name": "godot/scenes/vfx_blackwater_cocktail_impact.tscn",
+          "sha256": "a284c3b6e06747f400bbd0cfa61487cb6f09a8053195cfc0ecc1378d617b8a9f"
+        },
+        {
+          "name": "godot/scenes/vfx_frozen_orb_bolt.tscn",
+          "sha256": "f9716fe4d35c3bf2a0cda316503c8d1b6f0fdbae32b0b50492b50d73a066a588"
+        },
+        {
+          "name": "godot/scenes/vfx_frozen_orb_impact.tscn",
+          "sha256": "d11d92ea42b15b9bd4b49e520e94b5c9822614d691b43dc68860a16b680db44a"
+        },
+        {
+          "name": "godot/scenes/vfx_healing_hands_bolt.tscn",
+          "sha256": "38aef1ebe4db67d1bd0a87b92f083d2afa6b32d1c6d7832a6b0793a526e93434"
+        },
+        {
+          "name": "godot/scenes/vfx_healing_hands_impact.tscn",
+          "sha256": "3f54bb70a781e4665b96d36ef797de7b93f6122210290a63c5329e8c13a0c4a4"
+        },
+        {
+          "name": "godot/scenes/vfx_lightning_blast_bolt.tscn",
+          "sha256": "d0baa8b338eb37ab170031f6e773b7f5a2e00122abe9afb9e3ff26c81bc2d181"
+        },
+        {
+          "name": "godot/scenes/vfx_lightning_blast_impact.tscn",
+          "sha256": "a50b1632e8df701ac4a0819c367172c4dcb19617c60c9698cb23544f5f21018a"
+        },
+        {
+          "name": "godot/scenes/vfx_poisonous_concoction_bolt.tscn",
+          "sha256": "0ab90268a5496469368cb5edf43a7ea7949879ccf920ab948fee8578c9bc4953"
+        },
+        {
+          "name": "godot/scenes/vfx_poisonous_concoction_impact.tscn",
+          "sha256": "ed1434cc91437b846af1c66f0eb0aea9e520a5bce1ce101057c00384035380fd"
+        },
+        {
+          "name": "godot/scenes/vfx_zeus_chain_bolt.tscn",
+          "sha256": "d235401fb8521b13d278e05c07a50e9c049c1f13c0e3e6a5aa4c3895a1db36b2"
+        },
+        {
+          "name": "godot/scenes/vfx_zeus_chain_impact.tscn",
+          "sha256": "e35bc39e1fbaeffa4cb5118878d3cfd77c823e7d3ac1c3fc9a36e80fb4a06388"
+        },
+        {
+          "name": "godot/scripts/fly_swarm.gd",
+          "sha256": "8603f91597f1f8aeb74b6238a6a2860c3ac807b4c67edca13f56f40b08b33423"
+        },
+        {
+          "name": "godot/scripts/glow_flicker.gd",
+          "sha256": "fee0db3aa00b834bc1f6198886c6e476f45b91fd012ce641a0145e97ec857671"
+        },
+        {
+          "name": "godot/scripts/keeper.gd",
+          "sha256": "b123848ec7ca9419d567e520fc8572b9cac9a1a2287fec25381643091bf9de5c"
+        },
+        {
+          "name": "godot/scripts/occlusion_fade.gd",
+          "sha256": "96d37de2e8c7790cb00815fb1f939389872874ba23b43dc017d8530d3db62f61"
+        },
+        {
+          "name": "godot/scripts/vfx_blackwater_cocktail_bolt.gd",
+          "sha256": "bfa400923fcd6824485687a7625d28191119e834d72503e908cb80bdce2ccbee"
+        },
+        {
+          "name": "godot/scripts/vfx_blackwater_cocktail_impact.gd",
+          "sha256": "2dc30334729b9945f7120b1fbc7edbaeeea0674410044cc788e5d4d78949273b"
+        },
+        {
+          "name": "godot/scripts/vfx_frozen_orb_bolt.gd",
+          "sha256": "ec58f936ae840b4ff723508a7f2d45ba87132699a0cbd2c35c1ef0e4fb571c9e"
+        },
+        {
+          "name": "godot/scripts/vfx_frozen_orb_impact.gd",
+          "sha256": "c904b669a64b4ad655a3a96babac00966c46fd9df07b2e87be48dd5eadca5c41"
+        },
+        {
+          "name": "godot/scripts/vfx_healing_hands_bolt.gd",
+          "sha256": "de27b8bd05281131d2a0833dc2feef7514efb5ac8dbbe05c2dfc05459cbdbbbf"
+        },
+        {
+          "name": "godot/scripts/vfx_healing_hands_impact.gd",
+          "sha256": "2dc30334729b9945f7120b1fbc7edbaeeea0674410044cc788e5d4d78949273b"
+        },
+        {
+          "name": "godot/scripts/vfx_lightning_blast_bolt.gd",
+          "sha256": "45a6ae928ff0f6d7aad9028c99e0d743f80e5fedb2f5cf8cd79e49d285dd33b5"
+        },
+        {
+          "name": "godot/scripts/vfx_lightning_blast_impact.gd",
+          "sha256": "2dc30334729b9945f7120b1fbc7edbaeeea0674410044cc788e5d4d78949273b"
+        },
+        {
+          "name": "godot/scripts/vfx_poisonous_concoction_bolt.gd",
+          "sha256": "8491c236bd11f4de34d3ce955ea34507ff380da78d48bf87dab23edeac48cf41"
+        },
+        {
+          "name": "godot/scripts/vfx_poisonous_concoction_impact.gd",
+          "sha256": "2dc30334729b9945f7120b1fbc7edbaeeea0674410044cc788e5d4d78949273b"
+        },
+        {
+          "name": "godot/scripts/vfx_zeus_chain_bolt.gd",
+          "sha256": "1361f6605055e6b82157c8b51a92fdb18049187a51a249ccbb4fb46781ed505e"
+        },
+        {
+          "name": "godot/scripts/vfx_zeus_chain_impact.gd",
+          "sha256": "2dc30334729b9945f7120b1fbc7edbaeeea0674410044cc788e5d4d78949273b"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
     }
   ],
   "experiments": [],
@@ -505,6 +715,11 @@
       "id": "M-C5-DUMMIES-ISOLATED",
       "note": "All seven dummies isolated on #00ff00 (sheets 1, 2-r1, 3 DELIVERED; edge slivers = tile bleed, dropped at catalogue).",
       "ts": "2026-09-15T16:14:50"
+    },
+    {
+      "id": "M-C5-CLEARING-PLAYABLE",
+      "note": "cliffside_v19 = v18 + seven dummy target props + cow moved; CS-pack-v19-r1 DELIVERED (416 frames, 547 textures, 12 s); headless import 0 errors; 4 stills + 131-frame walk clip; Desktop Packet 84.",
+      "ts": "2026-09-15T16:28:06"
     }
   ],
   "halts": [],
@@ -543,6 +758,13 @@
       "veto_open": true,
       "ruling": "CS-assets-clearing DELIVERED: 8 components ≥ 2,500 sheet px; dummy_rat_2 (21×78 px, from the colossus tile) is the HOUND HINDQUARTERS bled across the tile boundary (crop x 1130–1215 overlap) — dropped from CS-props-v19; seven dummies stand. Rebuild error 11–26/255 (humanoid_3 44 = its 10-px collision shift). Cow relocated (4230,618) → (4600,830), no displacement needed. Kind names are size-class only (humanoid_1 = the painted brute at 220 px; brute_1 = the colossus at 340 px) — cosmetic, kept. Tile-overlap lesson for mk_objsheet_c5: crop boxes must not overlap; next run splits shared bands.",
       "ts": "2026-09-15T16:22:33"
+    },
+    {
+      "id": "R-C5-5",
+      "class": "conductor",
+      "veto_open": true,
+      "ruling": "CS-pack-v19 FAILED (exit 3): frozen props schema rejects unknown asset keys — the catalogue wrote `target`/`kind` on the dummy assets (my brief asked for them; T4b is the row that adds `target`). Fix: dummies stripped to the T3l schema, `target`/`kind` kept in CS-props-v19/targets_sidecar.json; re-fire CS-pack-v19-r1. Not a VOID; exporter untouched.",
+      "ts": "2026-09-15T16:23:56"
     }
   ],
   "grok_calls": [],
