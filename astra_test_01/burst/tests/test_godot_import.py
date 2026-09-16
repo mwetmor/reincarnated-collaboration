@@ -2013,3 +2013,75 @@ func run() -> void:
     FileAccess.open("res://result.json",FileAccess.WRITE).store_string(JSON.stringify(report))
     quit()
 '''
+
+
+class FL4TimingAndFlightTests(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        import os
+        if os.environ.get('FL4_TRACE'):
+            cls.trace=json.loads(Path(os.environ['FL4_TRACE']).read_text())
+        else:
+            from test_vfx_picker import fl4_trace
+            TMP.mkdir(parents=True,exist_ok=True)
+            cls.temp=tempfile.TemporaryDirectory(prefix='fl4-',dir=TMP)
+            cls.addClassCleanup(cls.temp.cleanup)
+            cls.trace=fl4_trace(cls.temp.name)
+
+    def test_expanded_spent_and_absolute_painted_cutoff(self):
+        rows=self.trace['burst']
+        self.assertEqual([r['age_frames'] for r in rows if r.get('key_state')=='expanded'],[12,13])
+        self.assertEqual([r['age_frames'] for r in rows if r.get('key_state')=='spent'],[24,25])
+        self.assertTrue(all(not r['painted_subtree_visible'] and r['painted_pixels_upper_bound']==0 for r in rows if r['age_frames']>=26))
+        self.assertTrue(all(not r['art_visible'] for r in self.trace['actual'] if r['age']>=26))
+        erosion=next(r for r in rows if r['age_frames']==15)
+        self.assertAlmostEqual(erosion['pieces'][0]['erode'],1/12)
+
+    def test_48_living_embers_one_shot_lifetimes_and_deadline(self):
+        births=self.trace['births'];self.assertEqual(len(births),48)
+        self.assertEqual(min(b['age'] for b in births),20)
+        self.assertEqual(max(b['age'] for b in births),50)
+        for b in births:
+            self.assertTrue(60<=b['life_frames']<=96)
+            self.assertLessEqual(b['end_age'],114)
+        self.assertEqual(self.trace['burst'][-1]['live_embers'],0)
+
+    def test_glow_ease_out_flicker_and_white_hot_afterglow(self):
+        rows={r['age_frames']:r for r in self.trace['burst']}
+        for age in (22,40,60,94):
+            expected=.85*max(0,1-(age-22)/72)**2
+            self.assertAlmostEqual(rows[age]['ending_glow_envelope'],expected)
+            self.assertTrue(rows[age]['ending_additive'])
+            if expected:self.assertNotEqual(rows[age]['ending_glow_alpha'],expected)
+        self.assertEqual(rows[22]['afterglow_alpha'],1)
+        self.assertEqual(rows[58]['afterglow_alpha'],0)
+
+    def test_both_arms_additive_core_pulse_trail_and_per_frame_uniforms(self):
+        self.assertEqual(len(self.trace['travel']),2)
+        for rows in self.trace['travel'].values():
+            rows={r['age']:r for r in rows}
+            self.assertEqual(len(rows),21)
+            for row in rows.values():
+                self.assertTrue(row['core_additive']);self.assertAlmostEqual(row['core_alpha'],.7,places=6)
+                self.assertTrue(1<=row['core_scale']<=1.08)
+                self.assertEqual(row['trail_rate'],12)
+                self.assertTrue(row['noise_uv_consumed']);self.assertTrue(row['noise_bound'])
+            for age in range(1,21):
+                self.assertNotEqual(rows[age]['streak_uv'],rows[age-1]['streak_uv'])
+                self.assertAlmostEqual(rows[age]['streak_uv'][0]-rows[age-1]['streak_uv'][0],.5/60)
+
+
+    def test_actual_trail_birth_rate_and_six_frame_smear(self):
+        for trail in self.trace['trail'].values():
+            self.assertEqual(trail['births'],12)
+            self.assertEqual(trail['live_at_88'],0)
+            births=[r for r in trail['motes'] if r['kind']=='birth' and r['mode']=='trail']
+            self.assertTrue(births)
+            for b in births:
+                self.assertTrue(3<=b['size_px']<=5)
+                self.assertAlmostEqual(b['life_s'],.45)
+                self.assertIn(b['band'],[2,3])
+        for rows in self.trace['smear'].values():
+            self.assertEqual(rows[0]['alpha'],1)
+            self.assertEqual(rows[-1]['alpha'],0)
+            self.assertTrue(all(abs(r['length']-130)<.001 for r in rows))

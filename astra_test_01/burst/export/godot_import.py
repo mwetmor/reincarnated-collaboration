@@ -2790,6 +2790,9 @@ def _write_piece_burst_v2(out, kit, resource_root, prefix):
     legacy['effect']['pieces']['template'] = 'burst_v1'
     legacy['effect']['pieces'].pop('key_states', None)
     legacy['effect']['pieces'].pop('boil', None)
+    for opt in ('timing','ember_ending'): legacy['effect']['pieces'].pop(opt, None)
+    if 'ember_ending' in config:
+        legacy['effect']['pieces'].update(residue_s=.3,residue_fraction=.2)
     legacy['effect']['material'].pop('erode_noise', None)
     canonical = out/'scenes/vfx/piece_burst.tscn'
     owns_canonical = not canonical.exists()
@@ -2815,7 +2818,10 @@ def _write_piece_burst_v2(out, kit, resource_root, prefix):
         noise_rel = resource_root+'/pieces/whole_body_noise.png'
         noise_pixels = erosion_noise_texture(peak)
         Image.fromarray(noise_pixels).save(out/noise_rel)
-    runtime.update(residue_entry(peak, field, config['residue_fraction'], noise, noise_pixels))
+    runtime.update(residue_entry(peak, field, .12 if 'ember_ending' in config else config['residue_fraction'], noise, noise_pixels))
+    if 'timing' in config: runtime['timing'] = config['timing']
+    if 'ember_ending' in config:
+        runtime.update(ember_ending=config['ember_ending'], residue_frames=0, residue_s=0)
     if noise_rel:
         runtime['erode_noise'] = noise
         runtime['erosion_noise_texture'] = noise_rel
@@ -2864,6 +2870,7 @@ def _write_piece_burst_v2(out, kit, resource_root, prefix):
                                   'erosion_start_tick':15})
     scene += '\n'.join(extra_nodes)
     scene = re.sub(r'load_steps=\d+', 'load_steps='+str(scene.count('[ext_resource ')+1),scene,count=1)
+    script = PIECE_BURST_V2_SCRIPT
     if config.get('key_states'):
         scene, script = _emit_key_states(out, kit, resource_root, scene, runtime, config)
         scene = scene.replace('res://scripts/vfx/piece_burst_v2.gd',
@@ -2883,6 +2890,15 @@ def _write_piece_burst_v2(out, kit, resource_root, prefix):
         scene, script = _emit_anti_decal(out, kit, resource_root, scene, runtime, config, script)
         scene = scene.replace('res://scripts/vfx/piece_burst_fl2.gd', 'res://scripts/vfx/piece_burst_fl3.gd').replace('res://scripts/vfx/piece_burst_v2_keys.gd', 'res://scripts/vfx/piece_burst_fl3.gd').replace('res://scripts/vfx/piece_burst_v2.gd', 'res://scripts/vfx/piece_burst_fl3.gd')
         (out/'scripts/vfx/piece_burst_fl3.gd').write_text(script)
+    if 'timing' in config:
+        script = _fl4_burst_script(script)
+        if 'ember_ending' in config:
+            _write_living_ember_assets(out)
+            script = script.replace('    tree_exiting.connect(_write_trace)', '    _ready_ember_ending()\n    tree_exiting.connect(_write_trace)')
+            script = script.replace('    if age >= residue_end:\n        hide()', '    _clock_ember_ending(age)\n    if age >= 114:\n        hide()')
+            script += EMBER_ENDING_SCRIPT
+        scene = re.sub(r'res://scripts/vfx/piece_burst_(?:v2_keys|v2|fl2|fl3)\.gd', 'res://scripts/vfx/piece_burst_fl4.gd', scene)
+        (out/'scripts/vfx/piece_burst_fl4.gd').write_text(script)
     # Shared files must not depend on which kit was emitted last.
     (out/'scripts/vfx/piece_burst_v2.gd').write_text(PIECE_BURST_V2_SCRIPT)
     runtime_path.write_text(json.dumps(runtime,indent=2)+'\n')
@@ -2951,7 +2967,9 @@ def _emit_key_states(out, kit, resource_root, scene, runtime, config):
         if source.resolve() != target.resolve(): shutil.copyfile(source, target)
         with Image.open(source) as image:
             rgba = np.array(image.convert('RGBA'))
-        erode = float(runtime['residue_erode']) * max(0., min(1., (state['at_age']-flight-15)/21))
+        erosion_age = config.get('timing', {}).get('erosion_age', flight+15)
+        paint_end = config.get('timing', {}).get('paint_end_age', flight+36)
+        erode = float(runtime['residue_erode']) * max(0., min(1., (state['at_age']-erosion_age)/(paint_end-erosion_age)))
         field = np.minimum(254, np.floor(distance_field(rgba).astype(float)*(1-erode))).astype(np.uint8)
         field_rel = resource_root+'/pieces/key_'+name+'_distance.png'
         Image.fromarray(field).save(out/field_rel)
@@ -3003,7 +3021,7 @@ def _painted_g1_config(kit):
     for i, state in enumerate(states):
         state['png'] = root+state['png']
         state['material'] = root+'materials/Travel_key_'+str(i)+'.tres'
-    return {'fire_layers': data['layers'] if 'cast' in data['layers'] else {}, 'palette': data['material']['palette'], 'bolt': ('res://scenes/vfx/g1_ice_projectile.tscn' if data.get('pieces', {}).get('template') == 'burst_v1r' else 'res://scenes/vfx/g1_painted_projectile.tscn'),
+    return {'fire_layers': data['layers'] if 'cast' in data['layers'] else {}, 'palette': data['material']['palette'], 'bolt': ('res://scenes/vfx/g1_ice_projectile.tscn' if data.get('pieces', {}).get('template') == 'burst_v1r' else 'res://scenes/vfx/g1_fl4_projectile.tscn' if 'core' in data['layers'].get('travel', {}) else 'res://scenes/vfx/g1_painted_projectile.tscn'),
             'range_px': data['skill_spec']['mechanics']['range_px'],
             'speed_px_s': data['skill_spec']['mechanics']['speed_px_s'],
             'spec_speed_px_s': data['skill_spec']['mechanics']['speed_px_s'],
@@ -3071,7 +3089,8 @@ def _write_painted_travel(out, kit, resource_root):
             noise_rel = resource_root+'/distance/primitives/tail_noise.png'
             Image.fromarray(erosion_noise_texture(rgba)).save(out/noise_rel)
             material.update(erode_outside_in=True, erode_noise=data['layers']['travel']['erode_noise'])
-        write_vfx_material(out, resource_root+'/materials/Travel_'+role+'.tres', material, resource_root+'/'+field, noise_texture=noise_rel)
+        write_vfx_material(out, resource_root+'/materials/Travel_'+role+'.tres', material, resource_root+'/'+field, noise_texture=noise_rel,
+                           noise_uv_transform=(1,1,0,0) if role == 'streak' and 'boil' in data['layers'].get('travel', {}) else None)
         if role == 'streak' and noise_rel:
             # Preserve FL-2's exact noise/erosion function without reversing the
             # stored tail field or modifying the shared head/piece shader.
@@ -3087,6 +3106,8 @@ def _write_painted_travel(out, kit, resource_root):
             material_path.write_text(material_text.replace(shader_path, tail_path.as_posix()))
         if role == 'head':
             write_vfx_material(out, resource_root+'/materials/Fizzle_head.tres', dict(material, erode_outside_in=True), resource_root+'/'+field)
+
+    if 'core' in data['layers'].get('travel', {}): _write_fl4_travel(out, kit, resource_root)
 
 
 PAINTED_G1_SCRIPT = r'''extends "res://scripts/vfx_g1.gd"
@@ -5465,6 +5486,199 @@ func finish() -> void:
     remove_from_group("vfx_body_light")
     set_physics_process(false)
     queue_free()
+'''
+
+
+# FL-4a opt-in adapters. Existing emitted scripts (including ice) retain bytes.
+def _fl4_burst_script(script):
+    return (script.replace('var expansion_end: int = flight_start + 15', 'var expansion_end: int = int(config.timing.erosion_age)')
+            .replace('var residue_start: int = expansion_end + 21', 'var residue_start: int = int(config.timing.paint_end_age)')
+            .replace('float(age-flight_start)/15.0', 'float(age-flight_start)/float(int(config.timing.expanded_age)-flight_start)')
+            .replace('var ease: float = 1.0-pow(1.0-flight_t,3.0)', 'var ease: float = flight_t * flight_t')
+            .replace('float(age-expansion_end)/21.0', 'float(age-expansion_end)/float(residue_start-expansion_end)')
+            .replace('/float(config.residue_frames)', '/maxf(1.0,float(config.residue_frames))'))
+
+
+def _write_living_ember_assets(out):
+    from export.props_layer import GLOW_FLICKER_SCRIPT
+    # Same source files as the scene props. Never synthesize replacement art.
+    source = Path(__file__).resolve().parents[1]/'runs/C-5/artifacts/CS-props-v25/fx'
+    target = out/'vfx/fire_ending/fx'; target.mkdir(parents=True, exist_ok=True)
+    for name in ('ember_1.png', 'glow.png'): shutil.copyfile(source/name,target/name)
+    (out/'scripts/vfx/glow_flicker_fl4.gd').write_text(GLOW_FLICKER_SCRIPT)
+
+
+EMBER_ENDING_SCRIPT = r'''
+var ending_sparks: Array = []
+var ending_glow: Sprite2D
+var ending_core: Sprite2D
+var ending_births: Array = []
+func _ready_ember_ending() -> void:
+    var opts: Dictionary = config.ember_ending
+    var rng := RandomNumberGenerator.new()
+    rng.seed = int(config.seed)
+    var add := CanvasItemMaterial.new()
+    add.blend_mode = CanvasItemMaterial.BLEND_MODE_ADD
+    for i in int(opts.amount):
+        var sprite := Sprite2D.new()
+        sprite.name = "CrackEmber_%02d" % i
+        sprite.texture = load("res://vfx/fire_ending/fx/ember_1.png")
+        sprite.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR
+        sprite.material = add
+        sprite.hide()
+        add_child(sprite)
+        var birth: int = 20 + int(floor(float(i)*30.0/float(int(opts.amount)-1)))
+        # A late birth samples only lifetimes fitting the registered total cap.
+        var life: int = int(floor(rng.randf_range(float(opts.life_s[0])*60.0,minf(float(opts.life_s[1])*60.0,114-birth))))
+        var origin := Vector2(rng.randf_range(-.5,.5)*float(opts.rect_bh[0])*130.0,rng.randf_range(-.5,.5)*float(opts.rect_bh[1])*130.0)
+        var velocity: Vector2 = Vector2.UP.rotated(deg_to_rad(rng.randf_range(-28,28))) * rng.randf_range(opts.speed_px_s[0],opts.speed_px_s[1])
+        ending_sparks.append({"node":sprite,"birth":birth,"life":life,"origin":origin,"velocity":velocity,"scale":rng.randf_range(opts.scale[0],opts.scale[1]),"angular":rng.randf_range(-90,90),"born":false})
+    ending_glow = Sprite2D.new()
+    ending_glow.name = "GlowFlicker"
+    ending_glow.texture = load("res://vfx/fire_ending/fx/glow.png")
+    ending_glow.material = add
+    ending_glow.modulate = Color(1,.45,.12,float(opts.glow_alpha))
+    ending_glow.scale = Vector2(1,.5) * (2.0*130.0*float(opts.glow_radius_bh)/ending_glow.texture.get_width())
+    ending_glow.set_script(load("res://scripts/vfx/glow_flicker_fl4.gd"))
+    ending_glow.flicker_hz = 4.7
+    ending_glow.flicker_amount = .35
+    ending_glow.phase_seed = int(config.seed)
+    add_child(ending_glow)
+    ending_glow.set_process(false)
+    ending_core = Sprite2D.new()
+    ending_core.name = "WhiteHotAfterglow"
+    ending_core.texture = ending_glow.texture
+    ending_core.material = add
+    ending_core.modulate = Color(1,.94,.75,1)
+    ending_core.scale = Vector2.ONE*(2.0*130.0*float(opts.core_radius_bh)/ending_core.texture.get_width())
+    add_child(ending_core)
+
+func _clock_ember_ending(age: int) -> void:
+    var opts: Dictionary = config.ember_ending
+    var live: int = 0
+    for spark in ending_sparks:
+        var tick: int = age-int(spark.birth)
+        if tick >= 0 and not spark.born:
+            spark.born = true
+            ending_births.append({"age":spark.birth,"life_frames":spark.life,"end_age":int(spark.birth)+int(spark.life)})
+        spark.node.visible = tick >= 0 and tick < int(spark.life)
+        if not spark.node.visible: continue
+        live += 1
+        var seconds: float = float(tick)/60.0
+        var t: float = float(tick)/float(spark.life)
+        spark.node.position = spark.origin + spark.velocity*seconds + Vector2(0,-8)*seconds*seconds*.5
+        spark.node.rotation = deg_to_rad(float(spark.angular))*seconds
+        spark.node.scale = Vector2.ONE*float(spark.scale)*lerpf(1,.3,t)
+        spark.node.modulate = Color(1,.85,.5,1).lerp(Color(1,.25,.05,0),t)
+    var t: float = clampf(float(age-22)/(60.0*float(opts.glow_s)),0,1)
+    var envelope: float = float(opts.glow_alpha)*pow(1.0-t,2.0) if age >= 22 else 0.0
+    ending_glow.base_alpha = envelope
+    ending_glow.elapsed = float(age-22)/60.0
+    ending_glow._process(0.0)
+    ending_glow.visible = envelope > 0
+    ending_core.modulate.a = pow(clampf(1.0-float(age-22)/(60.0*float(opts.core_s)),0,1),2.0) if age >= 22 else 0.0
+    ending_core.visible = ending_core.modulate.a > 0
+    # The complete painted subtree leaves at the spent hold's exclusive end.
+    $Art.visible = age < int(config.timing.paint_end_age)
+    var row: Dictionary = trace[-1]
+    row["painted_subtree_visible"] = $Art.visible
+    row["painted_pixels_upper_bound"] = -1 if $Art.visible else 0
+    row["ember_births"] = ending_births.size()
+    row["live_embers"] = live
+    row["ending_glow_envelope"] = envelope
+    row["ending_glow_alpha"] = ending_glow.modulate.a
+    row["afterglow_alpha"] = ending_core.modulate.a
+    row["ending_additive"] = ending_core.material.blend_mode == CanvasItemMaterial.BLEND_MODE_ADD
+'''
+
+
+def _write_fl4_travel(out, kit, resource_root):
+    import numpy as np
+    from PIL import ImageFilter
+    opts = kit['effect']['layers']['travel']
+    head = kit['effect']['travel_primitives']['head']
+    rgba = np.array(Image.open(kit['root']/head['png']).convert('RGBA'))
+    alpha = Image.fromarray(np.where(rgba[...,0] == 255,rgba[...,3],0).astype(np.uint8)).filter(ImageFilter.GaussianBlur(opts['core']['blur_px']))
+    mask = Image.new('RGBA',alpha.size,(255,255,255,0));mask.putalpha(alpha)
+    mask.save(out/resource_root/'primitives/head_core.png')
+    scene = G1_SCENE.replace('res://scripts/vfx_g1.gd','res://scripts/vfx_g1_fl4.gd')
+    for name in ('Streak','KeyState','DarkHead','DarkStreak','DarkKey','CastHalo'):
+        scene += '\n[node name="'+name+'" type="Sprite2D" parent="."]\ntexture_filter = 2\nvisible = false\nz_index = '+str(-2 if name.startswith('Dark') else -1 if name in ('Streak','CastHalo') else 0)+'\n'
+    (out/'scenes/vfx/g1_fl4_projectile.tscn').write_text(scene)
+    script = PAINTED_G1_SCRIPT.replace('res://scripts/vfx_fire_motes.gd','res://scripts/vfx_fire_motes_fl4.gd')
+    script = script.replace('    _paint_clock(0)', '    _ready_flight_light()\n    _paint_clock(0)')
+    script = script.replace('    _dark_copy($DarkHead, $Head, rest_head)', '    _clock_flight_light(age)\n    _dark_copy($DarkHead, $Head, rest_head)')
+    script = script.replace('func _physics_process(delta: float) -> void:\n', 'func _physics_process(delta: float) -> void:\n    if is_instance_valid(flight_core) and not active: _clock_flight_light(age_frames())\n')
+    script += FLIGHT_LIGHT_SCRIPT
+    (out/'scripts/vfx_g1_fl4.gd').write_text(script)
+    motes = FIRE_MOTES_SCRIPT.replace('res://scripts/vfx_fire_motes.gd','res://scripts/vfx_fire_motes_fl4.gd')
+    motes = motes.replace('var band: int=2 if mode=="trail" else settings.bands[rng.randi_range(0,1)]','var band: int=settings.get("bands",[2,2])[rng.randi_range(0,1)] if mode=="trail" else settings.bands[rng.randi_range(0,1)]')
+    (out/'scripts/vfx_fire_motes_fl4.gd').write_text(motes)
+
+
+FLIGHT_LIGHT_SCRIPT = r'''
+var flight_core: Sprite2D
+var flight_halo: Sprite2D
+var flight_smear: Line2D
+func _ready_flight_light() -> void:
+    if is_instance_valid(flight_core): flight_core.queue_free(); flight_halo.queue_free(); flight_smear.queue_free()
+    var add := CanvasItemMaterial.new()
+    add.blend_mode = CanvasItemMaterial.BLEND_MODE_ADD
+    flight_core = Sprite2D.new()
+    flight_core.name = "FlightCore"
+    flight_core.material = add
+    flight_core.texture = load(str(config.painted_travel.head.png).get_base_dir()+"/head_core.png")
+    flight_core.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR
+    flight_core.centered = false
+    flight_core.offset = $Head.offset
+    flight_core.modulate = Color(1,.94,.75,1)
+    add_child(flight_core)
+    flight_halo = flight_core.duplicate()
+    flight_halo.name = "FlightHalo"
+    flight_halo.modulate = Color(1,.55,.12,1)
+    flight_halo.z_index = -1
+    add_child(flight_halo)
+    flight_smear = Line2D.new()
+    flight_smear.name = "MotionSmear"
+    flight_smear.material = add
+    flight_smear.width = 14
+    var gradient := Gradient.new()
+    var tint: Array = config.palette[int(config.fire_layers.travel.smear.band)]
+    gradient.set_color(0,Color(tint[0],tint[1],tint[2],0))
+    gradient.set_color(1,Color(tint[0],tint[1],tint[2],float(config.fire_layers.travel.smear.alpha)))
+    flight_smear.gradient = gradient
+    add_child(flight_smear)
+
+func _clock_flight_light(age: int) -> void:
+    var opts: Dictionary = config.fire_layers.travel
+    var seconds: float = float(age)/60.0
+    var pulse: float = lerpf(1.0,float(opts.core.pulse_scale),.5+.5*sin(TAU*float(opts.core.hz)*seconds))
+    flight_core.transform = $Head.transform
+    flight_core.scale *= pulse
+    flight_core.modulate.a = float(opts.core.alpha)
+    flight_core.visible = active
+    flight_halo.transform = $Head.transform
+    flight_halo.scale *= float(opts.halo.scale)
+    flight_halo.modulate.a = float(opts.halo.alpha)
+    flight_halo.visible = active
+    var uv := Vector2(seconds*float(opts.boil.uv_per_s),0)
+    var erode: float = .1 + float(opts.boil.erode_amp)*sin(TAU*float(opts.boil.hz)*seconds)
+    $Streak.material.set_shader_parameter("noise_uv_offset",uv)
+    $Streak.material.set_shader_parameter("erode",erode)
+    flight_smear.points = PackedVector2Array([-direction*130.0*float(opts.smear.length_bh),Vector2.ZERO])
+    flight_smear.modulate.a = 1.0 if active else clampf(1.0-float(age-stop_age)/float(opts.smear.frames),0,1)
+    flight_smear.visible = flight_smear.modulate.a > 0
+    if not fire_trace.is_empty():
+        var row: Dictionary = fire_trace[-1]
+        row["core_additive"] = flight_core.material.blend_mode == CanvasItemMaterial.BLEND_MODE_ADD
+        row["core_alpha"] = flight_core.modulate.a
+        row["core_scale"] = pulse
+        row["trail_rate"] = opts.trail.rate_per_s
+        var actual_uv: Vector2 = $Streak.material.get_shader_parameter("noise_uv_offset")
+        row["streak_uv"] = [actual_uv.x,actual_uv.y]
+        row["streak_erode"] = $Streak.material.get_shader_parameter("erode")
+        row["noise_uv_consumed"] = "UV * noise_uv_scale + noise_uv_origin - noise_uv_offset" in $Streak.material.shader.code
+        row["noise_bound"] = $Streak.material.get_shader_parameter("erosion_noise_texture") != null
 '''
 
 

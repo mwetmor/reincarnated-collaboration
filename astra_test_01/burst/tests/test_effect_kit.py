@@ -2532,3 +2532,34 @@ class BlackwaterRankOneValidationTests(unittest.TestCase):
             valid=copy.deepcopy(data)
             valid['skill_spec']['presentation']['lick_flicker_hz']=hz
             validate_thrown_field(valid,root,True)
+
+
+class FL4FieldValidationTests(unittest.TestCase):
+    def test_ending_ranges_and_mutually_exclusive_residue(self):
+        from export.effect_kit import load_pieces,validate_ember_ending
+        root=ROOT/'runs/C-5/vfx_kits/v9/fire_burst_e0p_v2'
+        config=json.loads((root/'kit.json').read_text())['pieces']
+        load_pieces(config,root,True)
+        for key,value in [('amount',True),('amount',65),('rect_bh',[0,.9]),('life_s',[1.6,1]),('speed_px_s',[91,30]),('scale',[.01,.3]),('glow_alpha',1.1),('core_s',float('nan')),('extra',1)]:
+            bad=copy.deepcopy(config['ember_ending']);bad[key]=value
+            with self.subTest(key=key),self.assertRaises(ValueError):validate_ember_ending(bad)
+        for key,value in [('residue_s',.35),('residue_s',False),('template','burst_v1'),('embers',{'count':[8,12],'size_px':[3,5],'life_s':[.5,.9],'rise_px_s':40,'lateral_px':12,'bands':[2,3]})]:
+            bad=copy.deepcopy(config);bad[key]=value
+            with self.subTest(key=key),self.assertRaises(ValueError):load_pieces(bad,root,True)
+        bad=copy.deepcopy(config);bad['timing']['erosion_age']=26
+        with self.assertRaises(ValueError):load_pieces(bad,root,True)
+        ignored=copy.deepcopy(config);ignored['residue_fraction']=.99
+        load_pieces(ignored,root,True)
+
+    def test_travel_opt_in_ranges_and_speed_consistency(self):
+        from export.effect_kit import validate_fire_layer
+        for arm in ('A','B'):
+            data=load_kit(ROOT/('runs/C-5/vfx_kits/v9/fire_bolt_e1_'+arm))
+            self.assertEqual(data['skill_spec']['mechanics']['speed_px_s'],1510)
+            self.assertEqual(data['phases']['travel']['speed_px_s'],1510)
+            self.assertEqual(data['skill_spec']['presentation']['phase_envelope_s']['travel'],.34)
+        travel=data['layers']['travel'];validate_fire_layer('travel',travel)
+        for role,key,value in [('core','band',2),('core','alpha',1.1),('core','pulse_scale',.9),('halo','scale',.9),('boil','hz',16),('smear','frames',True),('smear','length_bh',0)]:
+            bad=copy.deepcopy(travel);bad[role][key]=value
+            with self.subTest(role=role,key=key),self.assertRaises(ValueError):validate_fire_layer('travel',bad)
+        validate_fire_layer('travel',{})

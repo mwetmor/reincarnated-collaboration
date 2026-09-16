@@ -109,9 +109,9 @@
   },
   "pieces": {
     "hold_frames": 2,
-    "base_speed_px_s": 1400,
-    "residue_s": 0.8,
-    "residue_fraction": 0.2,
+    "base_speed_px_s": 2000,
+    "residue_s": 0,
+    "residue_fraction": 0.12,
     "seed": 2026,
     "source": "pieces/pieces.json",
     "template": "burst_v2",
@@ -132,40 +132,49 @@
       {
         "state": "expanded",
         "png": "key_states/expanded_clipped.png",
-        "hold_frames": 3,
-        "at_age": 19
+        "hold_frames": 2,
+        "at_age": 12
       },
       {
         "state": "spent",
         "png": "key_states/spent_clipped.png",
-        "hold_frames": 6,
-        "at_age": 40
+        "hold_frames": 2,
+        "at_age": 24
       }
     ],
-    "embers": {
-      "count": [
-        8,
-        12
-      ],
-      "size_px": [
-        3,
-        5
-      ],
-      "life_s": [
-        0.5,
-        0.9
-      ],
-      "rise_px_s": 40,
-      "lateral_px": 12,
-      "bands": [
-        2,
-        3
-      ]
-    },
     "boil": {
       "uv_per_s": 0.35,
       "erode_amp": 0.06,
       "hz": 6
+    },
+    "timing": {
+      "expanded_age": 12,
+      "erosion_age": 14,
+      "paint_end_age": 26
+    },
+    "ember_ending": {
+      "amount": 48,
+      "rect_bh": [
+        1.8,
+        0.9
+      ],
+      "life_s": [
+        1.0,
+        1.6
+      ],
+      "speed_px_s": [
+        30,
+        90
+      ],
+      "scale": [
+        0.15,
+        0.33
+      ],
+      "glow_radius_bh": 0.9,
+      "glow_alpha": 0.85,
+      "glow_s": 1.2,
+      "core_radius_bh": 0.45,
+      "core_s": 0.6
     }
   },
   "distance_fields": {

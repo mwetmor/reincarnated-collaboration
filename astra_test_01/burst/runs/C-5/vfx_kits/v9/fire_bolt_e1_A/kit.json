@@ -76,16 +76,42 @@
     "travel": {
       "flicker_frames": 2,
       "trail": {
-        "rate_per_s": 5,
+        "rate_per_s": 12,
         "size_px": [
           3,
-          4
+          5
         ],
-        "life_s": 0.35,
+        "life_s": 0.45,
         "rise_px_s": 30,
-        "lateral_px": 10
+        "lateral_px": 10,
+        "bands": [
+          3,
+          2
+        ]
       },
-      "erode_noise": 0.3
+      "erode_noise": 0.3,
+      "core": {
+        "band": 3,
+        "alpha": 0.7,
+        "blur_px": 4,
+        "pulse_scale": 1.08,
+        "hz": 8
+      },
+      "halo": {
+        "alpha": 0.3,
+        "scale": 1.2
+      },
+      "boil": {
+        "uv_per_s": 0.5,
+        "erode_amp": 0.08,
+        "hz": 8
+      },
+      "smear": {
+        "band": 2,
+        "alpha": 0.2,
+        "length_bh": 1,
+        "frames": 6
+      }
     },
     "core": {
       "band": 3,
@@ -111,7 +137,7 @@
       "origin_socket": "cast_release",
       "aim_rule": "release-locked",
       "range_px": 520,
-      "speed_px_s": 1040,
+      "speed_px_s": 1510,
       "radius_px": 0,
       "count": 1,
       "hop_count": 0,
@@ -142,10 +168,10 @@
       "phase_envelope_s": {
         "context": 0.25,
         "anticipation": 0.15,
-        "travel": 0.5,
+        "travel": 0.34,
         "contact_frames": 1,
         "half_peak_frames": 4,
-        "residue": 0.6
+        "residue": 0
       },
       "enabled_layers": [
         "flash",
@@ -171,16 +197,42 @@
         "travel": {
           "flicker_frames": 2,
           "trail": {
-            "rate_per_s": 5,
+            "rate_per_s": 12,
             "size_px": [
               3,
-              4
+              5
             ],
-            "life_s": 0.35,
+            "life_s": 0.45,
             "rise_px_s": 30,
-            "lateral_px": 10
+            "lateral_px": 10,
+            "bands": [
+              3,
+              2
+            ]
           },
-          "erode_noise": 0.3
+          "erode_noise": 0.3,
+          "core": {
+            "band": 3,
+            "alpha": 0.7,
+            "blur_px": 4,
+            "pulse_scale": 1.08,
+            "hz": 8
+          },
+          "halo": {
+            "alpha": 0.3,
+            "scale": 1.2
+          },
+          "boil": {
+            "uv_per_s": 0.5,
+            "erode_amp": 0.08,
+            "hz": 8
+          },
+          "smear": {
+            "band": 2,
+            "alpha": 0.2,
+            "length_bh": 1,
+            "frames": 6
+          }
         },
         "floor_light": {
           "radius_px": 160,
@@ -199,27 +251,7 @@
           "frames": 3
         },
         "pieces": {
-          "residue_s": 0.8,
-          "embers": {
-            "count": [
-              8,
-              12
-            ],
-            "size_px": [
-              3,
-              5
-            ],
-            "life_s": [
-              0.5,
-              0.9
-            ],
-            "rise_px_s": 40,
-            "lateral_px": 12,
-            "bands": [
-              2,
-              3
-            ]
-          },
+          "residue_s": 0,
           "boil": {
             "uv_per_s": 0.35,
             "erode_amp": 0.06,
@@ -227,8 +259,44 @@
           },
           "key_states": {
             "expanded": {
-              "hold_frames": 3
+              "at_age": 12,
+              "hold_frames": 2
+            },
+            "spent": {
+              "at_age": 24,
+              "hold_frames": 2
             }
+          },
+          "residue_fraction": 0.12,
+          "base_speed_px_s": 2000,
+          "timing": {
+            "expanded_age": 12,
+            "erosion_age": 14,
+            "paint_end_age": 26
+          },
+          "ember_ending": {
+            "amount": 48,
+            "rect_bh": [
+              1.8,
+              0.9
+            ],
+            "life_s": [
+              1.0,
+              1.6
+            ],
+            "speed_px_s": [
+              30,
+              90
+            ],
+            "scale": [
+              0.15,
+              0.33
+            ],
+            "glow_radius_bh": 0.9,
+            "glow_alpha": 0.85,
+            "glow_s": 1.2,
+            "core_radius_bh": 0.45,
+            "core_s": 0.6
           }
         },
         "core": {
@@ -247,12 +315,12 @@
       }
     },
     "provenance": {
-      "speed_px_s": "charter \u00a7 6: 8 BH/s at 130-px BH (Matt approves the comparison at Packet 85; Hades band 6.5\u201311.6; shipped Frozen Orb \u2248 4.9)",
+      "speed_px_s": "R-C5-111 FL-4a: Hades Zeus-cast class, 1600 u/s = 11.6 BH/s at 130 px/BH; 1510 px/s; Legolas O7 VERIFIED",
       "range_px": "4 BH (charter \u00a7 6)",
       "impact": "E0-p R-C5-34 (Matt: motion + size right)",
       "head/streak extents": "03- \u00a7 2.3 build list (1.2 BH body; P02 \u2248 120\u00d740 native at s=3 \u2192 2.0 BH long at s=1)",
       "range_expiry": "R-C5-79 F-C5-22",
-      "presentation.layers": "R-C5-99 FL-3"
+      "presentation.layers": "R-C5-109 FL-4a"
     }
   },
   "key_states": [
@@ -336,7 +404,7 @@
           "hold_frames": 1
         }
       ],
-      "speed_px_s": 1040,
+      "speed_px_s": 1510,
       "streak": true
     }
   },

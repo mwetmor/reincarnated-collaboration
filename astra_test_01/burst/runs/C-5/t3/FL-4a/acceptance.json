@@ -1,0 +1,435 @@
+{
+  "task_id": "FL-4a",
+  "rendered_pixels": "Not rendered; conductor owns rendered evaluation. Zero painted coverage is the exact visibility-derived upper bound of the entire painted subtree; trace samples node visibility.",
+  "timing": {
+    "contact_flash_frames": 2,
+    "base_speed_px_s": 2000,
+    "expanded_ages": [
+      12,
+      13
+    ],
+    "spent_ages": [
+      24,
+      25
+    ],
+    "erosion_start_age": 14,
+    "painted_end_age": 26,
+    "residue_end_age": 26,
+    "residue_s": 0,
+    "painted_life_s": 0.43333333333333335,
+    "peak_source_pixels": 41951,
+    "painted_pixels_age_30_upper_bound": 0,
+    "age_30_fraction_of_peak": 0,
+    "no_paint_at_or_after_26": true
+  },
+  "ending": {
+    "birth_count": 48,
+    "first_birth_age": 20,
+    "last_birth_age": 50,
+    "last_live_ember_exclusive_age": 113,
+    "total_life_s": 1.8833333333333333,
+    "sampled_life_range_s": [
+      1.0,
+      1.4333333333333333
+    ],
+    "deadline_policy": "Sample each lifetime from [1.0,min(1.6,1.9-birth_age/60)] seconds; never truncate a live ember below its sampled lifetime.",
+    "glow_samples": [
+      {
+        "age": 22,
+        "envelope_alpha": 0.85,
+        "flickered_alpha": 0.572879195213318,
+        "core_alpha": 1.0
+      },
+      {
+        "age": 40,
+        "envelope_alpha": 0.478125,
+        "flickered_alpha": 0.613386631011963,
+        "core_alpha": 0.25
+      },
+      {
+        "age": 60,
+        "envelope_alpha": 0.18954475308642,
+        "flickered_alpha": 0.155223578214645,
+        "core_alpha": 0.0
+      },
+      {
+        "age": 94,
+        "envelope_alpha": 0.0,
+        "flickered_alpha": 0.0,
+        "core_alpha": 0.0
+      }
+    ],
+    "recipe": {
+      "amount": 48,
+      "rect_bh": [
+        1.8,
+        0.9
+      ],
+      "life_s": [
+        1.0,
+        1.6
+      ],
+      "speed_px_s": [
+        30,
+        90
+      ],
+      "scale": [
+        0.15,
+        0.33
+      ],
+      "glow_radius_bh": 0.9,
+      "glow_alpha": 0.85,
+      "glow_s": 1.2,
+      "core_radius_bh": 0.45,
+      "core_s": 0.6
+    },
+    "textures": {
+      "ember_1.png": "aac92dac125647a9a4d891562b2921d34ae36c85000033c688154355d5504e81",
+      "glow.png": "e28a620a483e82ad45bf410e4e642b5c310f4696f3cddc6312a442e26820c5ab"
+    },
+    "glow_script_reused_verbatim": true
+  },
+  "projectile": {
+    "speed_px_s": 1510,
+    "range_px": 520,
+    "range_travel_seconds": 0.3443708609271523,
+    "phase_envelope_s": 0.34,
+    "actual_motion_quantization_frames": 21,
+    "core_alpha": 0.7,
+    "pulse_scale_range": [
+      1.00021912418527,
+      1.07978087581473
+    ],
+    "trail_births_per_second": {
+      "fire_bolt_e1_A": 12,
+      "fire_bolt_e1_B": 12
+    },
+    "smear_fade_frames": 6,
+    "smear_length_px": 130,
+    "streak_uniforms_change_each_frame": true
+  },
+  "preservation": {
+    "unchanged_kit_count": 14,
+    "all_14_source_and_existing_export_bytes_identical": true,
+    "primitive_bytes_identical": true,
+    "ice_byte_identical": {
+      "name": "ice_bolt_e2",
+      "source_files": 71,
+      "source_byte_identical": true,
+      "exported_existing_files_byte_identical": true,
+      "exported_differences": []
+    },
+    "details": "byte_comparisons.json",
+    "all_14_export_file_sets_identical": true
+  },
+  "export": {
+    "catalogue_kits": 17,
+    "exit_code": 0,
+    "full_cli_test": "test_full_exporter_current_catalogue (test_godot_import.ThrownFieldCLIRegressionTests.test_full_exporter_current_catalogue)",
+    "full_cli_selected_suite_errors": [],
+    "report": "export.json"
+  },
+  "headless": [
+    {
+      "stage": "final-import",
+      "exit_code": 0,
+      "script_errors": false
+    },
+    {
+      "stage": "final-trace",
+      "exit_code": 0,
+      "script_errors": false
+    }
+  ],
+  "tests": {
+    "suite": {
+      "testsRun": 241,
+      "failures": [
+        {
+          "test": "test_core_additive_contact_expanded_spent_and_residue_release (test_godot_import.AntiDecalTraceTests.test_core_additive_contact_expanded_spent_and_residue_release)",
+          "last_line": "AssertionError: 0.55 not less than 0.55"
+        },
+        {
+          "test": "test_every_hold_frame_changes_actual_shader_uniforms (test_godot_import.AntiDecalTraceTests.test_every_hold_frame_changes_actual_shader_uniforms)",
+          "last_line": "AssertionError: 2 != 3"
+        },
+        {
+          "test": "test_shimmer_residue_only_bounded_fade_and_extent_report (test_godot_import.AntiDecalTraceTests.test_shimmer_residue_only_bounded_fade_and_extent_report)",
+          "last_line": "AssertionError: False is not true"
+        },
+        {
+          "test": "test_current_catalogue_and_original_kits_unchanged (test_godot_import.BoltChainEmissionTests.test_current_catalogue_and_original_kits_unchanged)",
+          "last_line": "Diff is 89200 characters long. Set self.maxDiff to None to see it."
+        },
+        {
+          "test": "test_whole_canvas_texture_shared_by_every_material_and_cpu_cutoff (test_godot_import.ContinuousResidueImportTests.test_whole_canvas_texture_shared_by_every_material_and_cpu_cutoff)",
+          "last_line": "AssertionError: 0.993333 != 0.900784"
+        },
+        {
+          "test": "test_headless_state_machine_input_map_gear_vfx_and_nearest_fallback (test_godot_import.GodotImportTests.test_headless_state_machine_input_map_gear_vfx_and_nearest_fallback)",
+          "last_line": "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+        },
+        {
+          "test": "test_flask_stays_visible_at_native_screen_extent_during_flight (test_godot_import.GroundVisibilityRegressionTests.test_flask_stays_visible_at_native_screen_extent_during_flight)",
+          "last_line": "AssertionError: False is not true"
+        },
+        {
+          "test": "test_ten_existing_export_bytes_unchanged (test_godot_import.IceTreatmentImportTests.test_ten_existing_export_bytes_unchanged)",
+          "last_line": "Diff is 91873 characters long. Set self.maxDiff to None to see it."
+        },
+        {
+          "test": "test_v2_headless_import_and_seed_equal_rooted_clock (test_godot_import.PieceStretchImportTests.test_v2_headless_import_and_seed_equal_rooted_clock)",
+          "last_line": "       [1] probe (res://stretch_probe.gd:36)"
+        },
+        {
+          "test": "test_node_tree_material_and_spec_driven_config (test_godot_import.ProjectileTravelEmissionTests.test_node_tree_material_and_spec_driven_config)",
+          "last_line": "AssertionError: 1510 != 1040"
+        },
+        {
+          "test": "test_exported_threshold_and_every_root_and_stretch_material_agree (test_godot_import.RaggedResidueImportTests.test_exported_threshold_and_every_root_and_stretch_material_agree)",
+          "last_line": "AssertionError: 0.993333 != 0.900784"
+        },
+        {
+          "test": "test_defaults_absent_and_real_fire_fields_load (test_effect_kit.AntiDecalValidationTests.test_defaults_absent_and_real_fire_fields_load)",
+          "last_line": "AssertionError: 2 != 3"
+        },
+        {
+          "test": "test_entry_shape_and_shared_shard_union_and_zero_control (test_effect_kit.ContinuousResidueMaterialTests.test_entry_shape_and_shared_shard_union_and_zero_control)",
+          "last_line": "AssertionError: False is not true"
+        },
+        {
+          "test": "test_all_new_fields_validate_in_actual_catalogue (test_effect_kit.FL2FieldValidationTests.test_all_new_fields_validate_in_actual_catalogue)",
+          "last_line": "AssertionError: 0 != 0.8"
+        },
+        {
+          "test": "test_t4e_entry_ragged_connected_and_zero_disc_control (test_effect_kit.RaggedResidueMaterialTests.test_t4e_entry_ragged_connected_and_zero_disc_control)",
+          "last_line": "AssertionError: False is not true"
+        },
+        {
+          "test": "test_headless_authored_cast_east_north_collision_timing_and_feedback_cleanup (test_vfx_picker.AuthoredEffectPickerTests.test_headless_authored_cast_east_north_collision_timing_and_feedback_cleanup)",
+          "last_line": "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+        },
+        {
+          "test": "test_headless_first_cast_contact_cursor_pool_cancel_and_picker (test_vfx_picker.G1ComponentTests.test_headless_first_cast_contact_cursor_pool_cancel_and_picker)",
+          "last_line": "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+        },
+        {
+          "test": "test_headless_pierce_contacts_labels_pool_and_phase_callbacks (test_vfx_picker.G1ComponentTests.test_headless_pierce_contacts_labels_pool_and_phase_callbacks)",
+          "last_line": "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+        },
+        {
+          "test": "test_headless_glow_sixty_samples_extrema_range_and_particle_properties (test_vfx_picker.LivingEmbersTests.test_headless_glow_sixty_samples_extrema_range_and_particle_properties)",
+          "last_line": "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+        },
+        {
+          "test": "test_original_eight_export_byte_lock (test_vfx_picker.ProjectileArmPickerTests.test_original_eight_export_byte_lock)",
+          "last_line": "Diff is 105824 characters long. Set self.maxDiff to None to see it."
+        },
+        {
+          "test": "test_headless_overlay_forward_world_touch_and_mouse_probe (test_vfx_picker.TouchAimRuntimeTests.test_headless_overlay_forward_world_touch_and_mouse_probe)",
+          "last_line": "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+        },
+        {
+          "test": "test_headless_device_forward_handled_overlay_and_mouse_probe (test_vfx_picker.TouchDeviceAimRuntimeTests.test_headless_device_forward_handled_overlay_and_mouse_probe)",
+          "last_line": "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+        },
+        {
+          "test": "test_headless_tab_twice_cast_scene_labels_and_inflight_kit_lock (test_vfx_picker.VfxPickerTests.test_headless_tab_twice_cast_scene_labels_and_inflight_kit_lock)",
+          "last_line": "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+        }
+      ],
+      "errors": [
+        {
+          "test": "setUpClass (test_godot_import.FieldDesignLapEmissionTests)",
+          "last_line": "PermissionError: FL4 sandbox write blocked: /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4v/field-design/headless.json"
+        },
+        {
+          "test": "setUpClass (test_godot_import.RenderedLookTraceTests)",
+          "last_line": "PermissionError: FL4 sandbox mutation blocked: /Users/admin/astra-burst/runs/C-5/FL-4a/CREDITS_VFX.txt"
+        },
+        {
+          "test": "test_transformed_front_at_three_ages_has_no_straight_seam_over_12px (test_godot_import.TransformedResidueSeamTests.test_transformed_front_at_three_ages_has_no_straight_seam_over_12px)",
+          "last_line": "PermissionError: FL4 sandbox write blocked: /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4g/seam_measurements.json"
+        },
+        {
+          "test": "test_emergence_fraction_order_and_temporarily_ignored_body (test_vfx_picker.CanonicalCapsuleSweepTests.test_emergence_fraction_order_and_temporarily_ignored_body)",
+          "last_line": "PermissionError: FL4 sandbox write blocked: /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/FL-2c/reexport/capsule_sweep_test.gd"
+        },
+        {
+          "test": "test_headless_orb_clock_and_pool (test_vfx_picker.FrozenOrbPickerTests.test_headless_orb_clock_and_pool)",
+          "last_line": "PermissionError: FL4 sandbox write blocked: /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4v/orb_trace.json"
+        },
+        {
+          "test": "test_headless_contact_shatter_residue_decal (test_vfx_picker.IceTreatmentPickerTests.test_headless_contact_shatter_residue_decal)",
+          "last_line": "PermissionError: FL4 sandbox write blocked: /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4x/e2_trace.json"
+        },
+        {
+          "test": "test_headless_east_contact_range_tail_and_key_schedule (test_vfx_picker.ProjectileArmPickerTests.test_headless_east_contact_range_tail_and_key_schedule)",
+          "last_line": "PermissionError: FL4 sandbox write blocked: /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4p/e1_key_trace.json"
+        }
+      ],
+      "skipped": []
+    },
+    "selected_run": {
+      "testsRun": 12,
+      "failures": [
+        {
+          "test": "test_ten_existing_export_bytes_unchanged (test_godot_import.IceTreatmentImportTests.test_ten_existing_export_bytes_unchanged)",
+          "last_line": "Diff is 92755 characters long. Set self.maxDiff to None to see it."
+        }
+      ],
+      "errors": [],
+      "skipped": []
+    },
+    "ice_lock_retest": {
+      "testsRun": 1,
+      "failures": [],
+      "errors": [],
+      "skipped": []
+    },
+    "FL4_new_tests": 7,
+    "FL4_new_failures": 0,
+    "resolved_on_final_code": [
+      "test_original_eight_export_byte_lock (test_vfx_picker.ProjectileArmPickerTests.test_original_eight_export_byte_lock)",
+      "test_ten_existing_export_bytes_unchanged (test_godot_import.IceTreatmentImportTests.test_ten_existing_export_bytes_unchanged)"
+    ],
+    "remaining_reds": [
+      {
+        "test": "test_core_additive_contact_expanded_spent_and_residue_release (test_godot_import.AntiDecalTraceTests.test_core_additive_contact_expanded_spent_and_residue_release)",
+        "last_line": "AssertionError: 0.55 not less than 0.55"
+      },
+      {
+        "test": "test_every_hold_frame_changes_actual_shader_uniforms (test_godot_import.AntiDecalTraceTests.test_every_hold_frame_changes_actual_shader_uniforms)",
+        "last_line": "AssertionError: 2 != 3"
+      },
+      {
+        "test": "test_shimmer_residue_only_bounded_fade_and_extent_report (test_godot_import.AntiDecalTraceTests.test_shimmer_residue_only_bounded_fade_and_extent_report)",
+        "last_line": "AssertionError: False is not true"
+      },
+      {
+        "test": "test_current_catalogue_and_original_kits_unchanged (test_godot_import.BoltChainEmissionTests.test_current_catalogue_and_original_kits_unchanged)",
+        "last_line": "Diff is 89200 characters long. Set self.maxDiff to None to see it."
+      },
+      {
+        "test": "test_whole_canvas_texture_shared_by_every_material_and_cpu_cutoff (test_godot_import.ContinuousResidueImportTests.test_whole_canvas_texture_shared_by_every_material_and_cpu_cutoff)",
+        "last_line": "AssertionError: 0.993333 != 0.900784"
+      },
+      {
+        "test": "test_headless_state_machine_input_map_gear_vfx_and_nearest_fallback (test_godot_import.GodotImportTests.test_headless_state_machine_input_map_gear_vfx_and_nearest_fallback)",
+        "last_line": "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      },
+      {
+        "test": "test_flask_stays_visible_at_native_screen_extent_during_flight (test_godot_import.GroundVisibilityRegressionTests.test_flask_stays_visible_at_native_screen_extent_during_flight)",
+        "last_line": "AssertionError: False is not true"
+      },
+      {
+        "test": "test_v2_headless_import_and_seed_equal_rooted_clock (test_godot_import.PieceStretchImportTests.test_v2_headless_import_and_seed_equal_rooted_clock)",
+        "last_line": "       [1] probe (res://stretch_probe.gd:36)"
+      },
+      {
+        "test": "test_node_tree_material_and_spec_driven_config (test_godot_import.ProjectileTravelEmissionTests.test_node_tree_material_and_spec_driven_config)",
+        "last_line": "AssertionError: 1510 != 1040"
+      },
+      {
+        "test": "test_exported_threshold_and_every_root_and_stretch_material_agree (test_godot_import.RaggedResidueImportTests.test_exported_threshold_and_every_root_and_stretch_material_agree)",
+        "last_line": "AssertionError: 0.993333 != 0.900784"
+      },
+      {
+        "test": "test_defaults_absent_and_real_fire_fields_load (test_effect_kit.AntiDecalValidationTests.test_defaults_absent_and_real_fire_fields_load)",
+        "last_line": "AssertionError: 2 != 3"
+      },
+      {
+        "test": "test_entry_shape_and_shared_shard_union_and_zero_control (test_effect_kit.ContinuousResidueMaterialTests.test_entry_shape_and_shared_shard_union_and_zero_control)",
+        "last_line": "AssertionError: False is not true"
+      },
+      {
+        "test": "test_all_new_fields_validate_in_actual_catalogue (test_effect_kit.FL2FieldValidationTests.test_all_new_fields_validate_in_actual_catalogue)",
+        "last_line": "AssertionError: 0 != 0.8"
+      },
+      {
+        "test": "test_t4e_entry_ragged_connected_and_zero_disc_control (test_effect_kit.RaggedResidueMaterialTests.test_t4e_entry_ragged_connected_and_zero_disc_control)",
+        "last_line": "AssertionError: False is not true"
+      },
+      {
+        "test": "test_headless_authored_cast_east_north_collision_timing_and_feedback_cleanup (test_vfx_picker.AuthoredEffectPickerTests.test_headless_authored_cast_east_north_collision_timing_and_feedback_cleanup)",
+        "last_line": "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      },
+      {
+        "test": "test_headless_first_cast_contact_cursor_pool_cancel_and_picker (test_vfx_picker.G1ComponentTests.test_headless_first_cast_contact_cursor_pool_cancel_and_picker)",
+        "last_line": "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      },
+      {
+        "test": "test_headless_pierce_contacts_labels_pool_and_phase_callbacks (test_vfx_picker.G1ComponentTests.test_headless_pierce_contacts_labels_pool_and_phase_callbacks)",
+        "last_line": "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      },
+      {
+        "test": "test_headless_glow_sixty_samples_extrema_range_and_particle_properties (test_vfx_picker.LivingEmbersTests.test_headless_glow_sixty_samples_extrema_range_and_particle_properties)",
+        "last_line": "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      },
+      {
+        "test": "test_headless_overlay_forward_world_touch_and_mouse_probe (test_vfx_picker.TouchAimRuntimeTests.test_headless_overlay_forward_world_touch_and_mouse_probe)",
+        "last_line": "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      },
+      {
+        "test": "test_headless_device_forward_handled_overlay_and_mouse_probe (test_vfx_picker.TouchDeviceAimRuntimeTests.test_headless_device_forward_handled_overlay_and_mouse_probe)",
+        "last_line": "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      },
+      {
+        "test": "test_headless_tab_twice_cast_scene_labels_and_inflight_kit_lock (test_vfx_picker.VfxPickerTests.test_headless_tab_twice_cast_scene_labels_and_inflight_kit_lock)",
+        "last_line": "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      },
+      {
+        "test": "setUpClass (test_godot_import.FieldDesignLapEmissionTests)",
+        "last_line": "PermissionError: FL4 sandbox write blocked: /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4v/field-design/headless.json"
+      },
+      {
+        "test": "setUpClass (test_godot_import.RenderedLookTraceTests)",
+        "last_line": "PermissionError: FL4 sandbox mutation blocked: /Users/admin/astra-burst/runs/C-5/FL-4a/CREDITS_VFX.txt"
+      },
+      {
+        "test": "test_transformed_front_at_three_ages_has_no_straight_seam_over_12px (test_godot_import.TransformedResidueSeamTests.test_transformed_front_at_three_ages_has_no_straight_seam_over_12px)",
+        "last_line": "PermissionError: FL4 sandbox write blocked: /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4g/seam_measurements.json"
+      },
+      {
+        "test": "test_emergence_fraction_order_and_temporarily_ignored_body (test_vfx_picker.CanonicalCapsuleSweepTests.test_emergence_fraction_order_and_temporarily_ignored_body)",
+        "last_line": "PermissionError: FL4 sandbox write blocked: /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/FL-2c/reexport/capsule_sweep_test.gd"
+      },
+      {
+        "test": "test_headless_orb_clock_and_pool (test_vfx_picker.FrozenOrbPickerTests.test_headless_orb_clock_and_pool)",
+        "last_line": "PermissionError: FL4 sandbox write blocked: /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4v/orb_trace.json"
+      },
+      {
+        "test": "test_headless_contact_shatter_residue_decal (test_vfx_picker.IceTreatmentPickerTests.test_headless_contact_shatter_residue_decal)",
+        "last_line": "PermissionError: FL4 sandbox write blocked: /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4x/e2_trace.json"
+      },
+      {
+        "test": "test_headless_east_contact_range_tail_and_key_schedule (test_vfx_picker.ProjectileArmPickerTests.test_headless_east_contact_range_tail_and_key_schedule)",
+        "last_line": "PermissionError: FL4 sandbox write blocked: /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4p/e1_key_trace.json"
+      }
+    ],
+    "final_focused_unique_tests": 12,
+    "final_focused_remaining_failures": 0,
+    "final_focused_note": "11/12 selected tests succeeded initially; the IceTreatmentImport byte lock succeeded in the separate final retest after documented re-baselining."
+  },
+  "byte_locks": {
+    "rebaselined": [
+      "fixtures/fl1b/ProjectileArmPickerTests-2.json",
+      "fixtures/fl1b/IceTreatmentImportTests-0.json"
+    ],
+    "diff_summaries": [
+      "lock_diffs.json",
+      "ice_lock_diffs.json"
+    ],
+    "unchanged_locks": [
+      "fixtures/fl1b/VfxPickerTests-4.json",
+      "fixtures/fl1b/PieceLap2ExportTests-3.json"
+    ],
+    "catalogue_lock": "E3-r1: test_current_catalogue_and_original_kits_unchanged remains red; not rebaselined"
+  },
+  "concerns": [
+    "Full legacy suite is not green; every remaining red and its last traceback line is listed. Retired FL-2/FL-3 speed, holds and painted-residue assertions were not weakened.",
+    "Godot exits 0 with no script errors, but macOS reports certificate-store and editor-settings warnings in the sandbox.",
+    "Lifetime upper bounds depend on birth age to satisfy both the 1.0\u20131.6 s range and the <=1.9 s total cap.",
+    "SPEC row says 16\u201324 embers; the explicit Part B instruction supersedes it with 48."
+  ]
+}

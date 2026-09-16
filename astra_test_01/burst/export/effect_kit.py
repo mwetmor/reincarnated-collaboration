@@ -31,7 +31,7 @@ LAYER_KEYS = {
     'contact_light': {'lerp', 'frames'},
     'shimmer': {'amplitude_px', 'seconds'},
     'glow': {'alpha', 'scale', 'peak'}, 'floor_light': {'duration_s', 'radius_px', 'curve', 'tint', 'alpha'},
-    'cast': {'muzzle_puff', 'floor_light'}, 'travel': {'flicker_frames', 'trail', 'erode_noise'},
+    'cast': {'muzzle_puff', 'floor_light'}, 'travel': {'flicker_frames', 'trail', 'erode_noise', 'core', 'halo', 'boil', 'smear'},
     'flash': {'duration_s', 'alpha', 'scale_from', 'scale_to'},
     'decal': {'file', 'duration_s'}, 'hitstop': {'duration_s', 'time_scale'},
     'shake': {'distance', 'duration_s'},
@@ -465,7 +465,7 @@ def piece_geometry(record, source_root):
 def load_pieces(config, root, runtime=False):
     """Consume T4e schema 2 as delivered; never segment or recolour a shard."""
     root = Path(root).resolve()
-    _keys(config, {'source', 'template', 'root_drift', 'dissolve_order', 'erode_noise', 'key_states', 'embers', 'boil', *PIECES_DEFAULTS}, {'source', 'template'}, 'pieces')
+    _keys(config, {'source', 'template', 'root_drift', 'dissolve_order', 'erode_noise', 'key_states', 'embers', 'boil', 'timing', 'ember_ending', *PIECES_DEFAULTS}, {'source', 'template'}, 'pieces')
     if config['template'] not in ('burst_v1', 'burst_v2', 'burst_v1r'):
         raise ValueError('pieces.template must be burst_v1, burst_v2 or burst_v1r')
     _number(config.get('erode_noise', 0), 0, 1, 'pieces.erode_noise')
@@ -498,8 +498,26 @@ def load_pieces(config, root, runtime=False):
         values.pop('key_states', None)  # explicit [] is byte-equivalent to omission
     _number(values['hold_frames'], 1, 2, 'pieces.hold_frames', True)
     _number(values['base_speed_px_s'], 1e-9, math.inf, 'pieces.base_speed_px_s')
-    _number(values['residue_s'], .3, 1, 'pieces.residue_s')
-    _number(values['residue_fraction'], .15, .25, 'pieces.residue_fraction')
+    if 'ember_ending' in values:
+        validate_ember_ending(values['ember_ending'])
+        _number(values['residue_s'], 0, 0, 'pieces.residue_s')
+        if values['template'] != 'burst_v2' or values['residue_s'] != 0 or 'embers' in values:
+            raise ValueError('ember_ending requires burst_v2 and is mutually exclusive with painted residue/embers')
+        if 'timing' not in values: raise ValueError('ember_ending requires timing')
+    else:
+        _number(values['residue_s'], .3, 1, 'pieces.residue_s')
+        _number(values['residue_fraction'], .1 if 'timing' in values else .15, .25, 'pieces.residue_fraction')
+    if 'timing' in values:
+        timing = values['timing']
+        _keys(timing, {'expanded_age','erosion_age','paint_end_age'}, {'expanded_age','erosion_age','paint_end_age'}, 'pieces.timing')
+        for key in timing: _number(timing[key], 4, 36, 'pieces.timing.'+key, True)
+        if not timing['expanded_age'] < timing['erosion_age'] < timing['paint_end_age']:
+            raise ValueError('pieces.timing must increase')
+        if values['template'] != 'burst_v2': raise ValueError('pieces.timing requires burst_v2')
+        for state in states:
+            expected = timing['expanded_age'] if state['state']=='expanded' else timing['paint_end_age']-state['hold_frames']
+            if state['at_age'] != expected or state['hold_frames'] > 2:
+                raise ValueError('key state disagrees with pieces.timing')
     _number(values['seed'], 0, 2147483647, 'pieces.seed', True)
     if 'dissolve_order' in values:
         if values['dissolve_order'] is None:
@@ -1642,14 +1660,15 @@ def validate_orb(data, root, runtime=False):
 
 def validate_motes(value, residue=False):
     """Bound opt-in pools and physical sizes; omission leaves legacy data alone."""
-    keys = {'count','size_px','life_s','rise_px_s','lateral_px','bands'} if residue else {'rate_per_s','size_px','life_s','rise_px_s','lateral_px'}
-    _keys(value, keys, keys, 'embers' if residue else 'trail')
+    keys = {'count','size_px','life_s','rise_px_s','lateral_px','bands'} if residue else {'rate_per_s','size_px','life_s','rise_px_s','lateral_px','bands'}
+    _keys(value, keys, keys if residue else keys-{'bands'}, 'embers' if residue else 'trail')
     def pair(key, lo, hi, integer=False):
         v=value[key]
         if not isinstance(v,list) or len(v)!=2: raise ValueError(key+' requires ordered bounds')
         for x in v: _number(x,lo,hi,key,integer)
         if v[0]>v[1]: raise ValueError(key+' requires ordered bounds')
-    pair('size_px',3,5 if residue else 4,True)
+    pair('size_px',3,5 if residue or 'bands' in value else 4,True)
+    if not residue and 'bands' in value and value['bands'] != [3,2]: raise ValueError('trail.bands must be [3,2]')
     if residue:
         pair('count',8,12,True); pair('life_s',.5,.9)
         if value['bands'] != [2,3] or any(type(x) is not int for x in value['bands']): raise ValueError('embers.bands must be [2,3]')
@@ -1676,6 +1695,12 @@ def validate_fire_layer(name, value):
         if 'flicker_frames' in value: _number(value['flicker_frames'],1,8,'travel.flicker_frames',True)
         if 'erode_noise' in value: _number(value['erode_noise'],0,1,'travel.erode_noise')
         if 'trail' in value: validate_motes(value['trail'])
+        for role in ('core','halo','boil','smear'):
+            if role in value:
+                fields = TRAVEL_RANGES[role]
+                _keys(value[role], set(fields), set(fields), 'travel.'+role)
+                for key,(lo,hi,integer) in fields.items(): _number(value[role][key],lo,hi,'travel.'+role+'.'+key,integer)
+        if 'boil' in value and value.get('erode_noise',0) <= 0: raise ValueError('travel.boil requires erode_noise')
 
 
 # FL-3: absent fields are OFF, with no defaults inserted into legacy metadata.
@@ -1691,3 +1716,24 @@ def validate_anti_decal(name, value):
     _keys(value, set(fields), set(fields), name)
     for key, (lo, hi, integer) in fields.items():
         _number(value[key], lo, hi, name+'.'+key, integer)
+
+
+# FL-4a: strict opt-in fields; omission leaves every old clock and resource alone.
+TRAVEL_RANGES = {
+    'core': {'band':(3,3,True),'alpha':(0,1,False),'blur_px':(0,12,False),'pulse_scale':(1,1.2,False),'hz':(1,15,False)},
+    'halo': {'alpha':(0,1,False),'scale':(1,2,False)},
+    'boil': {'uv_per_s':(0,1,False),'erode_amp':(0,.15,False),'hz':(1,15,False)},
+    'smear': {'band':(2,2,True),'alpha':(0,1,False),'length_bh':(.1,2,False),'frames':(1,12,True)},
+}
+
+def validate_ember_ending(value):
+    scalar = {'amount':(16,64,True),'glow_radius_bh':(.1,2,False),'glow_alpha':(0,1,False),'glow_s':(.1,1.5,False),'core_radius_bh':(.1,1,False),'core_s':(.1,1,False)}
+    pairs = {'rect_bh':(.1,3),'life_s':(1,1.6),'speed_px_s':(1,120),'scale':(.05,.5)}
+    _keys(value,set(scalar)|set(pairs),set(scalar)|set(pairs),'ember_ending')
+    for key,(lo,hi,integer) in scalar.items(): _number(value[key],lo,hi,'ember_ending.'+key,integer)
+    for key,(lo,hi) in pairs.items():
+        pair=value[key]
+        if not isinstance(pair,list) or len(pair)!=2: raise ValueError('ember_ending.'+key+' requires pair')
+        for number in pair: _number(number,lo,hi,'ember_ending.'+key)
+        if key != 'rect_bh' and pair[0]>pair[1]: raise ValueError('ember_ending.'+key+' bounds reversed')
+    if value['life_s'][0] > (114-50)/60: raise ValueError('ember_ending minimum life cannot fit total deadline')

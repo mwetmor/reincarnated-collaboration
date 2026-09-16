@@ -2147,3 +2147,24 @@ def fl3_trace(directory, project=None):
     report=json.loads((project/'fl3_trace.json').read_text())
     report['engine_exit']=result.returncode
     return report
+
+
+# FL-4a headless deterministic clock; no rendering.
+FL4_PROBE = 'extends SceneTree\nfunc _initialize() -> void: call_deferred("run")\nfunc run() -> void:\n    var world := Node2D.new()\n    root.add_child(world)\n    var burst = load("res://scenes/vfx_fire_burst_e0p_v2_impact.tscn").instantiate()\n    world.add_child(burst)\n    burst.set_physics_process(false)\n    var actual: Array = []\n    for age in range(115):\n        burst.set_effect_age(age)\n        actual.append({"age":age,"art_visible":burst.get_node("Art").visible,"glow_alpha":burst.ending_glow.modulate.a})\n    var report: Dictionary = {"burst":burst.trace,"births":burst.ending_births,"actual":actual,"travel":{},"trail":{},"smear":{}}\n    var configs: Array = JSON.parse_string(FileAccess.get_file_as_string("res://fl4_configs.json"))\n    for config in configs:\n        var bolt = load(config.bolt).instantiate()\n        world.add_child(bolt)\n        bolt.release(config,Vector2.ZERO,{"kind":"cursor","point":Vector2(520,0),"facing":Vector2.RIGHT})\n        bolt.set_physics_process(false)\n        for age in range(21): bolt._paint_clock(age)\n        report.travel[config.name] = bolt.fire_trace.duplicate(true)\n        var tm = bolt.trail_motes\n        for tick in range(61): tm._tick(tick)\n        report.trail[config.name] = {"births":tm.births,"rate":tm.settings.rate_per_s,"motes":tm.trace.duplicate(true)}\n        tm.emitting = false\n        for tick in range(61,89): tm._tick(tick)\n        var live: int = 0\n        for slot in tm.slots:\n            if slot.live: live += 1\n        report.trail[config.name]["live_at_88"] = live\n        bolt.active = false\n        bolt.stop_age = 20\n        var smear_samples: Array = []\n        for age in range(20,27):\n            bolt._clock_flight_light(age)\n            smear_samples.append({"age_since_stop":age-20,"alpha":bolt.flight_smear.modulate.a,"length":bolt.flight_smear.points[0].distance_to(bolt.flight_smear.points[1])})\n        report.smear[config.name] = smear_samples\n        bolt.cancel()\n    FileAccess.open("res://fl4_trace.json",FileAccess.WRITE).store_string(JSON.stringify(report))\n    print("FL4_TRACE_COMPLETE")\n    quit()\n'
+
+
+def fl4_trace(directory):
+    from export.godot_import import _g1_config
+    directory=Path(directory);directory.mkdir(parents=True,exist_ok=True)
+    project=e1_project_fixture(directory/'fixture')
+    configs=[]
+    for name in ('fire_bolt_e1_A','fire_bolt_e1_B'):
+        kit=_load_vfx_kits(directory/'fixture/kits.json')
+        configs.append(_g1_config(next(k for k in kit if k['name']==name)))
+    (project/'fl4_configs.json').write_text(json.dumps(configs))
+    (project/'fl4_probe.gd').write_text(FL4_PROBE)
+    for label,args in [('import',['--editor','--import','--quit']),('trace',['--script','res://fl4_probe.gd'])]:
+        proc=subprocess.run([GODOT,'--headless','--rendering-method','gl_compatibility','--path',str(project),'--log-file',str(directory/(label+'-engine.log')),*args],capture_output=True,text=True,timeout=110)
+        log=proc.stdout+proc.stderr;(directory/(label+'.log')).write_text(log)
+        if proc.returncode or 'SCRIPT ERROR' in log:raise RuntimeError(log)
+    return json.loads((project/'fl4_trace.json').read_text())
