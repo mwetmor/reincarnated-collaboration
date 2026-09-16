@@ -4114,6 +4114,205 @@
       "codex_version": "codex-cli 0.153.4",
       "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
       "exit": 0
+    },
+    {
+      "id": "CS-pack-v23",
+      "type": "PACK",
+      "experiment": "C5-P0b",
+      "brief_sha256": "6c99a4f80e1dcc04a25994fd4391a188934ec5b41fe93dc94db418b229bbfd44",
+      "started": "2026-09-16T03:31:06.406117+00:00",
+      "ended": "2026-09-16T03:34:15.062992+00:00",
+      "minutes": 3.144553639583319,
+      "image_calls": 0,
+      "tool_calls": 6,
+      "audit": {
+        "violations": [],
+        "image_calls": 0,
+        "tool_calls": 6,
+        "tools_seen": {
+          "command_execution": 6
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": []
+      },
+      "receipt_sha256": "3633ae6efc8d09822751ba5207326c8b48bbcd5681e9383bd7834fe0742557ee",
+      "artifacts": [
+        {
+          "name": "README_scene.txt",
+          "sha256": "f5a62416058a2e89a74232b1705d72fa5fbd209aa9e216d0f03fb9bdafff3e95"
+        },
+        {
+          "name": "exporter.json",
+          "sha256": "564335a91ffd00d708fc842299438cc38630a9d3dacd0f3bf97b8a5846665ea8"
+        },
+        {
+          "name": "godot/project.godot",
+          "sha256": "6a8166148fc0b3e54f8589a0a716379636040f615b0f827ea49f2dfe7a6c5deb"
+        },
+        {
+          "name": "godot/scenes/cliffside.tscn",
+          "sha256": "0a1c27164444eff8276b45ed03f339614b7da2c43bfca4bf69b0accf5e586367"
+        },
+        {
+          "name": "godot/scenes/main.tscn",
+          "sha256": "a7ff2b1ba99ca306dacd7fbee1556fbfbed54d72cc8e3c01ab72e1aba58b874d"
+        },
+        {
+          "name": "godot/scenes/vfx/g1_projectile.tscn",
+          "sha256": "24ee96f8ba6972211c90ac9cc856a3b75dffb3df7dd734a0c5aff719f473513a"
+        },
+        {
+          "name": "godot/scenes/vfx/piece_burst.tscn",
+          "sha256": "66330eeb9443f7ca5ef1ac499392fe3b07e090a66808a6c0e0bb9f5cd1586781"
+        },
+        {
+          "name": "godot/scenes/vfx/piece_burst_v2.tscn",
+          "sha256": "7da2d44d7b54b4556a292426d9122f0f2df456aedf9c0008b23a29227f916a08"
+        },
+        {
+          "name": "godot/scenes/vfx_blackwater_cocktail_impact.tscn",
+          "sha256": "e5ddd467c72eb10b42d5b85ea1f5a151941a3c1ec4ae6fbdf463815e21409bf3"
+        },
+        {
+          "name": "godot/scenes/vfx_fire_burst_e0p_impact.tscn",
+          "sha256": "3396177981a9f617d58b7ddc882b24db1e1bb42f46445beb4ae1992b39a26032"
+        },
+        {
+          "name": "godot/scenes/vfx_fire_burst_e0p_v2_impact.tscn",
+          "sha256": "e8478f177dcd824704e4fc88b2091a246eafeb055884a008effb8ba81c5cc451"
+        },
+        {
+          "name": "godot/scenes/vfx_frozen_orb_impact.tscn",
+          "sha256": "16985b18f3cbc32bf899010a609b760725cc0e1a3f46ecc4bde7e5816eeab3ac"
+        },
+        {
+          "name": "godot/scenes/vfx_healing_hands_impact.tscn",
+          "sha256": "8c75c6faca42086fdbd4ea27156b19e72db7a4cd3ec675bffd721d9946da9957"
+        },
+        {
+          "name": "godot/scenes/vfx_lightning_blast_impact.tscn",
+          "sha256": "8c9987d3965f65198347dd64d4f980aa98bc519da9e4c86889e91a789aa0f699"
+        },
+        {
+          "name": "godot/scenes/vfx_poisonous_concoction_impact.tscn",
+          "sha256": "ba602145d646797ab6c1671124f2259556c4a8e2f50de219c42cd5f9c7a48aec"
+        },
+        {
+          "name": "godot/scenes/vfx_zeus_chain_impact.tscn",
+          "sha256": "fc5c7695c0521460c88ce4b15e3981ac5a400039ee9d94d64285b83db9d758a7"
+        },
+        {
+          "name": "godot/scripts/fly_swarm.gd",
+          "sha256": "8603f91597f1f8aeb74b6238a6a2860c3ac807b4c67edca13f56f40b08b33423"
+        },
+        {
+          "name": "godot/scripts/glow_flicker.gd",
+          "sha256": "fee0db3aa00b834bc1f6198886c6e476f45b91fd012ce641a0145e97ec857671"
+        },
+        {
+          "name": "godot/scripts/keeper.gd",
+          "sha256": "24b4856a7f4e869ca74f90dfc84036126cef816286b90b7c4c9ab20eaabcbbb4"
+        },
+        {
+          "name": "godot/scripts/occlusion_fade.gd",
+          "sha256": "96d37de2e8c7790cb00815fb1f939389872874ba23b43dc017d8530d3db62f61"
+        },
+        {
+          "name": "godot/scripts/vfx/piece_burst.gd",
+          "sha256": "1b9493a14ce6a492698a27e62833a30f1db89f1605dfb781133c9474acdbd9e2"
+        },
+        {
+          "name": "godot/scripts/vfx/piece_burst_v2.gd",
+          "sha256": "d9c2e51b79b30ec923137c7cff8284b8e2c05cdbe3ad3e09989ece26623c9a1b"
+        },
+        {
+          "name": "godot/scripts/vfx_blackwater_cocktail_impact.gd",
+          "sha256": "ee7746d714018555bb06d3946e61704cfafae5859da57748f7482f446ef34cac"
+        },
+        {
+          "name": "godot/scripts/vfx_blackwater_cocktail_material.gd",
+          "sha256": "596472d72bfc8e56af2139756e7cb21b948be6c29192a7d4fb7b2fbe042315d1"
+        },
+        {
+          "name": "godot/scripts/vfx_contact_label.gd",
+          "sha256": "1d79a93b4c9509a28f67b975f0b9474ed6e0baa4471ff749ae8048bd644a33fe"
+        },
+        {
+          "name": "godot/scripts/vfx_fire_burst_e0p_impact.gd",
+          "sha256": "69b38d7953c31bad3e6f8318b55cb3cbf1f8f81b557c1c08ae4e7dbb82a6dddf"
+        },
+        {
+          "name": "godot/scripts/vfx_fire_burst_e0p_material.gd",
+          "sha256": "596472d72bfc8e56af2139756e7cb21b948be6c29192a7d4fb7b2fbe042315d1"
+        },
+        {
+          "name": "godot/scripts/vfx_fire_burst_e0p_v2_impact.gd",
+          "sha256": "8bfe52fb10cc9e25bc82fbf74998d08fa539ec79f5aeb06eb584215eb1d43c78"
+        },
+        {
+          "name": "godot/scripts/vfx_fire_burst_e0p_v2_material.gd",
+          "sha256": "596472d72bfc8e56af2139756e7cb21b948be6c29192a7d4fb7b2fbe042315d1"
+        },
+        {
+          "name": "godot/scripts/vfx_frozen_orb_impact.gd",
+          "sha256": "77eafbb9e96eef5233045309122e9729a812d59d06f2247e02541b06d9fbf55c"
+        },
+        {
+          "name": "godot/scripts/vfx_frozen_orb_material.gd",
+          "sha256": "596472d72bfc8e56af2139756e7cb21b948be6c29192a7d4fb7b2fbe042315d1"
+        },
+        {
+          "name": "godot/scripts/vfx_g1.gd",
+          "sha256": "99cec009ff894fdbffe6510a4c76576c8e38b49ce24f02fae62127743208a9d7"
+        },
+        {
+          "name": "godot/scripts/vfx_healing_hands_impact.gd",
+          "sha256": "4257300a57e9d823fbffd593a74435e80d5191324e1db167335b466fd3d02c46"
+        },
+        {
+          "name": "godot/scripts/vfx_healing_hands_material.gd",
+          "sha256": "596472d72bfc8e56af2139756e7cb21b948be6c29192a7d4fb7b2fbe042315d1"
+        },
+        {
+          "name": "godot/scripts/vfx_lightning_blast_impact.gd",
+          "sha256": "fe13db8454b494f19cdc5442532eea4acc702d31c60d5c4f2c9108772f4c12b5"
+        },
+        {
+          "name": "godot/scripts/vfx_lightning_blast_material.gd",
+          "sha256": "596472d72bfc8e56af2139756e7cb21b948be6c29192a7d4fb7b2fbe042315d1"
+        },
+        {
+          "name": "godot/scripts/vfx_poisonous_concoction_impact.gd",
+          "sha256": "356743d5918f37c290a977857c400ca9b5ed3344cdb8e1c404bcac50136f8f69"
+        },
+        {
+          "name": "godot/scripts/vfx_poisonous_concoction_material.gd",
+          "sha256": "596472d72bfc8e56af2139756e7cb21b948be6c29192a7d4fb7b2fbe042315d1"
+        },
+        {
+          "name": "godot/scripts/vfx_zeus_chain_impact.gd",
+          "sha256": "27cbfd483d68b02937dee96432d13c4bfaed826380e6df15c6eac69364e64a43"
+        },
+        {
+          "name": "godot/scripts/vfx_zeus_chain_material.gd",
+          "sha256": "596472d72bfc8e56af2139756e7cb21b948be6c29192a7d4fb7b2fbe042315d1"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
     }
   ],
   "experiments": [],
@@ -4167,6 +4366,11 @@
       "id": "M-C5-WEB9",
       "note": "CS-pack-web9 LIVE (drax): https://reincarnated-loadout.vercel.app/playtest/cliffside/ from CS-pack-v22 — eight kits (fire_burst_e0p ×6 Tab, _v2 ×7); loadout ebba8499 pushed; pck 0a38dd80…; no build-script change; production casts of kit 7 and 8 captured (live_kit7/8_*). drax finding on F-C5-5: the overlay marks every ScreenTouch handled, so keeper.gd _unhandled_input never sees it; the aim falls to get_global_mouse_position() = the browser-emulated mouse at the CAST button — T4i's event bookkeeping may never fire on web; T4i-r1 makes touch devices ALWAYS aim forward (DisplayServer.is_touchscreen_available()). Deploy truth: agentic_orchestration/drax/captures/2026-09-15-web-playtest-v9/deploy_truth.txt",
       "ts": "2026-09-15T23:06:09"
+    },
+    {
+      "id": "M-C5-PACKET-88",
+      "note": "Packet 88 — cliffside_v23 (PACK on freeze 0512265283f1; import 0 errors): figures 13.5 % (146 px), final necromancer (N3) on the path at (2650,1950), touch casts aim forward — conductor proof with the mouse parked behind: v2 burst centre at screen (1286,565) vs Keeper (960,540) = forward, contacting the hound. Desktop folder 88; stills + sheet sent to Matt; drax web10 dispatched with a production touch-emulated cast check.",
+      "ts": "2026-09-15T23:38:27"
     }
   ],
   "halts": [],
