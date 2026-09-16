@@ -1,0 +1,50 @@
+{
+  "task_id": "VF-prim-ice-shard-01",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "ice_shard_01",
+      "path": "out/ice_shard_01.png",
+      "sha256": "28d52694d5183830e0771926bb396f701e935aa2ec94b86a68b21936a3270b8f",
+      "prompt": "Generate exactly ONE small faceted ice-shard VFX sprite. Native delivered PNG MUST be 512x512 pixels, with genuine RGBA transparency: alpha zero outside, fully opaque inside, at most one pixel antialias fringe. Center a shard only 90 pixels long by 40 pixels tall. The previous attempt was much too large and had gradients; correct these two defects. Do not fill the frame. Absolute painted extent 90x40 pixels, centered. If the tool forces a larger canvas, keep the shard itself at 90x40 absolute pixels, do not scale it proportionally with canvas.\nReference 1: scale board and hand-drawn line language only. Reference 2: approved fire language only, four flat greyscale planes with dark contour; do not copy flame shapes. Reference 3: camera reading only, no scenery in output.\nOne elongated ASYMMETRIC angular crystal wedge with sharp leading point to screen RIGHT and ONE straight broken flat trailing end at LEFT. Exactly three or four visible triangular/polygonal facets sharing straight ridges. Hand-drawn tapered confident near-black contour with slight organic line-weight variation, but straight-sided crystalline silhouette. Elevated three-quarter camera around 45 degrees, upright body with visible facets, no squash. Upper-left facet lit, lower facet dark.\nOnly FOUR EXACT SOLID GREYSCALE VALUES in body: #202020 thin contour/rim, #606060 shadow facets, #BFBFBF lit facets (most of the body), #FFFFFF narrow brightest ridge highlight and small core (maximum 20 percent of body). Every facet is ONE uniform solid fill. NO tonal variation within any plane; NO gradients; NO texture; NO glow. A clean hand-drawn painted 2D animation frame with clean hard material planes. Paint emission shape only. No environment, ground, shadows, sparkles, mist, trails, motion, characters, text, extra fragments, curls, snowflake, or checkerboard. Genuine transparent background preferred; only if impossible, use uniform pure #00ff00 plate. Do not draw a black background.",
+      "references": [
+        {
+          "role": "Scale board and hand-drawn register",
+          "path": "in/01_scale_board_clearing.png"
+        },
+        {
+          "role": "Approved fire value-plane and contour language",
+          "path": "in/02_fire_peak_01.png"
+        },
+        {
+          "role": "Native camera reading only",
+          "path": "in/03_clearing_native_512.png"
+        }
+      ],
+      "elapsed_s": 44.255
+    }
+  ],
+  "calls_used": 2,
+  "retries": [
+    {
+      "reason": "First candidate exceeded the requested extent by more than 25% and showed tonal variation within facets.",
+      "change": "Reinforced absolute 90×40-pixel extent and exactly four uniform solid greyscale values."
+    }
+  ],
+  "self_report": {
+    "obeyed_invariants": false,
+    "concerns": [
+      "Delivered unchanged tool output is 1254×1254, not the requested 512×512.",
+      "Shard remains substantially oversized, visually approximately 400×165 pixels.",
+      "Visible tonal variation remains; exactly four flat values were not achieved.",
+      "PNG alpha channel is confirmed. Genuine exterior transparency, interior opacity and fringe width were not numerically verified.",
+      "Trailing edge is not a single flat break. Retry allowance exhausted; no conversion, trimming or keying performed."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/ice_shard_01.png",
+      "sha256": "28d52694d5183830e0771926bb396f701e935aa2ec94b86a68b21936a3270b8f"
+    }
+  ]
+}

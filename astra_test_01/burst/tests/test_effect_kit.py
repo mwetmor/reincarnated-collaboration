@@ -1873,3 +1873,103 @@ def transformed_erosion_front_diagnostic(project):
      labs,n=ndimage.label(union,np.ones((3,3)));cs=np.bincount(labs.ravel())[1:]
      results.append(dict(age=age,longest_transformed_seam_front_component_diameter_px=longest,longest_straight_seam_front_px=straight,largest_component=float(cs.max()/union.sum())))
     return results
+
+
+class KeyStateMeasurementTests(unittest.TestCase):
+    """T4q synthetic truth and known-bad controls; no generated-art fixtures."""
+    @staticmethod
+    def drawing(size=128):
+        from PIL import ImageDraw
+        image = Image.new('RGBA', (size,size))
+        draw = ImageDraw.Draw(image)
+        draw.rectangle((12,24,67,94),fill=(170,170,170,255),outline=(0,0,0,255),width=2)
+        draw.ellipse((78,12,108,43),fill=(85,85,85,255),outline=(0,0,0,255),width=2)
+        draw.rectangle((28,38,44,70),fill=(255,255,255,255))
+        return np.array(image)
+
+    def test_registration_known_uniform_scale_and_translation(self):
+        from oracle.key_states import register, warp
+        source = np.repeat(np.repeat(self.drawing(),2,axis=0),2,axis=1)
+        truth = .72; translation = [11.25,-3.5]
+        guide = warp(source,truth,translation,(192,192))
+        aligned, report = register(source,guide)
+        self.assertAlmostEqual(report['scale'],truth,delta=.004)
+        np.testing.assert_allclose(report['translation_xy'],translation,atol=.6)
+        self.assertGreater(report['silhouette_iou'],.985)
+        self.assertEqual(aligned.shape,guide.shape)
+
+    def test_correspondence_boil_perturbation_and_mismatch(self):
+        from oracle.key_states import report
+        from scipy import ndimage
+        guide=self.drawing(); labels,n=ndimage.label(guide[...,3]>127,np.ones((3,3)))
+        masks={i:labels==i for i in range(1,n+1)}
+        perturb=guide.copy();perturb[50:54,50:54,:3]=85
+        good=report(perturb,guide,masks)
+        self.assertTrue(good['passed'],good)
+        self.assertEqual(good['boil']['VO8']['drawing_changes'],1)
+        self.assertEqual(good['boil']['shard_count_delta'],0)
+        mismatch=np.roll(perturb,18,axis=1)
+        bad=report(mismatch,guide,masks)
+        self.assertFalse(bad['passed'])
+        self.assertTrue(any(r['centroid_offset_px']>1 for r in bad['correspondence']['pieces']))
+        self.assertFalse(report(guide,guide,masks)['passed'],'identical drawing cannot establish boil')
+
+    def test_clipping_fill_is_explicit_and_bad_contours_are_not_rescued(self):
+        from oracle.key_states import clipped,report
+        from scipy import ndimage
+        guide=self.drawing();painting=guide.copy();painting[40:70,30:50]=0
+        fixed,meta=clipped(painting,guide)
+        self.assertEqual(meta['guide_fill_pixels'],600)
+        np.testing.assert_array_equal(fixed,guide)
+        labels,n=ndimage.label(guide[...,3]>127,np.ones((3,3)))
+        masks={i:labels==i for i in range(1,n+1)}
+        bad=guide.copy();bad[guide[...,3]>127,:3]=0
+        self.assertGreater(report(bad,guide,masks)['boil']['contour_thickening_excess_px'],1)
+
+
+class KeyStatePhaseTests(PieceStretchPhaseTests):
+    def setUp(self):
+        super().setUp()
+        self.data['pieces']['key_states']=[dict(state='expanded',png='piece.png',hold_frames=4,at_age=15),
+                                          dict(state='spent',png='peak_index.png',hold_frames=5,at_age=36)]
+        self.save()
+
+    def test_key_assets_copied_and_runtime_loadable(self):
+        build(self.path,self.out)
+        data=load_kit(self.out)
+        self.assertEqual([s['state'] for s in data['pieces']['key_states']],['expanded','spent'])
+        for state in data['pieces']['key_states']:
+            self.assertEqual((self.out/state['png']).read_bytes(),(self.path.parent/'piece.png').read_bytes())
+            self.assertNotIn(state['png'],data['distance_fields'])
+
+    def test_bad_key_state_fields_and_overlap_rejected(self):
+        original=copy.deepcopy(self.data)
+        for key,value in [('state','unknown'),('at_age',True),('at_age',-1),('at_age',0),('hold_frames',100),('hold_frames',0),('png','missing.png')]:
+            self.data=copy.deepcopy(original);self.data['pieces']['key_states'][0][key]=value;self.save()
+            with self.subTest(key=key),self.assertRaises(ValueError):build(self.path,self.out)
+        self.data=copy.deepcopy(original);self.data['pieces']['key_states'][1]['at_age']=16;self.save()
+        with self.assertRaisesRegex(ValueError,'overlap'):build(self.path,self.out)
+        self.data=copy.deepcopy(original);self.data['pieces']['template']='burst_v1';self.save()
+        with self.assertRaisesRegex(ValueError,'burst_v2'):build(self.path,self.out)
+
+    def test_omitted_and_empty_key_states_byte_identical(self):
+        self.data['pieces'].pop('key_states');self.save();build(self.path,self.out)
+        self.data['pieces']['key_states']=[];self.save();other=self.root/'empty';build(self.path,other)
+        digest=lambda root:{p.relative_to(root).as_posix():hashlib.sha256(p.read_bytes()).hexdigest()
+                            for p in root.rglob('*') if p.is_file()}
+        self.assertEqual(digest(self.out),digest(other))
+
+
+class KeyStateBindingTests(unittest.TestCase):
+    def test_raw_success_cannot_bind_a_failed_clipped_report(self):
+        from oracle.key_states import bindings
+        good = dict(passed=True,correspondence={'passed':True},boil={'passed':True},failures=[])
+        row=dict(at_age=15,hold_frames=4,raw=good,clipped=copy.deepcopy(good))
+        self.assertEqual(len(bindings({'expanded':row},{'expanded':'expanded.png'})),1)
+        for component in ('correspondence','boil'):
+            bad=copy.deepcopy(row);bad['clipped'][component]['passed']=False
+            self.assertEqual(bindings({'expanded':bad},{'expanded':'expanded.png'}),[])
+        bad=copy.deepcopy(row);bad['clipped']['passed']=None
+        self.assertEqual(bindings({'expanded':bad},{'expanded':'expanded.png'}),[])
+        bad=copy.deepcopy(row);bad['clipped']['failures']=[{'test':'piece_centroid','excess':.01}]
+        self.assertEqual(bindings({'expanded':bad},{'expanded':'expanded.png'}),[])

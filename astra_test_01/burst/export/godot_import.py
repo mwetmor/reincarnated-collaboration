@@ -1768,7 +1768,7 @@ def _grey_vfx(out):
     # recolour the diagnostic silhouette. Optional light layers stay unchanged.
     for path in (out/'scenes').rglob('*.tscn'):
         text = path.read_text()
-        if any(path in text for path in ('res://scripts/vfx/piece_burst.gd', 'res://scripts/vfx/piece_burst_v2.gd')):
+        if any(path in text for path in ('res://scripts/vfx/piece_burst.gd', 'res://scripts/vfx/piece_burst_v2.gd', 'res://scripts/vfx/piece_burst_v2_keys.gd')):
             # Keep index RGB for band-step dissolve: grey is a palette swap.
             text = text.replace('script = ExtResource("Script")\n',
                                 'script = ExtResource("Script")\ngrey_bodies = true\n', 1)
@@ -2592,6 +2592,7 @@ def _write_piece_burst_v2(out, kit, resource_root, prefix):
     # Reuse v1's unchanged layer/material plumbing, then replace only this scene.
     legacy = dict(kit, effect=copy.deepcopy(data))
     legacy['effect']['pieces']['template'] = 'burst_v1'
+    legacy['effect']['pieces'].pop('key_states', None)
     legacy['effect']['material'].pop('erode_noise', None)
     canonical = out/'scenes/vfx/piece_burst.tscn'
     owns_canonical = not canonical.exists()
@@ -2666,11 +2667,104 @@ def _write_piece_burst_v2(out, kit, resource_root, prefix):
                                   'erosion_start_tick':15})
     scene += '\n'.join(extra_nodes)
     scene = re.sub(r'load_steps=\d+', 'load_steps='+str(scene.count('[ext_resource ')+1),scene,count=1)
+    if config.get('key_states'):
+        scene, script = _emit_key_states(out, kit, resource_root, scene, runtime, config)
+        scene = scene.replace('res://scripts/vfx/piece_burst_v2.gd',
+                              'res://scripts/vfx/piece_burst_v2_keys.gd')
+        (out/'scripts/vfx/piece_burst_v2_keys.gd').write_text(script)
+    # Shared files must not depend on which kit was emitted last.
     (out/'scripts/vfx/piece_burst_v2.gd').write_text(PIECE_BURST_V2_SCRIPT)
     runtime_path.write_text(json.dumps(runtime,indent=2)+'\n')
     target.write_text(scene)
     if owns_canonical: canonical.write_text(scene)
     (out/'scenes/vfx/piece_burst_v2.tscn').write_text(scene)
+
+
+KEY_STATE_READY = """    for item in config.key_states:
+        for suffix in ["", "Dark"]:
+            var sprite: Sprite2D = get_node("Art/Key_" + str(item.state) + suffix)
+            sprite.material = sprite.material.duplicate()
+            if grey_bodies and suffix == "":
+                for band in range(4):
+                    sprite.material.set_shader_parameter("palette_" + str(band), Color(128.0/255.0,128.0/255.0,128.0/255.0,1))
+"""
+
+KEY_STATE_CLOCK = """    var active_key: String = ""
+    var key_erode: float = float(config.residue_erode) * erosion_t
+    var key_residue_t: float = clampf(float(age-residue_start)/float(config.residue_frames),0.0,1.0)
+    var key_dissolve: float = 1.0 if age >= residue_end else 0.8 * key_residue_t
+    for item in config.key_states:
+        var enabled: bool = age >= int(item.at_age) and age < int(item.at_age) + int(item.hold_frames) and age < residue_end
+        var sprite: Sprite2D = get_node("Art/Key_" + str(item.state))
+        var dark: Sprite2D = get_node("Art/Key_" + str(item.state) + "Dark")
+        sprite.visible = enabled
+        dark.visible = enabled and bool(config.dark_duplicate)
+        for node in [sprite, dark]:
+            node.material.set_shader_parameter("erode", key_erode)
+            node.material.set_shader_parameter("dissolve", key_dissolve)
+        if enabled:
+            active_key = str(item.state)
+    for name in ["Pieces", "Roots", "DarkPieces", "DarkRoots"]:
+        get_node("Art/" + name).visible = active_key == ""
+    if active_key != "":
+        $Art/Peak.hide()
+        $Art/PeakDark.hide()
+    trace[-1]["key_state"] = active_key
+    trace[-1]["key_erode"] = key_erode
+    trace[-1]["key_dissolve"] = key_dissolve
+    trace[-1]["pieces_container_visible"] = $Art/Pieces.visible
+    trace[-1]["visible_piece_count"] = count if active_key == "" else 0
+"""
+
+
+def _emit_key_states(out, kit, resource_root, scene, runtime, config):
+    """Opt-in v2 emission. Empty states preserve all pre-T4q exported bytes.
+
+    Key textures are full guide canvases centred on the impact origin. Their
+    distance-field range is preconditioned to the retained fraction at entry:
+    already-eroded drawings are not eroded twice on their first held tick.
+    Thereafter the SAME absolute erode/dissolve uniforms keep advancing.
+    """
+    import numpy as np
+    from export.effect_kit import distance_field, write_vfx_material
+    flight = int(runtime['flash_frames']) + int(runtime['hold_frames'])
+    end = flight + 36 + int(runtime['residue_frames'])
+    runtime['key_states'] = config['key_states']
+    for state in config['key_states']:
+        if state['at_age'] < flight or state['at_age'] + state['hold_frames'] > end:
+            raise ValueError('key_state interval must lie inside piece lifetime')
+        name = state['state']
+        source = kit['root']/state['png']
+        target = out/resource_root/state['png']
+        target.parent.mkdir(parents=True, exist_ok=True)
+        if source.resolve() != target.resolve(): shutil.copyfile(source, target)
+        with Image.open(source) as image:
+            rgba = np.array(image.convert('RGBA'))
+        erode = float(runtime['residue_erode']) * max(0., min(1., (state['at_age']-flight-15)/21))
+        field = np.minimum(254, np.floor(distance_field(rgba).astype(float)*(1-erode))).astype(np.uint8)
+        field_rel = resource_root+'/pieces/key_'+name+'_distance.png'
+        Image.fromarray(field).save(out/field_rel)
+        for dark in (False, True):
+            node = 'Key_'+name+('Dark' if dark else '')
+            material = dict(kit['effect']['material'], erode_outside_in=True)
+            material.pop('erode_noise', None)  # preconditioned whole-state coverage
+            if 'dissolve_order' in config: material['dissolve_order'] = config['dissolve_order']
+            if dark: material['blend_mode'] = 'MIX'
+            mat = resource_root+'/materials/'+node+'.tres'
+            write_vfx_material(out, mat, material, field_rel, dark_duplicate=dark)
+            ext = (f'[ext_resource type="Texture2D" path="res://{resource_root}/{state["png"]}" id="T{node}"]\n'
+                   f'[ext_resource type="Material" path="res://{mat}" id="M{node}"]\n')
+            first = scene.index('[node ')
+            scene = scene[:first]+ext+scene[first:]
+            scene += (f'\n[node name="{node}" type="Sprite2D" parent="Art"]\n'
+                      'visible = false\ntexture_filter = 2\ncentered = false\n'
+                      f'offset = Vector2({-rgba.shape[1]/2}, {-rgba.shape[0]/2})\n'
+                      f'texture = ExtResource("T{node}")\nmaterial = ExtResource("M{node}")\n'
+                      + ('z_index = -1\n' if dark else ''))
+    scene = re.sub(r'load_steps=\d+', 'load_steps='+str(scene.count('[ext_resource ')+1),scene,count=1)
+    script = PIECE_BURST_V2_SCRIPT.replace('    tree_exiting.connect(_write_trace)', KEY_STATE_READY+'    tree_exiting.connect(_write_trace)')
+    script = script.replace('    if age >= residue_end:\n        hide()', KEY_STATE_CLOCK+'    if age >= residue_end:\n        hide()')
+    return scene, script
 
 
 if __name__ == '__main__':

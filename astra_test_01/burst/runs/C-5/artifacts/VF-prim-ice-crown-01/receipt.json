@@ -1,0 +1,51 @@
+{
+  "task_id": "VF-prim-ice-crown-01",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "ice_crown_01",
+      "path": "out/ice_crown_01.png",
+      "sha256": "5b3af80d80dadbb67e159876d4077481070499d6035485fabb6aa80580c1402b",
+      "prompt": "Generate one broken frost crown sprite, 512×512, genuinely transparent RGBA. Match the references' hand-drawn contour and four-plane grayscale language. Shallow elliptical ground ring of unequal short upright crystalline spikes, far side taller, near side lower, three or four open breaks, angular rime base. Centered painted extent 240×110 pixels. Exactly four flat paints: #202020, #606060, #BFBFBF, #FFFFFF; white at most 20%. Upper-left key expressed through facets. No gradients, glow, texture, curls, ground, shadows, sparkles, mist, characters or text. Retry instruction: prior output was 1254×1254 with roughly 650×430 painted extent; correct actual output dimensions and extent, shorten spikes, flatten ellipse, preserve breaks and true transparency.",
+      "references": [
+        {
+          "role": "Scale, camera and painted register",
+          "path": "in/01_scale_board_clearing.png"
+        },
+        {
+          "role": "Approved four-plane contour language",
+          "path": "in/02_fire_peak_01.png"
+        },
+        {
+          "role": "Native ground camera reading",
+          "path": "in/03_clearing_native_512.png"
+        }
+      ],
+      "elapsed_s": 41.305
+    }
+  ],
+  "calls_used": 2,
+  "retries": [
+    {
+      "reason": "First generated crown exceeded the requested painted extent by more than 25%.",
+      "change": "Requested smaller extent, shorter spikes, shallower ellipse and actual 512×512 output."
+    }
+  ],
+  "self_report": {
+    "obeyed_invariants": false,
+    "concerns": [
+      "Delivered original is 1254×1254, not 512×512; copied without conversion as instructed.",
+      "Painted extent remains approximately 570×330 pixels, exceeding the requested 240×110.",
+      "Output has an alpha channel and appears genuinely transparent; exact exterior alpha and fringe width were not numerically verified.",
+      "Subtle facet shading appears present; exactly four flat values cannot be confirmed.",
+      "An initial invocation was rejected before generation because reference paths were relative. Two subsequent calls generated images.",
+      "Receipt uses the required images array despite the task prose requesting an integer. Prompt field summarizes the submitted prompt."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/ice_crown_01.png",
+      "sha256": "5b3af80d80dadbb67e159876d4077481070499d6035485fabb6aa80580c1402b"
+    }
+  ]
+}

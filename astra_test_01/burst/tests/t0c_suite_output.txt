@@ -84,6 +84,19 @@ test_missing_and_unknown_keys_at_all_schema_levels (test_effect_kit.EffectKitTes
 test_native_index_frames_alpha_and_dimensions (test_effect_kit.EffectKitTests.test_native_index_frames_alpha_and_dimensions) ... ok
 test_retired_pixel_scale_rejected_without_output (test_effect_kit.EffectKitTests.test_retired_pixel_scale_rejected_without_output) ... ok
 test_spriteframe_duration_extension_default_bytes_and_invalid_before_resource (test_effect_kit.EffectKitTests.test_spriteframe_duration_extension_default_bytes_and_invalid_before_resource) ... ok
+test_raw_success_cannot_bind_a_failed_clipped_report (test_effect_kit.KeyStateBindingTests.test_raw_success_cannot_bind_a_failed_clipped_report) ... ok
+test_clipping_fill_is_explicit_and_bad_contours_are_not_rescued (test_effect_kit.KeyStateMeasurementTests.test_clipping_fill_is_explicit_and_bad_contours_are_not_rescued) ... ok
+test_correspondence_boil_perturbation_and_mismatch (test_effect_kit.KeyStateMeasurementTests.test_correspondence_boil_perturbation_and_mismatch) ... ok
+test_registration_known_uniform_scale_and_translation (test_effect_kit.KeyStateMeasurementTests.test_registration_known_uniform_scale_and_translation) ... ok
+test_bad_key_state_fields_and_overlap_rejected (test_effect_kit.KeyStatePhaseTests.test_bad_key_state_fields_and_overlap_rejected) ... ok
+test_key_assets_copied_and_runtime_loadable (test_effect_kit.KeyStatePhaseTests.test_key_assets_copied_and_runtime_loadable) ... ok
+test_missing_mask_rejected_before_output (test_effect_kit.KeyStatePhaseTests.test_missing_mask_rejected_before_output) ... ok
+test_omitted_and_empty_key_states_byte_identical (test_effect_kit.KeyStatePhaseTests.test_omitted_and_empty_key_states_byte_identical) ... ok
+test_pivot_outside_mask_rejected (test_effect_kit.KeyStatePhaseTests.test_pivot_outside_mask_rejected) ... ok
+test_residue_and_band_and_hold_ranges_rejected (test_effect_kit.KeyStatePhaseTests.test_residue_and_band_and_hold_ranges_rejected) ... ok
+test_seeded_factor_deterministic_order_independent_and_bounded (test_effect_kit.KeyStatePhaseTests.test_seeded_factor_deterministic_order_independent_and_bounded) ... ok
+test_self_contained_mask_bytes_distance_and_runtime_validation (test_effect_kit.KeyStatePhaseTests.test_self_contained_mask_bytes_distance_and_runtime_validation) ... ok
+test_stretch_seed_bounds_and_whole_body_distance (test_effect_kit.KeyStatePhaseTests.test_stretch_seed_bounds_and_whole_body_distance) ... ok
 test_delivered_t4e_masks_extent_and_connectivity (test_effect_kit.PieceLap2GeometryTests.test_delivered_t4e_masks_extent_and_connectivity) ... ok
 test_missing_mask_rejected_before_output (test_effect_kit.PieceLap2ValidationTests.test_missing_mask_rejected_before_output) ... ok
 test_pivot_outside_mask_rejected (test_effect_kit.PieceLap2ValidationTests.test_pivot_outside_mask_rejected) ... ok
@@ -248,6 +261,8 @@ test_gear_vfx_and_bad_vfx (test_godot_import.GodotImportTests.test_gear_vfx_and_
 test_headless_state_machine_input_map_gear_vfx_and_nearest_fallback (test_godot_import.GodotImportTests.test_headless_state_machine_input_map_gear_vfx_and_nearest_fallback) ... ok
 test_missing_texture_and_undeclared_resource_rejected (test_godot_import.GodotImportTests.test_missing_texture_and_undeclared_resource_rejected) ... ok
 test_numeric_order_and_native_fps_ignored (test_godot_import.GodotImportTests.test_numeric_order_and_native_fps_ignored) ... ok
+test_headless_literal_age_swaps_returns_and_continuous_uniforms (test_godot_import.KeyStateSwapImportTests.test_headless_literal_age_swaps_returns_and_continuous_uniforms) ... ok
+test_key_resources_palette_and_native_canvas (test_godot_import.KeyStateSwapImportTests.test_key_resources_palette_and_native_canvas) ... ok
 test_grey_substitution_preserves_index_masks_for_identical_erosion (test_godot_import.PieceBurstImportTests.test_grey_substitution_preserves_index_masks_for_identical_erosion) ... ok
 test_headless_import_and_seeded_clock_runtime (test_godot_import.PieceBurstImportTests.test_headless_import_and_seeded_clock_runtime) ... ok
 test_piece_nodes_clock_residue_path_and_g1_routing (test_godot_import.PieceBurstImportTests.test_piece_nodes_clock_residue_path_and_g1_routing) ... ok
@@ -665,7 +680,7 @@ Traceback (most recent call last):
     self._check_timeout(endtime, orig_timeout, stdout, stderr)
   File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/subprocess.py", line 1253, in _check_timeout
     raise TimeoutExpired(
-subprocess.TimeoutExpired: Command '['/Applications/Godot.app/Contents/MacOS/Godot', '--headless', '--log-file', '/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4i/tmp/touch-aim-cmspfrnb/project/godot.log', '--path', '/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4i/tmp/touch-aim-cmspfrnb/project', '--script', 'res://touch_aim_probe.gd']' timed out after 60 seconds
+subprocess.TimeoutExpired: Command '['/Applications/Godot.app/Contents/MacOS/Godot', '--headless', '--log-file', '/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4i/tmp/touch-aim-l69e6_td/project/godot.log', '--path', '/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4i/tmp/touch-aim-l69e6_td/project', '--script', 'res://touch_aim_probe.gd']' timed out after 60 seconds
 
 ======================================================================
 FAIL: test_synthetic_contract_and_grid (test_oracle_walk.Tests.test_synthetic_contract_and_grid)
@@ -710,6 +725,6 @@ Traceback (most recent call last):
 AssertionError: 'rejected' unexpectedly found in {'angular_support': 0.8333333333333334, 'center': [170.0, 253.0], 'hollow_score': 0.08333333333333333, 'inner_opposed_support': 0.08333333333333333, 'inside': False, 'lab_band_surround': 12.987929666149537, 'lab_center_band': 18.508563966712764, 'lab_center_surround': 30.467977867785994, 'lab_color_return': 0.0, 'radius': 8.0, 'rejected': 'not_annulus', 'score': 0.6366616733180586}
 
 ----------------------------------------------------------------------
-Ran 639 tests in 367.427s
+Ran 654 tests in 378.202s
 
 FAILED (failures=5, errors=1)

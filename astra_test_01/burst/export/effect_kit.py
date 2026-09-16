@@ -447,11 +447,33 @@ def piece_geometry(record, source_root):
 def load_pieces(config, root, runtime=False):
     """Consume T4e schema 2 as delivered; never segment or recolour a shard."""
     root = Path(root).resolve()
-    _keys(config, {'source', 'template', 'root_drift', 'dissolve_order', 'erode_noise', *PIECES_DEFAULTS}, {'source', 'template'}, 'pieces')
+    _keys(config, {'source', 'template', 'root_drift', 'dissolve_order', 'erode_noise', 'key_states', *PIECES_DEFAULTS}, {'source', 'template'}, 'pieces')
     if config['template'] not in ('burst_v1', 'burst_v2'):
         raise ValueError('pieces.template must be burst_v1 or burst_v2')
     _number(config.get('erode_noise', 0), 0, 1, 'pieces.erode_noise')
     values = {**PIECES_DEFAULTS, **config}
+    states = values.get('key_states', [])
+    if not isinstance(states, list):
+        raise ValueError('pieces.key_states must be a list')
+    if states and values['template'] != 'burst_v2':
+        raise ValueError('pieces.key_states requires burst_v2')
+    seen, intervals, key_assets = set(), [], {}
+    for state in states:
+        _keys(state, {'state', 'png', 'hold_frames', 'at_age'},
+              {'state', 'png', 'hold_frames', 'at_age'}, 'key_state')
+        if state['state'] not in ('expanded', 'spent') or state['state'] in seen:
+            raise ValueError('key_state state must be unique expanded or spent')
+        seen.add(state['state'])
+        _number(state['at_age'], 0, 100000, 'key_state.at_age', True)
+        _number(state['hold_frames'], 1, 100000, 'key_state.hold_frames', True)
+        interval = (state['at_age'], state['at_age']+state['hold_frames'])
+        if any(interval[0] < end and start < interval[1] for start, end in intervals):
+            raise ValueError('key_state hold intervals overlap')
+        intervals.append(interval)
+        asset = _png(state['png'], root, grayscale=True, confined=runtime)
+        key_assets[state['png']] = asset
+    if not states:
+        values.pop('key_states', None)  # explicit [] is byte-equivalent to omission
     _number(values['hold_frames'], 1, 2, 'pieces.hold_frames', True)
     _number(values['base_speed_px_s'], 1e-9, math.inf, 'pieces.base_speed_px_s')
     _number(values['residue_s'], .3, 1, 'pieces.residue_s')
@@ -484,7 +506,7 @@ def load_pieces(config, root, runtime=False):
     if not isinstance(centre, list) or len(centre) != 2:
         raise ValueError('pieces.centre requires x, y')
     for value, size in zip(centre, canvas): _number(value, 0, size-1, 'pieces.centre')
-    assets = {}
+    assets = dict(key_assets)
     ids = set()
     for piece in record['pieces']:
         if not isinstance(piece, dict): raise ValueError('piece must be an object')
@@ -592,7 +614,12 @@ def _validate(data, root, runtime=False):
                 if key == 'amount': lo, hi = 1, 512
                 _number(value, lo, hi, key, key == 'amount')
     if 'pieces' in data:
-        _, _, piece_assets = load_pieces(data['pieces'], root, runtime)
+        piece_config, _, piece_assets = load_pieces(data['pieces'], root, runtime)
+        flight = max(1, round(data['layers'].get('flash', {}).get('duration_s', 1/60)*60)) + piece_config['hold_frames']
+        end = flight + 36 + math.ceil(piece_config['residue_s']*60)
+        for state in piece_config.get('key_states', []):
+            if state['at_age'] < flight or state['at_age'] + state['hold_frames'] > end:
+                raise ValueError('key_state interval must lie inside piece lifetime')
         assets.update(piece_assets)
     for path in set(assets.values()):
         with Image.open(path) as image: rgba = np.array(image.convert('RGBA'))
@@ -601,8 +628,11 @@ def _validate(data, root, runtime=False):
             raise ValueError('material source indices must be greyscale 0/85/170/255: '+str(path))
     if runtime:
         fields = data.get('distance_fields')
-        if not isinstance(fields, dict) or set(fields) != set(assets):
-            raise ValueError('distance_fields must map every kit texture')
+        # Key-state distance textures are emitter-owned: their retained range
+        # depends on the v2 clock at activation, unlike ordinary kit textures.
+        key_pngs = {s['png'] for s in data.get('pieces', {}).get('key_states', [])}
+        if not isinstance(fields, dict) or not set(assets)-key_pngs <= set(fields) <= set(assets):
+            raise ValueError('distance_fields must map every non-key-state kit texture')
         for source, field in fields.items():
             field_path = _png(field, root, confined=True)
             with Image.open(assets[source]) as a, Image.open(field_path) as b:
@@ -765,7 +795,15 @@ def build(effect_json, out_dir):
                 whole_field = distance_field(np.asarray(image.convert('RGBA')))
             for piece in record['pieces']:
                 Image.fromarray(whole_field).save(out/metadata['distance_fields']['pieces/'+piece['mask']])
+        states = []
+        for state in config.get('key_states', []):
+            file = 'key_states/'+state['state']+'.png'
+            (out/file).parent.mkdir(parents=True, exist_ok=True)
+            (out/file).write_bytes(assets[state['png']].read_bytes())
+            states.append(dict(state, png=file))
         metadata['pieces'] = dict(config, source='pieces/pieces.json')
+        if states:
+            metadata['pieces']['key_states'] = states
         counts['pieces'] = len(record['pieces'])
     for mode in ('MIX', 'ADD', 'PREMULT_ALPHA'):
         for lit in (False, True):

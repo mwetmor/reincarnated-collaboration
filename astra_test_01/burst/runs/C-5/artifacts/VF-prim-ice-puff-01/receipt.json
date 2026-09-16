@@ -1,0 +1,51 @@
+{
+  "task_id": "VF-prim-ice-puff-01",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "ice_puff_01",
+      "path": "out/ice_puff_01.png",
+      "sha256": "e3b1ee85eac29666dd6fad71726e7eb499dc4e72448bf1763b4414be77923ef3",
+      "prompt": "Create ONE game VFX primitive PNG, exactly 512 x 512 pixels. Use case: stylized-concept. Transparent RGBA background, alpha zero outside the painted body and fully opaque inside, hard edge with at most one pixel antialiasing. If genuine transparency is unavailable, use a completely uniform pure #00ff00 background instead. Paint only the shape representing emission; light, glow, colour and motion are runtime layers.\nSubject: a small ANGULAR PUFF of frost, a bounded cluster of small pointed crystal facets and flakes packed into an irregular polygonal mass. Dense lower-left core, thinning to a few scattered pointed flakes at the upper-right. Every silhouette segment angular and faceted, straight edges and sharp points, no curved tongues, curls, rounded cloud lobes, symmetric snowflake, or starbursts. Upright body facing camera at elevated three-quarter approximately 45 degrees, no ground squash.\nComposition: centered at (256,256), painted bounding extent about 150 pixels wide and 130 pixels tall, including outlying flakes, approximately x181..331 y191..321. Wide empty margins, nothing near the canvas edges. Exactly ONE primitive, single frame, no sheet or panels.\nStyle: hand-drawn painted 2D, one frame of confident hand animation, dark contour visibly tapered and varied in weight, clean painted material planes. Input context: Image 1 scale/register board conveys the small readable silhouette and hand-drawn line weight of the clearing scene; Image 2 approved fire impact conveys ONLY the four-plane hard-edged visual language, never its organic fire shape; Image 3 native clearing is reading context only, do not reproduce the setting. Translate that visual language to crystalline facets.\nVALUE INDEX ENCODING: GREYSCALE ONLY. EXACTLY FOUR solid flat opaque paint values: #202020 near-black contour and thin outer dark rim; #606060 dark-grey shadowed facets; #BFBFBF light-grey lit facets covering most of the body; #FFFFFF white brightest edge highlights and densest core covering at most 20 percent of the body. Single screen-upper-left key expressed only as these hard value planes, slightly highlighted key-facing edge. Hard internal plane boundaries. Absolutely no intermediate fill values, gradient, glow, blur, surface texture, grain, coloured light, soft fringe, ground, floor shadow, sparkles, mist, motion blur, character, text, checkerboard or decorative backdrop. Make an irregular compact puff of ice facets, not a rock or a few large gemstone spikes.\nCORRECTIVE RETRY of the generated primitive: preserve the angular lower-left-to-upper-right puff direction, but reduce the painted extent to exactly 150 by 130 ACTUAL OUTPUT PIXELS. Deliver a 512 by 512 pixel PNG canvas. The preceding output was 1254 by 1254 with a body roughly 575 by 515 pixels, far too large. Do not repeat that. If your canvas must stay 1254 square, the body must STILL be only 150 by 130 actual pixels, centered on that canvas, with extremely wide empty margins. Remove all surface tonal variation and gradients: use strictly only four uniform paints #202020, #606060, #BFBFBF, #FFFFFF. Reduce white coverage below one fifth. More small packed facets, fewer long large crystals. Truly transparent alpha-zero background; no background paint. No postprocessing will be performed.",
+      "references": [
+        {
+          "role": "Scale and register context, read from user attachment",
+          "path": "in/01_scale_board_clearing.png"
+        },
+        {
+          "role": "Four-plane visual language context, read from user attachment",
+          "path": "in/02_fire_peak_01.png"
+        },
+        {
+          "role": "Native ground context, reading only",
+          "path": "in/03_clearing_native_512.png"
+        }
+      ],
+      "elapsed_s": 36.607
+    }
+  ],
+  "calls_used": 2,
+  "retries": [
+    {
+      "reason": "First candidate exceeded the requested painted extent by more than 25% and showed tonal variation within facets.",
+      "change": "Requested a smaller actual-pixel footprint and strictly uniform four-value fills, using the first candidate as the edit target."
+    }
+  ],
+  "self_report": {
+    "obeyed_invariants": false,
+    "concerns": [
+      "Delivered PNG remains 1254×1254 rather than 512×512; copied unchanged as required.",
+      "Painted extent remains approximately 415×360 pixels by visual inspection, exceeding the requested 150×130.",
+      "Visible tonal variation remains; exactly four flat values is not established.",
+      "PNG alpha-channel presence is confirmed, but genuine alpha-zero exterior, opaque interior, and fringe width were not independently verified.",
+      "Original references were read visually and described in the prompt; only the first generated candidate was directly supplied to the retry.",
+      "The images field follows the required array schema; calls_used records the integer image-generation count."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/ice_puff_01.png",
+      "sha256": "e3b1ee85eac29666dd6fad71726e7eb499dc4e72448bf1763b4414be77923ef3"
+    }
+  ]
+}

@@ -2,7 +2,7 @@
   "run": "C-5",
   "charter": "agentic_orchestration/gandalf/notes/2026-09-15-vfx-run-C-5-charter.md",
   "charter_sha256_12": "c41d87420e76",
-  "images_used": 22,
+  "images_used": 30,
   "images_cap": 999999,
   "images_cap_note": "SENTINEL 999999 — the run image cap is UN-ENFORCED by sentinel (Matt V20, 2026-09-15: \"no image budget\"); images_used is counted and reported at every packet. run_burst.py:158 integer-compares this field; null crashed it (jack-ryan Gate-1 BLOCK-B).",
   "bursts": [
@@ -6056,6 +6056,282 @@
       "codex_version": "codex-cli 0.153.4",
       "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
       "exit": 0
+    },
+    {
+      "id": "VF-prim-ice-crown-01",
+      "type": "GENERATE",
+      "experiment": "C5-E2",
+      "brief_sha256": "3c7cd135bfecfe0ef6c08338960c4c0e7da85a1376faf96e195a78467802fb0b",
+      "started": "2026-09-16T07:14:49.252997+00:00",
+      "ended": "2026-09-16T07:17:54.422317+00:00",
+      "minutes": 3.086143784016652,
+      "image_calls": 2,
+      "tool_calls": 3,
+      "audit": {
+        "violations": [],
+        "image_calls": 2,
+        "tool_calls": 3,
+        "tools_seen": {
+          "command_execution": 3
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0a911-79fa-76b3-929c-b95b3638145b/exec-7ef43601-7f9a-4979-ac78-fd9aa36e3d84.png",
+            "sha256": "b3792b3adebf336e6040dd3ec1c8480fbcc4419e1623becf3733e850bf46b4d5"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0a911-79fa-76b3-929c-b95b3638145b/exec-c1e855f1-cbad-49ca-9ad6-07be44a4ad7a.png",
+            "sha256": "5b3af80d80dadbb67e159876d4077481070499d6035485fabb6aa80580c1402b"
+          }
+        ]
+      },
+      "receipt_sha256": "ac79d81ea145e8b70dee8ab099555594d89af9f78b95347e6c0879ecfed016e5",
+      "artifacts": [
+        {
+          "name": "ice_crown_01.png",
+          "sha256": "5b3af80d80dadbb67e159876d4077481070499d6035485fabb6aa80580c1402b"
+        },
+        {
+          "name": "exec-7ef43601-7f9a-4979-ac78-fd9aa36e3d84.provenance.json",
+          "sha256": "0d636dfaab5ae9bcb596b218b9d6346d54bba549ab3f14ebb7a122aadb2398d3"
+        },
+        {
+          "name": "exec-c1e855f1-cbad-49ca-9ad6-07be44a4ad7a.provenance.json",
+          "sha256": "3aa6171e87502b38b786c74f18c54b5c3eaf093b2f9d45366508b4b6411019c8"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0a911-79fa-76b3-929c-b95b3638145b/exec-7ef43601-7f9a-4979-ac78-fd9aa36e3d84.png",
+          "sha256": "b3792b3adebf336e6040dd3ec1c8480fbcc4419e1623becf3733e850bf46b4d5"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0a911-79fa-76b3-929c-b95b3638145b/exec-c1e855f1-cbad-49ca-9ad6-07be44a4ad7a.png",
+          "sha256": "5b3af80d80dadbb67e159876d4077481070499d6035485fabb6aa80580c1402b"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
+    },
+    {
+      "id": "VF-peak-ice-impact-01",
+      "type": "GENERATE",
+      "experiment": "C5-E2",
+      "brief_sha256": "d7bf70f503c12cb2dbcab0cf7937c4bd845d4e3b81c98d87e2f7f01d65e2905a",
+      "started": "2026-09-16T07:14:49.252947+00:00",
+      "ended": "2026-09-16T07:18:00.357028+00:00",
+      "minutes": 3.185055223616655,
+      "image_calls": 2,
+      "tool_calls": 3,
+      "audit": {
+        "violations": [],
+        "image_calls": 2,
+        "tool_calls": 3,
+        "tools_seen": {
+          "command_execution": 3
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0a911-799f-7aa1-a786-e0185caa5227/exec-2dfb79d1-d058-428c-9831-e3b520d3d2b8.png",
+            "sha256": "9c3accaba2226f168ccfb9b9e44564c1c824bb8e93fe378c897caef1f08e7eea"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0a911-799f-7aa1-a786-e0185caa5227/exec-812a62c5-23b3-4d1b-9352-3777d24239c2.png",
+            "sha256": "bfa854e988d8551dba2e7f89b6d1a23d88f3bf4b9e6352181feb22d1cda9be73"
+          }
+        ]
+      },
+      "receipt_sha256": "31c4b2b67c09f42d1d4d68c95ccf841e233ea102f961f03903bf03113a86779f",
+      "artifacts": [
+        {
+          "name": "ice_peak_01.png",
+          "sha256": "9c3accaba2226f168ccfb9b9e44564c1c824bb8e93fe378c897caef1f08e7eea"
+        },
+        {
+          "name": "exec-2dfb79d1-d058-428c-9831-e3b520d3d2b8.provenance.json",
+          "sha256": "61d1eb604d323e27c5e7378f98fabdd6cf1e4d5c149c7756ad085e716e2d31e9"
+        },
+        {
+          "name": "exec-812a62c5-23b3-4d1b-9352-3777d24239c2.provenance.json",
+          "sha256": "99c200a0ad36dd6c63fd39cb796f18a12cd69a0896f841fb45b406969dd0345e"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0a911-799f-7aa1-a786-e0185caa5227/exec-2dfb79d1-d058-428c-9831-e3b520d3d2b8.png",
+          "sha256": "9c3accaba2226f168ccfb9b9e44564c1c824bb8e93fe378c897caef1f08e7eea"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0a911-799f-7aa1-a786-e0185caa5227/exec-812a62c5-23b3-4d1b-9352-3777d24239c2.png",
+          "sha256": "bfa854e988d8551dba2e7f89b6d1a23d88f3bf4b9e6352181feb22d1cda9be73"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
+    },
+    {
+      "id": "VF-prim-ice-shard-01",
+      "type": "GENERATE",
+      "experiment": "C5-E2",
+      "brief_sha256": "691b3e38c34995bf8f8a2a26fb688f824ee0c6e1fafe579e9f196f9a0d55e9a0",
+      "started": "2026-09-16T07:14:49.252888+00:00",
+      "ended": "2026-09-16T07:18:11.486975+00:00",
+      "minutes": 3.3705524187501092,
+      "image_calls": 2,
+      "tool_calls": 3,
+      "audit": {
+        "violations": [],
+        "image_calls": 2,
+        "tool_calls": 3,
+        "tools_seen": {
+          "command_execution": 3
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0a911-7a12-70a3-8a79-73719abe980e/exec-4ff98df0-dfca-4a89-a39d-663a575882a8.png",
+            "sha256": "fa537e1695ad2faec5e1f6d4690bd2e330b6876f2174cf546a3c8d5ea2bac20e"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0a911-7a12-70a3-8a79-73719abe980e/exec-c776851a-e9cd-4493-9eef-efa2cfa87f81.png",
+            "sha256": "28d52694d5183830e0771926bb396f701e935aa2ec94b86a68b21936a3270b8f"
+          }
+        ]
+      },
+      "receipt_sha256": "f7ceaa6b046e9b2581e2a6ca6ce5467064919abc83dbd4e32c4f124ad0dea72d",
+      "artifacts": [
+        {
+          "name": "ice_shard_01.png",
+          "sha256": "28d52694d5183830e0771926bb396f701e935aa2ec94b86a68b21936a3270b8f"
+        },
+        {
+          "name": "exec-4ff98df0-dfca-4a89-a39d-663a575882a8.provenance.json",
+          "sha256": "b9cbec1c05114495e621825348f560afb68aeb98b2f5fcc108eb86491ded0562"
+        },
+        {
+          "name": "exec-c776851a-e9cd-4493-9eef-efa2cfa87f81.provenance.json",
+          "sha256": "d49c60e222d012453faa4a3e6ea54e4372f2cd4ee22a88aec765d39a0ab39d1f"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0a911-7a12-70a3-8a79-73719abe980e/exec-4ff98df0-dfca-4a89-a39d-663a575882a8.png",
+          "sha256": "fa537e1695ad2faec5e1f6d4690bd2e330b6876f2174cf546a3c8d5ea2bac20e"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0a911-7a12-70a3-8a79-73719abe980e/exec-c776851a-e9cd-4493-9eef-efa2cfa87f81.png",
+          "sha256": "28d52694d5183830e0771926bb396f701e935aa2ec94b86a68b21936a3270b8f"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
+    },
+    {
+      "id": "VF-prim-ice-puff-01",
+      "type": "GENERATE",
+      "experiment": "C5-E2",
+      "brief_sha256": "d0d4f9ac5b3638c4448371abe0a16e0e2e718589f2c213569a369d3ee2690616",
+      "started": "2026-09-16T07:14:49.252886+00:00",
+      "ended": "2026-09-16T07:18:16.821155+00:00",
+      "minutes": 3.4594564055500086,
+      "image_calls": 2,
+      "tool_calls": 3,
+      "audit": {
+        "violations": [],
+        "image_calls": 2,
+        "tool_calls": 3,
+        "tools_seen": {
+          "command_execution": 3
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0a911-79a2-7783-8433-8f8085988f1f/exec-6a1e02a5-5bf0-437e-b360-4203833e2407.png",
+            "sha256": "e3b1ee85eac29666dd6fad71726e7eb499dc4e72448bf1763b4414be77923ef3"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0a911-79a2-7783-8433-8f8085988f1f/exec-8fc94eed-8e83-46f6-8044-f519a9db1c57.png",
+            "sha256": "2343ac76bd589f445d1cc6c79bf819ab6b708e8bdab7059bcbbbc679b171ec42"
+          }
+        ]
+      },
+      "receipt_sha256": "b579ecd4686ebeb40e60d1ba5350f13445af9eb8978384086258bc1a8b968c0e",
+      "artifacts": [
+        {
+          "name": "ice_puff_01.png",
+          "sha256": "e3b1ee85eac29666dd6fad71726e7eb499dc4e72448bf1763b4414be77923ef3"
+        },
+        {
+          "name": "exec-6a1e02a5-5bf0-437e-b360-4203833e2407.provenance.json",
+          "sha256": "e603b30ff5382cb1fade936d79ad8b3fb637c8486071f78902d6468316d7fc35"
+        },
+        {
+          "name": "exec-8fc94eed-8e83-46f6-8044-f519a9db1c57.provenance.json",
+          "sha256": "d0df1413c12441cecf4bf5ff12ea55d1e845c7c7a887b404c15adc9b4fe08889"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0a911-79a2-7783-8433-8f8085988f1f/exec-6a1e02a5-5bf0-437e-b360-4203833e2407.png",
+          "sha256": "e3b1ee85eac29666dd6fad71726e7eb499dc4e72448bf1763b4414be77923ef3"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0a911-79a2-7783-8433-8f8085988f1f/exec-8fc94eed-8e83-46f6-8044-f519a9db1c57.png",
+          "sha256": "2343ac76bd589f445d1cc6c79bf819ab6b708e8bdab7059bcbbbc679b171ec42"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
     }
   ],
   "experiments": [],
@@ -6149,6 +6425,11 @@
       "id": "M-C5-E2-OPEN",
       "note": "E2 opened: four ice paintings fired as one GENERATE wave — VF-peak-ice-impact-01 (2 BH peak, facets not tongues), VF-prim-ice-shard-01 (0.7 BH), VF-prim-ice-crown-01 (ground-bound broken frost crown, foreshortened), VF-prim-ice-puff-01 (angular puff) — all against the E0-p LANGUAGE (four planes, hand-drawn contour) with the fire peak as the language reference, not the shape.",
       "ts": "2026-09-16T03:14:48"
+    },
+    {
+      "id": "M-C5-ICE-PAINTED",
+      "note": "E2 ice paintings DELIVERED (2 image calls each, all 1254² RGBA): impact peak (736×595 at 1254 → ~300×243 at 512, 4-plane share 0.79), shard (394×163 → ~160×66; share 0.45 — more intermediate tones, quantise handles), frost crown (569×324 → ~232×132), angular puff (411×355 → ~168×145). 512 working copies staged beside each. Conductor eye pending on the board (runs/C-5/t3/E0a/ice_board.png).",
+      "ts": "2026-09-16T03:18:51"
     }
   ],
   "halts": [],
@@ -6488,6 +6769,13 @@
       "veto_open": true,
       "ruling": "E0(a) V6 ruled on sight (conductor, veto-open): dark duplicate ON as the default preset — the MIX-black under-layer gives the burst a crisp lower edge against the sand at hold, flare and ember (runs/C-5/t3/E0a/v6_board.png, both presets baked at 1:1 over a sand-coloured plate, seed 2026); without it the body bleeds into the ground tone. Matt can flip it per kit (layers.dark_duplicate). E0(a) layer-stack proof: the accepted burst runs the full T4a stack on Compatibility (Metal GL 4.1) — the browser-export half is drax's web10/11 captures (peak rendered correctly on web10; web11 build defect is the mirror cache, not the stack). E0(c) rotation and (d) stepped time are deferred to E1 where the projectile makes them meaningful; E0(e) art step = 1 confirmed by every 1:1 bake.",
       "ts": "2026-09-16T03:17:15"
+    },
+    {
+      "id": "R-C5-49",
+      "class": "conductor",
+      "veto_open": true,
+      "ruling": "FREEZE after T4q (outside suite = five standing reds only; key states bound by conductor data edit). Ice board (conductor eye): all four paintings speak the language — faceted peak, single shard, ground-bound frost crown (a correct foreshortened ellipse), angular puff; the peak reads more crystal-cluster than impact, acceptable for a first ice anchor (provisional per 03- § 2.3). T4p fires (E1 arms A/B).",
+      "ts": "2026-09-16T03:19:05"
     }
   ],
   "grok_calls": [],

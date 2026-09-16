@@ -773,3 +773,99 @@ class TransformedResidueSeamTests(unittest.TestCase):
             report.parent.mkdir(parents=True, exist_ok=True)
             report.write_text(json.dumps({'report_only': True, 'threshold_withdrawn': 12,
                                           'rows': rows}, indent=2) + '\n')
+
+
+class KeyStateSwapImportTests(unittest.TestCase):
+    """The opt-in script must demonstrate swaps using the actual Godot clock hook."""
+    def setUp(self):
+        fixture=PieceBurstImportTests();fixture.setUp();self.addCleanup(fixture.doCleanups)
+        self.root=fixture.root;self.project=self.root/'key_project'
+        kit_path=self.root/'kit/kit.json';data=json.loads(kit_path.read_text())
+        data['pieces']['template']='burst_v2';data['screen_px']=True
+        data['pieces']['key_states']=[dict(state='expanded',png='expanded.png',at_age=15,hold_frames=4),
+                                      dict(state='spent',png='spent.png',at_age=36,hold_frames=5)]
+        for state in data['pieces']['key_states']:
+            im=Image.new('RGBA',(64,64));im.paste(Image.new('RGBA',(16,16),(170,170,170,255)),(24,24));im.save(kit_path.parent/state['png'])
+        kit_path.write_text(json.dumps(data))
+        build_project(fixture.cells,self.project,vfx_kits=fixture.catalogue,sockets=fixture.sockets)
+
+    def test_key_resources_palette_and_native_canvas(self):
+        scene=(self.project/'scenes/vfx/piece_burst_v2.tscn').read_text()
+        self.assertIn('offset = Vector2(-32.0, -32.0)',scene)
+        self.assertIn('Key_expandedDark',scene)
+        self.assertIn('Key_spent',scene)
+        script=(self.project/'scripts/vfx/piece_burst_v2_keys.gd').read_text()
+        self.assertIn('key_erode',script);self.assertIn('key_dissolve',script)
+        validate_resources(self.project,True)
+
+    @unittest.skipUnless(Path(GODOT).is_file(),'Godot unavailable')
+    def test_headless_literal_age_swaps_returns_and_continuous_uniforms(self):
+        from export.godot_import import _load_vfx_kit, _write_authored_effect
+        # A later plain-v2 kit must not overwrite the opted-in clock script.
+        kit=_load_vfx_kit(self.root/'kit');kit['effect']['pieces'].pop('key_states')
+        _write_authored_effect(self.project,kit,'vfx/plain_v2','vfx_plain_v2',{})
+        settings=self.project/'project.godot'
+        settings.write_text(settings.read_text().replace('[application]\n',
+            '[application]\nconfig/use_custom_user_dir=true\nconfig/custom_user_dir="'+str(self.root/'user')+'"\n'))
+        (self.project/'key_probe.gd').write_text(KEY_STATE_CLOCK_PROBE)
+        logs=[]
+        for arguments in (['--import'],['--script','res://key_probe.gd']):
+            proc=subprocess.run([GODOT,'--headless','--path',str(self.project),'--log-file',str(self.root/'key_engine.log'),*arguments],capture_output=True,text=True,timeout=110)
+            log=proc.stdout+proc.stderr;logs.append(dict(arguments=arguments,exit_code=proc.returncode,log=log))
+            self.assertEqual(proc.returncode,0,log)
+            self.assertNotIn('SCRIPT ERROR',log);self.assertNotIn('Parse Error',log)
+        self.assertIn('T4Q_KEY_CLOCK_COMPLETE',log)
+        evidence=TMP.parent/'key_clock_trace.json'
+        evidence.write_bytes((self.project/'key_clock_trace.json').read_bytes())
+        (TMP.parent/'headless.json').write_text(json.dumps(logs,indent=2)+'\n')
+
+
+KEY_STATE_CLOCK_PROBE = '''extends SceneTree
+var failures: Array = []
+func _initialize() -> void:
+    call_deferred("probe")
+func need(value: bool, message: String) -> void:
+    if not value:
+        failures.append(message)
+func probe() -> void:
+    var a: Node2D = load("res://scenes/vfx_pieces_fixture_impact.tscn").instantiate()
+    a.spell_scale = 20.0
+    a.grey_bodies = true
+    root.add_child(a)
+    a.set_physics_process(false)
+    var plain: Node2D = load("res://scenes/vfx_plain_v2_impact.tscn").instantiate()
+    root.add_child(plain)
+    plain.set_physics_process(false)
+    var rows: Array = []
+    for age in range(45):
+        a.set_effect_age(age)
+        plain.set_effect_age(age)
+        need(not plain.trace[-1].has("key_state"),"plain v2 got opted-in script")
+        var expected: String = "expanded" if age >= 15 and age < 19 else ("spent" if age >= 36 and age < 41 else "")
+        need(a.trace[-1].key_state == expected,"wrong key state at age " + str(age))
+        need(a.get_node("Art/Pieces").visible == (expected == ""),"pieces not swapped/returned")
+        need(a.get_node("Art/Roots").visible == (expected == ""),"roots not swapped/returned")
+        need(a.get_node("Art").scale == Vector2.ONE,"screen_px multiplied by art/spell scale")
+        var stationary: Sprite2D = a.pieces[0].root
+        for state in ["expanded", "spent"]:
+            var key: Sprite2D = a.get_node("Art/Key_" + state)
+            var dark: Sprite2D = a.get_node("Art/Key_" + state + "Dark")
+            need(key.visible == (expected == state),"incorrect key visibility")
+            need(dark.visible == key.visible,"dark visibility differs")
+            for uniform in ["erode", "dissolve"]:
+                need(key.material.get_shader_parameter(uniform) == stationary.material.get_shader_parameter(uniform),"key clock uniform reset")
+                need(key.material.get_shader_parameter(uniform) == dark.material.get_shader_parameter(uniform),"dark clock uniform differs")
+            need(key.material.get_shader_parameter("palette_0") == Color(128.0/255.0,128.0/255.0,128.0/255.0,1),"grey substitution lost")
+        rows.append(a.trace[-1].duplicate(true))
+    var output := FileAccess.open("res://key_clock_trace.json",FileAccess.WRITE)
+    output.store_string(JSON.stringify(rows,"  "))
+    a.queue_free()
+    plain.queue_free()
+    await process_frame
+    if not failures.is_empty():
+        printerr(JSON.stringify(failures))
+        quit(7)
+        return
+    print("T4Q_KEY_CLOCK_COMPLETE")
+    quit(0)
+'''
