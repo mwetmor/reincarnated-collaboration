@@ -1,0 +1,141 @@
+{
+  "task_id": "T4l",
+  "completion": "Implementation and instruments delivered; compactness and literal residue-duration requirements remain unmet; return to conductor.",
+  "rendered": {
+    "status": "UNEVALUABLE",
+    "reason": "Conductor-only rendered bakes; none produced in-sandbox."
+  },
+  "cpu": {
+    "instrument": "CPU original-UV bilinear alpha>0 expansion plus nearest stationary support; not rendered acceptance",
+    "denominator": "maximum body coverage among hold frames; excludes halo, flash and floor light",
+    "hold_peak_coverage_px": 41951,
+    "peak_extent_px": 311,
+    "residue_entry_fraction": 0.20030511787561678,
+    "minimum_component_from_erosion": 0.6721212121212121,
+    "max_centroid_peak_extent_fraction_from_erosion": 0.06517135513660684,
+    "extent_ratio_at_age15": 1.9131832797427653,
+    "extent_ratio_at_expansion_end": 1.932475884244373
+  },
+  "residue": {
+    "denominator_px": 41951,
+    "denominator": "maximum body coverage among hold frames; excludes halo, flash and floor light",
+    "entry_coverage_px": 8403,
+    "minimum_coverage_px": 1650,
+    "minimum_fraction": 0.03933160115372697,
+    "residue_frames": 36,
+    "residue_s": 0.6,
+    "frames_with_fraction_15_to_25_percent": 23
+  },
+  "erosion_expansion_minimum_component_fraction": 0.9513693820224719,
+  "tip_before_root": {
+    "all_animated_pieces": true,
+    "evidence": "tip_order.json"
+  },
+  "screen_px": {
+    "requested_art_scale": 0.608,
+    "actual_art_scale": [
+      1,
+      1
+    ],
+    "actual_floor_scale": [
+      7.5,
+      4.5
+    ],
+    "floor_radius_px": 120,
+    "phase_scale": 1,
+    "G1_socket_code_unchanged": true,
+    "scope": "Headless transform and emission checks; no rendered size claim. CPU peak support extent is 311 px under alpha>0, distinct from conductor authored 306 px measure."
+  },
+  "legacy": {
+    "exported_files": 488,
+    "byte_identical": true,
+    "kits": [
+      "blackwater_cocktail",
+      "fire_burst_e0p",
+      "frozen_orb",
+      "healing_hands",
+      "lightning_blast",
+      "poisonous_concoction",
+      "zeus_chain"
+    ],
+    "evidence": "legacy_hashes.json"
+  },
+  "headless": [
+    {
+      "name": "import",
+      "exit_code": 0,
+      "script_errors": [],
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--headless",
+        "--path",
+        "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4l/project",
+        "--log-file",
+        "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4l/import_engine.log",
+        "--import"
+      ]
+    },
+    {
+      "name": "clock",
+      "exit_code": 0,
+      "script_errors": [],
+      "command": [
+        "/Applications/Godot.app/Contents/MacOS/Godot",
+        "--headless",
+        "--path",
+        "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4l/project",
+        "--log-file",
+        "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4l/clock_engine.log",
+        "--script",
+        "res://burn_probe.gd"
+      ]
+    }
+  ],
+  "suite": {
+    "scope": "51 relevant cases from the two named files; repository-wide suite not run",
+    "tests_run": 51,
+    "failures": [
+      {
+        "test": "test_effect_kit.PieceStretchPhaseTests.test_stretch_seed_bounds_and_whole_body_distance",
+        "reason": "AssertionError: False is not true"
+      },
+      {
+        "test": "test_effect_kit.PieceLap2ValidationTests.test_stretch_seed_bounds_and_whole_body_distance",
+        "reason": "AssertionError: False is not true"
+      },
+      {
+        "test": "test_effect_kit.BurnBackMaterialTests.test_real_schedule_compactness_and_hold_denominator",
+        "reason": "AssertionError: 0.6721212121212121 not greater than or equal to 0.9"
+      },
+      {
+        "test": "test_godot_import.PieceStretchImportTests.test_axes_whole_field_root_residue_clock_and_grey",
+        "reason": "AssertionError: 'outer_distance' not found in 'extends \"res://scripts/vfx/piece_burst.gd\"\\n# R(theta) * S(along, across) * R(-theta), about the original mask root.\\n# Stationary source coverage anchors the core and tongue roots. Both layers\\n# use whole-body UV distance, never a distance field re-centred on a shard.\\nfunc _ready() -> void:\\n    config = JSON.parse_string(FileAccess.get_file_as_str"
+      },
+      {
+        "test": "test_godot_import.PieceStretchImportTests.test_v2_headless_import_and_seed_equal_rooted_clock",
+        "reason": ""
+      },
+      {
+        "test": "test_effect_kit.BurnBackResidueHoldTests.test_literal_fraction_held_for_every_residue_age",
+        "reason": "AssertionError: 0.03933160115372697 not greater than or equal to 0.15"
+      }
+    ],
+    "errors": [],
+    "omitted": [
+      {
+        "test": "test_godot_import.PieceStretchImportTests.test_native_768_crop_backward_compatible_default",
+        "reason": "imports export/replay.py, excluded by task read scope"
+      }
+    ],
+    "test_edits_append_only": true
+  },
+  "concerns": [
+    "The prescribed band-2 removal fragments the final embers: largest component 0.6721212121, below 0.9 at ages 70\u201375. No candidate was rescued by changing the gate.",
+    "Residue begins at 0.2003051179 of hold-peak coverage, then falls to 0.1293175371 after white removal and 0.0393316012 after orange removal; the literal 15\u201325% coverage hold for all 0.6 seconds is unmet.",
+    "All allowed radial cutoffs with initial coverage 15\u201325% were diagnosed without changing the candidate; their best final-ember component fraction is 0.8087378641.",
+    "Rendered visual, scale and no-ring acceptance is UNEVALUABLE in-sandbox; CPU and headless traces are not rendered bakes.",
+    "Four retained test failures assert retired lap-2 stretch, outer_distance and residue-dissolve behavior; the two test files were extended only.",
+    "Godot import/trace exit 0 with no parse/script errors, but sandbox user-data/editor-setting writes were denied and macOS certificate lookup emitted errors.",
+    "Procedure deviation: the first SPEC excerpt included sections 2\u20136 and additional section-7 rows beyond the requested sections. Required fixture/kit assets and module dependencies were consumed for the authorized tests; no unrelated source was intentionally inspected."
+  ]
+}

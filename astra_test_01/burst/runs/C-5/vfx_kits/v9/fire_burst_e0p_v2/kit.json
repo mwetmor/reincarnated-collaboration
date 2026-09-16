@@ -36,7 +36,8 @@
         0.75,
         1
       ]
-    ]
+    ],
+    "erode_outside_in": true
   },
   "phases": {
     "cast": {
@@ -94,7 +95,18 @@
     "seed": 2026,
     "source": "pieces/pieces.json",
     "template": "burst_v2",
-    "dissolve_order": [[3], [2], [1, 0]]
+    "dissolve_order": [
+      [
+        3
+      ],
+      [
+        2
+      ],
+      [
+        1,
+        0
+      ]
+    ]
   },
   "distance_fields": {
     "flare/flare_00.png": "distance/flare/flare_00.png",
@@ -126,5 +138,6 @@
     "pieces/piece_023.png": "distance/pieces/piece_023.png",
     "pieces/piece_024.png": "distance/pieces/piece_024.png"
   },
-  "pierce": 0
+  "pierce": 0,
+  "screen_px": true
 }

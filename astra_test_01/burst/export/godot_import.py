@@ -922,8 +922,9 @@ def _authored_flare_script(script, resource_root, prefix, data):
            '    preload("res://scripts/'+prefix+'_material.gd").bind(flare, '+json.dumps(fields)+')\n')
     script = script.replace(old, new)
     scale = data.get('phase_scale', {}).get('cast', 1)
+    multiplier = '1.0' if data.get('screen_px', False) else 'art_scale'
     return script.replace('flare.scale = Vector2.ONE * art_scale',
-                          'flare.scale = Vector2.ONE * art_scale * '+repr(float(scale)))
+                          'flare.scale = Vector2.ONE * '+multiplier+' * '+repr(float(scale)))
 
 
 def _write_vfx_kit(out, kit, base, cells, socket_data, annotation, kit_name=None, tint=None, shared_projectile=False):
@@ -1195,6 +1196,8 @@ def _write_authored_effect(out, kit, resource_root, prefix, counts, shared_proje
             continue
         kind = 'bolt' if phase == 'travel' else 'impact'
         script = template + constants + LAYER_SCRIPT
+        if data.get('screen_px', False):
+            script = script.replace('func _ready() -> void:\n', 'func _ready() -> void:\n    spell_scale = 1.0\n')
         if shared_projectile and kind == 'impact':
             script = script.replace('    _feedback()\n', '    if get_meta("strike_response", true):\n        _feedback()\n')
             script = script.replace('    _start_layers("impact")',
@@ -1316,6 +1319,10 @@ func _update_vfx_label() -> void:
 def _write_vfx_kits(out, kits, base, cells, socket_data, annotation):
     reports, entries = [], []
     _write_g1_component(out)
+    if any(kit.get('effect', {}).get('screen_px', False) for kit in kits):
+        g1_path = out/'scripts/vfx_g1.gd'
+        g1_path.write_text(g1_path.read_text().replace('spell_scale = art_scale',
+            'spell_scale = 1.0 if bool(config.get("screen_px", false)) else art_scale'))
     for index, kit in enumerate(kits):
         name = kit['name']
         report = _write_vfx_kit(out, kit, base, cells, socket_data,
@@ -1359,6 +1366,9 @@ def _write_vfx_kits(out, kits, base, cells, socket_data, annotation):
         directional = directional.replace(old, ''.join('    '+part if part.startswith(('if ', 'elif ', 'else:')) else part for part in alternatives))
         directional = directional.replace('flare.scale = Vector2.ONE * art_scale',
                                           'flare.scale = Vector2.ONE * art_scale * float(flare.get_meta("phase_scale", 1.0))')
+    if any(kit.get('effect', {}).get('screen_px', False) for kit in kits):
+        directional = directional.replace('Vector2.ONE * art_scale * float(flare.get_meta',
+            'Vector2.ONE * (1.0 if bool(VFX_KITS[cast_kit_index].get("screen_px", false)) else art_scale) * float(flare.get_meta')
     directional = _g1_directional(directional)
     (out/'scripts/keeper.gd').write_text(keeper+directional+'\nconst VFX_KITS = '+
                                        json.dumps(entries, allow_nan=False)+'\n'+PICKER_SCRIPT)
@@ -1681,7 +1691,7 @@ def _g1_config(kit):
     authored = bool(data)
     fields = {'res://'+root+'/sprites/'+source: 'res://'+root+'/'+field
               for source, field in data.get('distance_fields', {}).items() if source.startswith('travel/')}
-    return {'name': name, 'flare': 'res://'+root+'/flare.tres',
+    return {**({'screen_px': True} if data.get('screen_px', False) else {}), 'name': name, 'flare': 'res://'+root+'/flare.tres',
             'bolt': 'res://scenes/vfx/g1_projectile.tscn',
             'head': 'res://'+root+('/travel.tres' if authored else '/flare.tres'),
             'animation': 'travel' if authored else 'flare',
@@ -2444,6 +2454,9 @@ PIECE_BURST_V2_SCRIPT = '''extends "res://scripts/vfx/piece_burst.gd"
 # use whole-body UV distance, never a distance field re-centred on a shard.
 func _ready() -> void:
     config = JSON.parse_string(FileAccess.get_file_as_string(configuration))
+    if bool(config.get("screen_px", false)):
+        spell_scale = 1.0
+    $FloorLight.scale *= spell_scale
     release_tick = Engine.get_physics_frames()
     $Art.scale = Vector2.ONE * float(config.phase_scale) * spell_scale
     for item in config.pieces:
@@ -2512,7 +2525,7 @@ func set_effect_age(age: int) -> void:
         var paint: Sprite2D = data.paint
         var root_sprite: Sprite2D = data.root
         var active: bool = int(item.area_px) >= 48 and age >= flight_start and age < residue_end
-        # Seeded along stretch is 2.5..3.0; drift is in core-radius units.
+        # Seeded along stretch is 2.0..2.5; drift is in core-radius units.
         var root_drift_px: float = 0.0 if bool(item.core) else float(config.root_drift) * float(config.core_radius_px) * ease
         var root_start: Vector2 = Vector2(float(item.root[0])-float(config.centre[0]),float(item.root[1])-float(config.centre[1]))
         axis.set_position(root_start + Vector2.RIGHT.rotated(float(item.axis_radians)) * root_drift_px)
@@ -2521,26 +2534,20 @@ func set_effect_age(age: int) -> void:
             var core_t: float = clampf(float(age-flight_start)/9.0,0.0,1.0)
             node.scale = Vector2.ONE * lerpf(1.0,1.25,1.0-pow(1.0-core_t,3.0))
         else:
-            node.scale = Vector2(lerpf(1.0,float(item.along),ease),lerpf(1.0,0.7,ease))
-        # Per-piece threshold curve: core erosion starts after its 9-tick swell;
-        # tongues start at 15 ticks. Thresholds share the WHOLE-BODY field.
-        var start: int = int(item.erosion_start_tick) + flight_start
-        var erode_t: float = clampf(float(age-start)/float(residue_start-start),0.0,1.0)
-        var erode: float = lerpf(0.0,1.0,erode_t)
-        var dissolve: float = (1.0 if bool(config.grouped_dissolve) else 0.5) * erosion_t
-        var residue_dissolve: float = 0.5 * erosion_t
+            node.scale = Vector2(lerpf(1.0,float(item.along),ease),lerpf(1.0,0.85,ease))
+        # Tips burn back first; no band loss during expansion or erosion.
+        var erode: float = erosion_t
+        var residue_t: float = clampf(float(age-residue_start)/float(config.residue_frames),0.0,1.0)
+        var dissolve: float = 1.0 if age >= residue_end else 0.8 * residue_t
         axis.visible = active and age < residue_start
         paint.visible = true
         paint.material.set_shader_parameter("erode",erode)
-        paint.material.set_shader_parameter("dissolve",dissolve)
-        # Residue-by-erosion: a stationary radial interval of original masks.
-        # No shrinking, relocating, replacing or resegmenting the source art.
+        paint.material.set_shader_parameter("dissolve",0.0)
         var root_erode: float = float(config.residue_erode) * erosion_t
-        var outer: float = lerpf(1.0,float(config.residue_outer),erosion_t)
+        var outer: float = 1.0 - root_erode
         root_sprite.visible = active
         root_sprite.material.set_shader_parameter("erode",root_erode)
-        root_sprite.material.set_shader_parameter("outer_distance",outer)
-        root_sprite.material.set_shader_parameter("dissolve",residue_dissolve)
+        root_sprite.material.set_shader_parameter("dissolve",dissolve)
         if data.dark_axis != null:
             var dark: Node2D = data.dark_axis
             dark.transform = axis.transform
@@ -2549,15 +2556,14 @@ func set_effect_age(age: int) -> void:
             var dark_paint: Sprite2D = dark.get_node("Stretch/Piece_%03d" % int(item.id))
             dark_paint.visible = true
             dark_paint.material.set_shader_parameter("erode",erode)
-            dark_paint.material.set_shader_parameter("dissolve",dissolve)
+            dark_paint.material.set_shader_parameter("dissolve",0.0)
             var dark_root: Sprite2D = data.dark_root
             dark_root.visible = active
             dark_root.material.set_shader_parameter("erode",root_erode)
-            dark_root.material.set_shader_parameter("outer_distance",outer)
-            dark_root.material.set_shader_parameter("dissolve",residue_dissolve)
+            dark_root.material.set_shader_parameter("dissolve",dissolve)
         if active:
             count += 1
-        states.append({"id":item.id,"visible":active,"core":item.core,"scale":[node.scale.x,node.scale.y],"root_position":[axis.position.x,axis.position.y],"root_displacement_px":root_drift_px,"rotation_deg":float(item.rotation_deg)*ease,"erode":erode,"dissolve":dissolve,"residue_erode":root_erode,"residue_outer":outer})
+        states.append({"id":item.id,"visible":active,"core":item.core,"scale":[node.scale.x,node.scale.y],"root_position":[axis.position.x,axis.position.y],"root_displacement_px":root_drift_px,"rotation_deg":float(item.rotation_deg)*ease,"erode":erode,"dissolve":dissolve,"residue_erode":root_erode,"residue_outer":outer,"erode_outside_in":true,"expanded_dissolve":0.0,"screen_px":bool(config.get("screen_px",false))})
     trace.append({"age_frames":age,"stage":stage,"peak_visible":$Art/Peak.visible,"shard_count":count,"source_piece_count":pieces.size(),"pieces":states})
     if age >= residue_end:
         hide()
@@ -2570,8 +2576,8 @@ def _write_piece_burst_v2(out, kit, resource_root, prefix):
     """Rooted anisotropic sprites plus stationary eroded core/root coverage.
 
     The stationary layer uses the same original masks and whole-body field.
-    An upper-distance clip bounds its retained roots; erode still removes the
-    centre first. No shader or scene used by a legacy kit is changed.
+    Outside-in erosion retains the innermost coverage without an inner hole.
+    No shader or scene used by a legacy kit is changed.
     """
     import copy
     import numpy as np
@@ -2591,7 +2597,7 @@ def _write_piece_burst_v2(out, kit, resource_root, prefix):
     geometry = piece_geometry(record, source_root)
     runtime_path = out/resource_root/'pieces/burst_runtime.json'
     runtime = json.loads(runtime_path.read_text())
-    runtime.update(template='burst_v2', core_centre=geometry['core_centre'],
+    runtime.update(template='burst_v2', erode_outside_in=True, screen_px=data.get('screen_px', False), core_centre=geometry['core_centre'],
                    core_radius_px=geometry['core_radius_px'], root_drift=config['root_drift'],
                    grouped_dissolve=config.get('dissolve_order', data['material'].get('dissolve_order', [[3],[2],[1],[0]])) != [[3],[2],[1],[0]], pieces=[])
     with Image.open(source_root/record['peak_index']) as image:
@@ -2599,21 +2605,18 @@ def _write_piece_burst_v2(out, kit, resource_root, prefix):
     field = distance_field(peak)
     field_rel = resource_root+'/pieces/whole_body_distance.png'
     Image.fromarray(field).save(out/field_rel)
-    # VO1 support, not alpha-weighted area; band 3 has already dissolved.
-    eligible = np.zeros(peak.shape[:2], dtype=bool)
-    for item in geometry['pieces']:
-        if item['animated']:
-            with Image.open(source_root/item['mask']) as image:
-                eligible |= np.asarray(image.convert('RGBA'))[...,3] > 0
-    eligible &= peak[...,0] < 255
-    lower = .04
-    histogram = np.bincount(field[eligible & (field/255 >= lower)], minlength=256)
+    # Denominator is maximum HOLD body support, not expanded temporal maximum.
+    eligible = peak[...,3] > 0
+    histogram = np.bincount(field[eligible], minlength=256)
     cumulative = np.cumsum(histogram)
-    target_area = config['residue_fraction'] * np.count_nonzero(peak[...,3])
+    target_area = config['residue_fraction'] * np.count_nonzero(eligible)
     cutoff = int(np.argmin(abs(cumulative-target_area)))
-    runtime.update(residue_erode=lower, residue_outer=cutoff/255,
+    # Half a quantization bin avoids floating equality dropping the cutoff bin.
+    runtime.update(residue_erode=1-(cutoff+.5)/255,
+                   residue_outer=(cutoff+.5)/255,
                    predicted_stationary_residue_area_px=int(cumulative[cutoff]),
-                   source_peak_area_px=int(np.count_nonzero(peak[...,3])))
+                   source_peak_area_px=int(np.count_nonzero(eligible)),
+                   residue_denominator='maximum hold-frame body alpha>0 coverage')
     scene = scene.replace('res://scripts/vfx/piece_burst.gd','res://scripts/vfx/piece_burst_v2.gd')
     # Root-only upper clip is a v2 shader variant. The shared T4a shader is frozen.
     extra_nodes = ['[node name="Roots" type="Node2D" parent="Art"]\n',
@@ -2622,18 +2625,14 @@ def _write_piece_burst_v2(out, kit, resource_root, prefix):
     for item in geometry['pieces']:
         ident = item['id']; name = 'Piece_%03d' % ident
         material_rel = resource_root+'/materials/Piece_'+name+'.tres'
-        material_config = dict(data['material'])
+        material_config = dict(data['material'], erode_outside_in=True)
         if 'dissolve_order' in config:
             material_config['dissolve_order'] = config['dissolve_order']
         write_vfx_material(out, material_rel, material_config, field_rel)
         material = (out/material_rel).read_text()
         shader_ref = re.search(r'path="res://([^"]+\.gdshader)"', material)[1]
         root_shader = str(Path(shader_ref).with_name('vfx_material_v2_roots.gdshader'))
-        source = (out/shader_ref).read_text()
-        source = source.replace('uniform bool dark_duplicate', 'uniform float outer_distance = 1.0;\nuniform bool dark_duplicate')
-        source = source.replace('float distance_value = texture(distance_texture, UV).r;',
-                                'float distance_value = texture(distance_texture, UV).r;\n    if (distance_value > outer_distance) { coverage = 0.0; }')
-        (out/root_shader).write_text(source)
+        (out/root_shader).write_text((out/shader_ref).read_text())
         root_mat = resource_root+'/materials/Root_%03d.tres' % ident
         (out/root_mat).write_text(material.replace(shader_ref, root_shader))
         ext = f'[ext_resource type="Material" path="res://{root_mat}" id="RootM{ident}"]\n'
@@ -2658,7 +2657,7 @@ def _write_piece_burst_v2(out, kit, resource_root, prefix):
                            f'offset = {vector(-record["centre"][0],-record["centre"][1])}\n'
                            f'texture = ExtResource("T{name}")\nmaterial = ExtResource("RootM{ident}")\n')
         runtime['pieces'].append({**item, **piece_stretch(config['seed'],ident),
-                                  'erosion_start_tick':9 if item['core'] else 15})
+                                  'erosion_start_tick':15})
     scene += '\n'.join(extra_nodes)
     scene = re.sub(r'load_steps=\d+', 'load_steps='+str(scene.count('[ext_resource ')+1),scene,count=1)
     (out/'scripts/vfx/piece_burst_v2.gd').write_text(PIECE_BURST_V2_SCRIPT)

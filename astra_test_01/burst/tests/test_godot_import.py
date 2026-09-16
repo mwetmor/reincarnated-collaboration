@@ -506,3 +506,120 @@ class TouchDeviceAimEmissionTests(unittest.TestCase):
         from export.godot_import import DIRECTIONAL_KEEPER, _g1_directional
         keeper = _g1_directional(DIRECTIONAL_KEEPER)
         self.assertIn('    else:\n        var cursor: Vector2 = get_global_mouse_position() if vfx_cursor_override == null else vfx_cursor_override\n        destination = G1.resolve_target(get_tree(), global_position, direction, cursor, float(kit.range_px) * art_scale)\n', keeper)
+
+
+# T4k: verify a diagnostic trace without silently weakening the all-layer gate.
+def piece_layer_uniform_diagnostic(rows, age=30):
+    row = next(row for row in rows if row['age'] == age)
+    pair_mismatches, all_layer_mismatches = [], []
+    for piece in row['pieces']:
+        layers = piece['layers']
+        if len(layers) != 4:
+            raise ValueError('Expected expanding/root paint and their two dark duplicates')
+        keys = ('erode','dissolve','outer_distance')
+        for body,dark in ((layers[0],layers[2]),(layers[1],layers[3])):
+            if any(body[key] != dark[key] for key in keys):
+                pair_mismatches.append({'id':piece['id'],'body':body['path'],'dark':dark['path']})
+        if any(layers[0][key] != layer[key] for layer in layers[1:] for key in keys):
+            all_layer_mismatches.append(piece['id'])
+    return {'age':age,'pieces':len(row['pieces']),
+            'paired_body_dark_uniform_equality':not pair_mismatches,
+            'all_piece_layer_uniform_equality':not all_layer_mismatches,
+            'pair_mismatches':pair_mismatches,'all_layer_mismatches':all_layer_mismatches,
+            'peak_dark_visible':row['peak_dark_visible']}
+
+
+class PieceLap3LayerInstrumentTests(unittest.TestCase):
+    def test_distinguishes_pairwise_and_literal_all_layer_equality(self):
+        import copy
+        layers = [{'path':name,'erode':.5,'dissolve':.5,'outer_distance':1.0}
+                  for name in ('paint','root','dark_paint','dark_root')]
+        rows = [{'age':30,'peak_dark_visible':False,'pieces':[{'id':1,'layers':layers}]}]
+        report = piece_layer_uniform_diagnostic(rows)
+        self.assertTrue(report['all_piece_layer_uniform_equality'])
+        bad = copy.deepcopy(rows)
+        bad[0]['pieces'][0]['layers'][2]['erode'] = .2
+        self.assertFalse(piece_layer_uniform_diagnostic(bad)['paired_body_dark_uniform_equality'])
+        different_phase = copy.deepcopy(rows)
+        for index in (1,3):
+            different_phase[0]['pieces'][0]['layers'][index]['erode'] = .2
+        report = piece_layer_uniform_diagnostic(different_phase)
+        self.assertTrue(report['paired_body_dark_uniform_equality'])
+        self.assertFalse(report['all_piece_layer_uniform_equality'])
+
+
+class PieceLap3LegacyByteTests(unittest.TestCase):
+    def test_six_kits_and_v1_against_pre_t4k_export_hash_table(self):
+        import hashlib
+        from export.godot_import import _load_vfx_kit, _write_authored_effect
+        root = Path(__file__).resolve().parents[1]
+        baseline = json.loads((root/'runs/C-5/t3/T4k/legacy_hashes.json').read_text())
+        TMP.mkdir(parents=True,exist_ok=True)
+        with tempfile.TemporaryDirectory(prefix='t4k-legacy-',dir=TMP) as td:
+            out = Path(td)
+            for part in ('scripts','scenes','vfx'):
+                (out/part).mkdir()
+            for name in baseline['kits']:
+                kit = _load_vfx_kit(root/'runs/C-5/vfx_kits/v9'/name)
+                _write_authored_effect(out,kit,'vfx/'+name,'vfx_'+name,{})
+            actual = {p.relative_to(out).as_posix():hashlib.sha256(p.read_bytes()).hexdigest()
+                      for p in sorted(out.rglob('*')) if p.is_file()}
+            self.assertEqual(actual,baseline['before'])
+
+
+def burn_back_trace():
+    root=Path(__file__).resolve().parents[1]/'runs/C-5/t3/T4l'
+    path=root/'project/clock_trace.json'
+    if path.is_file(): return json.loads(path.read_text())
+    import tarfile
+    with tarfile.open(root/'evidence.tar.gz') as archive:
+        return json.loads(archive.extractfile('project/clock_trace.json').read())
+
+
+class BurnBackExportTests(unittest.TestCase):
+    def test_real_clock_uniforms_screen_scale_and_release(self):
+        root=Path(__file__).resolve().parents[1]/'runs/C-5/t3/T4l'
+        rows=burn_back_trace()
+        self.assertEqual([r['age_frames'] for r in rows],list(range(77)))
+        for row in rows:
+            self.assertEqual(row['art_scale'],[1.0,1.0])
+            self.assertEqual(row['floor_scale'],[7.5,4.5])
+            for item in row['actual_uniforms']:
+                paint,stationary,dark,dark_stationary=item['layers']
+                self.assertEqual(paint,dark);self.assertEqual(stationary,dark_stationary)
+                self.assertTrue(paint['erode_outside_in']);self.assertTrue(stationary['erode_outside_in'])
+                self.assertEqual(paint['dissolve'],0.0)
+                if row['stage'] in ('hold','expansion','erosion'):
+                    self.assertEqual(stationary['dissolve'],0.0)
+                if row['stage']=='residue': self.assertLess(stationary['dissolve'],5/6)
+                if row['stage']=='zero': self.assertEqual(stationary['dissolve'],1.0)
+        self.assertEqual(rows[-1]['stage'],'zero')
+
+    def test_legacy_488_byte_table(self):
+        import hashlib
+        from export.godot_import import _load_vfx_kit,_write_authored_effect
+        root=Path(__file__).resolve().parents[1]
+        baseline=json.loads((root/'runs/C-5/t3/T4l/legacy_hashes.json').read_text())
+        with tempfile.TemporaryDirectory(prefix='t4l-legacy-',dir=TMP) as td:
+            out=Path(td)
+            for part in ('scripts','scenes','vfx'):(out/part).mkdir()
+            for name in baseline['kits']:
+                kit=_load_vfx_kit(root/'runs/C-5/vfx_kits/v9'/name)
+                _write_authored_effect(out,kit,'vfx/'+name,'vfx_'+name,{})
+            actual={p.relative_to(out).as_posix():hashlib.sha256(p.read_bytes()).hexdigest() for p in sorted(out.rglob('*')) if p.is_file()}
+            self.assertEqual(actual,baseline['before'])
+            self.assertEqual(len(actual),488)
+
+    def test_screen_px_picker_g1_and_socket_contract(self):
+        from export.godot_import import _g1_config
+        fixture=PieceBurstImportTests();fixture.setUp();self.addCleanup(fixture.doCleanups)
+        kit=fixture.root/'kit/kit.json';data=json.loads(kit.read_text())
+        data['screen_px']=True;data['pieces']['template']='burst_v2';kit.write_text(json.dumps(data))
+        project=fixture.root/'screen_project'
+        build_project(fixture.cells,project,vfx_kits=fixture.catalogue,sockets=fixture.sockets)
+        keeper=(project/'scripts/keeper.gd').read_text()
+        self.assertIn('1.0 if bool(VFX_KITS[cast_kit_index].get("screen_px", false)) else art_scale',keeper)
+        self.assertIn('G1.acquire(get_parent(), kit, socket, destination, self, art_scale)',keeper)
+        self.assertIn('spell_scale = 1.0 if bool(config.get("screen_px", false)) else art_scale',(project/'scripts/vfx_g1.gd').read_text())
+        self.assertTrue(_g1_config({'name':'a','effect':data})['screen_px'])
+        self.assertNotIn('screen_px',_g1_config({'name':'legacy'}))

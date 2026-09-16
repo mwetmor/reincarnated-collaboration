@@ -4502,6 +4502,305 @@
       "codex_version": "codex-cli 0.153.4",
       "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
       "exit": 3
+    },
+    {
+      "id": "CS-pack-v24",
+      "type": "PACK",
+      "experiment": "C5-P0b",
+      "brief_sha256": "425f2ee8030d13e21e86ff7dbf2d24d2b490db6ed430aa4eace878d18ceec35b",
+      "started": "2026-09-16T04:16:46.028229+00:00",
+      "ended": "2026-09-16T04:19:09.539491+00:00",
+      "minutes": 2.39187388541662,
+      "image_calls": 0,
+      "tool_calls": 5,
+      "audit": {
+        "violations": [],
+        "image_calls": 0,
+        "tool_calls": 5,
+        "tools_seen": {
+          "command_execution": 5
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": []
+      },
+      "receipt_sha256": "c224b4b54972a8f31935d993beb8077fd252afc9cd2efcd261f801fb5b1723fb",
+      "artifacts": [
+        {
+          "name": "README_scene.txt",
+          "sha256": "fdc46d73350dd151b9f03c9f89f85346a3ca6def881c0ce5a7501b8559d1149c"
+        },
+        {
+          "name": "exporter.json",
+          "sha256": "90e231d9445d3c2b7d2ca4f9b8f0536e8846a6da7386408ec9485c5a0a863c21"
+        },
+        {
+          "name": "godot/project.godot",
+          "sha256": "6a8166148fc0b3e54f8589a0a716379636040f615b0f827ea49f2dfe7a6c5deb"
+        },
+        {
+          "name": "godot/scenes/cliffside.tscn",
+          "sha256": "0a1c27164444eff8276b45ed03f339614b7da2c43bfca4bf69b0accf5e586367"
+        },
+        {
+          "name": "godot/scenes/main.tscn",
+          "sha256": "a7ff2b1ba99ca306dacd7fbee1556fbfbed54d72cc8e3c01ab72e1aba58b874d"
+        },
+        {
+          "name": "godot/scenes/vfx_blackwater_cocktail_impact.tscn",
+          "sha256": "e5ddd467c72eb10b42d5b85ea1f5a151941a3c1ec4ae6fbdf463815e21409bf3"
+        },
+        {
+          "name": "godot/scenes/vfx_fire_burst_e0p_impact.tscn",
+          "sha256": "3396177981a9f617d58b7ddc882b24db1e1bb42f46445beb4ae1992b39a26032"
+        },
+        {
+          "name": "godot/scenes/vfx_fire_burst_e0p_v2_impact.tscn",
+          "sha256": "e8478f177dcd824704e4fc88b2091a246eafeb055884a008effb8ba81c5cc451"
+        },
+        {
+          "name": "godot/scenes/vfx_frozen_orb_impact.tscn",
+          "sha256": "16985b18f3cbc32bf899010a609b760725cc0e1a3f46ecc4bde7e5816eeab3ac"
+        },
+        {
+          "name": "godot/scenes/vfx_healing_hands_impact.tscn",
+          "sha256": "8c75c6faca42086fdbd4ea27156b19e72db7a4cd3ec675bffd721d9946da9957"
+        },
+        {
+          "name": "godot/scenes/vfx_lightning_blast_impact.tscn",
+          "sha256": "8c9987d3965f65198347dd64d4f980aa98bc519da9e4c86889e91a789aa0f699"
+        },
+        {
+          "name": "godot/scenes/vfx_poisonous_concoction_impact.tscn",
+          "sha256": "ba602145d646797ab6c1671124f2259556c4a8e2f50de219c42cd5f9c7a48aec"
+        },
+        {
+          "name": "godot/scenes/vfx_zeus_chain_impact.tscn",
+          "sha256": "fc5c7695c0521460c88ce4b15e3981ac5a400039ee9d94d64285b83db9d758a7"
+        },
+        {
+          "name": "godot/scripts/fly_swarm.gd",
+          "sha256": "8603f91597f1f8aeb74b6238a6a2860c3ac807b4c67edca13f56f40b08b33423"
+        },
+        {
+          "name": "godot/scripts/glow_flicker.gd",
+          "sha256": "fee0db3aa00b834bc1f6198886c6e476f45b91fd012ce641a0145e97ec857671"
+        },
+        {
+          "name": "godot/scripts/keeper.gd",
+          "sha256": "24b4856a7f4e869ca74f90dfc84036126cef816286b90b7c4c9ab20eaabcbbb4"
+        },
+        {
+          "name": "godot/scripts/occlusion_fade.gd",
+          "sha256": "96d37de2e8c7790cb00815fb1f939389872874ba23b43dc017d8530d3db62f61"
+        },
+        {
+          "name": "godot/scripts/vfx_blackwater_cocktail_impact.gd",
+          "sha256": "ee7746d714018555bb06d3946e61704cfafae5859da57748f7482f446ef34cac"
+        },
+        {
+          "name": "godot/scripts/vfx_blackwater_cocktail_material.gd",
+          "sha256": "596472d72bfc8e56af2139756e7cb21b948be6c29192a7d4fb7b2fbe042315d1"
+        },
+        {
+          "name": "godot/scripts/vfx_contact_label.gd",
+          "sha256": "1d79a93b4c9509a28f67b975f0b9474ed6e0baa4471ff749ae8048bd644a33fe"
+        },
+        {
+          "name": "godot/scripts/vfx_fire_burst_e0p_impact.gd",
+          "sha256": "69b38d7953c31bad3e6f8318b55cb3cbf1f8f81b557c1c08ae4e7dbb82a6dddf"
+        },
+        {
+          "name": "godot/scripts/vfx_fire_burst_e0p_material.gd",
+          "sha256": "596472d72bfc8e56af2139756e7cb21b948be6c29192a7d4fb7b2fbe042315d1"
+        },
+        {
+          "name": "godot/scripts/vfx_fire_burst_e0p_v2_impact.gd",
+          "sha256": "8bfe52fb10cc9e25bc82fbf74998d08fa539ec79f5aeb06eb584215eb1d43c78"
+        },
+        {
+          "name": "godot/scripts/vfx_fire_burst_e0p_v2_material.gd",
+          "sha256": "596472d72bfc8e56af2139756e7cb21b948be6c29192a7d4fb7b2fbe042315d1"
+        },
+        {
+          "name": "godot/scripts/vfx_frozen_orb_impact.gd",
+          "sha256": "77eafbb9e96eef5233045309122e9729a812d59d06f2247e02541b06d9fbf55c"
+        },
+        {
+          "name": "godot/scripts/vfx_frozen_orb_material.gd",
+          "sha256": "596472d72bfc8e56af2139756e7cb21b948be6c29192a7d4fb7b2fbe042315d1"
+        },
+        {
+          "name": "godot/scripts/vfx_g1.gd",
+          "sha256": "99cec009ff894fdbffe6510a4c76576c8e38b49ce24f02fae62127743208a9d7"
+        },
+        {
+          "name": "godot/scripts/vfx_healing_hands_impact.gd",
+          "sha256": "4257300a57e9d823fbffd593a74435e80d5191324e1db167335b466fd3d02c46"
+        },
+        {
+          "name": "godot/scripts/vfx_healing_hands_material.gd",
+          "sha256": "596472d72bfc8e56af2139756e7cb21b948be6c29192a7d4fb7b2fbe042315d1"
+        },
+        {
+          "name": "godot/scripts/vfx_lightning_blast_impact.gd",
+          "sha256": "fe13db8454b494f19cdc5442532eea4acc702d31c60d5c4f2c9108772f4c12b5"
+        },
+        {
+          "name": "godot/scripts/vfx_lightning_blast_material.gd",
+          "sha256": "596472d72bfc8e56af2139756e7cb21b948be6c29192a7d4fb7b2fbe042315d1"
+        },
+        {
+          "name": "godot/scripts/vfx_poisonous_concoction_impact.gd",
+          "sha256": "356743d5918f37c290a977857c400ca9b5ed3344cdb8e1c404bcac50136f8f69"
+        },
+        {
+          "name": "godot/scripts/vfx_poisonous_concoction_material.gd",
+          "sha256": "596472d72bfc8e56af2139756e7cb21b948be6c29192a7d4fb7b2fbe042315d1"
+        },
+        {
+          "name": "godot/scripts/vfx_zeus_chain_impact.gd",
+          "sha256": "27cbfd483d68b02937dee96432d13c4bfaed826380e6df15c6eac69364e64a43"
+        },
+        {
+          "name": "godot/scripts/vfx_zeus_chain_material.gd",
+          "sha256": "596472d72bfc8e56af2139756e7cb21b948be6c29192a7d4fb7b2fbe042315d1"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
+    },
+    {
+      "id": "T4l",
+      "type": "TOOLING",
+      "experiment": "C5-E0p",
+      "brief_sha256": "13d10979af0a09530542845efc9d56a40dc04665b3b0bde5c5672ed189340f1d",
+      "started": "2026-09-16T04:24:25.298866+00:00",
+      "ended": "2026-09-16T04:37:04.805224+00:00",
+      "minutes": 12.658522955550021,
+      "image_calls": 0,
+      "tool_calls": 26,
+      "audit": {
+        "violations": [],
+        "image_calls": 0,
+        "tool_calls": 26,
+        "tools_seen": {
+          "command_execution": 26
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [],
+        "execution_error": "receipt reports unsuccessful execution"
+      },
+      "receipt_sha256": "4f2500ba614cfaa04db8fae05aecacf4d59330e1d5b40bcdeebdd44c05a43ddf",
+      "artifacts": [],
+      "artifacts_in_place": [
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "export/effect_kit.py",
+          "sha256": "436c12763c7402231ef27c668a6d0c9ef343e0ad07997725de38107bf6a8804c"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "export/godot_import.py",
+          "sha256": "6c57d17ba9276b046311ae79bfc298b9e37bdbf043d781707bf988fd916a7245"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "export/vfx_material.gdshader",
+          "sha256": "4686ee3f97be3f13a15e44e947874c7bc23c502090ad2b1dbbac18f09282d340"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-5/t3/T4l/README.md",
+          "sha256": "73605e8e65342d7336949b07536df0638d67e4f6f3d3af509a50a4ff1abaf5ba"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-5/t3/T4l/acceptance.json",
+          "sha256": "e30737556c8468490607ba1db77a4cfee57d6a02ce9f2b6d41b93654ee30482e"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-5/t3/T4l/cpu.json",
+          "sha256": "123f1b14f838390a36490d925e2a7ef3a02ea80c5a8c0d7badf77de1a134fd5e"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-5/t3/T4l/evidence.tar.gz",
+          "sha256": "545804552968b5368e7df9e44b1fa865d147d28124ccd49019da510212437aaa"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-5/t3/T4l/headless.json",
+          "sha256": "4a60fece9852cf89d6903578df838baf35749c39a4799390530180dc751b699f"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-5/t3/T4l/legacy_hashes.json",
+          "sha256": "33f1966aa5311f3b5add941f18dcc40b49eb257a2b6053812e506971f8a2fa63"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-5/t3/T4l/residue_sweep.json",
+          "sha256": "3f5780e232e67bdca02caed5bd03d933a3a633b0af7cbce6e45fc87555265e99"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-5/t3/T4l/residue_unittest.json",
+          "sha256": "4826c0af997756e20cbaf67aa2b5928a31ec29c75d4f02faa893bda9b2a61de8"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-5/t3/T4l/tip_order.json",
+          "sha256": "6171dbf766b8a3f955502867ccd6d8e2cfd2eeb887308864f6888e94e9a8d34e"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-5/t3/T4l/unittest.json",
+          "sha256": "8a45b861a43ffaa425c465888c08b45aa218d96d32fabdba49d49991bdd8f54c"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-5/vfx_kits/v9/fire_burst_e0p_v2/kit.json",
+          "sha256": "58b6d1a446ebcffb456be04791ee40764777f01a779419dc77e35d40a7d96af3"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "tests/test_effect_kit.py",
+          "sha256": "88d3dd609f37dfb55cd8a09d856d76569fd67e65b74743e2ae2c54e46cbff9e7"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "tests/test_godot_import.py",
+          "sha256": "058f49b5ce73228baf9269dba0c33630c0c5ccff180c8f0f75809fb2450d6f6d"
+        }
+      ],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 3
     }
   ],
   "experiments": [],
@@ -4792,6 +5091,20 @@
       "veto_open": true,
       "ruling": "T4k returned FAILED-honest (10 min, no production edits): the stipulated F-C5-6 cause (original-UV distance sampling / outer_distance clip) is NOT in the emitter — at age 8 erode=0, dissolve=0, no outer_distance on expanding sprites, CPU 3× stretch keeps 99.9 % coverage with zero boundary discards. F-C5-7: at age 30 every dark sprite shares its body sprite's uniforms; bands 0 AND 1 survive together below the [1,0] threshold — the ring is the DESIGNED result of centre-out erosion + bright-first dissolve, i.e. my template, not a defect in the build. Conductor re-diagnosis: (6) the 511 plateau is a bake-side clip (v1 reached 767 in the same 768 crop; v2 lap 2 bbox to be measured) — checked by PACK v24 in-scene before any TOOLING; (7) design correction owed: for a fire impact the residue sits at the impact point, so erosion must run OUTSIDE-IN (tips first, core last) with the dissolve dimming the core to embers in the residue phase — centre-out erosion leaves a ring by construction. Astra was right to refuse; the brief stipulated a cause instead of asking for one.",
       "ts": "2026-09-16T00:16:45"
+    },
+    {
+      "id": "R-C5-32",
+      "class": "conductor",
+      "veto_open": true,
+      "ruling": "F-C5-6 CLOSED as a fixture artefact: baked from a cliffside_v24-derived replay project the lap-2 v2 expansion is unclipped (bbox 39–495 in 768; extent 204 → 456 = 2.2×, matching the CPU prediction). NEW F-C5-8 (scale contract): in the exported scene the burst is multiplied by the character art_scale (0.608 at 13.5 %) — hold extent 204 px ≈ 1.4 BH against the authored 2.35 BH at 1:1; VFX kits authored in screen px (E0-p) must be placed at 1.0 × phase_scale, never × the cell scale — folded into T4l as a per-kit `screen_px` flag (legacy kits untouched). T4l fires now.",
+      "ts": "2026-09-16T00:23:13"
+    },
+    {
+      "id": "R-C5-33",
+      "class": "conductor",
+      "veto_open": true,
+      "ruling": "T4l returned FAILED-honest but the BUILD is accepted on the conductor eye + outside bake (lap 3: flare → tongues burn back → ember core dims at the origin; extent 1.68×; connected through expansion; residue 16.8 % held then embers; seed-equal identical; 488 legacy files byte-identical). The two failing clauses were MINE: compactness ≥ 0.9 must exclude the ember frames (embers fragment by nature — 0.67 at the last frame), and the 15–25 % band applies at residue ENTRY, after which the ember dissolve dims it by design. FREEZE with SIX named obsolete reds beyond the five standing (two T4l literal-clause tests + four retained lap-2 expectations: stretch 2.5–3 → 2.0–2.5; whole-body distance/drift expectations) — all £0 test alignment, T4m. PACK v25 fires on this freeze → Packet 89 in-scene at 1:1.",
+      "ts": "2026-09-16T00:44:41"
     }
   ],
   "grok_calls": [],
@@ -4843,6 +5156,11 @@
       "id": "N-C5-T4j-bake-clip",
       "note": "Lap-2 bake bbox: frames 8–20 span x 0–511, y 0–392 of the 768 frame with the body centred near (270,233) — the effect sits in a 512 window at the top-left, not at the 768 centre; the T4h-r1 v1 bake in ITS fixture reached x 767. So the 511 plateau is the T4j evidence fixture project (512 viewport/window), not the effect: F-C5-6 downgraded to a fixture artefact pending the PACK v24 in-scene check + a bake from a cliffside-derived replay project.",
       "ts": "2026-09-16T00:17:12"
+    },
+    {
+      "id": "N-C5-refreeze-T4l",
+      "note": "SPEC.md lap-3 correction clause was written AFTER the R-C5-33 freeze (25be9dd01c42) — re-frozen immediately; MANIFEST restamped. If PACK v25 VOIDs on the manifest it is re-fired on the re-freeze.",
+      "ts": "2026-09-16T00:45:24"
     }
   ]
 }

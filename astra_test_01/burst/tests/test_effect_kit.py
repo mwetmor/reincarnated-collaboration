@@ -1364,3 +1364,189 @@ if __name__ == '__main__':
         print(json.dumps(measure_frozen_orb_ramp(sys.argv[2]), indent=2))
     else:
         unittest.main()
+
+
+# T4k: CPU sampling instrument. It intentionally does not claim rendered proof.
+def burst_v2_stretched_sampling_diagnostic(kit_root):
+    """3x radial stretch, inverse original-UV sampling, and a clipped control.
+
+    Coverage is alpha-weighted to compare with the analytic affine Jacobian.
+    The bad control imposes the ORIGINAL canvas rectangle in world space;
+    this is not asserted to be a rule in the existing shader.
+    """
+    from scipy.ndimage import map_coordinates
+    from export.effect_kit import load_pieces, piece_geometry
+    kit_root = Path(kit_root)
+    kit = load_kit(kit_root)
+    config, record, _ = load_pieces(kit['pieces'], kit_root, runtime=True)
+    source = kit_root/Path(config['source']).parent
+    geometry = piece_geometry(record, source)
+    centre = np.asarray(record['centre'])
+    rows = []
+    for item in geometry['pieces']:
+        if not item['animated']:
+            continue
+        with Image.open(source/item['mask']) as image:
+            alpha = np.asarray(image.convert('RGBA'))[..., 3].astype(float)/255
+        angle = item['axis_radians']
+        c, s = math.cos(angle), math.sin(angle)
+        rotation = np.array([[c,-s],[s,c]])
+        matrix = rotation @ np.diag([3.0,.7]) @ rotation.T
+        root = np.asarray(item['root'])
+        position = root-centre + rotation[:,0]*config['root_drift']*geometry['core_radius_px']
+        y,x = np.nonzero(alpha)
+        corners = np.array([[x.min()-1,y.min()-1],[x.max()+1,y.min()-1],
+                            [x.min()-1,y.max()+1],[x.max()+1,y.max()+1]]).T
+        bounds = matrix @ (corners-root[:,None]) + position[:,None]
+        low = np.floor(bounds.min(axis=1)).astype(int)-2
+        high = np.ceil(bounds.max(axis=1)).astype(int)+2
+        yy,xx = np.mgrid[low[1]:high[1]+1,low[0]:high[0]+1]
+        world = np.stack([xx,yy]).reshape(2,-1)
+        original = np.linalg.solve(matrix,world-position[:,None])+root[:,None]
+        sample = map_coordinates(alpha,[original[1],original[0]],order=1,mode='constant')
+        visible = sample > 0
+        original_uv = (original+.5)/np.asarray(record['canvas'])[:,None]
+        boundary_discards = visible & np.any((original_uv<0)|(original_uv>1),axis=0)
+        world_source = world+centre[:,None]
+        clipped = np.any((world_source<0)|(world_source>=np.asarray(record['canvas'])[:,None]),axis=0)
+        analytic = float(alpha.sum()*abs(np.linalg.det(matrix)))
+        rows.append({'id':item['id'],'analytic_alpha_coverage_px':analytic,
+                     'sampled_alpha_coverage_px':float(sample.sum()),
+                     'coverage_ratio':float(sample.sum()/analytic),
+                     'original_uv_boundary_discards':int(boundary_discards.sum()),
+                     'outside_original_world_canvas_samples':int((visible&clipped).sum()),
+                     'known_bad_clipped_ratio':float(sample[~clipped].sum()/analytic)})
+    return {'instrument':'CPU inverse-affine bilinear alpha coverage at along=3, across=0.7; not a rendered bake',
+            'pieces':rows,'minimum_coverage_ratio':min(r['coverage_ratio'] for r in rows),
+            'boundary_discards':sum(r['original_uv_boundary_discards'] for r in rows),
+            'minimum_known_bad_clipped_ratio':min(r['known_bad_clipped_ratio'] for r in rows)}
+
+
+class PieceLap3SamplingTests(unittest.TestCase):
+    def test_original_uv_3x_coverage_and_canvas_clip_control(self):
+        report = burst_v2_stretched_sampling_diagnostic(ROOT/'runs/C-5/vfx_kits/v9/fire_burst_e0p_v2')
+        self.assertGreaterEqual(report['minimum_coverage_ratio'],.95)
+        self.assertEqual(report['boundary_discards'],0)
+        self.assertLess(report['minimum_known_bad_clipped_ratio'],.95)
+        self.assertGreater(sum(r['outside_original_world_canvas_samples'] for r in report['pieces']),0)
+
+
+# T4l instruments: actual emitted schedule, separate from retired lap-2 checks.
+def burn_back_cpu(project):
+    from scipy import ndimage
+    root = Path(project).resolve()/'vfx/fire_burst_e0p_v2/pieces'
+    def asset(name):
+        path = root/name
+        if path.is_file(): return path.read_bytes()
+        import tarfile
+        evidence = ROOT/'runs/C-5/t3/T4l'
+        with tarfile.open(evidence/'evidence.tar.gz') as archive:
+            return archive.extractfile(path.relative_to(evidence).as_posix()).read()
+    cfg = json.loads(asset('burst_runtime.json'))
+    peak = np.array(Image.open(io.BytesIO(asset('peak_index.png'))).convert('RGBA'))
+    field = np.array(Image.open(io.BytesIO(asset('whole_body_distance.png'))))/255
+    centre = np.asarray(cfg['centre'])
+    py,px = np.nonzero(peak[...,3]); extent = int(max(np.ptp(px)+1,np.ptp(py)+1))
+    # A fixed world pixel lattice; enlarged beyond the authored canvas.
+    size=1024; yy,xx=np.indices((size,size),dtype=float)
+    world=np.stack([xx-size//2,yy-size//2]).reshape(2,-1)
+    flight=cfg['flash_frames']+cfg['hold_frames']; erosion=flight+15
+    residue=erosion+21; end=residue+cfg['residue_frames']
+    masks=[]
+    for item in cfg['pieces']:
+        if not item['animated']: continue
+        pixels=np.array(Image.open(io.BytesIO(asset(item['mask']))).convert('RGBA'))
+        # Sample only a bounding rectangle for each transformed sprite.
+        y,x=np.nonzero(pixels[...,3]); bounds=np.array([[x.min()-1,y.min()-1],[x.max()+1,y.min()-1],[x.min()-1,y.max()+1],[x.max()+1,y.max()+1]]).T
+        masks.append((item,pixels,bounds))
+    def rot(a):
+        c,s=math.cos(a),math.sin(a);return np.array([[c,-s],[s,c]])
+    stationary=[]
+    for item,pixels,bounds in masks:
+        y,x=np.nonzero(pixels[...,3]); wx=np.rint(x-centre[0]+size//2).astype(int);wy=np.rint(y-centre[1]+size//2).astype(int)
+        stationary.append((wy,wx,field[y,x],pixels[y,x,0]//85))
+    cache={};rows=[]
+    for age in range(cfg['flash_frames'],end+1):
+        support=np.zeros((size,size),bool)
+        stage='hold' if age<flight else 'expansion' if age<=erosion else 'erosion' if age<residue else 'residue' if age<end else 'zero'
+        et=np.clip((age-erosion)/21,0,1); rt=np.clip((age-residue)/cfg['residue_frames'],0,1)
+        dissolve=1 if age>=end else .8*rt
+        thresholds=np.array([5/6,5/6,2/3,.5])
+        if stage=='hold': support[np.rint(py-centre[1]+size//2).astype(int),np.rint(px-centre[0]+size//2).astype(int)]=True
+        elif stage!='zero':
+            for wy,wx,dist,band in stationary:
+                keep=(dist<=1-cfg['residue_erode']*et)&(dissolve<thresholds[band]); support[wy[keep],wx[keep]]=True
+            if age<residue:
+                tick=min(age-flight,15); ease=1-(1-tick/15)**3
+                for item,pixels,bounds in masks:
+                    key=(item['id'],tick)
+                    if key not in cache:
+                        angle=item['axis_radians']; rootp=np.asarray(item['root'])
+                        scale=[1+.25*(1-(1-min(tick/9,1))**3)]*2 if item['core'] else [1+(item['along']-1)*ease,1-.15*ease]
+                        drift=0 if item['core'] else cfg['root_drift']*cfg['core_radius_px']*ease
+                        matrix=rot(angle+math.radians(item['rotation_deg'])*ease)@np.diag(scale)@rot(-angle)
+                        position=rootp-centre+rot(angle)[:,0]*drift
+                        corners=matrix@(bounds-rootp[:,None])+position[:,None]
+                        lo=np.floor(corners.min(axis=1)).astype(int)-2;hi=np.ceil(corners.max(axis=1)).astype(int)+2
+                        by,bx=np.mgrid[lo[1]:hi[1]+1,lo[0]:hi[0]+1]
+                        original=np.linalg.solve(matrix,np.stack([bx,by]).reshape(2,-1)-position[:,None])+rootp[:,None]
+                        coordinates=[original[1],original[0]]
+                        alpha=ndimage.map_coordinates(pixels[...,3].astype(float),coordinates,order=1,mode='constant')
+                        distance=ndimage.map_coordinates(field,coordinates,order=1,mode='nearest')
+                        cache[key]=(by.ravel()+size//2,bx.ravel()+size//2,alpha>0,distance)
+                    wy,wx,alpha,distance=cache[key];keep=alpha&(distance<=1-et)
+                    support[wy[keep],wx[keep]]=True
+        count=int(support.sum());y,x=np.nonzero(support)
+        labels,n=ndimage.label(support,np.ones((3,3)));sizes=np.bincount(labels.ravel())[1:]
+        rows.append({'age':age,'stage':stage,'coverage_px':count,'extent_px':int(max(np.ptp(x)+1,np.ptp(y)+1)) if count else 0,'centroid_distance_px':float(np.hypot(x.mean()-size//2,y.mean()-size//2)) if count else None,'largest_component_fraction':float(sizes.max()/count) if count else None,'dissolve':float(dissolve),'expanded_erode':float(et),'root_erode':float(cfg['residue_erode']*et)})
+    denominator=max(r['coverage_px'] for r in rows if r['stage']=='hold')
+    for r in rows:r['hold_peak_fraction']=r['coverage_px']/denominator
+    measured=[r for r in rows if r['age']>=erosion and r['coverage_px']]
+    return {'instrument':'CPU original-UV bilinear alpha>0 expansion plus nearest stationary support; not rendered acceptance','denominator':'maximum body coverage among hold frames; excludes halo, flash and floor light','hold_peak_coverage_px':denominator,'peak_extent_px':extent,'residue_entry_fraction':next(r['hold_peak_fraction'] for r in rows if r['age']==residue),'minimum_component_from_erosion':min(r['largest_component_fraction'] for r in measured),'max_centroid_peak_extent_fraction_from_erosion':max(r['centroid_distance_px']/extent for r in measured),'extent_ratio_at_age15':next(r['extent_px']/extent for r in rows if r['age']==15),'extent_ratio_at_expansion_end':next(r['extent_px']/extent for r in rows if r['age']==erosion),'rows':rows}
+
+
+class BurnBackMaterialTests(unittest.TestCase):
+    def test_outside_in_tips_before_roots_and_legacy_unchanged(self):
+        pixels=np.full((1,255,4),255,np.uint8);field=np.arange(255,dtype=np.uint8)[None,:]
+        previous=np.ones(255,bool)
+        for erode in np.linspace(0,1,21):
+            image=material_pixels(pixels,PALETTE,field,erode=erode,erode_outside_in=True)
+            keep=image[0,:,3]>0
+            self.assertTrue(np.all(np.diff(keep.astype(int))<=0))
+            self.assertTrue(np.all(~keep|previous));previous=keep
+        self.assertFalse(previous.any())
+        self.assertNotIn('erode_outside_in',shader_source())
+        self.assertIn('distance_value > 1.0 - erode',shader_source(erode_outside_in=True))
+        for i in range(24):
+            from export.effect_kit import piece_stretch
+            self.assertTrue(2<=piece_stretch(2026,i)['along']<=2.5)
+
+    def test_real_schedule_compactness_and_hold_denominator(self):
+        report=burn_back_cpu(ROOT/'runs/C-5/t3/T4l/project')
+        self.assertTrue(.15<=report['residue_entry_fraction']<=.25)
+        self.assertGreaterEqual(report['extent_ratio_at_age15'],1.8)
+        self.assertGreaterEqual(report['minimum_component_from_erosion'],.9)
+        self.assertLessEqual(report['max_centroid_peak_extent_fraction_from_erosion'],.15)
+
+
+class BurnBackResidueHoldTests(unittest.TestCase):
+    def test_literal_fraction_held_for_every_residue_age(self):
+        report=burn_back_cpu(ROOT/'runs/C-5/t3/T4l/project')
+        residue=[r for r in report['rows'] if r['stage']=='residue']
+        self.assertEqual(len(residue),36)
+        self.assertGreaterEqual(min(r['hold_peak_fraction'] for r in residue),.15)
+        self.assertLessEqual(max(r['hold_peak_fraction'] for r in residue),.25)
+
+    def test_cpu_replay_agrees_with_actual_headless_uniform_schedule(self):
+        project=ROOT/'runs/C-5/t3/T4l/project'
+        report=burn_back_cpu(project)
+        from test_godot_import import burn_back_trace
+        trace={int(r['age_frames']):r for r in burn_back_trace()}
+        for row in report['rows']:
+            actual=trace[row['age']]
+            self.assertEqual(row['stage'],actual['stage'])
+            for item in actual['actual_uniforms']:
+                paint,root,_,_=item['layers']
+                self.assertAlmostEqual(paint['erode'],row['expanded_erode'])
+                self.assertAlmostEqual(root['erode'],row['root_erode'])
+                self.assertAlmostEqual(root['dissolve'],row['dissolve'])
