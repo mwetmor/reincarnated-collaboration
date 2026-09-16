@@ -752,6 +752,51 @@ class ContinuousResidueImportTests(unittest.TestCase):
             self.assertNotIn('erosion_noise_texture', path.read_text())
 
 
+class ShimmerSheetImportTests(unittest.TestCase):
+    """FL-3b: no framebuffer reads, bounded additive light and one noise asset."""
+    def test_no_screen_texture_and_shared_noise_in_emitted_resources(self):
+        from export.godot_import import _load_vfx_kit, _write_authored_effect
+        root = Path(__file__).resolve().parents[1]
+        kit = _load_vfx_kit(root/'runs/C-5/vfx_kits/v9/fire_burst_e0p_v2')
+        TMP.mkdir(parents=True, exist_ok=True)
+        with tempfile.TemporaryDirectory(prefix='fl3b-', dir=TMP) as td:
+            out = Path(td)
+            for directory in ('scripts', 'scenes', 'vfx'):
+                (out/directory).mkdir()
+            _write_authored_effect(out, kit, 'vfx/fire_burst_e0p_v2', 'vfx_fire_burst_e0p_v2', {})
+            for path in out.rglob('*'):
+                if path.suffix in ('.tscn', '.tres', '.gdshader', '.gd'):
+                    source = path.read_text()
+                    for forbidden in ('BackBufferCopy', 'hint_screen_texture', 'SCREEN_UV', 'SCREEN_TEXTURE'):
+                        self.assertNotIn(forbidden, source, str(path))
+            folder = out/'vfx/fire_burst_e0p_v2'
+            self.assertEqual(len(list(folder.rglob('*noise.png'))), 1)
+            runtime = json.loads((folder/'pieces/burst_runtime.json').read_text())
+            shared = 'res://'+runtime['erosion_noise_texture']
+            self.assertEqual(runtime['anti_decal']['noise_texture'], shared)
+            self.assertEqual(runtime['anti_decal']['palette_2'], kit['effect']['material']['palette'][2])
+            for material in (folder/'materials').glob('Key_*.tres'):
+                text = material.read_text()
+                self.assertIn(shared, text)
+                self.assertIn('noise_uv_scale = Vector2(1.5, 1.5)', text)
+                self.assertIn('noise_uv_origin = Vector2(-0.25, -0.25)', text)
+
+    def test_shimmer_alpha_clause_and_additive_known_bad_controls(self):
+        from export.godot_import import HEAT_SHIMMER_SHADER, ANTI_DECAL_SCRIPT
+        def clauses(source):
+            return ('render_mode blend_add, unshaded;' in source and
+                    'clamp(0.12 * mask * boil(uv) * residue_fade, 0.0, 0.12)' in source and
+                    'hint_screen_texture' not in source and 'BackBufferCopy' not in source)
+        self.assertTrue(clauses(HEAT_SHIMMER_SHADER))
+        self.assertFalse(clauses(HEAT_SHIMMER_SHADER.replace('blend_add', 'blend_mix')))
+        self.assertFalse(clauses(HEAT_SHIMMER_SHADER.replace('0.12', '1.0')))
+        self.assertFalse(clauses(HEAT_SHIMMER_SHADER+'\nuniform sampler2D bad : hint_screen_texture;'))
+        self.assertEqual(HEAT_SHIMMER_SHADER.count('texture(erosion_noise_texture,'), 2)
+        self.assertIn('TEXTURE_PIXEL_SIZE * amplitude_px', HEAT_SHIMMER_SHADER)
+        self.assertIn('set_shader_parameter("erosion_noise_texture", load(opts.noise_texture))', ANTI_DECAL_SCRIPT)
+        self.assertIn('row["shimmer_alpha"] = 0.12*heat_fade', ANTI_DECAL_SCRIPT)
+
+
 class TransformedResidueSeamTests(unittest.TestCase):
     def test_transformed_front_at_three_ages_has_no_straight_seam_over_12px(self):
         from test_effect_kit import transformed_erosion_front_diagnostic
@@ -1825,6 +1870,7 @@ class AntiDecalTraceTests(unittest.TestCase):
         live=[r for r in rows if r['shimmer_alpha']>0]
         self.assertTrue(live)
         self.assertTrue(all(r['stage']=='residue' for r in live))
+        self.assertLessEqual(max(r['shimmer_alpha'] for r in live), .12)
         self.assertAlmostEqual(live[0]['shimmer_amplitude_px'],3)
         self.assertLess(live[-1]['shimmer_age_s'],.8)
         self.assertEqual(rows[-1]['shimmer_alpha'],0)

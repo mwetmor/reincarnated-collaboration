@@ -2811,12 +2811,12 @@ def _write_piece_burst_v2(out, kit, resource_root, prefix):
     noise = piece_erode_noise(data)
     noise_rel = None
     noise_pixels = None
-    if noise:
+    if noise or 'boil' in config or any(k in data['layers'] for k in ('core', 'shimmer')):
         noise_rel = resource_root+'/pieces/whole_body_noise.png'
         noise_pixels = erosion_noise_texture(peak)
         Image.fromarray(noise_pixels).save(out/noise_rel)
     runtime.update(residue_entry(peak, field, config['residue_fraction'], noise, noise_pixels))
-    if noise:
+    if noise_rel:
         runtime['erode_noise'] = noise
         runtime['erosion_noise_texture'] = noise_rel
     scene = scene.replace('res://scripts/vfx/piece_burst.gd','res://scripts/vfx/piece_burst_v2.gd')
@@ -2963,12 +2963,16 @@ def _emit_key_states(out, kit, resource_root, scene, runtime, config):
             if dark: material['blend_mode'] = 'MIX'
             mat = resource_root+'/materials/'+node+'.tres'
             noise_rel = None
+            noise_uv_transform = None
             if 'boil' in config:
-                from export.effect_kit import erosion_noise_texture
-                material['erode_noise'] = kit['effect'].get('erode_noise', .4)
-                noise_rel = resource_root+'/pieces/key_'+name+'_noise.png'
-                Image.fromarray(erosion_noise_texture(rgba)).save(out/noise_rel)
-            write_vfx_material(out, mat, material, field_rel, dark_duplicate=dark, noise_texture=noise_rel)
+                material['erode_noise'] = runtime.get('erode_noise', .4) or .4
+                noise_rel = runtime['erosion_noise_texture']
+                with Image.open(out/noise_rel) as whole:
+                    sx, sy = rgba.shape[1]/whole.width, rgba.shape[0]/whole.height
+                # The held drawings use a larger canvas around the same origin.
+                noise_uv_transform = (sx, sy, (1-sx)/2, (1-sy)/2)
+            write_vfx_material(out, mat, material, field_rel, dark_duplicate=dark,
+                               noise_texture=noise_rel, noise_uv_transform=noise_uv_transform)
             ext = (f'[ext_resource type="Texture2D" path="res://{resource_root}/{state["png"]}" id="T{node}"]\n'
                    f'[ext_resource type="Material" path="res://{mat}" id="M{node}"]\n')
             first = scene.index('[node ')
@@ -5153,13 +5157,8 @@ def _emit_anti_decal(out, kit, resource_root, scene, runtime, config, script):
     runtime['anti_decal'] = {key: data['layers'][key] for key in ('core', 'shimmer') if key in data['layers']}
     if 'boil' in config:
         runtime['anti_decal']['boil'] = config['boil']
-        # Only this kit's noise-enabled shader variants gain the drift uniform.
-        for path in (out/resource_root/'materials').glob('*.gdshader'):
-            source = path.read_text()
-            if 'texture(erosion_noise_texture, UV)' in source:
-                source = source.replace('uniform bool dark_duplicate', 'uniform vec2 noise_uv_offset = vec2(0.0);\nuniform bool dark_duplicate')
-                source = source.replace('texture(erosion_noise_texture, UV)', 'texture(erosion_noise_texture, UV - noise_uv_offset)')
-                path.write_text(source)
+    runtime['anti_decal']['noise_texture'] = 'res://'+runtime['erosion_noise_texture']
+    runtime['anti_decal']['palette_2'] = data['material']['palette'][2]
     if 'core' in runtime['anti_decal']:
         # Derived masks only: preserve source PNG bytes and filter band 3 before
         # blurring coverage. Padding is transparent; no colour from lower bands.
@@ -5190,27 +5189,25 @@ def _emit_anti_decal(out, kit, resource_root, scene, runtime, config, script):
 
 
 HEAT_SHIMMER_SHADER = r'''shader_type canvas_item;
-render_mode blend_mix, unshaded;
-// Explicit Godot 4 canvas screen sampler works in Compatibility and web GL.
-// A bounded BackBufferCopy precedes this quad; no deprecated screen built-in.
-uniform sampler2D screen_buffer : hint_screen_texture, repeat_disable, filter_linear;
+render_mode blend_add, unshaded;
+// Compatibility-safe light only; never reads the framebuffer.
+uniform sampler2D erosion_noise_texture : filter_linear, repeat_enable;
 uniform sampler2D distance_texture : filter_linear, repeat_disable;
+uniform vec4 band_2 : source_color = vec4(1.0, 0.55, 0.12, 1.0);
 uniform float amplitude_px = 3.0;
 uniform float age_s = 0.0;
 uniform float residue_erode = 0.8;
 uniform float residue_fade = 0.0;
-float hash21(vec2 p) { return fract(sin(dot(p,vec2(127.1,311.7))) * 43758.5453); }
-float noise2(vec2 p) {
-    vec2 i = floor(p); vec2 f = fract(p); f = f*f*(3.0-2.0*f);
-    return mix(mix(hash21(i),hash21(i+vec2(1,0)),f.x),mix(hash21(i+vec2(0,1)),hash21(i+vec2(1,1)),f.x),f.y);
+float boil(vec2 p) {
+    return (texture(erosion_noise_texture,p).r + 0.5*texture(erosion_noise_texture,p*2.0+vec2(0.37,0.19)).r)/1.5;
 }
-float boil(vec2 p) { return (noise2(p) + 0.5*noise2(p*2.0+19.1))/1.5; }
 void fragment() {
-    vec2 p = UV*12.0 + vec2(0.0,age_s*2.0);
-    vec2 shift = vec2(boil(p),boil(p+vec2(31.7,13.4)))*2.0-1.0;
-    vec2 uv = SCREEN_UV + shift * SCREEN_PIXEL_SIZE * amplitude_px * residue_fade;
+    vec2 p = UV + vec2(0.0,age_s*0.35);
+    vec2 shift = vec2(boil(p),boil(p+vec2(0.31,0.13)))*2.0-1.0;
+    vec2 uv = p + shift * TEXTURE_PIXEL_SIZE * amplitude_px * clamp(residue_fade,0.0,1.0);
     float mask = texture(TEXTURE,UV).a * step(texture(distance_texture,UV).r,1.0-residue_erode);
-    COLOR = vec4(texture(screen_buffer,uv).rgb, mask*residue_fade);
+    float alpha = clamp(0.12 * mask * boil(uv) * residue_fade, 0.0, 0.12);
+    COLOR = vec4(band_2.rgb, alpha);
 }
 '''
 
@@ -5218,7 +5215,6 @@ void fragment() {
 ANTI_DECAL_SCRIPT = r'''
 var core_pairs: Array = []
 var heat_quad: Sprite2D
-var heat_copy: BackBufferCopy
 func _ready_anti_decal() -> void:
     var opts: Dictionary = config.anti_decal
     if opts.has("core"):
@@ -5243,18 +5239,16 @@ func _ready_anti_decal() -> void:
             paint.material = source.material.duplicate()
             var shader := Shader.new()
             shader.code = source.material.shader.code.replace("blend_mix", "blend_add")
+            if not "uniform sampler2D erosion_noise_texture" in shader.code:
+                shader.code = shader.code.replace("uniform bool dark_duplicate", "uniform sampler2D erosion_noise_texture : filter_linear, repeat_enable;\nuniform bool dark_duplicate")
+            shader.code = shader.code.replace("COLOR = vec4(rgb, coverage);", "COLOR = vec4(rgb, coverage * (0.85 + 0.15 * texture(erosion_noise_texture, UV).r));")
             paint.material.shader = shader
+            paint.material.set_shader_parameter("erosion_noise_texture", load(opts.noise_texture))
             paint.material.set_shader_parameter("dark_duplicate", false)
             core.add_child(paint)
             core_pairs.append({"source":source,"paint":paint})
     if opts.has("shimmer"):
-        heat_copy = BackBufferCopy.new()
-        heat_copy.name = "HeatBackBuffer"
-        heat_copy.copy_mode = BackBufferCopy.COPY_MODE_RECT
         var peak: Sprite2D = $Art/Peak
-        heat_copy.rect = peak.get_rect().grow(float(opts.shimmer.amplitude_px)+2.0)
-        heat_copy.z_index = 2
-        $Art.add_child(heat_copy)
         heat_quad = Sprite2D.new()
         heat_quad.name = "HeatShimmer"
         heat_quad.texture = peak.texture
@@ -5264,6 +5258,9 @@ func _ready_anti_decal() -> void:
         heat_quad.material = ShaderMaterial.new()
         heat_quad.material.shader = load(opts.shimmer_shader)
         heat_quad.material.set_shader_parameter("distance_texture", load(opts.distance_texture))
+        heat_quad.material.set_shader_parameter("erosion_noise_texture", load(opts.noise_texture))
+        var tint: Array = opts.palette_2
+        heat_quad.material.set_shader_parameter("band_2", Color(tint[0],tint[1],tint[2],tint[3]))
         heat_quad.material.set_shader_parameter("amplitude_px", float(opts.shimmer.amplitude_px))
         $Art.add_child(heat_quad)
 
@@ -5304,12 +5301,11 @@ func _clock_anti_decal(age: int, residue_start: int, residue_end: int) -> void:
         var seconds: float = float(age-residue_start)/60.0
         var heat_fade: float = minf(fade,clampf(1.0-seconds/float(opts.shimmer.seconds),0.0,1.0)) if seconds >= 0.0 else 0.0
         heat_quad.visible = heat_fade > 0.0
-        heat_copy.visible = heat_quad.visible
-        heat_copy.copy_mode = BackBufferCopy.COPY_MODE_RECT if heat_quad.visible else BackBufferCopy.COPY_MODE_DISABLED
         heat_quad.material.set_shader_parameter("age_s", maxf(0.0,seconds))
         heat_quad.material.set_shader_parameter("residue_fade", heat_fade)
         heat_quad.material.set_shader_parameter("residue_erode", float(config.residue_erode))
-        row["shimmer_alpha"] = heat_fade
+        row["shimmer_alpha"] = 0.12*heat_fade
+        row["shimmer_noise_texture"] = heat_quad.material.get_shader_parameter("erosion_noise_texture").resource_path
         row["shimmer_amplitude_px"] = float(opts.shimmer.amplitude_px)*heat_fade
         row["shimmer_age_s"] = seconds
 '''

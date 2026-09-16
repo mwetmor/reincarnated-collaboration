@@ -1,0 +1,819 @@
+{
+  "task_id": "FL-3b",
+  "part_a": {
+    "scan": [],
+    "max_trace_alpha": 0.12,
+    "trace_frames": 89,
+    "capture_comparison": {
+      "evaluable": false,
+      "frame": 72,
+      "resolution": [
+        1920,
+        1080
+      ],
+      "reason": "Only headless import/trace authorized; rendered capture remains conductor-owned. No framebuffer pixel claim is made.",
+      "probe": "probe_shimmer_capture.gd"
+    }
+  },
+  "part_b": {
+    "noise_png_count": {
+      "frozen_orb": 0,
+      "blackwater_cocktail": 0,
+      "poisonous_concoction": 0,
+      "lightning_blast": 0,
+      "zeus_chain": 0,
+      "healing_hands": 0,
+      "fire_burst_e0p": 0,
+      "fire_burst_e0p_v2": 1,
+      "fire_bolt_e1_A": 1,
+      "fire_bolt_e1_B": 1,
+      "ice_bolt_e2": 1,
+      "blackwater_cocktail_e3": 0,
+      "poisonous_concoction_e3": 1,
+      "lightning_blast_e3": 0,
+      "zeus_chain_e3": 0,
+      "healing_hands_e3": 0,
+      "frozen_orb_e3": 0
+    },
+    "continuous_test_unchanged": true
+  },
+  "part_c": {
+    "locks": {
+      "ProjectileArmPickerTests-diff": [
+        {
+          "path": "scenes/vfx/piece_burst_v2.tscn",
+          "old": "dd88593b16d8fa9ad9a5bd8df1910c83e3a3e1614378c41f5e0239b76fb212c7",
+          "new": "ff9d8b21383971fe1357e0901a915b43fd05af009c3914ee225a954582d9509a",
+          "attribution": "FL-3 opt-in anti-decal scene script binding"
+        },
+        {
+          "path": "scenes/vfx_fire_burst_e0p_v2_impact.tscn",
+          "old": "ff940828db7b99981c53f68873b2bf4451fb717e0625a884f04956054e872659",
+          "new": "c6ff57b0a2d54b0a8cec0805fb305293ca80fd08df1dc0a6303d82ccd035ffbc",
+          "attribution": "FL-3 opt-in anti-decal scene script binding"
+        },
+        {
+          "path": "scripts/keeper.gd",
+          "old": "6de8dc6b331b79ba01f3dfc9080d16685ff16bbc0b078f7a48e33eaeaf870f68",
+          "new": "8e50644a3045593ec75f0efa0cbb70d2cbaeac8067afd891593127af6a73e18a",
+          "attribution": "FL-3 contact-light configuration and painted-projectile hook (pre-existing at FL-3b start)"
+        },
+        {
+          "path": "scripts/vfx/piece_burst_fl3.gd",
+          "old": null,
+          "new": "a815fbec52cbce85916fa25db67cc36040a5ffdebdc4ae4ea0d67232fc77b2fb",
+          "attribution": "FL-3 core/boil runtime; FL-3b shared noise and bounded additive shimmer"
+        },
+        {
+          "path": "scripts/vfx_contact_light.gd",
+          "old": null,
+          "new": "152179162177e5282f185a0eb00cb1ae60c2da098bad72caaa71bd0e04aadd59",
+          "attribution": "FL-3 struck-body contact light"
+        },
+        {
+          "path": "scripts/vfx_g1.gd",
+          "old": "80b677e61f92084137b2772c655cc951e828d97945bb0b263af2f3c447c87062",
+          "new": "1d5fb2e0d882da3fd584401551297ebdfac79abc172ce3aecf6b7859cea381fd",
+          "attribution": "FL-3 contact-light hook in shared projectile component (pre-existing at FL-3b start)"
+        },
+        {
+          "path": "scripts/vfx_g1_painted.gd",
+          "old": "30f02158cc9769ffe72c5a25b91217fc345a67a7d3465a64d9a41aa01d8b5d40",
+          "new": "845029aeb926bc3d8f28be21a42b50a021889ddf21bd1afcdbf0c6a7d0e8a633",
+          "attribution": "FL-3 contact-light configuration and painted-projectile hook (pre-existing at FL-3b start)"
+        },
+        {
+          "path": "vfx/fire_bolt_e1_A/kit.json",
+          "old": "c0a4eebc94a7331593cc2c3a30692672b1b0e65d4e91987a066c879f8014abbf",
+          "new": "692c0c385946d383aac5aba928b1cdd7df52808ed9400cec7653e061dabb8f65",
+          "attribution": "FL-3 core, contact-light, shimmer and boil opt-in metadata"
+        },
+        {
+          "path": "vfx/fire_bolt_e1_B/kit.json",
+          "old": "8000ce5eea7023ee5867fe0e41c3c23d0f313d148606053b887a7fd8ec7aba36",
+          "new": "4d563770f25ce711fa0b00052f06bda087533aee11bebc4c1106d63b235134b8",
+          "attribution": "FL-3 core, contact-light, shimmer and boil opt-in metadata"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v2/core/mask_000.png",
+          "old": null,
+          "new": "5c69aa16c4ef194fdef1c309a9ba1850dd4cfa8267940f163e6112067c2e7b3a",
+          "attribution": "FL-3 blurred additive band-3 core mask"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v2/core/mask_001.png",
+          "old": null,
+          "new": "5c9744ae6c274b62f4df4d823a012e4259dd2b555ce40daf6273efa0d149ed85",
+          "attribution": "FL-3 blurred additive band-3 core mask"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v2/core/mask_002.png",
+          "old": null,
+          "new": "5c9744ae6c274b62f4df4d823a012e4259dd2b555ce40daf6273efa0d149ed85",
+          "attribution": "FL-3 blurred additive band-3 core mask"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v2/core/mask_003.png",
+          "old": null,
+          "new": "5c9744ae6c274b62f4df4d823a012e4259dd2b555ce40daf6273efa0d149ed85",
+          "attribution": "FL-3 blurred additive band-3 core mask"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v2/core/mask_004.png",
+          "old": null,
+          "new": "5c9744ae6c274b62f4df4d823a012e4259dd2b555ce40daf6273efa0d149ed85",
+          "attribution": "FL-3 blurred additive band-3 core mask"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v2/core/mask_005.png",
+          "old": null,
+          "new": "5c9744ae6c274b62f4df4d823a012e4259dd2b555ce40daf6273efa0d149ed85",
+          "attribution": "FL-3 blurred additive band-3 core mask"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v2/core/mask_006.png",
+          "old": null,
+          "new": "5c9744ae6c274b62f4df4d823a012e4259dd2b555ce40daf6273efa0d149ed85",
+          "attribution": "FL-3 blurred additive band-3 core mask"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v2/core/mask_007.png",
+          "old": null,
+          "new": "bf5000eb9e6aa3f3bde7e2a24a850d4edb705f451a2b5124c826a870d6432af0",
+          "attribution": "FL-3 blurred additive band-3 core mask"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v2/core/mask_008.png",
+          "old": null,
+          "new": "9563cad4def98b128101f1814848f4242d822481fd4ff50ec719f970ccbc2b25",
+          "attribution": "FL-3 blurred additive band-3 core mask"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v2/core/mask_009.png",
+          "old": null,
+          "new": "b41314454f4317707d672936990ca7e351e59ff30f6941fc4d5fb6d085e180d5",
+          "attribution": "FL-3 blurred additive band-3 core mask"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v2/core/mask_010.png",
+          "old": null,
+          "new": "b87a9ab9bfbcc68521d956f807a31db10674059c33e684ddad16026b428a8b59",
+          "attribution": "FL-3 blurred additive band-3 core mask"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v2/core/mask_011.png",
+          "old": null,
+          "new": "61f612caa1274fc84b45ed4436ff4419e27f28a76078d5de533b5cd38908601d",
+          "attribution": "FL-3 blurred additive band-3 core mask"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v2/core/mask_012.png",
+          "old": null,
+          "new": "b6e33eb74f3b1c609d8aecc44fca0c36b6c518fce640943f0d8969249a6da4b6",
+          "attribution": "FL-3 blurred additive band-3 core mask"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v2/core/mask_013.png",
+          "old": null,
+          "new": "7319714b2145ed1ddce621838375b574c1e381e525f0ffcb5adc274403447719",
+          "attribution": "FL-3 blurred additive band-3 core mask"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v2/core/mask_014.png",
+          "old": null,
+          "new": "b4cd73f6dafb59d4fb6adc321b6c11533fc981c7e12c6b4d5d03e29984adb250",
+          "attribution": "FL-3 blurred additive band-3 core mask"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v2/core/mask_015.png",
+          "old": null,
+          "new": "3d8d56ccfb4cf3c3e4b569279fbef2934eb0a69dfdb87155a4ad05dbe246aad6",
+          "attribution": "FL-3 blurred additive band-3 core mask"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v2/core/mask_016.png",
+          "old": null,
+          "new": "5c9744ae6c274b62f4df4d823a012e4259dd2b555ce40daf6273efa0d149ed85",
+          "attribution": "FL-3 blurred additive band-3 core mask"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v2/core/mask_017.png",
+          "old": null,
+          "new": "5c9744ae6c274b62f4df4d823a012e4259dd2b555ce40daf6273efa0d149ed85",
+          "attribution": "FL-3 blurred additive band-3 core mask"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v2/core/mask_018.png",
+          "old": null,
+          "new": "5c9744ae6c274b62f4df4d823a012e4259dd2b555ce40daf6273efa0d149ed85",
+          "attribution": "FL-3 blurred additive band-3 core mask"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v2/core/mask_019.png",
+          "old": null,
+          "new": "5c9744ae6c274b62f4df4d823a012e4259dd2b555ce40daf6273efa0d149ed85",
+          "attribution": "FL-3 blurred additive band-3 core mask"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v2/core/mask_020.png",
+          "old": null,
+          "new": "5c9744ae6c274b62f4df4d823a012e4259dd2b555ce40daf6273efa0d149ed85",
+          "attribution": "FL-3 blurred additive band-3 core mask"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v2/core/mask_021.png",
+          "old": null,
+          "new": "5c9744ae6c274b62f4df4d823a012e4259dd2b555ce40daf6273efa0d149ed85",
+          "attribution": "FL-3 blurred additive band-3 core mask"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v2/core/mask_022.png",
+          "old": null,
+          "new": "5c9744ae6c274b62f4df4d823a012e4259dd2b555ce40daf6273efa0d149ed85",
+          "attribution": "FL-3 blurred additive band-3 core mask"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v2/core/mask_023.png",
+          "old": null,
+          "new": "5c9744ae6c274b62f4df4d823a012e4259dd2b555ce40daf6273efa0d149ed85",
+          "attribution": "FL-3 blurred additive band-3 core mask"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v2/core/mask_024.png",
+          "old": null,
+          "new": "5c9744ae6c274b62f4df4d823a012e4259dd2b555ce40daf6273efa0d149ed85",
+          "attribution": "FL-3 blurred additive band-3 core mask"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v2/core/mask_025.png",
+          "old": null,
+          "new": "148b69ffbdadacb7c6ac3992cb10d2da3a66856adc7bd0d551118d7b781e2317",
+          "attribution": "FL-3 blurred additive band-3 core mask"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v2/core/mask_026.png",
+          "old": null,
+          "new": "70d77fefcca9c6650ff71b310f7d66ca37e9a50e1baa04f629a28dacc446d0ca",
+          "attribution": "FL-3 blurred additive band-3 core mask"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v2/kit.json",
+          "old": "4dca778290874a5f92b50b5216135d430dd63fb6e7a2bb95212c2d8507d263d4",
+          "new": "fb401c0346aee2c4adeb91627143bfce27d7941d8b92a3ec551126d3f117eefb",
+          "attribution": "FL-3 core, contact-light, shimmer and boil opt-in metadata"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v2/materials/Key_expanded.tres",
+          "old": "a0756878356ba2a74558cc1cc9e3badc378542948f7d9b5e447a9520763a3c96",
+          "new": "99d20fb834204e1a7c082eebda36d947981890f289b37dac68dcea6edf8726f8",
+          "attribution": "FL-3 boil; FL-3b centered key-state mapping to shared whole-body noise"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v2/materials/Key_expandedDark.tres",
+          "old": "69447ca9e951456c3909c0a4bca920c560ca34289743f71b56b02837fbafdd1a",
+          "new": "9c86585132db5639f93f8c05279b418595d9923171e4e893eb14a0467ca78cf5",
+          "attribution": "FL-3 boil; FL-3b centered key-state mapping to shared whole-body noise"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v2/materials/Key_spent.tres",
+          "old": "deeb98f5c494de06090a47437b551a77c5b86a1f6419d0ad198a88f024c4d987",
+          "new": "b5cbac7fa2cf476414bc5c45bc71b694b799956b0576083b94170e12f1bd169c",
+          "attribution": "FL-3 boil; FL-3b centered key-state mapping to shared whole-body noise"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v2/materials/Key_spentDark.tres",
+          "old": "335cdc8c71ffde87975980497357b56eba6a5856aa777c98da5a8b3eec43bf49",
+          "new": "e373f3d8d6bf68bf11395a9d00c1c9884acc4f9974e63599c936146802c00efd",
+          "attribution": "FL-3 boil; FL-3b centered key-state mapping to shared whole-body noise"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v2/materials/heat_shimmer.gdshader",
+          "old": null,
+          "new": "daaa0faa2a88e70a5d7246a8cef7c88f240132b095c2a2ed633bd9beb498ef98",
+          "attribution": "FL-3b additive two-octave noise shimmer replaces FL-3 screen-buffer shimmer"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v2/materials/vfx_material_mix_unlit_order_fbc0ebc0c789_outside_in_noise_boil.gdshader",
+          "old": null,
+          "new": "f0f2c9c4795f148e76f79e62bae3acff66efefda4be612dffb2aa1eff1424130",
+          "attribution": "FL-3 boil; FL-3b centered key-state mapping to shared whole-body noise"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v2/pieces/burst_runtime.json",
+          "old": "6620622f4ffa16d361231d5b1a196f2870a169f484be57fd7f98c72edb1e0ee2",
+          "new": "3ad5d81f56554dc68d730a7d524e5009d277b6467f3d58483fa212a0cf015ec2",
+          "attribution": "FL-3 core/boil/shimmer runtime bindings; FL-3b shared noise and band-2 tint"
+        }
+      ],
+      "PieceLap2ExportTests-diff": [
+        {
+          "path": "scripts/vfx_g1.gd",
+          "old": "9d0b2a1867ec5ef64360e69d92547634aa500c0768c2f4bf5ae6df584161496f",
+          "new": "7762eae61827ea55004ef5dacdc92c54c83e18ffeefb24aeaf669a155d40b54d",
+          "attribution": "FL-3 contact-light hook in shared projectile component (pre-existing at FL-3b start)"
+        }
+      ],
+      "IceTreatmentImportTests-diff": [
+        {
+          "path": "scenes/vfx/piece_burst_v2.tscn",
+          "old": "dd88593b16d8fa9ad9a5bd8df1910c83e3a3e1614378c41f5e0239b76fb212c7",
+          "new": "ff9d8b21383971fe1357e0901a915b43fd05af009c3914ee225a954582d9509a",
+          "attribution": "FL-3 opt-in anti-decal scene script binding"
+        },
+        {
+          "path": "scenes/vfx_fire_burst_e0p_v2_impact.tscn",
+          "old": "ff940828db7b99981c53f68873b2bf4451fb717e0625a884f04956054e872659",
+          "new": "c6ff57b0a2d54b0a8cec0805fb305293ca80fd08df1dc0a6303d82ccd035ffbc",
+          "attribution": "FL-3 opt-in anti-decal scene script binding"
+        },
+        {
+          "path": "scripts/keeper.gd",
+          "old": "92eaa24a8063e9bce7989b00f3423949534c6632513a224dcfde6107d89431a8",
+          "new": "0ca39e612d665a3ae7fb443de93b2f06f71fc818c41bd02f2f793f3f99a84171",
+          "attribution": "FL-3 contact-light configuration and painted-projectile hook (pre-existing at FL-3b start)"
+        },
+        {
+          "path": "scripts/vfx/piece_burst_fl3.gd",
+          "old": null,
+          "new": "a815fbec52cbce85916fa25db67cc36040a5ffdebdc4ae4ea0d67232fc77b2fb",
+          "attribution": "FL-3 core/boil runtime; FL-3b shared noise and bounded additive shimmer"
+        },
+        {
+          "path": "scripts/vfx_contact_light.gd",
+          "old": null,
+          "new": "152179162177e5282f185a0eb00cb1ae60c2da098bad72caaa71bd0e04aadd59",
+          "attribution": "FL-3 struck-body contact light"
+        },
+        {
+          "path": "scripts/vfx_g1.gd",
+          "old": "80b677e61f92084137b2772c655cc951e828d97945bb0b263af2f3c447c87062",
+          "new": "1d5fb2e0d882da3fd584401551297ebdfac79abc172ce3aecf6b7859cea381fd",
+          "attribution": "FL-3 contact-light hook in shared projectile component (pre-existing at FL-3b start)"
+        },
+        {
+          "path": "scripts/vfx_g1_painted.gd",
+          "old": "30f02158cc9769ffe72c5a25b91217fc345a67a7d3465a64d9a41aa01d8b5d40",
+          "new": "845029aeb926bc3d8f28be21a42b50a021889ddf21bd1afcdbf0c6a7d0e8a633",
+          "attribution": "FL-3 contact-light configuration and painted-projectile hook (pre-existing at FL-3b start)"
+        },
+        {
+          "path": "vfx/fire_bolt_e1_A/kit.json",
+          "old": "c0a4eebc94a7331593cc2c3a30692672b1b0e65d4e91987a066c879f8014abbf",
+          "new": "692c0c385946d383aac5aba928b1cdd7df52808ed9400cec7653e061dabb8f65",
+          "attribution": "FL-3 core, contact-light, shimmer and boil opt-in metadata"
+        },
+        {
+          "path": "vfx/fire_bolt_e1_B/kit.json",
+          "old": "8000ce5eea7023ee5867fe0e41c3c23d0f313d148606053b887a7fd8ec7aba36",
+          "new": "4d563770f25ce711fa0b00052f06bda087533aee11bebc4c1106d63b235134b8",
+          "attribution": "FL-3 core, contact-light, shimmer and boil opt-in metadata"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v2/core/mask_000.png",
+          "old": null,
+          "new": "5c69aa16c4ef194fdef1c309a9ba1850dd4cfa8267940f163e6112067c2e7b3a",
+          "attribution": "FL-3 blurred additive band-3 core mask"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v2/core/mask_001.png",
+          "old": null,
+          "new": "5c9744ae6c274b62f4df4d823a012e4259dd2b555ce40daf6273efa0d149ed85",
+          "attribution": "FL-3 blurred additive band-3 core mask"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v2/core/mask_002.png",
+          "old": null,
+          "new": "5c9744ae6c274b62f4df4d823a012e4259dd2b555ce40daf6273efa0d149ed85",
+          "attribution": "FL-3 blurred additive band-3 core mask"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v2/core/mask_003.png",
+          "old": null,
+          "new": "5c9744ae6c274b62f4df4d823a012e4259dd2b555ce40daf6273efa0d149ed85",
+          "attribution": "FL-3 blurred additive band-3 core mask"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v2/core/mask_004.png",
+          "old": null,
+          "new": "5c9744ae6c274b62f4df4d823a012e4259dd2b555ce40daf6273efa0d149ed85",
+          "attribution": "FL-3 blurred additive band-3 core mask"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v2/core/mask_005.png",
+          "old": null,
+          "new": "5c9744ae6c274b62f4df4d823a012e4259dd2b555ce40daf6273efa0d149ed85",
+          "attribution": "FL-3 blurred additive band-3 core mask"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v2/core/mask_006.png",
+          "old": null,
+          "new": "5c9744ae6c274b62f4df4d823a012e4259dd2b555ce40daf6273efa0d149ed85",
+          "attribution": "FL-3 blurred additive band-3 core mask"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v2/core/mask_007.png",
+          "old": null,
+          "new": "bf5000eb9e6aa3f3bde7e2a24a850d4edb705f451a2b5124c826a870d6432af0",
+          "attribution": "FL-3 blurred additive band-3 core mask"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v2/core/mask_008.png",
+          "old": null,
+          "new": "9563cad4def98b128101f1814848f4242d822481fd4ff50ec719f970ccbc2b25",
+          "attribution": "FL-3 blurred additive band-3 core mask"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v2/core/mask_009.png",
+          "old": null,
+          "new": "b41314454f4317707d672936990ca7e351e59ff30f6941fc4d5fb6d085e180d5",
+          "attribution": "FL-3 blurred additive band-3 core mask"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v2/core/mask_010.png",
+          "old": null,
+          "new": "b87a9ab9bfbcc68521d956f807a31db10674059c33e684ddad16026b428a8b59",
+          "attribution": "FL-3 blurred additive band-3 core mask"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v2/core/mask_011.png",
+          "old": null,
+          "new": "61f612caa1274fc84b45ed4436ff4419e27f28a76078d5de533b5cd38908601d",
+          "attribution": "FL-3 blurred additive band-3 core mask"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v2/core/mask_012.png",
+          "old": null,
+          "new": "b6e33eb74f3b1c609d8aecc44fca0c36b6c518fce640943f0d8969249a6da4b6",
+          "attribution": "FL-3 blurred additive band-3 core mask"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v2/core/mask_013.png",
+          "old": null,
+          "new": "7319714b2145ed1ddce621838375b574c1e381e525f0ffcb5adc274403447719",
+          "attribution": "FL-3 blurred additive band-3 core mask"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v2/core/mask_014.png",
+          "old": null,
+          "new": "b4cd73f6dafb59d4fb6adc321b6c11533fc981c7e12c6b4d5d03e29984adb250",
+          "attribution": "FL-3 blurred additive band-3 core mask"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v2/core/mask_015.png",
+          "old": null,
+          "new": "3d8d56ccfb4cf3c3e4b569279fbef2934eb0a69dfdb87155a4ad05dbe246aad6",
+          "attribution": "FL-3 blurred additive band-3 core mask"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v2/core/mask_016.png",
+          "old": null,
+          "new": "5c9744ae6c274b62f4df4d823a012e4259dd2b555ce40daf6273efa0d149ed85",
+          "attribution": "FL-3 blurred additive band-3 core mask"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v2/core/mask_017.png",
+          "old": null,
+          "new": "5c9744ae6c274b62f4df4d823a012e4259dd2b555ce40daf6273efa0d149ed85",
+          "attribution": "FL-3 blurred additive band-3 core mask"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v2/core/mask_018.png",
+          "old": null,
+          "new": "5c9744ae6c274b62f4df4d823a012e4259dd2b555ce40daf6273efa0d149ed85",
+          "attribution": "FL-3 blurred additive band-3 core mask"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v2/core/mask_019.png",
+          "old": null,
+          "new": "5c9744ae6c274b62f4df4d823a012e4259dd2b555ce40daf6273efa0d149ed85",
+          "attribution": "FL-3 blurred additive band-3 core mask"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v2/core/mask_020.png",
+          "old": null,
+          "new": "5c9744ae6c274b62f4df4d823a012e4259dd2b555ce40daf6273efa0d149ed85",
+          "attribution": "FL-3 blurred additive band-3 core mask"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v2/core/mask_021.png",
+          "old": null,
+          "new": "5c9744ae6c274b62f4df4d823a012e4259dd2b555ce40daf6273efa0d149ed85",
+          "attribution": "FL-3 blurred additive band-3 core mask"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v2/core/mask_022.png",
+          "old": null,
+          "new": "5c9744ae6c274b62f4df4d823a012e4259dd2b555ce40daf6273efa0d149ed85",
+          "attribution": "FL-3 blurred additive band-3 core mask"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v2/core/mask_023.png",
+          "old": null,
+          "new": "5c9744ae6c274b62f4df4d823a012e4259dd2b555ce40daf6273efa0d149ed85",
+          "attribution": "FL-3 blurred additive band-3 core mask"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v2/core/mask_024.png",
+          "old": null,
+          "new": "5c9744ae6c274b62f4df4d823a012e4259dd2b555ce40daf6273efa0d149ed85",
+          "attribution": "FL-3 blurred additive band-3 core mask"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v2/core/mask_025.png",
+          "old": null,
+          "new": "148b69ffbdadacb7c6ac3992cb10d2da3a66856adc7bd0d551118d7b781e2317",
+          "attribution": "FL-3 blurred additive band-3 core mask"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v2/core/mask_026.png",
+          "old": null,
+          "new": "70d77fefcca9c6650ff71b310f7d66ca37e9a50e1baa04f629a28dacc446d0ca",
+          "attribution": "FL-3 blurred additive band-3 core mask"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v2/kit.json",
+          "old": "4dca778290874a5f92b50b5216135d430dd63fb6e7a2bb95212c2d8507d263d4",
+          "new": "fb401c0346aee2c4adeb91627143bfce27d7941d8b92a3ec551126d3f117eefb",
+          "attribution": "FL-3 core, contact-light, shimmer and boil opt-in metadata"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v2/materials/Key_expanded.tres",
+          "old": "a0756878356ba2a74558cc1cc9e3badc378542948f7d9b5e447a9520763a3c96",
+          "new": "99d20fb834204e1a7c082eebda36d947981890f289b37dac68dcea6edf8726f8",
+          "attribution": "FL-3 boil; FL-3b centered key-state mapping to shared whole-body noise"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v2/materials/Key_expandedDark.tres",
+          "old": "69447ca9e951456c3909c0a4bca920c560ca34289743f71b56b02837fbafdd1a",
+          "new": "9c86585132db5639f93f8c05279b418595d9923171e4e893eb14a0467ca78cf5",
+          "attribution": "FL-3 boil; FL-3b centered key-state mapping to shared whole-body noise"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v2/materials/Key_spent.tres",
+          "old": "deeb98f5c494de06090a47437b551a77c5b86a1f6419d0ad198a88f024c4d987",
+          "new": "b5cbac7fa2cf476414bc5c45bc71b694b799956b0576083b94170e12f1bd169c",
+          "attribution": "FL-3 boil; FL-3b centered key-state mapping to shared whole-body noise"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v2/materials/Key_spentDark.tres",
+          "old": "335cdc8c71ffde87975980497357b56eba6a5856aa777c98da5a8b3eec43bf49",
+          "new": "e373f3d8d6bf68bf11395a9d00c1c9884acc4f9974e63599c936146802c00efd",
+          "attribution": "FL-3 boil; FL-3b centered key-state mapping to shared whole-body noise"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v2/materials/heat_shimmer.gdshader",
+          "old": null,
+          "new": "daaa0faa2a88e70a5d7246a8cef7c88f240132b095c2a2ed633bd9beb498ef98",
+          "attribution": "FL-3b additive two-octave noise shimmer replaces FL-3 screen-buffer shimmer"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v2/materials/vfx_material_mix_unlit_order_fbc0ebc0c789_outside_in_noise_boil.gdshader",
+          "old": null,
+          "new": "f0f2c9c4795f148e76f79e62bae3acff66efefda4be612dffb2aa1eff1424130",
+          "attribution": "FL-3 boil; FL-3b centered key-state mapping to shared whole-body noise"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v2/pieces/burst_runtime.json",
+          "old": "6620622f4ffa16d361231d5b1a196f2870a169f484be57fd7f98c72edb1e0ee2",
+          "new": "3ad5d81f56554dc68d730a7d524e5009d277b6467f3d58483fa212a0cf015ec2",
+          "attribution": "FL-3 core/boil/shimmer runtime bindings; FL-3b shared noise and band-2 tint"
+        }
+      ]
+    },
+    "catalogue_lock": {
+      "registered_issue": "E3-r1",
+      "rebaselined": false,
+      "observed": [
+        {
+          "kind": "failures",
+          "test": "test_godot_import.BoltChainEmissionTests.test_current_catalogue_and_original_kits_unchanged",
+          "last_traceback_line": "Diff is 89073 characters long. Set self.maxDiff to None to see it."
+        }
+      ]
+    }
+  },
+  "source_kits": {
+    "count": 17,
+    "changed_paths": {
+      "frozen_orb": [],
+      "blackwater_cocktail": [],
+      "poisonous_concoction": [],
+      "lightning_blast": [],
+      "zeus_chain": [],
+      "healing_hands": [],
+      "fire_burst_e0p": [],
+      "fire_burst_e0p_v2": [],
+      "fire_bolt_e1_A": [],
+      "fire_bolt_e1_B": [],
+      "ice_bolt_e2": [],
+      "blackwater_cocktail_e3": [],
+      "poisonous_concoction_e3": [],
+      "lightning_blast_e3": [],
+      "zeus_chain_e3": [],
+      "healing_hands_e3": [],
+      "frozen_orb_e3": []
+    },
+    "all_17_unchanged": true
+  },
+  "staged_export_comparison": {
+    "byte_identical_kit_count": 16,
+    "changed_entries": {
+      "blackwater_cocktail": [],
+      "blackwater_cocktail_e3": [],
+      "fire_bolt_e1_A": [],
+      "fire_bolt_e1_B": [],
+      "fire_burst_e0p": [],
+      "fire_burst_e0p_v2": [
+        {
+          "path": "materials/Key_expanded.tres",
+          "old": "1d2c38a88b98faa654e4cafcccc028a3d86ac5ecd13d9dded2632c0d46b36223",
+          "new": "99d20fb834204e1a7c082eebda36d947981890f289b37dac68dcea6edf8726f8"
+        },
+        {
+          "path": "materials/Key_expandedDark.tres",
+          "old": "4ec0c5f05d2de9273e0e592a9725cdc359e59df56d67bff40cce4a46b01f5b2b",
+          "new": "9c86585132db5639f93f8c05279b418595d9923171e4e893eb14a0467ca78cf5"
+        },
+        {
+          "path": "materials/Key_spent.tres",
+          "old": "cdc9bf58c0df820493aacf1406ea20aa780da50c60b2261bac006b70300e0d81",
+          "new": "b5cbac7fa2cf476414bc5c45bc71b694b799956b0576083b94170e12f1bd169c"
+        },
+        {
+          "path": "materials/Key_spentDark.tres",
+          "old": "00b107897a1eb77d44c38b76fb7560edef8168ca5808db348fc7b335f1c9476f",
+          "new": "e373f3d8d6bf68bf11395a9d00c1c9884acc4f9974e63599c936146802c00efd"
+        },
+        {
+          "path": "materials/heat_shimmer.gdshader",
+          "old": "46d7660a1be040108df38edfb0d7d9b04a737be1ac4289d56fb7f675c9e1e48f",
+          "new": "daaa0faa2a88e70a5d7246a8cef7c88f240132b095c2a2ed633bd9beb498ef98"
+        },
+        {
+          "path": "materials/vfx_material_mix_unlit_order_fbc0ebc0c789_outside_in_noise.gdshader",
+          "old": "287e05ed128810a328b714a0554a6b304861323573acf3e4f6057cc02d3b8f42",
+          "new": "30c715b69444d2728a96e73e4bfb670ba2a48a2cb54911103268f064d0c4acea"
+        },
+        {
+          "path": "materials/vfx_material_mix_unlit_order_fbc0ebc0c789_outside_in_noise_boil.gdshader",
+          "old": null,
+          "new": "f0f2c9c4795f148e76f79e62bae3acff66efefda4be612dffb2aa1eff1424130"
+        },
+        {
+          "path": "materials/vfx_material_v2_roots.gdshader",
+          "old": "287e05ed128810a328b714a0554a6b304861323573acf3e4f6057cc02d3b8f42",
+          "new": "30c715b69444d2728a96e73e4bfb670ba2a48a2cb54911103268f064d0c4acea"
+        },
+        {
+          "path": "pieces/burst_runtime.json",
+          "old": "5f26ef582895c3f77750d198b737e5f94ded2169574e1b5f43d280e8f42e2eea",
+          "new": "3ad5d81f56554dc68d730a7d524e5009d277b6467f3d58483fa212a0cf015ec2"
+        },
+        {
+          "path": "pieces/key_expanded_noise.png",
+          "old": "96c2b4b4f1b32c466ad3a668574a3236e5834d883a7c9cb424ed1bec577e9dea",
+          "new": null
+        },
+        {
+          "path": "pieces/key_spent_noise.png",
+          "old": "837c85d8a926ab6dfe3a822e970d1760114d60ec60e518201257210f70b19ca7",
+          "new": null
+        }
+      ],
+      "frozen_orb": [],
+      "frozen_orb_e3": [],
+      "healing_hands": [],
+      "healing_hands_e3": [],
+      "ice_bolt_e2": [],
+      "lightning_blast": [],
+      "lightning_blast_e3": [],
+      "poisonous_concoction": [],
+      "poisonous_concoction_e3": [],
+      "zeus_chain": [],
+      "zeus_chain_e3": []
+    }
+  },
+  "catalogue_export": {
+    "exit_code": 0,
+    "kit_count": 17
+  },
+  "headless_import": {
+    "exit_code": 0,
+    "script_errors": false,
+    "rendering_method": "gl_compatibility"
+  },
+  "targeted_tests": {
+    "tests_run": 7,
+    "failures": [],
+    "errors": [],
+    "skipped": []
+  },
+  "trace_tests": {
+    "tests_run": 4,
+    "failures": [],
+    "errors": []
+  },
+  "suite": {
+    "tests_run": 237,
+    "skipped": [],
+    "remaining_reds": [
+      {
+        "kind": "failures",
+        "test": "test_godot_import.BoltChainEmissionTests.test_current_catalogue_and_original_kits_unchanged",
+        "last_traceback_line": "Diff is 89073 characters long. Set self.maxDiff to None to see it."
+      },
+      {
+        "kind": "failures",
+        "test": "test_godot_import.GodotImportTests.test_headless_state_machine_input_map_gear_vfx_and_nearest_fallback",
+        "last_traceback_line": "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      },
+      {
+        "kind": "failures",
+        "test": "test_godot_import.PieceStretchImportTests.test_v2_headless_import_and_seed_equal_rooted_clock",
+        "last_traceback_line": "       [1] probe (res://stretch_probe.gd:36)"
+      },
+      {
+        "kind": "failures",
+        "test": "test_vfx_picker.AuthoredEffectPickerTests.test_headless_authored_cast_east_north_collision_timing_and_feedback_cleanup",
+        "last_traceback_line": "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      },
+      {
+        "kind": "failures",
+        "test": "test_vfx_picker.G1ComponentTests.test_headless_first_cast_contact_cursor_pool_cancel_and_picker",
+        "last_traceback_line": "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      },
+      {
+        "kind": "failures",
+        "test": "test_vfx_picker.G1ComponentTests.test_headless_pierce_contacts_labels_pool_and_phase_callbacks",
+        "last_traceback_line": "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      },
+      {
+        "kind": "failures",
+        "test": "test_vfx_picker.LivingEmbersTests.test_headless_glow_sixty_samples_extrema_range_and_particle_properties",
+        "last_traceback_line": "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      },
+      {
+        "kind": "failures",
+        "test": "test_vfx_picker.TouchAimRuntimeTests.test_headless_overlay_forward_world_touch_and_mouse_probe",
+        "last_traceback_line": "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      },
+      {
+        "kind": "failures",
+        "test": "test_vfx_picker.TouchDeviceAimRuntimeTests.test_headless_device_forward_handled_overlay_and_mouse_probe",
+        "last_traceback_line": "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      },
+      {
+        "kind": "failures",
+        "test": "test_vfx_picker.VfxPickerTests.test_headless_tab_twice_cast_scene_labels_and_inflight_kit_lock",
+        "last_traceback_line": "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      },
+      {
+        "kind": "errors",
+        "test": "setUpClass (test_godot_import.FieldDesignLapEmissionTests)",
+        "last_traceback_line": "PermissionError: FL-3b write confinement: /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4v/field-design/headless.json"
+      },
+      {
+        "kind": "errors",
+        "test": "setUpClass (test_godot_import.RenderedLookTraceTests)",
+        "last_traceback_line": "PermissionError: FL-3b write confinement: /Users/admin/astra-burst/runs/C-5/FL-3b/CREDITS_VFX.txt"
+      },
+      {
+        "kind": "errors",
+        "test": "test_godot_import.TransformedResidueSeamTests.test_transformed_front_at_three_ages_has_no_straight_seam_over_12px",
+        "last_traceback_line": "PermissionError: FL-3b write confinement: /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4g/seam_measurements.json"
+      },
+      {
+        "kind": "errors",
+        "test": "test_vfx_picker.CanonicalCapsuleSweepTests.test_emergence_fraction_order_and_temporarily_ignored_body",
+        "last_traceback_line": "PermissionError: FL-3b write confinement: /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/FL-2c/reexport/capsule_sweep_test.gd"
+      },
+      {
+        "kind": "errors",
+        "test": "test_vfx_picker.FrozenOrbPickerTests.test_headless_orb_clock_and_pool",
+        "last_traceback_line": "PermissionError: FL-3b write confinement: /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4v/orb_trace.json"
+      },
+      {
+        "kind": "errors",
+        "test": "test_vfx_picker.IceTreatmentPickerTests.test_headless_contact_shatter_residue_decal",
+        "last_traceback_line": "PermissionError: FL-3b write confinement: /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4x/e2_trace.json"
+      },
+      {
+        "kind": "errors",
+        "test": "test_vfx_picker.ProjectileArmPickerTests.test_headless_east_contact_range_tail_and_key_schedule",
+        "last_traceback_line": "PermissionError: FL-3b write confinement: /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4p/e1_key_trace.json"
+      }
+    ],
+    "failure_count": 10,
+    "error_count": 7,
+    "unresolved_structural_failure": {
+      "test": "test_godot_import.PieceStretchImportTests.test_v2_headless_import_and_seed_equal_rooted_clock",
+      "traceback": "Traceback (most recent call last):\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_godot_import.py\", line 454, in test_v2_headless_import_and_seed_equal_rooted_clock\n    self.assertEqual(proc.returncode,0,log)\nAssertionError: 7 != 0 : Godot Engine v4.6.3.stable.official.7d41c59c4 - https://godotengine.org\n\nERROR: Condition \"ret != noErr\" is true. Returning: \"\"\n   at: get_system_ca_certificates (platform/macos/os_macos.mm:1028)\nERROR: band three not dissolved\n   at: push_error (core/variant/variant_utility.cpp:1024)\n   GDScript backtrace (most recent call first):\n       [0] need (res://stretch_probe.gd:6)\n       [1] probe (res://stretch_probe.gd:36)\nERROR: band three not dissolved\n   at: push_error (core/variant/variant_utility.cpp:1024)\n   GDScript backtrace (most recent call first):\n       [0] need (res://stretch_probe.gd:6)\n       [1] probe (res://stretch_probe.gd:36)\nERROR: band three not dissolved\n   at: push_error (core/variant/variant_utility.cpp:1024)\n   GDScript backtrace (most recent call first):\n       [0] need (res://stretch_probe.gd:6)\n       [1] probe (res://stretch_probe.gd:36)\nERROR: band three not dissolved\n   at: push_error (core/variant/variant_utility.cpp:1024)\n   GDScript backtrace (most recent call first):\n       [0] need (res://stretch_probe.gd:6)\n       [1] probe (res://stretch_probe.gd:36)\nERROR: band three not dissolved\n   at: push_error (core/variant/variant_utility.cpp:1024)\n   GDScript backtrace (most recent call first):\n       [0] need (res://stretch_probe.gd:6)\n       [1] probe (res://stretch_probe.gd:36)\nERROR: band three not dissolved\n   at: push_error (core/variant/variant_utility.cpp:1024)\n   GDScript backtrace (most recent call first):\n       [0] need (res://stretch_probe.gd:6)\n       [1] probe (res://stretch_probe.gd:36)\nERROR: band three not dissolved\n   at: push_error (core/variant/variant_utility.cpp:1024)\n   GDScript backtrace (most recent call first):\n       [0] need (res://stretch_probe.gd:6)\n       [1] probe (res://stretch_probe.gd:36)\nERROR: band three not dissolved\n   at: push_error (core/variant/variant_utility.cpp:1024)\n   GDScript backtrace (most recent call first):\n       [0] need (res://stretch_probe.gd:6)\n       [1] probe (res://stretch_probe.gd:36)\nERROR: band three not dissolved\n   at: push_error (core/variant/variant_utility.cpp:1024)\n   GDScript backtrace (most recent call first):\n       [0] need (res://stretch_probe.gd:6)\n       [1] probe (res://stretch_probe.gd:36)\nERROR: band three not dissolved\n   at: push_error (core/variant/variant_utility.cpp:1024)\n   GDScript backtrace (most recent call first):\n       [0] need (res://stretch_probe.gd:6)\n       [1] probe (res://stretch_probe.gd:36)\nERROR: band three not dissolved\n   at: push_error (core/variant/variant_utility.cpp:1024)\n   GDScript backtrace (most recent call first):\n       [0] need (res://stretch_probe.gd:6)\n       [1] probe (res://stretch_probe.gd:36)\nERROR: band three not dissolved\n   at: push_error (core/variant/variant_utility.cpp:1024)\n   GDScript backtrace (most recent call first):\n       [0] need (res://stretch_probe.gd:6)\n       [1] probe (res://stretch_probe.gd:36)\nERROR: band three not dissolved\n   at: push_error (core/variant/variant_utility.cpp:1024)\n   GDScript backtrace (most recent call first):\n       [0] need (res://stretch_probe.gd:6)\n       [1] probe (res://stretch_probe.gd:36)\nERROR: band three not dissolved\n   at: push_error (core/variant/variant_utility.cpp:1024)\n   GDScript backtrace (most recent call first):\n       [0] need (res://stretch_probe.gd:6)\n       [1] probe (res://stretch_probe.gd:36)\nERROR: band three not dissolved\n   at: push_error (core/variant/variant_utility.cpp:1024)\n   GDScript backtrace (most recent call first):\n       [0] need (res://stretch_probe.gd:6)\n       [1] probe (res://stretch_probe.gd:36)\nERROR: band three not dissolved\n   at: push_error (core/variant/variant_utility.cpp:1024)\n   GDScript backtrace (most recent call first):\n       [0] need (res://stretch_probe.gd:6)\n       [1] probe (res://stretch_probe.gd:36)\nERROR: band three not dissolved\n   at: push_error (core/variant/variant_utility.cpp:1024)\n   GDScript backtrace (most recent call first):\n       [0] need (res://stretch_probe.gd:6)\n       [1] probe (res://stretch_probe.gd:36)\nERROR: band three not dissolved\n   at: push_error (core/variant/variant_utility.cpp:1024)\n   GDScript backtrace (most recent call first):\n       [0] need (res://stretch_probe.gd:6)\n       [1] probe (res://stretch_probe.gd:36)\nERROR: band three not dissolved\n   at: push_error (core/variant/variant_utility.cpp:1024)\n   GDScript backtrace (most recent call first):\n       [0] need (res://stretch_probe.gd:6)\n       [1] probe (res://stretch_probe.gd:36)\nERROR: band three not dissolved\n   at: push_error (core/variant/variant_utility.cpp:1024)\n   GDScript backtrace (most recent call first):\n       [0] need (res://stretch_probe.gd:6)\n       [1] probe (res://stretch_probe.gd:36)\nERROR: band three not dissolved\n   at: push_error (core/variant/variant_utility.cpp:1024)\n   GDScript backtrace (most recent call first):\n       [0] need (res://stretch_probe.gd:6)\n       [1] probe (res://stretch_probe.gd:36)\nERROR: band three not dissolved\n   at: push_error (core/variant/variant_utility.cpp:1024)\n   GDScript backtrace (most recent call first):\n       [0] need (res://stretch_probe.gd:6)\n       [1] probe (res://stretch_probe.gd:36)\nERROR: band three not dissolved\n   at: push_error (core/variant/variant_utility.cpp:1024)\n   GDScript backtrace (most recent call first):\n       [0] need (res://stretch_probe.gd:6)\n       [1] probe (res://stretch_probe.gd:36)\nERROR: band three not dissolved\n   at: push_error (core/variant/variant_utility.cpp:1024)\n   GDScript backtrace (most recent call first):\n       [0] need (res://stretch_probe.gd:6)\n       [1] probe (res://stretch_probe.gd:36)\nERROR: band three not dissolved\n   at: push_error (core/variant/variant_utility.cpp:1024)\n   GDScript backtrace (most recent call first):\n       [0] need (res://stretch_probe.gd:6)\n       [1] probe (res://stretch_probe.gd:36)\nERROR: band three not dissolved\n   at: push_error (core/variant/variant_utility.cpp:1024)\n   GDScript backtrace (most recent call first):\n       [0] need (res://stretch_probe.gd:6)\n       [1] probe (res://stretch_probe.gd:36)\nERROR: band three not dissolved\n   at: push_error (core/variant/variant_utility.cpp:1024)\n   GDScript backtrace (most recent call first):\n       [0] need (res://stretch_probe.gd:6)\n       [1] probe (res://stretch_probe.gd:36)\nERROR: band three not dissolved\n   at: push_error (core/variant/variant_utility.cpp:1024)\n   GDScript backtrace (most recent call first):\n       [0] need (res://stretch_probe.gd:6)\n       [1] probe (res://stretch_probe.gd:36)\nERROR: band three not dissolved\n   at: push_error (core/variant/variant_utility.cpp:1024)\n   GDScript backtrace (most recent call first):\n       [0] need (res://stretch_probe.gd:6)\n       [1] probe (res://stretch_probe.gd:36)\nERROR: band three not dissolved\n   at: push_error (core/variant/variant_utility.cpp:1024)\n   GDScript backtrace (most recent call first):\n       [0] need (res://stretch_probe.gd:6)\n       [1] probe (res://stretch_probe.gd:36)\nERROR: band three not dissolved\n   at: push_error (core/variant/variant_utility.cpp:1024)\n   GDScript backtrace (most recent call first):\n       [0] need (res://stretch_probe.gd:6)\n       [1] probe (res://stretch_probe.gd:36)\nERROR: band three not dissolved\n   at: push_error (core/variant/variant_utility.cpp:1024)\n   GDScript backtrace (most recent call first):\n       [0] need (res://stretch_probe.gd:6)\n       [1] probe (res://stretch_probe.gd:36)\nERROR: band three not dissolved\n   at: push_error (core/variant/variant_utility.cpp:1024)\n   GDScript backtrace (most recent call first):\n       [0] need (res://stretch_probe.gd:6)\n       [1] probe (res://stretch_probe.gd:36)\nERROR: band three not dissolved\n   at: push_error (core/variant/variant_utility.cpp:1024)\n   GDScript backtrace (most recent call first):\n       [0] need (res://stretch_probe.gd:6)\n       [1] probe (res://stretch_probe.gd:36)\nERROR: band three not dissolved\n   at: push_error (core/variant/variant_utility.cpp:1024)\n   GDScript backtrace (most recent call first):\n       [0] need (res://stretch_probe.gd:6)\n       [1] probe (res://stretch_probe.gd:36)\nERROR: band three not dissolved\n   at: push_error (core/variant/variant_utility.cpp:1024)\n   GDScript backtrace (most recent call first):\n       [0] need (res://stretch_probe.gd:6)\n       [1] probe (res://stretch_probe.gd:36)\n\n"
+    }
+  },
+  "concerns": [
+    "Rendered f72 1080p pixel comparison remains unevaluable; conductor capture required.",
+    "Historical suite write attempts outside FL-3b were blocked and are named in remaining_reds.",
+    "A transient source index was initially written at workdir/out_index.txt, then moved under out/; this breached the output-location invariant.",
+    "Full in-sandbox suite: 237 tests, 10 failures and 7 errors; all named with last traceback lines. This includes E3-r1, Godot platform-error assertions and an unresolved PieceStretchImportTests runtime assertion."
+  ]
+}

@@ -302,7 +302,7 @@ def shader_source(blend_mode='MIX', light_participation=False, dissolve_order=No
 
 
 
-def write_vfx_material(out, resource, material, distance_texture, dark_duplicate=False, noise_texture=None):
+def write_vfx_material(out, resource, material, distance_texture, dark_duplicate=False, noise_texture=None, noise_uv_transform=None):
     """Write a ShaderMaterial and its fixed-blend/light shader variant.
 
     Paths are project-relative; the distance texture must already exist.
@@ -329,9 +329,19 @@ def write_vfx_material(out, resource, material, distance_texture, dark_duplicate
     noise = material.get('erode_noise', 0.0) if material.get('erode_outside_in', False) else 0.0
     if noise:
         shader = shader.with_name(shader.stem+'_noise'+shader.suffix)
+    if noise_uv_transform is not None:
+        if not noise or len(noise_uv_transform) != 4 or not all(math.isfinite(v) for v in noise_uv_transform):
+            raise ValueError('noise_uv_transform requires noise and four finite components')
+        shader = shader.with_name(shader.stem+'_boil'+shader.suffix)
     shader_rel = shader.relative_to(out).as_posix()
     target.parent.mkdir(parents=True, exist_ok=True)
-    shader.write_text(shader_source(mode, lit, order, material.get('erode_outside_in', False), noise))
+    source = shader_source(mode, lit, order, material.get('erode_outside_in', False), noise)
+    if noise_uv_transform is not None:
+        source = source.replace('uniform bool dark_duplicate',
+            'uniform vec2 noise_uv_scale = vec2(1.0);\nuniform vec2 noise_uv_origin = vec2(0.0);\nuniform vec2 noise_uv_offset = vec2(0.0);\nuniform bool dark_duplicate')
+        source = source.replace('texture(erosion_noise_texture, UV)',
+            'texture(erosion_noise_texture, UV * noise_uv_scale + noise_uv_origin - noise_uv_offset)')
+    shader.write_text(source)
     lines = ['[gd_resource type="ShaderMaterial" load_steps=3 format=3]',
              f'[ext_resource type="Shader" path="res://{shader_rel}" id="Shader"]',
              f'[ext_resource type="Texture2D" path="res://{field.relative_to(out).as_posix()}" id="Distance"]',
@@ -348,12 +358,15 @@ def write_vfx_material(out, resource, material, distance_texture, dark_duplicate
             raise ValueError('erode_noise requires a whole-body noise_texture')
         noise_path = _png(noise_texture, out, confined=True)
         with Image.open(noise_path) as a, Image.open(field) as b:
-            if a.mode != 'RGB' or a.size != b.size:
+            if a.mode != 'RGB' or (a.size != b.size and noise_uv_transform is None):
                 raise ValueError('noise_texture must be RGB and match the whole-body distance')
         lines[0] = '[gd_resource type="ShaderMaterial" load_steps=4 format=3]'
         lines.insert(3, f'[ext_resource type="Texture2D" path="res://{noise_path.relative_to(out).as_posix()}" id="Noise"]')
         lines.append('shader_parameter/erosion_noise_texture = ExtResource("Noise")')
         lines.append('shader_parameter/erode_noise = '+repr(float(noise)))
+        if noise_uv_transform is not None:
+            for key, values in [('scale', noise_uv_transform[:2]), ('origin', noise_uv_transform[2:])]:
+                lines.append('shader_parameter/noise_uv_'+key+' = Vector2('+', '.join(map(str, values))+')')
     lines.append('shader_parameter/dark_duplicate = '+str(dark_duplicate).lower())
     target.write_text('\n'.join(lines)+'\n')
     return target

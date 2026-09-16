@@ -13576,6 +13576,117 @@
       "codex_version": "codex-cli 0.153.4",
       "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
       "exit": 0
+    },
+    {
+      "id": "FL-3b",
+      "type": "TOOLING",
+      "experiment": "C5-FIRE",
+      "brief_sha256": "9a51b6bdf3d558166b4db3ed4699d885a9d26efb656c1705cfdacd7a45e41463",
+      "started": "2026-09-16T20:43:21.396092+00:00",
+      "ended": "2026-09-16T20:58:09.949559+00:00",
+      "minutes": 14.808969526383347,
+      "image_calls": 0,
+      "tool_calls": 36,
+      "audit": {
+        "violations": [],
+        "image_calls": 0,
+        "tool_calls": 36,
+        "tools_seen": {
+          "command_execution": 34,
+          "file_change": 2
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": []
+      },
+      "receipt_sha256": "72eb4faac1df5c15458bfe112105c1f02175e5b78d1885ea8af7fe8d7b70cc97",
+      "artifacts": [
+        {
+          "name": "export_check.py",
+          "sha256": "3ecba1e119d1889d8c1bda82216d4ab6385479db8da8c0f526c18f08630eceb8"
+        },
+        {
+          "name": "files.json",
+          "sha256": "ba0227fb024ea2d834596f754df6d23ae74d518de80abb23fcaf53c987ec203d"
+        },
+        {
+          "name": "finalize.py",
+          "sha256": "caa3878526d9dd1a40a34ad9288b876793973de2e558dcb5164fd3ac415005e7"
+        },
+        {
+          "name": "run_checks.py",
+          "sha256": "5ab59610e444ff576d21e706f322c30fd70c8025614340bb094f80a82206d497"
+        },
+        {
+          "name": "source_index.txt",
+          "sha256": "1c61387faa9c46699ee41c0bdd56df8cb64ffeb50e384f54ad7e86df5db16f6f"
+        }
+      ],
+      "artifacts_in_place": [
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "export/effect_kit.py",
+          "sha256": "a0cbc7c8144509328720addb0f88158f360d2462e842156a6ef88cfe0b00fa42"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "export/godot_import.py",
+          "sha256": "eecc3bd0a10edd42fa14a1e9ff6cee775c64c6f3fa0d973c03cf4acf96ee03fb"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "fixtures/fl1b/IceTreatmentImportTests-0.json",
+          "sha256": "87607b2926a914c229f4f712b68aa58e7d6da06e3663f22e951f1b9dec8d5149"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "fixtures/fl1b/PieceLap2ExportTests-3.json",
+          "sha256": "0b2c69515126438c46e592ed1522483808859e905d765cf8b610409b81aa1bcb"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "fixtures/fl1b/ProjectileArmPickerTests-2.json",
+          "sha256": "cd1b71df7f8a172896eff01048a0ed8e6cd63da6b1cf42dd4fd65a2be7c683ac"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-5/t3/FL-3b/acceptance.json",
+          "sha256": "c6dd23ba0dae0c5323c5ce2b01dca033d65816207f2f0ff1149df97ec1b53c8e"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-5/t3/FL-3b/evidence.zip",
+          "sha256": "1ca6ce3cabbf38e6faf3872c341006089ba0f7af7f77d891b86d54e6d7ae6f8a"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-5/t3/FL-3b/probe_shimmer_capture.gd",
+          "sha256": "5a9ab1f0c7b61573cc6e80439149a2b9419f9d852dcb870c9019c7e3fb78fa18"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-5/t3/FL-3b/source.diff",
+          "sha256": "03ada7f5f098420f444a381a8f7c7dac363c5d9e0fe6065611ef8ec58b8c645c"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "tests/test_godot_import.py",
+          "sha256": "004e5cb4ff977b321003f061edb76479ee5eaf0ca6df7e5055f24bed8265adb1"
+        }
+      ],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
     }
   ],
   "experiments": [],
@@ -14426,6 +14537,13 @@
       "veto_open": true,
       "ruling": "PACK v37 (FL-3 anti-decal) look: the additive core lights the flare heart and the residue now burns white-cream instead of holding as a flat sticker — the biggest single step toward the desktop read; the contact light warms the struck dummy; interior boil visible across the holds. DEFECT F-C5-34: the screen-space shimmer draws a dark disc under gl_compatibility → FL-3b replaces it compat-safe, shares the one noise texture (F-C5-33), re-baselines the three byte locks. cliffside_v37 playable (ignore the grey disc at the residue). Packet 99.",
       "ts": "2026-09-16T16:42:14"
+    },
+    {
+      "id": "R-C5-103",
+      "class": "conductor",
+      "veto_open": true,
+      "ruling": "FL-3b DELIVERED_WITH_CONCERNS and ACCEPTED: no BackBufferCopy / screen-texture read in any exported kit (scan empty); shimmer sheet max alpha .12 over 89 trace frames; one noise PNG per fire/ice kit (continuous test unchanged); three byte locks re-baselined with attributed diffs; 17-kit export + compat import exit 0. Rendered f72 pixel check is the conductor's (PACK v38 chain). Suite → freeze → PACK v38.",
+      "ts": "2026-09-16T16:59:39"
     }
   ],
   "grok_calls": [],
