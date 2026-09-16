@@ -1663,3 +1663,209 @@ class RaggedResidueMaterialTests(unittest.TestCase):
         self.assertEqual(piece_erode_noise(data), 0)
         data['pieces']['template'] = 'burst_v1'
         self.assertEqual(piece_erode_noise(data), 0)
+
+
+# T4o: continuous whole-body resistance, with explicit source-space instruments.
+def continuous_residue_fixture():
+    from export.effect_kit import load_pieces, erosion_noise_texture
+    kit_root = ROOT/'runs/C-5/vfx_kits/v9/fire_burst_e0p_v2'
+    data = load_kit(kit_root)
+    config, record, _ = load_pieces(data['pieces'], kit_root, runtime=True)
+    source = kit_root/Path(config['source']).parent
+    peak = np.array(Image.open(source/record['peak_index']).convert('RGBA'))
+    labels = np.zeros(peak.shape[:2], np.int32)
+    pieces = []
+    for item in record['pieces']:
+        pixels = np.array(Image.open(source/item['mask']).convert('RGBA'))
+        labels[pixels[..., 3] > 0] = item['id']
+        if item['area_px'] >= 48:
+            pieces.append(pixels)
+    return data, config, peak, distance_field(peak), erosion_noise_texture(peak), labels, pieces
+
+
+def residue_shape_metrics(mask, denominator):
+    """Crofton perimeter and radii of the exterior largest-component boundary.
+
+    Pixel centres; radius is measured from that component's coverage centroid.
+    A digital disc's radius ratio is near ONE (excess is near ZERO).
+    """
+    from scipy import ndimage
+    padded = np.pad(mask, 1)
+    axial = np.count_nonzero(padded[1:] != padded[:-1]) + np.count_nonzero(padded[:, 1:] != padded[:, :-1])
+    diagonal = np.count_nonzero(padded[1:, 1:] != padded[:-1, :-1]) + np.count_nonzero(padded[1:, :-1] != padded[:-1, 1:])
+    perimeter = math.pi/8*(axial+diagonal/math.sqrt(2))
+    labels, _ = ndimage.label(mask, np.ones((3, 3)))
+    sizes = np.bincount(labels.ravel())[1:]
+    area = int(mask.sum())
+    if not area:
+        return dict(entry_area_px=0, entry_fraction=0, largest_component_fraction=0,
+                    radius_ratio=None, isoperimetric_excess=None)
+    main = ndimage.binary_fill_holes(labels == np.argmax(sizes)+1)
+    y, x = np.where(labels == np.argmax(sizes)+1)
+    by, bx = np.where(main & ~ndimage.binary_erosion(main))
+    radii = np.hypot(bx-x.mean(), by-y.mean())
+    return dict(entry_area_px=area, entry_fraction=area/denominator,
+                largest_component_fraction=float(sizes.max()/area),
+                radius_ratio=float(radii.max()/radii.min()),
+                min_radius_px=float(radii.min()), max_radius_px=float(radii.max()),
+                isoperimetric_excess=perimeter**2/(4*math.pi*area)-1)
+
+
+def seam_front_length(mask, labels):
+    """Conservative straight segment at a source shard seam, in native pixels.
+
+    Intersect a 1-pixel 4-connected inward front with either side of an
+    internal piece boundary. For each 8-connected intersection, report its
+    endpoint diameter (even a curved intersection counts in this upper bound).
+    External source silhouette is excluded by requiring two nonzero IDs.
+    """
+    from scipy import ndimage
+    seams = np.zeros(mask.shape, bool)
+    for dy, dx in ((1, 0), (0, 1)):
+        a = labels[:labels.shape[0]-dy or None, :labels.shape[1]-dx or None]
+        b = labels[dy:, dx:]
+        edge = (a > 0) & (b > 0) & (a != b)
+        seams[:labels.shape[0]-dy or None, :labels.shape[1]-dx or None] |= edge
+        seams[dy:, dx:] |= edge
+    front = mask & ~ndimage.binary_erosion(mask)
+    regions, count = ndimage.label(front & seams, np.ones((3, 3)))
+    longest = 0.0
+    for i in range(1, count+1):
+        y, x = np.where(regions == i)
+        if len(x):
+            longest = max(longest, float(np.sqrt(((x[:, None]-x)**2+(y[:, None]-y)**2).max())+1))
+    return longest
+
+
+def continuous_residue_diagnostic():
+    from export.effect_kit import residue_entry, erosion_distance, piece_erode_noise
+    data, config, peak, field, texture, labels, pieces = continuous_residue_fixture()
+    support = peak[..., 3] > 0
+    denominator = int(support.sum())
+    rows = []
+    for noise in (0., .08, .2, .25, .3, .35, .4, .45, .5):
+        entry = residue_entry(peak, field, config['residue_fraction'], noise, texture)
+        mask = support & (erosion_distance(peak, field, noise, texture) <= entry['residue_outer'])
+        rows.append(dict(erode_noise=noise, **entry, **residue_shape_metrics(mask, denominator)))
+    noise = piece_erode_noise(data)
+    entry = residue_entry(peak, field, config['residue_fraction'], noise, texture)
+    union = np.zeros(support.shape, bool)
+    for pixels in pieces:
+        union |= material_pixels(pixels, data['material']['palette'], field,
+                  erode=entry['residue_erode'], erode_outside_in=True,
+                  erode_noise=noise, noise_texture=texture)[..., 3] > 0
+    whole = support & (erosion_distance(peak, field, noise, texture) <= entry['residue_outer'])
+    seams = []
+    flight = config['hold_frames']+max(1, round(data['layers'].get('flash', {}).get('duration_s', 1/60)*60))
+    for age in (30, 33, 36):
+        t = np.clip((age-flight-15)/21, 0, 1)
+        for layer, erode in (('stationary', entry['residue_erode']*t), ('stretch_source', t)):
+            mask = support & (erosion_distance(peak, field, noise, texture) <= 1-erode)
+            seams.append(dict(age=age, layer=layer, erode=float(erode),
+                              longest_seam_front_px=seam_front_length(mask, labels)))
+    return dict(instrument='CPU source-space native texels, active T4e-r1 shard union; not a rendered proof',
+                sweep=rows, configured=dict(erode_noise=noise, **entry, **residue_shape_metrics(union, denominator)),
+                union_difference_px=int(np.count_nonzero(union != whole)), seam_front=seams,
+                zero_control=rows[0], noise_sha256=hashlib.sha256(texture.tobytes()).hexdigest())
+
+
+class ContinuousResidueMaterialTests(unittest.TestCase):
+    def test_entry_shape_and_shared_shard_union_and_zero_control(self):
+        report = continuous_residue_diagnostic()
+        row = report['configured']
+        self.assertEqual(row['erode_noise'], .4)
+        self.assertGreaterEqual(row['radius_ratio'], 1.5)
+        self.assertGreaterEqual(row['isoperimetric_excess'], .35)
+        self.assertGreaterEqual(row['largest_component_fraction'], .9)
+        self.assertTrue(.15 <= row['entry_fraction'] <= .25)
+        self.assertEqual(report['union_difference_px'], 0)
+        self.assertLess(report['zero_control']['radius_ratio'], 1.06)
+        self.assertLess(abs(report['zero_control']['isoperimetric_excess']), .03)
+        for row in report['seam_front']:
+            self.assertLessEqual(row['longest_seam_front_px'], 12, row)
+
+    def test_seam_instrument_detects_known_bad_straight_cut(self):
+        labels = np.ones((80, 80), np.int32)
+        labels[:, 40:] = 2
+        mask = np.zeros_like(labels, bool)
+        mask[10:70, :40] = True
+        self.assertGreater(seam_front_length(mask, labels), 50)
+
+    def test_noise_deterministic_periodic_source_and_painted_weight(self):
+        from export.effect_kit import erosion_noise_texture, erosion_distance
+        data, config, peak, field, noise, labels, pieces = continuous_residue_fixture()
+        np.testing.assert_array_equal(noise, erosion_noise_texture(peak))
+        # Periodic seam is as locally smooth as ordinary adjacent noise samples.
+        red = noise[..., 0].astype(int)
+        local = max(np.abs(np.diff(red, axis=0)).max(), np.abs(np.diff(red, axis=1)).max())
+        self.assertLessEqual(np.abs(red[0]-red[-1]).max(), local)
+        self.assertLessEqual(np.abs(red[:, 0]-red[:, -1]).max(), local)
+        for band in (1, 2, 3):
+            pixels = np.full((64, 64, 4), 255, np.uint8)
+            pixels[..., :3] = band*85
+            texture = erosion_noise_texture(pixels)
+            if band > 1:
+                self.assertTrue(np.all(erosion_distance(pixels, np.full((64, 64), 128), .4, texture) < previous))
+            previous = erosion_distance(pixels, np.full((64, 64), 128), .4, texture)
+        self.assertNotIn('erosion_noise_texture', shader_source())
+        self.assertNotIn('erosion_noise_texture', shader_source(erode_outside_in=True))
+        self.assertIn('texture(erosion_noise_texture, UV).rg', shader_source(erode_outside_in=True, erode_noise=.4))
+
+
+def transformed_erosion_front_diagnostic(project):
+    """Inverse-affine bilinear CPU coverage, then line corridors on shard seams.
+
+    Tests the union AFTER current sprite transforms and layer thresholds.
+    Unlike the source-space diagnostic, this catches exposed straight cuts
+    from differently stretched shards. It is not a rendered-frame oracle.
+    Straight = 1.5-px corridor at one-degree steps with >=90% occupied axial
+    bins, allowing at most one missing pixel between bins.
+    """
+    from scipy import ndimage
+    from export.effect_kit import erosion_distance
+    folder = Path(project)/'vfx/fire_burst_e0p_v2/pieces'
+    cfg = json.loads((folder/'burst_runtime.json').read_text())
+    data,config,peak,field,noise,labels,pieces=continuous_residue_fixture()
+    centre=np.array(cfg['centre']);shape=(768,768);dist=erosion_distance(peak,field,.4,noise);results=[]
+    seam=np.zeros(labels.shape,bool)
+    for dy,dx in ((1,0),(0,1)):
+     a=labels[:512-dy,:512-dx];b=labels[dy:,dx:];e=(a>0)&(b>0)&(a!=b);seam[:512-dy,:512-dx]|=e;seam[dy:,dx:]|=e
+    for age in (30,33,36):
+     t=(age-cfg['flash_frames']-cfg['hold_frames']-15)/21
+     keep=(peak[...,3]>0)&(dist<=1-cfg['residue_erode']*t)
+     union=np.zeros(shape,bool);y,x=np.where(keep);union[np.rint(y-centre[1]+384).astype(int),np.rint(x-centre[0]+384).astype(int)]=True
+     cuts=np.zeros(shape,bool)
+     for item in cfg['pieces']:
+      if not item['animated']:continue
+      pix=np.array(Image.open(folder/item['mask']).convert('RGBA'));alpha=pix[...,3]/255
+      a=item['axis_radians'];r=math.radians(item['rotation_deg']);root=np.array(item['root']);drift=0 if item['core'] else cfg['root_drift']*cfg['core_radius_px']
+      def rot(v):return np.array([[math.cos(v),-math.sin(v)],[math.sin(v),math.cos(v)]])
+      mat=rot(a+r)@np.diag([1.25,1.25] if item['core'] else [item['along'],.85])@rot(-a);pos=root-centre+rot(a)[:,0]*drift
+      y,x=np.where(alpha>0);bounds=np.array([[x.min()-1,y.min()-1],[x.min()-1,y.max()+1],[x.max()+1,y.min()-1],[x.max()+1,y.max()+1]]).T
+      corners=mat@(bounds-root[:,None])+pos[:,None];lo=np.maximum(-384,np.floor(corners.min(axis=1)).astype(int)-2);hi=np.minimum(383,np.ceil(corners.max(axis=1)).astype(int)+2)
+      by,bx=np.mgrid[lo[1]:hi[1]+1,lo[0]:hi[0]+1];original=np.linalg.solve(mat,np.stack([bx,by]).reshape(2,-1)-pos[:,None])+root[:,None];co=[original[1],original[0]]
+      source_alpha=ndimage.map_coordinates(alpha,co,order=1,mode='constant').reshape(bx.shape)
+      sample=ndimage.map_coordinates(dist,co,order=1,mode='nearest').reshape(bx.shape)
+      visible=(source_alpha>0)&(sample<=1-t)
+      union[by+384,bx+384]|=visible
+      internal=(alpha>0)&seam
+      cut=ndimage.map_coordinates(internal.astype(float),co,order=1,mode='constant').reshape(bx.shape)>.01
+      cuts[by+384,bx+384]|=cut
+     front=union&~ndimage.binary_erosion(union);reg,n=ndimage.label(front&cuts,np.ones((3,3)));longest=0;straight=0
+     for i in range(1,n+1):
+      y,x=np.where(reg==i);longest=max(longest,float(np.sqrt(((x[:,None]-x)**2+(y[:,None]-y)**2).max())+1))
+      # Native pixel front: a 1.5-px-wide line corridor, orientations each degree;
+      # require continuously occupied axial pixel bins (one missing bin tolerated).
+      if len(x)>12:
+       for angle in np.arange(180)*math.pi/180:
+        along=x*math.cos(angle)+y*math.sin(angle);across=-x*math.sin(angle)+y*math.cos(angle)
+        for offset in np.arange(math.floor(across.min()),math.ceil(across.max())+1,.75):
+         sel=np.abs(across-offset)<=.75
+         bins=np.unique(np.rint(along[sel]).astype(int))
+         if len(bins)<12:continue
+         groups=np.split(bins,np.where(np.diff(bins)>2)[0]+1)
+         for group in groups:
+          if len(group)/(group[-1]-group[0]+1)>=.9:straight=max(straight,float(group[-1]-group[0]+1))
+     labs,n=ndimage.label(union,np.ones((3,3)));cs=np.bincount(labs.ravel())[1:]
+     results.append(dict(age=age,longest_transformed_seam_front_component_diameter_px=longest,longest_straight_seam_front_px=straight,largest_component=float(cs.max()/union.sum())))
+    return results

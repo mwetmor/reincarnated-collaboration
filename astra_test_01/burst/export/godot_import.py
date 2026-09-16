@@ -1172,7 +1172,11 @@ def _write_authored_effect(out, kit, resource_root, prefix, counts, shared_proje
     for label, mode, dark in (('Body', data['material']['blend_mode'], False),
                               ('Mix', 'MIX', False), ('Additive', 'ADD', False), ('Dark', 'MIX', True)):
         resource = resource_root+'/materials/'+label+'.tres'
-        write_vfx_material(out, resource, dict(data['material'], blend_mode=mode), first_field, dark)
+        phase_material = dict(data['material'], blend_mode=mode)
+        if data.get('pieces', {}).get('template') == 'burst_v2':
+            # V2 resistance is bound only on its whole-body piece materials.
+            phase_material.pop('erode_noise', None)
+        write_vfx_material(out, resource, phase_material, first_field, dark)
         materials[label] = resource
     def number(v): return format(float(v), '.12g')
     def vector(x, y): return 'Vector2('+number(x)+', '+number(y)+')'
@@ -2582,12 +2586,13 @@ def _write_piece_burst_v2(out, kit, resource_root, prefix):
     import copy
     import numpy as np
     from export.effect_kit import (load_pieces, piece_geometry, piece_stretch,
-                                   distance_field, write_vfx_material, piece_erode_noise, residue_entry)
+                                   distance_field, write_vfx_material, piece_erode_noise, residue_entry, erosion_noise_texture)
     data = kit['effect']
     config, record, _ = load_pieces(data['pieces'], kit['root'], runtime=True)
     # Reuse v1's unchanged layer/material plumbing, then replace only this scene.
     legacy = dict(kit, effect=copy.deepcopy(data))
     legacy['effect']['pieces']['template'] = 'burst_v1'
+    legacy['effect']['material'].pop('erode_noise', None)
     canonical = out/'scenes/vfx/piece_burst.tscn'
     owns_canonical = not canonical.exists()
     _write_piece_burst(out, legacy, resource_root, prefix)
@@ -2606,9 +2611,16 @@ def _write_piece_burst_v2(out, kit, resource_root, prefix):
     field_rel = resource_root+'/pieces/whole_body_distance.png'
     Image.fromarray(field).save(out/field_rel)
     noise = piece_erode_noise(data)
-    runtime.update(residue_entry(peak, field, config['residue_fraction'], noise))
+    noise_rel = None
+    noise_pixels = None
+    if noise:
+        noise_rel = resource_root+'/pieces/whole_body_noise.png'
+        noise_pixels = erosion_noise_texture(peak)
+        Image.fromarray(noise_pixels).save(out/noise_rel)
+    runtime.update(residue_entry(peak, field, config['residue_fraction'], noise, noise_pixels))
     if noise:
         runtime['erode_noise'] = noise
+        runtime['erosion_noise_texture'] = noise_rel
     scene = scene.replace('res://scripts/vfx/piece_burst.gd','res://scripts/vfx/piece_burst_v2.gd')
     # Root-only upper clip is a v2 shader variant. The shared T4a shader is frozen.
     extra_nodes = ['[node name="Roots" type="Node2D" parent="Art"]\n',
@@ -2622,7 +2634,7 @@ def _write_piece_burst_v2(out, kit, resource_root, prefix):
             material_config['erode_noise'] = noise
         if 'dissolve_order' in config:
             material_config['dissolve_order'] = config['dissolve_order']
-        write_vfx_material(out, material_rel, material_config, field_rel)
+        write_vfx_material(out, material_rel, material_config, field_rel, noise_texture=noise_rel)
         material = (out/material_rel).read_text()
         shader_ref = re.search(r'path="res://([^"]+\.gdshader)"', material)[1]
         root_shader = str(Path(shader_ref).with_name('vfx_material_v2_roots.gdshader'))

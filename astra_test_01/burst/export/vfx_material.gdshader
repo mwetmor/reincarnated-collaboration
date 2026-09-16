@@ -12,6 +12,7 @@ uniform float erode : hint_range(0.0, 1.0) = 0.0;
 uniform float dissolve : hint_range(0.0, 1.0) = 0.0;
 uniform bool erode_outside_in = false;
 uniform float erode_noise : hint_range(0.0, 1.0) = 0.0;
+uniform sampler2D erosion_noise_texture : filter_linear, repeat_enable;
 uniform bool dark_duplicate = false;
 const bool PREMULTIPLIED = false;
 varying float coverage_modulate;
@@ -31,7 +32,8 @@ void fragment() {
     float coverage = index_sample.a * paint.a * coverage_modulate;
     float distance_value = texture(distance_texture, UV).r;
     if (erode_outside_in) {
-        distance_value -= erode_noise * (band / 3.0);
+        vec2 resistance = texture(erosion_noise_texture, UV).rg;
+        distance_value -= erode_noise * (0.5 * (2.0 * resistance.r - 1.0) + 0.5 * resistance.g);
         if (erode > 0.0 && (erode >= 1.0 || distance_value > 1.0 - erode)) { coverage = 0.0; }
     } else {
         if (erode > 0.0 && (erode >= 1.0 || distance_value < erode)) { coverage = 0.0; }

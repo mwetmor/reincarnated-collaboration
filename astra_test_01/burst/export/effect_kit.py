@@ -165,18 +165,63 @@ def piece_erode_noise(data):
     return pieces.get('erode_noise', data.get('erode_noise', data['material'].get('erode_noise', 0.0)))
 
 
-def erosion_distance(rgba, distance, erode_noise=0.0):
-    """Outside-in resistance from original painted bands, shared with the shader.
+def erosion_noise_texture(rgba):
+    """One whole-canvas RGB data texture: periodic value noise + painted weight.
 
-    Brighter bands survive longer. No random texture or altered source mask;
-    the same original UV and rounded band are used on roots and stretched art.
+    Three smoothstep-interpolated octaves (8/16/32 cells, weights 1/.5/.25),
+    fixed local seed; no global RNG, frame, piece ID or runtime dependence.
+    R is signed noise encoded in 0..255; G is a softly joined band weight.
+    Extend paint across transparent pixels before smoothing, so shard edges
+    never contribute dark padding to the erosion field. Call on the PEAK.
+    """
+    from scipy import ndimage
+    rgba = np.asarray(rgba)
+    h, w = rgba.shape[:2]
+    rng = np.random.default_rng(17)
+    yy, xx = np.indices((h, w), dtype=float)
+    value = np.zeros((h, w), dtype=float)
+    for cells, weight in ((8, 1.0), (16, .5), (32, .25)):
+        grid = rng.uniform(-1, 1, (cells, cells))
+        x, y = xx*cells/w, yy*cells/h
+        ix, iy = x.astype(int), y.astype(int)
+        fx, fy = x-ix, y-iy
+        fx, fy = fx*fx*(3-2*fx), fy*fy*(3-2*fy)
+        a = grid[iy % cells, ix % cells]*(1-fx) + grid[iy % cells, (ix+1) % cells]*fx
+        b = grid[(iy+1) % cells, ix % cells]*(1-fx) + grid[(iy+1) % cells, (ix+1) % cells]*fx
+        value += weight*(a*(1-fy)+b*fy)
+    value /= 1.75
+    # Fixed gain retains amplitude across canvases; no content-dependent tuning.
+    value = np.clip(value*1.5, -1, 1)
+    band = np.floor(rgba[..., 0].astype(float)/85+.5)/3
+    visible = rgba[..., 3] > 0
+    if visible.any() and not visible.all():
+        nearest = ndimage.distance_transform_edt(~visible, return_distances=False, return_indices=True)
+        band = band[tuple(nearest)]
+    band = ndimage.gaussian_filter(band, 2.0, mode='wrap')
+    result = np.zeros((h, w, 3), np.uint8)
+    result[..., 0] = np.rint((value+1)*127.5).astype(np.uint8)
+    result[..., 1] = np.rint(band*255).astype(np.uint8)
+    return result
+
+
+def erosion_distance(rgba, distance, erode_noise=0.0, noise_texture=None):
+    """Outside-in resistance; CPU samples the exact exported data texels.
+
+    A shared peak texture is required when evaluating individual shards. The
+    omitted texture is useful for whole-peak callers and generated fixtures.
     """
     _number(erode_noise, 0, 1, 'erode_noise')
-    bands = np.floor(np.asarray(rgba)[..., 0].astype(float)/85+.5)
-    return np.asarray(distance)/255 - erode_noise*(bands/3)
+    value = np.asarray(distance)/255
+    if not erode_noise:
+        return value
+    texture = erosion_noise_texture(rgba) if noise_texture is None else np.asarray(noise_texture)
+    if texture.shape != (*np.shape(distance), 3) or texture.dtype != np.uint8:
+        raise ValueError('noise_texture must be matching uint8 HxWx3 whole-body data')
+    resistance = .5*(texture[..., 0]/255*2-1) + .5*(texture[..., 1]/255)
+    return value - erode_noise*resistance
 
 
-def residue_entry(rgba, field, fraction, erode_noise=0.0):
+def residue_entry(rgba, field, fraction, erode_noise=0.0, noise_texture=None):
     """Select a whole-band/distance threshold against HOLD support, before dissolve."""
     eligible = np.asarray(rgba)[..., 3] > 0
     target = fraction * np.count_nonzero(eligible)
@@ -186,7 +231,10 @@ def residue_entry(rgba, field, fraction, erode_noise=0.0):
         cutoff = int(np.argmin(abs(cumulative-target)))
         outer, area = (cutoff+.5)/255, int(cumulative[cutoff])
     else:
-        values, counts = np.unique(erosion_distance(rgba, field, erode_noise)[eligible], return_counts=True)
+        # Merge arithmetic-near ties before choosing an inter-bin midpoint.
+        # Six decimals are finer than texture precision, above float32 noise.
+        resistance = np.round(erosion_distance(rgba, field, erode_noise, noise_texture)[eligible], 6)
+        values, counts = np.unique(resistance, return_counts=True)
         cumulative = np.cumsum(counts)
         cutoff = int(np.argmin(abs(cumulative-target)))
         # Midpoint avoids CPU/GPU equality differences; keep the complete tie.
@@ -200,7 +248,7 @@ def residue_entry(rgba, field, fraction, erode_noise=0.0):
 
 
 def material_pixels(rgba, palette, distance=None, erode=0.0, dissolve=0.0,
-                    blend_mode='MIX', dark_duplicate=False, dissolve_order=None, erode_outside_in=False, erode_noise=0.0):
+                    blend_mode='MIX', dark_duplicate=False, dissolve_order=None, erode_outside_in=False, erode_noise=0.0, noise_texture=None):
     """CPU reference only, never represented as a Godot rendered-frame proof."""
     validate_material(dict(palette=palette, erode=erode, dissolve=dissolve, blend_mode=blend_mode, erode_noise=erode_noise))
     rgba = np.asarray(rgba)
@@ -212,7 +260,7 @@ def material_pixels(rgba, palette, distance=None, erode=0.0, dissolve=0.0,
     if erode:
         if distance is None or np.shape(distance) != rgba.shape[:2]:
             raise ValueError('erode requires a matching distance texture')
-        value = erosion_distance(rgba, distance, erode_noise) if erode_outside_in else np.asarray(distance)/255
+        value = erosion_distance(rgba, distance, erode_noise, noise_texture) if erode_outside_in else np.asarray(distance)/255
         keep = (value <= 1-erode) if erode_outside_in else (value >= erode)
         result[..., 3] *= keep & (erode < 1)
     result[..., 3] *= dissolve < np.asarray(dissolve_thresholds(dissolve_order))[bands]
@@ -230,7 +278,8 @@ def shader_source(blend_mode='MIX', light_participation=False, dissolve_order=No
     source = Path(__file__).with_name('vfx_material.gdshader').read_text()
     if not (erode_outside_in and erode_noise):
         source = source.replace('uniform float erode_noise : hint_range(0.0, 1.0) = 0.0;\n', '')
-        source = source.replace('        distance_value -= erode_noise * (band / 3.0);\n', '')
+        source = source.replace('uniform sampler2D erosion_noise_texture : filter_linear, repeat_enable;\n', '')
+        source = source.replace('        vec2 resistance = texture(erosion_noise_texture, UV).rg;\n        distance_value -= erode_noise * (0.5 * (2.0 * resistance.r - 1.0) + 0.5 * resistance.g);\n', '')
     if not erode_outside_in:
         # Strip the opt-in branch so legacy exported shaders stay byte-identical.
         source = source.replace('uniform bool erode_outside_in = false;\n', '')
@@ -248,7 +297,7 @@ def shader_source(blend_mode='MIX', light_participation=False, dissolve_order=No
 
 
 
-def write_vfx_material(out, resource, material, distance_texture, dark_duplicate=False):
+def write_vfx_material(out, resource, material, distance_texture, dark_duplicate=False, noise_texture=None):
     """Write a ShaderMaterial and its fixed-blend/light shader variant.
 
     Paths are project-relative; the distance texture must already exist.
@@ -290,6 +339,15 @@ def write_vfx_material(out, resource, material, distance_texture, dark_duplicate
     if material.get('erode_outside_in', False):
         lines.append('shader_parameter/erode_outside_in = true')
     if noise:
+        if noise_texture is None:
+            raise ValueError('erode_noise requires a whole-body noise_texture')
+        noise_path = _png(noise_texture, out, confined=True)
+        with Image.open(noise_path) as a, Image.open(field) as b:
+            if a.mode != 'RGB' or a.size != b.size:
+                raise ValueError('noise_texture must be RGB and match the whole-body distance')
+        lines[0] = '[gd_resource type="ShaderMaterial" load_steps=4 format=3]'
+        lines.insert(3, f'[ext_resource type="Texture2D" path="res://{noise_path.relative_to(out).as_posix()}" id="Noise"]')
+        lines.append('shader_parameter/erosion_noise_texture = ExtResource("Noise")')
         lines.append('shader_parameter/erode_noise = '+repr(float(noise)))
     lines.append('shader_parameter/dark_duplicate = '+str(dark_duplicate).lower())
     target.write_text('\n'.join(lines)+'\n')

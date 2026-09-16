@@ -699,3 +699,70 @@ class RaggedResidueImportTests(unittest.TestCase):
         self.assertNotIn('shader_parameter/erode_noise', material)
         shader = re.search(r'path="res://([^"]+\.gdshader)"', material)[1]
         self.assertNotIn('erode_noise', (out/shader).read_text())
+
+
+class ContinuousResidueImportTests(unittest.TestCase):
+    def test_whole_canvas_texture_shared_by_every_material_and_cpu_cutoff(self):
+        import hashlib
+        import numpy as np
+        from export.effect_kit import erosion_noise_texture, residue_entry, distance_field
+        from export.godot_import import _load_vfx_kit, _write_authored_effect
+        root = Path(__file__).resolve().parents[1]
+        kit = _load_vfx_kit(root/'runs/C-5/vfx_kits/v9/fire_burst_e0p_v2')
+        TMP.mkdir(parents=True, exist_ok=True)
+        with tempfile.TemporaryDirectory(prefix='t4o-material-', dir=TMP) as td:
+            out = Path(td)
+            for folder in ('scripts', 'scenes', 'vfx'):
+                (out/folder).mkdir()
+            _write_authored_effect(out, kit, 'vfx/fire_burst_e0p_v2', 'vfx_fire_burst_e0p_v2', {})
+            folder = out/'vfx/fire_burst_e0p_v2'
+            runtime = json.loads((folder/'pieces/burst_runtime.json').read_text())
+            peak = np.array(Image.open(folder/'pieces/peak_index.png').convert('RGBA'))
+            noise_path = out/runtime['erosion_noise_texture']
+            noise = np.array(Image.open(noise_path))
+            np.testing.assert_array_equal(noise, erosion_noise_texture(peak))
+            self.assertEqual(noise.shape, (*peak.shape[:2], 3))
+            expected = residue_entry(peak, distance_field(peak), .2, .4, noise)
+            self.assertEqual(runtime['erode_noise'], .4)
+            for key, value in expected.items():
+                self.assertEqual(runtime[key], value)
+            self.assertEqual(len(list(folder.rglob('*noise.png'))), 1)
+            for piece in runtime['pieces']:
+                for prefix in ('Piece_Piece_', 'Root_'):
+                    material = (folder/f'materials/{prefix}{piece["id"]:03d}.tres').read_text()
+                    self.assertIn('load_steps=4', material)
+                    self.assertIn('res://'+runtime['erosion_noise_texture'], material)
+                    self.assertIn('shader_parameter/erode_noise = 0.4', material)
+                    self.assertIn('shader_parameter/erosion_noise_texture = ExtResource("Noise")', material)
+                    shader = re.search(r'path="res://([^"]+\.gdshader)"', material)[1]
+                    text = (out/shader).read_text()
+                    self.assertIn('texture(erosion_noise_texture, UV).rg', text)
+                    self.assertIn('texture(distance_texture, UV).r', text)
+                    self.assertNotIn('erode_noise * (band / 3.0)', text)
+                    self.assertIn('Per-kit band-group removal thresholds', text)
+            for path in list(out.rglob('*.tres')) + list(out.rglob('*.tscn')):
+                for relative in re.findall(r'path="res://([^"]+)"', path.read_text()):
+                    self.assertTrue((out/relative).is_file(), relative)
+
+    def test_default_zero_emits_no_texture_or_sampler(self):
+        fixture = PieceStretchImportTests(); fixture.setUp(); self.addCleanup(fixture.doCleanups)
+        self.assertFalse(list(fixture.project.rglob('whole_body_noise.png')))
+        for path in fixture.project.rglob('*.gdshader'):
+            self.assertNotIn('erosion_noise_texture', path.read_text())
+
+
+class TransformedResidueSeamTests(unittest.TestCase):
+    def test_transformed_front_at_three_ages_has_no_straight_seam_over_12px(self):
+        from test_effect_kit import transformed_erosion_front_diagnostic
+        from export.godot_import import _load_vfx_kit, _write_authored_effect
+        root = Path(__file__).resolve().parents[1]
+        kit = _load_vfx_kit(root/'runs/C-5/vfx_kits/v9/fire_burst_e0p_v2')
+        TMP.mkdir(parents=True, exist_ok=True)
+        with tempfile.TemporaryDirectory(prefix='t4o-front-', dir=TMP) as td:
+            out = Path(td)
+            for folder in ('scripts', 'scenes', 'vfx'):
+                (out/folder).mkdir()
+            _write_authored_effect(out, kit, 'vfx/fire_burst_e0p_v2', 'vfx_fire_burst_e0p_v2', {})
+            for row in transformed_erosion_front_diagnostic(out):
+                with self.subTest(age=row['age']):
+                    self.assertLessEqual(row['longest_straight_seam_front_px'], 12, row)
