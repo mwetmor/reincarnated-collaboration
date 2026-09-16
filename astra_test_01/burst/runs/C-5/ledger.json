@@ -12162,6 +12162,13 @@
       "veto_open": true,
       "ruling": "LEGOLAS § 12 FRAME MEASUREMENTS RECEIVED (class E, 1.2 GB on the Desktop, budget honoured). Corrections to carry: Frozen Orb body 0.80x0.75 BH, nova = faceted darts from a core flash (no ring/decal); Lightning Blast fully formed in one frame, polyline re-randomised EVERY frame, 0.15 s + fade, core 0.02-0.05 BH, branches fork and rejoin; Blackwater licks flicker 3.3-3.6 Hz turbulent (separate from the 1 Hz tick), shards unresolvable; Concoction shallow lob 25-30 deg, burst 0.30-0.35 s, VFX 3.0-3.5 BH over a 2 BH hitbox, NOTHING on the ground — the dark ground in PConc footage is PLAGUE BEARER (player-anchored), NOT Alchemist Mark: my earlier attribution to Matt was wrong; Matt R-C5-80 composite stands as a DECLARED HOUSE borrow; Zeus ball 0.37 BH riding 0.24 BH above a drawn ground shadow, bolt sprite shed behind; Healing Hands = filled golden dome 3.4-3.6 BH (radius 220 was right; T4x 160 reverts), peak 0.15 s, gone 0.40 s, pre-1.4. Six re-specs drafted by the named gandalf sub-agent into the scratchpad; applied as E3-r1 TOOLING after the fire lane.",
       "ts": "2026-09-16T13:10:03"
+    },
+    {
+      "id": "R-C5-85",
+      "class": "conductor",
+      "veto_open": true,
+      "ruling": "FL-1b DELIVERED_WITH_CONCERNS and ACCEPTED. Part A: BOTH were runtime regressions from FL-1a — (1) the painted nose was translated rear-to-pivot + separation + clearance before the first physics query, so near targets (the east shield) were never swept: the shared G1 sweep now includes the socket-to-nose segment and queries at the painted leading tip; contact events record the tip (F-C5-23 fixed; before/after traces); (2) FL-1a pool selection did bool(candidate.get(\"fizzling\")) — orbs have no such property → Godot null-bool error → acquire returned null → probe never quit: fixed by comparing with true (F-C5-24). The ice visibility fixture was additionally stale (its manual dispatch predates the nose offset) and was realigned without weakening its assertions. Part B: five byte/all-text locks re-baselined with hash-table diffs attributing every entry to FL-1a (README/emitted-scene lines); the original-kit catalogue lock NOT re-baselined — its previous hashes also differ for poisonous_concoction_e3 and healing_hands_e3 (T4x), to be re-baselined in E3-r1 with those kits. Part C: halo clause = diameter <= 0.85 BH (0.805 measured). 17 kits byte-identical. Lane wrapper crashed post-burst AGAIN (LD-1 third instance; receipt landed). Rendered proof: PACK v33 + chain.",
+      "ts": "2026-09-16T13:11:58"
     }
   ],
   "grok_calls": [],
@@ -12359,6 +12366,18 @@
       "kit": "G1 (fire arms, ice)",
       "note": "After FL-1a the G1 contact point moved: ice bolt passes through the first dummy; fire bursts past it. Likely the rear-separation/body-clearance offset displaced the collision origin from the leading tip. -> FL-1b Part A (runtime fix).",
       "ts": "2026-09-16T12:49:02"
+    },
+    {
+      "id": "F-C5-24",
+      "kind": "defect",
+      "kit": "frozen_orb_e3 (G1 pool)",
+      "note": "FL-1a pool selection called bool() on an absent fizzling property (orb nodes) — Godot null-bool error, acquire null, probe hang. Fixed in FL-1b (compare with true).",
+      "ts": "2026-09-16T13:11:58"
+    },
+    {
+      "id": "N-C5-E3-RESPEC-DRAFT",
+      "note": "Six E3 re-specs drafted from Table B + § 12 by the named gandalf sub-agent (scratchpad e3_respec/, RESPEC_TABLE.md; every number traced or boxed HOUSE). Exporter changes the E3-r1 brief must carry: G1 cadence_kind + fractional metronome intervals, nova darts (no pieces/decal under nova); G2 lick_flicker_hz channel + 12 s residue, lobbed_burst mode + puddle decal primitive; G3 per-frame re-randomised polyline with fork/rejoin, ball-hop mode with drawn shadow + lagging trail + victim-location proc; G4 one-shot dome at the cursor point, seal optional; FF-08 report-not-assert everywhere (Q80 F4 unblocks the most). Healing Hands radius back to 220. Queued behind the fire lane.",
+      "ts": "2026-09-16T13:18:55"
     }
   ]
 }
