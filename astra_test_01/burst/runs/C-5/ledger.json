@@ -8647,6 +8647,81 @@
       "codex_version": "codex-cli 0.153.4",
       "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
       "exit": 3
+    },
+    {
+      "id": "T4s-r1",
+      "type": "TOOLING",
+      "experiment": "C5-E3",
+      "brief_sha256": "671db40cfabf95ce1f1bc1fdd0707b5a0225544ac805683981333e5402d428bc",
+      "started": "2026-09-16T09:23:55.063939+00:00",
+      "ended": "2026-09-16T09:32:33.900037+00:00",
+      "minutes": 8.647154899299979,
+      "image_calls": 0,
+      "tool_calls": 27,
+      "audit": {
+        "violations": [],
+        "image_calls": 0,
+        "tool_calls": 27,
+        "tools_seen": {
+          "command_execution": 25,
+          "file_change": 2
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 1,
+        "generated_images_new": []
+      },
+      "receipt_sha256": "ce1c7b4e81f0664ef25c10bedbd94251de549bc8f1fee2d87ff61902a05db4e6",
+      "artifacts": [
+        {
+          "name": "files.json",
+          "sha256": "91e870209066584db41e261f09e80a9ab1061f6320e357b771d90828e305fbe3"
+        }
+      ],
+      "artifacts_in_place": [
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "export/godot_import.py",
+          "sha256": "653fd5475f3781e31dceed9bc086526fe456068a48e3c92ae4bcca83094e1fa0"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-5/t3/T4s-r1/README.md",
+          "sha256": "0f5938a22be46a176ca2352864c2715fddb6e8315414e3dea2e7ed4346ff0792"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-5/t3/T4s-r1/acceptance.json",
+          "sha256": "855f0e408cdf61ec14e3290917aedfbecdf9b4de8c6bf6484a8b5adb778edb7b"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-5/t3/T4s-r1/evidence.zip",
+          "sha256": "1057a5619da97d9805620cdb5bd19a3f1eb2d95f2c7728c6a58fe6b1b4320233"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-5/t3/T4s-r1/run_checks.py",
+          "sha256": "0621bdf107312e57172865d0ca97f9786e70b841c7923a2549c5601ab1e35cc1"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "tests/test_godot_import.py",
+          "sha256": "bc9a996ae9c62ba419ca0fe478c44063c078e75fdf8bbdd735f2768d1c6f549d"
+        }
+      ],
+      "effort": "high",
+      "image_calls_events": 1,
+      "generated_images_new": [],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
     }
   ],
   "experiments": [],
@@ -9162,6 +9237,13 @@
       "veto_open": true,
       "ruling": "PACK CS-pack-v28 FAILED (exit 3): the T4s exporter crashes with G2 kits registered — NameError _write_g2_component is not defined at _write_vfx_kits (T4s's headless proof evidently ran on a fixture without the G2 kits registered in kits_v9.json). T4s-r1 fired (define/wire the emitter; add a full-exporter test with the live 13-kit registry). The v28 probe chain and the re-judge wait for it. Not a HALT: one PACK FAIL on a code defect, remedied; no VOIDs.",
       "ts": "2026-09-16T05:23:02"
+    },
+    {
+      "id": "R-C5-58",
+      "class": "conductor",
+      "veto_open": true,
+      "ruling": "T4s-r1 DELIVERED_WITH_CONCERNS and ACCEPTED: the cause was the module __main__ guard sitting ABOVE the G2 definitions (imported-module tests saw them; the CLI did not) — moved below; new CLI regression test reproduces the NameError before the fix; full 13-kit export + import exit 0; 826 frozen export hashes match; conductor export confirms. After the outside suite: freeze → PACK v28-r1 → captures → boards → E1-judge-02 → T4t.",
+      "ts": "2026-09-16T05:34:26"
     }
   ],
   "grok_calls": [],
