@@ -2508,6 +2508,285 @@
       "codex_version": "codex-cli 0.153.4",
       "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
       "exit": 0
+    },
+    {
+      "id": "T4e-r1",
+      "type": "TOOLING",
+      "experiment": "C5-E0p",
+      "brief_sha256": "db6998a7ba7c9ff58ffd35bc8bf856ccb0add4ba2674a361cd9f42aedb98df7a",
+      "started": "2026-09-16T00:52:51.606412+00:00",
+      "ended": "2026-09-16T01:13:54.265093+00:00",
+      "minutes": 21.046270252083318,
+      "image_calls": 0,
+      "tool_calls": 31,
+      "audit": {
+        "violations": [],
+        "image_calls": 0,
+        "tool_calls": 31,
+        "tools_seen": {
+          "command_execution": 31
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": []
+      },
+      "receipt_sha256": "7faa6cf56ffde9dbc9303212b49ecbe47a42918388e4a6f604448150d38b746e",
+      "artifacts": [
+        {
+          "name": "files.json",
+          "sha256": "36380a09eac35d9587e6e99e810c54fa0e684d1a3d7b32c23b07a50ca779706f"
+        }
+      ],
+      "artifacts_in_place": [
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "oracle/peak_pieces.py",
+          "sha256": "2a7c7a0daa078c184551681df653e7e614acca03364c61a2fb306901dfeb898f"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-5/t3/T4e-r1/acceptance.json",
+          "sha256": "d90670721c0fd1b7d4c86b3804af02e47fe32777eea10fca1a868e29e5f1fd74"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-5/t3/T4e-r1/decomposition_report.json",
+          "sha256": "97ae191e18eb9316e56892a815bd3040573d583048020df254c705c9532e1531"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-5/t3/T4e-r1/full_suite.log",
+          "sha256": "bedb39335e257f056635e84399144925365e68dc531aa958790a8aa2f5365c53"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-5/t3/T4e-r1/full_suite_initial.log",
+          "sha256": "4fc38c954fe947ad7cb9149bad0ed30d15a93b5df9c513be457e67bf135b9b24"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-5/t3/T4e-r1/full_suite_initial_summary.json",
+          "sha256": "762e30dd456690ec0f8313b49f3473bd674549500e53048685bebf82174881c9"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-5/t3/T4e-r1/full_suite_summary.json",
+          "sha256": "11ca1c833ed0d53f3ad7f68a63cbd86cc61fafca8b88840505bbfd2f03175451"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-5/t3/T4e-r1/peak_tests.json",
+          "sha256": "8d76434a71489e91414de9cd112399ff1a4c53b80de5fb263a3d4217d5bd5815"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-5/t3/T4e-r1/peak_tests.log",
+          "sha256": "4246080e53af88a145fa8305352ca310f001004f0a8c3fe7ce510dce2fa4598d"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-5/t3/T4e-r1/pieces/contact_sheet.png",
+          "sha256": "fa7e53f1d2f7e3a9ee1a61e6743f04e003296888b16eb69715f100db510861b5"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-5/t3/T4e-r1/pieces/peak_index.png",
+          "sha256": "239b8f28e6bed8eec4c71d584f46174072a73f98cb71b30380cbad1521cc5c8f"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-5/t3/T4e-r1/pieces/piece_001.png",
+          "sha256": "b2f41426ee0b3b6ee5a673299a631134329804f734596b3a3feb6785ba5b539a"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-5/t3/T4e-r1/pieces/piece_002.png",
+          "sha256": "06df27010b1dcf7048c4a8bdf51590389f21388c9e5009486776f5a6af38abe4"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-5/t3/T4e-r1/pieces/piece_003.png",
+          "sha256": "ba736e9ff94125fbf4151dc599a047fb5a54ebf036e82ae9a7d9c42edecc255a"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-5/t3/T4e-r1/pieces/piece_004.png",
+          "sha256": "c12e9e984fd9d93cc5b6f3e16aa287b7aa97e5b0da0fd3910a27fd1f3ec88995"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-5/t3/T4e-r1/pieces/piece_005.png",
+          "sha256": "be9cded5addc5ffe477575922772a33393e942c955327059eeb8252bb916d876"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-5/t3/T4e-r1/pieces/piece_006.png",
+          "sha256": "670b495b08a432500bff7c5cd0bdd1d317bee4b421afa74d865b3cc4de54110f"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-5/t3/T4e-r1/pieces/piece_007.png",
+          "sha256": "0e4a71cb0270a9b2d5a0c8a49625006051f1a3d3aa03e53375fb3bb7fe756c31"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-5/t3/T4e-r1/pieces/piece_008.png",
+          "sha256": "753a02763063326915196ef7a4dcbf69c84f803904f444867b1637d012a91680"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-5/t3/T4e-r1/pieces/piece_009.png",
+          "sha256": "974680c102cdb837ac87ce60a92d0def64890b05799daa5e6575c222f5befbcf"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-5/t3/T4e-r1/pieces/piece_010.png",
+          "sha256": "fa7c5c8390baca51bf33f925f215053d031bf682e6ed12d28b46db9ecf7bd6ea"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-5/t3/T4e-r1/pieces/piece_011.png",
+          "sha256": "5b19fbeecf986f103a958797f5833c303d4927d614a484398710b619685d1047"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-5/t3/T4e-r1/pieces/piece_012.png",
+          "sha256": "3a371e7155b0986348860333708978f627548e7d8947a72db14c42643679a0f5"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-5/t3/T4e-r1/pieces/piece_013.png",
+          "sha256": "82bb6e314180d122e758f4b0d9fee536a74ac33247ca3fa4e936d3a700f8fbc2"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-5/t3/T4e-r1/pieces/piece_014.png",
+          "sha256": "7b26da7a058388cb1b13d2b9857e07da892ab08f3e568d6f71509a291012c70c"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-5/t3/T4e-r1/pieces/piece_015.png",
+          "sha256": "16bd893b76604e53b0d94df363177d6bd52556d68db87a1002731c0865e583da"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-5/t3/T4e-r1/pieces/piece_016.png",
+          "sha256": "6976727eed3218bb4fbd8561997bfa8d5556d7e53c94bd09b762907653856444"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-5/t3/T4e-r1/pieces/piece_017.png",
+          "sha256": "4fb9b8a0f9d92b9de0a549ac90c3fc7f6bf21bbfc2a70797353c046086281808"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-5/t3/T4e-r1/pieces/piece_018.png",
+          "sha256": "589fedd4b574d2764a29305e9827a5e4d9e19dc5ca4abd14820e36012f42d68b"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-5/t3/T4e-r1/pieces/piece_019.png",
+          "sha256": "8cb4f97aedef8cc08b3bbfa8106ecbb02bb429cf0c07075bb9effa0bd13416bf"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-5/t3/T4e-r1/pieces/piece_020.png",
+          "sha256": "dc59d0d96dfe3f7a123f9debe9147348823f22d2176b2f152395518f58bd0ed6"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-5/t3/T4e-r1/pieces/piece_021.png",
+          "sha256": "4e8efbcf4dcdf3ec7ee383729c7a9b311a475201dd571b54aba2868df7a80206"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-5/t3/T4e-r1/pieces/piece_022.png",
+          "sha256": "58d8f78434870850db526a592736a7d78f975b4556a7c65ef30e065e47a3ea8c"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-5/t3/T4e-r1/pieces/piece_023.png",
+          "sha256": "f94d2cf109d94fe47ec46991c4e8114e7c0c83f60524649ea9e794d5fa86abdf"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-5/t3/T4e-r1/pieces/piece_024.png",
+          "sha256": "6068189906cafd32fa1576adfc1fb3bbec1d7cacd5d2d69664ed9c7bc3afc151"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-5/t3/T4e-r1/pieces/pieces.json",
+          "sha256": "5840c65dfb78efdf5653997b1c90759176d08d43824b44fd541b9e5aa92d80c4"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-5/t3/T4e-r1/runner_reports.json",
+          "sha256": "17b8c89b7a3a80beb678b6cc2508c584267678d9d7727ab4d7a2ed508a1c81e2"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-5/t3/T4e-r1/runner_reports_before.json",
+          "sha256": "49cdf53fa179463803d6c2135068b211fb144c1b6b727462bd7801ff44912e8e"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "tests/gates_regression_diff.json",
+          "sha256": "c8864b881f6646a530b06271dfb4d801767aa46db6184abad8bba4761cafbe80"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "tests/oracles_acceptance_measurements.json",
+          "sha256": "39949a5e5c6afe3bf7e19061f5aa2859e15d85b70803b0430ced6471c998f3d0"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "tests/oracles_palette_measurements.json",
+          "sha256": "d644692970ba376c582468b225308f6c3d6e9c7c8b5a0c73187689d2e1cbac25"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "tests/oracles_silhouette_measurements.json",
+          "sha256": "1dc9e68b72691bf50e1773cdfcc5cad8d8990731cfb2a012956acb826aaa637f"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "tests/parts_measurements.json",
+          "sha256": "daef6067a663ac0f199506bfbbb229a351bd7ce0fac4cb670dcac047026f8994"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "tests/sheet_consistency_calibration.json",
+          "sha256": "3b8076d4a4b4e3b06920e067b3c5c665d6a0a441afd3f4725cbfafdb3df463ab"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "tests/t0c_suite_output.txt",
+          "sha256": "0af58de518ce6be00f9f5a24b410017797f3987a29133f4d3251bb6555164c3c"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "tests/t0c_summary.json",
+          "sha256": "2f41c538de1cbf65f7ab0476f4b57b72be17645314d9276e704c103342e7f307"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "tests/test_peak_pieces.py",
+          "sha256": "f3c0c149b040fd71665509443ffc82a27959acd32577e30f50fa253a9baeeadf"
+        }
+      ],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
     }
   ],
   "experiments": [],
@@ -2687,6 +2966,13 @@
       "veto_open": true,
       "ruling": "T4e-01 DELIVERED_WITH_CONCERNS and REJECTED by the conductor on design (DRIFT-CRITIC against my own row): the 7 pieces are band-layer unions (contour / dark / light / core, each disconnected across the whole body), a literal reading of the row clause no piece spans two bands by > 5 %. That clause was the defect — a burst needs SPATIAL SHARDS (tongues + core wedges) each carrying every band with its contour attached, or the runtime flies the outline off its fill. SPEC T4e row corrected (≥ 12 pieces, one component each, no band-pure piece ≥ 200 px, largest ≤ 25 %); T4e-r1 fired to amend peak_pieces.py. Suite in the Astra sandbox shows 10 headless-Godot reds diagnosed as sandbox/environment (user:// log rotation, editor-settings writes, CA certs) — the same class T4d showed; the conductor re-runs the suite outside the sandbox before any freeze. T4e-01 code stays on disk as the r1 starting point; not frozen.",
       "ts": "2026-09-15T20:52:23"
+    },
+    {
+      "id": "R-C5-19",
+      "class": "conductor",
+      "veto_open": true,
+      "ruling": "T4e-r1 ACCEPTED on numbers (24 pieces: 11 main-body spatial shards + 13 detached source islands ≤ 38 px from the painter's stray partial-alpha pixels; union exact; every piece one component; no band-pure piece ≥ 200 px; largest 15.7 %; sandbox suite 578/563 = the five standing reds, 0 additional). Concern carried: 22 % of covered pixels sit > 20 levels from a band — the resample's plane-edge blending; quantisation as specified handles it. T4h fired on T4e-r1 output BEFORE the conductor's outside-sandbox suite + freeze (critical-path call, Matt: do not hold up the VFX run) — one suite run + one freeze covers T4e-r1 + T4h when T4h lands; islands < 48 px are hold-only, never flown.",
+      "ts": "2026-09-15T21:15:12"
     }
   ],
   "grok_calls": [],
