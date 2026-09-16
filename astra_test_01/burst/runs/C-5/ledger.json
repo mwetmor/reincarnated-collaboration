@@ -12929,6 +12929,13 @@
       "veto_open": true,
       "ruling": "FL-2 DELIVERED_WITH_CONCERNS and ACCEPTED (7/7 focused tests green). Part 0 (F-C5-27 FIXED, real v34 scene): the 3-px tip sweep at staff height (socket y 526) passed ABOVE the shield footprint while the painted head visibly crossed it — the sweep is now the convex envelope of the indexed painted head + streak (alpha >= 32), in fraction order; east fire contacts body 3 (the shield) at age 1, ice likewise; decal anchored at the struck target (F-C5-25 closed pending the look). Parts 1-5 built to spec: muzzle puff + caster floor light (5 ticks), head flicker period 2, ember trail, eased floor light 0.6*(1-t/.35)^2 sampled 0/.1/.2/.35, hit-stop 3, residue 0.8 s with 12 living embers, peak heat halo frames 19-22 (alpha .35, x1.06). Shake: the painted route applies none (observation, no change). 14 kits byte-identical; three fire kits kit.json only. Sandbox reds are env + the byte locks the emitted-scene change re-opens (re-baseline in the next TOOLING with diffs). Rendered proof: PACK v35 + chain.",
       "ts": "2026-09-16T14:18:27"
+    },
+    {
+      "id": "R-C5-91",
+      "class": "matt",
+      "veto_open": false,
+      "ruling": "MATT (2026-09-16): \"It must have been a different build I was recalling. The black circles are not part of poisonous concoction builds that I am seeing. Legolas is correct.\" → R-C5-80 (house dark puddle) RESCINDED. Poisonous Concoction re-specs as the gem: lobbed burst, no ground residue (§ 12 numbers). Open only: whether to add a Profane-Bloom-style lobe at the struck/killed body (F6-bis a) — conductor lean: not in this skill; it is an on-kill ascendancy effect, a later support layer.",
+      "ts": "2026-09-16T14:24:01"
     }
   ],
   "grok_calls": [],
