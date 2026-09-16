@@ -11841,6 +11841,20 @@
       "veto_open": true,
       "ruling": "T4x DELIVERED_WITH_CONCERNS and ACCEPTED as built. Part D: the \"hang\" was NOT a runtime regression — both probes were test scripts dereferencing retired APIs (Decal reparented in T4s-r2; _unhandled_input retired in T4i-r1), exceptions abandoned them before quit; Astra fixed the probes and correctly declined to touch the runtime (conductor mis-diagnosis, R-C5-76 amended). Part C nova expiry + C0 balanced {2,3,4} emission implemented; Part A seal transform implemented exactly but my ±5 % alpha-bbox clause is unhonourable (faint alpha outliers; visible ellipse .405 vs bbox .66) — moot: the seal retires with the Healing Hands re-spec (audit); Part B cloud parameters implemented — moot: Concoction becomes a burst (+ puddle per Matt F6). Outside suite 713 pass; named non-standing reds: RenderedLookTraceTests seal-bbox (my impossible clause) and BoltChainEmissionTests.test_current_catalogue_and_original_kits_unchanged (stale catalogue snapshot after three re-bakes) → both to the E3 re-spec TOOLING lap, which queues behind the fire lane. Lane wrapper crashed post-burst (LD-1, N-C5-T4X-WRAPPER); receipt copied by hand. FREEZE; PACK v31 + FL-1 fire.",
       "ts": "2026-09-16T10:43:48"
+    },
+    {
+      "id": "R-C5-79",
+      "class": "conductor",
+      "veto_open": true,
+      "ruling": "FL-1 (PACK v31, 8-direction fire proof) RULED: E/NE/N/NW correct; W/SW/S release behind the caster (F-C5-21); cast halo is the head painting (F-C5-20); full burst at range (F-C5-22). FL-1a TOOLING fires now (fire lane round 1). FL-2 waits on FL-1a. Packet 94 = 8 sheets + release zoom + 8 clips.",
+      "ts": "2026-09-16T11:00:17"
+    },
+    {
+      "id": "R-C5-80",
+      "class": "matt",
+      "veto_open": false,
+      "ruling": "MATT (2026-09-16): Q80 F6 = (b) COMPOSITE - build Poisonous Concoction as the build the player remembers: the lobbed vial burst (gem, per source) PLUS the caustic ground / Alchemist Mark dark puddle spreading from the burst point (size/colour/duration from the Legolas class-E frame measurements when they land). Goes into the E3 re-spec lap, which queues behind the fire lane.",
+      "ts": "2026-09-16T11:00:17"
     }
   ],
   "grok_calls": [],
@@ -12005,6 +12019,27 @@
       "veto_open": true,
       "ruling": "FL-1 (PACK v31, 8-direction fire proof) RULED: E/NE/N/NW correct; W/SW/S release behind the caster (F-C5-21); cast halo is the head painting (F-C5-20); full burst at range (F-C5-22). FL-1a TOOLING fires now (fire lane round 1). FL-2 (light/particles/shader) waits on FL-1a. Packet 94 = 8 sheets + release zoom + 8 clips.",
       "ts": "2026-09-16T10:59:27"
+    },
+    {
+      "id": "F-C5-20",
+      "kind": "defect",
+      "kit": "fire_bolt_e1_B (+A, ice)",
+      "note": "Pre-release ghost: $CastHalo.texture = rest_head at 1.15x parked ~1.5 BH off the caster during anticipation (f16-f22) - reads as a second bolt. -> FL-1a Part A (glow disc tracking the current socket).",
+      "ts": "2026-09-16T11:00:17"
+    },
+    {
+      "id": "F-C5-21",
+      "kind": "defect",
+      "kit": "fire_bolt_e1_B",
+      "note": "Release socket wrong side for W, SW, S (bolt spawns behind/above and flies through the body). sockets_v2 tips for several release frames are the staff NEAR end (cast_E f3 x=179 west of centre) - the detector had no facing rule; the runtime may rotate the E row. -> FL-1a Part B.",
+      "ts": "2026-09-16T11:00:17"
+    },
+    {
+      "id": "F-C5-22",
+      "kind": "defect",
+      "kit": "fire_bolt_e1_B",
+      "note": "At range with nothing struck (W) the full impact burst plays. A fire bolt fizzles at range. -> FL-1a Part C (range_expiry: fizzle).",
+      "ts": "2026-09-16T11:00:17"
     }
   ]
 }
