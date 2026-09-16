@@ -1,31 +1,7 @@
 {
-  "tests_run": 633,
-  "successful_tests": 621,
+  "tests_run": 639,
+  "successful_tests": 633,
   "failures": [
-    {
-      "test": "test_effect_kit.RaggedResidueMaterialTests.test_noise_bounds_band_resistance_endpoints_and_dissolve",
-      "traceback": "Traceback (most recent call last):\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_effect_kit.py\", line 1629, in test_noise_bounds_band_resistance_endpoints_and_dissolve\n    self.assertTrue(np.all(np.diff(erosion_distance(pixels, field, .08)[0]) < 0))\nAssertionError: np.False_ is not true\n"
-    },
-    {
-      "test": "test_effect_kit.RaggedResidueMaterialTests.test_t4e_entry_ragged_connected_and_zero_disc_control",
-      "traceback": "Traceback (most recent call last):\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_effect_kit.py\", line 1614, in test_t4e_entry_ragged_connected_and_zero_disc_control\n    self.assertEqual(actual['erode_noise'], .08)\nAssertionError: 0.4 != 0.08\n"
-    },
-    {
-      "test": "test_godot_import.RaggedResidueImportTests.test_exported_threshold_and_every_root_and_stretch_material_agree",
-      "traceback": "Traceback (most recent call last):\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_godot_import.py\", line 671, in test_exported_threshold_and_every_root_and_stretch_material_agree\n    self.assertEqual(runtime['erode_noise'], .08)\nAssertionError: 0.4 != 0.08\n"
-    },
-    {
-      "test": "test_godot_import.TransformedResidueSeamTests.test_transformed_front_at_three_ages_has_no_straight_seam_over_12px (age=30)",
-      "traceback": "Traceback (most recent call last):\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_godot_import.py\", line 768, in test_transformed_front_at_three_ages_has_no_straight_seam_over_12px\n    self.assertLessEqual(row['longest_straight_seam_front_px'], 12, row)\nAssertionError: 36.0 not less than or equal to 12 : {'age': 30, 'longest_transformed_seam_front_component_diameter_px': 79.49203781276162, 'longest_straight_seam_front_px': 36.0, 'largest_component': 0.9995194178090029}\n"
-    },
-    {
-      "test": "test_godot_import.TransformedResidueSeamTests.test_transformed_front_at_three_ages_has_no_straight_seam_over_12px (age=33)",
-      "traceback": "Traceback (most recent call last):\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_godot_import.py\", line 768, in test_transformed_front_at_three_ages_has_no_straight_seam_over_12px\n    self.assertLessEqual(row['longest_straight_seam_front_px'], 12, row)\nAssertionError: 25.0 not less than or equal to 12 : {'age': 33, 'longest_transformed_seam_front_component_diameter_px': 68.89698078707183, 'longest_straight_seam_front_px': 25.0, 'largest_component': 0.9779669182591938}\n"
-    },
-    {
-      "test": "test_godot_import.TransformedResidueSeamTests.test_transformed_front_at_three_ages_has_no_straight_seam_over_12px (age=36)",
-      "traceback": "Traceback (most recent call last):\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_godot_import.py\", line 768, in test_transformed_front_at_three_ages_has_no_straight_seam_over_12px\n    self.assertLessEqual(row['longest_straight_seam_front_px'], 12, row)\nAssertionError: 26.0 not less than or equal to 12 : {'age': 36, 'longest_transformed_seam_front_component_diameter_px': 54.600373133029585, 'longest_straight_seam_front_px': 26.0, 'largest_component': 0.9218997622820919}\n"
-    },
     {
       "test": "test_oracle_walk.Tests.test_synthetic_contract_and_grid",
       "traceback": "Traceback (most recent call last):\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_oracle_walk.py\", line 117, in test_synthetic_contract_and_grid\n    self.assertIsNotNone(a[key],key);self.assertAlmostEqual(a[key],b[key],delta=2,msg=key)\n                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 60 != 65 within 2 delta (5 difference) : head_ref_y\n"
@@ -50,11 +26,11 @@
   "errors": [
     {
       "test": "test_vfx_picker.TouchAimRuntimeTests.test_headless_overlay_forward_world_touch_and_mouse_probe",
-      "traceback": "Traceback (most recent call last):\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_vfx_picker.py\", line 872, in test_headless_overlay_forward_world_touch_and_mouse_probe\n    run_headless(self, project, 'touch_aim_probe.gd')\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_vfx_picker.py\", line 109, in run_headless\n    result = subprocess.run([GODOT, '--headless', '--log-file', str(project/'godot.log'),\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/subprocess.py\", line 550, in run\n    stdout, stderr = process.communicate(input, timeout=timeout)\n                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/subprocess.py\", line 1209, in communicate\n    stdout, stderr = self._communicate(input, endtime, timeout)\n                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/subprocess.py\", line 2109, in _communicate\n    self._check_timeout(endtime, orig_timeout, stdout, stderr)\n  File \"/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/subprocess.py\", line 1253, in _check_timeout\n    raise TimeoutExpired(\nsubprocess.TimeoutExpired: Command '['/Applications/Godot.app/Contents/MacOS/Godot', '--headless', '--log-file', '/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4i/tmp/touch-aim-k_w0vfdt/project/godot.log', '--path', '/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4i/tmp/touch-aim-k_w0vfdt/project', '--script', 'res://touch_aim_probe.gd']' timed out after 60 seconds\n"
+      "traceback": "Traceback (most recent call last):\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_vfx_picker.py\", line 872, in test_headless_overlay_forward_world_touch_and_mouse_probe\n    run_headless(self, project, 'touch_aim_probe.gd')\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_vfx_picker.py\", line 109, in run_headless\n    result = subprocess.run([GODOT, '--headless', '--log-file', str(project/'godot.log'),\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/subprocess.py\", line 550, in run\n    stdout, stderr = process.communicate(input, timeout=timeout)\n                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/subprocess.py\", line 1209, in communicate\n    stdout, stderr = self._communicate(input, endtime, timeout)\n                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/subprocess.py\", line 2109, in _communicate\n    self._check_timeout(endtime, orig_timeout, stdout, stderr)\n  File \"/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/subprocess.py\", line 1253, in _check_timeout\n    raise TimeoutExpired(\nsubprocess.TimeoutExpired: Command '['/Applications/Godot.app/Contents/MacOS/Godot', '--headless', '--log-file', '/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4i/tmp/touch-aim-cmspfrnb/project/godot.log', '--path', '/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4i/tmp/touch-aim-cmspfrnb/project', '--script', 'res://touch_aim_probe.gd']' timed out after 60 seconds\n"
     }
   ],
   "skipped": [],
-  "elapsed_s": 385.62554779100174,
+  "elapsed_s": 371.1773329580028,
   "regression": {
     "tolerance": 0.001,
     "compared": 1880,

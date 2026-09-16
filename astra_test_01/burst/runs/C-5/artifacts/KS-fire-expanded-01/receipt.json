@@ -1,0 +1,49 @@
+{
+  "task_id": "KS-fire-expanded-01",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "fire_expanded_01",
+      "path": "out/fire_expanded_01.png",
+      "sha256": "6a5b7cac45d06b9204da0053f4abbf16ebe3e6495c4a0faf3e7907f16ebc5e38",
+      "prompt": "Use case: precise-object-edit. EDIT IMAGE 2 directly. IMAGE 1 is the original approved identity and exact greyscale plane / contour reference. IMAGE 2 is the fixed tooling arrangement to repaint. IMAGE 3 supplies hand-drawn contour context only. Generate one PNG, exactly 768x768, genuinely transparent background with empty alpha outside the flame. Keep IMAGE 2's canvas and silhouette registration exactly: no zoom, recentering, stretching, cropping or global movement. Single change: redraw its transformed pieces as ONE coherent flame painting, healing the joins. Retry diagnosis: previous attempt moved and enlarged pieces, used variable shaded fills and left dark dividing seams between stacked pieces. Correct this by tracing IMAGE 2's exact silhouette in place and painting only its interiors using IMAGE 1's four flat greyscale planes. The full shape occupies x=109..691, y=116..520 on a 768 square. Upper tip at (438,120), far upper-left hooked end (135,250), low-left endpoint (111,373), upper-right endpoint (630,262), low-right endpoint (687,454), core bottom (405,515); match all roots, axes, tips within 6 px. Preserve every piece, including central curls and lower core lobes; no new or removed pieces. Do not replace the long upper tip with a newly curled shape. Exactly FOUR solid uniform greyscale values: near-black contour, dark grey outer plane, light grey middle plane, white heart, matched to IMAGE 1. Absolutely no tonal variation within any plane, no gradients, lighting shading, grain, texture, glow or blur. The outer contour has IMAGE 1's thin hand-drawn weight and taper. Heal piece-boundary joins into flowing continuous planes, no dark bands crossing tongues where transformed pieces meet. Swollen bright core stays where the guide places it. No color, sparks, smoke, floor, shadow, text or extra objects. All background pixels fully transparent; do not paint black or a checkerboard. Exact 768x768 single frame is the task-specific canvas requirement. Preserve IMAGE 2 layout exactly and IMAGE 1 identity exactly.",
+      "references": [
+        {
+          "role": "Original approved identity",
+          "path": "in/01_peak_768.png"
+        },
+        {
+          "role": "Edit target and shape contract",
+          "path": "in/02_guide_expanded_768.png"
+        },
+        {
+          "role": "Scale and contour register",
+          "path": "in/03_scale_board_clearing.png"
+        }
+      ],
+      "elapsed_s": 42.48
+    }
+  ],
+  "calls_used": 2,
+  "retries": [
+    {
+      "reason": "First output enlarged and shifted pieces, introduced tonal variation, and retained dividing seams.",
+      "change": "Repeated edit using original references, emphasizing fixed silhouette coordinates, uniform four-value fills, and healed joins."
+    }
+  ],
+  "self_report": {
+    "obeyed_invariants": false,
+    "concerns": [
+      "Copied unchanged without conversion or trimming. Output is 1254×1254, not the requested 768×768.",
+      "Guide placement within ±6 px was not achieved; visible piece-boundary seams remain.",
+      "Strictly four uniform value planes and original contour weight are not assured.",
+      "PNG alpha channel confirmed; actual fully transparent background pixels were not independently verified."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/fire_expanded_01.png",
+      "sha256": "6a5b7cac45d06b9204da0053f4abbf16ebe3e6495c4a0faf3e7907f16ebc5e38"
+    }
+  ]
+}

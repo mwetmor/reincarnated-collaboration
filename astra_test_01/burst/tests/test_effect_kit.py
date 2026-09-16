@@ -1609,10 +1609,12 @@ def ragged_residue_diagnostic(kit_root):
 
 class RaggedResidueMaterialTests(unittest.TestCase):
     def test_t4e_entry_ragged_connected_and_zero_disc_control(self):
-        report = ragged_residue_diagnostic(ROOT/'runs/C-5/vfx_kits/v9/fire_burst_e0p_v2')
+        report = continuous_residue_diagnostic()
         actual, control = report['configured'], report['zero_control']
-        self.assertEqual(actual['erode_noise'], .08)
-        self.assertGreaterEqual(actual['isoperimetric_excess'], .12)
+        self.assertEqual(actual['erode_noise'], .4)
+        self.assertGreaterEqual(actual['isoperimetric_excess'], .35)
+        self.assertGreaterEqual(actual['radius_ratio'], 1.5)
+        self.assertLess(control['radius_ratio'], 1.06)
         self.assertLess(abs(control['isoperimetric_excess']), .03)
         for row in (actual, control):
             self.assertGreaterEqual(row['largest_component_fraction'], .9)
@@ -1626,8 +1628,10 @@ class RaggedResidueMaterialTests(unittest.TestCase):
                 validate_material(dict(palette=PALETTE, erode_noise=value))
         pixels = np.array([[[b*85]*3+[255] for b in range(4)]], np.uint8)
         field = np.full((1, 4), 128, np.uint8)
-        self.assertTrue(np.all(np.diff(erosion_distance(pixels, field, .08)[0]) < 0))
-        for noise in (0, .08, 1):
+        texture = np.array([[[0,0,0],[255,0,0],[0,255,0],[255,255,0]]], np.uint8)
+        expected = field/255 - .4 * (.5*(2*texture[...,0].astype(float)/255-1) + .5*texture[...,1]/255)
+        np.testing.assert_allclose(erosion_distance(pixels, field, .4, texture), expected)
+        for noise in (0, .4, 1):
             args = dict(erode_outside_in=True, erode_noise=noise, dissolve_order=[[3],[2],[1,0]])
             self.assertTrue(np.all(material_pixels(pixels, PALETTE, field, **args)[...,3] == 255))
             self.assertFalse(material_pixels(pixels, PALETTE, field, erode=1, **args)[...,3].any())
@@ -1636,8 +1640,8 @@ class RaggedResidueMaterialTests(unittest.TestCase):
                 np.testing.assert_array_equal(actual, expected)
         self.assertNotIn('erode_noise', shader_source())
         self.assertNotIn('erode_noise', shader_source(erode_outside_in=True))
-        self.assertIn('distance_value -= erode_noise * (band / 3.0)',
-                      shader_source(erode_outside_in=True, erode_noise=.08))
+        self.assertIn('0.5 * (2.0 * resistance.r - 1.0) + 0.5 * resistance.g',
+                      shader_source(erode_outside_in=True, erode_noise=.4))
 
     def test_kit_piece_material_scope_validation_and_precedence(self):
         from export.effect_kit import piece_erode_noise, _validate, load_pieces

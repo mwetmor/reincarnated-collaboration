@@ -13,8 +13,8 @@ from export.replay import (BAKE_HOOK, PROBE, compare_bakes, compare_vo1,
 
 class ReplayTests(unittest.TestCase):
     def setUp(self):
-        root = Path(__file__).parent / 'tmp'
-        root.mkdir(exist_ok=True)
+        root = Path(__file__).resolve().parents[1] / 'runs/C-5/t3/T4g/unit_tmp'
+        root.mkdir(parents=True, exist_ok=True)
         self.temp = tempfile.TemporaryDirectory(dir=root)
         self.addCleanup(self.temp.cleanup)
         self.root = Path(self.temp.name)
@@ -167,6 +167,184 @@ class ReplayTests(unittest.TestCase):
         kinds = {r['kind'] for r in diagnose(source)}
         self.assertEqual(kinds, {'cpu_particles', 'wall_clock'})
 
+
+
+
+class BlendEnvelopeTests(unittest.TestCase):
+    def setUp(self):
+        root = Path(__file__).resolve().parents[1]/'runs/C-5/t3/T4g/unit_tmp'
+        root.mkdir(parents=True, exist_ok=True)
+        self.temp = tempfile.TemporaryDirectory(dir=root)
+        self.addCleanup(self.temp.cleanup)
+        self.root = Path(self.temp.name)
+
+    def test_plate_envelope_strict_threshold_and_alignment(self):
+        import numpy as np
+        from export.replay import plate_envelope
+        plate = np.full((4, 5, 4), 255, np.uint8)
+        composite = plate.copy()
+        composite[0, :, 0] -= 9
+        composite[1, :, 1] -= 8
+        composite[..., 3] = 0  # alpha is deliberately irrelevant
+        self.assertEqual(plate_envelope(plate, composite), 5)
+        self.assertEqual(plate_envelope(composite, plate), 5)
+        self.assertEqual(plate_envelope(plate, plate), 0)
+        with self.assertRaises(ValueError):
+            plate_envelope(plate, composite[:2])
+        with self.assertRaises(ValueError):
+            plate_envelope(plate, composite, tau=float('nan'))
+
+    def test_three_tick_hitstop_uses_scaled_age_without_double_hold(self):
+        from export.replay import effect_age_indices
+        scales = [.1, .1, .1, 1., 1., 1.]
+        ages = [0.]
+        for scale in scales:
+            ages.append(ages[-1] + scale)
+        self.assertEqual(effect_age_indices(list(range(7)), ages), [0,0,0,0,1,2,3])
+        self.assertNotEqual(effect_age_indices(list(range(7)), ages), list(range(7)))
+        # Movie bakes contain the hold already: recorded ages give identity.
+        self.assertEqual(effect_age_indices(ages, ages), list(range(7)))
+        with self.assertRaises(ValueError):
+            effect_age_indices([0,0], [0])
+
+    def test_known_two_colour_stack_and_premultiplied_encoding(self):
+        import numpy as np
+        from export.replay import encode_blend_bake, plate_envelope
+        # MIX blue and ADD orange occupy separate pixels. An ADD source is
+        # invisible on white; legacy MIX turns that same pixel orange.
+        mix = np.array([[[0,0,128,128],[0,0,0,0]]], np.uint8)
+        add = np.array([[[0,0,0,0],[128,64,0,128]]], np.uint8)
+        for name, rgba in [('mix',mix),('add',add)]:
+            directory = self.root/name; directory.mkdir()
+            Image.fromarray(rgba).save(directory/'fx00000.png')
+            encode_blend_bake(directory,name)
+        m = np.array(Image.open(self.root/'mix/fx00000.png')).astype(float)
+        a = np.array(Image.open(self.root/'add/fx00000.png')).astype(float)
+        white = np.full((1,2,3),255.)
+        live = np.minimum(255, mix[...,:3] + white*(1-mix[...,3,None]/255) + add[...,:3])
+        replay = np.minimum(255, m[...,:3]*m[...,3,None]/255 + white*(1-m[...,3,None]/255) + a[...,:3]*a[...,3,None]/255)
+        old = mix.astype(float)+add.astype(float)
+        old_replay = old[...,:3]*old[...,3,None]/255 + white*(1-old[...,3,None]/255)
+        np.testing.assert_allclose(replay, live, atol=1)
+        self.assertEqual(plate_envelope(white,live),1)
+        self.assertEqual(plate_envelope(white,replay),1)
+        self.assertEqual(plate_envelope(white,old_replay),2)
+
+    def test_plate_comparison_counts_zeros_and_missing_frames(self):
+        import numpy as np
+        from export.replay import plate_envelope_comparison
+        baked = self.root/'baked'; baked.mkdir()
+        for i in range(3):
+            Image.new('RGBA',(8,8)).save(baked/f'fx{i:05}.png')
+        def capture(project, out, **kwargs):
+            out = Path(out); out.mkdir(parents=True)
+            for i in range(3):
+                frame = np.zeros((8,8,4),np.uint8)
+                frame[...,3] = 255
+                count = 0 if kwargs['blank'] else (0 if i == 0 else 20)
+                if kwargs['flipbook'] is not None and i == 2:
+                    count = 22
+                frame.reshape(-1,4)[:count,0] = 9
+                Image.fromarray(frame).save(out/f'fx{i:05}.png')
+            return dict(returncode=0,engine_errors=[],probe_exists=True)
+        with patch('export.replay.run_replay',side_effect=capture) as runner:
+            result = plate_envelope_comparison('project',self.root/'comparison',baked,
+                                               grounds=('black','white'),frames=3)
+        self.assertEqual(runner.call_count,6)
+        self.assertEqual(len(result['rows']),6)
+        self.assertEqual(result['summary']['black'],dict(frames=3,failed=1,worst_frame=2,live_peak=20,flip_peak=22))
+        self.assertEqual(result['rows'][0]['relative_difference'],0)
+        self.assertEqual(result['rows'][2]['relative_difference'],.1)
+        self.assertEqual(result['rows'][2]['tolerance'],.05)
+        with self.assertRaises(ValueError):
+            plate_envelope_comparison('project',self.root/'bad',baked,grounds=('black',),frames=4)
+
+    def test_crop_settings_and_age_metadata_are_written(self):
+        import json
+        import subprocess
+        project = self.synthetic_project()
+        with patch('export.replay.subprocess.run',return_value=subprocess.CompletedProcess([],0,'','')):
+            result = run_replay(project,self.root/'mock',effect='res://effect.tscn',crop=(768,768))
+        settings = (project/'project.godot').read_text()
+        self.assertIn('window/size/viewport_width=768',settings)
+        self.assertIn('window/size/window_width_override=768',settings)
+        self.assertIn('window/stretch/mode="disabled"',settings)
+        self.assertEqual(result['config']['bake_layer'],'all')
+        self.assertIn('camera.zoom = Vector2.ONE',PROBE)
+        self.assertIn('effect_age += Engine.time_scale',PROBE)
+        self.assertNotIn('mini(captures',PROBE)
+        for kwargs in ({'bake_layer':'unknown'},{'bake':False,'bake_layer':'mix'}):
+            with self.assertRaises(ValueError):
+                run_replay(project,self.root/'invalid',effect='res://effect.tscn',**kwargs)
+
+    def synthetic_project(self):
+        from export.replay import install_hooks
+        source = self.root/'project'; source.mkdir()
+        (source/'project.godot').write_text('config_version=5\n[application]\nrun/main_scene="res://main.tscn"\n[display]\nwindow/size/viewport_width=512\nwindow/size/viewport_height=512\nwindow/stretch/mode="canvas_items"\n[rendering]\nrenderer/rendering_method="gl_compatibility"\n')
+        (source/'main.tscn').write_text('[gd_scene format=3]\n[node name="Main" type="Node2D"]\n')
+        (source/'effect.tscn').write_text('''[gd_scene load_steps=3 format=3]
+[sub_resource type="CanvasItemMaterial" id="Add"]
+blend_mode = 1
+light_mode = 1
+[sub_resource type="CanvasItemMaterial" id="Mix"]
+blend_mode = 0
+light_mode = 1
+[node name="Effect" type="Node2D"]
+[node name="MixBlue" type="Polygon2D" parent="."]
+material = SubResource("Mix")
+polygon = PackedVector2Array(-32,-32,0,-32,0,32,-32,32)
+color = Color(0,0,1,0.5)
+[node name="AddOrange" type="Polygon2D" parent="."]
+material = SubResource("Add")
+polygon = PackedVector2Array(0,-32,32,-32,32,32,0,32)
+color = Color(1,0.5,0,0.5)
+''')
+        install_hooks(source)
+        return source
+
+    def render(self, project, name, **kwargs):
+        from export.replay import GODOT
+        import os
+        unavailable = os.environ.get('T4G_RENDERING_UNAVAILABLE_REASON')
+        if unavailable:
+            self.skipTest(unavailable)
+        if not Path(GODOT).exists():
+            self.skipTest('Godot executable unavailable')
+        result = run_replay(project, self.root/name, effect='res://effect.tscn',
+                            origin=(0,0), frames=4, timeout=119, **kwargs)
+        self.assertEqual(result['returncode'],0,result)
+        self.assertEqual(result['engine_errors'],[],result)
+        self.assertTrue(result['probe_exists'],result)
+        return self.root/name
+
+    def test_native_crop_64px_body_512_and_768_and_class_replay(self):
+        import numpy as np
+        from export.replay import plate_envelope
+        project = self.synthetic_project()
+        measurements = []
+        for size in (512,768):
+            output = self.render(project, f'crop_{size}', crop=(size,size))
+            with Image.open(sorted(output.glob('fx*.png'))[-1]) as image:
+                rgba = np.array(image)
+            self.assertEqual(rgba.shape[:2],(size,size))
+            y,x = np.where(rgba[...,:3].max(-1)>0)
+            measurements.append([int(x.max()-x.min()+1),int(y.max()-y.min()+1)])
+            self.assertEqual(measurements[-1],[64,64])
+            self.assertEqual([(x.min()+x.max()+1)/2,(y.min()+y.max()+1)/2],[size/2,size/2])
+        self.assertEqual(measurements[0],measurements[1])
+        add = self.render(project,'add',bake_layer='add')
+        mix = self.render(project,'mix',bake_layer='mix')
+        live = self.render(project,'live',bake=False,background='white')
+        plate = self.render(project,'plate',bake=False,blank=True,background='white')
+        flip = self.render(project,'flip',bake=False,background='white',flipbook={'add':add,'mix':mix})
+        old = self.render(project,'old',bake=False,background='white',flipbook=self.root/'crop_512')
+        def last(directory):
+            return sorted(directory.glob('fx*.png'))[-1]
+        baseline = last(plate)
+        expected = plate_envelope(baseline,last(live))
+        self.assertEqual(expected,32*64)
+        self.assertEqual(plate_envelope(baseline,last(flip)),expected)
+        self.assertEqual(plate_envelope(baseline,last(old)),64*64)
 
 if __name__ == '__main__':
     unittest.main()

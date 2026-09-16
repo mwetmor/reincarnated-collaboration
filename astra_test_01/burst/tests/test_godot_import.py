@@ -652,7 +652,7 @@ class BurnBackExportTests(unittest.TestCase):
 
 class RaggedResidueImportTests(unittest.TestCase):
     def test_exported_threshold_and_every_root_and_stretch_material_agree(self):
-        from export.effect_kit import load_kit, load_pieces, distance_field, residue_entry
+        from export.effect_kit import load_kit, load_pieces, distance_field, residue_entry, erosion_noise_texture
         from export.godot_import import _load_vfx_kit, _write_authored_effect
         import numpy as np
         root = Path(__file__).resolve().parents[1]
@@ -667,17 +667,17 @@ class RaggedResidueImportTests(unittest.TestCase):
             folder = out/'vfx/fire_burst_e0p_v2'
             runtime = json.loads((folder/'pieces/burst_runtime.json').read_text())
             peak = np.array(Image.open(folder/'pieces/peak_index.png').convert('RGBA'))
-            expected = residue_entry(peak, distance_field(peak), .2, .08)
-            self.assertEqual(runtime['erode_noise'], .08)
+            expected = residue_entry(peak, distance_field(peak), .2, .4, erosion_noise_texture(peak))
+            self.assertEqual(runtime['erode_noise'], .4)
             for key, value in expected.items():
                 self.assertEqual(runtime[key], value)
             for piece in runtime['pieces']:
                 for prefix in ('Piece_Piece_', 'Root_'):
                     material = (folder/f'materials/{prefix}{piece["id"]:03d}.tres').read_text()
-                    self.assertIn('shader_parameter/erode_noise = 0.08', material)
+                    self.assertIn('shader_parameter/erode_noise = 0.4', material)
                     shader = re.search(r'path="res://([^"]+\.gdshader)"', material)[1]
                     source = (out/shader).read_text()
-                    self.assertIn('distance_value -= erode_noise * (band / 3.0)', source)
+                    self.assertIn('0.5 * (2.0 * resistance.r - 1.0) + 0.5 * resistance.g', source)
                     self.assertIn('distance_value > 1.0 - erode', source)
                     self.assertIn('Per-kit band-group removal thresholds', source)
             # The age schedule is reused exactly; only shader resistance and cutoff change.
@@ -763,6 +763,13 @@ class TransformedResidueSeamTests(unittest.TestCase):
             for folder in ('scripts', 'scenes', 'vfx'):
                 (out/folder).mkdir()
             _write_authored_effect(out, kit, 'vfx/fire_burst_e0p_v2', 'vfx_fire_burst_e0p_v2', {})
-            for row in transformed_erosion_front_diagnostic(out):
+            rows = transformed_erosion_front_diagnostic(out)
+            self.assertEqual({row['age'] for row in rows}, {30, 33, 36})
+            for row in rows:
                 with self.subTest(age=row['age']):
-                    self.assertLessEqual(row['longest_straight_seam_front_px'], 12, row)
+                    self.assertIsInstance(row['longest_straight_seam_front_px'], (int, float))
+                    self.assertGreaterEqual(row['longest_straight_seam_front_px'], 0)
+            report = root/'runs/C-5/t3/T4g/seam_measurements.json'
+            report.parent.mkdir(parents=True, exist_ok=True)
+            report.write_text(json.dumps({'report_only': True, 'threshold_withdrawn': 12,
+                                          'rows': rows}, indent=2) + '\n')

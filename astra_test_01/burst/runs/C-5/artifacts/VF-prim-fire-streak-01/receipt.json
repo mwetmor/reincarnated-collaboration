@@ -1,0 +1,49 @@
+{
+  "task_id": "VF-prim-fire-streak-01",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "fire_streak_01",
+      "path": "out/fire_streak_01.png",
+      "sha256": "a197c764dddff2c71e0404565b0ac0e5ceaacb1c0033c62711cf3ff8bc68d3af",
+      "prompt": "Generate ONE isolated hand-drawn painted 2D fire trail primitive with real transparent RGBA background. Output MUST be 512 x 512 pixels. This is the single correction attempt: previous result was oversized, had subtle gradients within fills, and a stray mark outside the body. Correct these defects. The artwork must occupy only the CENTRAL HALF of the canvas width and CENTRAL 14 PERCENT of the canvas height: x=126 to386, y=221 to291 on a 512x512 canvas, approximately 260x70 pixels. Leave the large remaining area genuinely transparent and absolutely empty. Do not enlarge the primitive to fill the frame. No detached marks.\nReferences: image 1 = scene scale/register only. Image 2 = approved fire vocabulary, with hooked flame tongues and four hard value planes. Image 3 = scene camera reading only. Match the contour language of image 2 while making a narrow horizontal TAPERED STREAK. An unseen projectile head is to the RIGHT: the streak is thickest at the right attachment end and narrows toward a ragged forked tip at far LEFT. Asymmetric upper/lower contours, two or three small unequal hooked licks. Upright facing-camera emission, no ground perspective flattening. Confident hand-drawn contour with taper and varying weight. EXACTLY FOUR UNIFORMLY SOLID GREYSCALE FILL VALUES: #202020 contour/thin rim, #606060 outer flame, #b0b0b0 middle flame, #ffffff hottest core. White core is less than 25 percent of body. Hard edges between perfectly uniform areas. Do not imitate any texture or shading in the reference. NO gradients, glow, lighting, blur, texture, grain, colour, smoke, sparks, shadows, ground, characters, text, labels, sheets or visible projectile head. Alpha exactly 0 outside, alpha 255 inside; at most 1px edge antialiasing. If real transparency is unavailable, pure uniform #00ff00 plate only. One animation primitive, exact 512x512 PNG.",
+      "references": [
+        {
+          "role": "scale and register reference",
+          "path": "in/01_scale_board_clearing.png"
+        },
+        {
+          "role": "approved fire vocabulary reference",
+          "path": "in/02_fire_peak_01.png"
+        },
+        {
+          "role": "camera reading reference",
+          "path": "in/03_clearing_native_512.png"
+        }
+      ],
+      "elapsed_s": 38.308
+    }
+  ],
+  "calls_used": 2,
+  "retries": [
+    {
+      "reason": "First generation exceeded the required extent, showed tonal variation, and contained a stray mark.",
+      "change": "Specified central-half width, 14-percent height, uniformly solid fills, and no detached marks."
+    }
+  ],
+  "self_report": {
+    "obeyed_invariants": false,
+    "concerns": [
+      "Output is 1254×1254, not 512×512; copied unchanged as required.",
+      "Painted extent is approximately 600×175 pixels, exceeding the requested 260×70 pixels.",
+      "An alpha channel is confirmed and the background appears transparent; exact outside alpha and fringe width were not quantitatively verified.",
+      "Visible tonal variation remains within fills; exactly four flat values is not satisfied."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/fire_streak_01.png",
+      "sha256": "a197c764dddff2c71e0404565b0ac0e5ceaacb1c0033c62711cf3ff8bc68d3af"
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "task_id": "VF-prim-fire-head-01",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "fire_head_01",
+      "path": "out/fire_head_01.png",
+      "sha256": "3834a815f2c1ecf2820d8dfef2a0eaabf73c72e4697dbdc2c809b9b4a0c9a5d9",
+      "prompt": "Use case: stylized-concept. Create exactly ONE isolated game VFX primitive: P01 HEAD / CORE of a fire bolt travelling RIGHT, screen +x. Output a 512×512 PNG with GENUINE TRANSPARENCY: alpha zero outside the body, opaque inside, edge antialiasing at most one pixel. If real transparency is unavailable, use perfectly flat uniform #00ff00 outside instead. Reference image 1 is scale/register only: confident tapered hand-drawn dark contours and clean painted planes. Reference image 2 is the approved flame vocabulary: match its hooked tongues, hard edges and four greyscale planes exactly, but change its impact silhouette into the projectile head described here. Reference image 3 is reading-only camera context; do not depict its scenery. HAND-DRAWN painted 2D, one frame of hand-animated effects animation, restrained clean material planes, no surface grain. Center the isolated shape on the canvas, painted bounding extent approximately 156 pixels wide by 130 pixels tall, around x178–334 and y191–321. Large empty transparent margins. A dense slightly teardrop-shaped bright core mass with its BLUNT end LEADING on the RIGHT; two or three SHORT unequal hooked flame tongues trailing LEFT, upper-left and lower-left. Asymmetric hand-drawn silhouette, confident near-black contour of visibly varying tapered weight, thin near-black rim. Upright emission body facing the camera at an elevated approximately 45-degree three-quarter world camera, no ground squash. Exactly FOUR flat greyscale value planes: near-black #202020 contour plus thin rim; dark grey #606060 outer flame; light grey #B8B8B8 mid flame; white #FFFFFF hottest core, occupying at most one quarter of the body. Use hard plane boundaries. Paint the shape representing emission only; light, glow, colour and motion will be added at runtime. No gradients, glow, blur, texture, colour within the body, ground, shadow, sparks, smoke, motion blur, character, text, checkerboard backdrop or additional elements. No sheet, just the one primitive.\nRETRY CORRECTION: The prior result was oversized and had mottled tonal variation within the grey planes. Enforce absolutely uniform solid fills, exactly four greys with NO painted shading, NO mottling, NO gradients and NO texture even at close inspection. Canvas MUST be 512 by 512 pixels; shape only 156 by 130 actual pixels. The silhouette occupies about 30 percent of canvas width and 25 percent of canvas height. Keep the white core compact, under 25 percent of body area. Preserve the approved hooked flame vocabulary and the blunt right-leading head. Deliver real transparent alpha background.",
+      "references": [
+        {
+          "role": "Scale and register board",
+          "path": "in/01_scale_board_clearing.png"
+        },
+        {
+          "role": "Approved fire vocabulary",
+          "path": "in/02_fire_peak_01.png"
+        },
+        {
+          "role": "Reading-only camera context",
+          "path": "in/03_clearing_native_512.png"
+        }
+      ],
+      "elapsed_s": 39.962
+    }
+  ],
+  "calls_used": 2,
+  "retries": [
+    {
+      "reason": "First generated candidate had oversized painted extent and visible tonal variation within value planes.",
+      "change": "Reinforced exact canvas and body dimensions, uniform four-value fills, and compact white core."
+    }
+  ],
+  "self_report": {
+    "obeyed_invariants": false,
+    "concerns": [
+      "Delivered unchanged generator output is 1254×1254, not 512×512; painted extent also exceeds requested pixel dimensions.",
+      "Visible tonal variation remains; exactly four flat values were not achieved.",
+      "PNG alpha channel is confirmed, but genuine zero-alpha background and fringe width were not numerically verified.",
+      "An initial invocation using relative reference paths was rejected before generation; two subsequent image generations completed.",
+      "The required response schema uses an images array, overriding the conflicting request for an integer."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/fire_head_01.png",
+      "sha256": "3834a815f2c1ecf2820d8dfef2a0eaabf73c72e4697dbdc2c809b9b4a0c9a5d9"
+    }
+  ]
+}

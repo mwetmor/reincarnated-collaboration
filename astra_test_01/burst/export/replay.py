@@ -2,8 +2,8 @@
 
 No particle substitution, dropped layers, frame repair or background removal.
 Unsupported seed controls and engine/render failures are reported as evidence.
-The acceptance VO1 instrument consumes externally measured VO1 values: it does
-not invent a replacement definition for the frozen oracle.
+The plate instrument reports thresholded composite-minus-plate support separately
+from the frozen alpha/black-support oracle. Blend-class bakes carry age metadata.
 """
 import argparse
 import hashlib
@@ -80,17 +80,61 @@ var camera: Camera2D
 var release_tick: int = 0
 var captures: int = 0
 var started: bool = false
-var flip_sprite: Sprite2D
-var flip_paths: Array = []
-var flip_textures: Array[ImageTexture] = []
+var flip_layers: Array = []
+var effect_age: float = 0.0
+var selected_indices: Array = []
+
+func _advance_clock() -> void:
+    if started:
+        effect_age += Engine.time_scale
+
+func _blend_class(node: CanvasItem) -> String:
+    var owner: CanvasItem = node
+    while owner.use_parent_material and owner.get_parent() is CanvasItem:
+        owner = owner.get_parent()
+    var material: Material = owner.material
+    if material is CanvasItemMaterial:
+        if material.blend_mode == CanvasItemMaterial.BLEND_MODE_ADD:
+            return "add"
+        if material.blend_mode != CanvasItemMaterial.BLEND_MODE_MIX:
+            return "unsupported"
+    if material is ShaderMaterial:
+        var code: String = material.shader.code
+        if "blend_add" in code:
+            return "add"
+        for mode in ["blend_sub", "blend_mul", "blend_premul_alpha", "blend_disabled"]:
+            if mode in code:
+                return "unsupported"
+    return "mix"
+
+func _filter_layers(node: Node) -> void:
+    if node is Sprite2D or node is AnimatedSprite2D or node is Polygon2D or node is Line2D or node is CPUParticles2D or node is GPUParticles2D:
+        var mode := _blend_class(node)
+        if mode == "unsupported":
+            push_error("Unsupported bake blend: " + str(node.get_path()))
+        if not node.has_meta("replay_blend_recorded"):
+            report.get_or_add("blend_layers", []).append({"node": str(node.get_path()), "blend": mode, "z_index": node.z_index})
+            node.set_meta("replay_blend_recorded", true)
+        if mode != str(config.bake_layer):
+            # Scripts may call show() later (Residual). Cull without changing
+            # authored visibility, animation callbacks, or emission schedules.
+            node.visibility_layer = 0
+    for child in node.get_children():
+        _filter_layers(child)
+
+func _before_draw() -> void:
+    if bool(config.bake) and config.bake_layer != "all" and is_instance_valid(effect):
+        _filter_layers(effect)
+    _set_flip_frame()
 
 func _initialize() -> void:
     config = JSON.parse_string(FileAccess.get_file_as_string("res://replay_config.json"))
     Engine.physics_ticks_per_second = 60
     Engine.time_scale = 1.0
     seed(int(config.seed))
+    root.content_scale_mode = Window.CONTENT_SCALE_MODE_DISABLED
+    root.content_scale_size = Vector2i(int(config.crop[0]), int(config.crop[1]))
     root.size = Vector2i(int(config.crop[0]), int(config.crop[1]))
-    root.content_scale_size = root.size
     root.transparent_bg = bool(config.bake)
     report.probe_only = bool(config.get("probe_only", false))
     report.viewport_size = [root.size.x, root.size.y]
@@ -105,6 +149,7 @@ func _setup() -> void:
     for node in world.find_children("*", "Camera2D", true, false):
         node.enabled = false
     camera = Camera2D.new()
+    camera.zoom = Vector2.ONE
     camera.position = Vector2(float(config.origin[0]), float(config.origin[1]))
     root.add_child(camera)
     camera.make_current()
@@ -117,7 +162,7 @@ func _setup() -> void:
         var background := Sprite2D.new()
         var background_image: Image
         if config.background in ["black", "white"]:
-            background_image = Image.create(root.size.x, root.size.y, false, Image.FORMAT_RGBA8)
+            background_image = Image.create(int(config.crop[0]), int(config.crop[1]), false, Image.FORMAT_RGBA8)
             background_image.fill(Color.BLACK if config.background == "black" else Color.WHITE)
         else:
             background_image = Image.load_from_file(config.background_path)
@@ -128,37 +173,39 @@ func _setup() -> void:
     for keeper in world.find_children("Keeper", "", true, false):
         keeper.set_physics_process(false)
     reset_effect()
-    flip_paths = config.get("flipbook", [])
-    if not flip_paths.is_empty():
-        # Retain feedback on the world, including victim tint and camera shake.
-        # The flipbook is screen-space: its recorded shake is not applied twice.
+    var definitions: Array = config.get("flipbook_layers", [])
+    if not definitions.is_empty():
         if is_instance_valid(effect):
             effect.hide()
-        # Upload once, before frame_pre_draw. Retain strong references for the
-        # entire run: replacing/freeing an ImageTexture during frame_pre_draw
-        # can leave the renderer drawing its white fallback texture.
-        for path in flip_paths:
-            var image := Image.new()
-            var error := image.load(str(path))
-            if error != OK or image.is_empty() or image.get_size() != root.size or image.get_format() != Image.FORMAT_RGBA8:
-                report.flipbook_error = {"path": str(path), "load_error": error}
-                push_error("Invalid flipbook RGBA image: " + str(path))
-                _finish()
-                return
-            flip_textures.append(ImageTexture.create_from_image(image))
-        report.flipbook_loaded = flip_textures.size()
         var overlay := CanvasLayer.new()
         overlay.layer = 100
         root.add_child(overlay)
-        flip_sprite = Sprite2D.new()
-        # Native bake pivot is the crop centre, at the effect origin. The
-        # screen-space crop already records camera shake; do not shake twice.
-        flip_sprite.centered = true
-        flip_sprite.position = Vector2(root.size) * 0.5
-        flip_sprite.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
-        overlay.add_child(flip_sprite)
+        for definition in definitions:
+            var flip_textures: Array[ImageTexture] = []
+            for path in definition.paths:
+                var image := Image.load_from_file(str(path))
+                if image == null or image.is_empty() or image.get_size() != Vector2i(int(config.crop[0]), int(config.crop[1])) or image.get_format() != Image.FORMAT_RGBA8:
+                    report.flipbook_error = {"path": str(path), "image_size": str(image.get_size()) if image != null else "null", "viewport_size": str(root.size), "image_format": image.get_format() if image != null else -1}
+                    push_error("Invalid flipbook RGBA image: " + str(path))
+                    _finish()
+                    return
+                flip_textures.append(ImageTexture.create_from_image(image))
+            var flip_sprite := Sprite2D.new()
+            flip_sprite.centered = true
+            flip_sprite.position = Vector2(root.size) * 0.5
+            flip_sprite.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
+            var material := CanvasItemMaterial.new()
+            material.blend_mode = CanvasItemMaterial.BLEND_MODE_ADD if definition.blend == "add" else CanvasItemMaterial.BLEND_MODE_MIX
+            material.light_mode = CanvasItemMaterial.LIGHT_MODE_UNSHADED
+            flip_sprite.material = material
+            overlay.add_child(flip_sprite)
+            flip_layers.append({"sprite": flip_sprite, "textures": flip_textures, "ages": definition.ages})
+        report.flipbook_loaded = definitions.size()
         _set_flip_frame()
-        RenderingServer.frame_pre_draw.connect(_set_flip_frame)
+    physics_frame.connect(_advance_clock)
+    # frame_pre_draw changes arrive one render late on Compatibility.
+    process_frame.connect(_before_draw)
+    _before_draw()
     if bool(config.get("probe_only", false)):
         process_frame.connect(func(): call_deferred("_capture"))
     else:
@@ -166,8 +213,20 @@ func _setup() -> void:
     started = true
 
 func _set_flip_frame() -> void:
-    if not flip_textures.is_empty():
-        flip_sprite.texture = flip_textures[mini(captures, flip_textures.size() - 1)]
+    selected_indices.clear()
+    for layer in flip_layers:
+        var index: int = 0
+        # The source already contains hit-stop holds. Sample its recorded age,
+        # never apply a second hold to an assumed uniform capture-count clock.
+        for i in range(layer.ages.size()):
+            if float(layer.ages[i]) <= effect_age + 0.00001:
+                index = i
+            else:
+                break
+        var flip_textures: Array = layer.textures
+        var flip_sprite: Sprite2D = layer.sprite
+        flip_sprite.texture = flip_textures[index]
+        selected_indices.append(index)
 
 func seed_particles(node: Node) -> void:
     if node is GPUParticles2D or node is CPUParticles2D:
@@ -207,9 +266,21 @@ func reset_effect() -> void:
     effect_parent.add_child(effect)
     release_tick = Engine.get_physics_frames()
 
+func _layer_states() -> Array:
+    var states: Array = []
+    if is_instance_valid(effect):
+        for node in effect.find_children("*", "CanvasItem", true, false):
+            if node is Sprite2D or node is AnimatedSprite2D or node is CPUParticles2D or node is GPUParticles2D:
+                var state: Dictionary = {"node": str(effect.get_path_to(node)), "visible": node.is_visible_in_tree(), "alpha": node.modulate.a, "visibility_layer": node.visibility_layer}
+                if node is AnimatedSprite2D:
+                    state.animation_frame = node.frame
+                states.append(state)
+    return states
+
 func _capture() -> void:
     if not started:
         return
+    report.observed_window_size = [root.size.x, root.size.y]
     var age: int = Engine.get_physics_frames() - release_tick
     var visible_scene: Array = []
     for path in report.hidden:
@@ -217,7 +288,7 @@ func _capture() -> void:
         if node is CanvasItem and node.is_visible_in_tree():
             visible_scene.append(path)
     var floor_live: bool = is_instance_valid(effect) and effect.has_node("FloorLight") and effect.get_node("FloorLight").is_visible_in_tree()
-    report.frames.append({"movie_index": captures, "physics_frame": age, "time_scale": Engine.time_scale, "camera_offset": [camera.offset.x, camera.offset.y], "visible_scene_drawables": visible_scene, "floor_light_live": floor_live})
+    report.frames.append({"movie_index": captures, "physics_frame": age, "effect_age": effect_age, "flipbook_indices": selected_indices.duplicate(), "time_scale": Engine.time_scale, "camera_offset": [camera.offset.x, camera.offset.y], "visible_scene_drawables": visible_scene, "floor_light_live": floor_live, "effect_layers": _layer_states()})
     captures += 1
     if int(config.frame) >= 0 and age >= int(config.frame):
         if not bool(config.get("probe_only", false)):
@@ -254,7 +325,7 @@ def install_hooks(project, crop=(512, 512)):
         text += '\n[autoload]\nReplayVisibility="*res://scripts/replay_visibility.gd"\n'
     else:
         text = text.replace('[autoload]\n', '[autoload]\nReplayVisibility="*res://scripts/replay_visibility.gd"\n', 1)
-    settings.write_text(text)
+    settings.write_text(native_crop_settings(text, crop))
     (project / 'scripts').mkdir(exist_ok=True)
     (project / 'scripts/replay_visibility.gd').write_text(BAKE_HOOK)
     (project / 'replay_probe.gd').write_text(PROBE)
@@ -291,7 +362,7 @@ def run_replay(project, out, effect='res://scenes/vfx_frozen_orb_impact.tscn',
                frame=None, frames=126, seed=1, crop=(512, 512),
                origin=(2285.62, 2407.32), bake=True, blank=False,
                godot=GODOT, timeout=120, background='ground', background_path=None,
-               flipbook=None, probe_only=False):
+               flipbook=None, probe_only=False, bake_layer='all'):
     """Fresh-process reset, advance N actual physics frames, then capture.
 
     frame=None uses Movie Maker for `frames` rendered frames; frame=N captures
@@ -317,9 +388,14 @@ def run_replay(project, out, effect='res://scenes/vfx_frozen_orb_impact.tscn',
         with Image.open(background_path) as im:
             if im.size != tuple(crop):
                 raise ValueError('Background must match native crop; no resampling')
-    flip_paths = numbered_frames(flipbook) if flipbook is not None else []
+    if bake_layer not in ('all', 'add', 'mix'):
+        raise ValueError('bake_layer must be all, add or mix')
+    if bake_layer != 'all' and not bake:
+        raise ValueError('bake_layer requires bake=True')
+    definitions = flipbook_layers(flipbook, frames, crop) if flipbook is not None else []
+    flip_paths = [Path(p) for layer in definitions for p in layer['paths']]
     if flip_paths:
-        if bake or len(flip_paths) != frames:
+        if bake:
             raise ValueError('Flipbook comparison requires live background and matching frame count')
         for path in flip_paths:
             with Image.open(path) as im:
@@ -338,14 +414,15 @@ def run_replay(project, out, effect='res://scenes/vfx_frozen_orb_impact.tscn',
     out.mkdir(parents=True, exist_ok=True)
     config = {'world': world[1], 'effect': effect, 'frame': -1 if frame is None else frame,
               'frames': frames, 'seed': seed, 'crop': list(crop), 'origin': list(origin),
-              'bake': bake, 'blank': blank, 'report': str(out / 'probe.json'),
+              'bake': bake, 'bake_layer': bake_layer, 'blank': blank, 'report': str(out / 'probe.json'),
               'capture': str(out / 'capture.png'), 'background': background,
               'background_path': str(Path(background_path).resolve()) if background_path else None,
-              'flipbook': [str(p.resolve()) for p in flip_paths], 'probe_only': probe_only}
+              'flipbook': [str(p.resolve()) for p in flip_paths], 'flipbook_layers': definitions, 'probe_only': probe_only}
     (project / 'replay_config.json').write_text(json.dumps(config, indent=2))
     # The probe owns visibility, including the live comparison configuration.
     settings = re.sub(r'(?m)^ReplayVisibility=.*\n', '', settings)
-    (project / 'project.godot').write_text(settings)
+    (project / 'project.godot').write_text(native_crop_settings(settings, crop))
+    (project / 'replay_probe.gd').write_text(PROBE)
     command = movie_command(project, out, frames, godot)
     if frame is not None or probe_only:
         index = command.index('--write-movie')
@@ -367,7 +444,168 @@ def run_replay(project, out, effect='res://scenes/vfx_frozen_orb_impact.tscn',
               'wall_s': time.monotonic() - started, 'config': config,
               'engine_errors': [line for line in log.splitlines() if 'ERROR:' in line],
               'probe_exists': (out / 'probe.json').exists()}
+    if bake and bake_layer != 'all' and code == 0 and not result['engine_errors']:
+        encode_blend_bake(out, bake_layer)
     (out / 'run.json').write_text(json.dumps(result, indent=2) + '\n')
+    return result
+
+
+
+def native_crop_settings(settings, crop):
+    """Set both OS window and viewport before creation; no content stretching."""
+    crop = _crop(crop)
+    entries = {'window/size/viewport_width': crop[0], 'window/size/viewport_height': crop[1],
+               'window/size/window_width_override': crop[0], 'window/size/window_height_override': crop[1],
+               'window/stretch/mode': '"disabled"'}
+    if '[display]' not in settings:
+        settings += '\n[display]\n'
+    for key, value in entries.items():
+        settings = re.sub(r'(?m)^' + re.escape(key) + r'=.*\n?', '', settings)
+        settings = settings.replace('[display]\n', '[display]\n' + key + '=' + str(value) + '\n', 1)
+    return settings
+
+
+def effect_age_indices(ages, elapsed):
+    """Latest source sample at/before each scaled physics age (no double hold)."""
+    import bisect
+    if not ages or any(not math.isfinite(a) or a < 0 for a in ages) or any(b <= a for a, b in zip(ages, ages[1:])):
+        raise ValueError('Source ages must be finite, nonnegative and strictly increasing')
+    return [max(0, bisect.bisect_right(ages, age + 1e-5) - 1) for age in elapsed]
+
+
+def flipbook_layers(baked, frames, crop):
+    """A legacy directory remains MIX; a mapping supplies explicit blend classes.
+
+    New bakes record scaled physics ages. Legacy probe traces reconstruct those
+    ages using the preceding tick's time_scale; absent traces imply uniform 60Hz.
+    MIX then ADD is deliberately explicit, and cannot preserve interleaved z-order.
+    """
+    sources = baked if isinstance(baked, dict) else {'mix': baked}
+    if not sources or set(sources) - {'mix', 'add'}:
+        raise ValueError('Flipbook classes must be mix and/or add')
+    layers = []
+    for mode in ('mix', 'add'):
+        if mode not in sources:
+            continue
+        directory = Path(sources[mode])
+        paths = numbered_frames(directory)
+        if len(paths) != frames:
+            raise ValueError('Flipbook frame counts must match')
+        for path in paths:
+            with Image.open(path) as im:
+                if im.mode != 'RGBA' or im.size != tuple(crop):
+                    raise ValueError('Flipbook must contain native RGBA crop frames')
+        ages = list(range(frames))
+        probe = directory / 'probe.json'
+        if probe.exists():
+            trace = json.loads(probe.read_text())['frames']
+            if len(trace) != frames:
+                raise ValueError('Flipbook age/frame counts must match')
+            if all('effect_age' in row for row in trace):
+                ages = [row['effect_age'] for row in trace]
+            else:
+                ages = [0.0]
+                for before, after in zip(trace, trace[1:]):
+                    ages.append(ages[-1] + (after['physics_frame'] - before['physics_frame']) * before['time_scale'])
+        effect_age_indices(ages, [0])
+        layers.append(dict(blend=mode, paths=[str(p.resolve()) for p in paths], ages=ages))
+    return layers
+
+
+def encode_blend_bake(directory, blend):
+    """Compatibility Movie Maker stores premultiplied RGB on transparent crops.
+
+    MIX needs straight RGB; ADD needs the accumulated RGB with unit alpha on nonzero RGB
+    (zero-contribution black padding remains transparent). Do not touch the default 'all' legacy PNG bytes.
+    This cannot recover clipping or restore interleaved blend/world draw order.
+    """
+    if blend not in ('add', 'mix'):
+        raise ValueError('Explicit blend class required')
+    for path in numbered_frames(directory):
+        with Image.open(path) as im:
+            rgba = np.array(im.convert('RGBA'))
+        if blend == 'add':
+            rgba[..., 3] = np.where(np.any(rgba[..., :3] > 0, axis=-1), 255, 0)
+        else:
+            alpha = rgba[..., 3:4].astype(float)
+            rgb = np.divide(rgba[..., :3].astype(float) * 255, alpha,
+                            out=np.zeros_like(rgba[..., :3], dtype=float), where=alpha > 0)
+            rgba[..., :3] = np.clip(np.rint(rgb), 0, 255).astype(np.uint8)
+        Image.fromarray(rgba).save(path)
+    (Path(directory) / 'blend.json').write_text(json.dumps(dict(blend=blend,
+        encoding='accumulated_rgb_unit_alpha' if blend == 'add' else 'straight_rgba',
+        source='Compatibility Movie Maker premultiplied RGBA'), indent=2) + '\n')
+
+
+def plate_envelope(plate, composite, tau=8):
+    """Count RGB max-channel absolute differences strictly greater than tau."""
+    if isinstance(tau, bool) or not isinstance(tau, (int, float)) or not math.isfinite(tau) or not 0 <= tau <= 255:
+        raise ValueError('tau must be finite in [0,255]')
+    def pixels(value):
+        if isinstance(value, (str, Path)):
+            with Image.open(value) as im:
+                return np.array(im.convert('RGB'), dtype=np.int16)
+        array = np.asarray(value)
+        if array.ndim != 3 or array.shape[-1] not in (3, 4):
+            raise ValueError('Expected RGB or RGBA frame')
+        return array[..., :3].astype(np.int16)
+    a, b = pixels(plate), pixels(composite)
+    if a.shape != b.shape:
+        raise ValueError('Plate and composite dimensions must agree')
+    return int(np.count_nonzero(np.abs(a-b).max(axis=-1) > tau))
+
+
+def plate_envelope_comparison(project, out, baked, grounds=('ground', 'black', 'white', 'foliage'),
+                              foliage_crop=None, tau=8, frames=126):
+    """Independent plate/live/flip captures; fixed 5% per-frame relative support.
+
+    Unlike alpha VO1, this measures visible change against a synchronized blank
+    world. Feedback is deliberately live; plate differences include shake/tint.
+    The summary is report-only; the caller owns the >=95% milestone decision.
+    """
+    _integer(frames, 'frames', 1)
+    if not grounds or len(set(grounds)) != len(grounds) or set(grounds) - {'ground','black','white','foliage'}:
+        raise ValueError('Need distinct supported grounds')
+    if 'foliage' in grounds and foliage_crop is None:
+        raise ValueError('Foliage requires an explicit native crop')
+    first = next(iter(baked.values())) if isinstance(baked, dict) else baked
+    paths = numbered_frames(first)
+    if len(paths) != frames:
+        raise ValueError('Bake frame count must match')
+    with Image.open(paths[0]) as im:
+        crop = im.size
+    out = Path(out)
+    envelopes, runs = {}, {}
+    for ground in grounds:
+        runs[ground], sequences = {}, {}
+        for mode in ('plate', 'live', 'flip'):
+            directory = out / ground / mode
+            result = run_replay(project, directory, bake=False, blank=mode == 'plate',
+                frames=frames, crop=crop, background=ground, background_path=foliage_crop,
+                flipbook=baked if mode == 'flip' else None)
+            runs[ground][mode] = result
+            if result['returncode'] != 0 or result['engine_errors'] or not result['probe_exists']:
+                raise RuntimeError('Replay did not complete: ' + str(directory))
+            sequences[mode] = numbered_frames(directory)
+            if len(sequences[mode]) != frames:
+                raise ValueError('Plate/live/flip frame counts must agree')
+        envelopes[ground] = {mode: [plate_envelope(a, b, tau) for a, b in zip(sequences['plate'], sequences[mode])]
+                             for mode in ('live', 'flip')}
+    rows, summary = [], {}
+    for ground, values in envelopes.items():
+        # Reuse literal comparator without relaxing its original four-ground API.
+        same_live = {key: values['live'] for key in ('ground','black','white','foliage')}
+        same_flip = {key: values['flip'] for key in same_live}
+        group = [r for r in compare_vo1(same_live, same_flip) if r['subject'].startswith(ground + '/')]
+        for row in group:
+            row.update(relative_difference=row['value'], tolerance=0.05,
+                       notes=f'Plate envelope: max-channel |composite-plate| > {tau}; zero baseline requires exact zero.')
+        rows.extend(group)
+        errors = [abs(y-x)/x if x else (0 if y == 0 else math.inf) for x,y in zip(values['live'], values['flip'])]
+        summary[ground] = dict(frames=frames, failed=sum(r['passed'] is False for r in group),
+            worst_frame=max(range(frames), key=errors.__getitem__), live_peak=max(values['live']), flip_peak=max(values['flip']))
+    result = dict(rows=rows, summary=summary, envelopes=envelopes, tau=tau, tolerance=0.05)
+    (out / 'envelopes.json').write_text(json.dumps(result, indent=2, allow_nan=False) + '\n')
     return result
 
 

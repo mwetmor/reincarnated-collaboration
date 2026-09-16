@@ -1,0 +1,49 @@
+{
+  "task_id": "KS-fire-spent-01",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "fire_spent_01",
+      "path": "out/fire_spent_01.png",
+      "sha256": "75b4d53bbed8b8cf3085994152559ff9e93a01595c4bcdccd3f4cedbe8356442",
+      "prompt": "Edit IMAGE 2's spent-fire arrangement using IMAGE 1's four greyscale planes and hand-drawn contour weight. Preserve every piece, position, root, axis, tip and gap within 6 pixels. Repaint stubs as guttering flame with an irregular white heart. Request exactly 768×768 with genuine alpha transparency. No gradients, glow, blur, texture, scenery or added fragments. Retry correction: trace the guide more closely, narrow the detached top piece, correct displaced tongue tips and restore the original line weight.",
+      "references": [
+        {
+          "role": "original approved peak; identity",
+          "path": "in/01_peak_768.png"
+        },
+        {
+          "role": "edit target; shape contract",
+          "path": "in/02_guide_spent_768.png"
+        },
+        {
+          "role": "scale and contour register",
+          "path": "in/03_scale_board_clearing.png"
+        }
+      ],
+      "elapsed_s": 38.481
+    }
+  ],
+  "calls_used": 2,
+  "retries": [
+    {
+      "reason": "Tongue contours drifted from the guide and contour weight changed.",
+      "change": "Repeated the edit from the original references with stronger silhouette tracing and line-weight constraints."
+    }
+  ],
+  "self_report": {
+    "obeyed_invariants": false,
+    "concerns": [
+      "Output is 1254×1254, not the requested 768×768; copied unchanged without conversion or trimming.",
+      "An alpha channel is confirmed, but genuinely transparent background pixels were not independently verified.",
+      "Guide alignment within 6 pixels is not established; silhouette differences remain visible.",
+      "Visible tonal variation raises concerns about the exactly-four-flat-planes constraint."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/fire_spent_01.png",
+      "sha256": "75b4d53bbed8b8cf3085994152559ff9e93a01595c4bcdccd3f4cedbe8356442"
+    }
+  ]
+}

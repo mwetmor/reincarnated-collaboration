@@ -105,8 +105,8 @@ test_seeded_factor_deterministic_order_independent_and_bounded (test_effect_kit.
 test_self_contained_mask_bytes_distance_and_runtime_validation (test_effect_kit.PieceStretchPhaseTests.test_self_contained_mask_bytes_distance_and_runtime_validation) ... ok
 test_stretch_seed_bounds_and_whole_body_distance (test_effect_kit.PieceStretchPhaseTests.test_stretch_seed_bounds_and_whole_body_distance) ... ok
 test_kit_piece_material_scope_validation_and_precedence (test_effect_kit.RaggedResidueMaterialTests.test_kit_piece_material_scope_validation_and_precedence) ... ok
-test_noise_bounds_band_resistance_endpoints_and_dissolve (test_effect_kit.RaggedResidueMaterialTests.test_noise_bounds_band_resistance_endpoints_and_dissolve) ... FAIL
-test_t4e_entry_ragged_connected_and_zero_disc_control (test_effect_kit.RaggedResidueMaterialTests.test_t4e_entry_ragged_connected_and_zero_disc_control) ... FAIL
+test_noise_bounds_band_resistance_endpoints_and_dissolve (test_effect_kit.RaggedResidueMaterialTests.test_noise_bounds_band_resistance_endpoints_and_dissolve) ... ok
+test_t4e_entry_ragged_connected_and_zero_disc_control (test_effect_kit.RaggedResidueMaterialTests.test_t4e_entry_ragged_connected_and_zero_disc_control) ... ok
 test_RED_dark_index_rendered_transparent_is_rejected (test_effect_kit.SharedVFXMaterialTests.test_RED_dark_index_rendered_transparent_is_rejected) ... ok
 test_RED_legacy_white_core_keep_validation_names_key (test_effect_kit.SharedVFXMaterialTests.test_RED_legacy_white_core_keep_validation_names_key) ... ok
 test_RED_material_failing_to_load_on_Compatibility_is_rejected (test_effect_kit.SharedVFXMaterialTests.test_RED_material_failing_to_load_on_Compatibility_is_rejected) ... ok
@@ -256,14 +256,11 @@ test_six_kits_and_v1_against_pre_t4k_export_hash_table (test_godot_import.PieceL
 test_axes_whole_field_root_residue_clock_and_grey (test_godot_import.PieceStretchImportTests.test_axes_whole_field_root_residue_clock_and_grey) ... ok
 test_native_768_crop_backward_compatible_default (test_godot_import.PieceStretchImportTests.test_native_768_crop_backward_compatible_default) ... ok
 test_v2_headless_import_and_seed_equal_rooted_clock (test_godot_import.PieceStretchImportTests.test_v2_headless_import_and_seed_equal_rooted_clock) ... ok
-test_exported_threshold_and_every_root_and_stretch_material_agree (test_godot_import.RaggedResidueImportTests.test_exported_threshold_and_every_root_and_stretch_material_agree) ... FAIL
+test_exported_threshold_and_every_root_and_stretch_material_agree (test_godot_import.RaggedResidueImportTests.test_exported_threshold_and_every_root_and_stretch_material_agree) ... ok
 test_piece_zero_overrides_material_noise_in_emitted_root (test_godot_import.RaggedResidueImportTests.test_piece_zero_overrides_material_noise_in_emitted_root) ... ok
 test_desktop_cursor_and_resolver_match_pre_t4i (test_godot_import.TouchDeviceAimEmissionTests.test_desktop_cursor_and_resolver_match_pre_t4i) ... ok
 test_touch_device_forward_and_probe_precedence (test_godot_import.TouchDeviceAimEmissionTests.test_touch_device_forward_and_probe_precedence) ... ok
-test_transformed_front_at_three_ages_has_no_straight_seam_over_12px (test_godot_import.TransformedResidueSeamTests.test_transformed_front_at_three_ages_has_no_straight_seam_over_12px) ... 
-  test_transformed_front_at_three_ages_has_no_straight_seam_over_12px (test_godot_import.TransformedResidueSeamTests.test_transformed_front_at_three_ages_has_no_straight_seam_over_12px) (age=30) ... FAIL
-  test_transformed_front_at_three_ages_has_no_straight_seam_over_12px (test_godot_import.TransformedResidueSeamTests.test_transformed_front_at_three_ages_has_no_straight_seam_over_12px) (age=33) ... FAIL
-  test_transformed_front_at_three_ages_has_no_straight_seam_over_12px (test_godot_import.TransformedResidueSeamTests.test_transformed_front_at_three_ages_has_no_straight_seam_over_12px) (age=36) ... FAIL
+test_transformed_front_at_three_ages_has_no_straight_seam_over_12px (test_godot_import.TransformedResidueSeamTests.test_transformed_front_at_three_ages_has_no_straight_seam_over_12px) ... ok
 test_back_view_and_absent_rest_are_null (test_head_pitch.Tests.test_back_view_and_absent_rest_are_null) ... ok
 test_lowered_twenty_percent_and_raised (test_head_pitch.Tests.test_lowered_twenty_percent_and_raised) ... ok
 test_translation_invariance_and_timing_boundary (test_head_pitch.Tests.test_translation_invariance_and_timing_boundary) ... ok
@@ -431,6 +428,12 @@ test_red_and_area_rules (test_pse_check.Tests.test_red_and_area_rules) ... ok
 test_threshold_boundary_and_invalid (test_pse_check.Tests.test_threshold_boundary_and_invalid) ... ok
 test_first_party_and_symlink_escape (test_ref_provenance.Tests.test_first_party_and_symlink_escape) ... ok
 test_missing_type_rules (test_render_brief.ModuleTests.test_missing_type_rules) ... ok
+test_crop_settings_and_age_metadata_are_written (test_replay.BlendEnvelopeTests.test_crop_settings_and_age_metadata_are_written) ... ok
+test_known_two_colour_stack_and_premultiplied_encoding (test_replay.BlendEnvelopeTests.test_known_two_colour_stack_and_premultiplied_encoding) ... ok
+test_native_crop_64px_body_512_and_768_and_class_replay (test_replay.BlendEnvelopeTests.test_native_crop_64px_body_512_and_768_and_class_replay) ... ok
+test_plate_comparison_counts_zeros_and_missing_frames (test_replay.BlendEnvelopeTests.test_plate_comparison_counts_zeros_and_missing_frames) ... ok
+test_plate_envelope_strict_threshold_and_alignment (test_replay.BlendEnvelopeTests.test_plate_envelope_strict_threshold_and_alignment) ... ok
+test_three_tick_hitstop_uses_scaled_age_without_double_hold (test_replay.BlendEnvelopeTests.test_three_tick_hitstop_uses_scaled_age_without_double_hold) ... ok
 test_byte_identity_not_only_decoded_pixels (test_replay.ReplayTests.test_byte_identity_not_only_decoded_pixels) ... ok
 test_copy_preserves_source_and_installs_visibility (test_replay.ReplayTests.test_copy_preserves_source_and_installs_visibility) ... ok
 test_diagnosis_reports_source_not_verdict (test_replay.ReplayTests.test_diagnosis_reports_source_not_verdict) ... ok
@@ -662,55 +665,7 @@ Traceback (most recent call last):
     self._check_timeout(endtime, orig_timeout, stdout, stderr)
   File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/subprocess.py", line 1253, in _check_timeout
     raise TimeoutExpired(
-subprocess.TimeoutExpired: Command '['/Applications/Godot.app/Contents/MacOS/Godot', '--headless', '--log-file', '/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4i/tmp/touch-aim-k_w0vfdt/project/godot.log', '--path', '/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4i/tmp/touch-aim-k_w0vfdt/project', '--script', 'res://touch_aim_probe.gd']' timed out after 60 seconds
-
-======================================================================
-FAIL: test_noise_bounds_band_resistance_endpoints_and_dissolve (test_effect_kit.RaggedResidueMaterialTests.test_noise_bounds_band_resistance_endpoints_and_dissolve)
-----------------------------------------------------------------------
-Traceback (most recent call last):
-  File "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_effect_kit.py", line 1629, in test_noise_bounds_band_resistance_endpoints_and_dissolve
-    self.assertTrue(np.all(np.diff(erosion_distance(pixels, field, .08)[0]) < 0))
-AssertionError: np.False_ is not true
-
-======================================================================
-FAIL: test_t4e_entry_ragged_connected_and_zero_disc_control (test_effect_kit.RaggedResidueMaterialTests.test_t4e_entry_ragged_connected_and_zero_disc_control)
-----------------------------------------------------------------------
-Traceback (most recent call last):
-  File "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_effect_kit.py", line 1614, in test_t4e_entry_ragged_connected_and_zero_disc_control
-    self.assertEqual(actual['erode_noise'], .08)
-AssertionError: 0.4 != 0.08
-
-======================================================================
-FAIL: test_exported_threshold_and_every_root_and_stretch_material_agree (test_godot_import.RaggedResidueImportTests.test_exported_threshold_and_every_root_and_stretch_material_agree)
-----------------------------------------------------------------------
-Traceback (most recent call last):
-  File "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_godot_import.py", line 671, in test_exported_threshold_and_every_root_and_stretch_material_agree
-    self.assertEqual(runtime['erode_noise'], .08)
-AssertionError: 0.4 != 0.08
-
-======================================================================
-FAIL: test_transformed_front_at_three_ages_has_no_straight_seam_over_12px (test_godot_import.TransformedResidueSeamTests.test_transformed_front_at_three_ages_has_no_straight_seam_over_12px) (age=30)
-----------------------------------------------------------------------
-Traceback (most recent call last):
-  File "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_godot_import.py", line 768, in test_transformed_front_at_three_ages_has_no_straight_seam_over_12px
-    self.assertLessEqual(row['longest_straight_seam_front_px'], 12, row)
-AssertionError: 36.0 not less than or equal to 12 : {'age': 30, 'longest_transformed_seam_front_component_diameter_px': 79.49203781276162, 'longest_straight_seam_front_px': 36.0, 'largest_component': 0.9995194178090029}
-
-======================================================================
-FAIL: test_transformed_front_at_three_ages_has_no_straight_seam_over_12px (test_godot_import.TransformedResidueSeamTests.test_transformed_front_at_three_ages_has_no_straight_seam_over_12px) (age=33)
-----------------------------------------------------------------------
-Traceback (most recent call last):
-  File "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_godot_import.py", line 768, in test_transformed_front_at_three_ages_has_no_straight_seam_over_12px
-    self.assertLessEqual(row['longest_straight_seam_front_px'], 12, row)
-AssertionError: 25.0 not less than or equal to 12 : {'age': 33, 'longest_transformed_seam_front_component_diameter_px': 68.89698078707183, 'longest_straight_seam_front_px': 25.0, 'largest_component': 0.9779669182591938}
-
-======================================================================
-FAIL: test_transformed_front_at_three_ages_has_no_straight_seam_over_12px (test_godot_import.TransformedResidueSeamTests.test_transformed_front_at_three_ages_has_no_straight_seam_over_12px) (age=36)
-----------------------------------------------------------------------
-Traceback (most recent call last):
-  File "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_godot_import.py", line 768, in test_transformed_front_at_three_ages_has_no_straight_seam_over_12px
-    self.assertLessEqual(row['longest_straight_seam_front_px'], 12, row)
-AssertionError: 26.0 not less than or equal to 12 : {'age': 36, 'longest_transformed_seam_front_component_diameter_px': 54.600373133029585, 'longest_straight_seam_front_px': 26.0, 'largest_component': 0.9218997622820919}
+subprocess.TimeoutExpired: Command '['/Applications/Godot.app/Contents/MacOS/Godot', '--headless', '--log-file', '/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4i/tmp/touch-aim-cmspfrnb/project/godot.log', '--path', '/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4i/tmp/touch-aim-cmspfrnb/project', '--script', 'res://touch_aim_probe.gd']' timed out after 60 seconds
 
 ======================================================================
 FAIL: test_synthetic_contract_and_grid (test_oracle_walk.Tests.test_synthetic_contract_and_grid)
@@ -755,6 +710,6 @@ Traceback (most recent call last):
 AssertionError: 'rejected' unexpectedly found in {'angular_support': 0.8333333333333334, 'center': [170.0, 253.0], 'hollow_score': 0.08333333333333333, 'inner_opposed_support': 0.08333333333333333, 'inside': False, 'lab_band_surround': 12.987929666149537, 'lab_center_band': 18.508563966712764, 'lab_center_surround': 30.467977867785994, 'lab_color_return': 0.0, 'radius': 8.0, 'rejected': 'not_annulus', 'score': 0.6366616733180586}
 
 ----------------------------------------------------------------------
-Ran 633 tests in 381.861s
+Ran 639 tests in 367.427s
 
-FAILED (failures=11, errors=1)
+FAILED (failures=5, errors=1)
