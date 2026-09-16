@@ -2504,3 +2504,31 @@ class AntiDecalCapsuleFallbackTests(unittest.TestCase):
             self.assertEqual(_g1_capsule_config({'effect':{'phases':{'travel':{'frames':[{'file':'missing.png'}]}}}})['head_length_px'],156)
             self.assertEqual(_g1_capsule_config({'effect':{'travel_primitives':{'head':dict(pivot=[3,4],rear_socket=[0,0],scale=2)}}})['head_length_px'],10)
             self.assertEqual(_g1_capsule_config({'effect':{'travel_primitives':{'head':dict(pivot=[3,4],scale=2)}}})['head_length_px'],156)
+
+
+class BlackwaterRankOneValidationTests(unittest.TestCase):
+    """BL-1a: source numbers and the independent presentation clock."""
+    def test_rank_one_spec_and_noise_band_known_bad_inputs(self):
+        from export.effect_kit import validate_thrown_field
+        root = ROOT/'runs/C-5/vfx_kits/v9/blackwater_cocktail_e3'
+        data = load_kit(root)
+        spec = json.loads((ROOT/'runs/C-5/specs/blackwater_cocktail.json').read_text())
+        self.assertEqual(data['skill_spec'], spec)
+        self.assertEqual(spec['mechanics']['field']['radius_px'], 181)
+        self.assertEqual(spec['mechanics']['field']['duration_s'], 2.5)
+        self.assertEqual(spec['mechanics']['arc'], dict(apex_px=42, flight_s=.4, launch_angle_deg=18.))
+        self.assertEqual(spec['presentation']['phase_envelope_s']['residue'], 12.)
+        for value in (None, [], [3.3], [3.3,3.6,4], [1.9,3.6], [3.3,6.1], [3.6,3.3], [3.3,3.3], [True,3.6], [float('nan'),3.6]):
+            bad = copy.deepcopy(data)
+            bad['skill_spec']['presentation']['lick_flicker_hz'] = value
+            with self.subTest(value=value), self.assertRaises(ValueError):
+                validate_thrown_field(bad,root,True)
+        for value in ('high', None, 0):
+            bad=copy.deepcopy(data)
+            bad['skill_spec']['presentation']['lick_coherence']=value
+            with self.subTest(coherence=value), self.assertRaises(ValueError):
+                validate_thrown_field(bad,root,True)
+        for hz in ([2,6], [3.3,3.6]):
+            valid=copy.deepcopy(data)
+            valid['skill_spec']['presentation']['lick_flicker_hz']=hz
+            validate_thrown_field(valid,root,True)

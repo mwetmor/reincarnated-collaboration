@@ -516,7 +516,7 @@ locations, which must be writable for a completely clean headless import.
         from export.parallax_scene import write_cliffside
         parallax_report = write_cliffside(out, parallax_data, props=props_data)
     kit_report = _write_vfx_kit(out, kit, base, cells, socket_data, annotation) if kit is not None else None
-    kits_report = _write_vfx_kits(out, kits, base, cells, socket_data, annotation) if kits is not None else None
+    kits_report = _write_vfx_kits(out, kits, base, cells, socket_data, annotation, parallax_data["walkable"] if parallax_data else annotation) if kits is not None else None
     if vfx_grey:
         _grey_vfx(out)
     if bake:
@@ -1358,7 +1358,7 @@ func _update_vfx_label() -> void:
 '''
 
 
-def _write_vfx_kits(out, kits, base, cells, socket_data, annotation):
+def _write_vfx_kits(out, kits, base, cells, socket_data, annotation, ground_geometry=None):
     reports, entries = [], []
     _write_g1_component(out)
     if any(kit.get('effect', {}).get('screen_px', False) for kit in kits):
@@ -1388,7 +1388,7 @@ def _write_vfx_kits(out, kits, base, cells, socket_data, annotation):
         if 'g2' in kit.get('effect', {}):
             report = _write_g2_kit(out, kit)
             reports.append({'name':name, **report})
-            entries.append(_g2_config(kit))
+            entries.append(_g2_config(kit, ground_geometry))
             continue
         report = _write_vfx_kit(out, kit, base, cells, socket_data,
                                 annotation if index == 0 else None,
@@ -3543,7 +3543,7 @@ def _write_ground_effects(out):
 
 
 # T4s. G2 emission is opt-in, leaving the eleven-kit G1 export untouched.
-def _g2_config(kit):
+def _g2_config(kit, ground_geometry=None):
     from export.effect_kit import tick_schedule_report
     d=kit['effect']; spec=d['skill_spec']; m=spec['mechanics']; g=d['g2']; root='res://vfx/'+kit['name']+'/'
     return dict(name=kit['name'],grammar='G2',screen_px=True,flare=root+'flare.tres',
@@ -3561,6 +3561,15 @@ def _g2_config(kit):
                 treatment=d['element'],density=d.get('density',1.),seed=g['seed'],
                 field_binding=g.get('field_binding', {}),
                 lick_anchors=_g2_lick_anchors(kit) if g.get('field_binding') else [],
+                walkable=(ground_geometry or {}).get('walkable', []),
+                blocked=(ground_geometry or {}).get('blocked', []),
+                px_per_bh=spec.get('scale', {}).get('px_per_bh', 130),
+                launch_angle_deg=m['arc'].get('launch_angle_deg', 18.0),
+                lick_flicker_hz=spec['presentation'].get('lick_flicker_hz', []),
+                lick_coherence=spec['presentation'].get('lick_coherence', ''),
+                residue_diameter_px=spec['presentation']['body_extents_bh'].get('residue_diameter', 0)*spec.get('scale', {}).get('px_per_bh', 130),
+                residue_fade_in_s=.1 if d['element']=='fire' else 0.,
+                residue_fade_out_s=min(1.,spec['presentation']['phase_envelope_s']['residue']) if d['element']=='fire' else spec['presentation']['phase_envelope_s']['residue'],
                 flask_width=spec['presentation']['body_extents_bh']['flask']*130,
                 splash=('res://scenes/vfx_'+g['splash']['kit']+'_impact.tscn' if d['element']=='fire' else ''),
                 splash_scale=g['splash'].get('scale',1),enabled_layers=spec['presentation']['enabled_layers'])
@@ -3672,13 +3681,69 @@ var field_scale: float = 1.0
 var pulse_scale: float = 1.0
 var flask_scale: float = 1.0
 var field_pivot: Vector2
+var walkable_polygons: Array[PackedVector2Array] = []
+var blocked_polygons: Array[PackedVector2Array] = []
+var lick_rngs: Array = []
+var lick_states: Array = []
+
+static func packed_polygons(polygons: Array) -> Array[PackedVector2Array]:
+    var result: Array[PackedVector2Array] = []
+    for polygon in polygons:
+        var packed := PackedVector2Array()
+        for point in polygon: packed.append(Vector2(point[0],point[1]))
+        result.append(packed)
+    return result
+
+static func is_walkable(point: Vector2, walkable: Array[PackedVector2Array], blocked: Array[PackedVector2Array]) -> bool:
+    for polygon in blocked:
+        if Geometry2D.is_point_in_polygon(point,polygon): return false
+    for polygon in walkable:
+        if Geometry2D.is_point_in_polygon(point,polygon): return true
+    return false
+
+static func landing_point(origin: Vector2, direction: Vector2, distance: float, bh: float, walkable: Array[PackedVector2Array], blocked: Array[PackedVector2Array]) -> Dictionary:
+    var axis: Vector2 = direction.normalized()
+    var fallback: Vector2 = origin+axis*bh
+    if not is_walkable(origin,walkable,blocked):
+        return {"point":fallback,"reason":"release_not_walkable"}
+    var chosen: Vector2 = fallback
+    var found: bool = false
+    # Include the minimum and exact endpoint in addition to the 8-px lattice.
+    var samples: Array[float] = [bh]
+    for step in range(0,int(floor(distance/8.0))+1):
+        if float(step)*8.0>=bh: samples.append(float(step)*8.0)
+    if distance>=bh: samples.append(distance)
+    for d in samples:
+        var point: Vector2 = origin+axis*d
+        # Vector2 uses float32: round the minimum outward, never below 1 BH.
+        if d==bh and origin.distance_to(point)<bh:
+            point=origin+axis*(bh+.001)
+        if is_walkable(point,walkable,blocked):
+            chosen=point
+            found=true
+    return {"point":chosen,"reason":"last_walkable" if found else "no_walkable_at_minimum"}
+
+func _lick_sample(index: int, frame: int) -> Vector2:
+    var state: Dictionary = lick_states[index]
+    var noise: RandomNumberGenerator = lick_rngs[index]
+    # Damped narrow-band stochastic oscillator, independently seeded per lick.
+    # White excitation keeps coherence low; damage ticks never enter this clock.
+    while int(state.frame)<frame:
+        var white: float = noise.randf_range(-1.0,1.0)
+        var value: float = 2.0*.94*cos(TAU*float(state.hz)/60.0)*float(state.y)-.94*.94*float(state.previous)+white
+        state.previous=state.y
+        state.y=value
+        state.frame+=1
+        state.scale=1.0+.18*tanh(value*.28)
+        state.alpha=.70+.24*tanh((value+white)*.28)
+    return Vector2(state.scale,state.alpha)
 @onready var ground_visual: Node2D = $Ground
 
 static func resolve_ground(origin: Vector2, facing: Vector2, cursor: Vector2, range_px: float, touch: bool) -> Dictionary:
     if not origin.is_finite() or not facing.is_finite() or not cursor.is_finite() or facing.is_zero_approx() or not is_finite(range_px) or range_px <= 0.0:
         return {}
     var offset: Vector2 = facing.normalized()*range_px if touch else (cursor-origin).limit_length(range_px)
-    return {"point":origin+offset,"kind":"ground","target":null}
+    return {"point":origin+offset,"kind":"ground","target":null,"facing":facing.normalized(),"touch":touch}
 
 static func acquire(parent: Node2D, kit: Dictionary, origin: Vector2, destination: Dictionary, owner_node: Node2D = null, _art_scale: float = 1.0) -> Node2D:
     if kit.get("grammar","") != "G2" or destination.get("kind","") != "ground" or not destination.get("point") is Vector2 or not origin.is_finite() or not destination.point.is_finite():
@@ -3712,6 +3777,27 @@ func release(kit: Dictionary, origin: Vector2, destination: Dictionary, owner_no
     caster = owner_node
     cast_origin = origin
     ground_point = destination.point
+    var landing_reason: String = "unbounded_scene"
+    if not config.walkable.is_empty():
+        walkable_polygons=packed_polygons(config.walkable)
+        blocked_polygons=packed_polygons(config.blocked)
+        var direction: Vector2 = destination.get("facing",origin.direction_to(ground_point)) if destination.get("touch",false) else origin.direction_to(ground_point)
+        var distance: float = float(config.range_px) if destination.get("touch",false) else minf(origin.distance_to(ground_point),float(config.range_px))
+        var resolved: Dictionary = landing_point(origin,direction,distance,float(config.px_per_bh),walkable_polygons,blocked_polygons)
+        ground_point=resolved.point
+        landing_reason=resolved.reason
+        if landing_reason=="no_walkable_at_minimum":
+            # No point can satisfy both walkability and the 1-BH minimum.
+            # Cancel instead of creating a field on a known non-walkable point.
+            next_id+=1
+            effect_id=next_id
+            release_tick=Engine.get_physics_frames()
+            _record("cancel",{"reason":landing_reason})
+            queue_free()
+            return
+        var actual_distance: float = origin.distance_to(ground_point)
+        config.flight_s=actual_distance/(float(kit.range_px)/float(kit.flight_s))
+        config.apex_px=actual_distance*tan(deg_to_rad(float(config.launch_angle_deg)))/4.0
     top_level = true
     global_transform = Transform2D(0.0,origin)
     preload("res://scripts/vfx_ground.gd").attach(ground_visual, self, ground_point)
@@ -3733,16 +3819,18 @@ func release(kit: Dictionary, origin: Vector2, destination: Dictionary, owner_no
     $Flask.modulate = Color.WHITE
     _sprite(ground_visual.get_node("Field"),config.field,config.material)
     var painted: bool = not config.field_binding.is_empty()
-    field_scale = 1.0 if painted else 2.0*float(config.radius_px)/ground_visual.get_node("Field").texture.get_image().get_used_rect().size.x
+    field_scale = 2.0*float(config.radius_px)/ground_visual.get_node("Field").texture.get_image().get_used_rect().size.x
     _sprite(ground_visual.get_node("Decal"),config.field,config.decal_material)
     _sprite(ground_visual.get_node("Halo"),config.field,config.additive_material)
     _sprite(ground_visual.get_node("FloorLight"),config.field,config.additive_material)
     _sprite(ground_visual.get_node("Flash"),config.field,config.additive_material)
     _sprite(ground_visual.get_node("DarkDuplicate"),config.field,config.dark_material)
     for node in [ground_visual.get_node("Field"),ground_visual.get_node("Decal"),ground_visual.get_node("Halo"),ground_visual.get_node("FloorLight"),ground_visual.get_node("Flash"),ground_visual.get_node("DarkDuplicate")]:
-        node.scale = Vector2.ONE if painted else Vector2(1.0,float(config.ground_squash))*field_scale
+        node.scale = Vector2.ONE*field_scale if painted else Vector2(1.0,float(config.ground_squash))*field_scale
         if painted:
             node.offset = -Vector2(config.field_binding.pivot[0],config.field_binding.pivot[1])
+    if float(config.residue_diameter_px)>0:
+        ground_visual.get_node("Decal").scale=Vector2.ONE*float(config.residue_diameter_px)/ground_visual.get_node("Decal").texture.get_image().get_used_rect().size.x
     for i in range(3):
         var shard := Sprite2D.new()
         $Fragments.add_child(shard)
@@ -3764,12 +3852,17 @@ func release(kit: Dictionary, origin: Vector2, destination: Dictionary, owner_no
             var anchor: Array = config.lick_anchors[i]
             lobe.set_meta("anchor",Vector2(anchor[0],anchor[1])-Vector2(config.field_binding.pivot[0],config.field_binding.pivot[1]))
             lobe.rotation = -PI/2.0
+        if not config.lick_flicker_hz.is_empty():
+            var local_rng := RandomNumberGenerator.new()
+            local_rng.seed=int(config.seed)+7919*(i+1)
+            lick_rngs.append(local_rng)
+            lick_states.append({"frame":-1,"y":0.0,"previous":0.0,"scale":1.0,"alpha":.7,"hz":local_rng.randf_range(float(config.lick_flicker_hz[0]),float(config.lick_flicker_hz[1]))})
         lobe.hide()
         lobe.set_meta("angle",TAU*float(i)/4.0)
         lobe.set_meta("velocity",rng.randf_range(60,110))
     ground_visual.hide()
     active = true
-    _record("release",{"schedule":config.schedule})
+    _record("release",{"schedule":config.schedule,"origin":[origin.x,origin.y],"distance_px":origin.distance_to(ground_point),"flight_s":config.flight_s,"apex_px":config.apex_px,"landing_reason":landing_reason,"walkable":is_walkable(ground_point,walkable_polygons,blocked_polygons) if not walkable_polygons.is_empty() else null})
     if not bool(config.schedule.ff08_satisfied):
         _record("constraint_unhonoured",{"constraint":"FF-08","interval_cv":config.schedule.interval_cv,"minimum":config.schedule.minimum_cv})
     set_physics_process(true)
@@ -3811,7 +3904,7 @@ func _clock(age: int) -> void:
             tick_index += 1
     if land_age>=end_field and not field_ended:
         field_ended = true
-        _record("field_end",{"duration_frames":end_field,"tick_count":tick_index})
+        _record("field_end",{"duration_frames":end_field,"tick_count":tick_index,"licks":ground_visual.get_node("Licks").get_children().map(func(n):return {"scale":n.scale.x/pulse_scale,"alpha":n.modulate.a,"visible":n.visible})})
         _record("decal_start")
     for shard in $Fragments.get_children():
         shard.visible = land_age>0 and land_age<=12
@@ -3834,7 +3927,7 @@ func _clock(age: int) -> void:
     var coverage: float = lerpf(.5,1.0,clampf(float(land_age)/24.0,0,1)) if config.treatment=="poison" else 1.0
     # Coverage is area: sqrt growth on each axis; density exclusively multiplies alpha.
     var painted: bool = not config.field_binding.is_empty()
-    ground_visual.get_node("Field").scale = Vector2.ONE if painted else Vector2(1,float(config.ground_squash))*field_scale*sqrt(coverage)
+    ground_visual.get_node("Field").scale = Vector2.ONE*field_scale if painted else Vector2(1,float(config.ground_squash))*field_scale*sqrt(coverage)
     # Multiplicative breath: authored density bounds the translucent cloud.
     var next_tick: int = roundi(float(config.ticks[tick_index])*60.0) if tick_index<config.ticks.size() else end_field
     var phase: float = clampf(float(land_age-last_tick)/maxi(1,next_tick-last_tick),0,1)
@@ -3857,12 +3950,18 @@ func _clock(age: int) -> void:
         var pulse_age: int = land_age-last_tick
         lick.visible = field_live and pulse_age>=0 and pulse_age<6
         var axis := Vector2.from_angle(float(lick.get_meta("angle")))
-        lick.position = lick.get_meta("anchor") if painted else axis*float(config.radius_px)*.35*Vector2(1,.58)
+        lick.position = lick.get_meta("anchor")*field_scale if painted else axis*float(config.radius_px)*.35*Vector2(1,.58)
         lick.rotation = -PI/2.0 if painted else axis.angle()
         if painted and land_age>=end_field-24: lick.hide()
         lick.material.set_shader_parameter("erode",clampf(float(pulse_age)/5.0,0,1))
+        if not config.lick_flicker_hz.is_empty():
+            var sample: Vector2 = _lick_sample(i,maxi(0,land_age))
+            lick.visible=field_live and land_age<end_field-24
+            lick.scale=Vector2.ONE*pulse_scale*sample.x
+            lick.modulate.a=sample.y
+            lick.material.set_shader_parameter("erode",0.0)
     ground_visual.get_node("Decal").visible = land_age>=end_field and land_age<end_field+residue_frames
-    ground_visual.get_node("Decal").modulate.a = clampf(1.0-float(land_age-end_field)/residue_frames,0,1)
+    ground_visual.get_node("Decal").modulate.a = minf(clampf(float(land_age-end_field)/maxf(1.0,float(config.residue_fade_in_s)*60.0),0,1) if float(config.residue_fade_in_s)>0 else 1.0,clampf(float(end_field+residue_frames-land_age)/maxf(1.0,float(config.residue_fade_out_s)*60.0),0,1))
     ground_visual.get_node("Halo").visible = field_live and config.treatment=="fire" and "halo" in config.enabled_layers
     ground_visual.get_node("Halo").modulate.a = .12
     ground_visual.get_node("DarkDuplicate").visible = field_live and "dark_duplicate" in config.enabled_layers
@@ -3876,7 +3975,7 @@ func _clock(age: int) -> void:
     ground_visual.get_node("Flash").visible = land_age==0 and "flash" in config.enabled_layers
     ground_visual.get_node("Flash").modulate.a = .8
     _tint_clock(age)
-    trace.append({"age_frames":age,"lift_px":lift,"flask_position":[$Flask.global_position.x,$Flask.global_position.y],"rotation_deg":rad_to_deg($Flask.rotation),"contact":land_age==0,"fragments":$Fragments.get_children().filter(func(n):return n.visible).size(),"field_alive":field_live,"coverage":coverage,"density":config.density,"field_alpha":ground_visual.get_node("Field").modulate.a,"field_erode":ground_visual.get_node("Field").material.get_shader_parameter("erode"),"dark_offset_px":config.dark_offset_px,"drift_px":ground_visual.get_node("Field").position.x,"ground_point":[ground_visual.global_position.x,ground_visual.global_position.y],"ground_z":ground_visual.z_index,"decal_visible":ground_visual.get_node("Decal").visible,"decal_alpha":ground_visual.get_node("Decal").modulate.a,"tick_count":tick_index})
+    trace.append({"age_frames":age,"lift_px":lift,"flask_position":[$Flask.global_position.x,$Flask.global_position.y],"rotation_deg":rad_to_deg($Flask.rotation),"contact":land_age==0,"fragments":$Fragments.get_children().filter(func(n):return n.visible).size(),"field_alive":field_live,"coverage":coverage,"density":config.density,"field_alpha":ground_visual.get_node("Field").modulate.a,"field_erode":ground_visual.get_node("Field").material.get_shader_parameter("erode"),"dark_offset_px":config.dark_offset_px,"drift_px":ground_visual.get_node("Field").position.x,"ground_point":[ground_visual.global_position.x,ground_visual.global_position.y],"ground_z":ground_visual.z_index,"decal_visible":ground_visual.get_node("Decal").visible,"decal_alpha":ground_visual.get_node("Decal").modulate.a,"tick_count":tick_index,"licks":ground_visual.get_node("Licks").get_children().map(func(n):return {"scale":n.scale.x/pulse_scale,"alpha":n.modulate.a,"visible":n.visible})})
     if land_age>=end_field+residue_frames:
         _record("expire")
         active = false
@@ -3895,7 +3994,7 @@ func _tick(index: int, scheduled: int) -> void:
         if actor not in actors: actors.append(actor)
     for actor in actors:
         if not is_instance_valid(actor) or not actor is Node2D or actor==caster or actor.global_position.distance_to(ground_point)>float(config.radius_px): continue
-        var body_index: int = int(actor.get_meta("body_index",actor.get_instance_id()))
+        var body_index: int = int(actor.get_meta("body_index",get_tree().get_nodes_in_group("vfx_targets").find(actor) if actor.is_in_group("vfx_targets") else actors.find(actor)))
         var contact_class: String = "primary" if actor.global_position.distance_to(ground_point)<=4.0 else "secondary"
         _record("contact",{"body_index":body_index,"contact_class":contact_class,"phase":"field_centre" if contact_class=="primary" else "rim","tick_index":index,"collision_age_frames":age_frames(),"contact_lag_frames":0})
         if "victim_tint" in config.enabled_layers:
@@ -3912,6 +4011,7 @@ func _tick(index: int, scheduled: int) -> void:
             _record("victim_tint",{"body_index":body_index,"tick_index":index})
         if "contact_label" in config.enabled_layers and not labelled.has(actor.get_instance_id()):
             labelled[actor.get_instance_id()]=true
+            _record("contact_label",{"body_index":body_index,"tick_index":index,"contact_class":contact_class})
             var label: Label = null
             for candidate in get_tree().get_nodes_in_group("vfx_contact_labels"):
                 if not candidate.visible:

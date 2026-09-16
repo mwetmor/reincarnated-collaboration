@@ -1225,6 +1225,19 @@ def validate_thrown_field(data, root, runtime=False):
     if data['element'] not in ('fire','poison'): raise ValueError('unsupported G2 treatment')
     for value in [mechanics['range_px'],mechanics['arc']['apex_px'],mechanics['arc']['flight_s'],field['radius_px'],field['duration_s']]:
         _number(value, 1e-9, math.inf, 'G2 mechanic')
+    presentation = spec['presentation']
+    if 'lick_flicker_hz' in presentation:
+        hz = presentation['lick_flicker_hz']
+        if not isinstance(hz, list) or len(hz) != 2:
+            raise ValueError('lick_flicker_hz requires two ascending frequencies')
+        for value in hz: _number(value, 2, 6, 'lick_flicker_hz')
+        if hz[0] >= hz[1]: raise ValueError('lick_flicker_hz must be ascending')
+        if not isinstance(presentation.get('lick_coherence'), str) or not presentation['lick_coherence'].startswith('low'):
+            raise ValueError('lick_coherence must be low')
+    if 'launch_angle_deg' in mechanics['arc']:
+        _number(mechanics['arc']['launch_angle_deg'], 0.01, 89, 'launch_angle_deg')
+    if 'residue_diameter' in presentation['body_extents_bh']:
+        _number(presentation['body_extents_bh']['residue_diameter'], 1e-9, math.inf, 'residue_diameter')
     minimum = field.get('tick_cv_min', .25)
     _number(minimum, .25, math.inf, 'tick_cv_min')
     tick_schedule_report(field['tick_schedule_s'], minimum)

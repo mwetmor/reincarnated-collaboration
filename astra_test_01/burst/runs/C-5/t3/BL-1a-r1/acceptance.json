@@ -1,0 +1,743 @@
+{
+  "task_id": "BL-1a-r1",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "image_calls": 0,
+  "part_a": {
+    "method": "Real cliffside re-export, KIT_CYCLES=11, FACE per direction, start (3760,640), release-socket sampling on packed Geometry2D polygons. Exact range endpoint plus 8-px samples and 1-BH minimum endpoint; float32 minimum rounded outward by 0.001 px only when needed.",
+    "landing_table": [
+      {
+        "direction": "S",
+        "origin": [
+          3758.74169921875,
+          551.341613769531
+        ],
+        "target_point": [
+          3758.74169921875,
+          943.341613769531
+        ],
+        "walkable": true,
+        "distance_px": 392.0,
+        "flight_s": 0.301538461538462,
+        "apex_px": 31.8421302308248,
+        "landing_reason": "last_walkable"
+      },
+      {
+        "direction": "SW",
+        "origin": [
+          3684.3408203125,
+          550.817749023438
+        ],
+        "target_point": [
+          3592.41625976562,
+          642.742370605469
+        ],
+        "walkable": true,
+        "distance_px": 130.001007080078,
+        "flight_s": 0.100000774676983,
+        "apex_px": 10.5599719326077,
+        "landing_reason": "last_walkable"
+      },
+      {
+        "direction": "W",
+        "origin": [
+          3702.69165039062,
+          582.745849609375
+        ],
+        "target_point": [
+          3486.69165039062,
+          582.745849609375
+        ],
+        "walkable": true,
+        "distance_px": 216.0,
+        "flight_s": 0.166153846153846,
+        "apex_px": 17.5456635965769,
+        "landing_reason": "last_walkable"
+      },
+      {
+        "direction": "NW",
+        "origin": [
+          3713.28247070312,
+          459.89892578125
+        ],
+        "target_point": [
+          3594.48852539062,
+          341.10498046875
+        ],
+        "walkable": true,
+        "distance_px": 168.0,
+        "flight_s": 0.129230769230769,
+        "apex_px": 13.6466272417821,
+        "landing_reason": "last_walkable"
+      },
+      {
+        "direction": "N",
+        "origin": [
+          3804.6708984375,
+          445.533386230469
+        ],
+        "target_point": [
+          3804.6708984375,
+          205.533386230469
+        ],
+        "walkable": true,
+        "distance_px": 240.0,
+        "flight_s": 0.184615384615385,
+        "apex_px": 19.4951817739744,
+        "landing_reason": "last_walkable"
+      },
+      {
+        "direction": "NE",
+        "origin": [
+          3758.27172851562,
+          433.473937988281
+        ],
+        "target_point": [
+          4125.96728515625,
+          65.7783813476562
+        ],
+        "walkable": true,
+        "distance_px": 520.0,
+        "flight_s": 0.4,
+        "apex_px": 42.2395605102778,
+        "landing_reason": "last_walkable"
+      },
+      {
+        "direction": "E",
+        "origin": [
+          3822.341796875,
+          526.120849609375
+        ],
+        "target_point": [
+          4342.341796875,
+          526.120849609375
+        ],
+        "walkable": true,
+        "distance_px": 520.0,
+        "flight_s": 0.4,
+        "apex_px": 42.2395605102778,
+        "landing_reason": "last_walkable"
+      },
+      {
+        "direction": "SE",
+        "origin": [
+          3802.94262695312,
+          555.221923828125
+        ],
+        "target_point": [
+          4170.63818359375,
+          922.91748046875
+        ],
+        "walkable": true,
+        "distance_px": 520.0,
+        "flight_s": 0.4,
+        "apex_px": 42.2395605102778,
+        "landing_reason": "last_walkable"
+      }
+    ],
+    "sample_step_px": 8,
+    "minimum_distance_px": 130,
+    "infeasible_minimum": "Cancel without a field; covered by the new runtime test.",
+    "release_outside_walkable": "Explicit brief fallback at 1 BH along facing; covered by the new runtime test."
+  },
+  "part_b": {
+    "kit_fields": {
+      "source_rank": 1,
+      "range_px": 520,
+      "radius_px": 181,
+      "duration_s": 2.5,
+      "flight_s": 0.4,
+      "authored_apex_px": 42,
+      "launch_angle_deg": 18,
+      "runtime_full_range_apex_px": 42.2395605102778,
+      "residue_s": 12,
+      "residue_fade_in_s": 0.1,
+      "residue_fade_out_s": 1,
+      "residue_diameter_bh": 3.2,
+      "lick_flicker_hz": [
+        3.3,
+        3.6
+      ],
+      "lick_coherence": "low \u2014 turbulent flicker with a characteristic timescale, NOT a pulse train and NOT the 1 Hz damage tick",
+      "tick_schedule_s": [
+        0.0,
+        0.3,
+        0.95,
+        1.25,
+        2.0
+      ]
+    },
+    "render_state_checks": {
+      "pool_width_px": 362,
+      "residue_width_px": 416,
+      "decal_alpha_at_residue_frames_0_6_660_690_720": [
+        0,
+        1,
+        1,
+        0.5,
+        0
+      ],
+      "evidence": "New headless unittest asserts actual Sprite2D dimensions within 0.001 px and actual decal alpha; see final_focused.log in evidence.zip."
+    },
+    "lick_autocorrelation": [
+      {
+        "lick": 0,
+        "channel": "scale",
+        "samples": 126,
+        "peak_lag_frames": 18,
+        "period_s": 0.3,
+        "coherence": 0.31751925576778034
+      },
+      {
+        "lick": 0,
+        "channel": "alpha",
+        "samples": 126,
+        "peak_lag_frames": 18,
+        "period_s": 0.3,
+        "coherence": 0.2881985727729917
+      },
+      {
+        "lick": 1,
+        "channel": "scale",
+        "samples": 126,
+        "peak_lag_frames": 15,
+        "period_s": 0.25,
+        "coherence": 0.15137404104674587
+      },
+      {
+        "lick": 1,
+        "channel": "alpha",
+        "samples": 126,
+        "peak_lag_frames": 15,
+        "period_s": 0.25,
+        "coherence": 0.1162968096310128
+      },
+      {
+        "lick": 2,
+        "channel": "scale",
+        "samples": 126,
+        "peak_lag_frames": 16,
+        "period_s": 0.26666666666666666,
+        "coherence": 0.28866800365232576
+      },
+      {
+        "lick": 2,
+        "channel": "alpha",
+        "samples": 126,
+        "peak_lag_frames": 16,
+        "period_s": 0.26666666666666666,
+        "coherence": 0.24515698815032236
+      }
+    ],
+    "cross_lick_scale_correlation": -0.29127006780440373,
+    "clock": "Per-lick seeded, damped stochastic oscillators at the specified excitation frequencies; no damage-tick input. 1800-frame noise regression additionally checks each channel period and cross-lick independence."
+  },
+  "part_c": {
+    "hound_name": "VfxTarget_46",
+    "body_index": 5,
+    "hound_position": [
+      4222.25,
+      609.5
+    ],
+    "ticks": [
+      {
+        "age_frames": 24,
+        "effect_id": 1,
+        "event": "tick",
+        "kit": "blackwater_cocktail_e3",
+        "scheduled_field_age_frames": 0,
+        "target_kind": "ground",
+        "target_point": [
+          4342.341796875,
+          526.120849609375
+        ],
+        "tick_index": 0
+      },
+      {
+        "age_frames": 42,
+        "effect_id": 1,
+        "event": "tick",
+        "kit": "blackwater_cocktail_e3",
+        "scheduled_field_age_frames": 18,
+        "target_kind": "ground",
+        "target_point": [
+          4342.341796875,
+          526.120849609375
+        ],
+        "tick_index": 1
+      },
+      {
+        "age_frames": 81,
+        "effect_id": 1,
+        "event": "tick",
+        "kit": "blackwater_cocktail_e3",
+        "scheduled_field_age_frames": 57,
+        "target_kind": "ground",
+        "target_point": [
+          4342.341796875,
+          526.120849609375
+        ],
+        "tick_index": 2
+      },
+      {
+        "age_frames": 99,
+        "effect_id": 1,
+        "event": "tick",
+        "kit": "blackwater_cocktail_e3",
+        "scheduled_field_age_frames": 75,
+        "target_kind": "ground",
+        "target_point": [
+          4342.341796875,
+          526.120849609375
+        ],
+        "tick_index": 3
+      },
+      {
+        "age_frames": 144,
+        "effect_id": 1,
+        "event": "tick",
+        "kit": "blackwater_cocktail_e3",
+        "scheduled_field_age_frames": 120,
+        "target_kind": "ground",
+        "target_point": [
+          4342.341796875,
+          526.120849609375
+        ],
+        "tick_index": 4
+      }
+    ],
+    "hound_events": [
+      {
+        "age_frames": 24,
+        "body_index": 5,
+        "collision_age_frames": 24,
+        "contact_class": "secondary",
+        "contact_lag_frames": 0,
+        "effect_id": 1,
+        "event": "contact",
+        "kit": "blackwater_cocktail_e3",
+        "phase": "rim",
+        "target_kind": "ground",
+        "target_point": [
+          4342.341796875,
+          526.120849609375
+        ],
+        "tick_index": 0
+      },
+      {
+        "age_frames": 24,
+        "body_index": 5,
+        "effect_id": 1,
+        "event": "victim_tint",
+        "kit": "blackwater_cocktail_e3",
+        "target_kind": "ground",
+        "target_point": [
+          4342.341796875,
+          526.120849609375
+        ],
+        "tick_index": 0
+      },
+      {
+        "age_frames": 24,
+        "body_index": 5,
+        "contact_class": "secondary",
+        "effect_id": 1,
+        "event": "contact_label",
+        "kit": "blackwater_cocktail_e3",
+        "target_kind": "ground",
+        "target_point": [
+          4342.341796875,
+          526.120849609375
+        ],
+        "tick_index": 0
+      },
+      {
+        "age_frames": 42,
+        "body_index": 5,
+        "collision_age_frames": 42,
+        "contact_class": "secondary",
+        "contact_lag_frames": 0,
+        "effect_id": 1,
+        "event": "contact",
+        "kit": "blackwater_cocktail_e3",
+        "phase": "rim",
+        "target_kind": "ground",
+        "target_point": [
+          4342.341796875,
+          526.120849609375
+        ],
+        "tick_index": 1
+      },
+      {
+        "age_frames": 42,
+        "body_index": 5,
+        "effect_id": 1,
+        "event": "victim_tint",
+        "kit": "blackwater_cocktail_e3",
+        "target_kind": "ground",
+        "target_point": [
+          4342.341796875,
+          526.120849609375
+        ],
+        "tick_index": 1
+      },
+      {
+        "age_frames": 81,
+        "body_index": 5,
+        "collision_age_frames": 81,
+        "contact_class": "secondary",
+        "contact_lag_frames": 0,
+        "effect_id": 1,
+        "event": "contact",
+        "kit": "blackwater_cocktail_e3",
+        "phase": "rim",
+        "target_kind": "ground",
+        "target_point": [
+          4342.341796875,
+          526.120849609375
+        ],
+        "tick_index": 2
+      },
+      {
+        "age_frames": 81,
+        "body_index": 5,
+        "effect_id": 1,
+        "event": "victim_tint",
+        "kit": "blackwater_cocktail_e3",
+        "target_kind": "ground",
+        "target_point": [
+          4342.341796875,
+          526.120849609375
+        ],
+        "tick_index": 2
+      },
+      {
+        "age_frames": 99,
+        "body_index": 5,
+        "collision_age_frames": 99,
+        "contact_class": "secondary",
+        "contact_lag_frames": 0,
+        "effect_id": 1,
+        "event": "contact",
+        "kit": "blackwater_cocktail_e3",
+        "phase": "rim",
+        "target_kind": "ground",
+        "target_point": [
+          4342.341796875,
+          526.120849609375
+        ],
+        "tick_index": 3
+      },
+      {
+        "age_frames": 99,
+        "body_index": 5,
+        "effect_id": 1,
+        "event": "victim_tint",
+        "kit": "blackwater_cocktail_e3",
+        "target_kind": "ground",
+        "target_point": [
+          4342.341796875,
+          526.120849609375
+        ],
+        "tick_index": 3
+      },
+      {
+        "age_frames": 144,
+        "body_index": 5,
+        "collision_age_frames": 144,
+        "contact_class": "secondary",
+        "contact_lag_frames": 0,
+        "effect_id": 1,
+        "event": "contact",
+        "kit": "blackwater_cocktail_e3",
+        "phase": "rim",
+        "target_kind": "ground",
+        "target_point": [
+          4342.341796875,
+          526.120849609375
+        ],
+        "tick_index": 4
+      },
+      {
+        "age_frames": 144,
+        "body_index": 5,
+        "effect_id": 1,
+        "event": "victim_tint",
+        "kit": "blackwater_cocktail_e3",
+        "target_kind": "ground",
+        "target_point": [
+          4342.341796875,
+          526.120849609375
+        ],
+        "tick_index": 4
+      }
+    ],
+    "label_count": 1,
+    "label_events": [
+      {
+        "body_index": 5,
+        "effect_id": 1,
+        "label_id": 225351570723,
+        "lifetime_s": 0.603854,
+        "rise_px": 40.0,
+        "text": "PARTIAL"
+      }
+    ]
+  },
+  "part_d": {
+    "locks": [
+      {
+        "fixture": "fixtures/fl1b/IceTreatmentImportTests-0.json",
+        "test": "IceTreatmentImportTests.test_ten_existing_export_bytes_unchanged",
+        "file_count": 751,
+        "before_after_changed": [],
+        "fixture_mismatches": [],
+        "rebaselined": false,
+        "diffs": {},
+        "attribution": "BL-1a affects opt-in G2 exports; this lock contains only legacy/G1 kits."
+      },
+      {
+        "fixture": "fixtures/fl1b/VfxPickerTests-4.json",
+        "test": "VfxPickerTests.test_single_kit_and_legacy_props_all_text_byte_identical_to_t3m",
+        "file_count": 18,
+        "before_after_changed": [],
+        "fixture_mismatches": [],
+        "rebaselined": false,
+        "diffs": {},
+        "attribution": "BL-1a affects opt-in G2 exports; this lock contains only legacy/G1 kits."
+      },
+      {
+        "fixture": "fixtures/fl1b/PieceLap2ExportTests-3.json",
+        "test": "PieceLap2ExportTests.test_six_kits_and_v1_match_488_file_pre_t4j_hash_table",
+        "file_count": 488,
+        "before_after_changed": [],
+        "fixture_mismatches": [],
+        "rebaselined": false,
+        "diffs": {},
+        "attribution": "BL-1a affects opt-in G2 exports; this lock contains only legacy/G1 kits."
+      },
+      {
+        "fixture": "fixtures/fl1b/ProjectileArmPickerTests-2.json",
+        "test": "ProjectileArmPickerTests.test_original_eight_export_byte_lock",
+        "file_count": 869,
+        "before_after_changed": [],
+        "fixture_mismatches": [],
+        "rebaselined": false,
+        "diffs": {},
+        "attribution": "BL-1a affects opt-in G2 exports; this lock contains only legacy/G1 kits."
+      }
+    ],
+    "catalogue_lock": {
+      "test": "BoltChainEmissionTests.test_current_catalogue_and_original_kits_unchanged",
+      "state": "red",
+      "reason": "E3-r1 catalogue baseline retained; not rebaselined."
+    }
+  },
+  "kit_integrity": {
+    "unchanged_kits": 16,
+    "blackwater_changed_files": [
+      "kit.json"
+    ],
+    "all_primitives_unchanged": true,
+    "details": "kit_integrity.json"
+  },
+  "exports": {
+    "original_catalogue_exit_code": 1,
+    "original_catalogue_last_traceback_line": "ValueError: Missing or escaping input asset: /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/vfx_kits/v9/blackwater_cocktail_e3/CREDITS.txt",
+    "validation_catalogue_exit_code": 0,
+    "validation_kit_count": 17,
+    "headless_import_exit_code": 0,
+    "renderer": "gl_compatibility",
+    "validation_input_repair": "Temporary copy only: recovered CREDITS.txt from read-only cliffside_v38/vfx/blackwater_cocktail_e3. Original source kit retains only its allowed kit.json edit. Parallax foreground assembled losslessly from the staged tiles; exact walkable/blocked geometry and props reused.",
+    "engine_messages": [
+      "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+      "ERROR: Cannot save file '/Users/admin/Library/Application Support/Godot/editor_settings-4.6.tres'.",
+      "ERROR: Error saving editor settings to /Users/admin/Library/Application Support/Godot/editor_settings-4.6.tres"
+    ],
+    "emitted_g2_sha256": "8e4902712338dac9c8f90715aa973e9b767110ee9f045468422a533a55e3e379"
+  },
+  "tests": {
+    "suite_modules": [
+      "test_godot_import",
+      "test_vfx_picker",
+      "test_effect_kit"
+    ],
+    "initial_tests_run": 233,
+    "initial_failure_records": 12,
+    "initial_error_records": 13,
+    "new_tests_run": 4,
+    "new_test_errors": [],
+    "new_test_failures": [],
+    "new_test_names": [
+      "BlackwaterRankOneValidationTests.test_rank_one_spec_and_noise_band_known_bad_inputs",
+      "BlackwaterLandingRuntimeTests.test_last_walkable_union_minus_blocked_minimum_and_fallback",
+      "BlackwaterLandingRuntimeTests.test_every_tick_stable_body_index_and_exactly_one_label",
+      "BlackwaterLandingRuntimeTests.test_licks_have_independent_clock_and_scorch_envelope"
+    ],
+    "instrument_corrections": [
+      "Temporary output roots and all Godot logs confined to this burst.",
+      "AntiDecalValidationTests.test_defaults_absent_and_real_fire_fields_load succeeds after redirecting its mkdtemp root.",
+      "RenderedLookTraceTests output root relocated in memory to avoid deleting an existing T4x project; now reports the original missing-CREDITS blocker. No original test assertions changed."
+    ],
+    "remaining_red_records": 24,
+    "remaining_reds": [
+      {
+        "test": "setUpClass (test_godot_import.AntiDecalTraceTests)",
+        "kind": "errors",
+        "last_traceback_line": "ValueError: Missing or escaping input asset: /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/vfx_kits/v9/blackwater_cocktail_e3/CREDITS.txt",
+        "diagnosis": "Original Blackwater kit is missing mandatory CREDITS.txt; source edit allowance excludes restoring it."
+      },
+      {
+        "test": "test_current_catalogue_and_original_kits_unchanged (test_godot_import.BoltChainEmissionTests.test_current_catalogue_and_original_kits_unchanged)",
+        "kind": "errors",
+        "last_traceback_line": "ValueError: Missing or escaping input asset: /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/vfx_kits/v9/blackwater_cocktail_e3/CREDITS.txt",
+        "diagnosis": "Original Blackwater kit is missing mandatory CREDITS.txt; source edit allowance excludes restoring it."
+      },
+      {
+        "test": "test_pool_final_24_frames_dissolve_then_scorch_and_cleanup (test_godot_import.FieldDesignLapEmissionTests.test_pool_final_24_frames_dissolve_then_scorch_and_cleanup)",
+        "kind": "errors",
+        "last_traceback_line": "IndexError: list index out of range",
+        "diagnosis": "Retained pre-rank-1 expectation: frame-26 flask visibility, native 433-px pool/anchors, or field end at frame 213; new values are 24, 362 px, and 174."
+      },
+      {
+        "test": "setUpClass (test_godot_import.FireLaneHeadlessTests)",
+        "kind": "errors",
+        "last_traceback_line": "ValueError: Missing or escaping input asset: /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/vfx_kits/v9/blackwater_cocktail_e3/CREDITS.txt",
+        "diagnosis": "Original Blackwater kit is missing mandatory CREDITS.txt; source edit allowance excludes restoring it."
+      },
+      {
+        "test": "test_g2_independent_field_palette_and_wrong_dependency_rejected (test_godot_import.FrozenOrbEmissionTests.test_g2_independent_field_palette_and_wrong_dependency_rejected)",
+        "kind": "errors",
+        "last_traceback_line": "ValueError: Missing or escaping input asset: /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/vfx_kits/v9/blackwater_cocktail_e3/CREDITS.txt",
+        "diagnosis": "Original Blackwater kit is missing mandatory CREDITS.txt; source edit allowance excludes restoring it."
+      },
+      {
+        "test": "test_named_nodes_materials_and_explicit_config (test_godot_import.FrozenOrbEmissionTests.test_named_nodes_materials_and_explicit_config)",
+        "kind": "errors",
+        "last_traceback_line": "ValueError: Missing or escaping input asset: /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/vfx_kits/v9/blackwater_cocktail_e3/CREDITS.txt",
+        "diagnosis": "Original Blackwater kit is missing mandatory CREDITS.txt; source edit allowance excludes restoring it."
+      },
+      {
+        "test": "setUpClass (test_godot_import.GroundVisibilityRegressionTests)",
+        "kind": "errors",
+        "last_traceback_line": "ValueError: Missing or escaping input asset: /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/vfx_kits/v9/blackwater_cocktail_e3/CREDITS.txt",
+        "diagnosis": "Original Blackwater kit is missing mandatory CREDITS.txt; source edit allowance excludes restoring it."
+      },
+      {
+        "test": "setUpClass (test_godot_import.RenderedLookTraceTests)",
+        "kind": "errors",
+        "last_traceback_line": "ValueError: Missing or escaping input asset: /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/vfx_kits/v9/blackwater_cocktail_e3/CREDITS.txt",
+        "diagnosis": "Original Blackwater kit is missing mandatory CREDITS.txt; source edit allowance excludes restoring it."
+      },
+      {
+        "test": "test_g2_named_nodes_glass_wedge_partition_and_ground_materials (test_godot_import.ThrownFieldEmissionTests.test_g2_named_nodes_glass_wedge_partition_and_ground_materials)",
+        "kind": "errors",
+        "last_traceback_line": "ValueError: Missing or escaping input asset: /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/vfx_kits/v9/blackwater_cocktail_e3/CREDITS.txt",
+        "diagnosis": "Original Blackwater kit is missing mandatory CREDITS.txt; source edit allowance excludes restoring it."
+      },
+      {
+        "test": "test_headless_orb_clock_and_pool (test_vfx_picker.FrozenOrbPickerTests.test_headless_orb_clock_and_pool)",
+        "kind": "errors",
+        "last_traceback_line": "ValueError: Missing or escaping input asset: /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/vfx_kits/v9/blackwater_cocktail_e3/CREDITS.txt",
+        "diagnosis": "Original Blackwater kit is missing mandatory CREDITS.txt; source edit allowance excludes restoring it."
+      },
+      {
+        "test": "test_thirteen_kits_registered_and_grammar_dispatch_explicit (test_vfx_picker.ThrownFieldPickerTests.test_thirteen_kits_registered_and_grammar_dispatch_explicit)",
+        "kind": "errors",
+        "last_traceback_line": "ValueError: Missing or escaping input asset: /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/vfx_kits/v9/blackwater_cocktail_e3/CREDITS.txt",
+        "diagnosis": "Original Blackwater kit is missing mandatory CREDITS.txt; source edit allowance excludes restoring it."
+      },
+      {
+        "test": "test_all_new_fields_validate_in_actual_catalogue (test_effect_kit.FL2FieldValidationTests.test_all_new_fields_validate_in_actual_catalogue)",
+        "kind": "errors",
+        "last_traceback_line": "ValueError: Missing or escaping input asset: /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/vfx_kits/v9/blackwater_cocktail_e3/CREDITS.txt",
+        "diagnosis": "Original Blackwater kit is missing mandatory CREDITS.txt; source edit allowance excludes restoring it."
+      },
+      {
+        "test": "test_both_flasks_three_flight_ages_global_layer_alpha_and_scale (test_godot_import.FieldDesignLapEmissionTests.test_both_flasks_three_flight_ages_global_layer_alpha_and_scale)",
+        "kind": "failures",
+        "last_traceback_line": "AssertionError: False is not true",
+        "diagnosis": "Retained pre-rank-1 expectation: frame-26 flask visibility, native 433-px pool/anchors, or field end at frame 213; new values are 24, 362 px, and 174."
+      },
+      {
+        "test": "test_emitted_tree_material_and_native_pool_anchors (test_godot_import.FieldDesignLapEmissionTests.test_emitted_tree_material_and_native_pool_anchors)",
+        "kind": "failures",
+        "last_traceback_line": "+ [1, 1]",
+        "diagnosis": "Retained pre-rank-1 expectation: frame-26 flask visibility, native 433-px pool/anchors, or field end at frame 213; new values are 24, 362 px, and 174."
+      },
+      {
+        "test": "test_headless_state_machine_input_map_gear_vfx_and_nearest_fallback (test_godot_import.GodotImportTests.test_headless_state_machine_input_map_gear_vfx_and_nearest_fallback)",
+        "kind": "failures",
+        "last_traceback_line": "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "diagnosis": "Headless Godot reports macOS certificate/editor-settings errors inside the sandbox; strict no-ERROR assertions remain unchanged."
+      },
+      {
+        "test": "test_v2_headless_import_and_seed_equal_rooted_clock (test_godot_import.PieceStretchImportTests.test_v2_headless_import_and_seed_equal_rooted_clock)",
+        "kind": "failures",
+        "last_traceback_line": "       [1] probe (res://stretch_probe.gd:36)",
+        "diagnosis": "Existing fire-v2 dissolve expectation; G1 exports remain byte-identical under the locks."
+      },
+      {
+        "test": "test_full_exporter_current_catalogue (test_godot_import.ThrownFieldCLIRegressionTests.test_full_exporter_current_catalogue)",
+        "kind": "failures",
+        "last_traceback_line": "ValueError: Missing or escaping input asset: /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/vfx_kits/v9/blackwater_cocktail_e3/CREDITS.txt",
+        "diagnosis": "Original Blackwater kit is missing mandatory CREDITS.txt; source edit allowance excludes restoring it."
+      },
+      {
+        "test": "test_headless_authored_cast_east_north_collision_timing_and_feedback_cleanup (test_vfx_picker.AuthoredEffectPickerTests.test_headless_authored_cast_east_north_collision_timing_and_feedback_cleanup)",
+        "kind": "failures",
+        "last_traceback_line": "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "diagnosis": "Headless Godot reports macOS certificate/editor-settings errors inside the sandbox; strict no-ERROR assertions remain unchanged."
+      },
+      {
+        "test": "test_headless_first_cast_contact_cursor_pool_cancel_and_picker (test_vfx_picker.G1ComponentTests.test_headless_first_cast_contact_cursor_pool_cancel_and_picker)",
+        "kind": "failures",
+        "last_traceback_line": "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "diagnosis": "Headless Godot reports macOS certificate/editor-settings errors inside the sandbox; strict no-ERROR assertions remain unchanged."
+      },
+      {
+        "test": "test_headless_pierce_contacts_labels_pool_and_phase_callbacks (test_vfx_picker.G1ComponentTests.test_headless_pierce_contacts_labels_pool_and_phase_callbacks)",
+        "kind": "failures",
+        "last_traceback_line": "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "diagnosis": "Headless Godot reports macOS certificate/editor-settings errors inside the sandbox; strict no-ERROR assertions remain unchanged."
+      },
+      {
+        "test": "test_headless_glow_sixty_samples_extrema_range_and_particle_properties (test_vfx_picker.LivingEmbersTests.test_headless_glow_sixty_samples_extrema_range_and_particle_properties)",
+        "kind": "failures",
+        "last_traceback_line": "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "diagnosis": "Headless Godot reports macOS certificate/editor-settings errors inside the sandbox; strict no-ERROR assertions remain unchanged."
+      },
+      {
+        "test": "test_headless_overlay_forward_world_touch_and_mouse_probe (test_vfx_picker.TouchAimRuntimeTests.test_headless_overlay_forward_world_touch_and_mouse_probe)",
+        "kind": "failures",
+        "last_traceback_line": "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "diagnosis": "Headless Godot reports macOS certificate/editor-settings errors inside the sandbox; strict no-ERROR assertions remain unchanged."
+      },
+      {
+        "test": "test_headless_device_forward_handled_overlay_and_mouse_probe (test_vfx_picker.TouchDeviceAimRuntimeTests.test_headless_device_forward_handled_overlay_and_mouse_probe)",
+        "kind": "failures",
+        "last_traceback_line": "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "diagnosis": "Headless Godot reports macOS certificate/editor-settings errors inside the sandbox; strict no-ERROR assertions remain unchanged."
+      },
+      {
+        "test": "test_headless_tab_twice_cast_scene_labels_and_inflight_kit_lock (test_vfx_picker.VfxPickerTests.test_headless_tab_twice_cast_scene_labels_and_inflight_kit_lock)",
+        "kind": "failures",
+        "last_traceback_line": "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "diagnosis": "Headless Godot reports macOS certificate/editor-settings errors inside the sandbox; strict no-ERROR assertions remain unchanged."
+      }
+    ]
+  },
+  "evidence": "evidence.zip contains exact logs, raw traces, source-before snapshots, emitted scripts, and the tooling harnesses. No rendered judgment performed.",
+  "concerns": [
+    "Original 17-kit catalogue export remains blocked by missing Blackwater CREDITS.txt; temporary recovered-metadata export exits 0.",
+    "E3-r1 catalogue lock remains red and is not rebaselined.",
+    "24 remaining suite red records are named with their last traceback lines; the four new tests are green.",
+    "Headless import exits 0 with sandbox macOS certificate/editor-settings errors."
+  ],
+  "source_sha256": {
+    "export/godot_import.py": "2c6bcb61c71869bec2564f0b7122eb4e4837333deb1f8a73e11564a95969fee9",
+    "export/effect_kit.py": "7ee1a95fa507fda29babc810c138a7fbc048fd35c0bde36d02c8e4cdf8ba5d65",
+    "tests/test_godot_import.py": "9ec59937c7218d4ca6414186ba8ee6dda3cb7f2897871ded65bcbb526b7c750f",
+    "tests/test_effect_kit.py": "24218f4748a38e27462cc09a92a948e23146c2ff4fb128e7f0a80cc678dbbd52",
+    "runs/C-5/vfx_kits/v9/blackwater_cocktail_e3/kit.json": "2903a0fa9eedbab3d14fcc8ec59cf210157f7d0a2c5582400ce5f63659a829ea"
+  }
+}

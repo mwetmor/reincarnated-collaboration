@@ -1876,3 +1876,140 @@ class AntiDecalTraceTests(unittest.TestCase):
         self.assertEqual(rows[-1]['shimmer_alpha'],0)
         self.assertTrue(all(a['shimmer_alpha']>b['shimmer_alpha'] for a,b in zip(live,live[1:])))
         self.assertGreater(self.trace['flare']['max_extent_bh'],0)
+
+
+class BlackwaterLandingRuntimeTests(unittest.TestCase):
+    """BL-1a executable geometry, label, tint and lick-clock regressions."""
+    @classmethod
+    def setUpClass(cls):
+        from export.godot_import import _write_g2_component, _write_g2_kit, _g2_config, CONTACT_LABEL_SCRIPT
+        from export.effect_kit import load_kit
+        repo=Path(__file__).resolve().parents[1]
+        work=repo/'runs/C-5/t3/BL-1a-r1'
+        work.mkdir(parents=True,exist_ok=True)
+        cls.temp=tempfile.TemporaryDirectory(prefix='bl1a-test-',dir=work)
+        cls.addClassCleanup(cls.temp.cleanup)
+        project=Path(cls.temp.name)
+        (project/'scripts').mkdir(); (project/'scenes/vfx').mkdir(parents=True)
+        _write_g2_component(project)
+        root=repo/'runs/C-5/vfx_kits/v9/blackwater_cocktail_e3'
+        kit={'root':root,'name':root.name,'effect':load_kit(root)}
+        _write_g2_kit(project,kit)
+        (project/'scripts/vfx_contact_label.gd').write_text(CONTACT_LABEL_SCRIPT)
+        (project/'scripts/splash.gd').write_text('extends Node2D\nvar spell_scale: float = 1.0\nvar caster: Node2D\n')
+        (project/'scenes/vfx_fire_burst_e0p_v2_impact.tscn').write_text('[gd_scene load_steps=2 format=3]\n[ext_resource type="Script" path="res://scripts/splash.gd" id="S"]\n[node name="Splash" type="Node2D"]\nscript = ExtResource("S")\n')
+        geometry=json.loads((repo/'runs/C-5/cliffside_v38/parallax/walkable.json').read_text())
+        (project/'config.json').write_text(json.dumps(_g2_config(kit,geometry)))
+        (project/'project.godot').write_text('config_version=5\n[application]\nconfig/name="BL1a regression"\n[rendering]\nrenderer/rendering_method="gl_compatibility"\n')
+        (project/'probe.gd').write_text(BL1A_RUNTIME_PROBE)
+        for args in (['--editor','--import','--quit'],['--script','res://probe.gd']):
+            result=subprocess.run([GODOT,'--headless','--path',str(project),'--log-file',str(work/'unit_engine.log'),*args],capture_output=True,text=True,timeout=90)
+            if result.returncode or 'SCRIPT ERROR' in result.stdout+result.stderr:
+                raise AssertionError(result.stdout+result.stderr)
+        cls.report=json.loads((project/'result.json').read_text())
+
+    def test_last_walkable_union_minus_blocked_minimum_and_fallback(self):
+        r=self.report
+        self.assertEqual(r['geometry_errors'],[])
+        self.assertTrue(r['infeasible_cancelled'])
+        self.assertEqual(len(r['landings']),8)
+        for row in r['landings']:
+            self.assertTrue(row['walkable'],row)
+            self.assertGreaterEqual(row['distance'],130-1e-4)
+            self.assertLessEqual(row['distance'],520+1e-4)
+        self.assertAlmostEqual(r['landings'][6]['distance'],520,places=3)
+
+    def test_every_tick_stable_body_index_and_exactly_one_label(self):
+        events=self.report['events']
+        ticks=[e for e in events if e['event']=='tick']
+        contacts=[e for e in events if e['event']=='contact' and e.get('body_index')==5]
+        tints=[e for e in events if e['event']=='victim_tint' and e.get('body_index')==5]
+        labels=[e for e in events if e['event']=='contact_label' and e.get('body_index')==5]
+        self.assertEqual([e['scheduled_field_age_frames'] for e in ticks],[0,18,57,75,120])
+        self.assertEqual([e['tick_index'] for e in tints],list(range(5)))
+        self.assertEqual(len(contacts),5)
+        self.assertEqual(len(labels),1)
+        self.assertEqual(len(self.report['labels']),1)
+
+    def test_licks_have_independent_clock_and_scorch_envelope(self):
+        import numpy as np
+        from scipy.signal import find_peaks
+        r=self.report
+        values=np.asarray(r['lick_noise'])
+        for index in range(3):
+            for channel in range(2):
+                x=values[120:,index,channel];x=x-x.mean()
+                ac=np.correlate(x,x,mode='full')[len(x)-1:]/np.dot(x,x)
+                peaks,_=find_peaks(ac[10:26])
+                self.assertGreater(len(peaks),0)
+                lag=int(peaks[np.argmax(ac[10:26][peaks])]+10)
+                self.assertGreaterEqual(lag/60,.25)
+                self.assertLessEqual(lag/60,.35)
+        self.assertLess(abs(np.corrcoef(values[120:,0,0],values[120:,1,0])[0,1]),.5)
+        self.assertEqual(r['decal_alpha'],[0,1,1,0.5,0])
+        self.assertAlmostEqual(r['pool_width'],362,places=3)
+        self.assertAlmostEqual(r['residue_width'],416,places=3)
+
+BL1A_RUNTIME_PROBE = r'''extends SceneTree
+var errors: Array = []
+func check(value: bool, message: String) -> void:
+    if not value: errors.append(message)
+func _init() -> void:
+    call_deferred("run")
+func run() -> void:
+    var G2 = load("res://scripts/vfx_g2.gd")
+    var config: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://config.json"))
+    var walkable = G2.packed_polygons(config.walkable)
+    var blocked = G2.packed_polygons(config.blocked)
+    var directions: Array = [Vector2.DOWN,Vector2(-1,1),Vector2.LEFT,Vector2(-1,-1),Vector2.UP,Vector2(1,-1),Vector2.RIGHT,Vector2(1,1)]
+    var landings: Array = []
+    for direction in directions:
+        var origin := Vector2(3760,640)
+        var result: Dictionary = G2.landing_point(origin,direction,520,130,walkable,blocked)
+        landings.append({"point":[result.point.x,result.point.y],"distance":origin.distance_to(result.point),"walkable":G2.is_walkable(result.point,walkable,blocked)})
+    var union = G2.packed_polygons([[[0,-100],[200,-100],[200,100],[0,100]],[[300,-100],[450,-100],[450,100],[300,100]]])
+    var holes = G2.packed_polygons([[[400,-100],[500,-100],[500,100],[400,100]]])
+    var result: Dictionary = G2.landing_point(Vector2(10,0),Vector2.RIGHT,520,130,union,holes)
+    check(result.point==Vector2(394,0),"last disconnected island minus blocked")
+    result=G2.landing_point(Vector2(-200,0),Vector2.RIGHT,520,130,union,holes)
+    check(result.point==Vector2(-70,0) and result.reason=="release_not_walkable","release fallback exactly 1 BH")
+    result=G2.landing_point(Vector2(180,0),Vector2.UP,520,130,union,holes)
+    check(result.reason=="no_walkable_at_minimum","infeasible minimum explicitly reported")
+    var world := Node2D.new()
+    root.add_child(world)
+    current_scene=world
+    for i in range(6):
+        var target := Area2D.new()
+        world.add_child(target)
+        target.add_to_group("vfx_targets")
+        target.position=Vector2(4280,640) if i==5 else Vector2(10000+i*100,10000)
+    config.walkable=[]
+    config.blocked=[]
+    var effect = G2.acquire(world,config,Vector2(3760,640),{"kind":"ground","point":Vector2(4280,640)})
+    effect.set_physics_process(false)
+    var ending: int = int(ceil(config.flight_s*60))+int(ceil(config.duration_s*60))
+    for age in range(ending):
+        effect.release_tick=Engine.get_physics_frames()-age
+        effect._clock(age)
+    var events: Array = G2.events.duplicate(true)
+    var labels: Array = G2.label_events.duplicate(true)
+    var noise: Array = []
+    for frame in range(1800):
+        var row: Array = []
+        for i in range(3):
+            var sample: Vector2 = effect._lick_sample(i,frame)
+            row.append([sample.x,sample.y])
+        noise.append(row)
+    var decal_alpha: Array = []
+    for age in [ending,ending+6,ending+660,ending+690,ending+720]:
+        effect._clock(age)
+        decal_alpha.append(effect.ground_visual.get_node("Decal").modulate.a)
+    var field: Sprite2D = effect.ground_visual.get_node("Field")
+    var decal: Sprite2D = effect.ground_visual.get_node("Decal")
+    var report: Dictionary = {"geometry_errors":errors,"landings":landings,"events":events,"labels":labels,"lick_noise":noise,"decal_alpha":decal_alpha,"pool_width":field.texture.get_image().get_used_rect().size.x*field.scale.x,"residue_width":decal.texture.get_image().get_used_rect().size.x*decal.scale.x}
+    config.walkable=[[[0,-100],[200,-100],[200,100],[0,100]]]
+    var impossible = G2.acquire(world,config,Vector2(180,0),{"kind":"ground","point":Vector2(180,-520)})
+    report.infeasible_cancelled=not impossible.active and G2.events[-1].event=="cancel" and G2.events[-1].reason=="no_walkable_at_minimum"
+    FileAccess.open("res://result.json",FileAccess.WRITE).store_string(JSON.stringify(report))
+    quit()
+'''

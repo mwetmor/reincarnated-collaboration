@@ -14046,6 +14046,100 @@
       "codex_version": "codex-cli 0.153.4",
       "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
       "exit": 0
+    },
+    {
+      "id": "BL-1a-r1",
+      "type": "TOOLING",
+      "experiment": "C5-BWC",
+      "brief_sha256": "463af999bb098c2660259678a66f25f044a25e0ba006d724ab6c65b573049fcd",
+      "started": "2026-09-16T21:42:01.344593+00:00",
+      "ended": "2026-09-16T22:04:43.425368+00:00",
+      "minutes": 22.702209284716567,
+      "image_calls": 0,
+      "tool_calls": 40,
+      "audit": {
+        "violations": [],
+        "image_calls": 0,
+        "tool_calls": 40,
+        "tools_seen": {
+          "command_execution": 40
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": []
+      },
+      "receipt_sha256": "18602c9f664040d7dfa64a2c940898b089bb3d74c32fc40b613d02bdc2219ae2",
+      "artifacts": [
+        {
+          "name": "files.json",
+          "sha256": "ed98b1e2a9771c9968d19c0f63a38e8ac945c9eff979d78d2c9051e9381105e0"
+        }
+      ],
+      "artifacts_in_place": [
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "export/effect_kit.py",
+          "sha256": "7ee1a95fa507fda29babc810c138a7fbc048fd35c0bde36d02c8e4cdf8ba5d65"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "export/godot_import.py",
+          "sha256": "2c6bcb61c71869bec2564f0b7122eb4e4837333deb1f8a73e11564a95969fee9"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-5/t3/BL-1a-r1/acceptance.json",
+          "sha256": "f291057d3fea58742707f799f31979ccab6895db0ca6467fdf7b1c06deb22721"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-5/t3/BL-1a-r1/byte_lock_diffs.json",
+          "sha256": "ac4431d5e150bbfecf47981755649214a25ae785207ccf8479f060d77944e744"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-5/t3/BL-1a-r1/changes.patch",
+          "sha256": "f2b36591c1affbc07056bf4bc5fd9f63d89ff218bd8747f0e41543b043fdacf5"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-5/t3/BL-1a-r1/evidence.zip",
+          "sha256": "38296ec84a18ed1f896959a96d7192c10b38f4d6e6a2cc9c34fdc01c6699ade5"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-5/t3/BL-1a-r1/kit_integrity.json",
+          "sha256": "41f2efcbfa04d7a7aebe0526e6318396a1d21aab5b955ab038aea962c3e27a87"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-5/vfx_kits/v9/blackwater_cocktail_e3/kit.json",
+          "sha256": "2903a0fa9eedbab3d14fcc8ec59cf210157f7d0a2c5582400ce5f63659a829ea"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "tests/test_effect_kit.py",
+          "sha256": "24218f4748a38e27462cc09a92a948e23146c2ff4fb128e7f0a80cc678dbbd52"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "tests/test_godot_import.py",
+          "sha256": "9ec59937c7218d4ca6414186ba8ee6dda3cb7f2897871ded65bcbb526b7c750f"
+        }
+      ],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
     }
   ],
   "experiments": [],
@@ -14929,6 +15023,48 @@
       "veto_open": true,
       "ruling": "BLACKWATER LANE opened (Matt pivot ruling: the fire DONE list applied to Blackwater next). BL-1 on v38: lob/shatter/pool/licks/scorch in 8 directions; field ticks tint bodies inside the pool (probe). F-C5-35: landing ignores walkable ground (pool in the sky / on the void) → BL-1a Part A clamps the landing to the walkable union. Spec re-authored per the references (rank 1: 2.78 BH pool, 2.5 s, 18 deg lob, scorch 12 s, lick flicker 3.3-3.6 Hz); range 520 kept as the touch forward-cast default (source max 1083 noted); tick schedule stays irregular pending Q80 F4. BL-1a fires.",
       "ts": "2026-09-16T17:34:03"
+    },
+    {
+      "id": "R-C5-107",
+      "class": "matt",
+      "veto_open": false,
+      "ruling": "MATT (2026-09-16, cliffside_v38 on the Mac): \"I really like the updated fire/flame. The white hot fire effect right before the start of the painted portion is great!\" — fire DONE (f) desktop eye PASSED. Fire lane: (a)-(f) closed on desktop; phone deferred by Matt. Matt asks why Blackwater opened — answer: his pivot ruling named Blackwater next on the same DONE list; Blackwater was opened only once fire reached (a)-(e) with (f) pending his eye. Fire remaining debt: none open (a later FL-4 only if a phone read demands it).",
+      "ts": "2026-09-16T17:41:00"
+    },
+    {
+      "id": "R-C5-108",
+      "class": "matt",
+      "veto_open": false,
+      "ruling": "MATT (2026-09-16): \"No the fire is not finished. It is our best so far but not done.\" — R-C5-107 CORRECTED: fire DONE (f) NOT passed; v38 = best-so-far, not done. Conductor over-read a compliment as an acceptance. Fire lane stays open; Blackwater PAUSED after the running BL-1a-r1 (no further Blackwater bursts until fire is done). Next: elicit from Matt what is still short (ELICITOR), then FL-4.",
+      "ts": "2026-09-16T17:42:14"
+    },
+    {
+      "id": "R-C5-109",
+      "class": "matt",
+      "veto_open": false,
+      "ruling": "MATT (2026-09-16) — fire FL-4 direction by taste (no oracle clip): (1) the fire bolt IS a projectile → the projectile portion gets as much time and creativity as the impact did; (2) impact peak: the tendrils are too long and asymmetric (\"arms of an octopus\") — a real explosion has flame BETWEEN the tendrils → a symmetrical burst; (3) the white-hot centre is the best piece and makes it feel alive, but the burn-down is too slow and reads as a residual decal → burn down faster into particles / a residual ember or white-hot glow; overall the explosion must be FASTER, speeding up into the particles. Fire lane stays open; Blackwater paused after BL-1a-r1.",
+      "ts": "2026-09-16T18:02:39"
+    },
+    {
+      "id": "R-C5-110",
+      "class": "matt",
+      "veto_open": false,
+      "ruling": "MATT (2026-09-16): the END of a fire already exists in the scene — the living embers inside each burning tree (props-layer crack_embers particles + the flickering additive glow) are much closer to what the ending of every fire/flame should look like. Remove the painted residue decal; end each fire at a LARGE version of the living embers, sized like the decal ending. FL-4a Part B re-authored: residue = the props-layer ember recipe scaled up (same textures, colour ramp, rise, flicker glow) over the burst footprint; no painted residue after spent.",
+      "ts": "2026-09-16T18:05:26"
+    },
+    {
+      "id": "R-C5-111",
+      "class": "matt",
+      "veto_open": true,
+      "ruling": "MATT (2026-09-16): projectile speed must increase — use the actual in-game Hades 1/2 projectile speeds for cadence. Data (Legolas O7, VERIFIED from Hades 1 game data at 130 px = 1 BH): Bloodstone cast 900 u/s = 6.5 BH/s (850 px/s); Poseidon/Artemis cast 1200 = 8.7 BH/s (1130 px/s); Zeus cast 1600 = 11.6 BH/s (1510 px/s). Hades II projectile data is not public (footage only). Fire bolt today: 1040 px/s = 8.0 BH/s. Conductor lean (veto-open): the Zeus-class 1510 px/s (11.6 BH/s) — a visible +45 percent, 520 px in 0.34 s, the fastest verified Hades cast; alternative the Poseidon/Artemis class 1130 px/s (+9 percent, barely visible). Folded into FL-4a Part C as speed_px_s 1510 unless Matt names the class.",
+      "ts": "2026-09-16T18:06:11"
+    },
+    {
+      "id": "R-C5-112",
+      "class": "conductor",
+      "veto_open": true,
+      "ruling": "BL-1a-r1 DELIVERED_WITH_CONCERNS and ACCEPTED: G2 landing clamped to the walkable union — all eight directions land walkable (S 392 px, SW 130, W 216, NW 168, N 240; E/NE/SE full 520) with flight scaled; rank-1 numbers baked (181 px pool, 2.5 s, 0.40 s / 42 px lob, scorch 12 s, licks 3.3-3.6 Hz); tick events carry body_index (hound = 5, every tick), one label per body; 16 kits byte-identical. CONDUCTOR ERROR: after the killed BL-1a I deleted the Blackwater kit’s untracked CREDITS.txt and vfx_select.json believing them burst output — they were kit inputs (never committed); the catalogue export failed on them; Astra validated on a temporary recovered copy. Restored from cliffside_v38/vfx/ (byte-identical exports); catalogue loads 17. Per Matt: Blackwater PAUSES here; the rendered proof rides the next fire PACK.",
+      "ts": "2026-09-16T18:07:35"
     }
   ],
   "grok_calls": [],

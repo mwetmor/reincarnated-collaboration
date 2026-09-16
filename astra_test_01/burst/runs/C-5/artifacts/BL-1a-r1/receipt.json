@@ -1,0 +1,67 @@
+{
+  "task_id": "BL-1a-r1",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [],
+  "calls_used": 0,
+  "retries": [
+    {
+      "reason": "Original catalogue export is blocked by missing Blackwater CREDITS.txt.",
+      "change": "Validated a temporary kit copy using the staged v38 credits file; original metadata remains untouched."
+    }
+  ],
+  "self_report": {
+    "obeyed_invariants": true,
+    "concerns": [
+      "Original catalogue export remains blocked; temporary 17-kit export and headless import exit 0.",
+      "Four new tests are green. Acceptance names 24 remaining suite red records with last traceback lines.",
+      "E3-r1 catalogue lock remains red; no fixtures were rebaselined.",
+      "Headless Godot reports sandbox certificate/editor-settings errors."
+    ]
+  },
+  "files": [
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/export/godot_import.py",
+      "sha256": "2c6bcb61c71869bec2564f0b7122eb4e4837333deb1f8a73e11564a95969fee9"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/export/effect_kit.py",
+      "sha256": "7ee1a95fa507fda29babc810c138a7fbc048fd35c0bde36d02c8e4cdf8ba5d65"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_godot_import.py",
+      "sha256": "9ec59937c7218d4ca6414186ba8ee6dda3cb7f2897871ded65bcbb526b7c750f"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_effect_kit.py",
+      "sha256": "24218f4748a38e27462cc09a92a948e23146c2ff4fb128e7f0a80cc678dbbd52"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/vfx_kits/v9/blackwater_cocktail_e3/kit.json",
+      "sha256": "2903a0fa9eedbab3d14fcc8ec59cf210157f7d0a2c5582400ce5f63659a829ea"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/BL-1a-r1/acceptance.json",
+      "sha256": "f291057d3fea58742707f799f31979ccab6895db0ca6467fdf7b1c06deb22721"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/BL-1a-r1/byte_lock_diffs.json",
+      "sha256": "ac4431d5e150bbfecf47981755649214a25ae785207ccf8479f060d77944e744"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/BL-1a-r1/changes.patch",
+      "sha256": "f2b36591c1affbc07056bf4bc5fd9f63d89ff218bd8747f0e41543b043fdacf5"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/BL-1a-r1/evidence.zip",
+      "sha256": "38296ec84a18ed1f896959a96d7192c10b38f4d6e6a2cc9c34fdc01c6699ade5"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/BL-1a-r1/kit_integrity.json",
+      "sha256": "41f2efcbfa04d7a7aebe0526e6318396a1d21aab5b955ab038aea962c3e27a87"
+    },
+    {
+      "path": "/Users/admin/astra-burst/runs/C-5/BL-1a-r1/out/files.json",
+      "sha256": "ed98b1e2a9771c9968d19c0f63a38e8ac945c9eff979d78d2c9051e9381105e0"
+    }
+  ]
+}
