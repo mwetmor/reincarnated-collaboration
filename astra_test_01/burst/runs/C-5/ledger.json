@@ -4313,6 +4313,105 @@
       "codex_version": "codex-cli 0.153.4",
       "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
       "exit": 0
+    },
+    {
+      "id": "T4j",
+      "type": "TOOLING",
+      "experiment": "C5-E0p",
+      "brief_sha256": "ec2872f244a34d862481caa490a224404b3b96d18a08ac8762b4505afa2d8b73",
+      "started": "2026-09-16T03:39:51.481152+00:00",
+      "ended": "2026-09-16T03:57:08.760808+00:00",
+      "minutes": 17.28779200555,
+      "image_calls": 0,
+      "tool_calls": 34,
+      "audit": {
+        "violations": [],
+        "image_calls": 0,
+        "tool_calls": 34,
+        "tools_seen": {
+          "command_execution": 34
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": []
+      },
+      "receipt_sha256": "efad7253a8ae19711c4e75e09159acba9996668d329cdcd4f90e559757d6d6f6",
+      "artifacts": [
+        {
+          "name": "files.json",
+          "sha256": "3cbf39342ffb8eda45d8ed068f0f35d9fd94fc0ecfc539ee39d5f8bee39826fa"
+        }
+      ],
+      "artifacts_in_place": [
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "export/effect_kit.py",
+          "sha256": "85fa1e94739d66fa88d9deb013014d8e0a47b42afcbaa74d4bc7adc0c9f499c3"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "export/godot_import.py",
+          "sha256": "e7c6ec38f375f28e6591c4b655b9a4b98c7796ce714e54000fabb3b82c60f4db"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-5/t3/T4j/README.md",
+          "sha256": "4b9c3b0cfa824dd0d64266312d3d52b5570266f0a584c98ebcb985c759314828"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-5/t3/T4j/acceptance.json",
+          "sha256": "2cf35875322d7d1c7e703955e79132c8aca795f9f3613bb11628abeae3ce9e7c"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-5/t3/T4j/evidence.tar.gz",
+          "sha256": "24b1c2f8deb65833158941c8358560f1a22553f49d3efb3e41ec5a0d5fcb01cb"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-5/t3/T4j/legacy_before_hashes.json",
+          "sha256": "d643abb85ba37c966872d5a1555138d8deb97fa85a02746a73ca04d2bc4b5657"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-5/t3/T4j/legacy_catalogue.json",
+          "sha256": "d119e3fe6c644687900417c05f2d48fafe9be6e9075b15e8b03b66b1a93e3bc2"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-5/vfx_kits/v9/fire_burst_e0p_v2/kit.json",
+          "sha256": "44ad87cb65c85c64b6e0f3945dd33bbae8990b101acccd3b14017f5b1c33d8b0"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "tests/test_effect_kit.py",
+          "sha256": "ab3b2affd0876e4a0dde5c6a1315f752f81dea9da1dddfa140873e69c0bea618"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "tests/test_godot_import.py",
+          "sha256": "e49f89e1e5287e9a93af373cff4fed8565e3bac179a094df6cb18ab5ab33167e"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "tests/test_vfx_picker.py",
+          "sha256": "62caf8f14d472907b80d0b5a12c6442ee747576f6a8a224ff14b9be5f77d53a8"
+        }
+      ],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
     }
   ],
   "experiments": [],
@@ -4577,6 +4676,13 @@
       "veto_open": true,
       "ruling": "T4j fired (burst_v2 lap 2, £0 images): root drift ≤ 0.5 × core radius + stretch 2.5–3× for extent ≥ 1.8×; per-kit dissolve_order (fire_v2: 3, 2, then 1+0 together — the contour burns with its fill; legacy order bit-exact for the six kits + v1); the obsolete T4i world-touch test removed. SPEC T4h row carries the lap-2 clause. After T4j: outside suite → freeze → bake v2 lap 2 outside → Matt eye → E0-p step 5 (key states).",
       "ts": "2026-09-15T23:39:18"
+    },
+    {
+      "id": "R-C5-29",
+      "class": "conductor",
+      "veto_open": true,
+      "ruling": "T4j DELIVERED (CPU prediction 2.25×, connectivity 1.0, 488 legacy files byte-identical, headless import 0). Conductor bake outside (768, seed 2026, seed-equal identical): expansion now strong and CONNECTED (largest-component 0.956 at f20) — but two defects: F-C5-6 the stretched tongues are HARD-CLIPPED at a 512-px boundary (extent plateaus at exactly 511 from f8; straight cut edges on the long tongues) — hypothesis: the whole-body erosion distance field is sampled in the piece's ORIGINAL 512-canvas UV, so stretched pixels fall outside [0,1] and are discarded; F-C5-7 the dark ring around the eroding core persists at f30 despite dissolve_order [[3],[2],[1,0]] — hypothesis: the ring is the DARK DUPLICATE layer (MIX black beneath) eroding later than the body, not band 0 of the body. Residue 12.7 % (band 15–25). Not shown to Matt (clipping would mislead the eye). T4k = both fixes, £0 images; then Matt eye; then step 5.",
+      "ts": "2026-09-15T23:59:47"
     }
   ],
   "grok_calls": [],

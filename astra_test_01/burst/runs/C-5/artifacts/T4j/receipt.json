@@ -1,0 +1,71 @@
+{
+  "task_id": "T4j",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [],
+  "calls_used": 0,
+  "retries": [
+    {
+      "reason": "Full-suite scratch routing caused path inconsistencies and blocked temporary outputs.",
+      "change": "Corrected temporary-directory and subprocess routing; retried affected red tests once."
+    }
+  ],
+  "self_report": {
+    "obeyed_invariants": false,
+    "concerns": [
+      "Initial SPEC read inadvertently included sections 2–6 outside the requested sections.",
+      "Rendered acceptance remains UNEVALUABLE; no rendered bakes attempted.",
+      "Full suite: 612 tests; single retry leaves 20 reds, all named in acceptance.json. The 19 focused tests completed without reds.",
+      "CPU extent prediction is 2.247588424437299×; minimum connectivity is 1.0. All 488 legacy export files are byte-identical. Headless import exited 0."
+    ]
+  },
+  "files": [
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/export/effect_kit.py",
+      "sha256": "85fa1e94739d66fa88d9deb013014d8e0a47b42afcbaa74d4bc7adc0c9f499c3"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/export/godot_import.py",
+      "sha256": "e7c6ec38f375f28e6591c4b655b9a4b98c7796ce714e54000fabb3b82c60f4db"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_effect_kit.py",
+      "sha256": "ab3b2affd0876e4a0dde5c6a1315f752f81dea9da1dddfa140873e69c0bea618"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_godot_import.py",
+      "sha256": "e49f89e1e5287e9a93af373cff4fed8565e3bac179a094df6cb18ab5ab33167e"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_vfx_picker.py",
+      "sha256": "62caf8f14d472907b80d0b5a12c6442ee747576f6a8a224ff14b9be5f77d53a8"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/vfx_kits/v9/fire_burst_e0p_v2/kit.json",
+      "sha256": "44ad87cb65c85c64b6e0f3945dd33bbae8990b101acccd3b14017f5b1c33d8b0"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4j/README.md",
+      "sha256": "4b9c3b0cfa824dd0d64266312d3d52b5570266f0a584c98ebcb985c759314828"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4j/acceptance.json",
+      "sha256": "2cf35875322d7d1c7e703955e79132c8aca795f9f3613bb11628abeae3ce9e7c"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4j/evidence.tar.gz",
+      "sha256": "24b1c2f8deb65833158941c8358560f1a22553f49d3efb3e41ec5a0d5fcb01cb"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4j/legacy_before_hashes.json",
+      "sha256": "d643abb85ba37c966872d5a1555138d8deb97fa85a02746a73ca04d2bc4b5657"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4j/legacy_catalogue.json",
+      "sha256": "d119e3fe6c644687900417c05f2d48fafe9be6e9075b15e8b03b66b1a93e3bc2"
+    },
+    {
+      "path": "/Users/admin/astra-burst/runs/C-5/T4j/out/files.json",
+      "sha256": "3cbf39342ffb8eda45d8ed068f0f35d9fd94fc0ecfc539ee39d5f8bee39826fa"
+    }
+  ]
+}
