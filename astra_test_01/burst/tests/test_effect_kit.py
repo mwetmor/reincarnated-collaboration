@@ -1565,3 +1565,101 @@ class BurnBackResidueHoldTests(unittest.TestCase):
                 self.assertAlmostEqual(paint['erode'],row['expanded_erode'])
                 self.assertAlmostEqual(root['erode'],row['root_erode'])
                 self.assertAlmostEqual(root['dissolve'],row['dissolve'])
+
+
+# T4n: painted-band erosion resistance, CPU evidence (never rendered proof).
+def ragged_residue_diagnostic(kit_root):
+    from scipy import ndimage
+    from export.effect_kit import load_pieces, piece_erode_noise, residue_entry
+    kit_root = Path(kit_root)
+    data = load_kit(kit_root)
+    config, record, _ = load_pieces(data['pieces'], kit_root, runtime=True)
+    source = kit_root/Path(config['source']).parent
+    peak = np.array(Image.open(source/record['peak_index']).convert('RGBA'))
+    field = distance_field(peak)
+    rows = []
+    for noise in (0.0, piece_erode_noise(data)):
+        entry = residue_entry(peak, field, config['residue_fraction'], noise)
+        # Union actual active shards; denominator remains the intact hold peak.
+        support = np.zeros(peak.shape[:2], bool)
+        for piece in record['pieces']:
+            if piece['area_px'] < 48:
+                continue
+            pixels = np.array(Image.open(source/piece['mask']).convert('RGBA'))
+            support |= material_pixels(pixels, data['material']['palette'], field,
+                erode=entry['residue_erode'], erode_outside_in=True,
+                erode_noise=noise)[..., 3] > 0
+        padded = np.pad(support, 1)
+        axial = (np.count_nonzero(padded[1:, :] != padded[:-1, :]) +
+                 np.count_nonzero(padded[:, 1:] != padded[:, :-1]))
+        diagonal = (np.count_nonzero(padded[1:, 1:] != padded[:-1, :-1]) +
+                    np.count_nonzero(padded[1:, :-1] != padded[:-1, 1:]))
+        perimeter = math.pi/8*(axial+diagonal/math.sqrt(2))
+        labels, _ = ndimage.label(support, np.ones((3, 3)))
+        components = np.bincount(labels.ravel())[1:]
+        area = int(support.sum())
+        rows.append(dict(erode_noise=noise, **entry, entry_area_px=area,
+            entry_fraction=area/entry['source_peak_area_px'], perimeter_px=perimeter,
+            isoperimetric_excess=perimeter**2/(4*math.pi*area)-1,
+            largest_component_fraction=float(components.max()/area)))
+    return dict(instrument='CPU active T4e-r1 shard union at residue entry; no dissolve',
+                perimeter='four-direction Crofton transition count, exterior zero padding',
+                connectivity=8, zero_control=rows[0], configured=rows[1])
+
+
+class RaggedResidueMaterialTests(unittest.TestCase):
+    def test_t4e_entry_ragged_connected_and_zero_disc_control(self):
+        report = ragged_residue_diagnostic(ROOT/'runs/C-5/vfx_kits/v9/fire_burst_e0p_v2')
+        actual, control = report['configured'], report['zero_control']
+        self.assertEqual(actual['erode_noise'], .08)
+        self.assertGreaterEqual(actual['isoperimetric_excess'], .12)
+        self.assertLess(abs(control['isoperimetric_excess']), .03)
+        for row in (actual, control):
+            self.assertGreaterEqual(row['largest_component_fraction'], .9)
+            self.assertTrue(.15 <= row['entry_fraction'] <= .25)
+            self.assertEqual(row['entry_area_px'], row['predicted_stationary_residue_area_px'])
+
+    def test_noise_bounds_band_resistance_endpoints_and_dissolve(self):
+        from export.effect_kit import erosion_distance
+        for value in (-.01, 1.01, True, float('nan'), '0.08'):
+            with self.subTest(value=value), self.assertRaisesRegex(ValueError, 'erode_noise'):
+                validate_material(dict(palette=PALETTE, erode_noise=value))
+        pixels = np.array([[[b*85]*3+[255] for b in range(4)]], np.uint8)
+        field = np.full((1, 4), 128, np.uint8)
+        self.assertTrue(np.all(np.diff(erosion_distance(pixels, field, .08)[0]) < 0))
+        for noise in (0, .08, 1):
+            args = dict(erode_outside_in=True, erode_noise=noise, dissolve_order=[[3],[2],[1,0]])
+            self.assertTrue(np.all(material_pixels(pixels, PALETTE, field, **args)[...,3] == 255))
+            self.assertFalse(material_pixels(pixels, PALETTE, field, erode=1, **args)[...,3].any())
+            for dissolve, expected in ((0,[1,1,1,1]),(.5,[1,1,1,0]),(.7,[1,1,0,0]),(.9,[0,0,0,0]),(1,[0,0,0,0])):
+                actual = material_pixels(pixels, PALETTE, field, dissolve=dissolve, **args)[0,:,3] > 0
+                np.testing.assert_array_equal(actual, expected)
+        self.assertNotIn('erode_noise', shader_source())
+        self.assertNotIn('erode_noise', shader_source(erode_outside_in=True))
+        self.assertIn('distance_value -= erode_noise * (band / 3.0)',
+                      shader_source(erode_outside_in=True, erode_noise=.08))
+
+    def test_kit_piece_material_scope_validation_and_precedence(self):
+        from export.effect_kit import piece_erode_noise, _validate, load_pieces
+        fixture = PieceStretchPhaseTests(); fixture.setUp(); self.addCleanup(fixture.doCleanups)
+        for scope in ('kit', 'pieces', 'material'):
+            for value in (-.01, 1.01, True, float('inf')):
+                data = copy.deepcopy(fixture.data)
+                owner = data if scope == 'kit' else data[scope]
+                owner['erode_noise'] = value
+                with self.subTest(scope=scope, value=value), self.assertRaisesRegex(ValueError, 'erode_noise'):
+                    _validate(data, fixture.path.parent)
+        data = copy.deepcopy(fixture.data)
+        self.assertEqual(piece_erode_noise(data), 0)
+        data['material']['erode_noise'] = .02
+        self.assertEqual(piece_erode_noise(data), .02)
+        data['erode_noise'] = .04
+        self.assertEqual(piece_erode_noise(data), .04)
+        data['pieces']['erode_noise'] = .08
+        self.assertEqual(piece_erode_noise(data), .08)
+        fixture.data = data; fixture.save(); build(fixture.path, fixture.out)
+        self.assertEqual(piece_erode_noise(load_kit(fixture.out)), .08)
+        data['pieces']['erode_noise'] = 0
+        self.assertEqual(piece_erode_noise(data), 0)
+        data['pieces']['template'] = 'burst_v1'
+        self.assertEqual(piece_erode_noise(data), 0)

@@ -2582,7 +2582,7 @@ def _write_piece_burst_v2(out, kit, resource_root, prefix):
     import copy
     import numpy as np
     from export.effect_kit import (load_pieces, piece_geometry, piece_stretch,
-                                   distance_field, write_vfx_material)
+                                   distance_field, write_vfx_material, piece_erode_noise, residue_entry)
     data = kit['effect']
     config, record, _ = load_pieces(data['pieces'], kit['root'], runtime=True)
     # Reuse v1's unchanged layer/material plumbing, then replace only this scene.
@@ -2605,18 +2605,10 @@ def _write_piece_burst_v2(out, kit, resource_root, prefix):
     field = distance_field(peak)
     field_rel = resource_root+'/pieces/whole_body_distance.png'
     Image.fromarray(field).save(out/field_rel)
-    # Denominator is maximum HOLD body support, not expanded temporal maximum.
-    eligible = peak[...,3] > 0
-    histogram = np.bincount(field[eligible], minlength=256)
-    cumulative = np.cumsum(histogram)
-    target_area = config['residue_fraction'] * np.count_nonzero(eligible)
-    cutoff = int(np.argmin(abs(cumulative-target_area)))
-    # Half a quantization bin avoids floating equality dropping the cutoff bin.
-    runtime.update(residue_erode=1-(cutoff+.5)/255,
-                   residue_outer=(cutoff+.5)/255,
-                   predicted_stationary_residue_area_px=int(cumulative[cutoff]),
-                   source_peak_area_px=int(np.count_nonzero(eligible)),
-                   residue_denominator='maximum hold-frame body alpha>0 coverage')
+    noise = piece_erode_noise(data)
+    runtime.update(residue_entry(peak, field, config['residue_fraction'], noise))
+    if noise:
+        runtime['erode_noise'] = noise
     scene = scene.replace('res://scripts/vfx/piece_burst.gd','res://scripts/vfx/piece_burst_v2.gd')
     # Root-only upper clip is a v2 shader variant. The shared T4a shader is frozen.
     extra_nodes = ['[node name="Roots" type="Node2D" parent="Art"]\n',
@@ -2626,6 +2618,8 @@ def _write_piece_burst_v2(out, kit, resource_root, prefix):
         ident = item['id']; name = 'Piece_%03d' % ident
         material_rel = resource_root+'/materials/Piece_'+name+'.tres'
         material_config = dict(data['material'], erode_outside_in=True)
+        if noise or 'erode_noise' in material_config:
+            material_config['erode_noise'] = noise
         if 'dissolve_order' in config:
             material_config['dissolve_order'] = config['dissolve_order']
         write_vfx_material(out, material_rel, material_config, field_rel)

@@ -101,6 +101,9 @@ test_residue_and_band_and_hold_ranges_rejected (test_effect_kit.PieceStretchPhas
 test_seeded_factor_deterministic_order_independent_and_bounded (test_effect_kit.PieceStretchPhaseTests.test_seeded_factor_deterministic_order_independent_and_bounded) ... ok
 test_self_contained_mask_bytes_distance_and_runtime_validation (test_effect_kit.PieceStretchPhaseTests.test_self_contained_mask_bytes_distance_and_runtime_validation) ... ok
 test_stretch_seed_bounds_and_whole_body_distance (test_effect_kit.PieceStretchPhaseTests.test_stretch_seed_bounds_and_whole_body_distance) ... ok
+test_kit_piece_material_scope_validation_and_precedence (test_effect_kit.RaggedResidueMaterialTests.test_kit_piece_material_scope_validation_and_precedence) ... ok
+test_noise_bounds_band_resistance_endpoints_and_dissolve (test_effect_kit.RaggedResidueMaterialTests.test_noise_bounds_band_resistance_endpoints_and_dissolve) ... ok
+test_t4e_entry_ragged_connected_and_zero_disc_control (test_effect_kit.RaggedResidueMaterialTests.test_t4e_entry_ragged_connected_and_zero_disc_control) ... ok
 test_RED_dark_index_rendered_transparent_is_rejected (test_effect_kit.SharedVFXMaterialTests.test_RED_dark_index_rendered_transparent_is_rejected) ... ok
 test_RED_legacy_white_core_keep_validation_names_key (test_effect_kit.SharedVFXMaterialTests.test_RED_legacy_white_core_keep_validation_names_key) ... ok
 test_RED_material_failing_to_load_on_Compatibility_is_rejected (test_effect_kit.SharedVFXMaterialTests.test_RED_material_failing_to_load_on_Compatibility_is_rejected) ... ok
@@ -248,6 +251,8 @@ test_six_kits_and_v1_against_pre_t4k_export_hash_table (test_godot_import.PieceL
 test_axes_whole_field_root_residue_clock_and_grey (test_godot_import.PieceStretchImportTests.test_axes_whole_field_root_residue_clock_and_grey) ... ok
 test_native_768_crop_backward_compatible_default (test_godot_import.PieceStretchImportTests.test_native_768_crop_backward_compatible_default) ... ok
 test_v2_headless_import_and_seed_equal_rooted_clock (test_godot_import.PieceStretchImportTests.test_v2_headless_import_and_seed_equal_rooted_clock) ... ok
+test_exported_threshold_and_every_root_and_stretch_material_agree (test_godot_import.RaggedResidueImportTests.test_exported_threshold_and_every_root_and_stretch_material_agree) ... ok
+test_piece_zero_overrides_material_noise_in_emitted_root (test_godot_import.RaggedResidueImportTests.test_piece_zero_overrides_material_noise_in_emitted_root) ... ok
 test_desktop_cursor_and_resolver_match_pre_t4i (test_godot_import.TouchDeviceAimEmissionTests.test_desktop_cursor_and_resolver_match_pre_t4i) ... ok
 test_touch_device_forward_and_probe_precedence (test_godot_import.TouchDeviceAimEmissionTests.test_touch_device_forward_and_probe_precedence) ... ok
 test_back_view_and_absent_rest_are_null (test_head_pitch.Tests.test_back_view_and_absent_rest_are_null) ... ok
@@ -648,7 +653,7 @@ Traceback (most recent call last):
     self._check_timeout(endtime, orig_timeout, stdout, stderr)
   File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/subprocess.py", line 1253, in _check_timeout
     raise TimeoutExpired(
-subprocess.TimeoutExpired: Command '['/Applications/Godot.app/Contents/MacOS/Godot', '--headless', '--log-file', '/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4i/tmp/touch-aim-ymf9l91k/project/godot.log', '--path', '/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4i/tmp/touch-aim-ymf9l91k/project', '--script', 'res://touch_aim_probe.gd']' timed out after 60 seconds
+subprocess.TimeoutExpired: Command '['/Applications/Godot.app/Contents/MacOS/Godot', '--headless', '--log-file', '/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4i/tmp/touch-aim-9wyy76bf/project/godot.log', '--path', '/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4i/tmp/touch-aim-9wyy76bf/project', '--script', 'res://touch_aim_probe.gd']' timed out after 60 seconds
 
 ======================================================================
 FAIL: test_synthetic_contract_and_grid (test_oracle_walk.Tests.test_synthetic_contract_and_grid)
@@ -693,6 +698,6 @@ Traceback (most recent call last):
 AssertionError: 'rejected' unexpectedly found in {'angular_support': 0.8333333333333334, 'center': [170.0, 253.0], 'hollow_score': 0.08333333333333333, 'inner_opposed_support': 0.08333333333333333, 'inside': False, 'lab_band_surround': 12.987929666149537, 'lab_center_band': 18.508563966712764, 'lab_center_surround': 30.467977867785994, 'lab_color_return': 0.0, 'radius': 8.0, 'rejected': 'not_annulus', 'score': 0.6366616733180586}
 
 ----------------------------------------------------------------------
-Ran 622 tests in 341.088s
+Ran 627 tests in 351.098s
 
 FAILED (failures=5, errors=1)

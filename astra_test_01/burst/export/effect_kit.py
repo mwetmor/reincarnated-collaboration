@@ -24,7 +24,7 @@ import numpy as np
 from PIL import Image
 
 PHASES = {'cast': 'flare', 'travel': 'travel', 'impact': 'impact', 'residual': 'residual'}
-TOP = {'name', 'element', 'element_class', 'tint', 'phases', 'layers', 'ground_squash', 'pixel_scale', 'phase_scale', 'material', 'distance_fields', 'pierce', 'pieces', 'screen_px'}
+TOP = {'name', 'element', 'element_class', 'tint', 'phases', 'layers', 'ground_squash', 'pixel_scale', 'phase_scale', 'material', 'distance_fields', 'pierce', 'pieces', 'screen_px', 'erode_noise'}
 LAYER_KEYS = {
     'glow': {'alpha', 'scale'}, 'floor_light': {'duration_s', 'radius_px'},
     'flash': {'duration_s', 'alpha', 'scale_from', 'scale_to'},
@@ -100,7 +100,7 @@ def dissolve_thresholds(order=None):
 
 def validate_material(material):
     """Four low-to-high RGBA bands; coverage is always source alpha."""
-    _keys(material, {'palette', 'dissolve_order', 'erode_outside_in', *MATERIAL_DEFAULTS}, {'palette'}, 'material')
+    _keys(material, {'palette', 'dissolve_order', 'erode_outside_in', 'erode_noise', *MATERIAL_DEFAULTS}, {'palette'}, 'material')
     if 'dissolve_order' in material and material['dissolve_order'] is None:
         raise ValueError('dissolve_order must be a list of band groups')
     dissolve_thresholds(material.get('dissolve_order'))
@@ -117,7 +117,7 @@ def validate_material(material):
         raise ValueError('material.blend_mode must be MIX, ADD or PREMULT_ALPHA')
     if not isinstance(material.get('light_participation', False), bool):
         raise ValueError('material.light_participation must be boolean')
-    for name in ('erode', 'dissolve'):
+    for name in ('erode', 'dissolve', 'erode_noise'):
         _number(material.get(name, 0), 0, 1, 'material.'+name)
     return {**MATERIAL_DEFAULTS, **copy.deepcopy(material)}
 
@@ -157,10 +157,52 @@ def distance_field(rgba):
     return out
 
 
+def piece_erode_noise(data):
+    """V2 override order: pieces, kit, material; omission is byte-neutral zero."""
+    pieces = data.get('pieces', {})
+    if pieces.get('template') != 'burst_v2':
+        return 0.0
+    return pieces.get('erode_noise', data.get('erode_noise', data['material'].get('erode_noise', 0.0)))
+
+
+def erosion_distance(rgba, distance, erode_noise=0.0):
+    """Outside-in resistance from original painted bands, shared with the shader.
+
+    Brighter bands survive longer. No random texture or altered source mask;
+    the same original UV and rounded band are used on roots and stretched art.
+    """
+    _number(erode_noise, 0, 1, 'erode_noise')
+    bands = np.floor(np.asarray(rgba)[..., 0].astype(float)/85+.5)
+    return np.asarray(distance)/255 - erode_noise*(bands/3)
+
+
+def residue_entry(rgba, field, fraction, erode_noise=0.0):
+    """Select a whole-band/distance threshold against HOLD support, before dissolve."""
+    eligible = np.asarray(rgba)[..., 3] > 0
+    target = fraction * np.count_nonzero(eligible)
+    if not erode_noise:
+        # Preserve the legacy histogram and half-bin arithmetic exactly.
+        cumulative = np.cumsum(np.bincount(field[eligible], minlength=256))
+        cutoff = int(np.argmin(abs(cumulative-target)))
+        outer, area = (cutoff+.5)/255, int(cumulative[cutoff])
+    else:
+        values, counts = np.unique(erosion_distance(rgba, field, erode_noise)[eligible], return_counts=True)
+        cumulative = np.cumsum(counts)
+        cutoff = int(np.argmin(abs(cumulative-target)))
+        # Midpoint avoids CPU/GPU equality differences; keep the complete tie.
+        following = values[cutoff+1] if cutoff+1 < len(values) else values[cutoff]+1/255
+        outer = float((values[cutoff]+following)/2)
+        area = int(cumulative[cutoff])
+    return dict(residue_erode=1-outer, residue_outer=outer,
+                predicted_stationary_residue_area_px=area,
+                source_peak_area_px=int(np.count_nonzero(eligible)),
+                residue_denominator='maximum hold-frame body alpha>0 coverage')
+
+
 def material_pixels(rgba, palette, distance=None, erode=0.0, dissolve=0.0,
-                    blend_mode='MIX', dark_duplicate=False, dissolve_order=None, erode_outside_in=False):
+                    blend_mode='MIX', dark_duplicate=False, dissolve_order=None, erode_outside_in=False, erode_noise=0.0):
     """CPU reference only, never represented as a Godot rendered-frame proof."""
-    validate_material(dict(palette=palette, erode=erode, dissolve=dissolve, blend_mode=blend_mode))
+    validate_material(dict(palette=palette, erode=erode, dissolve=dissolve, blend_mode=blend_mode, erode_noise=erode_noise))
     rgba = np.asarray(rgba)
     if rgba.ndim != 3 or rgba.shape[2] != 4 or rgba.dtype != np.uint8:
         raise ValueError('material_pixels requires uint8 HxWx4 RGBA')
@@ -170,7 +212,8 @@ def material_pixels(rgba, palette, distance=None, erode=0.0, dissolve=0.0,
     if erode:
         if distance is None or np.shape(distance) != rgba.shape[:2]:
             raise ValueError('erode requires a matching distance texture')
-        keep = (np.asarray(distance)/255 <= 1-erode) if erode_outside_in else (np.asarray(distance)/255 >= erode)
+        value = erosion_distance(rgba, distance, erode_noise) if erode_outside_in else np.asarray(distance)/255
+        keep = (value <= 1-erode) if erode_outside_in else (value >= erode)
         result[..., 3] *= keep & (erode < 1)
     result[..., 3] *= dissolve < np.asarray(dissolve_thresholds(dissolve_order))[bands]
     if dark_duplicate: result[..., :3] = 0
@@ -178,13 +221,16 @@ def material_pixels(rgba, palette, distance=None, erode=0.0, dissolve=0.0,
     return np.clip(np.rint(result*255), 0, 255).astype(np.uint8)
 
 
-def shader_source(blend_mode='MIX', light_participation=False, dissolve_order=None, erode_outside_in=False):
+def shader_source(blend_mode='MIX', light_participation=False, dissolve_order=None, erode_outside_in=False, erode_noise=0.0):
     """Compatibility variants use only CanvasItem fragment operations."""
     validate_material({'palette': [[0, 0, 0, 1]]*4,
-                       'blend_mode': blend_mode, 'light_participation': light_participation})
+                       'blend_mode': blend_mode, 'light_participation': light_participation, 'erode_noise': erode_noise})
     modes = {'MIX': 'blend_mix', 'ADD': 'blend_add', 'PREMULT_ALPHA': 'blend_premul_alpha'}
     mode = modes[blend_mode]+('' if light_participation else ', unshaded')
     source = Path(__file__).with_name('vfx_material.gdshader').read_text()
+    if not (erode_outside_in and erode_noise):
+        source = source.replace('uniform float erode_noise : hint_range(0.0, 1.0) = 0.0;\n', '')
+        source = source.replace('        distance_value -= erode_noise * (band / 3.0);\n', '')
     if not erode_outside_in:
         # Strip the opt-in branch so legacy exported shaders stay byte-identical.
         source = source.replace('uniform bool erode_outside_in = false;\n', '')
@@ -226,9 +272,12 @@ def write_vfx_material(out, resource, material, distance_texture, dark_duplicate
         shader = shader.with_name(shader.stem+'_order_'+suffix+shader.suffix)
     if material.get('erode_outside_in', False):
         shader = shader.with_name(shader.stem+'_outside_in'+shader.suffix)
+    noise = material.get('erode_noise', 0.0) if material.get('erode_outside_in', False) else 0.0
+    if noise:
+        shader = shader.with_name(shader.stem+'_noise'+shader.suffix)
     shader_rel = shader.relative_to(out).as_posix()
     target.parent.mkdir(parents=True, exist_ok=True)
-    shader.write_text(shader_source(mode, lit, order, material.get('erode_outside_in', False)))
+    shader.write_text(shader_source(mode, lit, order, material.get('erode_outside_in', False), noise))
     lines = ['[gd_resource type="ShaderMaterial" load_steps=3 format=3]',
              f'[ext_resource type="Shader" path="res://{shader_rel}" id="Shader"]',
              f'[ext_resource type="Texture2D" path="res://{field.relative_to(out).as_posix()}" id="Distance"]',
@@ -240,6 +289,8 @@ def write_vfx_material(out, resource, material, distance_texture, dark_duplicate
         lines.append('shader_parameter/'+name+' = '+repr(float(material[name])))
     if material.get('erode_outside_in', False):
         lines.append('shader_parameter/erode_outside_in = true')
+    if noise:
+        lines.append('shader_parameter/erode_noise = '+repr(float(noise)))
     lines.append('shader_parameter/dark_duplicate = '+str(dark_duplicate).lower())
     target.write_text('\n'.join(lines)+'\n')
     return target
@@ -338,9 +389,10 @@ def piece_geometry(record, source_root):
 def load_pieces(config, root, runtime=False):
     """Consume T4e schema 2 as delivered; never segment or recolour a shard."""
     root = Path(root).resolve()
-    _keys(config, {'source', 'template', 'root_drift', 'dissolve_order', *PIECES_DEFAULTS}, {'source', 'template'}, 'pieces')
+    _keys(config, {'source', 'template', 'root_drift', 'dissolve_order', 'erode_noise', *PIECES_DEFAULTS}, {'source', 'template'}, 'pieces')
     if config['template'] not in ('burst_v1', 'burst_v2'):
         raise ValueError('pieces.template must be burst_v1 or burst_v2')
+    _number(config.get('erode_noise', 0), 0, 1, 'pieces.erode_noise')
     values = {**PIECES_DEFAULTS, **config}
     _number(values['hold_frames'], 1, 2, 'pieces.hold_frames', True)
     _number(values['base_speed_px_s'], 1e-9, math.inf, 'pieces.base_speed_px_s')
@@ -426,6 +478,7 @@ def _validate(data, root, runtime=False):
         raise ValueError('screen_px must be boolean')
     _number(data.get('pierce', 0), -1, math.inf, 'pierce', True)
     validate_material(data['material'])
+    _number(data.get('erode_noise', 0), 0, 1, 'erode_noise')
     _keys(data.get('phase_scale', {}), set(PHASES), set(), 'phase_scale')
     for value in data.get('phase_scale', {}).values():
         _number(value, .5, 4, 'phase_scale')
@@ -659,7 +712,7 @@ def build(effect_json, out_dir):
     for mode in ('MIX', 'ADD', 'PREMULT_ALPHA'):
         for lit in (False, True):
             name = f'vfx_material_{mode.lower()}_{"lit" if lit else "unlit"}.gdshader'
-            (out/name).write_text(shader_source(mode, lit, data['material'].get('dissolve_order'), data['material'].get('erode_outside_in', False)))
+            (out/name).write_text(shader_source(mode, lit, data['material'].get('dissolve_order'), data['material'].get('erode_outside_in', False), piece_erode_noise(data)))
     (out/'kit.json').write_text(json.dumps(metadata, indent=2, allow_nan=False)+'\n')
     (out/'vfx_select.json').write_text(json.dumps({'source': 'effect_kit', 'name': data['name']})+'\n')
     (out/'CREDITS.txt').write_text('Effect '+data['name']+' ('+data['element']+'). Source assets supplied by the effect definition; no license is inferred.\n')

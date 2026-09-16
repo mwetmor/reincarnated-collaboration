@@ -648,3 +648,54 @@ class BurnBackExportTests(unittest.TestCase):
         self.assertIn('spell_scale = 1.0 if bool(config.get("screen_px", false)) else art_scale',(project/'scripts/vfx_g1.gd').read_text())
         self.assertTrue(_g1_config({'name':'a','effect':data})['screen_px'])
         self.assertNotIn('screen_px',_g1_config({'name':'legacy'}))
+
+
+class RaggedResidueImportTests(unittest.TestCase):
+    def test_exported_threshold_and_every_root_and_stretch_material_agree(self):
+        from export.effect_kit import load_kit, load_pieces, distance_field, residue_entry
+        from export.godot_import import _load_vfx_kit, _write_authored_effect
+        import numpy as np
+        root = Path(__file__).resolve().parents[1]
+        kit_root = root/'runs/C-5/vfx_kits/v9/fire_burst_e0p_v2'
+        kit = _load_vfx_kit(kit_root)
+        TMP.mkdir(parents=True, exist_ok=True)
+        with tempfile.TemporaryDirectory(prefix='t4n-materials-', dir=TMP) as td:
+            out = Path(td)
+            for folder in ('scripts', 'scenes', 'vfx'):
+                (out/folder).mkdir()
+            _write_authored_effect(out, kit, 'vfx/fire_burst_e0p_v2', 'vfx_fire_burst_e0p_v2', {})
+            folder = out/'vfx/fire_burst_e0p_v2'
+            runtime = json.loads((folder/'pieces/burst_runtime.json').read_text())
+            peak = np.array(Image.open(folder/'pieces/peak_index.png').convert('RGBA'))
+            expected = residue_entry(peak, distance_field(peak), .2, .08)
+            self.assertEqual(runtime['erode_noise'], .08)
+            for key, value in expected.items():
+                self.assertEqual(runtime[key], value)
+            for piece in runtime['pieces']:
+                for prefix in ('Piece_Piece_', 'Root_'):
+                    material = (folder/f'materials/{prefix}{piece["id"]:03d}.tres').read_text()
+                    self.assertIn('shader_parameter/erode_noise = 0.08', material)
+                    shader = re.search(r'path="res://([^"]+\.gdshader)"', material)[1]
+                    source = (out/shader).read_text()
+                    self.assertIn('distance_value -= erode_noise * (band / 3.0)', source)
+                    self.assertIn('distance_value > 1.0 - erode', source)
+                    self.assertIn('Per-kit band-group removal thresholds', source)
+            # The age schedule is reused exactly; only shader resistance and cutoff change.
+            self.assertIn('0.8 * residue_t', (out/'scripts/vfx/piece_burst_v2.gd').read_text())
+
+    def test_piece_zero_overrides_material_noise_in_emitted_root(self):
+        from export.godot_import import _load_vfx_kit, _write_authored_effect
+        fixture = PieceBurstImportTests(); fixture.setUp(); self.addCleanup(fixture.doCleanups)
+        path = fixture.root/'kit/kit.json'
+        data = json.loads(path.read_text())
+        data['material'].update(erode_outside_in=True, erode_noise=.08)
+        data['pieces'].update(template='burst_v2', erode_noise=0)
+        path.write_text(json.dumps(data))
+        out = fixture.root/'zero_override'
+        for part in ('scripts','scenes','vfx'):
+            (out/part).mkdir(parents=True)
+        _write_authored_effect(out, _load_vfx_kit(path.parent), 'vfx/fixture', 'vfx_fixture', {})
+        material = (out/'vfx/fixture/materials/Root_001.tres').read_text()
+        self.assertNotIn('shader_parameter/erode_noise', material)
+        shader = re.search(r'path="res://([^"]+\.gdshader)"', material)[1]
+        self.assertNotIn('erode_noise', (out/shader).read_text())
