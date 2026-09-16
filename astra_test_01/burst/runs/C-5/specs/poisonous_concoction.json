@@ -28,6 +28,12 @@
   "termination": "field_expiry"
  },
  "presentation": {
+  "ground_squash": 0.72,
+  "density": 0.6,
+  "erode_noise": 0.4,
+  "roil_uv_per_s": 0.05,
+  "dark_alpha": 0.5,
+  "dark_offset_px": 6,
   "primitive_bindings": {
    "projectile": "RGB flask (green glass)",
    "impact": "splash: viscous lobes \u00d74 (P_poison_lobe) fly low + short",
@@ -55,6 +61,7 @@
   ]
  },
  "provenance": {
+  "rendered_cloud": "R-C5-74 F-C5-16",
   "thrown flask / poison cloud": "PoE source observation (conductor memory) \u2014 VERIFY",
   "density gate": "03- \u00a7 2.3 density-asset gate (validated at E2/E3)",
   "tick_schedule": "conductor R-C5-55: re-authored for FF-08 (CV 0.42 \u2265 0.25); the first schedule (CV < 0.25) was the conductor error T4s reported"

@@ -12,7 +12,7 @@
   "count": 1,
   "emission": {
    "child": "ice_bolt_mini",
-   "schedule": "every 2\u20133 frames (seeded jitter, FF-08), spiral, 3 per revolution",
+   "schedule": "every 2\u20134 frames (seeded balanced shuffle, FF-08), spiral, 3 per revolution",
    "child_speed_px_s": 900,
    "child_range_px": 260
   },
@@ -25,6 +25,9 @@
   "pierce": -1
  },
  "presentation": {
+  "expiry_mode": "nova",
+  "expiry_core_bh": 0.8,
+  "expiry_decal": false,
   "primitive_bindings": {
    "travel_head": "ice orb = P_ice_puff rotated (0.9 BH) + rim shards",
    "child": "P_ice_shard (0.35 BH)",
@@ -53,6 +56,8 @@
   ]
  },
  "provenance": {
+  "balanced_emission": "R-C5-75",
+  "rendered_nova": "R-C5-74 F-C5-19",
   "orb speed / spiral bolts / expiry shard burst": "D2 source observation (conductor memory: slow orb ~ 1.5 s flight, continuous bolt spiral, final nova of ice bolts) \u2014 VERIFY against the C-5 reference corpus before E3-FO",
   "pierce -1": "Matt R-C5 Packet-84 (skill pierce)",
   "bands": "E2 ice palette",

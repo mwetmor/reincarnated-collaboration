@@ -1,0 +1,1271 @@
+--- a/export/effect_kit.py
++++ b/export/effect_kit.py
+@@ -1181,7 +1181,7 @@
+     if (spec['grammar'] != 'G2' or mechanics['aim_rule'] != 'ground-locked'
+             or mechanics['origin_socket'] != 'cast_release' or mechanics['termination'] != 'field_expiry'):
+         raise ValueError('unsupported G2 mechanics; grammar is explicit')
+-    if data['element'] != spec['visual_treatment_id'] or data['element_class'] != 'field' or not data['screen_px'] or data['ground_squash'] != .58:
++    if data['element'] != spec['visual_treatment_id'] or data['element_class'] != 'field' or not data['screen_px'] or data['ground_squash'] != spec['presentation'].get('ground_squash', .58):
+         raise ValueError('G2 treatment, screen_px or ground squash disagrees')
+     if data['element'] not in ('fire','poison'): raise ValueError('unsupported G2 treatment')
+     for value in [mechanics['range_px'],mechanics['arc']['apex_px'],mechanics['arc']['flight_s'],field['radius_px'],field['duration_s']]:
+@@ -1195,7 +1195,9 @@
+     if data['element'] == 'poison': _number(data.get('density'),0,1,'density')
+     elif 'density' in data: raise ValueError('density is a separate poison layer only')
+     g = data['g2']
+-    _keys(g, {'flask','field_source','pulse','splash','seed','field_binding'}, {'flask','field_source','pulse','splash','seed'}, 'g2')
++    _keys(g, {'flask','field_source','pulse','splash','seed','field_binding','roil_uv_per_s','dark_offset_px','dark_alpha'}, {'flask','field_source','pulse','splash','seed'}, 'g2')
++    for key,high in [('roil_uv_per_s',.2),('dark_offset_px',12),('dark_alpha',1)]:
++        _number(g.get(key,0),0,high,'g2.'+key)
+     binding = g.get('field_binding')
+     if binding is not None:
+         _keys(binding, {'kind','scale','pivot','dissolve_s'}, {'kind','scale','pivot','dissolve_s'}, 'field_binding')
+@@ -1259,9 +1261,13 @@
+         (out/file).write_bytes((out/'primitives/pulse.png').read_bytes())
+         phases[phase]={'sheet':file,'frames':[{'file':file,'hold_frames':2}]}
+     data=dict(name=spec['skill_id']+'_e3',element=spec['visual_treatment_id'],element_class='field',screen_px=True,
+-              ground_squash=.58, material=copy.deepcopy(material),phases=phases,layers={},pierce=0,skill_spec=spec,
++              ground_squash=spec['presentation'].get('ground_squash',.58), material=copy.deepcopy(material),phases=phases,layers={},pierce=0,skill_spec=spec,
+               g2=dict(flask='primitives/flask.png',field_source='primitives/field_source.png',pulse='primitives/pulse.png',splash=splash,seed=2026))
+-    if data['element']=='poison': data['density']=density
++    if data['element']=='poison':
++        data['density']=spec['presentation'].get('density',density)
++        for key in ('roil_uv_per_s','dark_offset_px','dark_alpha'):
++            if key in spec['presentation']: data['g2'][key]=spec['presentation'][key]
++        if 'erode_noise' in spec['presentation']: data['material'].update(erode_noise=spec['presentation']['erode_noise'],erode_outside_in=True,erode=.3)
+     validate_thrown_field(data,out,True)
+     (out/'kit.json').write_text(json.dumps(data,indent=2)+'\n')
+     (out/'CREDITS.txt').write_text('G2 '+data['name']+': supplied painted primitives; derived shards/field, no new painting.\n')
+@@ -1437,7 +1443,12 @@
+     material=validate_material(data['material'])
+     if material['blend_mode']!='ADD' or not material.get('erode_outside_in') or material.get('dissolve_order')!=[[3],[2],[1,0]]:
+         raise ValueError('G4 requires ADD, outside-in release and dissolve 3,2,1+0')
+-    _keys(g,{'ring','petal','seal','seed','release_s','support_tint'},{'ring','petal','seal','seed','release_s','support_tint'},'g4')
++    _keys(g,{'ring','petal','seal','seed','release_s','support_tint','seal_aspect'},{'ring','petal','seal','seed','release_s','support_tint','seal_aspect'},'g4')
++    _number(g['seal_aspect'],.01,4,'seal_aspect')
++    with Image.open(_png(g['seal']['png'],root,confined=runtime)) as im:
++        box=im.getchannel('A').getbbox()
++    if not box or abs(g['seal_aspect']-(box[3]-box[1])/(box[2]-box[0]))>1e-9:
++        raise ValueError('seal_aspect disagrees with alpha bbox')
+     _number(g['seed'],0,2**32-1,'seed',True)
+     if g['release_s']!=.3 or g['support_tint']!=[1.,.94,.72,1.]: raise ValueError('G4 support/release contract disagrees')
+     assets={}
+@@ -1472,6 +1483,7 @@
+         with Image.open(primitive_paths[role]) as im: a=quantise_projectile(np.asarray(im.convert('RGBA')))
+         y,x=np.nonzero(a[...,3]);pivot=[float((x.min()+x.max())/2),float(y.max() if role=='petal' else (y.min()+y.max())/2)]
+         scale=(spec['presentation']['body_extents_bh']['petal']*130/(y.max()-y.min()+1) if role=='petal' else 1.)
++        if role=='seal': g['seal_aspect']=float((y.max()-y.min()+1)/(x.max()-x.min()+1))
+         file='primitives/'+role+'.png';Image.fromarray(a).save(out/file);g[role]=dict(png=file,pivot=pivot,scale=float(scale))
+     phases={}
+     for phase,folder in [('cast','flare'),('travel','travel'),('impact','impact')]:
+@@ -1515,9 +1527,13 @@
+         raise ValueError('orb.interval_frames_choices requires at least two distinct choices')
+     _number(data['orb']['seed'], 0, 2147483647, 'orb.seed', True)
+     rng = random.Random(data['orb']['seed'])
++    if data['orb'].get('interval_draw') != 'balanced_shuffle':
++        raise ValueError('orb.interval_draw must be balanced_shuffle')
++    intervals = choices * math.ceil(math.ceil(flight/min(choices))/len(choices))
++    rng.shuffle(intervals)
+     ages, age = [], 0
+-    while True:
+-        age += rng.choice(choices)
++    for interval in intervals:
++        age += interval
+         if age > flight:
+             break
+         ages.append(age)
+@@ -1538,15 +1554,19 @@
+     for key in ('range_px','speed_px_s'): _number(m[key], 1e-9, math.inf, key)
+     if data['phases']['travel']['speed_px_s'] != m['speed_px_s']: raise ValueError('orb speed disagrees')
+     _keys(m['emission'], {'child','schedule','child_speed_px_s','child_range_px'}, {'child','schedule','child_speed_px_s','child_range_px'}, 'emission')
+-    if m['emission']['schedule'] != 'every 2–3 frames (seeded jitter, FF-08), spiral, 3 per revolution': raise ValueError('unsupported explicit emission schedule')
++    if m['emission']['schedule'] != 'every 2–4 frames (seeded balanced shuffle, FF-08), spiral, 3 per revolution': raise ValueError('unsupported explicit emission schedule')
+     for key in ('child_speed_px_s','child_range_px'): _number(m['emission'][key], 1e-9, math.inf, key)
+     if m['expiry']['kind'] != 'range_or_time' or m['expiry']['on_expiry'] != 'shard_burst 16 radial': raise ValueError('unsupported expiry')
+     _number(m['expiry']['time_s'], 1e-9, math.inf, 'expiry.time_s')
+-    required={'body','shard','interval_frames_choices','angle_step_deg','seed','pool_size','turn_s','rim_count','rim_radius_px','expiry_count','child_pierce'}
++    required={'interval_draw','expiry_mode','expiry_core_bh','expiry_decal','body','shard','interval_frames_choices','angle_step_deg','seed','pool_size','turn_s','rim_count','rim_radius_px','expiry_count','child_pierce'}
+     _keys(g, required, required, 'orb')
+     orb_schedule_report(data)  # Validates choices and reports FF-08 without changing its threshold.
+-    if (g['interval_frames_choices'] != [2, 3] or g['angle_step_deg'] != 137 or g['turn_s'] != 1.2
++    if (g['angle_step_deg'] != 137 or g['turn_s'] != 1.2
+             or g['rim_count'] != 4 or g['expiry_count'] != 16 or g['child_pierce'] != 0): raise ValueError('orb emission/rotation/count disagrees')
++    if g['expiry_mode'] not in ('peak','nova'): raise ValueError('orb.expiry_mode must be peak or nova')
++    _number(g['expiry_core_bh'],.4,1.2,'orb.expiry_core_bh')
++    if not isinstance(g['expiry_decal'],bool): raise ValueError('orb.expiry_decal must be boolean')
++    if g['expiry_mode']=='nova' and g['expiry_decal']: raise ValueError('nova has no decal')
+     _number(g['seed'],0,2147483647,'orb.seed',True)
+     _number(g['pool_size'], math.ceil(m['emission']['child_range_px']/m['emission']['child_speed_px_s']*60/min(g['interval_frames_choices']))+2,64,'orb.pool_size',True)
+     _number(g['rim_radius_px'],1,256,'orb.rim_radius_px')
+--- a/export/godot_import.py
++++ b/export/godot_import.py
+@@ -2464,6 +2464,8 @@
+ 
+ def _write_piece_burst(out, kit, resource_root, prefix):
+     """Emit spatial shards using unmodified T4e index masks and T4a materials."""
++    if kit['effect'].get('orb',{}).get('expiry_mode')=='nova':
++        return _write_orb_nova(out,kit,resource_root,prefix)
+     if kit['effect']['pieces']['template'] == 'burst_v1r':
+         return _write_piece_burst_v1r(out, kit, resource_root, prefix)
+     if kit['effect']['pieces']['template'] == 'burst_v2':
+@@ -3323,7 +3325,8 @@
+                 apex_px=m['arc']['apex_px'],flight_s=m['arc']['flight_s'],radius_px=m['field']['radius_px'],
+                 duration_s=m['field']['duration_s'],ticks=m['field']['tick_schedule_s'],
+                 schedule=tick_schedule_report(m['field']['tick_schedule_s'],m['field'].get('tick_cv_min',.25)),
+-                residue_s=spec['presentation']['phase_envelope_s']['residue'],ground_squash=.58,
++                residue_s=spec['presentation']['phase_envelope_s']['residue'],ground_squash=d['ground_squash'],
++                roil_uv_per_s=g.get('roil_uv_per_s',0.),dark_offset_px=g.get('dark_offset_px',0.),dark_alpha=g.get('dark_alpha',.25),field_erode=d['material'].get('erode',0.),
+                 flask=root+g['flask'],field=root+'derived/field.png',pulse=root+g['pulse'],
+                 fragments=[root+'derived/glass_'+str(i)+'.png' for i in range(3)],
+                 material=root+'materials/Field.tres',pulse_material=root+'materials/Pulse.tres',
+@@ -3358,7 +3361,7 @@
+ 
+ def _write_g2_kit(out, kit):
+     import numpy as np
+-    from export.effect_kit import distance_field, write_vfx_material
++    from export.effect_kit import distance_field, write_vfx_material, erosion_noise_texture
+     d=kit['effect']; root='vfx/'+kit['name']; dest=out/root
+     dest.mkdir(parents=True,exist_ok=True)
+     for path in kit['root'].rglob('*'):
+@@ -3387,7 +3390,21 @@
+         material=dict(mat,blend_mode=mode)
+         if label=='Decal':
+             material['palette']=([[.065,.035,.025,.55]]*4 if d['element']=='fire' else [[.035,.12,.055,.55]]*4)
+-        write_vfx_material(out,root+'/materials/'+label+'.tres',material,root+'/derived/'+source+'_distance.png',dark)
++        noise_rel=None
++        if d['g2'].get('roil_uv_per_s') and label in ('Field','Dark'):
++            noise_rel=root+'/derived/field_noise.png'
++            Image.fromarray(erosion_noise_texture(field)).save(out/noise_rel)
++            material.update(erode_noise=d['material']['erode_noise'],erode=d['material']['erode'])
++        write_vfx_material(out,root+'/materials/'+label+'.tres',material,root+'/derived/'+source+'_distance.png',dark,noise_rel)
++        if noise_rel:
++            # A private shader variant adds drift without changing any other kit.
++            material_path=out/root/'materials'/f'{label}.tres'
++            text=material_path.read_text()
++            shader_path=re.search(r'path="res://([^"]+\.gdshader)"',text).group(1)
++            original=out/shader_path; drift=original.with_name(original.stem+'_roil.gdshader')
++            source_text=original.read_text().replace('void fragment()', 'uniform vec2 noise_uv_offset = vec2(0.0);\nvoid fragment()').replace('texture(erosion_noise_texture, UV)', 'texture(erosion_noise_texture, UV + noise_uv_offset)')
++            drift.write_text(source_text)
++            material_path.write_text(text.replace(shader_path,drift.relative_to(out).as_posix()))
+     # Flare material is required by the existing CAST frame plumbing.
+     write_vfx_material(out,root+'/materials/Body.tres',mat,root+'/derived/pulse_distance.png')
+     from export.effect_kit import MATERIAL_BINDING_SCRIPT
+@@ -3592,7 +3609,7 @@
+     # Coverage is area: sqrt growth on each axis; density exclusively multiplies alpha.
+     var painted: bool = not config.field_binding.is_empty()
+     ground_visual.get_node("Field").scale = Vector2.ONE if painted else Vector2(1,float(config.ground_squash))*field_scale*sqrt(coverage)
+-    # One breath per authored irregular tick interval; density .75 gives .65--.80.
++    # Multiplicative breath: authored density bounds the translucent cloud.
+     var next_tick: int = roundi(float(config.ticks[tick_index])*60.0) if tick_index<config.ticks.size() else end_field
+     var phase: float = clampf(float(land_age-last_tick)/maxi(1,next_tick-last_tick),0,1)
+     var wave: float = sin(TAU*phase)
+@@ -3604,6 +3621,10 @@
+         dissolve = .5 if fade_age<8 else (.7 if fade_age<24 else 1.0)
+     ground_visual.get_node("Field").material.set_shader_parameter("dissolve",dissolve)
+     ground_visual.get_node("Field").modulate.a = float(config.density)*breathe
++    for name in ["Field","DarkDuplicate"]:
++        ground_visual.get_node(name).material.set_shader_parameter("erode",float(config.field_erode))
++        if float(config.roil_uv_per_s)>0:
++            ground_visual.get_node(name).material.set_shader_parameter("noise_uv_offset",Vector2(float(maxi(0,land_age))/60.0*float(config.roil_uv_per_s),0))
+     ground_visual.get_node("Field").position = Vector2(float(maxi(0,land_age))/60.0*2.0,0) if config.treatment=="poison" else Vector2.ZERO
+     for i in range(ground_visual.get_node("Licks").get_child_count()):
+         var lick: Sprite2D = ground_visual.get_node("Licks").get_child(i)
+@@ -3618,10 +3639,10 @@
+     ground_visual.get_node("Decal").modulate.a = clampf(1.0-float(land_age-end_field)/residue_frames,0,1)
+     ground_visual.get_node("Halo").visible = field_live and config.treatment=="fire" and "halo" in config.enabled_layers
+     ground_visual.get_node("Halo").modulate.a = .12
+-    ground_visual.get_node("DarkDuplicate").visible = field_live and config.treatment=="fire" and "dark_duplicate" in config.enabled_layers
++    ground_visual.get_node("DarkDuplicate").visible = field_live and "dark_duplicate" in config.enabled_layers
+     ground_visual.get_node("DarkDuplicate").scale = ground_visual.get_node("Field").scale
+-    ground_visual.get_node("DarkDuplicate").position = ground_visual.get_node("Field").position
+-    ground_visual.get_node("DarkDuplicate").modulate.a = float(config.density)*breathe*.25
++    ground_visual.get_node("DarkDuplicate").position = ground_visual.get_node("Field").position+Vector2(0,float(config.dark_offset_px))
++    ground_visual.get_node("DarkDuplicate").modulate.a = float(config.density)*breathe*float(config.dark_alpha)
+     ground_visual.get_node("FloorLight").visible = field_live and config.treatment=="fire" and "floor_light" in config.enabled_layers
+     ground_visual.get_node("FloorLight").modulate.a = .15
+     for name in ["Halo","FloorLight","DarkDuplicate"]:
+@@ -3629,7 +3650,7 @@
+     ground_visual.get_node("Flash").visible = land_age==0 and "flash" in config.enabled_layers
+     ground_visual.get_node("Flash").modulate.a = .8
+     _tint_clock(age)
+-    trace.append({"age_frames":age,"lift_px":lift,"flask_position":[$Flask.global_position.x,$Flask.global_position.y],"rotation_deg":rad_to_deg($Flask.rotation),"contact":land_age==0,"fragments":$Fragments.get_children().filter(func(n):return n.visible).size(),"field_alive":field_live,"coverage":coverage,"density":config.density,"field_alpha":ground_visual.get_node("Field").modulate.a,"drift_px":ground_visual.get_node("Field").position.x,"ground_point":[ground_visual.global_position.x,ground_visual.global_position.y],"ground_z":ground_visual.z_index,"decal_visible":ground_visual.get_node("Decal").visible,"decal_alpha":ground_visual.get_node("Decal").modulate.a,"tick_count":tick_index})
++    trace.append({"age_frames":age,"lift_px":lift,"flask_position":[$Flask.global_position.x,$Flask.global_position.y],"rotation_deg":rad_to_deg($Flask.rotation),"contact":land_age==0,"fragments":$Fragments.get_children().filter(func(n):return n.visible).size(),"field_alive":field_live,"coverage":coverage,"density":config.density,"field_alpha":ground_visual.get_node("Field").modulate.a,"field_erode":ground_visual.get_node("Field").material.get_shader_parameter("erode"),"dark_offset_px":config.dark_offset_px,"drift_px":ground_visual.get_node("Field").position.x,"ground_point":[ground_visual.global_position.x,ground_visual.global_position.y],"ground_z":ground_visual.z_index,"decal_visible":ground_visual.get_node("Decal").visible,"decal_alpha":ground_visual.get_node("Decal").modulate.a,"tick_count":tick_index})
+     if land_age>=end_field+residue_frames:
+         _record("expire")
+         active = false
+@@ -4063,7 +4084,7 @@
+                 radius_px=m['radius_px'],duration_s=m['duration_s'],pulses=m['pulse_schedule_s'],
+                 schedule=tick_schedule_report(m['pulse_schedule_s'],m['pulse_cv_min']),
+                 orbit_period_s=p['phase_envelope_s']['ring_orbit_period'],petal_life_s=p['phase_envelope_s']['petal_life'],
+-                release_s=g['release_s'],seed=g['seed'],support_tint=g['support_tint'],
++                release_s=g['release_s'],seed=g['seed'],support_tint=g['support_tint'],seal_aspect=g['seal_aspect'],
+                 primitives={role:dict(g[role],png=root+g[role]['png'],material=root+'materials/'+role.title()+'.tres') for role in ('ring','petal','seal')},
+                 halo_material=root+'materials/Halo.tres',floor_material=root+'materials/FloorLight.tres')
+ 
+@@ -4094,7 +4115,7 @@
+     (out/'scripts/vfx_g4.gd').write_text(G4_SCRIPT)
+     (out/'scripts/vfx_contact_label.gd').write_text(CONTACT_LABEL_SCRIPT)
+     scene='[gd_scene load_steps=2 format=3]\n[ext_resource type="Script" path="res://scripts/vfx_g4.gd" id="G4"]\n[node name="G4AuraLoop" type="Node2D"]\nscript = ExtResource("G4")\ntexture_filter = 2\n'
+-    for name,kind,parent in [('Ground','Node2D','.'),('Seal','Sprite2D','Ground'),('Halo','Sprite2D','Ground'),('FloorLight','Sprite2D','Ground'),('Ring','Node2D','.'),('Petals','Node2D','.')]:
++    for name,kind,parent in [('Ground','Node2D','.'),('SealPivot','Node2D','Ground'),('Seal','Sprite2D','Ground/SealPivot'),('Halo','Sprite2D','Ground'),('FloorLight','Sprite2D','Ground'),('Ring','Node2D','.'),('Petals','Node2D','.')]:
+         scene+='\n[node name="'+name+'" type="'+kind+'" parent="'+parent+'"]\ntexture_filter = 2\n'
+     (out/'scenes/vfx/g4_aura_loop.tscn').write_text(scene)
+ 
+@@ -4179,9 +4200,11 @@
+     rng.seed = int(config.seed)
+     for container in [$Ring,$Petals]:
+         for child in container.get_children(): child.free()
+-    _bind($Ground/Seal,"seal")
+-    $Ground/Seal.rotation = 0.0
+-    $Ground/Seal.modulate.a = .8
++    _bind($Ground/SealPivot/Seal,"seal")
++    $Ground/SealPivot.scale = Vector2(1,float(config.seal_aspect))
++    $Ground/SealPivot/Seal.scale.y /= float(config.seal_aspect)
++    $Ground/SealPivot/Seal.rotation = 0.0
++    $Ground/SealPivot/Seal.modulate.a = .8
+     for name in ["Halo","FloorLight"]:
+         var sprite: Sprite2D = get_node("Ground/"+name)
+         _bind(sprite,"seal")
+@@ -4218,8 +4241,8 @@
+         releasing = true
+         _record("release_start")
+     var fade: float = clampf(float(age-ending)/release_frames,0,1)
+-    $Ground/Seal.rotation = TAU*float(age)/480.0
+-    $Ground/Seal.modulate.a = .8*(1.0-fade)
++    $Ground/SealPivot/Seal.rotation = TAU*float(age)/480.0
++    $Ground/SealPivot/Seal.modulate.a = .8*(1.0-fade)
+     $Ground/Halo.modulate.a = .2*(1.0-fade)
+     $Ground/FloorLight.modulate.a = .15*(1.0-fade)
+     for i in range(5):
+@@ -4243,7 +4266,7 @@
+         petal.material.set_shader_parameter("dissolve",dissolve)
+         petal.modulate.a = 1.0 if life<18 else 1.0-float(life-18)/9.0
+     _sync()
+-    trace.append({"age_frames":age,"generation":generation,"owner":[caster.global_position.x,caster.global_position.y],"seal":[ $Ground/Seal.global_position.x,$Ground/Seal.global_position.y],"ring_center":[ $Ring.global_position.x,$Ring.global_position.y],"petal_count":$Petals.get_child_count(),"pulse_count":pulse_index,"erode":fade,"seal_alpha":$Ground/Seal.modulate.a})
++    trace.append({"age_frames":age,"generation":generation,"owner":[caster.global_position.x,caster.global_position.y],"seal":[ $Ground/SealPivot/Seal.global_position.x,$Ground/SealPivot/Seal.global_position.y],"ring_center":[ $Ring.global_position.x,$Ring.global_position.y],"petal_count":$Petals.get_child_count(),"pulse_count":pulse_index,"erode":fade,"seal_alpha":$Ground/SealPivot/Seal.modulate.a})
+     if age>=ending+release_frames:
+         _record("expire")
+         active = false
+@@ -4320,6 +4343,66 @@
+ 
+ 
+ 
++def _write_orb_nova(out, kit, resource_root, prefix):
++    """Reuse the sixteen immutable masks with a separate expiry clock."""
++    import copy
++    from export.effect_kit import write_vfx_material
++    d=kit['effect']; legacy=dict(kit,effect=copy.deepcopy(d))
++    legacy['effect'].pop('orb')
++    legacy['effect']['pieces']['template']='burst_v1'
++    legacy['effect']['layers']['dark_duplicate']=False
++    _write_piece_burst(out,legacy,resource_root,prefix)
++    scene_path=out/f'scenes/{prefix}_impact.tscn'; scene=scene_path.read_text()
++    scene=scene.replace('res://scripts/vfx/piece_burst.gd','res://scripts/vfx/orb_nova.gd')
++    body=d['orb']['body']; source=kit['root']/body['png']
++    target=out/resource_root/body['png']; target.parent.mkdir(parents=True,exist_ok=True);shutil.copyfile(source,target)
++    field=d['distance_fields'][body['png']]; target=out/resource_root/field;target.parent.mkdir(parents=True,exist_ok=True);shutil.copyfile(kit['root']/field,target)
++    with Image.open(source) as im: box=im.getchannel('A').getbbox()
++    scale=d['orb']['expiry_core_bh']*130/max(box[2]-box[0],box[3]-box[1])
++    material=resource_root+'/materials/NovaCore.tres'
++    write_vfx_material(out,material,dict(d['material'],blend_mode='ADD'),resource_root+'/'+field)
++    ext=f'[ext_resource type="Texture2D" path="res://{resource_root}/{body["png"]}" id="CoreTexture"]\n[ext_resource type="Material" path="res://{material}" id="CoreMaterial"]\n'
++    index=scene.index('[node ');scene=scene[:index]+ext+scene[index:]
++    scene += ('\n[node name="Core" type="Sprite2D" parent="Art"]\ntexture_filter = 2\ncentered = false\n'
++              f'offset = Vector2({-body["pivot"][0]}, {-body["pivot"][1]})\nscale = Vector2({scale}, {scale})\n'
++              'texture = ExtResource("CoreTexture")\nmaterial = ExtResource("CoreMaterial")\n')
++    scene=re.sub(r'load_steps=\d+','load_steps='+str(scene.count('[ext_resource ')+1),scene,count=1)
++    scene_path.write_text(scene)
++    runtime_path=out/resource_root/'pieces/burst_runtime.json';runtime=json.loads(runtime_path.read_text())
++    runtime.update(phase_scale=1.,expiry_mode='nova',expiry_core_bh=d['orb']['expiry_core_bh'],expiry_decal=False,hold_frames=0,residue_frames=0)
++    runtime_path.write_text(json.dumps(runtime,indent=2)+'\n')
++    (out/'scripts/vfx/orb_nova.gd').write_text(ORB_NOVA_SCRIPT)
++
++
++ORB_NOVA_SCRIPT = r'''extends "res://scripts/vfx/piece_burst.gd"
++func set_effect_age(age: int) -> void:
++    if age==last_age: return
++    last_age=age
++    for name in ["Peak","PeakDark","Flash","Glow"]: get_node("Art/"+name).hide()
++    $FloorLight.hide()
++    $Art/Core.visible=age<6
++    $Art/Core.modulate.a=maxf(0.0,1.0-float(age)/6.0)
++    var states: Array=[]
++    var alive: bool=age<30
++    for item in pieces:
++        var node: Sprite2D=item.node
++        var angle: float=deg_to_rad(float(item.record.radial_angle_deg))
++        var axis: Vector2=Vector2.from_angle(angle)
++        node.position=axis*float(config.base_speed_px_s)*float(age)/60.0
++        node.rotation=angle
++        node.scale=Vector2.ONE
++        node.visible=alive
++        node.material.set_shader_parameter("erode",clampf(float(age)/30.0,0,1))
++        node.material.set_shader_parameter("dissolve",0.0)
++        states.append({"id":item.record.id,"position":[node.position.x,node.position.y],"distance_px":node.position.length(),"rotation_deg":rad_to_deg(angle),"visible":alive,"erode":clampf(float(age)/30.0,0,1)})
++    trace.append({"age_frames":age,"stage":"nova" if alive else "zero","peak_visible":$Art/Peak.visible or $Art/PeakDark.visible or $Art/Flash.visible or $Art/Glow.visible,"decal_visible":has_node("Decal"),"residue_visible":false,"core_visible":$Art/Core.visible,"core_alpha":$Art/Core.modulate.a,"shard_count":pieces.size() if alive else 0,"pieces":states})
++    if not alive:
++        hide()
++        _write_trace()
++        queue_free()
++'''
++
++
+ def _orb_config(kit):
+     from export.effect_kit import orb_schedule_report
+     d=kit.get('effect', {})
+@@ -4439,7 +4522,7 @@
+             _emit_child(int(config.schedule.emission_ages[schedule_index]))
+             schedule_index += 1
+         if age >= int(config.expiry_frames) and not draining: expire()
+-    if draining and not burst_started and age >= expiry_age + 2:
++    if draining and not burst_started and age >= expiry_age + (0 if config.orb.expiry_mode=="nova" else 2):
+         burst_started = true
+         burst_node = load(config.impact).instantiate()
+         burst_node.set("spell_scale", 1.0)
+@@ -4448,8 +4531,9 @@
+         burst_node.position = get_parent().to_local(global_position)
+         get_parent().add_child(burst_node)
+         # The orb already held for two ticks. Enter v1r's radial stage directly.
+-        burst_node.release_tick = Engine.get_physics_frames() - 3
+-        burst_node.set_effect_age(3)
++        var start_age: int = 0 if config.orb.expiry_mode=="nova" else 3
++        burst_node.release_tick = Engine.get_physics_frames() - start_age
++        burst_node.set_effect_age(start_age)
+         _record("expiry_burst")
+         events[-1].merge({"shards":16,"position":[global_position.x,global_position.y],"hold_frames":age-expiry_age})
+         $OrbBody.hide()
+--- a/runs/C-5/specs/frozen_orb.json
++++ b/runs/C-5/specs/frozen_orb.json
+@@ -12,7 +12,7 @@
+   "count": 1,
+   "emission": {
+    "child": "ice_bolt_mini",
+-   "schedule": "every 2\u20133 frames (seeded jitter, FF-08), spiral, 3 per revolution",
++   "schedule": "every 2\u20134 frames (seeded balanced shuffle, FF-08), spiral, 3 per revolution",
+    "child_speed_px_s": 900,
+    "child_range_px": 260
+   },
+@@ -25,6 +25,9 @@
+   "pierce": -1
+  },
+  "presentation": {
++  "expiry_mode": "nova",
++  "expiry_core_bh": 0.8,
++  "expiry_decal": false,
+   "primitive_bindings": {
+    "travel_head": "ice orb = P_ice_puff rotated (0.9 BH) + rim shards",
+    "child": "P_ice_shard (0.35 BH)",
+@@ -53,6 +56,8 @@
+   ]
+  },
+  "provenance": {
++  "balanced_emission": "R-C5-75",
++  "rendered_nova": "R-C5-74 F-C5-19",
+   "orb speed / spiral bolts / expiry shard burst": "D2 source observation (conductor memory: slow orb ~ 1.5 s flight, continuous bolt spiral, final nova of ice bolts) \u2014 VERIFY against the C-5 reference corpus before E3-FO",
+   "pierce -1": "Matt R-C5 Packet-84 (skill pierce)",
+   "bands": "E2 ice palette",
+--- a/runs/C-5/specs/healing_hands.json
++++ b/runs/C-5/specs/healing_hands.json
+@@ -7,7 +7,7 @@
+  "mechanics": {
+   "origin_socket": "caster_root",
+   "aim_rule": "owner-tracking",
+-  "radius_px": 220,
++  "radius_px": 160,
+   "duration_s": 4.0,
+   "pulse_schedule_s": [
+    0.0,
+@@ -29,7 +29,7 @@
+    "residue": "none"
+   },
+   "body_extents_bh": {
+-   "ring_diameter": 3.4,
++   "ring_diameter": 2.46,
+    "petal": 0.8
+   },
+   "phase_envelope_s": {
+@@ -44,6 +44,7 @@
+   ]
+  },
+  "provenance": {
++  "rendered_ring": "R-C5-74 F-C5-18",
+   "aura loop with pulses": "LE source observation (conductor memory) \u2014 VERIFY; aura_loop_v1 band PROVISIONAL (03- \u00a7 2.2 caveat)",
+   "support preset": "03- \u00a7 2.1 response classes",
+   "pulse_schedule": "conductor R-C5-70: re-authored for FF-08 (CV 0.55); the first (CV 0.18) was conductor error, T4u reported it"
+--- a/runs/C-5/specs/poisonous_concoction.json
++++ b/runs/C-5/specs/poisonous_concoction.json
+@@ -28,6 +28,12 @@
+   "termination": "field_expiry"
+  },
+  "presentation": {
++  "ground_squash": 0.72,
++  "density": 0.6,
++  "erode_noise": 0.4,
++  "roil_uv_per_s": 0.05,
++  "dark_alpha": 0.5,
++  "dark_offset_px": 6,
+   "primitive_bindings": {
+    "projectile": "RGB flask (green glass)",
+    "impact": "splash: viscous lobes \u00d74 (P_poison_lobe) fly low + short",
+@@ -55,6 +61,7 @@
+   ]
+  },
+  "provenance": {
++  "rendered_cloud": "R-C5-74 F-C5-16",
+   "thrown flask / poison cloud": "PoE source observation (conductor memory) \u2014 VERIFY",
+   "density gate": "03- \u00a7 2.3 density-asset gate (validated at E2/E3)",
+   "tick_schedule": "conductor R-C5-55: re-authored for FF-08 (CV 0.42 \u2265 0.25); the first schedule (CV < 0.25) was the conductor error T4s reported"
+--- a/runs/C-5/vfx_kits/v9/frozen_orb_e3/kit.json
++++ b/runs/C-5/vfx_kits/v9/frozen_orb_e3/kit.json
+@@ -74,7 +74,7 @@
+       "count": 1,
+       "emission": {
+         "child": "ice_bolt_mini",
+-        "schedule": "every 2\u20133 frames (seeded jitter, FF-08), spiral, 3 per revolution",
++        "schedule": "every 2\u20134 frames (seeded balanced shuffle, FF-08), spiral, 3 per revolution",
+         "child_speed_px_s": 900,
+         "child_range_px": 260
+       },
+@@ -112,13 +112,18 @@
+         "victim_tint",
+         "hit_stop",
+         "contact_label"
+-      ]
++      ],
++      "expiry_mode": "nova",
++      "expiry_core_bh": 0.8,
++      "expiry_decal": false
+     },
+     "provenance": {
+       "orb speed / spiral bolts / expiry shard burst": "D2 source observation (conductor memory: slow orb ~ 1.5 s flight, continuous bolt spiral, final nova of ice bolts) \u2014 VERIFY against the C-5 reference corpus before E3-FO",
+       "pierce -1": "Matt R-C5 Packet-84 (skill pierce)",
+       "bands": "E2 ice palette",
+-      "range_and_emission": "corrected R-C5-72 per T4v findings"
++      "range_and_emission": "corrected R-C5-72 per T4v findings",
++      "balanced_emission": "R-C5-75",
++      "rendered_nova": "R-C5-74 F-C5-19"
+     }
+   },
+   "phases": {
+@@ -205,8 +210,13 @@
+     "child_pierce": 0,
+     "interval_frames_choices": [
+       2,
+-      3
+-    ]
++      3,
++      4
++    ],
++    "interval_draw": "balanced_shuffle",
++    "expiry_mode": "nova",
++    "expiry_core_bh": 0.8,
++    "expiry_decal": false
+   },
+   "distance_fields": {
+     "flare/flare_00.png": "distance/flare/flare_00.png",
+--- a/runs/C-5/vfx_kits/v9/healing_hands_e3/kit.json
++++ b/runs/C-5/vfx_kits/v9/healing_hands_e3/kit.json
+@@ -1,175 +1,177 @@
+ {
+- "name": "healing_hands_e3",
+- "element": "holy",
+- "element_class": "support",
+- "screen_px": true,
+- "ground_squash": 0.58,
+- "material": {
+-  "palette": [
+-   [
+-    0.18,
+-    0.14,
+-    0.055,
+-    1
+-   ],
+-   [
+-    0.52,
+-    0.43,
+-    0.19,
+-    1
+-   ],
+-   [
+-    0.88,
+-    0.77,
+-    0.43,
+-    1
+-   ],
+-   [
+-    1.0,
+-    0.96,
+-    0.78,
+-    1
+-   ]
+-  ],
+-  "blend_mode": "ADD",
+-  "light_participation": false,
+-  "erode_outside_in": true,
+-  "dissolve_order": [
+-   [
+-    3
+-   ],
+-   [
+-    2
+-   ],
+-   [
+-    1,
+-    0
+-   ]
+-  ]
+- },
+- "phases": {
+-  "cast": {
+-   "sheet": "flare/flare_00.png",
+-   "frames": [
+-    {
+-     "file": "flare/flare_00.png",
+-     "hold_frames": 1
++  "name": "healing_hands_e3",
++  "element": "holy",
++  "element_class": "support",
++  "screen_px": true,
++  "ground_squash": 0.58,
++  "material": {
++    "palette": [
++      [
++        0.18,
++        0.14,
++        0.055,
++        1
++      ],
++      [
++        0.52,
++        0.43,
++        0.19,
++        1
++      ],
++      [
++        0.88,
++        0.77,
++        0.43,
++        1
++      ],
++      [
++        1.0,
++        0.96,
++        0.78,
++        1
++      ]
++    ],
++    "blend_mode": "ADD",
++    "light_participation": false,
++    "erode_outside_in": true,
++    "dissolve_order": [
++      [
++        3
++      ],
++      [
++        2
++      ],
++      [
++        1,
++        0
++      ]
++    ]
++  },
++  "phases": {
++    "cast": {
++      "sheet": "flare/flare_00.png",
++      "frames": [
++        {
++          "file": "flare/flare_00.png",
++          "hold_frames": 1
++        }
++      ]
++    },
++    "travel": {
++      "sheet": "travel/travel_00.png",
++      "frames": [
++        {
++          "file": "travel/travel_00.png",
++          "hold_frames": 1
++        }
++      ]
++    },
++    "impact": {
++      "sheet": "impact/impact_00.png",
++      "frames": [
++        {
++          "file": "impact/impact_00.png",
++          "hold_frames": 1
++        }
++      ]
+     }
+-   ]
+   },
+-  "travel": {
+-   "sheet": "travel/travel_00.png",
+-   "frames": [
+-    {
+-     "file": "travel/travel_00.png",
+-     "hold_frames": 1
++  "layers": {
++    "dark_duplicate": false,
++    "glow": {
++      "alpha": 0.2,
++      "scale": 1.02
++    },
++    "floor_light": {
++      "duration_s": 4.0,
++      "radius_px": 160
+     }
+-   ]
+   },
+-  "impact": {
+-   "sheet": "impact/impact_00.png",
+-   "frames": [
+-    {
+-     "file": "impact/impact_00.png",
+-     "hold_frames": 1
++  "skill_spec": {
++    "skill_id": "healing_hands",
++    "source_game": "Last Epoch \u2014 Paladin: Healing Hands",
++    "grammar": "G4",
++    "visual_treatment_id": "holy",
++    "response_class": "aura_loop (support preset)",
++    "mechanics": {
++      "origin_socket": "caster_root",
++      "aim_rule": "owner-tracking",
++      "radius_px": 160,
++      "duration_s": 4.0,
++      "pulse_schedule_s": [
++        0.0,
++        0.45,
++        1.6,
++        1.95,
++        3.1,
++        3.45
++      ],
++      "pulse_cv_min": 0.25,
++      "stack": "refresh",
++      "termination": "duration"
++    },
++    "presentation": {
++      "primitive_bindings": {
++        "aura body": "P06 broken ring segments (holy) \u00d75 orbiting slowly at the feet (ground-bound, 0.58 squash)",
++        "pulse": "P_holy_ray folded petals \u00d76 rising from the ring on each pulse (upright bodies)",
++        "seal": "interrupted seal decal under the caster (MIX, ground)",
++        "residue": "none"
++      },
++      "body_extents_bh": {
++        "ring_diameter": 2.46,
++        "petal": 0.8
++      },
++      "phase_envelope_s": {
++        "loop": 4.0,
++        "petal_life": 0.45,
++        "ring_orbit_period": 2.6
++      },
++      "enabled_layers": [
++        "halo",
++        "floor_light",
++        "dark_duplicate"
++      ]
++    },
++    "provenance": {
++      "aura loop with pulses": "LE source observation (conductor memory) \u2014 VERIFY; aura_loop_v1 band PROVISIONAL (03- \u00a7 2.2 caveat)",
++      "support preset": "03- \u00a7 2.1 response classes",
++      "rendered_ring": "R-C5-74 F-C5-18"
+     }
+-   ]
+-  }
+- },
+- "layers": {
+-  "dark_duplicate": false,
+-  "glow": {
+-   "alpha": 0.2,
+-   "scale": 1.02
+   },
+-  "floor_light": {
+-   "duration_s": 4.0,
+-   "radius_px": 220
+-  }
+- },
+- "skill_spec": {
+-  "skill_id": "healing_hands",
+-  "source_game": "Last Epoch \u2014 Paladin: Healing Hands",
+-  "grammar": "G4",
+-  "visual_treatment_id": "holy",
+-  "response_class": "aura_loop (support preset)",
+-  "mechanics": {
+-   "origin_socket": "caster_root",
+-   "aim_rule": "owner-tracking",
+-   "radius_px": 220,
+-   "duration_s": 4.0,
+-   "pulse_schedule_s": [
+-    0.0,
+-    0.45,
+-    1.6,
+-    1.95,
+-    3.1,
+-    3.45
+-   ],
+-   "pulse_cv_min": 0.25,
+-   "stack": "refresh",
+-   "termination": "duration"
++  "g4": {
++    "seed": 2026,
++    "release_s": 0.3,
++    "support_tint": [
++      1.0,
++      0.94,
++      0.72,
++      1.0
++    ],
++    "ring": {
++      "png": "primitives/ring.png",
++      "pivot": [
++        253.0,
++        247.5
++      ],
++      "scale": 0.7
++    },
++    "petal": {
++      "png": "primitives/petal.png",
++      "pivot": [
++        283.5,
++        312.0
++      ],
++      "scale": 1.0196078431372548
++    },
++    "seal": {
++      "png": "primitives/seal.png",
++      "pivot": [
++        245.5,
++        270.5
++      ],
++      "scale": 1.0
++    },
++    "seal_aspect": 0.6625
+   },
+-  "presentation": {
+-   "primitive_bindings": {
+-    "aura body": "P06 broken ring segments (holy) \u00d75 orbiting slowly at the feet (ground-bound, 0.58 squash)",
+-    "pulse": "P_holy_ray folded petals \u00d76 rising from the ring on each pulse (upright bodies)",
+-    "seal": "interrupted seal decal under the caster (MIX, ground)",
+-    "residue": "none"
+-   },
+-   "body_extents_bh": {
+-    "ring_diameter": 3.4,
+-    "petal": 0.8
+-   },
+-   "phase_envelope_s": {
+-    "loop": 4.0,
+-    "petal_life": 0.45,
+-    "ring_orbit_period": 2.6
+-   },
+-   "enabled_layers": [
+-    "halo",
+-    "floor_light",
+-    "dark_duplicate"
+-   ]
+-  },
+-  "provenance": {
+-   "aura loop with pulses": "LE source observation (conductor memory) \u2014 VERIFY; aura_loop_v1 band PROVISIONAL (03- \u00a7 2.2 caveat)",
+-   "support preset": "03- \u00a7 2.1 response classes"
+-  }
+- },
+- "g4": {
+-  "seed": 2026,
+-  "release_s": 0.3,
+-  "support_tint": [
+-   1.0,
+-   0.94,
+-   0.72,
+-   1.0
+-  ],
+-  "ring": {
+-   "png": "primitives/ring.png",
+-   "pivot": [
+-    253.0,
+-    247.5
+-   ],
+-   "scale": 1.0
+-  },
+-  "petal": {
+-   "png": "primitives/petal.png",
+-   "pivot": [
+-    283.5,
+-    312.0
+-   ],
+-   "scale": 1.0196078431372548
+-  },
+-  "seal": {
+-   "png": "primitives/seal.png",
+-   "pivot": [
+-    245.5,
+-    270.5
+-   ],
+-   "scale": 1.0
+-  }
+- },
+- "pierce": 0
+-}+  "pierce": 0
++}
+--- a/runs/C-5/vfx_kits/v9/poisonous_concoction_e3/kit.json
++++ b/runs/C-5/vfx_kits/v9/poisonous_concoction_e3/kit.json
+@@ -3,11 +3,11 @@
+   "element": "poison",
+   "element_class": "field",
+   "screen_px": true,
+-  "ground_squash": 0.58,
++  "ground_squash": 0.72,
+   "material": {
+     "blend_mode": "MIX",
+     "light_participation": false,
+-    "erode": 0.0,
++    "erode": 0.3,
+     "dissolve": 0.0,
+     "palette": [
+       [
+@@ -34,7 +34,9 @@
+         0.6,
+         1
+       ]
+-    ]
++    ],
++    "erode_noise": 0.4,
++    "erode_outside_in": true
+   },
+   "phases": {
+     "cast": {
+@@ -121,11 +123,18 @@
+         "victim_tint",
+         "hit_stop",
+         "contact_label"
+-      ]
++      ],
++      "ground_squash": 0.72,
++      "density": 0.6,
++      "erode_noise": 0.4,
++      "roil_uv_per_s": 0.05,
++      "dark_alpha": 0.5,
++      "dark_offset_px": 6
+     },
+     "provenance": {
+       "thrown flask / poison cloud": "PoE source observation (conductor memory) \u2014 VERIFY",
+-      "density gate": "03- \u00a7 2.3 density-asset gate (validated at E2/E3)"
++      "density gate": "03- \u00a7 2.3 density-asset gate (validated at E2/E3)",
++      "rendered_cloud": "R-C5-74 F-C5-16"
+     }
+   },
+   "g2": {
+@@ -138,7 +147,10 @@
+       "duration_s": 0.25,
+       "residue_s": 0
+     },
+-    "seed": 2026
++    "seed": 2026,
++    "roil_uv_per_s": 0.05,
++    "dark_offset_px": 6,
++    "dark_alpha": 0.5
+   },
+-  "density": 0.75
++  "density": 0.6
+ }
+--- a/tests/test_effect_kit.py
++++ b/tests/test_effect_kit.py
+@@ -2111,7 +2111,7 @@
+             self.assertEqual({k:v for k,v in data['skill_spec'].items() if k!='provenance'},
+                              {k:v for k,v in current_spec.items() if k!='provenance'})
+             self.assertEqual((root/data['g2']['flask']).read_bytes(),(ROOT/'runs/C-5/artifacts/VF-prim-flask-01/flask_01_512.png').read_bytes())
+-            self.assertEqual(data['ground_squash'],.58)
++            self.assertEqual(data['ground_squash'],data['skill_spec']['presentation'].get('ground_squash',data['ground_squash']))
+             self.assertTrue(data['screen_px'])
+             ticks=data['skill_spec']['mechanics']['field']['tick_schedule_s']
+             current_spec = json.loads((ROOT/f'runs/C-5/specs/{name}.json').read_text())
+@@ -2119,7 +2119,7 @@
+             self.assertTrue(assert_tick_schedule(ticks)['ff08_satisfied'])
+         self.assertTrue(assert_tick_schedule([0,.1,.6,1.])['ff08_satisfied'])
+         data=load_kit(kits/'poisonous_concoction_e3')
+-        self.assertEqual(data['density'],.75)
++        self.assertEqual(data['density'],data['skill_spec']['presentation']['density'])
+         for role,source in [('pulse','VF-prim-poison-lobe-01/poison_lobe_01_512.png'),('field_source','VF-prim-poison-puff-01/poison_puff_01_512.png')]:
+             with Image.open(ROOT/'runs/C-5/artifacts'/source) as image: original=np.asarray(image.convert('RGBA'))
+             with Image.open(kits/'poisonous_concoction_e3'/data['g2'][role]) as image: actual=np.asarray(image)
+@@ -2146,7 +2146,7 @@
+             source=ROOT/'runs/C-5/vfx_kits/v9/poisonous_concoction_e3'
+             build(source/'kit.json',Path(tmp)/'kit')
+             data=load_kit(Path(tmp)/'kit')
+-            self.assertEqual(data['density'],.75)
++            self.assertEqual(data['density'],data['skill_spec']['presentation']['density'])
+             self.assertEqual((Path(tmp)/'kit'/data['g2']['flask']).read_bytes(),(source/'primitives/flask.png').read_bytes())
+ 
+ 
+@@ -2224,7 +2224,7 @@
+ 
+     def test_poison_four_band_ramp_density_and_rebuild(self):
+         root=ROOT/'runs/C-5/vfx_kits/v9/poisonous_concoction_e3'; data=load_kit(root)
+-        self.assertEqual(data['density'], .75)
++        self.assertEqual(data['density'],data['skill_spec']['presentation']['density'])
+         self.assertEqual(data['material']['palette'], [[.10,.14,.06,1],[.20,.42,.16,1],[.55,.78,.30,1],[.85,.95,.60,1]])
+         work=ROOT/'runs/C-5/t3/T4s-r3';work.mkdir(parents=True,exist_ok=True)
+         for name in ('blackwater_cocktail_e3','poisonous_concoction_e3'):
+@@ -2290,11 +2290,10 @@
+         self.assertEqual(report['flight_frames'],90)
+         ages = report['emission_ages']
+         self.assertTrue(all(b > a for a,b in zip([0]+ages,ages)))
+-        self.assertTrue(set(np.diff([0]+ages)) <= {2,3})
+-        self.assertGreaterEqual(len(ages),30)
+-        self.assertLessEqual(len(ages),45)
+-        # Keep the conductor's requested gate literal, even though {2,3}
+-        # cannot mathematically reach CV .25 (maximum 1/sqrt(24)).
++        self.assertTrue(set(np.diff([0]+ages)) <= set(data['orb']['interval_frames_choices']))
++        self.assertGreaterEqual(len(ages),26)
++        self.assertLessEqual(len(ages),34)
++        # R-C5-75 balanced {2,3,4} multiset honours the unchanged FF-08 gate.
+         with self.subTest(contract='FF-08 CV'):
+             self.assertGreaterEqual(report['interval_cv'],.25)
+         with self.subTest(contract='FF-08 satisfied'):
+@@ -2314,8 +2313,11 @@
+         first=orb_schedule_report(data)
+         self.assertEqual(first,orb_schedule_report(data))
+         rng=random.Random(data['orb']['seed']); expected=[]; age=0
+-        while True:
+-            age+=rng.choice(data['orb']['interval_frames_choices'])
++        choices=data['orb']['interval_frames_choices']
++        intervals=choices*math.ceil(math.ceil(first['flight_frames']/min(choices))/len(choices))
++        rng.shuffle(intervals)
++        for interval in intervals:
++            age+=interval
+             if age>first['flight_frames']:break
+             expected.append(age)
+         self.assertEqual(first['emission_ages'],expected)
+@@ -2363,3 +2365,22 @@
+         with tempfile.TemporaryDirectory(dir=work) as tmp:
+             build(d,Path(tmp)/'kit')
+             self.assertEqual(load_kit(Path(tmp)/'kit'),load_kit(root))
++
++
++class RenderedLookValidationTests(unittest.TestCase):
++    def test_new_key_ranges_and_balanced_emission_seeds(self):
++        from export.effect_kit import validate_orb,validate_aura_loop,validate_thrown_field,orb_schedule_report
++        root=ROOT/'runs/C-5/vfx_kits/v9'
++        cases=[('frozen_orb_e3',validate_orb,[(('orb','interval_draw'),'random'),(('orb','expiry_mode'),'impact'),(('orb','expiry_core_bh'),.39),(('orb','expiry_core_bh'),1.21),(('orb','expiry_decal'),1)]),
++               ('healing_hands_e3',validate_aura_loop,[(('g4','seal_aspect'),0),(('g4','seal_aspect'),1)]),
++               ('poisonous_concoction_e3',validate_thrown_field,[(('g2','roil_uv_per_s'),-.01),(('g2','roil_uv_per_s'),.21),(('g2','dark_offset_px'),-1),(('g2','dark_offset_px'),13)])]
++        for name,validate,changes in cases:
++            d=load_kit(root/name)
++            for keys,value in changes:
++                bad=copy.deepcopy(d);bad[keys[0]][keys[1]]=value
++                with self.subTest(name=name,key=keys,value=value),self.assertRaises(ValueError):validate(bad,root/name,True)
++        d=load_kit(root/'frozen_orb_e3')
++        for seed in [2026,2027,1]:
++            d['orb']['seed']=seed;r=orb_schedule_report(d)
++            self.assertGreaterEqual(r['interval_cv'],.25);self.assertTrue(r['ff08_satisfied'])
++            self.assertTrue(26<=r['emission_count']<=34)
+--- a/tests/test_godot_import.py
++++ b/tests/test_godot_import.py
+@@ -1101,6 +1101,7 @@
+             self.assertAlmostEqual(row['drawn_size'][0], 45.5, places=3)
+ 
+     def test_cloud_density_reaches_shader_once_at_the_ground_point(self):
++        density=self.trace['poisonous_concoction_e3']['config']['density']
+         rows = [r for r in self.trace['rows'] if r['kit']=='poisonous_concoction_e3' and r['path'].endswith('/Field') and r['age_frames'] in (40,84)]
+         self.assertEqual(len(rows), 2)
+         self.assertGreaterEqual(self.trace['density_control']['field_alpha'], .35*.65/.75-1e-6)
+@@ -1108,8 +1109,8 @@
+         self.assertEqual(self.trace['density_control']['ground_alpha'], 1)
+         for row in rows:
+             self.assertTrue(row['visible_in_tree'])
+-            self.assertGreaterEqual(row['alpha'], .65-1e-6)
+-            self.assertLessEqual(row['alpha'], .8+1e-6)
++            self.assertGreaterEqual(row['alpha'], density*(1-.10/.75)-1e-6)
++            self.assertLessEqual(row['alpha'], density*(1+.05/.75)+1e-6)
+             self.assertIn('coverage_modulate = COLOR.a;', row['shader_code'])
+             self.assertIn('index_sample.a * paint.a * coverage_modulate', row['shader_code'])
+             self.assertGreater(row['drawn_size'][0], 200)
+@@ -1368,8 +1369,9 @@
+ 
+     def test_cloud_breath_lobe_lifetime_layers_and_darker_decal(self):
+         name='poisonous_concoction_e3';frames=self.trace[name]['trace'];live=[r['field_alpha'] for r in frames if r['field_alive']]
+-        self.assertGreaterEqual(min(live),.65-1e-6);self.assertLessEqual(max(live),.8+1e-6)
+-        self.assertLess(min(live),.652);self.assertGreater(max(live),.798)
++        density=next(c['density'] for c in self.configs if c['treatment']=='poison')
++        self.assertGreaterEqual(min(live),density*(1-.10/.75)-1e-6);self.assertLessEqual(max(live),density*(1+.05/.75)+1e-6)
++        self.assertLess(min(live),density*.87);self.assertGreater(max(live),density*1.06)
+         for age in (30,31,37,44):
+             for i in range(4):
+                 row=self.rows(name,'Lobe'+str(i),age)[0]
+@@ -1488,7 +1490,7 @@
+         self.assertTrue(all(p['rotation']==0 for r in rows.values() for p in r['petals']))
+ 
+ 
+-AURA_LOOP_PROBE = 'extends SceneTree\nvar checks: Dictionary = {}\nvar rows: Array = []\nfunc _initialize() -> void:\n    call_deferred("run")\nfunc run() -> void:\n    var world := Node2D.new()\n    root.add_child(world)\n    current_scene=world\n    var caster := Node2D.new()\n    caster.name="Caster"\n    caster.z_index=2\n    caster.scale=Vector2.ONE*.54\n    caster.rotation=.3\n    world.add_child(caster)\n    var inside := Node2D.new()\n    inside.name="Inside"\n    world.add_child(inside)\n    inside.add_to_group("vfx_actors")\n    inside.add_to_group("vfx_targets")\n    inside.set_meta("body_index",1)\n    inside.position=Vector2(100,0)\n    var outside := Node2D.new()\n    outside.name="Outside"\n    world.add_child(outside)\n    outside.add_to_group("vfx_actors")\n    outside.set_meta("body_index",2)\n    outside.position=Vector2(800,0)\n    var kit: Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://aura_config.json"))\n    var g4=load("res://scripts/vfx_g4.gd")\n    var aura=g4.acquire(caster,kit)\n    aura.set_physics_process(false)\n    var max_follow: float=0\n    var sort_errors: int=0\n    var native_error: float=0\n    var seal_error: float=0\n    for age in range(1,259):\n        caster.position.x=minf(200,float(age)*200/120)\n        aura._clock(age)\n        max_follow=maxf(max_follow,aura.get_node("Ground/Seal").global_position.distance_to(caster.global_position))\n        max_follow=maxf(max_follow,aura.get_node("Ring").global_position.distance_to(caster.global_position))\n        native_error=maxf(native_error,absf(aura.global_scale.x-1.0))\n        seal_error=maxf(seal_error,absf(aura.get_node("Ground/Seal").scale.x-1.0))\n        for segment in aura.get_node("Ring").get_children():\n            if segment.z_index!=(1 if segment.position.y<0 else 3): sort_errors+=1\n        if age in [18,21,24,26,27,239,240,249,258]:\n            var petals: Array=[]\n            for p in aura.get_node("Petals").get_children():\n                petals.append({"born":p.get_meta("born"),"scale":p.scale.x,"rotation":p.rotation,"dissolve":p.material.get_shader_parameter("dissolve"),"alpha":p.modulate.a})\n            rows.append({"age":age,"petals":petals,"ring_erode":aura.get_node("Ring/Segment0").material.get_shader_parameter("erode"),"seal_alpha":aura.get_node("Ground/Seal").modulate.a})\n    var first_trace: Array=aura.trace.duplicate(true)\n    checks.follow_error_px=max_follow\n    checks.walk_east_px=caster.position.x\n    checks.sort_errors=sort_errors\n    checks.native_scale_error=native_error\n    checks.seal_scale_error=seal_error\n    checks.tint_restored=inside.modulate==Color.WHITE and caster.modulate==Color.WHITE\n    await process_frame\n    var second=g4.acquire(caster,kit)\n    second.set_physics_process(false)\n    for age in range(1,91):second._clock(age)\n    var same=g4.acquire(caster,kit)\n    same.set_physics_process(false)\n    checks.refresh_same_instance=same==second\n    checks.refresh_age=same.age_frames()\n    checks.refresh_generation=same.generation\n    checks.aura_count=caster.get_children().filter(func(n):return n.has_meta("g4_aura")).size()\n    for age in range(1,259):same._clock(age)\n    await process_frame\n    # Exercise actual physics updates with a moving owner, not only the deterministic hook.\n    var live=g4.acquire(caster,kit)\n    for i in range(12):\n        caster.position.x+=2\n        await physics_frame\n        await process_frame\n    checks.live_physics_age=live.age_frames()\n    checks.live_follow_error=live.get_node("Ground/Seal").global_position.distance_to(caster.global_position)\n    live.cancel()\n    await process_frame\n    await create_timer(.7).timeout\n    checks.labels_remaining=get_nodes_in_group("vfx_contact_labels").filter(func(n):return n.visible).size()\n    checks.aura_count_after_cancel=caster.get_children().filter(func(n):return n.has_meta("g4_aura")).size()\n    var file=FileAccess.open("res://aura_trace.json",FileAccess.WRITE)\n    file.store_string(JSON.stringify({"checks":checks,"events":g4.events,"labels":g4.label_events,"trace":first_trace,"rows":rows},"  "))\n    print("G4_TRACE ",JSON.stringify(checks))\n    quit(0)\n'
++AURA_LOOP_PROBE = 'extends SceneTree\nvar checks: Dictionary = {}\nvar rows: Array = []\nfunc _initialize() -> void:\n    call_deferred("run")\nfunc run() -> void:\n    var world := Node2D.new()\n    root.add_child(world)\n    current_scene=world\n    var caster := Node2D.new()\n    caster.name="Caster"\n    caster.z_index=2\n    caster.scale=Vector2.ONE*.54\n    caster.rotation=.3\n    world.add_child(caster)\n    var inside := Node2D.new()\n    inside.name="Inside"\n    world.add_child(inside)\n    inside.add_to_group("vfx_actors")\n    inside.add_to_group("vfx_targets")\n    inside.set_meta("body_index",1)\n    inside.position=Vector2(100,0)\n    var outside := Node2D.new()\n    outside.name="Outside"\n    world.add_child(outside)\n    outside.add_to_group("vfx_actors")\n    outside.set_meta("body_index",2)\n    outside.position=Vector2(800,0)\n    var kit: Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://aura_config.json"))\n    var g4=load("res://scripts/vfx_g4.gd")\n    var aura=g4.acquire(caster,kit)\n    aura.set_physics_process(false)\n    var max_follow: float=0\n    var sort_errors: int=0\n    var native_error: float=0\n    var seal_error: float=0\n    for age in range(1,259):\n        caster.position.x=minf(200,float(age)*200/120)\n        aura._clock(age)\n        max_follow=maxf(max_follow,aura.get_node("Ground/SealPivot/Seal").global_position.distance_to(caster.global_position))\n        max_follow=maxf(max_follow,aura.get_node("Ring").global_position.distance_to(caster.global_position))\n        native_error=maxf(native_error,absf(aura.global_scale.x-1.0))\n        seal_error=maxf(seal_error,absf(aura.get_node("Ground/SealPivot/Seal").scale.x-1.0))\n        for segment in aura.get_node("Ring").get_children():\n            if segment.z_index!=(1 if segment.position.y<0 else 3): sort_errors+=1\n        if age in [18,21,24,26,27,239,240,249,258]:\n            var petals: Array=[]\n            for p in aura.get_node("Petals").get_children():\n                petals.append({"born":p.get_meta("born"),"scale":p.scale.x,"rotation":p.rotation,"dissolve":p.material.get_shader_parameter("dissolve"),"alpha":p.modulate.a})\n            rows.append({"age":age,"petals":petals,"ring_erode":aura.get_node("Ring/Segment0").material.get_shader_parameter("erode"),"seal_alpha":aura.get_node("Ground/SealPivot/Seal").modulate.a})\n    var first_trace: Array=aura.trace.duplicate(true)\n    checks.follow_error_px=max_follow\n    checks.walk_east_px=caster.position.x\n    checks.sort_errors=sort_errors\n    checks.native_scale_error=native_error\n    checks.seal_scale_error=seal_error\n    checks.tint_restored=inside.modulate==Color.WHITE and caster.modulate==Color.WHITE\n    await process_frame\n    var second=g4.acquire(caster,kit)\n    second.set_physics_process(false)\n    for age in range(1,91):second._clock(age)\n    var same=g4.acquire(caster,kit)\n    same.set_physics_process(false)\n    checks.refresh_same_instance=same==second\n    checks.refresh_age=same.age_frames()\n    checks.refresh_generation=same.generation\n    checks.aura_count=caster.get_children().filter(func(n):return n.has_meta("g4_aura")).size()\n    for age in range(1,259):same._clock(age)\n    await process_frame\n    # Exercise actual physics updates with a moving owner, not only the deterministic hook.\n    var live=g4.acquire(caster,kit)\n    for i in range(12):\n        caster.position.x+=2\n        await physics_frame\n        await process_frame\n    checks.live_physics_age=live.age_frames()\n    checks.live_follow_error=live.get_node("Ground/SealPivot/Seal").global_position.distance_to(caster.global_position)\n    live.cancel()\n    await process_frame\n    await create_timer(.7).timeout\n    checks.labels_remaining=get_nodes_in_group("vfx_contact_labels").filter(func(n):return n.visible).size()\n    checks.aura_count_after_cancel=caster.get_children().filter(func(n):return n.has_meta("g4_aura")).size()\n    var file=FileAccess.open("res://aura_trace.json",FileAccess.WRITE)\n    file.store_string(JSON.stringify({"checks":checks,"events":g4.events,"labels":g4.label_events,"trace":first_trace,"rows":rows},"  "))\n    print("G4_TRACE ",JSON.stringify(checks))\n    quit(0)\n'
+ 
+ 
+ class FrozenOrbEmissionTests(unittest.TestCase):
+@@ -1498,7 +1500,7 @@
+         kits=_load_vfx_kits(root/'runs/C-5/vfx_kits/kits_v9.json')
+         kit=next(k for k in kits if 'orb' in k.get('effect',{}));config=_g1_config(kit)
+         self.assertEqual(config['grammar'],'G1');self.assertEqual(config['range_px'],630)
+-        self.assertEqual(config['orb']['interval_frames_choices'],[2,3])
++        self.assertEqual(config['orb']['interval_frames_choices'],kit['effect']['orb']['interval_frames_choices'])
+         self.assertEqual(config['schedule']['expiry_distance_px'],630)
+         self.assertTrue(config['schedule']['range_reached'])
+         self.assertEqual(config['speed_px_s'],420);self.assertEqual(config['pierce'],-1)
+@@ -1523,3 +1525,121 @@
+             entries=[{'name':k['name'],'dir':str(k['root'])} for k in kits if k['name']!=field['g2']['splash']['kit']]
+             path=Path(tmp)/'kits.json';path.write_text(json.dumps({'kits':entries}))
+             with self.assertRaisesRegex(ValueError,'dependency'): _load_vfx_kits(path)
++
++
++# T4x: real headless transforms/uniforms; CPU measurement of transformed alpha.
++RENDERED_LOOK_PROBE = r'''extends SceneTree
++func _initialize() -> void:
++    call_deferred("run")
++func run() -> void:
++    var world:=Node2D.new()
++    root.add_child(world)
++    current_scene=world
++    var owner:=Node2D.new()
++    world.add_child(owner)
++    owner.z_index=2
++    var configs: Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://look_configs.json"))
++    var aura=load("res://scripts/vfx_g4.gd").acquire(owner,configs.aura)
++    aura.set_physics_process(false)
++    var seal_rows: Array=[]
++    var ring_rows: Array=[]
++    for age in range(0,roundi(float(configs.aura.duration_s)*60)+1):
++        aura._clock(age)
++        if age%12==0:
++            var seal: Sprite2D=aura.get_node("Ground/SealPivot/Seal")
++            var t: Transform2D=seal.global_transform
++            seal_rows.append({"age":age,"basis":[t.x.x,t.x.y,t.y.x,t.y.y],"z":aura.get_node("Ground").z_index})
++        for segment in aura.get_node("Ring").get_children():
++            ring_rows.append(Vector2(segment.position.x,segment.position.y/.58).length())
++    var field=load("res://scripts/vfx_g2.gd").acquire(world,configs.cloud,Vector2.ZERO,{"kind":"ground","point":Vector2(480,0),"target":null},owner)
++    field.set_physics_process(false)
++    var clouds: Array=[]
++    for age in range(roundi((float(configs.cloud.flight_s)+float(configs.cloud.duration_s)+float(configs.cloud.residue_s))*60)):
++        field._clock(age)
++        var row: Dictionary=field.trace[-1].duplicate(true)
++        var dark: Sprite2D=field.ground_visual.get_node("DarkDuplicate")
++        var f: Sprite2D=field.ground_visual.get_node("Field")
++        row.dark_offset_measured=(dark.position-f.position).y
++        row.noise_uv=f.material.get_shader_parameter("noise_uv_offset").x
++        row.erode_noise=f.material.get_shader_parameter("erode_noise")
++        clouds.append(row)
++    var nova: Node2D=load(configs.orb.impact).instantiate()
++    world.add_child(nova)
++    nova.position=Vector2(float(configs.orb.range_px),0)
++    nova.set_physics_process(false)
++    for age in range(31):nova.set_effect_age(age)
++    var report: Dictionary={"seal":seal_rows,"ring_radii":ring_rows,"cloud":clouds,"nova":nova.trace,"nova_has_decal":nova.has_node("Decal")}
++    FileAccess.open("res://look_trace.json",FileAccess.WRITE).store_string(JSON.stringify(report))
++    aura.cancel()
++    field.cancel()
++    quit(0)
++'''
++
++class RenderedLookTraceTests(unittest.TestCase):
++    @classmethod
++    def setUpClass(cls):
++        import time
++        from export.godot_import import _load_vfx_kits,_g4_config,_g2_config,_g1_config
++        repo=Path(__file__).resolve().parents[1];cls.work=repo/'runs/C-5/t3/T4x';cls.work.mkdir(parents=True,exist_ok=True)
++        cls.project=cls.work/'catalogue_project'
++        if cls.project.exists():
++            import shutil
++            shutil.rmtree(cls.project)
++        cells=cls.work/'cells';cells.mkdir(exist_ok=True)
++        for kind,count in [('idle',1),('cast',4)]:
++            for i in range(count):Image.new('RGBA',(512,512),(40,80,120,255)).save(cells/f'{kind}_E_{i}.png')
++        sockets=cls.work/'sockets.json';sockets.write_text(json.dumps({'version':1,'canvas':[512,512],'cells':{'cast_E':{'sockets':[[270,240]]*4,'release_index':2}}}))
++        cls.catalogue=repo/'runs/C-5/vfx_kits/kits_v9.json'
++        report=build_project(cells,cls.project,sockets=sockets,vfx_kits=cls.catalogue)
++        (cls.work/'catalogue_export.json').write_text(json.dumps(report,indent=2))
++        kits={k['name']:k for k in _load_vfx_kits(cls.catalogue)}
++        cls.aura=kits['healing_hands_e3'];cls.cloud=kits['poisonous_concoction_e3'];cls.orb=kits['frozen_orb_e3']
++        configs=dict(aura=_g4_config(cls.aura),cloud=_g2_config(cls.cloud),orb=_g1_config(cls.orb))
++        (cls.project/'look_configs.json').write_text(json.dumps(configs))
++        (cls.project/'look_probe.gd').write_text(RENDERED_LOOK_PROBE)
++        cls.logs=[]
++        for label,args in [('import',['--import']),('trace',['--script','res://look_probe.gd'])]:
++            start=time.monotonic()
++            result=subprocess.run([GODOT,'--headless','--path',str(cls.project),'--log-file',str(cls.work/f'look-{label}.log'),*args],capture_output=True,text=True,timeout=60)
++            cls.logs.append(dict(stage=label,exit=result.returncode,elapsed_s=time.monotonic()-start,log=result.stdout+result.stderr))
++            (cls.work/'look_headless.json').write_text(json.dumps(cls.logs,indent=2))
++            if result.returncode or 'SCRIPT ERROR' in result.stdout+result.stderr:raise AssertionError(result.stdout+result.stderr)
++        cls.trace=json.loads((cls.project/'look_trace.json').read_text())
++        (cls.work/'look_trace.json').write_text(json.dumps(cls.trace,indent=2))
++
++    def test_seal_bbox_and_whole_loop_ring_radius(self):
++        import numpy as np
++        d=self.aura['effect'];item=d['g4']['seal']
++        with Image.open(self.aura['root']/item['png']) as im:a=np.asarray(im)
++        y,x=np.nonzero(a[...,3]);points=np.column_stack([x-item['pivot'][0],y-item['pivot'][1]])
++        aspects=[]
++        for row in self.trace['seal']:
++            xx,xy,yx,yy=row['basis'];t=points@np.array([[xx,xy],[yx,yy]])
++            extent=np.ptp(t,axis=0)+1;ratio=float(extent[1]/extent[0]);aspects.append(ratio)
++            with self.subTest(age=row['age']):
++                self.assertLessEqual(abs(ratio/d['g4']['seal_aspect']-1),.05)
++            self.assertEqual(row['z'],1)
++        radii=self.trace['ring_radii'];radius=d['skill_spec']['mechanics']['radius_px']
++        self.assertTrue(all(abs(r-radius)<=2 for r in radii))
++        (self.work/'seal_measurements.json').write_text(json.dumps({'aspect':d['g4']['seal_aspect'],'drawn_aspects':aspects,'radius_min':min(radii),'radius_max':max(radii)},indent=2))
++
++    def test_ring_radius_whole_loop(self):
++        radius=self.aura['effect']['skill_spec']['mechanics']['radius_px']
++        self.assertTrue(all(abs(r-radius)<=2 for r in self.trace['ring_radii']))
++
++    def test_cloud_alpha_erosion_and_dark_offset(self):
++        rows=self.trace['cloud'];live=[r for r in rows if r['field_alive']]
++        self.assertLessEqual(max(r['field_alpha'] for r in rows),.640001)
++        self.assertGreaterEqual(min(r['field_erode'] for r in live),.3-1e-6)
++        self.assertTrue(all(abs(r['erode_noise']-.4)<1e-6 for r in live))
++        self.assertTrue(all(r['dark_offset_measured']==self.cloud['effect']['g2']['dark_offset_px'] for r in live))
++        self.assertAlmostEqual(live[-1]['noise_uv']-live[0]['noise_uv'],(len(live)-1)/60*self.cloud['effect']['g2']['roil_uv_per_s'],places=6)
++
++    def test_nova_no_peak_no_decal_no_residue_monotonic_sixteen(self):
++        rows=self.trace['nova'];self.assertFalse(self.trace['nova_has_decal'])
++        for row in rows:
++            self.assertFalse(row['peak_visible']);self.assertFalse(row['decal_visible']);self.assertFalse(row['residue_visible'])
++            self.assertEqual(len(row['pieces']),16)
++        for a,b in zip(rows,rows[1:]):
++            for x,y in zip(a['pieces'],b['pieces']):self.assertGreater(y['distance_px'],x['distance_px'])
++        self.assertEqual(sum(r['core_visible'] for r in rows),6)
+--- a/tests/test_vfx_picker.py
++++ b/tests/test_vfx_picker.py
+@@ -106,10 +106,12 @@
+ def run_headless(test, project, script):
+     engine_errors = []
+     for args in (['--import'], ['--script', 'res://'+script]):
++        started = time.monotonic()
+         result = subprocess.run([GODOT, '--headless', '--log-file', str(project/'godot.log'),
+                                  '--path', str(project), *args],
+                                 capture_output=True, text=True, timeout=60)
+         log = result.stdout+result.stderr
++        test.assertLess(time.monotonic()-started, 60, 'headless deadline')
+         test.assertEqual(result.returncode, 0, log)
+         test.assertNotIn('SCRIPT ERROR', log)
+         test.assertNotIn('T3O_ASSERTION:', log)
+@@ -861,14 +863,15 @@
+     @unittest.skipUnless(Path(GODOT).is_file(), 'Godot binary unavailable')
+     def test_headless_overlay_forward_world_touch_and_mouse_probe(self):
+         # T4i artifacts remain in the explicitly scoped tooling directory.
+-        temporary = ROOT/'runs/C-5/t3/T4i/tmp'
++        temporary = ROOT/'runs/C-5/t3/T4x/touch'
+         temporary.mkdir(parents=True, exist_ok=True)
+         with tempfile.TemporaryDirectory(prefix='touch-aim-', dir=temporary) as directory:
+             root = Path(directory)
+             cells, sockets, kits, _ = fixture_inputs(root/'inputs')
+             project = root/'project'
+             build_project(cells, project, sockets=sockets, vfx_kits=kits)
+-            (project/'touch_aim_probe.gd').write_text(TOUCH_AIM_PROBE)
++            # T4x: T4i-r1 device-forward policy replaced the retired input hook.
++            (project/'touch_aim_probe.gd').write_text(TOUCH_DEVICE_AIM_PROBE)
+             run_headless(self, project, 'touch_aim_probe.gd')
+             report = json.loads((project/'out/touch_aim.json').read_text())
+             self.assertEqual(report['errors'], [])
+@@ -1522,9 +1525,9 @@
+                 samples.append(row)
+             check(impact.get_node("Art").scale == Vector2.ONE,"screen pixel scale")
+             check(not impact.has_node("Residual"),"no residual sprite")
+-            var decal: Sprite2D = impact.get_node("Decal")
++            var decal: Sprite2D = impact.ground_decal
+             check(decal.global_position.distance_to(target.global_position) < 0.01,"decal contact anchor")
+-            check(decal.z_index == -2 and not decal.z_as_relative,"decal below actors")
++            check(decal.get_parent().name == "GroundEffects" and decal.z_as_relative,"decal owned by ground layer")
+             check(decal.scale == Vector2(1.0,0.6),"decal native scale plus ground squash")
+     var contacts: Array = G1.events.filter(func(e): return e.effect_id == id and e.event == "contact")
+     var labels: Array = G1.label_events.filter(func(e): return e.effect_id == id)
+@@ -1573,7 +1576,7 @@
+             check(a.get_node("Art/Peak").position == Vector2.ZERO,"residue origin")
+             check(a.get_node("Art/Peak").scale == Vector2.ONE,"residue by erosion only")
+         if age == 111:
+-            check(not a.get_node("Decal").visible and a.get_node("Decal").modulate.a == 0.0,"decal exact release clock")
++            check(not a.ground_decal.visible and a.ground_decal.modulate.a == 0.0,"decal exact release clock")
+     check(deterministic,"seed-equal clocks")
+     check(translations.size() == 22 and translations.all(func(v): return v > 0.0),"every shard translates radially")
+     var report: Dictionary = {"errors":errors,"contacts":contacts,"labels":labels,"bursts":bursts,"hitstop_seen":hitstop_seen,"streak_scales":scales,"samples":samples,"seed_equal":deterministic,"translations_px":translations,"decal_release_age":111}
+@@ -1589,14 +1592,16 @@
+     """Real E2 clock proof in a wholly T4r-owned temporary project."""
+     def test_headless_contact_shatter_residue_decal(self):
+         from test_godot_import import ice_project_fixture
+-        work=ROOT/'runs/C-5/t3/T4r'
++        work=ROOT/'runs/C-5/t3/T4x'
+         with tempfile.TemporaryDirectory(prefix='e2-clock-',dir=work) as tmp:
+             project=ice_project_fixture(Path(tmp))
+             (project/'e2_probe.gd').write_text(E2_PROBE)
+             records=[]
+             for args in (['--import'],['--script','res://e2_probe.gd']):
++                started=time.monotonic()
+                 result=subprocess.run([GODOT,'--headless','--path',str(project),'--log-file',str(Path(tmp)/'engine.log'),*args],capture_output=True,text=True,timeout=60)
+-                records.append(dict(arguments=args,exit=result.returncode,log=result.stdout+result.stderr))
++                self.assertLess(time.monotonic()-started,60,'headless deadline')
++                records.append(dict(arguments=args,exit=result.returncode,elapsed_s=time.monotonic()-started,log=result.stdout+result.stderr))
+                 self.assertEqual(result.returncode,0,result.stdout+result.stderr)
+                 self.assertNotIn('SCRIPT ERROR',result.stdout+result.stderr)
+             report=json.loads((project/'e2_trace.json').read_text())
+@@ -1615,7 +1620,7 @@
+             config=_g2_config(kit)
+             self.assertEqual(config['grammar'],'G2')
+             self.assertEqual(config['ticks'],kit['effect']['skill_spec']['mechanics']['field']['tick_schedule_s'])
+-            self.assertEqual(config['ground_squash'],.58)
++            self.assertEqual(config['ground_squash'],kit['effect']['ground_squash'])
+             self.assertEqual(config['flask_width'],45.5)
+ 
+     def test_headless_g2_trace_mechanics_and_scale_evidence(self):
+@@ -1687,7 +1692,7 @@
+             self.assertIn('"grammar": "G4"',script)
+ 
+ 
+-FROZEN_ORB_PROBE = 'extends SceneTree\nvar errors: Array = []\nfunc _initialize() -> void:\n    call_deferred("run")\nfunc run() -> void:\n    var world := Node2D.new()\n    root.add_child(world)\n    for i in range(3):\n        var target := Area2D.new()\n        target.name = "Dummy%d" % i\n        target.position = Vector2(160+i*160,0)\n        target.collision_layer = 2\n        target.collision_mask = 0\n        target.set_meta("body_index",i)\n        target.add_to_group("vfx_targets")\n        var shape := CollisionShape2D.new()\n        var circle := CircleShape2D.new()\n        circle.radius = 25.0\n        shape.shape = circle\n        target.add_child(shape)\n        world.add_child(target)\n    await physics_frame\n    var g1 = load("res://scripts/vfx_g1.gd")\n    var config: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://orb_config.json"))\n    config.pierce = int(config.pierce)\n    var destination: Dictionary = g1.resolve_target(self,Vector2.ZERO,Vector2.RIGHT,Vector2(640,0),640.0)\n    var orb: Area2D = g1.acquire(world,config,Vector2.ZERO,destination,null,4.0)\n    var source_id: int = orb.effect_id\n    var burst_trace: Array = []\n    var max_nodes: int = 0\n    for frame in range(240):\n        await physics_frame\n        await process_frame\n        max_nodes = maxi(max_nodes,orb.get_node("ChildPool").get_child_count())\n        if is_instance_valid(orb.burst_node):\n            burst_trace = orb.burst_node.trace.duplicate(true)\n    var report: Dictionary = {"events":g1.events.duplicate(true),"labels":g1.label_events.duplicate(true),"trace":orb.trace.duplicate(true),"burst_trace":burst_trace,"pool_nodes":max_nodes,"orb_effect_id":source_id,"errors":errors}\n    var first_instance: int = orb.get_instance_id()\n    var again: Area2D = g1.acquire(world,config,Vector2.ZERO,destination,null,1.0)\n    report["reuse_same_orb"] = again.get_instance_id() == first_instance\n    report["reuse_pool_nodes"] = again.get_node("ChildPool").get_child_count()\n    again.cancel()\n    report["cancel_children_active"] = again.get_node("ChildPool").get_children().filter(func(n): return n.active).size()\n    var file := FileAccess.open("res://orb_trace.json",FileAccess.WRITE)\n    file.store_string(JSON.stringify(report,"  "))\n    file.close()\n    quit()\n'
++FROZEN_ORB_PROBE = 'extends SceneTree\nvar errors: Array = []\nfunc _initialize() -> void:\n    call_deferred("run")\nfunc run() -> void:\n    var world := Node2D.new()\n    root.add_child(world)\n    for i in range(3):\n        var target := Area2D.new()\n        target.name = "Dummy%d" % i\n        target.position = Vector2(160+i*160,0)\n        target.collision_layer = 2\n        target.collision_mask = 0\n        target.set_meta("body_index",i)\n        target.add_to_group("vfx_targets")\n        var shape := CollisionShape2D.new()\n        var circle := CircleShape2D.new()\n        circle.radius = 25.0\n        shape.shape = circle\n        target.add_child(shape)\n        world.add_child(target)\n    await physics_frame\n    var g1 = load("res://scripts/vfx_g1.gd")\n    var config: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://orb_config.json"))\n    config.pierce = int(config.pierce)\n    var destination: Dictionary = g1.resolve_target(self,Vector2.ZERO,Vector2.RIGHT,Vector2(float(config.range_px),0),float(config.range_px))\n    var orb: Area2D = g1.acquire(world,config,Vector2.ZERO,destination,null,4.0)\n    var source_id: int = orb.effect_id\n    var burst_trace: Array = []\n    var max_nodes: int = 0\n    for frame in range(240):\n        await physics_frame\n        await process_frame\n        max_nodes = maxi(max_nodes,orb.get_node("ChildPool").get_child_count())\n        if is_instance_valid(orb.burst_node):\n            burst_trace = orb.burst_node.trace.duplicate(true)\n    var report: Dictionary = {"events":g1.events.duplicate(true),"labels":g1.label_events.duplicate(true),"trace":orb.trace.duplicate(true),"burst_trace":burst_trace,"pool_nodes":max_nodes,"orb_effect_id":source_id,"errors":errors}\n    var first_instance: int = orb.get_instance_id()\n    var again: Area2D = g1.acquire(world,config,Vector2.ZERO,destination,null,1.0)\n    report["reuse_same_orb"] = again.get_instance_id() == first_instance\n    report["reuse_pool_nodes"] = again.get_node("ChildPool").get_child_count()\n    again.cancel()\n    report["cancel_children_active"] = again.get_node("ChildPool").get_children().filter(func(n): return n.active).size()\n    var file := FileAccess.open("res://orb_trace.json",FileAccess.WRITE)\n    file.store_string(JSON.stringify(report,"  "))\n    file.close()\n    quit()\n'
+ 
+ 
+ class FrozenOrbPickerTests(unittest.TestCase):
+@@ -1717,8 +1722,8 @@
+         (work/'orb_trace.json').write_text(json.dumps(trace,indent=2)+'\n')
+         own=[e for e in events if e['effect_id']==cast]
+         emissions=[e for e in own if e['event']=='child_emission']
+-        self.assertEqual([e['scheduled_age'] for e in emissions],list(range(2,91,2)))
+-        self.assertEqual([e['age_frames'] for e in emissions],list(range(2,91,2)))
++        self.assertEqual([e['scheduled_age'] for e in emissions],_g1_config(kit)['schedule']['emission_ages'])
++        self.assertEqual([e['age_frames'] for e in emissions],_g1_config(kit)['schedule']['emission_ages'])
+         for a,b in zip(emissions,emissions[1:]):self.assertAlmostEqual(b['angle_deg']-a['angle_deg'],137,places=3)
+         contacts=[e for e in own if e['event']=='contact']
+         self.assertEqual([e['body_index'] for e in contacts],[0,1,2])
+@@ -1727,13 +1732,15 @@
+         expiry=[e for e in own if e['event']=='expire'];self.assertEqual(len(expiry),1)
+         self.assertEqual(expiry[0]['age_frames'],90);self.assertEqual(expiry[0]['position'],[630,0])
+         bursts=[e for e in own if e['event']=='expiry_burst'];self.assertEqual(len(bursts),1)
+-        self.assertEqual(bursts[0]['shards'],16);self.assertEqual(bursts[0]['hold_frames'],2)
++        self.assertEqual(bursts[0]['shards'],16);self.assertEqual(bursts[0]['hold_frames'],0 if kit['effect']['orb']['expiry_mode']=='nova' else kit['effect']['pieces']['hold_frames'])
+         self.assertEqual(trace['pool_nodes'],12);self.assertEqual(trace['reuse_pool_nodes'],12)
+         self.assertTrue(trace['reuse_same_orb']);self.assertEqual(trace['cancel_children_active'],0)
+         self.assertFalse(any(e['event']=='pool_exhausted' for e in events))
+         self.assertEqual(max(r['shard_count'] for r in trace['burst_trace']),16)
+         decals=[r for r in trace['burst_trace'] if r['decal_visible']]
+-        self.assertTrue(decals);self.assertTrue(all(r['decal_position']==[630,0] for r in decals))
+-        self.assertLess(decals[-1]['decal_alpha'],decals[0]['decal_alpha'])
++        self.assertEqual(bool(decals),kit['effect']['orb']['expiry_decal'])
++        if decals:
++            self.assertTrue(all(r['decal_position']==expiry[0]['position'] for r in decals))
++            self.assertLess(decals[-1]['decal_alpha'],decals[0]['decal_alpha'])
+         labels=[e for e in trace['labels'] if e['effect_id']==cast]
+         self.assertEqual(len(labels),len({e['body_index'] for e in labels}))
+--- a/tests/test_godot_import.py
++++ b/tests/test_godot_import.py
+@@ -1381,8 +1381,10 @@
+                 self.assertLess(abs(row['position'][0]-4240),28)
+                 self.assertLess(abs(row['position'][1]-640),28)
+         for i in range(4):self.assertFalse(self.rows(name,'Lobe'+str(i),45)[0]['visible_in_tree'])
++        config=next(c for c in self.configs if c['name']==name)
+         for node in ('Halo','DarkDuplicate','FloorLight'):
+-            self.assertFalse(any(r['visible_in_tree'] for r in self.rows(name,node)))
++            expected=node=='DarkDuplicate' and 'dark_duplicate' in config['enabled_layers']
++            self.assertEqual(any(r['visible_in_tree'] for r in self.rows(name,node)),expected)
+         path=self.project/'vfx'/name/'materials/Decal.tres'
+         self.assertIn('Color(0.035, 0.12, 0.055, 0.55)',path.read_text())
+ 

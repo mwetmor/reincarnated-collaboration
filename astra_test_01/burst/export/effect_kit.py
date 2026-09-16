@@ -1181,7 +1181,7 @@ def validate_thrown_field(data, root, runtime=False):
     if (spec['grammar'] != 'G2' or mechanics['aim_rule'] != 'ground-locked'
             or mechanics['origin_socket'] != 'cast_release' or mechanics['termination'] != 'field_expiry'):
         raise ValueError('unsupported G2 mechanics; grammar is explicit')
-    if data['element'] != spec['visual_treatment_id'] or data['element_class'] != 'field' or not data['screen_px'] or data['ground_squash'] != .58:
+    if data['element'] != spec['visual_treatment_id'] or data['element_class'] != 'field' or not data['screen_px'] or data['ground_squash'] != spec['presentation'].get('ground_squash', .58):
         raise ValueError('G2 treatment, screen_px or ground squash disagrees')
     if data['element'] not in ('fire','poison'): raise ValueError('unsupported G2 treatment')
     for value in [mechanics['range_px'],mechanics['arc']['apex_px'],mechanics['arc']['flight_s'],field['radius_px'],field['duration_s']]:
@@ -1195,7 +1195,9 @@ def validate_thrown_field(data, root, runtime=False):
     if data['element'] == 'poison': _number(data.get('density'),0,1,'density')
     elif 'density' in data: raise ValueError('density is a separate poison layer only')
     g = data['g2']
-    _keys(g, {'flask','field_source','pulse','splash','seed','field_binding'}, {'flask','field_source','pulse','splash','seed'}, 'g2')
+    _keys(g, {'flask','field_source','pulse','splash','seed','field_binding','roil_uv_per_s','dark_offset_px','dark_alpha'}, {'flask','field_source','pulse','splash','seed'}, 'g2')
+    for key,high in [('roil_uv_per_s',.2),('dark_offset_px',12),('dark_alpha',1)]:
+        _number(g.get(key,0),0,high,'g2.'+key)
     binding = g.get('field_binding')
     if binding is not None:
         _keys(binding, {'kind','scale','pivot','dissolve_s'}, {'kind','scale','pivot','dissolve_s'}, 'field_binding')
@@ -1259,9 +1261,13 @@ def build_thrown_field(spec_path, flask_path, field_path, pulse_path, out_dir, m
         (out/file).write_bytes((out/'primitives/pulse.png').read_bytes())
         phases[phase]={'sheet':file,'frames':[{'file':file,'hold_frames':2}]}
     data=dict(name=spec['skill_id']+'_e3',element=spec['visual_treatment_id'],element_class='field',screen_px=True,
-              ground_squash=.58, material=copy.deepcopy(material),phases=phases,layers={},pierce=0,skill_spec=spec,
+              ground_squash=spec['presentation'].get('ground_squash',.58), material=copy.deepcopy(material),phases=phases,layers={},pierce=0,skill_spec=spec,
               g2=dict(flask='primitives/flask.png',field_source='primitives/field_source.png',pulse='primitives/pulse.png',splash=splash,seed=2026))
-    if data['element']=='poison': data['density']=density
+    if data['element']=='poison':
+        data['density']=spec['presentation'].get('density',density)
+        for key in ('roil_uv_per_s','dark_offset_px','dark_alpha'):
+            if key in spec['presentation']: data['g2'][key]=spec['presentation'][key]
+        if 'erode_noise' in spec['presentation']: data['material'].update(erode_noise=spec['presentation']['erode_noise'],erode_outside_in=True,erode=.3)
     validate_thrown_field(data,out,True)
     (out/'kit.json').write_text(json.dumps(data,indent=2)+'\n')
     (out/'CREDITS.txt').write_text('G2 '+data['name']+': supplied painted primitives; derived shards/field, no new painting.\n')
@@ -1437,7 +1443,12 @@ def validate_aura_loop(data, root, runtime=False):
     material=validate_material(data['material'])
     if material['blend_mode']!='ADD' or not material.get('erode_outside_in') or material.get('dissolve_order')!=[[3],[2],[1,0]]:
         raise ValueError('G4 requires ADD, outside-in release and dissolve 3,2,1+0')
-    _keys(g,{'ring','petal','seal','seed','release_s','support_tint'},{'ring','petal','seal','seed','release_s','support_tint'},'g4')
+    _keys(g,{'ring','petal','seal','seed','release_s','support_tint','seal_aspect'},{'ring','petal','seal','seed','release_s','support_tint','seal_aspect'},'g4')
+    _number(g['seal_aspect'],.01,4,'seal_aspect')
+    with Image.open(_png(g['seal']['png'],root,confined=runtime)) as im:
+        box=im.getchannel('A').getbbox()
+    if not box or abs(g['seal_aspect']-(box[3]-box[1])/(box[2]-box[0]))>1e-9:
+        raise ValueError('seal_aspect disagrees with alpha bbox')
     _number(g['seed'],0,2**32-1,'seed',True)
     if g['release_s']!=.3 or g['support_tint']!=[1.,.94,.72,1.]: raise ValueError('G4 support/release contract disagrees')
     assets={}
@@ -1472,6 +1483,7 @@ def build_aura_loop(spec_path, primitive_paths, out_dir, seed=2026):
         with Image.open(primitive_paths[role]) as im: a=quantise_projectile(np.asarray(im.convert('RGBA')))
         y,x=np.nonzero(a[...,3]);pivot=[float((x.min()+x.max())/2),float(y.max() if role=='petal' else (y.min()+y.max())/2)]
         scale=(spec['presentation']['body_extents_bh']['petal']*130/(y.max()-y.min()+1) if role=='petal' else 1.)
+        if role=='seal': g['seal_aspect']=float((y.max()-y.min()+1)/(x.max()-x.min()+1))
         file='primitives/'+role+'.png';Image.fromarray(a).save(out/file);g[role]=dict(png=file,pivot=pivot,scale=float(scale))
     phases={}
     for phase,folder in [('cast','flare'),('travel','travel'),('impact','impact')]:
@@ -1515,9 +1527,13 @@ def orb_schedule_report(data):
         raise ValueError('orb.interval_frames_choices requires at least two distinct choices')
     _number(data['orb']['seed'], 0, 2147483647, 'orb.seed', True)
     rng = random.Random(data['orb']['seed'])
+    if data['orb'].get('interval_draw') != 'balanced_shuffle':
+        raise ValueError('orb.interval_draw must be balanced_shuffle')
+    intervals = choices * math.ceil(math.ceil(flight/min(choices))/len(choices))
+    rng.shuffle(intervals)
     ages, age = [], 0
-    while True:
-        age += rng.choice(choices)
+    for interval in intervals:
+        age += interval
         if age > flight:
             break
         ages.append(age)
@@ -1538,15 +1554,19 @@ def validate_orb(data, root, runtime=False):
     for key in ('range_px','speed_px_s'): _number(m[key], 1e-9, math.inf, key)
     if data['phases']['travel']['speed_px_s'] != m['speed_px_s']: raise ValueError('orb speed disagrees')
     _keys(m['emission'], {'child','schedule','child_speed_px_s','child_range_px'}, {'child','schedule','child_speed_px_s','child_range_px'}, 'emission')
-    if m['emission']['schedule'] != 'every 2–3 frames (seeded jitter, FF-08), spiral, 3 per revolution': raise ValueError('unsupported explicit emission schedule')
+    if m['emission']['schedule'] != 'every 2–4 frames (seeded balanced shuffle, FF-08), spiral, 3 per revolution': raise ValueError('unsupported explicit emission schedule')
     for key in ('child_speed_px_s','child_range_px'): _number(m['emission'][key], 1e-9, math.inf, key)
     if m['expiry']['kind'] != 'range_or_time' or m['expiry']['on_expiry'] != 'shard_burst 16 radial': raise ValueError('unsupported expiry')
     _number(m['expiry']['time_s'], 1e-9, math.inf, 'expiry.time_s')
-    required={'body','shard','interval_frames_choices','angle_step_deg','seed','pool_size','turn_s','rim_count','rim_radius_px','expiry_count','child_pierce'}
+    required={'interval_draw','expiry_mode','expiry_core_bh','expiry_decal','body','shard','interval_frames_choices','angle_step_deg','seed','pool_size','turn_s','rim_count','rim_radius_px','expiry_count','child_pierce'}
     _keys(g, required, required, 'orb')
     orb_schedule_report(data)  # Validates choices and reports FF-08 without changing its threshold.
-    if (g['interval_frames_choices'] != [2, 3] or g['angle_step_deg'] != 137 or g['turn_s'] != 1.2
+    if (g['angle_step_deg'] != 137 or g['turn_s'] != 1.2
             or g['rim_count'] != 4 or g['expiry_count'] != 16 or g['child_pierce'] != 0): raise ValueError('orb emission/rotation/count disagrees')
+    if g['expiry_mode'] not in ('peak','nova'): raise ValueError('orb.expiry_mode must be peak or nova')
+    _number(g['expiry_core_bh'],.4,1.2,'orb.expiry_core_bh')
+    if not isinstance(g['expiry_decal'],bool): raise ValueError('orb.expiry_decal must be boolean')
+    if g['expiry_mode']=='nova' and g['expiry_decal']: raise ValueError('nova has no decal')
     _number(g['seed'],0,2147483647,'orb.seed',True)
     _number(g['pool_size'], math.ceil(m['emission']['child_range_px']/m['emission']['child_speed_px_s']*60/min(g['interval_frames_choices']))+2,64,'orb.pool_size',True)
     _number(g['rim_radius_px'],1,256,'orb.rim_radius_px')

@@ -2111,7 +2111,7 @@ class ThrownFieldValidationTests(unittest.TestCase):
             self.assertEqual({k:v for k,v in data['skill_spec'].items() if k!='provenance'},
                              {k:v for k,v in current_spec.items() if k!='provenance'})
             self.assertEqual((root/data['g2']['flask']).read_bytes(),(ROOT/'runs/C-5/artifacts/VF-prim-flask-01/flask_01_512.png').read_bytes())
-            self.assertEqual(data['ground_squash'],.58)
+            self.assertEqual(data['ground_squash'],data['skill_spec']['presentation'].get('ground_squash',data['ground_squash']))
             self.assertTrue(data['screen_px'])
             ticks=data['skill_spec']['mechanics']['field']['tick_schedule_s']
             current_spec = json.loads((ROOT/f'runs/C-5/specs/{name}.json').read_text())
@@ -2119,7 +2119,7 @@ class ThrownFieldValidationTests(unittest.TestCase):
             self.assertTrue(assert_tick_schedule(ticks)['ff08_satisfied'])
         self.assertTrue(assert_tick_schedule([0,.1,.6,1.])['ff08_satisfied'])
         data=load_kit(kits/'poisonous_concoction_e3')
-        self.assertEqual(data['density'],.75)
+        self.assertEqual(data['density'],data['skill_spec']['presentation']['density'])
         for role,source in [('pulse','VF-prim-poison-lobe-01/poison_lobe_01_512.png'),('field_source','VF-prim-poison-puff-01/poison_puff_01_512.png')]:
             with Image.open(ROOT/'runs/C-5/artifacts'/source) as image: original=np.asarray(image.convert('RGBA'))
             with Image.open(kits/'poisonous_concoction_e3'/data['g2'][role]) as image: actual=np.asarray(image)
@@ -2146,7 +2146,7 @@ class ThrownFieldValidationTests(unittest.TestCase):
             source=ROOT/'runs/C-5/vfx_kits/v9/poisonous_concoction_e3'
             build(source/'kit.json',Path(tmp)/'kit')
             data=load_kit(Path(tmp)/'kit')
-            self.assertEqual(data['density'],.75)
+            self.assertEqual(data['density'],data['skill_spec']['presentation']['density'])
             self.assertEqual((Path(tmp)/'kit'/data['g2']['flask']).read_bytes(),(source/'primitives/flask.png').read_bytes())
 
 
@@ -2224,7 +2224,7 @@ class FieldDesignLapTests(unittest.TestCase):
 
     def test_poison_four_band_ramp_density_and_rebuild(self):
         root=ROOT/'runs/C-5/vfx_kits/v9/poisonous_concoction_e3'; data=load_kit(root)
-        self.assertEqual(data['density'], .75)
+        self.assertEqual(data['density'],data['skill_spec']['presentation']['density'])
         self.assertEqual(data['material']['palette'], [[.10,.14,.06,1],[.20,.42,.16,1],[.55,.78,.30,1],[.85,.95,.60,1]])
         work=ROOT/'runs/C-5/t3/T4s-r3';work.mkdir(parents=True,exist_ok=True)
         for name in ('blackwater_cocktail_e3','poisonous_concoction_e3'):
@@ -2290,11 +2290,10 @@ class FrozenOrbValidationTests(unittest.TestCase):
         self.assertEqual(report['flight_frames'],90)
         ages = report['emission_ages']
         self.assertTrue(all(b > a for a,b in zip([0]+ages,ages)))
-        self.assertTrue(set(np.diff([0]+ages)) <= {2,3})
-        self.assertGreaterEqual(len(ages),30)
-        self.assertLessEqual(len(ages),45)
-        # Keep the conductor's requested gate literal, even though {2,3}
-        # cannot mathematically reach CV .25 (maximum 1/sqrt(24)).
+        self.assertTrue(set(np.diff([0]+ages)) <= set(data['orb']['interval_frames_choices']))
+        self.assertGreaterEqual(len(ages),26)
+        self.assertLessEqual(len(ages),34)
+        # R-C5-75 balanced {2,3,4} multiset honours the unchanged FF-08 gate.
         with self.subTest(contract='FF-08 CV'):
             self.assertGreaterEqual(report['interval_cv'],.25)
         with self.subTest(contract='FF-08 satisfied'):
@@ -2314,8 +2313,11 @@ class FrozenOrbValidationTests(unittest.TestCase):
         first=orb_schedule_report(data)
         self.assertEqual(first,orb_schedule_report(data))
         rng=random.Random(data['orb']['seed']); expected=[]; age=0
-        while True:
-            age+=rng.choice(data['orb']['interval_frames_choices'])
+        choices=data['orb']['interval_frames_choices']
+        intervals=choices*math.ceil(math.ceil(first['flight_frames']/min(choices))/len(choices))
+        rng.shuffle(intervals)
+        for interval in intervals:
+            age+=interval
             if age>first['flight_frames']:break
             expected.append(age)
         self.assertEqual(first['emission_ages'],expected)
@@ -2363,3 +2365,22 @@ class FrozenOrbValidationTests(unittest.TestCase):
         with tempfile.TemporaryDirectory(dir=work) as tmp:
             build(d,Path(tmp)/'kit')
             self.assertEqual(load_kit(Path(tmp)/'kit'),load_kit(root))
+
+
+class RenderedLookValidationTests(unittest.TestCase):
+    def test_new_key_ranges_and_balanced_emission_seeds(self):
+        from export.effect_kit import validate_orb,validate_aura_loop,validate_thrown_field,orb_schedule_report
+        root=ROOT/'runs/C-5/vfx_kits/v9'
+        cases=[('frozen_orb_e3',validate_orb,[(('orb','interval_draw'),'random'),(('orb','expiry_mode'),'impact'),(('orb','expiry_core_bh'),.39),(('orb','expiry_core_bh'),1.21),(('orb','expiry_decal'),1)]),
+               ('healing_hands_e3',validate_aura_loop,[(('g4','seal_aspect'),0),(('g4','seal_aspect'),1)]),
+               ('poisonous_concoction_e3',validate_thrown_field,[(('g2','roil_uv_per_s'),-.01),(('g2','roil_uv_per_s'),.21),(('g2','dark_offset_px'),-1),(('g2','dark_offset_px'),13)])]
+        for name,validate,changes in cases:
+            d=load_kit(root/name)
+            for keys,value in changes:
+                bad=copy.deepcopy(d);bad[keys[0]][keys[1]]=value
+                with self.subTest(name=name,key=keys,value=value),self.assertRaises(ValueError):validate(bad,root/name,True)
+        d=load_kit(root/'frozen_orb_e3')
+        for seed in [2026,2027,1]:
+            d['orb']['seed']=seed;r=orb_schedule_report(d)
+            self.assertGreaterEqual(r['interval_cv'],.25);self.assertTrue(r['ff08_satisfied'])
+            self.assertTrue(26<=r['emission_count']<=34)

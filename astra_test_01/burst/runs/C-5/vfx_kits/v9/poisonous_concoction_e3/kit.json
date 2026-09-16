@@ -3,11 +3,11 @@
   "element": "poison",
   "element_class": "field",
   "screen_px": true,
-  "ground_squash": 0.58,
+  "ground_squash": 0.72,
   "material": {
     "blend_mode": "MIX",
     "light_participation": false,
-    "erode": 0.0,
+    "erode": 0.3,
     "dissolve": 0.0,
     "palette": [
       [
@@ -34,7 +34,9 @@
         0.6,
         1
       ]
-    ]
+    ],
+    "erode_noise": 0.4,
+    "erode_outside_in": true
   },
   "phases": {
     "cast": {
@@ -121,11 +123,18 @@
         "victim_tint",
         "hit_stop",
         "contact_label"
-      ]
+      ],
+      "ground_squash": 0.72,
+      "density": 0.6,
+      "erode_noise": 0.4,
+      "roil_uv_per_s": 0.05,
+      "dark_alpha": 0.5,
+      "dark_offset_px": 6
     },
     "provenance": {
       "thrown flask / poison cloud": "PoE source observation (conductor memory) \u2014 VERIFY",
-      "density gate": "03- \u00a7 2.3 density-asset gate (validated at E2/E3)"
+      "density gate": "03- \u00a7 2.3 density-asset gate (validated at E2/E3)",
+      "rendered_cloud": "R-C5-74 F-C5-16"
     }
   },
   "g2": {
@@ -138,7 +147,10 @@
       "duration_s": 0.25,
       "residue_s": 0
     },
-    "seed": 2026
+    "seed": 2026,
+    "roil_uv_per_s": 0.05,
+    "dark_offset_px": 6,
+    "dark_alpha": 0.5
   },
-  "density": 0.75
+  "density": 0.6
 }

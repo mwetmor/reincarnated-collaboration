@@ -2464,6 +2464,8 @@ func _write_trace() -> void:
 
 def _write_piece_burst(out, kit, resource_root, prefix):
     """Emit spatial shards using unmodified T4e index masks and T4a materials."""
+    if kit['effect'].get('orb',{}).get('expiry_mode')=='nova':
+        return _write_orb_nova(out,kit,resource_root,prefix)
     if kit['effect']['pieces']['template'] == 'burst_v1r':
         return _write_piece_burst_v1r(out, kit, resource_root, prefix)
     if kit['effect']['pieces']['template'] == 'burst_v2':
@@ -3323,7 +3325,8 @@ def _g2_config(kit):
                 apex_px=m['arc']['apex_px'],flight_s=m['arc']['flight_s'],radius_px=m['field']['radius_px'],
                 duration_s=m['field']['duration_s'],ticks=m['field']['tick_schedule_s'],
                 schedule=tick_schedule_report(m['field']['tick_schedule_s'],m['field'].get('tick_cv_min',.25)),
-                residue_s=spec['presentation']['phase_envelope_s']['residue'],ground_squash=.58,
+                residue_s=spec['presentation']['phase_envelope_s']['residue'],ground_squash=d['ground_squash'],
+                roil_uv_per_s=g.get('roil_uv_per_s',0.),dark_offset_px=g.get('dark_offset_px',0.),dark_alpha=g.get('dark_alpha',.25),field_erode=d['material'].get('erode',0.),
                 flask=root+g['flask'],field=root+'derived/field.png',pulse=root+g['pulse'],
                 fragments=[root+'derived/glass_'+str(i)+'.png' for i in range(3)],
                 material=root+'materials/Field.tres',pulse_material=root+'materials/Pulse.tres',
@@ -3358,7 +3361,7 @@ def _g2_lick_anchors(kit):
 
 def _write_g2_kit(out, kit):
     import numpy as np
-    from export.effect_kit import distance_field, write_vfx_material
+    from export.effect_kit import distance_field, write_vfx_material, erosion_noise_texture
     d=kit['effect']; root='vfx/'+kit['name']; dest=out/root
     dest.mkdir(parents=True,exist_ok=True)
     for path in kit['root'].rglob('*'):
@@ -3387,7 +3390,21 @@ def _write_g2_kit(out, kit):
         material=dict(mat,blend_mode=mode)
         if label=='Decal':
             material['palette']=([[.065,.035,.025,.55]]*4 if d['element']=='fire' else [[.035,.12,.055,.55]]*4)
-        write_vfx_material(out,root+'/materials/'+label+'.tres',material,root+'/derived/'+source+'_distance.png',dark)
+        noise_rel=None
+        if d['g2'].get('roil_uv_per_s') and label in ('Field','Dark'):
+            noise_rel=root+'/derived/field_noise.png'
+            Image.fromarray(erosion_noise_texture(field)).save(out/noise_rel)
+            material.update(erode_noise=d['material']['erode_noise'],erode=d['material']['erode'])
+        write_vfx_material(out,root+'/materials/'+label+'.tres',material,root+'/derived/'+source+'_distance.png',dark,noise_rel)
+        if noise_rel:
+            # A private shader variant adds drift without changing any other kit.
+            material_path=out/root/'materials'/f'{label}.tres'
+            text=material_path.read_text()
+            shader_path=re.search(r'path="res://([^"]+\.gdshader)"',text).group(1)
+            original=out/shader_path; drift=original.with_name(original.stem+'_roil.gdshader')
+            source_text=original.read_text().replace('void fragment()', 'uniform vec2 noise_uv_offset = vec2(0.0);\nvoid fragment()').replace('texture(erosion_noise_texture, UV)', 'texture(erosion_noise_texture, UV + noise_uv_offset)')
+            drift.write_text(source_text)
+            material_path.write_text(text.replace(shader_path,drift.relative_to(out).as_posix()))
     # Flare material is required by the existing CAST frame plumbing.
     write_vfx_material(out,root+'/materials/Body.tres',mat,root+'/derived/pulse_distance.png')
     from export.effect_kit import MATERIAL_BINDING_SCRIPT
@@ -3592,7 +3609,7 @@ func _clock(age: int) -> void:
     # Coverage is area: sqrt growth on each axis; density exclusively multiplies alpha.
     var painted: bool = not config.field_binding.is_empty()
     ground_visual.get_node("Field").scale = Vector2.ONE if painted else Vector2(1,float(config.ground_squash))*field_scale*sqrt(coverage)
-    # One breath per authored irregular tick interval; density .75 gives .65--.80.
+    # Multiplicative breath: authored density bounds the translucent cloud.
     var next_tick: int = roundi(float(config.ticks[tick_index])*60.0) if tick_index<config.ticks.size() else end_field
     var phase: float = clampf(float(land_age-last_tick)/maxi(1,next_tick-last_tick),0,1)
     var wave: float = sin(TAU*phase)
@@ -3604,6 +3621,10 @@ func _clock(age: int) -> void:
         dissolve = .5 if fade_age<8 else (.7 if fade_age<24 else 1.0)
     ground_visual.get_node("Field").material.set_shader_parameter("dissolve",dissolve)
     ground_visual.get_node("Field").modulate.a = float(config.density)*breathe
+    for name in ["Field","DarkDuplicate"]:
+        ground_visual.get_node(name).material.set_shader_parameter("erode",float(config.field_erode))
+        if float(config.roil_uv_per_s)>0:
+            ground_visual.get_node(name).material.set_shader_parameter("noise_uv_offset",Vector2(float(maxi(0,land_age))/60.0*float(config.roil_uv_per_s),0))
     ground_visual.get_node("Field").position = Vector2(float(maxi(0,land_age))/60.0*2.0,0) if config.treatment=="poison" else Vector2.ZERO
     for i in range(ground_visual.get_node("Licks").get_child_count()):
         var lick: Sprite2D = ground_visual.get_node("Licks").get_child(i)
@@ -3618,10 +3639,10 @@ func _clock(age: int) -> void:
     ground_visual.get_node("Decal").modulate.a = clampf(1.0-float(land_age-end_field)/residue_frames,0,1)
     ground_visual.get_node("Halo").visible = field_live and config.treatment=="fire" and "halo" in config.enabled_layers
     ground_visual.get_node("Halo").modulate.a = .12
-    ground_visual.get_node("DarkDuplicate").visible = field_live and config.treatment=="fire" and "dark_duplicate" in config.enabled_layers
+    ground_visual.get_node("DarkDuplicate").visible = field_live and "dark_duplicate" in config.enabled_layers
     ground_visual.get_node("DarkDuplicate").scale = ground_visual.get_node("Field").scale
-    ground_visual.get_node("DarkDuplicate").position = ground_visual.get_node("Field").position
-    ground_visual.get_node("DarkDuplicate").modulate.a = float(config.density)*breathe*.25
+    ground_visual.get_node("DarkDuplicate").position = ground_visual.get_node("Field").position+Vector2(0,float(config.dark_offset_px))
+    ground_visual.get_node("DarkDuplicate").modulate.a = float(config.density)*breathe*float(config.dark_alpha)
     ground_visual.get_node("FloorLight").visible = field_live and config.treatment=="fire" and "floor_light" in config.enabled_layers
     ground_visual.get_node("FloorLight").modulate.a = .15
     for name in ["Halo","FloorLight","DarkDuplicate"]:
@@ -3629,7 +3650,7 @@ func _clock(age: int) -> void:
     ground_visual.get_node("Flash").visible = land_age==0 and "flash" in config.enabled_layers
     ground_visual.get_node("Flash").modulate.a = .8
     _tint_clock(age)
-    trace.append({"age_frames":age,"lift_px":lift,"flask_position":[$Flask.global_position.x,$Flask.global_position.y],"rotation_deg":rad_to_deg($Flask.rotation),"contact":land_age==0,"fragments":$Fragments.get_children().filter(func(n):return n.visible).size(),"field_alive":field_live,"coverage":coverage,"density":config.density,"field_alpha":ground_visual.get_node("Field").modulate.a,"drift_px":ground_visual.get_node("Field").position.x,"ground_point":[ground_visual.global_position.x,ground_visual.global_position.y],"ground_z":ground_visual.z_index,"decal_visible":ground_visual.get_node("Decal").visible,"decal_alpha":ground_visual.get_node("Decal").modulate.a,"tick_count":tick_index})
+    trace.append({"age_frames":age,"lift_px":lift,"flask_position":[$Flask.global_position.x,$Flask.global_position.y],"rotation_deg":rad_to_deg($Flask.rotation),"contact":land_age==0,"fragments":$Fragments.get_children().filter(func(n):return n.visible).size(),"field_alive":field_live,"coverage":coverage,"density":config.density,"field_alpha":ground_visual.get_node("Field").modulate.a,"field_erode":ground_visual.get_node("Field").material.get_shader_parameter("erode"),"dark_offset_px":config.dark_offset_px,"drift_px":ground_visual.get_node("Field").position.x,"ground_point":[ground_visual.global_position.x,ground_visual.global_position.y],"ground_z":ground_visual.z_index,"decal_visible":ground_visual.get_node("Decal").visible,"decal_alpha":ground_visual.get_node("Decal").modulate.a,"tick_count":tick_index})
     if land_age>=end_field+residue_frames:
         _record("expire")
         active = false
@@ -4063,7 +4084,7 @@ def _g4_config(kit):
                 radius_px=m['radius_px'],duration_s=m['duration_s'],pulses=m['pulse_schedule_s'],
                 schedule=tick_schedule_report(m['pulse_schedule_s'],m['pulse_cv_min']),
                 orbit_period_s=p['phase_envelope_s']['ring_orbit_period'],petal_life_s=p['phase_envelope_s']['petal_life'],
-                release_s=g['release_s'],seed=g['seed'],support_tint=g['support_tint'],
+                release_s=g['release_s'],seed=g['seed'],support_tint=g['support_tint'],seal_aspect=g['seal_aspect'],
                 primitives={role:dict(g[role],png=root+g[role]['png'],material=root+'materials/'+role.title()+'.tres') for role in ('ring','petal','seal')},
                 halo_material=root+'materials/Halo.tres',floor_material=root+'materials/FloorLight.tres')
 
@@ -4094,7 +4115,7 @@ def _write_g4_component(out):
     (out/'scripts/vfx_g4.gd').write_text(G4_SCRIPT)
     (out/'scripts/vfx_contact_label.gd').write_text(CONTACT_LABEL_SCRIPT)
     scene='[gd_scene load_steps=2 format=3]\n[ext_resource type="Script" path="res://scripts/vfx_g4.gd" id="G4"]\n[node name="G4AuraLoop" type="Node2D"]\nscript = ExtResource("G4")\ntexture_filter = 2\n'
-    for name,kind,parent in [('Ground','Node2D','.'),('Seal','Sprite2D','Ground'),('Halo','Sprite2D','Ground'),('FloorLight','Sprite2D','Ground'),('Ring','Node2D','.'),('Petals','Node2D','.')]:
+    for name,kind,parent in [('Ground','Node2D','.'),('SealPivot','Node2D','Ground'),('Seal','Sprite2D','Ground/SealPivot'),('Halo','Sprite2D','Ground'),('FloorLight','Sprite2D','Ground'),('Ring','Node2D','.'),('Petals','Node2D','.')]:
         scene+='\n[node name="'+name+'" type="'+kind+'" parent="'+parent+'"]\ntexture_filter = 2\n'
     (out/'scenes/vfx/g4_aura_loop.tscn').write_text(scene)
 
@@ -4179,9 +4200,11 @@ func start(kit: Dictionary, owner_root: Node2D, refresh: bool) -> void:
     rng.seed = int(config.seed)
     for container in [$Ring,$Petals]:
         for child in container.get_children(): child.free()
-    _bind($Ground/Seal,"seal")
-    $Ground/Seal.rotation = 0.0
-    $Ground/Seal.modulate.a = .8
+    _bind($Ground/SealPivot/Seal,"seal")
+    $Ground/SealPivot.scale = Vector2(1,float(config.seal_aspect))
+    $Ground/SealPivot/Seal.scale.y /= float(config.seal_aspect)
+    $Ground/SealPivot/Seal.rotation = 0.0
+    $Ground/SealPivot/Seal.modulate.a = .8
     for name in ["Halo","FloorLight"]:
         var sprite: Sprite2D = get_node("Ground/"+name)
         _bind(sprite,"seal")
@@ -4218,8 +4241,8 @@ func _clock(frame: int) -> void:
         releasing = true
         _record("release_start")
     var fade: float = clampf(float(age-ending)/release_frames,0,1)
-    $Ground/Seal.rotation = TAU*float(age)/480.0
-    $Ground/Seal.modulate.a = .8*(1.0-fade)
+    $Ground/SealPivot/Seal.rotation = TAU*float(age)/480.0
+    $Ground/SealPivot/Seal.modulate.a = .8*(1.0-fade)
     $Ground/Halo.modulate.a = .2*(1.0-fade)
     $Ground/FloorLight.modulate.a = .15*(1.0-fade)
     for i in range(5):
@@ -4243,7 +4266,7 @@ func _clock(frame: int) -> void:
         petal.material.set_shader_parameter("dissolve",dissolve)
         petal.modulate.a = 1.0 if life<18 else 1.0-float(life-18)/9.0
     _sync()
-    trace.append({"age_frames":age,"generation":generation,"owner":[caster.global_position.x,caster.global_position.y],"seal":[ $Ground/Seal.global_position.x,$Ground/Seal.global_position.y],"ring_center":[ $Ring.global_position.x,$Ring.global_position.y],"petal_count":$Petals.get_child_count(),"pulse_count":pulse_index,"erode":fade,"seal_alpha":$Ground/Seal.modulate.a})
+    trace.append({"age_frames":age,"generation":generation,"owner":[caster.global_position.x,caster.global_position.y],"seal":[ $Ground/SealPivot/Seal.global_position.x,$Ground/SealPivot/Seal.global_position.y],"ring_center":[ $Ring.global_position.x,$Ring.global_position.y],"petal_count":$Petals.get_child_count(),"pulse_count":pulse_index,"erode":fade,"seal_alpha":$Ground/SealPivot/Seal.modulate.a})
     if age>=ending+release_frames:
         _record("expire")
         active = false
@@ -4318,6 +4341,66 @@ func _exit_tree() -> void:
 '''
 
 
+
+
+def _write_orb_nova(out, kit, resource_root, prefix):
+    """Reuse the sixteen immutable masks with a separate expiry clock."""
+    import copy
+    from export.effect_kit import write_vfx_material
+    d=kit['effect']; legacy=dict(kit,effect=copy.deepcopy(d))
+    legacy['effect'].pop('orb')
+    legacy['effect']['pieces']['template']='burst_v1'
+    legacy['effect']['layers']['dark_duplicate']=False
+    _write_piece_burst(out,legacy,resource_root,prefix)
+    scene_path=out/f'scenes/{prefix}_impact.tscn'; scene=scene_path.read_text()
+    scene=scene.replace('res://scripts/vfx/piece_burst.gd','res://scripts/vfx/orb_nova.gd')
+    body=d['orb']['body']; source=kit['root']/body['png']
+    target=out/resource_root/body['png']; target.parent.mkdir(parents=True,exist_ok=True);shutil.copyfile(source,target)
+    field=d['distance_fields'][body['png']]; target=out/resource_root/field;target.parent.mkdir(parents=True,exist_ok=True);shutil.copyfile(kit['root']/field,target)
+    with Image.open(source) as im: box=im.getchannel('A').getbbox()
+    scale=d['orb']['expiry_core_bh']*130/max(box[2]-box[0],box[3]-box[1])
+    material=resource_root+'/materials/NovaCore.tres'
+    write_vfx_material(out,material,dict(d['material'],blend_mode='ADD'),resource_root+'/'+field)
+    ext=f'[ext_resource type="Texture2D" path="res://{resource_root}/{body["png"]}" id="CoreTexture"]\n[ext_resource type="Material" path="res://{material}" id="CoreMaterial"]\n'
+    index=scene.index('[node ');scene=scene[:index]+ext+scene[index:]
+    scene += ('\n[node name="Core" type="Sprite2D" parent="Art"]\ntexture_filter = 2\ncentered = false\n'
+              f'offset = Vector2({-body["pivot"][0]}, {-body["pivot"][1]})\nscale = Vector2({scale}, {scale})\n'
+              'texture = ExtResource("CoreTexture")\nmaterial = ExtResource("CoreMaterial")\n')
+    scene=re.sub(r'load_steps=\d+','load_steps='+str(scene.count('[ext_resource ')+1),scene,count=1)
+    scene_path.write_text(scene)
+    runtime_path=out/resource_root/'pieces/burst_runtime.json';runtime=json.loads(runtime_path.read_text())
+    runtime.update(phase_scale=1.,expiry_mode='nova',expiry_core_bh=d['orb']['expiry_core_bh'],expiry_decal=False,hold_frames=0,residue_frames=0)
+    runtime_path.write_text(json.dumps(runtime,indent=2)+'\n')
+    (out/'scripts/vfx/orb_nova.gd').write_text(ORB_NOVA_SCRIPT)
+
+
+ORB_NOVA_SCRIPT = r'''extends "res://scripts/vfx/piece_burst.gd"
+func set_effect_age(age: int) -> void:
+    if age==last_age: return
+    last_age=age
+    for name in ["Peak","PeakDark","Flash","Glow"]: get_node("Art/"+name).hide()
+    $FloorLight.hide()
+    $Art/Core.visible=age<6
+    $Art/Core.modulate.a=maxf(0.0,1.0-float(age)/6.0)
+    var states: Array=[]
+    var alive: bool=age<30
+    for item in pieces:
+        var node: Sprite2D=item.node
+        var angle: float=deg_to_rad(float(item.record.radial_angle_deg))
+        var axis: Vector2=Vector2.from_angle(angle)
+        node.position=axis*float(config.base_speed_px_s)*float(age)/60.0
+        node.rotation=angle
+        node.scale=Vector2.ONE
+        node.visible=alive
+        node.material.set_shader_parameter("erode",clampf(float(age)/30.0,0,1))
+        node.material.set_shader_parameter("dissolve",0.0)
+        states.append({"id":item.record.id,"position":[node.position.x,node.position.y],"distance_px":node.position.length(),"rotation_deg":rad_to_deg(angle),"visible":alive,"erode":clampf(float(age)/30.0,0,1)})
+    trace.append({"age_frames":age,"stage":"nova" if alive else "zero","peak_visible":$Art/Peak.visible or $Art/PeakDark.visible or $Art/Flash.visible or $Art/Glow.visible,"decal_visible":has_node("Decal"),"residue_visible":false,"core_visible":$Art/Core.visible,"core_alpha":$Art/Core.modulate.a,"shard_count":pieces.size() if alive else 0,"pieces":states})
+    if not alive:
+        hide()
+        _write_trace()
+        queue_free()
+'''
 
 
 def _orb_config(kit):
@@ -4439,7 +4522,7 @@ func _physics_process(_delta: float) -> void:
             _emit_child(int(config.schedule.emission_ages[schedule_index]))
             schedule_index += 1
         if age >= int(config.expiry_frames) and not draining: expire()
-    if draining and not burst_started and age >= expiry_age + 2:
+    if draining and not burst_started and age >= expiry_age + (0 if config.orb.expiry_mode=="nova" else 2):
         burst_started = true
         burst_node = load(config.impact).instantiate()
         burst_node.set("spell_scale", 1.0)
@@ -4448,8 +4531,9 @@ func _physics_process(_delta: float) -> void:
         burst_node.position = get_parent().to_local(global_position)
         get_parent().add_child(burst_node)
         # The orb already held for two ticks. Enter v1r's radial stage directly.
-        burst_node.release_tick = Engine.get_physics_frames() - 3
-        burst_node.set_effect_age(3)
+        var start_age: int = 0 if config.orb.expiry_mode=="nova" else 3
+        burst_node.release_tick = Engine.get_physics_frames() - start_age
+        burst_node.set_effect_age(start_age)
         _record("expiry_burst")
         events[-1].merge({"shards":16,"position":[global_position.x,global_position.y],"hold_frames":age-expiry_age})
         $OrbBody.hide()

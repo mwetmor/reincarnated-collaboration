@@ -11548,6 +11548,20 @@
       "veto_open": true,
       "ruling": "MATT RULING (mid-turn, 2026-09-16): gather footage for the missing skills first (Matt will source any we cannot find), build against the video references, audit in parallel with the Astra bursts; Matt rules the remaining forks (Q80) after the audit. Legolas commissioned (Mode A: six skills, deployment facts + spec-vs-footage table → agentic_orchestration/legolas/research/2026-09-16-e3-deployment-footage/). No spec re-authoring from the audit until the table is in. HEADLESS HANG REGRESSION since T4w (E2 shatter probe + touch-aim probe > 300 s outside; green after T4v) → T4x Part D FIRST; freeze after T4w; T4x fires.",
       "ts": "2026-09-16T10:05:59"
+    },
+    {
+      "id": "R-C5-77",
+      "class": "conductor",
+      "veto_open": true,
+      "ruling": "LEGOLAS DEPLOYMENT AUDIT RECEIVED (agentic_orchestration/legolas/research/2026-09-16-e3-deployment-footage/findings.md; four of six answered from shipped game data, better than footage). Verdicts: Frozen Orb G1 CONFIRMED (numbers correct-to: 632 px/s, 759 px, 1.20 s, emission EVERY FRAME at 25 Hz metronome, 16 radial nova bolts, no impact body, orb deals no damage); Blackwater G2 CONFIRMED (tick flat 1.0 s; scorch 12 s; pool radius by rank — spec must name a rank); Poisonous Concoction G2 BROKEN — lobbed BURST, no cloud, no ticks, no puddle (1.0-BH radius); Lightning Blast G3 CONFIRMED (chain 0→2 dynamic, hop 0.10 s, hop range 3.3–3.9 BH); Zeus G3 BROKEN on treatment — on-hit proc from the struck enemy (confirmed) but a TRAVELLING homing sprite ball at 10.8 BH/s, ~0.2 s per hop, 4 hops, no polyline; Healing Hands G4 BROKEN — one-shot instant burst at the CURSOR GROUND POINT, no loop, no pulses, no seal in source, radius unpublished. FF-08 anti-metronome jitter has NO source basis — every source cadence is a metronome; it is HOUSE STYLE and must be declared as such or dropped (fork for Matt). Per Matt ruling (R-C5-76: build per the references): conductor re-authors the six specs from Table B after T4x lands; T4x Parts A (seal spin) / B (cloud) / C0 (jitter) are now known off-source — B and C0 will be reverted in the re-spec lap; Part D (hang) and Part C (nova) stand.",
+      "ts": "2026-09-16T10:26:51"
+    },
+    {
+      "id": "R-C5-78",
+      "class": "conductor",
+      "veto_open": true,
+      "ruling": "T4x DELIVERED_WITH_CONCERNS and ACCEPTED as built. Part D: the \"hang\" was NOT a runtime regression — both probes were test scripts dereferencing retired APIs (Decal reparented in T4s-r2; _unhandled_input retired in T4i-r1), exceptions abandoned them before quit; Astra fixed the probes and correctly declined to touch the runtime (conductor mis-diagnosis, R-C5-76 amended). Part C nova expiry + C0 balanced {2,3,4} emission implemented; Part A seal transform implemented exactly but my ±5 % alpha-bbox clause is unhonourable (faint alpha outliers; visible ellipse .405 vs bbox .66) — moot: the seal retires with the Healing Hands re-spec (audit); Part B cloud parameters implemented — moot: Concoction becomes a burst (+ puddle per Matt F6). Outside suite 713 pass; named non-standing reds: RenderedLookTraceTests seal-bbox (my impossible clause) and BoltChainEmissionTests.test_current_catalogue_and_original_kits_unchanged (stale catalogue snapshot after three re-bakes) → both to the E3 re-spec TOOLING lap, which queues behind the fire lane. Lane wrapper crashed post-burst (LD-1, N-C5-T4X-WRAPPER); receipt copied by hand. FREEZE; PACK v31 + FL-1 fire.",
+      "ts": "2026-09-16T10:43:48"
     }
   ],
   "grok_calls": [],
@@ -11673,6 +11687,17 @@
       "id": "N-C5-T4X-CAPS",
       "note": "T4x first fire refused by the lane wrapper in <1 s: brief caps 50 min / 80 calls exceed the TOOLING charter limits (40 / 60) — conductor slip; caps reset and re-fired (log c5_t4x_r). No burst ran; no ledger row consumed.",
       "ts": "2026-09-16T10:06:53"
+    },
+    {
+      "id": "N-C5-T4X-WRAPPER",
+      "kind": "lane-defect",
+      "note": "run_burst.py post-step crashed after T4x completed: out/.wrapper-events.jsonl absent (FileNotFoundError at events.replace) — so no wrapper audit line, no artifacts copy. Receipt + files.json copied by hand from /Users/admin/astra-burst/runs/C-5/T4x/out/ (receipt status DELIVERED_WITH_CONCERNS, images 0). LANE DEFECT LD-1 for the lane maintainer: the wrapper must tolerate a missing events file (write the audit as UNAVAILABLE) rather than abort after a successful burst. T4w had the file; cause unknown.",
+      "ts": "2026-09-16T10:32:55"
+    },
+    {
+      "id": "N-C5-SOURCING-CORRECTION",
+      "note": "CONDUCTOR ERROR: the Legolas E3 audit brief stated the sourcing rule as \"no downloads (option c′)\" — stale; Matt RULED download (option b) on 2026-09-12 (private measurement, Desktop class-E folder with sidecar, never a burst input). Matt re-affirmed 2026-09-16 (\"why not download the videos to be sure?\"). Legolas re-commissioned with downloads under the ruled conditions: frame measurements for the § 9 questions + the PoE dark-puddle question (Alchemist’s Mark caustic ground vs the gem).",
+      "ts": "2026-09-16T10:38:27"
     }
   ]
 }

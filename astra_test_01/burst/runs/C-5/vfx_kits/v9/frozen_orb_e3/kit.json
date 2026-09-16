@@ -74,7 +74,7 @@
       "count": 1,
       "emission": {
         "child": "ice_bolt_mini",
-        "schedule": "every 2\u20133 frames (seeded jitter, FF-08), spiral, 3 per revolution",
+        "schedule": "every 2\u20134 frames (seeded balanced shuffle, FF-08), spiral, 3 per revolution",
         "child_speed_px_s": 900,
         "child_range_px": 260
       },
@@ -112,13 +112,18 @@
         "victim_tint",
         "hit_stop",
         "contact_label"
-      ]
+      ],
+      "expiry_mode": "nova",
+      "expiry_core_bh": 0.8,
+      "expiry_decal": false
     },
     "provenance": {
       "orb speed / spiral bolts / expiry shard burst": "D2 source observation (conductor memory: slow orb ~ 1.5 s flight, continuous bolt spiral, final nova of ice bolts) \u2014 VERIFY against the C-5 reference corpus before E3-FO",
       "pierce -1": "Matt R-C5 Packet-84 (skill pierce)",
       "bands": "E2 ice palette",
-      "range_and_emission": "corrected R-C5-72 per T4v findings"
+      "range_and_emission": "corrected R-C5-72 per T4v findings",
+      "balanced_emission": "R-C5-75",
+      "rendered_nova": "R-C5-74 F-C5-19"
     }
   },
   "phases": {
@@ -205,8 +210,13 @@
     "child_pierce": 0,
     "interval_frames_choices": [
       2,
-      3
-    ]
+      3,
+      4
+    ],
+    "interval_draw": "balanced_shuffle",
+    "expiry_mode": "nova",
+    "expiry_core_bh": 0.8,
+    "expiry_decal": false
   },
   "distance_fields": {
     "flare/flare_00.png": "distance/flare/flare_00.png",

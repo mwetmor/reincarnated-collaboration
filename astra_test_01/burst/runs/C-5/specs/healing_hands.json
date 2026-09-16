@@ -7,7 +7,7 @@
  "mechanics": {
   "origin_socket": "caster_root",
   "aim_rule": "owner-tracking",
-  "radius_px": 220,
+  "radius_px": 160,
   "duration_s": 4.0,
   "pulse_schedule_s": [
    0.0,
@@ -29,7 +29,7 @@
    "residue": "none"
   },
   "body_extents_bh": {
-   "ring_diameter": 3.4,
+   "ring_diameter": 2.46,
    "petal": 0.8
   },
   "phase_envelope_s": {
@@ -44,6 +44,7 @@
   ]
  },
  "provenance": {
+  "rendered_ring": "R-C5-74 F-C5-18",
   "aura loop with pulses": "LE source observation (conductor memory) \u2014 VERIFY; aura_loop_v1 band PROVISIONAL (03- \u00a7 2.2 caveat)",
   "support preset": "03- \u00a7 2.1 response classes",
   "pulse_schedule": "conductor R-C5-70: re-authored for FF-08 (CV 0.55); the first (CV 0.18) was conductor error, T4u reported it"

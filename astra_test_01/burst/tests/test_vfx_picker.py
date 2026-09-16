@@ -106,10 +106,12 @@ def build_fixture(directory):
 def run_headless(test, project, script):
     engine_errors = []
     for args in (['--import'], ['--script', 'res://'+script]):
+        started = time.monotonic()
         result = subprocess.run([GODOT, '--headless', '--log-file', str(project/'godot.log'),
                                  '--path', str(project), *args],
                                 capture_output=True, text=True, timeout=60)
         log = result.stdout+result.stderr
+        test.assertLess(time.monotonic()-started, 60, 'headless deadline')
         test.assertEqual(result.returncode, 0, log)
         test.assertNotIn('SCRIPT ERROR', log)
         test.assertNotIn('T3O_ASSERTION:', log)
@@ -861,14 +863,15 @@ class TouchAimRuntimeTests(unittest.TestCase):
     @unittest.skipUnless(Path(GODOT).is_file(), 'Godot binary unavailable')
     def test_headless_overlay_forward_world_touch_and_mouse_probe(self):
         # T4i artifacts remain in the explicitly scoped tooling directory.
-        temporary = ROOT/'runs/C-5/t3/T4i/tmp'
+        temporary = ROOT/'runs/C-5/t3/T4x/touch'
         temporary.mkdir(parents=True, exist_ok=True)
         with tempfile.TemporaryDirectory(prefix='touch-aim-', dir=temporary) as directory:
             root = Path(directory)
             cells, sockets, kits, _ = fixture_inputs(root/'inputs')
             project = root/'project'
             build_project(cells, project, sockets=sockets, vfx_kits=kits)
-            (project/'touch_aim_probe.gd').write_text(TOUCH_AIM_PROBE)
+            # T4x: T4i-r1 device-forward policy replaced the retired input hook.
+            (project/'touch_aim_probe.gd').write_text(TOUCH_DEVICE_AIM_PROBE)
             run_headless(self, project, 'touch_aim_probe.gd')
             report = json.loads((project/'out/touch_aim.json').read_text())
             self.assertEqual(report['errors'], [])
@@ -1522,9 +1525,9 @@ func run() -> void:
                 samples.append(row)
             check(impact.get_node("Art").scale == Vector2.ONE,"screen pixel scale")
             check(not impact.has_node("Residual"),"no residual sprite")
-            var decal: Sprite2D = impact.get_node("Decal")
+            var decal: Sprite2D = impact.ground_decal
             check(decal.global_position.distance_to(target.global_position) < 0.01,"decal contact anchor")
-            check(decal.z_index == -2 and not decal.z_as_relative,"decal below actors")
+            check(decal.get_parent().name == "GroundEffects" and decal.z_as_relative,"decal owned by ground layer")
             check(decal.scale == Vector2(1.0,0.6),"decal native scale plus ground squash")
     var contacts: Array = G1.events.filter(func(e): return e.effect_id == id and e.event == "contact")
     var labels: Array = G1.label_events.filter(func(e): return e.effect_id == id)
@@ -1573,7 +1576,7 @@ func run() -> void:
             check(a.get_node("Art/Peak").position == Vector2.ZERO,"residue origin")
             check(a.get_node("Art/Peak").scale == Vector2.ONE,"residue by erosion only")
         if age == 111:
-            check(not a.get_node("Decal").visible and a.get_node("Decal").modulate.a == 0.0,"decal exact release clock")
+            check(not a.ground_decal.visible and a.ground_decal.modulate.a == 0.0,"decal exact release clock")
     check(deterministic,"seed-equal clocks")
     check(translations.size() == 22 and translations.all(func(v): return v > 0.0),"every shard translates radially")
     var report: Dictionary = {"errors":errors,"contacts":contacts,"labels":labels,"bursts":bursts,"hitstop_seen":hitstop_seen,"streak_scales":scales,"samples":samples,"seed_equal":deterministic,"translations_px":translations,"decal_release_age":111}
@@ -1589,14 +1592,16 @@ class IceTreatmentPickerTests(unittest.TestCase):
     """Real E2 clock proof in a wholly T4r-owned temporary project."""
     def test_headless_contact_shatter_residue_decal(self):
         from test_godot_import import ice_project_fixture
-        work=ROOT/'runs/C-5/t3/T4r'
+        work=ROOT/'runs/C-5/t3/T4x'
         with tempfile.TemporaryDirectory(prefix='e2-clock-',dir=work) as tmp:
             project=ice_project_fixture(Path(tmp))
             (project/'e2_probe.gd').write_text(E2_PROBE)
             records=[]
             for args in (['--import'],['--script','res://e2_probe.gd']):
+                started=time.monotonic()
                 result=subprocess.run([GODOT,'--headless','--path',str(project),'--log-file',str(Path(tmp)/'engine.log'),*args],capture_output=True,text=True,timeout=60)
-                records.append(dict(arguments=args,exit=result.returncode,log=result.stdout+result.stderr))
+                self.assertLess(time.monotonic()-started,60,'headless deadline')
+                records.append(dict(arguments=args,exit=result.returncode,elapsed_s=time.monotonic()-started,log=result.stdout+result.stderr))
                 self.assertEqual(result.returncode,0,result.stdout+result.stderr)
                 self.assertNotIn('SCRIPT ERROR',result.stdout+result.stderr)
             report=json.loads((project/'e2_trace.json').read_text())
@@ -1615,7 +1620,7 @@ class ThrownFieldPickerTests(unittest.TestCase):
             config=_g2_config(kit)
             self.assertEqual(config['grammar'],'G2')
             self.assertEqual(config['ticks'],kit['effect']['skill_spec']['mechanics']['field']['tick_schedule_s'])
-            self.assertEqual(config['ground_squash'],.58)
+            self.assertEqual(config['ground_squash'],kit['effect']['ground_squash'])
             self.assertEqual(config['flask_width'],45.5)
 
     def test_headless_g2_trace_mechanics_and_scale_evidence(self):
@@ -1687,7 +1692,7 @@ class AuraLoopPickerTests(unittest.TestCase):
             self.assertIn('"grammar": "G4"',script)
 
 
-FROZEN_ORB_PROBE = 'extends SceneTree\nvar errors: Array = []\nfunc _initialize() -> void:\n    call_deferred("run")\nfunc run() -> void:\n    var world := Node2D.new()\n    root.add_child(world)\n    for i in range(3):\n        var target := Area2D.new()\n        target.name = "Dummy%d" % i\n        target.position = Vector2(160+i*160,0)\n        target.collision_layer = 2\n        target.collision_mask = 0\n        target.set_meta("body_index",i)\n        target.add_to_group("vfx_targets")\n        var shape := CollisionShape2D.new()\n        var circle := CircleShape2D.new()\n        circle.radius = 25.0\n        shape.shape = circle\n        target.add_child(shape)\n        world.add_child(target)\n    await physics_frame\n    var g1 = load("res://scripts/vfx_g1.gd")\n    var config: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://orb_config.json"))\n    config.pierce = int(config.pierce)\n    var destination: Dictionary = g1.resolve_target(self,Vector2.ZERO,Vector2.RIGHT,Vector2(640,0),640.0)\n    var orb: Area2D = g1.acquire(world,config,Vector2.ZERO,destination,null,4.0)\n    var source_id: int = orb.effect_id\n    var burst_trace: Array = []\n    var max_nodes: int = 0\n    for frame in range(240):\n        await physics_frame\n        await process_frame\n        max_nodes = maxi(max_nodes,orb.get_node("ChildPool").get_child_count())\n        if is_instance_valid(orb.burst_node):\n            burst_trace = orb.burst_node.trace.duplicate(true)\n    var report: Dictionary = {"events":g1.events.duplicate(true),"labels":g1.label_events.duplicate(true),"trace":orb.trace.duplicate(true),"burst_trace":burst_trace,"pool_nodes":max_nodes,"orb_effect_id":source_id,"errors":errors}\n    var first_instance: int = orb.get_instance_id()\n    var again: Area2D = g1.acquire(world,config,Vector2.ZERO,destination,null,1.0)\n    report["reuse_same_orb"] = again.get_instance_id() == first_instance\n    report["reuse_pool_nodes"] = again.get_node("ChildPool").get_child_count()\n    again.cancel()\n    report["cancel_children_active"] = again.get_node("ChildPool").get_children().filter(func(n): return n.active).size()\n    var file := FileAccess.open("res://orb_trace.json",FileAccess.WRITE)\n    file.store_string(JSON.stringify(report,"  "))\n    file.close()\n    quit()\n'
+FROZEN_ORB_PROBE = 'extends SceneTree\nvar errors: Array = []\nfunc _initialize() -> void:\n    call_deferred("run")\nfunc run() -> void:\n    var world := Node2D.new()\n    root.add_child(world)\n    for i in range(3):\n        var target := Area2D.new()\n        target.name = "Dummy%d" % i\n        target.position = Vector2(160+i*160,0)\n        target.collision_layer = 2\n        target.collision_mask = 0\n        target.set_meta("body_index",i)\n        target.add_to_group("vfx_targets")\n        var shape := CollisionShape2D.new()\n        var circle := CircleShape2D.new()\n        circle.radius = 25.0\n        shape.shape = circle\n        target.add_child(shape)\n        world.add_child(target)\n    await physics_frame\n    var g1 = load("res://scripts/vfx_g1.gd")\n    var config: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://orb_config.json"))\n    config.pierce = int(config.pierce)\n    var destination: Dictionary = g1.resolve_target(self,Vector2.ZERO,Vector2.RIGHT,Vector2(float(config.range_px),0),float(config.range_px))\n    var orb: Area2D = g1.acquire(world,config,Vector2.ZERO,destination,null,4.0)\n    var source_id: int = orb.effect_id\n    var burst_trace: Array = []\n    var max_nodes: int = 0\n    for frame in range(240):\n        await physics_frame\n        await process_frame\n        max_nodes = maxi(max_nodes,orb.get_node("ChildPool").get_child_count())\n        if is_instance_valid(orb.burst_node):\n            burst_trace = orb.burst_node.trace.duplicate(true)\n    var report: Dictionary = {"events":g1.events.duplicate(true),"labels":g1.label_events.duplicate(true),"trace":orb.trace.duplicate(true),"burst_trace":burst_trace,"pool_nodes":max_nodes,"orb_effect_id":source_id,"errors":errors}\n    var first_instance: int = orb.get_instance_id()\n    var again: Area2D = g1.acquire(world,config,Vector2.ZERO,destination,null,1.0)\n    report["reuse_same_orb"] = again.get_instance_id() == first_instance\n    report["reuse_pool_nodes"] = again.get_node("ChildPool").get_child_count()\n    again.cancel()\n    report["cancel_children_active"] = again.get_node("ChildPool").get_children().filter(func(n): return n.active).size()\n    var file := FileAccess.open("res://orb_trace.json",FileAccess.WRITE)\n    file.store_string(JSON.stringify(report,"  "))\n    file.close()\n    quit()\n'
 
 
 class FrozenOrbPickerTests(unittest.TestCase):
@@ -1717,8 +1722,8 @@ class FrozenOrbPickerTests(unittest.TestCase):
         (work/'orb_trace.json').write_text(json.dumps(trace,indent=2)+'\n')
         own=[e for e in events if e['effect_id']==cast]
         emissions=[e for e in own if e['event']=='child_emission']
-        self.assertEqual([e['scheduled_age'] for e in emissions],list(range(2,91,2)))
-        self.assertEqual([e['age_frames'] for e in emissions],list(range(2,91,2)))
+        self.assertEqual([e['scheduled_age'] for e in emissions],_g1_config(kit)['schedule']['emission_ages'])
+        self.assertEqual([e['age_frames'] for e in emissions],_g1_config(kit)['schedule']['emission_ages'])
         for a,b in zip(emissions,emissions[1:]):self.assertAlmostEqual(b['angle_deg']-a['angle_deg'],137,places=3)
         contacts=[e for e in own if e['event']=='contact']
         self.assertEqual([e['body_index'] for e in contacts],[0,1,2])
@@ -1727,13 +1732,15 @@ class FrozenOrbPickerTests(unittest.TestCase):
         expiry=[e for e in own if e['event']=='expire'];self.assertEqual(len(expiry),1)
         self.assertEqual(expiry[0]['age_frames'],90);self.assertEqual(expiry[0]['position'],[630,0])
         bursts=[e for e in own if e['event']=='expiry_burst'];self.assertEqual(len(bursts),1)
-        self.assertEqual(bursts[0]['shards'],16);self.assertEqual(bursts[0]['hold_frames'],2)
+        self.assertEqual(bursts[0]['shards'],16);self.assertEqual(bursts[0]['hold_frames'],0 if kit['effect']['orb']['expiry_mode']=='nova' else kit['effect']['pieces']['hold_frames'])
         self.assertEqual(trace['pool_nodes'],12);self.assertEqual(trace['reuse_pool_nodes'],12)
         self.assertTrue(trace['reuse_same_orb']);self.assertEqual(trace['cancel_children_active'],0)
         self.assertFalse(any(e['event']=='pool_exhausted' for e in events))
         self.assertEqual(max(r['shard_count'] for r in trace['burst_trace']),16)
         decals=[r for r in trace['burst_trace'] if r['decal_visible']]
-        self.assertTrue(decals);self.assertTrue(all(r['decal_position']==[630,0] for r in decals))
-        self.assertLess(decals[-1]['decal_alpha'],decals[0]['decal_alpha'])
+        self.assertEqual(bool(decals),kit['effect']['orb']['expiry_decal'])
+        if decals:
+            self.assertTrue(all(r['decal_position']==expiry[0]['position'] for r in decals))
+            self.assertLess(decals[-1]['decal_alpha'],decals[0]['decal_alpha'])
         labels=[e for e in trace['labels'] if e['effect_id']==cast]
         self.assertEqual(len(labels),len({e['body_index'] for e in labels}))
