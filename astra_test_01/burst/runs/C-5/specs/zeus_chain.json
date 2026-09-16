@@ -20,7 +20,8 @@
     0.13
    ],
    "hop_delay_cv_min": 0.25,
-   "target_order": "events (nearest unhit)"
+   "target_order": "events (nearest unhit)",
+   "note": "count = 4 additional hops after the first contact (five actors exercise all four delays); with fewer eligible actors the chain ends early"
   },
   "termination": "chain_end"
  },
@@ -36,7 +37,8 @@
   "phase_envelope_s": {
    "link_life": 0.1,
    "hop_delays": "irregular per mechanics",
-   "total": 0.5
+   "total": 0.65,
+   "afterimage": 0.15
   },
   "enabled_layers": [
    "flash",
@@ -48,6 +50,7 @@
  },
  "provenance": {
   "4-hop chain, irregular hop delay": "Hades source observation (conductor memory) \u2014 VERIFY; FF-08 metronome tripwire",
-  "dialect": "REGISTER_CARD: Hades-language is a level dialect inside H1"
+  "dialect": "REGISTER_CARD: Hades-language is a level dialect inside H1",
+  "total_s": "corrected R-C5-66: 0.5 s could not hold four delays (0.38 s cumulative) + a 0.15 s afterimage per bolt; 0.65 s"
  }
 }
