@@ -1,0 +1,46 @@
+{
+  "task_id": "E0p-peak-01",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "fire_peak_01",
+      "path": "out/fire_peak_01.png",
+      "sha256": "348b8e8747d7b340c889537b0a54bfca267a49cbba96785e6300f6754d02dc34",
+      "prompt": "Generate ONE image only. Required output resolution: 512x512 pixels, RGBA PNG, genuine transparent empty background. This is a retry because the previous body was much larger than 325 pixels across and had tonal variations rather than four flat fills.\nPaint a small single connected upright FIRE IMPACT at peak expansion in the exact CENTER, about 260 pixels wide by 220 pixels high. Leave ample transparent empty canvas all around. Do not auto-crop, enlarge, or fill the canvas. If your native canvas is forced to 1254 square, still make the actual body ONLY 260 pixels wide by 220 pixels tall centered in that native canvas; preserving the literal body extent is essential. Requested delivery canvas remains 512 square.\nMake a compact dense off-center white core with SIX asymmetric flame tongues of unequal length and thickness expanding outward and upward, longest twice the shortest, three with tips curving back into hooks. Broad impact body, slightly wider than tall, upright facing viewer from elevated three-quarter game camera ~53 degrees down. Never flatten it onto the ground. Connected intact body, no detached marks. No symmetry, starburst, sun, ring or circle.\nHAND-DRAWN 2D animation effects frame, confident irregular tapered dark contour around entire outer boundary of each tongue and core, clean painted hard-edged planes. Match the confident contour language described by the user references: hand-drawn painted game scene with readable small silhouettes and restrained detail.\nExactly FOUR solid grayscale inks inside the body: #161616 outline/thin scorched rim; #555555 outer flame; #BBBBBB main mid-flame planes; #FFFFFF off-center dense core and inner streaks of only the two or three longest tongues. White total at most 25 percent of body. Fill every region with a completely uniform solid value. ZERO gradients or texture, zero tonal variation within a plane, no additional values except at most one pixel of edge antialiasing. No surface noise.\nOutside body: actual alpha zero. Inside body: fully opaque. If transparency is impossible, use uniform pure #00ff00 instead. No checkerboard or opaque black backdrop.\nEmission SHAPE only: no lighting, glow, halo, flash, blur, soft edges, ground, floor shadow, light spill, colored flame, sparks, embers, smoke, character, text, watermark. One centered small asset only.",
+      "references": [
+        {
+          "role": "Scale and register reference, read from user attachment",
+          "path": "in/01_scale_board_clearing.png"
+        },
+        {
+          "role": "Native clearing reference, reading only",
+          "path": "in/02_clearing_native_512.png"
+        }
+      ],
+      "elapsed_s": 32.129
+    }
+  ],
+  "calls_used": 2,
+  "retries": [
+    {
+      "reason": "First body exceeded 325 pixels across and displayed tonal variation.",
+      "change": "Re-emphasized literal body extent, 512×512 canvas, and exactly four uniform grayscale fills."
+    }
+  ],
+  "self_report": {
+    "obeyed_invariants": false,
+    "concerns": [
+      "Delivered PNG remains 1254×1254 rather than 512×512; copied unchanged as required.",
+      "Body remains visibly wider than the permitted 325-pixel maximum.",
+      "Visible tonal variation remains; exactly four flat values were not achieved.",
+      "An alpha channel is confirmed, but genuine background transparency and the precise alpha/edge requirements were not independently verified.",
+      "The single permitted retry is exhausted."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/fire_peak_01.png",
+      "sha256": "348b8e8747d7b340c889537b0a54bfca267a49cbba96785e6300f6754d02dc34"
+    }
+  ]
+}

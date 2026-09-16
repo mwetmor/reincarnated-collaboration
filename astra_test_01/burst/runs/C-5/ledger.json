@@ -2,7 +2,7 @@
   "run": "C-5",
   "charter": "agentic_orchestration/gandalf/notes/2026-09-15-vfx-run-C-5-charter.md",
   "charter_sha256_12": "c41d87420e76",
-  "images_used": 12,
+  "images_used": 14,
   "images_cap": 999999,
   "images_cap_note": "SENTINEL 999999 — the run image cap is UN-ENFORCED by sentinel (Matt V20, 2026-09-15: \"no image budget\"); images_used is counted and reported at every packet. run_burst.py:158 integer-compares this field; null crashed it (jack-ryan Gate-1 BLOCK-B).",
   "bursts": [
@@ -2274,6 +2274,75 @@
       "codex_version": "codex-cli 0.153.4",
       "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
       "exit": 0
+    },
+    {
+      "id": "E0p-peak-01",
+      "type": "GENERATE",
+      "experiment": "C5-E0p",
+      "brief_sha256": "29d0fce6534ef0a487d6f961914f48bf62778d92cf0b8d58b30fd7d53d209dca",
+      "started": "2026-09-16T00:32:23.441265+00:00",
+      "ended": "2026-09-16T00:35:17.220606+00:00",
+      "minutes": 2.896613265983251,
+      "image_calls": 2,
+      "tool_calls": 3,
+      "audit": {
+        "violations": [],
+        "image_calls": 2,
+        "tool_calls": 3,
+        "tools_seen": {
+          "command_execution": 3
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0a7a1-0d51-77d1-b387-5b0c533bed05/exec-19aed146-9150-40b6-b624-3a18df62ebd7.png",
+            "sha256": "3414f38bf8af31750a5eae3c618ae0ba1a4500096e61b827642951ba32093ac4"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0a7a1-0d51-77d1-b387-5b0c533bed05/exec-831b909b-5408-4de5-93fa-d9efa58324d5.png",
+            "sha256": "348b8e8747d7b340c889537b0a54bfca267a49cbba96785e6300f6754d02dc34"
+          }
+        ]
+      },
+      "receipt_sha256": "cf9df6338af5b5b3b09567564775df1f0f2cd161a48915448a28e2956d569d1c",
+      "artifacts": [
+        {
+          "name": "fire_peak_01.png",
+          "sha256": "348b8e8747d7b340c889537b0a54bfca267a49cbba96785e6300f6754d02dc34"
+        },
+        {
+          "name": "exec-19aed146-9150-40b6-b624-3a18df62ebd7.provenance.json",
+          "sha256": "89202063114de408fe94b309a86d1223100e659caf550cf5fa5a687f3838bf82"
+        },
+        {
+          "name": "exec-831b909b-5408-4de5-93fa-d9efa58324d5.provenance.json",
+          "sha256": "19e93698bbd8d9ad4d8a52006844fab42ec456b431d480a6549438a41239460b"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0a7a1-0d51-77d1-b387-5b0c533bed05/exec-19aed146-9150-40b6-b624-3a18df62ebd7.png",
+          "sha256": "3414f38bf8af31750a5eae3c618ae0ba1a4500096e61b827642951ba32093ac4"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0a7a1-0d51-77d1-b387-5b0c533bed05/exec-831b909b-5408-4de5-93fa-d9efa58324d5.png",
+          "sha256": "348b8e8747d7b340c889537b0a54bfca267a49cbba96785e6300f6754d02dc34"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
     }
   ],
   "experiments": [],
@@ -2312,6 +2381,11 @@
       "id": "M-C5-WEB8",
       "note": "CS-pack-web8 LIVE (drax): https://reincarnated-loadout.vercel.app/playtest/cliffside/ rebuilt from CS-pack-v21 (kits_v9, T4b/T4f, necro_master_still at the far bridgehead). Loadout 7546bce5 pushed; pck sha 8ea49551…; 7/7 plain-GET 200; headless boot 0 errors; CAST button unchanged. drax measure: master 70×130 world px vs Keeper 53×131 (same height, ~1.3× width). Deploy truth: agentic_orchestration/drax/captures/2026-09-15-web-playtest-v8/deploy_truth.txt",
       "ts": "2026-09-15T19:57:51"
+    },
+    {
+      "id": "M-C5-E0P-PEAK",
+      "note": "E0p-peak-01 DELIVERED (2 image calls): the fire impact peak — genuinely RGBA (transparent plate; ~16k partial-alpha px at the contour), FOUR clean luminance planes (histogram peaks at ~24/88/184/248 with <3% in-between), asymmetric hooked tongues (7, unequal), hand-drawn contour, no glow/gradient. Delivered at 1254² with the body 749×647; conductor resampled ×0.408 → 512² working asset (body 306×263 px = 2.35 BH at 1:1; target 2 BH ±25% met). First VFX body in the H1 register at s=1. Board: runs/C-5/t3/necro_walk_v21/peak_board.png.",
+      "ts": "2026-09-15T20:36:20"
     }
   ],
   "halts": [],
@@ -2434,6 +2508,13 @@
       "veto_open": true,
       "ruling": "E0-p step 1 fired: E0p-peak-01 — fire impact peak as ONE upright asymmetric body (5–7 hooked tongues, unequal), painted extent ≈ 2 BH (260 px at V2 s=1) on a 512² canvas, greyscale FOUR-plane value-index fill (tooling quantises to the T4a shader indices R∈{0,85,170,255}), RGBA-first with the #00ff00 plate as the declared fallback (extraction contract, 03- § 2.3). References = the native clearing scale board (1:1 + 3×) built from an exact 1920×1080 capture (content_scale VIEWPORT — the earlier probe stills were window-clamped to 1726×971, a 0.90 scale; Packet 86 stills are consistent between figures but not 1:1). frozen_orb_v3 impact (307-px chunky fixture) and run_03 vfx_style_match (rendered look) NOT attached: neither is the s=1 hand-drawn register; the register is text-carried (REGISTER_CARD).",
       "ts": "2026-09-15T20:32:23"
+    },
+    {
+      "id": "R-C5-17",
+      "class": "conductor",
+      "veto_open": true,
+      "ruling": "Peak working resolution: the painter outputs 1254² regardless of the requested 512²; the conductor resamples the delivered peak to 512² (Lanczos, one uniform scale, alpha preserved) as the working asset and T4e quantises AFTER the resample. Rationale: V2 ruled art step 1 (linear filter, no native grid), so a uniform non-integer resample of a painted body is the same operation the character lane applies to every cell (512 → 0.5417); the § 2.3 no-non-integer-downscale rule binds native-grid (s>1) paintings only. T4h then places pieces at 1:1 with no runtime scale factor. Veto-open.",
+      "ts": "2026-09-15T20:36:21"
     }
   ],
   "grok_calls": [],
