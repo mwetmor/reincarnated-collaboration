@@ -1,0 +1,308 @@
+{
+  "task_id": "T4h-r1",
+  "template": "burst_v2",
+  "rendered": {
+    "status": "UNEVALUABLE",
+    "v2_returncode": -6,
+    "v1_returncode": -6,
+    "diagnosis": "Both Movie Maker processes terminated with SIGABRT (-6), no numbered PNGs and empty captured process output. This execution environment cannot launch outside its managed sandbox. No rendered pixels or frozen VO1 measurements are claimed.",
+    "crop": [
+      768,
+      768
+    ],
+    "impact_parent_scale": 1.0,
+    "connected_component_fraction": null,
+    "extent_ratio": null,
+    "residue_fraction": null,
+    "residue_centroid_distance": null,
+    "seed_equal_bakes_identical": null,
+    "passed": null
+  },
+  "headless": {
+    "instrument": "actual Godot effect-age states; not pixels",
+    "headless_import_exit": 0,
+    "v2_exit": 0,
+    "v1_exit": 0,
+    "hold_frames": 2,
+    "expansion_duration_ticks": 15,
+    "core_swell_ticks": 9,
+    "residue_start_age": 40,
+    "residue_hold_frames": 36,
+    "residue_hold_s": 0.6,
+    "release_age": 76,
+    "animated_pieces": 11,
+    "hold_only_islands": 13,
+    "root_displacement_max_px": 0.0,
+    "seed_equal_trace": {
+      "instrument": "headless effect-age state trace, not rendered bake",
+      "returncode": 0,
+      "hashes": [
+        "bd5a41c80404a435d5a2c315a785ca92bbcd782b9d05a8fb0affd88317d35291",
+        "bd5a41c80404a435d5a2c315a785ca92bbcd782b9d05a8fb0affd88317d35291"
+      ],
+      "identical": true
+    },
+    "platform_errors": [
+      "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+    ]
+  },
+  "cpu_diagnostic": {
+    "instrument": "CPU inverse-affine, bilinear alpha-support estimate, not Godot rendered acceptance or frozen VO1",
+    "source_peak_extent_px": 311,
+    "source_peak_coverage_px": 41951,
+    "expansion_max_extent_ratio": 1.4244372990353698,
+    "expansion_min_largest_component_fraction": 0.9997782283614244,
+    "residue_fraction_of_intact_peak": 0.21010226216299968,
+    "residue_centroid_distance_ratio": 0.04460987377909002,
+    "frames": [
+      {
+        "age_frames": 4,
+        "stage": "expansion",
+        "coverage_px": 43308,
+        "largest_component_fraction": 1.0,
+        "extent_px": 312,
+        "centroid_distance_from_origin_px": 2.003871695902621
+      },
+      {
+        "age_frames": 5,
+        "stage": "expansion",
+        "coverage_px": 48751,
+        "largest_component_fraction": 1.0,
+        "extent_px": 331,
+        "centroid_distance_from_origin_px": 2.05138647514828
+      },
+      {
+        "age_frames": 6,
+        "stage": "expansion",
+        "coverage_px": 52963,
+        "largest_component_fraction": 1.0,
+        "extent_px": 349,
+        "centroid_distance_from_origin_px": 2.9254950365393393
+      },
+      {
+        "age_frames": 7,
+        "stage": "expansion",
+        "coverage_px": 56169,
+        "largest_component_fraction": 1.0,
+        "extent_px": 365,
+        "centroid_distance_from_origin_px": 4.074688638567811
+      },
+      {
+        "age_frames": 8,
+        "stage": "expansion",
+        "coverage_px": 58503,
+        "largest_component_fraction": 1.0,
+        "extent_px": 383,
+        "centroid_distance_from_origin_px": 4.846784087469913
+      },
+      {
+        "age_frames": 9,
+        "stage": "expansion",
+        "coverage_px": 60215,
+        "largest_component_fraction": 0.9999169642115752,
+        "extent_px": 397,
+        "centroid_distance_from_origin_px": 5.296752344369643
+      },
+      {
+        "age_frames": 10,
+        "stage": "expansion",
+        "coverage_px": 61388,
+        "largest_component_fraction": 0.999918550856845,
+        "extent_px": 410,
+        "centroid_distance_from_origin_px": 5.544023880318578
+      },
+      {
+        "age_frames": 11,
+        "stage": "expansion",
+        "coverage_px": 62080,
+        "largest_component_fraction": 0.9998550257731958,
+        "extent_px": 419,
+        "centroid_distance_from_origin_px": 5.751258015174576
+      },
+      {
+        "age_frames": 12,
+        "stage": "expansion",
+        "coverage_px": 62499,
+        "largest_component_fraction": 0.9999199987199795,
+        "extent_px": 427,
+        "centroid_distance_from_origin_px": 5.738020825134991
+      },
+      {
+        "age_frames": 13,
+        "stage": "expansion",
+        "coverage_px": 62803,
+        "largest_component_fraction": 0.9999044631625877,
+        "extent_px": 432,
+        "centroid_distance_from_origin_px": 5.903085998177133
+      },
+      {
+        "age_frames": 14,
+        "stage": "expansion",
+        "coverage_px": 62980,
+        "largest_component_fraction": 0.999857097491267,
+        "extent_px": 436,
+        "centroid_distance_from_origin_px": 5.946722837576771
+      },
+      {
+        "age_frames": 15,
+        "stage": "expansion",
+        "coverage_px": 63093,
+        "largest_component_fraction": 0.9998890526682833,
+        "extent_px": 439,
+        "centroid_distance_from_origin_px": 5.944465399673194
+      },
+      {
+        "age_frames": 16,
+        "stage": "expansion",
+        "coverage_px": 63171,
+        "largest_component_fraction": 0.999873359611214,
+        "extent_px": 441,
+        "centroid_distance_from_origin_px": 6.018499053329755
+      },
+      {
+        "age_frames": 17,
+        "stage": "expansion",
+        "coverage_px": 63195,
+        "largest_component_fraction": 0.9998575836695941,
+        "extent_px": 441,
+        "centroid_distance_from_origin_px": 6.0592195607974935
+      },
+      {
+        "age_frames": 18,
+        "stage": "expansion",
+        "coverage_px": 63185,
+        "largest_component_fraction": 0.999857561130015,
+        "extent_px": 443,
+        "centroid_distance_from_origin_px": 6.035289131884132
+      },
+      {
+        "age_frames": 19,
+        "stage": "expansion",
+        "coverage_px": 63128,
+        "largest_component_fraction": 0.9997782283614244,
+        "extent_px": 443,
+        "centroid_distance_from_origin_px": 5.980063771523585
+      },
+      {
+        "age_frames": 40,
+        "stage": "residue",
+        "coverage_px": 8814,
+        "largest_component_fraction": 0.9847969140004538,
+        "extent_px": 135,
+        "centroid_distance_from_origin_px": 13.873670745296998
+      }
+    ],
+    "generous_continuous_transform_extent_upper_bound_px": 514.4591313583123,
+    "upper_bound_ratio_with_full_permitted_root_drift": 1.6542094255894286,
+    "upper_bound_method": "All source support pixels; full 1..2 along, 0.7..1 across scale rectangle; continuous +/-10 degree rotation, plus 0.15 core-radius drift in both extremal directions. Diagnostic geometric bound, not rendered measurement."
+  },
+  "acceptance_concerns": [
+    "CPU extent estimate 1.4244 is below the unchanged 1.8 requirement. A generous continuous transform bound allowing full root drift is 1.6542 on these delivered spatial masks; root-pinned factors <=2 cannot reach 1.8 under this bbox instrument. No scale/crop/threshold rescue was applied.",
+    "CPU estimates are not rendered acceptance: connectivity 0.999778, residue 0.210102 of source support, centroid distance 0.044610 of source extent.",
+    "Residue is implemented as stationary original core/root mask coverage, clipped by a v2-only upper-distance uniform and eroded root-first on the shared whole-body field. Expanded sprites erode away independently. This explicit two-layer construction needs conductor visual review."
+  ],
+  "legacy_exports": {
+    "files_compared": 488,
+    "different": [],
+    "added": [],
+    "scope": "All seven existing kit exports including v1, against pre-change snapshot; final source."
+  },
+  "tests": {
+    "focused_tests_run": 17,
+    "focused_successful": true,
+    "final_focused_tests_run": 3,
+    "final_focused_successful": true,
+    "tests_run": 595,
+    "successful": false,
+    "successful_tests": 580,
+    "reds": [
+      {
+        "name": "test_headless_state_machine_input_map_gear_vfx_and_nearest_fallback (test_godot_import.GodotImportTests.test_headless_state_machine_input_map_gear_vfx_and_nearest_fallback)",
+        "standing": false,
+        "diagnosis": "Godot user log path unavailable in sandbox; logger crash"
+      },
+      {
+        "name": "test_synthetic_contract_and_grid (test_oracle_walk.Tests.test_synthetic_contract_and_grid)",
+        "standing": true,
+        "diagnosis": "standing oracle discrepancy"
+      },
+      {
+        "name": "test_f04_outside_at_least_three (test_oracles_motif.Tests.test_f04_outside_at_least_three)",
+        "standing": true,
+        "diagnosis": "standing oracle discrepancy"
+      },
+      {
+        "name": "test_named_genuine_annuli_retained (test_oracles_motif.Tests.test_named_genuine_annuli_retained) (center=[113, 201])",
+        "standing": true,
+        "diagnosis": "standing oracle discrepancy"
+      },
+      {
+        "name": "test_named_genuine_annuli_retained (test_oracles_motif.Tests.test_named_genuine_annuli_retained) (center=[111, 311])",
+        "standing": true,
+        "diagnosis": "standing oracle discrepancy"
+      },
+      {
+        "name": "test_named_genuine_annuli_retained (test_oracles_motif.Tests.test_named_genuine_annuli_retained) (center=[170, 253])",
+        "standing": true,
+        "diagnosis": "standing oracle discrepancy"
+      },
+      {
+        "name": "test_headless_cliffside_follow_camera_parallax_and_projectile_collision (test_parallax_scene.ParallaxSceneTests.test_headless_cliffside_follow_camera_parallax_and_projectile_collision)",
+        "standing": false,
+        "diagnosis": "Godot user log path unavailable in sandbox; logger crash"
+      },
+      {
+        "name": "test_headless_occlusion_fade_restore_overhead_near_and_particles (test_props_layer.PropsLayerTests.test_headless_occlusion_fade_restore_overhead_near_and_particles)",
+        "standing": false,
+        "diagnosis": "Godot user log path unavailable in sandbox; logger crash"
+      },
+      {
+        "name": "test_headless_tower_import_run_and_physics (test_scene_kit.SceneKitTests.test_headless_tower_import_run_and_physics)",
+        "standing": false,
+        "diagnosis": "Godot user log path unavailable in sandbox; logger crash"
+      },
+      {
+        "name": "test_headless_directional_release_and_resources (test_sockets.SocketTests.test_headless_directional_release_and_resources)",
+        "standing": false,
+        "diagnosis": "Godot macOS certificate-store error and/or editor settings path blocked by sandbox"
+      },
+      {
+        "name": "test_headless_authored_cast_east_north_collision_timing_and_feedback_cleanup (test_vfx_picker.AuthoredEffectPickerTests.test_headless_authored_cast_east_north_collision_timing_and_feedback_cleanup)",
+        "standing": false,
+        "diagnosis": "Godot macOS certificate-store error and/or editor settings path blocked by sandbox"
+      },
+      {
+        "name": "test_headless_first_cast_contact_cursor_pool_cancel_and_picker (test_vfx_picker.G1ComponentTests.test_headless_first_cast_contact_cursor_pool_cancel_and_picker)",
+        "standing": false,
+        "diagnosis": "Godot macOS certificate-store error and/or editor settings path blocked by sandbox"
+      },
+      {
+        "name": "test_headless_pierce_contacts_labels_pool_and_phase_callbacks (test_vfx_picker.G1ComponentTests.test_headless_pierce_contacts_labels_pool_and_phase_callbacks)",
+        "standing": false,
+        "diagnosis": "Godot macOS certificate-store error and/or editor settings path blocked by sandbox"
+      },
+      {
+        "name": "test_headless_glow_sixty_samples_extrema_range_and_particle_properties (test_vfx_picker.LivingEmbersTests.test_headless_glow_sixty_samples_extrema_range_and_particle_properties)",
+        "standing": false,
+        "diagnosis": "Godot macOS certificate-store error and/or editor settings path blocked by sandbox"
+      },
+      {
+        "name": "test_headless_tab_twice_cast_scene_labels_and_inflight_kit_lock (test_vfx_picker.VfxPickerTests.test_headless_tab_twice_cast_scene_labels_and_inflight_kit_lock)",
+        "standing": false,
+        "diagnosis": "Godot macOS certificate-store error and/or editor settings path blocked by sandbox"
+      }
+    ],
+    "full_suite_command": "cd /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst && PYTHONDONTWRITEBYTECODE=1 python3 -B tests/run_t0c.py",
+    "environment_note": "PYTHONPATH sitecustomize redirects existing test temporary roots into this burst directory and records unittest results. It does not suppress errors or change assertions. The five standing reds and ten environment reds remain recorded."
+  },
+  "registration": {
+    "kits_count": 8,
+    "new_kit": "runs/C-5/vfx_kits/v9/fire_burst_e0p_v2/kit.json",
+    "v1_source_scale_unchanged": 0.5,
+    "comparison_only_v1_scale": 1.0
+  },
+  "procedure_concerns": [
+    "The initial SPEC excerpt inadvertently included section 2 lines 26-110 in addition to requested sections. No other unrequested source investigation was performed."
+  ],
+  "calls_used": 0
+}

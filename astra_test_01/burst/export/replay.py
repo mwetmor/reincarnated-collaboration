@@ -40,8 +40,8 @@ def _crop(crop):
         raise ValueError('crop must have two dimensions')
     for value in crop:
         _integer(value, 'crop dimension', 1)
-        if value > 512:
-            raise ValueError('Native crop must not exceed 512x512')
+        if value > 512 and tuple(crop) != (768, 768):
+            raise ValueError('Native crop must not exceed 512x512, except the 768x768 burst crop')
     return tuple(crop)
 
 

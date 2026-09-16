@@ -1,0 +1,129 @@
+{
+  "name": "fire_burst_e0p_v2",
+  "element": "fire",
+  "element_class": "strike",
+  "ground_squash": 0.6,
+  "phase_scale": {
+    "impact": 1.0
+  },
+  "material": {
+    "blend_mode": "MIX",
+    "light_participation": false,
+    "erode": 0.0,
+    "dissolve": 0.0,
+    "palette": [
+      [
+        0.25,
+        0.08,
+        0.04,
+        1
+      ],
+      [
+        0.7,
+        0.16,
+        0.08,
+        1
+      ],
+      [
+        1,
+        0.55,
+        0.12,
+        1
+      ],
+      [
+        1,
+        0.94,
+        0.75,
+        1
+      ]
+    ]
+  },
+  "phases": {
+    "cast": {
+      "sheet": "flare/flare_00.png",
+      "frames": [
+        {
+          "file": "flare/flare_00.png",
+          "hold_frames": 2
+        }
+      ]
+    },
+    "travel": {
+      "sheet": "travel/travel_00.png",
+      "frames": [
+        {
+          "file": "travel/travel_00.png",
+          "hold_frames": 1
+        }
+      ],
+      "speed_px_s": 640,
+      "streak": false
+    },
+    "impact": {
+      "sheet": "impact/impact_00.png",
+      "frames": [
+        {
+          "file": "impact/impact_00.png",
+          "hold_frames": 2
+        }
+      ]
+    }
+  },
+  "layers": {
+    "dark_duplicate": true,
+    "glow": {
+      "alpha": 0.2,
+      "scale": 1.02
+    },
+    "floor_light": {
+      "duration_s": 0.15,
+      "radius_px": 120
+    },
+    "flash": {
+      "duration_s": 0.03333333333333333,
+      "alpha": 0.8,
+      "scale_from": 1.04,
+      "scale_to": 1
+    }
+  },
+  "pieces": {
+    "hold_frames": 2,
+    "base_speed_px_s": 1400,
+    "residue_s": 0.6,
+    "residue_fraction": 0.2,
+    "seed": 2026,
+    "source": "pieces/pieces.json",
+    "template": "burst_v2"
+  },
+  "distance_fields": {
+    "flare/flare_00.png": "distance/flare/flare_00.png",
+    "travel/travel_00.png": "distance/travel/travel_00.png",
+    "impact/impact_00.png": "distance/impact/impact_00.png",
+    "pieces/peak_index.png": "distance/pieces/peak_index.png",
+    "pieces/piece_001.png": "distance/pieces/piece_001.png",
+    "pieces/piece_002.png": "distance/pieces/piece_002.png",
+    "pieces/piece_003.png": "distance/pieces/piece_003.png",
+    "pieces/piece_004.png": "distance/pieces/piece_004.png",
+    "pieces/piece_005.png": "distance/pieces/piece_005.png",
+    "pieces/piece_006.png": "distance/pieces/piece_006.png",
+    "pieces/piece_007.png": "distance/pieces/piece_007.png",
+    "pieces/piece_008.png": "distance/pieces/piece_008.png",
+    "pieces/piece_009.png": "distance/pieces/piece_009.png",
+    "pieces/piece_010.png": "distance/pieces/piece_010.png",
+    "pieces/piece_011.png": "distance/pieces/piece_011.png",
+    "pieces/piece_012.png": "distance/pieces/piece_012.png",
+    "pieces/piece_013.png": "distance/pieces/piece_013.png",
+    "pieces/piece_014.png": "distance/pieces/piece_014.png",
+    "pieces/piece_015.png": "distance/pieces/piece_015.png",
+    "pieces/piece_016.png": "distance/pieces/piece_016.png",
+    "pieces/piece_017.png": "distance/pieces/piece_017.png",
+    "pieces/piece_018.png": "distance/pieces/piece_018.png",
+    "pieces/piece_019.png": "distance/pieces/piece_019.png",
+    "pieces/piece_020.png": "distance/pieces/piece_020.png",
+    "pieces/piece_021.png": "distance/pieces/piece_021.png",
+    "pieces/piece_022.png": "distance/pieces/piece_022.png",
+    "pieces/piece_023.png": "distance/pieces/piece_023.png",
+    "pieces/piece_024.png": "distance/pieces/piece_024.png"
+  },
+  "pierce": 0
+}

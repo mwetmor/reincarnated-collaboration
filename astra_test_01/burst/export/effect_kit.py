@@ -13,6 +13,7 @@ are rejected. Private _tint helpers remain diagnostic-only for old byte locks.
 """
 import copy
 import colorsys
+import hashlib
 import json
 import math
 from pathlib import Path
@@ -23,7 +24,7 @@ import numpy as np
 from PIL import Image
 
 PHASES = {'cast': 'flare', 'travel': 'travel', 'impact': 'impact', 'residual': 'residual'}
-TOP = {'name', 'element', 'element_class', 'tint', 'phases', 'layers', 'ground_squash', 'pixel_scale', 'phase_scale', 'material', 'distance_fields', 'pierce'}
+TOP = {'name', 'element', 'element_class', 'tint', 'phases', 'layers', 'ground_squash', 'pixel_scale', 'phase_scale', 'material', 'distance_fields', 'pierce', 'pieces'}
 LAYER_KEYS = {
     'glow': {'alpha', 'scale'}, 'floor_light': {'duration_s', 'radius_px'},
     'flash': {'duration_s', 'alpha', 'scale_from', 'scale_to'},
@@ -230,6 +231,127 @@ static func bind_tree(node: Node, fields: Dictionary) -> void:
         bind_tree(child, fields)
 '''
 
+PIECES_DEFAULTS = {'hold_frames': 2, 'base_speed_px_s': 1400.0,
+                   'residue_s': 0.6, 'residue_fraction': 0.2, 'seed': 1}
+
+
+def piece_motion(seed, piece_id):
+    """Portable per-piece samples, independent of order and global RNG state.
+
+    GDScript uses the same SHA256 text and unsigned 32-bit divisions. The
+    scale sample requests a native-pixel step, not a continuously scaled tail.
+    """
+    digest = hashlib.sha256(f'{seed}:{piece_id}'.encode('ascii')).hexdigest()
+    samples = [int(digest[i:i+8], 16)/4294967295 for i in (0, 8, 16)]
+    return {'speed_factor': .6+.8*samples[0],
+            'rotation_deg': -30+60*samples[1], 'scale_delta': -.08+.16*samples[2]}
+
+
+def piece_stretch(seed, piece_id):
+    """Stable, order-independent v2 samples; v1 sampling is unchanged."""
+    digest = hashlib.sha256(f'{seed}:{piece_id}'.encode('ascii')).hexdigest()
+    return {'along': 1.6 + .4 * int(digest[:8], 16) / 4294967295,
+            'rotation_deg': -10 + 20 * int(digest[8:16], 16) / 4294967295}
+
+
+def piece_geometry(record, source_root):
+    """Roots and axes from original masks; no segmentation or mask edits.
+
+    Core membership takes precedence over the dominant-band tongue heuristic.
+    The largest inscribed circle is measured on alpha support with an exterior
+    zero border, including when a synthetic fixture touches its canvas edge.
+    """
+    from scipy import ndimage
+    with Image.open(Path(source_root)/record['peak_index']) as image:
+        peak = np.asarray(image.convert('RGBA'))
+    edt = ndimage.distance_transform_edt(np.pad(peak[..., 3] > 0, 1))[1:-1, 1:-1]
+    cy, cx = np.unravel_index(np.argmax(edt), edt.shape)
+    radius = float(edt[cy, cx])
+    centre = np.asarray(record['centre'], dtype=float)
+    items = []
+    for piece in record['pieces']:
+        with Image.open(Path(source_root)/piece['mask']) as image:
+            pixels = np.asarray(image.convert('RGBA'))
+        ys, xs = np.nonzero(pixels[..., 3])
+        squared = (xs-centre[0])**2 + (ys-centre[1])**2
+        near = int(np.argmin(squared))
+        root = np.array([xs[near], ys[near]], dtype=float)
+        tip = np.asarray(piece.get('tip', [xs[np.argmax(squared)], ys[np.argmax(squared)]]), dtype=float)
+        axis = tip-root
+        angle = math.atan2(axis[1], axis[0]) if np.any(axis) else 0.0
+        core = math.hypot(piece['pivot'][0]-cx, piece['pivot'][1]-cy) <= radius
+        items.append({**copy.deepcopy(piece), 'root': root.tolist(),
+                      'axis_radians': angle, 'core': core,
+                      'animated': piece['area_px'] >= 48})
+    return {'core_centre': [int(cx), int(cy)], 'core_radius_px': radius,
+            'pieces': items}
+
+
+def load_pieces(config, root, runtime=False):
+    """Consume T4e schema 2 as delivered; never segment or recolour a shard."""
+    root = Path(root).resolve()
+    _keys(config, {'source', 'template', *PIECES_DEFAULTS}, {'source', 'template'}, 'pieces')
+    if config['template'] not in ('burst_v1', 'burst_v2'):
+        raise ValueError('pieces.template must be burst_v1 or burst_v2')
+    values = {**PIECES_DEFAULTS, **config}
+    _number(values['hold_frames'], 1, 2, 'pieces.hold_frames', True)
+    _number(values['base_speed_px_s'], 1e-9, math.inf, 'pieces.base_speed_px_s')
+    _number(values['residue_s'], .3, 1, 'pieces.residue_s')
+    _number(values['residue_fraction'], .15, .25, 'pieces.residue_fraction')
+    _number(values['seed'], 0, 2147483647, 'pieces.seed', True)
+    source = values['source']
+    if not isinstance(source, str) or not source or any(c in source for c in '\\"\n\r'):
+        raise ValueError('pieces.source must be a JSON path')
+    path = (root/source).resolve()
+    if runtime and (Path(source).is_absolute() or not path.is_relative_to(root)):
+        raise ValueError('pieces.source escapes kit')
+    if not path.is_file() or path.suffix != '.json':
+        raise ValueError('Missing pieces.source')
+    record = json.loads(path.read_text())
+    if record.get('schema_version') != 2 or not isinstance(record.get('pieces'), list) or not record['pieces']:
+        raise ValueError('pieces requires T4e schema_version 2 and nonempty pieces')
+    canvas = record.get('canvas')
+    if not isinstance(canvas, list) or len(canvas) != 2:
+        raise ValueError('pieces.canvas requires width, height')
+    for value in canvas: _number(value, 1, 8192, 'pieces.canvas', True)
+    centre = record.get('centre')
+    if not isinstance(centre, list) or len(centre) != 2:
+        raise ValueError('pieces.centre requires x, y')
+    for value, size in zip(centre, canvas): _number(value, 0, size-1, 'pieces.centre')
+    assets = {}
+    ids = set()
+    for piece in record['pieces']:
+        if not isinstance(piece, dict): raise ValueError('piece must be an object')
+        _number(piece.get('id'), 0, 2147483647, 'piece.id', True)
+        if piece['id'] in ids: raise ValueError('Duplicate piece.id')
+        ids.add(piece['id'])
+        _number(piece.get('dominant_band'), 0, 3, 'piece.dominant_band', True)
+        _number(piece.get('radial_angle_deg'), -360, 360, 'piece.radial_angle_deg')
+        _number(piece.get('radial_distance_px'), 0, math.inf, 'piece.radial_distance_px')
+        mask = _png(piece.get('mask'), path.parent, grayscale=True, confined=True)
+        if runtime and not mask.is_relative_to(root): raise ValueError('piece mask escapes kit')
+        with Image.open(mask) as image: rgba = np.asarray(image.convert('RGBA'))
+        if list(rgba.shape[1::-1]) != canvas: raise ValueError('piece mask must retain full canvas')
+        pivot = piece.get('pivot')
+        if not isinstance(pivot, list) or len(pivot) != 2:
+            raise ValueError('piece.pivot requires x, y')
+        for value, size in zip(pivot, canvas): _number(value, 0, size-1, 'piece.pivot')
+        x, y = (int(math.floor(v+.5)) for v in pivot)
+        if not rgba[y, x, 3]: raise ValueError('piece pivot outside its mask')
+        area = int(np.count_nonzero(rgba[..., 3]))
+        if piece.get('area_px') != area: raise ValueError('piece.area_px disagrees with mask')
+        if not np.isin(rgba[..., 0][rgba[..., 3] > 0], [0, 85, 170, 255]).all():
+            raise ValueError('piece band must be in 0..3')
+        key = mask.relative_to(root).as_posix() if mask.is_relative_to(root) else str(mask)
+        assets[key] = mask
+    peak = _png(record.get('peak_index'), path.parent, grayscale=True, confined=True)
+    with Image.open(peak) as image:
+        if list(image.size) != canvas: raise ValueError('peak_index must match pieces.canvas')
+    key = peak.relative_to(root).as_posix() if peak.is_relative_to(root) else str(peak)
+    assets[key] = peak
+    return values, record, assets
+
+
 def _validate(data, root, runtime=False):
     _reject_retired(data)
     if isinstance(data, dict) and 'tint' in data:
@@ -300,6 +422,9 @@ def _validate(data, root, runtime=False):
                 hi = 1 if key in ('alpha', 'time_scale') else (180 if key == 'spread_deg' else math.inf)
                 if key == 'amount': lo, hi = 1, 512
                 _number(value, lo, hi, key, key == 'amount')
+    if 'pieces' in data:
+        _, _, piece_assets = load_pieces(data['pieces'], root, runtime)
+        assets.update(piece_assets)
     for path in set(assets.values()):
         with Image.open(path) as image: rgba = np.array(image.convert('RGBA'))
         rgb = rgba[..., :3][rgba[..., 3] > 0]
@@ -457,6 +582,22 @@ def build(effect_json, out_dir):
             file = f'layers/{name}.png'
             copy_index(layer[key], file)
             layer[key] = file
+    if 'pieces' in data:
+        config, record, piece_assets = load_pieces(data['pieces'], root)
+        source_root = (root/config['source']).resolve().parent
+        for item in [record['peak_index']] + [p['mask'] for p in record['pieces']]:
+            source = (source_root/item).resolve()
+            key = next(k for k, value in piece_assets.items() if value == source)
+            copy_index(key, 'pieces/'+item)
+            (out/'pieces'/item).write_bytes(source.read_bytes())
+        (out/'pieces/pieces.json').write_text(json.dumps(record, indent=2)+'\n')
+        if config['template'] == 'burst_v2':
+            with Image.open(source_root/record['peak_index']) as image:
+                whole_field = distance_field(np.asarray(image.convert('RGBA')))
+            for piece in record['pieces']:
+                Image.fromarray(whole_field).save(out/metadata['distance_fields']['pieces/'+piece['mask']])
+        metadata['pieces'] = dict(config, source='pieces/pieces.json')
+        counts['pieces'] = len(record['pieces'])
     for mode in ('MIX', 'ADD', 'PREMULT_ALPHA'):
         for lit in (False, True):
             name = f'vfx_material_{mode.lower()}_{"lit" if lit else "unlit"}.gdshader'

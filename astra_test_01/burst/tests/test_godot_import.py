@@ -266,5 +266,215 @@ func probe() -> void:
 '''
 
 
+class PieceBurstImportTests(unittest.TestCase):
+    def setUp(self):
+        TMP.mkdir(parents=True,exist_ok=True)
+        self.temp = tempfile.TemporaryDirectory(prefix='t4h-godot-',dir=TMP)
+        self.addCleanup(self.temp.cleanup)
+        self.root = Path(self.temp.name)
+        self.cells = self.root/'cells';self.cells.mkdir()
+        for kind in ('idle','cast'):
+            Image.new('RGBA',(512,512)).save(self.cells/f'{kind}_E_0.png')
+        source = self.root/'source';source.mkdir()
+        image = Image.new('RGBA',(16,16),(170,170,170,255))
+        image.save(source/'piece.png');image.save(source/'peak_index.png')
+        (source/'pieces.json').write_text(json.dumps({'schema_version':2,'canvas':[16,16],
+            'centre':[7.5,7.5],'peak_index':'peak_index.png','pieces':[{'id':1,'mask':'piece.png',
+            'pivot':[7.5,7.5],'radial_angle_deg':0,'radial_distance_px':0,'dominant_band':2,'area_px':256}]}))
+        definition = {'name':'pieces_fixture','element':'fire','ground_squash':.6,
+            'material':{'palette':[[.25,.08,.04,1],[.7,.16,.08,1],[1,.55,.12,1],[1,.94,.75,1]]},
+            'phases':{kind:{'sheet':'piece.png','frames':[{'file':'piece.png','hold_frames':2}]} for kind in ('cast','travel','impact')},
+            'layers':{'dark_duplicate':True},'pieces':{'source':'pieces.json','template':'burst_v1','seed':2026}}
+        (source/'effect.json').write_text(json.dumps(definition))
+        from export.effect_kit import build
+        build(source/'effect.json',self.root/'kit')
+        self.catalogue = self.root/'kits.json'
+        self.catalogue.write_text(json.dumps({'kits':[{'name':'pieces_fixture','dir':str(self.root/'kit')}]}))
+        self.sockets = self.root/'sockets.json'
+        self.sockets.write_text(json.dumps({'version':1,'canvas':[512,512],'cells':{'cast_E':{'sockets':[[256,256]],'release_index':0}}}))
+        self.project = self.root/'project'
+        build_project(self.cells,self.project,vfx_kits=self.catalogue,sockets=self.sockets)
+
+    def test_piece_nodes_clock_residue_path_and_g1_routing(self):
+        scene = (self.project/'scenes/vfx/piece_burst.tscn').read_text()
+        script = (self.project/'scripts/vfx/piece_burst.gd').read_text()
+        self.assertIn('name="Piece_001" type="Sprite2D"',scene)
+        self.assertIn('texture_filter = 2',scene)
+        self.assertIn('Engine.get_physics_frames() - release_tick',script)
+        self.assertIn('func set_effect_age(age: int)',script)
+        self.assertIn('residue_erode',script)
+        self.assertIn('Freeze scale BEFORE erosion',script)
+        self.assertIn('int(item.area_px) >= 48',script)
+        self.assertIn('vfx_pieces_fixture_impact.tscn',(self.project/'scripts/keeper.gd').read_text())
+        self.assertEqual(scene,(self.project/'scenes/vfx_pieces_fixture_impact.tscn').read_text().replace('texture_filter = 2\ntexture_filter = 2','texture_filter = 2'))
+        validate_resources(self.project,True)
+
+    def test_grey_substitution_preserves_index_masks_for_identical_erosion(self):
+        from export.godot_import import _grey_vfx
+        mask = self.project/'vfx/pieces_fixture/pieces/piece.png'
+        before = mask.read_bytes();_grey_vfx(self.project)
+        self.assertEqual(mask.read_bytes(),before)
+        self.assertIn('grey_bodies = true',(self.project/'scenes/vfx/piece_burst.tscn').read_text())
+        self.assertIn('palette_', (self.project/'scripts/vfx/piece_burst.gd').read_text())
+
+    @unittest.skipUnless(Path(GODOT).is_file(),'Godot unavailable')
+    def test_headless_import_and_seeded_clock_runtime(self):
+        settings = self.project/'project.godot'
+        settings.write_text(settings.read_text().replace('[application]\n',
+            '[application]\nconfig/use_custom_user_dir=true\nconfig/custom_user_dir="'+str(self.root/'user')+'"\n'))
+        (self.project/'piece_probe.gd').write_text(PIECE_CLOCK_PROBE)
+        for arguments in (['--import'],['--script','res://piece_probe.gd']):
+            proc = subprocess.run([GODOT,'--headless','--path',str(self.project),'--log-file',str(self.root/'engine.log'),*arguments],capture_output=True,text=True,timeout=110)
+            log = proc.stdout+proc.stderr
+            self.assertEqual(proc.returncode,0,log)
+            self.assertNotIn('SCRIPT ERROR',log)
+            self.assertNotIn('Parse Error',log)
+        self.assertIn('T4H_CLOCK_COMPLETE',log)
+
+
+PIECE_CLOCK_PROBE = '''extends SceneTree
+func _initialize() -> void:
+    call_deferred("probe")
+func need(value: bool, message: String) -> void:
+    if not value:
+        push_error(message)
+        quit(7)
+func probe() -> void:
+    var a: Node2D = load("res://scenes/vfx/piece_burst.tscn").instantiate()
+    var b: Node2D = load("res://scenes/vfx/piece_burst.tscn").instantiate()
+    root.add_child(a)
+    root.add_child(b)
+    a.set_physics_process(false)
+    b.set_physics_process(false)
+    need(a.piece_motion(2026,1) == b.piece_motion(2026,1), "seed equal samples differ")
+    var residue_scale: Vector2 = Vector2.ZERO
+    for age in range(72):
+        a.set_effect_age(age)
+        b.set_effect_age(age)
+        var left: Sprite2D = a.get_node("Art/Pieces/Piece_001")
+        var right: Sprite2D = b.get_node("Art/Pieces/Piece_001")
+        need(left.transform == right.transform,"seed equal transforms differ")
+        need(left.scale.x >= 0.85 and left.scale.x <= 1.15,"piece scale outside limits")
+        need(absf(left.rotation_degrees) <= 30.001,"rotation outside limits")
+        if age == 15:
+            residue_scale = left.scale
+        if age >= 15:
+            need(left.scale == residue_scale,"scale changed during erosion/residue")
+        if age >= 36:
+            need(left.material.get_shader_parameter("erode") > 0,"residue lacks erosion")
+            need(left.material.get_shader_parameter("dissolve") == 0.5,"brightest band not removed")
+    a.set_effect_age(72)
+    need(not a.visible,"effect did not release to zero")
+    b.queue_free()
+    await process_frame
+    print("T4H_CLOCK_COMPLETE")
+    quit(0)
+'''
+
+
+class PieceStretchImportTests(unittest.TestCase):
+    def setUp(self):
+        fixture = PieceBurstImportTests()
+        fixture.setUp()
+        self.addCleanup(fixture.doCleanups)
+        self.root = fixture.root
+        self.project = self.root/'project_v2'
+        kit_path = self.root/'kit/kit.json'
+        data = json.loads(kit_path.read_text())
+        data['pieces']['template'] = 'burst_v2'
+        data['phase_scale'] = {'impact':1.0}
+        kit_path.write_text(json.dumps(data))
+        build_project(fixture.cells,self.project,vfx_kits=fixture.catalogue,sockets=fixture.sockets)
+
+    def test_axes_whole_field_root_residue_clock_and_grey(self):
+        from export.godot_import import _grey_vfx
+        scene = (self.project/'scenes/vfx/piece_burst_v2.tscn').read_text()
+        script = (self.project/'scripts/vfx/piece_burst_v2.gd').read_text()
+        self.assertIn('name="Axis_001" type="Node2D"',scene)
+        self.assertIn('name="Stretch" type="Sprite2D"',scene)
+        self.assertIn('name="Piece_001" type="Sprite2D"',scene)
+        self.assertIn('name="Root_001" type="Sprite2D"',scene)
+        self.assertIn('func set_effect_age(age: int)',script)
+        self.assertIn('residue_erode',script)
+        self.assertIn('outer_distance',script)
+        self.assertIn('node.scale = Vector2(lerpf',script)
+        self.assertNotIn('axis.position =',script)
+        material = (self.project/'vfx/pieces_fixture/materials/Piece_Piece_001.tres').read_text()
+        self.assertIn('whole_body_distance.png',material)
+        mask = self.project/'vfx/pieces_fixture/pieces/piece.png'
+        before = mask.read_bytes()
+        _grey_vfx(self.project)
+        self.assertEqual(mask.read_bytes(),before)
+        self.assertIn('grey_bodies = true',(self.project/'scenes/vfx/piece_burst_v2.tscn').read_text())
+        validate_resources(self.project,True)
+
+    def test_native_768_crop_backward_compatible_default(self):
+        from export.replay import _crop, install_hooks
+        self.assertEqual(_crop((512,512)),(512,512))
+        self.assertEqual(_crop((768,768)),(768,768))
+        with self.assertRaises(ValueError): _crop((769,768))
+        install_hooks(self.project,(768,768))
+        self.assertIn('viewport_width=768',(self.project/'project.godot').read_text())
+
+    @unittest.skipUnless(Path(GODOT).is_file(),'Godot unavailable')
+    def test_v2_headless_import_and_seed_equal_rooted_clock(self):
+        settings = self.project/'project.godot'
+        settings.write_text(settings.read_text().replace('[application]\n',
+            '[application]\nconfig/use_custom_user_dir=true\nconfig/custom_user_dir="'+str(self.root/'user')+'"\n'))
+        (self.project/'stretch_probe.gd').write_text(STRETCH_CLOCK_PROBE)
+        for arguments in (['--import'],['--script','res://stretch_probe.gd']):
+            proc = subprocess.run([GODOT,'--headless','--path',str(self.project),'--log-file',str(self.root/'engine.log'),*arguments],capture_output=True,text=True,timeout=110)
+            log = proc.stdout+proc.stderr
+            self.assertEqual(proc.returncode,0,log)
+            self.assertNotIn('SCRIPT ERROR',log)
+            self.assertNotIn('Parse Error',log)
+        self.assertIn('T4H_V2_CLOCK_COMPLETE',log)
+
+
+STRETCH_CLOCK_PROBE = '''extends SceneTree
+func _initialize() -> void:
+    call_deferred("probe")
+func need(value: bool, message: String) -> void:
+    if not value:
+        push_error(message)
+        quit(7)
+func probe() -> void:
+    var a: Node2D = load("res://scenes/vfx/piece_burst_v2.tscn").instantiate()
+    var b: Node2D = load("res://scenes/vfx/piece_burst_v2.tscn").instantiate()
+    root.add_child(a)
+    root.add_child(b)
+    a.set_physics_process(false)
+    b.set_physics_process(false)
+    var flight: int = int(a.config.flash_frames) + int(a.config.hold_frames)
+    var residue: int = flight + 36
+    var end: int = residue + int(a.config.residue_frames)
+    var fixed: Array = []
+    for item in a.pieces:
+        fixed.append(item.axis.position)
+    for age in range(end):
+        a.set_effect_age(age)
+        b.set_effect_age(age)
+        need(a.trace[-1] == b.trace[-1],"seed equal clock states differ")
+        for i in range(a.pieces.size()):
+            var data: Dictionary = a.pieces[i]
+            need(data.axis.position == fixed[i],"root translated")
+            need(data.root.scale == Vector2.ONE,"residue reached by scaling")
+            need(absf(a.trace[-1].pieces[i].rotation_deg) <= 10.001,"rotation exceeds ten degrees")
+            if age >= flight + 15:
+                var expected: Vector2 = Vector2.ONE * 1.25 if data.record.core else Vector2(float(data.record.along),0.7)
+                need(data.node.scale.is_equal_approx(expected),"final stretch incorrect or shrank during erosion")
+            if age >= residue:
+                need(not data.axis.visible,"expanded art survived into stationary residue")
+                need(data.root.material.get_shader_parameter("erode") > 0,"residue lacks root-first erosion")
+                need(data.root.material.get_shader_parameter("dissolve") == 0.5,"band three not dissolved")
+    a.set_effect_age(end)
+    need(not a.visible,"effect did not release")
+    b.queue_free()
+    await process_frame
+    print("T4H_V2_CLOCK_COMPLETE")
+    quit(0)
+'''
+
+
 if __name__ == '__main__':
     unittest.main()

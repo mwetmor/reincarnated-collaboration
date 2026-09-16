@@ -1142,6 +1142,102 @@ def material_proof_fixture(root):
     return report
 
 
+class PiecePhaseTests(unittest.TestCase):
+    """T4h validation, byte-preserving masks and seeded motion."""
+    def setUp(self):
+        TMP.mkdir(parents=True, exist_ok=True)
+        self.temp = tempfile.TemporaryDirectory(prefix='t4h-pieces-', dir=TMP)
+        self.addCleanup(self.temp.cleanup)
+        self.root = Path(self.temp.name)
+        self.path, self.data = definition_fixture(self.root/'source')
+        rgba = np.zeros((16,16,4), dtype=np.uint8)
+        rgba[...,3] = 255
+        for band in range(4): rgba[:,band*4:band*4+4,:3] = band*85
+        Image.fromarray(rgba).save(self.path.parent/'piece.png')
+        Image.fromarray(rgba).save(self.path.parent/'peak_index.png')
+        self.record = {'schema_version':2, 'canvas':[16,16], 'centre':[7.5,7.5],
+            'peak_index':'peak_index.png', 'pieces':[{'id':1,'mask':'piece.png',
+            'pivot':[7.5,7.5], 'radial_angle_deg':0, 'radial_distance_px':0,
+            'area_px':256,'dominant_band':0}]}
+        self.manifest = self.path.parent/'pieces.json'
+        self.data['pieces'] = {'source':'pieces.json', 'template':'burst_v1',
+            'hold_frames':2,'base_speed_px_s':1400,'residue_s':.6,'residue_fraction':.2,'seed':2026}
+        self.out = self.root/'kit'
+        self.save()
+
+    def save(self):
+        self.path.write_text(json.dumps(self.data))
+        self.manifest.write_text(json.dumps(self.record))
+
+    def test_missing_mask_rejected_before_output(self):
+        self.record['pieces'][0]['mask'] = 'missing.png';self.save()
+        with self.assertRaisesRegex(ValueError, 'Missing PNG'): build(self.path, self.out)
+        self.assertFalse(self.out.exists())
+
+    def test_pivot_outside_mask_rejected(self):
+        with Image.open(self.path.parent/'piece.png') as image: pixels = np.array(image)
+        pixels[8,8,3] = 0
+        Image.fromarray(pixels).save(self.path.parent/'piece.png')
+        with self.assertRaisesRegex(ValueError, 'pivot outside'): build(self.path, self.out)
+        self.assertFalse(self.out.exists())
+
+    def test_residue_and_band_and_hold_ranges_rejected(self):
+        for name, value in [('residue_fraction',.149),('residue_fraction',.251),
+                            ('residue_s',.29),('hold_frames',3),('seed',True)]:
+            previous = self.data['pieces'][name];self.data['pieces'][name] = value;self.save()
+            with self.subTest(name=name, value=value), self.assertRaises(ValueError): build(self.path,self.out)
+            self.data['pieces'][name] = previous
+        self.record['pieces'][0]['dominant_band'] = 4;self.save()
+        with self.assertRaisesRegex(ValueError,'dominant_band'): build(self.path,self.out)
+
+    def test_self_contained_mask_bytes_distance_and_runtime_validation(self):
+        build(self.path,self.out)
+        data = load_kit(self.out)
+        self.assertEqual(data['pieces']['source'],'pieces/pieces.json')
+        self.assertEqual((self.out/'pieces/piece.png').read_bytes(),(self.path.parent/'piece.png').read_bytes())
+        field = data['distance_fields']['pieces/piece.png']
+        with Image.open(self.out/field) as image:
+            self.assertEqual(image.mode,'L');self.assertEqual(image.size,(16,16))
+        (self.out/'pieces/piece.png').unlink()
+        with self.assertRaisesRegex(ValueError,'Missing PNG'):load_kit(self.out)
+
+    def test_seeded_factor_deterministic_order_independent_and_bounded(self):
+        from export.effect_kit import piece_motion
+        forward = {i:piece_motion(2026,i) for i in range(24)}
+        reverse = {i:piece_motion(2026,i) for i in reversed(range(24))}
+        self.assertEqual(forward,reverse)
+        self.assertNotEqual(forward,{i:piece_motion(2027,i) for i in range(24)})
+        for sample in forward.values():
+            self.assertTrue(.6 <= sample['speed_factor'] <= 1.4)
+            self.assertTrue(abs(sample['rotation_deg']) <= 30)
+            self.assertTrue(abs(sample['scale_delta']) <= .15)
+
+
+class PieceStretchPhaseTests(PiecePhaseTests):
+    """Run the same rejection tests for v2; v1 fixtures remain untouched."""
+    def setUp(self):
+        super().setUp()
+        self.data['pieces']['template'] = 'burst_v2'
+        self.record['pieces'][0]['tip'] = [15,15]
+        self.save()
+
+    def test_stretch_seed_bounds_and_whole_body_distance(self):
+        from export.effect_kit import piece_stretch, piece_geometry
+        a = {i:piece_stretch(2026,i) for i in range(24)}
+        self.assertEqual(a,{i:piece_stretch(2026,i) for i in reversed(range(24))})
+        self.assertNotEqual(a,{i:piece_stretch(2027,i) for i in range(24)})
+        for value in a.values():
+            self.assertTrue(1.6 <= value['along'] <= 2)
+            self.assertTrue(abs(value['rotation_deg']) <= 10)
+        geometry = piece_geometry(self.record,self.path.parent)
+        self.assertEqual(geometry['pieces'][0]['root'],[7,7])
+        self.assertTrue(geometry['pieces'][0]['core'])
+        build(self.path,self.out)
+        kit = load_kit(self.out)
+        self.assertEqual((self.out/kit['distance_fields']['pieces/piece.png']).read_bytes(),
+                         (self.out/kit['distance_fields']['pieces/peak_index.png']).read_bytes())
+
+
 if __name__ == '__main__':
     if len(sys.argv) == 3 and sys.argv[1] == '--material-fixture':
         print(json.dumps(material_proof_fixture(sys.argv[2]), indent=2))

@@ -1144,7 +1144,7 @@ def _write_authored_effect(out, kit, resource_root, prefix, counts, shared_proje
     fields = {}
     exported_metadata['distance_fields'] = {}
     for source, field in data['distance_fields'].items():
-        relative_source = source if source.startswith('layers/') else 'sprites/'+source
+        relative_source = source if source.startswith(('layers/', 'pieces/')) else 'sprites/'+source
         destination = Path(resource_root)/field
         (out/destination).parent.mkdir(parents=True, exist_ok=True)
         shutil.copyfile(kit['root']/field, out/destination)
@@ -1282,6 +1282,8 @@ def _write_authored_effect(out, kit, resource_root, prefix, counts, shared_proje
             animated('Residual', 'visible = false\nz_index = -2\n'+material('Mix', 0), 'ResidualFrames', '.')
         text = f'[gd_scene load_steps={1+len(ext)+len(sub)} format=3]\n\n'+'\n'.join(ext)+'\n\n'+'\n'.join(sub)+'\n'.join(nodes)
         (out/f'scenes/{prefix}_{kind}.tscn').write_text(text)
+    if 'pieces' in data:
+        _write_piece_burst(out, kit, resource_root, prefix)
 
 
 PICKER_SCRIPT = '''
@@ -1687,7 +1689,7 @@ def _g1_config(kit):
             'speed_px_s': data.get('phases', {}).get('travel', {}).get('speed_px_s', 520.0),
             'pierce': data.get('pierce', 0),
             'palette_3': data.get('material', {}).get('palette', [[.35, .65, .8, 1]]*4)[3],
-            'range_px': 650.0, 'ground_squash': data.get('ground_squash', 1.0),
+            'range_px': 650.0, 'ground_squash': 1.0 if 'pieces' in data else data.get('ground_squash', 1.0),
             'phase_scale': data.get('phase_scale', {}).get('travel', 1.0),
             'material': 'res://'+root+'/materials/Body.tres' if authored else '',
             'binding': 'res://scripts/vfx_'+name+'_material.gd' if authored else '',
@@ -1749,6 +1751,10 @@ def _grey_vfx(out):
     # recolour the diagnostic silhouette. Optional light layers stay unchanged.
     for path in (out/'scenes').rglob('*.tscn'):
         text = path.read_text()
+        if any(path in text for path in ('res://scripts/vfx/piece_burst.gd', 'res://scripts/vfx/piece_burst_v2.gd')):
+            # Keep index RGB for band-step dissolve: grey is a palette swap.
+            text = text.replace('script = ExtResource("Script")\n',
+                                'script = ExtResource("Script")\ngrey_bodies = true\n', 1)
         text = re.sub(r'(^\[node name="(?:Travel|Shatter|Residual|Head)"[^\n]*\n)(.*?)(?=\n\[|\Z)',
                       lambda m: m[1]+re.sub(r'^material = .*\n', '', m[2], flags=re.M), text, flags=re.M|re.S)
         # Removing a body material also removes its last ExtResource use.
@@ -2193,6 +2199,459 @@ def evaluate_pierce_events(events, labels):
             row('pierce_label_lifetime', max((v for v in lifetimes if v is not None), default=0), .8, '<=', 'seconds', bool(lifetimes) and None not in lifetimes),
             row('pierce_contact_text', wrong, 0, '==', 'mismatches'),
             row('pierce_label_rise', sum(e['rise_px'] != 40 for e in labels), 0, '==', 'mismatches', bool(labels))]
+
+
+
+
+# T4h: emitted only for a kit that explicitly carries the pieces phase.
+PIECE_BURST_SCRIPT = '''extends Node2D
+# All stage changes use the same 60 Hz effect-age convention as G1.age_frames.
+# Impact is this component's release; no timer, tween, delta accumulator or TIME.
+@export var configuration: String = ""
+@export var grey_bodies: bool = false
+var spell_scale: float = 1.0
+var caster: Node2D
+var direction: Vector2 = Vector2.RIGHT
+var release_tick: int = 0
+var config: Dictionary
+var pieces: Array = []
+var trace: Array = []
+var last_age: int = -1
+var trace_path: String = ""
+var stage: String = "onset"
+
+static func piece_motion(seed_value: int, piece_id: int) -> Dictionary:
+    var digest: String = (str(seed_value) + ":" + str(piece_id)).sha256_text()
+    return {"speed_factor": 0.6 + 0.8 * float(digest.substr(0, 8).hex_to_int()) / 4294967295.0,
+        "rotation_deg": -30.0 + 60.0 * float(digest.substr(8, 8).hex_to_int()) / 4294967295.0,
+        "scale_delta": -0.08 + 0.16 * float(digest.substr(16, 8).hex_to_int()) / 4294967295.0}
+
+func age_frames() -> int:
+    return roundi(float(Engine.get_physics_frames() - release_tick) * 60.0 / Engine.physics_ticks_per_second)
+
+func _ready() -> void:
+    config = JSON.parse_string(FileAccess.get_file_as_string(configuration))
+    release_tick = Engine.get_physics_frames()
+    $Art.scale = Vector2.ONE * float(config.phase_scale) * spell_scale
+    for item in config.pieces:
+        var node: Sprite2D = get_node("Art/Pieces/Piece_%03d" % int(item.id))
+        var paint: ShaderMaterial = node.material.duplicate() as ShaderMaterial
+        node.material = paint
+        if grey_bodies:
+            for band in range(4):
+                paint.set_shader_parameter("palette_" + str(band), Color(128.0/255.0, 128.0/255.0, 128.0/255.0, 1))
+        var motion: Dictionary = piece_motion(int(config.seed), int(item.id))
+        var data: Dictionary = {"node": node, "record": item, "motion": motion, "dark": null}
+        if bool(config.dark_duplicate):
+            var dark: Sprite2D = node.duplicate() as Sprite2D
+            dark.name = "Dark_" + str(item.id)
+            dark.z_index = -1
+            dark.material = paint.duplicate()
+            dark.material.set_shader_parameter("dark_duplicate", true)
+            $Art/DarkPieces.add_child(dark)
+            data.dark = dark
+        pieces.append(data)
+    for name in ["Peak", "PeakDark"]:
+        var node: Sprite2D = get_node("Art/" + name)
+        node.material = node.material.duplicate()
+        if grey_bodies and name == "Peak":
+            for band in range(4):
+                node.material.set_shader_parameter("palette_" + str(band), Color(128.0/255.0, 128.0/255.0, 128.0/255.0, 1))
+    # Optional bake instrumentation writes beside the T4c report, never in game.
+    if FileAccess.file_exists("res://replay_config.json"):
+        var replay: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://replay_config.json"))
+        trace_path = str(replay.report).get_base_dir().path_join("pieces_trace.json")
+    tree_exiting.connect(_write_trace)
+    set_effect_age(0)
+
+func _physics_process(_delta: float) -> void:
+    set_effect_age(age_frames())
+
+func set_effect_age(age: int) -> void:
+    # Public deterministic clock hook for a frame-step probe, as well as G1 play.
+    if age == last_age:
+        return
+    last_age = age
+    var flight_start: int = int(config.flash_frames) + int(config.hold_frames)
+    var erosion_start: int = maxi(15, flight_start + 1)
+    var residue_start: int = erosion_start + 21
+    var residue_end: int = residue_start + int(config.residue_frames)
+    stage = "onset" if age < int(config.flash_frames) else ("hold" if age < flight_start else ("expansion" if age < erosion_start else ("erosion" if age < residue_start else ("residue" if age < residue_end else "zero"))))
+    $Art/Peak.visible = stage == "hold"
+    $Art/PeakDark.visible = stage == "hold" and bool(config.dark_duplicate)
+    $Art/Flash.visible = stage == "onset"
+    var flash_t: float = float(age) / maxf(1.0, float(config.flash_frames))
+    $Art/Flash.scale = Vector2.ONE * lerpf(float(config.flash_from), float(config.flash_to), flash_t)
+    $Art/Flash.modulate.a = float(config.flash_alpha) * (1.0 - flash_t)
+    $Art/Glow.visible = age < flight_start and bool(config.glow_enabled)
+    $FloorLight.visible = age < int(config.floor_frames) and bool(config.floor_enabled)
+    $FloorLight.modulate.a = maxf(0.0, 1.0 - float(age) / maxf(1.0, float(config.floor_frames)))
+    var flight_ticks: int = clampi(age - flight_start, 0, erosion_start - flight_start)
+    var flight_t: float = float(flight_ticks) / float(erosion_start - flight_start)
+    var erosion_t: float = clampf(float(age - erosion_start) / float(residue_start - erosion_start), 0.0, 1.0)
+    var count: int = 0
+    var states: Array = []
+    for data in pieces:
+        var item: Dictionary = data.record
+        var node: Sprite2D = data.node
+        # Detached source islands below 48 pixels appear only inside Peak.
+        var active: bool = int(item.area_px) >= 48 and age >= flight_start and age < residue_end
+        node.visible = active
+        var motion: Dictionary = data.motion
+        var centre: Vector2 = Vector2(float(config.centre[0]), float(config.centre[1]))
+        var pivot: Vector2 = Vector2(float(item.pivot[0]), float(item.pivot[1]))
+        var radial: Vector2 = Vector2.RIGHT.rotated(deg_to_rad(float(item.radial_angle_deg)))
+        node.position = pivot - centre + radial * float(config.base_speed_px_s) * float(motion.speed_factor) * float(flight_ticks) / 60.0
+        node.rotation = deg_to_rad(float(motion.rotation_deg)) * flight_t
+        # Integer native-pixel steps of the mask bbox's longest dimension.
+        # Freeze scale BEFORE erosion. Residue is never reached by shrinking.
+        var native_extent: int = int(item.native_extent)
+        var native_step: int = roundi(float(item.final_step) * flight_t)
+        var native_scale: float = 1.0 + float(native_step) / float(native_extent)
+        node.scale = Vector2.ONE * native_scale
+        var erode: float = float(item.residue_erode) * erosion_t
+        var dissolve: float = 0.5 * erosion_t
+        if age >= residue_end:
+            erode = 1.0
+            dissolve = 1.0
+        node.material.set_shader_parameter("erode", erode)
+        node.material.set_shader_parameter("dissolve", dissolve)
+        if data.dark != null:
+            var dark: Sprite2D = data.dark
+            dark.visible = active
+            dark.transform = node.transform
+            dark.material.set_shader_parameter("erode", erode)
+            dark.material.set_shader_parameter("dissolve", dissolve)
+        if active:
+            count += 1
+        states.append({"id": item.id, "visible": active, "scale": native_scale, "native_step": native_step, "rotation_deg": rad_to_deg(node.rotation), "position": [node.position.x, node.position.y], "erode": erode, "dissolve": dissolve})
+    trace.append({"age_frames": age, "stage": stage, "peak_visible": $Art/Peak.visible, "shard_count": count, "source_piece_count": pieces.size(), "pieces": states})
+    if age >= residue_end:
+        hide()
+        _write_trace()
+        queue_free()
+
+func _write_trace() -> void:
+    if trace_path != "":
+        var file := FileAccess.open(trace_path, FileAccess.WRITE)
+        if file != null:
+            file.store_string(JSON.stringify({"seed": config.seed, "phase_scale": config.phase_scale, "frames": trace}, "  "))
+'''
+
+
+def _write_piece_burst(out, kit, resource_root, prefix):
+    """Emit spatial shards using unmodified T4e index masks and T4a materials."""
+    if kit['effect']['pieces']['template'] == 'burst_v2':
+        return _write_piece_burst_v2(out, kit, resource_root, prefix)
+    import numpy as np
+    from export.effect_kit import load_pieces, piece_motion, write_vfx_material
+    data = kit['effect']
+    config, record, _ = load_pieces(data['pieces'], kit['root'], runtime=True)
+    source_root = (kit['root']/config['source']).parent
+    target_root = out/resource_root/'pieces'
+    target_root.mkdir(parents=True, exist_ok=True)
+    for file in [record['peak_index']] + [p['mask'] for p in record['pieces']]:
+        destination = target_root/file
+        destination.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copyfile(source_root/file, destination)
+    shutil.copyfile(kit['root']/config['source'], target_root/'pieces.json')
+    (out/'scenes/vfx').mkdir(parents=True, exist_ok=True)
+    (out/'scripts/vfx').mkdir(parents=True, exist_ok=True)
+    (out/'scripts/vfx/piece_burst.gd').write_text(PIECE_BURST_SCRIPT)
+    layers = data['layers']
+    flash, glow, floor = (layers.get(k, {}) for k in ('flash', 'glow', 'floor_light'))
+    phase_scale = data.get('phase_scale', {}).get('impact', 1.0)
+    runtime = {**config, 'centre': record['centre'], 'phase_scale': phase_scale,
+               'residue_frames': math.ceil(config['residue_s']*60),
+               'flash_frames': max(1, round(flash.get('duration_s', 1/60)*60)),
+               'flash_from': flash.get('scale_from', 1), 'flash_to': flash.get('scale_to', 1),
+               'flash_alpha': flash.get('alpha', 1), 'glow_enabled': bool(glow),
+               'floor_enabled': bool(floor), 'floor_frames': round(floor.get('duration_s', 0)*60),
+               'dark_duplicate': layers.get('dark_duplicate', False), 'pieces': []}
+    ext = ['[ext_resource type="Script" path="res://scripts/vfx/piece_burst.gd" id="Script"]']
+    nodes = ['[node name="PieceBurst" type="Node2D"]\ntexture_filter = 2\nscript = ExtResource("Script")\n'
+             'configuration = "res://'+resource_root+'/pieces/burst_runtime.json"\n',
+             '[node name="Art" type="Node2D" parent="."]\n',
+             '[node name="DarkPieces" type="Node2D" parent="Art"]\n',
+             '[node name="Pieces" type="Node2D" parent="Art"]\n']
+    def vector(x, y): return f'Vector2({float(x):.12g}, {float(y):.12g})'
+    def sprite(name, texture, field, pivot, position, parent='Art', dark=False, mode=None, extra=''):
+        mat = resource_root+'/materials/Piece_'+name+'.tres'
+        write_vfx_material(out, mat, dict(data['material'], blend_mode=mode or data['material']['blend_mode']), field, dark)
+        ext.extend([f'[ext_resource type="Texture2D" path="res://{texture}" id="T{name}"]',
+                    f'[ext_resource type="Material" path="res://{mat}" id="M{name}"]'])
+        nodes.append(f'[node name="{name}" type="Sprite2D" parent="{parent}"]\n'
+                     'texture_filter = 2\nvisible = false\ncentered = false\n'
+                     f'texture = ExtResource("T{name}")\nmaterial = ExtResource("M{name}")\n'
+                     'offset = '+vector(-pivot[0], -pivot[1])+'\nposition = '+vector(*position)+'\n'+extra)
+    peak = resource_root+'/pieces/'+record['peak_index']
+    peak_source = Path(config['source']).parent/record['peak_index']
+    peak_field = resource_root+'/'+data['distance_fields'][peak_source.as_posix()]
+    for name, dark, mode in [('Peak', False, None), ('PeakDark', True, 'MIX'), ('Flash', False, 'ADD'), ('Glow', False, 'ADD')]:
+        extra = 'z_index = -1\n' if dark else ''
+        if name == 'Glow':
+            extra += 'scale = '+vector(glow.get('scale', 1), glow.get('scale', 1))+'\nmodulate = Color(1, 1, 1, '+str(glow.get('alpha', 0))+')\n'
+        sprite(name, peak, peak_field, record['centre'], (0, 0), dark=dark, mode=mode, extra=extra)
+    for piece in record['pieces']:
+        source = (Path(config['source']).parent/piece['mask']).as_posix()
+        field = data['distance_fields'][source]
+        with Image.open(kit['root']/source) as image: pixels = np.asarray(image.convert('RGBA'))
+        with Image.open(kit['root']/field) as image: distance = np.asarray(image)
+        ys, xs = np.nonzero(pixels[..., 3])
+        extent = int(max(xs.max()-xs.min()+1, ys.max()-ys.min()+1))
+        motion = piece_motion(config['seed'], piece['id'])
+        # floor bounds handle tiny masks too; inactive islands retain unit scale.
+        limit = math.floor(.15*extent)
+        step = max(-limit, min(limit, round(motion['scale_delta']*extent))) if piece['area_px'] >= 48 else 0
+        final_scale = 1+step/extent
+        eligible = (pixels[..., 3] > 0) & (pixels[..., 0] < 255)
+        histogram = np.bincount(distance[eligible], minlength=256)
+        remaining = np.cumsum(histogram[::-1])[::-1]*final_scale**2
+        target = piece['area_px']*config['residue_fraction']
+        threshold = int(np.argmin(abs(remaining-target)))
+        item = {k: piece[k] for k in ('id', 'pivot', 'area_px', 'radial_angle_deg', 'dominant_band')}
+        item.update(native_extent=extent, final_step=step, residue_erode=threshold/255,
+                    predicted_residue_area_px=float(remaining[threshold]))
+        runtime['pieces'].append(item)
+        sprite('Piece_%03d' % piece['id'], resource_root+'/pieces/'+piece['mask'], resource_root+'/'+field,
+               piece['pivot'], tuple(a-b for a, b in zip(piece['pivot'], record['centre'])), parent='Art/Pieces')
+    if floor:
+        radius = floor['radius_px']/16*phase_scale
+        sprite('FloorLight', resource_root+'/auxiliary/floor.png', resource_root+'/auxiliary/floor_distance.png',
+               (16, 16), (0, 0), parent='.', mode='ADD',
+               extra='z_index = -3\nscale = '+vector(radius, radius*data['ground_squash'])+'\n')
+    else:
+        nodes.append('[node name="FloorLight" type="Sprite2D" parent="."]\nvisible = false\n')
+    (target_root/'burst_runtime.json').write_text(json.dumps(runtime, indent=2)+'\n')
+    text = f'[gd_scene load_steps={len(ext)+1} format=3]\n'+'\n'.join(ext)+'\n'+'\n'.join(nodes)
+    # The per-kit impact path is the G1 config route. The first pieces kit also
+    # supplies the stable T4h replay entry point; subsequent kits cannot clobber it.
+    (out/f'scenes/{prefix}_impact.tscn').write_text(text)
+    canonical = out/'scenes/vfx/piece_burst.tscn'
+    if not canonical.exists(): canonical.write_text(text)
+
+
+# V2 is emitted separately: the v1 script and v1 scene bytes remain unchanged.
+PIECE_BURST_V2_SCRIPT = '''extends "res://scripts/vfx/piece_burst.gd"
+# R(theta) * S(along, across) * R(-theta), about the original mask root.
+# Stationary source coverage anchors the core and tongue roots. Both layers
+# use whole-body UV distance, never a distance field re-centred on a shard.
+func _ready() -> void:
+    config = JSON.parse_string(FileAccess.get_file_as_string(configuration))
+    release_tick = Engine.get_physics_frames()
+    $Art.scale = Vector2.ONE * float(config.phase_scale) * spell_scale
+    for item in config.pieces:
+        var name: String = "Axis_%03d" % int(item.id)
+        var axis: Node2D = get_node("Art/Pieces/" + name)
+        var stretch: Sprite2D = axis.get_node("Stretch")
+        var paint: Sprite2D = stretch.get_node("Piece_%03d" % int(item.id))
+        var root_sprite: Sprite2D = get_node("Art/Roots/Root_%03d" % int(item.id))
+        for sprite in [paint, root_sprite]:
+            sprite.material = sprite.material.duplicate()
+            if grey_bodies:
+                for band in range(4):
+                    sprite.material.set_shader_parameter("palette_" + str(band), Color(128.0/255.0,128.0/255.0,128.0/255.0,1))
+        var dark_axis: Node2D = null
+        var dark_root: Sprite2D = null
+        if bool(config.dark_duplicate):
+            dark_axis = axis.duplicate()
+            $Art/DarkPieces.add_child(dark_axis)
+            var dark_paint: Sprite2D = dark_axis.get_node("Stretch/Piece_%03d" % int(item.id))
+            dark_paint.material = paint.material.duplicate()
+            dark_paint.material.set_shader_parameter("dark_duplicate", true)
+            dark_root = root_sprite.duplicate()
+            dark_root.material = root_sprite.material.duplicate()
+            dark_root.material.set_shader_parameter("dark_duplicate", true)
+            $Art/DarkRoots.add_child(dark_root)
+        pieces.append({"record":item,"axis":axis,"node":stretch,"paint":paint,"root":root_sprite,"dark_axis":dark_axis,"dark_root":dark_root})
+    for name in ["Peak", "PeakDark"]:
+        var node: Sprite2D = get_node("Art/" + name)
+        node.material = node.material.duplicate()
+        if grey_bodies and name == "Peak":
+            for band in range(4):
+                node.material.set_shader_parameter("palette_" + str(band), Color(128.0/255.0,128.0/255.0,128.0/255.0,1))
+    if FileAccess.file_exists("res://replay_config.json"):
+        var replay: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://replay_config.json"))
+        trace_path = str(replay.report).get_base_dir().path_join("pieces_trace.json")
+    tree_exiting.connect(_write_trace)
+    set_effect_age(0)
+
+func set_effect_age(age: int) -> void:
+    if age == last_age:
+        return
+    last_age = age
+    var flight_start: int = int(config.flash_frames) + int(config.hold_frames)
+    var expansion_end: int = flight_start + 15
+    var residue_start: int = expansion_end + 21
+    var residue_end: int = residue_start + int(config.residue_frames)
+    stage = "onset" if age < int(config.flash_frames) else ("hold" if age < flight_start else ("expansion" if age <= expansion_end else ("erosion" if age < residue_start else ("residue" if age < residue_end else "zero"))))
+    $Art/Peak.visible = stage == "hold"
+    $Art/PeakDark.visible = stage == "hold" and bool(config.dark_duplicate)
+    $Art/Flash.visible = stage == "onset"
+    var flash_t: float = float(age) / maxf(1.0, float(config.flash_frames))
+    $Art/Flash.scale = Vector2.ONE * lerpf(float(config.flash_from), float(config.flash_to), flash_t)
+    $Art/Flash.modulate.a = float(config.flash_alpha) * (1.0-flash_t)
+    $Art/Glow.visible = age < flight_start and bool(config.glow_enabled)
+    $FloorLight.visible = age < int(config.floor_frames) and bool(config.floor_enabled)
+    $FloorLight.modulate.a = maxf(0.0,1.0-float(age)/maxf(1.0,float(config.floor_frames)))
+    var flight_t: float = clampf(float(age-flight_start)/15.0,0.0,1.0)
+    var ease: float = 1.0-pow(1.0-flight_t,3.0)
+    var erosion_t: float = clampf(float(age-expansion_end)/21.0,0.0,1.0)
+    var states: Array = []
+    var count: int = 0
+    for data in pieces:
+        var item: Dictionary = data.record
+        var axis: Node2D = data.axis
+        var node: Sprite2D = data.node
+        var paint: Sprite2D = data.paint
+        var root_sprite: Sprite2D = data.root
+        var active: bool = int(item.area_px) >= 48 and age >= flight_start and age < residue_end
+        # Position is NEVER animated. Rotation is around the pinned root.
+        axis.rotation = float(item.axis_radians) + deg_to_rad(float(item.rotation_deg)) * ease
+        if bool(item.core):
+            var core_t: float = clampf(float(age-flight_start)/9.0,0.0,1.0)
+            node.scale = Vector2.ONE * lerpf(1.0,1.25,1.0-pow(1.0-core_t,3.0))
+        else:
+            node.scale = Vector2(lerpf(1.0,float(item.along),ease),lerpf(1.0,0.7,ease))
+        # Per-piece threshold curve: core erosion starts after its 9-tick swell;
+        # tongues start at 15 ticks. Thresholds share the WHOLE-BODY field.
+        var start: int = int(item.erosion_start_tick) + flight_start
+        var erode_t: float = clampf(float(age-start)/float(residue_start-start),0.0,1.0)
+        var erode: float = lerpf(0.0,1.0,erode_t)
+        var dissolve: float = 0.5 * erosion_t
+        axis.visible = active and age < residue_start
+        paint.visible = true
+        paint.material.set_shader_parameter("erode",erode)
+        paint.material.set_shader_parameter("dissolve",dissolve)
+        # Residue-by-erosion: a stationary radial interval of original masks.
+        # No shrinking, relocating, replacing or resegmenting the source art.
+        var root_erode: float = float(config.residue_erode) * erosion_t
+        var outer: float = lerpf(1.0,float(config.residue_outer),erosion_t)
+        root_sprite.visible = active
+        root_sprite.material.set_shader_parameter("erode",root_erode)
+        root_sprite.material.set_shader_parameter("outer_distance",outer)
+        root_sprite.material.set_shader_parameter("dissolve",dissolve)
+        if data.dark_axis != null:
+            var dark: Node2D = data.dark_axis
+            dark.transform = axis.transform
+            dark.visible = axis.visible
+            dark.get_node("Stretch").scale = node.scale
+            var dark_paint: Sprite2D = dark.get_node("Stretch/Piece_%03d" % int(item.id))
+            dark_paint.visible = true
+            dark_paint.material.set_shader_parameter("erode",erode)
+            dark_paint.material.set_shader_parameter("dissolve",dissolve)
+            var dark_root: Sprite2D = data.dark_root
+            dark_root.visible = active
+            dark_root.material.set_shader_parameter("erode",root_erode)
+            dark_root.material.set_shader_parameter("outer_distance",outer)
+            dark_root.material.set_shader_parameter("dissolve",dissolve)
+        if active:
+            count += 1
+        states.append({"id":item.id,"visible":active,"core":item.core,"scale":[node.scale.x,node.scale.y],"root_position":[axis.position.x,axis.position.y],"root_displacement_px":0.0,"rotation_deg":float(item.rotation_deg)*ease,"erode":erode,"dissolve":dissolve,"residue_erode":root_erode,"residue_outer":outer})
+    trace.append({"age_frames":age,"stage":stage,"peak_visible":$Art/Peak.visible,"shard_count":count,"source_piece_count":pieces.size(),"pieces":states})
+    if age >= residue_end:
+        hide()
+        _write_trace()
+        queue_free()
+'''
+
+
+def _write_piece_burst_v2(out, kit, resource_root, prefix):
+    """Rooted anisotropic sprites plus stationary eroded core/root coverage.
+
+    The stationary layer uses the same original masks and whole-body field.
+    An upper-distance clip bounds its retained roots; erode still removes the
+    centre first. No shader or scene used by a legacy kit is changed.
+    """
+    import copy
+    import numpy as np
+    from export.effect_kit import (load_pieces, piece_geometry, piece_stretch,
+                                   distance_field, write_vfx_material)
+    data = kit['effect']
+    config, record, _ = load_pieces(data['pieces'], kit['root'], runtime=True)
+    # Reuse v1's unchanged layer/material plumbing, then replace only this scene.
+    legacy = dict(kit, effect=copy.deepcopy(data))
+    legacy['effect']['pieces']['template'] = 'burst_v1'
+    canonical = out/'scenes/vfx/piece_burst.tscn'
+    owns_canonical = not canonical.exists()
+    _write_piece_burst(out, legacy, resource_root, prefix)
+    target = out/f'scenes/{prefix}_impact.tscn'
+    scene = target.read_text()
+    source_root = kit['root']/Path(config['source']).parent
+    geometry = piece_geometry(record, source_root)
+    runtime_path = out/resource_root/'pieces/burst_runtime.json'
+    runtime = json.loads(runtime_path.read_text())
+    runtime.update(template='burst_v2', core_centre=geometry['core_centre'],
+                   core_radius_px=geometry['core_radius_px'], pieces=[])
+    with Image.open(source_root/record['peak_index']) as image:
+        peak = np.asarray(image.convert('RGBA'))
+    field = distance_field(peak)
+    field_rel = resource_root+'/pieces/whole_body_distance.png'
+    Image.fromarray(field).save(out/field_rel)
+    # VO1 support, not alpha-weighted area; band 3 has already dissolved.
+    eligible = np.zeros(peak.shape[:2], dtype=bool)
+    for item in geometry['pieces']:
+        if item['animated']:
+            with Image.open(source_root/item['mask']) as image:
+                eligible |= np.asarray(image.convert('RGBA'))[...,3] > 0
+    eligible &= peak[...,0] < 255
+    lower = .04
+    histogram = np.bincount(field[eligible & (field/255 >= lower)], minlength=256)
+    cumulative = np.cumsum(histogram)
+    target_area = config['residue_fraction'] * np.count_nonzero(peak[...,3])
+    cutoff = int(np.argmin(abs(cumulative-target_area)))
+    runtime.update(residue_erode=lower, residue_outer=cutoff/255,
+                   predicted_stationary_residue_area_px=int(cumulative[cutoff]),
+                   source_peak_area_px=int(np.count_nonzero(peak[...,3])))
+    scene = scene.replace('res://scripts/vfx/piece_burst.gd','res://scripts/vfx/piece_burst_v2.gd')
+    # Root-only upper clip is a v2 shader variant. The shared T4a shader is frozen.
+    extra_nodes = ['[node name="Roots" type="Node2D" parent="Art"]\n',
+                   '[node name="DarkRoots" type="Node2D" parent="Art"]\nz_index = -1\n']
+    def vector(x,y): return f'Vector2({float(x):.12g}, {float(y):.12g})'
+    for item in geometry['pieces']:
+        ident = item['id']; name = 'Piece_%03d' % ident
+        material_rel = resource_root+'/materials/Piece_'+name+'.tres'
+        write_vfx_material(out, material_rel, data['material'], field_rel)
+        material = (out/material_rel).read_text()
+        shader_ref = re.search(r'path="res://([^"]+\.gdshader)"', material)[1]
+        root_shader = str(Path(shader_ref).with_name('vfx_material_v2_roots.gdshader'))
+        source = (out/shader_ref).read_text()
+        source = source.replace('uniform bool dark_duplicate', 'uniform float outer_distance = 1.0;\nuniform bool dark_duplicate')
+        source = source.replace('float distance_value = texture(distance_texture, UV).r;',
+                                'float distance_value = texture(distance_texture, UV).r;\n    if (distance_value > outer_distance) { coverage = 0.0; }')
+        (out/root_shader).write_text(source)
+        root_mat = resource_root+'/materials/Root_%03d.tres' % ident
+        (out/root_mat).write_text(material.replace(shader_ref, root_shader))
+        ext = f'[ext_resource type="Material" path="res://{root_mat}" id="RootM{ident}"]\n'
+        # All external resources precede the first node.
+        first_node = scene.index('[node ')
+        scene = scene[:first_node] + ext + scene[first_node:]
+        pattern = r'\[node name="'+name+r'" type="Sprite2D" parent="Art/Pieces"\]\n.*?(?=\[node |\Z)'
+        axis_name = 'Axis_%03d' % ident
+        position = tuple(a-b for a,b in zip(item['root'],record['centre']))
+        angle = item['axis_radians']
+        replacement = (f'[node name="{axis_name}" type="Node2D" parent="Art/Pieces"]\n'
+                       f'position = {vector(*position)}\nrotation = {angle:.12g}\n'
+                       f'[node name="Stretch" type="Sprite2D" parent="Art/Pieces/{axis_name}"]\n'
+                       f'[node name="{name}" type="Sprite2D" parent="Art/Pieces/{axis_name}/Stretch"]\n'
+                       'texture_filter = 2\ncentered = false\n'
+                       f'rotation = {-angle:.12g}\noffset = {vector(-item["root"][0],-item["root"][1])}\n'
+                       f'texture = ExtResource("T{name}")\nmaterial = ExtResource("M{name}")\n')
+        scene, matches = re.subn(pattern,lambda _:replacement,scene,flags=re.S)
+        if matches != 1: raise ValueError('Missing v2 piece node')
+        extra_nodes.append(f'[node name="Root_{ident:03d}" type="Sprite2D" parent="Art/Roots"]\n'
+                           'texture_filter = 2\ncentered = false\nvisible = false\n'
+                           f'offset = {vector(-record["centre"][0],-record["centre"][1])}\n'
+                           f'texture = ExtResource("T{name}")\nmaterial = ExtResource("RootM{ident}")\n')
+        runtime['pieces'].append({**item, **piece_stretch(config['seed'],ident),
+                                  'erosion_start_tick':9 if item['core'] else 15})
+    scene += '\n'.join(extra_nodes)
+    scene = re.sub(r'load_steps=\d+', 'load_steps='+str(scene.count('[ext_resource ')+1),scene,count=1)
+    (out/'scripts/vfx/piece_burst_v2.gd').write_text(PIECE_BURST_V2_SCRIPT)
+    runtime_path.write_text(json.dumps(runtime,indent=2)+'\n')
+    target.write_text(scene)
+    if owns_canonical: canonical.write_text(scene)
+    (out/'scenes/vfx/piece_burst_v2.tscn').write_text(scene)
 
 
 if __name__ == '__main__':
