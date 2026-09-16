@@ -2,7 +2,7 @@
   "run": "C-6",
   "charter": "agentic_orchestration/gandalf/notes/2026-09-15-c6-necromancer-master-design.md (design note; charter follows the master decision)",
   "charter_sha256_12": null,
-  "images_used": 9,
+  "images_used": 11,
   "images_cap": 999999,
   "images_cap_note": "SENTINEL — Matt V20 posture carried (no image budget; counted, reported)",
   "bursts": [
@@ -338,6 +338,75 @@
       "codex_version": "codex-cli 0.153.4",
       "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
       "exit": 0
+    },
+    {
+      "id": "N3-final-cam-01",
+      "type": "GENERATE",
+      "experiment": "C6-N3",
+      "brief_sha256": "74b0cf00ab320ea69d237a8483c492e72155cc281a6bd74eccd7b74647579e32",
+      "started": "2026-09-16T03:01:25.890367+00:00",
+      "ended": "2026-09-16T03:05:00.025723+00:00",
+      "minutes": 3.567762279166709,
+      "image_calls": 2,
+      "tool_calls": 2,
+      "audit": {
+        "violations": [],
+        "image_calls": 2,
+        "tool_calls": 2,
+        "tools_seen": {
+          "command_execution": 2
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0a829-7bc2-7891-9a5b-83e0fa32bcda/exec-8e930501-0385-4cb1-bfd4-df37c3730f25.png",
+            "sha256": "a9c1e9e84f4ef2e0098e5919a7f0a248af316eabda63ac94acc60d6d9c222b96"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0a829-7bc2-7891-9a5b-83e0fa32bcda/exec-fe17af62-7072-468a-b715-b22e16b6085c.png",
+            "sha256": "b225ad8585242bac948afa85a58188cbfb07fa527af1f2910a62173fba2d09a4"
+          }
+        ]
+      },
+      "receipt_sha256": "ae659a424943981f2125686725e31460c0a89f7177ee1828cddc9e42a3ef7be9",
+      "artifacts": [
+        {
+          "name": "necro_final_cam.png",
+          "sha256": "b225ad8585242bac948afa85a58188cbfb07fa527af1f2910a62173fba2d09a4"
+        },
+        {
+          "name": "exec-8e930501-0385-4cb1-bfd4-df37c3730f25.provenance.json",
+          "sha256": "84bb41d5cac18cd2acb41ecd93ba2d21fc8b31efa5d8b811384df6a16e6917ef"
+        },
+        {
+          "name": "exec-fe17af62-7072-468a-b715-b22e16b6085c.provenance.json",
+          "sha256": "f03116df63d3531dfcf74973c8849e18e66df8015477ad31144d3cd28b572a74"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0a829-7bc2-7891-9a5b-83e0fa32bcda/exec-8e930501-0385-4cb1-bfd4-df37c3730f25.png",
+          "sha256": "a9c1e9e84f4ef2e0098e5919a7f0a248af316eabda63ac94acc60d6d9c222b96"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0a829-7bc2-7891-9a5b-83e0fa32bcda/exec-fe17af62-7072-468a-b715-b22e16b6085c.png",
+          "sha256": "b225ad8585242bac948afa85a58188cbfb07fa527af1f2910a62173fba2d09a4"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
     }
   ],
   "experiments": [],
@@ -361,6 +430,11 @@
       "id": "M-C6-N2-R2",
       "note": "N2-master-scythe-r2 DELIVERED (2 image calls) against a TOOLING-PLACED GUIDE (scythe_guide_r2.png: design keyed, scaled to haft 550 px = 0.78 H, rotated 56.5° onto the fist line, placed through both fists): straight haft, blade beside the right shoulder, butt-spike past the hip fist, composite bbox h 707 = figure height (nothing above the head), figure pixels unchanged. Lesson (Astra S1 § 2b confirmed on a character): size/angle/position are a tooling contract, not prose. Awaiting Matt's eye.",
       "ts": "2026-09-15T20:31:14"
+    },
+    {
+      "id": "M-C6-N3-CAM",
+      "note": "N3-final-cam-01 DELIVERED (2 image calls): Matt's FINAL master re-drawn from the 53° scene camera — identity, scythe (blade up-left), tome, horn intact; foreshortened feet, ground under the figure. Delivered at 1254² (figure 566 px head-to-feet, scythe above); conductor keys + scales by figure height to 146 px (13.5 %) for CS-props-v23 at path (2650,1950). Conductor eye: camera PASS. Awaiting Matt on the web build.",
+      "ts": "2026-09-15T23:06:09"
     }
   ],
   "halts": [],

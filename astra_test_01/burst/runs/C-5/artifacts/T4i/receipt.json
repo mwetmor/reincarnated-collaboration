@@ -1,0 +1,46 @@
+{
+  "task_id": "T4i",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [],
+  "calls_used": 0,
+  "retries": [
+    {
+      "reason": "Boundary-probe rounding and test-isolation errors.",
+      "change": "Corrected the synthetic boundary coordinate and scoped report/cleanup handling; retained all diagnostics."
+    }
+  ],
+  "self_report": {
+    "obeyed_invariants": true,
+    "concerns": [
+      "Followed explicit acceptance: overlay touches aim forward; world-area touches aim at the touch, despite conflicting BUILD wording.",
+      "Eight-kit comparison used six C-3 kits and two burst fixtures; mouse baseline used the saved pre-T4i exporter.",
+      "597-test suite recorded five standing failures, eleven Godot environment failures, and two harness errors. Both harness errors cleared in targeted rechecks; no subsequent full rerun. Every red is named in acceptance.json."
+    ]
+  },
+  "files": [
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/export/godot_import.py",
+      "sha256": "e4f7aee30122c615b9b9afeb8b9bdf3cf568c859d3dd4b42b41005d84d9f681d"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_godot_import.py",
+      "sha256": "98496157938851af39d58a98ec587510c1411e3fc4070277741d27ec4f3737f2"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_vfx_picker.py",
+      "sha256": "fd5e5a8529f21795d36a68b0b78eec55adcc85826787cbbf988930a0a261410f"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4i/acceptance.json",
+      "sha256": "fede5fc9c2529860b0d84b025f4824e4a26b4d6e895281df96eb996e959287d9"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4i/evidence.zip",
+      "sha256": "5ebd85c12d1b72dcffa768f49f8d8c6d2b35edfec9e84eb2362dd141f1970d33"
+    },
+    {
+      "path": "/Users/admin/astra-burst/runs/C-5/T4i/out/files.json",
+      "sha256": "cb5e2624bfaf7e099a4edb80b8bcaba3fec64b602a01f8f12a84868461681666"
+    }
+  ]
+}

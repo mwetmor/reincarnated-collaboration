@@ -1,0 +1,49 @@
+{
+  "task_id": "N3-final-cam-01",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "necro_final_cam",
+      "path": "out/necro_final_cam.png",
+      "sha256": "b225ad8585242bac948afa85a58188cbfb07fa527af1f2910a62173fba2d09a4",
+      "prompt": "EDIT reference image 2, preserving that exact necromancer identity and all equipment. Reference image 1 supplies ONLY the small figure placement in a square canvas and the hand-drawn animation register. Reference image 3 supplies ONLY game camera context. Use case: identity-preserve.\nCRITICAL COMPOSITION CORRECTION: Output one 512 by 512 image. The MAN HIMSELF, excluding his weapon, must occupy ONLY 240 pixels vertically, less than HALF the canvas height. He is SMALL within a LARGE expanse of SOLID PURE GREEN #00ff00. Crown at (256,160), feet contact around (256,400). Leave 112 pixels of empty GREEN below his feet, 160 pixels above his crown. Scythe tip may extend above crown to about y=110, blade extends to viewer left, with ample green margin around the whole silhouette. Do not zoom in to fill the canvas. Exactly match reference 1's body height and feet baseline.\nCRITICAL CAMERA CORRECTION: raise the camera to look down at 53 degrees toward the ground. Redraw the entire body in this high three-quarter projection, SOUTH facing. Show a substantial top surface of skull/hair and the tops of both shoulder armor plates. The torso and shins are foreshortened from above; the sabatons recede along the ground underneath the figure. His face looks straight ahead horizontally, so the elevated viewer sees brow above eyes and a shortened face. Balanced even weight. This is a change of viewing angle, not just a lowered chin.\nKeep every design feature of reference 2 with the same proportional sizes and anatomical sides: gaunt pale man, long straight bone-white hair, cold eyes, black ribcage cuirass with bone-white raised ribs over fine chain, silver-edged ornate pauldrons, great curved bone horn ONLY on HIS LEFT shoulder/viewer RIGHT, skull-and-bone silver belt buckle, long split dark skirt with silver trim, ridged steel greaves and pointed sabatons, small dark leather tome at HIS LEFT hip/viewer RIGHT. Both gauntleted hands hold the same bone-and-silver war scythe in the same grip, the shaft running diagonally from low at his LEFT hip/viewer RIGHT up past his RIGHT shoulder/viewer LEFT. The entire huge crescent blade is above and to viewer LEFT of his head; preserve its size relative to his body. No mirroring, no equipment omission or redesign.\nHand-drawn painted 2D animation-frame medium: dark confident hand-drawn contours, tapered varied line weight, clean flat painted planes, minimal surface texture and crisp edge. Keep black, silver, ivory palette. Single cold light from screen upper left; deep cool readable ambient shadows, no warm glow. Background is an OPAQUE solid flat pure bright GREEN #00ff00 throughout, including all margins and between limbs and weapon; no transparency, no black background, no shadow, no floor, no text, no scenery, no sheet. Every part safely inside canvas. Only camera, scale, placement and canvas change.",
+      "references": [
+        {
+          "role": "Camera, placement and register reference",
+          "path": "in/01_keeper_rest_S.png"
+        },
+        {
+          "role": "Edit target and sole identity source",
+          "path": "in/02_necro_master_final_app.png"
+        },
+        {
+          "role": "Supporting game-camera reference",
+          "path": "in/03_dress_size_chart.png"
+        }
+      ],
+      "elapsed_s": 26.105
+    }
+  ],
+  "calls_used": 2,
+  "retries": [
+    {
+      "reason": "First result was oversized and remained too frontal.",
+      "change": "Emphasized small figure placement, elevated camera foreshortening and opaque green background."
+    }
+  ],
+  "self_report": {
+    "obeyed_invariants": false,
+    "concerns": [
+      "Tool returned 1254×1254, not 512×512. Copied unchanged under the copy-only restriction; literal 240-pixel figure height and pivot coordinates are therefore unmet.",
+      "Exact 53-degree camera and pure #00ff00 background were not quantitatively verified.",
+      "Used the reference and frozen register's y=400 ground line; task prose separately specified y≈480.",
+      "Returned images as an array to conform to the required response schema."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/necro_final_cam.png",
+      "sha256": "b225ad8585242bac948afa85a58188cbfb07fa527af1f2910a62173fba2d09a4"
+    }
+  ]
+}

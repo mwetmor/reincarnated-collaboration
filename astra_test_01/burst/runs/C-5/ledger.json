@@ -3940,6 +3940,76 @@
       "codex_version": "codex-cli 0.153.4",
       "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
       "exit": 0
+    },
+    {
+      "id": "T4i",
+      "type": "TOOLING",
+      "experiment": "C5-P0b",
+      "brief_sha256": "46b96ec164e1bf5505f583c5cdef34cc3e49e700b4db126ac4b61ce2ebafe691",
+      "started": "2026-09-16T02:39:45.048874+00:00",
+      "ended": "2026-09-16T02:59:53.330746+00:00",
+      "minutes": 20.137947358333257,
+      "image_calls": 0,
+      "tool_calls": 43,
+      "audit": {
+        "violations": [],
+        "image_calls": 0,
+        "tool_calls": 43,
+        "tools_seen": {
+          "command_execution": 39,
+          "file_change": 4
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": []
+      },
+      "receipt_sha256": "4d085a200f3510366f1f7a7f838876f1c18ed526cf9da4433a5f969ada3224bc",
+      "artifacts": [
+        {
+          "name": "files.json",
+          "sha256": "cb5e2624bfaf7e099a4edb80b8bcaba3fec64b602a01f8f12a84868461681666"
+        }
+      ],
+      "artifacts_in_place": [
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "export/godot_import.py",
+          "sha256": "e4f7aee30122c615b9b9afeb8b9bdf3cf568c859d3dd4b42b41005d84d9f681d"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-5/t3/T4i/acceptance.json",
+          "sha256": "fede5fc9c2529860b0d84b025f4824e4a26b4d6e895281df96eb996e959287d9"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-5/t3/T4i/evidence.zip",
+          "sha256": "5ebd85c12d1b72dcffa768f49f8d8c6d2b35edfec9e84eb2362dd141f1970d33"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "tests/test_godot_import.py",
+          "sha256": "98496157938851af39d58a98ec587510c1411e3fc4070277741d27ec4f3737f2"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "tests/test_vfx_picker.py",
+          "sha256": "fd5e5a8529f21795d36a68b0b78eec55adcc85826787cbbf988930a0a261410f"
+        }
+      ],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
     }
   ],
   "experiments": [],
@@ -3988,6 +4058,11 @@
       "id": "M-C5-PACKET-87",
       "note": "Packet 87 — THE BURST ALIVE: cliffside_v22 (eight kits, import 0 errors) staged; v1 (fly) and v2 (stretch-and-erode) cast at a dummy in the clearing at the exact 1920×1080 camera (probe_cast_kit.gd, KIT_CYCLES 6/7; labels confirm fire_burst_e0p / _v2); real-time + quarter-speed clips, in-scene contact sheets, dark-plate bakes; Desktop folder 87 under Astra Burst Review - 2026-09-15 with README + Godot instructions (Tab ×6 = v1, ×7 = v2); clips sent to Matt in-chat. Gate: Matt eye — painted burst or sticker explosion; V4 ruled here (R-C3-120).",
       "ts": "2026-09-15T22:32:11"
+    },
+    {
+      "id": "M-C5-WEB9",
+      "note": "CS-pack-web9 LIVE (drax): https://reincarnated-loadout.vercel.app/playtest/cliffside/ from CS-pack-v22 — eight kits (fire_burst_e0p ×6 Tab, _v2 ×7); loadout ebba8499 pushed; pck 0a38dd80…; no build-script change; production casts of kit 7 and 8 captured (live_kit7/8_*). drax finding on F-C5-5: the overlay marks every ScreenTouch handled, so keeper.gd _unhandled_input never sees it; the aim falls to get_global_mouse_position() = the browser-emulated mouse at the CAST button — T4i's event bookkeeping may never fire on web; T4i-r1 makes touch devices ALWAYS aim forward (DisplayServer.is_touchscreen_available()). Deploy truth: agentic_orchestration/drax/captures/2026-09-15-web-playtest-v9/deploy_truth.txt",
+      "ts": "2026-09-15T23:06:09"
     }
   ],
   "halts": [],
@@ -4152,6 +4227,20 @@
       "veto_open": true,
       "ruling": "FREEZE after T4e-r1 + T4h + T4h-r1 (one freeze for the three): full suite outside the sandbox after T4h-r1 = the five standing reds only (run count in the log). MANIFEST restamped; SYNC restamped. Tools now include oracle/peak_pieces.py (spatial shards), the pieces phase + piece_burst v1/v2 scenes in the exporter, crop 768 accepted by replay. PACK v22 fires on the frozen tools (eight kits).",
       "ts": "2026-09-15T22:22:24"
+    },
+    {
+      "id": "R-C5-23",
+      "class": "matt",
+      "veto_open": false,
+      "ruling": "Matt (2026-09-16): (1) bring the burst (cliffside_v22) to Vercel for his phone → drax web9 dispatched on v22 as-is. (2) BUG on the Vercel build — F-C5-5: all mobile casts go down/behind (down-left / middle / down-right by where the CAST tap ends), never forward or up. Diagnosis: keeper.gd _unhandled_input sets vfx_cursor_override on EVERY ScreenTouch, so the CAST-button tap (bottom of the screen) becomes the aim point. Remedy: T4i TOOLING — touch-originated casts aim FORWARD along facing at the kit range; touches in the bottom 22 % overlay band never set the override (constant for drax); mouse aim unchanged. Then PACK v23 → web10.",
+      "ts": "2026-09-15T22:39:12"
+    },
+    {
+      "id": "R-C5-24",
+      "class": "conductor",
+      "veto_open": true,
+      "ruling": "T4i DELIVERED_WITH_CONCERNS: exporter keeper.gd — touches in the bottom 22 % overlay band (TOUCH_OVERLAY_BAND = 0.22; the CAST button + joystick) never set the aim override; touch-origin casts aim FORWARD along facing at the kit range; a touch in the world area still aims the next cast at that point (my acceptance wording; benign — the overlay holds both controls — reviewable against the no-targeting ruling once Matt plays it); mouse aim byte-identical to the pre-T4i exporter; six kits + two burst kits export identically except keeper.gd; headless import 0 errors. Sandbox suite: five standing reds + eleven env reds + two harness errors cleared on recheck — the conductor re-runs outside before the freeze. Figure height 13.5 % (Matt) = CS-parallax-in-v9 walkable.json figure_height_px 146 (data copy of v8).",
+      "ts": "2026-09-15T23:01:25"
     }
   ],
   "grok_calls": [],
@@ -4193,6 +4282,11 @@
       "id": "N-C5-suite-T4e-r1-T4h",
       "note": "Full suite OUTSIDE the sandbox after T4e-r1 + T4h: 586 run, 581 ok — only the five standing reds (walk head_ref_y, F04 outside, 3 annuli). The ten headless-Godot reds seen inside the Astra sandbox are sandbox-only (log rotation / editor settings / CA certs) — confirmed twice now (T4d, T4h). Freeze deferred to after T4h-r1 (one freeze for T4e-r1 + T4h + T4h-r1).",
       "ts": "2026-09-15T21:52:37"
+    },
+    {
+      "id": "N-C5-suite-T4i",
+      "note": "Full suite OUTSIDE the sandbox after T4i: 597 run, 592 ok — five standing reds only. T4i-r1 fired (device-based forward aim per drax finding); freeze after r1.",
+      "ts": "2026-09-15T23:06:35"
     }
   ]
 }
