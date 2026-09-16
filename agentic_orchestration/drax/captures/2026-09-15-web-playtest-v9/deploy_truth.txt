@@ -1,0 +1,115 @@
+DEPLOY TRUTH — CS-pack-web9 (cliffside, E0-p burst kits; kits_v9 is now EIGHT)
+drax, 2026-09-15
+
+URL             https://reincarnated-loadout.vercel.app/playtest/cliffside/
+Source          astra_test_01/burst/runs/C-5/artifacts/CS-pack-v22/godot (C-5; read-only, untouched)
+Build           reincarnated-godot/web/build_playtest.sh <src> cliffside   (Godot 4.6.3, gl_compatibility, threads OFF)
+Loadout commit  ebba8499efc300cf8181be7066bcd0e3cef0a21e  (pushed 00a25df..ebba849 main)
+Godot commit    3f8c7d6969827911de254b32690d5f77c3f0c575  (web/cliffside mirror; not pushed)
+
+Build-script change: NONE. web7/web8's procedure ran byte-for-byte on the new source.
+No overlay change either: the license-fence regex matches the LIBRARY kit names exactly
+(`vfx/fire/`, `vfx_fire_impact`), so `vfx/fire_burst_e0p/` and
+`vfx_fire_burst_e0p_impact.gd` are not false positives. Verified by running it.
+
+== what is new vs web8 ==
+Two Astra T4h piece-burst VFX kits from E0-p, appended to VFX_KITS as indices 6 and 7:
+  fire_burst_e0p     (7th Tab kit) — burst_v1, rigid chunks that fly
+  fire_burst_e0p_v2  (8th Tab kit) — burst_v2, stretch-and-erode
+plus scenes/vfx/piece_burst.tscn + piece_burst_v2.tscn, the two impact scenes and the
+two material bindings. Nothing else in the scene moved: same seven dummies, same cow
+carcass, same necromancer master at the bridgehead as web8.
+
+== kits_v9 (eight, in Tab order) ==
+  0 frozen_orb            4 zeus_chain
+  1 blackwater_cocktail   5 healing_hands
+  2 poisonous_concoction  6 fire_burst_e0p        <- NEW
+  3 lightning_blast       7 fire_burst_e0p_v2     <- NEW
+So on the HUD: Tab x6 reaches fire_burst_e0p, Tab x7 reaches fire_burst_e0p_v2.
+
+== license fence ==
+overlay: clean (no library VFX packs)
+index.pck grep for library names: no match (build would exit 3)
+CREDITS_VFX.txt in the source names exactly the eight kits above, all self-authored;
+no license is inferred for any of them.
+
+== production HTTP (plain GET, no -L) ==
+200  text/html; charset=utf-8              5994       https://reincarnated-loadout.vercel.app/playtest/cliffside/
+200  text/html; charset=utf-8              5994       https://reincarnated-loadout.vercel.app/playtest/cliffside/index.html
+200  application/javascript; charset=utf-8 315759     https://reincarnated-loadout.vercel.app/playtest/cliffside/index.js
+200  application/wasm                      37700666   https://reincarnated-loadout.vercel.app/playtest/cliffside/index.wasm
+200  application/octet-stream              36662880   https://reincarnated-loadout.vercel.app/playtest/cliffside/index.pck
+200  text/html; charset=utf-8              5994       https://reincarnated-loadout.vercel.app/playtest/cliffside   (slash-less)
+200  text/html; charset=utf-8              3043       https://reincarnated-loadout.vercel.app/playtest/            (landing)
+
+== pck identity ==
+local   0a38dd804062f197e07a5f1ade333ef3aed5973bcc159113b9c2f4a2d391bd91  36662880 B
+live    0a38dd804062f197e07a5f1ade333ef3aed5973bcc159113b9c2f4a2d391bd91  36662880 B  (full download, matches)
+web8 pck was 35778288 B (+884592 B). index.wasm (37700666 B) and index.js (315759 B)
+byte-identical to web7 and web8 — same Godot 4.6.3 — so only index.pck and the pck size
+recorded in index.html's GODOT_CONFIG changed in the deployed tree.
+
+== headless boot on production ==
+phone-landscape 844x390, Chrome headless swiftshader (web/_overlay/boot_test.js):
+booted=true boot_ms=9021
+200 application/javascript; charset=utf-8  .../index.js
+200 application/octet-stream               .../index.pck
+200 application/wasm                       .../index.wasm
+console: 0 pageerror, 0 Godot errors; only the two WebGL 'GPU stall due to ReadPixels'
+  perf warnings (swiftshader artifact, present for web6/web7/web8 too).
+joystick: live_02_touch_run_east.png — keeper ran east under touch drag.
+CAST:     live_03_touch_cast_held.png / live_04_after_cast.png — cast pose from the CAST button.
+keyboard: live_05_keyboard_north.png — W still moves (overlay does not eat keys).
+CAST button unchanged on mobile per Matt ruling: no tap-to-cast, no targeting.
+
+== the 8th kit cast at a dummy, ON PRODUCTION ==
+Harness: cast_test.js (kept beside this file), 1280x720 @ dsf 1, desktop keyboard+mouse,
+no touch overlay. Route: Tab x7 -> run E 6 s -> run NE 16 s -> run N 6 s -> run E 1.4 s,
+which puts the keeper in the practice-dummy clearing past the far bridgehead. Aim is the
+real mouse cursor placed over dummy_humanoid_3 (world 4525.7, 650.5); fire = E key.
+
+live_kit8_00_label.png        HUD reads "VFX: fire_burst_e0p_v2  (Tab)" after Tab x7.
+live_kit8_01_at_dummies.png   the clearing, pre-cast baseline (keeper centre, dummies around).
+live_kit8_02_burst_on_dummy.png   THE FRAME — the v2 burst wrapped around dummy_humanoid_3.
+live_kit8_03_burst_on_dummy_b.png second cast, same target, for a second read.
+live_kit7_00_label.png        HUD reads "VFX: fire_burst_e0p  (Tab)" after Tab x6.
+live_kit7_01_burst_on_dummy.png   the v1 burst on the same dummy, same framing, for A/B.
+
+Descriptive only, register call is the conductor's: at this camera scale the v1 frame shows
+discrete separated shards standing off the dummy with gaps of open ground between them; the
+v2 frame shows a single connected flame mass that covers the dummy's torso. Same target, same
+distance, same 1280x720 framing, so the two frames are directly comparable.
+
+== the mobile aim bug (NOT fixed here, per dispatch) ==
+Confirmed present. Noted for T4i, and one observation the exporter fix should account for:
+keeper.gd's `_unhandled_input` is probably NOT the live path. `touch_controls.gd::_input`
+calls `get_viewport().set_input_as_handled()` on EVERY InputEventScreenTouch — the CAST
+button branch included — so `_unhandled_input` should never see that touch and
+`vfx_cursor_override` should stay null. Aim then falls through to
+`get_global_mouse_position()`, which on a web touch device is wherever the browser last
+reported a (compatibility-emulated) mouse — i.e. the CAST button. Same symptom, different
+seam: suppressing the override alone may not fix it if the mouse position is the real source.
+Worth one probe before the fix is written.
+
+Can the overlay pass a "this touch was the CAST button" signal cheaply? YES, and it already
+computes it. `touch_controls.gd::_touch_down` hits
+    if pos.distance_to(_button_center(button)) <= button.radius * 1.15:
+exactly when a touch lands on CAST/JUMP/VFX. One member var on the autoload set there
+(e.g. `var last_touch_was_button := true/false`, or an `aim_hint` the overlay owns) is a
+one-line overlay change with no new nodes and no per-frame cost. The consumer side is
+keeper.gd, which is exporter-owned, so nothing was changed on either side in this build.
+
+== caveats ==
+Unchanged from web8: iOS texture memory ~45 MB first download, the six big parallax/tile
+  textures import as lossy WebP q0.9, and parallax/tiles/tile_0_0.png is 4096x4096 (at the
+  GLES3 max-texture-size floor; devices reporting exactly 4096 are fine).
+The two new kits add 117 PNGs / 665810 B of source art. Largest frame is 512x512, so
+  none of it crosses the 2048 px lossy threshold — it all imports lossless. No new large
+  texture in this build; the +884592 B on the pck is those two kits.
+Single-threaded build (no SharedArrayBuffer), so no COOP/COEP headers are needed on Vercel.
+
+== harness note for the next deploy ==
+Firing `cast` from the keyboard needs `keyboard.down('KeyE')` held across a screenshot,
+not `keyboard.press()`; and in headless swiftshader a `page.screenshot()` costs the better
+part of a second, so the burst is caught by taking frames back-to-back with NO sleeps
+between them, fired four times, then picking by pixel-diff against the pre-cast baseline.
