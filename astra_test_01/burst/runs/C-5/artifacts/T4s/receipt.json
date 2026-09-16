@@ -1,0 +1,181 @@
+{
+  "task_id": "T4s",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [],
+  "calls_used": 0,
+  "retries": [
+    {
+      "reason": "G2 label transform error and incomplete test fixture.",
+      "change": "Corrected Control transforms and fixture main_scene; final 14 focused tests and headless traces completed without errors."
+    }
+  ],
+  "self_report": {
+    "obeyed_invariants": true,
+    "concerns": [
+      "Authored tick schedules retained: fire CV 0.136083 and poison CV 0.175682 both contradict FF-08 ≥ 0.25.",
+      "Decals appear at landing and fade over residue_s after field expiry; the brief's fade epoch is ambiguous.",
+      "RGB flask coverage retained; supplied dark pixels have median alpha 253/255. Rendered opacity remains unverified.",
+      "Poison primitives required four-band quantisation; alpha remained unchanged.",
+      "Fourteen unresolved broader-suite cases are named in acceptance.json. Final focused tests: 14, zero failures/errors.",
+      "Final Godot import and traces exited 0; platform certificate and denied editor-settings diagnostics remain."
+    ]
+  },
+  "files": [
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/export/effect_kit.py",
+      "sha256": "1517e6b746c68a27048c676e9e9d1d5aac419af85f6cd18c2cc2201487d27bed"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/export/godot_import.py",
+      "sha256": "7485571f2003b57344b0235c69ba64c9505f9dd9859dc03acb51470c0d33a43a"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4s/README.md",
+      "sha256": "7ef4b17252ec4360388790e70bb58e1b11fc9d06e418418146f688885081c0d3"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4s/acceptance.json",
+      "sha256": "e8b22108607e4ed813c045e6898a817efd64153d9e8fe4f76e49a9ae9510f16a"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4s/density_trace.json",
+      "sha256": "220d7311bef933bfe4fa1ad5d8d309d11d8a10d6d0612571cee616179de48a55"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4s/eleven_hashes.json",
+      "sha256": "b7471e8c77d078ac5c651eece2be83c3151a6a2ba65fcfc77500cd94cb041c31"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4s/emitted/scenes/vfx/g2_thrown_field.tscn",
+      "sha256": "256d4a41ca120bf22b23d2cfefa7e99691cd3932a28f9059e9f98482bf4dbf59"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4s/emitted/scripts/vfx_g2.gd",
+      "sha256": "aa5915214d3c572fc84fa445940f6bad3a49e7617b175e2e6377abf240d7e4ba"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4s/evidence.zip",
+      "sha256": "cbf5ff11113af09e6d891a54d752de1be413b63810da4bf7a5781095c3ab118e"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4s/focused.json",
+      "sha256": "a90eaa89d96126e96144618251391089e936a8a6e352f4534428f182844090b2"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4s/g2_trace.json",
+      "sha256": "3fe6e8f71520da6170840a84b515b1983377fdcd49ab5708d4aed489f83f55a0"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4s/run_tests.py",
+      "sha256": "84a8fe0daf650e7404caed9fc808ec320584e178aace266a47eecd234a38420c"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4s/runtime_project.zip",
+      "sha256": "2a29a5b00b55dae814e8fd5116490ea16d910b12c842991cabca44487cedb29f"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4s/scale_after.json",
+      "sha256": "ba7a977961eac343ac6d219fb3255b997d2621fee5565ff14841525f174e84f3"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4s/scale_before.json",
+      "sha256": "be5c2e303254f7a964118ecc790d6a10ea9ffff64efa93baeb50befee3e20123"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4s/suite.json",
+      "sha256": "47919accc839879c75de1642fd60282c83c7b43f9fc631013c1c10ac4d435b9e"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/vfx_kits/kits_v9.json",
+      "sha256": "e7e3e262e64cbefd8f0e088848b03e02c3c1f5e34fb054a335e7aa415d44eb01"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/vfx_kits/v9/blackwater_cocktail_e3/CREDITS.txt",
+      "sha256": "9fdb71286c0699fd35ac2521b2e28a1ab109b774081958addeaa93500d00a51e"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/vfx_kits/v9/blackwater_cocktail_e3/flare/flare_00.png",
+      "sha256": "47eaa3cde6872a6f97265fd1080dd55ec072d51d7fc411593f8f62917f550fcc"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/vfx_kits/v9/blackwater_cocktail_e3/impact/impact_00.png",
+      "sha256": "47eaa3cde6872a6f97265fd1080dd55ec072d51d7fc411593f8f62917f550fcc"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/vfx_kits/v9/blackwater_cocktail_e3/kit.json",
+      "sha256": "374cfc1f9ca1bc88d95a5e95a58323ad3e97eb6f2eef3d0c90041167e3dbdc4e"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/vfx_kits/v9/blackwater_cocktail_e3/primitives/field_source.png",
+      "sha256": "82bb6e314180d122e758f4b0d9fee536a74ac33247ca3fa4e936d3a700f8fbc2"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/vfx_kits/v9/blackwater_cocktail_e3/primitives/flask.png",
+      "sha256": "9d2893a62a1266b626a96377350c12a3fdadb71e9a87db67daedfe8de3c1cfff"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/vfx_kits/v9/blackwater_cocktail_e3/primitives/pulse.png",
+      "sha256": "47eaa3cde6872a6f97265fd1080dd55ec072d51d7fc411593f8f62917f550fcc"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/vfx_kits/v9/blackwater_cocktail_e3/travel/travel_00.png",
+      "sha256": "47eaa3cde6872a6f97265fd1080dd55ec072d51d7fc411593f8f62917f550fcc"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/vfx_kits/v9/blackwater_cocktail_e3/vfx_select.json",
+      "sha256": "2b6a3449d2a943acf0f5f147d0c2289c25002b02f1c332466f26860876003e14"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/vfx_kits/v9/poisonous_concoction_e3/CREDITS.txt",
+      "sha256": "248a3aba88c541922b206a2ef81b2906af630afb22bc23b6b783f781621dc2ac"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/vfx_kits/v9/poisonous_concoction_e3/flare/flare_00.png",
+      "sha256": "2ec258e01c397ac642ad6f9e4c2a02f16044f04bb31b1ae727b9df644916477e"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/vfx_kits/v9/poisonous_concoction_e3/impact/impact_00.png",
+      "sha256": "2ec258e01c397ac642ad6f9e4c2a02f16044f04bb31b1ae727b9df644916477e"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/vfx_kits/v9/poisonous_concoction_e3/kit.json",
+      "sha256": "aaa6622c3e199b38971b2e33cf5153870d1633b122a321480322595f7637f2fb"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/vfx_kits/v9/poisonous_concoction_e3/primitives/field_source.png",
+      "sha256": "46a36806148388c41d16bf74f0e99609adce0744ce504a0160e2a25a2c1249a6"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/vfx_kits/v9/poisonous_concoction_e3/primitives/flask.png",
+      "sha256": "9d2893a62a1266b626a96377350c12a3fdadb71e9a87db67daedfe8de3c1cfff"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/vfx_kits/v9/poisonous_concoction_e3/primitives/pulse.png",
+      "sha256": "2ec258e01c397ac642ad6f9e4c2a02f16044f04bb31b1ae727b9df644916477e"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/vfx_kits/v9/poisonous_concoction_e3/travel/travel_00.png",
+      "sha256": "2ec258e01c397ac642ad6f9e4c2a02f16044f04bb31b1ae727b9df644916477e"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/vfx_kits/v9/poisonous_concoction_e3/vfx_select.json",
+      "sha256": "b17dedce50ca3950a9f72a23af4469644497d036da161ddb918596f199a5586d"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_effect_kit.py",
+      "sha256": "07c8af894c21133d4cb0db4a85892ef5341e1115acbd47f29e7809fc84974976"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_godot_import.py",
+      "sha256": "9475107555e49fc60da691a69dca076b1c807965025432d980e38aabff96f423"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_vfx_picker.py",
+      "sha256": "e15c8784e62a942a8fbd3a3a777c3950577d6c83fd8b9e1f08308674beb82699"
+    },
+    {
+      "path": "/Users/admin/astra-burst/runs/C-5/T4s/out/files.json",
+      "sha256": "237b62965c1ee5f864e61b46a65dcdad26667432a8a56adb25864e578d8bcef4"
+    }
+  ]
+}

@@ -17,10 +17,10 @@
    "duration_s": 3.0,
    "tick_schedule_s": [
     0.0,
-    0.45,
-    1.05,
-    1.5,
-    2.1,
+    0.3,
+    0.95,
+    1.25,
+    2.0,
     2.7
    ],
    "tick_cv_min": 0.25
@@ -57,6 +57,7 @@
  "provenance": {
   "lobbed flask / burning pool ~3 s": "GD source observation (conductor memory) \u2014 VERIFY",
   "irregular ticks": "FF-08 (interval CV \u2265 0.25)",
-  "material flask RGB": "03- \u00a7 2.3 material-glass gate"
+  "material flask RGB": "03- \u00a7 2.3 material-glass gate",
+  "tick_schedule": "conductor R-C5-55: re-authored for FF-08 (CV 0.37 \u2265 0.25); the first schedule (CV < 0.25) was the conductor error T4s reported"
  }
 }

@@ -1,0 +1,144 @@
+{
+ "name": "blackwater_cocktail_e3",
+ "element": "fire",
+ "element_class": "field",
+ "screen_px": true,
+ "ground_squash": 0.58,
+ "material": {
+  "blend_mode": "MIX",
+  "light_participation": false,
+  "erode": 0.0,
+  "dissolve": 0.0,
+  "palette": [
+   [
+    0.25,
+    0.08,
+    0.04,
+    1
+   ],
+   [
+    0.7,
+    0.16,
+    0.08,
+    1
+   ],
+   [
+    1,
+    0.55,
+    0.12,
+    1
+   ],
+   [
+    1,
+    0.94,
+    0.75,
+    1
+   ]
+  ],
+  "erode_outside_in": true
+ },
+ "phases": {
+  "cast": {
+   "sheet": "flare/flare_00.png",
+   "frames": [
+    {
+     "file": "flare/flare_00.png",
+     "hold_frames": 2
+    }
+   ]
+  },
+  "travel": {
+   "sheet": "travel/travel_00.png",
+   "frames": [
+    {
+     "file": "travel/travel_00.png",
+     "hold_frames": 2
+    }
+   ]
+  },
+  "impact": {
+   "sheet": "impact/impact_00.png",
+   "frames": [
+    {
+     "file": "impact/impact_00.png",
+     "hold_frames": 2
+    }
+   ]
+  }
+ },
+ "layers": {},
+ "pierce": 0,
+ "skill_spec": {
+  "skill_id": "blackwater_cocktail",
+  "source_game": "Grim Dawn \u2014 Demolitionist: Blackwater Cocktail",
+  "grammar": "G2",
+  "visual_treatment_id": "fire",
+  "response_class": "material\u2192field",
+  "mechanics": {
+   "origin_socket": "cast_release",
+   "aim_rule": "ground-locked",
+   "range_px": 520,
+   "arc": {
+    "apex_px": 180,
+    "flight_s": 0.55
+   },
+   "field": {
+    "radius_px": 150,
+    "duration_s": 3.0,
+    "tick_schedule_s": [
+     0.0,
+     0.3,
+     0.95,
+     1.25,
+     2.0,
+     2.7
+    ],
+    "tick_cv_min": 0.25
+   },
+   "termination": "field_expiry"
+  },
+  "presentation": {
+   "primitive_bindings": {
+    "projectile": "RGB flask (material, opaque dark glass, pale reflection) \u2014 NOT value-index",
+    "impact": "flask shatter: 3 glass shards (RGB) + fire splash = fire_burst_e0p_v2 at 0.7 scale",
+    "field": "P03 field body (fire) ground-bound, 0.58 squash, with 3 P01 heads as licks that pulse on the tick schedule",
+    "residue": "scorch decal 1.0 s"
+   },
+   "body_extents_bh": {
+    "flask": 0.35,
+    "field_diameter": 2.3
+   },
+   "phase_envelope_s": {
+    "flight": 0.55,
+    "splash_hold_frames": 2,
+    "field": 3.0,
+    "residue": 1.0
+   },
+   "enabled_layers": [
+    "flash",
+    "halo",
+    "floor_light",
+    "dark_duplicate",
+    "victim_tint",
+    "hit_stop",
+    "contact_label"
+   ]
+  },
+  "provenance": {
+   "lobbed flask / burning pool ~3 s": "GD source observation (conductor memory) \u2014 VERIFY",
+   "irregular ticks": "FF-08 (interval CV \u2265 0.25)",
+   "material flask RGB": "03- \u00a7 2.3 material-glass gate"
+  }
+ },
+ "g2": {
+  "flask": "primitives/flask.png",
+  "field_source": "primitives/field_source.png",
+  "pulse": "primitives/pulse.png",
+  "splash": {
+   "kit": "fire_burst_e0p_v2",
+   "template": "burst_v2",
+   "scale": 0.7
+  },
+  "seed": 2026
+ }
+}

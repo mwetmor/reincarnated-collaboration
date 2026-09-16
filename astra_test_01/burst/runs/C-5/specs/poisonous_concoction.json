@@ -18,10 +18,10 @@
    "kind": "density_cloud",
    "tick_schedule_s": [
     0.0,
-    0.35,
-    0.9,
-    1.3,
-    1.8
+    0.25,
+    0.8,
+    1.05,
+    1.7
    ],
    "tick_cv_min": 0.25
   },
@@ -56,6 +56,7 @@
  },
  "provenance": {
   "thrown flask / poison cloud": "PoE source observation (conductor memory) \u2014 VERIFY",
-  "density gate": "03- \u00a7 2.3 density-asset gate (validated at E2/E3)"
+  "density gate": "03- \u00a7 2.3 density-asset gate (validated at E2/E3)",
+  "tick_schedule": "conductor R-C5-55: re-authored for FF-08 (CV 0.42 \u2265 0.25); the first schedule (CV < 0.25) was the conductor error T4s reported"
  }
 }

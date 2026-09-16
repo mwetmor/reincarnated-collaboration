@@ -1,0 +1,714 @@
+{
+  "task_id": "T4s",
+  "grammar": "G2",
+  "kits": [
+    "blackwater_cocktail_e3",
+    "poisonous_concoction_e3"
+  ],
+  "kit_validation": {
+    "blackwater_cocktail_e3": "validated by load_kit",
+    "poisonous_concoction_e3": "validated by load_kit"
+  },
+  "headless": {
+    "import_exit": 0,
+    "trace_exit": 0,
+    "script_errors": 0,
+    "runtime_assertion_errors": [],
+    "rendered": false
+  },
+  "throws": [
+    {
+      "apex_px": 179.834710743802,
+      "duration_s": 3.0,
+      "flight_s": 0.55,
+      "fragment_lifetime_s": 0.2,
+      "kit": "blackwater_cocktail_e3",
+      "labels": [
+        {
+          "body_index": 0,
+          "effect_id": 1,
+          "label_id": 60347647879,
+          "lifetime_s": 0.603588,
+          "rise_px": 40.0,
+          "text": "FULL"
+        },
+        {
+          "body_index": 1,
+          "effect_id": 1,
+          "label_id": 60699969419,
+          "lifetime_s": 0.603459,
+          "rise_px": 40.0,
+          "text": "PARTIAL"
+        }
+      ],
+      "schedule": {
+        "ff08_satisfied": false,
+        "interval_cv": 0.136082763487954,
+        "intervals_s": [
+          0.45,
+          0.6,
+          0.45,
+          0.6,
+          0.6
+        ],
+        "minimum_cv": 0.25,
+        "tick_count": 6
+      },
+      "tick_count": 6,
+      "tint_count": 12
+    },
+    {
+      "apex_px": 160.0,
+      "duration_s": 2.0,
+      "flight_s": 0.5,
+      "fragment_lifetime_s": 0.2,
+      "kit": "poisonous_concoction_e3",
+      "labels": [
+        {
+          "body_index": 0,
+          "effect_id": 2,
+          "label_id": 60347647879,
+          "lifetime_s": 0.603959,
+          "rise_px": 40.0,
+          "text": "FULL"
+        },
+        {
+          "body_index": 1,
+          "effect_id": 2,
+          "label_id": 60699969419,
+          "lifetime_s": 0.603902,
+          "rise_px": 40.0,
+          "text": "PARTIAL"
+        }
+      ],
+      "schedule": {
+        "ff08_satisfied": false,
+        "interval_cv": 0.175682092231577,
+        "intervals_s": [
+          0.35,
+          0.55,
+          0.4,
+          0.5
+        ],
+        "minimum_cv": 0.25,
+        "tick_count": 5
+      },
+      "tick_count": 5,
+      "tint_count": 10
+    }
+  ],
+  "density": {
+    "errors": [],
+    "samples": [
+      {
+        "at_0_4_s": [
+          {
+            "age_frames": 54,
+            "contact": false,
+            "coverage": 1.0,
+            "decal_alpha": 1.0,
+            "decal_visible": true,
+            "density": 0.0,
+            "drift_px": 0.800000011920929,
+            "field_alive": true,
+            "field_alpha": 0.0,
+            "flask_position": [
+              480.0,
+              0.0
+            ],
+            "fragments": 0,
+            "ground_point": [
+              480.0,
+              0.0
+            ],
+            "ground_z": -2,
+            "lift_px": 0.0,
+            "rotation_deg": -3.67394057109943e-15,
+            "tick_count": 2
+          }
+        ],
+        "density": 0.0,
+        "events": [
+          {
+            "age_frames": 0,
+            "effect_id": 1,
+            "event": "release",
+            "kit": "renamed_density_probe",
+            "schedule": {
+              "ff08_satisfied": false,
+              "interval_cv": 0.175682092231577,
+              "intervals_s": [
+                0.35,
+                0.55,
+                0.4,
+                0.5
+              ],
+              "minimum_cv": 0.25,
+              "tick_count": 5
+            },
+            "target_kind": "ground",
+            "target_point": [
+              480.0,
+              0.0
+            ]
+          },
+          {
+            "age_frames": 0,
+            "constraint": "FF-08",
+            "effect_id": 1,
+            "event": "constraint_unhonoured",
+            "interval_cv": 0.175682092231577,
+            "kit": "renamed_density_probe",
+            "minimum": 0.25,
+            "target_kind": "ground",
+            "target_point": [
+              480.0,
+              0.0
+            ]
+          },
+          {
+            "age_frames": 30,
+            "collision_age_frames": 30,
+            "contact_frames": 1,
+            "contact_lag_frames": 0,
+            "effect_id": 1,
+            "event": "contact",
+            "kit": "renamed_density_probe",
+            "phase": "ground",
+            "target_kind": "ground",
+            "target_point": [
+              480.0,
+              0.0
+            ]
+          },
+          {
+            "age_frames": 30,
+            "effect_id": 1,
+            "event": "field_start",
+            "kit": "renamed_density_probe",
+            "target_kind": "ground",
+            "target_point": [
+              480.0,
+              0.0
+            ]
+          },
+          {
+            "age_frames": 30,
+            "effect_id": 1,
+            "event": "decal_start",
+            "kit": "renamed_density_probe",
+            "target_kind": "ground",
+            "target_point": [
+              480.0,
+              0.0
+            ]
+          },
+          {
+            "age_frames": 30,
+            "effect_id": 1,
+            "event": "tick",
+            "kit": "renamed_density_probe",
+            "scheduled_field_age_frames": 0,
+            "target_kind": "ground",
+            "target_point": [
+              480.0,
+              0.0
+            ],
+            "tick_index": 0
+          },
+          {
+            "age_frames": 51,
+            "effect_id": 1,
+            "event": "tick",
+            "kit": "renamed_density_probe",
+            "scheduled_field_age_frames": 21,
+            "target_kind": "ground",
+            "target_point": [
+              480.0,
+              0.0
+            ],
+            "tick_index": 1
+          },
+          {
+            "age_frames": 62,
+            "effect_id": 1,
+            "event": "cancel",
+            "kit": "renamed_density_probe",
+            "target_kind": "ground",
+            "target_point": [
+              480.0,
+              0.0
+            ]
+          }
+        ],
+        "landing": [
+          {
+            "age_frames": 30,
+            "contact": true,
+            "coverage": 0.5,
+            "decal_alpha": 1.0,
+            "decal_visible": true,
+            "density": 0.0,
+            "drift_px": 0.0,
+            "field_alive": true,
+            "field_alpha": 0.0,
+            "flask_position": [
+              480.0,
+              0.0
+            ],
+            "fragments": 0,
+            "ground_point": [
+              480.0,
+              0.0
+            ],
+            "ground_z": -2,
+            "lift_px": 0.0,
+            "rotation_deg": -3.67394057109943e-15,
+            "tick_count": 1
+          }
+        ]
+      },
+      {
+        "at_0_4_s": [
+          {
+            "age_frames": 54,
+            "contact": false,
+            "coverage": 1.0,
+            "decal_alpha": 1.0,
+            "decal_visible": true,
+            "density": 0.5,
+            "drift_px": 0.800000011920929,
+            "field_alive": true,
+            "field_alpha": 0.5,
+            "flask_position": [
+              480.0,
+              0.0
+            ],
+            "fragments": 0,
+            "ground_point": [
+              480.0,
+              0.0
+            ],
+            "ground_z": -2,
+            "lift_px": 0.0,
+            "rotation_deg": -3.67394057109943e-15,
+            "tick_count": 2
+          }
+        ],
+        "density": 0.5,
+        "events": [
+          {
+            "age_frames": 0,
+            "effect_id": 2,
+            "event": "release",
+            "kit": "renamed_density_probe",
+            "schedule": {
+              "ff08_satisfied": false,
+              "interval_cv": 0.175682092231577,
+              "intervals_s": [
+                0.35,
+                0.55,
+                0.4,
+                0.5
+              ],
+              "minimum_cv": 0.25,
+              "tick_count": 5
+            },
+            "target_kind": "ground",
+            "target_point": [
+              480.0,
+              0.0
+            ]
+          },
+          {
+            "age_frames": 0,
+            "constraint": "FF-08",
+            "effect_id": 2,
+            "event": "constraint_unhonoured",
+            "interval_cv": 0.175682092231577,
+            "kit": "renamed_density_probe",
+            "minimum": 0.25,
+            "target_kind": "ground",
+            "target_point": [
+              480.0,
+              0.0
+            ]
+          },
+          {
+            "age_frames": 30,
+            "collision_age_frames": 30,
+            "contact_frames": 1,
+            "contact_lag_frames": 0,
+            "effect_id": 2,
+            "event": "contact",
+            "kit": "renamed_density_probe",
+            "phase": "ground",
+            "target_kind": "ground",
+            "target_point": [
+              480.0,
+              0.0
+            ]
+          },
+          {
+            "age_frames": 30,
+            "effect_id": 2,
+            "event": "field_start",
+            "kit": "renamed_density_probe",
+            "target_kind": "ground",
+            "target_point": [
+              480.0,
+              0.0
+            ]
+          },
+          {
+            "age_frames": 30,
+            "effect_id": 2,
+            "event": "decal_start",
+            "kit": "renamed_density_probe",
+            "target_kind": "ground",
+            "target_point": [
+              480.0,
+              0.0
+            ]
+          },
+          {
+            "age_frames": 30,
+            "effect_id": 2,
+            "event": "tick",
+            "kit": "renamed_density_probe",
+            "scheduled_field_age_frames": 0,
+            "target_kind": "ground",
+            "target_point": [
+              480.0,
+              0.0
+            ],
+            "tick_index": 0
+          },
+          {
+            "age_frames": 51,
+            "effect_id": 2,
+            "event": "tick",
+            "kit": "renamed_density_probe",
+            "scheduled_field_age_frames": 21,
+            "target_kind": "ground",
+            "target_point": [
+              480.0,
+              0.0
+            ],
+            "tick_index": 1
+          },
+          {
+            "age_frames": 62,
+            "effect_id": 2,
+            "event": "cancel",
+            "kit": "renamed_density_probe",
+            "target_kind": "ground",
+            "target_point": [
+              480.0,
+              0.0
+            ]
+          }
+        ],
+        "landing": [
+          {
+            "age_frames": 30,
+            "contact": true,
+            "coverage": 0.5,
+            "decal_alpha": 1.0,
+            "decal_visible": true,
+            "density": 0.5,
+            "drift_px": 0.0,
+            "field_alive": true,
+            "field_alpha": 0.425000011920929,
+            "flask_position": [
+              480.0,
+              0.0
+            ],
+            "fragments": 0,
+            "ground_point": [
+              480.0,
+              0.0
+            ],
+            "ground_z": -2,
+            "lift_px": 0.0,
+            "rotation_deg": -3.67394057109943e-15,
+            "tick_count": 1
+          }
+        ]
+      }
+    ]
+  },
+  "scale_fix": {
+    "unit_bh_px": 130,
+    "parent_scale_for_reproduction": 3.15,
+    "before": [
+      {
+        "age": 0,
+        "head_width_px": 491.400042772293,
+        "key_width_px": 0,
+        "kit": "fire_bolt_e1_A",
+        "root_scale": [
+          3.15000009536743,
+          3.15000009536743
+        ],
+        "state": "rest",
+        "streak_length_px": 819.000059366226
+      },
+      {
+        "age": 3,
+        "head_width_px": 491.400042772293,
+        "key_width_px": 1313.55003976822,
+        "kit": "fire_bolt_e1_A",
+        "root_scale": [
+          3.15000009536743,
+          3.15000009536743
+        ],
+        "state": "stretched",
+        "streak_length_px": 819.000059366226
+      },
+      {
+        "age": 10,
+        "head_width_px": 491.400042772293,
+        "key_width_px": 1039.50003147125,
+        "kit": "fire_bolt_e1_A",
+        "root_scale": [
+          3.15000009536743,
+          3.15000009536743
+        ],
+        "state": "pulsed",
+        "streak_length_px": 819.000059366226
+      },
+      {
+        "age": 0,
+        "head_width_px": 491.400042772293,
+        "key_width_px": 0,
+        "kit": "fire_bolt_e1_B",
+        "root_scale": [
+          3.15000009536743,
+          3.15000009536743
+        ],
+        "state": "rest",
+        "streak_length_px": 819.000059366226
+      },
+      {
+        "age": 3,
+        "head_width_px": 491.400042772293,
+        "key_width_px": 0,
+        "kit": "fire_bolt_e1_B",
+        "root_scale": [
+          3.15000009536743,
+          3.15000009536743
+        ],
+        "state": "rest",
+        "streak_length_px": 819.000059366226
+      },
+      {
+        "age": 10,
+        "head_width_px": 491.400042772293,
+        "key_width_px": 0,
+        "kit": "fire_bolt_e1_B",
+        "root_scale": [
+          3.15000009536743,
+          3.15000009536743
+        ],
+        "state": "rest",
+        "streak_length_px": 819.000059366226
+      }
+    ],
+    "after": [
+      {
+        "age": 0,
+        "head_width_px": 156.000003039837,
+        "key_width_px": 0,
+        "kit": "fire_bolt_e1_A",
+        "root_scale": [
+          1.0,
+          1.0
+        ],
+        "state": "rest",
+        "streak_length_px": 260.00000166893
+      },
+      {
+        "age": 3,
+        "head_width_px": 156.000003039837,
+        "key_width_px": 417.0,
+        "kit": "fire_bolt_e1_A",
+        "root_scale": [
+          1.0,
+          1.0
+        ],
+        "state": "stretched",
+        "streak_length_px": 260.00000166893
+      },
+      {
+        "age": 10,
+        "head_width_px": 156.000003039837,
+        "key_width_px": 330.0,
+        "kit": "fire_bolt_e1_A",
+        "root_scale": [
+          1.0,
+          1.0
+        ],
+        "state": "pulsed",
+        "streak_length_px": 260.00000166893
+      },
+      {
+        "age": 0,
+        "head_width_px": 156.000003039837,
+        "key_width_px": 0,
+        "kit": "fire_bolt_e1_B",
+        "root_scale": [
+          1.0,
+          1.0
+        ],
+        "state": "rest",
+        "streak_length_px": 260.00000166893
+      },
+      {
+        "age": 3,
+        "head_width_px": 156.000003039837,
+        "key_width_px": 0,
+        "kit": "fire_bolt_e1_B",
+        "root_scale": [
+          1.0,
+          1.0
+        ],
+        "state": "rest",
+        "streak_length_px": 260.00000166893
+      },
+      {
+        "age": 10,
+        "head_width_px": 156.000003039837,
+        "key_width_px": 0,
+        "kit": "fire_bolt_e1_B",
+        "root_scale": [
+          1.0,
+          1.0
+        ],
+        "state": "rest",
+        "streak_length_px": 260.00000166893
+      }
+    ],
+    "pre_post_changed_export_files": [
+      "scripts/vfx_g1_painted.gd"
+    ],
+    "actual_cliffside_scene_not_read": true
+  },
+  "byte_identity": {
+    "original_kit_file_count": 609,
+    "changed_original_kit_files": [],
+    "eleven_export_snapshot_files": 826,
+    "G2_addition_changes_to_existing_export": [
+      "CREDITS_VFX.txt",
+      "scripts/keeper.gd"
+    ],
+    "expected_shared_catalogue_files": [
+      "CREDITS_VFX.txt",
+      "scripts/keeper.gd"
+    ],
+    "current_eleven_kit_lock_test": "included in focused run"
+  },
+  "tests": {
+    "suite": {
+      "run": 179,
+      "failures": 9,
+      "errors": 6
+    },
+    "focused": {
+      "run": 14,
+      "failures": 0,
+      "errors": 0
+    },
+    "resolved_after_suite": [
+      "test_godot_import.ThrownFieldEmissionTests.test_g2_named_nodes_glass_wedge_partition_and_ground_materials"
+    ],
+    "unresolved_count": 14,
+    "unresolved_cases": [
+      {
+        "name": "test_godot_import.GodotImportTests.test_headless_state_machine_input_map_gear_vfx_and_nearest_fallback",
+        "kind": "failures",
+        "reason": "Godot user-log write outside sandbox causes engine logger crash"
+      },
+      {
+        "name": "test_godot_import.IceTreatmentImportTests.test_ten_existing_export_bytes_unchanged",
+        "kind": "failures",
+        "reason": "historical ten-kit snapshot predates the required travel-scale correction; current eleven-kit snapshot is retained"
+      },
+      {
+        "name": "test_godot_import.PieceStretchImportTests.test_v2_headless_import_and_seed_equal_rooted_clock",
+        "kind": "failures",
+        "reason": "historical v2 probe expects early band-three dissolve; current registered v2 dissolves during residue"
+      },
+      {
+        "name": "test_vfx_picker.AuthoredEffectPickerTests.test_headless_authored_cast_east_north_collision_timing_and_feedback_cleanup",
+        "kind": "failures",
+        "reason": "see full suite traceback"
+      },
+      {
+        "name": "test_vfx_picker.G1ComponentTests.test_headless_first_cast_contact_cursor_pool_cancel_and_picker",
+        "kind": "failures",
+        "reason": "see full suite traceback"
+      },
+      {
+        "name": "test_vfx_picker.G1ComponentTests.test_headless_pierce_contacts_labels_pool_and_phase_callbacks",
+        "kind": "failures",
+        "reason": "see full suite traceback"
+      },
+      {
+        "name": "test_vfx_picker.LivingEmbersTests.test_headless_glow_sixty_samples_extrema_range_and_particle_properties",
+        "kind": "failures",
+        "reason": "see full suite traceback"
+      },
+      {
+        "name": "test_vfx_picker.TouchDeviceAimRuntimeTests.test_headless_device_forward_handled_overlay_and_mouse_probe",
+        "kind": "failures",
+        "reason": "see full suite traceback"
+      },
+      {
+        "name": "test_vfx_picker.VfxPickerTests.test_headless_tab_twice_cast_scene_labels_and_inflight_kit_lock",
+        "kind": "failures",
+        "reason": "see full suite traceback"
+      },
+      {
+        "name": "test_godot_import.KeyStateSwapImportTests.test_headless_literal_age_swaps_returns_and_continuous_uniforms",
+        "kind": "errors",
+        "reason": "pre-existing test attempts an evidence write outside the permitted T4s root"
+      },
+      {
+        "name": "test_godot_import.TransformedResidueSeamTests.test_transformed_front_at_three_ages_has_no_straight_seam_over_12px",
+        "kind": "errors",
+        "reason": "pre-existing test attempts an evidence write outside the permitted T4s root"
+      },
+      {
+        "name": "test_vfx_picker.IceTreatmentPickerTests.test_headless_contact_shatter_residue_decal",
+        "kind": "errors",
+        "reason": "pre-existing test attempts an evidence write outside the permitted T4s root"
+      },
+      {
+        "name": "test_vfx_picker.ProjectileArmPickerTests.test_headless_east_contact_range_tail_and_key_schedule",
+        "kind": "errors",
+        "reason": "pre-existing test attempts an evidence write outside the permitted T4s root"
+      },
+      {
+        "name": "test_vfx_picker.TouchAimRuntimeTests.test_headless_overlay_forward_world_touch_and_mouse_probe",
+        "kind": "errors",
+        "reason": "historical touch-aim probe timed out at 60 seconds"
+      }
+    ]
+  },
+  "derivation": {
+    "fire_field_core_piece": "piece_013.png",
+    "area_px": 6575,
+    "quantisation": "supplied poison primitives contain intermediate values; nearest four-band quantisation preserves alpha",
+    "flask": "RGB bytes retained"
+  },
+  "concerns": [
+    "Both authored schedules contradict FF-08: population interval CV fire=0.136082763488 and poison=0.175682092232, below 0.25. Specs retained verbatim; strict assert_tick_schedule raises and runtime records constraint_unhonoured. No replacement schedule invented.",
+    "Decal timing interpretation: decal appears at landing, holds under the live field, then fades during residue_s after field expiry (fire ends at 4.55 s from release; poison at 4.0 s). The brief also says fades by residue_s without an epoch; that literal landing-relative reading conflicts with the four-stage lifetime.",
+    "Source flask RGB and alpha are retained. Supplied covered dark pixels have median alpha 253/255, so literal all-255 opacity is not asserted. MIX, scene-lit material bypass and exact RGB/wedge alpha preservation are instrumented; rendered glass appearance remains conductor-owned.",
+    "Supplied poison working PNGs contain intermediate values rather than only four bands; the existing nearest-four-band quantisation is applied with alpha unchanged.",
+    "The broader in-sandbox suite retains 14 named unresolved cases (legacy expectations, forbidden evidence destinations, Godot platform diagnostics, and an old touch probe timeout). Full tracebacks and reasons are included.",
+    "Godot imports exit 0 but report macOS certificate diagnostics and a denied editor-settings save outside the sandbox. No rendered acceptance or source-game VERIFY provenance is asserted."
+  ],
+  "image_gen_calls": 0
+}
