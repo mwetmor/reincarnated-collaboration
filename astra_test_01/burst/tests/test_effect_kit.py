@@ -1993,7 +1993,7 @@ class ProjectileArmValidationTests(unittest.TestCase):
             self.assertEqual(data['skill_spec'], spec)
             self.assertEqual(data['impact_binding'], dict(kit='fire_burst_e0p_v2', phase='pieces', template='burst_v2', seed=2026))
             self.assertTrue(data['screen_px'])
-            self.assertEqual(data['key_states'], [])
+            self.assertEqual(len(data['key_states']), 2 if arm == 'A' else 0)
             for role in ('head', 'streak'):
                 source = ROOT/('runs/C-5/artifacts/VF-prim-fire-'+role+'-01/fire_'+role+'_01_512.png')
                 with Image.open(source) as im: rgba = np.array(im.convert('RGBA'))
@@ -2004,11 +2004,20 @@ class ProjectileArmValidationTests(unittest.TestCase):
 
     def test_empty_key_arms_have_identical_kit_files_except_name(self):
         a, b = [self.kits/('fire_bolt_e1_'+arm) for arm in ('A','B')]
-        files = {p.relative_to(a) for p in a.rglob('*') if p.is_file()}
-        self.assertEqual(files, {p.relative_to(b) for p in b.rglob('*') if p.is_file()})
-        for file in files:
-            self.assertEqual((a/file).read_bytes().replace(b'fire_bolt_e1_A', b'ARM'),
-                             (b/file).read_bytes().replace(b'fire_bolt_e1_B', b'ARM'), str(file))
+        def common(root):
+            result = {}
+            for path in root.rglob('*'):
+                if not path.is_file() or 'key_states' in path.relative_to(root).parts:
+                    continue
+                raw = path.read_bytes().replace(root.name.encode(), b'ARM')
+                if path.name == 'kit.json':
+                    data = json.loads(raw); data.pop('key_states', None)
+                    raw = json.dumps(data, sort_keys=True).encode()
+                result[path.relative_to(root)] = raw
+            return result
+        self.assertEqual(common(a), common(b))
+        self.assertEqual(len(load_kit(a)['key_states']), 2)
+        self.assertEqual(load_kit(b)['key_states'], [])
 
     def test_wrong_grammar_speed_binding_hold_count_and_indices_rejected(self):
         root = self.root/'kit'
@@ -2088,3 +2097,50 @@ class IceTreatmentValidationTests(unittest.TestCase):
         self.assertTrue(all(s['png'] not in data['distance_fields'] for s in data['key_states']))
         bad=copy.deepcopy(data);bad['distance_fields'].pop('primitives/head.png')
         with self.assertRaisesRegex(ValueError,'distance_fields'):_validate(bad,root,runtime=True)
+
+
+class ThrownFieldValidationTests(unittest.TestCase):
+    """T4s material glass, density and authored schedules are independent contracts."""
+    def test_both_g2_kits_preserve_specs_rgb_glass_and_alpha(self):
+        from export.effect_kit import quantise_projectile, tick_schedule_report, assert_tick_schedule
+        kits=ROOT/'runs/C-5/vfx_kits/v9'
+        for name in ('blackwater_cocktail','poisonous_concoction'):
+            root=kits/(name+'_e3');data=load_kit(root)
+            self.assertEqual(data['skill_spec'],json.loads((ROOT/f'runs/C-5/specs/{name}.json').read_text()))
+            self.assertEqual((root/data['g2']['flask']).read_bytes(),(ROOT/'runs/C-5/artifacts/VF-prim-flask-01/flask_01_512.png').read_bytes())
+            self.assertEqual(data['ground_squash'],.58)
+            self.assertTrue(data['screen_px'])
+            ticks=data['skill_spec']['mechanics']['field']['tick_schedule_s']
+            self.assertFalse(tick_schedule_report(ticks)['ff08_satisfied'])
+            with self.assertRaisesRegex(ValueError,'FF-08'):assert_tick_schedule(ticks)
+        self.assertTrue(assert_tick_schedule([0,.1,.6,1.])['ff08_satisfied'])
+        data=load_kit(kits/'poisonous_concoction_e3')
+        self.assertEqual(data['density'],1.)
+        for role,source in [('pulse','VF-prim-poison-lobe-01/poison_lobe_01_512.png'),('field_source','VF-prim-poison-puff-01/poison_puff_01_512.png')]:
+            with Image.open(ROOT/'runs/C-5/artifacts'/source) as image: original=np.asarray(image.convert('RGBA'))
+            with Image.open(kits/'poisonous_concoction_e3'/data['g2'][role]) as image: actual=np.asarray(image)
+            np.testing.assert_array_equal(actual,quantise_projectile(original))
+            np.testing.assert_array_equal(actual[...,3],original[...,3])
+
+    def test_g2_validation_rejects_wrong_grammar_density_splash_and_clock(self):
+        from export.effect_kit import validate_thrown_field
+        root=ROOT/'runs/C-5/vfx_kits/v9/poisonous_concoction_e3';original=load_kit(root)
+        for path,value in [(('skill_spec','grammar'),'G1'),(('density',),1.1),(('density',),True),
+                           (('ground_squash',),.6),(('g2','splash','residue_s'),.1),
+                           (('skill_spec','mechanics','field','tick_schedule_s'),[0,.4,.4]),
+                           (('skill_spec','mechanics','field','tick_cv_min'),.1)]:
+            data=copy.deepcopy(original);cursor=data
+            for key in path[:-1]:cursor=cursor[key]
+            cursor[path[-1]]=value
+            with self.subTest(path=path), self.assertRaises(ValueError):validate_thrown_field(data,root,True)
+        renamed=copy.deepcopy(original);renamed['name']='arbitrary_name'
+        validate_thrown_field(renamed,root,True)
+
+    def test_g2_normal_builder_preserves_rgb_and_density(self):
+        work=ROOT/'runs/C-5/t3/T4s';work.mkdir(parents=True,exist_ok=True)
+        with tempfile.TemporaryDirectory(prefix='g2-build-',dir=work) as tmp:
+            source=ROOT/'runs/C-5/vfx_kits/v9/poisonous_concoction_e3'
+            build(source/'kit.json',Path(tmp)/'kit')
+            data=load_kit(Path(tmp)/'kit')
+            self.assertEqual(data['density'],1.)
+            self.assertEqual((Path(tmp)/'kit'/data['g2']['flask']).read_bytes(),(source/'primitives/flask.png').read_bytes())

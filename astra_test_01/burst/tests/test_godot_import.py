@@ -961,3 +961,51 @@ class IceTreatmentImportTests(unittest.TestCase):
                     for p in project.rglob('*') if p.is_file()}
             self.assertEqual(actual,baseline)
             self.assertGreater(len(actual),700)
+
+
+class ThrownFieldEmissionTests(unittest.TestCase):
+    def test_g2_named_nodes_glass_wedge_partition_and_ground_materials(self):
+        import numpy as np
+        from export.godot_import import _write_g2_component,_write_g2_kit,_load_vfx_kit,validate_resources
+        root=Path(__file__).resolve().parents[1];work=root/'runs/C-5/t3/T4s';work.mkdir(parents=True,exist_ok=True)
+        with tempfile.TemporaryDirectory(prefix='g2-emission-',dir=work) as tmp:
+            out=Path(tmp);(out/'scripts').mkdir();(out/'scenes/vfx').mkdir(parents=True)
+            _write_g2_component(out)
+            (out/'project.godot').write_text('config_version=5\n[application]\nrun/main_scene="res://scenes/vfx/g2_thrown_field.tscn"\n')
+            for name in ('blackwater_cocktail_e3','poisonous_concoction_e3'):
+                kit=_load_vfx_kit(root/'runs/C-5/vfx_kits/v9'/name);kit['name']=name
+                _write_g2_kit(out,kit)
+                folder=out/'vfx'/name
+                with Image.open(folder/'primitives/flask.png') as im:source=np.asarray(im)
+                shards=[]
+                for i in range(3):
+                    with Image.open(folder/f'derived/glass_{i}.png') as im:shards.append(np.asarray(im))
+                np.testing.assert_array_equal(sum(x[...,3].astype(int) for x in shards),source[...,3])
+                for shard in shards:
+                    np.testing.assert_array_equal(shard[...,:3][shard[...,3]>0],source[...,:3][shard[...,3]>0])
+                self.assertIn('mix_unlit',(folder/'materials/Decal.tres').read_text())
+            scene=(out/'scenes/vfx/g2_thrown_field.tscn').read_text()
+            for node in ('Flask','Fragments','Splash','Ground','Field','Decal','Licks','Halo','FloorLight','Flash','DarkDuplicate'):
+                self.assertIn('name="'+node+'"',scene)
+            self.assertIn('z_as_relative = false\nz_index = -2',scene)
+            validate_resources(out,True)
+
+    def test_g2_grey_retains_index_planes_and_glass_alpha(self):
+        import numpy as np
+        from export.godot_import import _write_g2_component,_write_g2_kit,_load_vfx_kit,_grey_vfx
+        root=Path(__file__).resolve().parents[1];work=root/'runs/C-5/t3/T4s'
+        with tempfile.TemporaryDirectory(prefix='g2-grey-',dir=work) as tmp:
+            out=Path(tmp);(out/'scripts').mkdir();(out/'scenes/vfx').mkdir(parents=True)
+            _write_g2_component(out)
+            name='poisonous_concoction_e3';kit=_load_vfx_kit(root/'runs/C-5/vfx_kits/v9'/name);kit['name']=name
+            _write_g2_kit(out,kit)
+            (out/'scripts/keeper.gd').write_text('const K = {"material": "res://vfx/'+name+'/materials/Field.tres"}\n')
+            folder=out/'vfx'/name
+            before=(folder/'primitives/pulse.png').read_bytes()
+            with Image.open(folder/'primitives/flask.png') as image:alpha=np.asarray(image)[...,3].copy()
+            _grey_vfx(out)
+            self.assertEqual((folder/'primitives/pulse.png').read_bytes(),before)
+            with Image.open(folder/'primitives/flask.png') as image:
+                np.testing.assert_array_equal(np.asarray(image)[...,3],alpha)
+                self.assertTrue(np.all(np.asarray(image)[...,:3]==128))
+            self.assertIn('materials/Field.tres',(out/'scripts/keeper.gd').read_text())

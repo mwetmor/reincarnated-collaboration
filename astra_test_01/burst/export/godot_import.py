@@ -406,6 +406,8 @@ def build_project(cells, out, vfx=None, gear_variant=None, scene=None, vfx_kit=N
                 raise ValueError('Plate image size differs from plate_size')
             plate.verify()
     kit = _load_vfx_kit(vfx_kit) if vfx_kit is not None else None
+    if kit is not None and 'g2' in kit.get('effect', {}):
+        raise ValueError('G2 thrown field requires --vfx-kits with explicit splash dependencies')
     if kit is not None and 'travel_primitives' in kit.get('effect', {}):
         raise ValueError('painted G1 travel requires --vfx-kits with its impact dependency')
     if sockets is not None and kit is None and kits is None:
@@ -678,8 +680,8 @@ def _load_vfx_kits(path):
         raise ValueError('Missing VFX kits JSON')
     data = json.loads(path.read_text())
     if (not isinstance(data, dict) or set(data) != {'kits'}
-            or not isinstance(data['kits'], list) or not 1 <= len(data['kits']) <= 12):
-        raise ValueError('VFX kits requires exactly kits: a list of 1..12 entries')
+            or not isinstance(data['kits'], list) or not 1 <= len(data['kits']) <= 32):
+        raise ValueError('VFX kits requires exactly kits: a list of 1..32 entries')
     result, names = [], set()
     for entry in data['kits']:
         if (not isinstance(entry, dict) or not {'name', 'dir'} <= set(entry)
@@ -703,9 +705,19 @@ def _load_vfx_kits(path):
         if 'effect' in kit and 'tint' in entry:
             raise ValueError('tint multiply-tint override is retired for material kits')
         result.append({**kit, 'name': name, **({'tint': entry['tint']} if 'tint' in entry else {})})
+    # Preserve the legacy twelve-entry limit; only explicit G2 entries extend it.
+    if len(result) > 12 and sum('g2' not in kit.get('effect', {}) for kit in result) > 12:
+        raise ValueError('VFX kits beyond twelve require explicit G2 components')
     by_name = {kit['name']: kit for kit in result}
     for kit in result:
         data = kit.get('effect', {})
+        if 'g2' in data:
+            if data['element'] == 'fire':
+                splash = data['g2']['splash']
+                dependency = by_name.get(splash['kit'], {}).get('effect', {})
+                if dependency.get('pieces', {}).get('template') != splash['template'] or dependency.get('material', {}).get('palette') != data['material']['palette']:
+                    raise ValueError('G2 fire splash dependency missing or disagrees with palette/template')
+            continue
         if 'travel_primitives' not in data: continue
         binding = data['impact_binding']
         impact = by_name.get(binding['kit'], {}).get('effect', {})
@@ -926,7 +938,7 @@ func _process(_delta: float) -> void:
 
 def _authored_flare_script(script, resource_root, prefix, data):
     fields = {'res://'+resource_root+'/sprites/'+source: 'res://'+resource_root+'/'+field
-              for source, field in data['distance_fields'].items() if source.startswith('flare/')}
+              for source, field in data.get('distance_fields', {}).items() if source.startswith('flare/')}
     old = ('    var additive := CanvasItemMaterial.new()\n'
            '    additive.blend_mode = CanvasItemMaterial.BLEND_MODE_ADD\n'
            '    flare.material = additive\n')
@@ -1344,8 +1356,15 @@ def _write_vfx_kits(out, kits, base, cells, socket_data, annotation):
             'spell_scale = 1.0 if bool(config.get("screen_px", false)) else art_scale'))
     if any('travel_primitives' in kit.get('effect', {}) for kit in kits):
         _write_painted_g1(out)
+    has_g2 = any('g2' in kit.get('effect', {}) for kit in kits)
+    if has_g2: _write_g2_component(out)
     for index, kit in enumerate(kits):
         name = kit['name']
+        if 'g2' in kit.get('effect', {}):
+            report = _write_g2_kit(out, kit)
+            reports.append({'name':name, **report})
+            entries.append(_g2_config(kit))
+            continue
         report = _write_vfx_kit(out, kit, base, cells, socket_data,
                                 annotation if index == 0 else None,
                                 kit_name=name, tint=kit.get('tint'), shared_projectile=True)
@@ -1394,6 +1413,17 @@ def _write_vfx_kits(out, kits, base, cells, socket_data, annotation):
     if any('travel_primitives' in kit.get('effect', {}) for kit in kits):
         directional = directional.replace('    # Device policy survives', '    var aim_scale: float = 1.0 if bool(kit.get("screen_px", false)) else art_scale\n    # Device policy survives')
         directional = directional.replace('float(kit.range_px) * art_scale', 'float(kit.range_px) * aim_scale')
+    if has_g2:
+        keeper = keeper.replace('    base_frames = sprite.sprite_frames', '    add_to_group("vfx_actors")\n    base_frames = sprite.sprite_frames')
+        directional = directional.replace('const G1 = preload("res://scripts/vfx_g1.gd")', 'const G1 = preload("res://scripts/vfx_g1.gd")\nconst G2 = preload("res://scripts/vfx_g2.gd")')
+        marker = '    # Device policy survives'
+        start = directional.index(marker)
+        stop = directional.index('    if not cast_ready:', start)
+        old = directional[start:stop]
+        policy = '    var destination: Dictionary\n    if kit.get("grammar", "G1") == "G2":\n        var cursor: Vector2 = get_global_mouse_position() if vfx_cursor_override == null else vfx_cursor_override\n        var touch: bool = vfx_cursor_override == null and (vfx_force_touch_device or DisplayServer.is_touchscreen_available())\n        destination = G2.resolve_ground(global_position, FACING_VECTORS[facing], cursor, float(kit.range_px), touch)\n    else:\n'
+        policy += ''.join('    '+line+'\n' for line in old.replace('    var destination: Dictionary\n','').splitlines())
+        directional = directional[:start]+policy+directional[stop:]
+        directional = directional.replace('    G1.acquire(get_parent(), kit, socket, destination, self, art_scale)', '    if kit.get("grammar", "G1") == "G2":\n        G2.acquire(get_parent(), kit, socket, destination, self, art_scale)\n    else:\n        G1.acquire(get_parent(), kit, socket, destination, self, art_scale)')
     (out/'scripts/keeper.gd').write_text(keeper+directional+'\nconst VFX_KITS = '+
                                        json.dumps(entries, allow_nan=False)+'\n'+PICKER_SCRIPT)
     settings = out/'project.godot'
@@ -1775,6 +1805,20 @@ def _write_g1_component(out):
 
 def _grey_vfx(out):
     """Mid-grey body texels with byte-identical source alpha; disable recolouring."""
+    # G2 has both RGB material glass and indexed bodies; substitute separately.
+    for metadata in (out/'vfx').glob('*/kit.json'):
+        data = json.loads(metadata.read_text())
+        if 'g2' not in data: continue
+        folder = metadata.parent
+        for path in [folder/data['g2']['flask'], *sorted((folder/'derived').glob('glass_*.png'))]:
+            with Image.open(path) as image:
+                grey = Image.new('RGBA', image.size, (128,128,128,255))
+                grey.putalpha(image.getchannel('A')); grey.save(path)
+        for label in ('Field','Pulse','Decal'):
+            path=folder/'materials'/(label+'.tres')
+            text=path.read_text()
+            text=re.sub(r'(shader_parameter/palette_[0-3] = )Color\([^\n]+', r'\1Color(0.5, 0.5, 0.5, 1)', text)
+            path.write_text(text)
     for path in (out/'vfx').rglob('*.png'):
         if 'sprites' not in path.parts:
             continue
@@ -1807,7 +1851,7 @@ def _grey_vfx(out):
         path.write_text(text)
     keeper = out/'scripts/keeper.gd'
     text = keeper.read_text()
-    text = re.sub(r'"material": "(?![^"]*/materials/Travel_)[^"]+"', '"material": ""', text)
+    text = re.sub(r'"material": "(?![^"]*/materials/(?:Travel_|Field))[^"]+"', '"material": ""', text)
     text = re.sub(r'"binding": "[^"]+"', '"binding": ""', text)
     text = re.sub(r'    flare.material = load\([^\n]+\n', '    flare.material = null\n', text)
     text = re.sub(r'^    +preload\([^\n]+\.bind\(flare,[^\n]+\n', '', text, flags=re.M)
@@ -2876,6 +2920,11 @@ var rest_head: Texture2D
 func release(kit: Dictionary, origin: Vector2, destination: Dictionary, owner_node: Node2D = null, art_scale: float = 1.0) -> void:
     draining = false
     super.release(kit, origin, destination, owner_node, art_scale)
+    # Authored screen pixels must not inherit the actor/world drawing scale.
+    # A top-level transform also keeps velocity and bound key states in pixels.
+    if bool(config.get("screen_px", false)):
+        top_level = true
+        global_transform = Transform2D(0.0, origin)
     # Snapshot direction at release and terminate at range, never the cursor.
     if direction.is_zero_approx():
         direction = Vector2.RIGHT
@@ -3190,3 +3239,356 @@ def _write_piece_burst_v1r(out, kit, resource_root, prefix):
 
 if __name__ == '__main__':
     main()
+
+
+# T4s. G2 emission is opt-in, leaving the eleven-kit G1 export untouched.
+def _g2_config(kit):
+    from export.effect_kit import tick_schedule_report
+    d=kit['effect']; spec=d['skill_spec']; m=spec['mechanics']; g=d['g2']; root='res://vfx/'+kit['name']+'/'
+    return dict(name=kit['name'],grammar='G2',screen_px=True,flare=root+'flare.tres',
+                bolt='res://scenes/vfx/g2_thrown_field.tscn',range_px=m['range_px'],
+                apex_px=m['arc']['apex_px'],flight_s=m['arc']['flight_s'],radius_px=m['field']['radius_px'],
+                duration_s=m['field']['duration_s'],ticks=m['field']['tick_schedule_s'],
+                schedule=tick_schedule_report(m['field']['tick_schedule_s'],m['field'].get('tick_cv_min',.25)),
+                residue_s=spec['presentation']['phase_envelope_s']['residue'],ground_squash=.58,
+                flask=root+g['flask'],field=root+'derived/field.png',pulse=root+g['pulse'],
+                fragments=[root+'derived/glass_'+str(i)+'.png' for i in range(3)],
+                material=root+'materials/Field.tres',pulse_material=root+'materials/Pulse.tres',
+                decal_material=root+'materials/Decal.tres',additive_material=root+'materials/Halo.tres',
+                dark_material=root+'materials/Dark.tres',palette_3=d['material']['palette'][3],
+                treatment=d['element'],density=d.get('density',1.),seed=g['seed'],
+                flask_width=spec['presentation']['body_extents_bh']['flask']*130,
+                splash=('res://scenes/vfx_'+g['splash']['kit']+'_impact.tscn' if d['element']=='fire' else ''),
+                splash_scale=g['splash'].get('scale',1),enabled_layers=spec['presentation']['enabled_layers'])
+
+
+def _write_g2_kit(out, kit):
+    import numpy as np
+    from export.effect_kit import distance_field, write_vfx_material
+    d=kit['effect']; root='vfx/'+kit['name']; dest=out/root
+    dest.mkdir(parents=True,exist_ok=True)
+    for path in kit['root'].rglob('*'):
+        if path.is_file():
+            target=dest/path.relative_to(kit['root']);target.parent.mkdir(parents=True,exist_ok=True);shutil.copyfile(path,target)
+    for phase,folder in [('cast','flare'),('travel','travel'),('impact','impact')]:
+        frames=d['phases'][phase]['frames']
+        write_spriteframes(out,root+'/'+folder+'.tres',{folder:([root+'/'+f['file'] for f in frames],1,False)},
+                           {folder:[f['hold_frames']/60 for f in frames]})
+    derived=dest/'derived';derived.mkdir(exist_ok=True)
+    with Image.open(dest/d['g2']['flask']) as im: flask=np.asarray(im.convert('RGBA')).copy()
+    ys,xs=np.nonzero(flask[...,3]);cx,cy=xs.mean(),ys.mean(); y,x=np.indices(flask.shape[:2]);
+    sectors=np.floor(((np.arctan2(y-cy,x-cx)+2*np.pi)%(2*np.pi))/(2*np.pi/3)).astype(int)
+    for i in range(3):
+        shard=flask.copy();shard[...,3]=np.where(sectors==i,shard[...,3],0);Image.fromarray(shard).save(derived/f'glass_{i}.png')
+    # Fire source is the emitted core shard selected from the supplied fire peak.
+    # Poison source is the supplied lobed density puff. No new drawing.
+    with Image.open(dest/d['g2']['field_source']) as im: field=np.asarray(im.convert('RGBA'))
+    Image.fromarray(field).save(derived/'field.png')
+    Image.fromarray(distance_field(field)).save(derived/'field_distance.png')
+    with Image.open(dest/d['g2']['pulse']) as im: pulse=np.asarray(im.convert('RGBA'))
+    Image.fromarray(distance_field(pulse)).save(derived/'pulse_distance.png')
+    mat=dict(d['material'],blend_mode='MIX',erode_outside_in=True,erode=0.,dissolve=0.)
+    mat.pop('erode_noise',None)
+    for label,source,mode,dark in [('Field','field','MIX',False),('Pulse','pulse','MIX',False),('Halo','field','ADD',False),('Additive','pulse','ADD',False),('Dark','field','MIX',True),('Decal','field','MIX',False)]:
+        material=dict(mat,blend_mode=mode)
+        if label=='Decal':
+            material['palette']=([[.065,.035,.025,.55]]*4 if d['element']=='fire' else [[.035,.12,.055,.55]]*4)
+        write_vfx_material(out,root+'/materials/'+label+'.tres',material,root+'/derived/'+source+'_distance.png',dark)
+    # Flare material is required by the existing CAST frame plumbing.
+    write_vfx_material(out,root+'/materials/Body.tres',mat,root+'/derived/pulse_distance.png')
+    from export.effect_kit import MATERIAL_BINDING_SCRIPT
+    (out/f'scripts/vfx_{kit["name"]}_material.gd').write_text('extends RefCounted\n'+MATERIAL_BINDING_SCRIPT)
+    return {'grammar':'G2','frames':sum(len(p['frames']) for p in d['phases'].values())}
+
+
+def _write_g2_component(out):
+    (out/'scripts/vfx_g2.gd').write_text(G2_SCRIPT)
+    scene='[gd_scene load_steps=2 format=3]\n[ext_resource type="Script" path="res://scripts/vfx_g2.gd" id="G2"]\n[node name="G2ThrownField" type="Node2D"]\nscript = ExtResource("G2")\ntexture_filter = 2\n'
+    for name,kind,parent in [('Flask','Sprite2D','.'),('Fragments','Node2D','.'),('Splash','Node2D','.'),('Ground','Node2D','.'),('Field','Sprite2D','Ground'),('Decal','Sprite2D','Ground'),('Licks','Node2D','Ground'),('Halo','Sprite2D','Ground'),('DarkDuplicate','Sprite2D','Ground'),('FloorLight','Sprite2D','Ground'),('Flash','Sprite2D','Ground')]:
+        scene+='\n[node name="'+name+'" type="'+kind+'" parent="'+parent+'"]\ntexture_filter = 2\n'
+        if name=='Ground':scene+='top_level = true\nz_as_relative = false\nz_index = -2\ny_sort_enabled = true\n'
+        if name in ('Decal','DarkDuplicate','FloorLight'):scene+='z_index = -1\n'
+    (out/'scenes/vfx/g2_thrown_field.tscn').write_text(scene)
+
+
+G2_SCRIPT = r'''extends Node2D
+# One effect-age frame clock; target policy uses a ground point, never props.
+static var events: Array = []
+static var label_events: Array = []
+static var next_id: int = 0
+var effect_id: int = 0
+var config: Dictionary = {}
+var cast_origin: Vector2
+var ground_point: Vector2
+var release_tick: int
+var caster: Node2D
+var active: bool = false
+var landed: bool = false
+var field_ended: bool = false
+var tick_index: int = 0
+var last_tick: int = -100
+var labelled: Dictionary = {}
+var tinted: Array = []
+var trace: Array = []
+var rng := RandomNumberGenerator.new()
+var field_scale: float = 1.0
+var pulse_scale: float = 1.0
+var flask_scale: float = 1.0
+var field_pivot: Vector2
+
+static func resolve_ground(origin: Vector2, facing: Vector2, cursor: Vector2, range_px: float, touch: bool) -> Dictionary:
+    if not origin.is_finite() or not facing.is_finite() or not cursor.is_finite() or facing.is_zero_approx() or not is_finite(range_px) or range_px <= 0.0:
+        return {}
+    var offset: Vector2 = facing.normalized()*range_px if touch else (cursor-origin).limit_length(range_px)
+    return {"point":origin+offset,"kind":"ground","target":null}
+
+static func acquire(parent: Node2D, kit: Dictionary, origin: Vector2, destination: Dictionary, owner_node: Node2D = null, _art_scale: float = 1.0) -> Node2D:
+    if kit.get("grammar","") != "G2" or destination.get("kind","") != "ground" or not destination.get("point") is Vector2 or not origin.is_finite() or not destination.point.is_finite():
+        return null
+    var effect: Node2D = load("res://scenes/vfx/g2_thrown_field.tscn").instantiate()
+    parent.add_child(effect)
+    effect.release(kit,origin,destination,owner_node)
+    return effect
+
+func _ready() -> void:
+    set_physics_process(false)
+
+func age_frames() -> int:
+    return roundi(float(Engine.get_physics_frames()-release_tick)*60.0/Engine.physics_ticks_per_second)
+
+func _record(event: String, fields: Dictionary = {}) -> void:
+    var item: Dictionary = {"event":event,"effect_id":effect_id,"kit":config.name,"age_frames":age_frames(),"target_kind":"ground","target_point":[ground_point.x,ground_point.y]}
+    item.merge(fields)
+    events.append(item)
+
+func _sprite(node: Sprite2D, path: String, material: String = "") -> void:
+    node.texture = load(path)
+    node.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR
+    node.material = load(material).duplicate() if material != "" else null
+    node.centered = false
+    var box: Rect2i = node.texture.get_image().get_used_rect()
+    node.offset = -(Vector2(box.position)+Vector2(box.size)*0.5)
+
+func release(kit: Dictionary, origin: Vector2, destination: Dictionary, owner_node: Node2D = null) -> void:
+    config = kit.duplicate(true)
+    caster = owner_node
+    cast_origin = origin
+    ground_point = destination.point
+    top_level = true
+    global_transform = Transform2D(0.0,origin)
+    $Ground.global_transform = Transform2D(0.0,ground_point)
+    next_id += 1
+    effect_id = next_id
+    release_tick = Engine.get_physics_frames()
+    rng.seed = int(config.seed)
+    _sprite($Flask,config.flask)
+    # CanvasItemMaterial MIX/NORMAL preserves RGB dark glass and its coverage.
+    var glass := CanvasItemMaterial.new()
+    glass.blend_mode = CanvasItemMaterial.BLEND_MODE_MIX
+    glass.light_mode = CanvasItemMaterial.LIGHT_MODE_NORMAL
+    $Flask.material = glass
+    flask_scale = float(config.flask_width)/$Flask.texture.get_image().get_used_rect().size.x
+    $Flask.scale = Vector2.ONE*flask_scale
+    _sprite($Ground/Field,config.field,config.material)
+    field_scale = 2.0*float(config.radius_px)/$Ground/Field.texture.get_image().get_used_rect().size.x
+    _sprite($Ground/Decal,config.field,config.decal_material)
+    _sprite($Ground/Halo,config.field,config.additive_material)
+    _sprite($Ground/FloorLight,config.field,config.additive_material)
+    _sprite($Ground/Flash,config.field,config.additive_material)
+    _sprite($Ground/DarkDuplicate,config.field,config.dark_material)
+    for node in [$Ground/Field,$Ground/Decal,$Ground/Halo,$Ground/FloorLight,$Ground/Flash,$Ground/DarkDuplicate]:
+        node.scale = Vector2(1.0,float(config.ground_squash))*field_scale
+    for i in range(3):
+        var shard := Sprite2D.new()
+        $Fragments.add_child(shard)
+        _sprite(shard,config.fragments[i])
+        shard.material = glass
+        shard.scale = Vector2.ONE*flask_scale
+        shard.hide()
+        shard.set_meta("angle",TAU*float(i)/3.0+0.2)
+        shard.set_meta("velocity",rng.randf_range(65,110))
+    var pulse: Texture2D = load(config.pulse)
+    pulse_scale = 65.0/pulse.get_image().get_used_rect().size.x
+    for i in range(3 if config.treatment=="fire" else 4):
+        var lobe := Sprite2D.new()
+        ($Ground/Licks if config.treatment=="fire" else $Splash).add_child(lobe)
+        _sprite(lobe,config.pulse,config.pulse_material)
+        lobe.scale = Vector2.ONE*pulse_scale
+        lobe.hide()
+        lobe.set_meta("angle",TAU*float(i)/4.0)
+        lobe.set_meta("velocity",rng.randf_range(60,110))
+    $Ground.hide()
+    active = true
+    _record("release",{"schedule":config.schedule})
+    if not bool(config.schedule.ff08_satisfied):
+        _record("constraint_unhonoured",{"constraint":"FF-08","interval_cv":config.schedule.interval_cv,"minimum":config.schedule.minimum_cv})
+    set_physics_process(true)
+    _clock(0)
+
+func _physics_process(_delta: float) -> void:
+    if active: _clock(age_frames())
+
+func _clock(age: int) -> void:
+    var flight: int = ceili(float(config.flight_s)*60.0)
+    var land_age: int = age-flight
+    var end_field: int = ceili(float(config.duration_s)*60.0)
+    var residue_frames: int = ceili(float(config.residue_s)*60.0)
+    var t: float = clampf(float(age)/flight,0.0,1.0)
+    var lift: float = 4.0*float(config.apex_px)*t*(1.0-t)
+    $Flask.global_position = cast_origin.lerp(ground_point,t)+Vector2(0,-lift)
+    $Flask.rotation = deg_to_rad(15.0)*sin(t*TAU)
+    $Flask.visible = land_age<=0
+    if land_age>=0 and not landed:
+        landed = true
+        $Ground.show()
+        _record("contact",{"collision_age_frames":age,"contact_lag_frames":0,"phase":"ground","contact_frames":1})
+        _record("field_start")
+        _record("decal_start")
+        if config.treatment=="fire":
+            var splash: Node2D = load(config.splash).instantiate()
+            splash.set_meta("strike_response",true)
+            splash.set("spell_scale",1.0)
+            splash.set("caster",caster)
+            $Splash.add_child(splash)
+            splash.global_position = ground_point
+            var art: Node2D = splash.get_node_or_null("Art")
+            if art != null: art.scale *= float(config.splash_scale)
+        _strike_stop()
+    var field_live: bool = land_age>=0 and land_age<end_field
+    if field_live:
+        while tick_index<config.ticks.size() and land_age>=roundi(float(config.ticks[tick_index])*60.0):
+            last_tick = roundi(float(config.ticks[tick_index])*60.0)
+            _tick(tick_index,last_tick)
+            tick_index += 1
+    if land_age>=end_field and not field_ended:
+        field_ended = true
+        _record("field_end",{"duration_frames":end_field,"tick_count":tick_index})
+    for shard in $Fragments.get_children():
+        shard.visible = land_age>0 and land_age<=12
+        var st: float = clampf(float(land_age-1)/12.0,0.0,1.0)
+        var axis := Vector2.from_angle(float(shard.get_meta("angle")))
+        shard.global_position = ground_point + axis*float(shard.get_meta("velocity"))*st*.2*Vector2(1,.58)+Vector2(0,-12.0*4.0*st*(1.0-st))
+        shard.rotation = axis.angle()*st*.15
+        shard.modulate.a = 1.0-st
+    if config.treatment=="poison":
+        for lobe in $Splash.get_children():
+            lobe.visible = land_age>0 and land_age<=15
+            var st: float = clampf(float(land_age-1)/15.0,0,1)
+            var axis := Vector2.from_angle(float(lobe.get_meta("angle")))
+            lobe.global_position = ground_point+axis*float(lobe.get_meta("velocity"))*st*.25*Vector2(1,.58)
+            lobe.rotation = axis.angle()+deg_to_rad(20.0)*st
+            lobe.material.set_shader_parameter("erode",st)
+    $Ground/Field.visible = field_live
+    var coverage: float = lerpf(.5,1.0,clampf(float(land_age)/24.0,0,1)) if config.treatment=="poison" else 1.0
+    # Coverage is area: sqrt growth on each axis; density exclusively multiplies alpha.
+    $Ground/Field.scale = Vector2(1,float(config.ground_squash))*field_scale*sqrt(coverage)
+    var breathe: float = [.85,1.0,.925][clampi(land_age-last_tick,0,2)] if field_live and land_age-last_tick<3 else 1.0
+    $Ground/Field.modulate.a = float(config.density)*breathe
+    $Ground/Field.position = Vector2(float(maxi(0,land_age))/60.0*2.0,0) if config.treatment=="poison" else Vector2.ZERO
+    for i in range($Ground/Licks.get_child_count()):
+        var lick: Sprite2D = $Ground/Licks.get_child(i)
+        var pulse_age: int = land_age-last_tick
+        lick.visible = field_live and pulse_age>=0 and pulse_age<6
+        var axis := Vector2.from_angle(float(lick.get_meta("angle")))
+        lick.position = axis*float(config.radius_px)*.35*Vector2(1,.58)+Vector2(0,-float(pulse_age)*4.0)
+        lick.rotation = axis.angle()
+        lick.material.set_shader_parameter("erode",clampf(float(pulse_age)/5.0,0,1))
+    $Ground/Decal.visible = landed and land_age<end_field+residue_frames
+    $Ground/Decal.modulate.a = clampf(1.0-float(land_age-end_field)/residue_frames,0,1)
+    $Ground/Halo.visible = field_live and "halo" in config.enabled_layers
+    $Ground/Halo.modulate.a = .12
+    $Ground/DarkDuplicate.visible = field_live and "dark_duplicate" in config.enabled_layers
+    $Ground/DarkDuplicate.scale = $Ground/Field.scale
+    $Ground/DarkDuplicate.position = $Ground/Field.position
+    $Ground/DarkDuplicate.modulate.a = float(config.density)*breathe*.25
+    $Ground/FloorLight.visible = field_live and "floor_light" in config.enabled_layers
+    $Ground/FloorLight.modulate.a = .15
+    $Ground/Flash.visible = land_age==0 and "flash" in config.enabled_layers
+    $Ground/Flash.modulate.a = .8
+    _tint_clock(age)
+    trace.append({"age_frames":age,"lift_px":lift,"flask_position":[$Flask.global_position.x,$Flask.global_position.y],"rotation_deg":rad_to_deg($Flask.rotation),"contact":land_age==0,"fragments":$Fragments.get_children().filter(func(n):return n.visible).size(),"field_alive":field_live,"coverage":coverage,"density":config.density,"field_alpha":$Ground/Field.modulate.a,"drift_px":$Ground/Field.position.x,"ground_point":[$Ground.global_position.x,$Ground.global_position.y],"ground_z":$Ground.z_index,"decal_visible":$Ground/Decal.visible,"decal_alpha":$Ground/Decal.modulate.a,"tick_count":tick_index})
+    if land_age>=end_field+residue_frames:
+        _record("expire")
+        active = false
+        hide()
+        $Ground.hide()
+        set_physics_process(false)
+        _restore_tints()
+        queue_free()
+
+func _tick(index: int, scheduled: int) -> void:
+    _record("tick",{"tick_index":index,"scheduled_field_age_frames":scheduled})
+    for lick in $Ground/Licks.get_children(): lick.set_meta("angle",rng.randf_range(0,TAU))
+    var actors: Array = get_tree().get_nodes_in_group("vfx_targets")
+    for actor in get_tree().get_nodes_in_group("vfx_actors"):
+        if actor not in actors: actors.append(actor)
+    for actor in actors:
+        if not is_instance_valid(actor) or not actor is Node2D or actor==caster or actor.global_position.distance_to(ground_point)>float(config.radius_px): continue
+        var body_index: int = int(actor.get_meta("body_index",actor.get_instance_id()))
+        var contact_class: String = "primary" if actor.global_position.distance_to(ground_point)<=4.0 else "secondary"
+        _record("contact",{"body_index":body_index,"contact_class":contact_class,"phase":"field_centre" if contact_class=="primary" else "rim","tick_index":index,"collision_age_frames":age_frames(),"contact_lag_frames":0})
+        if "victim_tint" in config.enabled_layers:
+            var victim: CanvasItem = actor
+            var prop: Node = actor.get_parent().get_node_or_null("Prop_"+String(actor.name).trim_prefix("VfxTarget_"))
+            if prop is CanvasItem: victim=prop
+            var original: Color = victim.modulate
+            for entry in tinted:
+                if entry.node==victim: original=entry.original
+            tinted = tinted.filter(func(entry):return entry.node!=victim)
+            tinted.append({"node":victim,"original":original,"end":age_frames()+9})
+            var c: Array = config.palette_3
+            victim.modulate = Color(c[0],c[1],c[2],original.a)
+            _record("victim_tint",{"body_index":body_index,"tick_index":index})
+        if "contact_label" in config.enabled_layers and not labelled.has(actor.get_instance_id()):
+            labelled[actor.get_instance_id()]=true
+            var label: Label = null
+            for candidate in get_tree().get_nodes_in_group("vfx_contact_labels"):
+                if not candidate.visible:
+                    label=candidate
+                    break
+            if label==null:
+                label=Label.new()
+                label.set_script(load("res://scripts/vfx_contact_label.gd"))
+                get_parent().add_child(label)
+            label.top_level=true
+            label.scale=Vector2.ONE
+            label.rotation=0.0
+            var c: Array = config.palette_3
+            label.show_contact(actor.global_position+Vector2(0,-70),"FULL" if contact_class=="primary" else "PARTIAL",Color(c[0],c[1],c[2],c[3]),effect_id,body_index,label_events)
+
+func _tint_clock(age: int) -> void:
+    for entry in tinted:
+        if is_instance_valid(entry.node) and age>=int(entry.end): entry.node.modulate=entry.original
+    tinted=tinted.filter(func(entry):return is_instance_valid(entry.node) and age<int(entry.end))
+
+func _restore_tints() -> void:
+    for entry in tinted:
+        if is_instance_valid(entry.node): entry.node.modulate=entry.original
+    tinted.clear()
+
+func _strike_stop() -> void:
+    if "hit_stop" not in config.enabled_layers: return
+    var tree: SceneTree = get_tree()
+    var controller: Node = tree.root.get_node_or_null("EffectHitstop")
+    if controller == null:
+        controller=Node.new()
+        controller.name="EffectHitstop"
+        controller.set_meta("baseline",Engine.time_scale)
+        controller.set_meta("generation",0)
+        tree.root.add_child(controller)
+    var generation: int = int(controller.get_meta("generation"))+1
+    controller.set_meta("generation",generation)
+    Engine.time_scale=.1
+    tree.create_timer(1.0/60.0,true,false,true).timeout.connect(func():
+        if is_instance_valid(controller) and int(controller.get_meta("generation"))==generation:
+            Engine.time_scale=float(controller.get_meta("baseline"))
+            controller.name="EffectHitstopDone"
+            controller.queue_free())
+
+func cancel() -> void:
+    if not active: return
+    _record("cancel")
+    _restore_tints()
+    active=false
+    queue_free()
+'''

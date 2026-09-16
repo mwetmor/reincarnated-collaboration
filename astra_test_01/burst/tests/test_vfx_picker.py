@@ -1387,10 +1387,19 @@ class ProjectileArmPickerTests(unittest.TestCase):
     def test_empty_key_exports_byte_identically_except_kit_name(self):
         project=e1_project_fixture(self.root)
         a,b=[project/'vfx'/('fire_bolt_e1_'+arm) for arm in ('A','B')]
-        files={p.relative_to(a) for p in a.rglob('*') if p.is_file()}
-        self.assertEqual(files,{p.relative_to(b) for p in b.rglob('*') if p.is_file()})
-        for file in files:
-            self.assertEqual((a/file).read_bytes().replace(b'fire_bolt_e1_A',b'ARM'),(b/file).read_bytes().replace(b'fire_bolt_e1_B',b'ARM'),str(file))
+        def common(root):
+            result = {}
+            for path in root.rglob('*'):
+                rel = path.relative_to(root)
+                if not path.is_file() or 'key_states' in rel.parts or 'travel_keys' in rel.parts or path.name.startswith('Travel_key_'):
+                    continue
+                raw = path.read_bytes().replace(root.name.encode(), b'ARM')
+                if path.name == 'kit.json':
+                    data = json.loads(raw); data.pop('key_states', None)
+                    raw = json.dumps(data, sort_keys=True).encode()
+                result[rel] = raw
+            return result
+        self.assertEqual(common(a), common(b))
         for folder in ('scripts','scenes'):
             for file in (project/folder).glob('*fire_bolt_e1_A*'):
                 bfile=file.with_name(file.name.replace('fire_bolt_e1_A','fire_bolt_e1_B'))
@@ -1416,8 +1425,8 @@ class ProjectileArmPickerTests(unittest.TestCase):
         (evidence/'e1_headless.json').write_text(json.dumps(records,indent=2)+'\n')
 
     def test_original_eight_export_byte_lock(self):
-        baseline=ROOT/'runs/C-5/t3/T4p/baseline_hashes.json'
-        self.assertTrue(baseline.is_file(),'T4p pre-edit snapshot required')
+        baseline=ROOT/'runs/C-5/t3/T4s/eleven_hashes.json'
+        self.assertTrue(baseline.is_file(),'T4s eleven-kit snapshot after authorised scale correction required')
         cells=self.root/'cells'; cells.mkdir()
         for direction in ('E','N','S'):
             for kind,n in [('idle',1),('cast',4)]:
@@ -1426,8 +1435,8 @@ class ProjectileArmPickerTests(unittest.TestCase):
         sockets.write_text(json.dumps({'version':1,'canvas':[512,512],'cells':{'cast_'+d:{'sockets':[[270,240]]*4,'release_index':2} for d in ('E','N','S')}}))
         catalogue_path=ROOT/'runs/C-5/vfx_kits/kits_v9.json'
         data=json.loads(catalogue_path.read_text())
-        self.assertEqual([k['name'] for k in data['kits'][8:]],['fire_bolt_e1_A','fire_bolt_e1_B'])
-        original={'kits':[dict(k,dir=str((catalogue_path.parent/k['dir']).resolve())) for k in data['kits'][:8]]}
+        self.assertEqual([k['name'] for k in data['kits'][8:11]],['fire_bolt_e1_A','fire_bolt_e1_B','ice_bolt_e2'])
+        original={'kits':[dict(k,dir=str((catalogue_path.parent/k['dir']).resolve())) for k in data['kits'][:11]]}
         catalogue=self.root/'kits.json'; catalogue.write_text(json.dumps(original))
         project=self.root/'project'; build_project(cells,project,vfx_kits=catalogue,sockets=sockets)
         actual={p.relative_to(project).as_posix():hashlib.sha256(p.read_bytes()).hexdigest() for p in project.rglob('*') if p.is_file()}
@@ -1594,3 +1603,31 @@ class IceTreatmentPickerTests(unittest.TestCase):
             (work/'e2_trace.json').write_text(json.dumps(report,indent=2)+'\n')
             (work/'e2_headless.json').write_text(json.dumps(records,indent=2)+'\n')
             self.assertEqual(report['errors'],[])
+
+
+class ThrownFieldPickerTests(unittest.TestCase):
+    def test_thirteen_kits_registered_and_grammar_dispatch_explicit(self):
+        from export.godot_import import _g2_config
+        cat=ROOT/'runs/C-5/vfx_kits/kits_v9.json';kits=_load_vfx_kits(cat)
+        self.assertEqual(len(kits),13)
+        self.assertEqual([k['name'] for k in kits[-2:]],['blackwater_cocktail_e3','poisonous_concoction_e3'])
+        for kit in kits[-2:]:
+            config=_g2_config(kit)
+            self.assertEqual(config['grammar'],'G2')
+            self.assertEqual(config['ticks'],kit['effect']['skill_spec']['mechanics']['field']['tick_schedule_s'])
+            self.assertEqual(config['ground_squash'],.58)
+            self.assertEqual(config['flask_width'],45.5)
+
+    def test_headless_g2_trace_mechanics_and_scale_evidence(self):
+        work=ROOT/'runs/C-5/t3/T4s'
+        trace=json.loads((work/'g2_trace.json').read_text())
+        self.assertEqual(trace['errors'],[])
+        self.assertEqual(len(trace['samples']),2)
+        for sample in trace['samples']:
+            self.assertLessEqual(sample['fragment_lifetime_s'],.2)
+            self.assertEqual(sample['tint_count'],sample['tick_count']*2)
+            self.assertFalse(sample['schedule']['ff08_satisfied'])
+        scale=json.loads((work/'scale_after.json').read_text())
+        for sample in scale:
+            self.assertAlmostEqual(sample['head_width_px'],156,places=3)
+            self.assertAlmostEqual(sample['streak_length_px'],260,places=3)

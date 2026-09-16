@@ -120,8 +120,8 @@ test_residue_and_band_and_hold_ranges_rejected (test_effect_kit.PieceStretchPhas
 test_seeded_factor_deterministic_order_independent_and_bounded (test_effect_kit.PieceStretchPhaseTests.test_seeded_factor_deterministic_order_independent_and_bounded) ... ok
 test_self_contained_mask_bytes_distance_and_runtime_validation (test_effect_kit.PieceStretchPhaseTests.test_self_contained_mask_bytes_distance_and_runtime_validation) ... ok
 test_stretch_seed_bounds_and_whole_body_distance (test_effect_kit.PieceStretchPhaseTests.test_stretch_seed_bounds_and_whole_body_distance) ... ok
-test_both_arms_preserve_spec_and_quantised_primitives (test_effect_kit.ProjectileArmValidationTests.test_both_arms_preserve_spec_and_quantised_primitives) ... FAIL
-test_empty_key_arms_have_identical_kit_files_except_name (test_effect_kit.ProjectileArmValidationTests.test_empty_key_arms_have_identical_kit_files_except_name) ... FAIL
+test_both_arms_preserve_spec_and_quantised_primitives (test_effect_kit.ProjectileArmValidationTests.test_both_arms_preserve_spec_and_quantised_primitives) ... ok
+test_empty_key_arms_have_identical_kit_files_except_name (test_effect_kit.ProjectileArmValidationTests.test_empty_key_arms_have_identical_kit_files_except_name) ... ok
 test_two_explicit_key_paintings_validate_without_name_inference (test_effect_kit.ProjectileArmValidationTests.test_two_explicit_key_paintings_validate_without_name_inference) ... ok
 test_wrong_grammar_speed_binding_hold_count_and_indices_rejected (test_effect_kit.ProjectileArmValidationTests.test_wrong_grammar_speed_binding_hold_count_and_indices_rejected) ... ok
 test_kit_piece_material_scope_validation_and_precedence (test_effect_kit.RaggedResidueMaterialTests.test_kit_piece_material_scope_validation_and_precedence) ... ok
@@ -142,6 +142,9 @@ test_invalid_material_values_and_nonindex_assets_rejected_before_output (test_ef
 test_premultiplied_alpha_is_applied_exactly_once (test_effect_kit.SharedVFXMaterialTests.test_premultiplied_alpha_is_applied_exactly_once) ... ok
 test_proof_fixture_resources_and_scene_include_both_blends (test_effect_kit.SharedVFXMaterialTests.test_proof_fixture_resources_and_scene_include_both_blends) ... ok
 test_render_proof_guard_rejects_wrong_colour_erosion_and_dissolve (test_effect_kit.SharedVFXMaterialTests.test_render_proof_guard_rejects_wrong_colour_erosion_and_dissolve) ... ok
+test_both_g2_kits_preserve_specs_rgb_glass_and_alpha (test_effect_kit.ThrownFieldValidationTests.test_both_g2_kits_preserve_specs_rgb_glass_and_alpha) ... FAIL
+test_g2_normal_builder_preserves_rgb_and_density (test_effect_kit.ThrownFieldValidationTests.test_g2_normal_builder_preserves_rgb_and_density) ... ok
+test_g2_validation_rejects_wrong_grammar_density_splash_and_clock (test_effect_kit.ThrownFieldValidationTests.test_g2_validation_rejects_wrong_grammar_density_splash_and_clock) ... ok
 test_four_band_diagnostic_measures_hue_and_saturation_known_bad_control (test_effect_kit.TintRampTests.test_four_band_diagnostic_measures_hue_and_saturation_known_bad_control) ... ok
 test_fractional_scale_rounds_half_up_after_pixel_scale (test_effect_kit.TintRampTests.test_fractional_scale_rounds_half_up_after_pixel_scale) ... ok
 test_invalid_ramps_and_scales_rejected_before_output (test_effect_kit.TintRampTests.test_invalid_ramps_and_scales_rejected_before_output) ... ok
@@ -269,7 +272,7 @@ test_headless_state_machine_input_map_gear_vfx_and_nearest_fallback (test_godot_
 test_missing_texture_and_undeclared_resource_rejected (test_godot_import.GodotImportTests.test_missing_texture_and_undeclared_resource_rejected) ... ok
 test_numeric_order_and_native_fps_ignored (test_godot_import.GodotImportTests.test_numeric_order_and_native_fps_ignored) ... ok
 test_emitted_shards_origin_residue_and_ground_decal (test_godot_import.IceTreatmentImportTests.test_emitted_shards_origin_residue_and_ground_decal) ... ok
-test_ten_existing_export_bytes_unchanged (test_godot_import.IceTreatmentImportTests.test_ten_existing_export_bytes_unchanged) ... ok
+test_ten_existing_export_bytes_unchanged (test_godot_import.IceTreatmentImportTests.test_ten_existing_export_bytes_unchanged) ... FAIL
 test_headless_literal_age_swaps_returns_and_continuous_uniforms (test_godot_import.KeyStateSwapImportTests.test_headless_literal_age_swaps_returns_and_continuous_uniforms) ... ok
 test_key_resources_palette_and_native_canvas (test_godot_import.KeyStateSwapImportTests.test_key_resources_palette_and_native_canvas) ... ok
 test_grey_substitution_preserves_index_masks_for_identical_erosion (test_godot_import.PieceBurstImportTests.test_grey_substitution_preserves_index_masks_for_identical_erosion) ... ok
@@ -284,6 +287,8 @@ test_missing_impact_dependency_rejected (test_godot_import.ProjectileTravelEmiss
 test_node_tree_material_and_spec_driven_config (test_godot_import.ProjectileTravelEmissionTests.test_node_tree_material_and_spec_driven_config) ... ok
 test_exported_threshold_and_every_root_and_stretch_material_agree (test_godot_import.RaggedResidueImportTests.test_exported_threshold_and_every_root_and_stretch_material_agree) ... ok
 test_piece_zero_overrides_material_noise_in_emitted_root (test_godot_import.RaggedResidueImportTests.test_piece_zero_overrides_material_noise_in_emitted_root) ... ok
+test_g2_grey_retains_index_planes_and_glass_alpha (test_godot_import.ThrownFieldEmissionTests.test_g2_grey_retains_index_planes_and_glass_alpha) ... ok
+test_g2_named_nodes_glass_wedge_partition_and_ground_materials (test_godot_import.ThrownFieldEmissionTests.test_g2_named_nodes_glass_wedge_partition_and_ground_materials) ... ok
 test_desktop_cursor_and_resolver_match_pre_t4i (test_godot_import.TouchDeviceAimEmissionTests.test_desktop_cursor_and_resolver_match_pre_t4i) ... ok
 test_touch_device_forward_and_probe_precedence (test_godot_import.TouchDeviceAimEmissionTests.test_touch_device_forward_and_probe_precedence) ... ok
 test_transformed_front_at_three_ages_has_no_straight_seam_over_12px (test_godot_import.TransformedResidueSeamTests.test_transformed_front_at_three_ages_has_no_straight_seam_over_12px) ... ok
@@ -606,10 +611,12 @@ test_three_sine_normalisation_numerical_envelope_and_extrema (test_vfx_picker.Li
 test_two_glows_additive_script_position_scale_color_sort_and_particles (test_vfx_picker.LivingEmbersTests.test_two_glows_additive_script_position_scale_color_sort_and_particles) ... ok
 test_six_kits_and_v1_match_488_file_pre_t4j_hash_table (test_vfx_picker.PieceLap2ExportTests.test_six_kits_and_v1_match_488_file_pre_t4j_hash_table) ... ok
 test_v2_emits_drift_stretch_groups_and_stationary_residue (test_vfx_picker.PieceLap2ExportTests.test_v2_emits_drift_stretch_groups_and_stationary_residue) ... ok
-test_empty_key_exports_byte_identically_except_kit_name (test_vfx_picker.ProjectileArmPickerTests.test_empty_key_exports_byte_identically_except_kit_name) ... FAIL
+test_empty_key_exports_byte_identically_except_kit_name (test_vfx_picker.ProjectileArmPickerTests.test_empty_key_exports_byte_identically_except_kit_name) ... ok
 test_headless_east_contact_range_tail_and_key_schedule (test_vfx_picker.ProjectileArmPickerTests.test_headless_east_contact_range_tail_and_key_schedule) ... ok
-test_original_eight_export_byte_lock (test_vfx_picker.ProjectileArmPickerTests.test_original_eight_export_byte_lock) ... FAIL
+test_original_eight_export_byte_lock (test_vfx_picker.ProjectileArmPickerTests.test_original_eight_export_byte_lock) ... ok
 test_tail_field_runs_from_tail_to_socket_and_grey_keeps_bands (test_vfx_picker.ProjectileArmPickerTests.test_tail_field_runs_from_tail_to_socket_and_grey_keeps_bands) ... ok
+test_headless_g2_trace_mechanics_and_scale_evidence (test_vfx_picker.ThrownFieldPickerTests.test_headless_g2_trace_mechanics_and_scale_evidence) ... ok
+test_thirteen_kits_registered_and_grammar_dispatch_explicit (test_vfx_picker.ThrownFieldPickerTests.test_thirteen_kits_registered_and_grammar_dispatch_explicit) ... ok
 test_headless_overlay_forward_world_touch_and_mouse_probe (test_vfx_picker.TouchAimRuntimeTests.test_headless_overlay_forward_world_touch_and_mouse_probe) ... ERROR
 test_headless_device_forward_handled_overlay_and_mouse_probe (test_vfx_picker.TouchDeviceAimRuntimeTests.test_headless_device_forward_handled_overlay_and_mouse_probe) ... ok
 test_catalogue_unknown_keys_shapes_identifiers_tints_and_empty_rejected (test_vfx_picker.VfxPickerTests.test_catalogue_unknown_keys_shapes_identifiers_tints_and_empty_rejected) ... ok
@@ -696,41 +703,25 @@ Traceback (most recent call last):
     self._check_timeout(endtime, orig_timeout, stdout, stderr)
   File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/subprocess.py", line 1253, in _check_timeout
     raise TimeoutExpired(
-subprocess.TimeoutExpired: Command '['/Applications/Godot.app/Contents/MacOS/Godot', '--headless', '--log-file', '/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4i/tmp/touch-aim-wfw2exr8/project/godot.log', '--path', '/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4i/tmp/touch-aim-wfw2exr8/project', '--script', 'res://touch_aim_probe.gd']' timed out after 60 seconds
+subprocess.TimeoutExpired: Command '['/Applications/Godot.app/Contents/MacOS/Godot', '--headless', '--log-file', '/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4i/tmp/touch-aim-4d4zey0i/project/godot.log', '--path', '/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4i/tmp/touch-aim-4d4zey0i/project', '--script', 'res://touch_aim_probe.gd']' timed out after 60 seconds
 
 ======================================================================
-FAIL: test_both_arms_preserve_spec_and_quantised_primitives (test_effect_kit.ProjectileArmValidationTests.test_both_arms_preserve_spec_and_quantised_primitives)
+FAIL: test_both_g2_kits_preserve_specs_rgb_glass_and_alpha (test_effect_kit.ThrownFieldValidationTests.test_both_g2_kits_preserve_specs_rgb_glass_and_alpha)
 ----------------------------------------------------------------------
 Traceback (most recent call last):
-  File "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_effect_kit.py", line 1996, in test_both_arms_preserve_spec_and_quantised_primitives
-    self.assertEqual(data['key_states'], [])
-AssertionError: Lists differ: [{'state': 'stretched', 'png': 'key_states[195 chars]1.0}] != []
-
-First list contains 2 additional elements.
-First extra element 0:
-{'state': 'stretched', 'png': 'key_states/stretched_clipped.png', 'hold_frames': 4, 'pivot': [329.0, 258.2], 'scale': 1.0}
-
-+ []
-- [{'hold_frames': 4,
--   'pivot': [329.0, 258.2],
--   'png': 'key_states/stretched_clipped.png',
--   'scale': 1.0,
--   'state': 'stretched'},
--  {'hold_frames': 3,
--   'pivot': [318.4, 262.3],
--   'png': 'key_states/pulsed_clipped.png',
--   'scale': 1.0,
--   'state': 'pulsed'}]
+  File "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_effect_kit.py", line 2109, in test_both_g2_kits_preserve_specs_rgb_glass_and_alpha
+    self.assertEqual(data['skill_spec'],json.loads((ROOT/f'runs/C-5/specs/{name}.json').read_text()))
+AssertionError: {'ski[1319 chars]gate'}} != {'ski[1319 chars]gate', 'tick_schedule': 'conductor R-C5-55: re[103 chars]ed'}}
+Diff is 3174 characters long. Set self.maxDiff to None to see it.
 
 ======================================================================
-FAIL: test_empty_key_arms_have_identical_kit_files_except_name (test_effect_kit.ProjectileArmValidationTests.test_empty_key_arms_have_identical_kit_files_except_name)
+FAIL: test_ten_existing_export_bytes_unchanged (test_godot_import.IceTreatmentImportTests.test_ten_existing_export_bytes_unchanged)
 ----------------------------------------------------------------------
 Traceback (most recent call last):
-  File "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_effect_kit.py", line 2008, in test_empty_key_arms_have_identical_kit_files_except_name
-    self.assertEqual(files, {p.relative_to(b) for p in b.rglob('*') if p.is_file()})
-AssertionError: Items in the first set but not the second:
-PosixPath('key_states/pulsed_clipped.png')
-PosixPath('key_states/stretched_clipped.png')
+  File "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_godot_import.py", line 962, in test_ten_existing_export_bytes_unchanged
+    self.assertEqual(actual,baseline)
+AssertionError: {'CRE[2020 chars]d': 'c188d21c474aba7b0667bfc67524d901b670d0a5f[80924 chars]30c'} != {'CRE[2020 chars]d': '1caa5df776888147a8b3fea3624d9b3859b7197c6[80924 chars]30c'}
+Diff is 85230 characters long. Set self.maxDiff to None to see it.
 
 ======================================================================
 FAIL: test_synthetic_contract_and_grid (test_oracle_walk.Tests.test_synthetic_contract_and_grid)
@@ -774,38 +765,7 @@ Traceback (most recent call last):
     self.assertNotIn('rejected',peak)
 AssertionError: 'rejected' unexpectedly found in {'angular_support': 0.8333333333333334, 'center': [170.0, 253.0], 'hollow_score': 0.08333333333333333, 'inner_opposed_support': 0.08333333333333333, 'inside': False, 'lab_band_surround': 12.987929666149537, 'lab_center_band': 18.508563966712764, 'lab_center_surround': 30.467977867785994, 'lab_color_return': 0.0, 'radius': 8.0, 'rejected': 'not_annulus', 'score': 0.6366616733180586}
 
-======================================================================
-FAIL: test_empty_key_exports_byte_identically_except_kit_name (test_vfx_picker.ProjectileArmPickerTests.test_empty_key_exports_byte_identically_except_kit_name)
 ----------------------------------------------------------------------
-Traceback (most recent call last):
-  File "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_vfx_picker.py", line 1391, in test_empty_key_exports_byte_identically_except_kit_name
-    self.assertEqual(files,{p.relative_to(b) for p in b.rglob('*') if p.is_file()})
-AssertionError: Items in the first set but not the second:
-PosixPath('materials/Travel_key_0.tres')
-PosixPath('key_states/pulsed_clipped.png')
-PosixPath('distance/travel_keys/key_1.png')
-PosixPath('distance/travel_keys/key_0.png')
-PosixPath('key_states/stretched_clipped.png')
-PosixPath('materials/Travel_key_1.tres')
+Ran 677 tests in 407.073s
 
-======================================================================
-FAIL: test_original_eight_export_byte_lock (test_vfx_picker.ProjectileArmPickerTests.test_original_eight_export_byte_lock)
-----------------------------------------------------------------------
-Traceback (most recent call last):
-  File "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_vfx_picker.py", line 1429, in test_original_eight_export_byte_lock
-    self.assertEqual([k['name'] for k in data['kits'][8:]],['fire_bolt_e1_A','fire_bolt_e1_B'])
-AssertionError: Lists differ: ['fire_bolt_e1_A', 'fire_bolt_e1_B', 'ice_bolt_e2'] != ['fire_bolt_e1_A', 'fire_bolt_e1_B']
-
-First list contains 1 additional elements.
-First extra element 2:
-'ice_bolt_e2'
-
-- ['fire_bolt_e1_A', 'fire_bolt_e1_B', 'ice_bolt_e2']
-?                                    ---------------
-
-+ ['fire_bolt_e1_A', 'fire_bolt_e1_B']
-
-----------------------------------------------------------------------
-Ran 670 tests in 397.985s
-
-FAILED (failures=9, errors=1)
+FAILED (failures=7, errors=1)

@@ -9109,6 +9109,13 @@
       "veto_open": true,
       "ruling": "T4s DELIVERED_WITH_CONCERNS and ACCEPTED: G2 thrown-arc→field component; kits blackwater_cocktail_e3 + poisonous_concoction_e3 (12th/13th); headless throws: apex 180/160 px, flight 0.55/0.5 s, fragments 0.2 s, fields 3.0/2.0 s, FULL/PARTIAL labels, victim tints 12/10, density samples; decal at landing fading after field expiry. FF-08 FAILED on MY spec schedules (CV 0.14 / 0.18) — Astra kept them and reported: conductor re-authored both tick schedules to CV 0.37 / 0.43 in the specs and kits (data). Scale fix (F-C5-12) and the four test alignments: see acceptance (checked separately).",
       "ts": "2026-09-16T05:12:43"
+    },
+    {
+      "id": "R-C5-56",
+      "class": "conductor",
+      "veto_open": true,
+      "ruling": "FREEZE after T4s with two named obsolete reds beyond the five standing: ThrownFieldValidationTests.test_both_g2_kits_preserve_specs_rgb_glass_and_alpha (the conductor re-authored the tick schedules in spec + kit after the test froze them) and IceTreatmentImportTests.test_ten_existing_export_bytes_unchanged (a ten-kit byte lock that legitimately changed with the E1 scale fix in scripts/vfx_g1_painted.gd) — both aligned in T4t. PACK v28 fires (thirteen kits) for the E1 re-judge and the E3 field looks.",
+      "ts": "2026-09-16T05:19:44"
     }
   ],
   "grok_calls": [],

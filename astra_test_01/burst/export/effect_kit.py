@@ -542,6 +542,8 @@ def load_pieces(config, root, runtime=False):
 
 def _validate(data, root, runtime=False):
     _reject_retired(data)
+    if isinstance(data, dict) and 'g2' in data:
+        return validate_thrown_field(data, root, runtime)
     if isinstance(data, dict) and 'tint' in data:
         raise ValueError('tint multiply-tint/ramp baking is retired; use material.palette')
     if isinstance(data, dict) and 'pixel_scale' in data:
@@ -746,6 +748,8 @@ def build(effect_json, out_dir):
         data, root = json.loads(path.read_text()), path.parent
     else:
         data, root = copy.deepcopy(effect_json), Path.cwd()
+    if 'g2' in data:
+        return _build_thrown_definition(data, root, Path(out_dir).resolve())
     assets = _validate(data, root)
     out = Path(out_dir).resolve()
     if any(p.is_relative_to(out) or out == p for p in assets.values()):
@@ -1128,3 +1132,130 @@ def build_projectile_arms(spec_path, head_path, streak_path, impact_dir, out_par
         data['key_states'] = states if arm == 'A' else []
         reports.append(build(data, Path(out_parent)/data['name']))
     return reports
+
+
+# T4s: explicit G2 metadata; RGB material assets never enter value-index validation.
+def tick_schedule_report(schedule, minimum=.25):
+    if not isinstance(schedule, list) or len(schedule) < 3:
+        raise ValueError('tick_schedule_s requires at least three ticks')
+    for value in schedule: _number(value, 0, math.inf, 'tick_schedule_s')
+    intervals = np.diff(schedule)
+    if schedule[0] != 0 or np.any(intervals <= 0):
+        raise ValueError('tick_schedule_s must start at zero and strictly increase')
+    cv = float(intervals.std()/intervals.mean())
+    return {'intervals_s': intervals.tolist(), 'interval_cv': cv, 'minimum_cv': minimum,
+            'ff08_satisfied': cv >= minimum, 'tick_count': len(schedule)}
+
+
+def assert_tick_schedule(schedule, minimum=.25):
+    report = tick_schedule_report(schedule, minimum)
+    if not report['ff08_satisfied']:
+        raise ValueError('FF-08 interval CV %.9f < %.9f; authored schedule retained' % (report['interval_cv'], minimum))
+    return report
+
+
+def validate_thrown_field(data, root, runtime=False):
+    _keys(data, {'name','element','element_class','screen_px','ground_squash','material',
+                 'phases','layers','pierce','skill_spec','g2','density','distance_fields'},
+          {'name','element','element_class','screen_px','ground_squash','material','phases','layers','skill_spec','g2'}, 'G2 kit')
+    if not isinstance(data['name'], str) or not re.fullmatch(r'[A-Za-z_][A-Za-z0-9_]*', data['name']):
+        raise ValueError('name must be a safe identifier')
+    spec = data['skill_spec']; mechanics = spec['mechanics']; field = mechanics['field']
+    if (spec['grammar'] != 'G2' or mechanics['aim_rule'] != 'ground-locked'
+            or mechanics['origin_socket'] != 'cast_release' or mechanics['termination'] != 'field_expiry'):
+        raise ValueError('unsupported G2 mechanics; grammar is explicit')
+    if data['element'] != spec['visual_treatment_id'] or data['element_class'] != 'field' or not data['screen_px'] or data['ground_squash'] != .58:
+        raise ValueError('G2 treatment, screen_px or ground squash disagrees')
+    if data['element'] not in ('fire','poison'): raise ValueError('unsupported G2 treatment')
+    for value in [mechanics['range_px'],mechanics['arc']['apex_px'],mechanics['arc']['flight_s'],field['radius_px'],field['duration_s']]:
+        _number(value, 1e-9, math.inf, 'G2 mechanic')
+    minimum = field.get('tick_cv_min', .25)
+    _number(minimum, .25, math.inf, 'tick_cv_min')
+    tick_schedule_report(field['tick_schedule_s'], minimum)
+    if field['tick_schedule_s'][-1] >= field['duration_s']: raise ValueError('tick outside field lifetime')
+    validate_material(data['material'])
+    if data['material'].get('blend_mode','MIX') != 'MIX': raise ValueError('G2 requires MIX')
+    if data['element'] == 'poison': _number(data.get('density'),0,1,'density')
+    elif 'density' in data: raise ValueError('density is a separate poison layer only')
+    g = data['g2']
+    _keys(g, {'flask','field_source','pulse','splash','seed'}, {'flask','field_source','pulse','splash','seed'}, 'g2')
+    _number(g['seed'],0,2**32-1,'seed',True)
+    splash = g['splash']
+    if data['element'] == 'fire':
+        _keys(splash, {'kit','scale','template'}, {'kit','scale','template'}, 'splash')
+        if splash['template'] != 'burst_v2' or splash['scale'] != .7: raise ValueError('fire splash requires burst_v2 at 0.7')
+    elif splash != {'template':'burst_v1','count':4,'duration_s':.25,'residue_s':0}:
+        raise ValueError('poison splash requires four translating lobes, .25 s, no residue')
+    envelope = spec['presentation']['phase_envelope_s']
+    _number(envelope['residue'],1e-9,math.inf,'residue_s')
+    if envelope['flight'] != mechanics['arc']['flight_s'] or envelope.get('field',envelope.get('cloud')) != field['duration_s']:
+        raise ValueError('G2 envelope disagrees with mechanics')
+    assets = {}
+    for role in ('flask','field_source','pulse'):
+        assets[g[role]] = _png(g[role],root,confined=runtime)
+    for phase in data['phases'].values():
+        for source in [phase['sheet'],*[f['file'] for f in phase['frames']]]:
+            assets[source] = _png(source,root,confined=runtime)
+    for key,path in assets.items():
+        with Image.open(path) as im: rgba = np.asarray(im.convert('RGBA'))
+        if not np.any(rgba[...,3]): raise ValueError('G2 primitive is empty')
+        if key == g['flask']: continue
+        rgb = rgba[...,:3][rgba[...,3]>0]
+        if not np.isin(rgb,[0,85,170,255]).all() or np.any(rgb[:,0]!=rgb[:,1]) or np.any(rgb[:,1]!=rgb[:,2]):
+            raise ValueError('G2 indexed source indices must be greyscale 0/85/170/255')
+    return assets
+
+
+def build_thrown_field(spec_path, flask_path, field_path, pulse_path, out_dir, material, splash, density=1.0):
+    """Copy painted primitives intact. Runtime emitter cuts shards and derives the field.
+
+    CV is a separate instrument: valid authored fixtures can expose a contradictory
+    conductor gate without silently rewriting their mechanics.
+    """
+    spec=json.loads(Path(spec_path).read_text()); out=Path(out_dir)
+    if out.exists() and any(out.iterdir()): raise ValueError('Output must be empty')
+    out.mkdir(parents=True,exist_ok=True)
+    for role,source in [('flask',flask_path),('field_source',field_path),('pulse',pulse_path)]:
+        target=out/'primitives'/f'{role}.png';target.parent.mkdir(exist_ok=True)
+        if role == 'flask': target.write_bytes(Path(source).read_bytes())
+        else:
+            with Image.open(source) as im: pixels=quantise_projectile(np.asarray(im.convert('RGBA')))
+            Image.fromarray(pixels).save(target)
+    phases={}
+    for phase,folder in [('cast','flare'),('travel','travel'),('impact','impact')]:
+        file=f'{folder}/{folder}_00.png'; (out/folder).mkdir()
+        (out/file).write_bytes((out/'primitives/pulse.png').read_bytes())
+        phases[phase]={'sheet':file,'frames':[{'file':file,'hold_frames':2}]}
+    data=dict(name=spec['skill_id']+'_e3',element=spec['visual_treatment_id'],element_class='field',screen_px=True,
+              ground_squash=.58, material=copy.deepcopy(material),phases=phases,layers={},pierce=0,skill_spec=spec,
+              g2=dict(flask='primitives/flask.png',field_source='primitives/field_source.png',pulse='primitives/pulse.png',splash=splash,seed=2026))
+    if data['element']=='poison': data['density']=density
+    validate_thrown_field(data,out,True)
+    (out/'kit.json').write_text(json.dumps(data,indent=2)+'\n')
+    (out/'CREDITS.txt').write_text('G2 '+data['name']+': supplied painted primitives; derived shards/field, no new painting.\n')
+    (out/'vfx_select.json').write_text(json.dumps({'source':'effect_kit','name':data['name']})+'\n')
+    return data
+
+
+def _build_thrown_definition(data, root, out):
+    """Normal build() entry point for explicit G2 definitions, including RGB."""
+    assets=validate_thrown_field(data,root,False)
+    if out.exists() and (not out.is_dir() or any(out.iterdir())): raise ValueError('Output must be empty')
+    if any(p.is_relative_to(out) for p in assets.values()): raise ValueError('Output overlaps input assets')
+    out.mkdir(parents=True,exist_ok=True)
+    metadata=copy.deepcopy(data)
+    for role in ('flask','field_source','pulse'):
+        file='primitives/'+role+'.png';target=out/file;target.parent.mkdir(exist_ok=True)
+        target.write_bytes(assets[data['g2'][role]].read_bytes());metadata['g2'][role]=file
+    for phase,definition in metadata['phases'].items():
+        folder=PHASES[phase];frames=[]
+        for i,frame in enumerate(definition['frames']):
+            file=f'{folder}/{folder}_{i:02d}.png';target=out/file;target.parent.mkdir(exist_ok=True)
+            target.write_bytes(assets[frame['file']].read_bytes());frames.append(dict(frame,file=file))
+        definition['frames']=frames;definition['sheet']=frames[0]['file']
+    metadata.pop('distance_fields',None)
+    metadata['material']=validate_material(metadata['material'])
+    (out/'kit.json').write_text(json.dumps(metadata,indent=2)+'\n')
+    (out/'vfx_select.json').write_text(json.dumps({'source':'effect_kit','name':metadata['name']})+'\n')
+    (out/'CREDITS.txt').write_text('G2 '+metadata['name']+': supplied painted primitives; derived shards/field, no new painting.\n')
+    return {'id':'effect_kit','subject':metadata['name'],'passed':None,'value':{'grammar':'G2'},'threshold':None,'op':None,'unit':'kit','evidence':[str(out/'kit.json')],'notes':'RGB flask retained; indexed field separate; FF-08 reported separately.'}
