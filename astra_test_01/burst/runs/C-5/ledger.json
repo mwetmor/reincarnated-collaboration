@@ -12169,6 +12169,13 @@
       "veto_open": true,
       "ruling": "FL-1b DELIVERED_WITH_CONCERNS and ACCEPTED. Part A: BOTH were runtime regressions from FL-1a — (1) the painted nose was translated rear-to-pivot + separation + clearance before the first physics query, so near targets (the east shield) were never swept: the shared G1 sweep now includes the socket-to-nose segment and queries at the painted leading tip; contact events record the tip (F-C5-23 fixed; before/after traces); (2) FL-1a pool selection did bool(candidate.get(\"fizzling\")) — orbs have no such property → Godot null-bool error → acquire returned null → probe never quit: fixed by comparing with true (F-C5-24). The ice visibility fixture was additionally stale (its manual dispatch predates the nose offset) and was realigned without weakening its assertions. Part B: five byte/all-text locks re-baselined with hash-table diffs attributing every entry to FL-1a (README/emitted-scene lines); the original-kit catalogue lock NOT re-baselined — its previous hashes also differ for poisonous_concoction_e3 and healing_hands_e3 (T4x), to be re-baselined in E3-r1 with those kits. Part C: halo clause = diameter <= 0.85 BH (0.805 measured). 17 kits byte-identical. Lane wrapper crashed post-burst AGAIN (LD-1 third instance; receipt landed). Rendered proof: PACK v33 + chain.",
       "ts": "2026-09-16T13:11:58"
+    },
+    {
+      "id": "R-C5-86",
+      "class": "conductor",
+      "veto_open": true,
+      "ruling": "FREEZE after FL-1b (outside suite 717 pass / 7 red: five standing + the catalogue lock named for E3-r1 + IceTreatmentPickerTests.test_headless_contact_shatter_residue_decal under diagnosis — timeout-under-load vs real; the v33 ice cast is the in-scene check). PACK v33 + ice/8-direction chain fire.",
+      "ts": "2026-09-16T13:20:22"
     }
   ],
   "grok_calls": [],
