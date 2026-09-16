@@ -1,0 +1,44 @@
+{
+  "task_id": "N2-master-scythe-01",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "necro_master_scythe_01",
+      "path": "out/necro_master_scythe_01.png",
+      "sha256": "c285c5234ed9916611221381401c6b7dca579cdab0563dcc9a344a8550793a52",
+      "prompt": "Edit Image 1 by inserting Image 2's scythe through both existing fists. Preserve character placement, pose, camera, details and opaque #00ff00 background. Blade upper-left, butt-cap lower-right; preserve face visibility and contain the weapon within the 1254×1254 canvas. Retry emphasized original fist contours, grip-wrap placement, straight haft and opaque green plate.",
+      "references": [
+        {
+          "role": "edit target",
+          "path": "in/01_necro_master_cam_02.png"
+        },
+        {
+          "role": "approved scythe design",
+          "path": "in/02_scythe_design_v1.png"
+        }
+      ],
+      "elapsed_s": 24.956
+    }
+  ],
+  "calls_used": 2,
+  "retries": [
+    {
+      "reason": "First attempt slightly shifted the lower fist; background also became transparent.",
+      "change": "Restarted from original references, emphasizing unchanged fist contours and opaque pure green."
+    }
+  ],
+  "self_report": {
+    "obeyed_invariants": false,
+    "concerns": [
+      "Upper grip-wrap remains above the raised fist instead of inside it.",
+      "Haft bends near the raised fist rather than following one straight diagonal.",
+      "Exact pixel preservation outside the weapon was not verified."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/necro_master_scythe_01.png",
+      "sha256": "c285c5234ed9916611221381401c6b7dca579cdab0563dcc9a344a8550793a52"
+    }
+  ]
+}

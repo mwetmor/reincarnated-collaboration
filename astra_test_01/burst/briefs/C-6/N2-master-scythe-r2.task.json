@@ -1,0 +1,26 @@
+{
+ "text": "GENERATE BURST N2-master-scythe-r2 — BAKE THE SCYTHE INTO THE ACCEPTED MASTER, EXACTLY AS THE TOOL-PLACED GUIDE SHOWS IT (Run C-6; R-C6-2 \"bake it in\"; R-C6-4 Matt: the first attempt was \"completely the wrong size\", the second \"has been bent\"). task_id \"N2-master-scythe-r2\".\n\nIMAGE 1 is the ACCEPTED camera master of the Necromancer on flat PURE GREEN #00ff00 (1254×1254; figure 706 px tall): bone-ribbed charcoal-and-silver armour, long white hair, a bone horn on HIS LEFT shoulder (viewer's right), high three-quarter camera. HIS RIGHT fist (viewer's LEFT) is raised, closed, at chest height (centre ≈ x 530, y 500); HIS LEFT fist (viewer's RIGHT) hangs low, closed, at the hip (centre ≈ x 770, y 725). No weapon.\nIMAGE 2 is the approved SCYTHE design (bone haft, silver ferrules, two dark grip-wraps, spiked butt-cap, bone-backed silver crescent blade) — the ONLY source for how the scythe is drawn.\nIMAGE 3 is a TOOLING-PLACED GUIDE: IMAGE 1 with IMAGE 2's scythe already scaled to REAL-SCYTHE size (haft ≈ 550 px, 0.78 of his height), rotated so its STRAIGHT haft runs exactly through both fists, and pasted at 70 % opacity in front of everything (green-tinted by the overlay; no occlusion). The guide is the SIZE, ANGLE and POSITION contract: blade head at upper-left beside his right shoulder (blade tip near x 300, y 700 after the curve; haft top near x 405, y 383), butt-spike just past the hip fist (near x 806, y 759). Total weapon width ≈ 520 px, height ≈ 405 px — it does NOT rise above his head.\n\nUse image_gen in EDIT mode on IMAGE 1 and deliver ONE image of the same size: IMAGE 1 with the scythe painted in EXACTLY where, how large and at what angle IMAGE 3 places it, rendered in IMAGE 2's finish (full-opacity silver and bone, black outline, no green tint), with correct occlusion: the haft passes BEHIND both fists (knuckles in front of it) and IN FRONT of the torso and skirt where it crosses them; the blade is in front of nothing but the green. The haft is ONE PERFECTLY STRAIGHT line from butt-spike to blade socket — no bend, no kink at either hand. Do NOT enlarge the weapon; do NOT move it above the head; do NOT move, resize, mirror or redraw any part of the figure; horn stays on his left shoulder (viewer's right); the green plate stays flat #00ff00 with no shadow, no ground, no text.\n\nOne image_gen call. ONE retry only if: the weapon is drawn larger than or elsewhere than the guide (blade tip or butt-spike more than ~60 px from the guide's), the haft is bent, a fist moved/opened/is behind the haft, the figure changed, or the plate is not flat green — name the reason. Copy the output from $CODEX_HOME/generated_images/... to out/necro_master_scythe_r2.png with sha256. No code. No other files. No web.\nRETURN: the receipt (task_id \"N2-master-scythe-r2\"): files = [exactly one entry: out/necro_master_scythe_r2.png with its sha256]; images = the INTEGER COUNT of image_gen calls made (1 or 2) — NOT a list, and NEVER a path under $CODEX_HOME/generated_images; calls_used; status DELIVERED / DELIVERED_WITH_CONCERNS with concerns listed honestly.",
+ "references": [
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-6/artifacts/N1-master-cam-02/necro_master_cam_02.png",
+   "role": "IMAGE 1 — the accepted camera master to EDIT"
+  },
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-6/artifacts/N1-refs/scythe_design_v1.png",
+   "role": "IMAGE 2 — the approved scythe design (how it is drawn)"
+  },
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-6/artifacts/N1-refs/scythe_guide_r2.png",
+   "role": "IMAGE 3 — tooling-placed guide: exact size, angle and position of the scythe"
+  }
+ ],
+ "image_cap": 2,
+ "minutes_cap": 15,
+ "tool_call_cap": 20,
+ "outputs": [
+  "out/necro_master_scythe_r2.png"
+ ],
+ "effort": "high",
+ "add_dirs": [],
+ "experiment": "C6-N2"
+}

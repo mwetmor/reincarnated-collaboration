@@ -2420,6 +2420,20 @@
       "veto_open": true,
       "ruling": "CS-pack-v21 (painted) + CS-pack-v21-grey DELIVERED on the T4d-frozen tools (49a9dbf151bb): cliffside_v21 import 0 errors, cliffside_v21_grey import 0 errors (F-C5-3 confirmed closed at PACK level). v21 = v19 clearing + CS-props-v21 (necro_master_still at 3840,720 for the C-6 master decision). Conductor probes: 4 stills + 142-frame walk loop around the prop → Desktop Packet 86. VO1 note: replay probe.json shows camera_offset drifting per frame during the flipbook comparison bake (1.33 → -2.67 px, x) and time_scale 0.1 for the first 3 frames — a candidate cause of the 8-30% live-vs-flipbook envelope gap on black beyond the conductor proxy; logged as F-C5-4 (candidate) for the next TOOLING; T4c VO1 clause stays open.",
       "ts": "2026-09-15T19:43:11"
+    },
+    {
+      "id": "R-C5-15",
+      "class": "reasoning",
+      "veto_open": true,
+      "ruling": "F-C5-4 restated from the plate-differenced instrument (vo1_v21, T4d hooks): the baked flipbook diverges from the live effect by blend (ADD body flattened to MIX — 2× envelope on white) and by clock (windows ground 55–62, black 101–105). Both are runtime-owned properties the architecture already assigns to the runtime layer; a single flattened flipbook cannot carry them. T4g TOOLING chartered: per-blend-class bakes + per-class replay sprites + effect-age clock + the plate-envelope VO1 instrument; report-not-stop. Fires after the in-flight C-6 GENERATE lands (TOOLING serial).",
+      "ts": "2026-09-15T20:29:12"
+    },
+    {
+      "id": "R-C5-16",
+      "class": "reasoning",
+      "veto_open": true,
+      "ruling": "E0-p step 1 fired: E0p-peak-01 — fire impact peak as ONE upright asymmetric body (5–7 hooked tongues, unequal), painted extent ≈ 2 BH (260 px at V2 s=1) on a 512² canvas, greyscale FOUR-plane value-index fill (tooling quantises to the T4a shader indices R∈{0,85,170,255}), RGBA-first with the #00ff00 plate as the declared fallback (extraction contract, 03- § 2.3). References = the native clearing scale board (1:1 + 3×) built from an exact 1920×1080 capture (content_scale VIEWPORT — the earlier probe stills were window-clamped to 1726×971, a 0.90 scale; Packet 86 stills are consistent between figures but not 1:1). frozen_orb_v3 impact (307-px chunky fixture) and run_03 vfx_style_match (rendered look) NOT attached: neither is the s=1 hand-drawn register; the register is text-carried (REGISTER_CARD).",
+      "ts": "2026-09-15T20:32:23"
     }
   ],
   "grok_calls": [],

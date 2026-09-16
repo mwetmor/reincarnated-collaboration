@@ -1,0 +1,47 @@
+{
+  "task_id": "N2-master-scythe-r2",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "necro_master_scythe_r2",
+      "path": "out/necro_master_scythe_r2.png",
+      "sha256": "eb1692c3c53d9e50885e69842d8437a92e87fc5c82b71c7abedb736618976ba6",
+      "prompt": "EDIT / precise-object compositing. Produce one OPAQUE RGB image with a solid bright GREEN #00ff00 background, 1254x1254. The green is required image content and MUST remain visible. DO NOT make transparency or remove/key out the green. IMAGE 1 is the accepted figure master to edit. IMAGE 2 gives the scythe's silver/bone material and design. IMAGE 3 is the exact scythe size, silhouette, position and angle contract. Reproduce IMAGE 3 exactly, except make the translucent scythe fully opaque silver/bone/dark wraps like IMAGE 2 and place the existing fists in front of the shaft. Preserve the original figure from IMAGE 1 unchanged: face, white hair, horn on viewer-right shoulder, armor, stance, fists and boots, figure position and size. Add only the scythe. Precisely match the weapon footprint in IMAGE 3: blade head beside viewer-left shoulder and below head height, left crescent curving down into empty green, straight diagonal shaft across body from socket near (405,383), through raised fist near (530,500), through low fist near (770,725), ending butt tip at (806,759). Trace the actual reference IMAGE 3 rather than approximating the weapon placement. Do not enlarge the weapon. All portions of the shaft, including the two dark grips and the butt spike, must align on ONE PERFECTLY STRAIGHT centerline, no kink at hands or ferrules. BOTH original closed fists must occlude the haft, knuckles in front; do not open, move or reshape the fists. Shaft otherwise in front of armor and skirt. Scythe silver crescent, ornamental bone back, silver ferrules, two black wraps, spiked butt, faithful to IMAGE 2, with no green tint. Hand-drawn painted 2D animation frame, tapered dark contours, clean painted planes and restrained texture, cold upper-left lighting matching original. Entire remaining canvas MUST be opaque pure #00ff00, including around the entire silhouette, with no shadow, no floor, no text. Keep original 1254x1254 framing. This is one single master image. Critical correction from previous attempt: the background MUST be solid opaque bright green, never transparent.",
+      "references": [
+        {
+          "role": "accepted master — edit target",
+          "path": "in/01_necro_master_cam_02.png"
+        },
+        {
+          "role": "approved scythe design",
+          "path": "in/02_scythe_design_v1.png"
+        },
+        {
+          "role": "exact placement, size and angle guide",
+          "path": "in/03_scythe_guide_r2.png"
+        }
+      ],
+      "elapsed_s": 29.247
+    }
+  ],
+  "calls_used": 2,
+  "retries": [
+    {
+      "reason": "First output replaced the required green plate with transparency.",
+      "change": "Repeated the edit from original references, explicitly requiring opaque green and reinforcing guide alignment."
+    }
+  ],
+  "self_report": {
+    "obeyed_invariants": false,
+    "concerns": [
+      "Butt-spike visually ends near (858,815), approximately 76 px beyond the guide endpoint (806,759).",
+      "Exact figure pixel preservation and background color uniformity were not quantitatively verified."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/necro_master_scythe_r2.png",
+      "sha256": "eb1692c3c53d9e50885e69842d8437a92e87fc5c82b71c7abedb736618976ba6"
+    }
+  ]
+}

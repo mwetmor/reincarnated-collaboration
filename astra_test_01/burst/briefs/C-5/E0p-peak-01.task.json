@@ -1,0 +1,22 @@
+{
+ "text": "GENERATE BURST E0p-peak-01 — the FIRE IMPACT PEAK STILL (Run C-5, experiment E0-p step 1, charter § 4; architecture 03- § 2.2b / § 2.3). task_id \"E0p-peak-01\". This still is the body that E0-p decomposes into pieces and brings to life at runtime — and E0(a)'s asymmetric head. Paint the SHAPE REPRESENTING EMISSION only; light, glow, flash, halo, floor light, colour and motion are runtime layers the exporter adds.\n\nIMAGE 1 is the SCALE + REGISTER board: a 1:1 native 512×512 crop of the painted cliffside clearing at the game camera (elevated three-quarter, ~53° down) with two figures standing on the dirt — each figure is 130 px tall = 1 BH (body height) — beside a 3× nearest enlargement of the same crop for reading. Everything in the scene is hand-drawn painted 2D: a confident dark contour with taper, clean painted planes inside the line, restrained texture. IMAGE 2 is the same native crop alone (the ground the burst lands on; for reading, not for painting on).\n\nDeliver EXACTLY ONE image, 512×512, with a GENUINELY TRANSPARENT background (RGBA PNG: alpha 0 everywhere outside the body, fully opaque inside it, no soft fringe wider than 1 px) — if image_gen cannot output transparency, paint it on a flat uniform #00ff00 plate instead and SAY SO in concerns. Content: the intact PEAK of a FIRE IMPACT — the instant a fire bolt has struck and the burst is at full extent, before it flies apart — as ONE painted body, seen from the same camera as IMAGE 1, centred on the canvas: a dense bright CORE mass, off-centre, with FIVE to SEVEN hooked TONGUES of flame of clearly UNEQUAL length and thickness curling outward and upward from it (the longest reaching about twice as far as the shortest; two or three curl back like hooks; none symmetric about any axis — this must NOT read as a sunburst, star, ring or circle); the outer boundary of every tongue and of the core drawn as a hand-drawn dark contour line with visible taper. PAINTED EXTENT: the whole body spans about 260 px across (2 BH — twice the height of a figure in IMAGE 1) and about 220 px tall; nothing touches the canvas edge. It is an UPRIGHT body facing the camera (no ground-plane squash, no perspective ellipse). REGISTER OF THE FILL — VALUE-INDEX ENCODING: GREYSCALE ONLY, in exactly FOUR flat value planes with hard edges and NO gradients, glow, blur, airbrush, soft light or texture: plane 0 = near-black (the contour line and the thin scorched outer rim of every tongue), plane 1 = dark grey (the outer flame of each tongue), plane 2 = light grey (the mid flame, most of the tongues' bodies), plane 3 = white (the core mass and the hottest inner streak of the two or three longest tongues, together no more than a quarter of the body). Read like one frame of hand-drawn 2D effects animation, at the scene's line weight when placed at 1:1 in IMAGE 1. NO colour of any kind, no ground, no shadow, no light spill, no sparks or embers, no smoke plume, no motion blur, no character, no text.\n\nOne image_gen call. ONE retry only if: the background is not clean (neither transparent nor flat #00ff00), there are gradients / glow / soft edges / more than four value planes, the body is symmetric or reads as a ring/star, it touches the canvas edge, or its extent is off by more than 25 % (smaller than 195 px or larger than 325 px across) — name the reason. Copy the output from $CODEX_HOME/generated_images/... to out/fire_peak_01.png with sha256 (do not convert, resample, trim or key it). No code. No other files. No web.\nRETURN: the receipt (task_id \"E0p-peak-01\"): files = [exactly one entry: out/fire_peak_01.png with its sha256]; images = the INTEGER COUNT of image_gen calls made (1 or 2) — NOT a list, and NEVER a path under $CODEX_HOME/generated_images; calls_used; status DELIVERED / DELIVERED_WITH_CONCERNS with concerns listed honestly (state whether the output has real transparency).",
+ "references": [
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/artifacts/E0p-refs/scale_board_clearing.png",
+   "role": "IMAGE 1 — scale + register board: native 512² clearing crop with two 130-px figures (1 BH) + 3× enlargement"
+  },
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/artifacts/E0p-refs/clearing_native_512.png",
+   "role": "IMAGE 2 — the native ground crop alone (reading only)"
+  }
+ ],
+ "image_cap": 2,
+ "minutes_cap": 15,
+ "tool_call_cap": 20,
+ "outputs": [
+  "out/fire_peak_01.png"
+ ],
+ "effort": "high",
+ "add_dirs": [],
+ "experiment": "C5-E0p"
+}

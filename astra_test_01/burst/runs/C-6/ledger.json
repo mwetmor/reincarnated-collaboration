@@ -2,7 +2,7 @@
   "run": "C-6",
   "charter": "agentic_orchestration/gandalf/notes/2026-09-15-c6-necromancer-master-design.md (design note; charter follows the master decision)",
   "charter_sha256_12": null,
-  "images_used": 4,
+  "images_used": 9,
   "images_cap": 999999,
   "images_cap_note": "SENTINEL — Matt V20 posture carried (no image budget; counted, reported)",
   "bursts": [
@@ -143,6 +143,201 @@
       "codex_version": "codex-cli 0.153.4",
       "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
       "exit": 0
+    },
+    {
+      "id": "N2-master-scythe-01",
+      "type": "GENERATE",
+      "experiment": "C6-N2",
+      "brief_sha256": "d3cdbe48e3230d039fde7fcc5eace6e6687ee5c70b36eb76030673c327b95660",
+      "started": "2026-09-16T00:03:29.255552+00:00",
+      "ended": "2026-09-16T00:05:50.387343+00:00",
+      "minutes": 2.352172342349998,
+      "image_calls": 2,
+      "tool_calls": 2,
+      "audit": {
+        "violations": [],
+        "image_calls": 2,
+        "tool_calls": 2,
+        "tools_seen": {
+          "command_execution": 2
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0a786-9714-7452-ae1b-05d9fffa1ac8/exec-5593a4df-c3ba-4b24-8e91-55c199ab3cef.png",
+            "sha256": "4f5b1e97f42312941b708ba8c78b53c1d4f23ed92c4169dc3c85f494219ef060"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0a786-9714-7452-ae1b-05d9fffa1ac8/exec-d258cb44-bece-4258-87b0-a8d9e561fd3f.png",
+            "sha256": "c285c5234ed9916611221381401c6b7dca579cdab0563dcc9a344a8550793a52"
+          }
+        ]
+      },
+      "receipt_sha256": "2892ecc99eda4bd5e175a50512a66858341477e5db699c2f4da8861e95f446f7",
+      "artifacts": [
+        {
+          "name": "necro_master_scythe_01.png",
+          "sha256": "c285c5234ed9916611221381401c6b7dca579cdab0563dcc9a344a8550793a52"
+        },
+        {
+          "name": "exec-5593a4df-c3ba-4b24-8e91-55c199ab3cef.provenance.json",
+          "sha256": "bdc2118c002cc733fa767f59413082af43a8505cf742192191a563bac491b3b8"
+        },
+        {
+          "name": "exec-d258cb44-bece-4258-87b0-a8d9e561fd3f.provenance.json",
+          "sha256": "47a0c04f36816619cbbe5fdddbacabc00b665db2a5b48822d5524eb5ef0fa609"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0a786-9714-7452-ae1b-05d9fffa1ac8/exec-5593a4df-c3ba-4b24-8e91-55c199ab3cef.png",
+          "sha256": "4f5b1e97f42312941b708ba8c78b53c1d4f23ed92c4169dc3c85f494219ef060"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0a786-9714-7452-ae1b-05d9fffa1ac8/exec-d258cb44-bece-4258-87b0-a8d9e561fd3f.png",
+          "sha256": "c285c5234ed9916611221381401c6b7dca579cdab0563dcc9a344a8550793a52"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
+    },
+    {
+      "id": "N2-master-scythe-r1",
+      "type": "GENERATE",
+      "experiment": "C6-N2",
+      "brief_sha256": "b3ac15b31c9d44aaeafd69f5f2fc9d21b471c5ddc3a0fcaf6d16d6715bdf2c7f",
+      "started": "2026-09-16T00:09:28.298756+00:00",
+      "ended": "2026-09-16T00:11:52.118547+00:00",
+      "minutes": 2.396971679166624,
+      "image_calls": 1,
+      "tool_calls": 3,
+      "audit": {
+        "violations": [],
+        "image_calls": 1,
+        "tool_calls": 3,
+        "tools_seen": {
+          "command_execution": 3
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0a78c-11aa-7582-9487-4e24b9ec3f61/exec-ee08b4fb-deb9-4931-a5fb-b313b8b9b1ae.png",
+            "sha256": "d12f529bc5d35b940b89c8d9e83438dc2b2ebfa6b334064c09251e1a8d1dd5a4"
+          }
+        ]
+      },
+      "receipt_sha256": "b081139892404cc9de924fbcd1f73412c703fa5bdeca0ce8e31e724cbd2e8547",
+      "artifacts": [
+        {
+          "name": "necro_master_scythe_r1.png",
+          "sha256": "d12f529bc5d35b940b89c8d9e83438dc2b2ebfa6b334064c09251e1a8d1dd5a4"
+        },
+        {
+          "name": "exec-ee08b4fb-deb9-4931-a5fb-b313b8b9b1ae.provenance.json",
+          "sha256": "38fab8228945ee841fdaf76310f8fbe2ebb74104bca827b79c443d5955afbde2"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0a78c-11aa-7582-9487-4e24b9ec3f61/exec-ee08b4fb-deb9-4931-a5fb-b313b8b9b1ae.png",
+          "sha256": "d12f529bc5d35b940b89c8d9e83438dc2b2ebfa6b334064c09251e1a8d1dd5a4"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
+    },
+    {
+      "id": "N2-master-scythe-r2",
+      "type": "GENERATE",
+      "experiment": "C6-N2",
+      "brief_sha256": "9fb723f69679bc7aed74f197c2a06418e081a1cb4229543b580ab52521279077",
+      "started": "2026-09-16T00:27:15.135323+00:00",
+      "ended": "2026-09-16T00:30:05.797850+00:00",
+      "minutes": 2.8443463062500087,
+      "image_calls": 2,
+      "tool_calls": 2,
+      "audit": {
+        "violations": [],
+        "image_calls": 2,
+        "tool_calls": 2,
+        "tools_seen": {
+          "command_execution": 2
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0a79c-58c6-7161-b837-a14d455729dd/exec-1303da9a-c5e1-4339-a121-ddd3c180962e.png",
+            "sha256": "eb1692c3c53d9e50885e69842d8437a92e87fc5c82b71c7abedb736618976ba6"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0a79c-58c6-7161-b837-a14d455729dd/exec-a15614be-923b-4aee-8928-69e1be594aee.png",
+            "sha256": "6d356ca97b337dd7f12c151476eba4beabf15bf10ce8556ededfe8a0957e97b7"
+          }
+        ]
+      },
+      "receipt_sha256": "5c9f557cbbb4402da7119664da44b7e1705375509f1ffe94f831fec8800342d7",
+      "artifacts": [
+        {
+          "name": "necro_master_scythe_r2.png",
+          "sha256": "eb1692c3c53d9e50885e69842d8437a92e87fc5c82b71c7abedb736618976ba6"
+        },
+        {
+          "name": "exec-1303da9a-c5e1-4339-a121-ddd3c180962e.provenance.json",
+          "sha256": "b96d01cf22ec5fc14e0832134454d8c7ef7f5d1918b6a9a1927fe96c9da2db77"
+        },
+        {
+          "name": "exec-a15614be-923b-4aee-8928-69e1be594aee.provenance.json",
+          "sha256": "ff9da36b085ee7cb9eb475ae77c8bec1191a1649504a563ee9ff5e74f8314ad7"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0a79c-58c6-7161-b837-a14d455729dd/exec-1303da9a-c5e1-4339-a121-ddd3c180962e.png",
+          "sha256": "eb1692c3c53d9e50885e69842d8437a92e87fc5c82b71c7abedb736618976ba6"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0a79c-58c6-7161-b837-a14d455729dd/exec-a15614be-923b-4aee-8928-69e1be594aee.png",
+          "sha256": "6d356ca97b337dd7f12c151476eba4beabf15bf10ce8556ededfe8a0957e97b7"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
     }
   ],
   "experiments": [],
@@ -151,6 +346,21 @@
       "id": "M-C6-N1-SCENE",
       "note": "N1-master-cam-02 (right-hand fist corrected) placed in cliffside_v21 as prop necro_master_still (3840,720) via CS-props-v21; Keeper walk-around + 4 stills captured → Desktop Packet 86; sent to Matt. C-6 STOPS here pending the master decision (no turnaround/loops until ruled).",
       "ts": "2026-09-15T19:43:11"
+    },
+    {
+      "id": "M-C6-N2-SCYTHE",
+      "note": "N2-master-scythe-01 DELIVERED_WITH_CONCERNS (2 image calls; sha c285c523…): scythe baked into the accepted master — haft through both existing fists (upper wrap in the raised right fist, lower wrap in the hip-level left fist), blade upper-left curving outward clear of the face, butt-spike lower-right above the ground line; figure feet line unchanged (y 1010), horn on his left shoulder; composite bbox h 897 px (blade adds ~190 px above the head). Conductor eye: PASS on every retry criterion. Awaiting Matt's eye (charter § 5 F5) + fork rulings F1–F4. C-6 charter DRAFT v0.1 filed.",
+      "ts": "2026-09-15T20:06:17"
+    },
+    {
+      "id": "M-C6-N2-R1",
+      "note": "N2-master-scythe-r1 DELIVERED (1 image call): real-scythe proportions — weapon 1.13× figure height overall, blade head narrower than the shoulders, tip ~90 px above the head; both fists on the wraps; figure unchanged. Model returned a TRANSPARENT (RGBA) plate instead of green — conductor composited a green-plate copy for the lane (necro_master_scythe_r1_green.png). Awaiting Matt's eye.",
+      "ts": "2026-09-15T20:12:25"
+    },
+    {
+      "id": "M-C6-N2-R2",
+      "note": "N2-master-scythe-r2 DELIVERED (2 image calls) against a TOOLING-PLACED GUIDE (scythe_guide_r2.png: design keyed, scaled to haft 550 px = 0.78 H, rotated 56.5° onto the fist line, placed through both fists): straight haft, blade beside the right shoulder, butt-spike past the hip fist, composite bbox h 707 = figure height (nothing above the head), figure pixels unchanged. Lesson (Astra S1 § 2b confirmed on a character): size/angle/position are a tooling contract, not prose. Awaiting Matt's eye.",
+      "ts": "2026-09-15T20:31:14"
     }
   ],
   "halts": [],
@@ -182,6 +392,13 @@
       "veto_open": false,
       "ruling": "Fork 2 — Matt: 'we won't need a following lap.. but maybe in the future.' The unarmed (empty-caster) master state + idle/walk set is NOT scheduled; parked as a future lap. C-6 scope = scythe-in-hand set only.",
       "ts": "2026-09-15T20:02:25"
+    },
+    {
+      "id": "R-C6-4",
+      "class": "matt",
+      "veto_open": false,
+      "ruling": "N2-master-scythe-01 FAILS Matt's eye (charter F5): 'The scythe is completely the wrong size.. it needs to be fit down to size of a real scythe.' Conductor fault: the N2 brief specified haft ≈ figure height + blade above it (≈ 1.3× his height overall, blade ≈ 0.5× height). N2-r1 re-mints from the ORIGINAL master with real-scythe proportions: haft ≈ 0.85× figure height (≈ 600 px), blade chord ≈ 0.35× figure height (≈ 250 px), blade head no wider than his shoulders, tip no higher than one head above him.",
+      "ts": "2026-09-15T20:09:28"
     }
   ],
   "grok_calls": [],

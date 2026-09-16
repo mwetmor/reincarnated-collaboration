@@ -1,0 +1,40 @@
+{
+  "task_id": "N2-master-scythe-r1",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "necro_master_scythe_r1",
+      "path": "out/necro_master_scythe_r1.png",
+      "sha256": "d12f529bc5d35b940b89c8d9e83438dc2b2ebfa6b334064c09251e1a8d1dd5a4",
+      "prompt": "Use case: compositing, precise-object-edit. EDIT IMAGE 1, the accepted character master. IMAGE 2 is only the approved scythe design to insert. Deliver ONE 1254x1254 image, same canvas and framing as IMAGE 1. Add only the scythe; preserve every other pixel of the character and flat pure #00ff00 green plate. Preserve face, white hair, armor, belt, horn on HIS LEFT shoulder (viewer right), hands, feet, pose, size and position exactly. Character bbox remains x455–832 y304–1010.\nThe man holds a realistically sized slim bone-and-silver scythe in BOTH EXISTING CLOSED FISTS without moving or opening them. His raised anatomical RIGHT fist is at viewer left around (535,510); his low anatomical LEFT fist is at viewer right around (768,730). A continuous straight diagonal haft runs upper-left to lower-right through BOTH fists in FRONT of the ribcage and torso. Upper dark leather grip-wrap is INSIDE raised right fist; lower dark leather grip-wrap INSIDE low left fist. Existing knuckles occlude haft so both hands visibly grasp it. Keep fist positions and silhouettes unchanged.\nSIZE IS CRITICAL: real scythe sized to this man, modest and compact. Butt-cap to blade socket about 600 pixels along diagonal, approximately 0.85 of his 706-pixel standing height. Socket near (395,375), raised grip near (535,510), lower grip near (768,730), butt near (865,822). These are placement guides; fists must stay exactly as original. Shaft slim about wrist thickness, with jointed bone sections and silver ferrules, two dark leather wraps at hands, silver spiked butt at lower-right. Butt finishes above ground/feet and does not obscure feet. Crescent blade at UPPER-LEFT socket curves out AWAY from body toward viewer left, tip pointing down-left. Blade chord about 250 px, head NO WIDER than shoulders. Highest blade point no more than one head-height above original head top y304. Keep blade entirely left of face and do not cover face or hair. Whole weapon entirely within green canvas. If uncertain, make weapon SMALLER. Preserve distinctive bone-backed silver crescent and ornamental details of IMAGE 2 at this reduced scale.\nMatch original high elevated three-quarter camera about 53 degrees down, with scythe foreshortened in same ground-plane tilt. HAND-DRAWN painted 2D animation-frame aesthetic: confident dark hand-drawn contour with tapered varying weight, clean painted material planes, restrained texture, readable silhouette. Same silver/bone material and outline weight as references. Single cold key from SCREEN UPPER-LEFT, deep cool readable ambient, slight key-facing rim. No warm spell light. No floor shadow, ground, glow, text, extra objects. Do not mirror. Do not redraw, move, resize, or reinterpret the master character. This is a single master edit, not a sheet or frame registration.",
+      "references": [
+        {
+          "role": "edit target — accepted camera master",
+          "path": "in/01_necro_master_cam_02.png"
+        },
+        {
+          "role": "supporting insert — approved scythe design",
+          "path": "in/02_scythe_design_v1.png"
+        }
+      ],
+      "elapsed_s": 42.234
+    }
+  ],
+  "calls_used": 1,
+  "retries": [],
+  "self_report": {
+    "obeyed_invariants": false,
+    "concerns": [
+      "The generated 1254×1254 PNG replaced the required pure-green plate with transparency despite explicit preservation instructions.",
+      "Exact pixel preservation of the figure was not verified; pose, framing, fists, and horn placement appear preserved visually.",
+      "No retry used because background loss is outside the task's enumerated retry triggers.",
+      "The images field follows the required response schema array; image-generation call count is recorded in calls_used."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/necro_master_scythe_r1.png",
+      "sha256": "d12f529bc5d35b940b89c8d9e83438dc2b2ebfa6b334064c09251e1a8d1dd5a4"
+    }
+  ]
+}
