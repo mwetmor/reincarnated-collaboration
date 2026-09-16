@@ -1,0 +1,22 @@
+{
+ "text": "GENERATE BURST E0p-peak-02 \u2014 the FIRE IMPACT PEAK STILL (Run C-5, experiment E0-p step 1, charter \u00a7 4; architecture 03- \u00a7 2.2b / \u00a7 2.3). task_id \"E0p-peak-02\". This still is the body that E0-p decomposes into pieces and brings to life at runtime \u2014 and E0(a)'s asymmetric head. Paint the SHAPE REPRESENTING EMISSION only; light, glow, flash, halo, floor light, colour and motion are runtime layers the exporter adds.\n\nIMAGE 1 is the SCALE + REGISTER board: a 1:1 native 512\u00d7512 crop of the painted cliffside clearing at the game camera (elevated three-quarter, ~53\u00b0 down) with two figures standing on the dirt \u2014 each figure is 130 px tall = 1 BH (body height) \u2014 beside a 3\u00d7 nearest enlargement of the same crop for reading. Everything in the scene is hand-drawn painted 2D: a confident dark contour with taper, clean painted planes inside the line, restrained texture. IMAGE 2 is the same native crop alone (the ground the burst lands on; for reading, not for painting on).\n\nDeliver EXACTLY ONE image, 512\u00d7512, with a GENUINELY TRANSPARENT background (RGBA PNG: alpha 0 everywhere outside the body, fully opaque inside it, no soft fringe wider than 1 px) \u2014 if image_gen cannot output transparency, paint it on a flat uniform #00ff00 plate instead and SAY SO in concerns. Content: the intact PEAK of a FIRE IMPACT at full extent, as ONE painted body centred on the canvas \u2014 a SYMMETRICAL BURST (Matt R-C5-109): a dense bright CORE mass at the centre-bottom, and around it a RING of flame that is CONTINUOUS \u2014 eight to ten short hooked tongues of nearly EQUAL length (no tongue more than 1.4\u00d7 the shortest; none longer than 0.9\u00d7 the core's own width) with FLAME FILLING THE GAPS between them (the outline reads as a scalloped, roughly circular-to-elliptical burst, never as separate arms; no octopus arms, no long reaching tendrils), the tongues curling outward and slightly upward all round, the top ones a little taller than the sides. PAINTED EXTENT: about 300 px across (2.3 BH) and about 280 px tall; nothing touches the canvas edge. FOUR flat greyscale value planes only, hard-edged, no gradients, no glow: near-black contour/rim (with taper), dark grey outer flame, light grey mid flame, WHITE core \u2014 the white core is the burst's heart and should occupy about a third of the body's area, an irregular flame-shaped mass (not a disc). Same camera as IMAGE 1 (elevated three-quarter): the base of the burst is slightly flattened as if sitting on the ground. Deliver: out/fire_peak_02.png.\nRETURN: the receipt (task_id \"E0p-peak-02\"): images = the integer count of images generated; calls_used; status DELIVERED / DELIVERED_WITH_CONCERNS / FAILED; concerns listed honestly (transparency, plane count, symmetry).",
+ "references": [
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/artifacts/E0p-refs/scale_board_clearing.png",
+   "role": "IMAGE 1 \u2014 scale + register board: native 512\u00b2 clearing crop with two 130-px figures (1 BH) + 3\u00d7 enlargement"
+  },
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/artifacts/E0p-refs/clearing_native_512.png",
+   "role": "IMAGE 2 \u2014 the native ground crop alone (reading only)"
+  }
+ ],
+ "image_cap": 2,
+ "minutes_cap": 15,
+ "tool_call_cap": 20,
+ "outputs": [
+  "out/fire_peak_02.png"
+ ],
+ "effort": "high",
+ "add_dirs": [],
+ "experiment": "C5-E0p"
+}
