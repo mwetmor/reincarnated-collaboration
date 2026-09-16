@@ -1,0 +1,65 @@
+{
+  "task_id": "T4m",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [],
+  "calls_used": 0,
+  "retries": [],
+  "self_report": {
+    "obeyed_invariants": false,
+    "concerns": [
+      "All six targeted tests are green. Full suite: 622 tests, reds reduced from 24 to 18, no new reds. Production files are byte-identical.",
+      "Acceptance names every remaining red: five standing entries, eleven Godot environment cases, one unchanged stale headless dissolve assertion, and one unresolved headless timeout.",
+      "Procedure deviation: the initial SPEC excerpt included sections beyond those requested. The mandated suite also regenerated its volatile reports and used existing temporary fixtures outside T4m; these side effects are documented."
+    ]
+  },
+  "files": [
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_effect_kit.py",
+      "sha256": "16afe3a408ac503f2b6c7192acd729c83befce8e74b930260ae781277d54c6ca"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_godot_import.py",
+      "sha256": "f4e80d8aa088c9d16582734f83f15a26336d611f68e1978d3fe7ed9ed356fbfd"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_vfx_picker.py",
+      "sha256": "0c825978514c1150f6815e73ccd41da19be677827055d55b962a96f7fdbdf5d1"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/t0c_summary.json",
+      "sha256": "7003c15ffe22d9cabe1df90e1af0a6ffc82393948a696f9dde82d78f6c348ab4"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/t0c_suite_output.txt",
+      "sha256": "f5014c5941f63ed1cd26953d5186af648ec36bf59621d2fa567778942298bd63"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4m/acceptance.json",
+      "sha256": "4edec67513cb021f1c867b5a1acd3587bbc8c9d03845eca1d817235f8ff0a46d"
+    },
+    {
+      "path": "/Users/admin/astra-burst/runs/C-5/T4m/out/after_t0c_suite_output.txt",
+      "sha256": "f5014c5941f63ed1cd26953d5186af648ec36bf59621d2fa567778942298bd63"
+    },
+    {
+      "path": "/Users/admin/astra-burst/runs/C-5/T4m/out/before_hashes.json",
+      "sha256": "1302fef39f23d6e5cae85a918a49629a7812c5d4a2b8104f45f231b8e92532fe"
+    },
+    {
+      "path": "/Users/admin/astra-burst/runs/C-5/T4m/out/before_t0c_suite_output.txt",
+      "sha256": "0edaa8904d6ce40475b88a8cc2c7c4bd09670c9f16b8f1c1e109da6de5580e9e"
+    },
+    {
+      "path": "/Users/admin/astra-burst/runs/C-5/T4m/out/targeted_after.log",
+      "sha256": "db3c27dc968b18cfdde8291af3c926401e3656deaa13fb7d87e1bee77a6326ee"
+    },
+    {
+      "path": "/Users/admin/astra-burst/runs/C-5/T4m/out/tests.diff",
+      "sha256": "62a05014765fed22f298c1facc0bfec4d064e1e603ccaea920e14ea5554e9bee"
+    },
+    {
+      "path": "/Users/admin/astra-burst/runs/C-5/T4m/out/files.json",
+      "sha256": "0fe8474f5a7d62ad82f82f7d8c4d5925e52f791bd7b2a0a579d087667bf132b1"
+    }
+  ]
+}

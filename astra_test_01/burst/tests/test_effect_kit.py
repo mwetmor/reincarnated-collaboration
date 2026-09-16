@@ -1227,13 +1227,14 @@ class PieceStretchPhaseTests(PiecePhaseTests):
         self.assertEqual(a,{i:piece_stretch(2026,i) for i in reversed(range(24))})
         self.assertNotEqual(a,{i:piece_stretch(2027,i) for i in range(24)})
         for value in a.values():
-            self.assertTrue(2.5 <= value['along'] <= 3)
+            self.assertTrue(2.0 <= value['along'] <= 2.5)
             self.assertTrue(abs(value['rotation_deg']) <= 10)
         geometry = piece_geometry(self.record,self.path.parent)
         self.assertEqual(geometry['pieces'][0]['root'],[7,7])
         self.assertTrue(geometry['pieces'][0]['core'])
         build(self.path,self.out)
         kit = load_kit(self.out)
+        self.assertTrue(0 <= kit['pieces']['root_drift'] <= .5)
         self.assertEqual((self.out/kit['distance_fields']['pieces/piece.png']).read_bytes(),
                          (self.out/kit['distance_fields']['pieces/peak_index.png']).read_bytes())
 
@@ -1525,7 +1526,12 @@ class BurnBackMaterialTests(unittest.TestCase):
         report=burn_back_cpu(ROOT/'runs/C-5/t3/T4l/project')
         self.assertTrue(.15<=report['residue_entry_fraction']<=.25)
         self.assertGreaterEqual(report['extent_ratio_at_age15'],1.8)
-        self.assertGreaterEqual(report['minimum_component_from_erosion'],.9)
+        # R-C5-33: include erosion start and residue entry; embers are exempt.
+        erosion_start=max(r['age'] for r in report['rows'] if r['stage']=='expansion')
+        residue_entry=next(r['age'] for r in report['rows'] if r['stage']=='residue')
+        compact=[r for r in report['rows'] if erosion_start<=r['age']<=residue_entry]
+        self.assertEqual([r['age'] for r in compact],list(range(erosion_start,residue_entry+1)))
+        self.assertGreaterEqual(min(r['largest_component_fraction'] for r in compact),.9)
         self.assertLessEqual(report['max_centroid_peak_extent_fraction_from_erosion'],.15)
 
 
@@ -1534,8 +1540,17 @@ class BurnBackResidueHoldTests(unittest.TestCase):
         report=burn_back_cpu(ROOT/'runs/C-5/t3/T4l/project')
         residue=[r for r in report['rows'] if r['stage']=='residue']
         self.assertEqual(len(residue),36)
-        self.assertGreaterEqual(min(r['hold_peak_fraction'] for r in residue),.15)
+        # R-C5-33: the hold-peak fraction is bounded at entry, then dissolves.
+        self.assertGreaterEqual(residue[0]['hold_peak_fraction'],.15)
         self.assertLessEqual(max(r['hold_peak_fraction'] for r in residue),.25)
+        release=report['rows'][-1]
+        self.assertEqual(release['stage'],'zero')
+        self.assertEqual(release['coverage_px'],0)
+        tail=residue+[release]
+        for previous,current in zip(tail,tail[1:]):
+            with self.subTest(age=current['age']):
+                self.assertEqual(current['age'],previous['age']+1)
+                self.assertLessEqual(current['hold_peak_fraction'],previous['hold_peak_fraction'])
 
     def test_cpu_replay_agrees_with_actual_headless_uniform_schedule(self):
         project=ROOT/'runs/C-5/t3/T4l/project'

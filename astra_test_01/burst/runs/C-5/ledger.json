@@ -4801,6 +4801,280 @@
       "codex_version": "codex-cli 0.153.4",
       "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
       "exit": 3
+    },
+    {
+      "id": "CS-pack-v25",
+      "type": "PACK",
+      "experiment": "C5-P0b",
+      "brief_sha256": "a149a4f8ce03ab09e725293287307b09134dbcd4703932fa2cf289de332800ae",
+      "started": "2026-09-16T04:44:41.559667+00:00",
+      "ended": "2026-09-16T04:46:36.765116+00:00",
+      "minutes": 1.9200195333333492,
+      "image_calls": 0,
+      "tool_calls": 3,
+      "audit": {
+        "violations": [],
+        "image_calls": 0,
+        "tool_calls": 3,
+        "tools_seen": {
+          "command_execution": 3
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": []
+      },
+      "receipt_sha256": "5baf66c633f7b33d3a4782135a3044a97e56792b694b22adb8759bac793ad45c",
+      "artifacts": [
+        {
+          "name": "README_scene.txt",
+          "sha256": "707655413f0f47d72db53914db8118d9d0d05cddae3ebd7c65fcf4b51122ab02"
+        },
+        {
+          "name": "exporter.json",
+          "sha256": "ae17e5d852b1434bf14c3bd2c412987a9a763e8df07a87680e35898477348094"
+        },
+        {
+          "name": "godot/project.godot",
+          "sha256": "6a8166148fc0b3e54f8589a0a716379636040f615b0f827ea49f2dfe7a6c5deb"
+        },
+        {
+          "name": "godot/scenes/cliffside.tscn",
+          "sha256": "0a1c27164444eff8276b45ed03f339614b7da2c43bfca4bf69b0accf5e586367"
+        },
+        {
+          "name": "godot/scenes/main.tscn",
+          "sha256": "a7ff2b1ba99ca306dacd7fbee1556fbfbed54d72cc8e3c01ab72e1aba58b874d"
+        },
+        {
+          "name": "godot/scenes/vfx_blackwater_cocktail_impact.tscn",
+          "sha256": "e5ddd467c72eb10b42d5b85ea1f5a151941a3c1ec4ae6fbdf463815e21409bf3"
+        },
+        {
+          "name": "godot/scenes/vfx_fire_burst_e0p_impact.tscn",
+          "sha256": "3396177981a9f617d58b7ddc882b24db1e1bb42f46445beb4ae1992b39a26032"
+        },
+        {
+          "name": "godot/scenes/vfx_fire_burst_e0p_v2_impact.tscn",
+          "sha256": "e8478f177dcd824704e4fc88b2091a246eafeb055884a008effb8ba81c5cc451"
+        },
+        {
+          "name": "godot/scenes/vfx_frozen_orb_impact.tscn",
+          "sha256": "16985b18f3cbc32bf899010a609b760725cc0e1a3f46ecc4bde7e5816eeab3ac"
+        },
+        {
+          "name": "godot/scenes/vfx_healing_hands_impact.tscn",
+          "sha256": "8c75c6faca42086fdbd4ea27156b19e72db7a4cd3ec675bffd721d9946da9957"
+        },
+        {
+          "name": "godot/scenes/vfx_lightning_blast_impact.tscn",
+          "sha256": "8c9987d3965f65198347dd64d4f980aa98bc519da9e4c86889e91a789aa0f699"
+        },
+        {
+          "name": "godot/scenes/vfx_poisonous_concoction_impact.tscn",
+          "sha256": "ba602145d646797ab6c1671124f2259556c4a8e2f50de219c42cd5f9c7a48aec"
+        },
+        {
+          "name": "godot/scenes/vfx_zeus_chain_impact.tscn",
+          "sha256": "fc5c7695c0521460c88ce4b15e3981ac5a400039ee9d94d64285b83db9d758a7"
+        },
+        {
+          "name": "godot/scripts/fly_swarm.gd",
+          "sha256": "8603f91597f1f8aeb74b6238a6a2860c3ac807b4c67edca13f56f40b08b33423"
+        },
+        {
+          "name": "godot/scripts/glow_flicker.gd",
+          "sha256": "fee0db3aa00b834bc1f6198886c6e476f45b91fd012ce641a0145e97ec857671"
+        },
+        {
+          "name": "godot/scripts/keeper.gd",
+          "sha256": "32c89c1f9f09d784d425fdee65fc983812f009083e2518218f6473f438baa9c3"
+        },
+        {
+          "name": "godot/scripts/occlusion_fade.gd",
+          "sha256": "96d37de2e8c7790cb00815fb1f939389872874ba23b43dc017d8530d3db62f61"
+        },
+        {
+          "name": "godot/scripts/vfx_blackwater_cocktail_impact.gd",
+          "sha256": "ee7746d714018555bb06d3946e61704cfafae5859da57748f7482f446ef34cac"
+        },
+        {
+          "name": "godot/scripts/vfx_blackwater_cocktail_material.gd",
+          "sha256": "596472d72bfc8e56af2139756e7cb21b948be6c29192a7d4fb7b2fbe042315d1"
+        },
+        {
+          "name": "godot/scripts/vfx_contact_label.gd",
+          "sha256": "1d79a93b4c9509a28f67b975f0b9474ed6e0baa4471ff749ae8048bd644a33fe"
+        },
+        {
+          "name": "godot/scripts/vfx_fire_burst_e0p_impact.gd",
+          "sha256": "69b38d7953c31bad3e6f8318b55cb3cbf1f8f81b557c1c08ae4e7dbb82a6dddf"
+        },
+        {
+          "name": "godot/scripts/vfx_fire_burst_e0p_material.gd",
+          "sha256": "596472d72bfc8e56af2139756e7cb21b948be6c29192a7d4fb7b2fbe042315d1"
+        },
+        {
+          "name": "godot/scripts/vfx_fire_burst_e0p_v2_impact.gd",
+          "sha256": "640835f7da8485a91eb0628f8d7525fd42652a1a32b31ffd9ad14b389a29e8af"
+        },
+        {
+          "name": "godot/scripts/vfx_fire_burst_e0p_v2_material.gd",
+          "sha256": "596472d72bfc8e56af2139756e7cb21b948be6c29192a7d4fb7b2fbe042315d1"
+        },
+        {
+          "name": "godot/scripts/vfx_frozen_orb_impact.gd",
+          "sha256": "77eafbb9e96eef5233045309122e9729a812d59d06f2247e02541b06d9fbf55c"
+        },
+        {
+          "name": "godot/scripts/vfx_frozen_orb_material.gd",
+          "sha256": "596472d72bfc8e56af2139756e7cb21b948be6c29192a7d4fb7b2fbe042315d1"
+        },
+        {
+          "name": "godot/scripts/vfx_g1.gd",
+          "sha256": "361e32cb786f38babef3fded758b3b6cdc963e07ce23b069845e38f242bff425"
+        },
+        {
+          "name": "godot/scripts/vfx_healing_hands_impact.gd",
+          "sha256": "4257300a57e9d823fbffd593a74435e80d5191324e1db167335b466fd3d02c46"
+        },
+        {
+          "name": "godot/scripts/vfx_healing_hands_material.gd",
+          "sha256": "596472d72bfc8e56af2139756e7cb21b948be6c29192a7d4fb7b2fbe042315d1"
+        },
+        {
+          "name": "godot/scripts/vfx_lightning_blast_impact.gd",
+          "sha256": "fe13db8454b494f19cdc5442532eea4acc702d31c60d5c4f2c9108772f4c12b5"
+        },
+        {
+          "name": "godot/scripts/vfx_lightning_blast_material.gd",
+          "sha256": "596472d72bfc8e56af2139756e7cb21b948be6c29192a7d4fb7b2fbe042315d1"
+        },
+        {
+          "name": "godot/scripts/vfx_poisonous_concoction_impact.gd",
+          "sha256": "356743d5918f37c290a977857c400ca9b5ed3344cdb8e1c404bcac50136f8f69"
+        },
+        {
+          "name": "godot/scripts/vfx_poisonous_concoction_material.gd",
+          "sha256": "596472d72bfc8e56af2139756e7cb21b948be6c29192a7d4fb7b2fbe042315d1"
+        },
+        {
+          "name": "godot/scripts/vfx_zeus_chain_impact.gd",
+          "sha256": "27cbfd483d68b02937dee96432d13c4bfaed826380e6df15c6eac69364e64a43"
+        },
+        {
+          "name": "godot/scripts/vfx_zeus_chain_material.gd",
+          "sha256": "596472d72bfc8e56af2139756e7cb21b948be6c29192a7d4fb7b2fbe042315d1"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
+    },
+    {
+      "id": "T4m",
+      "type": "TOOLING",
+      "experiment": "C5-E0p",
+      "brief_sha256": "1657d2c1063e4858bbf7ff73a66822007e322eb913d3240c4d90ba093a4ffc15",
+      "started": "2026-09-16T04:50:40.300194+00:00",
+      "ended": "2026-09-16T05:04:39.929312+00:00",
+      "minutes": 13.993920152783296,
+      "image_calls": 0,
+      "tool_calls": 32,
+      "audit": {
+        "violations": [],
+        "image_calls": 0,
+        "tool_calls": 32,
+        "tools_seen": {
+          "command_execution": 30,
+          "file_change": 2
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": []
+      },
+      "receipt_sha256": "ad7013882a33df09334c5b6892e0dbafafd5af1dec983fa9451910b54acbb3e6",
+      "artifacts": [
+        {
+          "name": "after_t0c_suite_output.txt",
+          "sha256": "f5014c5941f63ed1cd26953d5186af648ec36bf59621d2fa567778942298bd63"
+        },
+        {
+          "name": "before_hashes.json",
+          "sha256": "1302fef39f23d6e5cae85a918a49629a7812c5d4a2b8104f45f231b8e92532fe"
+        },
+        {
+          "name": "before_t0c_suite_output.txt",
+          "sha256": "0edaa8904d6ce40475b88a8cc2c7c4bd09670c9f16b8f1c1e109da6de5580e9e"
+        },
+        {
+          "name": "files.json",
+          "sha256": "0fe8474f5a7d62ad82f82f7d8c4d5925e52f791bd7b2a0a579d087667bf132b1"
+        },
+        {
+          "name": "targeted_after.log",
+          "sha256": "db3c27dc968b18cfdde8291af3c926401e3656deaa13fb7d87e1bee77a6326ee"
+        },
+        {
+          "name": "tests.diff",
+          "sha256": "62a05014765fed22f298c1facc0bfec4d064e1e603ccaea920e14ea5554e9bee"
+        }
+      ],
+      "artifacts_in_place": [
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-5/t3/T4m/acceptance.json",
+          "sha256": "4edec67513cb021f1c867b5a1acd3587bbc8c9d03845eca1d817235f8ff0a46d"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "tests/t0c_suite_output.txt",
+          "sha256": "f5014c5941f63ed1cd26953d5186af648ec36bf59621d2fa567778942298bd63"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "tests/t0c_summary.json",
+          "sha256": "7003c15ffe22d9cabe1df90e1af0a6ffc82393948a696f9dde82d78f6c348ab4"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "tests/test_effect_kit.py",
+          "sha256": "16afe3a408ac503f2b6c7192acd729c83befce8e74b930260ae781277d54c6ca"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "tests/test_godot_import.py",
+          "sha256": "f4e80d8aa088c9d16582734f83f15a26336d611f68e1978d3fe7ed9ed356fbfd"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "tests/test_vfx_picker.py",
+          "sha256": "0c825978514c1150f6815e73ccd41da19be677827055d55b962a96f7fdbdf5d1"
+        }
+      ],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
     }
   ],
   "experiments": [],
@@ -4864,6 +5138,11 @@
       "id": "M-C5-WEB10",
       "note": "CS-pack-web10 LIVE (drax) from CS-pack-v23: figures 13.5 %, final necromancer on the path, touch-aim fix VERIFIED on production under real touch emulation (hasTouch, CDP touch events; casts east AND west land on the facing side — west is the discriminator vs the CAST button at bottom-right); desktop mouse aim regression-checked unchanged; loadout 650fd75d; pck f8bb4d79…; no build-script change. Deploy truth: agentic_orchestration/drax/captures/2026-09-15-web-playtest-v10/deploy_truth.txt",
       "ts": "2026-09-16T00:17:12"
+    },
+    {
+      "id": "M-C5-PACKET-89",
+      "note": "Packet 89 — cliffside_v25 (PACK on the T4l re-freeze e45165b3c0b4; import 0 errors): burst_v2 lap 3 cast at a dummy at 1:1 (probe_cast_touch_v23, kit 8), real-time + quarter clips, contact sheet, dark-plate bake; Desktop folder 89; sent to Matt. Gate: Matt eye on lap 3 as the E0-p template.",
+      "ts": "2026-09-16T00:50:00"
     }
   ],
   "halts": [],
@@ -5105,6 +5384,20 @@
       "veto_open": true,
       "ruling": "T4l returned FAILED-honest but the BUILD is accepted on the conductor eye + outside bake (lap 3: flare → tongues burn back → ember core dims at the origin; extent 1.68×; connected through expansion; residue 16.8 % held then embers; seed-equal identical; 488 legacy files byte-identical). The two failing clauses were MINE: compactness ≥ 0.9 must exclude the ember frames (embers fragment by nature — 0.67 at the last frame), and the 15–25 % band applies at residue ENTRY, after which the ember dissolve dims it by design. FREEZE with SIX named obsolete reds beyond the five standing (two T4l literal-clause tests + four retained lap-2 expectations: stretch 2.5–3 → 2.0–2.5; whole-body distance/drift expectations) — all £0 test alignment, T4m. PACK v25 fires on this freeze → Packet 89 in-scene at 1:1.",
       "ts": "2026-09-16T00:44:41"
+    },
+    {
+      "id": "R-C5-34",
+      "class": "matt",
+      "veto_open": false,
+      "ruling": "Matt (2026-09-16, on web10 + Packet 89): \"The fire is really good… Motion is right. Size is right. Agreed on the circle change.\" → burst_v2 lap 3 is the E0-p burst template; residue keeps the core's ragged painted edge (T4n, £0). Also: \"tuning the height scale from 13.5 % up to 14 %\" → parallax-in v10 figure_height_px 151; props v24 (necro 151 px). F-C5-9 (Matt): the cow_flies swarm never moved with the carcass (v19) — swarm re-seated over the cow at (4580,760), sort_y 830 (props v24). Matt asks what the remaining rounds add to the fire — answered in-chat (key states; palette; flash/halo/floor-light tuning; ember motes; the projectile + cast half at E1).",
+      "ts": "2026-09-16T01:17:13"
+    },
+    {
+      "id": "R-C5-35",
+      "class": "conductor",
+      "veto_open": true,
+      "ruling": "T4m ACCEPTED (tests aligned to the corrected lap-3 clause; production byte-identical): outside suite = the five standing reds only — the obsolete reds are gone. FREEZE. PACK v26 fires: parallax-in v10 (14 % = 151 px, Matt), props v24 (necro 151 px on the path; cow_flies re-seated over the carcass, F-C5-9), lap-3 burst → web11.",
+      "ts": "2026-09-16T01:23:02"
     }
   ],
   "grok_calls": [],

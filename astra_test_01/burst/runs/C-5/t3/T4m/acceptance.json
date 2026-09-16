@@ -1,0 +1,357 @@
+{
+  "task_id": "T4m",
+  "contract": "SPEC section 7 T4h, Lap-3 clause CORRECTED (R-C5-33)",
+  "production_behavior_changed": false,
+  "production_verification": [
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/export/effect_kit.py",
+      "sha256": "436c12763c7402231ef27c668a6d0c9ef343e0ad07997725de38107bf6a8804c",
+      "after_sha256": "436c12763c7402231ef27c668a6d0c9ef343e0ad07997725de38107bf6a8804c",
+      "byte_identical": true
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/export/godot_import.py",
+      "sha256": "6c57d17ba9276b046311ae79bfc298b9e37bdbf043d781707bf988fd916a7245",
+      "after_sha256": "6c57d17ba9276b046311ae79bfc298b9e37bdbf043d781707bf988fd916a7245",
+      "byte_identical": true
+    }
+  ],
+  "full_suite_command": "PYTHONDONTWRITEBYTECODE=1 python3 -B tests/run_t0c.py",
+  "full_suite_cwd": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+  "before": {
+    "tests_run": 622,
+    "successful_tests": 598,
+    "elapsed_s": 331.43027620799694,
+    "exit_code": 1,
+    "red_count": 24,
+    "failure_entries": 23,
+    "error_entries": 1,
+    "red_list": [
+      {
+        "test": "test_effect_kit.BurnBackMaterialTests.test_real_schedule_compactness_and_hold_denominator",
+        "kind": "failure",
+        "category": "authorized_lap3_expectation_update",
+        "reason": "AssertionError: 0.6721212121212121 not greater than or equal to 0.9"
+      },
+      {
+        "test": "test_effect_kit.BurnBackResidueHoldTests.test_literal_fraction_held_for_every_residue_age",
+        "kind": "failure",
+        "category": "authorized_lap3_expectation_update",
+        "reason": "AssertionError: 0.03933160115372697 not greater than or equal to 0.15"
+      },
+      {
+        "test": "test_effect_kit.PieceLap2ValidationTests.test_stretch_seed_bounds_and_whole_body_distance",
+        "kind": "failure",
+        "category": "authorized_lap3_expectation_update",
+        "reason": "AssertionError: False is not true"
+      },
+      {
+        "test": "test_effect_kit.PieceStretchPhaseTests.test_stretch_seed_bounds_and_whole_body_distance",
+        "kind": "failure",
+        "category": "authorized_lap3_expectation_update",
+        "reason": "AssertionError: False is not true"
+      },
+      {
+        "test": "test_godot_import.GodotImportTests.test_headless_state_machine_input_map_gear_vfx_and_nearest_fallback",
+        "kind": "failure",
+        "category": "godot_environment_log_access",
+        "reason": "AssertionError: -6 != 0 : ERROR: Failed to open 'user://logs/godot2026-09-16T00.52.04.log'."
+      },
+      {
+        "test": "test_godot_import.PieceStretchImportTests.test_axes_whole_field_root_residue_clock_and_grey",
+        "kind": "failure",
+        "category": "authorized_lap3_expectation_update",
+        "reason": "AssertionError: 'outer_distance' not found in 'extends \"res://scripts/vfx/piece_burst.gd\"\\n# R(theta) * S(along, across) * R(-theta), about the original mask root.\\n# Stationary source coverage anchors the core and tongue roots. Both layers\\n# use whole-body UV distance, never a distance field re-centred on a shard.\\nfunc _ready() -> void:\\n    config = JSON.parse_string(FileAccess.get_file_as_string(configuration))\\n    if bool(config.get(\"screen_px\", false)):\\n        spell_scale = 1.0\\n    $FloorLight.scale *= spell_scale\\n    release_tick = Engine.get_physics_frames()\\n    $Art.scale = Vector2.ONE * float(config.phase_scale) * spell_scale\\n    for item in config.pieces:\\n        var name: String = \"Axis_%03d\" % int(item.id)\\n        var axis: Node2D = get_node(\"Art/Pieces/\" + name)\\n        var stretch: Sprite2D = axis.get_node(\"Stretch\")\\n        var paint: Sprite2D = stretch.get_node(\"Piece_%03d\" % int(item.id))\\n        var root_sprite: Sprite2D = get_node(\"Art/Roots/Root_%03d\" % int(item.id))\\n        for sprite in [paint, root_sprite]:\\n            sprite.material = sprite.material.duplicate()\\n            if grey_bodies:\\n                for band in range(4):\\n                    sprite.material.set_shader_parameter(\"palette_\" + str(band), Color(128.0/255.0,128.0/255.0,128.0/255.0,1))\\n        var dark_axis: Node2D = null\\n        var dark_root: Sprite2D = null\\n        if bool(config.dark_duplicate):\\n            dark_axis = axis.duplicate()\\n            $Art/DarkP"
+      },
+      {
+        "test": "test_godot_import.PieceStretchImportTests.test_v2_headless_import_and_seed_equal_rooted_clock",
+        "kind": "failure",
+        "category": "unchanged_stale_headless_expectation",
+        "reason": "Godot exits 7: band three not dissolved. STRETCH_CLOCK_PROBE still requires dissolve == 0.5 for every residue frame; lap 3 emits 0.0 at entry followed by the ember ramp. Outside the six authorized fixes."
+      },
+      {
+        "test": "test_oracle_walk.Tests.test_synthetic_contract_and_grid",
+        "kind": "failure",
+        "category": "standing_red",
+        "reason": "AssertionError: 60 != 65 within 2 delta (5 difference) : head_ref_y"
+      },
+      {
+        "test": "test_oracles_motif.Tests.test_f04_outside_at_least_three",
+        "kind": "failure",
+        "category": "standing_red",
+        "reason": "AssertionError: 2 not greater than or equal to 3"
+      },
+      {
+        "test": "test_oracles_motif.Tests.test_named_genuine_annuli_retained (center=[113, 201])",
+        "kind": "failure",
+        "category": "standing_red",
+        "reason": "AssertionError: 'rejected' unexpectedly found in {'angular_support': 0.7708333333333334, 'center': [113.0, 201.0], 'hollow_score': 0.3125, 'inner_opposed_support': 0.3125, 'inside': False, 'lab_band_surround': 11.57642176150743, 'lab_center_band': 11.062059961818727, 'lab_center_surround': 22.610550201280017, 'lab_color_return': 0.0, 'radius': 30.0, 'rejected': 'not_annulus', 'score': 0.7074940354497125}"
+      },
+      {
+        "test": "test_oracles_motif.Tests.test_named_genuine_annuli_retained (center=[111, 311])",
+        "kind": "failure",
+        "category": "standing_red",
+        "reason": "AssertionError: 'rejected' unexpectedly found in {'angular_support': 0.75, 'center': [111.0, 311.0], 'hollow_score': 0.16666666666666666, 'inner_opposed_support': 0.16666666666666666, 'inside': False, 'lab_band_surround': 21.229621366461696, 'lab_center_band': 18.63219308325294, 'lab_center_surround': 39.74946870785732, 'lab_color_return': 0.0, 'radius': 27.0, 'rejected': 'not_annulus', 'score': 0.5281963253811909}"
+      },
+      {
+        "test": "test_oracles_motif.Tests.test_named_genuine_annuli_retained (center=[170, 253])",
+        "kind": "failure",
+        "category": "standing_red",
+        "reason": "AssertionError: 'rejected' unexpectedly found in {'angular_support': 0.8333333333333334, 'center': [170.0, 253.0], 'hollow_score': 0.08333333333333333, 'inner_opposed_support': 0.08333333333333333, 'inside': False, 'lab_band_surround': 12.987929666149537, 'lab_center_band': 18.508563966712764, 'lab_center_surround': 30.467977867785994, 'lab_color_return': 0.0, 'radius': 8.0, 'rejected': 'not_annulus', 'score': 0.6366616733180586}"
+      },
+      {
+        "test": "test_parallax_scene.ParallaxSceneTests.test_headless_cliffside_follow_camera_parallax_and_projectile_collision",
+        "kind": "failure",
+        "category": "godot_environment_log_access",
+        "reason": "AssertionError: -6 != 0 : ERROR: Failed to open 'user://logs/godot2026-09-16T00.53.37.log'."
+      },
+      {
+        "test": "test_props_layer.PropsLayerTests.test_headless_occlusion_fade_restore_overhead_near_and_particles",
+        "kind": "failure",
+        "category": "godot_environment_log_access",
+        "reason": "AssertionError: -6 != 0 : ERROR: Failed to open 'user://logs/godot2026-09-16T00.54.11.log'."
+      },
+      {
+        "test": "test_scene_kit.SceneKitTests.test_headless_tower_import_run_and_physics",
+        "kind": "failure",
+        "category": "godot_environment_log_access",
+        "reason": "AssertionError: -6 != 0 : ERROR: Failed to open 'user://logs/godot2026-09-16T00.54.21.log'."
+      },
+      {
+        "test": "test_sockets.SocketTests.test_headless_directional_release_and_resources",
+        "kind": "failure",
+        "category": "godot_environment_certificate_lookup",
+        "reason": "AssertionError: Lists differ: ['ERROR: Condition \"ret != noErr\" is true.[285 chars] \"\"'] != []"
+      },
+      {
+        "test": "test_vfx_picker.AuthoredEffectPickerTests.test_headless_authored_cast_east_north_collision_timing_and_feedback_cleanup",
+        "kind": "failure",
+        "category": "godot_environment_certificate_lookup",
+        "reason": "AssertionError: Lists differ: ['ERROR: Condition \"ret != noErr\" is true.[285 chars] \"\"'] != []"
+      },
+      {
+        "test": "test_vfx_picker.G1ComponentTests.test_headless_first_cast_contact_cursor_pool_cancel_and_picker",
+        "kind": "failure",
+        "category": "godot_environment_certificate_lookup",
+        "reason": "AssertionError: Lists differ: ['ERROR: Condition \"ret != noErr\" is true.[285 chars] \"\"'] != []"
+      },
+      {
+        "test": "test_vfx_picker.G1ComponentTests.test_headless_pierce_contacts_labels_pool_and_phase_callbacks",
+        "kind": "failure",
+        "category": "godot_environment_certificate_lookup",
+        "reason": "AssertionError: Lists differ: ['ERROR: Condition \"ret != noErr\" is true.[285 chars] \"\"'] != []"
+      },
+      {
+        "test": "test_vfx_picker.LivingEmbersTests.test_headless_glow_sixty_samples_extrema_range_and_particle_properties",
+        "kind": "failure",
+        "category": "godot_environment_certificate_lookup",
+        "reason": "AssertionError: Lists differ: ['ERROR: Condition \"ret != noErr\" is true.[285 chars] \"\"'] != []"
+      },
+      {
+        "test": "test_vfx_picker.PieceLap2ExportTests.test_v2_emits_drift_stretch_groups_and_stationary_residue",
+        "kind": "failure",
+        "category": "authorized_lap3_expectation_update",
+        "reason": "AssertionError: 'Seeded along stretch is 2.5..3.0' not found in 'extends \"res://scripts/vfx/piece_burst.gd\"\\n# R(theta) * S(along, across) * R(-theta), about the original mask root.\\n# Stationary source coverage anchors the core and tongue roots. Both layers\\n# use whole-body UV distance, never a distance field re-centred on a shard.\\nfunc _ready() -> void:\\n    config = JSON.parse_string(FileAccess.get_file_as_string(configuration))\\n    if bool(config.get(\"screen_px\", false)):\\n        spell_scale = 1.0\\n    $FloorLight.scale *= spell_scale\\n    release_tick = Engine.get_physics_frames()\\n    $Art.scale = Vector2.ONE * float(config.phase_scale) * spell_scale\\n    for item in config.pieces:\\n        var name: String = \"Axis_%03d\" % int(item.id)\\n        var axis: Node2D = get_node(\"Art/Pieces/\" + name)\\n        var stretch: Sprite2D = axis.get_node(\"Stretch\")\\n        var paint: Sprite2D = stretch.get_node(\"Piece_%03d\" % int(item.id))\\n        var root_sprite: Sprite2D = get_node(\"Art/Roots/Root_%03d\" % int(item.id))\\n        for sprite in [paint, root_sprite]:\\n            sprite.material = sprite.material.duplicate()\\n            if grey_bodies:\\n                for band in range(4):\\n                    sprite.material.set_shader_parameter(\"palette_\" + str(band), Color(128.0/255.0,128.0/255.0,128.0/255.0,1))\\n        var dark_axis: Node2D = null\\n        var dark_root: Sprite2D = null\\n        if bool(config.dark_duplicate):\\n            dark_axis = axis.duplicate()\\n    "
+      },
+      {
+        "test": "test_vfx_picker.TouchDeviceAimRuntimeTests.test_headless_device_forward_handled_overlay_and_mouse_probe",
+        "kind": "failure",
+        "category": "godot_environment_certificate_lookup",
+        "reason": "AssertionError: Lists differ: ['ERROR: Condition \"ret != noErr\" is true.[285 chars] \"\"'] != []"
+      },
+      {
+        "test": "test_vfx_picker.VfxPickerTests.test_headless_tab_twice_cast_scene_labels_and_inflight_kit_lock",
+        "kind": "failure",
+        "category": "godot_environment_certificate_lookup",
+        "reason": "AssertionError: Lists differ: ['ERROR: Condition \"ret != noErr\" is true.[285 chars] \"\"'] != []"
+      },
+      {
+        "test": "test_vfx_picker.TouchAimRuntimeTests.test_headless_overlay_forward_world_touch_and_mouse_probe",
+        "kind": "error",
+        "category": "headless_timeout_cause_unresolved",
+        "reason": "subprocess.TimeoutExpired: Command '['/Applications/Godot.app/Contents/MacOS/Godot', '--headless', '--log-file', '/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4i/tmp/touch-aim-avz6khqv/project/godot.log', '--path', '/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4i/tmp/touch-aim-avz6khqv/project', '--script', 'res://touch_aim_probe.gd']' timed out after 60 seconds"
+      }
+    ],
+    "category_counts": {
+      "authorized_lap3_expectation_update": 6,
+      "godot_environment_log_access": 4,
+      "unchanged_stale_headless_expectation": 1,
+      "standing_red": 5,
+      "godot_environment_certificate_lookup": 7,
+      "headless_timeout_cause_unresolved": 1
+    }
+  },
+  "after": {
+    "tests_run": 622,
+    "successful_tests": 604,
+    "elapsed_s": 326.47901241699583,
+    "exit_code": 1,
+    "red_count": 18,
+    "failure_entries": 17,
+    "error_entries": 1,
+    "red_list": [
+      {
+        "test": "test_godot_import.GodotImportTests.test_headless_state_machine_input_map_gear_vfx_and_nearest_fallback",
+        "kind": "failure",
+        "category": "godot_environment_log_access",
+        "reason": "AssertionError: -6 != 0 : ERROR: Failed to open 'user://logs/godot2026-09-16T00.57.49.log'."
+      },
+      {
+        "test": "test_godot_import.PieceStretchImportTests.test_v2_headless_import_and_seed_equal_rooted_clock",
+        "kind": "failure",
+        "category": "unchanged_stale_headless_expectation",
+        "reason": "Godot exits 7: band three not dissolved. STRETCH_CLOCK_PROBE still requires dissolve == 0.5 for every residue frame; lap 3 emits 0.0 at entry followed by the ember ramp. Outside the six authorized fixes."
+      },
+      {
+        "test": "test_oracle_walk.Tests.test_synthetic_contract_and_grid",
+        "kind": "failure",
+        "category": "standing_red",
+        "reason": "AssertionError: 60 != 65 within 2 delta (5 difference) : head_ref_y"
+      },
+      {
+        "test": "test_oracles_motif.Tests.test_f04_outside_at_least_three",
+        "kind": "failure",
+        "category": "standing_red",
+        "reason": "AssertionError: 2 not greater than or equal to 3"
+      },
+      {
+        "test": "test_oracles_motif.Tests.test_named_genuine_annuli_retained (center=[113, 201])",
+        "kind": "failure",
+        "category": "standing_red",
+        "reason": "AssertionError: 'rejected' unexpectedly found in {'angular_support': 0.7708333333333334, 'center': [113.0, 201.0], 'hollow_score': 0.3125, 'inner_opposed_support': 0.3125, 'inside': False, 'lab_band_surround': 11.57642176150743, 'lab_center_band': 11.062059961818727, 'lab_center_surround': 22.610550201280017, 'lab_color_return': 0.0, 'radius': 30.0, 'rejected': 'not_annulus', 'score': 0.7074940354497125}"
+      },
+      {
+        "test": "test_oracles_motif.Tests.test_named_genuine_annuli_retained (center=[111, 311])",
+        "kind": "failure",
+        "category": "standing_red",
+        "reason": "AssertionError: 'rejected' unexpectedly found in {'angular_support': 0.75, 'center': [111.0, 311.0], 'hollow_score': 0.16666666666666666, 'inner_opposed_support': 0.16666666666666666, 'inside': False, 'lab_band_surround': 21.229621366461696, 'lab_center_band': 18.63219308325294, 'lab_center_surround': 39.74946870785732, 'lab_color_return': 0.0, 'radius': 27.0, 'rejected': 'not_annulus', 'score': 0.5281963253811909}"
+      },
+      {
+        "test": "test_oracles_motif.Tests.test_named_genuine_annuli_retained (center=[170, 253])",
+        "kind": "failure",
+        "category": "standing_red",
+        "reason": "AssertionError: 'rejected' unexpectedly found in {'angular_support': 0.8333333333333334, 'center': [170.0, 253.0], 'hollow_score': 0.08333333333333333, 'inner_opposed_support': 0.08333333333333333, 'inside': False, 'lab_band_surround': 12.987929666149537, 'lab_center_band': 18.508563966712764, 'lab_center_surround': 30.467977867785994, 'lab_color_return': 0.0, 'radius': 8.0, 'rejected': 'not_annulus', 'score': 0.6366616733180586}"
+      },
+      {
+        "test": "test_parallax_scene.ParallaxSceneTests.test_headless_cliffside_follow_camera_parallax_and_projectile_collision",
+        "kind": "failure",
+        "category": "godot_environment_log_access",
+        "reason": "AssertionError: -6 != 0 : ERROR: Failed to open 'user://logs/godot2026-09-16T00.59.20.log'."
+      },
+      {
+        "test": "test_props_layer.PropsLayerTests.test_headless_occlusion_fade_restore_overhead_near_and_particles",
+        "kind": "failure",
+        "category": "godot_environment_log_access",
+        "reason": "AssertionError: -6 != 0 : ERROR: Failed to open 'user://logs/godot2026-09-16T00.59.55.log'."
+      },
+      {
+        "test": "test_scene_kit.SceneKitTests.test_headless_tower_import_run_and_physics",
+        "kind": "failure",
+        "category": "godot_environment_log_access",
+        "reason": "AssertionError: -6 != 0 : ERROR: Failed to open 'user://logs/godot2026-09-16T01.00.04.log'."
+      },
+      {
+        "test": "test_sockets.SocketTests.test_headless_directional_release_and_resources",
+        "kind": "failure",
+        "category": "godot_environment_certificate_lookup",
+        "reason": "AssertionError: Lists differ: ['ERROR: Condition \"ret != noErr\" is true.[285 chars] \"\"'] != []"
+      },
+      {
+        "test": "test_vfx_picker.AuthoredEffectPickerTests.test_headless_authored_cast_east_north_collision_timing_and_feedback_cleanup",
+        "kind": "failure",
+        "category": "godot_environment_certificate_lookup",
+        "reason": "AssertionError: Lists differ: ['ERROR: Condition \"ret != noErr\" is true.[285 chars] \"\"'] != []"
+      },
+      {
+        "test": "test_vfx_picker.G1ComponentTests.test_headless_first_cast_contact_cursor_pool_cancel_and_picker",
+        "kind": "failure",
+        "category": "godot_environment_certificate_lookup",
+        "reason": "AssertionError: Lists differ: ['ERROR: Condition \"ret != noErr\" is true.[285 chars] \"\"'] != []"
+      },
+      {
+        "test": "test_vfx_picker.G1ComponentTests.test_headless_pierce_contacts_labels_pool_and_phase_callbacks",
+        "kind": "failure",
+        "category": "godot_environment_certificate_lookup",
+        "reason": "AssertionError: Lists differ: ['ERROR: Condition \"ret != noErr\" is true.[285 chars] \"\"'] != []"
+      },
+      {
+        "test": "test_vfx_picker.LivingEmbersTests.test_headless_glow_sixty_samples_extrema_range_and_particle_properties",
+        "kind": "failure",
+        "category": "godot_environment_certificate_lookup",
+        "reason": "AssertionError: Lists differ: ['ERROR: Condition \"ret != noErr\" is true.[285 chars] \"\"'] != []"
+      },
+      {
+        "test": "test_vfx_picker.TouchDeviceAimRuntimeTests.test_headless_device_forward_handled_overlay_and_mouse_probe",
+        "kind": "failure",
+        "category": "godot_environment_certificate_lookup",
+        "reason": "AssertionError: Lists differ: ['ERROR: Condition \"ret != noErr\" is true.[285 chars] \"\"'] != []"
+      },
+      {
+        "test": "test_vfx_picker.VfxPickerTests.test_headless_tab_twice_cast_scene_labels_and_inflight_kit_lock",
+        "kind": "failure",
+        "category": "godot_environment_certificate_lookup",
+        "reason": "AssertionError: Lists differ: ['ERROR: Condition \"ret != noErr\" is true.[285 chars] \"\"'] != []"
+      },
+      {
+        "test": "test_vfx_picker.TouchAimRuntimeTests.test_headless_overlay_forward_world_touch_and_mouse_probe",
+        "kind": "error",
+        "category": "headless_timeout_cause_unresolved",
+        "reason": "subprocess.TimeoutExpired: Command '['/Applications/Godot.app/Contents/MacOS/Godot', '--headless', '--log-file', '/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4i/tmp/touch-aim-yhlze5es/project/godot.log', '--path', '/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4i/tmp/touch-aim-yhlze5es/project', '--script', 'res://touch_aim_probe.gd']' timed out after 60 seconds"
+      }
+    ],
+    "category_counts": {
+      "godot_environment_log_access": 4,
+      "unchanged_stale_headless_expectation": 1,
+      "standing_red": 5,
+      "godot_environment_certificate_lookup": 7,
+      "headless_timeout_cause_unresolved": 1
+    }
+  },
+  "removed_reds": [
+    "test_effect_kit.BurnBackMaterialTests.test_real_schedule_compactness_and_hold_denominator",
+    "test_effect_kit.BurnBackResidueHoldTests.test_literal_fraction_held_for_every_residue_age",
+    "test_effect_kit.PieceLap2ValidationTests.test_stretch_seed_bounds_and_whole_body_distance",
+    "test_effect_kit.PieceStretchPhaseTests.test_stretch_seed_bounds_and_whole_body_distance",
+    "test_godot_import.PieceStretchImportTests.test_axes_whole_field_root_residue_clock_and_grey",
+    "test_vfx_picker.PieceLap2ExportTests.test_v2_emits_drift_stretch_groups_and_stationary_residue"
+  ],
+  "added_reds": [],
+  "targeted": {
+    "tests_run": 6,
+    "red_count": 0,
+    "exit_code": 0,
+    "tests": [
+      "test_effect_kit.BurnBackMaterialTests.test_real_schedule_compactness_and_hold_denominator",
+      "test_effect_kit.BurnBackResidueHoldTests.test_literal_fraction_held_for_every_residue_age",
+      "test_effect_kit.PieceLap2ValidationTests.test_stretch_seed_bounds_and_whole_body_distance",
+      "test_effect_kit.PieceStretchPhaseTests.test_stretch_seed_bounds_and_whole_body_distance",
+      "test_godot_import.PieceStretchImportTests.test_axes_whole_field_root_residue_clock_and_grey",
+      "test_vfx_picker.PieceLap2ExportTests.test_v2_emits_drift_stretch_groups_and_stationary_residue"
+    ],
+    "evidence": "/Users/admin/astra-burst/runs/C-5/T4m/out/targeted_after.log"
+  },
+  "edits": {
+    "tests/test_effect_kit.py": [
+      "Compactness >= 0.9 from erosion start through residue entry inclusive; hold-peak denominator and existing centroid bound retained.",
+      "Residue entry >= 0.15, existing <= 0.25 maximum retained; all residue ages monotone non-increasing through zero release.",
+      "Shared seeded-stretch test now requires 2.0-2.5 along, preserves determinism/rotation/whole-body distance assertions, and checks root-drift bounds; inherited case also updated."
+    ],
+    "tests/test_godot_import.py": [
+      "Emission checks assert outside-in flag, residue-only dissolve, 0.85 across, bounded seeded stretch/root drift, screen-pixel scale branch, frame clock, whole-body field, and existing grey substitution."
+    ],
+    "tests/test_vfx_picker.py": [
+      "Real-kit export checks assert moderated stretch and outside-in residue-only dissolve; existing grouping, drift, ease and resource checks retained."
+    ]
+  },
+  "evidence": [
+    "/Users/admin/astra-burst/runs/C-5/T4m/out/before_t0c_suite_output.txt",
+    "/Users/admin/astra-burst/runs/C-5/T4m/out/after_t0c_suite_output.txt",
+    "/Users/admin/astra-burst/runs/C-5/T4m/out/tests.diff"
+  ],
+  "concerns": [
+    "The full suite retains 18 red entries: five standing cases/subtests, eleven Godot environment cases, one stale headless dissolve assertion, and one headless timeout with unresolved cause. Every entry is named below.",
+    "The stale PieceStretchImportTests.test_v2_headless_import_and_seed_equal_rooted_clock assertion and TouchAimRuntimeTests timeout are not classified as proven sandbox environment errors; both were present before these edits and are outside the six authorized fixes.",
+    "Procedure deviation: the first SPEC excerpt included sections 2-6 beyond the requested sections. No other production source files were intentionally inspected.",
+    "The mandated full-suite command regenerated tests/t0c_summary.json and tests/t0c_suite_output.txt and used its existing temporary fixtures, including runs/C-5/t3/T4i/tmp. Those are runner side effects; hand-edited source is limited to the three named test files."
+  ]
+}
