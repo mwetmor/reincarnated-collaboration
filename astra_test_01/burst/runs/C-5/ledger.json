@@ -9716,6 +9716,120 @@
       "codex_version": "codex-cli 0.153.4",
       "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
       "exit": 0
+    },
+    {
+      "id": "T4s-r3",
+      "type": "TOOLING",
+      "experiment": "C5-E3",
+      "brief_sha256": "49a598860e49d8bab74bdf601cd84b56b74700bc54c4d2e7c8820e5a285c278d",
+      "started": "2026-09-16T11:43:03.704953+00:00",
+      "ended": "2026-09-16T11:53:33.282553+00:00",
+      "minutes": 10.492896692366775,
+      "image_calls": 0,
+      "tool_calls": 18,
+      "audit": {
+        "violations": [],
+        "image_calls": 0,
+        "tool_calls": 18,
+        "tools_seen": {
+          "command_execution": 18
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": []
+      },
+      "receipt_sha256": "8228c0b0996d9cfdc74ee54cd51944785fe6805d8c7bebccab88565285cd7963",
+      "artifacts": [
+        {
+          "name": "files.json",
+          "sha256": "c405ff7edb018a967288b65f6cd2c91678955a057b9c3c90811487a0b0d1af7f"
+        }
+      ],
+      "artifacts_in_place": [
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "export/effect_kit.py",
+          "sha256": "50ea549c50d0cb6a0cf96e99898832671595b7c3dd814f258cde71429d8ca615"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "export/godot_import.py",
+          "sha256": "754a0491d269a953cf075233def34e01fa4e1e0b3cf401976f9ca59a6b0b01b5"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-5/t3/T4s-r3/acceptance.json",
+          "sha256": "4702d88fcf991db0f9377281a8261aaae658d5fb515dc9011a01b7b8941504c6"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-5/t3/T4s-r3/design_tests.json",
+          "sha256": "59bb7d7c3904aaf989c90ecf58b0f0ab0461840353e28617047880baf63371fb"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-5/t3/T4s-r3/headless.json",
+          "sha256": "a480158fbb7bf8937a23206d137a7c5d7bc748f5b13f264db0f8b84639b65d3d"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-5/t3/T4s-r3/legacy_hashes.json",
+          "sha256": "37a510c0d28b156647c1ea662aec7f2ba9fc4be9bcdd610a6128438838bd2a5b"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-5/t3/T4s-r3/regression_tests.json",
+          "sha256": "24436b01661654a7909edcdd832b4dfb1c22d6e51a867af61e3737e4f69ba7d4"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-5/t3/T4s-r3/regression_tests.log",
+          "sha256": "2291ed368a14ddc337f6df273f5a3cc13e6fd4173da39015d2452c06c2c2820a"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-5/t3/T4s-r3/trace_tables.json",
+          "sha256": "5f1cd7e320916085847c18ac7b3052e51adcf2c7ede83db22740c285c05b58ee"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-5/vfx_kits/v9/blackwater_cocktail_e3/kit.json",
+          "sha256": "a861cba2ab43c5cfd172173f83bc67eb3f0f5964e6fad1ef63b3d08ae82b54a2"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-5/vfx_kits/v9/blackwater_cocktail_e3/primitives/fire_pool.png",
+          "sha256": "1223ca58395b8df058f9575ce71733df18cc80f7c483ff521a7aa2f2157256a0"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-5/vfx_kits/v9/poisonous_concoction_e3/kit.json",
+          "sha256": "a50ec68e66e72a4efecb582f984d5defc93f6505b44464181e0fa9dc3628a989"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "tests/test_effect_kit.py",
+          "sha256": "1d94a9ef4b5e4aa4ab2bae0fb3318cd161659d2423066bdc1891d1674074ae34"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "tests/test_godot_import.py",
+          "sha256": "ce5829d22b84756dbc9e47b25a59e742ced3fe5bb0eabefd3ad6bbaa3329082b"
+        }
+      ],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
     }
   ],
   "experiments": [],
@@ -10306,6 +10420,13 @@
       "veto_open": true,
       "ruling": "FREEZE after T4t (outside suite as recorded; the R-C5-56/62 obsolete reds should now be aligned by T4t — verified in the note). T4s-r3 fires (fire pool binding, poison four-band ramp + density, lobes, flask parity).",
       "ts": "2026-09-16T07:42:20"
+    },
+    {
+      "id": "R-C5-68",
+      "class": "conductor",
+      "veto_open": true,
+      "ruling": "T4s-r3 DELIVERED_WITH_CONCERNS and ACCEPTED: fire pool = the painted P03 body at 1.0 on GroundEffects with licks riding its flame tongues; poison four-band ramp + density 0.75 + breathing; lobes above the cloud; both flasks visible at three flight ages; headless import + trace 0. One named red: an exact-global-scale assertion off by ~6e-8 (rotation decomposition) — a tolerance fix folded into T4u. Rendered proof = PACK v30 capture. Next: suite → freeze → T4u (aura) → T4v (Frozen Orb) → PACK v30.",
+      "ts": "2026-09-16T07:54:56"
     }
   ],
   "grok_calls": [],
