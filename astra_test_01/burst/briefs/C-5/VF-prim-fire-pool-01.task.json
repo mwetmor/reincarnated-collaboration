@@ -1,0 +1,26 @@
+{
+ "text": "GENERATE BURST VF-prim-fire-pool-01 — P03 FIELD BODY for the fire treatment: a burning POOL on the ground (Run C-5, E3 Blackwater Cocktail; architecture 03- § 2.3 build list P03; conductor F-C5-16: the runtime's placeholder pool — the peak's core piece squashed — reads as a flat cream pancake). task_id \"VF-prim-fire-pool-01\". One primitive per call. Paint the SHAPE REPRESENTING EMISSION only.\n\nIMAGE 1 is the SCALE + REGISTER board: a 1:1 native 512×512 crop of the painted cliffside clearing at the game camera (elevated three-quarter, ~53° down) with two figures 130 px tall (= 1 BH) beside a 3× enlargement; everything is hand-drawn painted 2D — confident dark contour with taper, clean painted planes, restrained texture. IMAGE 2 is the APPROVED fire impact peak (Matt-accepted): the fire VOCABULARY — four flat greyscale value planes (near-black contour/rim, dark, light, white), hooked tongues, hard plane edges, no gradients or glow. IMAGE 3 is the native ground crop alone (reading only).\n\nDeliver EXACTLY ONE image, 512×512, GENUINELY TRANSPARENT background (RGBA; alpha 0 outside, opaque inside, no soft fringe wider than 1 px) — if transparency is impossible, a flat uniform #00ff00 plate and SAY SO. Content: a BURNING POOL lying ON THE GROUND seen from IMAGE 1's camera — this one IS ground-bound, so it is FORESHORTENED: an irregular puddle of burning oil, wider than tall (an ellipse-ish blot with ragged, lapping edges and two or three tongues of the pool reaching out along the ground), with LOW FLAMES rising from it — five to seven short hooked tongues of unequal height standing up from the pool's surface (upright, not foreshortened), the tallest about a third of the pool's width — asymmetric; nothing symmetric about any axis. PAINTED EXTENT: the pool about 300 px wide (2.3 BH) and about 130 px tall on the ground, the flames rising a further ~80 px above it; centred; nothing touches the canvas edge. VALUE-INDEX ENCODING: GREYSCALE ONLY, exactly FOUR flat value planes with hard edges — plane 0 near-black = the contour line, the pool's outer rim and the dark oil at the pool's edges; plane 1 dark grey = the burning oil surface (most of the pool) and the outer flame; plane 2 light grey = the mid flame and the hottest streaks on the pool; plane 3 white = the small hottest cores of the tallest tongues only (no more than a tenth of the body) — the POOL must read DARK (mostly planes 0–1) with the flames light; no gradients, glow, blur, texture or colour; one frame of hand-drawn 2D effects animation at the scene's line weight. No ground, shadow, sparks, smoke, character or text.\n\nOne image_gen call. ONE retry only if: the background is not clean, gradients/glow/soft edges or more than four planes appear, the pool is not foreshortened (a round blob), the pool is pale (planes 2–3 dominate the pool), the body touches the canvas edge, or the extent is off by more than 25 % — name the reason. Copy the output from $CODEX_HOME/generated_images/... to out/fire_pool_01.png with sha256 (no conversion, no trim, no keying). No code. No other files. No web.\nRETURN: the receipt (task_id \"VF-prim-fire-pool-01\"): files = [exactly one entry: out/fire_pool_01.png with its sha256]; images = the INTEGER COUNT of image_gen calls made (1 or 2) — NOT a list, NEVER a path under $CODEX_HOME/generated_images; calls_used; status DELIVERED / DELIVERED_WITH_CONCERNS with concerns listed honestly (state whether the output has real transparency).",
+ "references": [
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/artifacts/E0p-refs/scale_board_clearing.png",
+   "role": "IMAGE 1 — scale + register board (1:1 + 3×)"
+  },
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/artifacts/E0p-peak-01/fire_peak_01.png",
+   "role": "IMAGE 2 — the approved fire peak: the vocabulary"
+  },
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/artifacts/E0p-refs/clearing_native_512.png",
+   "role": "IMAGE 3 — native ground crop (reading only)"
+  }
+ ],
+ "image_cap": 2,
+ "minutes_cap": 15,
+ "tool_call_cap": 20,
+ "outputs": [
+  "out/fire_pool_01.png"
+ ],
+ "effort": "high",
+ "add_dirs": [],
+ "experiment": "C5-E3"
+}

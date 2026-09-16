@@ -1,0 +1,42 @@
+[
+  {
+    "board": 1,
+    "prefer": "RIGHT",
+    "confidence": 0.94,
+    "reads_as_painted": {"LEFT": true, "RIGHT": true},
+    "coherent_with_burst": {"LEFT": false, "RIGHT": true},
+    "notes": "Both use dark contours and flat hot-color planes without gradient haze. LEFT stretches into a long, thin ribbon, distorting the flame vocabulary. RIGHT preserves compact tapered tongues and a readable bright core through the sampled action."
+  },
+  {
+    "board": 2,
+    "prefer": "RIGHT",
+    "confidence": 0.88,
+    "reads_as_painted": {"LEFT": true, "RIGHT": true},
+    "coherent_with_burst": {"LEFT": false, "RIGHT": true},
+    "notes": "Both retain outlined, flat-plane fire without haze. LEFT abruptly becomes an oversized broad body with heavy contours. RIGHT maintains the smaller flame's proportions and tapered tail, giving the sampled travel and contact a more consistent identity."
+  },
+  {
+    "board": 3,
+    "prefer": "SAME",
+    "confidence": 1.0,
+    "reads_as_painted": {"LEFT": true, "RIGHT": true},
+    "coherent_with_burst": {"LEFT": true, "RIGHT": true},
+    "notes": "The rows appear visually identical: matching flame positions, silhouettes, tapered contours, and flat orange/cream planes. Neither introduces gradient haze or a different fire vocabulary. No visible basis for a preference."
+  },
+  {
+    "board": 4,
+    "prefer": "LEFT",
+    "confidence": 0.87,
+    "reads_as_painted": {"LEFT": true, "RIGHT": true},
+    "coherent_with_burst": {"LEFT": true, "RIGHT": false},
+    "notes": "Both have crisp dark contours and flat fire planes. RIGHT swells into a large rounded mass around the tree, overwhelming the preceding small flame. LEFT keeps a restrained, tapered silhouette and more consistent fire identity; foliage reduces certainty."
+  },
+  {
+    "board": 5,
+    "prefer": "RIGHT",
+    "confidence": 0.9,
+    "reads_as_painted": {"LEFT": true, "RIGHT": true},
+    "coherent_with_burst": {"LEFT": false, "RIGHT": true},
+    "notes": "Both use clean outlined planes without gradient haze. LEFT balloons into a broad, heavy-contoured fire emblem beside the dummy. RIGHT keeps compact proportions and tapered flame tips, making the sampled action read more consistently as the same fire."
+  }
+]
