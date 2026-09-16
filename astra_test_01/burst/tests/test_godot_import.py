@@ -1035,3 +1035,208 @@ class ThrownFieldCLIRegressionTests(unittest.TestCase):
             self.assertEqual([kit['name'] for kit in report['vfx_kits']['kits']], expected)
             self.assertTrue((project/'scenes/vfx/g2_thrown_field.tscn').is_file())
             self.assertTrue((project/'scripts/vfx_g2.gd').is_file())
+
+
+# T4s-r2: actual Godot CanvasItem state, not merely emitted-node existence.
+class GroundVisibilityRegressionTests(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        TMP.mkdir(parents=True, exist_ok=True)
+        cls.temp = tempfile.TemporaryDirectory(prefix='visibility-', dir=TMP)
+        cls.addClassCleanup(cls.temp.cleanup)
+        root = Path(cls.temp.name)
+        cells = root/'cells'; cells.mkdir()
+        for kind, count in [('idle', 1), ('cast', 4)]:
+            for i in range(count):
+                Image.new('RGBA', (512, 512), (40, 80, 120, 255)).save(cells/f'{kind}_E_{i}.png')
+        sockets = root/'sockets.json'
+        sockets.write_text(json.dumps({'version':1, 'canvas':[512,512],
+            'cells':{'cast_E':{'sockets':[[270,240]]*4, 'release_index':2}}}))
+        cls.project = root/'project'
+        repo = Path(__file__).resolve().parents[1]
+        build_project(cells, cls.project, sockets=sockets,
+                      vfx_kits=repo/'runs/C-5/vfx_kits/kits_v9.json')
+        (cls.project/'probe_world.tscn').write_text(VISIBILITY_WORLD)
+        (cls.project/'probe.gd').write_text(VISIBILITY_PROBE)
+        for arguments in (['--editor','--import','--quit'], ['--script','res://probe.gd','--quit-after','1200']):
+            result = subprocess.run([GODOT, '--headless', '--path', str(cls.project),
+                '--log-file', str(root/'engine.log'), *arguments],
+                capture_output=True, text=True, timeout=110)
+            if result.returncode or 'SCRIPT ERROR' in result.stdout+result.stderr:
+                raise AssertionError(result.stdout+result.stderr)
+        cls.trace = json.loads((cls.project/'visibility_trace.json').read_text())
+
+    def test_ground_is_above_foreground_below_actors_and_owned_until_cancel(self):
+        self.assertEqual(self.trace['ground_layer'], {'z_index':1,'y_sort_enabled':True})
+        for name in ('blackwater_cocktail_e3', 'poisonous_concoction_e3'):
+            self.assertEqual(self.trace[name]['ground_children_after_cancel'], 0)
+            rows = [r for r in self.trace['rows'] if r['kit']==name and '/GroundEffects/' in r['path']]
+            self.assertGreater(len(rows), 20)
+            for row in rows:
+                self.assertEqual(row['global_z'], 1, row['path'])
+            for row in rows:
+                if row['path'].endswith('/Ground'):
+                    self.assertEqual(row['position'], self.trace[name]['trace'][0]['ground_point'])
+                    self.assertFalse(row['y_sort_enabled'])
+            decal = [r for r in rows if r['path'].endswith('/Decal') and r['age_frames']==84][0]
+            self.assertTrue(decal['visible_in_tree'])
+            self.assertGreater(decal['alpha'], 0)
+
+    def test_flask_stays_visible_at_native_screen_extent_during_flight(self):
+        rows = [r for r in self.trace['rows'] if r['path'].endswith('/Flask') and r['age_frames'] in (8,20,26)]
+        self.assertEqual(len(rows), 6)
+        for row in rows:
+            self.assertGreater(row['global_z'], 0)
+            self.assertTrue(row['visible_in_tree'])
+            self.assertEqual(row['alpha'], 1)
+            self.assertAlmostEqual(row['drawn_size'][0], 45.5, places=3)
+
+    def test_cloud_density_reaches_shader_once_at_the_ground_point(self):
+        rows = [r for r in self.trace['rows'] if r['kit']=='poisonous_concoction_e3' and r['path'].endswith('/Field') and r['age_frames'] in (40,84)]
+        self.assertEqual(len(rows), 2)
+        self.assertAlmostEqual(self.trace['density_control']['field_alpha'], .35, places=6)
+        self.assertEqual(self.trace['density_control']['ground_alpha'], 1)
+        for row in rows:
+            self.assertTrue(row['visible_in_tree'])
+            self.assertEqual(row['alpha'], self.trace['poisonous_concoction_e3']['config']['density'])
+            self.assertIn('coverage_modulate = COLOR.a;', row['shader_code'])
+            self.assertIn('index_sample.a * paint.a * coverage_modulate', row['shader_code'])
+            self.assertGreater(row['drawn_size'][0], 200)
+            self.assertEqual(row['position'][1], 640)
+            self.assertLess(abs(row['position'][0]-4240), 2)
+
+    def test_ice_picker_binding_shards_and_ground_crown(self):
+        binding = self.trace['ice_binding']
+        self.assertEqual(binding['actual'], binding['requested'])
+        self.assertEqual(binding['script'], 'res://scripts/vfx_g1_ice.gd')
+        self.assertTrue(any(e['event']=='contact' for e in self.trace['ice_events']))
+        for row in self.trace['rows']:
+            if row['kit']=='ice_bolt_e2' and row['path'].endswith(('/Head','/Streak')):
+                self.assertGreater(row['global_z'], 0)
+                self.assertGreater(row['alpha'], 0)
+                self.assertTrue(row['visible_in_tree'])
+        frames = self.trace['ice_pieces']
+        self.assertTrue(any(f['shard_count']==f['source_piece_count'] and f['shard_count']>0 for f in frames))
+        crown = [r for r in self.trace['rows'] if r['kit']=='ice_impact' and r['path'].endswith('/Decal') and r['age_frames']==80][0]
+        self.assertIn('/GroundEffects/', crown['path'])
+        self.assertEqual(crown['global_z'], 1)
+        self.assertTrue(crown['visible_in_tree'])
+        self.assertEqual(crown['position'], [4280,640])
+
+
+VISIBILITY_WORLD = '[gd_scene format=3]\n[node name="Cliffside" type="Node2D"]\n[node name="Foreground_0" type="Polygon2D" parent="."]\nz_index = 0\npolygon = PackedVector2Array(0, 0, 8000, 0, 8000, 4000, 0, 4000)\ncolor = Color(0.5, 0.4, 0.3, 1)\n[node name="Shadows" type="Node2D" parent="."]\nz_index = 1\n[node name="Actors" type="Node2D" parent="."]\nz_index = 2\ny_sort_enabled = true\n[node name="Keeper" type="Node2D" parent="Actors"]\nposition = Vector2(3760, 640)\n'
+
+VISIBILITY_PROBE = r'''
+extends SceneTree
+var rows: Array = []
+var report: Dictionary = {}
+func _initialize() -> void:
+    call_deferred("run")
+func canvas_parent(node: CanvasItem) -> CanvasItem:
+    if node.is_set_as_top_level(): return null
+    var p: Node = node.get_parent()
+    while p != null and not p is CanvasItem and not p is CanvasLayer: p=p.get_parent()
+    return p as CanvasItem
+func effective_z(node: CanvasItem) -> int:
+    var z: int = node.z_index
+    var p: CanvasItem = canvas_parent(node)
+    if node.z_as_relative and p != null:
+        z += effective_z(p)
+    return clampi(z,-4096,4096)
+func snapshot(node: Node, age: int, kit: String) -> void:
+    if node is CanvasItem:
+        var layer: CanvasLayer = node.get_canvas_layer_node()
+        var r: Dictionary = {"kit":kit,"age_frames":age,"path":str(node.get_path()),"parent":str(node.get_parent().get_path()),"parent_item":str(canvas_parent(node).get_path()) if canvas_parent(node) else "", "z_index":node.z_index,"global_z":effective_z(node),"canvas_layer":layer.layer if layer else 0,"alpha":node.modulate.a,"self_alpha":node.self_modulate.a,"visible":node.visible,"visible_in_tree":node.is_visible_in_tree(),"top_level":node.is_set_as_top_level()}
+        if node is Node2D:
+            r.position=[node.global_position.x,node.global_position.y]
+            r.scale=[node.global_scale.x,node.global_scale.y]
+            r.y_sort_enabled=node.y_sort_enabled
+        var texture: Texture2D = null
+        if node is Sprite2D: texture=node.texture
+        if node is AnimatedSprite2D and node.sprite_frames != null:
+            texture=node.sprite_frames.get_frame_texture(node.animation,node.frame)
+        if texture:
+            var box: Rect2i = texture.get_image().get_used_rect()
+            r.texture=texture.resource_path
+            r.opaque_size=[box.size.x,box.size.y]
+            r.drawn_size=[box.size.x*node.global_scale.x,box.size.y*node.global_scale.y]
+        if node.material is ShaderMaterial:
+            r.shader=node.material.shader.resource_path
+            r.shader_code=node.material.shader.code
+            r.erode=node.material.get_shader_parameter("erode")
+            r.dissolve=node.material.get_shader_parameter("dissolve")
+            r.palette_alpha=[]
+            for i in range(4):
+                var c = node.material.get_shader_parameter("palette_"+str(i))
+                r.palette_alpha.append(c.a if c is Color else null)
+        rows.append(r)
+    for child in node.get_children():snapshot(child,age,kit)
+func run() -> void:
+    var world: Node2D = load("res://probe_world.tscn").instantiate()
+    root.add_child(world)
+    current_scene=world
+    var actors: Node2D = world.get_node("Actors")
+    var caster: Node2D = actors.get_node("Keeper")
+    var kits: Array = load("res://scripts/keeper.gd").VFX_KITS
+    var g2 = load("res://scripts/vfx_g2.gd")
+    var g1 = load("res://scripts/vfx_g1.gd")
+    snapshot(world,0,"scene_layers")
+    for kit in kits:
+        if kit.get("grammar","") != "G2":continue
+        var destination: Dictionary = g2.resolve_ground(caster.global_position,Vector2.RIGHT,Vector2.ZERO,kit.range_px,true)
+        var effect = g2.acquire(actors,kit,caster.global_position+Vector2(10,-90),destination,caster,0.54)
+        effect.set_physics_process(false)
+        for age in [8,20,26,40,84, int(ceil(kit.flight_s*60))+int(ceil(kit.duration_s*60))+3]:
+            effect._clock(age)
+            snapshot(effect,age,kit.name)
+            if effect.get("ground_visual") != null: snapshot(effect.ground_visual,age,kit.name)
+        report[kit.name]={"trace":effect.trace,"config":kit}
+        if kit.treatment == "poison":
+            effect.config.density=0.35
+            effect._clock(84)
+            var field: Sprite2D = effect.ground_visual.get_node("Field") if effect.get("ground_visual") != null else effect.get_node("Ground/Field")
+            report.density_control={"configured":0.35,"field_alpha":field.modulate.a,"ground_alpha":field.get_parent().modulate.a}
+            snapshot(field,84,"density_control")
+        effect.cancel()
+        await process_frame
+        if world.has_node("GroundEffects"):
+            report[kit.name].ground_children_after_cancel=world.get_node("GroundEffects").get_child_count()
+    for kit in kits:
+        if "ice" not in kit.bolt:continue
+        var destination: Dictionary={"point":caster.global_position+Vector2(kit.range_px,0),"kind":"cursor","target":null}
+        var effect = g1.acquire(actors,kit,caster.global_position+Vector2(10,-90),destination,caster,0.54)
+        if effect == null:
+            report.ice_binding={"requested":kit.bolt,"actual":null}
+            continue
+        effect.set_physics_process(false)
+        report.ice_binding={"requested":kit.bolt,"actual":effect.scene_file_path,"script":effect.get_script().resource_path,"config":kit}
+        var previous_age: int = 0
+        for age in [8,20,26]:
+            for frame in range(previous_age+1,age+1):
+                effect.release_tick=Engine.get_physics_frames()-frame
+                effect._physics_process(1.0/60.0)
+            previous_age=age
+            snapshot(effect,age,kit.name)
+        # G1 actual collision dispatch creates the authored shatter scene.
+        var target := Area2D.new()
+        target.name="Target"
+        actors.add_child(target)
+        target.global_position=caster.global_position+Vector2(kit.range_px,0)
+        effect.global_position=target.global_position
+        effect.contact_body(target)
+        report.ice_events=g1.events
+        for child in actors.get_children():
+            if child.scene_file_path == kit.impact:
+                child.set_physics_process(false)
+                for age in [8,30,80]:
+                    child.set_effect_age(age)
+                    snapshot(child,age,"ice_impact")
+                    if child.get("ground_decal") != null: snapshot(child.ground_decal,age,"ice_impact")
+                report.ice_pieces=child.trace
+    report.ground_layer={"z_index":world.get_node("GroundEffects").z_index,"y_sort_enabled":world.get_node("GroundEffects").y_sort_enabled} if world.has_node("GroundEffects") else {}
+    report.rows=rows
+    var f=FileAccess.open("res://visibility_trace.json",FileAccess.WRITE)
+    f.store_string(JSON.stringify(report,"  "))
+    print("VISIBILITY_TRACE rows=",rows.size())
+    quit(0)
+'''

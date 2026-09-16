@@ -2,23 +2,23 @@
  "text": "JUDGE BURST E1-judge-01 — four order-randomised A/B pairs of a fire projectile cast at a dummy in the painted cliffside scene, plus control (Run C-5, E1; charter § 4 E1: \"four order-randomised A/B pairs (dirt, foliage, direction changes); ruling A / B / inconclusive (V13) / both fail (V18)\"; JUDGE_RUBRIC.md; mechanical-process § 1 invariant 2: a known-bad control in every batch). task_id \"E1-judge-03\". You are a SEPARATE judging instance: you have not seen these effects built and you are not told which arm is which.\n\nIMAGES: five boards (IMAGE 1–5). Each board shows the SAME cast twice, LEFT and RIGHT, as a strip of six frames at 1:1 from the real scene (cast → travel → contact → burst → residue) with the Keeper (146 px) for scale. The two sides differ only in how the projectile's travel is drawn. One of the five boards is a CONTROL whose two sides are byte-identical. Boards 1–5 are in random order; left/right is randomised per board.\n\nFor EACH board answer, in this exact JSON shape, one object per board: {\"board\": n, \"prefer\": \"LEFT\" | \"RIGHT\" | \"SAME\", \"confidence\": 0–1, \"reads_as_painted\": {\"LEFT\": true/false, \"RIGHT\": true/false}, \"coherent_with_burst\": {\"LEFT\": true/false, \"RIGHT\": true/false}, \"notes\": \"≤ 40 words: what you saw, in the terms of the rubric — hand-drawn contour, flat planes, no gradient haze; the travel body must read as the SAME fire as the burst it ends in\"}. \"SAME\" is a legitimate answer and is expected for exactly one board. Do not guess a preference where you see none.\n\nWRITE the JSON array above to out/judgements.json (a file — this is the deliverable; the receipt schema has no room for it). Then return the receipt (task_id \"E1-judge-03\"): files = [exactly one entry: out/judgements.json with its sha256]; images = 0 (INTEGER); calls_used; status DELIVERED. No image generation. No web. No code beyond writing that one JSON file.",
  "references": [
   {
-   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/artifacts/E1-judge-boards-v28/board_1.png",
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/artifacts/E1-judge-boards-v29/board_1.png",
    "role": "IMAGE 1 — board 1: LEFT (top row) vs RIGHT (bottom row), six frames each"
   },
   {
-   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/artifacts/E1-judge-boards-v28/board_2.png",
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/artifacts/E1-judge-boards-v29/board_2.png",
    "role": "IMAGE 2 — board 2: LEFT (top row) vs RIGHT (bottom row), six frames each"
   },
   {
-   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/artifacts/E1-judge-boards-v28/board_3.png",
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/artifacts/E1-judge-boards-v29/board_3.png",
    "role": "IMAGE 3 — board 3: LEFT (top row) vs RIGHT (bottom row), six frames each"
   },
   {
-   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/artifacts/E1-judge-boards-v28/board_4.png",
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/artifacts/E1-judge-boards-v29/board_4.png",
    "role": "IMAGE 4 — board 4: LEFT (top row) vs RIGHT (bottom row), six frames each"
   },
   {
-   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/artifacts/E1-judge-boards-v28/board_5.png",
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/artifacts/E1-judge-boards-v29/board_5.png",
    "role": "IMAGE 5 — board 5: LEFT (top row) vs RIGHT (bottom row), six frames each"
   }
  ],

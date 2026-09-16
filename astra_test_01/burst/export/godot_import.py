@@ -2900,8 +2900,10 @@ def _write_painted_travel(out, kit, resource_root):
             Image.fromarray(np.broadcast_to(np.rint(ramp*255).astype(np.uint8), rgba.shape[:2])).save(destination)
         if role == 'streak' and data.get('pieces', {}).get('template') == 'burst_v1r':
             # Dedicated scene/script leaves all E1 resources byte-identical.
+            _write_ground_effects(out)
             (out/'scripts/vfx_g1_ice.gd').write_text(ICE_G1_SCRIPT)
             ice_scene = G1_SCENE.replace('res://scripts/vfx_g1.gd', 'res://scripts/vfx_g1_ice.gd')
+            ice_scene = ice_scene.replace('collision_layer = 0', 'z_as_relative = false\nz_index = 3\ncollision_layer = 0')
             for node in ('Streak', 'KeyState', 'DarkHead', 'DarkStreak', 'DarkKey', 'CastHalo'):
                 ice_scene += '\n[node name="'+node+'" type="Sprite2D" parent="."]\ntexture_filter = 2\nvisible = false\nz_index = '+str(-2 if node.startswith('Dark') else -1 if node in ('Streak','CastHalo') else 0)+'\n'
             (out/'scenes/vfx/g1_ice_projectile.tscn').write_text(ice_scene)
@@ -3111,13 +3113,16 @@ func _paint_clock(age: int) -> void:
 '''
 
 PIECE_BURST_V1R_SCRIPT = '''extends "res://scripts/vfx/piece_burst.gd"
+@onready var ground_decal: Sprite2D = $Decal
+
 func _ready() -> void:
     spell_scale = 1.0
     super._ready()
-    $Decal.material = $Decal.material.duplicate()
+    preload("res://scripts/vfx_ground.gd").attach(ground_decal, self, global_position)
+    ground_decal.material = ground_decal.material.duplicate()
     if grey_bodies:
         for band in range(4):
-            $Decal.material.set_shader_parameter("palette_" + str(band), Color(0.5,0.5,0.5,1))
+            ground_decal.material.set_shader_parameter("palette_" + str(band), Color(0.5,0.5,0.5,1))
 
 func set_effect_age(age: int) -> void:
     if age == last_age:
@@ -3169,9 +3174,9 @@ func set_effect_age(age: int) -> void:
             data.dark.material.set_shader_parameter("dissolve",0.0)
         if active: count += 1
         states.append({"id":item.id,"visible":active,"position":[node.position.x,node.position.y],"rotation_deg":rad_to_deg(node.rotation),"scale":node.scale.x,"erode":erosion_t})
-    $Decal.visible = age >= residue_end and age < decal_end
-    $Decal.modulate.a = clampf(1.0-float(age-residue_end)/float(config.decal_frames),0.0,1.0)
-    trace.append({"age_frames":age,"stage":stage,"shard_count":count,"source_piece_count":pieces.size(),"pieces":states,"residue_erode":float(config.residue_erode)*erosion_t,"dissolve":dissolve,"decal_visible":$Decal.visible,"decal_alpha":$Decal.modulate.a,"decal_position":[$Decal.global_position.x,$Decal.global_position.y],"decal_z_index":$Decal.z_index})
+    ground_decal.visible = age >= residue_end and age < decal_end
+    ground_decal.modulate.a = clampf(1.0-float(age-residue_end)/float(config.decal_frames),0.0,1.0)
+    trace.append({"age_frames":age,"stage":stage,"shard_count":count,"source_piece_count":pieces.size(),"pieces":states,"residue_erode":float(config.residue_erode)*erosion_t,"dissolve":dissolve,"decal_visible":ground_decal.visible,"decal_alpha":ground_decal.modulate.a,"decal_position":[ground_decal.global_position.x,ground_decal.global_position.y],"decal_z_index":ground_decal.z_index})
     if age >= decal_end:
         hide()
         _write_trace()
@@ -3181,6 +3186,7 @@ func set_effect_age(age: int) -> void:
 
 def _write_piece_burst_v1r(out, kit, resource_root, prefix):
     """V1 radial flight with v2's whole-peak ragged origin residue and decal."""
+    _write_ground_effects(out)
     import copy
     import numpy as np
     from export.effect_kit import (load_pieces, distance_field, residue_entry,
@@ -3226,7 +3232,7 @@ def _write_piece_burst_v1r(out, kit, resource_root, prefix):
            f'[ext_resource type="Material" path="res://{decal_material}" id="FrostMaterial"]\n')
     first = scene.index('[node '); scene=scene[:first]+ext+scene[first:]
     scene += ('\n[node name="Decal" type="Sprite2D" parent="."]\ntexture_filter = 2\nvisible = false\n'
-              'z_as_relative = false\nz_index = -2\nposition = Vector2(0, 0)\n'
+              'position = Vector2(0, 0)\n'
               f'scale = Vector2(1, {data["ground_squash"]})\n'
               'texture = ExtResource("FrostTexture")\nmaterial = ExtResource("FrostMaterial")\n')
     scene = re.sub(r'load_steps=\d+','load_steps='+str(scene.count('[ext_resource ')+1),scene,count=1)
@@ -3235,6 +3241,40 @@ def _write_piece_burst_v1r(out, kit, resource_root, prefix):
     if owns_canonical: canonical.write_text(scene)
     (out/'scenes/vfx/piece_burst_v1r.tscn').write_text(scene)
     (out/'scripts/vfx/piece_burst_v1r.gd').write_text(PIECE_BURST_V1R_SCRIPT)
+
+
+# T4s-r2: top_level severs CanvasItem z inheritance as well as transforms.
+GROUND_EFFECTS_SCRIPT = r'''extends RefCounted
+static func attach(visual: Node2D, effect: Node2D, point: Vector2) -> void:
+    var host: Node = effect.get_parent()
+    if host.name == "Actors": host = host.get_parent()
+    var layer: Node2D = host.get_node_or_null("GroundEffects")
+    if layer == null:
+        layer = Node2D.new()
+        layer.name = "GroundEffects"
+        layer.z_as_relative = false
+        layer.y_sort_enabled = true
+        var actors: Node2D = host.get_node_or_null("Actors")
+        var keeper: Node2D = host.get_node_or_null("Keeper")
+        layer.z_index = actors.z_index - 1 if actors != null else (keeper.z_index - 1 if keeper != null else 1)
+        host.add_child(layer)
+        # Without Actors, share foreground z but precede the Keeper in tree order.
+        if keeper != null: host.move_child(layer, keeper.get_index())
+    var size: Vector2 = visual.scale
+    visual.reparent(layer, false)
+    visual.top_level = false
+    visual.z_as_relative = true
+    visual.z_index = 0
+    visual.y_sort_enabled = false
+    visual.scale = size
+    visual.global_position = point
+    # Detached ground art belongs to the effect's lifetime, including cancellation.
+    effect.tree_exiting.connect(visual.queue_free, CONNECT_ONE_SHOT)
+'''
+
+
+def _write_ground_effects(out):
+    (out/'scripts/vfx_ground.gd').write_text(GROUND_EFFECTS_SCRIPT)
 
 
 # T4s. G2 emission is opt-in, leaving the eleven-kit G1 export untouched.
@@ -3298,12 +3338,12 @@ def _write_g2_kit(out, kit):
 
 
 def _write_g2_component(out):
+    _write_ground_effects(out)
     (out/'scripts/vfx_g2.gd').write_text(G2_SCRIPT)
-    scene='[gd_scene load_steps=2 format=3]\n[ext_resource type="Script" path="res://scripts/vfx_g2.gd" id="G2"]\n[node name="G2ThrownField" type="Node2D"]\nscript = ExtResource("G2")\ntexture_filter = 2\n'
-    for name,kind,parent in [('Flask','Sprite2D','.'),('Fragments','Node2D','.'),('Splash','Node2D','.'),('Ground','Node2D','.'),('Field','Sprite2D','Ground'),('Decal','Sprite2D','Ground'),('Licks','Node2D','Ground'),('Halo','Sprite2D','Ground'),('DarkDuplicate','Sprite2D','Ground'),('FloorLight','Sprite2D','Ground'),('Flash','Sprite2D','Ground')]:
+    scene='[gd_scene load_steps=2 format=3]\n[ext_resource type="Script" path="res://scripts/vfx_g2.gd" id="G2"]\n[node name="G2ThrownField" type="Node2D"]\nscript = ExtResource("G2")\ntexture_filter = 2\nz_as_relative = false\nz_index = 2\n'
+    for name,kind,parent in [('Flask','Sprite2D','.'),('Fragments','Node2D','.'),('Splash','Node2D','.'),('Ground','Node2D','.'),('Decal','Sprite2D','Ground'),('FloorLight','Sprite2D','Ground'),('Halo','Sprite2D','Ground'),('DarkDuplicate','Sprite2D','Ground'),('Field','Sprite2D','Ground'),('Licks','Node2D','Ground'),('Flash','Sprite2D','Ground')]:
         scene+='\n[node name="'+name+'" type="'+kind+'" parent="'+parent+'"]\ntexture_filter = 2\n'
-        if name=='Ground':scene+='top_level = true\nz_as_relative = false\nz_index = -2\ny_sort_enabled = true\n'
-        if name in ('Decal','DarkDuplicate','FloorLight'):scene+='z_index = -1\n'
+        # Ground children share one z and draw in material order; the group sorts at its landing point.
     (out/'scenes/vfx/g2_thrown_field.tscn').write_text(scene)
 
 
@@ -3331,6 +3371,7 @@ var field_scale: float = 1.0
 var pulse_scale: float = 1.0
 var flask_scale: float = 1.0
 var field_pivot: Vector2
+@onready var ground_visual: Node2D = $Ground
 
 static func resolve_ground(origin: Vector2, facing: Vector2, cursor: Vector2, range_px: float, touch: bool) -> Dictionary:
     if not origin.is_finite() or not facing.is_finite() or not cursor.is_finite() or facing.is_zero_approx() or not is_finite(range_px) or range_px <= 0.0:
@@ -3372,7 +3413,7 @@ func release(kit: Dictionary, origin: Vector2, destination: Dictionary, owner_no
     ground_point = destination.point
     top_level = true
     global_transform = Transform2D(0.0,origin)
-    $Ground.global_transform = Transform2D(0.0,ground_point)
+    preload("res://scripts/vfx_ground.gd").attach(ground_visual, self, ground_point)
     next_id += 1
     effect_id = next_id
     release_tick = Engine.get_physics_frames()
@@ -3385,14 +3426,14 @@ func release(kit: Dictionary, origin: Vector2, destination: Dictionary, owner_no
     $Flask.material = glass
     flask_scale = float(config.flask_width)/$Flask.texture.get_image().get_used_rect().size.x
     $Flask.scale = Vector2.ONE*flask_scale
-    _sprite($Ground/Field,config.field,config.material)
-    field_scale = 2.0*float(config.radius_px)/$Ground/Field.texture.get_image().get_used_rect().size.x
-    _sprite($Ground/Decal,config.field,config.decal_material)
-    _sprite($Ground/Halo,config.field,config.additive_material)
-    _sprite($Ground/FloorLight,config.field,config.additive_material)
-    _sprite($Ground/Flash,config.field,config.additive_material)
-    _sprite($Ground/DarkDuplicate,config.field,config.dark_material)
-    for node in [$Ground/Field,$Ground/Decal,$Ground/Halo,$Ground/FloorLight,$Ground/Flash,$Ground/DarkDuplicate]:
+    _sprite(ground_visual.get_node("Field"),config.field,config.material)
+    field_scale = 2.0*float(config.radius_px)/ground_visual.get_node("Field").texture.get_image().get_used_rect().size.x
+    _sprite(ground_visual.get_node("Decal"),config.field,config.decal_material)
+    _sprite(ground_visual.get_node("Halo"),config.field,config.additive_material)
+    _sprite(ground_visual.get_node("FloorLight"),config.field,config.additive_material)
+    _sprite(ground_visual.get_node("Flash"),config.field,config.additive_material)
+    _sprite(ground_visual.get_node("DarkDuplicate"),config.field,config.dark_material)
+    for node in [ground_visual.get_node("Field"),ground_visual.get_node("Decal"),ground_visual.get_node("Halo"),ground_visual.get_node("FloorLight"),ground_visual.get_node("Flash"),ground_visual.get_node("DarkDuplicate")]:
         node.scale = Vector2(1.0,float(config.ground_squash))*field_scale
     for i in range(3):
         var shard := Sprite2D.new()
@@ -3407,13 +3448,13 @@ func release(kit: Dictionary, origin: Vector2, destination: Dictionary, owner_no
     pulse_scale = 65.0/pulse.get_image().get_used_rect().size.x
     for i in range(3 if config.treatment=="fire" else 4):
         var lobe := Sprite2D.new()
-        ($Ground/Licks if config.treatment=="fire" else $Splash).add_child(lobe)
+        (ground_visual.get_node("Licks") if config.treatment=="fire" else $Splash).add_child(lobe)
         _sprite(lobe,config.pulse,config.pulse_material)
         lobe.scale = Vector2.ONE*pulse_scale
         lobe.hide()
         lobe.set_meta("angle",TAU*float(i)/4.0)
         lobe.set_meta("velocity",rng.randf_range(60,110))
-    $Ground.hide()
+    ground_visual.hide()
     active = true
     _record("release",{"schedule":config.schedule})
     if not bool(config.schedule.ff08_satisfied):
@@ -3436,7 +3477,7 @@ func _clock(age: int) -> void:
     $Flask.visible = land_age<=0
     if land_age>=0 and not landed:
         landed = true
-        $Ground.show()
+        ground_visual.show()
         _record("contact",{"collision_age_frames":age,"contact_lag_frames":0,"phase":"ground","contact_frames":1})
         _record("field_start")
         _record("decal_start")
@@ -3474,47 +3515,47 @@ func _clock(age: int) -> void:
             lobe.global_position = ground_point+axis*float(lobe.get_meta("velocity"))*st*.25*Vector2(1,.58)
             lobe.rotation = axis.angle()+deg_to_rad(20.0)*st
             lobe.material.set_shader_parameter("erode",st)
-    $Ground/Field.visible = field_live
+    ground_visual.get_node("Field").visible = field_live
     var coverage: float = lerpf(.5,1.0,clampf(float(land_age)/24.0,0,1)) if config.treatment=="poison" else 1.0
     # Coverage is area: sqrt growth on each axis; density exclusively multiplies alpha.
-    $Ground/Field.scale = Vector2(1,float(config.ground_squash))*field_scale*sqrt(coverage)
+    ground_visual.get_node("Field").scale = Vector2(1,float(config.ground_squash))*field_scale*sqrt(coverage)
     var breathe: float = [.85,1.0,.925][clampi(land_age-last_tick,0,2)] if field_live and land_age-last_tick<3 else 1.0
-    $Ground/Field.modulate.a = float(config.density)*breathe
-    $Ground/Field.position = Vector2(float(maxi(0,land_age))/60.0*2.0,0) if config.treatment=="poison" else Vector2.ZERO
-    for i in range($Ground/Licks.get_child_count()):
-        var lick: Sprite2D = $Ground/Licks.get_child(i)
+    ground_visual.get_node("Field").modulate.a = float(config.density)*breathe
+    ground_visual.get_node("Field").position = Vector2(float(maxi(0,land_age))/60.0*2.0,0) if config.treatment=="poison" else Vector2.ZERO
+    for i in range(ground_visual.get_node("Licks").get_child_count()):
+        var lick: Sprite2D = ground_visual.get_node("Licks").get_child(i)
         var pulse_age: int = land_age-last_tick
         lick.visible = field_live and pulse_age>=0 and pulse_age<6
         var axis := Vector2.from_angle(float(lick.get_meta("angle")))
         lick.position = axis*float(config.radius_px)*.35*Vector2(1,.58)+Vector2(0,-float(pulse_age)*4.0)
         lick.rotation = axis.angle()
         lick.material.set_shader_parameter("erode",clampf(float(pulse_age)/5.0,0,1))
-    $Ground/Decal.visible = landed and land_age<end_field+residue_frames
-    $Ground/Decal.modulate.a = clampf(1.0-float(land_age-end_field)/residue_frames,0,1)
-    $Ground/Halo.visible = field_live and "halo" in config.enabled_layers
-    $Ground/Halo.modulate.a = .12
-    $Ground/DarkDuplicate.visible = field_live and "dark_duplicate" in config.enabled_layers
-    $Ground/DarkDuplicate.scale = $Ground/Field.scale
-    $Ground/DarkDuplicate.position = $Ground/Field.position
-    $Ground/DarkDuplicate.modulate.a = float(config.density)*breathe*.25
-    $Ground/FloorLight.visible = field_live and "floor_light" in config.enabled_layers
-    $Ground/FloorLight.modulate.a = .15
-    $Ground/Flash.visible = land_age==0 and "flash" in config.enabled_layers
-    $Ground/Flash.modulate.a = .8
+    ground_visual.get_node("Decal").visible = landed and land_age<end_field+residue_frames
+    ground_visual.get_node("Decal").modulate.a = clampf(1.0-float(land_age-end_field)/residue_frames,0,1)
+    ground_visual.get_node("Halo").visible = field_live and "halo" in config.enabled_layers
+    ground_visual.get_node("Halo").modulate.a = .12
+    ground_visual.get_node("DarkDuplicate").visible = field_live and "dark_duplicate" in config.enabled_layers
+    ground_visual.get_node("DarkDuplicate").scale = ground_visual.get_node("Field").scale
+    ground_visual.get_node("DarkDuplicate").position = ground_visual.get_node("Field").position
+    ground_visual.get_node("DarkDuplicate").modulate.a = float(config.density)*breathe*.25
+    ground_visual.get_node("FloorLight").visible = field_live and "floor_light" in config.enabled_layers
+    ground_visual.get_node("FloorLight").modulate.a = .15
+    ground_visual.get_node("Flash").visible = land_age==0 and "flash" in config.enabled_layers
+    ground_visual.get_node("Flash").modulate.a = .8
     _tint_clock(age)
-    trace.append({"age_frames":age,"lift_px":lift,"flask_position":[$Flask.global_position.x,$Flask.global_position.y],"rotation_deg":rad_to_deg($Flask.rotation),"contact":land_age==0,"fragments":$Fragments.get_children().filter(func(n):return n.visible).size(),"field_alive":field_live,"coverage":coverage,"density":config.density,"field_alpha":$Ground/Field.modulate.a,"drift_px":$Ground/Field.position.x,"ground_point":[$Ground.global_position.x,$Ground.global_position.y],"ground_z":$Ground.z_index,"decal_visible":$Ground/Decal.visible,"decal_alpha":$Ground/Decal.modulate.a,"tick_count":tick_index})
+    trace.append({"age_frames":age,"lift_px":lift,"flask_position":[$Flask.global_position.x,$Flask.global_position.y],"rotation_deg":rad_to_deg($Flask.rotation),"contact":land_age==0,"fragments":$Fragments.get_children().filter(func(n):return n.visible).size(),"field_alive":field_live,"coverage":coverage,"density":config.density,"field_alpha":ground_visual.get_node("Field").modulate.a,"drift_px":ground_visual.get_node("Field").position.x,"ground_point":[ground_visual.global_position.x,ground_visual.global_position.y],"ground_z":ground_visual.z_index,"decal_visible":ground_visual.get_node("Decal").visible,"decal_alpha":ground_visual.get_node("Decal").modulate.a,"tick_count":tick_index})
     if land_age>=end_field+residue_frames:
         _record("expire")
         active = false
         hide()
-        $Ground.hide()
+        ground_visual.hide()
         set_physics_process(false)
         _restore_tints()
         queue_free()
 
 func _tick(index: int, scheduled: int) -> void:
     _record("tick",{"tick_index":index,"scheduled_field_age_frames":scheduled})
-    for lick in $Ground/Licks.get_children(): lick.set_meta("angle",rng.randf_range(0,TAU))
+    for lick in ground_visual.get_node("Licks").get_children(): lick.set_meta("angle",rng.randf_range(0,TAU))
     var actors: Array = get_tree().get_nodes_in_group("vfx_targets")
     for actor in get_tree().get_nodes_in_group("vfx_actors"):
         if actor not in actors: actors.append(actor)
