@@ -2085,3 +2085,48 @@ class FL4TimingAndFlightTests(unittest.TestCase):
             self.assertEqual(rows[0]['alpha'],1)
             self.assertEqual(rows[-1]['alpha'],0)
             self.assertTrue(all(abs(r['length']-130)<.001 for r in rows))
+
+
+class FL4BRuntimeTraceTests(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        import os
+        path=os.environ.get('FL4B_TRACE')
+        if not path:raise unittest.SkipTest('Set FL4B_TRACE to the executable FL-4b headless trace')
+        cls.trace=json.loads(Path(path).read_text())
+
+    def test_engine_selections_match_portable_sampler_and_repeat_seed(self):
+        from export.effect_kit import load_interleave,interleave_gaps,interleave_placement
+        root=Path(__file__).resolve().parents[1]/'runs/C-5/vfx_kits/v9/fire_burst_e0p_v3'
+        data=json.loads((root/'kit.json').read_text())
+        library,_=load_interleave(data['pieces']['interleave'],root)
+        record=json.loads((root/data['pieces']['source']).read_text())
+        for row in self.trace['seeds']:
+            expected=interleave_placement(row['seed'],interleave_gaps(record),library['pieces'])
+            self.assertEqual(len(row['tongues']),len(expected))
+            for actual,want in zip(row['tongues'],expected):
+                for key in ('id','gap_rank','mirrored','speed_factor'):self.assertEqual(actual[key],want[key])
+                for key in ('angle_deg','jitter_deg','scale'):self.assertAlmostEqual(actual[key],want[key],places=5)
+            self.assertTrue(all(not r['peak_visible'] for r in row['samples']))
+            self.assertTrue(all(not r['art_visible'] for r in row['samples'] if r['age']>=26))
+        self.assertEqual(self.trace['seeds'][0]['tongues'],self.trace['seeds'][-1]['tongues'])
+        self.assertNotEqual(self.trace['seeds'][0]['tongues'],self.trace['seeds'][1]['tongues'])
+
+    def test_cast_contact_seed_uses_effect_frame_and_world_random(self):
+        contacts=self.trace['contacts'];self.assertEqual(len(contacts),2)
+        for row in contacts:
+            data=row['inputs'];self.assertEqual(row['seed'],(data['effect_id']^data['contact_frame']^data['world_random'])&0x7fffffff)
+        self.assertNotEqual(contacts[0]['seed'],contacts[1]['seed'])
+        self.assertNotEqual(contacts[0]['tongues'],contacts[1]['tongues'])
+
+    def test_eight_direction_every_frame_extents_and_socket_attachment(self):
+        self.assertEqual(len(self.trace['travel']),16)
+        for travel in self.trace['travel']:
+            self.assertGreaterEqual(len(travel['rows']),21)
+            for row in travel['rows']:
+                self.assertTrue(1.15<=row['head_extent_bh']<=1.25)
+                self.assertTrue(2.1<=row['sheet_extent_bh']<=2.3)
+                self.assertLessEqual(row['attachment_error_px'],1e-5)
+                self.assertTrue(row['core_additive'])
+                self.assertEqual(row['trail_rate'],12)
+                self.assertEqual(len(row['sheet_tail_world']),2)

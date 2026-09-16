@@ -1,0 +1,1974 @@
+{
+  "schema_version": 2,
+  "source_sha256": "7954f757c8ca1e4a010d1367b160c8d201a5055881af61a33aabd102a44b16e8",
+  "source_file": "fire_peak_01_512.png",
+  "canvas": [
+    512,
+    512
+  ],
+  "centre": [
+    255.18955066242054,
+    278.30572876298635
+  ],
+  "centre_source": "alpha_weighted_centroid",
+  "plate_path_used": "alpha",
+  "isolation": {
+    "requested": "auto",
+    "plate_path_used": "alpha",
+    "real_transparency": true,
+    "fringe_width_px": 0.0,
+    "fringe_clamp_limit_px": 0,
+    "removed_fringe_pixels": 0
+  },
+  "band_histogram": {
+    "0": 8688,
+    "1": 13472,
+    "2": 13017,
+    "3": 6774
+  },
+  "plane_quality": {
+    "luminance": "encoded sRGB: 0.2126 R + 0.7152 G + 0.0722 B",
+    "support_pixels": 41951,
+    "source_rgb_levels": 2231,
+    "source_rounded_luminance_levels": 245,
+    "luminance_histogram": [
+      1604,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      9,
+      13,
+      32,
+      74,
+      110,
+      162,
+      238,
+      367,
+      696,
+      1151,
+      1312,
+      923,
+      588,
+      306,
+      181,
+      161,
+      99,
+      89,
+      93,
+      53,
+      52,
+      73,
+      40,
+      63,
+      36,
+      28,
+      29,
+      26,
+      25,
+      54,
+      22,
+      21,
+      26,
+      45,
+      19,
+      17,
+      27,
+      25,
+      40,
+      19,
+      29,
+      23,
+      23,
+      27,
+      19,
+      24,
+      20,
+      26,
+      30,
+      28,
+      30,
+      26,
+      26,
+      29,
+      26,
+      31,
+      31,
+      25,
+      31,
+      24,
+      27,
+      41,
+      52,
+      52,
+      84,
+      82,
+      118,
+      125,
+      144,
+      244,
+      396,
+      805,
+      1468,
+      2049,
+      2029,
+      1644,
+      1114,
+      663,
+      414,
+      263,
+      162,
+      89,
+      67,
+      35,
+      31,
+      22,
+      25,
+      16,
+      22,
+      12,
+      22,
+      15,
+      16,
+      22,
+      13,
+      17,
+      16,
+      20,
+      14,
+      11,
+      23,
+      8,
+      12,
+      19,
+      18,
+      14,
+      10,
+      12,
+      17,
+      16,
+      12,
+      15,
+      16,
+      9,
+      21,
+      19,
+      19,
+      14,
+      14,
+      24,
+      17,
+      17,
+      13,
+      11,
+      11,
+      15,
+      11,
+      12,
+      15,
+      15,
+      18,
+      8,
+      12,
+      14,
+      15,
+      11,
+      12,
+      17,
+      12,
+      14,
+      15,
+      16,
+      17,
+      13,
+      19,
+      12,
+      14,
+      17,
+      14,
+      17,
+      17,
+      11,
+      18,
+      21,
+      17,
+      23,
+      16,
+      18,
+      23,
+      19,
+      24,
+      29,
+      30,
+      26,
+      49,
+      57,
+      77,
+      90,
+      147,
+      200,
+      425,
+      960,
+      2039,
+      2425,
+      1947,
+      1360,
+      727,
+      391,
+      266,
+      169,
+      138,
+      131,
+      113,
+      93,
+      91,
+      63,
+      26,
+      16,
+      22,
+      22,
+      25,
+      19,
+      18,
+      17,
+      20,
+      10,
+      10,
+      16,
+      17,
+      15,
+      11,
+      13,
+      14,
+      15,
+      22,
+      13,
+      15,
+      17,
+      19,
+      16,
+      20,
+      11,
+      16,
+      22,
+      9,
+      16,
+      20,
+      11,
+      21,
+      16,
+      13,
+      13,
+      16,
+      10,
+      18,
+      15,
+      22,
+      23,
+      20,
+      19,
+      23,
+      20,
+      16,
+      25,
+      32,
+      44,
+      86,
+      251,
+      1575,
+      2574,
+      847,
+      162,
+      633
+    ],
+    "farther_than_20_pixels": 9350,
+    "farther_than_20_fraction": 0.22287907320445283,
+    "farther_than_20_alpha_weighted_fraction": 0.2124029661340262,
+    "opaque_pixels": 1037,
+    "opaque_farther_than_20_pixels": 1011,
+    "opaque_farther_than_20_fraction": 0.9749276759884281,
+    "non_greyscale_pixels": 29945,
+    "partial_alpha_pixels": 40914,
+    "more_than_four_source_levels": true
+  },
+  "peak_index": "peak_index.png",
+  "contact_sheet": "contact_sheet.png",
+  "conventions": {
+    "paths": "relative to pieces.json",
+    "canvas": "[width, height]",
+    "coverage": "alpha > 0; alpha bytes preserved independently from RGB",
+    "band_index": "per-pixel integer 0..3; RGB = band_index * 85; never use dominant_band as texture colour",
+    "band_histogram": "keys 0..3 count alpha>0 pixels; dominant_band is the largest bin (lower index tie)",
+    "tip": "canvas [x,y] mask pixel farthest from burst centre; row-major tie",
+    "centroid": "alpha-weighted pixel centres; integer coordinates address pixel centres",
+    "pivot": "canvas [x,y]; nearest pixel uses floor(coordinate + 0.5)",
+    "bbox": "[left, top, right_exclusive, bottom_exclusive]; PNG remains full canvas",
+    "radial_angle_deg": "degrees, screen coordinates, +x=0, clockwise positive",
+    "sprite_placement": "uncentred sprite offset = -pivot; initial position = pivot - centre",
+    "connectivity": 8,
+    "sliver_area_px": 24,
+    "sliver_merge": "longest shared border; 8-connected; detached islands retained and reported, never bridged",
+    "segmentation": "compact minimax watershed on negative EDT; contour tips + five core seeds; concavity-root ridges; long-tongue waist split",
+    "watershed_compactness": "2 * geodesic_path_length / core_radius; deterministic row-major ties",
+    "distance_fields": "T4h builder-owned: effect_kit.distance_field(mask RGBA) per texture"
+  },
+  "pieces": [
+    {
+      "id": 1,
+      "dominant_band": 0,
+      "band_histogram": {
+        "0": 38,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "pivot": [
+        258.5263157894737,
+        85.63157894736842
+      ],
+      "coverage_centroid": [
+        258.5263157894737,
+        85.63157894736842
+      ],
+      "pivot_adjusted": false,
+      "radial_angle_deg": 270.9921592985717,
+      "radial_distance_px": 192.70304099490568,
+      "tip": [
+        260,
+        80
+      ],
+      "area_px": 38,
+      "alpha_area_px": 0.14901960784313725,
+      "bbox": [
+        256,
+        80,
+        264,
+        91
+      ],
+      "source_component": 1,
+      "geometry": null,
+      "connected_components": 1,
+      "kind": "source_island",
+      "merged_slivers": [],
+      "mask": "piece_001.png"
+    },
+    {
+      "id": 2,
+      "dominant_band": 0,
+      "band_histogram": {
+        "0": 9,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "pivot": [
+        272.3333333333333,
+        88.11111111111111
+      ],
+      "coverage_centroid": [
+        272.3333333333333,
+        88.11111111111111
+      ],
+      "pivot_adjusted": false,
+      "radial_angle_deg": 275.1506137917968,
+      "radial_distance_px": 190.96570861809326,
+      "tip": [
+        272,
+        86
+      ],
+      "area_px": 9,
+      "alpha_area_px": 0.03529411764705882,
+      "bbox": [
+        271,
+        86,
+        274,
+        91
+      ],
+      "source_component": 2,
+      "geometry": null,
+      "connected_components": 1,
+      "kind": "source_island",
+      "merged_slivers": [],
+      "unmergeable_sliver": "detached source island; no shared border; coverage preserved",
+      "mask": "piece_002.png"
+    },
+    {
+      "id": 3,
+      "dominant_band": 0,
+      "band_histogram": {
+        "0": 1,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "pivot": [
+        215.0,
+        112.0
+      ],
+      "coverage_centroid": [
+        215.0,
+        112.0
+      ],
+      "pivot_adjusted": false,
+      "radial_angle_deg": 256.41433445085096,
+      "radial_distance_px": 171.0929437523221,
+      "tip": [
+        215,
+        112
+      ],
+      "area_px": 1,
+      "alpha_area_px": 0.00392156862745098,
+      "bbox": [
+        215,
+        112,
+        216,
+        113
+      ],
+      "source_component": 3,
+      "geometry": null,
+      "connected_components": 1,
+      "kind": "source_island",
+      "merged_slivers": [],
+      "unmergeable_sliver": "detached source island; no shared border; coverage preserved",
+      "mask": "piece_003.png"
+    },
+    {
+      "id": 4,
+      "dominant_band": 0,
+      "band_histogram": {
+        "0": 19,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "pivot": [
+        217.47368421052633,
+        115.0
+      ],
+      "coverage_centroid": [
+        217.47368421052633,
+        115.0
+      ],
+      "pivot_adjusted": false,
+      "radial_angle_deg": 256.9954139386938,
+      "radial_distance_px": 167.60443797533281,
+      "tip": [
+        217,
+        113
+      ],
+      "area_px": 19,
+      "alpha_area_px": 0.07450980392156863,
+      "bbox": [
+        215,
+        113,
+        222,
+        119
+      ],
+      "source_component": 4,
+      "geometry": null,
+      "connected_components": 1,
+      "kind": "source_island",
+      "merged_slivers": [],
+      "unmergeable_sliver": "detached source island; no shared border; coverage preserved",
+      "mask": "piece_004.png"
+    },
+    {
+      "id": 5,
+      "dominant_band": 0,
+      "band_histogram": {
+        "0": 1,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "pivot": [
+        213.0,
+        118.0
+      ],
+      "coverage_centroid": [
+        213.0,
+        118.0
+      ],
+      "pivot_adjusted": false,
+      "radial_angle_deg": 255.25515607047782,
+      "radial_distance_px": 165.7645464486574,
+      "tip": [
+        213,
+        118
+      ],
+      "area_px": 1,
+      "alpha_area_px": 0.00392156862745098,
+      "bbox": [
+        213,
+        118,
+        214,
+        119
+      ],
+      "source_component": 5,
+      "geometry": null,
+      "connected_components": 1,
+      "kind": "source_island",
+      "merged_slivers": [],
+      "unmergeable_sliver": "detached source island; no shared border; coverage preserved",
+      "mask": "piece_005.png"
+    },
+    {
+      "id": 6,
+      "dominant_band": 0,
+      "band_histogram": {
+        "0": 1,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "pivot": [
+        210.0,
+        121.0
+      ],
+      "coverage_centroid": [
+        210.0,
+        121.0
+      ],
+      "pivot_adjusted": false,
+      "radial_angle_deg": 253.97211701324244,
+      "radial_distance_px": 163.66791924725413,
+      "tip": [
+        210,
+        121
+      ],
+      "area_px": 1,
+      "alpha_area_px": 0.00392156862745098,
+      "bbox": [
+        210,
+        121,
+        211,
+        122
+      ],
+      "source_component": 6,
+      "geometry": null,
+      "connected_components": 1,
+      "kind": "source_island",
+      "merged_slivers": [],
+      "unmergeable_sliver": "detached source island; no shared border; coverage preserved",
+      "mask": "piece_006.png"
+    },
+    {
+      "id": 7,
+      "dominant_band": 2,
+      "band_histogram": {
+        "0": 790,
+        "1": 1410,
+        "2": 1528,
+        "3": 485
+      },
+      "pivot": [
+        276.475436884433,
+        193.61174145217475
+      ],
+      "coverage_centroid": [
+        276.475436884433,
+        193.61174145217475
+      ],
+      "pivot_adjusted": false,
+      "radial_angle_deg": 284.1077804538058,
+      "radial_distance_px": 87.32789038365908,
+      "tip": [
+        267,
+        143
+      ],
+      "area_px": 4213,
+      "alpha_area_px": 3950.2078431372547,
+      "bbox": [
+        236,
+        143,
+        316,
+        235
+      ],
+      "source_component": 7,
+      "geometry": {
+        "core_centre": [
+          251,
+          306
+        ],
+        "core_radius_px": 69.35416353759881,
+        "burst_centre": [
+          255.18955066242054,
+          278.30572876298635
+        ],
+        "body_radius_px": 177.33042599067574,
+        "prominence_px": 26.59956389860136,
+        "tips": [
+          [
+            279,
+            121
+          ],
+          [
+            424,
+            224
+          ],
+          [
+            114,
+            289
+          ],
+          [
+            120,
+            206
+          ]
+        ],
+        "roots": [
+          [
+            301,
+            253
+          ],
+          [
+            240,
+            376
+          ],
+          [
+            151,
+            293
+          ],
+          [
+            200,
+            250
+          ]
+        ]
+      },
+      "connected_components": 1,
+      "kind": "tongue_base",
+      "tongue_id": 1,
+      "contour_tip": [
+        279,
+        121
+      ],
+      "contour_roots": [
+        [
+          200,
+          250
+        ],
+        [
+          301,
+          253
+        ]
+      ],
+      "tongue_length_px": 133.57582116535912,
+      "waist": {
+        "axis_xy": [
+          0.14964705637185813,
+          -0.988739479599777
+        ],
+        "projection_px": -110.95680356966471,
+        "width_px": 34.417641904652655,
+        "axial_bin": 81,
+        "admissible_bins": [
+          23,
+          92
+        ]
+      },
+      "merged_slivers": [
+        {
+          "area_px": 10,
+          "shared_border": 1.0
+        }
+      ],
+      "mask": "piece_007.png"
+    },
+    {
+      "id": 8,
+      "dominant_band": 1,
+      "band_histogram": {
+        "0": 1433,
+        "1": 2202,
+        "2": 1854,
+        "3": 244
+      },
+      "pivot": [
+        342.9936068288671,
+        280.3927598892977
+      ],
+      "coverage_centroid": [
+        342.9936068288671,
+        280.3927598892977
+      ],
+      "pivot_adjusted": false,
+      "radial_angle_deg": 1.3616177724284517,
+      "radial_distance_px": 87.8288561817965,
+      "tip": [
+        399,
+        282
+      ],
+      "area_px": 5733,
+      "alpha_area_px": 5292.411764705882,
+      "bbox": [
+        297,
+        224,
+        400,
+        348
+      ],
+      "source_component": 7,
+      "geometry": {
+        "core_centre": [
+          251,
+          306
+        ],
+        "core_radius_px": 69.35416353759881,
+        "burst_centre": [
+          255.18955066242054,
+          278.30572876298635
+        ],
+        "body_radius_px": 177.33042599067574,
+        "prominence_px": 26.59956389860136,
+        "tips": [
+          [
+            279,
+            121
+          ],
+          [
+            424,
+            224
+          ],
+          [
+            114,
+            289
+          ],
+          [
+            120,
+            206
+          ]
+        ],
+        "roots": [
+          [
+            301,
+            253
+          ],
+          [
+            240,
+            376
+          ],
+          [
+            151,
+            293
+          ],
+          [
+            200,
+            250
+          ]
+        ]
+      },
+      "connected_components": 1,
+      "kind": "tongue_base",
+      "tongue_id": 2,
+      "contour_tip": [
+        424,
+        224
+      ],
+      "contour_roots": [
+        [
+          301,
+          253
+        ],
+        [
+          240,
+          376
+        ]
+      ],
+      "tongue_length_px": 178.192311843132,
+      "waist": {
+        "axis_xy": [
+          0.9036314541489197,
+          -0.4283108626601816
+        ],
+        "projection_px": 239.8817734343583,
+        "width_px": 35.21567630739713,
+        "axial_bin": 88,
+        "admissible_bins": [
+          27,
+          109
+        ]
+      },
+      "merged_slivers": [],
+      "mask": "piece_008.png"
+    },
+    {
+      "id": 9,
+      "dominant_band": 1,
+      "band_histogram": {
+        "0": 1125,
+        "1": 1968,
+        "2": 1581,
+        "3": 301
+      },
+      "pivot": [
+        168.83378192256424,
+        323.36674769114336
+      ],
+      "coverage_centroid": [
+        168.83378192256424,
+        323.36674769114336
+      ],
+      "pivot_adjusted": false,
+      "radial_angle_deg": 152.444145307969,
+      "radial_distance_px": 97.40541166431805,
+      "tip": [
+        114,
+        291
+      ],
+      "area_px": 4975,
+      "alpha_area_px": 4601.207843137255,
+      "bbox": [
+        114,
+        272,
+        209,
+        376
+      ],
+      "source_component": 7,
+      "geometry": {
+        "core_centre": [
+          251,
+          306
+        ],
+        "core_radius_px": 69.35416353759881,
+        "burst_centre": [
+          255.18955066242054,
+          278.30572876298635
+        ],
+        "body_radius_px": 177.33042599067574,
+        "prominence_px": 26.59956389860136,
+        "tips": [
+          [
+            279,
+            121
+          ],
+          [
+            424,
+            224
+          ],
+          [
+            114,
+            289
+          ],
+          [
+            120,
+            206
+          ]
+        ],
+        "roots": [
+          [
+            301,
+            253
+          ],
+          [
+            240,
+            376
+          ],
+          [
+            151,
+            293
+          ],
+          [
+            200,
+            250
+          ]
+        ]
+      },
+      "connected_components": 1,
+      "kind": "tongue",
+      "tongue_id": 3,
+      "contour_tip": [
+        114,
+        289
+      ],
+      "contour_roots": [
+        [
+          240,
+          376
+        ],
+        [
+          151,
+          293
+        ]
+      ],
+      "tongue_length_px": 93.34077351297235,
+      "merged_slivers": [],
+      "mask": "piece_009.png"
+    },
+    {
+      "id": 10,
+      "dominant_band": 1,
+      "band_histogram": {
+        "0": 1539,
+        "1": 2090,
+        "2": 1053,
+        "3": 140
+      },
+      "pivot": [
+        151.92130726269124,
+        240.56615362047984
+      ],
+      "coverage_centroid": [
+        151.92130726269124,
+        240.56615362047984
+      ],
+      "pivot_adjusted": false,
+      "radial_angle_deg": 200.0749265510059,
+      "radial_distance_px": 109.94819519574948,
+      "tip": [
+        121,
+        204
+      ],
+      "area_px": 4822,
+      "alpha_area_px": 4330.917647058824,
+      "bbox": [
+        118,
+        184,
+        198,
+        292
+      ],
+      "source_component": 7,
+      "geometry": {
+        "core_centre": [
+          251,
+          306
+        ],
+        "core_radius_px": 69.35416353759881,
+        "burst_centre": [
+          255.18955066242054,
+          278.30572876298635
+        ],
+        "body_radius_px": 177.33042599067574,
+        "prominence_px": 26.59956389860136,
+        "tips": [
+          [
+            279,
+            121
+          ],
+          [
+            424,
+            224
+          ],
+          [
+            114,
+            289
+          ],
+          [
+            120,
+            206
+          ]
+        ],
+        "roots": [
+          [
+            301,
+            253
+          ],
+          [
+            240,
+            376
+          ],
+          [
+            151,
+            293
+          ],
+          [
+            200,
+            250
+          ]
+        ]
+      },
+      "connected_components": 1,
+      "kind": "tongue",
+      "tongue_id": 4,
+      "contour_tip": [
+        120,
+        206
+      ],
+      "contour_roots": [
+        [
+          151,
+          293
+        ],
+        [
+          200,
+          250
+        ]
+      ],
+      "tongue_length_px": 85.85161617581815,
+      "merged_slivers": [],
+      "mask": "piece_010.png"
+    },
+    {
+      "id": 11,
+      "dominant_band": 2,
+      "band_histogram": {
+        "0": 307,
+        "1": 755,
+        "2": 888,
+        "3": 331
+      },
+      "pivot": [
+        279.5415488743155,
+        248.79166883829933
+      ],
+      "coverage_centroid": [
+        279.5415488743155,
+        248.79166883829933
+      ],
+      "pivot_adjusted": false,
+      "radial_angle_deg": 309.5259795088614,
+      "radial_distance_px": 38.26355380973062,
+      "tip": [
+        313,
+        214
+      ],
+      "area_px": 2281,
+      "alpha_area_px": 2182.027450980392,
+      "bbox": [
+        253,
+        214,
+        314,
+        284
+      ],
+      "source_component": 7,
+      "geometry": {
+        "core_centre": [
+          251,
+          306
+        ],
+        "core_radius_px": 69.35416353759881,
+        "burst_centre": [
+          255.18955066242054,
+          278.30572876298635
+        ],
+        "body_radius_px": 177.33042599067574,
+        "prominence_px": 26.59956389860136,
+        "tips": [
+          [
+            279,
+            121
+          ],
+          [
+            424,
+            224
+          ],
+          [
+            114,
+            289
+          ],
+          [
+            120,
+            206
+          ]
+        ],
+        "roots": [
+          [
+            301,
+            253
+          ],
+          [
+            240,
+            376
+          ],
+          [
+            151,
+            293
+          ],
+          [
+            200,
+            250
+          ]
+        ]
+      },
+      "connected_components": 1,
+      "kind": "core_wedge",
+      "core_seed": [
+        286,
+        247
+      ],
+      "merged_slivers": [],
+      "mask": "piece_011.png"
+    },
+    {
+      "id": 12,
+      "dominant_band": 2,
+      "band_histogram": {
+        "0": 544,
+        "1": 1396,
+        "2": 2201,
+        "3": 692
+      },
+      "pivot": [
+        301.0909465609044,
+        323.57023880622125
+      ],
+      "coverage_centroid": [
+        301.0909465609044,
+        323.57023880622125
+      ],
+      "pivot_adjusted": false,
+      "radial_angle_deg": 44.599737670126224,
+      "radial_distance_px": 64.46560334692808,
+      "tip": [
+        348,
+        363
+      ],
+      "area_px": 4833,
+      "alpha_area_px": 4662.078431372549,
+      "bbox": [
+        262,
+        264,
+        353,
+        378
+      ],
+      "source_component": 7,
+      "geometry": {
+        "core_centre": [
+          251,
+          306
+        ],
+        "core_radius_px": 69.35416353759881,
+        "burst_centre": [
+          255.18955066242054,
+          278.30572876298635
+        ],
+        "body_radius_px": 177.33042599067574,
+        "prominence_px": 26.59956389860136,
+        "tips": [
+          [
+            279,
+            121
+          ],
+          [
+            424,
+            224
+          ],
+          [
+            114,
+            289
+          ],
+          [
+            120,
+            206
+          ]
+        ],
+        "roots": [
+          [
+            301,
+            253
+          ],
+          [
+            240,
+            376
+          ],
+          [
+            151,
+            293
+          ],
+          [
+            200,
+            250
+          ]
+        ]
+      },
+      "connected_components": 1,
+      "kind": "core_wedge",
+      "core_seed": [
+        295,
+        298
+      ],
+      "merged_slivers": [],
+      "mask": "piece_012.png"
+    },
+    {
+      "id": 13,
+      "dominant_band": 3,
+      "band_histogram": {
+        "0": 660,
+        "1": 815,
+        "2": 1691,
+        "3": 3409
+      },
+      "pivot": [
+        247.09002423143247,
+        340.3259870963906
+      ],
+      "coverage_centroid": [
+        247.09002423143247,
+        340.3259870963906
+      ],
+      "pivot_adjusted": false,
+      "radial_angle_deg": 97.44042563869462,
+      "radial_distance_px": 62.54690057987263,
+      "tip": [
+        275,
+        390
+      ],
+      "area_px": 6575,
+      "alpha_area_px": 6331.105882352941,
+      "bbox": [
+        204,
+        279,
+        308,
+        391
+      ],
+      "source_component": 7,
+      "geometry": {
+        "core_centre": [
+          251,
+          306
+        ],
+        "core_radius_px": 69.35416353759881,
+        "burst_centre": [
+          255.18955066242054,
+          278.30572876298635
+        ],
+        "body_radius_px": 177.33042599067574,
+        "prominence_px": 26.59956389860136,
+        "tips": [
+          [
+            279,
+            121
+          ],
+          [
+            424,
+            224
+          ],
+          [
+            114,
+            289
+          ],
+          [
+            120,
+            206
+          ]
+        ],
+        "roots": [
+          [
+            301,
+            253
+          ],
+          [
+            240,
+            376
+          ],
+          [
+            151,
+            293
+          ],
+          [
+            200,
+            250
+          ]
+        ]
+      },
+      "connected_components": 1,
+      "kind": "core_wedge",
+      "core_seed": [
+        248,
+        323
+      ],
+      "merged_slivers": [],
+      "mask": "piece_013.png"
+    },
+    {
+      "id": 14,
+      "dominant_band": 2,
+      "band_histogram": {
+        "0": 134,
+        "1": 603,
+        "2": 1117,
+        "3": 660
+      },
+      "pivot": [
+        205.63890330022164,
+        283.06619799425977
+      ],
+      "coverage_centroid": [
+        205.63890330022164,
+        283.06619799425977
+      ],
+      "pivot_adjusted": false,
+      "radial_angle_deg": 174.51227677369081,
+      "radial_distance_px": 49.77879790950048,
+      "tip": [
+        167,
+        291
+      ],
+      "area_px": 2514,
+      "alpha_area_px": 2471.7294117647057,
+      "bbox": [
+        167,
+        250,
+        241,
+        309
+      ],
+      "source_component": 7,
+      "geometry": {
+        "core_centre": [
+          251,
+          306
+        ],
+        "core_radius_px": 69.35416353759881,
+        "burst_centre": [
+          255.18955066242054,
+          278.30572876298635
+        ],
+        "body_radius_px": 177.33042599067574,
+        "prominence_px": 26.59956389860136,
+        "tips": [
+          [
+            279,
+            121
+          ],
+          [
+            424,
+            224
+          ],
+          [
+            114,
+            289
+          ],
+          [
+            120,
+            206
+          ]
+        ],
+        "roots": [
+          [
+            301,
+            253
+          ],
+          [
+            240,
+            376
+          ],
+          [
+            151,
+            293
+          ],
+          [
+            200,
+            250
+          ]
+        ]
+      },
+      "connected_components": 1,
+      "kind": "core_wedge",
+      "core_seed": [
+        211,
+        285
+      ],
+      "merged_slivers": [],
+      "mask": "piece_014.png"
+    },
+    {
+      "id": 15,
+      "dominant_band": 2,
+      "band_histogram": {
+        "0": 548,
+        "1": 840,
+        "2": 1011,
+        "3": 511
+      },
+      "pivot": [
+        232.4001250188606,
+        246.5171469833811
+      ],
+      "coverage_centroid": [
+        232.4001250188606,
+        246.5171469833811
+      ],
+      "pivot_adjusted": false,
+      "radial_angle_deg": 234.3630333280838,
+      "radial_distance_px": 39.11357632232059,
+      "tip": [
+        213,
+        211
+      ],
+      "area_px": 2910,
+      "alpha_area_px": 2729.0,
+      "bbox": [
+        197,
+        210,
+        262,
+        282
+      ],
+      "source_component": 7,
+      "geometry": {
+        "core_centre": [
+          251,
+          306
+        ],
+        "core_radius_px": 69.35416353759881,
+        "burst_centre": [
+          255.18955066242054,
+          278.30572876298635
+        ],
+        "body_radius_px": 177.33042599067574,
+        "prominence_px": 26.59956389860136,
+        "tips": [
+          [
+            279,
+            121
+          ],
+          [
+            424,
+            224
+          ],
+          [
+            114,
+            289
+          ],
+          [
+            120,
+            206
+          ]
+        ],
+        "roots": [
+          [
+            301,
+            253
+          ],
+          [
+            240,
+            376
+          ],
+          [
+            151,
+            293
+          ],
+          [
+            200,
+            250
+          ]
+        ]
+      },
+      "connected_components": 1,
+      "kind": "core_wedge",
+      "core_seed": [
+        234,
+        239
+      ],
+      "merged_slivers": [],
+      "mask": "piece_015.png"
+    },
+    {
+      "id": 16,
+      "dominant_band": 1,
+      "band_histogram": {
+        "0": 935,
+        "1": 944,
+        "2": 67,
+        "3": 0
+      },
+      "pivot": [
+        404.53321716087964,
+        239.39714417385542
+      ],
+      "coverage_centroid": [
+        404.53321716087964,
+        239.39714417385542
+      ],
+      "pivot_adjusted": false,
+      "radial_angle_deg": 345.39731508513745,
+      "radial_distance_px": 154.3288977409368,
+      "tip": [
+        424,
+        224
+      ],
+      "area_px": 1946,
+      "alpha_area_px": 1633.8117647058823,
+      "bbox": [
+        382,
+        201,
+        425,
+        282
+      ],
+      "source_component": 7,
+      "geometry": {
+        "core_centre": [
+          251,
+          306
+        ],
+        "core_radius_px": 69.35416353759881,
+        "burst_centre": [
+          255.18955066242054,
+          278.30572876298635
+        ],
+        "body_radius_px": 177.33042599067574,
+        "prominence_px": 26.59956389860136,
+        "tips": [
+          [
+            279,
+            121
+          ],
+          [
+            424,
+            224
+          ],
+          [
+            114,
+            289
+          ],
+          [
+            120,
+            206
+          ]
+        ],
+        "roots": [
+          [
+            301,
+            253
+          ],
+          [
+            240,
+            376
+          ],
+          [
+            151,
+            293
+          ],
+          [
+            200,
+            250
+          ]
+        ]
+      },
+      "connected_components": 1,
+      "kind": "tongue_tip",
+      "tongue_id": 2,
+      "contour_tip": [
+        424,
+        224
+      ],
+      "contour_roots": [
+        [
+          301,
+          253
+        ],
+        [
+          240,
+          376
+        ]
+      ],
+      "tongue_length_px": 178.192311843132,
+      "waist": {
+        "axis_xy": [
+          0.9036314541489197,
+          -0.4283108626601816
+        ],
+        "projection_px": 239.8817734343583,
+        "width_px": 35.21567630739713,
+        "axial_bin": 88,
+        "admissible_bins": [
+          27,
+          109
+        ]
+      },
+      "merged_slivers": [],
+      "mask": "piece_016.png"
+    },
+    {
+      "id": 17,
+      "dominant_band": 0,
+      "band_histogram": {
+        "0": 594,
+        "1": 449,
+        "2": 26,
+        "3": 1
+      },
+      "pivot": [
+        278.7435315295951,
+        140.07918446671502
+      ],
+      "coverage_centroid": [
+        278.7435315295951,
+        140.07918446671502
+      ],
+      "pivot_adjusted": false,
+      "radial_angle_deg": 279.67039000655103,
+      "radial_distance_px": 140.218998580008,
+      "tip": [
+        279,
+        121
+      ],
+      "area_px": 1070,
+      "alpha_area_px": 875.7411764705882,
+      "bbox": [
+        249,
+        121,
+        303,
+        158
+      ],
+      "source_component": 7,
+      "geometry": {
+        "core_centre": [
+          251,
+          306
+        ],
+        "core_radius_px": 69.35416353759881,
+        "burst_centre": [
+          255.18955066242054,
+          278.30572876298635
+        ],
+        "body_radius_px": 177.33042599067574,
+        "prominence_px": 26.59956389860136,
+        "tips": [
+          [
+            279,
+            121
+          ],
+          [
+            424,
+            224
+          ],
+          [
+            114,
+            289
+          ],
+          [
+            120,
+            206
+          ]
+        ],
+        "roots": [
+          [
+            301,
+            253
+          ],
+          [
+            240,
+            376
+          ],
+          [
+            151,
+            293
+          ],
+          [
+            200,
+            250
+          ]
+        ]
+      },
+      "connected_components": 1,
+      "kind": "tongue_tip",
+      "tongue_id": 1,
+      "contour_tip": [
+        279,
+        121
+      ],
+      "contour_roots": [
+        [
+          200,
+          250
+        ],
+        [
+          301,
+          253
+        ]
+      ],
+      "tongue_length_px": 133.57582116535912,
+      "waist": {
+        "axis_xy": [
+          0.14964705637185813,
+          -0.988739479599777
+        ],
+        "projection_px": -110.95680356966471,
+        "width_px": 34.417641904652655,
+        "axial_bin": 81,
+        "admissible_bins": [
+          23,
+          92
+        ]
+      },
+      "merged_slivers": [],
+      "mask": "piece_017.png"
+    },
+    {
+      "id": 18,
+      "dominant_band": 0,
+      "band_histogram": {
+        "0": 2,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "pivot": [
+        214,
+        122
+      ],
+      "coverage_centroid": [
+        213.5,
+        122.5
+      ],
+      "pivot_adjusted": true,
+      "radial_angle_deg": 255.23708178049094,
+      "radial_distance_px": 161.6417641820961,
+      "tip": [
+        214,
+        122
+      ],
+      "area_px": 2,
+      "alpha_area_px": 0.00784313725490196,
+      "bbox": [
+        213,
+        122,
+        215,
+        124
+      ],
+      "source_component": 8,
+      "geometry": null,
+      "connected_components": 1,
+      "kind": "source_island",
+      "merged_slivers": [],
+      "unmergeable_sliver": "detached source island; no shared border; coverage preserved",
+      "mask": "piece_018.png"
+    },
+    {
+      "id": 19,
+      "dominant_band": 0,
+      "band_histogram": {
+        "0": 1,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "pivot": [
+        216.0,
+        122.0
+      ],
+      "coverage_centroid": [
+        216.0,
+        122.0
+      ],
+      "pivot_adjusted": false,
+      "radial_angle_deg": 255.92473733635165,
+      "radial_distance_px": 161.1437300215267,
+      "tip": [
+        216,
+        122
+      ],
+      "area_px": 1,
+      "alpha_area_px": 0.00392156862745098,
+      "bbox": [
+        216,
+        122,
+        217,
+        123
+      ],
+      "source_component": 9,
+      "geometry": null,
+      "connected_components": 1,
+      "kind": "source_island",
+      "merged_slivers": [],
+      "unmergeable_sliver": "detached source island; no shared border; coverage preserved",
+      "mask": "piece_019.png"
+    },
+    {
+      "id": 20,
+      "dominant_band": 0,
+      "band_histogram": {
+        "0": 2,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "pivot": [
+        212.5,
+        128.5
+      ],
+      "coverage_centroid": [
+        212.5,
+        128.5
+      ],
+      "pivot_adjusted": false,
+      "radial_angle_deg": 254.0942457796204,
+      "radial_distance_px": 155.76955448985788,
+      "tip": [
+        212,
+        128
+      ],
+      "area_px": 2,
+      "alpha_area_px": 0.00784313725490196,
+      "bbox": [
+        212,
+        128,
+        214,
+        130
+      ],
+      "source_component": 10,
+      "geometry": null,
+      "connected_components": 1,
+      "kind": "source_island",
+      "merged_slivers": [],
+      "unmergeable_sliver": "detached source island; no shared border; coverage preserved",
+      "mask": "piece_020.png"
+    },
+    {
+      "id": 21,
+      "dominant_band": 0,
+      "band_histogram": {
+        "0": 1,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "pivot": [
+        216.0,
+        128.0
+      ],
+      "coverage_centroid": [
+        216.0,
+        128.0
+      ],
+      "pivot_adjusted": false,
+      "radial_angle_deg": 255.3864926098588,
+      "radial_distance_px": 155.33072130166283,
+      "tip": [
+        216,
+        128
+      ],
+      "area_px": 1,
+      "alpha_area_px": 0.00392156862745098,
+      "bbox": [
+        216,
+        128,
+        217,
+        129
+      ],
+      "source_component": 11,
+      "geometry": null,
+      "connected_components": 1,
+      "kind": "source_island",
+      "merged_slivers": [],
+      "unmergeable_sliver": "detached source island; no shared border; coverage preserved",
+      "mask": "piece_021.png"
+    },
+    {
+      "id": 22,
+      "dominant_band": 0,
+      "band_histogram": {
+        "0": 1,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "pivot": [
+        217.0,
+        130.0
+      ],
+      "coverage_centroid": [
+        217.0,
+        130.0
+      ],
+      "pivot_adjusted": false,
+      "radial_angle_deg": 255.55973578866497,
+      "radial_distance_px": 153.14382443872185,
+      "tip": [
+        217,
+        130
+      ],
+      "area_px": 1,
+      "alpha_area_px": 0.00392156862745098,
+      "bbox": [
+        217,
+        130,
+        218,
+        131
+      ],
+      "source_component": 12,
+      "geometry": null,
+      "connected_components": 1,
+      "kind": "source_island",
+      "merged_slivers": [],
+      "unmergeable_sliver": "detached source island; no shared border; coverage preserved",
+      "mask": "piece_022.png"
+    },
+    {
+      "id": 23,
+      "dominant_band": 0,
+      "band_histogram": {
+        "0": 2,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "pivot": [
+        118.5,
+        270.0
+      ],
+      "coverage_centroid": [
+        118.5,
+        270.0
+      ],
+      "pivot_adjusted": false,
+      "radial_angle_deg": 183.47721395547217,
+      "radial_distance_px": 136.94166053680937,
+      "tip": [
+        118,
+        270
+      ],
+      "area_px": 2,
+      "alpha_area_px": 0.00784313725490196,
+      "bbox": [
+        118,
+        270,
+        120,
+        271
+      ],
+      "source_component": 13,
+      "geometry": null,
+      "connected_components": 1,
+      "kind": "source_island",
+      "merged_slivers": [],
+      "unmergeable_sliver": "detached source island; no shared border; coverage preserved",
+      "mask": "piece_023.png"
+    },
+    {
+      "id": 24,
+      "dominant_band": 0,
+      "band_histogram": {
+        "0": 1,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "pivot": [
+        365.0,
+        390.0
+      ],
+      "coverage_centroid": [
+        365.0,
+        390.0
+      ],
+      "pivot_adjusted": false,
+      "radial_angle_deg": 45.48726926333406,
+      "radial_distance_px": 156.63315425186545,
+      "tip": [
+        365,
+        390
+      ],
+      "area_px": 1,
+      "alpha_area_px": 0.00392156862745098,
+      "bbox": [
+        365,
+        390,
+        366,
+        391
+      ],
+      "source_component": 14,
+      "geometry": null,
+      "connected_components": 1,
+      "kind": "source_island",
+      "merged_slivers": [],
+      "unmergeable_sliver": "detached source island; no shared border; coverage preserved",
+      "mask": "piece_024.png"
+    }
+  ]
+}

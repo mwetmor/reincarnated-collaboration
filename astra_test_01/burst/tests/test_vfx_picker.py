@@ -1375,6 +1375,8 @@ def e1_project_fixture(root, keyed=False):
                                 for n,h in [('stretched',3),('pulsed',4)]]
             (directory/'kit.json').write_text(json.dumps(data))
         entries.append({'name':name,'dir':str(directory)})
+    # FL-4b: include the new B impact without changing the v2 comparison.
+    entries.append({'name':'fire_burst_e0p_v3','dir':str(kitroot/'fire_burst_e0p_v3')})
     catalogue=root/'kits.json'; catalogue.write_text(json.dumps({'kits':entries}))
     project=root/'project'; build_project(cells,project,vfx_kits=catalogue,sockets=sockets)
     (project/'e1_probe.gd').write_text(E1_PROBE)
@@ -1441,6 +1443,8 @@ class ProjectileArmPickerTests(unittest.TestCase):
         data=json.loads(catalogue_path.read_text())
         self.assertEqual([k['name'] for k in data['kits'][8:11]],['fire_bolt_e1_A','fire_bolt_e1_B','ice_bolt_e2'])
         original={'kits':[dict(k,dir=str((catalogue_path.parent/k['dir']).resolve())) for k in data['kits'][:11]]}
+        # FL-4b: close B's explicit new dependency before comparing bytes.
+        original['kits'] += [dict(k,dir=str((catalogue_path.parent/k['dir']).resolve())) for k in data['kits'] if k['name']=='fire_burst_e0p_v3']
         catalogue=self.root/'kits.json'; catalogue.write_text(json.dumps(original))
         project=self.root/'project'; build_project(cells,project,vfx_kits=catalogue,sockets=sockets)
         actual={p.relative_to(project).as_posix():hashlib.sha256(p.read_bytes()).hexdigest() for p in project.rglob('*') if p.is_file()}
@@ -2168,3 +2172,17 @@ def fl4_trace(directory):
         log=proc.stdout+proc.stderr;(directory/(label+'.log')).write_text(log)
         if proc.returncode or 'SCRIPT ERROR' in log:raise RuntimeError(log)
     return json.loads((project/'fl4_trace.json').read_text())
+
+
+class FL4BCatalogueTests(unittest.TestCase):
+    def test_eighteen_kits_new_b_binding_and_v2_comparison(self):
+        kits=_load_vfx_kits(ROOT/'runs/C-5/vfx_kits/kits_v9.json')
+        self.assertEqual(len(kits),18)
+        names=[k['name'] for k in kits]
+        self.assertEqual(len(set(names)),18)
+        self.assertEqual(names[-1],'fire_burst_e0p_v3')
+        by_name={k['name']:k['effect'] for k in kits}
+        self.assertEqual(by_name['fire_bolt_e1_B']['impact_binding']['kit'],'fire_burst_e0p_v3')
+        self.assertEqual(by_name['fire_bolt_e1_A']['impact_binding']['kit'],'fire_burst_e0p_v2')
+        self.assertEqual(by_name['fire_burst_e0p_v3']['pieces']['key_states'],[])
+        self.assertTrue(by_name['fire_burst_e0p_v2']['pieces']['key_states'])

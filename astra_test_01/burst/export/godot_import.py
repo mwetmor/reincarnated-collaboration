@@ -2790,7 +2790,7 @@ def _write_piece_burst_v2(out, kit, resource_root, prefix):
     legacy['effect']['pieces']['template'] = 'burst_v1'
     legacy['effect']['pieces'].pop('key_states', None)
     legacy['effect']['pieces'].pop('boil', None)
-    for opt in ('timing','ember_ending'): legacy['effect']['pieces'].pop(opt, None)
+    for opt in ('timing','ember_ending','interleave'): legacy['effect']['pieces'].pop(opt, None)
     if 'ember_ending' in config:
         legacy['effect']['pieces'].update(residue_s=.3,residue_fraction=.2)
     legacy['effect']['material'].pop('erode_noise', None)
@@ -2830,6 +2830,8 @@ def _write_piece_burst_v2(out, kit, resource_root, prefix):
     extra_nodes = ['[node name="Roots" type="Node2D" parent="Art"]\n',
                    '[node name="DarkRoots" type="Node2D" parent="Art"]\nz_index = -1\n']
     def vector(x,y): return f'Vector2({float(x):.12g}, {float(y):.12g})'
+    if 'interleave' in config:
+        scene = _interleave_nodes(out, kit, resource_root, scene, runtime, geometry, config)
     for item in geometry['pieces']:
         ident = item['id']; name = 'Piece_%03d' % ident
         material_rel = resource_root+'/materials/Piece_'+name+'.tres'
@@ -2838,7 +2840,7 @@ def _write_piece_burst_v2(out, kit, resource_root, prefix):
             material_config['erode_noise'] = noise
         if 'dissolve_order' in config:
             material_config['dissolve_order'] = config['dissolve_order']
-        write_vfx_material(out, material_rel, material_config, field_rel, noise_texture=noise_rel)
+        write_vfx_material(out, material_rel, material_config, item.get('interleave_field', field_rel), noise_texture=noise_rel)
         material = (out/material_rel).read_text()
         shader_ref = re.search(r'path="res://([^"]+\.gdshader)"', material)[1]
         root_shader = str(Path(shader_ref).with_name('vfx_material_v2_roots.gdshader'))
@@ -2855,6 +2857,7 @@ def _write_piece_burst_v2(out, kit, resource_root, prefix):
         angle = item['axis_radians']
         replacement = (f'[node name="{axis_name}" type="Node2D" parent="Art/Pieces"]\n'
                        f'position = {vector(*position)}\nrotation = {angle:.12g}\n'
+                       + ('visible = false\n' if item.get('interleave') else '') +
                        f'[node name="Stretch" type="Sprite2D" parent="Art/Pieces/{axis_name}"]\n'
                        f'[node name="{name}" type="Sprite2D" parent="Art/Pieces/{axis_name}/Stretch"]\n'
                        'texture_filter = 2\ncentered = false\n'
@@ -2898,7 +2901,12 @@ def _write_piece_burst_v2(out, kit, resource_root, prefix):
             script = script.replace('    if age >= residue_end:\n        hide()', '    _clock_ember_ending(age)\n    if age >= 114:\n        hide()')
             script += EMBER_ENDING_SCRIPT
         scene = re.sub(r'res://scripts/vfx/piece_burst_(?:v2_keys|v2|fl2|fl3)\.gd', 'res://scripts/vfx/piece_burst_fl4.gd', scene)
-        (out/'scripts/vfx/piece_burst_fl4.gd').write_text(script)
+        if 'interleave' in config:
+            script = _fl4b_burst_script(script)
+            scene = scene.replace('res://scripts/vfx/piece_burst_fl4.gd', 'res://scripts/vfx/piece_burst_fl4b.gd')
+            (out/'scripts/vfx/piece_burst_fl4b.gd').write_text(script)
+        else:
+            (out/'scripts/vfx/piece_burst_fl4.gd').write_text(script)
     # Shared files must not depend on which kit was emitted last.
     (out/'scripts/vfx/piece_burst_v2.gd').write_text(PIECE_BURST_V2_SCRIPT)
     runtime_path.write_text(json.dumps(runtime,indent=2)+'\n')
@@ -3032,6 +3040,7 @@ def _painted_g1_config(kit):
             'origin_socket': data['skill_spec']['mechanics']['origin_socket'],
             'impact': 'res://scenes/vfx_'+data['impact_binding']['kit']+'_impact.tscn',
             'seed': data['impact_binding']['seed'], 'painted_travel': primitives,
+            **(_fl4b_travel_metrics(kit) if 'core' in data['layers'].get('travel', {}) else {}),
             'key_states': states, 'enabled_layers': data['skill_spec']['presentation']['enabled_layers'],
             'dark_duplicate': data['layers'].get('dark_duplicate', False),
             'strike_stop_s': data['skill_spec']['presentation'].get('layers', {}).get('hit_stop', {}).get('frames', data['skill_spec']['presentation']['phase_envelope_s']['contact_frames'])/60.0}
@@ -3060,6 +3069,10 @@ def _write_painted_travel(out, kit, resource_root):
             from export.effect_kit import distance_field
             with Image.open(source) as image:
                 Image.fromarray(distance_field(np.asarray(image.convert('RGBA')))).save(destination)
+        if role == 'head' and 'core' in data['layers'].get('travel', {}):
+            from export.effect_kit import distance_field
+            with Image.open(source) as image: pixels = np.asarray(image.convert('RGBA'))
+            Image.fromarray(distance_field(pixels)).save(destination)
         if role == 'streak':
             # T4a centre-out comparison on an x field = tail-to-socket erosion.
             with Image.open(source) as image: rgba = np.asarray(image.convert('RGBA'))
@@ -5287,6 +5300,10 @@ def _emit_anti_decal(out, kit, resource_root, scene, runtime, config, script):
         record = json.loads((kit['root']/config['source']).read_text())
         sources = ['pieces/'+record['peak_index']] + ['pieces/'+p['mask'] for p in record['pieces']]
         sources += [s['png'] for s in config.get('key_states', [])]
+        if 'interleave' in config:
+            from export.effect_kit import load_interleave
+            _, tongues = load_interleave(config['interleave'], kit['root'])
+            sources += list(tongues)
         masks = {}
         for i, relative in enumerate(dict.fromkeys(sources)):
             source = out/resource_root/relative
@@ -5609,7 +5626,8 @@ def _write_fl4_travel(out, kit, resource_root):
     script = script.replace('    _paint_clock(0)', '    _ready_flight_light()\n    _paint_clock(0)')
     script = script.replace('    _dark_copy($DarkHead, $Head, rest_head)', '    _clock_flight_light(age)\n    _dark_copy($DarkHead, $Head, rest_head)')
     script = script.replace('func _physics_process(delta: float) -> void:\n', 'func _physics_process(delta: float) -> void:\n    if is_instance_valid(flight_core) and not active: _clock_flight_light(age_frames())\n')
-    script += FLIGHT_LIGHT_SCRIPT
+    script = script.replace('trail_motes.source_point = global_position + socket.rotated(direction.angle())', 'trail_motes.source_point = global_position + socket.rotated(direction.angle()) + Vector2(float(config.sheet_tail[0]), float(config.sheet_tail[1])).rotated(direction.angle())')
+    script += FLIGHT_LIGHT_SCRIPT + FL4B_CONTACT_SCRIPT
     (out/'scripts/vfx_g1_fl4.gd').write_text(script)
     motes = FIRE_MOTES_SCRIPT.replace('res://scripts/vfx_fire_motes.gd','res://scripts/vfx_fire_motes_fl4.gd')
     motes = motes.replace('var band: int=2 if mode=="trail" else settings.bands[rng.randi_range(0,1)]','var band: int=settings.get("bands",[2,2])[rng.randi_range(0,1)] if mode=="trail" else settings.bands[rng.randi_range(0,1)]')
@@ -5679,8 +5697,141 @@ func _clock_flight_light(age: int) -> void:
         row["streak_erode"] = $Streak.material.get_shader_parameter("erode")
         row["noise_uv_consumed"] = "UV * noise_uv_scale + noise_uv_origin - noise_uv_offset" in $Streak.material.shader.code
         row["noise_bound"] = $Streak.material.get_shader_parameter("erosion_noise_texture") != null
+        row["head_extent_bh"] = config.head_extent_bh
+        row["sheet_extent_bh"] = config.sheet_extent_bh * $Streak.scale.x / float(config.painted_travel.streak.scale)
+        var rear := Vector2(config.painted_travel.head.rear_socket[0],config.painted_travel.head.rear_socket[1])
+        row["attachment_error_px"] = $Streak.global_position.distance_to($Head.to_global(rear+$Head.offset))
+        row["sheet_tail_world"] = [trail_motes.source_point.x,trail_motes.source_point.y] if is_instance_valid(trail_motes) else []
 '''
 
+
+
+def _fl4b_travel_metrics(kit):
+    import numpy as np
+    data = kit['effect']
+    result = {}
+    for role in ('head','streak'):
+        item = data['travel_primitives'][role]
+        with Image.open(kit['root']/item['png']) as image: a = np.asarray(image.convert('RGBA'))
+        # Literal drawn support remains alpha > 0. The supplied dimensions
+        # describe alpha > 8; report that second measurement without using it
+        # to replace the literal trace or dropping any painted alpha.
+        ys,xs = np.nonzero(a[:,:,3] > 0)
+        result['head_extent_bh' if role=='head' else 'sheet_extent_bh'] = float(xs.max()-xs.min()+1)*item['scale']/130
+        ys,xs = np.nonzero(a[:,:,3] > 8)
+        result[role+'_body_extent_bh'] = float(xs.max()-xs.min()+1)*item['scale']/130
+        if role == 'streak':
+            left = xs == xs.min()
+            tail = [float(xs.min()),float(ys[left].mean())]
+            result['sheet_tail'] = [(tail[i]-item['pivot'][i])*item['scale'] for i in (0,1)]
+    result['extent_alpha_threshold'] = 0
+    result['body_alpha_threshold'] = 8
+    return result
+
+
+def _interleave_nodes(out, kit, resource_root, scene, runtime, geometry, config):
+    import numpy as np
+    from export.effect_kit import load_interleave, interleave_gaps
+    library, assets = load_interleave(config['interleave'], kit['root'])
+    base = json.loads((kit['root']/config['source']).read_text())
+    runtime['interleave'] = dict(config['interleave'], gaps=interleave_gaps(base), seed_rule='effect_id XOR contact_frame XOR world_random')
+    for item in library['pieces']:
+        ident = 1000+item['id']; name = 'Piece_%03d' % ident
+        relative = config['interleave']['library']+'/'+item['png']
+        target = out/resource_root/relative; target.parent.mkdir(parents=True,exist_ok=True)
+        shutil.copyfile(kit['root']/relative,target)
+        with Image.open(target) as image: a=np.asarray(image.convert('RGBA'))
+        yy,xx=np.indices(a.shape[:2]);radius=np.hypot(xx-item['pivot'][0],yy-item['pivot'][1])
+        field=resource_root+'/distance/interleave/'+item['png'];(out/field).parent.mkdir(parents=True,exist_ok=True)
+        Image.fromarray(np.rint(np.clip(radius/max(1,radius[a[:,:,3]>0].max()),0,1)*255).astype(np.uint8)).save(out/field)
+        geometry['pieces'].append(dict(item,id=ident,library_id=item['id'],mask='interleave/'+item['png'],root=item['pivot'],
+                                       core=False,animated=True,interleave=True,axis_radians=math.radians(item['radial_angle_deg']),interleave_field=field))
+        ext = (f'[ext_resource type="Texture2D" path="res://{resource_root}/{relative}" id="T{name}"]\n'
+               f'[ext_resource type="Material" path="res://{resource_root}/materials/Piece_{name}.tres" id="M{name}"]\n')
+        first=scene.index('[node ');scene=scene[:first]+ext+scene[first:]
+        scene+=f'\n[node name="{name}" type="Sprite2D" parent="Art/Pieces"]\nvisible = false\n'
+    return scene
+
+
+def _fl4b_burst_script(script):
+    script=script.replace('    for item in config.pieces:', '    _seed_interleave()\n    for item in config.pieces:',1)
+    script=script.replace('var flight_start: int = int(config.flash_frames) + int(config.hold_frames)', 'var flight_start: int = int(config.flash_frames)')
+    script=script.replace('$Art/Peak.visible = stage == "hold"','$Art/Peak.visible = false')
+    script=script.replace('$Art/PeakDark.visible = stage == "hold" and bool(config.dark_duplicate)','$Art/PeakDark.visible = false')
+    script=script.replace('float(age-flight_start)/9.0','float(age-flight_start-int(config.hold_frames))/9.0')
+    script=script.replace('        var root_drift_px:', '        var item_ease: float = ease * (.85 if item.get("interleave",false) else 1.0)\n        var root_drift_px:')
+    script=script.replace('float(config.core_radius_px) * ease','float(config.core_radius_px) * item_ease')
+    script=script.replace('float(item.rotation_deg)) * ease','float(item.rotation_deg)) * item_ease')
+    script=script.replace('Vector2(lerpf(1.0,float(item.along),ease),lerpf(1.0,0.85,ease))','Vector2(lerpf(1.0,float(item.along),item_ease),lerpf(1.0,0.85,item_ease))')
+    script=script.replace('        # Tips burn back first;', '        if item.get("interleave",false):\n            node.scale *= float(item.jitter_scale)\n            if bool(item.mirrored): node.scale.y *= -1\n        # Tips burn back first;')
+    script=script.replace('root_sprite.visible = active','root_sprite.visible = active and not item.get("interleave",false)')
+    script=script.replace('dark_root.visible = active','dark_root.visible = active and not item.get("interleave",false)')
+    # The keyless pieces receive the existing boil uniforms before their additive
+    # duplicates sample those uniforms. No key-state clocks are reintroduced.
+    script=script.replace('    _clock_anti_decal(age, residue_start, residue_end)', '    _clock_interleave(age)\n    _clock_anti_decal(age, residue_start, residue_end)')
+    return script + INTERLEAVE_SCRIPT
+
+
+INTERLEAVE_SCRIPT = r'''
+var interleave_seed: int
+var tongue_selection: Array = []
+func _interleave_sample(label: String) -> int:
+    return (str(interleave_seed)+":"+label).sha256_text().substr(0,8).hex_to_int()
+func _seed_interleave() -> void:
+    interleave_seed = int(get_meta("interleave_seed", int(config.seed) ^ int(get_instance_id()) ^ int(Engine.get_physics_frames()) ^ int(randi()))) & 0x7fffffff
+    config.seed = interleave_seed
+    var library: Array = config.pieces.filter(func(p): return p.get("interleave",false))
+    config.pieces = config.pieces.filter(func(p): return not p.get("interleave",false))
+    library.sort_custom(func(a,b): return _interleave_sample("pick"+str(int(a.library_id))) < _interleave_sample("pick"+str(int(b.library_id))))
+    var count: int = 3 + _interleave_sample("count") % 3
+    for rank in range(count):
+        var item: Dictionary = library[rank].duplicate(true)
+        var gap: Dictionary = config.interleave.gaps[rank]
+        var limit: float = minf(12, maxf(0,55-float(gap.width_deg)/2))
+        var jitter: float = (float(_interleave_sample("angle"+str(rank)))/4294967295.0*2-1)*limit
+        var angle: float = fposmod(float(gap.start_deg)+float(gap.width_deg)/2+jitter,360)
+        var radius: float = float(config.core_radius_px)*.9
+        var root := Vector2.RIGHT.rotated(deg_to_rad(angle))*radius
+        item.root = [float(config.centre[0])+root.x,float(config.centre[1])+root.y]
+        item.axis_radians = deg_to_rad(angle)
+        item.rotation_deg = 0.0
+        item.jitter_scale = .8+.35*float(_interleave_sample("scale"+str(rank)))/4294967295.0
+        item.mirrored = _interleave_sample("mirror"+str(rank)) % 2 == 1
+        config.pieces.append(item)
+        tongue_selection.append({"id":item.library_id,"gap_rank":rank,"angle_deg":angle,"jitter_deg":jitter,"scale":item.jitter_scale,"mirrored":item.mirrored,"speed_factor":.85,"root_radius_px":root.length()})
+func _clock_interleave(age: int) -> void:
+    var row: Dictionary = trace[-1]
+    row["interleave_seed"] = interleave_seed
+    row["tongues"] = tongue_selection
+    if config.anti_decal.has("boil"):
+        var boil: Dictionary = config.anti_decal.boil
+        var uv := Vector2(0,-float(age)/60*float(boil.uv_per_s))
+        var oscillation: float = float(boil.erode_amp)*sin(TAU*float(boil.hz)*float(age)/60)
+        for part in pieces:
+            for sprite in [part.paint,part.root]:
+                sprite.material.set_shader_parameter("noise_uv_offset",uv)
+                var erode: float = float(sprite.material.get_shader_parameter("erode"))
+                sprite.material.set_shader_parameter("erode",clampf(erode+oscillation,0,1))
+        row["boil_uv"] = [uv.x,uv.y]
+'''
+
+
+FL4B_CONTACT_SCRIPT = r'''
+func _spawn_impact(strike_response: bool = true, point: Variant = null) -> void:
+    var impact: Node2D = load(config.impact).instantiate()
+    impact.set_meta("strike_response", strike_response)
+    if str(config.impact).contains("fire_burst_e0p_v3"):
+        var contact_frame: int = Engine.get_physics_frames()
+        var world_random: int = randi()
+        impact.set_meta("interleave_seed", (effect_id ^ contact_frame ^ world_random) & 0x7fffffff)
+        impact.set_meta("cast_seed_inputs", {"effect_id":effect_id,"contact_frame":contact_frame,"world_random":world_random})
+    if struck_ground != null: impact.set_meta("ground_anchor", struck_ground)
+    impact.set("spell_scale", spell_scale)
+    impact.set("caster", caster)
+    impact.set("direction", direction)
+    impact.position = get_parent().to_local(global_position if point == null else point)
+    get_parent().add_child(impact)
+'''
 
 if __name__ == '__main__':
     main()

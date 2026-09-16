@@ -1,0 +1,3032 @@
+{
+  "task_id": "FL-4b",
+  "completion": "returned_to_conductor_after_diagnosed_retry",
+  "verdict_owner": "conductor",
+  "image_calls": 0,
+  "pieces_record": {
+    "body_source": "runs/C-5/vfx_kits/v9/fire_burst_e0p_v3/pieces/pieces.json",
+    "body_masks_byte_identical_to_v2": true,
+    "body_record_count": 24,
+    "body_substantial_piece_count": 11,
+    "library": "runs/C-5/vfx_kits/v9/fire_burst_e0p_v3/pieces/interleave/pieces.json",
+    "library_count": 10,
+    "extraction_note": "Frozen oracle: seven tongue regions, five core wedges, 25 source islands. Ten scallops require lower-lobe subdivision; no repaint, alpha or source-pixel changes.",
+    "key_states": [],
+    "ground_squash": 0.6
+  },
+  "current_static_projectile_metrics": {
+    "A": {
+      "head_extent_bh": 1.2,
+      "head_body_extent_bh": 1.170731707317073,
+      "sheet_extent_bh": 2.2,
+      "streak_body_extent_bh": 1.8820809248554913,
+      "sheet_tail": [
+        -240.53757225433526,
+        -30.17052023121387
+      ],
+      "extent_alpha_threshold": 0,
+      "body_alpha_threshold": 8,
+      "band3_alpha_fraction": 0.24876221062491635,
+      "band3_leading_half_fraction": 0.9770243616397463,
+      "impact_binding": {
+        "kit": "fire_burst_e0p_v2",
+        "phase": "pieces",
+        "template": "burst_v2",
+        "seed": 2026
+      }
+    },
+    "B": {
+      "head_extent_bh": 1.2,
+      "head_body_extent_bh": 1.170731707317073,
+      "sheet_extent_bh": 2.2,
+      "streak_body_extent_bh": 1.8820809248554913,
+      "sheet_tail": [
+        -240.53757225433526,
+        -30.17052023121387
+      ],
+      "extent_alpha_threshold": 0,
+      "body_alpha_threshold": 8,
+      "band3_alpha_fraction": 0.24876221062491635,
+      "band3_leading_half_fraction": 0.9770243616397463,
+      "impact_binding": {
+        "kit": "fire_burst_e0p_v3",
+        "phase": "pieces",
+        "template": "burst_v2",
+        "seed": 2026
+      }
+    }
+  },
+  "traced_initial_export": {
+    "valid_for_current_corrected_source": false,
+    "stale_cause": "retry export output directory not empty",
+    "sampler_source_in_trace": "decimal JSON id labels",
+    "headless_import_exit": 0,
+    "headless_trace_exit": 0,
+    "rendering_method": "gl_compatibility",
+    "seeds": [
+      {
+        "seed": 1,
+        "tongues": [
+          {
+            "angle_deg": 122.323516912022,
+            "gap_rank": 0,
+            "id": 8.0,
+            "jitter_deg": -2.61876856130985,
+            "mirrored": true,
+            "root_radius_px": 62.4187431335449,
+            "scale": 0.985378042581812,
+            "speed_factor": 0.85
+          },
+          {
+            "angle_deg": 65.2951528633054,
+            "gap_rank": 1,
+            "id": 2.0,
+            "jitter_deg": -5.72492879110503,
+            "mirrored": true,
+            "root_radius_px": 62.4187469482422,
+            "scale": 0.986733393880244,
+            "speed_factor": 0.85
+          },
+          {
+            "angle_deg": 257.242940264944,
+            "gap_rank": 2,
+            "id": 6.0,
+            "jitter_deg": 0.226228597626609,
+            "mirrored": true,
+            "root_radius_px": 62.4187469482422,
+            "scale": 1.06661981086168,
+            "speed_factor": 0.85
+          },
+          {
+            "angle_deg": 29.3358689637755,
+            "gap_rank": 3,
+            "id": 3.0,
+            "jitter_deg": 6.35519124249816,
+            "mirrored": false,
+            "root_radius_px": 62.4187469482422,
+            "scale": 0.855725041964493,
+            "speed_factor": 0.85
+          }
+        ],
+        "count": 4,
+        "max_gap_deg": 35.87133557627607,
+        "largest_gap_ranks": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "samples": [
+          {
+            "age": 2,
+            "art_visible": true,
+            "boil_uv": [
+              0.0,
+              -0.0116666667163372
+            ],
+            "core_draws": 26,
+            "extent_bh": [
+              2.38461538461538,
+              2.25240455040565
+            ],
+            "peak_visible": false
+          },
+          {
+            "age": 3,
+            "art_visible": true,
+            "boil_uv": [
+              0.0,
+              -0.0175000000745058
+            ],
+            "core_draws": 26,
+            "extent_bh": [
+              2.40221698467548,
+              2.26529048039363
+            ],
+            "peak_visible": false
+          },
+          {
+            "age": 4,
+            "art_visible": true,
+            "boil_uv": [
+              0.0,
+              -0.0233333334326744
+            ],
+            "core_draws": 26,
+            "extent_bh": [
+              2.45504572941707,
+              2.30395179161659
+            ],
+            "peak_visible": false
+          },
+          {
+            "age": 12,
+            "art_visible": true,
+            "boil_uv": [
+              0.0,
+              -0.0700000002980232
+            ],
+            "core_draws": 26,
+            "extent_bh": [
+              4.5812748835637,
+              4.01876690204327
+            ],
+            "peak_visible": false
+          },
+          {
+            "age": 24,
+            "art_visible": true,
+            "boil_uv": [
+              0.0,
+              -0.140000000596046
+            ],
+            "core_draws": 26,
+            "extent_bh": [
+              4.5812748835637,
+              4.01876690204327
+            ],
+            "peak_visible": false
+          },
+          {
+            "age": 26,
+            "art_visible": false,
+            "boil_uv": [
+              0.0,
+              -0.151666671037674
+            ],
+            "core_draws": 0,
+            "extent_bh": [
+              0.0,
+              0.0
+            ],
+            "peak_visible": false
+          },
+          {
+            "age": 36,
+            "art_visible": false,
+            "boil_uv": [
+              0.0,
+              -0.209999993443489
+            ],
+            "core_draws": 0,
+            "extent_bh": [
+              0.0,
+              0.0
+            ],
+            "peak_visible": false
+          }
+        ]
+      },
+      {
+        "seed": 2,
+        "tongues": [
+          {
+            "angle_deg": 116.534064808639,
+            "gap_rank": 0,
+            "id": 10.0,
+            "jitter_deg": -8.40822066469309,
+            "mirrored": true,
+            "root_radius_px": 62.4187469482422,
+            "scale": 0.96756114134741,
+            "speed_factor": 0.85
+          },
+          {
+            "angle_deg": 76.861096630521,
+            "gap_rank": 1,
+            "id": 6.0,
+            "jitter_deg": 5.84101497611055,
+            "mirrored": false,
+            "root_radius_px": 62.4187431335449,
+            "scale": 1.14115784388062,
+            "speed_factor": 0.85
+          },
+          {
+            "angle_deg": 260.85065999637,
+            "gap_rank": 2,
+            "id": 8.0,
+            "jitter_deg": 3.83394832905241,
+            "mirrored": false,
+            "root_radius_px": 62.4187507629395,
+            "scale": 0.90479790907232,
+            "speed_factor": 0.85
+          },
+          {
+            "angle_deg": 22.713056603571,
+            "gap_rank": 3,
+            "id": 2.0,
+            "jitter_deg": -0.267621117706322,
+            "mirrored": false,
+            "root_radius_px": 62.4187469482422,
+            "scale": 0.84541428802661,
+            "speed_factor": 0.85
+          }
+        ],
+        "count": 4,
+        "max_gap_deg": 35.91008049932999,
+        "largest_gap_ranks": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "samples": [
+          {
+            "age": 2,
+            "art_visible": true,
+            "boil_uv": [
+              0.0,
+              -0.0116666667163372
+            ],
+            "core_draws": 26,
+            "extent_bh": [
+              2.45465017465445,
+              2.53234205979567
+            ],
+            "peak_visible": false
+          },
+          {
+            "age": 3,
+            "art_visible": true,
+            "boil_uv": [
+              0.0,
+              -0.0175000000745058
+            ],
+            "core_draws": 26,
+            "extent_bh": [
+              2.46409912109375,
+              2.54866473858173
+            ],
+            "peak_visible": false
+          },
+          {
+            "age": 4,
+            "art_visible": true,
+            "boil_uv": [
+              0.0,
+              -0.0233333334326744
+            ],
+            "core_draws": 26,
+            "extent_bh": [
+              2.49246121920072,
+              2.59763653094952
+            ],
+            "peak_visible": false
+          },
+          {
+            "age": 12,
+            "art_visible": true,
+            "boil_uv": [
+              0.0,
+              -0.0700000002980232
+            ],
+            "core_draws": 26,
+            "extent_bh": [
+              4.5812748835637,
+              4.64710270808293
+            ],
+            "peak_visible": false
+          },
+          {
+            "age": 24,
+            "art_visible": true,
+            "boil_uv": [
+              0.0,
+              -0.140000000596046
+            ],
+            "core_draws": 26,
+            "extent_bh": [
+              4.5812748835637,
+              4.64710270808293
+            ],
+            "peak_visible": false
+          },
+          {
+            "age": 26,
+            "art_visible": false,
+            "boil_uv": [
+              0.0,
+              -0.151666671037674
+            ],
+            "core_draws": 0,
+            "extent_bh": [
+              0.0,
+              0.0
+            ],
+            "peak_visible": false
+          },
+          {
+            "age": 36,
+            "art_visible": false,
+            "boil_uv": [
+              0.0,
+              -0.209999993443489
+            ],
+            "core_draws": 0,
+            "extent_bh": [
+              0.0,
+              0.0
+            ],
+            "peak_visible": false
+          }
+        ]
+      },
+      {
+        "seed": 3,
+        "tongues": [
+          {
+            "angle_deg": 135.449781414579,
+            "gap_rank": 0,
+            "id": 7.0,
+            "jitter_deg": 10.5074959412467,
+            "mirrored": true,
+            "root_radius_px": 62.4187469482422,
+            "scale": 0.827810051589694,
+            "speed_factor": 0.85
+          },
+          {
+            "angle_deg": 61.5453047481057,
+            "gap_rank": 1,
+            "id": 9.0,
+            "jitter_deg": -9.47477690630471,
+            "mirrored": false,
+            "root_radius_px": 62.4187469482422,
+            "scale": 0.835947813858732,
+            "speed_factor": 0.85
+          },
+          {
+            "angle_deg": 255.218734453151,
+            "gap_rank": 2,
+            "id": 8.0,
+            "jitter_deg": -1.79797721416642,
+            "mirrored": true,
+            "root_radius_px": 62.4187469482422,
+            "scale": 0.88260816075667,
+            "speed_factor": 0.85
+          },
+          {
+            "angle_deg": 30.8038924896683,
+            "gap_rank": 3,
+            "id": 6.0,
+            "jitter_deg": 7.82321476839092,
+            "mirrored": false,
+            "root_radius_px": 62.4187469482422,
+            "scale": 0.940530867255416,
+            "speed_factor": 0.85
+          },
+          {
+            "angle_deg": 337.160315219452,
+            "gap_rank": 4,
+            "id": 2.0,
+            "jitter_deg": 9.69866792245271,
+            "mirrored": true,
+            "root_radius_px": 62.4187431335449,
+            "scale": 0.945957376213269,
+            "speed_factor": 0.85
+          }
+        ],
+        "count": 5,
+        "max_gap_deg": 38.00935577588439,
+        "largest_gap_ranks": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "samples": [
+          {
+            "age": 2,
+            "art_visible": true,
+            "boil_uv": [
+              0.0,
+              -0.0116666667163372
+            ],
+            "core_draws": 27,
+            "extent_bh": [
+              2.38461538461538,
+              2.19135225736178
+            ],
+            "peak_visible": false
+          },
+          {
+            "age": 3,
+            "art_visible": true,
+            "boil_uv": [
+              0.0,
+              -0.0175000000745058
+            ],
+            "core_draws": 27,
+            "extent_bh": [
+              2.40221698467548,
+              2.20377432016226
+            ],
+            "peak_visible": false
+          },
+          {
+            "age": 4,
+            "art_visible": true,
+            "boil_uv": [
+              0.0,
+              -0.0233333334326744
+            ],
+            "core_draws": 27,
+            "extent_bh": [
+              2.45504572941707,
+              2.24104402982272
+            ],
+            "peak_visible": false
+          },
+          {
+            "age": 12,
+            "art_visible": true,
+            "boil_uv": [
+              0.0,
+              -0.0700000002980232
+            ],
+            "core_draws": 27,
+            "extent_bh": [
+              4.5812748835637,
+              3.90251253568209
+            ],
+            "peak_visible": false
+          },
+          {
+            "age": 24,
+            "art_visible": true,
+            "boil_uv": [
+              0.0,
+              -0.140000000596046
+            ],
+            "core_draws": 27,
+            "extent_bh": [
+              4.5812748835637,
+              3.90251253568209
+            ],
+            "peak_visible": false
+          },
+          {
+            "age": 26,
+            "art_visible": false,
+            "boil_uv": [
+              0.0,
+              -0.151666671037674
+            ],
+            "core_draws": 0,
+            "extent_bh": [
+              0.0,
+              0.0
+            ],
+            "peak_visible": false
+          },
+          {
+            "age": 36,
+            "art_visible": false,
+            "boil_uv": [
+              0.0,
+              -0.209999993443489
+            ],
+            "core_draws": 0,
+            "extent_bh": [
+              0.0,
+              0.0
+            ],
+            "peak_visible": false
+          }
+        ]
+      },
+      {
+        "seed": 4,
+        "tongues": [
+          {
+            "angle_deg": 136.199581210202,
+            "gap_rank": 0,
+            "id": 6.0,
+            "jitter_deg": 11.2572957368701,
+            "mirrored": true,
+            "root_radius_px": 62.4187431335449,
+            "scale": 0.877185531409268,
+            "speed_factor": 0.85
+          },
+          {
+            "angle_deg": 74.7703601719562,
+            "gap_rank": 1,
+            "id": 5.0,
+            "jitter_deg": 3.75027851754573,
+            "mirrored": true,
+            "root_radius_px": 62.4187469482422,
+            "scale": 0.93828411450104,
+            "speed_factor": 0.85
+          },
+          {
+            "angle_deg": 262.092443472162,
+            "gap_rank": 2,
+            "id": 3.0,
+            "jitter_deg": 5.07573180484486,
+            "mirrored": true,
+            "root_radius_px": 62.4187469482422,
+            "scale": 0.99613064265487,
+            "speed_factor": 0.85
+          },
+          {
+            "angle_deg": 19.6966631592992,
+            "gap_rank": 3,
+            "id": 2.0,
+            "jitter_deg": -3.28401456197817,
+            "mirrored": true,
+            "root_radius_px": 62.4187469482422,
+            "scale": 0.886218124508443,
+            "speed_factor": 0.85
+          }
+        ],
+        "count": 4,
+        "max_gap_deg": 38.75915557150739,
+        "largest_gap_ranks": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "samples": [
+          {
+            "age": 2,
+            "art_visible": true,
+            "boil_uv": [
+              0.0,
+              -0.0116666667163372
+            ],
+            "core_draws": 26,
+            "extent_bh": [
+              2.38461538461538,
+              2.30659977839543
+            ],
+            "peak_visible": false
+          },
+          {
+            "age": 3,
+            "art_visible": true,
+            "boil_uv": [
+              0.0,
+              -0.0175000000745058
+            ],
+            "core_draws": 26,
+            "extent_bh": [
+              2.40221698467548,
+              2.32708646334135
+            ],
+            "peak_visible": false
+          },
+          {
+            "age": 4,
+            "art_visible": true,
+            "boil_uv": [
+              0.0,
+              -0.0233333334326744
+            ],
+            "core_draws": 26,
+            "extent_bh": [
+              2.45504572941707,
+              2.38854792668269
+            ],
+            "peak_visible": false
+          },
+          {
+            "age": 12,
+            "art_visible": true,
+            "boil_uv": [
+              0.0,
+              -0.0700000002980232
+            ],
+            "core_draws": 26,
+            "extent_bh": [
+              4.5812748835637,
+              4.35892615685096
+            ],
+            "peak_visible": false
+          },
+          {
+            "age": 24,
+            "art_visible": true,
+            "boil_uv": [
+              0.0,
+              -0.140000000596046
+            ],
+            "core_draws": 26,
+            "extent_bh": [
+              4.5812748835637,
+              4.35892615685096
+            ],
+            "peak_visible": false
+          },
+          {
+            "age": 26,
+            "art_visible": false,
+            "boil_uv": [
+              0.0,
+              -0.151666671037674
+            ],
+            "core_draws": 0,
+            "extent_bh": [
+              0.0,
+              0.0
+            ],
+            "peak_visible": false
+          },
+          {
+            "age": 36,
+            "art_visible": false,
+            "boil_uv": [
+              0.0,
+              -0.209999993443489
+            ],
+            "core_draws": 0,
+            "extent_bh": [
+              0.0,
+              0.0
+            ],
+            "peak_visible": false
+          }
+        ]
+      },
+      {
+        "seed": 5,
+        "tongues": [
+          {
+            "angle_deg": 131.170841056314,
+            "gap_rank": 0,
+            "id": 2.0,
+            "jitter_deg": 6.22855558298262,
+            "mirrored": false,
+            "root_radius_px": 62.4187469482422,
+            "scale": 0.914405226268434,
+            "speed_factor": 0.85
+          },
+          {
+            "angle_deg": 61.6255388454413,
+            "gap_rank": 1,
+            "id": 4.0,
+            "jitter_deg": -9.39454280896916,
+            "mirrored": false,
+            "root_radius_px": 62.4187469482422,
+            "scale": 0.972398252091929,
+            "speed_factor": 0.85
+          },
+          {
+            "angle_deg": 257.426738403039,
+            "gap_rank": 2,
+            "id": 9.0,
+            "jitter_deg": 0.410026735721629,
+            "mirrored": true,
+            "root_radius_px": 62.4187507629395,
+            "scale": 1.14957811412159,
+            "speed_factor": 0.85
+          }
+        ],
+        "count": 3,
+        "max_gap_deg": 43.23811989769777,
+        "largest_gap_ranks": [
+          0,
+          1,
+          2
+        ],
+        "samples": [
+          {
+            "age": 2,
+            "art_visible": true,
+            "boil_uv": [
+              0.0,
+              -0.0116666667163372
+            ],
+            "core_draws": 25,
+            "extent_bh": [
+              2.38461538461538,
+              2.44899714543269
+            ],
+            "peak_visible": false
+          },
+          {
+            "age": 3,
+            "art_visible": true,
+            "boil_uv": [
+              0.0,
+              -0.0175000000745058
+            ],
+            "core_draws": 25,
+            "extent_bh": [
+              2.40221698467548,
+              2.46654099684495
+            ],
+            "peak_visible": false
+          },
+          {
+            "age": 4,
+            "art_visible": true,
+            "boil_uv": [
+              0.0,
+              -0.0233333334326744
+            ],
+            "core_draws": 25,
+            "extent_bh": [
+              2.45504572941707,
+              2.51917161207933
+            ],
+            "peak_visible": false
+          },
+          {
+            "age": 12,
+            "art_visible": true,
+            "boil_uv": [
+              0.0,
+              -0.0700000002980232
+            ],
+            "core_draws": 25,
+            "extent_bh": [
+              4.5812748835637,
+              4.31928945688101
+            ],
+            "peak_visible": false
+          },
+          {
+            "age": 24,
+            "art_visible": true,
+            "boil_uv": [
+              0.0,
+              -0.140000000596046
+            ],
+            "core_draws": 25,
+            "extent_bh": [
+              4.5812748835637,
+              4.31928945688101
+            ],
+            "peak_visible": false
+          },
+          {
+            "age": 26,
+            "art_visible": false,
+            "boil_uv": [
+              0.0,
+              -0.151666671037674
+            ],
+            "core_draws": 0,
+            "extent_bh": [
+              0.0,
+              0.0
+            ],
+            "peak_visible": false
+          },
+          {
+            "age": 36,
+            "art_visible": false,
+            "boil_uv": [
+              0.0,
+              -0.209999993443489
+            ],
+            "core_draws": 0,
+            "extent_bh": [
+              0.0,
+              0.0
+            ],
+            "peak_visible": false
+          }
+        ]
+      },
+      {
+        "seed": 1,
+        "tongues": [
+          {
+            "angle_deg": 122.323516912022,
+            "gap_rank": 0,
+            "id": 8.0,
+            "jitter_deg": -2.61876856130985,
+            "mirrored": true,
+            "root_radius_px": 62.4187431335449,
+            "scale": 0.985378042581812,
+            "speed_factor": 0.85
+          },
+          {
+            "angle_deg": 65.2951528633054,
+            "gap_rank": 1,
+            "id": 2.0,
+            "jitter_deg": -5.72492879110503,
+            "mirrored": true,
+            "root_radius_px": 62.4187469482422,
+            "scale": 0.986733393880244,
+            "speed_factor": 0.85
+          },
+          {
+            "angle_deg": 257.242940264944,
+            "gap_rank": 2,
+            "id": 6.0,
+            "jitter_deg": 0.226228597626609,
+            "mirrored": true,
+            "root_radius_px": 62.4187469482422,
+            "scale": 1.06661981086168,
+            "speed_factor": 0.85
+          },
+          {
+            "angle_deg": 29.3358689637755,
+            "gap_rank": 3,
+            "id": 3.0,
+            "jitter_deg": 6.35519124249816,
+            "mirrored": false,
+            "root_radius_px": 62.4187469482422,
+            "scale": 0.855725041964493,
+            "speed_factor": 0.85
+          }
+        ],
+        "count": 4,
+        "max_gap_deg": 35.87133557627607,
+        "largest_gap_ranks": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "samples": [
+          {
+            "age": 2,
+            "art_visible": true,
+            "boil_uv": [
+              0.0,
+              -0.0116666667163372
+            ],
+            "core_draws": 26,
+            "extent_bh": [
+              2.38461538461538,
+              2.25240455040565
+            ],
+            "peak_visible": false
+          },
+          {
+            "age": 3,
+            "art_visible": true,
+            "boil_uv": [
+              0.0,
+              -0.0175000000745058
+            ],
+            "core_draws": 26,
+            "extent_bh": [
+              2.40221698467548,
+              2.26529048039363
+            ],
+            "peak_visible": false
+          },
+          {
+            "age": 4,
+            "art_visible": true,
+            "boil_uv": [
+              0.0,
+              -0.0233333334326744
+            ],
+            "core_draws": 26,
+            "extent_bh": [
+              2.45504572941707,
+              2.30395179161659
+            ],
+            "peak_visible": false
+          },
+          {
+            "age": 12,
+            "art_visible": true,
+            "boil_uv": [
+              0.0,
+              -0.0700000002980232
+            ],
+            "core_draws": 26,
+            "extent_bh": [
+              4.5812748835637,
+              4.01876690204327
+            ],
+            "peak_visible": false
+          },
+          {
+            "age": 24,
+            "art_visible": true,
+            "boil_uv": [
+              0.0,
+              -0.140000000596046
+            ],
+            "core_draws": 26,
+            "extent_bh": [
+              4.5812748835637,
+              4.01876690204327
+            ],
+            "peak_visible": false
+          },
+          {
+            "age": 26,
+            "art_visible": false,
+            "boil_uv": [
+              0.0,
+              -0.151666671037674
+            ],
+            "core_draws": 0,
+            "extent_bh": [
+              0.0,
+              0.0
+            ],
+            "peak_visible": false
+          },
+          {
+            "age": 36,
+            "art_visible": false,
+            "boil_uv": [
+              0.0,
+              -0.209999993443489
+            ],
+            "core_draws": 0,
+            "extent_bh": [
+              0.0,
+              0.0
+            ],
+            "peak_visible": false
+          }
+        ]
+      }
+    ],
+    "same_seed_reproduces": true,
+    "distinct_first_five_selections": true,
+    "cast_contacts": [
+      {
+        "inputs": {
+          "contact_frame": 1,
+          "effect_id": 9,
+          "world_random": 2373822132
+        },
+        "seed": 226338492,
+        "tongues": [
+          {
+            "angle_deg": 128.214736797551,
+            "gap_rank": 0,
+            "id": 7.0,
+            "jitter_deg": 3.27245132421899,
+            "mirrored": false,
+            "root_radius_px": 62.4187469482422,
+            "scale": 1.13532133699286,
+            "speed_factor": 0.85
+          },
+          {
+            "angle_deg": 67.6472219809819,
+            "gap_rank": 1,
+            "id": 4.0,
+            "jitter_deg": -3.37285967342855,
+            "mirrored": true,
+            "root_radius_px": 62.4187469482422,
+            "scale": 0.924813316151224,
+            "speed_factor": 0.85
+          },
+          {
+            "angle_deg": 245.411643279946,
+            "gap_rank": 2,
+            "id": 1.0,
+            "jitter_deg": -11.6050683873717,
+            "mirrored": true,
+            "root_radius_px": 62.4187469482422,
+            "scale": 1.11223675784707,
+            "speed_factor": 0.85
+          },
+          {
+            "angle_deg": 29.105521451432,
+            "gap_rank": 3,
+            "id": 8.0,
+            "jitter_deg": 6.12484373015464,
+            "mirrored": true,
+            "root_radius_px": 62.4187469482422,
+            "scale": 0.830029834825553,
+            "speed_factor": 0.85
+          }
+        ]
+      },
+      {
+        "inputs": {
+          "contact_frame": 1,
+          "effect_id": 10,
+          "world_random": 1289655812
+        },
+        "seed": 1289655823,
+        "tongues": [
+          {
+            "angle_deg": 122.463458518725,
+            "gap_rank": 0,
+            "id": 4.0,
+            "jitter_deg": -2.47882695460665,
+            "mirrored": false,
+            "root_radius_px": 62.4187469482422,
+            "scale": 0.951877308008698,
+            "speed_factor": 0.85
+          },
+          {
+            "angle_deg": 82.5161862001844,
+            "gap_rank": 1,
+            "id": 5.0,
+            "jitter_deg": 11.496104545774,
+            "mirrored": true,
+            "root_radius_px": 62.4187507629395,
+            "scale": 1.09136083470456,
+            "speed_factor": 0.85
+          },
+          {
+            "angle_deg": 251.626680655219,
+            "gap_rank": 2,
+            "id": 3.0,
+            "jitter_deg": -5.39003101209878,
+            "mirrored": false,
+            "root_radius_px": 62.4187469482422,
+            "scale": 1.01986510177838,
+            "speed_factor": 0.85
+          }
+        ]
+      }
+    ],
+    "projectile_direction_arm_combinations": 16,
+    "max_attachment_error_px": 7.62939453125e-06
+  },
+  "source_kit_bytes": [
+    {
+      "name": "frozen_orb",
+      "byte_identical": true,
+      "changed_paths": []
+    },
+    {
+      "name": "blackwater_cocktail",
+      "byte_identical": true,
+      "changed_paths": []
+    },
+    {
+      "name": "poisonous_concoction",
+      "byte_identical": true,
+      "changed_paths": []
+    },
+    {
+      "name": "lightning_blast",
+      "byte_identical": true,
+      "changed_paths": []
+    },
+    {
+      "name": "zeus_chain",
+      "byte_identical": true,
+      "changed_paths": []
+    },
+    {
+      "name": "healing_hands",
+      "byte_identical": true,
+      "changed_paths": []
+    },
+    {
+      "name": "fire_burst_e0p",
+      "byte_identical": true,
+      "changed_paths": []
+    },
+    {
+      "name": "fire_burst_e0p_v2",
+      "byte_identical": true,
+      "changed_paths": []
+    },
+    {
+      "name": "fire_bolt_e1_A",
+      "byte_identical": false,
+      "changed_paths": [
+        "runs/C-5/vfx_kits/v9/fire_bolt_e1_A/kit.json",
+        "runs/C-5/vfx_kits/v9/fire_bolt_e1_A/primitives/head.png",
+        "runs/C-5/vfx_kits/v9/fire_bolt_e1_A/primitives/streak.png"
+      ]
+    },
+    {
+      "name": "fire_bolt_e1_B",
+      "byte_identical": false,
+      "changed_paths": [
+        "runs/C-5/vfx_kits/v9/fire_bolt_e1_B/kit.json",
+        "runs/C-5/vfx_kits/v9/fire_bolt_e1_B/primitives/head.png",
+        "runs/C-5/vfx_kits/v9/fire_bolt_e1_B/primitives/streak.png"
+      ]
+    },
+    {
+      "name": "ice_bolt_e2",
+      "byte_identical": true,
+      "changed_paths": []
+    },
+    {
+      "name": "blackwater_cocktail_e3",
+      "byte_identical": true,
+      "changed_paths": []
+    },
+    {
+      "name": "poisonous_concoction_e3",
+      "byte_identical": true,
+      "changed_paths": []
+    },
+    {
+      "name": "lightning_blast_e3",
+      "byte_identical": true,
+      "changed_paths": []
+    },
+    {
+      "name": "zeus_chain_e3",
+      "byte_identical": true,
+      "changed_paths": []
+    },
+    {
+      "name": "healing_hands_e3",
+      "byte_identical": true,
+      "changed_paths": []
+    },
+    {
+      "name": "frozen_orb_e3",
+      "byte_identical": true,
+      "changed_paths": []
+    }
+  ],
+  "unchanged_existing_kit_count": 15,
+  "current_export_ice_frost_byte_comparison": {
+    "files_compared": 114,
+    "changes": []
+  },
+  "catalogue": {
+    "count": 18,
+    "initial_full_export_exit": 0,
+    "current_static_validation_count": 18,
+    "retry_full_export_exit": 1,
+    "retry_error": "Output directory must be empty (prevents stale assets)",
+    "current_dependency_closed_lock_export_count": 12,
+    "current_dependency_closed_lock_export_exit": 0
+  },
+  "byte_locks": [
+    {
+      "fixture": "fixtures/fl1b/ProjectileArmPickerTests-2.json",
+      "before_sha256": "34eec0a3e6189f2f6852f8e0c1213248e4d24a0f84b58d8822288e592daea74e",
+      "before_count": 878,
+      "after_count": 1097,
+      "changes": [
+        {
+          "path": "CREDITS_VFX.txt",
+          "before": "591dd33794bf42f2179a3f12ae191ce13a6c04c7b6a80efc417e1852ef890566",
+          "after": "654a8f23a5d14aa38238e98862dade50fe7999c268d39ba926c5451e110fd196",
+          "kind": "changed"
+        },
+        {
+          "path": "README.md",
+          "before": "c2bdcd1fc89ffe4bd2d25530689ddeb728ebb260db9e819867ab70bfab391594",
+          "after": "16955618a943cb76e4ac348725d228381f738bb4d763a8f13f8bc42bd7aaa513",
+          "kind": "changed"
+        },
+        {
+          "path": "scenes/vfx/piece_burst_v2.tscn",
+          "before": "30bb64359afddbee9e55fd7b991ead1cd6a358f76b29b10229a310e4234ba67e",
+          "after": "f7eb849a4403240605b6018a6560200aadbf45a72e79b3445fd39c41e215fcb5",
+          "kind": "changed"
+        },
+        {
+          "path": "scenes/vfx_fire_burst_e0p_v3_impact.tscn",
+          "before": null,
+          "after": "55642694a6a49f82638224ef5c0d27b403851ebb4da8c1ff01c55ddf9812eab1",
+          "kind": "added"
+        },
+        {
+          "path": "scripts/keeper.gd",
+          "before": "004267f57ac9973a226008b89c715b7157508c166edcbf9372f9ec35bf549e78",
+          "after": "60d5e611426019ca061b31ac750abb0bd179aa8ee810244496bbaee388bb4387",
+          "kind": "changed"
+        },
+        {
+          "path": "scripts/vfx/piece_burst_fl2.gd",
+          "before": "c1903640fcbf119cf8f5eeb297535c19c8cb126805fa7cf41f03a6e8d2fe7b24",
+          "after": "ff17890a243e39d81658c4881a65bf634c23bd0200551c4178a254db103e9a66",
+          "kind": "changed"
+        },
+        {
+          "path": "scripts/vfx/piece_burst_fl3.gd",
+          "before": "a815fbec52cbce85916fa25db67cc36040a5ffdebdc4ae4ea0d67232fc77b2fb",
+          "after": "f54ffc3ab105ac873f4dc5bcf81dcbbc67959b72c87060b86873bd60c62e7199",
+          "kind": "changed"
+        },
+        {
+          "path": "scripts/vfx/piece_burst_fl4b.gd",
+          "before": null,
+          "after": "679662737a9e43d50da2a3191873e5c0fd95e621722d8854dc55eeca3392a143",
+          "kind": "added"
+        },
+        {
+          "path": "scripts/vfx_fire_burst_e0p_v3_impact.gd",
+          "before": null,
+          "after": "4668e0a34eca4dc14fcf8d3b4785d2d52016e87dd001c23f4ae03f64b47f42e7",
+          "kind": "added"
+        },
+        {
+          "path": "scripts/vfx_fire_burst_e0p_v3_material.gd",
+          "before": null,
+          "after": "596472d72bfc8e56af2139756e7cb21b948be6c29192a7d4fb7b2fbe042315d1",
+          "kind": "added"
+        },
+        {
+          "path": "scripts/vfx_g1_fl4.gd",
+          "before": "408f9d4d94853efbe4d613f04f5b65955f1afc47494704826fa6b509297821c0",
+          "after": "f9b7b48fd8a68ac16cd784557308bd0d4c4d402119fb53d651afd8fc257570b2",
+          "kind": "changed"
+        },
+        {
+          "path": "vfx/fire_bolt_e1_A/distance/primitives/tail.png",
+          "before": "3442f890c1071a153b8f7e970e9070b308244cbd8b47e4b17f5cd8dcb2f1cab4",
+          "after": "8e087a9a7618af1dd81bf88ec88d6a17e29f976a7b2774dad5b80bc831c877df",
+          "kind": "changed"
+        },
+        {
+          "path": "vfx/fire_bolt_e1_A/distance/primitives/tail_noise.png",
+          "before": "b1076625b37f1014f798b118a73a116d5bef832e1e822255df3b0776d285f756",
+          "after": "9209735e3f48c0fa14dc27101479372c8013b7d23ef22e591a4851237d983b6f",
+          "kind": "changed"
+        },
+        {
+          "path": "vfx/fire_bolt_e1_A/kit.json",
+          "before": "cc98cdd2b50abb4d3e145524098d9f9e5f96dc6968ee18661b170ddc2e6a8519",
+          "after": "37a7c82871eedcada2e499648385962ba55886dce264aee1674888390f48f5e2",
+          "kind": "changed"
+        },
+        {
+          "path": "vfx/fire_bolt_e1_A/primitives/head.png",
+          "before": "47eaa3cde6872a6f97265fd1080dd55ec072d51d7fc411593f8f62917f550fcc",
+          "after": "05ffb3f805ae7b91dd3ea1aa3a9575199279766507b9a818b8d32c42c0110f9f",
+          "kind": "changed"
+        },
+        {
+          "path": "vfx/fire_bolt_e1_A/primitives/head_core.png",
+          "before": "800fb06942e2cb0638b1eb508780a9c55aaaafa6ae2f40e866da7fc976ef36c1",
+          "after": "8661f48a1214652a9e5a88dde6f21f10ab49f2478e34d88f855fcc9cf03c02d5",
+          "kind": "changed"
+        },
+        {
+          "path": "vfx/fire_bolt_e1_A/primitives/streak.png",
+          "before": "f6add454f65b4bd8468e50f1ebcdcca9f108c841ac36870f2703a088b1e488a2",
+          "after": "ed53556ab907b3fb41c41f02e9575d94000b85c6e008a1fe3c8d17b5b5d5bf5c",
+          "kind": "changed"
+        },
+        {
+          "path": "vfx/fire_bolt_e1_B/distance/primitives/tail.png",
+          "before": "3442f890c1071a153b8f7e970e9070b308244cbd8b47e4b17f5cd8dcb2f1cab4",
+          "after": "8e087a9a7618af1dd81bf88ec88d6a17e29f976a7b2774dad5b80bc831c877df",
+          "kind": "changed"
+        },
+        {
+          "path": "vfx/fire_bolt_e1_B/distance/primitives/tail_noise.png",
+          "before": "b1076625b37f1014f798b118a73a116d5bef832e1e822255df3b0776d285f756",
+          "after": "9209735e3f48c0fa14dc27101479372c8013b7d23ef22e591a4851237d983b6f",
+          "kind": "changed"
+        },
+        {
+          "path": "vfx/fire_bolt_e1_B/kit.json",
+          "before": "d32cb54aece288004205249420ae913e0b1f09d13a4126abadb0f8ca00d4a005",
+          "after": "8c26af15881ff7159519fd3f64af18655f08b409dffabe33a4ca6ed453cae818",
+          "kind": "changed"
+        },
+        {
+          "path": "vfx/fire_bolt_e1_B/primitives/head.png",
+          "before": "47eaa3cde6872a6f97265fd1080dd55ec072d51d7fc411593f8f62917f550fcc",
+          "after": "05ffb3f805ae7b91dd3ea1aa3a9575199279766507b9a818b8d32c42c0110f9f",
+          "kind": "changed"
+        },
+        {
+          "path": "vfx/fire_bolt_e1_B/primitives/head_core.png",
+          "before": "800fb06942e2cb0638b1eb508780a9c55aaaafa6ae2f40e866da7fc976ef36c1",
+          "after": "8661f48a1214652a9e5a88dde6f21f10ab49f2478e34d88f855fcc9cf03c02d5",
+          "kind": "changed"
+        },
+        {
+          "path": "vfx/fire_bolt_e1_B/primitives/streak.png",
+          "before": "f6add454f65b4bd8468e50f1ebcdcca9f108c841ac36870f2703a088b1e488a2",
+          "after": "ed53556ab907b3fb41c41f02e9575d94000b85c6e008a1fe3c8d17b5b5d5bf5c",
+          "kind": "changed"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v3/auxiliary/floor.png",
+          "before": null,
+          "after": "d10888d6634265ee73f7613d1053ef500c91817674944c63618cde17252088f9",
+          "kind": "added"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v3/auxiliary/floor_distance.png",
+          "before": null,
+          "after": "31deff3d053a8b4ba4026f5cfbe4cd40b2f84389a9aa411c9e5e0f13f3c89fc0",
+          "kind": "added"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v3/core/mask_000.png",
+          "before": null,
+          "after": "5c69aa16c4ef194fdef1c309a9ba1850dd4cfa8267940f163e6112067c2e7b3a",
+          "kind": "added"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v3/core/mask_001.png",
+          "before": null,
+          "after": "5c9744ae6c274b62f4df4d823a012e4259dd2b555ce40daf6273efa0d149ed85",
+          "kind": "added"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v3/core/mask_002.png",
+          "before": null,
+          "after": "5c9744ae6c274b62f4df4d823a012e4259dd2b555ce40daf6273efa0d149ed85",
+          "kind": "added"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v3/core/mask_003.png",
+          "before": null,
+          "after": "5c9744ae6c274b62f4df4d823a012e4259dd2b555ce40daf6273efa0d149ed85",
+          "kind": "added"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v3/core/mask_004.png",
+          "before": null,
+          "after": "5c9744ae6c274b62f4df4d823a012e4259dd2b555ce40daf6273efa0d149ed85",
+          "kind": "added"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v3/core/mask_005.png",
+          "before": null,
+          "after": "5c9744ae6c274b62f4df4d823a012e4259dd2b555ce40daf6273efa0d149ed85",
+          "kind": "added"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v3/core/mask_006.png",
+          "before": null,
+          "after": "5c9744ae6c274b62f4df4d823a012e4259dd2b555ce40daf6273efa0d149ed85",
+          "kind": "added"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v3/core/mask_007.png",
+          "before": null,
+          "after": "bf5000eb9e6aa3f3bde7e2a24a850d4edb705f451a2b5124c826a870d6432af0",
+          "kind": "added"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v3/core/mask_008.png",
+          "before": null,
+          "after": "9563cad4def98b128101f1814848f4242d822481fd4ff50ec719f970ccbc2b25",
+          "kind": "added"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v3/core/mask_009.png",
+          "before": null,
+          "after": "b41314454f4317707d672936990ca7e351e59ff30f6941fc4d5fb6d085e180d5",
+          "kind": "added"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v3/core/mask_010.png",
+          "before": null,
+          "after": "b87a9ab9bfbcc68521d956f807a31db10674059c33e684ddad16026b428a8b59",
+          "kind": "added"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v3/core/mask_011.png",
+          "before": null,
+          "after": "61f612caa1274fc84b45ed4436ff4419e27f28a76078d5de533b5cd38908601d",
+          "kind": "added"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v3/core/mask_012.png",
+          "before": null,
+          "after": "b6e33eb74f3b1c609d8aecc44fca0c36b6c518fce640943f0d8969249a6da4b6",
+          "kind": "added"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v3/core/mask_013.png",
+          "before": null,
+          "after": "7319714b2145ed1ddce621838375b574c1e381e525f0ffcb5adc274403447719",
+          "kind": "added"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v3/core/mask_014.png",
+          "before": null,
+          "after": "b4cd73f6dafb59d4fb6adc321b6c11533fc981c7e12c6b4d5d03e29984adb250",
+          "kind": "added"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v3/core/mask_015.png",
+          "before": null,
+          "after": "3d8d56ccfb4cf3c3e4b569279fbef2934eb0a69dfdb87155a4ad05dbe246aad6",
+          "kind": "added"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v3/core/mask_016.png",
+          "before": null,
+          "after": "5c9744ae6c274b62f4df4d823a012e4259dd2b555ce40daf6273efa0d149ed85",
+          "kind": "added"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v3/core/mask_017.png",
+          "before": null,
+          "after": "5c9744ae6c274b62f4df4d823a012e4259dd2b555ce40daf6273efa0d149ed85",
+          "kind": "added"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v3/core/mask_018.png",
+          "before": null,
+          "after": "5c9744ae6c274b62f4df4d823a012e4259dd2b555ce40daf6273efa0d149ed85",
+          "kind": "added"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v3/core/mask_019.png",
+          "before": null,
+          "after": "5c9744ae6c274b62f4df4d823a012e4259dd2b555ce40daf6273efa0d149ed85",
+          "kind": "added"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v3/core/mask_020.png",
+          "before": null,
+          "after": "5c9744ae6c274b62f4df4d823a012e4259dd2b555ce40daf6273efa0d149ed85",
+          "kind": "added"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v3/core/mask_021.png",
+          "before": null,
+          "after": "5c9744ae6c274b62f4df4d823a012e4259dd2b555ce40daf6273efa0d149ed85",
+          "kind": "added"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v3/core/mask_022.png",
+          "before": null,
+          "after": "5c9744ae6c274b62f4df4d823a012e4259dd2b555ce40daf6273efa0d149ed85",
+          "kind": "added"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v3/core/mask_023.png",
+          "before": null,
+          "after": "5c9744ae6c274b62f4df4d823a012e4259dd2b555ce40daf6273efa0d149ed85",
+          "kind": "added"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v3/core/mask_024.png",
+          "before": null,
+          "after": "5c9744ae6c274b62f4df4d823a012e4259dd2b555ce40daf6273efa0d149ed85",
+          "kind": "added"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v3/core/mask_025.png",
+          "before": null,
+          "after": "50fd7c616a0d5677f7b30948bfeb195ab83500bd73a24fb68a1f53ba01ced85e",
+          "kind": "added"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v3/core/mask_026.png",
+          "before": null,
+          "after": "5c9744ae6c274b62f4df4d823a012e4259dd2b555ce40daf6273efa0d149ed85",
+          "kind": "added"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v3/core/mask_027.png",
+          "before": null,
+          "after": "f85c0eebf71ea96509e78dec2c0f2b85bf86678411971c8d51efb509ee878be0",
+          "kind": "added"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v3/core/mask_028.png",
+          "before": null,
+          "after": "e74dfc1739bff99774879b8d7f6dc906a0188d6009ff8dc8764fca778935cbf1",
+          "kind": "added"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v3/core/mask_029.png",
+          "before": null,
+          "after": "5c9744ae6c274b62f4df4d823a012e4259dd2b555ce40daf6273efa0d149ed85",
+          "kind": "added"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v3/core/mask_030.png",
+          "before": null,
+          "after": "bd1ca4f5ec0fe9af53a33afca021cd79ca3d08e497375c7d83681bbdf1807f5f",
+          "kind": "added"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v3/core/mask_031.png",
+          "before": null,
+          "after": "e40143f7b26362513d828659de734396b642dad3844515864cde8eb4807a8404",
+          "kind": "added"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v3/core/mask_032.png",
+          "before": null,
+          "after": "5c9744ae6c274b62f4df4d823a012e4259dd2b555ce40daf6273efa0d149ed85",
+          "kind": "added"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v3/core/mask_033.png",
+          "before": null,
+          "after": "f0f490ee107fca16c3ea5c02433bbc2d4b51b44f69033ad05d4ea4b05896ef01",
+          "kind": "added"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v3/core/mask_034.png",
+          "before": null,
+          "after": "9b35675df77fcf847db294b05f3687a731285cbe832c13e90c288e159554b7f8",
+          "kind": "added"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v3/distance/flare/flare_00.png",
+          "before": null,
+          "after": "7144e4b23cd9557e0f21885fb54af4aaf690e34342a69a609c4a92e1f1dfa869",
+          "kind": "added"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v3/distance/impact/impact_00.png",
+          "before": null,
+          "after": "93c949e3188eec0e01233c89e31ab23794fe85189cdd99ce1ccc24b78ed6b67b",
+          "kind": "added"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v3/distance/interleave/tongue_01.png",
+          "before": null,
+          "after": "142e0f61c17b41f1eb38dde7aa97e7711a25fb0d87a53b823cc1232bf300a628",
+          "kind": "added"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v3/distance/interleave/tongue_02.png",
+          "before": null,
+          "after": "8ba1baf215679539ccb97b18fc03282f3730ff27f37d977a2c0b2946f1ed1f72",
+          "kind": "added"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v3/distance/interleave/tongue_03.png",
+          "before": null,
+          "after": "f5903cf55eb2cc6e37255fb2ab7e9c6b1014af357886d934b2cf278b6537921b",
+          "kind": "added"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v3/distance/interleave/tongue_04.png",
+          "before": null,
+          "after": "38f7520050c39bd7a8cf29f759505583269eda851bb23d07d26dce184f77bcde",
+          "kind": "added"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v3/distance/interleave/tongue_05.png",
+          "before": null,
+          "after": "f0852c081cd9d920cdfa2e880977d17dd5324152fb7d9ef502215766b49a5f13",
+          "kind": "added"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v3/distance/interleave/tongue_06.png",
+          "before": null,
+          "after": "c9b8973df7497b849e340eb4ae3a6caf6b94c99ca87b8fa5e575e922a61dab28",
+          "kind": "added"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v3/distance/interleave/tongue_07.png",
+          "before": null,
+          "after": "e5625393d40c3c6fabc208d54e7ad1f0ed0ff6c8d34493f327e9a36cb85ea97e",
+          "kind": "added"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v3/distance/interleave/tongue_08.png",
+          "before": null,
+          "after": "bce1de36aa80bdd324416390c8dc4f0a339ab7126b33d04d51e49ab0d0e4f1a5",
+          "kind": "added"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v3/distance/interleave/tongue_09.png",
+          "before": null,
+          "after": "fc6452246ad06ea2f7d08839ef6db62fbf24c6745123896ada12ea4028324df1",
+          "kind": "added"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v3/distance/interleave/tongue_10.png",
+          "before": null,
+          "after": "b9bee99702cce6649d9c07471917f17b8c0623bc927750e06fcc71f9fbbe6464",
+          "kind": "added"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v3/distance/pieces/interleave/tongue_01.png",
+          "before": null,
+          "after": "915ff25ebd603f3ace61b8034fcfab9201cc3d21295c45c453cd27bd3ef689c9",
+          "kind": "added"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v3/distance/pieces/interleave/tongue_02.png",
+          "before": null,
+          "after": "680278754b3de3e6488361d2157a70ce9ffe259e48cd39fba6b16591dbcab5bf",
+          "kind": "added"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v3/distance/pieces/interleave/tongue_03.png",
+          "before": null,
+          "after": "3813a4cd1bf8896b4f2ee7381aa9ce6245a740470613cca3e1897a483a7eb99e",
+          "kind": "added"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v3/distance/pieces/interleave/tongue_04.png",
+          "before": null,
+          "after": "161192c659fd673d2b5f6d89b2067b5b72044a26809a5d7a4a0300f7fc1af576",
+          "kind": "added"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v3/distance/pieces/interleave/tongue_05.png",
+          "before": null,
+          "after": "92ad58457857bdc4483c57dcf2c8a64fd177b775e87f4647a633fbbe2b6e6e4f",
+          "kind": "added"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v3/distance/pieces/interleave/tongue_06.png",
+          "before": null,
+          "after": "1394fe7525237dbf111e21ac6f080461b5c80d18e6d2847ef7bea596ac86eef2",
+          "kind": "added"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v3/distance/pieces/interleave/tongue_07.png",
+          "before": null,
+          "after": "cf11c982d23245778ac6a07ca512aaf9ebe1e32c19814dff2e8663b36075a5a5",
+          "kind": "added"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v3/distance/pieces/interleave/tongue_08.png",
+          "before": null,
+          "after": "a1b7333d5f49d4971717ac8afafa6a1a435150b006e5779851cf8a0f016154e7",
+          "kind": "added"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v3/distance/pieces/interleave/tongue_09.png",
+          "before": null,
+          "after": "19dc820ffc4960b557c2e3b690514e371671e4135daa465c05f495517023335e",
+          "kind": "added"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v3/distance/pieces/interleave/tongue_10.png",
+          "before": null,
+          "after": "ccaac2ebaba45a9eafc1fd61c437d17f90f1e418ee5012129218612e4f155a07",
+          "kind": "added"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v3/distance/pieces/peak_index.png",
+          "before": null,
+          "after": "93c949e3188eec0e01233c89e31ab23794fe85189cdd99ce1ccc24b78ed6b67b",
+          "kind": "added"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v3/distance/pieces/piece_001.png",
+          "before": null,
+          "after": "93c949e3188eec0e01233c89e31ab23794fe85189cdd99ce1ccc24b78ed6b67b",
+          "kind": "added"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v3/distance/pieces/piece_002.png",
+          "before": null,
+          "after": "93c949e3188eec0e01233c89e31ab23794fe85189cdd99ce1ccc24b78ed6b67b",
+          "kind": "added"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v3/distance/pieces/piece_003.png",
+          "before": null,
+          "after": "93c949e3188eec0e01233c89e31ab23794fe85189cdd99ce1ccc24b78ed6b67b",
+          "kind": "added"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v3/distance/pieces/piece_004.png",
+          "before": null,
+          "after": "93c949e3188eec0e01233c89e31ab23794fe85189cdd99ce1ccc24b78ed6b67b",
+          "kind": "added"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v3/distance/pieces/piece_005.png",
+          "before": null,
+          "after": "93c949e3188eec0e01233c89e31ab23794fe85189cdd99ce1ccc24b78ed6b67b",
+          "kind": "added"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v3/distance/pieces/piece_006.png",
+          "before": null,
+          "after": "93c949e3188eec0e01233c89e31ab23794fe85189cdd99ce1ccc24b78ed6b67b",
+          "kind": "added"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v3/distance/pieces/piece_007.png",
+          "before": null,
+          "after": "93c949e3188eec0e01233c89e31ab23794fe85189cdd99ce1ccc24b78ed6b67b",
+          "kind": "added"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v3/distance/pieces/piece_008.png",
+          "before": null,
+          "after": "93c949e3188eec0e01233c89e31ab23794fe85189cdd99ce1ccc24b78ed6b67b",
+          "kind": "added"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v3/distance/pieces/piece_009.png",
+          "before": null,
+          "after": "93c949e3188eec0e01233c89e31ab23794fe85189cdd99ce1ccc24b78ed6b67b",
+          "kind": "added"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v3/distance/pieces/piece_010.png",
+          "before": null,
+          "after": "93c949e3188eec0e01233c89e31ab23794fe85189cdd99ce1ccc24b78ed6b67b",
+          "kind": "added"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v3/distance/pieces/piece_011.png",
+          "before": null,
+          "after": "93c949e3188eec0e01233c89e31ab23794fe85189cdd99ce1ccc24b78ed6b67b",
+          "kind": "added"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v3/distance/pieces/piece_012.png",
+          "before": null,
+          "after": "93c949e3188eec0e01233c89e31ab23794fe85189cdd99ce1ccc24b78ed6b67b",
+          "kind": "added"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v3/distance/pieces/piece_013.png",
+          "before": null,
+          "after": "93c949e3188eec0e01233c89e31ab23794fe85189cdd99ce1ccc24b78ed6b67b",
+          "kind": "added"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v3/distance/pieces/piece_014.png",
+          "before": null,
+          "after": "93c949e3188eec0e01233c89e31ab23794fe85189cdd99ce1ccc24b78ed6b67b",
+          "kind": "added"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v3/distance/pieces/piece_015.png",
+          "before": null,
+          "after": "93c949e3188eec0e01233c89e31ab23794fe85189cdd99ce1ccc24b78ed6b67b",
+          "kind": "added"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v3/distance/pieces/piece_016.png",
+          "before": null,
+          "after": "93c949e3188eec0e01233c89e31ab23794fe85189cdd99ce1ccc24b78ed6b67b",
+          "kind": "added"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v3/distance/pieces/piece_017.png",
+          "before": null,
+          "after": "93c949e3188eec0e01233c89e31ab23794fe85189cdd99ce1ccc24b78ed6b67b",
+          "kind": "added"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v3/distance/pieces/piece_018.png",
+          "before": null,
+          "after": "93c949e3188eec0e01233c89e31ab23794fe85189cdd99ce1ccc24b78ed6b67b",
+          "kind": "added"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v3/distance/pieces/piece_019.png",
+          "before": null,
+          "after": "93c949e3188eec0e01233c89e31ab23794fe85189cdd99ce1ccc24b78ed6b67b",
+          "kind": "added"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v3/distance/pieces/piece_020.png",
+          "before": null,
+          "after": "93c949e3188eec0e01233c89e31ab23794fe85189cdd99ce1ccc24b78ed6b67b",
+          "kind": "added"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v3/distance/pieces/piece_021.png",
+          "before": null,
+          "after": "93c949e3188eec0e01233c89e31ab23794fe85189cdd99ce1ccc24b78ed6b67b",
+          "kind": "added"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v3/distance/pieces/piece_022.png",
+          "before": null,
+          "after": "93c949e3188eec0e01233c89e31ab23794fe85189cdd99ce1ccc24b78ed6b67b",
+          "kind": "added"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v3/distance/pieces/piece_023.png",
+          "before": null,
+          "after": "93c949e3188eec0e01233c89e31ab23794fe85189cdd99ce1ccc24b78ed6b67b",
+          "kind": "added"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v3/distance/pieces/piece_024.png",
+          "before": null,
+          "after": "93c949e3188eec0e01233c89e31ab23794fe85189cdd99ce1ccc24b78ed6b67b",
+          "kind": "added"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v3/distance/travel/travel_00.png",
+          "before": null,
+          "after": "7144e4b23cd9557e0f21885fb54af4aaf690e34342a69a609c4a92e1f1dfa869",
+          "kind": "added"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v3/flare.tres",
+          "before": null,
+          "after": "99ce2d60dd5cbf65a189285bda0721f66c880122ed6b958f8386a6cc847e754b",
+          "kind": "added"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v3/impact.tres",
+          "before": null,
+          "after": "3db4a6a78d10f1f60a496d2fa3cb7463d44c6d1aba442ec38519da094e96b236",
+          "kind": "added"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v3/kit.json",
+          "before": null,
+          "after": "ed7815d9ea332074dc95afd738a3ab96d3cdca4ad79c71d98b11d0138d1328c1",
+          "kind": "added"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v3/materials/Additive.tres",
+          "before": null,
+          "after": "7de8a1cf73544ae6ba3ee2727b6ef658d83b74429c5062b011c167c43ae8ad2a",
+          "kind": "added"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v3/materials/Body.tres",
+          "before": null,
+          "after": "1e30f3542bbe023c4f181c1afebc2b4c12ee477391f6645f8502ab4c2c90826f",
+          "kind": "added"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v3/materials/Dark.tres",
+          "before": null,
+          "after": "9067484bbc2d8d69778992a7e39cd9dfde905220cf32137618f4a1f91baeb217",
+          "kind": "added"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v3/materials/Mix.tres",
+          "before": null,
+          "after": "1e30f3542bbe023c4f181c1afebc2b4c12ee477391f6645f8502ab4c2c90826f",
+          "kind": "added"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v3/materials/Piece_Flash.tres",
+          "before": null,
+          "after": "5ea010ec49be1d496800853f061e42febd017b1e1a7deb07aea18dca45fabf83",
+          "kind": "added"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v3/materials/Piece_FloorLight.tres",
+          "before": null,
+          "after": "a8c05d62e655a33e553ecc9355397ca46037b48836f727fe322b41cdb9721e90",
+          "kind": "added"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v3/materials/Piece_Glow.tres",
+          "before": null,
+          "after": "5ea010ec49be1d496800853f061e42febd017b1e1a7deb07aea18dca45fabf83",
+          "kind": "added"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v3/materials/Piece_Peak.tres",
+          "before": null,
+          "after": "4292d3944b6690c6c67e630a2a4c1deccc4e710a883811ea26ff6739f9c224b3",
+          "kind": "added"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v3/materials/Piece_PeakDark.tres",
+          "before": null,
+          "after": "a419ab1d499085477df625562ee1f78b409e36e391c5cb0af1d3dfb7b0558b80",
+          "kind": "added"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v3/materials/Piece_Piece_001.tres",
+          "before": null,
+          "after": "c8306eedbba9c4caabf1c463899cf89d5043aeb5ce2579545f05dc3e23492a53",
+          "kind": "added"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v3/materials/Piece_Piece_002.tres",
+          "before": null,
+          "after": "c8306eedbba9c4caabf1c463899cf89d5043aeb5ce2579545f05dc3e23492a53",
+          "kind": "added"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v3/materials/Piece_Piece_003.tres",
+          "before": null,
+          "after": "c8306eedbba9c4caabf1c463899cf89d5043aeb5ce2579545f05dc3e23492a53",
+          "kind": "added"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v3/materials/Piece_Piece_004.tres",
+          "before": null,
+          "after": "c8306eedbba9c4caabf1c463899cf89d5043aeb5ce2579545f05dc3e23492a53",
+          "kind": "added"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v3/materials/Piece_Piece_005.tres",
+          "before": null,
+          "after": "c8306eedbba9c4caabf1c463899cf89d5043aeb5ce2579545f05dc3e23492a53",
+          "kind": "added"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v3/materials/Piece_Piece_006.tres",
+          "before": null,
+          "after": "c8306eedbba9c4caabf1c463899cf89d5043aeb5ce2579545f05dc3e23492a53",
+          "kind": "added"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v3/materials/Piece_Piece_007.tres",
+          "before": null,
+          "after": "c8306eedbba9c4caabf1c463899cf89d5043aeb5ce2579545f05dc3e23492a53",
+          "kind": "added"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v3/materials/Piece_Piece_008.tres",
+          "before": null,
+          "after": "c8306eedbba9c4caabf1c463899cf89d5043aeb5ce2579545f05dc3e23492a53",
+          "kind": "added"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v3/materials/Piece_Piece_009.tres",
+          "before": null,
+          "after": "c8306eedbba9c4caabf1c463899cf89d5043aeb5ce2579545f05dc3e23492a53",
+          "kind": "added"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v3/materials/Piece_Piece_010.tres",
+          "before": null,
+          "after": "c8306eedbba9c4caabf1c463899cf89d5043aeb5ce2579545f05dc3e23492a53",
+          "kind": "added"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v3/materials/Piece_Piece_011.tres",
+          "before": null,
+          "after": "c8306eedbba9c4caabf1c463899cf89d5043aeb5ce2579545f05dc3e23492a53",
+          "kind": "added"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v3/materials/Piece_Piece_012.tres",
+          "before": null,
+          "after": "c8306eedbba9c4caabf1c463899cf89d5043aeb5ce2579545f05dc3e23492a53",
+          "kind": "added"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v3/materials/Piece_Piece_013.tres",
+          "before": null,
+          "after": "c8306eedbba9c4caabf1c463899cf89d5043aeb5ce2579545f05dc3e23492a53",
+          "kind": "added"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v3/materials/Piece_Piece_014.tres",
+          "before": null,
+          "after": "c8306eedbba9c4caabf1c463899cf89d5043aeb5ce2579545f05dc3e23492a53",
+          "kind": "added"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v3/materials/Piece_Piece_015.tres",
+          "before": null,
+          "after": "c8306eedbba9c4caabf1c463899cf89d5043aeb5ce2579545f05dc3e23492a53",
+          "kind": "added"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v3/materials/Piece_Piece_016.tres",
+          "before": null,
+          "after": "c8306eedbba9c4caabf1c463899cf89d5043aeb5ce2579545f05dc3e23492a53",
+          "kind": "added"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v3/materials/Piece_Piece_017.tres",
+          "before": null,
+          "after": "c8306eedbba9c4caabf1c463899cf89d5043aeb5ce2579545f05dc3e23492a53",
+          "kind": "added"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v3/materials/Piece_Piece_018.tres",
+          "before": null,
+          "after": "c8306eedbba9c4caabf1c463899cf89d5043aeb5ce2579545f05dc3e23492a53",
+          "kind": "added"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v3/materials/Piece_Piece_019.tres",
+          "before": null,
+          "after": "c8306eedbba9c4caabf1c463899cf89d5043aeb5ce2579545f05dc3e23492a53",
+          "kind": "added"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v3/materials/Piece_Piece_020.tres",
+          "before": null,
+          "after": "c8306eedbba9c4caabf1c463899cf89d5043aeb5ce2579545f05dc3e23492a53",
+          "kind": "added"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v3/materials/Piece_Piece_021.tres",
+          "before": null,
+          "after": "c8306eedbba9c4caabf1c463899cf89d5043aeb5ce2579545f05dc3e23492a53",
+          "kind": "added"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v3/materials/Piece_Piece_022.tres",
+          "before": null,
+          "after": "c8306eedbba9c4caabf1c463899cf89d5043aeb5ce2579545f05dc3e23492a53",
+          "kind": "added"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v3/materials/Piece_Piece_023.tres",
+          "before": null,
+          "after": "c8306eedbba9c4caabf1c463899cf89d5043aeb5ce2579545f05dc3e23492a53",
+          "kind": "added"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v3/materials/Piece_Piece_024.tres",
+          "before": null,
+          "after": "c8306eedbba9c4caabf1c463899cf89d5043aeb5ce2579545f05dc3e23492a53",
+          "kind": "added"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v3/materials/Piece_Piece_1001.tres",
+          "before": null,
+          "after": "97294245555fda11f5566d352537be24edabd79ede8e6dcd83e35d6d8f5df5c6",
+          "kind": "added"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v3/materials/Piece_Piece_1002.tres",
+          "before": null,
+          "after": "13d8ef98907f39d2c756928084db25cc44d6739da8648d78b8d57c348daae454",
+          "kind": "added"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v3/materials/Piece_Piece_1003.tres",
+          "before": null,
+          "after": "a949a44a7c72aefd6607f6515b225d40951f9b35fb21856fec8f9b5cab2e562c",
+          "kind": "added"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v3/materials/Piece_Piece_1004.tres",
+          "before": null,
+          "after": "1f9c6197572a340db4f566c4d90299a21c01c71435ae865c2865d8a25ddb37ad",
+          "kind": "added"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v3/materials/Piece_Piece_1005.tres",
+          "before": null,
+          "after": "03abd270e7a6b6c4cd481d0ddbaa40e70c9bfb7ccd13433ed755e2192c0d0353",
+          "kind": "added"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v3/materials/Piece_Piece_1006.tres",
+          "before": null,
+          "after": "94fad36b35272715533581556f66bb9935f52c90fa13854648e2a719909f085a",
+          "kind": "added"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v3/materials/Piece_Piece_1007.tres",
+          "before": null,
+          "after": "312f6e5844bbe91a611b4207454c8c535f6067daebcd4ad2f069f269058d2194",
+          "kind": "added"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v3/materials/Piece_Piece_1008.tres",
+          "before": null,
+          "after": "2d15fac96dcde2c00a5baf8abf42ea5f9a6855aa9dbcf7fc532b0cf2cd8d0beb",
+          "kind": "added"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v3/materials/Piece_Piece_1009.tres",
+          "before": null,
+          "after": "af661941a9e818d91e4d25254c82fcedcf2a033f796814a3a1e27a94d5f70a9a",
+          "kind": "added"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v3/materials/Piece_Piece_1010.tres",
+          "before": null,
+          "after": "59bd5a0ca19b0429dd368e3cd31bfd79fcd8ee15401220cc9ec65af1831bf5cb",
+          "kind": "added"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v3/materials/Root_001.tres",
+          "before": null,
+          "after": "3d769deeab85750859cde9086c2734ecd61b04ebf71941fc28329b2813c80d63",
+          "kind": "added"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v3/materials/Root_002.tres",
+          "before": null,
+          "after": "3d769deeab85750859cde9086c2734ecd61b04ebf71941fc28329b2813c80d63",
+          "kind": "added"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v3/materials/Root_003.tres",
+          "before": null,
+          "after": "3d769deeab85750859cde9086c2734ecd61b04ebf71941fc28329b2813c80d63",
+          "kind": "added"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v3/materials/Root_004.tres",
+          "before": null,
+          "after": "3d769deeab85750859cde9086c2734ecd61b04ebf71941fc28329b2813c80d63",
+          "kind": "added"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v3/materials/Root_005.tres",
+          "before": null,
+          "after": "3d769deeab85750859cde9086c2734ecd61b04ebf71941fc28329b2813c80d63",
+          "kind": "added"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v3/materials/Root_006.tres",
+          "before": null,
+          "after": "3d769deeab85750859cde9086c2734ecd61b04ebf71941fc28329b2813c80d63",
+          "kind": "added"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v3/materials/Root_007.tres",
+          "before": null,
+          "after": "3d769deeab85750859cde9086c2734ecd61b04ebf71941fc28329b2813c80d63",
+          "kind": "added"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v3/materials/Root_008.tres",
+          "before": null,
+          "after": "3d769deeab85750859cde9086c2734ecd61b04ebf71941fc28329b2813c80d63",
+          "kind": "added"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v3/materials/Root_009.tres",
+          "before": null,
+          "after": "3d769deeab85750859cde9086c2734ecd61b04ebf71941fc28329b2813c80d63",
+          "kind": "added"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v3/materials/Root_010.tres",
+          "before": null,
+          "after": "3d769deeab85750859cde9086c2734ecd61b04ebf71941fc28329b2813c80d63",
+          "kind": "added"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v3/materials/Root_011.tres",
+          "before": null,
+          "after": "3d769deeab85750859cde9086c2734ecd61b04ebf71941fc28329b2813c80d63",
+          "kind": "added"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v3/materials/Root_012.tres",
+          "before": null,
+          "after": "3d769deeab85750859cde9086c2734ecd61b04ebf71941fc28329b2813c80d63",
+          "kind": "added"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v3/materials/Root_013.tres",
+          "before": null,
+          "after": "3d769deeab85750859cde9086c2734ecd61b04ebf71941fc28329b2813c80d63",
+          "kind": "added"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v3/materials/Root_014.tres",
+          "before": null,
+          "after": "3d769deeab85750859cde9086c2734ecd61b04ebf71941fc28329b2813c80d63",
+          "kind": "added"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v3/materials/Root_015.tres",
+          "before": null,
+          "after": "3d769deeab85750859cde9086c2734ecd61b04ebf71941fc28329b2813c80d63",
+          "kind": "added"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v3/materials/Root_016.tres",
+          "before": null,
+          "after": "3d769deeab85750859cde9086c2734ecd61b04ebf71941fc28329b2813c80d63",
+          "kind": "added"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v3/materials/Root_017.tres",
+          "before": null,
+          "after": "3d769deeab85750859cde9086c2734ecd61b04ebf71941fc28329b2813c80d63",
+          "kind": "added"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v3/materials/Root_018.tres",
+          "before": null,
+          "after": "3d769deeab85750859cde9086c2734ecd61b04ebf71941fc28329b2813c80d63",
+          "kind": "added"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v3/materials/Root_019.tres",
+          "before": null,
+          "after": "3d769deeab85750859cde9086c2734ecd61b04ebf71941fc28329b2813c80d63",
+          "kind": "added"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v3/materials/Root_020.tres",
+          "before": null,
+          "after": "3d769deeab85750859cde9086c2734ecd61b04ebf71941fc28329b2813c80d63",
+          "kind": "added"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v3/materials/Root_021.tres",
+          "before": null,
+          "after": "3d769deeab85750859cde9086c2734ecd61b04ebf71941fc28329b2813c80d63",
+          "kind": "added"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v3/materials/Root_022.tres",
+          "before": null,
+          "after": "3d769deeab85750859cde9086c2734ecd61b04ebf71941fc28329b2813c80d63",
+          "kind": "added"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v3/materials/Root_023.tres",
+          "before": null,
+          "after": "3d769deeab85750859cde9086c2734ecd61b04ebf71941fc28329b2813c80d63",
+          "kind": "added"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v3/materials/Root_024.tres",
+          "before": null,
+          "after": "3d769deeab85750859cde9086c2734ecd61b04ebf71941fc28329b2813c80d63",
+          "kind": "added"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v3/materials/Root_1001.tres",
+          "before": null,
+          "after": "c0902254d6545d569fad773e33b08207629f137c9bf9c87aa7362a7b820ea303",
+          "kind": "added"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v3/materials/Root_1002.tres",
+          "before": null,
+          "after": "e1f5f05e70e61dd8b73a8de9abc4213074abc3638bbc3eca63a85e7411efa547",
+          "kind": "added"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v3/materials/Root_1003.tres",
+          "before": null,
+          "after": "53b5e7e30528209f79e83481ebb7239e22a8619d6618942cef96dcd3e9b672c1",
+          "kind": "added"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v3/materials/Root_1004.tres",
+          "before": null,
+          "after": "9e2eb4fbf0ba0acf52bd1d1ef161da50642d9f060385b1e5317780984915afe5",
+          "kind": "added"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v3/materials/Root_1005.tres",
+          "before": null,
+          "after": "79b7261d8977ce2dee563a9bd0683ede7f8f27960018a0dcfdb4ed80e5447fc4",
+          "kind": "added"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v3/materials/Root_1006.tres",
+          "before": null,
+          "after": "c84bf44f88e94840814e9ddd16030c39db5735948fa1205a6abf37ef24a91729",
+          "kind": "added"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v3/materials/Root_1007.tres",
+          "before": null,
+          "after": "373ca410dd9acb7af9326e47eb6908af7cd7f5ae1f86e7c95735f47ed5bd9ccc",
+          "kind": "added"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v3/materials/Root_1008.tres",
+          "before": null,
+          "after": "a759a65f825717bc36682526af906f42c0203d7455b982ba20520f20efb98377",
+          "kind": "added"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v3/materials/Root_1009.tres",
+          "before": null,
+          "after": "87326fc5e47aacadc778a2702197b31145ef2f9f96cd861ba378bfd7f64e3de3",
+          "kind": "added"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v3/materials/Root_1010.tres",
+          "before": null,
+          "after": "f53076e112c86f1003852e020f320833bdef64c7b597261c9fc013430b01ec6a",
+          "kind": "added"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v3/materials/heat_shimmer.gdshader",
+          "before": null,
+          "after": "daaa0faa2a88e70a5d7246a8cef7c88f240132b095c2a2ed633bd9beb498ef98",
+          "kind": "added"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v3/materials/vfx_material_add_unlit_order_fbc0ebc0c789_outside_in.gdshader",
+          "before": null,
+          "after": "8df30a55e8ef74018fc818236a1e57415d0041df54c0bb19ef724d8bf2562fb5",
+          "kind": "added"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v3/materials/vfx_material_add_unlit_outside_in.gdshader",
+          "before": null,
+          "after": "8061553dea14875dd2620434ba48ea78f6df0a12c8e80c6c079f188275860529",
+          "kind": "added"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v3/materials/vfx_material_mix_unlit_order_fbc0ebc0c789_outside_in.gdshader",
+          "before": null,
+          "after": "ff164ce2f50628a5b9dab56bf4c0b7849066857feb4e6458888581c5e995722b",
+          "kind": "added"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v3/materials/vfx_material_mix_unlit_order_fbc0ebc0c789_outside_in_noise.gdshader",
+          "before": null,
+          "after": "30c715b69444d2728a96e73e4bfb670ba2a48a2cb54911103268f064d0c4acea",
+          "kind": "added"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v3/materials/vfx_material_mix_unlit_outside_in.gdshader",
+          "before": null,
+          "after": "4686ee3f97be3f13a15e44e947874c7bc23c502090ad2b1dbbac18f09282d340",
+          "kind": "added"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v3/materials/vfx_material_v2_roots.gdshader",
+          "before": null,
+          "after": "30c715b69444d2728a96e73e4bfb670ba2a48a2cb54911103268f064d0c4acea",
+          "kind": "added"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v3/pieces/burst_runtime.json",
+          "before": null,
+          "after": "11f1547bc6629fb3baf6d11cfe933039b3b486b9fb4c23a8bdb020830ec1c0d9",
+          "kind": "added"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v3/pieces/interleave/tongue_01.png",
+          "before": null,
+          "after": "b95b025a71785ebca959b5c7883f15d2070feb29127dbad60dd3797ca3bc04be",
+          "kind": "added"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v3/pieces/interleave/tongue_02.png",
+          "before": null,
+          "after": "c32f04643393339eeb5b48ac0255bd2a27c3a99c9d68f9033475a8e964822050",
+          "kind": "added"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v3/pieces/interleave/tongue_03.png",
+          "before": null,
+          "after": "aed83be6d976afcc57124272a8fff00051b50f922a6977be55b2727c4b01df58",
+          "kind": "added"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v3/pieces/interleave/tongue_04.png",
+          "before": null,
+          "after": "bafe5e76a9870c21e6dfcf9d5b2678506df56f34b2748ca2da561e21a27de717",
+          "kind": "added"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v3/pieces/interleave/tongue_05.png",
+          "before": null,
+          "after": "37ad853bec75f318c399516324548e20111e1427253594df72f8c3b7edf2a641",
+          "kind": "added"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v3/pieces/interleave/tongue_06.png",
+          "before": null,
+          "after": "855f3cbd59010ad4d2bdbfe57519d2c041775fa0752ca8469c34ab2cae83afba",
+          "kind": "added"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v3/pieces/interleave/tongue_07.png",
+          "before": null,
+          "after": "7fef77713f7236b077eaae2f48a8d152ffafa7c32b6c21a6c951219f693bd4f2",
+          "kind": "added"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v3/pieces/interleave/tongue_08.png",
+          "before": null,
+          "after": "0c09dbc1568a26c6d6854131da2315dfc56ec8555142be2771bb6ccd8ff8c0f0",
+          "kind": "added"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v3/pieces/interleave/tongue_09.png",
+          "before": null,
+          "after": "f3f4672112d2ac89533d4441b1238197be6f0c1338ffca6c31b09159a545e556",
+          "kind": "added"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v3/pieces/interleave/tongue_10.png",
+          "before": null,
+          "after": "c944c1a54ca27c9238e323c61df1af350a16c691dd5881021a76981c3cd21adc",
+          "kind": "added"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v3/pieces/peak_index.png",
+          "before": null,
+          "after": "239b8f28e6bed8eec4c71d584f46174072a73f98cb71b30380cbad1521cc5c8f",
+          "kind": "added"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v3/pieces/piece_001.png",
+          "before": null,
+          "after": "b2f41426ee0b3b6ee5a673299a631134329804f734596b3a3feb6785ba5b539a",
+          "kind": "added"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v3/pieces/piece_002.png",
+          "before": null,
+          "after": "06df27010b1dcf7048c4a8bdf51590389f21388c9e5009486776f5a6af38abe4",
+          "kind": "added"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v3/pieces/piece_003.png",
+          "before": null,
+          "after": "ba736e9ff94125fbf4151dc599a047fb5a54ebf036e82ae9a7d9c42edecc255a",
+          "kind": "added"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v3/pieces/piece_004.png",
+          "before": null,
+          "after": "c12e9e984fd9d93cc5b6f3e16aa287b7aa97e5b0da0fd3910a27fd1f3ec88995",
+          "kind": "added"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v3/pieces/piece_005.png",
+          "before": null,
+          "after": "be9cded5addc5ffe477575922772a33393e942c955327059eeb8252bb916d876",
+          "kind": "added"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v3/pieces/piece_006.png",
+          "before": null,
+          "after": "670b495b08a432500bff7c5cd0bdd1d317bee4b421afa74d865b3cc4de54110f",
+          "kind": "added"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v3/pieces/piece_007.png",
+          "before": null,
+          "after": "0e4a71cb0270a9b2d5a0c8a49625006051f1a3d3aa03e53375fb3bb7fe756c31",
+          "kind": "added"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v3/pieces/piece_008.png",
+          "before": null,
+          "after": "753a02763063326915196ef7a4dcbf69c84f803904f444867b1637d012a91680",
+          "kind": "added"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v3/pieces/piece_009.png",
+          "before": null,
+          "after": "974680c102cdb837ac87ce60a92d0def64890b05799daa5e6575c222f5befbcf",
+          "kind": "added"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v3/pieces/piece_010.png",
+          "before": null,
+          "after": "fa7c5c8390baca51bf33f925f215053d031bf682e6ed12d28b46db9ecf7bd6ea",
+          "kind": "added"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v3/pieces/piece_011.png",
+          "before": null,
+          "after": "5b19fbeecf986f103a958797f5833c303d4927d614a484398710b619685d1047",
+          "kind": "added"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v3/pieces/piece_012.png",
+          "before": null,
+          "after": "3a371e7155b0986348860333708978f627548e7d8947a72db14c42643679a0f5",
+          "kind": "added"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v3/pieces/piece_013.png",
+          "before": null,
+          "after": "82bb6e314180d122e758f4b0d9fee536a74ac33247ca3fa4e936d3a700f8fbc2",
+          "kind": "added"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v3/pieces/piece_014.png",
+          "before": null,
+          "after": "7b26da7a058388cb1b13d2b9857e07da892ab08f3e568d6f71509a291012c70c",
+          "kind": "added"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v3/pieces/piece_015.png",
+          "before": null,
+          "after": "16bd893b76604e53b0d94df363177d6bd52556d68db87a1002731c0865e583da",
+          "kind": "added"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v3/pieces/piece_016.png",
+          "before": null,
+          "after": "6976727eed3218bb4fbd8561997bfa8d5556d7e53c94bd09b762907653856444",
+          "kind": "added"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v3/pieces/piece_017.png",
+          "before": null,
+          "after": "4fb9b8a0f9d92b9de0a549ac90c3fc7f6bf21bbfc2a70797353c046086281808",
+          "kind": "added"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v3/pieces/piece_018.png",
+          "before": null,
+          "after": "589fedd4b574d2764a29305e9827a5e4d9e19dc5ca4abd14820e36012f42d68b",
+          "kind": "added"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v3/pieces/piece_019.png",
+          "before": null,
+          "after": "8cb4f97aedef8cc08b3bbfa8106ecbb02bb429cf0c07075bb9effa0bd13416bf",
+          "kind": "added"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v3/pieces/piece_020.png",
+          "before": null,
+          "after": "dc59d0d96dfe3f7a123f9debe9147348823f22d2176b2f152395518f58bd0ed6",
+          "kind": "added"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v3/pieces/piece_021.png",
+          "before": null,
+          "after": "4e8efbcf4dcdf3ec7ee383729c7a9b311a475201dd571b54aba2868df7a80206",
+          "kind": "added"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v3/pieces/piece_022.png",
+          "before": null,
+          "after": "58d8f78434870850db526a592736a7d78f975b4556a7c65ef30e065e47a3ea8c",
+          "kind": "added"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v3/pieces/piece_023.png",
+          "before": null,
+          "after": "f94d2cf109d94fe47ec46991c4e8114e7c0c83f60524649ea9e794d5fa86abdf",
+          "kind": "added"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v3/pieces/piece_024.png",
+          "before": null,
+          "after": "6068189906cafd32fa1576adfc1fb3bbec1d7cacd5d2d69664ed9c7bc3afc151",
+          "kind": "added"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v3/pieces/pieces.json",
+          "before": null,
+          "after": "5840c65dfb78efdf5653997b1c90759176d08d43824b44fd541b9e5aa92d80c4",
+          "kind": "added"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v3/pieces/whole_body_distance.png",
+          "before": null,
+          "after": "93c949e3188eec0e01233c89e31ab23794fe85189cdd99ce1ccc24b78ed6b67b",
+          "kind": "added"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v3/pieces/whole_body_noise.png",
+          "before": null,
+          "after": "74811ccabe91649727fabbda43d3ad09ad75aaa8f4cb3c9569363702c170acab",
+          "kind": "added"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v3/sprites/flare/flare_00.png",
+          "before": null,
+          "after": "6de239f25df8fd99c2106e6fcd592b1aee2e2f9eb498c5d6de47fb491821e73d",
+          "kind": "added"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v3/sprites/impact/impact_00.png",
+          "before": null,
+          "after": "239b8f28e6bed8eec4c71d584f46174072a73f98cb71b30380cbad1521cc5c8f",
+          "kind": "added"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v3/sprites/travel/travel_00.png",
+          "before": null,
+          "after": "6de239f25df8fd99c2106e6fcd592b1aee2e2f9eb498c5d6de47fb491821e73d",
+          "kind": "added"
+        },
+        {
+          "path": "vfx/fire_burst_e0p_v3/travel.tres",
+          "before": null,
+          "after": "bfa44d31bc946d4d809b557ec5221dc6686dea322be2e54fc16f4004039accaa",
+          "kind": "added"
+        }
+      ],
+      "reason": "FL-4b fire A/B painting resources, B impact dependency v3, portable interleave and sheet-tail binding; original eleven-entry snapshot extended by the explicit v3 dependency. E3-r1 catalogue source-byte lock is NOT rebaselined.",
+      "after_sha256": "43538c6eea9874b5961be9ea2fddbf1d73aca13a5720b0226495ce2b9ae8c58b"
+    }
+  ],
+  "named_tests": {
+    "tests_run": 16,
+    "failures": [
+      {
+        "test": "test_godot_import.FL4BRuntimeTraceTests.test_engine_selections_match_portable_sampler_and_repeat_seed",
+        "detail": "Traceback (most recent call last):\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_godot_import.py\", line 2108, in test_engine_selections_match_portable_sampler_and_repeat_seed\n    for key in ('id','gap_rank','mirrored','speed_factor'):self.assertEqual(actual[key],want[key])\n                                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 8.0 != 10\n"
+      }
+    ],
+    "errors": [],
+    "skipped": []
+  },
+  "suite": {
+    "tests_run": 250,
+    "failures": 23,
+    "errors": 30,
+    "skipped": 0,
+    "remaining": [
+      {
+        "test": "test_effect_kit.AntiDecalValidationTests.test_defaults_absent_and_real_fire_fields_load",
+        "kind": "failure",
+        "last_line": "AssertionError: 2 != 3",
+        "write_fence": false,
+        "superseded_by_named_run": false
+      },
+      {
+        "test": "test_effect_kit.ContinuousResidueMaterialTests.test_entry_shape_and_shared_shard_union_and_zero_control",
+        "kind": "failure",
+        "last_line": "AssertionError: False is not true",
+        "write_fence": false,
+        "superseded_by_named_run": false
+      },
+      {
+        "test": "test_effect_kit.FL2FieldValidationTests.test_all_new_fields_validate_in_actual_catalogue",
+        "kind": "failure",
+        "last_line": "AssertionError: 18 != 17",
+        "write_fence": false,
+        "superseded_by_named_run": false
+      },
+      {
+        "test": "test_effect_kit.ProjectileArmValidationTests.test_both_arms_preserve_spec_and_quantised_primitives",
+        "kind": "failure",
+        "last_line": "Diff is 7362 characters long. Set self.maxDiff to None to see it.",
+        "write_fence": false,
+        "superseded_by_named_run": false
+      },
+      {
+        "test": "test_effect_kit.ProjectileArmValidationTests.test_empty_key_arms_have_identical_kit_files_except_name",
+        "kind": "failure",
+        "last_line": "Diff is 702786 characters long. Set self.maxDiff to None to see it.",
+        "write_fence": false,
+        "superseded_by_named_run": false
+      },
+      {
+        "test": "test_effect_kit.RaggedResidueMaterialTests.test_t4e_entry_ragged_connected_and_zero_disc_control",
+        "kind": "failure",
+        "last_line": "AssertionError: False is not true",
+        "write_fence": false,
+        "superseded_by_named_run": false
+      },
+      {
+        "test": "test_godot_import.AntiDecalTraceTests.test_core_additive_contact_expanded_spent_and_residue_release",
+        "kind": "failure",
+        "last_line": "AssertionError: [] is not true",
+        "write_fence": false,
+        "superseded_by_named_run": false
+      },
+      {
+        "test": "test_godot_import.AntiDecalTraceTests.test_every_hold_frame_changes_actual_shader_uniforms",
+        "kind": "failure",
+        "last_line": "AssertionError: 0 != 3",
+        "write_fence": false,
+        "superseded_by_named_run": false
+      },
+      {
+        "test": "test_godot_import.AntiDecalTraceTests.test_shimmer_residue_only_bounded_fade_and_extent_report",
+        "kind": "failure",
+        "last_line": "AssertionError: [] is not true",
+        "write_fence": false,
+        "superseded_by_named_run": false
+      },
+      {
+        "test": "test_godot_import.BoltChainEmissionTests.test_current_catalogue_and_original_kits_unchanged",
+        "kind": "failure",
+        "last_line": "Diff is 102664 characters long. Set self.maxDiff to None to see it.",
+        "write_fence": false,
+        "superseded_by_named_run": false
+      },
+      {
+        "test": "test_godot_import.ContinuousResidueImportTests.test_whole_canvas_texture_shared_by_every_material_and_cpu_cutoff",
+        "kind": "failure",
+        "last_line": "AssertionError: 0.993333 != 0.900784",
+        "write_fence": false,
+        "superseded_by_named_run": false
+      },
+      {
+        "test": "test_godot_import.FL4BRuntimeTraceTests.test_engine_selections_match_portable_sampler_and_repeat_seed",
+        "kind": "failure",
+        "last_line": "AssertionError: 8.0 != 10",
+        "write_fence": false,
+        "superseded_by_named_run": false
+      },
+      {
+        "test": "test_godot_import.GodotImportTests.test_headless_state_machine_input_map_gear_vfx_and_nearest_fallback",
+        "kind": "failure",
+        "last_line": "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "write_fence": false,
+        "superseded_by_named_run": false
+      },
+      {
+        "test": "test_godot_import.GroundVisibilityRegressionTests.test_flask_stays_visible_at_native_screen_extent_during_flight",
+        "kind": "failure",
+        "last_line": "AssertionError: False is not true",
+        "write_fence": false,
+        "superseded_by_named_run": false
+      },
+      {
+        "test": "test_godot_import.PieceStretchImportTests.test_v2_headless_import_and_seed_equal_rooted_clock",
+        "kind": "failure",
+        "last_line": "       [1] probe (res://stretch_probe.gd:36)",
+        "write_fence": false,
+        "superseded_by_named_run": false
+      },
+      {
+        "test": "test_godot_import.ProjectileTravelEmissionTests.test_node_tree_material_and_spec_driven_config",
+        "kind": "failure",
+        "last_line": "AssertionError: 1510 != 1040",
+        "write_fence": false,
+        "superseded_by_named_run": false
+      },
+      {
+        "test": "test_godot_import.RaggedResidueImportTests.test_exported_threshold_and_every_root_and_stretch_material_agree",
+        "kind": "failure",
+        "last_line": "AssertionError: 0.993333 != 0.900784",
+        "write_fence": false,
+        "superseded_by_named_run": false
+      },
+      {
+        "test": "test_vfx_picker.G1ComponentTests.test_headless_first_cast_contact_cursor_pool_cancel_and_picker",
+        "kind": "failure",
+        "last_line": "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "write_fence": false,
+        "superseded_by_named_run": false
+      },
+      {
+        "test": "test_vfx_picker.G1ComponentTests.test_headless_pierce_contacts_labels_pool_and_phase_callbacks",
+        "kind": "failure",
+        "last_line": "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "write_fence": false,
+        "superseded_by_named_run": false
+      },
+      {
+        "test": "test_vfx_picker.LivingEmbersTests.test_headless_glow_sixty_samples_extrema_range_and_particle_properties",
+        "kind": "failure",
+        "last_line": "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "write_fence": false,
+        "superseded_by_named_run": false
+      },
+      {
+        "test": "test_vfx_picker.ProjectileArmPickerTests.test_empty_key_exports_byte_identically_except_kit_name",
+        "kind": "failure",
+        "last_line": "Diff is 2055736 characters long. Set self.maxDiff to None to see it.",
+        "write_fence": false,
+        "superseded_by_named_run": false
+      },
+      {
+        "test": "test_vfx_picker.ProjectileArmPickerTests.test_headless_east_contact_range_tail_and_key_schedule",
+        "kind": "failure",
+        "last_line": "E1_ASSERTION: one bound pieces burst",
+        "write_fence": false,
+        "superseded_by_named_run": false
+      },
+      {
+        "test": "test_vfx_picker.VfxPickerTests.test_headless_tab_twice_cast_scene_labels_and_inflight_kit_lock",
+        "kind": "failure",
+        "last_line": "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "write_fence": false,
+        "superseded_by_named_run": false
+      },
+      {
+        "test": "test_effect_kit.AuraLoopValidationTests.test_g4_build_roundtrip",
+        "kind": "error",
+        "last_line": "PermissionError: FL-4b write fence: /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4u/tmpazo4rapu",
+        "write_fence": true,
+        "superseded_by_named_run": false
+      },
+      {
+        "test": "test_effect_kit.BoltChainValidationTests.test_generic_build_round_trip",
+        "kind": "error",
+        "last_line": "PermissionError: FL-4b write fence: /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4t/tmp561lz1qv",
+        "write_fence": true,
+        "superseded_by_named_run": false
+      },
+      {
+        "test": "test_effect_kit.FieldDesignLapTests.test_poison_four_band_ramp_density_and_rebuild",
+        "kind": "error",
+        "last_line": "PermissionError: FL-4b write fence: /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4s-r3/tmp82zx1etq",
+        "write_fence": true,
+        "superseded_by_named_run": false
+      },
+      {
+        "test": "test_effect_kit.FrozenOrbValidationTests.test_roundtrip",
+        "kind": "error",
+        "last_line": "PermissionError: FL-4b write fence: /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4v/tmp_861j3kk",
+        "write_fence": true,
+        "superseded_by_named_run": false
+      },
+      {
+        "test": "test_effect_kit.ThrownFieldValidationTests.test_g2_normal_builder_preserves_rgb_and_density",
+        "kind": "error",
+        "last_line": "PermissionError: FL-4b write fence: /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4s/g2-build-i4kehawc",
+        "write_fence": true,
+        "superseded_by_named_run": false
+      },
+      {
+        "test": "setUpClass (test_godot_import.AuraLoopEmissionTests)",
+        "kind": "error",
+        "last_line": "PermissionError: FL-4b write fence: /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4u/aura-test-ydsyw4ap",
+        "write_fence": true,
+        "superseded_by_named_run": false
+      },
+      {
+        "test": "setUpClass (test_godot_import.BlackwaterLandingRuntimeTests)",
+        "kind": "error",
+        "last_line": "PermissionError: FL-4b write fence: /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/BL-1a-r1/bl1a-test-r5atsaer",
+        "write_fence": true,
+        "superseded_by_named_run": false
+      },
+      {
+        "test": "test_godot_import.BoltChainEmissionTests.test_named_nodes_additive_material_grey_and_explicit_dispatch",
+        "kind": "error",
+        "last_line": "PermissionError: FL-4b write fence: /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4t/tmp2d02ua01",
+        "write_fence": true,
+        "superseded_by_named_run": false
+      },
+      {
+        "test": "setUpClass (test_godot_import.FieldDesignLapEmissionTests)",
+        "kind": "error",
+        "last_line": "PermissionError: FL-4b write fence: /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4v/field-design/design-lap-72ksd7de",
+        "write_fence": true,
+        "superseded_by_named_run": false
+      },
+      {
+        "test": "test_godot_import.FrozenOrbEmissionTests.test_g2_independent_field_palette_and_wrong_dependency_rejected",
+        "kind": "error",
+        "last_line": "PermissionError: FL-4b write fence: /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4v/tmpmj9_u7od",
+        "write_fence": true,
+        "superseded_by_named_run": false
+      },
+      {
+        "test": "test_godot_import.FrozenOrbEmissionTests.test_named_nodes_materials_and_explicit_config",
+        "kind": "error",
+        "last_line": "PermissionError: FL-4b write fence: /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4v/tmpp7udaciv",
+        "write_fence": true,
+        "superseded_by_named_run": false
+      },
+      {
+        "test": "test_godot_import.IceTreatmentImportTests.test_emitted_shards_origin_residue_and_ground_decal",
+        "kind": "error",
+        "last_line": "PermissionError: FL-4b write fence: /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4t/e2-emission-2lv2nmip",
+        "write_fence": true,
+        "superseded_by_named_run": false
+      },
+      {
+        "test": "test_godot_import.IceTreatmentImportTests.test_ten_existing_export_bytes_unchanged",
+        "kind": "error",
+        "last_line": "PermissionError: FL-4b write fence: /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4t/e2-legacy-zj93qnva",
+        "write_fence": true,
+        "superseded_by_named_run": false
+      },
+      {
+        "test": "setUpClass (test_godot_import.RenderedLookTraceTests)",
+        "kind": "error",
+        "last_line": "PermissionError: FL-4b write fence: /Users/admin/astra-burst/runs/C-5/FL-4b/CREDITS_VFX.txt",
+        "write_fence": true,
+        "superseded_by_named_run": false
+      },
+      {
+        "test": "test_godot_import.ThrownFieldCLIRegressionTests.test_full_exporter_current_catalogue",
+        "kind": "error",
+        "last_line": "PermissionError: FL-4b write fence: /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4v/g2-full-cli-6mrsuoyt",
+        "write_fence": true,
+        "superseded_by_named_run": false
+      },
+      {
+        "test": "test_godot_import.ThrownFieldEmissionTests.test_g2_grey_retains_index_planes_and_glass_alpha",
+        "kind": "error",
+        "last_line": "PermissionError: FL-4b write fence: /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4s/g2-grey-564gkjz9",
+        "write_fence": true,
+        "superseded_by_named_run": false
+      },
+      {
+        "test": "test_godot_import.ThrownFieldEmissionTests.test_g2_named_nodes_glass_wedge_partition_and_ground_materials",
+        "kind": "error",
+        "last_line": "PermissionError: FL-4b write fence: /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4s/g2-emission-_fb3sso1",
+        "write_fence": true,
+        "superseded_by_named_run": false
+      },
+      {
+        "test": "test_godot_import.TransformedResidueSeamTests.test_transformed_front_at_three_ages_has_no_straight_seam_over_12px",
+        "kind": "error",
+        "last_line": "PermissionError: FL-4b write fence: /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4g/seam_measurements.json",
+        "write_fence": true,
+        "superseded_by_named_run": false
+      },
+      {
+        "test": "test_vfx_picker.AuraLoopPickerTests.test_g4_dispatch_precedes_socket_and_target_resolution",
+        "kind": "error",
+        "last_line": "PermissionError: FL-4b write fence: /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4u/tmp4jx4_p5i",
+        "write_fence": true,
+        "superseded_by_named_run": false
+      },
+      {
+        "test": "test_vfx_picker.AuthoredEffectPickerTests.test_authored_kit_own_travel_durations_layers_and_feedback_parameters",
+        "kind": "error",
+        "last_line": "PermissionError: FL-4b write fence: /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/tmp/authored-picker-os23ao6_",
+        "write_fence": true,
+        "superseded_by_named_run": false
+      },
+      {
+        "test": "test_vfx_picker.AuthoredEffectPickerTests.test_corrupt_authored_metadata_rejected_before_project_output",
+        "kind": "error",
+        "last_line": "PermissionError: FL-4b write fence: /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/tmp/authored-picker-pc3pf2wg",
+        "write_fence": true,
+        "superseded_by_named_run": false
+      },
+      {
+        "test": "test_vfx_picker.AuthoredEffectPickerTests.test_headless_authored_cast_east_north_collision_timing_and_feedback_cleanup",
+        "kind": "error",
+        "last_line": "PermissionError: FL-4b write fence: /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/tmp/authored-picker-bkt_mlqp",
+        "write_fence": true,
+        "superseded_by_named_run": false
+      },
+      {
+        "test": "test_vfx_picker.AuthoredEffectPickerTests.test_minimal_layers_and_optional_decal_fallback",
+        "kind": "error",
+        "last_line": "PermissionError: FL-4b write fence: /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/tmp/authored-picker-_e44g1b9",
+        "write_fence": true,
+        "superseded_by_named_run": false
+      },
+      {
+        "test": "test_vfx_picker.AuthoredEffectPickerTests.test_mixed_catalogue_legacy_scenes_and_scripts_byte_identical",
+        "kind": "error",
+        "last_line": "PermissionError: FL-4b write fence: /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/tmp/authored-picker-pht86vfi",
+        "write_fence": true,
+        "superseded_by_named_run": false
+      },
+      {
+        "test": "test_vfx_picker.CanonicalCapsuleSweepTests.test_emergence_fraction_order_and_temporarily_ignored_body",
+        "kind": "error",
+        "last_line": "PermissionError: FL-4b write fence: /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/FL-2c/reexport/capsule_sweep_test.gd",
+        "write_fence": true,
+        "superseded_by_named_run": false
+      },
+      {
+        "test": "test_vfx_picker.FrozenOrbPickerTests.test_headless_orb_clock_and_pool",
+        "kind": "error",
+        "last_line": "PermissionError: FL-4b write fence: /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4v/orb-runtime-kw9nguh_",
+        "write_fence": true,
+        "superseded_by_named_run": false
+      },
+      {
+        "test": "test_vfx_picker.IceTreatmentPickerTests.test_headless_contact_shatter_residue_decal",
+        "kind": "error",
+        "last_line": "PermissionError: FL-4b write fence: /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4x/e2-clock-fu23e90k",
+        "write_fence": true,
+        "superseded_by_named_run": false
+      },
+      {
+        "test": "test_vfx_picker.ProjectileArmPickerTests.test_original_eight_export_byte_lock",
+        "kind": "error",
+        "last_line": "ValueError: projectile impact dependency missing or disagrees with binding/palette/layers",
+        "write_fence": false,
+        "superseded_by_named_run": true
+      },
+      {
+        "test": "test_vfx_picker.TouchAimRuntimeTests.test_headless_overlay_forward_world_touch_and_mouse_probe",
+        "kind": "error",
+        "last_line": "PermissionError: FL-4b write fence: /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4x/touch/touch-aim-yz1u76cq",
+        "write_fence": true,
+        "superseded_by_named_run": false
+      },
+      {
+        "test": "test_vfx_picker.TouchDeviceAimRuntimeTests.test_headless_device_forward_handled_overlay_and_mouse_probe",
+        "kind": "error",
+        "last_line": "PermissionError: FL-4b write fence: /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4i-r1/tmp/touch-aim-2tx66ynx",
+        "write_fence": true,
+        "superseded_by_named_run": false
+      }
+    ]
+  },
+  "concerns": [
+    "Two-attempt stop: the diagnosed source sampler fix remains unverified. Retry export rejected a nonempty output directory; the subsequent engine trace exercised the earlier generated script. No third attempt was made.",
+    "Named run: 16 tests, 1 unresolved sampler-parity assertion. Full in-sandbox suite: 250 tests, 23 assertion failures, 30 errors; every remaining test is named in acceptance.json and full details are archived.",
+    "Peak-12 traced nonzero-alpha extent is 4.581 BH wide (up to 4.647 BH tall), versus the requested approximately 4.0 BH. No shrinking was applied.",
+    "Frozen peak-02 decomposition yields 7 tongues, 5 core wedges and 25 source islands, not ten tongues. The ten-piece library uses five original tongues, geodesic subdivision of the paired lower scallops, and the bottom core-wedge scallop; conductor review is required.",
+    "Working paintings are antialiased and not exact four-plane greyscale. Existing quantise_projectile preserves their alpha; source bytes were not copied literally. Head band-3 alpha-weighted area is 24.88%, not approximately 40%; 97.70% is in the leading half.",
+    "Literal alpha>0 sizing gives head 1.2 BH and sheet 2.2 BH; alpha>8 painted bodies measure 1.171 BH and 1.882 BH because the supplied sheet includes very faint distant fringe. Both measurements are reported without trimming alpha.",
+    "E3-r1 catalogue lock remains red: test_godot_import.BoltChainEmissionTests.test_current_catalogue_and_original_kits_unchanged; it needs the 18th kit on its next authorized rebaseline.",
+    "Headless Compatibility import/trace exited 0 for the initial exported bytes, with macOS certificate-store diagnostics and sandbox-denied editor-settings saves. Current corrected source has no fresh full-catalogue engine verification."
+  ]
+}

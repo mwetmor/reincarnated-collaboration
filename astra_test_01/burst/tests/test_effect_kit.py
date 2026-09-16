@@ -2563,3 +2563,68 @@ class FL4FieldValidationTests(unittest.TestCase):
             bad=copy.deepcopy(travel);bad[role][key]=value
             with self.subTest(role=role,key=key),self.assertRaises(ValueError):validate_fire_layer('travel',bad)
         validate_fire_layer('travel',{})
+
+
+class FL4BInterleaveValidationTests(unittest.TestCase):
+    def setUp(self):
+        self.root=ROOT/'runs/C-5/vfx_kits/v9/fire_burst_e0p_v3'
+        self.data=load_kit(self.root)
+
+    def test_ten_connected_rooted_tongues_and_unchanged_body(self):
+        from export.effect_kit import load_interleave
+        library,_=load_interleave(self.data['pieces']['interleave'],self.root)
+        self.assertEqual(len(library['pieces']),10)
+        self.assertEqual(self.data['pieces']['key_states'],[])
+        old=self.root.with_name('fire_burst_e0p_v2')
+        for path in (old/'pieces').glob('*'):
+            if path.is_file():self.assertEqual(path.read_bytes(),(self.root/'pieces'/path.name).read_bytes())
+        for item in library['pieces']:
+            with Image.open(self.root/'pieces/interleave'/item['png']) as image:a=np.asarray(image)
+            self.assertGreater(a[item['pivot'][1],item['pivot'][0],3],0)
+
+    def test_seeded_largest_gaps_coverage_and_reproducibility(self):
+        from export.effect_kit import load_interleave,interleave_gaps,interleave_placement
+        library,_=load_interleave(self.data['pieces']['interleave'],self.root)
+        record=json.loads((self.root/self.data['pieces']['source']).read_text())
+        gaps=interleave_gaps(record);seen=set()
+        for seed in range(1,101):
+            selected=interleave_placement(seed,gaps,library['pieces'])
+            self.assertEqual(selected,interleave_placement(seed,gaps,library['pieces']))
+            self.assertTrue(3<=len(selected)<=5)
+            self.assertEqual([p['gap_rank'] for p in selected],list(range(len(selected))))
+            self.assertEqual(len({p['id'] for p in selected}),len(selected))
+            angles=sorted([p['radial_angle_deg']%360 for p in record['pieces'] if p['area_px']>=48]+[p['angle_deg'] for p in selected])
+            self.assertLessEqual(max((angles[(i+1)%len(angles)]-a)%360 for i,a in enumerate(angles)),55)
+            for item in selected:
+                self.assertLessEqual(abs(item['jitter_deg']),12)
+                self.assertTrue(.8<=item['scale']<=1.15)
+                self.assertEqual(item['speed_factor'],.85)
+            seen.add(tuple((p['id'],p['angle_deg']) for p in selected))
+        self.assertEqual(len(seen),100)
+
+    def test_malformed_interleave_and_key_holds_rejected(self):
+        from export.effect_kit import load_pieces
+        original=self.data['pieces']
+        for value in [{'count':[2,6],'library':'pieces/interleave','angle_slots':'gaps'},
+                      {'count':[3,5],'library':'../../../../','angle_slots':'gaps'},
+                      {'count':[3,5],'library':'pieces/interleave','angle_slots':'uniform'}]:
+            bad=copy.deepcopy(original);bad['interleave']=value
+            with self.assertRaises(ValueError):load_pieces(bad,self.root,True)
+        bad=copy.deepcopy(original);bad['key_states']=[{'state':'expanded','png':'key_states/expanded_clipped.png','at_age':12,'hold_frames':2}]
+        with self.assertRaisesRegex(ValueError,'empty key_states'):load_pieces(bad,self.root,True)
+
+    def test_round_two_projectile_alpha_and_declared_body_extents(self):
+        from export.effect_kit import quantise_projectile
+        from export.godot_import import _fl4b_travel_metrics
+        sources={'head':'VF-prim-fire-head-02/fire_head_02_512.png','streak':'VF-prim-fire-sheet-01/fire_sheet_01_512.png'}
+        for arm in ('A','B'):
+            root=self.root.with_name('fire_bolt_e1_'+arm);data=load_kit(root)
+            metrics=_fl4b_travel_metrics({'root':root,'effect':data})
+            self.assertTrue(1.15<=metrics['head_extent_bh']<=1.25)
+            self.assertTrue(2.1<=metrics['sheet_extent_bh']<=2.3)
+            for role,source in sources.items():
+                with Image.open(ROOT/'runs/C-5/artifacts'/source) as image:raw=np.asarray(image.convert('RGBA'))
+                with Image.open(root/data['travel_primitives'][role]['png']) as image:actual=np.asarray(image)
+                np.testing.assert_array_equal(actual,quantise_projectile(raw))
+                np.testing.assert_array_equal(actual[:,:,3],raw[:,:,3])
+            self.assertEqual(data['impact_binding']['kit'],'fire_burst_e0p_v3' if arm=='B' else 'fire_burst_e0p_v2')

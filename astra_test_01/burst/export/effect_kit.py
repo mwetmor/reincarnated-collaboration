@@ -462,10 +462,72 @@ def piece_geometry(record, source_root):
             'pieces': items}
 
 
+
+def load_interleave(config, root):
+    """Explicit spatial tongue library; never infer art or segment at runtime."""
+    _keys(config, {'count', 'library', 'angle_slots'}, {'count', 'library', 'angle_slots'}, 'interleave')
+    if config['count'] != [3, 5] or any(type(v) is not int for v in config['count']):
+        raise ValueError('interleave.count must be [3,5]')
+    if config['angle_slots'] != 'gaps': raise ValueError('interleave.angle_slots must be gaps')
+    root = Path(root).resolve()
+    folder = (root/config['library']).resolve()
+    if Path(config['library']).is_absolute() or not folder.is_relative_to(root):
+        raise ValueError('interleave library escapes kit')
+    record = json.loads((folder/'pieces.json').read_text())
+    if record.get('canvas') != [512,512] or len(record.get('pieces', [])) != 10:
+        raise ValueError('interleave requires ten 512-square tongues')
+    ids, assets = set(), {}
+    for item in record['pieces']:
+        _number(item.get('id'), 1, 10, 'tongue.id', True)
+        if item['id'] in ids: raise ValueError('duplicate tongue id')
+        ids.add(item['id'])
+        _number(item.get('radial_angle_deg'), 0, 360, 'tongue radial angle')
+        path = _png(item.get('png'), folder, grayscale=True, confined=True)
+        with Image.open(path) as image: a = np.asarray(image.convert('RGBA'))
+        if a.shape != (512,512,4): raise ValueError('tongue canvas mismatch')
+        pivot = item.get('pivot')
+        if not isinstance(pivot,list) or len(pivot) != 2: raise ValueError('tongue pivot requires x,y')
+        for v in pivot: _number(v,0,511,'tongue pivot',True)
+        if not a[pivot[1],pivot[0],3]: raise ValueError('tongue root outside mask')
+        from scipy.ndimage import label
+        if label(a[:,:,3]>0, np.ones((3,3)))[1] != 1: raise ValueError('tongue must be connected')
+        if np.count_nonzero(a[:,:,3]) != item.get('area_px'): raise ValueError('tongue area mismatch')
+        assets[path.relative_to(root).as_posix()] = path
+    return record, assets
+
+
+def interleave_gaps(record):
+    """All eleven substantial peak-01 shards, including its core wedges.
+
+    Tiny detached alpha islands are not arms. Angles are the frozen record's
+    radial angles, not a newly inferred contour or the stretching axis.
+    """
+    angles = sorted(p['radial_angle_deg'] % 360 for p in record['pieces'] if p['area_px'] >= 48)
+    gaps = [{'start_deg': a, 'width_deg': (angles[(i+1)%len(angles)]-a)%360}
+            for i,a in enumerate(angles)]
+    return sorted(gaps, key=lambda g: (-g['width_deg'],g['start_deg']))
+
+
+def interleave_placement(seed, gaps, library):
+    """Portable SHA-256 samples, matched exactly by the emitted runtime."""
+    def sample(label):
+        return int(hashlib.sha256(f'{seed}:{label}'.encode('ascii')).hexdigest()[:8],16)
+    count = 3 + sample('count') % 3
+    selected = sorted(library, key=lambda p:(sample('pick'+str(p['id'])),p['id']))[:count]
+    placed = []
+    for rank,(item,gap) in enumerate(zip(selected,gaps)):
+        # ±12 degrees, narrowed only when the literal 55-degree gate needs it.
+        limit = min(12.0, max(0.0,55.0-gap['width_deg']/2))
+        jitter = (sample('angle'+str(rank))/4294967295*2-1)*limit
+        placed.append({'id':item['id'],'gap_rank':rank,'angle_deg':(gap['start_deg']+gap['width_deg']/2+jitter)%360,
+                       'jitter_deg':jitter,'scale':.8+.35*sample('scale'+str(rank))/4294967295,
+                       'mirrored':bool(sample('mirror'+str(rank))%2),'speed_factor':.85})
+    return placed
+
 def load_pieces(config, root, runtime=False):
     """Consume T4e schema 2 as delivered; never segment or recolour a shard."""
     root = Path(root).resolve()
-    _keys(config, {'source', 'template', 'root_drift', 'dissolve_order', 'erode_noise', 'key_states', 'embers', 'boil', 'timing', 'ember_ending', *PIECES_DEFAULTS}, {'source', 'template'}, 'pieces')
+    _keys(config, {'source', 'template', 'root_drift', 'dissolve_order', 'erode_noise', 'key_states', 'embers', 'boil', 'timing', 'ember_ending', 'interleave', *PIECES_DEFAULTS}, {'source', 'template'}, 'pieces')
     if config['template'] not in ('burst_v1', 'burst_v2', 'burst_v1r'):
         raise ValueError('pieces.template must be burst_v1, burst_v2 or burst_v1r')
     _number(config.get('erode_noise', 0), 0, 1, 'pieces.erode_noise')
@@ -572,6 +634,11 @@ def load_pieces(config, root, runtime=False):
             raise ValueError('piece band must be in 0..3')
         key = mask.relative_to(root).as_posix() if mask.is_relative_to(root) else str(mask)
         assets[key] = mask
+    if 'interleave' in values:
+        if values['template'] != 'burst_v2' or states:
+            raise ValueError('interleave requires burst_v2 and empty key_states')
+        _, library_assets = load_interleave(values['interleave'], root)
+        assets.update(library_assets)
     peak = _png(record.get('peak_index'), path.parent, grayscale=True, confined=True)
     with Image.open(peak) as image:
         if list(image.size) != canvas: raise ValueError('peak_index must match pieces.canvas')
@@ -904,6 +971,13 @@ def build(effect_json, out_dir):
         metadata['pieces'] = dict(config, source='pieces/pieces.json')
         if states:
             metadata['pieces']['key_states'] = states
+        if 'interleave' in config:
+            library, library_assets = load_interleave(config['interleave'], root)
+            for key in library_assets:
+                copy_index(key, key)
+            folder = out/config['interleave']['library']
+            (folder/'pieces.json').write_text(json.dumps(library, indent=2)+'\n')
+            metadata['pieces']['key_states'] = []
         counts['pieces'] = len(record['pieces'])
     for mode in ('MIX', 'ADD', 'PREMULT_ALPHA'):
         for lit in (False, True):
