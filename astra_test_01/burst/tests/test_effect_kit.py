@@ -2187,3 +2187,46 @@ class BoltChainValidationTests(unittest.TestCase):
         with tempfile.TemporaryDirectory(dir=work) as tmp:
             build(source/'kit.json',Path(tmp)/'kit')
             actual=load_kit(Path(tmp)/'kit');self.assertEqual(actual,load_kit(source))
+
+
+class FieldDesignLapTests(unittest.TestCase):
+    """T4s-r3: painted pool binding and independently modulated poison density."""
+    def test_pool_native_binding_alpha_and_dark_palette_planes(self):
+        from export.effect_kit import quantise_projectile, validate_thrown_field
+        root = ROOT/'runs/C-5/vfx_kits/v9/blackwater_cocktail_e3'
+        data = load_kit(root)
+        self.assertEqual(data['g2']['field_binding'], dict(kind='painted_pool',scale=1.,pivot=[256,320],dissolve_s=.4))
+        with Image.open(ROOT/'runs/C-5/artifacts/VF-prim-fire-pool-01/fire_pool_01_512.png') as im:
+            source = np.asarray(im.convert('RGBA'))
+        with Image.open(root/data['g2']['field_source']) as im: actual = np.asarray(im)
+        np.testing.assert_array_equal(actual, quantise_projectile(source))
+        np.testing.assert_array_equal(actual[...,3], source[...,3])
+        pixel = np.array([[[85,85,85,255]]],dtype=np.uint8)
+        np.testing.assert_array_equal(material_pixels(pixel,data['material']['palette'])[0,0], [97,14,6,255])
+        self.assertLess(max(data['material']['palette'][0][:3]), .15)
+        self.assertEqual(data['material']['dissolve_order'], [[3],[2],[1,0]])
+        for field, value in [('scale',.58),('dissolve_s',.5),('pivot',[-1,320]),('kind','squashed')]:
+            bad=copy.deepcopy(data);bad['g2']['field_binding'][field]=value
+            with self.subTest(field=field), self.assertRaises(ValueError): validate_thrown_field(bad,root,True)
+
+    def test_poison_four_band_ramp_density_and_rebuild(self):
+        root=ROOT/'runs/C-5/vfx_kits/v9/poisonous_concoction_e3'; data=load_kit(root)
+        self.assertEqual(data['density'], .75)
+        self.assertEqual(data['material']['palette'], [[.10,.14,.06,1],[.20,.42,.16,1],[.55,.78,.30,1],[.85,.95,.60,1]])
+        work=ROOT/'runs/C-5/t3/T4s-r3';work.mkdir(parents=True,exist_ok=True)
+        for name in ('blackwater_cocktail_e3','poisonous_concoction_e3'):
+            source=root.parent/name
+            with tempfile.TemporaryDirectory(dir=work) as td:
+                build(source/'kit.json',Path(td)/'kit');rebuilt=load_kit(Path(td)/'kit')
+                original=load_kit(source)
+                self.assertEqual(rebuilt['g2'].get('field_binding'),original['g2'].get('field_binding'))
+                self.assertEqual(rebuilt.get('density'),original.get('density'))
+                for role in ('field_source','flask','pulse'):
+                    self.assertEqual((Path(td)/'kit'/rebuilt['g2'][role]).read_bytes(),(source/original['g2'][role]).read_bytes())
+
+    def test_pool_dissolve_preserves_dark_planes_until_joint_release(self):
+        data=load_kit(ROOT/'runs/C-5/vfx_kits/v9/blackwater_cocktail_e3')
+        pixels=np.array([[[v,v,v,255] for v in (0,85,170,255)]],dtype=np.uint8)
+        for dissolve, mask in [(0,[1,1,1,1]),(.5,[1,1,1,0]),(.7,[1,1,0,0]),(1,[0,0,0,0])]:
+            result=material_pixels(pixels,data['material']['palette'],dissolve=dissolve,dissolve_order=data['material']['dissolve_order'])
+            self.assertEqual((result[0,:,3]>0).astype(int).tolist(),mask)

@@ -1182,7 +1182,19 @@ def validate_thrown_field(data, root, runtime=False):
     if data['element'] == 'poison': _number(data.get('density'),0,1,'density')
     elif 'density' in data: raise ValueError('density is a separate poison layer only')
     g = data['g2']
-    _keys(g, {'flask','field_source','pulse','splash','seed'}, {'flask','field_source','pulse','splash','seed'}, 'g2')
+    _keys(g, {'flask','field_source','pulse','splash','seed','field_binding'}, {'flask','field_source','pulse','splash','seed'}, 'g2')
+    binding = g.get('field_binding')
+    if binding is not None:
+        _keys(binding, {'kind','scale','pivot','dissolve_s'}, {'kind','scale','pivot','dissolve_s'}, 'field_binding')
+        if (data['element'] != 'fire' or binding['kind'] != 'painted_pool'
+                or isinstance(binding['scale'], bool) or binding['scale'] != 1.0
+                or binding['dissolve_s'] != .4):
+            raise ValueError('painted_pool requires fire, native scale 1.0 and dissolve_s 0.4')
+        if not isinstance(binding['pivot'], list) or len(binding['pivot']) != 2:
+            raise ValueError('field_binding.pivot requires two pixel coordinates')
+        for v in binding['pivot']: _number(v, 0, 511, 'field_binding.pivot')
+        if data['material'].get('dissolve_order') != [[3],[2],[1,0]]:
+            raise ValueError('painted_pool requires dissolve_order 3, 2, then 1+0')
     _number(g['seed'],0,2**32-1,'seed',True)
     splash = g['splash']
     if data['element'] == 'fire':
@@ -1203,6 +1215,9 @@ def validate_thrown_field(data, root, runtime=False):
     for key,path in assets.items():
         with Image.open(path) as im: rgba = np.asarray(im.convert('RGBA'))
         if not np.any(rgba[...,3]): raise ValueError('G2 primitive is empty')
+        if key == g['field_source'] and binding is not None:
+            if rgba.shape != (512,512,4) or not np.any((rgba[...,0] == 255) & (rgba[...,3] > 0)):
+                raise ValueError('painted_pool requires 512 RGBA and plane-3 flame pixels')
         if key == g['flask']: continue
         rgb = rgba[...,:3][rgba[...,3]>0]
         if not np.isin(rgb,[0,85,170,255]).all() or np.any(rgb[:,0]!=rgb[:,1]) or np.any(rgb[:,1]!=rgb[:,2]):

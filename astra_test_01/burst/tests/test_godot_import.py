@@ -1292,3 +1292,140 @@ class BoltChainEmissionTests(unittest.TestCase):
             project=folder/'project';build_project(cells,project,vfx_kits=work/'before13/kits.json',sockets=sockets)
             actual={p.relative_to(project).as_posix():hashlib.sha256(p.read_bytes()).hexdigest() for p in project.rglob('*') if p.is_file()}
             self.assertEqual(actual,json.loads((work/'before_13_hashes.json').read_text()))
+
+
+class FieldDesignLapEmissionTests(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        import importlib.util
+        from export.godot_import import _write_g2_component, _write_g2_kit, _g2_config
+        from export.effect_kit import load_kit
+        repo=Path(__file__).resolve().parents[1]
+        cls.work=repo/'runs/C-5/t3/T4s-r3';cls.work.mkdir(parents=True,exist_ok=True)
+        cls.temp=tempfile.TemporaryDirectory(prefix='design-lap-',dir=cls.work)
+        cls.addClassCleanup(cls.temp.cleanup)
+        cls.project=Path(cls.temp.name)
+        (cls.project/'scripts').mkdir();(cls.project/'scenes/vfx').mkdir(parents=True)
+        _write_g2_component(cls.project)
+        configs=[]
+        for name in ('blackwater_cocktail_e3','poisonous_concoction_e3'):
+            folder=repo/'runs/C-5/vfx_kits/v9'/name
+            kit={'root':folder,'name':name,'effect':load_kit(folder)}
+            _write_g2_kit(cls.project,kit);configs.append(_g2_config(kit))
+        cls.configs=configs
+        # The field/flight probe does not read the unlisted fire-burst dependency.
+        # Its empty stand-in isolates G2; the conductor captures the real splash.
+        (cls.project/'scripts/splash_stub.gd').write_text('extends Node2D\nvar spell_scale: float = 1.0\nvar caster: Node2D\n')
+        (cls.project/'scenes/vfx_fire_burst_e0p_v2_impact.tscn').write_text('[gd_scene load_steps=2 format=3]\n[ext_resource type="Script" path="res://scripts/splash_stub.gd" id="S"]\n[node name="SplashProbe" type="Node2D"]\nscript = ExtResource("S")\n[node name="Art" type="Node2D" parent="."]\n')
+        (cls.project/'project.godot').write_text('config_version=5\n[application]\nconfig/name="T4s-r3 trace"\nrun/main_scene="res://probe_world.tscn"\n[rendering]\nrenderer/rendering_method="gl_compatibility"\n')
+        (cls.project/'probe_world.tscn').write_text(VISIBILITY_WORLD)
+        (cls.project/'configs.json').write_text(json.dumps(configs))
+        helpers=VISIBILITY_PROBE[VISIBILITY_PROBE.index('func canvas_parent'):VISIBILITY_PROBE.index('func run()')]
+        (cls.project/'probe.gd').write_text('extends SceneTree\nvar rows: Array = []\nvar report: Dictionary = {}\nfunc _initialize() -> void:\n    call_deferred("run")\n'+helpers+FIELD_DESIGN_LAP_PROBE)
+        cls.scene=(cls.project/'scenes/vfx/g2_thrown_field.tscn').read_text()
+        cls.field_material=(cls.project/'vfx/blackwater_cocktail_e3/materials/Field.tres').read_text()
+        cls.shader_sources=[p.read_text() for p in (cls.project/'vfx/blackwater_cocktail_e3/materials').glob('*.gdshader')]
+        validate_resources(cls.project,True)
+        cls.logs=[]
+        for label,args in [('import',['--editor','--import','--quit']),('trace',['--script','res://probe.gd','--quit-after','1200'])]:
+            result=subprocess.run([GODOT,'--headless','--path',str(cls.project),'--log-file',str(cls.project/'engine.log'),*args],capture_output=True,text=True,timeout=110)
+            cls.logs.append({'stage':label,'exit_code':result.returncode,'stdout':result.stdout,'stderr':result.stderr})
+            (cls.work/'headless.json').write_text(json.dumps(cls.logs,indent=2)+'\n')
+            if result.returncode or 'SCRIPT ERROR' in result.stdout+result.stderr or 'Parse Error' in result.stdout+result.stderr:
+                raise AssertionError(result.stdout+result.stderr)
+        cls.trace=json.loads((cls.project/'design_trace.json').read_text())
+        (cls.work/'trace_tables.json').write_text(json.dumps(cls.trace,indent=2)+'\n')
+
+    def rows(self,kit,node,age=None):
+        return [r for r in self.trace['rows'] if r['kit']==kit and r['path'].endswith('/'+node) and (age is None or r['age_frames']==age)]
+
+    def test_emitted_tree_material_and_native_pool_anchors(self):
+        import numpy as np
+        from export.effect_kit import load_kit
+        for name in ('Field','Licks','Lobes','Decal'):self.assertIn('name="'+name+'" type=',self.scene)
+        self.assertIn('name="Lobes" type="Node2D" parent="Ground"',self.scene)
+        self.assertIn('palette_1 = Color(0.38, 0.055, 0.025, 1)',self.field_material)
+        self.assertTrue(any('0.83333333333333337, 0.83333333333333337' in s for s in self.shader_sources))
+        config=self.configs[0];folder=Path(__file__).resolve().parents[1]/'runs/C-5/vfx_kits/v9'/config['name'];data=load_kit(folder)
+        with Image.open(folder/data['g2']['field_source']) as im:rgba=np.asarray(im)
+        for x,y in config['lick_anchors']:
+            self.assertEqual(rgba[y,x,0],255);self.assertGreater(rgba[y,x,3],0)
+        for row in self.rows(config['name'],'Field'):
+            self.assertEqual(row['scale'],[1,1]);self.assertEqual(row['position'],[4280,640])
+            self.assertEqual(row['global_z'],1);self.assertIn('/GroundEffects/',row['path'])
+        for i,(x,y) in enumerate(config['lick_anchors']):
+            for row in self.rows(config['name'],'Lick'+str(i)):
+                self.assertEqual(row['position'],[4280+x-256,640+y-320])
+
+    def test_both_flasks_three_flight_ages_global_layer_alpha_and_scale(self):
+        scales=[]
+        for kit in self.configs:
+            rows=[r for r in self.rows(kit['name'],'Flask') if r['age_frames'] in (8,20,26)]
+            self.assertEqual(len(rows),3)
+            for row in rows:
+                self.assertTrue(row['visible_in_tree']);self.assertEqual(row['global_z'],3)
+                self.assertEqual(row['alpha'],1);self.assertAlmostEqual(row['drawn_size'][0],45.5,places=3)
+                scales.append(row['scale'])
+        for scale in scales:self.assertEqual(scale,scales[0])
+
+    def test_cloud_breath_lobe_lifetime_layers_and_darker_decal(self):
+        name='poisonous_concoction_e3';frames=self.trace[name]['trace'];live=[r['field_alpha'] for r in frames if r['field_alive']]
+        self.assertGreaterEqual(min(live),.65-1e-6);self.assertLessEqual(max(live),.8+1e-6)
+        self.assertLess(min(live),.652);self.assertGreater(max(live),.798)
+        for age in (30,31,37,44):
+            for i in range(4):
+                row=self.rows(name,'Lobe'+str(i),age)[0]
+                self.assertTrue(row['visible_in_tree']);self.assertIn('/GroundEffects/',row['path'])
+                self.assertEqual(row['global_z'],1);self.assertEqual(row['erode'],0)
+                self.assertEqual(row['palette_alpha'],[1,1,1,1])
+                self.assertLess(abs(row['position'][0]-4240),28)
+                self.assertLess(abs(row['position'][1]-640),28)
+        for i in range(4):self.assertFalse(self.rows(name,'Lobe'+str(i),45)[0]['visible_in_tree'])
+        for node in ('Halo','DarkDuplicate','FloorLight'):
+            self.assertFalse(any(r['visible_in_tree'] for r in self.rows(name,node)))
+        path=self.project/'vfx'/name/'materials/Decal.tres'
+        self.assertIn('Color(0.035, 0.12, 0.055, 0.55)',path.read_text())
+
+    def test_pool_final_24_frames_dissolve_then_scorch_and_cleanup(self):
+        name='blackwater_cocktail_e3'
+        for age,dissolve in [(188,0),(189,.5),(197,.7),(212,.7),(213,1)]:
+            row=self.rows(name,'Field',age)[0];self.assertAlmostEqual(row['dissolve'],dissolve,places=6)
+            self.assertEqual(row['visible_in_tree'],age<213)
+        self.assertFalse(self.rows(name,'Decal',212)[0]['visible_in_tree'])
+        self.assertTrue(self.rows(name,'Decal',213)[0]['visible_in_tree'])
+        for kit in self.configs:self.assertEqual(self.trace[kit['name']]['ground_children_after_cancel'],0)
+
+
+FIELD_DESIGN_LAP_PROBE = r'''
+func run() -> void:
+    var world: Node2D = load("res://probe_world.tscn").instantiate()
+    root.add_child(world)
+    current_scene=world
+    var actors: Node2D = world.get_node("Actors")
+    var caster: Node2D = actors.get_node("Keeper")
+    var kits: Array = JSON.parse_string(FileAccess.get_file_as_string("res://configs.json"))
+    var g2 = load("res://scripts/vfx_g2.gd")
+    for kit in kits:
+        var destination: Dictionary = g2.resolve_ground(caster.global_position,Vector2.RIGHT,Vector2.ZERO,kit.range_px,true)
+        var effect = g2.acquire(actors,kit,caster.global_position+Vector2(10,-90),destination,caster,0.54)
+        effect.set_physics_process(false)
+        var flight: int = int(ceil(kit.flight_s*60))
+        var ending: int = flight+int(ceil(kit.duration_s*60))
+        var ages: Array = [8,20,26,flight,flight+1,flight+7,flight+14,flight+15,flight+24,ending-25,ending-24,ending-16,ending-1,ending,ending+3]
+        for tick in kit.ticks: ages.append(flight+int(round(tick*60)))
+        for age in range(1,ending+4):
+            effect._clock(age)
+            if age in ages:
+                snapshot(effect,age,kit.name)
+                snapshot(effect.ground_visual,age,kit.name)
+        report[kit.name]={"trace":effect.trace,"config":kit}
+        effect.cancel()
+        await process_frame
+        report[kit.name].ground_children_after_cancel=world.get_node("GroundEffects").get_child_count()
+    report.rows=rows
+    report.scope="Headless G2 field/flight trace; fire splash dependency is an empty stand-in. No rendered proof."
+    var f=FileAccess.open("res://design_trace.json",FileAccess.WRITE)
+    f.store_string(JSON.stringify(report,"  "))
+    print("DESIGN_TRACE rows=",rows.size())
+    quit(0)
+'''

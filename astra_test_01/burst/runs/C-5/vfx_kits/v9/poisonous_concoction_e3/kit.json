@@ -1,144 +1,144 @@
 {
- "name": "poisonous_concoction_e3",
- "element": "poison",
- "element_class": "field",
- "screen_px": true,
- "ground_squash": 0.58,
- "material": {
-  "blend_mode": "MIX",
-  "light_participation": false,
-  "erode": 0.0,
-  "dissolve": 0.0,
-  "palette": [
-   [
-    0.025,
-    0.075,
-    0.04,
-    1
-   ],
-   [
-    0.1,
-    0.27,
-    0.085,
-    1
-   ],
-   [
-    0.32,
-    0.59,
-    0.12,
-    1
-   ],
-   [
-    0.7,
-    0.86,
-    0.3,
-    1
-   ]
-  ]
- },
- "phases": {
-  "cast": {
-   "sheet": "flare/flare_00.png",
-   "frames": [
-    {
-     "file": "flare/flare_00.png",
-     "hold_frames": 2
+  "name": "poisonous_concoction_e3",
+  "element": "poison",
+  "element_class": "field",
+  "screen_px": true,
+  "ground_squash": 0.58,
+  "material": {
+    "blend_mode": "MIX",
+    "light_participation": false,
+    "erode": 0.0,
+    "dissolve": 0.0,
+    "palette": [
+      [
+        0.1,
+        0.14,
+        0.06,
+        1
+      ],
+      [
+        0.2,
+        0.42,
+        0.16,
+        1
+      ],
+      [
+        0.55,
+        0.78,
+        0.3,
+        1
+      ],
+      [
+        0.85,
+        0.95,
+        0.6,
+        1
+      ]
+    ]
+  },
+  "phases": {
+    "cast": {
+      "sheet": "flare/flare_00.png",
+      "frames": [
+        {
+          "file": "flare/flare_00.png",
+          "hold_frames": 2
+        }
+      ]
+    },
+    "travel": {
+      "sheet": "travel/travel_00.png",
+      "frames": [
+        {
+          "file": "travel/travel_00.png",
+          "hold_frames": 2
+        }
+      ]
+    },
+    "impact": {
+      "sheet": "impact/impact_00.png",
+      "frames": [
+        {
+          "file": "impact/impact_00.png",
+          "hold_frames": 2
+        }
+      ]
     }
-   ]
   },
-  "travel": {
-   "sheet": "travel/travel_00.png",
-   "frames": [
-    {
-     "file": "travel/travel_00.png",
-     "hold_frames": 2
+  "layers": {},
+  "pierce": 0,
+  "skill_spec": {
+    "skill_id": "poisonous_concoction",
+    "source_game": "Path of Exile \u2014 Poisonous Concoction",
+    "grammar": "G2",
+    "visual_treatment_id": "poison",
+    "response_class": "material\u2192field",
+    "mechanics": {
+      "origin_socket": "cast_release",
+      "aim_rule": "ground-locked",
+      "range_px": 480,
+      "arc": {
+        "apex_px": 160,
+        "flight_s": 0.5
+      },
+      "field": {
+        "radius_px": 170,
+        "duration_s": 2.0,
+        "kind": "density_cloud",
+        "tick_schedule_s": [
+          0.0,
+          0.25,
+          0.8,
+          1.05,
+          1.7
+        ],
+        "tick_cv_min": 0.25
+      },
+      "termination": "field_expiry"
+    },
+    "presentation": {
+      "primitive_bindings": {
+        "projectile": "RGB flask (green glass)",
+        "impact": "splash: viscous lobes \u00d74 (P_poison_lobe) fly low + short",
+        "field": "lobed density puff (S_poison_puff) as a DENSITY layer \u2014 coverage + density validated separately, never an asserted key",
+        "residue": "puddle decal 1.5 s"
+      },
+      "body_extents_bh": {
+        "flask": 0.35,
+        "cloud_diameter": 2.6
+      },
+      "phase_envelope_s": {
+        "flight": 0.5,
+        "splash_hold_frames": 2,
+        "cloud": 2.0,
+        "residue": 1.5
+      },
+      "enabled_layers": [
+        "flash",
+        "halo",
+        "floor_light",
+        "dark_duplicate",
+        "victim_tint",
+        "hit_stop",
+        "contact_label"
+      ]
+    },
+    "provenance": {
+      "thrown flask / poison cloud": "PoE source observation (conductor memory) \u2014 VERIFY",
+      "density gate": "03- \u00a7 2.3 density-asset gate (validated at E2/E3)"
     }
-   ]
   },
-  "impact": {
-   "sheet": "impact/impact_00.png",
-   "frames": [
-    {
-     "file": "impact/impact_00.png",
-     "hold_frames": 2
-    }
-   ]
-  }
- },
- "layers": {},
- "pierce": 0,
- "skill_spec": {
-  "skill_id": "poisonous_concoction",
-  "source_game": "Path of Exile \u2014 Poisonous Concoction",
-  "grammar": "G2",
-  "visual_treatment_id": "poison",
-  "response_class": "material\u2192field",
-  "mechanics": {
-   "origin_socket": "cast_release",
-   "aim_rule": "ground-locked",
-   "range_px": 480,
-   "arc": {
-    "apex_px": 160,
-    "flight_s": 0.5
-   },
-   "field": {
-    "radius_px": 170,
-    "duration_s": 2.0,
-    "kind": "density_cloud",
-    "tick_schedule_s": [
-     0.0,
-     0.25,
-     0.8,
-     1.05,
-     1.7
-    ],
-    "tick_cv_min": 0.25
-   },
-   "termination": "field_expiry"
+  "g2": {
+    "flask": "primitives/flask.png",
+    "field_source": "primitives/field_source.png",
+    "pulse": "primitives/pulse.png",
+    "splash": {
+      "template": "burst_v1",
+      "count": 4,
+      "duration_s": 0.25,
+      "residue_s": 0
+    },
+    "seed": 2026
   },
-  "presentation": {
-   "primitive_bindings": {
-    "projectile": "RGB flask (green glass)",
-    "impact": "splash: viscous lobes \u00d74 (P_poison_lobe) fly low + short",
-    "field": "lobed density puff (S_poison_puff) as a DENSITY layer \u2014 coverage + density validated separately, never an asserted key",
-    "residue": "puddle decal 1.5 s"
-   },
-   "body_extents_bh": {
-    "flask": 0.35,
-    "cloud_diameter": 2.6
-   },
-   "phase_envelope_s": {
-    "flight": 0.5,
-    "splash_hold_frames": 2,
-    "cloud": 2.0,
-    "residue": 1.5
-   },
-   "enabled_layers": [
-    "flash",
-    "halo",
-    "floor_light",
-    "dark_duplicate",
-    "victim_tint",
-    "hit_stop",
-    "contact_label"
-   ]
-  },
-  "provenance": {
-   "thrown flask / poison cloud": "PoE source observation (conductor memory) \u2014 VERIFY",
-   "density gate": "03- \u00a7 2.3 density-asset gate (validated at E2/E3)"
-  }
- },
- "g2": {
-  "flask": "primitives/flask.png",
-  "field_source": "primitives/field_source.png",
-  "pulse": "primitives/pulse.png",
-  "splash": {
-   "template": "burst_v1",
-   "count": 4,
-   "duration_s": 0.25,
-   "residue_s": 0
-  },
-  "seed": 2026
- },
- "density": 1.0
+  "density": 0.75
 }

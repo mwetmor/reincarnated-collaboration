@@ -3312,9 +3312,30 @@ def _g2_config(kit):
                 decal_material=root+'materials/Decal.tres',additive_material=root+'materials/Halo.tres',
                 dark_material=root+'materials/Dark.tres',palette_3=d['material']['palette'][3],
                 treatment=d['element'],density=d.get('density',1.),seed=g['seed'],
+                field_binding=g.get('field_binding', {}),
+                lick_anchors=_g2_lick_anchors(kit) if g.get('field_binding') else [],
                 flask_width=spec['presentation']['body_extents_bh']['flask']*130,
                 splash=('res://scenes/vfx_'+g['splash']['kit']+'_impact.tscn' if d['element']=='fire' else ''),
                 splash_scale=g['splash'].get('scale',1),enabled_layers=spec['presentation']['enabled_layers'])
+
+
+def _g2_lick_anchors(kit):
+    """Three deterministic samples ON the largest painted plane-3 tongues."""
+    import numpy as np
+    from scipy.ndimage import label
+    with Image.open(kit['root']/kit['effect']['g2']['field_source']) as image:
+        rgba = np.asarray(image.convert('RGBA'))
+    mask = (rgba[...,0] == 255) & (rgba[...,3] > 0)
+    labels, count = label(mask)
+    groups = sorted(range(1, count+1), key=lambda i: (-int(np.count_nonzero(labels == i)), i))[:3]
+    if len(groups) < 3:
+        raise ValueError('painted_pool requires three plane-3 flame tongues')
+    anchors = []
+    for group in groups:
+        points = np.argwhere(labels == group)
+        point = points[np.argmin(np.sum((points-points.mean(axis=0))**2, axis=1))]
+        anchors.append([int(point[1]), int(point[0])])
+    return anchors
 
 
 def _write_g2_kit(out, kit):
@@ -3335,7 +3356,7 @@ def _write_g2_kit(out, kit):
     sectors=np.floor(((np.arctan2(y-cy,x-cx)+2*np.pi)%(2*np.pi))/(2*np.pi/3)).astype(int)
     for i in range(3):
         shard=flask.copy();shard[...,3]=np.where(sectors==i,shard[...,3],0);Image.fromarray(shard).save(derived/f'glass_{i}.png')
-    # Fire source is the emitted core shard selected from the supplied fire peak.
+    # Painted fire pool stays native; poison uses the supplied density puff.
     # Poison source is the supplied lobed density puff. No new drawing.
     with Image.open(dest/d['g2']['field_source']) as im: field=np.asarray(im.convert('RGBA'))
     Image.fromarray(field).save(derived/'field.png')
@@ -3360,7 +3381,7 @@ def _write_g2_component(out):
     _write_ground_effects(out)
     (out/'scripts/vfx_g2.gd').write_text(G2_SCRIPT)
     scene='[gd_scene load_steps=2 format=3]\n[ext_resource type="Script" path="res://scripts/vfx_g2.gd" id="G2"]\n[node name="G2ThrownField" type="Node2D"]\nscript = ExtResource("G2")\ntexture_filter = 2\nz_as_relative = false\nz_index = 2\n'
-    for name,kind,parent in [('Flask','Sprite2D','.'),('Fragments','Node2D','.'),('Splash','Node2D','.'),('Ground','Node2D','.'),('Decal','Sprite2D','Ground'),('FloorLight','Sprite2D','Ground'),('Halo','Sprite2D','Ground'),('DarkDuplicate','Sprite2D','Ground'),('Field','Sprite2D','Ground'),('Licks','Node2D','Ground'),('Flash','Sprite2D','Ground')]:
+    for name,kind,parent in [('Flask','Sprite2D','.'),('Fragments','Node2D','.'),('Splash','Node2D','.'),('Ground','Node2D','.'),('Decal','Sprite2D','Ground'),('FloorLight','Sprite2D','Ground'),('Halo','Sprite2D','Ground'),('DarkDuplicate','Sprite2D','Ground'),('Field','Sprite2D','Ground'),('Licks','Node2D','Ground'),('Lobes','Node2D','Ground'),('Flash','Sprite2D','Ground')]:
         scene+='\n[node name="'+name+'" type="'+kind+'" parent="'+parent+'"]\ntexture_filter = 2\n'
         # Ground children share one z and draw in material order; the group sorts at its landing point.
     (out/'scenes/vfx/g2_thrown_field.tscn').write_text(scene)
@@ -3445,15 +3466,22 @@ func release(kit: Dictionary, origin: Vector2, destination: Dictionary, owner_no
     $Flask.material = glass
     flask_scale = float(config.flask_width)/$Flask.texture.get_image().get_used_rect().size.x
     $Flask.scale = Vector2.ONE*flask_scale
+    # Both flasks share the same absolute flight layer, independent of parent Y sort.
+    $Flask.z_as_relative = false
+    $Flask.z_index = 3
+    $Flask.modulate = Color.WHITE
     _sprite(ground_visual.get_node("Field"),config.field,config.material)
-    field_scale = 2.0*float(config.radius_px)/ground_visual.get_node("Field").texture.get_image().get_used_rect().size.x
+    var painted: bool = not config.field_binding.is_empty()
+    field_scale = 1.0 if painted else 2.0*float(config.radius_px)/ground_visual.get_node("Field").texture.get_image().get_used_rect().size.x
     _sprite(ground_visual.get_node("Decal"),config.field,config.decal_material)
     _sprite(ground_visual.get_node("Halo"),config.field,config.additive_material)
     _sprite(ground_visual.get_node("FloorLight"),config.field,config.additive_material)
     _sprite(ground_visual.get_node("Flash"),config.field,config.additive_material)
     _sprite(ground_visual.get_node("DarkDuplicate"),config.field,config.dark_material)
     for node in [ground_visual.get_node("Field"),ground_visual.get_node("Decal"),ground_visual.get_node("Halo"),ground_visual.get_node("FloorLight"),ground_visual.get_node("Flash"),ground_visual.get_node("DarkDuplicate")]:
-        node.scale = Vector2(1.0,float(config.ground_squash))*field_scale
+        node.scale = Vector2.ONE if painted else Vector2(1.0,float(config.ground_squash))*field_scale
+        if painted:
+            node.offset = -Vector2(config.field_binding.pivot[0],config.field_binding.pivot[1])
     for i in range(3):
         var shard := Sprite2D.new()
         $Fragments.add_child(shard)
@@ -3467,9 +3495,14 @@ func release(kit: Dictionary, origin: Vector2, destination: Dictionary, owner_no
     pulse_scale = 65.0/pulse.get_image().get_used_rect().size.x
     for i in range(3 if config.treatment=="fire" else 4):
         var lobe := Sprite2D.new()
-        (ground_visual.get_node("Licks") if config.treatment=="fire" else $Splash).add_child(lobe)
+        (ground_visual.get_node("Licks") if config.treatment=="fire" else ground_visual.get_node("Lobes")).add_child(lobe)
+        lobe.name = ("Lick" if config.treatment=="fire" else "Lobe")+str(i)
         _sprite(lobe,config.pulse,config.pulse_material)
         lobe.scale = Vector2.ONE*pulse_scale
+        if painted:
+            var anchor: Array = config.lick_anchors[i]
+            lobe.set_meta("anchor",Vector2(anchor[0],anchor[1])-Vector2(config.field_binding.pivot[0],config.field_binding.pivot[1]))
+            lobe.rotation = -PI/2.0
         lobe.hide()
         lobe.set_meta("angle",TAU*float(i)/4.0)
         lobe.set_meta("velocity",rng.randf_range(60,110))
@@ -3499,7 +3532,6 @@ func _clock(age: int) -> void:
         ground_visual.show()
         _record("contact",{"collision_age_frames":age,"contact_lag_frames":0,"phase":"ground","contact_frames":1})
         _record("field_start")
-        _record("decal_start")
         if config.treatment=="fire":
             var splash: Node2D = load(config.splash).instantiate()
             splash.set_meta("strike_response",true)
@@ -3519,6 +3551,7 @@ func _clock(age: int) -> void:
     if land_age>=end_field and not field_ended:
         field_ended = true
         _record("field_end",{"duration_frames":end_field,"tick_count":tick_index})
+        _record("decal_start")
     for shard in $Fragments.get_children():
         shard.visible = land_age>0 and land_age<=12
         var st: float = clampf(float(land_age-1)/12.0,0.0,1.0)
@@ -3527,18 +3560,31 @@ func _clock(age: int) -> void:
         shard.rotation = axis.angle()*st*.15
         shard.modulate.a = 1.0-st
     if config.treatment=="poison":
-        for lobe in $Splash.get_children():
-            lobe.visible = land_age>0 and land_age<=15
-            var st: float = clampf(float(land_age-1)/15.0,0,1)
+        for lobe in ground_visual.get_node("Lobes").get_children():
+            lobe.visible = land_age>=0 and land_age<15
+            var st: float = clampf(float(land_age)/15.0,0,1)
             var axis := Vector2.from_angle(float(lobe.get_meta("angle")))
-            lobe.global_position = ground_point+axis*float(lobe.get_meta("velocity"))*st*.25*Vector2(1,.58)
+            lobe.global_position = ground_point+axis*float(lobe.get_meta("velocity"))*st*.25*Vector2(1,.58)+Vector2(0,-12.0*sin(PI*st))
             lobe.rotation = axis.angle()+deg_to_rad(20.0)*st
-            lobe.material.set_shader_parameter("erode",st)
+            # Keep all four planes readable throughout the short translating splash.
+            lobe.material.set_shader_parameter("erode",0.0)
+            lobe.modulate.a = clampf(float(15-land_age)/3.0,0,1)
     ground_visual.get_node("Field").visible = field_live
     var coverage: float = lerpf(.5,1.0,clampf(float(land_age)/24.0,0,1)) if config.treatment=="poison" else 1.0
     # Coverage is area: sqrt growth on each axis; density exclusively multiplies alpha.
-    ground_visual.get_node("Field").scale = Vector2(1,float(config.ground_squash))*field_scale*sqrt(coverage)
-    var breathe: float = [.85,1.0,.925][clampi(land_age-last_tick,0,2)] if field_live and land_age-last_tick<3 else 1.0
+    var painted: bool = not config.field_binding.is_empty()
+    ground_visual.get_node("Field").scale = Vector2.ONE if painted else Vector2(1,float(config.ground_squash))*field_scale*sqrt(coverage)
+    # One breath per authored irregular tick interval; density .75 gives .65--.80.
+    var next_tick: int = roundi(float(config.ticks[tick_index])*60.0) if tick_index<config.ticks.size() else end_field
+    var phase: float = clampf(float(land_age-last_tick)/maxi(1,next_tick-last_tick),0,1)
+    var wave: float = sin(TAU*phase)
+    var breathe: float = 1.0+wave*(.05 if wave>=0 else .10)/.75 if config.treatment=="poison" and field_live else 1.0
+    var dissolve: float = 0.0
+    if painted and land_age>=end_field-24:
+        var fade_age: int = land_age-(end_field-24)
+        # Drop 3, then 2, and finally 1+0 at release; no alpha wash to cream.
+        dissolve = .5 if fade_age<8 else (.7 if fade_age<24 else 1.0)
+    ground_visual.get_node("Field").material.set_shader_parameter("dissolve",dissolve)
     ground_visual.get_node("Field").modulate.a = float(config.density)*breathe
     ground_visual.get_node("Field").position = Vector2(float(maxi(0,land_age))/60.0*2.0,0) if config.treatment=="poison" else Vector2.ZERO
     for i in range(ground_visual.get_node("Licks").get_child_count()):
@@ -3546,19 +3592,22 @@ func _clock(age: int) -> void:
         var pulse_age: int = land_age-last_tick
         lick.visible = field_live and pulse_age>=0 and pulse_age<6
         var axis := Vector2.from_angle(float(lick.get_meta("angle")))
-        lick.position = axis*float(config.radius_px)*.35*Vector2(1,.58)+Vector2(0,-float(pulse_age)*4.0)
-        lick.rotation = axis.angle()
+        lick.position = lick.get_meta("anchor") if painted else axis*float(config.radius_px)*.35*Vector2(1,.58)
+        lick.rotation = -PI/2.0 if painted else axis.angle()
+        if painted and land_age>=end_field-24: lick.hide()
         lick.material.set_shader_parameter("erode",clampf(float(pulse_age)/5.0,0,1))
-    ground_visual.get_node("Decal").visible = landed and land_age<end_field+residue_frames
+    ground_visual.get_node("Decal").visible = land_age>=end_field and land_age<end_field+residue_frames
     ground_visual.get_node("Decal").modulate.a = clampf(1.0-float(land_age-end_field)/residue_frames,0,1)
-    ground_visual.get_node("Halo").visible = field_live and "halo" in config.enabled_layers
+    ground_visual.get_node("Halo").visible = field_live and config.treatment=="fire" and "halo" in config.enabled_layers
     ground_visual.get_node("Halo").modulate.a = .12
-    ground_visual.get_node("DarkDuplicate").visible = field_live and "dark_duplicate" in config.enabled_layers
+    ground_visual.get_node("DarkDuplicate").visible = field_live and config.treatment=="fire" and "dark_duplicate" in config.enabled_layers
     ground_visual.get_node("DarkDuplicate").scale = ground_visual.get_node("Field").scale
     ground_visual.get_node("DarkDuplicate").position = ground_visual.get_node("Field").position
     ground_visual.get_node("DarkDuplicate").modulate.a = float(config.density)*breathe*.25
-    ground_visual.get_node("FloorLight").visible = field_live and "floor_light" in config.enabled_layers
+    ground_visual.get_node("FloorLight").visible = field_live and config.treatment=="fire" and "floor_light" in config.enabled_layers
     ground_visual.get_node("FloorLight").modulate.a = .15
+    for name in ["Halo","FloorLight","DarkDuplicate"]:
+        ground_visual.get_node(name).material.set_shader_parameter("dissolve",dissolve)
     ground_visual.get_node("Flash").visible = land_age==0 and "flash" in config.enabled_layers
     ground_visual.get_node("Flash").modulate.a = .8
     _tint_clock(age)
@@ -3574,7 +3623,8 @@ func _clock(age: int) -> void:
 
 func _tick(index: int, scheduled: int) -> void:
     _record("tick",{"tick_index":index,"scheduled_field_age_frames":scheduled})
-    for lick in ground_visual.get_node("Licks").get_children(): lick.set_meta("angle",rng.randf_range(0,TAU))
+    if config.field_binding.is_empty():
+        for lick in ground_visual.get_node("Licks").get_children(): lick.set_meta("angle",rng.randf_range(0,TAU))
     var actors: Array = get_tree().get_nodes_in_group("vfx_targets")
     for actor in get_tree().get_nodes_in_group("vfx_actors"):
         if actor not in actors: actors.append(actor)

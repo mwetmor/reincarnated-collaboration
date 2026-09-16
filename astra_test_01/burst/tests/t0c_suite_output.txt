@@ -64,7 +64,7 @@ test_transitive_diamond_slot_and_unrelated (test_deps_ledger.Tests.test_transiti
 test_idle_roundtrip_target_sine (test_dope_sheet.Tests.test_idle_roundtrip_target_sine) ... ok
 test_invalid_and_conflicts_not_repaired (test_dope_sheet.Tests.test_invalid_and_conflicts_not_repaired) ... ok
 test_walk_roundtrip_source_positions_and_amplitude (test_dope_sheet.Tests.test_walk_roundtrip_source_positions_and_amplitude) ... ok
-test_explicit_specs_alpha_indices_and_schedule (test_effect_kit.BoltChainValidationTests.test_explicit_specs_alpha_indices_and_schedule) ... ok
+test_explicit_specs_alpha_indices_and_schedule (test_effect_kit.BoltChainValidationTests.test_explicit_specs_alpha_indices_and_schedule) ... FAIL
 test_generic_build_round_trip (test_effect_kit.BoltChainValidationTests.test_generic_build_round_trip) ... ok
 test_invalid_mechanics_material_and_metronome_rejected (test_effect_kit.BoltChainValidationTests.test_invalid_mechanics_material_and_metronome_rejected) ... ok
 test_outside_in_tips_before_roots_and_legacy_unchanged (test_effect_kit.BurnBackMaterialTests.test_outside_in_tips_before_roots_and_legacy_unchanged) ... ok
@@ -87,6 +87,9 @@ test_missing_and_unknown_keys_at_all_schema_levels (test_effect_kit.EffectKitTes
 test_native_index_frames_alpha_and_dimensions (test_effect_kit.EffectKitTests.test_native_index_frames_alpha_and_dimensions) ... ok
 test_retired_pixel_scale_rejected_without_output (test_effect_kit.EffectKitTests.test_retired_pixel_scale_rejected_without_output) ... ok
 test_spriteframe_duration_extension_default_bytes_and_invalid_before_resource (test_effect_kit.EffectKitTests.test_spriteframe_duration_extension_default_bytes_and_invalid_before_resource) ... ok
+test_poison_four_band_ramp_density_and_rebuild (test_effect_kit.FieldDesignLapTests.test_poison_four_band_ramp_density_and_rebuild) ... ok
+test_pool_dissolve_preserves_dark_planes_until_joint_release (test_effect_kit.FieldDesignLapTests.test_pool_dissolve_preserves_dark_planes_until_joint_release) ... ok
+test_pool_native_binding_alpha_and_dark_palette_planes (test_effect_kit.FieldDesignLapTests.test_pool_native_binding_alpha_and_dark_palette_planes) ... ok
 test_bad_decal_template_duration_and_binding_rejected (test_effect_kit.IceTreatmentValidationTests.test_bad_decal_template_duration_and_binding_rejected) ... ok
 test_conductor_fire_travel_keys_are_emitter_owned (test_effect_kit.IceTreatmentValidationTests.test_conductor_fire_travel_keys_are_emitter_owned) ... ok
 test_ice_spec_palette_template_decal_and_index_coverage (test_effect_kit.IceTreatmentValidationTests.test_ice_spec_palette_template_decal_and_index_coverage) ... ok
@@ -145,8 +148,8 @@ test_invalid_material_values_and_nonindex_assets_rejected_before_output (test_ef
 test_premultiplied_alpha_is_applied_exactly_once (test_effect_kit.SharedVFXMaterialTests.test_premultiplied_alpha_is_applied_exactly_once) ... ok
 test_proof_fixture_resources_and_scene_include_both_blends (test_effect_kit.SharedVFXMaterialTests.test_proof_fixture_resources_and_scene_include_both_blends) ... ok
 test_render_proof_guard_rejects_wrong_colour_erosion_and_dissolve (test_effect_kit.SharedVFXMaterialTests.test_render_proof_guard_rejects_wrong_colour_erosion_and_dissolve) ... ok
-test_both_g2_kits_preserve_specs_rgb_glass_and_alpha (test_effect_kit.ThrownFieldValidationTests.test_both_g2_kits_preserve_specs_rgb_glass_and_alpha) ... ok
-test_g2_normal_builder_preserves_rgb_and_density (test_effect_kit.ThrownFieldValidationTests.test_g2_normal_builder_preserves_rgb_and_density) ... ok
+test_both_g2_kits_preserve_specs_rgb_glass_and_alpha (test_effect_kit.ThrownFieldValidationTests.test_both_g2_kits_preserve_specs_rgb_glass_and_alpha) ... FAIL
+test_g2_normal_builder_preserves_rgb_and_density (test_effect_kit.ThrownFieldValidationTests.test_g2_normal_builder_preserves_rgb_and_density) ... FAIL
 test_g2_validation_rejects_wrong_grammar_density_splash_and_clock (test_effect_kit.ThrownFieldValidationTests.test_g2_validation_rejects_wrong_grammar_density_splash_and_clock) ... ok
 test_four_band_diagnostic_measures_hue_and_saturation_known_bad_control (test_effect_kit.TintRampTests.test_four_band_diagnostic_measures_hue_and_saturation_known_bad_control) ... ok
 test_fractional_scale_rounds_half_up_after_pixel_scale (test_effect_kit.TintRampTests.test_fractional_scale_rounds_half_up_after_pixel_scale) ... ok
@@ -261,13 +264,17 @@ test_empty_sequence_not_silent_success (test_gates_run_gates.Tests.test_empty_se
 test_regression_comparator_detects_mutation (test_gates_run_gates.Tests.test_regression_comparator_detects_mutation) ... ok
 test_real_mirror_vs_idle (test_gates_silhouette64.Tests.test_real_mirror_vs_idle) ... ok
 test_swollen_bag_and_shift_alignment (test_gates_silhouette64.Tests.test_swollen_bag_and_shift_alignment) ... ok
-test_current_thirteen_exports_and_original_kits_unchanged (test_godot_import.BoltChainEmissionTests.test_current_thirteen_exports_and_original_kits_unchanged) ... ok
+test_current_thirteen_exports_and_original_kits_unchanged (test_godot_import.BoltChainEmissionTests.test_current_thirteen_exports_and_original_kits_unchanged) ... ERROR
 test_named_nodes_additive_material_grey_and_explicit_dispatch (test_godot_import.BoltChainEmissionTests.test_named_nodes_additive_material_grey_and_explicit_dispatch) ... ok
 test_legacy_488_byte_table (test_godot_import.BurnBackExportTests.test_legacy_488_byte_table) ... ok
 test_real_clock_uniforms_screen_scale_and_release (test_godot_import.BurnBackExportTests.test_real_clock_uniforms_screen_scale_and_release) ... ok
 test_screen_px_picker_g1_and_socket_contract (test_godot_import.BurnBackExportTests.test_screen_px_picker_g1_and_socket_contract) ... ok
 test_default_zero_emits_no_texture_or_sampler (test_godot_import.ContinuousResidueImportTests.test_default_zero_emits_no_texture_or_sampler) ... ok
 test_whole_canvas_texture_shared_by_every_material_and_cpu_cutoff (test_godot_import.ContinuousResidueImportTests.test_whole_canvas_texture_shared_by_every_material_and_cpu_cutoff) ... ok
+test_both_flasks_three_flight_ages_global_layer_alpha_and_scale (test_godot_import.FieldDesignLapEmissionTests.test_both_flasks_three_flight_ages_global_layer_alpha_and_scale) ... FAIL
+test_cloud_breath_lobe_lifetime_layers_and_darker_decal (test_godot_import.FieldDesignLapEmissionTests.test_cloud_breath_lobe_lifetime_layers_and_darker_decal) ... ok
+test_emitted_tree_material_and_native_pool_anchors (test_godot_import.FieldDesignLapEmissionTests.test_emitted_tree_material_and_native_pool_anchors) ... ok
+test_pool_final_24_frames_dissolve_then_scorch_and_cleanup (test_godot_import.FieldDesignLapEmissionTests.test_pool_final_24_frames_dissolve_then_scorch_and_cleanup) ... ok
 test_all_fps_loops_resources_pivot_and_original_bytes (test_godot_import.GodotImportTests.test_all_fps_loops_resources_pivot_and_original_bytes) ... ok
 test_cut_diagnostic_sheets_and_rest_are_not_cells (test_godot_import.GodotImportTests.test_cut_diagnostic_sheets_and_rest_are_not_cells) ... ok
 test_empty_overlapping_nonempty_and_escaping_inputs_rejected (test_godot_import.GodotImportTests.test_empty_overlapping_nonempty_and_escaping_inputs_rejected) ... ok
@@ -276,10 +283,7 @@ test_gear_vfx_and_bad_vfx (test_godot_import.GodotImportTests.test_gear_vfx_and_
 test_headless_state_machine_input_map_gear_vfx_and_nearest_fallback (test_godot_import.GodotImportTests.test_headless_state_machine_input_map_gear_vfx_and_nearest_fallback) ... ok
 test_missing_texture_and_undeclared_resource_rejected (test_godot_import.GodotImportTests.test_missing_texture_and_undeclared_resource_rejected) ... ok
 test_numeric_order_and_native_fps_ignored (test_godot_import.GodotImportTests.test_numeric_order_and_native_fps_ignored) ... ok
-test_cloud_density_reaches_shader_once_at_the_ground_point (test_godot_import.GroundVisibilityRegressionTests.test_cloud_density_reaches_shader_once_at_the_ground_point) ... ok
-test_flask_stays_visible_at_native_screen_extent_during_flight (test_godot_import.GroundVisibilityRegressionTests.test_flask_stays_visible_at_native_screen_extent_during_flight) ... ok
-test_ground_is_above_foreground_below_actors_and_owned_until_cancel (test_godot_import.GroundVisibilityRegressionTests.test_ground_is_above_foreground_below_actors_and_owned_until_cancel) ... ok
-test_ice_picker_binding_shards_and_ground_crown (test_godot_import.GroundVisibilityRegressionTests.test_ice_picker_binding_shards_and_ground_crown) ... ok
+setUpClass (test_godot_import.GroundVisibilityRegressionTests) ... ERROR
 test_emitted_shards_origin_residue_and_ground_decal (test_godot_import.IceTreatmentImportTests.test_emitted_shards_origin_residue_and_ground_decal) ... ok
 test_ten_existing_export_bytes_unchanged (test_godot_import.IceTreatmentImportTests.test_ten_existing_export_bytes_unchanged) ... ok
 test_headless_literal_age_swaps_returns_and_continuous_uniforms (test_godot_import.KeyStateSwapImportTests.test_headless_literal_age_swaps_returns_and_continuous_uniforms) ... ok
@@ -297,7 +301,7 @@ test_node_tree_material_and_spec_driven_config (test_godot_import.ProjectileTrav
 test_exported_threshold_and_every_root_and_stretch_material_agree (test_godot_import.RaggedResidueImportTests.test_exported_threshold_and_every_root_and_stretch_material_agree) ... ok
 test_piece_zero_overrides_material_noise_in_emitted_root (test_godot_import.RaggedResidueImportTests.test_piece_zero_overrides_material_noise_in_emitted_root) ... ok
 test_full_exporter_current_thirteen_kit_catalogue (test_godot_import.ThrownFieldCLIRegressionTests.test_full_exporter_current_thirteen_kit_catalogue)
-Exercise module execution, which must define G2 before calling main. ... ok
+Exercise module execution, which must define G2 before calling main. ... FAIL
 test_g2_grey_retains_index_planes_and_glass_alpha (test_godot_import.ThrownFieldEmissionTests.test_g2_grey_retains_index_planes_and_glass_alpha) ... ok
 test_g2_named_nodes_glass_wedge_partition_and_ground_materials (test_godot_import.ThrownFieldEmissionTests.test_g2_named_nodes_glass_wedge_partition_and_ground_materials) ... ok
 test_desktop_cursor_and_resolver_match_pre_t4i (test_godot_import.TouchDeviceAimEmissionTests.test_desktop_cursor_and_resolver_match_pre_t4i) ... ok
@@ -629,7 +633,7 @@ test_headless_east_contact_range_tail_and_key_schedule (test_vfx_picker.Projecti
 test_original_eight_export_byte_lock (test_vfx_picker.ProjectileArmPickerTests.test_original_eight_export_byte_lock) ... ok
 test_tail_field_runs_from_tail_to_socket_and_grey_keeps_bands (test_vfx_picker.ProjectileArmPickerTests.test_tail_field_runs_from_tail_to_socket_and_grey_keeps_bands) ... ok
 test_headless_g2_trace_mechanics_and_scale_evidence (test_vfx_picker.ThrownFieldPickerTests.test_headless_g2_trace_mechanics_and_scale_evidence) ... ok
-test_thirteen_kits_registered_and_grammar_dispatch_explicit (test_vfx_picker.ThrownFieldPickerTests.test_thirteen_kits_registered_and_grammar_dispatch_explicit) ... ok
+test_thirteen_kits_registered_and_grammar_dispatch_explicit (test_vfx_picker.ThrownFieldPickerTests.test_thirteen_kits_registered_and_grammar_dispatch_explicit) ... ERROR
 test_headless_overlay_forward_world_touch_and_mouse_probe (test_vfx_picker.TouchAimRuntimeTests.test_headless_overlay_forward_world_touch_and_mouse_probe) ... ERROR
 test_headless_device_forward_handled_overlay_and_mouse_probe (test_vfx_picker.TouchDeviceAimRuntimeTests.test_headless_device_forward_handled_overlay_and_mouse_probe) ... ok
 test_catalogue_unknown_keys_shapes_identifiers_tints_and_empty_rejected (test_vfx_picker.VfxPickerTests.test_catalogue_unknown_keys_shapes_identifiers_tints_and_empty_rejected) ... ok
@@ -698,6 +702,30 @@ test_strict_white_thresholds (test_white_gate.WhiteGateTests.test_strict_white_t
 test_total_at_attributable_peak_and_first_tie (test_white_gate.WhiteGateTests.test_total_at_attributable_peak_and_first_tie) ... ok
 
 ======================================================================
+ERROR: test_current_thirteen_exports_and_original_kits_unchanged (test_godot_import.BoltChainEmissionTests.test_current_thirteen_exports_and_original_kits_unchanged)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_godot_import.py", line 1277, in test_current_thirteen_exports_and_original_kits_unchanged
+    kits=_load_vfx_kits(root/'runs/C-5/vfx_kits/kits_v9.json')
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/export/godot_import.py", line 721, in _load_vfx_kits
+    raise ValueError('G2 fire splash dependency missing or disagrees with palette/template')
+ValueError: G2 fire splash dependency missing or disagrees with palette/template
+
+======================================================================
+ERROR: setUpClass (test_godot_import.GroundVisibilityRegressionTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_godot_import.py", line 1061, in setUpClass
+    build_project(cells, cls.project, sockets=sockets,
+  File "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/export/godot_import.py", line 360, in build_project
+    kits = _load_vfx_kits(vfx_kits) if vfx_kits is not None else None
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/export/godot_import.py", line 721, in _load_vfx_kits
+    raise ValueError('G2 fire splash dependency missing or disagrees with palette/template')
+ValueError: G2 fire splash dependency missing or disagrees with palette/template
+
+======================================================================
 ERROR: test_headless_contact_shatter_residue_decal (test_vfx_picker.IceTreatmentPickerTests.test_headless_contact_shatter_residue_decal)
 ----------------------------------------------------------------------
 Traceback (most recent call last):
@@ -714,7 +742,18 @@ Traceback (most recent call last):
     self._check_timeout(endtime, orig_timeout, stdout, stderr)
   File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/subprocess.py", line 1253, in _check_timeout
     raise TimeoutExpired(
-subprocess.TimeoutExpired: Command '['/Applications/Godot.app/Contents/MacOS/Godot', '--headless', '--path', '/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4r/e2-clock-jgv9g2_3/project', '--log-file', '/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4r/e2-clock-jgv9g2_3/engine.log', '--script', 'res://e2_probe.gd']' timed out after 60 seconds
+subprocess.TimeoutExpired: Command '['/Applications/Godot.app/Contents/MacOS/Godot', '--headless', '--path', '/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4r/e2-clock-ws4uhwxr/project', '--log-file', '/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4r/e2-clock-ws4uhwxr/engine.log', '--script', 'res://e2_probe.gd']' timed out after 60 seconds
+
+======================================================================
+ERROR: test_thirteen_kits_registered_and_grammar_dispatch_explicit (test_vfx_picker.ThrownFieldPickerTests.test_thirteen_kits_registered_and_grammar_dispatch_explicit)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_vfx_picker.py", line 1611, in test_thirteen_kits_registered_and_grammar_dispatch_explicit
+    cat=ROOT/'runs/C-5/vfx_kits/kits_v9.json';kits=_load_vfx_kits(cat)
+                                                   ^^^^^^^^^^^^^^^^^^^
+  File "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/export/godot_import.py", line 721, in _load_vfx_kits
+    raise ValueError('G2 fire splash dependency missing or disagrees with palette/template')
+ValueError: G2 fire splash dependency missing or disagrees with palette/template
 
 ======================================================================
 ERROR: test_headless_overlay_forward_world_touch_and_mouse_probe (test_vfx_picker.TouchAimRuntimeTests.test_headless_overlay_forward_world_touch_and_mouse_probe)
@@ -735,7 +774,71 @@ Traceback (most recent call last):
     self._check_timeout(endtime, orig_timeout, stdout, stderr)
   File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/subprocess.py", line 1253, in _check_timeout
     raise TimeoutExpired(
-subprocess.TimeoutExpired: Command '['/Applications/Godot.app/Contents/MacOS/Godot', '--headless', '--log-file', '/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4i/tmp/touch-aim-2eb0rokv/project/godot.log', '--path', '/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4i/tmp/touch-aim-2eb0rokv/project', '--script', 'res://touch_aim_probe.gd']' timed out after 60 seconds
+subprocess.TimeoutExpired: Command '['/Applications/Godot.app/Contents/MacOS/Godot', '--headless', '--log-file', '/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4i/tmp/touch-aim-5nd9ibf4/project/godot.log', '--path', '/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4i/tmp/touch-aim-5nd9ibf4/project', '--script', 'res://touch_aim_probe.gd']' timed out after 60 seconds
+
+======================================================================
+FAIL: test_explicit_specs_alpha_indices_and_schedule (test_effect_kit.BoltChainValidationTests.test_explicit_specs_alpha_indices_and_schedule)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_effect_kit.py", line 2159, in test_explicit_specs_alpha_indices_and_schedule
+    self.assertEqual(data['skill_spec'],json.loads((ROOT/f'runs/C-5/specs/{name}.json').read_text()))
+AssertionError: {'ski[496 chars]hit)'}, 'termination': 'chain_end'}, 'presenta[595 chars]H1'}} != {'ski[496 chars]hit)', 'note': 'count = 4 additional hops afte[890 chars] s'}}
+Diff is 3025 characters long. Set self.maxDiff to None to see it.
+
+======================================================================
+FAIL: test_both_g2_kits_preserve_specs_rgb_glass_and_alpha (test_effect_kit.ThrownFieldValidationTests.test_both_g2_kits_preserve_specs_rgb_glass_and_alpha)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_effect_kit.py", line 2122, in test_both_g2_kits_preserve_specs_rgb_glass_and_alpha
+    self.assertEqual(data['density'],1.)
+AssertionError: 0.75 != 1.0
+
+======================================================================
+FAIL: test_g2_normal_builder_preserves_rgb_and_density (test_effect_kit.ThrownFieldValidationTests.test_g2_normal_builder_preserves_rgb_and_density)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_effect_kit.py", line 2149, in test_g2_normal_builder_preserves_rgb_and_density
+    self.assertEqual(data['density'],1.)
+AssertionError: 0.75 != 1.0
+
+======================================================================
+FAIL: test_both_flasks_three_flight_ages_global_layer_alpha_and_scale (test_godot_import.FieldDesignLapEmissionTests.test_both_flasks_three_flight_ages_global_layer_alpha_and_scale)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_godot_import.py", line 1369, in test_both_flasks_three_flight_ages_global_layer_alpha_and_scale
+    for scale in scales:self.assertEqual(scale,scales[0])
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Lists differ: [0.745901644229889, 0.745901644229889] != [0.745901584625244, 0.745901584625244]
+
+First differing element 0:
+0.745901644229889
+0.745901584625244
+
+- [0.745901644229889, 0.745901644229889]
++ [0.745901584625244, 0.745901584625244]
+
+======================================================================
+FAIL: test_full_exporter_current_thirteen_kit_catalogue (test_godot_import.ThrownFieldCLIRegressionTests.test_full_exporter_current_thirteen_kit_catalogue)
+Exercise module execution, which must define G2 before calling main.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_godot_import.py", line 1037, in test_full_exporter_current_thirteen_kit_catalogue
+    self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+AssertionError: 1 != 0 : Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/export/godot_import.py", line 4039, in <module>
+    main()
+  File "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/export/godot_import.py", line 669, in main
+    print(json.dumps(build_project(args.cells, args.out, args.vfx, args.gear_variant, args.scene, args.vfx_kit, args.sockets, args.parallax, args.props, args.vfx_kits, args.vfx_grey, args.bake), indent=2))
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/export/godot_import.py", line 360, in build_project
+    kits = _load_vfx_kits(vfx_kits) if vfx_kits is not None else None
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/export/godot_import.py", line 721, in _load_vfx_kits
+    raise ValueError('G2 fire splash dependency missing or disagrees with palette/template')
+ValueError: G2 fire splash dependency missing or disagrees with palette/template
+
 
 ======================================================================
 FAIL: test_synthetic_contract_and_grid (test_oracle_walk.Tests.test_synthetic_contract_and_grid)
@@ -780,6 +883,6 @@ Traceback (most recent call last):
 AssertionError: 'rejected' unexpectedly found in {'angular_support': 0.8333333333333334, 'center': [170.0, 253.0], 'hollow_score': 0.08333333333333333, 'inner_opposed_support': 0.08333333333333333, 'inside': False, 'lab_band_surround': 12.987929666149537, 'lab_center_band': 18.508563966712764, 'lab_center_surround': 30.467977867785994, 'lab_color_return': 0.0, 'radius': 8.0, 'rejected': 'not_annulus', 'score': 0.6366616733180586}
 
 ----------------------------------------------------------------------
-Ran 689 tests in 508.441s
+Ran 692 tests in 475.725s
 
-FAILED (failures=5, errors=2)
+FAILED (failures=10, errors=5)
