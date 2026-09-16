@@ -2,7 +2,7 @@
   "run": "C-5",
   "charter": "agentic_orchestration/gandalf/notes/2026-09-15-vfx-run-C-5-charter.md",
   "charter_sha256_12": "c41d87420e76",
-  "images_used": 52,
+  "images_used": 54,
   "images_cap": 999999,
   "images_cap_note": "SENTINEL 999999 — the run image cap is UN-ENFORCED by sentinel (Matt V20, 2026-09-15: \"no image budget\"); images_used is counted and reported at every packet. run_burst.py:158 integer-compares this field; null crashed it (jack-ryan Gate-1 BLOCK-B).",
   "bursts": [
@@ -9343,6 +9343,75 @@
       "codex_version": "codex-cli 0.153.4",
       "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
       "exit": 0
+    },
+    {
+      "id": "VF-prim-fire-pool-01",
+      "type": "GENERATE",
+      "experiment": "C5-E3",
+      "brief_sha256": "951623a7ab099ab6e20b8d3f2b5a12f8b336aa3fb806edab2f90129bb76e7889",
+      "started": "2026-09-16T10:58:55.229152+00:00",
+      "ended": "2026-09-16T11:02:09.765093+00:00",
+      "minutes": 3.2422497284833907,
+      "image_calls": 2,
+      "tool_calls": 3,
+      "audit": {
+        "violations": [],
+        "image_calls": 2,
+        "tool_calls": 3,
+        "tools_seen": {
+          "command_execution": 3
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0a9de-a30b-7753-85ce-d2522540a34b/exec-79ada3de-b10e-4397-aa4c-d09eb1f42903.png",
+            "sha256": "c44a90dab633726fa27becf052834b672f993cb04b13451fbc31f6b336da59fe"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0a9de-a30b-7753-85ce-d2522540a34b/exec-a4bcd770-68ac-4e5e-b304-8a0a454fe1ab.png",
+            "sha256": "572725bc7bf36d404946cabfaf7c68eebdcf319e1b4da11716e5b7cf0906b469"
+          }
+        ]
+      },
+      "receipt_sha256": "6645f8580357237e48ad01b4faa731202f404d457257336dc171973ae80e41f8",
+      "artifacts": [
+        {
+          "name": "fire_pool_01.png",
+          "sha256": "c44a90dab633726fa27becf052834b672f993cb04b13451fbc31f6b336da59fe"
+        },
+        {
+          "name": "exec-79ada3de-b10e-4397-aa4c-d09eb1f42903.provenance.json",
+          "sha256": "981e4f11a41983cab5c4f999ac3b6ca8405a8ea866a3fac9e4d56c5d1966ba06"
+        },
+        {
+          "name": "exec-a4bcd770-68ac-4e5e-b304-8a0a454fe1ab.provenance.json",
+          "sha256": "139f69106df9f1ece759c82b99532130e8a68144b5388dd173f92b28765c7fe0"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0a9de-a30b-7753-85ce-d2522540a34b/exec-79ada3de-b10e-4397-aa4c-d09eb1f42903.png",
+          "sha256": "c44a90dab633726fa27becf052834b672f993cb04b13451fbc31f6b336da59fe"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0a9de-a30b-7753-85ce-d2522540a34b/exec-a4bcd770-68ac-4e5e-b304-8a0a454fe1ab.png",
+          "sha256": "572725bc7bf36d404946cabfaf7c68eebdcf319e1b4da11716e5b7cf0906b469"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
     }
   ],
   "experiments": [],
@@ -9912,6 +9981,13 @@
       "veto_open": true,
       "ruling": "E1 RULED (veto-open, R-C5-36 delegation): ARM B — painted primitives composed at runtime — over ARM A — painted key states swapped in — by 4–0 on four order-randomised in-scene pairs (dirt E, grass N, dirt W, grass E), control passed (SAME, conf 1.0), judge confidences 0.87–0.94; both arms read as painted (no gradient haze); A rated INCOHERENT with its burst on every board (the key states balloon into an oversized emblem / a long thin ribbon — re-composed beyond the guide even after clipping; 417/330-px key widths against the 260-px streak). V13 not triggered; V18 not triggered. Workflow verdict: the alphabet + runtime grammar IS the production method; painted key states stay only for the burst (E0-p) where they heal seams. Decisions-log proposal to jack-ryan at this ruling (charter § 6): V1 route B · V2 step 1 · V9 Compatibility-first · V16 the six · V4 class-scoped stack. Packet 92.",
       "ts": "2026-09-16T07:00:33"
+    },
+    {
+      "id": "R-C5-65",
+      "class": "conductor",
+      "veto_open": true,
+      "ruling": "jack-ryan Gate-2 on R-C5-64 (findings: agentic_orchestration/qa/findings/2026-09-16-run-C-5-E1-ruling-gate2.md): BLOCK narrowly scoped — board 2 was NOT a pair (its arm-A row correlates 0.885 with board 5's arm-B row; NCC between rows 0.232 vs 0.87–0.98 on the valid boards; a row-sourcing defect in the conductor's board builder), and the control was B/B although key.json labelled it A/A (builder label bug; tally unaffected). RULING AMENDED: arm B over arm A by 3–0 on three valid pairs (dirt E, grass N, grass E), control passed (byte-identical rows, SAME at 1.0); route B STANDS — V13's inconclusive band is a split rule and 3–0 is not a split. Remedies: the board builder now (a) records each row's source directory in key.json, (b) gates every board on row-vs-row pre-effect NCC ≥ 0.8 and the control on byte identity BEFORE a judge may fire, (c) labels the control by its actual source arm. Escalations to Matt (jack-ryan): whether conductor-declared voids count toward the two-VOIDs HALT; the control-passed wording polarity vs JUDGE_RUBRIC § 6. Correction adopted: E1-judge-02 was a brief defect (receipt-schema field), not a judge defect. Decisions-log entry PROPOSED at decisions-log.md ~line 6720 (engine 295ff130; V4 filed as a working ruling, outside the charter § 9 set).",
+      "ts": "2026-09-16T07:17:07"
     }
   ],
   "grok_calls": [],
