@@ -2307,6 +2307,11 @@
       "id": "M-C5-PACKET-85",
       "note": "Packet 85 (painted): first cast at a dummy on cliffside_v20 (kits_v9); clip + stills on the Desktop; grey variant owed (F-C5-3); capture-cadence defect noted (probe).",
       "ts": "2026-09-15T19:02:41"
+    },
+    {
+      "id": "M-C5-WEB8",
+      "note": "CS-pack-web8 LIVE (drax): https://reincarnated-loadout.vercel.app/playtest/cliffside/ rebuilt from CS-pack-v21 (kits_v9, T4b/T4f, necro_master_still at the far bridgehead). Loadout 7546bce5 pushed; pck sha 8ea49551…; 7/7 plain-GET 200; headless boot 0 errors; CAST button unchanged. drax measure: master 70×130 world px vs Keeper 53×131 (same height, ~1.3× width). Deploy truth: agentic_orchestration/drax/captures/2026-09-15-web-playtest-v8/deploy_truth.txt",
+      "ts": "2026-09-15T19:57:51"
     }
   ],
   "halts": [],
@@ -2446,6 +2451,11 @@
     {
       "note": "CS-pack-v20 + v20-grey FAILED (exit 3): kits_v8 carries the retired white_core_keep (T4a rejects by design). Minted runs/C-5/vfx_kits/kits_v9.json as DATA via T4f build_export.py recipe (drop tint/pixel_scale, pierce, four baked colours → material.palette, index-quantised frames); re-fired as -r1.",
       "ts": "2026-09-15T18:57:39"
+    },
+    {
+      "id": "N-C5-VO1-instrument",
+      "note": "CORRIGENDUM to R-C5-14 F-C5-4 candidate: camera_offset + time_scale traces are byte-identical between the plain bake (bake_a) and the flipbook-comparison bake (flipcmp_a) — deterministic, settles to (0,0) by frame 8 — so camera drift is NOT the live-vs-flipbook cause. Per-ground breakdown of the conductor four-ground compare: fails ground 119/126 (max rel 14.2, equal 122/122 frame counts), white 113 (live sum 66547 vs flipbook 144558), black 111 (118 vs 100 frames), foliage 53. A ground-dependent result from a ground-independent quantity (VO1 effect envelope) means the conductor changed-pixel-vs-last-frame proxy measures composite contrast, not envelope: WRONG INSTRUMENT (rubric law, desirable-run-pattern § 6.3). Remedy: T4g TOOLING — compose the VO1 instrument in-lane (envelope = |composite − ground plate| ≥ τ in Lab/luma, identical for live and flipbook modes, per-frame relative difference, all four grounds, equal frame counts enforced) and report which mode diverges and where. T4c VO1 clause stays open until T4g reports.",
+      "ts": "2026-09-15T19:46:23"
     }
   ]
 }
