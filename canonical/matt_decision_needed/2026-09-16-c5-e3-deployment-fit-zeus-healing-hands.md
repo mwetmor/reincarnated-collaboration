@@ -16,5 +16,8 @@
 - **F2 Healing Hands (LE).** Corpus: *procs on melee hits (Cleric's Hammer), healing + fire/holy damage in a small radius **around the melee target**.* Base skill: an instant self-targeted heal with a radius. Neither is a loop. Built: G4 **self-centred aura loop** (seal + 5 orbiting ring segments + petal pulses on a schedule + recast refresh).
   **Recommend (a): re-spec as a single burst-around-target** — seal flash + one petal pulse at the hit point, ~0.4 s, no orbit, no refresh (G4 with pulses=1, loop off, origin at target). Matches the source and reads as *support on contact*. *Alt (b):* instant self burst (base-skill read: seal under the caster, one pulse, ~0.4 s). *Alt (c):* keep the loop as a "consecration" fantasy — knowingly off-source; G4 as a grammar survives either way (it will serve real auras later).
 
+- **F3 Holy seal glyph (register/content).** The painted seal primitive (`VF-prim-holy-seal-01`) carries a **hexagram** (six-pointed star) at its centre — visible under the caster in the v30 look (Packet 93, HH sheets). Diablo II's Paladin auras use abstract geometric seals; a hexagram reads as a specific religious symbol on a mobile storefront.
+  **Recommend (a): repaint the seal with a non-denominational sigil** (petal rosette / sunburst in the same four-plane language; 2 images, one GENERATE burst, no exporter change). *Alt (b):* keep it (geometric-occult register, PoE-style). *Alt (c):* eight-pointed star (Diablo's own seal vocabulary) — same cost as (a).
+
 ## Consequence of ruling (a)/(a)
 One TOOLING burst after T4w: G3 gains an `origin: target` option; G4 gains `pulses: 1, loop: false, origin: target`; the two specs re-authored; kits re-baked; rendered look via the next PACK. Nothing else in the six moves.
