@@ -1,0 +1,530 @@
+{
+  "task_id": "T4g",
+  "tolerance": 0.05,
+  "required_fraction": 0.95,
+  "diagnosis_written_before_code": true,
+  "per_class_rendered_acceptance": {
+    "measured": false,
+    "ground": null,
+    "black": null,
+    "white": null,
+    "foliage": null,
+    "reason": "Normal Godot Movie Maker exits -6 before producing frames. Headless Movie Maker crashes on dummy texture storage. No replacement rendered measurements supplied.",
+    "foliage_reason": "Not read: strict evidence read allowlist contains only vo1_v21; three required ground classes diagnosed."
+  },
+  "legacy_evidence_remeasurement": {
+    "ground": {
+      "frames": 126,
+      "failed": 119,
+      "within_tolerance": 7,
+      "within_tolerance_fraction": 0.05555555555555555,
+      "worst_frame": 55,
+      "live_peak": 190935,
+      "flip_peak": 207881
+    },
+    "black": {
+      "frames": 126,
+      "failed": 69,
+      "within_tolerance": 57,
+      "within_tolerance_fraction": 0.4523809523809524,
+      "worst_frame": 101,
+      "live_peak": 152094,
+      "flip_peak": 133811
+    },
+    "white": {
+      "frames": 126,
+      "failed": 117,
+      "within_tolerance": 9,
+      "within_tolerance_fraction": 0.07142857142857142,
+      "worst_frame": 118,
+      "live_peak": 62066,
+      "flip_peak": 140115
+    }
+  },
+  "conductor_envelopes_reproduced": true,
+  "layer_clock_diagnosis": {
+    "frozen_body": "MIX, not ADD; confirmed from Body.tres and headless layer inventory",
+    "single_mix_sprite_arbitrary_background": false,
+    "two_blend_classes_preserve_interleaved_order": false,
+    "precise_unflattenable_elements": [
+      "Decal: MIX at z=-4, below world ground; a screen-space CanvasLayer exposes the late 2.0s decal.",
+      "FloorLight: ADD at z=-3, below MIX residual/dark/body; grouping ADD above MIX changes early attenuation."
+    ],
+    "late_windows": {
+      "ground_55_62": [
+        {
+          "frame": 55,
+          "sole_surviving_drawable": "Decal",
+          "premultiplied_rgb_envelope": 16125,
+          "double_alpha_envelope": 15710,
+          "ground": {
+            "live": 0,
+            "flip": 16063
+          },
+          "black": {
+            "live": 16125,
+            "flip": 15704
+          },
+          "white": {
+            "live": 15222,
+            "flip": 16266
+          }
+        },
+        {
+          "frame": 56,
+          "sole_surviving_drawable": "Decal",
+          "premultiplied_rgb_envelope": 16125,
+          "double_alpha_envelope": 15710,
+          "ground": {
+            "live": 0,
+            "flip": 16043
+          },
+          "black": {
+            "live": 16125,
+            "flip": 15656
+          },
+          "white": {
+            "live": 15222,
+            "flip": 16266
+          }
+        },
+        {
+          "frame": 57,
+          "sole_surviving_drawable": "Decal",
+          "premultiplied_rgb_envelope": 16125,
+          "double_alpha_envelope": 15704,
+          "ground": {
+            "live": 0,
+            "flip": 16032
+          },
+          "black": {
+            "live": 16125,
+            "flip": 15626
+          },
+          "white": {
+            "live": 15222,
+            "flip": 16266
+          }
+        },
+        {
+          "frame": 58,
+          "sole_surviving_drawable": "Decal",
+          "premultiplied_rgb_envelope": 16125,
+          "double_alpha_envelope": 15674,
+          "ground": {
+            "live": 0,
+            "flip": 16001
+          },
+          "black": {
+            "live": 16125,
+            "flip": 15626
+          },
+          "white": {
+            "live": 15222,
+            "flip": 16266
+          }
+        },
+        {
+          "frame": 59,
+          "sole_surviving_drawable": "Decal",
+          "premultiplied_rgb_envelope": 16125,
+          "double_alpha_envelope": 15656,
+          "ground": {
+            "live": 70,
+            "flip": 16054
+          },
+          "black": {
+            "live": 16125,
+            "flip": 15626
+          },
+          "white": {
+            "live": 15222,
+            "flip": 16266
+          }
+        },
+        {
+          "frame": 60,
+          "sole_surviving_drawable": "Decal",
+          "premultiplied_rgb_envelope": 16125,
+          "double_alpha_envelope": 15626,
+          "ground": {
+            "live": 70,
+            "flip": 16049
+          },
+          "black": {
+            "live": 16095,
+            "flip": 15626
+          },
+          "white": {
+            "live": 15222,
+            "flip": 16266
+          }
+        },
+        {
+          "frame": 61,
+          "sole_surviving_drawable": "Decal",
+          "premultiplied_rgb_envelope": 16125,
+          "double_alpha_envelope": 15626,
+          "ground": {
+            "live": 70,
+            "flip": 16036
+          },
+          "black": {
+            "live": 16095,
+            "flip": 15518
+          },
+          "white": {
+            "live": 15222,
+            "flip": 16266
+          }
+        },
+        {
+          "frame": 62,
+          "sole_surviving_drawable": "Decal",
+          "premultiplied_rgb_envelope": 16107,
+          "double_alpha_envelope": 15626,
+          "ground": {
+            "live": 0,
+            "flip": 15964
+          },
+          "black": {
+            "live": 16095,
+            "flip": 15518
+          },
+          "white": {
+            "live": 15222,
+            "flip": 16266
+          }
+        }
+      ],
+      "black_101_105": [
+        {
+          "frame": 101,
+          "sole_surviving_drawable": "Decal",
+          "premultiplied_rgb_envelope": 12841,
+          "double_alpha_envelope": 0,
+          "ground": {
+            "live": 0,
+            "flip": 14420
+          },
+          "black": {
+            "live": 12841,
+            "flip": 0
+          },
+          "white": {
+            "live": 15007,
+            "flip": 16206
+          }
+        },
+        {
+          "frame": 102,
+          "sole_surviving_drawable": "Decal",
+          "premultiplied_rgb_envelope": 12841,
+          "double_alpha_envelope": 0,
+          "ground": {
+            "live": 0,
+            "flip": 14352
+          },
+          "black": {
+            "live": 12841,
+            "flip": 0
+          },
+          "white": {
+            "live": 14981,
+            "flip": 16056
+          }
+        },
+        {
+          "frame": 103,
+          "sole_surviving_drawable": "Decal",
+          "premultiplied_rgb_envelope": 12841,
+          "double_alpha_envelope": 0,
+          "ground": {
+            "live": 0,
+            "flip": 14292
+          },
+          "black": {
+            "live": 12806,
+            "flip": 0
+          },
+          "white": {
+            "live": 14981,
+            "flip": 16056
+          }
+        },
+        {
+          "frame": 104,
+          "sole_surviving_drawable": "Decal",
+          "premultiplied_rgb_envelope": 12806,
+          "double_alpha_envelope": 0,
+          "ground": {
+            "live": 486,
+            "flip": 14588
+          },
+          "black": {
+            "live": 12806,
+            "flip": 0
+          },
+          "white": {
+            "live": 14975,
+            "flip": 16056
+          }
+        },
+        {
+          "frame": 105,
+          "sole_surviving_drawable": "Decal",
+          "premultiplied_rgb_envelope": 12806,
+          "double_alpha_envelope": 0,
+          "ground": {
+            "live": 486,
+            "flip": 14517
+          },
+          "black": {
+            "live": 12781,
+            "flip": 0
+          },
+          "white": {
+            "live": 14929,
+            "flip": 16056
+          }
+        }
+      ]
+    },
+    "per_frame_contribution_file": "evidence_measurements.json (all 126 frames; isolated late-Decal interpretation only at 55 onward)",
+    "clock_cause": "The reported late windows are occlusion/premultiplication, not divergent hit-stop or particle lifetime. Old frame_pre_draw texture selection also carries a one-draw offset; new selection happens at process_frame.",
+    "headless_clock": {
+      "frames": 126,
+      "selected_equals_source_index": true,
+      "first_ages": [
+        0.0,
+        0.1,
+        0.2,
+        0.3,
+        1.3,
+        2.3,
+        3.3,
+        4.3
+      ],
+      "first_indices": [
+        [
+          0
+        ],
+        [
+          1
+        ],
+        [
+          2
+        ],
+        [
+          3
+        ],
+        [
+          4
+        ],
+        [
+          5
+        ],
+        [
+          6
+        ],
+        [
+          7
+        ]
+      ],
+      "caveat": "Headless signals are not rendered pixel proof; certificate-store error retained."
+    }
+  },
+  "crop": {
+    "implemented": "Viewport and window override dimensions set to crop before launch; content scaling disabled; camera.zoom ONE; sprite pivot at crop/2.",
+    "synthetic_body_px": 64,
+    "requested_crops": [
+      512,
+      768
+    ],
+    "rendered_body_measurements": null,
+    "verified_by_rendering": false,
+    "unit_test": "test_native_crop_64px_body_512_and_768_and_class_replay",
+    "skip_reason": "Measured lack of renderer; test remains executable without T4G_RENDERING_UNAVAILABLE_REASON."
+  },
+  "default_all_byte_identity": {
+    "implementation": "Default all bypasses class filtering and RGBA re-encoding. Existing API defaults retained.",
+    "rendered_verified": false
+  },
+  "unit_tests": {
+    "tests_run": 20,
+    "successful": true,
+    "skipped": 1,
+    "log": "replay_tests_final.log"
+  },
+  "named_test_alignments": {
+    "erode_noise": 0.4,
+    "noise_band_mix": [
+      0.5,
+      0.5
+    ],
+    "entry_fraction_band": [
+      0.15,
+      0.25
+    ],
+    "radius_ratio_min": 1.5,
+    "isoperimetric_excess_min": 0.35,
+    "zero_noise_disc_control": true,
+    "seam_report": {
+      "report_only": true,
+      "threshold_withdrawn": 12,
+      "rows": [
+        {
+          "age": 30,
+          "longest_transformed_seam_front_component_diameter_px": 79.49203781276162,
+          "longest_straight_seam_front_px": 36.0,
+          "largest_component": 0.9995194178090029
+        },
+        {
+          "age": 33,
+          "longest_transformed_seam_front_component_diameter_px": 68.89698078707183,
+          "longest_straight_seam_front_px": 25.0,
+          "largest_component": 0.9779669182591938
+        },
+        {
+          "age": 36,
+          "longest_transformed_seam_front_component_diameter_px": 54.600373133029585,
+          "longest_straight_seam_front_px": 26.0,
+          "largest_component": 0.9218997622820919
+        }
+      ]
+    },
+    "observed_successful": true
+  },
+  "full_suite": {
+    "tests_run": 639,
+    "successful": false,
+    "failure_entries": 17,
+    "error_entries": 1,
+    "skipped": [
+      {
+        "test": "test_native_crop_64px_body_512_and_768_and_class_replay (test_replay.BlendEnvelopeTests.test_native_crop_64px_body_512_and_768_and_class_replay)",
+        "reason": "Measured runtime unavailable: normal Movie Maker exits -6 before logging; headless Movie Maker crashes in dummy texture_2d_get."
+      }
+    ],
+    "reds": [
+      {
+        "test": "test_headless_state_machine_input_map_gear_vfx_and_nearest_fallback (test_godot_import.GodotImportTests.test_headless_state_machine_input_map_gear_vfx_and_nearest_fallback)",
+        "kind": "failures",
+        "classification": "Godot_environment"
+      },
+      {
+        "test": "test_v2_headless_import_and_seed_equal_rooted_clock (test_godot_import.PieceStretchImportTests.test_v2_headless_import_and_seed_equal_rooted_clock)",
+        "kind": "failures",
+        "classification": "out_of_scope_band_dissolve_assertion"
+      },
+      {
+        "test": "test_synthetic_contract_and_grid (test_oracle_walk.Tests.test_synthetic_contract_and_grid)",
+        "kind": "failures",
+        "classification": "standing_red"
+      },
+      {
+        "test": "test_f04_outside_at_least_three (test_oracles_motif.Tests.test_f04_outside_at_least_three)",
+        "kind": "failures",
+        "classification": "standing_red"
+      },
+      {
+        "test": "test_named_genuine_annuli_retained (test_oracles_motif.Tests.test_named_genuine_annuli_retained) (center=[113, 201])",
+        "kind": "failures",
+        "classification": "standing_red"
+      },
+      {
+        "test": "test_named_genuine_annuli_retained (test_oracles_motif.Tests.test_named_genuine_annuli_retained) (center=[111, 311])",
+        "kind": "failures",
+        "classification": "standing_red"
+      },
+      {
+        "test": "test_named_genuine_annuli_retained (test_oracles_motif.Tests.test_named_genuine_annuli_retained) (center=[170, 253])",
+        "kind": "failures",
+        "classification": "standing_red"
+      },
+      {
+        "test": "test_headless_cliffside_follow_camera_parallax_and_projectile_collision (test_parallax_scene.ParallaxSceneTests.test_headless_cliffside_follow_camera_parallax_and_projectile_collision)",
+        "kind": "failures",
+        "classification": "Godot_environment"
+      },
+      {
+        "test": "test_headless_tower_import_run_and_physics (test_scene_kit.SceneKitTests.test_headless_tower_import_run_and_physics)",
+        "kind": "failures",
+        "classification": "Godot_environment"
+      },
+      {
+        "test": "test_headless_directional_release_and_resources (test_sockets.SocketTests.test_headless_directional_release_and_resources)",
+        "kind": "failures",
+        "classification": "Godot_environment"
+      },
+      {
+        "test": "test_flipbook_texture_upload_is_outside_draw_callback_and_retained (test_t4d_export.T4dExportTests.test_flipbook_texture_upload_is_outside_draw_callback_and_retained)",
+        "kind": "failures",
+        "classification": "other"
+      },
+      {
+        "test": "test_headless_authored_cast_east_north_collision_timing_and_feedback_cleanup (test_vfx_picker.AuthoredEffectPickerTests.test_headless_authored_cast_east_north_collision_timing_and_feedback_cleanup)",
+        "kind": "failures",
+        "classification": "Godot_environment"
+      },
+      {
+        "test": "test_headless_first_cast_contact_cursor_pool_cancel_and_picker (test_vfx_picker.G1ComponentTests.test_headless_first_cast_contact_cursor_pool_cancel_and_picker)",
+        "kind": "failures",
+        "classification": "Godot_environment"
+      },
+      {
+        "test": "test_headless_pierce_contacts_labels_pool_and_phase_callbacks (test_vfx_picker.G1ComponentTests.test_headless_pierce_contacts_labels_pool_and_phase_callbacks)",
+        "kind": "failures",
+        "classification": "Godot_environment"
+      },
+      {
+        "test": "test_headless_glow_sixty_samples_extrema_range_and_particle_properties (test_vfx_picker.LivingEmbersTests.test_headless_glow_sixty_samples_extrema_range_and_particle_properties)",
+        "kind": "failures",
+        "classification": "Godot_environment"
+      },
+      {
+        "test": "test_headless_device_forward_handled_overlay_and_mouse_probe (test_vfx_picker.TouchDeviceAimRuntimeTests.test_headless_device_forward_handled_overlay_and_mouse_probe)",
+        "kind": "failures",
+        "classification": "Godot_environment"
+      },
+      {
+        "test": "test_headless_tab_twice_cast_scene_labels_and_inflight_kit_lock (test_vfx_picker.VfxPickerTests.test_headless_tab_twice_cast_scene_labels_and_inflight_kit_lock)",
+        "kind": "failures",
+        "classification": "Godot_environment"
+      },
+      {
+        "test": "test_headless_overlay_forward_world_touch_and_mouse_probe (test_vfx_picker.TouchAimRuntimeTests.test_headless_overlay_forward_world_touch_and_mouse_probe)",
+        "kind": "errors",
+        "classification": "runtime_timeout"
+      }
+    ],
+    "command": "cd /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst && PYTHONDONTWRITEBYTECODE=1 python3 -B tests/run_t0c.py",
+    "execution_environment": {
+      "PYTHONPATH": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4g",
+      "T4G_RENDERING_UNAVAILABLE_REASON": "Measured Movie Maker runtime unavailable"
+    },
+    "harness": "sitecustomize.py redirects temporary files and fixed suite reports into T4g, supplies missing Godot --log-file paths and caps subprocesses at 119 seconds; no test verdicts/errors are filtered.",
+    "details": "suite_result.json and suite_artifacts/t0c_suite_output.txt",
+    "resolved_after_suite": [
+      "test_flipbook_texture_upload_is_outside_draw_callback_and_retained (test_t4d_export.T4dExportTests.test_flipbook_texture_upload_is_outside_draw_callback_and_retained)"
+    ],
+    "note": "The 639-test full-suite result is preserved literally (17 failure entries, 1 error, 1 skip). Its upload/pivot compatibility red was corrected afterward and independently rechecked with all replay tests: 21 tests, successful=true, 1 renderer skip. No additional broad rerun was performed."
+  },
+  "notes": [
+    "No tolerance loosened. Rendering unavailable is reported, not treated as numeric agreement.",
+    "Transparent Movie Maker premultiplied RGB is decoded only for explicit blend classes: MIX straight RGBA; ADD accumulated RGB with unit alpha on nonzero contribution.",
+    "Per-class replay orders MIX before ADD and reports its interleaving/world-occlusion limits."
+  ],
+  "post_suite_verification": {
+    "tests_run": 21,
+    "successful": true,
+    "skipped": [
+      {
+        "test": "test_native_crop_64px_body_512_and_768_and_class_replay (test_replay.BlendEnvelopeTests.test_native_crop_64px_body_512_and_768_and_class_replay)",
+        "reason": "Measured Movie Maker runtime unavailable; pixel acceptance unverified."
+      }
+    ],
+    "details": "post_suite_result.json and post_suite_tests.log",
+    "change": "Preserved per-layer flip_sprite naming and explicit centered=true with position at the actual native window centre; restored the existing T4d upload/pivot source contract without modifying that test."
+  }
+}

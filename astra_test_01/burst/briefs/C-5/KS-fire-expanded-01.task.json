@@ -1,0 +1,26 @@
+{
+ "text": "GENERATE BURST KS-fire-expanded-01 — E0-p step 5: the \"EXPANDED\" KEY STATE of the fire burst, painted over the tooling-transformed piece arrangement (Run C-5; architecture 03- § 2.2b step 5; Astra S1 § 2b conditions: fixed canvas, the original state in every call, a tooling-generated target guide, ONE change per call). task_id \"KS-fire-expanded-01\".\n\nIMAGE 1 is the ORIGINAL approved fire impact peak on the same 768×768 canvas (the intact body; four greyscale planes; Matt-accepted) — the identity every pixel must keep. IMAGE 2 is the TOOLING GUIDE: the same pieces of IMAGE 1 mechanically stretched outward (frame 15 of the runtime: tongues stretched 2–2.5× along their axes, roots drifted outward, core swollen) by the runtime at 1:1 on the same 768×768 transparent canvas — this arrangement is the SHAPE CONTRACT (where every tongue and the core are, how far they reach). IMAGE 3 is the scale + register board (two 130-px figures = 1 BH; the hand-drawn contour register).\n\nUse image_gen in EDIT mode on IMAGE 2 and deliver ONE 768×768 image with a GENUINELY TRANSPARENT background: the arrangement of IMAGE 2 RE-PAINTED so that it reads as one drawn frame of fire — the tongues at full reach drawn as continuous licks of flame with their own inner planes, the joins between stretched pieces healed, the core reading as a swollen bright heart — while every piece stays where IMAGE 2 puts it (each tongue's root, axis and tip within ~6 px of the guide; the core where the guide has it; no piece added, removed or moved). Keep IMAGE 1's vocabulary exactly: GREYSCALE ONLY, exactly FOUR flat value planes with hard edges (near-black contour/rim, dark grey outer flame, light grey mid flame, white core), the same line weight, no gradients/glow/blur/colour/texture, no ground, shadow, sparks, smoke, motion blur or text. This is ONE change: re-drawing the transformed pieces as a coherent painting — not a new composition.\n\nOne image_gen call. ONE retry only if: a piece moved/added/vanished against the guide, the background is not clean, gradients/glow/soft edges or more than four planes appear, or the line weight changed — name the reason. Copy the output from $CODEX_HOME/generated_images/... to out/fire_expanded_01.png with sha256 (no conversion, no trim). No code. No other files. No web.\nRETURN: the receipt (task_id \"KS-fire-expanded-01\"): files = [exactly one entry: out/fire_expanded_01.png with its sha256]; images = the INTEGER COUNT of image_gen calls made (1 or 2) — NOT a list, NEVER a path under $CODEX_HOME/generated_images; calls_used; status DELIVERED / DELIVERED_WITH_CONCERNS with concerns listed honestly (state whether the output has real transparency).",
+ "references": [
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/artifacts/KS-guides/peak_768.png",
+   "role": "IMAGE 1 — the original approved peak on the same 768 canvas (identity)"
+  },
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/artifacts/KS-guides/guide_expanded_768.png",
+   "role": "IMAGE 2 — TOOLING GUIDE: the transformed pieces at 1:1 (shape contract)"
+  },
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/artifacts/E0p-refs/scale_board_clearing.png",
+   "role": "IMAGE 3 — scale + register board"
+  }
+ ],
+ "image_cap": 2,
+ "minutes_cap": 15,
+ "tool_call_cap": 20,
+ "outputs": [
+  "out/fire_expanded_01.png"
+ ],
+ "effort": "high",
+ "add_dirs": [],
+ "experiment": "C5-E0p"
+}

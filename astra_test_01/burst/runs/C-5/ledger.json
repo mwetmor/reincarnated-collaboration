@@ -5492,6 +5492,170 @@
       "codex_version": "codex-cli 0.153.4",
       "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
       "exit": 0
+    },
+    {
+      "id": "T4g",
+      "type": "TOOLING",
+      "experiment": "C5-T4",
+      "brief_sha256": "5bec5eac77232db5820ba4c2f66f120143d0410ec44d856f67950304ba77afad",
+      "started": "2026-09-16T06:15:16.627814+00:00",
+      "ended": "2026-09-16T06:40:26.102766+00:00",
+      "minutes": 25.15758932013329,
+      "image_calls": 0,
+      "tool_calls": 41,
+      "audit": {
+        "violations": [],
+        "image_calls": 0,
+        "tool_calls": 41,
+        "tools_seen": {
+          "command_execution": 41
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": []
+      },
+      "receipt_sha256": "2050875b16fa191e134cb7d81bec9de9b400b32b0cab5f52bd0e9a23e7d83f6f",
+      "artifacts": [
+        {
+          "name": "files.json",
+          "sha256": "e09ad61820090e83a2d9b7798b3879eac28a92519d8f4bf6eda18d6c778dbb3e"
+        }
+      ],
+      "artifacts_in_place": [
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "export/replay.py",
+          "sha256": "d04ebfea971ba2807578e6ddccdf8d6f7a4754af4deca7ee44d07e82414dd47c"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-5/t3/T4g/acceptance.json",
+          "sha256": "a350b4adcbe4f7b0f61a301b8981117200b78cfe388cb1731b3fbedccfb91871"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-5/t3/T4g/diagnosis.json",
+          "sha256": "8f765b5b5416c5ffbe450d9d9cd410fdfffe41e1976cd2236d2f5e9706f11173"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-5/t3/T4g/evidence_measurements.json",
+          "sha256": "5a6f033033bee30d10ab33cc09728d8ee1b720f6b72fa4a74b5b629b45736cbb"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-5/t3/T4g/measure_evidence.py",
+          "sha256": "d2e43a94948b2ec30bab4bb555ca1603a0786773aaaafc05cd354dc56fc2fb16"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-5/t3/T4g/post_suite_result.json",
+          "sha256": "057a9721d9513674fec8e635b2b0c37997678aadd0a69f96854219798c6bb059"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-5/t3/T4g/post_suite_tests.log",
+          "sha256": "30f0888f01822606e6102d70ecbe1c65ac837bf976ad656b2880264c97139731"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-5/t3/T4g/replay_tests_final.log",
+          "sha256": "3c1cf61b9495a38848048df9585ae5616d6e8e863d6f5c52949ddf571af37df4"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-5/t3/T4g/runtime_checks.json",
+          "sha256": "487a80fdb57b37d981fa89deb7e4f78342d3dff38e60a39e540cba52b0136cbd"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-5/t3/T4g/seam_measurements.json",
+          "sha256": "6b276bda53def16a8cd472d8506189df3c8584ac25cc66b14662f138454e6a9d"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-5/t3/T4g/sitecustomize.py",
+          "sha256": "77580016c8e024730210d9aa1596097a52b103388ff302e6418893883ffd909e"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-5/t3/T4g/suite_artifacts/gates_regression_diff.json",
+          "sha256": "c8864b881f6646a530b06271dfb4d801767aa46db6184abad8bba4761cafbe80"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-5/t3/T4g/suite_artifacts/oracles_acceptance_measurements.json",
+          "sha256": "39949a5e5c6afe3bf7e19061f5aa2859e15d85b70803b0430ced6471c998f3d0"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-5/t3/T4g/suite_artifacts/oracles_palette_measurements.json",
+          "sha256": "d644692970ba376c582468b225308f6c3d6e9c7c8b5a0c73187689d2e1cbac25"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-5/t3/T4g/suite_artifacts/oracles_silhouette_measurements.json",
+          "sha256": "1dc9e68b72691bf50e1773cdfcc5cad8d8990731cfb2a012956acb826aaa637f"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-5/t3/T4g/suite_artifacts/parts_measurements.json",
+          "sha256": "daef6067a663ac0f199506bfbbb229a351bd7ce0fac4cb670dcac047026f8994"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-5/t3/T4g/suite_artifacts/sheet_consistency_calibration.json",
+          "sha256": "3b8076d4a4b4e3b06920e067b3c5c665d6a0a441afd3f4725cbfafdb3df463ab"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-5/t3/T4g/suite_artifacts/t0c_suite_output.txt",
+          "sha256": "676a7d0f4c8b26131c9070495e5c38dc55c35d0ed39bf7645bfda522c833235e"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-5/t3/T4g/suite_artifacts/t0c_summary.json",
+          "sha256": "46e5f2024539f0b79c584a39ad1c34380aee72035b5d1b9edaae38c26ebe0a74"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-5/t3/T4g/suite_result.json",
+          "sha256": "c712ddc8b08282aeefb8aace92fbb8e44ccf36c500ac5afcb254a9f6858bc91a"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-5/t3/T4g/verify_rendered.py",
+          "sha256": "126041b171855a85053f2b13637dbd9ccebe62e85042b6a77fff7d07dbcea84f"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "tests/test_effect_kit.py",
+          "sha256": "eecce6cfec6d10ae30472392be494dc968d4e171362fd5c4056bd70f9730dc1e"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "tests/test_godot_import.py",
+          "sha256": "f66434d6784757d4ab522d63f456a65cd6e48c15ef8d7f99a9b1cb19da6bc6ee"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "tests/test_replay.py",
+          "sha256": "dad7901fa495747855e8fa25b36b9df9d92f2d02a1c02668623a164fe70df591"
+        }
+      ],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
     }
   ],
   "experiments": [],
@@ -5565,6 +5729,11 @@
       "id": "M-C5-PACK-V26",
       "note": "cliffside_v26 staged + proven (import 0 errors): figures 14 % (151 px; path still with Keeper + necromancer), cow_flies swarm re-seated — frame diff near the carcass: 230 changed px at the new swarm position, 0 at the old (F-C5-9 closed). drax web11 dispatched (LAST deploy per R-C5-36). T4n fires.",
       "ts": "2026-09-16T01:27:52"
+    },
+    {
+      "id": "M-C5-KS-GUIDES",
+      "note": "F-C5-10 fix verified outside: crop 512 and 768 both render the hold body at 306 px, centred (768: centre 384; expanded f15 584 px wide, unclipped). Key-state guides built at 1:1 from the T4g-era export (v29 bake, seed 2026): guide_expanded_768.png (f15), guide_spent_768.png (f36 = residue entry), peak_768.png (identity on the same canvas). KS-fire-expanded-01 + KS-fire-spent-01 fired (GENERATE, EDIT mode over the guides; S1 § 2b conditions).",
+      "ts": "2026-09-16T02:43:17"
     }
   ],
   "halts": [],
@@ -5869,6 +6038,13 @@
       "veto_open": true,
       "ruling": "FREEZE after T4o with SIX named obsolete reds beyond the five standing (three retained T4n-r1 band-proxy assertions; three ≤12-px seam subtests — clause WITHDRAWN, seams pass to step 5) — all test alignment, folded into T4g (£0). T4g fires: per-blend-class bakes + effect-age flipbook clock + plate-envelope VO1 instrument + the 1:1 crop fix (F-C5-10) + the six alignments.",
       "ts": "2026-09-16T02:14:30"
+    },
+    {
+      "id": "R-C5-44",
+      "class": "conductor",
+      "veto_open": true,
+      "ruling": "T4g DELIVERED_WITH_CONCERNS: per-blend-class bakes, effect-age flipbook clock, plate-envelope VO1 instrument, crop fix (F-C5-10), six test alignments. DIAGNOSIS (the E0(b) verdict): the frozen stack interleaves MIX and ADD layers with world ordering (Decal z-4 under the ground, FloorLight ADD below the body, dark duplicate MIX-black, glow/flash ADD) — a flipbook, even per blend class, cannot preserve that interleaving or world occlusion; on the legacy evidence only 6 % (ground) / 45 % (black) of frames sit within ±5 %. RULING for the flipbook-vs-runtime dial: the RUNTIME owns the stack; a flipbook may carry the body silhouette of ONE blend class only (e.g. for a web-lite fallback), never the composite. T4c VO1 clause CLOSED as diagnosed-not-met — report-not-stop (V17). Rendered checks of the new instrument are the conductor's (sandbox SIGABRT).",
+      "ts": "2026-09-16T02:42:42"
     }
   ],
   "grok_calls": [],

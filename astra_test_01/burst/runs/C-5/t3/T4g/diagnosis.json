@@ -1,0 +1,185 @@
+{
+  "task_id": "T4g",
+  "stage": "pre-code diagnosis",
+  "blend": {
+    "single_mix_flipbook_arbitrary_ground": false,
+    "actual_body_mode": "MIX (Body.tres points to vfx_material_mix_unlit.gdshader; task ADD-body description is not this frozen project)",
+    "layers": [
+      {
+        "node": "Decal",
+        "blend": "MIX",
+        "z": -4
+      },
+      {
+        "node": "FloorLight",
+        "blend": "ADD",
+        "z": -3
+      },
+      {
+        "node": "Residual",
+        "blend": "MIX",
+        "z": -2
+      },
+      {
+        "node": "Ground/DarkDuplicate",
+        "blend": "MIX-black",
+        "z": -1
+      },
+      {
+        "node": "Ground/Shatter",
+        "blend": "MIX",
+        "z": 0
+      },
+      {
+        "node": "Ground/Glow",
+        "blend": "ADD",
+        "z": 0
+      },
+      {
+        "node": "Ground/Flash",
+        "blend": "ADD",
+        "z": 0
+      },
+      {
+        "node": "Particles",
+        "blend": "ADD",
+        "z": 0
+      }
+    ],
+    "limitations": [
+      "ADD then MIX is noncommutative: FloorLight lies below dark/body/residual; grouping all ADD above all MIX changes early overlap.",
+      "CanvasLayer replay loses world occlusion: Decal at z=-4 is hidden by the original ground but drawn over it by the flipbook.",
+      "Transparent Movie Maker RGB is premultiplied; a straight MIX sprite multiplies partial alpha again. Late decal is the only effect drawable surviving these windows."
+    ]
+  },
+  "clock": {
+    "recorded_traces_equal": true,
+    "hitstop": "time_scale 0.1 at captures 0..2, restored at 3; applies equally in bake/live/flip. Capture count is not effect-age; metadata must carry scaled physics age to avoid applying hit-stop twice.",
+    "ground_55_62": "Late Decal (2.0s fade) is hidden by world geometry live; overlay exposes it. Not a particle lifetime or hit-stop divergence.",
+    "black_101_105": "Late Decal partial alpha is applied twice by MIX replay; threshold crossing becomes prematurely zero. Particles lifetime is 0.5s, body 0.2s, residual 38/60s; none can explain this late tail.",
+    "one_frame_offset": "Old texture changes in frame_pre_draw appear one draw late: ground/live body expiry 52, flip centre still white at 52 and clears 53. Will update textures before rendering and record selected source index.",
+    "evidence": [
+      {
+        "frame": 55,
+        "baked_rgb_gt8": 16125,
+        "baked_rgb_times_alpha_gt8": 15710,
+        "ground_live": 0,
+        "ground_flip": 16063,
+        "black_live": 16125,
+        "black_flip": 15704
+      },
+      {
+        "frame": 56,
+        "baked_rgb_gt8": 16125,
+        "baked_rgb_times_alpha_gt8": 15710,
+        "ground_live": 0,
+        "ground_flip": 16043,
+        "black_live": 16125,
+        "black_flip": 15656
+      },
+      {
+        "frame": 57,
+        "baked_rgb_gt8": 16125,
+        "baked_rgb_times_alpha_gt8": 15704,
+        "ground_live": 0,
+        "ground_flip": 16032,
+        "black_live": 16125,
+        "black_flip": 15626
+      },
+      {
+        "frame": 58,
+        "baked_rgb_gt8": 16125,
+        "baked_rgb_times_alpha_gt8": 15674,
+        "ground_live": 0,
+        "ground_flip": 16001,
+        "black_live": 16125,
+        "black_flip": 15626
+      },
+      {
+        "frame": 59,
+        "baked_rgb_gt8": 16125,
+        "baked_rgb_times_alpha_gt8": 15656,
+        "ground_live": 70,
+        "ground_flip": 16054,
+        "black_live": 16125,
+        "black_flip": 15626
+      },
+      {
+        "frame": 60,
+        "baked_rgb_gt8": 16125,
+        "baked_rgb_times_alpha_gt8": 15626,
+        "ground_live": 70,
+        "ground_flip": 16049,
+        "black_live": 16095,
+        "black_flip": 15626
+      },
+      {
+        "frame": 61,
+        "baked_rgb_gt8": 16125,
+        "baked_rgb_times_alpha_gt8": 15626,
+        "ground_live": 70,
+        "ground_flip": 16036,
+        "black_live": 16095,
+        "black_flip": 15518
+      },
+      {
+        "frame": 62,
+        "baked_rgb_gt8": 16107,
+        "baked_rgb_times_alpha_gt8": 15626,
+        "ground_live": 0,
+        "ground_flip": 15964,
+        "black_live": 16095,
+        "black_flip": 15518
+      },
+      {
+        "frame": 101,
+        "baked_rgb_gt8": 12841,
+        "baked_rgb_times_alpha_gt8": 0,
+        "ground_live": 0,
+        "ground_flip": 14420,
+        "black_live": 12841,
+        "black_flip": 0
+      },
+      {
+        "frame": 102,
+        "baked_rgb_gt8": 12841,
+        "baked_rgb_times_alpha_gt8": 0,
+        "ground_live": 0,
+        "ground_flip": 14352,
+        "black_live": 12841,
+        "black_flip": 0
+      },
+      {
+        "frame": 103,
+        "baked_rgb_gt8": 12841,
+        "baked_rgb_times_alpha_gt8": 0,
+        "ground_live": 0,
+        "ground_flip": 14292,
+        "black_live": 12806,
+        "black_flip": 0
+      },
+      {
+        "frame": 104,
+        "baked_rgb_gt8": 12806,
+        "baked_rgb_times_alpha_gt8": 0,
+        "ground_live": 486,
+        "ground_flip": 14588,
+        "black_live": 12806,
+        "black_flip": 0
+      },
+      {
+        "frame": 105,
+        "baked_rgb_gt8": 12806,
+        "baked_rgb_times_alpha_gt8": 0,
+        "ground_live": 486,
+        "ground_flip": 14517,
+        "black_live": 12781,
+        "black_flip": 0
+      }
+    ]
+  },
+  "crop": {
+    "cause": "run_replay changes root.size/content_scale_size but leaves project viewport at 512 and canvas_items stretching active",
+    "fix": "Set project viewport/window overrides and runtime window/viewport to crop; disable content scaling; camera zoom ONE."
+  }
+}
