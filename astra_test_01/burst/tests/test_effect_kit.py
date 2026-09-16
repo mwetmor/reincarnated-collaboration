@@ -2119,7 +2119,7 @@ class ThrownFieldValidationTests(unittest.TestCase):
             self.assertTrue(assert_tick_schedule(ticks)['ff08_satisfied'])
         self.assertTrue(assert_tick_schedule([0,.1,.6,1.])['ff08_satisfied'])
         data=load_kit(kits/'poisonous_concoction_e3')
-        self.assertEqual(data['density'],1.)
+        self.assertEqual(data['density'],.75)
         for role,source in [('pulse','VF-prim-poison-lobe-01/poison_lobe_01_512.png'),('field_source','VF-prim-poison-puff-01/poison_puff_01_512.png')]:
             with Image.open(ROOT/'runs/C-5/artifacts'/source) as image: original=np.asarray(image.convert('RGBA'))
             with Image.open(kits/'poisonous_concoction_e3'/data['g2'][role]) as image: actual=np.asarray(image)
@@ -2146,7 +2146,7 @@ class ThrownFieldValidationTests(unittest.TestCase):
             source=ROOT/'runs/C-5/vfx_kits/v9/poisonous_concoction_e3'
             build(source/'kit.json',Path(tmp)/'kit')
             data=load_kit(Path(tmp)/'kit')
-            self.assertEqual(data['density'],1.)
+            self.assertEqual(data['density'],.75)
             self.assertEqual((Path(tmp)/'kit'/data['g2']['flask']).read_bytes(),(source/'primitives/flask.png').read_bytes())
 
 
@@ -2230,3 +2230,37 @@ class FieldDesignLapTests(unittest.TestCase):
         for dissolve, mask in [(0,[1,1,1,1]),(.5,[1,1,1,0]),(.7,[1,1,0,0]),(1,[0,0,0,0])]:
             result=material_pixels(pixels,data['material']['palette'],dissolve=dissolve,dissolve_order=data['material']['dissolve_order'])
             self.assertEqual((result[0,:,3]>0).astype(int).tolist(),mask)
+
+
+class AuraLoopValidationTests(unittest.TestCase):
+    def test_g4_explicit_grammar_support_and_original_coverage(self):
+        from export.effect_kit import validate_aura_loop, quantise_projectile
+        root=ROOT/'runs/C-5/vfx_kits/v9/healing_hands_e3';d=load_kit(root)
+        self.assertEqual(d['skill_spec'],json.loads((ROOT/'runs/C-5/specs/healing_hands.json').read_text()))
+        self.assertFalse(d['layers']['dark_duplicate']);self.assertTrue(d['screen_px'])
+        for role in ('ring','petal','seal'):
+            with Image.open(ROOT/f'runs/C-5/artifacts/VF-prim-holy-{role}-01/holy_{role}_01_512.png') as im: original=np.asarray(im)
+            with Image.open(root/d['g4'][role]['png']) as im: actual=np.asarray(im)
+            np.testing.assert_array_equal(actual,quantise_projectile(original))
+            np.testing.assert_array_equal(actual[...,3],original[...,3])
+        renamed=copy.deepcopy(d);renamed['name']='unrelated_name';validate_aura_loop(renamed,root,True)
+        for path,value in [(('skill_spec','grammar'),'G1'),(('skill_spec','mechanics','stack'),'stack'),(('g4','seal','scale'),.58),(('layers','dark_duplicate'),True),(('screen_px',),False),(('skill_spec','mechanics','pulse_cv_min'),.1)]:
+            bad=copy.deepcopy(d);target=bad
+            for key in path[:-1]: target=target[key]
+            target[path[-1]]=value
+            with self.subTest(path=path),self.assertRaises(ValueError):validate_aura_loop(bad,root,True)
+
+    def test_authored_ff08_contradiction_is_reported_and_asserted_without_repair(self):
+        from export.effect_kit import tick_schedule_report,assert_tick_schedule
+        d=load_kit(ROOT/'runs/C-5/vfx_kits/v9/healing_hands_e3');m=d['skill_spec']['mechanics']
+        report=tick_schedule_report(m['pulse_schedule_s'],m['pulse_cv_min'])
+        self.assertAlmostEqual(report['interval_cv'],0.18330621576014236)
+        self.assertFalse(report['ff08_satisfied'])
+        with self.assertRaisesRegex(ValueError,'FF-08'):assert_tick_schedule(m['pulse_schedule_s'],m['pulse_cv_min'])
+
+    def test_g4_build_roundtrip(self):
+        root=ROOT/'runs/C-5/vfx_kits/v9/healing_hands_e3'
+        work=ROOT/'runs/C-5/t3/T4u';work.mkdir(parents=True,exist_ok=True)
+        with tempfile.TemporaryDirectory(dir=work) as tmp:
+            build(root/'kit.json',Path(tmp)/'kit')
+            self.assertEqual(load_kit(root),load_kit(Path(tmp)/'kit'))

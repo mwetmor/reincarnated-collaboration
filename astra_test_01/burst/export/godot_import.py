@@ -406,6 +406,8 @@ def build_project(cells, out, vfx=None, gear_variant=None, scene=None, vfx_kit=N
                 raise ValueError('Plate image size differs from plate_size')
             plate.verify()
     kit = _load_vfx_kit(vfx_kit) if vfx_kit is not None else None
+    if kit is not None and 'g4' in kit.get('effect', {}):
+        raise ValueError('G4 aura loop requires --vfx-kits for explicit component dispatch')
     if kit is not None and 'g3' in kit.get('effect', {}):
         raise ValueError('G3 bolt chain requires --vfx-kits for explicit component dispatch')
     if kit is not None and 'g2' in kit.get('effect', {}):
@@ -708,8 +710,8 @@ def _load_vfx_kits(path):
             raise ValueError('tint multiply-tint override is retired for material kits')
         result.append({**kit, 'name': name, **({'tint': entry['tint']} if 'tint' in entry else {})})
     # Preserve the legacy twelve-entry limit; explicit grammar components extend it.
-    if len(result) > 12 and sum(not any(g in kit.get('effect', {}) for g in ('g2','g3')) for kit in result) > 12:
-        raise ValueError('VFX kits beyond twelve require explicit G2/G3 components')
+    if len(result) > 12 and sum(not any(g in kit.get('effect', {}) for g in ('g2','g3','g4')) for kit in result) > 12:
+        raise ValueError('VFX kits beyond twelve require explicit G2/G3/G4 components')
     by_name = {kit['name']: kit for kit in result}
     for kit in result:
         data = kit.get('effect', {})
@@ -1362,8 +1364,15 @@ def _write_vfx_kits(out, kits, base, cells, socket_data, annotation):
     if has_g2: _write_g2_component(out)
     has_g3 = any('g3' in kit.get('effect', {}) for kit in kits)
     if has_g3: _write_g3_component(out)
+    has_g4 = any('g4' in kit.get('effect', {}) for kit in kits)
+    if has_g4: _write_g4_component(out)
     for index, kit in enumerate(kits):
         name = kit['name']
+        if 'g4' in kit.get('effect', {}):
+            report = _write_g4_kit(out, kit)
+            reports.append({'name':name, **report})
+            entries.append(_g4_config(kit))
+            continue
         if 'g3' in kit.get('effect', {}):
             report = _write_g3_kit(out, kit)
             reports.append({'name':name, **report})
@@ -1437,6 +1446,10 @@ def _write_vfx_kits(out, kits, base, cells, socket_data, annotation):
         directional = directional.replace('const G1 = preload("res://scripts/vfx_g1.gd")', 'const G1 = preload("res://scripts/vfx_g1.gd")\nconst G3 = preload("res://scripts/vfx_g3.gd")')
         # Resolve the instant target from the current release socket on the ready frame.
         directional = directional.replace('    if not cast_ready:', '    if kit.get("grammar", "G1") == "G3":\n        if not cast_ready:\n            await get_tree().physics_frame\n        if not is_inside_tree(): return\n        var release_socket: Variant = _socket_world()\n        if release_socket == null: return\n        var instant_target: Dictionary = G3.resolve_target(get_tree(), release_socket, FACING_VECTORS[facing], float(kit.range_px), self)\n        G3.acquire(get_parent(), kit, release_socket, instant_target, self, art_scale)\n        return\n    if not cast_ready:')
+    if has_g4:
+        directional = directional.replace('const G1 = preload("res://scripts/vfx_g1.gd")', 'const G1 = preload("res://scripts/vfx_g1.gd")\nconst G4 = preload("res://scripts/vfx_g4.gd")')
+        # Root-bound support dispatch precedes socket validation, flash and aim.
+        directional = directional.replace('    cast_fired = true\n', '    cast_fired = true\n    if VFX_KITS[cast_kit_index].get("grammar", "") == "G4":\n        if not cast_ready:\n            await get_tree().physics_frame\n        if is_inside_tree(): G4.acquire(self, VFX_KITS[cast_kit_index])\n        return\n')
     (out/'scripts/keeper.gd').write_text(keeper+directional+'\nconst VFX_KITS = '+
                                        json.dumps(entries, allow_nan=False)+'\n'+PICKER_SCRIPT)
     settings = out/'project.godot'
@@ -4037,3 +4050,266 @@ func _strike_stop() -> void:
 
 if __name__ == '__main__':
     main()
+
+
+# T4u: explicit G4 dispatch, with no target resolution in the renderer.
+def _g4_config(kit):
+    from export.effect_kit import tick_schedule_report
+    d=kit['effect'];m=d['skill_spec']['mechanics'];p=d['skill_spec']['presentation'];g=d['g4'];root='res://vfx/'+kit['name']+'/'
+    return dict(name=kit['name'],grammar='G4',screen_px=True,bolt='res://scenes/vfx/g4_aura_loop.tscn',flare=root+'flare.tres',
+                radius_px=m['radius_px'],duration_s=m['duration_s'],pulses=m['pulse_schedule_s'],
+                schedule=tick_schedule_report(m['pulse_schedule_s'],m['pulse_cv_min']),
+                orbit_period_s=p['phase_envelope_s']['ring_orbit_period'],petal_life_s=p['phase_envelope_s']['petal_life'],
+                release_s=g['release_s'],seed=g['seed'],support_tint=g['support_tint'],
+                primitives={role:dict(g[role],png=root+g[role]['png'],material=root+'materials/'+role.title()+'.tres') for role in ('ring','petal','seal')},
+                halo_material=root+'materials/Halo.tres',floor_material=root+'materials/FloorLight.tres')
+
+
+def _write_g4_kit(out, kit):
+    import numpy as np
+    from export.effect_kit import distance_field,write_vfx_material,MATERIAL_BINDING_SCRIPT
+    d=kit['effect'];root='vfx/'+kit['name'];dest=out/root
+    for path in kit['root'].rglob('*'):
+        if path.is_file():
+            target=dest/path.relative_to(kit['root']);target.parent.mkdir(parents=True,exist_ok=True);shutil.copyfile(path,target)
+    for phase,folder in [('cast','flare'),('travel','travel'),('impact','impact')]:
+        frames=d['phases'][phase]['frames']
+        write_spriteframes(out,root+'/'+folder+'.tres',{folder:([root+'/'+f['file'] for f in frames],1,False)}, {folder:[f['hold_frames']/60 for f in frames]})
+    (dest/'distance').mkdir(exist_ok=True)
+    for role in ('ring','petal','seal'):
+        with Image.open(dest/d['g4'][role]['png']) as im:a=np.asarray(im)
+        field=root+'/distance/'+role+'.png';Image.fromarray(distance_field(a)).save(out/field)
+        write_vfx_material(out,root+'/materials/'+role.title()+'.tres',dict(d['material'],blend_mode='MIX' if role=='seal' else 'ADD'),field)
+    for label,role in [('Body','petal'),('Additive','petal'),('Halo','seal'),('FloorLight','seal')]:
+        write_vfx_material(out,root+'/materials/'+label+'.tres',d['material'],root+'/distance/'+role+'.png')
+    (out/f'scripts/vfx_{kit["name"]}_material.gd').write_text('extends RefCounted\n'+MATERIAL_BINDING_SCRIPT)
+    return {'grammar':'G4','frames':3,'schedule':_g4_config(kit)['schedule']}
+
+
+def _write_g4_component(out):
+    (out/'scripts').mkdir(parents=True,exist_ok=True);(out/'scenes/vfx').mkdir(parents=True,exist_ok=True)
+    (out/'scripts/vfx_g4.gd').write_text(G4_SCRIPT)
+    (out/'scripts/vfx_contact_label.gd').write_text(CONTACT_LABEL_SCRIPT)
+    scene='[gd_scene load_steps=2 format=3]\n[ext_resource type="Script" path="res://scripts/vfx_g4.gd" id="G4"]\n[node name="G4AuraLoop" type="Node2D"]\nscript = ExtResource("G4")\ntexture_filter = 2\n'
+    for name,kind,parent in [('Ground','Node2D','.'),('Seal','Sprite2D','Ground'),('Halo','Sprite2D','Ground'),('FloorLight','Sprite2D','Ground'),('Ring','Node2D','.'),('Petals','Node2D','.')]:
+        scene+='\n[node name="'+name+'" type="'+kind+'" parent="'+parent+'"]\ntexture_filter = 2\n'
+    (out/'scenes/vfx/g4_aura_loop.tscn').write_text(scene)
+
+
+G4_SCRIPT = r'''extends Node2D
+static var events: Array = []
+static var label_events: Array = []
+static var next_id: int = 0
+var effect_id: int = 0
+var generation: int = 0
+var config: Dictionary = {}
+var caster: Node2D
+var age: int = 0
+var pulse_index: int = 0
+var active: bool = false
+var releasing: bool = false
+var rng := RandomNumberGenerator.new()
+var tinted: Array = []
+var trace: Array = []
+
+static func acquire(owner_root: Node2D, kit: Dictionary) -> Node2D:
+    if not is_instance_valid(owner_root) or kit.get("grammar", "") != "G4": return null
+    for child in owner_root.get_children():
+        if child.has_meta("g4_aura") and child.config.name == kit.name:
+            child.start(kit, owner_root, true)
+            return child
+    var effect: Node2D = load("res://scenes/vfx/g4_aura_loop.tscn").instantiate()
+    next_id += 1
+    effect.effect_id = next_id
+    effect.set_meta("g4_aura", true)
+    owner_root.add_child(effect)
+    effect.start(kit, owner_root, false)
+    return effect
+
+func age_frames() -> int:
+    return age
+
+func _record(event: String, extra: Dictionary = {}) -> void:
+    var entry: Dictionary = {"event":event,"effect_id":effect_id,"generation":generation,"age_frames":age}
+    entry.merge(extra)
+    events.append(entry)
+
+func _bind(sprite: Sprite2D, role: String) -> void:
+    var p: Dictionary = config.primitives[role]
+    sprite.texture = load(p.png)
+    sprite.centered = false
+    sprite.offset = -Vector2(p.pivot[0],p.pivot[1])
+    sprite.scale = Vector2.ONE * float(p.scale)
+    sprite.material = load(p.material).duplicate()
+    sprite.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR
+
+func _absolute_z(node: CanvasItem) -> int:
+    var total: int = node.z_index
+    var cursor: Node = node.get_parent()
+    while node.z_as_relative and cursor is CanvasItem:
+        node = cursor
+        total += node.z_index
+        cursor = cursor.get_parent()
+    return total
+
+func _sync() -> void:
+    # Parent ownership supplies immediate translation; remove inherited art scale/rotation.
+    global_transform = Transform2D(0.0, caster.global_position)
+    var actor_z: int = _absolute_z(caster)
+    $Ground.z_as_relative = false
+    $Ground.z_index = actor_z-1
+    for segment in $Ring.get_children():
+        segment.z_as_relative = false
+        segment.z_index = actor_z-1 if segment.position.y<0 else actor_z+1
+    $Petals.z_as_relative = false
+    $Petals.z_index = actor_z+1
+
+func start(kit: Dictionary, owner_root: Node2D, refresh: bool) -> void:
+    _restore_tints()
+    config = kit.duplicate(true)
+    caster = owner_root
+    generation += 1
+    age = 0
+    pulse_index = 0
+    releasing = false
+    active = true
+    rng.seed = int(config.seed)
+    for container in [$Ring,$Petals]:
+        for child in container.get_children(): child.free()
+    _bind($Ground/Seal,"seal")
+    $Ground/Seal.rotation = 0.0
+    $Ground/Seal.modulate.a = .8
+    for name in ["Halo","FloorLight"]:
+        var sprite: Sprite2D = get_node("Ground/"+name)
+        _bind(sprite,"seal")
+        sprite.material = load(config.halo_material if name=="Halo" else config.floor_material).duplicate()
+        sprite.scale *= 1.02 if name=="Halo" else 1.15
+        sprite.modulate.a = .2 if name=="Halo" else .15
+    for i in range(5):
+        var segment := Sprite2D.new()
+        segment.name = "Segment"+str(i)
+        $Ring.add_child(segment)
+        _bind(segment,"ring")
+    show()
+    _record("refresh" if refresh else "release",{"clock_reset":0})
+    if not bool(config.schedule.ff08_satisfied):
+        _record("schedule_assertion",{"interval_cv":config.schedule.interval_cv,"minimum_cv":config.schedule.minimum_cv,"satisfied":false})
+        push_warning("FF-08 authored pulse interval CV below minimum; schedule retained")
+    _clock(0)
+    set_physics_process(true)
+
+func _physics_process(_delta: float) -> void:
+    _clock(age+1)
+
+func _clock(frame: int) -> void:
+    if not active: return
+    if not is_instance_valid(caster): cancel(); return
+    age = frame
+    _tint_clock()
+    var ending: int = ceili(float(config.duration_s)*60)
+    var release_frames: int = ceili(float(config.release_s)*60)
+    while pulse_index<config.pulses.size() and roundi(float(config.pulses[pulse_index])*60)<=age and age<ending:
+        _pulse(pulse_index)
+        pulse_index += 1
+    if age>=ending and not releasing:
+        releasing = true
+        _record("release_start")
+    var fade: float = clampf(float(age-ending)/release_frames,0,1)
+    $Ground/Seal.rotation = TAU*float(age)/480.0
+    $Ground/Seal.modulate.a = .8*(1.0-fade)
+    $Ground/Halo.modulate.a = .2*(1.0-fade)
+    $Ground/FloorLight.modulate.a = .15*(1.0-fade)
+    for i in range(5):
+        var segment: Sprite2D = $Ring.get_child(i)
+        var theta: float = TAU*(float(i)/5.0+float(age)/60.0/float(config.orbit_period_s))
+        segment.position = Vector2(cos(theta),sin(theta)*.58)*float(config.radius_px)
+        segment.rotation = 0.0
+        segment.material.set_shader_parameter("erode",fade)
+    for petal in $Petals.get_children():
+        var life: int = age-int(petal.get_meta("born"))
+        var total: int = roundi(float(config.petal_life_s)*60)
+        if life>=total:
+            _record("petal_end",{"petal_id":petal.get_meta("id"),"lifetime_frames":life})
+            petal.free()
+            continue
+        var progress: float = float(life)/float(total-1)
+        petal.scale = Vector2.ONE*float(config.primitives.petal.scale)*lerpf(.6,1.0,progress)
+        petal.position = petal.get_meta("origin")+Vector2(0,-60.0*progress)
+        petal.rotation = 0.0
+        var dissolve: float = 0.0 if life<18 else (.5 if life<22 else .7)
+        petal.material.set_shader_parameter("dissolve",dissolve)
+        petal.modulate.a = 1.0 if life<18 else 1.0-float(life-18)/9.0
+    _sync()
+    trace.append({"age_frames":age,"generation":generation,"owner":[caster.global_position.x,caster.global_position.y],"seal":[ $Ground/Seal.global_position.x,$Ground/Seal.global_position.y],"ring_center":[ $Ring.global_position.x,$Ring.global_position.y],"petal_count":$Petals.get_child_count(),"pulse_count":pulse_index,"erode":fade,"seal_alpha":$Ground/Seal.modulate.a})
+    if age>=ending+release_frames:
+        _record("expire")
+        active = false
+        _restore_tints()
+        hide()
+        set_physics_process(false)
+        queue_free()
+
+func _pulse(index: int) -> void:
+    _record("pulse",{"pulse_index":index,"scheduled_age_frames":roundi(float(config.pulses[index])*60)})
+    for i in range(6):
+        var petal := Sprite2D.new()
+        $Petals.add_child(petal)
+        _bind(petal,"petal")
+        var theta: float = rng.randf_range(0,TAU)
+        var point := Vector2(cos(theta),sin(theta)*.58)*float(config.radius_px)
+        petal.set_meta("born",age)
+        petal.set_meta("origin",point)
+        petal.set_meta("id",index*6+i)
+        _record("petal_start",{"petal_id":index*6+i,"origin":[point.x,point.y],"lifetime_frames":27})
+    var actors: Array = get_tree().get_nodes_in_group("vfx_targets")
+    for actor in get_tree().get_nodes_in_group("vfx_actors"):
+        if actor not in actors: actors.append(actor)
+    if caster not in actors: actors.append(caster)
+    for actor in actors:
+        if not is_instance_valid(actor) or not actor is Node2D or actor.global_position.distance_to(caster.global_position)>float(config.radius_px): continue
+        var body_index: int = int(actor.get_meta("body_index",actor.get_instance_id()))
+        var victim: CanvasItem = actor
+        var prop: Node = actor.get_parent().get_node_or_null("Prop_"+String(actor.name).trim_prefix("VfxTarget_"))
+        if prop is CanvasItem: victim=prop
+        var original: Color = victim.modulate
+        for entry in tinted:
+            if entry.node==victim: original=entry.original
+        tinted=tinted.filter(func(entry):return entry.node!=victim)
+        tinted.append({"node":victim,"original":original,"end":age+9})
+        var c: Array = config.support_tint
+        victim.modulate=Color(c[0],c[1],c[2],original.a)
+        _record("support_tint",{"body_index":body_index,"pulse_index":index,"colour":c})
+        var label: Label = null
+        for candidate in get_tree().get_nodes_in_group("vfx_contact_labels"):
+            if not candidate.visible:
+                label=candidate
+                break
+        if label==null:
+            label=Label.new()
+            label.set_script(load("res://scripts/vfx_contact_label.gd"))
+            caster.get_parent().add_child(label)
+        label.top_level=true
+        label.scale=Vector2.ONE
+        label.rotation=0.0
+        label.show_contact(actor.global_position+Vector2(0,-70),"+",Color(c[0],c[1],c[2],c[3]),effect_id,body_index,label_events)
+        _record("heal_label",{"body_index":body_index,"pulse_index":index,"text":"+"})
+
+func _tint_clock() -> void:
+    for entry in tinted:
+        if is_instance_valid(entry.node) and age>=int(entry.end): entry.node.modulate=entry.original
+    tinted=tinted.filter(func(entry):return is_instance_valid(entry.node) and age<int(entry.end))
+
+func _restore_tints() -> void:
+    for entry in tinted:
+        if is_instance_valid(entry.node): entry.node.modulate=entry.original
+    tinted.clear()
+
+func cancel() -> void:
+    _record("cancel")
+    active=false
+    _restore_tints()
+    queue_free()
+
+func _exit_tree() -> void:
+    _restore_tints()
+'''

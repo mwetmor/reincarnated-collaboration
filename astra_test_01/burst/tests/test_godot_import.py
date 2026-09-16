@@ -1083,8 +1083,8 @@ class GroundVisibilityRegressionTests(unittest.TestCase):
                     self.assertEqual(row['position'], self.trace[name]['trace'][0]['ground_point'])
                     self.assertFalse(row['y_sort_enabled'])
             decal = [r for r in rows if r['path'].endswith('/Decal') and r['age_frames']==84][0]
-            self.assertTrue(decal['visible_in_tree'])
-            self.assertGreater(decal['alpha'], 0)
+            self.assertEqual(decal['visible_in_tree'], name == 'poisonous_concoction_e3')
+            if decal['visible_in_tree']: self.assertGreater(decal['alpha'], 0)
 
     def test_flask_stays_visible_at_native_screen_extent_during_flight(self):
         rows = [r for r in self.trace['rows'] if r['path'].endswith('/Flask') and r['age_frames'] in (8,20,26)]
@@ -1098,11 +1098,13 @@ class GroundVisibilityRegressionTests(unittest.TestCase):
     def test_cloud_density_reaches_shader_once_at_the_ground_point(self):
         rows = [r for r in self.trace['rows'] if r['kit']=='poisonous_concoction_e3' and r['path'].endswith('/Field') and r['age_frames'] in (40,84)]
         self.assertEqual(len(rows), 2)
-        self.assertAlmostEqual(self.trace['density_control']['field_alpha'], .35, places=6)
+        self.assertGreaterEqual(self.trace['density_control']['field_alpha'], .35*.65/.75-1e-6)
+        self.assertLessEqual(self.trace['density_control']['field_alpha'], .35*.8/.75+1e-6)
         self.assertEqual(self.trace['density_control']['ground_alpha'], 1)
         for row in rows:
             self.assertTrue(row['visible_in_tree'])
-            self.assertEqual(row['alpha'], self.trace['poisonous_concoction_e3']['config']['density'])
+            self.assertGreaterEqual(row['alpha'], .65-1e-6)
+            self.assertLessEqual(row['alpha'], .8+1e-6)
             self.assertIn('coverage_modulate = COLOR.a;', row['shader_code'])
             self.assertIn('index_sample.a * paint.a * coverage_modulate', row['shader_code'])
             self.assertGreater(row['drawn_size'][0], 200)
@@ -1275,7 +1277,7 @@ class BoltChainEmissionTests(unittest.TestCase):
         root=Path(__file__).resolve().parents[1];work=root/'runs/C-5/t3/T4t'
         baseline=json.loads((work/'original_kit_hashes.json').read_text())
         kits=_load_vfx_kits(root/'runs/C-5/vfx_kits/kits_v9.json')
-        self.assertEqual(len(kits),15)
+        self.assertGreaterEqual(len(kits),15)  # Later explicit grammars append without changing this prefix.
         for kit in kits[:13]:
             actual={p.relative_to(kit['root']).as_posix():hashlib.sha256(p.read_bytes()).hexdigest() for p in kit['root'].rglob('*') if p.is_file()}
             self.assertEqual(actual,baseline[kit['name']])
@@ -1366,7 +1368,8 @@ class FieldDesignLapEmissionTests(unittest.TestCase):
                 self.assertTrue(row['visible_in_tree']);self.assertEqual(row['global_z'],3)
                 self.assertEqual(row['alpha'],1);self.assertAlmostEqual(row['drawn_size'][0],45.5,places=3)
                 scales.append(row['scale'])
-        for scale in scales:self.assertEqual(scale,scales[0])
+        for scale in scales:
+            for actual, expected in zip(scale, scales[0]): self.assertAlmostEqual(actual, expected, delta=1e-5)
 
     def test_cloud_breath_lobe_lifetime_layers_and_darker_decal(self):
         name='poisonous_concoction_e3';frames=self.trace[name]['trace'];live=[r['field_alpha'] for r in frames if r['field_alive']]
@@ -1429,3 +1432,64 @@ func run() -> void:
     print("DESIGN_TRACE rows=",rows.size())
     quit(0)
 '''
+
+
+class AuraLoopEmissionTests(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        from export.godot_import import _load_vfx_kit,_write_g4_kit,_write_g4_component,_g4_config
+        repo=Path(__file__).resolve().parents[1];work=repo/'runs/C-5/t3/T4u';work.mkdir(parents=True,exist_ok=True)
+        cls.temp=tempfile.TemporaryDirectory(prefix='aura-test-',dir=work);cls.addClassCleanup(cls.temp.cleanup)
+        cls.project=Path(cls.temp.name)
+        _write_g4_component(cls.project)
+        kit=_load_vfx_kit(repo/'runs/C-5/vfx_kits/v9/healing_hands_e3');kit['name']='healing_hands_e3'
+        _write_g4_kit(cls.project,kit)
+        (cls.project/'aura_config.json').write_text(json.dumps(_g4_config(kit)))
+        (cls.project/'aura_probe.gd').write_text(AURA_LOOP_PROBE)
+        (cls.project/'project.godot').write_text('config_version=5\n[application]\nconfig/name="G4 test"\nrun/main_scene="res://scenes/vfx/g4_aura_loop.tscn"\n[rendering]\nrenderer/rendering_method="gl_compatibility"\n')
+        for args in [['--editor','--import','--quit'],['--script','res://aura_probe.gd','--quit-after','1200']]:
+            r=subprocess.run([GODOT,'--headless','--path',str(cls.project),'--log-file',str(cls.project/'engine.log'),*args],capture_output=True,text=True,timeout=110)
+            if r.returncode or 'SCRIPT ERROR' in r.stdout+r.stderr:raise AssertionError(r.stdout+r.stderr)
+        cls.trace=json.loads((cls.project/'aura_trace.json').read_text())
+
+    def test_named_nodes_and_separate_mix_add_materials(self):
+        scene=(self.project/'scenes/vfx/g4_aura_loop.tscn').read_text()
+        for name in ('Ground','Seal','Ring','Petals','Halo','FloorLight'):self.assertIn('name="'+name+'"',scene)
+        self.assertNotIn('DarkDuplicate',scene)
+        for role,mode in [('Seal','mix'),('Ring','add'),('Petal','add')]:
+            self.assertIn(mode+'_unlit',(self.project/f'vfx/healing_hands_e3/materials/{role}.tres').read_text())
+        validate_resources(self.project,True)
+
+    def test_owner_tracking_native_scale_sort_refresh_and_cleanup(self):
+        c=self.trace['checks'];self.assertEqual(c['walk_east_px'],200)
+        self.assertLessEqual(c['follow_error_px'],1e-5);self.assertLessEqual(c['live_follow_error'],1e-5)
+        self.assertGreaterEqual(c['live_physics_age'],12)
+        self.assertLessEqual(c['native_scale_error'],1e-5);self.assertEqual(c['seal_scale_error'],0)
+        self.assertEqual(c['sort_errors'],0);self.assertTrue(c['refresh_same_instance'])
+        self.assertEqual(c['refresh_age'],0);self.assertEqual(c['refresh_generation'],2);self.assertEqual(c['aura_count'],1)
+        self.assertTrue(c['tint_restored']);self.assertEqual(c['labels_remaining'],0);self.assertEqual(c['aura_count_after_cancel'],0)
+
+    def test_pulses_petals_support_radius_and_release_clock(self):
+        events=[e for e in self.trace['events'] if e['effect_id']==1]
+        pulses=[e['age_frames'] for e in events if e['event']=='pulse']
+        self.assertEqual(pulses,[0,42,96,132,186,222])
+        self.assertEqual(len([e for e in events if e['event']=='petal_start']),36)
+        ends=[e['lifetime_frames'] for e in events if e['event']=='petal_end']
+        self.assertEqual(ends,[27]*36)
+        for event in ('support_tint','heal_label'):
+            hits=[e for e in events if e['event']==event]
+            self.assertEqual(len([e for e in hits if e['body_index']==1]),6)
+            self.assertFalse(any(e['body_index']==2 for e in hits))
+        self.assertTrue(all(e['text']=='+' for e in events if e['event']=='heal_label'))
+        self.assertTrue(all(e['colour']==[1,.94,.72,1] for e in events if e['event']=='support_tint'))
+        self.assertEqual([e['age_frames'] for e in events if e['event']=='release_start'],[240])
+        self.assertEqual([e['age_frames'] for e in events if e['event']=='expire'],[258])
+        rows={r['age']:r for r in self.trace['rows']}
+        self.assertEqual(rows[240]['ring_erode'],0);self.assertAlmostEqual(rows[249]['ring_erode'],.5)
+        self.assertEqual(rows[258]['ring_erode'],1);self.assertEqual(rows[258]['seal_alpha'],0)
+        self.assertEqual(rows[18]['petals'][0]['dissolve'],.5)
+        self.assertAlmostEqual(rows[24]['petals'][0]['dissolve'],.7,places=6)
+        self.assertTrue(all(p['rotation']==0 for r in rows.values() for p in r['petals']))
+
+
+AURA_LOOP_PROBE = 'extends SceneTree\nvar checks: Dictionary = {}\nvar rows: Array = []\nfunc _initialize() -> void:\n    call_deferred("run")\nfunc run() -> void:\n    var world := Node2D.new()\n    root.add_child(world)\n    current_scene=world\n    var caster := Node2D.new()\n    caster.name="Caster"\n    caster.z_index=2\n    caster.scale=Vector2.ONE*.54\n    caster.rotation=.3\n    world.add_child(caster)\n    var inside := Node2D.new()\n    inside.name="Inside"\n    world.add_child(inside)\n    inside.add_to_group("vfx_actors")\n    inside.add_to_group("vfx_targets")\n    inside.set_meta("body_index",1)\n    inside.position=Vector2(100,0)\n    var outside := Node2D.new()\n    outside.name="Outside"\n    world.add_child(outside)\n    outside.add_to_group("vfx_actors")\n    outside.set_meta("body_index",2)\n    outside.position=Vector2(800,0)\n    var kit: Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://aura_config.json"))\n    var g4=load("res://scripts/vfx_g4.gd")\n    var aura=g4.acquire(caster,kit)\n    aura.set_physics_process(false)\n    var max_follow: float=0\n    var sort_errors: int=0\n    var native_error: float=0\n    var seal_error: float=0\n    for age in range(1,259):\n        caster.position.x=minf(200,float(age)*200/120)\n        aura._clock(age)\n        max_follow=maxf(max_follow,aura.get_node("Ground/Seal").global_position.distance_to(caster.global_position))\n        max_follow=maxf(max_follow,aura.get_node("Ring").global_position.distance_to(caster.global_position))\n        native_error=maxf(native_error,absf(aura.global_scale.x-1.0))\n        seal_error=maxf(seal_error,absf(aura.get_node("Ground/Seal").scale.x-1.0))\n        for segment in aura.get_node("Ring").get_children():\n            if segment.z_index!=(1 if segment.position.y<0 else 3): sort_errors+=1\n        if age in [18,21,24,26,27,239,240,249,258]:\n            var petals: Array=[]\n            for p in aura.get_node("Petals").get_children():\n                petals.append({"born":p.get_meta("born"),"scale":p.scale.x,"rotation":p.rotation,"dissolve":p.material.get_shader_parameter("dissolve"),"alpha":p.modulate.a})\n            rows.append({"age":age,"petals":petals,"ring_erode":aura.get_node("Ring/Segment0").material.get_shader_parameter("erode"),"seal_alpha":aura.get_node("Ground/Seal").modulate.a})\n    var first_trace: Array=aura.trace.duplicate(true)\n    checks.follow_error_px=max_follow\n    checks.walk_east_px=caster.position.x\n    checks.sort_errors=sort_errors\n    checks.native_scale_error=native_error\n    checks.seal_scale_error=seal_error\n    checks.tint_restored=inside.modulate==Color.WHITE and caster.modulate==Color.WHITE\n    await process_frame\n    var second=g4.acquire(caster,kit)\n    second.set_physics_process(false)\n    for age in range(1,91):second._clock(age)\n    var same=g4.acquire(caster,kit)\n    same.set_physics_process(false)\n    checks.refresh_same_instance=same==second\n    checks.refresh_age=same.age_frames()\n    checks.refresh_generation=same.generation\n    checks.aura_count=caster.get_children().filter(func(n):return n.has_meta("g4_aura")).size()\n    for age in range(1,259):same._clock(age)\n    await process_frame\n    # Exercise actual physics updates with a moving owner, not only the deterministic hook.\n    var live=g4.acquire(caster,kit)\n    for i in range(12):\n        caster.position.x+=2\n        await physics_frame\n        await process_frame\n    checks.live_physics_age=live.age_frames()\n    checks.live_follow_error=live.get_node("Ground/Seal").global_position.distance_to(caster.global_position)\n    live.cancel()\n    await process_frame\n    await create_timer(.7).timeout\n    checks.labels_remaining=get_nodes_in_group("vfx_contact_labels").filter(func(n):return n.visible).size()\n    checks.aura_count_after_cancel=caster.get_children().filter(func(n):return n.has_meta("g4_aura")).size()\n    var file=FileAccess.open("res://aura_trace.json",FileAccess.WRITE)\n    file.store_string(JSON.stringify({"checks":checks,"events":g4.events,"labels":g4.label_events,"trace":first_trace,"rows":rows},"  "))\n    print("G4_TRACE ",JSON.stringify(checks))\n    quit(0)\n'

@@ -542,6 +542,8 @@ def load_pieces(config, root, runtime=False):
 
 def _validate(data, root, runtime=False):
     _reject_retired(data)
+    if isinstance(data, dict) and 'g4' in data:
+        return validate_aura_loop(data, root, runtime)
     if isinstance(data, dict) and 'g3' in data:
         return validate_bolt_chain(data, root, runtime)
     if isinstance(data, dict) and 'g2' in data:
@@ -750,6 +752,8 @@ def build(effect_json, out_dir):
         data, root = json.loads(path.read_text()), path.parent
     else:
         data, root = copy.deepcopy(effect_json), Path.cwd()
+    if 'g4' in data:
+        return _build_aura_definition(data, root, Path(out_dir).resolve())
     if 'g3' in data:
         return _build_bolt_definition(data, root, Path(out_dir).resolve())
     if 'g2' in data:
@@ -1397,3 +1401,94 @@ def _build_bolt_definition(data, root, out):
     (out/'CREDITS.txt').write_text('G3: supplied indexed lightning primitives.\n')
     (out/'vfx_select.json').write_text(json.dumps({'source':'effect_kit','name':data['name']})+'\n')
     return {'id':'effect_kit','subject':data['name'],'passed':None,'value':{'grammar':'G3'},'threshold':None,'op':None,'unit':'kit','evidence':[str(out/'kit.json')],'notes':'Explicit instant bolt / chain.'}
+
+
+# T4u: owner-tracked support aura; the authored schedule is never repaired.
+def validate_aura_loop(data, root, runtime=False):
+    required={'name','element','element_class','screen_px','ground_squash','material','phases','layers','skill_spec','g4'}
+    _keys(data,required|{'pierce'},required,'G4 kit')
+    if not isinstance(data['name'],str) or not re.fullmatch(r'[A-Za-z_][A-Za-z0-9_]*',data['name']):
+        raise ValueError('name must be a safe identifier')
+    spec=data['skill_spec'];m=spec['mechanics'];p=spec['presentation'];g=data['g4']
+    if spec['grammar']!='G4' or any(m.get(k)!=v for k,v in dict(origin_socket='caster_root',aim_rule='owner-tracking',stack='refresh',termination='duration').items()):
+        raise ValueError('unsupported G4 mechanics; no inferred grammar')
+    if data['screen_px'] is not True or data['element_class']!='support' or data['element']!=spec['visual_treatment_id'] or data['ground_squash']!=.58:
+        raise ValueError('G4 requires support, screen_px and 0.58 orbit ellipse')
+    for key in ('radius_px','duration_s'): _number(m[key],1/60,4096,key)
+    _number(m['pulse_cv_min'],.25,1,'pulse_cv_min')
+    # Structural validity and the conductor's FF-08 assertion are separate.
+    tick_schedule_report(m['pulse_schedule_s'],m['pulse_cv_min'])
+    if m['pulse_schedule_s'][-1]>=m['duration_s']: raise ValueError('pulse outside aura lifetime')
+    if len({round(v*60) for v in m['pulse_schedule_s']})!=len(m['pulse_schedule_s']): raise ValueError('pulses collide on the 60 Hz clock')
+    envelope=p['phase_envelope_s']
+    if envelope['loop']!=m['duration_s'] or envelope['petal_life']!=.45: raise ValueError('G4 envelope disagrees')
+    _number(envelope['ring_orbit_period'],1/60,60,'ring_orbit_period')
+    if data['layers']!={'dark_duplicate':False,'glow':{'alpha':.2,'scale':1.02},'floor_light':{'duration_s':m['duration_s'],'radius_px':m['radius_px']}}:
+        raise ValueError('G4 support requires halo, floor light and dark duplicate OFF')
+    material=validate_material(data['material'])
+    if material['blend_mode']!='ADD' or not material.get('erode_outside_in') or material.get('dissolve_order')!=[[3],[2],[1,0]]:
+        raise ValueError('G4 requires ADD, outside-in release and dissolve 3,2,1+0')
+    _keys(g,{'ring','petal','seal','seed','release_s','support_tint'},{'ring','petal','seal','seed','release_s','support_tint'},'g4')
+    _number(g['seed'],0,2**32-1,'seed',True)
+    if g['release_s']!=.3 or g['support_tint']!=[1.,.94,.72,1.]: raise ValueError('G4 support/release contract disagrees')
+    assets={}
+    for role in ('ring','petal','seal'):
+        item=g[role];_keys(item,{'png','pivot','scale'},{'png','pivot','scale'},role)
+        if not isinstance(item['pivot'],list) or len(item['pivot'])!=2: raise ValueError('pivot requires xy')
+        for v in item['pivot']: _number(v,0,511,'pivot')
+        _number(item['scale'],.01,4,'scale')
+        if role=='seal' and item['scale']!=1.: raise ValueError('seal is already foreshortened; scale 1.0 required')
+        assets[item['png']]=_png(item['png'],root,confined=runtime)
+    _keys(data['phases'],set(PHASES),{'cast','travel','impact'},'phases')
+    for phase in data['phases'].values():
+        if not phase['frames']: raise ValueError('empty phase')
+        for f in phase['frames']:
+            _number(f['hold_frames'],1,math.inf,'hold_frames',True)
+        for src in [phase['sheet'],*[f['file'] for f in phase['frames']]]: assets[src]=_png(src,root,confined=runtime)
+    for path in assets.values():
+        with Image.open(path) as im:
+            a=np.asarray(im)
+            if im.mode!='RGBA' or im.size!=(512,512) or not np.any(a[...,3]): raise ValueError('G4 requires nonempty 512 RGBA')
+        rgb=a[...,:3][a[...,3]>0]
+        if not np.isin(rgb,[0,85,170,255]).all() or np.any(rgb[:,0]!=rgb[:,1]) or np.any(rgb[:,1]!=rgb[:,2]): raise ValueError('G4 requires four greyscale index planes')
+    return assets
+
+
+def build_aura_loop(spec_path, primitive_paths, out_dir, seed=2026):
+    spec=json.loads(Path(spec_path).read_text());out=Path(out_dir).resolve()
+    if out.exists() and any(out.iterdir()): raise ValueError('Output must be empty')
+    out.mkdir(parents=True,exist_ok=True);(out/'primitives').mkdir()
+    g=dict(seed=seed,release_s=.3,support_tint=[1.,.94,.72,1.])
+    for role in ('ring','petal','seal'):
+        with Image.open(primitive_paths[role]) as im: a=quantise_projectile(np.asarray(im.convert('RGBA')))
+        y,x=np.nonzero(a[...,3]);pivot=[float((x.min()+x.max())/2),float(y.max() if role=='petal' else (y.min()+y.max())/2)]
+        scale=(spec['presentation']['body_extents_bh']['petal']*130/(y.max()-y.min()+1) if role=='petal' else 1.)
+        file='primitives/'+role+'.png';Image.fromarray(a).save(out/file);g[role]=dict(png=file,pivot=pivot,scale=float(scale))
+    phases={}
+    for phase,folder in [('cast','flare'),('travel','travel'),('impact','impact')]:
+        (out/folder).mkdir();file=f'{folder}/{folder}_00.png';(out/file).write_bytes((out/g['petal']['png']).read_bytes())
+        phases[phase]=dict(sheet=file,frames=[dict(file=file,hold_frames=1)])
+    m=spec['mechanics']
+    data=dict(name=spec['skill_id']+'_e3',element=spec['visual_treatment_id'],element_class='support',screen_px=True,ground_squash=.58,
+              material=dict(palette=[[.18,.14,.055,1],[.52,.43,.19,1],[.88,.77,.43,1],[1.,.96,.78,1]],blend_mode='ADD',light_participation=False,erode_outside_in=True,dissolve_order=[[3],[2],[1,0]]),
+              phases=phases,layers={'dark_duplicate':False,'glow':{'alpha':.2,'scale':1.02},'floor_light':{'duration_s':m['duration_s'],'radius_px':m['radius_px']}},skill_spec=spec,g4=g,pierce=0)
+    validate_aura_loop(data,out,True)
+    (out/'kit.json').write_text(json.dumps(data,indent=2)+'\n')
+    (out/'vfx_select.json').write_text(json.dumps({'source':'effect_kit','name':data['name']})+'\n')
+    (out/'CREDITS.txt').write_text('G4: supplied holy ring, folded petal and interrupted seal; quantised index RGB, original alpha.\n')
+    return data
+
+
+def _build_aura_definition(data, root, out):
+    assets=validate_aura_loop(data,root,False)
+    if out.exists() and any(out.iterdir()): raise ValueError('Output must be empty')
+    if any(p.is_relative_to(out) for p in assets.values()): raise ValueError('Output overlaps inputs')
+    for src in assets:
+        if Path(src).is_absolute() or not (out/src).resolve().is_relative_to(out): raise ValueError('G4 requires confined relative assets')
+    out.mkdir(parents=True,exist_ok=True)
+    for src,path in assets.items():
+        target=out/src;target.parent.mkdir(parents=True,exist_ok=True);target.write_bytes(path.read_bytes())
+    (out/'kit.json').write_text(json.dumps(data,indent=2)+'\n')
+    (out/'vfx_select.json').write_text(json.dumps({'source':'effect_kit','name':data['name']})+'\n')
+    (out/'CREDITS.txt').write_text('G4: supplied indexed holy primitives.\n')
+    return {'id':'effect_kit','subject':data['name'],'passed':None,'value':{'grammar':'G4'},'threshold':None,'op':None,'unit':'kit','evidence':[str(out/'kit.json')],'notes':'Authored pulse schedule retained; assert_tick_schedule is the separate FF-08 instrument.'}
