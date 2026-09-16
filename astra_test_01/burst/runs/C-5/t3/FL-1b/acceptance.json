@@ -1,0 +1,1270 @@
+{
+  "task_id": "FL-1b",
+  "part_a": {
+    "ice_synthetic": {
+      "classification": "STALE FIXTURE, independently of the real emergence regression",
+      "diagnosis": "The original visibility probe advances the actual 520-pixel ice flight to age 26, then manually dispatches contact. FL-1a starts the nose 103.6 pixels ahead of the socket; this probe has already expired at age 25, so contact_body correctly ignores the inactive projectile and the travelling Head is hidden. Its own before trace records release at age 0 and expire at age 25, without contact. The fixture now samples live flight at ages 8, 16, 20 before its unchanged manual shatter/crown dispatch. Contact, positive travel visibility, shard-count equality, ground-layer and exact crown-position assertions are retained. This fixture is a visibility/dispatch instrument, not evidence that a physical shield collision works.",
+      "trace_before": "ice-before.json",
+      "fixture_change": "[8,20,26] -> [8,16,20]; no speed, range, socket or contact assertion changed"
+    },
+    "contact_geometry": {
+      "classification": "RUNTIME REGRESSION",
+      "diagnosis": "FL-1a translates the painted nose by rear-to-pivot length plus release separation/body clearance before the first physics query. For the near east shield, both fire arms start beyond the collider, so subsequent sweeps miss it. The shared G1 sweep now includes the initial socket-to-nose segment and continues to query at the painted leading tip. Contact events record that tip position and head impacts use it rather than the target centre. The recorded before/after scene traces reproduce fire no-contact before and shield contact for both fire arms and ice after; ice previously contacted inside this allowed shield fixture, and now contacts at its leading edge. Every contact is body 44, on frame 1, with zero reported collision lag. The exact v32 scene was not read because it is outside the task read allowlist.",
+      "before": "east-before.json",
+      "after": "east-after.json",
+      "origin": [
+        3760,
+        640
+      ],
+      "shield_centre": [
+        3911.25,
+        596
+      ],
+      "shield_footprint": {
+        "type": "16-vertex ellipse",
+        "w": 70.4,
+        "h": 30.8,
+        "source": "tests full-catalogue fixture CS-props-v24, dummy_humanoid_2 / PropCollision_44"
+      },
+      "fixture_layer_note": "The allowed v24 project has untagged collision polygons on layer 1. Probe copies its literal shield/dog polygons to layer 2, the G1 target layer; it does not change production collision masks.",
+      "edge_measurements": [
+        {
+          "kit": "fire_bolt_e1_B",
+          "edge_error_px": 2.8045597076416,
+          "tip_error_px": 0.0,
+          "contacts": [
+            {
+              "age_frames": 1,
+              "body_index": 44,
+              "collision_age_frames": 1,
+              "contact_class": "primary",
+              "contact_distance_px": 117.794868469238,
+              "contact_lag_frames": 0,
+              "effect_id": 25,
+              "event": "contact",
+              "kit": "fire_bolt_e1_B",
+              "phase": "head",
+              "position": [
+                3885.20751953125,
+                582.553649902344
+              ],
+              "strike_response": true,
+              "target_kind": "cursor",
+              "target_point": [
+                3911.25,
+                596.0
+              ]
+            }
+          ]
+        },
+        {
+          "kit": "fire_bolt_e1_A",
+          "edge_error_px": 2.8045597076416,
+          "tip_error_px": 0.0,
+          "contacts": [
+            {
+              "age_frames": 1,
+              "body_index": 44,
+              "collision_age_frames": 1,
+              "contact_class": "primary",
+              "contact_distance_px": 117.794868469238,
+              "contact_lag_frames": 0,
+              "effect_id": 26,
+              "event": "contact",
+              "kit": "fire_bolt_e1_A",
+              "phase": "head",
+              "position": [
+                3885.20751953125,
+                582.553649902344
+              ],
+              "strike_response": true,
+              "target_kind": "cursor",
+              "target_point": [
+                3911.25,
+                596.0
+              ]
+            }
+          ]
+        },
+        {
+          "kit": "ice_bolt_e2",
+          "edge_error_px": 2.69129824638367,
+          "tip_error_px": 0.0,
+          "contacts": [
+            {
+              "age_frames": 1,
+              "body_index": 44,
+              "collision_age_frames": 1,
+              "contact_class": "primary",
+              "contact_distance_px": 117.794868469238,
+              "contact_lag_frames": 0,
+              "effect_id": 27,
+              "event": "contact",
+              "kit": "ice_bolt_e2",
+              "phase": "head",
+              "position": [
+                3876.83520507812,
+                588.194946289062
+              ],
+              "strike_response": true,
+              "target_kind": "cursor",
+              "target_point": [
+                3911.25,
+                596.0
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "orb": {
+      "classification": "RUNTIME REGRESSION",
+      "diagnosis": "The original orb fixture completes its 240-frame flight/expiry observation but stalls on the second acquire call: FL-1a added bool(candidate.get(\"fizzling\")) to pool selection, while orb nodes have no fizzling property. Godot raises Nonexistent bool constructor for null, acquire returns null, the probe errors before quit, and Python reaches its unchanged 60-second timeout. Both optional draining/fizzling checks now compare the property with true, accepting absent properties as inactive without accepting active effects. The original fixture and assertions now complete, including age-90 expiry at [630,0], three ordered contacts, the twelve-node child pool, same-instance reuse and cancellation.",
+      "original_error": "Invalid call. Nonexistent bool constructor. acquire (res://scripts/vfx_g1.gd:51)",
+      "trace_after": "command-23-orb_trace.json",
+      "pool_nodes": 12,
+      "reuse_same_orb": true,
+      "cancel_children_active": 0,
+      "own_events": [
+        {
+          "age_frames": 0,
+          "effect_id": 1,
+          "event": "release",
+          "kit": "frozen_orb_e3",
+          "target_kind": "prop",
+          "target_point": [
+            160.0,
+            0.0
+          ]
+        },
+        {
+          "age_frames": 3,
+          "angle_deg": 285.581359863281,
+          "effect_id": 1,
+          "event": "child_emission",
+          "index": 0,
+          "kit": "frozen_orb_e3",
+          "pool_slot": 0,
+          "position": [
+            21.0,
+            0.0
+          ],
+          "scheduled_age": 3,
+          "target_kind": "prop",
+          "target_point": [
+            160.0,
+            0.0
+          ]
+        },
+        {
+          "age_frames": 7,
+          "angle_deg": 422.581359863281,
+          "effect_id": 1,
+          "event": "child_emission",
+          "index": 1,
+          "kit": "frozen_orb_e3",
+          "pool_slot": 1,
+          "position": [
+            49.0,
+            0.0
+          ],
+          "scheduled_age": 7,
+          "target_kind": "prop",
+          "target_point": [
+            160.0,
+            0.0
+          ]
+        },
+        {
+          "age_frames": 11,
+          "angle_deg": 559.581359863281,
+          "effect_id": 1,
+          "event": "child_emission",
+          "index": 2,
+          "kit": "frozen_orb_e3",
+          "pool_slot": 2,
+          "position": [
+            77.0,
+            0.0
+          ],
+          "scheduled_age": 11,
+          "target_kind": "prop",
+          "target_point": [
+            160.0,
+            0.0
+          ]
+        },
+        {
+          "age_frames": 13,
+          "angle_deg": 696.581359863281,
+          "effect_id": 1,
+          "event": "child_emission",
+          "index": 3,
+          "kit": "frozen_orb_e3",
+          "pool_slot": 3,
+          "position": [
+            91.0,
+            0.0
+          ],
+          "scheduled_age": 13,
+          "target_kind": "prop",
+          "target_point": [
+            160.0,
+            0.0
+          ]
+        },
+        {
+          "age_frames": 17,
+          "angle_deg": 833.581359863281,
+          "effect_id": 1,
+          "event": "child_emission",
+          "index": 4,
+          "kit": "frozen_orb_e3",
+          "pool_slot": 4,
+          "position": [
+            119.0,
+            0.0
+          ],
+          "scheduled_age": 17,
+          "target_kind": "prop",
+          "target_point": [
+            160.0,
+            0.0
+          ]
+        },
+        {
+          "age_frames": 19,
+          "body_index": 0,
+          "collision_age_frames": 19,
+          "contact_class": "primary",
+          "contact_distance_px": 160.0,
+          "contact_lag_frames": 0,
+          "effect_id": 1,
+          "event": "contact",
+          "kit": "frozen_orb_e3",
+          "phase": "head",
+          "position": [
+            132.029296875,
+            0.0
+          ],
+          "strike_response": true,
+          "target_kind": "prop",
+          "target_point": [
+            160.0,
+            0.0
+          ]
+        },
+        {
+          "age_frames": 20,
+          "angle_deg": 970.581359863281,
+          "effect_id": 1,
+          "event": "child_emission",
+          "index": 5,
+          "kit": "frozen_orb_e3",
+          "pool_slot": 3,
+          "position": [
+            140.0,
+            0.0
+          ],
+          "scheduled_age": 20,
+          "target_kind": "prop",
+          "target_point": [
+            160.0,
+            0.0
+          ]
+        },
+        {
+          "age_frames": 23,
+          "angle_deg": 1107.58135986328,
+          "effect_id": 1,
+          "event": "child_emission",
+          "index": 6,
+          "kit": "frozen_orb_e3",
+          "pool_slot": 0,
+          "position": [
+            161.0,
+            0.0
+          ],
+          "scheduled_age": 23,
+          "target_kind": "prop",
+          "target_point": [
+            160.0,
+            0.0
+          ]
+        },
+        {
+          "age_frames": 25,
+          "angle_deg": 1244.58135986328,
+          "effect_id": 1,
+          "event": "child_emission",
+          "index": 7,
+          "kit": "frozen_orb_e3",
+          "pool_slot": 3,
+          "position": [
+            175.0,
+            0.0
+          ],
+          "scheduled_age": 25,
+          "target_kind": "prop",
+          "target_point": [
+            160.0,
+            0.0
+          ]
+        },
+        {
+          "age_frames": 29,
+          "angle_deg": 1381.58135986328,
+          "effect_id": 1,
+          "event": "child_emission",
+          "index": 8,
+          "kit": "frozen_orb_e3",
+          "pool_slot": 0,
+          "position": [
+            203.0,
+            0.0
+          ],
+          "scheduled_age": 29,
+          "target_kind": "prop",
+          "target_point": [
+            160.0,
+            0.0
+          ]
+        },
+        {
+          "age_frames": 32,
+          "angle_deg": 1518.58135986328,
+          "effect_id": 1,
+          "event": "child_emission",
+          "index": 9,
+          "kit": "frozen_orb_e3",
+          "pool_slot": 1,
+          "position": [
+            224.0,
+            0.0
+          ],
+          "scheduled_age": 32,
+          "target_kind": "prop",
+          "target_point": [
+            160.0,
+            0.0
+          ]
+        },
+        {
+          "age_frames": 35,
+          "angle_deg": 1655.58135986328,
+          "effect_id": 1,
+          "event": "child_emission",
+          "index": 10,
+          "kit": "frozen_orb_e3",
+          "pool_slot": 2,
+          "position": [
+            245.0,
+            0.0
+          ],
+          "scheduled_age": 35,
+          "target_kind": "prop",
+          "target_point": [
+            160.0,
+            0.0
+          ]
+        },
+        {
+          "age_frames": 39,
+          "angle_deg": 1792.58135986328,
+          "effect_id": 1,
+          "event": "child_emission",
+          "index": 11,
+          "kit": "frozen_orb_e3",
+          "pool_slot": 3,
+          "position": [
+            273.0,
+            0.0
+          ],
+          "scheduled_age": 39,
+          "target_kind": "prop",
+          "target_point": [
+            160.0,
+            0.0
+          ]
+        },
+        {
+          "age_frames": 42,
+          "body_index": 1,
+          "collision_age_frames": 42,
+          "contact_class": "secondary",
+          "contact_distance_px": 320.0,
+          "contact_lag_frames": 0,
+          "effect_id": 1,
+          "event": "contact",
+          "kit": "frozen_orb_e3",
+          "phase": "head",
+          "position": [
+            292.00390625,
+            0.0
+          ],
+          "strike_response": false,
+          "target_kind": "prop",
+          "target_point": [
+            160.0,
+            0.0
+          ]
+        },
+        {
+          "age_frames": 42,
+          "angle_deg": 1929.58135986328,
+          "effect_id": 1,
+          "event": "child_emission",
+          "index": 12,
+          "kit": "frozen_orb_e3",
+          "pool_slot": 4,
+          "position": [
+            294.0,
+            0.0
+          ],
+          "scheduled_age": 42,
+          "target_kind": "prop",
+          "target_point": [
+            160.0,
+            0.0
+          ]
+        },
+        {
+          "age_frames": 44,
+          "angle_deg": 2066.58135986328,
+          "effect_id": 1,
+          "event": "child_emission",
+          "index": 13,
+          "kit": "frozen_orb_e3",
+          "pool_slot": 3,
+          "position": [
+            308.0,
+            0.0
+          ],
+          "scheduled_age": 44,
+          "target_kind": "prop",
+          "target_point": [
+            160.0,
+            0.0
+          ]
+        },
+        {
+          "age_frames": 46,
+          "angle_deg": 2203.58135986328,
+          "effect_id": 1,
+          "event": "child_emission",
+          "index": 14,
+          "kit": "frozen_orb_e3",
+          "pool_slot": 4,
+          "position": [
+            322.0,
+            0.0
+          ],
+          "scheduled_age": 46,
+          "target_kind": "prop",
+          "target_point": [
+            160.0,
+            0.0
+          ]
+        },
+        {
+          "age_frames": 49,
+          "angle_deg": 2340.58135986328,
+          "effect_id": 1,
+          "event": "child_emission",
+          "index": 15,
+          "kit": "frozen_orb_e3",
+          "pool_slot": 0,
+          "position": [
+            343.0,
+            0.0
+          ],
+          "scheduled_age": 49,
+          "target_kind": "prop",
+          "target_point": [
+            160.0,
+            0.0
+          ]
+        },
+        {
+          "age_frames": 53,
+          "angle_deg": 2477.58135986328,
+          "effect_id": 1,
+          "event": "child_emission",
+          "index": 16,
+          "kit": "frozen_orb_e3",
+          "pool_slot": 0,
+          "position": [
+            371.0,
+            0.0
+          ],
+          "scheduled_age": 53,
+          "target_kind": "prop",
+          "target_point": [
+            160.0,
+            0.0
+          ]
+        },
+        {
+          "age_frames": 57,
+          "angle_deg": 2614.58135986328,
+          "effect_id": 1,
+          "event": "child_emission",
+          "index": 17,
+          "kit": "frozen_orb_e3",
+          "pool_slot": 1,
+          "position": [
+            399.0,
+            0.0
+          ],
+          "scheduled_age": 57,
+          "target_kind": "prop",
+          "target_point": [
+            160.0,
+            0.0
+          ]
+        },
+        {
+          "age_frames": 59,
+          "angle_deg": 2751.58135986328,
+          "effect_id": 1,
+          "event": "child_emission",
+          "index": 18,
+          "kit": "frozen_orb_e3",
+          "pool_slot": 2,
+          "position": [
+            413.0,
+            0.0
+          ],
+          "scheduled_age": 59,
+          "target_kind": "prop",
+          "target_point": [
+            160.0,
+            0.0
+          ]
+        },
+        {
+          "age_frames": 62,
+          "angle_deg": 2888.58135986328,
+          "effect_id": 1,
+          "event": "child_emission",
+          "index": 19,
+          "kit": "frozen_orb_e3",
+          "pool_slot": 3,
+          "position": [
+            434.0,
+            0.0
+          ],
+          "scheduled_age": 62,
+          "target_kind": "prop",
+          "target_point": [
+            160.0,
+            0.0
+          ]
+        },
+        {
+          "age_frames": 65,
+          "body_index": 2,
+          "collision_age_frames": 65,
+          "contact_class": "secondary",
+          "contact_distance_px": 480.0,
+          "contact_lag_frames": 0,
+          "effect_id": 1,
+          "event": "contact",
+          "kit": "frozen_orb_e3",
+          "phase": "head",
+          "position": [
+            451.9921875,
+            0.0
+          ],
+          "strike_response": false,
+          "target_kind": "prop",
+          "target_point": [
+            160.0,
+            0.0
+          ]
+        },
+        {
+          "age_frames": 65,
+          "angle_deg": 3025.58135986328,
+          "effect_id": 1,
+          "event": "child_emission",
+          "index": 20,
+          "kit": "frozen_orb_e3",
+          "pool_slot": 4,
+          "position": [
+            455.0,
+            0.0
+          ],
+          "scheduled_age": 65,
+          "target_kind": "prop",
+          "target_point": [
+            160.0,
+            0.0
+          ]
+        },
+        {
+          "age_frames": 69,
+          "angle_deg": 3162.58135986328,
+          "effect_id": 1,
+          "event": "child_emission",
+          "index": 21,
+          "kit": "frozen_orb_e3",
+          "pool_slot": 3,
+          "position": [
+            483.0,
+            0.0
+          ],
+          "scheduled_age": 69,
+          "target_kind": "prop",
+          "target_point": [
+            160.0,
+            0.0
+          ]
+        },
+        {
+          "age_frames": 71,
+          "angle_deg": 3299.58135986328,
+          "effect_id": 1,
+          "event": "child_emission",
+          "index": 22,
+          "kit": "frozen_orb_e3",
+          "pool_slot": 4,
+          "position": [
+            497.0,
+            0.0
+          ],
+          "scheduled_age": 71,
+          "target_kind": "prop",
+          "target_point": [
+            160.0,
+            0.0
+          ]
+        },
+        {
+          "age_frames": 74,
+          "angle_deg": 3436.58135986328,
+          "effect_id": 1,
+          "event": "child_emission",
+          "index": 23,
+          "kit": "frozen_orb_e3",
+          "pool_slot": 0,
+          "position": [
+            518.0,
+            0.0
+          ],
+          "scheduled_age": 74,
+          "target_kind": "prop",
+          "target_point": [
+            160.0,
+            0.0
+          ]
+        },
+        {
+          "age_frames": 76,
+          "angle_deg": 3573.58135986328,
+          "effect_id": 1,
+          "event": "child_emission",
+          "index": 24,
+          "kit": "frozen_orb_e3",
+          "pool_slot": 1,
+          "position": [
+            532.0,
+            0.0
+          ],
+          "scheduled_age": 76,
+          "target_kind": "prop",
+          "target_point": [
+            160.0,
+            0.0
+          ]
+        },
+        {
+          "age_frames": 78,
+          "angle_deg": 3710.58135986328,
+          "effect_id": 1,
+          "event": "child_emission",
+          "index": 25,
+          "kit": "frozen_orb_e3",
+          "pool_slot": 0,
+          "position": [
+            546.0,
+            0.0
+          ],
+          "scheduled_age": 78,
+          "target_kind": "prop",
+          "target_point": [
+            160.0,
+            0.0
+          ]
+        },
+        {
+          "age_frames": 80,
+          "angle_deg": 3847.58135986328,
+          "effect_id": 1,
+          "event": "child_emission",
+          "index": 26,
+          "kit": "frozen_orb_e3",
+          "pool_slot": 2,
+          "position": [
+            560.0,
+            0.0
+          ],
+          "scheduled_age": 80,
+          "target_kind": "prop",
+          "target_point": [
+            160.0,
+            0.0
+          ]
+        },
+        {
+          "age_frames": 82,
+          "angle_deg": 3984.58135986328,
+          "effect_id": 1,
+          "event": "child_emission",
+          "index": 27,
+          "kit": "frozen_orb_e3",
+          "pool_slot": 3,
+          "position": [
+            574.0,
+            0.0
+          ],
+          "scheduled_age": 82,
+          "target_kind": "prop",
+          "target_point": [
+            160.0,
+            0.0
+          ]
+        },
+        {
+          "age_frames": 84,
+          "angle_deg": 4121.58135986328,
+          "effect_id": 1,
+          "event": "child_emission",
+          "index": 28,
+          "kit": "frozen_orb_e3",
+          "pool_slot": 4,
+          "position": [
+            588.0,
+            0.0
+          ],
+          "scheduled_age": 84,
+          "target_kind": "prop",
+          "target_point": [
+            160.0,
+            0.0
+          ]
+        },
+        {
+          "age_frames": 88,
+          "angle_deg": 4258.58135986328,
+          "effect_id": 1,
+          "event": "child_emission",
+          "index": 29,
+          "kit": "frozen_orb_e3",
+          "pool_slot": 5,
+          "position": [
+            616.0,
+            0.0
+          ],
+          "scheduled_age": 88,
+          "target_kind": "prop",
+          "target_point": [
+            160.0,
+            0.0
+          ]
+        },
+        {
+          "age_frames": 90,
+          "distance_px": 630.0,
+          "effect_id": 1,
+          "event": "expire",
+          "kit": "frozen_orb_e3",
+          "position": [
+            630.0,
+            0.0
+          ],
+          "reason": "range",
+          "target_kind": "prop",
+          "target_point": [
+            160.0,
+            0.0
+          ]
+        },
+        {
+          "age_frames": 90,
+          "effect_id": 1,
+          "event": "expiry_burst",
+          "hold_frames": 0,
+          "kit": "frozen_orb_e3",
+          "position": [
+            630.0,
+            0.0
+          ],
+          "shards": 16,
+          "target_kind": "prop",
+          "target_point": [
+            160.0,
+            0.0
+          ]
+        }
+      ],
+      "trace_before": "orb-before-trace.json",
+      "trace_before_instrument": "Original probe augmented only to persist its report before the failing reuse call. Original runtime restored for reproduction; separate diagnostic process capped at 12 seconds after the original 60-second unittest timeout was reproduced."
+    },
+    "fl1a_retained": {
+      "trace": "command-6-fl1_trace.json",
+      "halo_samples": 216,
+      "max_halo_diameter_bh": 0.80500001173753,
+      "max_halo_socket_error_px": 0.0,
+      "release_samples": 24,
+      "max_rear_socket_error_px": 38.9166297912598,
+      "minimum_facing_dot_px": 46.145751953125,
+      "head_centres_inside_body": 0,
+      "expiry_casts": 24,
+      "fire_fizzle_casts": 16,
+      "fire_contact_counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "ice_burst_casts": 8
+    }
+  },
+  "part_b": [
+    {
+      "test": "test_godot_import.IceTreatmentImportTests.test_ten_existing_export_bytes_unchanged",
+      "old_count": 710,
+      "new_count": 712,
+      "changed_entries": [
+        {
+          "path": "README.md",
+          "old": "27d9428638d0b5bcaa8d8d0fcab11f7cac36331f225b33bfd69a9ba70227c2ad",
+          "new": "e5a412ace09a335a0b06b14e7fb17b64136776644d1da9f07d586bb2e2da31fe",
+          "reason": "FL-1a displayed-row/full-sprite-transform socket documentation and authored-rotation clarification."
+        },
+        {
+          "path": "scripts/keeper.gd",
+          "old": "075d77a181292cb3be7657bb7886491c2f144e96a98f33832b1040338fbf38c8",
+          "new": "f3ad27729e1bd27f2ed971c4fb45c1da1171359da62d641259f0e8f804456c3b",
+          "reason": "FL-1a socket sprite.to_global resolution; procedural cast-halo creation/update/cleanup; per-kit range_expiry and fizzle material/piece configuration."
+        },
+        {
+          "path": "scripts/vfx_g1.gd",
+          "old": "a97c5d79d6ed20d07241b55b33c47bf6942390db401e61da7ca97ece0601b209",
+          "new": "b78787ee7bea27ebaf477793935ef6aaa0ce46b9570ae536c738d01783a17265",
+          "reason": "FL-1a fizzle expiry dispatch and pool fizzle guard; FL-1b Part A corrective nullable pool-state check and initial nose sweep/contact-position instrumentation (exact source patch recorded separately)."
+        },
+        {
+          "path": "scripts/vfx_g1_painted.gd",
+          "old": "c188d21c474aba7b0667bfc67524d901b670d0a5fa3ef6eddd1bdf3022315265",
+          "new": "2c98b2960515078762d622d1d7021f32bc6685b9f244e3c87d0e2d50f6fd43f4",
+          "reason": "FL-1a rear separation/body clearance and head/ember range fizzle; FL-1b Part A initial socket-to-nose sweep (exact source patch separately)."
+        },
+        {
+          "path": "vfx/fire_bolt_e1_A/kit.json",
+          "old": "5208705ea8e3e48c04a89e0bac41bc71c95e49da5ce04824953cc60b0b6e5f72",
+          "new": "6ca613c4c8cb685f58911a52e3b6934875cd5d121c7b0c095c8101877c67647f",
+          "reason": "FL-1a acceptance explicitly records these two kit.json edits: range_expiry=fizzle in skill spec and corresponding source metadata. FL-1b preserves them byte-for-byte."
+        },
+        {
+          "path": "vfx/fire_bolt_e1_A/materials/Fizzle_head.tres",
+          "old": null,
+          "new": "6dd63535d0632f208d5f58c28f7e84a8582eb2b29900f832a13127bfc67cf937",
+          "reason": "FL-1a added outside-in head erosion material (emitted for every painted kit, including ice)."
+        },
+        {
+          "path": "vfx/fire_bolt_e1_B/kit.json",
+          "old": "265faa810d8bac92480bc5f86b9f314bd67ac815d3b17ee3bb6c6985668247e2",
+          "new": "c2638310808b6db867722c81b8d39aa650edb8ecabbb1f52a90292ec4ee09f54",
+          "reason": "FL-1a acceptance explicitly records these two kit.json edits: range_expiry=fizzle in skill spec and corresponding source metadata. FL-1b preserves them byte-for-byte."
+        },
+        {
+          "path": "vfx/fire_bolt_e1_B/materials/Fizzle_head.tres",
+          "old": null,
+          "new": "af63c91a55a0110aad8c1eb91ac173ecfe6b5204f29862e6d5850a61310a15aa",
+          "reason": "FL-1a added outside-in head erosion material (emitted for every painted kit, including ice)."
+        }
+      ],
+      "rebaselined": true,
+      "evidence": "out/IceTreatmentImportTests-0.diff",
+      "comparison": "Unified diff of the locked hash table file list, as authorised for hash-only locks; original locked text is not present in these fixtures."
+    },
+    {
+      "test": "test_godot_import.BoltChainEmissionTests.test_current_catalogue_and_original_kits_unchanged",
+      "old_count": 655,
+      "new_count": 655,
+      "changed_entries": [
+        {
+          "path": "runs/C-5/vfx_kits/v9/fire_bolt_e1_A/kit.json",
+          "old": "81a76f34989e604cad50c8beb5b3a3379fec9b5713436b875780a85bea3b8d24",
+          "new": "d7221cde0b23a3f8f837cbfc4c76c463c2dbd8141d6979ba433e152c22f90b93",
+          "reason": "FL-1a acceptance explicitly records these two kit.json edits: range_expiry=fizzle in skill spec and corresponding source metadata. FL-1b preserves them byte-for-byte."
+        },
+        {
+          "path": "runs/C-5/vfx_kits/v9/fire_bolt_e1_B/kit.json",
+          "old": "a7b88dc31b159db8bb84caf38cffd9c8eff69bd537a1b1e8ee9eac4bf551228e",
+          "new": "ec2d9cf885cd65009969520dfb306597b8cc99496f8539b91eab02a9f18e6807",
+          "reason": "FL-1a acceptance explicitly records these two kit.json edits: range_expiry=fizzle in skill spec and corresponding source metadata. FL-1b preserves them byte-for-byte."
+        },
+        {
+          "path": "runs/C-5/vfx_kits/v9/healing_hands_e3/kit.json",
+          "old": "a06844cdb0cad6c29625b8f85ab5371e9867a01beda9046278c86459f7edbbe4",
+          "new": "b249fdead6b39ed49b9f4ba7980ae1dbad7261a65080c8ad0acbedd60643a410",
+          "reason": "UNATTRIBUTED TO FL-1a: pre-existing kit drift outside this burst scope; lock retained."
+        },
+        {
+          "path": "runs/C-5/vfx_kits/v9/poisonous_concoction_e3/kit.json",
+          "old": "a50ec68e66e72a4efecb582f984d5defc93f6505b44464181e0fa9dc3628a989",
+          "new": "f81d03a0a01cfb6860875c0f31b16458e69f06412c91e5e28d1f0db8313f5330",
+          "reason": "UNATTRIBUTED TO FL-1a: pre-existing kit drift outside this burst scope; lock retained."
+        }
+      ],
+      "rebaselined": false,
+      "evidence": "out/BoltChainEmissionTests-1.diff",
+      "comparison": "Unified diff of the locked hash table file list, as authorised for hash-only locks; original locked text is not present in these fixtures."
+    },
+    {
+      "test": "test_vfx_picker.ProjectileArmPickerTests.test_original_eight_export_byte_lock",
+      "old_count": 827,
+      "new_count": 830,
+      "changed_entries": [
+        {
+          "path": "README.md",
+          "old": "9eb99f54cc7013cbe06ae3ba7aa60d224ee0924622ffe0a78e5ad87f75ee0c78",
+          "new": "c2bdcd1fc89ffe4bd2d25530689ddeb728ebb260db9e819867ab70bfab391594",
+          "reason": "FL-1a displayed-row/full-sprite-transform socket documentation and authored-rotation clarification."
+        },
+        {
+          "path": "scripts/keeper.gd",
+          "old": "fa8ee9afcc9e4991dbb1cb7c9297db6f125829b92be78ab9551738030cc75f4f",
+          "new": "48f27269f34dd8edd18037771857d89d5841be4b75fd9099612e736c253ffd89",
+          "reason": "FL-1a socket sprite.to_global resolution; procedural cast-halo creation/update/cleanup; per-kit range_expiry and fizzle material/piece configuration."
+        },
+        {
+          "path": "scripts/vfx_g1.gd",
+          "old": "a97c5d79d6ed20d07241b55b33c47bf6942390db401e61da7ca97ece0601b209",
+          "new": "b78787ee7bea27ebaf477793935ef6aaa0ce46b9570ae536c738d01783a17265",
+          "reason": "FL-1a fizzle expiry dispatch and pool fizzle guard; FL-1b Part A corrective nullable pool-state check and initial nose sweep/contact-position instrumentation (exact source patch recorded separately)."
+        },
+        {
+          "path": "scripts/vfx_g1_painted.gd",
+          "old": "c188d21c474aba7b0667bfc67524d901b670d0a5fa3ef6eddd1bdf3022315265",
+          "new": "2c98b2960515078762d622d1d7021f32bc6685b9f244e3c87d0e2d50f6fd43f4",
+          "reason": "FL-1a rear separation/body clearance and head/ember range fizzle; FL-1b Part A initial socket-to-nose sweep (exact source patch separately)."
+        },
+        {
+          "path": "vfx/fire_bolt_e1_A/kit.json",
+          "old": "5208705ea8e3e48c04a89e0bac41bc71c95e49da5ce04824953cc60b0b6e5f72",
+          "new": "6ca613c4c8cb685f58911a52e3b6934875cd5d121c7b0c095c8101877c67647f",
+          "reason": "FL-1a acceptance explicitly records these two kit.json edits: range_expiry=fizzle in skill spec and corresponding source metadata. FL-1b preserves them byte-for-byte."
+        },
+        {
+          "path": "vfx/fire_bolt_e1_A/materials/Fizzle_head.tres",
+          "old": null,
+          "new": "6dd63535d0632f208d5f58c28f7e84a8582eb2b29900f832a13127bfc67cf937",
+          "reason": "FL-1a added outside-in head erosion material (emitted for every painted kit, including ice)."
+        },
+        {
+          "path": "vfx/fire_bolt_e1_B/kit.json",
+          "old": "265faa810d8bac92480bc5f86b9f314bd67ac815d3b17ee3bb6c6985668247e2",
+          "new": "c2638310808b6db867722c81b8d39aa650edb8ecabbb1f52a90292ec4ee09f54",
+          "reason": "FL-1a acceptance explicitly records these two kit.json edits: range_expiry=fizzle in skill spec and corresponding source metadata. FL-1b preserves them byte-for-byte."
+        },
+        {
+          "path": "vfx/fire_bolt_e1_B/materials/Fizzle_head.tres",
+          "old": null,
+          "new": "af63c91a55a0110aad8c1eb91ac173ecfe6b5204f29862e6d5850a61310a15aa",
+          "reason": "FL-1a added outside-in head erosion material (emitted for every painted kit, including ice)."
+        },
+        {
+          "path": "vfx/ice_bolt_e2/materials/Fizzle_head.tres",
+          "old": null,
+          "new": "99d5efb71a88160a73641b9e06a2c9416f08f5744fb06c961ce6b912cd3baf68",
+          "reason": "FL-1a added outside-in head erosion material (emitted for every painted kit, including ice)."
+        }
+      ],
+      "rebaselined": true,
+      "evidence": "out/ProjectileArmPickerTests-2.diff",
+      "comparison": "Unified diff of the locked hash table file list, as authorised for hash-only locks; original locked text is not present in these fixtures."
+    },
+    {
+      "test": "test_vfx_picker.PieceLap2ExportTests.test_six_kits_and_v1_match_488_file_pre_t4j_hash_table",
+      "old_count": 488,
+      "new_count": 488,
+      "changed_entries": [
+        {
+          "path": "README.md",
+          "old": "47e6e284113aad8b34315f5b5f6e8021d3d95d0f08cc24077f2076bfb928b53e",
+          "new": "da59619bd5e767a4025bc8e5644ebb5e9bae28645690f82ea3a5a28c88237c83",
+          "reason": "FL-1a displayed-row/full-sprite-transform socket documentation and authored-rotation clarification."
+        },
+        {
+          "path": "scripts/keeper.gd",
+          "old": "664fd459ad64cd52b389efab96130888c912023e1b5bd332fe303c2ca4bb8590",
+          "new": "a942ec07960dce7df7486c1ff09c303334c4ce711c70e9de2343bf1f3bb8b8ab",
+          "reason": "FL-1a socket sprite.to_global resolution; procedural cast-halo creation/update/cleanup; per-kit range_expiry and fizzle material/piece configuration."
+        },
+        {
+          "path": "scripts/vfx_g1.gd",
+          "old": "99cec009ff894fdbffe6510a4c76576c8e38b49ce24f02fae62127743208a9d7",
+          "new": "53648b30e94736d13b7894b2b95077ea93a5422cf6a1f4f40828498ddf4eba4c",
+          "reason": "FL-1a fizzle expiry dispatch and pool fizzle guard; FL-1b Part A corrective nullable pool-state check and initial nose sweep/contact-position instrumentation (exact source patch recorded separately)."
+        }
+      ],
+      "rebaselined": true,
+      "evidence": "out/PieceLap2ExportTests-3.diff",
+      "comparison": "Unified diff of the locked hash table file list, as authorised for hash-only locks; original locked text is not present in these fixtures."
+    },
+    {
+      "test": "test_vfx_picker.VfxPickerTests.test_single_kit_and_legacy_props_all_text_byte_identical_to_t3m",
+      "old_count": 18,
+      "new_count": 18,
+      "changed_entries": [
+        {
+          "path": "README.md",
+          "old": "dbf465f35b5766830a51c56024e51a9f59db5d7a6a7837092147dfe4f19767d2",
+          "new": "58a86abb6a63913d4a0c6b608edc6cbd001801d95cc6012828312023cfd652c0",
+          "reason": "FL-1a displayed-row/full-sprite-transform socket documentation and authored-rotation clarification."
+        }
+      ],
+      "rebaselined": true,
+      "evidence": "out/VfxPickerTests-4.diff",
+      "comparison": "Unified diff of the locked hash table file list, as authorised for hash-only locks; original locked text is not present in these fixtures."
+    },
+    {
+      "test": "test_props_layer.PropsLayerTests.test_absent_movement_props_byte_identical_to_frozen_t3k_all_text",
+      "old_count": 9,
+      "new_count": 9,
+      "changed_entries": [
+        {
+          "path": "README.md",
+          "old": "d56e3f32e2cf8a45d4f1fa4bfe0c5e54a5e89007ad2a328e8fe09c6118202f40",
+          "new": "868b6cc44f27e22022b6105caefd3d862968535586eed58edec1f9499f148b25",
+          "reason": "FL-1a displayed-row/full-sprite-transform socket documentation and authored-rotation clarification."
+        }
+      ],
+      "rebaselined": true,
+      "evidence": "out/PropsLayerTests-5.diff",
+      "comparison": "Unified diff of the locked hash table file list, as authorised for hash-only locks; original locked text is not present in these fixtures."
+    },
+    {
+      "test": "test_props_layer.PropsLayerT3pTests.test_no_fade_key_byte_identical_to_t3o_all_text",
+      "old_count": 11,
+      "new_count": 11,
+      "changed_entries": [
+        {
+          "path": "README.md",
+          "old": "d56e3f32e2cf8a45d4f1fa4bfe0c5e54a5e89007ad2a328e8fe09c6118202f40",
+          "new": "868b6cc44f27e22022b6105caefd3d862968535586eed58edec1f9499f148b25",
+          "reason": "FL-1a displayed-row/full-sprite-transform socket documentation and authored-rotation clarification."
+        }
+      ],
+      "rebaselined": true,
+      "evidence": "out/PropsLayerT3pTests-6.diff",
+      "comparison": "Unified diff of the locked hash table file list, as authorised for hash-only locks; original locked text is not present in these fixtures."
+    },
+    {
+      "test": "test_props_layer.PropsLayerT3rTests.test_t3q_fixture_all_text_byte_identical_and_empty_has_no_script",
+      "old_count": 12,
+      "new_count": 12,
+      "changed_entries": [
+        {
+          "path": "README.md",
+          "old": "d56e3f32e2cf8a45d4f1fa4bfe0c5e54a5e89007ad2a328e8fe09c6118202f40",
+          "new": "868b6cc44f27e22022b6105caefd3d862968535586eed58edec1f9499f148b25",
+          "reason": "FL-1a displayed-row/full-sprite-transform socket documentation and authored-rotation clarification."
+        }
+      ],
+      "rebaselined": true,
+      "evidence": "out/PropsLayerT3rTests-7.diff",
+      "comparison": "Unified diff of the locked hash table file list, as authorised for hash-only locks; original locked text is not present in these fixtures."
+    },
+    {
+      "test": "test_props_layer.PropsLayerT3qTests.test_t3p_fixtures_byte_identical_all_text",
+      "old_count": 11,
+      "new_count": 11,
+      "changed_entries": [
+        {
+          "path": "README.md",
+          "old": "d56e3f32e2cf8a45d4f1fa4bfe0c5e54a5e89007ad2a328e8fe09c6118202f40",
+          "new": "868b6cc44f27e22022b6105caefd3d862968535586eed58edec1f9499f148b25",
+          "reason": "FL-1a displayed-row/full-sprite-transform socket documentation and authored-rotation clarification."
+        }
+      ],
+      "rebaselined": true,
+      "evidence": "out/PropsLayerT3qTests-8.diff",
+      "comparison": "Unified diff of the locked hash table file list, as authorised for hash-only locks; original locked text is not present in these fixtures."
+    },
+    {
+      "test": "test_props_layer.PropsLayerT3qTests.test_t3p_fixtures_byte_identical_all_text",
+      "old_count": 12,
+      "new_count": 12,
+      "changed_entries": [
+        {
+          "path": "README.md",
+          "old": "d56e3f32e2cf8a45d4f1fa4bfe0c5e54a5e89007ad2a328e8fe09c6118202f40",
+          "new": "868b6cc44f27e22022b6105caefd3d862968535586eed58edec1f9499f148b25",
+          "reason": "FL-1a displayed-row/full-sprite-transform socket documentation and authored-rotation clarification."
+        }
+      ],
+      "rebaselined": true,
+      "evidence": "out/PropsLayerT3qTests-9.diff",
+      "comparison": "Unified diff of the locked hash table file list, as authorised for hash-only locks; original locked text is not present in these fixtures."
+    },
+    {
+      "test": "test_props_layer.PropsLayerT3mTests.test_optional_defaults_preserve_legacy_vertices_and_scene_text",
+      "old_count": 9,
+      "new_count": 9,
+      "changed_entries": [
+        {
+          "path": "README.md",
+          "old": "d56e3f32e2cf8a45d4f1fa4bfe0c5e54a5e89007ad2a328e8fe09c6118202f40",
+          "new": "868b6cc44f27e22022b6105caefd3d862968535586eed58edec1f9499f148b25",
+          "reason": "FL-1a displayed-row/full-sprite-transform socket documentation and authored-rotation clarification."
+        }
+      ],
+      "rebaselined": true,
+      "evidence": "out/PropsLayerTests-5.diff",
+      "comparison": "Unified diff of the locked hash table file list, as authorised for hash-only locks; original locked text is not present in these fixtures.",
+      "notes": "Inherits the updated BASELINE README hash through T3L_PROPS_BASELINE; the required pre-existing occlusion_fade.gd-only difference assertion remains exact."
+    }
+  ],
+  "part_c": {
+    "arithmetic": "2 * 0.35 BH radius * 1.15 pulse = 0.805 BH diameter <= 0.85 BH",
+    "test": "FireLaneHeadlessTests.test_literal_halo_drawn_size_at_most_half_bh",
+    "note": "Historical test name retained for conductor invocations; docstring and assertion now use the ruled diameter."
+  },
+  "healing_hands": {
+    "expected_failure": "RenderedLookTraceTests.test_seal_bbox_and_whole_loop_ring_radius",
+    "reason": "T4x: rotating authored seal cannot honour the fixed aspect; retires with the Healing Hands re-spec. Independent whole-loop ring-radius assertion remains active."
+  },
+  "tests": {
+    "scope": "stdlib unittest: test_godot_import, test_vfx_picker, test_props_layer, test_effect_kit; historical output writes redirected or blocked in sandbox harness",
+    "run": 274,
+    "elapsed_s": 302.01318320800783,
+    "failures": 13,
+    "errors": 1,
+    "expected_failures": [
+      "test_seal_bbox_and_whole_loop_ring_radius (test_godot_import.RenderedLookTraceTests.test_seal_bbox_and_whole_loop_ring_radius)"
+    ],
+    "skipped": [],
+    "remaining_reds": [
+      {
+        "test": "test_current_catalogue_and_original_kits_unchanged (test_godot_import.BoltChainEmissionTests.test_current_catalogue_and_original_kits_unchanged)",
+        "last_traceback_line": "Diff is 88951 characters long. Set self.maxDiff to None to see it."
+      },
+      {
+        "test": "test_headless_state_machine_input_map_gear_vfx_and_nearest_fallback (test_godot_import.GodotImportTests.test_headless_state_machine_input_map_gear_vfx_and_nearest_fallback)",
+        "last_traceback_line": "================================================================"
+      },
+      {
+        "test": "test_v2_headless_import_and_seed_equal_rooted_clock (test_godot_import.PieceStretchImportTests.test_v2_headless_import_and_seed_equal_rooted_clock)",
+        "last_traceback_line": "       [1] probe (res://stretch_probe.gd:36)"
+      },
+      {
+        "test": "test_headless_authored_cast_east_north_collision_timing_and_feedback_cleanup (test_vfx_picker.AuthoredEffectPickerTests.test_headless_authored_cast_east_north_collision_timing_and_feedback_cleanup)",
+        "last_traceback_line": "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      },
+      {
+        "test": "test_headless_first_cast_contact_cursor_pool_cancel_and_picker (test_vfx_picker.G1ComponentTests.test_headless_first_cast_contact_cursor_pool_cancel_and_picker)",
+        "last_traceback_line": "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      },
+      {
+        "test": "test_headless_pierce_contacts_labels_pool_and_phase_callbacks (test_vfx_picker.G1ComponentTests.test_headless_pierce_contacts_labels_pool_and_phase_callbacks)",
+        "last_traceback_line": "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      },
+      {
+        "test": "test_headless_contact_shatter_residue_decal (test_vfx_picker.IceTreatmentPickerTests.test_headless_contact_shatter_residue_decal)",
+        "last_traceback_line": "   at: get_system_ca_certificates (platform/macos/os_macos.mm:1028)"
+      },
+      {
+        "test": "test_headless_glow_sixty_samples_extrema_range_and_particle_properties (test_vfx_picker.LivingEmbersTests.test_headless_glow_sixty_samples_extrema_range_and_particle_properties)",
+        "last_traceback_line": "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      },
+      {
+        "test": "test_headless_overlay_forward_world_touch_and_mouse_probe (test_vfx_picker.TouchAimRuntimeTests.test_headless_overlay_forward_world_touch_and_mouse_probe)",
+        "last_traceback_line": "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      },
+      {
+        "test": "test_headless_device_forward_handled_overlay_and_mouse_probe (test_vfx_picker.TouchDeviceAimRuntimeTests.test_headless_device_forward_handled_overlay_and_mouse_probe)",
+        "last_traceback_line": "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      },
+      {
+        "test": "test_headless_tab_twice_cast_scene_labels_and_inflight_kit_lock (test_vfx_picker.VfxPickerTests.test_headless_tab_twice_cast_scene_labels_and_inflight_kit_lock)",
+        "last_traceback_line": "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      },
+      {
+        "test": "test_cli_props_and_requires_parallax (test_props_layer.PropsLayerTests.test_cli_props_and_requires_parallax)",
+        "last_traceback_line": "AssertionError: 1 != 0 : /Library/Frameworks/Python.framework/Versions/3.12/bin/python3: Error while finding module specification for 'export.godot_import' (ModuleNotFoundError: No module named 'export')"
+      },
+      {
+        "test": "test_headless_occlusion_fade_restore_overhead_near_and_particles (test_props_layer.PropsLayerTests.test_headless_occlusion_fade_restore_overhead_near_and_particles)",
+        "last_traceback_line": "================================================================"
+      },
+      {
+        "test": "test_headless_literal_age_swaps_returns_and_continuous_uniforms (test_godot_import.KeyStateSwapImportTests.test_headless_literal_age_swaps_returns_and_continuous_uniforms)",
+        "last_traceback_line": "PermissionError: FL-1b test write scope: /Users/admin/astra-burst/runs/C-5/FL-1b/key_clock_trace.json"
+      }
+    ]
+  },
+  "kit_integrity": {
+    "kit_count": 17,
+    "byte_identical_kit_count": 17,
+    "changed_entries": {
+      "frozen_orb": [],
+      "blackwater_cocktail": [],
+      "poisonous_concoction": [],
+      "lightning_blast": [],
+      "zeus_chain": [],
+      "healing_hands": [],
+      "fire_burst_e0p": [],
+      "fire_burst_e0p_v2": [],
+      "fire_bolt_e1_A": [],
+      "fire_bolt_e1_B": [],
+      "ice_bolt_e2": [],
+      "blackwater_cocktail_e3": [],
+      "poisonous_concoction_e3": [],
+      "lightning_blast_e3": [],
+      "zeus_chain_e3": [],
+      "healing_hands_e3": [],
+      "frozen_orb_e3": []
+    },
+    "evidence_before": "kits-before.json"
+  },
+  "export": {
+    "exit_code": 0,
+    "kit_count": 17,
+    "full_catalogue_report": "full-export.json",
+    "headless_import_exit_code": 0,
+    "headless_trace_exit_code": 0,
+    "scene": "Full test fixture: cells_v7 / CS-parallax-in-v10 / CS-props-v24 / kits_v9 / sockets_v2"
+  },
+  "concerns": [
+    "The original-kit byte lock remains red: its previous_kit_hashes.json also differs in poisonous_concoction_e3/kit.json and healing_hands_e3/kit.json. These are not attributable to FL-1a, so this lock was not re-baselined and no kit was changed.",
+    "The exact PACK v32 scene is outside the read allowlist. The east evidence uses the allowed full-export fixture and copies its literal shield/dog polygons onto G1 collision layer 2; v24 itself has untagged Walls on layer 1. Before/after reproduces fire skipping the shield; ice in this allowed physical fixture already contacts, with the correction moving its contact to the leading edge.",
+    "The broader scoped suite has remaining named failures/errors; counts and final traceback lines are recorded in tests.remaining_reds. Godot imports return 0 but emit sandbox/macOS certificate and editor-settings diagnostics.",
+    "Historical locks supply hash tables, not original text. Per-lock evidence is the authorised unified hash-file-list diff with per-entry attribution; exact FL-1b source hunks are separately archived."
+  ],
+  "fixture_files": [
+    "fixtures/fl1b/IceTreatmentImportTests-0.json",
+    "fixtures/fl1b/PieceLap2ExportTests-3.json",
+    "fixtures/fl1b/ProjectileArmPickerTests-2.json",
+    "fixtures/fl1b/VfxPickerTests-4.json",
+    "fixtures/fl1b/t3p_baseline.json",
+    "fixtures/fl1b/t3q_baseline.json"
+  ],
+  "evidence_archive": "out/evidence.zip"
+}

@@ -1532,6 +1532,7 @@ var contacted: Dictionary = {}
 var strike_fired: bool = false
 var cast_origin: Vector2 = Vector2.ZERO
 var travel_end: Vector2 = Vector2.ZERO
+var release_sweep_start: Variant = null
 static var label_events: Array = []
 
 static func resolve_target(tree: SceneTree, origin: Vector2, facing: Vector2, cursor: Vector2, range_px: float = 650.0, cone_degrees: float = 30.0) -> Dictionary:
@@ -1601,6 +1602,7 @@ func release(kit: Dictionary, origin: Vector2, destination: Dictionary, owner_no
     contacted.clear()
     strike_fired = false
     cast_origin = origin
+    release_sweep_start = null
     travel_end = resolved.point if remaining_pierce == 0 else origin + direction * float(config.get("range_px", 650.0)) * spell_scale
     arrival_pending = false
     active = true
@@ -1648,6 +1650,12 @@ func _physics_process(delta: float) -> void:
     var step: float = minf(float(config.get("speed_px_s", 520.0)) * spell_scale * delta, minf(remaining, range_left))
     var motion: Vector2 = global_position.direction_to(travel_end) * step
     var start: Vector2 = global_position
+    # Sweep the emergence too: a long painted head may span a nearby body at release.
+    # The sweep endpoint and Area2D origin remain the painted leading tip.
+    if release_sweep_start != null:
+        start = release_sweep_start
+        motion += global_position - start
+        release_sweep_start = null
     var hits: Array = []
     var space: PhysicsDirectSpaceState2D = get_world_2d().direct_space_state
     # Enumerate every collision body, including untagged legacy fixtures.
@@ -1668,6 +1676,7 @@ func _physics_process(delta: float) -> void:
     while true:
         query.exclude = excluded
         query.transform = global_transform
+        query.transform.origin = start
         query.motion = Vector2.ZERO
         var overlaps: Array = space.intersect_shape(query)
         var fraction: float = 0.0
@@ -1733,11 +1742,12 @@ func contact_body(area: CollisionObject2D, phase: String = "head") -> void:
     entry["body_index"] = body_index
     entry["contact_class"] = contact_class
     entry["phase"] = phase
+    entry["position"] = [global_position.x, global_position.y]
     entry["contact_distance_px"] = cast_origin.distance_to(area.global_position)
     entry["strike_response"] = not strike_fired
     if area.is_in_group("vfx_targets"):
         _contact_label(area, body_index, contact_class)
-    _spawn_impact(not strike_fired, area.global_position if area.is_in_group("vfx_targets") else global_position)
+    _spawn_impact(not strike_fired, global_position if phase == "head" else area.global_position)
     strike_fired = true
     if phase == "head":
         if remaining_pierce == 0:
@@ -3013,6 +3023,7 @@ func release(kit: Dictionary, origin: Vector2, destination: Dictionary, owner_no
     var rear: Vector2 = (Vector2(paint.head.rear_socket[0], paint.head.rear_socket[1]) - Vector2(paint.head.pivot[0], paint.head.pivot[1])) * float(paint.head.scale)
     # A 0.1 BH separation keeps the emerging centre clear; rear remains within 0.4 BH.
     global_position = origin - rear.rotated(direction.angle()) + direction * 13.0
+    release_sweep_start = origin
     # Keep the range endpoint measured from the release socket.
     cast_origin = origin
     distance = (global_position-origin).dot(direction)
@@ -3232,7 +3243,7 @@ def _write_painted_g1(out):
     path = out/'scripts/vfx_g1.gd'
     script = path.read_text()
     script = script.replace('and not candidate.active and not candidate.is_queued_for_deletion():',
-        'and not candidate.active and not candidate.is_queued_for_deletion() and candidate.scene_file_path == str(kit.get("bolt", "res://scenes/vfx/g1_projectile.tscn")) and not bool(candidate.get("draining")) and not bool(candidate.get("fizzling")):')
+        'and not candidate.active and not candidate.is_queued_for_deletion() and candidate.scene_file_path == str(kit.get("bolt", "res://scenes/vfx/g1_projectile.tscn")) and candidate.get("draining") != true and candidate.get("fizzling") != true:')
     script = script.replace('load("res://scenes/vfx/g1_projectile.tscn").instantiate()',
         'load(kit.get("bolt", "res://scenes/vfx/g1_projectile.tscn")).instantiate()')
     script = script.replace('if resolved.kind == "prop" and not is_instance_valid(resolved.target)',

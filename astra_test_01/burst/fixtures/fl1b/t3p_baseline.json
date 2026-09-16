@@ -1,0 +1,353 @@
+{
+  "legacy": {
+    "manifest": {
+      "assets": [
+        {
+          "name": "tree",
+          "file": "tree.png",
+          "anchor": [
+            49.5,
+            174
+          ],
+          "footprint": {
+            "w": 70,
+            "h": 24
+          },
+          "collide": true,
+          "fade_when_behind": true
+        },
+        {
+          "name": "stone",
+          "file": "stone.png",
+          "anchor": [
+            30,
+            49
+          ],
+          "footprint": {
+            "w": 45,
+            "h": 15
+          },
+          "collide": false,
+          "fade_when_behind": false
+        }
+      ],
+      "instances": [
+        {
+          "asset": "tree",
+          "position": [
+            400,
+            360
+          ]
+        },
+        {
+          "asset": "tree",
+          "position": [
+            750.5,
+            610.25
+          ]
+        },
+        {
+          "asset": "stone",
+          "position": [
+            550,
+            450
+          ]
+        }
+      ],
+      "shadows": [
+        {
+          "file": "shadow.png",
+          "position": [
+            350,
+            340
+          ],
+          "opacity": 0.6
+        },
+        {
+          "file": "shadow.png",
+          "position": [
+            700,
+            590
+          ],
+          "opacity": 0.35
+        }
+      ],
+      "overhead": [
+        {
+          "file": "overhead.png",
+          "position": [
+            300,
+            120
+          ]
+        }
+      ],
+      "near": [
+        {
+          "file": "near.png",
+          "position": [
+            0,
+            0
+          ],
+          "scroll_scale": 1.2
+        }
+      ],
+      "particles": [
+        {
+          "name": "mist_motes",
+          "texture": "mote.png",
+          "rect": [
+            200,
+            200,
+            800,
+            600
+          ],
+          "amount": 37,
+          "lifetime_s": 2.75,
+          "velocity_px_s": [
+            4.5,
+            12
+          ],
+          "direction": [
+            -1,
+            -0.2
+          ],
+          "spread_deg": 23,
+          "scale": [
+            0.2,
+            0.7
+          ],
+          "color_start": [
+            0.3,
+            0.6,
+            0.9,
+            0.8
+          ],
+          "color_end": [
+            0.2,
+            0.3,
+            0.5,
+            0
+          ]
+        }
+      ]
+    },
+    "text_sha256": {
+      "README.md": "868b6cc44f27e22022b6105caefd3d862968535586eed58edec1f9499f148b25",
+      "frames/keeper.tres": "039613597231247f133ba55b2d752810b8b64121d552f3e1e7f686b909340cfa",
+      "parallax/export.json": "f0287a4091fad7bd3a51d617111bdab89b42b2af1a45bdcdc2ec7d9160d671e2",
+      "parallax/parallax.json": "e7677434d57020847c73b5c44314a44b7f7ae806ba454e07a32d31d64949beeb",
+      "parallax/walkable.json": "e90ccc92a55be3d1c9a29c05a7322d0a5bf380562a24743fb20fc6f821062a86",
+      "project.godot": "2e99461d74d52642cb886e8a7062aaa8db73639eedb535603e5943cebd4aabba",
+      "props/props.json": "ca8a0a44effd6c925cf99faf696f61286700441d506baba1db3e1d9d765c9265",
+      "scenes/cliffside.tscn": "7b40d225aeb834f858c023970942f0d11a77842016b5dad0792ccfe61dd6addf",
+      "scenes/main.tscn": "a7ff2b1ba99ca306dacd7fbee1556fbfbed54d72cc8e3c01ab72e1aba58b874d",
+      "scripts/keeper.gd": "89e9e64440aa00541acf90980852293abb81e345295f6d9bd9d771f7d3b67399",
+      "scripts/occlusion_fade.gd": "96d37de2e8c7790cb00815fb1f939389872874ba23b43dc017d8530d3db62f61"
+    }
+  },
+  "t3p": {
+    "manifest": {
+      "assets": [
+        {
+          "name": "tree",
+          "file": "tree.png",
+          "anchor": [
+            49.5,
+            174
+          ],
+          "footprint": {
+            "w": 70,
+            "h": 24
+          },
+          "collide": true,
+          "fade_when_behind": true
+        },
+        {
+          "name": "stone",
+          "file": "stone.png",
+          "anchor": [
+            30,
+            49
+          ],
+          "footprint": {
+            "w": 45,
+            "h": 15
+          },
+          "collide": false,
+          "fade_when_behind": false
+        }
+      ],
+      "instances": [
+        {
+          "asset": "tree",
+          "position": [
+            400,
+            360
+          ]
+        },
+        {
+          "asset": "tree",
+          "position": [
+            750.5,
+            610.25
+          ]
+        },
+        {
+          "asset": "stone",
+          "position": [
+            550,
+            450
+          ]
+        }
+      ],
+      "shadows": [
+        {
+          "file": "shadow.png",
+          "position": [
+            350,
+            340
+          ],
+          "opacity": 0.6
+        },
+        {
+          "file": "shadow.png",
+          "position": [
+            700,
+            590
+          ],
+          "opacity": 0.35
+        }
+      ],
+      "overhead": [
+        {
+          "file": "overhead.png",
+          "position": [
+            300,
+            120
+          ]
+        }
+      ],
+      "near": [
+        {
+          "file": "near.png",
+          "position": [
+            0,
+            0
+          ],
+          "scroll_scale": 1.2,
+          "fade": false
+        },
+        {
+          "file": "near.png",
+          "position": [
+            0,
+            0
+          ],
+          "scroll_scale": 1.2
+        }
+      ],
+      "particles": [
+        {
+          "name": "mist_motes",
+          "texture": "mote.png",
+          "rect": [
+            200,
+            200,
+            800,
+            600
+          ],
+          "amount": 37,
+          "lifetime_s": 2.75,
+          "velocity_px_s": [
+            4.5,
+            12
+          ],
+          "direction": [
+            -1,
+            -0.2
+          ],
+          "spread_deg": 23,
+          "scale": [
+            0.2,
+            0.7
+          ],
+          "color_start": [
+            0.3,
+            0.6,
+            0.9,
+            0.8
+          ],
+          "color_end": [
+            0.2,
+            0.3,
+            0.5,
+            0
+          ],
+          "gravity": [
+            0,
+            -4
+          ],
+          "angular_velocity": [
+            -5,
+            10
+          ],
+          "scale_curve": [
+            1,
+            0.2
+          ],
+          "additive": true
+        }
+      ],
+      "glows": [
+        {
+          "texture": "mote.png",
+          "position": [
+            10,
+            20
+          ],
+          "scale": 2,
+          "color": [
+            0.2,
+            0.5,
+            1,
+            0.7
+          ],
+          "flicker_hz": 4,
+          "flicker_amount": 0.3,
+          "z_parent": "actors"
+        },
+        {
+          "texture": "mote.png",
+          "position": [
+            80,
+            60
+          ],
+          "scale": 0.5,
+          "color": [
+            0.3,
+            0.6,
+            0.9,
+            0.8
+          ],
+          "flicker_hz": 2,
+          "flicker_amount": 0.2,
+          "z_parent": "overhead"
+        }
+      ]
+    },
+    "text_sha256": {
+      "README.md": "868b6cc44f27e22022b6105caefd3d862968535586eed58edec1f9499f148b25",
+      "frames/keeper.tres": "039613597231247f133ba55b2d752810b8b64121d552f3e1e7f686b909340cfa",
+      "parallax/export.json": "e515e83a02f9187a24cd70f50ec308cf910ff795aa1b7d831736a18efa19bba9",
+      "parallax/parallax.json": "e7677434d57020847c73b5c44314a44b7f7ae806ba454e07a32d31d64949beeb",
+      "parallax/walkable.json": "e90ccc92a55be3d1c9a29c05a7322d0a5bf380562a24743fb20fc6f821062a86",
+      "project.godot": "2e99461d74d52642cb886e8a7062aaa8db73639eedb535603e5943cebd4aabba",
+      "props/props.json": "5e71419788ad5bd2e6694d96d1aced7ae2756ed28393b0960b1d737ecd35ad0c",
+      "scenes/cliffside.tscn": "a63223b683d2748f4f3cbb91e3fcb6c65f488ab2d7f743bde155d720ddb83cad",
+      "scenes/main.tscn": "a7ff2b1ba99ca306dacd7fbee1556fbfbed54d72cc8e3c01ab72e1aba58b874d",
+      "scripts/glow_flicker.gd": "fee0db3aa00b834bc1f6198886c6e476f45b91fd012ce641a0145e97ec857671",
+      "scripts/keeper.gd": "89e9e64440aa00541acf90980852293abb81e345295f6d9bd9d771f7d3b67399",
+      "scripts/occlusion_fade.gd": "96d37de2e8c7790cb00815fb1f939389872874ba23b43dc017d8530d3db62f61"
+    }
+  }
+}

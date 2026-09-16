@@ -265,7 +265,7 @@ class VfxPickerTests(unittest.TestCase):
         # captured process order so hash randomisation cannot mask byte drift.
         with patch('time.monotonic', return_value=0.0), patch('export.props_layer.COLLECTIONS', LEGACY_ORDER):
             build_project(cells, out, parallax=source, props=props, vfx_kit=kit, sockets=sockets)
-        baseline = json.loads((ARTIFACTS/'baseline_t3m_text_sha256.json').read_text())
+        baseline = json.loads((ROOT/'fixtures/fl1b/VfxPickerTests-4.json').read_text())
         self.assertEqual(text_hashes(out), baseline)
         self.assertEqual(len(baseline), 18)
 
@@ -1214,7 +1214,7 @@ class PieceLap2ExportTests(unittest.TestCase):
 
     def test_six_kits_and_v1_match_488_file_pre_t4j_hash_table(self):
         evidence = ROOT/'runs/C-5/t3/T4j'
-        expected = json.loads((evidence/'legacy_before_hashes.json').read_text())
+        expected = json.loads((ROOT/'fixtures/fl1b/PieceLap2ExportTests-3.json').read_text())
         project = self.root/'legacy'
         build_project(self.cells,project,vfx_kits=evidence/'legacy_catalogue.json',sockets=self.sockets)
         actual = {p.relative_to(project).as_posix():hashlib.sha256(p.read_bytes()).hexdigest()
@@ -1428,7 +1428,7 @@ class ProjectileArmPickerTests(unittest.TestCase):
         (evidence/'e1_headless.json').write_text(json.dumps(records,indent=2)+'\n')
 
     def test_original_eight_export_byte_lock(self):
-        baseline=ROOT/'runs/C-5/t3/T4t/before_11_hashes.json'
+        baseline=ROOT/'fixtures/fl1b/ProjectileArmPickerTests-2.json'
         self.assertTrue(baseline.is_file(),'T4t current eleven-kit snapshot required')
         cells=self.root/'cells'; cells.mkdir()
         for direction in ('E','N','S'):
@@ -1834,6 +1834,56 @@ func run() -> void:
             keeper.state = "idle"
             keeper._update_cast_halo()
             await process_frame
+    # FL-1b: literal v24 shield footprint on the G1 target collision layer.
+    # Check emergence, not just subsequent movement: fire's initial nose is past it.
+    var shield := Area2D.new()
+    shield.collision_layer = 2
+    shield.collision_mask = 0
+    shield.set_meta("body_index", 44)
+    scene.add_child(shield)
+    shield.global_position = Vector2(3911.25,596)
+    var polygon := CollisionPolygon2D.new()
+    var points := PackedVector2Array()
+    for i in range(16): points.append(Vector2(35.2*cos(i*TAU/16),15.4*sin(i*TAU/16)))
+    polygon.polygon = points
+    shield.add_child(polygon)
+    report.near_shield = []
+    await physics_frame
+    await process_frame
+    for kit_name in ["fire_bolt_e1_B","fire_bolt_e1_A","ice_bolt_e2"]:
+        keeper.state = "idle"
+        keeper.facing = "E"
+        for i in range(keeper.VFX_KITS.size()):
+            if keeper.VFX_KITS[i].name == kit_name: keeper.cast_kit_index = i
+        keeper.cast_fired = false
+        keeper.sprite.animation = "cast_E"
+        keeper.sprite.pause()
+        keeper.sprite.frame = 3
+        keeper.state = "cast"
+        keeper.vfx_cursor_override = shield.global_position
+        keeper._cast_frame_changed()
+        var bolt: Area2D = get_nodes_in_group("vfx_g1_pool")[-1]
+        var rows: Array = []
+        for tick in range(60):
+            rows.append({"tick":tick,"position":[bolt.global_position.x,bolt.global_position.y],"active":bolt.active})
+            await physics_frame
+            await process_frame
+        var contacts: Array = G1.events.filter(func(e): return e.event == "contact")
+        var edge_error: float = INF
+        var tip_error: float = INF
+        if not contacts.is_empty():
+            var hit := Vector2(contacts[0].position[0],contacts[0].position[1])
+            for i in range(points.size()):
+                var nearest: Vector2 = Geometry2D.get_closest_point_to_segment(hit,shield.to_global(points[i]),shield.to_global(points[(i+1)%points.size()]))
+                edge_error = minf(edge_error,hit.distance_to(nearest))
+            var head: AnimatedSprite2D = bolt.get_node("Head")
+            var pivot: Array = bolt.config.painted_travel.head.pivot
+            tip_error = head.to_global(head.offset+Vector2(pivot[0],pivot[1])).distance_to(hit)
+        report.near_shield.append({"kit":kit_name,"rows":rows,"contacts":contacts.duplicate(true),"edge_error_px":edge_error,"tip_error_px":tip_error})
+        G1.events.clear()
+        bolt.queue_free()
+        keeper.state = "idle"
+        await process_frame
     var output := FileAccess.open("res://fl1_trace.json",FileAccess.WRITE)
     output.store_string(JSON.stringify(report))
     print("FL1_TRACE_COMPLETE")

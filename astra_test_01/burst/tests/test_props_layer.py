@@ -23,7 +23,7 @@ from test_parallax_scene import (make_inputs, rectangle, scene_nodes, vector,
                                  scene_polygons, contains, GODOT, TMP)
 
 BASELINE = {
-    'README.md': 'd56e3f32e2cf8a45d4f1fa4bfe0c5e54a5e89007ad2a328e8fe09c6118202f40',
+    'README.md': '868b6cc44f27e22022b6105caefd3d862968535586eed58edec1f9499f148b25',
     'frames/keeper.tres': '039613597231247f133ba55b2d752810b8b64121d552f3e1e7f686b909340cfa',
     'parallax/export.json': 'f72c429db87bc649230ad709067492255edf4f3f11018508a5a279cca344b1a3',
     'parallax/parallax.json': 'e7677434d57020847c73b5c44314a44b7f7ae806ba454e07a32d31d64949beeb',
@@ -1098,7 +1098,7 @@ class PropsLayerT3qTests(unittest.TestCase):
                     self.reject(bad)
 
     def test_t3p_fixtures_byte_identical_all_text(self):
-        baselines = json.loads((T3Q_ROOT/'t3p_baseline.json').read_text())
+        baselines = json.loads((Path(__file__).resolve().parents[1]/'fixtures/fl1b/t3p_baseline.json').read_text())
         class OrderedCollections(set):
             def __iter__(self):
                 return iter(('assets', 'near', 'shadows', 'instances', 'particles', 'overhead'))
@@ -1406,7 +1406,7 @@ class PropsLayerT3rTests(unittest.TestCase):
         self.reject(bad)
 
     def test_t3q_fixture_all_text_byte_identical_and_empty_has_no_script(self):
-        baseline = json.loads((T3R_ROOT/'t3q_baseline.json').read_text())
+        baseline = json.loads((Path(__file__).resolve().parents[1]/'fixtures/fl1b/t3q_baseline.json').read_text())
         (self.props/'props.json').write_text(json.dumps(baseline['manifest'], indent=2)+'\n')
         class OrderedCollections(set):
             def __iter__(self):
