@@ -1,0 +1,48 @@
+{
+  "task_id": "VF-prim-fire-head-02",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "fire_head_02",
+      "path": "out/fire_head_02.png",
+      "sha256": "626d700670f7f14d6e03c3f3fcd4ce2fb4592292e18b571914b78ac31c3b90e5",
+      "prompt": "Use case: stylized-concept. Create exactly ONE hand-drawn painted 2D game VFX primitive: P01 HEAD / CORE of a fire bolt flying RIGHT, screen +x. Output a 512x512 PNG with genuine transparent RGBA background: alpha zero everywhere outside the body, opaque inside, antialias fringe at most 1 pixel. If genuine transparency is unavailable use entirely uniform pure #00ff00 background instead. No fake checkerboard. Reference image 2 is the approved flame vocabulary: match exactly its four flat grayscale planes, near-black tapered contour, dark gray outer flame, light gray mid flame, and pure white core; hooked flame tongues and crisp hard plane boundaries. Reference 1 provides register and scale context only, reference 3 is ground reading only. Do not reproduce either scene, people, ground, labels, or reference board. Render only one centered compact projectile body, painted extent about 156 pixels wide and 110 pixels tall on the 512x512 canvas, centered at (256,256), ample empty margins. Dense horizontal teardrop with the rounded BLUNT leading end on the RIGHT, tapering rear on LEFT. Large solid WHITE-HOT heart occupying the leading right half of the core and approximately 40 percent of total body area, so it reads as a dense molten emission mass. Three to four SHORT hooked tongues sweep backwards LEFT from the upper and lower body edges, asymmetrical and unequal in length. Short rearward flame hooks, no long trail. Confident hand-drawn dark contour with visible taper and varying weight; clean painted planes, restrained texture, readable small silhouette. One frame of hand-drawn animation. FOUR FLAT grayscale planes ONLY: near-black contour, dark gray outer flame, light gray mid flame, pure white heart. Paint only the shape representing emission. No gradients, glow, blur, soft halo, light spill, motion streaks, colored fire, shadows, ground, scene, text, watermark or extra objects. The projectile itself is opaque. Exact 512x512 final canvas.\nCORRECTION FOR THIS ATTEMPT: Final file must be 512 by 512 pixels. Keep the entire silhouette inside x=178..334 and y=201..311. The drawing occupies ONLY 30.5% of canvas width and 21.5% of canvas height. Very small centered sprite surrounded by broad transparent margins. Four entirely uniform flat fills with no mottling, grain, texture, shading variations or gradients. Only 3 to 4 short backward hooks in total. Broad blunt leading right nose. Please honor the small painted extent and exact final 512x512 dimensions.",
+      "references": [
+        {
+          "role": "Scale and register board",
+          "path": "in/01_scale_board_clearing.png"
+        },
+        {
+          "role": "Approved fire vocabulary",
+          "path": "in/02_fire_peak_01.png"
+        },
+        {
+          "role": "Native ground crop; reading only",
+          "path": "in/03_clearing_native_512.png"
+        }
+      ],
+      "elapsed_s": 30.715
+    }
+  ],
+  "calls_used": 2,
+  "retries": [
+    {
+      "reason": "First generation returned 1254×1254 with oversized painted extent.",
+      "change": "Reiterated exact 512×512 dimensions, specified silhouette bounds and canvas percentages, and reinforced uniform flat fills."
+    }
+  ],
+  "self_report": {
+    "obeyed_invariants": false,
+    "concerns": [
+      "Both generations returned 1254×1254. Delivered the unchanged second output; required 512×512 canvas and literal painted dimensions remain unmet.",
+      "Alpha channel is present; exact exterior alpha values, interior opacity, and fringe width were not numerically verified.",
+      "Visible subtle fill variation remains despite the four-flat-plane request."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/fire_head_02.png",
+      "sha256": "626d700670f7f14d6e03c3f3fcd4ce2fb4592292e18b571914b78ac31c3b90e5"
+    }
+  ]
+}

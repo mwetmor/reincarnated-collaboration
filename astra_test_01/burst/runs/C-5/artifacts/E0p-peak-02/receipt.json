@@ -1,0 +1,46 @@
+{
+  "task_id": "E0p-peak-02",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "fire_peak_02",
+      "path": "out/fire_peak_02.png",
+      "sha256": "6c3b8d7207c18802989a02ecdf4a69f9e04acf97c03015fd83de7809547bd69f",
+      "prompt": "Create exactly one finished game VFX sprite: FIRE IMPACT PEAK STILL. Output a 512x512 RGBA PNG with genuine transparency, alpha zero outside the body, fully opaque painted interior, hard crisp boundary with at most one pixel antialias fringe. If genuine alpha output is unavailable, use a perfectly uniform pure #00ff00 background instead; never simulate transparency with checkerboard. This task is a single isolated still, not an atlas. Reference image 1 is a scale and drawing-register board; reference image 2 is the native clearing, for camera and drawing-language reading only. Do not paint either scene or its figures into the output. Hand-drawn painted 2D animation frame: confident dark contour drawn by hand with visible taper and varying weight; clean painted planes inside that line, restrained texture, readable silhouette, no conspicuous grain. Camera elevated three-quarter about 53 degrees downward, fixed screen-upper-left key language, but this emission-body mask has NO lighting effects or cast shadow. Paint ONLY the physical shape representing emission. One intact connected SYMMETRICAL FIRE BURST centered in the canvas, painted extent about 300 pixels wide and 280 pixels tall, generous empty margins. Dense bright core at centre-bottom, surrounded by a CONTINUOUS thick ring of flame with eight to ten SHORT HOOKED tongues of nearly equal length, max tongue length 1.4 times shortest and all shorter than 0.9 times core width. Flame fills every gap between tongues: broad joined scalloped circular-to-elliptical silhouette, never separate arms, never an octopus, never long tendrils. Curl outward and slightly upward all round; top tongues only a little taller than side tongues. Balanced left-right symmetrical overall mass, slightly flattened bottom so it sits on ground in this elevated camera. Exactly FOUR flat grayscale value planes with hard edges: near-black #181818 tapered contour/rim, dark gray #555555 outer flame, light gray #aaaaaa middle flame, and pure white #ffffff core. The WHITE CORE is an irregular flame-shaped connected mass, not a disc, and occupies about one third of total body's area. No additional value planes, no gradients, no glow, halo, flash, floor light, warm color, smoke, detached sparks, motion trails, lettering, scenery or decorative ground ellipse. Keep the shape dense, compact, scalloped, clean and painted, like one confident hand-animated effects drawing.\nCORRECTION FOR THIS FINAL ATTEMPT: enforce a compact almost-round burst with TEN squat, broad, equally short hooked scallops all around its perimeter, including the lower sides. Do not make a triangular bonfire or a crown with a tall central flame. The top centre tongue must be no longer than its neighboring tongues. Outer silhouette aspect ratio approximately 300:280. White irregular core occupies a full third of the connected body's area. ALL FOUR INTERIOR COLORS MUST BE PERFECTLY FLAT UNIFORM SOLID FILLS; ZERO mottling, zero paper texture, zero shading variation, zero gradient. Keep hand-drawn taper in contour only. Transparent empty margin. Deliver at exactly 512 by 512 pixels.",
+      "references": [
+        {
+          "role": "Scale and drawing-register reference",
+          "path": "in/01_scale_board_clearing.png"
+        },
+        {
+          "role": "Native ground crop; camera and drawing-language reference only",
+          "path": "in/02_clearing_native_512.png"
+        }
+      ],
+      "elapsed_s": 35.78
+    }
+  ],
+  "calls_used": 2,
+  "retries": [
+    {
+      "reason": "First candidate had a dominant upper tongue and tonal variation.",
+      "change": "Requested compact, nearly equal hooked scallops and strictly uniform four-value fills."
+    }
+  ],
+  "self_report": {
+    "obeyed_invariants": false,
+    "concerns": [
+      "Generated at 1254×1254; uniformly downscaled with sips to the delivered 512×512.",
+      "Painted extent visually approximately 365×310 pixels, larger than requested.",
+      "Four main value regions are visible, but residual tonal variation prevents claiming exactly four flat values.",
+      "Overall silhouette is approximately symmetrical; individual tongue lengths and the 1.4× bound remain unverified.",
+      "Alpha channel confirmed; exact exterior alpha, interior opacity, and fringe width were not quantitatively verified."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/fire_peak_02.png",
+      "sha256": "6c3b8d7207c18802989a02ecdf4a69f9e04acf97c03015fd83de7809547bd69f"
+    }
+  ]
+}

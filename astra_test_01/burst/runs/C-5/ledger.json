@@ -2,7 +2,7 @@
   "run": "C-5",
   "charter": "agentic_orchestration/gandalf/notes/2026-09-15-vfx-run-C-5-charter.md",
   "charter_sha256_12": "c41d87420e76",
-  "images_used": 54,
+  "images_used": 60,
   "images_cap": 999999,
   "images_cap_note": "SENTINEL 999999 — the run image cap is UN-ENFORCED by sentinel (Matt V20, 2026-09-15: \"no image budget\"); images_used is counted and reported at every packet. run_burst.py:158 integer-compares this field; null crashed it (jack-ryan Gate-1 BLOCK-B).",
   "bursts": [
@@ -14140,6 +14140,213 @@
       "codex_version": "codex-cli 0.153.4",
       "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
       "exit": 0
+    },
+    {
+      "id": "VF-prim-fire-sheet-01",
+      "type": "GENERATE",
+      "experiment": "C5-E1",
+      "brief_sha256": "58070a0d5fb1bc4063ed1ad6d213966ecd1e31f3cd9ff6b6d0781920bb1a4618",
+      "started": "2026-09-16T22:06:54.231698+00:00",
+      "ended": "2026-09-16T22:09:31.212174+00:00",
+      "minutes": 2.6163403562498084,
+      "image_calls": 2,
+      "tool_calls": 5,
+      "audit": {
+        "violations": [],
+        "image_calls": 2,
+        "tool_calls": 5,
+        "tools_seen": {
+          "command_execution": 5
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0ac42-31bb-78b3-8268-52a127ef5fc8/exec-aa435f53-546d-4dc4-923a-c6b75d985c9a.png",
+            "sha256": "547233b3e4de18d168d67190836986bfdcfb33cba79290d8e52b2a72259c71c3"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0ac42-31bb-78b3-8268-52a127ef5fc8/exec-def7c6c8-6807-4c74-8356-62bc7b568aca.png",
+            "sha256": "43a8565cc40607a87bf9f77b55143f21431576a927a9dfca7c2ff3a62bb4c9eb"
+          }
+        ]
+      },
+      "receipt_sha256": "db20994c9c35daca1befbc721c578407f6e2c959f1836107d298f1192b9b4727",
+      "artifacts": [
+        {
+          "name": "fire_sheet_01.png",
+          "sha256": "547233b3e4de18d168d67190836986bfdcfb33cba79290d8e52b2a72259c71c3"
+        },
+        {
+          "name": "exec-aa435f53-546d-4dc4-923a-c6b75d985c9a.provenance.json",
+          "sha256": "6828c4c7051ba79c8351b2717ae4df0b01a7edbdff9df2e8b6ae75abaa11717d"
+        },
+        {
+          "name": "exec-def7c6c8-6807-4c74-8356-62bc7b568aca.provenance.json",
+          "sha256": "9c23b732c5e9b25eebe11434c3ad4a1ea10872916d2664f52ec8b037c47270d2"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0ac42-31bb-78b3-8268-52a127ef5fc8/exec-aa435f53-546d-4dc4-923a-c6b75d985c9a.png",
+          "sha256": "547233b3e4de18d168d67190836986bfdcfb33cba79290d8e52b2a72259c71c3"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0ac42-31bb-78b3-8268-52a127ef5fc8/exec-def7c6c8-6807-4c74-8356-62bc7b568aca.png",
+          "sha256": "43a8565cc40607a87bf9f77b55143f21431576a927a9dfca7c2ff3a62bb4c9eb"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
+    },
+    {
+      "id": "VF-prim-fire-head-02",
+      "type": "GENERATE",
+      "experiment": "C5-E1",
+      "brief_sha256": "1d749a0993be13d3f4526c39cacc3aeef155ce9c1390fd0bc8d57994e6832287",
+      "started": "2026-09-16T22:06:54.231702+00:00",
+      "ended": "2026-09-16T22:09:40.725275+00:00",
+      "minutes": 2.774892483333194,
+      "image_calls": 2,
+      "tool_calls": 4,
+      "audit": {
+        "violations": [],
+        "image_calls": 2,
+        "tool_calls": 4,
+        "tools_seen": {
+          "command_execution": 4
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0ac42-31bb-78e1-b132-d0a607adeea8/exec-8b57f099-005c-4bee-abdb-08fbf1750a3b.png",
+            "sha256": "d045b7ee443a1b4be4bf52252dee3d38081d7de25dc55ae3f0361af9febb0c0a"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0ac42-31bb-78e1-b132-d0a607adeea8/exec-b953daf5-5b0a-4d74-9c5f-f0e41dfb21f5.png",
+            "sha256": "626d700670f7f14d6e03c3f3fcd4ce2fb4592292e18b571914b78ac31c3b90e5"
+          }
+        ]
+      },
+      "receipt_sha256": "6906640c6812a54d61d1f8b8a7e92f210ee46e93260b295b81e28a7f69db22b9",
+      "artifacts": [
+        {
+          "name": "fire_head_02.png",
+          "sha256": "626d700670f7f14d6e03c3f3fcd4ce2fb4592292e18b571914b78ac31c3b90e5"
+        },
+        {
+          "name": "exec-8b57f099-005c-4bee-abdb-08fbf1750a3b.provenance.json",
+          "sha256": "5cd2f0a5b431e017e0134e18da649d54541d97b7a019a896241ad874be58c5a4"
+        },
+        {
+          "name": "exec-b953daf5-5b0a-4d74-9c5f-f0e41dfb21f5.provenance.json",
+          "sha256": "6cd6b6e377364a35b5cf86a39360dd61e2a347bc3e9edb025d3d20b18d6b6404"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0ac42-31bb-78e1-b132-d0a607adeea8/exec-8b57f099-005c-4bee-abdb-08fbf1750a3b.png",
+          "sha256": "d045b7ee443a1b4be4bf52252dee3d38081d7de25dc55ae3f0361af9febb0c0a"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0ac42-31bb-78e1-b132-d0a607adeea8/exec-b953daf5-5b0a-4d74-9c5f-f0e41dfb21f5.png",
+          "sha256": "626d700670f7f14d6e03c3f3fcd4ce2fb4592292e18b571914b78ac31c3b90e5"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
+    },
+    {
+      "id": "E0p-peak-02",
+      "type": "GENERATE",
+      "experiment": "C5-E0p",
+      "brief_sha256": "6e9db2668a5b69a56222c0e21baec058d3bf0791f87fdff02522a1e7d68edbdc",
+      "started": "2026-09-16T22:06:54.231698+00:00",
+      "ended": "2026-09-16T22:10:02.245391+00:00",
+      "minutes": 3.1335612729167526,
+      "image_calls": 2,
+      "tool_calls": 4,
+      "audit": {
+        "violations": [],
+        "image_calls": 2,
+        "tool_calls": 4,
+        "tools_seen": {
+          "command_execution": 4
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0ac42-31bb-70a1-a4db-8adca2ff5cf7/exec-0c7f3ca6-789f-41ba-bafc-b3e012d5a807.png",
+            "sha256": "01b8668ef325f17448ef8947fed4187f6b0a7221d1eb6b12919020ff8f2ef490"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0ac42-31bb-70a1-a4db-8adca2ff5cf7/exec-d1da0aab-f98a-4f2b-9bd3-977b11264d13.png",
+            "sha256": "f1c4ff76b12a1842816c9f6e0b9b192eef53b07338e19336ac63740ff9d1fddc"
+          }
+        ]
+      },
+      "receipt_sha256": "1c6434f4c916295684fd08fb8b37401cb069a6b242b1b68afca4734e212d827b",
+      "artifacts": [
+        {
+          "name": "fire_peak_02.png",
+          "sha256": "6c3b8d7207c18802989a02ecdf4a69f9e04acf97c03015fd83de7809547bd69f"
+        },
+        {
+          "name": "exec-0c7f3ca6-789f-41ba-bafc-b3e012d5a807.provenance.json",
+          "sha256": "2d381fed5f1902695365f114792cfdb72658e71d9ebf86c250b0834ddca5ed3f"
+        },
+        {
+          "name": "exec-d1da0aab-f98a-4f2b-9bd3-977b11264d13.provenance.json",
+          "sha256": "a23470fa2bed5f3f510de202a21d4b2a4a2ece523d57bfe1d40a80e2199a513c"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0ac42-31bb-70a1-a4db-8adca2ff5cf7/exec-0c7f3ca6-789f-41ba-bafc-b3e012d5a807.png",
+          "sha256": "01b8668ef325f17448ef8947fed4187f6b0a7221d1eb6b12919020ff8f2ef490"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0ac42-31bb-70a1-a4db-8adca2ff5cf7/exec-d1da0aab-f98a-4f2b-9bd3-977b11264d13.png",
+          "sha256": "f1c4ff76b12a1842816c9f6e0b9b192eef53b07338e19336ac63740ff9d1fddc"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
     }
   ],
   "experiments": [],
@@ -14278,6 +14485,11 @@
       "id": "M-C5-BL1",
       "note": "Blackwater lane opened on cliffside_v38 (Packet 101): lob + shatter + painted pool + licks + scorch in all 8 directions; landing ignores walkable ground (F-C5-35). Field-tick hit response on bodies inside the pool to be probed.",
       "ts": "2026-09-16T17:32:12"
+    },
+    {
+      "id": "M-C5-FIRE-PAINT2",
+      "note": "Fire lane paintings for FL-4 (Matt R-C5-109): E0p-peak-02 = a compact SYMMETRICAL scalloped burst (ten squat tongues, flame between them, white core a third of the body) — the octopus is gone; VF-prim-fire-head-02 = a white-hot teardrop head with three rear hooks (~1.2 BH); VF-prim-fire-sheet-01 = a full flame-sheet wake with four separated wisps (~2.2 BH). All four-plane, transparent; head/sheet delivered at 1254 and staged as 512 working copies by the conductor (as E1). Packet 102 = the board. Bind in FL-4b.",
+      "ts": "2026-09-16T18:11:16"
     }
   ],
   "halts": [],

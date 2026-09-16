@@ -1,0 +1,49 @@
+{
+  "task_id": "VF-prim-fire-sheet-01",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "fire_sheet_01",
+      "path": "out/fire_sheet_01.png",
+      "sha256": "547233b3e4de18d168d67190836986bfdcfb33cba79290d8e52b2a72259c71c3",
+      "prompt": "Use case: stylized-concept. Asset type: P07 flame-sheet emission primitive for a hand-drawn painted 2D action game. Generate EXACTLY ONE 512x512 PNG with genuinely transparent RGBA background: alpha zero outside the flame, opaque inside, edge antialiasing at most one pixel. If genuine transparency cannot be produced, use a perfectly uniform pure #00ff00 background instead. Reference image 1 is scale/register context only, reference image 2 is the approved flame vocabulary to match, reference image 3 is ground/camera reading only. Do not depict the environment or figures. Paint one single centered horizontal FLAME SHEET: the trailing wake body of a fire bolt travelling RIGHT. Broad ragged fire body streaming LEFT from an unseen head at the right. Fuller than a streak, a substantial sheet of flame. Widest near the right end, thinning leftward and breaking into three or four separated hooked wisps at the far left. Asymmetric top and bottom; hooked curling tongues with hard plane edges matching reference 2. Keep generous empty margins, nothing touching the canvas edge. Composition: body occupies approximately 57 percent of canvas width and 23 percent of canvas height, centered. FOUR flat grayscale value planes only: near-black hand-drawn tapering contour/rim, dark gray outer flame, light gray mid flame filling most of the body, white core confined near the RIGHT end where the wake meets the unseen head. Confident dark contour drawn by hand with visible taper and varying weight, clean painted planes inside the line, restrained texture, readable small silhouette. Each shape feels like one frame of hand-drawn animation. Shape representing emission ONLY; color, glow, light and motion are runtime layers. No gradients, bloom, blur, lighting spill, floor shadow, texture grain, text, labels, frame border, checkerboard pattern, or extra objects. This task-specific single primitive canvas supersedes character-sheet layout and character pivot instructions.\nRETRY CORRECTIONS: Output canvas must be exactly 512 by 512 pixels. The entire visible asset including detached wisps must fit inside a centered rectangle from x=111 to x=401 and y=198 to y=313, leaving much larger empty margins than the first candidate. Make the flame sheet shallow and broad with its width approximately 2.5 times its height. Exactly FOUR individually separated small hooked flame wisps at the far left, each with a transparent gap from the main sheet and each other. Right end is a broad wake attachment with a small white interior plane, not a round white fireball head. Do not paint the projectile head. Preserve the four grayscale planes and hand-tapered contours of reference 2.",
+      "references": [
+        {
+          "role": "Scale and register board",
+          "path": "in/01_scale_board_clearing.png"
+        },
+        {
+          "role": "Approved flame vocabulary",
+          "path": "in/02_fire_peak_01.png"
+        },
+        {
+          "role": "Native ground crop; reading only",
+          "path": "in/03_clearing_native_512.png"
+        }
+      ],
+      "elapsed_s": 35.688
+    }
+  ],
+  "calls_used": 2,
+  "retries": [
+    {
+      "reason": "First candidate was too broad and had only two detached wisps.",
+      "change": "Requested tighter centered bounds, four detached wisps, a smaller white attachment plane, and exact 512×512 output."
+    }
+  ],
+  "self_report": {
+    "obeyed_invariants": false,
+    "concerns": [
+      "Generator returned 1254×1254 despite the 512×512 request. Saved unchanged under GENERATE copy-only restrictions; requires conductor-side downscaling.",
+      "Alpha channel is present; exact outside-alpha values, interior opacity, and fringe width were not measured.",
+      "Three detached wisps are visible, within the original requested range.",
+      "Subtle tonal texture remains within the grayscale planes; exact four-value flatness is unverified."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/fire_sheet_01.png",
+      "sha256": "547233b3e4de18d168d67190836986bfdcfb33cba79290d8e52b2a72259c71c3"
+    }
+  ]
+}
