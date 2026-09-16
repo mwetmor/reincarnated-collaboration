@@ -8608,6 +8608,45 @@
       "codex_version": "codex-cli 0.153.4",
       "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
       "exit": 0
+    },
+    {
+      "id": "CS-pack-v28",
+      "type": "PACK",
+      "experiment": "C5-P0b",
+      "brief_sha256": "d3651eeb23159afd62f74eaba057b329d2e1488872edfaae09d8ce8300a97117",
+      "started": "2026-09-16T09:19:45.207488+00:00",
+      "ended": "2026-09-16T09:21:30.493310+00:00",
+      "minutes": 1.754741096533447,
+      "image_calls": 0,
+      "tool_calls": 7,
+      "audit": {
+        "violations": [],
+        "image_calls": 0,
+        "tool_calls": 7,
+        "tools_seen": {
+          "command_execution": 7
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [],
+        "execution_error": "receipt reports unsuccessful execution"
+      },
+      "receipt_sha256": "a2c5bf97f2ea13a887718e9e5e7e19bfb45f035bac6e64fe1e53f3d6c794e689",
+      "artifacts": [],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 3
     }
   ],
   "experiments": [],
@@ -9116,6 +9155,13 @@
       "veto_open": true,
       "ruling": "FREEZE after T4s with two named obsolete reds beyond the five standing: ThrownFieldValidationTests.test_both_g2_kits_preserve_specs_rgb_glass_and_alpha (the conductor re-authored the tick schedules in spec + kit after the test froze them) and IceTreatmentImportTests.test_ten_existing_export_bytes_unchanged (a ten-kit byte lock that legitimately changed with the E1 scale fix in scripts/vfx_g1_painted.gd) — both aligned in T4t. PACK v28 fires (thirteen kits) for the E1 re-judge and the E3 field looks.",
       "ts": "2026-09-16T05:19:44"
+    },
+    {
+      "id": "R-C5-57",
+      "class": "conductor",
+      "veto_open": true,
+      "ruling": "PACK CS-pack-v28 FAILED (exit 3): the T4s exporter crashes with G2 kits registered — NameError _write_g2_component is not defined at _write_vfx_kits (T4s's headless proof evidently ran on a fixture without the G2 kits registered in kits_v9.json). T4s-r1 fired (define/wire the emitter; add a full-exporter test with the live 13-kit registry). The v28 probe chain and the re-judge wait for it. Not a HALT: one PACK FAIL on a code defect, remedied; no VOIDs.",
+      "ts": "2026-09-16T05:23:02"
     }
   ],
   "grok_calls": [],
@@ -9177,6 +9223,11 @@
       "id": "N-C5-judge-01-void",
       "note": "E1-judge-01 completed; result recorded in its receipt but VOID for the ruling (R-C5-54: boards not comparable — detector latched on the cast flash; travel scale defect F-C5-12). Re-judged after T4s.",
       "ts": "2026-09-16T04:45:29"
+    },
+    {
+      "id": "N-C5-v28-probe-error",
+      "note": "Conductor error: the v28 probe chain was launched from a backgrounded shell whose cwd drifted, so $PWD-based output paths resolved to / (mkdir read-only) — the eleven captures did not run; the judge boards then failed to build and E1-judge-02 was fired against missing boards and KILLED by the conductor before the wrapper could record it (no ledger burst entry; not a VOID). Re-run with absolute paths. Standing law re-learned (CLAUDE.md cwd note): absolute paths in every backgrounded command.",
+      "ts": "2026-09-16T05:22:11"
     }
   ]
 }
