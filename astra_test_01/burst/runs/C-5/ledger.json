@@ -4,7 +4,7 @@
   "charter_sha256_12": "c41d87420e76",
   "images_used": 52,
   "images_cap": 999999,
-  "images_cap_note": "SENTINEL 999999 \u2014 the run image cap is UN-ENFORCED by sentinel (Matt V20, 2026-09-15: \"no image budget\"); images_used is counted and reported at every packet. run_burst.py:158 integer-compares this field; null crashed it (jack-ryan Gate-1 BLOCK-B).",
+  "images_cap_note": "SENTINEL 999999 — the run image cap is UN-ENFORCED by sentinel (Matt V20, 2026-09-15: \"no image budget\"); images_used is counted and reported at every packet. run_burst.py:158 integer-compares this field; null crashed it (jack-ryan Gate-1 BLOCK-B).",
   "bursts": [
     {
       "id": "CS-dress-clearing",
@@ -8995,13 +8995,77 @@
       "codex_version": "codex-cli 0.153.4",
       "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
       "exit": 0
+    },
+    {
+      "id": "T4s-r2",
+      "type": "TOOLING",
+      "experiment": "C5-E3",
+      "brief_sha256": "860b68f50099409ac2eff69ae21cfdc932fc56873ce8ee4ef3d41f196adc78ef",
+      "started": "2026-09-16T10:18:59.116666+00:00",
+      "ended": "2026-09-16T10:32:15.370904+00:00",
+      "minutes": 13.270780656250038,
+      "image_calls": 0,
+      "tool_calls": 31,
+      "audit": {
+        "violations": [],
+        "image_calls": 0,
+        "tool_calls": 31,
+        "tools_seen": {
+          "command_execution": 31
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": []
+      },
+      "receipt_sha256": "fc8e2a5045373755f5e26f7b20e5c7cc43ec21499837b4c0ba842b2ba13cd952",
+      "artifacts": [
+        {
+          "name": "files.json",
+          "sha256": "f918cb7707c687108510e8012f3db3727862a82c264ee5db9d0b34366a5eccab"
+        }
+      ],
+      "artifacts_in_place": [
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "export/godot_import.py",
+          "sha256": "20a09f20ab8483c2be46f7102748ca38c3b8905dbc318da6d08bd37e54d47d2f"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-5/t3/T4s-r2/acceptance.json",
+          "sha256": "a8d27f3da442a9a95cee1cae16236190c976bc310db7d715306ef2c575fa19f7"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-5/t3/T4s-r2/evidence.zip",
+          "sha256": "e26d5c949001d178a0830e5b8a060caeb3f93e5f5b7ce5c9da778c225d3529fb"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "tests/test_godot_import.py",
+          "sha256": "ddd9fab881296c58ffe1561d3d18ed657d1f0bf3733645d001049824b9b1b377"
+        }
+      ],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
     }
   ],
   "experiments": [],
   "milestones": [
     {
       "id": "M-C5-CLEARING-DRESSED",
-      "note": "CS-dress-clearing-r1 DELIVERED (exit 0, 2 images, sha 63d89e28\u2026): seven training dummies in register on the far-plateau clearing; conductor eyeball PASS (grounded, shadows lower-right, painting preserved). Object sheets cut: 9 tiles / 3 sheets (7 dummies + 2 drift patches; colossus tile includes the club humanoid \u2014 separated at isolation).",
+      "note": "CS-dress-clearing-r1 DELIVERED (exit 0, 2 images, sha 63d89e28…): seven training dummies in register on the far-plateau clearing; conductor eyeball PASS (grounded, shadows lower-right, painting preserved). Object sheets cut: 9 tiles / 3 sheets (7 dummies + 2 drift patches; colossus tile includes the club humanoid — separated at isolation).",
       "ts": "2026-09-15T16:09:06"
     },
     {
@@ -9016,12 +9080,12 @@
     },
     {
       "id": "M-C5-WEB7",
-      "note": "drax: web7 LIVE at https://reincarnated-loadout.vercel.app/playtest/cliffside/ (loadout 33b04db+f63ca88; pck 35,332,972 B sha 80a4f8bc\u2026; deploy-truth PASS; seven dummies + cow captured on production). CAST button stays (Matt reversal).",
+      "note": "drax: web7 LIVE at https://reincarnated-loadout.vercel.app/playtest/cliffside/ (loadout 33b04db+f63ca88; pck 35,332,972 B sha 80a4f8bc…; deploy-truth PASS; seven dummies + cow captured on production). CAST button stays (Matt reversal).",
       "ts": "2026-09-15T17:51:35"
     },
     {
       "id": "M-C6-N1-CAM",
-      "note": "N1-master-cam-01 DELIVERED (2 image calls; sha de00674d\u2026): the app design master re-drawn from the scene camera \u2014 identity intact, both fists closed on the haft line; native 1254\u00b2 / 706-px figure (registration step scales to the 240-px cell). Conductor eye: camera PASS by comparison with keeper_rest_S; awaiting Matt master decision. C-6 STOPS here per ruling.",
+      "note": "N1-master-cam-01 DELIVERED (2 image calls; sha de00674d…): the app design master re-drawn from the scene camera — identity intact, both fists closed on the haft line; native 1254² / 706-px figure (registration step scales to the 240-px cell). Conductor eye: camera PASS by comparison with keeper_rest_S; awaiting Matt master decision. C-6 STOPS here per ruling.",
       "ts": "2026-09-15T18:54:45"
     },
     {
@@ -9031,67 +9095,67 @@
     },
     {
       "id": "M-C5-WEB8",
-      "note": "CS-pack-web8 LIVE (drax): https://reincarnated-loadout.vercel.app/playtest/cliffside/ rebuilt from CS-pack-v21 (kits_v9, T4b/T4f, necro_master_still at the far bridgehead). Loadout 7546bce5 pushed; pck sha 8ea49551\u2026; 7/7 plain-GET 200; headless boot 0 errors; CAST button unchanged. drax measure: master 70\u00d7130 world px vs Keeper 53\u00d7131 (same height, ~1.3\u00d7 width). Deploy truth: agentic_orchestration/drax/captures/2026-09-15-web-playtest-v8/deploy_truth.txt",
+      "note": "CS-pack-web8 LIVE (drax): https://reincarnated-loadout.vercel.app/playtest/cliffside/ rebuilt from CS-pack-v21 (kits_v9, T4b/T4f, necro_master_still at the far bridgehead). Loadout 7546bce5 pushed; pck sha 8ea49551…; 7/7 plain-GET 200; headless boot 0 errors; CAST button unchanged. drax measure: master 70×130 world px vs Keeper 53×131 (same height, ~1.3× width). Deploy truth: agentic_orchestration/drax/captures/2026-09-15-web-playtest-v8/deploy_truth.txt",
       "ts": "2026-09-15T19:57:51"
     },
     {
       "id": "M-C5-E0P-PEAK",
-      "note": "E0p-peak-01 DELIVERED (2 image calls): the fire impact peak \u2014 genuinely RGBA (transparent plate; ~16k partial-alpha px at the contour), FOUR clean luminance planes (histogram peaks at ~24/88/184/248 with <3% in-between), asymmetric hooked tongues (7, unequal), hand-drawn contour, no glow/gradient. Delivered at 1254\u00b2 with the body 749\u00d7647; conductor resampled \u00d70.408 \u2192 512\u00b2 working asset (body 306\u00d7263 px = 2.35 BH at 1:1; target 2 BH \u00b125% met). First VFX body in the H1 register at s=1. Board: runs/C-5/t3/necro_walk_v21/peak_board.png.",
+      "note": "E0p-peak-01 DELIVERED (2 image calls): the fire impact peak — genuinely RGBA (transparent plate; ~16k partial-alpha px at the contour), FOUR clean luminance planes (histogram peaks at ~24/88/184/248 with <3% in-between), asymmetric hooked tongues (7, unequal), hand-drawn contour, no glow/gradient. Delivered at 1254² with the body 749×647; conductor resampled ×0.408 → 512² working asset (body 306×263 px = 2.35 BH at 1:1; target 2 BH ±25% met). First VFX body in the H1 register at s=1. Board: runs/C-5/t3/necro_walk_v21/peak_board.png.",
       "ts": "2026-09-15T20:36:20"
     },
     {
       "id": "M-C5-PACKET-87",
-      "note": "Packet 87 \u2014 THE BURST ALIVE: cliffside_v22 (eight kits, import 0 errors) staged; v1 (fly) and v2 (stretch-and-erode) cast at a dummy in the clearing at the exact 1920\u00d71080 camera (probe_cast_kit.gd, KIT_CYCLES 6/7; labels confirm fire_burst_e0p / _v2); real-time + quarter-speed clips, in-scene contact sheets, dark-plate bakes; Desktop folder 87 under Astra Burst Review - 2026-09-15 with README + Godot instructions (Tab \u00d76 = v1, \u00d77 = v2); clips sent to Matt in-chat. Gate: Matt eye \u2014 painted burst or sticker explosion; V4 ruled here (R-C3-120).",
+      "note": "Packet 87 — THE BURST ALIVE: cliffside_v22 (eight kits, import 0 errors) staged; v1 (fly) and v2 (stretch-and-erode) cast at a dummy in the clearing at the exact 1920×1080 camera (probe_cast_kit.gd, KIT_CYCLES 6/7; labels confirm fire_burst_e0p / _v2); real-time + quarter-speed clips, in-scene contact sheets, dark-plate bakes; Desktop folder 87 under Astra Burst Review - 2026-09-15 with README + Godot instructions (Tab ×6 = v1, ×7 = v2); clips sent to Matt in-chat. Gate: Matt eye — painted burst or sticker explosion; V4 ruled here (R-C3-120).",
       "ts": "2026-09-15T22:32:11"
     },
     {
       "id": "M-C5-WEB9",
-      "note": "CS-pack-web9 LIVE (drax): https://reincarnated-loadout.vercel.app/playtest/cliffside/ from CS-pack-v22 \u2014 eight kits (fire_burst_e0p \u00d76 Tab, _v2 \u00d77); loadout ebba8499 pushed; pck 0a38dd80\u2026; no build-script change; production casts of kit 7 and 8 captured (live_kit7/8_*). drax finding on F-C5-5: the overlay marks every ScreenTouch handled, so keeper.gd _unhandled_input never sees it; the aim falls to get_global_mouse_position() = the browser-emulated mouse at the CAST button \u2014 T4i's event bookkeeping may never fire on web; T4i-r1 makes touch devices ALWAYS aim forward (DisplayServer.is_touchscreen_available()). Deploy truth: agentic_orchestration/drax/captures/2026-09-15-web-playtest-v9/deploy_truth.txt",
+      "note": "CS-pack-web9 LIVE (drax): https://reincarnated-loadout.vercel.app/playtest/cliffside/ from CS-pack-v22 — eight kits (fire_burst_e0p ×6 Tab, _v2 ×7); loadout ebba8499 pushed; pck 0a38dd80…; no build-script change; production casts of kit 7 and 8 captured (live_kit7/8_*). drax finding on F-C5-5: the overlay marks every ScreenTouch handled, so keeper.gd _unhandled_input never sees it; the aim falls to get_global_mouse_position() = the browser-emulated mouse at the CAST button — T4i's event bookkeeping may never fire on web; T4i-r1 makes touch devices ALWAYS aim forward (DisplayServer.is_touchscreen_available()). Deploy truth: agentic_orchestration/drax/captures/2026-09-15-web-playtest-v9/deploy_truth.txt",
       "ts": "2026-09-15T23:06:09"
     },
     {
       "id": "M-C5-PACKET-88",
-      "note": "Packet 88 \u2014 cliffside_v23 (PACK on freeze 0512265283f1; import 0 errors): figures 13.5 % (146 px), final necromancer (N3) on the path at (2650,1950), touch casts aim forward \u2014 conductor proof with the mouse parked behind: v2 burst centre at screen (1286,565) vs Keeper (960,540) = forward, contacting the hound. Desktop folder 88; stills + sheet sent to Matt; drax web10 dispatched with a production touch-emulated cast check.",
+      "note": "Packet 88 — cliffside_v23 (PACK on freeze 0512265283f1; import 0 errors): figures 13.5 % (146 px), final necromancer (N3) on the path at (2650,1950), touch casts aim forward — conductor proof with the mouse parked behind: v2 burst centre at screen (1286,565) vs Keeper (960,540) = forward, contacting the hound. Desktop folder 88; stills + sheet sent to Matt; drax web10 dispatched with a production touch-emulated cast check.",
       "ts": "2026-09-15T23:38:27"
     },
     {
       "id": "M-C5-WEB10",
-      "note": "CS-pack-web10 LIVE (drax) from CS-pack-v23: figures 13.5 %, final necromancer on the path, touch-aim fix VERIFIED on production under real touch emulation (hasTouch, CDP touch events; casts east AND west land on the facing side \u2014 west is the discriminator vs the CAST button at bottom-right); desktop mouse aim regression-checked unchanged; loadout 650fd75d; pck f8bb4d79\u2026; no build-script change. Deploy truth: agentic_orchestration/drax/captures/2026-09-15-web-playtest-v10/deploy_truth.txt",
+      "note": "CS-pack-web10 LIVE (drax) from CS-pack-v23: figures 13.5 %, final necromancer on the path, touch-aim fix VERIFIED on production under real touch emulation (hasTouch, CDP touch events; casts east AND west land on the facing side — west is the discriminator vs the CAST button at bottom-right); desktop mouse aim regression-checked unchanged; loadout 650fd75d; pck f8bb4d79…; no build-script change. Deploy truth: agentic_orchestration/drax/captures/2026-09-15-web-playtest-v10/deploy_truth.txt",
       "ts": "2026-09-16T00:17:12"
     },
     {
       "id": "M-C5-PACKET-89",
-      "note": "Packet 89 \u2014 cliffside_v25 (PACK on the T4l re-freeze e45165b3c0b4; import 0 errors): burst_v2 lap 3 cast at a dummy at 1:1 (probe_cast_touch_v23, kit 8), real-time + quarter clips, contact sheet, dark-plate bake; Desktop folder 89; sent to Matt. Gate: Matt eye on lap 3 as the E0-p template.",
+      "note": "Packet 89 — cliffside_v25 (PACK on the T4l re-freeze e45165b3c0b4; import 0 errors): burst_v2 lap 3 cast at a dummy at 1:1 (probe_cast_touch_v23, kit 8), real-time + quarter clips, contact sheet, dark-plate bake; Desktop folder 89; sent to Matt. Gate: Matt eye on lap 3 as the E0-p template.",
       "ts": "2026-09-16T00:50:00"
     },
     {
       "id": "M-C5-PACK-V26",
-      "note": "cliffside_v26 staged + proven (import 0 errors): figures 14 % (151 px; path still with Keeper + necromancer), cow_flies swarm re-seated \u2014 frame diff near the carcass: 230 changed px at the new swarm position, 0 at the old (F-C5-9 closed). drax web11 dispatched (LAST deploy per R-C5-36). T4n fires.",
+      "note": "cliffside_v26 staged + proven (import 0 errors): figures 14 % (151 px; path still with Keeper + necromancer), cow_flies swarm re-seated — frame diff near the carcass: 230 changed px at the new swarm position, 0 at the old (F-C5-9 closed). drax web11 dispatched (LAST deploy per R-C5-36). T4n fires.",
       "ts": "2026-09-16T01:27:52"
     },
     {
       "id": "M-C5-KS-GUIDES",
-      "note": "F-C5-10 fix verified outside: crop 512 and 768 both render the hold body at 306 px, centred (768: centre 384; expanded f15 584 px wide, unclipped). Key-state guides built at 1:1 from the T4g-era export (v29 bake, seed 2026): guide_expanded_768.png (f15), guide_spent_768.png (f36 = residue entry), peak_768.png (identity on the same canvas). KS-fire-expanded-01 + KS-fire-spent-01 fired (GENERATE, EDIT mode over the guides; S1 \u00a7 2b conditions).",
+      "note": "F-C5-10 fix verified outside: crop 512 and 768 both render the hold body at 306 px, centred (768: centre 384; expanded f15 584 px wide, unclipped). Key-state guides built at 1:1 from the T4g-era export (v29 bake, seed 2026): guide_expanded_768.png (f15), guide_spent_768.png (f36 = residue entry), peak_768.png (identity on the same canvas). KS-fire-expanded-01 + KS-fire-spent-01 fired (GENERATE, EDIT mode over the guides; S1 § 2b conditions).",
       "ts": "2026-09-16T02:43:17"
     },
     {
       "id": "M-C5-E1-OPEN",
-      "note": "E1 opened in parallel with E0-p step 5: spec runs/C-5/specs/fire_bolt_e1.json (conductor-authored VfxSkillSpec, provenance per field: charter \u00a7 6 fixture values; impact = the accepted burst); VF-prim-fire-head-01 (P01, 1.2 BH) + VF-prim-fire-streak-01 (P02, 2 BH) fired as a GENERATE wave against the E0-p vocabulary (the accepted peak as IMAGE 2).",
+      "note": "E1 opened in parallel with E0-p step 5: spec runs/C-5/specs/fire_bolt_e1.json (conductor-authored VfxSkillSpec, provenance per field: charter § 6 fixture values; impact = the accepted burst); VF-prim-fire-head-01 (P01, 1.2 BH) + VF-prim-fire-streak-01 (P02, 2 BH) fired as a GENERATE wave against the E0-p vocabulary (the accepted peak as IMAGE 2).",
       "ts": "2026-09-16T02:44:23"
     },
     {
       "id": "M-C5-PACKET-90",
-      "note": "E0-p COMPLETE \u2014 Packet 90: key states expanded (age 19, 4 f) + spent (age 40, 6 f) bound to fire_burst_e0p_v2 (clipped to the guides; IoU 0.97; boil in band), exported (v30) and baked at 1:1 (768, seed 2026): the expanded state heals the piece seams into one drawn flame; the spent state gives a painted ember heart. Desktop folder 90. E0-p chain closed: peak \u2192 pieces \u2192 runtime burst v1/v2 \u2192 lap 2/3 \u2192 ragged embers \u2192 key states. Next: E1 (T4p arms) after the T4q freeze.",
+      "note": "E0-p COMPLETE — Packet 90: key states expanded (age 19, 4 f) + spent (age 40, 6 f) bound to fire_burst_e0p_v2 (clipped to the guides; IoU 0.97; boil in band), exported (v30) and baked at 1:1 (768, seed 2026): the expanded state heals the piece seams into one drawn flame; the spent state gives a painted ember heart. Desktop folder 90. E0-p chain closed: peak → pieces → runtime burst v1/v2 → lap 2/3 → ragged embers → key states. Next: E1 (T4p arms) after the T4q freeze.",
       "ts": "2026-09-16T03:14:24"
     },
     {
       "id": "M-C5-E2-OPEN",
-      "note": "E2 opened: four ice paintings fired as one GENERATE wave \u2014 VF-peak-ice-impact-01 (2 BH peak, facets not tongues), VF-prim-ice-shard-01 (0.7 BH), VF-prim-ice-crown-01 (ground-bound broken frost crown, foreshortened), VF-prim-ice-puff-01 (angular puff) \u2014 all against the E0-p LANGUAGE (four planes, hand-drawn contour) with the fire peak as the language reference, not the shape.",
+      "note": "E2 opened: four ice paintings fired as one GENERATE wave — VF-peak-ice-impact-01 (2 BH peak, facets not tongues), VF-prim-ice-shard-01 (0.7 BH), VF-prim-ice-crown-01 (ground-bound broken frost crown, foreshortened), VF-prim-ice-puff-01 (angular puff) — all against the E0-p LANGUAGE (four planes, hand-drawn contour) with the fire peak as the language reference, not the shape.",
       "ts": "2026-09-16T03:14:48"
     },
     {
       "id": "M-C5-ICE-PAINTED",
-      "note": "E2 ice paintings DELIVERED (2 image calls each, all 1254\u00b2 RGBA): impact peak (736\u00d7595 at 1254 \u2192 ~300\u00d7243 at 512, 4-plane share 0.79), shard (394\u00d7163 \u2192 ~160\u00d766; share 0.45 \u2014 more intermediate tones, quantise handles), frost crown (569\u00d7324 \u2192 ~232\u00d7132), angular puff (411\u00d7355 \u2192 ~168\u00d7145). 512 working copies staged beside each. Conductor eye pending on the board (runs/C-5/t3/E0a/ice_board.png).",
+      "note": "E2 ice paintings DELIVERED (2 image calls each, all 1254² RGBA): impact peak (736×595 at 1254 → ~300×243 at 512, 4-plane share 0.79), shard (394×163 → ~160×66; share 0.45 — more intermediate tones, quantise handles), frost crown (569×324 → ~232×132), angular puff (411×355 → ~168×145). 512 working copies staged beside each. Conductor eye pending on the board (runs/C-5/t3/E0a/ice_board.png).",
       "ts": "2026-09-16T03:18:51"
     },
     {
@@ -9101,17 +9165,17 @@
     },
     {
       "id": "M-C5-WAVE11",
-      "note": "Wave of 11 DELIVERED (all exit 0, 2 image calls each, all 1254\u00b2 RGBA; ran 11-wide in 4 min without a VOID): travel key states stretched + pulsed; poison lobe + density puff; RGB flask; lightning link / branch / prong; holy petal / seal / ring. 512 working copies staged beside each. Conductor eye on the board next; E3 primitives now exist for every element except what E2/E3 grammars still need (nothing further for the six).",
+      "note": "Wave of 11 DELIVERED (all exit 0, 2 image calls each, all 1254² RGBA; ran 11-wide in 4 min without a VOID): travel key states stretched + pulsed; poison lobe + density puff; RGB flask; lightning link / branch / prong; holy petal / seal / ring. 512 working copies staged beside each. Conductor eye on the board next; E3 primitives now exist for every element except what E2/E3 grammars still need (nothing further for the six).",
       "ts": "2026-09-16T03:48:41"
     },
     {
       "id": "M-C5-PACK-V27",
-      "note": "cliffside_v27 staged (eleven kits; import 0 errors; NOT deployed). In-scene casts at 1:1 with the touch-device rule: arm A / arm B from four spots (dirt E, grass N, dirt W, grass E) + ice_bolt_e2 (dirt E). Judge boards built: four order-randomised A/B pairs + one control (charter said five pairs \u2014 four captured; deviation ledgered), left/right randomised, key.json held by the conductor. E1-judge-01 fired (separate Astra instance, unlabeled).",
+      "note": "cliffside_v27 staged (eleven kits; import 0 errors; NOT deployed). In-scene casts at 1:1 with the touch-device rule: arm A / arm B from four spots (dirt E, grass N, dirt W, grass E) + ice_bolt_e2 (dirt E). Judge boards built: four order-randomised A/B pairs + one control (charter said five pairs — four captured; deviation ledgered), left/right randomised, key.json held by the conductor. E1-judge-01 fired (separate Astra instance, unlabeled).",
       "ts": "2026-09-16T04:44:16"
     },
     {
       "id": "M-C5-PACK-V28R1",
-      "note": "cliffside_v28 (13 kits) staged from PACK v28-r1; import 0 errors; eleven half-rate captures at 1:1 (arms A/B \u00d7 4 spots, ice, Blackwater, Concoction); five judge boards rebuilt with the fixed detector (4 pairs + control); contact sheets + third-speed clips for the flasks and ice. Frames purged after sheeting (disk).",
+      "note": "cliffside_v28 (13 kits) staged from PACK v28-r1; import 0 errors; eleven half-rate captures at 1:1 (arms A/B × 4 spots, ice, Blackwater, Concoction); five judge boards rebuilt with the fixed detector (4 pairs + control); contact sheets + third-speed clips for the flasks and ice. Frames purged after sheeting (disk).",
       "ts": "2026-09-16T06:14:54"
     }
   ],
@@ -9122,90 +9186,90 @@
       "class": "matt",
       "veto_open": false,
       "ts": "2026-09-15T19:51:44Z",
-      "ruling": "Q79 RULED in full (see 03-architecture.md \u00a7 7a): V1 A and B never C \u00b7 V2 = 1 match the scene \u00b7 V9 compat-preferred register-first \u00b7 V10 Astra paints the monster pack into a clearing in the current scene, drax assists \u00b7 V17 no ceiling, Matt is the brake \u00b7 V20 no image budget \u00b7 all other recommendations accepted. Q78(a) resolved by supersession (H-C3-2 discharged). Grok shelved. Matt: \"Let's proceed.\""
+      "ruling": "Q79 RULED in full (see 03-architecture.md § 7a): V1 A and B never C · V2 = 1 match the scene · V9 compat-preferred register-first · V10 Astra paints the monster pack into a clearing in the current scene, drax assists · V17 no ceiling, Matt is the brake · V20 no image budget · all other recommendations accepted. Q78(a) resolved by supersession (H-C3-2 discharged). Grok shelved. Matt: \"Let's proceed.\""
     },
     {
       "id": "R-C5-1",
       "class": "conductor",
       "veto_open": true,
-      "ruling": "GO \u2014 jack-ryan Gate-1 on charter v1.1 DISCHARGED (PASS-with-WARNs; qa/findings/2026-09-15-run-C-5-charter-gate1.md @ 8cba3564). Phase P0-a opens: CS-dress-clearing (GENERATE, edit mode) fires alone; T4a TOOLING follows serially. Matt pre-viewed the clearing window (Packet 84-pre).",
+      "ruling": "GO — jack-ryan Gate-1 on charter v1.1 DISCHARGED (PASS-with-WARNs; qa/findings/2026-09-15-run-C-5-charter-gate1.md @ 8cba3564). Phase P0-a opens: CS-dress-clearing (GENERATE, edit mode) fires alone; T4a TOOLING follows serially. Matt pre-viewed the clearing window (Packet 84-pre).",
       "ts": "2026-09-15T16:00:12"
     },
     {
       "id": "R-C5-2",
       "class": "conductor",
       "veto_open": true,
-      "ruling": "CS-dress-clearing VOID (exit 2): audit `artifact outside permitted roots` \u2014 the receipt listed the DISCARDED first attempt by its ~/.codex/generated_images path. writes_outside_out empty; out/dress_clearing.png (= retry exec-36c14822, sha 2aa08877\u2026) is clean and in register (seven grounded dummies; Astra concerns: rats on peg legs not stakes; some background detail repainted). Root cause = the brief line `images = 1 or 2` read as an image LIST; conductor brief defect. Disposition: VOID stands per lane law; re-drive as CS-dress-clearing-r1 with the RETURN line fixed (images = COUNT; files only under out/). A second VOID \u2192 HALT to Matt.",
+      "ruling": "CS-dress-clearing VOID (exit 2): audit `artifact outside permitted roots` — the receipt listed the DISCARDED first attempt by its ~/.codex/generated_images path. writes_outside_out empty; out/dress_clearing.png (= retry exec-36c14822, sha 2aa08877…) is clean and in register (seven grounded dummies; Astra concerns: rats on peg legs not stakes; some background detail repainted). Root cause = the brief line `images = 1 or 2` read as an image LIST; conductor brief defect. Disposition: VOID stands per lane law; re-drive as CS-dress-clearing-r1 with the RETURN line fixed (images = COUNT; files only under out/). A second VOID → HALT to Matt.",
       "ts": "2026-09-15T16:04:46"
     },
     {
       "id": "R-C5-3",
       "class": "conductor",
       "veto_open": true,
-      "ruling": "CS-objiso-clearing-2 VOID \u2014 same receipt-path defect as R-C5-2 (the objiso generator reused the ambiguous `images = 1 or 2` RETURN line; conductor defect, now fixed in mk_objsheet_c5.py). Sheets 1 and 3 DELIVERED clean. Re-drive CS-objiso-clearing-2-r1 with the fixed line. Not consecutive VOIDs (D, D, D between) \u2014 no HALT; recorded as the second instance of one brief-shape defect.",
+      "ruling": "CS-objiso-clearing-2 VOID — same receipt-path defect as R-C5-2 (the objiso generator reused the ambiguous `images = 1 or 2` RETURN line; conductor defect, now fixed in mk_objsheet_c5.py). Sheets 1 and 3 DELIVERED clean. Re-drive CS-objiso-clearing-2-r1 with the fixed line. Not consecutive VOIDs (D, D, D between) — no HALT; recorded as the second instance of one brief-shape defect.",
       "ts": "2026-09-15T16:11:56"
     },
     {
       "id": "R-C5-4",
       "class": "conductor",
       "veto_open": true,
-      "ruling": "CS-assets-clearing DELIVERED: 8 components \u2265 2,500 sheet px; dummy_rat_2 (21\u00d778 px, from the colossus tile) is the HOUND HINDQUARTERS bled across the tile boundary (crop x 1130\u20131215 overlap) \u2014 dropped from CS-props-v19; seven dummies stand. Rebuild error 11\u201326/255 (humanoid_3 44 = its 10-px collision shift). Cow relocated (4230,618) \u2192 (4600,830), no displacement needed. Kind names are size-class only (humanoid_1 = the painted brute at 220 px; brute_1 = the colossus at 340 px) \u2014 cosmetic, kept. Tile-overlap lesson for mk_objsheet_c5: crop boxes must not overlap; next run splits shared bands.",
+      "ruling": "CS-assets-clearing DELIVERED: 8 components ≥ 2,500 sheet px; dummy_rat_2 (21×78 px, from the colossus tile) is the HOUND HINDQUARTERS bled across the tile boundary (crop x 1130–1215 overlap) — dropped from CS-props-v19; seven dummies stand. Rebuild error 11–26/255 (humanoid_3 44 = its 10-px collision shift). Cow relocated (4230,618) → (4600,830), no displacement needed. Kind names are size-class only (humanoid_1 = the painted brute at 220 px; brute_1 = the colossus at 340 px) — cosmetic, kept. Tile-overlap lesson for mk_objsheet_c5: crop boxes must not overlap; next run splits shared bands.",
       "ts": "2026-09-15T16:22:33"
     },
     {
       "id": "R-C5-5",
       "class": "conductor",
       "veto_open": true,
-      "ruling": "CS-pack-v19 FAILED (exit 3): frozen props schema rejects unknown asset keys \u2014 the catalogue wrote `target`/`kind` on the dummy assets (my brief asked for them; T4b is the row that adds `target`). Fix: dummies stripped to the T3l schema, `target`/`kind` kept in CS-props-v19/targets_sidecar.json; re-fire CS-pack-v19-r1. Not a VOID; exporter untouched.",
+      "ruling": "CS-pack-v19 FAILED (exit 3): frozen props schema rejects unknown asset keys — the catalogue wrote `target`/`kind` on the dummy assets (my brief asked for them; T4b is the row that adds `target`). Fix: dummies stripped to the T3l schema, `target`/`kind` kept in CS-props-v19/targets_sidecar.json; re-fire CS-pack-v19-r1. Not a VOID; exporter untouched.",
       "ts": "2026-09-15T16:23:56"
     },
     {
       "id": "R-C5-6",
       "class": "matt",
       "veto_open": false,
-      "ruling": "Packet 84 \u2014 Matt: \"Good choice on moving the cow to the side.\" Cow stays at the clearing edge (4600,830); the snag it visually overlaps gets a small nudge in the next export. Dummy set stands (no change requested).",
+      "ruling": "Packet 84 — Matt: \"Good choice on moving the cow to the side.\" Cow stays at the clearing edge (4600,830); the snag it visually overlaps gets a small nudge in the next export. Dummy set stands (no change requested).",
       "ts": "2026-09-15T16:56:58"
     },
     {
       "id": "R-C5-7",
       "class": "conductor",
       "veto_open": true,
-      "ruling": "T4a ACCEPTED-WITH-FINDING. Rendered proof on real gl_compatibility (Metal GL 4.1, Godot 4.6.3): palette \u0394 0/255, index-0 alpha 255, erosion 0/49.8/100 %, dissolve 0.5 removes band 3 only, ADD over black MIX \u0394 0, errors []; six render_mode variants, no Forward+ dependency; every sprite LINEAR; white_core_keep / tint / pixel_scale retired with named validation errors (frozen_orb_v3 rejected at build and load). Full suite outside the sandbox 513/506: five standing reds + F-C5-1 = test_vfx_picker authored-kit test still builds on the retired tint path (spec-consistent rejection, test un-migrated) \u2014 migration clause folded into T4b. Freeze + SYNC restamp follow.",
+      "ruling": "T4a ACCEPTED-WITH-FINDING. Rendered proof on real gl_compatibility (Metal GL 4.1, Godot 4.6.3): palette Δ 0/255, index-0 alpha 255, erosion 0/49.8/100 %, dissolve 0.5 removes band 3 only, ADD over black MIX Δ 0, errors []; six render_mode variants, no Forward+ dependency; every sprite LINEAR; white_core_keep / tint / pixel_scale retired with named validation errors (frozen_orb_v3 rejected at build and load). Full suite outside the sandbox 513/506: five standing reds + F-C5-1 = test_vfx_picker authored-kit test still builds on the retired tint path (spec-consistent rejection, test un-migrated) — migration clause folded into T4b. Freeze + SYNC restamp follow.",
       "ts": "2026-09-15T17:03:19"
     },
     {
       "id": "R-C5-8",
       "class": "conductor",
       "veto_open": true,
-      "ruling": "T4b ACCEPTED. Outside-sandbox probe on the painted cliffside_v19 export: contact lag 0 frames, first-cast contact 1, live dummy contact 1, 7 live targets, 0 unresolved releases, cursor error 0 px; events.json carries age_frames at 60 Hz. Grey substitution pixel-exact (131 PNGs, 0 alpha diffs). Full suite outside the sandbox 520/514 = five standing reds + T4a's test_every_material_sprite\u2026 (opens a scene T4b retired) \u2014 re-pointed in T4f. F-C5-1 closed (both picker tests green). Freeze 227ad0700b6a, SYNC restamped. Matt 2026-09-15: pierce-per-skill AGREED (T4f F6); F1\u2013F5 elicited, awaiting his letters.",
+      "ruling": "T4b ACCEPTED. Outside-sandbox probe on the painted cliffside_v19 export: contact lag 0 frames, first-cast contact 1, live dummy contact 1, 7 live targets, 0 unresolved releases, cursor error 0 px; events.json carries age_frames at 60 Hz. Grey substitution pixel-exact (131 PNGs, 0 alpha diffs). Full suite outside the sandbox 520/514 = five standing reds + T4a's test_every_material_sprite… (opens a scene T4b retired) — re-pointed in T4f. F-C5-1 closed (both picker tests green). Freeze 227ad0700b6a, SYNC restamped. Matt 2026-09-15: pierce-per-skill AGREED (T4f F6); F1–F5 elicited, awaiting his letters.",
       "ts": "2026-09-15T17:29:42"
     },
     {
       "id": "R-C5-9",
       "class": "conductor",
       "veto_open": true,
-      "ruling": "T4c ACCEPTED-WITH-FINDING. Outside the sandbox: two independent Movie Maker bakes of the T4b export byte-identical (126/126 frames, sha per frame), scene exclusion 0 px on the blank control, 512\u00b2 native crop, physics 30/30 at 60 Hz. F-C5-2: the flipbook replay branch renders a solid white full-viewport overlay on all four grounds (live captures correct) \u2014 the four-ground VO1 \u00b1 5 % clause is UNMEASURED by instrument defect; fix + proof folded into T4d as its first clause. Full suite outside the sandbox 539/533 (five standing + the T4a test T4f re-points). Freeze 2fe2575f42c5, SYNC restamped. Sequence: T4f (ruled v2) now, then T4d.",
+      "ruling": "T4c ACCEPTED-WITH-FINDING. Outside the sandbox: two independent Movie Maker bakes of the T4b export byte-identical (126/126 frames, sha per frame), scene exclusion 0 px on the blank control, 512² native crop, physics 30/30 at 60 Hz. F-C5-2: the flipbook replay branch renders a solid white full-viewport overlay on all four grounds (live captures correct) — the four-ground VO1 ± 5 % clause is UNMEASURED by instrument defect; fix + proof folded into T4d as its first clause. Full suite outside the sandbox 539/533 (five standing + the T4a test T4f re-points). Freeze 2fe2575f42c5, SYNC restamped. Sequence: T4f (ruled v2) now, then T4d.",
       "ts": "2026-09-15T17:57:15"
     },
     {
       "id": "R-C5-10",
       "class": "conductor",
       "veto_open": true,
-      "ruling": "T4f NOT ACCEPTED as delivered: outside the sandbox the pierce probe passes (7 targets; pierce order; FULL/PARTIAL; one strike response) but two frozen headless fixtures REGRESSED (green after T4b): VfxPickerTests.test_headless_tab_twice\u2026 (T3O_ASSERTION target collision + in-flight kit lock \u2014 the synthetic target is not a `target` prop and the new contact path ignores it) and AuthoredEffectPickerTests.test_headless_authored_cast\u2026 (60 s timeout \u2014 no-contact head never expires). Suite outside sandbox 545/538 = 5 standing + these 2. T4f-r1 fired: fix the runtime for legacy bodies, keep T4f semantics and the kit byte-lock; no freeze until green.",
+      "ruling": "T4f NOT ACCEPTED as delivered: outside the sandbox the pierce probe passes (7 targets; pierce order; FULL/PARTIAL; one strike response) but two frozen headless fixtures REGRESSED (green after T4b): VfxPickerTests.test_headless_tab_twice… (T3O_ASSERTION target collision + in-flight kit lock — the synthetic target is not a `target` prop and the new contact path ignores it) and AuthoredEffectPickerTests.test_headless_authored_cast… (60 s timeout — no-contact head never expires). Suite outside sandbox 545/538 = 5 standing + these 2. T4f-r1 fired: fix the runtime for legacy bodies, keep T4f semantics and the kit byte-lock; no freeze until green.",
       "ts": "2026-09-15T18:39:41"
     },
     {
       "id": "R-C5-11",
       "class": "conductor",
       "veto_open": true,
-      "ruling": "T4f + T4f-r1 ACCEPTED. Outside the sandbox: pierce probe on the seven-dummy export \u2014 7 live targets; unlimited pierce 3/3 ordered contacts FULL/PARTIAL/PARTIAL; pierce 0 \u2192 1 FULL; chain hops FULL; exactly one strike response per cast in every scenario; labels pooled (3 nodes), max lifetime 0.606 s; kit byte-lock 33/33 (pierce default normalised). r1 root cause: T4f conflated target selection with collision eligibility (swept only ) \u2014 legacy Area2D/StaticBody bodies now collide again; frozen fixtures green. Full suite outside the sandbox 545/540 = the five standing reds only (T4a's material test now green). Freeze ceffce819dc5, SYNC restamped. Next: CS-pack-v20 + v20-grey \u2192 Packet 85 grey bolt clip \u2192 T4d.",
+      "ruling": "T4f + T4f-r1 ACCEPTED. Outside the sandbox: pierce probe on the seven-dummy export — 7 live targets; unlimited pierce 3/3 ordered contacts FULL/PARTIAL/PARTIAL; pierce 0 → 1 FULL; chain hops FULL; exactly one strike response per cast in every scenario; labels pooled (3 nodes), max lifetime 0.606 s; kit byte-lock 33/33 (pierce default normalised). r1 root cause: T4f conflated target selection with collision eligibility (swept only ) — legacy Area2D/StaticBody bodies now collide again; frozen fixtures green. Full suite outside the sandbox 545/540 = the five standing reds only (T4a's material test now green). Freeze ceffce819dc5, SYNC restamped. Next: CS-pack-v20 + v20-grey → Packet 85 grey bolt clip → T4d.",
       "ts": "2026-09-15T18:55:19"
     },
     {
       "id": "R-C5-12",
       "class": "conductor",
       "veto_open": true,
-      "ruling": "CS-pack-v20-r1 DELIVERED on kits_v9 (416 frames, 595 textures); cliffside_v20 staged, import 0 errors; painted cast capture at a dummy 91 frames \u2192 cast_painted.mp4. CS-pack-v20-grey-r1 FAILED: T4b grey path \u2192 validate_resources `Invalid scene external resource references` = F-C5-3, folded into T4d with F-C5-2. Packet 85 ships with the PAINTED cast clip (pierce + FULL/PARTIAL live in the real scene); the grey-body variant is owed after T4d.",
+      "ruling": "CS-pack-v20-r1 DELIVERED on kits_v9 (416 frames, 595 textures); cliffside_v20 staged, import 0 errors; painted cast capture at a dummy 91 frames → cast_painted.mp4. CS-pack-v20-grey-r1 FAILED: T4b grey path → validate_resources `Invalid scene external resource references` = F-C5-3, folded into T4d with F-C5-2. Packet 85 ships with the PAINTED cast clip (pierce + FULL/PARTIAL live in the real scene); the grey-body variant is owed after T4d.",
       "ts": "2026-09-15T19:01:45"
     },
     {
@@ -9219,56 +9283,56 @@
       "id": "R-C5-14",
       "class": "conductor",
       "veto_open": true,
-      "ruling": "CS-pack-v21 (painted) + CS-pack-v21-grey DELIVERED on the T4d-frozen tools (49a9dbf151bb): cliffside_v21 import 0 errors, cliffside_v21_grey import 0 errors (F-C5-3 confirmed closed at PACK level). v21 = v19 clearing + CS-props-v21 (necro_master_still at 3840,720 for the C-6 master decision). Conductor probes: 4 stills + 142-frame walk loop around the prop \u2192 Desktop Packet 86. VO1 note: replay probe.json shows camera_offset drifting per frame during the flipbook comparison bake (1.33 \u2192 -2.67 px, x) and time_scale 0.1 for the first 3 frames \u2014 a candidate cause of the 8-30% live-vs-flipbook envelope gap on black beyond the conductor proxy; logged as F-C5-4 (candidate) for the next TOOLING; T4c VO1 clause stays open.",
+      "ruling": "CS-pack-v21 (painted) + CS-pack-v21-grey DELIVERED on the T4d-frozen tools (49a9dbf151bb): cliffside_v21 import 0 errors, cliffside_v21_grey import 0 errors (F-C5-3 confirmed closed at PACK level). v21 = v19 clearing + CS-props-v21 (necro_master_still at 3840,720 for the C-6 master decision). Conductor probes: 4 stills + 142-frame walk loop around the prop → Desktop Packet 86. VO1 note: replay probe.json shows camera_offset drifting per frame during the flipbook comparison bake (1.33 → -2.67 px, x) and time_scale 0.1 for the first 3 frames — a candidate cause of the 8-30% live-vs-flipbook envelope gap on black beyond the conductor proxy; logged as F-C5-4 (candidate) for the next TOOLING; T4c VO1 clause stays open.",
       "ts": "2026-09-15T19:43:11"
     },
     {
       "id": "R-C5-15",
       "class": "reasoning",
       "veto_open": true,
-      "ruling": "F-C5-4 restated from the plate-differenced instrument (vo1_v21, T4d hooks): the baked flipbook diverges from the live effect by blend (ADD body flattened to MIX \u2014 2\u00d7 envelope on white) and by clock (windows ground 55\u201362, black 101\u2013105). Both are runtime-owned properties the architecture already assigns to the runtime layer; a single flattened flipbook cannot carry them. T4g TOOLING chartered: per-blend-class bakes + per-class replay sprites + effect-age clock + the plate-envelope VO1 instrument; report-not-stop. Fires after the in-flight C-6 GENERATE lands (TOOLING serial).",
+      "ruling": "F-C5-4 restated from the plate-differenced instrument (vo1_v21, T4d hooks): the baked flipbook diverges from the live effect by blend (ADD body flattened to MIX — 2× envelope on white) and by clock (windows ground 55–62, black 101–105). Both are runtime-owned properties the architecture already assigns to the runtime layer; a single flattened flipbook cannot carry them. T4g TOOLING chartered: per-blend-class bakes + per-class replay sprites + effect-age clock + the plate-envelope VO1 instrument; report-not-stop. Fires after the in-flight C-6 GENERATE lands (TOOLING serial).",
       "ts": "2026-09-15T20:29:12"
     },
     {
       "id": "R-C5-16",
       "class": "reasoning",
       "veto_open": true,
-      "ruling": "E0-p step 1 fired: E0p-peak-01 \u2014 fire impact peak as ONE upright asymmetric body (5\u20137 hooked tongues, unequal), painted extent \u2248 2 BH (260 px at V2 s=1) on a 512\u00b2 canvas, greyscale FOUR-plane value-index fill (tooling quantises to the T4a shader indices R\u2208{0,85,170,255}), RGBA-first with the #00ff00 plate as the declared fallback (extraction contract, 03- \u00a7 2.3). References = the native clearing scale board (1:1 + 3\u00d7) built from an exact 1920\u00d71080 capture (content_scale VIEWPORT \u2014 the earlier probe stills were window-clamped to 1726\u00d7971, a 0.90 scale; Packet 86 stills are consistent between figures but not 1:1). frozen_orb_v3 impact (307-px chunky fixture) and run_03 vfx_style_match (rendered look) NOT attached: neither is the s=1 hand-drawn register; the register is text-carried (REGISTER_CARD).",
+      "ruling": "E0-p step 1 fired: E0p-peak-01 — fire impact peak as ONE upright asymmetric body (5–7 hooked tongues, unequal), painted extent ≈ 2 BH (260 px at V2 s=1) on a 512² canvas, greyscale FOUR-plane value-index fill (tooling quantises to the T4a shader indices R∈{0,85,170,255}), RGBA-first with the #00ff00 plate as the declared fallback (extraction contract, 03- § 2.3). References = the native clearing scale board (1:1 + 3×) built from an exact 1920×1080 capture (content_scale VIEWPORT — the earlier probe stills were window-clamped to 1726×971, a 0.90 scale; Packet 86 stills are consistent between figures but not 1:1). frozen_orb_v3 impact (307-px chunky fixture) and run_03 vfx_style_match (rendered look) NOT attached: neither is the s=1 hand-drawn register; the register is text-carried (REGISTER_CARD).",
       "ts": "2026-09-15T20:32:23"
     },
     {
       "id": "R-C5-17",
       "class": "conductor",
       "veto_open": true,
-      "ruling": "Peak working resolution: the painter outputs 1254\u00b2 regardless of the requested 512\u00b2; the conductor resamples the delivered peak to 512\u00b2 (Lanczos, one uniform scale, alpha preserved) as the working asset and T4e quantises AFTER the resample. Rationale: V2 ruled art step 1 (linear filter, no native grid), so a uniform non-integer resample of a painted body is the same operation the character lane applies to every cell (512 \u2192 0.5417); the \u00a7 2.3 no-non-integer-downscale rule binds native-grid (s>1) paintings only. T4h then places pieces at 1:1 with no runtime scale factor. Veto-open.",
+      "ruling": "Peak working resolution: the painter outputs 1254² regardless of the requested 512²; the conductor resamples the delivered peak to 512² (Lanczos, one uniform scale, alpha preserved) as the working asset and T4e quantises AFTER the resample. Rationale: V2 ruled art step 1 (linear filter, no native grid), so a uniform non-integer resample of a painted body is the same operation the character lane applies to every cell (512 → 0.5417); the § 2.3 no-non-integer-downscale rule binds native-grid (s>1) paintings only. T4h then places pieces at 1:1 with no runtime scale factor. Veto-open.",
       "ts": "2026-09-15T20:36:21"
     },
     {
       "id": "R-C5-18",
       "class": "conductor",
       "veto_open": true,
-      "ruling": "T4e-01 DELIVERED_WITH_CONCERNS and REJECTED by the conductor on design (DRIFT-CRITIC against my own row): the 7 pieces are band-layer unions (contour / dark / light / core, each disconnected across the whole body), a literal reading of the row clause no piece spans two bands by > 5 %. That clause was the defect \u2014 a burst needs SPATIAL SHARDS (tongues + core wedges) each carrying every band with its contour attached, or the runtime flies the outline off its fill. SPEC T4e row corrected (\u2265 12 pieces, one component each, no band-pure piece \u2265 200 px, largest \u2264 25 %); T4e-r1 fired to amend peak_pieces.py. Suite in the Astra sandbox shows 10 headless-Godot reds diagnosed as sandbox/environment (user:// log rotation, editor-settings writes, CA certs) \u2014 the same class T4d showed; the conductor re-runs the suite outside the sandbox before any freeze. T4e-01 code stays on disk as the r1 starting point; not frozen.",
+      "ruling": "T4e-01 DELIVERED_WITH_CONCERNS and REJECTED by the conductor on design (DRIFT-CRITIC against my own row): the 7 pieces are band-layer unions (contour / dark / light / core, each disconnected across the whole body), a literal reading of the row clause no piece spans two bands by > 5 %. That clause was the defect — a burst needs SPATIAL SHARDS (tongues + core wedges) each carrying every band with its contour attached, or the runtime flies the outline off its fill. SPEC T4e row corrected (≥ 12 pieces, one component each, no band-pure piece ≥ 200 px, largest ≤ 25 %); T4e-r1 fired to amend peak_pieces.py. Suite in the Astra sandbox shows 10 headless-Godot reds diagnosed as sandbox/environment (user:// log rotation, editor-settings writes, CA certs) — the same class T4d showed; the conductor re-runs the suite outside the sandbox before any freeze. T4e-01 code stays on disk as the r1 starting point; not frozen.",
       "ts": "2026-09-15T20:52:23"
     },
     {
       "id": "R-C5-19",
       "class": "conductor",
       "veto_open": true,
-      "ruling": "T4e-r1 ACCEPTED on numbers (24 pieces: 11 main-body spatial shards + 13 detached source islands \u2264 38 px from the painter's stray partial-alpha pixels; union exact; every piece one component; no band-pure piece \u2265 200 px; largest 15.7 %; sandbox suite 578/563 = the five standing reds, 0 additional). Concern carried: 22 % of covered pixels sit > 20 levels from a band \u2014 the resample's plane-edge blending; quantisation as specified handles it. T4h fired on T4e-r1 output BEFORE the conductor's outside-sandbox suite + freeze (critical-path call, Matt: do not hold up the VFX run) \u2014 one suite run + one freeze covers T4e-r1 + T4h when T4h lands; islands < 48 px are hold-only, never flown.",
+      "ruling": "T4e-r1 ACCEPTED on numbers (24 pieces: 11 main-body spatial shards + 13 detached source islands ≤ 38 px from the painter's stray partial-alpha pixels; union exact; every piece one component; no band-pure piece ≥ 200 px; largest 15.7 %; sandbox suite 578/563 = the five standing reds, 0 additional). Concern carried: 22 % of covered pixels sit > 20 levels from a band — the resample's plane-edge blending; quantisation as specified handles it. T4h fired on T4e-r1 output BEFORE the conductor's outside-sandbox suite + freeze (critical-path call, Matt: do not hold up the VFX run) — one suite run + one freeze covers T4e-r1 + T4h when T4h lands; islands < 48 px are hold-only, never flown.",
       "ts": "2026-09-15T21:15:12"
     },
     {
       "id": "R-C5-20",
       "class": "conductor",
       "veto_open": true,
-      "ruling": "T4h burst_v1 DELIVERED_WITH_CONCERNS (sandbox renderer SIGABRT \u2192 UNEVALUABLE in-burst); conductor baked outside: 126 frames, seed-equal bakes byte-identical, VO1 area: flash+hold peak f7, erosion f20\u201336, residue 2652 px = 17.5 % held f36\u201371 (0.6 s), release f72; extent 227 \u2192 441 px by f15 (1.94\u00d7). MECHANISM PASSES; FIRE FAILS \u2014 eleven rigid chunks translating apart read as a shattered plate (the pre-registered falsification result, WARN-9), and the fixed 0.5 parent scale shrank the peak to 155 px against the 306-px 1:1 body (instrument shaped the effect \u2014 inverted). Conductor design ruling (reasoning-boundary, veto-open): step 5 key states over THIS arrangement would paint over the wrong motion; the transform template must be flame-like first \u2014 SPEC T4h row extended with burst_v2 stretch-and-erode (rooted tongues stretching radially, root-first erosion, continuous silhouette, residue at the impact point, crop 768 @ scale 1.0); T4h-r1 fired; v1 kept selectable for the A/B under Matt eye. Matt sees v1 now (sent); Packet 87 = v1 vs v2 at a dummy.",
+      "ruling": "T4h burst_v1 DELIVERED_WITH_CONCERNS (sandbox renderer SIGABRT → UNEVALUABLE in-burst); conductor baked outside: 126 frames, seed-equal bakes byte-identical, VO1 area: flash+hold peak f7, erosion f20–36, residue 2652 px = 17.5 % held f36–71 (0.6 s), release f72; extent 227 → 441 px by f15 (1.94×). MECHANISM PASSES; FIRE FAILS — eleven rigid chunks translating apart read as a shattered plate (the pre-registered falsification result, WARN-9), and the fixed 0.5 parent scale shrank the peak to 155 px against the 306-px 1:1 body (instrument shaped the effect — inverted). Conductor design ruling (reasoning-boundary, veto-open): step 5 key states over THIS arrangement would paint over the wrong motion; the transform template must be flame-like first — SPEC T4h row extended with burst_v2 stretch-and-erode (rooted tongues stretching radially, root-first erosion, continuous silhouette, residue at the impact point, crop 768 @ scale 1.0); T4h-r1 fired; v1 kept selectable for the A/B under Matt eye. Matt sees v1 now (sent); Packet 87 = v1 vs v2 at a dummy.",
       "ts": "2026-09-15T21:51:36"
     },
     {
       "id": "R-C5-21",
       "class": "conductor",
       "veto_open": true,
-      "ruling": "T4h-r1 burst_v2 DELIVERED (sandbox render SIGABRT \u2192 UNEVALUABLE in-burst; 488 existing export files byte-identical; v1 untouched; eighth kit fire_burst_e0p_v2). Conductor bakes outside on the 768 crop at scale 1.0, seed 2026, both templates: v2 \u2014 seed-equal bakes byte-identical; silhouette ONE component through the whole expansion (largest-component fraction 1.0, frames 3\u201320); extent 358 \u2192 431 px by f15 = 1.20\u00d7 (BELOW the 1.8\u00d7 row target; Astra's CPU bound says these masks cannot exceed ~1.65\u00d7 under the rooted-stretch rule); residue 15.8 % of peak, 134 px wide, centred at the origin, held f40\u201375; release f76. v1 at full scale \u2014 fragments into 9\u201311 components by f5 (largest fraction 0.16), extent hits the 767 crop edge by f15, residue 11 % scattered as 102 components. Eye (conductor): v2 reads as flame flaring and burning out; v1 reads as a shattered plate. Two v2 defects for the next lap: (1) expansion too small \u2014 the rooted-stretch rule caps it; allow the tongue ROOT to drift outward up to 0.5 \u00d7 core radius and stretch 2.5\u20133\u00d7; (2) the band-step dissolve leaves band 0 (the dark contour) last \u2192 a black ring around the eroding core at f30; for fire the contour must dissolve WITH its fill (order 3, 2, then 1+0 together). Packet 87 = v1 vs v2 in the E0 stack at a dummy after the freeze + PACK v22. Matt's eye rules the burst; V4 with it.",
+      "ruling": "T4h-r1 burst_v2 DELIVERED (sandbox render SIGABRT → UNEVALUABLE in-burst; 488 existing export files byte-identical; v1 untouched; eighth kit fire_burst_e0p_v2). Conductor bakes outside on the 768 crop at scale 1.0, seed 2026, both templates: v2 — seed-equal bakes byte-identical; silhouette ONE component through the whole expansion (largest-component fraction 1.0, frames 3–20); extent 358 → 431 px by f15 = 1.20× (BELOW the 1.8× row target; Astra's CPU bound says these masks cannot exceed ~1.65× under the rooted-stretch rule); residue 15.8 % of peak, 134 px wide, centred at the origin, held f40–75; release f76. v1 at full scale — fragments into 9–11 components by f5 (largest fraction 0.16), extent hits the 767 crop edge by f15, residue 11 % scattered as 102 components. Eye (conductor): v2 reads as flame flaring and burning out; v1 reads as a shattered plate. Two v2 defects for the next lap: (1) expansion too small — the rooted-stretch rule caps it; allow the tongue ROOT to drift outward up to 0.5 × core radius and stretch 2.5–3×; (2) the band-step dissolve leaves band 0 (the dark contour) last → a black ring around the eroding core at f30; for fire the contour must dissolve WITH its fill (order 3, 2, then 1+0 together). Packet 87 = v1 vs v2 in the E0 stack at a dummy after the freeze + PACK v22. Matt's eye rules the burst; V4 with it.",
       "ts": "2026-09-15T22:19:49"
     },
     {
@@ -9282,119 +9346,119 @@
       "id": "R-C5-23",
       "class": "matt",
       "veto_open": false,
-      "ruling": "Matt (2026-09-16): (1) bring the burst (cliffside_v22) to Vercel for his phone \u2192 drax web9 dispatched on v22 as-is. (2) BUG on the Vercel build \u2014 F-C5-5: all mobile casts go down/behind (down-left / middle / down-right by where the CAST tap ends), never forward or up. Diagnosis: keeper.gd _unhandled_input sets vfx_cursor_override on EVERY ScreenTouch, so the CAST-button tap (bottom of the screen) becomes the aim point. Remedy: T4i TOOLING \u2014 touch-originated casts aim FORWARD along facing at the kit range; touches in the bottom 22 % overlay band never set the override (constant for drax); mouse aim unchanged. Then PACK v23 \u2192 web10.",
+      "ruling": "Matt (2026-09-16): (1) bring the burst (cliffside_v22) to Vercel for his phone → drax web9 dispatched on v22 as-is. (2) BUG on the Vercel build — F-C5-5: all mobile casts go down/behind (down-left / middle / down-right by where the CAST tap ends), never forward or up. Diagnosis: keeper.gd _unhandled_input sets vfx_cursor_override on EVERY ScreenTouch, so the CAST-button tap (bottom of the screen) becomes the aim point. Remedy: T4i TOOLING — touch-originated casts aim FORWARD along facing at the kit range; touches in the bottom 22 % overlay band never set the override (constant for drax); mouse aim unchanged. Then PACK v23 → web10.",
       "ts": "2026-09-15T22:39:12"
     },
     {
       "id": "R-C5-24",
       "class": "conductor",
       "veto_open": true,
-      "ruling": "T4i DELIVERED_WITH_CONCERNS: exporter keeper.gd \u2014 touches in the bottom 22 % overlay band (TOUCH_OVERLAY_BAND = 0.22; the CAST button + joystick) never set the aim override; touch-origin casts aim FORWARD along facing at the kit range; a touch in the world area still aims the next cast at that point (my acceptance wording; benign \u2014 the overlay holds both controls \u2014 reviewable against the no-targeting ruling once Matt plays it); mouse aim byte-identical to the pre-T4i exporter; six kits + two burst kits export identically except keeper.gd; headless import 0 errors. Sandbox suite: five standing reds + eleven env reds + two harness errors cleared on recheck \u2014 the conductor re-runs outside before the freeze. Figure height 13.5 % (Matt) = CS-parallax-in-v9 walkable.json figure_height_px 146 (data copy of v8).",
+      "ruling": "T4i DELIVERED_WITH_CONCERNS: exporter keeper.gd — touches in the bottom 22 % overlay band (TOUCH_OVERLAY_BAND = 0.22; the CAST button + joystick) never set the aim override; touch-origin casts aim FORWARD along facing at the kit range; a touch in the world area still aims the next cast at that point (my acceptance wording; benign — the overlay holds both controls — reviewable against the no-targeting ruling once Matt plays it); mouse aim byte-identical to the pre-T4i exporter; six kits + two burst kits export identically except keeper.gd; headless import 0 errors. Sandbox suite: five standing reds + eleven env reds + two harness errors cleared on recheck — the conductor re-runs outside before the freeze. Figure height 13.5 % (Matt) = CS-parallax-in-v9 walkable.json figure_height_px 146 (data copy of v8).",
       "ts": "2026-09-15T23:01:25"
     },
     {
       "id": "R-C5-25",
       "class": "matt",
       "veto_open": false,
-      "ruling": "Matt (2026-09-16, on web9 at a dummy): \"Tab 7 fire burst is far better\" \u2014 burst_v2 stretch-and-erode is the carried template; burst_v1 fly is retired to the record (falsification arm, as pre-registered). E0-p step 4 gate: not a sticker explosion \u2014 the painted burst reads; the video fallback (V15) stays unspent. Next lap on v2 = the two runtime defects (expansion cap; contour dissolves with its fill), then key states (step 5) over the corrected motion. V4 (hybrid oracle) put to Matt as one recommendation: collapse into the class-scoped stack (option B).",
+      "ruling": "Matt (2026-09-16, on web9 at a dummy): \"Tab 7 fire burst is far better\" — burst_v2 stretch-and-erode is the carried template; burst_v1 fly is retired to the record (falsification arm, as pre-registered). E0-p step 4 gate: not a sticker explosion — the painted burst reads; the video fallback (V15) stays unspent. Next lap on v2 = the two runtime defects (expansion cap; contour dissolves with its fill), then key states (step 5) over the corrected motion. V4 (hybrid oracle) put to Matt as one recommendation: collapse into the class-scoped stack (option B).",
       "ts": "2026-09-15T23:24:46"
     },
     {
       "id": "R-C5-26",
       "class": "conductor",
       "veto_open": true,
-      "ruling": "T4i-r1 DELIVERED_WITH_CONCERNS and ACCEPTED: device rule \u2014 with no probe override, DisplayServer.is_touchscreen_available() (or the test flag vfx_force_touch_device) resolves the cast destination to position + facing \u00d7 kit range \u00d7 art_scale, bypassing pointer input AND the G1 cone target selection (no targeting on mobile \u2014 Matt ruling); desktop mouse path byte-identical; probe override still wins; all pointer bookkeeping removed; standalone device probe 0 px error \u00d78; six kits + two burst kits byte-identical. Two T4i tests encoding the retired world-touch aim now fail by design \u2014 carried as NAMED OBSOLETE REDS through this freeze (removal folded into the next TOOLING row, T4j); the conductor's outside suite must show exactly the five standing reds + those two. v23 proof adds a touch-device cast (probe_cast_touch_v23.gd: mouse parked behind the Keeper) \u2014 the burst must land forward and contact a dummy.",
+      "ruling": "T4i-r1 DELIVERED_WITH_CONCERNS and ACCEPTED: device rule — with no probe override, DisplayServer.is_touchscreen_available() (or the test flag vfx_force_touch_device) resolves the cast destination to position + facing × kit range × art_scale, bypassing pointer input AND the G1 cone target selection (no targeting on mobile — Matt ruling); desktop mouse path byte-identical; probe override still wins; all pointer bookkeeping removed; standalone device probe 0 px error ×8; six kits + two burst kits byte-identical. Two T4i tests encoding the retired world-touch aim now fail by design — carried as NAMED OBSOLETE REDS through this freeze (removal folded into the next TOOLING row, T4j); the conductor's outside suite must show exactly the five standing reds + those two. v23 proof adds a touch-device cast (probe_cast_touch_v23.gd: mouse parked behind the Keeper) — the burst must land forward and contact a dummy.",
       "ts": "2026-09-15T23:25:59"
     },
     {
       "id": "R-C5-27",
       "class": "conductor",
       "veto_open": true,
-      "ruling": "FREEZE after T4i + T4i-r1: outside suite = five standing reds + ONE named obsolete red (test_godot_import.TouchAimEmissionTests.test_touch_forward_band_and_mouse_probe_precedence \u2014 encodes the retired T4i world-touch aim; removal folded into T4j). MANIFEST + SYNC restamped. PACK v23 fires (parallax-in v9 @ 13.5 %, props v23 necro on the path, eight kits, device-based forward aim).",
+      "ruling": "FREEZE after T4i + T4i-r1: outside suite = five standing reds + ONE named obsolete red (test_godot_import.TouchAimEmissionTests.test_touch_forward_band_and_mouse_probe_precedence — encodes the retired T4i world-touch aim; removal folded into T4j). MANIFEST + SYNC restamped. PACK v23 fires (parallax-in v9 @ 13.5 %, props v23 necro on the path, eight kits, device-based forward aim).",
       "ts": "2026-09-15T23:31:06"
     },
     {
       "id": "R-C5-28",
       "class": "conductor",
       "veto_open": true,
-      "ruling": "T4j fired (burst_v2 lap 2, \u00a30 images): root drift \u2264 0.5 \u00d7 core radius + stretch 2.5\u20133\u00d7 for extent \u2265 1.8\u00d7; per-kit dissolve_order (fire_v2: 3, 2, then 1+0 together \u2014 the contour burns with its fill; legacy order bit-exact for the six kits + v1); the obsolete T4i world-touch test removed. SPEC T4h row carries the lap-2 clause. After T4j: outside suite \u2192 freeze \u2192 bake v2 lap 2 outside \u2192 Matt eye \u2192 E0-p step 5 (key states).",
+      "ruling": "T4j fired (burst_v2 lap 2, £0 images): root drift ≤ 0.5 × core radius + stretch 2.5–3× for extent ≥ 1.8×; per-kit dissolve_order (fire_v2: 3, 2, then 1+0 together — the contour burns with its fill; legacy order bit-exact for the six kits + v1); the obsolete T4i world-touch test removed. SPEC T4h row carries the lap-2 clause. After T4j: outside suite → freeze → bake v2 lap 2 outside → Matt eye → E0-p step 5 (key states).",
       "ts": "2026-09-15T23:39:18"
     },
     {
       "id": "R-C5-29",
       "class": "conductor",
       "veto_open": true,
-      "ruling": "T4j DELIVERED (CPU prediction 2.25\u00d7, connectivity 1.0, 488 legacy files byte-identical, headless import 0). Conductor bake outside (768, seed 2026, seed-equal identical): expansion now strong and CONNECTED (largest-component 0.956 at f20) \u2014 but two defects: F-C5-6 the stretched tongues are HARD-CLIPPED at a 512-px boundary (extent plateaus at exactly 511 from f8; straight cut edges on the long tongues) \u2014 hypothesis: the whole-body erosion distance field is sampled in the piece's ORIGINAL 512-canvas UV, so stretched pixels fall outside [0,1] and are discarded; F-C5-7 the dark ring around the eroding core persists at f30 despite dissolve_order [[3],[2],[1,0]] \u2014 hypothesis: the ring is the DARK DUPLICATE layer (MIX black beneath) eroding later than the body, not band 0 of the body. Residue 12.7 % (band 15\u201325). Not shown to Matt (clipping would mislead the eye). T4k = both fixes, \u00a30 images; then Matt eye; then step 5.",
+      "ruling": "T4j DELIVERED (CPU prediction 2.25×, connectivity 1.0, 488 legacy files byte-identical, headless import 0). Conductor bake outside (768, seed 2026, seed-equal identical): expansion now strong and CONNECTED (largest-component 0.956 at f20) — but two defects: F-C5-6 the stretched tongues are HARD-CLIPPED at a 512-px boundary (extent plateaus at exactly 511 from f8; straight cut edges on the long tongues) — hypothesis: the whole-body erosion distance field is sampled in the piece's ORIGINAL 512-canvas UV, so stretched pixels fall outside [0,1] and are discarded; F-C5-7 the dark ring around the eroding core persists at f30 despite dissolve_order [[3],[2],[1,0]] — hypothesis: the ring is the DARK DUPLICATE layer (MIX black beneath) eroding later than the body, not band 0 of the body. Residue 12.7 % (band 15–25). Not shown to Matt (clipping would mislead the eye). T4k = both fixes, £0 images; then Matt eye; then step 5.",
       "ts": "2026-09-15T23:59:47"
     },
     {
       "id": "R-C5-30",
       "class": "conductor",
       "veto_open": true,
-      "ruling": "FREEZE after T4j: outside suite = the five standing reds only (the obsolete T4i test is gone). MANIFEST + SYNC restamped. T4k fired (F-C5-6 stretch-aware erosion sampling / F-C5-7 one erode-dissolve schedule per piece across all its layers / residue 15\u201325 %).",
+      "ruling": "FREEZE after T4j: outside suite = the five standing reds only (the obsolete T4i test is gone). MANIFEST + SYNC restamped. T4k fired (F-C5-6 stretch-aware erosion sampling / F-C5-7 one erode-dissolve schedule per piece across all its layers / residue 15–25 %).",
       "ts": "2026-09-16T00:03:57"
     },
     {
       "id": "R-C5-31",
       "class": "conductor",
       "veto_open": true,
-      "ruling": "T4k returned FAILED-honest (10 min, no production edits): the stipulated F-C5-6 cause (original-UV distance sampling / outer_distance clip) is NOT in the emitter \u2014 at age 8 erode=0, dissolve=0, no outer_distance on expanding sprites, CPU 3\u00d7 stretch keeps 99.9 % coverage with zero boundary discards. F-C5-7: at age 30 every dark sprite shares its body sprite's uniforms; bands 0 AND 1 survive together below the [1,0] threshold \u2014 the ring is the DESIGNED result of centre-out erosion + bright-first dissolve, i.e. my template, not a defect in the build. Conductor re-diagnosis: (6) the 511 plateau is a bake-side clip (v1 reached 767 in the same 768 crop; v2 lap 2 bbox to be measured) \u2014 checked by PACK v24 in-scene before any TOOLING; (7) design correction owed: for a fire impact the residue sits at the impact point, so erosion must run OUTSIDE-IN (tips first, core last) with the dissolve dimming the core to embers in the residue phase \u2014 centre-out erosion leaves a ring by construction. Astra was right to refuse; the brief stipulated a cause instead of asking for one.",
+      "ruling": "T4k returned FAILED-honest (10 min, no production edits): the stipulated F-C5-6 cause (original-UV distance sampling / outer_distance clip) is NOT in the emitter — at age 8 erode=0, dissolve=0, no outer_distance on expanding sprites, CPU 3× stretch keeps 99.9 % coverage with zero boundary discards. F-C5-7: at age 30 every dark sprite shares its body sprite's uniforms; bands 0 AND 1 survive together below the [1,0] threshold — the ring is the DESIGNED result of centre-out erosion + bright-first dissolve, i.e. my template, not a defect in the build. Conductor re-diagnosis: (6) the 511 plateau is a bake-side clip (v1 reached 767 in the same 768 crop; v2 lap 2 bbox to be measured) — checked by PACK v24 in-scene before any TOOLING; (7) design correction owed: for a fire impact the residue sits at the impact point, so erosion must run OUTSIDE-IN (tips first, core last) with the dissolve dimming the core to embers in the residue phase — centre-out erosion leaves a ring by construction. Astra was right to refuse; the brief stipulated a cause instead of asking for one.",
       "ts": "2026-09-16T00:16:45"
     },
     {
       "id": "R-C5-32",
       "class": "conductor",
       "veto_open": true,
-      "ruling": "F-C5-6 CLOSED as a fixture artefact: baked from a cliffside_v24-derived replay project the lap-2 v2 expansion is unclipped (bbox 39\u2013495 in 768; extent 204 \u2192 456 = 2.2\u00d7, matching the CPU prediction). NEW F-C5-8 (scale contract): in the exported scene the burst is multiplied by the character art_scale (0.608 at 13.5 %) \u2014 hold extent 204 px \u2248 1.4 BH against the authored 2.35 BH at 1:1; VFX kits authored in screen px (E0-p) must be placed at 1.0 \u00d7 phase_scale, never \u00d7 the cell scale \u2014 folded into T4l as a per-kit `screen_px` flag (legacy kits untouched). T4l fires now.",
+      "ruling": "F-C5-6 CLOSED as a fixture artefact: baked from a cliffside_v24-derived replay project the lap-2 v2 expansion is unclipped (bbox 39–495 in 768; extent 204 → 456 = 2.2×, matching the CPU prediction). NEW F-C5-8 (scale contract): in the exported scene the burst is multiplied by the character art_scale (0.608 at 13.5 %) — hold extent 204 px ≈ 1.4 BH against the authored 2.35 BH at 1:1; VFX kits authored in screen px (E0-p) must be placed at 1.0 × phase_scale, never × the cell scale — folded into T4l as a per-kit `screen_px` flag (legacy kits untouched). T4l fires now.",
       "ts": "2026-09-16T00:23:13"
     },
     {
       "id": "R-C5-33",
       "class": "conductor",
       "veto_open": true,
-      "ruling": "T4l returned FAILED-honest but the BUILD is accepted on the conductor eye + outside bake (lap 3: flare \u2192 tongues burn back \u2192 ember core dims at the origin; extent 1.68\u00d7; connected through expansion; residue 16.8 % held then embers; seed-equal identical; 488 legacy files byte-identical). The two failing clauses were MINE: compactness \u2265 0.9 must exclude the ember frames (embers fragment by nature \u2014 0.67 at the last frame), and the 15\u201325 % band applies at residue ENTRY, after which the ember dissolve dims it by design. FREEZE with SIX named obsolete reds beyond the five standing (two T4l literal-clause tests + four retained lap-2 expectations: stretch 2.5\u20133 \u2192 2.0\u20132.5; whole-body distance/drift expectations) \u2014 all \u00a30 test alignment, T4m. PACK v25 fires on this freeze \u2192 Packet 89 in-scene at 1:1.",
+      "ruling": "T4l returned FAILED-honest but the BUILD is accepted on the conductor eye + outside bake (lap 3: flare → tongues burn back → ember core dims at the origin; extent 1.68×; connected through expansion; residue 16.8 % held then embers; seed-equal identical; 488 legacy files byte-identical). The two failing clauses were MINE: compactness ≥ 0.9 must exclude the ember frames (embers fragment by nature — 0.67 at the last frame), and the 15–25 % band applies at residue ENTRY, after which the ember dissolve dims it by design. FREEZE with SIX named obsolete reds beyond the five standing (two T4l literal-clause tests + four retained lap-2 expectations: stretch 2.5–3 → 2.0–2.5; whole-body distance/drift expectations) — all £0 test alignment, T4m. PACK v25 fires on this freeze → Packet 89 in-scene at 1:1.",
       "ts": "2026-09-16T00:44:41"
     },
     {
       "id": "R-C5-34",
       "class": "matt",
       "veto_open": false,
-      "ruling": "Matt (2026-09-16, on web10 + Packet 89): \"The fire is really good\u2026 Motion is right. Size is right. Agreed on the circle change.\" \u2192 burst_v2 lap 3 is the E0-p burst template; residue keeps the core's ragged painted edge (T4n, \u00a30). Also: \"tuning the height scale from 13.5 % up to 14 %\" \u2192 parallax-in v10 figure_height_px 151; props v24 (necro 151 px). F-C5-9 (Matt): the cow_flies swarm never moved with the carcass (v19) \u2014 swarm re-seated over the cow at (4580,760), sort_y 830 (props v24). Matt asks what the remaining rounds add to the fire \u2014 answered in-chat (key states; palette; flash/halo/floor-light tuning; ember motes; the projectile + cast half at E1).",
+      "ruling": "Matt (2026-09-16, on web10 + Packet 89): \"The fire is really good… Motion is right. Size is right. Agreed on the circle change.\" → burst_v2 lap 3 is the E0-p burst template; residue keeps the core's ragged painted edge (T4n, £0). Also: \"tuning the height scale from 13.5 % up to 14 %\" → parallax-in v10 figure_height_px 151; props v24 (necro 151 px). F-C5-9 (Matt): the cow_flies swarm never moved with the carcass (v19) — swarm re-seated over the cow at (4580,760), sort_y 830 (props v24). Matt asks what the remaining rounds add to the fire — answered in-chat (key states; palette; flash/halo/floor-light tuning; ember motes; the projectile + cast half at E1).",
       "ts": "2026-09-16T01:17:13"
     },
     {
       "id": "R-C5-35",
       "class": "conductor",
       "veto_open": true,
-      "ruling": "T4m ACCEPTED (tests aligned to the corrected lap-3 clause; production byte-identical): outside suite = the five standing reds only \u2014 the obsolete reds are gone. FREEZE. PACK v26 fires: parallax-in v10 (14 % = 151 px, Matt), props v24 (necro 151 px on the path; cow_flies re-seated over the carcass, F-C5-9), lap-3 burst \u2192 web11.",
+      "ruling": "T4m ACCEPTED (tests aligned to the corrected lap-3 clause; production byte-identical): outside suite = the five standing reds only — the obsolete reds are gone. FREEZE. PACK v26 fires: parallax-in v10 (14 % = 151 px, Matt), props v24 (necro 151 px on the path; cow_flies re-seated over the carcass, F-C5-9), lap-3 burst → web11.",
       "ts": "2026-09-16T01:23:02"
     },
     {
       "id": "R-C5-36",
       "class": "matt",
       "veto_open": false,
-      "ruling": "Matt (2026-09-16): \"proceed to run autonomously through all VFX without my input until I let you know I am back then give me the detailed account of what was accomplished\u2026 hold off on deploying any more vercel updates after what is already scheduled.\" \u2192 AUTONOMOUS MODE: the conductor rules at reasoning AND commitment boundaries veto-open (V4 = B working ruling; V6 on sight; E1 A/B ruled on the gates + conductor eye with both arms preserved for Matt), every ruling ledgered; HALT conditions (charter \u00a7 8: two consecutive experiment FAILs; two VOIDs in a row; JUDGE passing its control twice; medium/bar change) write a HALT packet and stop; web11 (already scheduled: v26) is the last deploy; Packets accumulate on the Desktop; a detailed account is written at agentic_orchestration/gandalf/notes/2026-09-16-c5-autonomous-account.md and kept current.",
+      "ruling": "Matt (2026-09-16): \"proceed to run autonomously through all VFX without my input until I let you know I am back then give me the detailed account of what was accomplished… hold off on deploying any more vercel updates after what is already scheduled.\" → AUTONOMOUS MODE: the conductor rules at reasoning AND commitment boundaries veto-open (V4 = B working ruling; V6 on sight; E1 A/B ruled on the gates + conductor eye with both arms preserved for Matt), every ruling ledgered; HALT conditions (charter § 8: two consecutive experiment FAILs; two VOIDs in a row; JUDGE passing its control twice; medium/bar change) write a HALT packet and stop; web11 (already scheduled: v26) is the last deploy; Packets accumulate on the Desktop; a detailed account is written at agentic_orchestration/gandalf/notes/2026-09-16-c5-autonomous-account.md and kept current.",
       "ts": "2026-09-16T01:24:28"
     },
     {
       "id": "R-C5-37",
       "class": "conductor",
       "veto_open": true,
-      "ruling": "F-C5-10: replay crop 768 renders the world at 2/3 (hold body 204 px vs 306 at crop 512; centre 255 in both) \u2014 the 768 support zooms instead of widening; all 768 bakes to date (T4h-r1, T4j, T4l) are at 2/3 scale, which is why in-scene sizes and bake sizes disagreed. Folded into T4g (fires after T4n). Consequence for E0-p step 5: key-state guides are built after T4g so the transformed arrangements are 1:1.",
+      "ruling": "F-C5-10: replay crop 768 renders the world at 2/3 (hold body 204 px vs 306 at crop 512; centre 255 in both) — the 768 support zooms instead of widening; all 768 bakes to date (T4h-r1, T4j, T4l) are at 2/3 scale, which is why in-scene sizes and bake sizes disagreed. Folded into T4g (fires after T4n). Consequence for E0-p step 5: key-state guides are built after T4g so the transformed arrangements are 1:1.",
       "ts": "2026-09-16T01:25:32"
     },
     {
       "id": "R-C5-38",
       "class": "conductor",
       "veto_open": true,
-      "ruling": "T4n FAILED-honest on SCOPE: the brief listed export/effect_kit.py in neither the read list nor the editable set, and erode_noise is rejected by its validator \u2014 Astra stopped rather than edit outside the allowlist (correct). Conductor error. T4n-r1 fired with effect_kit.py/godot_import.py/shader editable and the CPU-proposed erode_noise 0.08 accepted (isoperimetric excess 0.23 vs 0.015 for the disc; entry 20.0 %; largest component 0.9999).",
+      "ruling": "T4n FAILED-honest on SCOPE: the brief listed export/effect_kit.py in neither the read list nor the editable set, and erode_noise is rejected by its validator — Astra stopped rather than edit outside the allowlist (correct). Conductor error. T4n-r1 fired with effect_kit.py/godot_import.py/shader editable and the CPU-proposed erode_noise 0.08 accepted (isoperimetric excess 0.23 vs 0.015 for the disc; entry 20.0 %; largest component 0.9999).",
       "ts": "2026-09-16T01:34:57"
     },
     {
       "id": "R-C5-39",
       "class": "conductor",
       "veto_open": true,
-      "ruling": "T4n-r1 DELIVERED_WITH_CONCERNS: erode_noise mechanism in (kit/pieces/material), 488 legacy files byte-identical, import 0. Conductor 1:1 bake (export_v27 \u2192 crop 512): the residue at f40\u201360 is STILL a disc with band ripples (noise 0.08 too weak; band-index proxy) and the erosion front shows straight cuts across piece seams at f30\u201336. Mechanism accepted; amplitude and noise source go to T4o (continuous whole-body noise texture; max/min radius \u2265 1.5; seam continuity). Not a HALT: not an experiment FAIL \u2014 a tuning lap.",
+      "ruling": "T4n-r1 DELIVERED_WITH_CONCERNS: erode_noise mechanism in (kit/pieces/material), 488 legacy files byte-identical, import 0. Conductor 1:1 bake (export_v27 → crop 512): the residue at f40–60 is STILL a disc with band ripples (noise 0.08 too weak; band-index proxy) and the erosion front shows straight cuts across piece seams at f30–36. Mechanism accepted; amplitude and noise source go to T4o (continuous whole-body noise texture; max/min radius ≥ 1.5; seam continuity). Not a HALT: not an experiment FAIL — a tuning lap.",
       "ts": "2026-09-16T01:46:40"
     },
     {
@@ -9408,28 +9472,28 @@
       "id": "R-C5-41",
       "class": "conductor",
       "veto_open": true,
-      "ruling": "T4o DELIVERED_WITH_CONCERNS and ACCEPTED: continuous whole-body noise texture (3 octaves) mixed 0.5 with painted resistance, erode_noise 0.4 \u2192 residue entry 20.0 %, radius ratio 2.1, isoperimetric excess 0.43, largest component 1.0; 488 legacy files unchanged. The remaining straight seam segments (25\u201336 px at f30\u201336) are GEOMETRIC \u2014 stretched pieces meeting along piece boundaries \u2014 not a noise defect; they are exactly what E0-p step 5 (painted key states over the transformed arrangement) exists to heal, so they pass to step 5 rather than another tooling lap. Conductor bakes at 1:1 for the record.",
+      "ruling": "T4o DELIVERED_WITH_CONCERNS and ACCEPTED: continuous whole-body noise texture (3 octaves) mixed 0.5 with painted resistance, erode_noise 0.4 → residue entry 20.0 %, radius ratio 2.1, isoperimetric excess 0.43, largest component 1.0; 488 legacy files unchanged. The remaining straight seam segments (25–36 px at f30–36) are GEOMETRIC — stretched pieces meeting along piece boundaries — not a noise defect; they are exactly what E0-p step 5 (painted key states over the transformed arrangement) exists to heal, so they pass to step 5 rather than another tooling lap. Conductor bakes at 1:1 for the record.",
       "ts": "2026-09-16T02:08:30"
     },
     {
       "id": "R-C5-42",
       "class": "conductor",
       "veto_open": true,
-      "ruling": "FREEZE after T4o with SIX named obsolete reds beyond the five standing (three retained T4n-r1 band-proxy assertions; three \u226412-px seam subtests \u2014 clause WITHDRAWN, seams pass to step 5) \u2014 all test alignment, folded into T4g (\u00a30). T4g fires: per-blend-class bakes + effect-age flipbook clock + plate-envelope VO1 instrument + the 1:1 crop fix (F-C5-10) + the six alignments.",
+      "ruling": "FREEZE after T4o with SIX named obsolete reds beyond the five standing (three retained T4n-r1 band-proxy assertions; three ≤12-px seam subtests — clause WITHDRAWN, seams pass to step 5) — all test alignment, folded into T4g (£0). T4g fires: per-blend-class bakes + effect-age flipbook clock + plate-envelope VO1 instrument + the 1:1 crop fix (F-C5-10) + the six alignments.",
       "ts": "2026-09-16T02:14:30"
     },
     {
       "id": "R-C5-44",
       "class": "conductor",
       "veto_open": true,
-      "ruling": "T4g DELIVERED_WITH_CONCERNS: per-blend-class bakes, effect-age flipbook clock, plate-envelope VO1 instrument, crop fix (F-C5-10), six test alignments. DIAGNOSIS (the E0(b) verdict): the frozen stack interleaves MIX and ADD layers with world ordering (Decal z-4 under the ground, FloorLight ADD below the body, dark duplicate MIX-black, glow/flash ADD) \u2014 a flipbook, even per blend class, cannot preserve that interleaving or world occlusion; on the legacy evidence only 6 % (ground) / 45 % (black) of frames sit within \u00b15 %. RULING for the flipbook-vs-runtime dial: the RUNTIME owns the stack; a flipbook may carry the body silhouette of ONE blend class only (e.g. for a web-lite fallback), never the composite. T4c VO1 clause CLOSED as diagnosed-not-met \u2014 report-not-stop (V17). Rendered checks of the new instrument are the conductor's (sandbox SIGABRT).",
+      "ruling": "T4g DELIVERED_WITH_CONCERNS: per-blend-class bakes, effect-age flipbook clock, plate-envelope VO1 instrument, crop fix (F-C5-10), six test alignments. DIAGNOSIS (the E0(b) verdict): the frozen stack interleaves MIX and ADD layers with world ordering (Decal z-4 under the ground, FloorLight ADD below the body, dark duplicate MIX-black, glow/flash ADD) — a flipbook, even per blend class, cannot preserve that interleaving or world occlusion; on the legacy evidence only 6 % (ground) / 45 % (black) of frames sit within ±5 %. RULING for the flipbook-vs-runtime dial: the RUNTIME owns the stack; a flipbook may carry the body silhouette of ONE blend class only (e.g. for a web-lite fallback), never the composite. T4c VO1 clause CLOSED as diagnosed-not-met — report-not-stop (V17). Rendered checks of the new instrument are the conductor's (sandbox SIGABRT).",
       "ts": "2026-09-16T02:42:42"
     },
     {
       "id": "R-C5-45",
       "class": "conductor",
       "veto_open": true,
-      "ruling": "E0-p step 5 paintings DELIVERED (2 + 2 image calls, both 1254\u00b2 RGBA): SPENT close to its guide (raw silhouette IoU 0.53; registration pending); EXPANDED a coherent, seam-healed flame but RE-COMPOSED against the guide (raw IoU 0.27; tongues lengthened, roots shifted) \u2014 the S1 \u00a7 2b failure mode (the model reinterprets rather than repaints in place). Representation change instead of a blind retry: T4q binds key states CLIPPED to the guide silhouette (dilated 2 px) so correspondence holds by construction and the painting contributes interior planes + healed seams; raw and clipped reports both recorded; binding only on a passing clipped report.",
+      "ruling": "E0-p step 5 paintings DELIVERED (2 + 2 image calls, both 1254² RGBA): SPENT close to its guide (raw silhouette IoU 0.53; registration pending); EXPANDED a coherent, seam-healed flame but RE-COMPOSED against the guide (raw IoU 0.27; tongues lengthened, roots shifted) — the S1 § 2b failure mode (the model reinterprets rather than repaints in place). Representation change instead of a blind retry: T4q binds key states CLIPPED to the guide silhouette (dilated 2 px) so correspondence holds by construction and the painting contributes interior planes + healed seams; raw and clipped reports both recorded; binding only on a passing clipped report.",
       "ts": "2026-09-16T02:47:43"
     },
     {
@@ -9443,84 +9507,84 @@
       "id": "R-C5-47",
       "class": "conductor",
       "veto_open": true,
-      "ruling": "T4q DELIVERED_WITH_CONCERNS: registration (one scale + translation) recovers the EXPANDED painting at silhouette IoU 0.89 (the raw 0.27 was unregistered) and the spent similarly; clipped correspondence fails ONLY the \u2264 1 px centroid clause (1.24 px expanded, 2.14 px spent) \u2014 a clause written for transformed PIECES, applied to a re-DRAWN painting resampled \u00d70.49; 1\u20132 px at 768 is below the line weight. Conductor ruling: centroid tolerance for key states = 3 native px (charter \u00a7 6 correspondence clause amended for paintings); swap ages bound at the runtime stage boundaries (19 = end of expansion, 40 = residue entry), not the literal 15/36. Both clipped states bind (conductor data edit of the kit, ledgered). Bake 1:1 for the record; Matt eye at Packet 90.",
+      "ruling": "T4q DELIVERED_WITH_CONCERNS: registration (one scale + translation) recovers the EXPANDED painting at silhouette IoU 0.89 (the raw 0.27 was unregistered) and the spent similarly; clipped correspondence fails ONLY the ≤ 1 px centroid clause (1.24 px expanded, 2.14 px spent) — a clause written for transformed PIECES, applied to a re-DRAWN painting resampled ×0.49; 1–2 px at 768 is below the line weight. Conductor ruling: centroid tolerance for key states = 3 native px (charter § 6 correspondence clause amended for paintings); swap ages bound at the runtime stage boundaries (19 = end of expansion, 40 = residue entry), not the literal 15/36. Both clipped states bind (conductor data edit of the kit, ledgered). Bake 1:1 for the record; Matt eye at Packet 90.",
       "ts": "2026-09-16T03:12:35"
     },
     {
       "id": "R-C5-48",
       "class": "conductor",
       "veto_open": true,
-      "ruling": "E0(a) V6 ruled on sight (conductor, veto-open): dark duplicate ON as the default preset \u2014 the MIX-black under-layer gives the burst a crisp lower edge against the sand at hold, flare and ember (runs/C-5/t3/E0a/v6_board.png, both presets baked at 1:1 over a sand-coloured plate, seed 2026); without it the body bleeds into the ground tone. Matt can flip it per kit (layers.dark_duplicate). E0(a) layer-stack proof: the accepted burst runs the full T4a stack on Compatibility (Metal GL 4.1) \u2014 the browser-export half is drax's web10/11 captures (peak rendered correctly on web10; web11 build defect is the mirror cache, not the stack). E0(c) rotation and (d) stepped time are deferred to E1 where the projectile makes them meaningful; E0(e) art step = 1 confirmed by every 1:1 bake.",
+      "ruling": "E0(a) V6 ruled on sight (conductor, veto-open): dark duplicate ON as the default preset — the MIX-black under-layer gives the burst a crisp lower edge against the sand at hold, flare and ember (runs/C-5/t3/E0a/v6_board.png, both presets baked at 1:1 over a sand-coloured plate, seed 2026); without it the body bleeds into the ground tone. Matt can flip it per kit (layers.dark_duplicate). E0(a) layer-stack proof: the accepted burst runs the full T4a stack on Compatibility (Metal GL 4.1) — the browser-export half is drax's web10/11 captures (peak rendered correctly on web10; web11 build defect is the mirror cache, not the stack). E0(c) rotation and (d) stepped time are deferred to E1 where the projectile makes them meaningful; E0(e) art step = 1 confirmed by every 1:1 bake.",
       "ts": "2026-09-16T03:17:15"
     },
     {
       "id": "R-C5-49",
       "class": "conductor",
       "veto_open": true,
-      "ruling": "FREEZE after T4q (outside suite = five standing reds only; key states bound by conductor data edit). Ice board (conductor eye): all four paintings speak the language \u2014 faceted peak, single shard, ground-bound frost crown (a correct foreshortened ellipse), angular puff; the peak reads more crystal-cluster than impact, acceptable for a first ice anchor (provisional per 03- \u00a7 2.3). T4p fires (E1 arms A/B).",
+      "ruling": "FREEZE after T4q (outside suite = five standing reds only; key states bound by conductor data edit). Ice board (conductor eye): all four paintings speak the language — faceted peak, single shard, ground-bound frost crown (a correct foreshortened ellipse), angular puff; the peak reads more crystal-cluster than impact, acceptable for a first ice anchor (provisional per 03- § 2.3). T4p fires (E1 arms A/B).",
       "ts": "2026-09-16T03:19:05"
     },
     {
       "id": "R-C5-50",
       "class": "conductor",
       "veto_open": true,
-      "ruling": "T4p DELIVERED_WITH_CONCERNS and ACCEPTED: kits fire_bolt_e1_A / _B (9th/10th), screen_px, 1040 px/s over 520 px, pierce 0; arms byte-identical except the name while A's key_states is empty; the original eight kits' 644 export files byte-identical; headless casts east: contact at age 17 / 320 px, one burst, FULL label, tail erosion to 1.0 \u2014 both arms. Travel key-state GUIDES are conductor glue from T4p's own rules (rest = head + streak; stretched = streak scale_x 1.4; pulsed = head \u00d71.25 + streak \u00d70.7), painted by Astra, then bound to arm A via key_states; A vs B judged after.",
+      "ruling": "T4p DELIVERED_WITH_CONCERNS and ACCEPTED: kits fire_bolt_e1_A / _B (9th/10th), screen_px, 1040 px/s over 520 px, pierce 0; arms byte-identical except the name while A's key_states is empty; the original eight kits' 644 export files byte-identical; headless casts east: contact at age 17 / 320 px, one burst, FULL label, tail erosion to 1.0 — both arms. Travel key-state GUIDES are conductor glue from T4p's own rules (rest = head + streak; stretched = streak scale_x 1.4; pulsed = head ×1.25 + streak ×0.7), painted by Astra, then bound to arm A via key_states; A vs B judged after.",
       "ts": "2026-09-16T03:44:10"
     },
     {
       "id": "R-C5-51",
       "class": "conductor",
       "veto_open": true,
-      "ruling": "FREEZE after T4p (outside suite = five standing reds only). E1 arm A: the two travel key states registered with the lane oracle (scale 0.34, silhouette IoU 0.97 / 0.98 clipped) and bound to fire_bolt_e1_A (pivot/scale schema) \u2014 the exporter then fails validation because T4p's distance-field exclusion covers only pieces.key_states, not travel key_states: folded into T4r (emitter-owned like piece key states). T4r fires now (ice treatment + this fix); PACK v27 and the A/B judge after it.",
+      "ruling": "FREEZE after T4p (outside suite = five standing reds only). E1 arm A: the two travel key states registered with the lane oracle (scale 0.34, silhouette IoU 0.97 / 0.98 clipped) and bound to fire_bolt_e1_A (pivot/scale schema) — the exporter then fails validation because T4p's distance-field exclusion covers only pieces.key_states, not travel key_states: folded into T4r (emitter-owned like piece key states). T4r fires now (ice treatment + this fix); PACK v27 and the A/B judge after it.",
       "ts": "2026-09-16T03:50:59"
     },
     {
       "id": "R-C5-52",
       "class": "conductor",
       "veto_open": true,
-      "ruling": "T4r DELIVERED_WITH_CONCERNS and ACCEPTED: ice peak decomposed (22 pieces = 16 body shards + 6 sub-5-px islands; union exact), template burst_v1r (shatter flight + ragged residue), frost-crown decal, kit ice_bolt_e2 (11th); the arm-A travel key-state validator gap closed (the 11-kit export now succeeds). Two named obsolete reds (v2 dissolve expectation; empty-key A/B equality \u2014 obsolete now that A carries key states) \u2192 aligned in the next TOOLING (T4s). SPEC rows T4r + T4s\u2013T4v filed (T4r row had been missing at burst time \u2014 Astra noted it and implemented the brief + spec). Next: outside suite \u2192 freeze \u2192 PACK v27 \u2192 in-scene A / B / ice \u2192 JUDGE.",
+      "ruling": "T4r DELIVERED_WITH_CONCERNS and ACCEPTED: ice peak decomposed (22 pieces = 16 body shards + 6 sub-5-px islands; union exact), template burst_v1r (shatter flight + ragged residue), frost-crown decal, kit ice_bolt_e2 (11th); the arm-A travel key-state validator gap closed (the 11-kit export now succeeds). Two named obsolete reds (v2 dissolve expectation; empty-key A/B equality — obsolete now that A carries key states) → aligned in the next TOOLING (T4s). SPEC rows T4r + T4s–T4v filed (T4r row had been missing at burst time — Astra noted it and implemented the brief + spec). Next: outside suite → freeze → PACK v27 → in-scene A / B / ice → JUDGE.",
       "ts": "2026-09-16T04:14:10"
     },
     {
       "id": "R-C5-53",
       "class": "conductor",
       "veto_open": true,
-      "ruling": "FREEZE after T4r with NAMED obsolete reds beyond the five standing: the T4p arm tests that assert empty key_states / A\u2261B byte-identity (ProjectileArmValidationTests \u00d72, ProjectileArmPickerTests \u00d7N) \u2014 obsolete by design now that arm A carries its two painted key states; alignment folded into T4s. PACK v27 fires (eleven kits) for the E1 A/B boards and the E2 look; not deployed.",
+      "ruling": "FREEZE after T4r with NAMED obsolete reds beyond the five standing: the T4p arm tests that assert empty key_states / A≡B byte-identity (ProjectileArmValidationTests ×2, ProjectileArmPickerTests ×N) — obsolete by design now that arm A carries its two painted key states; alignment folded into T4s. PACK v27 fires (eleven kits) for the E1 A/B boards and the E2 look; not deployed.",
       "ts": "2026-09-16T04:21:10"
     },
     {
       "id": "R-C5-54",
       "class": "conductor",
       "veto_open": true,
-      "ruling": "E1 first in-scene look (cliffside_v27): F-C5-12 \u2014 the travel drawing is drawn far too large (head \u2248 300 px, head + streak \u2248 700 px at a 151-px figure) against the spec (head 1.2 BH, streak 2.0 BH at the authored 130-px VFX unit); the arms are otherwise alive (cast \u2192 flight \u2192 contact \u2192 burst \u2192 residue, both arms, four spots, and ice). The first judge boards were also built with a peak detector that latched onto the cast flash for arm B \u2014 E1-judge-01 is VOID on conductor evidence (boards not comparable), its result recorded but not used; boards are rebuilt after T4s (scale fix + detector fixed to search after frame 30). VFX unit ruling: 1 BH = 130 screen px stays the authored unit regardless of the figure height change (Matt judged the burst size right at that unit).",
+      "ruling": "E1 first in-scene look (cliffside_v27): F-C5-12 — the travel drawing is drawn far too large (head ≈ 300 px, head + streak ≈ 700 px at a 151-px figure) against the spec (head 1.2 BH, streak 2.0 BH at the authored 130-px VFX unit); the arms are otherwise alive (cast → flight → contact → burst → residue, both arms, four spots, and ice). The first judge boards were also built with a peak detector that latched onto the cast flash for arm B — E1-judge-01 is VOID on conductor evidence (boards not comparable), its result recorded but not used; boards are rebuilt after T4s (scale fix + detector fixed to search after frame 30). VFX unit ruling: 1 BH = 130 screen px stays the authored unit regardless of the figure height change (Matt judged the burst size right at that unit).",
       "ts": "2026-09-16T04:45:15"
     },
     {
       "id": "R-C5-55",
       "class": "conductor",
       "veto_open": true,
-      "ruling": "T4s DELIVERED_WITH_CONCERNS and ACCEPTED: G2 thrown-arc\u2192field component; kits blackwater_cocktail_e3 + poisonous_concoction_e3 (12th/13th); headless throws: apex 180/160 px, flight 0.55/0.5 s, fragments 0.2 s, fields 3.0/2.0 s, FULL/PARTIAL labels, victim tints 12/10, density samples; decal at landing fading after field expiry. FF-08 FAILED on MY spec schedules (CV 0.14 / 0.18) \u2014 Astra kept them and reported: conductor re-authored both tick schedules to CV 0.37 / 0.43 in the specs and kits (data). Scale fix (F-C5-12) and the four test alignments: see acceptance (checked separately).",
+      "ruling": "T4s DELIVERED_WITH_CONCERNS and ACCEPTED: G2 thrown-arc→field component; kits blackwater_cocktail_e3 + poisonous_concoction_e3 (12th/13th); headless throws: apex 180/160 px, flight 0.55/0.5 s, fragments 0.2 s, fields 3.0/2.0 s, FULL/PARTIAL labels, victim tints 12/10, density samples; decal at landing fading after field expiry. FF-08 FAILED on MY spec schedules (CV 0.14 / 0.18) — Astra kept them and reported: conductor re-authored both tick schedules to CV 0.37 / 0.43 in the specs and kits (data). Scale fix (F-C5-12) and the four test alignments: see acceptance (checked separately).",
       "ts": "2026-09-16T05:12:43"
     },
     {
       "id": "R-C5-56",
       "class": "conductor",
       "veto_open": true,
-      "ruling": "FREEZE after T4s with two named obsolete reds beyond the five standing: ThrownFieldValidationTests.test_both_g2_kits_preserve_specs_rgb_glass_and_alpha (the conductor re-authored the tick schedules in spec + kit after the test froze them) and IceTreatmentImportTests.test_ten_existing_export_bytes_unchanged (a ten-kit byte lock that legitimately changed with the E1 scale fix in scripts/vfx_g1_painted.gd) \u2014 both aligned in T4t. PACK v28 fires (thirteen kits) for the E1 re-judge and the E3 field looks.",
+      "ruling": "FREEZE after T4s with two named obsolete reds beyond the five standing: ThrownFieldValidationTests.test_both_g2_kits_preserve_specs_rgb_glass_and_alpha (the conductor re-authored the tick schedules in spec + kit after the test froze them) and IceTreatmentImportTests.test_ten_existing_export_bytes_unchanged (a ten-kit byte lock that legitimately changed with the E1 scale fix in scripts/vfx_g1_painted.gd) — both aligned in T4t. PACK v28 fires (thirteen kits) for the E1 re-judge and the E3 field looks.",
       "ts": "2026-09-16T05:19:44"
     },
     {
       "id": "R-C5-57",
       "class": "conductor",
       "veto_open": true,
-      "ruling": "PACK CS-pack-v28 FAILED (exit 3): the T4s exporter crashes with G2 kits registered \u2014 NameError _write_g2_component is not defined at _write_vfx_kits (T4s's headless proof evidently ran on a fixture without the G2 kits registered in kits_v9.json). T4s-r1 fired (define/wire the emitter; add a full-exporter test with the live 13-kit registry). The v28 probe chain and the re-judge wait for it. Not a HALT: one PACK FAIL on a code defect, remedied; no VOIDs.",
+      "ruling": "PACK CS-pack-v28 FAILED (exit 3): the T4s exporter crashes with G2 kits registered — NameError _write_g2_component is not defined at _write_vfx_kits (T4s's headless proof evidently ran on a fixture without the G2 kits registered in kits_v9.json). T4s-r1 fired (define/wire the emitter; add a full-exporter test with the live 13-kit registry). The v28 probe chain and the re-judge wait for it. Not a HALT: one PACK FAIL on a code defect, remedied; no VOIDs.",
       "ts": "2026-09-16T05:23:02"
     },
     {
       "id": "R-C5-58",
       "class": "conductor",
       "veto_open": true,
-      "ruling": "T4s-r1 DELIVERED_WITH_CONCERNS and ACCEPTED: the cause was the module __main__ guard sitting ABOVE the G2 definitions (imported-module tests saw them; the CLI did not) \u2014 moved below; new CLI regression test reproduces the NameError before the fix; full 13-kit export + import exit 0; 826 frozen export hashes match; conductor export confirms. After the outside suite: freeze \u2192 PACK v28-r1 \u2192 captures \u2192 boards \u2192 E1-judge-02 \u2192 T4t.",
+      "ruling": "T4s-r1 DELIVERED_WITH_CONCERNS and ACCEPTED: the cause was the module __main__ guard sitting ABOVE the G2 definitions (imported-module tests saw them; the CLI did not) — moved below; new CLI regression test reproduces the NameError before the fix; full 13-kit export + import exit 0; 826 frozen export hashes match; conductor export confirms. After the outside suite: freeze → PACK v28-r1 → captures → boards → E1-judge-02 → T4t.",
       "ts": "2026-09-16T05:34:26"
     },
     {
@@ -9534,8 +9598,15 @@
       "id": "R-C5-60",
       "class": "conductor",
       "veto_open": true,
-      "ruling": "E3 first in-scene look at the G2 kits (cliffside_v28): F-C5-13 Blackwater \u2014 flask never visible in flight; splash burst appears; NO burning pool body and NO scorch decal visible; F-C5-14 Concoction \u2014 nothing visible but a small green blob at landing; no lobe splash, no density cloud, no puddle. T4s's headless traces show the nodes alive, so they exist but are not seen \u2014 layering (under the painted foreground), scale/alpha, or density-to-shader are the suspects. T4s-r2 briefed (diagnose-first, node trace table); fires after E1-judge-02 (TOOLING alone). The E3 flask pair is therefore NOT yet a look for Matt.",
+      "ruling": "E3 first in-scene look at the G2 kits (cliffside_v28): F-C5-13 Blackwater — flask never visible in flight; splash burst appears; NO burning pool body and NO scorch decal visible; F-C5-14 Concoction — nothing visible but a small green blob at landing; no lobe splash, no density cloud, no puddle. T4s's headless traces show the nodes alive, so they exist but are not seen — layering (under the painted foreground), scale/alpha, or density-to-shader are the suspects. T4s-r2 briefed (diagnose-first, node trace table); fires after E1-judge-02 (TOOLING alone). The E3 flask pair is therefore NOT yet a look for Matt.",
       "ts": "2026-09-16T06:17:05"
+    },
+    {
+      "id": "R-C5-61",
+      "class": "conductor",
+      "veto_open": true,
+      "ruling": "T4s-r2 DELIVERED_WITH_CONCERNS and ACCEPTED: diagnosis confirmed hypothesis (a) — the G2 field/cloud/licks sat at z −2 and decal/dark/floor at z −3 UNDER the painted foreground (z 0), the flask at z 0 under it too, and the ice head/puff at z 0/−1: alive, unseen. Fix: a GroundEffects layer at z 1 (above the foreground, below actors at z 2), groups sorted by y at the landing point; flask at z 2 in flight; ice head z 3, puff z 2. Four regression checks (flask visible at native extent in flight; ground visuals above the foreground; ice layers; density single-multiply) now pass; density, squash, position and the ice binding were never wrong. Rendered proof = the next in-scene capture (PACK v29). F-C5-13/14/15 → pending render.",
+      "ts": "2026-09-16T06:33:54"
     }
   ],
   "grok_calls": [],
@@ -9545,7 +9616,7 @@
       "ts": "2026-09-15T19:51:44Z"
     },
     {
-      "note": "V2 provenance: Matt 2026-09-15 in-session, verbatim \"Agreed on V2. Let's proceed\" (after the measured scene fact: 1:1 linear-filtered painting, no pixel step). The queue row and 03- \u00a7 7a lagged the ruling; restamped 2026-09-15 (Gate-1 BLOCK-A).",
+      "note": "V2 provenance: Matt 2026-09-15 in-session, verbatim \"Agreed on V2. Let's proceed\" (after the measured scene fact: 1:1 linear-filtered painting, no pixel step). The queue row and 03- § 7a lagged the ruling; restamped 2026-09-15 (Gate-1 BLOCK-A).",
       "ts": "2026-09-15T19:58:50Z"
     },
     {
@@ -9553,64 +9624,64 @@
       "ts": "2026-09-15T19:58:50Z"
     },
     {
-      "note": "P0-b opens: T4a TOOLING fired alone (serial rule) while Matt rules Packet 84 (dummy set + cow) \u2014 P0-b does not consume the dummy ruling (V17: Matt is the brake).",
+      "note": "P0-b opens: T4a TOOLING fired alone (serial rule) while Matt rules Packet 84 (dummy set + cow) — P0-b does not consume the dummy ruling (V17: Matt is the brake).",
       "ts": "2026-09-15T16:28:56"
     },
     {
-      "note": "T4c DELIVERED_WITH_CONCERNS: replay hooks + sheet_pack + headless proofs pass in-sandbox (physics 30/30 @60 Hz; 512\u00b2 crop; 91 drawables hidden; floor light/hit-stop/shake live; synthetic 19/19); graphical bake 0/126 frames in-sandbox \u2014 conductor runs the bake twice outside the sandbox for byte identity, scene exclusion and VO1 on 4 backgrounds (report-not-stop). Matt rulings: no targeting protocol; CAST button stays; ranges unchanged; T4f v2 = pierce per skill + FULL/PARTIAL text + T4a test re-point (SPEC row rewritten).",
+      "note": "T4c DELIVERED_WITH_CONCERNS: replay hooks + sheet_pack + headless proofs pass in-sandbox (physics 30/30 @60 Hz; 512² crop; 91 drawables hidden; floor light/hit-stop/shake live; synthetic 19/19); graphical bake 0/126 frames in-sandbox — conductor runs the bake twice outside the sandbox for byte identity, scene exclusion and VO1 on 4 backgrounds (report-not-stop). Matt rulings: no targeting protocol; CAST button stays; ranges unchanged; T4f v2 = pierce per skill + FULL/PARTIAL text + T4a test re-point (SPEC row rewritten).",
       "ts": "2026-09-15T17:51:35"
     },
     {
-      "note": "CORRIGENDUM to R-C5-11: the phrase should read \"swept only the vfx_targets group\" \u2014 the word vfx_targets was lost to a zsh backtick substitution when the ruling was appended (conductor tooling defect; rulings are RECORD, so corrected forward, not edited).",
+      "note": "CORRIGENDUM to R-C5-11: the phrase should read \"swept only the vfx_targets group\" — the word vfx_targets was lost to a zsh backtick substitution when the ruling was appended (conductor tooling defect; rulings are RECORD, so corrected forward, not edited).",
       "ts": "2026-09-15T18:55:38"
     },
     {
-      "note": "CS-pack-v20 + v20-grey FAILED (exit 3): kits_v8 carries the retired white_core_keep (T4a rejects by design). Minted runs/C-5/vfx_kits/kits_v9.json as DATA via T4f build_export.py recipe (drop tint/pixel_scale, pierce, four baked colours \u2192 material.palette, index-quantised frames); re-fired as -r1.",
+      "note": "CS-pack-v20 + v20-grey FAILED (exit 3): kits_v8 carries the retired white_core_keep (T4a rejects by design). Minted runs/C-5/vfx_kits/kits_v9.json as DATA via T4f build_export.py recipe (drop tint/pixel_scale, pierce, four baked colours → material.palette, index-quantised frames); re-fired as -r1.",
       "ts": "2026-09-15T18:57:39"
     },
     {
       "id": "N-C5-VO1-instrument",
-      "note": "CORRIGENDUM to R-C5-14 F-C5-4 candidate: camera_offset + time_scale traces are byte-identical between the plain bake (bake_a) and the flipbook-comparison bake (flipcmp_a) \u2014 deterministic, settles to (0,0) by frame 8 \u2014 so camera drift is NOT the live-vs-flipbook cause. Per-ground breakdown of the conductor four-ground compare: fails ground 119/126 (max rel 14.2, equal 122/122 frame counts), white 113 (live sum 66547 vs flipbook 144558), black 111 (118 vs 100 frames), foliage 53. A ground-dependent result from a ground-independent quantity (VO1 effect envelope) means the conductor changed-pixel-vs-last-frame proxy measures composite contrast, not envelope: WRONG INSTRUMENT (rubric law, desirable-run-pattern \u00a7 6.3). Remedy: T4g TOOLING \u2014 compose the VO1 instrument in-lane (envelope = |composite \u2212 ground plate| \u2265 \u03c4 in Lab/luma, identical for live and flipbook modes, per-frame relative difference, all four grounds, equal frame counts enforced) and report which mode diverges and where. T4c VO1 clause stays open until T4g reports.",
+      "note": "CORRIGENDUM to R-C5-14 F-C5-4 candidate: camera_offset + time_scale traces are byte-identical between the plain bake (bake_a) and the flipbook-comparison bake (flipcmp_a) — deterministic, settles to (0,0) by frame 8 — so camera drift is NOT the live-vs-flipbook cause. Per-ground breakdown of the conductor four-ground compare: fails ground 119/126 (max rel 14.2, equal 122/122 frame counts), white 113 (live sum 66547 vs flipbook 144558), black 111 (118 vs 100 frames), foliage 53. A ground-dependent result from a ground-independent quantity (VO1 effect envelope) means the conductor changed-pixel-vs-last-frame proxy measures composite contrast, not envelope: WRONG INSTRUMENT (rubric law, desirable-run-pattern § 6.3). Remedy: T4g TOOLING — compose the VO1 instrument in-lane (envelope = |composite − ground plate| ≥ τ in Lab/luma, identical for live and flipbook modes, per-frame relative difference, all four grounds, equal frame counts enforced) and report which mode diverges and where. T4c VO1 clause stays open until T4g reports.",
       "ts": "2026-09-15T19:46:23"
     },
     {
       "id": "N-C5-suite-T4e-r1-T4h",
-      "note": "Full suite OUTSIDE the sandbox after T4e-r1 + T4h: 586 run, 581 ok \u2014 only the five standing reds (walk head_ref_y, F04 outside, 3 annuli). The ten headless-Godot reds seen inside the Astra sandbox are sandbox-only (log rotation / editor settings / CA certs) \u2014 confirmed twice now (T4d, T4h). Freeze deferred to after T4h-r1 (one freeze for T4e-r1 + T4h + T4h-r1).",
+      "note": "Full suite OUTSIDE the sandbox after T4e-r1 + T4h: 586 run, 581 ok — only the five standing reds (walk head_ref_y, F04 outside, 3 annuli). The ten headless-Godot reds seen inside the Astra sandbox are sandbox-only (log rotation / editor settings / CA certs) — confirmed twice now (T4d, T4h). Freeze deferred to after T4h-r1 (one freeze for T4e-r1 + T4h + T4h-r1).",
       "ts": "2026-09-15T21:52:37"
     },
     {
       "id": "N-C5-suite-T4i",
-      "note": "Full suite OUTSIDE the sandbox after T4i: 597 run, 592 ok \u2014 five standing reds only. T4i-r1 fired (device-based forward aim per drax finding); freeze after r1.",
+      "note": "Full suite OUTSIDE the sandbox after T4i: 597 run, 592 ok — five standing reds only. T4i-r1 fired (device-based forward aim per drax finding); freeze after r1.",
       "ts": "2026-09-15T23:06:35"
     },
     {
       "id": "N-C5-T4j-bake-clip",
-      "note": "Lap-2 bake bbox: frames 8\u201320 span x 0\u2013511, y 0\u2013392 of the 768 frame with the body centred near (270,233) \u2014 the effect sits in a 512 window at the top-left, not at the 768 centre; the T4h-r1 v1 bake in ITS fixture reached x 767. So the 511 plateau is the T4j evidence fixture project (512 viewport/window), not the effect: F-C5-6 downgraded to a fixture artefact pending the PACK v24 in-scene check + a bake from a cliffside-derived replay project.",
+      "note": "Lap-2 bake bbox: frames 8–20 span x 0–511, y 0–392 of the 768 frame with the body centred near (270,233) — the effect sits in a 512 window at the top-left, not at the 768 centre; the T4h-r1 v1 bake in ITS fixture reached x 767. So the 511 plateau is the T4j evidence fixture project (512 viewport/window), not the effect: F-C5-6 downgraded to a fixture artefact pending the PACK v24 in-scene check + a bake from a cliffside-derived replay project.",
       "ts": "2026-09-16T00:17:12"
     },
     {
       "id": "N-C5-refreeze-T4l",
-      "note": "SPEC.md lap-3 correction clause was written AFTER the R-C5-33 freeze (25be9dd01c42) \u2014 re-frozen immediately; MANIFEST restamped. If PACK v25 VOIDs on the manifest it is re-fired on the re-freeze.",
+      "note": "SPEC.md lap-3 correction clause was written AFTER the R-C5-33 freeze (25be9dd01c42) — re-frozen immediately; MANIFEST restamped. If PACK v25 VOIDs on the manifest it is re-fired on the re-freeze.",
       "ts": "2026-09-16T00:45:24"
     },
     {
       "id": "N-C5-judge-01-void",
-      "note": "E1-judge-01 completed; result recorded in its receipt but VOID for the ruling (R-C5-54: boards not comparable \u2014 detector latched on the cast flash; travel scale defect F-C5-12). Re-judged after T4s.",
+      "note": "E1-judge-01 completed; result recorded in its receipt but VOID for the ruling (R-C5-54: boards not comparable — detector latched on the cast flash; travel scale defect F-C5-12). Re-judged after T4s.",
       "ts": "2026-09-16T04:45:29"
     },
     {
       "id": "N-C5-v28-probe-error",
-      "note": "Conductor error: the v28 probe chain was launched from a backgrounded shell whose cwd drifted, so $PWD-based output paths resolved to / (mkdir read-only) \u2014 the eleven captures did not run; the judge boards then failed to build and E1-judge-02 was fired against missing boards and KILLED by the conductor before the wrapper could record it (no ledger burst entry; not a VOID). Re-run with absolute paths. Standing law re-learned (CLAUDE.md cwd note): absolute paths in every backgrounded command.",
+      "note": "Conductor error: the v28 probe chain was launched from a backgrounded shell whose cwd drifted, so $PWD-based output paths resolved to / (mkdir read-only) — the eleven captures did not run; the judge boards then failed to build and E1-judge-02 was fired against missing boards and KILLED by the conductor before the wrapper could record it (no ledger burst entry; not a VOID). Re-run with absolute paths. Standing law re-learned (CLAUDE.md cwd note): absolute paths in every backgrounded command.",
       "ts": "2026-09-16T05:22:11"
     },
     {
       "id": "N-C5-disk-full",
-      "note": "DISK FULL during the v28-r1 capture chain (the 1920\u00d71080 per-frame PNG captures \u2014 ~4 MB \u00d7 138 frames \u00d7 dozens of casts \u2014 plus 768\u00b2 bakes filled the volume; even the harness could not open its output files). Recovered by deleting regenerable capture frames via a monitor shell (11 GiB free). Standing rule for the rest of the run: capture every 2nd frame; delete cast frames as soon as boards/sheets/clips are built; keep only sheets, clips and JSON. Nothing of record was lost (all sheets/clips/json retained; frames are re-capturable).",
+      "note": "DISK FULL during the v28-r1 capture chain (the 1920×1080 per-frame PNG captures — ~4 MB × 138 frames × dozens of casts — plus 768² bakes filled the volume; even the harness could not open its output files). Recovered by deleting regenerable capture frames via a monitor shell (11 GiB free). Standing rule for the rest of the run: capture every 2nd frame; delete cast frames as soon as boards/sheets/clips are built; keep only sheets, clips and JSON. Nothing of record was lost (all sheets/clips/json retained; frames are re-capturable).",
       "ts": "2026-09-16T06:01:51"
     },
     {
       "id": "N-C5-judge-02-brief",
-      "note": "E1-judge-02 had been fired twice against a brief that did not exist (the board-builder crash short-circuited the && chain that wrote it; the wrapper errored before any ledger write \u2014 no VOID recorded). Brief written now against E1-judge-boards-v28; fired.",
+      "note": "E1-judge-02 had been fired twice against a brief that did not exist (the board-builder crash short-circuited the && chain that wrote it; the wrapper errored before any ledger write — no VOID recorded). Brief written now against E1-judge-boards-v28; fired.",
       "ts": "2026-09-16T06:16:34"
     }
   ]
