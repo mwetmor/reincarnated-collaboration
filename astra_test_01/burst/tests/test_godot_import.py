@@ -1713,18 +1713,42 @@ class FireLaneHeadlessTests(unittest.TestCase):
 
 class FL2RuntimeEmissionTests(unittest.TestCase):
     def test_real_scene_sweep_and_ground_anchor_trace(self):
-        root=Path(__file__).resolve().parents[1]/'runs/C-5/t3/FL-2'
-        report=json.loads((root/'acceptance.json').read_text())
-        for kit in ('9','10'):
-            contacts=report['part0']['contacts'][kit]
-            self.assertEqual(len(contacts),1)
-            self.assertEqual(contacts[0]['body_index'],3)
-            self.assertLessEqual(contacts[0]['age_frames'],6)
-        self.assertEqual(report['part0']['decal_positions'],[[3911.25,596.0]])
-        self.assertTrue(report['part0']['real_scene_byte_identical'])
-        self.assertEqual(set(report['exit_codes'].values()),{0})
-        self.assertEqual(report['byte_identity']['unchanged_kit_count'],14)
-        self.assertEqual(report['byte_identity']['primitive_and_piece_changes'],[])
+        root=Path(__file__).resolve().parents[1]/'runs/C-5/t3/FL-2b'
+        before=json.loads((root/'before_probes.json').read_text())
+        after=json.loads((root/'after_probes.json').read_text())
+        def events(report, face):
+            case=report['cases'][face]
+            self.assertEqual(case['exit'],0)
+            return case['probe']['effects'][0]['events']
+        for face in ('W','NW','SE'):
+            with self.subTest(direction=face):
+                old=[e for e in events(before,face) if e['event']=='contact']
+                self.assertEqual([e['body_index'] for e in old],[3])
+                new=events(after,face)
+                self.assertEqual([e for e in new if e['event']=='contact'],[])
+                expiry=[e for e in new if e['event']=='expire']
+                self.assertEqual(len(expiry),1)
+                self.assertGreaterEqual(expiry[0]['age_frames'],18)
+                self.assertEqual(expiry[0]['range_expiry'],'fizzle')
+        for face in ('E','ice_E'):
+            with self.subTest(direction=face):
+                contacts=[e for e in events(after,face) if e['event']=='contact']
+                self.assertEqual([e['body_index'] for e in contacts],[3])
+                self.assertLessEqual(contacts[0]['age_frames'],6)
+        self.assertEqual(events(before,'N'),events(after,'N'))
+        # Alpha >= 32 of the head is the entire envelope, for fire and ice.
+        import numpy as np
+        from scipy.spatial import ConvexHull
+        from export.godot_import import _painted_g1_config, _load_vfx_kit
+        repo=Path(__file__).resolve().parents[1]
+        for name in ('fire_bolt_e1_A','fire_bolt_e1_B','ice_bolt_e2'):
+            kit=_load_vfx_kit(repo/'runs/C-5/vfx_kits/v9'/name);kit['name']=name
+            head=kit['effect']['travel_primitives']['head']
+            with Image.open(kit['root']/head['png']) as image:
+                y,x=np.nonzero(np.array(image.convert('RGBA'))[...,3]>=32)
+            points=np.column_stack((x,y))
+            expected=(points[ConvexHull(points).vertices]-head['pivot'])*head['scale']
+            np.testing.assert_array_equal(_painted_g1_config(kit)['head_hull'],expected)
 
     def test_emitted_opt_in_material_and_hitstop(self):
         from export.godot_import import _g1_config, _load_vfx_kit

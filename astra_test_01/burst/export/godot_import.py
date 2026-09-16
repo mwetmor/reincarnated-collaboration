@@ -1531,6 +1531,7 @@ var remaining_pierce: int = 0
 var contacted: Dictionary = {}
 var strike_fired: bool = false
 var cast_origin: Vector2 = Vector2.ZERO
+var release_facing: Vector2 = Vector2.ZERO
 var travel_end: Vector2 = Vector2.ZERO
 var release_sweep_start: Variant = null
 var struck_ground: Variant = null
@@ -1598,6 +1599,7 @@ func release(kit: Dictionary, origin: Vector2, destination: Dictionary, owner_no
     spell_scale = art_scale
     global_position = origin
     direction = origin.direction_to(resolved.point)
+    release_facing = destination.get("facing", direction).normalized()
     distance = 0.0
     remaining_pierce = int(config.get("pierce", 0))
     struck_ground = null
@@ -1694,7 +1696,9 @@ func _physics_process(delta: float) -> void:
         for hit in overlaps:
             var body: CollisionObject2D = hit.collider
             excluded.append(body.get_rid())
-            hits.append({"area": body, "fraction": fraction, "along": (body.global_position - cast_origin).dot(direction)})
+            var along: float = (body.global_position - cast_origin).dot(release_facing)
+            if along > 0.0:
+                hits.append({"area": body, "fraction": fraction, "along": along})
     hits.sort_custom(func(a, b): return a.fraction < b.fraction if not is_equal_approx(a.fraction, b.fraction) else a.along < b.along)
     for hit in hits:
         global_position = start + motion * float(hit.fraction)
@@ -1733,6 +1737,9 @@ func contact_body(area: CollisionObject2D, phase: String = "head") -> void:
     if not active or not is_instance_valid(area) or area == caster or contacted.has(area.get_instance_id()):
         return
     if phase not in ["head", "chain_hop", "field_centre", "shard", "rim"]:
+        return
+    # Reject behind-release candidates on every entry path, including callbacks.
+    if (area.global_position - cast_origin).dot(release_facing) <= 0.0:
         return
     var contact_class: String = "primary"
     if phase in ["shard", "rim"] or (phase == "head" and not contacted.is_empty()):
@@ -1859,6 +1866,7 @@ def _g1_directional(script):
         await get_tree().physics_frame
     if not is_inside_tree():
         return
+    destination["facing"] = FACING_VECTORS[facing].normalized()
     G1.acquire(get_parent(), kit, socket, destination, self, art_scale)
 
 func _g1_cast_ready() -> void:
@@ -2949,16 +2957,7 @@ def _painted_g1_config(kit):
     points = np.column_stack((xx,yy))
     head = data['travel_primitives']['head']
     hull = (points[ConvexHull(points).vertices] - head['pivot']) * head['scale']
-    # The collision envelope includes the painted trailing puff/streak. A thin
-    # shard's tip can clear a footprint that its visible trailing body crosses.
-    streak = data['travel_primitives']['streak']
-    with Image.open(kit['root']/streak['png']) as im:
-        sy, sx = np.nonzero(np.asarray(im.convert('RGBA'))[...,3] >= 32)
-    tail_points = np.column_stack((sx,sy))
-    rear = (np.asarray(head['rear_socket'])-head['pivot'])*head['scale']
-    tail_hull = (tail_points[ConvexHull(tail_points).vertices]-streak['pivot'])*streak['scale']+rear
-    envelope = np.concatenate((hull,tail_hull))
-    hull = envelope[ConvexHull(envelope).vertices]
+    # FL-2b: only alpha >= 32 of the painted head collides; the streak is a trail.
     return {'head_hull': hull.tolist(), 'fire_layers': data['layers'] if 'cast' in data['layers'] else {}, 'palette': data['material']['palette'], 'bolt': ('res://scenes/vfx/g1_ice_projectile.tscn' if data.get('pieces', {}).get('template') == 'burst_v1r' else 'res://scenes/vfx/g1_painted_projectile.tscn'),
             'range_px': data['skill_spec']['mechanics']['range_px'],
             'speed_px_s': data['skill_spec']['mechanics']['speed_px_s'],
@@ -3021,14 +3020,26 @@ def _write_painted_travel(out, kit, resource_root):
         material.pop('dissolve_order', None)
         noise_rel = None
         if role == 'streak' and data['layers'].get('travel', {}).get('erode_noise'):
-            # Reuse T4h's shared continuous-noise shader. Reverse the longitudinal
-            # field so outside-in removal still burns from tail toward socket.
+            # Keep the longitudinal field canonical: 0 at tail, 255 at socket.
+            # A dedicated shader adapter converts to the outside-in noise plane.
             from export.effect_kit import erosion_noise_texture
-            Image.fromarray(np.broadcast_to(255-np.rint(ramp*255).astype(np.uint8), rgba.shape[:2])).save(out/resource_root/field)
             noise_rel = resource_root+'/distance/primitives/tail_noise.png'
             Image.fromarray(erosion_noise_texture(rgba)).save(out/noise_rel)
             material.update(erode_outside_in=True, erode_noise=data['layers']['travel']['erode_noise'])
         write_vfx_material(out, resource_root+'/materials/Travel_'+role+'.tres', material, resource_root+'/'+field, noise_texture=noise_rel)
+        if role == 'streak' and noise_rel:
+            # Preserve FL-2's exact noise/erosion function without reversing the
+            # stored tail field or modifying the shared head/piece shader.
+            material_path = out/resource_root/'materials/Travel_streak.tres'
+            material_text = material_path.read_text()
+            shader_path = re.search(r'path="res://([^"\n]+\.gdshader)"', material_text)[1]
+            tail_path = Path(shader_path).with_stem(Path(shader_path).stem+'_tail')
+            shader_text = (out/shader_path).read_text()
+            shader_text = shader_text.replace(
+                'float distance_value = texture(distance_texture, UV).r;',
+                'float distance_value = 1.0 - texture(distance_texture, UV).r;')
+            (out/tail_path).write_text(shader_text)
+            material_path.write_text(material_text.replace(shader_path, tail_path.as_posix()))
         if role == 'head':
             write_vfx_material(out, resource_root+'/materials/Fizzle_head.tres', dict(material, erode_outside_in=True), resource_root+'/'+field)
 

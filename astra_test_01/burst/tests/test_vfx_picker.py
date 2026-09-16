@@ -1450,6 +1450,30 @@ class ProjectileArmPickerTests(unittest.TestCase):
         from export.godot_import import _grey_vfx
         import numpy as np
         project=e1_project_fixture(self.root)
+        for arm in ('A', 'B'):
+            arm_root = project/'vfx'/('fire_bolt_e1_'+arm)
+            with Image.open(arm_root/'primitives/streak.png') as im: pixels=np.array(im)
+            with Image.open(arm_root/'distance/primitives/tail.png') as im: tail=np.array(im)
+            yy,xx=np.nonzero(pixels[...,3])
+            self.assertEqual(int(tail[yy[xx.argmin()],xx.min()]),0)
+            self.assertEqual(int(tail[yy[xx.argmax()],xx.max()]),255)
+            self.assertTrue((np.diff(tail.astype(int),axis=1)>=0).all())
+            material=(arm_root/'materials/Travel_streak.tres').read_text()
+            shader_path=re.search(r'path="res://([^"\n]+\.gdshader)"',material)[1]
+            shader=(project/shader_path).read_text()
+            self.assertIn('float distance_value = 1.0 - texture(distance_texture, UV).r;',shader)
+            self.assertIn('distance_value > 1.0 - erode',shader)
+            self.assertIn('shader_parameter/erode_noise = 0.3',material)
+            with Image.open(arm_root/'distance/primitives/tail_noise.png') as im: noise=np.array(im)/255.
+            resistance=.3*(.5*(2*noise[...,0]-1)+.5*noise[...,1])
+            old=(255-tail.astype(float))/255.-resistance
+            current=1-tail.astype(float)/255.-resistance
+            np.testing.assert_allclose(current,old,atol=1e-15)
+            for erosion in (.1,.25,.5,.75,.9):
+                # Complement arithmetic differs by <1e-15 at exact threshold
+                # ties; require identical coverage away from those ties.
+                stable=np.abs(old-(1-erosion))>1e-14
+                np.testing.assert_array_equal(current[stable]>1-erosion,old[stable]>1-erosion)
         root=project/'vfx/fire_bolt_e1_B'
         with Image.open(root/'primitives/streak.png') as im: rgba=np.array(im)
         with Image.open(root/'distance/primitives/tail.png') as im: field=np.array(im)

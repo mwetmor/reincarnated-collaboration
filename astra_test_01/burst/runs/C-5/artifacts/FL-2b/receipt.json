@@ -1,0 +1,73 @@
+{
+  "task_id": "FL-2b",
+  "status": "FAILED",
+  "images": [],
+  "calls_used": 0,
+  "retries": [
+    {
+      "reason": "SE still contacted after the initial forward-only filter.",
+      "change": "Snapshotted actual character facing and repeated probes; SE and ice acceptance failures remain."
+    }
+  ],
+  "self_report": {
+    "obeyed_invariants": false,
+    "concerns": [
+      "SE still hits body 3 at age 1; its release-facing dot is +105.42 px.",
+      "Head-only ice E hits body 5 at age 16 instead of body 3.",
+      "Suite cleanup was not fully confined: possible deletion of T4x/catalogue_project cannot be certified.",
+      "Three byte locks and the tail-field test are green. All 17 source kits remain unchanged; export/import exit 0.",
+      "277 tests executed. Remaining issues, including BoltChainEmissionTests.test_current_catalogue_and_original_kits_unchanged, are named in acceptance.json.",
+      "The complete 1,655-file hash inventory is in out/files.json."
+    ]
+  },
+  "files": [
+    {
+      "path": "/Users/admin/astra-burst/runs/C-5/FL-2b/out/files.json",
+      "sha256": "de16c3a8a4057e1f0ca7fc7aaaf713f53b8a2ea69d6c16063e8582e29eee0929"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/export/godot_import.py",
+      "sha256": "7775b9cd34d1e72ab247a5fee01a6735887dc9fd4d8f235dd3582ae8e48ca4e8"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_godot_import.py",
+      "sha256": "c72d743405352d428deb611c9561ef068646ca47a4bfb3356e2e7ac5c2471d9e"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_vfx_picker.py",
+      "sha256": "ee6a33c9d213c25d63dc707aeac79c4da602f8a62282c13e7bd11966c1f8aff3"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/fixtures/fl1b/IceTreatmentImportTests-0.json",
+      "sha256": "356763d12498c1fca1fa64006ccd3aa6ec2a5e760f5b4bb3156ed1e2d8384a4b"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/fixtures/fl1b/PieceLap2ExportTests-3.json",
+      "sha256": "06884a9a4e8ae9c20371d83b780be349e263fe4aaaf9d8a5b4a937a2a1258576"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/fixtures/fl1b/ProjectileArmPickerTests-2.json",
+      "sha256": "c223eca6cb20d962bf21d092e04f73b32e5f799fb37d1dbcc91edefc64092b46"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/FL-2b/acceptance.json",
+      "sha256": "53b4b1ea14482cbd0b54b971d620249c3ea72615371a1db8504f64c040739ce9"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/FL-2b/lock_diff_summaries.json",
+      "sha256": "a7327ab680b9f2b720824f8b251932ac57c2bb7f377a898b212f4bdde4d7212b"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/FL-2b/field_profiles.json",
+      "sha256": "3f83dbfadd5a264d536c154adb0d1f17e7fc419f366af526f4615c1bab6b55b0"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/FL-2b/suite.json",
+      "sha256": "e8b3673b2f04672e4d72847077758472ac02d6bd8fdc22a5b9cbec0c95ca5163"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/FL-2b/named_recheck.json",
+      "sha256": "36edb87b027e54c5ef4368b14864b3dc4353541e66d8695a2b7976fcc987168d"
+    }
+  ]
+}

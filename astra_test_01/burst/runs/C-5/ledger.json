@@ -12446,6 +12446,101 @@
       "codex_version": "codex-cli 0.153.4",
       "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
       "exit": 0
+    },
+    {
+      "id": "FL-2b",
+      "type": "TOOLING",
+      "experiment": "C5-FIRE",
+      "brief_sha256": "4dd1cafeda569a8c7ee3dc56c15758a8b910b7660d7e379a438286a71391d143",
+      "started": "2026-09-16T18:48:25.286399+00:00",
+      "ended": "2026-09-16T19:03:41.742644+00:00",
+      "minutes": 15.274507821516696,
+      "image_calls": 0,
+      "tool_calls": 37,
+      "audit": {
+        "violations": [],
+        "image_calls": 0,
+        "tool_calls": 37,
+        "tools_seen": {
+          "command_execution": 37
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [],
+        "execution_error": "receipt reports unsuccessful execution"
+      },
+      "receipt_sha256": "0ccd6e795a654c49713f1d2c1d214cfab2a023513d5a02c9ca45e2aa31df2f2b",
+      "artifacts": [],
+      "artifacts_in_place": [
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "export/godot_import.py",
+          "sha256": "7775b9cd34d1e72ab247a5fee01a6735887dc9fd4d8f235dd3582ae8e48ca4e8"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "fixtures/fl1b/IceTreatmentImportTests-0.json",
+          "sha256": "356763d12498c1fca1fa64006ccd3aa6ec2a5e760f5b4bb3156ed1e2d8384a4b"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "fixtures/fl1b/PieceLap2ExportTests-3.json",
+          "sha256": "06884a9a4e8ae9c20371d83b780be349e263fe4aaaf9d8a5b4a937a2a1258576"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "fixtures/fl1b/ProjectileArmPickerTests-2.json",
+          "sha256": "c223eca6cb20d962bf21d092e04f73b32e5f799fb37d1dbcc91edefc64092b46"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-5/t3/FL-2b/acceptance.json",
+          "sha256": "53b4b1ea14482cbd0b54b971d620249c3ea72615371a1db8504f64c040739ce9"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-5/t3/FL-2b/field_profiles.json",
+          "sha256": "3f83dbfadd5a264d536c154adb0d1f17e7fc419f366af526f4615c1bab6b55b0"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-5/t3/FL-2b/lock_diff_summaries.json",
+          "sha256": "a7327ab680b9f2b720824f8b251932ac57c2bb7f377a898b212f4bdde4d7212b"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-5/t3/FL-2b/named_recheck.json",
+          "sha256": "36edb87b027e54c5ef4368b14864b3dc4353541e66d8695a2b7976fcc987168d"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-5/t3/FL-2b/suite.json",
+          "sha256": "e8b3673b2f04672e4d72847077758472ac02d6bd8fdc22a5b9cbec0c95ca5163"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "tests/test_godot_import.py",
+          "sha256": "c72d743405352d428deb611c9561ef068646ca47a4bfb3356e2e7ac5c2471d9e"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "tests/test_vfx_picker.py",
+          "sha256": "ee6a33c9d213c25d63dc707aeac79c4da602f8a62282c13e7bd11966c1f8aff3"
+        }
+      ],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 3
     }
   ],
   "experiments": [],
@@ -13247,6 +13342,13 @@
       "veto_open": true,
       "ruling": "PACK v35 (FL-2) proof: east contact on the shield at age 1 (F-C5-27 CLOSED), ice crown under it; cast half / flicker / embers / eased floor light / heat halo present (subtle at 1080p; Matt decal-read F-C5-29 stands → FL-3 anti-decal round after FL-2b). REGRESSION F-C5-30: W/NW/SE casts strike the shield dummy BEHIND the caster (streak in the envelope) → FL-2b Part A first; Part B byte locks; Part C streak tail field (F-C5-28). Packet 97 = v35 sheets + zoom; cliffside_v35 is Matt playable but carries F-C5-30 (do not cast W/NW/SE near the shield).",
       "ts": "2026-09-16T14:47:26"
+    },
+    {
+      "id": "R-C5-96",
+      "class": "conductor",
+      "veto_open": true,
+      "ruling": "FL-2b returned FAILED honestly and is ACCEPTED IN PART: Part B (three byte locks re-baselined with diffs) and Part C (the FL-2 export had deliberately reversed the streak tail plane; the emitted field is 0 at tail / 255 at socket again with a shader complement) GREEN and kept; Part A partial — W/NW no longer strike the dummy behind, but SE still clips the shield (dot +105 px counts as ahead; the painted head envelope touches the footprint at release) and head-only makes ice E miss the shield (its painted head does not cross the footprint). DESIGN RULING (conductor, reasoning boundary): gameplay collision must not depend on which pixels a painting covers — the G1 collider becomes a CANONICAL CAPSULE: radius 0.25 BH (kit field collision_radius_bh, default .25), length = the head length, oriented along the direction, swept from the release socket; a contact counts only if the target lies ahead of the release socket by >= 0.25 BH along the facing; painted envelopes retired from collision (Diablo II missile convention: fixed collision size, art is art). Expected: E strikes the shield (fire and ice alike, capsule crosses the footprint), SE passes in front (capsule y 654-724 vs footprint 580-611), W/NW/N clean. → FL-2c. Confinement note: RenderedLookTraceTests removed runs/C-5/t3/T4x/catalogue_project (a gitignored T4x fixture, regenerable) — no artifact of record lost.",
+      "ts": "2026-09-16T15:06:32"
     }
   ],
   "grok_calls": [],
