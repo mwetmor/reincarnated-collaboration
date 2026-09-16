@@ -1029,9 +1029,11 @@ def validate_projectile(data, root, runtime=False):
                 'active_duration_s': None, 'tick_schedule': None,
                 'termination': 'first_contact_or_range', 'pierce': 0}
     optional = {'radius_px', 'active_duration_s', 'tick_schedule'} if spec.get('skill_id') == 'ice_bolt_e2' else set()
-    _keys(mechanics, set(expected)|{'speed_px_s', 'range_px'}, (set(expected)-optional)|{'speed_px_s', 'range_px'}, 'mechanics')
+    _keys(mechanics, set(expected)|{'speed_px_s', 'range_px', 'range_expiry'}, (set(expected)-optional)|{'speed_px_s', 'range_px'}, 'mechanics')
     if spec['grammar'] != 'G1' or any(mechanics.get(k, v) != v for k, v in expected.items()):
         raise ValueError('unsupported G1 mechanics; no inferred grammar')
+    if mechanics.get('range_expiry', 'burst') not in ('fizzle', 'burst'):
+        raise ValueError('mechanics.range_expiry must be fizzle or burst')
     for key in ('range_px', 'speed_px_s'):
         _number(mechanics[key], 1e-9, math.inf, key)
     if (not data.get('screen_px') or data.get('pierce', 0) != mechanics['pierce']

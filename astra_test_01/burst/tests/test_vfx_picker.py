@@ -1744,3 +1744,132 @@ class FrozenOrbPickerTests(unittest.TestCase):
             self.assertLess(decals[-1]['decal_alpha'],decals[0]['decal_alpha'])
         labels=[e for e in trace['labels'] if e['effect_id']==cast]
         self.assertEqual(len(labels),len({e['body_index'] for e in labels}))
+
+
+# FL-1a: actual headless node traces, shared by acceptance and unittest.
+FL1_PROBE = r'''extends SceneTree
+const G1 = preload("res://scripts/vfx_g1.gd")
+var report: Dictionary = {"halo":[],"release":[],"flight":[],"expiry":[]}
+var keeper: CharacterBody2D
+var scene: Node2D
+var boxes: Dictionary = {"S":Rect2(228,160,70,240),"SW":Rect2(218,170,82,230),"W":Rect2(205,165,89,235),"NW":Rect2(209,165,85,235),"N":Rect2(218,166,75,234),"NE":Rect2(227,165,80,235),"E":Rect2(222,164,78,236),"SE":Rect2(221,164,88,236)}
+func _initialize() -> void: call_deferred("run")
+func inventory(node: Node) -> Dictionary:
+    var counts: Dictionary = {"burst_pieces":0,"floor_lights":0,"impacts":0}
+    if node is CanvasItem and node.is_visible_in_tree():
+        if String(node.name).begins_with("Piece_"): counts.burst_pieces += 1
+        if node.name == "FloorLight": counts.floor_lights += 1
+    if String(node.scene_file_path).ends_with("_impact.tscn"): counts.impacts += 1
+    for child in node.get_children():
+        var sub: Dictionary = inventory(child)
+        for key in counts: counts[key] += sub[key]
+    return counts
+func run() -> void:
+    scene = load("res://scenes/main.tscn").instantiate()
+    root.add_child(scene)
+    keeper = scene.get_node("Keeper")
+    keeper.set_physics_process(false)
+    keeper.set_process(false)
+    keeper.global_position = Vector2(3760,640)
+    keeper.sprite.scale = Vector2.ONE * (130.0/240.0)
+    await physics_frame
+    await process_frame
+    for kit_name in ["fire_bolt_e1_B","fire_bolt_e1_A","ice_bolt_e2"]:
+        var ki: int = 0
+        for i in range(keeper.VFX_KITS.size()):
+            if keeper.VFX_KITS[i].name == kit_name: ki = i
+        for facing in keeper.DIRECTIONS:
+            keeper.state = "idle"
+            keeper.facing = facing
+            keeper.cast_kit_index = ki
+            keeper.cast_fired = false
+            keeper.sprite.animation = "cast_"+facing
+            keeper.sprite.pause()
+            keeper.sprite.frame = 0
+            keeper.state = "cast"
+            keeper.vfx_cursor_override = keeper.global_position + keeper.FACING_VECTORS[facing].normalized()*2000.0
+            keeper.halo_start_tick = -1
+            for tick in range(9):
+                keeper.sprite.frame = tick/3
+                keeper._physics_process(0.0)
+                var halo: Sprite2D = keeper.cast_halo
+                var socket: Vector2 = keeper._socket_world()
+                report.halo.append({"kit":kit_name,"direction":facing,"tick":tick,"frame":keeper.sprite.frame,
+                    "texture_class":halo.texture.get_class(),"is_head_texture":halo.texture.resource_path == keeper.VFX_KITS[ki].painted_travel.head.png,
+                    "diameter_bh":halo.texture.get_width()*halo.global_scale.x/130.0,"position_error_px":halo.global_position.distance_to(socket),
+                    "alpha":halo.modulate.a,"additive":halo.material.blend_mode == CanvasItemMaterial.BLEND_MODE_ADD})
+                await physics_frame
+                await process_frame
+            keeper.sprite.frame = 3
+            keeper._cast_frame_changed()
+            var pool: Array = get_nodes_in_group("vfx_g1_pool")
+            var bolt: Area2D = pool[-1]
+            bolt.set_physics_process(false)
+            var head: AnimatedSprite2D = bolt.get_node("Head")
+            var point: Array = bolt.config.painted_travel.head.rear_socket
+            var rear: Vector2 = head.to_global(head.offset + Vector2(point[0],point[1]))
+            var derived: Vector2 = keeper._socket_world()
+            report.release.append({"kit":kit_name,"direction":facing,"rear_error_px":rear.distance_to(derived),
+                "facing_dot_px":(bolt.global_position-keeper.global_position).dot(keeper.FACING_VECTORS[facing].normalized()),
+                "socket_world":[derived.x,derived.y],"bolt_position":[bolt.global_position.x,bolt.global_position.y],"halo_visible":keeper.cast_halo.visible})
+            var max_counts: Dictionary = {"burst_pieces":0,"floor_lights":0,"impacts":0}
+            for tick in range(60):
+                var painting: Node2D = bolt.get_node("KeyState") if bolt.get_node("KeyState").visible else head
+                var tex: Texture2D = painting.texture if painting is Sprite2D else bolt.rest_head
+                var box: Rect2 = tex.get_image().get_used_rect()
+                var centre: Vector2 = painting.to_global(painting.offset+box.get_center())
+                var local: Vector2 = keeper.sprite.to_local(centre)-keeper.sprite.offset
+                if painting.visible:
+                    report.flight.append({"kit":kit_name,"direction":facing,"tick":tick,"head_centre_in_body":boxes[facing].has_point(local),"local_centre":[local.x,local.y]})
+                var counts: Dictionary = inventory(scene)
+                for key in counts: max_counts[key] = maxi(max_counts[key],counts[key])
+                bolt._physics_process(1.0/60.0)
+                await physics_frame
+                await process_frame
+            report.expiry.append({"kit":kit_name,"direction":facing,"distance_px":bolt.distance,"fizzle":bolt.fizzle_trace.duplicate(true),"max_visible":max_counts,"strike_fired":bolt.strike_fired,"contacts":bolt.contacted.size(),"events":G1.events.duplicate(true)})
+            G1.events.clear()
+            bolt.queue_free()
+            for child in scene.get_children():
+                if String(child.scene_file_path).ends_with("_impact.tscn"): child.queue_free()
+            keeper.state = "idle"
+            keeper._update_cast_halo()
+            await process_frame
+    var output := FileAccess.open("res://fl1_trace.json",FileAccess.WRITE)
+    output.store_string(JSON.stringify(report))
+    print("FL1_TRACE_COMPLETE")
+    quit()
+'''
+
+
+def fl1_trace(directory):
+    """Full catalogue, original cast pixels, independent literal measurements."""
+    import os, shutil
+    directory = Path(directory)
+    cells = directory/'cells'; cells.mkdir(parents=True)
+    for direction in ('S','SW','W','NW','N','NE','E','SE'):
+        for source in (ROOT/'runs/C-3/cells_v7'/('cast_'+direction)).rglob('cast_*.png'):
+            shutil.copyfile(source,cells/source.name)
+    project = directory/'project'
+    export = build_project(cells, project, sockets=ROOT/'runs/C-3/sockets_v2.json',vfx_kits=ROOT/'runs/C-5/vfx_kits/kits_v9.json')
+    (directory/'export.json').write_text(json.dumps(export,indent=2))
+    (project/'fl1_probe.gd').write_text(FL1_PROBE)
+    logs = []
+    for label,args in [('import',['--editor','--import']),('trace',['--script','res://fl1_probe.gd'])]:
+        result = subprocess.run([GODOT,'--headless','--path',str(project),'--log-file',str(directory/(label+'-engine.log')),*args],capture_output=True,text=True,timeout=120)
+        (directory/(label+'.log')).write_text(result.stdout+result.stderr)
+        logs.append(dict(stage=label,exit_code=result.returncode))
+        if result.returncode: raise RuntimeError(label+': '+result.stderr[-1000:])
+    (directory/'headless.json').write_text(json.dumps(logs,indent=2))
+    return json.loads((project/'fl1_trace.json').read_text())
+
+
+class FireLaneSocketSchemaTests(unittest.TestCase):
+    def test_all_release_rows_declare_facing_rule_and_keep_eight_points(self):
+        data=json.loads((ROOT/'runs/C-3/sockets_v2.json').read_text())
+        self.assertEqual(data['canvas'],[512,512])
+        for direction in ('S','SW','W','NW','N','NE','E','SE'):
+            cell=data['cells']['cast_'+direction]
+            self.assertEqual(cell['release_socket_rule'],'far end along facing (FL-1a)')
+            self.assertEqual(cell['release_index'],3)
+            self.assertEqual(len(cell['sockets']),8)
+            self.assertTrue(all(len(p)==2 and all(0<=v<512 for v in p) for p in cell['sockets']))

@@ -1,0 +1,874 @@
+{
+  "task_id": "FL-1a",
+  "metrics": [
+    {
+      "id": "halo_not_head",
+      "value": 0,
+      "threshold": 0,
+      "op": "==",
+      "unit": "samples"
+    },
+    {
+      "id": "halo_socket_error",
+      "value": 0.0,
+      "threshold": 2,
+      "op": "<=",
+      "unit": "px"
+    },
+    {
+      "id": "halo_drawn_diameter",
+      "value": 0.80500001173753,
+      "threshold": 0.5,
+      "op": "<=",
+      "unit": "BH"
+    },
+    {
+      "id": "rear_socket_error",
+      "value": 38.9166297912598,
+      "threshold": 52,
+      "op": "<=",
+      "unit": "px"
+    },
+    {
+      "id": "release_facing_dot",
+      "value": 46.145751953125,
+      "threshold": 0,
+      "op": ">",
+      "unit": "px"
+    },
+    {
+      "id": "head_centre_inside_body",
+      "value": 0,
+      "threshold": 0,
+      "op": "==",
+      "unit": "samples"
+    }
+  ],
+  "halo": {
+    "samples": 216,
+    "nominal_radius_bh": 0.35,
+    "max_pulse": 1.15,
+    "alpha_min": 0.600000023841858,
+    "alpha_max": 0.899999976158142,
+    "texture": "GradientTexture2D",
+    "material": "CanvasItemMaterial additive, palette band 2"
+  },
+  "release": {
+    "samples": 24,
+    "flight_samples": 630,
+    "socket_resolution": "Displayed sprite.animation row; current frame; sprite.to_global(pixel + offset), including sprite scale/rotation. No E-row rotation or mirroring.",
+    "rear_separation": "13 px base, bounded extra body clearance up to 39 px; total <=0.4 BH. Range endpoint remains release socket + facing velocity * range.",
+    "sockets_before_after": [
+      {
+        "direction": "S",
+        "before": [
+          240,
+          118
+        ],
+        "after": [
+          254,
+          246
+        ],
+        "endpoints": [
+          [
+            241,
+            118
+          ],
+          [
+            254,
+            246
+          ]
+        ],
+        "method": "manual release-frame staff endpoint annotation; maximum dot with facing",
+        "uncertainty_px": 3
+      },
+      {
+        "direction": "SW",
+        "before": [
+          332,
+          137
+        ],
+        "after": [
+          145,
+          249
+        ],
+        "endpoints": [
+          [
+            333,
+            137
+          ],
+          [
+            145,
+            249
+          ]
+        ],
+        "method": "manual release-frame staff endpoint annotation; maximum dot with facing",
+        "uncertainty_px": 3
+      },
+      {
+        "direction": "W",
+        "before": [
+          229,
+          118
+        ],
+        "after": [
+          178,
+          309
+        ],
+        "endpoints": [
+          [
+            229,
+            118
+          ],
+          [
+            178,
+            309
+          ]
+        ],
+        "method": "manual release-frame staff endpoint annotation; maximum dot with facing",
+        "uncertainty_px": 3
+      },
+      {
+        "direction": "NW",
+        "before": [
+          191,
+          123
+        ],
+        "after": [
+          191,
+          123
+        ],
+        "endpoints": [
+          [
+            191,
+            123
+          ],
+          [
+            364,
+            201
+          ]
+        ],
+        "method": "manual release-frame staff endpoint annotation; maximum dot with facing",
+        "uncertainty_px": 3
+      },
+      {
+        "direction": "N",
+        "before": [
+          327,
+          104
+        ],
+        "after": [
+          327,
+          104
+        ],
+        "endpoints": [
+          [
+            327,
+            104
+          ],
+          [
+            162,
+            201
+          ]
+        ],
+        "method": "manual release-frame staff endpoint annotation; maximum dot with facing",
+        "uncertainty_px": 3
+      },
+      {
+        "direction": "NE",
+        "before": [
+          244,
+          81
+        ],
+        "after": [
+          244,
+          81
+        ],
+        "endpoints": [
+          [
+            244,
+            81
+          ],
+          [
+            367,
+            263
+          ]
+        ],
+        "method": "manual release-frame staff endpoint annotation; maximum dot with facing",
+        "uncertainty_px": 3
+      },
+      {
+        "direction": "E",
+        "before": [
+          179,
+          121
+        ],
+        "after": [
+          342,
+          219
+        ],
+        "endpoints": [
+          [
+            179,
+            121
+          ],
+          [
+            342,
+            219
+          ]
+        ],
+        "method": "manual release-frame staff endpoint annotation; maximum dot with facing",
+        "uncertainty_px": 3
+      },
+      {
+        "direction": "SE",
+        "before": [
+          172,
+          166
+        ],
+        "after": [
+          315,
+          256
+        ],
+        "endpoints": [
+          [
+            172,
+            166
+          ],
+          [
+            315,
+            256
+          ]
+        ],
+        "method": "manual release-frame staff endpoint annotation; maximum dot with facing",
+        "uncertainty_px": 3
+      }
+    ],
+    "unrelated_socket_edits": [],
+    "trace_rows": [
+      {
+        "bolt_position": [
+          3759.00439453125,
+          724.925048828125
+        ],
+        "direction": "S",
+        "facing_dot_px": 84.925048828125,
+        "halo_visible": false,
+        "kit": "fire_bolt_e1_B",
+        "rear_error_px": 12.9999408721924,
+        "socket_world": [
+          3758.91674804688,
+          556.583312988281
+        ]
+      },
+      {
+        "bolt_position": [
+          3586.90649414062,
+          683.016540527344
+        ],
+        "direction": "SW",
+        "facing_dot_px": 152.812881469727,
+        "halo_visible": false,
+        "kit": "fire_bolt_e1_B",
+        "rear_error_px": 13.0000238418579,
+        "socket_world": [
+          3699.875,
+          558.208312988281
+        ]
+      },
+      {
+        "bolt_position": [
+          3549.46166992188,
+          594.945434570312
+        ],
+        "direction": "W",
+        "facing_dot_px": 210.538330078125,
+        "halo_visible": false,
+        "kit": "fire_bolt_e1_B",
+        "rear_error_px": 12.9999685287476,
+        "socket_world": [
+          3717.75,
+          590.708312988281
+        ]
+      },
+      {
+        "bolt_position": [
+          3600.70166015625,
+          376.201538085938
+        ],
+        "direction": "NW",
+        "facing_dot_px": 299.174621582031,
+        "halo_visible": false,
+        "kit": "fire_bolt_e1_B",
+        "rear_error_px": 13.0000314712524,
+        "socket_world": [
+          3724.79174804688,
+          489.958312988281
+        ]
+      },
+      {
+        "bolt_position": [
+          3794.93969726562,
+          311.361663818359
+        ],
+        "direction": "N",
+        "facing_dot_px": 328.638336181641,
+        "halo_visible": false,
+        "kit": "fire_bolt_e1_B",
+        "rear_error_px": 13.0000019073486,
+        "socket_world": [
+          3798.45825195312,
+          479.666656494141
+        ]
+      },
+      {
+        "bolt_position": [
+          3880.26538085938,
+          356.440521240234
+        ],
+        "direction": "NE",
+        "facing_dot_px": 285.547302246094,
+        "halo_visible": false,
+        "kit": "fire_bolt_e1_B",
+        "rear_error_px": 13.0000057220459,
+        "socket_world": [
+          3753.5,
+          467.208312988281
+        ]
+      },
+      {
+        "bolt_position": [
+          3974.71337890625,
+          550.396789550781
+        ],
+        "direction": "E",
+        "facing_dot_px": 214.71337890625,
+        "halo_visible": false,
+        "kit": "fire_bolt_e1_B",
+        "rear_error_px": 12.9999866485596,
+        "socket_world": [
+          3806.58325195312,
+          541.958312988281
+        ]
+      },
+      {
+        "bolt_position": [
+          3906.35668945312,
+          685.498779296875
+        ],
+        "direction": "SE",
+        "facing_dot_px": 135.662292480469,
+        "halo_visible": false,
+        "kit": "fire_bolt_e1_B",
+        "rear_error_px": 12.9999570846558,
+        "socket_world": [
+          3791.95825195312,
+          562.0
+        ]
+      },
+      {
+        "bolt_position": [
+          3759.00439453125,
+          724.925048828125
+        ],
+        "direction": "S",
+        "facing_dot_px": 84.925048828125,
+        "halo_visible": false,
+        "kit": "fire_bolt_e1_A",
+        "rear_error_px": 12.9999408721924,
+        "socket_world": [
+          3758.91674804688,
+          556.583312988281
+        ]
+      },
+      {
+        "bolt_position": [
+          3586.90649414062,
+          683.016540527344
+        ],
+        "direction": "SW",
+        "facing_dot_px": 152.812881469727,
+        "halo_visible": false,
+        "kit": "fire_bolt_e1_A",
+        "rear_error_px": 13.0000238418579,
+        "socket_world": [
+          3699.875,
+          558.208312988281
+        ]
+      },
+      {
+        "bolt_position": [
+          3549.46166992188,
+          594.945434570312
+        ],
+        "direction": "W",
+        "facing_dot_px": 210.538330078125,
+        "halo_visible": false,
+        "kit": "fire_bolt_e1_A",
+        "rear_error_px": 12.9999685287476,
+        "socket_world": [
+          3717.75,
+          590.708312988281
+        ]
+      },
+      {
+        "bolt_position": [
+          3600.70166015625,
+          376.201538085938
+        ],
+        "direction": "NW",
+        "facing_dot_px": 299.174621582031,
+        "halo_visible": false,
+        "kit": "fire_bolt_e1_A",
+        "rear_error_px": 13.0000314712524,
+        "socket_world": [
+          3724.79174804688,
+          489.958312988281
+        ]
+      },
+      {
+        "bolt_position": [
+          3794.93969726562,
+          311.361663818359
+        ],
+        "direction": "N",
+        "facing_dot_px": 328.638336181641,
+        "halo_visible": false,
+        "kit": "fire_bolt_e1_A",
+        "rear_error_px": 13.0000019073486,
+        "socket_world": [
+          3798.45825195312,
+          479.666656494141
+        ]
+      },
+      {
+        "bolt_position": [
+          3880.26538085938,
+          356.440521240234
+        ],
+        "direction": "NE",
+        "facing_dot_px": 285.547302246094,
+        "halo_visible": false,
+        "kit": "fire_bolt_e1_A",
+        "rear_error_px": 13.0000057220459,
+        "socket_world": [
+          3753.5,
+          467.208312988281
+        ]
+      },
+      {
+        "bolt_position": [
+          3974.71337890625,
+          550.396789550781
+        ],
+        "direction": "E",
+        "facing_dot_px": 214.71337890625,
+        "halo_visible": false,
+        "kit": "fire_bolt_e1_A",
+        "rear_error_px": 12.9999866485596,
+        "socket_world": [
+          3806.58325195312,
+          541.958312988281
+        ]
+      },
+      {
+        "bolt_position": [
+          3906.35668945312,
+          685.498779296875
+        ],
+        "direction": "SE",
+        "facing_dot_px": 135.662292480469,
+        "halo_visible": false,
+        "kit": "fire_bolt_e1_A",
+        "rear_error_px": 12.9999570846558,
+        "socket_world": [
+          3791.95825195312,
+          562.0
+        ]
+      },
+      {
+        "bolt_position": [
+          3745.623046875,
+          686.145751953125
+        ],
+        "direction": "S",
+        "facing_dot_px": 46.145751953125,
+        "halo_visible": false,
+        "kit": "ice_bolt_e2",
+        "rear_error_px": 38.9166297912598,
+        "socket_world": [
+          3758.91674804688,
+          556.583312988281
+        ]
+      },
+      {
+        "bolt_position": [
+          3620.42065429688,
+          626.079772949219
+        ],
+        "direction": "SW",
+        "facing_dot_px": 88.8544158935547,
+        "halo_visible": false,
+        "kit": "ice_bolt_e2",
+        "rear_error_px": 13.0000238418579,
+        "socket_world": [
+          3699.875,
+          558.208312988281
+        ]
+      },
+      {
+        "bolt_position": [
+          3613.8076171875,
+          579.960021972656
+        ],
+        "direction": "W",
+        "facing_dot_px": 146.1923828125,
+        "halo_visible": false,
+        "kit": "ice_bolt_e2",
+        "rear_error_px": 12.9999685287476,
+        "socket_world": [
+          3717.75,
+          590.708312988281
+        ]
+      },
+      {
+        "bolt_position": [
+          3657.42504882812,
+          410.075561523438
+        ],
+        "direction": "NW",
+        "facing_dot_px": 235.112579345703,
+        "halo_visible": false,
+        "kit": "ice_bolt_e2",
+        "rear_error_px": 13.0000314712524,
+        "socket_world": [
+          3724.79174804688,
+          489.958312988281
+        ]
+      },
+      {
+        "bolt_position": [
+          3809.650390625,
+          375.771148681641
+        ],
+        "direction": "N",
+        "facing_dot_px": 264.228851318359,
+        "halo_visible": false,
+        "kit": "ice_bolt_e2",
+        "rear_error_px": 13.0000019073486,
+        "socket_world": [
+          3798.45825195312,
+          479.666656494141
+        ]
+      },
+      {
+        "bolt_position": [
+          3840.333984375,
+          409.075836181641
+        ],
+        "direction": "NE",
+        "facing_dot_px": 220.092742919922,
+        "halo_visible": false,
+        "kit": "ice_bolt_e2",
+        "rear_error_px": 13.0000057220459,
+        "socket_world": [
+          3753.5,
+          467.208312988281
+        ]
+      },
+      {
+        "bolt_position": [
+          3909.42211914062,
+          560.497741699219
+        ],
+        "direction": "E",
+        "facing_dot_px": 149.422119140625,
+        "halo_visible": false,
+        "kit": "ice_bolt_e2",
+        "rear_error_px": 12.9999866485596,
+        "socket_world": [
+          3806.58325195312,
+          541.958312988281
+        ]
+      },
+      {
+        "bolt_position": [
+          3852.58520507812,
+          647.111145019531
+        ],
+        "direction": "SE",
+        "facing_dot_px": 70.495964050293,
+        "halo_visible": false,
+        "kit": "ice_bolt_e2",
+        "rear_error_px": 12.9999122619629,
+        "socket_world": [
+          3791.95825195312,
+          562.0
+        ]
+      }
+    ]
+  },
+  "range_expiry": {
+    "selected_smallest_pieces": [
+      {
+        "texture": "res://vfx/fire_burst_e0p_v2/pieces/piece_003.png",
+        "material": "res://vfx/fire_burst_e0p_v2/materials/Piece_Piece_003.tres",
+        "pivot": [
+          215.0,
+          112.0
+        ],
+        "area": 1,
+        "id": 3
+      },
+      {
+        "texture": "res://vfx/fire_burst_e0p_v2/pieces/piece_005.png",
+        "material": "res://vfx/fire_burst_e0p_v2/materials/Piece_Piece_005.tres",
+        "pivot": [
+          213.0,
+          118.0
+        ],
+        "area": 1,
+        "id": 5
+      },
+      {
+        "texture": "res://vfx/fire_burst_e0p_v2/pieces/piece_006.png",
+        "material": "res://vfx/fire_burst_e0p_v2/materials/Piece_Piece_006.tres",
+        "pivot": [
+          210.0,
+          121.0
+        ],
+        "area": 1,
+        "id": 6
+      }
+    ],
+    "west_range_distance_px": 519.999149481455,
+    "fizzle_ticks": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18
+    ],
+    "head_scale_ratios": [
+      1.0,
+      0.916666666666667,
+      0.833333333333333,
+      0.75,
+      0.666666666666667,
+      0.583333333333333,
+      0.5
+    ],
+    "erosion": [
+      0.0,
+      0.166666666666667,
+      0.333333333333333,
+      0.5,
+      0.666666666666667,
+      0.833333333333333,
+      1.0
+    ],
+    "ember_counts": [
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      0
+    ],
+    "drift_lifetime_s": 0.3,
+    "visible_nodes": {
+      "burst_pieces": 0,
+      "floor_lights": 0,
+      "impacts": 0
+    },
+    "contact_count": 0,
+    "strike_fired": false,
+    "key_visible_samples": 0
+  },
+  "kit_integrity": {
+    "unchanged_kit_count": 15,
+    "changes": {
+      "frozen_orb": [],
+      "blackwater_cocktail": [],
+      "poisonous_concoction": [],
+      "lightning_blast": [],
+      "zeus_chain": [],
+      "healing_hands": [],
+      "fire_burst_e0p": [],
+      "fire_burst_e0p_v2": [],
+      "fire_bolt_e1_A": [
+        "kit.json"
+      ],
+      "fire_bolt_e1_B": [
+        "kit.json"
+      ],
+      "ice_bolt_e2": [],
+      "blackwater_cocktail_e3": [],
+      "poisonous_concoction_e3": [],
+      "lightning_blast_e3": [],
+      "zeus_chain_e3": [],
+      "healing_hands_e3": [],
+      "frozen_orb_e3": []
+    },
+    "metadata_rebake": "Spec and provenance copied into both validated kit.json files; native primitives and all other kit files reused byte-for-byte."
+  },
+  "tests": {
+    "tests_run": 217,
+    "failures": 16,
+    "errors": 6,
+    "skipped": [],
+    "remaining_reds": [
+      {
+        "test": "test_headless_authored_cast_east_north_collision_timing_and_feedback_cleanup (test_vfx_picker.AuthoredEffectPickerTests.test_headless_authored_cast_east_north_collision_timing_and_feedback_cleanup)",
+        "last_traceback_line": "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      },
+      {
+        "test": "test_headless_first_cast_contact_cursor_pool_cancel_and_picker (test_vfx_picker.G1ComponentTests.test_headless_first_cast_contact_cursor_pool_cancel_and_picker)",
+        "last_traceback_line": "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      },
+      {
+        "test": "test_headless_pierce_contacts_labels_pool_and_phase_callbacks (test_vfx_picker.G1ComponentTests.test_headless_pierce_contacts_labels_pool_and_phase_callbacks)",
+        "last_traceback_line": "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      },
+      {
+        "test": "test_headless_glow_sixty_samples_extrema_range_and_particle_properties (test_vfx_picker.LivingEmbersTests.test_headless_glow_sixty_samples_extrema_range_and_particle_properties)",
+        "last_traceback_line": "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      },
+      {
+        "test": "test_six_kits_and_v1_match_488_file_pre_t4j_hash_table (test_vfx_picker.PieceLap2ExportTests.test_six_kits_and_v1_match_488_file_pre_t4j_hash_table)",
+        "last_traceback_line": "Diff is 58632 characters long. Set self.maxDiff to None to see it."
+      },
+      {
+        "test": "test_original_eight_export_byte_lock (test_vfx_picker.ProjectileArmPickerTests.test_original_eight_export_byte_lock)",
+        "last_traceback_line": "Diff is 99784 characters long. Set self.maxDiff to None to see it."
+      },
+      {
+        "test": "test_headless_overlay_forward_world_touch_and_mouse_probe (test_vfx_picker.TouchAimRuntimeTests.test_headless_overlay_forward_world_touch_and_mouse_probe)",
+        "last_traceback_line": "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      },
+      {
+        "test": "test_headless_device_forward_handled_overlay_and_mouse_probe (test_vfx_picker.TouchDeviceAimRuntimeTests.test_headless_device_forward_handled_overlay_and_mouse_probe)",
+        "last_traceback_line": "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      },
+      {
+        "test": "test_headless_tab_twice_cast_scene_labels_and_inflight_kit_lock (test_vfx_picker.VfxPickerTests.test_headless_tab_twice_cast_scene_labels_and_inflight_kit_lock)",
+        "last_traceback_line": "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      },
+      {
+        "test": "test_single_kit_and_legacy_props_all_text_byte_identical_to_t3m (test_vfx_picker.VfxPickerTests.test_single_kit_and_legacy_props_all_text_byte_identical_to_t3m)",
+        "last_traceback_line": "Diff is 1764 characters long. Set self.maxDiff to None to see it."
+      },
+      {
+        "test": "test_current_catalogue_and_original_kits_unchanged (test_godot_import.BoltChainEmissionTests.test_current_catalogue_and_original_kits_unchanged)",
+        "last_traceback_line": "Diff is 88951 characters long. Set self.maxDiff to None to see it."
+      },
+      {
+        "test": "test_literal_halo_drawn_size_at_most_half_bh (test_godot_import.FireLaneHeadlessTests.test_literal_halo_drawn_size_at_most_half_bh)",
+        "last_traceback_line": "AssertionError: 0.80500001173753 not less than or equal to 0.5"
+      },
+      {
+        "test": "test_headless_state_machine_input_map_gear_vfx_and_nearest_fallback (test_godot_import.GodotImportTests.test_headless_state_machine_input_map_gear_vfx_and_nearest_fallback)",
+        "last_traceback_line": "================================================================"
+      },
+      {
+        "test": "test_ice_picker_binding_shards_and_ground_crown (test_godot_import.GroundVisibilityRegressionTests.test_ice_picker_binding_shards_and_ground_crown)",
+        "last_traceback_line": "AssertionError: False is not true"
+      },
+      {
+        "test": "test_ten_existing_export_bytes_unchanged (test_godot_import.IceTreatmentImportTests.test_ten_existing_export_bytes_unchanged)",
+        "last_traceback_line": "Diff is 85942 characters long. Set self.maxDiff to None to see it."
+      },
+      {
+        "test": "test_v2_headless_import_and_seed_equal_rooted_clock (test_godot_import.PieceStretchImportTests.test_v2_headless_import_and_seed_equal_rooted_clock)",
+        "last_traceback_line": "       [1] probe (res://stretch_probe.gd:36)"
+      },
+      {
+        "test": "test_headless_orb_clock_and_pool (test_vfx_picker.FrozenOrbPickerTests.test_headless_orb_clock_and_pool)",
+        "last_traceback_line": "subprocess.TimeoutExpired: Command '['/Applications/Godot.app/Contents/MacOS/Godot', '--headless', '--path', '/Users/admin/astra-burst/runs/C-5/FL-1a/out/suite_tmp/orb-runtime-p7109vmv/project', '--log-file', '/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4v/orb-test.log', '--script', 'res://probe.gd']' timed out after 60 seconds"
+      },
+      {
+        "test": "test_headless_contact_shatter_residue_decal (test_vfx_picker.IceTreatmentPickerTests.test_headless_contact_shatter_residue_decal)",
+        "last_traceback_line": "PermissionError: FL-1a write scope: /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4x/e2_trace.json"
+      },
+      {
+        "test": "test_headless_east_contact_range_tail_and_key_schedule (test_vfx_picker.ProjectileArmPickerTests.test_headless_east_contact_range_tail_and_key_schedule)",
+        "last_traceback_line": "PermissionError: FL-1a write scope: /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4p/e1_key_trace.json"
+      },
+      {
+        "test": "setUpClass (test_godot_import.FieldDesignLapEmissionTests)",
+        "last_traceback_line": "PermissionError: FL-1a write scope: /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4v/field-design/headless.json"
+      },
+      {
+        "test": "setUpClass (test_godot_import.RenderedLookTraceTests)",
+        "last_traceback_line": "PermissionError: FL-1a write scope: /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4x/catalogue_project"
+      },
+      {
+        "test": "test_transformed_front_at_three_ages_has_no_straight_seam_over_12px (test_godot_import.TransformedResidueSeamTests.test_transformed_front_at_three_ages_has_no_straight_seam_over_12px)",
+        "last_traceback_line": "PermissionError: FL-1a write scope: /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4g/seam_measurements.json"
+      }
+    ],
+    "existing_test_prefixes_unchanged": {
+      "test_effect_kit.py": true,
+      "test_godot_import.py": true,
+      "test_vfx_picker.py": true
+    }
+  },
+  "export": {
+    "exit_code": 0,
+    "catalogue_kits": 17,
+    "cells": "8 original cast cells, 64 frames; PNG bytes copied unchanged",
+    "headless": [
+      {
+        "stage": "import",
+        "exit_code": 0
+      },
+      {
+        "stage": "trace",
+        "exit_code": 0
+      }
+    ]
+  },
+  "instrument_scope": {
+    "origin": [
+      3760,
+      640
+    ],
+    "body_height_px": 130,
+    "sprite_scale": 0.5416666666666666,
+    "body_rectangles": "Per-direction release-pose rectangles annotated in probe.gd; runtime clearance uses conservative 0.6 BH x 1 BH body rectangle.",
+    "runtime": "Real emitted GDScript stepped at 60 Hz in headless Godot; keeper held at release pose during travel; no rendered proof or room/props export.",
+    "sockets": "Manual endpoint annotations on eight original frame-3 PNGs, estimated +/-3px; endpoint maximizes facing dot. Nonrelease entries and all original measurements retained."
+  },
+  "concerns": [
+    "The requested 0.35 BH radius (1.15x pulse) yields a 0.805 BH maximum diameter, exceeding the literal <=0.5 BH drawn-size clause. The radius is preserved and the literal test remains red; conductor ruling required.",
+    "Headless Godot exits 0 but logs sandbox/macOS diagnostics (ret != noErr and editor-settings save denial). Rendered verification is conductor-owned.",
+    "The full suite has remaining named assertions/errors; exact names and last traceback lines are in suite.json. Historical artifact writes and non-headless commands are blocked by the harness."
+  ]
+}

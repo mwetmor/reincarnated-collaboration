@@ -11855,6 +11855,13 @@
       "veto_open": false,
       "ruling": "MATT (2026-09-16): Q80 F6 = (b) COMPOSITE - build Poisonous Concoction as the build the player remembers: the lobbed vial burst (gem, per source) PLUS the caustic ground / Alchemist Mark dark puddle spreading from the burst point (size/colour/duration from the Legolas class-E frame measurements when they land). Goes into the E3 re-spec lap, which queues behind the fire lane.",
       "ts": "2026-09-16T11:00:17"
+    },
+    {
+      "id": "R-C5-81",
+      "class": "conductor",
+      "veto_open": true,
+      "ruling": "FL-1a DELIVERED_WITH_CONCERNS and ACCEPTED (the burst completed; the lane wrapper died on the full disk before finalising — LD-1 second instance; receipt_payload copied as the receipt). Part A: cast halo is now a GradientTexture2D glow disc, additive band-2, tracking the current socket (error 0 px over 216 samples); my <=0.5 BH drawn-size clause was wrong arithmetic (0.35 BH RADIUS x 1.15 = 0.805 BH diameter) — halo accepted as built, the literal test realigns in FL-2. Part B: release socket = the displayed row and current frame via sprite.to_global (no E-row rotation); the 8 release sockets re-derived by the far-end-along-facing rule with manual endpoint annotations (release_endpoints.png); rear separation 13 px + body clearance <=0.4 BH; facing dot > 0 in all 8. Part C: range_expiry fizzle (3 smallest pieces, no burst, no floor light) on both fire arms. 15 kits byte-identical. Rendered proof: PACK v32 + the 8-direction chain.",
+      "ts": "2026-09-16T12:25:40"
     }
   ],
   "grok_calls": [],
@@ -12040,6 +12047,11 @@
       "kit": "fire_bolt_e1_B",
       "note": "At range with nothing struck (W) the full impact burst plays. A fire bolt fizzles at range. -> FL-1a Part C (range_expiry: fizzle).",
       "ts": "2026-09-16T11:00:17"
+    },
+    {
+      "id": "N-C5-LEDGER-CORRIGENDUM",
+      "note": "R-C5-79 was also appended to notes by a mis-typed conductor call (zsh word-splitting); the rulings row is canonical, the notes copy is void. Disk-full incident 2 (2026-09-16 ~15:20Z): Legolas class-E downloads + every-frame PNG dumps (~10 GB) filled the volume; FL-1a wrapper and the FL-1a fire-chain commit died; Legolas agent stopped; frames deleted by Matt. Rule for future class-E commissions: trim BEFORE frame extraction, JPEG frames at a bounded window, hard budget <= 2 GB, df check before each download.",
+      "ts": "2026-09-16T12:25:41"
     }
   ]
 }

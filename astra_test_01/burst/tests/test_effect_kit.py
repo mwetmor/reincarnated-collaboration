@@ -2384,3 +2384,21 @@ class RenderedLookValidationTests(unittest.TestCase):
             d['orb']['seed']=seed;r=orb_schedule_report(d)
             self.assertGreaterEqual(r['interval_cv'],.25);self.assertTrue(r['ff08_satisfied'])
             self.assertTrue(26<=r['emission_count']<=34)
+
+
+class FireLaneRangeExpiryTests(unittest.TestCase):
+    def test_range_expiry_enum_and_legacy_default(self):
+        from export.effect_kit import validate_projectile
+        root=ROOT/'runs/C-5/vfx_kits/v9/fire_bolt_e1_B'
+        data=load_kit(root)
+        self.assertEqual(data['skill_spec']['mechanics']['range_expiry'],'fizzle')
+        for value in ('burst','fizzle'):
+            candidate=copy.deepcopy(data); candidate['skill_spec']['mechanics']['range_expiry']=value
+            validate_projectile(candidate,root,True)
+        candidate=copy.deepcopy(data); candidate['skill_spec']['mechanics'].pop('range_expiry')
+        validate_projectile(candidate,root,True)
+        for value in ('explode','',None,1,True):
+            candidate=copy.deepcopy(data);candidate['skill_spec']['mechanics']['range_expiry']=value
+            with self.assertRaisesRegex(ValueError,'range_expiry'): validate_projectile(candidate,root,True)
+        ice=load_kit(ROOT/'runs/C-5/vfx_kits/v9/ice_bolt_e2')
+        self.assertEqual(ice['skill_spec']['mechanics'].get('range_expiry','burst'),'burst')

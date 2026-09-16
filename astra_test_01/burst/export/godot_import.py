@@ -484,7 +484,8 @@ position = Vector2(0, -100)
 
 Open project.godot. Arrows/WASD move; Shift runs; Space jumps; E or left
 mouse casts; G switches gear when an advanced set was supplied.
-Eight directions rotate the selected cell, never mirror its pixels.
+Eight directions select authored rotated-character cells, never mirror their pixels.
+Sockets use that displayed cell row and its full sprite transform, never an E-row rotation.
 The screen projection and light are baked into the supplied images.
 PNG bytes are copied unchanged; offset (-256,-400) anchors the feet pivot.
 Linear filtering is enabled. Idle=8, walk/run/jump=12, cast=20 fps;
@@ -1432,6 +1433,15 @@ def _write_vfx_kits(out, kits, base, cells, socket_data, annotation):
         directional = directional.replace('Vector2.ONE * art_scale * float(flare.get_meta',
             'Vector2.ONE * (1.0 if bool(VFX_KITS[cast_kit_index].get("screen_px", false)) else art_scale) * float(flare.get_meta')
     directional = _g1_directional(directional)
+    a = directional.index('    var flare := AnimatedSprite2D.new()')
+    b = directional.index('    var kit: Dictionary =', a)
+    flare_block = ''.join('    '+line+'\n' for line in directional[a:b].splitlines())
+    directional = directional[:a] + '    if not VFX_KITS[cast_kit_index].has("painted_travel"):\n' + flare_block + directional[b:]
+    keeper = keeper.replace('func _physics_process(delta: float) -> void:\n', 'func _physics_process(delta: float) -> void:\n    _update_cast_halo()\n')
+    keeper = keeper.replace('        _cast_frame_changed()', '        _update_cast_halo()\n        _cast_frame_changed()')
+    directional = directional.replace('    cast_fired = true\n', '    cast_fired = true\n    _update_cast_halo()\n')
+    directional += CAST_HALO_SCRIPT
+
     if any('travel_primitives' in kit.get('effect', {}) or 'orb' in kit.get('effect', {}) for kit in kits):
         directional = directional.replace('    # Device policy survives', '    var aim_scale: float = 1.0 if bool(kit.get("screen_px", false)) else art_scale\n    # Device policy survives')
         directional = directional.replace('float(kit.range_px) * art_scale', 'float(kit.range_px) * aim_scale')
@@ -1454,6 +1464,16 @@ def _write_vfx_kits(out, kits, base, cells, socket_data, annotation):
         directional = directional.replace('const G1 = preload("res://scripts/vfx_g1.gd")', 'const G1 = preload("res://scripts/vfx_g1.gd")\nconst G4 = preload("res://scripts/vfx_g4.gd")')
         # Root-bound support dispatch precedes socket validation, flash and aim.
         directional = directional.replace('    cast_fired = true\n', '    cast_fired = true\n    if VFX_KITS[cast_kit_index].get("grammar", "") == "G4":\n        if not cast_ready:\n            await get_tree().physics_frame\n        if is_inside_tree(): G4.acquire(self, VFX_KITS[cast_kit_index])\n        return\n')
+    by_name = {kit['name']: kit for kit in kits}
+    for entry in entries:
+        if entry.get('range_expiry') == 'fizzle':
+            impact_name = by_name[entry['name']]['effect']['impact_binding']['kit']
+            impact_kit = by_name[impact_name]
+            record = json.loads((impact_kit['root']/impact_kit['effect']['pieces']['source']).read_text())
+            entry['fizzle_pieces'] = [dict(texture='res://vfx/'+impact_name+'/pieces/'+item['mask'],
+                material='res://vfx/'+impact_name+'/materials/Piece_Piece_%03d.tres' % item['id'],
+                pivot=item['pivot'], area=item['area_px'], id=item['id'])
+                for item in sorted(record['pieces'], key=lambda item: (item['area_px'], item['id']))[:3]]
     (out/'scripts/keeper.gd').write_text(keeper+directional+'\nconst VFX_KITS = '+
                                        json.dumps(entries, allow_nan=False)+'\n'+PICKER_SCRIPT)
     settings = out/'project.godot'
@@ -1676,6 +1696,11 @@ func _physics_process(delta: float) -> void:
     while $Trail.get_point_count() > 12:
         $Trail.remove_point(0)
     if remaining <= step + 0.001 or range_left <= step + 0.001:
+        if config.get("range_expiry", "burst") == "fizzle":
+            _range_fizzle()
+            return
+        if bool(config.get("contact_only", false)):
+            _spawn_impact(false)
         if contacted.is_empty() and resolved.kind == "cursor":
             _spawn_impact(false)
         if contacted.is_empty() and resolved.kind == "prop":
@@ -1746,6 +1771,9 @@ func _spawn_impact(strike_response: bool = true, point: Variant = null) -> void:
     impact.position = get_parent().to_local(global_position if point == null else point)
     get_parent().add_child(impact)
 
+func _range_fizzle() -> void:
+    expire()
+
 func expire() -> void:
     if active:
         _record("expire")
@@ -1783,6 +1811,7 @@ def _g1_config(kit):
             'speed_px_s': data.get('phases', {}).get('travel', {}).get('speed_px_s', 520.0),
             'pierce': data.get('pierce', 0),
             'palette_3': data.get('material', {}).get('palette', [[.35, .65, .8, 1]]*4)[3],
+            'palette_2': data.get('material', {}).get('palette', [[.35, .65, .8, 1]]*4)[2],
             'range_px': 650.0, 'ground_squash': 1.0 if 'pieces' in data else data.get('ground_squash', 1.0),
             'phase_scale': data.get('phase_scale', {}).get('travel', 1.0),
             'material': 'res://'+root+'/materials/Body.tres' if authored else '',
@@ -2887,6 +2916,7 @@ def _painted_g1_config(kit):
     for role in ('head', 'streak'):
         primitives[role]['png'] = root+primitives[role]['png']
         primitives[role]['material'] = root+'materials/Travel_'+role+'.tres'
+        if role == 'head': primitives[role]['fizzle_material'] = root+'materials/Fizzle_head.tres'
     states = json.loads(json.dumps(data.get('key_states', [])))
     for i, state in enumerate(states):
         state['png'] = root+state['png']
@@ -2898,6 +2928,7 @@ def _painted_g1_config(kit):
             'contact_only': True, 'grammar': data['skill_spec']['grammar'],
             'aim_rule': data['skill_spec']['mechanics']['aim_rule'],
             'termination': data['skill_spec']['mechanics']['termination'],
+            'range_expiry': data['skill_spec']['mechanics'].get('range_expiry', 'burst'),
             'origin_socket': data['skill_spec']['mechanics']['origin_socket'],
             'impact': 'res://scenes/vfx_'+data['impact_binding']['kit']+'_impact.tscn',
             'seed': data['impact_binding']['seed'], 'painted_travel': primitives,
@@ -2949,6 +2980,8 @@ def _write_painted_travel(out, kit, resource_root):
         material.pop('erode_noise', None)
         material.pop('dissolve_order', None)
         write_vfx_material(out, resource_root+'/materials/Travel_'+role+'.tres', material, resource_root+'/'+field)
+        if role == 'head':
+            write_vfx_material(out, resource_root+'/materials/Fizzle_head.tres', dict(material, erode_outside_in=True), resource_root+'/'+field)
 
 
 PAINTED_G1_SCRIPT = r'''extends "res://scripts/vfx_g1.gd"
@@ -2956,9 +2989,16 @@ var draining: bool = false
 var stop_age: int = 0
 var travel_state: String = "rest"
 var rest_head: Texture2D
+var fizzling: bool = false
+var fizzle_trace: Array = []
+var fizzle_shards: Array[Sprite2D] = []
 
 func release(kit: Dictionary, origin: Vector2, destination: Dictionary, owner_node: Node2D = null, art_scale: float = 1.0) -> void:
     draining = false
+    fizzling = false
+    fizzle_trace.clear()
+    for shard in fizzle_shards: shard.queue_free()
+    fizzle_shards.clear()
     super.release(kit, origin, destination, owner_node, art_scale)
     # Authored screen pixels must not inherit the actor/world drawing scale.
     # A top-level transform also keeps velocity and bound key states in pixels.
@@ -2968,8 +3008,15 @@ func release(kit: Dictionary, origin: Vector2, destination: Dictionary, owner_no
     # Snapshot direction at release and terminate at range, never the cursor.
     if direction.is_zero_approx():
         direction = Vector2.RIGHT
-    travel_end = origin + direction * float(config.range_px)
     var paint: Dictionary = config.painted_travel
+    # The painted pivot is the nose. Attach the rear to the staff socket.
+    var rear: Vector2 = (Vector2(paint.head.rear_socket[0], paint.head.rear_socket[1]) - Vector2(paint.head.pivot[0], paint.head.pivot[1])) * float(paint.head.scale)
+    # A 0.1 BH separation keeps the emerging centre clear; rear remains within 0.4 BH.
+    global_position = origin - rear.rotated(direction.angle()) + direction * 13.0
+    # Keep the range endpoint measured from the release socket.
+    cast_origin = origin
+    distance = (global_position-origin).dot(direction)
+    travel_end = origin + direction * float(config.range_px)
     rest_head = load(paint.head.png)
     $Head.sprite_frames = $Head.sprite_frames.duplicate()
     $Head.sprite_frames.set_frame("travel", 0, rest_head)
@@ -2978,6 +3025,22 @@ func release(kit: Dictionary, origin: Vector2, destination: Dictionary, owner_no
     $Head.scale = Vector2.ONE * float(paint.head.scale)
     $Head.material = load(paint.head.material).duplicate()
     $Head.show()
+    # Keep the emerging painted centre outside the caster's 0.6 BH x 1 BH body.
+    # This is a bounded release separation, not a rotation of another row's socket.
+    if is_instance_valid(caster):
+        var actor_sprite: Node2D = caster.get_node_or_null("AnimatedSprite2D")
+        var body_height: float = 240.0 * actor_sprite.global_transform.x.length() if actor_sprite != null else 130.0
+        var body := Rect2(caster.global_position + Vector2(-0.3 * body_height, -body_height), Vector2(0.6 * body_height, body_height))
+        var bounds: Rect2 = rest_head.get_image().get_used_rect()
+        var centre: Vector2 = global_position + ((bounds.get_center() - Vector2(paint.head.pivot[0], paint.head.pivot[1])) * float(paint.head.scale)).rotated(direction.angle())
+        if body.has_point(centre):
+            var exit_distance: float = INF
+            if absf(direction.x) > 0.000001:
+                exit_distance = minf(exit_distance, ((body.end.x if direction.x > 0.0 else body.position.x)-centre.x)/direction.x)
+            if absf(direction.y) > 0.000001:
+                exit_distance = minf(exit_distance, ((body.end.y if direction.y > 0.0 else body.position.y)-centre.y)/direction.y)
+            global_position += direction * minf(39.0, maxf(0.0, exit_distance)+1.0)
+            distance = (global_position-origin).dot(direction)
     for node in [$Streak, $KeyState, $DarkHead, $DarkStreak, $DarkKey, $CastHalo]:
         node.rotation = direction.angle()
         node.modulate = Color.WHITE
@@ -2988,16 +3051,14 @@ func release(kit: Dictionary, origin: Vector2, destination: Dictionary, owner_no
     $Streak.material = load(paint.streak.material).duplicate()
     $Streak.show()
     $KeyState.hide()
-    $CastHalo.texture = rest_head
-    $CastHalo.centered = false
-    $CastHalo.offset = $Head.offset
-    $CastHalo.scale = $Head.scale * 1.15
-    $CastHalo.material = $Head.material.duplicate()
-    $CastHalo.show()
+    $CastHalo.hide()
     $Trail.hide()
     _paint_clock(0)
 
 func _physics_process(delta: float) -> void:
+    if fizzling:
+        _fizzle_clock(age_frames() - stop_age)
+        return
     if draining:
         var erode: float = clampf(float(age_frames() - stop_age) / (float(config.painted_travel.tail_s) * 60.0), 0.0, 1.0)
         $Streak.material.set_shader_parameter("erode", erode)
@@ -3046,7 +3107,6 @@ func _paint_clock(age: int) -> void:
         $KeyState.centered = false
         $KeyState.offset = -Vector2(selected.pivot[0], selected.pivot[1])
         $KeyState.scale = Vector2.ONE * float(selected.scale)
-    $CastHalo.modulate.a = 0.25 * maxf(0.0, 1.0 - float(age)/3.0)
     _dark_copy($DarkHead, $Head, rest_head)
     _dark_copy($DarkStreak, $Streak, $Streak.texture)
     if not selected.is_empty():
@@ -3100,6 +3160,54 @@ func _strike_stop() -> void:
             controller.name = "EffectHitstopDone"
             controller.queue_free())
 
+func _range_fizzle() -> void:
+    active = false
+    expired = true
+    fizzling = true
+    stop_age = age_frames()
+    set_deferred("monitoring", false)
+    _record("expire")
+    events[-1]["range_expiry"] = "fizzle"
+    $Head.stop()
+    $Head.show()
+    $Head.material = load(config.painted_travel.head.fizzle_material).duplicate()
+    for node in [$KeyState, $DarkKey, $Streak, $DarkStreak, $DarkHead, $CastHalo, $Trail]: node.hide()
+    var rng := RandomNumberGenerator.new()
+    rng.seed = int(config.get("seed", 2026))
+    for piece in config.get("fizzle_pieces", []):
+        var shard := Sprite2D.new()
+        shard.texture = load(piece.texture)
+        shard.material = load(piece.material).duplicate()
+        shard.material.set_shader_parameter("erode", 0.0)
+        shard.material.set_shader_parameter("dissolve", 0.0)
+        shard.centered = false
+        shard.offset = -Vector2(piece.pivot[0], piece.pivot[1])
+        shard.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR
+        shard.set_meta("velocity", Vector2.from_angle(rng.randf_range(0, TAU)) * rng.randf_range(18, 32))
+        shard.set_meta("piece_id", piece.id)
+        add_child(shard)
+        fizzle_shards.append(shard)
+    _fizzle_clock(0)
+
+func _fizzle_clock(tick: int) -> void:
+    var t: float = clampf(float(tick) / 6.0, 0.0, 1.0)
+    $Head.scale = Vector2.ONE * float(config.painted_travel.head.scale) * lerpf(1.0, 0.5, t)
+    $Head.material.set_shader_parameter("erode", t)
+    $Head.visible = tick < 6
+    for shard in fizzle_shards:
+        shard.position = shard.get_meta("velocity") * minf(float(tick)/60.0, 0.3)
+        shard.modulate.a = maxf(0.0, 1.0-float(tick)/18.0)
+        shard.visible = tick < 18
+    fizzle_trace.append({"tick":tick,"scale_ratio":lerpf(1.0,0.5,t),"erode":t,
+        "head_visible":$Head.visible,"ember_count":fizzle_shards.size() if tick < 18 else 0,
+        "key_visible":$KeyState.visible,"position":[global_position.x,global_position.y]})
+    if tick >= 18:
+        fizzling = false
+        for shard in fizzle_shards: shard.queue_free()
+        fizzle_shards.clear()
+        hide()
+        set_physics_process(false)
+
 func _recycle() -> void:
     active = false
     expired = true
@@ -3124,7 +3232,7 @@ def _write_painted_g1(out):
     path = out/'scripts/vfx_g1.gd'
     script = path.read_text()
     script = script.replace('and not candidate.active and not candidate.is_queued_for_deletion():',
-        'and not candidate.active and not candidate.is_queued_for_deletion() and candidate.scene_file_path == str(kit.get("bolt", "res://scenes/vfx/g1_projectile.tscn")) and not bool(candidate.get("draining")):')
+        'and not candidate.active and not candidate.is_queued_for_deletion() and candidate.scene_file_path == str(kit.get("bolt", "res://scenes/vfx/g1_projectile.tscn")) and not bool(candidate.get("draining")) and not bool(candidate.get("fizzling")):')
     script = script.replace('load("res://scenes/vfx/g1_projectile.tscn").instantiate()',
         'load(kit.get("bolt", "res://scenes/vfx/g1_projectile.tscn")).instantiate()')
     script = script.replace('if resolved.kind == "prop" and not is_instance_valid(resolved.target)',
@@ -4691,6 +4799,55 @@ func cancel() -> void:
     flash_end = -1
     $StrikeFlash.hide()
     super.cancel()
+'''
+
+
+
+
+# FL-1a: caster-owned, updated on entry and every physics frame, independent of projectile life.
+CAST_HALO_SCRIPT = r''' 
+var cast_halo: Sprite2D
+var halo_start_tick: int = -1
+func _update_cast_halo() -> void:
+    var kit: Dictionary = VFX_KITS[cast_kit_index]
+    var cell: Dictionary = socket_cells.get(String(sprite.animation), {})
+    var live: bool = state == "cast" and not cast_fired and not cell.is_empty() and sprite.frame < int(cell.release_index) and kit.get("grammar", "G1") == "G1"
+    if not live:
+        if is_instance_valid(cast_halo): cast_halo.hide()
+        halo_start_tick = -1
+        return
+    var socket: Variant = _socket_world()
+    if socket == null: return
+    if not is_instance_valid(cast_halo):
+        cast_halo = Sprite2D.new()
+        cast_halo.name = "CastHalo"
+        var gradient := Gradient.new()
+        gradient.offsets = PackedFloat32Array([0.0, 0.25, 1.0])
+        gradient.colors = PackedColorArray([Color.WHITE, Color(1,1,1,0.7), Color(1,1,1,0)])
+        var disc := GradientTexture2D.new()
+        disc.gradient = gradient
+        disc.width = 64
+        disc.height = 64
+        disc.fill = GradientTexture2D.FILL_RADIAL
+        disc.fill_from = Vector2(0.5,0.5)
+        disc.fill_to = Vector2(1.0,0.5)
+        cast_halo.texture = disc
+        var additive := CanvasItemMaterial.new()
+        additive.blend_mode = CanvasItemMaterial.BLEND_MODE_ADD
+        cast_halo.material = additive
+        cast_halo.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR
+        add_child(cast_halo)
+        cast_halo.top_level = true
+    if halo_start_tick < 0: halo_start_tick = Engine.get_physics_frames()
+    var duration: float = maxf(1.0, float(cell.release_index) * 60.0 / sprite.sprite_frames.get_animation_speed(sprite.animation) - 1.0)
+    var t: float = clampf(float(Engine.get_physics_frames()-halo_start_tick)/duration, 0.0, 1.0)
+    var bh: float = 130.0 if bool(kit.get("screen_px", false)) else 240.0 * sprite.global_transform.x.length()
+    var pulse: float = 1.0 + 0.15 * sin(PI*t)
+    cast_halo.scale = Vector2.ONE * (2.0 * 0.35 * bh / 64.0) * pulse
+    var band: Array = kit.palette_2
+    cast_halo.modulate = Color(band[0],band[1],band[2],lerpf(0.6,0.9,t))
+    cast_halo.global_position = socket
+    cast_halo.show()
 '''
 
 

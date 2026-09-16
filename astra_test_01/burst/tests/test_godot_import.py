@@ -1645,3 +1645,57 @@ class RenderedLookTraceTests(unittest.TestCase):
         for a,b in zip(rows,rows[1:]):
             for x,y in zip(a['pieces'],b['pieces']):self.assertGreater(y['distance_px'],x['distance_px'])
         self.assertEqual(sum(r['core_visible'] for r in rows),6)
+
+
+class FireLaneHeadlessTests(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        import os
+        from test_vfx_picker import fl1_trace
+        saved=os.environ.get('FL1_TRACE')
+        if saved:
+            cls.trace=json.loads(Path(saved).read_text())
+        else:
+            TMP.mkdir(parents=True,exist_ok=True)
+            cls.temp=tempfile.TemporaryDirectory(prefix='fl1-',dir=TMP)
+            cls.addClassCleanup(cls.temp.cleanup)
+            cls.trace=fl1_trace(cls.temp.name)
+
+    def test_halo_texture_position_and_additive(self):
+        self.assertEqual(len(self.trace['halo']),216)
+        for row in self.trace['halo']:
+            self.assertEqual(row['texture_class'],'GradientTexture2D')
+            self.assertFalse(row['is_head_texture'])
+            self.assertTrue(row['additive'])
+            self.assertLessEqual(row['position_error_px'],2)
+            self.assertGreaterEqual(row['alpha'],.6-1e-6)
+            self.assertLessEqual(row['alpha'],.9+1e-6)
+
+    def test_literal_halo_drawn_size_at_most_half_bh(self):
+        self.assertLessEqual(max(r['diameter_bh'] for r in self.trace['halo']),.5)
+
+    def test_eight_direction_release_rear_and_body_clearance(self):
+        self.assertEqual(len(self.trace['release']),24)
+        for row in self.trace['release']:
+            with self.subTest(kit=row['kit'],direction=row['direction']):
+                self.assertLessEqual(row['rear_error_px'],.4*130)
+                self.assertGreater(row['facing_dot_px'],0)
+                self.assertFalse(row['halo_visible'])
+        inside=[r for r in self.trace['flight'] if r['head_centre_in_body']]
+        self.assertEqual(inside,[])
+
+    def test_fire_fizzles_without_contact_effects_and_ice_bursts(self):
+        for row in self.trace['expiry']:
+            if row['kit']=='ice_bolt_e2':
+                self.assertEqual(row['fizzle'],[])
+                self.assertGreater(row['max_visible']['impacts'],0)
+                continue
+            self.assertAlmostEqual(row['distance_px'],520,delta=.01)
+            self.assertEqual(row['max_visible'],dict(burst_pieces=0,floor_lights=0,impacts=0))
+            self.assertFalse(row['strike_fired']); self.assertEqual(row['contacts'],0)
+            self.assertEqual(row['fizzle'][0]['erode'],0)
+            at_six=next(r for r in row['fizzle'] if r['tick']==6)
+            self.assertEqual(at_six['erode'],1);self.assertEqual(at_six['scale_ratio'],.5)
+            self.assertTrue(all(not r['key_visible'] for r in row['fizzle']))
+            self.assertTrue(all(r['ember_count']==3 for r in row['fizzle'] if r['tick']<18))
+            self.assertEqual(row['fizzle'][-1]['ember_count'],0)

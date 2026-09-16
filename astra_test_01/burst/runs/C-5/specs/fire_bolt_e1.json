@@ -19,7 +19,8 @@
   "active_duration_s": null,
   "tick_schedule": null,
   "termination": "first_contact_or_range",
-  "pierce": 0
+  "pierce": 0,
+  "range_expiry": "fizzle"
  },
  "presentation": {
   "primitive_bindings": {
@@ -57,6 +58,7 @@
   "speed_px_s": "charter \u00a7 6: 8 BH/s at 130-px BH (Matt approves the comparison at Packet 85; Hades band 6.5\u201311.6; shipped Frozen Orb \u2248 4.9)",
   "range_px": "4 BH (charter \u00a7 6)",
   "impact": "E0-p R-C5-34 (Matt: motion + size right)",
-  "head/streak extents": "03- \u00a7 2.3 build list (1.2 BH body; P02 \u2248 120\u00d740 native at s=3 \u2192 2.0 BH long at s=1)"
+  "head/streak extents": "03- \u00a7 2.3 build list (1.2 BH body; P02 \u2248 120\u00d740 native at s=3 \u2192 2.0 BH long at s=1)",
+  "range_expiry": "R-C5-79 F-C5-22"
  }
 }
