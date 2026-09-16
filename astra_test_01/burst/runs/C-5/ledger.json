@@ -13449,6 +13449,13 @@
       "veto_open": true,
       "ruling": "FL-2c DELIVERED_WITH_CONCERNS and ACCEPTED: the G1 collider is a canonical capsule (0.25 BH radius, head length 192 px, from the release socket; forward threshold 0.25 BH; painted-envelope callbacks retired); E strikes the shield (fire age 1, ice with the crown), W/NW fizzle at range (age 22), SE/N clean per probe; NE crosses no target (fizzle 22) — expected geometry. 17 kits byte-identical; two byte locks re-baselined with attributed diffs. Retained-clause red: FL-1a head_centre_in_body for five early S ticks (the capsule sits the head centre inside the body rect at release for the south pose) — a cosmetic heuristic, realign in the next alignment burst. Suite → freeze → PACK v36 + six-direction probe chain.",
       "ts": "2026-09-16T15:24:18"
+    },
+    {
+      "id": "R-C5-98",
+      "class": "conductor",
+      "veto_open": true,
+      "ruling": "FREEZE after FL-2c (outside suite 726 pass / 9 red): five standing; the catalogue lock (E3-r1); FireLaneHeadlessTests.test_eight_direction_release_rear_and_body_clearance (S-pose heuristic, realign); two new under diagnosis — BurnBackExportTests.test_screen_px_picker_g1_and_socket_contract and AuthoredEffectPickerTests.test_headless_authored_cast_east_north_collision_timing_and_feedback_cleanup (likely the old 3-px collider encoded; regression vs drift decided by message + the v36 proof). PACK v36 + six-direction chain fire.",
+      "ts": "2026-09-16T15:35:15"
     }
   ],
   "grok_calls": [],
