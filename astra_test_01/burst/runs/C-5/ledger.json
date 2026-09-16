@@ -15277,6 +15277,20 @@
       "veto_open": true,
       "ruling": "BL-1a-r1 DELIVERED_WITH_CONCERNS and ACCEPTED: G2 landing clamped to the walkable union — all eight directions land walkable (S 392 px, SW 130, W 216, NW 168, N 240; E/NE/SE full 520) with flight scaled; rank-1 numbers baked (181 px pool, 2.5 s, 0.40 s / 42 px lob, scorch 12 s, licks 3.3-3.6 Hz); tick events carry body_index (hound = 5, every tick), one label per body; 16 kits byte-identical. CONDUCTOR ERROR: after the killed BL-1a I deleted the Blackwater kit’s untracked CREDITS.txt and vfx_select.json believing them burst output — they were kit inputs (never committed); the catalogue export failed on them; Astra validated on a temporary recovered copy. Restored from cliffside_v38/vfx/ (byte-identical exports); catalogue loads 17. Per Matt: Blackwater PAUSES here; the rendered proof rides the next fire PACK.",
       "ts": "2026-09-16T18:07:35"
+    },
+    {
+      "id": "R-C5-113",
+      "class": "matt",
+      "veto_open": false,
+      "ruling": "MATT (2026-09-16), correcting the peak direction: NOT exactly symmetrical — keep the existing peak (peak-01) and ADD interleaving flames between its long arms so the disparity between arms and gaps is smaller; and encode a RANDOM PATTERN so the interleaving flames change on every hit — real fire never shows the same burst twice. Conductor design: the peak-02 painting becomes the interleave SOURCE (its ten short scallops are cut into separate interleave tongues), not a replacement; at contact the runtime seeds a per-cast selection of 3-5 interleave tongues placed into the gaps between peak-01 arms (angle-slotted, jittered in scale and rotation), so every impact differs. FL-4b re-authored.",
+      "ts": "2026-09-16T18:16:56"
+    },
+    {
+      "id": "R-C5-114",
+      "class": "conductor",
+      "veto_open": true,
+      "ruling": "FREEZE after BL-1a-r1 (outside suite 738 pass / 10 red): five standing; the E3-r1 catalogue lock; four Blackwater tests that encoded the OLD numbers (flight 0.55 / pool 3.0 s / scorch 1.0 s: flask visibility during flight, three flight ages, tree material + pool anchors, pool final-24-frames dissolve→scorch) — stale-value drift from the rank-1 re-spec, carried to BL-1b when Blackwater resumes (lane paused by Matt). FL-4a fires (detached).",
+      "ts": "2026-09-16T18:17:22"
     }
   ],
   "grok_calls": [],
