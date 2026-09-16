@@ -27,8 +27,7 @@
     0.3,
     0.95,
     1.25,
-    2.0,
-    2.7
+    2.0
    ],
    "tick_cv_min": 0.25
   },
@@ -89,6 +88,7 @@
   "ff08": "pending Matt Q80 F4 \u2014 source cadence is a 1 Hz metronome (Legolas \u00a74); the FF-08 irregular schedule (R-C5-55) is retained until F4 rules",
   "range_px 520": "HOUSE (touch forward-cast default until drag-to-aim, R-C5-92); source max 15 m = 1083 px kept in range_max_source_px",
   "arc at 520 px": "flight 520/(18 m/s x 72.2 px/m) = 0.4 s; apex range*tan18/4 = 42 px",
-  "spec_lap": "BL-1a (R-C5-106): Blackwater built per the references (Legolas Table B \u00a72 + \u00a712.1), rank 1"
+  "spec_lap": "BL-1a (R-C5-106): Blackwater built per the references (Legolas Table B \u00a72 + \u00a712.1), rank 1",
+  "tick_schedule 2.5 s": "last tick 2.7 dropped for the 2.5 s rank-1 pool; interval CV 0.41 (FF-08 pending F4)"
  }
 }
