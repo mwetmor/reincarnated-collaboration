@@ -287,6 +287,8 @@ test_missing_impact_dependency_rejected (test_godot_import.ProjectileTravelEmiss
 test_node_tree_material_and_spec_driven_config (test_godot_import.ProjectileTravelEmissionTests.test_node_tree_material_and_spec_driven_config) ... ok
 test_exported_threshold_and_every_root_and_stretch_material_agree (test_godot_import.RaggedResidueImportTests.test_exported_threshold_and_every_root_and_stretch_material_agree) ... ok
 test_piece_zero_overrides_material_noise_in_emitted_root (test_godot_import.RaggedResidueImportTests.test_piece_zero_overrides_material_noise_in_emitted_root) ... ok
+test_full_exporter_current_thirteen_kit_catalogue (test_godot_import.ThrownFieldCLIRegressionTests.test_full_exporter_current_thirteen_kit_catalogue)
+Exercise module execution, which must define G2 before calling main. ... ok
 test_g2_grey_retains_index_planes_and_glass_alpha (test_godot_import.ThrownFieldEmissionTests.test_g2_grey_retains_index_planes_and_glass_alpha) ... ok
 test_g2_named_nodes_glass_wedge_partition_and_ground_materials (test_godot_import.ThrownFieldEmissionTests.test_g2_named_nodes_glass_wedge_partition_and_ground_materials) ... ok
 test_desktop_cursor_and_resolver_match_pre_t4i (test_godot_import.TouchDeviceAimEmissionTests.test_desktop_cursor_and_resolver_match_pre_t4i) ... ok
@@ -703,7 +705,7 @@ Traceback (most recent call last):
     self._check_timeout(endtime, orig_timeout, stdout, stderr)
   File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/subprocess.py", line 1253, in _check_timeout
     raise TimeoutExpired(
-subprocess.TimeoutExpired: Command '['/Applications/Godot.app/Contents/MacOS/Godot', '--headless', '--log-file', '/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4i/tmp/touch-aim-4d4zey0i/project/godot.log', '--path', '/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4i/tmp/touch-aim-4d4zey0i/project', '--script', 'res://touch_aim_probe.gd']' timed out after 60 seconds
+subprocess.TimeoutExpired: Command '['/Applications/Godot.app/Contents/MacOS/Godot', '--headless', '--log-file', '/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4i/tmp/touch-aim-46r6lwxp/project/godot.log', '--path', '/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4i/tmp/touch-aim-46r6lwxp/project', '--script', 'res://touch_aim_probe.gd']' timed out after 60 seconds
 
 ======================================================================
 FAIL: test_both_g2_kits_preserve_specs_rgb_glass_and_alpha (test_effect_kit.ThrownFieldValidationTests.test_both_g2_kits_preserve_specs_rgb_glass_and_alpha)
@@ -766,6 +768,6 @@ Traceback (most recent call last):
 AssertionError: 'rejected' unexpectedly found in {'angular_support': 0.8333333333333334, 'center': [170.0, 253.0], 'hollow_score': 0.08333333333333333, 'inner_opposed_support': 0.08333333333333333, 'inside': False, 'lab_band_surround': 12.987929666149537, 'lab_center_band': 18.508563966712764, 'lab_center_surround': 30.467977867785994, 'lab_color_return': 0.0, 'radius': 8.0, 'rejected': 'not_annulus', 'score': 0.6366616733180586}
 
 ----------------------------------------------------------------------
-Ran 677 tests in 407.073s
+Ran 678 tests in 427.270s
 
 FAILED (failures=7, errors=1)

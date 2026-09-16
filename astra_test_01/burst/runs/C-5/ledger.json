@@ -9244,6 +9244,13 @@
       "veto_open": true,
       "ruling": "T4s-r1 DELIVERED_WITH_CONCERNS and ACCEPTED: the cause was the module __main__ guard sitting ABOVE the G2 definitions (imported-module tests saw them; the CLI did not) — moved below; new CLI regression test reproduces the NameError before the fix; full 13-kit export + import exit 0; 826 frozen export hashes match; conductor export confirms. After the outside suite: freeze → PACK v28-r1 → captures → boards → E1-judge-02 → T4t.",
       "ts": "2026-09-16T05:34:26"
+    },
+    {
+      "id": "R-C5-59",
+      "class": "conductor",
+      "veto_open": true,
+      "ruling": "FREEZE after T4s-r1 (outside suite result recorded in the note above; the two named obsolete reds from R-C5-56 still pending T4t). PACK v28-r1 fires.",
+      "ts": "2026-09-16T05:41:51"
     }
   ],
   "grok_calls": [],

@@ -1009,3 +1009,29 @@ class ThrownFieldEmissionTests(unittest.TestCase):
                 np.testing.assert_array_equal(np.asarray(image)[...,3],alpha)
                 self.assertTrue(np.all(np.asarray(image)[...,:3]==128))
             self.assertIn('materials/Field.tres',(out/'scripts/keeper.gd').read_text())
+
+
+class ThrownFieldCLIRegressionTests(unittest.TestCase):
+    def test_full_exporter_current_thirteen_kit_catalogue(self):
+        """Exercise module execution, which must define G2 before calling main."""
+        import sys
+        root = Path(__file__).resolve().parents[1]
+        catalogue = root/'runs/C-5/vfx_kits/kits_v9.json'
+        expected = [entry['name'] for entry in json.loads(catalogue.read_text())['kits']]
+        self.assertEqual(len(expected), 13)
+        work = root/'runs/C-5/t3/T4s-r1'
+        work.mkdir(parents=True, exist_ok=True)
+        with tempfile.TemporaryDirectory(prefix='g2-full-cli-', dir=work) as tmp:
+            project = Path(tmp)/'godot'
+            result = subprocess.run([
+                sys.executable, '-B', '-m', 'export.godot_import',
+                '--cells', 'runs/C-3/cells_v7', '--out', str(project),
+                '--parallax', 'runs/C-5/artifacts/CS-parallax-in-v10',
+                '--vfx-kits', str(catalogue), '--sockets', 'runs/C-3/sockets_v2.json',
+                '--props', 'runs/C-5/artifacts/CS-props-v24',
+            ], cwd=root, capture_output=True, text=True, timeout=180)
+            self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+            report = json.loads(result.stdout)
+            self.assertEqual([kit['name'] for kit in report['vfx_kits']['kits']], expected)
+            self.assertTrue((project/'scenes/vfx/g2_thrown_field.tscn').is_file())
+            self.assertTrue((project/'scripts/vfx_g2.gd').is_file())

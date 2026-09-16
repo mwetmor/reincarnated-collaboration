@@ -3237,10 +3237,6 @@ def _write_piece_burst_v1r(out, kit, resource_root, prefix):
     (out/'scripts/vfx/piece_burst_v1r.gd').write_text(PIECE_BURST_V1R_SCRIPT)
 
 
-if __name__ == '__main__':
-    main()
-
-
 # T4s. G2 emission is opt-in, leaving the eleven-kit G1 export untouched.
 def _g2_config(kit):
     from export.effect_kit import tick_schedule_report
@@ -3592,3 +3588,7 @@ func cancel() -> void:
     active=false
     queue_free()
 '''
+
+
+if __name__ == '__main__':
+    main()
