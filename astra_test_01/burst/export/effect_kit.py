@@ -422,10 +422,24 @@ def piece_motion(seed, piece_id):
             'rotation_deg': -30+60*samples[1], 'scale_delta': -.08+.16*samples[2]}
 
 
-def piece_stretch(seed, piece_id):
+def validate_piece_stretch(value):
+    """Opt-in rooted stretch; omission retains the original template bytes."""
+    _keys(value, {'along', 'across'}, {'along', 'across'}, 'pieces.stretch')
+    along = value['along']
+    if not isinstance(along, list) or len(along) != 2:
+        raise ValueError('pieces.stretch.along requires an ascending pair')
+    for v in along: _number(v, 1.0, 2.6, 'pieces.stretch.along')
+    if along[0] > along[1]:
+        raise ValueError('pieces.stretch.along requires an ascending pair')
+    _number(value['across'], .7, 1.0, 'pieces.stretch.across')
+    return value
+
+
+def piece_stretch(seed, piece_id, stretch=None):
     """Stable, order-independent v2 samples; v1 sampling is unchanged."""
     digest = hashlib.sha256(f'{seed}:{piece_id}'.encode('ascii')).hexdigest()
-    return {'along': 2.0 + .5 * int(digest[:8], 16) / 4294967295,
+    bounds = validate_piece_stretch(stretch)['along'] if stretch is not None else [2.0, 2.5]
+    return {'along': bounds[0] + (bounds[1]-bounds[0]) * int(digest[:8], 16) / 4294967295,
             'rotation_deg': -10 + 20 * int(digest[8:16], 16) / 4294967295}
 
 
@@ -509,11 +523,21 @@ def interleave_gaps(record):
 
 
 def interleave_placement(seed, gaps, library):
-    """Portable SHA-256 samples, matched exactly by the emitted runtime."""
+    """Port of the engine SHA-256 counter sampler (no stateful RNG).
+
+    Normalize seed with int(seed) & 0x7fffffff, including JSON numeric floats.
+    Engine sequence: rank library by pick<integer id>, draw count, take the
+    pre-ranked largest gaps; per rank draw angle jitter, scale, then mirror.
+    Each label hashes ASCII '<integer seed>:<label>', first 8 hex digits as
+    unsigned uint32. Division is by 4294967295. Independent labels make
+    comparator invocation order irrelevant. Float seed spellings are never
+    hashed: Godot JSON numbers and Python integers must select the same ids.
+    """
+    seed = int(seed) & 0x7fffffff
     def sample(label):
         return int(hashlib.sha256(f'{seed}:{label}'.encode('ascii')).hexdigest()[:8],16)
     count = 3 + sample('count') % 3
-    selected = sorted(library, key=lambda p:(sample('pick'+str(p['id'])),p['id']))[:count]
+    selected = sorted(library, key=lambda p:(sample('pick'+str(int(p['id']))),p['id']))[:count]
     placed = []
     for rank,(item,gap) in enumerate(zip(selected,gaps)):
         # ±12 degrees, narrowed only when the literal 55-degree gate needs it.
@@ -527,9 +551,12 @@ def interleave_placement(seed, gaps, library):
 def load_pieces(config, root, runtime=False):
     """Consume T4e schema 2 as delivered; never segment or recolour a shard."""
     root = Path(root).resolve()
-    _keys(config, {'source', 'template', 'root_drift', 'dissolve_order', 'erode_noise', 'key_states', 'embers', 'boil', 'timing', 'ember_ending', 'interleave', *PIECES_DEFAULTS}, {'source', 'template'}, 'pieces')
+    _keys(config, {'source', 'template', 'root_drift', 'dissolve_order', 'erode_noise', 'key_states', 'embers', 'boil', 'timing', 'ember_ending', 'interleave', 'stretch', *PIECES_DEFAULTS}, {'source', 'template'}, 'pieces')
     if config['template'] not in ('burst_v1', 'burst_v2', 'burst_v1r'):
         raise ValueError('pieces.template must be burst_v1, burst_v2 or burst_v1r')
+    if 'stretch' in config:
+        validate_piece_stretch(config['stretch'])
+        if config['template'] != 'burst_v2': raise ValueError('pieces.stretch requires burst_v2')
     _number(config.get('erode_noise', 0), 0, 1, 'pieces.erode_noise')
     if 'embers' in config: validate_motes(config['embers'], True)
     if 'boil' in config:

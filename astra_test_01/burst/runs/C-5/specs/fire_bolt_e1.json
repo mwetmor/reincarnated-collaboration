@@ -168,7 +168,28 @@
           "glow_s": 1.2,
           "core_radius_bh": 0.45,
           "core_s": 0.6
-        }
+        },
+        "stretch": {
+          "along": [
+            1.2,
+            1.4
+          ],
+          "across": 0.9
+        },
+        "dissolve_order": [
+          [
+            0
+          ],
+          [
+            1
+          ],
+          [
+            2
+          ],
+          [
+            3
+          ]
+        ]
       },
       "core": {
         "band": 3,
@@ -188,7 +209,7 @@
   "provenance": {
     "speed_px_s": "R-C5-111 FL-4a: Hades Zeus-cast class, 1600 u/s = 11.6 BH/s at 130 px/BH; 1510 px/s; Legolas O7 VERIFIED",
     "range_px": "4 BH (charter \u00a7 6)",
-    "impact": "E0-p R-C5-34 (Matt: motion + size right)",
+    "impact": "R-C5-117 FL-4c",
     "head/streak extents": "03- \u00a7 2.3 build list (1.2 BH body; P02 \u2248 120\u00d740 native at s=3 \u2192 2.0 BH long at s=1)",
     "range_expiry": "R-C5-79 F-C5-22",
     "presentation.layers": "R-C5-109 FL-4a"

@@ -118,14 +118,16 @@
     "erode_noise": 0.4,
     "dissolve_order": [
       [
-        3
+        0
+      ],
+      [
+        1
       ],
       [
         2
       ],
       [
-        1,
-        0
+        3
       ]
     ],
     "key_states": [],
@@ -170,6 +172,13 @@
       ],
       "library": "pieces/interleave",
       "angle_slots": "gaps"
+    },
+    "stretch": {
+      "along": [
+        1.2,
+        1.4
+      ],
+      "across": 0.9
     }
   },
   "distance_fields": {

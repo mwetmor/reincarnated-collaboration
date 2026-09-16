@@ -1004,7 +1004,16 @@ class IceTreatmentImportTests(unittest.TestCase):
                     for i in range(n):Image.new('RGBA',(512,512),(40,80,120,255)).save(cells/f'{kind}_{direction}_{i}.png')
             sockets=folder/'sockets.json'
             sockets.write_text(json.dumps({'version':1,'canvas':[512,512],'cells':{'cast_'+d:{'sockets':[[270,240]]*4,'release_index':2} for d in ('E','N','S')}}))
-            build_project(cells,project,vfx_kits=work/'before10/kits.json',sockets=sockets)
+            # FL-4c: preserve the original ten entries and close B's FL-4b
+            # v3 impact dependency; compare the complete emitted file table.
+            source = work/'before10/kits.json'
+            entries = json.loads(source.read_text())['kits']
+            entries = [dict(k,dir=str((source.parent/k['dir']).resolve())) for k in entries]
+            if not any(k['name']=='fire_burst_e0p_v3' for k in entries):
+                entries.append({'name':'fire_burst_e0p_v3','dir':str(repo/'runs/C-5/vfx_kits/v9/fire_burst_e0p_v3')})
+            catalogue = folder/'closed-kits.json'
+            catalogue.write_text(json.dumps({'kits':entries}))
+            build_project(cells,project,vfx_kits=catalogue,sockets=sockets)
             actual={p.relative_to(project).as_posix():hashlib.sha256(p.read_bytes()).hexdigest()
                     for p in project.rglob('*') if p.is_file()}
             self.assertEqual(actual,baseline)
@@ -2101,6 +2110,7 @@ class FL4BRuntimeTraceTests(unittest.TestCase):
         data=json.loads((root/'kit.json').read_text())
         library,_=load_interleave(data['pieces']['interleave'],root)
         record=json.loads((root/data['pieces']['source']).read_text())
+        self.assertGreaterEqual(len({int(r['seed']) for r in self.trace['seeds']}),20)
         for row in self.trace['seeds']:
             expected=interleave_placement(row['seed'],interleave_gaps(record),library['pieces'])
             self.assertEqual(len(row['tongues']),len(expected))
@@ -2130,3 +2140,24 @@ class FL4BRuntimeTraceTests(unittest.TestCase):
                 self.assertTrue(row['core_additive'])
                 self.assertEqual(row['trail_rate'],12)
                 self.assertEqual(len(row['sheet_tail_world']),2)
+
+
+class FL4CTraceTests(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        import os
+        path=os.environ.get('FL4C_METRICS')
+        if not path: raise unittest.SkipTest('Set FL4C_METRICS to measured headless trace metrics')
+        cls.metrics=json.loads(Path(path).read_text())
+
+    def test_no_spikes_actual_transforms_over_painted_life(self):
+        self.assertLessEqual(self.metrics['max_piece_radial_ratio'],1.5)
+        self.assertLessEqual(self.metrics['f36_overall_extent_bh'],4.5)
+        self.assertGreater(self.metrics['body_pieces_measured'],0)
+        self.assertEqual(self.metrics['ages_measured'],list(range(37)))
+
+    def test_last_painted_frame_white_and_no_late_contour(self):
+        self.assertGreater(self.metrics['age25_painted_pixels'],0)
+        self.assertGreaterEqual(self.metrics['age25_band3_fraction'],.9)
+        self.assertEqual(self.metrics['band0_pixels_after_age22'],0)
+        self.assertEqual(self.metrics['painted_pixels_age26_to36'],0)

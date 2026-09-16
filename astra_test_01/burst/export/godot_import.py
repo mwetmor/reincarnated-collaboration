@@ -2790,7 +2790,7 @@ def _write_piece_burst_v2(out, kit, resource_root, prefix):
     legacy['effect']['pieces']['template'] = 'burst_v1'
     legacy['effect']['pieces'].pop('key_states', None)
     legacy['effect']['pieces'].pop('boil', None)
-    for opt in ('timing','ember_ending','interleave'): legacy['effect']['pieces'].pop(opt, None)
+    for opt in ('timing','ember_ending','interleave','stretch'): legacy['effect']['pieces'].pop(opt, None)
     if 'ember_ending' in config:
         legacy['effect']['pieces'].update(residue_s=.3,residue_fraction=.2)
     legacy['effect']['material'].pop('erode_noise', None)
@@ -2819,6 +2819,7 @@ def _write_piece_burst_v2(out, kit, resource_root, prefix):
         noise_pixels = erosion_noise_texture(peak)
         Image.fromarray(noise_pixels).save(out/noise_rel)
     runtime.update(residue_entry(peak, field, .12 if 'ember_ending' in config else config['residue_fraction'], noise, noise_pixels))
+    if 'stretch' in config: runtime['stretch'] = config['stretch']
     if 'timing' in config: runtime['timing'] = config['timing']
     if 'ember_ending' in config:
         runtime.update(ember_ending=config['ember_ending'], residue_frames=0, residue_s=0)
@@ -2869,8 +2870,10 @@ def _write_piece_burst_v2(out, kit, resource_root, prefix):
                            'texture_filter = 2\ncentered = false\nvisible = false\n'
                            f'offset = {vector(-record["centre"][0],-record["centre"][1])}\n'
                            f'texture = ExtResource("T{name}")\nmaterial = ExtResource("RootM{ident}")\n')
-        runtime['pieces'].append({**item, **piece_stretch(config['seed'],ident),
+        runtime['pieces'].append({**item, **piece_stretch(config['seed'],ident, config.get('stretch')),
                                   'erosion_start_tick':15})
+        if item.get('interleave') and 'stretch' in config:
+            runtime['pieces'][-1]['along'] = 1.15
     scene += '\n'.join(extra_nodes)
     scene = re.sub(r'load_steps=\d+', 'load_steps='+str(scene.count('[ext_resource ')+1),scene,count=1)
     script = PIECE_BURST_V2_SCRIPT
@@ -2903,10 +2906,19 @@ def _write_piece_burst_v2(out, kit, resource_root, prefix):
         scene = re.sub(r'res://scripts/vfx/piece_burst_(?:v2_keys|v2|fl2|fl3)\.gd', 'res://scripts/vfx/piece_burst_fl4.gd', scene)
         if 'interleave' in config:
             script = _fl4b_burst_script(script)
+            if 'stretch' in config:
+                script = _fl4c_burst_script(script)
             scene = scene.replace('res://scripts/vfx/piece_burst_fl4.gd', 'res://scripts/vfx/piece_burst_fl4b.gd')
             (out/'scripts/vfx/piece_burst_fl4b.gd').write_text(script)
         else:
             (out/'scripts/vfx/piece_burst_fl4.gd').write_text(script)
+    if 'stretch' in config:
+        # Apply across to every opted-in v2 template, not only the fire variant.
+        script = script.replace('lerpf(1.0,0.85,ease)', 'lerpf(1.0,float(config.stretch.across),ease)')
+        script = script.replace('lerpf(1.0,0.85,item_ease)', 'lerpf(1.0,float(config.stretch.across),item_ease)')
+        script_path = f'scripts/vfx/{prefix}_stretch.gd'
+        scene = re.sub(r'res://scripts/vfx/piece_burst_[^"\n]+\.gd', 'res://'+script_path, scene)
+        (out/script_path).write_text(script)
     # Shared files must not depend on which kit was emitted last.
     (out/'scripts/vfx/piece_burst_v2.gd').write_text(PIECE_BURST_V2_SCRIPT)
     runtime_path.write_text(json.dumps(runtime,indent=2)+'\n')
@@ -5833,5 +5845,22 @@ func _spawn_impact(strike_response: bool = true, point: Variant = null) -> void:
     get_parent().add_child(impact)
 '''
 
-if __name__ == '__main__':
+
+
+def _fl4c_burst_script(script):
+    """R-C5-117: kit stretch and white-last burn-down, outside-in unchanged."""
+    script = script.replace('lerpf(1.0,0.85,item_ease)', 'lerpf(1.0,float(config.stretch.across),item_ease)')
+    script = script.replace('lerpf(1.0,float(item.along),item_ease)', 'lerpf(1.0,float(item.along),ease if item.get("interleave",false) else item_ease)')
+    script = script.replace('var dissolve: float = 1.0 if age >= residue_end else 0.8 * residue_t',
+                            'var dissolve: float = 1.0 if age >= residue_end else erosion_t')
+    script = script.replace('set_shader_parameter("dissolve",0.0)', 'set_shader_parameter("dissolve",dissolve)')
+    script = script.replace('"expanded_dissolve":0.0', '"expanded_dissolve":dissolve')
+    # Keep the underlying dark copies on the same erosion samples, so they
+    # cannot remain exposed where a boiling painted source has disappeared.
+    script = script.replace('for sprite in [part.paint,part.root]:',
+        'for sprite in [part.paint,part.root,part.dark_axis.get_node("Stretch/Piece_%03d" % int(part.record.id)),part.dark_root]:' )
+    return script
+
+
+if __name__ == "__main__":
     main()

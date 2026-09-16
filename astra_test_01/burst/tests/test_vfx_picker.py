@@ -2186,3 +2186,17 @@ class FL4BCatalogueTests(unittest.TestCase):
         self.assertEqual(by_name['fire_bolt_e1_A']['impact_binding']['kit'],'fire_burst_e0p_v2')
         self.assertEqual(by_name['fire_burst_e0p_v3']['pieces']['key_states'],[])
         self.assertTrue(by_name['fire_burst_e0p_v2']['pieces']['key_states'])
+
+
+class FL4CByteLockTests(unittest.TestCase):
+    def test_seventeen_kits_and_all_v3_art_match_pre_fl4c_bytes(self):
+        expected=json.loads((ROOT/'fixtures/fl1b/FL4C-source-assets.json').read_text())
+        folder=ROOT/'runs/C-5/vfx_kits/v9'
+        actual={p.relative_to(ROOT).as_posix():hashlib.sha256(p.read_bytes()).hexdigest()
+                for p in folder.rglob('*') if p.is_file()
+                and p != folder/'fire_burst_e0p_v3/kit.json'}
+        self.assertEqual(actual,expected)
+        catalogue=json.loads((ROOT/'runs/C-5/vfx_kits/kits_v9.json').read_text())['kits']
+        self.assertEqual(len(catalogue),18)
+        names={k['name'] for k in catalogue}
+        self.assertEqual(sum(k.endswith('/kit.json') and Path(k).parent.name in names for k in actual),17)

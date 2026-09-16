@@ -2628,3 +2628,39 @@ class FL4BInterleaveValidationTests(unittest.TestCase):
                 np.testing.assert_array_equal(actual,quantise_projectile(raw))
                 np.testing.assert_array_equal(actual[:,:,3],raw[:,:,3])
             self.assertEqual(data['impact_binding']['kit'],'fire_burst_e0p_v3' if arm=='B' else 'fire_burst_e0p_v2')
+
+
+class FL4CStretchDissolveTests(unittest.TestCase):
+    def test_stretch_ranges_and_known_bad_values(self):
+        from export.effect_kit import validate_piece_stretch, piece_stretch, load_pieces
+        config = {'along':[1.2,1.4], 'across':.9}
+        self.assertEqual(validate_piece_stretch(config), config)
+        for value in (None, [], {}, {'along':[1,2]}, {'along':[1,2],'across':.9,'extra':1},
+                      {'along':[.9,1.4],'across':.9}, {'along':[1.2,2.7],'across':.9},
+                      {'along':[1.4,1.2],'across':.9}, {'along':[1.2],'across':.9},
+                      {'along':[True,1.4],'across':.9}, {'along':[1.2,float('nan')],'across':.9},
+                      {'along':[1.2,1.4],'across':.69}, {'along':[1.2,1.4],'across':1.01}):
+            with self.subTest(value=value), self.assertRaises(ValueError): validate_piece_stretch(value)
+        for seed in range(20):
+            for ident in range(24):
+                sample=piece_stretch(seed,ident,config)
+                self.assertTrue(1.2<=sample['along']<=1.4)
+                self.assertTrue(2<=piece_stretch(seed,ident)['along']<=2.5)
+        root=ROOT/'runs/C-5/vfx_kits/v9/fire_burst_e0p_v3'
+        raw=json.loads((root/'kit.json').read_text())['pieces']
+        self.assertEqual(load_pieces(raw,root,True)[0]['stretch'],config)
+        raw['stretch']['across']=2
+        with self.assertRaises(ValueError): load_pieces(raw,root,True)
+
+    def test_white_last_partition_and_float_seed_parity(self):
+        from export.effect_kit import dissolve_thresholds, interleave_placement
+        self.assertEqual(dissolve_thresholds([[0],[1],[2],[3]]),[.5,1-2/6,1-1/6,1])
+        for order in ([[0],[1],[2]],[[0],[1],[2],[2]],[[0],[],[1,2,3]],[[False],[1],[2],[3]]):
+            with self.assertRaises(ValueError): dissolve_thresholds(order)
+        gaps=[{'start_deg':i*60,'width_deg':60} for i in range(5)]
+        library=[{'id':i} for i in range(1,11)]
+        for seed in range(1,21):
+            self.assertEqual(interleave_placement(seed,gaps,library),interleave_placement(float(seed),gaps,library))
+        rgba=np.zeros((1,4,4),dtype=np.uint8);rgba[0,:,:3]=np.arange(4)[:,None]*85;rgba[...,3]=255
+        actual=material_pixels(rgba,PALETTE,dissolve=11/12,dissolve_order=[[0],[1],[2],[3]])
+        self.assertEqual(actual[0,:,3].tolist(),[0,0,0,255])
