@@ -1,0 +1,167 @@
+{
+  "task_id": "T4p",
+  "rendered": null,
+  "rendered_owner": "conductor",
+  "spec_sha256": "9eccbe78b89ff603c7a3dbd305b7390d51911da81f4cf9557c90c278ce1d4601",
+  "observations": {
+    "kits_validated": 2,
+    "catalogue_positions_1_based": [
+      9,
+      10
+    ],
+    "screen_px": true,
+    "speed_px_s": 1040,
+    "range_px": 520,
+    "pierce": 0,
+    "empty_key_arms_byte_identical_except_name": true,
+    "original_eight_export_files_byte_identical": 644,
+    "original_per_kit_changes_in_mixed_catalogue": [],
+    "primitives_preserve_alpha_and_canvas": true,
+    "four_value_indices": [
+      0,
+      85,
+      170,
+      255
+    ],
+    "tail_seconds": 0.15,
+    "headless_import_exit": 0,
+    "headless_clock_exit": 0,
+    "headless_script_errors": 0,
+    "rest_casts": [
+      {
+        "kit": "fire_bolt_e1_A",
+        "contact_age_frames": 17,
+        "contact_distance_px": 320.0,
+        "contact_lag_frames": 0,
+        "burst_count": 1,
+        "labels": [
+          "FULL"
+        ],
+        "tail_final_erode": 1.0
+      },
+      {
+        "kit": "fire_bolt_e1_B",
+        "contact_age_frames": 17,
+        "contact_distance_px": 320.0,
+        "contact_lag_frames": 0,
+        "burst_count": 1,
+        "labels": [
+          "FULL"
+        ],
+        "tail_final_erode": 1.0
+      }
+    ],
+    "key_schedule_errors": [],
+    "key_drawings_are_synthetic_test_inputs": true,
+    "tests_extend_only": {
+      "test_effect_kit.py": true,
+      "test_godot_import.py": true,
+      "test_vfx_picker.py": true
+    }
+  },
+  "focused": {
+    "tests": 10,
+    "failures": [],
+    "errors": [],
+    "skips": [],
+    "elapsed_s": 19.42883287499717
+  },
+  "suite": {
+    "tests": 167,
+    "completed_without_failure_or_error": 153,
+    "named_reds": [
+      {
+        "test": "test_godot_import.GodotImportTests.test_headless_state_machine_input_map_gear_vfx_and_nearest_fallback",
+        "kind": "failure",
+        "reason": "Godot sandbox user-log crash"
+      },
+      {
+        "test": "test_godot_import.PieceStretchImportTests.test_v2_headless_import_and_seed_equal_rooted_clock",
+        "kind": "failure",
+        "reason": "Older v2 probe expects expansion-time band-three dissolve; lap-3 uses residue-only dissolve"
+      },
+      {
+        "test": "test_vfx_picker.G1ComponentTests.test_headless_first_cast_contact_cursor_pool_cancel_and_picker",
+        "kind": "failure",
+        "reason": "Godot macOS certificate / blocked editor-settings diagnostics rejected by zero-engine-error assertion"
+      },
+      {
+        "test": "test_vfx_picker.G1ComponentTests.test_headless_pierce_contacts_labels_pool_and_phase_callbacks",
+        "kind": "failure",
+        "reason": "Godot macOS certificate / blocked editor-settings diagnostics rejected by zero-engine-error assertion"
+      },
+      {
+        "test": "test_vfx_picker.LivingEmbersTests.test_headless_glow_sixty_samples_extrema_range_and_particle_properties",
+        "kind": "failure",
+        "reason": "Godot macOS certificate / blocked editor-settings diagnostics rejected by zero-engine-error assertion"
+      },
+      {
+        "test": "test_vfx_picker.VfxPickerTests.test_headless_tab_twice_cast_scene_labels_and_inflight_kit_lock",
+        "kind": "failure",
+        "reason": "Godot macOS certificate / blocked editor-settings diagnostics rejected by zero-engine-error assertion"
+      },
+      {
+        "test": "test_godot_import.TransformedResidueSeamTests.test_transformed_front_at_three_ages_has_no_straight_seam_over_12px",
+        "kind": "error",
+        "reason": "Scoped write guard blocked an unrelated output path"
+      },
+      {
+        "test": "test_vfx_picker.AuthoredEffectPickerTests.test_authored_kit_own_travel_durations_layers_and_feedback_parameters",
+        "kind": "error",
+        "reason": "Scoped write guard blocked an unrelated output path"
+      },
+      {
+        "test": "test_vfx_picker.AuthoredEffectPickerTests.test_corrupt_authored_metadata_rejected_before_project_output",
+        "kind": "error",
+        "reason": "Scoped write guard blocked an unrelated output path"
+      },
+      {
+        "test": "test_vfx_picker.AuthoredEffectPickerTests.test_headless_authored_cast_east_north_collision_timing_and_feedback_cleanup",
+        "kind": "error",
+        "reason": "Scoped write guard blocked an unrelated output path"
+      },
+      {
+        "test": "test_vfx_picker.AuthoredEffectPickerTests.test_minimal_layers_and_optional_decal_fallback",
+        "kind": "error",
+        "reason": "Scoped write guard blocked an unrelated output path"
+      },
+      {
+        "test": "test_vfx_picker.AuthoredEffectPickerTests.test_mixed_catalogue_legacy_scenes_and_scripts_byte_identical",
+        "kind": "error",
+        "reason": "Scoped write guard blocked an unrelated output path"
+      },
+      {
+        "test": "test_vfx_picker.TouchAimRuntimeTests.test_headless_overlay_forward_world_touch_and_mouse_probe",
+        "kind": "error",
+        "reason": "Scoped write guard blocked an unrelated output path"
+      },
+      {
+        "test": "test_vfx_picker.TouchDeviceAimRuntimeTests.test_headless_device_forward_handled_overlay_and_mouse_probe",
+        "kind": "error",
+        "reason": "Scoped write guard blocked an unrelated output path"
+      }
+    ],
+    "blocked_write_paths": [
+      "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4g/seam_measurements.json",
+      "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4i-r1/tmp/touch-aim-bccye8_g",
+      "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4i/tmp/touch-aim-56ar5mzi",
+      "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/tmp/authored-picker-4_71fwt8",
+      "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/tmp/authored-picker-61pmvynt",
+      "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/tmp/authored-picker-etopnx5l",
+      "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/tmp/authored-picker-hd4nt4_v",
+      "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/tmp/authored-picker-nt0lkw9d"
+    ],
+    "elapsed_s": 98.40082970799995
+  },
+  "reported_instrument_retry": {
+    "reason": "Initial diagnostic write guard treated dir-fd-relative cleanup names as cwd-relative",
+    "change": "Resolved parent file descriptors with F_GETPATH; final focused run has zero blocked writes; final suite has eight genuinely unrelated output paths blocked."
+  },
+  "concerns": [
+    "Fourteen suite reds are named above; no existing tests were weakened.",
+    "Godot import exits zero but logs macOS certificate and blocked editor-settings errors.",
+    "Rendered appearance is not evaluated in this headless tooling burst.",
+    "Initial SPEC read included sections 2\u20136 beyond the requested excerpts; the BURST_RULES read included the other burst rows."
+  ],
+  "manifest_note": "out/files.json hashes every retained changed deliverable except itself; its own hash is in the receipt."
+}

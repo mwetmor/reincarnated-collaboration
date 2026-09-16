@@ -1,0 +1,26 @@
+{
+ "text": "GENERATE BURST VF-prim-holy-petal-01 — painted primitive P-holy FOLDED RAY / PETAL — one rising ray of a healing pulse for the HOLY treatment (Run C-5, E3; architecture 03- § 2.3 build list). task_id \"VF-prim-holy-petal-01\". One primitive per call. Paint the SHAPE REPRESENTING EMISSION only — light, glow, colour and motion are runtime layers.\n\nIMAGE 1 is the SCALE + REGISTER board: a 1:1 native 512×512 crop of the painted cliffside clearing at the game camera with two figures 130 px tall (= 1 BH) beside a 3× enlargement; everything is hand-drawn painted 2D — confident dark contour with taper, clean painted planes, restrained texture. IMAGE 2 is the APPROVED FIRE impact peak: the LANGUAGE to match (four flat greyscale planes, hard plane edges, hand-drawn contour, no gradients or glow) — not the shape. Holy speaks the same language with its own vocabulary: folded, symmetrical-in-part, calm — petal-like rays with a crease down the middle, clean geometric seals with one deliberate break; nothing jagged. IMAGE 3 is the native ground crop alone (reading only).\n\nDeliver EXACTLY ONE image, 512×512, GENUINELY TRANSPARENT background (RGBA: alpha 0 outside the body, opaque inside, no soft fringe wider than 1 px) — if transparency is impossible, a flat uniform #00ff00 plate and SAY SO. Content: ONE FOLDED RAY of holy light rising UPWARD: a tall petal shape with a crease down its middle so the left half is plane 2 and the right half plane 3, a pointed top, a narrow base; calm, clean; hand-drawn dark contour with taper. PAINTED EXTENT: about 60 px wide and 105 px tall (0.8 BH); centred; nothing touches the canvas edge. Same camera as IMAGE 1. VALUE-INDEX ENCODING: GREYSCALE ONLY, exactly FOUR flat value planes with hard edges (plane 0 near-black = contour + thin rim; plane 1 dark grey; plane 2 light grey, most of the body; plane 3 white = the brightest core/edges, no more than a quarter of the body), no gradients, glow, blur, texture or colour. One frame of hand-drawn 2D effects animation at the scene's line weight. No ground, shadow, sparkles, mist, motion blur, character or text.\n\nOne image_gen call. ONE retry only if: the background is not clean, there are gradients/glow/soft edges or more than four value planes, the body touches the canvas edge, the extent is off by more than 25 %, or the vocabulary is wrong — name the reason. Copy the output from $CODEX_HOME/generated_images/... to out/holy_petal_01.png with sha256 (no conversion, no trim, no keying). No code. No other files. No web.\nRETURN: the receipt (task_id \"VF-prim-holy-petal-01\"): files = [exactly one entry: out/holy_petal_01.png with its sha256]; images = the INTEGER COUNT of image_gen calls made (1 or 2) — NOT a list, NEVER a path under $CODEX_HOME/generated_images; calls_used; status DELIVERED / DELIVERED_WITH_CONCERNS with concerns listed honestly (state whether the output has real transparency).",
+ "references": [
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/artifacts/E0p-refs/scale_board_clearing.png",
+   "role": "IMAGE 1 — scale + register board (1:1 + 3×)"
+  },
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/artifacts/E0p-peak-01/fire_peak_01.png",
+   "role": "IMAGE 2 — the approved fire peak: the LANGUAGE, not the shape"
+  },
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/artifacts/E0p-refs/clearing_native_512.png",
+   "role": "IMAGE 3 — native ground crop (reading only)"
+  }
+ ],
+ "image_cap": 2,
+ "minutes_cap": 15,
+ "tool_call_cap": 20,
+ "outputs": [
+  "out/holy_petal_01.png"
+ ],
+ "effort": "high",
+ "add_dirs": [],
+ "experiment": "C5-E3"
+}

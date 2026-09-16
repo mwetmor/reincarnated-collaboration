@@ -1,0 +1,26 @@
+{
+ "text": "GENERATE BURST KS-travel-stretched-01 — E1 arm A: the \"STRETCHED\" TRAVEL key state of the fire bolt, painted over the runtime's own travel frame (Run C-5, E1 arm A \"painted key states\"; S1 § 2b conditions: fixed canvas, original state in every call, a tooling guide, ONE change per call). task_id \"KS-travel-stretched-01\".\n\nIMAGE 1 is the fire bolt's REST travel drawing as the runtime composes it (head P01 + streak P02 on a 512×512 transparent canvas, travelling to the RIGHT) — the identity. IMAGE 2 is the TOOLING GUIDE: the same composition at a later instant of flight (the streak drawn out to its full length at top speed) on the same canvas — the SHAPE CONTRACT. IMAGE 3 is the scale + register board (130-px figures = 1 BH; hand-drawn contour).\n\nUse image_gen in EDIT mode on IMAGE 2 and deliver ONE 512×512 image with a GENUINELY TRANSPARENT background: IMAGE 2 RE-PAINTED so that it reads as one drawn frame of a fire bolt in flight — the streak as one continuous lick of flame with its inner planes flowing back from the head, the head's trailing tongues merging into it — while the head and the streak stay exactly where IMAGE 2 puts them (silhouette within ~4 px of the guide; nothing added, removed or moved). Keep the vocabulary of IMAGE 1 exactly: GREYSCALE ONLY, exactly FOUR flat value planes with hard edges, the same line weight, no gradients/glow/blur/colour, no ground, sparks, smoke, motion blur or text. ONE change: re-drawing the composition as a coherent painting.\n\nOne image_gen call. ONE retry only if: the silhouette departs from the guide, the background is not clean, gradients/glow/soft edges or more than four planes appear, or the line weight changed — name the reason. Copy the output from $CODEX_HOME/generated_images/... to out/travel_stretched_01.png with sha256 (no conversion, no trim). No code. No other files. No web.\nRETURN: the receipt (task_id \"KS-travel-stretched-01\"): files = [exactly one entry: out/travel_stretched_01.png with its sha256]; images = the INTEGER COUNT of image_gen calls made (1 or 2) — NOT a list, NEVER a path under $CODEX_HOME/generated_images; calls_used; status DELIVERED / DELIVERED_WITH_CONCERNS with concerns listed honestly (state whether the output has real transparency).",
+ "references": [
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/artifacts/KS-travel-guides/travel_rest_512.png",
+   "role": "IMAGE 1 — the rest travel drawing (identity)"
+  },
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/artifacts/KS-travel-guides/guide_travel_stretched_512.png",
+   "role": "IMAGE 2 — TOOLING GUIDE (shape contract)"
+  },
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/artifacts/E0p-refs/scale_board_clearing.png",
+   "role": "IMAGE 3 — scale + register board"
+  }
+ ],
+ "image_cap": 2,
+ "minutes_cap": 15,
+ "tool_call_cap": 20,
+ "outputs": [
+  "out/travel_stretched_01.png"
+ ],
+ "effort": "high",
+ "add_dirs": [],
+ "experiment": "C5-E1"
+}

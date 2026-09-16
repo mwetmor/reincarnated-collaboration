@@ -1,0 +1,60 @@
+{
+ "skill_id": "frozen_orb",
+ "source_game": "Diablo II \u2014 Sorceress Cold: Frozen Orb",
+ "grammar": "G1",
+ "visual_treatment_id": "ice",
+ "response_class": "strike",
+ "mechanics": {
+  "origin_socket": "cast_release",
+  "aim_rule": "release-locked",
+  "range_px": 640,
+  "speed_px_s": 420,
+  "count": 1,
+  "emission": {
+   "child": "ice_bolt_mini",
+   "schedule": "every 2 frames, spiral, 3 per revolution",
+   "child_speed_px_s": 900,
+   "child_range_px": 260
+  },
+  "expiry": {
+   "kind": "range_or_time",
+   "time_s": 1.5,
+   "on_expiry": "shard_burst 16 radial"
+  },
+  "termination": "expiry",
+  "pierce": -1
+ },
+ "presentation": {
+  "primitive_bindings": {
+   "travel_head": "ice orb = P_ice_puff rotated (0.9 BH) + rim shards",
+   "child": "P_ice_shard (0.35 BH)",
+   "impact": "ice_burst_e2 pieces (burst_v1r) at expiry",
+   "residue": "P_ice_crown decal at expiry point"
+  },
+  "body_extents_bh": {
+   "orb": 0.9,
+   "child": 0.35,
+   "expiry_burst": 3.0
+  },
+  "phase_envelope_s": {
+   "travel": 1.5,
+   "child_life": 0.3,
+   "expiry_hold_frames": 2,
+   "residue": 0.6
+  },
+  "enabled_layers": [
+   "flash",
+   "halo",
+   "floor_light",
+   "dark_duplicate",
+   "victim_tint",
+   "hit_stop",
+   "contact_label"
+  ]
+ },
+ "provenance": {
+  "orb speed / spiral bolts / expiry shard burst": "D2 source observation (conductor memory: slow orb ~ 1.5 s flight, continuous bolt spiral, final nova of ice bolts) \u2014 VERIFY against the C-5 reference corpus before E3-FO",
+  "pierce -1": "Matt R-C5 Packet-84 (skill pierce)",
+  "bands": "E2 ice palette"
+ }
+}

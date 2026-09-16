@@ -1,0 +1,47 @@
+{
+ "skill_id": "lightning_blast",
+ "source_game": "Last Epoch \u2014 Mage: Lightning Blast",
+ "grammar": "G3",
+ "visual_treatment_id": "lightning",
+ "response_class": "strike",
+ "mechanics": {
+  "origin_socket": "cast_release",
+  "aim_rule": "target-tracking",
+  "range_px": 560,
+  "instant": true,
+  "width_px": 22,
+  "chain": {
+   "count": 1,
+   "hop_range_px": 220,
+   "hop_delay_s": 0.05
+  },
+  "termination": "instant"
+ },
+ "presentation": {
+  "primitive_bindings": {
+   "bolt": "P05 chain link (lightning) \u00d7N along a jittered polyline + P_lightning_branch junctions + needle prongs at the ends",
+   "impact": "strike flash + 4 needle prongs radial",
+   "residue": "none (afterimage 0.15 s by dissolve)"
+  },
+  "body_extents_bh": {
+   "bolt_width": 0.17,
+   "end_prongs": 0.6
+  },
+  "phase_envelope_s": {
+   "bolt_life": 0.12,
+   "hop_delay": 0.05,
+   "afterimage": 0.15
+  },
+  "enabled_layers": [
+   "flash",
+   "halo",
+   "victim_tint",
+   "hit_stop",
+   "contact_label"
+  ]
+ },
+ "provenance": {
+  "instant bolt, single chain": "LE source observation (conductor memory) \u2014 VERIFY",
+  "strike_fast_v1 band": "03- \u00a7 2.2 time bands"
+ }
+}

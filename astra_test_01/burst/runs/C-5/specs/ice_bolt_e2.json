@@ -1,0 +1,55 @@
+{
+ "skill_id": "ice_bolt_e2",
+ "source_game": "E2 test skill \u2014 fire \u00d7 ice, one language",
+ "grammar": "G1",
+ "visual_treatment_id": "ice",
+ "response_class": "strike",
+ "mechanics": {
+  "origin_socket": "cast_release",
+  "aim_rule": "release-locked",
+  "range_px": 520,
+  "speed_px_s": 1040,
+  "count": 1,
+  "hop_count": 0,
+  "travel": {
+   "kind": "straight",
+   "streak": true
+  },
+  "termination": "first_contact_or_range",
+  "pierce": 0
+ },
+ "presentation": {
+  "primitive_bindings": {
+   "travel_head": "P_ice_shard (oriented, 0.7 BH)",
+   "travel_streak": "S_ice_puff trail (angular puff, low alpha)",
+   "impact": "ice_burst_e2 (pieces phase, burst_v2 template, ice palette, dissolve_order [[3],[2],[1,0]], erosion outside-in, NO stretch \u2014 shards TRANSLATE outward (ice shatters; fire flares): template burst_v1 for the shards + burst_v2 residue rule)",
+   "residue": "P_ice_crown decal (ground-bound frost crown, 0.3\u20131.0 s)"
+  },
+  "body_extents_bh": {
+   "head": 0.7,
+   "impact_hold": 2.3,
+   "impact_flare": 3.5
+  },
+  "phase_envelope_s": {
+   "travel": 0.5,
+   "contact_frames": 1,
+   "hold_frames": 2,
+   "shatter": 0.25,
+   "residue": 0.6
+  },
+  "enabled_layers": [
+   "flash",
+   "halo",
+   "floor_light",
+   "dark_duplicate",
+   "victim_tint",
+   "hit_stop",
+   "contact_label"
+  ]
+ },
+ "provenance": {
+  "speed/range": "as fire_bolt_e1 (fixture values, charter \u00a7 6)",
+  "shatter-not-flare": "conductor design ruling (E2): ice fragments translate (v1 fly) where fire tongues stretch (v2); one language, two treatments differ in the transform verb",
+  "palette": "ice: band0 deep blue-black, 1 steel blue, 2 pale cyan, 3 white"
+ }
+}
