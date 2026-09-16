@@ -1,0 +1,239 @@
+{
+  "element": "ice",
+  "element_class": "strike",
+  "screen_px": true,
+  "ground_squash": 0.6,
+  "phase_scale": {
+    "impact": 1.0
+  },
+  "material": {
+    "blend_mode": "MIX",
+    "light_participation": false,
+    "erode": 0.0,
+    "dissolve": 0.0,
+    "palette": [
+      [
+        0.035,
+        0.065,
+        0.13,
+        1
+      ],
+      [
+        0.22,
+        0.38,
+        0.52,
+        1
+      ],
+      [
+        0.64,
+        0.88,
+        0.96,
+        1
+      ],
+      [
+        1,
+        1,
+        1,
+        1
+      ]
+    ],
+    "erode_outside_in": true
+  },
+  "layers": {
+    "dark_duplicate": true,
+    "glow": {
+      "alpha": 0.2,
+      "scale": 1.02
+    },
+    "floor_light": {
+      "duration_s": 0.15,
+      "radius_px": 120
+    },
+    "flash": {
+      "duration_s": 0.016666666666666666,
+      "alpha": 0.8,
+      "scale_from": 1.04,
+      "scale_to": 1
+    },
+    "decal": {
+      "file": "layers/decal.png",
+      "duration_s": 0.6
+    }
+  },
+  "skill_spec": {
+    "skill_id": "ice_bolt_e2",
+    "source_game": "E2 test skill \u2014 fire \u00d7 ice, one language",
+    "grammar": "G1",
+    "visual_treatment_id": "ice",
+    "response_class": "strike",
+    "mechanics": {
+      "origin_socket": "cast_release",
+      "aim_rule": "release-locked",
+      "range_px": 520,
+      "speed_px_s": 1040,
+      "count": 1,
+      "hop_count": 0,
+      "travel": {
+        "kind": "straight",
+        "streak": true
+      },
+      "termination": "first_contact_or_range",
+      "pierce": 0
+    },
+    "presentation": {
+      "primitive_bindings": {
+        "travel_head": "P_ice_shard (oriented, 0.7 BH)",
+        "travel_streak": "S_ice_puff trail (angular puff, low alpha)",
+        "impact": "ice_burst_e2 (pieces phase, burst_v2 template, ice palette, dissolve_order [[3],[2],[1,0]], erosion outside-in, NO stretch \u2014 shards TRANSLATE outward (ice shatters; fire flares): template burst_v1 for the shards + burst_v2 residue rule)",
+        "residue": "P_ice_crown decal (ground-bound frost crown, 0.3\u20131.0 s)"
+      },
+      "body_extents_bh": {
+        "head": 0.7,
+        "impact_hold": 2.3,
+        "impact_flare": 3.5
+      },
+      "phase_envelope_s": {
+        "travel": 0.5,
+        "contact_frames": 1,
+        "hold_frames": 2,
+        "shatter": 0.25,
+        "residue": 0.6
+      },
+      "enabled_layers": [
+        "flash",
+        "halo",
+        "floor_light",
+        "dark_duplicate",
+        "victim_tint",
+        "hit_stop",
+        "contact_label"
+      ]
+    },
+    "provenance": {
+      "speed/range": "as fire_bolt_e1 (fixture values, charter \u00a7 6)",
+      "shatter-not-flare": "conductor design ruling (E2): ice fragments translate (v1 fly) where fire tongues stretch (v2); one language, two treatments differ in the transform verb",
+      "palette": "ice: band0 deep blue-black, 1 steel blue, 2 pale cyan, 3 white"
+    }
+  },
+  "key_states": [],
+  "travel_primitives": {
+    "head": {
+      "binding": "P_ice_shard (oriented, 0.7 BH)",
+      "png": "primitives/head.png",
+      "pivot": [
+        337,
+        266.0
+      ],
+      "scale": 0.3611111111111111,
+      "rear_socket": [
+        86,
+        229.0
+      ]
+    },
+    "streak": {
+      "binding": "S_ice_puff trail (angular puff, low alpha)",
+      "png": "primitives/streak.png",
+      "pivot": [
+        388,
+        265.0
+      ],
+      "scale": 1.0,
+      "alpha": 0.6
+    },
+    "rest_hold_frames": 3,
+    "tail_s": 0.15
+  },
+  "impact_binding": {
+    "kit": "ice_bolt_e2",
+    "phase": "pieces",
+    "template": "burst_v1r",
+    "seed": 2026
+  },
+  "phases": {
+    "cast": {
+      "sheet": "flare/flare_00.png",
+      "frames": [
+        {
+          "file": "flare/flare_00.png",
+          "hold_frames": 2
+        }
+      ]
+    },
+    "impact": {
+      "sheet": "impact/impact_00.png",
+      "frames": [
+        {
+          "file": "impact/impact_00.png",
+          "hold_frames": 2
+        }
+      ]
+    },
+    "travel": {
+      "sheet": "travel/travel_00.png",
+      "frames": [
+        {
+          "file": "travel/travel_00.png",
+          "hold_frames": 1
+        }
+      ],
+      "speed_px_s": 1040,
+      "streak": true
+    }
+  },
+  "name": "ice_bolt_e2",
+  "pieces": {
+    "hold_frames": 2,
+    "base_speed_px_s": 400,
+    "residue_s": 0.6,
+    "residue_fraction": 0.2,
+    "seed": 2026,
+    "source": "pieces/pieces.json",
+    "template": "burst_v1r",
+    "dissolve_order": [
+      [
+        3
+      ],
+      [
+        2
+      ],
+      [
+        1,
+        0
+      ]
+    ],
+    "erode_noise": 0.4
+  },
+  "decal_s": 0.6,
+  "distance_fields": {
+    "flare/flare_00.png": "distance/flare/flare_00.png",
+    "impact/impact_00.png": "distance/impact/impact_00.png",
+    "travel/travel_00.png": "distance/travel/travel_00.png",
+    "layers/decal.png": "distance/layers/decal.png",
+    "primitives/head.png": "distance/primitives/head.png",
+    "primitives/streak.png": "distance/primitives/streak.png",
+    "pieces/peak_index.png": "distance/pieces/peak_index.png",
+    "pieces/piece_001.png": "distance/pieces/piece_001.png",
+    "pieces/piece_002.png": "distance/pieces/piece_002.png",
+    "pieces/piece_003.png": "distance/pieces/piece_003.png",
+    "pieces/piece_004.png": "distance/pieces/piece_004.png",
+    "pieces/piece_005.png": "distance/pieces/piece_005.png",
+    "pieces/piece_006.png": "distance/pieces/piece_006.png",
+    "pieces/piece_007.png": "distance/pieces/piece_007.png",
+    "pieces/piece_008.png": "distance/pieces/piece_008.png",
+    "pieces/piece_009.png": "distance/pieces/piece_009.png",
+    "pieces/piece_010.png": "distance/pieces/piece_010.png",
+    "pieces/piece_011.png": "distance/pieces/piece_011.png",
+    "pieces/piece_012.png": "distance/pieces/piece_012.png",
+    "pieces/piece_013.png": "distance/pieces/piece_013.png",
+    "pieces/piece_014.png": "distance/pieces/piece_014.png",
+    "pieces/piece_015.png": "distance/pieces/piece_015.png",
+    "pieces/piece_016.png": "distance/pieces/piece_016.png",
+    "pieces/piece_017.png": "distance/pieces/piece_017.png",
+    "pieces/piece_018.png": "distance/pieces/piece_018.png",
+    "pieces/piece_019.png": "distance/pieces/piece_019.png",
+    "pieces/piece_020.png": "distance/pieces/piece_020.png",
+    "pieces/piece_021.png": "distance/pieces/piece_021.png",
+    "pieces/piece_022.png": "distance/pieces/piece_022.png"
+  },
+  "pierce": 0
+}
