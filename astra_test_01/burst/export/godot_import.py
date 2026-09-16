@@ -731,7 +731,7 @@ def _load_vfx_kits(path):
         if (impact.get('pieces', {}).get('template') != binding['template']
                 or impact.get('pieces', {}).get('seed') != binding['seed']
                 or impact.get('material', {}).get('palette') != data['material']['palette']
-                or impact.get('layers') != data['layers'] or not impact.get('screen_px')):
+                or {k:v for k,v in impact.get('layers', {}).items() if k not in ('cast','travel')} != {k:v for k,v in data['layers'].items() if k not in ('cast','travel')} or not impact.get('screen_px')):
             raise ValueError('projectile impact dependency missing or disagrees with binding/palette/layers')
     return result
 
@@ -1533,6 +1533,7 @@ var strike_fired: bool = false
 var cast_origin: Vector2 = Vector2.ZERO
 var travel_end: Vector2 = Vector2.ZERO
 var release_sweep_start: Variant = null
+var struck_ground: Variant = null
 static var label_events: Array = []
 
 static func resolve_target(tree: SceneTree, origin: Vector2, facing: Vector2, cursor: Vector2, range_px: float = 650.0, cone_degrees: float = 30.0) -> Dictionary:
@@ -1599,6 +1600,7 @@ func release(kit: Dictionary, origin: Vector2, destination: Dictionary, owner_no
     direction = origin.direction_to(resolved.point)
     distance = 0.0
     remaining_pierce = int(config.get("pierce", 0))
+    struck_ground = null
     contacted.clear()
     strike_fired = false
     cast_origin = origin
@@ -1632,7 +1634,7 @@ func release(kit: Dictionary, origin: Vector2, destination: Dictionary, owner_no
     var tint: Array = config.get("trail_color", [0.35, 0.65, 0.8, 0.6])
     $Trail.default_color = Color(tint[0], tint[1], tint[2], tint[3])
     $Trail.show()
-    $CollisionShape2D.shape = $CollisionShape2D.shape.duplicate()
+    $CollisionShape2D.shape = CircleShape2D.new()
     $CollisionShape2D.shape.radius = 3.0 * spell_scale
     set_deferred("monitoring", true)
     show()
@@ -1719,11 +1721,11 @@ func _physics_process(delta: float) -> void:
 
 func _on_area_entered(area: Area2D) -> void:
     # Swept queries own pierce ordering; overlap callbacks must not race them.
-    if int(config.get("pierce", 0)) == 0:
+    if int(config.get("pierce", 0)) == 0 and not config.has("head_hull"):
         contact_body(area)
 
 func _on_body_entered(body: Node2D) -> void:
-    if int(config.get("pierce", 0)) == 0 and body is StaticBody2D:
+    if int(config.get("pierce", 0)) == 0 and not config.has("head_hull") and body is StaticBody2D:
         contact_body(body)
 
 func contact_body(area: CollisionObject2D, phase: String = "head") -> void:
@@ -1747,6 +1749,7 @@ func contact_body(area: CollisionObject2D, phase: String = "head") -> void:
     entry["strike_response"] = not strike_fired
     if area.is_in_group("vfx_targets"):
         _contact_label(area, body_index, contact_class)
+    struck_ground = area.global_position
     _spawn_impact(not strike_fired, global_position if phase == "head" else area.global_position)
     strike_fired = true
     if phase == "head":
@@ -1775,6 +1778,7 @@ func _contact_label(area: CollisionObject2D, body_index: int, contact_class: Str
 func _spawn_impact(strike_response: bool = true, point: Variant = null) -> void:
     var impact: Node2D = load(config.impact).instantiate()
     impact.set_meta("strike_response", strike_response)
+    if struck_ground != null: impact.set_meta("ground_anchor", struck_ground)
     impact.set("spell_scale", spell_scale)
     impact.set("caster", caster)
     impact.set("direction", direction)
@@ -2821,6 +2825,13 @@ def _write_piece_burst_v2(out, kit, resource_root, prefix):
         scene = scene.replace('res://scripts/vfx/piece_burst_v2.gd',
                               'res://scripts/vfx/piece_burst_v2_keys.gd')
         (out/'scripts/vfx/piece_burst_v2_keys.gd').write_text(script)
+    if layers_fl2 := data['layers'].get('glow', {}).get('peak'):
+        runtime['fire_layers'] = data['layers']
+        runtime['palette'] = data['material']['palette']
+        (out/'scripts/vfx_fire_motes.gd').write_text(FIRE_MOTES_SCRIPT)
+        script = _fire_burst_script(script if config.get('key_states') else PIECE_BURST_V2_SCRIPT)
+        scene = scene.replace('res://scripts/vfx/piece_burst_v2_keys.gd','res://scripts/vfx/piece_burst_fl2.gd').replace('res://scripts/vfx/piece_burst_v2.gd','res://scripts/vfx/piece_burst_fl2.gd')
+        (out/'scripts/vfx/piece_burst_fl2.gd').write_text(script)
     # Shared files must not depend on which kit was emitted last.
     (out/'scripts/vfx/piece_burst_v2.gd').write_text(PIECE_BURST_V2_SCRIPT)
     runtime_path.write_text(json.dumps(runtime,indent=2)+'\n')
@@ -2931,7 +2942,24 @@ def _painted_g1_config(kit):
     for i, state in enumerate(states):
         state['png'] = root+state['png']
         state['material'] = root+'materials/Travel_key_'+str(i)+'.tres'
-    return {'bolt': ('res://scenes/vfx/g1_ice_projectile.tscn' if data.get('pieces', {}).get('template') == 'burst_v1r' else 'res://scenes/vfx/g1_painted_projectile.tscn'),
+    from scipy.spatial import ConvexHull
+    import numpy as np
+    with Image.open(kit['root']/data['travel_primitives']['head']['png']) as im:
+        yy, xx = np.nonzero(np.asarray(im.convert('RGBA'))[...,3] >= 32)
+    points = np.column_stack((xx,yy))
+    head = data['travel_primitives']['head']
+    hull = (points[ConvexHull(points).vertices] - head['pivot']) * head['scale']
+    # The collision envelope includes the painted trailing puff/streak. A thin
+    # shard's tip can clear a footprint that its visible trailing body crosses.
+    streak = data['travel_primitives']['streak']
+    with Image.open(kit['root']/streak['png']) as im:
+        sy, sx = np.nonzero(np.asarray(im.convert('RGBA'))[...,3] >= 32)
+    tail_points = np.column_stack((sx,sy))
+    rear = (np.asarray(head['rear_socket'])-head['pivot'])*head['scale']
+    tail_hull = (tail_points[ConvexHull(tail_points).vertices]-streak['pivot'])*streak['scale']+rear
+    envelope = np.concatenate((hull,tail_hull))
+    hull = envelope[ConvexHull(envelope).vertices]
+    return {'head_hull': hull.tolist(), 'fire_layers': data['layers'] if 'cast' in data['layers'] else {}, 'palette': data['material']['palette'], 'bolt': ('res://scenes/vfx/g1_ice_projectile.tscn' if data.get('pieces', {}).get('template') == 'burst_v1r' else 'res://scenes/vfx/g1_painted_projectile.tscn'),
             'range_px': data['skill_spec']['mechanics']['range_px'],
             'speed_px_s': data['skill_spec']['mechanics']['speed_px_s'],
             'spec_speed_px_s': data['skill_spec']['mechanics']['speed_px_s'],
@@ -2944,13 +2972,15 @@ def _painted_g1_config(kit):
             'seed': data['impact_binding']['seed'], 'painted_travel': primitives,
             'key_states': states, 'enabled_layers': data['skill_spec']['presentation']['enabled_layers'],
             'dark_duplicate': data['layers'].get('dark_duplicate', False),
-            'strike_stop_s': data['skill_spec']['presentation']['phase_envelope_s']['contact_frames']/60.0}
+            'strike_stop_s': data['skill_spec']['presentation'].get('layers', {}).get('hit_stop', {}).get('frames', data['skill_spec']['presentation']['phase_envelope_s']['contact_frames'])/60.0}
 
 
 def _write_painted_travel(out, kit, resource_root):
     import numpy as np
     from export.effect_kit import write_vfx_material
     data = kit['effect']
+    if data['layers'].get('cast') or data['layers'].get('travel'):
+        (out/'scripts/vfx_fire_motes.gd').write_text(FIRE_MOTES_SCRIPT)
     items = [(role, data['travel_primitives'][role]) for role in ('head', 'streak')]
     items += [('key_'+str(i), state) for i, state in enumerate(data.get('key_states', []))]
     for role, item in items:
@@ -2989,7 +3019,16 @@ def _write_painted_travel(out, kit, resource_root):
         material = dict(data['material'], erode=0.0, dissolve=0.0, erode_outside_in=False)
         material.pop('erode_noise', None)
         material.pop('dissolve_order', None)
-        write_vfx_material(out, resource_root+'/materials/Travel_'+role+'.tres', material, resource_root+'/'+field)
+        noise_rel = None
+        if role == 'streak' and data['layers'].get('travel', {}).get('erode_noise'):
+            # Reuse T4h's shared continuous-noise shader. Reverse the longitudinal
+            # field so outside-in removal still burns from tail toward socket.
+            from export.effect_kit import erosion_noise_texture
+            Image.fromarray(np.broadcast_to(255-np.rint(ramp*255).astype(np.uint8), rgba.shape[:2])).save(out/resource_root/field)
+            noise_rel = resource_root+'/distance/primitives/tail_noise.png'
+            Image.fromarray(erosion_noise_texture(rgba)).save(out/noise_rel)
+            material.update(erode_outside_in=True, erode_noise=data['layers']['travel']['erode_noise'])
+        write_vfx_material(out, resource_root+'/materials/Travel_'+role+'.tres', material, resource_root+'/'+field, noise_texture=noise_rel)
         if role == 'head':
             write_vfx_material(out, resource_root+'/materials/Fizzle_head.tres', dict(material, erode_outside_in=True), resource_root+'/'+field)
 
@@ -3002,6 +3041,9 @@ var rest_head: Texture2D
 var fizzling: bool = false
 var fizzle_trace: Array = []
 var fizzle_shards: Array[Sprite2D] = []
+var fire_fx: Node2D
+var trail_motes: Node2D
+var fire_trace: Array = []
 
 func release(kit: Dictionary, origin: Vector2, destination: Dictionary, owner_node: Node2D = null, art_scale: float = 1.0) -> void:
     draining = false
@@ -3064,9 +3106,26 @@ func release(kit: Dictionary, origin: Vector2, destination: Dictionary, owner_no
     $KeyState.hide()
     $CastHalo.hide()
     $Trail.hide()
+    if config.has("head_hull"):
+        var shape := ConvexPolygonShape2D.new()
+        var vertices := PackedVector2Array()
+        for p in config.head_hull: vertices.append(Vector2(p[0],p[1]).rotated(direction.angle()))
+        shape.points = vertices
+        $CollisionShape2D.shape = shape
+    fire_trace.clear()
+    fire_fx = null
+    trail_motes = null
+    if not config.get("fire_layers", {}).is_empty():
+        var pool = load("res://scripts/vfx_fire_motes.gd")
+        fire_fx = pool.acquire(get_parent())
+        fire_fx.start_cast(config, origin, caster.global_position if is_instance_valid(caster) else origin, direction)
+        if config.fire_layers.get("travel", {}).has("trail"):
+            trail_motes = pool.acquire(get_parent())
+            trail_motes.start_trail(config.fire_layers.travel.trail, config.palette, int(config.seed))
     _paint_clock(0)
 
 func _physics_process(delta: float) -> void:
+    if is_instance_valid(trail_motes): trail_motes.emitting = active
     if fizzling:
         _fizzle_clock(age_frames() - stop_age)
         return
@@ -3118,6 +3177,20 @@ func _paint_clock(age: int) -> void:
         $KeyState.centered = false
         $KeyState.offset = -Vector2(selected.pivot[0], selected.pivot[1])
         $KeyState.scale = Vector2.ONE * float(selected.scale)
+    if not config.get("fire_layers", {}).is_empty():
+        var travel: Dictionary = config.fire_layers.get("travel", {})
+        var period: int = int(travel.get("flicker_frames", 0))
+        var swapped: bool = period > 0 and (age / maxi(1,period)) % 2 == 1
+        for band in [2,3]:
+            var colour: Array = config.palette[5-band if swapped else band]
+            $Head.material.set_shader_parameter("palette_"+str(band), Color(colour[0],colour[1],colour[2],colour[3]))
+            if $KeyState.visible:
+                $KeyState.material = $KeyState.material.duplicate()
+                $KeyState.material.set_shader_parameter("palette_"+str(band), Color(colour[0],colour[1],colour[2],colour[3]))
+        if is_instance_valid(trail_motes):
+            trail_motes.source_point = global_position + socket.rotated(direction.angle())
+            trail_motes.emitting = active
+        fire_trace.append({"age":age,"swapped":swapped,"period":period,"rear":[(global_position+socket.rotated(direction.angle())).x,(global_position+socket.rotated(direction.angle())).y]})
     _dark_copy($DarkHead, $Head, rest_head)
     _dark_copy($DarkStreak, $Streak, $Streak.texture)
     if not selected.is_empty():
@@ -3172,6 +3245,7 @@ func _strike_stop() -> void:
             controller.queue_free())
 
 func _range_fizzle() -> void:
+    if is_instance_valid(trail_motes): trail_motes.emitting = false
     active = false
     expired = true
     fizzling = true
@@ -3220,6 +3294,7 @@ func _fizzle_clock(tick: int) -> void:
         set_physics_process(false)
 
 func _recycle() -> void:
+    if is_instance_valid(trail_motes): trail_motes.emitting = false
     active = false
     expired = true
     draining = true
@@ -3275,7 +3350,7 @@ PIECE_BURST_V1R_SCRIPT = '''extends "res://scripts/vfx/piece_burst.gd"
 func _ready() -> void:
     spell_scale = 1.0
     super._ready()
-    preload("res://scripts/vfx_ground.gd").attach(ground_decal, self, global_position)
+    preload("res://scripts/vfx_ground.gd").attach(ground_decal, self, get_meta("ground_anchor", global_position))
     ground_decal.material = ground_decal.material.duplicate()
     if grey_bodies:
         for band in range(4):
@@ -4859,6 +4934,181 @@ func _update_cast_halo() -> void:
     cast_halo.modulate = Color(band[0],band[1],band[2],lerpf(0.6,0.9,t))
     cast_halo.global_position = socket
     cast_halo.show()
+'''
+
+
+
+
+
+def _fire_burst_script(script):
+    script = script.replace('    tree_exiting.connect(_write_trace)', '''    $FloorLight.material = $FloorLight.material.duplicate()
+    var colour: Array = config.palette[2]
+    for band in range(4): $FloorLight.material.set_shader_parameter("palette_"+str(band),Color(colour[0],colour[1],colour[2],1))
+    $Art/Glow.material = $Art/Glow.material.duplicate()
+    tree_exiting.connect(_write_trace)''')
+    script = script.replace('    $FloorLight.modulate.a = maxf(0.0,1.0-float(age)/maxf(1.0,float(config.floor_frames)))', '''    var light_t: float = clampf(float(age)/float(config.floor_frames),0.0,1.0)
+    $FloorLight.modulate.a = float(config.fire_layers.floor_light.alpha) * pow(1.0-light_t,2.0)''')
+    # After key-state selection so only the expanded painting owns the halo.
+    marker = '    if age >= residue_end:\n        hide()'
+    clock = '''    var peak: bool = trace[-1].get("key_state", "") == "expanded"
+    var glow: Dictionary = config.fire_layers.glow.peak if peak else config.fire_layers.glow
+    $Art/Glow.visible = peak or (age < flight_start and bool(config.glow_enabled))
+    $Art/Glow.modulate.a = float(glow.alpha)
+    $Art/Glow.scale = Vector2.ONE * float(glow.scale)
+    if peak:
+        $Art/Glow.texture = $Art/Key_expanded.texture
+        $Art/Glow.offset = $Art/Key_expanded.offset
+    trace[-1]["floor_alpha"] = $FloorLight.modulate.a
+    trace[-1]["floor_seconds"] = float(age)/60.0
+    trace[-1]["glow_alpha"] = $Art/Glow.modulate.a
+    trace[-1]["glow_scale"] = $Art/Glow.scale.x
+    trace[-1]["peak_halo"] = peak
+    if age >= residue_start and not has_meta("embers_started") and config.has("embers"):
+        set_meta("embers_started", true)
+        var motes = load("res://scripts/vfx_fire_motes.gd").acquire(get_parent())
+        motes.start_residue(config.embers,config.palette,int(config.seed),global_position,float(config.residue_frames)/60.0)
+'''
+    return script.replace(marker,clock+marker)
+
+
+FIRE_MOTES_SCRIPT = r'''extends Node2D
+# Bounded per-effect pool; all ages are integer physics ticks, never scaled delta.
+static var trace: Array = []
+var busy: bool = false
+var emitting: bool = false
+var source_point := Vector2.ZERO
+var clock_start: int = 0
+var mode: String = ""
+var settings: Dictionary = {}
+var palette: Array = []
+var slots: Array = []
+var births: int = 0
+var total: int = 0
+var duration: float = 0.0
+var rng := RandomNumberGenerator.new()
+var puff: Sprite2D
+var floor_disc: Polygon2D
+
+static func acquire(parent: Node2D) -> Node2D:
+    for node in parent.get_tree().get_nodes_in_group("fire_mote_pool"):
+        if node.get_parent() == parent and not node.busy: return node
+    var node := Node2D.new()
+    node.set_script(load("res://scripts/vfx_fire_motes.gd"))
+    parent.add_child(node)
+    node.add_to_group("fire_mote_pool")
+    return node
+
+func begin(kind: String) -> void:
+    mode = kind
+    busy = true
+    emitting = true
+    clock_start = Engine.get_physics_frames()
+    births = 0
+    top_level = true
+    global_transform = Transform2D.IDENTITY
+    show()
+    set_physics_process(true)
+    for item in slots: item.node.hide(); item.live = false
+    if puff != null: puff.hide()
+    if floor_disc != null: floor_disc.hide()
+
+func start_trail(data: Dictionary, colours: Array, seed_value: int) -> void:
+    begin("trail")
+    settings = data; palette = colours; rng.seed = seed_value
+
+func start_residue(data: Dictionary, colours: Array, seed_value: int, point: Vector2, seconds: float) -> void:
+    begin("residue")
+    settings=data; palette=colours; rng.seed=seed_value
+    source_point=point; duration=seconds
+    total=rng.randi_range(int(data.count[0]),int(data.count[1]))
+    trace.append({"kind":"residue_start","count":total,"duration_s":duration})
+
+func start_cast(config: Dictionary, socket: Vector2, feet: Vector2, aim: Vector2) -> void:
+    begin("cast")
+    settings = config.fire_layers.cast
+    if settings.has("muzzle_puff"):
+        if puff == null: puff=Sprite2D.new(); add_child(puff)
+        puff.texture=load(config.painted_travel.head.png)
+        puff.material=load(config.painted_travel.head.material).duplicate()
+        var shader: Shader = puff.material.shader.duplicate()
+        shader.code=shader.code.replace("blend_mix", "blend_add")
+        puff.material.shader=shader
+        puff.centered=false
+        var rear: Array=config.painted_travel.head.rear_socket
+        puff.offset=-Vector2(rear[0],rear[1])
+        puff.scale=Vector2.ONE * float(config.painted_travel.head.scale) * float(settings.muzzle_puff.scale)
+        puff.rotation=aim.angle(); puff.position=socket; puff.texture_filter=CanvasItem.TEXTURE_FILTER_LINEAR
+    if settings.has("floor_light"):
+        if floor_disc == null:
+            floor_disc=Polygon2D.new(); add_child(floor_disc)
+            var additive:=CanvasItemMaterial.new(); additive.blend_mode=CanvasItemMaterial.BLEND_MODE_ADD; floor_disc.material=additive
+        var polygon:=PackedVector2Array()
+        for i in 48: polygon.append(Vector2(cos(TAU*i/48.0),sin(TAU*i/48.0)*.6)*130.0*float(settings.floor_light.radius_bh))
+        floor_disc.polygon=polygon; floor_disc.position=feet; floor_disc.z_index=-3
+        var c:Array=config.palette[2]; floor_disc.color=Color(c[0],c[1],c[2],1)
+    _tick(0)
+
+func _physics_process(_delta: float) -> void:
+    if busy: _tick(roundi(float(Engine.get_physics_frames()-clock_start)*60.0/Engine.physics_ticks_per_second))
+
+func _birth(tick: int) -> void:
+    var slot: Dictionary = {}
+    for item in slots:
+        if not item.live: slot=item; break
+    var cap: int=8 if mode=="trail" else 12
+    if slot.is_empty():
+        if slots.size()>=cap: return
+        var node:=Polygon2D.new(); add_child(node)
+        var additive:=CanvasItemMaterial.new(); additive.blend_mode=CanvasItemMaterial.BLEND_MODE_ADD; node.material=additive
+        slot={"node":node,"live":false}; slots.append(slot)
+    var size: float=rng.randf_range(settings.size_px[0],settings.size_px[1])
+    slot.node.polygon=PackedVector2Array([Vector2(-size/2,0),Vector2(0,-size/2),Vector2(size/2,0),Vector2(0,size/2)])
+    var band: int=2 if mode=="trail" else settings.bands[rng.randi_range(0,1)]
+    var c:Array=palette[band];slot.node.color=Color(c[0],c[1],c[2],1)
+    slot.life=float(settings.life_s) if mode=="trail" else rng.randf_range(settings.life_s[0],settings.life_s[1])
+    slot.life = floor(float(slot.life)*60.0)/60.0
+    slot.tick=tick;slot.origin=source_point;slot.phase=rng.randf_range(0,TAU);slot.live=true;slot.id=births
+    slot.node.show(); births+=1
+    trace.append({"kind":"birth","mode":mode,"id":slot.id,"tick":tick,"life_s":slot.life,"size_px":size,"band":band,"position":[source_point.x,source_point.y]})
+
+func _tick(tick: int) -> void:
+    var seconds: float=float(tick)/60.0
+    if mode=="cast":
+        var end: int=0
+        if settings.has("muzzle_puff"):
+            end=maxi(end,int(settings.muzzle_puff.frames));puff.visible=tick<int(settings.muzzle_puff.frames)
+            puff.modulate.a=maxf(0,1.0-float(tick)/float(settings.muzzle_puff.frames))
+        if settings.has("floor_light"):
+            end=maxi(end,int(settings.floor_light.frames));floor_disc.visible=tick<int(settings.floor_light.frames)
+            floor_disc.modulate.a=float(settings.floor_light.alpha)*maxf(0,1.0-float(tick)/float(settings.floor_light.frames))
+        trace.append({"kind":"cast","tick":tick,"puff_alpha":puff.modulate.a if puff!=null else 0,"floor_alpha":floor_disc.modulate.a if floor_disc!=null else 0})
+        if tick>=end: finish()
+        return
+    var live: int=0
+    for item in slots:
+        if not item.live: continue
+        var age: float=float(tick-int(item.tick))/60.0
+        if age>=float(item.life):
+            item.live=false;item.node.hide()
+            trace.append({"kind":"death","mode":mode,"id":item.id,"tick":tick,"age_s":age,"life_s":item.life})
+            continue
+        item.node.position=item.origin+Vector2(float(settings.lateral_px)*(sin(item.phase+age*8)-sin(item.phase))*.5,-float(settings.rise_px_s)*age)
+        item.node.modulate.a=1.0-age/float(item.life); live+=1
+    var target: int=mini(total,int(floor(seconds/duration*total))+1) if mode=="residue" else int(floor(seconds*float(settings.rate_per_s)))
+    if emitting and (mode!="residue" or seconds<duration):
+        while births<target:
+            var before: int=births
+            _birth(tick)
+            if births==before: break
+    live=0
+    for item in slots:
+        if item.live: live+=1
+    trace.append({"kind":"pool","mode":mode,"tick":tick,"live":live,"births":births})
+    if mode=="residue" and seconds>=duration: emitting=false
+    if not emitting and live==0: finish()
+
+func finish() -> void:
+    busy=false;emitting=false;hide();set_physics_process(false)
 '''
 
 

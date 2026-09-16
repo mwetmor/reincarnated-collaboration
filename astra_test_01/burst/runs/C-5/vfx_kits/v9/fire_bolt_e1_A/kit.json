@@ -43,17 +43,49 @@
     "dark_duplicate": true,
     "glow": {
       "alpha": 0.2,
-      "scale": 1.02
+      "scale": 1.02,
+      "peak": {
+        "alpha": 0.35,
+        "scale": 1.06
+      }
     },
     "floor_light": {
-      "duration_s": 0.15,
-      "radius_px": 120
+      "radius_px": 160,
+      "duration_s": 0.35,
+      "curve": "ease_out",
+      "tint": "palette_2",
+      "alpha": 0.6
     },
     "flash": {
       "duration_s": 0.03333333333333333,
       "alpha": 0.8,
       "scale_from": 1.04,
       "scale_to": 1
+    },
+    "cast": {
+      "muzzle_puff": {
+        "scale": 0.45,
+        "frames": 4
+      },
+      "floor_light": {
+        "radius_bh": 0.8,
+        "frames": 6,
+        "alpha": 0.5
+      }
+    },
+    "travel": {
+      "flicker_frames": 2,
+      "trail": {
+        "rate_per_s": 5,
+        "size_px": [
+          3,
+          4
+        ],
+        "life_s": 0.35,
+        "rise_px_s": 30,
+        "lateral_px": 10
+      },
+      "erode_noise": 0.3
     }
   },
   "skill_spec": {
@@ -110,14 +142,81 @@
         "victim_tint",
         "hit_stop",
         "contact_label"
-      ]
+      ],
+      "layers": {
+        "cast": {
+          "muzzle_puff": {
+            "scale": 0.45,
+            "frames": 4
+          },
+          "floor_light": {
+            "radius_bh": 0.8,
+            "frames": 6,
+            "alpha": 0.5
+          }
+        },
+        "travel": {
+          "flicker_frames": 2,
+          "trail": {
+            "rate_per_s": 5,
+            "size_px": [
+              3,
+              4
+            ],
+            "life_s": 0.35,
+            "rise_px_s": 30,
+            "lateral_px": 10
+          },
+          "erode_noise": 0.3
+        },
+        "floor_light": {
+          "radius_px": 160,
+          "duration_s": 0.35,
+          "curve": "ease_out",
+          "tint": "palette_2",
+          "alpha": 0.6
+        },
+        "glow": {
+          "peak": {
+            "alpha": 0.35,
+            "scale": 1.06
+          }
+        },
+        "hit_stop": {
+          "frames": 3
+        },
+        "pieces": {
+          "residue_s": 0.8,
+          "embers": {
+            "count": [
+              8,
+              12
+            ],
+            "size_px": [
+              3,
+              5
+            ],
+            "life_s": [
+              0.5,
+              0.9
+            ],
+            "rise_px_s": 40,
+            "lateral_px": 12,
+            "bands": [
+              2,
+              3
+            ]
+          }
+        }
+      }
     },
     "provenance": {
       "speed_px_s": "charter \u00a7 6: 8 BH/s at 130-px BH (Matt approves the comparison at Packet 85; Hades band 6.5\u201311.6; shipped Frozen Orb \u2248 4.9)",
       "range_px": "4 BH (charter \u00a7 6)",
       "impact": "E0-p R-C5-34 (Matt: motion + size right)",
       "head/streak extents": "03- \u00a7 2.3 build list (1.2 BH body; P02 \u2248 120\u00d740 native at s=3 \u2192 2.0 BH long at s=1)",
-      "range_expiry": "R-C5-79 F-C5-22"
+      "range_expiry": "R-C5-79 F-C5-22",
+      "presentation.layers": "R-C5-87 FL-2"
     }
   },
   "key_states": [

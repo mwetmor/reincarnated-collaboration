@@ -1709,3 +1709,30 @@ class FireLaneHeadlessTests(unittest.TestCase):
             self.assertTrue(all(not r['key_visible'] for r in row['fizzle']))
             self.assertTrue(all(r['ember_count']==3 for r in row['fizzle'] if r['tick']<18))
             self.assertEqual(row['fizzle'][-1]['ember_count'],0)
+
+
+class FL2RuntimeEmissionTests(unittest.TestCase):
+    def test_real_scene_sweep_and_ground_anchor_trace(self):
+        root=Path(__file__).resolve().parents[1]/'runs/C-5/t3/FL-2'
+        report=json.loads((root/'acceptance.json').read_text())
+        for kit in ('9','10'):
+            contacts=report['part0']['contacts'][kit]
+            self.assertEqual(len(contacts),1)
+            self.assertEqual(contacts[0]['body_index'],3)
+            self.assertLessEqual(contacts[0]['age_frames'],6)
+        self.assertEqual(report['part0']['decal_positions'],[[3911.25,596.0]])
+        self.assertTrue(report['part0']['real_scene_byte_identical'])
+        self.assertEqual(set(report['exit_codes'].values()),{0})
+        self.assertEqual(report['byte_identity']['unchanged_kit_count'],14)
+        self.assertEqual(report['byte_identity']['primitive_and_piece_changes'],[])
+
+    def test_emitted_opt_in_material_and_hitstop(self):
+        from export.godot_import import _g1_config, _load_vfx_kit
+        root=Path(__file__).resolve().parents[1]
+        kit=_load_vfx_kit(root/'runs/C-5/vfx_kits/v9/fire_bolt_e1_B')
+        kit['name']='fire_bolt_e1_B'  # catalogue normally supplies the selection name
+        self.assertAlmostEqual(_g1_config(kit)['strike_stop_s']*60,3)
+        shader=(root/'runs/C-5/t3/FL-2/reexport/vfx/fire_bolt_e1_B/materials/Travel_streak.tres').read_text()
+        self.assertIn('shader_parameter/erode_noise = 0.3',shader)
+        self.assertIn('tail_noise.png',shader)
+        self.assertNotIn('tail_erode_noise',(root/'runs/C-5/t3/FL-2/reexport/vfx/ice_bolt_e2/materials/vfx_material_mix_unlit.gdshader').read_text())

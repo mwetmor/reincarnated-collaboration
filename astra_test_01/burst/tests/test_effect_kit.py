@@ -2402,3 +2402,32 @@ class FireLaneRangeExpiryTests(unittest.TestCase):
             with self.assertRaisesRegex(ValueError,'range_expiry'): validate_projectile(candidate,root,True)
         ice=load_kit(ROOT/'runs/C-5/vfx_kits/v9/ice_bolt_e2')
         self.assertEqual(ice['skill_spec']['mechanics'].get('range_expiry','burst'),'burst')
+
+
+class FL2FieldValidationTests(unittest.TestCase):
+    def test_cast_travel_and_embers_boundaries_and_bad_values(self):
+        from export.effect_kit import validate_fire_layer, validate_motes
+        cast={'muzzle_puff':{'scale':.45,'frames':4},'floor_light':{'radius_bh':.8,'frames':6,'alpha':.5}}
+        travel={'flicker_frames':2,'erode_noise':.3,'trail':{'rate_per_s':5,'size_px':[3,4],'life_s':.35,'rise_px_s':30,'lateral_px':10}}
+        embers={'count':[8,12],'size_px':[3,5],'life_s':[.5,.9],'rise_px_s':40,'lateral_px':12,'bands':[2,3]}
+        validate_fire_layer('cast',cast);validate_fire_layer('travel',travel);validate_motes(embers,True)
+        for role,key,values in [('muzzle_puff','scale',[.29,.61,True,float('nan')]),('muzzle_puff','frames',[1,9,2.5,True]),('floor_light','radius_bh',[.49,1.21]),('floor_light','alpha',[.19,.81])]:
+            for value in values:
+                bad=copy.deepcopy(cast);bad[role][key]=value
+                with self.subTest(role=role,key=key,value=value),self.assertRaises(ValueError): validate_fire_layer('cast',bad)
+        for key,value in [('flicker_frames',0),('flicker_frames',True),('erode_noise',1.1),('unknown',1)]:
+            bad=copy.deepcopy(travel);bad[key]=value
+            with self.subTest(key=key,value=value),self.assertRaises(ValueError):validate_fire_layer('travel',bad)
+        for key,value in [('count',[7,12]),('count',[12,8]),('size_px',[3,6]),('life_s',[.5,1]),('bands',[1,3]),('lateral_px',21)]:
+            bad=copy.deepcopy(embers);bad[key]=value
+            with self.subTest(key=key,value=value),self.assertRaises(ValueError):validate_motes(bad,True)
+
+    def test_all_new_fields_validate_in_actual_catalogue(self):
+        from export.godot_import import _load_vfx_kits
+        kits=_load_vfx_kits(ROOT/'runs/C-5/vfx_kits/kits_v9.json')
+        self.assertEqual(len(kits),17)
+        for kit in kits:
+            if kit['name'] in ('fire_bolt_e1_A','fire_bolt_e1_B'):
+                self.assertEqual(kit['effect']['layers']['cast']['muzzle_puff']['frames'],4)
+            elif kit['name']=='fire_burst_e0p_v2':self.assertEqual(kit['effect']['pieces']['residue_s'],.8)
+            else:self.assertNotIn('cast',kit.get('effect',{}).get('layers',{}))

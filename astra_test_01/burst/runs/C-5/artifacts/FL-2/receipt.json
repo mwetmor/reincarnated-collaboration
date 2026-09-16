@@ -1,0 +1,73 @@
+{
+  "task_id": "FL-2",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [],
+  "calls_used": 0,
+  "retries": [
+    {
+      "reason": "Ice trailing coverage, pooled collision-shape reuse, and CLI definition order required corrections.",
+      "change": "Corrected the exporter and reran headless probes and tests."
+    }
+  ],
+  "self_report": {
+    "obeyed_invariants": true,
+    "concerns": [
+      "Seven FL-2 tests are green; 20 broader-suite reds remain individually documented in acceptance.json.",
+      "Reconstructed permitted v34 inputs rather than reading the excluded pack brief; emitted scene is byte-identical.",
+      "Existing painted/pieces route applies no camera shake; unchanged.",
+      "Conservative collision envelopes and rendered appearance require conductor review.",
+      "Godot exits 0 but reports sandbox certificate/editor-settings diagnostics.",
+      "Complete 1,616-file inventory is supplied in files.json and receipt-full.json."
+    ]
+  },
+  "files": [
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/export/effect_kit.py",
+      "sha256": "e28917b7c0487b7461984544f829598be6b16407b70bb69025f34c25b4d6051c"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/export/godot_import.py",
+      "sha256": "734dcc512d6f1b8a95ecbd1252df8de6228cfc8b352493ed24f2cc81d8433577"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/specs/fire_bolt_e1.json",
+      "sha256": "0e9b8c7398290cc66b1bee0314b36247478150b467696a20fd2f91835d185491"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/vfx_kits/v9/fire_bolt_e1_A/kit.json",
+      "sha256": "683870fee7fbe327c445e0aa24c1d5cd9ae0f318c689f4782cd764b59891cc43"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/vfx_kits/v9/fire_bolt_e1_B/kit.json",
+      "sha256": "f941beb3be1f0d28ec949de9aacbd6db6ea27d74c5f9944ebd90b49d84b04882"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/vfx_kits/v9/fire_burst_e0p_v2/kit.json",
+      "sha256": "607377011d069c1e6f317426e470e1b64ad1f650e20e4ee8b51ce6bc9e3602e9"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_effect_kit.py",
+      "sha256": "6f965e34a2b131afc5069b0bfd417bb340748e4336bbe3ca85db42b3651e9b46"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_godot_import.py",
+      "sha256": "9f8f4fa36a2b88f7a240594144b30f2fb199489310ee58cc92075864d5d9a0a3"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_vfx_picker.py",
+      "sha256": "ebfc5677397b2aa660e93558387c1eaf691fb6b9c59e45bd607287689ee21df8"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/FL-2/acceptance.json",
+      "sha256": "52e3a612a7a7fcf2ed9ca53264d891dbd726bace45d816d58a83fedce4a9e4c2"
+    },
+    {
+      "path": "/Users/admin/astra-burst/runs/C-5/FL-2/out/files.json",
+      "sha256": "d9156d83c50c57e66f565b49dd91161b7751ef88cdc79ba486688ea974e3d1f6"
+    },
+    {
+      "path": "/Users/admin/astra-burst/runs/C-5/FL-2/out/receipt-full.json",
+      "sha256": "72c8f8d4640b024961ffb3f77bbab4e5300bac1590f2c916ab29d0ade9a163f4"
+    }
+  ]
+}

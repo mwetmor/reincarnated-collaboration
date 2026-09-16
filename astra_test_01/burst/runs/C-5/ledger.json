@@ -12065,6 +12065,104 @@
       "codex_version": "codex-cli 0.153.4",
       "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
       "exit": 0
+    },
+    {
+      "id": "FL-2",
+      "type": "TOOLING",
+      "experiment": "C5-FIRE",
+      "brief_sha256": "9c4217ac96a6bcadce4b69fdbcabae1b7671ba537473b8ed8dfa79639259527f",
+      "started": "2026-09-16T17:53:56.878149+00:00",
+      "ended": "2026-09-16T18:15:58.464947+00:00",
+      "minutes": 22.026393092366682,
+      "image_calls": 0,
+      "tool_calls": 54,
+      "audit": {
+        "violations": [],
+        "image_calls": 0,
+        "tool_calls": 54,
+        "tools_seen": {
+          "command_execution": 54
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": []
+      },
+      "receipt_sha256": "46d9b3e7f3362df3fde33605870a10160eb128c6f30ab4031410160b72d16d3e",
+      "artifacts": [
+        {
+          "name": "files.json",
+          "sha256": "d9156d83c50c57e66f565b49dd91161b7751ef88cdc79ba486688ea974e3d1f6"
+        },
+        {
+          "name": "receipt-full.json",
+          "sha256": "72c8f8d4640b024961ffb3f77bbab4e5300bac1590f2c916ab29d0ade9a163f4"
+        }
+      ],
+      "artifacts_in_place": [
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "export/effect_kit.py",
+          "sha256": "e28917b7c0487b7461984544f829598be6b16407b70bb69025f34c25b4d6051c"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "export/godot_import.py",
+          "sha256": "734dcc512d6f1b8a95ecbd1252df8de6228cfc8b352493ed24f2cc81d8433577"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-5/specs/fire_bolt_e1.json",
+          "sha256": "0e9b8c7398290cc66b1bee0314b36247478150b467696a20fd2f91835d185491"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-5/t3/FL-2/acceptance.json",
+          "sha256": "52e3a612a7a7fcf2ed9ca53264d891dbd726bace45d816d58a83fedce4a9e4c2"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-5/vfx_kits/v9/fire_bolt_e1_A/kit.json",
+          "sha256": "683870fee7fbe327c445e0aa24c1d5cd9ae0f318c689f4782cd764b59891cc43"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-5/vfx_kits/v9/fire_bolt_e1_B/kit.json",
+          "sha256": "f941beb3be1f0d28ec949de9aacbd6db6ea27d74c5f9944ebd90b49d84b04882"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-5/vfx_kits/v9/fire_burst_e0p_v2/kit.json",
+          "sha256": "607377011d069c1e6f317426e470e1b64ad1f650e20e4ee8b51ce6bc9e3602e9"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "tests/test_effect_kit.py",
+          "sha256": "6f965e34a2b131afc5069b0bfd417bb340748e4336bbe3ca85db42b3651e9b46"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "tests/test_godot_import.py",
+          "sha256": "9f8f4fa36a2b88f7a240594144b30f2fb199489310ee58cc92075864d5d9a0a3"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "tests/test_vfx_picker.py",
+          "sha256": "ebfc5677397b2aa660e93558387c1eaf691fb6b9c59e45bd607287689ee21df8"
+        }
+      ],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
     }
   ],
   "experiments": [],
@@ -12824,6 +12922,13 @@
       "veto_open": true,
       "ruling": "LEGOLAS § 13 (PConc combo as played, class E): build = Witch/Occultist (PConc + GMP/Greater Volley fan of ~4.5 flasks + Plague Bearer + Profane Bloom). NOTHING in the footage is a dark decal: the darkness is the map floor (RGB 39,27,10; 90 percent of the play area below Y 45); the puddles are BRIGHT blooms — PConc acid green (78,202,29) 2.6x2.8 BH single / 4.9-5.5 BH as a fan, 0.30-0.35 s; Profane Bloom fuchsia (252,72,253) 1.4-1.8 BH lobes AT CORPSES, 0.30-0.40 s, up to 17-19 simultaneous; Plague Bearer teal (91,152,135) player-anchored field 5.5x2.9 BH, 5.5 s release. No accumulation. CONSEQUENCE for R-C5-80: the composite has real source elements — no invented house puddle needed. Fork F6-bis for Matt: (a) Occultist composite = PConc fan burst + Profane Bloom lobe at the struck/killed body (+ Plague Bearer as a later support aura) — RECOMMENDED; (b) keep the house dark puddle. The dark-ground register itself (a dark floor under bright blooms) is a SCENE/palette note for the painted cliffside, not a VFX decal.",
       "ts": "2026-09-16T14:07:11"
+    },
+    {
+      "id": "R-C5-90",
+      "class": "conductor",
+      "veto_open": true,
+      "ruling": "FL-2 DELIVERED_WITH_CONCERNS and ACCEPTED (7/7 focused tests green). Part 0 (F-C5-27 FIXED, real v34 scene): the 3-px tip sweep at staff height (socket y 526) passed ABOVE the shield footprint while the painted head visibly crossed it — the sweep is now the convex envelope of the indexed painted head + streak (alpha >= 32), in fraction order; east fire contacts body 3 (the shield) at age 1, ice likewise; decal anchored at the struck target (F-C5-25 closed pending the look). Parts 1-5 built to spec: muzzle puff + caster floor light (5 ticks), head flicker period 2, ember trail, eased floor light 0.6*(1-t/.35)^2 sampled 0/.1/.2/.35, hit-stop 3, residue 0.8 s with 12 living embers, peak heat halo frames 19-22 (alpha .35, x1.06). Shake: the painted route applies none (observation, no change). 14 kits byte-identical; three fire kits kit.json only. Sandbox reds are env + the byte locks the emitted-scene change re-opens (re-baseline in the next TOOLING with diffs). Rendered proof: PACK v35 + chain.",
+      "ts": "2026-09-16T14:18:27"
     }
   ],
   "grok_calls": [],

@@ -1923,3 +1923,39 @@ class FireLaneSocketSchemaTests(unittest.TestCase):
             self.assertEqual(cell['release_index'],3)
             self.assertEqual(len(cell['sockets']),8)
             self.assertTrue(all(len(p)==2 and all(0<=v<512 for v in p) for p in cell['sockets']))
+
+
+class FL2TraceContractTests(unittest.TestCase):
+    def setUp(self):
+        self.report=json.loads((ROOT/'runs/C-5/t3/FL-2/acceptance.json').read_text())
+
+    def test_eased_floor_and_exact_peak_hold(self):
+        samples=self.report['part3']['floor_samples']
+        self.assertEqual([r['seconds'] for r in samples],[0,.1,.2,.35])
+        for row in samples:
+            self.assertAlmostEqual(row['alpha'],.6*(1-row['seconds']/.35)**2,places=6)
+        self.assertNotAlmostEqual(samples[1]['alpha'],.6*(1-.1/.35),places=4)
+        self.assertEqual(self.report['part5']['peak_frames'],[19,20,21,22])
+        self.assertAlmostEqual(self.report['part5']['peak_alphas'][0],.35,places=6)
+        self.assertAlmostEqual(self.report['part5']['peak_scales'][0],1.06,places=6)
+
+    def test_motes_count_pool_and_every_lifetime(self):
+        report=self.report['part4']
+        self.assertGreaterEqual(report['ember_count'],8);self.assertLessEqual(report['ember_count'],12)
+        self.assertTrue(report['all_motes_dead'])
+        self.assertLessEqual(report['max_lifetime_overrun_s'],1e-9)
+        self.assertLessEqual(report['last_residue_death_tick'],report['residue_end_plus_max_life_ticks'])
+        for mote in report['births']:
+            self.assertGreaterEqual(mote['life_s'],.5);self.assertLessEqual(mote['life_s'],.9)
+            self.assertIn(mote['band'],[2,3])
+        self.assertLessEqual(self.report['part2']['trail_max_live'],8)
+        self.assertGreater(len(self.report['part2']['trail_births']),0)
+
+    def test_flicker_and_cast_fade_clocks(self):
+        trace=self.report['part2']['flicker_trace']
+        self.assertGreaterEqual(len(trace),5)
+        for row in trace:self.assertEqual(row['swapped'],(row['age']//2)%2==1)
+        rows=self.report['part1']['cast_trace']
+        self.assertTrue(any(r['tick']==0 and r['puff_alpha']==1 for r in rows))
+        self.assertTrue(any(r['tick']==4 and r['puff_alpha']==0 for r in rows))
+        self.assertTrue(any(r['tick']==6 and r['floor_alpha']==0 for r in rows))

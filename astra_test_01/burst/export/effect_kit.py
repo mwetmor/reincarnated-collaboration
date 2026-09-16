@@ -27,7 +27,8 @@ from PIL import Image
 PHASES = {'cast': 'flare', 'travel': 'travel', 'impact': 'impact', 'residual': 'residual'}
 TOP = {'name', 'element', 'element_class', 'tint', 'phases', 'layers', 'ground_squash', 'pixel_scale', 'phase_scale', 'material', 'distance_fields', 'pierce', 'pieces', 'screen_px', 'erode_noise', 'skill_spec', 'travel_primitives', 'key_states', 'impact_binding', 'decal_s', 'orb'}
 LAYER_KEYS = {
-    'glow': {'alpha', 'scale'}, 'floor_light': {'duration_s', 'radius_px'},
+    'glow': {'alpha', 'scale', 'peak'}, 'floor_light': {'duration_s', 'radius_px', 'curve', 'tint', 'alpha'},
+    'cast': {'muzzle_puff', 'floor_light'}, 'travel': {'flicker_frames', 'trail', 'erode_noise'},
     'flash': {'duration_s', 'alpha', 'scale_from', 'scale_to'},
     'decal': {'file', 'duration_s'}, 'hitstop': {'duration_s', 'time_scale'},
     'shake': {'distance', 'duration_s'},
@@ -448,10 +449,11 @@ def piece_geometry(record, source_root):
 def load_pieces(config, root, runtime=False):
     """Consume T4e schema 2 as delivered; never segment or recolour a shard."""
     root = Path(root).resolve()
-    _keys(config, {'source', 'template', 'root_drift', 'dissolve_order', 'erode_noise', 'key_states', *PIECES_DEFAULTS}, {'source', 'template'}, 'pieces')
+    _keys(config, {'source', 'template', 'root_drift', 'dissolve_order', 'erode_noise', 'key_states', 'embers', *PIECES_DEFAULTS}, {'source', 'template'}, 'pieces')
     if config['template'] not in ('burst_v1', 'burst_v2', 'burst_v1r'):
         raise ValueError('pieces.template must be burst_v1, burst_v2 or burst_v1r')
     _number(config.get('erode_noise', 0), 0, 1, 'pieces.erode_noise')
+    if 'embers' in config: validate_motes(config['embers'], True)
     values = {**PIECES_DEFAULTS, **config}
     states = values.get('key_states', [])
     if not isinstance(states, list):
@@ -608,12 +610,23 @@ def _validate(data, root, runtime=False):
         if name == 'dark_duplicate':
             if not isinstance(layer, bool): raise ValueError('dark_duplicate must be boolean')
             continue
+        if name in ('cast', 'travel'):
+            validate_fire_layer(name, layer)
+            continue
         fields = LAYER_KEYS[name]
         optional = ({'file'} if name == 'decal' else
                     {'amount', 'lifetime_s'} if name == 'particles' else set())
+        optional |= {'peak'} if name == 'glow' else {'curve', 'tint', 'alpha'} if name == 'floor_light' else set()
         _keys(layer, fields, fields-optional, name)
         for key, value in layer.items():
-            if key in ('file', 'texture'):
+            if key == 'peak':
+                _keys(value, {'alpha','scale'}, {'alpha','scale'}, 'glow.peak')
+                _number(value['alpha'], .2, .6, 'glow.peak.alpha')
+                _number(value['scale'], 1, 1.15, 'glow.peak.scale')
+            elif key in ('curve', 'tint'):
+                if value not in (('linear','ease_out') if key == 'curve' else ('palette_2',)):
+                    raise ValueError('invalid floor_light.'+key)
+            elif key in ('file', 'texture'):
                 assets[value] = _png(value, root, key == 'texture' and not runtime, runtime)
                 if key == 'texture' and not runtime and assets[value] not in frame_paths:
                     with Image.open(assets[value]) as image:
@@ -1587,3 +1600,41 @@ def validate_orb(data, root, runtime=False):
         with Image.open(assets[item['png']]) as im:
             for value,extent in zip(item['pivot'],im.size): _number(value,0,extent,'orb.pivot')
     return assets
+
+
+def validate_motes(value, residue=False):
+    """Bound opt-in pools and physical sizes; omission leaves legacy data alone."""
+    keys = {'count','size_px','life_s','rise_px_s','lateral_px','bands'} if residue else {'rate_per_s','size_px','life_s','rise_px_s','lateral_px'}
+    _keys(value, keys, keys, 'embers' if residue else 'trail')
+    def pair(key, lo, hi, integer=False):
+        v=value[key]
+        if not isinstance(v,list) or len(v)!=2: raise ValueError(key+' requires ordered bounds')
+        for x in v: _number(x,lo,hi,key,integer)
+        if v[0]>v[1]: raise ValueError(key+' requires ordered bounds')
+    pair('size_px',3,5 if residue else 4,True)
+    if residue:
+        pair('count',8,12,True); pair('life_s',.5,.9)
+        if value['bands'] != [2,3] or any(type(x) is not int for x in value['bands']): raise ValueError('embers.bands must be [2,3]')
+    else:
+        _number(value['rate_per_s'],1,20,'trail.rate_per_s')
+        _number(value['life_s'],.1,.5,'trail.life_s')
+    _number(value['rise_px_s'],0,80,'rise_px_s')
+    _number(value['lateral_px'],0,20,'lateral_px')
+
+
+def validate_fire_layer(name, value):
+    keys=LAYER_KEYS[name]
+    _keys(value,keys,set(),name)
+    if name=='cast':
+        for role,item in value.items():
+            fields={'scale','frames'} if role=='muzzle_puff' else {'radius_bh','frames','alpha'}
+            _keys(item,fields,fields,'cast.'+role)
+            _number(item['frames'],2,8,'cast.frames',True)
+            if role=='muzzle_puff': _number(item['scale'],.3,.6,'cast.scale')
+            else:
+                _number(item['radius_bh'],.5,1.2,'cast.radius_bh')
+                _number(item['alpha'],.2,.8,'cast.alpha')
+    else:
+        if 'flicker_frames' in value: _number(value['flicker_frames'],1,8,'travel.flicker_frames',True)
+        if 'erode_noise' in value: _number(value['erode_noise'],0,1,'travel.erode_noise')
+        if 'trail' in value: validate_motes(value['trail'])
