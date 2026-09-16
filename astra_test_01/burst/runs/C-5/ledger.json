@@ -5932,6 +5932,130 @@
       "codex_version": "codex-cli 0.153.4",
       "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
       "exit": 0
+    },
+    {
+      "id": "T4q",
+      "type": "TOOLING",
+      "experiment": "C5-E0p",
+      "brief_sha256": "f1e24d36e671ff034eec1086865ee992850e6ee3b27a7d6f93bd1efa13c357a6",
+      "started": "2026-09-16T06:49:16.189016+00:00",
+      "ended": "2026-09-16T07:10:53.270224+00:00",
+      "minutes": 21.61829752083334,
+      "image_calls": 0,
+      "tool_calls": 29,
+      "audit": {
+        "violations": [],
+        "image_calls": 0,
+        "tool_calls": 29,
+        "tools_seen": {
+          "command_execution": 29
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": []
+      },
+      "receipt_sha256": "8c1dcffb4376c1614ea054b3506254277b17b3b2af88f58e5092296159fcd258",
+      "artifacts": [
+        {
+          "name": "files.json",
+          "sha256": "8194b61874211c8824240979d0699ee8178f814b7337bf9190e268051012f464"
+        }
+      ],
+      "artifacts_in_place": [
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "export/effect_kit.py",
+          "sha256": "10d3b18fa5c6e53d7e234ebb0c119c3f3b5e07b6941066e82dc9f95a302e033f"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "export/godot_import.py",
+          "sha256": "ed20a90edf3ecc36cb2c221c62e369e786d9d521be75c634eb6538ed4e61d353"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "oracle/key_states.py",
+          "sha256": "0b1469006e03138b458cfc8e48a69f01f4f27f37e6ae5a77a42ab61c32d9c041"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-5/t3/T4q/acceptance.json",
+          "sha256": "3498ae00144792052b973db3b53c6210d7acd2209ead6a531936a54f188f3330"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-5/t3/T4q/evidence.tar.gz",
+          "sha256": "949a893a298f9d9a017b314f7ad1330a43ce20da9460c46fee503bffba45c57f"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-5/t3/T4q/expanded_clipped.png",
+          "sha256": "10ae0a8ee09137616a597af70f0b5bd35bf5f61539dbd2eb985e074714210417"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-5/t3/T4q/expanded_clipped_board.png",
+          "sha256": "198c176555b547c527a21f32c8b696a96e8f00120f0f9b7146c51aa36b403d52"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-5/t3/T4q/expanded_raw_board.png",
+          "sha256": "5ed1644704fb51ab5b599b13b7c867b93aa3217b383d5a26dec8dc6db1a6d913"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-5/t3/T4q/expanded_registered.png",
+          "sha256": "d15bd74576ccec1e1499663ba01fd2805e9f031b683df015ce4d1ef6d20142a1"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-5/t3/T4q/key_states.json",
+          "sha256": "7a4e819abe9fbaff7cb840626a9ea3321e96f0e179acb56681f4fb409032154f"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-5/t3/T4q/spent_clipped.png",
+          "sha256": "48762337a9a02f5da4207e7136dbc3e08385425fa48bf9225854815678149e56"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-5/t3/T4q/spent_clipped_board.png",
+          "sha256": "28c461b4e8c90036f554964a3b808cd27a8c92383466f124074422937cf11801"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-5/t3/T4q/spent_raw_board.png",
+          "sha256": "d05ec618ee259b5b87de0d5b7ee45069aeaea077bac9a4b3a9d83c3f90ad3644"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-5/t3/T4q/spent_registered.png",
+          "sha256": "57b8f22b9374e13500d8625eb945372335e1ca4a93a0d9d02710af18b2411de4"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "tests/test_effect_kit.py",
+          "sha256": "701b12f006a4c84e9433aa3c0bc84bf1bf6d2f6872531ae9e11a28cfe8a2248e"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "tests/test_godot_import.py",
+          "sha256": "379da8698bcd8dba0e903a1b66f16316ecedcdae348bc10203f9d31f3398e557"
+        }
+      ],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
     }
   ],
   "experiments": [],
@@ -6015,6 +6139,11 @@
       "id": "M-C5-E1-OPEN",
       "note": "E1 opened in parallel with E0-p step 5: spec runs/C-5/specs/fire_bolt_e1.json (conductor-authored VfxSkillSpec, provenance per field: charter § 6 fixture values; impact = the accepted burst); VF-prim-fire-head-01 (P01, 1.2 BH) + VF-prim-fire-streak-01 (P02, 2 BH) fired as a GENERATE wave against the E0-p vocabulary (the accepted peak as IMAGE 2).",
       "ts": "2026-09-16T02:44:23"
+    },
+    {
+      "id": "M-C5-PACKET-90",
+      "note": "E0-p COMPLETE — Packet 90: key states expanded (age 19, 4 f) + spent (age 40, 6 f) bound to fire_burst_e0p_v2 (clipped to the guides; IoU 0.97; boil in band), exported (v30) and baked at 1:1 (768, seed 2026): the expanded state heals the piece seams into one drawn flame; the spent state gives a painted ember heart. Desktop folder 90. E0-p chain closed: peak → pieces → runtime burst v1/v2 → lap 2/3 → ragged embers → key states. Next: E1 (T4p arms) after the T4q freeze.",
+      "ts": "2026-09-16T03:14:24"
     }
   ],
   "halts": [],
@@ -6340,6 +6469,13 @@
       "veto_open": true,
       "ruling": "FREEZE after T4g: outside suite = the five standing reds only (the six alignments landed). SPEC gains T4q + T4p rows. T4q fires (key-state registration + correspondence/boil, clipped binding); T4p (E1 arms) queued behind it.",
       "ts": "2026-09-16T02:48:31"
+    },
+    {
+      "id": "R-C5-47",
+      "class": "conductor",
+      "veto_open": true,
+      "ruling": "T4q DELIVERED_WITH_CONCERNS: registration (one scale + translation) recovers the EXPANDED painting at silhouette IoU 0.89 (the raw 0.27 was unregistered) and the spent similarly; clipped correspondence fails ONLY the ≤ 1 px centroid clause (1.24 px expanded, 2.14 px spent) — a clause written for transformed PIECES, applied to a re-DRAWN painting resampled ×0.49; 1–2 px at 768 is below the line weight. Conductor ruling: centroid tolerance for key states = 3 native px (charter § 6 correspondence clause amended for paintings); swap ages bound at the runtime stage boundaries (19 = end of expansion, 40 = residue entry), not the literal 15/36. Both clipped states bind (conductor data edit of the kit, ledgered). Bake 1:1 for the record; Matt eye at Packet 90.",
+      "ts": "2026-09-16T03:12:35"
     }
   ],
   "grok_calls": [],

@@ -1,0 +1,4565 @@
+{
+  "task_id": "T4q",
+  "states": {
+    "expanded": {
+      "at_age": 15,
+      "hold_frames": 4,
+      "registration": {
+        "scale": 0.4931246956821461,
+        "translation_xy": [
+          73.8013226895115,
+          0.3940559527843962
+        ],
+        "source_canvas_wh": [
+          1254,
+          1254
+        ],
+        "guide_canvas_wh": [
+          768,
+          768
+        ],
+        "silhouette_iou": 0.8926227878305826,
+        "transform": "guide_xy = source_xy * scale + translation_xy; no rotation or per-piece fitting",
+        "interpolation": "premultiplied bilinear; quantised after resampling"
+      },
+      "clipping": {
+        "dilation_px": 2,
+        "removed_pixels": 1609,
+        "guide_fill_pixels": 4965,
+        "guide_fill_fraction": 0.06465769836825587,
+        "painted_guide_fraction": 0.9353423016317441
+      },
+      "raw": {
+        "correspondence": {
+          "pieces": [
+            {
+              "id": 1,
+              "guide_pixels": 0,
+              "coverage_fraction": null,
+              "centroid_offset_px": null,
+              "passed": null,
+              "reason": "no visible guide footprint at this age"
+            },
+            {
+              "id": 2,
+              "guide_pixels": 0,
+              "coverage_fraction": null,
+              "centroid_offset_px": null,
+              "passed": null,
+              "reason": "no visible guide footprint at this age"
+            },
+            {
+              "id": 3,
+              "guide_pixels": 0,
+              "coverage_fraction": null,
+              "centroid_offset_px": null,
+              "passed": null,
+              "reason": "no visible guide footprint at this age"
+            },
+            {
+              "id": 4,
+              "guide_pixels": 0,
+              "coverage_fraction": null,
+              "centroid_offset_px": null,
+              "passed": null,
+              "reason": "no visible guide footprint at this age"
+            },
+            {
+              "id": 5,
+              "guide_pixels": 0,
+              "coverage_fraction": null,
+              "centroid_offset_px": null,
+              "passed": null,
+              "reason": "no visible guide footprint at this age"
+            },
+            {
+              "id": 6,
+              "guide_pixels": 0,
+              "coverage_fraction": null,
+              "centroid_offset_px": null,
+              "passed": null,
+              "reason": "no visible guide footprint at this age"
+            },
+            {
+              "id": 7,
+              "guide_pixels": 11416,
+              "matching_pixels": 12003,
+              "coverage_fraction": 0.9795900490539594,
+              "coverage_min": 0.9,
+              "coverage_shortfall": 0.0,
+              "guide_centroid_xy": [
+                414.91564470918007,
+                237.2030483531885
+              ],
+              "painting_centroid_xy": [
+                416.84820461551277,
+                235.6232608514538
+              ],
+              "centroid_offset_px": 2.4961002267941512,
+              "centroid_max_px": 1.0,
+              "centroid_excess_px": 1.4961002267941512,
+              "passed": false
+            },
+            {
+              "id": 8,
+              "guide_pixels": 14982,
+              "matching_pixels": 13471,
+              "coverage_fraction": 0.8243892671205446,
+              "coverage_min": 0.9,
+              "coverage_shortfall": 0.07561073287945541,
+              "guide_centroid_xy": [
+                539.1081965024696,
+                413.26938993458816
+              ],
+              "painting_centroid_xy": [
+                525.3338282235915,
+                412.31230049736473
+              ],
+              "centroid_offset_px": 13.807579138755942,
+              "centroid_max_px": 1.0,
+              "centroid_excess_px": 12.807579138755942,
+              "passed": false
+            },
+            {
+              "id": 9,
+              "guide_pixels": 10476,
+              "matching_pixels": 10294,
+              "coverage_fraction": 0.946258113783887,
+              "coverage_min": 0.9,
+              "coverage_shortfall": 0.0,
+              "guide_centroid_xy": [
+                245.60147002672775,
+                420.11607483772434
+              ],
+              "painting_centroid_xy": [
+                246.17194482222655,
+                420.8455410918982
+              ],
+              "centroid_offset_px": 0.9260467095551138,
+              "centroid_max_px": 1.0,
+              "centroid_excess_px": 0.0,
+              "passed": true
+            },
+            {
+              "id": 10,
+              "guide_pixels": 11372,
+              "matching_pixels": 11460,
+              "coverage_fraction": 0.9577910657755891,
+              "coverage_min": 0.9,
+              "coverage_shortfall": 0.0,
+              "guide_centroid_xy": [
+                229.37548364403798,
+                316.1333978192051
+              ],
+              "painting_centroid_xy": [
+                229.8439790575916,
+                315.5504363001745
+              ],
+              "centroid_offset_px": 0.7478850748552233,
+              "centroid_max_px": 1.0,
+              "centroid_excess_px": 0.0,
+              "passed": true
+            },
+            {
+              "id": 11,
+              "guide_pixels": 3851,
+              "matching_pixels": 3781,
+              "coverage_fraction": 0.9711763178395222,
+              "coverage_min": 0.9,
+              "coverage_shortfall": 0.0,
+              "guide_centroid_xy": [
+                409.4320955595949,
+                342.0820566086731
+              ],
+              "painting_centroid_xy": [
+                409.1005025125628,
+                341.7080137529754
+              ],
+              "centroid_offset_px": 0.49986198769116247,
+              "centroid_max_px": 1.0,
+              "centroid_excess_px": 0.0,
+              "passed": true
+            },
+            {
+              "id": 12,
+              "guide_pixels": 7775,
+              "matching_pixels": 7300,
+              "coverage_fraction": 0.9331189710610932,
+              "coverage_min": 0.9,
+              "coverage_shortfall": 0.0,
+              "guide_centroid_xy": [
+                433.8484887459807,
+                442.8090032154341
+              ],
+              "painting_centroid_xy": [
+                431.5821917808219,
+                439.9997260273973
+              ],
+              "centroid_offset_px": 3.609451516991449,
+              "centroid_max_px": 1.0,
+              "centroid_excess_px": 2.609451516991449,
+              "passed": false
+            },
+            {
+              "id": 13,
+              "guide_pixels": 10418,
+              "matching_pixels": 10282,
+              "coverage_fraction": 0.9837780764062201,
+              "coverage_min": 0.9,
+              "coverage_shortfall": 0.0,
+              "guide_centroid_xy": [
+                374.1088500671914,
+                460.4645805336917
+              ],
+              "painting_centroid_xy": [
+                373.87609414510797,
+                459.7663878622836
+              ],
+              "centroid_offset_px": 0.7359676118368734,
+              "centroid_max_px": 1.0,
+              "centroid_excess_px": 0.0,
+              "passed": true
+            },
+            {
+              "id": 14,
+              "guide_pixels": 4120,
+              "matching_pixels": 4071,
+              "coverage_fraction": 0.9878640776699029,
+              "coverage_min": 0.9,
+              "coverage_shortfall": 0.0,
+              "guide_centroid_xy": [
+                326.09490291262136,
+                387.8740291262136
+              ],
+              "painting_centroid_xy": [
+                326.38000491279786,
+                388.1021861950381
+              ],
+              "centroid_offset_px": 0.36515585516217464,
+              "centroid_max_px": 1.0,
+              "centroid_excess_px": 0.0,
+              "passed": true
+            },
+            {
+              "id": 15,
+              "guide_pixels": 4486,
+              "matching_pixels": 4323,
+              "coverage_fraction": 0.9538564422648239,
+              "coverage_min": 0.9,
+              "coverage_shortfall": 0.0,
+              "guide_centroid_xy": [
+                358.8201069995542,
+                343.15871600534996
+              ],
+              "painting_centroid_xy": [
+                359.1369419384687,
+                344.40619939856583
+              ],
+              "centroid_offset_px": 1.2870894276880458,
+              "centroid_max_px": 1.0,
+              "centroid_excess_px": 0.2870894276880458,
+              "passed": false
+            },
+            {
+              "id": 16,
+              "guide_pixels": 5186,
+              "matching_pixels": 5678,
+              "coverage_fraction": 0.975318164288469,
+              "coverage_min": 0.9,
+              "coverage_shortfall": 0.0,
+              "guide_centroid_xy": [
+                571.3002313922098,
+                320.6505977632086
+              ],
+              "painting_centroid_xy": [
+                571.2985206058471,
+                318.42057062345896
+              ],
+              "centroid_offset_px": 2.2300277959725197,
+              "centroid_max_px": 1.0,
+              "centroid_excess_px": 1.2300277959725197,
+              "passed": false
+            },
+            {
+              "id": 17,
+              "guide_pixels": 3447,
+              "matching_pixels": 3365,
+              "coverage_fraction": 0.9756309834638817,
+              "coverage_min": 0.9,
+              "coverage_shortfall": 0.0,
+              "guide_centroid_xy": [
+                412.24340005802145,
+                211.58891789962286
+              ],
+              "painting_centroid_xy": [
+                412.6754829123328,
+                211.6962852897474
+              ],
+              "centroid_offset_px": 0.4452228087733403,
+              "centroid_max_px": 1.0,
+              "centroid_excess_px": 0.0,
+              "passed": true
+            },
+            {
+              "id": 18,
+              "guide_pixels": 0,
+              "coverage_fraction": null,
+              "centroid_offset_px": null,
+              "passed": null,
+              "reason": "no visible guide footprint at this age"
+            },
+            {
+              "id": 19,
+              "guide_pixels": 0,
+              "coverage_fraction": null,
+              "centroid_offset_px": null,
+              "passed": null,
+              "reason": "no visible guide footprint at this age"
+            },
+            {
+              "id": 20,
+              "guide_pixels": 0,
+              "coverage_fraction": null,
+              "centroid_offset_px": null,
+              "passed": null,
+              "reason": "no visible guide footprint at this age"
+            },
+            {
+              "id": 21,
+              "guide_pixels": 0,
+              "coverage_fraction": null,
+              "centroid_offset_px": null,
+              "passed": null,
+              "reason": "no visible guide footprint at this age"
+            },
+            {
+              "id": 22,
+              "guide_pixels": 0,
+              "coverage_fraction": null,
+              "centroid_offset_px": null,
+              "passed": null,
+              "reason": "no visible guide footprint at this age"
+            },
+            {
+              "id": 23,
+              "guide_pixels": 0,
+              "coverage_fraction": null,
+              "centroid_offset_px": null,
+              "passed": null,
+              "reason": "no visible guide footprint at this age"
+            },
+            {
+              "id": 24,
+              "guide_pixels": 0,
+              "coverage_fraction": null,
+              "centroid_offset_px": null,
+              "passed": null,
+              "reason": "no visible guide footprint at this age"
+            }
+          ],
+          "guide_unmapped_pixels": 0,
+          "passed": false,
+          "matching_method": "independent transformed footprint intersections plus nearest-footprint exterior; binary alpha > 0.5, 8-connectivity"
+        },
+        "boil": {
+          "silhouette_iou": 0.8926227878305826,
+          "silhouette_iou_min": 0.9,
+          "silhouette_iou_shortfall": 0.007377212169417446,
+          "guide_shards": 1,
+          "painting_shards": 1,
+          "shard_count_delta": 0,
+          "shard_count_tolerance": 1,
+          "shard_count_excess": 0,
+          "guide_band0_width_px": 3.4921311295874156,
+          "painting_band0_width_px": 3.1623691993341043,
+          "contour_thickening_px": -0.32976193025331124,
+          "contour_thickening_max_px": 1.0,
+          "contour_thickening_excess_px": 0.0,
+          "VO8": {
+            "unique_frames": 2,
+            "unique_frames_per_s": 60.0,
+            "drawing_changes": 1,
+            "drawing_runs": 2,
+            "drawing_runs_per_s": 60.0,
+            "frame_sha256": [
+              "9bbca150f02b40b01a7e70be8d32dace86bfead7c22c43af7ce0f9d06f6d2ee7",
+              "a74a160c61f0d4caaf0b1e8d800c5d615a6f9ab3fa87580e8d5503d4823deb65"
+            ],
+            "duration_s": 0.03333333333333333,
+            "method": "exact decoded indexed RGBA bytes, two frames at stated fps",
+            "fps": 60,
+            "in_band": false,
+            "band_definition": "drawing changes while silhouette IoU >= 0.9; no additional temporal threshold supplied"
+          },
+          "changed_pixel_fraction": 0.9984962219129051,
+          "interior_band_change_fraction": 0.21030574738249053,
+          "drawing_changed": true,
+          "passed": false
+        },
+        "passed": false,
+        "failures": [
+          {
+            "test": "piece_centroid",
+            "piece": 7,
+            "value": 2.4961002267941512,
+            "threshold": 1.0,
+            "excess": 1.4961002267941512
+          },
+          {
+            "test": "piece_coverage",
+            "piece": 8,
+            "value": 0.8243892671205446,
+            "threshold": 0.9,
+            "shortfall": 0.07561073287945541
+          },
+          {
+            "test": "piece_centroid",
+            "piece": 8,
+            "value": 13.807579138755942,
+            "threshold": 1.0,
+            "excess": 12.807579138755942
+          },
+          {
+            "test": "piece_centroid",
+            "piece": 12,
+            "value": 3.609451516991449,
+            "threshold": 1.0,
+            "excess": 2.609451516991449
+          },
+          {
+            "test": "piece_centroid",
+            "piece": 15,
+            "value": 1.2870894276880458,
+            "threshold": 1.0,
+            "excess": 0.2870894276880458
+          },
+          {
+            "test": "piece_centroid",
+            "piece": 16,
+            "value": 2.2300277959725197,
+            "threshold": 1.0,
+            "excess": 1.2300277959725197
+          },
+          {
+            "test": "silhouette_iou",
+            "value": 0.8926227878305826,
+            "threshold": 0.9,
+            "excess": 0.007377212169417446
+          }
+        ],
+        "results": [
+          {
+            "id": "key_correspondence_coverage",
+            "subject": "piece/1",
+            "passed": null,
+            "value": null,
+            "threshold": 0.9,
+            "op": ">=",
+            "unit": "fraction",
+            "evidence": [
+              "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4q/expanded_raw_board.png"
+            ],
+            "notes": "no visible guide footprint at this age"
+          },
+          {
+            "id": "key_correspondence_centroid",
+            "subject": "piece/1",
+            "passed": null,
+            "value": null,
+            "threshold": 1.0,
+            "op": "<=",
+            "unit": "native_px",
+            "evidence": [
+              "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4q/expanded_raw_board.png"
+            ],
+            "notes": "no visible guide footprint at this age"
+          },
+          {
+            "id": "key_correspondence_coverage",
+            "subject": "piece/2",
+            "passed": null,
+            "value": null,
+            "threshold": 0.9,
+            "op": ">=",
+            "unit": "fraction",
+            "evidence": [
+              "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4q/expanded_raw_board.png"
+            ],
+            "notes": "no visible guide footprint at this age"
+          },
+          {
+            "id": "key_correspondence_centroid",
+            "subject": "piece/2",
+            "passed": null,
+            "value": null,
+            "threshold": 1.0,
+            "op": "<=",
+            "unit": "native_px",
+            "evidence": [
+              "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4q/expanded_raw_board.png"
+            ],
+            "notes": "no visible guide footprint at this age"
+          },
+          {
+            "id": "key_correspondence_coverage",
+            "subject": "piece/3",
+            "passed": null,
+            "value": null,
+            "threshold": 0.9,
+            "op": ">=",
+            "unit": "fraction",
+            "evidence": [
+              "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4q/expanded_raw_board.png"
+            ],
+            "notes": "no visible guide footprint at this age"
+          },
+          {
+            "id": "key_correspondence_centroid",
+            "subject": "piece/3",
+            "passed": null,
+            "value": null,
+            "threshold": 1.0,
+            "op": "<=",
+            "unit": "native_px",
+            "evidence": [
+              "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4q/expanded_raw_board.png"
+            ],
+            "notes": "no visible guide footprint at this age"
+          },
+          {
+            "id": "key_correspondence_coverage",
+            "subject": "piece/4",
+            "passed": null,
+            "value": null,
+            "threshold": 0.9,
+            "op": ">=",
+            "unit": "fraction",
+            "evidence": [
+              "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4q/expanded_raw_board.png"
+            ],
+            "notes": "no visible guide footprint at this age"
+          },
+          {
+            "id": "key_correspondence_centroid",
+            "subject": "piece/4",
+            "passed": null,
+            "value": null,
+            "threshold": 1.0,
+            "op": "<=",
+            "unit": "native_px",
+            "evidence": [
+              "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4q/expanded_raw_board.png"
+            ],
+            "notes": "no visible guide footprint at this age"
+          },
+          {
+            "id": "key_correspondence_coverage",
+            "subject": "piece/5",
+            "passed": null,
+            "value": null,
+            "threshold": 0.9,
+            "op": ">=",
+            "unit": "fraction",
+            "evidence": [
+              "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4q/expanded_raw_board.png"
+            ],
+            "notes": "no visible guide footprint at this age"
+          },
+          {
+            "id": "key_correspondence_centroid",
+            "subject": "piece/5",
+            "passed": null,
+            "value": null,
+            "threshold": 1.0,
+            "op": "<=",
+            "unit": "native_px",
+            "evidence": [
+              "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4q/expanded_raw_board.png"
+            ],
+            "notes": "no visible guide footprint at this age"
+          },
+          {
+            "id": "key_correspondence_coverage",
+            "subject": "piece/6",
+            "passed": null,
+            "value": null,
+            "threshold": 0.9,
+            "op": ">=",
+            "unit": "fraction",
+            "evidence": [
+              "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4q/expanded_raw_board.png"
+            ],
+            "notes": "no visible guide footprint at this age"
+          },
+          {
+            "id": "key_correspondence_centroid",
+            "subject": "piece/6",
+            "passed": null,
+            "value": null,
+            "threshold": 1.0,
+            "op": "<=",
+            "unit": "native_px",
+            "evidence": [
+              "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4q/expanded_raw_board.png"
+            ],
+            "notes": "no visible guide footprint at this age"
+          },
+          {
+            "id": "key_correspondence_coverage",
+            "subject": "piece/7",
+            "passed": true,
+            "value": 0.9795900490539594,
+            "threshold": 0.9,
+            "op": ">=",
+            "unit": "fraction",
+            "evidence": [
+              "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4q/expanded_raw_board.png"
+            ],
+            "notes": ""
+          },
+          {
+            "id": "key_correspondence_centroid",
+            "subject": "piece/7",
+            "passed": false,
+            "value": 2.4961002267941512,
+            "threshold": 1.0,
+            "op": "<=",
+            "unit": "native_px",
+            "evidence": [
+              "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4q/expanded_raw_board.png"
+            ],
+            "notes": ""
+          },
+          {
+            "id": "key_correspondence_coverage",
+            "subject": "piece/8",
+            "passed": false,
+            "value": 0.8243892671205446,
+            "threshold": 0.9,
+            "op": ">=",
+            "unit": "fraction",
+            "evidence": [
+              "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4q/expanded_raw_board.png"
+            ],
+            "notes": ""
+          },
+          {
+            "id": "key_correspondence_centroid",
+            "subject": "piece/8",
+            "passed": false,
+            "value": 13.807579138755942,
+            "threshold": 1.0,
+            "op": "<=",
+            "unit": "native_px",
+            "evidence": [
+              "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4q/expanded_raw_board.png"
+            ],
+            "notes": ""
+          },
+          {
+            "id": "key_correspondence_coverage",
+            "subject": "piece/9",
+            "passed": true,
+            "value": 0.946258113783887,
+            "threshold": 0.9,
+            "op": ">=",
+            "unit": "fraction",
+            "evidence": [
+              "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4q/expanded_raw_board.png"
+            ],
+            "notes": ""
+          },
+          {
+            "id": "key_correspondence_centroid",
+            "subject": "piece/9",
+            "passed": true,
+            "value": 0.9260467095551138,
+            "threshold": 1.0,
+            "op": "<=",
+            "unit": "native_px",
+            "evidence": [
+              "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4q/expanded_raw_board.png"
+            ],
+            "notes": ""
+          },
+          {
+            "id": "key_correspondence_coverage",
+            "subject": "piece/10",
+            "passed": true,
+            "value": 0.9577910657755891,
+            "threshold": 0.9,
+            "op": ">=",
+            "unit": "fraction",
+            "evidence": [
+              "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4q/expanded_raw_board.png"
+            ],
+            "notes": ""
+          },
+          {
+            "id": "key_correspondence_centroid",
+            "subject": "piece/10",
+            "passed": true,
+            "value": 0.7478850748552233,
+            "threshold": 1.0,
+            "op": "<=",
+            "unit": "native_px",
+            "evidence": [
+              "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4q/expanded_raw_board.png"
+            ],
+            "notes": ""
+          },
+          {
+            "id": "key_correspondence_coverage",
+            "subject": "piece/11",
+            "passed": true,
+            "value": 0.9711763178395222,
+            "threshold": 0.9,
+            "op": ">=",
+            "unit": "fraction",
+            "evidence": [
+              "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4q/expanded_raw_board.png"
+            ],
+            "notes": ""
+          },
+          {
+            "id": "key_correspondence_centroid",
+            "subject": "piece/11",
+            "passed": true,
+            "value": 0.49986198769116247,
+            "threshold": 1.0,
+            "op": "<=",
+            "unit": "native_px",
+            "evidence": [
+              "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4q/expanded_raw_board.png"
+            ],
+            "notes": ""
+          },
+          {
+            "id": "key_correspondence_coverage",
+            "subject": "piece/12",
+            "passed": true,
+            "value": 0.9331189710610932,
+            "threshold": 0.9,
+            "op": ">=",
+            "unit": "fraction",
+            "evidence": [
+              "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4q/expanded_raw_board.png"
+            ],
+            "notes": ""
+          },
+          {
+            "id": "key_correspondence_centroid",
+            "subject": "piece/12",
+            "passed": false,
+            "value": 3.609451516991449,
+            "threshold": 1.0,
+            "op": "<=",
+            "unit": "native_px",
+            "evidence": [
+              "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4q/expanded_raw_board.png"
+            ],
+            "notes": ""
+          },
+          {
+            "id": "key_correspondence_coverage",
+            "subject": "piece/13",
+            "passed": true,
+            "value": 0.9837780764062201,
+            "threshold": 0.9,
+            "op": ">=",
+            "unit": "fraction",
+            "evidence": [
+              "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4q/expanded_raw_board.png"
+            ],
+            "notes": ""
+          },
+          {
+            "id": "key_correspondence_centroid",
+            "subject": "piece/13",
+            "passed": true,
+            "value": 0.7359676118368734,
+            "threshold": 1.0,
+            "op": "<=",
+            "unit": "native_px",
+            "evidence": [
+              "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4q/expanded_raw_board.png"
+            ],
+            "notes": ""
+          },
+          {
+            "id": "key_correspondence_coverage",
+            "subject": "piece/14",
+            "passed": true,
+            "value": 0.9878640776699029,
+            "threshold": 0.9,
+            "op": ">=",
+            "unit": "fraction",
+            "evidence": [
+              "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4q/expanded_raw_board.png"
+            ],
+            "notes": ""
+          },
+          {
+            "id": "key_correspondence_centroid",
+            "subject": "piece/14",
+            "passed": true,
+            "value": 0.36515585516217464,
+            "threshold": 1.0,
+            "op": "<=",
+            "unit": "native_px",
+            "evidence": [
+              "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4q/expanded_raw_board.png"
+            ],
+            "notes": ""
+          },
+          {
+            "id": "key_correspondence_coverage",
+            "subject": "piece/15",
+            "passed": true,
+            "value": 0.9538564422648239,
+            "threshold": 0.9,
+            "op": ">=",
+            "unit": "fraction",
+            "evidence": [
+              "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4q/expanded_raw_board.png"
+            ],
+            "notes": ""
+          },
+          {
+            "id": "key_correspondence_centroid",
+            "subject": "piece/15",
+            "passed": false,
+            "value": 1.2870894276880458,
+            "threshold": 1.0,
+            "op": "<=",
+            "unit": "native_px",
+            "evidence": [
+              "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4q/expanded_raw_board.png"
+            ],
+            "notes": ""
+          },
+          {
+            "id": "key_correspondence_coverage",
+            "subject": "piece/16",
+            "passed": true,
+            "value": 0.975318164288469,
+            "threshold": 0.9,
+            "op": ">=",
+            "unit": "fraction",
+            "evidence": [
+              "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4q/expanded_raw_board.png"
+            ],
+            "notes": ""
+          },
+          {
+            "id": "key_correspondence_centroid",
+            "subject": "piece/16",
+            "passed": false,
+            "value": 2.2300277959725197,
+            "threshold": 1.0,
+            "op": "<=",
+            "unit": "native_px",
+            "evidence": [
+              "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4q/expanded_raw_board.png"
+            ],
+            "notes": ""
+          },
+          {
+            "id": "key_correspondence_coverage",
+            "subject": "piece/17",
+            "passed": true,
+            "value": 0.9756309834638817,
+            "threshold": 0.9,
+            "op": ">=",
+            "unit": "fraction",
+            "evidence": [
+              "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4q/expanded_raw_board.png"
+            ],
+            "notes": ""
+          },
+          {
+            "id": "key_correspondence_centroid",
+            "subject": "piece/17",
+            "passed": true,
+            "value": 0.4452228087733403,
+            "threshold": 1.0,
+            "op": "<=",
+            "unit": "native_px",
+            "evidence": [
+              "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4q/expanded_raw_board.png"
+            ],
+            "notes": ""
+          },
+          {
+            "id": "key_correspondence_coverage",
+            "subject": "piece/18",
+            "passed": null,
+            "value": null,
+            "threshold": 0.9,
+            "op": ">=",
+            "unit": "fraction",
+            "evidence": [
+              "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4q/expanded_raw_board.png"
+            ],
+            "notes": "no visible guide footprint at this age"
+          },
+          {
+            "id": "key_correspondence_centroid",
+            "subject": "piece/18",
+            "passed": null,
+            "value": null,
+            "threshold": 1.0,
+            "op": "<=",
+            "unit": "native_px",
+            "evidence": [
+              "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4q/expanded_raw_board.png"
+            ],
+            "notes": "no visible guide footprint at this age"
+          },
+          {
+            "id": "key_correspondence_coverage",
+            "subject": "piece/19",
+            "passed": null,
+            "value": null,
+            "threshold": 0.9,
+            "op": ">=",
+            "unit": "fraction",
+            "evidence": [
+              "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4q/expanded_raw_board.png"
+            ],
+            "notes": "no visible guide footprint at this age"
+          },
+          {
+            "id": "key_correspondence_centroid",
+            "subject": "piece/19",
+            "passed": null,
+            "value": null,
+            "threshold": 1.0,
+            "op": "<=",
+            "unit": "native_px",
+            "evidence": [
+              "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4q/expanded_raw_board.png"
+            ],
+            "notes": "no visible guide footprint at this age"
+          },
+          {
+            "id": "key_correspondence_coverage",
+            "subject": "piece/20",
+            "passed": null,
+            "value": null,
+            "threshold": 0.9,
+            "op": ">=",
+            "unit": "fraction",
+            "evidence": [
+              "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4q/expanded_raw_board.png"
+            ],
+            "notes": "no visible guide footprint at this age"
+          },
+          {
+            "id": "key_correspondence_centroid",
+            "subject": "piece/20",
+            "passed": null,
+            "value": null,
+            "threshold": 1.0,
+            "op": "<=",
+            "unit": "native_px",
+            "evidence": [
+              "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4q/expanded_raw_board.png"
+            ],
+            "notes": "no visible guide footprint at this age"
+          },
+          {
+            "id": "key_correspondence_coverage",
+            "subject": "piece/21",
+            "passed": null,
+            "value": null,
+            "threshold": 0.9,
+            "op": ">=",
+            "unit": "fraction",
+            "evidence": [
+              "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4q/expanded_raw_board.png"
+            ],
+            "notes": "no visible guide footprint at this age"
+          },
+          {
+            "id": "key_correspondence_centroid",
+            "subject": "piece/21",
+            "passed": null,
+            "value": null,
+            "threshold": 1.0,
+            "op": "<=",
+            "unit": "native_px",
+            "evidence": [
+              "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4q/expanded_raw_board.png"
+            ],
+            "notes": "no visible guide footprint at this age"
+          },
+          {
+            "id": "key_correspondence_coverage",
+            "subject": "piece/22",
+            "passed": null,
+            "value": null,
+            "threshold": 0.9,
+            "op": ">=",
+            "unit": "fraction",
+            "evidence": [
+              "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4q/expanded_raw_board.png"
+            ],
+            "notes": "no visible guide footprint at this age"
+          },
+          {
+            "id": "key_correspondence_centroid",
+            "subject": "piece/22",
+            "passed": null,
+            "value": null,
+            "threshold": 1.0,
+            "op": "<=",
+            "unit": "native_px",
+            "evidence": [
+              "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4q/expanded_raw_board.png"
+            ],
+            "notes": "no visible guide footprint at this age"
+          },
+          {
+            "id": "key_correspondence_coverage",
+            "subject": "piece/23",
+            "passed": null,
+            "value": null,
+            "threshold": 0.9,
+            "op": ">=",
+            "unit": "fraction",
+            "evidence": [
+              "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4q/expanded_raw_board.png"
+            ],
+            "notes": "no visible guide footprint at this age"
+          },
+          {
+            "id": "key_correspondence_centroid",
+            "subject": "piece/23",
+            "passed": null,
+            "value": null,
+            "threshold": 1.0,
+            "op": "<=",
+            "unit": "native_px",
+            "evidence": [
+              "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4q/expanded_raw_board.png"
+            ],
+            "notes": "no visible guide footprint at this age"
+          },
+          {
+            "id": "key_correspondence_coverage",
+            "subject": "piece/24",
+            "passed": null,
+            "value": null,
+            "threshold": 0.9,
+            "op": ">=",
+            "unit": "fraction",
+            "evidence": [
+              "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4q/expanded_raw_board.png"
+            ],
+            "notes": "no visible guide footprint at this age"
+          },
+          {
+            "id": "key_correspondence_centroid",
+            "subject": "piece/24",
+            "passed": null,
+            "value": null,
+            "threshold": 1.0,
+            "op": "<=",
+            "unit": "native_px",
+            "evidence": [
+              "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4q/expanded_raw_board.png"
+            ],
+            "notes": "no visible guide footprint at this age"
+          },
+          {
+            "id": "key_silhouette",
+            "subject": "whole_image",
+            "passed": false,
+            "value": 0.8926227878305826,
+            "threshold": 0.9,
+            "op": ">=",
+            "unit": "iou",
+            "evidence": [
+              "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4q/expanded_raw_board.png"
+            ],
+            "notes": ""
+          },
+          {
+            "id": "key_shards",
+            "subject": "whole_image",
+            "passed": true,
+            "value": 0,
+            "threshold": 1,
+            "op": "<=",
+            "unit": "components",
+            "evidence": [
+              "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4q/expanded_raw_board.png"
+            ],
+            "notes": ""
+          },
+          {
+            "id": "key_contour",
+            "subject": "whole_image",
+            "passed": true,
+            "value": -0.32976193025331124,
+            "threshold": 1.0,
+            "op": "<=",
+            "unit": "native_px",
+            "evidence": [
+              "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4q/expanded_raw_board.png"
+            ],
+            "notes": ""
+          },
+          {
+            "id": "VO8",
+            "subject": "guide_to_painting",
+            "passed": false,
+            "value": {
+              "unique_frames": 2,
+              "unique_frames_per_s": 60.0,
+              "drawing_changes": 1,
+              "drawing_runs": 2,
+              "drawing_runs_per_s": 60.0,
+              "frame_sha256": [
+                "9bbca150f02b40b01a7e70be8d32dace86bfead7c22c43af7ce0f9d06f6d2ee7",
+                "a74a160c61f0d4caaf0b1e8d800c5d615a6f9ab3fa87580e8d5503d4823deb65"
+              ],
+              "duration_s": 0.03333333333333333,
+              "method": "exact decoded indexed RGBA bytes, two frames at stated fps",
+              "fps": 60,
+              "in_band": false,
+              "band_definition": "drawing changes while silhouette IoU >= 0.9; no additional temporal threshold supplied"
+            },
+            "threshold": {
+              "drawing_changes": 1,
+              "silhouette_iou_min": 0.9
+            },
+            "op": "shape_band",
+            "unit": "mixed",
+            "evidence": [
+              "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4q/expanded_raw_board.png"
+            ],
+            "notes": "Two-state drawing-change measurement, not a calibrated temporal rate gate."
+          }
+        ]
+      },
+      "clipped": {
+        "correspondence": {
+          "pieces": [
+            {
+              "id": 1,
+              "guide_pixels": 0,
+              "coverage_fraction": null,
+              "centroid_offset_px": null,
+              "passed": null,
+              "reason": "no visible guide footprint at this age"
+            },
+            {
+              "id": 2,
+              "guide_pixels": 0,
+              "coverage_fraction": null,
+              "centroid_offset_px": null,
+              "passed": null,
+              "reason": "no visible guide footprint at this age"
+            },
+            {
+              "id": 3,
+              "guide_pixels": 0,
+              "coverage_fraction": null,
+              "centroid_offset_px": null,
+              "passed": null,
+              "reason": "no visible guide footprint at this age"
+            },
+            {
+              "id": 4,
+              "guide_pixels": 0,
+              "coverage_fraction": null,
+              "centroid_offset_px": null,
+              "passed": null,
+              "reason": "no visible guide footprint at this age"
+            },
+            {
+              "id": 5,
+              "guide_pixels": 0,
+              "coverage_fraction": null,
+              "centroid_offset_px": null,
+              "passed": null,
+              "reason": "no visible guide footprint at this age"
+            },
+            {
+              "id": 6,
+              "guide_pixels": 0,
+              "coverage_fraction": null,
+              "centroid_offset_px": null,
+              "passed": null,
+              "reason": "no visible guide footprint at this age"
+            },
+            {
+              "id": 7,
+              "guide_pixels": 11416,
+              "matching_pixels": 11879,
+              "coverage_fraction": 1.0,
+              "coverage_min": 0.9,
+              "coverage_shortfall": 0.0,
+              "guide_centroid_xy": [
+                414.91564470918007,
+                237.2030483531885
+              ],
+              "painting_centroid_xy": [
+                415.7913965822039,
+                236.41468137048574
+              ],
+              "centroid_offset_px": 1.1783309562769768,
+              "centroid_max_px": 1.0,
+              "centroid_excess_px": 0.17833095627697682,
+              "passed": false
+            },
+            {
+              "id": 8,
+              "guide_pixels": 14982,
+              "matching_pixels": 15317,
+              "coverage_fraction": 1.0,
+              "coverage_min": 0.9,
+              "coverage_shortfall": 0.0,
+              "guide_centroid_xy": [
+                539.1081965024696,
+                413.26938993458816
+              ],
+              "painting_centroid_xy": [
+                539.0518378272508,
+                413.4833191878305
+              ],
+              "centroid_offset_px": 0.221228446781236,
+              "centroid_max_px": 1.0,
+              "centroid_excess_px": 0.0,
+              "passed": true
+            },
+            {
+              "id": 9,
+              "guide_pixels": 10476,
+              "matching_pixels": 10749,
+              "coverage_fraction": 1.0,
+              "coverage_min": 0.9,
+              "coverage_shortfall": 0.0,
+              "guide_centroid_xy": [
+                245.60147002672775,
+                420.11607483772434
+              ],
+              "painting_centroid_xy": [
+                244.49390640989859,
+                420.10903339845567
+              ],
+              "centroid_offset_px": 1.107585999907313,
+              "centroid_max_px": 1.0,
+              "centroid_excess_px": 0.10758599990731299,
+              "passed": false
+            },
+            {
+              "id": 10,
+              "guide_pixels": 11372,
+              "matching_pixels": 11812,
+              "coverage_fraction": 1.0,
+              "coverage_min": 0.9,
+              "coverage_shortfall": 0.0,
+              "guide_centroid_xy": [
+                229.37548364403798,
+                316.1333978192051
+              ],
+              "painting_centroid_xy": [
+                229.29994920419912,
+                315.260074500508
+              ],
+              "centroid_offset_px": 0.8765837498960771,
+              "centroid_max_px": 1.0,
+              "centroid_excess_px": 0.0,
+              "passed": true
+            },
+            {
+              "id": 11,
+              "guide_pixels": 3851,
+              "matching_pixels": 3883,
+              "coverage_fraction": 1.0,
+              "coverage_min": 0.9,
+              "coverage_shortfall": 0.0,
+              "guide_centroid_xy": [
+                409.4320955595949,
+                342.0820566086731
+              ],
+              "painting_centroid_xy": [
+                409.6608292557301,
+                341.9703837239248
+              ],
+              "centroid_offset_px": 0.254538674734649,
+              "centroid_max_px": 1.0,
+              "centroid_excess_px": 0.0,
+              "passed": true
+            },
+            {
+              "id": 12,
+              "guide_pixels": 7775,
+              "matching_pixels": 7803,
+              "coverage_fraction": 1.0,
+              "coverage_min": 0.9,
+              "coverage_shortfall": 0.0,
+              "guide_centroid_xy": [
+                433.8484887459807,
+                442.8090032154341
+              ],
+              "painting_centroid_xy": [
+                433.9737280533128,
+                442.94989106753815
+              ],
+              "centroid_offset_px": 0.18850536059094364,
+              "centroid_max_px": 1.0,
+              "centroid_excess_px": 0.0,
+              "passed": true
+            },
+            {
+              "id": 13,
+              "guide_pixels": 10418,
+              "matching_pixels": 10451,
+              "coverage_fraction": 1.0,
+              "coverage_min": 0.9,
+              "coverage_shortfall": 0.0,
+              "guide_centroid_xy": [
+                374.1088500671914,
+                460.4645805336917
+              ],
+              "painting_centroid_xy": [
+                373.9833508755143,
+                460.5505693235097
+              ],
+              "centroid_offset_px": 0.15213191343689167,
+              "centroid_max_px": 1.0,
+              "centroid_excess_px": 0.0,
+              "passed": true
+            },
+            {
+              "id": 14,
+              "guide_pixels": 4120,
+              "matching_pixels": 4121,
+              "coverage_fraction": 1.0,
+              "coverage_min": 0.9,
+              "coverage_shortfall": 0.0,
+              "guide_centroid_xy": [
+                326.09490291262136,
+                387.8740291262136
+              ],
+              "painting_centroid_xy": [
+                326.0951225430721,
+                387.86532395049744
+              ],
+              "centroid_offset_px": 0.00870794589923963,
+              "centroid_max_px": 1.0,
+              "centroid_excess_px": 0.0,
+              "passed": true
+            },
+            {
+              "id": 15,
+              "guide_pixels": 4486,
+              "matching_pixels": 4529,
+              "coverage_fraction": 1.0,
+              "coverage_min": 0.9,
+              "coverage_shortfall": 0.0,
+              "guide_centroid_xy": [
+                358.8201069995542,
+                343.15871600534996
+              ],
+              "painting_centroid_xy": [
+                358.5157871494811,
+                342.9838816515787
+              ],
+              "centroid_offset_px": 0.3509666970057087,
+              "centroid_max_px": 1.0,
+              "centroid_excess_px": 0.0,
+              "passed": true
+            },
+            {
+              "id": 16,
+              "guide_pixels": 5186,
+              "matching_pixels": 5602,
+              "coverage_fraction": 1.0,
+              "coverage_min": 0.9,
+              "coverage_shortfall": 0.0,
+              "guide_centroid_xy": [
+                571.3002313922098,
+                320.6505977632086
+              ],
+              "painting_centroid_xy": [
+                571.2661549446626,
+                319.4155658693324
+              ],
+              "centroid_offset_px": 1.2355019154857387,
+              "centroid_max_px": 1.0,
+              "centroid_excess_px": 0.23550191548573873,
+              "passed": false
+            },
+            {
+              "id": 17,
+              "guide_pixels": 3447,
+              "matching_pixels": 3449,
+              "coverage_fraction": 1.0,
+              "coverage_min": 0.9,
+              "coverage_shortfall": 0.0,
+              "guide_centroid_xy": [
+                412.24340005802145,
+                211.58891789962286
+              ],
+              "painting_centroid_xy": [
+                412.22760220353723,
+                211.59495505943752
+              ],
+              "centroid_offset_px": 0.016912111190871663,
+              "centroid_max_px": 1.0,
+              "centroid_excess_px": 0.0,
+              "passed": true
+            },
+            {
+              "id": 18,
+              "guide_pixels": 0,
+              "coverage_fraction": null,
+              "centroid_offset_px": null,
+              "passed": null,
+              "reason": "no visible guide footprint at this age"
+            },
+            {
+              "id": 19,
+              "guide_pixels": 0,
+              "coverage_fraction": null,
+              "centroid_offset_px": null,
+              "passed": null,
+              "reason": "no visible guide footprint at this age"
+            },
+            {
+              "id": 20,
+              "guide_pixels": 0,
+              "coverage_fraction": null,
+              "centroid_offset_px": null,
+              "passed": null,
+              "reason": "no visible guide footprint at this age"
+            },
+            {
+              "id": 21,
+              "guide_pixels": 0,
+              "coverage_fraction": null,
+              "centroid_offset_px": null,
+              "passed": null,
+              "reason": "no visible guide footprint at this age"
+            },
+            {
+              "id": 22,
+              "guide_pixels": 0,
+              "coverage_fraction": null,
+              "centroid_offset_px": null,
+              "passed": null,
+              "reason": "no visible guide footprint at this age"
+            },
+            {
+              "id": 23,
+              "guide_pixels": 0,
+              "coverage_fraction": null,
+              "centroid_offset_px": null,
+              "passed": null,
+              "reason": "no visible guide footprint at this age"
+            },
+            {
+              "id": 24,
+              "guide_pixels": 0,
+              "coverage_fraction": null,
+              "centroid_offset_px": null,
+              "passed": null,
+              "reason": "no visible guide footprint at this age"
+            }
+          ],
+          "guide_unmapped_pixels": 0,
+          "passed": false,
+          "matching_method": "independent transformed footprint intersections plus nearest-footprint exterior; binary alpha > 0.5, 8-connectivity"
+        },
+        "boil": {
+          "silhouette_iou": 0.9738000126815041,
+          "silhouette_iou_min": 0.9,
+          "silhouette_iou_shortfall": 0.0,
+          "guide_shards": 1,
+          "painting_shards": 1,
+          "shard_count_delta": 0,
+          "shard_count_tolerance": 1,
+          "shard_count_excess": 0,
+          "guide_band0_width_px": 3.4921311295874156,
+          "painting_band0_width_px": 3.3303274052101925,
+          "contour_thickening_px": -0.161803724377223,
+          "contour_thickening_max_px": 1.0,
+          "contour_thickening_excess_px": 0.0,
+          "VO8": {
+            "unique_frames": 2,
+            "unique_frames_per_s": 60.0,
+            "drawing_changes": 1,
+            "drawing_runs": 2,
+            "drawing_runs_per_s": 60.0,
+            "frame_sha256": [
+              "9bbca150f02b40b01a7e70be8d32dace86bfead7c22c43af7ce0f9d06f6d2ee7",
+              "09b1c2e8c9c2a65e3b09440fe7c52bc3d54363e9a0c36fb96b9d5ddaf621191c"
+            ],
+            "duration_s": 0.03333333333333333,
+            "method": "exact decoded indexed RGBA bytes, two frames at stated fps",
+            "fps": 60,
+            "in_band": true,
+            "band_definition": "drawing changes while silhouette IoU >= 0.9; no additional temporal threshold supplied"
+          },
+          "changed_pixel_fraction": 0.9355018705218439,
+          "interior_band_change_fraction": 0.19670786180312283,
+          "drawing_changed": true,
+          "passed": true
+        },
+        "passed": false,
+        "failures": [
+          {
+            "test": "piece_centroid",
+            "piece": 7,
+            "value": 1.1783309562769768,
+            "threshold": 1.0,
+            "excess": 0.17833095627697682
+          },
+          {
+            "test": "piece_centroid",
+            "piece": 9,
+            "value": 1.107585999907313,
+            "threshold": 1.0,
+            "excess": 0.10758599990731299
+          },
+          {
+            "test": "piece_centroid",
+            "piece": 16,
+            "value": 1.2355019154857387,
+            "threshold": 1.0,
+            "excess": 0.23550191548573873
+          }
+        ],
+        "results": [
+          {
+            "id": "key_correspondence_coverage",
+            "subject": "piece/1",
+            "passed": null,
+            "value": null,
+            "threshold": 0.9,
+            "op": ">=",
+            "unit": "fraction",
+            "evidence": [
+              "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4q/expanded_clipped_board.png"
+            ],
+            "notes": "no visible guide footprint at this age"
+          },
+          {
+            "id": "key_correspondence_centroid",
+            "subject": "piece/1",
+            "passed": null,
+            "value": null,
+            "threshold": 1.0,
+            "op": "<=",
+            "unit": "native_px",
+            "evidence": [
+              "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4q/expanded_clipped_board.png"
+            ],
+            "notes": "no visible guide footprint at this age"
+          },
+          {
+            "id": "key_correspondence_coverage",
+            "subject": "piece/2",
+            "passed": null,
+            "value": null,
+            "threshold": 0.9,
+            "op": ">=",
+            "unit": "fraction",
+            "evidence": [
+              "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4q/expanded_clipped_board.png"
+            ],
+            "notes": "no visible guide footprint at this age"
+          },
+          {
+            "id": "key_correspondence_centroid",
+            "subject": "piece/2",
+            "passed": null,
+            "value": null,
+            "threshold": 1.0,
+            "op": "<=",
+            "unit": "native_px",
+            "evidence": [
+              "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4q/expanded_clipped_board.png"
+            ],
+            "notes": "no visible guide footprint at this age"
+          },
+          {
+            "id": "key_correspondence_coverage",
+            "subject": "piece/3",
+            "passed": null,
+            "value": null,
+            "threshold": 0.9,
+            "op": ">=",
+            "unit": "fraction",
+            "evidence": [
+              "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4q/expanded_clipped_board.png"
+            ],
+            "notes": "no visible guide footprint at this age"
+          },
+          {
+            "id": "key_correspondence_centroid",
+            "subject": "piece/3",
+            "passed": null,
+            "value": null,
+            "threshold": 1.0,
+            "op": "<=",
+            "unit": "native_px",
+            "evidence": [
+              "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4q/expanded_clipped_board.png"
+            ],
+            "notes": "no visible guide footprint at this age"
+          },
+          {
+            "id": "key_correspondence_coverage",
+            "subject": "piece/4",
+            "passed": null,
+            "value": null,
+            "threshold": 0.9,
+            "op": ">=",
+            "unit": "fraction",
+            "evidence": [
+              "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4q/expanded_clipped_board.png"
+            ],
+            "notes": "no visible guide footprint at this age"
+          },
+          {
+            "id": "key_correspondence_centroid",
+            "subject": "piece/4",
+            "passed": null,
+            "value": null,
+            "threshold": 1.0,
+            "op": "<=",
+            "unit": "native_px",
+            "evidence": [
+              "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4q/expanded_clipped_board.png"
+            ],
+            "notes": "no visible guide footprint at this age"
+          },
+          {
+            "id": "key_correspondence_coverage",
+            "subject": "piece/5",
+            "passed": null,
+            "value": null,
+            "threshold": 0.9,
+            "op": ">=",
+            "unit": "fraction",
+            "evidence": [
+              "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4q/expanded_clipped_board.png"
+            ],
+            "notes": "no visible guide footprint at this age"
+          },
+          {
+            "id": "key_correspondence_centroid",
+            "subject": "piece/5",
+            "passed": null,
+            "value": null,
+            "threshold": 1.0,
+            "op": "<=",
+            "unit": "native_px",
+            "evidence": [
+              "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4q/expanded_clipped_board.png"
+            ],
+            "notes": "no visible guide footprint at this age"
+          },
+          {
+            "id": "key_correspondence_coverage",
+            "subject": "piece/6",
+            "passed": null,
+            "value": null,
+            "threshold": 0.9,
+            "op": ">=",
+            "unit": "fraction",
+            "evidence": [
+              "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4q/expanded_clipped_board.png"
+            ],
+            "notes": "no visible guide footprint at this age"
+          },
+          {
+            "id": "key_correspondence_centroid",
+            "subject": "piece/6",
+            "passed": null,
+            "value": null,
+            "threshold": 1.0,
+            "op": "<=",
+            "unit": "native_px",
+            "evidence": [
+              "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4q/expanded_clipped_board.png"
+            ],
+            "notes": "no visible guide footprint at this age"
+          },
+          {
+            "id": "key_correspondence_coverage",
+            "subject": "piece/7",
+            "passed": true,
+            "value": 1.0,
+            "threshold": 0.9,
+            "op": ">=",
+            "unit": "fraction",
+            "evidence": [
+              "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4q/expanded_clipped_board.png"
+            ],
+            "notes": ""
+          },
+          {
+            "id": "key_correspondence_centroid",
+            "subject": "piece/7",
+            "passed": false,
+            "value": 1.1783309562769768,
+            "threshold": 1.0,
+            "op": "<=",
+            "unit": "native_px",
+            "evidence": [
+              "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4q/expanded_clipped_board.png"
+            ],
+            "notes": ""
+          },
+          {
+            "id": "key_correspondence_coverage",
+            "subject": "piece/8",
+            "passed": true,
+            "value": 1.0,
+            "threshold": 0.9,
+            "op": ">=",
+            "unit": "fraction",
+            "evidence": [
+              "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4q/expanded_clipped_board.png"
+            ],
+            "notes": ""
+          },
+          {
+            "id": "key_correspondence_centroid",
+            "subject": "piece/8",
+            "passed": true,
+            "value": 0.221228446781236,
+            "threshold": 1.0,
+            "op": "<=",
+            "unit": "native_px",
+            "evidence": [
+              "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4q/expanded_clipped_board.png"
+            ],
+            "notes": ""
+          },
+          {
+            "id": "key_correspondence_coverage",
+            "subject": "piece/9",
+            "passed": true,
+            "value": 1.0,
+            "threshold": 0.9,
+            "op": ">=",
+            "unit": "fraction",
+            "evidence": [
+              "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4q/expanded_clipped_board.png"
+            ],
+            "notes": ""
+          },
+          {
+            "id": "key_correspondence_centroid",
+            "subject": "piece/9",
+            "passed": false,
+            "value": 1.107585999907313,
+            "threshold": 1.0,
+            "op": "<=",
+            "unit": "native_px",
+            "evidence": [
+              "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4q/expanded_clipped_board.png"
+            ],
+            "notes": ""
+          },
+          {
+            "id": "key_correspondence_coverage",
+            "subject": "piece/10",
+            "passed": true,
+            "value": 1.0,
+            "threshold": 0.9,
+            "op": ">=",
+            "unit": "fraction",
+            "evidence": [
+              "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4q/expanded_clipped_board.png"
+            ],
+            "notes": ""
+          },
+          {
+            "id": "key_correspondence_centroid",
+            "subject": "piece/10",
+            "passed": true,
+            "value": 0.8765837498960771,
+            "threshold": 1.0,
+            "op": "<=",
+            "unit": "native_px",
+            "evidence": [
+              "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4q/expanded_clipped_board.png"
+            ],
+            "notes": ""
+          },
+          {
+            "id": "key_correspondence_coverage",
+            "subject": "piece/11",
+            "passed": true,
+            "value": 1.0,
+            "threshold": 0.9,
+            "op": ">=",
+            "unit": "fraction",
+            "evidence": [
+              "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4q/expanded_clipped_board.png"
+            ],
+            "notes": ""
+          },
+          {
+            "id": "key_correspondence_centroid",
+            "subject": "piece/11",
+            "passed": true,
+            "value": 0.254538674734649,
+            "threshold": 1.0,
+            "op": "<=",
+            "unit": "native_px",
+            "evidence": [
+              "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4q/expanded_clipped_board.png"
+            ],
+            "notes": ""
+          },
+          {
+            "id": "key_correspondence_coverage",
+            "subject": "piece/12",
+            "passed": true,
+            "value": 1.0,
+            "threshold": 0.9,
+            "op": ">=",
+            "unit": "fraction",
+            "evidence": [
+              "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4q/expanded_clipped_board.png"
+            ],
+            "notes": ""
+          },
+          {
+            "id": "key_correspondence_centroid",
+            "subject": "piece/12",
+            "passed": true,
+            "value": 0.18850536059094364,
+            "threshold": 1.0,
+            "op": "<=",
+            "unit": "native_px",
+            "evidence": [
+              "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4q/expanded_clipped_board.png"
+            ],
+            "notes": ""
+          },
+          {
+            "id": "key_correspondence_coverage",
+            "subject": "piece/13",
+            "passed": true,
+            "value": 1.0,
+            "threshold": 0.9,
+            "op": ">=",
+            "unit": "fraction",
+            "evidence": [
+              "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4q/expanded_clipped_board.png"
+            ],
+            "notes": ""
+          },
+          {
+            "id": "key_correspondence_centroid",
+            "subject": "piece/13",
+            "passed": true,
+            "value": 0.15213191343689167,
+            "threshold": 1.0,
+            "op": "<=",
+            "unit": "native_px",
+            "evidence": [
+              "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4q/expanded_clipped_board.png"
+            ],
+            "notes": ""
+          },
+          {
+            "id": "key_correspondence_coverage",
+            "subject": "piece/14",
+            "passed": true,
+            "value": 1.0,
+            "threshold": 0.9,
+            "op": ">=",
+            "unit": "fraction",
+            "evidence": [
+              "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4q/expanded_clipped_board.png"
+            ],
+            "notes": ""
+          },
+          {
+            "id": "key_correspondence_centroid",
+            "subject": "piece/14",
+            "passed": true,
+            "value": 0.00870794589923963,
+            "threshold": 1.0,
+            "op": "<=",
+            "unit": "native_px",
+            "evidence": [
+              "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4q/expanded_clipped_board.png"
+            ],
+            "notes": ""
+          },
+          {
+            "id": "key_correspondence_coverage",
+            "subject": "piece/15",
+            "passed": true,
+            "value": 1.0,
+            "threshold": 0.9,
+            "op": ">=",
+            "unit": "fraction",
+            "evidence": [
+              "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4q/expanded_clipped_board.png"
+            ],
+            "notes": ""
+          },
+          {
+            "id": "key_correspondence_centroid",
+            "subject": "piece/15",
+            "passed": true,
+            "value": 0.3509666970057087,
+            "threshold": 1.0,
+            "op": "<=",
+            "unit": "native_px",
+            "evidence": [
+              "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4q/expanded_clipped_board.png"
+            ],
+            "notes": ""
+          },
+          {
+            "id": "key_correspondence_coverage",
+            "subject": "piece/16",
+            "passed": true,
+            "value": 1.0,
+            "threshold": 0.9,
+            "op": ">=",
+            "unit": "fraction",
+            "evidence": [
+              "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4q/expanded_clipped_board.png"
+            ],
+            "notes": ""
+          },
+          {
+            "id": "key_correspondence_centroid",
+            "subject": "piece/16",
+            "passed": false,
+            "value": 1.2355019154857387,
+            "threshold": 1.0,
+            "op": "<=",
+            "unit": "native_px",
+            "evidence": [
+              "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4q/expanded_clipped_board.png"
+            ],
+            "notes": ""
+          },
+          {
+            "id": "key_correspondence_coverage",
+            "subject": "piece/17",
+            "passed": true,
+            "value": 1.0,
+            "threshold": 0.9,
+            "op": ">=",
+            "unit": "fraction",
+            "evidence": [
+              "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4q/expanded_clipped_board.png"
+            ],
+            "notes": ""
+          },
+          {
+            "id": "key_correspondence_centroid",
+            "subject": "piece/17",
+            "passed": true,
+            "value": 0.016912111190871663,
+            "threshold": 1.0,
+            "op": "<=",
+            "unit": "native_px",
+            "evidence": [
+              "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4q/expanded_clipped_board.png"
+            ],
+            "notes": ""
+          },
+          {
+            "id": "key_correspondence_coverage",
+            "subject": "piece/18",
+            "passed": null,
+            "value": null,
+            "threshold": 0.9,
+            "op": ">=",
+            "unit": "fraction",
+            "evidence": [
+              "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4q/expanded_clipped_board.png"
+            ],
+            "notes": "no visible guide footprint at this age"
+          },
+          {
+            "id": "key_correspondence_centroid",
+            "subject": "piece/18",
+            "passed": null,
+            "value": null,
+            "threshold": 1.0,
+            "op": "<=",
+            "unit": "native_px",
+            "evidence": [
+              "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4q/expanded_clipped_board.png"
+            ],
+            "notes": "no visible guide footprint at this age"
+          },
+          {
+            "id": "key_correspondence_coverage",
+            "subject": "piece/19",
+            "passed": null,
+            "value": null,
+            "threshold": 0.9,
+            "op": ">=",
+            "unit": "fraction",
+            "evidence": [
+              "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4q/expanded_clipped_board.png"
+            ],
+            "notes": "no visible guide footprint at this age"
+          },
+          {
+            "id": "key_correspondence_centroid",
+            "subject": "piece/19",
+            "passed": null,
+            "value": null,
+            "threshold": 1.0,
+            "op": "<=",
+            "unit": "native_px",
+            "evidence": [
+              "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4q/expanded_clipped_board.png"
+            ],
+            "notes": "no visible guide footprint at this age"
+          },
+          {
+            "id": "key_correspondence_coverage",
+            "subject": "piece/20",
+            "passed": null,
+            "value": null,
+            "threshold": 0.9,
+            "op": ">=",
+            "unit": "fraction",
+            "evidence": [
+              "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4q/expanded_clipped_board.png"
+            ],
+            "notes": "no visible guide footprint at this age"
+          },
+          {
+            "id": "key_correspondence_centroid",
+            "subject": "piece/20",
+            "passed": null,
+            "value": null,
+            "threshold": 1.0,
+            "op": "<=",
+            "unit": "native_px",
+            "evidence": [
+              "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4q/expanded_clipped_board.png"
+            ],
+            "notes": "no visible guide footprint at this age"
+          },
+          {
+            "id": "key_correspondence_coverage",
+            "subject": "piece/21",
+            "passed": null,
+            "value": null,
+            "threshold": 0.9,
+            "op": ">=",
+            "unit": "fraction",
+            "evidence": [
+              "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4q/expanded_clipped_board.png"
+            ],
+            "notes": "no visible guide footprint at this age"
+          },
+          {
+            "id": "key_correspondence_centroid",
+            "subject": "piece/21",
+            "passed": null,
+            "value": null,
+            "threshold": 1.0,
+            "op": "<=",
+            "unit": "native_px",
+            "evidence": [
+              "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4q/expanded_clipped_board.png"
+            ],
+            "notes": "no visible guide footprint at this age"
+          },
+          {
+            "id": "key_correspondence_coverage",
+            "subject": "piece/22",
+            "passed": null,
+            "value": null,
+            "threshold": 0.9,
+            "op": ">=",
+            "unit": "fraction",
+            "evidence": [
+              "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4q/expanded_clipped_board.png"
+            ],
+            "notes": "no visible guide footprint at this age"
+          },
+          {
+            "id": "key_correspondence_centroid",
+            "subject": "piece/22",
+            "passed": null,
+            "value": null,
+            "threshold": 1.0,
+            "op": "<=",
+            "unit": "native_px",
+            "evidence": [
+              "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4q/expanded_clipped_board.png"
+            ],
+            "notes": "no visible guide footprint at this age"
+          },
+          {
+            "id": "key_correspondence_coverage",
+            "subject": "piece/23",
+            "passed": null,
+            "value": null,
+            "threshold": 0.9,
+            "op": ">=",
+            "unit": "fraction",
+            "evidence": [
+              "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4q/expanded_clipped_board.png"
+            ],
+            "notes": "no visible guide footprint at this age"
+          },
+          {
+            "id": "key_correspondence_centroid",
+            "subject": "piece/23",
+            "passed": null,
+            "value": null,
+            "threshold": 1.0,
+            "op": "<=",
+            "unit": "native_px",
+            "evidence": [
+              "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4q/expanded_clipped_board.png"
+            ],
+            "notes": "no visible guide footprint at this age"
+          },
+          {
+            "id": "key_correspondence_coverage",
+            "subject": "piece/24",
+            "passed": null,
+            "value": null,
+            "threshold": 0.9,
+            "op": ">=",
+            "unit": "fraction",
+            "evidence": [
+              "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4q/expanded_clipped_board.png"
+            ],
+            "notes": "no visible guide footprint at this age"
+          },
+          {
+            "id": "key_correspondence_centroid",
+            "subject": "piece/24",
+            "passed": null,
+            "value": null,
+            "threshold": 1.0,
+            "op": "<=",
+            "unit": "native_px",
+            "evidence": [
+              "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4q/expanded_clipped_board.png"
+            ],
+            "notes": "no visible guide footprint at this age"
+          },
+          {
+            "id": "key_silhouette",
+            "subject": "whole_image",
+            "passed": true,
+            "value": 0.9738000126815041,
+            "threshold": 0.9,
+            "op": ">=",
+            "unit": "iou",
+            "evidence": [
+              "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4q/expanded_clipped_board.png"
+            ],
+            "notes": ""
+          },
+          {
+            "id": "key_shards",
+            "subject": "whole_image",
+            "passed": true,
+            "value": 0,
+            "threshold": 1,
+            "op": "<=",
+            "unit": "components",
+            "evidence": [
+              "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4q/expanded_clipped_board.png"
+            ],
+            "notes": ""
+          },
+          {
+            "id": "key_contour",
+            "subject": "whole_image",
+            "passed": true,
+            "value": -0.161803724377223,
+            "threshold": 1.0,
+            "op": "<=",
+            "unit": "native_px",
+            "evidence": [
+              "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4q/expanded_clipped_board.png"
+            ],
+            "notes": ""
+          },
+          {
+            "id": "VO8",
+            "subject": "guide_to_painting",
+            "passed": true,
+            "value": {
+              "unique_frames": 2,
+              "unique_frames_per_s": 60.0,
+              "drawing_changes": 1,
+              "drawing_runs": 2,
+              "drawing_runs_per_s": 60.0,
+              "frame_sha256": [
+                "9bbca150f02b40b01a7e70be8d32dace86bfead7c22c43af7ce0f9d06f6d2ee7",
+                "09b1c2e8c9c2a65e3b09440fe7c52bc3d54363e9a0c36fb96b9d5ddaf621191c"
+              ],
+              "duration_s": 0.03333333333333333,
+              "method": "exact decoded indexed RGBA bytes, two frames at stated fps",
+              "fps": 60,
+              "in_band": true,
+              "band_definition": "drawing changes while silhouette IoU >= 0.9; no additional temporal threshold supplied"
+            },
+            "threshold": {
+              "drawing_changes": 1,
+              "silhouette_iou_min": 0.9
+            },
+            "op": "shape_band",
+            "unit": "mixed",
+            "evidence": [
+              "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4q/expanded_clipped_board.png"
+            ],
+            "notes": "Two-state drawing-change measurement, not a calibrated temporal rate gate."
+          }
+        ]
+      },
+      "bound": false,
+      "timing": {
+        "runtime_expansion_end": 19,
+        "runtime_residue_entry": 40
+      },
+      "elapsed_s": 8.116876041996875
+    },
+    "spent": {
+      "at_age": 36,
+      "hold_frames": 5,
+      "registration": {
+        "scale": 0.5860259470458156,
+        "translation_xy": [
+          3.046396669597259,
+          -3.3151234874600073
+        ],
+        "source_canvas_wh": [
+          1254,
+          1254
+        ],
+        "guide_canvas_wh": [
+          768,
+          768
+        ],
+        "silhouette_iou": 0.8848476204060286,
+        "transform": "guide_xy = source_xy * scale + translation_xy; no rotation or per-piece fitting",
+        "interpolation": "premultiplied bilinear; quantised after resampling"
+      },
+      "clipping": {
+        "dilation_px": 2,
+        "removed_pixels": 502,
+        "guide_fill_pixels": 1370,
+        "guide_fill_fraction": 0.06856513688003603,
+        "painted_guide_fraction": 0.9314348631199639
+      },
+      "raw": {
+        "correspondence": {
+          "pieces": [
+            {
+              "id": 1,
+              "guide_pixels": 0,
+              "coverage_fraction": null,
+              "centroid_offset_px": null,
+              "passed": null,
+              "reason": "no visible guide footprint at this age"
+            },
+            {
+              "id": 2,
+              "guide_pixels": 0,
+              "coverage_fraction": null,
+              "centroid_offset_px": null,
+              "passed": null,
+              "reason": "no visible guide footprint at this age"
+            },
+            {
+              "id": 3,
+              "guide_pixels": 0,
+              "coverage_fraction": null,
+              "centroid_offset_px": null,
+              "passed": null,
+              "reason": "no visible guide footprint at this age"
+            },
+            {
+              "id": 4,
+              "guide_pixels": 0,
+              "coverage_fraction": null,
+              "centroid_offset_px": null,
+              "passed": null,
+              "reason": "no visible guide footprint at this age"
+            },
+            {
+              "id": 5,
+              "guide_pixels": 0,
+              "coverage_fraction": null,
+              "centroid_offset_px": null,
+              "passed": null,
+              "reason": "no visible guide footprint at this age"
+            },
+            {
+              "id": 6,
+              "guide_pixels": 0,
+              "coverage_fraction": null,
+              "centroid_offset_px": null,
+              "passed": null,
+              "reason": "no visible guide footprint at this age"
+            },
+            {
+              "id": 7,
+              "guide_pixels": 2346,
+              "matching_pixels": 2186,
+              "coverage_fraction": 0.763000852514919,
+              "coverage_min": 0.9,
+              "coverage_shortfall": 0.13699914748508102,
+              "guide_centroid_xy": [
+                398.9492753623188,
+                295.0673486786019
+              ],
+              "painting_centroid_xy": [
+                400.2689844464776,
+                290.23330283623056
+              ],
+              "centroid_offset_px": 5.01095113456105,
+              "centroid_max_px": 1.0,
+              "centroid_excess_px": 4.01095113456105,
+              "passed": false
+            },
+            {
+              "id": 8,
+              "guide_pixels": 521,
+              "matching_pixels": 485,
+              "coverage_fraction": 0.6372360844529751,
+              "coverage_min": 0.9,
+              "coverage_shortfall": 0.26276391554702494,
+              "guide_centroid_xy": [
+                451.8790786948177,
+                385.36084452975047
+              ],
+              "painting_centroid_xy": [
+                459.4041237113402,
+                388.5381443298969
+              ],
+              "centroid_offset_px": 8.168325196801444,
+              "centroid_max_px": 1.0,
+              "centroid_excess_px": 7.168325196801444,
+              "passed": false
+            },
+            {
+              "id": 9,
+              "guide_pixels": 2314,
+              "matching_pixels": 2396,
+              "coverage_fraction": 0.9693171996542783,
+              "coverage_min": 0.9,
+              "coverage_shortfall": 0.0,
+              "guide_centroid_xy": [
+                300.86992221261886,
+                419.82497839239414
+              ],
+              "painting_centroid_xy": [
+                301.14106844741235,
+                419.4269616026711
+              ],
+              "centroid_offset_px": 0.4815990506055065,
+              "centroid_max_px": 1.0,
+              "centroid_excess_px": 0.0,
+              "passed": true
+            },
+            {
+              "id": 10,
+              "guide_pixels": 9,
+              "matching_pixels": 4,
+              "coverage_fraction": 0.4444444444444444,
+              "coverage_min": 0.9,
+              "coverage_shortfall": 0.4555555555555556,
+              "guide_centroid_xy": [
+                309.6666666666667,
+                377.77777777777777
+              ],
+              "painting_centroid_xy": [
+                310.0,
+                378.25
+              ],
+              "centroid_offset_px": 0.5780181124079057,
+              "centroid_max_px": 1.0,
+              "centroid_excess_px": 0.0,
+              "passed": false
+            },
+            {
+              "id": 11,
+              "guide_pixels": 3141,
+              "matching_pixels": 3146,
+              "coverage_fraction": 0.9605221267112385,
+              "coverage_min": 0.9,
+              "coverage_shortfall": 0.0,
+              "guide_centroid_xy": [
+                404.6300541228908,
+                348.0499840815027
+              ],
+              "painting_centroid_xy": [
+                404.07819453274,
+                346.18595041322317
+              ],
+              "centroid_offset_px": 1.944008879537619,
+              "centroid_max_px": 1.0,
+              "centroid_excess_px": 0.9440088795376189,
+              "passed": false
+            },
+            {
+              "id": 12,
+              "guide_pixels": 3153,
+              "matching_pixels": 3010,
+              "coverage_fraction": 0.9391056137012369,
+              "coverage_min": 0.9,
+              "coverage_shortfall": 0.0,
+              "guide_centroid_xy": [
+                419.20995876942595,
+                406.82714874722484
+              ],
+              "painting_centroid_xy": [
+                418.436877076412,
+                407.9073089700997
+              ],
+              "centroid_offset_px": 1.3283077245707706,
+              "centroid_max_px": 1.0,
+              "centroid_excess_px": 0.3283077245707706,
+              "passed": false
+            },
+            {
+              "id": 13,
+              "guide_pixels": 5233,
+              "matching_pixels": 5345,
+              "coverage_fraction": 0.994649340722339,
+              "coverage_min": 0.9,
+              "coverage_shortfall": 0.0,
+              "guide_centroid_xy": [
+                369.4947448882094,
+                433.39690426141794
+              ],
+              "painting_centroid_xy": [
+                369.8643592142189,
+                434.10533208606176
+              ],
+              "centroid_offset_px": 0.7990523967306582,
+              "centroid_max_px": 1.0,
+              "centroid_excess_px": 0.0,
+              "passed": true
+            },
+            {
+              "id": 14,
+              "guide_pixels": 2906,
+              "matching_pixels": 2879,
+              "coverage_fraction": 0.9834824501032347,
+              "coverage_min": 0.9,
+              "coverage_shortfall": 0.0,
+              "guide_centroid_xy": [
+                335.5588437715072,
+                392.4456297315898
+              ],
+              "painting_centroid_xy": [
+                335.6721083709621,
+                392.7058006252171
+              ],
+              "centroid_offset_px": 0.2837565213003852,
+              "centroid_max_px": 1.0,
+              "centroid_excess_px": 0.0,
+              "passed": true
+            },
+            {
+              "id": 15,
+              "guide_pixels": 3581,
+              "matching_pixels": 3235,
+              "coverage_fraction": 0.9003071767662664,
+              "coverage_min": 0.9,
+              "coverage_shortfall": 0.0,
+              "guide_centroid_xy": [
+                364.3429209717956,
+                348.6495392348506
+              ],
+              "painting_centroid_xy": [
+                365.1400309119011,
+                350.61700154559503
+              ],
+              "centroid_offset_px": 2.1228029114392295,
+              "centroid_max_px": 1.0,
+              "centroid_excess_px": 1.1228029114392295,
+              "passed": false
+            },
+            {
+              "id": 16,
+              "guide_pixels": 0,
+              "coverage_fraction": null,
+              "centroid_offset_px": null,
+              "passed": null,
+              "reason": "no visible guide footprint at this age"
+            },
+            {
+              "id": 17,
+              "guide_pixels": 0,
+              "coverage_fraction": null,
+              "centroid_offset_px": null,
+              "passed": null,
+              "reason": "no visible guide footprint at this age"
+            },
+            {
+              "id": 18,
+              "guide_pixels": 0,
+              "coverage_fraction": null,
+              "centroid_offset_px": null,
+              "passed": null,
+              "reason": "no visible guide footprint at this age"
+            },
+            {
+              "id": 19,
+              "guide_pixels": 0,
+              "coverage_fraction": null,
+              "centroid_offset_px": null,
+              "passed": null,
+              "reason": "no visible guide footprint at this age"
+            },
+            {
+              "id": 20,
+              "guide_pixels": 0,
+              "coverage_fraction": null,
+              "centroid_offset_px": null,
+              "passed": null,
+              "reason": "no visible guide footprint at this age"
+            },
+            {
+              "id": 21,
+              "guide_pixels": 0,
+              "coverage_fraction": null,
+              "centroid_offset_px": null,
+              "passed": null,
+              "reason": "no visible guide footprint at this age"
+            },
+            {
+              "id": 22,
+              "guide_pixels": 0,
+              "coverage_fraction": null,
+              "centroid_offset_px": null,
+              "passed": null,
+              "reason": "no visible guide footprint at this age"
+            },
+            {
+              "id": 23,
+              "guide_pixels": 0,
+              "coverage_fraction": null,
+              "centroid_offset_px": null,
+              "passed": null,
+              "reason": "no visible guide footprint at this age"
+            },
+            {
+              "id": 24,
+              "guide_pixels": 0,
+              "coverage_fraction": null,
+              "centroid_offset_px": null,
+              "passed": null,
+              "reason": "no visible guide footprint at this age"
+            }
+          ],
+          "guide_unmapped_pixels": 1,
+          "passed": false,
+          "matching_method": "independent transformed footprint intersections plus nearest-footprint exterior; binary alpha > 0.5, 8-connectivity"
+        },
+        "boil": {
+          "silhouette_iou": 0.8848476204060286,
+          "silhouette_iou_min": 0.9,
+          "silhouette_iou_shortfall": 0.015152379593971421,
+          "guide_shards": 3,
+          "painting_shards": 4,
+          "shard_count_delta": 1,
+          "shard_count_tolerance": 1,
+          "shard_count_excess": 0,
+          "guide_band0_width_px": 2.005767868154791,
+          "painting_band0_width_px": 2.06763195761919,
+          "contour_thickening_px": 0.06186408946439936,
+          "contour_thickening_max_px": 1.0,
+          "contour_thickening_excess_px": 0.0,
+          "VO8": {
+            "unique_frames": 2,
+            "unique_frames_per_s": 60.0,
+            "drawing_changes": 1,
+            "drawing_runs": 2,
+            "drawing_runs_per_s": 60.0,
+            "frame_sha256": [
+              "c28541fa098d8b414ee646383ce0ada418fc507fcec93cb6a404d1a3024a932b",
+              "5ae02d701fe473d65369f84e6f468cbde77581c2ca0db7cd565d38025488c881"
+            ],
+            "duration_s": 0.03333333333333333,
+            "method": "exact decoded indexed RGBA bytes, two frames at stated fps",
+            "fps": 60,
+            "in_band": false,
+            "band_definition": "drawing changes while silhouette IoU >= 0.9; no additional temporal threshold supplied"
+          },
+          "changed_pixel_fraction": 0.9998573669947226,
+          "interior_band_change_fraction": 0.4042233087958734,
+          "drawing_changed": true,
+          "passed": false
+        },
+        "passed": false,
+        "failures": [
+          {
+            "test": "piece_coverage",
+            "piece": 7,
+            "value": 0.763000852514919,
+            "threshold": 0.9,
+            "shortfall": 0.13699914748508102
+          },
+          {
+            "test": "piece_centroid",
+            "piece": 7,
+            "value": 5.01095113456105,
+            "threshold": 1.0,
+            "excess": 4.01095113456105
+          },
+          {
+            "test": "piece_coverage",
+            "piece": 8,
+            "value": 0.6372360844529751,
+            "threshold": 0.9,
+            "shortfall": 0.26276391554702494
+          },
+          {
+            "test": "piece_centroid",
+            "piece": 8,
+            "value": 8.168325196801444,
+            "threshold": 1.0,
+            "excess": 7.168325196801444
+          },
+          {
+            "test": "piece_coverage",
+            "piece": 10,
+            "value": 0.4444444444444444,
+            "threshold": 0.9,
+            "shortfall": 0.4555555555555556
+          },
+          {
+            "test": "piece_centroid",
+            "piece": 11,
+            "value": 1.944008879537619,
+            "threshold": 1.0,
+            "excess": 0.9440088795376189
+          },
+          {
+            "test": "piece_centroid",
+            "piece": 12,
+            "value": 1.3283077245707706,
+            "threshold": 1.0,
+            "excess": 0.3283077245707706
+          },
+          {
+            "test": "piece_centroid",
+            "piece": 15,
+            "value": 2.1228029114392295,
+            "threshold": 1.0,
+            "excess": 1.1228029114392295
+          },
+          {
+            "test": "guide_piece_mapping",
+            "value": 1,
+            "threshold": 0,
+            "excess": 1
+          },
+          {
+            "test": "silhouette_iou",
+            "value": 0.8848476204060286,
+            "threshold": 0.9,
+            "excess": 0.015152379593971421
+          }
+        ],
+        "results": [
+          {
+            "id": "key_correspondence_coverage",
+            "subject": "piece/1",
+            "passed": null,
+            "value": null,
+            "threshold": 0.9,
+            "op": ">=",
+            "unit": "fraction",
+            "evidence": [
+              "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4q/spent_raw_board.png"
+            ],
+            "notes": "no visible guide footprint at this age"
+          },
+          {
+            "id": "key_correspondence_centroid",
+            "subject": "piece/1",
+            "passed": null,
+            "value": null,
+            "threshold": 1.0,
+            "op": "<=",
+            "unit": "native_px",
+            "evidence": [
+              "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4q/spent_raw_board.png"
+            ],
+            "notes": "no visible guide footprint at this age"
+          },
+          {
+            "id": "key_correspondence_coverage",
+            "subject": "piece/2",
+            "passed": null,
+            "value": null,
+            "threshold": 0.9,
+            "op": ">=",
+            "unit": "fraction",
+            "evidence": [
+              "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4q/spent_raw_board.png"
+            ],
+            "notes": "no visible guide footprint at this age"
+          },
+          {
+            "id": "key_correspondence_centroid",
+            "subject": "piece/2",
+            "passed": null,
+            "value": null,
+            "threshold": 1.0,
+            "op": "<=",
+            "unit": "native_px",
+            "evidence": [
+              "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4q/spent_raw_board.png"
+            ],
+            "notes": "no visible guide footprint at this age"
+          },
+          {
+            "id": "key_correspondence_coverage",
+            "subject": "piece/3",
+            "passed": null,
+            "value": null,
+            "threshold": 0.9,
+            "op": ">=",
+            "unit": "fraction",
+            "evidence": [
+              "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4q/spent_raw_board.png"
+            ],
+            "notes": "no visible guide footprint at this age"
+          },
+          {
+            "id": "key_correspondence_centroid",
+            "subject": "piece/3",
+            "passed": null,
+            "value": null,
+            "threshold": 1.0,
+            "op": "<=",
+            "unit": "native_px",
+            "evidence": [
+              "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4q/spent_raw_board.png"
+            ],
+            "notes": "no visible guide footprint at this age"
+          },
+          {
+            "id": "key_correspondence_coverage",
+            "subject": "piece/4",
+            "passed": null,
+            "value": null,
+            "threshold": 0.9,
+            "op": ">=",
+            "unit": "fraction",
+            "evidence": [
+              "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4q/spent_raw_board.png"
+            ],
+            "notes": "no visible guide footprint at this age"
+          },
+          {
+            "id": "key_correspondence_centroid",
+            "subject": "piece/4",
+            "passed": null,
+            "value": null,
+            "threshold": 1.0,
+            "op": "<=",
+            "unit": "native_px",
+            "evidence": [
+              "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4q/spent_raw_board.png"
+            ],
+            "notes": "no visible guide footprint at this age"
+          },
+          {
+            "id": "key_correspondence_coverage",
+            "subject": "piece/5",
+            "passed": null,
+            "value": null,
+            "threshold": 0.9,
+            "op": ">=",
+            "unit": "fraction",
+            "evidence": [
+              "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4q/spent_raw_board.png"
+            ],
+            "notes": "no visible guide footprint at this age"
+          },
+          {
+            "id": "key_correspondence_centroid",
+            "subject": "piece/5",
+            "passed": null,
+            "value": null,
+            "threshold": 1.0,
+            "op": "<=",
+            "unit": "native_px",
+            "evidence": [
+              "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4q/spent_raw_board.png"
+            ],
+            "notes": "no visible guide footprint at this age"
+          },
+          {
+            "id": "key_correspondence_coverage",
+            "subject": "piece/6",
+            "passed": null,
+            "value": null,
+            "threshold": 0.9,
+            "op": ">=",
+            "unit": "fraction",
+            "evidence": [
+              "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4q/spent_raw_board.png"
+            ],
+            "notes": "no visible guide footprint at this age"
+          },
+          {
+            "id": "key_correspondence_centroid",
+            "subject": "piece/6",
+            "passed": null,
+            "value": null,
+            "threshold": 1.0,
+            "op": "<=",
+            "unit": "native_px",
+            "evidence": [
+              "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4q/spent_raw_board.png"
+            ],
+            "notes": "no visible guide footprint at this age"
+          },
+          {
+            "id": "key_correspondence_coverage",
+            "subject": "piece/7",
+            "passed": false,
+            "value": 0.763000852514919,
+            "threshold": 0.9,
+            "op": ">=",
+            "unit": "fraction",
+            "evidence": [
+              "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4q/spent_raw_board.png"
+            ],
+            "notes": ""
+          },
+          {
+            "id": "key_correspondence_centroid",
+            "subject": "piece/7",
+            "passed": false,
+            "value": 5.01095113456105,
+            "threshold": 1.0,
+            "op": "<=",
+            "unit": "native_px",
+            "evidence": [
+              "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4q/spent_raw_board.png"
+            ],
+            "notes": ""
+          },
+          {
+            "id": "key_correspondence_coverage",
+            "subject": "piece/8",
+            "passed": false,
+            "value": 0.6372360844529751,
+            "threshold": 0.9,
+            "op": ">=",
+            "unit": "fraction",
+            "evidence": [
+              "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4q/spent_raw_board.png"
+            ],
+            "notes": ""
+          },
+          {
+            "id": "key_correspondence_centroid",
+            "subject": "piece/8",
+            "passed": false,
+            "value": 8.168325196801444,
+            "threshold": 1.0,
+            "op": "<=",
+            "unit": "native_px",
+            "evidence": [
+              "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4q/spent_raw_board.png"
+            ],
+            "notes": ""
+          },
+          {
+            "id": "key_correspondence_coverage",
+            "subject": "piece/9",
+            "passed": true,
+            "value": 0.9693171996542783,
+            "threshold": 0.9,
+            "op": ">=",
+            "unit": "fraction",
+            "evidence": [
+              "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4q/spent_raw_board.png"
+            ],
+            "notes": ""
+          },
+          {
+            "id": "key_correspondence_centroid",
+            "subject": "piece/9",
+            "passed": true,
+            "value": 0.4815990506055065,
+            "threshold": 1.0,
+            "op": "<=",
+            "unit": "native_px",
+            "evidence": [
+              "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4q/spent_raw_board.png"
+            ],
+            "notes": ""
+          },
+          {
+            "id": "key_correspondence_coverage",
+            "subject": "piece/10",
+            "passed": false,
+            "value": 0.4444444444444444,
+            "threshold": 0.9,
+            "op": ">=",
+            "unit": "fraction",
+            "evidence": [
+              "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4q/spent_raw_board.png"
+            ],
+            "notes": ""
+          },
+          {
+            "id": "key_correspondence_centroid",
+            "subject": "piece/10",
+            "passed": true,
+            "value": 0.5780181124079057,
+            "threshold": 1.0,
+            "op": "<=",
+            "unit": "native_px",
+            "evidence": [
+              "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4q/spent_raw_board.png"
+            ],
+            "notes": ""
+          },
+          {
+            "id": "key_correspondence_coverage",
+            "subject": "piece/11",
+            "passed": true,
+            "value": 0.9605221267112385,
+            "threshold": 0.9,
+            "op": ">=",
+            "unit": "fraction",
+            "evidence": [
+              "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4q/spent_raw_board.png"
+            ],
+            "notes": ""
+          },
+          {
+            "id": "key_correspondence_centroid",
+            "subject": "piece/11",
+            "passed": false,
+            "value": 1.944008879537619,
+            "threshold": 1.0,
+            "op": "<=",
+            "unit": "native_px",
+            "evidence": [
+              "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4q/spent_raw_board.png"
+            ],
+            "notes": ""
+          },
+          {
+            "id": "key_correspondence_coverage",
+            "subject": "piece/12",
+            "passed": true,
+            "value": 0.9391056137012369,
+            "threshold": 0.9,
+            "op": ">=",
+            "unit": "fraction",
+            "evidence": [
+              "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4q/spent_raw_board.png"
+            ],
+            "notes": ""
+          },
+          {
+            "id": "key_correspondence_centroid",
+            "subject": "piece/12",
+            "passed": false,
+            "value": 1.3283077245707706,
+            "threshold": 1.0,
+            "op": "<=",
+            "unit": "native_px",
+            "evidence": [
+              "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4q/spent_raw_board.png"
+            ],
+            "notes": ""
+          },
+          {
+            "id": "key_correspondence_coverage",
+            "subject": "piece/13",
+            "passed": true,
+            "value": 0.994649340722339,
+            "threshold": 0.9,
+            "op": ">=",
+            "unit": "fraction",
+            "evidence": [
+              "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4q/spent_raw_board.png"
+            ],
+            "notes": ""
+          },
+          {
+            "id": "key_correspondence_centroid",
+            "subject": "piece/13",
+            "passed": true,
+            "value": 0.7990523967306582,
+            "threshold": 1.0,
+            "op": "<=",
+            "unit": "native_px",
+            "evidence": [
+              "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4q/spent_raw_board.png"
+            ],
+            "notes": ""
+          },
+          {
+            "id": "key_correspondence_coverage",
+            "subject": "piece/14",
+            "passed": true,
+            "value": 0.9834824501032347,
+            "threshold": 0.9,
+            "op": ">=",
+            "unit": "fraction",
+            "evidence": [
+              "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4q/spent_raw_board.png"
+            ],
+            "notes": ""
+          },
+          {
+            "id": "key_correspondence_centroid",
+            "subject": "piece/14",
+            "passed": true,
+            "value": 0.2837565213003852,
+            "threshold": 1.0,
+            "op": "<=",
+            "unit": "native_px",
+            "evidence": [
+              "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4q/spent_raw_board.png"
+            ],
+            "notes": ""
+          },
+          {
+            "id": "key_correspondence_coverage",
+            "subject": "piece/15",
+            "passed": true,
+            "value": 0.9003071767662664,
+            "threshold": 0.9,
+            "op": ">=",
+            "unit": "fraction",
+            "evidence": [
+              "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4q/spent_raw_board.png"
+            ],
+            "notes": ""
+          },
+          {
+            "id": "key_correspondence_centroid",
+            "subject": "piece/15",
+            "passed": false,
+            "value": 2.1228029114392295,
+            "threshold": 1.0,
+            "op": "<=",
+            "unit": "native_px",
+            "evidence": [
+              "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4q/spent_raw_board.png"
+            ],
+            "notes": ""
+          },
+          {
+            "id": "key_correspondence_coverage",
+            "subject": "piece/16",
+            "passed": null,
+            "value": null,
+            "threshold": 0.9,
+            "op": ">=",
+            "unit": "fraction",
+            "evidence": [
+              "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4q/spent_raw_board.png"
+            ],
+            "notes": "no visible guide footprint at this age"
+          },
+          {
+            "id": "key_correspondence_centroid",
+            "subject": "piece/16",
+            "passed": null,
+            "value": null,
+            "threshold": 1.0,
+            "op": "<=",
+            "unit": "native_px",
+            "evidence": [
+              "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4q/spent_raw_board.png"
+            ],
+            "notes": "no visible guide footprint at this age"
+          },
+          {
+            "id": "key_correspondence_coverage",
+            "subject": "piece/17",
+            "passed": null,
+            "value": null,
+            "threshold": 0.9,
+            "op": ">=",
+            "unit": "fraction",
+            "evidence": [
+              "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4q/spent_raw_board.png"
+            ],
+            "notes": "no visible guide footprint at this age"
+          },
+          {
+            "id": "key_correspondence_centroid",
+            "subject": "piece/17",
+            "passed": null,
+            "value": null,
+            "threshold": 1.0,
+            "op": "<=",
+            "unit": "native_px",
+            "evidence": [
+              "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4q/spent_raw_board.png"
+            ],
+            "notes": "no visible guide footprint at this age"
+          },
+          {
+            "id": "key_correspondence_coverage",
+            "subject": "piece/18",
+            "passed": null,
+            "value": null,
+            "threshold": 0.9,
+            "op": ">=",
+            "unit": "fraction",
+            "evidence": [
+              "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4q/spent_raw_board.png"
+            ],
+            "notes": "no visible guide footprint at this age"
+          },
+          {
+            "id": "key_correspondence_centroid",
+            "subject": "piece/18",
+            "passed": null,
+            "value": null,
+            "threshold": 1.0,
+            "op": "<=",
+            "unit": "native_px",
+            "evidence": [
+              "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4q/spent_raw_board.png"
+            ],
+            "notes": "no visible guide footprint at this age"
+          },
+          {
+            "id": "key_correspondence_coverage",
+            "subject": "piece/19",
+            "passed": null,
+            "value": null,
+            "threshold": 0.9,
+            "op": ">=",
+            "unit": "fraction",
+            "evidence": [
+              "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4q/spent_raw_board.png"
+            ],
+            "notes": "no visible guide footprint at this age"
+          },
+          {
+            "id": "key_correspondence_centroid",
+            "subject": "piece/19",
+            "passed": null,
+            "value": null,
+            "threshold": 1.0,
+            "op": "<=",
+            "unit": "native_px",
+            "evidence": [
+              "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4q/spent_raw_board.png"
+            ],
+            "notes": "no visible guide footprint at this age"
+          },
+          {
+            "id": "key_correspondence_coverage",
+            "subject": "piece/20",
+            "passed": null,
+            "value": null,
+            "threshold": 0.9,
+            "op": ">=",
+            "unit": "fraction",
+            "evidence": [
+              "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4q/spent_raw_board.png"
+            ],
+            "notes": "no visible guide footprint at this age"
+          },
+          {
+            "id": "key_correspondence_centroid",
+            "subject": "piece/20",
+            "passed": null,
+            "value": null,
+            "threshold": 1.0,
+            "op": "<=",
+            "unit": "native_px",
+            "evidence": [
+              "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4q/spent_raw_board.png"
+            ],
+            "notes": "no visible guide footprint at this age"
+          },
+          {
+            "id": "key_correspondence_coverage",
+            "subject": "piece/21",
+            "passed": null,
+            "value": null,
+            "threshold": 0.9,
+            "op": ">=",
+            "unit": "fraction",
+            "evidence": [
+              "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4q/spent_raw_board.png"
+            ],
+            "notes": "no visible guide footprint at this age"
+          },
+          {
+            "id": "key_correspondence_centroid",
+            "subject": "piece/21",
+            "passed": null,
+            "value": null,
+            "threshold": 1.0,
+            "op": "<=",
+            "unit": "native_px",
+            "evidence": [
+              "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4q/spent_raw_board.png"
+            ],
+            "notes": "no visible guide footprint at this age"
+          },
+          {
+            "id": "key_correspondence_coverage",
+            "subject": "piece/22",
+            "passed": null,
+            "value": null,
+            "threshold": 0.9,
+            "op": ">=",
+            "unit": "fraction",
+            "evidence": [
+              "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4q/spent_raw_board.png"
+            ],
+            "notes": "no visible guide footprint at this age"
+          },
+          {
+            "id": "key_correspondence_centroid",
+            "subject": "piece/22",
+            "passed": null,
+            "value": null,
+            "threshold": 1.0,
+            "op": "<=",
+            "unit": "native_px",
+            "evidence": [
+              "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4q/spent_raw_board.png"
+            ],
+            "notes": "no visible guide footprint at this age"
+          },
+          {
+            "id": "key_correspondence_coverage",
+            "subject": "piece/23",
+            "passed": null,
+            "value": null,
+            "threshold": 0.9,
+            "op": ">=",
+            "unit": "fraction",
+            "evidence": [
+              "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4q/spent_raw_board.png"
+            ],
+            "notes": "no visible guide footprint at this age"
+          },
+          {
+            "id": "key_correspondence_centroid",
+            "subject": "piece/23",
+            "passed": null,
+            "value": null,
+            "threshold": 1.0,
+            "op": "<=",
+            "unit": "native_px",
+            "evidence": [
+              "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4q/spent_raw_board.png"
+            ],
+            "notes": "no visible guide footprint at this age"
+          },
+          {
+            "id": "key_correspondence_coverage",
+            "subject": "piece/24",
+            "passed": null,
+            "value": null,
+            "threshold": 0.9,
+            "op": ">=",
+            "unit": "fraction",
+            "evidence": [
+              "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4q/spent_raw_board.png"
+            ],
+            "notes": "no visible guide footprint at this age"
+          },
+          {
+            "id": "key_correspondence_centroid",
+            "subject": "piece/24",
+            "passed": null,
+            "value": null,
+            "threshold": 1.0,
+            "op": "<=",
+            "unit": "native_px",
+            "evidence": [
+              "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4q/spent_raw_board.png"
+            ],
+            "notes": "no visible guide footprint at this age"
+          },
+          {
+            "id": "key_silhouette",
+            "subject": "whole_image",
+            "passed": false,
+            "value": 0.8848476204060286,
+            "threshold": 0.9,
+            "op": ">=",
+            "unit": "iou",
+            "evidence": [
+              "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4q/spent_raw_board.png"
+            ],
+            "notes": ""
+          },
+          {
+            "id": "key_shards",
+            "subject": "whole_image",
+            "passed": true,
+            "value": 1,
+            "threshold": 1,
+            "op": "<=",
+            "unit": "components",
+            "evidence": [
+              "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4q/spent_raw_board.png"
+            ],
+            "notes": ""
+          },
+          {
+            "id": "key_contour",
+            "subject": "whole_image",
+            "passed": true,
+            "value": 0.06186408946439936,
+            "threshold": 1.0,
+            "op": "<=",
+            "unit": "native_px",
+            "evidence": [
+              "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4q/spent_raw_board.png"
+            ],
+            "notes": ""
+          },
+          {
+            "id": "VO8",
+            "subject": "guide_to_painting",
+            "passed": false,
+            "value": {
+              "unique_frames": 2,
+              "unique_frames_per_s": 60.0,
+              "drawing_changes": 1,
+              "drawing_runs": 2,
+              "drawing_runs_per_s": 60.0,
+              "frame_sha256": [
+                "c28541fa098d8b414ee646383ce0ada418fc507fcec93cb6a404d1a3024a932b",
+                "5ae02d701fe473d65369f84e6f468cbde77581c2ca0db7cd565d38025488c881"
+              ],
+              "duration_s": 0.03333333333333333,
+              "method": "exact decoded indexed RGBA bytes, two frames at stated fps",
+              "fps": 60,
+              "in_band": false,
+              "band_definition": "drawing changes while silhouette IoU >= 0.9; no additional temporal threshold supplied"
+            },
+            "threshold": {
+              "drawing_changes": 1,
+              "silhouette_iou_min": 0.9
+            },
+            "op": "shape_band",
+            "unit": "mixed",
+            "evidence": [
+              "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4q/spent_raw_board.png"
+            ],
+            "notes": "Two-state drawing-change measurement, not a calibrated temporal rate gate."
+          }
+        ]
+      },
+      "clipped": {
+        "correspondence": {
+          "pieces": [
+            {
+              "id": 1,
+              "guide_pixels": 0,
+              "coverage_fraction": null,
+              "centroid_offset_px": null,
+              "passed": null,
+              "reason": "no visible guide footprint at this age"
+            },
+            {
+              "id": 2,
+              "guide_pixels": 0,
+              "coverage_fraction": null,
+              "centroid_offset_px": null,
+              "passed": null,
+              "reason": "no visible guide footprint at this age"
+            },
+            {
+              "id": 3,
+              "guide_pixels": 0,
+              "coverage_fraction": null,
+              "centroid_offset_px": null,
+              "passed": null,
+              "reason": "no visible guide footprint at this age"
+            },
+            {
+              "id": 4,
+              "guide_pixels": 0,
+              "coverage_fraction": null,
+              "centroid_offset_px": null,
+              "passed": null,
+              "reason": "no visible guide footprint at this age"
+            },
+            {
+              "id": 5,
+              "guide_pixels": 0,
+              "coverage_fraction": null,
+              "centroid_offset_px": null,
+              "passed": null,
+              "reason": "no visible guide footprint at this age"
+            },
+            {
+              "id": 6,
+              "guide_pixels": 0,
+              "coverage_fraction": null,
+              "centroid_offset_px": null,
+              "passed": null,
+              "reason": "no visible guide footprint at this age"
+            },
+            {
+              "id": 7,
+              "guide_pixels": 2346,
+              "matching_pixels": 2488,
+              "coverage_fraction": 1.0,
+              "coverage_min": 0.9,
+              "coverage_shortfall": 0.0,
+              "guide_centroid_xy": [
+                398.9492753623188,
+                295.0673486786019
+              ],
+              "painting_centroid_xy": [
+                399.25361736334406,
+                293.915192926045
+              ],
+              "centroid_offset_px": 1.191674003970043,
+              "centroid_max_px": 1.0,
+              "centroid_excess_px": 0.19167400397004308,
+              "passed": false
+            },
+            {
+              "id": 8,
+              "guide_pixels": 521,
+              "matching_pixels": 584,
+              "coverage_fraction": 1.0,
+              "coverage_min": 0.9,
+              "coverage_shortfall": 0.0,
+              "guide_centroid_xy": [
+                451.8790786948177,
+                385.36084452975047
+              ],
+              "painting_centroid_xy": [
+                453.9058219178082,
+                386.05650684931504
+              ],
+              "centroid_offset_px": 2.142809873693902,
+              "centroid_max_px": 1.0,
+              "centroid_excess_px": 1.1428098736939019,
+              "passed": false
+            },
+            {
+              "id": 9,
+              "guide_pixels": 2314,
+              "matching_pixels": 2442,
+              "coverage_fraction": 1.0,
+              "coverage_min": 0.9,
+              "coverage_shortfall": 0.0,
+              "guide_centroid_xy": [
+                300.86992221261886,
+                419.82497839239414
+              ],
+              "painting_centroid_xy": [
+                300.33824733824736,
+                419.42219492219493
+              ],
+              "centroid_offset_px": 0.6670177628097117,
+              "centroid_max_px": 1.0,
+              "centroid_excess_px": 0.0,
+              "passed": true
+            },
+            {
+              "id": 10,
+              "guide_pixels": 9,
+              "matching_pixels": 9,
+              "coverage_fraction": 1.0,
+              "coverage_min": 0.9,
+              "coverage_shortfall": 0.0,
+              "guide_centroid_xy": [
+                309.6666666666667,
+                377.77777777777777
+              ],
+              "painting_centroid_xy": [
+                309.6666666666667,
+                377.77777777777777
+              ],
+              "centroid_offset_px": 0.0,
+              "centroid_max_px": 1.0,
+              "centroid_excess_px": 0.0,
+              "passed": true
+            },
+            {
+              "id": 11,
+              "guide_pixels": 3141,
+              "matching_pixels": 3179,
+              "coverage_fraction": 1.0,
+              "coverage_min": 0.9,
+              "coverage_shortfall": 0.0,
+              "guide_centroid_xy": [
+                404.6300541228908,
+                348.0499840815027
+              ],
+              "painting_centroid_xy": [
+                404.75369613085877,
+                347.58068575023594
+              ],
+              "centroid_offset_px": 0.48531254863657863,
+              "centroid_max_px": 1.0,
+              "centroid_excess_px": 0.0,
+              "passed": true
+            },
+            {
+              "id": 12,
+              "guide_pixels": 3153,
+              "matching_pixels": 3201,
+              "coverage_fraction": 1.0,
+              "coverage_min": 0.9,
+              "coverage_shortfall": 0.0,
+              "guide_centroid_xy": [
+                419.20995876942595,
+                406.82714874722484
+              ],
+              "painting_centroid_xy": [
+                419.41611996251174,
+                407.192439862543
+              ],
+              "centroid_offset_px": 0.4194520669455926,
+              "centroid_max_px": 1.0,
+              "centroid_excess_px": 0.0,
+              "passed": true
+            },
+            {
+              "id": 13,
+              "guide_pixels": 5233,
+              "matching_pixels": 5342,
+              "coverage_fraction": 1.0,
+              "coverage_min": 0.9,
+              "coverage_shortfall": 0.0,
+              "guide_centroid_xy": [
+                369.4947448882094,
+                433.39690426141794
+              ],
+              "painting_centroid_xy": [
+                369.6329090228379,
+                434.02882815424937
+              ],
+              "centroid_offset_px": 0.6468517097672833,
+              "centroid_max_px": 1.0,
+              "centroid_excess_px": 0.0,
+              "passed": true
+            },
+            {
+              "id": 14,
+              "guide_pixels": 2906,
+              "matching_pixels": 2920,
+              "coverage_fraction": 1.0,
+              "coverage_min": 0.9,
+              "coverage_shortfall": 0.0,
+              "guide_centroid_xy": [
+                335.5588437715072,
+                392.4456297315898
+              ],
+              "painting_centroid_xy": [
+                335.45205479452056,
+                392.3794520547945
+              ],
+              "centroid_offset_px": 0.12563188493323366,
+              "centroid_max_px": 1.0,
+              "centroid_excess_px": 0.0,
+              "passed": true
+            },
+            {
+              "id": 15,
+              "guide_pixels": 3581,
+              "matching_pixels": 3589,
+              "coverage_fraction": 1.0,
+              "coverage_min": 0.9,
+              "coverage_shortfall": 0.0,
+              "guide_centroid_xy": [
+                364.3429209717956,
+                348.6495392348506
+              ],
+              "painting_centroid_xy": [
+                364.333797715241,
+                348.5806631373642
+              ],
+              "centroid_offset_px": 0.06947769868897506,
+              "centroid_max_px": 1.0,
+              "centroid_excess_px": 0.0,
+              "passed": true
+            },
+            {
+              "id": 16,
+              "guide_pixels": 0,
+              "coverage_fraction": null,
+              "centroid_offset_px": null,
+              "passed": null,
+              "reason": "no visible guide footprint at this age"
+            },
+            {
+              "id": 17,
+              "guide_pixels": 0,
+              "coverage_fraction": null,
+              "centroid_offset_px": null,
+              "passed": null,
+              "reason": "no visible guide footprint at this age"
+            },
+            {
+              "id": 18,
+              "guide_pixels": 0,
+              "coverage_fraction": null,
+              "centroid_offset_px": null,
+              "passed": null,
+              "reason": "no visible guide footprint at this age"
+            },
+            {
+              "id": 19,
+              "guide_pixels": 0,
+              "coverage_fraction": null,
+              "centroid_offset_px": null,
+              "passed": null,
+              "reason": "no visible guide footprint at this age"
+            },
+            {
+              "id": 20,
+              "guide_pixels": 0,
+              "coverage_fraction": null,
+              "centroid_offset_px": null,
+              "passed": null,
+              "reason": "no visible guide footprint at this age"
+            },
+            {
+              "id": 21,
+              "guide_pixels": 0,
+              "coverage_fraction": null,
+              "centroid_offset_px": null,
+              "passed": null,
+              "reason": "no visible guide footprint at this age"
+            },
+            {
+              "id": 22,
+              "guide_pixels": 0,
+              "coverage_fraction": null,
+              "centroid_offset_px": null,
+              "passed": null,
+              "reason": "no visible guide footprint at this age"
+            },
+            {
+              "id": 23,
+              "guide_pixels": 0,
+              "coverage_fraction": null,
+              "centroid_offset_px": null,
+              "passed": null,
+              "reason": "no visible guide footprint at this age"
+            },
+            {
+              "id": 24,
+              "guide_pixels": 0,
+              "coverage_fraction": null,
+              "centroid_offset_px": null,
+              "passed": null,
+              "reason": "no visible guide footprint at this age"
+            }
+          ],
+          "guide_unmapped_pixels": 1,
+          "passed": false,
+          "matching_method": "independent transformed footprint intersections plus nearest-footprint exterior; binary alpha > 0.5, 8-connectivity"
+        },
+        "boil": {
+          "silhouette_iou": 0.9732112415371876,
+          "silhouette_iou_min": 0.9,
+          "silhouette_iou_shortfall": 0.0,
+          "guide_shards": 3,
+          "painting_shards": 2,
+          "shard_count_delta": -1,
+          "shard_count_tolerance": 1,
+          "shard_count_excess": 0,
+          "guide_band0_width_px": 2.005767868154791,
+          "painting_band0_width_px": 2.085907318100202,
+          "contour_thickening_px": 0.08013944994541111,
+          "contour_thickening_max_px": 1.0,
+          "contour_thickening_excess_px": 0.0,
+          "VO8": {
+            "unique_frames": 2,
+            "unique_frames_per_s": 60.0,
+            "drawing_changes": 1,
+            "drawing_runs": 2,
+            "drawing_runs_per_s": 60.0,
+            "frame_sha256": [
+              "c28541fa098d8b414ee646383ce0ada418fc507fcec93cb6a404d1a3024a932b",
+              "fc74218c9b88d89fcb7fbec3192591eb31d467ed96c19363d848d46c60214c69"
+            ],
+            "duration_s": 0.03333333333333333,
+            "method": "exact decoded indexed RGBA bytes, two frames at stated fps",
+            "fps": 60,
+            "in_band": true,
+            "band_definition": "drawing changes while silhouette IoU >= 0.9; no additional temporal threshold supplied"
+          },
+          "changed_pixel_fraction": 0.9331255175101066,
+          "interior_band_change_fraction": 0.37650768229818327,
+          "drawing_changed": true,
+          "passed": true
+        },
+        "passed": false,
+        "failures": [
+          {
+            "test": "piece_centroid",
+            "piece": 7,
+            "value": 1.191674003970043,
+            "threshold": 1.0,
+            "excess": 0.19167400397004308
+          },
+          {
+            "test": "piece_centroid",
+            "piece": 8,
+            "value": 2.142809873693902,
+            "threshold": 1.0,
+            "excess": 1.1428098736939019
+          },
+          {
+            "test": "guide_piece_mapping",
+            "value": 1,
+            "threshold": 0,
+            "excess": 1
+          }
+        ],
+        "results": [
+          {
+            "id": "key_correspondence_coverage",
+            "subject": "piece/1",
+            "passed": null,
+            "value": null,
+            "threshold": 0.9,
+            "op": ">=",
+            "unit": "fraction",
+            "evidence": [
+              "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4q/spent_clipped_board.png"
+            ],
+            "notes": "no visible guide footprint at this age"
+          },
+          {
+            "id": "key_correspondence_centroid",
+            "subject": "piece/1",
+            "passed": null,
+            "value": null,
+            "threshold": 1.0,
+            "op": "<=",
+            "unit": "native_px",
+            "evidence": [
+              "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4q/spent_clipped_board.png"
+            ],
+            "notes": "no visible guide footprint at this age"
+          },
+          {
+            "id": "key_correspondence_coverage",
+            "subject": "piece/2",
+            "passed": null,
+            "value": null,
+            "threshold": 0.9,
+            "op": ">=",
+            "unit": "fraction",
+            "evidence": [
+              "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4q/spent_clipped_board.png"
+            ],
+            "notes": "no visible guide footprint at this age"
+          },
+          {
+            "id": "key_correspondence_centroid",
+            "subject": "piece/2",
+            "passed": null,
+            "value": null,
+            "threshold": 1.0,
+            "op": "<=",
+            "unit": "native_px",
+            "evidence": [
+              "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4q/spent_clipped_board.png"
+            ],
+            "notes": "no visible guide footprint at this age"
+          },
+          {
+            "id": "key_correspondence_coverage",
+            "subject": "piece/3",
+            "passed": null,
+            "value": null,
+            "threshold": 0.9,
+            "op": ">=",
+            "unit": "fraction",
+            "evidence": [
+              "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4q/spent_clipped_board.png"
+            ],
+            "notes": "no visible guide footprint at this age"
+          },
+          {
+            "id": "key_correspondence_centroid",
+            "subject": "piece/3",
+            "passed": null,
+            "value": null,
+            "threshold": 1.0,
+            "op": "<=",
+            "unit": "native_px",
+            "evidence": [
+              "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4q/spent_clipped_board.png"
+            ],
+            "notes": "no visible guide footprint at this age"
+          },
+          {
+            "id": "key_correspondence_coverage",
+            "subject": "piece/4",
+            "passed": null,
+            "value": null,
+            "threshold": 0.9,
+            "op": ">=",
+            "unit": "fraction",
+            "evidence": [
+              "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4q/spent_clipped_board.png"
+            ],
+            "notes": "no visible guide footprint at this age"
+          },
+          {
+            "id": "key_correspondence_centroid",
+            "subject": "piece/4",
+            "passed": null,
+            "value": null,
+            "threshold": 1.0,
+            "op": "<=",
+            "unit": "native_px",
+            "evidence": [
+              "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4q/spent_clipped_board.png"
+            ],
+            "notes": "no visible guide footprint at this age"
+          },
+          {
+            "id": "key_correspondence_coverage",
+            "subject": "piece/5",
+            "passed": null,
+            "value": null,
+            "threshold": 0.9,
+            "op": ">=",
+            "unit": "fraction",
+            "evidence": [
+              "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4q/spent_clipped_board.png"
+            ],
+            "notes": "no visible guide footprint at this age"
+          },
+          {
+            "id": "key_correspondence_centroid",
+            "subject": "piece/5",
+            "passed": null,
+            "value": null,
+            "threshold": 1.0,
+            "op": "<=",
+            "unit": "native_px",
+            "evidence": [
+              "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4q/spent_clipped_board.png"
+            ],
+            "notes": "no visible guide footprint at this age"
+          },
+          {
+            "id": "key_correspondence_coverage",
+            "subject": "piece/6",
+            "passed": null,
+            "value": null,
+            "threshold": 0.9,
+            "op": ">=",
+            "unit": "fraction",
+            "evidence": [
+              "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4q/spent_clipped_board.png"
+            ],
+            "notes": "no visible guide footprint at this age"
+          },
+          {
+            "id": "key_correspondence_centroid",
+            "subject": "piece/6",
+            "passed": null,
+            "value": null,
+            "threshold": 1.0,
+            "op": "<=",
+            "unit": "native_px",
+            "evidence": [
+              "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4q/spent_clipped_board.png"
+            ],
+            "notes": "no visible guide footprint at this age"
+          },
+          {
+            "id": "key_correspondence_coverage",
+            "subject": "piece/7",
+            "passed": true,
+            "value": 1.0,
+            "threshold": 0.9,
+            "op": ">=",
+            "unit": "fraction",
+            "evidence": [
+              "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4q/spent_clipped_board.png"
+            ],
+            "notes": ""
+          },
+          {
+            "id": "key_correspondence_centroid",
+            "subject": "piece/7",
+            "passed": false,
+            "value": 1.191674003970043,
+            "threshold": 1.0,
+            "op": "<=",
+            "unit": "native_px",
+            "evidence": [
+              "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4q/spent_clipped_board.png"
+            ],
+            "notes": ""
+          },
+          {
+            "id": "key_correspondence_coverage",
+            "subject": "piece/8",
+            "passed": true,
+            "value": 1.0,
+            "threshold": 0.9,
+            "op": ">=",
+            "unit": "fraction",
+            "evidence": [
+              "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4q/spent_clipped_board.png"
+            ],
+            "notes": ""
+          },
+          {
+            "id": "key_correspondence_centroid",
+            "subject": "piece/8",
+            "passed": false,
+            "value": 2.142809873693902,
+            "threshold": 1.0,
+            "op": "<=",
+            "unit": "native_px",
+            "evidence": [
+              "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4q/spent_clipped_board.png"
+            ],
+            "notes": ""
+          },
+          {
+            "id": "key_correspondence_coverage",
+            "subject": "piece/9",
+            "passed": true,
+            "value": 1.0,
+            "threshold": 0.9,
+            "op": ">=",
+            "unit": "fraction",
+            "evidence": [
+              "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4q/spent_clipped_board.png"
+            ],
+            "notes": ""
+          },
+          {
+            "id": "key_correspondence_centroid",
+            "subject": "piece/9",
+            "passed": true,
+            "value": 0.6670177628097117,
+            "threshold": 1.0,
+            "op": "<=",
+            "unit": "native_px",
+            "evidence": [
+              "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4q/spent_clipped_board.png"
+            ],
+            "notes": ""
+          },
+          {
+            "id": "key_correspondence_coverage",
+            "subject": "piece/10",
+            "passed": true,
+            "value": 1.0,
+            "threshold": 0.9,
+            "op": ">=",
+            "unit": "fraction",
+            "evidence": [
+              "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4q/spent_clipped_board.png"
+            ],
+            "notes": ""
+          },
+          {
+            "id": "key_correspondence_centroid",
+            "subject": "piece/10",
+            "passed": true,
+            "value": 0.0,
+            "threshold": 1.0,
+            "op": "<=",
+            "unit": "native_px",
+            "evidence": [
+              "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4q/spent_clipped_board.png"
+            ],
+            "notes": ""
+          },
+          {
+            "id": "key_correspondence_coverage",
+            "subject": "piece/11",
+            "passed": true,
+            "value": 1.0,
+            "threshold": 0.9,
+            "op": ">=",
+            "unit": "fraction",
+            "evidence": [
+              "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4q/spent_clipped_board.png"
+            ],
+            "notes": ""
+          },
+          {
+            "id": "key_correspondence_centroid",
+            "subject": "piece/11",
+            "passed": true,
+            "value": 0.48531254863657863,
+            "threshold": 1.0,
+            "op": "<=",
+            "unit": "native_px",
+            "evidence": [
+              "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4q/spent_clipped_board.png"
+            ],
+            "notes": ""
+          },
+          {
+            "id": "key_correspondence_coverage",
+            "subject": "piece/12",
+            "passed": true,
+            "value": 1.0,
+            "threshold": 0.9,
+            "op": ">=",
+            "unit": "fraction",
+            "evidence": [
+              "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4q/spent_clipped_board.png"
+            ],
+            "notes": ""
+          },
+          {
+            "id": "key_correspondence_centroid",
+            "subject": "piece/12",
+            "passed": true,
+            "value": 0.4194520669455926,
+            "threshold": 1.0,
+            "op": "<=",
+            "unit": "native_px",
+            "evidence": [
+              "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4q/spent_clipped_board.png"
+            ],
+            "notes": ""
+          },
+          {
+            "id": "key_correspondence_coverage",
+            "subject": "piece/13",
+            "passed": true,
+            "value": 1.0,
+            "threshold": 0.9,
+            "op": ">=",
+            "unit": "fraction",
+            "evidence": [
+              "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4q/spent_clipped_board.png"
+            ],
+            "notes": ""
+          },
+          {
+            "id": "key_correspondence_centroid",
+            "subject": "piece/13",
+            "passed": true,
+            "value": 0.6468517097672833,
+            "threshold": 1.0,
+            "op": "<=",
+            "unit": "native_px",
+            "evidence": [
+              "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4q/spent_clipped_board.png"
+            ],
+            "notes": ""
+          },
+          {
+            "id": "key_correspondence_coverage",
+            "subject": "piece/14",
+            "passed": true,
+            "value": 1.0,
+            "threshold": 0.9,
+            "op": ">=",
+            "unit": "fraction",
+            "evidence": [
+              "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4q/spent_clipped_board.png"
+            ],
+            "notes": ""
+          },
+          {
+            "id": "key_correspondence_centroid",
+            "subject": "piece/14",
+            "passed": true,
+            "value": 0.12563188493323366,
+            "threshold": 1.0,
+            "op": "<=",
+            "unit": "native_px",
+            "evidence": [
+              "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4q/spent_clipped_board.png"
+            ],
+            "notes": ""
+          },
+          {
+            "id": "key_correspondence_coverage",
+            "subject": "piece/15",
+            "passed": true,
+            "value": 1.0,
+            "threshold": 0.9,
+            "op": ">=",
+            "unit": "fraction",
+            "evidence": [
+              "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4q/spent_clipped_board.png"
+            ],
+            "notes": ""
+          },
+          {
+            "id": "key_correspondence_centroid",
+            "subject": "piece/15",
+            "passed": true,
+            "value": 0.06947769868897506,
+            "threshold": 1.0,
+            "op": "<=",
+            "unit": "native_px",
+            "evidence": [
+              "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4q/spent_clipped_board.png"
+            ],
+            "notes": ""
+          },
+          {
+            "id": "key_correspondence_coverage",
+            "subject": "piece/16",
+            "passed": null,
+            "value": null,
+            "threshold": 0.9,
+            "op": ">=",
+            "unit": "fraction",
+            "evidence": [
+              "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4q/spent_clipped_board.png"
+            ],
+            "notes": "no visible guide footprint at this age"
+          },
+          {
+            "id": "key_correspondence_centroid",
+            "subject": "piece/16",
+            "passed": null,
+            "value": null,
+            "threshold": 1.0,
+            "op": "<=",
+            "unit": "native_px",
+            "evidence": [
+              "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4q/spent_clipped_board.png"
+            ],
+            "notes": "no visible guide footprint at this age"
+          },
+          {
+            "id": "key_correspondence_coverage",
+            "subject": "piece/17",
+            "passed": null,
+            "value": null,
+            "threshold": 0.9,
+            "op": ">=",
+            "unit": "fraction",
+            "evidence": [
+              "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4q/spent_clipped_board.png"
+            ],
+            "notes": "no visible guide footprint at this age"
+          },
+          {
+            "id": "key_correspondence_centroid",
+            "subject": "piece/17",
+            "passed": null,
+            "value": null,
+            "threshold": 1.0,
+            "op": "<=",
+            "unit": "native_px",
+            "evidence": [
+              "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4q/spent_clipped_board.png"
+            ],
+            "notes": "no visible guide footprint at this age"
+          },
+          {
+            "id": "key_correspondence_coverage",
+            "subject": "piece/18",
+            "passed": null,
+            "value": null,
+            "threshold": 0.9,
+            "op": ">=",
+            "unit": "fraction",
+            "evidence": [
+              "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4q/spent_clipped_board.png"
+            ],
+            "notes": "no visible guide footprint at this age"
+          },
+          {
+            "id": "key_correspondence_centroid",
+            "subject": "piece/18",
+            "passed": null,
+            "value": null,
+            "threshold": 1.0,
+            "op": "<=",
+            "unit": "native_px",
+            "evidence": [
+              "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4q/spent_clipped_board.png"
+            ],
+            "notes": "no visible guide footprint at this age"
+          },
+          {
+            "id": "key_correspondence_coverage",
+            "subject": "piece/19",
+            "passed": null,
+            "value": null,
+            "threshold": 0.9,
+            "op": ">=",
+            "unit": "fraction",
+            "evidence": [
+              "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4q/spent_clipped_board.png"
+            ],
+            "notes": "no visible guide footprint at this age"
+          },
+          {
+            "id": "key_correspondence_centroid",
+            "subject": "piece/19",
+            "passed": null,
+            "value": null,
+            "threshold": 1.0,
+            "op": "<=",
+            "unit": "native_px",
+            "evidence": [
+              "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4q/spent_clipped_board.png"
+            ],
+            "notes": "no visible guide footprint at this age"
+          },
+          {
+            "id": "key_correspondence_coverage",
+            "subject": "piece/20",
+            "passed": null,
+            "value": null,
+            "threshold": 0.9,
+            "op": ">=",
+            "unit": "fraction",
+            "evidence": [
+              "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4q/spent_clipped_board.png"
+            ],
+            "notes": "no visible guide footprint at this age"
+          },
+          {
+            "id": "key_correspondence_centroid",
+            "subject": "piece/20",
+            "passed": null,
+            "value": null,
+            "threshold": 1.0,
+            "op": "<=",
+            "unit": "native_px",
+            "evidence": [
+              "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4q/spent_clipped_board.png"
+            ],
+            "notes": "no visible guide footprint at this age"
+          },
+          {
+            "id": "key_correspondence_coverage",
+            "subject": "piece/21",
+            "passed": null,
+            "value": null,
+            "threshold": 0.9,
+            "op": ">=",
+            "unit": "fraction",
+            "evidence": [
+              "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4q/spent_clipped_board.png"
+            ],
+            "notes": "no visible guide footprint at this age"
+          },
+          {
+            "id": "key_correspondence_centroid",
+            "subject": "piece/21",
+            "passed": null,
+            "value": null,
+            "threshold": 1.0,
+            "op": "<=",
+            "unit": "native_px",
+            "evidence": [
+              "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4q/spent_clipped_board.png"
+            ],
+            "notes": "no visible guide footprint at this age"
+          },
+          {
+            "id": "key_correspondence_coverage",
+            "subject": "piece/22",
+            "passed": null,
+            "value": null,
+            "threshold": 0.9,
+            "op": ">=",
+            "unit": "fraction",
+            "evidence": [
+              "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4q/spent_clipped_board.png"
+            ],
+            "notes": "no visible guide footprint at this age"
+          },
+          {
+            "id": "key_correspondence_centroid",
+            "subject": "piece/22",
+            "passed": null,
+            "value": null,
+            "threshold": 1.0,
+            "op": "<=",
+            "unit": "native_px",
+            "evidence": [
+              "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4q/spent_clipped_board.png"
+            ],
+            "notes": "no visible guide footprint at this age"
+          },
+          {
+            "id": "key_correspondence_coverage",
+            "subject": "piece/23",
+            "passed": null,
+            "value": null,
+            "threshold": 0.9,
+            "op": ">=",
+            "unit": "fraction",
+            "evidence": [
+              "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4q/spent_clipped_board.png"
+            ],
+            "notes": "no visible guide footprint at this age"
+          },
+          {
+            "id": "key_correspondence_centroid",
+            "subject": "piece/23",
+            "passed": null,
+            "value": null,
+            "threshold": 1.0,
+            "op": "<=",
+            "unit": "native_px",
+            "evidence": [
+              "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4q/spent_clipped_board.png"
+            ],
+            "notes": "no visible guide footprint at this age"
+          },
+          {
+            "id": "key_correspondence_coverage",
+            "subject": "piece/24",
+            "passed": null,
+            "value": null,
+            "threshold": 0.9,
+            "op": ">=",
+            "unit": "fraction",
+            "evidence": [
+              "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4q/spent_clipped_board.png"
+            ],
+            "notes": "no visible guide footprint at this age"
+          },
+          {
+            "id": "key_correspondence_centroid",
+            "subject": "piece/24",
+            "passed": null,
+            "value": null,
+            "threshold": 1.0,
+            "op": "<=",
+            "unit": "native_px",
+            "evidence": [
+              "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4q/spent_clipped_board.png"
+            ],
+            "notes": "no visible guide footprint at this age"
+          },
+          {
+            "id": "key_silhouette",
+            "subject": "whole_image",
+            "passed": true,
+            "value": 0.9732112415371876,
+            "threshold": 0.9,
+            "op": ">=",
+            "unit": "iou",
+            "evidence": [
+              "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4q/spent_clipped_board.png"
+            ],
+            "notes": ""
+          },
+          {
+            "id": "key_shards",
+            "subject": "whole_image",
+            "passed": true,
+            "value": 1,
+            "threshold": 1,
+            "op": "<=",
+            "unit": "components",
+            "evidence": [
+              "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4q/spent_clipped_board.png"
+            ],
+            "notes": ""
+          },
+          {
+            "id": "key_contour",
+            "subject": "whole_image",
+            "passed": true,
+            "value": 0.08013944994541111,
+            "threshold": 1.0,
+            "op": "<=",
+            "unit": "native_px",
+            "evidence": [
+              "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4q/spent_clipped_board.png"
+            ],
+            "notes": ""
+          },
+          {
+            "id": "VO8",
+            "subject": "guide_to_painting",
+            "passed": true,
+            "value": {
+              "unique_frames": 2,
+              "unique_frames_per_s": 60.0,
+              "drawing_changes": 1,
+              "drawing_runs": 2,
+              "drawing_runs_per_s": 60.0,
+              "frame_sha256": [
+                "c28541fa098d8b414ee646383ce0ada418fc507fcec93cb6a404d1a3024a932b",
+                "fc74218c9b88d89fcb7fbec3192591eb31d467ed96c19363d848d46c60214c69"
+              ],
+              "duration_s": 0.03333333333333333,
+              "method": "exact decoded indexed RGBA bytes, two frames at stated fps",
+              "fps": 60,
+              "in_band": true,
+              "band_definition": "drawing changes while silhouette IoU >= 0.9; no additional temporal threshold supplied"
+            },
+            "threshold": {
+              "drawing_changes": 1,
+              "silhouette_iou_min": 0.9
+            },
+            "op": "shape_band",
+            "unit": "mixed",
+            "evidence": [
+              "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4q/spent_clipped_board.png"
+            ],
+            "notes": "Two-state drawing-change measurement, not a calibrated temporal rate gate."
+          }
+        ]
+      },
+      "bound": false,
+      "timing": {
+        "runtime_expansion_end": 19,
+        "runtime_residue_entry": 40
+      },
+      "elapsed_s": 9.605800417004502
+    }
+  },
+  "binding": {
+    "selected": [],
+    "kit_unchanged": true,
+    "kit_sha256": "823769dbafb6a71ded9b3d5ed7c351c45d5795cf4119b131ca62fe5ab5f976f7"
+  },
+  "final_tests": {
+    "tests_run": 16,
+    "failures": [],
+    "errors": [],
+    "skipped": []
+  },
+  "broader_suite": {
+    "scope": [
+      "EffectKitTests",
+      "PiecePhaseTests",
+      "PieceStretchPhaseTests",
+      "DissolveOrderTests",
+      "PieceLap2ValidationTests",
+      "KeyStateMeasurementTests",
+      "KeyStatePhaseTests",
+      "KeyStateBindingTests",
+      "GodotImportTests",
+      "PieceBurstImportTests",
+      "PieceStretchImportTests",
+      "KeyStateSwapImportTests"
+    ],
+    "tests_run": 60,
+    "failures": [
+      {
+        "test": "test_headless_state_machine_input_map_gear_vfx_and_nearest_fallback (test_godot_import.GodotImportTests.test_headless_state_machine_input_map_gear_vfx_and_nearest_fallback)",
+        "detail": "Traceback (most recent call last):\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_godot_import.py\", line 162, in test_headless_state_machine_input_map_gear_vfx_and_nearest_fallback\n    self.assertEqual(proc.returncode, 0, log)\nAssertionError: -6 != 0 : ERROR: Failed to open 'user://logs/godot2026-09-16T03.00.23.log'.\n   at: copy (core/io/dir_access.cpp:423)\n\n================================================================\nhandle_crash: Program crashed with signal 11\nEngine version: Godot Engine v4.6.3.stable.official (7d41c59c457bd5a245092b4e7eb2d833e3b3f8c3)\nDumping the backtrace. Please include this when reporting the bug on: https://github.com/godotengine/godot/issues\n[1] 1   libsystem_platform.dylib            0x000000018222d6a4 _sigtramp + 56\n[2] RotatedFileLogger::rotate_file() (in Godot) + 1160\n[3] RotatedFileLogger::rotate_file() (in Godot) + 1160\n[4] RotatedFileLogger::RotatedFileLogger(String const&, int) (in Godot) + 80\n[5] Main::setup(char const*, int, char**, bool) (in Godot) + 18880\n[6] OS_MacOS_Headless::run() (in Godot) + 68\n[7] main (in Godot) + 924\n[8] 8   dyld                                0x0000000181e52b98 start + 6076\n-- END OF C++ BACKTRACE --\n================================================================\n\n"
+      },
+      {
+        "test": "test_v2_headless_import_and_seed_equal_rooted_clock (test_godot_import.PieceStretchImportTests.test_v2_headless_import_and_seed_equal_rooted_clock)",
+        "detail": "Traceback (most recent call last):\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_godot_import.py\", line 453, in test_v2_headless_import_and_seed_equal_rooted_clock\n    self.assertEqual(proc.returncode,0,log)\nAssertionError: 7 != 0 : Godot Engine v4.6.3.stable.official.7d41c59c4 - https://godotengine.org\n\nERROR: Condition \"ret != noErr\" is true. Returning: \"\"\n   at: get_system_ca_certificates (platform/macos/os_macos.mm:1028)\nERROR: band three not dissolved\n   at: push_error (core/variant/variant_utility.cpp:1024)\n   GDScript backtrace (most recent call first):\n       [0] need (res://stretch_probe.gd:6)\n       [1] probe (res://stretch_probe.gd:36)\nERROR: band three not dissolved\n   at: push_error (core/variant/variant_utility.cpp:1024)\n   GDScript backtrace (most recent call first):\n       [0] need (res://stretch_probe.gd:6)\n       [1] probe (res://stretch_probe.gd:36)\nERROR: band three not dissolved\n   at: push_error (core/variant/variant_utility.cpp:1024)\n   GDScript backtrace (most recent call first):\n       [0] need (res://stretch_probe.gd:6)\n       [1] probe (res://stretch_probe.gd:36)\nERROR: band three not dissolved\n   at: push_error (core/variant/variant_utility.cpp:1024)\n   GDScript backtrace (most recent call first):\n       [0] need (res://stretch_probe.gd:6)\n       [1] probe (res://stretch_probe.gd:36)\nERROR: band three not dissolved\n   at: push_error (core/variant/variant_utility.cpp:1024)\n   GDScript backtrace (most recent call first):\n       [0] need (res://stretch_probe.gd:6)\n       [1] probe (res://stretch_probe.gd:36)\nERROR: band three not dissolved\n   at: push_error (core/variant/variant_utility.cpp:1024)\n   GDScript backtrace (most recent call first):\n       [0] need (res://stretch_probe.gd:6)\n       [1] probe (res://stretch_probe.gd:36)\nERROR: band three not dissolved\n   at: push_error (core/variant/variant_utility.cpp:1024)\n   GDScript backtrace (most recent call first):\n       [0] need (res://stretch_probe.gd:6)\n       [1] probe (res://stretch_probe.gd:36)\nERROR: band three not dissolved\n   at: push_error (core/variant/variant_utility.cpp:1024)\n   GDScript backtrace (most recent call first):\n       [0] need (res://stretch_probe.gd:6)\n       [1] probe (res://stretch_probe.gd:36)\nERROR: band three not dissolved\n   at: push_error (core/variant/variant_utility.cpp:1024)\n   GDScript backtrace (most recent call first):\n       [0] need (res://stretch_probe.gd:6)\n       [1] probe (res://stretch_probe.gd:36)\nERROR: band three not dissolved\n   at: push_error (core/variant/variant_utility.cpp:1024)\n   GDScript backtrace (most recent call first):\n       [0] need (res://stretch_probe.gd:6)\n       [1] probe (res://stretch_probe.gd:36)\nERROR: band three not dissolved\n   at: push_error (core/variant/variant_utility.cpp:1024)\n   GDScript backtrace (most recent call first):\n       [0] need (res://stretch_probe.gd:6)\n       [1] probe (res://stretch_probe.gd:36)\nERROR: band three not dissolved\n   at: push_error (core/variant/variant_utility.cpp:1024)\n   GDScript backtrace (most recent call first):\n       [0] need (res://stretch_probe.gd:6)\n       [1] probe (res://stretch_probe.gd:36)\nERROR: band three not dissolved\n   at: push_error (core/variant/variant_utility.cpp:1024)\n   GDScript backtrace (most recent call first):\n       [0] need (res://stretch_probe.gd:6)\n       [1] probe (res://stretch_probe.gd:36)\nERROR: band three not dissolved\n   at: push_error (core/variant/variant_utility.cpp:1024)\n   GDScript backtrace (most recent call first):\n       [0] need (res://stretch_probe.gd:6)\n       [1] probe (res://stretch_probe.gd:36)\nERROR: band three not dissolved\n   at: push_error (core/variant/variant_utility.cpp:1024)\n   GDScript backtrace (most recent call first):\n       [0] need (res://stretch_probe.gd:6)\n       [1] probe (res://stretch_probe.gd:36)\nERROR: band three not dissolved\n   at: push_error (core/variant/variant_utility.cpp:1024)\n   GDScript backtrace (most recent call first):\n       [0] need (res://stretch_probe.gd:6)\n       [1] probe (res://stretch_probe.gd:36)\nERROR: band three not dissolved\n   at: push_error (core/variant/variant_utility.cpp:1024)\n   GDScript backtrace (most recent call first):\n       [0] need (res://stretch_probe.gd:6)\n       [1] probe (res://stretch_probe.gd:36)\nERROR: band three not dissolved\n   at: push_error (core/variant/variant_utility.cpp:1024)\n   GDScript backtrace (most recent call first):\n       [0] need (res://stretch_probe.gd:6)\n       [1] probe (res://stretch_probe.gd:36)\nERROR: band three not dissolved\n   at: push_error (core/variant/variant_utility.cpp:1024)\n   GDScript backtrace (most recent call first):\n       [0] need (res://stretch_probe.gd:6)\n       [1] probe (res://stretch_probe.gd:36)\nERROR: band three not dissolved\n   at: push_error (core/variant/variant_utility.cpp:1024)\n   GDScript backtrace (most recent call first):\n       [0] need (res://stretch_probe.gd:6)\n       [1] probe (res://stretch_probe.gd:36)\nERROR: band three not dissolved\n   at: push_error (core/variant/variant_utility.cpp:1024)\n   GDScript backtrace (most recent call first):\n       [0] need (res://stretch_probe.gd:6)\n       [1] probe (res://stretch_probe.gd:36)\nERROR: band three not dissolved\n   at: push_error (core/variant/variant_utility.cpp:1024)\n   GDScript backtrace (most recent call first):\n       [0] need (res://stretch_probe.gd:6)\n       [1] probe (res://stretch_probe.gd:36)\nERROR: band three not dissolved\n   at: push_error (core/variant/variant_utility.cpp:1024)\n   GDScript backtrace (most recent call first):\n       [0] need (res://stretch_probe.gd:6)\n       [1] probe (res://stretch_probe.gd:36)\nERROR: band three not dissolved\n   at: push_error (core/variant/variant_utility.cpp:1024)\n   GDScript backtrace (most recent call first):\n       [0] need (res://stretch_probe.gd:6)\n       [1] probe (res://stretch_probe.gd:36)\nERROR: band three not dissolved\n   at: push_error (core/variant/variant_utility.cpp:1024)\n   GDScript backtrace (most recent call first):\n       [0] need (res://stretch_probe.gd:6)\n       [1] probe (res://stretch_probe.gd:36)\nERROR: band three not dissolved\n   at: push_error (core/variant/variant_utility.cpp:1024)\n   GDScript backtrace (most recent call first):\n       [0] need (res://stretch_probe.gd:6)\n       [1] probe (res://stretch_probe.gd:36)\nERROR: band three not dissolved\n   at: push_error (core/variant/variant_utility.cpp:1024)\n   GDScript backtrace (most recent call first):\n       [0] need (res://stretch_probe.gd:6)\n       [1] probe (res://stretch_probe.gd:36)\nERROR: band three not dissolved\n   at: push_error (core/variant/variant_utility.cpp:1024)\n   GDScript backtrace (most recent call first):\n       [0] need (res://stretch_probe.gd:6)\n       [1] probe (res://stretch_probe.gd:36)\nERROR: band three not dissolved\n   at: push_error (core/variant/variant_utility.cpp:1024)\n   GDScript backtrace (most recent call first):\n       [0] need (res://stretch_probe.gd:6)\n       [1] probe (res://stretch_probe.gd:36)\nERROR: band three not dissolved\n   at: push_error (core/variant/variant_utility.cpp:1024)\n   GDScript backtrace (most recent call first):\n       [0] need (res://stretch_probe.gd:6)\n       [1] probe (res://stretch_probe.gd:36)\nERROR: band three not dissolved\n   at: push_error (core/variant/variant_utility.cpp:1024)\n   GDScript backtrace (most recent call first):\n       [0] need (res://stretch_probe.gd:6)\n       [1] probe (res://stretch_probe.gd:36)\nERROR: band three not dissolved\n   at: push_error (core/variant/variant_utility.cpp:1024)\n   GDScript backtrace (most recent call first):\n       [0] need (res://stretch_probe.gd:6)\n       [1] probe (res://stretch_probe.gd:36)\nERROR: band three not dissolved\n   at: push_error (core/variant/variant_utility.cpp:1024)\n   GDScript backtrace (most recent call first):\n       [0] need (res://stretch_probe.gd:6)\n       [1] probe (res://stretch_probe.gd:36)\nERROR: band three not dissolved\n   at: push_error (core/variant/variant_utility.cpp:1024)\n   GDScript backtrace (most recent call first):\n       [0] need (res://stretch_probe.gd:6)\n       [1] probe (res://stretch_probe.gd:36)\nERROR: band three not dissolved\n   at: push_error (core/variant/variant_utility.cpp:1024)\n   GDScript backtrace (most recent call first):\n       [0] need (res://stretch_probe.gd:6)\n       [1] probe (res://stretch_probe.gd:36)\nERROR: band three not dissolved\n   at: push_error (core/variant/variant_utility.cpp:1024)\n   GDScript backtrace (most recent call first):\n       [0] need (res://stretch_probe.gd:6)\n       [1] probe (res://stretch_probe.gd:36)\n\n"
+      }
+    ],
+    "errors": [],
+    "skipped": []
+  },
+  "legacy": {
+    "synthetic_v1_files": 46,
+    "synthetic_v1_changes": [],
+    "legacy_488_tests_run": 1,
+    "failures": [],
+    "errors": []
+  },
+  "default_v2": {
+    "files": 138,
+    "changes": []
+  },
+  "headless": [
+    {
+      "arguments": [
+        "--import"
+      ],
+      "exit_code": 0,
+      "log": "Godot Engine v4.6.3.stable.official.7d41c59c4 - https://godotengine.org\n\n[   0% ] \u001b[90m\u001b[1mfirst_scan_filesystem\u001b[22m | Started Project initialization (5 steps)\u001b[39m\u001b[0m\n[   0% ] \u001b[90m\u001b[1mfirst_scan_filesystem\u001b[22m | Scanning file structure...\u001b[39m\u001b[0m\n[  16% ] \u001b[90m\u001b[1mfirst_scan_filesystem\u001b[22m | Loading global class names...\u001b[39m\u001b[0m\n[  33% ] \u001b[90m\u001b[1mfirst_scan_filesystem\u001b[22m | Verifying GDExtensions...\u001b[39m\u001b[0m\n[  50% ] \u001b[90m\u001b[1mfirst_scan_filesystem\u001b[22m | Creating autoload scripts...\u001b[39m\u001b[0m\n[  66% ] \u001b[90m\u001b[1mfirst_scan_filesystem\u001b[22m | Initializing plugins...\u001b[39m\u001b[0m\n[  83% ] \u001b[90m\u001b[1mfirst_scan_filesystem\u001b[22m | Starting file scan...\u001b[39m\u001b[0m\n\u001b[92m[ DONE ]\u001b[39m \u001b[1mfirst_scan_filesystem\u001b[22m\n\u001b[0m\n[   0% ] \u001b[90m\u001b[1mupdate_scripts_classes\u001b[22m | Started Registering global classes... (14 steps)\u001b[39m\u001b[0m\n[   0% ] \u001b[90m\u001b[1mupdate_scripts_classes\u001b[22m | \u001b[39m\u001b[0m\n[   6% ] \u001b[90m\u001b[1mupdate_scripts_classes\u001b[22m | \u001b[39m\u001b[0m\n[  13% ] \u001b[90m\u001b[1mupdate_scripts_classes\u001b[22m | \u001b[39m\u001b[0m\n[  20% ] \u001b[90m\u001b[1mupdate_scripts_classes\u001b[22m | \u001b[39m\u001b[0m\n[  26% ] \u001b[90m\u001b[1mupdate_scripts_classes\u001b[22m | \u001b[39m\u001b[0m\n[  33% ] \u001b[90m\u001b[1mupdate_scripts_classes\u001b[22m | \u001b[39m\u001b[0m\n[  40% ] \u001b[90m\u001b[1mupdate_scripts_classes\u001b[22m | \u001b[39m\u001b[0m\n[  46% ] \u001b[90m\u001b[1mupdate_scripts_classes\u001b[22m | \u001b[39m\u001b[0m\n[  53% ] \u001b[90m\u001b[1mupdate_scripts_classes\u001b[22m | \u001b[39m\u001b[0m\n[  60% ] \u001b[90m\u001b[1mupdate_scripts_classes\u001b[22m | \u001b[39m\u001b[0m\n[  66% ] \u001b[90m\u001b[1mupdate_scripts_classes\u001b[22m | \u001b[39m\u001b[0m\n[  73% ] \u001b[90m\u001b[1mupdate_scripts_classes\u001b[22m | \u001b[39m\u001b[0m\n[  80% ] \u001b[90m\u001b[1mupdate_scripts_classes\u001b[22m | \u001b[39m\u001b[0m\n[  86% ] \u001b[90m\u001b[1mupdate_scripts_classes\u001b[22m | \u001b[39m\u001b[0m\n\u001b[92m[ DONE ]\u001b[39m \u001b[1mupdate_scripts_classes\u001b[22m\n\u001b[0m\n[   0% ] \u001b[90m\u001b[1m_update_scan_actions\u001b[22m | Started Scanning actions... (28 steps)\u001b[39m\u001b[0m\n[   0% ] \u001b[90m\u001b[1m_update_scan_actions\u001b[22m | cast_E_0.png\u001b[39m\u001b[0m\n[   3% ] \u001b[90m\u001b[1m_update_scan_actions\u001b[22m | idle_E_0.png\u001b[39m\u001b[0m\n[   6% ] \u001b[90m\u001b[1m_update_scan_actions\u001b[22m | flare_00.png\u001b[39m\u001b[0m\n[  10% ] \u001b[90m\u001b[1m_update_scan_actions\u001b[22m | impact_00.png\u001b[39m\u001b[0m\n[  13% ] \u001b[90m\u001b[1m_update_scan_actions\u001b[22m | peak_index.png\u001b[39m\u001b[0m\n[  17% ] \u001b[90m\u001b[1m_update_scan_actions\u001b[22m | piece.png\u001b[39m\u001b[0m\n[  20% ] \u001b[90m\u001b[1m_update_scan_actions\u001b[22m | travel_00.png\u001b[39m\u001b[0m\n[  24% ] \u001b[90m\u001b[1m_update_scan_actions\u001b[22m | key_expanded_distance.png\u001b[39m\u001b[0m\n[  27% ] \u001b[90m\u001b[1m_update_scan_actions\u001b[22m | key_spent_distance.png\u001b[39m\u001b[0m\n[  31% ] \u001b[90m\u001b[1m_update_scan_actions\u001b[22m | peak_index.png\u001b[39m\u001b[0m\n[  34% ] \u001b[90m\u001b[1m_update_scan_actions\u001b[22m | piece.png\u001b[39m\u001b[0m\n[  37% ] \u001b[90m\u001b[1m_update_scan_actions\u001b[22m | whole_body_distance.png\u001b[39m\u001b[0m\n[  41% ] \u001b[90m\u001b[1m_update_scan_actions\u001b[22m | flare_00.png\u001b[39m\u001b[0m\n[  44% ] \u001b[90m\u001b[1m_update_scan_actions\u001b[22m | impact_00.png\u001b[39m\u001b[0m\n[  48% ] \u001b[90m\u001b[1m_update_scan_actions\u001b[22m | travel_00.png\u001b[39m\u001b[0m\n[  51% ] \u001b[90m\u001b[1m_update_scan_actions\u001b[22m | expanded.png\u001b[39m\u001b[0m\n[  55% ] \u001b[90m\u001b[1m_update_scan_actions\u001b[22m | spent.png\u001b[39m\u001b[0m\n[  58% ] \u001b[90m\u001b[1m_update_scan_actions\u001b[22m | flare_00.png\u001b[39m\u001b[0m\n[  62% ] \u001b[90m\u001b[1m_update_scan_actions\u001b[22m | impact_00.png\u001b[39m\u001b[0m\n[  65% ] \u001b[90m\u001b[1m_update_scan_actions\u001b[22m | peak_index.png\u001b[39m\u001b[0m\n[  68% ] \u001b[90m\u001b[1m_update_scan_actions\u001b[22m | piece.png\u001b[39m\u001b[0m\n[  72% ] \u001b[90m\u001b[1m_update_scan_actions\u001b[22m | travel_00.png\u001b[39m\u001b[0m\n[  75% ] \u001b[90m\u001b[1m_update_scan_actions\u001b[22m | peak_index.png\u001b[39m\u001b[0m\n[  79% ] \u001b[90m\u001b[1m_update_scan_actions\u001b[22m | piece.png\u001b[39m\u001b[0m\n[  82% ] \u001b[90m\u001b[1m_update_scan_actions\u001b[22m | whole_body_distance.png\u001b[39m\u001b[0m\n[  86% ] \u001b[90m\u001b[1m_update_scan_actions\u001b[22m | flare_00.png\u001b[39m\u001b[0m\n[  89% ] \u001b[90m\u001b[1m_update_scan_actions\u001b[22m | impact_00.png\u001b[39m\u001b[0m\n[  93% ] \u001b[90m\u001b[1m_update_scan_actions\u001b[22m | travel_00.png\u001b[39m\u001b[0m\n\u001b[92m[ DONE ]\u001b[39m \u001b[1m_update_scan_actions\u001b[22m\n\u001b[0m\n[   0% ] \u001b[90m\u001b[1mreimport\u001b[22m | Started (Re)Importing Assets (28 steps)\u001b[39m\u001b[0m\n[   0% ] \u001b[90m\u001b[1mreimport\u001b[22m | Preparing files to reimport...\u001b[39m\u001b[0m\n[   3% ] \u001b[90m\u001b[1mreimport\u001b[22m | Preparing files to reimport...\u001b[39m\u001b[0m\n[   6% ] \u001b[90m\u001b[1mreimport\u001b[22m | Preparing files to reimport...\u001b[39m\u001b[0m\n[  10% ] \u001b[90m\u001b[1mreimport\u001b[22m | Preparing files to reimport...\u001b[39m\u001b[0m\n[  13% ] \u001b[90m\u001b[1mreimport\u001b[22m | Preparing files to reimport...\u001b[39m\u001b[0m\n[  17% ] \u001b[90m\u001b[1mreimport\u001b[22m | Preparing files to reimport...\u001b[39m\u001b[0m\n[  20% ] \u001b[90m\u001b[1mreimport\u001b[22m | Preparing files to reimport...\u001b[39m\u001b[0m\n[  24% ] \u001b[90m\u001b[1mreimport\u001b[22m | Preparing files to reimport...\u001b[39m\u001b[0m\n[  27% ] \u001b[90m\u001b[1mreimport\u001b[22m | Preparing files to reimport...\u001b[39m\u001b[0m\n[  31% ] \u001b[90m\u001b[1mreimport\u001b[22m | Preparing files to reimport...\u001b[39m\u001b[0m\n[  34% ] \u001b[90m\u001b[1mreimport\u001b[22m | Preparing files to reimport...\u001b[39m\u001b[0m\n[  37% ] \u001b[90m\u001b[1mreimport\u001b[22m | Preparing files to reimport...\u001b[39m\u001b[0m\n[  41% ] \u001b[90m\u001b[1mreimport\u001b[22m | Preparing files to reimport...\u001b[39m\u001b[0m\n[  44% ] \u001b[90m\u001b[1mreimport\u001b[22m | Preparing files to reimport...\u001b[39m\u001b[0m\n[  48% ] \u001b[90m\u001b[1mreimport\u001b[22m | Preparing files to reimport...\u001b[39m\u001b[0m\n[  51% ] \u001b[90m\u001b[1mreimport\u001b[22m | Preparing files to reimport...\u001b[39m\u001b[0m\n[  55% ] \u001b[90m\u001b[1mreimport\u001b[22m | Preparing files to reimport...\u001b[39m\u001b[0m\n[  58% ] \u001b[90m\u001b[1mreimport\u001b[22m | Preparing files to reimport...\u001b[39m\u001b[0m\n[  62% ] \u001b[90m\u001b[1mreimport\u001b[22m | Preparing files to reimport...\u001b[39m\u001b[0m\n[  65% ] \u001b[90m\u001b[1mreimport\u001b[22m | Preparing files to reimport...\u001b[39m\u001b[0m\n[  68% ] \u001b[90m\u001b[1mreimport\u001b[22m | Preparing files to reimport...\u001b[39m\u001b[0m\n[  72% ] \u001b[90m\u001b[1mreimport\u001b[22m | Preparing files to reimport...\u001b[39m\u001b[0m\n[  75% ] \u001b[90m\u001b[1mreimport\u001b[22m | Preparing files to reimport...\u001b[39m\u001b[0m\n[  79% ] \u001b[90m\u001b[1mreimport\u001b[22m | Preparing files to reimport...\u001b[39m\u001b[0m\n[  82% ] \u001b[90m\u001b[1mreimport\u001b[22m | Preparing files to reimport...\u001b[39m\u001b[0m\n[  86% ] \u001b[90m\u001b[1mreimport\u001b[22m | Preparing files to reimport...\u001b[39m\u001b[0m\n[  89% ] \u001b[90m\u001b[1mreimport\u001b[22m | Preparing files to reimport...\u001b[39m\u001b[0m\n[  93% ] \u001b[90m\u001b[1mreimport\u001b[22m | Preparing files to reimport...\u001b[39m\u001b[0m\n[   0% ] \u001b[90m\u001b[1mreimport\u001b[22m | Executing pre-reimport operations...\u001b[39m\u001b[0m\n[   0% ] \u001b[90m\u001b[1mreimport\u001b[22m | travel_00.png\u001b[39m\u001b[0m\n[   3% ] \u001b[90m\u001b[1mreimport\u001b[22m | impact_00.png\u001b[39m\u001b[0m\n[   6% ] \u001b[90m\u001b[1mreimport\u001b[22m | flare_00.png\u001b[39m\u001b[0m\n[  10% ] \u001b[90m\u001b[1mreimport\u001b[22m | whole_body_distance.png\u001b[39m\u001b[0m\n[  13% ] \u001b[90m\u001b[1mreimport\u001b[22m | piece.png\u001b[39m\u001b[0m\n[  17% ] \u001b[90m\u001b[1mreimport\u001b[22m | peak_index.png\u001b[39m\u001b[0m\n[  20% ] \u001b[90m\u001b[1mreimport\u001b[22m | travel_00.png\u001b[39m\u001b[0m\n[  24% ] \u001b[90m\u001b[1mreimport\u001b[22m | piece.png\u001b[39m\u001b[0m\n[  27% ] \u001b[90m\u001b[1mreimport\u001b[22m | peak_index.png\u001b[39m\u001b[0m\n[  31% ] \u001b[90m\u001b[1mreimport\u001b[22m | impact_00.png\u001b[39m\u001b[0m\n[  34% ] \u001b[90m\u001b[1mreimport\u001b[22m | flare_00.png\u001b[39m\u001b[0m\n[  37% ] \u001b[90m\u001b[1mreimport\u001b[22m | spent.png\u001b[39m\u001b[0m\n[  41% ] \u001b[90m\u001b[1mreimport\u001b[22m | expanded.png\u001b[39m\u001b[0m\n[  44% ] \u001b[90m\u001b[1mreimport\u001b[22m | travel_00.png\u001b[39m\u001b[0m\n[  48% ] \u001b[90m\u001b[1mreimport\u001b[22m | impact_00.png\u001b[39m\u001b[0m\n[  51% ] \u001b[90m\u001b[1mreimport\u001b[22m | flare_00.png\u001b[39m\u001b[0m\n[  55% ] \u001b[90m\u001b[1mreimport\u001b[22m | whole_body_distance.png\u001b[39m\u001b[0m\n[  58% ] \u001b[90m\u001b[1mreimport\u001b[22m | piece.png\u001b[39m\u001b[0m\n[  62% ] \u001b[90m\u001b[1mreimport\u001b[22m | peak_index.png\u001b[39m\u001b[0m\n[  65% ] \u001b[90m\u001b[1mreimport\u001b[22m | key_spent_distance.png\u001b[39m\u001b[0m\n[  68% ] \u001b[90m\u001b[1mreimport\u001b[22m | key_expanded_distance.png\u001b[39m\u001b[0m\n[  72% ] \u001b[90m\u001b[1mreimport\u001b[22m | travel_00.png\u001b[39m\u001b[0m\n[  75% ] \u001b[90m\u001b[1mreimport\u001b[22m | piece.png\u001b[39m\u001b[0m\n[  79% ] \u001b[90m\u001b[1mreimport\u001b[22m | peak_index.png\u001b[39m\u001b[0m\n[  82% ] \u001b[90m\u001b[1mreimport\u001b[22m | impact_00.png\u001b[39m\u001b[0m\n[  86% ] \u001b[90m\u001b[1mreimport\u001b[22m | flare_00.png\u001b[39m\u001b[0m\n[  89% ] \u001b[90m\u001b[1mreimport\u001b[22m | idle_E_0.png\u001b[39m\u001b[0m\n[  93% ] \u001b[90m\u001b[1mreimport\u001b[22m | cast_E_0.png\u001b[39m\u001b[0m\n[  96% ] \u001b[90m\u001b[1mreimport\u001b[22m | Finalizing Asset Import...\u001b[39m\u001b[0m\n\u001b[92m[ DONE ]\u001b[39m \u001b[1mreimport\u001b[22m\n\u001b[0m\n[   0% ] \u001b[90m\u001b[1mreimport\u001b[22m | Started (Re)Importing Assets (28 steps)\u001b[39m\u001b[0m\n[   0% ] \u001b[90m\u001b[1mreimport\u001b[22m | Executing post-reimport operations...\u001b[39m\u001b[0m\n\u001b[92m[ DONE ]\u001b[39m \u001b[1mreimport\u001b[22m\n\u001b[0m\n[   0% ] \u001b[90m\u001b[1mloading_editor_layout\u001b[22m | Started Loading editor (5 steps)\u001b[39m\u001b[0m\n[   0% ] \u001b[90m\u001b[1mloading_editor_layout\u001b[22m | Loading editor layout...\u001b[39m\u001b[0m\n[  16% ] \u001b[90m\u001b[1mloading_editor_layout\u001b[22m | Loading docks...\u001b[39m\u001b[0m\n\u001b[92m[ DONE ]\u001b[39m \u001b[1mloading_editor_layout\u001b[22m\n\u001b[0m\nERROR: Condition \"ret != noErr\" is true. Returning: \"\"\n   at: get_system_ca_certificates (platform/macos/os_macos.mm:1028)\nERROR: Cannot save file '/Users/admin/Library/Application Support/Godot/editor_settings-4.6.tres'.\n   at: save (scene/resources/resource_format_text.cpp:1756)\nERROR: Error saving editor settings to /Users/admin/Library/Application Support/Godot/editor_settings-4.6.tres\n   at: save (editor/settings/editor_settings.cpp:1404)\n"
+    },
+    {
+      "arguments": [
+        "--script",
+        "res://key_probe.gd"
+      ],
+      "exit_code": 0,
+      "log": "Godot Engine v4.6.3.stable.official.7d41c59c4 - https://godotengine.org\n\nT4Q_KEY_CLOCK_COMPLETE\nERROR: Condition \"ret != noErr\" is true. Returning: \"\"\n   at: get_system_ca_certificates (platform/macos/os_macos.mm:1028)\n"
+    }
+  ],
+  "source_files": [
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/artifacts/KS-guides/guide_expanded_768.png",
+      "sha256": "7df8f68ccbf239e1626fac9c737bf666795f7a9f07e84382643cfd56eb8eea1b"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/artifacts/KS-guides/guide_spent_768.png",
+      "sha256": "22d2fa95daa497bc06ede56b082c6c3f01f4dba4cdb03410b0aaa3f37527a63b"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/artifacts/KS-guides/peak_768.png",
+      "sha256": "9fabe7b0f71e5a9e2db7215f71ba4e90a4ce50e1b64b9b9a94f0e820e905b75a"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/artifacts/KS-fire-expanded-01/fire_expanded_01.png",
+      "sha256": "6a5b7cac45d06b9204da0053f4abbf16ebe3e6495c4a0faf3e7907f16ebc5e38"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/artifacts/KS-fire-spent-01/fire_spent_01.png",
+      "sha256": "75b4d53bbed8b8cf3085994152559ff9e93a01595c4bcdccd3f4cedbe8356442"
+    }
+  ],
+  "method_notes": [
+    "RAW is the registered painting; CLIPPED uses a Euclidean 2-px guide dilation and fills missing guide pixels from decoded guide planes.",
+    "Guide ramp decoded by nearest kit palette RGB; alpha remains independent. One downscale and translation only.",
+    "Per-piece footprints use original T4e IDs, runtime inverse-affine bilinear sampling and actual erosion schedule; no resegmentation of paintings.",
+    "Positive per-layer alpha support is intersected with whole-guide alpha > 0.5, including translucent contributions; up to 1-px CPU/raster edge assignment is explicit.",
+    "Expanded guide has zero unexplained pixels; spent has one. This mapping limitation is reported and no failed state is bound.",
+    "Stroke instrument: mean band-0 medial-ridge diameter 2*EDT-1; 8-connected whole-image shard counts at alpha > 0.5.",
+    "VO8 exact indexed RGBA drawing changes use the stated shape band, not an invented temporal calibration.",
+    "Literal swap ages 15 and 36 are implemented. Existing fire v2 expansion end is 19, residue entry 40; the underlying clock remains unchanged.",
+    "Key-state distance fields are conditioned to retained coverage at entry, preventing double erosion; absolute root-layer erode and dissolve uniforms continue. Key materials use a whole-state field without piece noise.",
+    "Headless import and clock traces only; no rendered-frame proof claimed.",
+    "488 legacy outputs, 46 synthetic v1 outputs and 138 default-v2 outputs are byte-identical."
+  ],
+  "scope_notes": [
+    "Initial SPEC.md read included sections beyond the requested subsections.",
+    "Legacy verification used the named existing regression test, including its T4l hash table and six-kit/v1 fixture dependencies.",
+    "General pre-existing Godot probe attempted its default user-log location and crashed under sandbox; it is recorded as a suite red, not repaired or rerun.",
+    "The old v2 headless test expects dissolve=0.5 throughout residue, contrary to current lap-3 schedule; preserved under extend-only test constraint."
+  ],
+  "writer_smoke": {
+    "raw": true,
+    "clipped": true
+  }
+}

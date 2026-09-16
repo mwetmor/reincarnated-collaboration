@@ -1,0 +1,87 @@
+{
+  "task_id": "T4q",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [],
+  "calls_used": 0,
+  "retries": [],
+  "self_report": {
+    "obeyed_invariants": false,
+    "concerns": [
+      "Neither painting was bound: clipped centroid offsets reach 1.236 px expanded and 2.143 px spent, exceeding 1 px. Spent also has one unmapped guide pixel.",
+      "16 targeted tests completed without failures; headless swaps and returns verified. The broader 60-test suite has two documented reds: sandbox log initialization and an older dissolve expectation.",
+      "Legacy 488-file, synthetic v1 46-file, and default-v2 138-file comparisons are unchanged.",
+      "Literal swap ages 15/36 differ from the preserved runtime stage boundaries 19/40.",
+      "Read-scope exceptions: the initial SPEC read included additional sections; legacy verification read its referenced hash table and fixture dependencies."
+    ]
+  },
+  "files": [
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/oracle/key_states.py",
+      "sha256": "0b1469006e03138b458cfc8e48a69f01f4f27f37e6ae5a77a42ab61c32d9c041"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/export/effect_kit.py",
+      "sha256": "10d3b18fa5c6e53d7e234ebb0c119c3f3b5e07b6941066e82dc9f95a302e033f"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/export/godot_import.py",
+      "sha256": "ed20a90edf3ecc36cb2c221c62e369e786d9d521be75c634eb6538ed4e61d353"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_effect_kit.py",
+      "sha256": "701b12f006a4c84e9433aa3c0bc84bf1bf6d2f6872531ae9e11a28cfe8a2248e"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_godot_import.py",
+      "sha256": "379da8698bcd8dba0e903a1b66f16316ecedcdae348bc10203f9d31f3398e557"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4q/acceptance.json",
+      "sha256": "3498ae00144792052b973db3b53c6210d7acd2209ead6a531936a54f188f3330"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4q/evidence.tar.gz",
+      "sha256": "949a893a298f9d9a017b314f7ad1330a43ce20da9460c46fee503bffba45c57f"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4q/expanded_clipped.png",
+      "sha256": "10ae0a8ee09137616a597af70f0b5bd35bf5f61539dbd2eb985e074714210417"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4q/expanded_clipped_board.png",
+      "sha256": "198c176555b547c527a21f32c8b696a96e8f00120f0f9b7146c51aa36b403d52"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4q/expanded_raw_board.png",
+      "sha256": "5ed1644704fb51ab5b599b13b7c867b93aa3217b383d5a26dec8dc6db1a6d913"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4q/expanded_registered.png",
+      "sha256": "d15bd74576ccec1e1499663ba01fd2805e9f031b683df015ce4d1ef6d20142a1"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4q/key_states.json",
+      "sha256": "7a4e819abe9fbaff7cb840626a9ea3321e96f0e179acb56681f4fb409032154f"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4q/spent_clipped.png",
+      "sha256": "48762337a9a02f5da4207e7136dbc3e08385425fa48bf9225854815678149e56"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4q/spent_clipped_board.png",
+      "sha256": "28c461b4e8c90036f554964a3b808cd27a8c92383466f124074422937cf11801"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4q/spent_raw_board.png",
+      "sha256": "d05ec618ee259b5b87de0d5b7ee45069aeaea077bac9a4b3a9d83c3f90ad3644"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4q/spent_registered.png",
+      "sha256": "57b8f22b9374e13500d8625eb945372335e1ca4a93a0d9d02710af18b2411de4"
+    },
+    {
+      "path": "/Users/admin/astra-burst/runs/C-5/T4q/out/files.json",
+      "sha256": "8194b61874211c8824240979d0699ee8178f814b7337bf9190e268051012f464"
+    }
+  ]
+}
