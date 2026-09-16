@@ -1,0 +1,299 @@
+DEPLOY TRUTH — CS-pack-web11 (cliffside from PACK v26; figure 14 %, cow_flies re-seated
+on the carcass, fire_burst_e0p_v2 at lap 3)
+drax, 2026-09-16
+
+URL             https://reincarnated-loadout.vercel.app/playtest/cliffside/
+Source          astra_test_01/burst/runs/C-5/artifacts/CS-pack-v26/godot (C-5; read-only, untouched)
+Build           reincarnated-godot/web/build_playtest.sh <src> cliffside   (Godot 4.6.3, gl_compatibility, threads OFF)
+Loadout commit  f3bb7d44ebb004c4494fd9c0cca0d68b03a08d6e  (pushed 41be4be..f3bb7d4 main)
+Godot commit    NOT COMMITTED — web/cliffside mirror is a build artifact; web9 committed it
+                at 3f8c7d69. The build SCRIPT changed this round (see § BUILD-SCRIPT CHANGE).
+
+╔══════════════════════════════════════════════════════════════════════════════════════╗
+║ ⚑ THE DEPLOY IS LIVE AND IT IS DEFECTIVE. READ § THE DEFECT BEFORE READING ANYTHING  ║
+║   ELSE. The pck now on production ships TWO DANGLING SHADER REFERENCES; on every     ║
+║   cast of fire_burst_e0p_v2 roughly 40-50 % of the burst renders as UNSHADED GREY.   ║
+║   The v26 SOURCE IS INNOCENT — this is my build's defect, and it is fixed. A correct ║
+║   pck is built and waiting on disk. It is one authorised push from being live, and   ║
+║   the dispatch says this was the last deploy Matt authorised, so I have NOT pushed   ║
+║   it. Decision needed: § THE ASK.                                                    ║
+╚══════════════════════════════════════════════════════════════════════════════════════╝
+
+== what is new vs v23/web10 (what I read in the source before building) ==
+1. Figure height 14 % of 1080 = 151 px (was 13.5 % / 146). parallax/walkable.json
+   figure_height_px 146 -> 151, and in cliffside.tscn every figure's body_width
+   127.75 -> 132.125, staff_tip_offset -97.33 -> -100.67, the keeper/necro scale pairs
+   (0.501875, 0.584) -> (0.5190625, 0.604) and the sprite scale 0.608333 -> 0.629167.
+2. F-C5-9, the flies. props.json swarms[0] cow_flies position [4233.3, 554.2] ->
+   [4580.0, 760.0] and sort_y 619 -> 830. The carcass instance is at [4600, 830] and has
+   not moved, so the swarm was ~370 px away from it in v23 and is now on it. Confirmed on
+   production by eye and by motion-differencing two still frames — see § THE FLIES.
+3. necro_master_still: new art, and the asset anchor 80,185 -> 83,191. The INSTANCE
+   position is unchanged at [2650, 1950], i.e. still on the sand path where web10 put it.
+4. fire_burst_e0p_v2 lap 3. kit.json gains "erode_outside_in": true, a per-kit
+   "dissolve_order" [[3],[2],[1,0]], and "screen_px": true. keeper.gd line 219 now reads
+       flare.scale = Vector2.ONE * (1.0 if bool(VFX_KITS[cast_kit_index].get("screen_px",
+         false)) else art_scale) * float(flare.get_meta("phase_scale", 1.0))
+   so a screen_px kit's flare no longer takes art_scale. The kit's shaders were RENAMED
+   (vfx_material_mix_unlit.gdshader -> vfx_material_mix_unlit_outside_in.gdshader, same
+   for add_unlit). That rename is the pin that the defect below turns on.
+5. Touch aim: UNCHANGED from web10. The only keeper.gd edits are line 219 above and the
+   VFX_KITS literal. The F-C5-5 device-policy branch is byte-identical.
+
+== pck identity ==
+SHIPPED (live) d05c9ee729554ea1af1743217c4100b86689ce929f94e93ce2f0d5553ef54f2f  36688904 B
+               live download re-hashed independently of the build; matches the staged file.
+CORRECT (held) dc888930b950dc56086c9c2e007523e1f5b19337e0d19a1eeced9c71e0dfc8c0  36689928 B
+               at reincarnated-godot/web/cliffside/build/web/index.pck (gitignored, on disk)
+v23 pck was 36679104 B. index.wasm (37700666 B) and index.js (315759 B) are byte-identical
+to web7-web10 in both. The loadout commit is exactly index.pck + the pck size inside
+index.html's GODOT_CONFIG — two files, same shape as web10.
+
+== production HTTP (plain GET, no -L) ==
+200  text/html; charset=utf-8              5994       .../playtest/cliffside/
+200  text/html; charset=utf-8              5994       .../playtest/cliffside/index.html
+200  application/javascript; charset=utf-8 315759     .../playtest/cliffside/index.js
+200  application/wasm                      37700666   .../playtest/cliffside/index.wasm
+200  application/octet-stream              36688904   .../playtest/cliffside/index.pck
+200  text/html; charset=utf-8              5994       .../playtest/cliffside   (slash-less)
+200  text/html; charset=utf-8              3043       .../playtest/            (landing)
+live GODOT_CONFIG fileSizes: {"index.pck":36688904,"index.wasm":37700666}
+
+══════════════════════════════════════════════════════════════════════════════════════
+== THE DEFECT ==
+══════════════════════════════════════════════════════════════════════════════════════
+
+WHAT PRODUCTION DOES. Every cast of fire_burst_e0p_v2 prints, in the browser console:
+
+  WARNING: 'res://scenes/vfx_fire_burst_e0p_v2_impact.tscn': In external resource #1,
+    invalid UID: 'uid://g77d38ee0sf' - using text path instead:
+    'res://vfx/fire_burst_e0p_v2/materials/vfx_material_mix_unlit.gdshader'.
+  WARNING: ... external resource #29, invalid UID: 'uid://cqd6rx0tl7e5j' - using text
+    path instead: 'res://vfx/fire_burst_e0p_v2/materials/vfx_material_add_unlit.gdshader'.
+  ERROR: Cannot load shader: res://vfx/fire_burst_e0p_v2/materials/vfx_material_mix_unlit.gdshader
+  ERROR: Cannot load shader: res://vfx/fire_burst_e0p_v2/materials/vfx_material_add_unlit.gdshader
+
+Six lines per run here, 2 shaders x 3 casts. Full log in tcast_console.txt. Those two
+paths are the PRE-RENAME names. They do not exist in v26 and they are not files in the
+pck — only the references are. The materials that wanted them therefore load with a null
+shader, and a null ShaderMaterial draws the raw piece texture. The piece textures are
+greyscale INDEX maps; the shader is what maps them onto the fire palette. So the pieces
+that lost their shader come out grey.
+
+HOW MUCH OF THE BURST. Measured, not eyeballed: mask = pixels that changed against the
+pre-cast frame, minus the CAST button; "grey" = saturation < 28 and max channel > 110.
+
+  PRODUCTION (shipped pck)                CLEAN REBUILD (same source, same script)
+  tcast_13_cast2_f2   grey 50.5 %         clean_07_cast1_f2   grey  0.1 %
+  tcast_07_cast1_f2   grey 41.5 %         clean_11_cast2_f0   grey  0.8 %
+  tcast_19_cast3_f2   grey 12.7 %         clean_13_cast2_f2   grey  0.0 %
+  tcast_14/20 (residue phase) grey 0.1 %  clean_19_cast3_f2   grey  0.1 %
+
+The residue phase is unaffected (the eroded tongues use shaders that survived); the PEAK
+frame is where half the burst goes grey. Look at tcast_13_cast2_f2.png and
+tcast_19_cast3_f2.png — the big pale metallic fans around the flame are not art, they are
+unshaded pieces. REBUILD_clean_cast_peak_NO_grey.png is the same cast off the corrected
+pck: the fans are gone and the burst is warm end to end.
+
+⚑ WHY THIS PARTICULAR DEFECT IS WORSE THAN ITS SIZE. It disfigures exactly the thing
+this deploy exists to show. A playtest of the live build would read the lap-3 burst as
+wrong — and the kit is not wrong. A ruling against T4l/T4m taken off this URL would be a
+ruling against my build error.
+
+ROOT CAUSE, and it is mine, not the pack's. The mirror at web/cliffside keeps its .godot
+import cache and its Godot-generated *.uid sidecars across runs by design (rsync excludes
+them, so UIDs stay stable and the scenes do not re-import from scratch every build). v26
+RENAMED two shaders. So on the first web11 build:
+  1. rsync brought in the new names and deleted the old shader files;
+  2. the prune step correctly removed the two now-orphaned *.uid sidecars — this is
+     visible in that build's log and I read it as routine housekeeping;
+  3. .godot/ still held the OLD uid -> OLD path map, and nothing had invalidated it;
+  4. the Web export resolves scene ext-resources through that map, so it baked the
+     pre-rename paths into the pck;
+  5. nothing failed. Exit 0, sizes sane, license fence clean, local boot smoke test
+     green. The only symptom lives in a runtime console a player never opens.
+Step 2 and step 3 are the same event seen twice and the build treated them as unrelated:
+pruning a sidecar IS the evidence that the uid map is stale, and it threw that evidence
+away instead of acting on it.
+
+This is the exact hazard web/README.md already writes down under "Gotchas" ("Deleting
+them while keeping .godot/ gives mismatched UIDs ... move web/<route>/.godot aside and
+rebuild"). It was documented, I had read it, and it still shipped — because the README
+tells a human what to do when they NOTICE, and there was nothing to notice.
+
+⚑ HOW I NEARLY MISSED IT TWICE, recorded because the near-miss is the finding. I first
+tested the fix by serving the rebuilt tree on port 8767 — and the console still showed
+the errors, which almost had me conclude the defect was in the v26 source. A PRE-EXISTING
+python http.server from another session already held 8767; mine failed to bind and died,
+and the old one answered with the OLD pck. The check ran, returned cleanly, and answered
+a different question than the one I asked. What caught it was reading the size in the
+harness's own response log: `200 ... 36688904` where the clean pck is 36689928. Same shape
+as the instrument failures in CLAUDE.md's commit-discipline block. Standing habit from
+here: a local-server verification must assert the bytes it was served, not just that it
+got a 200. touch_cast_dummy.js and route_walk.js log every index.* response for this
+reason; read that line before you read the console.
+
+VERIFICATION THAT THE SOURCE IS INNOCENT. Three independent builds:
+  a. shipped build (stale .godot + pruned sidecars) -> 2 dangling refs, 6 console errors
+  b. same mirror, .godot moved aside, rebuilt      -> 0 dangling refs, 0 console errors
+  c. clean-room build of pristine v26 into a brand-new route (web/cliffsideclean, since
+     deleted), nothing inherited at all            -> 0 dangling refs
+(b) and (c) agree on 36689928 B. v26 ships no uid:// strings and no .uid sidecars at all;
+every shader path in every v26 .tres resolves to a file that exists. The pack is clean.
+
+== BUILD-SCRIPT CHANGE (reincarnated-godot/web/build_playtest.sh) ==
+Two changes, and the second is the one that matters.
+
+1. SELF-HEAL. If the prune step removes any orphan sidecar, the script now drops
+   $DEST/.godot before importing, with the reason printed. A pruned sidecar means the
+   source renamed or removed a resource, which is precisely when the cached uid map is
+   wrong. Regression-tested by reconstructing the failing state (orphan *.uid sidecars
+   present alongside a populated .godot) and re-running: the clause fires, the log reads
+   "orphan sidecars pruned -> dropping stale .godot import cache (uid map is now wrong)",
+   and the resulting pck is byte-identical to the clean-room build.
+
+2. DANGLING-RESOURCE FENCE, post-export, beside the license fence. Every res://*.gdshader
+   path baked into index.pck must exist in the project; otherwise the build prints each
+   offender and exits 3. Shaders are not remapped on export, so the path in the pck is the
+   path on disk — no false positives. Dry-run against both pcks:
+       shipped pck -> dangling: res://vfx/fire_burst_e0p_v2/materials/vfx_material_add_unlit.gdshader
+                      dangling: res://vfx/fire_burst_e0p_v2/materials/vfx_material_mix_unlit.gdshader
+       correct pck -> (nothing)
+   The fence is the durable half. (1) fixes the cause I found; (2) fails the build for any
+   dangling-resource cause I have not found yet, including one nobody has thought of. A
+   silent bad pck is the thing to make impossible, not this particular silent bad pck.
+
+⚑ Not fixed, noted: web/README.md's remedy tells you to move .godot aside INSIDE $DEST,
+where the next rsync --delete removes the backup (it excludes the directory named .godot,
+not .godot.anything-bak). Harmless — it is a cache — but it cost me the ability to replay
+the original stale state exactly, so the regression test above reconstructs it instead of
+replaying it. Worth moving the backup outside $DEST next time the README is touched.
+
+== THE ASK ==
+The corrected pck is built, verified, and sitting at
+  reincarnated-godot/web/cliffside/build/web/   (sha dc888930…, 36689928 B)
+The loadout working tree is CLEAN and its HEAD is exactly what is deployed. I have not
+staged, committed or pushed the fix, because the dispatch says web11 was the last deploy
+Matt authorised and told me not to redeploy after it, and ADR-006 puts production Vercel
+on Matt per deploy. I read "do not redeploy" as binding on my own judgement, not as a
+ruling on a build I had not yet discovered was broken — so this goes up rather than out.
+(Precedent: the web10-era push-conflict escalation, where the conservative call was the
+right one and was later ratified.)
+
+If Matt authorises one corrective push, it is three commands and no decisions:
+  L=~/Games/reincarnated-loadout
+  rsync -a --delete --exclude '.gdignore' ~/Games/reincarnated-godot/web/cliffside/build/web/ $L/public/playtest/cliffside/
+  git -C $L status --porcelain -- public/playtest        # expect exactly index.html + index.pck
+  git -C $L commit --only public/playtest -m "drax: playtest cliffside -> CS-pack-web11-r1 (rebuild; drops two dangling fire_burst_e0p_v2 shader refs)"
+  git -C $L show --stat HEAD && git -C $L push origin main
+If he does not, the live build stands and § THE DEFECT is the caveat that travels with
+every observation taken off this URL until it is replaced.
+
+══════════════════════════════════════════════════════════════════════════════════════
+== THE THREE DELIVERABLES, all captured on PRODUCTION ==
+══════════════════════════════════════════════════════════════════════════════════════
+
+Navigation note for all three. The Keeper's speeds are OVERRIDDEN in cliffside.tscn —
+walk 247, run 494 px/s — not the 150/250 defaults in keeper.gd. I planned each route as a
+clearance-weighted Dijkstra over parallax/walkable.json minus the collide=true prop
+footprints, then a pure-pursuit pass that emits 8-direction key holds at 494 px/s
+(route_walk.js takes the plan on stdin as $PLAN). A naive 45-degree NE run from spawn does
+NOT reach the clearing: it wedges on the ravine lip just south of the bridge mouth, which
+is where my first attempt stopped. Dead reckoning also runs long by roughly 0.1 s PER LEG
+of keyboard latency; the second pass subtracts that per leg and lands within ~30 px.
+
+(1) THE CARCASS WITH THE FLIES ON IT — F-C5-9 fixed.
+  carc_02_arrive_1.png   full frame, Keeper standing beside the carcass at the clearing's
+                         south-east edge, dummy cluster up-slope behind him
+  carc_04_arrive_3.png   second still, same spot
+  carc_zoom_flies_on_carcass_1.png / _2.png   7x NEAREST crops of the carcass
+The flies read as small dark specks ON the flank and around the open wound — at 1280x720
+each fly is 2-3 px, which is why the zooms are here. Independently confirmed by motion:
+differencing two stills isolates 245 changed pixels, and their hot cells sit at screen
+(730-760, 370-400), directly on the carcass body. The only other moving cluster in frame
+is the campfire glow at (1090, 430). In v23 the swarm was at world (4233, 554), ~370 px
+off the carcass; it is now at (4580, 760) with the carcass at (4600, 830).
+
+(2) TOUCH-EMULATED CAST OF Tab x7 AT A DUMMY.
+  tcast_04_facing_east.png   in position, HUD reads "VFX: fire_burst_e0p_v2  (Tab)",
+                             touch overlay up (MOVE / JUMP / CAST / VFX)
+  tcast_19_cast3_f2.png      the cast — burst detonating on the dummy cluster east of the
+                             Keeper, CAST button lit. ⚑ ALSO THE DEFECT EXHIBIT: the pale
+                             fans are unshaded pieces.
+  tcast_13_cast2_f2.png      the worst grey frame, 50.5 %
+  tcast_20_cast3_f3.png      lap-3 residue phase — outside-in erosion has eaten the fans
+                             and left ember tongues over the hound dummy. Grey 0.1 %: this
+                             phase is undamaged, which is itself evidence the greying is
+                             two specific materials and not the whole kit.
+  REBUILD_clean_cast_peak_NO_grey.png   same cast off the corrected pck, for comparison
+Harness: touch_cast_dummy.js. Phone-landscape 844x390 CSS px at dsf 2, hasTouch + isMobile,
+and the CAST is a genuine CDP Input.dispatchTouchEvent. THE MOUSE IS NEVER MOVED. The build
+agrees it is a touch device (tcast_touchflags.json: maxTouchPoints 1, 'ontouchstart' true,
+TouchEvent function), which is what DisplayServer.is_touchscreen_available() reads on web,
+so keeper.gd's forward-aim branch is the live branch — the aim is 650 * art_scale 0.6292 =
+409 px straight along facing.
+  ⚑ DEVIATION FROM WEB10, declared: navigation and facing here are KEYBOARD, not joystick.
+  The overlay leaves the keyboard alone, and the forward point is device policy rather than
+  event-derived, so the branch under test is unchanged — but a joystick drag runs 494 px/s
+  and cannot be parked within 400 px of a chosen dummy, whereas the 409 px forward point
+  has to land on one. web10 already settled the aim question on the joystick with a
+  two-axis east/west discriminator; this shot is about the kit, so I bought precision.
+  ⚑ FIRST ATTEMPT, kept as a lesson: the route overran by ~240 px and put the Keeper
+  BEHIND dummy_humanoid_1, and for a while I was building a case that the Keeper had gone
+  invisible on the east side of the map. He had not — a 7x crop found his head and shoulder
+  poking out from behind the dummy's. My screen-position arithmetic was wrong, not the
+  build. The touch viewport letterboxes (aspect "keep": 1920x1080 into 844x390 leaves
+  75 CSS px bars each side), so screen coords are 1388 px wide inside a 1688 px screenshot,
+  and reading the visible rect as the full width throws every estimate. Calibrate off two
+  props whose world positions you know before concluding anything is missing.
+
+(3) THE NECROMANCER ON THE PATH, at 151 px.
+  necro_12_walk_ne_2.png   THE FRAME — necromancer on the sand path with the Keeper
+                           alongside him, which makes the 14 % height directly comparable
+  necro_13_walk_ne_3.png   one step further on
+Harness: necro_walk_test.js, unchanged from web10. Descriptive only: at 151 px the
+armour plating, the scythe blade and the white hair all separate cleanly at this camera
+distance. He is at world (2650, 1950), unmoved from web10 — only the art and the anchor
+changed — so the "on the path, roughly a third of the way to the bridge" reading from
+web10 still holds.
+
+== boot + console on production ==
+carcass run:  booted=true, 0 pageerror
+touch run:    booted=true boot_ms=6338, 0 pageerror, 6 Godot ERROR lines — all four
+              distinct lines are the dangling-shader pair above. There are no others.
+necro run:    booted=true, 0 pageerror
+All runs: the two WebGL 'GPU stall due to ReadPixels' perf warnings, a swiftshader
+artifact present since web6. Godot Engine v4.6.3.stable.official, single-threaded, no
+GDExtension.
+
+== license fence ==
+overlay pass: clean (no library VFX packs)
+staged index.pck: no match for the forbidden-name pattern (build would exit 3)
+LIVE index.pck, downloaded and grepped independently of the build: no match
+
+== caveats ==
+⚑ The live pck carries two dangling shader references. § THE DEFECT.
+Unchanged from web8-web10: iOS texture memory ~45 MB first download; the six big
+  parallax/tile textures import as lossy WebP q0.9; parallax/tiles/tile_0_0.png is
+  4096x4096, at the GLES3 max-texture-size floor.
+Single-threaded build (no SharedArrayBuffer), so no COOP/COEP headers on Vercel.
+The +9800 B on the pck vs v23 is the new necromancer art, the lap-3 kit metadata and the
+  scene's geometry changes. The correct pck is +1024 B on top of that.
+
+== harness notes for the next deploy ==
+Serve-and-verify: assert the BYTES, not the status. A local http.server that loses the
+  port bind to an older session dies silently and the previous server answers; the harness
+  logs "200 <type> <length> <url>" for every index.* fetch, and that length is the check.
+  This nearly cost a correct v26 pack a false bug report.
+Speeds come from the SCENE, not the script. cliffside.tscn overrides walk/run to 247/494.
+  Anything that plans movement in seconds has to read the .tscn, not keeper.gd's defaults.
+Plan routes against walkable.json MINUS the collide=true prop footprints, with a clearance
+  penalty; a straight line from spawn to the clearing does not exist (the ravine), and the
+  bridge corridor is narrow enough that a 45-degree hold walks off it.
+Dead reckoning costs ~0.1 s per leg in keyboard latency. Plan, run, measure where you
+  landed against a prop of known world position, subtract per leg, re-run.
+Touch framing: the phone-landscape context letterboxes to 1388 of 1688 screenshot px.
+  Calibrate screen<->world off two known props before trusting any position estimate.
+Kit choice for aim questions still stands from web10: use a slow kit (frozen_orb). For
+  the burst kits, fire the cast and take 6 back-to-back screenshots — f2 catches the peak
+  and f3 catches the lap-3 residue, and nothing else catches either.

@@ -1,0 +1,49 @@
+booted=true boot_ms=6338
+touchflags={"maxTouchPoints":1,"ontouchstart":true,"TouchEvent":"function","ua":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/152.0.0.0 Safari/537.36"}
+plan=[["NE",0.1],["N",0.3],["NE",3.8],["N",0.05],["NE",0.6]]
+200 text/html; charset=utf-8  https://reincarnated-loadout.vercel.app/playtest/cliffside/
+200 application/javascript; charset=utf-8  https://reincarnated-loadout.vercel.app/playtest/cliffside/index.js
+200 application/wasm  https://reincarnated-loadout.vercel.app/playtest/cliffside/index.wasm
+200 application/octet-stream  https://reincarnated-loadout.vercel.app/playtest/cliffside/index.pck
+--- console
+[warning] [.WebGL-0x114000dcc00]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels
+[log] Godot Engine v4.6.3.stable.official.7d41c59c4 - https://godotengine.org
+[log] OpenGL API OpenGL ES 3.0 (WebGL 2.0 (OpenGL ES 3.0 Chromium)) - Compatibility - Using Device: WebKit - WebKit WebGL
+[log] Build configuration: Emscripten 4.0.20, single-threaded, no GDExtension support.
+[warning] [.WebGL-0x114000ef800]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels (this message will no longer repeat)
+[error] WARNING: 'res://scenes/vfx_fire_burst_e0p_v2_impact.tscn': In external resource #1, invalid UID: 'uid://g77d38ee0sf' - using text path instead: 'res://vfx/fire_burst_e0p_v2/materials/vfx_material_mix_unlit.gdshader'.
+[error]    at: open (core/io/resource_format_binary.cpp:1092)
+[error] WARNING: 'res://scenes/vfx_fire_burst_e0p_v2_impact.tscn': In external resource #29, invalid UID: 'uid://cqd6rx0tl7e5j' - using text path instead: 'res://vfx/fire_burst_e0p_v2/materials/vfx_material_add_unlit.gdshader'.
+[error]    at: open (core/io/resource_format_binary.cpp:1092)
+[error] ERROR: Cannot load shader: res://vfx/fire_burst_e0p_v2/materials/vfx_material_mix_unlit.gdshader
+[error]    at: load (scene/resources/shader.cpp:315)
+[error] ERROR: Failed loading resource: res://vfx/fire_burst_e0p_v2/materials/vfx_material_mix_unlit.gdshader.
+[error]    at: _load (core/io/resource_loader.cpp:343)
+[error] ERROR: Cannot load shader: res://vfx/fire_burst_e0p_v2/materials/vfx_material_add_unlit.gdshader
+[error]    at: load (scene/resources/shader.cpp:315)
+[error] ERROR: Failed loading resource: res://vfx/fire_burst_e0p_v2/materials/vfx_material_add_unlit.gdshader.
+[error]    at: _load (core/io/resource_loader.cpp:343)
+[error] WARNING: 'res://scenes/vfx_fire_burst_e0p_v2_impact.tscn': In external resource #1, invalid UID: 'uid://g77d38ee0sf' - using text path instead: 'res://vfx/fire_burst_e0p_v2/materials/vfx_material_mix_unlit.gdshader'.
+[error]    at: open (core/io/resource_format_binary.cpp:1092)
+[error] WARNING: 'res://scenes/vfx_fire_burst_e0p_v2_impact.tscn': In external resource #29, invalid UID: 'uid://cqd6rx0tl7e5j' - using text path instead: 'res://vfx/fire_burst_e0p_v2/materials/vfx_material_add_unlit.gdshader'.
+[error]    at: open (core/io/resource_format_binary.cpp:1092)
+[error] ERROR: Cannot load shader: res://vfx/fire_burst_e0p_v2/materials/vfx_material_mix_unlit.gdshader
+[error]    at: load (scene/resources/shader.cpp:315)
+[error] ERROR: Failed loading resource: res://vfx/fire_burst_e0p_v2/materials/vfx_material_mix_unlit.gdshader.
+[error]    at: _load (core/io/resource_loader.cpp:343)
+[error] ERROR: Cannot load shader: res://vfx/fire_burst_e0p_v2/materials/vfx_material_add_unlit.gdshader
+[error]    at: load (scene/resources/shader.cpp:315)
+[error] ERROR: Failed loading resource: res://vfx/fire_burst_e0p_v2/materials/vfx_material_add_unlit.gdshader.
+[error]    at: _load (core/io/resource_loader.cpp:343)
+[error] WARNING: 'res://scenes/vfx_fire_burst_e0p_v2_impact.tscn': In external resource #1, invalid UID: 'uid://g77d38ee0sf' - using text path instead: 'res://vfx/fire_burst_e0p_v2/materials/vfx_material_mix_unlit.gdshader'.
+[error]    at: open (core/io/resource_format_binary.cpp:1092)
+[error] WARNING: 'res://scenes/vfx_fire_burst_e0p_v2_impact.tscn': In external resource #29, invalid UID: 'uid://cqd6rx0tl7e5j' - using text path instead: 'res://vfx/fire_burst_e0p_v2/materials/vfx_material_add_unlit.gdshader'.
+[error]    at: open (core/io/resource_format_binary.cpp:1092)
+[error] ERROR: Cannot load shader: res://vfx/fire_burst_e0p_v2/materials/vfx_material_mix_unlit.gdshader
+[error]    at: load (scene/resources/shader.cpp:315)
+[error] ERROR: Failed loading resource: res://vfx/fire_burst_e0p_v2/materials/vfx_material_mix_unlit.gdshader.
+[error]    at: _load (core/io/resource_loader.cpp:343)
+[error] ERROR: Cannot load shader: res://vfx/fire_burst_e0p_v2/materials/vfx_material_add_unlit.gdshader
+[error]    at: load (scene/resources/shader.cpp:315)
+[error] ERROR: Failed loading resource: res://vfx/fire_burst_e0p_v2/materials/vfx_material_add_unlit.gdshader.
+[error]    at: _load (core/io/resource_loader.cpp:343)
