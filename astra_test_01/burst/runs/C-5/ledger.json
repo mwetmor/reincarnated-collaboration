@@ -15215,6 +15215,12 @@
       "kit": "blackwater_cocktail_e3 (G2 landing)",
       "note": "BL-1 (v38, 8 directions): the flask always lands at the full kit range along the facing, ignoring the ground — W lands the burning pool IN THE SKY over the valley, SW/S on the void below the bridge. G2 must clamp the landing point to walkable ground (the parallax-in walkable mask the Keeper already obeys): landing = the last walkable point along the throw line (min 1 BH from the release), flight time scaled with the shortened distance. -> BL-1a Part A.",
       "ts": "2026-09-16T17:32:12"
+    },
+    {
+      "id": "LD-2",
+      "kind": "lane-defect",
+      "note": "BL-1a was KILLED mid-burst: the host ran low on memory (8 GB Mac; Astra + headless Godot + suite) and the harness killed the conductor shell command that had launched wave.sh — taking the burst (and its Godot children) with it. No receipt; partial Astra edits to export/ stashed (git stash: BL-1a killed); sandbox workdir left behind (re-fire uses id BL-1a-r1). Mitigation: bursts now launch DETACHED (wave_detached.sh: nohup + disown) and completion is observed by a lightweight waiter polling the wave log (wait_wave.sh), so a harness kill of the conductor command cannot take a burst down. Conductor rule: never run the outside suite concurrently with a TOOLING burst.",
+      "ts": "2026-09-16T17:40:44"
     }
   ]
 }
