@@ -1,0 +1,112 @@
+{
+  "task_id": "T4n-r1",
+  "rendered": "conductor-owned; CPU geometry and headless import/trace only",
+  "geometry": {
+    "instrument": "CPU active T4e-r1 shard union at residue entry; no dissolve",
+    "perimeter": "four-direction Crofton transition count, exterior zero padding",
+    "connectivity": 8,
+    "zero_control": {
+      "erode_noise": 0.0,
+      "residue_erode": 0.7862745098039216,
+      "residue_outer": 0.21372549019607842,
+      "predicted_stationary_residue_area_px": 8403,
+      "source_peak_area_px": 41951,
+      "residue_denominator": "maximum hold-frame body alpha>0 coverage",
+      "entry_area_px": 8403,
+      "entry_fraction": 0.20030511787561678,
+      "perimeter_px": 327.42416412738663,
+      "isoperimetric_excess": 0.01525988676361556,
+      "largest_component_fraction": 1.0
+    },
+    "configured": {
+      "erode_noise": 0.08,
+      "residue_erode": 0.84,
+      "residue_outer": 0.16000000000000003,
+      "predicted_stationary_residue_area_px": 8396,
+      "source_peak_area_px": 41951,
+      "residue_denominator": "maximum hold-frame body alpha>0 coverage",
+      "entry_area_px": 8396,
+      "entry_fraction": 0.20013825653738887,
+      "perimeter_px": 360.2530140056848,
+      "isoperimetric_excess": 0.23007885198625577,
+      "largest_component_fraction": 0.9998808956646021
+    }
+  },
+  "retry": {
+    "reason": "New dissolve test used 2/3 at a floating-point boundary differing from legacy 1-2/6.",
+    "change": "Use interior phase sample .7; production dissolve arithmetic unchanged."
+  },
+  "headless_import": {
+    "exit_code": 0,
+    "elapsed_s": 3.9489438330056146,
+    "script_errors": false
+  },
+  "headless_trace": {
+    "exit_code": 0,
+    "elapsed_s": 0.3092421249966719,
+    "script_errors": false
+  },
+  "trace_check": {
+    "rows": 77,
+    "entry_age": 40,
+    "noise_uniforms_match": true,
+    "entry_threshold_matches": true,
+    "entry_dissolve_zero": true,
+    "release_dissolve_one": true,
+    "no_residue_scaling": true
+  },
+  "suite": {
+    "tests_run": 97,
+    "failures": [
+      {
+        "name": "test_godot_import.GodotImportTests.test_headless_state_machine_input_map_gear_vfx_and_nearest_fallback",
+        "traceback": "Traceback (most recent call last):\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_godot_import.py\", line 167, in test_headless_state_machine_input_map_gear_vfx_and_nearest_fallback\n    self.assertEqual(engine_errors, [], '\\n'.join(engine_errors))\nAssertionError: Lists differ: ['ERROR: Condition \"ret != noErr\" is true.[285 chars] \"\"'] != []\n\nFirst list contains 4 additional elements.\nFirst extra element 0:\n'ERROR: Condition \"ret != noErr\" is true. Returning: \"\"'\n\n+ []\n- ['ERROR: Condition \"ret != noErr\" is true. Returning: \"\"',\n-  \"ERROR: Cannot save file '/Users/admin/Library/Application \"\n-  \"Support/Godot/editor_settings-4.6.tres'.\",\n-  'ERROR: Error saving editor settings to /Users/admin/Library/Application '\n-  'Support/Godot/editor_settings-4.6.tres',\n-  'ERROR: Condition \"ret != noErr\" is true. Returning: \"\"'] : ERROR: Condition \"ret != noErr\" is true. Returning: \"\"\nERROR: Cannot save file '/Users/admin/Library/Application Support/Godot/editor_settings-4.6.tres'.\nERROR: Error saving editor settings to /Users/admin/Library/Application Support/Godot/editor_settings-4.6.tres\nERROR: Condition \"ret != noErr\" is true. Returning: \"\"\n"
+      },
+      {
+        "name": "test_godot_import.PieceStretchImportTests.test_v2_headless_import_and_seed_equal_rooted_clock",
+        "traceback": "Traceback (most recent call last):\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_godot_import.py\", line 453, in test_v2_headless_import_and_seed_equal_rooted_clock\n    self.assertEqual(proc.returncode,0,log)\nAssertionError: 7 != 0 : Godot Engine v4.6.3.stable.official.7d41c59c4 - https://godotengine.org\n\nERROR: Condition \"ret != noErr\" is true. Returning: \"\"\n   at: get_system_ca_certificates (platform/macos/os_macos.mm:1028)\nERROR: band three not dissolved\n   at: push_error (core/variant/variant_utility.cpp:1024)\n   GDScript backtrace (most recent call first):\n       [0] need (res://stretch_probe.gd:6)\n       [1] probe (res://stretch_probe.gd:36)\nERROR: band three not dissolved\n   at: push_error (core/variant/variant_utility.cpp:1024)\n   GDScript backtrace (most recent call first):\n       [0] need (res://stretch_probe.gd:6)\n       [1] probe (res://stretch_probe.gd:36)\nERROR: band three not dissolved\n   at: push_error (core/variant/variant_utility.cpp:1024)\n   GDScript backtrace (most recent call first):\n       [0] need (res://stretch_probe.gd:6)\n       [1] probe (res://stretch_probe.gd:36)\nERROR: band three not dissolved\n   at: push_error (core/variant/variant_utility.cpp:1024)\n   GDScript backtrace (most recent call first):\n       [0] need (res://stretch_probe.gd:6)\n       [1] probe (res://stretch_probe.gd:36)\nERROR: band three not dissolved\n   at: push_error (core/variant/variant_utility.cpp:1024)\n   GDScript backtrace (most recent call first):\n       [0] need (res://stretch_probe.gd:6)\n       [1] probe (res://stretch_probe.gd:36)\nERROR: band three not dissolved\n   at: push_error (core/variant/variant_utility.cpp:1024)\n   GDScript backtrace (most recent call first):\n       [0] need (res://stretch_probe.gd:6)\n       [1] probe (res://stretch_probe.gd:36)\nERROR: band three not dissolved\n   at: push_error (core/variant/variant_utility.cpp:1024)\n   GDScript backtrace (most recent call first):\n       [0] need (res://stretch_probe.gd:6)\n       [1] probe (res://stretch_probe.gd:36)\nERROR: band three not dissolved\n   at: push_error (core/variant/variant_utility.cpp:1024)\n   GDScript backtrace (most recent call first):\n       [0] need (res://stretch_probe.gd:6)\n       [1] probe (res://stretch_probe.gd:36)\nERROR: band three not dissolved\n   at: push_error (core/variant/variant_utility.cpp:1024)\n   GDScript backtrace (most recent call first):\n       [0] need (res://stretch_probe.gd:6)\n       [1] probe (res://stretch_probe.gd:36)\nERROR: band three not dissolved\n   at: push_error (core/variant/variant_utility.cpp:1024)\n   GDScript backtrace (most recent call first):\n       [0] need (res://stretch_probe.gd:6)\n       [1] probe (res://stretch_probe.gd:36)\nERROR: band three not dissolved\n   at: push_error (core/variant/variant_utility.cpp:1024)\n   GDScript backtrace (most recent call first):\n       [0] need (res://stretch_probe.gd:6)\n       [1] probe (res://stretch_probe.gd:36)\nERROR: band three not dissolved\n   at: push_error (core/variant/variant_utility.cpp:1024)\n   GDScript backtrace (most recent call first):\n       [0] need (res://stretch_probe.gd:6)\n       [1] probe (res://stretch_probe.gd:36)\nERROR: band three not dissolved\n   at: push_error (core/variant/variant_utility.cpp:1024)\n   GDScript backtrace (most recent call first):\n       [0] need (res://stretch_probe.gd:6)\n       [1] probe (res://stretch_probe.gd:36)\nERROR: band three not dissolved\n   at: push_error (core/variant/variant_utility.cpp:1024)\n   GDScript backtrace (most recent call first):\n       [0] need (res://stretch_probe.gd:6)\n       [1] probe (res://stretch_probe.gd:36)\nERROR: band three not dissolved\n   at: push_error (core/variant/variant_utility.cpp:1024)\n   GDScript backtrace (most recent call first):\n       [0] need (res://stretch_probe.gd:6)\n       [1] probe (res://stretch_probe.gd:36)\nERROR: band three not dissolved\n   at: push_error (core/variant/variant_utility.cpp:1024)\n   GDScript backtrace (most recent call first):\n       [0] need (res://stretch_probe.gd:6)\n       [1] probe (res://stretch_probe.gd:36)\nERROR: band three not dissolved\n   at: push_error (core/variant/variant_utility.cpp:1024)\n   GDScript backtrace (most recent call first):\n       [0] need (res://stretch_probe.gd:6)\n       [1] probe (res://stretch_probe.gd:36)\nERROR: band three not dissolved\n   at: push_error (core/variant/variant_utility.cpp:1024)\n   GDScript backtrace (most recent call first):\n       [0] need (res://stretch_probe.gd:6)\n       [1] probe (res://stretch_probe.gd:36)\nERROR: band three not dissolved\n   at: push_error (core/variant/variant_utility.cpp:1024)\n   GDScript backtrace (most recent call first):\n       [0] need (res://stretch_probe.gd:6)\n       [1] probe (res://stretch_probe.gd:36)\nERROR: band three not dissolved\n   at: push_error (core/variant/variant_utility.cpp:1024)\n   GDScript backtrace (most recent call first):\n       [0] need (res://stretch_probe.gd:6)\n       [1] probe (res://stretch_probe.gd:36)\nERROR: band three not dissolved\n   at: push_error (core/variant/variant_utility.cpp:1024)\n   GDScript backtrace (most recent call first):\n       [0] need (res://stretch_probe.gd:6)\n       [1] probe (res://stretch_probe.gd:36)\nERROR: band three not dissolved\n   at: push_error (core/variant/variant_utility.cpp:1024)\n   GDScript backtrace (most recent call first):\n       [0] need (res://stretch_probe.gd:6)\n       [1] probe (res://stretch_probe.gd:36)\nERROR: band three not dissolved\n   at: push_error (core/variant/variant_utility.cpp:1024)\n   GDScript backtrace (most recent call first):\n       [0] need (res://stretch_probe.gd:6)\n       [1] probe (res://stretch_probe.gd:36)\nERROR: band three not dissolved\n   at: push_error (core/variant/variant_utility.cpp:1024)\n   GDScript backtrace (most recent call first):\n       [0] need (res://stretch_probe.gd:6)\n       [1] probe (res://stretch_probe.gd:36)\nERROR: band three not dissolved\n   at: push_error (core/variant/variant_utility.cpp:1024)\n   GDScript backtrace (most recent call first):\n       [0] need (res://stretch_probe.gd:6)\n       [1] probe (res://stretch_probe.gd:36)\nERROR: band three not dissolved\n   at: push_error (core/variant/variant_utility.cpp:1024)\n   GDScript backtrace (most recent call first):\n       [0] need (res://stretch_probe.gd:6)\n       [1] probe (res://stretch_probe.gd:36)\nERROR: band three not dissolved\n   at: push_error (core/variant/variant_utility.cpp:1024)\n   GDScript backtrace (most recent call first):\n       [0] need (res://stretch_probe.gd:6)\n       [1] probe (res://stretch_probe.gd:36)\nERROR: band three not dissolved\n   at: push_error (core/variant/variant_utility.cpp:1024)\n   GDScript backtrace (most recent call first):\n       [0] need (res://stretch_probe.gd:6)\n       [1] probe (res://stretch_probe.gd:36)\nERROR: band three not dissolved\n   at: push_error (core/variant/variant_utility.cpp:1024)\n   GDScript backtrace (most recent call first):\n       [0] need (res://stretch_probe.gd:6)\n       [1] probe (res://stretch_probe.gd:36)\nERROR: band three not dissolved\n   at: push_error (core/variant/variant_utility.cpp:1024)\n   GDScript backtrace (most recent call first):\n       [0] need (res://stretch_probe.gd:6)\n       [1] probe (res://stretch_probe.gd:36)\nERROR: band three not dissolved\n   at: push_error (core/variant/variant_utility.cpp:1024)\n   GDScript backtrace (most recent call first):\n       [0] need (res://stretch_probe.gd:6)\n       [1] probe (res://stretch_probe.gd:36)\nERROR: band three not dissolved\n   at: push_error (core/variant/variant_utility.cpp:1024)\n   GDScript backtrace (most recent call first):\n       [0] need (res://stretch_probe.gd:6)\n       [1] probe (res://stretch_probe.gd:36)\nERROR: band three not dissolved\n   at: push_error (core/variant/variant_utility.cpp:1024)\n   GDScript backtrace (most recent call first):\n       [0] need (res://stretch_probe.gd:6)\n       [1] probe (res://stretch_probe.gd:36)\nERROR: band three not dissolved\n   at: push_error (core/variant/variant_utility.cpp:1024)\n   GDScript backtrace (most recent call first):\n       [0] need (res://stretch_probe.gd:6)\n       [1] probe (res://stretch_probe.gd:36)\nERROR: band three not dissolved\n   at: push_error (core/variant/variant_utility.cpp:1024)\n   GDScript backtrace (most recent call first):\n       [0] need (res://stretch_probe.gd:6)\n       [1] probe (res://stretch_probe.gd:36)\nERROR: band three not dissolved\n   at: push_error (core/variant/variant_utility.cpp:1024)\n   GDScript backtrace (most recent call first):\n       [0] need (res://stretch_probe.gd:6)\n       [1] probe (res://stretch_probe.gd:36)\n\n"
+      }
+    ],
+    "errors": [],
+    "skipped": [],
+    "note": "97-test suite before the final explicit-zero override regression; final targeted run covers final code and added test."
+  },
+  "final_targeted": {
+    "tests_run": 9,
+    "failures": [],
+    "errors": []
+  },
+  "legacy_hash_table": {
+    "files": 488,
+    "unchanged": true
+  },
+  "concerns": [
+    "Rendered acceptance remains conductor-owned; no rendered frame was produced.",
+    "test_godot_import.GodotImportTests.test_headless_state_machine_input_map_gear_vfx_and_nearest_fallback: environment errors from macOS certificate lookup and blocked Godot editor-settings save outside the sandbox; unchanged.",
+    "test_godot_import.PieceStretchImportTests.test_v2_headless_import_and_seed_equal_rooted_clock: stale assertion requires dissolve == 0.5 for every residue age; unchanged.",
+    "The specified two-module suite did not reproduce a headless timeout or five additional standing reds. No names for those were supplied; other test modules were not read or run under the read allowlist."
+  ],
+  "scope": {
+    "existing_tests_append_only": true,
+    "production_files": [
+      "export/effect_kit.py",
+      "export/godot_import.py",
+      "export/vfx_material.gdshader",
+      "runs/C-5/vfx_kits/v9/fire_burst_e0p_v2/kit.json"
+    ],
+    "noise_proxy": "distance_value - erode_noise * band / 3; rounded original index band, not palette brightness",
+    "default": "0 through get; omitted field does not add bytes to legacy resources",
+    "precedence": "pieces > kit > material; explicit pieces zero disables inherited material resistance",
+    "unchanged_clock_script": true
+  },
+  "thresholds": {
+    "entry_fraction": [
+      0.15,
+      0.25
+    ],
+    "isoperimetric_excess_min": 0.12,
+    "zero_control_absolute_excess_max": 0.03,
+    "largest_component_fraction_min": 0.9
+  },
+  "evidence_archive": "evidence.tar.gz"
+}

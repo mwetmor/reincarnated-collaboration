@@ -21,3 +21,5 @@ HALT (charter § 8): two consecutive experiment FAILs · two VOIDs in a row · a
 - **v26 proven** — 14 % figures (151 px), necromancer at 151 on the path, cow_flies back on the carcass (frame-diff: 230 changed px at the new swarm, 0 at the old). **web11 dispatched (the last deploy).**
 - **F-C5-10** found: `replay` crop 768 renders the world at 2/3 (204-px hold vs 306 at 512) — every 768 bake to date was at 2/3 scale; folded into T4g. Key-state guides wait for T4g so the transformed arrangements are 1:1.
 - **T4n fired** (ragged ember residue — noise on the outside-in erosion threshold; isoperimetric-excess gate).
+- **T4n FAILED-honest (scope)** — my allowlist omitted `export/effect_kit.py`, whose validator rejects the new `erode_noise` key; Astra stopped rather than edit outside scope. T4n-r1 fired with the corrected scope and Astra's CPU-proposed noise 0.08 (roughness 0.23 vs 0.015 for the disc).
+- **T4n-r1 delivered** (erode_noise mechanism) — my 1:1 bake: residue still a disc at 0.08, straight cuts along piece seams during erosion. **T4o briefed** (continuous whole-body noise texture; amplitude 0.25–0.4; max/min radius ≥ 1.5). Fires after the outside suite.

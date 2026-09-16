@@ -1,0 +1,58 @@
+{
+  "task_id": "T4n",
+  "implementation_complete": false,
+  "blocker": "erode_noise is rejected as an unknown key at kit, pieces, and material levels. export/effect_kit.py owns validation/shader generation but is omitted from the explicit read-only allowlist. Scope clarification requested; no authorization received. No production or test source was modified.",
+  "proposed_erode_noise": 0.08,
+  "cpu_instrument_only": {
+    "erode_noise": 0.08,
+    "residue_erode": 0.7777777777777777,
+    "area": 8396,
+    "hold_peak_fraction": 0.20013825653738887,
+    "perimeter_crofton_px": 360.2530140056848,
+    "isoperimetric_excess": 0.23007885198625577,
+    "largest_component_fraction": 0.9998808956646021
+  },
+  "legacy_disc_control": {
+    "erode_noise": 0,
+    "residue_erode": 0.7862745098039216,
+    "area": 8403,
+    "hold_peak_fraction": 0.20030511787561678,
+    "perimeter_crofton_px": 327.42416412738663,
+    "isoperimetric_excess": 0.01525988676361556,
+    "largest_component_fraction": 1.0
+  },
+  "formula": "effective_distance = (distance + erode_noise * (1 - band / 3)) / (1 + erode_noise); outside-in retains effective_distance <= 1 - erode",
+  "perimeter_instrument": "CPU nearest source pixel support; four-direction Crofton perimeter; 8-connected components",
+  "rendered": null,
+  "rendered_owner": "conductor",
+  "legacy_hash_tables": {
+    "pre_T4k_six_kits_and_v1": "existing unittest completed without assertion",
+    "T4l_488_files": "existing unittest completed without assertion",
+    "code_changes": 0
+  },
+  "suite_scope": [
+    "tests/test_effect_kit.py",
+    "tests/test_godot_import.py"
+  ],
+  "tests_run": 93,
+  "existing_reds": [
+    {
+      "test": "test_godot_import.GodotImportTests.test_headless_state_machine_input_map_gear_vfx_and_nearest_fallback",
+      "reason": "Godot cannot open sandbox-external user log; exit -6"
+    },
+    {
+      "test": "test_godot_import.PieceStretchImportTests.test_v2_headless_import_and_seed_equal_rooted_clock",
+      "reason": "stale assertion expects dissolve=0.5 at all residue ages; exit 7"
+    }
+  ],
+  "known_reds_not_observed": {
+    "five_standing": "not identified by the two explicitly allowed test modules; broader suite not read/run",
+    "headless_timeout": "not reproduced in this run"
+  },
+  "headless_import_exit_code": 0,
+  "headless_scope": "unchanged synthetic v2; no claim of implemented-noise import",
+  "concerns": [
+    "Requested implementation, regression extensions, and fire kit field remain undone pending read-scope clarification.",
+    "CPU proposed-formula measurements are not exported or rendered acceptance."
+  ]
+}
