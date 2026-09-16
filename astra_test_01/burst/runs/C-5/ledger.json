@@ -3761,6 +3761,185 @@
       "codex_version": "codex-cli 0.153.4",
       "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
       "exit": 0
+    },
+    {
+      "id": "CS-pack-v22",
+      "type": "PACK",
+      "experiment": "C5-P0b",
+      "brief_sha256": "1241830e7daf303bbd6d192602374964729aaef779eaebd05e13abf2e71d4be5",
+      "started": "2026-09-16T02:22:24.665763+00:00",
+      "ended": "2026-09-16T02:24:22.154205+00:00",
+      "minutes": 1.9581336277832937,
+      "image_calls": 0,
+      "tool_calls": 5,
+      "audit": {
+        "violations": [],
+        "image_calls": 0,
+        "tool_calls": 5,
+        "tools_seen": {
+          "command_execution": 5
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": []
+      },
+      "receipt_sha256": "ef68e299dfc5a747293576cd230d79853a9bca5f6a8aa9535cf31d95f1ee8f1c",
+      "artifacts": [
+        {
+          "name": "README_scene.txt",
+          "sha256": "f97feccdbd7d7363f7baf6c6ac5e8d4d966f5206b12310f4f7f285655e10aec1"
+        },
+        {
+          "name": "exporter.json",
+          "sha256": "da67a630f819824990be15b8cc74e23aadfee13b3daad3ff25261630541b7dff"
+        },
+        {
+          "name": "godot/project.godot",
+          "sha256": "6a8166148fc0b3e54f8589a0a716379636040f615b0f827ea49f2dfe7a6c5deb"
+        },
+        {
+          "name": "godot/scenes/cliffside.tscn",
+          "sha256": "13fea9f002b8c7870b5cf28bbf1da7a58eb8108664673e6abde6c67cd6960bda"
+        },
+        {
+          "name": "godot/scenes/main.tscn",
+          "sha256": "a7ff2b1ba99ca306dacd7fbee1556fbfbed54d72cc8e3c01ab72e1aba58b874d"
+        },
+        {
+          "name": "godot/scenes/vfx_blackwater_cocktail_impact.tscn",
+          "sha256": "e5ddd467c72eb10b42d5b85ea1f5a151941a3c1ec4ae6fbdf463815e21409bf3"
+        },
+        {
+          "name": "godot/scenes/vfx_fire_burst_e0p_impact.tscn",
+          "sha256": "3396177981a9f617d58b7ddc882b24db1e1bb42f46445beb4ae1992b39a26032"
+        },
+        {
+          "name": "godot/scenes/vfx_fire_burst_e0p_v2_impact.tscn",
+          "sha256": "e8478f177dcd824704e4fc88b2091a246eafeb055884a008effb8ba81c5cc451"
+        },
+        {
+          "name": "godot/scenes/vfx_frozen_orb_impact.tscn",
+          "sha256": "16985b18f3cbc32bf899010a609b760725cc0e1a3f46ecc4bde7e5816eeab3ac"
+        },
+        {
+          "name": "godot/scenes/vfx_healing_hands_impact.tscn",
+          "sha256": "8c75c6faca42086fdbd4ea27156b19e72db7a4cd3ec675bffd721d9946da9957"
+        },
+        {
+          "name": "godot/scenes/vfx_lightning_blast_impact.tscn",
+          "sha256": "8c9987d3965f65198347dd64d4f980aa98bc519da9e4c86889e91a789aa0f699"
+        },
+        {
+          "name": "godot/scenes/vfx_poisonous_concoction_impact.tscn",
+          "sha256": "ba602145d646797ab6c1671124f2259556c4a8e2f50de219c42cd5f9c7a48aec"
+        },
+        {
+          "name": "godot/scenes/vfx_zeus_chain_impact.tscn",
+          "sha256": "fc5c7695c0521460c88ce4b15e3981ac5a400039ee9d94d64285b83db9d758a7"
+        },
+        {
+          "name": "godot/scripts/fly_swarm.gd",
+          "sha256": "8603f91597f1f8aeb74b6238a6a2860c3ac807b4c67edca13f56f40b08b33423"
+        },
+        {
+          "name": "godot/scripts/glow_flicker.gd",
+          "sha256": "fee0db3aa00b834bc1f6198886c6e476f45b91fd012ce641a0145e97ec857671"
+        },
+        {
+          "name": "godot/scripts/keeper.gd",
+          "sha256": "eca77da8c9211969de0d55c90fd8e87db6948b3a8113e942b8f498359fb0b98a"
+        },
+        {
+          "name": "godot/scripts/occlusion_fade.gd",
+          "sha256": "96d37de2e8c7790cb00815fb1f939389872874ba23b43dc017d8530d3db62f61"
+        },
+        {
+          "name": "godot/scripts/vfx_blackwater_cocktail_impact.gd",
+          "sha256": "ee7746d714018555bb06d3946e61704cfafae5859da57748f7482f446ef34cac"
+        },
+        {
+          "name": "godot/scripts/vfx_blackwater_cocktail_material.gd",
+          "sha256": "596472d72bfc8e56af2139756e7cb21b948be6c29192a7d4fb7b2fbe042315d1"
+        },
+        {
+          "name": "godot/scripts/vfx_contact_label.gd",
+          "sha256": "1d79a93b4c9509a28f67b975f0b9474ed6e0baa4471ff749ae8048bd644a33fe"
+        },
+        {
+          "name": "godot/scripts/vfx_fire_burst_e0p_impact.gd",
+          "sha256": "69b38d7953c31bad3e6f8318b55cb3cbf1f8f81b557c1c08ae4e7dbb82a6dddf"
+        },
+        {
+          "name": "godot/scripts/vfx_fire_burst_e0p_material.gd",
+          "sha256": "596472d72bfc8e56af2139756e7cb21b948be6c29192a7d4fb7b2fbe042315d1"
+        },
+        {
+          "name": "godot/scripts/vfx_fire_burst_e0p_v2_impact.gd",
+          "sha256": "8bfe52fb10cc9e25bc82fbf74998d08fa539ec79f5aeb06eb584215eb1d43c78"
+        },
+        {
+          "name": "godot/scripts/vfx_fire_burst_e0p_v2_material.gd",
+          "sha256": "596472d72bfc8e56af2139756e7cb21b948be6c29192a7d4fb7b2fbe042315d1"
+        },
+        {
+          "name": "godot/scripts/vfx_frozen_orb_impact.gd",
+          "sha256": "77eafbb9e96eef5233045309122e9729a812d59d06f2247e02541b06d9fbf55c"
+        },
+        {
+          "name": "godot/scripts/vfx_frozen_orb_material.gd",
+          "sha256": "596472d72bfc8e56af2139756e7cb21b948be6c29192a7d4fb7b2fbe042315d1"
+        },
+        {
+          "name": "godot/scripts/vfx_g1.gd",
+          "sha256": "99cec009ff894fdbffe6510a4c76576c8e38b49ce24f02fae62127743208a9d7"
+        },
+        {
+          "name": "godot/scripts/vfx_healing_hands_impact.gd",
+          "sha256": "4257300a57e9d823fbffd593a74435e80d5191324e1db167335b466fd3d02c46"
+        },
+        {
+          "name": "godot/scripts/vfx_healing_hands_material.gd",
+          "sha256": "596472d72bfc8e56af2139756e7cb21b948be6c29192a7d4fb7b2fbe042315d1"
+        },
+        {
+          "name": "godot/scripts/vfx_lightning_blast_impact.gd",
+          "sha256": "fe13db8454b494f19cdc5442532eea4acc702d31c60d5c4f2c9108772f4c12b5"
+        },
+        {
+          "name": "godot/scripts/vfx_lightning_blast_material.gd",
+          "sha256": "596472d72bfc8e56af2139756e7cb21b948be6c29192a7d4fb7b2fbe042315d1"
+        },
+        {
+          "name": "godot/scripts/vfx_poisonous_concoction_impact.gd",
+          "sha256": "356743d5918f37c290a977857c400ca9b5ed3344cdb8e1c404bcac50136f8f69"
+        },
+        {
+          "name": "godot/scripts/vfx_poisonous_concoction_material.gd",
+          "sha256": "596472d72bfc8e56af2139756e7cb21b948be6c29192a7d4fb7b2fbe042315d1"
+        },
+        {
+          "name": "godot/scripts/vfx_zeus_chain_impact.gd",
+          "sha256": "27cbfd483d68b02937dee96432d13c4bfaed826380e6df15c6eac69364e64a43"
+        },
+        {
+          "name": "godot/scripts/vfx_zeus_chain_material.gd",
+          "sha256": "596472d72bfc8e56af2139756e7cb21b948be6c29192a7d4fb7b2fbe042315d1"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
     }
   ],
   "experiments": [],
@@ -3804,6 +3983,11 @@
       "id": "M-C5-E0P-PEAK",
       "note": "E0p-peak-01 DELIVERED (2 image calls): the fire impact peak — genuinely RGBA (transparent plate; ~16k partial-alpha px at the contour), FOUR clean luminance planes (histogram peaks at ~24/88/184/248 with <3% in-between), asymmetric hooked tongues (7, unequal), hand-drawn contour, no glow/gradient. Delivered at 1254² with the body 749×647; conductor resampled ×0.408 → 512² working asset (body 306×263 px = 2.35 BH at 1:1; target 2 BH ±25% met). First VFX body in the H1 register at s=1. Board: runs/C-5/t3/necro_walk_v21/peak_board.png.",
       "ts": "2026-09-15T20:36:20"
+    },
+    {
+      "id": "M-C5-PACKET-87",
+      "note": "Packet 87 — THE BURST ALIVE: cliffside_v22 (eight kits, import 0 errors) staged; v1 (fly) and v2 (stretch-and-erode) cast at a dummy in the clearing at the exact 1920×1080 camera (probe_cast_kit.gd, KIT_CYCLES 6/7; labels confirm fire_burst_e0p / _v2); real-time + quarter-speed clips, in-scene contact sheets, dark-plate bakes; Desktop folder 87 under Astra Burst Review - 2026-09-15 with README + Godot instructions (Tab ×6 = v1, ×7 = v2); clips sent to Matt in-chat. Gate: Matt eye — painted burst or sticker explosion; V4 ruled here (R-C3-120).",
+      "ts": "2026-09-15T22:32:11"
     }
   ],
   "halts": [],

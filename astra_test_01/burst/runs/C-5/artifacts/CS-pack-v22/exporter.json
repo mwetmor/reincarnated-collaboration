@@ -1,0 +1,284 @@
+{
+  "cells": [
+    "cast_E",
+    "cast_N",
+    "cast_NE",
+    "cast_NW",
+    "cast_S",
+    "cast_SE",
+    "cast_SW",
+    "cast_W",
+    "idle_E",
+    "idle_N",
+    "idle_NE",
+    "idle_NW",
+    "idle_S",
+    "idle_SE",
+    "idle_SW",
+    "idle_W",
+    "jump_E",
+    "jump_N",
+    "jump_NE",
+    "jump_NW",
+    "jump_S",
+    "jump_SE",
+    "jump_SW",
+    "jump_W",
+    "run_E",
+    "run_N",
+    "run_NE",
+    "run_NW",
+    "run_S",
+    "run_SE",
+    "run_SW",
+    "run_W",
+    "walk_E",
+    "walk_N",
+    "walk_NE",
+    "walk_NW",
+    "walk_S",
+    "walk_SE",
+    "walk_SW",
+    "walk_W"
+  ],
+  "frames": 416,
+  "texture_references": 781,
+  "gear_cells": 0,
+  "vfx_animations": 0,
+  "parallax": {
+    "canvas_size": [
+      5376,
+      4096
+    ],
+    "tiles": [
+      {
+        "file": "tile_0_0.png",
+        "position": [
+          0,
+          0
+        ],
+        "size": [
+          4096,
+          4096
+        ]
+      },
+      {
+        "file": "tile_4096_0.png",
+        "position": [
+          4096,
+          0
+        ],
+        "size": [
+          1280,
+          4096
+        ]
+      }
+    ],
+    "tile_count": 2,
+    "tile_area_px2": 22020096,
+    "filtering": "nearest (texture_filter=1), no padding, no resampling",
+    "layers": [
+      {
+        "name": "sky",
+        "file": "layers/sky.png",
+        "scroll_scale": 0.12,
+        "position": [
+          0,
+          0.0
+        ],
+        "z": -40
+      },
+      {
+        "name": "far_ruins",
+        "file": "layers/far_ruins.png",
+        "scroll_scale": 0.25,
+        "position": [
+          0,
+          -416.0
+        ],
+        "z": -30
+      },
+      {
+        "name": "forest_valley",
+        "file": "layers/forest_valley.png",
+        "scroll_scale": 0.45,
+        "position": [
+          0,
+          537.0
+        ],
+        "z": -20
+      },
+      {
+        "name": "mist",
+        "file": "layers/mist.png",
+        "scroll_scale": 0.7,
+        "position": [
+          0,
+          568.0
+        ],
+        "z": -10
+      }
+    ],
+    "collision_polygons": 915,
+    "figure_height_px": 130,
+    "scale": 0.5416666666666666,
+    "walk_speed": 247,
+    "run_speed": 494,
+    "camera_offset": [
+      -2.0000000000000995,
+      -55.00000000000001
+    ],
+    "camera_anchor_px": [
+      962.0000000000001,
+      595.0
+    ],
+    "camera_limits": [
+      2,
+      55,
+      5378,
+      4151
+    ],
+    "wall_s": 12.019772041996475,
+    "props": {
+      "overhead": 0,
+      "near": 1,
+      "particles": 12,
+      "shadows": 0,
+      "assets": 49,
+      "instances": 49,
+      "glows": 7,
+      "swarms": 1,
+      "collision_polygons": 44,
+      "body_width_px": 113.74999999999999,
+      "body_height_px": 130,
+      "near_coverage": 0.11195024433585073,
+      "coverage_step_px": 64,
+      "opaque_alpha_min": 128
+    },
+    "near_coverage": 0.11195024433585073,
+    "movement": {
+      "walk_px_s": 247,
+      "run_px_s": 494,
+      "walk_anim_fps": 20.7,
+      "run_anim_fps": 14.5
+    },
+    "resource_references": 1198
+  },
+  "vfx_kits": {
+    "kits": [
+      {
+        "name": "frozen_orb",
+        "frames": {
+          "flare": 6,
+          "impact": 5,
+          "travel": 6,
+          "residual": 4
+        },
+        "socket_cells": 8,
+        "missing_sockets": 0,
+        "ambient_rectangle": null,
+        "ambient_rectangle_report": null,
+        "resource_references": 528
+      },
+      {
+        "name": "blackwater_cocktail",
+        "frames": {
+          "flare": 6,
+          "impact": 6,
+          "travel": 6,
+          "residual": 4
+        },
+        "socket_cells": 8,
+        "missing_sockets": 0,
+        "ambient_rectangle": null,
+        "ambient_rectangle_report": null,
+        "resource_references": 568
+      },
+      {
+        "name": "poisonous_concoction",
+        "frames": {
+          "flare": 6,
+          "impact": 6,
+          "travel": 6,
+          "residual": 4
+        },
+        "socket_cells": 8,
+        "missing_sockets": 0,
+        "ambient_rectangle": null,
+        "ambient_rectangle_report": null,
+        "resource_references": 608
+      },
+      {
+        "name": "lightning_blast",
+        "frames": {
+          "flare": 6,
+          "impact": 6,
+          "travel": 6,
+          "residual": 4
+        },
+        "socket_cells": 8,
+        "missing_sockets": 0,
+        "ambient_rectangle": null,
+        "ambient_rectangle_report": null,
+        "resource_references": 648
+      },
+      {
+        "name": "zeus_chain",
+        "frames": {
+          "flare": 6,
+          "impact": 6,
+          "travel": 6,
+          "residual": 4
+        },
+        "socket_cells": 8,
+        "missing_sockets": 0,
+        "ambient_rectangle": null,
+        "ambient_rectangle_report": null,
+        "resource_references": 688
+      },
+      {
+        "name": "healing_hands",
+        "frames": {
+          "flare": 6,
+          "impact": 6,
+          "travel": 6,
+          "residual": 4
+        },
+        "socket_cells": 8,
+        "missing_sockets": 0,
+        "ambient_rectangle": null,
+        "ambient_rectangle_report": null,
+        "resource_references": 728
+      },
+      {
+        "name": "fire_burst_e0p",
+        "frames": {
+          "flare": 1,
+          "impact": 1,
+          "travel": 1
+        },
+        "socket_cells": 8,
+        "missing_sockets": 0,
+        "ambient_rectangle": null,
+        "ambient_rectangle_report": null,
+        "resource_references": 915
+      },
+      {
+        "name": "fire_burst_e0p_v2",
+        "frames": {
+          "flare": 1,
+          "impact": 1,
+          "travel": 1
+        },
+        "socket_cells": 8,
+        "missing_sockets": 0,
+        "ambient_rectangle": null,
+        "ambient_rectangle_report": null,
+        "resource_references": 1198
+      }
+    ],
+    "credits": "Effect frozen_orb (ice). Source assets supplied by the effect definition; no license is inferred.\nEffect blackwater_cocktail (fire). Source assets supplied by the effect definition; no license is inferred.\nEffect poisonous_concoction (poison). Source assets supplied by the effect definition; no license is inferred.\nEffect lightning_blast (lightning). Source assets supplied by the effect definition; no license is inferred.\nEffect zeus_chain (lightning). Source assets supplied by the effect definition; no license is inferred.\nEffect healing_hands (holy). Source assets supplied by the effect definition; no license is inferred.\nEffect fire_burst_e0p (fire). Source assets supplied by the effect definition; no license is inferred.\nEffect fire_burst_e0p_v2 (fire). Source assets supplied by the effect definition; no license is inferred.\n",
+    "resource_references": 1198
+  },
+  "wall_s": 16.75194466600078
+}
