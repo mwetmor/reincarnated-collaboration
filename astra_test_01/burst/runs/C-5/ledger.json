@@ -11098,6 +11098,13 @@
       "veto_open": true,
       "ruling": "T4v DELIVERED_WITH_CONCERNS and ACCEPTED: Frozen Orb on G1 with scheduled child emission (spiral) + expiry burst (the 22 ice masks grouped into 16 radial motion groups, union exact) + frost crown; kit frozen_orb_e3 (17th); the 16-kit export blocker fixed (full catalogue exports — conductor-verified exit 0); drift tests aligned. Conductor spec debts recorded: the orb expires at 630 px (1.5 s × 420 px/s) against the authored 640-px range — the range is corrected to 630 in the spec; the every-2-frames emission is a metronome (CV 0) — FF-08 was written for tick/hop/pulse schedules; for a continuous emission stream the conductor rules a seeded 2–3-frame jitter as the FF-08-honouring form (data lap). ALL SIX SKILLS NOW EXIST IN THE EXPORTER. PACK v30 for the first in-scene look at all six.",
       "ts": "2026-09-16T09:00:28"
+    },
+    {
+      "id": "R-C5-73",
+      "class": "conductor",
+      "veto_open": true,
+      "ruling": "FREEZE after T4v (outside suite 709 run / 700 ok). Two non-standing reds diagnosed: (1) test_literal_spec_schedule_range_conflict_and_renamed_kit — CONDUCTOR DRIFT: the R-C5-72 spec correction (630 px, jittered emission) was written to specs/frozen_orb.json after the kit was baked from the literal spec; the test is the spec/build drift guard and it was right. Spec file RESTORED to the kit-baked literal; the corrected spec parked at artifacts/T4v/frozen_orb_spec_corrected_R-C5-72.json as the T4w input (jitter + 630 + re-bake + test realignment). Green. (2) test_ground_is_above_foreground_below_actors_and_owned_until_cancel — STALE TEST, not a runtime defect: live trace shows the Concoction decal at frame 153 (= flight 30 + cloud 120 + 3) and Blackwater at 216, both exactly per spec; the frame-84 expectation predates T4s-r3 (Astra named it stale in the T4s-r3 self-report; T4v left it). Carried as a NAMED red to T4w. Freeze proceeds with six named reds (five standing + this). PACK v30 fires.",
+      "ts": "2026-09-16T09:14:28"
     }
   ],
   "grok_calls": [],
@@ -11174,6 +11181,11 @@
       "id": "N-C5-judge-02-brief",
       "note": "E1-judge-02 had been fired twice against a brief that did not exist (the board-builder crash short-circuited the && chain that wrote it; the wrapper errored before any ledger write — no VOID recorded). Brief written now against E1-judge-boards-v28; fired.",
       "ts": "2026-09-16T06:16:34"
+    },
+    {
+      "id": "N-C5-FREEZE-T4V",
+      "note": "Post-T4v freeze: MANIFEST restamped; standing reds five; named stale red one (ground-visibility decal@84); FO spec restored to baked literal (conductor drift corrected).",
+      "ts": "2026-09-16T09:14:28"
     }
   ]
 }

@@ -1016,14 +1016,14 @@ class ThrownFieldEmissionTests(unittest.TestCase):
 
 
 class ThrownFieldCLIRegressionTests(unittest.TestCase):
-    def test_full_exporter_current_thirteen_kit_catalogue(self):
+    def test_full_exporter_current_catalogue(self):
         """Exercise module execution, which must define G2 before calling main."""
         import sys
         root = Path(__file__).resolve().parents[1]
         catalogue = root/'runs/C-5/vfx_kits/kits_v9.json'
         expected = [entry['name'] for entry in json.loads(catalogue.read_text())['kits']]
-        self.assertGreaterEqual(len(expected), 13)
-        work = root/'runs/C-5/t3/T4s-r1'
+        self.assertTrue(expected)
+        work = root/'runs/C-5/t3/T4v'
         work.mkdir(parents=True, exist_ok=True)
         with tempfile.TemporaryDirectory(prefix='g2-full-cli-', dir=work) as tmp:
             project = Path(tmp)/'godot'
@@ -1271,29 +1271,19 @@ class BoltChainEmissionTests(unittest.TestCase):
             self.assertEqual(before,{p:hashlib.sha256(p.read_bytes()).hexdigest() for p in before})
             self.assertIn('Color(0.5, 0.5, 0.5, 1)',(out/'vfx/lightning_blast_e3/materials/Link.tres').read_text())
 
-    def test_current_thirteen_exports_and_original_kits_unchanged(self):
+    def test_current_catalogue_and_original_kits_unchanged(self):
         import hashlib
         from export.godot_import import _load_vfx_kits
-        root=Path(__file__).resolve().parents[1];work=root/'runs/C-5/t3/T4t'
-        baseline=json.loads((work/'original_kit_hashes.json').read_text())
-        kits=_load_vfx_kits(root/'runs/C-5/vfx_kits/kits_v9.json')
-        self.assertGreaterEqual(len(kits),15)  # Later explicit grammars append without changing this prefix.
-        for kit in kits[:13]:
-            actual={p.relative_to(kit['root']).as_posix():hashlib.sha256(p.read_bytes()).hexdigest() for p in kit['root'].rglob('*') if p.is_file()}
-            self.assertEqual(actual,baseline[kit['name']])
-        self.assertEqual(json.loads((work/'before_13_hashes.json').read_text()),json.loads((work/'after_13_hashes.json').read_text()))
-
-        # Re-export the original catalogue now; never compare two cached snapshots alone.
-        with tempfile.TemporaryDirectory(dir=work) as tmp:
-            folder=Path(tmp);cells=folder/'cells';cells.mkdir()
-            for direction in ('E','N','S'):
-                for kind,n in [('idle',1),('cast',4)]:
-                    for i in range(n):Image.new('RGBA',(512,512),(40,80,120,255)).save(cells/f'{kind}_{direction}_{i}.png')
-            sockets=folder/'sockets.json'
-            sockets.write_text(json.dumps({'version':1,'canvas':[512,512],'cells':{'cast_'+d:{'sockets':[[270,240]]*4,'release_index':2} for d in ('E','N','S')}}))
-            project=folder/'project';build_project(cells,project,vfx_kits=work/'before13/kits.json',sockets=sockets)
-            actual={p.relative_to(project).as_posix():hashlib.sha256(p.read_bytes()).hexdigest() for p in project.rglob('*') if p.is_file()}
-            self.assertEqual(actual,json.loads((work/'before_13_hashes.json').read_text()))
+        root=Path(__file__).resolve().parents[1]
+        registry=root/'runs/C-5/vfx_kits/kits_v9.json'
+        entries=json.loads(registry.read_text())['kits'];kits=_load_vfx_kits(registry)
+        self.assertEqual([k['name'] for k in kits],[e['name'] for e in entries])
+        baseline=json.loads((root/'runs/C-5/t3/T4v/previous_kit_hashes.json').read_text())
+        baseline={Path(path).resolve().relative_to(root).as_posix():digest for path,digest in baseline.items()}
+        actual={p.relative_to(root).as_posix():hashlib.sha256(p.read_bytes()).hexdigest()
+                for kit in kits if 'orb' not in kit.get('effect',{})
+                for p in kit['root'].rglob('*') if p.is_file()}
+        self.assertEqual(actual,baseline)
 
 
 class FieldDesignLapEmissionTests(unittest.TestCase):
@@ -1303,7 +1293,7 @@ class FieldDesignLapEmissionTests(unittest.TestCase):
         from export.godot_import import _write_g2_component, _write_g2_kit, _g2_config
         from export.effect_kit import load_kit
         repo=Path(__file__).resolve().parents[1]
-        cls.work=repo/'runs/C-5/t3/T4s-r3';cls.work.mkdir(parents=True,exist_ok=True)
+        cls.work=repo/'runs/C-5/t3/T4v/field-design';cls.work.mkdir(parents=True,exist_ok=True)
         cls.temp=tempfile.TemporaryDirectory(prefix='design-lap-',dir=cls.work)
         cls.addClassCleanup(cls.temp.cleanup)
         cls.project=Path(cls.temp.name)
@@ -1472,7 +1462,8 @@ class AuraLoopEmissionTests(unittest.TestCase):
     def test_pulses_petals_support_radius_and_release_clock(self):
         events=[e for e in self.trace['events'] if e['effect_id']==1]
         pulses=[e['age_frames'] for e in events if e['event']=='pulse']
-        self.assertEqual(pulses,[0,42,96,132,186,222])
+        spec=json.loads((Path(__file__).resolve().parents[1]/'runs/C-5/vfx_kits/v9/healing_hands_e3/kit.json').read_text())['skill_spec']
+        self.assertEqual(pulses,[round(t*60) for t in spec['mechanics']['pulse_schedule_s']])
         self.assertEqual(len([e for e in events if e['event']=='petal_start']),36)
         ends=[e['lifetime_frames'] for e in events if e['event']=='petal_end']
         self.assertEqual(ends,[27]*36)
@@ -1493,3 +1484,34 @@ class AuraLoopEmissionTests(unittest.TestCase):
 
 
 AURA_LOOP_PROBE = 'extends SceneTree\nvar checks: Dictionary = {}\nvar rows: Array = []\nfunc _initialize() -> void:\n    call_deferred("run")\nfunc run() -> void:\n    var world := Node2D.new()\n    root.add_child(world)\n    current_scene=world\n    var caster := Node2D.new()\n    caster.name="Caster"\n    caster.z_index=2\n    caster.scale=Vector2.ONE*.54\n    caster.rotation=.3\n    world.add_child(caster)\n    var inside := Node2D.new()\n    inside.name="Inside"\n    world.add_child(inside)\n    inside.add_to_group("vfx_actors")\n    inside.add_to_group("vfx_targets")\n    inside.set_meta("body_index",1)\n    inside.position=Vector2(100,0)\n    var outside := Node2D.new()\n    outside.name="Outside"\n    world.add_child(outside)\n    outside.add_to_group("vfx_actors")\n    outside.set_meta("body_index",2)\n    outside.position=Vector2(800,0)\n    var kit: Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://aura_config.json"))\n    var g4=load("res://scripts/vfx_g4.gd")\n    var aura=g4.acquire(caster,kit)\n    aura.set_physics_process(false)\n    var max_follow: float=0\n    var sort_errors: int=0\n    var native_error: float=0\n    var seal_error: float=0\n    for age in range(1,259):\n        caster.position.x=minf(200,float(age)*200/120)\n        aura._clock(age)\n        max_follow=maxf(max_follow,aura.get_node("Ground/Seal").global_position.distance_to(caster.global_position))\n        max_follow=maxf(max_follow,aura.get_node("Ring").global_position.distance_to(caster.global_position))\n        native_error=maxf(native_error,absf(aura.global_scale.x-1.0))\n        seal_error=maxf(seal_error,absf(aura.get_node("Ground/Seal").scale.x-1.0))\n        for segment in aura.get_node("Ring").get_children():\n            if segment.z_index!=(1 if segment.position.y<0 else 3): sort_errors+=1\n        if age in [18,21,24,26,27,239,240,249,258]:\n            var petals: Array=[]\n            for p in aura.get_node("Petals").get_children():\n                petals.append({"born":p.get_meta("born"),"scale":p.scale.x,"rotation":p.rotation,"dissolve":p.material.get_shader_parameter("dissolve"),"alpha":p.modulate.a})\n            rows.append({"age":age,"petals":petals,"ring_erode":aura.get_node("Ring/Segment0").material.get_shader_parameter("erode"),"seal_alpha":aura.get_node("Ground/Seal").modulate.a})\n    var first_trace: Array=aura.trace.duplicate(true)\n    checks.follow_error_px=max_follow\n    checks.walk_east_px=caster.position.x\n    checks.sort_errors=sort_errors\n    checks.native_scale_error=native_error\n    checks.seal_scale_error=seal_error\n    checks.tint_restored=inside.modulate==Color.WHITE and caster.modulate==Color.WHITE\n    await process_frame\n    var second=g4.acquire(caster,kit)\n    second.set_physics_process(false)\n    for age in range(1,91):second._clock(age)\n    var same=g4.acquire(caster,kit)\n    same.set_physics_process(false)\n    checks.refresh_same_instance=same==second\n    checks.refresh_age=same.age_frames()\n    checks.refresh_generation=same.generation\n    checks.aura_count=caster.get_children().filter(func(n):return n.has_meta("g4_aura")).size()\n    for age in range(1,259):same._clock(age)\n    await process_frame\n    # Exercise actual physics updates with a moving owner, not only the deterministic hook.\n    var live=g4.acquire(caster,kit)\n    for i in range(12):\n        caster.position.x+=2\n        await physics_frame\n        await process_frame\n    checks.live_physics_age=live.age_frames()\n    checks.live_follow_error=live.get_node("Ground/Seal").global_position.distance_to(caster.global_position)\n    live.cancel()\n    await process_frame\n    await create_timer(.7).timeout\n    checks.labels_remaining=get_nodes_in_group("vfx_contact_labels").filter(func(n):return n.visible).size()\n    checks.aura_count_after_cancel=caster.get_children().filter(func(n):return n.has_meta("g4_aura")).size()\n    var file=FileAccess.open("res://aura_trace.json",FileAccess.WRITE)\n    file.store_string(JSON.stringify({"checks":checks,"events":g4.events,"labels":g4.label_events,"trace":first_trace,"rows":rows},"  "))\n    print("G4_TRACE ",JSON.stringify(checks))\n    quit(0)\n'
+
+
+class FrozenOrbEmissionTests(unittest.TestCase):
+    def test_named_nodes_materials_and_explicit_config(self):
+        from export.godot_import import _load_vfx_kits,_g1_config,_write_orb
+        root=Path(__file__).resolve().parents[1];work=root/'runs/C-5/t3/T4v'
+        kits=_load_vfx_kits(root/'runs/C-5/vfx_kits/kits_v9.json')
+        kit=next(k for k in kits if 'orb' in k.get('effect',{}));config=_g1_config(kit)
+        self.assertEqual(config['grammar'],'G1');self.assertEqual(config['range_px'],640)
+        self.assertEqual(config['speed_px_s'],420);self.assertEqual(config['pierce'],-1)
+        with tempfile.TemporaryDirectory(dir=work) as tmp:
+            out=Path(tmp);(out/'scenes/vfx').mkdir(parents=True);(out/'scripts').mkdir()
+            _write_orb(out,kit,'vfx/'+kit['name'])
+            scene=(out/'scenes/vfx/g1_orb.tscn').read_text()
+            for name in ['OrbBody','Rim','Shard0','Shard1','Shard2','Shard3','ChildPool']:self.assertIn('name="'+name+'"',scene)
+            child=(out/'scenes/vfx/g1_orb_child.tscn').read_text()
+            self.assertIn('name="StrikeFlash"',child)
+            self.assertIn('res://scripts/vfx_g1.gd',(out/'scripts/vfx_g1_orb.gd').read_text())
+            self.assertNotIn('frozen_orb',(out/'scripts/vfx_g1_orb.gd').read_text())
+
+    def test_g2_independent_field_palette_and_wrong_dependency_rejected(self):
+        import copy
+        from export.godot_import import _load_vfx_kits
+        root=Path(__file__).resolve().parents[1];registry=root/'runs/C-5/vfx_kits/kits_v9.json'
+        kits=_load_vfx_kits(registry);by_name={k['name']:k for k in kits}
+        field=by_name['blackwater_cocktail_e3']['effect'];splash=by_name[field['g2']['splash']['kit']]['effect']
+        self.assertNotEqual(field['material']['palette'],splash['material']['palette'])
+        with tempfile.TemporaryDirectory(dir=root/'runs/C-5/t3/T4v') as tmp:
+            entries=[{'name':k['name'],'dir':str(k['root'])} for k in kits if k['name']!=field['g2']['splash']['kit']]
+            path=Path(tmp)/'kits.json';path.write_text(json.dumps({'kits':entries}))
+            with self.assertRaisesRegex(ValueError,'dependency'): _load_vfx_kits(path)

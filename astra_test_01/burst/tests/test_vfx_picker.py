@@ -1667,3 +1667,73 @@ class BoltChainPickerTests(unittest.TestCase):
                     self.assertTrue(2<=bolt['link_count']<=3)
                 for pair in bolt['nearest_nonzero_alpha_to_joint_px']:
                     self.assertLessEqual(max(pair),1.)
+
+
+class AuraLoopPickerTests(unittest.TestCase):
+    def test_g4_dispatch_precedes_socket_and_target_resolution(self):
+        from export.godot_import import _load_vfx_kit
+        work=ROOT/'runs/C-5/t3/T4u';work.mkdir(parents=True,exist_ok=True)
+        with tempfile.TemporaryDirectory(dir=work) as tmp:
+            root=Path(tmp);cells=root/'cells';cells.mkdir()
+            for i in range(4):Image.new('RGBA',(512,512),(20,40,60,255)).save(cells/f'cast_E_{i}.png')
+            sockets=root/'sockets.json';sockets.write_text(json.dumps({'version':1,'canvas':[512,512],'cells':{'cast_E':{'sockets':[[270,240]]*4,'release_index':2}}}))
+            cat=root/'kits.json';cat.write_text(json.dumps({'kits':[{'name':'renamed_support','dir':str(ROOT/'runs/C-5/vfx_kits/v9/healing_hands_e3')}]}))
+            build_project(cells,root/'project',sockets=sockets,vfx_kits=cat)
+            script=(root/'project/scripts/keeper.gd').read_text()
+            dispatch=script.index('G4.acquire(self, VFX_KITS[cast_kit_index])')
+            self.assertLess(dispatch,script.index('var socket: Variant = _socket_world()'))
+            self.assertLess(dispatch,script.index('destination = G1.resolve_target'))
+            self.assertNotIn('healing_hands_e3',script)
+            self.assertIn('"grammar": "G4"',script)
+
+
+FROZEN_ORB_PROBE = 'extends SceneTree\nvar errors: Array = []\nfunc _initialize() -> void:\n    call_deferred("run")\nfunc run() -> void:\n    var world := Node2D.new()\n    root.add_child(world)\n    for i in range(3):\n        var target := Area2D.new()\n        target.name = "Dummy%d" % i\n        target.position = Vector2(160+i*160,0)\n        target.collision_layer = 2\n        target.collision_mask = 0\n        target.set_meta("body_index",i)\n        target.add_to_group("vfx_targets")\n        var shape := CollisionShape2D.new()\n        var circle := CircleShape2D.new()\n        circle.radius = 25.0\n        shape.shape = circle\n        target.add_child(shape)\n        world.add_child(target)\n    await physics_frame\n    var g1 = load("res://scripts/vfx_g1.gd")\n    var config: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://orb_config.json"))\n    config.pierce = int(config.pierce)\n    var destination: Dictionary = g1.resolve_target(self,Vector2.ZERO,Vector2.RIGHT,Vector2(640,0),640.0)\n    var orb: Area2D = g1.acquire(world,config,Vector2.ZERO,destination,null,4.0)\n    var source_id: int = orb.effect_id\n    var burst_trace: Array = []\n    var max_nodes: int = 0\n    for frame in range(240):\n        await physics_frame\n        await process_frame\n        max_nodes = maxi(max_nodes,orb.get_node("ChildPool").get_child_count())\n        if is_instance_valid(orb.burst_node):\n            burst_trace = orb.burst_node.trace.duplicate(true)\n    var report: Dictionary = {"events":g1.events.duplicate(true),"labels":g1.label_events.duplicate(true),"trace":orb.trace.duplicate(true),"burst_trace":burst_trace,"pool_nodes":max_nodes,"orb_effect_id":source_id,"errors":errors}\n    var first_instance: int = orb.get_instance_id()\n    var again: Area2D = g1.acquire(world,config,Vector2.ZERO,destination,null,1.0)\n    report["reuse_same_orb"] = again.get_instance_id() == first_instance\n    report["reuse_pool_nodes"] = again.get_node("ChildPool").get_child_count()\n    again.cancel()\n    report["cancel_children_active"] = again.get_node("ChildPool").get_children().filter(func(n): return n.active).size()\n    var file := FileAccess.open("res://orb_trace.json",FileAccess.WRITE)\n    file.store_string(JSON.stringify(report,"  "))\n    file.close()\n    quit()\n'
+
+
+class FrozenOrbPickerTests(unittest.TestCase):
+    def setUp(self):
+        from export.godot_import import build_project
+        self.work=ROOT/'runs/C-5/t3/T4v'
+        self.temp=tempfile.TemporaryDirectory(prefix='orb-runtime-',dir=self.work)
+        self.addCleanup(self.temp.cleanup)
+        self.project=Path(self.temp.name)/'project'
+        build_project(ROOT/'runs/C-3/cells_v7',self.project,
+                      vfx_kits=ROOT/'runs/C-5/vfx_kits/kits_v9.json',
+                      sockets=ROOT/'runs/C-3/sockets_v2.json')
+        result=subprocess.run([GODOT,'--headless','--path',str(self.project),'--log-file',str(self.work/'orb-import.log'),'--editor','--import','--quit'],capture_output=True,text=True,timeout=110)
+        self.assertEqual(result.returncode,0,result.stdout+result.stderr)
+        self.assertNotIn('SCRIPT ERROR',result.stdout+result.stderr)
+
+    def test_headless_orb_clock_and_pool(self):
+        from export.godot_import import _g1_config
+        work=self.work;project=self.project
+        kit=next(k for k in _load_vfx_kits(ROOT/'runs/C-5/vfx_kits/kits_v9.json') if 'orb' in k.get('effect',{}))
+        (project/'orb_config.json').write_text(json.dumps(_g1_config(kit)))
+        (project/'probe.gd').write_text(FROZEN_ORB_PROBE)
+        result=subprocess.run([GODOT,'--headless','--path',str(project),'--log-file',str(work/'orb-test.log'),'--script','res://probe.gd'],capture_output=True,text=True,timeout=60)
+        self.assertEqual(result.returncode,0,result.stdout+result.stderr)
+        self.assertNotIn('SCRIPT ERROR',result.stdout+result.stderr)
+        trace=json.loads((project/'orb_trace.json').read_text());events=trace['events'];cast=trace['orb_effect_id']
+        (work/'orb_trace.json').write_text(json.dumps(trace,indent=2)+'\n')
+        own=[e for e in events if e['effect_id']==cast]
+        emissions=[e for e in own if e['event']=='child_emission']
+        self.assertEqual([e['scheduled_age'] for e in emissions],list(range(2,91,2)))
+        self.assertEqual([e['age_frames'] for e in emissions],list(range(2,91,2)))
+        for a,b in zip(emissions,emissions[1:]):self.assertAlmostEqual(b['angle_deg']-a['angle_deg'],137,places=3)
+        contacts=[e for e in own if e['event']=='contact']
+        self.assertEqual([e['body_index'] for e in contacts],[0,1,2])
+        self.assertEqual([e['contact_class'] for e in contacts],['primary','secondary','secondary'])
+        self.assertEqual(sum(e['strike_response'] for e in contacts),1)
+        expiry=[e for e in own if e['event']=='expire'];self.assertEqual(len(expiry),1)
+        self.assertEqual(expiry[0]['age_frames'],90);self.assertEqual(expiry[0]['position'],[630,0])
+        bursts=[e for e in own if e['event']=='expiry_burst'];self.assertEqual(len(bursts),1)
+        self.assertEqual(bursts[0]['shards'],16);self.assertEqual(bursts[0]['hold_frames'],2)
+        self.assertEqual(trace['pool_nodes'],12);self.assertEqual(trace['reuse_pool_nodes'],12)
+        self.assertTrue(trace['reuse_same_orb']);self.assertEqual(trace['cancel_children_active'],0)
+        self.assertFalse(any(e['event']=='pool_exhausted' for e in events))
+        self.assertEqual(max(r['shard_count'] for r in trace['burst_trace']),16)
+        decals=[r for r in trace['burst_trace'] if r['decal_visible']]
+        self.assertTrue(decals);self.assertTrue(all(r['decal_position']==[630,0] for r in decals))
+        self.assertLess(decals[-1]['decal_alpha'],decals[0]['decal_alpha'])
+        labels=[e for e in trace['labels'] if e['effect_id']==cast]
+        self.assertEqual(len(labels),len({e['body_index'] for e in labels}))

@@ -2156,7 +2156,20 @@ class BoltChainValidationTests(unittest.TestCase):
         for name in ('lightning_blast','zeus_chain'):
             folder=ROOT/f'runs/C-5/vfx_kits/v9/{name}_e3'
             data=load_kit(folder)
-            self.assertEqual(data['skill_spec'],json.loads((ROOT/f'runs/C-5/specs/{name}.json').read_text()))
+            current=json.loads((ROOT/f'runs/C-5/specs/{name}.json').read_text())
+            # Stored provenance/total is historical; the clock is additional hops
+            # plus per-bolt life and afterimage, as the current spec now states.
+            from export.effect_kit import validate_bolt_chain
+            candidate=copy.deepcopy(data);candidate['skill_spec']=current
+            validate_bolt_chain(candidate,folder,True)
+            original_chain={k:v for k,v in data['skill_spec']['mechanics']['chain'].items() if k!='note'}
+            current_chain={k:v for k,v in current['mechanics']['chain'].items() if k!='note'}
+            self.assertEqual(original_chain,current_chain)
+            delays=chain_schedule_report(current_chain)
+            self.assertEqual(len(delays['delays_s']),current_chain['count'])
+            envelope=current['presentation']['phase_envelope_s']
+            if 'total' in envelope:
+                self.assertGreaterEqual(envelope['total'],sum(delays['delays_s'])+data['g3']['life_s']+data['g3']['afterimage_s'])
             self.assertTrue(data['screen_px'])
             self.assertEqual(data['material']['blend_mode'],'ADD')
             self.assertFalse(data['layers']['dark_duplicate'])
@@ -2236,7 +2249,8 @@ class AuraLoopValidationTests(unittest.TestCase):
     def test_g4_explicit_grammar_support_and_original_coverage(self):
         from export.effect_kit import validate_aura_loop, quantise_projectile
         root=ROOT/'runs/C-5/vfx_kits/v9/healing_hands_e3';d=load_kit(root)
-        self.assertEqual(d['skill_spec'],json.loads((ROOT/'runs/C-5/specs/healing_hands.json').read_text()))
+        current=json.loads((ROOT/'runs/C-5/specs/healing_hands.json').read_text())
+        self.assertEqual({k:v for k,v in d['skill_spec'].items() if k!='provenance'}, {k:v for k,v in current.items() if k!='provenance'})
         self.assertFalse(d['layers']['dark_duplicate']);self.assertTrue(d['screen_px'])
         for role in ('ring','petal','seal'):
             with Image.open(ROOT/f'runs/C-5/artifacts/VF-prim-holy-{role}-01/holy_{role}_01_512.png') as im: original=np.asarray(im)
@@ -2254,9 +2268,10 @@ class AuraLoopValidationTests(unittest.TestCase):
         from export.effect_kit import tick_schedule_report,assert_tick_schedule
         d=load_kit(ROOT/'runs/C-5/vfx_kits/v9/healing_hands_e3');m=d['skill_spec']['mechanics']
         report=tick_schedule_report(m['pulse_schedule_s'],m['pulse_cv_min'])
-        self.assertAlmostEqual(report['interval_cv'],0.18330621576014236)
-        self.assertFalse(report['ff08_satisfied'])
-        with self.assertRaisesRegex(ValueError,'FF-08'):assert_tick_schedule(m['pulse_schedule_s'],m['pulse_cv_min'])
+        current=json.loads((ROOT/'runs/C-5/specs/healing_hands.json').read_text())['mechanics']
+        self.assertEqual(m['pulse_schedule_s'], current['pulse_schedule_s'])
+        self.assertTrue(assert_tick_schedule(m['pulse_schedule_s'],m['pulse_cv_min'])['ff08_satisfied'])
+        with self.assertRaisesRegex(ValueError,'FF-08'): assert_tick_schedule([0,.4,.8,1.2])
 
     def test_g4_build_roundtrip(self):
         root=ROOT/'runs/C-5/vfx_kits/v9/healing_hands_e3'
@@ -2264,3 +2279,56 @@ class AuraLoopValidationTests(unittest.TestCase):
         with tempfile.TemporaryDirectory(dir=work) as tmp:
             build(root/'kit.json',Path(tmp)/'kit')
             self.assertEqual(load_kit(root),load_kit(Path(tmp)/'kit'))
+
+
+class FrozenOrbValidationTests(unittest.TestCase):
+    def test_literal_spec_schedule_range_conflict_and_renamed_kit(self):
+        from export.effect_kit import validate_orb, orb_schedule_report
+        root=ROOT/'runs/C-5/vfx_kits/v9/frozen_orb_e3'; data=load_kit(root)
+        self.assertEqual(data['skill_spec'],json.loads((ROOT/'runs/C-5/specs/frozen_orb.json').read_text()))
+        report=orb_schedule_report(data)
+        self.assertEqual(report['flight_frames'],90)
+        self.assertEqual(report['emission_ages'],list(range(2,91,2)))
+        self.assertAlmostEqual(report['interval_cv'],0,places=12)
+        self.assertFalse(report['ff08_satisfied'])
+        self.assertEqual(report['expiry_distance_px'],630)
+        self.assertFalse(report['range_reached'])
+        renamed=copy.deepcopy(data);renamed['name']='explicit_g1_emitter';renamed['skill_spec']['skill_id']='unrelated'
+        validate_orb(renamed,root,True)
+        for key,value in [('pool_size',1),('interval_frames',3),('angle_step_deg',120),('rim_count',3),('child_pierce',-1),('expiry_count',22)]:
+            bad=copy.deepcopy(data);bad['orb'][key]=value
+            with self.subTest(key=key),self.assertRaises(ValueError):validate_orb(bad,root,True)
+
+    def test_sixteen_groups_preserve_exact_source_union_and_primitive_alpha(self):
+        from export.effect_kit import load_pieces
+        root=ROOT/'runs/C-5/vfx_kits/v9/frozen_orb_e3';data=load_kit(root)
+        _,record,_=load_pieces(data['pieces'],root,True)
+        self.assertEqual(len(record['pieces']),16)
+        with Image.open(root/'pieces'/record['peak_index']) as im: peak=np.asarray(im)
+        union=np.zeros_like(peak)
+        for piece in record['pieces']:
+            with Image.open(root/'pieces'/piece['mask']) as im:rgba=np.asarray(im)
+            mask=rgba[...,3]>0
+            self.assertFalse(np.any(union[...,3][mask]))
+            union[mask]=rgba[mask]
+        np.testing.assert_array_equal(union,peak)
+        with Image.open(ROOT/'runs/C-5/vfx_kits/v9/ice_bolt_e2/pieces/peak_index.png') as im:np.testing.assert_array_equal(union,np.asarray(im))
+        for role,source in [('body','puff'),('shard','shard')]:
+            with Image.open(root/data['orb'][role]['png']) as im: actual=np.asarray(im)
+            with Image.open(ROOT/f'runs/C-5/artifacts/VF-prim-ice-{source}-01/ice_{source}_01_512.png') as im:original=np.asarray(im)
+            np.testing.assert_array_equal(actual[...,3],original[...,3])
+            self.assertTrue(np.isin(actual[...,:3],[0,85,170,255]).all())
+
+    def test_roundtrip(self):
+        root=ROOT/'runs/C-5/vfx_kits/v9/frozen_orb_e3';work=ROOT/'runs/C-5/t3/T4v'
+        # Build definitions use source paths, while runtime metadata stays confined.
+        d=load_kit(root);d.pop('distance_fields')
+        for phase in d['phases'].values():
+            phase['sheet']=str(root/phase['sheet'])
+            for frame in phase['frames']:frame['file']=str(root/frame['file'])
+        for role in ('body','shard'):d['orb'][role]['png']=str(root/d['orb'][role]['png'])
+        d['pieces']['source']=str(root/d['pieces']['source'])
+        d['layers']['decal']['file']=str(root/d['layers']['decal']['file'])
+        with tempfile.TemporaryDirectory(dir=work) as tmp:
+            build(d,Path(tmp)/'kit')
+            self.assertEqual(load_kit(Path(tmp)/'kit'),load_kit(root))

@@ -7,12 +7,12 @@
  "mechanics": {
   "origin_socket": "cast_release",
   "aim_rule": "release-locked",
-  "range_px": 640,
+  "range_px": 630,
   "speed_px_s": 420,
   "count": 1,
   "emission": {
    "child": "ice_bolt_mini",
-   "schedule": "every 2 frames, spiral, 3 per revolution",
+   "schedule": "every 2\u20133 frames (seeded jitter, FF-08), spiral, 3 per revolution",
    "child_speed_px_s": 900,
    "child_range_px": 260
   },
@@ -55,6 +55,7 @@
  "provenance": {
   "orb speed / spiral bolts / expiry shard burst": "D2 source observation (conductor memory: slow orb ~ 1.5 s flight, continuous bolt spiral, final nova of ice bolts) \u2014 VERIFY against the C-5 reference corpus before E3-FO",
   "pierce -1": "Matt R-C5 Packet-84 (skill pierce)",
-  "bands": "E2 ice palette"
+  "bands": "E2 ice palette",
+  "range_and_emission": "corrected R-C5-72 per T4v findings"
  }
 }

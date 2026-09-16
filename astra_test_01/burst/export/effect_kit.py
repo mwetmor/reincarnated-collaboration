@@ -24,7 +24,7 @@ import numpy as np
 from PIL import Image
 
 PHASES = {'cast': 'flare', 'travel': 'travel', 'impact': 'impact', 'residual': 'residual'}
-TOP = {'name', 'element', 'element_class', 'tint', 'phases', 'layers', 'ground_squash', 'pixel_scale', 'phase_scale', 'material', 'distance_fields', 'pierce', 'pieces', 'screen_px', 'erode_noise', 'skill_spec', 'travel_primitives', 'key_states', 'impact_binding', 'decal_s'}
+TOP = {'name', 'element', 'element_class', 'tint', 'phases', 'layers', 'ground_squash', 'pixel_scale', 'phase_scale', 'material', 'distance_fields', 'pierce', 'pieces', 'screen_px', 'erode_noise', 'skill_spec', 'travel_primitives', 'key_states', 'impact_binding', 'decal_s', 'orb'}
 LAYER_KEYS = {
     'glow': {'alpha', 'scale'}, 'floor_light': {'duration_s', 'radius_px'},
     'flash': {'duration_s', 'alpha', 'scale_from', 'scale_to'},
@@ -594,7 +594,9 @@ def _validate(data, root, runtime=False):
             _number(phase.get('speed_px_s', 520), 1e-9, math.inf, 'speed_px_s')
             if not isinstance(phase.get('streak', False), bool):
                 raise ValueError('streak must be boolean')
-    if 'travel_primitives' in data:
+    if 'orb' in data:
+        assets.update(validate_orb(data, root, runtime))
+    elif 'travel_primitives' in data:
         assets.update(validate_projectile(data, root, runtime))
     elif any(k in data for k in ('skill_spec', 'key_states', 'impact_binding')):
         raise ValueError('projectile metadata requires travel_primitives')
@@ -807,6 +809,12 @@ def build(effect_json, out_dir):
             file = f'layers/{name}.png'
             copy_index(layer[key], file)
             layer[key] = file
+    if 'orb' in data:
+        for role in ('body', 'shard'):
+            item = metadata['orb'][role]
+            file = 'primitives/'+role+'.png'
+            copy_index(item['png'], file)
+            item['png'] = file
     if 'travel_primitives' in data:
         for role in ('head', 'streak'):
             source = data['travel_primitives'][role]['png']
@@ -1492,3 +1500,53 @@ def _build_aura_definition(data, root, out):
     (out/'vfx_select.json').write_text(json.dumps({'source':'effect_kit','name':data['name']})+'\n')
     (out/'CREDITS.txt').write_text('G4: supplied indexed holy primitives.\n')
     return {'id':'effect_kit','subject':data['name'],'passed':None,'value':{'grammar':'G4'},'threshold':None,'op':None,'unit':'kit','evidence':[str(out/'kit.json')],'notes':'Authored pulse schedule retained; assert_tick_schedule is the separate FF-08 instrument.'}
+
+
+def orb_schedule_report(data):
+    m = data['skill_spec']['mechanics']
+    flight = min(math.ceil(m['range_px']/m['speed_px_s']*60), math.ceil(m['expiry']['time_s']*60))
+    ages = list(range(data['orb']['interval_frames'], flight+1, data['orb']['interval_frames']))
+    report = tick_schedule_report([(age-ages[0])/60 for age in ages])
+    return dict(report, emission_ages=ages, flight_frames=flight,
+                expiry_distance_px=min(m['range_px'], m['speed_px_s']*flight/60),
+                range_reached=m['range_px'] <= m['speed_px_s']*flight/60)
+
+
+def validate_orb(data, root, runtime=False):
+    spec=data.get('skill_spec', {}); m=spec.get('mechanics', {}); g=data['orb']
+    _keys(m, {'origin_socket','aim_rule','range_px','speed_px_s','count','emission','expiry','termination','pierce'},
+          {'origin_socket','aim_rule','range_px','speed_px_s','count','emission','expiry','termination','pierce'}, 'orb.mechanics')
+    if (spec.get('grammar') != 'G1' or m['origin_socket'] != 'cast_release' or m['aim_rule'] != 'release-locked'
+            or m['termination'] != 'expiry' or m['pierce'] != -1 or m['count'] != 1
+            or data.get('pierce') != -1 or not data.get('screen_px') or data['element'] != spec['visual_treatment_id']):
+        raise ValueError('unsupported orb G1 mechanics or treatment')
+    for key in ('range_px','speed_px_s'): _number(m[key], 1e-9, math.inf, key)
+    if data['phases']['travel']['speed_px_s'] != m['speed_px_s']: raise ValueError('orb speed disagrees')
+    _keys(m['emission'], {'child','schedule','child_speed_px_s','child_range_px'}, {'child','schedule','child_speed_px_s','child_range_px'}, 'emission')
+    if m['emission']['schedule'] != 'every 2 frames, spiral, 3 per revolution': raise ValueError('unsupported explicit emission schedule')
+    for key in ('child_speed_px_s','child_range_px'): _number(m['emission'][key], 1e-9, math.inf, key)
+    if m['expiry']['kind'] != 'range_or_time' or m['expiry']['on_expiry'] != 'shard_burst 16 radial': raise ValueError('unsupported expiry')
+    _number(m['expiry']['time_s'], 1e-9, math.inf, 'expiry.time_s')
+    required={'body','shard','interval_frames','angle_step_deg','seed','pool_size','turn_s','rim_count','rim_radius_px','expiry_count','child_pierce'}
+    _keys(g, required, required, 'orb')
+    if (g['interval_frames'] != 2 or g['angle_step_deg'] != 137 or g['turn_s'] != 1.2
+            or g['rim_count'] != 4 or g['expiry_count'] != 16 or g['child_pierce'] != 0): raise ValueError('orb emission/rotation/count disagrees')
+    _number(g['seed'],0,2147483647,'orb.seed',True)
+    _number(g['pool_size'], math.ceil(m['emission']['child_range_px']/m['emission']['child_speed_px_s']*60/2)+2,64,'orb.pool_size',True)
+    _number(g['rim_radius_px'],1,256,'orb.rim_radius_px')
+    if (data['pieces']['template'] != 'burst_v1r' or data['pieces']['hold_frames'] != 2
+            or data['decal_s'] != spec['presentation']['phase_envelope_s']['residue']): raise ValueError('orb expiry pieces/decal disagree')
+    _,record,_=load_pieces(data['pieces'],root,runtime)
+    if len(record['pieces']) != g['expiry_count']: raise ValueError('orb expiry requires 16 pieces')
+    assets={}
+    for role in ('body','shard'):
+        item=g[role];_keys(item,{'png','pivot','scale','binding'},{'png','pivot','scale','binding'},'orb.'+role)
+        expected=spec['presentation']['primitive_bindings']['travel_head' if role=='body' else 'child']
+        if item['binding'] != expected: raise ValueError('orb primitive binding disagrees')
+        assets[item['png']]=_png(item['png'],root,True,runtime)
+        _number(item['scale'],1e-9,1,'orb.scale')
+        if not isinstance(item['pivot'],list) or len(item['pivot'])!=2: raise ValueError('orb pivot requires x,y')
+        with Image.open(assets[item['png']]) as im:
+            for value,extent in zip(item['pivot'],im.size): _number(value,0,extent,'orb.pivot')
+    orb_schedule_report(data) # Report the literal metronome; never repair the authored schedule.
+    return assets

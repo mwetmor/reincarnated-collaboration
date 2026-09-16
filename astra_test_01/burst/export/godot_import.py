@@ -710,8 +710,8 @@ def _load_vfx_kits(path):
             raise ValueError('tint multiply-tint override is retired for material kits')
         result.append({**kit, 'name': name, **({'tint': entry['tint']} if 'tint' in entry else {})})
     # Preserve the legacy twelve-entry limit; explicit grammar components extend it.
-    if len(result) > 12 and sum(not any(g in kit.get('effect', {}) for g in ('g2','g3','g4')) for kit in result) > 12:
-        raise ValueError('VFX kits beyond twelve require explicit G2/G3/G4 components')
+    if len(result) > 12 and sum(not any(g in kit.get('effect', {}) for g in ('g2','g3','g4','orb')) for kit in result) > 12:
+        raise ValueError('VFX kits beyond twelve require explicit grammar components')
     by_name = {kit['name']: kit for kit in result}
     for kit in result:
         data = kit.get('effect', {})
@@ -719,8 +719,10 @@ def _load_vfx_kits(path):
             if data['element'] == 'fire':
                 splash = data['g2']['splash']
                 dependency = by_name.get(splash['kit'], {}).get('effect', {})
-                if dependency.get('pieces', {}).get('template') != splash['template'] or dependency.get('material', {}).get('palette') != data['material']['palette']:
-                    raise ValueError('G2 fire splash dependency missing or disagrees with palette/template')
+                # The splash owns its palette; the painted field has an independent ramp.
+                if (dependency.get('pieces', {}).get('template') != splash['template']
+                        or dependency.get('element') != data['element'] or not dependency.get('screen_px')):
+                    raise ValueError('G2 fire splash dependency missing or disagrees with treatment/template/screen_px')
             continue
         if 'travel_primitives' not in data: continue
         binding = data['impact_binding']
@@ -1157,6 +1159,8 @@ def _write_authored_effect(out, kit, resource_root, prefix, counts, shared_proje
                            {name: (paths, 1, phase == 'travel')}, {name: durations})
         counts[name] = len(paths)
         phase_durations[name] = sum(durations)
+    if 'orb' in data:
+        _write_orb(out, kit, resource_root)
     if 'travel_primitives' in data:
         _write_painted_travel(out, kit, resource_root)
     exported_metadata = json.loads(json.dumps(data))
@@ -1358,7 +1362,7 @@ def _write_vfx_kits(out, kits, base, cells, socket_data, annotation):
         g1_path = out/'scripts/vfx_g1.gd'
         g1_path.write_text(g1_path.read_text().replace('spell_scale = art_scale',
             'spell_scale = 1.0 if bool(config.get("screen_px", false)) else art_scale'))
-    if any('travel_primitives' in kit.get('effect', {}) for kit in kits):
+    if any('travel_primitives' in kit.get('effect', {}) or 'orb' in kit.get('effect', {}) for kit in kits):
         _write_painted_g1(out)
     has_g2 = any('g2' in kit.get('effect', {}) for kit in kits)
     if has_g2: _write_g2_component(out)
@@ -1428,7 +1432,7 @@ def _write_vfx_kits(out, kits, base, cells, socket_data, annotation):
         directional = directional.replace('Vector2.ONE * art_scale * float(flare.get_meta',
             'Vector2.ONE * (1.0 if bool(VFX_KITS[cast_kit_index].get("screen_px", false)) else art_scale) * float(flare.get_meta')
     directional = _g1_directional(directional)
-    if any('travel_primitives' in kit.get('effect', {}) for kit in kits):
+    if any('travel_primitives' in kit.get('effect', {}) or 'orb' in kit.get('effect', {}) for kit in kits):
         directional = directional.replace('    # Device policy survives', '    var aim_scale: float = 1.0 if bool(kit.get("screen_px", false)) else art_scale\n    # Device policy survives')
         directional = directional.replace('float(kit.range_px) * art_scale', 'float(kit.range_px) * aim_scale')
     if has_g2:
@@ -1783,7 +1787,7 @@ def _g1_config(kit):
             'phase_scale': data.get('phase_scale', {}).get('travel', 1.0),
             'material': 'res://'+root+'/materials/Body.tres' if authored else '',
             'binding': 'res://scripts/vfx_'+name+'_material.gd' if authored else '',
-            'fields': fields, 'trail_color': list(kit.get('tint', [.35, .65, .8]))+[.6], **_painted_g1_config(kit)}
+            'fields': fields, 'trail_color': list(kit.get('tint', [.35, .65, .8]))+[.6], **_painted_g1_config(kit), **_orb_config(kit)}
 
 
 def _g1_directional(script):
@@ -3271,7 +3275,8 @@ def _write_piece_burst_v1r(out, kit, resource_root, prefix):
     runtime_path.write_text(json.dumps(runtime,indent=2)+'\n')
     target.write_text(scene)
     if owns_canonical: canonical.write_text(scene)
-    (out/'scenes/vfx/piece_burst_v1r.tscn').write_text(scene)
+    if 'orb' not in data or not (out/'scenes/vfx/piece_burst_v1r.tscn').exists():
+        (out/'scenes/vfx/piece_burst_v1r.tscn').write_text(scene)
     (out/'scripts/vfx/piece_burst_v1r.gd').write_text(PIECE_BURST_V1R_SCRIPT)
 
 
@@ -4048,8 +4053,6 @@ func _strike_stop() -> void:
             controller.queue_free())
 '''
 
-if __name__ == '__main__':
-    main()
 
 
 # T4u: explicit G4 dispatch, with no target resolution in the renderer.
@@ -4313,3 +4316,298 @@ func cancel() -> void:
 func _exit_tree() -> void:
     _restore_tints()
 '''
+
+
+
+
+def _orb_config(kit):
+    from export.effect_kit import orb_schedule_report
+    d=kit.get('effect', {})
+    if 'orb' not in d: return {}
+    m=d['skill_spec']['mechanics']; g=json.loads(json.dumps(d['orb'])); root='res://vfx/'+kit['name']+'/'
+    for role in ('body','shard'):
+        g[role]['png']=root+g[role]['png']
+        g[role]['material']=root+'materials/Orb_'+role+'.tres'
+    return dict(grammar='G1',bolt='res://scenes/vfx/g1_orb.tscn',orb=g,
+                range_px=m['range_px'],speed_px_s=m['speed_px_s'],contact_only=True,
+                expiry_frames=math.ceil(m['expiry']['time_s']*60),child_speed_px_s=m['emission']['child_speed_px_s'],
+                child_range_px=m['emission']['child_range_px'],schedule=orb_schedule_report(d),
+                enabled_layers=d['skill_spec']['presentation']['enabled_layers'],strike_stop_s=1/60)
+
+
+def _write_orb(out, kit, resource_root):
+    from export.effect_kit import write_vfx_material
+    d=kit['effect']
+    for role in ('body','shard'):
+        item=d['orb'][role];target=out/resource_root/item['png'];target.parent.mkdir(parents=True,exist_ok=True)
+        shutil.copyfile(kit['root']/item['png'],target)
+        field=out/resource_root/d['distance_fields'][item['png']]
+        field.parent.mkdir(parents=True,exist_ok=True)
+        shutil.copyfile(kit['root']/d['distance_fields'][item['png']],field)
+        write_vfx_material(out,resource_root+'/materials/Orb_'+role+'.tres',
+            dict(d['material'],erode=0.,dissolve=0.,erode_outside_in=False),resource_root+'/'+d['distance_fields'][item['png']])
+    body_field=resource_root+'/'+d['distance_fields'][d['orb']['body']['png']]
+    write_vfx_material(out,resource_root+'/materials/Orb_dark.tres',d['material'],body_field,True)
+    write_vfx_material(out,resource_root+'/materials/Orb_halo.tres',dict(d['material'],blend_mode='ADD'),body_field)
+    shard_field=resource_root+'/'+d['distance_fields'][d['orb']['shard']['png']]
+    write_vfx_material(out,resource_root+'/materials/Orb_flash.tres',dict(d['material'],blend_mode='ADD'),shard_field)
+    scene=G1_SCENE.replace('res://scripts/vfx_g1.gd','res://scripts/vfx_g1_orb.gd')
+    scene=scene.replace('collision_layer = 0','z_as_relative = false\nz_index = 3\ncollision_layer = 0')
+    scene += '\n[node name="OrbBody" type="Sprite2D" parent="."]\ntexture_filter = 2\n'
+    for name in ('OrbDark','OrbHalo'):
+        scene += '\n[node name="'+name+'" type="Sprite2D" parent="."]\ntexture_filter = 2\nz_index = -1\n'
+    scene += '\n[node name="Rim" type="Node2D" parent="."]\n'
+    for i in range(4): scene += '\n[node name="Shard%d" type="Sprite2D" parent="Rim"]\ntexture_filter = 2\n'%i
+    scene += '\n[node name="ChildPool" type="Node2D" parent="."]\ntop_level = true\n'
+    (out/'scenes/vfx/g1_orb.tscn').write_text(scene)
+    child=G1_SCENE.replace('res://scripts/vfx_g1.gd','res://scripts/vfx_g1_orb_child.gd')
+    child += '\n[node name="Shard" type="Sprite2D" parent="."]\ntexture_filter = 2\n'
+    child += '\n[node name="StrikeFlash" type="Sprite2D" parent="."]\ntexture_filter = 2\nvisible = false\n'
+    (out/'scenes/vfx/g1_orb_child.tscn').write_text(child)
+    (out/'scripts/vfx_g1_orb.gd').write_text(ORB_SCRIPT)
+    (out/'scripts/vfx_g1_orb_child.gd').write_text(ORB_CHILD_SCRIPT)
+
+ORB_SCRIPT = r'''extends "res://scripts/vfx_g1.gd"
+var draining: bool = false
+var expiry_age: int = -1
+var emission_index: int = 0
+var next_emission: int = 2
+var burst_started: bool = false
+var rng := RandomNumberGenerator.new()
+var initial_angle: float = 0.0
+var labelled: Dictionary = {}
+var tinted: Array = []
+var trace: Array = []
+var burst_node: Node2D
+var contact_flash_end: int = -1
+
+func _bind(node: Sprite2D, item: Dictionary) -> void:
+    node.texture = load(item.png)
+    node.material = load(item.material).duplicate()
+    node.centered = false
+    node.offset = -Vector2(item.pivot[0], item.pivot[1])
+    node.scale = Vector2.ONE * float(item.scale)
+
+func release(kit: Dictionary, origin: Vector2, destination: Dictionary, owner_node: Node2D = null, art_scale: float = 1.0) -> void:
+    super.release(kit, origin, destination, owner_node, art_scale)
+    draining = false
+    expiry_age = -1
+    emission_index = 0
+    next_emission = int(config.orb.interval_frames)
+    burst_started = false
+    labelled.clear()
+    trace.clear()
+    rng.seed = int(config.orb.seed)
+    initial_angle = rng.randf_range(0.0, 360.0)
+    _bind($OrbBody, config.orb.body)
+    for pair in [[$OrbDark,"dark"],[$OrbHalo,"halo"]]:
+        _bind(pair[0],config.orb.body)
+        pair[0].material = load(String(config.orb.body.material).replace("Orb_body","Orb_"+pair[1]))
+        pair[0].show()
+    $OrbHalo.scale *= 1.02
+    $OrbHalo.modulate.a = 0.2
+    contact_flash_end = -1
+    for node in $Rim.get_children():
+        _bind(node, config.orb.shard)
+        var angle: float = node.get_index() * TAU / 4.0
+        node.position = Vector2.RIGHT.rotated(angle) * float(config.orb.rim_radius_px)
+        node.rotation = angle
+    while $ChildPool.get_child_count() < int(config.orb.pool_size):
+        var child: Area2D = load("res://scenes/vfx/g1_orb_child.tscn").instantiate()
+        child.name = "Child_%02d" % $ChildPool.get_child_count()
+        $ChildPool.add_child(child)
+    $ChildPool.global_position = Vector2.ZERO
+    $OrbBody.show()
+    $Rim.show()
+    $Head.hide()
+    $Trail.hide()
+
+func _physics_process(_delta: float) -> void:
+    var age: int = age_frames()
+    if not draining:
+        # One displacement per effect-age frame, independent of hit-stop delta.
+        var desired: float = minf(float(config.range_px), float(config.speed_px_s) * minf(age, int(config.expiry_frames)) / 60.0)
+        super._physics_process(maxf(0.0, desired - distance) / float(config.speed_px_s))
+        $Trail.hide()
+        $OrbBody.rotation = age * TAU / (60.0 * float(config.orb.turn_s))
+        $Rim.rotation = $OrbBody.rotation
+        $OrbDark.rotation = $OrbBody.rotation
+        $OrbHalo.rotation = $OrbBody.rotation
+        $OrbHalo.modulate.a = 0.8 if age < contact_flash_end else 0.2
+        while next_emission <= mini(age, int(config.schedule.flight_frames)):
+            _emit_child(next_emission)
+            next_emission += int(config.orb.interval_frames)
+        if age >= int(config.expiry_frames) and not draining: expire()
+    if draining and not burst_started and age >= expiry_age + 2:
+        burst_started = true
+        burst_node = load(config.impact).instantiate()
+        burst_node.set("spell_scale", 1.0)
+        burst_node.set("caster", caster)
+        burst_node.set("direction", direction)
+        burst_node.position = get_parent().to_local(global_position)
+        get_parent().add_child(burst_node)
+        # The orb already held for two ticks. Enter v1r's radial stage directly.
+        burst_node.release_tick = Engine.get_physics_frames() - 3
+        burst_node.set_effect_age(3)
+        _record("expiry_burst")
+        events[-1].merge({"shards":16,"position":[global_position.x,global_position.y],"hold_frames":age-expiry_age})
+        $OrbBody.hide()
+        $OrbDark.hide()
+        $OrbHalo.hide()
+        $Rim.hide()
+    var live: int = 0
+    for child in $ChildPool.get_children():
+        if child.active: live += 1
+    trace.append({"age_frames":age,"position":[global_position.x,global_position.y],"distance_px":distance,"children_live":live,"pool_nodes":$ChildPool.get_child_count(),"emissions":emission_index,"draining":draining})
+    for i in range(tinted.size()-1,-1,-1):
+        var item: Dictionary = tinted[i]
+        if age >= int(item.until):
+            if is_instance_valid(item.node): item.node.modulate = item.colour
+            tinted.remove_at(i)
+    if draining and burst_started and live == 0 and tinted.is_empty():
+        draining = false
+        super._recycle()
+
+func _emit_child(scheduled: int) -> void:
+    var child: Area2D = null
+    for candidate in $ChildPool.get_children():
+        if not candidate.active:
+            child = candidate
+            break
+    if child == null:
+        _record("pool_exhausted")
+        return
+    var angle: float = initial_angle + emission_index * float(config.orb.angle_step_deg)
+    var axis: Vector2 = Vector2.RIGHT.rotated(deg_to_rad(angle))
+    var child_config: Dictionary = config.duplicate(true)
+    child_config.pierce = 0
+    child_config.range_px = config.child_range_px
+    child_config.speed_px_s = config.child_speed_px_s
+    child_config.animation = "travel"
+    child_config.binding = ""
+    child.orb_owner = self
+    child.release(child_config, global_position, {"point":global_position+axis*float(config.child_range_px),"kind":"cursor","target":null},caster,1.0)
+    emission_index += 1
+    _record("child_emission")
+    events[-1].merge({"index":emission_index-1,"scheduled_age":scheduled,"angle_deg":angle,"position":[global_position.x,global_position.y],"pool_slot":child.get_index()})
+
+func _contact_label(area: CollisionObject2D, body_index: int, contact_class: String) -> void:
+    if labelled.has(area.get_instance_id()): return
+    labelled[area.get_instance_id()] = true
+    super._contact_label(area,body_index,contact_class)
+
+func _spawn_impact(_strike_response: bool = true, _point: Variant = null) -> void:
+    contact_flash_end = age_frames()+2
+    if _strike_response: _strike_stop()
+
+func contact_body(area: CollisionObject2D, phase: String = "head") -> void:
+    var fresh: bool = is_instance_valid(area) and not contacted.has(area.get_instance_id())
+    super.contact_body(area,phase)
+    if fresh and contacted.has(area.get_instance_id()): tint_target(area)
+
+func _strike_stop() -> void:
+    # The spec's one contact frame supplies the shared strike hold duration.
+    var tree: SceneTree = get_tree()
+    var controller: Node = tree.root.get_node_or_null("EffectHitstop")
+    if controller == null:
+        controller = Node.new()
+        controller.name = "EffectHitstop"
+        controller.set_meta("baseline", Engine.time_scale)
+        controller.set_meta("generation", 0)
+        tree.root.add_child(controller)
+    var generation: int = int(controller.get_meta("generation")) + 1
+    controller.set_meta("generation", generation)
+    Engine.time_scale = 0.1
+    tree.create_timer(float(config.strike_stop_s), true, false, true).timeout.connect(func():
+        if is_instance_valid(controller) and int(controller.get_meta("generation")) == generation:
+            Engine.time_scale = float(controller.get_meta("baseline"))
+            controller.name = "EffectHitstopDone"
+            controller.queue_free())
+
+
+func tint_target(area: CollisionObject2D) -> void:
+    var victim: CanvasItem = area
+    var prop: Node = area.get_parent().get_node_or_null("Prop_"+String(area.name).trim_prefix("VfxTarget_"))
+    if prop is CanvasItem: victim = prop
+    for item in tinted:
+        if item.node == victim:
+            item.until = age_frames()+6
+            return
+    tinted.append({"node":victim,"colour":victim.modulate,"until":age_frames()+6})
+    victim.modulate = Color(0.64,0.88,0.96,1)
+
+func expire() -> void:
+    if not active or draining: return
+    _record("expire")
+    events[-1].merge({"position":[global_position.x,global_position.y],"distance_px":distance,"reason":"range" if distance >= float(config.range_px) else "time"})
+    expiry_age = age_frames()
+    expired = true
+    draining = true
+    set_deferred("monitoring", false)
+
+func cancel() -> void:
+    if active: _record("cancel")
+    for child in $ChildPool.get_children(): child.cancel()
+    for item in tinted:
+        if is_instance_valid(item.node): item.node.modulate = item.colour
+    tinted.clear()
+    if is_instance_valid(burst_node): burst_node.queue_free()
+    draining = false
+    super._recycle()
+'''
+
+ORB_CHILD_SCRIPT = r'''extends "res://scripts/vfx_g1.gd"
+var orb_owner: Area2D
+var flash_end: int = -1
+var draining: bool = false
+
+func release(kit: Dictionary, origin: Vector2, destination: Dictionary, owner_node: Node2D = null, art_scale: float = 1.0) -> void:
+    super.release(kit,origin,destination,owner_node,art_scale)
+    flash_end = -1
+    draining = false
+    orb_owner._bind($Shard, config.orb.shard)
+    orb_owner._bind($StrikeFlash, config.orb.shard)
+    $StrikeFlash.material = load(String(config.orb.shard.material).replace("Orb_shard","Orb_flash"))
+    $Shard.rotation = direction.angle()
+    $Shard.show()
+    $StrikeFlash.hide()
+    $Head.hide()
+    $Trail.hide()
+
+func _physics_process(_delta: float) -> void:
+    if flash_end >= 0:
+        if age_frames() >= flash_end: super._recycle()
+        return
+    var desired: float = minf(float(config.range_px),float(config.speed_px_s)*age_frames()/60.0)
+    super._physics_process(maxf(0.0,desired-distance)/float(config.speed_px_s))
+    $Trail.hide()
+
+func contact_body(area: CollisionObject2D, _phase: String = "head") -> void:
+    if not active or flash_end >= 0 or area == caster or not is_instance_valid(area): return
+    if contacted.has(area.get_instance_id()): return
+    contacted[area.get_instance_id()] = true
+    var index: int = int(area.get_meta("body_index",area.get_instance_id()))
+    _record("contact",age_frames())
+    events[-1].merge({"parent_effect_id":orb_owner.effect_id,"body_index":index,"phase":"shard","contact_class":"secondary","strike_response":false})
+    if area.is_in_group("vfx_targets"): orb_owner._contact_label(area,index,"secondary")
+    orb_owner.tint_target(area)
+    $Shard.hide()
+    $StrikeFlash.rotation = direction.angle()
+    $StrikeFlash.scale *= 1.25
+    $StrikeFlash.show()
+    flash_end = age_frames()+2
+    set_deferred("monitoring",false)
+    _record("child_strike_flash")
+
+func _spawn_impact(_strike_response: bool = true, _point: Variant = null) -> void:
+    pass
+
+func cancel() -> void:
+    flash_end = -1
+    $StrikeFlash.hide()
+    super.cancel()
+'''
+
+
+if __name__ == '__main__':
+    main()
