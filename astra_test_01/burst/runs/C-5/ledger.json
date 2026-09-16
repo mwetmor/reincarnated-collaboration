@@ -4010,6 +4010,110 @@
       "codex_version": "codex-cli 0.153.4",
       "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
       "exit": 0
+    },
+    {
+      "id": "T4i-r1",
+      "type": "TOOLING",
+      "experiment": "C5-P0b",
+      "brief_sha256": "de41eeb231971126d4242f2ecbc6bf6d8cbba7ddf94dcf1723abb5dd81907c29",
+      "started": "2026-09-16T03:07:05.897530+00:00",
+      "ended": "2026-09-16T03:24:36.454976+00:00",
+      "minutes": 17.50885747013332,
+      "image_calls": 0,
+      "tool_calls": 31,
+      "audit": {
+        "violations": [],
+        "image_calls": 0,
+        "tool_calls": 31,
+        "tools_seen": {
+          "command_execution": 31
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": []
+      },
+      "receipt_sha256": "62b2e07c084190b7d7b58ef96b9b747a608b194fc5689c625c6fc2e32404cf2d",
+      "artifacts": [
+        {
+          "name": "files.json",
+          "sha256": "8304b9a0eda0e498647cc9198312ba7010da79b054d060f56fa727fa7dae4e60"
+        }
+      ],
+      "artifacts_in_place": [
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "export/godot_import.py",
+          "sha256": "fa46f5e283b2efa1526e80a3004255430c0064f1bcab3b3baf5ae506d0dcf72c"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-5/t3/T4i-r1/acceptance.json",
+          "sha256": "caa160d28232a084511c4f389fcd912c4429e4a8b8b4dda4edb26e0c96752b2f"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-5/t3/T4i-r1/baseline.json",
+          "sha256": "415a050ecd5ed1a0dc95e1ff8a52b2b37b161165ee720b245a069506b023079a"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-5/t3/T4i-r1/baseline_directional.txt",
+          "sha256": "13a247b347771f68d0d4b8e1723a6038e52ec3993e0b1604f58e8d9415aaf4ea"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-5/t3/T4i-r1/byte-comparison.json",
+          "sha256": "d2f3ed64c65b9983e2b35979361e9a9394ec8633a440cb986a8f59868efd7554"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-5/t3/T4i-r1/harness/sitecustomize.py",
+          "sha256": "65fe73699e7921a830b9430f2f3c7445d1e31faf946a08a937ee8c7d615940bb"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-5/t3/T4i-r1/import.log",
+          "sha256": "9c047ef83e40c2dae813551618ab6130f5c55e849b6724412d9e8ae946f6a183"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-5/t3/T4i-r1/probe.log",
+          "sha256": "f1b0744c175cbaf2fc77f4d062aac6916815daf2c1501fbc90bb47bf4a4d6dc7"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-5/t3/T4i-r1/t0c_suite_output.txt",
+          "sha256": "6cb082d874b8cdf00e6833447c7b05cba9adc20c69d6ecc3f7b15cb0092bd2d3"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-5/t3/T4i-r1/verify.py",
+          "sha256": "80d06cd0598720bcaafbb51b8fe5284ee734a35c9d6f780be15fd9cc0a557ae8"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "tests/test_godot_import.py",
+          "sha256": "7ec11db9063918f30b7396994ef6afb5803595169ad1544d7cff7956fe462609"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "tests/test_vfx_picker.py",
+          "sha256": "68f23a5d0e07829fa6dd0800ef3e4fd4885846719e405ba66a888e36b611e2f5"
+        }
+      ],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
     }
   ],
   "experiments": [],
@@ -4241,6 +4345,27 @@
       "veto_open": true,
       "ruling": "T4i DELIVERED_WITH_CONCERNS: exporter keeper.gd — touches in the bottom 22 % overlay band (TOUCH_OVERLAY_BAND = 0.22; the CAST button + joystick) never set the aim override; touch-origin casts aim FORWARD along facing at the kit range; a touch in the world area still aims the next cast at that point (my acceptance wording; benign — the overlay holds both controls — reviewable against the no-targeting ruling once Matt plays it); mouse aim byte-identical to the pre-T4i exporter; six kits + two burst kits export identically except keeper.gd; headless import 0 errors. Sandbox suite: five standing reds + eleven env reds + two harness errors cleared on recheck — the conductor re-runs outside before the freeze. Figure height 13.5 % (Matt) = CS-parallax-in-v9 walkable.json figure_height_px 146 (data copy of v8).",
       "ts": "2026-09-15T23:01:25"
+    },
+    {
+      "id": "R-C5-25",
+      "class": "matt",
+      "veto_open": false,
+      "ruling": "Matt (2026-09-16, on web9 at a dummy): \"Tab 7 fire burst is far better\" — burst_v2 stretch-and-erode is the carried template; burst_v1 fly is retired to the record (falsification arm, as pre-registered). E0-p step 4 gate: not a sticker explosion — the painted burst reads; the video fallback (V15) stays unspent. Next lap on v2 = the two runtime defects (expansion cap; contour dissolves with its fill), then key states (step 5) over the corrected motion. V4 (hybrid oracle) put to Matt as one recommendation: collapse into the class-scoped stack (option B).",
+      "ts": "2026-09-15T23:24:46"
+    },
+    {
+      "id": "R-C5-26",
+      "class": "conductor",
+      "veto_open": true,
+      "ruling": "T4i-r1 DELIVERED_WITH_CONCERNS and ACCEPTED: device rule — with no probe override, DisplayServer.is_touchscreen_available() (or the test flag vfx_force_touch_device) resolves the cast destination to position + facing × kit range × art_scale, bypassing pointer input AND the G1 cone target selection (no targeting on mobile — Matt ruling); desktop mouse path byte-identical; probe override still wins; all pointer bookkeeping removed; standalone device probe 0 px error ×8; six kits + two burst kits byte-identical. Two T4i tests encoding the retired world-touch aim now fail by design — carried as NAMED OBSOLETE REDS through this freeze (removal folded into the next TOOLING row, T4j); the conductor's outside suite must show exactly the five standing reds + those two. v23 proof adds a touch-device cast (probe_cast_touch_v23.gd: mouse parked behind the Keeper) — the burst must land forward and contact a dummy.",
+      "ts": "2026-09-15T23:25:59"
+    },
+    {
+      "id": "R-C5-27",
+      "class": "conductor",
+      "veto_open": true,
+      "ruling": "FREEZE after T4i + T4i-r1: outside suite = five standing reds + ONE named obsolete red (test_godot_import.TouchAimEmissionTests.test_touch_forward_band_and_mouse_probe_precedence — encodes the retired T4i world-touch aim; removal folded into T4j). MANIFEST + SYNC restamped. PACK v23 fires (parallax-in v9 @ 13.5 %, props v23 necro on the path, eight kits, device-based forward aim).",
+      "ts": "2026-09-15T23:31:06"
     }
   ],
   "grok_calls": [],

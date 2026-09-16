@@ -1700,6 +1700,8 @@ def _g1_directional(script):
     script = script.replace('var socket_cells: Dictionary = {}',
                             'var socket_cells: Dictionary = {}\nvar cast_ready: bool = false\n'
                             'var vfx_cursor_override: Variant = null\n'
+                            'const TOUCH_OVERLAY_BAND = 0.22\n'
+                            'var vfx_force_touch_device: bool = false\n'
                             'const G1 = preload("res://scripts/vfx_g1.gd")')
     script = script.replace('    sprite.frame_changed.connect(_cast_frame_changed)',
                             '    sprite.frame_changed.connect(_cast_frame_changed)\n'
@@ -1707,8 +1709,15 @@ def _g1_directional(script):
     start = script.index('    var bolt: Area2D = ')
     end = script.index('\nfunc _process(', start)
     script = script[:start]+'''    var kit: Dictionary = VFX_KITS[cast_kit_index].duplicate(true)
-    var cursor: Vector2 = get_global_mouse_position() if vfx_cursor_override == null else vfx_cursor_override
-    var destination: Dictionary = G1.resolve_target(get_tree(), global_position, direction, cursor, float(kit.range_px) * art_scale)
+    # Device policy survives handled overlay touches and browser-emulated mouse.
+    # The explicit probe hook keeps precedence; desktop resolution is unchanged.
+    var destination: Dictionary
+    if vfx_cursor_override == null and (vfx_force_touch_device or DisplayServer.is_touchscreen_available()):
+        var forward_point: Vector2 = global_position + FACING_VECTORS[facing].normalized() * float(kit.range_px) * art_scale
+        destination = {"point": forward_point, "target": null, "kind": "cursor"}
+    else:
+        var cursor: Vector2 = get_global_mouse_position() if vfx_cursor_override == null else vfx_cursor_override
+        destination = G1.resolve_target(get_tree(), global_position, direction, cursor, float(kit.range_px) * art_scale)
     if not cast_ready:
         await get_tree().physics_frame
     if not is_inside_tree():
@@ -1717,12 +1726,6 @@ def _g1_directional(script):
 
 func _g1_cast_ready() -> void:
     cast_ready = true
-
-func _unhandled_input(event: InputEvent) -> void:
-    if event is InputEventScreenTouch and event.pressed:
-        vfx_cursor_override = get_canvas_transform().affine_inverse() * event.position
-    elif event is InputEventMouseMotion or event is InputEventMouseButton:
-        vfx_cursor_override = null
 ''' + script[end:]
     return script.replace('    flare.sprite_frames = ', '    flare.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR\n    flare.sprite_frames = ')
 

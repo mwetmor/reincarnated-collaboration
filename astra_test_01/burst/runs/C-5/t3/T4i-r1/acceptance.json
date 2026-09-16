@@ -1,0 +1,380 @@
+{
+  "task_id": "T4i-r1",
+  "diagnosis": "On a touchscreen the last InputEventScreenTouch is the tap on the on-screen CAST button (drax's web overlay, bottom of the screen), so vfx_cursor_override = the button's world position = behind/below the follow-camera-centred Keeper; the cast resolves toward it. Mouse users never hit this because mouse events clear the override. On the shipped web overlay every ScreenTouch is handled before Keeper._unhandled_input, so the prior T4i bookkeeping may never run and the browser-emulated mouse also remains on the CAST button.",
+  "implementation": {
+    "device_rule": "With no probe override, DisplayServer.is_touchscreen_available() or vfx_force_touch_device resolves directly to Keeper position + normalized facing * kit range * art_scale. Mobile bypasses prop targeting as well as pointer input.",
+    "probe_hook": "A non-null vfx_cursor_override takes precedence over the device branch and retains the existing G1 resolver path.",
+    "desktop": "Original mouse expression and G1 resolver arguments retained.",
+    "bookkeeping": "Removed all pointer-event bookkeeping and world-touch aiming; no input handler survives.",
+    "overlay_constant": 0.22,
+    "force_touch_default": false
+  },
+  "touch_casts": {
+    "synthetic_cases": [
+      "touch_device_no_event_N",
+      "touch_device_handled_overlay_NE"
+    ],
+    "range_px": 650,
+    "art_scale": 0.75,
+    "scaled_range_px": 487.5,
+    "tolerance_px": 2,
+    "mouse_deliberately_behind": true,
+    "evidence": {
+      "errors": [],
+      "measurements": [
+        {
+          "actual": [
+            448.0,
+            -419.5
+          ],
+          "case": "touch_device_no_event_N",
+          "error_px": 0.0,
+          "expected": [
+            448.0,
+            -419.5
+          ]
+        },
+        {
+          "actual": [
+            934.135925292969,
+            -218.135894775391
+          ],
+          "case": "touch_device_handled_overlay_NE",
+          "error_px": 0.0,
+          "expected": [
+            934.135925292969,
+            -218.135894775391
+          ]
+        },
+        {
+          "actual": [
+            -123.0,
+            -234.0
+          ],
+          "case": "touch_probe_override",
+          "error_px": 0.0,
+          "expected": [
+            -123.0,
+            -234.0
+          ]
+        },
+        {
+          "actual": [
+            448.0,
+            268.0
+          ],
+          "case": "mouse_cursor",
+          "error_px": 0.0,
+          "expected": [
+            448.0,
+            268.0
+          ]
+        },
+        {
+          "actual": [
+            -345.0,
+            -456.0
+          ],
+          "case": "mouse_probe_override",
+          "error_px": 0.0,
+          "expected": [
+            -345.0,
+            -456.0
+          ]
+        },
+        {
+          "actual": [
+            653.06103515625,
+            48.7968978881836
+          ],
+          "case": "desktop_nearest_prop",
+          "error_px": 0.0,
+          "expected": [
+            653.06103515625,
+            48.7968978881836
+          ]
+        },
+        {
+          "actual": [
+            934.135925292969,
+            -218.135894775391
+          ],
+          "case": "touch_ignores_nearest_prop",
+          "error_px": 0.0,
+          "expected": [
+            934.135925292969,
+            -218.135894775391
+          ]
+        },
+        {
+          "actual": [
+            934.135925292969,
+            -218.135894775391
+          ],
+          "case": "touch_device_after_real_mouse",
+          "error_px": 0.0,
+          "expected": [
+            934.135925292969,
+            -218.135894775391
+          ]
+        }
+      ]
+    }
+  },
+  "headless": [
+    {
+      "stage": "import",
+      "exit_code": 0,
+      "engine_errors": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Cannot save file '/Users/admin/Library/Application Support/Godot/editor_settings-4.6.tres'.",
+        "ERROR: Error saving editor settings to /Users/admin/Library/Application Support/Godot/editor_settings-4.6.tres"
+      ],
+      "script_errors": false,
+      "parse_errors": false
+    },
+    {
+      "stage": "probe",
+      "exit_code": 0,
+      "engine_errors": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ],
+      "script_errors": false,
+      "parse_errors": false
+    }
+  ],
+  "byte_identity": {
+    "baseline": "T4i _g1_directional captured before this amendment; identical inputs and frozen time.monotonic for both exports.",
+    "scope": "Six existing catalogue kits from the named test harness, plus its synthetic burst_v1 and burst_v2 fixtures. No claim of separately reading a packaged C-5 art catalogue.",
+    "cases": [
+      {
+        "kit": "frost",
+        "source": "existing six-kit catalogue",
+        "file_count": 43,
+        "changed": [
+          "scripts/keeper.gd"
+        ],
+        "only_keeper_changed": true
+      },
+      {
+        "kit": "fire",
+        "source": "existing six-kit catalogue",
+        "file_count": 38,
+        "changed": [
+          "scripts/keeper.gd"
+        ],
+        "only_keeper_changed": true
+      },
+      {
+        "kit": "lightning",
+        "source": "existing six-kit catalogue",
+        "file_count": 35,
+        "changed": [
+          "scripts/keeper.gd"
+        ],
+        "only_keeper_changed": true
+      },
+      {
+        "kit": "arcane",
+        "source": "existing six-kit catalogue",
+        "file_count": 41,
+        "changed": [
+          "scripts/keeper.gd"
+        ],
+        "only_keeper_changed": true
+      },
+      {
+        "kit": "holy",
+        "source": "existing six-kit catalogue",
+        "file_count": 41,
+        "changed": [
+          "scripts/keeper.gd"
+        ],
+        "only_keeper_changed": true
+      },
+      {
+        "kit": "poison",
+        "source": "existing six-kit catalogue",
+        "file_count": 46,
+        "changed": [
+          "scripts/keeper.gd"
+        ],
+        "only_keeper_changed": true
+      },
+      {
+        "kit": "burst_v1",
+        "source": "existing synthetic PieceBurstImportTests fixture",
+        "file_count": 48,
+        "changed": [
+          "scripts/keeper.gd"
+        ],
+        "only_keeper_changed": true
+      },
+      {
+        "kit": "burst_v2",
+        "source": "existing synthetic PieceBurstImportTests fixture",
+        "file_count": 53,
+        "changed": [
+          "scripts/keeper.gd"
+        ],
+        "only_keeper_changed": true
+      }
+    ],
+    "full_file_hashes": "byte-comparison.json"
+  },
+  "source_scope": {
+    "tests/test_godot_import.py": {
+      "original_sha256": "98496157938851af39d58a98ec587510c1411e3fc4070277741d27ec4f3737f2",
+      "original_prefix_unchanged": true,
+      "added_bytes": 2039
+    },
+    "tests/test_vfx_picker.py": {
+      "original_sha256": "fd5e5a8529f21795d36a68b0b78eec55adcc85826787cbbf988930a0a261410f",
+      "original_prefix_unchanged": true,
+      "added_bytes": 6195
+    },
+    "export/godot_import.py": {
+      "original_sha256": "e4f7aee30122c615b9b9afeb8b9bdf3cf568c859d3dd4b42b41005d84d9f681d",
+      "only_g1_directional_changed": true
+    }
+  },
+  "full_suite": {
+    "command": "PYTHONDONTWRITEBYTECODE=1 python3 -B tests/run_t0c.py",
+    "cwd": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+    "extra_environment": {
+      "PYTHONPATH": "runs/C-5/t3/T4i-r1/harness:.:tests"
+    },
+    "confinement": "sitecustomize redirects only temporary locations and measurement/report file I/O into this burst; test expectations and engine errors are unchanged.",
+    "exit_code": 1,
+    "tests_run": 600,
+    "successful_tests_reported_by_runner": 582,
+    "failure_count": 17,
+    "error_count": 1,
+    "classification_counts": {
+      "standing_red": 5,
+      "sandbox_Godot_environment": 11,
+      "retained_superseded_T4i_contract": 2
+    },
+    "matches_requested_red_set_only": false,
+    "red_tests": [
+      {
+        "test": "test_godot_import.GodotImportTests.test_headless_state_machine_input_map_gear_vfx_and_nearest_fallback",
+        "unittest_result": "failures",
+        "classification": "sandbox_Godot_environment",
+        "traceback": "Traceback (most recent call last):\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_godot_import.py\", line 179, in test_headless_state_machine_input_map_gear_vfx_and_nearest_fallback\n    self.assertEqual(proc.returncode, 0, log)\nAssertionError: -6 != 0 : ERROR: Failed to open 'user://logs/godot2026-09-15T23.17.26.log'.\n   at: copy (core/io/dir_access.cpp:423)\n\n================================================================\nhandle_crash: Program crashed with signal 11\nEngine version: Godot Engine v4.6.3.stable.official (7d41c59c457bd5a245092b4e7eb2d833e3b3f8c3)\nDumping the backtrace. Please include this when reporting the bug on: https://github.com/godotengine/godot/issues\n[1] 1   libsystem_platform.dylib            0x000000018222d6a4 _sigtramp + 56\n[2] RotatedFileLogger::rotate_file() (in Godot) + 1160\n[3] RotatedFileLogger::rotate_file() (in Godot) + 1160\n[4] RotatedFileLogger::RotatedFileLogger(String const&, int) (in Godot) + 80\n[5] Main::setup(char const*, int, char**, bool) (in Godot) + 18880\n[6] OS_MacOS_Headless::run() (in Godot) + 68\n[7] main (in Godot) + 924\n[8] 8   dyld                                0x0000000181e52b98 start + 6076\n-- END OF C++ BACKTRACE --\n================================================================\n\n"
+      },
+      {
+        "test": "test_godot_import.TouchAimEmissionTests.test_touch_forward_band_and_mouse_probe_precedence",
+        "unittest_result": "failures",
+        "classification": "retained_superseded_T4i_contract",
+        "traceback": "Traceback (most recent call last):\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_godot_import.py\", line 22, in test_touch_forward_band_and_mouse_probe_precedence\n    self.assertIn('event is InputEventScreenTouch or event is InputEventScreenDrag', keeper)\nAssertionError: 'event is InputEventScreenTouch or event is InputEventScreenDrag' not found in '\\n# Directional kit: sockets refer to the actual displayed animation/frame.\\nvar socket_cells: Dictionary = {}\\nvar cast_ready: bool = false\\nvar vfx_cursor_override: Variant = null\\nconst TOUCH_OVERLAY_BAND = 0.22\\nvar vfx_force_touch_device: bool = false\\nconst G1 = preload(\"res://scripts/vfx_g1.gd\")\\nvar cast_fired: bool = false\\nvar active_flare: AnimatedSprite2D\\nconst FACING_VECTORS = {\"S\": Vector2(0,1), \"SW\": Vector2(-1,1),\\n    \"W\": Vector2(-1,0), \"NW\": Vector2(-1,-1), \"N\": Vector2(0,-1),\\n    \"NE\": Vector2(1,-1), \"E\": Vector2(1,0), \"SE\": Vector2(1,1)}\\n\\nfunc _load_directional_kit() -> void:\\n    var data: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(\"res://sockets.json\"))\\n    socket_cells = data.cells\\n    sprite.frame_changed.connect(_cast_frame_changed)\\n    get_tree().physics_frame.connect(_g1_cast_ready, CONNECT_ONE_SHOT)\\n\\nfunc _socket_world() -> Variant:\\n    var cell: Dictionary = socket_cells.get(String(sprite.animation), {})\\n    var points: Array = cell.get(\"sockets\", [])\\n    if sprite.frame >= points.size() or points[sprite.frame] == null:\\n        return null\\n    var point: Array = points[sprite.frame]\\n    var local: Vector2 = Vector2(point[0], point[1]) + sprite.offset\\n    if sprite.centered:\\n        local -= sprite.sprite_frames.get_frame_texture(sprite.animation, sprite.frame).get_size() / 2.0\\n    return sprite.to_global(local)\\n\\nfunc _cast_frame_changed() -> void:\\n    if state != \"cast\" or cast_fired:\\n        return\\n    var cell: Dictionary = socket_cells.get(String(sprite.animation), {})\\n    if cell.is_empty() or sprite.frame != int(cell.release_index):\\n        return\\n    cast_fired = true\\n    var socket: Variant = _socket_world()\\n    if socket == null:\\n        push_warning(\"No measured release socket: \" + String(sprite.animation))\\n        return\\n    var direction: Vector2 = FACING_VECTORS[facing].normalized()\\n    var art_scale: float = sprite.global_transform.x.length()\\n    var flare := AnimatedSprite2D.new()\\n    flare.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR\\n    flare.sprite_frames = preload(\"res://vfx/flare.tres\")\\n    var additive := CanvasItemMaterial.new()\\n    additive.blend_mode = CanvasItemMaterial.BLEND_MODE_ADD\\n    flare.material = additive\\n    get_parent().add_child(flare)\\n    flare.global_position = socket\\n    flare.rotation = direction.angle()\\n    flare.scale = Vector2.ONE * art_scale\\n    flare.animation_finished.connect(flare.queue_free, CONNECT_ONE_SHOT)\\n    flare.play(\"flare\")\\n    active_flare = flare\\n    var kit: Dictionary = VFX_KITS[cast_kit_index].duplicate(true)\\n    # Device policy survives handled overlay touches and browser-emulated mouse.\\n    # The explicit probe hook keeps precedence; desktop resolution is unchanged.\\n    var destination: Dictionary\\n    if vfx_cursor_override == null and (vfx_force_touch_device or DisplayServer.is_touchscreen_available()):\\n        var forward_point: Vector2 = global_position + FACING_VECTORS[facing].normalized() * float(kit.range_px) * art_scale\\n        destination = {\"point\": forward_point, \"target\": null, \"kind\": \"cursor\"}\\n    else:\\n        var cursor: Vector2 = get_global_mouse_position() if vfx_cursor_override == null else vfx_cursor_override\\n        destination = G1.resolve_target(get_tree(), global_position, direction, cursor, float(kit.range_px) * art_scale)\\n    if not cast_ready:\\n        await get_tree().physics_frame\\n    if not is_inside_tree():\\n        return\\n    G1.acquire(get_parent(), kit, socket, destination, self, art_scale)\\n\\nfunc _g1_cast_ready() -> void:\\n    cast_ready = true\\n\\nfunc _process(_delta: float) -> void:\\n    if state == \"cast\" and is_instance_valid(active_flare):\\n        var socket: Variant = _socket_world()\\n        if socket != null:\\n            active_flare.global_position = socket\\n'\n"
+      },
+      {
+        "test": "test_oracle_walk.Tests.test_synthetic_contract_and_grid",
+        "unittest_result": "failures",
+        "classification": "standing_red",
+        "traceback": "Traceback (most recent call last):\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_oracle_walk.py\", line 117, in test_synthetic_contract_and_grid\n    self.assertIsNotNone(a[key],key);self.assertAlmostEqual(a[key],b[key],delta=2,msg=key)\n                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 60 != 65 within 2 delta (5 difference) : head_ref_y\n"
+      },
+      {
+        "test": "test_oracles_motif.Tests.test_f04_outside_at_least_three",
+        "unittest_result": "failures",
+        "classification": "standing_red",
+        "traceback": "Traceback (most recent call last):\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_oracles_motif.py\", line 19, in test_f04_outside_at_least_three\n    self.assertGreaterEqual(metrics(row)['outside'],3)\nAssertionError: 2 not greater than or equal to 3\n"
+      },
+      {
+        "test": "test_oracles_motif.Tests.test_named_genuine_annuli_retained (center=[113, 201])",
+        "unittest_result": "failures",
+        "classification": "standing_red",
+        "traceback": "Traceback (most recent call last):\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_oracles_motif.py\", line 84, in test_named_genuine_annuli_retained\n    self.assertNotIn('rejected',peak)\nAssertionError: 'rejected' unexpectedly found in {'angular_support': 0.7708333333333334, 'center': [113.0, 201.0], 'hollow_score': 0.3125, 'inner_opposed_support': 0.3125, 'inside': False, 'lab_band_surround': 11.57642176150743, 'lab_center_band': 11.062059961818727, 'lab_center_surround': 22.610550201280017, 'lab_color_return': 0.0, 'radius': 30.0, 'rejected': 'not_annulus', 'score': 0.7074940354497125}\n"
+      },
+      {
+        "test": "test_oracles_motif.Tests.test_named_genuine_annuli_retained (center=[111, 311])",
+        "unittest_result": "failures",
+        "classification": "standing_red",
+        "traceback": "Traceback (most recent call last):\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_oracles_motif.py\", line 84, in test_named_genuine_annuli_retained\n    self.assertNotIn('rejected',peak)\nAssertionError: 'rejected' unexpectedly found in {'angular_support': 0.75, 'center': [111.0, 311.0], 'hollow_score': 0.16666666666666666, 'inner_opposed_support': 0.16666666666666666, 'inside': False, 'lab_band_surround': 21.229621366461696, 'lab_center_band': 18.63219308325294, 'lab_center_surround': 39.74946870785732, 'lab_color_return': 0.0, 'radius': 27.0, 'rejected': 'not_annulus', 'score': 0.5281963253811909}\n"
+      },
+      {
+        "test": "test_oracles_motif.Tests.test_named_genuine_annuli_retained (center=[170, 253])",
+        "unittest_result": "failures",
+        "classification": "standing_red",
+        "traceback": "Traceback (most recent call last):\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_oracles_motif.py\", line 84, in test_named_genuine_annuli_retained\n    self.assertNotIn('rejected',peak)\nAssertionError: 'rejected' unexpectedly found in {'angular_support': 0.8333333333333334, 'center': [170.0, 253.0], 'hollow_score': 0.08333333333333333, 'inner_opposed_support': 0.08333333333333333, 'inside': False, 'lab_band_surround': 12.987929666149537, 'lab_center_band': 18.508563966712764, 'lab_center_surround': 30.467977867785994, 'lab_color_return': 0.0, 'radius': 8.0, 'rejected': 'not_annulus', 'score': 0.6366616733180586}\n"
+      },
+      {
+        "test": "test_parallax_scene.ParallaxSceneTests.test_headless_cliffside_follow_camera_parallax_and_projectile_collision",
+        "unittest_result": "failures",
+        "classification": "sandbox_Godot_environment",
+        "traceback": "Traceback (most recent call last):\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_parallax_scene.py\", line 370, in test_headless_cliffside_follow_camera_parallax_and_projectile_collision\n    self.assertEqual(proc.returncode, 0, log)\nAssertionError: -6 != 0 : ERROR: Failed to open 'user://logs/godot2026-09-15T23.18.54.log'.\n   at: copy (core/io/dir_access.cpp:423)\n\n================================================================\nhandle_crash: Program crashed with signal 11\nEngine version: Godot Engine v4.6.3.stable.official (7d41c59c457bd5a245092b4e7eb2d833e3b3f8c3)\nDumping the backtrace. Please include this when reporting the bug on: https://github.com/godotengine/godot/issues\n[1] 1   libsystem_platform.dylib            0x000000018222d6a4 _sigtramp + 56\n[2] RotatedFileLogger::rotate_file() (in Godot) + 1160\n[3] RotatedFileLogger::rotate_file() (in Godot) + 1160\n[4] RotatedFileLogger::RotatedFileLogger(String const&, int) (in Godot) + 80\n[5] Main::setup(char const*, int, char**, bool) (in Godot) + 18880\n[6] OS_MacOS_Headless::run() (in Godot) + 68\n[7] main (in Godot) + 924\n[8] 8   dyld                                0x0000000181e52b98 start + 6076\n-- END OF C++ BACKTRACE --\n================================================================\n\n"
+      },
+      {
+        "test": "test_props_layer.PropsLayerTests.test_headless_occlusion_fade_restore_overhead_near_and_particles",
+        "unittest_result": "failures",
+        "classification": "sandbox_Godot_environment",
+        "traceback": "Traceback (most recent call last):\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_props_layer.py\", line 342, in test_headless_occlusion_fade_restore_overhead_near_and_particles\n    self.assertEqual(proc.returncode, 0, log)\nAssertionError: -6 != 0 : ERROR: Failed to open 'user://logs/godot2026-09-15T23.19.28.log'.\n   at: copy (core/io/dir_access.cpp:423)\n\n================================================================\nhandle_crash: Program crashed with signal 11\nEngine version: Godot Engine v4.6.3.stable.official (7d41c59c457bd5a245092b4e7eb2d833e3b3f8c3)\nDumping the backtrace. Please include this when reporting the bug on: https://github.com/godotengine/godot/issues\n[1] 1   libsystem_platform.dylib            0x000000018222d6a4 _sigtramp + 56\n[2] RotatedFileLogger::rotate_file() (in Godot) + 1160\n[3] RotatedFileLogger::rotate_file() (in Godot) + 1160\n[4] RotatedFileLogger::RotatedFileLogger(String const&, int) (in Godot) + 80\n[5] Main::setup(char const*, int, char**, bool) (in Godot) + 18880\n[6] OS_MacOS_Headless::run() (in Godot) + 68\n[7] main (in Godot) + 924\n[8] 8   dyld                                0x0000000181e52b98 start + 6076\n-- END OF C++ BACKTRACE --\n================================================================\n\n"
+      },
+      {
+        "test": "test_scene_kit.SceneKitTests.test_headless_tower_import_run_and_physics",
+        "unittest_result": "failures",
+        "classification": "sandbox_Godot_environment",
+        "traceback": "Traceback (most recent call last):\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_scene_kit.py\", line 328, in test_headless_tower_import_run_and_physics\n    self.assertEqual(proc.returncode, 0, log)\nAssertionError: -6 != 0 : ERROR: Failed to open 'user://logs/godot2026-09-15T23.19.38.log'.\n   at: copy (core/io/dir_access.cpp:423)\n\n================================================================\nhandle_crash: Program crashed with signal 11\nEngine version: Godot Engine v4.6.3.stable.official (7d41c59c457bd5a245092b4e7eb2d833e3b3f8c3)\nDumping the backtrace. Please include this when reporting the bug on: https://github.com/godotengine/godot/issues\n[1] 1   libsystem_platform.dylib            0x000000018222d6a4 _sigtramp + 56\n[2] RotatedFileLogger::rotate_file() (in Godot) + 1160\n[3] RotatedFileLogger::rotate_file() (in Godot) + 1160\n[4] RotatedFileLogger::RotatedFileLogger(String const&, int) (in Godot) + 80\n[5] Main::setup(char const*, int, char**, bool) (in Godot) + 18880\n[6] OS_MacOS_Headless::run() (in Godot) + 68\n[7] main (in Godot) + 924\n[8] 8   dyld                                0x0000000181e52b98 start + 6076\n-- END OF C++ BACKTRACE --\n================================================================\n\n"
+      },
+      {
+        "test": "test_sockets.SocketTests.test_headless_directional_release_and_resources",
+        "unittest_result": "failures",
+        "classification": "sandbox_Godot_environment",
+        "traceback": "Traceback (most recent call last):\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_sockets.py\", line 169, in test_headless_directional_release_and_resources\n    self.assertEqual(engine_errors,[], '\\n'.join(engine_errors))\nAssertionError: Lists differ: ['ERROR: Condition \"ret != noErr\" is true.[285 chars] \"\"'] != []\n\nFirst list contains 4 additional elements.\nFirst extra element 0:\n'ERROR: Condition \"ret != noErr\" is true. Returning: \"\"'\n\n+ []\n- ['ERROR: Condition \"ret != noErr\" is true. Returning: \"\"',\n-  \"ERROR: Cannot save file '/Users/admin/Library/Application \"\n-  \"Support/Godot/editor_settings-4.6.tres'.\",\n-  'ERROR: Error saving editor settings to /Users/admin/Library/Application '\n-  'Support/Godot/editor_settings-4.6.tres',\n-  'ERROR: Condition \"ret != noErr\" is true. Returning: \"\"'] : ERROR: Condition \"ret != noErr\" is true. Returning: \"\"\nERROR: Cannot save file '/Users/admin/Library/Application Support/Godot/editor_settings-4.6.tres'.\nERROR: Error saving editor settings to /Users/admin/Library/Application Support/Godot/editor_settings-4.6.tres\nERROR: Condition \"ret != noErr\" is true. Returning: \"\"\n"
+      },
+      {
+        "test": "test_vfx_picker.AuthoredEffectPickerTests.test_headless_authored_cast_east_north_collision_timing_and_feedback_cleanup",
+        "unittest_result": "failures",
+        "classification": "sandbox_Godot_environment",
+        "traceback": "Traceback (most recent call last):\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_vfx_picker.py\", line 518, in test_headless_authored_cast_east_north_collision_timing_and_feedback_cleanup\n    run_headless(self, self.project, 'effect_probe.gd')\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_vfx_picker.py\", line 119, in run_headless\n    test.assertEqual(engine_errors, [], '\\n'.join(engine_errors))\nAssertionError: Lists differ: ['ERROR: Condition \"ret != noErr\" is true.[285 chars] \"\"'] != []\n\nFirst list contains 4 additional elements.\nFirst extra element 0:\n'ERROR: Condition \"ret != noErr\" is true. Returning: \"\"'\n\n+ []\n- ['ERROR: Condition \"ret != noErr\" is true. Returning: \"\"',\n-  \"ERROR: Cannot save file '/Users/admin/Library/Application \"\n-  \"Support/Godot/editor_settings-4.6.tres'.\",\n-  'ERROR: Error saving editor settings to /Users/admin/Library/Application '\n-  'Support/Godot/editor_settings-4.6.tres',\n-  'ERROR: Condition \"ret != noErr\" is true. Returning: \"\"'] : ERROR: Condition \"ret != noErr\" is true. Returning: \"\"\nERROR: Cannot save file '/Users/admin/Library/Application Support/Godot/editor_settings-4.6.tres'.\nERROR: Error saving editor settings to /Users/admin/Library/Application Support/Godot/editor_settings-4.6.tres\nERROR: Condition \"ret != noErr\" is true. Returning: \"\"\n"
+      },
+      {
+        "test": "test_vfx_picker.G1ComponentTests.test_headless_first_cast_contact_cursor_pool_cancel_and_picker",
+        "unittest_result": "failures",
+        "classification": "sandbox_Godot_environment",
+        "traceback": "Traceback (most recent call last):\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_vfx_picker.py\", line 947, in test_headless_first_cast_contact_cursor_pool_cancel_and_picker\n    run_headless(self, out, 'probe_vfx.gd')\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_vfx_picker.py\", line 119, in run_headless\n    test.assertEqual(engine_errors, [], '\\n'.join(engine_errors))\nAssertionError: Lists differ: ['ERROR: Condition \"ret != noErr\" is true.[285 chars] \"\"'] != []\n\nFirst list contains 4 additional elements.\nFirst extra element 0:\n'ERROR: Condition \"ret != noErr\" is true. Returning: \"\"'\n\n+ []\n- ['ERROR: Condition \"ret != noErr\" is true. Returning: \"\"',\n-  \"ERROR: Cannot save file '/Users/admin/Library/Application \"\n-  \"Support/Godot/editor_settings-4.6.tres'.\",\n-  'ERROR: Error saving editor settings to /Users/admin/Library/Application '\n-  'Support/Godot/editor_settings-4.6.tres',\n-  'ERROR: Condition \"ret != noErr\" is true. Returning: \"\"'] : ERROR: Condition \"ret != noErr\" is true. Returning: \"\"\nERROR: Cannot save file '/Users/admin/Library/Application Support/Godot/editor_settings-4.6.tres'.\nERROR: Error saving editor settings to /Users/admin/Library/Application Support/Godot/editor_settings-4.6.tres\nERROR: Condition \"ret != noErr\" is true. Returning: \"\"\n"
+      },
+      {
+        "test": "test_vfx_picker.G1ComponentTests.test_headless_pierce_contacts_labels_pool_and_phase_callbacks",
+        "unittest_result": "failures",
+        "classification": "sandbox_Godot_environment",
+        "traceback": "Traceback (most recent call last):\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_vfx_picker.py\", line 1047, in test_headless_pierce_contacts_labels_pool_and_phase_callbacks\n    run_headless(self, fixture['project'], 'probe_pierce.gd')\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_vfx_picker.py\", line 119, in run_headless\n    test.assertEqual(engine_errors, [], '\\n'.join(engine_errors))\nAssertionError: Lists differ: ['ERROR: Condition \"ret != noErr\" is true.[285 chars] \"\"'] != []\n\nFirst list contains 4 additional elements.\nFirst extra element 0:\n'ERROR: Condition \"ret != noErr\" is true. Returning: \"\"'\n\n+ []\n- ['ERROR: Condition \"ret != noErr\" is true. Returning: \"\"',\n-  \"ERROR: Cannot save file '/Users/admin/Library/Application \"\n-  \"Support/Godot/editor_settings-4.6.tres'.\",\n-  'ERROR: Error saving editor settings to /Users/admin/Library/Application '\n-  'Support/Godot/editor_settings-4.6.tres',\n-  'ERROR: Condition \"ret != noErr\" is true. Returning: \"\"'] : ERROR: Condition \"ret != noErr\" is true. Returning: \"\"\nERROR: Cannot save file '/Users/admin/Library/Application Support/Godot/editor_settings-4.6.tres'.\nERROR: Error saving editor settings to /Users/admin/Library/Application Support/Godot/editor_settings-4.6.tres\nERROR: Condition \"ret != noErr\" is true. Returning: \"\"\n"
+      },
+      {
+        "test": "test_vfx_picker.LivingEmbersTests.test_headless_glow_sixty_samples_extrema_range_and_particle_properties",
+        "unittest_result": "failures",
+        "classification": "sandbox_Godot_environment",
+        "traceback": "Traceback (most recent call last):\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_vfx_picker.py\", line 420, in test_headless_glow_sixty_samples_extrema_range_and_particle_properties\n    run_headless(self, out, 'glow_probe.gd')\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_vfx_picker.py\", line 119, in run_headless\n    test.assertEqual(engine_errors, [], '\\n'.join(engine_errors))\nAssertionError: Lists differ: ['ERROR: Condition \"ret != noErr\" is true.[285 chars] \"\"'] != []\n\nFirst list contains 4 additional elements.\nFirst extra element 0:\n'ERROR: Condition \"ret != noErr\" is true. Returning: \"\"'\n\n+ []\n- ['ERROR: Condition \"ret != noErr\" is true. Returning: \"\"',\n-  \"ERROR: Cannot save file '/Users/admin/Library/Application \"\n-  \"Support/Godot/editor_settings-4.6.tres'.\",\n-  'ERROR: Error saving editor settings to /Users/admin/Library/Application '\n-  'Support/Godot/editor_settings-4.6.tres',\n-  'ERROR: Condition \"ret != noErr\" is true. Returning: \"\"'] : ERROR: Condition \"ret != noErr\" is true. Returning: \"\"\nERROR: Cannot save file '/Users/admin/Library/Application Support/Godot/editor_settings-4.6.tres'.\nERROR: Error saving editor settings to /Users/admin/Library/Application Support/Godot/editor_settings-4.6.tres\nERROR: Condition \"ret != noErr\" is true. Returning: \"\"\n"
+      },
+      {
+        "test": "test_vfx_picker.TouchDeviceAimRuntimeTests.test_headless_device_forward_handled_overlay_and_mouse_probe",
+        "unittest_result": "failures",
+        "classification": "sandbox_Godot_environment",
+        "traceback": "Traceback (most recent call last):\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_vfx_picker.py\", line 1190, in test_headless_device_forward_handled_overlay_and_mouse_probe\n    run_headless(self, project, 'touch_aim_probe.gd')\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_vfx_picker.py\", line 119, in run_headless\n    test.assertEqual(engine_errors, [], '\\n'.join(engine_errors))\nAssertionError: Lists differ: ['ERROR: Condition \"ret != noErr\" is true.[285 chars] \"\"'] != []\n\nFirst list contains 4 additional elements.\nFirst extra element 0:\n'ERROR: Condition \"ret != noErr\" is true. Returning: \"\"'\n\n+ []\n- ['ERROR: Condition \"ret != noErr\" is true. Returning: \"\"',\n-  \"ERROR: Cannot save file '/Users/admin/Library/Application \"\n-  \"Support/Godot/editor_settings-4.6.tres'.\",\n-  'ERROR: Error saving editor settings to /Users/admin/Library/Application '\n-  'Support/Godot/editor_settings-4.6.tres',\n-  'ERROR: Condition \"ret != noErr\" is true. Returning: \"\"'] : ERROR: Condition \"ret != noErr\" is true. Returning: \"\"\nERROR: Cannot save file '/Users/admin/Library/Application Support/Godot/editor_settings-4.6.tres'.\nERROR: Error saving editor settings to /Users/admin/Library/Application Support/Godot/editor_settings-4.6.tres\nERROR: Condition \"ret != noErr\" is true. Returning: \"\"\n"
+      },
+      {
+        "test": "test_vfx_picker.VfxPickerTests.test_headless_tab_twice_cast_scene_labels_and_inflight_kit_lock",
+        "unittest_result": "failures",
+        "classification": "sandbox_Godot_environment",
+        "traceback": "Traceback (most recent call last):\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_vfx_picker.py\", line 279, in test_headless_tab_twice_cast_scene_labels_and_inflight_kit_lock\n    run_headless(self, out, 'picker_probe.gd')\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_vfx_picker.py\", line 119, in run_headless\n    test.assertEqual(engine_errors, [], '\\n'.join(engine_errors))\nAssertionError: Lists differ: ['ERROR: Condition \"ret != noErr\" is true.[285 chars] \"\"'] != []\n\nFirst list contains 4 additional elements.\nFirst extra element 0:\n'ERROR: Condition \"ret != noErr\" is true. Returning: \"\"'\n\n+ []\n- ['ERROR: Condition \"ret != noErr\" is true. Returning: \"\"',\n-  \"ERROR: Cannot save file '/Users/admin/Library/Application \"\n-  \"Support/Godot/editor_settings-4.6.tres'.\",\n-  'ERROR: Error saving editor settings to /Users/admin/Library/Application '\n-  'Support/Godot/editor_settings-4.6.tres',\n-  'ERROR: Condition \"ret != noErr\" is true. Returning: \"\"'] : ERROR: Condition \"ret != noErr\" is true. Returning: \"\"\nERROR: Cannot save file '/Users/admin/Library/Application Support/Godot/editor_settings-4.6.tres'.\nERROR: Error saving editor settings to /Users/admin/Library/Application Support/Godot/editor_settings-4.6.tres\nERROR: Condition \"ret != noErr\" is true. Returning: \"\"\n"
+      },
+      {
+        "test": "test_vfx_picker.TouchAimRuntimeTests.test_headless_overlay_forward_world_touch_and_mouse_probe",
+        "unittest_result": "errors",
+        "classification": "retained_superseded_T4i_contract",
+        "traceback": "Traceback (most recent call last):\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_vfx_picker.py\", line 872, in test_headless_overlay_forward_world_touch_and_mouse_probe\n    run_headless(self, project, 'touch_aim_probe.gd')\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_vfx_picker.py\", line 109, in run_headless\n    result = subprocess.run([GODOT, '--headless', '--log-file', str(project/'godot.log'),\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/subprocess.py\", line 550, in run\n    stdout, stderr = process.communicate(input, timeout=timeout)\n                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/subprocess.py\", line 1209, in communicate\n    stdout, stderr = self._communicate(input, endtime, timeout)\n                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/subprocess.py\", line 2109, in _communicate\n    self._check_timeout(endtime, orig_timeout, stdout, stderr)\n  File \"/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/subprocess.py\", line 1253, in _check_timeout\n    raise TimeoutExpired(\nsubprocess.TimeoutExpired: Command '['/Applications/Godot.app/Contents/MacOS/Godot', '--headless', '--log-file', '/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4i-r1/tmp/touch-aim-tfpw0ayi/project/godot.log', '--path', '/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4i-r1/tmp/touch-aim-tfpw0ayi/project', '--script', 'res://touch_aim_probe.gd']' timed out after 60 seconds\n"
+      }
+    ],
+    "transcript": "t0c_suite_output.txt"
+  },
+  "concerns": [
+    "The extend-only constraint preserves two original T4i tests whose world-touch aiming and touch-over-probe expectations contradict the new ruling; they are additional reds. Their original bytes are intact and new tests are appended.",
+    "Eleven headless tests report sandbox Godot environment errors (the prior tests plus the new device probe), rather than the ten anticipated by the task. Standalone import and device probe both exit 0, with no script/parse errors; certificate/editor-settings errors remain.",
+    "The full suite is not limited to the requested standing/environment red set: 17 failures and 1 error across 600 tests. Every red is named and classified below."
+  ],
+  "retry": {
+    "reason": "The stock suite writes reports beside tests; initial write confinement also mishandled directory-relative symlink cleanup.",
+    "change": "Confined all measurement/report writes and temporary directories to this burst, corrected dir_fd cleanup handling, and reran the complete suite. Final run has no write-scope errors."
+  }
+}

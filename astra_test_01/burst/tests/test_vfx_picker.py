@@ -766,6 +766,118 @@ if __name__ == '__main__':
         unittest.main()
 
 
+TOUCH_AIM_PROBE = '''extends SceneTree
+const G1 = preload("res://scripts/vfx_g1.gd")
+var errors: Array = []
+var measurements: Array = []
+func check(ok: bool, message: String) -> void:
+    if not ok:
+        errors.append(message)
+        printerr("T3O_ASSERTION: ", message)
+func _initialize() -> void:
+    call_deferred("probe")
+func cast_point(keeper: CharacterBody2D) -> Vector2:
+    keeper.state = "idle"
+    keeper.sprite.play("cast_S")
+    keeper.sprite.pause()
+    keeper.sprite.frame = 2
+    keeper.state = "cast"
+    keeper.cast_kit_index = 0
+    keeper.cast_fired = false
+    keeper._cast_frame_changed()
+    var pool: Array = get_nodes_in_group("vfx_g1_pool")
+    check(not pool.is_empty(), "cast released")
+    if pool.is_empty():
+        return Vector2.INF
+    var bolt: Area2D = pool[0]
+    var point: Vector2 = bolt.resolved.point
+    bolt.cancel()
+    return point
+func record(label: String, actual: Vector2, expected: Vector2) -> void:
+    measurements.append({"case": label, "actual": [actual.x, actual.y],
+        "expected": [expected.x, expected.y], "error_px": actual.distance_to(expected)})
+    check(actual.distance_to(expected) <= 2.0, label)
+func probe() -> void:
+    var main: Node2D = load("res://scenes/main.tscn").instantiate()
+    root.add_child(main)
+    var keeper: CharacterBody2D = main.get_node("Keeper")
+    keeper.set_physics_process(false)
+    await physics_frame
+    await process_frame
+    keeper.sprite.scale = Vector2.ONE * 0.75
+    keeper.facing = "N"
+    var viewport: Vector2 = keeper.get_viewport_rect().size
+    var touch := InputEventScreenTouch.new()
+    touch.pressed = true
+    touch.position = Vector2(viewport.x * 0.5, viewport.y * 0.9)
+    var stale := Vector2(-444, 555)
+    keeper.vfx_cursor_override = stale
+    keeper._unhandled_input(touch)
+    check(keeper.vfx_cursor_override == stale, "overlay leaves probe hook untouched")
+    var expected: Vector2 = keeper.global_position + keeper.FACING_VECTORS[keeper.facing].normalized() * float(keeper.VFX_KITS[0].range_px) * keeper.sprite.global_transform.x.length()
+    record("overlay_forward", cast_point(keeper), expected)
+    touch.position = Vector2(viewport.x * 0.4, viewport.y * 0.3)
+    keeper._unhandled_input(touch)
+    expected = keeper.get_canvas_transform().affine_inverse() * touch.position
+    record("world_touch", cast_point(keeper), expected)
+    # A later overlay tap must not reuse an earlier world-area aim.
+    touch.position = Vector2(viewport.x * 0.5, viewport.y * 0.95)
+    touch.pressed = false
+    keeper._unhandled_input(touch)
+    var emulated := InputEventMouseMotion.new()
+    emulated.device = InputEvent.DEVICE_ID_EMULATION
+    keeper._unhandled_input(emulated)
+    expected = keeper.global_position + Vector2.UP * float(keeper.VFX_KITS[0].range_px) * keeper.sprite.global_transform.x.length()
+    record("overlay_release_after_world_and_emulated_mouse", cast_point(keeper), expected)
+    var drag := InputEventScreenDrag.new()
+    drag.position = Vector2(viewport.x * 0.6, viewport.y * 0.2)
+    keeper._unhandled_input(drag)
+    expected = keeper.get_canvas_transform().affine_inverse() * drag.position
+    record("world_drag", cast_point(keeper), expected)
+    drag.position.y = ceilf(viewport.y * (1.0 - keeper.TOUCH_OVERLAY_BAND))
+    keeper._unhandled_input(drag)
+    expected = keeper.global_position + Vector2.UP * float(keeper.VFX_KITS[0].range_px) * keeper.sprite.global_transform.x.length()
+    record("overlay_boundary_drag", cast_point(keeper), expected)
+    var mouse := InputEventMouseMotion.new()
+    keeper._unhandled_input(mouse)
+    check(keeper.vfx_cursor_override == null, "real mouse clears touch override")
+    record("mouse_cursor", cast_point(keeper), keeper.get_global_mouse_position())
+    keeper.vfx_cursor_override = Vector2(-123, -234)
+    record("mouse_probe_override", cast_point(keeper), Vector2(-123, -234))
+    var button := InputEventMouseButton.new()
+    keeper._unhandled_input(button)
+    check(keeper.vfx_cursor_override == null, "mouse button clears probe override")
+    record("mouse_button", cast_point(keeper), keeper.get_global_mouse_position())
+    DirAccess.make_dir_recursive_absolute("res://out")
+    var file := FileAccess.open("res://out/touch_aim.json", FileAccess.WRITE)
+    file.store_string(JSON.stringify({"errors": errors, "measurements": measurements}, "  "))
+    file.close()
+    print("T3O_RUNTIME_ASSERTIONS=complete")
+    quit(0 if errors.is_empty() else 7)
+'''
+
+
+class TouchAimRuntimeTests(unittest.TestCase):
+    @unittest.skipUnless(Path(GODOT).is_file(), 'Godot binary unavailable')
+    def test_headless_overlay_forward_world_touch_and_mouse_probe(self):
+        # T4i artifacts remain in the explicitly scoped tooling directory.
+        temporary = ROOT/'runs/C-5/t3/T4i/tmp'
+        temporary.mkdir(parents=True, exist_ok=True)
+        with tempfile.TemporaryDirectory(prefix='touch-aim-', dir=temporary) as directory:
+            root = Path(directory)
+            cells, sockets, kits, _ = fixture_inputs(root/'inputs')
+            project = root/'project'
+            build_project(cells, project, sockets=sockets, vfx_kits=kits)
+            (project/'touch_aim_probe.gd').write_text(TOUCH_AIM_PROBE)
+            run_headless(self, project, 'touch_aim_probe.gd')
+            report = json.loads((project/'out/touch_aim.json').read_text())
+            self.assertEqual(report['errors'], [])
+            self.assertEqual(len(report['measurements']), 8)
+            for row in report['measurements']:
+                with self.subTest(case=row['case']):
+                    self.assertLessEqual(row['error_px'], 2.0)
+
+
 class G1ComponentTests(unittest.TestCase):
     def setUp(self):
         TMP.mkdir(parents=True, exist_ok=True)
@@ -954,3 +1066,131 @@ class G1ComponentTests(unittest.TestCase):
                 data = (json.dumps(metadata, indent=2, allow_nan=False)+'\n').encode()
             digest.update(path.relative_to(out).as_posix().encode()+b'\0'+data)
         self.assertEqual(digest.hexdigest(), '2495fc1bd2f2d8b3dbee84d527a05632ddb35d418964b8fcb28a3686815548bf')
+
+
+# T4i-r1 device policy; T4i expectations above are retained verbatim.
+TOUCH_DEVICE_AIM_PROBE = '''extends SceneTree
+class ConsumingOverlay:
+    extends Node
+    var observed: int = 0
+    func _input(event: InputEvent) -> void:
+        if event is InputEventScreenTouch:
+            observed += 1
+            get_viewport().set_input_as_handled()
+const G1 = preload("res://scripts/vfx_g1.gd")
+var errors: Array = []
+var measurements: Array = []
+func check(ok: bool, message: String) -> void:
+    if not ok:
+        errors.append(message)
+        printerr("T3O_ASSERTION: ", message)
+func _initialize() -> void:
+    call_deferred("probe")
+func cast_point(keeper: CharacterBody2D) -> Vector2:
+    keeper.state = "idle"
+    keeper.sprite.play("cast_S")
+    keeper.sprite.pause()
+    keeper.sprite.frame = 2
+    keeper.state = "cast"
+    keeper.cast_kit_index = 0
+    keeper.cast_fired = false
+    keeper._cast_frame_changed()
+    var pool: Array = get_nodes_in_group("vfx_g1_pool")
+    check(not pool.is_empty(), "cast released")
+    if pool.is_empty():
+        return Vector2.INF
+    var bolt: Area2D = pool[0]
+    var point: Vector2 = bolt.resolved.point
+    bolt.cancel()
+    return point
+func record(label: String, actual: Vector2, expected: Vector2) -> void:
+    measurements.append({"case": label, "actual": [actual.x, actual.y],
+        "expected": [expected.x, expected.y], "error_px": actual.distance_to(expected)})
+    check(actual.distance_to(expected) <= 2.0, label)
+func probe() -> void:
+    var main: Node2D = load("res://scenes/main.tscn").instantiate()
+    root.add_child(main)
+    var keeper: CharacterBody2D = main.get_node("Keeper")
+    keeper.set_physics_process(false)
+    await physics_frame
+    await process_frame
+    keeper.sprite.scale = Vector2.ONE * 0.75
+    keeper.facing = "N"
+    # No touch event reaches Keeper before this cast. The mouse is behind it.
+    keeper.vfx_force_touch_device = true
+    keeper.global_position = keeper.get_global_mouse_position() + Vector2.UP * 200.0
+    check((keeper.get_global_mouse_position() - keeper.global_position).dot(Vector2.UP) < 0.0, "mouse behind north-facing Keeper")
+    var expected: Vector2 = keeper.global_position + Vector2.UP * float(keeper.VFX_KITS[0].range_px) * keeper.sprite.global_transform.x.length()
+    record("touch_device_no_event_N", cast_point(keeper), expected)
+    # Reproduce the overlay consuming both world-area and CAST-button touches.
+    var overlay := ConsumingOverlay.new()
+    root.add_child(overlay)
+    var touch := InputEventScreenTouch.new()
+    touch.pressed = true
+    touch.position = Vector2(150, 100)
+    root.push_input(touch)
+    touch.pressed = false
+    touch.position = Vector2(500, 650)
+    root.push_input(touch)
+    check(overlay.observed == 2, "overlay consumed both touch events")
+    var mouse := InputEventMouseMotion.new()
+    mouse.device = InputEvent.DEVICE_ID_EMULATION
+    mouse.position = Vector2(500, 650)
+    root.push_input(mouse)
+    keeper.facing = "NE"
+    var axis: Vector2 = keeper.FACING_VECTORS[keeper.facing].normalized()
+    keeper.global_position = keeper.get_global_mouse_position() + axis * 200.0
+    check((keeper.get_global_mouse_position() - keeper.global_position).dot(axis) < 0.0, "mouse behind northeast-facing Keeper")
+    expected = keeper.global_position + axis * float(keeper.VFX_KITS[0].range_px) * keeper.sprite.global_transform.x.length()
+    record("touch_device_handled_overlay_NE", cast_point(keeper), expected)
+    keeper.vfx_cursor_override = Vector2(-123, -234)
+    record("touch_probe_override", cast_point(keeper), Vector2(-123, -234))
+    keeper.vfx_cursor_override = null
+    keeper.vfx_force_touch_device = false
+    check(not DisplayServer.is_touchscreen_available(), "desktop headless device")
+    record("mouse_cursor", cast_point(keeper), keeper.get_global_mouse_position())
+    keeper.vfx_cursor_override = Vector2(-345, -456)
+    record("mouse_probe_override", cast_point(keeper), Vector2(-345, -456))
+    keeper.vfx_cursor_override = null
+    var prop := Area2D.new()
+    root.add_child(prop)
+    prop.global_position = keeper.global_position + axis * 100.0 + axis.orthogonal() * 10.0
+    prop.add_to_group("vfx_targets")
+    record("desktop_nearest_prop", cast_point(keeper), prop.global_position)
+    keeper.vfx_force_touch_device = true
+    record("touch_ignores_nearest_prop", cast_point(keeper), expected)
+    prop.remove_from_group("vfx_targets")
+    # Real mouse motion on a hybrid device must also leave forward policy intact.
+    mouse.device = 0
+    root.push_input(mouse)
+    record("touch_device_after_real_mouse", cast_point(keeper), expected)
+    prop.queue_free()
+    overlay.queue_free()
+    DirAccess.make_dir_recursive_absolute("res://out")
+    var file := FileAccess.open("res://out/touch_aim.json", FileAccess.WRITE)
+    file.store_string(JSON.stringify({"errors": errors, "measurements": measurements}, "  "))
+    file.close()
+    print("T3O_RUNTIME_ASSERTIONS=complete")
+    quit(0 if errors.is_empty() else 7)
+'''
+
+
+class TouchDeviceAimRuntimeTests(unittest.TestCase):
+    @unittest.skipUnless(Path(GODOT).is_file(), 'Godot binary unavailable')
+    def test_headless_device_forward_handled_overlay_and_mouse_probe(self):
+        # T4i-r1 artifacts remain in the explicitly scoped tooling directory.
+        temporary = ROOT/'runs/C-5/t3/T4i-r1/tmp'
+        temporary.mkdir(parents=True, exist_ok=True)
+        with tempfile.TemporaryDirectory(prefix='touch-aim-', dir=temporary) as directory:
+            root = Path(directory)
+            cells, sockets, kits, _ = fixture_inputs(root/'inputs')
+            project = root/'project'
+            build_project(cells, project, sockets=sockets, vfx_kits=kits)
+            (project/'touch_aim_probe.gd').write_text(TOUCH_DEVICE_AIM_PROBE)
+            run_headless(self, project, 'touch_aim_probe.gd')
+            report = json.loads((project/'out/touch_aim.json').read_text())
+            self.assertEqual(report['errors'], [])
+            self.assertEqual(len(report['measurements']), 8)
+            for row in report['measurements']:
+                with self.subTest(case=row['case']):
+                    self.assertLessEqual(row['error_px'], 2.0)

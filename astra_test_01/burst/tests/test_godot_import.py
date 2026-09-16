@@ -14,6 +14,23 @@ GODOT = '/Applications/Godot.app/Contents/MacOS/Godot'
 TMP = Path(__file__).resolve().parent/'tmp'
 
 
+class TouchAimEmissionTests(unittest.TestCase):
+    def test_touch_forward_band_and_mouse_probe_precedence(self):
+        from export.godot_import import DIRECTIONAL_KEEPER, _g1_directional
+        keeper = _g1_directional(DIRECTIONAL_KEEPER)
+        self.assertIn('const TOUCH_OVERLAY_BAND = 0.22', keeper)
+        self.assertIn('event is InputEventScreenTouch or event is InputEventScreenDrag', keeper)
+        self.assertIn('DisplayServer.is_touchscreen_available() and not vfx_mouse_motion_since_touch', keeper)
+        self.assertIn('event.device == InputEvent.DEVICE_ID_EMULATION', keeper)
+        original = 'var cursor: Vector2 = get_global_mouse_position() if vfx_cursor_override == null else vfx_cursor_override'
+        forward = 'cursor = global_position + FACING_VECTORS[facing].normalized() * float(kit.range_px) * art_scale'
+        self.assertIn(original, keeper)
+        self.assertIn(forward, keeper)
+        self.assertLess(keeper.index(original), keeper.index(forward))
+        self.assertLess(keeper.index(forward), keeper.index('G1.resolve_target('))
+        self.assertIn('if vfx_world_touch != null:\n            cursor = vfx_world_touch', keeper)
+
+
 class GodotImportTests(unittest.TestCase):
     def setUp(self):
         TMP.mkdir(exist_ok=True)
@@ -478,3 +495,31 @@ func probe() -> void:
 
 if __name__ == '__main__':
     unittest.main()
+
+
+# T4i-r1 device policy; T4i expectations above are retained verbatim.
+class TouchDeviceAimEmissionTests(unittest.TestCase):
+    def test_touch_device_forward_and_probe_precedence(self):
+        from export.godot_import import DIRECTIONAL_KEEPER, _g1_directional
+        keeper = _g1_directional(DIRECTIONAL_KEEPER)
+        self.assertIn('const TOUCH_OVERLAY_BAND = 0.22', keeper)
+        self.assertIn('var vfx_force_touch_device: bool = false', keeper)
+        branch = 'if vfx_cursor_override == null and (vfx_force_touch_device or DisplayServer.is_touchscreen_available()):'
+        self.assertIn(branch, keeper)
+        original = 'var cursor: Vector2 = get_global_mouse_position() if vfx_cursor_override == null else vfx_cursor_override'
+        forward = 'var forward_point: Vector2 = global_position + FACING_VECTORS[facing].normalized() * float(kit.range_px) * art_scale'
+        self.assertIn(original, keeper)
+        self.assertIn(forward, keeper)
+        self.assertLess(keeper.index(branch), keeper.index(forward))
+        self.assertLess(keeper.index(forward), keeper.index(original))
+        self.assertLess(keeper.index(original), keeper.index('G1.resolve_target('))
+        self.assertIn('destination = {"point": forward_point, "target": null, "kind": "cursor"}', keeper)
+        for obsolete in ('vfx_world_touch', 'vfx_last_pointer_touch',
+                         'vfx_mouse_motion_since_touch', 'InputEventScreenTouch',
+                         'InputEventScreenDrag', 'func _unhandled_input'):
+            self.assertNotIn(obsolete, keeper)
+
+    def test_desktop_cursor_and_resolver_match_pre_t4i(self):
+        from export.godot_import import DIRECTIONAL_KEEPER, _g1_directional
+        keeper = _g1_directional(DIRECTIONAL_KEEPER)
+        self.assertIn('    else:\n        var cursor: Vector2 = get_global_mouse_position() if vfx_cursor_override == null else vfx_cursor_override\n        destination = G1.resolve_target(get_tree(), global_position, direction, cursor, float(kit.range_px) * art_scale)\n', keeper)
