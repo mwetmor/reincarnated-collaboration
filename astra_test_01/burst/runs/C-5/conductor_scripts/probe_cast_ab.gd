@@ -20,11 +20,13 @@ func _initialize():
 	var n = 0
 	for f in 6:
 		await physics_frame
-		root.get_texture().get_image().save_png(out_dir + "/cast_%04d.png" % n); n += 1
+		if f % 2 == 0:
+			root.get_texture().get_image().save_png(out_dir + "/cast_%04d.png" % n); n += 1
 	Input.action_press("cast"); await physics_frame; Input.action_release("cast")
 	for f in 132:
 		await physics_frame
-		root.get_texture().get_image().save_png(out_dir + "/cast_%04d.png" % n); n += 1
+		if f % 2 == 0:
+			root.get_texture().get_image().save_png(out_dir + "/cast_%04d.png" % n); n += 1
 	var label = scene.find_child("Label", true, false)
 	print("frames ", n, " feet ", keeper.global_position, " facing ", keeper.facing, " label ", label.text if label else "none")
 	quit()
