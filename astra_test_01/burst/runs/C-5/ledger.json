@@ -14179,6 +14179,11 @@
       "id": "M-C5-PROPS-V25",
       "note": "CS-props-v25 = v24 + `target: true` on the seven dummy assets (the exporter’s T4b target_fragment emits the vfx_targets Areas). Root cause of F-C5-26: the conductor stripped target/kind for the frozen T3l schema (sidecar note) and never restored them after T4b. PACK v34 + chain v34 (with probe_events as the acceptance instrument) fired.",
       "ts": "2026-09-16T13:39:02"
+    },
+    {
+      "id": "M-C5-BL1",
+      "note": "Blackwater lane opened on cliffside_v38 (Packet 101): lob + shatter + painted pool + licks + scorch in all 8 directions; landing ignores walkable ground (F-C5-35). Field-tick hit response on bodies inside the pool to be probed.",
+      "ts": "2026-09-16T17:32:12"
     }
   ],
   "halts": [],
@@ -14917,6 +14922,13 @@
       "veto_open": true,
       "ruling": "PACK v38 PROVEN: no dark disc at the residue (F-C5-34 CLOSED); the residue burns white-cream and dies to embers over ~1.3 s; east contact on the shield at frame 1. FIRE LANE — DONE list status: (a) 8 directions clean ✓ (v36 capsule); (b) touch aim forward ✓; (c) light/particles/shader rounds ✓ (FL-2, FL-3, FL-3b); (d) hit response on the struck body ✓ (Matt accepted targeting on v34; contact light v37); (e) key states ✓; (f) Matt eye: Mac read pending on v38, phone deferred by Matt. cliffside_v38 = the fire-lane candidate. Remaining fire debt: none open. Next after Matt eye: Blackwater on the same DONE list (Matt ruling), then E3-r1 re-spec.",
       "ts": "2026-09-16T17:23:17"
+    },
+    {
+      "id": "R-C5-106",
+      "class": "conductor",
+      "veto_open": true,
+      "ruling": "BLACKWATER LANE opened (Matt pivot ruling: the fire DONE list applied to Blackwater next). BL-1 on v38: lob/shatter/pool/licks/scorch in 8 directions; field ticks tint bodies inside the pool (probe). F-C5-35: landing ignores walkable ground (pool in the sky / on the void) → BL-1a Part A clamps the landing to the walkable union. Spec re-authored per the references (rank 1: 2.78 BH pool, 2.5 s, 18 deg lob, scorch 12 s, lick flicker 3.3-3.6 Hz); range 520 kept as the touch forward-cast default (source max 1083 noted); tick schedule stays irregular pending Q80 F4. BL-1a fires.",
+      "ts": "2026-09-16T17:34:03"
     }
   ],
   "grok_calls": [],
@@ -15196,6 +15208,13 @@
       "kit": "fire_burst_e0p_v2 (FL-3 shimmer)",
       "note": "PACK v37 east cast, gl_compatibility 1080p: a dark opaque grey-olive disc (~0.5 BH) appears at the residue point f60-f80 — the heat-shimmer quad (hint_screen_texture + BackBufferCopy) renders as a solid disc; screen-texture reads are unreliable in the compat renderer (the web build). Replace with a compat-safe additive noise sheet. -> FL-3b Part A.",
       "ts": "2026-09-16T16:42:14"
+    },
+    {
+      "id": "F-C5-35",
+      "kind": "defect (design-critical)",
+      "kit": "blackwater_cocktail_e3 (G2 landing)",
+      "note": "BL-1 (v38, 8 directions): the flask always lands at the full kit range along the facing, ignoring the ground — W lands the burning pool IN THE SKY over the valley, SW/S on the void below the bridge. G2 must clamp the landing point to walkable ground (the parallax-in walkable mask the Keeper already obeys): landing = the last walkable point along the throw line (min 1 BH from the release), flight time scaled with the shortened distance. -> BL-1a Part A.",
+      "ts": "2026-09-16T17:32:12"
     }
   ]
 }
