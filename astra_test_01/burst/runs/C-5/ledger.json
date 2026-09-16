@@ -4683,6 +4683,13 @@
       "veto_open": true,
       "ruling": "T4j DELIVERED (CPU prediction 2.25×, connectivity 1.0, 488 legacy files byte-identical, headless import 0). Conductor bake outside (768, seed 2026, seed-equal identical): expansion now strong and CONNECTED (largest-component 0.956 at f20) — but two defects: F-C5-6 the stretched tongues are HARD-CLIPPED at a 512-px boundary (extent plateaus at exactly 511 from f8; straight cut edges on the long tongues) — hypothesis: the whole-body erosion distance field is sampled in the piece's ORIGINAL 512-canvas UV, so stretched pixels fall outside [0,1] and are discarded; F-C5-7 the dark ring around the eroding core persists at f30 despite dissolve_order [[3],[2],[1,0]] — hypothesis: the ring is the DARK DUPLICATE layer (MIX black beneath) eroding later than the body, not band 0 of the body. Residue 12.7 % (band 15–25). Not shown to Matt (clipping would mislead the eye). T4k = both fixes, £0 images; then Matt eye; then step 5.",
       "ts": "2026-09-15T23:59:47"
+    },
+    {
+      "id": "R-C5-30",
+      "class": "conductor",
+      "veto_open": true,
+      "ruling": "FREEZE after T4j: outside suite = the five standing reds only (the obsolete T4i test is gone). MANIFEST + SYNC restamped. T4k fired (F-C5-6 stretch-aware erosion sampling / F-C5-7 one erode-dissolve schedule per piece across all its layers / residue 15–25 %).",
+      "ts": "2026-09-16T00:03:57"
     }
   ],
   "grok_calls": [],

@@ -75,9 +75,35 @@ MATERIAL_DEFAULTS = {'blend_mode': 'MIX', 'light_participation': False,
                      'erode': 0.0, 'dissolve': 0.0}
 
 
+LEGACY_DISSOLVE_ORDER = [[3], [2], [1], [0]]
+
+
+def dissolve_thresholds(order=None):
+    """Removal groups use legacy step times; omission preserves legacy arithmetic."""
+    if order is None:
+        order = LEGACY_DISSOLVE_ORDER
+    if (not isinstance(order, list) or not order
+            or any(not isinstance(group, list) or not group for group in order)):
+        raise ValueError('dissolve_order must partition {0,1,2,3} into nonempty band groups')
+    bands = [band for group in order for band in group]
+    if (any(type(band) is not int for band in bands)
+            or sorted(bands) != [0, 1, 2, 3]):
+        raise ValueError('dissolve_order must partition {0,1,2,3}')
+    if order == LEGACY_DISSOLVE_ORDER:
+        return [1-band/6 for band in range(4)]
+    thresholds = [0.0]*4
+    for i, group in enumerate(order):
+        for band in group:
+            thresholds[band] = 1-(3-i)/6
+    return thresholds
+
+
 def validate_material(material):
     """Four low-to-high RGBA bands; coverage is always source alpha."""
-    _keys(material, {'palette', *MATERIAL_DEFAULTS}, {'palette'}, 'material')
+    _keys(material, {'palette', 'dissolve_order', *MATERIAL_DEFAULTS}, {'palette'}, 'material')
+    if 'dissolve_order' in material and material['dissolve_order'] is None:
+        raise ValueError('dissolve_order must be a list of band groups')
+    dissolve_thresholds(material.get('dissolve_order'))
     palette = material['palette']
     if not isinstance(palette, list) or len(palette) != 4:
         raise ValueError('material.palette requires four RGBA colours')
@@ -130,7 +156,7 @@ def distance_field(rgba):
 
 
 def material_pixels(rgba, palette, distance=None, erode=0.0, dissolve=0.0,
-                    blend_mode='MIX', dark_duplicate=False):
+                    blend_mode='MIX', dark_duplicate=False, dissolve_order=None):
     """CPU reference only, never represented as a Godot rendered-frame proof."""
     validate_material(dict(palette=palette, erode=erode, dissolve=dissolve, blend_mode=blend_mode))
     rgba = np.asarray(rgba)
@@ -143,19 +169,26 @@ def material_pixels(rgba, palette, distance=None, erode=0.0, dissolve=0.0,
         if distance is None or np.shape(distance) != rgba.shape[:2]:
             raise ValueError('erode requires a matching distance texture')
         result[..., 3] *= (np.asarray(distance)/255 >= erode) & (erode < 1)
-    result[..., 3] *= dissolve < (1-bands/6)
+    result[..., 3] *= dissolve < np.asarray(dissolve_thresholds(dissolve_order))[bands]
     if dark_duplicate: result[..., :3] = 0
     if blend_mode == 'PREMULT_ALPHA': result[..., :3] *= result[..., 3, None]
     return np.clip(np.rint(result*255), 0, 255).astype(np.uint8)
 
 
-def shader_source(blend_mode='MIX', light_participation=False):
+def shader_source(blend_mode='MIX', light_participation=False, dissolve_order=None):
     """Compatibility variants use only CanvasItem fragment operations."""
     validate_material({'palette': [[0, 0, 0, 1]]*4,
                        'blend_mode': blend_mode, 'light_participation': light_participation})
     modes = {'MIX': 'blend_mix', 'ADD': 'blend_add', 'PREMULT_ALPHA': 'blend_premul_alpha'}
     mode = modes[blend_mode]+('' if light_participation else ', unshaded')
     source = Path(__file__).with_name('vfx_material.gdshader').read_text()
+    thresholds = dissolve_thresholds(dissolve_order)
+    if dissolve_order is not None and dissolve_order != LEGACY_DISSOLVE_ORDER:
+        # A separate shader variant keeps every legacy shader byte unchanged.
+        table = 'vec4(' + ', '.join(format(v, '.17g') if v % 1 else format(v, '.1f') for v in thresholds) + ')'
+        source = source.replace('(1.0 - band / 6.0)', table+'[int(band)]')
+        source = source.replace('// Hold until 0.5, then remove band 3, 2, 1, 0 at 0.5, 2/3, 5/6, 1.',
+                                '// Per-kit band-group removal thresholds, indexed by band.')
     source = source.replace('render_mode blend_mix, unshaded;', 'render_mode '+mode+';')
     return source.replace('const bool PREMULTIPLIED = false;',
                           'const bool PREMULTIPLIED = '+str(blend_mode == 'PREMULT_ALPHA').lower()+';')
@@ -180,9 +213,13 @@ def write_vfx_material(out, resource, material, distance_texture, dark_duplicate
     field = _png(distance_texture, out, confined=True)
     mode, lit = material['blend_mode'], material['light_participation']
     shader = target.parent/f'vfx_material_{mode.lower()}_{"lit" if lit else "unlit"}.gdshader'
+    order = material.get('dissolve_order')
+    if order is not None and order != LEGACY_DISSOLVE_ORDER:
+        suffix = hashlib.sha256(json.dumps(order).encode()).hexdigest()[:12]
+        shader = shader.with_name(shader.stem+'_order_'+suffix+shader.suffix)
     shader_rel = shader.relative_to(out).as_posix()
     target.parent.mkdir(parents=True, exist_ok=True)
-    shader.write_text(shader_source(mode, lit))
+    shader.write_text(shader_source(mode, lit, order))
     lines = ['[gd_resource type="ShaderMaterial" load_steps=3 format=3]',
              f'[ext_resource type="Shader" path="res://{shader_rel}" id="Shader"]',
              f'[ext_resource type="Texture2D" path="res://{field.relative_to(out).as_posix()}" id="Distance"]',
@@ -250,7 +287,7 @@ def piece_motion(seed, piece_id):
 def piece_stretch(seed, piece_id):
     """Stable, order-independent v2 samples; v1 sampling is unchanged."""
     digest = hashlib.sha256(f'{seed}:{piece_id}'.encode('ascii')).hexdigest()
-    return {'along': 1.6 + .4 * int(digest[:8], 16) / 4294967295,
+    return {'along': 2.5 + .5 * int(digest[:8], 16) / 4294967295,
             'rotation_deg': -10 + 20 * int(digest[8:16], 16) / 4294967295}
 
 
@@ -290,7 +327,7 @@ def piece_geometry(record, source_root):
 def load_pieces(config, root, runtime=False):
     """Consume T4e schema 2 as delivered; never segment or recolour a shard."""
     root = Path(root).resolve()
-    _keys(config, {'source', 'template', *PIECES_DEFAULTS}, {'source', 'template'}, 'pieces')
+    _keys(config, {'source', 'template', 'root_drift', 'dissolve_order', *PIECES_DEFAULTS}, {'source', 'template'}, 'pieces')
     if config['template'] not in ('burst_v1', 'burst_v2'):
         raise ValueError('pieces.template must be burst_v1 or burst_v2')
     values = {**PIECES_DEFAULTS, **config}
@@ -299,6 +336,14 @@ def load_pieces(config, root, runtime=False):
     _number(values['residue_s'], .3, 1, 'pieces.residue_s')
     _number(values['residue_fraction'], .15, .25, 'pieces.residue_fraction')
     _number(values['seed'], 0, 2147483647, 'pieces.seed', True)
+    if 'dissolve_order' in values:
+        if values['dissolve_order'] is None:
+            raise ValueError('dissolve_order must be a list of band groups')
+        dissolve_thresholds(values['dissolve_order'])
+    if values['template'] == 'burst_v2':
+        values.setdefault('root_drift', .5)
+    if 'root_drift' in values:
+        _number(values['root_drift'], 0, .5, 'pieces.root_drift')
     source = values['source']
     if not isinstance(source, str) or not source or any(c in source for c in '\\"\n\r'):
         raise ValueError('pieces.source must be a JSON path')
@@ -601,7 +646,7 @@ def build(effect_json, out_dir):
     for mode in ('MIX', 'ADD', 'PREMULT_ALPHA'):
         for lit in (False, True):
             name = f'vfx_material_{mode.lower()}_{"lit" if lit else "unlit"}.gdshader'
-            (out/name).write_text(shader_source(mode, lit))
+            (out/name).write_text(shader_source(mode, lit, data['material'].get('dissolve_order')))
     (out/'kit.json').write_text(json.dumps(metadata, indent=2, allow_nan=False)+'\n')
     (out/'vfx_select.json').write_text(json.dumps({'source': 'effect_kit', 'name': data['name']})+'\n')
     (out/'CREDITS.txt').write_text('Effect '+data['name']+' ('+data['element']+'). Source assets supplied by the effect definition; no license is inferred.\n')

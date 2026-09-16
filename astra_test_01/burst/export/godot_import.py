@@ -2380,7 +2380,10 @@ def _write_piece_burst(out, kit, resource_root, prefix):
     def vector(x, y): return f'Vector2({float(x):.12g}, {float(y):.12g})'
     def sprite(name, texture, field, pivot, position, parent='Art', dark=False, mode=None, extra=''):
         mat = resource_root+'/materials/Piece_'+name+'.tres'
-        write_vfx_material(out, mat, dict(data['material'], blend_mode=mode or data['material']['blend_mode']), field, dark)
+        material_config = dict(data['material'], blend_mode=mode or data['material']['blend_mode'])
+        if 'dissolve_order' in config:
+            material_config['dissolve_order'] = config['dissolve_order']
+        write_vfx_material(out, mat, material_config, field, dark)
         ext.extend([f'[ext_resource type="Texture2D" path="res://{texture}" id="T{name}"]',
                     f'[ext_resource type="Material" path="res://{mat}" id="M{name}"]'])
         nodes.append(f'[node name="{name}" type="Sprite2D" parent="{parent}"]\n'
@@ -2509,7 +2512,10 @@ func set_effect_age(age: int) -> void:
         var paint: Sprite2D = data.paint
         var root_sprite: Sprite2D = data.root
         var active: bool = int(item.area_px) >= 48 and age >= flight_start and age < residue_end
-        # Position is NEVER animated. Rotation is around the pinned root.
+        # Seeded along stretch is 2.5..3.0; drift is in core-radius units.
+        var root_drift_px: float = 0.0 if bool(item.core) else float(config.root_drift) * float(config.core_radius_px) * ease
+        var root_start: Vector2 = Vector2(float(item.root[0])-float(config.centre[0]),float(item.root[1])-float(config.centre[1]))
+        axis.set_position(root_start + Vector2.RIGHT.rotated(float(item.axis_radians)) * root_drift_px)
         axis.rotation = float(item.axis_radians) + deg_to_rad(float(item.rotation_deg)) * ease
         if bool(item.core):
             var core_t: float = clampf(float(age-flight_start)/9.0,0.0,1.0)
@@ -2521,7 +2527,8 @@ func set_effect_age(age: int) -> void:
         var start: int = int(item.erosion_start_tick) + flight_start
         var erode_t: float = clampf(float(age-start)/float(residue_start-start),0.0,1.0)
         var erode: float = lerpf(0.0,1.0,erode_t)
-        var dissolve: float = 0.5 * erosion_t
+        var dissolve: float = (1.0 if bool(config.grouped_dissolve) else 0.5) * erosion_t
+        var residue_dissolve: float = 0.5 * erosion_t
         axis.visible = active and age < residue_start
         paint.visible = true
         paint.material.set_shader_parameter("erode",erode)
@@ -2533,7 +2540,7 @@ func set_effect_age(age: int) -> void:
         root_sprite.visible = active
         root_sprite.material.set_shader_parameter("erode",root_erode)
         root_sprite.material.set_shader_parameter("outer_distance",outer)
-        root_sprite.material.set_shader_parameter("dissolve",dissolve)
+        root_sprite.material.set_shader_parameter("dissolve",residue_dissolve)
         if data.dark_axis != null:
             var dark: Node2D = data.dark_axis
             dark.transform = axis.transform
@@ -2547,10 +2554,10 @@ func set_effect_age(age: int) -> void:
             dark_root.visible = active
             dark_root.material.set_shader_parameter("erode",root_erode)
             dark_root.material.set_shader_parameter("outer_distance",outer)
-            dark_root.material.set_shader_parameter("dissolve",dissolve)
+            dark_root.material.set_shader_parameter("dissolve",residue_dissolve)
         if active:
             count += 1
-        states.append({"id":item.id,"visible":active,"core":item.core,"scale":[node.scale.x,node.scale.y],"root_position":[axis.position.x,axis.position.y],"root_displacement_px":0.0,"rotation_deg":float(item.rotation_deg)*ease,"erode":erode,"dissolve":dissolve,"residue_erode":root_erode,"residue_outer":outer})
+        states.append({"id":item.id,"visible":active,"core":item.core,"scale":[node.scale.x,node.scale.y],"root_position":[axis.position.x,axis.position.y],"root_displacement_px":root_drift_px,"rotation_deg":float(item.rotation_deg)*ease,"erode":erode,"dissolve":dissolve,"residue_erode":root_erode,"residue_outer":outer})
     trace.append({"age_frames":age,"stage":stage,"peak_visible":$Art/Peak.visible,"shard_count":count,"source_piece_count":pieces.size(),"pieces":states})
     if age >= residue_end:
         hide()
@@ -2585,7 +2592,8 @@ def _write_piece_burst_v2(out, kit, resource_root, prefix):
     runtime_path = out/resource_root/'pieces/burst_runtime.json'
     runtime = json.loads(runtime_path.read_text())
     runtime.update(template='burst_v2', core_centre=geometry['core_centre'],
-                   core_radius_px=geometry['core_radius_px'], pieces=[])
+                   core_radius_px=geometry['core_radius_px'], root_drift=config['root_drift'],
+                   grouped_dissolve=config.get('dissolve_order', data['material'].get('dissolve_order', [[3],[2],[1],[0]])) != [[3],[2],[1],[0]], pieces=[])
     with Image.open(source_root/record['peak_index']) as image:
         peak = np.asarray(image.convert('RGBA'))
     field = distance_field(peak)
@@ -2614,7 +2622,10 @@ def _write_piece_burst_v2(out, kit, resource_root, prefix):
     for item in geometry['pieces']:
         ident = item['id']; name = 'Piece_%03d' % ident
         material_rel = resource_root+'/materials/Piece_'+name+'.tres'
-        write_vfx_material(out, material_rel, data['material'], field_rel)
+        material_config = dict(data['material'])
+        if 'dissolve_order' in config:
+            material_config['dissolve_order'] = config['dissolve_order']
+        write_vfx_material(out, material_rel, material_config, field_rel)
         material = (out/material_rel).read_text()
         shader_ref = re.search(r'path="res://([^"]+\.gdshader)"', material)[1]
         root_shader = str(Path(shader_ref).with_name('vfx_material_v2_roots.gdshader'))

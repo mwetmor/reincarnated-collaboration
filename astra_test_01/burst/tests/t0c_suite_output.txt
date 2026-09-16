@@ -64,6 +64,9 @@ test_transitive_diamond_slot_and_unrelated (test_deps_ledger.Tests.test_transiti
 test_idle_roundtrip_target_sine (test_dope_sheet.Tests.test_idle_roundtrip_target_sine) ... ok
 test_invalid_and_conflicts_not_repaired (test_dope_sheet.Tests.test_invalid_and_conflicts_not_repaired) ... ok
 test_walk_roundtrip_source_positions_and_amplitude (test_dope_sheet.Tests.test_walk_roundtrip_source_positions_and_amplitude) ... ok
+test_contour_and_fill_drop_together_without_changing_hue (test_effect_kit.DissolveOrderTests.test_contour_and_fill_drop_together_without_changing_hue) ... ok
+test_legacy_default_and_explicit_legacy_shader_bytes (test_effect_kit.DissolveOrderTests.test_legacy_default_and_explicit_legacy_shader_bytes) ... ok
+test_order_must_partition_all_four_bands (test_effect_kit.DissolveOrderTests.test_order_must_partition_all_four_bands) ... ok
 test_dict_paths_no_cwd_mutation_and_output_overlap_stale_rejected (test_effect_kit.EffectKitTests.test_dict_paths_no_cwd_mutation_and_output_overlap_stale_rejected) ... ok
 test_every_asset_validated_missing_corrupt_and_color_before_output (test_effect_kit.EffectKitTests.test_every_asset_validated_missing_corrupt_and_color_before_output) ... ok
 test_generated_metadata_rejects_unknown_missing_and_escaping_assets (test_effect_kit.EffectKitTests.test_generated_metadata_rejects_unknown_missing_and_escaping_assets) ... ok
@@ -74,6 +77,14 @@ test_missing_and_unknown_keys_at_all_schema_levels (test_effect_kit.EffectKitTes
 test_native_index_frames_alpha_and_dimensions (test_effect_kit.EffectKitTests.test_native_index_frames_alpha_and_dimensions) ... ok
 test_retired_pixel_scale_rejected_without_output (test_effect_kit.EffectKitTests.test_retired_pixel_scale_rejected_without_output) ... ok
 test_spriteframe_duration_extension_default_bytes_and_invalid_before_resource (test_effect_kit.EffectKitTests.test_spriteframe_duration_extension_default_bytes_and_invalid_before_resource) ... ok
+test_delivered_t4e_masks_extent_and_connectivity (test_effect_kit.PieceLap2GeometryTests.test_delivered_t4e_masks_extent_and_connectivity) ... ok
+test_missing_mask_rejected_before_output (test_effect_kit.PieceLap2ValidationTests.test_missing_mask_rejected_before_output) ... ok
+test_pivot_outside_mask_rejected (test_effect_kit.PieceLap2ValidationTests.test_pivot_outside_mask_rejected) ... ok
+test_residue_and_band_and_hold_ranges_rejected (test_effect_kit.PieceLap2ValidationTests.test_residue_and_band_and_hold_ranges_rejected) ... ok
+test_seeded_factor_deterministic_order_independent_and_bounded (test_effect_kit.PieceLap2ValidationTests.test_seeded_factor_deterministic_order_independent_and_bounded) ... ok
+test_self_contained_mask_bytes_distance_and_runtime_validation (test_effect_kit.PieceLap2ValidationTests.test_self_contained_mask_bytes_distance_and_runtime_validation) ... ok
+test_stretch_seed_bounds_and_whole_body_distance (test_effect_kit.PieceLap2ValidationTests.test_stretch_seed_bounds_and_whole_body_distance) ... ok
+test_template_order_validation_and_drift_default (test_effect_kit.PieceLap2ValidationTests.test_template_order_validation_and_drift_default) ... ok
 test_missing_mask_rejected_before_output (test_effect_kit.PiecePhaseTests.test_missing_mask_rejected_before_output) ... ok
 test_pivot_outside_mask_rejected (test_effect_kit.PiecePhaseTests.test_pivot_outside_mask_rejected) ... ok
 test_residue_and_band_and_hold_ranges_rejected (test_effect_kit.PiecePhaseTests.test_residue_and_band_and_hold_ranges_rejected) ... ok
@@ -227,7 +238,6 @@ test_piece_nodes_clock_residue_path_and_g1_routing (test_godot_import.PieceBurst
 test_axes_whole_field_root_residue_clock_and_grey (test_godot_import.PieceStretchImportTests.test_axes_whole_field_root_residue_clock_and_grey) ... ok
 test_native_768_crop_backward_compatible_default (test_godot_import.PieceStretchImportTests.test_native_768_crop_backward_compatible_default) ... ok
 test_v2_headless_import_and_seed_equal_rooted_clock (test_godot_import.PieceStretchImportTests.test_v2_headless_import_and_seed_equal_rooted_clock) ... ok
-test_touch_forward_band_and_mouse_probe_precedence (test_godot_import.TouchAimEmissionTests.test_touch_forward_band_and_mouse_probe_precedence) ... FAIL
 test_desktop_cursor_and_resolver_match_pre_t4i (test_godot_import.TouchDeviceAimEmissionTests.test_desktop_cursor_and_resolver_match_pre_t4i) ... ok
 test_touch_device_forward_and_probe_precedence (test_godot_import.TouchDeviceAimEmissionTests.test_touch_device_forward_and_probe_precedence) ... ok
 test_back_view_and_absent_rest_are_null (test_head_pitch.Tests.test_back_view_and_absent_rest_are_null) ... ok
@@ -540,6 +550,8 @@ test_owner_sort_inference_override_ties_and_standalone (test_vfx_picker.LivingEm
 test_particle_optional_invalid_shapes_ranges_booleans_unknown (test_vfx_picker.LivingEmbersTests.test_particle_optional_invalid_shapes_ranges_booleans_unknown) ... ok
 test_three_sine_normalisation_numerical_envelope_and_extrema (test_vfx_picker.LivingEmbersTests.test_three_sine_normalisation_numerical_envelope_and_extrema) ... ok
 test_two_glows_additive_script_position_scale_color_sort_and_particles (test_vfx_picker.LivingEmbersTests.test_two_glows_additive_script_position_scale_color_sort_and_particles) ... ok
+test_six_kits_and_v1_match_488_file_pre_t4j_hash_table (test_vfx_picker.PieceLap2ExportTests.test_six_kits_and_v1_match_488_file_pre_t4j_hash_table) ... ok
+test_v2_emits_drift_stretch_groups_and_stationary_residue (test_vfx_picker.PieceLap2ExportTests.test_v2_emits_drift_stretch_groups_and_stationary_residue) ... ok
 test_headless_overlay_forward_world_touch_and_mouse_probe (test_vfx_picker.TouchAimRuntimeTests.test_headless_overlay_forward_world_touch_and_mouse_probe) ... ERROR
 test_headless_device_forward_handled_overlay_and_mouse_probe (test_vfx_picker.TouchDeviceAimRuntimeTests.test_headless_device_forward_handled_overlay_and_mouse_probe) ... ok
 test_catalogue_unknown_keys_shapes_identifiers_tints_and_empty_rejected (test_vfx_picker.VfxPickerTests.test_catalogue_unknown_keys_shapes_identifiers_tints_and_empty_rejected) ... ok
@@ -626,15 +638,7 @@ Traceback (most recent call last):
     self._check_timeout(endtime, orig_timeout, stdout, stderr)
   File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/subprocess.py", line 1253, in _check_timeout
     raise TimeoutExpired(
-subprocess.TimeoutExpired: Command '['/Applications/Godot.app/Contents/MacOS/Godot', '--headless', '--log-file', '/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4i/tmp/touch-aim-08lv5218/project/godot.log', '--path', '/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4i/tmp/touch-aim-08lv5218/project', '--script', 'res://touch_aim_probe.gd']' timed out after 60 seconds
-
-======================================================================
-FAIL: test_touch_forward_band_and_mouse_probe_precedence (test_godot_import.TouchAimEmissionTests.test_touch_forward_band_and_mouse_probe_precedence)
-----------------------------------------------------------------------
-Traceback (most recent call last):
-  File "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_godot_import.py", line 22, in test_touch_forward_band_and_mouse_probe_precedence
-    self.assertIn('event is InputEventScreenTouch or event is InputEventScreenDrag', keeper)
-AssertionError: 'event is InputEventScreenTouch or event is InputEventScreenDrag' not found in '\n# Directional kit: sockets refer to the actual displayed animation/frame.\nvar socket_cells: Dictionary = {}\nvar cast_ready: bool = false\nvar vfx_cursor_override: Variant = null\nconst TOUCH_OVERLAY_BAND = 0.22\nvar vfx_force_touch_device: bool = false\nconst G1 = preload("res://scripts/vfx_g1.gd")\nvar cast_fired: bool = false\nvar active_flare: AnimatedSprite2D\nconst FACING_VECTORS = {"S": Vector2(0,1), "SW": Vector2(-1,1),\n    "W": Vector2(-1,0), "NW": Vector2(-1,-1), "N": Vector2(0,-1),\n    "NE": Vector2(1,-1), "E": Vector2(1,0), "SE": Vector2(1,1)}\n\nfunc _load_directional_kit() -> void:\n    var data: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://sockets.json"))\n    socket_cells = data.cells\n    sprite.frame_changed.connect(_cast_frame_changed)\n    get_tree().physics_frame.connect(_g1_cast_ready, CONNECT_ONE_SHOT)\n\nfunc _socket_world() -> Variant:\n    var cell: Dictionary = socket_cells.get(String(sprite.animation), {})\n    var points: Array = cell.get("sockets", [])\n    if sprite.frame >= points.size() or points[sprite.frame] == null:\n        return null\n    var point: Array = points[sprite.frame]\n    var local: Vector2 = Vector2(point[0], point[1]) + sprite.offset\n    if sprite.centered:\n        local -= sprite.sprite_frames.get_frame_texture(sprite.animation, sprite.frame).get_size() / 2.0\n    return sprite.to_global(local)\n\nfunc _cast_frame_changed() -> void:\n    if state != "cast" or cast_fired:\n        return\n    var cell: Dictionary = socket_cells.get(String(sprite.animation), {})\n    if cell.is_empty() or sprite.frame != int(cell.release_index):\n        return\n    cast_fired = true\n    var socket: Variant = _socket_world()\n    if socket == null:\n        push_warning("No measured release socket: " + String(sprite.animation))\n        return\n    var direction: Vector2 = FACING_VECTORS[facing].normalized()\n    var art_scale: float = sprite.global_transform.x.length()\n    var flare := AnimatedSprite2D.new()\n    flare.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR\n    flare.sprite_frames = preload("res://vfx/flare.tres")\n    var additive := CanvasItemMaterial.new()\n    additive.blend_mode = CanvasItemMaterial.BLEND_MODE_ADD\n    flare.material = additive\n    get_parent().add_child(flare)\n    flare.global_position = socket\n    flare.rotation = direction.angle()\n    flare.scale = Vector2.ONE * art_scale\n    flare.animation_finished.connect(flare.queue_free, CONNECT_ONE_SHOT)\n    flare.play("flare")\n    active_flare = flare\n    var kit: Dictionary = VFX_KITS[cast_kit_index].duplicate(true)\n    # Device policy survives handled overlay touches and browser-emulated mouse.\n    # The explicit probe hook keeps precedence; desktop resolution is unchanged.\n    var destination: Dictionary\n    if vfx_cursor_override == null and (vfx_force_touch_device or DisplayServer.is_touchscreen_available()):\n        var forward_point: Vector2 = global_position + FACING_VECTORS[facing].normalized() * float(kit.range_px) * art_scale\n        destination = {"point": forward_point, "target": null, "kind": "cursor"}\n    else:\n        var cursor: Vector2 = get_global_mouse_position() if vfx_cursor_override == null else vfx_cursor_override\n        destination = G1.resolve_target(get_tree(), global_position, direction, cursor, float(kit.range_px) * art_scale)\n    if not cast_ready:\n        await get_tree().physics_frame\n    if not is_inside_tree():\n        return\n    G1.acquire(get_parent(), kit, socket, destination, self, art_scale)\n\nfunc _g1_cast_ready() -> void:\n    cast_ready = true\n\nfunc _process(_delta: float) -> void:\n    if state == "cast" and is_instance_valid(active_flare):\n        var socket: Variant = _socket_world()\n        if socket != null:\n            active_flare.global_position = socket\n'
+subprocess.TimeoutExpired: Command '['/Applications/Godot.app/Contents/MacOS/Godot', '--headless', '--log-file', '/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4i/tmp/touch-aim-fo8rq8la/project/godot.log', '--path', '/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4i/tmp/touch-aim-fo8rq8la/project', '--script', 'res://touch_aim_probe.gd']' timed out after 60 seconds
 
 ======================================================================
 FAIL: test_synthetic_contract_and_grid (test_oracle_walk.Tests.test_synthetic_contract_and_grid)
@@ -679,6 +683,6 @@ Traceback (most recent call last):
 AssertionError: 'rejected' unexpectedly found in {'angular_support': 0.8333333333333334, 'center': [170.0, 253.0], 'hollow_score': 0.08333333333333333, 'inner_opposed_support': 0.08333333333333333, 'inside': False, 'lab_band_surround': 12.987929666149537, 'lab_center_band': 18.508563966712764, 'lab_center_surround': 30.467977867785994, 'lab_color_return': 0.0, 'radius': 8.0, 'rejected': 'not_annulus', 'score': 0.6366616733180586}
 
 ----------------------------------------------------------------------
-Ran 600 tests in 309.866s
+Ran 612 tests in 336.589s
 
-FAILED (failures=6, errors=1)
+FAILED (failures=5, errors=1)

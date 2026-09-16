@@ -1227,7 +1227,7 @@ class PieceStretchPhaseTests(PiecePhaseTests):
         self.assertEqual(a,{i:piece_stretch(2026,i) for i in reversed(range(24))})
         self.assertNotEqual(a,{i:piece_stretch(2027,i) for i in range(24)})
         for value in a.values():
-            self.assertTrue(1.6 <= value['along'] <= 2)
+            self.assertTrue(2.5 <= value['along'] <= 3)
             self.assertTrue(abs(value['rotation_deg']) <= 10)
         geometry = piece_geometry(self.record,self.path.parent)
         self.assertEqual(geometry['pieces'][0]['root'],[7,7])
@@ -1237,6 +1237,121 @@ class PieceStretchPhaseTests(PiecePhaseTests):
         self.assertEqual((self.out/kit['distance_fields']['pieces/piece.png']).read_bytes(),
                          (self.out/kit['distance_fields']['pieces/peak_index.png']).read_bytes())
 
+
+
+def burst_v2_geometry_diagnostic(kit_root):
+    """Inverse-affine bilinear alpha support, no Godot/rendered claim.
+
+    The stationary source-mask layer and early core erosion match emitted v2.
+    Full 1024-square scratch support avoids clipping the measured geometry.
+    """
+    from scipy import ndimage
+    from export.effect_kit import load_pieces, piece_geometry, piece_stretch
+    kit_root = Path(kit_root)
+    kit = load_kit(kit_root)
+    config, record, _ = load_pieces(kit['pieces'], kit_root, runtime=True)
+    source = kit_root/Path(config['source']).parent
+    geometry = piece_geometry(record, source)
+    with Image.open(source/record['peak_index']) as image:
+        peak = np.asarray(image.convert('RGBA'))
+    field = distance_field(peak)/255
+    py, px = np.nonzero(peak[...,3])
+    extent = int(max(np.ptp(px)+1, np.ptp(py)+1))
+    yy, xx = np.indices((1024,1024), dtype=float)
+    world = np.stack((xx-512, yy-512)).reshape(2,-1)
+    centre = np.asarray(record['centre'])
+    masks = []
+    for item in geometry['pieces']:
+        if not item['animated']: continue
+        with Image.open(source/item['mask']) as image:
+            masks.append((item, np.asarray(image.convert('RGBA'))[...,3]/255))
+    def rotation(angle):
+        c, s = math.cos(angle), math.sin(angle)
+        return np.array([[c,-s],[s,c]])
+    rows = []
+    for tick in range(16):
+        ease = 1-(1-tick/15)**3
+        support = np.zeros((1024,1024),dtype=bool)
+        for item, alpha in masks:
+            stationary = ndimage.map_coordinates(alpha,[world[1]+centre[1],world[0]+centre[0]],order=1,mode='constant').reshape(support.shape)
+            support |= stationary > 0
+            sample = piece_stretch(config['seed'], item['id'])
+            root = np.asarray(item['root'])
+            angle = item['axis_radians']
+            if item['core']:
+                scale = [1+.25*(1-(1-min(tick/9,1))**3)]*2
+                drift = 0
+                erode = max(0,(tick-9)/27)
+            else:
+                scale = [1+(sample['along']-1)*ease, 1-.3*ease]
+                drift = config['root_drift']*geometry['core_radius_px']*ease
+                erode = 0
+            matrix = rotation(angle+math.radians(sample['rotation_deg'])*ease) @ np.diag(scale) @ rotation(-angle)
+            position = root-centre+rotation(angle)[:,0]*drift
+            source_xy = np.linalg.solve(matrix,world-position[:,None])+root[:,None]
+            coordinates = [source_xy[1],source_xy[0]]
+            warped = ndimage.map_coordinates(alpha,coordinates,order=1,mode='constant').reshape(support.shape)
+            sampled_field = ndimage.map_coordinates(field,coordinates,order=1,mode='constant').reshape(support.shape)
+            support |= (warped > 0) & (sampled_field >= erode)
+        labels, count = ndimage.label(support,structure=np.ones((3,3)))
+        sizes = np.bincount(labels.ravel())[1:]
+        y,x = np.nonzero(support)
+        rows.append({'expansion_tick':tick,'age_frames':tick+config['hold_frames']+max(1,round(kit['layers'].get('flash',{}).get('duration_s',1/60)*60)),
+                     'extent_px':int(max(np.ptp(x)+1,np.ptp(y)+1)),
+                     'coverage_px':int(support.sum()),'largest_component_fraction':float(sizes.max()/support.sum())})
+    return {'instrument':'CPU inverse-affine bilinear alpha>0 support; not rendered acceptance',
+            'source_peak_extent_px':extent, 'core_radius_px':geometry['core_radius_px'],
+            'root_drift_max_px':config['root_drift']*geometry['core_radius_px'],
+            'extent_ratio_at_expansion_025s':rows[-1]['extent_px']/extent,
+            'extent_ratio_at_effect_age_025s':next(r['extent_px']/extent for r in rows if r['age_frames']==15),
+            'minimum_largest_component_fraction':min(r['largest_component_fraction'] for r in rows),
+            'frames':rows}
+
+
+class DissolveOrderTests(unittest.TestCase):
+    def test_legacy_default_and_explicit_legacy_shader_bytes(self):
+        from export.effect_kit import dissolve_thresholds, LEGACY_DISSOLVE_ORDER
+        self.assertEqual(dissolve_thresholds(), [1-i/6 for i in range(4)])
+        self.assertEqual(shader_source(), shader_source(dissolve_order=LEGACY_DISSOLVE_ORDER))
+        self.assertNotIn('dissolve_order', validate_material({'palette':PALETTE}))
+
+    def test_order_must_partition_all_four_bands(self):
+        from export.effect_kit import dissolve_thresholds
+        for order in [None, [], [[3],[2],[1]], [[3],[2],[1],[0,0]], [[3],[2],[1],[]],
+                      [[3],[2],[1],[True]], [[3],[2],[1],[4]], '3210', [[3.0],[2],[1],[0]]]:
+            with self.subTest(order=order), self.assertRaisesRegex(ValueError,'dissolve_order'):
+                validate_material({'palette':PALETTE,'dissolve_order':order})
+        self.assertEqual(dissolve_thresholds([[3],[2],[1,0]]), [1-1/6,1-1/6,1-2/6,.5])
+
+    def test_contour_and_fill_drop_together_without_changing_hue(self):
+        pixels = np.array([[[i*85]*3+[255] for i in range(4)]],dtype=np.uint8)
+        for value, visible in [(0,4),(.5,3),(1-2/6,2),(.8,2),(1-1/6,0),(1,0)]:
+            output = material_pixels(pixels, PALETTE, dissolve=value,dissolve_order=[[3],[2],[1,0]])
+            self.assertEqual(np.count_nonzero(output[...,3]),visible)
+            self.assertEqual(int(output[0,0,3]),int(output[0,1,3]))
+            self.assertTrue(np.array_equal(output[...,:3],material_pixels(pixels,PALETTE)[...,:3]))
+
+
+class PieceLap2ValidationTests(PieceStretchPhaseTests):
+    def test_template_order_validation_and_drift_default(self):
+        from export.effect_kit import load_pieces
+        config, _, _ = load_pieces(self.data['pieces'],self.path.parent)
+        self.assertEqual(config['root_drift'],.5)
+        for key,value in [('root_drift',-.01),('root_drift',.501),('root_drift',True),
+                          ('dissolve_order',[[3],[2],[1]])]:
+            with self.subTest(key=key,value=value),self.assertRaises(ValueError):
+                load_pieces(dict(self.data['pieces'],**{key:value}),self.path.parent)
+        self.data['pieces']['dissolve_order']=[[3],[2],[1,0]];self.save()
+        build(self.path,self.out)
+        self.assertEqual(load_kit(self.out)['pieces']['dissolve_order'],[[3],[2],[1,0]])
+
+
+class PieceLap2GeometryTests(unittest.TestCase):
+    def test_delivered_t4e_masks_extent_and_connectivity(self):
+        report = burst_v2_geometry_diagnostic(ROOT/'runs/C-5/vfx_kits/v9/fire_burst_e0p_v2')
+        self.assertGreaterEqual(report['extent_ratio_at_expansion_025s'],1.8)
+        self.assertGreaterEqual(report['extent_ratio_at_effect_age_025s'],1.8)
+        self.assertGreaterEqual(report['minimum_largest_component_fraction'],.9)
 
 if __name__ == '__main__':
     if len(sys.argv) == 3 and sys.argv[1] == '--material-fixture':

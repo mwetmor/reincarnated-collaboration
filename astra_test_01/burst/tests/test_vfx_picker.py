@@ -1194,3 +1194,50 @@ class TouchDeviceAimRuntimeTests(unittest.TestCase):
             for row in report['measurements']:
                 with self.subTest(case=row['case']):
                     self.assertLessEqual(row['error_px'], 2.0)
+
+
+class PieceLap2ExportTests(unittest.TestCase):
+    """T4j real-kit export regression and emitted motion contract."""
+    def setUp(self):
+        TMP.mkdir(parents=True,exist_ok=True)
+        self.temp = tempfile.TemporaryDirectory(prefix='t4j-',dir=TMP)
+        self.addCleanup(self.temp.cleanup)
+        self.root = Path(self.temp.name)
+        self.cells = self.root/'cells'; self.cells.mkdir()
+        for phase in ('idle','cast'):
+            Image.new('RGBA',(512,512)).save(self.cells/(phase+'_E_0.png'))
+        self.sockets = self.root/'sockets.json'
+        self.sockets.write_text(json.dumps({'version':1,'canvas':[512,512],'cells':{'cast_E':{'sockets':[[256,256]],'release_index':0}}}))
+
+    def test_six_kits_and_v1_match_488_file_pre_t4j_hash_table(self):
+        evidence = ROOT/'runs/C-5/t3/T4j'
+        expected = json.loads((evidence/'legacy_before_hashes.json').read_text())
+        project = self.root/'legacy'
+        build_project(self.cells,project,vfx_kits=evidence/'legacy_catalogue.json',sockets=self.sockets)
+        actual = {p.relative_to(project).as_posix():hashlib.sha256(p.read_bytes()).hexdigest()
+                  for p in sorted(project.rglob('*')) if p.is_file()}
+        self.assertEqual(len(actual),488)
+        self.assertEqual(actual,expected)
+
+    def test_v2_emits_drift_stretch_groups_and_stationary_residue(self):
+        project = self.root/'project'
+        build_project(self.cells,project,vfx_kit=ROOT/'runs/C-5/vfx_kits/v9/fire_burst_e0p_v2',sockets=self.sockets)
+        script = (project/'scripts/vfx/piece_burst_v2.gd').read_text()
+        self.assertIn('Seeded along stretch is 2.5..3.0',script)
+        self.assertIn('float(config.root_drift) * float(config.core_radius_px) * ease',script)
+        self.assertIn('axis.set_position(root_start + Vector2.RIGHT.rotated',script)
+        self.assertIn('var ease: float = 1.0-pow(1.0-flight_t,3.0)',script)
+        runtime = json.loads(next((project/'vfx').rglob('burst_runtime.json')).read_text())
+        self.assertEqual(runtime['root_drift'],.5)
+        self.assertEqual(runtime['dissolve_order'],[[3],[2],[1,0]])
+        self.assertTrue(runtime['grouped_dissolve'])
+        for item in runtime['pieces']:
+            self.assertGreaterEqual(item['along'],2.5)
+            self.assertLessEqual(item['along'],3)
+        material = next((project/'vfx').rglob('Root_001.tres')).read_text()
+        shader_path = re.search(r'path="res://([^\"]+gdshader)"',material)[1]
+        shader = (project/shader_path).read_text()
+        self.assertIn('vec4(0.83333333333333337, 0.83333333333333337, 0.66666666666666674, 0.5)[int(band)]',shader)
+        self.assertIn('outer_distance',shader)
+        self.assertIn('"dissolve",residue_dissolve',script)
+        validate_resources(project,True)
