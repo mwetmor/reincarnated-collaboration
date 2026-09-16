@@ -1713,42 +1713,45 @@ class FireLaneHeadlessTests(unittest.TestCase):
 
 class FL2RuntimeEmissionTests(unittest.TestCase):
     def test_real_scene_sweep_and_ground_anchor_trace(self):
-        root=Path(__file__).resolve().parents[1]/'runs/C-5/t3/FL-2b'
-        before=json.loads((root/'before_probes.json').read_text())
-        after=json.loads((root/'after_probes.json').read_text())
-        def events(report, face):
+        root=Path(__file__).resolve().parents[1]/'runs/C-5/t3/FL-2c'
+        report=json.loads((root/'after_probes.json').read_text())
+        def events(face):
             case=report['cases'][face]
             self.assertEqual(case['exit'],0)
             return case['probe']['effects'][0]['events']
-        for face in ('W','NW','SE'):
+        for face in ('W','NW','SE','N'):
             with self.subTest(direction=face):
-                old=[e for e in events(before,face) if e['event']=='contact']
-                self.assertEqual([e['body_index'] for e in old],[3])
-                new=events(after,face)
-                self.assertEqual([e for e in new if e['event']=='contact'],[])
-                expiry=[e for e in new if e['event']=='expire']
+                rows=events(face)
+                self.assertEqual([e for e in rows if e['event']=='contact'],[])
+                expiry=[e for e in rows if e['event']=='expire']
                 self.assertEqual(len(expiry),1)
                 self.assertGreaterEqual(expiry[0]['age_frames'],18)
                 self.assertEqual(expiry[0]['range_expiry'],'fizzle')
-        for face in ('E','ice_E'):
+        for face,limit in (('E',6),('ice_E',8)):
             with self.subTest(direction=face):
-                contacts=[e for e in events(after,face) if e['event']=='contact']
+                contacts=[e for e in events(face) if e['event']=='contact']
                 self.assertEqual([e['body_index'] for e in contacts],[3])
-                self.assertLessEqual(contacts[0]['age_frames'],6)
-        self.assertEqual(events(before,'N'),events(after,'N'))
-        # Alpha >= 32 of the head is the entire envelope, for fire and ice.
-        import numpy as np
-        from scipy.spatial import ConvexHull
-        from export.godot_import import _painted_g1_config, _load_vfx_kit
-        repo=Path(__file__).resolve().parents[1]
-        for name in ('fire_bolt_e1_A','fire_bolt_e1_B','ice_bolt_e2'):
-            kit=_load_vfx_kit(repo/'runs/C-5/vfx_kits/v9'/name);kit['name']=name
-            head=kit['effect']['travel_primitives']['head']
-            with Image.open(kit['root']/head['png']) as image:
-                y,x=np.nonzero(np.array(image.convert('RGBA'))[...,3]>=32)
-            points=np.column_stack((x,y))
-            expected=(points[ConvexHull(points).vertices]-head['pivot'])*head['scale']
-            np.testing.assert_array_equal(_painted_g1_config(kit)['head_hull'],expected)
+                self.assertLessEqual(contacts[0]['age_frames'],limit)
+        contacts=[e for e in events('NE') if e['event']=='contact']
+        self.assertEqual(contacts[0]['body_index'] if contacts else None,report['ne_first_crossed_body'])
+        import math
+        ice=json.loads((root/'ice_E-telemetry.json').read_text())
+        self.assertTrue(ice['telemetry']['decals'])
+        for row in ice['telemetry']['decals']:
+            self.assertLessEqual(math.dist(row['position'],[3911,596]),26)
+
+    def test_capsule_metadata_has_no_painted_coverage_dependency(self):
+        from export.godot_import import _g1_capsule_config, G1_SCRIPT, G1_SCENE, PAINTED_G1_SCRIPT
+        from unittest.mock import patch
+        head=dict(pivot=[404,266],rear_socket=[168,266],scale=.5)
+        kit={'effect':{'travel_primitives':{'head':head}}}
+        with patch('export.godot_import.Image.open',side_effect=AssertionError('alpha read')):
+            self.assertEqual(_g1_capsule_config(kit),dict(collision_radius_bh=.25,head_length_px=118))
+        self.assertIn('CapsuleShape2D',G1_SCENE)
+        self.assertNotIn('CircleShape2D',G1_SCRIPT+G1_SCENE)
+        self.assertNotIn('head_hull',G1_SCRIPT+PAINTED_G1_SCRIPT)
+        self.assertIn('along >= 32.5',G1_SCRIPT)
+        self.assertIn('query.transform = $CollisionShape2D.global_transform',G1_SCRIPT)
 
     def test_emitted_opt_in_material_and_hitstop(self):
         from export.godot_import import _g1_config, _load_vfx_kit

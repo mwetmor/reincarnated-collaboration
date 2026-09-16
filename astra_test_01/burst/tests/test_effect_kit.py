@@ -2431,3 +2431,33 @@ class FL2FieldValidationTests(unittest.TestCase):
                 self.assertEqual(kit['effect']['layers']['cast']['muzzle_puff']['frames'],4)
             elif kit['name']=='fire_burst_e0p_v2':self.assertEqual(kit['effect']['pieces']['residue_s'],.8)
             else:self.assertNotIn('cast',kit.get('effect',{}).get('layers',{}))
+
+
+class CanonicalCapsuleValidationTests(unittest.TestCase):
+    def test_optional_radius_boundaries_bad_values_and_no_default_mutation(self):
+        from export.effect_kit import _validate, load_kit
+        root=ROOT/'runs/C-5/vfx_kits/v9/fire_bolt_e1_B'
+        data=load_kit(root)
+        self.assertNotIn('g1',data)
+        for radius in (.1,.25,.5):
+            value=copy.deepcopy(data);value['g1']={'collision_radius_bh':radius}
+            _validate(value,root,True)
+        for radius in (.099,.501,True,None,'0.25',float('nan'),float('inf')):
+            value=copy.deepcopy(data);value['g1']={'collision_radius_bh':radius}
+            with self.subTest(radius=radius), self.assertRaises(ValueError): _validate(value,root,True)
+        value=copy.deepcopy(data);value['g1']={'unknown':.25}
+        with self.assertRaises(ValueError): _validate(value,root,True)
+
+    def test_orb_child_radius_is_independent(self):
+        from export.effect_kit import _validate, load_kit
+        from export.godot_import import _g1_capsule_config
+        root=ROOT/'runs/C-5/vfx_kits/v9/frozen_orb_e3'
+        data=load_kit(root);data['g1']={'collision_radius_bh':.4}
+        config=_g1_capsule_config({'effect':data})
+        self.assertEqual(config['collision_radius_bh'],.4)
+        self.assertEqual(config['child_collision_radius_bh'],.15)
+        data['orb']['shard']['collision_radius_bh']=.2
+        _validate(data,root,True)
+        self.assertEqual(_g1_capsule_config({'effect':data})['child_collision_radius_bh'],.2)
+        data['orb']['shard']['collision_radius_bh']=True
+        with self.assertRaises(ValueError): _validate(data,root,True)

@@ -25,7 +25,7 @@ import numpy as np
 from PIL import Image
 
 PHASES = {'cast': 'flare', 'travel': 'travel', 'impact': 'impact', 'residual': 'residual'}
-TOP = {'name', 'element', 'element_class', 'tint', 'phases', 'layers', 'ground_squash', 'pixel_scale', 'phase_scale', 'material', 'distance_fields', 'pierce', 'pieces', 'screen_px', 'erode_noise', 'skill_spec', 'travel_primitives', 'key_states', 'impact_binding', 'decal_s', 'orb'}
+TOP = {'name', 'element', 'element_class', 'tint', 'phases', 'layers', 'ground_squash', 'pixel_scale', 'phase_scale', 'material', 'distance_fields', 'pierce', 'pieces', 'screen_px', 'erode_noise', 'skill_spec', 'travel_primitives', 'key_states', 'impact_binding', 'decal_s', 'orb', 'g1'}
 LAYER_KEYS = {
     'glow': {'alpha', 'scale', 'peak'}, 'floor_light': {'duration_s', 'radius_px', 'curve', 'tint', 'alpha'},
     'cast': {'muzzle_puff', 'floor_light'}, 'travel': {'flicker_frames', 'trail', 'erode_noise'},
@@ -566,6 +566,8 @@ def _validate(data, root, runtime=False):
     if not isinstance(data.get('screen_px', False), bool):
         raise ValueError('screen_px must be boolean')
     _number(data.get('pierce', 0), -1, math.inf, 'pierce', True)
+    _keys(data.get('g1', {}), {'collision_radius_bh'}, set(), 'g1')
+    _number(data.get('g1', {}).get('collision_radius_bh', .25), .1, .5, 'g1.collision_radius_bh')
     if data.get('pieces', {}).get('template') == 'burst_v1r' and ('decal_s' not in data or not data.get('screen_px')):
         raise ValueError('burst_v1r requires screen_px and decal_s')
     if 'decal_s' in data:
@@ -1591,7 +1593,8 @@ def validate_orb(data, root, runtime=False):
     if len(record['pieces']) != g['expiry_count']: raise ValueError('orb expiry requires 16 pieces')
     assets={}
     for role in ('body','shard'):
-        item=g[role];_keys(item,{'png','pivot','scale','binding'},{'png','pivot','scale','binding'},'orb.'+role)
+        item=g[role];_keys(item,{'png','pivot','scale','binding'} | ({'collision_radius_bh'} if role == 'shard' else set()),{'png','pivot','scale','binding'},'orb.'+role)
+        if role == 'shard': _number(item.get('collision_radius_bh', .15), .1, .5, 'orb.shard.collision_radius_bh')
         expected=spec['presentation']['primitive_bindings']['travel_head' if role=='body' else 'child']
         if item['binding'] != expected: raise ValueError('orb primitive binding disagrees')
         assets[item['png']]=_png(item['png'],root,True,runtime)

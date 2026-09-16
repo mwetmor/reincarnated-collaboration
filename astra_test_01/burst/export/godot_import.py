@@ -1491,8 +1491,9 @@ def _write_vfx_kits(out, kits, base, cells, socket_data, annotation):
 
 G1_SCENE = '''[gd_scene load_steps=3 format=3]
 [ext_resource type="Script" path="res://scripts/vfx_g1.gd" id="G1"]
-[sub_resource type="CircleShape2D" id="HeadShape"]
-radius = 3.0
+[sub_resource type="CapsuleShape2D" id="HeadShape"]
+radius = 32.5
+height = 65.0
 [node name="G1Projectile" type="Area2D"]
 texture_filter = 2
 script = ExtResource("G1")
@@ -1576,8 +1577,6 @@ static func acquire(parent: Node2D, kit: Dictionary, origin: Vector2, destinatio
 
 func _ready() -> void:
     add_to_group("vfx_g1_pool")
-    area_entered.connect(_on_area_entered)
-    body_entered.connect(_on_body_entered)
     set_physics_process(false)
     hide()
 
@@ -1636,12 +1635,25 @@ func release(kit: Dictionary, origin: Vector2, destination: Dictionary, owner_no
     var tint: Array = config.get("trail_color", [0.35, 0.65, 0.8, 0.6])
     $Trail.default_color = Color(tint[0], tint[1], tint[2], tint[3])
     $Trail.show()
-    $CollisionShape2D.shape = CircleShape2D.new()
-    $CollisionShape2D.shape.radius = 3.0 * spell_scale
+    # FL-2c: canonical world-pixel capsule; art alpha never defines gameplay.
+    _configure_capsule(origin)
     set_deferred("monitoring", true)
     show()
     set_physics_process(true)
     _record("release")
+
+func _configure_capsule(origin: Vector2) -> void:
+    if direction.is_zero_approx(): direction = Vector2.RIGHT
+    var shape := CapsuleShape2D.new()
+    shape.radius = float(config.get("collision_radius_bh", 0.25)) * 130.0
+    shape.height = maxf(float(config.get("head_length_px", 65.0)), shape.radius * 2.0)
+    $CollisionShape2D.shape = shape
+    $CollisionShape2D.rotation = direction.angle() - PI / 2.0
+    $CollisionShape2D.position = -direction * shape.height / 2.0
+    # The node records the leading tip; the capsule's rear starts at the socket.
+    global_position = origin + direction * shape.height
+    distance = shape.height
+    release_sweep_start = origin + direction * shape.height
 
 func _physics_process(delta: float) -> void:
     if not active:
@@ -1654,8 +1666,7 @@ func _physics_process(delta: float) -> void:
     var step: float = minf(float(config.get("speed_px_s", 520.0)) * spell_scale * delta, minf(remaining, range_left))
     var motion: Vector2 = global_position.direction_to(travel_end) * step
     var start: Vector2 = global_position
-    # Sweep the emergence too: a long painted head may span a nearby body at release.
-    # The sweep endpoint and Area2D origin remain the painted leading tip.
+    # Test the complete emergence capsule, then sweep the same shape every frame.
     if release_sweep_start != null:
         start = release_sweep_start
         motion += global_position - start
@@ -1679,8 +1690,8 @@ func _physics_process(delta: float) -> void:
             excluded.append(body.get_rid())
     while true:
         query.exclude = excluded
-        query.transform = global_transform
-        query.transform.origin = start
+        query.transform = $CollisionShape2D.global_transform
+        query.transform.origin += start - global_position
         query.motion = Vector2.ZERO
         var overlaps: Array = space.intersect_shape(query)
         var fraction: float = 0.0
@@ -1689,7 +1700,7 @@ func _physics_process(delta: float) -> void:
             var fractions: PackedFloat32Array = space.cast_motion(query)
             fraction = fractions[1] if fractions.size() == 2 else 1.0
             query.motion = Vector2.ZERO
-            query.transform.origin = start + motion * fraction
+            query.transform.origin += motion * fraction
             overlaps = space.intersect_shape(query)
         if overlaps.is_empty():
             break
@@ -1697,7 +1708,7 @@ func _physics_process(delta: float) -> void:
             var body: CollisionObject2D = hit.collider
             excluded.append(body.get_rid())
             var along: float = (body.global_position - cast_origin).dot(release_facing)
-            if along > 0.0:
+            if along >= 32.5:
                 hits.append({"area": body, "fraction": fraction, "along": along})
     hits.sort_custom(func(a, b): return a.fraction < b.fraction if not is_equal_approx(a.fraction, b.fraction) else a.along < b.along)
     for hit in hits:
@@ -1723,23 +1734,14 @@ func _physics_process(delta: float) -> void:
         else:
             expire()
 
-func _on_area_entered(area: Area2D) -> void:
-    # Swept queries own pierce ordering; overlap callbacks must not race them.
-    if int(config.get("pierce", 0)) == 0 and not config.has("head_hull"):
-        contact_body(area)
-
-func _on_body_entered(body: Node2D) -> void:
-    if int(config.get("pierce", 0)) == 0 and not config.has("head_hull") and body is StaticBody2D:
-        contact_body(body)
-
 func contact_body(area: CollisionObject2D, phase: String = "head") -> void:
     # Phase producers (chain hops, shards, field centre/rim) share the cast ledger.
     if not active or not is_instance_valid(area) or area == caster or contacted.has(area.get_instance_id()):
         return
     if phase not in ["head", "chain_hop", "field_centre", "shard", "rim"]:
         return
-    # Reject behind-release candidates on every entry path, including callbacks.
-    if (area.global_position - cast_origin).dot(release_facing) <= 0.0:
+    # Near/behind candidates are ignored only for this sweep, never contacted.
+    if (area.global_position - cast_origin).dot(release_facing) < 32.5:
         return
     var contact_class: String = "primary"
     if phase in ["shard", "rim"] or (phase == "head" and not contacted.is_empty()):
@@ -1817,6 +1819,35 @@ func _recycle() -> void:
 '''
 
 
+def _g1_capsule_config(kit):
+    """Canonical BH radius and authored longitudinal extent, independent of alpha.
+
+    Painted heads supply rear and tip coordinates. Orb primitives have declared
+    BH extents. Legacy G1 frames use their full rectangular frame extent.
+    Godot requires total capsule height >= diameter (a circle at equality).
+    """
+    data = kit.get('effect', {})
+    radius = data.get('g1', {}).get('collision_radius_bh', .25)
+    result = {'collision_radius_bh': radius}
+    if 'travel_primitives' in data:
+        head = data['travel_primitives']['head']
+        length = abs(head['pivot'][0] - head['rear_socket'][0]) * head['scale']
+    elif 'orb' in data:
+        extents = data['skill_spec']['presentation']['body_extents_bh']
+        length = extents['orb'] * 130.0
+        result['child_collision_radius_bh'] = data['orb']['shard'].get('collision_radius_bh', .15)
+        result['child_head_length_px'] = extents['child'] * 130.0
+    else:
+        frames = data.get('phases', {}).get('travel', {}).get('frames', [])
+        if frames:
+            with Image.open(kit['root']/frames[0]['file']) as image:
+                length = image.width * data.get('phase_scale', {}).get('travel', 1.0)
+        else:
+            length = 65.0
+    result['head_length_px'] = length
+    return result
+
+
 def _g1_config(kit):
     name = kit['name']
     root = 'vfx/'+name
@@ -1837,7 +1868,7 @@ def _g1_config(kit):
             'phase_scale': data.get('phase_scale', {}).get('travel', 1.0),
             'material': 'res://'+root+'/materials/Body.tres' if authored else '',
             'binding': 'res://scripts/vfx_'+name+'_material.gd' if authored else '',
-            'fields': fields, 'trail_color': list(kit.get('tint', [.35, .65, .8]))+[.6], **_painted_g1_config(kit), **_orb_config(kit)}
+            **_g1_capsule_config(kit), 'fields': fields, 'trail_color': list(kit.get('tint', [.35, .65, .8]))+[.6], **_painted_g1_config(kit), **_orb_config(kit)}
 
 
 def _g1_directional(script):
@@ -2950,15 +2981,7 @@ def _painted_g1_config(kit):
     for i, state in enumerate(states):
         state['png'] = root+state['png']
         state['material'] = root+'materials/Travel_key_'+str(i)+'.tres'
-    from scipy.spatial import ConvexHull
-    import numpy as np
-    with Image.open(kit['root']/data['travel_primitives']['head']['png']) as im:
-        yy, xx = np.nonzero(np.asarray(im.convert('RGBA'))[...,3] >= 32)
-    points = np.column_stack((xx,yy))
-    head = data['travel_primitives']['head']
-    hull = (points[ConvexHull(points).vertices] - head['pivot']) * head['scale']
-    # FL-2b: only alpha >= 32 of the painted head collides; the streak is a trail.
-    return {'head_hull': hull.tolist(), 'fire_layers': data['layers'] if 'cast' in data['layers'] else {}, 'palette': data['material']['palette'], 'bolt': ('res://scenes/vfx/g1_ice_projectile.tscn' if data.get('pieces', {}).get('template') == 'burst_v1r' else 'res://scenes/vfx/g1_painted_projectile.tscn'),
+    return {'fire_layers': data['layers'] if 'cast' in data['layers'] else {}, 'palette': data['material']['palette'], 'bolt': ('res://scenes/vfx/g1_ice_projectile.tscn' if data.get('pieces', {}).get('template') == 'burst_v1r' else 'res://scenes/vfx/g1_painted_projectile.tscn'),
             'range_px': data['skill_spec']['mechanics']['range_px'],
             'speed_px_s': data['skill_spec']['mechanics']['speed_px_s'],
             'spec_speed_px_s': data['skill_spec']['mechanics']['speed_px_s'],
@@ -3072,14 +3095,8 @@ func release(kit: Dictionary, origin: Vector2, destination: Dictionary, owner_no
     if direction.is_zero_approx():
         direction = Vector2.RIGHT
     var paint: Dictionary = config.painted_travel
-    # The painted pivot is the nose. Attach the rear to the staff socket.
-    var rear: Vector2 = (Vector2(paint.head.rear_socket[0], paint.head.rear_socket[1]) - Vector2(paint.head.pivot[0], paint.head.pivot[1])) * float(paint.head.scale)
-    # A 0.1 BH separation keeps the emerging centre clear; rear remains within 0.4 BH.
-    global_position = origin - rear.rotated(direction.angle()) + direction * 13.0
-    release_sweep_start = origin
-    # Keep the range endpoint measured from the release socket.
+    _configure_capsule(origin)
     cast_origin = origin
-    distance = (global_position-origin).dot(direction)
     travel_end = origin + direction * float(config.range_px)
     rest_head = load(paint.head.png)
     $Head.sprite_frames = $Head.sprite_frames.duplicate()
@@ -3089,22 +3106,6 @@ func release(kit: Dictionary, origin: Vector2, destination: Dictionary, owner_no
     $Head.scale = Vector2.ONE * float(paint.head.scale)
     $Head.material = load(paint.head.material).duplicate()
     $Head.show()
-    # Keep the emerging painted centre outside the caster's 0.6 BH x 1 BH body.
-    # This is a bounded release separation, not a rotation of another row's socket.
-    if is_instance_valid(caster):
-        var actor_sprite: Node2D = caster.get_node_or_null("AnimatedSprite2D")
-        var body_height: float = 240.0 * actor_sprite.global_transform.x.length() if actor_sprite != null else 130.0
-        var body := Rect2(caster.global_position + Vector2(-0.3 * body_height, -body_height), Vector2(0.6 * body_height, body_height))
-        var bounds: Rect2 = rest_head.get_image().get_used_rect()
-        var centre: Vector2 = global_position + ((bounds.get_center() - Vector2(paint.head.pivot[0], paint.head.pivot[1])) * float(paint.head.scale)).rotated(direction.angle())
-        if body.has_point(centre):
-            var exit_distance: float = INF
-            if absf(direction.x) > 0.000001:
-                exit_distance = minf(exit_distance, ((body.end.x if direction.x > 0.0 else body.position.x)-centre.x)/direction.x)
-            if absf(direction.y) > 0.000001:
-                exit_distance = minf(exit_distance, ((body.end.y if direction.y > 0.0 else body.position.y)-centre.y)/direction.y)
-            global_position += direction * minf(39.0, maxf(0.0, exit_distance)+1.0)
-            distance = (global_position-origin).dot(direction)
     for node in [$Streak, $KeyState, $DarkHead, $DarkStreak, $DarkKey, $CastHalo]:
         node.rotation = direction.angle()
         node.modulate = Color.WHITE
@@ -3117,12 +3118,6 @@ func release(kit: Dictionary, origin: Vector2, destination: Dictionary, owner_no
     $KeyState.hide()
     $CastHalo.hide()
     $Trail.hide()
-    if config.has("head_hull"):
-        var shape := ConvexPolygonShape2D.new()
-        var vertices := PackedVector2Array()
-        for p in config.head_hull: vertices.append(Vector2(p[0],p[1]).rotated(direction.angle()))
-        shape.points = vertices
-        $CollisionShape2D.shape = shape
     fire_trace.clear()
     fire_fx = null
     trail_motes = null
@@ -4771,6 +4766,8 @@ func _emit_child(scheduled: int) -> void:
     var axis: Vector2 = Vector2.RIGHT.rotated(deg_to_rad(angle))
     var child_config: Dictionary = config.duplicate(true)
     child_config.pierce = 0
+    child_config.collision_radius_bh = config.child_collision_radius_bh
+    child_config.head_length_px = config.child_head_length_px
     child_config.range_px = config.child_range_px
     child_config.speed_px_s = config.child_speed_px_s
     child_config.animation = "travel"
@@ -4875,10 +4872,11 @@ func _physics_process(_delta: float) -> void:
 func contact_body(area: CollisionObject2D, _phase: String = "head") -> void:
     if not active or flash_end >= 0 or area == caster or not is_instance_valid(area): return
     if contacted.has(area.get_instance_id()): return
+    if (area.global_position - cast_origin).dot(release_facing) < 32.5: return
     contacted[area.get_instance_id()] = true
     var index: int = int(area.get_meta("body_index",area.get_instance_id()))
     _record("contact",age_frames())
-    events[-1].merge({"parent_effect_id":orb_owner.effect_id,"body_index":index,"phase":"shard","contact_class":"secondary","strike_response":false})
+    events[-1].merge({"position":[global_position.x,global_position.y],"parent_effect_id":orb_owner.effect_id,"body_index":index,"phase":"shard","contact_class":"secondary","strike_response":false})
     if area.is_in_group("vfx_targets"): orb_owner._contact_label(area,index,"secondary")
     orb_owner.tint_target(area)
     $Shard.hide()

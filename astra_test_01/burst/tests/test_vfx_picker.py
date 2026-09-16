@@ -162,7 +162,7 @@ class VfxPickerTests(unittest.TestCase):
             self.assertFalse((out/f'scenes/vfx_{name}_bolt.tscn').exists())
         self.assertTrue((out/'scenes/vfx/g1_projectile.tscn').is_file())
         bolt = (out/'scripts/vfx_g1.gd').read_text()
-        for token in ('area_entered.connect', 'space.cast_motion(query)', '"release"', '"contact"', '"expire"', '"cancel"'):
+        for token in ('CapsuleShape2D.new()', 'space.cast_motion(query)', '"release"', '"contact"', '"expire"', '"cancel"'):
             self.assertIn(token, bolt)
         settings = (out/'project.godot').read_text()
         self.assertIn('vfx_cycle={"deadzone":0.2,"events":[Object(InputEventKey,"physical_keycode":4194306)]}', settings)
@@ -569,7 +569,7 @@ func probe() -> void:
         scene.add_child(target)
         bolt.resolved.target = target
         bolt.resolved.kind = "prop"
-        bolt._on_area_entered(target)
+        bolt.contact_body(target)
         check(bolt.expired, "collision expires bolt")
         var impact: Node2D = scene.get_child(scene.get_child_count()-1)
         collision_paths.append(impact.scene_file_path)
@@ -638,7 +638,7 @@ func release_bolt() -> Area2D:
     check(keeper.cast_fired, "released at socket frame two")
     var bolt: Area2D = get_nodes_in_group("vfx_g1_pool")[0]
     bolt.set_physics_process(false)
-    check(bolt.global_position.distance_to(keeper._socket_world()) < 0.001, "staff socket")
+    check((bolt.global_position - bolt.direction * bolt.get_node("CollisionShape2D").shape.height).distance_to(keeper._socket_world()) < 0.001, "staff socket at capsule rear")
     check(bolt.resolved.kind == "cursor", "cursor resolved")
     return bolt
 func probe() -> void:
@@ -688,9 +688,10 @@ func probe() -> void:
     tab()
     var target := Area2D.new()
     scene.add_child(target)
+    target.global_position = inflight.cast_origin + inflight.release_facing * 200.0
     inflight.resolved.target = target
     inflight.resolved.kind = "prop"
-    inflight._on_area_entered(target)
+    inflight.contact_body(target)
     check(inflight.expired, "target collision")
     var impact: Node2D = scene.get_child(scene.get_child_count()-1)
     check(impact.scene_file_path == "res://scenes/vfx_zeta_impact.tscn", "in-flight impact kit lock")
@@ -1951,7 +1952,7 @@ class FireLaneSocketSchemaTests(unittest.TestCase):
 
 class FL2TraceContractTests(unittest.TestCase):
     def setUp(self):
-        self.report=json.loads((ROOT/'runs/C-5/t3/FL-2/acceptance.json').read_text())
+        self.report=json.loads((ROOT/'runs/C-5/t3/FL-2c/retained_fl2.json').read_text())
 
     def test_eased_floor_and_exact_peak_hold(self):
         samples=self.report['part3']['floor_samples']
@@ -1983,3 +1984,63 @@ class FL2TraceContractTests(unittest.TestCase):
         self.assertTrue(any(r['tick']==0 and r['puff_alpha']==1 for r in rows))
         self.assertTrue(any(r['tick']==4 and r['puff_alpha']==0 for r in rows))
         self.assertTrue(any(r['tick']==6 and r['floor_alpha']==0 for r in rows))
+
+
+class CanonicalCapsuleSweepTests(unittest.TestCase):
+    def test_emergence_fraction_order_and_temporarily_ignored_body(self):
+        project=ROOT/'runs/C-5/t3/FL-2c/reexport'
+        probe=project/'capsule_sweep_test.gd'
+        probe.write_text(CAPSULE_SWEEP_PROBE)
+        result=subprocess.run([GODOT,'--headless','--path',str(project),'--log-file',str(project/'capsule-sweep-engine.log'),'--script','res://capsule_sweep_test.gd'],capture_output=True,text=True,timeout=45)
+        self.assertEqual(result.returncode,0,result.stdout+result.stderr)
+        rows=json.loads((project/'capsule_sweep_test.json').read_text())
+        self.assertEqual([r['body_index'] for r in rows['contacts']],[2,3,1])
+        self.assertTrue(rows['near_ignored_initially'])
+        self.assertAlmostEqual(rows['radius'],32.5)
+        self.assertAlmostEqual(rows['rear_error'],0,delta=.001)
+        self.assertAlmostEqual(rows['contacts'][0]['position'][0],rows['height'],delta=.001)
+        self.assertEqual([r['position'][0] for r in rows['contacts']],sorted(r['position'][0] for r in rows['contacts']))
+
+CAPSULE_SWEEP_PROBE = r'''extends SceneTree
+func _initialize() -> void:
+    call_deferred("run")
+func run() -> void:
+    var world := Node2D.new()
+    root.add_child(world)
+    var targets: Array = []
+    for i in range(3):
+        var body := Area2D.new()
+        world.add_child(body)
+        body.position = Vector2([10,80,220][i],0)
+        body.collision_layer = 2
+        body.collision_mask = 0
+        body.set_meta("body_index",i+1)
+        var collision := CollisionShape2D.new()
+        var shape := CircleShape2D.new()
+        shape.radius = 10.0
+        collision.shape = shape
+        body.add_child(collision)
+        targets.append(body)
+    await physics_frame
+    await process_frame
+    var g1 = load("res://scripts/vfx_g1.gd")
+    var keeper = load("res://scripts/keeper.gd")
+    var config: Dictionary = keeper.VFX_KITS[9].duplicate(true)
+    config.pierce = -1
+    var bolt = g1.acquire(world,config,Vector2.ZERO,{"point":Vector2(520,0),"target":null,"kind":"cursor","facing":Vector2.RIGHT},null,1.0)
+    bolt.set_physics_process(false)
+    var shape = bolt.get_node("CollisionShape2D").shape
+    var report = {"radius":shape.radius,"height":shape.height,"rear_error":(bolt.global_position-bolt.direction*shape.height).length()}
+    bolt._physics_process(0.0)
+    report.near_ignored_initially = not bolt.contacted.has(targets[0].get_instance_id())
+    targets[0].position = Vector2(340,0)
+    await physics_frame
+    await process_frame
+    for i in range(30):
+        bolt._physics_process(1.0/60.0)
+        await physics_frame
+        await process_frame
+    report.contacts = g1.events.filter(func(e):return e.event == "contact")
+    FileAccess.open("res://capsule_sweep_test.json",FileAccess.WRITE).store_string(JSON.stringify(report))
+    quit()
+'''

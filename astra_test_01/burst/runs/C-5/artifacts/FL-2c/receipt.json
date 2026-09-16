@@ -1,0 +1,69 @@
+{
+  "task_id": "FL-2c",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [],
+  "calls_used": 0,
+  "retries": [
+    {
+      "reason": "Initial export used props without staged targets.",
+      "change": "Re-exported with v35 props and reran all seven probes."
+    }
+  ],
+  "self_report": {
+    "obeyed_invariants": false,
+    "concerns": [
+      "Retained body-clearance assertion remains red for five early S-direction samples.",
+      "NE crosses no target and fizzles at age 22.",
+      "Short placeholder heads require Godot's minimum-diameter clamp; legacy heads lack authored rear/tip metadata.",
+      "228 suite tests ran; remaining reds are named in acceptance.json. Focused recheck: 12 green, one environment assertion.",
+      "Initial SPEC read exceeded the requested sections; historical engine-side cache writes cannot be certified.",
+      "Complete path inventory is in files.json and receipt.full.json; this response lists primary deliverables."
+    ]
+  },
+  "files": [
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/export/godot_import.py",
+      "sha256": "4f10a1c3de556973e704acecaf6420929cae325ace1fbd09c52963334f31f6c3"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/export/effect_kit.py",
+      "sha256": "c9cc017e07acd23c5e31984da67c69a6b79ddeef08d0458ea86140d34e004053"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_vfx_picker.py",
+      "sha256": "888ef0653dce85cb0ae97fd6785133d3ebd981900c448c8044c551859e62f50f"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_godot_import.py",
+      "sha256": "8d8775768cba468618008de24c4b19cb33f95e8ee9707b4a67b90c691ffc2263"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_effect_kit.py",
+      "sha256": "897e0b86e728552764ffddaa714ebf687ea33d7612f13e6e86542a89c418ed2f"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/fixtures/fl1b/PieceLap2ExportTests-3.json",
+      "sha256": "2c6ec3dfc8f3a2667f5509b1b51de817a9cd9d889a3e9aea627cc24fecb36ca3"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/fixtures/fl1b/ProjectileArmPickerTests-2.json",
+      "sha256": "381722acb214c0dc1d0f7b85532b39838fdf7a8c8eb1b107998fb950fd717a8f"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/fixtures/fl1b/IceTreatmentImportTests-0.json",
+      "sha256": "efb74aa002163ae5f8b90e28e0f658f287ef06918e03f24014bfe1bd627ee121"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/FL-2c/acceptance.json",
+      "sha256": "2fadaa86c9c439cefc10be4c90eae9e7812262bfd52ced47e865639b8ef545f9"
+    },
+    {
+      "path": "/Users/admin/astra-burst/runs/C-5/FL-2c/out/files.json",
+      "sha256": "22a61f96e2bcd711ca8d818303a5fcc29535906253f34ab2bda6e922f72503bb"
+    },
+    {
+      "path": "/Users/admin/astra-burst/runs/C-5/FL-2c/out/receipt.full.json",
+      "sha256": "98a7a32b4cbc32ec0818e84d0e9170cd38a1b766476cabedc09223a0047b6bd2"
+    }
+  ]
+}
