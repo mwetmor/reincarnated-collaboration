@@ -2041,3 +2041,50 @@ class ProjectileArmValidationTests(unittest.TestCase):
                               for name, hold in [('stretched',3),('pulsed',4)]]
         (root/'kit.json').write_text(json.dumps(data))
         self.assertEqual(len(load_kit(root)['key_states']),2)
+
+
+class IceTreatmentValidationTests(unittest.TestCase):
+    def setUp(self):
+        self.kitroot=ROOT/'runs/C-5/vfx_kits/v9/ice_bolt_e2'
+        self.data=load_kit(self.kitroot)
+
+    def test_ice_spec_palette_template_decal_and_index_coverage(self):
+        from export.effect_kit import _validate,piece_erode_noise
+        spec=json.loads((ROOT/'runs/C-5/specs/ice_bolt_e2.json').read_text())
+        self.assertEqual(self.data['skill_spec'],spec)
+        self.assertEqual(self.data['pieces']['template'],'burst_v1r')
+        self.assertEqual(self.data['pieces']['dissolve_order'],[[3],[2],[1,0]])
+        self.assertEqual(piece_erode_noise(self.data),.4)
+        self.assertTrue(self.data['screen_px'])
+        palette=self.data['material']['palette']
+        self.assertEqual(palette[-1],[1,1,1,1])
+        for colour in palette[:-1]:self.assertLess(colour[0],colour[2])
+        self.assertEqual(self.data['decal_s'],.6)
+        self.assertEqual(self.data['layers']['decal']['duration_s'],.6)
+        self.assertNotIn('residual',self.data['phases'])
+        self.assertEqual(self.data['travel_primitives']['streak']['alpha'],.6)
+        _validate(self.data,self.kitroot,runtime=True)
+
+    def test_bad_decal_template_duration_and_binding_rejected(self):
+        from export.effect_kit import _validate
+        bads=[]
+        for value in [.29,1.01,True]:
+            bad=copy.deepcopy(self.data);bad['decal_s']=value;bads.append(bad)
+        bad=copy.deepcopy(self.data);bad.pop('decal_s');bads.append(bad)
+        bad=copy.deepcopy(self.data);bad['screen_px']=False;bads.append(bad)
+        bad=copy.deepcopy(self.data);bad['pieces']['template']='unknown';bads.append(bad)
+        bad=copy.deepcopy(self.data);bad['layers']['decal'].pop('file');bads.append(bad)
+        bad=copy.deepcopy(self.data);bad['impact_binding']['seed']+=1;bads.append(bad)
+        bad=copy.deepcopy(self.data);bad['phases']['residual']=bad['phases']['impact'];bads.append(bad)
+        for bad in bads:
+            with self.subTest(bad=bad):
+                with self.assertRaises(ValueError):_validate(bad,self.kitroot,runtime=True)
+
+    def test_conductor_fire_travel_keys_are_emitter_owned(self):
+        from export.effect_kit import _validate
+        root=ROOT/'runs/C-5/vfx_kits/v9/fire_bolt_e1_A'
+        data=load_kit(root)
+        self.assertEqual([s['hold_frames'] for s in data['key_states']],[4,3])
+        self.assertTrue(all(s['png'] not in data['distance_fields'] for s in data['key_states']))
+        bad=copy.deepcopy(data);bad['distance_fields'].pop('primitives/head.png')
+        with self.assertRaisesRegex(ValueError,'distance_fields'):_validate(bad,root,runtime=True)

@@ -908,3 +908,56 @@ class ProjectileTravelEmissionTests(unittest.TestCase):
             catalogue=Path(td)/'kits.json'
             catalogue.write_text(json.dumps({'kits':[{'name':'fire_bolt_e1_A','dir':str(root/'runs/C-5/vfx_kits/v9/fire_bolt_e1_A')}]}))
             with self.assertRaisesRegex(ValueError,'impact dependency'): _load_vfx_kits(catalogue)
+
+
+def ice_project_fixture(root):
+    """Self-bound eleventh kit; no external scene fixture or source mutation."""
+    root=Path(root);cells=root/'cells';cells.mkdir(parents=True)
+    for kind,n in [('idle',1),('cast',4)]:
+        for i in range(n):Image.new('RGBA',(512,512),(40,80,120,255)).save(cells/f'{kind}_E_{i}.png')
+    repo=Path(__file__).resolve().parents[1]
+    catalogue=root/'kits.json'
+    catalogue.write_text(json.dumps({'kits':[{'name':'ice_bolt_e2','dir':str(repo/'runs/C-5/vfx_kits/v9/ice_bolt_e2')}]}))
+    sockets=root/'sockets.json'
+    sockets.write_text(json.dumps({'version':1,'canvas':[512,512],'cells':{'cast_E':{'sockets':[[270,240]]*4,'release_index':2}}}))
+    project=root/'project';build_project(cells,project,vfx_kits=catalogue,sockets=sockets)
+    return project
+
+
+class IceTreatmentImportTests(unittest.TestCase):
+    def test_emitted_shards_origin_residue_and_ground_decal(self):
+        repo=Path(__file__).resolve().parents[1]
+        with tempfile.TemporaryDirectory(prefix='e2-emission-',dir=repo/'runs/C-5/t3/T4r') as tmp:
+            project=ice_project_fixture(Path(tmp))
+            scene=(project/'scenes/vfx_ice_bolt_e2_impact.tscn').read_text()
+            runtime=json.loads((project/'vfx/ice_bolt_e2/pieces/burst_runtime.json').read_text())
+            record=json.loads((project/'vfx/ice_bolt_e2/pieces/pieces.json').read_text())
+            self.assertEqual(scene.count('type="Sprite2D" parent="Art/Pieces"'),len(record['pieces']))
+            self.assertNotIn('name="Residual"',scene)
+            self.assertIn('name="Decal"',scene)
+            self.assertIn('z_as_relative = false\nz_index = -2',scene)
+            self.assertIn('scale = Vector2(1, 0.6)',scene)
+            self.assertEqual(runtime['template'],'burst_v1r')
+            self.assertEqual(runtime['erode_noise'],.4)
+            fraction=runtime['predicted_stationary_residue_area_px']/runtime['source_peak_area_px']
+            self.assertTrue(.15 <= fraction <= .25)
+            material=(project/'vfx/ice_bolt_e2/materials/FrostDecal.tres').read_text()
+            self.assertIn('mix_unlit',material)
+            validate_resources(project,True)
+
+    def test_ten_existing_export_bytes_unchanged(self):
+        repo=Path(__file__).resolve().parents[1];work=repo/'runs/C-5/t3/T4r'
+        import hashlib
+        baseline=json.loads((work/'baseline_hashes.json').read_text())
+        with tempfile.TemporaryDirectory(prefix='e2-legacy-',dir=work) as tmp:
+            folder=Path(tmp);project=folder/'project';cells=folder/'cells';cells.mkdir()
+            for direction in ('E','N','S'):
+                for kind,n in [('idle',1),('cast',4)]:
+                    for i in range(n):Image.new('RGBA',(512,512),(40,80,120,255)).save(cells/f'{kind}_{direction}_{i}.png')
+            sockets=folder/'sockets.json'
+            sockets.write_text(json.dumps({'version':1,'canvas':[512,512],'cells':{'cast_'+d:{'sockets':[[270,240]]*4,'release_index':2} for d in ('E','N','S')}}))
+            build_project(cells,project,vfx_kits=work/'legacy_catalogue.json',sockets=sockets)
+            actual={p.relative_to(project).as_posix():hashlib.sha256(p.read_bytes()).hexdigest()
+                    for p in project.rglob('*') if p.is_file()}
+            self.assertEqual(actual,baseline)
+            self.assertGreater(len(actual),700)

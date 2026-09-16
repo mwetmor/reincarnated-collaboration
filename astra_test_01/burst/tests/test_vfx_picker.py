@@ -1451,3 +1451,146 @@ class ProjectileArmPickerTests(unittest.TestCase):
         for band in range(4): self.assertIn(f'shader_parameter/palette_{band} = Color(0.5, 0.5, 0.5, 1)',material)
         keeper=(project/'scripts/keeper.gd').read_text()
         self.assertIn('"material": "res://vfx/fire_bolt_e1_B/materials/Travel_streak.tres"',keeper)
+
+
+E2_PROBE = r'''extends SceneTree
+const G1 = preload("res://scripts/vfx_g1.gd")
+const KEEPER = preload("res://scripts/keeper.gd")
+var errors: Array = []
+var impact: Node2D
+var bursts: int = 0
+var samples: Array = []
+var hitstop_seen: bool = false
+func check(value: bool, message: String) -> void:
+    if not value: errors.append(message)
+func _initialize() -> void:
+    call_deferred("run")
+func run() -> void:
+    var world := Node2D.new()
+    root.add_child(world)
+    world.child_entered_tree.connect(func(node):
+        if node.scene_file_path == "res://scenes/vfx_ice_bolt_e2_impact.tscn":
+            impact = node
+            bursts += 1)
+    var target := Area2D.new()
+    target.name = "VfxTarget_ice_dummy"
+    target.position = Vector2(320,0)
+    target.collision_layer = 2
+    target.collision_mask = 0
+    target.set_meta("body_index",0)
+    var shape := CollisionShape2D.new()
+    shape.shape = RectangleShape2D.new()
+    shape.shape.size = Vector2(24,48)
+    target.add_child(shape)
+    world.add_child(target)
+    target.add_to_group("vfx_targets")
+    await physics_frame
+    await physics_frame
+    var kits: Array = KEEPER.VFX_KITS.filter(func(k): return k.name == "ice_bolt_e2")
+    check(kits.size() == 1,"ice registration")
+    if kits.is_empty():
+        quit(1)
+        return
+    var kit: Dictionary = kits[0]
+    var destination: Dictionary = G1.resolve_target(self,Vector2.ZERO,Vector2.RIGHT,Vector2(520,0),520.0)
+    var effect: Area2D = G1.acquire(world,kit,Vector2.ZERO,destination,null,0.25)
+    var id: int = effect.effect_id
+    check(is_equal_approx(effect.get_node("Streak").modulate.a,0.6),"puff alpha")
+    check(effect.get_node("Head").rotation == 0.0,"east tip orientation")
+    var scales: Array = []
+    for speed in [520.0,1040.0,1300.0]:
+        effect.config.speed_px_s = speed
+        effect._paint_clock(0)
+        scales.append(effect.get_node("Streak").scale.x)
+    check(scales[0] < scales[1] and scales[1] < scales[2],"speed-linked streak")
+    effect.config.speed_px_s = 1040.0
+    for frame in range(155):
+        await physics_frame
+        hitstop_seen = hitstop_seen or Engine.time_scale < 1.0
+        if is_instance_valid(impact) and not impact.trace.is_empty():
+            var row: Dictionary = impact.trace[-1].duplicate(true)
+            if samples.is_empty() or samples[-1].age_frames != row.age_frames:
+                samples.append(row)
+            check(impact.get_node("Art").scale == Vector2.ONE,"screen pixel scale")
+            check(not impact.has_node("Residual"),"no residual sprite")
+            var decal: Sprite2D = impact.get_node("Decal")
+            check(decal.global_position.distance_to(target.global_position) < 0.01,"decal contact anchor")
+            check(decal.z_index == -2 and not decal.z_as_relative,"decal below actors")
+            check(decal.scale == Vector2(1.0,0.6),"decal native scale plus ground squash")
+    var contacts: Array = G1.events.filter(func(e): return e.effect_id == id and e.event == "contact")
+    var labels: Array = G1.label_events.filter(func(e): return e.effect_id == id)
+    check(contacts.size() == 1,"one contact, pierce zero")
+    if contacts.size() == 1:
+        check(contacts[0].contact_distance_px <= 520.0,"contact range")
+        check(contacts[0].contact_lag_frames <= 1,"contact clock")
+        check(contacts[0].contact_class == "primary" and contacts[0].strike_response,"primary strike")
+    check(bursts == 1,"one impact burst")
+    check(labels.size() == 1 and labels[0].text == "FULL","one FULL label")
+    check(hitstop_seen and is_equal_approx(Engine.time_scale,1.0),"hit stop and restoration")
+    var decal_rows: Array = samples.filter(func(r): return r.decal_visible)
+    check(not decal_rows.is_empty(),"decal handoff")
+    if not decal_rows.is_empty():
+        check(decal_rows[-1].decal_alpha < decal_rows[0].decal_alpha,"decal fades")
+        check(decal_rows[-1].age_frames-decal_rows[0].age_frames <= 36,"decal_s clock")
+    check(not is_instance_valid(impact),"decal released after decal_s")
+    var expanded: Array = samples.filter(func(r): return r.stage == "erosion")
+    if not expanded.is_empty():
+        check(expanded[0].shard_count == expanded[0].source_piece_count,"all spatial pieces emitted")
+        for piece in expanded[0].pieces:
+            check(absf(piece.rotation_deg) <= 45.0,"shard rotation bound")
+            check(piece.scale >= 0.85 and piece.scale <= 1.15,"native shard scale bound")
+    for label in get_nodes_in_group("vfx_contact_labels"):
+        check(not label.visible,"label released")
+    var a: Node2D = load("res://scenes/vfx_ice_bolt_e2_impact.tscn").instantiate()
+    var b: Node2D = load("res://scenes/vfx_ice_bolt_e2_impact.tscn").instantiate()
+    root.add_child(a)
+    root.add_child(b)
+    a.set_physics_process(false)
+    b.set_physics_process(false)
+    var starts: Array = []
+    var translations: Array = []
+    var deterministic: bool = true
+    for age in range(112):
+        a.set_effect_age(age)
+        b.set_effect_age(age)
+        deterministic = deterministic and a.trace[-1] == b.trace[-1]
+        if age == 3:
+            for piece in a.pieces: starts.append(piece.node.position)
+        if age == 18:
+            for i in range(a.pieces.size()):
+                translations.append(a.pieces[i].node.position.distance_to(starts[i]))
+        if age == 39:
+            check(a.get_node("Art/Peak").visible,"stationary residue at entry")
+            check(a.get_node("Art/Peak").position == Vector2.ZERO,"residue origin")
+            check(a.get_node("Art/Peak").scale == Vector2.ONE,"residue by erosion only")
+        if age == 111:
+            check(not a.get_node("Decal").visible and a.get_node("Decal").modulate.a == 0.0,"decal exact release clock")
+    check(deterministic,"seed-equal clocks")
+    check(translations.size() == 22 and translations.all(func(v): return v > 0.0),"every shard translates radially")
+    var report: Dictionary = {"errors":errors,"contacts":contacts,"labels":labels,"bursts":bursts,"hitstop_seen":hitstop_seen,"streak_scales":scales,"samples":samples,"seed_equal":deterministic,"translations_px":translations,"decal_release_age":111}
+    var file := FileAccess.open("res://e2_trace.json",FileAccess.WRITE)
+    file.store_string(JSON.stringify(report,"  "))
+    file.close()
+    print("E2_RUNTIME="+JSON.stringify({"errors":errors,"bursts":bursts,"samples":samples.size()}))
+    quit(0 if errors.is_empty() else 1)
+'''
+
+
+class IceTreatmentPickerTests(unittest.TestCase):
+    """Real E2 clock proof in a wholly T4r-owned temporary project."""
+    def test_headless_contact_shatter_residue_decal(self):
+        from test_godot_import import ice_project_fixture
+        work=ROOT/'runs/C-5/t3/T4r'
+        with tempfile.TemporaryDirectory(prefix='e2-clock-',dir=work) as tmp:
+            project=ice_project_fixture(Path(tmp))
+            (project/'e2_probe.gd').write_text(E2_PROBE)
+            records=[]
+            for args in (['--import'],['--script','res://e2_probe.gd']):
+                result=subprocess.run([GODOT,'--headless','--path',str(project),'--log-file',str(Path(tmp)/'engine.log'),*args],capture_output=True,text=True,timeout=60)
+                records.append(dict(arguments=args,exit=result.returncode,log=result.stdout+result.stderr))
+                self.assertEqual(result.returncode,0,result.stdout+result.stderr)
+                self.assertNotIn('SCRIPT ERROR',result.stdout+result.stderr)
+            report=json.loads((project/'e2_trace.json').read_text())
+            (work/'e2_trace.json').write_text(json.dumps(report,indent=2)+'\n')
+            (work/'e2_headless.json').write_text(json.dumps(records,indent=2)+'\n')
+            self.assertEqual(report['errors'],[])

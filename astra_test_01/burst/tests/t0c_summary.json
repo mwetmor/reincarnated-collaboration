@@ -1,7 +1,15 @@
 {
-  "tests_run": 664,
-  "successful_tests": 658,
+  "tests_run": 670,
+  "successful_tests": 660,
   "failures": [
+    {
+      "test": "test_effect_kit.ProjectileArmValidationTests.test_both_arms_preserve_spec_and_quantised_primitives",
+      "traceback": "Traceback (most recent call last):\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_effect_kit.py\", line 1996, in test_both_arms_preserve_spec_and_quantised_primitives\n    self.assertEqual(data['key_states'], [])\nAssertionError: Lists differ: [{'state': 'stretched', 'png': 'key_states[195 chars]1.0}] != []\n\nFirst list contains 2 additional elements.\nFirst extra element 0:\n{'state': 'stretched', 'png': 'key_states/stretched_clipped.png', 'hold_frames': 4, 'pivot': [329.0, 258.2], 'scale': 1.0}\n\n+ []\n- [{'hold_frames': 4,\n-   'pivot': [329.0, 258.2],\n-   'png': 'key_states/stretched_clipped.png',\n-   'scale': 1.0,\n-   'state': 'stretched'},\n-  {'hold_frames': 3,\n-   'pivot': [318.4, 262.3],\n-   'png': 'key_states/pulsed_clipped.png',\n-   'scale': 1.0,\n-   'state': 'pulsed'}]\n"
+    },
+    {
+      "test": "test_effect_kit.ProjectileArmValidationTests.test_empty_key_arms_have_identical_kit_files_except_name",
+      "traceback": "Traceback (most recent call last):\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_effect_kit.py\", line 2008, in test_empty_key_arms_have_identical_kit_files_except_name\n    self.assertEqual(files, {p.relative_to(b) for p in b.rglob('*') if p.is_file()})\nAssertionError: Items in the first set but not the second:\nPosixPath('key_states/pulsed_clipped.png')\nPosixPath('key_states/stretched_clipped.png')\n"
+    },
     {
       "test": "test_oracle_walk.Tests.test_synthetic_contract_and_grid",
       "traceback": "Traceback (most recent call last):\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_oracle_walk.py\", line 117, in test_synthetic_contract_and_grid\n    self.assertIsNotNone(a[key],key);self.assertAlmostEqual(a[key],b[key],delta=2,msg=key)\n                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 60 != 65 within 2 delta (5 difference) : head_ref_y\n"
@@ -21,16 +29,24 @@
     {
       "test": "test_oracles_motif.Tests.test_named_genuine_annuli_retained (center=[170, 253])",
       "traceback": "Traceback (most recent call last):\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_oracles_motif.py\", line 84, in test_named_genuine_annuli_retained\n    self.assertNotIn('rejected',peak)\nAssertionError: 'rejected' unexpectedly found in {'angular_support': 0.8333333333333334, 'center': [170.0, 253.0], 'hollow_score': 0.08333333333333333, 'inner_opposed_support': 0.08333333333333333, 'inside': False, 'lab_band_surround': 12.987929666149537, 'lab_center_band': 18.508563966712764, 'lab_center_surround': 30.467977867785994, 'lab_color_return': 0.0, 'radius': 8.0, 'rejected': 'not_annulus', 'score': 0.6366616733180586}\n"
+    },
+    {
+      "test": "test_vfx_picker.ProjectileArmPickerTests.test_empty_key_exports_byte_identically_except_kit_name",
+      "traceback": "Traceback (most recent call last):\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_vfx_picker.py\", line 1391, in test_empty_key_exports_byte_identically_except_kit_name\n    self.assertEqual(files,{p.relative_to(b) for p in b.rglob('*') if p.is_file()})\nAssertionError: Items in the first set but not the second:\nPosixPath('materials/Travel_key_0.tres')\nPosixPath('key_states/pulsed_clipped.png')\nPosixPath('distance/travel_keys/key_1.png')\nPosixPath('distance/travel_keys/key_0.png')\nPosixPath('key_states/stretched_clipped.png')\nPosixPath('materials/Travel_key_1.tres')\n"
+    },
+    {
+      "test": "test_vfx_picker.ProjectileArmPickerTests.test_original_eight_export_byte_lock",
+      "traceback": "Traceback (most recent call last):\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_vfx_picker.py\", line 1429, in test_original_eight_export_byte_lock\n    self.assertEqual([k['name'] for k in data['kits'][8:]],['fire_bolt_e1_A','fire_bolt_e1_B'])\nAssertionError: Lists differ: ['fire_bolt_e1_A', 'fire_bolt_e1_B', 'ice_bolt_e2'] != ['fire_bolt_e1_A', 'fire_bolt_e1_B']\n\nFirst list contains 1 additional elements.\nFirst extra element 2:\n'ice_bolt_e2'\n\n- ['fire_bolt_e1_A', 'fire_bolt_e1_B', 'ice_bolt_e2']\n?                                    ---------------\n\n+ ['fire_bolt_e1_A', 'fire_bolt_e1_B']\n"
     }
   ],
   "errors": [
     {
       "test": "test_vfx_picker.TouchAimRuntimeTests.test_headless_overlay_forward_world_touch_and_mouse_probe",
-      "traceback": "Traceback (most recent call last):\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_vfx_picker.py\", line 872, in test_headless_overlay_forward_world_touch_and_mouse_probe\n    run_headless(self, project, 'touch_aim_probe.gd')\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_vfx_picker.py\", line 109, in run_headless\n    result = subprocess.run([GODOT, '--headless', '--log-file', str(project/'godot.log'),\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/subprocess.py\", line 550, in run\n    stdout, stderr = process.communicate(input, timeout=timeout)\n                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/subprocess.py\", line 1209, in communicate\n    stdout, stderr = self._communicate(input, endtime, timeout)\n                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/subprocess.py\", line 2109, in _communicate\n    self._check_timeout(endtime, orig_timeout, stdout, stderr)\n  File \"/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/subprocess.py\", line 1253, in _check_timeout\n    raise TimeoutExpired(\nsubprocess.TimeoutExpired: Command '['/Applications/Godot.app/Contents/MacOS/Godot', '--headless', '--log-file', '/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4i/tmp/touch-aim-4yl52vu8/project/godot.log', '--path', '/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4i/tmp/touch-aim-4yl52vu8/project', '--script', 'res://touch_aim_probe.gd']' timed out after 60 seconds\n"
+      "traceback": "Traceback (most recent call last):\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_vfx_picker.py\", line 872, in test_headless_overlay_forward_world_touch_and_mouse_probe\n    run_headless(self, project, 'touch_aim_probe.gd')\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_vfx_picker.py\", line 109, in run_headless\n    result = subprocess.run([GODOT, '--headless', '--log-file', str(project/'godot.log'),\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/subprocess.py\", line 550, in run\n    stdout, stderr = process.communicate(input, timeout=timeout)\n                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/subprocess.py\", line 1209, in communicate\n    stdout, stderr = self._communicate(input, endtime, timeout)\n                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/subprocess.py\", line 2109, in _communicate\n    self._check_timeout(endtime, orig_timeout, stdout, stderr)\n  File \"/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/subprocess.py\", line 1253, in _check_timeout\n    raise TimeoutExpired(\nsubprocess.TimeoutExpired: Command '['/Applications/Godot.app/Contents/MacOS/Godot', '--headless', '--log-file', '/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4i/tmp/touch-aim-wfw2exr8/project/godot.log', '--path', '/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4i/tmp/touch-aim-wfw2exr8/project', '--script', 'res://touch_aim_probe.gd']' timed out after 60 seconds\n"
     }
   ],
   "skipped": [],
-  "elapsed_s": 389.9809056249942,
+  "elapsed_s": 401.5159983749909,
   "regression": {
     "tolerance": 0.001,
     "compared": 1880,

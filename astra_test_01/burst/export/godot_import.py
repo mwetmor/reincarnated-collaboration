@@ -1790,7 +1790,7 @@ def _grey_vfx(out):
     # recolour the diagnostic silhouette. Optional light layers stay unchanged.
     for path in (out/'scenes').rglob('*.tscn'):
         text = path.read_text()
-        if any(path in text for path in ('res://scripts/vfx/piece_burst.gd', 'res://scripts/vfx/piece_burst_v2.gd', 'res://scripts/vfx/piece_burst_v2_keys.gd')):
+        if any(path in text for path in ('res://scripts/vfx/piece_burst.gd', 'res://scripts/vfx/piece_burst_v2.gd', 'res://scripts/vfx/piece_burst_v2_keys.gd', 'res://scripts/vfx/piece_burst_v1r.gd')):
             # Keep index RGB for band-step dissolve: grey is a palette swap.
             text = text.replace('script = ExtResource("Script")\n',
                                 'script = ExtResource("Script")\ngrey_bodies = true\n', 1)
@@ -2384,6 +2384,8 @@ func _write_trace() -> void:
 
 def _write_piece_burst(out, kit, resource_root, prefix):
     """Emit spatial shards using unmodified T4e index masks and T4a materials."""
+    if kit['effect']['pieces']['template'] == 'burst_v1r':
+        return _write_piece_burst_v1r(out, kit, resource_root, prefix)
     if kit['effect']['pieces']['template'] == 'burst_v2':
         return _write_piece_burst_v2(out, kit, resource_root, prefix)
     import numpy as np
@@ -2807,7 +2809,7 @@ def _painted_g1_config(kit):
     for i, state in enumerate(states):
         state['png'] = root+state['png']
         state['material'] = root+'materials/Travel_key_'+str(i)+'.tres'
-    return {'bolt': 'res://scenes/vfx/g1_painted_projectile.tscn',
+    return {'bolt': ('res://scenes/vfx/g1_ice_projectile.tscn' if data.get('pieces', {}).get('template') == 'burst_v1r' else 'res://scenes/vfx/g1_painted_projectile.tscn'),
             'range_px': data['skill_spec']['mechanics']['range_px'],
             'speed_px_s': data['skill_spec']['mechanics']['speed_px_s'],
             'spec_speed_px_s': data['skill_spec']['mechanics']['speed_px_s'],
@@ -2833,10 +2835,16 @@ def _write_painted_travel(out, kit, resource_root):
         target = out/resource_root/item['png']
         target.parent.mkdir(parents=True, exist_ok=True)
         shutil.copyfile(source, target)
-        field = data['distance_fields'][item['png']]
+        field = data['distance_fields'].get(item['png'], 'distance/travel_keys/'+role+'.png')
         destination = out/resource_root/field
         destination.parent.mkdir(parents=True, exist_ok=True)
-        shutil.copyfile(kit['root']/field, destination)
+        if item['png'] in data['distance_fields']:
+            shutil.copyfile(kit['root']/field, destination)
+        else:
+            # Conductor-bound travel keys are emitter-owned, like piece keys.
+            from export.effect_kit import distance_field
+            with Image.open(source) as image:
+                Image.fromarray(distance_field(np.asarray(image.convert('RGBA')))).save(destination)
         if role == 'streak':
             # T4a centre-out comparison on an x field = tail-to-socket erosion.
             with Image.open(source) as image: rgba = np.asarray(image.convert('RGBA'))
@@ -2846,6 +2854,13 @@ def _write_painted_travel(out, kit, resource_root):
             field = 'distance/primitives/tail.png'
             destination = out/resource_root/field
             Image.fromarray(np.broadcast_to(np.rint(ramp*255).astype(np.uint8), rgba.shape[:2])).save(destination)
+        if role == 'streak' and data.get('pieces', {}).get('template') == 'burst_v1r':
+            # Dedicated scene/script leaves all E1 resources byte-identical.
+            (out/'scripts/vfx_g1_ice.gd').write_text(ICE_G1_SCRIPT)
+            ice_scene = G1_SCENE.replace('res://scripts/vfx_g1.gd', 'res://scripts/vfx_g1_ice.gd')
+            for node in ('Streak', 'KeyState', 'DarkHead', 'DarkStreak', 'DarkKey', 'CastHalo'):
+                ice_scene += '\n[node name="'+node+'" type="Sprite2D" parent="."]\ntexture_filter = 2\nvisible = false\nz_index = '+str(-2 if node.startswith('Dark') else -1 if node in ('Streak','CastHalo') else 0)+'\n'
+            (out/'scenes/vfx/g1_ice_projectile.tscn').write_text(ice_scene)
         material = dict(data['material'], erode=0.0, dissolve=0.0, erode_outside_in=False)
         material.pop('erode_noise', None)
         material.pop('dissolve_order', None)
@@ -3036,6 +3051,141 @@ def _write_painted_g1(out):
         scene += 'z_index = '+str(-2 if name.startswith('Dark') else -1 if name in ('Streak', 'CastHalo') else 0)+'\n'
     (out/'scenes/vfx/g1_painted_projectile.tscn').write_text(scene)
     (out/'scripts/vfx_g1_painted.gd').write_text(PAINTED_G1_SCRIPT)
+
+
+# T4r: independent ice flight/residue treatment; v1/v2 emitters stay frozen.
+ICE_G1_SCRIPT = '''extends "res://scripts/vfx_g1_painted.gd"
+func _paint_clock(age: int) -> void:
+    super._paint_clock(age)
+    $Streak.modulate.a = float(config.painted_travel.streak.alpha)
+    $DarkStreak.modulate.a = $Streak.modulate.a
+'''
+
+PIECE_BURST_V1R_SCRIPT = '''extends "res://scripts/vfx/piece_burst.gd"
+func _ready() -> void:
+    spell_scale = 1.0
+    super._ready()
+    $Decal.material = $Decal.material.duplicate()
+    if grey_bodies:
+        for band in range(4):
+            $Decal.material.set_shader_parameter("palette_" + str(band), Color(0.5,0.5,0.5,1))
+
+func set_effect_age(age: int) -> void:
+    if age == last_age:
+        return
+    last_age = age
+    var flight_start: int = int(config.flash_frames) + int(config.hold_frames)
+    var erosion_start: int = flight_start + 15
+    var residue_start: int = erosion_start + 21
+    var residue_end: int = residue_start + int(config.residue_frames)
+    var decal_end: int = residue_end + int(config.decal_frames)
+    stage = "onset" if age < int(config.flash_frames) else ("hold" if age < flight_start else ("expansion" if age < erosion_start else ("erosion" if age < residue_start else ("residue" if age < residue_end else ("decal" if age < decal_end else "zero")))))
+    var erosion_t: float = clampf(float(age-erosion_start)/21.0,0.0,1.0)
+    var residue_t: float = clampf(float(age-residue_start)/float(config.residue_frames),0.0,1.0)
+    var dissolve: float = 1.0 if age >= residue_end else 0.8 * residue_t
+    # The original peak anchors the eroded residue at the contact origin.
+    for name in ["Peak", "PeakDark"]:
+        var node: Sprite2D = get_node("Art/"+name)
+        node.visible = age >= int(config.flash_frames) and age < residue_end and (name == "Peak" or bool(config.dark_duplicate))
+        node.material.set_shader_parameter("erode",float(config.residue_erode)*erosion_t)
+        node.material.set_shader_parameter("dissolve",dissolve)
+    $Art/Flash.visible = stage == "onset"
+    var flash_t: float = float(age)/maxf(1.0,float(config.flash_frames))
+    $Art/Flash.scale = Vector2.ONE * lerpf(float(config.flash_from),float(config.flash_to),flash_t)
+    $Art/Flash.modulate.a = float(config.flash_alpha)*(1.0-flash_t)
+    $Art/Glow.visible = age < flight_start and bool(config.glow_enabled)
+    $FloorLight.visible = age < int(config.floor_frames) and bool(config.floor_enabled)
+    $FloorLight.modulate.a = maxf(0.0,1.0-float(age)/maxf(1.0,float(config.floor_frames)))
+    var flight_t: float = clampf(float(age-flight_start)/15.0,0.0,1.0)
+    var states: Array = []
+    var count: int = 0
+    for data in pieces:
+        var item: Dictionary = data.record
+        var motion: Dictionary = data.motion
+        var node: Sprite2D = data.node
+        var active: bool = age >= flight_start and age < residue_start
+        var radial: Vector2 = Vector2.RIGHT.rotated(deg_to_rad(float(item.radial_angle_deg)))
+        var start: Vector2 = Vector2(item.pivot[0]-config.centre[0],item.pivot[1]-config.centre[1])
+        # Same seeded v1 translation/rotation verb, on a 0.25 s radial curve.
+        node.position = start + radial*float(config.base_speed_px_s)*float(motion.speed_factor)*0.25*flight_t
+        node.rotation = deg_to_rad(float(motion.rotation_deg))*flight_t
+        node.scale = Vector2.ONE*(1.0+float(roundi(float(item.final_step)*flight_t))/float(item.native_extent))
+        node.visible = active
+        node.material.set_shader_parameter("erode",erosion_t)
+        node.material.set_shader_parameter("dissolve",0.0)
+        if data.dark != null:
+            data.dark.transform = node.transform
+            data.dark.visible = active
+            data.dark.material.set_shader_parameter("erode",erosion_t)
+            data.dark.material.set_shader_parameter("dissolve",0.0)
+        if active: count += 1
+        states.append({"id":item.id,"visible":active,"position":[node.position.x,node.position.y],"rotation_deg":rad_to_deg(node.rotation),"scale":node.scale.x,"erode":erosion_t})
+    $Decal.visible = age >= residue_end and age < decal_end
+    $Decal.modulate.a = clampf(1.0-float(age-residue_end)/float(config.decal_frames),0.0,1.0)
+    trace.append({"age_frames":age,"stage":stage,"shard_count":count,"source_piece_count":pieces.size(),"pieces":states,"residue_erode":float(config.residue_erode)*erosion_t,"dissolve":dissolve,"decal_visible":$Decal.visible,"decal_alpha":$Decal.modulate.a,"decal_position":[$Decal.global_position.x,$Decal.global_position.y],"decal_z_index":$Decal.z_index})
+    if age >= decal_end:
+        hide()
+        _write_trace()
+        queue_free()
+'''
+
+
+def _write_piece_burst_v1r(out, kit, resource_root, prefix):
+    """V1 radial flight with v2's whole-peak ragged origin residue and decal."""
+    import copy
+    import numpy as np
+    from export.effect_kit import (load_pieces, distance_field, residue_entry,
+                                   erosion_noise_texture, write_vfx_material, piece_erode_noise)
+    data = kit['effect']
+    config, record, _ = load_pieces(data['pieces'], kit['root'], runtime=True)
+    legacy = dict(kit, effect=copy.deepcopy(data))
+    legacy['effect']['pieces']['template'] = 'burst_v1'
+    legacy['effect']['material'].pop('erode_noise', None)
+    canonical = out/'scenes/vfx/piece_burst.tscn'
+    owns_canonical = not canonical.exists()
+    _write_piece_burst(out, legacy, resource_root, prefix)
+    target = out/f'scenes/{prefix}_impact.tscn'
+    scene = target.read_text().replace('res://scripts/vfx/piece_burst.gd','res://scripts/vfx/piece_burst_v1r.gd')
+    runtime_path = out/resource_root/'pieces/burst_runtime.json'
+    runtime = json.loads(runtime_path.read_text())
+    peak_source = kit['root']/Path(config['source']).parent/record['peak_index']
+    with Image.open(peak_source) as im: peak = np.asarray(im.convert('RGBA'))
+    field = distance_field(peak); noise = piece_erode_noise(data)
+    field_rel = resource_root+'/pieces/whole_body_distance.png'
+    noise_rel = resource_root+'/pieces/whole_body_noise.png'
+    noise_pixels = erosion_noise_texture(peak)
+    Image.fromarray(field).save(out/field_rel)
+    Image.fromarray(noise_pixels).save(out/noise_rel)
+    runtime.update(residue_entry(peak,field,config['residue_fraction'],noise,noise_pixels))
+    runtime.update(template='burst_v1r',screen_px=True,erode_outside_in=True,erode_noise=noise,
+                   decal_frames=math.ceil(data['decal_s']*60),decal_s=data['decal_s'])
+    for name,dark in [('Peak',False),('PeakDark',True)]:
+        material = dict(data['material'], erode_outside_in=True, erode_noise=noise,
+                        dissolve_order=config.get('dissolve_order', [[3],[2],[1,0]]))
+        write_vfx_material(out,resource_root+'/materials/Piece_'+name+'.tres',material,field_rel,dark,noise_rel)
+    for item in record['pieces']:
+        source = (Path(config['source']).parent/item['mask']).as_posix()
+        material = dict(data['material'],erode_outside_in=True,erode_noise=noise,dissolve_order=config.get('dissolve_order', [[3],[2],[1,0]]))
+        write_vfx_material(out,resource_root+'/materials/Piece_Piece_%03d.tres'%item['id'],material,
+                           resource_root+'/'+data['distance_fields'][source],noise_texture=noise_rel)
+    decal = data['layers']['decal']['file']
+    decal_material = resource_root+'/materials/FrostDecal.tres'
+    material = dict(data['material'],blend_mode='MIX',erode=0.0,dissolve=0.0,erode_outside_in=False)
+    material.pop('erode_noise',None)
+    write_vfx_material(out,decal_material,material,resource_root+'/'+data['distance_fields'][decal])
+    ext = (f'[ext_resource type="Texture2D" path="res://{resource_root}/{decal}" id="FrostTexture"]\n'
+           f'[ext_resource type="Material" path="res://{decal_material}" id="FrostMaterial"]\n')
+    first = scene.index('[node '); scene=scene[:first]+ext+scene[first:]
+    scene += ('\n[node name="Decal" type="Sprite2D" parent="."]\ntexture_filter = 2\nvisible = false\n'
+              'z_as_relative = false\nz_index = -2\nposition = Vector2(0, 0)\n'
+              f'scale = Vector2(1, {data["ground_squash"]})\n'
+              'texture = ExtResource("FrostTexture")\nmaterial = ExtResource("FrostMaterial")\n')
+    scene = re.sub(r'load_steps=\d+','load_steps='+str(scene.count('[ext_resource ')+1),scene,count=1)
+    runtime_path.write_text(json.dumps(runtime,indent=2)+'\n')
+    target.write_text(scene)
+    if owns_canonical: canonical.write_text(scene)
+    (out/'scenes/vfx/piece_burst_v1r.tscn').write_text(scene)
+    (out/'scripts/vfx/piece_burst_v1r.gd').write_text(PIECE_BURST_V1R_SCRIPT)
 
 
 if __name__ == '__main__':

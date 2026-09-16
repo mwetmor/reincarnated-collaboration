@@ -24,7 +24,7 @@ import numpy as np
 from PIL import Image
 
 PHASES = {'cast': 'flare', 'travel': 'travel', 'impact': 'impact', 'residual': 'residual'}
-TOP = {'name', 'element', 'element_class', 'tint', 'phases', 'layers', 'ground_squash', 'pixel_scale', 'phase_scale', 'material', 'distance_fields', 'pierce', 'pieces', 'screen_px', 'erode_noise', 'skill_spec', 'travel_primitives', 'key_states', 'impact_binding'}
+TOP = {'name', 'element', 'element_class', 'tint', 'phases', 'layers', 'ground_squash', 'pixel_scale', 'phase_scale', 'material', 'distance_fields', 'pierce', 'pieces', 'screen_px', 'erode_noise', 'skill_spec', 'travel_primitives', 'key_states', 'impact_binding', 'decal_s'}
 LAYER_KEYS = {
     'glow': {'alpha', 'scale'}, 'floor_light': {'duration_s', 'radius_px'},
     'flash': {'duration_s', 'alpha', 'scale_from', 'scale_to'},
@@ -160,7 +160,7 @@ def distance_field(rgba):
 def piece_erode_noise(data):
     """V2 override order: pieces, kit, material; omission is byte-neutral zero."""
     pieces = data.get('pieces', {})
-    if pieces.get('template') != 'burst_v2':
+    if pieces.get('template') not in ('burst_v2', 'burst_v1r'):
         return 0.0
     return pieces.get('erode_noise', data.get('erode_noise', data['material'].get('erode_noise', 0.0)))
 
@@ -448,8 +448,8 @@ def load_pieces(config, root, runtime=False):
     """Consume T4e schema 2 as delivered; never segment or recolour a shard."""
     root = Path(root).resolve()
     _keys(config, {'source', 'template', 'root_drift', 'dissolve_order', 'erode_noise', 'key_states', *PIECES_DEFAULTS}, {'source', 'template'}, 'pieces')
-    if config['template'] not in ('burst_v1', 'burst_v2'):
-        raise ValueError('pieces.template must be burst_v1 or burst_v2')
+    if config['template'] not in ('burst_v1', 'burst_v2', 'burst_v1r'):
+        raise ValueError('pieces.template must be burst_v1, burst_v2 or burst_v1r')
     _number(config.get('erode_noise', 0), 0, 1, 'pieces.erode_noise')
     values = {**PIECES_DEFAULTS, **config}
     states = values.get('key_states', [])
@@ -557,6 +557,15 @@ def _validate(data, root, runtime=False):
     if not isinstance(data.get('screen_px', False), bool):
         raise ValueError('screen_px must be boolean')
     _number(data.get('pierce', 0), -1, math.inf, 'pierce', True)
+    if data.get('pieces', {}).get('template') == 'burst_v1r' and ('decal_s' not in data or not data.get('screen_px')):
+        raise ValueError('burst_v1r requires screen_px and decal_s')
+    if 'decal_s' in data:
+        _number(data['decal_s'], .3, 1, 'decal_s')
+        if (data.get('pieces', {}).get('template') != 'burst_v1r'
+                or 'file' not in data['layers'].get('decal', {})
+                or data['layers']['decal'].get('duration_s') != data['decal_s']
+                or 'residual' in data['phases']):
+            raise ValueError('decal_s requires burst_v1r, matching painted decal duration and no residual phase')
     validate_material(data['material'])
     _number(data.get('erode_noise', 0), 0, 1, 'erode_noise')
     _keys(data.get('phase_scale', {}), set(PHASES), set(), 'phase_scale')
@@ -635,6 +644,7 @@ def _validate(data, root, runtime=False):
         # Key-state distance textures are emitter-owned: their retained range
         # depends on the v2 clock at activation, unlike ordinary kit textures.
         key_pngs = {s['png'] for s in data.get('pieces', {}).get('key_states', [])}
+        key_pngs.update(s['png'] for s in data.get('key_states', []))
         if not isinstance(fields, dict) or not set(assets)-key_pngs <= set(fields) <= set(assets):
             raise ValueError('distance_fields must map every non-key-state kit texture')
         for source, field in fields.items():
@@ -997,8 +1007,9 @@ def validate_projectile(data, root, runtime=False):
                 'travel': {'kind': 'straight', 'streak': True},
                 'active_duration_s': None, 'tick_schedule': None,
                 'termination': 'first_contact_or_range', 'pierce': 0}
-    _keys(mechanics, set(expected)|{'speed_px_s', 'range_px'}, set(expected)|{'speed_px_s', 'range_px'}, 'mechanics')
-    if spec['grammar'] != 'G1' or any(mechanics[k] != v for k, v in expected.items()):
+    optional = {'radius_px', 'active_duration_s', 'tick_schedule'} if spec.get('skill_id') == 'ice_bolt_e2' else set()
+    _keys(mechanics, set(expected)|{'speed_px_s', 'range_px'}, (set(expected)-optional)|{'speed_px_s', 'range_px'}, 'mechanics')
+    if spec['grammar'] != 'G1' or any(mechanics.get(k, v) != v for k, v in expected.items()):
         raise ValueError('unsupported G1 mechanics; no inferred grammar')
     for key in ('range_px', 'speed_px_s'):
         _number(mechanics[key], 1e-9, math.inf, key)
@@ -1014,10 +1025,15 @@ def validate_projectile(data, root, runtime=False):
     binding = data.get('impact_binding')
     _keys(binding, {'kit', 'phase', 'template', 'seed'}, {'kit', 'phase', 'template', 'seed'}, 'impact_binding')
     if (not isinstance(binding['kit'], str) or not re.fullmatch(r'[A-Za-z_][A-Za-z0-9_]*', binding['kit'])
-            or binding['phase'] != 'pieces' or binding['template'] != 'burst_v2'):
+            or binding['phase'] != 'pieces' or binding['template'] not in ('burst_v2', 'burst_v1r')):
         raise ValueError('impact_binding requires a named pieces burst_v2 kit')
     _number(binding['seed'], 0, 2**32-1, 'seed', True)
-    if not presentation['primitive_bindings'].get('impact', '').startswith(binding['kit']+' '):
+    if binding['template'] == 'burst_v1r':
+        if (binding['kit'] != data['name'] or data.get('pieces', {}).get('template') != 'burst_v1r'
+                or data['pieces'].get('seed') != binding['seed'] or spec['skill_id'] != 'ice_bolt_e2'
+                or data['element'] != 'ice' or 'decal_s' not in data):
+            raise ValueError('burst_v1r requires the ice self-bound pieces and decal')
+    elif not presentation['primitive_bindings'].get('impact', '').startswith(binding['kit']+' '):
         raise ValueError('impact binding disagrees with spec')
     primitives = data['travel_primitives']
     _keys(primitives, {'head', 'streak', 'rest_hold_frames', 'tail_s'}, {'head', 'streak', 'rest_hold_frames', 'tail_s'}, 'travel_primitives')
@@ -1027,7 +1043,8 @@ def validate_projectile(data, root, runtime=False):
     for role in ('head', 'streak'):
         item = primitives[role]
         keys = {'binding', 'png', 'pivot', 'scale'} | ({'rear_socket'} if role == 'head' else set())
-        _keys(item, keys, keys, 'primitive.'+role)
+        _keys(item, keys|({'alpha'} if role == 'streak' else set()), keys, 'primitive.'+role)
+        if 'alpha' in item: _number(item['alpha'], 0, 1, 'primitive.alpha')
         if item['binding'] != presentation['primitive_bindings'].get('travel_'+role):
             raise ValueError('primitive binding disagrees with spec')
         path = _png(item['png'], root, True, runtime)
