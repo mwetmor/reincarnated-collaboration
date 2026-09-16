@@ -1,5 +1,6 @@
 """T3f engine export contracts, known-bad assets and headless behavior."""
 import json
+import math
 from pathlib import Path
 import re
 import subprocess
@@ -1083,8 +1084,12 @@ class GroundVisibilityRegressionTests(unittest.TestCase):
                     self.assertEqual(row['position'], self.trace[name]['trace'][0]['ground_point'])
                     self.assertFalse(row['y_sort_enabled'])
             decal = [r for r in rows if r['path'].endswith('/Decal') and r['age_frames']==84][0]
-            self.assertEqual(decal['visible_in_tree'], name == 'poisonous_concoction_e3')
-            if decal['visible_in_tree']: self.assertGreater(decal['alpha'], 0)
+            self.assertFalse(decal['visible_in_tree'])
+            config = self.trace[name]['config']
+            decal_age = math.ceil(config['flight_s']*60) + math.ceil(config['duration_s']*60) + 3
+            late = [r for r in rows if r['path'].endswith('/Decal') and r['age_frames']==decal_age][0]
+            self.assertTrue(late['visible_in_tree'])
+            self.assertGreater(late['alpha'], 0)
 
     def test_flask_stays_visible_at_native_screen_extent_during_flight(self):
         rows = [r for r in self.trace['rows'] if r['path'].endswith('/Flask') and r['age_frames'] in (8,20,26)]
@@ -1492,7 +1497,10 @@ class FrozenOrbEmissionTests(unittest.TestCase):
         root=Path(__file__).resolve().parents[1];work=root/'runs/C-5/t3/T4v'
         kits=_load_vfx_kits(root/'runs/C-5/vfx_kits/kits_v9.json')
         kit=next(k for k in kits if 'orb' in k.get('effect',{}));config=_g1_config(kit)
-        self.assertEqual(config['grammar'],'G1');self.assertEqual(config['range_px'],640)
+        self.assertEqual(config['grammar'],'G1');self.assertEqual(config['range_px'],630)
+        self.assertEqual(config['orb']['interval_frames_choices'],[2,3])
+        self.assertEqual(config['schedule']['expiry_distance_px'],630)
+        self.assertTrue(config['schedule']['range_reached'])
         self.assertEqual(config['speed_px_s'],420);self.assertEqual(config['pierce'],-1)
         with tempfile.TemporaryDirectory(dir=work) as tmp:
             out=Path(tmp);(out/'scenes/vfx').mkdir(parents=True);(out/'scripts').mkdir()

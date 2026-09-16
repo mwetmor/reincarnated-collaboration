@@ -2288,16 +2288,47 @@ class FrozenOrbValidationTests(unittest.TestCase):
         self.assertEqual(data['skill_spec'],json.loads((ROOT/'runs/C-5/specs/frozen_orb.json').read_text()))
         report=orb_schedule_report(data)
         self.assertEqual(report['flight_frames'],90)
-        self.assertEqual(report['emission_ages'],list(range(2,91,2)))
-        self.assertAlmostEqual(report['interval_cv'],0,places=12)
-        self.assertFalse(report['ff08_satisfied'])
+        ages = report['emission_ages']
+        self.assertTrue(all(b > a for a,b in zip([0]+ages,ages)))
+        self.assertTrue(set(np.diff([0]+ages)) <= {2,3})
+        self.assertGreaterEqual(len(ages),30)
+        self.assertLessEqual(len(ages),45)
+        # Keep the conductor's requested gate literal, even though {2,3}
+        # cannot mathematically reach CV .25 (maximum 1/sqrt(24)).
+        with self.subTest(contract='FF-08 CV'):
+            self.assertGreaterEqual(report['interval_cv'],.25)
+        with self.subTest(contract='FF-08 satisfied'):
+            self.assertTrue(report['ff08_satisfied'])
         self.assertEqual(report['expiry_distance_px'],630)
-        self.assertFalse(report['range_reached'])
+        self.assertTrue(report['range_reached'])
         renamed=copy.deepcopy(data);renamed['name']='explicit_g1_emitter';renamed['skill_spec']['skill_id']='unrelated'
         validate_orb(renamed,root,True)
-        for key,value in [('pool_size',1),('interval_frames',3),('angle_step_deg',120),('rim_count',3),('child_pierce',-1),('expiry_count',22)]:
+        for key,value in [('pool_size',1),('interval_frames',3),('angle_step_deg',120),('rim_count',3),('child_pierce',-1),('expiry_count',22),('interval_frames_choices',[2])]:
             bad=copy.deepcopy(data);bad['orb'][key]=value
             with self.subTest(key=key),self.assertRaises(ValueError):validate_orb(bad,root,True)
+
+    def test_seeded_choices_are_deterministic_and_seed_sensitive(self):
+        from export.effect_kit import orb_schedule_report
+        import random
+        data=load_kit(ROOT/'runs/C-5/vfx_kits/v9/frozen_orb_e3')
+        first=orb_schedule_report(data)
+        self.assertEqual(first,orb_schedule_report(data))
+        rng=random.Random(data['orb']['seed']); expected=[]; age=0
+        while True:
+            age+=rng.choice(data['orb']['interval_frames_choices'])
+            if age>first['flight_frames']:break
+            expected.append(age)
+        self.assertEqual(first['emission_ages'],expected)
+        other=copy.deepcopy(data);other['orb']['seed']+=1
+        self.assertNotEqual(first['emission_ages'],orb_schedule_report(other)['emission_ages'])
+
+    def test_interval_choices_reject_invalid_values(self):
+        from export.effect_kit import validate_orb
+        root=ROOT/'runs/C-5/vfx_kits/v9/frozen_orb_e3';data=load_kit(root)
+        for choices in ([],[2],[2,2],[0,3],[-1,3],[2,2.5],[True,3],'2,3'):
+            bad=copy.deepcopy(data);bad['orb']['interval_frames_choices']=choices
+            with self.subTest(choices=choices),self.assertRaises(ValueError):
+                validate_orb(bad,root,True)
 
     def test_sixteen_groups_preserve_exact_source_union_and_primitive_alpha(self):
         from export.effect_kit import load_pieces

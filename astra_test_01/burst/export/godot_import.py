@@ -4371,7 +4371,7 @@ ORB_SCRIPT = r'''extends "res://scripts/vfx_g1.gd"
 var draining: bool = false
 var expiry_age: int = -1
 var emission_index: int = 0
-var next_emission: int = 2
+var schedule_index: int = 0
 var burst_started: bool = false
 var rng := RandomNumberGenerator.new()
 var initial_angle: float = 0.0
@@ -4393,7 +4393,7 @@ func release(kit: Dictionary, origin: Vector2, destination: Dictionary, owner_no
     draining = false
     expiry_age = -1
     emission_index = 0
-    next_emission = int(config.orb.interval_frames)
+    schedule_index = 0
     burst_started = false
     labelled.clear()
     trace.clear()
@@ -4434,9 +4434,10 @@ func _physics_process(_delta: float) -> void:
         $OrbDark.rotation = $OrbBody.rotation
         $OrbHalo.rotation = $OrbBody.rotation
         $OrbHalo.modulate.a = 0.8 if age < contact_flash_end else 0.2
-        while next_emission <= mini(age, int(config.schedule.flight_frames)):
-            _emit_child(next_emission)
-            next_emission += int(config.orb.interval_frames)
+        # Consume the exported seeded ages verbatim: Python and Godot RNGs differ.
+        while schedule_index < config.schedule.emission_ages.size() and int(config.schedule.emission_ages[schedule_index]) <= mini(age, int(config.schedule.flight_frames)):
+            _emit_child(int(config.schedule.emission_ages[schedule_index]))
+            schedule_index += 1
         if age >= int(config.expiry_frames) and not draining: expire()
     if draining and not burst_started and age >= expiry_age + 2:
         burst_started = true

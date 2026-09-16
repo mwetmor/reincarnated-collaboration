@@ -18,6 +18,7 @@ import json
 import math
 from pathlib import Path
 import re
+import random
 import time
 
 import numpy as np
@@ -1505,9 +1506,23 @@ def _build_aura_definition(data, root, out):
 def orb_schedule_report(data):
     m = data['skill_spec']['mechanics']
     flight = min(math.ceil(m['range_px']/m['speed_px_s']*60), math.ceil(m['expiry']['time_s']*60))
-    ages = list(range(data['orb']['interval_frames'], flight+1, data['orb']['interval_frames']))
+    choices = data['orb']['interval_frames_choices']
+    if not isinstance(choices, list) or len(choices) < 2:
+        raise ValueError('orb.interval_frames_choices requires at least two distinct choices')
+    for choice in choices:
+        _number(choice, 1, math.inf, 'orb.interval_frames_choices', True)
+    if len(set(choices)) < 2:
+        raise ValueError('orb.interval_frames_choices requires at least two distinct choices')
+    _number(data['orb']['seed'], 0, 2147483647, 'orb.seed', True)
+    rng = random.Random(data['orb']['seed'])
+    ages, age = [], 0
+    while True:
+        age += rng.choice(choices)
+        if age > flight:
+            break
+        ages.append(age)
     report = tick_schedule_report([(age-ages[0])/60 for age in ages])
-    return dict(report, emission_ages=ages, flight_frames=flight,
+    return dict(report, emission_ages=ages, emission_count=len(ages), flight_frames=flight,
                 expiry_distance_px=min(m['range_px'], m['speed_px_s']*flight/60),
                 range_reached=m['range_px'] <= m['speed_px_s']*flight/60)
 
@@ -1523,16 +1538,17 @@ def validate_orb(data, root, runtime=False):
     for key in ('range_px','speed_px_s'): _number(m[key], 1e-9, math.inf, key)
     if data['phases']['travel']['speed_px_s'] != m['speed_px_s']: raise ValueError('orb speed disagrees')
     _keys(m['emission'], {'child','schedule','child_speed_px_s','child_range_px'}, {'child','schedule','child_speed_px_s','child_range_px'}, 'emission')
-    if m['emission']['schedule'] != 'every 2 frames, spiral, 3 per revolution': raise ValueError('unsupported explicit emission schedule')
+    if m['emission']['schedule'] != 'every 2–3 frames (seeded jitter, FF-08), spiral, 3 per revolution': raise ValueError('unsupported explicit emission schedule')
     for key in ('child_speed_px_s','child_range_px'): _number(m['emission'][key], 1e-9, math.inf, key)
     if m['expiry']['kind'] != 'range_or_time' or m['expiry']['on_expiry'] != 'shard_burst 16 radial': raise ValueError('unsupported expiry')
     _number(m['expiry']['time_s'], 1e-9, math.inf, 'expiry.time_s')
-    required={'body','shard','interval_frames','angle_step_deg','seed','pool_size','turn_s','rim_count','rim_radius_px','expiry_count','child_pierce'}
+    required={'body','shard','interval_frames_choices','angle_step_deg','seed','pool_size','turn_s','rim_count','rim_radius_px','expiry_count','child_pierce'}
     _keys(g, required, required, 'orb')
-    if (g['interval_frames'] != 2 or g['angle_step_deg'] != 137 or g['turn_s'] != 1.2
+    orb_schedule_report(data)  # Validates choices and reports FF-08 without changing its threshold.
+    if (g['interval_frames_choices'] != [2, 3] or g['angle_step_deg'] != 137 or g['turn_s'] != 1.2
             or g['rim_count'] != 4 or g['expiry_count'] != 16 or g['child_pierce'] != 0): raise ValueError('orb emission/rotation/count disagrees')
     _number(g['seed'],0,2147483647,'orb.seed',True)
-    _number(g['pool_size'], math.ceil(m['emission']['child_range_px']/m['emission']['child_speed_px_s']*60/2)+2,64,'orb.pool_size',True)
+    _number(g['pool_size'], math.ceil(m['emission']['child_range_px']/m['emission']['child_speed_px_s']*60/min(g['interval_frames_choices']))+2,64,'orb.pool_size',True)
     _number(g['rim_radius_px'],1,256,'orb.rim_radius_px')
     if (data['pieces']['template'] != 'burst_v1r' or data['pieces']['hold_frames'] != 2
             or data['decal_s'] != spec['presentation']['phase_envelope_s']['residue']): raise ValueError('orb expiry pieces/decal disagree')
@@ -1548,5 +1564,4 @@ def validate_orb(data, root, runtime=False):
         if not isinstance(item['pivot'],list) or len(item['pivot'])!=2: raise ValueError('orb pivot requires x,y')
         with Image.open(assets[item['png']]) as im:
             for value,extent in zip(item['pivot'],im.size): _number(value,0,extent,'orb.pivot')
-    orb_schedule_report(data) # Report the literal metronome; never repair the authored schedule.
     return assets

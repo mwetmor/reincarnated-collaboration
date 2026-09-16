@@ -1,0 +1,57 @@
+{
+  "task_id": "T4w",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [],
+  "calls_used": 0,
+  "retries": [],
+  "self_report": {
+    "obeyed_invariants": false,
+    "concerns": [
+      "The contract is mathematically inconsistent: {2,3}-frame intervals have maximum CV 0.204124, below 0.25. Actual CV is 0.187494; FF-08 remains false and both literal assertions remain red.",
+      "The decal test, determinism tests, corrected range assertion, export and headless checks succeeded. Runtime emitted 34 children and expired at 630 px. All 16 masks and 16 other kits remain byte-identical.",
+      "Ran all 165 tests in the two permitted modules, plus one targeted rerun. Three unrelated tests remain red; acceptance.json records their names, diagnoses and tracebacks. Other test modules were not read."
+    ]
+  },
+  "files": [
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/export/effect_kit.py",
+      "sha256": "8b6c858ffc78a4c3e9bdba2850a372f68170c2384a6e4b6a8c6284aba96169d4"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/export/godot_import.py",
+      "sha256": "cc5322cda34347c5cf850a4fa357456a6f6ea384f6a846e5afef2afd25b10bd9"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_effect_kit.py",
+      "sha256": "df5895c94b2972d21cb89e83d0d7a3e4252822f8367b4b6de5bdc48b5a52d65e"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_godot_import.py",
+      "sha256": "7f1729dfc7150598d82eed20bfc13e535316336fa5a5a12ada0a5fefe86ba3b4"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/specs/frozen_orb.json",
+      "sha256": "ea61ee9d3adf4a58e3964a6d9e2fb4704a29a28c991508e49049a6a74b54f98b"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/vfx_kits/v9/frozen_orb_e3/kit.json",
+      "sha256": "a9701b7e7b01a27efe76f5ad5ba26d70561f74c705f94e663ceb9998667da640"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4w/acceptance.json",
+      "sha256": "e3111d730f274134cb38da8a8a97038eadc5cc9b8751b686f4f8a46fb1c8818a"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4w/build_orb.py",
+      "sha256": "59179ecda38d4f36d07a42308286906ba388b717c07b96373d92c5d147322079"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4w/evidence.tar.gz",
+      "sha256": "7b70503a12d85dee6925956cc244587b29f58e7eac120468b402c10539ed90b3"
+    },
+    {
+      "path": "/Users/admin/astra-burst/runs/C-5/T4w/out/files.json",
+      "sha256": "b75dbbfa03e18f5ab14d30bed5b8e95cc2ced89565acc5b25a99926b45d54d24"
+    }
+  ]
+}

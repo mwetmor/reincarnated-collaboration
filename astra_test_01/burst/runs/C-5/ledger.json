@@ -10796,6 +10796,95 @@
       "codex_version": "codex-cli 0.153.4",
       "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
       "exit": 0
+    },
+    {
+      "id": "T4w",
+      "type": "TOOLING",
+      "experiment": "C5-E3",
+      "brief_sha256": "5374672c6c9dc094e9ecacd9170ad90b7ea4ee64c7004884021aedf4b6865388",
+      "started": "2026-09-16T13:30:54.818830+00:00",
+      "ended": "2026-09-16T13:41:24.346354+00:00",
+      "minutes": 10.492175054166728,
+      "image_calls": 0,
+      "tool_calls": 31,
+      "audit": {
+        "violations": [],
+        "image_calls": 0,
+        "tool_calls": 31,
+        "tools_seen": {
+          "command_execution": 31
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": []
+      },
+      "receipt_sha256": "be12013f67fe93576acd29c980e216eea16b109d9b71491349db869f75b9fbf9",
+      "artifacts": [
+        {
+          "name": "files.json",
+          "sha256": "b75dbbfa03e18f5ab14d30bed5b8e95cc2ced89565acc5b25a99926b45d54d24"
+        }
+      ],
+      "artifacts_in_place": [
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "export/effect_kit.py",
+          "sha256": "8b6c858ffc78a4c3e9bdba2850a372f68170c2384a6e4b6a8c6284aba96169d4"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "export/godot_import.py",
+          "sha256": "cc5322cda34347c5cf850a4fa357456a6f6ea384f6a846e5afef2afd25b10bd9"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-5/specs/frozen_orb.json",
+          "sha256": "ea61ee9d3adf4a58e3964a6d9e2fb4704a29a28c991508e49049a6a74b54f98b"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-5/t3/T4w/acceptance.json",
+          "sha256": "e3111d730f274134cb38da8a8a97038eadc5cc9b8751b686f4f8a46fb1c8818a"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-5/t3/T4w/build_orb.py",
+          "sha256": "59179ecda38d4f36d07a42308286906ba388b717c07b96373d92c5d147322079"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-5/t3/T4w/evidence.tar.gz",
+          "sha256": "7b70503a12d85dee6925956cc244587b29f58e7eac120468b402c10539ed90b3"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-5/vfx_kits/v9/frozen_orb_e3/kit.json",
+          "sha256": "a9701b7e7b01a27efe76f5ad5ba26d70561f74c705f94e663ceb9998667da640"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "tests/test_effect_kit.py",
+          "sha256": "df5895c94b2972d21cb89e83d0d7a3e4252822f8367b4b6de5bdc48b5a52d65e"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "tests/test_godot_import.py",
+          "sha256": "7f1729dfc7150598d82eed20bfc13e535316336fa5a5a12ada0a5fefe86ba3b4"
+        }
+      ],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
     }
   ],
   "experiments": [],
@@ -11445,6 +11534,13 @@
       "veto_open": true,
       "ruling": "v30 look ruled: Blackwater ACCEPTED as rendered; LB/Zeus grammar PROVEN (look observations only); F-C5-16/17/18/19 filed. T4w (FO jitter + 630 re-bake + two test alignments) FIRES NOW; T4x (rendered-look corrections: Concoction cloud, HH seal squash/rotate order + ring radius, FO nova expiry) briefed from the defects and fires after T4w. Zeus/HH deployment re-specs WAIT for Matt (Q80). Packet 93 = the seven contact sheets + five mid-flight sheets + seven clips.",
       "ts": "2026-09-16T09:29:37"
+    },
+    {
+      "id": "R-C5-75",
+      "class": "conductor",
+      "veto_open": true,
+      "ruling": "T4w DELIVERED_WITH_CONCERNS and ACCEPTED: orb range 630 honoured end to end; kit re-baked (16 masks + 16 other kits byte-identical); decal test re-encoded from field_end (green); determinism proven. CONDUCTOR ERROR: the {2,3}-frame jitter contract cannot reach FF-08 CV 0.25 (max 1/√24 ≈ 0.204 — Astra proof accepted; the instrument was not bent to fit, correctly). Corrected contract → T4x Part C0: seeded balanced shuffle of {2,3,4} (CV ≈ 0.27 every seed). Three sandbox reds named by Astra are env/cwd artefacts to be confirmed by the outside suite before the freeze. T4x installed (C0 + F-C5-16/17/18/19).",
+      "ts": "2026-09-16T09:43:26"
     }
   ],
   "grok_calls": [],

@@ -1,0 +1,237 @@
+{
+  "element": "ice",
+  "element_class": "strike",
+  "screen_px": true,
+  "ground_squash": 0.6,
+  "phase_scale": {
+    "impact": 1.0684931506849316
+  },
+  "material": {
+    "blend_mode": "MIX",
+    "light_participation": false,
+    "erode": 0.0,
+    "dissolve": 0.0,
+    "palette": [
+      [
+        0.035,
+        0.065,
+        0.13,
+        1
+      ],
+      [
+        0.22,
+        0.38,
+        0.52,
+        1
+      ],
+      [
+        0.64,
+        0.88,
+        0.96,
+        1
+      ],
+      [
+        1,
+        1,
+        1,
+        1
+      ]
+    ],
+    "erode_outside_in": true
+  },
+  "layers": {
+    "dark_duplicate": true,
+    "glow": {
+      "alpha": 0.2,
+      "scale": 1.02
+    },
+    "floor_light": {
+      "duration_s": 0.15,
+      "radius_px": 120
+    },
+    "flash": {
+      "duration_s": 0.016666666666666666,
+      "alpha": 0.8,
+      "scale_from": 1.04,
+      "scale_to": 1
+    },
+    "decal": {
+      "file": "layers/decal.png",
+      "duration_s": 0.6
+    }
+  },
+  "skill_spec": {
+    "skill_id": "frozen_orb",
+    "source_game": "Diablo II \u2014 Sorceress Cold: Frozen Orb",
+    "grammar": "G1",
+    "visual_treatment_id": "ice",
+    "response_class": "strike",
+    "mechanics": {
+      "origin_socket": "cast_release",
+      "aim_rule": "release-locked",
+      "range_px": 630,
+      "speed_px_s": 420,
+      "count": 1,
+      "emission": {
+        "child": "ice_bolt_mini",
+        "schedule": "every 2\u20133 frames (seeded jitter, FF-08), spiral, 3 per revolution",
+        "child_speed_px_s": 900,
+        "child_range_px": 260
+      },
+      "expiry": {
+        "kind": "range_or_time",
+        "time_s": 1.5,
+        "on_expiry": "shard_burst 16 radial"
+      },
+      "termination": "expiry",
+      "pierce": -1
+    },
+    "presentation": {
+      "primitive_bindings": {
+        "travel_head": "ice orb = P_ice_puff rotated (0.9 BH) + rim shards",
+        "child": "P_ice_shard (0.35 BH)",
+        "impact": "ice_burst_e2 pieces (burst_v1r) at expiry",
+        "residue": "P_ice_crown decal at expiry point"
+      },
+      "body_extents_bh": {
+        "orb": 0.9,
+        "child": 0.35,
+        "expiry_burst": 3.0
+      },
+      "phase_envelope_s": {
+        "travel": 1.5,
+        "child_life": 0.3,
+        "expiry_hold_frames": 2,
+        "residue": 0.6
+      },
+      "enabled_layers": [
+        "flash",
+        "halo",
+        "floor_light",
+        "dark_duplicate",
+        "victim_tint",
+        "hit_stop",
+        "contact_label"
+      ]
+    },
+    "provenance": {
+      "orb speed / spiral bolts / expiry shard burst": "D2 source observation (conductor memory: slow orb ~ 1.5 s flight, continuous bolt spiral, final nova of ice bolts) \u2014 VERIFY against the C-5 reference corpus before E3-FO",
+      "pierce -1": "Matt R-C5 Packet-84 (skill pierce)",
+      "bands": "E2 ice palette",
+      "range_and_emission": "corrected R-C5-72 per T4v findings"
+    }
+  },
+  "phases": {
+    "cast": {
+      "sheet": "flare/flare_00.png",
+      "frames": [
+        {
+          "file": "flare/flare_00.png",
+          "hold_frames": 2
+        }
+      ]
+    },
+    "impact": {
+      "sheet": "impact/impact_00.png",
+      "frames": [
+        {
+          "file": "impact/impact_00.png",
+          "hold_frames": 2
+        }
+      ]
+    },
+    "travel": {
+      "sheet": "travel/travel_00.png",
+      "frames": [
+        {
+          "file": "travel/travel_00.png",
+          "hold_frames": 1
+        }
+      ],
+      "speed_px_s": 420,
+      "streak": false
+    }
+  },
+  "name": "frozen_orb_e3",
+  "pieces": {
+    "hold_frames": 2,
+    "base_speed_px_s": 400,
+    "residue_s": 0.6,
+    "residue_fraction": 0.2,
+    "seed": 2026,
+    "source": "pieces/pieces.json",
+    "template": "burst_v1r",
+    "dissolve_order": [
+      [
+        3
+      ],
+      [
+        2
+      ],
+      [
+        1,
+        0
+      ]
+    ],
+    "erode_noise": 0.4
+  },
+  "decal_s": 0.6,
+  "orb": {
+    "body": {
+      "png": "primitives/body.png",
+      "pivot": [
+        281.0,
+        265.0
+      ],
+      "scale": 0.5441860465116279,
+      "binding": "ice orb = P_ice_puff rotated (0.9 BH) + rim shards"
+    },
+    "shard": {
+      "png": "primitives/shard.png",
+      "pivot": [
+        211.5,
+        229.0
+      ],
+      "scale": 0.18055555555555555,
+      "binding": "P_ice_shard (0.35 BH)"
+    },
+    "angle_step_deg": 137,
+    "seed": 2026,
+    "pool_size": 12,
+    "turn_s": 1.2,
+    "rim_count": 4,
+    "rim_radius_px": 42,
+    "expiry_count": 16,
+    "child_pierce": 0,
+    "interval_frames_choices": [
+      2,
+      3
+    ]
+  },
+  "distance_fields": {
+    "flare/flare_00.png": "distance/flare/flare_00.png",
+    "impact/impact_00.png": "distance/impact/impact_00.png",
+    "travel/travel_00.png": "distance/travel/travel_00.png",
+    "layers/decal.png": "distance/layers/decal.png",
+    "primitives/body.png": "distance/primitives/body.png",
+    "primitives/shard.png": "distance/primitives/shard.png",
+    "pieces/peak_index.png": "distance/pieces/peak_index.png",
+    "pieces/piece_001.png": "distance/pieces/piece_001.png",
+    "pieces/piece_002.png": "distance/pieces/piece_002.png",
+    "pieces/piece_003.png": "distance/pieces/piece_003.png",
+    "pieces/piece_004.png": "distance/pieces/piece_004.png",
+    "pieces/piece_005.png": "distance/pieces/piece_005.png",
+    "pieces/piece_006.png": "distance/pieces/piece_006.png",
+    "pieces/piece_007.png": "distance/pieces/piece_007.png",
+    "pieces/piece_008.png": "distance/pieces/piece_008.png",
+    "pieces/piece_009.png": "distance/pieces/piece_009.png",
+    "pieces/piece_010.png": "distance/pieces/piece_010.png",
+    "pieces/piece_011.png": "distance/pieces/piece_011.png",
+    "pieces/piece_012.png": "distance/pieces/piece_012.png",
+    "pieces/piece_013.png": "distance/pieces/piece_013.png",
+    "pieces/piece_014.png": "distance/pieces/piece_014.png",
+    "pieces/piece_015.png": "distance/pieces/piece_015.png",
+    "pieces/piece_016.png": "distance/pieces/piece_016.png"
+  },
+  "pierce": -1
+}
