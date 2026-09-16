@@ -1,0 +1,26 @@
+{
+ "text": "GENERATE BURST VF-prim-ice-shard-01 — painted primitive P-ice FACETED SHARD — a single flying ice fragment for the ICE treatment (Run C-5, E2: fire × ice, one language; architecture 03- § 2.3 build list). task_id \"VF-prim-ice-shard-01\". One primitive per call. Paint the SHAPE REPRESENTING EMISSION only — light, glow, colour and motion are runtime layers.\n\nIMAGE 1 is the SCALE + REGISTER board: a 1:1 native 512×512 crop of the painted cliffside clearing at the game camera with two figures 130 px tall (= 1 BH) beside a 3× enlargement; everything is hand-drawn painted 2D — confident dark contour with taper, clean painted planes, restrained texture. IMAGE 2 is the APPROVED FIRE impact peak (Matt-accepted): NOT the shape to copy — the LANGUAGE to match: exactly four flat greyscale value planes (near-black contour/rim, dark, light, white), hard plane edges, hand-drawn contour, no gradients or glow. Ice must speak the same language with a different vocabulary: FACETS instead of tongues — straight-edged, angular, crystalline planes; sharp points; no curls. IMAGE 3 is the native ground crop alone (reading only).\n\nDeliver EXACTLY ONE image, 512×512, GENUINELY TRANSPARENT background (RGBA: alpha 0 outside the body, opaque inside, no soft fringe wider than 1 px) — if transparency is impossible, a flat uniform #00ff00 plate and SAY SO. Content: ONE faceted ice SHARD: an elongated angular crystal wedge, pointed at the leading end (to the RIGHT, screen +x), broken flat at the trailing end (left), three or four visible facets meeting at straight ridges, asymmetric; hand-drawn dark contour with taper. PAINTED EXTENT: about 90 px long (0.7 BH) and about 40 px wide; centred; nothing touches the canvas edge. Same camera as IMAGE 1 (an upright body facing the camera; no ground squash). VALUE-INDEX ENCODING: GREYSCALE ONLY, exactly FOUR flat value planes with hard edges (plane 0 near-black = contour + a thin dark rim; plane 1 dark grey = shadowed facets; plane 2 light grey = lit facets, most of the body; plane 3 white = the brightest edge highlights and the densest core, no more than a fifth of the body), no gradients, glow, blur, texture or colour; one frame of hand-drawn 2D effects animation at the scene's line weight. No ground, shadow, sparkles, mist, motion blur, character or text.\n\nOne image_gen call. ONE retry only if: the background is not clean, there are gradients/glow/soft edges or more than four value planes, the body touches the canvas edge, the extent is off by more than 25 %, or the vocabulary is wrong (rounded/organic shapes, curls, a symmetric snowflake) — name the reason. Copy the output from $CODEX_HOME/generated_images/... to out/ice_shard_01.png with sha256 (no conversion, no trim, no keying). No code. No other files. No web.\nRETURN: the receipt (task_id \"VF-prim-ice-shard-01\"): files = [exactly one entry: out/ice_shard_01.png with its sha256]; images = the INTEGER COUNT of image_gen calls made (1 or 2) — NOT a list, NEVER a path under $CODEX_HOME/generated_images; calls_used; status DELIVERED / DELIVERED_WITH_CONCERNS with concerns listed honestly (state whether the output has real transparency).",
+ "references": [
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/artifacts/E0p-refs/scale_board_clearing.png",
+   "role": "IMAGE 1 — scale + register board (1:1 + 3×)"
+  },
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/artifacts/E0p-peak-01/fire_peak_01.png",
+   "role": "IMAGE 2 — the approved fire peak: the LANGUAGE (four planes, hand-drawn contour), not the shape"
+  },
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/artifacts/E0p-refs/clearing_native_512.png",
+   "role": "IMAGE 3 — native ground crop (reading only)"
+  }
+ ],
+ "image_cap": 2,
+ "minutes_cap": 15,
+ "tool_call_cap": 20,
+ "outputs": [
+  "out/ice_shard_01.png"
+ ],
+ "effort": "high",
+ "add_dirs": [],
+ "experiment": "C5-E2"
+}
