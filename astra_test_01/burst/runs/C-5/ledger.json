@@ -5408,6 +5408,90 @@
       "codex_version": "codex-cli 0.153.4",
       "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
       "exit": 0
+    },
+    {
+      "id": "T4o",
+      "type": "TOOLING",
+      "experiment": "C5-E0p",
+      "brief_sha256": "025d97d7562e3d3a2ac6c1f8ee46020deed4575a93713259f24dec5dad239390",
+      "started": "2026-09-16T05:51:56.823678+00:00",
+      "ended": "2026-09-16T06:06:25.181123+00:00",
+      "minutes": 14.47240761944995,
+      "image_calls": 0,
+      "tool_calls": 29,
+      "audit": {
+        "violations": [],
+        "image_calls": 0,
+        "tool_calls": 29,
+        "tools_seen": {
+          "command_execution": 29
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": []
+      },
+      "receipt_sha256": "fca0c356ac3e75cc39dc434bca58431df5793c4b33f7cbbf8c7f72aebd1463ec",
+      "artifacts": [
+        {
+          "name": "files.json",
+          "sha256": "b7ebfe63e37119741941d8d84f3d36f8c813798843bb328e0c12bcf10de7d548"
+        }
+      ],
+      "artifacts_in_place": [
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "export/effect_kit.py",
+          "sha256": "e39c0d710f8adb3fae24c1bf6e7e5e9717f009720544350977829ca88fb7afe0"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "export/godot_import.py",
+          "sha256": "1a7ca1c8e4d12a73255e175a23e207eb01fc5973c32c7d4f0d5c1c2a772ee4e0"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "export/vfx_material.gdshader",
+          "sha256": "5711da4a7705fce94cb204028e7407bef8f30baebba8516c0b6658724368b1d5"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-5/t3/T4o/acceptance.json",
+          "sha256": "70666d679d6422dda4320fea38d2312d9ca2a8cfcad17129bc1c8552f7d6866b"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-5/t3/T4o/evidence.tar.gz",
+          "sha256": "928f639b02260a4a15b6ba88221436258c7e90b91ee56bfc325b46b316a45e68"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-5/vfx_kits/v9/fire_burst_e0p_v2/kit.json",
+          "sha256": "823769dbafb6a71ded9b3d5ed7c351c45d5795cf4119b131ca62fe5ab5f976f7"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "tests/test_effect_kit.py",
+          "sha256": "ee27c77f2c99aa1b02151f7f342ac21ead52fd3c25ad54fe25d0ab9bda7f236d"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "tests/test_godot_import.py",
+          "sha256": "a0d6a77bd0c3441e7ad8fd9c45f446eca2e140c49cf8eaa0122269499a89160f"
+        }
+      ],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
     }
   ],
   "experiments": [],
@@ -5771,6 +5855,13 @@
       "veto_open": true,
       "ruling": "FREEZE after T4n-r1: outside suite = the five standing reds only. T4o fires (continuous erosion noise; residue non-circular).",
       "ts": "2026-09-16T01:51:07"
+    },
+    {
+      "id": "R-C5-41",
+      "class": "conductor",
+      "veto_open": true,
+      "ruling": "T4o DELIVERED_WITH_CONCERNS and ACCEPTED: continuous whole-body noise texture (3 octaves) mixed 0.5 with painted resistance, erode_noise 0.4 → residue entry 20.0 %, radius ratio 2.1, isoperimetric excess 0.43, largest component 1.0; 488 legacy files unchanged. The remaining straight seam segments (25–36 px at f30–36) are GEOMETRIC — stretched pieces meeting along piece boundaries — not a noise defect; they are exactly what E0-p step 5 (painted key states over the transformed arrangement) exists to heal, so they pass to step 5 rather than another tooling lap. Conductor bakes at 1:1 for the record.",
+      "ts": "2026-09-16T02:08:30"
     }
   ],
   "grok_calls": [],

@@ -1,0 +1,356 @@
+{
+  "task_id": "T4o",
+  "image_calls": 0,
+  "rendered": null,
+  "implementation": {
+    "erode_noise": 0.4,
+    "scope_precedence": [
+      "pieces",
+      "kit",
+      "material"
+    ],
+    "default": 0,
+    "texture": "project/vfx/fire_burst_e0p_v2/pieces/whole_body_noise.png",
+    "texture_size": [
+      512,
+      512
+    ],
+    "noise_octaves": [
+      8,
+      16,
+      32
+    ],
+    "octave_weights": [
+      1,
+      0.5,
+      0.25
+    ],
+    "seed": 17,
+    "noise_band_mix": [
+      0.5,
+      0.5
+    ],
+    "band_channel": "nearest-visible extension plus sigma=2 Gaussian, generated on whole peak",
+    "sampling": "same original whole-body UV as distance field; shared RGB texture R=noise G=painted resistance",
+    "unchanged": "piece masks, sprite transforms, timing, grouped residue dissolve, legacy/default shader output"
+  },
+  "thresholds": {
+    "entry_fraction": [
+      0.15,
+      0.25
+    ],
+    "radius_ratio_min": 1.5,
+    "isoperimetric_excess_min": 0.35,
+    "largest_component_fraction_min": 0.9,
+    "straight_seam_front_px_max": 12
+  },
+  "cpu": {
+    "instrument": "CPU source-space native texels, active T4e-r1 shard union; not a rendered proof",
+    "sweep": [
+      {
+        "erode_noise": 0.0,
+        "residue_erode": 0.7862745098039216,
+        "residue_outer": 0.21372549019607842,
+        "predicted_stationary_residue_area_px": 8403,
+        "source_peak_area_px": 41951,
+        "residue_denominator": "maximum hold-frame body alpha>0 coverage",
+        "entry_area_px": 8403,
+        "entry_fraction": 0.20030511787561678,
+        "largest_component_fraction": 1.0,
+        "radius_ratio": 1.0237790321642641,
+        "min_radius_px": 50.55286436207922,
+        "max_radius_px": 51.75496254974079,
+        "isoperimetric_excess": 0.01525988676361556
+      },
+      {
+        "erode_noise": 0.08,
+        "residue_erode": 0.8066665,
+        "residue_outer": 0.1933335,
+        "predicted_stationary_residue_area_px": 8390,
+        "source_peak_area_px": 41951,
+        "residue_denominator": "maximum hold-frame body alpha>0 coverage",
+        "entry_area_px": 8390,
+        "entry_fraction": 0.19999523253319348,
+        "largest_component_fraction": 1.0,
+        "radius_ratio": 1.1752593739696529,
+        "min_radius_px": 47.63413075235119,
+        "max_radius_px": 55.982458687596846,
+        "isoperimetric_excess": 0.04751379232612574
+      },
+      {
+        "erode_noise": 0.2,
+        "residue_erode": 0.8401959999999999,
+        "residue_outer": 0.159804,
+        "predicted_stationary_residue_area_px": 8392,
+        "source_peak_area_px": 41951,
+        "residue_denominator": "maximum hold-frame body alpha>0 coverage",
+        "entry_area_px": 8392,
+        "entry_fraction": 0.2000429072012586,
+        "largest_component_fraction": 1.0,
+        "radius_ratio": 1.5548214858594598,
+        "min_radius_px": 41.321169069661686,
+        "max_radius_px": 64.24704149034133,
+        "isoperimetric_excess": 0.173245482114172
+      },
+      {
+        "erode_noise": 0.25,
+        "residue_erode": 0.854657,
+        "residue_outer": 0.145343,
+        "predicted_stationary_residue_area_px": 8385,
+        "source_peak_area_px": 41951,
+        "residue_denominator": "maximum hold-frame body alpha>0 coverage",
+        "entry_area_px": 8385,
+        "entry_fraction": 0.19987604586303068,
+        "largest_component_fraction": 1.0,
+        "radius_ratio": 1.6870261278519096,
+        "min_radius_px": 39.021202318709406,
+        "max_radius_px": 65.82978785185828,
+        "isoperimetric_excess": 0.1891032343380452
+      },
+      {
+        "erode_noise": 0.3,
+        "residue_erode": 0.8693139999999999,
+        "residue_outer": 0.13068600000000002,
+        "predicted_stationary_residue_area_px": 8393,
+        "source_peak_area_px": 41951,
+        "residue_denominator": "maximum hold-frame body alpha>0 coverage",
+        "entry_area_px": 8393,
+        "entry_fraction": 0.20006674453529116,
+        "largest_component_fraction": 1.0,
+        "radius_ratio": 1.837013551153741,
+        "min_radius_px": 37.16031749384038,
+        "max_radius_px": 68.26400680136021,
+        "isoperimetric_excess": 0.2502171526336947
+      },
+      {
+        "erode_noise": 0.35,
+        "residue_erode": 0.885539,
+        "residue_outer": 0.11446100000000001,
+        "predicted_stationary_residue_area_px": 8391,
+        "source_peak_area_px": 41951,
+        "residue_denominator": "maximum hold-frame body alpha>0 coverage",
+        "entry_area_px": 8391,
+        "entry_fraction": 0.20001906986722606,
+        "largest_component_fraction": 1.0,
+        "radius_ratio": 1.9917216373317093,
+        "min_radius_px": 35.29298088458143,
+        "max_radius_px": 70.29379367375525,
+        "isoperimetric_excess": 0.2815779532982816
+      },
+      {
+        "erode_noise": 0.4,
+        "residue_erode": 0.900784,
+        "residue_outer": 0.099216,
+        "predicted_stationary_residue_area_px": 8385,
+        "source_peak_area_px": 41951,
+        "residue_denominator": "maximum hold-frame body alpha>0 coverage",
+        "entry_area_px": 8385,
+        "entry_fraction": 0.19987604586303068,
+        "largest_component_fraction": 1.0,
+        "radius_ratio": 2.134786854429172,
+        "min_radius_px": 33.459971210264015,
+        "max_radius_px": 71.42990668925017,
+        "isoperimetric_excess": 0.43145349999818317
+      },
+      {
+        "erode_noise": 0.45,
+        "residue_erode": 0.914951,
+        "residue_outer": 0.085049,
+        "predicted_stationary_residue_area_px": 8390,
+        "source_peak_area_px": 41951,
+        "residue_denominator": "maximum hold-frame body alpha>0 coverage",
+        "entry_area_px": 8390,
+        "entry_fraction": 0.19999523253319348,
+        "largest_component_fraction": 1.0,
+        "radius_ratio": 2.3779924656010683,
+        "min_radius_px": 30.320017804748215,
+        "max_radius_px": 72.1007738965815,
+        "isoperimetric_excess": 0.5565835459962414
+      },
+      {
+        "erode_noise": 0.5,
+        "residue_erode": 0.927941,
+        "residue_outer": 0.072059,
+        "predicted_stationary_residue_area_px": 8377,
+        "source_peak_area_px": 41951,
+        "residue_denominator": "maximum hold-frame body alpha>0 coverage",
+        "entry_area_px": 8377,
+        "entry_fraction": 0.1996853471907702,
+        "largest_component_fraction": 1.0,
+        "radius_ratio": 2.4948710968786862,
+        "min_radius_px": 29.170063953856154,
+        "max_radius_px": 72.77554945257853,
+        "isoperimetric_excess": 0.576143773324006
+      }
+    ],
+    "configured": {
+      "erode_noise": 0.4,
+      "residue_erode": 0.900784,
+      "residue_outer": 0.099216,
+      "predicted_stationary_residue_area_px": 8385,
+      "source_peak_area_px": 41951,
+      "residue_denominator": "maximum hold-frame body alpha>0 coverage",
+      "entry_area_px": 8385,
+      "entry_fraction": 0.19987604586303068,
+      "largest_component_fraction": 1.0,
+      "radius_ratio": 2.134786854429172,
+      "min_radius_px": 33.459971210264015,
+      "max_radius_px": 71.42990668925017,
+      "isoperimetric_excess": 0.43145349999818317
+    },
+    "union_difference_px": 0,
+    "seam_front": [
+      {
+        "age": 30,
+        "layer": "stationary",
+        "erode": 0.47183923809523814,
+        "longest_seam_front_px": 3.23606797749979
+      },
+      {
+        "age": 30,
+        "layer": "stretch_source",
+        "erode": 0.5238095238095238,
+        "longest_seam_front_px": 3.23606797749979
+      },
+      {
+        "age": 33,
+        "layer": "stationary",
+        "erode": 0.6005226666666666,
+        "longest_seam_front_px": 3.23606797749979
+      },
+      {
+        "age": 33,
+        "layer": "stretch_source",
+        "erode": 0.6666666666666666,
+        "longest_seam_front_px": 3.23606797749979
+      },
+      {
+        "age": 36,
+        "layer": "stationary",
+        "erode": 0.7292060952380953,
+        "longest_seam_front_px": 3.23606797749979
+      },
+      {
+        "age": 36,
+        "layer": "stretch_source",
+        "erode": 0.8095238095238095,
+        "longest_seam_front_px": 2.414213562373095
+      }
+    ],
+    "zero_control": {
+      "erode_noise": 0.0,
+      "residue_erode": 0.7862745098039216,
+      "residue_outer": 0.21372549019607842,
+      "predicted_stationary_residue_area_px": 8403,
+      "source_peak_area_px": 41951,
+      "residue_denominator": "maximum hold-frame body alpha>0 coverage",
+      "entry_area_px": 8403,
+      "entry_fraction": 0.20030511787561678,
+      "largest_component_fraction": 1.0,
+      "radius_ratio": 1.0237790321642641,
+      "min_radius_px": 50.55286436207922,
+      "max_radius_px": 51.75496254974079,
+      "isoperimetric_excess": 0.01525988676361556
+    },
+    "noise_sha256": "3dcce92ac6d39953bf2738be74b4bae5664d77c95a8cdc9b55b65a8505d19c25"
+  },
+  "transformed_seam_instrument": {
+    "method": "inverse-affine bilinear alpha>0 union; intersects native front with transformed internal piece seams; 1.5-px line corridor scanned in one-degree steps; >=90% occupied axial bins, at most one missing bin",
+    "rows": [
+      {
+        "age": 30,
+        "longest_transformed_seam_front_component_diameter_px": 79.49203781276162,
+        "longest_straight_seam_front_px": 36.0,
+        "largest_component": 0.9995194178090029
+      },
+      {
+        "age": 33,
+        "longest_transformed_seam_front_component_diameter_px": 68.89698078707183,
+        "longest_straight_seam_front_px": 25.0,
+        "largest_component": 0.9779669182591938
+      },
+      {
+        "age": 36,
+        "longest_transformed_seam_front_component_diameter_px": 54.600373133029585,
+        "longest_straight_seam_front_px": 26.0,
+        "largest_component": 0.9218997622820919
+      }
+    ],
+    "source_space_is_insufficient": true
+  },
+  "legacy": {
+    "hash_table_files": 488,
+    "unchanged": true,
+    "tests": [
+      "test_godot_import.PieceLap3LegacyByteTests.test_six_kits_and_v1_against_pre_t4k_export_hash_table",
+      "test_godot_import.BurnBackExportTests.test_legacy_488_byte_table"
+    ],
+    "baseline_files_modified": false
+  },
+  "headless": [
+    {
+      "name": "import",
+      "exit_code": 0,
+      "seconds": 4.745519083000545,
+      "timeout": false,
+      "script_error": false,
+      "error": true
+    },
+    {
+      "name": "trace",
+      "exit_code": 0,
+      "seconds": 0.3320282079948811,
+      "timeout": false,
+      "script_error": false,
+      "error": true
+    }
+  ],
+  "clock_trace": {
+    "ages": [
+      19,
+      30,
+      33,
+      36,
+      40,
+      64,
+      72,
+      76
+    ],
+    "noise_values": [
+      0.4
+    ],
+    "texture_paths": [
+      "res://vfx/fire_burst_e0p_v2/pieces/whole_body_noise.png"
+    ]
+  },
+  "suite": {
+    "modules": [
+      "tests/test_effect_kit.py",
+      "tests/test_godot_import.py"
+    ],
+    "tests_run": 104,
+    "errors": [],
+    "assertion_failures": [
+      "test_effect_kit.RaggedResidueMaterialTests.test_noise_bounds_band_resistance_endpoints_and_dissolve",
+      "test_effect_kit.RaggedResidueMaterialTests.test_t4e_entry_ragged_connected_and_zero_disc_control",
+      "test_godot_import.GodotImportTests.test_headless_state_machine_input_map_gear_vfx_and_nearest_fallback",
+      "test_godot_import.PieceStretchImportTests.test_v2_headless_import_and_seed_equal_rooted_clock",
+      "test_godot_import.RaggedResidueImportTests.test_exported_threshold_and_every_root_and_stretch_material_agree",
+      "test_godot_import.TransformedResidueSeamTests.test_transformed_front_at_three_ages_has_no_straight_seam_over_12px (age=30)",
+      "test_godot_import.TransformedResidueSeamTests.test_transformed_front_at_three_ages_has_no_straight_seam_over_12px (age=33)",
+      "test_godot_import.TransformedResidueSeamTests.test_transformed_front_at_three_ages_has_no_straight_seam_over_12px (age=36)"
+    ],
+    "skipped": [],
+    "detail": "evidence.tar.gz:suite.json and suite.txt"
+  },
+  "concerns": [
+    "Transformed CPU fronts retain straight piece-seam segments of 36, 25 and 26 px at ages 30, 33 and 36, exceeding 12 px. Shared source UV resistance does not eliminate seams exposed by different sprite transforms. No transform or timing change was made; conductor method decision remains necessary.",
+    "Three unchanged T4n tests still require the retired 0.08 band-only proxy. Tests were extended only; the old assertions were retained and are named in suite results.",
+    "The headless state-machine test encounters the sandbox Godot user-log crash; the stretch-clock test retains its stale dissolve assertion. Dedicated import and trace exit 0, with macOS certificate/editor-settings sandbox messages. The previously known timeout did not reproduce.",
+    "Only the two named test modules were executed. The five standing broader-suite reds (four T0-d3 motif checks plus test_synthetic_contract_and_grid) were not re-censused; individual motif test names are unavailable within the requested read scope.",
+    "Initial extraction read additional sections of the named SPEC.md beyond the requested sections. No other document was manually inspected outside the named read list; test execution necessarily loaded its existing dependencies and fixtures.",
+    "Rendered acceptance remains conductor-owned; all shape and seam measurements here are CPU instruments."
+  ],
+  "evidence_archive": "evidence.tar.gz",
+  "reproduce": "Extract evidence.tar.gz under runs/C-5/t3/T4o; PYTHONPATH=. PYTHONDONTWRITEBYTECODE=1 python3 runs/C-5/t3/T4o/transformed_check.py. Test runs must redirect both modules TMP and tempfile.tempdir to runs/C-5/t3/T4o/tmp."
+}
