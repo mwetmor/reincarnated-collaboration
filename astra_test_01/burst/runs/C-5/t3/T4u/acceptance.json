@@ -1,0 +1,286 @@
+{
+  "task_id": "T4u",
+  "instrument": "Headless import and 60 Hz runtime traces; no rendered acceptance verdict",
+  "kit": {
+    "name": "healing_hands_e3",
+    "structural_validation_errors": [],
+    "registration": "runs/C-5/vfx_kits/kits_v9.json",
+    "grammar": "G4",
+    "screen_px": true,
+    "support_layers": [
+      "halo",
+      "floor_light"
+    ],
+    "dark_duplicate": false
+  },
+  "measurements": {
+    "aura_count": 1,
+    "aura_count_after_cancel": 0,
+    "follow_error_px": 0.0,
+    "labels_remaining": 0,
+    "live_follow_error": 0.0,
+    "live_physics_age": 12,
+    "native_scale_error": 1.19209289550781e-07,
+    "refresh_age": 0,
+    "refresh_generation": 2,
+    "refresh_same_instance": true,
+    "seal_scale_error": 0.0,
+    "sort_errors": 0,
+    "tint_restored": true,
+    "walk_east_px": 200.0,
+    "pulse_count": 6,
+    "pulse_frames": [
+      0,
+      42,
+      96,
+      132,
+      186,
+      222
+    ],
+    "pulse_schedule": {
+      "intervals_s": [
+        0.7,
+        0.9000000000000001,
+        0.6000000000000001,
+        0.8999999999999999,
+        0.6000000000000001
+      ],
+      "interval_cv": 0.18330621576014236,
+      "minimum_cv": 0.25,
+      "ff08_satisfied": false,
+      "tick_count": 6,
+      "assertion_error": "FF-08 interval CV 0.183306216 < 0.250000000; authored schedule retained"
+    },
+    "petal_start_count": 36,
+    "petal_lifetime_frames": [
+      27
+    ],
+    "petal_end_count": 36,
+    "inside_tint_events": 6,
+    "inside_label_events": 6,
+    "outside_support_events": 0,
+    "release_start_frames": [
+      240
+    ],
+    "expire_frames": [
+      258
+    ],
+    "release_duration_s": 0.3
+  },
+  "primitives": {
+    "ring": {
+      "source_sha256": "e5629a56a656ca7ca5cd4a4e48818f138fa8c12e15ef9df0e71cefc556bc7477",
+      "source_visible_rgb_value_count": 245,
+      "output_visible_values": [
+        0,
+        85,
+        170,
+        255
+      ],
+      "alpha_identical": true,
+      "canvas": [
+        512,
+        512
+      ]
+    },
+    "petal": {
+      "source_sha256": "d7c7411897714234357da9b7cc3ad2704fe7c3831984ebf3e34fae0852f4a7fc",
+      "source_visible_rgb_value_count": 237,
+      "output_visible_values": [
+        0,
+        85,
+        170,
+        255
+      ],
+      "alpha_identical": true,
+      "canvas": [
+        512,
+        512
+      ]
+    },
+    "seal": {
+      "source_sha256": "69c7127b277f158a24e0aa6b4c9a4f57484c0b81d35f63dcdddae256e1710bd1",
+      "source_visible_rgb_value_count": 250,
+      "output_visible_values": [
+        0,
+        85,
+        170,
+        255
+      ],
+      "alpha_identical": true,
+      "canvas": [
+        512,
+        512
+      ]
+    }
+  },
+  "byte_comparison": {
+    "previous_source_file_count": 646,
+    "previous_source_changes": [],
+    "previous_export_file_count": 918,
+    "export_changes": [
+      "CREDITS_VFX.txt",
+      "scripts/keeper.gd"
+    ],
+    "allowed_registration_changes": [
+      "scripts/keeper.gd",
+      "CREDITS_VFX.txt",
+      "godot_import.json"
+    ],
+    "kit_resource_changes": []
+  },
+  "headless": {
+    "import_exit_code": 0,
+    "trace_exit_code": 0,
+    "script_errors": [],
+    "environment_warnings": [
+      "macOS system CA certificate lookup warning",
+      "Godot editor settings save outside sandbox rejected; no settings file changed"
+    ]
+  },
+  "test_alignment": [
+    {
+      "test": "FieldDesignLapEmissionTests.test_both_flasks_three_flight_ages_global_layer_alpha_and_scale",
+      "change": "exact vector equality -> per-component absolute tolerance 1e-5; test exercised"
+    },
+    {
+      "test": "ThrownFieldValidationTests.test_both_g2_kits_preserve_specs_rgb_glass_and_alpha / test_g2_normal_builder_preserves_rgb_and_density",
+      "change": "density expectation 1.0 -> current 0.75"
+    },
+    {
+      "test": "GroundVisibilityRegressionTests.test_ground_is_above_foreground_below_actors_and_owned_until_cancel",
+      "change": "fire decal hidden while the painted pool is live; poison decal visible"
+    },
+    {
+      "test": "GroundVisibilityRegressionTests.test_cloud_density_reaches_shader_once_at_the_ground_point",
+      "change": "current 0.65\u20130.80 breath envelope; density control scales the same envelope"
+    },
+    {
+      "test": "BoltChainEmissionTests.test_current_thirteen_exports_and_original_kits_unchanged",
+      "change": "catalogue may append explicit grammars after existing fifteen; unchanged prefix byte checks retained; baseline lookup blocks execution in this sandbox"
+    }
+  ],
+  "tests": {
+    "tests_run": 202,
+    "failure_count": 10,
+    "error_count": 10,
+    "skipped": [],
+    "g4_tests": 7,
+    "g4_reds": [],
+    "alignment_trace_tests": 4,
+    "remaining_reds": [
+      {
+        "test": "test_explicit_specs_alpha_indices_and_schedule (test_effect_kit.BoltChainValidationTests.test_explicit_specs_alpha_indices_and_schedule)",
+        "detail": "Traceback (most recent call last):\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_effect_kit.py\", line 2159, in test_explicit_specs_alpha_indices_and_schedule\n    self.assertEqual(data['skill_spec'],json.loads((ROOT/f'runs/C-5/specs/{name}.json').read_text()))\nAssertionError: {'ski[496 chars]hit)'}, 'termination': 'chain_end'}, 'presenta[595 chars]H1'}} != {'ski[496 chars]hit)', 'note': 'count = 4 additional hops afte[890 chars] s'}}\nDiff is 3025 characters long. Set self.maxDiff to None to see it.\n"
+      },
+      {
+        "test": "test_headless_state_machine_input_map_gear_vfx_and_nearest_fallback (test_godot_import.GodotImportTests.test_headless_state_machine_input_map_gear_vfx_and_nearest_fallback)",
+        "detail": "Traceback (most recent call last):\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_godot_import.py\", line 162, in test_headless_state_machine_input_map_gear_vfx_and_nearest_fallback\n    self.assertEqual(proc.returncode, 0, log)\nAssertionError: -6 != 0 : ERROR: Failed to open 'user://logs/godot2026-09-16T08.15.38.log'.\n   at: copy (core/io/dir_access.cpp:423)\n\n================================================================\nhandle_crash: Program crashed with signal 11\nEngine version: Godot Engine v4.6.3.stable.official (7d41c59c457bd5a245092b4e7eb2d833e3b3f8c3)\nDumping the backtrace. Please include this when reporting the bug on: https://github.com/godotengine/godot/issues\n[1] 1   libsystem_platform.dylib            0x000000018222d6a4 _sigtramp + 56\n[2] RotatedFileLogger::rotate_file() (in Godot) + 1160\n[3] RotatedFileLogger::rotate_file() (in Godot) + 1160\n[4] RotatedFileLogger::RotatedFileLogger(String const&, int) (in Godot) + 80\n[5] Main::setup(char const*, int, char**, bool) (in Godot) + 18880\n[6] OS_MacOS_Headless::run() (in Godot) + 68\n[7] main (in Godot) + 924\n[8] 8   dyld                                0x0000000181e52b98 start + 6076\n-- END OF C++ BACKTRACE --\n================================================================\n\n"
+      },
+      {
+        "test": "test_v2_headless_import_and_seed_equal_rooted_clock (test_godot_import.PieceStretchImportTests.test_v2_headless_import_and_seed_equal_rooted_clock)",
+        "detail": "Traceback (most recent call last):\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_godot_import.py\", line 453, in test_v2_headless_import_and_seed_equal_rooted_clock\n    self.assertEqual(proc.returncode,0,log)\nAssertionError: 7 != 0 : Godot Engine v4.6.3.stable.official.7d41c59c4 - https://godotengine.org\n\nERROR: Condition \"ret != noErr\" is true. Returning: \"\"\n   at: get_system_ca_certificates (platform/macos/os_macos.mm:1028)\nERROR: band three not dissolved\n   at: push_error (core/variant/variant_utility.cpp:1024)\n   GDScript backtrace (most recent call first):\n       [0] need (res://stretch_probe.gd:6)\n       [1] probe (res://stretch_probe.gd:36)\nERROR: band three not dissolved\n   at: push_error (core/variant/variant_utility.cpp:1024)\n   GDScript backtrace (most recent call first):\n       [0] need (res://stretch_probe.gd:6)\n       [1] probe (res://stretch_probe.gd:36)\nERROR: band three not dissolved\n   at: push_error (core/variant/variant_utility.cpp:1024)\n   GDScript backtrace (most recent call first):\n       [0] need (res://stretch_probe.gd:6)\n       [1] probe (res://stretch_probe.gd:36)\nERROR: band three not dissolved\n   at: push_error (core/variant/variant_utility.cpp:1024)\n   GDScript backtrace (most recent call first):\n       [0] need (res://stretch_probe.gd:6)\n       [1] probe (res://stretch_probe.gd:36)\nERROR: band three not dissolved\n   at: push_error (core/variant/variant_utility.cpp:1024)\n   GDScript backtrace (most recent call first):\n       [0] need (res://stretch_probe.gd:6)\n       [1] probe (res://stretch_probe.gd:36)\nERROR: band three not dissolved\n   at: push_error (core/variant/variant_utility.cpp:1024)\n   GDScript backtrace (most recent call first):\n       [0] need (res://stretch_probe.gd:6)\n       [1] probe (res://stretch_probe.gd:36)\nERROR: band three not dissolved\n   at: push_error (core/variant/variant_utility.cpp:1024)\n   GDScript backtrace (most recent call first):\n       [0] need (res://stretch_probe.gd:6)\n       [1] probe (res://stretch_probe.gd:36)\nERROR: band three not dissolved\n   at: push_error (core/variant/variant_utility.cpp:1024)\n   GDScript backtrace (most recent call first):\n       [0] need (res://stretch_probe.gd:6)\n       [1] probe (res://stretch_probe.gd:36)\nERROR: band three not dissolved\n   at: push_error (core/variant/variant_utility.cpp:1024)\n   GDScript backtrace (most recent call first):\n       [0] need (res://stretch_probe.gd:6)\n       [1] probe (res://stretch_probe.gd:36)\nERROR: band three not dissolved\n   at: push_error (core/variant/variant_utility.cpp:1024)\n   GDScript backtrace (most recent call first):\n       [0] need (res://stretch_probe.gd:6)\n       [1] probe (res://stretch_probe.gd:36)\nERROR: band three not dissolved\n   at: push_error (core/variant/variant_utility.cpp:1024)\n   GDScript backtrace (most recent call first):\n       [0] need (res://stretch_probe.gd:6)\n       [1] probe (res://stretch_probe.gd:36)\nERROR: band three not dissolved\n   at: push_error (core/variant/variant_utility.cpp:1024)\n   GDScript backtrace (most recent call first):\n       [0] need (res://stretch_probe.gd:6)\n       [1] probe (res://stretch_probe.gd:36)\nERROR: band three not dissolved\n   at: push_error (core/variant/variant_utility.cpp:1024)\n   GDScript backtrace (most recent call first):\n       [0] need (res://stretch_probe.gd:6)\n       [1] probe (res://stretch_probe.gd:36)\nERROR: band three not dissolved\n   at: push_error (core/variant/variant_utility.cpp:1024)\n   GDScript backtrace (most recent call first):\n       [0] need (res://stretch_probe.gd:6)\n       [1] probe (res://stretch_probe.gd:36)\nERROR: band three not dissolved\n   at: push_error (core/variant/variant_utility.cpp:1024)\n   GDScript backtrace (most recent call first):\n       [0] need (res://stretch_probe.gd:6)\n       [1] probe (res://stretch_probe.gd:36)\nERROR: band three not dissolved\n   at: push_error (core/variant/variant_utility.cpp:1024)\n   GDScript backtrace (most recent call first):\n       [0] need (res://stretch_probe.gd:6)\n       [1] probe (res://stretch_probe.gd:36)\nERROR: band three not dissolved\n   at: push_error (core/variant/variant_utility.cpp:1024)\n   GDScript backtrace (most recent call first):\n       [0] need (res://stretch_probe.gd:6)\n       [1] probe (res://stretch_probe.gd:36)\nERROR: band three not dissolved\n   at: push_error (core/variant/variant_utility.cpp:1024)\n   GDScript backtrace (most recent call first):\n       [0] need (res://stretch_probe.gd:6)\n       [1] probe (res://stretch_probe.gd:36)\nERROR: band three not dissolved\n   at: push_error (core/variant/variant_utility.cpp:1024)\n   GDScript backtrace (most recent call first):\n       [0] need (res://stretch_probe.gd:6)\n       [1] probe (res://stretch_probe.gd:36)\nERROR: band three not dissolved\n   at: push_error (core/variant/variant_utility.cpp:1024)\n   GDScript backtrace (most recent call first):\n       [0] need (res://stretch_probe.gd:6)\n       [1] probe (res://stretch_probe.gd:36)\nERROR: band three not dissolved\n   at: push_error (core/variant/variant_utility.cpp:1024)\n   GDScript backtrace (most recent call first):\n       [0] need (res://stretch_probe.gd:6)\n       [1] probe (res://stretch_probe.gd:36)\nERROR: band three not dissolved\n   at: push_error (core/variant/variant_utility.cpp:1024)\n   GDScript backtrace (most recent call first):\n       [0] need (res://stretch_probe.gd:6)\n       [1] probe (res://stretch_probe.gd:36)\nERROR: band three not dissolved\n   at: push_error (core/variant/variant_utility.cpp:1024)\n   GDScript backtrace (most recent call first):\n       [0] need (res://stretch_probe.gd:6)\n       [1] probe (res://stretch_probe.gd:36)\nERROR: band three not dissolved\n   at: push_error (core/variant/variant_utility.cpp:1024)\n   GDScript backtrace (most recent call first):\n       [0] need (res://stretch_probe.gd:6)\n       [1] probe (res://stretch_probe.gd:36)\nERROR: band three not dissolved\n   at: push_error (core/variant/variant_utility.cpp:1024)\n   GDScript backtrace (most recent call first):\n       [0] need (res://stretch_probe.gd:6)\n       [1] probe (res://stretch_probe.gd:36)\nERROR: band three not dissolved\n   at: push_error (core/variant/variant_utility.cpp:1024)\n   GDScript backtrace (most recent call first):\n       [0] need (res://stretch_probe.gd:6)\n       [1] probe (res://stretch_probe.gd:36)\nERROR: band three not dissolved\n   at: push_error (core/variant/variant_utility.cpp:1024)\n   GDScript backtrace (most recent call first):\n       [0] need (res://stretch_probe.gd:6)\n       [1] probe (res://stretch_probe.gd:36)\nERROR: band three not dissolved\n   at: push_error (core/variant/variant_utility.cpp:1024)\n   GDScript backtrace (most recent call first):\n       [0] need (res://stretch_probe.gd:6)\n       [1] probe (res://stretch_probe.gd:36)\nERROR: band three not dissolved\n   at: push_error (core/variant/variant_utility.cpp:1024)\n   GDScript backtrace (most recent call first):\n       [0] need (res://stretch_probe.gd:6)\n       [1] probe (res://stretch_probe.gd:36)\nERROR: band three not dissolved\n   at: push_error (core/variant/variant_utility.cpp:1024)\n   GDScript backtrace (most recent call first):\n       [0] need (res://stretch_probe.gd:6)\n       [1] probe (res://stretch_probe.gd:36)\nERROR: band three not dissolved\n   at: push_error (core/variant/variant_utility.cpp:1024)\n   GDScript backtrace (most recent call first):\n       [0] need (res://stretch_probe.gd:6)\n       [1] probe (res://stretch_probe.gd:36)\nERROR: band three not dissolved\n   at: push_error (core/variant/variant_utility.cpp:1024)\n   GDScript backtrace (most recent call first):\n       [0] need (res://stretch_probe.gd:6)\n       [1] probe (res://stretch_probe.gd:36)\nERROR: band three not dissolved\n   at: push_error (core/variant/variant_utility.cpp:1024)\n   GDScript backtrace (most recent call first):\n       [0] need (res://stretch_probe.gd:6)\n       [1] probe (res://stretch_probe.gd:36)\nERROR: band three not dissolved\n   at: push_error (core/variant/variant_utility.cpp:1024)\n   GDScript backtrace (most recent call first):\n       [0] need (res://stretch_probe.gd:6)\n       [1] probe (res://stretch_probe.gd:36)\nERROR: band three not dissolved\n   at: push_error (core/variant/variant_utility.cpp:1024)\n   GDScript backtrace (most recent call first):\n       [0] need (res://stretch_probe.gd:6)\n       [1] probe (res://stretch_probe.gd:36)\nERROR: band three not dissolved\n   at: push_error (core/variant/variant_utility.cpp:1024)\n   GDScript backtrace (most recent call first):\n       [0] need (res://stretch_probe.gd:6)\n       [1] probe (res://stretch_probe.gd:36)\n\n"
+      },
+      {
+        "test": "test_full_exporter_current_thirteen_kit_catalogue (test_godot_import.ThrownFieldCLIRegressionTests.test_full_exporter_current_thirteen_kit_catalogue)",
+        "detail": "Traceback (most recent call last):\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_godot_import.py\", line 1037, in test_full_exporter_current_thirteen_kit_catalogue\n    self.assertEqual(result.returncode, 0, result.stdout + result.stderr)\nAssertionError: 1 != 0 : Traceback (most recent call last):\n  File \"<frozen runpy>\", line 198, in _run_module_as_main\n  File \"<frozen runpy>\", line 88, in _run_code\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/export/godot_import.py\", line 4052, in <module>\n    main()\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/export/godot_import.py\", line 671, in main\n    print(json.dumps(build_project(args.cells, args.out, args.vfx, args.gear_variant, args.scene, args.vfx_kit, args.sockets, args.parallax, args.props, args.vfx_kits, args.vfx_grey, args.bake), indent=2))\n                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/export/godot_import.py\", line 360, in build_project\n    kits = _load_vfx_kits(vfx_kits) if vfx_kits is not None else None\n           ^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/export/godot_import.py\", line 723, in _load_vfx_kits\n    raise ValueError('G2 fire splash dependency missing or disagrees with palette/template')\nValueError: G2 fire splash dependency missing or disagrees with palette/template\n\n"
+      },
+      {
+        "test": "test_headless_authored_cast_east_north_collision_timing_and_feedback_cleanup (test_vfx_picker.AuthoredEffectPickerTests.test_headless_authored_cast_east_north_collision_timing_and_feedback_cleanup)",
+        "detail": "Traceback (most recent call last):\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_vfx_picker.py\", line 518, in test_headless_authored_cast_east_north_collision_timing_and_feedback_cleanup\n    run_headless(self, self.project, 'effect_probe.gd')\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_vfx_picker.py\", line 119, in run_headless\n    test.assertEqual(engine_errors, [], '\\n'.join(engine_errors))\nAssertionError: Lists differ: ['ERROR: Condition \"ret != noErr\" is true.[285 chars] \"\"'] != []\n\nFirst list contains 4 additional elements.\nFirst extra element 0:\n'ERROR: Condition \"ret != noErr\" is true. Returning: \"\"'\n\n+ []\n- ['ERROR: Condition \"ret != noErr\" is true. Returning: \"\"',\n-  \"ERROR: Cannot save file '/Users/admin/Library/Application \"\n-  \"Support/Godot/editor_settings-4.6.tres'.\",\n-  'ERROR: Error saving editor settings to /Users/admin/Library/Application '\n-  'Support/Godot/editor_settings-4.6.tres',\n-  'ERROR: Condition \"ret != noErr\" is true. Returning: \"\"'] : ERROR: Condition \"ret != noErr\" is true. Returning: \"\"\nERROR: Cannot save file '/Users/admin/Library/Application Support/Godot/editor_settings-4.6.tres'.\nERROR: Error saving editor settings to /Users/admin/Library/Application Support/Godot/editor_settings-4.6.tres\nERROR: Condition \"ret != noErr\" is true. Returning: \"\"\n"
+      },
+      {
+        "test": "test_headless_first_cast_contact_cursor_pool_cancel_and_picker (test_vfx_picker.G1ComponentTests.test_headless_first_cast_contact_cursor_pool_cancel_and_picker)",
+        "detail": "Traceback (most recent call last):\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_vfx_picker.py\", line 947, in test_headless_first_cast_contact_cursor_pool_cancel_and_picker\n    run_headless(self, out, 'probe_vfx.gd')\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_vfx_picker.py\", line 119, in run_headless\n    test.assertEqual(engine_errors, [], '\\n'.join(engine_errors))\nAssertionError: Lists differ: ['ERROR: Condition \"ret != noErr\" is true.[285 chars] \"\"'] != []\n\nFirst list contains 4 additional elements.\nFirst extra element 0:\n'ERROR: Condition \"ret != noErr\" is true. Returning: \"\"'\n\n+ []\n- ['ERROR: Condition \"ret != noErr\" is true. Returning: \"\"',\n-  \"ERROR: Cannot save file '/Users/admin/Library/Application \"\n-  \"Support/Godot/editor_settings-4.6.tres'.\",\n-  'ERROR: Error saving editor settings to /Users/admin/Library/Application '\n-  'Support/Godot/editor_settings-4.6.tres',\n-  'ERROR: Condition \"ret != noErr\" is true. Returning: \"\"'] : ERROR: Condition \"ret != noErr\" is true. Returning: \"\"\nERROR: Cannot save file '/Users/admin/Library/Application Support/Godot/editor_settings-4.6.tres'.\nERROR: Error saving editor settings to /Users/admin/Library/Application Support/Godot/editor_settings-4.6.tres\nERROR: Condition \"ret != noErr\" is true. Returning: \"\"\n"
+      },
+      {
+        "test": "test_headless_pierce_contacts_labels_pool_and_phase_callbacks (test_vfx_picker.G1ComponentTests.test_headless_pierce_contacts_labels_pool_and_phase_callbacks)",
+        "detail": "Traceback (most recent call last):\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_vfx_picker.py\", line 1047, in test_headless_pierce_contacts_labels_pool_and_phase_callbacks\n    run_headless(self, fixture['project'], 'probe_pierce.gd')\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_vfx_picker.py\", line 119, in run_headless\n    test.assertEqual(engine_errors, [], '\\n'.join(engine_errors))\nAssertionError: Lists differ: ['ERROR: Condition \"ret != noErr\" is true.[285 chars] \"\"'] != []\n\nFirst list contains 4 additional elements.\nFirst extra element 0:\n'ERROR: Condition \"ret != noErr\" is true. Returning: \"\"'\n\n+ []\n- ['ERROR: Condition \"ret != noErr\" is true. Returning: \"\"',\n-  \"ERROR: Cannot save file '/Users/admin/Library/Application \"\n-  \"Support/Godot/editor_settings-4.6.tres'.\",\n-  'ERROR: Error saving editor settings to /Users/admin/Library/Application '\n-  'Support/Godot/editor_settings-4.6.tres',\n-  'ERROR: Condition \"ret != noErr\" is true. Returning: \"\"'] : ERROR: Condition \"ret != noErr\" is true. Returning: \"\"\nERROR: Cannot save file '/Users/admin/Library/Application Support/Godot/editor_settings-4.6.tres'.\nERROR: Error saving editor settings to /Users/admin/Library/Application Support/Godot/editor_settings-4.6.tres\nERROR: Condition \"ret != noErr\" is true. Returning: \"\"\n"
+      },
+      {
+        "test": "test_headless_glow_sixty_samples_extrema_range_and_particle_properties (test_vfx_picker.LivingEmbersTests.test_headless_glow_sixty_samples_extrema_range_and_particle_properties)",
+        "detail": "Traceback (most recent call last):\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_vfx_picker.py\", line 420, in test_headless_glow_sixty_samples_extrema_range_and_particle_properties\n    run_headless(self, out, 'glow_probe.gd')\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_vfx_picker.py\", line 119, in run_headless\n    test.assertEqual(engine_errors, [], '\\n'.join(engine_errors))\nAssertionError: Lists differ: ['ERROR: Condition \"ret != noErr\" is true.[285 chars] \"\"'] != []\n\nFirst list contains 4 additional elements.\nFirst extra element 0:\n'ERROR: Condition \"ret != noErr\" is true. Returning: \"\"'\n\n+ []\n- ['ERROR: Condition \"ret != noErr\" is true. Returning: \"\"',\n-  \"ERROR: Cannot save file '/Users/admin/Library/Application \"\n-  \"Support/Godot/editor_settings-4.6.tres'.\",\n-  'ERROR: Error saving editor settings to /Users/admin/Library/Application '\n-  'Support/Godot/editor_settings-4.6.tres',\n-  'ERROR: Condition \"ret != noErr\" is true. Returning: \"\"'] : ERROR: Condition \"ret != noErr\" is true. Returning: \"\"\nERROR: Cannot save file '/Users/admin/Library/Application Support/Godot/editor_settings-4.6.tres'.\nERROR: Error saving editor settings to /Users/admin/Library/Application Support/Godot/editor_settings-4.6.tres\nERROR: Condition \"ret != noErr\" is true. Returning: \"\"\n"
+      },
+      {
+        "test": "test_headless_device_forward_handled_overlay_and_mouse_probe (test_vfx_picker.TouchDeviceAimRuntimeTests.test_headless_device_forward_handled_overlay_and_mouse_probe)",
+        "detail": "Traceback (most recent call last):\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_vfx_picker.py\", line 1190, in test_headless_device_forward_handled_overlay_and_mouse_probe\n    run_headless(self, project, 'touch_aim_probe.gd')\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_vfx_picker.py\", line 119, in run_headless\n    test.assertEqual(engine_errors, [], '\\n'.join(engine_errors))\nAssertionError: Lists differ: ['ERROR: Condition \"ret != noErr\" is true.[285 chars] \"\"'] != []\n\nFirst list contains 4 additional elements.\nFirst extra element 0:\n'ERROR: Condition \"ret != noErr\" is true. Returning: \"\"'\n\n+ []\n- ['ERROR: Condition \"ret != noErr\" is true. Returning: \"\"',\n-  \"ERROR: Cannot save file '/Users/admin/Library/Application \"\n-  \"Support/Godot/editor_settings-4.6.tres'.\",\n-  'ERROR: Error saving editor settings to /Users/admin/Library/Application '\n-  'Support/Godot/editor_settings-4.6.tres',\n-  'ERROR: Condition \"ret != noErr\" is true. Returning: \"\"'] : ERROR: Condition \"ret != noErr\" is true. Returning: \"\"\nERROR: Cannot save file '/Users/admin/Library/Application Support/Godot/editor_settings-4.6.tres'.\nERROR: Error saving editor settings to /Users/admin/Library/Application Support/Godot/editor_settings-4.6.tres\nERROR: Condition \"ret != noErr\" is true. Returning: \"\"\n"
+      },
+      {
+        "test": "test_headless_tab_twice_cast_scene_labels_and_inflight_kit_lock (test_vfx_picker.VfxPickerTests.test_headless_tab_twice_cast_scene_labels_and_inflight_kit_lock)",
+        "detail": "Traceback (most recent call last):\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_vfx_picker.py\", line 279, in test_headless_tab_twice_cast_scene_labels_and_inflight_kit_lock\n    run_headless(self, out, 'picker_probe.gd')\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_vfx_picker.py\", line 119, in run_headless\n    test.assertEqual(engine_errors, [], '\\n'.join(engine_errors))\nAssertionError: Lists differ: ['ERROR: Condition \"ret != noErr\" is true.[285 chars] \"\"'] != []\n\nFirst list contains 4 additional elements.\nFirst extra element 0:\n'ERROR: Condition \"ret != noErr\" is true. Returning: \"\"'\n\n+ []\n- ['ERROR: Condition \"ret != noErr\" is true. Returning: \"\"',\n-  \"ERROR: Cannot save file '/Users/admin/Library/Application \"\n-  \"Support/Godot/editor_settings-4.6.tres'.\",\n-  'ERROR: Error saving editor settings to /Users/admin/Library/Application '\n-  'Support/Godot/editor_settings-4.6.tres',\n-  'ERROR: Condition \"ret != noErr\" is true. Returning: \"\"'] : ERROR: Condition \"ret != noErr\" is true. Returning: \"\"\nERROR: Cannot save file '/Users/admin/Library/Application Support/Godot/editor_settings-4.6.tres'.\nERROR: Error saving editor settings to /Users/admin/Library/Application Support/Godot/editor_settings-4.6.tres\nERROR: Condition \"ret != noErr\" is true. Returning: \"\"\n"
+      },
+      {
+        "test": "test_current_thirteen_exports_and_original_kits_unchanged (test_godot_import.BoltChainEmissionTests.test_current_thirteen_exports_and_original_kits_unchanged)",
+        "detail": "Traceback (most recent call last):\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_godot_import.py\", line 1278, in test_current_thirteen_exports_and_original_kits_unchanged\n    baseline=json.loads((work/'original_kit_hashes.json').read_text())\n                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/pathlib.py\", line 1028, in read_text\n    with self.open(mode='r', encoding=encoding, errors=errors) as f:\n         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/pathlib.py\", line 1014, in open\n    return io.open(self, mode, buffering, encoding, errors, newline)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nFileNotFoundError: [Errno 2] No such file or directory: '/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4u/suite_tmp/original_kit_hashes.json'\n"
+      },
+      {
+        "test": "setUpClass (test_godot_import.GroundVisibilityRegressionTests)",
+        "detail": "Traceback (most recent call last):\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_godot_import.py\", line 1061, in setUpClass\n    build_project(cells, cls.project, sockets=sockets,\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/export/godot_import.py\", line 360, in build_project\n    kits = _load_vfx_kits(vfx_kits) if vfx_kits is not None else None\n           ^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/export/godot_import.py\", line 723, in _load_vfx_kits\n    raise ValueError('G2 fire splash dependency missing or disagrees with palette/template')\nValueError: G2 fire splash dependency missing or disagrees with palette/template\n"
+      },
+      {
+        "test": "test_ten_existing_export_bytes_unchanged (test_godot_import.IceTreatmentImportTests.test_ten_existing_export_bytes_unchanged)",
+        "detail": "Traceback (most recent call last):\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_godot_import.py\", line 953, in test_ten_existing_export_bytes_unchanged\n    baseline=json.loads((work/'before_10_hashes.json').read_text())\n                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/pathlib.py\", line 1028, in read_text\n    with self.open(mode='r', encoding=encoding, errors=errors) as f:\n         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/pathlib.py\", line 1014, in open\n    return io.open(self, mode, buffering, encoding, errors, newline)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nFileNotFoundError: [Errno 2] No such file or directory: '/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4u/suite_tmp/before_10_hashes.json'\n"
+      },
+      {
+        "test": "test_transformed_front_at_three_ages_has_no_straight_seam_over_12px (test_godot_import.TransformedResidueSeamTests.test_transformed_front_at_three_ages_has_no_straight_seam_over_12px)",
+        "detail": "Traceback (most recent call last):\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_godot_import.py\", line 774, in test_transformed_front_at_three_ages_has_no_straight_seam_over_12px\n    report.write_text(json.dumps({'report_only': True, 'threshold_withdrawn': 12,\n  File \"/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/pathlib.py\", line 1048, in write_text\n    with self.open(mode='w', encoding=encoding, errors=errors, newline=newline) as f:\n         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/pathlib.py\", line 1014, in open\n    return io.open(self, mode, buffering, encoding, errors, newline)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4u/run_tests.py\", line 31, in audit\n    raise PermissionError('T4u write boundary: '+str(path))\nPermissionError: T4u write boundary: /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4g/seam_measurements.json\n"
+      },
+      {
+        "test": "test_headless_contact_shatter_residue_decal (test_vfx_picker.IceTreatmentPickerTests.test_headless_contact_shatter_residue_decal)",
+        "detail": "Traceback (most recent call last):\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_vfx_picker.py\", line 1598, in test_headless_contact_shatter_residue_decal\n    result=subprocess.run([GODOT,'--headless','--path',str(project),'--log-file',str(Path(tmp)/'engine.log'),*args],capture_output=True,text=True,timeout=60)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/subprocess.py\", line 550, in run\n    stdout, stderr = process.communicate(input, timeout=timeout)\n                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/subprocess.py\", line 1209, in communicate\n    stdout, stderr = self._communicate(input, endtime, timeout)\n                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/subprocess.py\", line 2109, in _communicate\n    self._check_timeout(endtime, orig_timeout, stdout, stderr)\n  File \"/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/subprocess.py\", line 1253, in _check_timeout\n    raise TimeoutExpired(\nsubprocess.TimeoutExpired: Command '['/Applications/Godot.app/Contents/MacOS/Godot', '--headless', '--path', '/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4u/suite_tmp/e2-clock-ascgreai/project', '--log-file', '/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4u/suite_tmp/e2-clock-ascgreai/engine.log', '--script', 'res://e2_probe.gd']' timed out after 60 seconds\n"
+      },
+      {
+        "test": "test_headless_east_contact_range_tail_and_key_schedule (test_vfx_picker.ProjectileArmPickerTests.test_headless_east_contact_range_tail_and_key_schedule)",
+        "detail": "Traceback (most recent call last):\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_vfx_picker.py\", line 1424, in test_headless_east_contact_range_tail_and_key_schedule\n    (evidence/'e1_key_trace.json').write_text(json.dumps(trace,indent=2)+'\\n')\n  File \"/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/pathlib.py\", line 1048, in write_text\n    with self.open(mode='w', encoding=encoding, errors=errors, newline=newline) as f:\n         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/pathlib.py\", line 1014, in open\n    return io.open(self, mode, buffering, encoding, errors, newline)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4u/run_tests.py\", line 31, in audit\n    raise PermissionError('T4u write boundary: '+str(path))\nPermissionError: T4u write boundary: /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4p/e1_key_trace.json\n"
+      },
+      {
+        "test": "test_headless_g2_trace_mechanics_and_scale_evidence (test_vfx_picker.ThrownFieldPickerTests.test_headless_g2_trace_mechanics_and_scale_evidence)",
+        "detail": "Traceback (most recent call last):\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_vfx_picker.py\", line 1623, in test_headless_g2_trace_mechanics_and_scale_evidence\n    trace=json.loads((work/'g2_trace.json').read_text())\n                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/pathlib.py\", line 1028, in read_text\n    with self.open(mode='r', encoding=encoding, errors=errors) as f:\n         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/pathlib.py\", line 1014, in open\n    return io.open(self, mode, buffering, encoding, errors, newline)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nFileNotFoundError: [Errno 2] No such file or directory: '/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4u/suite_tmp/g2_trace.json'\n"
+      },
+      {
+        "test": "test_thirteen_kits_registered_and_grammar_dispatch_explicit (test_vfx_picker.ThrownFieldPickerTests.test_thirteen_kits_registered_and_grammar_dispatch_explicit)",
+        "detail": "Traceback (most recent call last):\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_vfx_picker.py\", line 1611, in test_thirteen_kits_registered_and_grammar_dispatch_explicit\n    cat=ROOT/'runs/C-5/vfx_kits/kits_v9.json';kits=_load_vfx_kits(cat)\n                                                   ^^^^^^^^^^^^^^^^^^^\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/export/godot_import.py\", line 723, in _load_vfx_kits\n    raise ValueError('G2 fire splash dependency missing or disagrees with palette/template')\nValueError: G2 fire splash dependency missing or disagrees with palette/template\n"
+      },
+      {
+        "test": "test_headless_overlay_forward_world_touch_and_mouse_probe (test_vfx_picker.TouchAimRuntimeTests.test_headless_overlay_forward_world_touch_and_mouse_probe)",
+        "detail": "Traceback (most recent call last):\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_vfx_picker.py\", line 872, in test_headless_overlay_forward_world_touch_and_mouse_probe\n    run_headless(self, project, 'touch_aim_probe.gd')\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_vfx_picker.py\", line 109, in run_headless\n    result = subprocess.run([GODOT, '--headless', '--log-file', str(project/'godot.log'),\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/subprocess.py\", line 550, in run\n    stdout, stderr = process.communicate(input, timeout=timeout)\n                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/subprocess.py\", line 1209, in communicate\n    stdout, stderr = self._communicate(input, endtime, timeout)\n                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/subprocess.py\", line 2109, in _communicate\n    self._check_timeout(endtime, orig_timeout, stdout, stderr)\n  File \"/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/subprocess.py\", line 1253, in _check_timeout\n    raise TimeoutExpired(\nsubprocess.TimeoutExpired: Command '['/Applications/Godot.app/Contents/MacOS/Godot', '--headless', '--log-file', '/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4u/suite_tmp/touch-aim-7guodoqy/project/godot.log', '--path', '/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4u/suite_tmp/touch-aim-7guodoqy/project', '--script', 'res://touch_aim_probe.gd']' timed out after 60 seconds\n"
+      },
+      {
+        "test": "test_single_kit_and_legacy_props_all_text_byte_identical_to_t3m (test_vfx_picker.VfxPickerTests.test_single_kit_and_legacy_props_all_text_byte_identical_to_t3m)",
+        "detail": "Traceback (most recent call last):\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_vfx_picker.py\", line 266, in test_single_kit_and_legacy_props_all_text_byte_identical_to_t3m\n    baseline = json.loads((ARTIFACTS/'baseline_t3m_text_sha256.json').read_text())\n                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/pathlib.py\", line 1028, in read_text\n    with self.open(mode='r', encoding=encoding, errors=errors) as f:\n         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/pathlib.py\", line 1014, in open\n    return io.open(self, mode, buffering, encoding, errors, newline)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nFileNotFoundError: [Errno 2] No such file or directory: '/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4u/suite_tmp/baseline_t3m_text_sha256.json'\n"
+      }
+    ],
+    "runner": "Only the three named modules; historical temp/work assignments relocated in memory; Python audit hook rejects writes outside T4u. Missing historical proof artifacts are named, not substituted."
+  },
+  "diagnosed_retry": {
+    "reason": "Initial new tests contained an inaccurate expected CV constant and omitted project main_scene in the resource-validation fixture.",
+    "change": "Use measured population interval CV 0.18330621576014236; declare the G4 component as fixture main_scene. All seven new G4 tests completed in the subsequent suite."
+  },
+  "unhonoured_or_conflicting_fields": [
+    {
+      "field": "mechanics.pulse_cv_min",
+      "authored": 0.25,
+      "measured": 0.18330621576014236,
+      "handling": "Authored pulse times retained verbatim. Separate FF-08 assertion raises, runtime logs schedule_assertion and warns; no threshold relaxation."
+    },
+    {
+      "field": "presentation.enabled_layers.dark_duplicate",
+      "authored": true,
+      "effective": false,
+      "handling": "Explicit task requirement dark duplicate OFF takes precedence; source spec preserved in kit metadata."
+    },
+    {
+      "field": "presentation.body_extents_bh.ring_diameter",
+      "authored": 3.4,
+      "handling": "No independent painted-outer-diameter fit applied. Mandated 220 px orbit radius and native supplied segments determine outer coverage; 440 px is the centreline orbit diameter. Requires conductor visual ruling."
+    }
+  ],
+  "concerns": [
+    "Authored pulse CV 0.18330621576014236 is below the unchanged 0.25 bar.",
+    "Complete registered catalogue export is already blocked by the G2 fire splash palette/dependency mismatch. G4 isolated/subset export and direct per-kit emission were verified; older kit files were not repaired.",
+    "Spec dark_duplicate conflicts with explicit OFF instruction; OFF implemented.",
+    "Ring outer painted extent cannot independently match nominal body_extents_bh.ring_diameter while retaining the mandated orbit and supplied segment size.",
+    "In-sandbox suite reds are retained by full name and traceback in this report and suite.json.",
+    "Rendered appearance and VERIFY provenance remain conductor-owned."
+  ]
+}

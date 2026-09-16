@@ -1,0 +1,175 @@
+{
+ "name": "healing_hands_e3",
+ "element": "holy",
+ "element_class": "support",
+ "screen_px": true,
+ "ground_squash": 0.58,
+ "material": {
+  "palette": [
+   [
+    0.18,
+    0.14,
+    0.055,
+    1
+   ],
+   [
+    0.52,
+    0.43,
+    0.19,
+    1
+   ],
+   [
+    0.88,
+    0.77,
+    0.43,
+    1
+   ],
+   [
+    1.0,
+    0.96,
+    0.78,
+    1
+   ]
+  ],
+  "blend_mode": "ADD",
+  "light_participation": false,
+  "erode_outside_in": true,
+  "dissolve_order": [
+   [
+    3
+   ],
+   [
+    2
+   ],
+   [
+    1,
+    0
+   ]
+  ]
+ },
+ "phases": {
+  "cast": {
+   "sheet": "flare/flare_00.png",
+   "frames": [
+    {
+     "file": "flare/flare_00.png",
+     "hold_frames": 1
+    }
+   ]
+  },
+  "travel": {
+   "sheet": "travel/travel_00.png",
+   "frames": [
+    {
+     "file": "travel/travel_00.png",
+     "hold_frames": 1
+    }
+   ]
+  },
+  "impact": {
+   "sheet": "impact/impact_00.png",
+   "frames": [
+    {
+     "file": "impact/impact_00.png",
+     "hold_frames": 1
+    }
+   ]
+  }
+ },
+ "layers": {
+  "dark_duplicate": false,
+  "glow": {
+   "alpha": 0.2,
+   "scale": 1.02
+  },
+  "floor_light": {
+   "duration_s": 4.0,
+   "radius_px": 220
+  }
+ },
+ "skill_spec": {
+  "skill_id": "healing_hands",
+  "source_game": "Last Epoch \u2014 Paladin: Healing Hands",
+  "grammar": "G4",
+  "visual_treatment_id": "holy",
+  "response_class": "aura_loop (support preset)",
+  "mechanics": {
+   "origin_socket": "caster_root",
+   "aim_rule": "owner-tracking",
+   "radius_px": 220,
+   "duration_s": 4.0,
+   "pulse_schedule_s": [
+    0.0,
+    0.45,
+    1.6,
+    1.95,
+    3.1,
+    3.45
+   ],
+   "pulse_cv_min": 0.25,
+   "stack": "refresh",
+   "termination": "duration"
+  },
+  "presentation": {
+   "primitive_bindings": {
+    "aura body": "P06 broken ring segments (holy) \u00d75 orbiting slowly at the feet (ground-bound, 0.58 squash)",
+    "pulse": "P_holy_ray folded petals \u00d76 rising from the ring on each pulse (upright bodies)",
+    "seal": "interrupted seal decal under the caster (MIX, ground)",
+    "residue": "none"
+   },
+   "body_extents_bh": {
+    "ring_diameter": 3.4,
+    "petal": 0.8
+   },
+   "phase_envelope_s": {
+    "loop": 4.0,
+    "petal_life": 0.45,
+    "ring_orbit_period": 2.6
+   },
+   "enabled_layers": [
+    "halo",
+    "floor_light",
+    "dark_duplicate"
+   ]
+  },
+  "provenance": {
+   "aura loop with pulses": "LE source observation (conductor memory) \u2014 VERIFY; aura_loop_v1 band PROVISIONAL (03- \u00a7 2.2 caveat)",
+   "support preset": "03- \u00a7 2.1 response classes"
+  }
+ },
+ "g4": {
+  "seed": 2026,
+  "release_s": 0.3,
+  "support_tint": [
+   1.0,
+   0.94,
+   0.72,
+   1.0
+  ],
+  "ring": {
+   "png": "primitives/ring.png",
+   "pivot": [
+    253.0,
+    247.5
+   ],
+   "scale": 1.0
+  },
+  "petal": {
+   "png": "primitives/petal.png",
+   "pivot": [
+    283.5,
+    312.0
+   ],
+   "scale": 1.0196078431372548
+  },
+  "seal": {
+   "png": "primitives/seal.png",
+   "pivot": [
+    245.5,
+    270.5
+   ],
+   "scale": 1.0
+  }
+ },
+ "pierce": 0
+}
