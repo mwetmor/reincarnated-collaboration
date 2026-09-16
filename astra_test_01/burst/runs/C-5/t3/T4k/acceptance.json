@@ -1,0 +1,204 @@
+{
+  "task_id": "T4k",
+  "build_completed": false,
+  "production_files_modified": [],
+  "cpu_stretched_coverage": {
+    "instrument": "CPU inverse-affine bilinear alpha coverage at along=3, across=0.7; not a rendered bake",
+    "measured_build": "unchanged T4j emitter",
+    "minimum_ratio": 0.9991629299845565,
+    "threshold": 0.95,
+    "boundary_discards": 0,
+    "known_bad_minimum_ratio": 0.5836653821023831,
+    "criterion_met": true
+  },
+  "per_piece_layer_uniforms": {
+    "age": 30,
+    "pieces": 24,
+    "paired_body_dark_uniform_equality": true,
+    "all_piece_layer_uniform_equality": false,
+    "pair_mismatches": [],
+    "all_layer_mismatches": [
+      1.0,
+      2.0,
+      3.0,
+      4.0,
+      5.0,
+      6.0,
+      7.0,
+      8.0,
+      9.0,
+      10.0,
+      11.0,
+      12.0,
+      13.0,
+      14.0,
+      15.0,
+      16.0,
+      17.0,
+      18.0,
+      19.0,
+      20.0,
+      21.0,
+      22.0,
+      23.0,
+      24.0
+    ],
+    "peak_dark_visible": false
+  },
+  "residue_prediction": {
+    "tuned": false,
+    "original_source_fraction": 0.19947081118447713,
+    "prediction_in_original_source_range": true,
+    "outside_temporal_peak_fraction": 0.11397834536368684,
+    "temporal_peak_criterion_met": false,
+    "target_range": [
+      0.15,
+      0.25
+    ],
+    "note": "No new threshold selected: source-peak and temporal-peak denominators disagree; brief reported 12.7% does not equal the supplied bake-row temporal maximum denominator."
+  },
+  "legacy_byte_identity": {
+    "kits": [
+      "healing_hands",
+      "blackwater_cocktail",
+      "poisonous_concoction",
+      "zeus_chain",
+      "frozen_orb",
+      "lightning_blast",
+      "fire_burst_e0p"
+    ],
+    "files_compared": 488,
+    "byte_identical": true,
+    "different": []
+  },
+  "headless": {
+    "import_exit": 0,
+    "trace_exit": 0,
+    "errors": false,
+    "age30_peak_dark_visible": false,
+    "rendered": false
+  },
+  "tests": {
+    "focused_tests_run": 13,
+    "focused_reds": [],
+    "legacy_export_test_successful": true,
+    "existing_tests_extended_only": true,
+    "full_suite_run": false,
+    "full_suite_note": "Only focused tests in the two authorized test files were run. No full-suite result is claimed.",
+    "five_standing_reds_from_T4j_not_rerun": [
+      {
+        "name": "test_synthetic_contract_and_grid (test_oracle_walk.Tests.test_synthetic_contract_and_grid)",
+        "category": "standing_oracle"
+      },
+      {
+        "name": "test_f04_outside_at_least_three (test_oracles_motif.Tests.test_f04_outside_at_least_three)",
+        "category": "standing_oracle"
+      },
+      {
+        "name": "test_named_genuine_annuli_retained (test_oracles_motif.Tests.test_named_genuine_annuli_retained) (center=[113, 201])",
+        "category": "standing_oracle"
+      },
+      {
+        "name": "test_named_genuine_annuli_retained (test_oracles_motif.Tests.test_named_genuine_annuli_retained) (center=[111, 311])",
+        "category": "standing_oracle"
+      },
+      {
+        "name": "test_named_genuine_annuli_retained (test_oracles_motif.Tests.test_named_genuine_annuli_retained) (center=[170, 253])",
+        "category": "standing_oracle"
+      }
+    ],
+    "environment_reds_from_T4j_not_rerun": [
+      {
+        "name": "test_headless_state_machine_input_map_gear_vfx_and_nearest_fallback (test_godot_import.GodotImportTests.test_headless_state_machine_input_map_gear_vfx_and_nearest_fallback)",
+        "category": "sandbox_engine_or_environment",
+        "diagnosis": ""
+      },
+      {
+        "name": "test_headless_cliffside_follow_camera_parallax_and_projectile_collision (test_parallax_scene.ParallaxSceneTests.test_headless_cliffside_follow_camera_parallax_and_projectile_collision)",
+        "category": "sandbox_engine_or_environment",
+        "diagnosis": ""
+      },
+      {
+        "name": "test_headless_occlusion_fade_restore_overhead_near_and_particles (test_props_layer.PropsLayerTests.test_headless_occlusion_fade_restore_overhead_near_and_particles)",
+        "category": "sandbox_engine_or_environment",
+        "diagnosis": ""
+      },
+      {
+        "name": "test_headless_tower_import_run_and_physics (test_scene_kit.SceneKitTests.test_headless_tower_import_run_and_physics)",
+        "category": "sandbox_engine_or_environment",
+        "diagnosis": ""
+      },
+      {
+        "name": "test_headless_directional_release_and_resources (test_sockets.SocketTests.test_headless_directional_release_and_resources)",
+        "category": "sandbox_engine_or_environment",
+        "diagnosis": "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      },
+      {
+        "name": "test_headless_authored_cast_east_north_collision_timing_and_feedback_cleanup (test_vfx_picker.AuthoredEffectPickerTests.test_headless_authored_cast_east_north_collision_timing_and_feedback_cleanup)",
+        "category": "sandbox_engine_or_environment",
+        "diagnosis": "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      },
+      {
+        "name": "test_headless_first_cast_contact_cursor_pool_cancel_and_picker (test_vfx_picker.G1ComponentTests.test_headless_first_cast_contact_cursor_pool_cancel_and_picker)",
+        "category": "sandbox_engine_or_environment",
+        "diagnosis": "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      },
+      {
+        "name": "test_headless_pierce_contacts_labels_pool_and_phase_callbacks (test_vfx_picker.G1ComponentTests.test_headless_pierce_contacts_labels_pool_and_phase_callbacks)",
+        "category": "sandbox_engine_or_environment",
+        "diagnosis": "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      },
+      {
+        "name": "test_headless_glow_sixty_samples_extrema_range_and_particle_properties (test_vfx_picker.LivingEmbersTests.test_headless_glow_sixty_samples_extrema_range_and_particle_properties)",
+        "category": "sandbox_engine_or_environment",
+        "diagnosis": "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      },
+      {
+        "name": "test_headless_device_forward_handled_overlay_and_mouse_probe (test_vfx_picker.TouchDeviceAimRuntimeTests.test_headless_device_forward_handled_overlay_and_mouse_probe)",
+        "category": "sandbox_engine_or_environment",
+        "diagnosis": "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      },
+      {
+        "name": "test_headless_tab_twice_cast_scene_labels_and_inflight_kit_lock (test_vfx_picker.VfxPickerTests.test_headless_tab_twice_cast_scene_labels_and_inflight_kit_lock)",
+        "category": "sandbox_engine_or_environment",
+        "diagnosis": "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      },
+      {
+        "name": "test_artifact_hash_escape_and_symlink (test_lane.LaneTests.test_artifact_hash_escape_and_symlink)",
+        "category": "sandbox_symlink_cleanup",
+        "diagnosis": "OSError: [Errno 66] Directory not empty: '/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4j/test_tmp/tmpqdow_5ki/work/out'"
+      },
+      {
+        "name": "test_bad_layer_fields_paths_missing_and_escaping_assets_before_output (test_parallax_scene.ParallaxSceneTests.test_bad_layer_fields_paths_missing_and_escaping_assets_before_output)",
+        "category": "sandbox_symlink_cleanup",
+        "diagnosis": "OSError: [Errno 66] Directory not empty: '/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4j/test_tmp/t3k-3bzl5y5v/input/layers'"
+      },
+      {
+        "name": "test_first_party_and_symlink_escape (test_ref_provenance.Tests.test_first_party_and_symlink_escape)",
+        "category": "sandbox_symlink_cleanup",
+        "diagnosis": "OSError: [Errno 66] Directory not empty: '/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4j/test_tmp/tmp19fdy6bl/astra/burst/fixtures'"
+      },
+      {
+        "name": "test_headless_overlay_forward_world_touch_and_mouse_probe (test_vfx_picker.TouchAimRuntimeTests.test_headless_overlay_forward_world_touch_and_mouse_probe)",
+        "category": "headless_timeout",
+        "diagnosis": "subprocess.TimeoutExpired: Command '['/Applications/Godot.app/Contents/MacOS/Godot', '--headless', '--log-file', '/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4j/test_tmp/t4i/touch-aim-ra99rne4/project/godot.log', '--path', '/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4j/test_tmp/t4i/touch-aim-ra99rne4/project', '--script', 'res://touch_aim_probe.gd']' timed out after 60 seconds"
+      }
+    ]
+  },
+  "rendered": {
+    "status": "UNEVALUABLE",
+    "owner": "conductor outside sandbox",
+    "tongues_unclipped": null,
+    "dark_ring_absent": null,
+    "residue_fraction": null,
+    "seed_equal_bakes": null
+  },
+  "concerns": [
+    "Requested production fixes were not implemented: the stated clipping mechanism is contradicted by the inspected emitter and shader, and no dark-only uniform mismatch appears in the actual headless trace.",
+    "Literal all-four-layer equality is false for all 24 pieces; pairwise dark/body equality is true and is explicitly not substituted for the literal requirement.",
+    "Unifying expanding and stationary layers changes the existing fast-eroding expansion versus slow-eroding residue behavior; no unregistered replacement behavior was chosen.",
+    "The rendered clipping and ring remain unresolved; production source and kit metadata are unchanged.",
+    "The initial SPEC read included unrequested sections 2 through 6; full read-scope compliance is not claimed.",
+    "Five standing reds and environment reds are reproduced by name from T4j acceptance, not presented as fresh full-suite measurements."
+  ]
+}

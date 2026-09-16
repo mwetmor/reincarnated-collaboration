@@ -1,0 +1,204 @@
+{
+  "task_id": "T4k",
+  "stage": "diagnosis before production edits",
+  "F-C5-6": {
+    "proposed_cause_supported": false,
+    "expansion_age8": {
+      "visible_pieces": 11,
+      "erode_values": [
+        0.0
+      ],
+      "dissolve_values": [
+        0.0
+      ],
+      "outer_distance_uniform": null
+    },
+    "sample_space": "The shader samples texture(distance_texture, UV). UV is the unmodified original Sprite2D texture coordinate; the R*S*R inverse hierarchy changes vertices, not texture UVs. There is no world-position-to-UV conversion in the inspected emission.",
+    "clip_numbers": "Expanded material has no outer_distance declaration/discard. At age 8 erode=0 disables erode discard, and dissolve=0 is below all four thresholds. Even hypothetical clamped distance=1 would survive: 1 < erode is false for erode<1; erode=1 intentionally discards all pixels. Root-only outer_distance=1 at age 8 also cannot discard any normalized distance.",
+    "conclusion": "Neither named shader rule can cut the expanding sprites at the original canvas edge in this build. The straight 511-pixel rendered plateau is real evidence, but its cause is not established by these permitted sources. A crop/viewport or outside-project mismatch remains an untested possibility; export/replay.py was not read."
+  },
+  "F-C5-7": {
+    "age": 30,
+    "peak_dark_visible": false,
+    "expanding_core": {
+      "erode": 0.6296296296296297,
+      "dissolve": 0.5238095238095238
+    },
+    "expanding_tongue": {
+      "erode": 0.5238095238095238,
+      "dissolve": 0.5238095238095238
+    },
+    "stationary": {
+      "erode": 0.02095238095238095,
+      "dissolve": 0.2619047619047619,
+      "outer_distance": 0.6590102707749766
+    },
+    "group_1_0_threshold": 0.8333333333333334,
+    "alternatives": {
+      "a": "Bands 0 and 1 have not reached their shared 5/6 removal threshold. They survive together, not band 0 surviving a removed band 1.",
+      "b": "Every dark sprite matches its corresponding paint sprite in erode/dissolve/outer_distance and transform. Stationary and expanding representations use different schedules, but this difference is shared by their painted layers, not specific to the dark duplicates.",
+      "c": "PeakDark is hidden at age 30; excluded by actual headless trace."
+    },
+    "per_piece_pairs": [
+      {
+        "id": 1.0,
+        "expanding_pair_equal": true,
+        "stationary_pair_equal": true,
+        "all_four_equal": false
+      },
+      {
+        "id": 2.0,
+        "expanding_pair_equal": true,
+        "stationary_pair_equal": true,
+        "all_four_equal": false
+      },
+      {
+        "id": 3.0,
+        "expanding_pair_equal": true,
+        "stationary_pair_equal": true,
+        "all_four_equal": false
+      },
+      {
+        "id": 4.0,
+        "expanding_pair_equal": true,
+        "stationary_pair_equal": true,
+        "all_four_equal": false
+      },
+      {
+        "id": 5.0,
+        "expanding_pair_equal": true,
+        "stationary_pair_equal": true,
+        "all_four_equal": false
+      },
+      {
+        "id": 6.0,
+        "expanding_pair_equal": true,
+        "stationary_pair_equal": true,
+        "all_four_equal": false
+      },
+      {
+        "id": 7.0,
+        "expanding_pair_equal": true,
+        "stationary_pair_equal": true,
+        "all_four_equal": false
+      },
+      {
+        "id": 8.0,
+        "expanding_pair_equal": true,
+        "stationary_pair_equal": true,
+        "all_four_equal": false
+      },
+      {
+        "id": 9.0,
+        "expanding_pair_equal": true,
+        "stationary_pair_equal": true,
+        "all_four_equal": false
+      },
+      {
+        "id": 10.0,
+        "expanding_pair_equal": true,
+        "stationary_pair_equal": true,
+        "all_four_equal": false
+      },
+      {
+        "id": 11.0,
+        "expanding_pair_equal": true,
+        "stationary_pair_equal": true,
+        "all_four_equal": false
+      },
+      {
+        "id": 12.0,
+        "expanding_pair_equal": true,
+        "stationary_pair_equal": true,
+        "all_four_equal": false
+      },
+      {
+        "id": 13.0,
+        "expanding_pair_equal": true,
+        "stationary_pair_equal": true,
+        "all_four_equal": false
+      },
+      {
+        "id": 14.0,
+        "expanding_pair_equal": true,
+        "stationary_pair_equal": true,
+        "all_four_equal": false
+      },
+      {
+        "id": 15.0,
+        "expanding_pair_equal": true,
+        "stationary_pair_equal": true,
+        "all_four_equal": false
+      },
+      {
+        "id": 16.0,
+        "expanding_pair_equal": true,
+        "stationary_pair_equal": true,
+        "all_four_equal": false
+      },
+      {
+        "id": 17.0,
+        "expanding_pair_equal": true,
+        "stationary_pair_equal": true,
+        "all_four_equal": false
+      },
+      {
+        "id": 18.0,
+        "expanding_pair_equal": true,
+        "stationary_pair_equal": true,
+        "all_four_equal": false
+      },
+      {
+        "id": 19.0,
+        "expanding_pair_equal": true,
+        "stationary_pair_equal": true,
+        "all_four_equal": false
+      },
+      {
+        "id": 20.0,
+        "expanding_pair_equal": true,
+        "stationary_pair_equal": true,
+        "all_four_equal": false
+      },
+      {
+        "id": 21.0,
+        "expanding_pair_equal": true,
+        "stationary_pair_equal": true,
+        "all_four_equal": false
+      },
+      {
+        "id": 22.0,
+        "expanding_pair_equal": true,
+        "stationary_pair_equal": true,
+        "all_four_equal": false
+      },
+      {
+        "id": 23.0,
+        "expanding_pair_equal": true,
+        "stationary_pair_equal": true,
+        "all_four_equal": false
+      },
+      {
+        "id": 24.0,
+        "expanding_pair_equal": true,
+        "stationary_pair_equal": true,
+        "all_four_equal": false
+      }
+    ],
+    "conclusion": "No evidence selects the proposed dark-only schedule defect. All-four equality is false because the original stationary residue and expanding representations intentionally use different curves. Unifying them changes lap-2 behavior beyond a dark-duplicate fix; rendered causal attribution remains unresolved."
+  },
+  "residue": {
+    "original_source_coverage_px": 41951,
+    "predicted_stationary_residue_px": 8368,
+    "source_fraction": 0.19947081118447713,
+    "outside_residue_px": 8211,
+    "outside_max_coverage_px": 72040,
+    "outside_temporal_peak_fraction": 0.11397834536368684,
+    "brief_reported_fraction": 0.127,
+    "denominator_note": "The exporter targets 20% of original peak artwork (41951 px), not maximum coverage over the animated expansion. The supplied bake rows give 8211/72040=11.3989%, whereas 12.7% uses a different denominator. Future tuning must state the chosen peak denominator."
+  },
+  "build_decision": "No production patch: the stipulated clipping cause and dark-only mismatch are contradicted by the emitted source and actual headless trace. Do not invent a causal fix or silently replace the literal all-layer equality requirement with pairwise equality.",
+  "procedure_concerns": [
+    "The initial SPEC excerpt included sections 2 through 6 outside the requested sections. Input asset reads required to build the explicitly requested real-kit proof consumed referenced kit files; no unrelated source was inspected."
+  ]
+}

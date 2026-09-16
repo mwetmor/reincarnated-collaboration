@@ -4412,6 +4412,96 @@
       "codex_version": "codex-cli 0.153.4",
       "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
       "exit": 0
+    },
+    {
+      "id": "T4k",
+      "type": "TOOLING",
+      "experiment": "C5-E0p",
+      "brief_sha256": "7042ca964772d647efd2d26649e3317a941f2cc21f49fb614da2b3248ccaa58c",
+      "started": "2026-09-16T04:04:32.592459+00:00",
+      "ended": "2026-09-16T04:14:34.159932+00:00",
+      "minutes": 10.025974972233234,
+      "image_calls": 0,
+      "tool_calls": 19,
+      "audit": {
+        "violations": [],
+        "image_calls": 0,
+        "tool_calls": 19,
+        "tools_seen": {
+          "command_execution": 19
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [],
+        "execution_error": "receipt reports unsuccessful execution"
+      },
+      "receipt_sha256": "7e35b1e91f814a6a19b55aa107c8c69d3356d4ae736210f148667f74a3723679",
+      "artifacts": [],
+      "artifacts_in_place": [
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-5/t3/T4k/README.md",
+          "sha256": "61e8cd3bbf02427ab4888de6186f0d1897fb0190a783c30a416b60c75c214aec"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-5/t3/T4k/acceptance.json",
+          "sha256": "233a98c5b6fff811359f88a25a8e423e52f52bf3d7fad2e6bd0b307c34854b63"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-5/t3/T4k/cpu_sampling.json",
+          "sha256": "9cd66c2182634448ef60b6494e33f4f23c87c77e9b6a7e562b259943ca311dbd"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-5/t3/T4k/diagnosis.json",
+          "sha256": "ce6b865c3f113dafb6b2394b6bf36bbeb719b8849070c2228b8d9198289e4e75"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-5/t3/T4k/evidence.tar.gz",
+          "sha256": "c650414ac702ad39016f5b05ce1baec92583a7906950816b6df8478e2a42cf12"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-5/t3/T4k/focused_tests.json",
+          "sha256": "e5608bb10d35a42bebe4df48c72de6d21bfa34c197892cafd7275ddbfe954fb1"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-5/t3/T4k/layer_uniforms.json",
+          "sha256": "f10eb48aec28ac5fdaa09500d7f136116c9cfa2e22680873e70342dd8f81f865"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-5/t3/T4k/legacy_hashes.json",
+          "sha256": "0367e4a7759e9b439af3594456b374173d97b3d065970c4ca9a005d0beab914b"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "tests/test_effect_kit.py",
+          "sha256": "5d9baf721ea5b273eff8042e6c9119cc7126ed2df5c9f2637ca75d679fa45e5c"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "tests/test_godot_import.py",
+          "sha256": "1504748f6fa675dcd9e745d3d30e61a47866923ae4136fdb5675d7e6aefcc215"
+        }
+      ],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 3
     }
   ],
   "experiments": [],
@@ -4470,6 +4560,11 @@
       "id": "M-C5-PACKET-88",
       "note": "Packet 88 — cliffside_v23 (PACK on freeze 0512265283f1; import 0 errors): figures 13.5 % (146 px), final necromancer (N3) on the path at (2650,1950), touch casts aim forward — conductor proof with the mouse parked behind: v2 burst centre at screen (1286,565) vs Keeper (960,540) = forward, contacting the hound. Desktop folder 88; stills + sheet sent to Matt; drax web10 dispatched with a production touch-emulated cast check.",
       "ts": "2026-09-15T23:38:27"
+    },
+    {
+      "id": "M-C5-WEB10",
+      "note": "CS-pack-web10 LIVE (drax) from CS-pack-v23: figures 13.5 %, final necromancer on the path, touch-aim fix VERIFIED on production under real touch emulation (hasTouch, CDP touch events; casts east AND west land on the facing side — west is the discriminator vs the CAST button at bottom-right); desktop mouse aim regression-checked unchanged; loadout 650fd75d; pck f8bb4d79…; no build-script change. Deploy truth: agentic_orchestration/drax/captures/2026-09-15-web-playtest-v10/deploy_truth.txt",
+      "ts": "2026-09-16T00:17:12"
     }
   ],
   "halts": [],
@@ -4690,6 +4785,13 @@
       "veto_open": true,
       "ruling": "FREEZE after T4j: outside suite = the five standing reds only (the obsolete T4i test is gone). MANIFEST + SYNC restamped. T4k fired (F-C5-6 stretch-aware erosion sampling / F-C5-7 one erode-dissolve schedule per piece across all its layers / residue 15–25 %).",
       "ts": "2026-09-16T00:03:57"
+    },
+    {
+      "id": "R-C5-31",
+      "class": "conductor",
+      "veto_open": true,
+      "ruling": "T4k returned FAILED-honest (10 min, no production edits): the stipulated F-C5-6 cause (original-UV distance sampling / outer_distance clip) is NOT in the emitter — at age 8 erode=0, dissolve=0, no outer_distance on expanding sprites, CPU 3× stretch keeps 99.9 % coverage with zero boundary discards. F-C5-7: at age 30 every dark sprite shares its body sprite's uniforms; bands 0 AND 1 survive together below the [1,0] threshold — the ring is the DESIGNED result of centre-out erosion + bright-first dissolve, i.e. my template, not a defect in the build. Conductor re-diagnosis: (6) the 511 plateau is a bake-side clip (v1 reached 767 in the same 768 crop; v2 lap 2 bbox to be measured) — checked by PACK v24 in-scene before any TOOLING; (7) design correction owed: for a fire impact the residue sits at the impact point, so erosion must run OUTSIDE-IN (tips first, core last) with the dissolve dimming the core to embers in the residue phase — centre-out erosion leaves a ring by construction. Astra was right to refuse; the brief stipulated a cause instead of asking for one.",
+      "ts": "2026-09-16T00:16:45"
     }
   ],
   "grok_calls": [],
@@ -4736,6 +4838,11 @@
       "id": "N-C5-suite-T4i",
       "note": "Full suite OUTSIDE the sandbox after T4i: 597 run, 592 ok — five standing reds only. T4i-r1 fired (device-based forward aim per drax finding); freeze after r1.",
       "ts": "2026-09-15T23:06:35"
+    },
+    {
+      "id": "N-C5-T4j-bake-clip",
+      "note": "Lap-2 bake bbox: frames 8–20 span x 0–511, y 0–392 of the 768 frame with the body centred near (270,233) — the effect sits in a 512 window at the top-left, not at the 768 centre; the T4h-r1 v1 bake in ITS fixture reached x 767. So the 511 plateau is the T4j evidence fixture project (512 viewport/window), not the effect: F-C5-6 downgraded to a fixture artefact pending the PACK v24 in-scene check + a bake from a cliffside-derived replay project.",
+      "ts": "2026-09-16T00:17:12"
     }
   ]
 }
