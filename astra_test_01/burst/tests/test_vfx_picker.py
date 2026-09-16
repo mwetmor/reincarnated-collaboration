@@ -1425,8 +1425,8 @@ class ProjectileArmPickerTests(unittest.TestCase):
         (evidence/'e1_headless.json').write_text(json.dumps(records,indent=2)+'\n')
 
     def test_original_eight_export_byte_lock(self):
-        baseline=ROOT/'runs/C-5/t3/T4s/eleven_hashes.json'
-        self.assertTrue(baseline.is_file(),'T4s eleven-kit snapshot after authorised scale correction required')
+        baseline=ROOT/'runs/C-5/t3/T4t/before_11_hashes.json'
+        self.assertTrue(baseline.is_file(),'T4t current eleven-kit snapshot required')
         cells=self.root/'cells'; cells.mkdir()
         for direction in ('E','N','S'):
             for kind,n in [('idle',1),('cast',4)]:
@@ -1609,9 +1609,9 @@ class ThrownFieldPickerTests(unittest.TestCase):
     def test_thirteen_kits_registered_and_grammar_dispatch_explicit(self):
         from export.godot_import import _g2_config
         cat=ROOT/'runs/C-5/vfx_kits/kits_v9.json';kits=_load_vfx_kits(cat)
-        self.assertEqual(len(kits),13)
-        self.assertEqual([k['name'] for k in kits[-2:]],['blackwater_cocktail_e3','poisonous_concoction_e3'])
-        for kit in kits[-2:]:
+        self.assertGreaterEqual(len(kits),13)
+        self.assertEqual([k['name'] for k in kits[11:13]],['blackwater_cocktail_e3','poisonous_concoction_e3'])
+        for kit in kits[11:13]:
             config=_g2_config(kit)
             self.assertEqual(config['grammar'],'G2')
             self.assertEqual(config['ticks'],kit['effect']['skill_spec']['mechanics']['field']['tick_schedule_s'])
@@ -1631,3 +1631,39 @@ class ThrownFieldPickerTests(unittest.TestCase):
         for sample in scale:
             self.assertAlmostEqual(sample['head_width_px'],156,places=3)
             self.assertAlmostEqual(sample['streak_length_px'],260,places=3)
+
+
+class BoltChainPickerTests(unittest.TestCase):
+    def test_clock_trace_targets_delays_stretch_and_lifetime(self):
+        import numpy as np
+        trace=json.loads((ROOT/'runs/C-5/t3/T4t/g3_trace.json').read_text())
+        self.assertEqual(trace['errors'],[])
+        live=next(s for s in trace['samples'] if s['name']=='live_physics')
+        contacts=[e for e in live['events'] if e['event']=='contact']
+        self.assertEqual([e['body_index'] for e in contacts],[0,1,2,3,4])
+        spec=json.loads((ROOT/'runs/C-5/specs/zeus_chain.json').read_text())
+        requested=np.cumsum(spec['mechanics']['chain']['hop_delay_s'])
+        observed=np.array([e['age_frames']/60 for e in contacts[1:]])
+        self.assertTrue(np.all(observed+1e-9>=requested))
+        self.assertTrue(np.all(observed-requested<1/60+1e-9))
+        intervals=np.diff([e['age_frames']/60 for e in contacts])
+        self.assertGreaterEqual(float(intervals.std()/intervals.mean()),.25)
+        for sample in trace['samples']:
+            for event in sample['events']:
+                if event['event']=='bolt':
+                    self.assertLessEqual(event['junction_sprite_count'],1)
+                    for link in event['links']: self.assertLessEqual(link['stretch_ratio'],1.15+1e-6)
+                    for point in event['prong_positions']:np.testing.assert_allclose(point,event['target_point'],atol=.001)
+                if event['event']=='bolt_end':self.assertLessEqual(event['local_age_s'],.27+1e-9)
+
+    def test_source_alpha_geometry_overlap_and_tip_registration(self):
+        report=json.loads((ROOT/'runs/C-5/t3/T4t/geometry.json').read_text())
+        self.assertLessEqual(report['max_overlap_diameter_px'],4)
+        self.assertLessEqual(report['max_stretch'],1.15)
+        self.assertLessEqual(report['max_socket_gap_px'],.001)
+        for sample in report['samples']:
+            for bolt in sample['bolt_metrics']:
+                if sample['name'].startswith('zeus_chain') or sample['name']=='live_physics':
+                    self.assertTrue(2<=bolt['link_count']<=3)
+                for pair in bolt['nearest_nonzero_alpha_to_joint_px']:
+                    self.assertLessEqual(max(pair),1.)

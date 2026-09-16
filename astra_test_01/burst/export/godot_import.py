@@ -406,6 +406,8 @@ def build_project(cells, out, vfx=None, gear_variant=None, scene=None, vfx_kit=N
                 raise ValueError('Plate image size differs from plate_size')
             plate.verify()
     kit = _load_vfx_kit(vfx_kit) if vfx_kit is not None else None
+    if kit is not None and 'g3' in kit.get('effect', {}):
+        raise ValueError('G3 bolt chain requires --vfx-kits for explicit component dispatch')
     if kit is not None and 'g2' in kit.get('effect', {}):
         raise ValueError('G2 thrown field requires --vfx-kits with explicit splash dependencies')
     if kit is not None and 'travel_primitives' in kit.get('effect', {}):
@@ -705,9 +707,9 @@ def _load_vfx_kits(path):
         if 'effect' in kit and 'tint' in entry:
             raise ValueError('tint multiply-tint override is retired for material kits')
         result.append({**kit, 'name': name, **({'tint': entry['tint']} if 'tint' in entry else {})})
-    # Preserve the legacy twelve-entry limit; only explicit G2 entries extend it.
-    if len(result) > 12 and sum('g2' not in kit.get('effect', {}) for kit in result) > 12:
-        raise ValueError('VFX kits beyond twelve require explicit G2 components')
+    # Preserve the legacy twelve-entry limit; explicit grammar components extend it.
+    if len(result) > 12 and sum(not any(g in kit.get('effect', {}) for g in ('g2','g3')) for kit in result) > 12:
+        raise ValueError('VFX kits beyond twelve require explicit G2/G3 components')
     by_name = {kit['name']: kit for kit in result}
     for kit in result:
         data = kit.get('effect', {})
@@ -1358,8 +1360,15 @@ def _write_vfx_kits(out, kits, base, cells, socket_data, annotation):
         _write_painted_g1(out)
     has_g2 = any('g2' in kit.get('effect', {}) for kit in kits)
     if has_g2: _write_g2_component(out)
+    has_g3 = any('g3' in kit.get('effect', {}) for kit in kits)
+    if has_g3: _write_g3_component(out)
     for index, kit in enumerate(kits):
         name = kit['name']
+        if 'g3' in kit.get('effect', {}):
+            report = _write_g3_kit(out, kit)
+            reports.append({'name':name, **report})
+            entries.append(_g3_config(kit))
+            continue
         if 'g2' in kit.get('effect', {}):
             report = _write_g2_kit(out, kit)
             reports.append({'name':name, **report})
@@ -1424,6 +1433,10 @@ def _write_vfx_kits(out, kits, base, cells, socket_data, annotation):
         policy += ''.join('    '+line+'\n' for line in old.replace('    var destination: Dictionary\n','').splitlines())
         directional = directional[:start]+policy+directional[stop:]
         directional = directional.replace('    G1.acquire(get_parent(), kit, socket, destination, self, art_scale)', '    if kit.get("grammar", "G1") == "G2":\n        G2.acquire(get_parent(), kit, socket, destination, self, art_scale)\n    else:\n        G1.acquire(get_parent(), kit, socket, destination, self, art_scale)')
+    if has_g3:
+        directional = directional.replace('const G1 = preload("res://scripts/vfx_g1.gd")', 'const G1 = preload("res://scripts/vfx_g1.gd")\nconst G3 = preload("res://scripts/vfx_g3.gd")')
+        # Resolve the instant target from the current release socket on the ready frame.
+        directional = directional.replace('    if not cast_ready:', '    if kit.get("grammar", "G1") == "G3":\n        if not cast_ready:\n            await get_tree().physics_frame\n        if not is_inside_tree(): return\n        var release_socket: Variant = _socket_world()\n        if release_socket == null: return\n        var instant_target: Dictionary = G3.resolve_target(get_tree(), release_socket, FACING_VECTORS[facing], float(kit.range_px), self)\n        G3.acquire(get_parent(), kit, release_socket, instant_target, self, art_scale)\n        return\n    if not cast_ready:')
     (out/'scripts/keeper.gd').write_text(keeper+directional+'\nconst VFX_KITS = '+
                                        json.dumps(entries, allow_nan=False)+'\n'+PICKER_SCRIPT)
     settings = out/'project.godot'
@@ -1808,6 +1821,12 @@ def _grey_vfx(out):
     # G2 has both RGB material glass and indexed bodies; substitute separately.
     for metadata in (out/'vfx').glob('*/kit.json'):
         data = json.loads(metadata.read_text())
+        if 'g3' in data:
+            for path in (metadata.parent/'materials').glob('*.tres'):
+                text=path.read_text()
+                text=re.sub(r'(shader_parameter/palette_[0-3] = )Color\([^\n]+', r'\1Color(0.5, 0.5, 0.5, 1)', text)
+                path.write_text(text)
+            continue
         if 'g2' not in data: continue
         folder = metadata.parent
         for path in [folder/data['g2']['flask'], *sorted((folder/'derived').glob('glass_*.png'))]:
@@ -3630,6 +3649,341 @@ func cancel() -> void:
     queue_free()
 '''
 
+
+# T4t: opt-in G3 export leaves all existing G1/G2 resources byte-identical.
+def _g3_config(kit):
+    from export.effect_kit import chain_schedule_report
+    import numpy as np
+    d=kit['effect'];g=d['g3'];m=d['skill_spec']['mechanics'];root='res://vfx/'+kit['name']+'/'
+    schedule=chain_schedule_report(m['chain'])
+    with Image.open(kit['root']/g['link']['png']) as image: a=np.asarray(image)
+    y,x=np.nonzero(a[...,3]);height=int(y.max()-y.min()+1)
+    scale=m['width_px']/g['link']['coverage_width']
+    primitives={role:dict(g[role],png=root+g[role]['png'],material=root+'materials/'+role.title()+'.tres') for role in ('link','branch','prong')}
+    return dict(name=kit['name'],grammar='G3',screen_px=True,flare=root+'flare.tres',bolt='res://scenes/vfx/g3_bolt_chain.tscn',
+                range_px=m['range_px'],hop_range_px=m['chain']['hop_range_px'],delays=schedule['delays_s'],cumulative=schedule['cumulative_s'],schedule=schedule,
+                primitives=primitives,link_scale=scale,link_length_px=math.dist(g['link']['start'],g['link']['end'])*scale,
+                width_px=m['width_px'],width_multiplier=g['width_multiplier'],prong_length_px=d['skill_spec']['presentation']['body_extents_bh'].get('end_prongs',.6)*130,
+                max_branches=g['max_branches'],prongs=g['prongs'],min_links=g['min_links'],max_links=g['max_links'],segment_fraction=g['segment_fraction'],jitter_px=g['jitter_px'],
+                seed=g['seed'],life_s=g['life_s'],afterimage_s=g['afterimage_s'],palette_3=d['material']['palette'][3],
+                enabled_layers=d['skill_spec']['presentation']['enabled_layers'])
+
+
+def _write_g3_kit(out, kit):
+    import numpy as np
+    from export.effect_kit import distance_field,write_vfx_material,MATERIAL_BINDING_SCRIPT
+    d=kit['effect'];root='vfx/'+kit['name'];dest=out/root
+    for path in kit['root'].rglob('*'):
+        if path.is_file():
+            target=dest/path.relative_to(kit['root']);target.parent.mkdir(parents=True,exist_ok=True);shutil.copyfile(path,target)
+    for phase,folder in [('cast','flare'),('travel','travel'),('impact','impact')]:
+        frames=d['phases'][phase]['frames']
+        write_spriteframes(out,root+'/'+folder+'.tres',{folder:([root+'/'+f['file'] for f in frames],1,False)},
+                           {folder:[f['hold_frames']/60 for f in frames]})
+    (dest/'distance').mkdir(exist_ok=True)
+    for role in ('link','branch','prong'):
+        with Image.open(dest/d['g3'][role]['png']) as image: a=np.asarray(image)
+        field=root+'/distance/'+role+'.png';Image.fromarray(distance_field(a)).save(out/field)
+        write_vfx_material(out,root+'/materials/'+role.title()+'.tres',d['material'],field)
+    write_vfx_material(out,root+'/materials/Body.tres',d['material'],root+'/distance/prong.png')
+    (out/f'scripts/vfx_{kit["name"]}_material.gd').write_text('extends RefCounted\n'+MATERIAL_BINDING_SCRIPT)
+    return {'grammar':'G3','frames':3,'schedule':_g3_config(kit)['schedule']}
+
+
+def _write_g3_component(out):
+    (out/'scripts').mkdir(parents=True,exist_ok=True);(out/'scenes/vfx').mkdir(parents=True,exist_ok=True)
+    (out/'scripts/vfx_g3.gd').write_text(G3_SCRIPT)
+    (out/'scripts/vfx_contact_label.gd').write_text(CONTACT_LABEL_SCRIPT)
+    scene='[gd_scene load_steps=2 format=3]\n[ext_resource type="Script" path="res://scripts/vfx_g3.gd" id="G3"]\n[node name="G3BoltChain" type="Node2D"]\nscript = ExtResource("G3")\ntexture_filter = 2\nz_as_relative = false\nz_index = 2\n'
+    for name in ('Links','Branches','Prongs','StrikeFlash'):
+        scene+='\n[node name="'+name+'" type="Node2D" parent="."]\ntexture_filter = 2\n'
+    (out/'scenes/vfx/g3_bolt_chain.tscn').write_text(scene)
+
+
+G3_SCRIPT = r'''extends Node2D
+# Instant geometry; effect age uses physics ticks, independent of hit-stop delta.
+static var events: Array = []
+static var label_events: Array = []
+static var next_id: int = 0
+var effect_id: int
+var release_tick: int
+var current_age: int = 0
+var config: Dictionary = {}
+var caster: Node2D
+var active: bool = false
+var hit: Dictionary = {}
+var bolts: Array = []
+var trace: Array = []
+var tinted: Array = []
+var last_target: Node2D
+var last_point: Vector2
+var hop_index: int = 0
+var chain_done: bool = false
+var rng := RandomNumberGenerator.new()
+
+static func eligible(actor: Node, owner_node: Node = null) -> bool:
+    return is_instance_valid(actor) and actor is Area2D and actor != owner_node and actor.is_inside_tree() and not actor.is_queued_for_deletion() and actor.is_in_group("vfx_targets")
+
+static func resolve_target(tree: SceneTree, origin: Vector2, facing: Vector2, range_px: float, owner_node: Node = null) -> Dictionary:
+    if not origin.is_finite() or not facing.is_finite() or facing.is_zero_approx() or not is_finite(range_px) or range_px <= 0.0: return {}
+    var best: Node2D = null
+    var nearest: float = INF
+    var axis: Vector2 = facing.normalized()
+    for actor in tree.get_nodes_in_group("vfx_targets"):
+        if not eligible(actor,owner_node): continue
+        var offset: Vector2 = actor.global_position-origin
+        var distance: float = offset.length()
+        if distance<=range_px and (distance<0.000001 or axis.dot(offset/distance)>=cos(deg_to_rad(30.0))-0.000001) and distance<nearest:
+            best=actor
+            nearest=distance
+    return {"point":best.global_position if best!=null else origin+axis*range_px,"target":best,"kind":"prop" if best!=null else "miss","facing":axis}
+
+static func acquire(parent: Node2D, kit: Dictionary, origin: Vector2, destination: Dictionary, owner_node: Node2D = null, _art_scale: float = 1.0) -> Node2D:
+    if kit.get("grammar","")!="G3" or not origin.is_finite() or not destination.get("point") is Vector2 or not destination.point.is_finite() or destination.get("kind","") not in ["prop","miss"]: return null
+    if destination.kind=="prop" and not eligible(destination.get("target"),owner_node): return null
+    var effect: Node2D = load("res://scenes/vfx/g3_bolt_chain.tscn").instantiate()
+    parent.add_child(effect)
+    effect.release(kit,origin,destination,owner_node)
+    return effect
+
+func _ready() -> void:
+    set_physics_process(false)
+
+func age_frames() -> int:
+    return current_age
+
+func _record(event: String, fields: Dictionary = {}) -> void:
+    var row: Dictionary = {"event":event,"effect_id":effect_id,"kit":config.name,"age_frames":current_age}
+    row.merge(fields)
+    events.append(row)
+
+func release(kit: Dictionary, origin: Vector2, destination: Dictionary, owner_node: Node2D = null) -> void:
+    config=kit.duplicate(true)
+    caster=owner_node
+    top_level=true
+    global_transform=Transform2D.IDENTITY
+    next_id+=1
+    effect_id=next_id
+    release_tick=Engine.get_physics_frames()
+    # Re-seeded per cast; explicit cast_seed enables reproducible probes/replays.
+    rng.seed=int(config.get("cast_seed",int(config.seed)+effect_id))
+    current_age=0
+    active=true
+    last_target=destination.get("target")
+    last_point=last_target.global_position if eligible(last_target,caster) else destination.point
+    _record("release",{"seed":rng.seed,"target_kind":destination.kind,"target_point":[last_point.x,last_point.y],"schedule":config.schedule})
+    _bolt(origin,last_point,last_target,0,0.0)
+    chain_done=last_target==null or config.delays.is_empty()
+    set_physics_process(true)
+
+func _physics_process(_delta: float) -> void:
+    if active: _clock(roundi(float(Engine.get_physics_frames()-release_tick)*60.0/Engine.physics_ticks_per_second))
+
+func _nearest_unhit(point: Vector2) -> Node2D:
+    var best: Node2D = null
+    var nearest: float = INF
+    for actor in get_tree().get_nodes_in_group("vfx_targets"):
+        if not eligible(actor,caster) or hit.has(actor.get_instance_id()): continue
+        var distance: float = point.distance_to(actor.global_position)
+        if distance<=float(config.hop_range_px) and distance<nearest:
+            best=actor
+            nearest=distance
+    return best
+
+func _sprite(role: String, parent: Node, point: Vector2, angle: float, length: float, width: float) -> Sprite2D:
+    var item: Dictionary = config.primitives[role]
+    var start := Vector2(item.start[0],item.start[1])
+    var finish := Vector2(item.end[0],item.end[1])
+    var axis: Vector2 = finish-start
+    var sprite := Sprite2D.new()
+    sprite.texture=load(item.png)
+    sprite.material=load(item.material).duplicate()
+    sprite.centered=false
+    var region: Array = item.region
+    sprite.region_enabled=true
+    sprite.region_rect=Rect2(region[0],region[1],region[2],region[3])
+    sprite.region_filter_clip_enabled=true
+    sprite.offset=Vector2(region[0],region[1])-start
+    sprite.texture_filter=CanvasItem.TEXTURE_FILTER_LINEAR
+    # A basis maps the painted socket axis exactly onto the world segment.
+    var along: Vector2 = Vector2.from_angle(angle)*(length/axis.length())
+    var across: Vector2 = Vector2.from_angle(angle+PI/2.0)*width
+    var u: Vector2 = axis.normalized()
+    parent.add_child(sprite)
+    sprite.transform=Transform2D(along*u.x-across*u.y,along*u.y+across*u.x,point)
+    return sprite
+
+func _bolt(origin: Vector2, target: Vector2, actor: Node2D, index: int, scheduled_s: float) -> void:
+    var group := Node2D.new()
+    group.name="Bolt_"+str(index)
+    $Links.add_child(group)
+    var branches := Node2D.new()
+    branches.name="Branches_"+str(index)
+    $Branches.add_child(branches)
+    var prongs := Node2D.new()
+    prongs.name="Prongs_"+str(index)
+    $Prongs.add_child(prongs)
+    var offset: Vector2 = target-origin
+    var distance: float = offset.length()
+    var axis: Vector2 = offset.normalized() if distance>0.00001 else Vector2.RIGHT
+    var perpendicular := Vector2(-axis.y,axis.x)
+    var nominal: float = float(config.link_length_px)
+    var count: int = clampi(roundi(distance/(float(config.segment_fraction)*nominal)),int(config.min_links),int(config.max_links))
+    var points: Array[Vector2] = [origin]
+    for i in range(1,count):
+        var jitter: float = rng.randf_range(-float(config.jitter_px),float(config.jitter_px))
+        points.append(origin+axis*(distance*float(i)/count)+perpendicular*jitter)
+    points.append(target)
+    # If a jittered segment exceeds 1.15 of the native-width link, subdivide it.
+    var fitted: Array[Vector2] = [origin]
+    for i in range(points.size()-1):
+        var splits: int = maxi(1,ceili(points[i].distance_to(points[i+1])/(1.15*nominal)))
+        for j in range(1,splits+1): fitted.append(points[i].lerp(points[i+1],float(j)/splits))
+    points=fitted
+    var links: Array = []
+    for i in range(points.size()-1):
+        var a: Vector2 = points[i]
+        var b: Vector2 = points[i+1]
+        var length: float = a.distance_to(b)
+        var node: Sprite2D = _sprite("link",group,a,(b-a).angle(),length,float(config.link_scale))
+        node.name="Link_"+str(i)
+        links.append({"start":[a.x,a.y],"end":[b.x,b.y],"length_px":length,"stretch_ratio":length/nominal,"transform":[[node.transform.x.x,node.transform.x.y],[node.transform.y.x,node.transform.y.y],[a.x,a.y]]})
+    var branch_count: int = 0
+    var branch_point: Variant = null
+    if points.size()>2 and int(config.max_branches)>0:
+        var vertex: int = rng.randi_range(1,points.size()-2)
+        branch_point=[points[vertex].x,points[vertex].y]
+        branch_count=int(config.max_branches)
+        # Two forks use the junction; one fork uses the supplied needle so no hidden second fork appears.
+        var role: String = "branch" if branch_count==2 else "prong"
+        var branch: Sprite2D = _sprite(role,branches,points[vertex],axis.angle()+rng.randf_range(-.7,.7),float(config.prong_length_px),float(config.link_scale))
+        branch.name="BranchJunction"
+    var prong_positions: Array = []
+    for i in range(int(config.prongs)):
+        var prong: Sprite2D = _sprite("prong",prongs,target,TAU*float(i)/int(config.prongs)+axis.angle(),float(config.prong_length_px),float(config.link_scale)*.7)
+        prong.name="NeedleProng_"+str(i)
+        prong_positions.append([prong.position.x,prong.position.y])
+    var flash: Node2D = Node2D.new()
+    flash.name="StrikeFlash_"+str(index)
+    $StrikeFlash.add_child(flash)
+    if "flash" in config.enabled_layers:
+        for i in range(4):
+            var ray: Sprite2D = _sprite("prong",flash,target,TAU*float(i)/4.0,float(config.prong_length_px)*.45,float(config.link_scale))
+            ray.modulate.a=.8
+    var halo: Sprite2D = _sprite("branch",flash,target,0,float(config.prong_length_px)*.6,float(config.link_scale)*2.0)
+    halo.name="Halo"
+    halo.visible="halo" in config.enabled_layers
+    halo.modulate.a=.12
+    bolts.append({"node":group,"art":[group,branches,prongs],"flash":flash,"born":current_age,"index":index,"ended":false})
+    _record("bolt",{"hop_index":index,"scheduled_s":scheduled_s,"origin":[origin.x,origin.y],"target_point":[target.x,target.y],"links":links,"link_count":links.size(),"prong_positions":prong_positions,"branch_count":branch_count,"junction_sprite_count":1 if branch_count==2 else 0,"branch_point":branch_point,"nominal_length_px":nominal,"width_px":config.width_px})
+    if eligible(actor,caster):
+        hit[actor.get_instance_id()]=true
+        var body_index: int = int(actor.get_meta("body_index",actor.get_instance_id()))
+        _record("contact",{"body_index":body_index,"contact_class":"primary","phase":"chain_hop","hop_index":index,"target_point":[target.x,target.y],"collision_age_frames":current_age,"contact_lag_frames":0,"strike_response":true})
+        _response(actor,body_index)
+
+func _response(actor: Node2D, body_index: int) -> void:
+    var c: Array = config.palette_3
+    if "victim_tint" in config.enabled_layers:
+        var victim: CanvasItem = actor
+        var prop: Node = actor.get_parent().get_node_or_null("Prop_"+String(actor.name).trim_prefix("VfxTarget_"))
+        if prop is CanvasItem: victim=prop
+        tinted.append({"node":victim,"original":victim.modulate,"end":current_age+6})
+        victim.modulate=Color(c[0],c[1],c[2],victim.modulate.a)
+        _record("victim_tint",{"body_index":body_index})
+    if "contact_label" in config.enabled_layers:
+        var label: Label = null
+        for candidate in get_tree().get_nodes_in_group("vfx_contact_labels"):
+            if not candidate.visible:
+                label=candidate
+                break
+        if label==null:
+            label=Label.new()
+            label.set_script(load("res://scripts/vfx_contact_label.gd"))
+            get_parent().add_child(label)
+        label.top_level=true
+        label.scale=Vector2.ONE
+        label.rotation=0.0
+        label.show_contact(actor.global_position+Vector2(0,-70),"FULL",Color(c[0],c[1],c[2],c[3]),effect_id,body_index,label_events)
+    if "hit_stop" in config.enabled_layers:
+        _record("hit_stop",{"body_index":body_index,"duration_s":1.0/60.0,"time_scale":.1})
+        _strike_stop()
+
+func _clock(age: int) -> void:
+    if not active: return
+    current_age=age
+    while not chain_done and hop_index<config.cumulative.size() and age>=ceili(float(config.cumulative[hop_index])*60.0-0.000001):
+        if eligible(last_target,caster): last_point=last_target.global_position
+        var target: Node2D = _nearest_unhit(last_point)
+        if target==null:
+            chain_done=true
+            _record("chain_end",{"reason":"no_eligible_unhit_target","completed_hops":hop_index})
+            break
+        var start: Vector2 = last_point
+        last_target=target
+        last_point=target.global_position
+        _bolt(start,last_point,target,hop_index+1,float(config.cumulative[hop_index]))
+        hop_index+=1
+        if hop_index>=config.cumulative.size(): chain_done=true
+    var visible_count: int = 0
+    for bolt in bolts:
+        var local_age: int = age-int(bolt.born)
+        var seconds: float = float(local_age)/60.0
+        # End on the final representable frame no later than the specified deadline.
+        var end_frame: int = floori((float(config.life_s)+float(config.afterimage_s))*60.0+0.000001)
+        var dissolve: float = clampf((seconds-float(config.life_s))/float(config.afterimage_s),0.0,1.0)
+        bolt.node.visible=local_age<end_frame
+        bolt.flash.visible=local_age==0
+        if bolt.node.visible: visible_count+=1
+        for art in bolt.art:
+            art.visible=bolt.node.visible
+            for sprite in art.get_children(): sprite.material.set_shader_parameter("dissolve",dissolve)
+        if local_age>=end_frame and not bolt.ended:
+            bolt.ended=true
+            _record("bolt_end",{"hop_index":bolt.index,"local_age_frames":local_age,"local_age_s":seconds})
+        trace.append({"age_frames":age,"hop_index":bolt.index,"local_age_frames":local_age,"visible":bolt.node.visible,"dissolve":dissolve,"flash_visible":bolt.flash.visible})
+    for entry in tinted:
+        if is_instance_valid(entry.node) and age>=int(entry.end): entry.node.modulate=entry.original
+    tinted=tinted.filter(func(entry):return is_instance_valid(entry.node) and age<int(entry.end))
+    if chain_done and visible_count==0:
+        _record("expire")
+        active=false
+        hide()
+        set_physics_process(false)
+        _restore_tints()
+        queue_free()
+
+func _restore_tints() -> void:
+    for entry in tinted:
+        if is_instance_valid(entry.node): entry.node.modulate=entry.original
+    tinted.clear()
+
+func cancel() -> void:
+    if not active: return
+    _record("cancel")
+    _restore_tints()
+    active=false
+    queue_free()
+
+func _strike_stop() -> void:
+    if "hit_stop" not in config.enabled_layers: return
+    var tree: SceneTree = get_tree()
+    var controller: Node = tree.root.get_node_or_null("EffectHitstop")
+    if controller == null:
+        controller=Node.new()
+        controller.name="EffectHitstop"
+        controller.set_meta("baseline",Engine.time_scale)
+        controller.set_meta("generation",0)
+        tree.root.add_child(controller)
+    var generation: int = int(controller.get_meta("generation"))+1
+    controller.set_meta("generation",generation)
+    Engine.time_scale=.1
+    tree.create_timer(1.0/60.0,true,false,true).timeout.connect(func():
+        if is_instance_valid(controller) and int(controller.get_meta("generation"))==generation:
+            Engine.time_scale=float(controller.get_meta("baseline"))
+            controller.name="EffectHitstopDone"
+            controller.queue_free())
+'''
 
 if __name__ == '__main__':
     main()

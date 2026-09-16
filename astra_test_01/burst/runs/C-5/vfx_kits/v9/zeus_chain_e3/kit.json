@@ -1,0 +1,189 @@
+{
+  "name": "zeus_chain_e3",
+  "element": "lightning (Hades dialect: thicker, fewer branches, jewel-white core)",
+  "element_class": "strike",
+  "screen_px": true,
+  "ground_squash": 0.6,
+  "material": {
+    "palette": [
+      [
+        0.025,
+        0.05,
+        0.12,
+        1
+      ],
+      [
+        0.16,
+        0.32,
+        0.6,
+        1
+      ],
+      [
+        0.48,
+        0.74,
+        1,
+        1
+      ],
+      [
+        1.0,
+        1.0,
+        0.98,
+        1.0
+      ]
+    ],
+    "blend_mode": "ADD",
+    "light_participation": false
+  },
+  "phases": {
+    "cast": {
+      "sheet": "flare/flare_00.png",
+      "frames": [
+        {
+          "file": "flare/flare_00.png",
+          "hold_frames": 1
+        }
+      ]
+    },
+    "travel": {
+      "sheet": "travel/travel_00.png",
+      "frames": [
+        {
+          "file": "travel/travel_00.png",
+          "hold_frames": 1
+        }
+      ]
+    },
+    "impact": {
+      "sheet": "impact/impact_00.png",
+      "frames": [
+        {
+          "file": "impact/impact_00.png",
+          "hold_frames": 1
+        }
+      ]
+    }
+  },
+  "layers": {
+    "dark_duplicate": false
+  },
+  "skill_spec": {
+    "skill_id": "zeus_chain",
+    "source_game": "Hades \u2014 Zeus Boon: chain lightning",
+    "grammar": "G3",
+    "visual_treatment_id": "lightning (Hades dialect: thicker, fewer branches, jewel-white core)",
+    "response_class": "strike per hop",
+    "mechanics": {
+      "origin_socket": "cast_release",
+      "aim_rule": "target-tracking",
+      "range_px": 520,
+      "instant": true,
+      "width_px": 30,
+      "chain": {
+        "count": 4,
+        "hop_range_px": 260,
+        "hop_delay_s": [
+          0.06,
+          0.11,
+          0.08,
+          0.13
+        ],
+        "hop_delay_cv_min": 0.25,
+        "target_order": "events (nearest unhit)"
+      },
+      "termination": "chain_end"
+    },
+    "presentation": {
+      "primitive_bindings": {
+        "bolt": "P05 chain link (Hades dialect) \u2014 2\u20133 links per hop, one junction max",
+        "impact per hop": "strike flash + 2 prongs",
+        "residue": "none"
+      },
+      "body_extents_bh": {
+        "bolt_width": 0.23
+      },
+      "phase_envelope_s": {
+        "link_life": 0.1,
+        "hop_delays": "irregular per mechanics",
+        "total": 0.5
+      },
+      "enabled_layers": [
+        "flash",
+        "halo",
+        "victim_tint",
+        "hit_stop",
+        "contact_label"
+      ]
+    },
+    "provenance": {
+      "4-hop chain, irregular hop delay": "Hades source observation (conductor memory) \u2014 VERIFY; FF-08 metronome tripwire",
+      "dialect": "REGISTER_CARD: Hades-language is a level dialect inside H1"
+    }
+  },
+  "g3": {
+    "seed": 2026,
+    "max_branches": 1,
+    "prongs": 2,
+    "width_multiplier": 1.35,
+    "life_s": 0.1,
+    "afterimage_s": 0.15,
+    "segment_fraction": 0.8,
+    "jitter_px": 12,
+    "link": {
+      "png": "primitives/link.png",
+      "start": [
+        154.0,
+        255.0
+      ],
+      "end": [
+        357.0,
+        255.0
+      ],
+      "region": [
+        154,
+        0,
+        204,
+        512
+      ],
+      "coverage_width": 39
+    },
+    "branch": {
+      "png": "primitives/branch.png",
+      "start": [
+        191.0,
+        263.5
+      ],
+      "end": [
+        335.0,
+        209.0
+      ],
+      "region": [
+        191,
+        0,
+        145,
+        512
+      ],
+      "coverage_width": 105
+    },
+    "prong": {
+      "png": "primitives/prong.png",
+      "start": [
+        222.0,
+        302.0
+      ],
+      "end": [
+        291.0,
+        216.5
+      ],
+      "region": [
+        222,
+        0,
+        70,
+        512
+      ],
+      "coverage_width": 89
+    },
+    "min_links": 2,
+    "max_links": 3
+  },
+  "pierce": 0
+}

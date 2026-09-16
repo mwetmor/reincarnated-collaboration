@@ -2106,13 +2106,17 @@ class ThrownFieldValidationTests(unittest.TestCase):
         kits=ROOT/'runs/C-5/vfx_kits/v9'
         for name in ('blackwater_cocktail','poisonous_concoction'):
             root=kits/(name+'_e3');data=load_kit(root)
-            self.assertEqual(data['skill_spec'],json.loads((ROOT/f'runs/C-5/specs/{name}.json').read_text()))
+            current_spec = json.loads((ROOT/f'runs/C-5/specs/{name}.json').read_text())
+            # Conductor provenance annotations may advance without changing frozen kit bytes.
+            self.assertEqual({k:v for k,v in data['skill_spec'].items() if k!='provenance'},
+                             {k:v for k,v in current_spec.items() if k!='provenance'})
             self.assertEqual((root/data['g2']['flask']).read_bytes(),(ROOT/'runs/C-5/artifacts/VF-prim-flask-01/flask_01_512.png').read_bytes())
             self.assertEqual(data['ground_squash'],.58)
             self.assertTrue(data['screen_px'])
             ticks=data['skill_spec']['mechanics']['field']['tick_schedule_s']
-            self.assertFalse(tick_schedule_report(ticks)['ff08_satisfied'])
-            with self.assertRaisesRegex(ValueError,'FF-08'):assert_tick_schedule(ticks)
+            current_spec = json.loads((ROOT/f'runs/C-5/specs/{name}.json').read_text())
+            self.assertEqual(ticks, current_spec['mechanics']['field']['tick_schedule_s'])
+            self.assertTrue(assert_tick_schedule(ticks)['ff08_satisfied'])
         self.assertTrue(assert_tick_schedule([0,.1,.6,1.])['ff08_satisfied'])
         data=load_kit(kits/'poisonous_concoction_e3')
         self.assertEqual(data['density'],1.)
@@ -2144,3 +2148,42 @@ class ThrownFieldValidationTests(unittest.TestCase):
             data=load_kit(Path(tmp)/'kit')
             self.assertEqual(data['density'],1.)
             self.assertEqual((Path(tmp)/'kit'/data['g2']['flask']).read_bytes(),(source/'primitives/flask.png').read_bytes())
+
+
+class BoltChainValidationTests(unittest.TestCase):
+    def test_explicit_specs_alpha_indices_and_schedule(self):
+        from export.effect_kit import chain_schedule_report
+        for name in ('lightning_blast','zeus_chain'):
+            folder=ROOT/f'runs/C-5/vfx_kits/v9/{name}_e3'
+            data=load_kit(folder)
+            self.assertEqual(data['skill_spec'],json.loads((ROOT/f'runs/C-5/specs/{name}.json').read_text()))
+            self.assertTrue(data['screen_px'])
+            self.assertEqual(data['material']['blend_mode'],'ADD')
+            self.assertFalse(data['layers']['dark_duplicate'])
+            schedule=chain_schedule_report(data['skill_spec']['mechanics']['chain'])
+            if schedule['cv_evaluable']: self.assertGreaterEqual(schedule['interval_cv'],.25)
+            for role in ('link','branch','prong'):
+                with Image.open(folder/data['g3'][role]['png']) as im: actual=np.array(im)
+                with Image.open(ROOT/f'runs/C-5/artifacts/VF-prim-lightning-{role}-01/lightning_{role}_01_512.png') as im: source=np.array(im)
+                np.testing.assert_array_equal(source[...,3],actual[...,3])
+                self.assertTrue(np.isin(actual[...,:3][actual[...,3]>0],[0,85,170,255]).all())
+
+    def test_invalid_mechanics_material_and_metronome_rejected(self):
+        from export.effect_kit import validate_bolt_chain
+        root=ROOT/'runs/C-5/vfx_kits/v9/zeus_chain_e3';original=load_kit(root)
+        for path,value in [(('skill_spec','grammar'),'G1'),(('screen_px',),False),(('material','blend_mode'),'MIX'),
+                           (('g3','afterimage_s'),.3),(('g3','max_branches'),2),(('g3','prongs'),4),
+                           (('skill_spec','mechanics','chain','hop_delay_s'),[.1,.1,.1,.1]),
+                           (('skill_spec','mechanics','chain','count'),3),(('layers','dark_duplicate'),True)]:
+            bad=copy.deepcopy(original);cursor=bad
+            for key in path[:-1]:cursor=cursor[key]
+            cursor[path[-1]]=value
+            with self.subTest(path=path),self.assertRaises(ValueError):validate_bolt_chain(bad,root,True)
+        renamed=copy.deepcopy(original);renamed['name']='arbitrary_chain';renamed['skill_spec']['skill_id']='arbitrary_skill'
+        validate_bolt_chain(renamed,root,True)
+
+    def test_generic_build_round_trip(self):
+        work=ROOT/'runs/C-5/t3/T4t';source=ROOT/'runs/C-5/vfx_kits/v9/lightning_blast_e3'
+        with tempfile.TemporaryDirectory(dir=work) as tmp:
+            build(source/'kit.json',Path(tmp)/'kit')
+            actual=load_kit(Path(tmp)/'kit');self.assertEqual(actual,load_kit(source))

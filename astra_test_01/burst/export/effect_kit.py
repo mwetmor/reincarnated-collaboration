@@ -542,6 +542,8 @@ def load_pieces(config, root, runtime=False):
 
 def _validate(data, root, runtime=False):
     _reject_retired(data)
+    if isinstance(data, dict) and 'g3' in data:
+        return validate_bolt_chain(data, root, runtime)
     if isinstance(data, dict) and 'g2' in data:
         return validate_thrown_field(data, root, runtime)
     if isinstance(data, dict) and 'tint' in data:
@@ -748,6 +750,8 @@ def build(effect_json, out_dir):
         data, root = json.loads(path.read_text()), path.parent
     else:
         data, root = copy.deepcopy(effect_json), Path.cwd()
+    if 'g3' in data:
+        return _build_bolt_definition(data, root, Path(out_dir).resolve())
     if 'g2' in data:
         return _build_thrown_definition(data, root, Path(out_dir).resolve())
     assets = _validate(data, root)
@@ -1259,3 +1263,122 @@ def _build_thrown_definition(data, root, out):
     (out/'vfx_select.json').write_text(json.dumps({'source':'effect_kit','name':metadata['name']})+'\n')
     (out/'CREDITS.txt').write_text('G2 '+metadata['name']+': supplied painted primitives; derived shards/field, no new painting.\n')
     return {'id':'effect_kit','subject':metadata['name'],'passed':None,'value':{'grammar':'G2'},'threshold':None,'op':None,'unit':'kit','evidence':[str(out/'kit.json')],'notes':'RGB flask retained; indexed field separate; FF-08 reported separately.'}
+
+
+# T4t: grammar and presentation are explicit metadata, never name heuristics.
+def chain_schedule_report(chain):
+    _number(chain['count'], 0, 32, 'chain.count', True)
+    _number(chain['hop_range_px'], 1e-9, math.inf, 'chain.hop_range_px')
+    authored = chain['hop_delay_s']
+    delays = authored if isinstance(authored, list) else [authored]*chain['count']
+    if len(delays) != chain['count']: raise ValueError('chain delay count must equal additional hop count')
+    for delay in delays: _number(delay, 1/60, 10, 'chain.hop_delay_s')
+    cv = float(np.std(delays)/np.mean(delays)) if len(delays)>1 else None
+    minimum = chain.get('hop_delay_cv_min', .25)
+    _number(minimum, .25, 1, 'hop_delay_cv_min')
+    if cv is not None and cv < minimum: raise ValueError('FF-08 chain interval CV below minimum')
+    cumulative = np.cumsum(delays).tolist()
+    return dict(delays_s=delays, cumulative_s=cumulative, interval_cv=cv, minimum_cv=minimum,
+                cv_evaluable=len(delays)>1, count_semantics='additional hops after initial contact')
+
+
+def validate_bolt_chain(data, root, runtime=False):
+    _keys(data, {'name','element','element_class','screen_px','ground_squash','material','phases','layers','pierce','skill_spec','g3','distance_fields'},
+          {'name','element','element_class','screen_px','ground_squash','material','phases','layers','skill_spec','g3'}, 'G3 kit')
+    if not isinstance(data['name'], str) or not re.fullmatch(r'[A-Za-z_][A-Za-z0-9_]*',data['name']): raise ValueError('name must be a safe identifier')
+    spec=data['skill_spec'];m=spec['mechanics'];p=spec['presentation'];g=data['g3']
+    if (spec['grammar']!='G3' or m['aim_rule']!='target-tracking' or m['origin_socket']!='cast_release'
+            or m['instant'] is not True or m['termination'] not in ('instant','chain_end')):
+        raise ValueError('unsupported G3 mechanics; no inferred grammar')
+    if data['screen_px'] is not True or data['element_class']!='strike' or data.get('pierce',0)!=0:
+        raise ValueError('G3 requires screen_px, strike and no pierce')
+    for key in ('range_px','width_px'): _number(m[key],1e-9,4096,key)
+    chain_schedule_report(m['chain'])
+    material=validate_material(data['material'])
+    if material['blend_mode']!='ADD' or data['layers']!={'dark_duplicate':False}:
+        raise ValueError('G3 requires ADD body and dark duplicate OFF')
+    if material.get('dissolve_order',LEGACY_DISSOLVE_ORDER)!=LEGACY_DISSOLVE_ORDER:
+        raise ValueError('G3 afterimage requires band 3 first')
+    allowed={'link','branch','prong','seed','max_branches','prongs','width_multiplier','life_s','afterimage_s','segment_fraction','jitter_px','min_links','max_links'}
+    _keys(g,allowed,allowed,'g3')
+    _number(g['seed'],0,2**32-1,'g3.seed',True)
+    _number(g['max_branches'],0,2,'max_branches',True)
+    _number(g['prongs'],1,8,'prongs',True)
+    _number(g['min_links'],1,3,'min_links',True)
+    _number(g['max_links'],g['min_links'],64,'max_links',True)
+    _number(g['width_multiplier'],1,1.35,'width_multiplier')
+    envelope=p['phase_envelope_s']; life=envelope.get('bolt_life',envelope.get('link_life'))
+    _number(life,1/60,1,'bolt life')
+    if g['life_s']!=life or g['afterimage_s']!=.15 or g['segment_fraction']!=.8 or g['jitter_px']!=12:
+        raise ValueError('G3 bolt envelope/geometry disagrees with contract')
+    if envelope.get('afterimage',.15)!=g['afterimage_s']: raise ValueError('afterimage disagrees with spec')
+    if g['width_multiplier']>1 and (g['max_branches']>1 or g['prongs']!=2 or material['palette'][3]!=[1.,1.,.98,1.]):
+        raise ValueError('wide dialect requires one branch maximum, two prongs, jewel-white core')
+    assets={}
+    for role in ('link','branch','prong'):
+        item=g[role];_keys(item,{'png','start','end','region','coverage_width'}, {'png','start','end','region','coverage_width'},'g3.'+role)
+        _number(item['coverage_width'],1,512,'primitive coverage_width')
+        if not isinstance(item['region'],list) or len(item['region'])!=4: raise ValueError('primitive region requires xywh')
+        for v in item['region']: _number(v,0,512,'primitive region',True)
+        if min(item['region'][2:])<1 or item['region'][0]+item['region'][2]>512 or item['region'][1]+item['region'][3]>512: raise ValueError('primitive region outside source')
+        assets[item['png']]=_png(item['png'],root,confined=runtime)
+        for key in ('start','end'):
+            if not isinstance(item[key],list) or len(item[key])!=2: raise ValueError('primitive socket requires two coordinates')
+            for v in item[key]: _number(v,0,511,'primitive socket')
+        if math.dist(item['start'],item['end'])<1: raise ValueError('primitive sockets must differ')
+    for phase in data['phases'].values():
+        for src in [phase['sheet'],*[f['file'] for f in phase['frames']]]: assets[src]=_png(src,root,confined=runtime)
+    for src,path in assets.items():
+        with Image.open(path) as im:
+            a=np.array(im)
+            if im.mode!='RGBA' or im.size!=(512,512) or not np.any(a[...,3]): raise ValueError('G3 requires nonempty 512 RGBA primitives')
+        rgb=a[...,:3][a[...,3]>0]
+        if not np.isin(rgb,[0,85,170,255]).all() or np.any(rgb[:,0]!=rgb[:,1]) or np.any(rgb[:,1]!=rgb[:,2]):
+            raise ValueError('G3 source indices must be greyscale 0/85/170/255')
+    return assets
+
+
+def build_bolt_chain(spec_path, primitive_paths, out_dir, *, max_branches, prongs, width_multiplier=1., palette=None, seed=2026, min_links=1, max_links=64):
+    """Assemble supplied drawings, keeping all source alpha and native dimensions."""
+    spec=json.loads(Path(spec_path).read_text());out=Path(out_dir).resolve()
+    if out.exists() and any(out.iterdir()): raise ValueError('Output must be empty')
+    out.mkdir(parents=True,exist_ok=True);(out/'primitives').mkdir()
+    g=dict(seed=seed,max_branches=max_branches,prongs=prongs,width_multiplier=width_multiplier,min_links=min_links,max_links=max_links,
+           life_s=spec['presentation']['phase_envelope_s'].get('bolt_life',spec['presentation']['phase_envelope_s'].get('link_life')),
+           afterimage_s=.15,segment_fraction=.8,jitter_px=12)
+    for role,path in primitive_paths.items():
+        with Image.open(path) as im: rgba=quantise_projectile(np.asarray(im.convert('RGBA')))
+        y,x=np.nonzero(rgba[...,3]>=128);left=int(x.min());right=int(x.max())
+        if role=='prong': # Authored needle runs from lower-left root to upper-right tip.
+            start=[float(left),float(y[x==left].mean())];end=[float(right),float(y[x==right].mean())]
+        else:
+            start=[float(left),float(y[x==left].mean())];end=[float(right),float(y[x==right].mean())]
+        file='primitives/'+role+'.png';Image.fromarray(rgba).save(out/file)
+        g[role]=dict(png=file,start=start,end=end,region=[left,0,right-left+1,512],coverage_width=int(y.max()-y.min()+1))
+    phases={}
+    for phase,folder,role in [('cast','flare','prong'),('travel','travel','link'),('impact','impact','prong')]:
+        (out/folder).mkdir();file=f'{folder}/{folder}_00.png';(out/file).write_bytes((out/g[role]['png']).read_bytes())
+        phases[phase]=dict(sheet=file,frames=[dict(file=file,hold_frames=1)])
+    data=dict(name=spec['skill_id']+'_e3',element=spec['visual_treatment_id'],element_class='strike',screen_px=True,ground_squash=.6,
+              material=dict(palette=palette or [[.025,.05,.12,1],[.16,.32,.6,1],[.48,.74,1,1],[.88,.96,1,1]],blend_mode='ADD',light_participation=False),
+              phases=phases,layers={'dark_duplicate':False},skill_spec=spec,g3=g,pierce=0)
+    validate_bolt_chain(data,out,True)
+    (out/'kit.json').write_text(json.dumps(data,indent=2)+'\n')
+    (out/'vfx_select.json').write_text(json.dumps({'source':'effect_kit','name':data['name']})+'\n')
+    (out/'CREDITS.txt').write_text('G3: supplied lightning link, branch and prong drawings; four-band quantisation, original coverage alpha.\n')
+    return data
+
+
+def _build_bolt_definition(data, root, out):
+    assets=validate_bolt_chain(data,root,False)
+    if out.exists() and any(out.iterdir()): raise ValueError('Output must be empty')
+    if any(p.is_relative_to(out) for p in assets.values()): raise ValueError('Output overlaps inputs')
+    out.mkdir(parents=True,exist_ok=True)
+    for src,path in assets.items():
+        target=out/src
+        if Path(src).is_absolute() or not target.resolve().is_relative_to(out): raise ValueError('G3 build requires confined relative assets')
+        target.parent.mkdir(parents=True,exist_ok=True);target.write_bytes(path.read_bytes())
+    (out/'kit.json').write_text(json.dumps(data,indent=2)+'\n')
+    (out/'CREDITS.txt').write_text('G3: supplied indexed lightning primitives.\n')
+    (out/'vfx_select.json').write_text(json.dumps({'source':'effect_kit','name':data['name']})+'\n')
+    return {'id':'effect_kit','subject':data['name'],'passed':None,'value':{'grammar':'G3'},'threshold':None,'op':None,'unit':'kit','evidence':[str(out/'kit.json')],'notes':'Explicit instant bolt / chain.'}

@@ -927,7 +927,7 @@ def ice_project_fixture(root):
 class IceTreatmentImportTests(unittest.TestCase):
     def test_emitted_shards_origin_residue_and_ground_decal(self):
         repo=Path(__file__).resolve().parents[1]
-        with tempfile.TemporaryDirectory(prefix='e2-emission-',dir=repo/'runs/C-5/t3/T4r') as tmp:
+        with tempfile.TemporaryDirectory(prefix='e2-emission-',dir=repo/'runs/C-5/t3/T4t') as tmp:
             project=ice_project_fixture(Path(tmp))
             scene=(project/'scenes/vfx_ice_bolt_e2_impact.tscn').read_text()
             runtime=json.loads((project/'vfx/ice_bolt_e2/pieces/burst_runtime.json').read_text())
@@ -935,7 +935,9 @@ class IceTreatmentImportTests(unittest.TestCase):
             self.assertEqual(scene.count('type="Sprite2D" parent="Art/Pieces"'),len(record['pieces']))
             self.assertNotIn('name="Residual"',scene)
             self.assertIn('name="Decal"',scene)
-            self.assertIn('z_as_relative = false\nz_index = -2',scene)
+            self.assertIn('[node name="Decal" type="Sprite2D" parent="."]',scene)
+            self.assertIn('attach(', (project/'scripts/vfx/piece_burst_v1r.gd').read_text())
+            self.assertIn('GroundEffects', (project/'scripts/vfx_ground.gd').read_text())
             self.assertIn('scale = Vector2(1, 0.6)',scene)
             self.assertEqual(runtime['template'],'burst_v1r')
             self.assertEqual(runtime['erode_noise'],.4)
@@ -946,9 +948,9 @@ class IceTreatmentImportTests(unittest.TestCase):
             validate_resources(project,True)
 
     def test_ten_existing_export_bytes_unchanged(self):
-        repo=Path(__file__).resolve().parents[1];work=repo/'runs/C-5/t3/T4r'
+        repo=Path(__file__).resolve().parents[1];work=repo/'runs/C-5/t3/T4t'
         import hashlib
-        baseline=json.loads((work/'baseline_hashes.json').read_text())
+        baseline=json.loads((work/'before_10_hashes.json').read_text())
         with tempfile.TemporaryDirectory(prefix='e2-legacy-',dir=work) as tmp:
             folder=Path(tmp);project=folder/'project';cells=folder/'cells';cells.mkdir()
             for direction in ('E','N','S'):
@@ -956,7 +958,7 @@ class IceTreatmentImportTests(unittest.TestCase):
                     for i in range(n):Image.new('RGBA',(512,512),(40,80,120,255)).save(cells/f'{kind}_{direction}_{i}.png')
             sockets=folder/'sockets.json'
             sockets.write_text(json.dumps({'version':1,'canvas':[512,512],'cells':{'cast_'+d:{'sockets':[[270,240]]*4,'release_index':2} for d in ('E','N','S')}}))
-            build_project(cells,project,vfx_kits=work/'legacy_catalogue.json',sockets=sockets)
+            build_project(cells,project,vfx_kits=work/'before10/kits.json',sockets=sockets)
             actual={p.relative_to(project).as_posix():hashlib.sha256(p.read_bytes()).hexdigest()
                     for p in project.rglob('*') if p.is_file()}
             self.assertEqual(actual,baseline)
@@ -987,7 +989,9 @@ class ThrownFieldEmissionTests(unittest.TestCase):
             scene=(out/'scenes/vfx/g2_thrown_field.tscn').read_text()
             for node in ('Flask','Fragments','Splash','Ground','Field','Decal','Licks','Halo','FloorLight','Flash','DarkDuplicate'):
                 self.assertIn('name="'+node+'"',scene)
-            self.assertIn('z_as_relative = false\nz_index = -2',scene)
+            self.assertIn('z_as_relative = false\nz_index = 2',scene)
+            self.assertIn('parent="Ground"',scene)
+            self.assertIn('GroundEffects',(out/'scripts/vfx_ground.gd').read_text())
             validate_resources(out,True)
 
     def test_g2_grey_retains_index_planes_and_glass_alpha(self):
@@ -1018,7 +1022,7 @@ class ThrownFieldCLIRegressionTests(unittest.TestCase):
         root = Path(__file__).resolve().parents[1]
         catalogue = root/'runs/C-5/vfx_kits/kits_v9.json'
         expected = [entry['name'] for entry in json.loads(catalogue.read_text())['kits']]
-        self.assertEqual(len(expected), 13)
+        self.assertGreaterEqual(len(expected), 13)
         work = root/'runs/C-5/t3/T4s-r1'
         work.mkdir(parents=True, exist_ok=True)
         with tempfile.TemporaryDirectory(prefix='g2-full-cli-', dir=work) as tmp:
@@ -1240,3 +1244,51 @@ func run() -> void:
     print("VISIBILITY_TRACE rows=",rows.size())
     quit(0)
 '''
+
+
+class BoltChainEmissionTests(unittest.TestCase):
+    def test_named_nodes_additive_material_grey_and_explicit_dispatch(self):
+        from export.godot_import import _load_vfx_kit,_write_g3_component,_write_g3_kit,_g3_config,_grey_vfx
+        import hashlib
+        root=Path(__file__).resolve().parents[1];work=root/'runs/C-5/t3/T4t'
+        with tempfile.TemporaryDirectory(dir=work) as tmp:
+            out=Path(tmp);_write_g3_component(out)
+            (out/'scripts/keeper.gd').write_text('extends Node2D\n')
+            for name in ('lightning_blast_e3','zeus_chain_e3'):
+                kit=_load_vfx_kit(root/'runs/C-5/vfx_kits/v9'/name);kit['name']=name;_write_g3_kit(out,kit)
+                config=_g3_config(kit);self.assertEqual(config['grammar'],'G3')
+                self.assertEqual(config['width_px'],kit['effect']['skill_spec']['mechanics']['width_px'])
+                folder=out/'vfx'/name
+                for role in ('Link','Branch','Prong'):
+                    text=(folder/f'materials/{role}.tres').read_text()
+                    self.assertIn('add_unlit',text);self.assertIn('dark_duplicate = false',text)
+            scene=(out/'scenes/vfx/g3_bolt_chain.tscn').read_text()
+            for node in ('Links','Branches','Prongs','StrikeFlash'):self.assertIn('name="'+node+'"',scene)
+            before={p:hashlib.sha256(p.read_bytes()).hexdigest() for p in (out/'vfx').rglob('*.png')}
+            _grey_vfx(out)
+            self.assertEqual(before,{p:hashlib.sha256(p.read_bytes()).hexdigest() for p in before})
+            self.assertIn('Color(0.5, 0.5, 0.5, 1)',(out/'vfx/lightning_blast_e3/materials/Link.tres').read_text())
+
+    def test_current_thirteen_exports_and_original_kits_unchanged(self):
+        import hashlib
+        from export.godot_import import _load_vfx_kits
+        root=Path(__file__).resolve().parents[1];work=root/'runs/C-5/t3/T4t'
+        baseline=json.loads((work/'original_kit_hashes.json').read_text())
+        kits=_load_vfx_kits(root/'runs/C-5/vfx_kits/kits_v9.json')
+        self.assertEqual(len(kits),15)
+        for kit in kits[:13]:
+            actual={p.relative_to(kit['root']).as_posix():hashlib.sha256(p.read_bytes()).hexdigest() for p in kit['root'].rglob('*') if p.is_file()}
+            self.assertEqual(actual,baseline[kit['name']])
+        self.assertEqual(json.loads((work/'before_13_hashes.json').read_text()),json.loads((work/'after_13_hashes.json').read_text()))
+
+        # Re-export the original catalogue now; never compare two cached snapshots alone.
+        with tempfile.TemporaryDirectory(dir=work) as tmp:
+            folder=Path(tmp);cells=folder/'cells';cells.mkdir()
+            for direction in ('E','N','S'):
+                for kind,n in [('idle',1),('cast',4)]:
+                    for i in range(n):Image.new('RGBA',(512,512),(40,80,120,255)).save(cells/f'{kind}_{direction}_{i}.png')
+            sockets=folder/'sockets.json'
+            sockets.write_text(json.dumps({'version':1,'canvas':[512,512],'cells':{'cast_'+d:{'sockets':[[270,240]]*4,'release_index':2} for d in ('E','N','S')}}))
+            project=folder/'project';build_project(cells,project,vfx_kits=work/'before13/kits.json',sockets=sockets)
+            actual={p.relative_to(project).as_posix():hashlib.sha256(p.read_bytes()).hexdigest() for p in project.rglob('*') if p.is_file()}
+            self.assertEqual(actual,json.loads((work/'before_13_hashes.json').read_text()))
