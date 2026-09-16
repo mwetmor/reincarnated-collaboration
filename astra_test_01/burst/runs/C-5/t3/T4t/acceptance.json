@@ -1,0 +1,1070 @@
+{
+  "task_id": "T4t",
+  "headless": [
+    {
+      "step": "import",
+      "exit_code": 0,
+      "exit_code_source": "check_headless.py tool result recorded before the broader suite",
+      "log_path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4t/godot_import.log",
+      "script_errors": [],
+      "engine_diagnostics": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Cannot save file '/Users/admin/Library/Application Support/Godot/editor_settings-4.6.tres'.",
+        "ERROR: Error saving editor settings to /Users/admin/Library/Application Support/Godot/editor_settings-4.6.tres"
+      ]
+    },
+    {
+      "step": "trace",
+      "exit_code": 0,
+      "exit_code_source": "check_headless.py tool result recorded before the broader suite",
+      "log_path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4t/godot_trace.log",
+      "script_errors": [],
+      "engine_diagnostics": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ]
+    }
+  ],
+  "probe_errors": [],
+  "kits": [
+    {
+      "name": "lightning_blast_e3",
+      "validated": true,
+      "screen_px": true,
+      "grammar": "G3",
+      "width_px": 22,
+      "width_multiplier": 1.0,
+      "schedule": {
+        "delays_s": [
+          0.05
+        ],
+        "cumulative_s": [
+          0.05
+        ],
+        "interval_cv": null,
+        "minimum_cv": 0.25,
+        "cv_evaluable": false,
+        "count_semantics": "additional hops after initial contact"
+      }
+    },
+    {
+      "name": "zeus_chain_e3",
+      "validated": true,
+      "screen_px": true,
+      "grammar": "G3",
+      "width_px": 30,
+      "width_multiplier": 1.35,
+      "schedule": {
+        "delays_s": [
+          0.06,
+          0.11,
+          0.08,
+          0.13
+        ],
+        "cumulative_s": [
+          0.06,
+          0.16999999999999998,
+          0.25,
+          0.38
+        ],
+        "interval_cv": 0.2834297266912897,
+        "minimum_cv": 0.25,
+        "cv_evaluable": true,
+        "count_semantics": "additional hops after initial contact"
+      }
+    }
+  ],
+  "observations": [
+    {
+      "name": "lightning_blast_e3_three",
+      "contact_order": [
+        0,
+        1
+      ],
+      "contact_frames": [
+        0,
+        3
+      ],
+      "intervals_s": [
+        0.05
+      ],
+      "observed_interval_cv": null,
+      "bolt_metrics": [
+        {
+          "hop_index": 0,
+          "link_count": 1,
+          "max_stretch": 1.04791773289135,
+          "overlap_diameter_px": [],
+          "socket_gaps_px": [],
+          "nearest_nonzero_alpha_to_joint_px": [],
+          "prongs": 4,
+          "prongs_at_target": true
+        },
+        {
+          "hop_index": 1,
+          "link_count": 2,
+          "max_stretch": 0.655475501997077,
+          "overlap_diameter_px": [
+            2.23606797749979
+          ],
+          "socket_gaps_px": [
+            0.0
+          ],
+          "nearest_nonzero_alpha_to_joint_px": [
+            [
+              0.700854984947555,
+              0.700854984947555
+            ]
+          ],
+          "prongs": 4,
+          "prongs_at_target": true
+        }
+      ],
+      "bolt_end_local_s": [
+        0.266666666666667,
+        0.266666666666667
+      ]
+    },
+    {
+      "name": "lightning_blast_e3_four",
+      "contact_order": [
+        0,
+        1
+      ],
+      "contact_frames": [
+        0,
+        3
+      ],
+      "intervals_s": [
+        0.05
+      ],
+      "observed_interval_cv": null,
+      "bolt_metrics": [
+        {
+          "hop_index": 0,
+          "link_count": 1,
+          "max_stretch": 1.04791773289135,
+          "overlap_diameter_px": [],
+          "socket_gaps_px": [],
+          "nearest_nonzero_alpha_to_joint_px": [],
+          "prongs": 4,
+          "prongs_at_target": true
+        },
+        {
+          "hop_index": 1,
+          "link_count": 2,
+          "max_stretch": 0.655475501997077,
+          "overlap_diameter_px": [
+            2.23606797749979
+          ],
+          "socket_gaps_px": [
+            0.0
+          ],
+          "nearest_nonzero_alpha_to_joint_px": [
+            [
+              0.700854984947555,
+              0.700854984947555
+            ]
+          ],
+          "prongs": 4,
+          "prongs_at_target": true
+        }
+      ],
+      "bolt_end_local_s": [
+        0.266666666666667,
+        0.266666666666667
+      ]
+    },
+    {
+      "name": "lightning_blast_e3_five",
+      "contact_order": [
+        0,
+        1
+      ],
+      "contact_frames": [
+        0,
+        3
+      ],
+      "intervals_s": [
+        0.05
+      ],
+      "observed_interval_cv": null,
+      "bolt_metrics": [
+        {
+          "hop_index": 0,
+          "link_count": 1,
+          "max_stretch": 1.04791773289135,
+          "overlap_diameter_px": [],
+          "socket_gaps_px": [],
+          "nearest_nonzero_alpha_to_joint_px": [],
+          "prongs": 4,
+          "prongs_at_target": true
+        },
+        {
+          "hop_index": 1,
+          "link_count": 2,
+          "max_stretch": 0.655475501997077,
+          "overlap_diameter_px": [
+            2.23606797749979
+          ],
+          "socket_gaps_px": [
+            0.0
+          ],
+          "nearest_nonzero_alpha_to_joint_px": [
+            [
+              0.700854984947555,
+              0.700854984947555
+            ]
+          ],
+          "prongs": 4,
+          "prongs_at_target": true
+        }
+      ],
+      "bolt_end_local_s": [
+        0.266666666666667,
+        0.266666666666667
+      ]
+    },
+    {
+      "name": "lightning_blast_e3_miss",
+      "contact_order": [],
+      "contact_frames": [],
+      "intervals_s": [],
+      "observed_interval_cv": null,
+      "bolt_metrics": [
+        {
+          "hop_index": 0,
+          "link_count": 6,
+          "max_stretch": 0.828414178994329,
+          "overlap_diameter_px": [
+            2.23606797749979,
+            1.4142135623730951,
+            2.23606797749979,
+            2.23606797749979,
+            1.4142135623730951
+          ],
+          "socket_gaps_px": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "nearest_nonzero_alpha_to_joint_px": [
+            [
+              0.5186426208610829,
+              0.5186426208610829
+            ],
+            [
+              0.23857491114863538,
+              0.23857491114863538
+            ],
+            [
+              0.6910592519383804,
+              0.6910592519383804
+            ],
+            [
+              0.5229915678324384,
+              0.5229915678324384
+            ],
+            [
+              0.1851554889956776,
+              0.1851554889956776
+            ]
+          ],
+          "prongs": 4,
+          "prongs_at_target": true
+        }
+      ],
+      "bolt_end_local_s": [
+        0.266666666666667
+      ]
+    },
+    {
+      "name": "lightning_blast_e3_moving",
+      "contact_order": [
+        0,
+        1
+      ],
+      "contact_frames": [
+        0,
+        3
+      ],
+      "intervals_s": [
+        0.05
+      ],
+      "observed_interval_cv": null,
+      "bolt_metrics": [
+        {
+          "hop_index": 0,
+          "link_count": 1,
+          "max_stretch": 1.04791773289135,
+          "overlap_diameter_px": [],
+          "socket_gaps_px": [],
+          "nearest_nonzero_alpha_to_joint_px": [],
+          "prongs": 4,
+          "prongs_at_target": true
+        },
+        {
+          "hop_index": 1,
+          "link_count": 2,
+          "max_stretch": 0.786377457081871,
+          "overlap_diameter_px": [
+            2.23606797749979
+          ],
+          "socket_gaps_px": [
+            0.0
+          ],
+          "nearest_nonzero_alpha_to_joint_px": [
+            [
+              0.700854984947555,
+              0.700854984947555
+            ]
+          ],
+          "prongs": 4,
+          "prongs_at_target": true
+        }
+      ],
+      "bolt_end_local_s": [
+        0.266666666666667,
+        0.266666666666667
+      ]
+    },
+    {
+      "name": "zeus_chain_e3_three",
+      "contact_order": [
+        0,
+        1,
+        2
+      ],
+      "contact_frames": [
+        0,
+        4,
+        11
+      ],
+      "intervals_s": [
+        0.06666666666666667,
+        0.11666666666666665
+      ],
+      "observed_interval_cv": 0.2727272727272727,
+      "bolt_metrics": [
+        {
+          "hop_index": 0,
+          "link_count": 2,
+          "max_stretch": 0.384719343138446,
+          "overlap_diameter_px": [
+            0.0
+          ],
+          "socket_gaps_px": [
+            0.0
+          ],
+          "nearest_nonzero_alpha_to_joint_px": [
+            [
+              0.7008715057359712,
+              0.7008606200690705
+            ]
+          ],
+          "prongs": 2,
+          "prongs_at_target": true
+        },
+        {
+          "hop_index": 1,
+          "link_count": 2,
+          "max_stretch": 0.483004704367351,
+          "overlap_diameter_px": [
+            1.4142135623730951
+          ],
+          "socket_gaps_px": [
+            0.0
+          ],
+          "nearest_nonzero_alpha_to_joint_px": [
+            [
+              0.6910266386377626,
+              0.6910266386377626
+            ]
+          ],
+          "prongs": 2,
+          "prongs_at_target": true
+        },
+        {
+          "hop_index": 2,
+          "link_count": 2,
+          "max_stretch": 0.480579823461072,
+          "overlap_diameter_px": [
+            2.23606797749979
+          ],
+          "socket_gaps_px": [
+            0.0
+          ],
+          "nearest_nonzero_alpha_to_joint_px": [
+            [
+              0.5064386572954377,
+              0.5064386572954377
+            ]
+          ],
+          "prongs": 2,
+          "prongs_at_target": true
+        }
+      ],
+      "bolt_end_local_s": [
+        0.25,
+        0.25,
+        0.25
+      ]
+    },
+    {
+      "name": "zeus_chain_e3_four",
+      "contact_order": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "contact_frames": [
+        0,
+        4,
+        11,
+        15
+      ],
+      "intervals_s": [
+        0.06666666666666667,
+        0.11666666666666665,
+        0.06666666666666668
+      ],
+      "observed_interval_cv": 0.2828427124746189,
+      "bolt_metrics": [
+        {
+          "hop_index": 0,
+          "link_count": 2,
+          "max_stretch": 0.384719343138446,
+          "overlap_diameter_px": [
+            0.0
+          ],
+          "socket_gaps_px": [
+            0.0
+          ],
+          "nearest_nonzero_alpha_to_joint_px": [
+            [
+              0.7008715057359712,
+              0.7008606200690705
+            ]
+          ],
+          "prongs": 2,
+          "prongs_at_target": true
+        },
+        {
+          "hop_index": 1,
+          "link_count": 2,
+          "max_stretch": 0.483004704367351,
+          "overlap_diameter_px": [
+            1.4142135623730951
+          ],
+          "socket_gaps_px": [
+            0.0
+          ],
+          "nearest_nonzero_alpha_to_joint_px": [
+            [
+              0.6910266386377626,
+              0.6910266386377626
+            ]
+          ],
+          "prongs": 2,
+          "prongs_at_target": true
+        },
+        {
+          "hop_index": 2,
+          "link_count": 2,
+          "max_stretch": 0.480579823461072,
+          "overlap_diameter_px": [
+            2.23606797749979
+          ],
+          "socket_gaps_px": [
+            0.0
+          ],
+          "nearest_nonzero_alpha_to_joint_px": [
+            [
+              0.5064386572954377,
+              0.5064386572954377
+            ]
+          ],
+          "prongs": 2,
+          "prongs_at_target": true
+        },
+        {
+          "hop_index": 3,
+          "link_count": 2,
+          "max_stretch": 0.4821184167721,
+          "overlap_diameter_px": [
+            2.23606797749979
+          ],
+          "socket_gaps_px": [
+            0.0
+          ],
+          "nearest_nonzero_alpha_to_joint_px": [
+            [
+              0.501547041510891,
+              0.501547041510891
+            ]
+          ],
+          "prongs": 2,
+          "prongs_at_target": true
+        }
+      ],
+      "bolt_end_local_s": [
+        0.25,
+        0.25,
+        0.25,
+        0.25
+      ]
+    },
+    {
+      "name": "zeus_chain_e3_five",
+      "contact_order": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "contact_frames": [
+        0,
+        4,
+        11,
+        15,
+        23
+      ],
+      "intervals_s": [
+        0.06666666666666667,
+        0.11666666666666665,
+        0.06666666666666668,
+        0.13333333333333336
+      ],
+      "observed_interval_cv": 0.3104968881975152,
+      "bolt_metrics": [
+        {
+          "hop_index": 0,
+          "link_count": 2,
+          "max_stretch": 0.384719343138446,
+          "overlap_diameter_px": [
+            0.0
+          ],
+          "socket_gaps_px": [
+            0.0
+          ],
+          "nearest_nonzero_alpha_to_joint_px": [
+            [
+              0.7008715057359712,
+              0.7008606200690705
+            ]
+          ],
+          "prongs": 2,
+          "prongs_at_target": true
+        },
+        {
+          "hop_index": 1,
+          "link_count": 2,
+          "max_stretch": 0.483004704367351,
+          "overlap_diameter_px": [
+            1.4142135623730951
+          ],
+          "socket_gaps_px": [
+            0.0
+          ],
+          "nearest_nonzero_alpha_to_joint_px": [
+            [
+              0.6910266386377626,
+              0.6910266386377626
+            ]
+          ],
+          "prongs": 2,
+          "prongs_at_target": true
+        },
+        {
+          "hop_index": 2,
+          "link_count": 2,
+          "max_stretch": 0.480579823461072,
+          "overlap_diameter_px": [
+            2.23606797749979
+          ],
+          "socket_gaps_px": [
+            0.0
+          ],
+          "nearest_nonzero_alpha_to_joint_px": [
+            [
+              0.5064386572954377,
+              0.5064386572954377
+            ]
+          ],
+          "prongs": 2,
+          "prongs_at_target": true
+        },
+        {
+          "hop_index": 3,
+          "link_count": 2,
+          "max_stretch": 0.4821184167721,
+          "overlap_diameter_px": [
+            2.23606797749979
+          ],
+          "socket_gaps_px": [
+            0.0
+          ],
+          "nearest_nonzero_alpha_to_joint_px": [
+            [
+              0.501547041510891,
+              0.501547041510891
+            ]
+          ],
+          "prongs": 2,
+          "prongs_at_target": true
+        },
+        {
+          "hop_index": 4,
+          "link_count": 2,
+          "max_stretch": 0.482215449140577,
+          "overlap_diameter_px": [
+            1.4142135623730951
+          ],
+          "socket_gaps_px": [
+            0.0
+          ],
+          "nearest_nonzero_alpha_to_joint_px": [
+            [
+              0.5432899645445526,
+              0.5432899645445526
+            ]
+          ],
+          "prongs": 2,
+          "prongs_at_target": true
+        }
+      ],
+      "bolt_end_local_s": [
+        0.25,
+        0.25,
+        0.25,
+        0.25,
+        0.25
+      ]
+    },
+    {
+      "name": "zeus_chain_e3_miss",
+      "contact_order": [],
+      "contact_frames": [],
+      "intervals_s": [],
+      "observed_interval_cv": null,
+      "bolt_metrics": [
+        {
+          "hop_index": 0,
+          "link_count": 3,
+          "max_stretch": 1.11140444901189,
+          "overlap_diameter_px": [
+            2.8284271247461903,
+            2.8284271247461903
+          ],
+          "socket_gaps_px": [
+            0.0,
+            0.0
+          ],
+          "nearest_nonzero_alpha_to_joint_px": [
+            [
+              0.5186450725926701,
+              0.5186450725926701
+            ],
+            [
+              0.23856425139613238,
+              0.23856425139613238
+            ]
+          ],
+          "prongs": 2,
+          "prongs_at_target": true
+        }
+      ],
+      "bolt_end_local_s": [
+        0.25
+      ]
+    },
+    {
+      "name": "zeus_chain_e3_moving",
+      "contact_order": [
+        0,
+        1,
+        2
+      ],
+      "contact_frames": [
+        0,
+        4,
+        11
+      ],
+      "intervals_s": [
+        0.06666666666666667,
+        0.11666666666666665
+      ],
+      "observed_interval_cv": 0.2727272727272727,
+      "bolt_metrics": [
+        {
+          "hop_index": 0,
+          "link_count": 2,
+          "max_stretch": 0.384719343138446,
+          "overlap_diameter_px": [
+            0.0
+          ],
+          "socket_gaps_px": [
+            0.0
+          ],
+          "nearest_nonzero_alpha_to_joint_px": [
+            [
+              0.7008715057359712,
+              0.7008606200690705
+            ]
+          ],
+          "prongs": 2,
+          "prongs_at_target": true
+        },
+        {
+          "hop_index": 1,
+          "link_count": 2,
+          "max_stretch": 0.578614273447121,
+          "overlap_diameter_px": [
+            2.23606797749979
+          ],
+          "socket_gaps_px": [
+            0.0
+          ],
+          "nearest_nonzero_alpha_to_joint_px": [
+            [
+              0.6910266386377626,
+              0.6910266386377626
+            ]
+          ],
+          "prongs": 2,
+          "prongs_at_target": true
+        },
+        {
+          "hop_index": 2,
+          "link_count": 2,
+          "max_stretch": 0.384591701112944,
+          "overlap_diameter_px": [
+            0.0
+          ],
+          "socket_gaps_px": [
+            0.0
+          ],
+          "nearest_nonzero_alpha_to_joint_px": [
+            [
+              0.5064989128904706,
+              0.5064386572954377
+            ]
+          ],
+          "prongs": 2,
+          "prongs_at_target": true
+        }
+      ],
+      "bolt_end_local_s": [
+        0.25,
+        0.25,
+        0.25
+      ]
+    },
+    {
+      "name": "live_physics",
+      "contact_order": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "contact_frames": [
+        0,
+        4,
+        11,
+        15,
+        23
+      ],
+      "intervals_s": [
+        0.06666666666666667,
+        0.11666666666666665,
+        0.06666666666666668,
+        0.13333333333333336
+      ],
+      "observed_interval_cv": 0.3104968881975152,
+      "bolt_metrics": [
+        {
+          "hop_index": 0,
+          "link_count": 2,
+          "max_stretch": 0.384240972584692,
+          "overlap_diameter_px": [
+            0.0
+          ],
+          "socket_gaps_px": [
+            0.0
+          ],
+          "nearest_nonzero_alpha_to_joint_px": [
+            [
+              0.5420705180228635,
+              0.5420705180228635
+            ]
+          ],
+          "prongs": 2,
+          "prongs_at_target": true
+        },
+        {
+          "hop_index": 1,
+          "link_count": 2,
+          "max_stretch": 0.481330871582031,
+          "overlap_diameter_px": [
+            2.23606797749979
+          ],
+          "socket_gaps_px": [
+            0.0
+          ],
+          "nearest_nonzero_alpha_to_joint_px": [
+            [
+              0.6575383874989491,
+              0.6575383874989491
+            ]
+          ],
+          "prongs": 2,
+          "prongs_at_target": true
+        },
+        {
+          "hop_index": 2,
+          "link_count": 2,
+          "max_stretch": 0.481798102468105,
+          "overlap_diameter_px": [
+            2.23606797749979
+          ],
+          "socket_gaps_px": [
+            0.0
+          ],
+          "nearest_nonzero_alpha_to_joint_px": [
+            [
+              0.6640928052899959,
+              0.6640928052899959
+            ]
+          ],
+          "prongs": 2,
+          "prongs_at_target": true
+        },
+        {
+          "hop_index": 3,
+          "link_count": 2,
+          "max_stretch": 0.482441027411099,
+          "overlap_diameter_px": [
+            2.23606797749979
+          ],
+          "socket_gaps_px": [
+            0.0
+          ],
+          "nearest_nonzero_alpha_to_joint_px": [
+            [
+              0.6422768933199688,
+              0.6422768933199688
+            ]
+          ],
+          "prongs": 2,
+          "prongs_at_target": true
+        },
+        {
+          "hop_index": 4,
+          "link_count": 2,
+          "max_stretch": 0.480401393345424,
+          "overlap_diameter_px": [
+            3.1622776601683795
+          ],
+          "socket_gaps_px": [
+            0.0
+          ],
+          "nearest_nonzero_alpha_to_joint_px": [
+            [
+              0.5054941039178508,
+              0.5054941039178508
+            ]
+          ],
+          "prongs": 2,
+          "prongs_at_target": true
+        }
+      ],
+      "bolt_end_local_s": [
+        0.25,
+        0.25,
+        0.25,
+        0.25,
+        0.25
+      ]
+    }
+  ],
+  "geometry": {
+    "instrument": "CPU affine source-alpha support, using actual Godot link transforms; not rendered appearance",
+    "max_overlap_diameter_px": 3.1622776601683795,
+    "max_stretch": 1.11140444901189,
+    "max_socket_gap_px": 0.0
+  },
+  "original_kits": [
+    {
+      "name": "frozen_orb",
+      "files": 57,
+      "byte_identical": true
+    },
+    {
+      "name": "blackwater_cocktail",
+      "files": 59,
+      "byte_identical": true
+    },
+    {
+      "name": "poisonous_concoction",
+      "files": 59,
+      "byte_identical": true
+    },
+    {
+      "name": "lightning_blast",
+      "files": 59,
+      "byte_identical": true
+    },
+    {
+      "name": "zeus_chain",
+      "files": 59,
+      "byte_identical": true
+    },
+    {
+      "name": "healing_hands",
+      "files": 59,
+      "byte_identical": true
+    },
+    {
+      "name": "fire_burst_e0p",
+      "files": 69,
+      "byte_identical": true
+    },
+    {
+      "name": "fire_burst_e0p_v2",
+      "files": 71,
+      "byte_identical": true
+    },
+    {
+      "name": "fire_bolt_e1_A",
+      "files": 24,
+      "byte_identical": true
+    },
+    {
+      "name": "fire_bolt_e1_B",
+      "files": 22,
+      "byte_identical": true
+    },
+    {
+      "name": "ice_bolt_e2",
+      "files": 71,
+      "byte_identical": true
+    },
+    {
+      "name": "blackwater_cocktail_e3",
+      "files": 9,
+      "byte_identical": true
+    },
+    {
+      "name": "poisonous_concoction_e3",
+      "files": 9,
+      "byte_identical": true
+    }
+  ],
+  "old_catalogue_export_locks": {
+    "10": true,
+    "11": true,
+    "13": true
+  },
+  "combined_catalogue_old_file_changes": [
+    "CREDITS_VFX.txt",
+    "scripts/keeper.gd"
+  ],
+  "combined_catalogue_change_explanation": "Only combined picker dispatch and aggregate credits change; old kit resources remain identical.",
+  "tests": {
+    "full_count": 192,
+    "full_elapsed_s": 297.0012168749963,
+    "focused_count": 16,
+    "focused_failures": [],
+    "focused_errors": [],
+    "reds": [
+      {
+        "test": "test_headless_state_machine_input_map_gear_vfx_and_nearest_fallback (test_godot_import.GodotImportTests.test_headless_state_machine_input_map_gear_vfx_and_nearest_fallback)",
+        "kind": "failures",
+        "reason": "See suite.log for full traceback"
+      },
+      {
+        "test": "test_v2_headless_import_and_seed_equal_rooted_clock (test_godot_import.PieceStretchImportTests.test_v2_headless_import_and_seed_equal_rooted_clock)",
+        "kind": "failures",
+        "reason": "Godot macOS system CA diagnostic rejected by existing no-ERROR assertions"
+      },
+      {
+        "test": "test_headless_authored_cast_east_north_collision_timing_and_feedback_cleanup (test_vfx_picker.AuthoredEffectPickerTests.test_headless_authored_cast_east_north_collision_timing_and_feedback_cleanup)",
+        "kind": "failures",
+        "reason": "Godot macOS system CA diagnostic rejected by existing no-ERROR assertions"
+      },
+      {
+        "test": "test_headless_first_cast_contact_cursor_pool_cancel_and_picker (test_vfx_picker.G1ComponentTests.test_headless_first_cast_contact_cursor_pool_cancel_and_picker)",
+        "kind": "failures",
+        "reason": "Godot macOS system CA diagnostic rejected by existing no-ERROR assertions"
+      },
+      {
+        "test": "test_headless_pierce_contacts_labels_pool_and_phase_callbacks (test_vfx_picker.G1ComponentTests.test_headless_pierce_contacts_labels_pool_and_phase_callbacks)",
+        "kind": "failures",
+        "reason": "Godot macOS system CA diagnostic rejected by existing no-ERROR assertions"
+      },
+      {
+        "test": "test_headless_glow_sixty_samples_extrema_range_and_particle_properties (test_vfx_picker.LivingEmbersTests.test_headless_glow_sixty_samples_extrema_range_and_particle_properties)",
+        "kind": "failures",
+        "reason": "Godot macOS system CA diagnostic rejected by existing no-ERROR assertions"
+      },
+      {
+        "test": "test_headless_device_forward_handled_overlay_and_mouse_probe (test_vfx_picker.TouchDeviceAimRuntimeTests.test_headless_device_forward_handled_overlay_and_mouse_probe)",
+        "kind": "failures",
+        "reason": "Godot macOS system CA diagnostic rejected by existing no-ERROR assertions"
+      },
+      {
+        "test": "test_headless_tab_twice_cast_scene_labels_and_inflight_kit_lock (test_vfx_picker.VfxPickerTests.test_headless_tab_twice_cast_scene_labels_and_inflight_kit_lock)",
+        "kind": "failures",
+        "reason": "Godot macOS system CA diagnostic rejected by existing no-ERROR assertions"
+      },
+      {
+        "test": "test_transformed_front_at_three_ages_has_no_straight_seam_over_12px (test_godot_import.TransformedResidueSeamTests.test_transformed_front_at_three_ages_has_no_straight_seam_over_12px)",
+        "kind": "errors",
+        "reason": "Existing test writes outside T4t; scoped runner blocked the write"
+      },
+      {
+        "test": "test_headless_contact_shatter_residue_decal (test_vfx_picker.IceTreatmentPickerTests.test_headless_contact_shatter_residue_decal)",
+        "kind": "errors",
+        "reason": "Existing headless fixture timed out at its 60 s limit"
+      },
+      {
+        "test": "test_headless_east_contact_range_tail_and_key_schedule (test_vfx_picker.ProjectileArmPickerTests.test_headless_east_contact_range_tail_and_key_schedule)",
+        "kind": "errors",
+        "reason": "Existing test writes outside T4t; scoped runner blocked the write"
+      },
+      {
+        "test": "test_headless_overlay_forward_world_touch_and_mouse_probe (test_vfx_picker.TouchAimRuntimeTests.test_headless_overlay_forward_world_touch_and_mouse_probe)",
+        "kind": "errors",
+        "reason": "Existing headless fixture timed out at its 60 s limit"
+      },
+      {
+        "test": "test_single_kit_and_legacy_props_all_text_byte_identical_to_t3m (test_vfx_picker.VfxPickerTests.test_single_kit_and_legacy_props_all_text_byte_identical_to_t3m)",
+        "kind": "errors",
+        "reason": "Historical baseline unavailable in redirected test artifact directory"
+      }
+    ]
+  },
+  "concerns": [
+    "Acceptance asks Zeus for four hits with three dummies. Three eligible actors permit three unique hits; four actors produce four hits; five actors exercise the spec count=4 additional hops and all four delays.",
+    "60 Hz cannot represent 0.06/0.11/0.08/0.13 s exactly. Cumulative deadlines are dispatched at frames 4/11/15/23, within one frame of authored times; observed intervals are 0.066667/0.116667/0.066667/0.133333 s, CV 0.310497 (authored CV 0.283430).",
+    "Blast 0.12+0.15 s ends on local frame 16 (0.266667 s) to stay within 0.27 s; Zeus ends on local frame 15 (0.25 s). Deadline quantisation is explicit, never stretched to the next late frame.",
+    "The 0.27 s afterimage deadline is per bolt. Last full Zeus hop expires at cast age 38/60=0.633333 s; the spec total=0.5 s cannot include all four delays plus the brief-required 0.15 s afterimage.",
+    "Spec widths 22 and 30 px are retained. 30/22=1.363636, differing by 0.3 px from literal 22*1.35=29.7; width_multiplier is recorded as authored dialect metadata, not used to override the spec width.",
+    "Working copies contain continuous grey and near-transparent stray texels. RGB is quantised to 0/85/170/255 with alpha byte-identical. Runtime region clipping at alpha>=128 tip planes removes off-tip fringe from display; the original source PNGs and all stored alpha remain unchanged.",
+    "Single-hop Blast has only one interval, so interval CV is not statistically evaluable; no metronome verdict is invented.",
+    "G2 spec provenance annotations differ from the embedded frozen kit provenance. Alignment compares every non-provenance spec field against current specs and asserts their current schedules; original kit bytes are unchanged.",
+    "Godot import and G3 trace exit 0 without script errors, but macOS reports system CA access and blocked editor-settings save diagnostics. Rendered visual judgement remains conductor-owned.",
+    "Full in-sandbox suite retains named environmental/fixture reds in acceptance.json and suite.log; the focused alignment/G3 suite is recorded separately."
+  ],
+  "instruments": {
+    "overlap": "Diameter of adjacent shared nonzero-alpha support under actual traced transforms, bilinear CPU sampling with the runtime regions; literal limit 4 px.",
+    "tip_gap": "Nearest nonzero painted alpha to the shared socket, all measured cases below 1 px.",
+    "clock": "60 Hz effect-age; event selection uses nearest eligible unhit actors at each deadline, no skill-name grammar inference.",
+    "headless_evidence": "g3_headless.json and godot_import.log / godot_trace.log; generic headless.json belongs to the broader legacy suite."
+  }
+}

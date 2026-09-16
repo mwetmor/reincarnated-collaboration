@@ -1,0 +1,49 @@
+{
+  "task_id": "VF-prim-fire-pool-01",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "fire_pool_01",
+      "path": "out/fire_pool_01.png",
+      "sha256": "c44a90dab633726fa27becf052834b672f993cb04b13451fbc31f6b336da59fe",
+      "prompt": "Use case: stylized-concept. Generate EXACTLY ONE game VFX primitive: a burning pool of oil, emission shape only, on a 512 x 512 canvas. Input images: Image 1 is scale and hand-drawn register reference only; Image 2 is the approved flame shape vocabulary reference (hooked tongues, four flat greyscale planes); Image 3 is camera/ground-plane reading only. Do not reproduce any reference background or characters.\nDeliver a genuinely transparent RGBA PNG: alpha zero outside the silhouette, fully opaque inside, edge antialiasing at most one pixel. If actual transparency cannot be produced, use a perfectly flat uniform #00ff00 background instead. No simulated checkerboard.\nHand-drawn painted 2D effects-animation frame: confident dark contour drawn by hand with taper and varying weight, clean painted planes, restrained surfaces. Elevated three-quarter game camera about 53 degrees down. One irregular dark puddle of burning oil lies ON the ground, strongly foreshortened: ellipse-like ragged blot, about 300 pixels wide and 130 pixels in ground-plane screen height, with two or three lapping extensions reaching sideways along the ground. Above the oil surface rise five to seven SHORT upright hooked flames of unequal height; tallest approximately 80-100 pixels high (about one third of pool width). These upright flames are not flattened with the ground. Center the entire primitive in the canvas, with total extent about 300 x 210 pixels and generous empty margin. Irregular asymmetric design, no axis of symmetry.\nEXACTLY FOUR flat greyscale solid value planes with hard edges: #202020 for tapered contour, outer rim and oil edges; #606060 for MOST of the oil surface and outer flames; #B8B8B8 for mid flames and a few hot surface streaks; #FFFFFF only for small hottest cores of the tallest tongues. White occupies less than a tenth of the full primitive. Pool body must read very DARK, dominated by #202020 and #606060; flames lighter. Broad dark oil surface clearly visible between individual low flames. Follow Image 2's hooked shapes but make a grounded low burning puddle, not a single impact burst. No gradients, glow, blur, texture, color inside the silhouette, ground, cast shadow, sparks, smoke, character, text, border or extra objects. Do not fill the canvas with the asset. Output exact 512 x 512.",
+      "references": [
+        {
+          "role": "Scale and register board",
+          "path": "in/01_scale_board_clearing.png"
+        },
+        {
+          "role": "Approved fire vocabulary",
+          "path": "in/02_fire_peak_01.png"
+        },
+        {
+          "role": "Native ground camera reference",
+          "path": "in/03_clearing_native_512.png"
+        }
+      ],
+      "elapsed_s": 44.34
+    }
+  ],
+  "calls_used": 2,
+  "retries": [
+    {
+      "reason": "First candidate's painted extent exceeded the requested width by more than 25%; canvas was 1254×1254 and visible tonal variation remained.",
+      "change": "Reinforced exact canvas dimensions, literal painted extent, and uniform four-value fills. Retry did not resolve these issues; retained the darker first candidate."
+    }
+  ],
+  "self_report": {
+    "obeyed_invariants": false,
+    "concerns": [
+      "Delivered unchanged at 1254×1254, not 512×512; no conversion, trimming, or keying performed.",
+      "Painted width is approximately 1015 pixels, exceeding the requested 300-pixel extent.",
+      "Visible tonal variation remains; exactly four flat value planes is not established.",
+      "RGBA alpha channel confirmed present. Real alpha-zero exterior, fully opaque interior, and maximum one-pixel fringe were not conclusively verified."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/fire_pool_01.png",
+      "sha256": "c44a90dab633726fa27becf052834b672f993cb04b13451fbc31f6b336da59fe"
+    }
+  ]
+}
