@@ -1146,6 +1146,8 @@ def _write_authored_effect(out, kit, resource_root, prefix, counts, shared_proje
                                    MATERIAL_BINDING_SCRIPT, write_vfx_material, distance_field)
     data = kit['effect']
     layers = data['layers']
+    if 'contact_light' in layers:
+        (out/'scripts/vfx_contact_light.gd').write_text(CONTACT_LIGHT_SCRIPT)
     phase_durations = {}
     for phase, definition in data['phases'].items():
         name = 'flare' if phase == 'cast' else phase
@@ -1741,7 +1743,9 @@ func contact_body(area: CollisionObject2D, phase: String = "head") -> void:
     if phase not in ["head", "chain_hop", "field_centre", "shard", "rim"]:
         return
     # Near/behind candidates are ignored only for this sweep, never contacted.
-    if (area.global_position - cast_origin).dot(release_facing) < 32.5:
+    # Unshaped legacy phase callbacks explicitly report contact; only physical
+    # collision bodies have a meaningful world-space contact envelope.
+    if not area.get_shape_owners().is_empty() and (area.global_position - cast_origin).dot(release_facing) < 32.5:
         return
     var contact_class: String = "primary"
     if phase in ["shard", "rim"] or (phase == "head" and not contacted.is_empty()):
@@ -1831,7 +1835,7 @@ def _g1_capsule_config(kit):
     result = {'collision_radius_bh': radius}
     if 'travel_primitives' in data:
         head = data['travel_primitives']['head']
-        length = abs(head['pivot'][0] - head['rear_socket'][0]) * head['scale']
+        length = math.dist(head['pivot'], head['rear_socket']) * head['scale'] if 'rear_socket' in head else 1.2 * 130.0
     elif 'orb' in data:
         extents = data['skill_spec']['presentation']['body_extents_bh']
         length = extents['orb'] * 130.0
@@ -1839,11 +1843,11 @@ def _g1_capsule_config(kit):
         result['child_head_length_px'] = extents['child'] * 130.0
     else:
         frames = data.get('phases', {}).get('travel', {}).get('frames', [])
-        if frames:
+        if frames and kit.get('root') is not None:
             with Image.open(kit['root']/frames[0]['file']) as image:
                 length = image.width * data.get('phase_scale', {}).get('travel', 1.0)
         else:
-            length = 65.0
+            length = 1.2 * 130.0
     result['head_length_px'] = length
     return result
 
@@ -2785,6 +2789,7 @@ def _write_piece_burst_v2(out, kit, resource_root, prefix):
     legacy = dict(kit, effect=copy.deepcopy(data))
     legacy['effect']['pieces']['template'] = 'burst_v1'
     legacy['effect']['pieces'].pop('key_states', None)
+    legacy['effect']['pieces'].pop('boil', None)
     legacy['effect']['material'].pop('erode_noise', None)
     canonical = out/'scenes/vfx/piece_burst.tscn'
     owns_canonical = not canonical.exists()
@@ -2868,9 +2873,16 @@ def _write_piece_burst_v2(out, kit, resource_root, prefix):
         runtime['fire_layers'] = data['layers']
         runtime['palette'] = data['material']['palette']
         (out/'scripts/vfx_fire_motes.gd').write_text(FIRE_MOTES_SCRIPT)
+        if 'contact_light' in data['layers']:
+            (out/'scripts/vfx_contact_light.gd').write_text(CONTACT_LIGHT_SCRIPT)
         script = _fire_burst_script(script if config.get('key_states') else PIECE_BURST_V2_SCRIPT)
         scene = scene.replace('res://scripts/vfx/piece_burst_v2_keys.gd','res://scripts/vfx/piece_burst_fl2.gd').replace('res://scripts/vfx/piece_burst_v2.gd','res://scripts/vfx/piece_burst_fl2.gd')
         (out/'scripts/vfx/piece_burst_fl2.gd').write_text(script)
+    if any(k in data['layers'] for k in ('core', 'shimmer')) or 'boil' in config:
+        if not config.get('key_states') and not layers_fl2: script = PIECE_BURST_V2_SCRIPT
+        scene, script = _emit_anti_decal(out, kit, resource_root, scene, runtime, config, script)
+        scene = scene.replace('res://scripts/vfx/piece_burst_fl2.gd', 'res://scripts/vfx/piece_burst_fl3.gd').replace('res://scripts/vfx/piece_burst_v2_keys.gd', 'res://scripts/vfx/piece_burst_fl3.gd').replace('res://scripts/vfx/piece_burst_v2.gd', 'res://scripts/vfx/piece_burst_fl3.gd')
+        (out/'scripts/vfx/piece_burst_fl3.gd').write_text(script)
     # Shared files must not depend on which kit was emitted last.
     (out/'scripts/vfx/piece_burst_v2.gd').write_text(PIECE_BURST_V2_SCRIPT)
     runtime_path.write_text(json.dumps(runtime,indent=2)+'\n')
@@ -2950,7 +2962,13 @@ def _emit_key_states(out, kit, resource_root, scene, runtime, config):
             if 'dissolve_order' in config: material['dissolve_order'] = config['dissolve_order']
             if dark: material['blend_mode'] = 'MIX'
             mat = resource_root+'/materials/'+node+'.tres'
-            write_vfx_material(out, mat, material, field_rel, dark_duplicate=dark)
+            noise_rel = None
+            if 'boil' in config:
+                from export.effect_kit import erosion_noise_texture
+                material['erode_noise'] = kit['effect'].get('erode_noise', .4)
+                noise_rel = resource_root+'/pieces/key_'+name+'_noise.png'
+                Image.fromarray(erosion_noise_texture(rgba)).save(out/noise_rel)
+            write_vfx_material(out, mat, material, field_rel, dark_duplicate=dark, noise_texture=noise_rel)
             ext = (f'[ext_resource type="Texture2D" path="res://{resource_root}/{state["png"]}" id="T{node}"]\n'
                    f'[ext_resource type="Material" path="res://{mat}" id="M{node}"]\n')
             first = scene.index('[node ')
@@ -3219,7 +3237,11 @@ func contact_body(area: CollisionObject2D, phase: String = "head") -> void:
     super.contact_body(area, phase)
     if first_strike and contacted.has(area.get_instance_id()) and "hit_stop" in config.enabled_layers:
         _strike_stop()
-    if fresh and contacted.has(area.get_instance_id()) and "victim_tint" in config.enabled_layers:
+    if fresh and contacted.has(area.get_instance_id()) and config.get("fire_layers", {}).has("contact_light"):
+        var light = load("res://scripts/vfx_contact_light.gd").new()
+        get_parent().add_child(light)
+        light.start(area, global_position, config)
+    elif fresh and contacted.has(area.get_instance_id()) and "victim_tint" in config.enabled_layers:
         var victim: CanvasItem = area
         var prop: Node = area.get_parent().get_node_or_null("Prop_" + String(area.name).trim_prefix("VfxTarget_"))
         if prop is CanvasItem:
@@ -5118,6 +5140,235 @@ func _tick(tick: int) -> void:
 
 func finish() -> void:
     busy=false;emitting=false;hide();set_physics_process(false)
+'''
+
+
+
+
+# R-C5-99 FL-3. Runtime additions are emitted only for explicit opt-in fields.
+def _emit_anti_decal(out, kit, resource_root, scene, runtime, config, script):
+    import numpy as np
+    from PIL import ImageFilter
+    data = kit['effect']
+    runtime['anti_decal'] = {key: data['layers'][key] for key in ('core', 'shimmer') if key in data['layers']}
+    if 'boil' in config:
+        runtime['anti_decal']['boil'] = config['boil']
+        # Only this kit's noise-enabled shader variants gain the drift uniform.
+        for path in (out/resource_root/'materials').glob('*.gdshader'):
+            source = path.read_text()
+            if 'texture(erosion_noise_texture, UV)' in source:
+                source = source.replace('uniform bool dark_duplicate', 'uniform vec2 noise_uv_offset = vec2(0.0);\nuniform bool dark_duplicate')
+                source = source.replace('texture(erosion_noise_texture, UV)', 'texture(erosion_noise_texture, UV - noise_uv_offset)')
+                path.write_text(source)
+    if 'core' in runtime['anti_decal']:
+        # Derived masks only: preserve source PNG bytes and filter band 3 before
+        # blurring coverage. Padding is transparent; no colour from lower bands.
+        root = kit['root']/Path(config['source']).parent
+        record = json.loads((kit['root']/config['source']).read_text())
+        sources = ['pieces/'+record['peak_index']] + ['pieces/'+p['mask'] for p in record['pieces']]
+        sources += [s['png'] for s in config.get('key_states', [])]
+        masks = {}
+        for i, relative in enumerate(dict.fromkeys(sources)):
+            source = out/resource_root/relative
+            rgba = np.array(Image.open(source).convert('RGBA'))
+            alpha = np.where(rgba[...,0] >= 213, rgba[...,3], 0).astype(np.uint8)
+            blurred = Image.fromarray(alpha).filter(ImageFilter.GaussianBlur(float(data['layers']['core']['blur_px'])))
+            result = Image.new('RGBA', blurred.size, (255,255,255,0)); result.putalpha(blurred)
+            destination = resource_root+f'/core/mask_{i:03d}.png'
+            (out/destination).parent.mkdir(parents=True, exist_ok=True); result.save(out/destination)
+            masks['res://'+resource_root+'/'+relative] = 'res://'+destination
+        runtime['anti_decal']['core_textures'] = masks
+    if 'shimmer' in runtime['anti_decal']:
+        shader = resource_root+'/materials/heat_shimmer.gdshader'
+        (out/shader).write_text(HEAT_SHIMMER_SHADER)
+        runtime['anti_decal']['shimmer_shader'] = 'res://'+shader
+        runtime['anti_decal']['distance_texture'] = 'res://'+resource_root+'/pieces/whole_body_distance.png'
+    script = script.replace('    tree_exiting.connect(_write_trace)', '    _ready_anti_decal()\n    tree_exiting.connect(_write_trace)')
+    marker = '    if age >= residue_end:\n        hide()'
+    script = script.replace(marker, '    _clock_anti_decal(age, residue_start, residue_end)\n'+marker)
+    return scene, script + ANTI_DECAL_SCRIPT
+
+
+HEAT_SHIMMER_SHADER = r'''shader_type canvas_item;
+render_mode blend_mix, unshaded;
+// Explicit Godot 4 canvas screen sampler works in Compatibility and web GL.
+// A bounded BackBufferCopy precedes this quad; no deprecated screen built-in.
+uniform sampler2D screen_buffer : hint_screen_texture, repeat_disable, filter_linear;
+uniform sampler2D distance_texture : filter_linear, repeat_disable;
+uniform float amplitude_px = 3.0;
+uniform float age_s = 0.0;
+uniform float residue_erode = 0.8;
+uniform float residue_fade = 0.0;
+float hash21(vec2 p) { return fract(sin(dot(p,vec2(127.1,311.7))) * 43758.5453); }
+float noise2(vec2 p) {
+    vec2 i = floor(p); vec2 f = fract(p); f = f*f*(3.0-2.0*f);
+    return mix(mix(hash21(i),hash21(i+vec2(1,0)),f.x),mix(hash21(i+vec2(0,1)),hash21(i+vec2(1,1)),f.x),f.y);
+}
+float boil(vec2 p) { return (noise2(p) + 0.5*noise2(p*2.0+19.1))/1.5; }
+void fragment() {
+    vec2 p = UV*12.0 + vec2(0.0,age_s*2.0);
+    vec2 shift = vec2(boil(p),boil(p+vec2(31.7,13.4)))*2.0-1.0;
+    vec2 uv = SCREEN_UV + shift * SCREEN_PIXEL_SIZE * amplitude_px * residue_fade;
+    float mask = texture(TEXTURE,UV).a * step(texture(distance_texture,UV).r,1.0-residue_erode);
+    COLOR = vec4(texture(screen_buffer,uv).rgb, mask*residue_fade);
+}
+'''
+
+
+ANTI_DECAL_SCRIPT = r'''
+var core_pairs: Array = []
+var heat_quad: Sprite2D
+var heat_copy: BackBufferCopy
+func _ready_anti_decal() -> void:
+    var opts: Dictionary = config.anti_decal
+    if opts.has("core"):
+        var core := Node2D.new()
+        core.name = "Core"
+        var add := CanvasItemMaterial.new()
+        add.blend_mode = CanvasItemMaterial.BLEND_MODE_ADD
+        core.material = add
+        $Art.add_child(core)
+        var sources: Array = [$Art/Peak]
+        for key in config.get("key_states", []): sources.append(get_node("Art/Key_"+str(key.state)))
+        for piece in pieces:
+            sources.append(piece.paint)
+            sources.append(piece.root)
+        for source in sources:
+            var paint := Sprite2D.new()
+            paint.name = "Core_"+str(core_pairs.size())
+            paint.texture = load(opts.core_textures[source.texture.resource_path])
+            paint.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR
+            paint.centered = source.centered
+            paint.offset = source.offset
+            paint.material = source.material.duplicate()
+            var shader := Shader.new()
+            shader.code = source.material.shader.code.replace("blend_mix", "blend_add")
+            paint.material.shader = shader
+            paint.material.set_shader_parameter("dark_duplicate", false)
+            core.add_child(paint)
+            core_pairs.append({"source":source,"paint":paint})
+    if opts.has("shimmer"):
+        heat_copy = BackBufferCopy.new()
+        heat_copy.name = "HeatBackBuffer"
+        heat_copy.copy_mode = BackBufferCopy.COPY_MODE_RECT
+        var peak: Sprite2D = $Art/Peak
+        heat_copy.rect = peak.get_rect().grow(float(opts.shimmer.amplitude_px)+2.0)
+        heat_copy.z_index = 2
+        $Art.add_child(heat_copy)
+        heat_quad = Sprite2D.new()
+        heat_quad.name = "HeatShimmer"
+        heat_quad.texture = peak.texture
+        heat_quad.centered = peak.centered
+        heat_quad.offset = peak.offset
+        heat_quad.z_index = 3
+        heat_quad.material = ShaderMaterial.new()
+        heat_quad.material.shader = load(opts.shimmer_shader)
+        heat_quad.material.set_shader_parameter("distance_texture", load(opts.distance_texture))
+        heat_quad.material.set_shader_parameter("amplitude_px", float(opts.shimmer.amplitude_px))
+        $Art.add_child(heat_quad)
+
+func _clock_anti_decal(age: int, residue_start: int, residue_end: int) -> void:
+    var opts: Dictionary = config.anti_decal
+    var row: Dictionary = trace[-1]
+    var key: String = row.get("key_state", "")
+    var fade: float = clampf(1.0-float(age-residue_start)/maxf(1.0,float(residue_end-residue_start)),0.0,1.0)
+    if opts.has("boil") and key != "":
+        var boil: Dictionary = opts.boil
+        var uv := Vector2(0.0, -float(age)/60.0*float(boil.uv_per_s))
+        var oscillation: float = float(boil.erode_amp)*sin(TAU*float(boil.hz)*float(age)/60.0)
+        var erosion: float = clampf(float(row.key_erode)+oscillation,0.0,1.0)
+        for suffix in ["", "Dark"]:
+            var material: ShaderMaterial = get_node("Art/Key_"+key+suffix).material
+            material.set_shader_parameter("noise_uv_offset", uv)
+            material.set_shader_parameter("erode", erosion)
+        row["boil_uv"] = [uv.x,uv.y]
+        row["boil_erode"] = erosion
+        row["boil_delta"] = oscillation
+    if opts.has("core"):
+        var alpha: float = float(opts.core.alpha)*fade
+        $Art/Core.modulate.a = alpha
+        var count: int = 0
+        for pair in core_pairs:
+            var source: Sprite2D = pair.source
+            var paint: Sprite2D = pair.paint
+            paint.global_transform = source.global_transform
+            paint.visible = (source.is_visible_in_tree() or (source == $Art/Peak and stage == "onset")) and age < residue_end
+            for uniform in ["erode", "dissolve", "noise_uv_offset"]:
+                var value: Variant = source.material.get_shader_parameter(uniform)
+                if value != null: paint.material.set_shader_parameter(uniform,value)
+            if paint.visible: count += 1
+        row["core_alpha"] = alpha
+        row["core_additive"] = $Art/Core.material.blend_mode == CanvasItemMaterial.BLEND_MODE_ADD
+        row["core_draws"] = count
+    if is_instance_valid(heat_quad):
+        var seconds: float = float(age-residue_start)/60.0
+        var heat_fade: float = minf(fade,clampf(1.0-seconds/float(opts.shimmer.seconds),0.0,1.0)) if seconds >= 0.0 else 0.0
+        heat_quad.visible = heat_fade > 0.0
+        heat_copy.visible = heat_quad.visible
+        heat_copy.copy_mode = BackBufferCopy.COPY_MODE_RECT if heat_quad.visible else BackBufferCopy.COPY_MODE_DISABLED
+        heat_quad.material.set_shader_parameter("age_s", maxf(0.0,seconds))
+        heat_quad.material.set_shader_parameter("residue_fade", heat_fade)
+        heat_quad.material.set_shader_parameter("residue_erode", float(config.residue_erode))
+        row["shimmer_alpha"] = heat_fade
+        row["shimmer_amplitude_px"] = float(opts.shimmer.amplitude_px)*heat_fade
+        row["shimmer_age_s"] = seconds
+'''
+
+
+CONTACT_LIGHT_SCRIPT = r'''extends Node
+# One composition owner prevents competing tweens. The .15-s band-3 victim
+# tint is applied AFTER the band-2 contact light and therefore keeps priority.
+static var trace: Array = []
+var victim: CanvasItem
+var previous: Color
+var band2: Color
+var band3: Color
+var settings: Dictionary
+var victim_tint: bool = false
+var age: int = 0
+var dark: Node2D
+var dark_origin: Vector2
+var away: Vector2
+var body_index: int
+func start(area: CollisionObject2D, impact: Vector2, config: Dictionary) -> void:
+    victim = area
+    var prop: Node = area.get_parent().get_node_or_null("Prop_"+String(area.name).trim_prefix("VfxTarget_"))
+    if prop is CanvasItem: victim = prop
+    # Repeated contacts restore the original state before handing ownership on.
+    for old in get_tree().get_nodes_in_group("vfx_body_light"):
+        if old != self and old.victim == victim: old.finish()
+    add_to_group("vfx_body_light")
+    previous = victim.modulate
+    settings = config.fire_layers.contact_light
+    var p2: Array = config.palette[2]
+    var p3: Array = config.palette[3]
+    band2 = Color(p2[0],p2[1],p2[2],previous.a)
+    band3 = Color(p3[0],p3[1],p3[2],previous.a)
+    victim_tint = "victim_tint" in config.enabled_layers
+    body_index = int(area.get_meta("body_index", -1))
+    dark = victim.get_node_or_null("DarkDuplicate")
+    if dark == null: dark = victim.get_parent().get_node_or_null(String(victim.name)+"DarkDuplicate")
+    away = (area.global_position-impact).normalized()
+    if away.is_zero_approx(): away = Vector2.RIGHT
+    if is_instance_valid(dark): dark_origin = dark.global_position
+    sample()
+func _physics_process(_delta: float) -> void:
+    age += 1
+    sample()
+    if age >= maxi(int(settings.frames),9 if victim_tint else 0): finish()
+func sample() -> void:
+    if not is_instance_valid(victim): queue_free(); return
+    var weight: float = float(settings.lerp)*pow(clampf(1.0-float(age)/float(settings.frames),0.0,1.0),2.0)
+    var tint_weight: float = clampf(1.0-float(age)/9.0,0.0,1.0) if victim_tint else 0.0
+    victim.modulate = previous.lerp(band2,weight).lerp(band3,tint_weight)
+    if is_instance_valid(dark): dark.global_position = dark_origin + away*4.0*clampf(1.0-float(age)/float(settings.frames),0.0,1.0)
+    trace.append({"age":age,"body_index":body_index,"modulate":[victim.modulate.r,victim.modulate.g,victim.modulate.b,victim.modulate.a],"contact_weight":weight,"victim_weight":tint_weight,"dark_offset_px":dark.global_position.distance_to(dark_origin) if is_instance_valid(dark) else 0.0})
+func finish() -> void:
+    if is_instance_valid(victim): victim.modulate = previous
+    if is_instance_valid(dark): dark.global_position = dark_origin
+    remove_from_group("vfx_body_light")
+    set_physics_process(false)
+    queue_free()
 '''
 
 

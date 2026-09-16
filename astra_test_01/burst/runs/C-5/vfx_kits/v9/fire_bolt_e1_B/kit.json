@@ -86,6 +86,19 @@
         "lateral_px": 10
       },
       "erode_noise": 0.3
+    },
+    "core": {
+      "band": 3,
+      "alpha": 0.55,
+      "blur_px": 6
+    },
+    "contact_light": {
+      "lerp": 0.45,
+      "frames": 6
+    },
+    "shimmer": {
+      "amplitude_px": 3,
+      "seconds": 0.8
     }
   },
   "skill_spec": {
@@ -206,7 +219,30 @@
               2,
               3
             ]
+          },
+          "boil": {
+            "uv_per_s": 0.35,
+            "erode_amp": 0.06,
+            "hz": 6
+          },
+          "key_states": {
+            "expanded": {
+              "hold_frames": 3
+            }
           }
+        },
+        "core": {
+          "band": 3,
+          "alpha": 0.55,
+          "blur_px": 6
+        },
+        "contact_light": {
+          "lerp": 0.45,
+          "frames": 6
+        },
+        "shimmer": {
+          "amplitude_px": 3,
+          "seconds": 0.8
         }
       }
     },
@@ -216,7 +252,7 @@
       "impact": "E0-p R-C5-34 (Matt: motion + size right)",
       "head/streak extents": "03- \u00a7 2.3 build list (1.2 BH body; P02 \u2248 120\u00d740 native at s=3 \u2192 2.0 BH long at s=1)",
       "range_expiry": "R-C5-79 F-C5-22",
-      "presentation.layers": "R-C5-87 FL-2"
+      "presentation.layers": "R-C5-99 FL-3"
     }
   },
   "key_states": [],

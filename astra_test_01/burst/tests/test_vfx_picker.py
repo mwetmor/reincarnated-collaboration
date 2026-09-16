@@ -1834,7 +1834,7 @@ func run() -> void:
             var point: Array = bolt.config.painted_travel.head.rear_socket
             var rear: Vector2 = head.to_global(head.offset + Vector2(point[0],point[1]))
             var derived: Vector2 = keeper._socket_world()
-            report.release.append({"kit":kit_name,"direction":facing,"rear_error_px":rear.distance_to(derived),
+            report.release.append({"kit":kit_name,"direction":facing,"rear_error_px":rear.distance_to(derived),"capsule_rear_error_px":(bolt.global_position-bolt.direction*bolt.get_node("CollisionShape2D").shape.height).distance_to(derived),
                 "facing_dot_px":(bolt.global_position-keeper.global_position).dot(keeper.FACING_VECTORS[facing].normalized()),
                 "socket_world":[derived.x,derived.y],"bolt_position":[bolt.global_position.x,bolt.global_position.y],"halo_visible":keeper.cast_halo.visible})
             var max_counts: Dictionary = {"burst_pieces":0,"floor_lights":0,"impacts":0}
@@ -1845,7 +1845,7 @@ func run() -> void:
                 var centre: Vector2 = painting.to_global(painting.offset+box.get_center())
                 var local: Vector2 = keeper.sprite.to_local(centre)-keeper.sprite.offset
                 if painting.visible:
-                    report.flight.append({"kit":kit_name,"direction":facing,"tick":tick,"head_centre_in_body":boxes[facing].has_point(local),"local_centre":[local.x,local.y]})
+                    report.flight.append({"kit":kit_name,"direction":facing,"tick":tick,"head_centre_in_body":boxes[facing].has_point(local),"caster_contact":bolt.contacted.has(keeper.get_instance_id()),"local_centre":[local.x,local.y]})
                 var counts: Dictionary = inventory(scene)
                 for key in counts: max_counts[key] = maxi(max_counts[key],counts[key])
                 bolt._physics_process(1.0/60.0)
@@ -2044,3 +2044,106 @@ func run() -> void:
     FileAccess.open("res://capsule_sweep_test.json",FileAccess.WRITE).store_string(JSON.stringify(report))
     quit()
 '''
+
+
+FL3_PROBE = r'''extends SceneTree
+const G1 = preload("res://scripts/vfx_g1.gd")
+const BodyLight = preload("res://scripts/vfx_contact_light.gd")
+var report: Dictionary = {"burst":[],"actual_hold_uniforms":[],"flare":{},"contacts":[]}
+func _initialize() -> void: call_deferred("run")
+func run() -> void:
+    var scene: Node2D = load("res://scenes/main.tscn").instantiate()
+    root.add_child(scene)
+    var keeper: CharacterBody2D = scene.get_node("Keeper")
+    keeper.set_physics_process(false)
+    keeper.set_process(false)
+    keeper.global_position = Vector2(3760,640)
+    keeper.sprite.scale = Vector2.ONE*(130.0/240.0)
+    # Same measured shield footprint as FL1_PROBE, now with a modulated sprite
+    # and an optional dark duplicate. This is a headless instrument scene.
+    var shield := Area2D.new()
+    shield.name = "VfxTarget_Shield"
+    shield.collision_layer = 2
+    shield.collision_mask = 0
+    shield.set_meta("body_index",3)
+    scene.add_child(shield)
+    shield.global_position = Vector2(3911.25,596)
+    var polygon := CollisionPolygon2D.new()
+    var points := PackedVector2Array()
+    for i in range(16): points.append(Vector2(35.2*cos(i*TAU/16),15.4*sin(i*TAU/16)))
+    polygon.polygon = points
+    shield.add_child(polygon)
+    var prop := Sprite2D.new()
+    prop.name = "Prop_Shield"
+    prop.texture = GradientTexture2D.new()
+    prop.texture.width = 100
+    prop.texture.height = 151
+    prop.modulate = Color(.4,.5,.6,1)
+    prop.offset = Vector2(0,-75.5)
+    scene.add_child(prop)
+    prop.global_position = shield.global_position
+    var dark := Sprite2D.new()
+    dark.name = "DarkDuplicate"
+    dark.texture = prop.texture
+    dark.offset = prop.offset
+    prop.add_child(dark)
+    await physics_frame
+    await process_frame
+    keeper.state = "idle"
+    keeper.facing = "E"
+    for i in range(keeper.VFX_KITS.size()):
+        if keeper.VFX_KITS[i].name == "fire_bolt_e1_B": keeper.cast_kit_index = i
+    keeper.cast_fired = false
+    keeper.sprite.animation = "cast_E"
+    keeper.sprite.pause()
+    keeper.sprite.frame = 3
+    keeper.state = "cast"
+    keeper.vfx_cursor_override = shield.global_position
+    keeper._cast_frame_changed()
+    var burst: Node2D
+    for tick in range(125):
+        for node in scene.get_children():
+            if String(node.scene_file_path).ends_with("vfx_fire_burst_e0p_v2_impact.tscn"): burst = node
+        if is_instance_valid(burst) and not burst.trace.is_empty():
+            if not burst.has_meta("fl3_trace_hook"):
+                burst.set_meta("fl3_trace_hook", true)
+                var observed: Node2D = burst
+                burst.tree_exiting.connect(func(): report.burst = observed.trace.duplicate(true))
+            report.burst = burst.trace.duplicate(true)
+            var row: Dictionary = burst.trace[-1]
+            var key: String = row.get("key_state", "")
+            if key != "":
+                var sprite: Sprite2D = burst.get_node("Art/Key_"+key)
+                var uv: Vector2 = sprite.material.get_shader_parameter("noise_uv_offset")
+                report.actual_hold_uniforms.append({"age":row.age_frames,"key":key,"uv":[uv.x,uv.y],"erode":sprite.material.get_shader_parameter("erode"),"noise_bound":sprite.material.get_shader_parameter("erosion_noise_texture") != null})
+                if key == "expanded":
+                    var extent: Vector2 = Vector2(sprite.texture.get_image().get_used_rect().size)*sprite.global_scale
+                    report.flare = {"extent_px":[extent.x,extent.y],"max_extent_bh":maxf(extent.x,extent.y)/130.0,"dummy_height_bh":1.16,"measurement":"authored alpha extent at expanded hold, global scale; no rendered framebuffer"}
+        await physics_frame
+        await process_frame
+    report.contacts = G1.events.filter(func(e): return e.event == "contact")
+    report.contact_light = BodyLight.trace
+    report.final_modulate = [prop.modulate.r,prop.modulate.g,prop.modulate.b,prop.modulate.a]
+    report.final_dark_offset_px = dark.position.length()
+    report.live_contact_controllers = get_nodes_in_group("vfx_body_light").size()
+    FileAccess.open("res://fl3_trace.json",FileAccess.WRITE).store_string(JSON.stringify(report))
+    print("FL3_TRACE_COMPLETE")
+    quit()
+'''
+
+
+def fl3_trace(directory, project=None):
+    """Trace FL-3 on the shipping Compatibility path, never render a frame."""
+    directory=Path(directory);directory.mkdir(parents=True,exist_ok=True)
+    if project is None:
+        fl1_trace(directory/'catalogue')
+        project=directory/'catalogue/project'
+    project=Path(project)
+    (project/'fl3_probe.gd').write_text(FL3_PROBE)
+    result=subprocess.run([GODOT,'--headless','--rendering-method','gl_compatibility','--path',str(project),'--log-file',str(directory/'fl3-engine.log'),'--script','res://fl3_probe.gd'],capture_output=True,text=True,timeout=60)
+    log=result.stdout+result.stderr
+    (directory/'fl3.log').write_text(log)
+    if result.returncode or 'SCRIPT ERROR' in log or 'FL3_TRACE_COMPLETE' not in log:raise RuntimeError(log)
+    report=json.loads((project/'fl3_trace.json').read_text())
+    report['engine_exit']=result.returncode
+    return report

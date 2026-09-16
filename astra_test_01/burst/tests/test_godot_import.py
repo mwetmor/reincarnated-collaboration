@@ -1678,14 +1678,20 @@ class FireLaneHeadlessTests(unittest.TestCase):
         self.assertLessEqual(max(r['diameter_bh'] for r in self.trace['halo']),.85)
 
     def test_eight_direction_release_rear_and_body_clearance(self):
+        """FL-3: no contact with the caster; capsule rear at release socket.
+
+        An elevated S painting may overlap the projected torso in early ticks;
+        its image centroid is not the physical caster-contact instrument.
+        """
         self.assertEqual(len(self.trace['release']),24)
         for row in self.trace['release']:
             with self.subTest(kit=row['kit'],direction=row['direction']):
                 self.assertLessEqual(row['rear_error_px'],.4*130)
+                self.assertLessEqual(row['capsule_rear_error_px'],.01)
                 self.assertGreater(row['facing_dot_px'],0)
                 self.assertFalse(row['halo_visible'])
-        inside=[r for r in self.trace['flight'] if r['head_centre_in_body']]
-        self.assertEqual(inside,[])
+        self.assertTrue(self.trace['flight'])
+        self.assertTrue(all(not r['caster_contact'] for r in self.trace['flight']))
         self.assertEqual(len(self.trace['near_shield']), 3)
         for cast in self.trace['near_shield']:
             with self.subTest(near_shield=cast['kit']):
@@ -1763,3 +1769,64 @@ class FL2RuntimeEmissionTests(unittest.TestCase):
         self.assertIn('shader_parameter/erode_noise = 0.3',shader)
         self.assertIn('tail_noise.png',shader)
         self.assertNotIn('tail_erode_noise',(root/'runs/C-5/t3/FL-2/reexport/vfx/ice_bolt_e2/materials/vfx_material_mix_unlit.gdshader').read_text())
+
+
+class AntiDecalTraceTests(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        import os
+        path=os.environ.get('FL3_TRACE')
+        if path:cls.trace=json.loads(Path(path).read_text())
+        else:
+            from test_vfx_picker import fl3_trace
+            cls.temp=tempfile.TemporaryDirectory(prefix='fl3-',dir=TMP)
+            cls.addClassCleanup(cls.temp.cleanup)
+            cls.trace=fl3_trace(cls.temp.name)
+
+    def test_core_additive_contact_expanded_spent_and_residue_release(self):
+        rows=self.trace['burst'];self.assertTrue(rows)
+        contact=next(r for r in rows if r['age_frames']==0)
+        expanded=next(r for r in rows if r.get('key_state')=='expanded')
+        spent=[r for r in rows if r.get('key_state')=='spent'][-1]
+        for row in (contact,expanded,spent):
+            self.assertTrue(row['core_additive']);self.assertGreater(row['core_draws'],0)
+        self.assertAlmostEqual(contact['core_alpha'],.55)
+        self.assertAlmostEqual(expanded['core_alpha'],.55)
+        self.assertGreater(spent['core_alpha'],0);self.assertLess(spent['core_alpha'],.55)
+        self.assertEqual(rows[-1]['core_alpha'],0)
+
+    def test_every_hold_frame_changes_actual_shader_uniforms(self):
+        rows={r['age']:r for r in self.trace['actual_hold_uniforms']}
+        for key,count in [('expanded',3),('spent',6)]:
+            held=sorted((r for r in rows.values() if r['key']==key),key=lambda r:r['age'])
+            self.assertEqual(len(held),count)
+            self.assertTrue(all(r['noise_bound'] for r in held))
+            for a,b in zip(held,held[1:]):
+                self.assertEqual(b['age']-a['age'],1)
+                self.assertNotEqual((a['uv'],a['erode']),(b['uv'],b['erode']))
+                self.assertAlmostEqual(b['uv'][1]-a['uv'][1],-.35/60,places=6)
+
+    def test_contact_composition_priority_easing_and_optional_dark_cleanup(self):
+        self.assertEqual([c['body_index'] for c in self.trace['contacts']],[3])
+        rows={r['age']:r for r in self.trace['contact_light']}
+        for age in (1,3,6):
+            row=rows[age];weight=.45*max(0,1-age/6)**2;tint=max(0,1-age/9)
+            self.assertAlmostEqual(row['contact_weight'],weight)
+            for i,(base,p2,p3) in enumerate(zip([.4,.5,.6],[1,.55,.12],[1,.94,.75])):
+                self.assertAlmostEqual(row['modulate'][i],(base+(p2-base)*weight)*(1-tint)+p3*tint,places=5)
+        self.assertAlmostEqual(rows[0]['dark_offset_px'],4,delta=.001)
+        self.assertEqual(rows[6]['dark_offset_px'],0)
+        self.assertEqual(self.trace['live_contact_controllers'],0)
+        self.assertEqual(self.trace['final_dark_offset_px'],0)
+        for a,b in zip(self.trace['final_modulate'],[.4,.5,.6,1]):self.assertAlmostEqual(a,b,places=6)
+
+    def test_shimmer_residue_only_bounded_fade_and_extent_report(self):
+        rows=self.trace['burst']
+        live=[r for r in rows if r['shimmer_alpha']>0]
+        self.assertTrue(live)
+        self.assertTrue(all(r['stage']=='residue' for r in live))
+        self.assertAlmostEqual(live[0]['shimmer_amplitude_px'],3)
+        self.assertLess(live[-1]['shimmer_age_s'],.8)
+        self.assertEqual(rows[-1]['shimmer_alpha'],0)
+        self.assertTrue(all(a['shimmer_alpha']>b['shimmer_alpha'] for a,b in zip(live,live[1:])))
+        self.assertGreater(self.trace['flare']['max_extent_bh'],0)

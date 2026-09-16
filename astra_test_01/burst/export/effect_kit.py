@@ -27,6 +27,9 @@ from PIL import Image
 PHASES = {'cast': 'flare', 'travel': 'travel', 'impact': 'impact', 'residual': 'residual'}
 TOP = {'name', 'element', 'element_class', 'tint', 'phases', 'layers', 'ground_squash', 'pixel_scale', 'phase_scale', 'material', 'distance_fields', 'pierce', 'pieces', 'screen_px', 'erode_noise', 'skill_spec', 'travel_primitives', 'key_states', 'impact_binding', 'decal_s', 'orb', 'g1'}
 LAYER_KEYS = {
+    'core': {'band', 'alpha', 'blur_px'},
+    'contact_light': {'lerp', 'frames'},
+    'shimmer': {'amplitude_px', 'seconds'},
     'glow': {'alpha', 'scale', 'peak'}, 'floor_light': {'duration_s', 'radius_px', 'curve', 'tint', 'alpha'},
     'cast': {'muzzle_puff', 'floor_light'}, 'travel': {'flicker_frames', 'trail', 'erode_noise'},
     'flash': {'duration_s', 'alpha', 'scale_from', 'scale_to'},
@@ -449,11 +452,14 @@ def piece_geometry(record, source_root):
 def load_pieces(config, root, runtime=False):
     """Consume T4e schema 2 as delivered; never segment or recolour a shard."""
     root = Path(root).resolve()
-    _keys(config, {'source', 'template', 'root_drift', 'dissolve_order', 'erode_noise', 'key_states', 'embers', *PIECES_DEFAULTS}, {'source', 'template'}, 'pieces')
+    _keys(config, {'source', 'template', 'root_drift', 'dissolve_order', 'erode_noise', 'key_states', 'embers', 'boil', *PIECES_DEFAULTS}, {'source', 'template'}, 'pieces')
     if config['template'] not in ('burst_v1', 'burst_v2', 'burst_v1r'):
         raise ValueError('pieces.template must be burst_v1, burst_v2 or burst_v1r')
     _number(config.get('erode_noise', 0), 0, 1, 'pieces.erode_noise')
     if 'embers' in config: validate_motes(config['embers'], True)
+    if 'boil' in config:
+        validate_anti_decal('boil', config['boil'])
+        if config['template'] != 'burst_v2': raise ValueError('pieces.boil requires burst_v2')
     values = {**PIECES_DEFAULTS, **config}
     states = values.get('key_states', [])
     if not isinstance(states, list):
@@ -611,6 +617,9 @@ def _validate(data, root, runtime=False):
     for name, layer in data['layers'].items():
         if name == 'dark_duplicate':
             if not isinstance(layer, bool): raise ValueError('dark_duplicate must be boolean')
+            continue
+        if name in ('core', 'contact_light', 'shimmer'):
+            validate_anti_decal(name, layer)
             continue
         if name in ('cast', 'travel'):
             validate_fire_layer(name, layer)
@@ -1641,3 +1650,18 @@ def validate_fire_layer(name, value):
         if 'flicker_frames' in value: _number(value['flicker_frames'],1,8,'travel.flicker_frames',True)
         if 'erode_noise' in value: _number(value['erode_noise'],0,1,'travel.erode_noise')
         if 'trail' in value: validate_motes(value['trail'])
+
+
+# FL-3: absent fields are OFF, with no defaults inserted into legacy metadata.
+ANTI_DECAL_RANGES = {
+    'core': {'band': (3,3,True), 'alpha': (0,1,False), 'blur_px': (0,12,False)},
+    'contact_light': {'lerp': (0,1,False), 'frames': (1,30,True)},
+    'shimmer': {'amplitude_px': (0,6,False), 'seconds': (.1,1.5,False)},
+    'boil': {'uv_per_s': (0,1,False), 'erode_amp': (0,.15,False), 'hz': (0,15,False)},
+}
+
+def validate_anti_decal(name, value):
+    fields = ANTI_DECAL_RANGES[name]
+    _keys(value, set(fields), set(fields), name)
+    for key, (lo, hi, integer) in fields.items():
+        _number(value[key], lo, hi, name+'.'+key, integer)

@@ -1,0 +1,601 @@
+{
+  "task_id": "FL-3",
+  "provenance": "R-C5-99 FL-3",
+  "status": "FAILED",
+  "scope_incident": {
+    "incident": "First suite allowed Godot subprocess log writes to two historical T4v paths. Python write audit did not cover subprocess writes. Second suite interrupted; harness now redirects external logs and rejects external Godot project paths. Historical logs have not been restored or deleted. Digests collected solely for changed-file receipt.",
+    "files": [
+      {
+        "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4v/orb-import.log",
+        "mtime_utc": "2026-09-16T20:08:11.662416+00:00",
+        "sha256": "d07313c3bf83552401569f68d0cfea174a01825a1def2285c47b272fd3af0ece"
+      },
+      {
+        "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4v/orb-test.log",
+        "mtime_utc": "2026-09-16T20:08:15.237765+00:00",
+        "sha256": "0f073de759137c6cd4156615ce1f8f3dcfce9321cf8df5e83d92cabaeec17512"
+      }
+    ]
+  },
+  "part0": {
+    "root": {
+      "before": "KeyError: 'root'",
+      "after": 156.0
+    },
+    "authored_before": {
+      "exit_code": null,
+      "timed_out": true,
+      "elapsed_s": 60.0059687920002,
+      "diagnosis": "Unshaped synthetic target remains at origin and is rejected by forward filter. Probe then treats target as impact, causing invalid Ground access and leaving SceneTree running.",
+      "log": "authored-before.log"
+    },
+    "authored_after": {
+      "runtime_assertion_errors": 0,
+      "runtime_completed": true,
+      "unittest_remaining_error": "Godot macOS CA-certificate/editor-settings errors; assertions unchanged"
+    },
+    "caster_clause": {
+      "release_rows": 24,
+      "max_capsule_rear_error_px": 0.0,
+      "caster_contacts": 0,
+      "projected_head_centre_overlaps_report_only": 5,
+      "docstring": "No contact with caster body and capsule rear at release socket; projected S-pose centroid overlap is not collision."
+    },
+    "named_existing_red": "BoltChainEmissionTests.test_current_catalogue_and_original_kits_unchanged (T4x kits, E3-r1; no rebaseline)"
+  },
+  "part1": {
+    "band": 3,
+    "alpha": 0.55,
+    "blur_px": 6,
+    "blur_method": "Band-3 coverage isolated before Pillow GaussianBlur(radius=6); derived masks follow body transforms; source primitives untouched.",
+    "samples": [
+      {
+        "age_frames": 0,
+        "key_state": "",
+        "core_alpha": 0.55,
+        "core_additive": true,
+        "core_draws": 1
+      },
+      {
+        "age_frames": 19,
+        "key_state": "expanded",
+        "core_alpha": 0.55,
+        "core_additive": true,
+        "core_draws": 1
+      },
+      {
+        "age_frames": 40,
+        "key_state": "spent",
+        "core_alpha": 0.55,
+        "core_additive": true,
+        "core_draws": 1
+      },
+      {
+        "age_frames": 43,
+        "key_state": "spent",
+        "core_alpha": 0.515625,
+        "core_additive": true,
+        "core_draws": 1
+      },
+      {
+        "age_frames": 88,
+        "key_state": "",
+        "core_alpha": 0.0,
+        "core_additive": true,
+        "core_draws": 0
+      }
+    ]
+  },
+  "part2": {
+    "settings": {
+      "uv_per_s": 0.35,
+      "erode_amp": 0.06,
+      "hz": 6
+    },
+    "expanded_frames": [
+      19,
+      20,
+      21
+    ],
+    "spent_frames": [
+      40,
+      41,
+      42,
+      43,
+      44,
+      45
+    ],
+    "actual_uniform_samples": [
+      {
+        "age": 19,
+        "erode": 0.0,
+        "key": "expanded",
+        "noise_bound": true,
+        "uv": [
+          0.0,
+          -0.110833331942558
+        ]
+      },
+      {
+        "age": 20,
+        "erode": 0.0428944761904761,
+        "key": "expanded",
+        "noise_bound": true,
+        "uv": [
+          0.0,
+          -0.116666667163372
+        ]
+      },
+      {
+        "age": 21,
+        "erode": 0.121056067518501,
+        "key": "expanded",
+        "noise_bound": true,
+        "uv": [
+          0.0,
+          -0.122500002384186
+        ]
+      },
+      {
+        "age": 40,
+        "erode": 0.900784,
+        "key": "spent",
+        "noise_bound": true,
+        "uv": [
+          0.0,
+          -0.233333334326744
+        ]
+      },
+      {
+        "age": 41,
+        "erode": 0.936051115137548,
+        "key": "spent",
+        "noise_bound": true,
+        "uv": [
+          0.0,
+          -0.239166662096977
+        ]
+      },
+      {
+        "age": 42,
+        "erode": 0.957847390977709,
+        "key": "spent",
+        "noise_bound": true,
+        "uv": [
+          0.0,
+          -0.245000004768372
+        ]
+      },
+      {
+        "age": 43,
+        "erode": 0.957847390977709,
+        "key": "spent",
+        "noise_bound": true,
+        "uv": [
+          0.0,
+          -0.250833332538605
+        ]
+      },
+      {
+        "age": 44,
+        "erode": 0.936051115137548,
+        "key": "spent",
+        "noise_bound": true,
+        "uv": [
+          0.0,
+          -0.256666660308838
+        ]
+      },
+      {
+        "age": 45,
+        "erode": 0.900784,
+        "key": "spent",
+        "noise_bound": true,
+        "uv": [
+          0.0,
+          -0.262499988079071
+        ]
+      }
+    ],
+    "all_consecutive_hold_uniforms_different": true
+  },
+  "part3": {
+    "stack": "base.lerp(palette_2, .45*(1-age/6)^2).lerp(palette_3, max(0,1-age/9)); victim_tint applied last. Contact clock is 6 physics frames; existing .15-second victim tint is represented as 9 physics frames for deterministic composition.",
+    "samples": [
+      {
+        "age": 1,
+        "body_index": 3,
+        "contact_weight": 0.3125,
+        "dark_offset_px": 3.3333911895752,
+        "modulate": [
+          0.954166650772095,
+          0.892847180366516,
+          0.716666698455811,
+          1.0
+        ],
+        "victim_weight": 0.888888888888889
+      },
+      {
+        "age": 3,
+        "body_index": 3,
+        "contact_weight": 0.1125,
+        "dark_offset_px": 1.99999129772186,
+        "modulate": [
+          0.822499990463257,
+          0.795208334922791,
+          0.682000041007996,
+          1.0
+        ],
+        "victim_weight": 0.666666666666667
+      },
+      {
+        "age": 6,
+        "body_index": 3,
+        "contact_weight": 0.0,
+        "dark_offset_px": 0.0,
+        "modulate": [
+          0.600000023841858,
+          0.646666646003723,
+          0.650000035762787,
+          1.0
+        ],
+        "victim_weight": 0.333333333333333
+      }
+    ],
+    "dark_offset_at_contact_px": 4.00001049041748,
+    "final_modulate": [
+      0.400000005960464,
+      0.5,
+      0.600000023841858,
+      1.0
+    ],
+    "final_dark_offset_px": 0.0,
+    "live_controllers_at_end": 0
+  },
+  "part4": {
+    "implementation": "Actual screen-space distortion: explicit Godot 4 hint_screen_texture sampler with bounded BackBufferCopy; two noise octaves; no additive-sheet fallback.",
+    "amplitude_px": 3,
+    "seconds": 0.8,
+    "samples": [
+      {
+        "age_frames": 0,
+        "stage": "onset",
+        "shimmer_alpha": 0.0,
+        "shimmer_amplitude_px": 0.0,
+        "shimmer_age_s": -0.666666666666667
+      },
+      {
+        "age_frames": 19,
+        "stage": "expansion",
+        "shimmer_alpha": 0.0,
+        "shimmer_amplitude_px": 0.0,
+        "shimmer_age_s": -0.35
+      },
+      {
+        "age_frames": 40,
+        "stage": "residue",
+        "shimmer_alpha": 1.0,
+        "shimmer_amplitude_px": 3.0,
+        "shimmer_age_s": 0.0
+      },
+      {
+        "age_frames": 64,
+        "stage": "residue",
+        "shimmer_alpha": 0.5,
+        "shimmer_amplitude_px": 1.5,
+        "shimmer_age_s": 0.4
+      },
+      {
+        "age_frames": 87,
+        "stage": "residue",
+        "shimmer_alpha": 0.0208333333333334,
+        "shimmer_amplitude_px": 0.0625000000000001,
+        "shimmer_age_s": 0.783333333333333
+      },
+      {
+        "age_frames": 88,
+        "stage": "zero",
+        "shimmer_alpha": 0.0,
+        "shimmer_amplitude_px": 0.0,
+        "shimmer_age_s": 0.8
+      }
+    ],
+    "rendered_frame_verified": false
+  },
+  "part5": {
+    "spec_impact_flare_bh": 4.0,
+    "measured": {
+      "dummy_height_bh": 1.16,
+      "extent_px": [
+        585.0,
+        409.0
+      ],
+      "max_extent_bh": 4.5,
+      "measurement": "authored alpha extent at expanded hold, global scale; no rendered framebuffer"
+    },
+    "size_changed": false
+  },
+  "trace_scene": "East cast against the measured shield footprint at (3911.25,596), body index 3; synthetic modulated sprite and optional dark duplicate. Original cast art/full 17-kit catalogue; not a rendered real-scene capture.",
+  "integrity": {
+    "input_files": 929,
+    "changed": [
+      "runs/C-5/vfx_kits/v9/fire_bolt_e1_A/kit.json",
+      "runs/C-5/vfx_kits/v9/fire_burst_e0p_v2/kit.json",
+      "runs/C-5/vfx_kits/v9/fire_bolt_e1_B/kit.json"
+    ],
+    "other_14_kits_byte_identical": true,
+    "primitives_byte_identical": true
+  },
+  "unchanged_export_kits": [
+    {
+      "kit": "frozen_orb",
+      "files": 60,
+      "byte_identical": true,
+      "changed": []
+    },
+    {
+      "kit": "blackwater_cocktail",
+      "files": 62,
+      "byte_identical": true,
+      "changed": []
+    },
+    {
+      "kit": "poisonous_concoction",
+      "files": 62,
+      "byte_identical": true,
+      "changed": []
+    },
+    {
+      "kit": "lightning_blast",
+      "files": 62,
+      "byte_identical": true,
+      "changed": []
+    },
+    {
+      "kit": "zeus_chain",
+      "files": 62,
+      "byte_identical": true,
+      "changed": []
+    },
+    {
+      "kit": "healing_hands",
+      "files": 62,
+      "byte_identical": true,
+      "changed": []
+    },
+    {
+      "kit": "fire_burst_e0p",
+      "files": 102,
+      "byte_identical": true,
+      "changed": []
+    },
+    {
+      "kit": "ice_bolt_e2",
+      "files": 113,
+      "byte_identical": true,
+      "changed": []
+    },
+    {
+      "kit": "blackwater_cocktail_e3",
+      "files": 29,
+      "byte_identical": true,
+      "changed": []
+    },
+    {
+      "kit": "poisonous_concoction_e3",
+      "files": 31,
+      "byte_identical": true,
+      "changed": []
+    },
+    {
+      "kit": "lightning_blast_e3",
+      "files": 21,
+      "byte_identical": true,
+      "changed": []
+    },
+    {
+      "kit": "zeus_chain_e3",
+      "files": 21,
+      "byte_identical": true,
+      "changed": []
+    },
+    {
+      "kit": "healing_hands_e3",
+      "files": 25,
+      "byte_identical": true,
+      "changed": []
+    },
+    {
+      "kit": "frozen_orb_e3",
+      "files": 93,
+      "byte_identical": true,
+      "changed": []
+    }
+  ],
+  "catalogue_export": {
+    "exit_code": 0,
+    "kits": 17,
+    "cli_regression_test": "successful in final_targeted.json",
+    "report": "catalogue_export.json",
+    "project_archive": "review_artifacts.zip:project/"
+  },
+  "headless_imports": [
+    {
+      "renderer": "gl_compatibility",
+      "exit_code": 0,
+      "elapsed_s": 2.630194332989049,
+      "script_errors": [],
+      "environment_errors": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Cannot save file '/Users/admin/Library/Application Support/Godot/editor_settings-4.6.tres'.",
+        "ERROR: Error saving editor settings to /Users/admin/Library/Application Support/Godot/editor_settings-4.6.tres"
+      ]
+    },
+    {
+      "renderer": "forward_plus",
+      "exit_code": 0,
+      "elapsed_s": 3.5989682499930495,
+      "script_errors": [],
+      "environment_errors": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "ERROR: Cannot save file '/Users/admin/Library/Application Support/Godot/editor_settings-4.6.tres'.",
+        "ERROR: Error saving editor settings to /Users/admin/Library/Application Support/Godot/editor_settings-4.6.tres"
+      ]
+    }
+  ],
+  "suite": {
+    "complete_initial_run": {
+      "tests_run": 234,
+      "elapsed_s": 256.1231412920024,
+      "reported_failures_and_errors": 25,
+      "report": "suite.json"
+    },
+    "second_run": "interrupted after subprocess log confinement gap was identified; suite.log is the partial second-run log",
+    "final_targeted": {
+      "tests_run": 11,
+      "elapsed_s": 28.72779529199761,
+      "failures": [
+        {
+          "test": "test_headless_authored_cast_east_north_collision_timing_and_feedback_cleanup (test_vfx_picker.AuthoredEffectPickerTests.test_headless_authored_cast_east_north_collision_timing_and_feedback_cleanup)",
+          "traceback": "Traceback (most recent call last):\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_vfx_picker.py\", line 520, in test_headless_authored_cast_east_north_collision_timing_and_feedback_cleanup\n    run_headless(self, self.project, 'effect_probe.gd')\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_vfx_picker.py\", line 121, in run_headless\n    test.assertEqual(engine_errors, [], '\\n'.join(engine_errors))\nAssertionError: Lists differ: ['ERROR: Condition \"ret != noErr\" is true.[285 chars] \"\"'] != []\n\nFirst list contains 4 additional elements.\nFirst extra element 0:\n'ERROR: Condition \"ret != noErr\" is true. Returning: \"\"'\n\n+ []\n- ['ERROR: Condition \"ret != noErr\" is true. Returning: \"\"',\n-  \"ERROR: Cannot save file '/Users/admin/Library/Application \"\n-  \"Support/Godot/editor_settings-4.6.tres'.\",\n-  'ERROR: Error saving editor settings to /Users/admin/Library/Application '\n-  'Support/Godot/editor_settings-4.6.tres',\n-  'ERROR: Condition \"ret != noErr\" is true. Returning: \"\"'] : ERROR: Condition \"ret != noErr\" is true. Returning: \"\"\nERROR: Cannot save file '/Users/admin/Library/Application Support/Godot/editor_settings-4.6.tres'.\nERROR: Error saving editor settings to /Users/admin/Library/Application Support/Godot/editor_settings-4.6.tres\nERROR: Condition \"ret != noErr\" is true. Returning: \"\"\n",
+          "last_line": "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+        }
+      ],
+      "skips": []
+    },
+    "remaining_reds": [
+      {
+        "test": "test_current_catalogue_and_original_kits_unchanged (test_godot_import.BoltChainEmissionTests.test_current_catalogue_and_original_kits_unchanged)",
+        "last_traceback_line": "Diff is 89073 characters long. Set self.maxDiff to None to see it.",
+        "diagnosis": "historical byte-lock mismatch; no rebaseline performed"
+      },
+      {
+        "test": "test_whole_canvas_texture_shared_by_every_material_and_cpu_cutoff (test_godot_import.ContinuousResidueImportTests.test_whole_canvas_texture_shared_by_every_material_and_cpu_cutoff)",
+        "last_traceback_line": "AssertionError: 3 != 1",
+        "diagnosis": "historical single-noise-texture assertion now counts two additional FL-3 key-state noise textures"
+      },
+      {
+        "test": "test_headless_state_machine_input_map_gear_vfx_and_nearest_fallback (test_godot_import.GodotImportTests.test_headless_state_machine_input_map_gear_vfx_and_nearest_fallback)",
+        "last_traceback_line": "================================================================",
+        "diagnosis": "remaining runtime assertion; exact traceback retained"
+      },
+      {
+        "test": "test_ten_existing_export_bytes_unchanged (test_godot_import.IceTreatmentImportTests.test_ten_existing_export_bytes_unchanged)",
+        "last_traceback_line": "Diff is 91856 characters long. Set self.maxDiff to None to see it.",
+        "diagnosis": "historical byte-lock mismatch; no rebaseline performed"
+      },
+      {
+        "test": "test_v2_headless_import_and_seed_equal_rooted_clock (test_godot_import.PieceStretchImportTests.test_v2_headless_import_and_seed_equal_rooted_clock)",
+        "last_traceback_line": "       [1] probe (res://stretch_probe.gd:36)",
+        "diagnosis": "remaining runtime assertion; exact traceback retained"
+      },
+      {
+        "test": "test_headless_authored_cast_east_north_collision_timing_and_feedback_cleanup (test_vfx_picker.AuthoredEffectPickerTests.test_headless_authored_cast_east_north_collision_timing_and_feedback_cleanup)",
+        "last_traceback_line": "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "diagnosis": "macOS certificate/editor-settings environment"
+      },
+      {
+        "test": "test_headless_first_cast_contact_cursor_pool_cancel_and_picker (test_vfx_picker.G1ComponentTests.test_headless_first_cast_contact_cursor_pool_cancel_and_picker)",
+        "last_traceback_line": "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "diagnosis": "macOS certificate/editor-settings environment"
+      },
+      {
+        "test": "test_headless_pierce_contacts_labels_pool_and_phase_callbacks (test_vfx_picker.G1ComponentTests.test_headless_pierce_contacts_labels_pool_and_phase_callbacks)",
+        "last_traceback_line": "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "diagnosis": "macOS certificate/editor-settings environment"
+      },
+      {
+        "test": "test_headless_glow_sixty_samples_extrema_range_and_particle_properties (test_vfx_picker.LivingEmbersTests.test_headless_glow_sixty_samples_extrema_range_and_particle_properties)",
+        "last_traceback_line": "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "diagnosis": "macOS certificate/editor-settings environment"
+      },
+      {
+        "test": "test_six_kits_and_v1_match_488_file_pre_t4j_hash_table (test_vfx_picker.PieceLap2ExportTests.test_six_kits_and_v1_match_488_file_pre_t4j_hash_table)",
+        "last_traceback_line": "Diff is 58456 characters long. Set self.maxDiff to None to see it.",
+        "diagnosis": "historical byte-lock mismatch; no rebaseline performed"
+      },
+      {
+        "test": "test_original_eight_export_byte_lock (test_vfx_picker.ProjectileArmPickerTests.test_original_eight_export_byte_lock)",
+        "last_traceback_line": "Diff is 105698 characters long. Set self.maxDiff to None to see it.",
+        "diagnosis": "historical byte-lock mismatch; no rebaseline performed"
+      },
+      {
+        "test": "test_headless_overlay_forward_world_touch_and_mouse_probe (test_vfx_picker.TouchAimRuntimeTests.test_headless_overlay_forward_world_touch_and_mouse_probe)",
+        "last_traceback_line": "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "diagnosis": "macOS certificate/editor-settings environment"
+      },
+      {
+        "test": "test_headless_device_forward_handled_overlay_and_mouse_probe (test_vfx_picker.TouchDeviceAimRuntimeTests.test_headless_device_forward_handled_overlay_and_mouse_probe)",
+        "last_traceback_line": "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "diagnosis": "macOS certificate/editor-settings environment"
+      },
+      {
+        "test": "test_headless_tab_twice_cast_scene_labels_and_inflight_kit_lock (test_vfx_picker.VfxPickerTests.test_headless_tab_twice_cast_scene_labels_and_inflight_kit_lock)",
+        "last_traceback_line": "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+        "diagnosis": "macOS certificate/editor-settings environment"
+      },
+      {
+        "test": "setUpClass (test_godot_import.FieldDesignLapEmissionTests)",
+        "last_traceback_line": "PermissionError: FL-3 write confinement: /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4v/field-design/headless.json",
+        "diagnosis": "sandbox forbids old artifact mutation"
+      },
+      {
+        "test": "setUpClass (test_godot_import.RenderedLookTraceTests)",
+        "last_traceback_line": "PermissionError: FL-3 delete confinement: /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4x/catalogue_project",
+        "diagnosis": "sandbox forbids old artifact mutation"
+      },
+      {
+        "test": "test_transformed_front_at_three_ages_has_no_straight_seam_over_12px (test_godot_import.TransformedResidueSeamTests.test_transformed_front_at_three_ages_has_no_straight_seam_over_12px)",
+        "last_traceback_line": "PermissionError: FL-3 write confinement: /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4g/seam_measurements.json",
+        "diagnosis": "sandbox forbids old artifact mutation"
+      },
+      {
+        "test": "test_emergence_fraction_order_and_temporarily_ignored_body (test_vfx_picker.CanonicalCapsuleSweepTests.test_emergence_fraction_order_and_temporarily_ignored_body)",
+        "last_traceback_line": "PermissionError: FL-3 write confinement: /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/FL-2c/reexport/capsule_sweep_test.gd",
+        "diagnosis": "sandbox forbids old artifact mutation"
+      },
+      {
+        "test": "test_headless_orb_clock_and_pool (test_vfx_picker.FrozenOrbPickerTests.test_headless_orb_clock_and_pool)",
+        "last_traceback_line": "PermissionError: FL-3 write confinement: /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4v/orb_trace.json",
+        "diagnosis": "sandbox forbids old artifact mutation"
+      },
+      {
+        "test": "test_headless_contact_shatter_residue_decal (test_vfx_picker.IceTreatmentPickerTests.test_headless_contact_shatter_residue_decal)",
+        "last_traceback_line": "PermissionError: FL-3 write confinement: /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4x/e2_trace.json",
+        "diagnosis": "sandbox forbids old artifact mutation"
+      },
+      {
+        "test": "test_headless_east_contact_range_tail_and_key_schedule (test_vfx_picker.ProjectileArmPickerTests.test_headless_east_contact_range_tail_and_key_schedule)",
+        "last_traceback_line": "PermissionError: FL-3 write confinement: /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4p/e1_key_trace.json",
+        "diagnosis": "sandbox forbids old artifact mutation"
+      }
+    ],
+    "module_scope": [
+      "tests/test_effect_kit.py",
+      "tests/test_godot_import.py",
+      "tests/test_vfx_picker.py"
+    ]
+  },
+  "byte_lock_rebaseline": {
+    "performed": false,
+    "reason": "Historical byte locks retained; no fixtures modified. Export differences and complete before/after digest tables supplied for conductor FL-1b diff-rule review."
+  },
+  "concerns": [
+    "Mandatory output scope violated: Godot overwrote two T4v logs. Harness fixed; historical logs not restored/deleted.",
+    "Authored probe completes with zero runtime assertion errors, but its unittest remains red on macOS sandbox errors.",
+    "Historical byte-lock/runtime assertions and confined old-artifact writes remain named in remaining_reds.json.",
+    "Expanded alpha extent measures 4.5 BH versus spec 4.0 BH; size unchanged.",
+    "Headless import/trace only. Shimmer appearance and desktop anti-decal effect require conductor rendering."
+  ],
+  "changed_source_paths": [
+    "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/export/effect_kit.py",
+    "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/export/godot_import.py",
+    "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/specs/fire_bolt_e1.json",
+    "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/vfx_kits/v9/fire_bolt_e1_A/kit.json",
+    "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/vfx_kits/v9/fire_bolt_e1_B/kit.json",
+    "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/vfx_kits/v9/fire_burst_e0p_v2/kit.json",
+    "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_effect_kit.py",
+    "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_godot_import.py",
+    "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_vfx_picker.py"
+  ]
+}

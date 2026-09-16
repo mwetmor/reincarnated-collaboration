@@ -2461,3 +2461,46 @@ class CanonicalCapsuleValidationTests(unittest.TestCase):
         self.assertEqual(_g1_capsule_config({'effect':data})['child_collision_radius_bh'],.2)
         data['orb']['shard']['collision_radius_bh']=True
         with self.assertRaises(ValueError): _validate(data,root,True)
+
+
+class AntiDecalValidationTests(unittest.TestCase):
+    """FL-3 fields are opt-in, strict, finite and bounded; malformed values reject."""
+    def test_all_field_ranges_unknown_missing_boolean_and_nonfinite(self):
+        from export.effect_kit import validate_anti_decal, ANTI_DECAL_RANGES
+        good = {'core':dict(band=3,alpha=.55,blur_px=6),
+                'contact_light':dict(lerp=.45,frames=6),
+                'shimmer':dict(amplitude_px=3,seconds=.8),
+                'boil':dict(uv_per_s=.35,erode_amp=.06,hz=6)}
+        for name, value in good.items():
+            validate_anti_decal(name,value)
+            for key,(low,high,integer) in ANTI_DECAL_RANGES[name].items():
+                for bad in (True,float('nan'),float('inf'),low-1,high+1,'1'):
+                    with self.subTest(name=name,key=key,value=bad), self.assertRaises(ValueError):
+                        validate_anti_decal(name,dict(value,**{key:bad}))
+                missing=dict(value);missing.pop(key)
+                with self.assertRaises(ValueError):validate_anti_decal(name,missing)
+            with self.assertRaises(ValueError):validate_anti_decal(name,dict(value,unknown=0))
+        for value in (3.0,2,4):
+            with self.assertRaises(ValueError):validate_anti_decal('core',dict(good['core'],band=value))
+
+    def test_defaults_absent_and_real_fire_fields_load(self):
+        path,_=definition_fixture(Path(tempfile.mkdtemp(dir=TMP)))
+        build(path,path.parent/'built')
+        data=load_kit(path.parent/'built')
+        self.assertTrue(all(k not in data['layers'] for k in ('core','shimmer','contact_light')))
+        for name in ('fire_bolt_e1_A','fire_bolt_e1_B','fire_burst_e0p_v2'):
+            data=load_kit(ROOT/'runs/C-5/vfx_kits/v9'/name)
+            self.assertEqual(data['layers']['core'],dict(band=3,alpha=.55,blur_px=6))
+            if 'pieces' in data:
+                self.assertEqual(data['pieces']['boil'],dict(uv_per_s=.35,erode_amp=.06,hz=6))
+                self.assertEqual(next(s for s in data['pieces']['key_states'] if s['state']=='expanded')['hold_frames'],3)
+
+
+class AntiDecalCapsuleFallbackTests(unittest.TestCase):
+    def test_rootless_synthetic_and_primitive_length_without_alpha_reads(self):
+        from export.godot_import import _g1_capsule_config
+        from unittest.mock import patch
+        with patch('export.godot_import.Image.open',side_effect=AssertionError('unexpected image read')):
+            self.assertEqual(_g1_capsule_config({'effect':{'phases':{'travel':{'frames':[{'file':'missing.png'}]}}}})['head_length_px'],156)
+            self.assertEqual(_g1_capsule_config({'effect':{'travel_primitives':{'head':dict(pivot=[3,4],rear_socket=[0,0],scale=2)}}})['head_length_px'],10)
+            self.assertEqual(_g1_capsule_config({'effect':{'travel_primitives':{'head':dict(pivot=[3,4],scale=2)}}})['head_length_px'],156)
