@@ -1,0 +1,49 @@
+{
+  "task_id": "KS-travel-pulsed-01",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "travel_pulsed_01",
+      "path": "out/travel_pulsed_01.png",
+      "sha256": "15d8cfc4385c608943c06eedfd6e95d3c7bcd7853c05bd9fff4e9fb0cad1570a",
+      "prompt": "Use case: precise-object-edit. Repaint the SECOND attached image, the PULSED tooling guide, with minimal changes. The FIRST attached image is the original REST state, required identity reference only. The THIRD is the contour register board only.\nThe previous attempt departed from the guide silhouette and added tonal texture. Correct those issues: trace the SECOND image's silhouette and placement exactly, preserving all its tongues, notches, short heavy streak and swollen head. Do NOT use the first image's long tail shape. Do not enlarge or reposition the drawing inside the canvas. One change only: redraw this guide composition as a coherent hand-drawn animation painting, keeping its exact shape within 4 pixels. No new elements or missing elements.\nDeliver exactly ONE 512x512 PNG, with actual alpha transparency everywhere outside the shape, including openings. Preserve the second image's original fixed canvas and margins. Head faces RIGHT, fat bright core and flared tongues, short heavy trailing streak. Match the first image's hand-drawn tapered dark contour and exact line weight. Exactly FOUR SOLID UNIFORM GREYSCALE VALUES, hard boundaries: dark outline, dark grey fill, light grey fill, near-white core. Each plane is perfectly flat and constant in value throughout its interior. No texture or mottling, no shading or extra value planes, no gradients, no soft edges, no blur, no glow, no color. No ground, shadows, sparks, smoke, motion blur or text. Genuine transparent background, no opaque backdrop or checkerboard. Edit the SECOND image in place; only the coherent redraw changes, all geometry remains locked.",
+      "references": [
+        {
+          "role": "Original REST identity",
+          "path": "in/01_travel_rest_512.png"
+        },
+        {
+          "role": "PULSED edit target and shape contract",
+          "path": "in/02_guide_travel_pulsed_512.png"
+        },
+        {
+          "role": "Scale and contour register board",
+          "path": "in/03_scale_board_clearing.png"
+        }
+      ],
+      "elapsed_s": 62.918
+    }
+  ],
+  "calls_used": 2,
+  "retries": [
+    {
+      "reason": "First output departed from the guide silhouette and introduced tonal texture.",
+      "change": "Re-emphasized tracing the pulsed guide and using four uniform flat values."
+    }
+  ],
+  "self_report": {
+    "obeyed_invariants": false,
+    "concerns": [
+      "Output is 1254×1254, not 512×512; copied unchanged without conversion or trimming.",
+      "Silhouette and placement visibly depart from the guide; the approximately 4-pixel tolerance is not met.",
+      "Visible tonal variation remains; exactly four flat value planes and matching line weight are not achieved.",
+      "PNG alpha channel is confirmed present; genuine background transparency was not independently verified."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/travel_pulsed_01.png",
+      "sha256": "15d8cfc4385c608943c06eedfd6e95d3c7bcd7853c05bd9fff4e9fb0cad1570a"
+    }
+  ]
+}

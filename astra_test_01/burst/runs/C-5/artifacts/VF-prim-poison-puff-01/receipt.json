@@ -1,0 +1,49 @@
+{
+  "task_id": "VF-prim-poison-puff-01",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "poison_puff_01",
+      "path": "out/poison_puff_01.png",
+      "sha256": "f032e2cfa6a63d576955009a9c0bfe2a488fbf4eb84130a532adc6d6564ffa3d",
+      "prompt": "Generate ONE poison-cloud density primitive PNG. REQUIRED FILE DIMENSIONS: 512 by 512 pixels. The opaque painted cloud bounding box must measure approximately 200 pixels wide by 150 pixels tall in the actual output file, centered. This is a retry because the previous output was oversized and had subtle gradients in supposed flat value planes. Correct those problems. If the tool fixes the file size larger than 512, keep the actual cloud extent at 200 by 150 NATIVE pixels, with much larger empty margins, rather than enlarging the cloud. Background must have genuine alpha zero, body alpha 255; no transparent holes or detached elements. If transparency is impossible, use uniform #00ff00 plate. Reference 1 provides hand-drawn animation line language and elevated 45-degree camera; reference 2 provides ONLY four-plane greyscale language, NOT flame shapes; reference 3 is environment reading only. Shape: a squat asymmetric bounded cloud formed by exactly six overlapping rounded lobes of unequal size, heavy and viscous with sagging lower arcs and blunt drooping contours. No tall flame tip, no sharp tips, no wispy tendrils. Dark dense bottom, thin light upper lobes. Two small closed bubble contours embedded inside the cloud. Confident tapered dark outline varying by hand, clean painted planes. This is a palette-index mask: exactly four perfectly uniform solid colours in the body: #202020 outline/thin rim; #606060 bottom density; #B0B0B0 majority of the body; #FFFFFF small upper-left accents less than one quarter of the body. Each plane is a single solid digital flood-fill: absolutely no within-plane tonal variations, no lighting gradients, no shading gradients, no paper grain, no noise or mottling, no texture, no glow, no blur. Hard plane boundaries; exterior antialiasing at most one native pixel. Hand-drawn painted 2D effects animation. Emission SHAPE only. No ground, floor shadow, environment, character, text, sparkles, mist, border, colour, or motion. One cloud only, enormous clean empty transparent margins; no detached bubbles.",
+      "references": [
+        {
+          "role": "Scale and register board",
+          "path": "in/01_scale_board_clearing.png"
+        },
+        {
+          "role": "Approved four-plane language reference; not shape",
+          "path": "in/02_fire_peak_01.png"
+        },
+        {
+          "role": "Native ground crop; reading only",
+          "path": "in/03_clearing_native_512.png"
+        }
+      ],
+      "elapsed_s": 44.406
+    }
+  ],
+  "calls_used": 2,
+  "retries": [
+    {
+      "reason": "First output exceeded requested extent and showed subtle within-plane shading.",
+      "change": "Reinforced actual pixel dimensions, uniform four-value fills, and squat rounded lobes."
+    }
+  ],
+  "self_report": {
+    "obeyed_invariants": false,
+    "concerns": [
+      "Generated PNG copied unchanged. Canvas is 1254×1254, not 512×512.",
+      "Painted extent visually exceeds the requested 200×150 pixels.",
+      "Subtle tonal variation remains; exactly four flat values was not achieved.",
+      "PNG alpha channel is confirmed and background appears transparent; exact exterior alpha, interior opacity, and fringe width were not measured."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/poison_puff_01.png",
+      "sha256": "f032e2cfa6a63d576955009a9c0bfe2a488fbf4eb84130a532adc6d6564ffa3d"
+    }
+  ]
+}

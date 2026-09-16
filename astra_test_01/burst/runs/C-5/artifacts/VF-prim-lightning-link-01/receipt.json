@@ -1,0 +1,49 @@
+{
+  "task_id": "VF-prim-lightning-link-01",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "lightning_link_01",
+      "path": "out/lightning_link_01.png",
+      "sha256": "a20ab20f649fafc92acdd451ed945b9a4b2d689fc5c0deba66d628ef126dfdd2",
+      "prompt": "Create exactly ONE game VFX primitive: P05 lightning chain link. Output exactly 512x512 PNG with genuinely transparent RGBA background, alpha 0 outside and fully opaque interior, hard antialias fringe at most 1 pixel. If real transparency is unavailable use perfectly uniform pure #00ff00 background. Reference 1 is the scale and hand-drawn painted register board, reference 2 is approved fire LANGUAGE ONLY (four hard flat grayscale planes and dark hand-drawn contour), reference 3 is the native ground crop for reading only. Do not reproduce any scene or flame shape. HAND-DRAWN painted 2D animation frame: confident dark contour with visible taper and varying weight; clean flat painted interior planes, no texture. Subject: ONE thin angular lightning bolt segment running LEFT to RIGHT, centered at (256,256), painted extent approximately 180 pixels long and 28 pixels tall overall. Endpoints approximately (166,256) and (346,256), both at exactly the same height, pinched sharply for end-to-end tiling. Three or four abrupt angular kinks along straight segments; somewhat thicker middle, sharp needle tips, small angular fork permitted within the 180x28 extent. Nothing rounded or soft. Light grey is most of the body, white core plane along the center occupying at most 25% of body; dark grey rim and near-black tapered contour. EXACTLY FOUR FLAT GRAYSCALE VALUES in body: #202020 contour/thin rim, #606060 dark grey, #bfbfbf light grey, #ffffff white core. Hard edges between planes. Paint only the SHAPE representing emission; all actual light, glow, color and motion are runtime layers. Elevated three-quarter game-camera register of reference 1, adapted to a flat effect primitive. Plenty of completely empty space on every side; nothing touches edges. No gradients, glow, blur, texture, additional colors, shadow, ground, characters, text, sparkles, mist, or motion blur. Deliver a single primitive on a single square canvas, no sheet or multiple views.\nCORRECTION FOR RETRY: the previous result occupied about 65% of the canvas width and was far too large. Required canvas is 512x512, required bolt is only 180x28 actual pixels. Its width must occupy ONLY 35% of canvas width and its total height ONLY 5.5% of canvas height. Center vertically and horizontally. This is a tiny narrow primitive surrounded by enormous empty transparent margins, not a hero image. Four perfectly uniform flat value fills ONLY; no shaded or mottled planes. Output 512x512 pixels exactly.",
+      "references": [
+        {
+          "role": "Scale and register reference",
+          "path": "in/01_scale_board_clearing.png"
+        },
+        {
+          "role": "Approved four-plane effect language reference",
+          "path": "in/02_fire_peak_01.png"
+        },
+        {
+          "role": "Native ground crop, reading only",
+          "path": "in/03_clearing_native_512.png"
+        }
+      ],
+      "elapsed_s": 39.587
+    }
+  ],
+  "calls_used": 2,
+  "retries": [
+    {
+      "reason": "First output exceeded the requested painted extent by more than 25%.",
+      "change": "Reinforced 512×512 output, 180×28-pixel extent, small canvas occupancy, and uniform four-value fills."
+    }
+  ],
+  "self_report": {
+    "obeyed_invariants": false,
+    "concerns": [
+      "Copied unchanged. Generated canvas is 1254×1254, not the requested 512×512.",
+      "Painted extent remains oversized, visually approximately 510×100 pixels.",
+      "PNG alpha channel is confirmed; genuine alpha-0 background, opaque interior, and fringe width were not independently verified.",
+      "Visible tonal variation raises concerns about exactly four flat values."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/lightning_link_01.png",
+      "sha256": "a20ab20f649fafc92acdd451ed945b9a4b2d689fc5c0deba66d628ef126dfdd2"
+    }
+  ]
+}

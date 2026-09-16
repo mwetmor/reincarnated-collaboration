@@ -2,7 +2,7 @@
   "run": "C-5",
   "charter": "agentic_orchestration/gandalf/notes/2026-09-15-vfx-run-C-5-charter.md",
   "charter_sha256_12": "c41d87420e76",
-  "images_used": 30,
+  "images_used": 52,
   "images_cap": 999999,
   "images_cap_note": "SENTINEL 999999 — the run image cap is UN-ENFORCED by sentinel (Matt V20, 2026-09-15: \"no image budget\"); images_used is counted and reported at every packet. run_burst.py:158 integer-compares this field; null crashed it (jack-ryan Gate-1 BLOCK-B).",
   "bursts": [
@@ -6701,6 +6701,765 @@
       "codex_version": "codex-cli 0.153.4",
       "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
       "exit": 0
+    },
+    {
+      "id": "VF-prim-flask-01",
+      "type": "GENERATE",
+      "experiment": "C5-E3",
+      "brief_sha256": "fdb4f49973257632fc392c828fd7540229d2efbc2db330b833e5e12ac738c470",
+      "started": "2026-09-16T07:44:11.358128+00:00",
+      "ended": "2026-09-16T07:47:11.541873+00:00",
+      "minutes": 3.0030689874998644,
+      "image_calls": 2,
+      "tool_calls": 3,
+      "audit": {
+        "violations": [],
+        "image_calls": 2,
+        "tool_calls": 3,
+        "tools_seen": {
+          "command_execution": 3
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0a92c-5e45-7d42-b4c5-bd718c262e98/exec-14fa460a-882b-42b9-a3e1-b1096f997464.png",
+            "sha256": "8fd758d45af1d45f5c520cec79dd3a16cdbb6d5a0b4bfe4f42d83d88b68b3389"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0a92c-5e45-7d42-b4c5-bd718c262e98/exec-20de3b77-f9ef-4363-ac51-afb0d14bffe0.png",
+            "sha256": "ed49d79e4669bcc7dbe02676bc2f2b8e834c462aa590897dcf13f40bb835cda9"
+          }
+        ]
+      },
+      "receipt_sha256": "b25ce7592a039593f45a2891ea6e92b8abc396e4dd4699366a739aaccb401718",
+      "artifacts": [
+        {
+          "name": "flask_01.png",
+          "sha256": "8fd758d45af1d45f5c520cec79dd3a16cdbb6d5a0b4bfe4f42d83d88b68b3389"
+        },
+        {
+          "name": "exec-14fa460a-882b-42b9-a3e1-b1096f997464.provenance.json",
+          "sha256": "66182294b98b1a196adf5e9769cebd637cf55aac4fdbdb5438f50f5e19ffc620"
+        },
+        {
+          "name": "exec-20de3b77-f9ef-4363-ac51-afb0d14bffe0.provenance.json",
+          "sha256": "84f020866e2317ac005dd203fc183d0b416299afd4b0a9b31e88bd522b823fb4"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0a92c-5e45-7d42-b4c5-bd718c262e98/exec-14fa460a-882b-42b9-a3e1-b1096f997464.png",
+          "sha256": "8fd758d45af1d45f5c520cec79dd3a16cdbb6d5a0b4bfe4f42d83d88b68b3389"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0a92c-5e45-7d42-b4c5-bd718c262e98/exec-20de3b77-f9ef-4363-ac51-afb0d14bffe0.png",
+          "sha256": "ed49d79e4669bcc7dbe02676bc2f2b8e834c462aa590897dcf13f40bb835cda9"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
+    },
+    {
+      "id": "VF-prim-lightning-link-01",
+      "type": "GENERATE",
+      "experiment": "C5-E3",
+      "brief_sha256": "256cf2cadb83cefcf0e32c455c738c71a4a7e1f18e3701904acfae9cfba6a009",
+      "started": "2026-09-16T07:44:11.359895+00:00",
+      "ended": "2026-09-16T07:47:22.800408+00:00",
+      "minutes": 3.1907176722168513,
+      "image_calls": 2,
+      "tool_calls": 2,
+      "audit": {
+        "violations": [],
+        "image_calls": 2,
+        "tool_calls": 2,
+        "tools_seen": {
+          "command_execution": 2
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0a92c-5ef8-7e71-bc92-a9d2396293a8/exec-6f71f7fc-bea8-4470-ade2-d5433e1777d7.png",
+            "sha256": "c6ee6302c79fc153a076736ab5890a7a81803a4618daa2055f881d3ffed95fbd"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0a92c-5ef8-7e71-bc92-a9d2396293a8/exec-fb21c9ee-15f6-4486-8db4-8f758edce862.png",
+            "sha256": "a20ab20f649fafc92acdd451ed945b9a4b2d689fc5c0deba66d628ef126dfdd2"
+          }
+        ]
+      },
+      "receipt_sha256": "23f80636e12b1111fbf20694ce585c8e92e95fca909e315f23aefdae1be9a267",
+      "artifacts": [
+        {
+          "name": "lightning_link_01.png",
+          "sha256": "a20ab20f649fafc92acdd451ed945b9a4b2d689fc5c0deba66d628ef126dfdd2"
+        },
+        {
+          "name": "exec-6f71f7fc-bea8-4470-ade2-d5433e1777d7.provenance.json",
+          "sha256": "2729b0643337888fdd608db201e20f641092cb2edd4070ed26328af7fd56b524"
+        },
+        {
+          "name": "exec-fb21c9ee-15f6-4486-8db4-8f758edce862.provenance.json",
+          "sha256": "a3f30ac90b0db5559afc90d12bcb160569b8130341bdf0a112746ab437646568"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0a92c-5ef8-7e71-bc92-a9d2396293a8/exec-6f71f7fc-bea8-4470-ade2-d5433e1777d7.png",
+          "sha256": "c6ee6302c79fc153a076736ab5890a7a81803a4618daa2055f881d3ffed95fbd"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0a92c-5ef8-7e71-bc92-a9d2396293a8/exec-fb21c9ee-15f6-4486-8db4-8f758edce862.png",
+          "sha256": "a20ab20f649fafc92acdd451ed945b9a4b2d689fc5c0deba66d628ef126dfdd2"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
+    },
+    {
+      "id": "VF-prim-holy-ring-01",
+      "type": "GENERATE",
+      "experiment": "C5-E3",
+      "brief_sha256": "dd0e53227d4cc349420759256443b196c0eb121d7656e22db59dc79634c0190a",
+      "started": "2026-09-16T07:44:11.362239+00:00",
+      "ended": "2026-09-16T07:47:36.570425+00:00",
+      "minutes": 3.4201432805501097,
+      "image_calls": 2,
+      "tool_calls": 3,
+      "audit": {
+        "violations": [],
+        "image_calls": 2,
+        "tool_calls": 3,
+        "tools_seen": {
+          "command_execution": 3
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0a92c-5f1d-7891-b54f-00483a097d7d/exec-834ade1e-0ea6-43dc-a85c-b3b72969e114.png",
+            "sha256": "3d7bc493e28d3b9bd46b4ecc59aa14bf87bff56374449bf3b843bf0bf18bbfdf"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0a92c-5f1d-7891-b54f-00483a097d7d/exec-b8a6d9e0-f6cd-42ee-841d-50b76fbebd2e.png",
+            "sha256": "6f85a6d7997c92503dc4c0b1b184d7a1fc659b03429bd3d067c57cfe56ed2ad3"
+          }
+        ]
+      },
+      "receipt_sha256": "c57e509080c9a5f01080e9c7a2cac1f4a1dd6c61c2000eca93947651f3fa29f4",
+      "artifacts": [
+        {
+          "name": "holy_ring_01.png",
+          "sha256": "3d7bc493e28d3b9bd46b4ecc59aa14bf87bff56374449bf3b843bf0bf18bbfdf"
+        },
+        {
+          "name": "exec-834ade1e-0ea6-43dc-a85c-b3b72969e114.provenance.json",
+          "sha256": "eadd5fafdc5a3da43d266d70d5721f110312b056379a72d333206e12779c5618"
+        },
+        {
+          "name": "exec-b8a6d9e0-f6cd-42ee-841d-50b76fbebd2e.provenance.json",
+          "sha256": "2b8c2a24c56a4343a4412c5c2a5b7671c416d16e8a0a12f8c40aa9acb41b7bea"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0a92c-5f1d-7891-b54f-00483a097d7d/exec-834ade1e-0ea6-43dc-a85c-b3b72969e114.png",
+          "sha256": "3d7bc493e28d3b9bd46b4ecc59aa14bf87bff56374449bf3b843bf0bf18bbfdf"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0a92c-5f1d-7891-b54f-00483a097d7d/exec-b8a6d9e0-f6cd-42ee-841d-50b76fbebd2e.png",
+          "sha256": "6f85a6d7997c92503dc4c0b1b184d7a1fc659b03429bd3d067c57cfe56ed2ad3"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
+    },
+    {
+      "id": "VF-prim-holy-petal-01",
+      "type": "GENERATE",
+      "experiment": "C5-E3",
+      "brief_sha256": "8c4abc35a26d10af9bb33c857233f787ab4ac814ac1f8981d48db0df144ca907",
+      "started": "2026-09-16T07:44:11.359098+00:00",
+      "ended": "2026-09-16T07:47:39.740290+00:00",
+      "minutes": 3.473043931949845,
+      "image_calls": 2,
+      "tool_calls": 2,
+      "audit": {
+        "violations": [],
+        "image_calls": 2,
+        "tool_calls": 2,
+        "tools_seen": {
+          "command_execution": 2
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0a92c-5db3-75b1-8dcb-07050d05d8a3/exec-5e5dd47e-b417-496e-9d10-0610a1d5cafb.png",
+            "sha256": "889da9bab646e2dcc474b7de7c5dbc3592ec63215c9e83f616e0539493870b2e"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0a92c-5db3-75b1-8dcb-07050d05d8a3/exec-b9e209ad-cd73-47a9-8528-6a9f265ee87d.png",
+            "sha256": "f03045114005025a82f15f690f1b7e7f464f92c751587323df4f072b481cc46b"
+          }
+        ]
+      },
+      "receipt_sha256": "b9b2c99f34311754028ac755ac23cd6ecc246568b6ff79dc26d3aeb5984f3530",
+      "artifacts": [
+        {
+          "name": "holy_petal_01.png",
+          "sha256": "f03045114005025a82f15f690f1b7e7f464f92c751587323df4f072b481cc46b"
+        },
+        {
+          "name": "exec-5e5dd47e-b417-496e-9d10-0610a1d5cafb.provenance.json",
+          "sha256": "54e604288209006c6d2684471179fa2180fd68216a84a51b83edc593d8b3683f"
+        },
+        {
+          "name": "exec-b9e209ad-cd73-47a9-8528-6a9f265ee87d.provenance.json",
+          "sha256": "143cbba3588d3d9c6ce56900d48b352cb32fad167d7d69ddb10c13233600a89e"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0a92c-5db3-75b1-8dcb-07050d05d8a3/exec-5e5dd47e-b417-496e-9d10-0610a1d5cafb.png",
+          "sha256": "889da9bab646e2dcc474b7de7c5dbc3592ec63215c9e83f616e0539493870b2e"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0a92c-5db3-75b1-8dcb-07050d05d8a3/exec-b9e209ad-cd73-47a9-8528-6a9f265ee87d.png",
+          "sha256": "f03045114005025a82f15f690f1b7e7f464f92c751587323df4f072b481cc46b"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
+    },
+    {
+      "id": "VF-prim-poison-lobe-01",
+      "type": "GENERATE",
+      "experiment": "C5-E3",
+      "brief_sha256": "b0434c41eb1309be292ef45cf633a8fdd2dd72084270f43197a75774df7ae12a",
+      "started": "2026-09-16T07:44:11.359969+00:00",
+      "ended": "2026-09-16T07:47:41.710579+00:00",
+      "minutes": 3.5058549805500663,
+      "image_calls": 2,
+      "tool_calls": 4,
+      "audit": {
+        "violations": [],
+        "image_calls": 2,
+        "tool_calls": 4,
+        "tools_seen": {
+          "command_execution": 4
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0a92c-5eb0-7633-804d-1dda5825b71f/exec-2765cc51-a9a8-4fdf-94a8-9a2bd730882c.png",
+            "sha256": "f7e778bfd8a3125eb0688bbdca1fe325f4329f3f12e6115bc5b425e4e3c22333"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0a92c-5eb0-7633-804d-1dda5825b71f/exec-6557f74f-8d34-4de5-9a8f-d96c16407cd4.png",
+            "sha256": "8b24ffca30ccfa791c92a582a00ae446ea7de5f7fad3c6fa6e99f2980507db28"
+          }
+        ]
+      },
+      "receipt_sha256": "901e21112245db2588eb431c167af15d18ad1d1332156583d9c16e8291bf2d2d",
+      "artifacts": [
+        {
+          "name": "poison_lobe_01.png",
+          "sha256": "8b24ffca30ccfa791c92a582a00ae446ea7de5f7fad3c6fa6e99f2980507db28"
+        },
+        {
+          "name": "exec-2765cc51-a9a8-4fdf-94a8-9a2bd730882c.provenance.json",
+          "sha256": "5edfea0f8f07732805571b1216d35909bc79908929bc718128d8ee3f367fcf38"
+        },
+        {
+          "name": "exec-6557f74f-8d34-4de5-9a8f-d96c16407cd4.provenance.json",
+          "sha256": "0ed6bed631a835feb411c879d84394aa8acc9cde7104d6e860c8f1d2cb0e9e9f"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0a92c-5eb0-7633-804d-1dda5825b71f/exec-2765cc51-a9a8-4fdf-94a8-9a2bd730882c.png",
+          "sha256": "f7e778bfd8a3125eb0688bbdca1fe325f4329f3f12e6115bc5b425e4e3c22333"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0a92c-5eb0-7633-804d-1dda5825b71f/exec-6557f74f-8d34-4de5-9a8f-d96c16407cd4.png",
+          "sha256": "8b24ffca30ccfa791c92a582a00ae446ea7de5f7fad3c6fa6e99f2980507db28"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
+    },
+    {
+      "id": "VF-prim-holy-seal-01",
+      "type": "GENERATE",
+      "experiment": "C5-E3",
+      "brief_sha256": "fc6fa496f801a3ad944dba9cbc4764f7e228d5724c1c8bcaa27d41051d727f66",
+      "started": "2026-09-16T07:44:11.360791+00:00",
+      "ended": "2026-09-16T07:47:43.504184+00:00",
+      "minutes": 3.5357288958332598,
+      "image_calls": 2,
+      "tool_calls": 7,
+      "audit": {
+        "violations": [],
+        "image_calls": 2,
+        "tool_calls": 7,
+        "tools_seen": {
+          "command_execution": 7
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0a92c-5e53-7971-8590-440ddb6ce9e4/exec-22e3aff9-1d83-4419-90e4-3cee13ecbaff.png",
+            "sha256": "e27e4fab11cc5dd6db6b4739888e41ed3738c5483dbf6cd1a69c6696019c39bd"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0a92c-5e53-7971-8590-440ddb6ce9e4/exec-68f9f695-bdc5-498c-a821-907fc43efddc.png",
+            "sha256": "1732b5b152d52f89e02f3bd0a46b5c493ed9974e619bca5fadf2ae77bcccdcac"
+          }
+        ]
+      },
+      "receipt_sha256": "5556116dee2cf160a46d7eacb510e819c5d1c06fb3205bb62f4eaa0879033fdc",
+      "artifacts": [
+        {
+          "name": "holy_seal_01.png",
+          "sha256": "1732b5b152d52f89e02f3bd0a46b5c493ed9974e619bca5fadf2ae77bcccdcac"
+        },
+        {
+          "name": "exec-22e3aff9-1d83-4419-90e4-3cee13ecbaff.provenance.json",
+          "sha256": "ac47d92dd501aaae3bb824f8276c34bc4126ecf4d611baf69dc1c4d5316db9b9"
+        },
+        {
+          "name": "exec-68f9f695-bdc5-498c-a821-907fc43efddc.provenance.json",
+          "sha256": "26b9fdfb406a0faf026db389889eced422cdf00be4fe993e8f124abd8fca748f"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0a92c-5e53-7971-8590-440ddb6ce9e4/exec-22e3aff9-1d83-4419-90e4-3cee13ecbaff.png",
+          "sha256": "e27e4fab11cc5dd6db6b4739888e41ed3738c5483dbf6cd1a69c6696019c39bd"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0a92c-5e53-7971-8590-440ddb6ce9e4/exec-68f9f695-bdc5-498c-a821-907fc43efddc.png",
+          "sha256": "1732b5b152d52f89e02f3bd0a46b5c493ed9974e619bca5fadf2ae77bcccdcac"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
+    },
+    {
+      "id": "VF-prim-lightning-branch-01",
+      "type": "GENERATE",
+      "experiment": "C5-E3",
+      "brief_sha256": "82300824640057ff7fdaa4f81bda93d12d74e377470fbfb99c2e1c3cea20a450",
+      "started": "2026-09-16T07:44:11.359690+00:00",
+      "ended": "2026-09-16T07:47:44.712249+00:00",
+      "minutes": 3.5558953375000177,
+      "image_calls": 2,
+      "tool_calls": 3,
+      "audit": {
+        "violations": [],
+        "image_calls": 2,
+        "tool_calls": 3,
+        "tools_seen": {
+          "command_execution": 3
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0a92c-5f23-7b33-bb10-662b7d7c41e4/exec-5fd6ed57-3aeb-4247-a4c3-1b79577644c2.png",
+            "sha256": "126e5886000709d68a6f35a85f31f09cd696dd9620abc8bee36afea42f67cbb9"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0a92c-5f23-7b33-bb10-662b7d7c41e4/exec-9f124b8a-dcb4-44a8-baaa-acc7a7dee900.png",
+            "sha256": "12c71beca2cba547bd982f30535d3842dd1be4a9b2b6077ec63318d52664db8d"
+          }
+        ]
+      },
+      "receipt_sha256": "784000f9d10a71b3705cb487c4f7d80c7e99ed804374bd0bdee3e3c6200c9150",
+      "artifacts": [
+        {
+          "name": "lightning_branch_01.png",
+          "sha256": "12c71beca2cba547bd982f30535d3842dd1be4a9b2b6077ec63318d52664db8d"
+        },
+        {
+          "name": "exec-5fd6ed57-3aeb-4247-a4c3-1b79577644c2.provenance.json",
+          "sha256": "27bd9c51ed8f7f5e9cb166215c3f588c5615165c740f286bbbc75b29d49a6d51"
+        },
+        {
+          "name": "exec-9f124b8a-dcb4-44a8-baaa-acc7a7dee900.provenance.json",
+          "sha256": "63bc8c405fca5bdd0c44a945c32b38107a6c4b6f326d96d7c81f9f227e2018ea"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0a92c-5f23-7b33-bb10-662b7d7c41e4/exec-5fd6ed57-3aeb-4247-a4c3-1b79577644c2.png",
+          "sha256": "126e5886000709d68a6f35a85f31f09cd696dd9620abc8bee36afea42f67cbb9"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0a92c-5f23-7b33-bb10-662b7d7c41e4/exec-9f124b8a-dcb4-44a8-baaa-acc7a7dee900.png",
+          "sha256": "12c71beca2cba547bd982f30535d3842dd1be4a9b2b6077ec63318d52664db8d"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
+    },
+    {
+      "id": "VF-prim-poison-puff-01",
+      "type": "GENERATE",
+      "experiment": "C5-E3",
+      "brief_sha256": "3b2832112ca9ca64ba7549f814ea5d7570f89dd4f9f7ce6644b38ed5a4dba969",
+      "started": "2026-09-16T07:44:11.358920+00:00",
+      "ended": "2026-09-16T07:47:46.596660+00:00",
+      "minutes": 3.587316695149881,
+      "image_calls": 2,
+      "tool_calls": 4,
+      "audit": {
+        "violations": [],
+        "image_calls": 2,
+        "tool_calls": 4,
+        "tools_seen": {
+          "command_execution": 4
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0a92c-609a-7762-babb-55338dd56a4d/exec-ddf6eabc-f6fc-423c-94dd-bc0f8e316392.png",
+            "sha256": "72b4ffe1c9051eb3dbcac359756ed3f943dc8144d9bf469dc3a88e4932598af4"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0a92c-609a-7762-babb-55338dd56a4d/exec-e5e7a1f0-2e4e-4b8e-bd91-f61f808498d7.png",
+            "sha256": "f032e2cfa6a63d576955009a9c0bfe2a488fbf4eb84130a532adc6d6564ffa3d"
+          }
+        ]
+      },
+      "receipt_sha256": "0446de5c54b30e5757e3100b8c83004ec75613ed062729a584294f981b6adc43",
+      "artifacts": [
+        {
+          "name": "poison_puff_01.png",
+          "sha256": "f032e2cfa6a63d576955009a9c0bfe2a488fbf4eb84130a532adc6d6564ffa3d"
+        },
+        {
+          "name": "exec-ddf6eabc-f6fc-423c-94dd-bc0f8e316392.provenance.json",
+          "sha256": "fa96c67d316fe9bc47500fb5cf98e60d1d81411b9b3f595e86a2b340d5775f62"
+        },
+        {
+          "name": "exec-e5e7a1f0-2e4e-4b8e-bd91-f61f808498d7.provenance.json",
+          "sha256": "b6b053686679c4c98a3dabde7cf2caede0b13aa5ac73676f4b997b83fef3b359"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0a92c-609a-7762-babb-55338dd56a4d/exec-ddf6eabc-f6fc-423c-94dd-bc0f8e316392.png",
+          "sha256": "72b4ffe1c9051eb3dbcac359756ed3f943dc8144d9bf469dc3a88e4932598af4"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0a92c-609a-7762-babb-55338dd56a4d/exec-e5e7a1f0-2e4e-4b8e-bd91-f61f808498d7.png",
+          "sha256": "f032e2cfa6a63d576955009a9c0bfe2a488fbf4eb84130a532adc6d6564ffa3d"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
+    },
+    {
+      "id": "VF-prim-lightning-prong-01",
+      "type": "GENERATE",
+      "experiment": "C5-E3",
+      "brief_sha256": "777b73c91c03a2ea81b4fb38e289b2911e06b544c706e1a287cbc11a41b8a4c7",
+      "started": "2026-09-16T07:44:11.360346+00:00",
+      "ended": "2026-09-16T07:47:48.324206+00:00",
+      "minutes": 3.616082766666659,
+      "image_calls": 2,
+      "tool_calls": 4,
+      "audit": {
+        "violations": [],
+        "image_calls": 2,
+        "tool_calls": 4,
+        "tools_seen": {
+          "command_execution": 4
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0a92c-600a-7e83-8b63-04c0173a7ae6/exec-15bea8f3-009e-430d-9d04-74ceab390642.png",
+            "sha256": "61b8beaf75e9422301bfe2e3c0ae80fcf24c78a1ebf21b911b9aaaa821b420ea"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0a92c-600a-7e83-8b63-04c0173a7ae6/exec-37061925-73b2-4d1e-b94d-8c937c820abf.png",
+            "sha256": "90fb9059189a205141a5ad91ca5bc3802e6026a7dea7468bb82082cfa0b8ac17"
+          }
+        ]
+      },
+      "receipt_sha256": "edebeea060eeb2881ab7a488682b8e407e8981759fdfc1aa25a0be852334f84d",
+      "artifacts": [
+        {
+          "name": "lightning_prong_01.png",
+          "sha256": "90fb9059189a205141a5ad91ca5bc3802e6026a7dea7468bb82082cfa0b8ac17"
+        },
+        {
+          "name": "exec-15bea8f3-009e-430d-9d04-74ceab390642.provenance.json",
+          "sha256": "d7472610ad5303a9f29eb4b1f2999c8d92a03c21d3b51d010c1909efe41cb7a6"
+        },
+        {
+          "name": "exec-37061925-73b2-4d1e-b94d-8c937c820abf.provenance.json",
+          "sha256": "0cc9460a45379f3f72d71622401548d878a86ec504753b9ff2a62ede519b3532"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0a92c-600a-7e83-8b63-04c0173a7ae6/exec-15bea8f3-009e-430d-9d04-74ceab390642.png",
+          "sha256": "61b8beaf75e9422301bfe2e3c0ae80fcf24c78a1ebf21b911b9aaaa821b420ea"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0a92c-600a-7e83-8b63-04c0173a7ae6/exec-37061925-73b2-4d1e-b94d-8c937c820abf.png",
+          "sha256": "90fb9059189a205141a5ad91ca5bc3802e6026a7dea7468bb82082cfa0b8ac17"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
+    },
+    {
+      "id": "KS-travel-stretched-01",
+      "type": "GENERATE",
+      "experiment": "C5-E1",
+      "brief_sha256": "7b9a88e410af3b16d78141aa95c29b4a1b1558a3a18bae6d9669162e8f7ea592",
+      "started": "2026-09-16T07:44:11.358783+00:00",
+      "ended": "2026-09-16T07:47:54.501724+00:00",
+      "minutes": 3.7190722902666797,
+      "image_calls": 2,
+      "tool_calls": 3,
+      "audit": {
+        "violations": [],
+        "image_calls": 2,
+        "tool_calls": 3,
+        "tools_seen": {
+          "command_execution": 3
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0a92c-5d5f-78f1-89fd-838e2cedde96/exec-41444436-d38d-47fa-8ae6-abc3b50497bc.png",
+            "sha256": "fa2eb8ce0529e97dcad039e4e7189eb15b72f6fe31783f1d2e1dc8befb41b2a3"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0a92c-5d5f-78f1-89fd-838e2cedde96/exec-d2ec4b9b-d38e-4858-8eb2-0bba547ce25c.png",
+            "sha256": "ace69da98ef1c3c292bea79ebccffa1d6f11eaf4e8fb6b7d1d5221f88f02d610"
+          }
+        ]
+      },
+      "receipt_sha256": "77f3dff485c08e1149fe521d1d5b1f768dc1ba8526892ddbb8ce87487652aa1a",
+      "artifacts": [
+        {
+          "name": "travel_stretched_01.png",
+          "sha256": "fa2eb8ce0529e97dcad039e4e7189eb15b72f6fe31783f1d2e1dc8befb41b2a3"
+        },
+        {
+          "name": "exec-41444436-d38d-47fa-8ae6-abc3b50497bc.provenance.json",
+          "sha256": "deab47e01378d07d6239ddd80495a4daa30b44fb4b64e8d9e223282bf3dbcaeb"
+        },
+        {
+          "name": "exec-d2ec4b9b-d38e-4858-8eb2-0bba547ce25c.provenance.json",
+          "sha256": "8b64d6a9f13603cc225930d9ec20f69c3f47de7955bc62337d0e9d0fc3a8b78e"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0a92c-5d5f-78f1-89fd-838e2cedde96/exec-41444436-d38d-47fa-8ae6-abc3b50497bc.png",
+          "sha256": "fa2eb8ce0529e97dcad039e4e7189eb15b72f6fe31783f1d2e1dc8befb41b2a3"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0a92c-5d5f-78f1-89fd-838e2cedde96/exec-d2ec4b9b-d38e-4858-8eb2-0bba547ce25c.png",
+          "sha256": "ace69da98ef1c3c292bea79ebccffa1d6f11eaf4e8fb6b7d1d5221f88f02d610"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
+    },
+    {
+      "id": "KS-travel-pulsed-01",
+      "type": "GENERATE",
+      "experiment": "C5-E1",
+      "brief_sha256": "fade5754cf0aa9e48adb17c00d981f771f636a55f2452adf27292e8ed39cf9b2",
+      "started": "2026-09-16T07:44:11.359974+00:00",
+      "ended": "2026-09-16T07:48:02.846237+00:00",
+      "minutes": 3.858125327783394,
+      "image_calls": 2,
+      "tool_calls": 3,
+      "audit": {
+        "violations": [],
+        "image_calls": 2,
+        "tool_calls": 3,
+        "tools_seen": {
+          "command_execution": 3
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0a92c-5e2b-76f0-ae4b-1059e3a35d4e/exec-bdd96f8c-4007-4e76-8b35-28beea5951c0.png",
+            "sha256": "15d8cfc4385c608943c06eedfd6e95d3c7bcd7853c05bd9fff4e9fb0cad1570a"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0a92c-5e2b-76f0-ae4b-1059e3a35d4e/exec-e4da87c0-95ed-4e4f-b2cf-3a75fd6d21a3.png",
+            "sha256": "265378a49da8bea2fc25a08fa4b68fae4708319bd0b95aa1904ef712a3d6e366"
+          }
+        ]
+      },
+      "receipt_sha256": "2a42f7d94b789ad6467f0ca0ec508b96b043de24bcf85358b422c10cf3c03486",
+      "artifacts": [
+        {
+          "name": "travel_pulsed_01.png",
+          "sha256": "15d8cfc4385c608943c06eedfd6e95d3c7bcd7853c05bd9fff4e9fb0cad1570a"
+        },
+        {
+          "name": "exec-bdd96f8c-4007-4e76-8b35-28beea5951c0.provenance.json",
+          "sha256": "f8fc8539d3da36954a740ab094e8e67d34fabde7bd3060fdc7a430da194e7ec3"
+        },
+        {
+          "name": "exec-e4da87c0-95ed-4e4f-b2cf-3a75fd6d21a3.provenance.json",
+          "sha256": "b02d62716cae6bc4f865683183dfc34fecaf1620a5c5278ef0eb17887ffc29a3"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0a92c-5e2b-76f0-ae4b-1059e3a35d4e/exec-bdd96f8c-4007-4e76-8b35-28beea5951c0.png",
+          "sha256": "15d8cfc4385c608943c06eedfd6e95d3c7bcd7853c05bd9fff4e9fb0cad1570a"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0a92c-5e2b-76f0-ae4b-1059e3a35d4e/exec-e4da87c0-95ed-4e4f-b2cf-3a75fd6d21a3.png",
+          "sha256": "265378a49da8bea2fc25a08fa4b68fae4708319bd0b95aa1904ef712a3d6e366"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
     }
   ],
   "experiments": [],
@@ -6804,6 +7563,11 @@
       "id": "M-C5-E3-SPECS",
       "note": "The six VfxSkillSpec files filed at runs/C-5/specs/ (conductor-authored; source-game mechanics from conductor memory, each flagged VERIFY against the reference corpus before its E3 phase; identity-changing fields for Matt: Frozen Orb expiry nova, Blackwater tick schedule, Zeus 4-hop irregular delays, Healing Hands pulse schedule). Nine E3 primitive paintings + two E1 travel key states fired as one wave (11 GENERATE).",
       "ts": "2026-09-16T03:44:10"
+    },
+    {
+      "id": "M-C5-WAVE11",
+      "note": "Wave of 11 DELIVERED (all exit 0, 2 image calls each, all 1254² RGBA; ran 11-wide in 4 min without a VOID): travel key states stretched + pulsed; poison lobe + density puff; RGB flask; lightning link / branch / prong; holy petal / seal / ring. 512 working copies staged beside each. Conductor eye on the board next; E3 primitives now exist for every element except what E2/E3 grammars still need (nothing further for the six).",
+      "ts": "2026-09-16T03:48:41"
     }
   ],
   "halts": [],

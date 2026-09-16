@@ -1,0 +1,49 @@
+{
+  "task_id": "VF-prim-lightning-branch-01",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "lightning_branch_01",
+      "path": "out/lightning_branch_01.png",
+      "sha256": "12c71beca2cba547bd982f30535d3842dd1be4a9b2b6077ec63318d52664db8d",
+      "prompt": "Generate one centered hand-drawn lightning branch junction: short left stub, two thin jagged unequal rightward forks with needle tips; four flat grayscale planes, dark tapered contour, light-gray majority and white core under 25%. Transparent RGBA background. Requested canvas 512×512 and painted extent 120×100 pixels. Match reference 2's value-plane language and reference 1's painted register. No glow, gradients, texture, scenery, shadow or text. Retry emphasized reducing the oversized body to 120×100 native pixels even if the tool retained a 1254×1254 canvas.",
+      "references": [
+        {
+          "role": "Scale and register",
+          "path": "in/01_scale_board_clearing.png"
+        },
+        {
+          "role": "Four-plane visual language, not shape",
+          "path": "in/02_fire_peak_01.png"
+        },
+        {
+          "role": "Camera reading only",
+          "path": "in/03_clearing_native_512.png"
+        }
+      ],
+      "elapsed_s": 60.34
+    }
+  ],
+  "calls_used": 2,
+  "retries": [
+    {
+      "reason": "First candidate's painted extent exceeded the requested size by more than 25%.",
+      "change": "Emphasized a 120×100 native-pixel body with larger empty margins and uniform value planes."
+    }
+  ],
+  "self_report": {
+    "obeyed_invariants": false,
+    "concerns": [
+      "Delivered unchanged at 1254×1254, not the required 512×512.",
+      "Painted extent remains oversized, visually approximately 360×260 pixels.",
+      "Alpha channel is present; genuine alpha-zero background, opaque interior and fringe width were not numerically verified.",
+      "Exactly four flat grayscale values were not verified; visible tonal variation remains."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/lightning_branch_01.png",
+      "sha256": "12c71beca2cba547bd982f30535d3842dd1be4a9b2b6077ec63318d52664db8d"
+    }
+  ]
+}

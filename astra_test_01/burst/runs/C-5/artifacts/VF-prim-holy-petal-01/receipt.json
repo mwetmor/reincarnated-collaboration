@@ -1,0 +1,49 @@
+{
+  "task_id": "VF-prim-holy-petal-01",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "holy_petal_01",
+      "path": "out/holy_petal_01.png",
+      "sha256": "f03045114005025a82f15f690f1b7e7f464f92c751587323df4f072b481cc46b",
+      "prompt": "Generate ONE isolated hand-drawn holy folded-ray primitive. Output canvas MUST be 512x512 pixels. Entire silhouette MUST occupy only x226 through 286, y204 through 309: 60 pixels wide by 105 pixels high. This is a tiny sprite surrounded by vast empty margins. Do not zoom or enlarge. If output resolution differs, still keep the actual painted body only 60x105 native pixels centered on the canvas. Genuine transparent RGBA, alpha 0 background and opaque body, at most 1 pixel antialias fringe. If transparency is unavailable use uniform pure #00ff00. No checkerboard. Reference 1: hand-drawn 2D register and elevated 45 degree camera. Reference 2: hard-edged four-plane greyscale language ONLY, not flame shape. Reference 3: camera reading only. ONE upward rising calm petal, pointed top and narrow base, gently curving sides, approximately partial bilateral symmetry, simple central longitudinal fold. Confident dark hand-drawn tapering outline. Exactly four SOLID UNIFORM paint values: #202020 contour/thin rim; #606060 small folded underside near base; #BFBFBF main left body comprising most of body; #FFFFFF narrow right folded face along central crease, at most 25 percent of body area. Uniform pixel-identical fills within each region. No tonal variation or mottling within a plane, no highlights beyond those four values. Four clean hard-edged regions only. One frame of hand-drawn effects animation, clean painted planes, readable tiny silhouette. No gradient, glow, illumination shading, blur, texture, noise, grain, color, floor, shadow, character, lettering, seal, particles, sparkles, extra petals or flame tongues. Previous attempt had excessive size and nonuniform fills: correct these specifically. Deliver one PNG, 512x512.",
+      "references": [
+        {
+          "role": "Scale and register board",
+          "path": "in/01_scale_board_clearing.png"
+        },
+        {
+          "role": "Approved four-plane language, not shape",
+          "path": "in/02_fire_peak_01.png"
+        },
+        {
+          "role": "Native ground camera reading only",
+          "path": "in/03_clearing_native_512.png"
+        }
+      ],
+      "elapsed_s": 54.51
+    }
+  ],
+  "calls_used": 2,
+  "retries": [
+    {
+      "reason": "First output had excessive painted extent and visible tonal variation.",
+      "change": "Reinforced native-pixel bounds, small composition, and uniform four-value fills."
+    }
+  ],
+  "self_report": {
+    "obeyed_invariants": false,
+    "concerns": [
+      "Output is 1254×1254 rather than 512×512; copied unchanged without conversion.",
+      "Painted extent remains visibly more than 25% above the requested 60×105 pixels.",
+      "Visible tonal variation remains; exactly four flat values is not established.",
+      "PNG has an alpha channel, but genuine alpha-zero exterior, opaque interior, and fringe width were not numerically verified."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/holy_petal_01.png",
+      "sha256": "f03045114005025a82f15f690f1b7e7f464f92c751587323df4f072b481cc46b"
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "task_id": "VF-prim-flask-01",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "flask_01",
+      "path": "out/flask_01.png",
+      "sha256": "8fd758d45af1d45f5c520cec79dd3a16cdbb6d5a0b4bfe4f42d83d88b68b3389",
+      "prompt": "Correct this single flask sprite. Output exactly 512x512 pixels with genuine transparent background, alpha zero outside and opaque inside. CRITICAL: the complete painted flask including cork must occupy ONLY 46 pixels wide and 70 pixels tall, centered at (256,256). The previous flask was far too large. Reduce its painted extent dramatically. Preserve round belly, narrow neck, brown cork and 20-degree tilt, elevated 45-degree three-quarter view. Simplify all material rendering to clean uniformly colored flat planes, hard boundaries, hand-drawn tapered dark contour. Dark green-blue glass body as a single flat dark fill. ONE pale upper-left belly reflection plane. Liquid inside as ONE uniform MID-GREY flat shape filling the lower part of the belly; no separate surface ellipse shading, no transmitted highlights. Cork brown with simple flat upper plane. Absolutely no gradients, tonal texture, glow, blur, semitransparent body, extra reflections, ground shadows or text. Hand-drawn painted 2D effects animation language. Very large completely empty transparent margins. Return one image only, native 512x512; do not magnify the tiny flask or enlarge the canvas.",
+      "references": [
+        {
+          "role": "Scale and painted register",
+          "path": "in/01_scale_board_clearing.png"
+        },
+        {
+          "role": "Flat-plane and contour language",
+          "path": "in/02_fire_peak_01.png"
+        },
+        {
+          "role": "Camera reading only",
+          "path": "in/03_clearing_native_512.png"
+        }
+      ],
+      "elapsed_s": 51.212
+    }
+  ],
+  "calls_used": 2,
+  "retries": [
+    {
+      "reason": "Initial painted extent exceeded tolerance; extra shading planes remained.",
+      "change": "Requested dramatically smaller extent and simpler uniform material planes, reiterating 512×512 output."
+    }
+  ],
+  "self_report": {
+    "obeyed_invariants": false,
+    "concerns": [
+      "Generator returned 1254×1254 instead of 512×512; copied unchanged as required.",
+      "Painted extent remains approximately 140×210 pixels, exceeding the requested 46×70.",
+      "Alpha channel confirmed and background appears transparent; exact outside alpha, interior opacity and fringe width were not numerically verified.",
+      "Subtle tonal variation remains within material planes.",
+      "Retry used the first generated flask as its edit reference."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/flask_01.png",
+      "sha256": "8fd758d45af1d45f5c520cec79dd3a16cdbb6d5a0b4bfe4f42d83d88b68b3389"
+    }
+  ]
+}

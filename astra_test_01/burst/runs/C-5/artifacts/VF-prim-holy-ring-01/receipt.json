@@ -1,0 +1,49 @@
+{
+  "task_id": "VF-prim-holy-ring-01",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "holy_ring_01",
+      "path": "out/holy_ring_01.png",
+      "sha256": "3d7bc493e28d3b9bd46b4ecc59aa14bf87bff56374449bf3b843bf0bf18bbfdf",
+      "prompt": "Generate ONE corrected holy broken ring segment VFX asset. Output native 512x512 PNG with real transparent background. The previous attempt was too large and had shaded textured fills. This retry must have an extremely SMALL centred mark: painted bounding box exactly 150 pixels wide by 45 pixels tall, centred at canvas centre. Do not fill the canvas. If the system forces 1254x1254 canvas, still keep the painted mark 150x45 actual pixels, with over 500 pixels of completely empty transparent margin on each side. Shape: ONE thick shallow U-shaped elliptical arc lying on a ground plane, viewed from elevated approximately 45-degree three-quarter game camera, two finely tapered pointed ends, one small clean notch cut into outer lower edge. Calm holy seal fragment, folded clean planes, partly symmetrical, no jaggedness. Confident hand-drawn dark tapered contour like one frame of painted 2D animation. EXACTLY FOUR SOLID FLAT GREYSCALE INKS ONLY: #202020 contour/thin rim; #606060 dark grey band; #B0B0B0 majority body; #FFFFFF narrow inner edge less than 25 percent body. Every fill is perfectly flat and untextured. No gradients, no shading within a fill, no metallic reflections, no additional greys, no speckles, no glow, no blur, no cast shadow, no ground, no text, no particles, no colour. Transparent RGBA alpha zero outside the arc, fully opaque body, no edge fringe exceeding one pixel. If impossible to create true transparency use flat pure #00ff00 plate. Reference 1 supplies painted hand-drawn register and camera; reference 2 supplies four-plane language ONLY, never flame shape; reference 3 supplies camera reading ONLY. Exactly one primitive, no sheet, no border.",
+      "references": [
+        {
+          "role": "Scale and register",
+          "path": "in/01_scale_board_clearing.png"
+        },
+        {
+          "role": "Four-plane effect language",
+          "path": "in/02_fire_peak_01.png"
+        },
+        {
+          "role": "Ground camera reading",
+          "path": "in/03_clearing_native_512.png"
+        }
+      ],
+      "elapsed_s": 59.174
+    }
+  ],
+  "calls_used": 2,
+  "retries": [
+    {
+      "reason": "First output exceeded the requested painted extent by over 25% and showed shading within the planes.",
+      "change": "Emphasized a small centred 150×45-pixel mark and exactly four uniform, untextured fills."
+    }
+  ],
+  "self_report": {
+    "obeyed_invariants": false,
+    "concerns": [
+      "Delivered canvas is 1254×1254, not 512×512; copied unchanged as required.",
+      "Painted extent remains approximately 315×140 pixels by visual inspection, exceeding the requested tolerance.",
+      "Visible tonal variation remains; exactly four flat value planes is not achieved.",
+      "PNG alpha channel is confirmed, but genuine outside-body transparency and the one-pixel fringe limit were not conclusively verified."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/holy_ring_01.png",
+      "sha256": "3d7bc493e28d3b9bd46b4ecc59aa14bf87bff56374449bf3b843bf0bf18bbfdf"
+    }
+  ]
+}

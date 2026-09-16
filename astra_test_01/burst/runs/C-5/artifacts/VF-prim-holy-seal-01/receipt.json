@@ -1,0 +1,45 @@
+{
+  "task_id": "VF-prim-holy-seal-01",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "holy_seal_01",
+      "path": "out/holy_seal_01.png",
+      "sha256": "1732b5b152d52f89e02f3bd0a46b5c493ed9974e619bca5fadf2ae77bcccdcac",
+      "prompt": "Generate one isolated hand-drawn painted 2D HOLY INTERRUPTED SEAL game effect primitive. Required output PNG canvas 512x512, genuinely transparent RGBA background. Critical correction: keep the TOTAL painted extent only 300 pixels wide and 140 pixels high, centered. Large empty margins. Draw TWO SEPARATE THIN CONCENTRIC ELLIPTICAL RINGS with clearly transparent space between them, and a simple thin-line foreshortened hexagram inside the smaller ellipse. Both rings and hexagram lie in the same horizontal ground plane seen from elevated three-quarter game camera. The outer ellipse has exactly ONE small deliberate gap at its lower-right. The inner ellipse is complete with NO gap. Reference 1 camera/hand-drawn register only; reference 2 flat grayscale painted-plane language only. Nothing flame-shaped. Calm geometric ceremonial holy vocabulary. Confident tapered dark hand-drawn contours around narrow clean painted strokes. Exactly four FLAT grayscale planes: #202020 contour/thin rim, #606060 secondary plane, #BFBFBF majority body, #FFFFFF narrow core accents less than quarter of painted body. No gradients, highlights with shading, texture, glow, blur, soft fringes, colour, shadows, scenery, particles, characters or text. Paint only the shape representing emission. All unpainted areas including gaps between rings and holes inside hexagram must be alpha 0, opaque inside the painted strokes, maximum 1 pixel antialiasing. Keep strokes thin, two distinct rings visibly separated. Output exactly 512x512 pixels, no enlargement, no sheet. If actual transparency is impossible use uniform pure #00ff00.",
+      "references": [
+        {
+          "role": "Camera and hand-drawn register",
+          "path": "in/01_scale_board_clearing.png"
+        },
+        {
+          "role": "Four-plane grayscale language, not shape",
+          "path": "in/02_fire_peak_01.png"
+        }
+      ],
+      "elapsed_s": 45.979
+    }
+  ],
+  "calls_used": 2,
+  "retries": [
+    {
+      "reason": "First candidate was oversized and depicted one band rather than two separate rings.",
+      "change": "Emphasized 300×140 painted extent and two visibly separated concentric rings."
+    }
+  ],
+  "self_report": {
+    "obeyed_invariants": false,
+    "concerns": [
+      "Copied unchanged. Output is 1254×1254 rather than 512×512; painted extent is approximately 730×300 pixels rather than 300×140.",
+      "An alpha channel is confirmed; exact alpha-zero background and fringe width were not quantitatively verified.",
+      "Visible shading appears bevel-like; exactly four flat value planes is not established.",
+      "Used the required receipt schema's images array despite the conflicting instruction requesting an integer."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/holy_seal_01.png",
+      "sha256": "1732b5b152d52f89e02f3bd0a46b5c493ed9974e619bca5fadf2ae77bcccdcac"
+    }
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "task_id": "VF-prim-lightning-prong-01",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "lightning_prong_01",
+      "path": "out/lightning_prong_01.png",
+      "sha256": "90fb9059189a205141a5ad91ca5bc3802e6026a7dea7468bb82082cfa0b8ac17",
+      "prompt": "Create one 512×512 transparent RGBA lightning needle prong, pointing up-right with one small kink near its pinched base. Centered extent 70×20 pixels. Hand-drawn tapered dark contour; exactly four flat grayscale planes: #202020, #606060, #bfbfbf, #ffffff. Light grey dominates; white core occupies at most 25%. Hard edges, no gradients, glow, texture, scene, shadow, text or extra objects. References establish scale, register and four-plane language. Retry correction: previous canvas was 1254×1254 and prong approximately 340 pixels long; enforce 512×512 canvas and 70-pixel native prong length.",
+      "references": [
+        {
+          "role": "Scale and register",
+          "path": "in/01_scale_board_clearing.png"
+        },
+        {
+          "role": "Four-plane contour language",
+          "path": "in/02_fire_peak_01.png"
+        },
+        {
+          "role": "Native ground crop, reading only",
+          "path": "in/03_clearing_native_512.png"
+        }
+      ],
+      "elapsed_s": 57.164
+    }
+  ],
+  "calls_used": 2,
+  "retries": [
+    {
+      "reason": "First prong exceeded the requested painted extent by more than 25%; canvas was 1254×1254.",
+      "change": "Emphasized exact native dimensions and tiny painted extent."
+    }
+  ],
+  "self_report": {
+    "obeyed_invariants": false,
+    "concerns": [
+      "Retry remains 1254×1254 instead of 512×512, with visibly oversized painted extent.",
+      "Alpha channel is present; genuine zero-alpha background and fringe width were not independently verified.",
+      "Exactly four flat values were not verified; apparent tonal variation remains.",
+      "Copied unmodified; no resizing, conversion, trimming or keying performed."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/lightning_prong_01.png",
+      "sha256": "90fb9059189a205141a5ad91ca5bc3802e6026a7dea7468bb82082cfa0b8ac17"
+    }
+  ]
+}

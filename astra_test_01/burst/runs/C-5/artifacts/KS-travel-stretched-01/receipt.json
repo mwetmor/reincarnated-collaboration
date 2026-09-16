@@ -1,0 +1,49 @@
+{
+  "task_id": "KS-travel-stretched-01",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "travel_stretched_01",
+      "path": "out/travel_stretched_01.png",
+      "sha256": "fa2eb8ce0529e97dcad039e4e7189eb15b72f6fe31783f1d2e1dc8befb41b2a3",
+      "prompt": "Use case: precise-object-edit. EDIT IMAGE 2 DIRECTLY. Image 1 is the original REST identity and palette reference; Image 2 is the exact stretched silhouette and placement contract and EDIT TARGET; Image 3 supplies hand-drawn contour context only. One corrective retry: previous generation enlarged/repositioned the silhouette and shaded the flat planes. Return ONE image at EXACTLY 512 x 512 pixels, with REAL TRANSPARENT ALPHA outside the drawing. Trace Image 2's outer contour in its original position without any scaling or reframing. On the 512 canvas, the drawing occupies approximately x=4 through 420, y=187 through 318; the rightmost 91 pixels remain empty transparent space. Preserve that right margin and all top and bottom empty space. Head rightmost tip x=420, not the canvas edge. Four flat solid grayscale values ONLY: dark charcoal outline, medium gray, light gray, near-white, sampled from Image 1. Uniform value throughout each plane; absolutely no shading, gradients, texture, glow or softness in the fills. Keep the original contour thickness and hand-drawn taper. The ONLY artistic change is to redraw the existing interior junction so the stretched streak and head read as one continuous flowing lick of flame, head travelling RIGHT, tongues flowing LEFT. Outer silhouette must match Image 2 within 4 pixels, nothing added/removed/moved. Keep the original flame tongue shapes and positions. Clean painted 2D hand-animation drawing. No color, backdrop, ground, shadow, sparks, smoke, blur, text or checkerboard. Transparent PNG. The original guide's composition and exact margins are mandatory.",
+      "references": [
+        {
+          "role": "Original rest identity",
+          "path": "in/01_travel_rest_512.png"
+        },
+        {
+          "role": "Edit target and shape contract",
+          "path": "in/02_guide_travel_stretched_512.png"
+        },
+        {
+          "role": "Scale and register context",
+          "path": "in/03_scale_board_clearing.png"
+        }
+      ],
+      "elapsed_s": 64.444
+    }
+  ],
+  "calls_used": 2,
+  "retries": [
+    {
+      "reason": "First output enlarged/repositioned the silhouette and introduced shading within the value planes.",
+      "change": "Reasserted guide coordinates, empty margins, contour preservation, and uniform flat grayscale fills."
+    }
+  ],
+  "self_report": {
+    "obeyed_invariants": false,
+    "concerns": [
+      "Built-in image generation returned 1254×1254 instead of 512×512. Copied unchanged as instructed; no conversion or trimming.",
+      "Subtle shading remains visible; exactly four flat value planes is not established.",
+      "Silhouette and line-weight fidelity within the requested tolerance is not established.",
+      "An alpha channel is confirmed, but actual transparent pixel values were not independently verified because the image inspection utility was unavailable."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/travel_stretched_01.png",
+      "sha256": "fa2eb8ce0529e97dcad039e4e7189eb15b72f6fe31783f1d2e1dc8befb41b2a3"
+    }
+  ]
+}

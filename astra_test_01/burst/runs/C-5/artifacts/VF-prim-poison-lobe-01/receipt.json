@@ -1,0 +1,49 @@
+{
+  "task_id": "VF-prim-poison-lobe-01",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "poison_lobe_01",
+      "path": "out/poison_lobe_01.png",
+      "sha256": "8b24ffca30ccfa791c92a582a00ae446ea7de5f7fad3c6fa6e99f2980507db28",
+      "prompt": "Generate one centered viscous poison lobe leaning right, two attached hanging drips and one closed internal bubble. Hand-drawn tapered contour, four flat grayscale planes, transparent background, 512×512 canvas, approximately 110×90 painted extent. Retry correction: reduce oversized footprint to 21% canvas width and 18% height; eliminate tonal variation and use strictly uniform fills.",
+      "references": [
+        {
+          "role": "Scale and register",
+          "path": "in/01_scale_board_clearing.png"
+        },
+        {
+          "role": "Four-plane effects language",
+          "path": "in/02_fire_peak_01.png"
+        },
+        {
+          "role": "Camera reading",
+          "path": "in/03_clearing_native_512.png"
+        }
+      ],
+      "elapsed_s": 59.9
+    }
+  ],
+  "calls_used": 2,
+  "retries": [
+    {
+      "reason": "Oversized painted extent and visible tonal variation.",
+      "change": "Explicit small bounding box and stricter uniform four-value fills."
+    }
+  ],
+  "self_report": {
+    "obeyed_invariants": false,
+    "concerns": [
+      "Output remains 1254×1254 rather than 512×512; copied unchanged as required.",
+      "Painted extent is approximately 250×210 native pixels, exceeding the requested 110×90.",
+      "Visible tonal variation remains; exactly four flat values is not satisfied.",
+      "Alpha channel is present, but genuine exterior alpha-zero transparency and fringe width were not independently verified."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/poison_lobe_01.png",
+      "sha256": "8b24ffca30ccfa791c92a582a00ae446ea7de5f7fad3c6fa6e99f2980507db28"
+    }
+  ]
+}
