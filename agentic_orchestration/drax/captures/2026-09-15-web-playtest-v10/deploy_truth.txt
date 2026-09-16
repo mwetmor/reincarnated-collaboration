@@ -1,0 +1,154 @@
+DEPLOY TRUTH — CS-pack-web10 (cliffside from PACK v23; figure 13.5 %, necro on the
+path, F-C5-5 mobile forward-aim)
+drax, 2026-09-15
+
+URL             https://reincarnated-loadout.vercel.app/playtest/cliffside/
+Source          astra_test_01/burst/runs/C-5/artifacts/CS-pack-v23/godot (C-5; read-only, untouched)
+Build           reincarnated-godot/web/build_playtest.sh <src> cliffside   (Godot 4.6.3, gl_compatibility, threads OFF)
+Loadout commit  650fd75df9c9fad908c64cac4be85dee7e1ce8ca  (pushed d289fc4..650fd75 main)
+Godot commit    NOT COMMITTED — web/cliffside mirror is a build artifact; web9 committed
+                it at 3f8c7d69 and nothing in the tooling changed this round.
+
+Build-script change: NONE. web7-web9's procedure ran byte-for-byte on the new source.
+Overlay change: NONE. License fence clean on the overlay pass and on index.pck.
+
+== what is new vs v22 (what I read in the source before building) ==
+1. Figure height 13.5 % of 1080 = 146 px (was 130). Visible in cliffside.tscn as
+   body_width 113.75 -> 127.75 on every figure, staff_tip_offset -86.67 -> -97.33,
+   and the keeper/necro scale pairs (0.446875, 0.52) -> (0.501875, 0.584).
+2. Necromancer FINAL master moved: props.json instance necro_master_still
+   position [3840, 720] -> [2650, 1950]. Keeper spawns at (2285.62, 2407.32), so he
+   now stands on the sand path between spawn and the bridge, not in the clearing.
+3. F-C5-5 mobile cast aim, in scripts/keeper.gd. `_unhandled_input` (the
+   InputEventScreenTouch -> vfx_cursor_override path) is DELETED. `_cast` now branches:
+
+       if vfx_cursor_override == null and (vfx_force_touch_device or DisplayServer.is_touchscreen_available()):
+           forward_point = global_position + FACING_VECTORS[facing].normalized() * kit.range_px * art_scale
+           destination = {"point": forward_point, "target": null, "kind": "cursor"}
+       else:
+           <unchanged mouse/override resolution through G1.resolve_target>
+
+   So the aim is now DEVICE policy, not event-derived. That is exactly the right shape
+   for my web9 finding: the overlay's set_input_as_handled() and the browser's emulated
+   mouse are both now irrelevant to aim, because neither is consulted on a touch device.
+   `vfx_force_touch_device` is the probe hook; `const TOUCH_OVERLAY_BAND = 0.22` is
+   declared in keeper.gd and referenced nowhere — a published constant for the overlay
+   side. I did not consume it: the overlay does not need it, since the exporter no
+   longer needs to know which touches were buttons. Noted, not acted on.
+
+== pck identity ==
+local   f8bb4d79e4a25849d8c38367d67a4020f9ed9ba391af17d0e9ef0eba552a9016  36679104 B
+live    f8bb4d79e4a25849d8c38367d67a4020f9ed9ba391af17d0e9ef0eba552a9016  36679104 B  (full download, matches)
+v22 pck was 36662880 B (+16224 B — geometry and one prop position, no new art).
+index.wasm (37700666 B) and index.js (315759 B) byte-identical to web7/web8/web9.
+Only index.pck and the pck size inside index.html's GODOT_CONFIG changed in the
+deployed tree; the loadout commit is exactly those two files.
+
+== production HTTP (plain GET, no -L) ==
+200  text/html; charset=utf-8              5994       .../playtest/cliffside/
+200  text/html; charset=utf-8              5994       .../playtest/cliffside/index.html
+200  application/javascript; charset=utf-8 315759     .../playtest/cliffside/index.js
+200  application/wasm                      37700666   .../playtest/cliffside/index.wasm
+200  application/octet-stream              36679104   .../playtest/cliffside/index.pck
+200  text/html; charset=utf-8              5994       .../playtest/cliffside   (slash-less)
+200  text/html; charset=utf-8              3043       .../playtest/            (landing)
+live GODOT_CONFIG fileSizes: {"index.pck":36679104,"index.wasm":37700666}
+
+== THE CHECK THAT MATTERS: production touch-emulated cast ==
+VERDICT: FORWARD. On production, under real touch emulation, on both axes.
+
+Harness: touch_cast_test.js (beside this file). Playwright chromium, phone-landscape
+844x390 CSS px at dsf 2, hasTouch: true + isMobile: true, and every touch delivered as
+a genuine CDP Input.dispatchTouchEvent. THE MOUSE IS NEVER MOVED at any point in the
+run — so if aim were still reading the pointer, it would read whatever the browser's
+compatibility layer last reported, which is the failure web9 caught.
+
+The build agrees it is a touch device (live_touchflags.json):
+    maxTouchPoints 1, 'ontouchstart' in window true, window.TouchEvent function
+That is what DisplayServer.is_touchscreen_available() reads on web, so the new branch
+in keeper.gd is the LIVE branch in this run, not the desktop fallback.
+
+Method — and one deliberate addition to the dispatch. East alone is a weak test here:
+the CAST button sits bottom-RIGHT, so "forward when facing east" and "at the CAST
+button" both land to the right of the Keeper and the frames would not separate them.
+So I cast EAST (as dispatched) and then WEST (the discriminator). Facing west, a
+forward aim lands LEFT and an emulated-mouse aim lands RIGHT. Both were run in one
+session on the live URL, kit fire_burst_e0p_v2 (Tab x7), joystick drag to set facing,
+release, then tap CAST at (700, 314).
+
+  live_01_east_cast_FORWARD.png  Keeper at screen x~845; burst centred x~1085, same
+                                 y band as his torso. EAST of him = forward. The CAST
+                                 button is lit at (1400, 630) and the burst is nowhere
+                                 near it.
+  live_02_west_cast_FORWARD.png  Keeper at screen x~845; burst centred x~570, level
+                                 with his feet. WEST of him = forward, and directly
+                                 AWAY from the held CAST button.
+  live_01_east_pre.png / live_02_west_pre.png   the pre-cast baselines for each.
+  live_00_kit_label.png          HUD reads "VFX: fire_burst_e0p_v2  (Tab)".
+  live_03_after.png              end of run.
+
+Three casts were fired per direction; every frame that caught a burst put it on the
+facing side. The web9 bug does not reproduce.
+
+== regression guard the dispatch did not ask for: desktop mouse aim ==
+VERDICT: UNCHANGED. Worth the ten minutes — the fix edits the shared _cast path, so
+"mobile fixed" and "desktop still correct" are two claims, not one.
+
+Mirror-image discriminator, production, 1280x720 desktop context (maxTouchPoints 0,
+ontouchstart false — confirmed in deskk0_console.txt, so the OLD branch is live):
+face EAST, park the real cursor far NORTH-WEST at (200, 200), cast frozen_orb.
+Forward-aim leaking to desktop would throw it east; mouse aim sends it to the cursor.
+
+  deskk0_21_orb_in_flight_NW.png  the orb mid-flight up-left of the Keeper
+  deskk0_21_orb_at_cursor_NW.png  the orb detonated at ~(355, 230), at the parked cursor
+  deskk0_20_pre.png               baseline
+Frame-by-frame diff centroids trace the whole arc: (636,323) at the Keeper, then
+(464,252), (349,234), (189,229) — a clean line from the Keeper to the cursor, opposite
+his facing. Desktop aims at the mouse, exactly as before.
+(desk_21_cast_pose.png is from the first attempt with fire_burst_e0p_v2; that kit's
+burst is too fast for headless screenshot cadence and only the cast pose was caught,
+which is why the guard was re-run on the slower frozen_orb.)
+
+== the necromancer on the path ==
+  live_10_spawn.png         spawn
+  live_12_walk_ne_2.png     walking NE, he comes into frame
+  live_13_necro_on_path.png THE FRAME — necromancer standing on the sand path in the
+                            lower-left, Keeper at the bridge approach upper-right, the
+                            plank bridge and the far bridgehead both in shot. He reads
+                            as between spawn and the bridge, roughly a third of the way,
+                            which is what the dispatch describes.
+  live_14_walk_ne_4.png     one step further on
+Descriptive only: at 146 px the necromancer's armour plating, scythe blade and white
+hair all resolve at this camera distance; in the v9 captures at 130 px the scythe read
+as a single pale stroke.
+
+== boot + console on production ==
+touch run:   booted=true boot_ms=7391
+desktop run: booted, clean
+Both runs: 0 pageerror, 0 Godot errors. Only the two WebGL 'GPU stall due to ReadPixels'
+perf warnings, which are a swiftshader artifact and have been present since web6.
+Godot Engine v4.6.3.stable.official, single-threaded, no GDExtension.
+
+== license fence ==
+overlay pass: clean (no library VFX packs)
+staged index.pck: no match for the forbidden-name pattern (build would exit 3)
+LIVE index.pck, downloaded and grepped independently of the build: no match
+
+== caveats ==
+Unchanged from web8/web9: iOS texture memory ~45 MB first download; the six big
+  parallax/tile textures import as lossy WebP q0.9; parallax/tiles/tile_0_0.png is
+  4096x4096, at the GLES3 max-texture-size floor.
+Single-threaded build (no SharedArrayBuffer), so no COOP/COEP headers on Vercel.
+The +16224 B on the pck is geometry and one prop position. No new art in v23.
+
+== harness notes for the next deploy ==
+Touch: hasTouch + isMobile on the CONTEXT is not enough on its own to prove which
+  branch ran — read navigator.maxTouchPoints / 'ontouchstart' from inside the page and
+  file it, because that is the value DisplayServer.is_touchscreen_available() derives
+  from. touch_cast_test.js writes it to <label>_touchflags.json every run.
+Direction: always cast in a direction that points AWAY from the on-screen control you
+  suspect. A single east-facing cast cannot distinguish "forward" from "at the CAST
+  button" in this layout, and would have passed either way.
+Kit choice: for any aim question in headless, use a slow kit (frozen_orb). At
+  swiftshader screenshot cadence (~0.8 s/frame) a fast burst detonates between frames
+  and you photograph the cast pose instead of the landing.
