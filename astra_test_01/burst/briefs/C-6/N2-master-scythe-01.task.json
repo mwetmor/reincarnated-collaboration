@@ -1,0 +1,22 @@
+{
+ "text": "GENERATE BURST N2-master-scythe-01 — BAKE THE SCYTHE INTO THE ACCEPTED MASTER (Run C-6; Matt 2026-09-15 rulings R-C6-1 \"I like the Necro as master copy\", R-C6-2 \"bake it in\"). task_id \"N2-master-scythe-01\".\n\nIMAGE 1 is the ACCEPTED camera master of the Necromancer on flat PURE GREEN #00ff00 (1254×1254; figure 706 px tall, bbox x 455–832, y 304–1010): a tall gaunt man in bone-ribbed charcoal-and-silver armour, long white hair, a great bone horn on HIS LEFT shoulder (the viewer's right), seen from the game's high three-quarter camera (about 53° down). He stands in a two-handed polearm grip with NO weapon: HIS RIGHT fist (viewer's LEFT) is raised, closed, at chest height in front of the ribcage plate; HIS LEFT fist (viewer's RIGHT, the horned side) hangs low, closed, at the hip.\nIMAGE 2 is the approved SCYTHE design on the same green (1254×1254): a bone-and-silver war scythe — a long haft of jointed bone with silver ferrules and TWO dark leather grip-wraps (one upper, one lower), a silver spiked butt-cap at the bottom, and at the top a huge crescent blade of bone-backed silver curving outward. Same line weight and metal rendering as the master. The two GRIP-WRAPS are where the hands go.\n\nUse image_gen in EDIT mode on IMAGE 1 and deliver ONE image of the same size in which he HOLDS IMAGE 2's scythe two-handed, every other pixel of the figure and the green plate unchanged:\n- The haft passes through BOTH existing fists without moving them: the UPPER grip-wrap sits inside his raised RIGHT fist (viewer's left, chest height) and the LOWER grip-wrap inside his low LEFT fist (viewer's right, hip). So the haft runs diagonally from the viewer's UPPER-LEFT to the viewer's LOWER-RIGHT, crossing IN FRONT of the torso.\n- The BLADE end is the upper end: the blade head rises above and to the viewer's LEFT of his head/right shoulder, crescent curving outward (away from the body, to the viewer's left, tip pointing down-left) — it must not cover the face. The spiked BUTT-CAP is the lower end, reaching down past his left hip toward the ground at the viewer's right, ending above the ground line (feet stay fully visible).\n- Scale: the haft from butt-cap to blade socket is about the figure's height (≈ 700 px); the blade adds its crescent above that. The whole weapon must stay inside the canvas on the green.\n- Draw the scythe in the SAME high three-quarter foreshortening as the figure (seen from above, as if lying along that diagonal in the ground-plane tilt), the same crisp black outline weight, the same silver/bone rendering as IMAGE 2; the haft is in front of the body where it crosses the torso, and the fists wrap around it (knuckles in front of the haft).\n- Do NOT mirror anything; horn stays on his left shoulder (viewer's right); face, hair, belt, feet, camera, size and position of the figure stay exactly as painted. No shadow, no ground, no glow, no text.\n\nOne image_gen call. ONE retry only if: a fist moved or opened, the haft does not pass through both fists, the blade covers the face, the figure moved or resized, the horn changed shoulder, or the weapon leaves the canvas — name the reason. Copy the output from $CODEX_HOME/generated_images/... to out/necro_master_scythe_01.png with sha256. No code. No other files. No web.\nRETURN: the receipt (task_id \"N2-master-scythe-01\"): files = [exactly one entry: out/necro_master_scythe_01.png with its sha256]; images = the INTEGER COUNT of image_gen calls made (1 or 2) — NOT a list, and NEVER a path under $CODEX_HOME/generated_images; calls_used; status DELIVERED / DELIVERED_WITH_CONCERNS with concerns listed honestly.",
+ "references": [
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-6/artifacts/N1-master-cam-02/necro_master_cam_02.png",
+   "role": "IMAGE 1 — the accepted camera master to EDIT (add the scythe only)"
+  },
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-6/artifacts/N1-refs/scythe_design_v1.png",
+   "role": "IMAGE 2 — the approved scythe design (grip-wraps = hand positions)"
+  }
+ ],
+ "image_cap": 2,
+ "minutes_cap": 15,
+ "tool_call_cap": 20,
+ "outputs": [
+  "out/necro_master_scythe_01.png"
+ ],
+ "effort": "high",
+ "add_dirs": [],
+ "experiment": "C6-N2"
+}
