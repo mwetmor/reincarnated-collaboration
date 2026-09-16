@@ -406,6 +406,8 @@ def build_project(cells, out, vfx=None, gear_variant=None, scene=None, vfx_kit=N
                 raise ValueError('Plate image size differs from plate_size')
             plate.verify()
     kit = _load_vfx_kit(vfx_kit) if vfx_kit is not None else None
+    if kit is not None and 'travel_primitives' in kit.get('effect', {}):
+        raise ValueError('painted G1 travel requires --vfx-kits with its impact dependency')
     if sockets is not None and kit is None and kits is None:
         raise ValueError('--sockets requires --vfx-kit or --vfx-kits')
     if kit is not None and vfx is not None:
@@ -701,6 +703,17 @@ def _load_vfx_kits(path):
         if 'effect' in kit and 'tint' in entry:
             raise ValueError('tint multiply-tint override is retired for material kits')
         result.append({**kit, 'name': name, **({'tint': entry['tint']} if 'tint' in entry else {})})
+    by_name = {kit['name']: kit for kit in result}
+    for kit in result:
+        data = kit.get('effect', {})
+        if 'travel_primitives' not in data: continue
+        binding = data['impact_binding']
+        impact = by_name.get(binding['kit'], {}).get('effect', {})
+        if (impact.get('pieces', {}).get('template') != binding['template']
+                or impact.get('pieces', {}).get('seed') != binding['seed']
+                or impact.get('material', {}).get('palette') != data['material']['palette']
+                or impact.get('layers') != data['layers'] or not impact.get('screen_px')):
+            raise ValueError('projectile impact dependency missing or disagrees with binding/palette/layers')
     return result
 
 
@@ -1128,6 +1141,8 @@ def _write_authored_effect(out, kit, resource_root, prefix, counts, shared_proje
                            {name: (paths, 1, phase == 'travel')}, {name: durations})
         counts[name] = len(paths)
         phase_durations[name] = sum(durations)
+    if 'travel_primitives' in data:
+        _write_painted_travel(out, kit, resource_root)
     exported_metadata = json.loads(json.dumps(data))
     for phase, definition in exported_metadata['phases'].items():
         name = 'flare' if phase == 'cast' else phase
@@ -1145,7 +1160,7 @@ def _write_authored_effect(out, kit, resource_root, prefix, counts, shared_proje
     fields = {}
     exported_metadata['distance_fields'] = {}
     for source, field in data['distance_fields'].items():
-        relative_source = source if source.startswith(('layers/', 'pieces/')) else 'sprites/'+source
+        relative_source = source if source.startswith(('layers/', 'pieces/', 'primitives/', 'travel_keys/')) else 'sprites/'+source
         destination = Path(resource_root)/field
         (out/destination).parent.mkdir(parents=True, exist_ok=True)
         shutil.copyfile(kit['root']/field, out/destination)
@@ -1327,6 +1342,8 @@ def _write_vfx_kits(out, kits, base, cells, socket_data, annotation):
         g1_path = out/'scripts/vfx_g1.gd'
         g1_path.write_text(g1_path.read_text().replace('spell_scale = art_scale',
             'spell_scale = 1.0 if bool(config.get("screen_px", false)) else art_scale'))
+    if any('travel_primitives' in kit.get('effect', {}) for kit in kits):
+        _write_painted_g1(out)
     for index, kit in enumerate(kits):
         name = kit['name']
         report = _write_vfx_kit(out, kit, base, cells, socket_data,
@@ -1374,6 +1391,9 @@ def _write_vfx_kits(out, kits, base, cells, socket_data, annotation):
         directional = directional.replace('Vector2.ONE * art_scale * float(flare.get_meta',
             'Vector2.ONE * (1.0 if bool(VFX_KITS[cast_kit_index].get("screen_px", false)) else art_scale) * float(flare.get_meta')
     directional = _g1_directional(directional)
+    if any('travel_primitives' in kit.get('effect', {}) for kit in kits):
+        directional = directional.replace('    # Device policy survives', '    var aim_scale: float = 1.0 if bool(kit.get("screen_px", false)) else art_scale\n    # Device policy survives')
+        directional = directional.replace('float(kit.range_px) * art_scale', 'float(kit.range_px) * aim_scale')
     (out/'scripts/keeper.gd').write_text(keeper+directional+'\nconst VFX_KITS = '+
                                        json.dumps(entries, allow_nan=False)+'\n'+PICKER_SCRIPT)
     settings = out/'project.godot'
@@ -1707,7 +1727,7 @@ def _g1_config(kit):
             'phase_scale': data.get('phase_scale', {}).get('travel', 1.0),
             'material': 'res://'+root+'/materials/Body.tres' if authored else '',
             'binding': 'res://scripts/vfx_'+name+'_material.gd' if authored else '',
-            'fields': fields, 'trail_color': list(kit.get('tint', [.35, .65, .8]))+[.6]}
+            'fields': fields, 'trail_color': list(kit.get('tint', [.35, .65, .8]))+[.6], **_painted_g1_config(kit)}
 
 
 def _g1_directional(script):
@@ -1758,6 +1778,8 @@ def _grey_vfx(out):
     for path in (out/'vfx').rglob('*.png'):
         if 'sprites' not in path.parts:
             continue
+        if any(part in ('primitives', 'travel_keys') for part in path.parts):
+            continue  # indexed travel uses a grey palette; retain band-step semantics
         with Image.open(path) as source:
             image = source.convert('RGBA')
             alpha = image.getchannel('A')
@@ -1785,11 +1807,15 @@ def _grey_vfx(out):
         path.write_text(text)
     keeper = out/'scripts/keeper.gd'
     text = keeper.read_text()
-    text = re.sub(r'"material": "[^"]+"', '"material": ""', text)
+    text = re.sub(r'"material": "(?![^"]*/materials/Travel_)[^"]+"', '"material": ""', text)
     text = re.sub(r'"binding": "[^"]+"', '"binding": ""', text)
     text = re.sub(r'    flare.material = load\([^\n]+\n', '    flare.material = null\n', text)
     text = re.sub(r'^    +preload\([^\n]+\.bind\(flare,[^\n]+\n', '', text, flags=re.M)
     keeper.write_text(text)
+    for material in (out/'vfx').glob('*/materials/Travel_*.tres'):
+        text = material.read_text()
+        text = re.sub(r'(shader_parameter/palette_[0-3] = )Color\([^\n]+', r'\1Color(0.5, 0.5, 0.5, 1)', text)
+        material.write_text(text)
 
 
 G1_PROBE = '''extends SceneTree
@@ -2765,6 +2791,251 @@ def _emit_key_states(out, kit, resource_root, scene, runtime, config):
     script = PIECE_BURST_V2_SCRIPT.replace('    tree_exiting.connect(_write_trace)', KEY_STATE_READY+'    tree_exiting.connect(_write_trace)')
     script = script.replace('    if age >= residue_end:\n        hide()', KEY_STATE_CLOCK+'    if age >= residue_end:\n        hide()')
     return scene, script
+
+
+
+# T4p travel is opt-in. Exporting the previous eight kits emits identical bytes.
+def _painted_g1_config(kit):
+    data = kit.get('effect', {})
+    if 'travel_primitives' not in data: return {}
+    root = 'res://vfx/'+kit['name']+'/'
+    primitives = json.loads(json.dumps(data['travel_primitives']))
+    for role in ('head', 'streak'):
+        primitives[role]['png'] = root+primitives[role]['png']
+        primitives[role]['material'] = root+'materials/Travel_'+role+'.tres'
+    states = json.loads(json.dumps(data.get('key_states', [])))
+    for i, state in enumerate(states):
+        state['png'] = root+state['png']
+        state['material'] = root+'materials/Travel_key_'+str(i)+'.tres'
+    return {'bolt': 'res://scenes/vfx/g1_painted_projectile.tscn',
+            'range_px': data['skill_spec']['mechanics']['range_px'],
+            'speed_px_s': data['skill_spec']['mechanics']['speed_px_s'],
+            'spec_speed_px_s': data['skill_spec']['mechanics']['speed_px_s'],
+            'contact_only': True, 'grammar': data['skill_spec']['grammar'],
+            'aim_rule': data['skill_spec']['mechanics']['aim_rule'],
+            'termination': data['skill_spec']['mechanics']['termination'],
+            'origin_socket': data['skill_spec']['mechanics']['origin_socket'],
+            'impact': 'res://scenes/vfx_'+data['impact_binding']['kit']+'_impact.tscn',
+            'seed': data['impact_binding']['seed'], 'painted_travel': primitives,
+            'key_states': states, 'enabled_layers': data['skill_spec']['presentation']['enabled_layers'],
+            'dark_duplicate': data['layers'].get('dark_duplicate', False),
+            'strike_stop_s': data['skill_spec']['presentation']['phase_envelope_s']['contact_frames']/60.0}
+
+
+def _write_painted_travel(out, kit, resource_root):
+    import numpy as np
+    from export.effect_kit import write_vfx_material
+    data = kit['effect']
+    items = [(role, data['travel_primitives'][role]) for role in ('head', 'streak')]
+    items += [('key_'+str(i), state) for i, state in enumerate(data.get('key_states', []))]
+    for role, item in items:
+        source = kit['root']/item['png']
+        target = out/resource_root/item['png']
+        target.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copyfile(source, target)
+        field = data['distance_fields'][item['png']]
+        destination = out/resource_root/field
+        destination.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copyfile(kit['root']/field, destination)
+        if role == 'streak':
+            # T4a centre-out comparison on an x field = tail-to-socket erosion.
+            with Image.open(source) as image: rgba = np.asarray(image.convert('RGBA'))
+            ys, xs = np.nonzero(rgba[..., 3])
+            x = np.arange(rgba.shape[1], dtype=float)
+            ramp = np.clip((x-xs.min())/max(1, xs.max()-xs.min()), 0, 1)
+            field = 'distance/primitives/tail.png'
+            destination = out/resource_root/field
+            Image.fromarray(np.broadcast_to(np.rint(ramp*255).astype(np.uint8), rgba.shape[:2])).save(destination)
+        material = dict(data['material'], erode=0.0, dissolve=0.0, erode_outside_in=False)
+        material.pop('erode_noise', None)
+        material.pop('dissolve_order', None)
+        write_vfx_material(out, resource_root+'/materials/Travel_'+role+'.tres', material, resource_root+'/'+field)
+
+
+PAINTED_G1_SCRIPT = r'''extends "res://scripts/vfx_g1.gd"
+var draining: bool = false
+var stop_age: int = 0
+var travel_state: String = "rest"
+var rest_head: Texture2D
+
+func release(kit: Dictionary, origin: Vector2, destination: Dictionary, owner_node: Node2D = null, art_scale: float = 1.0) -> void:
+    draining = false
+    super.release(kit, origin, destination, owner_node, art_scale)
+    # Snapshot direction at release and terminate at range, never the cursor.
+    if direction.is_zero_approx():
+        direction = Vector2.RIGHT
+    travel_end = origin + direction * float(config.range_px)
+    var paint: Dictionary = config.painted_travel
+    rest_head = load(paint.head.png)
+    $Head.sprite_frames = $Head.sprite_frames.duplicate()
+    $Head.sprite_frames.set_frame("travel", 0, rest_head)
+    $Head.centered = false
+    $Head.offset = -Vector2(paint.head.pivot[0], paint.head.pivot[1])
+    $Head.scale = Vector2.ONE * float(paint.head.scale)
+    $Head.material = load(paint.head.material).duplicate()
+    $Head.show()
+    for node in [$Streak, $KeyState, $DarkHead, $DarkStreak, $DarkKey, $CastHalo]:
+        node.rotation = direction.angle()
+        node.modulate = Color.WHITE
+    $Head.rotation = direction.angle()
+    $Streak.texture = load(paint.streak.png)
+    $Streak.centered = false
+    $Streak.offset = -Vector2(paint.streak.pivot[0], paint.streak.pivot[1])
+    $Streak.material = load(paint.streak.material).duplicate()
+    $Streak.show()
+    $KeyState.hide()
+    $CastHalo.texture = rest_head
+    $CastHalo.centered = false
+    $CastHalo.offset = $Head.offset
+    $CastHalo.scale = $Head.scale * 1.15
+    $CastHalo.material = $Head.material.duplicate()
+    $CastHalo.show()
+    $Trail.hide()
+    _paint_clock(0)
+
+func _physics_process(delta: float) -> void:
+    if draining:
+        var erode: float = clampf(float(age_frames() - stop_age) / (float(config.painted_travel.tail_s) * 60.0), 0.0, 1.0)
+        $Streak.material.set_shader_parameter("erode", erode)
+        $DarkStreak.material.set_shader_parameter("erode", erode)
+        if erode >= 1.0:
+            draining = false
+            hide()
+            set_physics_process(false)
+        return
+    if active:
+        _paint_clock(age_frames())
+    super._physics_process(delta)
+    $Trail.hide()
+
+func _paint_clock(age: int) -> void:
+    var paint: Dictionary = config.painted_travel
+    var ratio: float = clampf(float(config.speed_px_s) / float(config.spec_speed_px_s), 0.6, 1.4)
+    $Streak.scale = Vector2(ratio, 1.0) * float(paint.streak.scale)
+    var socket: Vector2 = (Vector2(paint.head.rear_socket[0], paint.head.rear_socket[1]) - Vector2(paint.head.pivot[0], paint.head.pivot[1])) * float(paint.head.scale)
+    $Streak.position = socket.rotated(direction.angle())
+    # Two held ticks per flicker state; only band 3 is removed at 0.5.
+    $Streak.material.set_shader_parameter("dissolve", 0.5 if (age / 2) % 2 == 1 else 0.0)
+    $Head.material.set_shader_parameter("dissolve", 0.0)
+    var selected: Dictionary = {}
+    var states: Array = config.key_states
+    if not states.is_empty():
+        var cycle: int = 0
+        for state in states:
+            cycle += int(paint.rest_hold_frames) + int(state.hold_frames)
+        var tick: int = age % cycle
+        for state in states:
+            if tick < int(paint.rest_hold_frames):
+                break
+            tick -= int(paint.rest_hold_frames)
+            if tick < int(state.hold_frames):
+                selected = state
+                break
+            tick -= int(state.hold_frames)
+    travel_state = str(selected.get("state", "rest"))
+    $Head.visible = selected.is_empty()
+    $Streak.visible = selected.is_empty()
+    $KeyState.visible = not selected.is_empty()
+    if not selected.is_empty():
+        $KeyState.texture = load(selected.png)
+        $KeyState.material = load(selected.material)
+        $KeyState.centered = false
+        $KeyState.offset = -Vector2(selected.pivot[0], selected.pivot[1])
+        $KeyState.scale = Vector2.ONE * float(selected.scale)
+    $CastHalo.modulate.a = 0.25 * maxf(0.0, 1.0 - float(age)/3.0)
+    _dark_copy($DarkHead, $Head, rest_head)
+    _dark_copy($DarkStreak, $Streak, $Streak.texture)
+    if not selected.is_empty():
+        _dark_copy($DarkKey, $KeyState, $KeyState.texture)
+    else:
+        $DarkKey.hide()
+
+func _dark_copy(node: Sprite2D, source: Node2D, texture: Texture2D) -> void:
+    node.texture = texture
+    node.centered = false
+    node.offset = source.offset
+    node.transform = source.transform
+    node.visible = source.visible and bool(config.dark_duplicate)
+    node.material = source.material.duplicate()
+    node.material.set_shader_parameter("dark_duplicate", true)
+
+func contact_body(area: CollisionObject2D, phase: String = "head") -> void:
+    var fresh: bool = active and is_instance_valid(area) and area != caster and not contacted.has(area.get_instance_id())
+    var first_strike: bool = fresh and not strike_fired
+    super.contact_body(area, phase)
+    if first_strike and contacted.has(area.get_instance_id()) and "hit_stop" in config.enabled_layers:
+        _strike_stop()
+    if fresh and contacted.has(area.get_instance_id()) and "victim_tint" in config.enabled_layers:
+        var victim: CanvasItem = area
+        var prop: Node = area.get_parent().get_node_or_null("Prop_" + String(area.name).trim_prefix("VfxTarget_"))
+        if prop is CanvasItem:
+            victim = prop
+        var previous: Color = victim.modulate
+        var colour: Array = config.palette_3
+        victim.modulate = Color(colour[0], colour[1], colour[2], previous.a)
+        var tween: Tween = victim.create_tween()
+        tween.set_ignore_time_scale(true)
+        tween.tween_property(victim, "modulate", previous, 0.15)
+
+func _strike_stop() -> void:
+    # The spec's one contact frame supplies the shared strike hold duration.
+    var tree: SceneTree = get_tree()
+    var controller: Node = tree.root.get_node_or_null("EffectHitstop")
+    if controller == null:
+        controller = Node.new()
+        controller.name = "EffectHitstop"
+        controller.set_meta("baseline", Engine.time_scale)
+        controller.set_meta("generation", 0)
+        tree.root.add_child(controller)
+    var generation: int = int(controller.get_meta("generation")) + 1
+    controller.set_meta("generation", generation)
+    Engine.time_scale = 0.1
+    tree.create_timer(float(config.strike_stop_s), true, false, true).timeout.connect(func():
+        if is_instance_valid(controller) and int(controller.get_meta("generation")) == generation:
+            Engine.time_scale = float(controller.get_meta("baseline"))
+            controller.name = "EffectHitstopDone"
+            controller.queue_free())
+
+func _recycle() -> void:
+    active = false
+    expired = true
+    draining = true
+    stop_age = age_frames()
+    set_deferred("monitoring", false)
+    $Head.stop()
+    $Head.hide()
+    $DarkHead.hide()
+    $KeyState.hide()
+    $DarkKey.hide()
+    $CastHalo.hide()
+    $Trail.clear_points()
+    $Trail.hide()
+    $Streak.show()
+    $DarkStreak.visible = bool(config.dark_duplicate)
+    set_physics_process(true)
+'''
+
+
+def _write_painted_g1(out):
+    path = out/'scripts/vfx_g1.gd'
+    script = path.read_text()
+    script = script.replace('and not candidate.active and not candidate.is_queued_for_deletion():',
+        'and not candidate.active and not candidate.is_queued_for_deletion() and candidate.scene_file_path == str(kit.get("bolt", "res://scenes/vfx/g1_projectile.tscn")) and not bool(candidate.get("draining")):')
+    script = script.replace('load("res://scenes/vfx/g1_projectile.tscn").instantiate()',
+        'load(kit.get("bolt", "res://scenes/vfx/g1_projectile.tscn")).instantiate()')
+    script = script.replace('if resolved.kind == "prop" and not is_instance_valid(resolved.target)',
+        'if not bool(config.get("contact_only", false)) and resolved.kind == "prop" and not is_instance_valid(resolved.target)')
+    script = script.replace('if contacted.is_empty() and resolved.kind == "cursor":',
+        'if contacted.is_empty() and resolved.kind == "cursor" and not bool(config.get("contact_only", false)):')
+    script = script.replace('if contacted.is_empty() and resolved.kind == "prop":',
+        'if contacted.is_empty() and resolved.kind == "prop" and not bool(config.get("contact_only", false)):')
+    path.write_text(script)
+    scene = G1_SCENE.replace('res://scripts/vfx_g1.gd', 'res://scripts/vfx_g1_painted.gd')
+    for name in ('Streak', 'KeyState', 'DarkHead', 'DarkStreak', 'DarkKey', 'CastHalo'):
+        scene += '\n[node name="'+name+'" type="Sprite2D" parent="."]\ntexture_filter = 2\nvisible = false\n'
+        scene += 'z_index = '+str(-2 if name.startswith('Dark') else -1 if name in ('Streak', 'CastHalo') else 0)+'\n'
+    (out/'scenes/vfx/g1_painted_projectile.tscn').write_text(scene)
+    (out/'scripts/vfx_g1_painted.gd').write_text(PAINTED_G1_SCRIPT)
 
 
 if __name__ == '__main__':

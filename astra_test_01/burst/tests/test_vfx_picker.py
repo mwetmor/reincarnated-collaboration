@@ -1248,3 +1248,206 @@ class PieceLap2ExportTests(unittest.TestCase):
         self.assertIn('root_sprite.material.set_shader_parameter("dissolve",dissolve)',script)
         self.assertIn('axis.visible = active and age < residue_start',script)
         validate_resources(project,True)
+
+
+E1_PROBE = r'''extends SceneTree
+const G1 = preload("res://scripts/vfx_g1.gd")
+const KEEPER = preload("res://scripts/keeper.gd")
+var errors: Array = []
+var samples: Array = []
+var bursts: int = 0
+func check(value: bool, message: String) -> void:
+    if not value:
+        errors.append(message)
+        printerr("E1_ASSERTION: ", message)
+func _initialize() -> void:
+    call_deferred("run")
+func run() -> void:
+    var world := Node2D.new()
+    root.add_child(world)
+    world.child_entered_tree.connect(func(node):
+        if node.scene_file_path == "res://scenes/vfx_fire_burst_e0p_v2_impact.tscn":
+            bursts += 1)
+    var target := Area2D.new()
+    target.name = "VfxTarget_dummy"
+    target.position = Vector2(320,0)
+    target.collision_layer = 2
+    target.collision_mask = 0
+    target.set_meta("body_index",0)
+    var shape := CollisionShape2D.new()
+    shape.shape = RectangleShape2D.new()
+    shape.shape.size = Vector2(24,48)
+    target.add_child(shape)
+    world.add_child(target)
+    target.add_to_group("vfx_targets")
+    await physics_frame
+    await physics_frame
+    var kits: Array = KEEPER.VFX_KITS.filter(func(k): return k.has("painted_travel"))
+    for kit in kits:
+        var before: int = bursts
+        var destination: Dictionary = G1.resolve_target(self,Vector2.ZERO,Vector2.RIGHT,Vector2(520,0),float(kit.range_px))
+        var effect: Area2D = G1.acquire(world,kit,Vector2.ZERO,destination,null,0.25)
+        check(effect != null,"resolved cast")
+        if effect == null:
+            continue
+        var id: int = effect.effect_id
+        check(effect.spell_scale == 1.0,"screen_px ignores art scale")
+        check(effect.get_node("Head").rotation == 0.0,"east orientation")
+        var clock: Array = []
+        for age in range(14):
+            effect._paint_clock(age)
+            clock.append(effect.travel_state)
+        var expected: Array = []
+        if not kit.key_states.is_empty():
+            for state in kit.key_states:
+                for tick in range(kit.painted_travel.rest_hold_frames): expected.append("rest")
+                for tick in range(state.hold_frames): expected.append(state.state)
+            for age in range(14): check(clock[age] == expected[age % expected.size()],"held key schedule")
+        else:
+            check(clock.all(func(x): return x == "rest"),"empty keys rest only")
+        effect.config.speed_px_s = 10400.0
+        effect._paint_clock(0)
+        check(is_equal_approx(effect.get_node("Streak").scale.x / float(kit.painted_travel.streak.scale),1.4),"upper speed clamp")
+        effect.config.speed_px_s = 104.0
+        effect._paint_clock(0)
+        check(is_equal_approx(effect.get_node("Streak").scale.x / float(kit.painted_travel.streak.scale),0.6),"lower speed clamp")
+        effect.config.speed_px_s = 1040.0
+        for frame in range(50):
+            await physics_frame
+            if not effect.active: break
+        var contacts: Array = G1.events.filter(func(e): return e.effect_id == id and e.event == "contact")
+        var labels: Array = G1.label_events.filter(func(e): return e.effect_id == id)
+        check(contacts.size() == 1,"one first contact")
+        if contacts.size() == 1:
+            check(float(contacts[0].contact_distance_px) <= 520.0,"contact within range")
+            check(contacts[0].contact_class == "primary","primary contact")
+            check(contacts[0].contact_lag_frames <= 1,"T4b clock lag")
+        check(bursts-before == 1,"one bound pieces burst")
+        check(labels.size() == 1,"one label")
+        if labels.size() == 1: check(labels[0].text == "FULL","T4f FULL")
+        check(effect.draining,"tail retained after stop")
+        var tail: Array = []
+        for tick in range(11):
+            await physics_frame
+            tail.append(float(effect.get_node("Streak").material.get_shader_parameter("erode")))
+        check(not effect.draining and not effect.visible,"tail released after nine ticks")
+        samples.append({"kit":kit.name,"clock":clock,"contacts":contacts,"labels":labels,"tail_erode":tail,"bursts":bursts-before})
+        # Cursor distance is aim-only; no burst on range exhaustion.
+        before = bursts
+        var miss: Area2D = G1.acquire(world,kit,Vector2(0,100),{"kind":"cursor","point":Vector2(10,100),"target":null})
+        for frame in range(40): await physics_frame
+        check(not miss.active,"range expiry")
+        check(is_equal_approx(miss.global_position.x,520.0),"520 px range despite nearby cursor")
+        check(bursts == before,"range expiry has no contact burst")
+    for frame in range(50): await physics_frame
+    for label in get_nodes_in_group("vfx_contact_labels"):
+        check(not label.visible,"labels released within 0.8 seconds")
+    var file := FileAccess.open("res://e1_trace.json",FileAccess.WRITE)
+    file.store_string(JSON.stringify({"samples":samples,"events":G1.events,"labels":G1.label_events,"errors":errors},"  "))
+    file.close()
+    print("E1_RUNTIME=" + JSON.stringify({"errors":errors,"casts":samples.size(),"bursts":bursts}))
+    quit(0 if errors.is_empty() else 1)
+'''
+
+
+def e1_project_fixture(root, keyed=False):
+    """Standalone real-kit headless input; every temporary stays under root."""
+    import shutil
+    root=Path(root); root.mkdir(parents=True,exist_ok=True)
+    cells=root/'cells'; cells.mkdir()
+    for direction in ('E','S'):
+        for kind,n in [('idle',1),('cast',4)]:
+            for i in range(n): Image.new('RGBA',(512,512),(40,80,120,255)).save(cells/f'{kind}_{direction}_{i}.png')
+    sockets=root/'sockets.json'
+    sockets.write_text(json.dumps({'version':1,'canvas':[512,512],'cells':{'cast_'+d:{'sockets':[[270,240]]*4,'release_index':2} for d in ('E','S')}}))
+    kitroot=ROOT/'runs/C-5/vfx_kits/v9'
+    entries=[{'name':'fire_burst_e0p_v2','dir':str(kitroot/'fire_burst_e0p_v2')}]
+    for arm in ('A','B'):
+        name='fire_bolt_e1_'+arm; directory=kitroot/name
+        if keyed and arm=='A':
+            target=root/name; shutil.copytree(directory,target); directory=target
+            data=json.loads((directory/'kit.json').read_text())
+            data['key_states']=[dict(state=n,png='primitives/head.png',pivot=[404,266.5],scale=.65,hold_frames=h)
+                                for n,h in [('stretched',3),('pulsed',4)]]
+            (directory/'kit.json').write_text(json.dumps(data))
+        entries.append({'name':name,'dir':str(directory)})
+    catalogue=root/'kits.json'; catalogue.write_text(json.dumps({'kits':entries}))
+    project=root/'project'; build_project(cells,project,vfx_kits=catalogue,sockets=sockets)
+    (project/'e1_probe.gd').write_text(E1_PROBE)
+    return project
+
+
+class ProjectileArmPickerTests(unittest.TestCase):
+    def setUp(self):
+        TMP.mkdir(parents=True,exist_ok=True)
+        self.temp=tempfile.TemporaryDirectory(prefix='e1-picker-',dir=TMP)
+        self.addCleanup(self.temp.cleanup)
+        self.root=Path(self.temp.name)
+
+    def test_empty_key_exports_byte_identically_except_kit_name(self):
+        project=e1_project_fixture(self.root)
+        a,b=[project/'vfx'/('fire_bolt_e1_'+arm) for arm in ('A','B')]
+        files={p.relative_to(a) for p in a.rglob('*') if p.is_file()}
+        self.assertEqual(files,{p.relative_to(b) for p in b.rglob('*') if p.is_file()})
+        for file in files:
+            self.assertEqual((a/file).read_bytes().replace(b'fire_bolt_e1_A',b'ARM'),(b/file).read_bytes().replace(b'fire_bolt_e1_B',b'ARM'),str(file))
+        for folder in ('scripts','scenes'):
+            for file in (project/folder).glob('*fire_bolt_e1_A*'):
+                bfile=file.with_name(file.name.replace('fire_bolt_e1_A','fire_bolt_e1_B'))
+                self.assertEqual(file.read_bytes().replace(b'fire_bolt_e1_A',b'ARM'),bfile.read_bytes().replace(b'fire_bolt_e1_B',b'ARM'))
+
+    @unittest.skipUnless(Path(GODOT).is_file(),'Godot unavailable')
+    def test_headless_east_contact_range_tail_and_key_schedule(self):
+        project=e1_project_fixture(self.root,keyed=True)
+        records=[]
+        for arguments in (['--import'],['--script','res://e1_probe.gd']):
+            proc=subprocess.run([GODOT,'--headless','--path',str(project),'--log-file',str(self.root/'engine.log'),*arguments],capture_output=True,text=True,timeout=60)
+            text=proc.stdout+proc.stderr
+            records.append({'arguments':arguments,'exit':proc.returncode,'log':text})
+            self.assertEqual(proc.returncode,0,text)
+            self.assertNotIn('SCRIPT ERROR',text)
+            self.assertNotIn('E1_ASSERTION',text)
+        trace=json.loads((project/'e1_trace.json').read_text())
+        self.assertEqual(trace['errors'],[])
+        self.assertEqual(len(trace['samples']),2)
+        evidence=ROOT/'runs/C-5/t3/T4p'
+        evidence.mkdir(parents=True,exist_ok=True)
+        (evidence/'e1_key_trace.json').write_text(json.dumps(trace,indent=2)+'\n')
+        (evidence/'e1_headless.json').write_text(json.dumps(records,indent=2)+'\n')
+
+    def test_original_eight_export_byte_lock(self):
+        baseline=ROOT/'runs/C-5/t3/T4p/baseline_hashes.json'
+        self.assertTrue(baseline.is_file(),'T4p pre-edit snapshot required')
+        cells=self.root/'cells'; cells.mkdir()
+        for direction in ('E','N','S'):
+            for kind,n in [('idle',1),('cast',4)]:
+                for i in range(n): Image.new('RGBA',(512,512),(40,80,120,255)).save(cells/f'{kind}_{direction}_{i}.png')
+        sockets=self.root/'sockets.json'
+        sockets.write_text(json.dumps({'version':1,'canvas':[512,512],'cells':{'cast_'+d:{'sockets':[[270,240]]*4,'release_index':2} for d in ('E','N','S')}}))
+        catalogue_path=ROOT/'runs/C-5/vfx_kits/kits_v9.json'
+        data=json.loads(catalogue_path.read_text())
+        self.assertEqual([k['name'] for k in data['kits'][8:]],['fire_bolt_e1_A','fire_bolt_e1_B'])
+        original={'kits':[dict(k,dir=str((catalogue_path.parent/k['dir']).resolve())) for k in data['kits'][:8]]}
+        catalogue=self.root/'kits.json'; catalogue.write_text(json.dumps(original))
+        project=self.root/'project'; build_project(cells,project,vfx_kits=catalogue,sockets=sockets)
+        actual={p.relative_to(project).as_posix():hashlib.sha256(p.read_bytes()).hexdigest() for p in project.rglob('*') if p.is_file()}
+        self.assertEqual(actual,json.loads(baseline.read_text()))
+
+
+    def test_tail_field_runs_from_tail_to_socket_and_grey_keeps_bands(self):
+        from export.godot_import import _grey_vfx
+        import numpy as np
+        project=e1_project_fixture(self.root)
+        root=project/'vfx/fire_bolt_e1_B'
+        with Image.open(root/'primitives/streak.png') as im: rgba=np.array(im)
+        with Image.open(root/'distance/primitives/tail.png') as im: field=np.array(im)
+        ys,xs=np.nonzero(rgba[...,3])
+        self.assertEqual(int(field[ys[xs.argmin()],xs.min()]),0)
+        self.assertEqual(int(field[ys[xs.argmax()],xs.max()]),255)
+        self.assertTrue((np.diff(field.astype(int),axis=1)>=0).all())
+        _grey_vfx(project)
+        with Image.open(root/'primitives/streak.png') as im: np.testing.assert_array_equal(np.array(im),rgba)
+        material=(root/'materials/Travel_streak.tres').read_text()
+        for band in range(4): self.assertIn(f'shader_parameter/palette_{band} = Color(0.5, 0.5, 0.5, 1)',material)
+        keeper=(project/'scripts/keeper.gd').read_text()
+        self.assertIn('"material": "res://vfx/fire_bolt_e1_B/materials/Travel_streak.tres"',keeper)

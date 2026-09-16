@@ -117,6 +117,10 @@ test_residue_and_band_and_hold_ranges_rejected (test_effect_kit.PieceStretchPhas
 test_seeded_factor_deterministic_order_independent_and_bounded (test_effect_kit.PieceStretchPhaseTests.test_seeded_factor_deterministic_order_independent_and_bounded) ... ok
 test_self_contained_mask_bytes_distance_and_runtime_validation (test_effect_kit.PieceStretchPhaseTests.test_self_contained_mask_bytes_distance_and_runtime_validation) ... ok
 test_stretch_seed_bounds_and_whole_body_distance (test_effect_kit.PieceStretchPhaseTests.test_stretch_seed_bounds_and_whole_body_distance) ... ok
+test_both_arms_preserve_spec_and_quantised_primitives (test_effect_kit.ProjectileArmValidationTests.test_both_arms_preserve_spec_and_quantised_primitives) ... ok
+test_empty_key_arms_have_identical_kit_files_except_name (test_effect_kit.ProjectileArmValidationTests.test_empty_key_arms_have_identical_kit_files_except_name) ... ok
+test_two_explicit_key_paintings_validate_without_name_inference (test_effect_kit.ProjectileArmValidationTests.test_two_explicit_key_paintings_validate_without_name_inference) ... ok
+test_wrong_grammar_speed_binding_hold_count_and_indices_rejected (test_effect_kit.ProjectileArmValidationTests.test_wrong_grammar_speed_binding_hold_count_and_indices_rejected) ... ok
 test_kit_piece_material_scope_validation_and_precedence (test_effect_kit.RaggedResidueMaterialTests.test_kit_piece_material_scope_validation_and_precedence) ... ok
 test_noise_bounds_band_resistance_endpoints_and_dissolve (test_effect_kit.RaggedResidueMaterialTests.test_noise_bounds_band_resistance_endpoints_and_dissolve) ... ok
 test_t4e_entry_ragged_connected_and_zero_disc_control (test_effect_kit.RaggedResidueMaterialTests.test_t4e_entry_ragged_connected_and_zero_disc_control) ... ok
@@ -271,6 +275,8 @@ test_six_kits_and_v1_against_pre_t4k_export_hash_table (test_godot_import.PieceL
 test_axes_whole_field_root_residue_clock_and_grey (test_godot_import.PieceStretchImportTests.test_axes_whole_field_root_residue_clock_and_grey) ... ok
 test_native_768_crop_backward_compatible_default (test_godot_import.PieceStretchImportTests.test_native_768_crop_backward_compatible_default) ... ok
 test_v2_headless_import_and_seed_equal_rooted_clock (test_godot_import.PieceStretchImportTests.test_v2_headless_import_and_seed_equal_rooted_clock) ... ok
+test_missing_impact_dependency_rejected (test_godot_import.ProjectileTravelEmissionTests.test_missing_impact_dependency_rejected) ... ok
+test_node_tree_material_and_spec_driven_config (test_godot_import.ProjectileTravelEmissionTests.test_node_tree_material_and_spec_driven_config) ... ok
 test_exported_threshold_and_every_root_and_stretch_material_agree (test_godot_import.RaggedResidueImportTests.test_exported_threshold_and_every_root_and_stretch_material_agree) ... ok
 test_piece_zero_overrides_material_noise_in_emitted_root (test_godot_import.RaggedResidueImportTests.test_piece_zero_overrides_material_noise_in_emitted_root) ... ok
 test_desktop_cursor_and_resolver_match_pre_t4i (test_godot_import.TouchDeviceAimEmissionTests.test_desktop_cursor_and_resolver_match_pre_t4i) ... ok
@@ -594,6 +600,10 @@ test_three_sine_normalisation_numerical_envelope_and_extrema (test_vfx_picker.Li
 test_two_glows_additive_script_position_scale_color_sort_and_particles (test_vfx_picker.LivingEmbersTests.test_two_glows_additive_script_position_scale_color_sort_and_particles) ... ok
 test_six_kits_and_v1_match_488_file_pre_t4j_hash_table (test_vfx_picker.PieceLap2ExportTests.test_six_kits_and_v1_match_488_file_pre_t4j_hash_table) ... ok
 test_v2_emits_drift_stretch_groups_and_stationary_residue (test_vfx_picker.PieceLap2ExportTests.test_v2_emits_drift_stretch_groups_and_stationary_residue) ... ok
+test_empty_key_exports_byte_identically_except_kit_name (test_vfx_picker.ProjectileArmPickerTests.test_empty_key_exports_byte_identically_except_kit_name) ... ok
+test_headless_east_contact_range_tail_and_key_schedule (test_vfx_picker.ProjectileArmPickerTests.test_headless_east_contact_range_tail_and_key_schedule) ... ok
+test_original_eight_export_byte_lock (test_vfx_picker.ProjectileArmPickerTests.test_original_eight_export_byte_lock) ... ok
+test_tail_field_runs_from_tail_to_socket_and_grey_keeps_bands (test_vfx_picker.ProjectileArmPickerTests.test_tail_field_runs_from_tail_to_socket_and_grey_keeps_bands) ... ok
 test_headless_overlay_forward_world_touch_and_mouse_probe (test_vfx_picker.TouchAimRuntimeTests.test_headless_overlay_forward_world_touch_and_mouse_probe) ... ERROR
 test_headless_device_forward_handled_overlay_and_mouse_probe (test_vfx_picker.TouchDeviceAimRuntimeTests.test_headless_device_forward_handled_overlay_and_mouse_probe) ... ok
 test_catalogue_unknown_keys_shapes_identifiers_tints_and_empty_rejected (test_vfx_picker.VfxPickerTests.test_catalogue_unknown_keys_shapes_identifiers_tints_and_empty_rejected) ... ok
@@ -680,7 +690,7 @@ Traceback (most recent call last):
     self._check_timeout(endtime, orig_timeout, stdout, stderr)
   File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/subprocess.py", line 1253, in _check_timeout
     raise TimeoutExpired(
-subprocess.TimeoutExpired: Command '['/Applications/Godot.app/Contents/MacOS/Godot', '--headless', '--log-file', '/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4i/tmp/touch-aim-l69e6_td/project/godot.log', '--path', '/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4i/tmp/touch-aim-l69e6_td/project', '--script', 'res://touch_aim_probe.gd']' timed out after 60 seconds
+subprocess.TimeoutExpired: Command '['/Applications/Godot.app/Contents/MacOS/Godot', '--headless', '--log-file', '/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4i/tmp/touch-aim-4yl52vu8/project/godot.log', '--path', '/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4i/tmp/touch-aim-4yl52vu8/project', '--script', 'res://touch_aim_probe.gd']' timed out after 60 seconds
 
 ======================================================================
 FAIL: test_synthetic_contract_and_grid (test_oracle_walk.Tests.test_synthetic_contract_and_grid)
@@ -725,6 +735,6 @@ Traceback (most recent call last):
 AssertionError: 'rejected' unexpectedly found in {'angular_support': 0.8333333333333334, 'center': [170.0, 253.0], 'hollow_score': 0.08333333333333333, 'inner_opposed_support': 0.08333333333333333, 'inside': False, 'lab_band_surround': 12.987929666149537, 'lab_center_band': 18.508563966712764, 'lab_center_surround': 30.467977867785994, 'lab_color_return': 0.0, 'radius': 8.0, 'rejected': 'not_annulus', 'score': 0.6366616733180586}
 
 ----------------------------------------------------------------------
-Ran 654 tests in 378.202s
+Ran 664 tests in 386.307s
 
 FAILED (failures=5, errors=1)

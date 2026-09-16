@@ -7921,6 +7921,13 @@
       "veto_open": true,
       "ruling": "T4p DELIVERED_WITH_CONCERNS and ACCEPTED: kits fire_bolt_e1_A / _B (9th/10th), screen_px, 1040 px/s over 520 px, pierce 0; arms byte-identical except the name while A's key_states is empty; the original eight kits' 644 export files byte-identical; headless casts east: contact at age 17 / 320 px, one burst, FULL label, tail erosion to 1.0 — both arms. Travel key-state GUIDES are conductor glue from T4p's own rules (rest = head + streak; stretched = streak scale_x 1.4; pulsed = head ×1.25 + streak ×0.7), painted by Astra, then bound to arm A via key_states; A vs B judged after.",
       "ts": "2026-09-16T03:44:10"
+    },
+    {
+      "id": "R-C5-51",
+      "class": "conductor",
+      "veto_open": true,
+      "ruling": "FREEZE after T4p (outside suite = five standing reds only). E1 arm A: the two travel key states registered with the lane oracle (scale 0.34, silhouette IoU 0.97 / 0.98 clipped) and bound to fire_bolt_e1_A (pivot/scale schema) — the exporter then fails validation because T4p's distance-field exclusion covers only pieces.key_states, not travel key_states: folded into T4r (emitter-owned like piece key states). T4r fires now (ice treatment + this fix); PACK v27 and the A/B judge after it.",
+      "ts": "2026-09-16T03:50:59"
     }
   ],
   "grok_calls": [],

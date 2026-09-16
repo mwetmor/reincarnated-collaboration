@@ -1973,3 +1973,71 @@ class KeyStateBindingTests(unittest.TestCase):
         self.assertEqual(bindings({'expanded':bad},{'expanded':'expanded.png'}),[])
         bad=copy.deepcopy(row);bad['clipped']['failures']=[{'test':'piece_centroid','excess':.01}]
         self.assertEqual(bindings({'expanded':bad},{'expanded':'expanded.png'}),[])
+
+
+class ProjectileArmValidationTests(unittest.TestCase):
+    """T4p shipped inputs and deliberately broken mechanics/bindings/indices."""
+    def setUp(self):
+        TMP.mkdir(parents=True, exist_ok=True)
+        self.temp = tempfile.TemporaryDirectory(prefix='e1-validation-', dir=TMP)
+        self.addCleanup(self.temp.cleanup)
+        self.root = Path(self.temp.name)
+        self.kits = ROOT/'runs/C-5/vfx_kits/v9'
+
+    def test_both_arms_preserve_spec_and_quantised_primitives(self):
+        from export.effect_kit import quantise_projectile
+        spec = json.loads((ROOT/'runs/C-5/specs/fire_bolt_e1.json').read_text())
+        for arm in ('A', 'B'):
+            root = self.kits/('fire_bolt_e1_'+arm)
+            data = load_kit(root)
+            self.assertEqual(data['skill_spec'], spec)
+            self.assertEqual(data['impact_binding'], dict(kit='fire_burst_e0p_v2', phase='pieces', template='burst_v2', seed=2026))
+            self.assertTrue(data['screen_px'])
+            self.assertEqual(data['key_states'], [])
+            for role in ('head', 'streak'):
+                source = ROOT/('runs/C-5/artifacts/VF-prim-fire-'+role+'-01/fire_'+role+'_01_512.png')
+                with Image.open(source) as im: rgba = np.array(im.convert('RGBA'))
+                with Image.open(root/data['travel_primitives'][role]['png']) as im: actual = np.array(im)
+                np.testing.assert_array_equal(actual, quantise_projectile(rgba))
+                np.testing.assert_array_equal(actual[..., 3], rgba[..., 3])
+                self.assertEqual(set(np.unique(actual[..., :3])), {0,85,170,255})
+
+    def test_empty_key_arms_have_identical_kit_files_except_name(self):
+        a, b = [self.kits/('fire_bolt_e1_'+arm) for arm in ('A','B')]
+        files = {p.relative_to(a) for p in a.rglob('*') if p.is_file()}
+        self.assertEqual(files, {p.relative_to(b) for p in b.rglob('*') if p.is_file()})
+        for file in files:
+            self.assertEqual((a/file).read_bytes().replace(b'fire_bolt_e1_A', b'ARM'),
+                             (b/file).read_bytes().replace(b'fire_bolt_e1_B', b'ARM'), str(file))
+
+    def test_wrong_grammar_speed_binding_hold_count_and_indices_rejected(self):
+        root = self.root/'kit'
+        shutil.copytree(self.kits/'fire_bolt_e1_A', root)
+        original = json.loads((root/'kit.json').read_text())
+        bads = []
+        for path, value in [(('skill_spec','grammar'),'G2'),
+                            (('phases','travel','speed_px_s'),640),
+                            (('travel_primitives','head','binding'),'P02_fire_streak'),
+                            (('travel_primitives','rest_hold_frames'),2),
+                            (('travel_primitives','tail_s'),.2),
+                            (('skill_spec','mechanics','pierce'),1)]:
+            bad = copy.deepcopy(original); cursor = bad
+            for key in path[:-1]: cursor = cursor[key]
+            cursor[path[-1]] = value; bads.append(bad)
+        state = dict(state='stretch', png='primitives/head.png', hold_frames=3, pivot=[256,256], scale=1)
+        bad = copy.deepcopy(original); bad['key_states'] = [state]*3; bads.append(bad)
+        for bad in bads:
+            (root/'kit.json').write_text(json.dumps(bad))
+            with self.assertRaises(ValueError): load_kit(root)
+        (root/'kit.json').write_text(json.dumps(original))
+        Image.new('RGBA',(512,512),(41,41,41,255)).save(root/'primitives/streak.png')
+        with self.assertRaisesRegex(ValueError, 'source indices'): load_kit(root)
+
+    def test_two_explicit_key_paintings_validate_without_name_inference(self):
+        root = self.root/'kit'; shutil.copytree(self.kits/'fire_bolt_e1_A', root)
+        data = json.loads((root/'kit.json').read_text())
+        data['name'] = 'unrelated_safe_name'
+        data['key_states'] = [dict(state=name, png='primitives/head.png', hold_frames=hold, pivot=[256,256], scale=1)
+                              for name, hold in [('stretched',3),('pulsed',4)]]
+        (root/'kit.json').write_text(json.dumps(data))
+        self.assertEqual(len(load_kit(root)['key_states']),2)

@@ -869,3 +869,42 @@ func probe() -> void:
     print("T4Q_KEY_CLOCK_COMPLETE")
     quit(0)
 '''
+
+
+class ProjectileTravelEmissionTests(unittest.TestCase):
+    def test_node_tree_material_and_spec_driven_config(self):
+        from export.godot_import import _load_vfx_kit, _g1_config, _write_g1_component, _write_painted_g1
+        root = Path(__file__).resolve().parents[1]
+        kits = root/'runs/C-5/vfx_kits/v9'
+        for arm in ('A','B'):
+            kit = _load_vfx_kit(kits/('fire_bolt_e1_'+arm)); kit['name'] = kit['effect']['name']
+            config = _g1_config(kit)
+            self.assertEqual(config['speed_px_s'],1040)
+            self.assertEqual(config['range_px'],520)
+            self.assertEqual(config['seed'],2026)
+            self.assertEqual(config['pierce'],0)
+            self.assertEqual(config['impact'],'res://scenes/vfx_fire_burst_e0p_v2_impact.tscn')
+            self.assertEqual(config['aim_rule'],'release-locked')
+            self.assertTrue(config['contact_only'])
+        TMP.mkdir(parents=True,exist_ok=True)
+        with tempfile.TemporaryDirectory(prefix='e1-emission-',dir=TMP) as td:
+            out=Path(td); (out/'scripts').mkdir()
+            _write_g1_component(out); _write_painted_g1(out)
+            scene=(out/'scenes/vfx/g1_painted_projectile.tscn').read_text()
+            for name, kind in [('Head','AnimatedSprite2D'),('Streak','Sprite2D')]:
+                self.assertIn(f'[node name="{name}" type="{kind}"',scene)
+            script=(out/'scripts/vfx_g1_painted.gd').read_text()
+            for text in ['$Head.rotation = direction.angle()', '0.6, 1.4', 'rear_socket',
+                         'config.spec_speed_px_s', 'float(config.painted_travel.tail_s) * 60.0',
+                         '$Head.material.set_shader_parameter("dissolve", 0.0)',
+                         'tick -= int(paint.rest_hold_frames)', 'int(state.hold_frames)']:
+                self.assertIn(text,script)
+
+    def test_missing_impact_dependency_rejected(self):
+        from export.godot_import import _load_vfx_kits
+        root = Path(__file__).resolve().parents[1]
+        TMP.mkdir(parents=True,exist_ok=True)
+        with tempfile.TemporaryDirectory(prefix='e1-dependency-',dir=TMP) as td:
+            catalogue=Path(td)/'kits.json'
+            catalogue.write_text(json.dumps({'kits':[{'name':'fire_bolt_e1_A','dir':str(root/'runs/C-5/vfx_kits/v9/fire_bolt_e1_A')}]}))
+            with self.assertRaisesRegex(ValueError,'impact dependency'): _load_vfx_kits(catalogue)

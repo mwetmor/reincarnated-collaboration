@@ -1,0 +1,194 @@
+{
+  "element": "fire",
+  "element_class": "strike",
+  "screen_px": true,
+  "ground_squash": 0.6,
+  "phase_scale": {
+    "impact": 1.0
+  },
+  "material": {
+    "blend_mode": "MIX",
+    "light_participation": false,
+    "erode": 0.0,
+    "dissolve": 0.0,
+    "palette": [
+      [
+        0.25,
+        0.08,
+        0.04,
+        1
+      ],
+      [
+        0.7,
+        0.16,
+        0.08,
+        1
+      ],
+      [
+        1,
+        0.55,
+        0.12,
+        1
+      ],
+      [
+        1,
+        0.94,
+        0.75,
+        1
+      ]
+    ],
+    "erode_outside_in": true
+  },
+  "layers": {
+    "dark_duplicate": true,
+    "glow": {
+      "alpha": 0.2,
+      "scale": 1.02
+    },
+    "floor_light": {
+      "duration_s": 0.15,
+      "radius_px": 120
+    },
+    "flash": {
+      "duration_s": 0.03333333333333333,
+      "alpha": 0.8,
+      "scale_from": 1.04,
+      "scale_to": 1
+    }
+  },
+  "skill_spec": {
+    "skill_id": "fire_bolt_e1",
+    "source_game": "E1 test skill (no source game) \u2014 fixture values charter \u00a7 6, Matt-approved comparison at Packet 85",
+    "grammar": "G1",
+    "visual_treatment_id": "fire",
+    "response_class": "strike",
+    "mechanics": {
+      "origin_socket": "cast_release",
+      "aim_rule": "release-locked",
+      "range_px": 520,
+      "speed_px_s": 1040,
+      "radius_px": 0,
+      "count": 1,
+      "hop_count": 0,
+      "travel": {
+        "kind": "straight",
+        "streak": true
+      },
+      "active_duration_s": null,
+      "tick_schedule": null,
+      "termination": "first_contact_or_range",
+      "pierce": 0
+    },
+    "presentation": {
+      "primitive_bindings": {
+        "cast": "flash+halo (runtime)",
+        "travel_head": "P01_fire_head",
+        "travel_streak": "P02_fire_streak",
+        "impact": "fire_burst_e0p_v2 (pieces phase, burst_v2)",
+        "residue": "burst_v2 residue"
+      },
+      "body_extents_bh": {
+        "head": 1.2,
+        "streak_len": 2.0,
+        "impact_hold": 2.35,
+        "impact_flare": 4.0
+      },
+      "phase_envelope_s": {
+        "context": 0.25,
+        "anticipation": 0.15,
+        "travel": 0.5,
+        "contact_frames": 1,
+        "half_peak_frames": 4,
+        "residue": 0.6
+      },
+      "enabled_layers": [
+        "flash",
+        "halo",
+        "floor_light",
+        "dark_duplicate",
+        "victim_tint",
+        "hit_stop",
+        "contact_label"
+      ]
+    },
+    "provenance": {
+      "speed_px_s": "charter \u00a7 6: 8 BH/s at 130-px BH (Matt approves the comparison at Packet 85; Hades band 6.5\u201311.6; shipped Frozen Orb \u2248 4.9)",
+      "range_px": "4 BH (charter \u00a7 6)",
+      "impact": "E0-p R-C5-34 (Matt: motion + size right)",
+      "head/streak extents": "03- \u00a7 2.3 build list (1.2 BH body; P02 \u2248 120\u00d740 native at s=3 \u2192 2.0 BH long at s=1)"
+    }
+  },
+  "key_states": [],
+  "travel_primitives": {
+    "head": {
+      "binding": "P01_fire_head",
+      "png": "primitives/head.png",
+      "pivot": [
+        404,
+        266.5
+      ],
+      "scale": 0.6582278481012658,
+      "rear_socket": [
+        168,
+        266.5
+      ]
+    },
+    "streak": {
+      "binding": "P02_fire_streak",
+      "png": "primitives/streak.png",
+      "pivot": [
+        397,
+        253.0
+      ],
+      "scale": 0.9737827715355806
+    },
+    "rest_hold_frames": 3,
+    "tail_s": 0.15
+  },
+  "impact_binding": {
+    "kit": "fire_burst_e0p_v2",
+    "phase": "pieces",
+    "template": "burst_v2",
+    "seed": 2026
+  },
+  "phases": {
+    "cast": {
+      "sheet": "flare/flare_00.png",
+      "frames": [
+        {
+          "file": "flare/flare_00.png",
+          "hold_frames": 2
+        }
+      ]
+    },
+    "impact": {
+      "sheet": "impact/impact_00.png",
+      "frames": [
+        {
+          "file": "impact/impact_00.png",
+          "hold_frames": 2
+        }
+      ]
+    },
+    "travel": {
+      "sheet": "travel/travel_00.png",
+      "frames": [
+        {
+          "file": "travel/travel_00.png",
+          "hold_frames": 1
+        }
+      ],
+      "speed_px_s": 1040,
+      "streak": true
+    }
+  },
+  "name": "fire_bolt_e1_B",
+  "distance_fields": {
+    "flare/flare_00.png": "distance/flare/flare_00.png",
+    "impact/impact_00.png": "distance/impact/impact_00.png",
+    "travel/travel_00.png": "distance/travel/travel_00.png",
+    "primitives/head.png": "distance/primitives/head.png",
+    "primitives/streak.png": "distance/primitives/streak.png"
+  },
+  "pierce": 0
+}

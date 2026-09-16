@@ -24,7 +24,7 @@ import numpy as np
 from PIL import Image
 
 PHASES = {'cast': 'flare', 'travel': 'travel', 'impact': 'impact', 'residual': 'residual'}
-TOP = {'name', 'element', 'element_class', 'tint', 'phases', 'layers', 'ground_squash', 'pixel_scale', 'phase_scale', 'material', 'distance_fields', 'pierce', 'pieces', 'screen_px', 'erode_noise'}
+TOP = {'name', 'element', 'element_class', 'tint', 'phases', 'layers', 'ground_squash', 'pixel_scale', 'phase_scale', 'material', 'distance_fields', 'pierce', 'pieces', 'screen_px', 'erode_noise', 'skill_spec', 'travel_primitives', 'key_states', 'impact_binding'}
 LAYER_KEYS = {
     'glow': {'alpha', 'scale'}, 'floor_light': {'duration_s', 'radius_px'},
     'flash': {'duration_s', 'alpha', 'scale_from', 'scale_to'},
@@ -579,6 +579,10 @@ def _validate(data, root, runtime=False):
             _number(phase.get('speed_px_s', 520), 1e-9, math.inf, 'speed_px_s')
             if not isinstance(phase.get('streak', False), bool):
                 raise ValueError('streak must be boolean')
+    if 'travel_primitives' in data:
+        assets.update(validate_projectile(data, root, runtime))
+    elif any(k in data for k in ('skill_spec', 'key_states', 'impact_binding')):
+        raise ValueError('projectile metadata requires travel_primitives')
     frame_paths = {assets[frame['file']] for phase in data['phases'].values()
                    for frame in phase['frames']}
     _keys(data['layers'], set(LAYER_KEYS)|{'dark_duplicate'}, set(), 'layers')
@@ -781,6 +785,16 @@ def build(effect_json, out_dir):
             file = f'layers/{name}.png'
             copy_index(layer[key], file)
             layer[key] = file
+    if 'travel_primitives' in data:
+        for role in ('head', 'streak'):
+            source = data['travel_primitives'][role]['png']
+            file = 'primitives/'+role+'.png'
+            copy_index(source, file)
+            metadata['travel_primitives'][role]['png'] = file
+        for index, state in enumerate(data.get('key_states', [])):
+            file = 'travel_keys/key_%d.png' % (index+1)
+            copy_index(state['png'], file)
+            metadata['key_states'][index]['png'] = file
     if 'pieces' in data:
         config, record, piece_assets = load_pieces(data['pieces'], root)
         source_root = (root/config['source']).resolve().parent
@@ -957,3 +971,143 @@ func _body_finished() -> void:
         $Residual.show()
         $Residual.play("residual")
 '''
+
+
+# T4p: opt-in, spec-carried G1 travel. No kit-name inference or legacy defaults.
+def quantise_projectile(rgba):
+    """Nearest four value planes; preserve source coverage and native canvas."""
+    pixels = np.asarray(rgba)
+    if pixels.dtype != np.uint8 or pixels.ndim != 3 or pixels.shape[2] != 4:
+        raise ValueError('primitive requires uint8 RGBA')
+    result = pixels.copy()
+    luminance = pixels[..., :3].astype(float) @ np.array([.2126, .7152, .0722])
+    values = (np.floor(luminance/85+.5)*85).astype(np.uint8)
+    result[..., :3] = values[..., None]
+    return result
+
+
+def validate_projectile(data, root, runtime=False):
+    spec = data.get('skill_spec', {})
+    _keys(spec, {'skill_id', 'source_game', 'grammar', 'visual_treatment_id', 'response_class',
+                 'mechanics', 'presentation', 'provenance'},
+          {'skill_id', 'grammar', 'visual_treatment_id', 'response_class', 'mechanics', 'presentation'}, 'skill_spec')
+    mechanics = spec['mechanics']
+    expected = {'origin_socket': 'cast_release', 'aim_rule': 'release-locked',
+                'radius_px': 0, 'count': 1, 'hop_count': 0,
+                'travel': {'kind': 'straight', 'streak': True},
+                'active_duration_s': None, 'tick_schedule': None,
+                'termination': 'first_contact_or_range', 'pierce': 0}
+    _keys(mechanics, set(expected)|{'speed_px_s', 'range_px'}, set(expected)|{'speed_px_s', 'range_px'}, 'mechanics')
+    if spec['grammar'] != 'G1' or any(mechanics[k] != v for k, v in expected.items()):
+        raise ValueError('unsupported G1 mechanics; no inferred grammar')
+    for key in ('range_px', 'speed_px_s'):
+        _number(mechanics[key], 1e-9, math.inf, key)
+    if (not data.get('screen_px') or data.get('pierce', 0) != mechanics['pierce']
+            or data['phases']['travel'].get('speed_px_s') != mechanics['speed_px_s']
+            or data['phases']['travel'].get('streak') is not True):
+        raise ValueError('projectile mechanics disagree with kit')
+    if spec['visual_treatment_id'] != data['element'] or spec['response_class'] != data['element_class']:
+        raise ValueError('projectile treatment disagrees with spec')
+    presentation = spec['presentation']
+    for key in ('primitive_bindings', 'body_extents_bh', 'phase_envelope_s', 'enabled_layers'):
+        if key not in presentation: raise ValueError('missing presentation.'+key)
+    binding = data.get('impact_binding')
+    _keys(binding, {'kit', 'phase', 'template', 'seed'}, {'kit', 'phase', 'template', 'seed'}, 'impact_binding')
+    if (not isinstance(binding['kit'], str) or not re.fullmatch(r'[A-Za-z_][A-Za-z0-9_]*', binding['kit'])
+            or binding['phase'] != 'pieces' or binding['template'] != 'burst_v2'):
+        raise ValueError('impact_binding requires a named pieces burst_v2 kit')
+    _number(binding['seed'], 0, 2**32-1, 'seed', True)
+    if not presentation['primitive_bindings'].get('impact', '').startswith(binding['kit']+' '):
+        raise ValueError('impact binding disagrees with spec')
+    primitives = data['travel_primitives']
+    _keys(primitives, {'head', 'streak', 'rest_hold_frames', 'tail_s'}, {'head', 'streak', 'rest_hold_frames', 'tail_s'}, 'travel_primitives')
+    _number(primitives['rest_hold_frames'], 3, 4, 'rest_hold_frames', True)
+    if primitives['tail_s'] != .15: raise ValueError('travel tail_s must be 0.15')
+    assets = {}
+    for role in ('head', 'streak'):
+        item = primitives[role]
+        keys = {'binding', 'png', 'pivot', 'scale'} | ({'rear_socket'} if role == 'head' else set())
+        _keys(item, keys, keys, 'primitive.'+role)
+        if item['binding'] != presentation['primitive_bindings'].get('travel_'+role):
+            raise ValueError('primitive binding disagrees with spec')
+        path = _png(item['png'], root, True, runtime)
+        assets[item['png']] = path
+        with Image.open(path) as im: size = im.size
+        for key in ('pivot', 'rear_socket'):
+            if key not in item: continue
+            if not isinstance(item[key], list) or len(item[key]) != 2: raise ValueError(key+' requires x,y')
+            for value, extent in zip(item[key], size): _number(value, 0, extent, key)
+        _number(item['scale'], 1e-9, 1, 'primitive.scale')
+    states = data.get('key_states', [])
+    if not isinstance(states, list) or len(states) > 2: raise ValueError('key_states supports at most two paintings')
+    names = set()
+    for state in states:
+        _keys(state, {'state', 'png', 'hold_frames', 'pivot', 'scale'},
+              {'state', 'png', 'hold_frames', 'pivot', 'scale'}, 'travel key_state')
+        if not isinstance(state['state'], str) or not re.fullmatch(r'[A-Za-z_][A-Za-z0-9_]*', state['state']) or state['state'] in names:
+            raise ValueError('key_state names must be unique safe identifiers')
+        names.add(state['state'])
+        _number(state['hold_frames'], 3, 4, 'key_state.hold_frames', True)
+        _number(state['scale'], 1e-9, 1, 'key_state.scale')
+        path = _png(state['png'], root, True, runtime)
+        assets[state['png']] = path
+        if not isinstance(state['pivot'], list) or len(state['pivot']) != 2: raise ValueError('key_state pivot requires x,y')
+        with Image.open(path) as im:
+            for value, extent in zip(state['pivot'], im.size): _number(value, 0, extent, 'key_state.pivot')
+    return assets
+
+
+def build_projectile_arms(spec_path, head_path, streak_path, impact_dir, out_parent, staging, key_states=None):
+    """Build A/B from one explicit spec. Future keys are authored kit metadata.
+
+    Impact is a catalogue dependency, reused by name with seed/template checks.
+    No per-frame travel drawing is synthesized. Empty key lists are identical.
+    """
+    spec_path, impact_dir, staging = Path(spec_path), Path(impact_dir), Path(staging)
+    spec = json.loads(spec_path.read_text())
+    impact = load_kit(impact_dir)
+    staging.mkdir(parents=True, exist_ok=True)
+    primitives = {}
+    for role, source in [('head', head_path), ('streak', streak_path)]:
+        with Image.open(source) as im: pixels = quantise_projectile(np.array(im.convert('RGBA')))
+        file = staging/(role+'.png'); Image.fromarray(pixels).save(file)
+        box = Image.fromarray(pixels[..., 3]).getbbox()
+        if box is None: raise ValueError('empty primitive')
+        left, top, right, bottom = box
+        extent = spec['presentation']['body_extents_bh']['head' if role == 'head' else 'streak_len']*130
+        scale = min(1., extent/(right-left))
+        # +x-facing head: origin at its tip; rear socket at the body rear.
+        item = dict(binding=spec['presentation']['primitive_bindings']['travel_'+role],
+                    png=str(file.resolve()), pivot=[right-1, (top+bottom-1)/2], scale=scale)
+        if role == 'head': item['rear_socket'] = [left, (top+bottom-1)/2]
+        primitives[role] = item
+    base = dict(element=spec['visual_treatment_id'], element_class=spec['response_class'],
+                screen_px=True, ground_squash=impact['ground_squash'],
+                phase_scale=copy.deepcopy(impact.get('phase_scale', {})),
+                material=copy.deepcopy(impact['material']), layers=copy.deepcopy(impact['layers']),
+                pierce=spec['mechanics']['pierce'], skill_spec=spec, key_states=[],
+                travel_primitives=dict(primitives, rest_hold_frames=3, tail_s=.15),
+                impact_binding=dict(kit=impact['name'], phase='pieces', template=impact['pieces']['template'], seed=impact['pieces']['seed']))
+    base['phases'] = {}
+    for phase in ('cast', 'impact'):
+        base['phases'][phase] = copy.deepcopy(impact['phases'][phase])
+        base['phases'][phase]['sheet'] = str((impact_dir/base['phases'][phase]['sheet']).resolve())
+        for frame in base['phases'][phase]['frames']: frame['file'] = str((impact_dir/frame['file']).resolve())
+    head = primitives['head']['png']
+    base['phases']['travel'] = dict(sheet=head, frames=[dict(file=head, hold_frames=1)],
+                                   speed_px_s=spec['mechanics']['speed_px_s'], streak=True)
+    states = copy.deepcopy(key_states or [])
+    if not isinstance(states, list) or len(states) > 2:
+        raise ValueError('key_states supports at most two paintings')
+    for index, state in enumerate(states):
+        with Image.open(state['png']) as im:
+            pixels = quantise_projectile(np.array(im.convert('RGBA')))
+        file = staging/('travel_key_%d.png' % (index+1))
+        Image.fromarray(pixels).save(file)
+        state['png'] = str(file.resolve())
+    reports = []
+    for arm in ('A', 'B'):
+        data = dict(copy.deepcopy(base), name=spec['skill_id']+'_'+arm)
+        data['key_states'] = states if arm == 'A' else []
+        reports.append(build(data, Path(out_parent)/data['name']))
+    return reports
