@@ -708,9 +708,135 @@ Root: `/Users/admin/Desktop/class-E/2026-09-16-e3-deployment/`
 
 ---
 
-## 13. Source list (all accessed 2026-09-16)
+## 13. The Poisonous Concoction combo as played (class E)
 
-> **Renumbered 2026-09-16 (second pass)** from § 12 so that the commissioned addendum could take the § 12 heading it was asked for. Content unchanged.
+> **ADDENDUM, 2026-09-16 (third pass).** legolas Mode A, commissioned by gandalf (RUN-CONDUCTOR, Run C-5) on Matt's direct request: *"Regarding poisonous concoction combination skill, please have Legolas gather the actual video of the combo that we will create."* § 12 established that the PConc gem leaves nothing and that the dark ground in the endgame Pathfinder clip was Plague Bearer. Matt then RULED (**R-C5-80**) that we build the **composite** — the lobbed burst **plus** the *"giant black puddles of darkness everywhere"* he remembers from playing a PConc **Witch**. This section goes and finds that Witch.
+>
+> **Sourcing class E, option (b)** — clips and frames live only at `~/Desktop/class-E/2026-09-16-e3-deployment/poisonous_concoction/combo/`, with `SOURCE_and_CLASS.md` and `FRAMES_INDEX.md` sidecars. **Nothing here is in any repo and nothing is a burst input.** Only numbers and descriptions travel.
+>
+> **Disk discipline honoured.** `df -h /` before every download and every extraction; free space never below **45 GB** (floor 20 GB). Section downloads only (`--download-sections`), ≤ 1080p. Working frame sets deleted immediately after measurement; **12** keeper frames retained. **Added this pass: 136 MB** of a 2 GB budget. `du -sh ~/Desktop/class-E` → **1.3G**.
+
+### 13.0 READ THIS BEFORE THE TABLE — the memory is real, but nothing in the footage is black
+
+**The Witch exists and the composite is real.** The Poisonous Concoction **Occultist** is a documented, popular archetype — maxroll calls it *"the premier mapping focused character with its built in explosions from Profane Bloom"* — and I found and measured three separate clips of it. Matt's memory of a PConc Witch whose screen fills with effects is **corroborated in every particular except the colour**.
+
+**Measured, and it inverts the premise:**
+
+| | Measured |
+|---|---|
+| The player-anchored ground disc | interior **meanY 94.9**, RGB (94,84,79) — against ambient ground **meanY 33.0**. It is **LIT**, ~3× brighter than the floor. |
+| Profane Bloom explosion core | **RGB (252, 72, 253)** — saturated fuchsia |
+| Poisonous Concoction burst core | **RGB (78, 202, 29)** — acid chartreuse |
+| Plague Bearer persistent aura | **RGB (91, 152, 135)** — desaturated teal |
+| The map floor itself | **RGB (39, 27, 10), meanY 32.4 — and 90 % of the play area sits below Y = 45** |
+
+**So the darkness is the CANVAS, not the paint.** In this build's real footage every build-borne element is a *bright* thing painted onto a near-black map. There is no black puddle, from any source, in any of the three clips. What a player carries away from an hour of this is, I think, exactly what Matt reported — but its structure is the inverse of the spec's: **a very dark ground, briefly and repeatedly torn open by bright chaos blooms that appear away from the player, wherever things die.** The "puddles" are the blooms; the "darkness everywhere" is the floor they sit on.
+
+**This does not disturb R-C5-80.** Matt ruled that we build the composite, and the composite is worth building — § 13.5 measures just how dense it gets. What this section changes is **which elements** the composite is made of, and it removes the need to invent a black decal that no source has. It is the same defect shape § 12.3 and the Table B preamble already flagged twice: *investment accumulating on a feature the source does not have.*
+
+### 13.1 Build identification — it is a Witch, and Matt's memory of the class is exact
+
+| Source | Identification |
+|---|---|
+| Path of Building screen, `ci1xmPwWEiE` (ds lily, 3.20) | Class **Witch → Occultist**, level 95, build named "pconc 3.20", main skill **Poisonous Concoction**, **AoE Radius 22**. Notes: *"Clearing — Poisonous Concoction until max plague bearer > **Plague Bearer** > **Shield Charge** around"*; *"Bossing — Ancestral Protector > **Withering Step** > throw flasks until max plague bearer > Plague Bearer"*; **Blasphemy + Temporal Chains**; **Herald of Agony** until uber lab. |
+| Gameplay clips `YkjZfsgea3I` (3.16), `ES3BkW4tPMY` (3.19), `yhSZ5WVCnzk` (3.21) — all sc4404 | Occultist PConc. Buff slot 1 carries the **Plague Bearer plague-value counter** in all three (23.0K / 1494.0K / 17.6K at the sampled frames). |
+| `yfNEzjT_vB8` (Zizaran, 3.16 Scourge) | Ascendancy tree open on the **Profane Bloom** notable. |
+| maxroll, GGG forum (HunterKee's 3.17 PConc Witch) | Occultist is the canonical PConc mapping ascendancy; Profane Bloom provides the chain explosions. |
+
+**One correction owed to § 5.** § 5 recorded *"Projectile count: **1** — no projectile-count stat exists on the gem"* (VERIFIED). That is true of the **base gem** and false of the **build**: the PoB notes quote AoE breakpoints for **Greater Multiple Projectiles** (2 overlaps), **Greater Volley** (2–3, avg 2.8) and **GMP + GV** (4–5, **avg 4.5 overlaps**). Endgame PConc throws a *fan* of flasks that land in one overlapping cluster. This is what reconciles the single-burst and cluster figures in the table below (2.6 BH vs 4.9–5.5 BH), and it is the single most consequential thing in this section for anyone sizing the effect.
+
+### 13.2 What actually produces the dark ground, clip by clip
+
+| Rank | Element | Clip(s) | Anchoring | Grade |
+|---|---|---|---|---|
+| 1 | **The map floor.** meanY 32.4 (3.16) / 34.1 (3.19); 90 % / 68 % of the play area below Y = 45 | 3.16, 3.19 | world | **HIGH** — measured |
+| 2 | **Profane Bloom** (Occultist notable) — fuchsia chaos nova at each cursed enemy's death; **this is the "everywhere"** | all three | **at corpses, off the player** | **HIGH** |
+| 3 | **Plague Bearer** — persistent teal aura, then a large acid-green field during its release; smears across the map as the player Shield-Charges | all three | **player** | **HIGH** (release window measured by counter drain) |
+| 4 | **Blasphemy hex aura** (Despair / Temporal Chains) — dark indigo runic **outline**, not a fill | 3.19 (clearest) | player | **MED–HIGH** |
+| 5 | **Delirium fog** — uniform pale grey mist, ambient meanY **72.6**, saturation 12.1 | 3.21 only | world | **HIGH** — confirmed by the in-game line *"a strange voice: it's all in your head"* |
+| 6 | **A persistent player-anchored LIT disc**, ember rim, radius stable at 89–95 px across 80 s | 3.16 only | player | form **HIGH**, source **LOW** — most consistent with a cosmetic character effect. **Not a skill, and not the vial.** |
+| — | **Profane Ground** — RULED OUT AT SOURCE | — | — | created only by *Broken Faith*, *Rational Doctrine* and *Bitter Heresy*; none is in this build |
+| — | **Caustic ground from flask use** — RULED OUT AT SOURCE in § 5 | — | — | unchanged |
+
+### 13.3 BH anchors for this section
+
+| Clip | Capture | **BH (px)** | How |
+|---|---|---|---|
+| `occ_316_YkjZfsgea3I_005` | 1280×674 / 30 fps | **90 ± 8** | scale bar, standing Witch @ 3.1 s (partially occluded by the lit disc — hence the wider ±) |
+| `occ_319_ES3BkW4tPMY_005` | 1276×720 / 60 fps | **93 ± 6** | scale bar, standing Witch @ 3.0 s |
+
+### 13.4 THE COMBO AS PLAYED — one table
+
+*All rows from `occ_316_YkjZfsgea3I_005` (3.16 Scourge, T16 Minotaur) at BH = 90 px unless the clip is named. Confidence: **HIGH** = numeric, repeated across ≥ 3 events · **MED** = single event or contaminated · **LOW** = visual class only.*
+
+| # | Quantity | **Measurement** | Conf. |
+|---|---|---|---|
+| **A. The burst (the vial)** ||||
+| A1 | Colour, core | **RGB (78, 202, 29)** — acid chartreuse, blue channel nearly absent. Distinct at a glance from the build's other green (C1). | **HIGH** |
+| A2 | Size, **single** cast | bbox **237 × 250 px → 2.6 × 2.8 BH**. Agrees with § 12.1 row 5b's independent Act-3 control (3.45 × 2.95 BH) against a 2.00 BH damage diameter. | **HIGH** |
+| A3 | Size, **endgame cluster** (GMP / Greater Volley) | bbox **440–498 px wide → 4.9–5.5 BH**; largest single component 498 × 257 px. This is 4–5 overlapping flasks, not one bigger burst. | **HIGH** |
+| A4 | Onset | **≤ 1 frame** (1/30 s) to a fully-formed bloom; peak at ≈ 0.10 s. No growth phase. | **HIGH** |
+| A5 | Life | rise 0.10 s → back to background at **0.30–0.35 s**. Four casts measured (t = 22.9 / 24.8 / 25.4 / 27.6). Matches § 12 exactly. | **HIGH** |
+| A6 | Cadence in play | peaks at 22.9, 23.4, 23.9, 24.8, 25.4, 26.9, 27.6 s → intervals 0.5 / 0.5 / 0.9 / 0.6 / 1.5 / 0.7 s, **median ≈ 0.6 s**. | **MED** |
+| A7 | Edge softness | luma falls to 90 % at r = 3 px, 50 % at r = 58 px, 10 % at r = 126 px → **soft over ≈ 1.37 BH**. There is no hard rim: it is a plume-and-whip-arc silhouette, not a disc. | **MED** |
+| A8 | Residue | **NONE.** Green returns to the 0.7–2.2 k px player-aura baseline within 0.3 s of every cast. | **HIGH** |
+| **B. The dark-ground partner — Profane Bloom (this is the "everywhere")** ||||
+| B1 | Colour, core | **RGB (252, 72, 253)** — saturated fuchsia. On a meanY-33 floor this is the brightest thing on screen. | **HIGH** |
+| B2 | Where it sits | **at the position of each dead monster** — off the player, scattered across the pack's footprint. It does **not** sit where the vial landed and does **not** sit under the player. | **HIGH** |
+| B3 | Size, single lobe | **126–162 px → 1.4–1.8 BH**; 10 %-luma radius 80 px → 1.8 BH diameter. Consistent by two methods. | **HIGH** |
+| B4 | Size, cascade | up to **430 × 332 px → 4.8 × 3.7 BH** as adjacent lobes merge. | **HIGH** |
+| B5 | Growth | 126 → 162 px in **0.07 s**, then decay. Effectively instant. | **MED** |
+| B6 | Life | **0.30–0.40 s** (three isolated events: 34.70→35.03, 35.10→35.53, 35.60→35.93). | **HIGH** |
+| B7 | Recurrence | a new lobe or cluster every **0.45–0.50 s** through a pack clear. | **MED** |
+| B8 | Edge softness | luma 90 % at r = 27 px, 50 % at r = 48 px, 10 % at r = 80 px → bright core **0.30 BH radius**, fading over a further **0.59 BH**. Very soft, no rim. | **MED** |
+| B9 | Residue | **NONE.** Magenta falls to < 100 px between cascades. | **HIGH** |
+| **C. The dark-ground partner — Plague Bearer** ||||
+| C1 | Colour, persistent phase | **RGB (91, 152, 135)** — desaturated teal, and visibly *not* A1. Baseline 2–7 k px, present in every frame. | **HIGH** |
+| C2 | Anchoring | **player.** Centred on the player in 100 % of frames sampled across 95 s and many different terrains. | **HIGH** |
+| C3 | Release window | plague value drains **1024.5K → 92.9K over t = 23.0 → 28.2 s** (≈ 170 K/s), then exhausts and re-accumulates to 1371.1K by t = 31.0 s. **A ≈ 5.5 s release.** | **HIGH** |
+| C4 | Release field | peak green **76 321 px** with a largest component **498 × 257 px → 5.5 × 2.9 BH**, colour shifting toward the acid end (112,165,26). Smears across the map as the player Shield-Charges. | **HIGH** |
+| C5 | Layering with the burst | the release field is the **bed**; the vial bursts (A) fire *inside* it at ~0.6 s intervals and the Profane Bloom lobes (B) fire *outside* it at the corpses. Three distinct greens/magentas are separable by colour in a single frame. | **MED** |
+| **D. The player-anchored disc (3.16 only) — measured, unidentified** ||||
+| D1 | Size | radius **89–95 px** semi-major, stable to ±3 % across t = 3.1 / 12.0 / 27.6 / 45.6 / 62.0 / 80.0 s → **≈ 2.0 BH wide × 1.25 BH tall** (a ground-plane circle under the camera pitch). | **HIGH** |
+| D2 | Colour + brightness | interior RGB (94, 84, 79) **meanY 94.9**; ember rim RGB (114, 70, 45) meanY 86.5; just outside meanY 47.7; ambient ground meanY 33.0. | **HIGH** |
+| D3 | Verdict | **It is a LIT disc, not a dark one** — roughly 3× the floor's luminance. Whatever it is, it is the opposite of a black puddle. Absent from the 3.19 and 3.21 clips of the same build. | **HIGH** (form) / **LOW** (source) |
+| **E. Blasphemy hex ring (3.19, BH = 93)** ||||
+| E1 | Geometry + colour | **134 px diameter → 1.44 BH**, stroke 28 px → **0.30 BH**, RGB **(104, 74, 137)** muted indigo, drawn as a **runic outline with glyphs — not a fill**. | **MED** |
+| **F. The floor (what "darkness" actually is)** ||||
+| F1 | 3.16 T16 Minotaur | ground medRGB **(39, 27, 10)**, meanY **32.4**, **90 %** of play area below Y = 45. | **HIGH** |
+| F2 | 3.19 T16 | ground medRGB (32, 15, 12), meanY 34.1, **68 %** below Y = 45. | **HIGH** |
+| F3 | 3.21 T16 **Delirium** | medRGB (70, 67, 63), meanY **72.6**, saturation 12.1, only 16 % below Y = 45. **Delirium is a PALE fog and makes the screen lighter, not darker.** | **HIGH** |
+
+### 13.5 "Everywhere", quantified — what ten casts actually look like
+
+Fraction of the play area (UI panels excluded) covered by chaos-coloured VFX, and the number of separate blobs ≥ 400 px, measured **frame by frame across both full clips** — 2 851 frames (3.16) and 5 401 frames (3.19):
+
+| | 3.16 Minotaur | 3.19 T16 |
+|---|---|---|
+| Median chaos cover | **0.95 %** | 0.70 % |
+| p90 / p99 cover | 5.8 % / 13.0 % | 5.5 % / 12.8 % |
+| **Peak cover** | **21.0 %** | **35.3 %** |
+| Frames over 5 % cover | 12.1 % of the clip | 11.9 % |
+| Simultaneous blobs — median / p90 / **max** | 2 / 6 / **17** | 2 / 6 / **19** |
+| Frames with ≥ 5 blobs | 14.9 % | 20.1 % |
+
+**Two clips, different leagues, different maps, near-identical numbers.** That is the strongest result in this section. The build's real texture is **quiet most of the time (≈ 1 % cover, two small blobs) punctuated by 1–3 s cascades where a fifth to a third of the screen is chaos and up to 17–19 separate blooms are alight at once.** It is not a rising tide of ground cover; it is a strobe. And it does not accumulate: § 13.4 A8/B9 show everything is gone inside 0.4 s, so after ten casts the ground looks exactly as it did after one.
+
+### 13.6 What we would build to match the memory
+
+Build the vial as the **acid-chartreuse (78, 202, 29) instantaneous burst already specced in § 12 — 2.6–2.8 BH of VFX over a 2.0 BH hitbox, fully formed in one frame, gone in 0.30–0.35 s, no residue** — and fire it in a **fan of 4–5 overlapping flasks** so that one cast reads as a 4.9–5.5 BH cluster rather than one big bloom; that fan, not a larger radius, is what makes an endgame cast look endgame. Give it the **ground partner it actually has, which is a kill-triggered one, not a cast-triggered one**: a **fuchsia (252, 72, 253) soft-cored nova, 1.4–1.8 BH, born at each enemy's death position, alive 0.30–0.40 s, with a 0.30 BH bright core fading over a further 0.59 BH and no rim** — so that clearing a pack scatters up to a dozen of them across the pack's footprint while the player stands elsewhere. Keep the player's own element **persistent, desaturated teal (91, 152, 135), and separable by colour from the vial**, with a periodic ~5.5 s **release** that lays a 5.5 × 2.9 BH bed the bursts fire inside. Then make the **floor** dark — meanY ≈ 33, 70–90 % of the play area below Y = 45 — because that is where the remembered darkness actually comes from, and it costs nothing. **What a player sees per cast:** a flask fan cracks open in acid green, one frame on, a third of a second off, and wherever something dies a fuchsia bloom answers it a beat later. **What they see after ten casts:** not a spreading stain — the ground is exactly as clean as it was — but a floor that has been lit up 1–3 s at a time by up to seventeen simultaneous blooms covering a fifth of the screen, then dropped back to near-black. **If C-5 still wants a literal black puddle, it remains a HOUSE addition and must be declared as one** (§ 12.3): three clips of the exact build Matt named contain no black ground effect from any source.
+
+### 13.7 What this pass did not settle
+
+1. **The 3.16 lit disc (§ 13.4 D).** Measured precisely, identified poorly. It is player-anchored, constant, lit, and absent from the same build's 3.19 and 3.21 clips — most consistent with a cosmetic character effect. It is **not** the gem and not Plague Bearer, which is all the spec needs from it, but it is exactly the class of artefact that manufactures a false "the skill leaves ground" memory, and it should be named as such rather than quietly measured.
+2. **Whether Matt's memory is of this build at all.** Three Occultist clips across 3.16 / 3.19 / 3.21 agree with each other and none contains black ground. A league, map mod or unique item outside these three could still supply one; I did not find a candidate, and § 13.2 rules out the two most commonly named (Profane Ground, flask-created caustic ground) **at source**.
+3. **PConc lob apex** — unchanged from § 12.7 item 4. The endgame clips are worse for this than the Act-3 control, not better: with 4–5 projectiles in a fan there is no single trail to track.
+4. **Profane Bloom's own damage geometry.** I measured the VFX only. No game-data figure for its explosion radius was sought this pass, so the 1.4–1.8 BH above is a **look** number, and § 12.0's standing caveat applies — where a source gives both, VFX and hitbox differ.
+
+---
+## 14. Source list (all accessed 2026-09-16)
+
+> **Renumbered 2026-09-16 (second pass)** from § 12, then again **(third pass)** from § 13, so that each commissioned addendum could take the heading it was asked for. Content unchanged apart from the third-pass additions marked below.
 
 **Shipped game data (VERIFIED):** [fabd/diablo2](https://github.com/fabd/diablo2) @ `code/d2_113_data/{Missiles,Skills,CharStats,Overlay}.txt` (D2 1.13) · Grim Dawn `database.arz`, read on disk via the team's TQIT/LZ4 parser `agentic_orchestration/research/scripts/gd_arz_adapter_2026_07_24.py`, cross-checked across two editions · [RePoE](https://github.com/lvlvllvlvllvlvl/RePoE) `gems.json` + [Path of Building](https://github.com/PathOfBuildingCommunity/PathOfBuilding) `src/Data/Skills/act_dex.lua` · [xuqifzz/hades-mod-tutorial](https://github.com/xuqifzz/hades-mod-tutorial) (`PlayerProjectiles.sjson`, `PlayerWeapons.sjson`, `TraitData.lua`, `Fx.sjson`, v1.0)
 
@@ -727,6 +853,12 @@ Root: `/Users/admin/Desktop/class-E/2026-09-16-e3-deployment/`
 **Footage — SECOND PASS (downloaded and measured under Matt's option (b), class E):** `b5a-iIras34` · `RPJK4SSFZ0c` · `ThO5dWZzyzY` · `jRLXuRw9VIA` · `ZRVed04RsJE` · `eErJwp8iP0w` · `23danGZ17b0` · `AMXRR3QVpFY` · `vQGkaa0Uax0` · `1V9Qkmoaxng` · `XPs-jypdwx8` · `EbMkJBxIVaI` · `JzOp9I3V9vs` · `n-IYQnoqpV8` · `5jfYuuosJM0`. **All clips and frames live only at `~/Desktop/class-E/2026-09-16-e3-deployment/` with their sidecars; nothing is in any repo and nothing is a burst input.** Measurements are in § 12.
 
 **Web (second pass, to adjudicate Matt's puddle question):** PoE Pathfinder **Master Alchemist** node description (search-index summary; `pathofexile.fandom.com`, `poedb.tw`) — used only to rule OUT flask-created caustic ground. **Graded SECONDARY**; the identification in § 12.3 rests on the frames, not on this.
+
+**Footage — THIRD PASS (2026-09-16, the PConc *combo* probe; downloaded and measured under Matt's option (b), class E):** `YkjZfsgea3I` (sc4404, [3.16] PConc Occultist T16 Minotaur Mapclear, 2021-11-03) · `ES3BkW4tPMY` (sc4404, 3.19 PConc Occultist T16, 2022-08-24) · `yhSZ5WVCnzk` (sc4404, [3.21] PConc Occultist T16 Delirium, 2023-04-03) · `ci1xmPwWEiE` (ds lily, [3.20] Poison Concoction Occultist — **Path of Building screen only, no gameplay**; the build-identification source, 2022-12-08) · `yfNEzjT_vB8` (Zizaran, Occultist PConc build update, 3.16 Scourge, 2021-11-02 — ascendancy-tree corroboration). Two further sections were downloaded, found to contain no gameplay, and **deleted**. **All clips and the 12 keeper frames live only at `~/Desktop/class-E/2026-09-16-e3-deployment/poisonous_concoction/combo/` with `SOURCE_and_CLASS.md` and `FRAMES_INDEX.md` sidecars; nothing is in any repo and nothing is a burst input.** Measurements are in § 13.
+
+**Web (third pass, to identify the build and adjudicate the dark ground):** [maxroll — Poison Concoction / Bladefall Blade Blast Occultist league-starter guide](https://maxroll.gg/poe/build-guides/bladefall-bladeblast-occultist-league-starter-guide) (SECONDARY — establishes Occultist as the canonical PConc mapping ascendancy and Profane Bloom as the explosion source) · [GGG forum — HunterKee's 3.17 Poisonous Concoction Witch](https://www.pathofexile.com/forum/view-thread/3187344) (TERTIARY — corroborates the Witch archetype) · [poedb — Profane ground](https://poedb.tw/us/Profane_ground) (SECONDARY — used only to **rule out** Profane Ground: it is created by *Broken Faith*, *Rational Doctrine* and *Bitter Heresy* alone, none of which is in this build) · pathofexile.fandom.com *Profane Bloom* (search-index summary only; direct fetch returned HTTP 402). **The identifications in § 13.2 rest on the frames and on in-game text, not on these pages.**
+
+**Sourcing compliance — THIRD PASS (2026-09-16):** Matt's option **(b)** honoured — clips and JPEG frames on the Desktop under `class-E/` only, **never copied into a repo, never a burst input**. Read-only throughout; nothing written outside this directory. Disk rules honoured in full: `df -h /` before every download and every extraction (floor 20 GB, never below **45 GB**), **section downloads only** (`--download-sections`), ≤ 1080p, JPEG-only extraction in windows around measured events, each working set deleted immediately after measurement, **12** keeper frames. **Added this pass: 136 MB** of a 2 GB budget. `du -sh ~/Desktop/class-E` = **1.3G**. Note: this host's `ffmpeg` has **no `drawtext` filter**, so keeper-frame captions live in `FRAMES_INDEX.md` beside the frames rather than burnt into them.
 
 **Sourcing compliance — FIRST PASS:** option **c′** honoured — **no video downloaded, no frames extracted**. `yt-dlp` is absent from this host. Metadata came from oEmbed and page-embedded JSON; two published thumbnails were fetched and viewed (the already-authorised class). Read-only throughout; nothing written outside this directory.
 
