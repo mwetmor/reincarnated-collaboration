@@ -77,7 +77,7 @@ for d in DIRS:
         refs = [{"path": str(MASTER), "role": "IMAGE 1 — APPROVED MASTER (S): THE CAMERA (53° down) and scale reference; identity truth"},
                 {"path": str(src), "role": f"IMAGE 2 — the character turned to {d}: correct sides, identity and pose; EDIT this image to IMAGE 1's camera"}]
         outs = [f"out/n7_{d}.png"]
-    elif mode in ('fixedit', 'fixedit2', 'fixedit3', 'fixedit4', 'fixedit5', 'fixedit6'):
+    elif mode in ('fixedit', 'fixedit2', 'fixedit3', 'fixedit4', 'fixedit5', 'fixedit6', 'fixedit7'):
         import json as _j
         if mode == 'fixedit':
             fixes = _j.load(open(B/'runs/C-6/n7_fixes.json')); fix = fixes[d]
@@ -94,11 +94,14 @@ for d in DIRS:
         elif mode == 'fixedit5':
             fixes = _j.load(open(B/'runs/C-6/n10_fixes.json')); fix = fixes[d]
             bid = f'N10-hold-{d}'; src = B/_j.load(open(B/'runs/C-6/n10_sources.json'))[d]
-        else:
+        elif mode == 'fixedit6':
             fixes = _j.load(open(B/'runs/C-6/n11_fixes.json')); fix = fixes[d]
             bid = f'N11-hold-{d}'; src = B/_j.load(open(B/'runs/C-6/n11_sources.json'))[d]
+        else:
+            fixes = _j.load(open(B/'runs/C-6/n12_fixes.json')); fix = fixes[d]
+            bid = f'N12-hold-{d}'; src = B/_j.load(open(B/'runs/C-6/n12_sources.json'))[d]
         assert src.exists(), src
-        outname = {'fixedit': f'n7_{d}', 'fixedit2': f'n8_{d}_r1', 'fixedit3': f'n8_{d}_r2', 'fixedit4': f'n9_{d}_r1', 'fixedit5': f'n10_{d}', 'fixedit6': f'n11_{d}'}[mode]
+        outname = {'fixedit': f'n7_{d}', 'fixedit2': f'n8_{d}_r1', 'fixedit3': f'n8_{d}_r2', 'fixedit4': f'n9_{d}_r1', 'fixedit5': f'n10_{d}', 'fixedit6': f'n11_{d}', 'fixedit7': f'n12_{d}'}[mode]
         text = (f"GENERATE BURST {bid} — Necromancer rest frame, direction {d}: TARGETED FIX in EDIT mode (Run C-6 P2 pass 4). task_id \"{bid}\".\n\n"
           f"IMAGE 1 is the APPROVED MASTER (S): identity truth (pale ice-blue eyes; plain round silver belt disc; silver-steel ribcage; ONE horn on his left shoulder; the book with silver corner caps and a short red ribbon and NOTHING else; exactly two hands on the scythe; no skull anywhere). IMAGE 2 is the same character turned to {d} — its camera, sides, pose, identity and gear are CORRECT and must be kept exactly, except for the fix below.\n"
           f"Use image_gen in EDIT MODE on IMAGE 2 and deliver ONE image identical to IMAGE 2 except: {fix}\n"
