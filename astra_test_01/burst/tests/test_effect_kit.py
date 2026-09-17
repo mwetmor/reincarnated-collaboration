@@ -2782,3 +2782,12 @@ class FL6FlameDanceValidationTests(unittest.TestCase):
         self.assertEqual(burst['pieces']['key_states'],[])
         self.assertEqual(bolt['layers']['travel']['flame_dance']['jitter_px'],4)
         self.assertEqual(pool['g2']['flame_dance']['step_frames'],[3,5])
+
+
+class FL6CTongueTrimTests(unittest.TestCase):
+    def test_all_three_explicit_kits_use_trimmed_controls(self):
+        for name in ('fire_burst_e0p_v3','fire_bolt_e1_B','blackwater_cocktail_e3'):
+            data=load_kit(ROOT/'runs/C-5/vfx_kits/v9'/name)
+            owner=data['pieces'] if name=='fire_burst_e0p_v3' else data['g2'] if name=='blackwater_cocktail_e3' else data['layers']['travel']
+            self.assertEqual(owner['flame_dance']['tongue_scale'],[1.1,1.4])
+            self.assertEqual(owner['flame_dance']['tongue_root_radius_factor'],1.15)

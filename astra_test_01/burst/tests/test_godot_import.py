@@ -2348,7 +2348,7 @@ class FL6LiveRegistryCLIRegressionTests(unittest.TestCase):
         catalogue = root/'runs/C-5/vfx_kits/kits_v9.json'
         expected = [kit['name'] for kit in json.loads(catalogue.read_text())['kits']]
         self.assertEqual(len(expected), 18)
-        work = root/'runs/C-5/t3/FL-6b'
+        work = Path(__import__('os').environ.get('ASTRA_TOOLING_OUTPUT', str(root/'runs/C-5/t3/FL-6b')))
         work.mkdir(parents=True, exist_ok=True)
         with tempfile.TemporaryDirectory(prefix='fl6b-full-cli-', dir=work) as tmp:
             project = Path(tmp)/'godot'
@@ -2384,3 +2384,33 @@ class FL6LiveRegistryCLIRegressionTests(unittest.TestCase):
             for resource in runtime['dance_core_textures'].values():
                 self.assertTrue((project/resource.removeprefix('res://')).is_file(), resource)
             self.assertTrue(validate_resources(project, include_scenes=True))
+
+
+class FL6CBoundsTests(unittest.TestCase):
+    def test_padding_contains_swept_corners_for_extreme_controls(self):
+        from export.godot_import import _assert_flame_dance_bounds
+        from export.effect_kit import FLAME_DANCE_DEFAULTS
+        import numpy as np
+        with tempfile.TemporaryDirectory(dir=TMP) as tmp:
+            out=Path(tmp); (out/'kit').mkdir()
+            for size in ((512,512),(13,1024),(1024,13)):
+                path=out/'kit/body.png'; Image.new('RGBA',size,(255,255,255,255)).save(path)
+                opts=dict(FLAME_DANCE_DEFAULTS,jitter_px=10,jitter_deg=5,jitter_scale=.08,front_scale=1.2)
+                _assert_flame_dance_bounds(out,'kit',opts,[path])
+                row=json.loads((out/'kit/dance_bounds.json').read_text())[0]
+                half=np.array(size)/2; margin=row['padding_px']
+                for angle in np.linspace(-5,5,41):
+                    a=math.radians(angle); rot=np.array([[math.cos(a),-math.sin(a)],[math.sin(a),math.cos(a)]])
+                    for x in (-1,1):
+                        for y in (-1,1):
+                            corner=rot@(half*[x,y])*(1.2*1.08)
+                            self.assertTrue(np.all(np.abs(corner)+10<=half+margin))
+                self.assertGreaterEqual(row['clearance_px'],2)
+
+    def test_full_texture_padding_keeps_pivot_and_auxiliary_uv_domain(self):
+        from export.godot_import import FLAME_DANCE_SCRIPT
+        self.assertIn('paint.region_enabled = false',FLAME_DANCE_SCRIPT)
+        self.assertIn('paint.centered = true',FLAME_DANCE_SCRIPT)
+        self.assertIn('source.offset + (Vector2.ZERO if source.centered else size*.5)',FLAME_DANCE_SCRIPT)
+        self.assertIn('texture(distance_texture, dance_uv)',FLAME_DANCE_SCRIPT)
+        self.assertIn('texture(erosion_noise_texture, dance_uv',FLAME_DANCE_SCRIPT)

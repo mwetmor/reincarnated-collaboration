@@ -2335,3 +2335,15 @@ class FL6SourceByteLocks(unittest.TestCase):
         self.assertEqual(actual,expected)
         names={k['name'] for k in _load_vfx_kits(ROOT/'runs/C-5/vfx_kits/kits_v9.json')}
         self.assertEqual(sum(Path(k).name=='kit.json' and Path(k).parent.name in names for k in actual),15)
+
+
+class FL6CSourceByteLocks(unittest.TestCase):
+    def test_fifteen_kits_and_all_primitives_match_pre_fl6c_snapshot(self):
+        expected=json.loads((ROOT/'fixtures/fl1b/FL6C-source-assets.json').read_text())
+        exempt={f'runs/C-5/vfx_kits/v9/{name}/kit.json' for name in ('fire_burst_e0p_v3','fire_bolt_e1_B','blackwater_cocktail_e3')}
+        actual={p.relative_to(ROOT).as_posix():hashlib.sha256(p.read_bytes()).hexdigest()
+                for p in (ROOT/'runs/C-5/vfx_kits/v9').rglob('*')
+                if p.is_file() and p.relative_to(ROOT).as_posix() not in exempt}
+        self.assertEqual(actual,expected)
+        names={k['name'] for k in _load_vfx_kits(ROOT/'runs/C-5/vfx_kits/kits_v9.json')}
+        self.assertEqual(sum(Path(k).name=='kit.json' and Path(k).parent.name in names for k in expected),15)

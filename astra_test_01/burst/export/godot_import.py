@@ -3730,6 +3730,7 @@ def _write_g2_kit(out, kit):
     from export.effect_kit import MATERIAL_BINDING_SCRIPT
     (out/f'scripts/vfx_{kit["name"]}_material.gd').write_text('extends RefCounted\n'+MATERIAL_BINDING_SCRIPT)
     if 'flame_dance' in d['g2']:
+        _assert_flame_dance_bounds(out, root, d['g2']['flame_dance'], [derived/'field.png', dest/d['g2']['pulse']])
         _emit_flame_dance(out)
         _write_g2_component(out)
         (out/'scripts/vfx_g2_flame_dance.gd').write_text(_fl6_pool(G2_SCRIPT))
@@ -5688,6 +5689,8 @@ def _write_fl4_travel(out, kit, resource_root):
     script = _fl5_eruption_script(script)
     (out/'scripts/vfx_g1_fl4.gd').write_text(script)
     if 'flame_dance' in opts:
+        _assert_flame_dance_bounds(out, resource_root, opts['flame_dance'],
+            [out/resource_root/kit['effect']['travel_primitives']['streak']['png']])
         _emit_flame_dance(out)
         script = _fl6_travel(script)
         (out/'scripts/vfx_g1_fl6.gd').write_text(script)
@@ -6050,6 +6053,7 @@ func _clock_fl5_ending(age: int) -> void:
 
 # FL-6 shared layer controller. Resources are emitted only for opted-in kits.
 FLAME_DANCE_SCRIPT = r'''extends RefCounted
+static var padded_textures: Dictionary = {}
 var settings: Dictionary
 var seed_value: int
 var copies: Array = []
@@ -6097,13 +6101,38 @@ func flicker(age: int, ident: int) -> Vector2:
 func add_copy(source: Sprite2D, parent: Node2D, layer: int, whole_body: bool, core_texture: Texture2D = null) -> void:
     var paint := Sprite2D.new()
     paint.name = "FlameDanceL"+str(layer)+"_"+str(copies.size())
-    paint.texture = source.texture if core_texture == null else core_texture
+    # Full padded texture: transforms move the quad, never crop its sampling rect.
+    var original: Texture2D = source.texture if core_texture == null else core_texture
+    assert(not source.region_enabled, "Dance sources must use full textures")
+    assert(not original is AtlasTexture, "Dance sources must not use atlas regions")
+    var size: Vector2 = original.get_size()
+    var half_extent: float = size.length() * .5
+    var reach: float = 2.0 * half_extent * sin(deg_to_rad(float(settings.jitter_deg)) * .5)
+    var expansion: float = maxf(0.0,maxf(float(settings.back_scale),float(settings.front_scale))*(1.0+float(settings.jitter_scale))-1.0)*half_extent
+    var margin: int = int(ceil(float(settings.jitter_px)+reach+expansion))+2
+    var cache_key: String = (original.resource_path if not original.resource_path.is_empty() else str(original.get_rid()))+":"+str(margin)
+    if not padded_textures.has(cache_key):
+        var padded := Image.create(int(size.x)+2*margin,int(size.y)+2*margin,false,Image.FORMAT_RGBA8)
+        padded.fill(Color(0,0,0,0))
+        var original_image: Image = original.get_image()
+        original_image.convert(Image.FORMAT_RGBA8)
+        padded.blit_rect(original_image,Rect2i(Vector2i.ZERO,Vector2i(size)),Vector2i(margin,margin))
+        padded_textures[cache_key] = ImageTexture.create_from_image(padded)
+    paint.texture = padded_textures[cache_key]
+    paint.region_enabled = false
+    paint.texture_repeat = CanvasItem.TEXTURE_REPEAT_DISABLED
     paint.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR
-    paint.centered = source.centered
-    paint.offset = source.offset
+    paint.centered = true
+    # Preserve the source's body/root pivot exactly, including off-centre sockets.
+    paint.offset = source.offset + (Vector2.ZERO if source.centered else size*.5)
     paint.material = source.material.duplicate()
     var shader := Shader.new()
     var code: String = source.material.shader.code
+    # Distance/noise fields stay in the original UV domain; colour/alpha sample
+    # the padded image. Padding must never stretch or move the erosion field.
+    code = code.replace("void fragment() {", "uniform vec2 dance_uv_scale;\nuniform vec2 dance_uv_offset;\nvoid fragment() {\n    vec2 dance_uv = UV*dance_uv_scale+dance_uv_offset;")
+    code = code.replace("texture(distance_texture, UV)", "texture(distance_texture, dance_uv)")
+    code = code.replace("texture(erosion_noise_texture, UV", "texture(erosion_noise_texture, dance_uv")
     var gate: String = "step(texture(TEXTURE, UV).r, 0.5)" if layer==2 else "step(0.5, texture(TEXTURE, UV).r)"
     if core_texture != null:
         code = code.replace("blend_mix", "blend_add")
@@ -6111,6 +6140,8 @@ func add_copy(source: Sprite2D, parent: Node2D, layer: int, whole_body: bool, co
     var end: int = code.rfind("}")
     shader.code = code.substr(0,end)+"\n    COLOR.a *= "+gate+";\n"+code.substr(end)
     paint.material.shader = shader
+    paint.material.set_shader_parameter("dance_uv_scale",paint.texture.get_size()/size)
+    paint.material.set_shader_parameter("dance_uv_offset",-Vector2.ONE*float(margin)/size)
     paint.z_index = -1 if layer == 2 else 1
     parent.add_child(paint)
     copies.append({"source":source,"paint":paint,"layer":layer,"whole_body":whole_body,"core":core_texture!=null})
@@ -6144,6 +6175,36 @@ func clear() -> void:
 '''
 
 
+def _assert_flame_dance_bounds(out, resource_root, opts, paths):
+    """Conservative swept full-quad bound; runtime uses the same padded canvas.
+
+    Rigid Sprite2D transforms do not crop a texture. This extra margin also
+    protects filtered alpha and makes accidental fixed-canvas bakes detectable.
+    Rotation reach is the chord displacement at the full-quad half diagonal.
+    """
+    import math
+    rows = []
+    for path in sorted(set(map(Path, paths))):
+        with Image.open(path) as image:
+            width, height = image.size
+        half = math.hypot(width, height)/2
+        rotation = 2*half*math.sin(math.radians(opts['jitter_deg'])/2)
+        expansion = max(0, max(opts['back_scale'], opts['front_scale'])*(1+opts['jitter_scale'])-1)*half
+        reach = opts['jitter_px'] + rotation + expansion
+        margin = math.ceil(reach)+2
+        # Each corner at any allowed angle/scale/translation is inside this
+        # expanded rectangle (triangle inequality, valid between extrema too).
+        bounds = [-reach, -reach, width+reach, height+reach]
+        texture = [-margin, -margin, width+margin, height+margin]
+        assert all(bounds[i] >= texture[i] for i in (0,1))
+        assert all(bounds[i] <= texture[i] for i in (2,3))
+        rows.append(dict(source=path.relative_to(out).as_posix(),size=[width,height],
+                         padding_px=margin,swept_bounds=bounds,texture_bounds=texture,
+                         clearance_px=margin-reach))
+    destination = out/resource_root/'dance_bounds.json'
+    destination.write_text(json.dumps(rows,indent=2)+'\n')
+
+
 def _emit_flame_dance(out):
     (out/'scripts/vfx_flame_dance.gd').write_text(FLAME_DANCE_SCRIPT)
 
@@ -6164,6 +6225,9 @@ def _fl6_burst(out, kit, resource_root, runtime, script):
         core=Image.new('RGBA',alpha.size,(255,255,255,0));core.putalpha(alpha)
         relative=resource_root+'/pieces/dance_core_'+str(item['id'])+'.png'
         core.save(out/relative);textures[str(item['id'])]='res://'+relative
+    _assert_flame_dance_bounds(out, resource_root, opts,
+        [out/resource_root/'pieces'/p['mask'] for p in runtime['pieces']] +
+        [out/p.removeprefix('res://') for p in textures.values()])
     runtime['dance_core_textures']=textures
     script=script.replace('    tree_exiting.connect(_write_trace)', '    _ready_flame_dance()\n    tree_exiting.connect(_write_trace)')
     script=script.replace('    _clock_anti_decal(age, residue_start, residue_end)', '    _clock_flame_dance(age)\n    _clock_anti_decal(age, residue_start, residue_end)')

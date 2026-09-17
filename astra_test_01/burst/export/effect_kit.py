@@ -1881,8 +1881,8 @@ def validate_fire_ending(role, value):
 
 # FL-6: opt-in only; no implicit metadata on legacy kits.
 FLAME_DANCE_DEFAULTS = dict(layers=3, back_scale=.94, front_scale=1.04,
-    front_alpha=.85, front_source='inner_planes', tongue_root_radius_factor=1.25,
-    tongue_count=[6,8], tongue_scale=[1.3,1.7], tongue_core_alpha=.5,
+    front_alpha=.85, front_source='inner_planes', tongue_root_radius_factor=1.15,
+    tongue_count=[6,8], tongue_scale=[1.1,1.4], tongue_core_alpha=.5,
     jitter_px=5, jitter_deg=2.5, jitter_scale=.03, step_frames=[2,3],
     flicker_hz=[3.3,3.6], seed_offset=7)
 
@@ -1897,7 +1897,7 @@ def validate_flame_dance(value):
         jitter_px=(0,10,False), jitter_deg=(0,5,False), jitter_scale=(0,.08,False),
         seed_offset=(0,2147483647,True))
     for key,(lo,hi,integer) in ranges.items(): _number(value[key],lo,hi,'flame_dance.'+key,integer)
-    for key,lo,hi,integer in [('tongue_count',6,8,True),('tongue_scale',1.3,1.7,False),
+    for key,lo,hi,integer in [('tongue_count',6,8,True),('tongue_scale',1.1,1.4,False),
                              ('step_frames',2,5,True),('flicker_hz',3.3,3.6,False)]:
         pair=value[key]
         if not isinstance(pair,list) or len(pair)!=2: raise ValueError('flame_dance.'+key+' requires a pair')
