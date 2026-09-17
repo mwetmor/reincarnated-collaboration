@@ -1260,6 +1260,7 @@ const KEEPER = preload("res://scripts/keeper.gd")
 var errors: Array = []
 var samples: Array = []
 var bursts: int = 0
+var expected_impact: String = ""
 func check(value: bool, message: String) -> void:
     if not value:
         errors.append(message)
@@ -1270,7 +1271,7 @@ func run() -> void:
     var world := Node2D.new()
     root.add_child(world)
     world.child_entered_tree.connect(func(node):
-        if node.scene_file_path == "res://scenes/vfx_fire_burst_e0p_v2_impact.tscn":
+        if node.scene_file_path == expected_impact:
             bursts += 1)
     var target := Area2D.new()
     target.name = "VfxTarget_dummy"
@@ -1288,8 +1289,9 @@ func run() -> void:
     await physics_frame
     var kits: Array = KEEPER.VFX_KITS.filter(func(k): return k.has("painted_travel"))
     for kit in kits:
+        expected_impact = kit.impact
         var before: int = bursts
-        var destination: Dictionary = G1.resolve_target(self,Vector2.ZERO,Vector2.RIGHT,Vector2(520,0),float(kit.range_px))
+        var destination: Dictionary = G1.resolve_target(self,Vector2.ZERO,Vector2.RIGHT,Vector2(float(kit.range_px),0),float(kit.range_px))
         var effect: Area2D = G1.acquire(world,kit,Vector2.ZERO,destination,null,0.25)
         check(effect != null,"resolved cast")
         if effect == null:
@@ -1298,7 +1300,7 @@ func run() -> void:
         check(effect.spell_scale == 1.0,"screen_px ignores art scale")
         check(effect.get_node("Head").rotation == 0.0,"east orientation")
         var clock: Array = []
-        for age in range(14):
+        for age in range(int(kit.painted_travel.rest_hold_frames)+kit.key_states.reduce(func(n,s): return n+int(kit.painted_travel.rest_hold_frames)+int(s.hold_frames),0)):
             effect._paint_clock(age)
             clock.append(effect.travel_state)
         var expected: Array = []
@@ -1306,24 +1308,24 @@ func run() -> void:
             for state in kit.key_states:
                 for tick in range(kit.painted_travel.rest_hold_frames): expected.append("rest")
                 for tick in range(state.hold_frames): expected.append(state.state)
-            for age in range(14): check(clock[age] == expected[age % expected.size()],"held key schedule")
+            for age in range(clock.size()): check(clock[age] == expected[age % expected.size()],"held key schedule")
         else:
             check(clock.all(func(x): return x == "rest"),"empty keys rest only")
-        effect.config.speed_px_s = 10400.0
+        effect.config.speed_px_s = float(kit.spec_speed_px_s)*10.0
         effect._paint_clock(0)
         check(is_equal_approx(effect.get_node("Streak").scale.x / float(kit.painted_travel.streak.scale),1.4),"upper speed clamp")
-        effect.config.speed_px_s = 104.0
+        effect.config.speed_px_s = float(kit.spec_speed_px_s)/10.0
         effect._paint_clock(0)
         check(is_equal_approx(effect.get_node("Streak").scale.x / float(kit.painted_travel.streak.scale),0.6),"lower speed clamp")
-        effect.config.speed_px_s = 1040.0
-        for frame in range(50):
+        effect.config.speed_px_s = float(kit.spec_speed_px_s)
+        for frame in range(int(ceil(float(kit.range_px)/float(kit.speed_px_s)*60))+2):
             await physics_frame
             if not effect.active: break
         var contacts: Array = G1.events.filter(func(e): return e.effect_id == id and e.event == "contact")
         var labels: Array = G1.label_events.filter(func(e): return e.effect_id == id)
         check(contacts.size() == 1,"one first contact")
         if contacts.size() == 1:
-            check(float(contacts[0].contact_distance_px) <= 520.0,"contact within range")
+            check(float(contacts[0].contact_distance_px) <= float(kit.range_px),"contact within range")
             check(contacts[0].contact_class == "primary","primary contact")
             check(contacts[0].contact_lag_frames <= 1,"T4b clock lag")
         check(bursts-before == 1,"one bound pieces burst")
@@ -1331,17 +1333,17 @@ func run() -> void:
         if labels.size() == 1: check(labels[0].text == "FULL","T4f FULL")
         check(effect.draining,"tail retained after stop")
         var tail: Array = []
-        for tick in range(11):
+        for tick in range(int(ceil(float(kit.painted_travel.tail_s)*60))+2):
             await physics_frame
             tail.append(float(effect.get_node("Streak").material.get_shader_parameter("erode")))
-        check(not effect.draining and not effect.visible,"tail released after nine ticks")
+        check(not effect.draining and not effect.visible,"tail released after configured lifetime")
         samples.append({"kit":kit.name,"clock":clock,"contacts":contacts,"labels":labels,"tail_erode":tail,"bursts":bursts-before})
         # Cursor distance is aim-only; no burst on range exhaustion.
         before = bursts
         var miss: Area2D = G1.acquire(world,kit,Vector2(0,100),{"kind":"cursor","point":Vector2(10,100),"target":null})
-        for frame in range(40): await physics_frame
+        for frame in range(int(ceil(float(kit.range_px)/float(kit.speed_px_s)*60))+2): await physics_frame
         check(not miss.active,"range expiry")
-        check(is_equal_approx(miss.global_position.x,520.0),"520 px range despite nearby cursor")
+        check(is_equal_approx(miss.global_position.x,float(kit.range_px)),"configured range despite nearby cursor")
         check(bursts == before,"range expiry has no contact burst")
     for frame in range(50): await physics_frame
     for label in get_nodes_in_group("vfx_contact_labels"):
@@ -1391,6 +1393,7 @@ class ProjectileArmPickerTests(unittest.TestCase):
         self.root=Path(self.temp.name)
 
     def test_empty_key_exports_byte_identically_except_kit_name(self):
+        """FL-4b: preserve export byte parity except keys, name, and explicit impact binding."""
         project=e1_project_fixture(self.root)
         a,b=[project/'vfx'/('fire_bolt_e1_'+arm) for arm in ('A','B')]
         def common(root):
@@ -1402,6 +1405,10 @@ class ProjectileArmPickerTests(unittest.TestCase):
                 raw = path.read_bytes().replace(root.name.encode(), b'ARM')
                 if path.name == 'kit.json':
                     data = json.loads(raw); data.pop('key_states', None)
+                    self.assertEqual(data['impact_binding']['kit'], 'fire_burst_e0p_v2' if root == a else 'fire_burst_e0p_v3')
+                    self.assertEqual(data['skill_spec']['presentation']['primitive_bindings']['impact'], data['impact_binding']['kit']+' (pieces phase, burst_v2)')
+                    data['skill_spec']['presentation']['primitive_bindings']['impact'] = 'IMPACT (pieces phase, burst_v2)'
+                    data['impact_binding']['kit'] = 'IMPACT'
                     raw = json.dumps(data, sort_keys=True).encode()
                 result[rel] = raw
             return result
@@ -1424,8 +1431,9 @@ class ProjectileArmPickerTests(unittest.TestCase):
             self.assertNotIn('E1_ASSERTION',text)
         trace=json.loads((project/'e1_trace.json').read_text())
         self.assertEqual(trace['errors'],[])
-        self.assertEqual(len(trace['samples']),2)
-        evidence=ROOT/'runs/C-5/t3/T4p'
+        expected=[k['name'] for k in _load_vfx_kits(self.root/'kits.json') if 'travel_primitives' in k.get('effect',{})]
+        self.assertEqual([sample['kit'] for sample in trace['samples']],expected)
+        evidence=ROOT/'runs/C-5/t3/FL-4d/e1'
         evidence.mkdir(parents=True,exist_ok=True)
         (evidence/'e1_key_trace.json').write_text(json.dumps(trace,indent=2)+'\n')
         (evidence/'e1_headless.json').write_text(json.dumps(records,indent=2)+'\n')
@@ -2053,7 +2061,7 @@ func run() -> void:
 FL3_PROBE = r'''extends SceneTree
 const G1 = preload("res://scripts/vfx_g1.gd")
 const BodyLight = preload("res://scripts/vfx_contact_light.gd")
-var report: Dictionary = {"burst":[],"actual_hold_uniforms":[],"flare":{},"contacts":[]}
+var report: Dictionary = {"burst":[],"actual_hold_uniforms":[],"actual_ending_visibility":[],"flare":{},"contacts":[]}
 func _initialize() -> void: call_deferred("run")
 func run() -> void:
     var scene: Node2D = load("res://scenes/main.tscn").instantiate()
@@ -2096,7 +2104,7 @@ func run() -> void:
     keeper.state = "idle"
     keeper.facing = "E"
     for i in range(keeper.VFX_KITS.size()):
-        if keeper.VFX_KITS[i].name == "fire_bolt_e1_B": keeper.cast_kit_index = i
+        if keeper.VFX_KITS[i].name == "fire_bolt_e1_A": keeper.cast_kit_index = i
     keeper.cast_fired = false
     keeper.sprite.animation = "cast_E"
     keeper.sprite.pause()
@@ -2115,6 +2123,7 @@ func run() -> void:
                 burst.tree_exiting.connect(func(): report.burst = observed.trace.duplicate(true))
             report.burst = burst.trace.duplicate(true)
             var row: Dictionary = burst.trace[-1]
+            report.actual_ending_visibility.append({"age":row.age_frames,"art":burst.get_node("Art").is_visible_in_tree(),"core":burst.get_node("Art/Core").is_visible_in_tree(),"shimmer":burst.get_node("Art/HeatShimmer").is_visible_in_tree()})
             var key: String = row.get("key_state", "")
             if key != "":
                 var sprite: Sprite2D = burst.get_node("Art/Key_"+key)
@@ -2123,8 +2132,8 @@ func run() -> void:
                 if key == "expanded":
                     var extent: Vector2 = Vector2(sprite.texture.get_image().get_used_rect().size)*sprite.global_scale
                     report.flare = {"extent_px":[extent.x,extent.y],"max_extent_bh":maxf(extent.x,extent.y)/130.0,"dummy_height_bh":1.16,"measurement":"authored alpha extent at expanded hold, global scale; no rendered framebuffer"}
+        # One physics clock sample per tick; process-frame waits can skip short holds.
         await physics_frame
-        await process_frame
     report.contacts = G1.events.filter(func(e): return e.event == "contact")
     report.contact_light = BodyLight.trace
     report.final_modulate = [prop.modulate.r,prop.modulate.g,prop.modulate.b,prop.modulate.a]

@@ -653,36 +653,48 @@ class BurnBackExportTests(unittest.TestCase):
 
 class RaggedResidueImportTests(unittest.TestCase):
     def test_exported_threshold_and_every_root_and_stretch_material_agree(self):
-        from export.effect_kit import load_kit, load_pieces, distance_field, residue_entry, erosion_noise_texture
-        from export.godot_import import _load_vfx_kit, _write_authored_effect
-        import numpy as np
-        root = Path(__file__).resolve().parents[1]
-        kit_root = root/'runs/C-5/vfx_kits/v9/fire_burst_e0p_v2'
-        kit = _load_vfx_kit(kit_root)
-        TMP.mkdir(parents=True, exist_ok=True)
-        with tempfile.TemporaryDirectory(prefix='t4n-materials-', dir=TMP) as td:
-            out = Path(td)
-            for folder in ('scripts', 'scenes', 'vfx'):
-                (out/folder).mkdir()
-            _write_authored_effect(out, kit, 'vfx/fire_burst_e0p_v2', 'vfx_fire_burst_e0p_v2', {})
-            folder = out/'vfx/fire_burst_e0p_v2'
-            runtime = json.loads((folder/'pieces/burst_runtime.json').read_text())
-            peak = np.array(Image.open(folder/'pieces/peak_index.png').convert('RGBA'))
-            expected = residue_entry(peak, distance_field(peak), .2, .4, erosion_noise_texture(peak))
-            self.assertEqual(runtime['erode_noise'], .4)
-            for key, value in expected.items():
-                self.assertEqual(runtime[key], value)
-            for piece in runtime['pieces']:
-                for prefix in ('Piece_Piece_', 'Root_'):
-                    material = (folder/f'materials/{prefix}{piece["id"]:03d}.tres').read_text()
-                    self.assertIn('shader_parameter/erode_noise = 0.4', material)
-                    shader = re.search(r'path="res://([^"]+\.gdshader)"', material)[1]
-                    source = (out/shader).read_text()
-                    self.assertIn('0.5 * (2.0 * resistance.r - 1.0) + 0.5 * resistance.g', source)
-                    self.assertIn('distance_value > 1.0 - erode', source)
-                    self.assertIn('Per-kit band-group removal thresholds', source)
-            # The age schedule is reused exactly; only shader resistance and cutoff change.
-            self.assertIn('0.8 * residue_t', (out/'scripts/vfx/piece_burst_v2.gd').read_text())
+        """FL-4: per-kit burn-down cutoff, shared noise, stretch and dissolve parity."""
+        for name in ('fire_burst_e0p_v2', 'fire_burst_e0p_v3'):
+            from export.effect_kit import load_kit, load_pieces, distance_field, residue_entry, erosion_noise_texture
+            from export.godot_import import _load_vfx_kit, _write_authored_effect
+            import numpy as np
+            root = Path(__file__).resolve().parents[1]
+            kit_root = root/'runs/C-5/vfx_kits/v9'/name
+            kit = _load_vfx_kit(kit_root)
+            TMP.mkdir(parents=True, exist_ok=True)
+            with tempfile.TemporaryDirectory(prefix='t4n-materials-', dir=TMP) as td:
+                out = Path(td)
+                for folder in ('scripts', 'scenes', 'vfx'):
+                    (out/folder).mkdir()
+                _write_authored_effect(out, kit, 'vfx/'+name, 'vfx_'+name, {})
+                folder = out/'vfx'/name
+                runtime = json.loads((folder/'pieces/burst_runtime.json').read_text())
+                peak = np.array(Image.open(folder/'pieces/peak_index.png').convert('RGBA'))
+                config = kit['effect']['pieces']
+                expected = residue_entry(peak, distance_field(peak), config['residue_fraction'], config['erode_noise'], erosion_noise_texture(peak))
+                self.assertEqual(runtime['erode_noise'], config['erode_noise'])
+                self.assertEqual(runtime['residue_s'], config['residue_s'])
+                self.assertEqual(runtime['ember_ending'], config['ember_ending'])
+                self.assertEqual(runtime['timing'], config['timing'])
+                self.assertEqual(runtime.get('stretch'),config.get('stretch'))
+                for key, value in expected.items():
+                    self.assertEqual(runtime[key], value)
+                from export.effect_kit import piece_stretch, dissolve_thresholds
+                thresholds=dissolve_thresholds(config['dissolve_order'])
+                for piece in runtime['pieces']:
+                    if not piece.get('interleave'):
+                        self.assertEqual(piece['along'],piece_stretch(config['seed'],piece['id'],config.get('stretch'))['along'])
+                    for prefix in ('Piece_Piece_', 'Root_'):
+                        material = (folder/f'materials/{prefix}{piece["id"]:03d}.tres').read_text()
+                        self.assertIn('shader_parameter/erode_noise = '+format(config['erode_noise'], '.12g'), material)
+                        shader = re.search(r'path="res://([^"]+\.gdshader)"', material)[1]
+                        source = (out/shader).read_text()
+                        self.assertIn('0.5 * (2.0 * resistance.r - 1.0) + 0.5 * resistance.g', source)
+                        self.assertIn('distance_value > 1.0 - erode', source)
+                        self.assertIn('Per-kit band-group removal thresholds', source)
+                        self.assertIn('vec4('+', '.join(format(v,'.17g') if v % 1 else format(v,'.1f') for v in thresholds)+')[int(band)]', source)
+                # The age schedule is reused exactly; only shader resistance and cutoff change.
+                self.assertIn('0.8 * residue_t', (out/'scripts/vfx/piece_burst_v2.gd').read_text())
 
     def test_piece_zero_overrides_material_noise_in_emitted_root(self):
         from export.godot_import import _load_vfx_kit, _write_authored_effect
@@ -704,46 +716,58 @@ class RaggedResidueImportTests(unittest.TestCase):
 
 class ContinuousResidueImportTests(unittest.TestCase):
     def test_whole_canvas_texture_shared_by_every_material_and_cpu_cutoff(self):
-        import hashlib
-        import numpy as np
-        from export.effect_kit import erosion_noise_texture, residue_entry, distance_field
-        from export.godot_import import _load_vfx_kit, _write_authored_effect
-        root = Path(__file__).resolve().parents[1]
-        kit = _load_vfx_kit(root/'runs/C-5/vfx_kits/v9/fire_burst_e0p_v2')
-        TMP.mkdir(parents=True, exist_ok=True)
-        with tempfile.TemporaryDirectory(prefix='t4o-material-', dir=TMP) as td:
-            out = Path(td)
-            for folder in ('scripts', 'scenes', 'vfx'):
-                (out/folder).mkdir()
-            _write_authored_effect(out, kit, 'vfx/fire_burst_e0p_v2', 'vfx_fire_burst_e0p_v2', {})
-            folder = out/'vfx/fire_burst_e0p_v2'
-            runtime = json.loads((folder/'pieces/burst_runtime.json').read_text())
-            peak = np.array(Image.open(folder/'pieces/peak_index.png').convert('RGBA'))
-            noise_path = out/runtime['erosion_noise_texture']
-            noise = np.array(Image.open(noise_path))
-            np.testing.assert_array_equal(noise, erosion_noise_texture(peak))
-            self.assertEqual(noise.shape, (*peak.shape[:2], 3))
-            expected = residue_entry(peak, distance_field(peak), .2, .4, noise)
-            self.assertEqual(runtime['erode_noise'], .4)
-            for key, value in expected.items():
-                self.assertEqual(runtime[key], value)
-            self.assertEqual(len(list(folder.rglob('*noise.png'))), 1)
-            for piece in runtime['pieces']:
-                for prefix in ('Piece_Piece_', 'Root_'):
-                    material = (folder/f'materials/{prefix}{piece["id"]:03d}.tres').read_text()
-                    self.assertIn('load_steps=4', material)
-                    self.assertIn('res://'+runtime['erosion_noise_texture'], material)
-                    self.assertIn('shader_parameter/erode_noise = 0.4', material)
-                    self.assertIn('shader_parameter/erosion_noise_texture = ExtResource("Noise")', material)
-                    shader = re.search(r'path="res://([^"]+\.gdshader)"', material)[1]
-                    text = (out/shader).read_text()
-                    self.assertIn('texture(erosion_noise_texture, UV).rg', text)
-                    self.assertIn('texture(distance_texture, UV).r', text)
-                    self.assertNotIn('erode_noise * (band / 3.0)', text)
-                    self.assertIn('Per-kit band-group removal thresholds', text)
-            for path in list(out.rglob('*.tres')) + list(out.rglob('*.tscn')):
-                for relative in re.findall(r'path="res://([^"]+)"', path.read_text()):
-                    self.assertTrue((out/relative).is_file(), relative)
+        """FL-4: per-kit burn-down cutoff, shared noise, stretch and dissolve parity."""
+        for name in ('fire_burst_e0p_v2', 'fire_burst_e0p_v3'):
+            import hashlib
+            import numpy as np
+            from export.effect_kit import erosion_noise_texture, residue_entry, distance_field
+            from export.godot_import import _load_vfx_kit, _write_authored_effect
+            root = Path(__file__).resolve().parents[1]
+            kit = _load_vfx_kit(root/'runs/C-5/vfx_kits/v9'/name)
+            TMP.mkdir(parents=True, exist_ok=True)
+            with tempfile.TemporaryDirectory(prefix='t4o-material-', dir=TMP) as td:
+                out = Path(td)
+                for folder in ('scripts', 'scenes', 'vfx'):
+                    (out/folder).mkdir()
+                _write_authored_effect(out, kit, 'vfx/'+name, 'vfx_'+name, {})
+                folder = out/'vfx'/name
+                runtime = json.loads((folder/'pieces/burst_runtime.json').read_text())
+                peak = np.array(Image.open(folder/'pieces/peak_index.png').convert('RGBA'))
+                noise_path = out/runtime['erosion_noise_texture']
+                noise = np.array(Image.open(noise_path))
+                np.testing.assert_array_equal(noise, erosion_noise_texture(peak))
+                self.assertEqual(noise.shape, (*peak.shape[:2], 3))
+                config = kit['effect']['pieces']
+                expected = residue_entry(peak, distance_field(peak), config['residue_fraction'], config['erode_noise'], noise)
+                self.assertEqual(runtime['erode_noise'], config['erode_noise'])
+                self.assertEqual(runtime['residue_s'], config['residue_s'])
+                self.assertEqual(runtime['ember_ending'], config['ember_ending'])
+                self.assertEqual(runtime['timing'], config['timing'])
+                self.assertEqual(runtime.get('stretch'),config.get('stretch'))
+                for key, value in expected.items():
+                    self.assertEqual(runtime[key], value)
+                self.assertEqual(len(list(folder.rglob('*noise.png'))), 1)
+                from export.effect_kit import piece_stretch, dissolve_thresholds
+                thresholds=dissolve_thresholds(config['dissolve_order'])
+                for piece in runtime['pieces']:
+                    if not piece.get('interleave'):
+                        self.assertEqual(piece['along'],piece_stretch(config['seed'],piece['id'],config.get('stretch'))['along'])
+                    for prefix in ('Piece_Piece_', 'Root_'):
+                        material = (folder/f'materials/{prefix}{piece["id"]:03d}.tres').read_text()
+                        self.assertEqual(len(re.findall(r'type="Texture2D"', material)), 2)
+                        self.assertIn('res://'+runtime['erosion_noise_texture'], material)
+                        self.assertIn('shader_parameter/erode_noise = '+format(config['erode_noise'], '.12g'), material)
+                        self.assertIn('shader_parameter/erosion_noise_texture = ExtResource("Noise")', material)
+                        shader = re.search(r'path="res://([^"]+\.gdshader)"', material)[1]
+                        text = (out/shader).read_text()
+                        self.assertIn('texture(erosion_noise_texture, UV).rg', text)
+                        self.assertIn('texture(distance_texture, UV).r', text)
+                        self.assertNotIn('erode_noise * (band / 3.0)', text)
+                        self.assertIn('Per-kit band-group removal thresholds', text)
+                        self.assertIn('vec4('+', '.join(format(v,'.17g') if v % 1 else format(v,'.1f') for v in thresholds)+')[int(band)]', text)
+                for path in list(out.rglob('*.tres')) + list(out.rglob('*.tscn')):
+                    for relative in re.findall(r'path="res://([^"]+)"', path.read_text()):
+                        self.assertTrue((out/relative).is_file(), relative)
 
     def test_default_zero_emits_no_texture_or_sampler(self):
         fixture = PieceStretchImportTests(); fixture.setUp(); self.addCleanup(fixture.doCleanups)
@@ -925,11 +949,12 @@ class ProjectileTravelEmissionTests(unittest.TestCase):
         for arm in ('A','B'):
             kit = _load_vfx_kit(kits/('fire_bolt_e1_'+arm)); kit['name'] = kit['effect']['name']
             config = _g1_config(kit)
-            self.assertEqual(config['speed_px_s'],1040)
-            self.assertEqual(config['range_px'],520)
-            self.assertEqual(config['seed'],2026)
-            self.assertEqual(config['pierce'],0)
-            self.assertEqual(config['impact'],'res://scenes/vfx_fire_burst_e0p_v2_impact.tscn')
+            data=kit['effect']; mechanics=data['skill_spec']['mechanics']
+            self.assertEqual(config['speed_px_s'],mechanics['speed_px_s'])
+            self.assertEqual(config['range_px'],mechanics['range_px'])
+            self.assertEqual(config['seed'],data['impact_binding']['seed'])
+            self.assertEqual(config['pierce'],mechanics['pierce'])
+            self.assertEqual(config['impact'],'res://scenes/vfx_'+data['impact_binding']['kit']+'_impact.tscn')
             self.assertEqual(config['aim_rule'],'release-locked')
             self.assertTrue(config['contact_only'])
         TMP.mkdir(parents=True,exist_ok=True)
@@ -1146,13 +1171,19 @@ class GroundVisibilityRegressionTests(unittest.TestCase):
             self.assertGreater(late['alpha'], 0)
 
     def test_flask_stays_visible_at_native_screen_extent_during_flight(self):
-        rows = [r for r in self.trace['rows'] if r['path'].endswith('/Flask') and r['age_frames'] in (8,20,26)]
-        self.assertEqual(len(rows), 6)
-        for row in rows:
-            self.assertGreater(row['global_z'], 0)
-            self.assertTrue(row['visible_in_tree'])
-            self.assertEqual(row['alpha'], 1)
-            self.assertAlmostEqual(row['drawn_size'][0], 45.5, places=3)
+        """BL-1a: sample three fractions of each kit's own flight, before landing."""
+        for name in ('blackwater_cocktail_e3', 'poisonous_concoction_e3'):
+            config = self.trace[name]['config']
+            flight = math.ceil(config['flight_s']*60)
+            ages = {math.floor((flight-1)*fraction+.5) for fraction in (.25,.5,.9)}
+            rows = [r for r in self.trace['rows'] if r['kit']==name and r['path'].endswith('/Flask') and r['age_frames'] in ages]
+            self.assertEqual({r['age_frames'] for r in rows}, ages)
+            self.assertEqual(len(rows),len(ages))
+            for row in rows:
+                self.assertGreater(row['global_z'], 0)
+                self.assertTrue(row['visible_in_tree'])
+                self.assertEqual(row['alpha'], 1)
+                self.assertAlmostEqual(row['drawn_size'][0], config['flask_width'], places=3)
 
     def test_cloud_density_reaches_shader_once_at_the_ground_point(self):
         density=self.trace['poisonous_concoction_e3']['config']['density']
@@ -1252,7 +1283,9 @@ func run() -> void:
         var destination: Dictionary = g2.resolve_ground(caster.global_position,Vector2.RIGHT,Vector2.ZERO,kit.range_px,true)
         var effect = g2.acquire(actors,kit,caster.global_position+Vector2(10,-90),destination,caster,0.54)
         effect.set_physics_process(false)
-        for age in [8,20,26,40,84, int(ceil(kit.flight_s*60))+int(ceil(kit.duration_s*60))+3]:
+        var flight: int = int(ceil(kit.flight_s*60))
+        var ages: Array = [roundi((flight-1)*.25),roundi((flight-1)*.5),roundi((flight-1)*.9),40,84, flight+int(ceil(kit.duration_s*60))+3]
+        for age in ages:
             effect._clock(age)
             snapshot(effect,age,kit.name)
             if effect.get("ground_visual") != null: snapshot(effect.ground_visual,age,kit.name)
@@ -1354,7 +1387,7 @@ class FieldDesignLapEmissionTests(unittest.TestCase):
         from export.godot_import import _write_g2_component, _write_g2_kit, _g2_config
         from export.effect_kit import load_kit
         repo=Path(__file__).resolve().parents[1]
-        cls.work=repo/'runs/C-5/t3/T4v/field-design';cls.work.mkdir(parents=True,exist_ok=True)
+        cls.work=repo/'runs/C-5/t3/FL-4d/field-design';cls.work.mkdir(parents=True,exist_ok=True)
         cls.temp=tempfile.TemporaryDirectory(prefix='design-lap-',dir=cls.work)
         cls.addClassCleanup(cls.temp.cleanup)
         cls.project=Path(cls.temp.name)
@@ -1393,6 +1426,7 @@ class FieldDesignLapEmissionTests(unittest.TestCase):
         return [r for r in self.trace['rows'] if r['kit']==kit and r['path'].endswith('/'+node) and (age is None or r['age_frames']==age)]
 
     def test_emitted_tree_material_and_native_pool_anchors(self):
+        """BL-1a: native source anchors scale to the rank-specific field radius."""
         import numpy as np
         from export.effect_kit import load_kit
         for name in ('Field','Licks','Lobes','Decal'):self.assertIn('name="'+name+'" type=',self.scene)
@@ -1403,24 +1437,34 @@ class FieldDesignLapEmissionTests(unittest.TestCase):
         with Image.open(folder/data['g2']['field_source']) as im:rgba=np.asarray(im)
         for x,y in config['lick_anchors']:
             self.assertEqual(rgba[y,x,0],255);self.assertGreater(rgba[y,x,3],0)
+        xs=np.nonzero(rgba[...,3])[1]
+        scale=2*config['radius_px']/(xs.max()-xs.min()+1)
         for row in self.rows(config['name'],'Field'):
-            self.assertEqual(row['scale'],[1,1]);self.assertEqual(row['position'],[4280,640])
+            for actual in row['scale']:self.assertAlmostEqual(actual,scale,places=6)
+            self.assertAlmostEqual(row['drawn_size'][0],2*config['radius_px'],places=3)
+            self.assertEqual(row['position'],self.trace[config['name']]['trace'][0]['ground_point'])
             self.assertEqual(row['global_z'],1);self.assertIn('/GroundEffects/',row['path'])
         for i,(x,y) in enumerate(config['lick_anchors']):
             for row in self.rows(config['name'],'Lick'+str(i)):
-                self.assertEqual(row['position'],[4280+x-256,640+y-320])
+                ground=self.trace[config['name']]['trace'][0]['ground_point']
+                pivot=config['field_binding']['pivot']
+                expected=[ground[0]+(x-pivot[0])*scale,ground[1]+(y-pivot[1])*scale]
+                for actual,value in zip(row['position'],expected):self.assertAlmostEqual(actual,value,delta=1e-3)
 
     def test_both_flasks_three_flight_ages_global_layer_alpha_and_scale(self):
-        scales=[]
+        """BL-1a: preserve visible alpha/layer/native extent at kit-relative flight ages."""
         for kit in self.configs:
-            rows=[r for r in self.rows(kit['name'],'Flask') if r['age_frames'] in (8,20,26)]
-            self.assertEqual(len(rows),3)
+            flight=math.ceil(kit['flight_s']*60)
+            ages={math.floor((flight-1)*fraction+.5) for fraction in (.25,.5,.9)}
+            rows=[r for r in self.rows(kit['name'],'Flask') if r['age_frames'] in ages]
+            self.assertEqual({r['age_frames'] for r in rows},ages)
+            self.assertEqual(len(rows),len(ages))
             for row in rows:
                 self.assertTrue(row['visible_in_tree']);self.assertEqual(row['global_z'],3)
-                self.assertEqual(row['alpha'],1);self.assertAlmostEqual(row['drawn_size'][0],45.5,places=3)
-                scales.append(row['scale'])
-        for scale in scales:
-            for actual, expected in zip(scale, scales[0]): self.assertAlmostEqual(actual, expected, delta=1e-5)
+                self.assertEqual(row['alpha'],1)
+                self.assertAlmostEqual(row['drawn_size'][0],kit['flask_width'],places=3)
+                for actual,expected in zip(row['scale'],rows[0]['scale']):
+                    self.assertAlmostEqual(actual,expected,delta=1e-5)
 
     def test_cloud_breath_lobe_lifetime_layers_and_darker_decal(self):
         name='poisonous_concoction_e3';frames=self.trace[name]['trace'];live=[r['field_alpha'] for r in frames if r['field_alive']]
@@ -1444,12 +1488,20 @@ class FieldDesignLapEmissionTests(unittest.TestCase):
         self.assertIn('Color(0.035, 0.12, 0.055, 0.55)',path.read_text())
 
     def test_pool_final_24_frames_dissolve_then_scorch_and_cleanup(self):
-        name='blackwater_cocktail_e3'
-        for age,dissolve in [(188,0),(189,.5),(197,.7),(212,.7),(213,1)]:
-            row=self.rows(name,'Field',age)[0];self.assertAlmostEqual(row['dissolve'],dissolve,places=6)
-            self.assertEqual(row['visible_in_tree'],age<213)
-        self.assertFalse(self.rows(name,'Decal',212)[0]['visible_in_tree'])
-        self.assertTrue(self.rows(name,'Decal',213)[0]['visible_in_tree'])
+        """BL-1a: derive dissolve, scorch and release ages from the current kit clocks."""
+        config=next(k for k in self.configs if k['name']=='blackwater_cocktail_e3')
+        name=config['name']
+        end=math.ceil(config['flight_s']*60)+math.ceil(config['duration_s']*60)
+        fade=round(config['field_binding']['dissolve_s']*60)
+        for age,dissolve in [(end-fade-1,0),(end-fade,.5),(end-fade+fade//3,.7),(end-1,.7),(end,1)]:
+            row=self.rows(name,'Field',age)[0]
+            self.assertAlmostEqual(row['dissolve'],dissolve,places=6)
+            self.assertEqual(row['visible_in_tree'],age<end)
+        self.assertFalse(self.rows(name,'Decal',end-1)[0]['visible_in_tree'])
+        self.assertTrue(self.rows(name,'Decal',end)[0]['visible_in_tree'])
+        release=end+math.ceil(config['residue_s']*60)
+        self.assertGreater(self.rows(name,'Decal',release-1)[0]['alpha'],0)
+        self.assertFalse(self.rows(name,'Decal',release)[0]['visible_in_tree'])
         for kit in self.configs:self.assertEqual(self.trace[kit['name']]['ground_children_after_cancel'],0)
 
 
@@ -1468,9 +1520,11 @@ func run() -> void:
         effect.set_physics_process(false)
         var flight: int = int(ceil(kit.flight_s*60))
         var ending: int = flight+int(ceil(kit.duration_s*60))
-        var ages: Array = [8,20,26,flight,flight+1,flight+7,flight+14,flight+15,flight+24,ending-25,ending-24,ending-16,ending-1,ending,ending+3]
+        var fade: int = roundi(float(kit.field_binding.get("dissolve_s",0.4))*60)
+        var release_age: int = ending+int(ceil(kit.residue_s*60))
+        var ages: Array = [roundi((flight-1)*.25),roundi((flight-1)*.5),roundi((flight-1)*.9),flight,flight+1,flight+7,flight+14,flight+15,flight+24,ending-fade-1,ending-fade,ending-fade+int(fade/3),ending-1,ending,ending+3,release_age-1,release_age]
         for tick in kit.ticks: ages.append(flight+int(round(tick*60)))
-        for age in range(1,ending+4):
+        for age in range(1,release_age+1):
             effect._clock(age)
             if age in ages:
                 snapshot(effect,age,kit.name)
@@ -1826,8 +1880,11 @@ class FL2RuntimeEmissionTests(unittest.TestCase):
 
 
 class AntiDecalTraceTests(unittest.TestCase):
+    """FL-4: keyed v2 anti-decal motion now hands off to an ember ending."""
     @classmethod
     def setUpClass(cls):
+        from export.effect_kit import load_kit
+        cls.kit=load_kit(Path(__file__).resolve().parents[1]/'runs/C-5/vfx_kits/v9/fire_burst_e0p_v2')
         import os
         path=os.environ.get('FL3_TRACE')
         if path:cls.trace=json.loads(Path(path).read_text())
@@ -1838,27 +1895,39 @@ class AntiDecalTraceTests(unittest.TestCase):
             cls.trace=fl3_trace(cls.temp.name)
 
     def test_core_additive_contact_expanded_spent_and_residue_release(self):
+        """FL-4 replaces residue release with hidden paint, additive embers and afterglow."""
         rows=self.trace['burst'];self.assertTrue(rows)
+        pieces=self.kit['pieces'];end=pieces['timing']['paint_end_age']
         contact=next(r for r in rows if r['age_frames']==0)
         expanded=next(r for r in rows if r.get('key_state')=='expanded')
         spent=[r for r in rows if r.get('key_state')=='spent'][-1]
         for row in (contact,expanded,spent):
             self.assertTrue(row['core_additive']);self.assertGreater(row['core_draws'],0)
-        self.assertAlmostEqual(contact['core_alpha'],.55)
-        self.assertAlmostEqual(expanded['core_alpha'],.55)
-        self.assertGreater(spent['core_alpha'],0);self.assertLess(spent['core_alpha'],.55)
+        for row in (contact,expanded):self.assertAlmostEqual(row['core_alpha'],self.kit['layers']['core']['alpha'])
+        # The painted core stays bright through spent; the separate afterglow owns fading.
+        self.assertAlmostEqual(spent['core_alpha'],self.kit['layers']['core']['alpha'])
+        late=[r for r in rows if r['age_frames']>=end];self.assertTrue(late)
+        for row in late:
+            self.assertFalse(row['painted_subtree_visible'])
+            self.assertEqual(row['painted_pixels_upper_bound'],0)
+            self.assertTrue(row['ending_additive'])
+        self.assertEqual(rows[-1]['ember_births'],pieces['ember_ending']['amount'])
+        self.assertTrue(any(r['live_embers']>0 and r['afterglow_alpha']>0 for r in late))
+        self.assertEqual(rows[-1]['live_embers'],0)
         self.assertEqual(rows[-1]['core_alpha'],0)
+        self.assertEqual(rows[-1]['afterglow_alpha'],0)
 
     def test_every_hold_frame_changes_actual_shader_uniforms(self):
         rows={r['age']:r for r in self.trace['actual_hold_uniforms']}
-        for key,count in [('expanded',3),('spent',6)]:
+        for state in self.kit['pieces']['key_states']:
+            key,count=state['state'],state['hold_frames']
             held=sorted((r for r in rows.values() if r['key']==key),key=lambda r:r['age'])
-            self.assertEqual(len(held),count)
+            self.assertEqual([r['age'] for r in held],list(range(state['at_age'],state['at_age']+count)))
             self.assertTrue(all(r['noise_bound'] for r in held))
             for a,b in zip(held,held[1:]):
                 self.assertEqual(b['age']-a['age'],1)
                 self.assertNotEqual((a['uv'],a['erode']),(b['uv'],b['erode']))
-                self.assertAlmostEqual(b['uv'][1]-a['uv'][1],-.35/60,places=6)
+                self.assertAlmostEqual(b['uv'][1]-a['uv'][1],-self.kit['pieces']['boil']['uv_per_s']/60,places=6)
 
     def test_contact_composition_priority_easing_and_optional_dark_cleanup(self):
         self.assertEqual([c['body_index'] for c in self.trace['contacts']],[3])
@@ -1875,15 +1944,24 @@ class AntiDecalTraceTests(unittest.TestCase):
         for a,b in zip(self.trace['final_modulate'],[.4,.5,.6,1]):self.assertAlmostEqual(a,b,places=6)
 
     def test_shimmer_residue_only_bounded_fade_and_extent_report(self):
-        rows=self.trace['burst']
-        live=[r for r in rows if r['shimmer_alpha']>0]
+        """FL-4 has no painted residue: shimmer cannot draw; additive afterglow fades instead."""
+        rows=self.trace['burst'];self.assertTrue(rows)
+        # At the exclusive cutoff the dormant shader can still have a nonzero
+        # uniform; its entire Art parent is hidden, so it cannot draw.
+        self.assertTrue(all(r['shimmer_alpha']==0 or not r['painted_subtree_visible'] for r in rows))
+        actual=self.trace['actual_ending_visibility'];self.assertTrue(actual)
+        self.assertTrue(all(not r['shimmer'] for r in actual))
+        end=self.kit['pieces']['timing']['paint_end_age']
+        self.assertTrue(any(r['age']>=end for r in actual))
+        self.assertTrue(all(not r['art'] and not r['core'] for r in actual if r['age']>=end))
+        live=[r for r in rows if r['afterglow_alpha']>0]
         self.assertTrue(live)
-        self.assertTrue(all(r['stage']=='residue' for r in live))
-        self.assertLessEqual(max(r['shimmer_alpha'] for r in live), .12)
-        self.assertAlmostEqual(live[0]['shimmer_amplitude_px'],3)
-        self.assertLess(live[-1]['shimmer_age_s'],.8)
-        self.assertEqual(rows[-1]['shimmer_alpha'],0)
-        self.assertTrue(all(a['shimmer_alpha']>b['shimmer_alpha'] for a,b in zip(live,live[1:])))
+        self.assertTrue(all(r['ending_additive'] for r in live))
+        self.assertLessEqual(max(r['afterglow_alpha'] for r in live),1)
+        self.assertTrue(all(a['afterglow_alpha']>b['afterglow_alpha'] for a,b in zip(live,live[1:])))
+        self.assertLessEqual(len(live),math.ceil(self.kit['pieces']['ember_ending']['core_s']*60))
+        self.assertEqual(rows[-1]['afterglow_alpha'],0)
+        self.assertEqual(rows[-1]['ending_glow_envelope'],0)
         self.assertGreater(self.trace['flare']['max_extent_bh'],0)
 
 

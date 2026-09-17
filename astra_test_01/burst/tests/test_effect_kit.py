@@ -1609,16 +1609,17 @@ def ragged_residue_diagnostic(kit_root):
 
 class RaggedResidueMaterialTests(unittest.TestCase):
     def test_t4e_entry_ragged_connected_and_zero_disc_control(self):
+        """FL-4: test the ragged burn-down cutoff, not a held painted residue."""
         report = continuous_residue_diagnostic()
         actual, control = report['configured'], report['zero_control']
-        self.assertEqual(actual['erode_noise'], .4)
+        self.assertEqual(actual['erode_noise'], continuous_residue_fixture()[1]['erode_noise'])
         self.assertGreaterEqual(actual['isoperimetric_excess'], .35)
         self.assertGreaterEqual(actual['radius_ratio'], 1.5)
         self.assertLess(control['radius_ratio'], 1.06)
         self.assertLess(abs(control['isoperimetric_excess']), .03)
         for row in (actual, control):
             self.assertGreaterEqual(row['largest_component_fraction'], .9)
-            self.assertTrue(.15 <= row['entry_fraction'] <= .25)
+            self.assertAlmostEqual(row['entry_fraction'], continuous_residue_fixture()[1]['residue_fraction'], delta=row['coverage_quantisation_bound'])
             self.assertEqual(row['entry_area_px'], row['predicted_stationary_residue_area_px'])
 
     def test_noise_bounds_band_resistance_endpoints_and_dissolve(self):
@@ -1750,7 +1751,10 @@ def continuous_residue_diagnostic():
     for noise in (0., .08, .2, .25, .3, .35, .4, .45, .5):
         entry = residue_entry(peak, field, config['residue_fraction'], noise, texture)
         mask = support & (erosion_distance(peak, field, noise, texture) <= entry['residue_outer'])
-        rows.append(dict(erode_noise=noise, **entry, **residue_shape_metrics(mask, denominator)))
+        values = erosion_distance(peak, field, noise, texture)[support] if noise else field[support]
+        _, counts = np.unique(np.round(values, 6), return_counts=True)
+        quantisation_bound = float(counts.max())/(2*denominator)
+        rows.append(dict(erode_noise=noise, coverage_quantisation_bound=quantisation_bound, **entry, **residue_shape_metrics(mask, denominator)))
     noise = piece_erode_noise(data)
     entry = residue_entry(peak, field, config['residue_fraction'], noise, texture)
     union = np.zeros(support.shape, bool)
@@ -1761,27 +1765,29 @@ def continuous_residue_diagnostic():
     whole = support & (erosion_distance(peak, field, noise, texture) <= entry['residue_outer'])
     seams = []
     flight = config['hold_frames']+max(1, round(data['layers'].get('flash', {}).get('duration_s', 1/60)*60))
-    for age in (30, 33, 36):
-        t = np.clip((age-flight-15)/21, 0, 1)
+    timing = config['timing']
+    for age in range(timing['erosion_age'], timing['paint_end_age']):
+        t = (age-timing['erosion_age'])/(timing['paint_end_age']-timing['erosion_age'])
         for layer, erode in (('stationary', entry['residue_erode']*t), ('stretch_source', t)):
             mask = support & (erosion_distance(peak, field, noise, texture) <= 1-erode)
             seams.append(dict(age=age, layer=layer, erode=float(erode),
                               longest_seam_front_px=seam_front_length(mask, labels)))
     return dict(instrument='CPU source-space native texels, active T4e-r1 shard union; not a rendered proof',
-                sweep=rows, configured=dict(erode_noise=noise, **entry, **residue_shape_metrics(union, denominator)),
+                sweep=rows, configured=dict(erode_noise=noise, coverage_quantisation_bound=next(r['coverage_quantisation_bound'] for r in rows if r['erode_noise']==noise), **entry, **residue_shape_metrics(union, denominator)),
                 union_difference_px=int(np.count_nonzero(union != whole)), seam_front=seams,
                 zero_control=rows[0], noise_sha256=hashlib.sha256(texture.tobytes()).hexdigest())
 
 
 class ContinuousResidueMaterialTests(unittest.TestCase):
     def test_entry_shape_and_shared_shard_union_and_zero_control(self):
+        """FL-4: test the ragged burn-down cutoff, not a held painted residue."""
         report = continuous_residue_diagnostic()
         row = report['configured']
-        self.assertEqual(row['erode_noise'], .4)
+        self.assertEqual(row['erode_noise'], continuous_residue_fixture()[1]['erode_noise'])
         self.assertGreaterEqual(row['radius_ratio'], 1.5)
         self.assertGreaterEqual(row['isoperimetric_excess'], .35)
         self.assertGreaterEqual(row['largest_component_fraction'], .9)
-        self.assertTrue(.15 <= row['entry_fraction'] <= .25)
+        self.assertAlmostEqual(row['entry_fraction'], continuous_residue_fixture()[1]['residue_fraction'], delta=row['coverage_quantisation_bound'])
         self.assertEqual(report['union_difference_px'], 0)
         self.assertLess(report['zero_control']['radius_ratio'], 1.06)
         self.assertLess(abs(report['zero_control']['isoperimetric_excess']), .03)
@@ -1985,24 +1991,51 @@ class ProjectileArmValidationTests(unittest.TestCase):
         self.kits = ROOT/'runs/C-5/vfx_kits/v9'
 
     def test_both_arms_preserve_spec_and_quantised_primitives(self):
+        """FL-4b: current travel assets and mechanics; each arm owns its impact binding."""
         from export.effect_kit import quantise_projectile
+        from export.godot_import import _fl4b_travel_metrics
         spec = json.loads((ROOT/'runs/C-5/specs/fire_bolt_e1.json').read_text())
+        sources = {'head': 'VF-prim-fire-head-02/fire_head_02_512.png',
+                   'streak': 'VF-prim-fire-sheet-01/fire_sheet_01_512.png'}
         for arm in ('A', 'B'):
             root = self.kits/('fire_bolt_e1_'+arm)
             data = load_kit(root)
-            self.assertEqual(data['skill_spec'], spec)
-            self.assertEqual(data['impact_binding'], dict(kit='fire_burst_e0p_v2', phase='pieces', template='burst_v2', seed=2026))
+            # The standalone spec carries v3 stretch/dissolve; embedded arm specs
+            # retain the v2 presentation record except the authored sheet extent/binding.
+            expected_spec = copy.deepcopy(spec)
+            expected_spec['presentation']['body_extents_bh']['streak_len'] = data['skill_spec']['presentation']['body_extents_bh']['streak_len']
+            for field in ('stretch', 'dissolve_order'):
+                self.assertNotIn(field, data['skill_spec']['presentation']['layers']['pieces'])
+                expected_spec['presentation']['layers']['pieces'].pop(field)
+            expected_spec['presentation']['primitive_bindings']['impact'] = data['impact_binding']['kit']+' (pieces phase, burst_v2)'
+            # Provenance is archival metadata, not a runtime presentation field.
+            actual_spec = copy.deepcopy(data['skill_spec'])
+            expected_spec.pop('provenance'); actual_spec.pop('provenance')
+            self.assertEqual(actual_spec, expected_spec)
+            self.assertEqual(data['skill_spec']['mechanics'], spec['mechanics'])
+            self.assertEqual(data['layers']['travel'], spec['presentation']['layers']['travel'])
+            self.assertEqual(data['layers']['cast'], spec['presentation']['layers']['cast'])
+            self.assertEqual(data['skill_spec']['presentation']['phase_envelope_s'], spec['presentation']['phase_envelope_s'])
+            binding = data['impact_binding']
+            target = load_kit(self.kits/binding['kit'])
+            self.assertEqual(binding['kit'], 'fire_burst_e0p_v2' if arm == 'A' else 'fire_burst_e0p_v3')
+            self.assertEqual(binding['phase'], 'pieces')
+            self.assertEqual(binding['template'], target['pieces']['template'])
+            self.assertEqual(binding['seed'], target['pieces']['seed'])
             self.assertTrue(data['screen_px'])
-            self.assertEqual(len(data['key_states']), 2 if arm == 'A' else 0)
-            for role in ('head', 'streak'):
-                source = ROOT/('runs/C-5/artifacts/VF-prim-fire-'+role+'-01/fire_'+role+'_01_512.png')
-                with Image.open(source) as im: rgba = np.array(im.convert('RGBA'))
+            metrics = _fl4b_travel_metrics({'root': root, 'effect': data})
+            extents = data['skill_spec']['presentation']['body_extents_bh']
+            self.assertAlmostEqual(metrics['head_extent_bh'], extents['head'], delta=.05)
+            self.assertAlmostEqual(metrics['sheet_extent_bh'], extents['streak_len'], delta=.1)
+            for role, source in sources.items():
+                with Image.open(ROOT/'runs/C-5/artifacts'/source) as im: rgba = np.array(im.convert('RGBA'))
                 with Image.open(root/data['travel_primitives'][role]['png']) as im: actual = np.array(im)
                 np.testing.assert_array_equal(actual, quantise_projectile(rgba))
                 np.testing.assert_array_equal(actual[..., 3], rgba[..., 3])
                 self.assertEqual(set(np.unique(actual[..., :3])), {0,85,170,255})
 
     def test_empty_key_arms_have_identical_kit_files_except_name(self):
+        """FL-4b: only name, travel keys, and impact_binding.kit differ; all other bytes match."""
         a, b = [self.kits/('fire_bolt_e1_'+arm) for arm in ('A','B')]
         def common(root):
             result = {}
@@ -2012,11 +2045,15 @@ class ProjectileArmValidationTests(unittest.TestCase):
                 raw = path.read_bytes().replace(root.name.encode(), b'ARM')
                 if path.name == 'kit.json':
                     data = json.loads(raw); data.pop('key_states', None)
+                    self.assertEqual(data['impact_binding']['kit'], 'fire_burst_e0p_v2' if root == a else 'fire_burst_e0p_v3')
+                    self.assertEqual(data['skill_spec']['presentation']['primitive_bindings']['impact'], data['impact_binding']['kit']+' (pieces phase, burst_v2)')
+                    data['skill_spec']['presentation']['primitive_bindings']['impact'] = 'IMPACT (pieces phase, burst_v2)'
+                    data['impact_binding']['kit'] = 'IMPACT'
                     raw = json.dumps(data, sort_keys=True).encode()
                 result[path.relative_to(root)] = raw
             return result
         self.assertEqual(common(a), common(b))
-        self.assertEqual(len(load_kit(a)['key_states']), 2)
+        self.assertEqual(load_kit(a)['key_states'], json.loads((a/'kit.json').read_text())['key_states'])
         self.assertEqual(load_kit(b)['key_states'], [])
 
     def test_wrong_grammar_speed_binding_hold_count_and_indices_rejected(self):
@@ -2423,14 +2460,23 @@ class FL2FieldValidationTests(unittest.TestCase):
             with self.subTest(key=key,value=value),self.assertRaises(ValueError):validate_motes(bad,True)
 
     def test_all_new_fields_validate_in_actual_catalogue(self):
+        """FL-4: catalogue membership and ember ending replace old kit count/residue hold."""
         from export.godot_import import _load_vfx_kits
-        kits=_load_vfx_kits(ROOT/'runs/C-5/vfx_kits/kits_v9.json')
-        self.assertEqual(len(kits),17)
+        path = ROOT/'runs/C-5/vfx_kits/kits_v9.json'
+        expected = json.loads(path.read_text())['kits']
+        kits = _load_vfx_kits(path)
+        self.assertEqual([k['name'] for k in kits], [k['name'] for k in expected])
+        spec = json.loads((ROOT/'runs/C-5/specs/fire_bolt_e1.json').read_text())['presentation']['layers']
         for kit in kits:
+            data = kit.get('effect', {})
             if kit['name'] in ('fire_bolt_e1_A','fire_bolt_e1_B'):
-                self.assertEqual(kit['effect']['layers']['cast']['muzzle_puff']['frames'],4)
-            elif kit['name']=='fire_burst_e0p_v2':self.assertEqual(kit['effect']['pieces']['residue_s'],.8)
-            else:self.assertNotIn('cast',kit.get('effect',{}).get('layers',{}))
+                self.assertEqual(data['layers']['cast'], spec['cast'])
+            elif kit['name'] in ('fire_burst_e0p_v2','fire_burst_e0p_v3'):
+                for key in ('residue_s', 'timing', 'ember_ending'):
+                    self.assertEqual(data['pieces'][key], spec['pieces'][key])
+                self.assertNotIn('embers', data['pieces'])
+            else:
+                self.assertNotIn('cast', data.get('layers', {}))
 
 
 class CanonicalCapsuleValidationTests(unittest.TestCase):
@@ -2488,12 +2534,17 @@ class AntiDecalValidationTests(unittest.TestCase):
         build(path,path.parent/'built')
         data=load_kit(path.parent/'built')
         self.assertTrue(all(k not in data['layers'] for k in ('core','shimmer','contact_light')))
-        for name in ('fire_bolt_e1_A','fire_bolt_e1_B','fire_burst_e0p_v2'):
+        spec=json.loads((ROOT/'runs/C-5/specs/fire_bolt_e1.json').read_text())['presentation']['layers']
+        for name in ('fire_bolt_e1_A','fire_bolt_e1_B','fire_burst_e0p_v2','fire_burst_e0p_v3'):
             data=load_kit(ROOT/'runs/C-5/vfx_kits/v9'/name)
-            self.assertEqual(data['layers']['core'],dict(band=3,alpha=.55,blur_px=6))
+            self.assertEqual(data['layers']['core'],spec['core'])
             if 'pieces' in data:
-                self.assertEqual(data['pieces']['boil'],dict(uv_per_s=.35,erode_amp=.06,hz=6))
-                self.assertEqual(next(s for s in data['pieces']['key_states'] if s['state']=='expanded')['hold_frames'],3)
+                self.assertEqual(data['pieces']['boil'],spec['pieces']['boil'])
+                for state in data['pieces']['key_states']:
+                    expected=spec['pieces']['key_states'][state['state']]
+                    self.assertEqual({k:state[k] for k in expected},expected)
+                self.assertEqual(data['pieces']['ember_ending'],spec['pieces']['ember_ending'])
+                if 'interleave' in data['pieces']: self.assertEqual(data['pieces']['key_states'],[])
 
 
 class AntiDecalCapsuleFallbackTests(unittest.TestCase):
