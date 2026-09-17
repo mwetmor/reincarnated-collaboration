@@ -1,0 +1,193 @@
+{
+ "rule": "R-C6-7: higher axis-4, tie \u2192 higher axis sum, tie \u2192 r1; axis-4 < 4 or back_details_wrong \u2192 FLAGGED",
+ "controls": {
+  "N5-jdg-01": "image 5 = mirrored SE claiming SW",
+  "N5-jdg-02": "image 4 = mirrored E-r1 claiming W"
+ },
+ "selection": {
+  "SW": {
+   "stands": "r1",
+   "path": "N5-turn-SW-r1/n5_SW_r1.png",
+   "judge": "N5-jdg-02",
+   "axes": {
+    "1": 4,
+    "2": 4,
+    "3": 4,
+    "4": 5,
+    "5": 4
+   },
+   "axis4_reason": "The horn and tome are near, the blade is far, both hands grip the diagonal front-crossing haft, and the face is appropriately visible.",
+   "flags": [],
+   "v1_axes": {
+    "1": 4,
+    "2": 5,
+    "3": 4,
+    "4": 4,
+    "5": 4
+   },
+   "r1_axes": {
+    "1": 4,
+    "2": 4,
+    "3": 4,
+    "4": 5,
+    "5": 4
+   }
+  },
+  "W": {
+   "stands": "v1",
+   "path": "N5-turn-W/n5_W.png",
+   "judge": "N5-jdg-01",
+   "axes": {
+    "1": 4,
+    "2": 4,
+    "3": 4,
+    "4": 4,
+    "5": 4
+   },
+   "axis4_reason": "Near horn and book, two separated shaft grips, a far-side blade and visible level profile preserve anatomical sides; deduct one because the crescent remains broadly face-on instead of convincingly foreshortened.",
+   "flags": [],
+   "v1_axes": {
+    "1": 4,
+    "2": 4,
+    "3": 4,
+    "4": 4,
+    "5": 4
+   },
+   "r1_axes": null
+  },
+  "NW": {
+   "stands": "r1",
+   "path": "N5-turn-NW-r1/n5_NW_r1.png",
+   "judge": "N5-jdg-02",
+   "axes": {
+    "1": 4,
+    "2": 4,
+    "3": 4,
+    "4": 5,
+    "5": 5
+   },
+   "axis4_reason": "Near left horn and tome, far screen-right blade, visible back-crossing haft and two grips fit NW; the tiny cheek edge is expressly permitted.",
+   "flags": [],
+   "v1_axes": {
+    "1": 4,
+    "2": 4,
+    "3": 4,
+    "4": 4,
+    "5": 5
+   },
+   "r1_axes": {
+    "1": 4,
+    "2": 4,
+    "3": 4,
+    "4": 5,
+    "5": 5
+   }
+  },
+  "N": {
+   "stands": "r1",
+   "path": "N5-turn-N-r1/n5_N_r1.png",
+   "judge": "N5-jdg-02",
+   "axes": {
+    "1": 4,
+    "2": 4,
+    "3": 4,
+    "4": 4,
+    "5": 5
+   },
+   "axis4_reason": "Blade, horn, tome, rear face visibility and the two grips are correct; deduct one for the central haft being occluded by the back rather than visibly running behind the character across it.",
+   "flags": [],
+   "v1_axes": {
+    "1": 4,
+    "2": 4,
+    "3": 4,
+    "4": 4,
+    "5": 5
+   },
+   "r1_axes": {
+    "1": 4,
+    "2": 4,
+    "3": 4,
+    "4": 4,
+    "5": 5
+   }
+  },
+  "NE": {
+   "stands": "r1",
+   "path": "N5-turn-NE-r1/n5_NE_r1.png",
+   "judge": "N5-jdg-02",
+   "axes": {
+    "1": 4,
+    "2": 3,
+    "3": 4,
+    "4": 4,
+    "5": 5
+   },
+   "axis4_reason": "Near right blade, far left horn, grips and hidden face fit NE; deduct one because the far-hip tome remains substantially exposed instead of mostly hidden.",
+   "flags": [],
+   "v1_axes": {
+    "1": 4,
+    "2": 3,
+    "3": 4,
+    "4": 3,
+    "5": 5
+   },
+   "r1_axes": {
+    "1": 4,
+    "2": 3,
+    "3": 4,
+    "4": 4,
+    "5": 5
+   }
+  },
+  "E": {
+   "stands": "r1",
+   "path": "N5-turn-E-r1/n5_E_r1.png",
+   "judge": "N5-jdg-02",
+   "axes": {
+    "1": 4,
+    "2": 4,
+    "3": 4,
+    "4": 4,
+    "5": 5
+   },
+   "axis4_reason": "Near blade, far horn, hidden tome, front-crossing two-handed haft and visible profile are correct; deduct one for the broad face-on blade plane rather than the requested edge-on or only slightly turned crescent.",
+   "flags": [],
+   "v1_axes": {
+    "1": 4,
+    "2": 4,
+    "3": 4,
+    "4": 3,
+    "5": 4
+   },
+   "r1_axes": {
+    "1": 4,
+    "2": 4,
+    "3": 4,
+    "4": 4,
+    "5": 5
+   }
+  },
+  "SE": {
+   "stands": "v1",
+   "path": "N5-turn-SE/n5_SE.png",
+   "judge": "N5-jdg-01",
+   "axes": {
+    "1": 4,
+    "2": 5,
+    "3": 4,
+    "4": 5,
+    "5": 4
+   },
+   "axis4_reason": "Both gauntlets grip the front-crossing shaft, the blade is over the near screen-left right shoulder, horn and partly occluded book remain far on screen-right, and the visible face has no anatomical side reversal.",
+   "flags": [],
+   "v1_axes": {
+    "1": 4,
+    "2": 5,
+    "3": 4,
+    "4": 5,
+    "5": 4
+   },
+   "r1_axes": null
+  }
+ }
+}

@@ -1,0 +1,16 @@
+{
+ "text": "PACK BURST N5p-turnaround — packet 100: the Necromancer's 8-direction turnaround (Run C-6 P2). task_id \"N5p-turnaround\".\n\nInputs (read-only): S = /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-6/artifacts/N3-final-cam-01/necro_master_S_512.png; SE = /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-6/artifacts/N5-turn-SE/n5_SE.png; E = /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-6/artifacts/N5-turn-E-r1/n5_E_r1.png; NE = /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-6/artifacts/N5-turn-NE-r1/n5_NE_r1.png; N = /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-6/artifacts/N5-turn-N-r1/n5_N_r1.png; NW = /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-6/artifacts/N5-turn-NW-r1/n5_NW_r1.png; W = /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-6/artifacts/N5-turn-W/n5_W.png; SW = /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-6/artifacts/N5-turn-SW-r1/n5_SW_r1.png; judgments /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-6/artifacts/N5-jdg-01/judgment.json, /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-6/artifacts/N5-jdg-02/judgment.json (in N5-jdg-01 image 5 was the hidden MIRRORED control claiming SW — say so and report it was caught: mirrored=true, axis 4 = 1); the conductor's facing table /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-6/n5_facing_table.json; the selection note /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-6/p2_selection.json (which attempt stands per direction and why).\nWith PIL: out/turnaround_strip.png (S SE E NE N NW W SW left→right, each still cropped to its figure bbox with a 40-px margin and scaled to 600 px tall, labelled, on #3a3f4a) and out/wheel.png (the 8 stills arranged on a compass: N top, E right, S bottom, W left, diagonals between, labelled). out/review.html (self-contained, relative out/ paths): title; a FLAG box quoting the selection note's flags verbatim (any direction that stands with a known deduction); the strip; the wheel; a table per direction: claimed, seen_facing, blade_side, horn, tome, both_hands_on_haft, head_level, mirrored, back_details_wrong, axes 1–5 and the axis-4 reason, from the judgment rows of the attempt that STANDS (skip the control row but report it caught); the facing-table text per direction. out/summary.txt ≤ 12 lines. No image_gen. No code beyond the page and the two PIL images. No writes outside out/. No web. calls_used 0.\nRETURN: receipt task_id \"N5p-turnaround\"; images []; files: every out/ file with sha256; status DELIVERED / DELIVERED_WITH_CONCERNS; concerns. Never PASS/FAIL.",
+ "references": [],
+ "image_cap": 0,
+ "minutes_cap": 15,
+ "tool_call_cap": 30,
+ "outputs": [
+  "out/review.html",
+  "out/turnaround_strip.png",
+  "out/wheel.png",
+  "out/summary.txt"
+ ],
+ "effort": "high",
+ "add_dirs": [],
+ "experiment": "C6-P2"
+}
