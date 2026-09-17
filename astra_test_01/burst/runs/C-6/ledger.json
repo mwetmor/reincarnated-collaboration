@@ -5437,6 +5437,11 @@
       "id": "M-C6-P2-PACKET-101",
       "note": "P2 (standing set) CLOSED at Packet 101: ~/Desktop/Astra Burst Review - 2026-09-17/Packet 101 - necro STANDING turnaround (C-6 P2, F8 gate)/ (review.html with the full checklist table + FLAGS column, strip, wheel, summary, p2_selection_final.json). PACK caught a record discrepancy in my selection-note controls field (N8-jdg-02 control mis-stated) — corrected in the JSON and re-copied. F8 GATE OPEN on Matt: flags = S head_level (judge ×3 vs conductor eye); profile camera SW/W/E/SE; NW/N grip_not_judged (N8 frames). Run spend: 116 images, 1 Grok clip, 77 bursts. Grok held for P3 until Matt passes the gate.",
       "ts": "2026-09-17T00:12:36"
+    },
+    {
+      "id": "M-C6-P3-WALK-1",
+      "note": "P3 wave 1 — WALK clips from the STANDING seeds: S_walk (147 s wall), SW_walk (82 s), E_walk (58 s); all ok, 768x1168 @ 24 fps, 145 frames; Grok live, no cost line; run grok_calls = 4. Head read (conductor eye on 13-frame strips): all three level + forward throughout; NO stance-transition opening (bbox height flat ~800-830 px across frames — the standing seeds removed the crouch rise). head_read.py head band was framing the blade (tallest landmark) — fixed to locate the crown in the body centre column. Clips sent to Matt (owner eye = instrument of record). Next Grok spend (idle/run for S/SW/E) on Matt word.",
+      "ts": "2026-09-17T08:00:16"
     }
   ],
   "halts": [
@@ -5702,6 +5707,57 @@
       "printed": "",
       "staged_mp4": "/Users/admin/astra-burst/grok/C-6/S_walk_t1/S_walk_t1.mp4",
       "ts": "2026-09-16T23:02:25"
+    },
+    {
+      "id": "G-S_walk",
+      "cell": "S_walk",
+      "still": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-6/artifacts/N5-pad/pad_S.png",
+      "still_sha256": "9541750a7b04cba619fd5c78b8f89ebdbcc9678e1ba98612d00fca994d4e0136",
+      "prompt_sha256": "de4a2e16a1293f92f621d3b9206f755a5194d4b40e80af68751eafbe94ad9fab",
+      "extra": "",
+      "clip": "runs/C-6/xvideo/in/S_walk.mp4",
+      "clip_sha256": "156e20a0fba08a1a47272c7d0a81781f4cabeb9fdebb75845751b0a46b336d03",
+      "ok": true,
+      "rc": 0,
+      "wall_s": 147,
+      "probe": "768,1168,24/1,6.041667,145",
+      "printed": "",
+      "staged_mp4": "/Users/admin/astra-burst/grok/C-6/S_walk/S_walk.mp4",
+      "ts": "2026-09-17T07:56:19"
+    },
+    {
+      "id": "G-SW_walk",
+      "cell": "SW_walk",
+      "still": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-6/artifacts/N5-pad/pad_SW.png",
+      "still_sha256": "899ec323e9b6a54f36cc594d51bb63585bbc355c5f0fcff68a6650a1b61c5411",
+      "prompt_sha256": "d505608d816d3ae9870626620e7822ea284ae2ddb111e7250bc7f24c2ef0368f",
+      "extra": "",
+      "clip": "runs/C-6/xvideo/in/SW_walk.mp4",
+      "clip_sha256": "bdab8a78e4427cea342e06a8b5401af20777c70bd2abb642ecc160df48f71dcd",
+      "ok": true,
+      "rc": 0,
+      "wall_s": 82,
+      "probe": "768,1168,24/1,6.041667,145",
+      "printed": "",
+      "staged_mp4": "/Users/admin/astra-burst/grok/C-6/SW_walk/SW_walk.mp4",
+      "ts": "2026-09-17T07:57:41"
+    },
+    {
+      "id": "G-E_walk",
+      "cell": "E_walk",
+      "still": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-6/artifacts/N5-pad/pad_E.png",
+      "still_sha256": "f9a30544c2bfc4288e32a0dde755419aecd6b0d98d04c964238d99754f440f04",
+      "prompt_sha256": "4108066a1bd3f2db02cfefb1ba45f2c8ba9ad0d123ffe8fa45946c59594702aa",
+      "extra": "",
+      "clip": "runs/C-6/xvideo/in/E_walk.mp4",
+      "clip_sha256": "1bcc7d24b32312d981ea4974bd46ae274dbb627c106cb486508bfd9d61253a6a",
+      "ok": true,
+      "rc": 0,
+      "wall_s": 58,
+      "probe": "768,1168,24/1,6.041667,145",
+      "printed": "",
+      "staged_mp4": "/Users/admin/astra-burst/grok/C-6/E_walk/E_walk.mp4",
+      "ts": "2026-09-17T07:58:40"
     }
   ],
   "notes": [
