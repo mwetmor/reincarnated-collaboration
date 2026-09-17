@@ -4780,6 +4780,61 @@
       "codex_version": "codex-cli 0.153.4",
       "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
       "exit": 0
+    },
+    {
+      "id": "N9p-turnaround",
+      "type": "PACK",
+      "experiment": "C6-P2",
+      "brief_sha256": "d939f1c52c72f63c25aaeb05e67871c44584e970bd02e62121d1c755192b8607",
+      "started": "2026-09-17T04:07:39.597182+00:00",
+      "ended": "2026-09-17T04:11:53.770381+00:00",
+      "minutes": 4.236159246533256,
+      "image_calls": 0,
+      "tool_calls": 7,
+      "audit": {
+        "violations": [],
+        "image_calls": 0,
+        "tool_calls": 7,
+        "tools_seen": {
+          "command_execution": 7
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": []
+      },
+      "receipt_sha256": "8e60d7c09417d4e26957896646a8221d0274d03eedaf2ae6df573a6203a7afcf",
+      "artifacts": [
+        {
+          "name": "review.html",
+          "sha256": "0bde76a88b5551ae637d8988d24b2c07aacfbccf1bb6078b4bb2c6396ae52032"
+        },
+        {
+          "name": "summary.txt",
+          "sha256": "82b82e47bc0950774cbf87e8248699c772d19b91b9468129fb76b8a10fdae863"
+        },
+        {
+          "name": "turnaround_strip.png",
+          "sha256": "344534c01c801cf254666ec7c297f588c3a84c5210eb4fbeaabcd25fa25d8ea9"
+        },
+        {
+          "name": "wheel.png",
+          "sha256": "ad54051c8a7ec7e01960bcf4f855282bac00c05ca55aeb68a734a2bc4ef37306"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
     }
   ],
   "experiments": [],
@@ -4839,6 +4894,11 @@
       "id": "M-C6-N9A",
       "note": "N9 grip+buckle edits for S/W/NW/N/NE/E delivered (12 images; run total 110). Conductor eye + receipts: the scythe is now HELD OUT IN FRONT on S/E/NE (clear), N/NW (back views, plausible); buckle leaf detail present on S/E/W. Defects: S returned RGBA/transparent → conductor re-plated onto green (n9_S_green.png; N2-r1 precedent); W haft broken into two segments with a duplicate spike → N9-grip-W-r1 (one continuous haft) fired. SW/SE grip edits in flight.",
       "ts": "2026-09-16T23:45:32"
+    },
+    {
+      "id": "M-C6-P2-PACKET-101",
+      "note": "P2 (standing set) CLOSED at Packet 101: ~/Desktop/Astra Burst Review - 2026-09-17/Packet 101 - necro STANDING turnaround (C-6 P2, F8 gate)/ (review.html with the full checklist table + FLAGS column, strip, wheel, summary, p2_selection_final.json). PACK caught a record discrepancy in my selection-note controls field (N8-jdg-02 control mis-stated) — corrected in the JSON and re-copied. F8 GATE OPEN on Matt: flags = S head_level (judge ×3 vs conductor eye); profile camera SW/W/E/SE; NW/N grip_not_judged (N8 frames). Run spend: 116 images, 1 Grok clip, 77 bursts. Grok held for P3 until Matt passes the gate.",
+      "ts": "2026-09-17T00:12:36"
     }
   ],
   "halts": [],
