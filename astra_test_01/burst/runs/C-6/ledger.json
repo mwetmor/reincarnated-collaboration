@@ -2,7 +2,7 @@
   "run": "C-6",
   "charter": "agentic_orchestration/gandalf/notes/2026-09-17-necromancer-run-C-6-charter.md (v1.2.1)",
   "charter_sha256_12": "4b0df3d0c8b8",
-  "images_used": 111,
+  "images_used": 114,
   "images_cap": 999999,
   "images_cap_note": "SENTINEL — Matt F7 2026-09-17: no image cap (counted, reported); no Grok clip cap — the weekly Grok allowance is the constraint (out-of-budget = external-state HALT)",
   "bursts": [
@@ -4358,6 +4358,177 @@
       "codex_version": "codex-cli 0.153.4",
       "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
       "exit": 0
+    },
+    {
+      "id": "N9-grip-SE",
+      "type": "GENERATE",
+      "experiment": "C6-P2",
+      "brief_sha256": "15843dc72ffb86e1e9ee9428ae7e49c5f5885547b080102c3ebe2735db227cf7",
+      "started": "2026-09-17T03:42:45.752679+00:00",
+      "ended": "2026-09-17T03:45:33.025419+00:00",
+      "minutes": 2.7874894999995985,
+      "image_calls": 1,
+      "tool_calls": 6,
+      "audit": {
+        "violations": [],
+        "image_calls": 1,
+        "tool_calls": 6,
+        "tools_seen": {
+          "command_execution": 6
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0ad75-ae8a-7db0-b0f5-e53550478802/exec-9b8206a8-912a-44a0-8862-bc091fddd1e7.png",
+            "sha256": "2b5c5ba7f98c8790a3f901d29a638f39104bb0a9ffef4fc9df1627074f46b853"
+          }
+        ]
+      },
+      "receipt_sha256": "9ea31f9bed9cfd490c2196093988b6f20221f6a58d6a53c2c2585da723aa7138",
+      "artifacts": [
+        {
+          "name": "n9_SE.png",
+          "sha256": "2b5c5ba7f98c8790a3f901d29a638f39104bb0a9ffef4fc9df1627074f46b853"
+        },
+        {
+          "name": "exec-9b8206a8-912a-44a0-8862-bc091fddd1e7.provenance.json",
+          "sha256": "5841d96713480b1cc01df9d9891518a6e5be34e3683e3254395c80c3e164b51b"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0ad75-ae8a-7db0-b0f5-e53550478802/exec-9b8206a8-912a-44a0-8862-bc091fddd1e7.png",
+          "sha256": "2b5c5ba7f98c8790a3f901d29a638f39104bb0a9ffef4fc9df1627074f46b853"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
+    },
+    {
+      "id": "N9-grip-W-r1",
+      "type": "GENERATE",
+      "experiment": "C6-P2",
+      "brief_sha256": "bb58ad9132fec13ac304cf0a0cb92b7221c8f21ab57bf15e0172ae4fb5af1106",
+      "started": "2026-09-17T03:45:32.949943+00:00",
+      "ended": "2026-09-17T03:48:49.948229+00:00",
+      "minutes": 3.283268545833319,
+      "image_calls": 2,
+      "tool_calls": 2,
+      "audit": {
+        "violations": [],
+        "image_calls": 2,
+        "tool_calls": 2,
+        "tools_seen": {
+          "command_execution": 2
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0ad78-3b7e-7df2-a98f-d738008d1de3/exec-48759888-8c3d-4aab-b159-4c338171e335.png",
+            "sha256": "d52861d09c6c39201e628ad098dc2d36350ce7691cd0da1bbd33e4ab18e8b4b8"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0ad78-3b7e-7df2-a98f-d738008d1de3/exec-67916619-7b1d-4f74-a5c5-4307ec8dd95b.png",
+            "sha256": "6a192a823c186753b3cdec600ec42f8d45594e8d28e2d9356860a90ae2530d58"
+          }
+        ]
+      },
+      "receipt_sha256": "a0015aef67f8be5eae282c4309127f76311f9f7c920d1f8f4ea7be6587649731",
+      "artifacts": [
+        {
+          "name": "n9_W_r1.png",
+          "sha256": "d52861d09c6c39201e628ad098dc2d36350ce7691cd0da1bbd33e4ab18e8b4b8"
+        },
+        {
+          "name": "exec-48759888-8c3d-4aab-b159-4c338171e335.provenance.json",
+          "sha256": "1a4e8c544a12023473cee3d30c3e8e00fb406fdeb31c40f5d03359be91e0229a"
+        },
+        {
+          "name": "exec-67916619-7b1d-4f74-a5c5-4307ec8dd95b.provenance.json",
+          "sha256": "6b19b4653786c58dfbc142593c33e4d5575a6a0f7201374aab928a249ce07c51"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0ad78-3b7e-7df2-a98f-d738008d1de3/exec-48759888-8c3d-4aab-b159-4c338171e335.png",
+          "sha256": "d52861d09c6c39201e628ad098dc2d36350ce7691cd0da1bbd33e4ab18e8b4b8"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0ad78-3b7e-7df2-a98f-d738008d1de3/exec-67916619-7b1d-4f74-a5c5-4307ec8dd95b.png",
+          "sha256": "6a192a823c186753b3cdec600ec42f8d45594e8d28e2d9356860a90ae2530d58"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
+    },
+    {
+      "id": "N9-jdg-01",
+      "type": "JUDGE",
+      "experiment": "C6-P2",
+      "brief_sha256": "67073ecce065181d760a2d26ddb33af46fe41e9145f06b1c7e2d9c8b26fa9fbb",
+      "started": "2026-09-17T03:49:41.049188+00:00",
+      "ended": "2026-09-17T03:57:40.624636+00:00",
+      "minutes": 7.992851890966509,
+      "image_calls": 0,
+      "tool_calls": 4,
+      "audit": {
+        "violations": [],
+        "image_calls": 0,
+        "tool_calls": 4,
+        "tools_seen": {
+          "error": 1,
+          "file_change": 1,
+          "command_execution": 2
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": []
+      },
+      "receipt_sha256": "ca4d01d6bd77b665fd0b5d9810fba788f9783a8e9c325bbc799a553840e59e84",
+      "artifacts": [
+        {
+          "name": "judgment.json",
+          "sha256": "b85f1c9bcd35c6f6aa2775a6e4a60471f047b2554e4c3d71b4f626a740e47a62"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
     }
   ],
   "experiments": [],
@@ -4590,6 +4761,14 @@
       "topic": "Matt eye on the N8 early-look sheet: scythe propped, buckle detail lost",
       "ruling": "Matt (verbatim): A lot of the images in this packet have the scythe in more of a relaxed pose, propped up against the necromancers chest, but it needs to be held out in front like the originals. Also some of the images lost all detail in the belt buckle. → Conductor fault: the standedit brief said held at rest across the body (upper grip about chest height) — that IS the propped pose. Invariant restated from the master: the scythe is HELD OUT IN FRONT — the haft angled diagonally across the front of the body but AWAY from the chest, the upper hand extended forward/outward at about shoulder height, the lower hand at the hip, blade up and forward, the tallest landmark. Buckle: the round silver disc with its small leaf sigil must be clearly drawn. → N9 EDIT pass on all eight standing frames (grip + buckle only); judge gains scythe_held_out + buckle_detail as hard booleans.",
       "ts": "2026-09-16T23:39:49"
+    },
+    {
+      "id": "R-C6-22",
+      "class": "conductor",
+      "veto_open": true,
+      "topic": "N9-jdg-01 read → LAST edit loop (NW/SE/N); flags policy",
+      "ruling": "Control caught (image 7 = mirrored W claiming E). S/SW/W/E/NE: every identity, pose, grip and buckle item TRUE (S head_level FALSE by the judge for the third time vs conductor eye level — to Matt eye, flagged); camera FALSE on SW/W/E = the profile residual, to Matt eye. NW regressed in the grip edit (head pitched, face-like relief under the pauldron, book ornament, grip unreadable, stance) → re-edit from N8 NW-r1 (the clean standing frame) with grip+head+pauldron+book in one clause. SE: braced stance + canted eye line → re-edit from N9 SE. N: book ornament → re-edit from N9 N. DECLARED THE LAST LOOP (charter § 2 fallback: two failures → best candidate FLAGGED): after N9-r1, each direction takes its best attempt by checklist TRUE count (scale excluded) and any remaining FALSE rides to Packet 101 as a named flag for Matt eye. P2 spend to here: 116 images.",
+      "ts": "2026-09-16T23:59:04"
     }
   ],
   "grok_calls": [
@@ -4768,6 +4947,25 @@
       "manifest_sha256": "4ac66774f3dc2af93d0536bff44f797b90399139522246dda178e9437e35745a",
       "disk_free": "85Gi",
       "ts": "2026-09-16T23:45:32"
+    },
+    {
+      "id": "REPLATE-2",
+      "note": "N9-grip-SW and N9-grip-SE returned RGBA/transparent (edit mode dropped the plate, as S did) → conductor re-plated onto #00ff00 (n9_SW_green.png, n9_SE_green.png; N2-r1 precedent). Lane observation: EDIT mode on a green-plate image returns RGBA ~1 in 3 — the re-plate is a conductor data step, not a retry.",
+      "ts": "2026-09-16T23:46:15"
+    },
+    {
+      "wave": "c6_n9j",
+      "bursts": "N9-jdg-01:JUDGE",
+      "manifest_sha256": "4ac66774f3dc2af93d0536bff44f797b90399139522246dda178e9437e35745a",
+      "disk_free": "85Gi",
+      "ts": "2026-09-16T23:49:40"
+    },
+    {
+      "wave": "c6_n9r1",
+      "bursts": "N9-grip-NW-r1:GENERATE N9-grip-SE-r1:GENERATE N9-grip-N-r1:GENERATE",
+      "manifest_sha256": "95484ac3473e584deb964b623393a414a912866bf4e44102614478d5db341e9b",
+      "disk_free": "84Gi",
+      "ts": "2026-09-16T23:59:05"
     }
   ]
 }
