@@ -46,6 +46,36 @@ for d in DIRS:
           f"RETURN: the receipt (task_id \"{bid}\"): files = [out/n4_{d}.png with sha256]; images = the INTEGER COUNT of image_gen calls (1 or 2); calls_used; status DELIVERED / DELIVERED_WITH_CONCERNS with concerns listed honestly (name the near side and where the blade landed).")
         refs = [{"path": str(MASTER), "role": "IMAGE 1 — APPROVED IDENTITY MASTER (direction S): identity, costume, scythe, proportions, camera and register to preserve"}]
         outs = [f"out/n4_{d}.png"]
+    elif mode == 'anchor':
+        import json as _j
+        fixes = _j.load(open(B/'runs/C-6/n7_fixes.json')) if (B/'runs/C-6/n7_fixes.json').exists() else {}
+        bid = f'N7-turn-{d}'; keeper = B/f'runs/C-3/artifacts/K2c-gen-{d}/k2c_{d}.png'; assert keeper.exists(), keeper
+        fix = fixes.get(d, '')
+        text = (f"GENERATE BURST {bid} — Necromancer rest frame, direction {d}, CAMERA-ANCHORED re-mint (Run C-6 P2 pass 4; S = the master). task_id \"{bid}\".\n\n"
+          f"Image 1 is the APPROVED IDENTITY MASTER (direction S, facing the camera): identity, face, eyes, hair, armour materials, buckle, tome, scythe design, colours, proportions and painted register come ONLY from Image 1 — and Image 1 also shows THE CAMERA (looking down ~53°: crown and shoulder tops seen from above, feet foreshortened, ground under the figure).\n"
+          f"Image 2 is a DIFFERENT character (a young woman with a staff) drawn at EXACTLY the game's camera, scale and ground line, turned to direction {d}. Use Image 2 ONLY for: the camera angle (how much of the crown and shoulder tops you see, how the feet foreshorten), the figure's size on the canvas (his sole-to-crown height = her sole-to-crown height), the ground line, and the body turn for {d}. Copy NOTHING of her identity, costume, staff or satchel.\n"
+          + (f"CORRECTIONS from the owner's review of the previous attempt at {d}: {fix}\n" if fix else "") +
+          f"Deliver EXACTLY ONE image: the SAME character as Image 1, at Image 2's camera and size, turned to direction {d}: {row}\n\n{COMMON}\n\n"
+          f"One image_gen call; ONE retry only if the result is off-plate, has a baked checkerboard, is MIRRORED (blade over the wrong shoulder, horn on the wrong shoulder), faces the wrong way, shows a skull anywhere, a third hand, a bone-coloured ribcage, non-blue eyes, a head that reads bowed or looking down AT ALL (hard fail — the still seeds a video), a sideways-tilted or twisted head, or a camera shallower than Image 2 (crown and shoulder tops not seen from above) — name the reason. Copy the output from $CODEX_HOME/generated_images/... to out/n7_{d}.png with sha256. No code. No other files. No web.\n"
+          f"RETURN: the receipt (task_id \"{bid}\"): files = [out/n7_{d}.png with sha256]; images = the INTEGER COUNT of image_gen calls (1 or 2); calls_used; status DELIVERED / DELIVERED_WITH_CONCERNS — state explicitly: camera vs Image 2, eyes colour, buckle, ribcage material, number of hands on the haft, head level.")
+        refs = [{"path": str(MASTER), "role": "IMAGE 1 — APPROVED IDENTITY MASTER (direction S): identity, materials, buckle, tome, scythe and register to preserve exactly; also shows the camera"},
+                {"path": str(keeper), "role": f"IMAGE 2 — CAMERA / SCALE / TURN ANCHOR for {d}: a different character at the game's exact camera and size — copy camera, size, ground line and body turn ONLY; none of her identity"}]
+        outs = [f"out/n7_{d}.png"]
+    elif mode == 'camedit':
+        import json as _j
+        fixes = _j.load(open(B/'runs/C-6/n7_fixes.json')) if (B/'runs/C-6/n7_fixes.json').exists() else {}
+        bid = f'N7-turn-{d}'; src = A6/f'N6-turn-{d}/n6_{d}.png'; assert src.exists(), src
+        fix = fixes.get(d, '')
+        text = (f"GENERATE BURST {bid} — Necromancer rest frame, direction {d}: CAMERA RE-DRAW in EDIT mode (Run C-6 P2 pass 4; the N3 method). task_id \"{bid}\".\n\n"
+          f"IMAGE 1 is the APPROVED MASTER facing the camera (S) — it defines THE CAMERA: an elevated view looking DOWN about 53°. Read it: you see the TOP of his head and the TOPS of his shoulders and pauldrons from above; his feet are foreshortened on the ground plane; the ground is UNDER him; his figure is compressed top-to-bottom compared with an eye-level drawing. IMAGE 2 is the same character already turned to {d} with the correct sides, identity and pose — its ONLY defect is the camera: it was drawn from a lower, shallower angle (closer to eye level), so it does not match IMAGE 1.\n"
+          f"Use image_gen in EDIT MODE on IMAGE 2 and deliver ONE image: the SAME figure, same turn ({d}), same sides (blade, horn, tome exactly where they are), same identity and gear, RE-DRAWN FROM IMAGE 1's CAMERA — the viewer now looks down on him at the same angle as IMAGE 1: crown and shoulder tops visible from above, torso foreshortened, feet foreshortened on the ground, the whole figure compressed vertically the way IMAGE 1 is; his sole-to-crown height the same fraction of the canvas as in IMAGE 1. Keep his HEAD LEVEL WITH THE CHIN FRACTIONALLY RAISED and the eyes on the far horizon — the downward camera must NOT make him look bowed.\n"
+          + (f"Also fix, from the owner's review of IMAGE 2: {fix}\n" if fix else "") +
+          f"Reference for the direction (unchanged): {row}\n\n{COMMON}\n\n"
+          f"One image_gen call; ONE retry only if the camera did not change (crown and shoulder tops still not seen from above), the figure is mirrored or turned differently from IMAGE 2, a skull appears anywhere, a third hand appears, the head reads bowed or looking down AT ALL (hard fail), or anything touches the canvas edge — name the reason. Copy the output from $CODEX_HOME/generated_images/... to out/n7_{d}.png with sha256. No code. No other files. No web.\n"
+          f"RETURN: the receipt (task_id \"{bid}\"): files = [out/n7_{d}.png with sha256]; images = the INTEGER COUNT of image_gen calls (1 or 2); calls_used; status DELIVERED / DELIVERED_WITH_CONCERNS — state explicitly: did the camera steepen to IMAGE 1's (yes/no, evidence: crown/shoulder tops), head level, hands, buckle, eyes.")
+        refs = [{"path": str(MASTER), "role": "IMAGE 1 — APPROVED MASTER (S): THE CAMERA (53° down) and scale reference; identity truth"},
+                {"path": str(src), "role": f"IMAGE 2 — the character turned to {d}: correct sides, identity and pose; EDIT this image to IMAGE 1's camera"}]
+        outs = [f"out/n7_{d}.png"]
     elif mode == 'remint':
         import json as _j
         sel=_j.load(open(B/'runs/C-6/p2_selection.json'))['selection'][d]
