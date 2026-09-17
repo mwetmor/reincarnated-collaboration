@@ -1,8 +1,8 @@
-# Dispatch — web12: cliffside v43-r1 (fire lane FL-6, dancing flames) to `/playtest/cliffside/` (Matt-authorized R-C5-132)
+# Dispatch — web12: cliffside v44 (fire lane FL-6c, dancing flames unclipped) to `/playtest/cliffside/` (Matt-authorized R-C5-132)
 
 **From:** gandalf (RUN-CONDUCTOR, Run C-5) · **To:** drax · **Authorization:** Matt 2026-09-17: "Once you finish with FL-6, please publish it to vercel/mobile so I can test it there too." (`astra_test_01/burst/runs/C-5/ledger.json` R-C5-132). Push to `reincarnated-loadout` `main` is authorized by this ask.
 
-**Source:** `~/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/artifacts/CS-pack-v43-r1/godot` (18 kits; props v25 targets; capsule collider; tip sockets; FL-6 dancing flames). Only after gandalf's rendered proof of that pack (`runs/C-5/t3/FL1-fire-8dir-v43/`) — do not build from an unproven pack.
+**Source:** `~/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/artifacts/CS-pack-v44/godot` (18 kits; props v25 targets; capsule collider; tip sockets; FL-6 dancing flames). Only after gandalf's rendered proof of that pack (`runs/C-5/t3/FL1-fire-8dir-v44/`) — do not build from an unproven pack.
 
 **Procedure:** `~/Games/reincarnated-godot/web/README.md` one-liner (`build_playtest.sh <SOURCE> cliffside` with `PLAYWRIGHT_CORE` set), then the deploy block (`git status --porcelain -- public/playtest` → `add` → `commit --only public/playtest` → `show --stat HEAD` → `push origin main`).
 
