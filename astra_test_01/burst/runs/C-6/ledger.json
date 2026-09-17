@@ -3407,6 +3407,51 @@
       "codex_version": "codex-cli 0.153.4",
       "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
       "exit": 0
+    },
+    {
+      "id": "N8-jdg-01",
+      "type": "JUDGE",
+      "experiment": "C6-P2",
+      "brief_sha256": "b6214cc9031ec0de2afb5c9ace3fd9f9efb7535b5a694ce1113f36166d60b7e3",
+      "started": "2026-09-17T03:18:28.113951+00:00",
+      "ended": "2026-09-17T03:25:23.196451+00:00",
+      "minutes": 6.91818111804993,
+      "image_calls": 0,
+      "tool_calls": 5,
+      "audit": {
+        "violations": [],
+        "image_calls": 0,
+        "tool_calls": 5,
+        "tools_seen": {
+          "error": 1,
+          "file_change": 1,
+          "command_execution": 3
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": []
+      },
+      "receipt_sha256": "55c201349a497e1e1f67855e62104167f1030a35186be0587ce1c1c30f2e3abd",
+      "artifacts": [
+        {
+          "name": "judgment.json",
+          "sha256": "023e73c523ffadec861a0b7d21c6ee1f895d634d65fcbcf8a396ff2a626c9b8f"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
     }
   ],
   "experiments": [],
@@ -3610,6 +3655,14 @@
       "topic": "N7-jdg-01 read → N8 standing-rest pose edits on all eight",
       "ruling": "N7-jdg-01: control caught (image 6 = mirrored SE claiming NW: mirrored, axis4=1). Camera now TRUE on SW/NW/N/NE/SE (the EDIT-mode camera re-draw works — the N3 method holds for turned frames); E still shallow. W-r1 plate fixed (green 0.906). Heads: S + SW tucked; NE pauldron shows a skull-like relief (new); eyes unresolved at 512 for S/SW/E (resolution artefact — S edits now use the 1254 master). Per R-C6-17 all eight seeds need the STANDING REST pose → N8-stand-<d> EDIT-mode pose change on each best frame (S from the full-res N3 master; W from W-r1; NE from N6) carrying the residual fixes (SW head+book; E camera; NE pauldron; S head). Judge next with standing_upright as a hard boolean.",
       "ts": "2026-09-16T23:13:59"
+    },
+    {
+      "id": "R-C6-19",
+      "class": "conductor",
+      "veto_open": true,
+      "topic": "N8-jdg-01 read — camera predicate re-referenced; four alignment/book retries",
+      "ruling": "Control caught (image 7 = mirrored E claiming W). ALL EIGHT standing frames: standing_upright TRUE, head_level TRUE, hands_exactly_two TRUE, no skull anywhere, eyes blue where visible. camera_matches/scale_matches FALSE on all eight INCLUDING S — the judge reference (IMAGE 2) was the CROUCHED 512 master: the crouch tilted the torso toward the camera and read as a steeper view; standing removes that, and the eight now agree with each other (Matt complaint was the others not matching S — they now match the standing S). RULING (veto-open): the camera reference for the set is the STANDING S (N8-stand-S); scale is normalized by pad_seed and is not a seed predicate. Real defects → N8-r1 EDIT fixes: SW/W/SE chest+hips+feet turn WITH the head (near-frontal ribcage under a turned head); NW book brackets removed. Final judge with CAMREF = N8 S, then selection + pad + Packet 101 (F8 gate).",
+      "ts": "2026-09-16T23:26:33"
     }
   ],
   "grok_calls": [
@@ -3741,6 +3794,13 @@
       "manifest_sha256": "b26bcb474c27b829ea57341ad1213dac2d91f39331713831af0ada64c391914c",
       "disk_free": "88Gi",
       "ts": "2026-09-16T23:18:27"
+    },
+    {
+      "wave": "c6_n8r1",
+      "bursts": "N8-stand-SW-r1:GENERATE N8-stand-W-r1:GENERATE N8-stand-SE-r1:GENERATE N8-stand-NW-r1:GENERATE",
+      "manifest_sha256": "b26bcb474c27b829ea57341ad1213dac2d91f39331713831af0ada64c391914c",
+      "disk_free": "86Gi",
+      "ts": "2026-09-16T23:26:33"
     }
   ]
 }

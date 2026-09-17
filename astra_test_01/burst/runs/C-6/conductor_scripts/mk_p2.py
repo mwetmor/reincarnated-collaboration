@@ -77,20 +77,26 @@ for d in DIRS:
         refs = [{"path": str(MASTER), "role": "IMAGE 1 — APPROVED MASTER (S): THE CAMERA (53° down) and scale reference; identity truth"},
                 {"path": str(src), "role": f"IMAGE 2 — the character turned to {d}: correct sides, identity and pose; EDIT this image to IMAGE 1's camera"}]
         outs = [f"out/n7_{d}.png"]
-    elif mode == 'fixedit':
+    elif mode in ('fixedit', 'fixedit2'):
         import json as _j
-        fixes = _j.load(open(B/'runs/C-6/n7_fixes.json')); fix = fixes[d]
-        bid = f'N7-turn-{d}'; src = A6/f'N6-turn-{d}/n6_{d}.png'; assert src.exists(), src
+        if mode == 'fixedit':
+            fixes = _j.load(open(B/'runs/C-6/n7_fixes.json')); fix = fixes[d]
+            bid = f'N7-turn-{d}'; src = A6/f'N6-turn-{d}/n6_{d}.png'
+        else:
+            fixes = _j.load(open(B/'runs/C-6/n8r1_fixes.json')); fix = fixes[d]
+            bid = f'N8-stand-{d}-r1'; src = A6/f'N8-stand-{d}/n8_{d}.png'
+        assert src.exists(), src
+        outname = f'n7_{d}' if mode == 'fixedit' else f'n8_{d}_r1'
         text = (f"GENERATE BURST {bid} — Necromancer rest frame, direction {d}: TARGETED FIX in EDIT mode (Run C-6 P2 pass 4). task_id \"{bid}\".\n\n"
           f"IMAGE 1 is the APPROVED MASTER (S): identity truth (pale ice-blue eyes; plain round silver belt disc; silver-steel ribcage; ONE horn on his left shoulder; the book with silver corner caps and a short red ribbon and NOTHING else; exactly two hands on the scythe; no skull anywhere). IMAGE 2 is the same character turned to {d} — its camera, sides, pose, identity and gear are CORRECT and must be kept exactly, except for the fix below.\n"
           f"Use image_gen in EDIT MODE on IMAGE 2 and deliver ONE image identical to IMAGE 2 except: {fix}\n"
           f"Change nothing else: same camera, same size, same turn, same blade/horn/tome sides, same plate. Keep the HEAD LEVEL WITH THE CHIN FRACTIONALLY RAISED, eyes on the far horizon.\n"
           f"Reference for the direction (unchanged): {row}\n\n{COMMON}\n\n"
-          f"One image_gen call; ONE retry only if the named fix did not land, something else changed (camera, sides, gear), a skull appears anywhere, a third hand appears, or the head reads bowed AT ALL (hard fail) — name the reason. Copy the output from $CODEX_HOME/generated_images/... to out/n7_{d}.png with sha256. No code. No other files. No web.\n"
-          f"RETURN: the receipt (task_id \"{bid}\"): files = [out/n7_{d}.png with sha256]; images = the INTEGER COUNT of image_gen calls (1 or 2); calls_used; status DELIVERED / DELIVERED_WITH_CONCERNS — state explicitly whether the fix landed and what else, if anything, moved.")
+          f"One image_gen call; ONE retry only if the named fix did not land, something else changed (camera, sides, gear), a skull appears anywhere, a third hand appears, or the head reads bowed AT ALL (hard fail) — name the reason. Copy the output from $CODEX_HOME/generated_images/... to out/{outname}.png with sha256. No code. No other files. No web.\n"
+          f"RETURN: the receipt (task_id \"{bid}\"): files = [out/{outname}.png with sha256]; images = the INTEGER COUNT of image_gen calls (1 or 2); calls_used; status DELIVERED / DELIVERED_WITH_CONCERNS — state explicitly whether the fix landed and what else, if anything, moved.")
         refs = [{"path": str(MASTER), "role": "IMAGE 1 — APPROVED MASTER (S): identity truth"},
                 {"path": str(src), "role": f"IMAGE 2 — the character turned to {d}: EDIT this image; change only the named fix"}]
-        outs = [f"out/n7_{d}.png"]
+        outs = [f"out/{outname}.png"]
     elif mode == 'standedit':
         import json as _j
         srcs = _j.load(open(B/'runs/C-6/n8_sources.json')); src = B/srcs[d]; assert src.exists(), src

@@ -11,7 +11,7 @@ def path(d): return A/srcs.get(d, 'N3-final-cam-01/necro_master_S_512.png' if d 
 cp = A/'N6-control'/f'{bid}_control_mirror.png'; ImageOps.mirror(Image.open(path(ctrl_src))).save(cp)
 cands = [(d, path(d)) for d in dirs]; cands.insert(len(cands)//2, (ctrl_claim, cp))
 refs = [{"path": str(A/'N1-refs/necro_master_final_app.png'), "role": "IMAGE 1 — the OWNER'S MASTER at full resolution (frontal-low camera; identity source of truth)"},
-        {"path": str(A/'N3-final-cam-01/necro_master_S_512.png'), "role": "IMAGE 2 — the master at the SCENE CAMERA (53° down) and cell scale: the camera/scale reference"}]
+        {"path": str(A/srcs.pop("CAMREF", "N3-final-cam-01/necro_master_S_512.png")), "role": "IMAGE 2 — the character at the scene camera in the STANDING REST: the camera/scale reference every candidate must match"}]
 lines = []
 for i, (d, p) in enumerate(cands, 3):
     refs.append({"path": str(p), "role": f"candidate, claimed direction {d}"}); lines.append(f"Image {i} claims {d}. EXPECTED for {d}: {T[d]}")
