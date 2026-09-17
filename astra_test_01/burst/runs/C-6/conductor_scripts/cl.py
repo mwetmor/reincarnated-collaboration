@@ -20,6 +20,10 @@ if k == 'init':
         return dict(bursts=[], images_used=0, images_cap=120, experiments={}, milestones=[], halts=[], rulings=[], grok_calls=[], run='C-6',
                     charter='agentic_orchestration/gandalf/notes/2026-09-17-necromancer-run-C-6-charter.md', charter_sha256_12=None)
     write(m); print('init ok')
+elif k == 'set':
+    key, val = sys.argv[2], json.loads(sys.argv[3])
+    def m(d): d[key] = val; return d
+    write(m); print('set', key)
 elif k == 'show':
     d = json.loads(P.read_text()); n = int(sys.argv[2]) if len(sys.argv) > 2 else 5
     print('images', d['images_used'], '/', d['images_cap'], '| bursts', len(d['bursts']), '| grok', len(d.get('grok_calls', [])))

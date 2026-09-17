@@ -1,6 +1,7 @@
 #!/bin/zsh
 # clips_seq2.sh <log> "cell|still|suffix|extra" ... — STOPS ON THE FIRST FAILURE (R-C3-24)
 S=/private/tmp/claude-501/-Users-admin-Games-reincarnated-collaboration/c798c4cb-f5ae-4f80-8419-ca68760f2e6f/scratchpad
+[ -d "$S" ] || { echo "conductor scratchpad missing: $S" >&2; exit 1; }
 LOG="$S/$1.log"; shift
 for spec in "$@"; do
   cell="${spec%%|*}"; rest="${spec#*|}"; still="${rest%%|*}"; rest="${rest#*|}"; suf="${rest%%|*}"; extra="${rest#*|}"
@@ -9,7 +10,7 @@ for spec in "$@"; do
     if echo "$CAUSE" | grep -qiE "402|balance|budget"; then
       H=/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-6/HALT-P3-grok-budget.md
       printf '# HALT — Run C-6 P3 (F7 external-state: Grok budget)\n\n- ts: %s\n- cell: %s\n- cause: %s\n- cells to date are kept under runs/C-6/; resume is Matt'"'"'s word.\n' "$(date -u +%FT%TZ)" "${cell}${suf}" "$CAUSE" > "$H"
-      python3 /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-6/conductor_scripts/cl.py halts "{\"id\":\"H-C6-P3-grok\",\"cell\":\"${cell}${suf}\",\"cause\":\"$(echo $CAUSE | tr -d '"' | cut -c1-160)\",\"packet\":\"runs/C-6/HALT-P3-grok-budget.md\"}" > /dev/null
+      CAUSE="$CAUSE" CELL="${cell}${suf}" python3 -c 'import json,os,subprocess;subprocess.run(["python3","/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-6/conductor_scripts/cl.py","halts",json.dumps(dict(id="H-C6-P3-grok",cell=os.environ["CELL"],cause=os.environ["CAUSE"][:300],packet="runs/C-6/HALT-P3-grok-budget.md"))],check=True,stdout=subprocess.DEVNULL)'
       echo "$(date -u +%FT%TZ) HALT PACKET WRITTEN: $H" >> "$LOG"
     fi; break; fi
 done

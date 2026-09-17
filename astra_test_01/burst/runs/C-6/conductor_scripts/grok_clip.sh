@@ -2,6 +2,7 @@
 # Run C-6 conductor Grok i2v clip (C-2 shape): grok_clip.sh <cell e.g. S_idle> <still png> [suffix]
 B=/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst
 S=/private/tmp/claude-501/-Users-admin-Games-reincarnated-collaboration/c798c4cb-f5ae-4f80-8419-ca68760f2e6f/scratchpad
+[ -d "$S" ] || { echo "conductor scratchpad missing: $S" >&2; exit 1; }
 CELL=$1; STILL=$2; SUF=${3:-}
 NAME="${CELL}${SUF}"
 PROMPT=$(python3 -c "import json,sys;print(json.load(open('$B/runs/C-6/matrix_prompts.json'))['cells']['$CELL']['prompt'])")

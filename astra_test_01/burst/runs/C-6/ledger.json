@@ -1,10 +1,10 @@
 {
   "run": "C-6",
-  "charter": "agentic_orchestration/gandalf/notes/2026-09-15-c6-necromancer-master-design.md (design note; charter follows the master decision)",
-  "charter_sha256_12": null,
+  "charter": "agentic_orchestration/gandalf/notes/2026-09-17-necromancer-run-C-6-charter.md (v1.2.1)",
+  "charter_sha256_12": "4b0df3d0c8b8",
   "images_used": 11,
   "images_cap": 999999,
-  "images_cap_note": "SENTINEL — Matt V20 posture carried (no image budget; counted, reported)",
+  "images_cap_note": "SENTINEL — Matt F7 2026-09-17: no image cap (counted, reported); no Grok clip cap — the weekly Grok allowance is the constraint (out-of-budget = external-state HALT)",
   "bursts": [
     {
       "id": "N1-master-cam-01",
@@ -486,6 +486,14 @@
       "veto_open": false,
       "ruling": "Matt (2026-09-16): 'I landed on the final master version of the Necromancer' — a first-party app render (green plate, 1254², figure fills the canvas: standing three-quarter, both hands on the scythe haft, blade up-left above the head, tome at the left hip, horn on his left shoulder). This SUPERSEDES N1-master-cam-02 + N2-r2 as the design master. Filed: agentic_orchestration/gandalf/design-inputs/2026-09-16-c6-necromancer-app-master-FINAL.png; staged runs/C-6/artifacts/N1-refs/necro_master_final_app.png. Camera read (conductor): more frontal and lower than the 53° scene camera — the in-lane camera re-mint (N1-class) applies again before the turnaround; the scythe size is Matt's choice and is carried as drawn.",
       "ts": "2026-09-15T22:31:47"
+    },
+    {
+      "id": "R-C6-6",
+      "class": "conductor",
+      "veto_open": true,
+      "topic": "GO — Run C-6 launched",
+      "ruling": "GO. jack-ryan Gate-1: BLOCK-narrow (e90b22c1) → v1.2 → re-check PASS-WITH-WARNS (5065f068; WARN-R1 seven-hit value sweep discharged in v1.2.1 before launch — grep far-tip|frozen|latest now returns only the three retirement statements). Charter v1.2.1 sha12 4b0df3d0c8b8. MANIFEST sha at launch 560e62056be16d96332d5d1709f8f46daa7951a22077eca44dd273a66053cdda (C-5-owned LIVE tree; per-wave sha in wave lines; § 7.7 disposition). Consumed paths: runs/C-6/consumed_shas_at_go.json (33 entries, jack-ryan re-hashed 0 mismatch). Pinned scene runs/C-5/cliffside_v40. images_cap SENTINEL (F7); Grok uncapped, ledgered, HALT on out-of-budget. F1–F7 ruled (M-C6-P0-FORKS). F8 (P2 sheet = GATE on P3) and F9 (Grok liveness probe) OPEN — Matt; conductor HOLDS Grok (F9) until his word and proceeds on F8(a) (a pause only). Disk free at GO 39Gi (floor 10 GB). P2 opens: N4-geo wave c6_n4 (7 GENERATE, detached, 01:59:17Z). RECORD DEFECT, owned: the wave launched ~1 min BEFORE this ruling landed — a zsh variable-expansion error silently skipped the ledger writes in the launch chain (exit not checked); the ruling text is unchanged from the intended one; nothing about the wave depended on it.",
+      "ts": "2026-09-16T22:00:01"
     }
   ],
   "grok_calls": [],
@@ -493,6 +501,13 @@
     {
       "note": "Ledger opened; Grok shelved (Q78 b) until loops — un-shelve is Matt's.",
       "ts": "2026-09-15T22:50:23Z"
+    },
+    {
+      "wave": "c6_n4",
+      "bursts": "N4-geo-SW:GENERATE N4-geo-W:GENERATE N4-geo-NW:GENERATE N4-geo-N:GENERATE N4-geo-NE:GENERATE N4-geo-E:GENERATE N4-geo-SE:GENERATE",
+      "manifest_sha256": "560e62056be16d96332d5d1709f8f46daa7951a22077eca44dd273a66053cdda",
+      "disk_free": "39Gi",
+      "ts": "2026-09-16T21:59:17"
     }
   ]
 }
