@@ -1,0 +1,15 @@
+{
+ "text": "TOOLING BURST FL-6b \u2014 \u00a30 FIX: the full catalogue export crashes after FL-6 (Run C-5, FIRE LANE; conductor R-C5-135, defect F-C5-42). task_id \"FL-6b\".\n\nRead ONLY, in this order:\n1. /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/SPEC.md \u2014 \u00a7 0, \u00a7 1, \u00a7 7 rows T4s-r1 (the same class of defect: a G2 emitter defined below the main guard crashed PACK v28), FL-6 and the new row \"FL-6b \u2014 export crash fix + live-registry export test\" (your contract).\n2. /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/BURST_RULES.md (the TOOLING row).\n3. export/godot_import.py (`_write_fl4_travel` \u2192 `_emit_flame_dance(out)` at ~line 5691; the module's main guard and where FL-6 defined/placed `_emit_flame_dance`), tests/test_godot_import.py, tests/test_vfx_picker.py (the existing full-export-with-live-registry test from T4s-r1: reuse its shape), runs/C-5/vfx_kits/kits_v9.json.\nDo not read anything else. No web. No agents. No image generation. No pip install. stdlib + Pillow + numpy + scipy ONLY; Godot for headless import only.\n\nTHE CRASH (PACK v43, the exact command in briefs/C-5/CS-pack-v43.task.json): `NameError: name '_emit_flame_dance' is not defined` raised from `_write_fl4_travel` while exporting fire_bolt_e1_B with the FULL 18-kit registry \u2014 FL-6's helper is not defined at module scope where the full export reaches it (defined below the `if __name__` guard, inside another function, or only in a fixture path). Fix: define `_emit_flame_dance` (and any sibling FL-6 emitters) at module scope above the main guard; ADD a test that runs the real CLI export command (the CS-pack-v43 command with --out under the test's temp dir, the live kits_v9.json, the real cells/parallax/props/sockets inputs) and asserts exit 0 + the emitted flame-dance scripts/resources present for fire_bolt_e1_B, fire_burst_e0p_v3 and blackwater_cocktail_e3 \u2014 the T4s-r1 lesson made permanent for every future emitter. No kit, spec or fixture changes. Acceptance (runs/C-5/t3/FL-6b/acceptance.json): the CLI export exit 0 with the live registry; headless import exit 0 (gl_compatibility); 18 kits byte-identical; the new test green in the sandbox; remaining reds NAMED.\nDO NOT touch: lane/, bible/, briefs/, SPEC.md, BURST_RULES.md, REGISTER_CARD.md, JUDGE_RUBRIC.md, MANIFEST.sha256, receipt.schema.json, transcribe.schema.json, oracle/, export/replay.py, any kit, any spec, fixtures/, anything under runs/ except runs/C-5/t3/FL-6b/. No Godot GUI. No deploy. Confine Godot logs to runs/C-5/t3/FL-6b/.\nRETURN: the receipt (task_id \"FL-6b\"): files = every changed path with sha256; images = 0 (INTEGER); calls_used; status DELIVERED / DELIVERED_WITH_CONCERNS / FAILED with concerns listed honestly.",
+ "references": [],
+ "image_cap": 0,
+ "minutes_cap": 25,
+ "tool_call_cap": 40,
+ "outputs": [
+  "out/files.json"
+ ],
+ "effort": "high",
+ "add_dirs": [
+  "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst"
+ ],
+ "experiment": "C5-FIRE"
+}

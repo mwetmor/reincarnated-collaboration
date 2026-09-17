@@ -16028,6 +16028,45 @@
       "codex_version": "codex-cli 0.153.4",
       "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
       "exit": 0
+    },
+    {
+      "id": "CS-pack-v43",
+      "type": "PACK",
+      "experiment": "C5-P0b",
+      "brief_sha256": "567d10da079c4ff8491fb01580e8b52ef822677fa6709a5e2269c550134ad461",
+      "started": "2026-09-17T03:05:41.049396+00:00",
+      "ended": "2026-09-17T03:08:47.926460+00:00",
+      "minutes": 3.11467513263342,
+      "image_calls": 0,
+      "tool_calls": 3,
+      "audit": {
+        "violations": [],
+        "image_calls": 0,
+        "tool_calls": 3,
+        "tools_seen": {
+          "command_execution": 3
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [],
+        "execution_error": "receipt reports unsuccessful execution"
+      },
+      "receipt_sha256": "ad65220dd3b624e56294b55ecf26852884d9e2ce7f34e00a46cb92212f464a12",
+      "artifacts": [],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 3
     }
   ],
   "experiments": [],
@@ -17439,6 +17478,13 @@
       "kit": "sockets_v2 cast release",
       "note": "The far-tip-along-facing rule picks the WRONG END of the staff in three directions: S lands on the belt/hands (staff points straight up; tip = the glowing top end), SW lands on the butt end behind the caster (tip = the upper-right starred end), W lands on the lower end (tip = the upper end). N/NE/NW/E/SE look right. The staff has a brass ferrule at the TIP end in every frame — that, not facing, identifies the tip. -> FL-5b: re-derive all eight by the ferrule rule with a marked sheet; expected S ~(242,121), SW ~(328,133), W ~(227,120) in cell px.",
       "ts": "2026-09-16T21:34:45"
+    },
+    {
+      "id": "F-C5-42",
+      "kind": "defect",
+      "kit": "exporter (FL-6)",
+      "note": "PACK v43 crashed: NameError _emit_flame_dance in _write_fl4_travel during the full 18-kit export (fire_bolt_e1_B) — FL-6 proved its export on a fixture path, not the live registry (the T4s / PACK v28 class, second instance). -> FL-6b: define at module scope + a permanent live-registry CLI export test.",
+      "ts": "2026-09-16T23:09:47"
     }
   ]
 }
