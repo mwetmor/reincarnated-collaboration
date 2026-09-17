@@ -1947,6 +1947,22 @@
       "topic": "Root cause of the F8 identity defects — conductor brief text, not model drift",
       "ruling": "Master read at full res (necro_master_final_app.png): pale BLUE eyes; ROUND SILVER belt disc with a small leaf-like sigil (NO skull); SILVER-STEEL ribcage relief (metal, not bone); tome = dark leather, silver corner caps, RED RIBBON marker; no skull anywhere. My P2 IDENTITY line (mk_p2.py, inherited verbatim from the N3-final-cam-01 brief prose) said skull-and-bone buckle / cold eyes / bone-white ribcage → the skull buckles on W SW E SE, the bone ribcage on E and the lost blue eyes are conductor-induced. Second fault: the N5 judge scored identity as one axis with no invariant checklist (rubric law, pattern § 6.3) and passed frames with the wrong buckle at 4/5. Also mine: the facing table for N/NW/NE said the haft crosses his BACK — a two-handed grip is in FRONT of the body; from behind the haft is hidden by the torso except above the right shoulder and below the left hip, hands mostly hidden (→ NW inhuman hands). Remedy: N6 re-mint pass for all seven turned directions from an INVARIANTS list derived from the master image (never from prior brief prose), camera locked to IMAGE 1 (53° down: crown and shoulders seen from above, feet foreshortened), exactly two hands, head level and aligned with the body; judged by an invariant-checklist JUDGE (one boolean per Matt item) + the geometry axis + a mirrored control. Book ornament and S re-mint are Matt forks (F10/F11).",
       "ts": "2026-09-16T22:44:47"
+    },
+    {
+      "id": "R-C6-11",
+      "class": "matt",
+      "veto_open": false,
+      "topic": "F10/F11 ruled + the head-level mandate for Grok seeds",
+      "ruling": "Matt: F10 (b) — the master own ornament (silver corner caps + red ribbon marker) on every direction, no other emblem, S unchanged; F11 (a) — S stands as the master. Matt (verbatim intent): we had major issues with Grok pointing the head down during generated walking movies; we cannot afford Grok re-generating movies due to our images or prompts seeming to have heads bowed in any way. → HEAD-LEVEL MANDATE: every Grok seed still must read LEVEL or CHIN-UP at the 53° camera (at this camera a level head reads slightly bowed, so briefs ask for the chin fractionally raised, eyes on the far horizon); the checklist judge scores head_level as a hard boolean for all EIGHT seeds including S; a seed judged bowed is re-minted (or, for S, flagged to Matt) BEFORE any Grok call — never a Grok re-generation for a seed defect. Clip prompts keep the R-51 gaze line.",
+      "ts": "2026-09-16T22:50:31"
+    },
+    {
+      "id": "R-C6-12",
+      "class": "conductor",
+      "veto_open": true,
+      "topic": "§ 7.7 disposition — export/godot_import.py moved (C-5 FL-5c, c98195ad)",
+      "ruling": "Consumed path export/godot_import.py moved b5d1ec25… → 790bba8f… under MANIFEST 4bfdf01c… (SHA-CHANGE-2). Disposition (b) attribution boundary, recorded: ZERO C-6 artefacts were produced against the prior exporter (P4/P5 not yet run), so no re-cut is owed and no cell carries a boundary. P5 pins the MANIFEST sha in force at P5 in predicate 4, re-reads the exporter socket schema then (FL-5b/5c added release_socket_rule + eight-direction tip sockets), and matrix.html shows one sha for the whole export. consumed_shas_at_go.json is NOT rewritten (it is the GO record); the P5 record lands in the ledger.",
+      "ts": "2026-09-16T22:52:04"
     }
   ],
   "grok_calls": [],
@@ -2001,6 +2017,18 @@
       "manifest_sha256": "4bfdf01c773d67b4fadb6e4ccb5d8dea5dccb5c3a87b1648d6e77dff6313852b",
       "disk_free": "46Gi",
       "ts": "2026-09-16T22:23:39"
+    },
+    {
+      "wave": "c6_n6",
+      "bursts": "N6-turn-SW:GENERATE N6-turn-W:GENERATE N6-turn-NW:GENERATE N6-turn-N:GENERATE N6-turn-NE:GENERATE N6-turn-E:GENERATE N6-turn-SE:GENERATE",
+      "manifest_sha256": "4bfdf01c773d67b4fadb6e4ccb5d8dea5dccb5c3a87b1648d6e77dff6313852b",
+      "disk_free": "88Gi",
+      "ts": "2026-09-16T22:50:32"
+    },
+    {
+      "id": "SHA-CHANGE-2",
+      "note": "§ 7.7 check: MANIFEST → 4bfdf01c773d… (wave c6_n6). Consumed paths moved: [('export/godot_import.py', 'b5d1ec252a17', '790bba8f587c')]. Tree paths changed: []. ATTRIBUTION BOUNDARY — disposition required.",
+      "ts": "2026-09-16T22:51:31"
     }
   ]
 }
