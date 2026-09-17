@@ -1337,6 +1337,50 @@
       "codex_version": "codex-cli 0.153.4",
       "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
       "exit": 0
+    },
+    {
+      "id": "N5-jdg-01",
+      "type": "JUDGE",
+      "experiment": "C6-P2",
+      "brief_sha256": "54d1cdb157484da13f0bdea8b7d2375d66cac5c261c4eca65d640e30a6fe623e",
+      "started": "2026-09-17T02:08:39.429474+00:00",
+      "ended": "2026-09-17T02:12:20.003216+00:00",
+      "minutes": 3.6761979722165656,
+      "image_calls": 0,
+      "tool_calls": 3,
+      "audit": {
+        "violations": [],
+        "image_calls": 0,
+        "tool_calls": 3,
+        "tools_seen": {
+          "file_change": 1,
+          "command_execution": 2
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": []
+      },
+      "receipt_sha256": "a3cfc1b616f6a90a9848b381f18677bbb78c61b2870e67f33fb3df133a5512bb",
+      "artifacts": [
+        {
+          "name": "judgment.json",
+          "sha256": "eecbb6f6e32e124b4ad482884f1cda084a20738f4004f1fed961768175249128"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
     }
   ],
   "experiments": [],
@@ -1429,6 +1473,14 @@
       "topic": "GO — Run C-6 launched",
       "ruling": "GO. jack-ryan Gate-1: BLOCK-narrow (e90b22c1) → v1.2 → re-check PASS-WITH-WARNS (5065f068; WARN-R1 seven-hit value sweep discharged in v1.2.1 before launch — grep far-tip|frozen|latest now returns only the three retirement statements). Charter v1.2.1 sha12 4b0df3d0c8b8. MANIFEST sha at launch 560e62056be16d96332d5d1709f8f46daa7951a22077eca44dd273a66053cdda (C-5-owned LIVE tree; per-wave sha in wave lines; § 7.7 disposition). Consumed paths: runs/C-6/consumed_shas_at_go.json (33 entries, jack-ryan re-hashed 0 mismatch). Pinned scene runs/C-5/cliffside_v40. images_cap SENTINEL (F7); Grok uncapped, ledgered, HALT on out-of-budget. F1–F7 ruled (M-C6-P0-FORKS). F8 (P2 sheet = GATE on P3) and F9 (Grok liveness probe) OPEN — Matt; conductor HOLDS Grok (F9) until his word and proceeds on F8(a) (a pause only). Disk free at GO 39Gi (floor 10 GB). P2 opens: N4-geo wave c6_n4 (7 GENERATE, detached, 01:59:17Z). RECORD DEFECT, owned: the wave launched ~1 min BEFORE this ruling landed — a zsh variable-expansion error silently skipped the ledger writes in the launch chain (exit not checked); the ruling text is unchanged from the intended one; nothing about the wave depended on it.",
       "ts": "2026-09-16T22:00:01"
+    },
+    {
+      "id": "R-C6-7",
+      "class": "conductor",
+      "veto_open": true,
+      "topic": "P2 JUDGE N5-jdg-01 read + retry set",
+      "ruling": "Control CAUGHT (image 5 = mirrored SE claiming SW: mirrored=true, axis4=1). All seven candidates: seen_facing = claimed, mirrored=false, axis 4 = 4/5 (one deduction each). Retry ONCE (charter § 4 P2) for five: SW (head not level — a head-down seed propagates into every SW clip opening, the C-3 failure class), NW + N (front ribcage relief + skull buckle drawn on the BACK), NE (one grip visible; extra ornament), E (lower gauntlet off the haft — a one-handed seed contradicts the both-hands clip line, R-C6-2). W (blade broad-face) and SE (clean) stand. Retries use the current mint as IMAGE 2 with a per-direction CORRECTION clause. Selection after the retry: the better of the two per direction by a second JUDGE pass on the changed directions; a direction failing twice ships flagged (charter § 2 fallback).",
+      "ts": "2026-09-16T22:13:42"
     }
   ],
   "grok_calls": [],
@@ -1462,6 +1514,13 @@
       "manifest_sha256": "ff6d223ded602a36ae2ae518cd50071c1bd9696970ff0d752c9fdc061adf5b45",
       "disk_free": "39Gi",
       "ts": "2026-09-16T22:08:39"
+    },
+    {
+      "wave": "c6_n5r1",
+      "bursts": "N5-turn-SW-r1:GENERATE N5-turn-NW-r1:GENERATE N5-turn-N-r1:GENERATE N5-turn-NE-r1:GENERATE N5-turn-E-r1:GENERATE",
+      "manifest_sha256": "ff6d223ded602a36ae2ae518cd50071c1bd9696970ff0d752c9fdc061adf5b45",
+      "disk_free": "39Gi",
+      "ts": "2026-09-16T22:13:42"
     }
   ]
 }
