@@ -5088,6 +5088,14 @@
       "topic": "P2 STANDING turnaround — final selection (R-C6-22 rule) → Packet 101 (F8 gate)",
       "ruling": "N9-jdg-02: control caught (image 4 = mirrored N claiming SE). SE-r1 clean except profile camera. NW-r1/N-r1: back views — judge wrote FALSE for grips it could not see + faint book scrolling; NW-r1 standing FALSE. Selection by the pre-registered rule (most checklist TRUEs, scale excluded): S=N9 (flag head_level — judge ×3 vs conductor eye level), SW=N9 (flag camera), W=N9-r1 (flag camera), NW=N8-stand-NW-r1 (clean on judged items; flag grip_not_judged — predates the grip pass, back view), N=N8-stand-N (same), NE=N9 (clean), E=N9 (flag camera), SE=N9-r1 (flag camera). p2_selection_final.json. Seeds padded (N5-pad/pad_<d>.png overwritten from the standing set; pad_seeds.json carries source shas). PACK N9p-turnaround fired → Packet 101 = the F8 GATE on P3. P2 spend: 116 images, 0 Grok beyond the walk test.",
       "ts": "2026-09-17T00:07:39"
+    },
+    {
+      "id": "R-C6-24",
+      "class": "matt",
+      "veto_open": false,
+      "topic": "F8 GATE on Packet 101 — NOT PASSED: scythe hold wrong in NW, W, SE",
+      "ruling": "Matt (verbatim): NW, W and SE the scythe is held incorrectly. In the W it is held backwards as is the case with NW. In NW the scythe also seems to be held against the chest. In the SE, the necromancer seems to be standing at attention raising the scythe as if it is a flag and he is a flag bearer. → Conductor reading of the hold rule (put to Matt for one-word confirmation): the crescent hooks FORWARD in the direction he faces (E correct; W/NW currently hook backward); the haft is held out in front on the DIAGONAL — low hand near the far hip, upper hand extended forward at shoulder height — never vertical like a standard (SE), never against the chest (NW); S as the master. → N10 EDIT fixes for W, NW, SE from the selected frames; judge gains blade_forward (hard); Packet 102. S/SW/E/NE/N stand as Packet 101 selected them.",
+      "ts": "2026-09-17T00:21:46"
     }
   ],
   "grok_calls": [
@@ -5304,6 +5312,13 @@
       "manifest_sha256": "95484ac3473e584deb964b623393a414a912866bf4e44102614478d5db341e9b",
       "disk_free": "82Gi",
       "ts": "2026-09-17T00:07:39"
+    },
+    {
+      "wave": "c6_n10",
+      "bursts": "N10-hold-W:GENERATE N10-hold-NW:GENERATE N10-hold-SE:GENERATE",
+      "manifest_sha256": "95484ac3473e584deb964b623393a414a912866bf4e44102614478d5db341e9b",
+      "disk_free": "82Gi",
+      "ts": "2026-09-17T00:21:46"
     }
   ]
 }
