@@ -1,6 +1,6 @@
-# Run C-6 charter — the Necromancer: scene-camera master → turnaround → Grok motion → cells → playable (v1.0, READY FOR MATT'S FORKS + jack-ryan Gate-1)
+# Run C-6 charter — the Necromancer: scene-camera master → turnaround → Grok motion → cells → playable (v1.1 — FORKS RULED; at jack-ryan Gate-1)
 
-> **STATUS:** v1.0 — gandalf (ELICITOR → ARCHITECT), 2026-09-17; supersedes the v0.1 draft of 2026-09-15 (`2026-09-15-necromancer-run-C-6-charter.md`). Conductor: **a second gandalf session** (`RUN-CONDUCTOR`, intent residency: the charter's author is the conductor; this session hands it over with the ledger). Pattern: `operating-procedures/desirable-run-pattern.md` §§ 1–6. Lineage: Run C-3 (the Keeper, `2026-09-13-astra-burst-lane-run-C-3-charter.md`) — **same lane, same frozen T3 tools, a second character**; deviations in § 3.
+> **STATUS:** v1.1 — gandalf (ELICITOR → ARCHITECT), 2026-09-17; **v1.1 amendment (conductor session, recording Matt's rulings of 2026-09-17, ledger `M-C6-P0-FORKS`):** F1–F6 accepted as recommended; F7 added and ruled — no image cap and no Grok clip cap (the constraint is the weekly Grok token allowance; out-of-budget = external-state HALT); P3 clip order; P4 cast-landmark wording corrected (conductor script, not a T3 parameter). v1.0 was: supersedes the v0.1 draft of 2026-09-15 (`2026-09-15-necromancer-run-C-6-charter.md`). Conductor: **a second gandalf session** (`RUN-CONDUCTOR`, intent residency: the charter's author is the conductor; this session hands it over with the ledger). Pattern: `operating-procedures/desirable-run-pattern.md` §§ 1–6. Lineage: Run C-3 (the Keeper, `2026-09-13-astra-burst-lane-run-C-3-charter.md`) — **same lane, same frozen T3 tools, a second character**; deviations in § 3.
 > **Founding rulings (`astra_test_01/burst/runs/C-6/ledger.json`):** R-C6-0 (character 2 = end-game Necromancer; text-designed; STOP after the master) · R-C6-1 (N1-master-cam-02 accepted as design master) · R-C6-2 (Matt: the scythe is *baked in*) · R-C6-3 (Matt: the unarmed set is a possible future lap, not this one) · R-C6-4 (N2 scythe failed Matt's eye: wrong size, bent) · **R-C6-5 (Matt 2026-09-16: "I landed on the final master version" — a first-party app render supersedes N1/N2 as the design master; N3-final-cam-01 re-drew it at the 53° scene camera and stands on the path in the web scene at 14 % figure height — Matt: "The necromancer looks great").**
 > **Runs concurrently with Run C-5 (the fire lane, the other gandalf session)** under the concurrency ruling R-13 — § 7 carries the coordination law.
 
@@ -17,7 +17,8 @@ Produce the end-game Necromancer as a **complete playable 8 × 5 cell matrix in 
 | Lane tools (frozen) | `astra_test_01/burst/MANIFEST.sha256` — **the current freeze at launch** (record its sha in R-C6-6); T3a–T3f cut/matte/bands/encode/godot + the T4/FL exporter | frozen by C-5's conductor; C-6 does NOT re-freeze |
 | Keeper exemplars + PROPOSED bands | `runs/C-3/cells_v7/*` (40 cells), `oracle/bands_from_exemplar.py` outputs, `runs/C-3/conductor_scripts/` (grok_clip.sh, clips_seq*.sh, cut_signed*.py, fold_clips.py, join_check.py, mk_p4_check.py, assemble_cells.py, matrix_questions.json) | C-3, report-only bands |
 | Playable scene | the latest `runs/C-5/cliffside_v<N>` staged by C-5 (v40 at this writing: 18 kits, real targets, capsule collider) | C-5 |
-| Image budget | `runs/C-6/ledger.json` `images_cap` = **80** (R-C6-6 sets it); C-5 has used 60 of its own | separate ledgers |
+| Image budget | **none** (Matt F7): the V20 sentinel stays in `runs/C-6/ledger.json`; images counted + reported | separate ledgers |
+| Grok budget | **no clip cap** (Matt F7): the binding constraint is the weekly Grok token allowance (size unknown; expected < the Keeper's 71 clips for 40 cells). Every call ledgered in `grok_calls[]`; an out-of-budget reply is an **external-state HALT** on P3 — HALT packet, cells to date kept, resume on Matt's word | R-C6-6 |
 
 ## 2. Decidable target-state (the run checks these itself)
 1. `runs/C-6/cells/<dir>_<anim>/` exists for all **40 cells** (8 directions × idle/walk/run/jump/cast), each with `numbers.json`, `registration.json`, a 1:1 MP4 and the Lanczos 2× review MP4 — the artefact shape of `runs/C-3/cells_v7/`.
@@ -42,15 +43,15 @@ Fallbacks (ledgered, veto-open, C-3 § 8 verbatim): a direction failing geometry
 ## 4. Sequence
 | phase | what | bursts | images |
 |---|---|---|---|
-| **P0 launch** | Matt rules § 5 forks; jack-ryan Gate-1 on this charter; GO → R-C6-6 (records the MANIFEST sha at launch, `images_cap` 80, the C-5 staged project version) | — | 0 |
+| **P0 launch** | Matt rules § 5 forks; jack-ryan Gate-1 on this charter; GO → R-C6-6 (records the MANIFEST sha at launch, the no-cap posture (F7), the C-5 staged project version, this charter's path + sha12) | — | 0 |
 | **P1 master check** | N3-final-cam-01 is the animation master (Matt accepted it on the path); one look at 512 with the Keeper beside it for scale (report only) | 0 (+1 N3-r1 only if Matt names a defect) | ≤ 2 |
 | **P2 turnaround** | 7 geometry drafts (SW W NW N NE E SE) → 7 identity mints from N3 with the draft as geometry-only IMAGE 2 → JUDGE with a mirrored control, geometry axis (blade side = anatomical right; horn = left shoulder) → retry once per direction | 14 GEN (+≤ 7), 2 JDG, 1 PACK | ≤ 42 |
-| **P3 clips** | Grok i2v, one per cell (40), C-3 § 6 prompt skeleton + the necro identity line + *"the scythe stays in both hands, blade up"*; conductor-driven, sequential; HALT on 3 consecutive failures | 40 Grok | 0 |
-| **P4 cells** | per clip CUT → CHECK → TRANSCRIBE → PACK with the frozen T3 tools, waves of 4; one-shot landmarks for cast = the **blade tip** (T3a's staff-tip landmark re-pointed by parameter, no code) | 40 × 4 | 0 |
+| **P3 clips** | Grok i2v, one per cell (40), C-3 § 6 prompt skeleton + the necro identity line + *"the scythe stays in both hands, blade up"*; conductor-driven, sequential; **order idle → walk → run across all 8 directions, then cast, then jump** (a partial week yields a walkable necro — conductor ruling, veto-open); HALT on 3 consecutive failures or a Grok out-of-budget reply | 40 Grok (+ ≤ 1 re-generate per cell) | 0 |
+| **P4 cells** | per clip CUT → CHECK → TRANSCRIBE → PACK with the frozen T3 tools, waves of 4; one-shot landmarks for cast = the **blade tip**. NOTE (v1.1): `oracle/staff_tip.py` is a frozen RANSAC *staff-line* instrument with no landmark parameter; the Keeper's cast landmark lived in **conductor scripts** (`runs/C-3/conductor_scripts/cast_keys.py`, `regions.py`). C-6 writes its own conductor script for the blade tip (topmost alpha extent / far-tip rule) — conductor tooling, not a T3 tool change, § 7.1 respected | 40 × 4 | 0 |
 | **P5 sockets + scene** | `sockets_v2.json` (blade socket, far-tip rule, marked audit sheet) → PACK `cliffside_v<N>-necro` (`--cells runs/C-6/cells --sockets runs/C-6/sockets_v2.json`) → headless import proof → `probe_events` east cast → Desktop packet; web route only on Matt's word | 1 PACK | 0 |
 | **P6 close** | ledger, `matrix.html`, handoff note, push on Matt's word; **C-7 = Matt's verdict session** | — | — |
 
-## 5. Forks for Matt (ELICITOR — one recommendation each; rule with a letter)
+## 5. Forks for Matt (ELICITOR — one recommendation each) — **RULED 2026-09-17: "Accept all" (F1–F6 = (a)); F7 ruled as below**
 | # | fork | **recommendation** | alternatives / tradeoff |
 |---|---|---|---|
 | F1 | cell set | **(a) all 5 animations (idle/walk/run/jump/cast) — parity with the exporter's state machine and the Keeper** | (b) 4 (drop jump): −8 clips, but Space plays nothing for him |
@@ -59,6 +60,7 @@ Fallbacks (ledgered, veto-open, C-3 § 8 verbatim): a direction failing geometry
 | F4 | scene delivery | **(a) a separate staged project `cliffside_v<N>-necro` (necro is the player); the Keeper's stays as is; web route only on your word** | (b) a character-select toggle — a TOOLING row (exporter + input map), which C-6 may not fire while C-5 runs |
 | F5 | cast socket | **(a) the scythe blade's inner curve as the release socket** (the fire erupts off the blade) | (b) the haft's top end; (c) the free hand |
 | F6 | the master gate | **(a) N3-final-cam-01 as delivered is the animation master — no further mint** (you accepted it on the path) | (b) one N3-r1 pass with a named defect first |
+| F7 *(added at launch)* | budgets | conductor proposed a Grok clip cap of 80; **Matt ruled: no image cap and no Grok clip cap** — the weekly Grok token allowance is the constraint and Grok's own out-of-budget reply is the stop | recorded in § 1 + § 4 P3 |
 
 ## 6. Matt interface
 Eyes at: the P2 turnaround contact sheet (report, not gate — fallback proceeds flagged), the P5 packet (eight cast frames with the blade socket marked; the scene east cast), and the staged project on the Mac. Red-flag pings only otherwise; packets under `~/Desktop/Astra Burst Review - <date>/`; commits auto-fire (`--only` on named paths); pushes and web routes on Matt's word only. HALTs write a HALT packet and stop.
