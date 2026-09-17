@@ -5355,6 +5355,14 @@
       "topic": "N10-jdg-01 read — hold items per direction; judge mirroring false-positive owned; HALT this loop for Matt eye",
       "ruling": "Control caught (image 5). W: blade_forward TRUE, held_out TRUE, haft_diagonal FALSE (haft near-vertical, a standard); judge also wrote mirrored=TRUE — a FALSE POSITIVE from my geometry-rule text (left-facings: blade behind the far shoulder), which a forward-held blade violates by design; horn near-shoulder + tome near-hip are correct → not mirrored. Judge text fixed: mirroring keys on horn + tome; the blade may sit ahead of the body in any facing. NW: blade_forward TRUE, scythe_held_out FALSE (haft tight beside the neck), book tooling again. SE: haft_diagonal TRUE, standing TRUE, blade_forward FALSE — the crescent hooks screen-left while he faces lower-right (the literal application of the rule I read back to Matt). S/SW/E/NE/N stand (Packet 101 selection). NO fourth blind loop: the three ride to Matt eye with the pair sheet; the next edit text is written from his word on the hold rule (hook direction for three-quarters; how diagonal the haft) — commitment boundary, his.",
       "ts": "2026-09-17T00:31:48"
+    },
+    {
+      "id": "R-C6-26",
+      "class": "matt",
+      "veto_open": false,
+      "topic": "F13 ruled — the scythe hold rule for the turned set",
+      "ruling": "Matt: Agreed → F13a(a): the crescent hooks FORWARD in every facing (W/NW/SW screen-left; E/NE/SE screen-right; S as the master toward the viewer left; N away). F13b(a): the master DIAGONAL in every facing — low hand near the far hip, upper hand extended forward at about shoulder height, the haft clearly leaning, the blade well ahead of the head; never vertical, never against the chest/neck. → N11 hold edits on the N10 frames: W (more diagonal, blade ahead), NW (haft off the neck, diagonal, arms forward), SE (blade flipped to hook screen-right). S/SW/E/NE/N stand.",
+      "ts": "2026-09-17T00:35:53"
     }
   ],
   "grok_calls": [
@@ -5585,6 +5593,13 @@
       "manifest_sha256": "95484ac3473e584deb964b623393a414a912866bf4e44102614478d5db341e9b",
       "disk_free": "82Gi",
       "ts": "2026-09-17T00:25:35"
+    },
+    {
+      "wave": "c6_n11",
+      "bursts": "N11-hold-W:GENERATE N11-hold-NW:GENERATE N11-hold-SE:GENERATE",
+      "manifest_sha256": "95484ac3473e584deb964b623393a414a912866bf4e44102614478d5db341e9b",
+      "disk_free": "82Gi",
+      "ts": "2026-09-17T00:35:53"
     }
   ]
 }
