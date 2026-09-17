@@ -1,0 +1,1699 @@
+{
+  "task_id": "FL-5c",
+  "directions": [
+    {
+      "bh_world_px": 150.999999046326,
+      "direction": "S",
+      "facing_dot_px": -103.397155761719,
+      "head_tip_error_px": 0.0,
+      "keeper_world": [
+        3760.0,
+        640.0
+      ],
+      "range_point": [
+        3757.59204101562,
+        981.898315429688
+      ],
+      "release_error_px": 0.0,
+      "release_world": [
+        3750.5625,
+        461.945831298828
+      ],
+      "socket_cell": [
+        241.0,
+        117.0
+      ],
+      "socket_facing_dot_px": -178.054168701172,
+      "socket_world": [
+        3750.5625,
+        461.945831298828
+      ],
+      "engine_exit": 0,
+      "frames_0_through_10": [
+        {
+          "active": true,
+          "age": 0,
+          "head_drawn": true,
+          "head_visible": true,
+          "head_z": 3,
+          "keeper_z": 2,
+          "key_visible": false,
+          "normal_z_restored": false,
+          "projectile_z": 3
+        },
+        {
+          "active": true,
+          "age": 1,
+          "head_drawn": true,
+          "head_visible": true,
+          "head_z": 3,
+          "keeper_z": 2,
+          "key_visible": false,
+          "normal_z_restored": false,
+          "projectile_z": 3
+        },
+        {
+          "active": true,
+          "age": 2,
+          "head_drawn": true,
+          "head_visible": true,
+          "head_z": 3,
+          "keeper_z": 2,
+          "key_visible": false,
+          "normal_z_restored": false,
+          "projectile_z": 3
+        },
+        {
+          "active": true,
+          "age": 3,
+          "head_drawn": true,
+          "head_visible": true,
+          "head_z": 3,
+          "keeper_z": 2,
+          "key_visible": false,
+          "normal_z_restored": false,
+          "projectile_z": 3
+        },
+        {
+          "active": true,
+          "age": 4,
+          "head_drawn": true,
+          "head_visible": true,
+          "head_z": 3,
+          "keeper_z": 2,
+          "key_visible": false,
+          "normal_z_restored": false,
+          "projectile_z": 3
+        },
+        {
+          "active": true,
+          "age": 5,
+          "head_drawn": true,
+          "head_visible": true,
+          "head_z": 3,
+          "keeper_z": 2,
+          "key_visible": false,
+          "normal_z_restored": false,
+          "projectile_z": 3
+        },
+        {
+          "active": true,
+          "age": 6,
+          "head_drawn": true,
+          "head_visible": true,
+          "head_z": 3,
+          "keeper_z": 2,
+          "key_visible": false,
+          "normal_z_restored": false,
+          "projectile_z": 3
+        },
+        {
+          "active": true,
+          "age": 7,
+          "head_drawn": true,
+          "head_visible": true,
+          "head_z": 3,
+          "keeper_z": 2,
+          "key_visible": false,
+          "normal_z_restored": false,
+          "projectile_z": 3
+        },
+        {
+          "active": true,
+          "age": 8,
+          "head_drawn": true,
+          "head_visible": true,
+          "head_z": 3,
+          "keeper_z": 2,
+          "key_visible": false,
+          "normal_z_restored": false,
+          "projectile_z": 3
+        },
+        {
+          "active": true,
+          "age": 9,
+          "head_drawn": true,
+          "head_visible": true,
+          "head_z": 3,
+          "keeper_z": 2,
+          "key_visible": false,
+          "normal_z_restored": false,
+          "projectile_z": 3
+        },
+        {
+          "active": true,
+          "age": 10,
+          "head_drawn": true,
+          "head_visible": true,
+          "head_z": 3,
+          "keeper_z": 2,
+          "key_visible": false,
+          "normal_z_restored": false,
+          "projectile_z": 3
+        }
+      ],
+      "frame_11": {
+        "active": true,
+        "age": 11,
+        "head_drawn": true,
+        "head_visible": true,
+        "head_z": 2,
+        "keeper_z": 2,
+        "key_visible": false,
+        "normal_z_restored": true,
+        "projectile_z": 2
+      },
+      "first_contact_or_expiry": {
+        "age_frames": 18,
+        "effect_id": 1,
+        "event": "expire",
+        "kit": "fire_bolt_e1_B",
+        "target_kind": "cursor",
+        "target_point": [
+          3760.0,
+          1160.0
+        ]
+      },
+      "impacts": [
+        {
+          "position": [
+            3757.59204101562,
+            981.898315429688
+          ],
+          "scene": "res://scenes/vfx_fire_burst_e0p_v3_impact.tscn"
+        }
+      ],
+      "final_position": [
+        3757.59204101562,
+        981.898315429688
+      ],
+      "range_error_px": 0.0,
+      "range_impact_errors_px": [
+        0.0
+      ],
+      "facing_dot_bh": -0.6847493802301106,
+      "socket_facing_dot_bh": -1.1791666875875007,
+      "checks": {
+        "release_equals_socket": true,
+        "head_erupted_at_tip": true,
+        "leading_tip_rear_limit": true,
+        "socket_rear_limit": false,
+        "front_every_frame_0_10": true,
+        "head_drawn_every_frame_0_10": true,
+        "normal_sort_at_11": true
+      }
+    },
+    {
+      "bh_world_px": 150.999999046326,
+      "direction": "SW",
+      "facing_dot_px": -75.406608581543,
+      "head_tip_error_px": 0.0,
+      "keeper_world": [
+        3760.0,
+        640.0
+      ],
+      "range_point": [
+        3487.189453125,
+        885.387939453125
+      ],
+      "release_error_px": 0.0,
+      "release_world": [
+        3805.92919921875,
+        474.529174804688
+      ],
+      "socket_cell": [
+        329.0,
+        137.0
+      ],
+      "socket_facing_dot_px": -149.482391357422,
+      "socket_world": [
+        3805.92919921875,
+        474.529174804688
+      ],
+      "engine_exit": 0,
+      "frames_0_through_10": [
+        {
+          "active": true,
+          "age": 0,
+          "head_drawn": true,
+          "head_visible": true,
+          "head_z": 3,
+          "keeper_z": 2,
+          "key_visible": false,
+          "normal_z_restored": false,
+          "projectile_z": 3
+        },
+        {
+          "active": true,
+          "age": 1,
+          "head_drawn": true,
+          "head_visible": true,
+          "head_z": 3,
+          "keeper_z": 2,
+          "key_visible": false,
+          "normal_z_restored": false,
+          "projectile_z": 3
+        },
+        {
+          "active": true,
+          "age": 2,
+          "head_drawn": true,
+          "head_visible": true,
+          "head_z": 3,
+          "keeper_z": 2,
+          "key_visible": false,
+          "normal_z_restored": false,
+          "projectile_z": 3
+        },
+        {
+          "active": true,
+          "age": 3,
+          "head_drawn": true,
+          "head_visible": true,
+          "head_z": 3,
+          "keeper_z": 2,
+          "key_visible": false,
+          "normal_z_restored": false,
+          "projectile_z": 3
+        },
+        {
+          "active": true,
+          "age": 4,
+          "head_drawn": true,
+          "head_visible": true,
+          "head_z": 3,
+          "keeper_z": 2,
+          "key_visible": false,
+          "normal_z_restored": false,
+          "projectile_z": 3
+        },
+        {
+          "active": true,
+          "age": 5,
+          "head_drawn": true,
+          "head_visible": true,
+          "head_z": 3,
+          "keeper_z": 2,
+          "key_visible": false,
+          "normal_z_restored": false,
+          "projectile_z": 3
+        },
+        {
+          "active": true,
+          "age": 6,
+          "head_drawn": true,
+          "head_visible": true,
+          "head_z": 3,
+          "keeper_z": 2,
+          "key_visible": false,
+          "normal_z_restored": false,
+          "projectile_z": 3
+        },
+        {
+          "active": true,
+          "age": 7,
+          "head_drawn": true,
+          "head_visible": true,
+          "head_z": 3,
+          "keeper_z": 2,
+          "key_visible": false,
+          "normal_z_restored": false,
+          "projectile_z": 3
+        },
+        {
+          "active": true,
+          "age": 8,
+          "head_drawn": true,
+          "head_visible": true,
+          "head_z": 3,
+          "keeper_z": 2,
+          "key_visible": false,
+          "normal_z_restored": false,
+          "projectile_z": 3
+        },
+        {
+          "active": true,
+          "age": 9,
+          "head_drawn": true,
+          "head_visible": true,
+          "head_z": 3,
+          "keeper_z": 2,
+          "key_visible": false,
+          "normal_z_restored": false,
+          "projectile_z": 3
+        },
+        {
+          "active": true,
+          "age": 10,
+          "head_drawn": true,
+          "head_visible": true,
+          "head_z": 3,
+          "keeper_z": 2,
+          "key_visible": false,
+          "normal_z_restored": false,
+          "projectile_z": 3
+        }
+      ],
+      "frame_11": {
+        "active": true,
+        "age": 11,
+        "head_drawn": true,
+        "head_visible": true,
+        "head_z": 2,
+        "keeper_z": 2,
+        "key_visible": false,
+        "normal_z_restored": true,
+        "projectile_z": 2
+      },
+      "first_contact_or_expiry": {
+        "age_frames": 18,
+        "effect_id": 1,
+        "event": "expire",
+        "kit": "fire_bolt_e1_B",
+        "target_kind": "cursor",
+        "target_point": [
+          3392.30444335938,
+          1007.69555664062
+        ]
+      },
+      "impacts": [
+        {
+          "position": [
+            3487.189453125,
+            885.387939453125
+          ],
+          "scene": "res://scenes/vfx_fire_burst_e0p_v3_impact.tscn"
+        }
+      ],
+      "final_position": [
+        3487.189453125,
+        885.387939453125
+      ],
+      "range_error_px": 0.0,
+      "range_impact_errors_px": [
+        0.0
+      ],
+      "facing_dot_bh": -0.49938151693900773,
+      "socket_facing_dot_bh": -0.9899496178908027,
+      "checks": {
+        "release_equals_socket": true,
+        "head_erupted_at_tip": true,
+        "leading_tip_rear_limit": true,
+        "socket_rear_limit": false,
+        "front_every_frame_0_10": true,
+        "head_drawn_every_frame_0_10": true,
+        "normal_sort_at_11": true
+      }
+    },
+    {
+      "bh_world_px": 150.999999046326,
+      "direction": "W",
+      "facing_dot_px": 88.01904296875,
+      "head_tip_error_px": 0.0,
+      "keeper_world": [
+        3760.0,
+        640.0
+      ],
+      "range_point": [
+        3252.06298828125,
+        635.73974609375
+      ],
+      "release_error_px": 0.0,
+      "release_world": [
+        3742.38330078125,
+        462.575012207031
+      ],
+      "socket_cell": [
+        228.0,
+        118.0
+      ],
+      "socket_facing_dot_px": 17.61669921875,
+      "socket_world": [
+        3742.38330078125,
+        462.575012207031
+      ],
+      "engine_exit": 0,
+      "frames_0_through_10": [
+        {
+          "active": true,
+          "age": 0,
+          "head_drawn": true,
+          "head_visible": true,
+          "head_z": 2,
+          "keeper_z": 2,
+          "key_visible": false,
+          "normal_z_restored": true,
+          "projectile_z": 2
+        },
+        {
+          "active": true,
+          "age": 1,
+          "head_drawn": true,
+          "head_visible": true,
+          "head_z": 2,
+          "keeper_z": 2,
+          "key_visible": false,
+          "normal_z_restored": true,
+          "projectile_z": 2
+        },
+        {
+          "active": true,
+          "age": 2,
+          "head_drawn": true,
+          "head_visible": true,
+          "head_z": 2,
+          "keeper_z": 2,
+          "key_visible": false,
+          "normal_z_restored": true,
+          "projectile_z": 2
+        },
+        {
+          "active": true,
+          "age": 3,
+          "head_drawn": true,
+          "head_visible": true,
+          "head_z": 2,
+          "keeper_z": 2,
+          "key_visible": false,
+          "normal_z_restored": true,
+          "projectile_z": 2
+        },
+        {
+          "active": true,
+          "age": 4,
+          "head_drawn": true,
+          "head_visible": true,
+          "head_z": 2,
+          "keeper_z": 2,
+          "key_visible": false,
+          "normal_z_restored": true,
+          "projectile_z": 2
+        },
+        {
+          "active": true,
+          "age": 5,
+          "head_drawn": true,
+          "head_visible": true,
+          "head_z": 2,
+          "keeper_z": 2,
+          "key_visible": false,
+          "normal_z_restored": true,
+          "projectile_z": 2
+        },
+        {
+          "active": true,
+          "age": 6,
+          "head_drawn": true,
+          "head_visible": true,
+          "head_z": 2,
+          "keeper_z": 2,
+          "key_visible": false,
+          "normal_z_restored": true,
+          "projectile_z": 2
+        },
+        {
+          "active": true,
+          "age": 7,
+          "head_drawn": true,
+          "head_visible": true,
+          "head_z": 2,
+          "keeper_z": 2,
+          "key_visible": false,
+          "normal_z_restored": true,
+          "projectile_z": 2
+        },
+        {
+          "active": true,
+          "age": 8,
+          "head_drawn": true,
+          "head_visible": true,
+          "head_z": 2,
+          "keeper_z": 2,
+          "key_visible": false,
+          "normal_z_restored": true,
+          "projectile_z": 2
+        },
+        {
+          "active": true,
+          "age": 9,
+          "head_drawn": true,
+          "head_visible": true,
+          "head_z": 2,
+          "keeper_z": 2,
+          "key_visible": false,
+          "normal_z_restored": true,
+          "projectile_z": 2
+        },
+        {
+          "active": true,
+          "age": 10,
+          "head_drawn": true,
+          "head_visible": true,
+          "head_z": 2,
+          "keeper_z": 2,
+          "key_visible": false,
+          "normal_z_restored": true,
+          "projectile_z": 2
+        }
+      ],
+      "frame_11": {
+        "active": true,
+        "age": 11,
+        "head_drawn": true,
+        "head_visible": true,
+        "head_z": 2,
+        "keeper_z": 2,
+        "key_visible": false,
+        "normal_z_restored": true,
+        "projectile_z": 2
+      },
+      "first_contact_or_expiry": {
+        "age_frames": 18,
+        "effect_id": 1,
+        "event": "expire",
+        "kit": "fire_bolt_e1_B",
+        "target_kind": "cursor",
+        "target_point": [
+          3240.0,
+          640.0
+        ]
+      },
+      "impacts": [
+        {
+          "position": [
+            3252.06323242188,
+            635.739624023438
+          ],
+          "scene": "res://scenes/vfx_fire_burst_e0p_v3_impact.tscn"
+        }
+      ],
+      "final_position": [
+        3252.06323242188,
+        635.739624023438
+      ],
+      "range_error_px": 0.00027295752105539544,
+      "range_impact_errors_px": [
+        0.00027295752105539544
+      ],
+      "facing_dot_bh": 0.5829075730109523,
+      "socket_facing_dot_bh": 0.11666688298021306,
+      "checks": {
+        "release_equals_socket": true,
+        "head_erupted_at_tip": true,
+        "leading_tip_rear_limit": true,
+        "socket_rear_limit": true,
+        "range_impact": true
+      }
+    },
+    {
+      "bh_world_px": 150.999999046326,
+      "direction": "NW",
+      "facing_dot_px": 224.851898193359,
+      "head_tip_error_px": 0.0,
+      "keeper_world": [
+        3760.0,
+        640.0
+      ],
+      "range_point": [
+        3271.26000976562,
+        201.267272949219
+      ],
+      "release_error_px": 0.0,
+      "release_world": [
+        3719.7333984375,
+        464.462493896484
+      ],
+      "socket_cell": [
+        192.0,
+        121.0
+      ],
+      "socket_facing_dot_px": 152.596542358398,
+      "socket_world": [
+        3719.7333984375,
+        464.462493896484
+      ],
+      "engine_exit": 0,
+      "frames_0_through_10": [
+        {
+          "active": true,
+          "age": 0,
+          "head_drawn": true,
+          "head_visible": true,
+          "head_z": 2,
+          "keeper_z": 2,
+          "key_visible": false,
+          "normal_z_restored": true,
+          "projectile_z": 2
+        },
+        null,
+        {
+          "active": true,
+          "age": 2,
+          "head_drawn": true,
+          "head_visible": true,
+          "head_z": 2,
+          "keeper_z": 2,
+          "key_visible": false,
+          "normal_z_restored": true,
+          "projectile_z": 2
+        },
+        {
+          "active": true,
+          "age": 3,
+          "head_drawn": true,
+          "head_visible": true,
+          "head_z": 2,
+          "keeper_z": 2,
+          "key_visible": false,
+          "normal_z_restored": true,
+          "projectile_z": 2
+        },
+        {
+          "active": true,
+          "age": 4,
+          "head_drawn": true,
+          "head_visible": true,
+          "head_z": 2,
+          "keeper_z": 2,
+          "key_visible": false,
+          "normal_z_restored": true,
+          "projectile_z": 2
+        },
+        {
+          "active": true,
+          "age": 5,
+          "head_drawn": true,
+          "head_visible": true,
+          "head_z": 2,
+          "keeper_z": 2,
+          "key_visible": false,
+          "normal_z_restored": true,
+          "projectile_z": 2
+        },
+        {
+          "active": true,
+          "age": 6,
+          "head_drawn": true,
+          "head_visible": true,
+          "head_z": 2,
+          "keeper_z": 2,
+          "key_visible": false,
+          "normal_z_restored": true,
+          "projectile_z": 2
+        },
+        {
+          "active": true,
+          "age": 7,
+          "head_drawn": true,
+          "head_visible": true,
+          "head_z": 2,
+          "keeper_z": 2,
+          "key_visible": false,
+          "normal_z_restored": true,
+          "projectile_z": 2
+        },
+        {
+          "active": true,
+          "age": 8,
+          "head_drawn": true,
+          "head_visible": true,
+          "head_z": 2,
+          "keeper_z": 2,
+          "key_visible": false,
+          "normal_z_restored": true,
+          "projectile_z": 2
+        },
+        {
+          "active": true,
+          "age": 9,
+          "head_drawn": true,
+          "head_visible": true,
+          "head_z": 2,
+          "keeper_z": 2,
+          "key_visible": false,
+          "normal_z_restored": true,
+          "projectile_z": 2
+        },
+        {
+          "active": true,
+          "age": 10,
+          "head_drawn": true,
+          "head_visible": true,
+          "head_z": 2,
+          "keeper_z": 2,
+          "key_visible": false,
+          "normal_z_restored": true,
+          "projectile_z": 2
+        }
+      ],
+      "frame_11": {
+        "active": true,
+        "age": 11,
+        "head_drawn": true,
+        "head_visible": true,
+        "head_z": 2,
+        "keeper_z": 2,
+        "key_visible": false,
+        "normal_z_restored": true,
+        "projectile_z": 2
+      },
+      "first_contact_or_expiry": {
+        "age_frames": 18,
+        "effect_id": 1,
+        "event": "expire",
+        "kit": "fire_bolt_e1_B",
+        "target_kind": "cursor",
+        "target_point": [
+          3392.30444335938,
+          272.304473876953
+        ]
+      },
+      "impacts": [
+        {
+          "position": [
+            3271.26000976562,
+            201.267272949219
+          ],
+          "scene": "res://scenes/vfx_fire_burst_e0p_v3_impact.tscn"
+        }
+      ],
+      "final_position": [
+        3271.26000976562,
+        201.267272949219
+      ],
+      "range_error_px": 0.0,
+      "range_impact_errors_px": [
+        0.0
+      ],
+      "facing_dot_bh": 1.4890854279037158,
+      "socket_facing_dot_bh": 1.0105731345838103,
+      "checks": {
+        "release_equals_socket": true,
+        "head_erupted_at_tip": true,
+        "leading_tip_rear_limit": true,
+        "socket_rear_limit": true,
+        "range_impact": true
+      }
+    },
+    {
+      "bh_world_px": 150.999999046326,
+      "direction": "N",
+      "facing_dot_px": 260.882263183594,
+      "head_tip_error_px": 0.0,
+      "keeper_world": [
+        3760.0,
+        640.0
+      ],
+      "range_point": [
+        3735.88916015625,
+        -62.3770141601562
+      ],
+      "release_error_px": 0.0,
+      "release_world": [
+        3804.04174804688,
+        453.137512207031
+      ],
+      "socket_cell": [
+        326.0,
+        103.0
+      ],
+      "socket_facing_dot_px": 186.862487792969,
+      "socket_world": [
+        3804.04174804688,
+        453.137512207031
+      ],
+      "engine_exit": 0,
+      "frames_0_through_10": [
+        {
+          "active": true,
+          "age": 0,
+          "head_drawn": true,
+          "head_visible": true,
+          "head_z": 2,
+          "keeper_z": 2,
+          "key_visible": false,
+          "normal_z_restored": true,
+          "projectile_z": 2
+        },
+        null,
+        {
+          "active": true,
+          "age": 2,
+          "head_drawn": true,
+          "head_visible": true,
+          "head_z": 2,
+          "keeper_z": 2,
+          "key_visible": false,
+          "normal_z_restored": true,
+          "projectile_z": 2
+        },
+        {
+          "active": true,
+          "age": 3,
+          "head_drawn": true,
+          "head_visible": true,
+          "head_z": 2,
+          "keeper_z": 2,
+          "key_visible": false,
+          "normal_z_restored": true,
+          "projectile_z": 2
+        },
+        {
+          "active": true,
+          "age": 4,
+          "head_drawn": true,
+          "head_visible": true,
+          "head_z": 2,
+          "keeper_z": 2,
+          "key_visible": false,
+          "normal_z_restored": true,
+          "projectile_z": 2
+        },
+        {
+          "active": true,
+          "age": 5,
+          "head_drawn": true,
+          "head_visible": true,
+          "head_z": 2,
+          "keeper_z": 2,
+          "key_visible": false,
+          "normal_z_restored": true,
+          "projectile_z": 2
+        },
+        {
+          "active": true,
+          "age": 6,
+          "head_drawn": true,
+          "head_visible": true,
+          "head_z": 2,
+          "keeper_z": 2,
+          "key_visible": false,
+          "normal_z_restored": true,
+          "projectile_z": 2
+        },
+        {
+          "active": true,
+          "age": 7,
+          "head_drawn": true,
+          "head_visible": true,
+          "head_z": 2,
+          "keeper_z": 2,
+          "key_visible": false,
+          "normal_z_restored": true,
+          "projectile_z": 2
+        },
+        {
+          "active": true,
+          "age": 8,
+          "head_drawn": true,
+          "head_visible": true,
+          "head_z": 2,
+          "keeper_z": 2,
+          "key_visible": false,
+          "normal_z_restored": true,
+          "projectile_z": 2
+        },
+        {
+          "active": true,
+          "age": 9,
+          "head_drawn": true,
+          "head_visible": true,
+          "head_z": 2,
+          "keeper_z": 2,
+          "key_visible": false,
+          "normal_z_restored": true,
+          "projectile_z": 2
+        },
+        {
+          "active": true,
+          "age": 10,
+          "head_drawn": true,
+          "head_visible": true,
+          "head_z": 2,
+          "keeper_z": 2,
+          "key_visible": false,
+          "normal_z_restored": true,
+          "projectile_z": 2
+        }
+      ],
+      "frame_11": {
+        "active": true,
+        "age": 11,
+        "head_drawn": true,
+        "head_visible": true,
+        "head_z": 2,
+        "keeper_z": 2,
+        "key_visible": false,
+        "normal_z_restored": true,
+        "projectile_z": 2
+      },
+      "first_contact_or_expiry": {
+        "age_frames": 18,
+        "effect_id": 1,
+        "event": "expire",
+        "kit": "fire_bolt_e1_B",
+        "target_kind": "cursor",
+        "target_point": [
+          3760.0,
+          120.0
+        ]
+      },
+      "impacts": [
+        {
+          "position": [
+            3735.88916015625,
+            -62.3769111633301
+          ],
+          "scene": "res://scenes/vfx_fire_burst_e0p_v3_impact.tscn"
+        }
+      ],
+      "final_position": [
+        3735.88916015625,
+        -62.3769111633301
+      ],
+      "range_error_px": 0.00010299682610082073,
+      "range_impact_errors_px": [
+        0.00010299682610082073
+      ],
+      "facing_dot_bh": 1.7276971180877736,
+      "socket_facing_dot_bh": 1.2374999269744404,
+      "checks": {
+        "release_equals_socket": true,
+        "head_erupted_at_tip": true,
+        "leading_tip_rear_limit": true,
+        "socket_rear_limit": true,
+        "range_impact": true
+      }
+    },
+    {
+      "bh_world_px": 150.999999046326,
+      "direction": "NE",
+      "facing_dot_px": 206.796096801758,
+      "head_tip_error_px": 0.0,
+      "keeper_world": [
+        3760.0,
+        640.0
+      ],
+      "range_point": [
+        4228.2265625,
+        227.24641418457
+      ],
+      "release_error_px": 0.0,
+      "release_world": [
+        3753.70825195312,
+        439.924987792969
+      ],
+      "socket_cell": [
+        246.0,
+        82.0
+      ],
+      "socket_facing_dot_px": 137.025451660156,
+      "socket_world": [
+        3753.70825195312,
+        439.924987792969
+      ],
+      "engine_exit": 0,
+      "frames_0_through_10": [
+        {
+          "active": true,
+          "age": 0,
+          "head_drawn": true,
+          "head_visible": true,
+          "head_z": 2,
+          "keeper_z": 2,
+          "key_visible": false,
+          "normal_z_restored": true,
+          "projectile_z": 2
+        },
+        {
+          "active": true,
+          "age": 1,
+          "head_drawn": true,
+          "head_visible": true,
+          "head_z": 2,
+          "keeper_z": 2,
+          "key_visible": false,
+          "normal_z_restored": true,
+          "projectile_z": 2
+        },
+        {
+          "active": true,
+          "age": 2,
+          "head_drawn": true,
+          "head_visible": true,
+          "head_z": 2,
+          "keeper_z": 2,
+          "key_visible": false,
+          "normal_z_restored": true,
+          "projectile_z": 2
+        },
+        {
+          "active": true,
+          "age": 3,
+          "head_drawn": true,
+          "head_visible": true,
+          "head_z": 2,
+          "keeper_z": 2,
+          "key_visible": false,
+          "normal_z_restored": true,
+          "projectile_z": 2
+        },
+        {
+          "active": true,
+          "age": 4,
+          "head_drawn": true,
+          "head_visible": true,
+          "head_z": 2,
+          "keeper_z": 2,
+          "key_visible": false,
+          "normal_z_restored": true,
+          "projectile_z": 2
+        },
+        {
+          "active": true,
+          "age": 5,
+          "head_drawn": true,
+          "head_visible": true,
+          "head_z": 2,
+          "keeper_z": 2,
+          "key_visible": false,
+          "normal_z_restored": true,
+          "projectile_z": 2
+        },
+        {
+          "active": true,
+          "age": 6,
+          "head_drawn": true,
+          "head_visible": true,
+          "head_z": 2,
+          "keeper_z": 2,
+          "key_visible": false,
+          "normal_z_restored": true,
+          "projectile_z": 2
+        },
+        {
+          "active": true,
+          "age": 7,
+          "head_drawn": true,
+          "head_visible": true,
+          "head_z": 2,
+          "keeper_z": 2,
+          "key_visible": false,
+          "normal_z_restored": true,
+          "projectile_z": 2
+        },
+        {
+          "active": true,
+          "age": 8,
+          "head_drawn": true,
+          "head_visible": true,
+          "head_z": 2,
+          "keeper_z": 2,
+          "key_visible": false,
+          "normal_z_restored": true,
+          "projectile_z": 2
+        },
+        {
+          "active": true,
+          "age": 9,
+          "head_drawn": true,
+          "head_visible": true,
+          "head_z": 2,
+          "keeper_z": 2,
+          "key_visible": false,
+          "normal_z_restored": true,
+          "projectile_z": 2
+        },
+        {
+          "active": true,
+          "age": 10,
+          "head_drawn": true,
+          "head_visible": true,
+          "head_z": 2,
+          "keeper_z": 2,
+          "key_visible": false,
+          "normal_z_restored": true,
+          "projectile_z": 2
+        }
+      ],
+      "frame_11": {
+        "active": true,
+        "age": 11,
+        "head_drawn": true,
+        "head_visible": true,
+        "head_z": 2,
+        "keeper_z": 2,
+        "key_visible": false,
+        "normal_z_restored": true,
+        "projectile_z": 2
+      },
+      "first_contact_or_expiry": {
+        "age_frames": 18,
+        "effect_id": 1,
+        "event": "expire",
+        "kit": "fire_bolt_e1_B",
+        "target_kind": "cursor",
+        "target_point": [
+          4127.6953125,
+          272.304473876953
+        ]
+      },
+      "impacts": [
+        {
+          "position": [
+            4228.2265625,
+            227.24641418457
+          ],
+          "scene": "res://scenes/vfx_fire_burst_e0p_v3_impact.tscn"
+        }
+      ],
+      "final_position": [
+        4228.2265625,
+        227.24641418457
+      ],
+      "range_error_px": 0.0,
+      "range_impact_errors_px": [
+        0.0
+      ],
+      "facing_dot_bh": 1.3695105834955275,
+      "socket_facing_dot_bh": 0.9074533279839115,
+      "checks": {
+        "release_equals_socket": true,
+        "head_erupted_at_tip": true,
+        "leading_tip_rear_limit": true,
+        "socket_rear_limit": true,
+        "range_impact": true
+      }
+    },
+    {
+      "bh_world_px": 150.999999046326,
+      "direction": "E",
+      "facing_dot_px": 127.861328125,
+      "head_tip_error_px": 0.0,
+      "keeper_world": [
+        3760.0,
+        640.0
+      ],
+      "range_point": [
+        4320.259765625,
+        649.921997070312
+      ],
+      "release_error_px": 0.0,
+      "release_world": [
+        3815.36669921875,
+        525.49169921875
+      ],
+      "socket_cell": [
+        344.0,
+        218.0
+      ],
+      "socket_facing_dot_px": 55.36669921875,
+      "socket_world": [
+        3815.36669921875,
+        525.49169921875
+      ],
+      "engine_exit": 0,
+      "frames_0_through_10": [
+        {
+          "active": true,
+          "age": 0,
+          "head_drawn": true,
+          "head_visible": true,
+          "head_z": 2,
+          "keeper_z": 2,
+          "key_visible": false,
+          "normal_z_restored": true,
+          "projectile_z": 2
+        },
+        null,
+        {
+          "active": true,
+          "age": 2,
+          "head_drawn": true,
+          "head_visible": true,
+          "head_z": 2,
+          "keeper_z": 2,
+          "key_visible": false,
+          "normal_z_restored": true,
+          "projectile_z": 2
+        },
+        {
+          "active": false,
+          "age": 3,
+          "head_drawn": false,
+          "head_visible": false,
+          "head_z": 2,
+          "keeper_z": 2,
+          "key_visible": false,
+          "normal_z_restored": true,
+          "projectile_z": 2
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "active": false,
+          "age": 10,
+          "head_drawn": false,
+          "head_visible": false,
+          "head_z": 2,
+          "keeper_z": 2,
+          "key_visible": false,
+          "normal_z_restored": true,
+          "projectile_z": 2
+        }
+      ],
+      "frame_11": {
+        "active": false,
+        "age": 11,
+        "head_drawn": false,
+        "head_visible": false,
+        "head_z": 2,
+        "keeper_z": 2,
+        "key_visible": false,
+        "normal_z_restored": true,
+        "projectile_z": 2
+      },
+      "first_contact_or_expiry": {
+        "age_frames": 3,
+        "body_index": 3,
+        "collision_age_frames": 3,
+        "contact_class": "primary",
+        "contact_distance_px": 119.01692199707,
+        "contact_lag_frames": 0,
+        "effect_id": 1,
+        "event": "contact",
+        "kit": "fire_bolt_e1_B",
+        "phase": "head",
+        "position": [
+          3939.40502929688,
+          556.060791015625
+        ],
+        "strike_response": true,
+        "target_kind": "cursor",
+        "target_point": [
+          4280.0,
+          640.0
+        ]
+      },
+      "impacts": [
+        {
+          "position": [
+            3939.40502929688,
+            556.060791015625
+          ],
+          "scene": "res://scenes/vfx_fire_burst_e0p_v3_impact.tscn"
+        }
+      ],
+      "final_position": [
+        3939.40502929688,
+        556.060791015625
+      ],
+      "range_error_px": 392.2502468904286,
+      "range_impact_errors_px": [
+        392.2502468904286
+      ],
+      "facing_dot_bh": 0.846763767765143,
+      "socket_facing_dot_bh": 0.36666688455914354,
+      "checks": {
+        "release_equals_socket": true,
+        "head_erupted_at_tip": true,
+        "leading_tip_rear_limit": true,
+        "socket_rear_limit": true,
+        "shield_body_3_first": true
+      }
+    },
+    {
+      "bh_world_px": 150.999999046326,
+      "direction": "SE",
+      "facing_dot_px": 37.662109375,
+      "head_tip_error_px": 0.0,
+      "keeper_world": [
+        3760.0,
+        640.0
+      ],
+      "range_point": [
+        4102.369140625,
+        972.546997070312
+      ],
+      "release_error_px": 0.0,
+      "release_world": [
+        3798.37915039062,
+        550.658325195312
+      ],
+      "socket_cell": [
+        317.0,
+        258.0
+      ],
+      "socket_facing_dot_px": -36.035945892334,
+      "socket_world": [
+        3798.37915039062,
+        550.658325195312
+      ],
+      "engine_exit": 0,
+      "frames_0_through_10": [
+        {
+          "active": true,
+          "age": 0,
+          "head_drawn": true,
+          "head_visible": true,
+          "head_z": 3,
+          "keeper_z": 2,
+          "key_visible": false,
+          "normal_z_restored": false,
+          "projectile_z": 3
+        },
+        {
+          "active": true,
+          "age": 1,
+          "head_drawn": true,
+          "head_visible": true,
+          "head_z": 3,
+          "keeper_z": 2,
+          "key_visible": false,
+          "normal_z_restored": false,
+          "projectile_z": 3
+        },
+        {
+          "active": true,
+          "age": 2,
+          "head_drawn": true,
+          "head_visible": true,
+          "head_z": 3,
+          "keeper_z": 2,
+          "key_visible": false,
+          "normal_z_restored": false,
+          "projectile_z": 3
+        },
+        {
+          "active": true,
+          "age": 3,
+          "head_drawn": true,
+          "head_visible": true,
+          "head_z": 3,
+          "keeper_z": 2,
+          "key_visible": false,
+          "normal_z_restored": false,
+          "projectile_z": 3
+        },
+        {
+          "active": true,
+          "age": 4,
+          "head_drawn": true,
+          "head_visible": true,
+          "head_z": 3,
+          "keeper_z": 2,
+          "key_visible": false,
+          "normal_z_restored": false,
+          "projectile_z": 3
+        },
+        {
+          "active": true,
+          "age": 5,
+          "head_drawn": true,
+          "head_visible": true,
+          "head_z": 3,
+          "keeper_z": 2,
+          "key_visible": false,
+          "normal_z_restored": false,
+          "projectile_z": 3
+        },
+        {
+          "active": true,
+          "age": 6,
+          "head_drawn": true,
+          "head_visible": true,
+          "head_z": 3,
+          "keeper_z": 2,
+          "key_visible": false,
+          "normal_z_restored": false,
+          "projectile_z": 3
+        },
+        {
+          "active": true,
+          "age": 7,
+          "head_drawn": true,
+          "head_visible": true,
+          "head_z": 3,
+          "keeper_z": 2,
+          "key_visible": false,
+          "normal_z_restored": false,
+          "projectile_z": 3
+        },
+        {
+          "active": true,
+          "age": 8,
+          "head_drawn": true,
+          "head_visible": true,
+          "head_z": 3,
+          "keeper_z": 2,
+          "key_visible": false,
+          "normal_z_restored": false,
+          "projectile_z": 3
+        },
+        {
+          "active": true,
+          "age": 9,
+          "head_drawn": true,
+          "head_visible": true,
+          "head_z": 3,
+          "keeper_z": 2,
+          "key_visible": false,
+          "normal_z_restored": false,
+          "projectile_z": 3
+        },
+        {
+          "active": true,
+          "age": 10,
+          "head_drawn": true,
+          "head_visible": true,
+          "head_z": 3,
+          "keeper_z": 2,
+          "key_visible": false,
+          "normal_z_restored": false,
+          "projectile_z": 3
+        }
+      ],
+      "frame_11": {
+        "active": true,
+        "age": 11,
+        "head_drawn": true,
+        "head_visible": true,
+        "head_z": 2,
+        "keeper_z": 2,
+        "key_visible": false,
+        "normal_z_restored": true,
+        "projectile_z": 2
+      },
+      "first_contact_or_expiry": {
+        "age_frames": 18,
+        "effect_id": 1,
+        "event": "expire",
+        "kit": "fire_bolt_e1_B",
+        "target_kind": "cursor",
+        "target_point": [
+          4127.6953125,
+          1007.69555664062
+        ]
+      },
+      "impacts": [
+        {
+          "position": [
+            4102.369140625,
+            972.546997070312
+          ],
+          "scene": "res://scenes/vfx_fire_burst_e0p_v3_impact.tscn"
+        }
+      ],
+      "final_position": [
+        4102.369140625,
+        972.546997070312
+      ],
+      "range_error_px": 0.0,
+      "range_impact_errors_px": [
+        0.0
+      ],
+      "facing_dot_bh": 0.24941794445604906,
+      "socket_facing_dot_bh": -0.23864864980084113,
+      "checks": {
+        "release_equals_socket": true,
+        "head_erupted_at_tip": true,
+        "leading_tip_rear_limit": true,
+        "socket_rear_limit": true,
+        "front_every_frame_0_10": true,
+        "head_drawn_every_frame_0_10": true,
+        "normal_sort_at_11": true
+      }
+    }
+  ],
+  "catalogue_export_exit": 0,
+  "headless_import": {
+    "exit": 0,
+    "script_errors": false
+  },
+  "source_assets": {
+    "files": 1021,
+    "kits": 18,
+    "byte_identical": true,
+    "changed": [],
+    "source_kit_json_files": 19,
+    "note": "All 18 catalogue kits verified within 1021 unchanged source files; source tree also contains one non-catalogue kit.json."
+  },
+  "named_tests": {
+    "tests_run": 7,
+    "failures": [],
+    "errors": [],
+    "skips": []
+  },
+  "suite": {
+    "tests_run": 127,
+    "skips": [
+      {
+        "test": "setUpClass (test_godot_import.FL4BRuntimeTraceTests)",
+        "reason": "Set FL4B_TRACE to the executable FL-4b headless trace"
+      },
+      {
+        "test": "setUpClass (test_godot_import.FL4CTraceTests)",
+        "reason": "Set FL4C_METRICS to measured headless trace metrics"
+      }
+    ]
+  },
+  "remaining_reds": [
+    {
+      "test": "test_current_catalogue_and_original_kits_unchanged (test_godot_import.BoltChainEmissionTests.test_current_catalogue_and_original_kits_unchanged)",
+      "detail": "Traceback (most recent call last):\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_godot_import.py\", line 1380, in test_current_catalogue_and_original_kits_unchanged\n    self.assertEqual(actual,baseline)\nAssertionError: {'run[57143 chars]n': '01cdfab1649194b5b3dd0b834b2ba82f280a92204[41964 chars]adc'} != {'run[57143 chars]n': '315648fcef1d219972b05445774299ae5c3bf025a[29300 chars]afb'}\nDiff is 102664 characters long. Set self.maxDiff to None to see it.\n",
+      "category": "unresolved_assertion"
+    },
+    {
+      "test": "test_headless_state_machine_input_map_gear_vfx_and_nearest_fallback (test_godot_import.GodotImportTests.test_headless_state_machine_input_map_gear_vfx_and_nearest_fallback)",
+      "detail": "Traceback (most recent call last):\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_godot_import.py\", line 168, in test_headless_state_machine_input_map_gear_vfx_and_nearest_fallback\n    self.assertEqual(engine_errors, [], '\\n'.join(engine_errors))\nAssertionError: Lists differ: ['ERROR: Condition \"ret != noErr\" is true.[285 chars] \"\"'] != []\n\nFirst list contains 4 additional elements.\nFirst extra element 0:\n'ERROR: Condition \"ret != noErr\" is true. Returning: \"\"'\n\n+ []\n- ['ERROR: Condition \"ret != noErr\" is true. Returning: \"\"',\n-  \"ERROR: Cannot save file '/Users/admin/Library/Application \"\n-  \"Support/Godot/editor_settings-4.6.tres'.\",\n-  'ERROR: Error saving editor settings to /Users/admin/Library/Application '\n-  'Support/Godot/editor_settings-4.6.tres',\n-  'ERROR: Condition \"ret != noErr\" is true. Returning: \"\"'] : ERROR: Condition \"ret != noErr\" is true. Returning: \"\"\nERROR: Cannot save file '/Users/admin/Library/Application Support/Godot/editor_settings-4.6.tres'.\nERROR: Error saving editor settings to /Users/admin/Library/Application Support/Godot/editor_settings-4.6.tres\nERROR: Condition \"ret != noErr\" is true. Returning: \"\"\n",
+      "category": "godot_editor_settings_permission"
+    },
+    {
+      "test": "test_v2_headless_import_and_seed_equal_rooted_clock (test_godot_import.PieceStretchImportTests.test_v2_headless_import_and_seed_equal_rooted_clock)",
+      "detail": "Traceback (most recent call last):\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_godot_import.py\", line 454, in test_v2_headless_import_and_seed_equal_rooted_clock\n    self.assertEqual(proc.returncode,0,log)\nAssertionError: 7 != 0 : Godot Engine v4.6.3.stable.official.7d41c59c4 - https://godotengine.org\n\nERROR: Condition \"ret != noErr\" is true. Returning: \"\"\n   at: get_system_ca_certificates (platform/macos/os_macos.mm:1028)\nERROR: band three not dissolved\n   at: push_error (core/variant/variant_utility.cpp:1024)\n   GDScript backtrace (most recent call first):\n       [0] need (res://stretch_probe.gd:6)\n       [1] probe (res://stretch_probe.gd:36)\nERROR: band three not dissolved\n   at: push_error (core/variant/variant_utility.cpp:1024)\n   GDScript backtrace (most recent call first):\n       [0] need (res://stretch_probe.gd:6)\n       [1] probe (res://stretch_probe.gd:36)\nERROR: band three not dissolved\n   at: push_error (core/variant/variant_utility.cpp:1024)\n   GDScript backtrace (most recent call first):\n       [0] need (res://stretch_probe.gd:6)\n       [1] probe (res://stretch_probe.gd:36)\nERROR: band three not dissolved\n   at: push_error (core/variant/variant_utility.cpp:1024)\n   GDScript backtrace (most recent call first):\n       [0] need (res://stretch_probe.gd:6)\n       [1] probe (res://stretch_probe.gd:36)\nERROR: band three not dissolved\n   at: push_error (core/variant/variant_utility.cpp:1024)\n   GDScript backtrace (most recent call first):\n       [0] need (res://stretch_probe.gd:6)\n       [1] probe (res://stretch_probe.gd:36)\nERROR: band three not dissolved\n   at: push_error (core/variant/variant_utility.cpp:1024)\n   GDScript backtrace (most recent call first):\n       [0] need (res://stretch_probe.gd:6)\n       [1] probe (res://stretch_probe.gd:36)\nERROR: band three not dissolved\n   at: push_error (core/variant/variant_utility.cpp:1024)\n   GDScript backtrace (most recent call first):\n       [0] need (res://stretch_probe.gd:6)\n       [1] probe (res://stretch_probe.gd:36)\nERROR: band three not dissolved\n   at: push_error (core/variant/variant_utility.cpp:1024)\n   GDScript backtrace (most recent call first):\n       [0] need (res://stretch_probe.gd:6)\n       [1] probe (res://stretch_probe.gd:36)\nERROR: band three not dissolved\n   at: push_error (core/variant/variant_utility.cpp:1024)\n   GDScript backtrace (most recent call first):\n       [0] need (res://stretch_probe.gd:6)\n       [1] probe (res://stretch_probe.gd:36)\nERROR: band three not dissolved\n   at: push_error (core/variant/variant_utility.cpp:1024)\n   GDScript backtrace (most recent call first):\n       [0] need (res://stretch_probe.gd:6)\n       [1] probe (res://stretch_probe.gd:36)\nERROR: band three not dissolved\n   at: push_error (core/variant/variant_utility.cpp:1024)\n   GDScript backtrace (most recent call first):\n       [0] need (res://stretch_probe.gd:6)\n       [1] probe (res://stretch_probe.gd:36)\nERROR: band three not dissolved\n   at: push_error (core/variant/variant_utility.cpp:1024)\n   GDScript backtrace (most recent call first):\n       [0] need (res://stretch_probe.gd:6)\n       [1] probe (res://stretch_probe.gd:36)\nERROR: band three not dissolved\n   at: push_error (core/variant/variant_utility.cpp:1024)\n   GDScript backtrace (most recent call first):\n       [0] need (res://stretch_probe.gd:6)\n       [1] probe (res://stretch_probe.gd:36)\nERROR: band three not dissolved\n   at: push_error (core/variant/variant_utility.cpp:1024)\n   GDScript backtrace (most recent call first):\n       [0] need (res://stretch_probe.gd:6)\n       [1] probe (res://stretch_probe.gd:36)\nERROR: band three not dissolved\n   at: push_error (core/variant/variant_utility.cpp:1024)\n   GDScript backtrace (most recent call first):\n       [0] need (res://stretch_probe.gd:6)\n       [1] probe (res://stretch_probe.gd:36)\nERROR: band three not dissolved\n   at: push_error (core/variant/variant_utility.cpp:1024)\n   GDScript backtrace (most recent call first):\n       [0] need (res://stretch_probe.gd:6)\n       [1] probe (res://stretch_probe.gd:36)\nERROR: band three not dissolved\n   at: push_error (core/variant/variant_utility.cpp:1024)\n   GDScript backtrace (most recent call first):\n       [0] need (res://stretch_probe.gd:6)\n       [1] probe (res://stretch_probe.gd:36)\nERROR: band three not dissolved\n   at: push_error (core/variant/variant_utility.cpp:1024)\n   GDScript backtrace (most recent call first):\n       [0] need (res://stretch_probe.gd:6)\n       [1] probe (res://stretch_probe.gd:36)\nERROR: band three not dissolved\n   at: push_error (core/variant/variant_utility.cpp:1024)\n   GDScript backtrace (most recent call first):\n       [0] need (res://stretch_probe.gd:6)\n       [1] probe (res://stretch_probe.gd:36)\nERROR: band three not dissolved\n   at: push_error (core/variant/variant_utility.cpp:1024)\n   GDScript backtrace (most recent call first):\n       [0] need (res://stretch_probe.gd:6)\n       [1] probe (res://stretch_probe.gd:36)\nERROR: band three not dissolved\n   at: push_error (core/variant/variant_utility.cpp:1024)\n   GDScript backtrace (most recent call first):\n       [0] need (res://stretch_probe.gd:6)\n       [1] probe (res://stretch_probe.gd:36)\nERROR: band three not dissolved\n   at: push_error (core/variant/variant_utility.cpp:1024)\n   GDScript backtrace (most recent call first):\n       [0] need (res://stretch_probe.gd:6)\n       [1] probe (res://stretch_probe.gd:36)\nERROR: band three not dissolved\n   at: push_error (core/variant/variant_utility.cpp:1024)\n   GDScript backtrace (most recent call first):\n       [0] need (res://stretch_probe.gd:6)\n       [1] probe (res://stretch_probe.gd:36)\nERROR: band three not dissolved\n   at: push_error (core/variant/variant_utility.cpp:1024)\n   GDScript backtrace (most recent call first):\n       [0] need (res://stretch_probe.gd:6)\n       [1] probe (res://stretch_probe.gd:36)\nERROR: band three not dissolved\n   at: push_error (core/variant/variant_utility.cpp:1024)\n   GDScript backtrace (most recent call first):\n       [0] need (res://stretch_probe.gd:6)\n       [1] probe (res://stretch_probe.gd:36)\nERROR: band three not dissolved\n   at: push_error (core/variant/variant_utility.cpp:1024)\n   GDScript backtrace (most recent call first):\n       [0] need (res://stretch_probe.gd:6)\n       [1] probe (res://stretch_probe.gd:36)\nERROR: band three not dissolved\n   at: push_error (core/variant/variant_utility.cpp:1024)\n   GDScript backtrace (most recent call first):\n       [0] need (res://stretch_probe.gd:6)\n       [1] probe (res://stretch_probe.gd:36)\nERROR: band three not dissolved\n   at: push_error (core/variant/variant_utility.cpp:1024)\n   GDScript backtrace (most recent call first):\n       [0] need (res://stretch_probe.gd:6)\n       [1] probe (res://stretch_probe.gd:36)\nERROR: band three not dissolved\n   at: push_error (core/variant/variant_utility.cpp:1024)\n   GDScript backtrace (most recent call first):\n       [0] need (res://stretch_probe.gd:6)\n       [1] probe (res://stretch_probe.gd:36)\nERROR: band three not dissolved\n   at: push_error (core/variant/variant_utility.cpp:1024)\n   GDScript backtrace (most recent call first):\n       [0] need (res://stretch_probe.gd:6)\n       [1] probe (res://stretch_probe.gd:36)\nERROR: band three not dissolved\n   at: push_error (core/variant/variant_utility.cpp:1024)\n   GDScript backtrace (most recent call first):\n       [0] need (res://stretch_probe.gd:6)\n       [1] probe (res://stretch_probe.gd:36)\nERROR: band three not dissolved\n   at: push_error (core/variant/variant_utility.cpp:1024)\n   GDScript backtrace (most recent call first):\n       [0] need (res://stretch_probe.gd:6)\n       [1] probe (res://stretch_probe.gd:36)\nERROR: band three not dissolved\n   at: push_error (core/variant/variant_utility.cpp:1024)\n   GDScript backtrace (most recent call first):\n       [0] need (res://stretch_probe.gd:6)\n       [1] probe (res://stretch_probe.gd:36)\nERROR: band three not dissolved\n   at: push_error (core/variant/variant_utility.cpp:1024)\n   GDScript backtrace (most recent call first):\n       [0] need (res://stretch_probe.gd:6)\n       [1] probe (res://stretch_probe.gd:36)\nERROR: band three not dissolved\n   at: push_error (core/variant/variant_utility.cpp:1024)\n   GDScript backtrace (most recent call first):\n       [0] need (res://stretch_probe.gd:6)\n       [1] probe (res://stretch_probe.gd:36)\nERROR: band three not dissolved\n   at: push_error (core/variant/variant_utility.cpp:1024)\n   GDScript backtrace (most recent call first):\n       [0] need (res://stretch_probe.gd:6)\n       [1] probe (res://stretch_probe.gd:36)\n\n",
+      "category": "unresolved_assertion"
+    },
+    {
+      "test": "test_headless_authored_cast_east_north_collision_timing_and_feedback_cleanup (test_vfx_picker.AuthoredEffectPickerTests.test_headless_authored_cast_east_north_collision_timing_and_feedback_cleanup)",
+      "detail": "Traceback (most recent call last):\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_vfx_picker.py\", line 520, in test_headless_authored_cast_east_north_collision_timing_and_feedback_cleanup\n    run_headless(self, self.project, 'effect_probe.gd')\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_vfx_picker.py\", line 121, in run_headless\n    test.assertEqual(engine_errors, [], '\\n'.join(engine_errors))\nAssertionError: Lists differ: ['ERROR: Condition \"ret != noErr\" is true.[285 chars] \"\"'] != []\n\nFirst list contains 4 additional elements.\nFirst extra element 0:\n'ERROR: Condition \"ret != noErr\" is true. Returning: \"\"'\n\n+ []\n- ['ERROR: Condition \"ret != noErr\" is true. Returning: \"\"',\n-  \"ERROR: Cannot save file '/Users/admin/Library/Application \"\n-  \"Support/Godot/editor_settings-4.6.tres'.\",\n-  'ERROR: Error saving editor settings to /Users/admin/Library/Application '\n-  'Support/Godot/editor_settings-4.6.tres',\n-  'ERROR: Condition \"ret != noErr\" is true. Returning: \"\"'] : ERROR: Condition \"ret != noErr\" is true. Returning: \"\"\nERROR: Cannot save file '/Users/admin/Library/Application Support/Godot/editor_settings-4.6.tres'.\nERROR: Error saving editor settings to /Users/admin/Library/Application Support/Godot/editor_settings-4.6.tres\nERROR: Condition \"ret != noErr\" is true. Returning: \"\"\n",
+      "category": "godot_editor_settings_permission"
+    },
+    {
+      "test": "test_headless_first_cast_contact_cursor_pool_cancel_and_picker (test_vfx_picker.G1ComponentTests.test_headless_first_cast_contact_cursor_pool_cancel_and_picker)",
+      "detail": "Traceback (most recent call last):\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_vfx_picker.py\", line 951, in test_headless_first_cast_contact_cursor_pool_cancel_and_picker\n    run_headless(self, out, 'probe_vfx.gd')\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_vfx_picker.py\", line 121, in run_headless\n    test.assertEqual(engine_errors, [], '\\n'.join(engine_errors))\nAssertionError: Lists differ: ['ERROR: Condition \"ret != noErr\" is true.[285 chars] \"\"'] != []\n\nFirst list contains 4 additional elements.\nFirst extra element 0:\n'ERROR: Condition \"ret != noErr\" is true. Returning: \"\"'\n\n+ []\n- ['ERROR: Condition \"ret != noErr\" is true. Returning: \"\"',\n-  \"ERROR: Cannot save file '/Users/admin/Library/Application \"\n-  \"Support/Godot/editor_settings-4.6.tres'.\",\n-  'ERROR: Error saving editor settings to /Users/admin/Library/Application '\n-  'Support/Godot/editor_settings-4.6.tres',\n-  'ERROR: Condition \"ret != noErr\" is true. Returning: \"\"'] : ERROR: Condition \"ret != noErr\" is true. Returning: \"\"\nERROR: Cannot save file '/Users/admin/Library/Application Support/Godot/editor_settings-4.6.tres'.\nERROR: Error saving editor settings to /Users/admin/Library/Application Support/Godot/editor_settings-4.6.tres\nERROR: Condition \"ret != noErr\" is true. Returning: \"\"\n",
+      "category": "godot_editor_settings_permission"
+    },
+    {
+      "test": "test_headless_pierce_contacts_labels_pool_and_phase_callbacks (test_vfx_picker.G1ComponentTests.test_headless_pierce_contacts_labels_pool_and_phase_callbacks)",
+      "detail": "Traceback (most recent call last):\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_vfx_picker.py\", line 1051, in test_headless_pierce_contacts_labels_pool_and_phase_callbacks\n    run_headless(self, fixture['project'], 'probe_pierce.gd')\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_vfx_picker.py\", line 121, in run_headless\n    test.assertEqual(engine_errors, [], '\\n'.join(engine_errors))\nAssertionError: Lists differ: ['ERROR: Condition \"ret != noErr\" is true.[285 chars] \"\"'] != []\n\nFirst list contains 4 additional elements.\nFirst extra element 0:\n'ERROR: Condition \"ret != noErr\" is true. Returning: \"\"'\n\n+ []\n- ['ERROR: Condition \"ret != noErr\" is true. Returning: \"\"',\n-  \"ERROR: Cannot save file '/Users/admin/Library/Application \"\n-  \"Support/Godot/editor_settings-4.6.tres'.\",\n-  'ERROR: Error saving editor settings to /Users/admin/Library/Application '\n-  'Support/Godot/editor_settings-4.6.tres',\n-  'ERROR: Condition \"ret != noErr\" is true. Returning: \"\"'] : ERROR: Condition \"ret != noErr\" is true. Returning: \"\"\nERROR: Cannot save file '/Users/admin/Library/Application Support/Godot/editor_settings-4.6.tres'.\nERROR: Error saving editor settings to /Users/admin/Library/Application Support/Godot/editor_settings-4.6.tres\nERROR: Condition \"ret != noErr\" is true. Returning: \"\"\n",
+      "category": "godot_editor_settings_permission"
+    },
+    {
+      "test": "test_headless_glow_sixty_samples_extrema_range_and_particle_properties (test_vfx_picker.LivingEmbersTests.test_headless_glow_sixty_samples_extrema_range_and_particle_properties)",
+      "detail": "Traceback (most recent call last):\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_vfx_picker.py\", line 422, in test_headless_glow_sixty_samples_extrema_range_and_particle_properties\n    run_headless(self, out, 'glow_probe.gd')\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_vfx_picker.py\", line 121, in run_headless\n    test.assertEqual(engine_errors, [], '\\n'.join(engine_errors))\nAssertionError: Lists differ: ['ERROR: Condition \"ret != noErr\" is true.[285 chars] \"\"'] != []\n\nFirst list contains 4 additional elements.\nFirst extra element 0:\n'ERROR: Condition \"ret != noErr\" is true. Returning: \"\"'\n\n+ []\n- ['ERROR: Condition \"ret != noErr\" is true. Returning: \"\"',\n-  \"ERROR: Cannot save file '/Users/admin/Library/Application \"\n-  \"Support/Godot/editor_settings-4.6.tres'.\",\n-  'ERROR: Error saving editor settings to /Users/admin/Library/Application '\n-  'Support/Godot/editor_settings-4.6.tres',\n-  'ERROR: Condition \"ret != noErr\" is true. Returning: \"\"'] : ERROR: Condition \"ret != noErr\" is true. Returning: \"\"\nERROR: Cannot save file '/Users/admin/Library/Application Support/Godot/editor_settings-4.6.tres'.\nERROR: Error saving editor settings to /Users/admin/Library/Application Support/Godot/editor_settings-4.6.tres\nERROR: Condition \"ret != noErr\" is true. Returning: \"\"\n",
+      "category": "godot_editor_settings_permission"
+    },
+    {
+      "test": "test_headless_east_contact_range_tail_and_key_schedule (test_vfx_picker.ProjectileArmPickerTests.test_headless_east_contact_range_tail_and_key_schedule)",
+      "detail": "Traceback (most recent call last):\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_vfx_picker.py\", line 1429, in test_headless_east_contact_range_tail_and_key_schedule\n    self.assertEqual(proc.returncode,0,text)\nAssertionError: 1 != 0 : Godot Engine v4.6.3.stable.official.7d41c59c4 - https://godotengine.org\n\nE1_RUNTIME={\"bursts\":5,\"casts\":2,\"errors\":[\"upper speed clamp\",\"lower speed clamp\",\"range expiry has no contact burst\",\"upper speed clamp\",\"lower speed clamp\",\"range expiry has no contact burst\"]}\nERROR: Condition \"ret != noErr\" is true. Returning: \"\"\n   at: get_system_ca_certificates (platform/macos/os_macos.mm:1028)\nE1_ASSERTION: upper speed clamp\nE1_ASSERTION: lower speed clamp\nE1_ASSERTION: range expiry has no contact burst\nE1_ASSERTION: upper speed clamp\nE1_ASSERTION: lower speed clamp\nE1_ASSERTION: range expiry has no contact burst\n\n",
+      "category": "unresolved_assertion"
+    },
+    {
+      "test": "test_headless_overlay_forward_world_touch_and_mouse_probe (test_vfx_picker.TouchAimRuntimeTests.test_headless_overlay_forward_world_touch_and_mouse_probe)",
+      "detail": "Traceback (most recent call last):\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_vfx_picker.py\", line 876, in test_headless_overlay_forward_world_touch_and_mouse_probe\n    run_headless(self, project, 'touch_aim_probe.gd')\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_vfx_picker.py\", line 121, in run_headless\n    test.assertEqual(engine_errors, [], '\\n'.join(engine_errors))\nAssertionError: Lists differ: ['ERROR: Condition \"ret != noErr\" is true.[285 chars] \"\"'] != []\n\nFirst list contains 4 additional elements.\nFirst extra element 0:\n'ERROR: Condition \"ret != noErr\" is true. Returning: \"\"'\n\n+ []\n- ['ERROR: Condition \"ret != noErr\" is true. Returning: \"\"',\n-  \"ERROR: Cannot save file '/Users/admin/Library/Application \"\n-  \"Support/Godot/editor_settings-4.6.tres'.\",\n-  'ERROR: Error saving editor settings to /Users/admin/Library/Application '\n-  'Support/Godot/editor_settings-4.6.tres',\n-  'ERROR: Condition \"ret != noErr\" is true. Returning: \"\"'] : ERROR: Condition \"ret != noErr\" is true. Returning: \"\"\nERROR: Cannot save file '/Users/admin/Library/Application Support/Godot/editor_settings-4.6.tres'.\nERROR: Error saving editor settings to /Users/admin/Library/Application Support/Godot/editor_settings-4.6.tres\nERROR: Condition \"ret != noErr\" is true. Returning: \"\"\n",
+      "category": "godot_editor_settings_permission"
+    },
+    {
+      "test": "test_headless_device_forward_handled_overlay_and_mouse_probe (test_vfx_picker.TouchDeviceAimRuntimeTests.test_headless_device_forward_handled_overlay_and_mouse_probe)",
+      "detail": "Traceback (most recent call last):\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_vfx_picker.py\", line 1194, in test_headless_device_forward_handled_overlay_and_mouse_probe\n    run_headless(self, project, 'touch_aim_probe.gd')\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_vfx_picker.py\", line 121, in run_headless\n    test.assertEqual(engine_errors, [], '\\n'.join(engine_errors))\nAssertionError: Lists differ: ['ERROR: Condition \"ret != noErr\" is true.[285 chars] \"\"'] != []\n\nFirst list contains 4 additional elements.\nFirst extra element 0:\n'ERROR: Condition \"ret != noErr\" is true. Returning: \"\"'\n\n+ []\n- ['ERROR: Condition \"ret != noErr\" is true. Returning: \"\"',\n-  \"ERROR: Cannot save file '/Users/admin/Library/Application \"\n-  \"Support/Godot/editor_settings-4.6.tres'.\",\n-  'ERROR: Error saving editor settings to /Users/admin/Library/Application '\n-  'Support/Godot/editor_settings-4.6.tres',\n-  'ERROR: Condition \"ret != noErr\" is true. Returning: \"\"'] : ERROR: Condition \"ret != noErr\" is true. Returning: \"\"\nERROR: Cannot save file '/Users/admin/Library/Application Support/Godot/editor_settings-4.6.tres'.\nERROR: Error saving editor settings to /Users/admin/Library/Application Support/Godot/editor_settings-4.6.tres\nERROR: Condition \"ret != noErr\" is true. Returning: \"\"\n",
+      "category": "godot_editor_settings_permission"
+    },
+    {
+      "test": "test_headless_tab_twice_cast_scene_labels_and_inflight_kit_lock (test_vfx_picker.VfxPickerTests.test_headless_tab_twice_cast_scene_labels_and_inflight_kit_lock)",
+      "detail": "Traceback (most recent call last):\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_vfx_picker.py\", line 281, in test_headless_tab_twice_cast_scene_labels_and_inflight_kit_lock\n    run_headless(self, out, 'picker_probe.gd')\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_vfx_picker.py\", line 121, in run_headless\n    test.assertEqual(engine_errors, [], '\\n'.join(engine_errors))\nAssertionError: Lists differ: ['ERROR: Condition \"ret != noErr\" is true.[285 chars] \"\"'] != []\n\nFirst list contains 4 additional elements.\nFirst extra element 0:\n'ERROR: Condition \"ret != noErr\" is true. Returning: \"\"'\n\n+ []\n- ['ERROR: Condition \"ret != noErr\" is true. Returning: \"\"',\n-  \"ERROR: Cannot save file '/Users/admin/Library/Application \"\n-  \"Support/Godot/editor_settings-4.6.tres'.\",\n-  'ERROR: Error saving editor settings to /Users/admin/Library/Application '\n-  'Support/Godot/editor_settings-4.6.tres',\n-  'ERROR: Condition \"ret != noErr\" is true. Returning: \"\"'] : ERROR: Condition \"ret != noErr\" is true. Returning: \"\"\nERROR: Cannot save file '/Users/admin/Library/Application Support/Godot/editor_settings-4.6.tres'.\nERROR: Error saving editor settings to /Users/admin/Library/Application Support/Godot/editor_settings-4.6.tres\nERROR: Condition \"ret != noErr\" is true. Returning: \"\"\n",
+      "category": "godot_editor_settings_permission"
+    },
+    {
+      "test": "setUpClass (test_godot_import.FieldDesignLapEmissionTests)",
+      "detail": "Traceback (most recent call last):\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_godot_import.py\", line 1419, in setUpClass\n    (cls.work/'headless.json').write_text(json.dumps(cls.logs,indent=2)+'\\n')\n  File \"/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/pathlib.py\", line 1048, in write_text\n    with self.open(mode='w', encoding=encoding, errors=errors, newline=newline) as f:\n         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/pathlib.py\", line 1014, in open\n    return io.open(self, mode, buffering, encoding, errors, newline)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/admin/astra-burst/runs/C-5/FL-5c/out/suite.py\", line 44, in audit\n    raise PermissionError('FL-5c write boundary: '+str(p))\nPermissionError: FL-5c write boundary: /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/FL-4d/field-design/headless.json\n",
+      "category": "sandbox_write_boundary"
+    },
+    {
+      "test": "setUpClass (test_godot_import.RenderedLookTraceTests)",
+      "detail": "Traceback (most recent call last):\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_godot_import.py\", line 1701, in setUpClass\n    for i in range(count):Image.new('RGBA',(512,512),(40,80,120,255)).save(cells/f'{kind}_E_{i}.png')\n                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/PIL/Image.py\", line 2456, in save\n    fp = builtins.open(filename, \"w+b\")\n         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/admin/astra-burst/runs/C-5/FL-5c/out/suite.py\", line 44, in audit\n    raise PermissionError('FL-5c write boundary: '+str(p))\nPermissionError: FL-5c write boundary: /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4x/cells/idle_E_0.png\n",
+      "category": "sandbox_write_boundary"
+    },
+    {
+      "test": "test_transformed_front_at_three_ages_has_no_straight_seam_over_12px (test_godot_import.TransformedResidueSeamTests.test_transformed_front_at_three_ages_has_no_straight_seam_over_12px)",
+      "detail": "Traceback (most recent call last):\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_godot_import.py\", line 844, in test_transformed_front_at_three_ages_has_no_straight_seam_over_12px\n    report.write_text(json.dumps({'report_only': True, 'threshold_withdrawn': 12,\n  File \"/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/pathlib.py\", line 1048, in write_text\n    with self.open(mode='w', encoding=encoding, errors=errors, newline=newline) as f:\n         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/pathlib.py\", line 1014, in open\n    return io.open(self, mode, buffering, encoding, errors, newline)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/admin/astra-burst/runs/C-5/FL-5c/out/suite.py\", line 44, in audit\n    raise PermissionError('FL-5c write boundary: '+str(p))\nPermissionError: FL-5c write boundary: /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4g/seam_measurements.json\n",
+      "category": "sandbox_write_boundary"
+    },
+    {
+      "test": "test_emergence_fraction_order_and_temporarily_ignored_body (test_vfx_picker.CanonicalCapsuleSweepTests.test_emergence_fraction_order_and_temporarily_ignored_body)",
+      "detail": "Traceback (most recent call last):\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_vfx_picker.py\", line 2012, in test_emergence_fraction_order_and_temporarily_ignored_body\n    probe.write_text(CAPSULE_SWEEP_PROBE)\n  File \"/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/pathlib.py\", line 1048, in write_text\n    with self.open(mode='w', encoding=encoding, errors=errors, newline=newline) as f:\n         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/pathlib.py\", line 1014, in open\n    return io.open(self, mode, buffering, encoding, errors, newline)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/admin/astra-burst/runs/C-5/FL-5c/out/suite.py\", line 44, in audit\n    raise PermissionError('FL-5c write boundary: '+str(p))\nPermissionError: FL-5c write boundary: /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/FL-2c/reexport/capsule_sweep_test.gd\n",
+      "category": "sandbox_write_boundary"
+    },
+    {
+      "test": "test_headless_orb_clock_and_pool (test_vfx_picker.FrozenOrbPickerTests.test_headless_orb_clock_and_pool)",
+      "detail": "Traceback (most recent call last):\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_vfx_picker.py\", line 1759, in test_headless_orb_clock_and_pool\n    (work/'orb_trace.json').write_text(json.dumps(trace,indent=2)+'\\n')\n  File \"/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/pathlib.py\", line 1048, in write_text\n    with self.open(mode='w', encoding=encoding, errors=errors, newline=newline) as f:\n         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/pathlib.py\", line 1014, in open\n    return io.open(self, mode, buffering, encoding, errors, newline)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/admin/astra-burst/runs/C-5/FL-5c/out/suite.py\", line 44, in audit\n    raise PermissionError('FL-5c write boundary: '+str(p))\nPermissionError: FL-5c write boundary: /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4v/orb_trace.json\n",
+      "category": "sandbox_write_boundary"
+    },
+    {
+      "test": "test_headless_contact_shatter_residue_decal (test_vfx_picker.IceTreatmentPickerTests.test_headless_contact_shatter_residue_decal)",
+      "detail": "Traceback (most recent call last):\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_vfx_picker.py\", line 1645, in test_headless_contact_shatter_residue_decal\n    (work/'e2_trace.json').write_text(json.dumps(report,indent=2)+'\\n')\n  File \"/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/pathlib.py\", line 1048, in write_text\n    with self.open(mode='w', encoding=encoding, errors=errors, newline=newline) as f:\n         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/pathlib.py\", line 1014, in open\n    return io.open(self, mode, buffering, encoding, errors, newline)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/admin/astra-burst/runs/C-5/FL-5c/out/suite.py\", line 44, in audit\n    raise PermissionError('FL-5c write boundary: '+str(p))\nPermissionError: FL-5c write boundary: /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4x/e2_trace.json\n",
+      "category": "sandbox_write_boundary"
+    }
+  ],
+  "byte_locks": [
+    {
+      "lock": "fixtures/fl1b/ProjectileArmPickerTests-2.json",
+      "changed_entries": [
+        "scripts/vfx_g1_fl4.gd",
+        "scripts/vfx_g1_painted.gd"
+      ],
+      "attribution": "Every changed script line is in emitted_diffs.json; FL-5c z-order initialization, age window, pooled reset and restoration only."
+    },
+    {
+      "lock": "fixtures/fl1b/IceTreatmentImportTests-0.json",
+      "changed_entries": [
+        "scripts/vfx_g1_fl4.gd",
+        "scripts/vfx_g1_painted.gd"
+      ],
+      "attribution": "Every changed script line is in emitted_diffs.json; FL-5c z-order initialization, age window, pooled reset and restoration only."
+    }
+  ],
+  "emitted_diffs": "emitted_diffs.json",
+  "concerns": [
+    "The original FL-1a facing-dot instrument measures the capsule leading node, not cast_origin. It meets -0.7 BH using the staged actor's 151-px BH; literal socket-to-feet dots are S=-1.179 BH and SW=-0.990 BH. Authoritative sockets were preserved; both quantities are reported.",
+    "Visibility is is_visible_in_tree plus effective CanvasItem z, measured headlessly; no framebuffer rendering was performed.",
+    "Initial SPEC read included sections 2-6 as well as requested sections 0-1; no files from those sections were independently opened for implementation.",
+    "Broader two-module suite has named failures/errors; see remaining_reds and suite.json. Targeted final run is recorded separately.",
+    "Broader suite: 127 tests, 11 failures, 6 errors; 8 Godot editor-settings permission failures, 6 blocked legacy output writes, and 3 unresolved assertion failures. No prior-run outputs were overwritten."
+  ],
+  "probe_events_exit_codes": {
+    "S": 0,
+    "SW": 0,
+    "W": 0,
+    "NW": 0,
+    "N": 0,
+    "NE": 0,
+    "E": 0,
+    "SE": 0
+  },
+  "probe_method": "Headless adaptation of staged probe_cast_dir: same action routing, reset feet to (3760,640) after direction-selection movement; synchronous release sample and post-physics sampling. Immutable conductor probe_events copied and run separately. Catalogue selection 9=fire_bolt_e1_B; initial diagnostic selection 10=ice_bolt_e2 retained in evidence.",
+  "remaining_red_counts": {
+    "godot_editor_settings_permission": 8,
+    "sandbox_write_boundary": 6,
+    "unresolved_assertion": 3
+  },
+  "byte_lock_tests": {
+    "ProjectileArmPickerTests.test_original_eight_export_byte_lock": true,
+    "IceTreatmentImportTests.test_ten_existing_export_bytes_unchanged": true,
+    "attribution": "Full suite contains neither test among failures/errors; exact changed emitted script lines are stored in emitted_diffs.json."
+  },
+  "receipt_images_encoding": "[] as required by the supplied JSON schema (zero generated images); calls_used=0."
+}

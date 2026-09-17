@@ -15525,6 +15525,110 @@
       "codex_version": "codex-cli 0.153.4",
       "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
       "exit": 3
+    },
+    {
+      "id": "FL-5c",
+      "type": "TOOLING",
+      "experiment": "C5-FIRE",
+      "brief_sha256": "98b637f8c279a02eddb655dbada49ee2823b9644ed32690758cae5183bd6ad61",
+      "started": "2026-09-17T02:04:43.460897+00:00",
+      "ended": "2026-09-17T02:18:42.072181+00:00",
+      "minutes": 13.976741193050112,
+      "image_calls": 0,
+      "tool_calls": 41,
+      "audit": {
+        "violations": [],
+        "image_calls": 0,
+        "tool_calls": 41,
+        "tools_seen": {
+          "command_execution": 41
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": []
+      },
+      "receipt_sha256": "f5f0170b6dc603e06021ac15ed06fd5bea1e97220dbd89ee3116ccded5827777",
+      "artifacts": [
+        {
+          "name": "files.json",
+          "sha256": "2b8063dc78cdc7730896aeaf33ae1da4316172a826b84c9d8c21362c4e7f111a"
+        }
+      ],
+      "artifacts_in_place": [
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "export/godot_import.py",
+          "sha256": "790bba8f587c031d5c6382658e91b618bdec50ceceedce4f21dd978145d54291"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "fixtures/fl1b/IceTreatmentImportTests-0.json",
+          "sha256": "cc5668c9bf00b18d7d3fd9666bb0f52796cd7a403a085ea822657a812e787f0b"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "fixtures/fl1b/ProjectileArmPickerTests-2.json",
+          "sha256": "1471fd4cc0a2a5ed267f8d0c3e4d4bef70217d418798656138cc87e1d17a6b84"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-5/t3/FL-5c/acceptance.json",
+          "sha256": "57b8cdbb7b19587f4f34a0ebd793c16f293efdf809b185297a77b44453f4e27d"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-5/t3/FL-5c/assets_integrity.json",
+          "sha256": "e87a56d8f3f7af634c031c420151644d1d1ee88c83cab3b8737a0cf48789c8b9"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-5/t3/FL-5c/byte_locks.json",
+          "sha256": "fdc9590ea8b580a95f69417a54408abfa6207e5520eea3d0519caf0c72edc8a0"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-5/t3/FL-5c/emitted_diffs.json",
+          "sha256": "ca3e086ee316100dbabbc3e8cf22df04bbce52fec8c8d03a536b0fcbe23f56e9"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-5/t3/FL-5c/evidence.tar.gz",
+          "sha256": "aea8f32edfadf6285731e0cb5dd1d6d10f4c0139f415efa3427eac2d7907ed18"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-5/t3/FL-5c/named.json",
+          "sha256": "0e72b83bb32105c53a62cfbaa0aabaadac27794ffb27c0ee1b33442e27cdc3da"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-5/t3/FL-5c/suite.json",
+          "sha256": "1cd8031ec2a5d4e1a841a3934d9605bc55f7de978bc1e4e27759013454bc2ebc"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "tests/test_godot_import.py",
+          "sha256": "985570cb0762679ff808f367141f70aa18de380481ad78559b0ace0275a33268"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "tests/test_vfx_picker.py",
+          "sha256": "b441f938ff749214933d32ab09bc4f49443469de9afc331d7cd5cfcb122e467b"
+        }
+      ],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
     }
   ],
   "experiments": [],
@@ -16574,6 +16678,20 @@
       "veto_open": true,
       "ruling": "FL-5b returned FAILED honestly (the literal ferrule score mis-picks NW/N/NE/E where hands/skin sit near the butt end; and S/SW tip sockets give a negative facing dot) and produced the decisive sheet. CONDUCTOR EYE per direction: S tip = the glowing top end [241,117]; SW = the starred upper-right end [329,137]; W = the upper end [228,118]; N (pink flash at the upper-right end), NE, NW, E, SE keep the FL-1a sockets. Applied as data to sockets_v2.json. DESIGN RULING for casts toward the camera (S/SW/SE): the bolt erupts from the raised tip ABOVE the figure and flies toward the camera across the body — it must draw IN FRONT of the actor (z +1) for its first 10 frames; the FL-1a forward-dot / head-not-in-body clauses relax to socket = tip (dot may be ≤ 0 by up to 0.7 BH). → FL-5c (runtime draw order + clause realignment + eight-direction trace) then PACK v42.",
       "ts": "2026-09-16T22:03:37"
+    },
+    {
+      "id": "R-C5-130",
+      "class": "matt",
+      "veto_open": false,
+      "ruling": "MATT (2026-09-17): \"I am not seeing the interleaves whatsoever\" + ultra-think whether the dance solves it. Conductor analysis: the tongues exist (traces) but are illegible — same planes as the arms, rooted under them, flying with them, 0.4 s life; a per-cast silhouette difference is imperceptible in 0.4 s; fire’s randomness is perceived through TIME. RULING: the dance ABSORBS the interleave — FL-6 makes the tongues the FRONT dancing layer (rooted beyond the rim, 6-8 at 1.3-1.7x, hot cores, their own flicker clock), adds a LEGIBILITY clause measured on a 1080p capture (tongue pixels outside the base silhouette >= 15 percent), spent state 24 -> 28. FL-6 fires after FL-5c / v42.",
+      "ts": "2026-09-16T22:10:47"
+    },
+    {
+      "id": "R-C5-131",
+      "class": "conductor",
+      "veto_open": true,
+      "ruling": "FL-5c DELIVERED_WITH_CONCERNS and ACCEPTED (7/7 targeted; both byte locks attributed): release = the cell socket in world space for all eight (error 0 px); S/SW/SE draw the projectile at z 3 above the Keeper (z 2) for frames 0-10, head visible every frame; the socket-to-feet rearward distance for S/SW exceeds 0.7 BH by the socket measure (the tip is above the head) while the capsule-tip measure meets it — the tip IS the socket by ruling; clause kept on the capsule measure. FREEZE; PACK v42 + chain; FL-6 (dance absorbs the interleave) after the chain.",
+      "ts": "2026-09-16T22:20:52"
     }
   ],
   "grok_calls": [],

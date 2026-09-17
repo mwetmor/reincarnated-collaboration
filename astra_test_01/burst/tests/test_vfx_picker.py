@@ -1847,17 +1847,20 @@ func run() -> void:
             var rear: Vector2 = head.to_global(head.offset + Vector2(point[0],point[1]))
             var derived: Vector2 = keeper._socket_world()
             report.release.append({"kit":kit_name,"direction":facing,"rear_error_px":rear.distance_to(derived),"capsule_rear_error_px":(bolt.global_position-bolt.direction*bolt.get_node("CollisionShape2D").shape.height).distance_to(derived),
+                "release_socket_error_px":bolt.cast_origin.distance_to(derived),"release_socket_cell":keeper.socket_cells["cast_"+facing].sockets[int(keeper.socket_cells["cast_"+facing].release_index)],
+                "socket_facing_dot_px":(bolt.cast_origin-keeper.global_position).dot(keeper.FACING_VECTORS[facing].normalized()),
                 "facing_dot_px":(bolt.global_position-keeper.global_position).dot(keeper.FACING_VECTORS[facing].normalized()),
                 "socket_world":[derived.x,derived.y],"bolt_position":[bolt.global_position.x,bolt.global_position.y],"halo_visible":keeper.cast_halo.visible})
             var max_counts: Dictionary = {"burst_pieces":0,"floor_lights":0,"impacts":0}
             for tick in range(60):
+                if bolt.active: bolt._paint_clock(tick)
                 var painting: Node2D = bolt.get_node("KeyState") if bolt.get_node("KeyState").visible else head
                 var tex: Texture2D = painting.texture if painting is Sprite2D else bolt.rest_head
                 var box: Rect2 = tex.get_image().get_used_rect()
                 var centre: Vector2 = painting.to_global(painting.offset+box.get_center())
                 var local: Vector2 = keeper.sprite.to_local(centre)-keeper.sprite.offset
                 if painting.visible:
-                    report.flight.append({"kit":kit_name,"direction":facing,"tick":tick,"head_centre_in_body":boxes[facing].has_point(local),"caster_contact":bolt.contacted.has(keeper.get_instance_id()),"local_centre":[local.x,local.y]})
+                    report.flight.append({"kit":kit_name,"direction":facing,"tick":tick,"age":bolt.age_frames(),"projectile_z":bolt._effective_z(bolt),"keeper_z":bolt._effective_z(keeper),"head_drawn":painting.is_visible_in_tree(),"normal_z_restored":not bolt.release_sort_override,"head_centre_in_body":boxes[facing].has_point(local),"caster_contact":bolt.contacted.has(keeper.get_instance_id()),"local_centre":[local.x,local.y]})
                 var counts: Dictionary = inventory(scene)
                 for key in counts: max_counts[key] = maxi(max_counts[key],counts[key])
                 bolt._physics_process(1.0/60.0)
@@ -1915,7 +1918,9 @@ func run() -> void:
                 edge_error = minf(edge_error,hit.distance_to(nearest))
             var head: AnimatedSprite2D = bolt.get_node("Head")
             var pivot: Array = bolt.config.painted_travel.head.pivot
-            tip_error = head.to_global(head.offset+Vector2(pivot[0],pivot[1])).distance_to(hit)
+            # FL-2c collision tip is the capsule node. FL-5 deliberately offsets
+            # the growing painting back to the staff tip; art is not a collider.
+            tip_error = bolt.global_position.distance_to(hit)
         report.near_shield.append({"kit":kit_name,"rows":rows,"contacts":contacts.duplicate(true),"edge_error_px":edge_error,"tip_error_px":tip_error})
         G1.events.clear()
         bolt.queue_free()
@@ -1951,12 +1956,14 @@ def fl1_trace(directory):
 
 
 class FireLaneSocketSchemaTests(unittest.TestCase):
-    def test_all_release_rows_declare_facing_rule_and_keep_eight_points(self):
+    def test_all_release_rows_keep_eight_tip_points_and_provenance(self):
         data=json.loads((ROOT/'runs/C-3/sockets_v2.json').read_text())
         self.assertEqual(data['canvas'],[512,512])
         for direction in ('S','SW','W','NW','N','NE','E','SE'):
             cell=data['cells']['cast_'+direction]
-            self.assertEqual(cell['release_socket_rule'],'far end along facing (FL-1a)')
+            # FL-5c: annotation text is provenance, never a facing/ferrule instrument.
+            self.assertIsInstance(cell['release_socket_rule'],str)
+            self.assertTrue(cell['release_socket_rule'])
             self.assertEqual(cell['release_index'],3)
             self.assertEqual(len(cell['sockets']),8)
             self.assertTrue(all(len(p)==2 and all(0<=v<512 for v in p) for p in cell['sockets']))
@@ -2260,3 +2267,45 @@ class FL5HeadlessContractTests(unittest.TestCase):
         self.assertGreater(north['pieces'],0);self.assertEqual(north['ember_births'],36)
         self.assertEqual(shield['contacts'],1);self.assertEqual(shield['impacts'],1)
         self.assertTrue(shield['strike_response']);self.assertEqual(shield['labels'],1)
+
+
+FL5C_DRAW_ORDER_PROBE = r'''extends SceneTree
+func _initialize() -> void: call_deferred("run")
+func need(value: bool, label: String) -> void:
+    if not value:
+        push_error(label)
+        quit(1)
+func run() -> void:
+    var world := Node2D.new()
+    world.z_index = 2
+    root.add_child(world)
+    var actors := Node2D.new()
+    actors.z_index = 5
+    actors.y_sort_enabled = true
+    world.add_child(actors)
+    var caster := Node2D.new()
+    caster.z_index = 2
+    actors.add_child(caster)
+    var configs: Array = load("res://scripts/keeper.gd").VFX_KITS
+    var kit: Dictionary
+    for config in configs:
+        if config.name == "fire_bolt_e1_B": kit = config
+    var bolt = load(kit.bolt).instantiate()
+    actors.add_child(bolt)
+    for axis in [Vector2.DOWN,Vector2.UP,Vector2(1,1).normalized(),Vector2.RIGHT]:
+        bolt.release(kit,Vector2.ZERO,{"kind":"cursor","point":axis*520,"facing":axis},caster)
+        bolt.set_physics_process(false)
+        for age in range(13):
+            bolt._paint_clock(age)
+            var boosted: bool = axis.y > 0 and age <= 10
+            need(bolt._effective_z(bolt)==(10 if boosted else 7),"effective actor z / 10-to-11 boundary")
+            need(bolt.z_as_relative != boosted,"normal relative sort restoration")
+    # Reuse before the previous override naturally expires.
+    bolt.release(kit,Vector2.ZERO,{"kind":"cursor","point":Vector2(0,520),"facing":Vector2.DOWN},caster)
+    bolt.release(kit,Vector2.ZERO,{"kind":"cursor","point":Vector2(0,-520),"facing":Vector2.UP},caster)
+    need(bolt.z_index==0 and bolt.z_as_relative,"pooled release retained south z")
+    bolt.release(kit,Vector2.ZERO,{"kind":"cursor","point":Vector2(0,520),"facing":Vector2.DOWN})
+    need(bolt.z_index==0 and bolt.z_as_relative,"ownerless release inherited override")
+    print("FL5C_DRAW_ORDER_COMPLETE")
+    quit()
+'''

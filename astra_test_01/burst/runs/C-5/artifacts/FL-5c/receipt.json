@@ -1,0 +1,75 @@
+{
+  "task_id": "FL-5c",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [],
+  "calls_used": 0,
+  "retries": [
+    {
+      "reason": "The shield probe measured the eruption painting instead of the canonical capsule tip.",
+      "change": "Corrected the measurement without changing its tolerance; regenerated traces. All seven targeted tests completed without failures."
+    }
+  ],
+  "self_report": {
+    "obeyed_invariants": false,
+    "concerns": [
+      "Initial SPEC read included sections beyond those requested.",
+      "Socket-to-feet rearward distances exceed 0.7 BH for S/SW; the original capsule-leading-tip instrument meets the limit. Both measurements are reported; sockets remain unchanged.",
+      "Broader suite: 127 tests, 11 failures and 6 errors, individually named in acceptance.json. Seven targeted tests are clean.",
+      "Visibility was measured through effective z ordering and node visibility, without framebuffer rendering."
+    ]
+  },
+  "files": [
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/export/godot_import.py",
+      "sha256": "790bba8f587c031d5c6382658e91b618bdec50ceceedce4f21dd978145d54291"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_godot_import.py",
+      "sha256": "985570cb0762679ff808f367141f70aa18de380481ad78559b0ace0275a33268"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_vfx_picker.py",
+      "sha256": "b441f938ff749214933d32ab09bc4f49443469de9afc331d7cd5cfcb122e467b"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/fixtures/fl1b/ProjectileArmPickerTests-2.json",
+      "sha256": "1471fd4cc0a2a5ed267f8d0c3e4d4bef70217d418798656138cc87e1d17a6b84"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/fixtures/fl1b/IceTreatmentImportTests-0.json",
+      "sha256": "cc5668c9bf00b18d7d3fd9666bb0f52796cd7a403a085ea822657a812e787f0b"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/FL-5c/acceptance.json",
+      "sha256": "57b8cdbb7b19587f4f34a0ebd793c16f293efdf809b185297a77b44453f4e27d"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/FL-5c/assets_integrity.json",
+      "sha256": "e87a56d8f3f7af634c031c420151644d1d1ee88c83cab3b8737a0cf48789c8b9"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/FL-5c/byte_locks.json",
+      "sha256": "fdc9590ea8b580a95f69417a54408abfa6207e5520eea3d0519caf0c72edc8a0"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/FL-5c/emitted_diffs.json",
+      "sha256": "ca3e086ee316100dbabbc3e8cf22df04bbce52fec8c8d03a536b0fcbe23f56e9"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/FL-5c/evidence.tar.gz",
+      "sha256": "aea8f32edfadf6285731e0cb5dd1d6d10f4c0139f415efa3427eac2d7907ed18"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/FL-5c/named.json",
+      "sha256": "0e72b83bb32105c53a62cfbaa0aabaadac27794ffb27c0ee1b33442e27cdc3da"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/FL-5c/suite.json",
+      "sha256": "1cd8031ec2a5d4e1a841a3934d9605bc55f7de978bc1e4e27759013454bc2ebc"
+    },
+    {
+      "path": "/Users/admin/astra-burst/runs/C-5/FL-5c/out/files.json",
+      "sha256": "2b8063dc78cdc7730896aeaf33ae1da4316172a826b84c9d8c21362c4e7f111a"
+    }
+  ]
+}

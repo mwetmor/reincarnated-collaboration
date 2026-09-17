@@ -3148,14 +3148,44 @@ var fizzle_shards: Array[Sprite2D] = []
 var fire_fx: Node2D
 var trail_motes: Node2D
 var fire_trace: Array = []
+var release_sort_override: bool = false
+var normal_z_index: int = 0
+var normal_z_as_relative: bool = true
+
+# FL-5c: elevated tip crosses the body on camera-facing casts. Ages 0..10
+# include the release sample; at age 11 restore the ordinary scene/y-sort.
+func _effective_z(item: CanvasItem) -> int:
+    var total: int = item.z_index
+    while item.z_as_relative and item.get_parent() is CanvasItem:
+        item = item.get_parent()
+        total += item.z_index
+    return total
+
+func _release_draw_order(age: int) -> void:
+    if not release_sort_override: return
+    if age <= 10 and is_instance_valid(caster):
+        z_as_relative = false
+        z_index = _effective_z(caster) + 1
+    else:
+        z_index = normal_z_index
+        z_as_relative = normal_z_as_relative
+        release_sort_override = false
 
 func release(kit: Dictionary, origin: Vector2, destination: Dictionary, owner_node: Node2D = null, art_scale: float = 1.0) -> void:
+    if release_sort_override:
+        z_index = normal_z_index
+        z_as_relative = normal_z_as_relative
+    normal_z_index = z_index
+    normal_z_as_relative = z_as_relative
+    release_sort_override = false
     draining = false
     fizzling = false
     fizzle_trace.clear()
     for shard in fizzle_shards: shard.queue_free()
     fizzle_shards.clear()
     super.release(kit, origin, destination, owner_node, art_scale)
+    release_sort_override = release_facing.y > 0.0 and is_instance_valid(caster)
+    _release_draw_order(0)
     # Authored screen pixels must not inherit the actor/world drawing scale.
     # A top-level transform also keeps velocity and bound key states in pixels.
     if bool(config.get("screen_px", false)):
@@ -3201,6 +3231,7 @@ func release(kit: Dictionary, origin: Vector2, destination: Dictionary, owner_no
     _paint_clock(0)
 
 func _physics_process(delta: float) -> void:
+    _release_draw_order(age_frames())
     if is_instance_valid(trail_motes): trail_motes.emitting = active
     if fizzling:
         _fizzle_clock(age_frames() - stop_age)
@@ -3220,6 +3251,7 @@ func _physics_process(delta: float) -> void:
     $Trail.hide()
 
 func _paint_clock(age: int) -> void:
+    _release_draw_order(age)
     var paint: Dictionary = config.painted_travel
     var ratio: float = clampf(float(config.speed_px_s) / float(config.spec_speed_px_s), 0.6, 1.4)
     $Streak.scale = Vector2(ratio, 1.0) * float(paint.streak.scale)

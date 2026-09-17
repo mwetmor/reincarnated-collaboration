@@ -1765,11 +1765,13 @@ class FireLaneHeadlessTests(unittest.TestCase):
         saved=os.environ.get('FL1_TRACE')
         if saved:
             cls.trace=json.loads(Path(saved).read_text())
+            cls.project=Path(saved).parent
         else:
             TMP.mkdir(parents=True,exist_ok=True)
             cls.temp=tempfile.TemporaryDirectory(prefix='fl1-',dir=TMP)
             cls.addClassCleanup(cls.temp.cleanup)
             cls.trace=fl1_trace(cls.temp.name)
+            cls.project=Path(cls.temp.name)/'project'
 
     def test_halo_texture_position_and_additive(self):
         self.assertEqual(len(self.trace['halo']),216)
@@ -1786,20 +1788,33 @@ class FireLaneHeadlessTests(unittest.TestCase):
         self.assertLessEqual(max(r['diameter_bh'] for r in self.trace['halo']),.85)
 
     def test_eight_direction_release_rear_and_body_clearance(self):
-        """FL-3: no contact with the caster; capsule rear at release socket.
+        """FL-5c: the data socket is the tip; rearward tolerance is 0.7 BH.
 
-        An elevated S painting may overlap the projected torso in early ticks;
-        its image centroid is not the physical caster-contact instrument.
+        S/SW/SE cross the projected body by design. Other directions retain
+        the head-centre body-clearance instrument; no cast may hit its caster.
         """
         self.assertEqual(len(self.trace['release']),24)
         for row in self.trace['release']:
             with self.subTest(kit=row['kit'],direction=row['direction']):
                 self.assertLessEqual(row['rear_error_px'],.4*130)
                 self.assertLessEqual(row['capsule_rear_error_px'],.01)
-                self.assertGreater(row['facing_dot_px'],0)
+                self.assertLessEqual(row['release_socket_error_px'],2)
+                self.assertGreaterEqual(row['facing_dot_px'],-.7*130)
                 self.assertFalse(row['halo_visible'])
         self.assertTrue(self.trace['flight'])
         self.assertTrue(all(not r['caster_contact'] for r in self.trace['flight']))
+        for row in self.trace['flight']:
+            if row['direction'] not in ('S','SW','SE'):
+                self.assertFalse(row['head_centre_in_body'],row)
+        for release in self.trace['release']:
+            if release['direction'] not in ('S','SW','SE'): continue
+            rows={r['tick']:r for r in self.trace['flight']
+                  if r['kit']==release['kit'] and r['direction']==release['direction']}
+            for tick in range(11):
+                self.assertIn(tick,rows)
+                self.assertTrue(rows[tick]['head_drawn'])
+                self.assertGreater(rows[tick]['projectile_z'],rows[tick]['keeper_z'])
+            self.assertTrue(rows[11]['normal_z_restored'])
         self.assertEqual(len(self.trace['near_shield']), 3)
         for cast in self.trace['near_shield']:
             with self.subTest(near_shield=cast['kit']):
@@ -1808,21 +1823,26 @@ class FireLaneHeadlessTests(unittest.TestCase):
                 self.assertLessEqual(cast['tip_error_px'], .01)
                 self.assertLessEqual(cast['contacts'][0]['contact_lag_frames'], 1)
 
-    def test_fire_fizzles_without_contact_effects_and_ice_bursts(self):
+    def test_fire_and_ice_burst_at_range_without_contact_response(self):
+        """FL-5 restored range impacts; a range burst never invents a contact."""
         for row in self.trace['expiry']:
-            if row['kit']=='ice_bolt_e2':
+            with self.subTest(kit=row['kit'],direction=row['direction']):
                 self.assertEqual(row['fizzle'],[])
                 self.assertGreater(row['max_visible']['impacts'],0)
-                continue
-            self.assertAlmostEqual(row['distance_px'],520,delta=.01)
-            self.assertEqual(row['max_visible'],dict(burst_pieces=0,floor_lights=0,impacts=0))
-            self.assertFalse(row['strike_fired']); self.assertEqual(row['contacts'],0)
-            self.assertEqual(row['fizzle'][0]['erode'],0)
-            at_six=next(r for r in row['fizzle'] if r['tick']==6)
-            self.assertEqual(at_six['erode'],1);self.assertEqual(at_six['scale_ratio'],.5)
-            self.assertTrue(all(not r['key_visible'] for r in row['fizzle']))
-            self.assertTrue(all(r['ember_count']==3 for r in row['fizzle'] if r['tick']<18))
-            self.assertEqual(row['fizzle'][-1]['ember_count'],0)
+                self.assertAlmostEqual(row['distance_px'],520,delta=.01)
+                self.assertFalse(row['strike_fired'])
+                self.assertEqual(row['contacts'],0)
+                self.assertEqual(sum(e['event']=='expire' for e in row['events']),1)
+
+    def test_draw_order_boundary_nested_actors_and_pooled_reuse(self):
+        from test_vfx_picker import FL5C_DRAW_ORDER_PROBE
+        (self.project/'fl5c_draw_order.gd').write_text(FL5C_DRAW_ORDER_PROBE)
+        result=subprocess.run([GODOT,'--headless','--path',str(self.project),
+            '--log-file',str(self.project.parent/'fl5c-draw-order-engine.log'),
+            '--script','res://fl5c_draw_order.gd'],capture_output=True,text=True,timeout=45)
+        self.assertEqual(result.returncode,0,result.stdout+result.stderr)
+        self.assertNotIn('SCRIPT ERROR',result.stdout+result.stderr)
+        self.assertIn('FL5C_DRAW_ORDER_COMPLETE',result.stdout)
 
 
 class FL2RuntimeEmissionTests(unittest.TestCase):
@@ -2242,24 +2262,27 @@ class FL4CTraceTests(unittest.TestCase):
 
 
 class FL5SocketAuditTests(unittest.TestCase):
-    def test_release_rows_are_alpha_supported_audited_staff_endpoints(self):
-        import numpy as np
+    def test_release_rows_equal_authoritative_tip_socket_data(self):
+        """FL-5c: sockets_v2.json is the law. Ferrule/facing endpoint searches
+        retire as instruments; they must not reinterpret conductor tip data.
+        Compare emitted socket rows with all eight authoritative data rows.
+        """
+        import tempfile
         root=Path(__file__).resolve().parents[1]
-        rows=json.loads((root/'runs/C-5/t3/FL-5/socket_audit/before_after.json').read_text())
-        sockets=json.loads((root/'runs/C-3/sockets_v2.json').read_text())['cells']
-        self.assertEqual(len(rows),8)
-        faces={'S':(0,1),'SW':(-1,1),'W':(-1,0),'NW':(-1,-1),'N':(0,-1),'NE':(1,-1),'E':(1,0),'SE':(1,1)}
-        for row in rows:
-            d=row['direction'];cell=sockets['cast_'+d]
-            self.assertEqual(cell['sockets'][cell['release_index']],row['after'])
-            path=next((root/('runs/C-3/cells_v7/cast_'+d)).rglob('cast_'+d+'_%02d.png'%cell['release_index']))
-            rgba=np.asarray(Image.open(path).convert('RGBA'));x,y=row['after']
-            self.assertGreater(int(rgba[y,x,3]),8)
-            # Independent source-alpha search in the visually recorded shaft corridor.
-            a,b=np.asarray(row['axis'],dtype=float);v=(b-a)/np.linalg.norm(b-a)
-            yy,xx=np.indices(rgba.shape[:2]);along=(xx-a[0])*v[0]+(yy-a[1])*v[1]
-            near=np.abs((xx-a[0])*v[1]-(yy-a[1])*v[0])<=3
-            support=(rgba[...,3]>8)&near&(along>=-5)&(along<=np.linalg.norm(b-a)+5)
-            projection=xx*faces[d][0]+yy*faces[d][1]
-            self.assertEqual(projection[y,x],projection[support].max())
-            self.assertFalse(support[0,0], 'known-bad detached origin must be rejected')
+        sockets=json.loads((root/'runs/C-3/sockets_v2.json').read_text())
+        with tempfile.TemporaryDirectory(prefix='fl5c-sockets-',dir=TMP) as td:
+            folder=Path(td);cells=folder/'cells';cells.mkdir()
+            for d in DIRECTIONS:
+                for i in range(8):
+                    Image.new('RGBA',(512,512),(40,80,120,255)).save(cells/f'cast_{d}_{i:02d}.png')
+            build_project(cells,folder/'project',sockets=root/'runs/C-3/sockets_v2.json',
+                          vfx_kits=root/'runs/C-5/vfx_kits/kits_v9.json')
+            emitted=json.loads((folder/'project/sockets.json').read_text())
+        self.assertEqual(set(emitted['cells']),{'cast_'+d for d in DIRECTIONS})
+        for d in DIRECTIONS:
+            actual=emitted['cells']['cast_'+d];expected=sockets['cells']['cast_'+d]
+            self.assertEqual(actual['sockets'],expected['sockets'])
+            self.assertEqual(actual['release_index'],expected['release_index'])
+            index=expected['release_index']
+            self.assertEqual(actual['sockets'][index],expected['sockets'][index])
+            self.assertNotEqual([0,0],expected['sockets'][index])
