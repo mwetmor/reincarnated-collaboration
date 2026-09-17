@@ -5675,6 +5675,14 @@
       "topic": "F8 GATE on Packet 102 — NOT PASSED: hold issues on SE, W, NE, NW, N",
       "ruling": "Matt (verbatim): Still some of the same issues. SE is holding it too high without his upper arm bent and not pointing it forward enough. Also on SE the staff is bent. Same for W, need the upper arm bent but the forward pointing is good there. Also on W, the scythe itself is missing detail like hand holds and other things. NE, the wrong arm is on top, causing it to not be bent. NW and N, the staff needs to be angled forwards more and not resting on their chests. → HOLD RULE EXTENDED (from the master): the RIGHT hand is the UPPER grip near the blade head, the LEFT hand the lower grip near the hip; the upper arm is BENT at the elbow (never locked straight, never raised high); the haft is STRAIGHT, angled FORWARD about 45° and held clear of the chest, the blade head ahead of the figure at about head height; the haft keeps its wrapped grips and butt spike. S, SW, E not named this round (Matt to confirm as accepted seeds). EXECUTION BLOCKED by H-C6-ASTRA-1 (Codex limit until Sep 22 / T25 top-up) — N12 fix clauses written and staged, fire on Astra return.",
       "ts": "2026-09-17T06:52:45"
+    },
+    {
+      "id": "R-C6-29",
+      "class": "matt",
+      "veto_open": false,
+      "topic": "P3 opens — Grok WALK clips for the approved directions",
+      "ruling": "Matt (verbatim): Go ahead and make the walk movies with Grok for the approved directions (all directions other than the ones with issues above). → Approved seeds: S, SW, E (SE, W, NE, NW, N wait on the N12 hold edits, blocked by the Codex limit). Conductor call (veto-open): S_walk is re-generated from the STANDING seed (pad_S from N9-grip-S) for seed consistency — S_walk_t1 (crouched-master seed, head test PASS) stays as the fallback. Clips: S_walk, SW_walk, E_walk from N5-pad/pad_<d>.png via clips_seq2.sh (first failure stops; 402 → HALT packet). Head read per clip (head-crop grid) before any further Grok spend.",
+      "ts": "2026-09-17T07:53:49"
     }
   ],
   "grok_calls": [
