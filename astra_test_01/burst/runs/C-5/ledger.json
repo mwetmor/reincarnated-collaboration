@@ -15360,6 +15360,171 @@
       "codex_version": "codex-cli 0.153.4",
       "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
       "exit": 0
+    },
+    {
+      "id": "FL-5b",
+      "type": "TOOLING",
+      "experiment": "C5-FIRE",
+      "brief_sha256": "30f1f70ef5630ae9f274f9f9a6ac3acca5b233e6fa4b7017d031d0c3e2d1e17c",
+      "started": "2026-09-17T01:51:27.720749+00:00",
+      "ended": "2026-09-17T02:00:45.320178+00:00",
+      "minutes": 9.293220851399626,
+      "image_calls": 0,
+      "tool_calls": 21,
+      "audit": {
+        "violations": [],
+        "image_calls": 0,
+        "tool_calls": 21,
+        "tools_seen": {
+          "command_execution": 21
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [],
+        "execution_error": "receipt reports unsuccessful execution"
+      },
+      "receipt_sha256": "b581cd85eac93d94a123f496168008447a0cfb0fb6173c85fc048f6262658089",
+      "artifacts": [],
+      "artifacts_in_place": [
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-5/t3/FL-5b/README.md",
+          "sha256": "8c1d993bedfcf42b1f1cec31dc0958106ef3345872f21b50d0cdbe01fa532497"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-5/t3/FL-5b/audit_ferrule.py",
+          "sha256": "dda00f9cf57e094f8a11895975527eb01b765b79cb8ae67f6afac99d92dc044f"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-5/t3/FL-5b/audit_summary.json",
+          "sha256": "4aed288bceddb5402824735b19c733db243e48650015bbeec2858497f27b52aa"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-5/t3/FL-5b/byte_identity.json",
+          "sha256": "bac84b8d52c304180c5e59c708f6b033bbe1848ba0e489cba430ef46b670193e"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-5/t3/FL-5b/export.json",
+          "sha256": "bd6c5c9ce9bb1749fff17a218e459085aa2d254a64e70abddd0fcc8d26ef99b9"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-5/t3/FL-5b/headless.json",
+          "sha256": "3de9ef239a00e0ccf16702592e5db2617d929929d8035b12aa6194da149ba5d4"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-5/t3/FL-5b/immutable_before.json",
+          "sha256": "514efdccaba1d526fe8a39e52ea34bb1b81cbc7701e2a4d776f910426447c9a4"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-5/t3/FL-5b/import-engine.log",
+          "sha256": "f4187482f43d470a0e77bf69dc86c40a467f77e54ba1ef98a997993fa37b38d0"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-5/t3/FL-5b/import.log",
+          "sha256": "d392866dc666fe1fd5ed6caa280999d0433464cdfd70ea26cf99934faf18febc"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-5/t3/FL-5b/release_probe.gd",
+          "sha256": "e802799a8a998b673d4f9d5ed314c3aea6b32b5845d2063c55748a86f7019853"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-5/t3/FL-5b/release_summary.json",
+          "sha256": "54e2881f60948a1843f42f3a2e6b0366e1e21fa374ecbb0856ca1515bc8eb657"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-5/t3/FL-5b/release_trace.json",
+          "sha256": "10cef1528939954d6dfd2e655f9aa8189eb94f253458edbb6db89680a75b2b63"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-5/t3/FL-5b/result.json",
+          "sha256": "7d2f42dcbcdb866e929ac2511be5db03502e3e1bd3faae517446a87160749742"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-5/t3/FL-5b/socket_audit_v2/before_after.json",
+          "sha256": "78b77ca25046a16173303fd01fa98ed7362e3075b23156e182dda88f3cee760e"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-5/t3/FL-5b/socket_audit_v2/contact_sheet.png",
+          "sha256": "aaa99c1d3ceff6bc73095275d5df6c207a3627be0cf4566804f0914b1d79a95d"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-5/t3/FL-5b/socket_audit_v2/literal_candidate_sockets.json",
+          "sha256": "bfaa62810122b9940e629cc82168d60f72f329cc14c5a4b0c9900183c1f78747"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-5/t3/FL-5b/socket_audit_v2/ne_hands_crop.png",
+          "sha256": "1ab23427ca824b1ad0458eca24b5a58e51076b9883518bc60f3b039cc3a7cc21"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-5/t3/FL-5b/socket_audit_v2/requested_locations_probe_sockets.json",
+          "sha256": "b3fbfa4ac03b0e8fa34b02d20f01be3632a17e997539dffdfcf9065af58ad203"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-5/t3/FL-5b/test_ferrule.py",
+          "sha256": "e67ca6c68eb8e180fad1b4ad5feb1fafd7828ca74fcbd699139f639434f3dddb"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-5/t3/FL-5b/tests.json",
+          "sha256": "aaf304c613d8f0f7141dd5cfe558fe5fa97c6936af16a8f5c09c69237fc9cb9d"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-5/t3/FL-5b/tests.log",
+          "sha256": "27f801e92334c104ffb54564845e06b53764e49dd64af937c837f6875a10800a"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-5/t3/FL-5b/trace-engine.log",
+          "sha256": "02eec58fc0dac134879c2cd479f84838e9e682e96c858506c306c15e43e39022"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-5/t3/FL-5b/trace.log",
+          "sha256": "c71365747c1bb5e40c27eb5b0e0bfbbce2fadecf24ea5c57458dab8a7ecdcb6d"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-5/t3/FL-5b/verification.log",
+          "sha256": "010cc344c93c7e624a02a71106e66132d82e10acd18f17d66f3ee1cf4971ae13"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-5/t3/FL-5b/verify.py",
+          "sha256": "e74dc842d86fd3638076c7f6a2c54b122e34fd4341083c66ce95e22f2f4e0c49"
+        }
+      ],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 3
     }
   ],
   "experiments": [],
@@ -16395,6 +16560,20 @@
       "veto_open": true,
       "ruling": "PACK v41 (FL-5) look, E/E2/W (Packet 105): the bolt now ERUPTS from the tip as a bright point and grows into the ball in flight (F-C5-40 ramp in); the WEST cast reaches range over the valley and IMPACTS on the ground — bug fixed (F-C5-39 CLOSED); the ending shows the small white core under its glow with tighter embers; the peak is fuller with the louder interleaves. Sockets: E casts leave the tip; S/SW/W corrected by FL-5b (running). cliffside_v41 = the fire candidate for Matt’s eye; PACK v42 after FL-5b only if the sockets changed the release positions.",
       "ts": "2026-09-16T21:50:45"
+    },
+    {
+      "id": "R-C5-128",
+      "class": "matt",
+      "veto_open": false,
+      "ruling": "MATT (2026-09-17, cliffside_v41): \"The edits in v41 landed well.\" DESIGN DIRECTION — DANCING FLAMES: build the burst as THREE FLAME LAYERS (the way the scenery parallax has 4-5 layers moving at different rates) — the base peak stays; the second and third layers alternate movement shifts on a rather random jitter pattern to impose a dancing-flame feeling. Conductor reading: a parallax of flame — layer 1 the peak-01 body; layers 2 and 3 cut from the peak-02 scallop library / the interleave tongues, each layer offset and jittered on its own seeded clock (different rates, different phases, opposing directions), so the silhouette dances while the whole holds its mass. FL-6.",
+      "ts": "2026-09-16T22:01:20"
+    },
+    {
+      "id": "R-C5-129",
+      "class": "conductor",
+      "veto_open": true,
+      "ruling": "FL-5b returned FAILED honestly (the literal ferrule score mis-picks NW/N/NE/E where hands/skin sit near the butt end; and S/SW tip sockets give a negative facing dot) and produced the decisive sheet. CONDUCTOR EYE per direction: S tip = the glowing top end [241,117]; SW = the starred upper-right end [329,137]; W = the upper end [228,118]; N (pink flash at the upper-right end), NE, NW, E, SE keep the FL-1a sockets. Applied as data to sockets_v2.json. DESIGN RULING for casts toward the camera (S/SW/SE): the bolt erupts from the raised tip ABOVE the figure and flies toward the camera across the body — it must draw IN FRONT of the actor (z +1) for its first 10 frames; the FL-1a forward-dot / head-not-in-body clauses relax to socket = tip (dot may be ≤ 0 by up to 0.7 BH). → FL-5c (runtime draw order + clause realignment + eight-direction trace) then PACK v42.",
+      "ts": "2026-09-16T22:03:37"
     }
   ],
   "grok_calls": [],
