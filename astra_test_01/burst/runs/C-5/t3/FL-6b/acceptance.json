@@ -1,0 +1,207 @@
+{
+  "task_id": "FL-6b",
+  "change": "Move the module main guard after all FL-6 helpers and constants; add real live-registry CLI/resource and guard-order regression tests.",
+  "cli_export": {
+    "command": [
+      "/Library/Frameworks/Python.framework/Versions/3.12/bin/python3",
+      "-B",
+      "-m",
+      "export.godot_import",
+      "--cells",
+      "runs/C-3/cells_v7",
+      "--parallax",
+      "runs/C-5/artifacts/CS-parallax-in-v10",
+      "--vfx-kits",
+      "runs/C-5/vfx_kits/kits_v9.json",
+      "--sockets",
+      "runs/C-3/sockets_v2.json",
+      "--props",
+      "runs/C-5/artifacts/CS-props-v24",
+      "--out",
+      "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/FL-6b/acceptance-ixm78_5o/project"
+    ],
+    "exit_code": 0,
+    "wall_s": 27.915415958006633,
+    "kit_names": [
+      "frozen_orb",
+      "blackwater_cocktail",
+      "poisonous_concoction",
+      "lightning_blast",
+      "zeus_chain",
+      "healing_hands",
+      "fire_burst_e0p",
+      "fire_burst_e0p_v2",
+      "fire_bolt_e1_A",
+      "fire_bolt_e1_B",
+      "ice_bolt_e2",
+      "blackwater_cocktail_e3",
+      "poisonous_concoction_e3",
+      "lightning_blast_e3",
+      "zeus_chain_e3",
+      "healing_hands_e3",
+      "frozen_orb_e3",
+      "fire_burst_e0p_v3"
+    ]
+  },
+  "headless_import": {
+    "command": [
+      "/Applications/Godot.app/Contents/MacOS/Godot",
+      "--headless",
+      "--rendering-method",
+      "gl_compatibility",
+      "--path",
+      "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/FL-6b/acceptance-ixm78_5o/project",
+      "--log-file",
+      "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/FL-6b/godot-import.log",
+      "--editor",
+      "--import",
+      "--quit"
+    ],
+    "exit_code": 0,
+    "wall_s": 21.3363302089856,
+    "error_lines": [
+      "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+      "ERROR: Cannot save file '/Users/admin/Library/Application Support/Godot/editor_settings-4.6.tres'.",
+      "ERROR: Error saving editor settings to /Users/admin/Library/Application Support/Godot/editor_settings-4.6.tres"
+    ]
+  },
+  "kits": {
+    "kit_count": 18,
+    "all_18_byte_identical": true,
+    "registry_byte_identical": true,
+    "kits": [
+      {
+        "name": "frozen_orb",
+        "files": 57,
+        "byte_identical": true,
+        "changed_files": []
+      },
+      {
+        "name": "blackwater_cocktail",
+        "files": 59,
+        "byte_identical": true,
+        "changed_files": []
+      },
+      {
+        "name": "poisonous_concoction",
+        "files": 59,
+        "byte_identical": true,
+        "changed_files": []
+      },
+      {
+        "name": "lightning_blast",
+        "files": 59,
+        "byte_identical": true,
+        "changed_files": []
+      },
+      {
+        "name": "zeus_chain",
+        "files": 59,
+        "byte_identical": true,
+        "changed_files": []
+      },
+      {
+        "name": "healing_hands",
+        "files": 59,
+        "byte_identical": true,
+        "changed_files": []
+      },
+      {
+        "name": "fire_burst_e0p",
+        "files": 69,
+        "byte_identical": true,
+        "changed_files": []
+      },
+      {
+        "name": "fire_burst_e0p_v2",
+        "files": 71,
+        "byte_identical": true,
+        "changed_files": []
+      },
+      {
+        "name": "fire_bolt_e1_A",
+        "files": 24,
+        "byte_identical": true,
+        "changed_files": []
+      },
+      {
+        "name": "fire_bolt_e1_B",
+        "files": 22,
+        "byte_identical": true,
+        "changed_files": []
+      },
+      {
+        "name": "ice_bolt_e2",
+        "files": 71,
+        "byte_identical": true,
+        "changed_files": []
+      },
+      {
+        "name": "blackwater_cocktail_e3",
+        "files": 10,
+        "byte_identical": true,
+        "changed_files": []
+      },
+      {
+        "name": "poisonous_concoction_e3",
+        "files": 9,
+        "byte_identical": true,
+        "changed_files": []
+      },
+      {
+        "name": "lightning_blast_e3",
+        "files": 9,
+        "byte_identical": true,
+        "changed_files": []
+      },
+      {
+        "name": "zeus_chain_e3",
+        "files": 9,
+        "byte_identical": true,
+        "changed_files": []
+      },
+      {
+        "name": "healing_hands_e3",
+        "files": 9,
+        "byte_identical": true,
+        "changed_files": []
+      },
+      {
+        "name": "frozen_orb_e3",
+        "files": 59,
+        "byte_identical": true,
+        "changed_files": []
+      },
+      {
+        "name": "fire_burst_e0p_v3",
+        "files": 92,
+        "byte_identical": true,
+        "changed_files": []
+      }
+    ]
+  },
+  "tests": {
+    "tests": 12,
+    "failures": [],
+    "errors": [],
+    "skipped": []
+  },
+  "known_bad_regression": {
+    "tests": 2,
+    "failures": 2,
+    "expected_cli_exception": "NameError: name '_emit_flame_dance' is not defined",
+    "evidence": "regression-before.log"
+  },
+  "remaining_reds": [
+    "ERROR: Condition \"ret != noErr\" is true. Returning: \"\"",
+    "ERROR: Cannot save file '/Users/admin/Library/Application Support/Godot/editor_settings-4.6.tres'.",
+    "ERROR: Error saving editor settings to /Users/admin/Library/Application Support/Godot/editor_settings-4.6.tres"
+  ],
+  "concerns": [
+    "Godot import exited 0 but logged sandbox errors saving global editor settings; see headless.stderr.log.",
+    "CS-pack-v43.task.json was excluded by the read allowlist; the real inputs were taken from the existing T4s-r1 CLI regression, so exact PACK v43 command parity was not independently verified.",
+    "Only 12 selected tests were run; the complete historical suite was not run because this burst permits Godot for headless import only.",
+    "The initial SPEC.md extraction included additional section 7 lap-2 rows beyond the requested rows."
+  ],
+  "temporary_export_projects_removed": true
+}

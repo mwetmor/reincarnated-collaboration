@@ -2317,3 +2317,70 @@ class FL6HeadlessTraceTests(unittest.TestCase):
         self.assertTrue(all(r['visible_copies']==0 for r in trace['pool'][-1]['licks']))
         self.assertEqual(len({json.dumps(r['tongues'],sort_keys=True) for r in trace['seeds']}),len(trace['seeds']))
         for row in trace['seeds']:self.assertIn(len(row['tongues']),range(6,9))
+
+
+# Keep the real catalogue CLI path covered: importing build_project hides
+# definitions accidentally appended below the exporter's main guard.
+FL6B_EXPORT_ARGS = (
+    '--cells', 'runs/C-3/cells_v7',
+    '--parallax', 'runs/C-5/artifacts/CS-parallax-in-v10',
+    '--vfx-kits', 'runs/C-5/vfx_kits/kits_v9.json',
+    '--sockets', 'runs/C-3/sockets_v2.json',
+    '--props', 'runs/C-5/artifacts/CS-props-v24',
+)
+
+
+class FL6LiveRegistryCLIRegressionTests(unittest.TestCase):
+    def test_main_guard_follows_every_emitter_and_constant(self):
+        import ast
+        root = Path(__file__).resolve().parents[1]
+        module = ast.parse((root/'export/godot_import.py').read_text())
+        guards = [node for node in module.body if isinstance(node, ast.If)
+                  and ast.dump(node.test) == ast.dump(
+                      ast.parse('__name__ == "__main__"', mode='eval').body)]
+        self.assertEqual(len(guards), 1)
+        self.assertIs(module.body[-1], guards[0],
+                      'Keep main() after all module definitions, including future emitters')
+
+    def test_full_cli_live_registry_emits_all_flame_dance_routes(self):
+        import sys
+        root = Path(__file__).resolve().parents[1]
+        catalogue = root/'runs/C-5/vfx_kits/kits_v9.json'
+        expected = [kit['name'] for kit in json.loads(catalogue.read_text())['kits']]
+        self.assertEqual(len(expected), 18)
+        work = root/'runs/C-5/t3/FL-6b'
+        work.mkdir(parents=True, exist_ok=True)
+        with tempfile.TemporaryDirectory(prefix='fl6b-full-cli-', dir=work) as tmp:
+            project = Path(tmp)/'godot'
+            result = subprocess.run([
+                sys.executable, '-B', '-m', 'export.godot_import',
+                *FL6B_EXPORT_ARGS, '--out', str(project),
+            ], cwd=root, capture_output=True, text=True, timeout=180)
+            self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+            report = json.loads(result.stdout)
+            self.assertEqual([kit['name'] for kit in report['vfx_kits']['kits']], expected)
+            self.assertTrue((project/'scripts/vfx_flame_dance.gd').is_file())
+            routes = {
+                'fire_bolt_e1_B': ('scenes/vfx/g1_fl6_projectile.tscn',
+                                   'scripts/vfx_g1_fl6.gd'),
+                'fire_burst_e0p_v3': ('scenes/vfx_fire_burst_e0p_v3_impact.tscn',
+                                    'scripts/vfx/vfx_fire_burst_e0p_v3_dance.gd'),
+                'blackwater_cocktail_e3': ('scenes/vfx/g2_flame_dance.tscn',
+                                         'scripts/vfx_g2_flame_dance.gd'),
+            }
+            keeper = (project/'scripts/keeper.gd').read_text()
+            for name, (scene, script) in routes.items():
+                with self.subTest(kit=name):
+                    self.assertIn(name, expected)
+                    self.assertIn('res://'+scene, keeper)
+                    self.assertTrue((project/scene).is_file(), scene)
+                    self.assertTrue((project/script).is_file(), script)
+                    self.assertIn('res://'+script, (project/scene).read_text())
+                    self.assertIn('res://scripts/vfx_flame_dance.gd',
+                                  (project/script).read_text())
+            runtime = json.loads((project/'vfx/fire_burst_e0p_v3/pieces/burst_runtime.json').read_text())
+            self.assertIn('flame_dance', runtime)
+            self.assertTrue(runtime['dance_core_textures'])
+            for resource in runtime['dance_core_textures'].values():
+                self.assertTrue((project/resource.removeprefix('res://')).is_file(), resource)
+            self.assertTrue(validate_resources(project, include_scenes=True))

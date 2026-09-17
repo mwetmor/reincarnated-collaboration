@@ -16067,6 +16067,120 @@
       "codex_version": "codex-cli 0.153.4",
       "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
       "exit": 3
+    },
+    {
+      "id": "FL-6b",
+      "type": "TOOLING",
+      "experiment": "C5-FIRE",
+      "brief_sha256": "991c689d8fd4035a82fb76a361ddc021c267225200a7c091c178c6ea2e19cf8d",
+      "started": "2026-09-17T03:10:37.627488+00:00",
+      "ended": "2026-09-17T03:16:33.483130+00:00",
+      "minutes": 5.931024692366676,
+      "image_calls": 0,
+      "tool_calls": 14,
+      "audit": {
+        "violations": [],
+        "image_calls": 0,
+        "tool_calls": 14,
+        "tools_seen": {
+          "command_execution": 14
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": []
+      },
+      "receipt_sha256": "384608760bf9277268b4b4f30de5b3957de86b6c86afa4b1c493372e6566e257",
+      "artifacts": [
+        {
+          "name": "files.json",
+          "sha256": "d59bc4400ed49194a3df81acd27c6b6d024288aa5ca08ab70404e52db01d0b5d"
+        }
+      ],
+      "artifacts_in_place": [
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "export/godot_import.py",
+          "sha256": "534696e0a517c2699eb1933df15db865c7f18be0f31e47a38818aec1fbc2d269"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-5/t3/FL-6b/acceptance.json",
+          "sha256": "cf32ceed53edc7a6ad170b26c7419d35d93bea9d3bd67c78c75910b80176647c"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-5/t3/FL-6b/cli-export.stderr.log",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-5/t3/FL-6b/cli-export.stdout.json",
+          "sha256": "1ddd9023065fc887665da97b0ef5e4a757bdc6fbfef7b0b1ee0f18e2a9bdd600"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-5/t3/FL-6b/execution.json",
+          "sha256": "1c74afbec3f189175f0829989d225072757406593b186dc52e83a5162ab1429c"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-5/t3/FL-6b/godot-import.log",
+          "sha256": "ce68ca414d3c5449652d176736bb665384ba32e104c85ef8e3288931dca9e8dd"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-5/t3/FL-6b/headless.stderr.log",
+          "sha256": "a3342f622b4346a60fbc45e43c6ffd5aa745bef51cedd1d0cddc5222ee605497"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-5/t3/FL-6b/headless.stdout.log",
+          "sha256": "3a2068a81dbe063844af423bccd06078d74597c403d2f870178c1eb32646dabb"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-5/t3/FL-6b/kit-byte-locks.json",
+          "sha256": "49dc2763450a9ec9284db2163382b54b76b6e0bcebf075654a4585b7823504a1"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-5/t3/FL-6b/kits-before.json",
+          "sha256": "a4cec2659170a4df201df22b1803344eb6b08d521e83aaa3b774a4db29ab635f"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-5/t3/FL-6b/regression-before.log",
+          "sha256": "808a75c0cb63b282715f0dbeea104c97e9b2e64f36b0f942390992f64a8c66c7"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-5/t3/FL-6b/tests-after.json",
+          "sha256": "93ff372f08304c7d3b091e0323e17d695ca5326cd7497d566f52e13930dfffc3"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-5/t3/FL-6b/tests-after.log",
+          "sha256": "93dc105e9c0cc5feca1e0cea3943d50daa5f3ab15cce6e3f1bbb7209a61d8f2e"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "tests/test_godot_import.py",
+          "sha256": "e9a936b854ecaf7add9993993d491fd6df9a74130044ca74e67596f3b93f1fb6"
+        }
+      ],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
     }
   ],
   "experiments": [],
@@ -17151,6 +17265,13 @@
       "veto_open": true,
       "ruling": "FL-6 DELIVERED_WITH_CONCERNS and ACCEPTED (7/7 FL-6 tests; primitives byte-identical; export + import + trace exit 0): three-layer flame dance on the fire burst (front layer = the interleave tongues, rooted beyond the rim, hot cores, flicker), the fire bolt B flight sheet, and Blackwater pool licks (slower clock; its lag-1 autocorrelation > .5 is the eased walk, not periodicity — periodic peaks < .5). Rendered legibility (tongue pixels outside the base >= 15 percent) and the draw-cost bound are the conductor’s on the v43 chain. Arm A unchanged (kit edit limit). FREEZE; PACK v43 → chain → web12 (R-C5-132).",
       "ts": "2026-09-16T23:05:40"
+    },
+    {
+      "id": "R-C5-135",
+      "class": "conductor",
+      "veto_open": true,
+      "ruling": "FL-6b DELIVERED_WITH_CONCERNS and ACCEPTED: _emit_flame_dance moved above the main guard; a permanent live-registry CLI export test added (real inputs, exit 0, compat import exit 0); 18 kits + registry byte-identical. FREEZE; PACK v43-r1 → chain → web12.",
+      "ts": "2026-09-16T23:18:03"
     }
   ],
   "grok_calls": [],

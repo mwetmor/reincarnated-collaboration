@@ -6048,10 +6048,6 @@ func _clock_fl5_ending(age: int) -> void:
         row["smoke_z"] = ending_smoke.z_index
 '''
 
-if __name__ == "__main__":
-    main()
-
-
 # FL-6 shared layer controller. Resources are emitted only for opted-in kits.
 FLAME_DANCE_SCRIPT = r'''extends RefCounted
 var settings: Dictionary
@@ -6252,3 +6248,8 @@ func _ready_lick_dance() -> void:
 func _clock_lick_dance(age: int) -> void:
     for dancer in lick_dancers: dancer.update(age)
 '''
+
+
+# Keep CLI execution last: every emitter and script constant must exist first.
+if __name__ == "__main__":
+    main()

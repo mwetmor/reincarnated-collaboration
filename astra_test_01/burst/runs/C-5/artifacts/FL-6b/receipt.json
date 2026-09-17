@@ -1,0 +1,78 @@
+{
+  "task_id": "FL-6b",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [],
+  "calls_used": 0,
+  "retries": [],
+  "self_report": {
+    "obeyed_invariants": false,
+    "concerns": [
+      "Initial SPEC.md extraction included additional section 7 rows beyond those requested.",
+      "Exact PACK v43 command parity was not verified: its brief was excluded from permitted reads. Used the existing live-registry regression's real inputs.",
+      "Export and headless gl_compatibility import exited 0; Godot logged sandbox errors saving global editor settings, with no script errors.",
+      "12 selected tests completed without failures or errors; the historical suite was not run. All 18 kits and the registry remained byte-identical."
+    ]
+  },
+  "files": [
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/export/godot_import.py",
+      "sha256": "534696e0a517c2699eb1933df15db865c7f18be0f31e47a38818aec1fbc2d269"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_godot_import.py",
+      "sha256": "e9a936b854ecaf7add9993993d491fd6df9a74130044ca74e67596f3b93f1fb6"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/FL-6b/acceptance.json",
+      "sha256": "cf32ceed53edc7a6ad170b26c7419d35d93bea9d3bd67c78c75910b80176647c"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/FL-6b/cli-export.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/FL-6b/cli-export.stdout.json",
+      "sha256": "1ddd9023065fc887665da97b0ef5e4a757bdc6fbfef7b0b1ee0f18e2a9bdd600"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/FL-6b/execution.json",
+      "sha256": "1c74afbec3f189175f0829989d225072757406593b186dc52e83a5162ab1429c"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/FL-6b/godot-import.log",
+      "sha256": "ce68ca414d3c5449652d176736bb665384ba32e104c85ef8e3288931dca9e8dd"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/FL-6b/headless.stderr.log",
+      "sha256": "a3342f622b4346a60fbc45e43c6ffd5aa745bef51cedd1d0cddc5222ee605497"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/FL-6b/headless.stdout.log",
+      "sha256": "3a2068a81dbe063844af423bccd06078d74597c403d2f870178c1eb32646dabb"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/FL-6b/kit-byte-locks.json",
+      "sha256": "49dc2763450a9ec9284db2163382b54b76b6e0bcebf075654a4585b7823504a1"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/FL-6b/kits-before.json",
+      "sha256": "a4cec2659170a4df201df22b1803344eb6b08d521e83aaa3b774a4db29ab635f"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/FL-6b/regression-before.log",
+      "sha256": "808a75c0cb63b282715f0dbeea104c97e9b2e64f36b0f942390992f64a8c66c7"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/FL-6b/tests-after.json",
+      "sha256": "93ff372f08304c7d3b091e0323e17d695ca5326cd7497d566f52e13930dfffc3"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/FL-6b/tests-after.log",
+      "sha256": "93dc105e9c0cc5feca1e0cea3943d50daa5f3ab15cce6e3f1bbb7209a61d8f2e"
+    },
+    {
+      "path": "/Users/admin/astra-burst/runs/C-5/FL-6b/out/files.json",
+      "sha256": "d59bc4400ed49194a3df81acd27c6b6d024288aa5ca08ab70404e52db01d0b5d"
+    }
+  ]
+}
