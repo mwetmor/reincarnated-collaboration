@@ -2,7 +2,7 @@
   "run": "C-6",
   "charter": "agentic_orchestration/gandalf/notes/2026-09-17-necromancer-run-C-6-charter.md (v1.2.1)",
   "charter_sha256_12": "4b0df3d0c8b8",
-  "images_used": 114,
+  "images_used": 120,
   "images_cap": 999999,
   "images_cap_note": "SENTINEL — Matt F7 2026-09-17: no image cap (counted, reported); no Grok clip cap — the weekly Grok allowance is the constraint (out-of-budget = external-state HALT)",
   "bursts": [
@@ -4529,6 +4529,257 @@
       "codex_version": "codex-cli 0.153.4",
       "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
       "exit": 0
+    },
+    {
+      "id": "N9-grip-N-r1",
+      "type": "GENERATE",
+      "experiment": "C6-P2",
+      "brief_sha256": "b1bb4faca755a05039c8835da161a279f2c0b13686f9b86957ecf5595e9a78b3",
+      "started": "2026-09-17T03:59:05.245551+00:00",
+      "ended": "2026-09-17T04:01:33.853250+00:00",
+      "minutes": 2.4765473583334825,
+      "image_calls": 2,
+      "tool_calls": 3,
+      "audit": {
+        "violations": [],
+        "image_calls": 2,
+        "tool_calls": 3,
+        "tools_seen": {
+          "command_execution": 3
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0ad84-a103-7ef0-8534-23197584494d/exec-37f2771c-b9c4-46a0-9782-e2e8513601f2.png",
+            "sha256": "b75ed400180a6516994fd1a3864220a188cbec40f8514eb419e6e842edc1177e"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0ad84-a103-7ef0-8534-23197584494d/exec-447a9f2d-0b2e-4f82-96a7-091eac555cfd.png",
+            "sha256": "142ccd59986f4a46ee4b8593ba169b26157c6a81682d9c669c00dc336d4983e9"
+          }
+        ]
+      },
+      "receipt_sha256": "418258ea90de66a6d616d502e0970401ba7a5bf6bb7d609185af1044fc9b7fce",
+      "artifacts": [
+        {
+          "name": "n9_N_r1.png",
+          "sha256": "142ccd59986f4a46ee4b8593ba169b26157c6a81682d9c669c00dc336d4983e9"
+        },
+        {
+          "name": "exec-37f2771c-b9c4-46a0-9782-e2e8513601f2.provenance.json",
+          "sha256": "a101aa2394a87eda435bd06101222d3bd2923656eee2ebde248f7aaa1a53cfbc"
+        },
+        {
+          "name": "exec-447a9f2d-0b2e-4f82-96a7-091eac555cfd.provenance.json",
+          "sha256": "b67d857f55d8c2675c7429f82d348fa338a54699023634b08a5cb1f1f481367d"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0ad84-a103-7ef0-8534-23197584494d/exec-37f2771c-b9c4-46a0-9782-e2e8513601f2.png",
+          "sha256": "b75ed400180a6516994fd1a3864220a188cbec40f8514eb419e6e842edc1177e"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0ad84-a103-7ef0-8534-23197584494d/exec-447a9f2d-0b2e-4f82-96a7-091eac555cfd.png",
+          "sha256": "142ccd59986f4a46ee4b8593ba169b26157c6a81682d9c669c00dc336d4983e9"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
+    },
+    {
+      "id": "N9-grip-SE-r1",
+      "type": "GENERATE",
+      "experiment": "C6-P2",
+      "brief_sha256": "b2acc29d43dc75eb8498d2d906a18fdf6a4ec6a82051f3bc1977997b2b5a32a6",
+      "started": "2026-09-17T03:59:05.245346+00:00",
+      "ended": "2026-09-17T04:01:54.881788+00:00",
+      "minutes": 2.8270220854169263,
+      "image_calls": 2,
+      "tool_calls": 4,
+      "audit": {
+        "violations": [],
+        "image_calls": 2,
+        "tool_calls": 4,
+        "tools_seen": {
+          "command_execution": 4
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0ad84-a103-7773-aad2-702d25608e00/exec-22408d9b-2e0b-402e-af84-ec5a1bc58224.png",
+            "sha256": "5c124d5b7157352b73208528e2601ebb85c612a5ce83c8eaefa8af62bcfdcd5b"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0ad84-a103-7773-aad2-702d25608e00/exec-a16edf0b-00f7-46e3-b22b-df886eb3e340.png",
+            "sha256": "033113e34bfd85fa750eeaf8ed78fd86b6c139e4767c593ef334f30a0c8768fe"
+          }
+        ]
+      },
+      "receipt_sha256": "3d0088830b9b3bce47d0acbdd4eb19bee6308073ca34338f55ae45e26dc48a8d",
+      "artifacts": [
+        {
+          "name": "n9_SE_r1.png",
+          "sha256": "033113e34bfd85fa750eeaf8ed78fd86b6c139e4767c593ef334f30a0c8768fe"
+        },
+        {
+          "name": "exec-22408d9b-2e0b-402e-af84-ec5a1bc58224.provenance.json",
+          "sha256": "ff10401b9cf2c0bbe7546dce59e84d53c34c0def7d07d08da6abe00322f7e3b2"
+        },
+        {
+          "name": "exec-a16edf0b-00f7-46e3-b22b-df886eb3e340.provenance.json",
+          "sha256": "20d185399ad9080b9ffddce02a9a2e9dbac0619ccad8c63acb72c727a8392f52"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0ad84-a103-7773-aad2-702d25608e00/exec-22408d9b-2e0b-402e-af84-ec5a1bc58224.png",
+          "sha256": "5c124d5b7157352b73208528e2601ebb85c612a5ce83c8eaefa8af62bcfdcd5b"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0ad84-a103-7773-aad2-702d25608e00/exec-a16edf0b-00f7-46e3-b22b-df886eb3e340.png",
+          "sha256": "033113e34bfd85fa750eeaf8ed78fd86b6c139e4767c593ef334f30a0c8768fe"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
+    },
+    {
+      "id": "N9-grip-NW-r1",
+      "type": "GENERATE",
+      "experiment": "C6-P2",
+      "brief_sha256": "8ceb2912968c7794f1183408237ea2a80682a46e9b6c415d283b0f83916f0cdd",
+      "started": "2026-09-17T03:59:05.245403+00:00",
+      "ended": "2026-09-17T04:02:16.954762+00:00",
+      "minutes": 3.1948955034667352,
+      "image_calls": 2,
+      "tool_calls": 4,
+      "audit": {
+        "violations": [],
+        "image_calls": 2,
+        "tool_calls": 4,
+        "tools_seen": {
+          "command_execution": 4
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0ad84-a103-73e3-87f9-6744a70c44bf/exec-6a4f86d7-8d80-44cc-b6e6-a793fc3301ef.png",
+            "sha256": "993d39de990055157876d7bf287a9c292c89e3afdf1dadf11f2cd2c5ceb68e5b"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0ad84-a103-73e3-87f9-6744a70c44bf/exec-c7614ddf-d670-48fb-92d1-4de6f942edf5.png",
+            "sha256": "a13375dc7a9f6916722a85f7a825960936d0a7df8a6c8d6ef7dbb3fa889cdf4e"
+          }
+        ]
+      },
+      "receipt_sha256": "3a37d8dd124835d54fa4ac811ec9b702b48529287ca656fce9663786f0a3f536",
+      "artifacts": [
+        {
+          "name": "n9_NW_r1.png",
+          "sha256": "993d39de990055157876d7bf287a9c292c89e3afdf1dadf11f2cd2c5ceb68e5b"
+        },
+        {
+          "name": "exec-6a4f86d7-8d80-44cc-b6e6-a793fc3301ef.provenance.json",
+          "sha256": "852896ad0cc8f0f88231fc40833d38bea04e56e9400505e055deda120eef746c"
+        },
+        {
+          "name": "exec-c7614ddf-d670-48fb-92d1-4de6f942edf5.provenance.json",
+          "sha256": "4de855b860024736951dee180153191fe4f9e7ca03b05da93c615b18e87f56c6"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0ad84-a103-73e3-87f9-6744a70c44bf/exec-6a4f86d7-8d80-44cc-b6e6-a793fc3301ef.png",
+          "sha256": "993d39de990055157876d7bf287a9c292c89e3afdf1dadf11f2cd2c5ceb68e5b"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0ad84-a103-73e3-87f9-6744a70c44bf/exec-c7614ddf-d670-48fb-92d1-4de6f942edf5.png",
+          "sha256": "a13375dc7a9f6916722a85f7a825960936d0a7df8a6c8d6ef7dbb3fa889cdf4e"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
+    },
+    {
+      "id": "N9-jdg-02",
+      "type": "JUDGE",
+      "experiment": "C6-P2",
+      "brief_sha256": "bcf3bceb923a7bf0855da42ee772582b097807f248ad8f8bd761ebb33867b978",
+      "started": "2026-09-17T04:02:53.948913+00:00",
+      "ended": "2026-09-17T04:06:28.562342+00:00",
+      "minutes": 3.5768363389002236,
+      "image_calls": 0,
+      "tool_calls": 3,
+      "audit": {
+        "violations": [],
+        "image_calls": 0,
+        "tool_calls": 3,
+        "tools_seen": {
+          "file_change": 1,
+          "command_execution": 2
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": []
+      },
+      "receipt_sha256": "995faed6af27c3643f9af05b93f698a83ccfa66bbd9054e581f0db11f925f375",
+      "artifacts": [
+        {
+          "name": "judgment.json",
+          "sha256": "d9695350378834eddd7fb633803f149910ad9a99b5947082ee64c2cfb6c4e274"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
     }
   ],
   "experiments": [],
@@ -4769,6 +5020,14 @@
       "topic": "N9-jdg-01 read → LAST edit loop (NW/SE/N); flags policy",
       "ruling": "Control caught (image 7 = mirrored W claiming E). S/SW/W/E/NE: every identity, pose, grip and buckle item TRUE (S head_level FALSE by the judge for the third time vs conductor eye level — to Matt eye, flagged); camera FALSE on SW/W/E = the profile residual, to Matt eye. NW regressed in the grip edit (head pitched, face-like relief under the pauldron, book ornament, grip unreadable, stance) → re-edit from N8 NW-r1 (the clean standing frame) with grip+head+pauldron+book in one clause. SE: braced stance + canted eye line → re-edit from N9 SE. N: book ornament → re-edit from N9 N. DECLARED THE LAST LOOP (charter § 2 fallback: two failures → best candidate FLAGGED): after N9-r1, each direction takes its best attempt by checklist TRUE count (scale excluded) and any remaining FALSE rides to Packet 101 as a named flag for Matt eye. P2 spend to here: 116 images.",
       "ts": "2026-09-16T23:59:04"
+    },
+    {
+      "id": "R-C6-23",
+      "class": "conductor",
+      "veto_open": true,
+      "topic": "P2 STANDING turnaround — final selection (R-C6-22 rule) → Packet 101 (F8 gate)",
+      "ruling": "N9-jdg-02: control caught (image 4 = mirrored N claiming SE). SE-r1 clean except profile camera. NW-r1/N-r1: back views — judge wrote FALSE for grips it could not see + faint book scrolling; NW-r1 standing FALSE. Selection by the pre-registered rule (most checklist TRUEs, scale excluded): S=N9 (flag head_level — judge ×3 vs conductor eye level), SW=N9 (flag camera), W=N9-r1 (flag camera), NW=N8-stand-NW-r1 (clean on judged items; flag grip_not_judged — predates the grip pass, back view), N=N8-stand-N (same), NE=N9 (clean), E=N9 (flag camera), SE=N9-r1 (flag camera). p2_selection_final.json. Seeds padded (N5-pad/pad_<d>.png overwritten from the standing set; pad_seeds.json carries source shas). PACK N9p-turnaround fired → Packet 101 = the F8 GATE on P3. P2 spend: 116 images, 0 Grok beyond the walk test.",
+      "ts": "2026-09-17T00:07:39"
     }
   ],
   "grok_calls": [
@@ -4966,6 +5225,25 @@
       "manifest_sha256": "95484ac3473e584deb964b623393a414a912866bf4e44102614478d5db341e9b",
       "disk_free": "84Gi",
       "ts": "2026-09-16T23:59:05"
+    },
+    {
+      "wave": "c6_n9j2",
+      "bursts": "N9-jdg-02:JUDGE",
+      "manifest_sha256": "95484ac3473e584deb964b623393a414a912866bf4e44102614478d5db341e9b",
+      "disk_free": "83Gi",
+      "ts": "2026-09-17T00:02:53"
+    },
+    {
+      "id": "SHELL-3",
+      "note": "Third zsh word-splitting miss in one session: an unquoted $P holding three key=value args was passed as ONE argument → mk_p2_judge2.py ValueError; the dry-run exit was CHECKED this time (exit 1) so the judge did not fire and the stale waiter was stopped by hand. Rule for this lane: never pass a list through a shell variable in zsh — write the arguments out, or build the command in python.",
+      "ts": "2026-09-17T00:03:06"
+    },
+    {
+      "wave": "c6_n9p",
+      "bursts": "N9p-turnaround:PACK",
+      "manifest_sha256": "95484ac3473e584deb964b623393a414a912866bf4e44102614478d5db341e9b",
+      "disk_free": "82Gi",
+      "ts": "2026-09-17T00:07:39"
     }
   ]
 }

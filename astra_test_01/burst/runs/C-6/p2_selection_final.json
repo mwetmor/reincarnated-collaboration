@@ -1,0 +1,244 @@
+{
+ "rule": "R-C6-22: most checklist TRUEs (scale excluded), tie \u2192 later attempt; remaining FALSE \u2192 named flag",
+ "keys": [
+  "eyes_blue",
+  "head_level",
+  "head_aligned",
+  "no_skull_buckle",
+  "no_skull_shoulder",
+  "no_skull_book",
+  "ribcage_steel",
+  "tome_master_ornament",
+  "hands_exactly_two",
+  "hands_in_front",
+  "scythe_held_out",
+  "buckle_detail",
+  "standing_upright",
+  "camera_matches"
+ ],
+ "selection": {
+  "S": {
+   "stands": "N9",
+   "path": "runs/C-6/artifacts/N9-grip-S/n9_S_green.png",
+   "trues": 12,
+   "flags": [
+    "head_level"
+   ],
+   "axes": {
+    "1": 4,
+    "2": 4,
+    "3": 3,
+    "4": 5,
+    "5": 5
+   },
+   "seen": "S",
+   "considered": [
+    [
+     "N8",
+     10
+    ],
+    [
+     "N9",
+     12
+    ]
+   ]
+  },
+  "SW": {
+   "stands": "N9",
+   "path": "runs/C-6/artifacts/N9-grip-SW/n9_SW_green.png",
+   "trues": 12,
+   "flags": [
+    "camera_matches"
+   ],
+   "axes": {
+    "1": 3,
+    "2": 4,
+    "3": 3,
+    "4": 5,
+    "5": 4
+   },
+   "seen": "SW",
+   "considered": [
+    [
+     "N8",
+     9
+    ],
+    [
+     "N9",
+     12
+    ]
+   ]
+  },
+  "W": {
+   "stands": "N9",
+   "path": "runs/C-6/artifacts/N9-grip-W-r1/n9_W_r1.png",
+   "trues": 12,
+   "flags": [
+    "camera_matches"
+   ],
+   "axes": {
+    "1": 2,
+    "2": 4,
+    "3": 2,
+    "4": 3,
+    "5": 5
+   },
+   "seen": "W",
+   "considered": [
+    [
+     "N8",
+     10
+    ],
+    [
+     "N9",
+     12
+    ]
+   ]
+  },
+  "NW": {
+   "stands": "N8",
+   "path": "runs/C-6/artifacts/N8-stand-NW-r1/n8_NW_r1.png",
+   "trues": 10,
+   "flags": [
+    "grip_not_judged (N8 frame predates the grip pass; back view \u2014 grip mostly hidden)"
+   ],
+   "axes": {
+    "1": 2,
+    "2": 4,
+    "3": 3,
+    "4": 5,
+    "5": 5
+   },
+   "seen": "NW",
+   "considered": [
+    [
+     "N8",
+     10
+    ],
+    [
+     "N9",
+     4
+    ],
+    [
+     "N9r1",
+     7
+    ]
+   ]
+  },
+  "N": {
+   "stands": "N8",
+   "path": "runs/C-6/artifacts/N8-stand-N/n8_N.png",
+   "trues": 10,
+   "flags": [
+    "grip_not_judged (N8 frame predates the grip pass; back view)"
+   ],
+   "axes": {
+    "1": 2,
+    "2": 4,
+    "3": 3,
+    "4": 5,
+    "5": 5
+   },
+   "seen": "N",
+   "considered": [
+    [
+     "N8",
+     10
+    ],
+    [
+     "N9",
+     8
+    ],
+    [
+     "N9r1",
+     8
+    ]
+   ]
+  },
+  "NE": {
+   "stands": "N9",
+   "path": "runs/C-6/artifacts/N9-grip-NE/n9_NE.png",
+   "trues": 10,
+   "flags": [],
+   "axes": {
+    "1": 3,
+    "2": 5,
+    "3": 2,
+    "4": 4,
+    "5": 4
+   },
+   "seen": "NE",
+   "considered": [
+    [
+     "N8",
+     9
+    ],
+    [
+     "N9",
+     10
+    ]
+   ]
+  },
+  "E": {
+   "stands": "N9",
+   "path": "runs/C-6/artifacts/N9-grip-E/n9_E.png",
+   "trues": 11,
+   "flags": [
+    "camera_matches"
+   ],
+   "axes": {
+    "1": 3,
+    "2": 4,
+    "3": 2,
+    "4": 3,
+    "5": 4
+   },
+   "seen": "E with the torso slightly open toward SE",
+   "considered": [
+    [
+     "N8",
+     9
+    ],
+    [
+     "N9",
+     11
+    ]
+   ]
+  },
+  "SE": {
+   "stands": "N9r1",
+   "path": "runs/C-6/artifacts/N9-grip-SE-r1/n9_SE_r1.png",
+   "trues": 12,
+   "flags": [
+    "camera_matches"
+   ],
+   "axes": {
+    "1": 3,
+    "2": 4,
+    "3": 3,
+    "4": 5,
+    "5": 4
+   },
+   "seen": "SE: front three-quarter toward screen-right",
+   "considered": [
+    [
+     "N8",
+     8
+    ],
+    [
+     "N9",
+     10
+    ],
+    [
+     "N9r1",
+     12
+    ]
+   ]
+  }
+ },
+ "controls": {
+  "N8-jdg-02": "image 7 = mirrored E claiming W \u2014 caught",
+  "N9-jdg-01": "image 7 = mirrored W claiming E \u2014 caught",
+  "N9-jdg-02": "image 4 = mirrored N claiming SE \u2014 caught"
+ }
+}
