@@ -2,7 +2,7 @@
   "run": "C-6",
   "charter": "agentic_orchestration/gandalf/notes/2026-09-17-necromancer-run-C-6-charter.md (v1.2.1)",
   "charter_sha256_12": "4b0df3d0c8b8",
-  "images_used": 120,
+  "images_used": 126,
   "images_cap": 999999,
   "images_cap_note": "SENTINEL — Matt F7 2026-09-17: no image cap (counted, reported); no Grok clip cap — the weekly Grok allowance is the constraint (out-of-budget = external-state HALT)",
   "bursts": [
@@ -4835,6 +4835,257 @@
       "codex_version": "codex-cli 0.153.4",
       "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
       "exit": 0
+    },
+    {
+      "id": "N10-hold-NW",
+      "type": "GENERATE",
+      "experiment": "C6-P2",
+      "brief_sha256": "63014473148d001186ac57a4ddd163df60bdd9382938743a75f23c5d76f4fae3",
+      "started": "2026-09-17T04:21:46.745205+00:00",
+      "ended": "2026-09-17T04:24:28.009668+00:00",
+      "minutes": 2.6876958985997286,
+      "image_calls": 2,
+      "tool_calls": 2,
+      "audit": {
+        "violations": [],
+        "image_calls": 2,
+        "tool_calls": 2,
+        "tools_seen": {
+          "command_execution": 2
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0ad99-69a2-7812-bca2-f420b27a0644/exec-b298865b-b874-4083-a2aa-cd6206302e64.png",
+            "sha256": "bed1024a44efdeb04339104128b8002cae919d772852a7f23db9bc6e7280e02b"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0ad99-69a2-7812-bca2-f420b27a0644/exec-c170807a-e2b4-4914-b57a-7c7a94c15ed2.png",
+            "sha256": "574650d3b2d2ae35198199b14d08358d9abe4d904754660a7a4115a6c41ce6e0"
+          }
+        ]
+      },
+      "receipt_sha256": "d063cd6d1ff2893def8b57f02ec40636d4b49a2f4272527eec26dbf783598060",
+      "artifacts": [
+        {
+          "name": "n10_NW.png",
+          "sha256": "bed1024a44efdeb04339104128b8002cae919d772852a7f23db9bc6e7280e02b"
+        },
+        {
+          "name": "exec-b298865b-b874-4083-a2aa-cd6206302e64.provenance.json",
+          "sha256": "36c45a208ad137382c77eabe82c590178887b9feeeb167bc3873519208b8620c"
+        },
+        {
+          "name": "exec-c170807a-e2b4-4914-b57a-7c7a94c15ed2.provenance.json",
+          "sha256": "cfdfbf6f9f40b17731f9c3f8a418e9bfd37ab4651bfc9016c8f4e967a3052fd8"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0ad99-69a2-7812-bca2-f420b27a0644/exec-b298865b-b874-4083-a2aa-cd6206302e64.png",
+          "sha256": "bed1024a44efdeb04339104128b8002cae919d772852a7f23db9bc6e7280e02b"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0ad99-69a2-7812-bca2-f420b27a0644/exec-c170807a-e2b4-4914-b57a-7c7a94c15ed2.png",
+          "sha256": "574650d3b2d2ae35198199b14d08358d9abe4d904754660a7a4115a6c41ce6e0"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
+    },
+    {
+      "id": "N10-hold-SE",
+      "type": "GENERATE",
+      "experiment": "C6-P2",
+      "brief_sha256": "82d4469a97682d0f0e4ff2cb362e4ae80c886c5981f6fdd69a5064f0d504eb6c",
+      "started": "2026-09-17T04:21:46.745201+00:00",
+      "ended": "2026-09-17T04:24:40.771284+00:00",
+      "minutes": 2.900386123599795,
+      "image_calls": 2,
+      "tool_calls": 4,
+      "audit": {
+        "violations": [],
+        "image_calls": 2,
+        "tool_calls": 4,
+        "tools_seen": {
+          "command_execution": 4
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0ad99-6998-7522-8e88-e3f740383cbe/exec-8775b315-47a7-474a-b875-1e55c4de86bf.png",
+            "sha256": "2f37f33e20b0cf906495b588bb02c5aaabf68329ae2196f90492ad27da284bea"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0ad99-6998-7522-8e88-e3f740383cbe/exec-e571c356-c164-47b9-a45c-28832f844118.png",
+            "sha256": "82910d2af23dd969b67f90edeeca42aab329b15cac1db8a35b2148e72db57df7"
+          }
+        ]
+      },
+      "receipt_sha256": "8220ffeb47048cfc2098c08205c8e2992ed4238741c2f722c740a3cbc213b8bf",
+      "artifacts": [
+        {
+          "name": "n10_SE.png",
+          "sha256": "82910d2af23dd969b67f90edeeca42aab329b15cac1db8a35b2148e72db57df7"
+        },
+        {
+          "name": "exec-8775b315-47a7-474a-b875-1e55c4de86bf.provenance.json",
+          "sha256": "cfdfb438c2daab6a7ba98e6a666fc1dc5478c5ee5b4b35ea29696b0edf9fc6aa"
+        },
+        {
+          "name": "exec-e571c356-c164-47b9-a45c-28832f844118.provenance.json",
+          "sha256": "a3f09e44055283c12cfa88ad5c31e812a5639a068660b7805906e271b669cdc5"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0ad99-6998-7522-8e88-e3f740383cbe/exec-8775b315-47a7-474a-b875-1e55c4de86bf.png",
+          "sha256": "2f37f33e20b0cf906495b588bb02c5aaabf68329ae2196f90492ad27da284bea"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0ad99-6998-7522-8e88-e3f740383cbe/exec-e571c356-c164-47b9-a45c-28832f844118.png",
+          "sha256": "82910d2af23dd969b67f90edeeca42aab329b15cac1db8a35b2148e72db57df7"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
+    },
+    {
+      "id": "N10-hold-W",
+      "type": "GENERATE",
+      "experiment": "C6-P2",
+      "brief_sha256": "c93c9e22017aa4c87bf76b80da901c9572cbdb809b197279ec21cfad4fd52c71",
+      "started": "2026-09-17T04:21:46.745206+00:00",
+      "ended": "2026-09-17T04:24:50.001396+00:00",
+      "minutes": 3.0542186715164763,
+      "image_calls": 2,
+      "tool_calls": 2,
+      "audit": {
+        "violations": [],
+        "image_calls": 2,
+        "tool_calls": 2,
+        "tools_seen": {
+          "command_execution": 2
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0ad99-68f8-7ff3-b1e4-302db5762d3c/exec-04ae977b-38bb-4eed-9eb8-facaae9429de.png",
+            "sha256": "6e565b154961314f1da95aa3e935d58d667b0bcc8aebfedda5063bb684a577a5"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0ad99-68f8-7ff3-b1e4-302db5762d3c/exec-c9e743a9-8602-49f2-a29a-16a509aa01c6.png",
+            "sha256": "6fa4cfe20d9264f72802ed8f93796440ff8c0304641be9c2c26bb2a583fab459"
+          }
+        ]
+      },
+      "receipt_sha256": "61ef7b6467606b83d18d44ed12bf6c4a2603e05d53b59160e526ff3df7fefd9d",
+      "artifacts": [
+        {
+          "name": "n10_W.png",
+          "sha256": "6e565b154961314f1da95aa3e935d58d667b0bcc8aebfedda5063bb684a577a5"
+        },
+        {
+          "name": "exec-04ae977b-38bb-4eed-9eb8-facaae9429de.provenance.json",
+          "sha256": "90a5d19dd0169d1d72838921654b54b65573cfc3ef3554e785b713ac92c7b1a8"
+        },
+        {
+          "name": "exec-c9e743a9-8602-49f2-a29a-16a509aa01c6.provenance.json",
+          "sha256": "d71385ab337cd3a1bc2ebb50a77e225aeee864740f9d0e499ac9ab275e4c2a5a"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0ad99-68f8-7ff3-b1e4-302db5762d3c/exec-04ae977b-38bb-4eed-9eb8-facaae9429de.png",
+          "sha256": "6e565b154961314f1da95aa3e935d58d667b0bcc8aebfedda5063bb684a577a5"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0ad99-68f8-7ff3-b1e4-302db5762d3c/exec-c9e743a9-8602-49f2-a29a-16a509aa01c6.png",
+          "sha256": "6fa4cfe20d9264f72802ed8f93796440ff8c0304641be9c2c26bb2a583fab459"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
+    },
+    {
+      "id": "N10-jdg-01",
+      "type": "JUDGE",
+      "experiment": "C6-P2",
+      "brief_sha256": "e23b979ba412c565a6e64a7bf5670e579add3e532236c995e7971d089fdd4ba6",
+      "started": "2026-09-17T04:25:35.905496+00:00",
+      "ended": "2026-09-17T04:30:35.221428+00:00",
+      "minutes": 4.988891886099979,
+      "image_calls": 0,
+      "tool_calls": 3,
+      "audit": {
+        "violations": [],
+        "image_calls": 0,
+        "tool_calls": 3,
+        "tools_seen": {
+          "file_change": 1,
+          "command_execution": 2
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": []
+      },
+      "receipt_sha256": "49093213bb79fee10c508f68122488dcc7fea868ecb03aa636e181cf553b2dbf",
+      "artifacts": [
+        {
+          "name": "judgment.json",
+          "sha256": "1a8f3b9dc094eaade965c72c8d3522314d8edeff1d6d8dcc37d25ccd09f61c61"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
     }
   ],
   "experiments": [],
@@ -5096,6 +5347,14 @@
       "topic": "F8 GATE on Packet 101 — NOT PASSED: scythe hold wrong in NW, W, SE",
       "ruling": "Matt (verbatim): NW, W and SE the scythe is held incorrectly. In the W it is held backwards as is the case with NW. In NW the scythe also seems to be held against the chest. In the SE, the necromancer seems to be standing at attention raising the scythe as if it is a flag and he is a flag bearer. → Conductor reading of the hold rule (put to Matt for one-word confirmation): the crescent hooks FORWARD in the direction he faces (E correct; W/NW currently hook backward); the haft is held out in front on the DIAGONAL — low hand near the far hip, upper hand extended forward at shoulder height — never vertical like a standard (SE), never against the chest (NW); S as the master. → N10 EDIT fixes for W, NW, SE from the selected frames; judge gains blade_forward (hard); Packet 102. S/SW/E/NE/N stand as Packet 101 selected them.",
       "ts": "2026-09-17T00:21:46"
+    },
+    {
+      "id": "R-C6-25",
+      "class": "conductor",
+      "veto_open": true,
+      "topic": "N10-jdg-01 read — hold items per direction; judge mirroring false-positive owned; HALT this loop for Matt eye",
+      "ruling": "Control caught (image 5). W: blade_forward TRUE, held_out TRUE, haft_diagonal FALSE (haft near-vertical, a standard); judge also wrote mirrored=TRUE — a FALSE POSITIVE from my geometry-rule text (left-facings: blade behind the far shoulder), which a forward-held blade violates by design; horn near-shoulder + tome near-hip are correct → not mirrored. Judge text fixed: mirroring keys on horn + tome; the blade may sit ahead of the body in any facing. NW: blade_forward TRUE, scythe_held_out FALSE (haft tight beside the neck), book tooling again. SE: haft_diagonal TRUE, standing TRUE, blade_forward FALSE — the crescent hooks screen-left while he faces lower-right (the literal application of the rule I read back to Matt). S/SW/E/NE/N stand (Packet 101 selection). NO fourth blind loop: the three ride to Matt eye with the pair sheet; the next edit text is written from his word on the hold rule (hook direction for three-quarters; how diagonal the haft) — commitment boundary, his.",
+      "ts": "2026-09-17T00:31:48"
     }
   ],
   "grok_calls": [
@@ -5319,6 +5578,13 @@
       "manifest_sha256": "95484ac3473e584deb964b623393a414a912866bf4e44102614478d5db341e9b",
       "disk_free": "82Gi",
       "ts": "2026-09-17T00:21:46"
+    },
+    {
+      "wave": "c6_n10j",
+      "bursts": "N10-jdg-01:JUDGE",
+      "manifest_sha256": "95484ac3473e584deb964b623393a414a912866bf4e44102614478d5db341e9b",
+      "disk_free": "82Gi",
+      "ts": "2026-09-17T00:25:35"
     }
   ]
 }
