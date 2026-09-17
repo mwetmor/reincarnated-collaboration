@@ -1931,6 +1931,22 @@
       "topic": "P2 turnaround STANDS — selection",
       "ruling": "N5-jdg-02: control CAUGHT again (image 4 = mirrored E-r1 claiming W: mirrored=true, axis4=1); all five retries read as claimed, no mirror, back_details_wrong=false, both hands on the haft. Selection by the R-C6-7 rule (runs/C-6/p2_selection.json): SW r1 (axis4 5) · W v1 (4) · NW r1 (5) · N r1 (4) · NE r1 (4; tome exposed — accepted, identity 3) · E r1 (4; blade broad-face) · SE v1 (5). NO flagged direction. P2 spend 34 images; run total 45. Grok seeds padded (N5-pad/, 1024×1536, figure 70 %, feet row 1428; pad_seeds.json carries source shas). PACK N5p-turnaround fired → Desktop packet 100 = the F8 contact-sheet GATE on P3. RECORD NOTE: first fire attempt failed at dry-run (tool_call_cap 30 > lane limit; exit 2 swallowed by a redirect) — same exit-check lesson as R-C6-6; ruling recorded on the successful fire.",
       "ts": "2026-09-16T22:23:39"
+    },
+    {
+      "id": "R-C6-9",
+      "class": "matt",
+      "veto_open": false,
+      "topic": "F8 GATE — Matt eye on Packet 100: NOT PASSED; identity + camera defects",
+      "ruling": "Matt (verbatim, 2026-09-17): W head tilted too far down and missing blue eyes; SW may not have blue eyes; SE head tilted a bit to the left instead of focused straight; S may have its head tilted a bit downwards; W, SW, E, SE have skulls on their belt buckles — incorrect; NW has his hands inhumanly behind his back; N gained a small skull on the shoulder — incorrect; E has a ghost hand coming out of the right side of his stomach to hold the scythe; SW, SE, NW, W added ornamentation on the book (Matt likes it but it must be the same — he recommends a red bloody/wax stamp or a keyhole, or both) and W-s variant is a skull again; E-s ribcage ornamentation is more bone and less steel than the rest; generally S has the correct angle/zoom/proportional size and the others are not set the same against the camera. → P3 does NOT open on this turnaround. Conductor: re-mint pass with an invariant checklist judge (rubric law).",
+      "ts": "2026-09-16T22:43:35"
+    },
+    {
+      "id": "R-C6-10",
+      "class": "conductor",
+      "veto_open": true,
+      "topic": "Root cause of the F8 identity defects — conductor brief text, not model drift",
+      "ruling": "Master read at full res (necro_master_final_app.png): pale BLUE eyes; ROUND SILVER belt disc with a small leaf-like sigil (NO skull); SILVER-STEEL ribcage relief (metal, not bone); tome = dark leather, silver corner caps, RED RIBBON marker; no skull anywhere. My P2 IDENTITY line (mk_p2.py, inherited verbatim from the N3-final-cam-01 brief prose) said skull-and-bone buckle / cold eyes / bone-white ribcage → the skull buckles on W SW E SE, the bone ribcage on E and the lost blue eyes are conductor-induced. Second fault: the N5 judge scored identity as one axis with no invariant checklist (rubric law, pattern § 6.3) and passed frames with the wrong buckle at 4/5. Also mine: the facing table for N/NW/NE said the haft crosses his BACK — a two-handed grip is in FRONT of the body; from behind the haft is hidden by the torso except above the right shoulder and below the left hip, hands mostly hidden (→ NW inhuman hands). Remedy: N6 re-mint pass for all seven turned directions from an INVARIANTS list derived from the master image (never from prior brief prose), camera locked to IMAGE 1 (53° down: crown and shoulders seen from above, feet foreshortened), exactly two hands, head level and aligned with the body; judged by an invariant-checklist JUDGE (one boolean per Matt item) + the geometry axis + a mirrored control. Book ornament and S re-mint are Matt forks (F10/F11).",
+      "ts": "2026-09-16T22:44:47"
     }
   ],
   "grok_calls": [],
