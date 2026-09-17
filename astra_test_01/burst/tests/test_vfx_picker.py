@@ -2198,14 +2198,65 @@ class FL4BCatalogueTests(unittest.TestCase):
 
 
 class FL4CByteLockTests(unittest.TestCase):
-    def test_seventeen_kits_and_all_v3_art_match_pre_fl4c_bytes(self):
+    def test_fifteen_kits_and_all_fire_art_match_pre_fl5_bytes(self):
         expected=json.loads((ROOT/'fixtures/fl1b/FL4C-source-assets.json').read_text())
         folder=ROOT/'runs/C-5/vfx_kits/v9'
         actual={p.relative_to(ROOT).as_posix():hashlib.sha256(p.read_bytes()).hexdigest()
                 for p in folder.rglob('*') if p.is_file()
-                and p != folder/'fire_burst_e0p_v3/kit.json'}
+                and p not in {folder/name/'kit.json' for name in ('fire_bolt_e1_A','fire_bolt_e1_B','fire_burst_e0p_v3')}}
         self.assertEqual(actual,expected)
         catalogue=json.loads((ROOT/'runs/C-5/vfx_kits/kits_v9.json').read_text())['kits']
         self.assertEqual(len(catalogue),18)
         names={k['name'] for k in catalogue}
-        self.assertEqual(sum(k.endswith('/kit.json') and Path(k).parent.name in names for k in actual),17)
+        self.assertEqual(sum(k.endswith('/kit.json') and Path(k).parent.name in names for k in actual),15)
+
+
+class FL5HeadlessContractTests(unittest.TestCase):
+    def report(self):
+        return json.loads((ROOT/'runs/C-5/t3/FL-5/runtime_trace.json').read_text())
+    def test_eruption_ramp_and_socket_tip_all_eight(self):
+        r=self.report()
+        self.assertEqual(len(r['directions']),8)
+        for d in r['directions']:
+            self.assertLessEqual(d['tip_error_px'],13)
+        rows=r['travel']
+        self.assertEqual([x['age'] for x in rows],list(range(13)))
+        for x in rows:
+            t=min(1,x['age']/8);expected=.25+.75*(1-(1-t)**3)
+            self.assertAlmostEqual(x['eruption_scale'],expected,places=5)
+            self.assertEqual(x['sheet_visible'],x['age']>=3)
+            self.assertLess(x['attachment_error_px'],.001)
+        self.assertAlmostEqual(rows[0]['eruption_scale'],.25)
+        self.assertLess(rows[7]['eruption_scale'],1)
+        self.assertAlmostEqual(rows[8]['eruption_scale'],1)
+    def test_residue_smoke_embers_and_seed_parity(self):
+        from export.effect_kit import interleave_placement
+        r=self.report();rows={x['age_frames']:x for x in r['ending']}
+        self.assertEqual(rows[26]['ember_births']<=36,True)
+        self.assertAlmostEqual(rows[26]['core_residue_alpha'],1)
+        self.assertGreater(rows[40]['core_residue_alpha'],0)
+        self.assertAlmostEqual(rows[56]['core_residue_alpha'],0)
+        self.assertAlmostEqual(rows[26]['smoke_alpha'],.28,places=5)
+        self.assertGreater(rows[40]['smoke_alpha'],rows[56]['smoke_alpha'])
+        self.assertAlmostEqual(rows[80]['smoke_alpha'],0)
+        self.assertEqual(len(r['births']),36)
+        for b in r['births']:
+            self.assertLessEqual(abs(b['origin'][0]),65);self.assertLessEqual(abs(b['origin'][1]),32.5)
+            self.assertLessEqual(b['end_age'],114)
+        self.assertEqual(len(r['seeds']),20)
+        for seed in r['seeds']:
+            expected=interleave_placement(seed['seed'],r['gaps'],r['library'])
+            self.assertEqual([int(x['id']) for x in seed['tongues']],[x['id'] for x in expected])
+            for a,b in zip(seed['tongues'],expected):
+                self.assertAlmostEqual(a['angle_deg'],b['angle_deg'],places=5)
+                self.assertAlmostEqual(a['scale'],b['scale'],places=5)
+                self.assertEqual(a['mirrored'],b['mirrored'])
+    def test_range_burst_and_shield_hit_response(self):
+        r=self.report()
+        north=r['north'];shield=r['shield']
+        self.assertEqual(north['contacts'],0);self.assertEqual(north['impacts'],1)
+        self.assertTrue(north['expired']);self.assertFalse(north['strike_response'])
+        self.assertLess(north['range_error_px'],.01)
+        self.assertGreater(north['pieces'],0);self.assertEqual(north['ember_births'],36)
+        self.assertEqual(shield['contacts'],1);self.assertEqual(shield['impacts'],1)
+        self.assertTrue(shield['strike_response']);self.assertEqual(shield['labels'],1)

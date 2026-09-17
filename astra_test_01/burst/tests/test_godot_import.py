@@ -2149,7 +2149,7 @@ class FL4TimingAndFlightTests(unittest.TestCase):
             rows={r['age']:r for r in rows}
             self.assertEqual(len(rows),21)
             for row in rows.values():
-                self.assertTrue(row['core_additive']);self.assertAlmostEqual(row['core_alpha'],.7,places=6)
+                self.assertTrue(row['core_additive']);self.assertAlmostEqual(row['core_alpha'],1.0 if row['age'] < 8 else .7,places=6)
                 self.assertTrue(1<=row['core_scale']<=1.08)
                 self.assertEqual(row['trail_rate'],12)
                 self.assertTrue(row['noise_uv_consumed']);self.assertTrue(row['noise_bound'])
@@ -2239,3 +2239,27 @@ class FL4CTraceTests(unittest.TestCase):
         self.assertGreaterEqual(self.metrics['age25_band3_fraction'],.9)
         self.assertEqual(self.metrics['band0_pixels_after_age22'],0)
         self.assertEqual(self.metrics['painted_pixels_age26_to36'],0)
+
+
+class FL5SocketAuditTests(unittest.TestCase):
+    def test_release_rows_are_alpha_supported_audited_staff_endpoints(self):
+        import numpy as np
+        root=Path(__file__).resolve().parents[1]
+        rows=json.loads((root/'runs/C-5/t3/FL-5/socket_audit/before_after.json').read_text())
+        sockets=json.loads((root/'runs/C-3/sockets_v2.json').read_text())['cells']
+        self.assertEqual(len(rows),8)
+        faces={'S':(0,1),'SW':(-1,1),'W':(-1,0),'NW':(-1,-1),'N':(0,-1),'NE':(1,-1),'E':(1,0),'SE':(1,1)}
+        for row in rows:
+            d=row['direction'];cell=sockets['cast_'+d]
+            self.assertEqual(cell['sockets'][cell['release_index']],row['after'])
+            path=next((root/('runs/C-3/cells_v7/cast_'+d)).rglob('cast_'+d+'_%02d.png'%cell['release_index']))
+            rgba=np.asarray(Image.open(path).convert('RGBA'));x,y=row['after']
+            self.assertGreater(int(rgba[y,x,3]),8)
+            # Independent source-alpha search in the visually recorded shaft corridor.
+            a,b=np.asarray(row['axis'],dtype=float);v=(b-a)/np.linalg.norm(b-a)
+            yy,xx=np.indices(rgba.shape[:2]);along=(xx-a[0])*v[0]+(yy-a[1])*v[1]
+            near=np.abs((xx-a[0])*v[1]-(yy-a[1])*v[0])<=3
+            support=(rgba[...,3]>8)&near&(along>=-5)&(along<=np.linalg.norm(b-a)+5)
+            projection=xx*faces[d][0]+yy*faces[d][1]
+            self.assertEqual(projection[y,x],projection[support].max())
+            self.assertFalse(support[0,0], 'known-bad detached origin must be rejected')

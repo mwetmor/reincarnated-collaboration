@@ -2428,7 +2428,7 @@ class FireLaneRangeExpiryTests(unittest.TestCase):
         from export.effect_kit import validate_projectile
         root=ROOT/'runs/C-5/vfx_kits/v9/fire_bolt_e1_B'
         data=load_kit(root)
-        self.assertEqual(data['skill_spec']['mechanics']['range_expiry'],'fizzle')
+        self.assertEqual(data['skill_spec']['mechanics']['range_expiry'],'burst')
         for value in ('burst','fizzle'):
             candidate=copy.deepcopy(data); candidate['skill_spec']['mechanics']['range_expiry']=value
             validate_projectile(candidate,root,True)
@@ -2473,7 +2473,7 @@ class FL2FieldValidationTests(unittest.TestCase):
                 self.assertEqual(data['layers']['cast'], spec['cast'])
             elif kit['name'] in ('fire_burst_e0p_v2','fire_burst_e0p_v3'):
                 for key in ('residue_s', 'timing', 'ember_ending'):
-                    self.assertEqual(data['pieces'][key], spec['pieces'][key])
+                    self.assertEqual(data['pieces'][key], {'amount': 48, 'rect_bh': [1.8, 0.9], 'life_s': [1.0, 1.6], 'speed_px_s': [30, 90], 'scale': [0.15, 0.33], 'glow_radius_bh': 0.9, 'glow_alpha': 0.85, 'glow_s': 1.2, 'core_radius_bh': 0.45, 'core_s': 0.6} if kit['name']=='fire_burst_e0p_v2' and key=='ember_ending' else spec['pieces'][key])
                 self.assertNotIn('embers', data['pieces'])
             else:
                 self.assertNotIn('cast', data.get('layers', {}))
@@ -2543,7 +2543,7 @@ class AntiDecalValidationTests(unittest.TestCase):
                 for state in data['pieces']['key_states']:
                     expected=spec['pieces']['key_states'][state['state']]
                     self.assertEqual({k:state[k] for k in expected},expected)
-                self.assertEqual(data['pieces']['ember_ending'],spec['pieces']['ember_ending'])
+                self.assertEqual(data['pieces']['ember_ending'],{'amount': 48, 'rect_bh': [1.8, 0.9], 'life_s': [1.0, 1.6], 'speed_px_s': [30, 90], 'scale': [0.15, 0.33], 'glow_radius_bh': 0.9, 'glow_alpha': 0.85, 'glow_s': 1.2, 'core_radius_bh': 0.45, 'core_s': 0.6} if name=='fire_burst_e0p_v2' else spec['pieces']['ember_ending'])
                 if 'interleave' in data['pieces']: self.assertEqual(data['pieces']['key_states'],[])
 
 
@@ -2641,14 +2641,14 @@ class FL4BInterleaveValidationTests(unittest.TestCase):
         for seed in range(1,101):
             selected=interleave_placement(seed,gaps,library['pieces'])
             self.assertEqual(selected,interleave_placement(seed,gaps,library['pieces']))
-            self.assertTrue(3<=len(selected)<=5)
+            self.assertTrue(5<=len(selected)<=7)
             self.assertEqual([p['gap_rank'] for p in selected],list(range(len(selected))))
             self.assertEqual(len({p['id'] for p in selected}),len(selected))
             angles=sorted([p['radial_angle_deg']%360 for p in record['pieces'] if p['area_px']>=48]+[p['angle_deg'] for p in selected])
-            self.assertLessEqual(max((angles[(i+1)%len(angles)]-a)%360 for i,a in enumerate(angles)),55)
+            self.assertLessEqual(max((angles[(i+1)%len(angles)]-a)%360 for i,a in enumerate(angles)),40)
             for item in selected:
                 self.assertLessEqual(abs(item['jitter_deg']),12)
-                self.assertTrue(.8<=item['scale']<=1.15)
+                self.assertTrue(1.2<=item['scale']<=1.6)
                 self.assertEqual(item['speed_factor'],.85)
             seen.add(tuple((p['id'],p['angle_deg']) for p in selected))
         self.assertEqual(len(seen),100)
@@ -2671,8 +2671,8 @@ class FL4BInterleaveValidationTests(unittest.TestCase):
         for arm in ('A','B'):
             root=self.root.with_name('fire_bolt_e1_'+arm);data=load_kit(root)
             metrics=_fl4b_travel_metrics({'root':root,'effect':data})
-            self.assertTrue(1.15<=metrics['head_extent_bh']<=1.25)
-            self.assertTrue(2.1<=metrics['sheet_extent_bh']<=2.3)
+            self.assertTrue(.95<=metrics['head_extent_bh']<=1.05)
+            self.assertTrue(1.85<=metrics['sheet_extent_bh']<=2.0)
             for role,source in sources.items():
                 with Image.open(ROOT/'runs/C-5/artifacts'/source) as image:raw=np.asarray(image.convert('RGBA'))
                 with Image.open(root/data['travel_primitives'][role]['png']) as image:actual=np.asarray(image)
@@ -2715,3 +2715,23 @@ class FL4CStretchDissolveTests(unittest.TestCase):
         rgba=np.zeros((1,4,4),dtype=np.uint8);rgba[0,:,:3]=np.arange(4)[:,None]*85;rgba[...,3]=255
         actual=material_pixels(rgba,PALETTE,dissolve=11/12,dissolve_order=[[0],[1],[2],[3]])
         self.assertEqual(actual[0,:,3].tolist(),[0,0,0,255])
+
+
+class FL5FieldTests(unittest.TestCase):
+    def test_eruption_and_ending_fields_and_bad_controls(self):
+        from export.effect_kit import validate_fire_layer, validate_fire_ending
+        for arm in ('A','B'):
+            d=load_kit(ROOT/('runs/C-5/vfx_kits/v9/fire_bolt_e1_'+arm))
+            self.assertEqual(d['layers']['travel']['eruption'],dict(frames=8,scale_from=.25,sheet_delay_frames=3))
+            self.assertEqual(d['skill_spec']['mechanics']['range_expiry'],'burst')
+        travel=copy.deepcopy(d['layers']['travel']);travel['eruption']['sheet_delay_frames']=8
+        with self.assertRaises(ValueError):validate_fire_layer('travel',travel)
+        d=load_kit(ROOT/'runs/C-5/vfx_kits/v9/fire_burst_e0p_v3')['pieces']
+        self.assertEqual(d['core_residue'],dict(scale_bh=.6,seconds=.5))
+        self.assertEqual(d['ember_ending']['amount'],36)
+        self.assertEqual(d['ember_ending']['rect_bh'],[1,.5])
+        self.assertEqual(d['ember_ending']['spread_deg'],18)
+        self.assertEqual(d['smoke']['tint'],[.35,.3,.28])
+        for role in ('core_residue','smoke'):
+            validate_fire_ending(role,d[role]);bad=copy.deepcopy(d[role]);bad['seconds']=-1
+            with self.assertRaises(ValueError):validate_fire_ending(role,bad)

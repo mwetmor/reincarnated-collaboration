@@ -2790,7 +2790,7 @@ def _write_piece_burst_v2(out, kit, resource_root, prefix):
     legacy['effect']['pieces']['template'] = 'burst_v1'
     legacy['effect']['pieces'].pop('key_states', None)
     legacy['effect']['pieces'].pop('boil', None)
-    for opt in ('timing','ember_ending','interleave','stretch'): legacy['effect']['pieces'].pop(opt, None)
+    for opt in ('timing','ember_ending','interleave','stretch','core_residue','smoke'): legacy['effect']['pieces'].pop(opt, None)
     if 'ember_ending' in config:
         legacy['effect']['pieces'].update(residue_s=.3,residue_fraction=.2)
     legacy['effect']['material'].pop('erode_noise', None)
@@ -2873,7 +2873,7 @@ def _write_piece_burst_v2(out, kit, resource_root, prefix):
         runtime['pieces'].append({**item, **piece_stretch(config['seed'],ident, config.get('stretch')),
                                   'erosion_start_tick':15})
         if item.get('interleave') and 'stretch' in config:
-            runtime['pieces'][-1]['along'] = 1.15
+            runtime['pieces'][-1]['along'] = 1.3 if config.get('interleave',{}).get('count') == [5,7] else 1.15
     scene += '\n'.join(extra_nodes)
     scene = re.sub(r'load_steps=\d+', 'load_steps='+str(scene.count('[ext_resource ')+1),scene,count=1)
     script = PIECE_BURST_V2_SCRIPT
@@ -2903,6 +2903,8 @@ def _write_piece_burst_v2(out, kit, resource_root, prefix):
             script = script.replace('    tree_exiting.connect(_write_trace)', '    _ready_ember_ending()\n    tree_exiting.connect(_write_trace)')
             script = script.replace('    if age >= residue_end:\n        hide()', '    _clock_ember_ending(age)\n    if age >= 114:\n        hide()')
             script += EMBER_ENDING_SCRIPT
+            if 'core_residue' in config or 'smoke' in config:
+                script = _fl5_ending(out, kit, resource_root, runtime, config, geometry, script)
         scene = re.sub(r'res://scripts/vfx/piece_burst_(?:v2_keys|v2|fl2|fl3)\.gd', 'res://scripts/vfx/piece_burst_fl4.gd', scene)
         if 'interleave' in config:
             script = _fl4b_burst_script(script)
@@ -5640,6 +5642,7 @@ def _write_fl4_travel(out, kit, resource_root):
     script = script.replace('func _physics_process(delta: float) -> void:\n', 'func _physics_process(delta: float) -> void:\n    if is_instance_valid(flight_core) and not active: _clock_flight_light(age_frames())\n')
     script = script.replace('trail_motes.source_point = global_position + socket.rotated(direction.angle())', 'trail_motes.source_point = global_position + socket.rotated(direction.angle()) + Vector2(float(config.sheet_tail[0]), float(config.sheet_tail[1])).rotated(direction.angle())')
     script += FLIGHT_LIGHT_SCRIPT + FL4B_CONTACT_SCRIPT
+    script = _fl5_eruption_script(script)
     (out/'scripts/vfx_g1_fl4.gd').write_text(script)
     motes = FIRE_MOTES_SCRIPT.replace('res://scripts/vfx_fire_motes.gd','res://scripts/vfx_fire_motes_fl4.gd')
     motes = motes.replace('var band: int=2 if mode=="trail" else settings.bands[rng.randi_range(0,1)]','var band: int=settings.get("bands",[2,2])[rng.randi_range(0,1)] if mode=="trail" else settings.bands[rng.randi_range(0,1)]')
@@ -5795,19 +5798,24 @@ func _seed_interleave() -> void:
     var library: Array = config.pieces.filter(func(p): return p.get("interleave",false))
     config.pieces = config.pieces.filter(func(p): return not p.get("interleave",false))
     library.sort_custom(func(a,b): return _interleave_sample("pick"+str(int(a.library_id))) < _interleave_sample("pick"+str(int(b.library_id))))
-    var count: int = 3 + _interleave_sample("count") % 3
+    var count: int = int(config.interleave.count[0]) + _interleave_sample("count") % 3
+    var slots: Array = config.interleave.gaps.duplicate(true)
     for rank in range(count):
         var item: Dictionary = library[rank].duplicate(true)
-        var gap: Dictionary = config.interleave.gaps[rank]
-        var limit: float = minf(12, maxf(0,55-float(gap.width_deg)/2))
+        slots.sort_custom(func(a,b): return float(a.width_deg) > float(b.width_deg) if not is_equal_approx(float(a.width_deg),float(b.width_deg)) else float(a.start_deg) < float(b.start_deg))
+        var gap: Dictionary = slots.pop_front()
+        var limit: float = minf(12, maxf(0,40-float(gap.width_deg)/2))
         var jitter: float = (float(_interleave_sample("angle"+str(rank)))/4294967295.0*2-1)*limit
         var angle: float = fposmod(float(gap.start_deg)+float(gap.width_deg)/2+jitter,360)
-        var radius: float = float(config.core_radius_px)*.9
+        var left: float = float(gap.width_deg)/2+jitter
+        slots.append({"start_deg":gap.start_deg,"width_deg":left})
+        slots.append({"start_deg":angle,"width_deg":float(gap.width_deg)-left})
+        var radius: float = float(config.core_radius_px)*.9*1.1
         var root := Vector2.RIGHT.rotated(deg_to_rad(angle))*radius
         item.root = [float(config.centre[0])+root.x,float(config.centre[1])+root.y]
         item.axis_radians = deg_to_rad(angle)
         item.rotation_deg = 0.0
-        item.jitter_scale = .8+.35*float(_interleave_sample("scale"+str(rank)))/4294967295.0
+        item.jitter_scale = 1.2+.4*float(_interleave_sample("scale"+str(rank)))/4294967295.0
         item.mirrored = _interleave_sample("mirror"+str(rank)) % 2 == 1
         config.pieces.append(item)
         tongue_selection.append({"id":item.library_id,"gap_rank":rank,"angle_deg":angle,"jitter_deg":jitter,"scale":item.jitter_scale,"mirrored":item.mirrored,"speed_factor":.85,"root_radius_px":root.length()})
@@ -5861,6 +5869,134 @@ def _fl4c_burst_script(script):
         'for sprite in [part.paint,part.root,part.dark_axis.get_node("Stretch/Piece_%03d" % int(part.record.id)),part.dark_root]:' )
     return script
 
+
+
+# FL-5 adapters: no source painting or ice resource is changed.
+def _fl5_eruption_script(script):
+    script = script.replace('    _clock_flight_light(age)', '    _clock_eruption(age)\n    _clock_flight_light(age)', 1)
+    script = script.replace('flight_core.modulate.a = float(opts.core.alpha)', 'flight_core.modulate.a = 1.0 if opts.has("eruption") and age < int(opts.eruption.frames) else float(opts.core.alpha)')
+    script = script.replace('row["head_extent_bh"] = config.head_extent_bh', 'row["head_extent_bh"] = float(config.head_extent_bh) * $Head.scale.x / float(config.painted_travel.head.scale)\n        row["sheet_visible"] = $Streak.visible\n        row["eruption_scale"] = $Head.scale.x / float(config.painted_travel.head.scale)\n        row["head_world"] = [$Head.global_position.x,$Head.global_position.y]')
+    return script + ERUPTION_SCRIPT
+
+
+ERUPTION_SCRIPT = r'''
+func _clock_eruption(age: int) -> void:
+    var eruption: Dictionary = config.fire_layers.get("travel",{}).get("eruption",{})
+    if eruption.is_empty(): return
+    var t: float = clampf(float(age)/float(eruption.frames),0,1)
+    var growth: float = lerpf(float(eruption.scale_from),1.0,1.0-pow(1.0-t,3.0))
+    $Head.position = -direction * float($CollisionShape2D.shape.height) * (1.0-t)
+    $Head.scale = Vector2.ONE * float(config.painted_travel.head.scale) * growth
+    $KeyState.scale *= growth
+    var rear := Vector2(config.painted_travel.head.rear_socket[0],config.painted_travel.head.rear_socket[1])
+    $Streak.position = $Head.transform * (rear+$Head.offset)
+    var delay: int = int(eruption.sheet_delay_frames)
+    $Streak.visible = $Streak.visible and age >= delay
+    var sheet_t: float = clampf(float(age-delay+1)/float(int(eruption.frames)-delay+1),0,1)
+    $Streak.scale *= Vector2(sheet_t,growth)
+    if is_instance_valid(trail_motes):
+        trail_motes.source_point = global_position + $Streak.position + Vector2(float(config.sheet_tail[0])*sheet_t,float(config.sheet_tail[1])*growth).rotated(direction.angle())
+'''
+
+
+def _fl5_ending(out, kit, resource_root, runtime, config, geometry, script):
+    import numpy as np
+    from export.effect_kit import distance_field, write_vfx_material
+    script = script.replace('rng.randf_range(-28,28)','rng.randf_range(-float(opts.get("spread_deg",28)),float(opts.get("spread_deg",28)))')
+    script = script.replace('"end_age":int(spark.birth)+int(spark.life)}','"end_age":int(spark.birth)+int(spark.life),"origin":[spark.origin.x,spark.origin.y],"scale":spark.scale,"velocity":[spark.velocity.x,spark.velocity.y]}')
+    for role in ('core_residue','smoke'):
+        if role in config: runtime[role] = dict(config[role])
+    if 'core_residue' in config:
+        candidates = []
+        for part in geometry['pieces']:
+            if not part.get('core'): continue
+            source = kit['root']/Path(config['source']).parent/part['mask']
+            rgba = np.array(Image.open(source).convert('RGBA'))
+            white = (rgba[...,0] == 255) & (rgba[...,3] > 0)
+            candidates.append((int(white.sum()),part,rgba,white))
+        _,part,rgba,white = max(candidates,key=lambda c:c[0])
+        rgba[...,3] = np.where(white,rgba[...,3],0)
+        ys,xs = np.nonzero(rgba[...,3])
+        rel = resource_root+'/pieces/core_residue.png'
+        Image.fromarray(rgba).save(out/rel)
+        field = resource_root+'/pieces/core_residue_distance.png'
+        Image.fromarray(distance_field(rgba)).save(out/field)
+        mat = resource_root+'/materials/CoreResidue.tres'
+        write_vfx_material(out,mat,dict(kit['effect']['material'],erode_outside_in=True,erode=0,dissolve=0),field)
+        runtime['core_residue'].update(texture='res://'+rel,material='res://'+mat,
+            pivot=[(float(xs.min())+float(xs.max()))/2,(float(ys.min())+float(ys.max()))/2],
+            native_extent=int(max(xs.max()-xs.min()+1,ys.max()-ys.min()+1)),source_piece_id=part['id'])
+    if 'smoke' in config:
+        rel = resource_root+'/materials/ending_smoke.gdshader'
+        (out/rel).write_text(ENDING_SMOKE_SHADER)
+        runtime['smoke'].update(shader='res://'+rel,texture='res://'+runtime['erosion_noise_texture'])
+    script = script.replace('    _ready_ember_ending()', '    _ready_ember_ending()\n    _ready_fl5_ending()')
+    script = script.replace('    _clock_ember_ending(age)', '    _clock_ember_ending(age)\n    _clock_fl5_ending(age)')
+    # The matching afterglow starts with the residue, at the spent frame.
+    script = script.replace('float(age-22)/(60.0*float(opts.core_s))','float(age-int(config.timing.paint_end_age))/(60.0*float(opts.core_s))')
+    script = script.replace('if age >= 22 else 0.0\n    ending_core.visible', 'if age >= int(config.timing.paint_end_age) else 0.0\n    ending_core.visible')
+    return script + FL5_ENDING_SCRIPT
+
+
+ENDING_SMOKE_SHADER = r'''shader_type canvas_item;
+render_mode blend_mix, unshaded;
+uniform vec4 smoke_tint : source_color = vec4(0.35,0.3,0.28,1.0);
+void fragment() {
+    float n = (texture(TEXTURE,UV).r + .5*texture(TEXTURE,fract(UV*2.0+vec2(.37,.19))).r)/1.5;
+    float envelope = 1.0-smoothstep(.1,.5,length(UV-vec2(.5)));
+    COLOR = vec4(smoke_tint.rgb,COLOR.a*n*envelope);
+}
+'''
+
+FL5_ENDING_SCRIPT = r'''
+var core_residue: Sprite2D
+var ending_smoke: Sprite2D
+func _ready_fl5_ending() -> void:
+    if config.has("core_residue"):
+        var opts: Dictionary = config.core_residue
+        core_residue = Sprite2D.new()
+        core_residue.name = "CoreResidue"
+        core_residue.texture = load(opts.texture)
+        core_residue.material = load(opts.material).duplicate()
+        core_residue.centered = false
+        core_residue.offset = -Vector2(opts.pivot[0],opts.pivot[1])
+        core_residue.scale = Vector2.ONE * float(opts.scale_bh)*130.0/float(opts.native_extent)
+        core_residue.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR
+        core_residue.z_index = -2
+        add_child(core_residue)
+    if config.has("smoke"):
+        var opts: Dictionary = config.smoke
+        ending_smoke = Sprite2D.new()
+        ending_smoke.name = "EndingSmoke"
+        ending_smoke.texture = load(opts.texture)
+        ending_smoke.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR
+        var mat := ShaderMaterial.new()
+        mat.shader = load(opts.shader)
+        mat.set_shader_parameter("smoke_tint",Color(opts.tint[0],opts.tint[1],opts.tint[2],1))
+        ending_smoke.material = mat
+        ending_smoke.scale = Vector2.ONE * 2.0*float(opts.radius_bh)*130.0/ending_smoke.texture.get_width()
+        ending_smoke.z_index = -1
+        add_child(ending_smoke)
+func _clock_fl5_ending(age: int) -> void:
+    var seconds: float = float(age-int(config.timing.paint_end_age))/60.0
+    var row: Dictionary = trace[-1]
+    if is_instance_valid(core_residue):
+        var t: float = clampf(seconds/float(config.core_residue.seconds),0,1)
+        core_residue.modulate.a = 1.0-t if seconds >= 0 else 0.0
+        core_residue.visible = core_residue.modulate.a > 0
+        core_residue.material.set_shader_parameter("erode",t)
+        row["core_residue_alpha"] = core_residue.modulate.a
+        row["core_residue_erode"] = t
+        row["core_residue_visible"] = core_residue.visible
+        row["core_residue_extent_bh"] = float(config.core_residue.native_extent)*core_residue.scale.x/130.0
+    if is_instance_valid(ending_smoke):
+        ending_smoke.modulate.a = float(config.smoke.alpha)*(1.0-clampf(seconds/float(config.smoke.seconds),0,1)) if seconds >= 0 else 0.0
+        ending_smoke.visible = ending_smoke.modulate.a > 0
+        ending_smoke.position = Vector2(0,-maxf(0,seconds)*float(config.smoke.rise_px_s))
+        row["smoke_alpha"] = ending_smoke.modulate.a
+        row["smoke_y"] = ending_smoke.position.y
+        row["smoke_z"] = ending_smoke.z_index
+'''
 
 if __name__ == "__main__":
     main()

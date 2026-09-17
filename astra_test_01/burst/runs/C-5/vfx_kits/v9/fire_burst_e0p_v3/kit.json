@@ -142,33 +142,34 @@
       "paint_end_age": 26
     },
     "ember_ending": {
-      "amount": 48,
+      "amount": 36,
       "rect_bh": [
-        1.8,
-        0.9
+        1,
+        0.5
       ],
       "life_s": [
-        1.0,
-        1.6
+        0.9,
+        1.4
       ],
       "speed_px_s": [
-        30,
-        90
+        25,
+        70
       ],
       "scale": [
-        0.15,
-        0.33
+        0.08,
+        0.18
       ],
       "glow_radius_bh": 0.9,
       "glow_alpha": 0.85,
       "glow_s": 1.2,
-      "core_radius_bh": 0.45,
-      "core_s": 0.6
+      "core_radius_bh": 0.5,
+      "core_s": 0.6,
+      "spread_deg": 18
     },
     "interleave": {
       "count": [
-        3,
-        5
+        5,
+        7
       ],
       "library": "pieces/interleave",
       "angle_slots": "gaps"
@@ -179,6 +180,22 @@
         1.4
       ],
       "across": 0.9
+    },
+    "core_residue": {
+      "scale_bh": 0.6,
+      "seconds": 0.5
+    },
+    "smoke": {
+      "sheet": "noise",
+      "radius_bh": 0.8,
+      "alpha": 0.28,
+      "rise_px_s": 22,
+      "seconds": 0.9,
+      "tint": [
+        0.35,
+        0.3,
+        0.28
+      ]
     }
   },
   "distance_fields": {

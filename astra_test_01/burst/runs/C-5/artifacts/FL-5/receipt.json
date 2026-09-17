@@ -1,0 +1,235 @@
+{
+  "task_id": "FL-5",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [],
+  "calls_used": 0,
+  "retries": [
+    {
+      "reason": "Initial probe import/metadata and test-harness temporary-directory issues.",
+      "change": "Corrected setup and reran probes and tests."
+    }
+  ],
+  "self_report": {
+    "obeyed_invariants": true,
+    "concerns": [
+      "20 focused checks green; 22 remaining broader-suite red entries are named in remaining_reds.json. E3-r1 catalogue lock remains red.",
+      "Eight source gaps exceed 25 degrees, conflicting with the 5–7 tongue cap. Measured placement satisfies the separate 40-degree limit.",
+      "The foreshortened S socket needs conductor visual review; its audit records the ambiguity.",
+      "Compatibility import exits 0 with no script errors, but Godot reports macOS certificate and denied editor-settings-write warnings."
+    ]
+  },
+  "files": [
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/export/effect_kit.py",
+      "sha256": "31eac2fdaeb57069d6d5e03593ecfd1a53439c4c558683251de989a167da705f"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/export/godot_import.py",
+      "sha256": "b5d1ec252a17c3252dd83d5ddf7aac7de8c721bf2b7ebe038d87300b89f408bf"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/fixtures/fl1b/FL4C-source-assets.json",
+      "sha256": "3d386a02158e8ecdce4f7d4d0b0fc8bf7eea9fb91393e8cbf9fb9f4bf5921404"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/fixtures/fl1b/IceTreatmentImportTests-0.json",
+      "sha256": "7604d991af3a10a3a4c86851d05bd1c0020151f54b5527e9bedd9c77da3b2c04"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/fixtures/fl1b/ProjectileArmPickerTests-2.json",
+      "sha256": "133cf12af7c7832722a1dc66cfaeab50eaa3d57aebbec77651024b8b6b2faa75"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/sockets_v2.json",
+      "sha256": "219141581d7bdf7dcc6769d1e3ccc10119d82918d3c1b6a25d10bd3b0b53aed1"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/specs/fire_bolt_e1.json",
+      "sha256": "98a942e12a06f10ccce4eecde91437861df20d6e1348e4b8f16627605f5fcc9f"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/FL-5/acceptance.json",
+      "sha256": "2fe12db2e80fa18b37c4731b1802ee884282960342f8a15ee1d5789486abc5e8"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/FL-5/before_hashes.json",
+      "sha256": "f1ed7039d5228a06e220dfe6ff9f8fc4d918d9cd5c173fc61dcb2cc597ef9fa3"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/FL-5/byte_lock_review.json",
+      "sha256": "07a6b7304b6d701b4759aea0c63d08fb3332cc019faeb0c29445a3028169bb5b"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/FL-5/emitted/CoreResidue.tres",
+      "sha256": "fcb27414f93a0b0ae8fc6be2897d3bd17126ee333597944d884d18e11a62c513"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/FL-5/emitted/burst_runtime.json",
+      "sha256": "d1b4927ad488ddce8f4581da5b7fd61d30d13efc562893ca1abaaa609856b290"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/FL-5/emitted/core_residue.png",
+      "sha256": "a9f9043a1897b26d79743d2da90524592c6ce17d25f4d39d20b9b3c787303044"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/FL-5/emitted/core_residue_distance.png",
+      "sha256": "07a4b27e38d095b56bf0bb6e318767e61de38deb7eb77cb398e426fb423f4509"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/FL-5/emitted/ending_smoke.gdshader",
+      "sha256": "592836ea63dd227a014bdfeb55093c5f3c22922c870d0cc1ba975cf635525586"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/FL-5/emitted/vfx_fire_burst_e0p_v3_stretch.gd",
+      "sha256": "9eddc82cbf6ef456b01df24b5200656b0305e040a3648278373ba14d0581840a"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/FL-5/emitted/vfx_g1_fl4.gd",
+      "sha256": "fa866b1eed10ffdcbea6a707fb5fe8cf6ad72e260d64be17fcc060d767fd22a0"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/FL-5/final-import.log",
+      "sha256": "b18a8c57187d81def83e9776dc1abcc47acb12495e093746ad1209c6e48f9c1d"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/FL-5/final_export.json",
+      "sha256": "5a75bca358c4582d5bec75b55e4be2d71d5eea99df2e956d6db7671c9d94fa14"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/FL-5/final_focused.json",
+      "sha256": "03e43f6889482e4b4b36c9d705b3e8bf7ed79b6b25a1b37e2b164d3e22213d5f"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/FL-5/final_focused.log",
+      "sha256": "2e5c1b067497c40f6ae0571731cab19d5581b1ea68f5f566981a8c42cb59cbdb"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/FL-5/implementation.diff",
+      "sha256": "c53faad66848c9eb0973890abc2c1d0d341d9d42e62697d9d79eef3718ad8dc3"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/FL-5/north.log",
+      "sha256": "500310c197e1bffe9797bd77539c1a3dd4f08c7ee3cdffb9a8335571e901d37f"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/FL-5/north_trace.json",
+      "sha256": "a9c7a19c8be78ff859e850d943a01ced7afc78f6166ceb7e699afb56a9ef00c2"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/FL-5/probes/events.gd",
+      "sha256": "93ab201317c05cc6759984bdc0b3ec59167a1140b4e25402fbe49b14a41c3254"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/FL-5/probes/probe.gd",
+      "sha256": "72b39c9e72040b70c8dc19fa172f5122c78fafa7674c6acab37232b45d44cc5c"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/FL-5/remaining_reds.json",
+      "sha256": "751215ecd8aab163fa35809b384fd7be09005820aa0dcaa24dccc201ad4be98d"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/FL-5/runtime-final.log",
+      "sha256": "f568981dd7956ebc8e1e6423651315fd899e0934662e15d1f6ef4271648d7913"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/FL-5/runtime_trace.json",
+      "sha256": "8f2e4eb9bcff2287b2b404f7b9113c28ade9e5297b95044b44372a6b5a6a6cb9"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/FL-5/shield.log",
+      "sha256": "500310c197e1bffe9797bd77539c1a3dd4f08c7ee3cdffb9a8335571e901d37f"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/FL-5/shield_trace.json",
+      "sha256": "eb49ac89cbd78f15ec1c01eb0af28a77f5cdcb6f4efc5a1b598a60006ac90865"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/FL-5/socket_audit/E.png",
+      "sha256": "3783f2f22abd63eeb7f809c1193daf2988893fc66bc9c22bd44cc62586fe9c5a"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/FL-5/socket_audit/N.png",
+      "sha256": "ee67c518190f4188d7c57ba5ea6f2c49cfdd14f6b4648afded681950c58fd6e7"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/FL-5/socket_audit/NE.png",
+      "sha256": "5d6b5432f20f9b78cd383c660eddcda11fcc7461bd1564e908e9129fc54a1bf0"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/FL-5/socket_audit/NW.png",
+      "sha256": "4bac37f3c627b60268c3b950d2dd03d19bc5d2cbd7d993a26b215fba40804322"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/FL-5/socket_audit/S.png",
+      "sha256": "f6884ab6305c7a89be5c8ed7d95e71e1083fdfa4821f8cc0212e2e7a2332afc4"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/FL-5/socket_audit/SE.png",
+      "sha256": "df182a143637a4499b118f9d4b1a917bf45915df8c899c06ee3f5ff1a6f4ece5"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/FL-5/socket_audit/SW.png",
+      "sha256": "ff2d99adefdf2e3df01fe6b348ec00dd03fa68473ff8aa5d0f8e21f93852224a"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/FL-5/socket_audit/W.png",
+      "sha256": "fa8adc4dc4881e77594d657542080004118d1c94769956a2a5f0ac4fb5508f9b"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/FL-5/socket_audit/before_after.json",
+      "sha256": "141d655943cc140b048be84a57fd275ca4905af902ced3907b899cdc25de10ad"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/FL-5/socket_audit/before_contact_sheet.png",
+      "sha256": "8bf9bbc46c7ef3122f0923cdc1e4e555d44c4449ee2982028d7a2c9bd4fecfe0"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/FL-5/socket_audit/contact_sheet.png",
+      "sha256": "439e632a17158ee5b08b739ad392992b5f6cbec05ed02a0fd884bf387b46e5f5"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/FL-5/socket_tests.json",
+      "sha256": "0de969ba8fe5a22705214e27c3d58dc694cd72910891f28fbb0d67b5eef9e874"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/FL-5/socket_tests.log",
+      "sha256": "12e2760b8ffcc86dece6e9eab1d700a781671a1b14137f0a3ebb1b6eb17704a0"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/FL-5/source_lock_diff.json",
+      "sha256": "e0547d868777899505c3facfb4087eed6246083f57d05eb01582f8ba43f5c76b"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/FL-5/suite.json",
+      "sha256": "af595e058e527ac29fd76466aba4a9e94693d3755c1951606c6e7c5ec5863c76"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/vfx_kits/v9/fire_bolt_e1_A/kit.json",
+      "sha256": "0e950a3ebdf91f7eeb435d99e7a05fae9baebd8f51196a94c532eca8b8b8c2a2"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/vfx_kits/v9/fire_bolt_e1_B/kit.json",
+      "sha256": "bb294a5cfa2b5795d13b9afe972c8e54694ecbd34e032a825b4813e2cb0c53d3"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/vfx_kits/v9/fire_burst_e0p_v3/kit.json",
+      "sha256": "13e119f263ef1119cfb60cad078d52a5f2b2ab7856518a728544d17dbdc4c56f"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_effect_kit.py",
+      "sha256": "3842b82743ad8000675f45247e6ff4ca817dc51af6e53c7d09e0b269b47f7bd4"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_godot_import.py",
+      "sha256": "4d581e2ed547299954e191c0fdec7570952f5e5196f78851ccf6dc4f42c1364b"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_vfx_picker.py",
+      "sha256": "27451288d602077f3bbd91e89bb50b0f69720d4c546eac7237b10607a162cc68"
+    },
+    {
+      "path": "/Users/admin/astra-burst/runs/C-5/FL-5/out/files.json",
+      "sha256": "0ccccbab562e0e1dddd80a06209fcb537b9d85cd456949241878aa262db11bcd"
+    }
+  ]
+}

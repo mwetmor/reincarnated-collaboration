@@ -31,7 +31,7 @@ LAYER_KEYS = {
     'contact_light': {'lerp', 'frames'},
     'shimmer': {'amplitude_px', 'seconds'},
     'glow': {'alpha', 'scale', 'peak'}, 'floor_light': {'duration_s', 'radius_px', 'curve', 'tint', 'alpha'},
-    'cast': {'muzzle_puff', 'floor_light'}, 'travel': {'flicker_frames', 'trail', 'erode_noise', 'core', 'halo', 'boil', 'smear'},
+    'cast': {'muzzle_puff', 'floor_light'}, 'travel': {'flicker_frames', 'trail', 'erode_noise', 'core', 'halo', 'boil', 'smear', 'eruption'},
     'flash': {'duration_s', 'alpha', 'scale_from', 'scale_to'},
     'decal': {'file', 'duration_s'}, 'hitstop': {'duration_s', 'time_scale'},
     'shake': {'distance', 'duration_s'},
@@ -480,8 +480,8 @@ def piece_geometry(record, source_root):
 def load_interleave(config, root):
     """Explicit spatial tongue library; never infer art or segment at runtime."""
     _keys(config, {'count', 'library', 'angle_slots'}, {'count', 'library', 'angle_slots'}, 'interleave')
-    if config['count'] != [3, 5] or any(type(v) is not int for v in config['count']):
-        raise ValueError('interleave.count must be [3,5]')
+    if config['count'] not in ([3, 5], [5, 7]) or any(type(v) is not int for v in config['count']):
+        raise ValueError('interleave.count must be [3,5] or [5,7]')
     if config['angle_slots'] != 'gaps': raise ValueError('interleave.angle_slots must be gaps')
     root = Path(root).resolve()
     folder = (root/config['library']).resolve()
@@ -536,22 +536,28 @@ def interleave_placement(seed, gaps, library):
     seed = int(seed) & 0x7fffffff
     def sample(label):
         return int(hashlib.sha256(f'{seed}:{label}'.encode('ascii')).hexdigest()[:8],16)
-    count = 3 + sample('count') % 3
+    count = 5 + sample('count') % 3
     selected = sorted(library, key=lambda p:(sample('pick'+str(int(p['id']))),p['id']))[:count]
+    slots = [dict(g) for g in gaps]
     placed = []
-    for rank,(item,gap) in enumerate(zip(selected,gaps)):
-        # ±12 degrees, narrowed only when the literal 55-degree gate needs it.
-        limit = min(12.0, max(0.0,55.0-gap['width_deg']/2))
+    for rank,item in enumerate(selected):
+        slots.sort(key=lambda g:(-g['width_deg'],g['start_deg']))
+        gap = slots.pop(0)
+        limit = min(12.0, max(0.0,40.0-gap['width_deg']/2))
         jitter = (sample('angle'+str(rank))/4294967295*2-1)*limit
-        placed.append({'id':item['id'],'gap_rank':rank,'angle_deg':(gap['start_deg']+gap['width_deg']/2+jitter)%360,
-                       'jitter_deg':jitter,'scale':.8+.35*sample('scale'+str(rank))/4294967295,
+        angle = (gap['start_deg']+gap['width_deg']/2+jitter)%360
+        left = gap['width_deg']/2+jitter
+        slots.extend([{'start_deg':gap['start_deg'],'width_deg':left},
+                      {'start_deg':angle,'width_deg':gap['width_deg']-left}])
+        placed.append({'id':item['id'],'gap_rank':rank,'angle_deg':angle,
+                       'jitter_deg':jitter,'scale':1.2+.4*sample('scale'+str(rank))/4294967295,
                        'mirrored':bool(sample('mirror'+str(rank))%2),'speed_factor':.85})
     return placed
 
 def load_pieces(config, root, runtime=False):
     """Consume T4e schema 2 as delivered; never segment or recolour a shard."""
     root = Path(root).resolve()
-    _keys(config, {'source', 'template', 'root_drift', 'dissolve_order', 'erode_noise', 'key_states', 'embers', 'boil', 'timing', 'ember_ending', 'interleave', 'stretch', *PIECES_DEFAULTS}, {'source', 'template'}, 'pieces')
+    _keys(config, {'source', 'template', 'root_drift', 'dissolve_order', 'erode_noise', 'key_states', 'embers', 'boil', 'timing', 'ember_ending', 'interleave', 'stretch', 'core_residue', 'smoke', *PIECES_DEFAULTS}, {'source', 'template'}, 'pieces')
     if config['template'] not in ('burst_v1', 'burst_v2', 'burst_v1r'):
         raise ValueError('pieces.template must be burst_v1, burst_v2 or burst_v1r')
     if 'stretch' in config:
@@ -587,6 +593,10 @@ def load_pieces(config, root, runtime=False):
         values.pop('key_states', None)  # explicit [] is byte-equivalent to omission
     _number(values['hold_frames'], 1, 2, 'pieces.hold_frames', True)
     _number(values['base_speed_px_s'], 1e-9, math.inf, 'pieces.base_speed_px_s')
+    for role in ('core_residue', 'smoke'):
+        if role in values:
+            validate_fire_ending(role, values[role])
+            if 'ember_ending' not in values: raise ValueError(role+' requires ember_ending')
     if 'ember_ending' in values:
         validate_ember_ending(values['ember_ending'])
         _number(values['residue_s'], 0, 0, 'pieces.residue_s')
@@ -1796,11 +1806,12 @@ def validate_fire_layer(name, value):
         if 'flicker_frames' in value: _number(value['flicker_frames'],1,8,'travel.flicker_frames',True)
         if 'erode_noise' in value: _number(value['erode_noise'],0,1,'travel.erode_noise')
         if 'trail' in value: validate_motes(value['trail'])
-        for role in ('core','halo','boil','smear'):
+        for role in ('core','halo','boil','smear','eruption'):
             if role in value:
                 fields = TRAVEL_RANGES[role]
                 _keys(value[role], set(fields), set(fields), 'travel.'+role)
                 for key,(lo,hi,integer) in fields.items(): _number(value[role][key],lo,hi,'travel.'+role+'.'+key,integer)
+        if 'eruption' in value and value['eruption']['sheet_delay_frames'] >= value['eruption']['frames']: raise ValueError('eruption sheet delay must precede full size')
         if 'boil' in value and value.get('erode_noise',0) <= 0: raise ValueError('travel.boil requires erode_noise')
 
 
@@ -1821,6 +1832,7 @@ def validate_anti_decal(name, value):
 
 # FL-4a: strict opt-in fields; omission leaves every old clock and resource alone.
 TRAVEL_RANGES = {
+    'eruption': {'frames':(1,60,True),'scale_from':(.01,1,False),'sheet_delay_frames':(0,59,True)},
     'core': {'band':(3,3,True),'alpha':(0,1,False),'blur_px':(0,12,False),'pulse_scale':(1,1.2,False),'hz':(1,15,False)},
     'halo': {'alpha':(0,1,False),'scale':(1,2,False)},
     'boil': {'uv_per_s':(0,1,False),'erode_amp':(0,.15,False),'hz':(1,15,False)},
@@ -1829,8 +1841,9 @@ TRAVEL_RANGES = {
 
 def validate_ember_ending(value):
     scalar = {'amount':(16,64,True),'glow_radius_bh':(.1,2,False),'glow_alpha':(0,1,False),'glow_s':(.1,1.5,False),'core_radius_bh':(.1,1,False),'core_s':(.1,1,False)}
-    pairs = {'rect_bh':(.1,3),'life_s':(1,1.6),'speed_px_s':(1,120),'scale':(.05,.5)}
-    _keys(value,set(scalar)|set(pairs),set(scalar)|set(pairs),'ember_ending')
+    pairs = {'rect_bh':(.1,3),'life_s':(.9,1.6),'speed_px_s':(1,120),'scale':(.05,.5)}
+    _keys(value,set(scalar)|set(pairs)|{'spread_deg'},set(scalar)|set(pairs),'ember_ending')
+    if 'spread_deg' in value: _number(value['spread_deg'],0,90,'ember_ending.spread_deg')
     for key,(lo,hi,integer) in scalar.items(): _number(value[key],lo,hi,'ember_ending.'+key,integer)
     for key,(lo,hi) in pairs.items():
         pair=value[key]
@@ -1838,3 +1851,14 @@ def validate_ember_ending(value):
         for number in pair: _number(number,lo,hi,'ember_ending.'+key)
         if key != 'rect_bh' and pair[0]>pair[1]: raise ValueError('ember_ending.'+key+' bounds reversed')
     if value['life_s'][0] > (114-50)/60: raise ValueError('ember_ending minimum life cannot fit total deadline')
+
+
+def validate_fire_ending(role, value):
+    fields = {'scale_bh':(.1,1,False),'seconds':(.1,1,False)} if role == 'core_residue' else {'radius_bh':(.1,2,False),'alpha':(0,1,False),'rise_px_s':(0,80,False),'seconds':(.1,1.5,False)}
+    extra = set() if role == 'core_residue' else {'sheet','tint'}
+    _keys(value, set(fields)|extra, set(fields)|extra, role)
+    for key,(lo,hi,integer) in fields.items(): _number(value[key],lo,hi,role+'.'+key,integer)
+    if role == 'smoke':
+        if value['sheet'] != 'noise': raise ValueError('smoke.sheet must be noise')
+        if not isinstance(value['tint'],list) or len(value['tint']) != 3: raise ValueError('smoke.tint requires RGB')
+        for channel in value['tint']: _number(channel,0,1,'smoke.tint')
