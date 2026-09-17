@@ -17317,6 +17317,11 @@
       "id": "M-C5-FIRE-PAINT2",
       "note": "Fire lane paintings for FL-4 (Matt R-C5-109): E0p-peak-02 = a compact SYMMETRICAL scalloped burst (ten squat tongues, flame between them, white core a third of the body) — the octopus is gone; VF-prim-fire-head-02 = a white-hot teardrop head with three rear hooks (~1.2 BH); VF-prim-fire-sheet-01 = a full flame-sheet wake with four separated wisps (~2.2 BH). All four-plane, transparent; head/sheet delivered at 1254 and staged as 512 working copies by the conductor (as E1). Packet 102 = the board. Bind in FL-4b.",
       "ts": "2026-09-16T18:11:16"
+    },
+    {
+      "id": "M-C5-WEB12",
+      "note": "web12 LIVE: https://reincarnated-loadout.vercel.app/playtest/cliffside/ = cliffside v44 (dancing flames). deploy_truth agentic_orchestration/drax/captures/2026-09-17-web-playtest-v12/deploy_truth.txt; production pck sha f7c5ff24… == local (39,637,352 B), differs from web11’s defective d05c9ee7…; loadout 762e1ff + d8b8238 pushed; boot clean (0 pageerror, 0 Godot ERROR, 0 invalid UID); touch verdicts FORWARD / burst YES / grey peak NONE. drax findings: the web11 grey instrument would false-positive on the white-hot core (split by max channel; grey_measure.py); a license-fence regex prefix bug rejected v44’s own fire_bolt files — fixed in reincarnated-godot 90ef2c5a (committed, not pushed); for bolt kits the peak is at f0 in the touch harness.",
+      "ts": "2026-09-17T00:23:38"
     }
   ],
   "halts": [],
