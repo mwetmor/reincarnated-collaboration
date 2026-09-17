@@ -1,0 +1,234 @@
+DEPLOY TRUTH — CS-pack-web12 (cliffside from PACK v44; fire lane FL-6c, dancing flames
+unclipped; 18 kits; props v25 targets; capsule collider; tip sockets)
+drax, 2026-09-17
+
+URL             https://reincarnated-loadout.vercel.app/playtest/cliffside/
+Dispatch        agentic_orchestration/drax/dispatches/2026-09-17-web12-cliffside-v44.md
+Authorization   Matt, R-C5-132 in astra_test_01/burst/runs/C-5/ledger.json
+Source          astra_test_01/burst/runs/C-5/artifacts/CS-pack-v44/godot  (C-5; read-only,
+                untouched — nothing under astra_test_01/burst/ was written this session)
+Proof gate      gandalf's rendered proof of v44 exists at runs/C-5/t3/FL1-fire-8dir-v44/
+                (R-C5-138), so the pack was proven before I built from it.
+Build           reincarnated-godot/web/build_playtest.sh <src> cliffside
+                Godot 4.6.3.stable.official.7d41c59c4, gl_compatibility, threads OFF
+Loadout commit  762e1ff66953a3d608de1f4095221b6f947291e6  (pushed f3bb7d4..762e1ff main)
+Godot commit    90ef2c5a1ca7707f6517684ba260743d6f6f0c8f — BUILD-SCRIPT ONLY (the license-fence fix in § THE FENCE).
+                NOT PUSHED: this dispatch authorises a push to reincarnated-loadout and
+                says nothing about reincarnated-godot, and CLAUDE.md's standing pattern
+                explicitly does not extend there. The web/cliffside mirror is a build
+                artifact and is not committed, same as web10/web11.
+
+VERDICT: the deploy is live and it is CLEAN. No defect found. The web11 grey-peak
+defect is GONE and is positively accounted for, not merely absent — see § THE GREY.
+
+══════════════════════════════════════════════════════════════════════════════════════
+== PCK IDENTITY — the web11 check, both halves ==
+══════════════════════════════════════════════════════════════════════════════════════
+LOCAL   f7c5ff2496e5e50c43a394d1d0e9d913940df3523539ca7bcf257733bc265d75  39637352 B
+        reincarnated-godot/web/cliffside/build/web/index.pck
+LIVE    f7c5ff2496e5e50c43a394d1d0e9d913940df3523539ca7bcf257733bc265d75  39637352 B
+        downloaded from production with curl and hashed independently of the build
+        ⇒ MATCH. The bytes serving to a player are the bytes I built.
+
+Differs from web11, as required:
+  web11 SHIPPED (defective)  d05c9ee729554ea1af1743217c4100b86689ce929f94e93ce2f0d5553ef54f2f  36688904 B
+  web11 CORRECT (never pushed) dc888930b950dc56086c9c2e007523e1f5b19337e0d19a1eeced9c71e0dfc8c0  36689928 B
+  web12 (this deploy)        f7c5ff24…  39637352 B
+The web11 corrective push was never authorised and never made, so production was on
+d05c9ee7 right up until this deploy replaced it. That is confirmed, not assumed: the
+loadout tree's HEAD before this commit was f3bb7d4 (the web11 deploy commit) and the
+staged pck hashed to d05c9ee7. This deploy retires the web11 defect by superseding it.
+
+index.wasm (37700666 B) and index.js (315759 B) are byte-identical to web7-web11.
+The +2948448 B on the pck vs web11 is ten new kits (v26 shipped 8, v44 ships 18).
+
+THE WEB11 LESSON, APPLIED. web/cliffside/.godot was moved out of the tree BEFORE the
+build, so the uid map was rebuilt from scratch and could not carry a pre-rename path.
+Evidence that it worked: import.log 0 errors, export.log 0 warnings, 0 "invalid UID"
+lines anywhere in either log, and the build's dangling-res:// fence (added after web11)
+passed. On production, both browser runs show 0 Godot ERROR lines and 0 invalid-UID
+warnings — web11's signature was six such lines per run.
+
+══════════════════════════════════════════════════════════════════════════════════════
+== PRODUCTION HTTP (plain GET, no -L) ==
+══════════════════════════════════════════════════════════════════════════════════════
+200  text/html; charset=utf-8               5994      .../playtest/cliffside/
+200  text/html; charset=utf-8               5994      .../playtest/cliffside/index.html
+200  application/javascript; charset=utf-8  315759    .../playtest/cliffside/index.js
+200  application/wasm                       37700666  .../playtest/cliffside/index.wasm
+200  application/octet-stream               39637352  .../playtest/cliffside/index.pck
+200  text/html; charset=utf-8               5994      .../playtest/cliffside  (slash-less)
+200  text/html; charset=utf-8               3043      .../playtest/           (landing)
+live GODOT_CONFIG fileSizes: {"index.pck":39637352,"index.wasm":37700666}
+
+LIVE BOOT SCREENSHOT   live_01_boot.png  (boot_test.js …?touch=1 … live)
+  booted=true, boot_ms=8164, 0 pageerror, 0 Godot ERROR.
+  The scene renders: ravine, bridge, the necromancer up on the north-east lip, the
+  touch overlay (MOVE / JUMP / CAST / VFX) and the HUD reading "VFX: frozen_orb (Tab)".
+  Also live_02..live_05: joystick run east, CAST held, after-cast, keyboard north.
+  Console on both production runs: the two WebGL "GPU stall due to ReadPixels" perf
+  warnings only — a swiftshader artifact present since web6. Nothing else.
+
+══════════════════════════════════════════════════════════════════════════════════════
+== TOUCH CHECK ON PRODUCTION — fire bolt B ==
+══════════════════════════════════════════════════════════════════════════════════════
+Harness  touch_cast_firebolt_b.js (in this directory). Phone-landscape 844x390 CSS px
+         at dsf 2, hasTouch + isMobile; the build agrees it is a touch device
+         (tcast_touchflags.json: maxTouchPoints 1, 'ontouchstart' true, TouchEvent
+         function), so keeper.gd's forward-aim branch is the live branch. The CAST is a
+         genuine CDP Input.dispatchTouchEvent and THE MOUSE IS NEVER MOVED. Facing is a
+         60 ms keyboard tap, which the overlay leaves untouched.
+Kit      Tab x9 -> index 9. tcast_02_kit_label.png: HUD reads "VFX: fire_bolt_e1_B (Tab)".
+         Confirmed against the v44 VFX_KITS literal: index 9 is fire_bolt_e1_B.
+Position Cast from the clearing spawn (2285.6, 2407.3), facing east. Three casts, six
+         back-to-back screenshots each (tcast_04..tcast_21).
+
+  ⚑ VERDICT LINES
+      cast forward  ...  FORWARD
+      burst present ...  YES
+      grey peak     ...  NONE
+
+FORWARD. All three casts put the bolt east of the Keeper, along facing, and nowhere
+else. tcast_16_cast3_f0.png catches it mid-flight a body-width east of the staff tip
+(zoom_cast3_bolt_in_flight_4x.png); tcast_10_cast2_f0.png catches it earlier, closer in;
+tcast_04_cast1_f0.png catches it already detonating on the crate-and-barrel cluster at
+the clearing's east edge. The changed-pixel mass marches east across the three casts
+(x-histogram peak 880-1010 -> 930-1110 -> 1050-1350), which is a travelling projectile,
+not a flash at the caster.
+
+YES. tcast_04_cast1_f0.png is the impact fan, 35902 changed pixels; the 3x zoom is
+zoom_cast1_impact_fan_3x.png. Deep-red outline, orange body, white-hot core, dancing
+tongues that read cleanly and run well past the crates in every direction with nothing
+cut off at a sprite boundary — which is what FL-6c was for.
+
+NONE. See § THE GREY. Measured, not eyeballed.
+
+  ⚑ TIMING NOTE FOR THE NEXT DEPLOY, and it inverts web11's advice. For a BURST kit the
+  peak lands at f2 and the residue at f3 — that is web11's finding and it still holds for
+  the burst kits. For a BOLT kit it does not: the projectile is spawned on the touchStart
+  and the first screenshot lands ~200 ms later, so THE PEAK IS AT f0 and by f3 the whole
+  event is over (the f3-f5 window measures 0 changed VFX pixels). I looked at f2 first,
+  saw an empty frame, and for a moment had a case that the kit had not fired at all. It
+  had. Look at f0 for a bolt, f2 for a burst.
+
+══════════════════════════════════════════════════════════════════════════════════════
+== THE GREY — why "NONE" is a measurement and not a shrug ==
+══════════════════════════════════════════════════════════════════════════════════════
+Script: grey_measure.py in this directory. It corrects the web11 instrument TWICE, and
+both corrections were forced by the instrument returning cleanly while answering a
+different question than the one asked — the shape CLAUDE.md's commit-discipline block
+keeps recording.
+
+CORRECTION 1 — THE REFERENCE FRAME. My first pass differenced the cast frames against
+the pre-cast frame, as web11 did. Between those two frames the Keeper had taken his
+60 ms facing tap and the camera had panned after him, so the mask was mostly camera
+drift spread across the whole width. It produced numbers. They meant nothing. The fix is
+to difference against the ADJACENT frame of the SAME cast: during a cast keeper.gd
+freezes velocity, so the camera is static. Control, two adjacent non-VFX frames of the
+same cast: 465 and 994 changed pixels, against 35902 for the impact frame. That gap is
+what says the mask is VFX and not drift.
+
+CORRECTION 2 — WHAT "GREY" MEANS, and this one nearly filed a false defect report.
+web11's criterion was saturation < 28 AND max channel > 110. Run unmodified on this
+kit it reads 11-13 % "grey" on all three casts, which looks exactly like web11's defect
+coming back. It is not. fire_bolt_e1_B HAS A WHITE-HOT CORE BY DESIGN, and near-white is
+desaturated. The criterion cannot tell a white-hot core from an unshaded index map; it
+was written against a kit that had no white core, and it was carried forward to one that
+does. Split the desaturated pixels by MAX CHANNEL and the two separate cleanly:
+
+                                  white-hot core   UNSHADED-GREY     warm
+                                    (max >= 235)    (110-235)
+  CONTROL cast1 f2 vs f1 (no VFX)      0.00 %        0.86 %         80.4 %
+  CONTROL cast2 f3 vs f2 (no VFX)      0.00 %        2.52 %         66.9 %
+  cast1 impact fan                    12.90 %        0.21 %         86.1 %
+  cast2 bolt aloft                    11.01 %        0.00 %         76.9 %
+  cast3 bolt aloft                    11.33 %        1.03 %         70.1 %
+
+Every unshaded-grey reading is AT OR BELOW the no-VFX control floor. There is no
+unshaded-grey population in this kit that is distinguishable from background noise.
+The whole desaturated mass is the flame core, and it is 98 % of it.
+
+Cross-check against web11's own archived exhibits, same instrument, whole frame:
+  tcast_13_cast2_f2.png (the defective peak)   mid-grey band 110-200: 1.16 %
+  REBUILD_clean_cast_peak_NO_grey.png (clean)  mid-grey band 110-200: 0.73 %
+web11's defect lived in the MID-GREY band. web12's desaturation lives at 235-256. They
+are different populations, and the one that mattered is absent.
+
+MECHANISM AGREES WITH PIXELS, which is the part that makes this a finding rather than a
+hopeful reading. web11's grey was CAUSED by two dangling shader references, and a
+dangling shader announces itself: "invalid UID … using text path instead" plus "Cannot
+load shader", six lines per run in the console. web12's production console has zero of
+them, the build's dangling-res:// fence passed, and the import/export logs are clean.
+Absent cause, absent symptom, and both measured separately.
+
+══════════════════════════════════════════════════════════════════════════════════════
+== THE FENCE — a build-tooling fix this deploy required ==
+══════════════════════════════════════════════════════════════════════════════════════
+The first build FAILED and it was a FALSE POSITIVE. The overlay's license fence rejected
+seven of the pack's own files:
+    scenes/vfx_fire_bolt_e1_A_impact.tscn, scenes/vfx_fire_bolt_e1_B_impact.tscn,
+    scripts/vfx_fire_bolt_e1_{A,B}_impact.gd, scripts/vfx_fire_bolt_e1_{A,B}_material.gd,
+    scripts/keeper.gd (content)
+
+The fence exists to stop library VFX packs being redistributed. Those ship as
+vfx/<kit>/ and vfx_<kit>_(bolt|impact) for kits named EXACTLY frost/fire/lightning/
+arcane/holy/poison. The pattern had no trailing boundary, so "vfx_fire_bolt" matched as
+a PREFIX of the self-authored "vfx_fire_bolt_e1_A_impact". v44 is the first pack to ship
+a fire_bolt_* kit, so this fence had never met the case it gets wrong. web/README.md
+already claims the matching is exact ("lets self-authored kits like lightning_blast
+through") — the claim was right, the regex did not implement it.
+
+FIX: add the exact-name boundary in both copies of the pattern —
+  _overlay/apply_overlay.py   …_(bolt|impact)(?![A-Za-z0-9_])
+  build_playtest.sh (pck grep) …_(bolt|impact)[^A-Za-z0-9_]   (BRE/ERE has no lookahead;
+      pck paths always carry an extension, so the boundary character is always present)
+
+⚑ THE FIX WAS NOT ACCEPTED ON ITS ARGUMENT. Loosening a license fence to unblock my own
+build is exactly the change that must not be taken on reasoning alone, so it was tested
+against the real thing. Both library-bearing packs on disk — CS-pack-v8b and CS-pack-v14
+(C-3), the two the fence's own comment cites as "hit 180 paths each" — were re-scanned
+with the old pattern and the new one:
+      CS-pack-v8b:  loose 180 hits, strict 180 hits, LOST 0  -> fence still fails
+      CS-pack-v14:  loose 180 hits, strict 180 hits, LOST 0  -> fence still fails
+Zero loss of catching power on the packs it was built to catch. Their real filename
+shapes were enumerated rather than assumed: vfx_<kit>_{bolt,impact}.{tscn,gd}, 24 files,
+nothing with a suffix after bolt/impact. My first regression attempt asserted a
+"vfx_frost_bolt_material.gd" form and the new pattern missed it — I had INVENTED that
+filename; it does not exist in either library pack. Enumerating the real shapes is what
+settled it.
+
+And the fence was then re-run against the LIVE production pck, downloaded independently
+of the build: no match. Clean.
+
+══════════════════════════════════════════════════════════════════════════════════════
+== LICENSE FENCE ==
+══════════════════════════════════════════════════════════════════════════════════════
+overlay pass on the mirrored source: clean (no library VFX packs)
+staged index.pck:                    no match (build exits 3 on a hit)
+LIVE index.pck, downloaded and grepped independently of the build: no match
+
+══════════════════════════════════════════════════════════════════════════════════════
+== CAVEATS ==
+══════════════════════════════════════════════════════════════════════════════════════
+Nothing outstanding against this build. For completeness, carried forward unchanged:
+- iOS texture memory ~45 MB on first download; the six big parallax/tile textures import
+  as lossy WebP q0.9; parallax/tiles/tile_0_0.png is 4096x4096, at the GLES3
+  max-texture-size floor.
+- Single-threaded build (no SharedArrayBuffer), so no COOP/COEP headers on Vercel.
+- The pck is 39.6 MB, up 2.9 MB on web11 — first load is correspondingly slower on a
+  phone. Ten more kits is the whole of it.
+- web/README.md still tells you to move .godot aside INSIDE $DEST, where the next
+  rsync --delete eats the backup. Noted in web11, still true, still harmless. This
+  session moved it to a scratch directory outside $DEST instead.
+
+== FILES IN THIS DIRECTORY ==
+deploy_truth.txt                    this record
+live_01_boot.png .. live_05_*.png   production boot run, ?touch=1
+live_console.txt                    booted=true boot_ms=8164, 0 pageerror, 0 Godot ERROR
+tcast_01..tcast_22 *.png            the touch check: spawn, kit label, facing, 3x6 casts
+tcast_console.txt                   booted=true boot_ms=6633, 0 pageerror, 0 Godot ERROR
+tcast_touchflags.json               the build's own view of the device
+zoom_cast1_impact_fan_3x.png        the impact fan, 3x NEAREST
+zoom_cast3_bolt_in_flight_4x.png    the bolt mid-flight, 4x NEAREST
+touch_cast_firebolt_b.js            the touch harness
+grey_measure.py                     the grey measure, with both corrections documented
