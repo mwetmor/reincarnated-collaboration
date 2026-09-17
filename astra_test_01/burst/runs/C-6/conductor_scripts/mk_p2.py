@@ -90,6 +90,19 @@ for d in DIRS:
         refs = [{"path": str(MASTER), "role": "IMAGE 1 — APPROVED MASTER (S): identity truth"},
                 {"path": str(src), "role": f"IMAGE 2 — the character turned to {d}: EDIT this image; change only the named fix"}]
         outs = [f"out/n7_{d}.png"]
+    elif mode == 'standedit':
+        import json as _j
+        srcs = _j.load(open(B/'runs/C-6/n8_sources.json')); src = B/srcs[d]; assert src.exists(), src
+        bid = f'N8-stand-{d}'
+        text = (f"GENERATE BURST {bid} — Necromancer STANDING REST frame, direction {d}: POSE change in EDIT mode (Run C-6 P2 pass 5; owner ruling R-C6-17 — the fighting crouch is a battle idle for a later set). task_id \"{bid}\".\n\n"
+          f"IMAGE 1 is the APPROVED MASTER (S): identity truth (pale ice-blue eyes; plain round silver belt disc; silver-steel ribcage; ONE horn on his left shoulder; the book with silver corner caps and a short red ribbon and nothing else; exactly two hands on the scythe; no skull anywhere) — but its POSE is a crouched fighting stance, which is NOT wanted here. IMAGE 2 is the same character turned to {d} at the correct camera with the correct sides, identity and gear — also in the crouch.\n"
+          f"Use image_gen in EDIT MODE on IMAGE 2 and deliver ONE image identical to IMAGE 2 except the POSE: he STANDS UP into an at-ease standing rest — legs straight and together-ish (feet under the hips, about shoulder-width or less, both soles flat on the ground), torso upright, no forward lean, shoulders level, weight even; the scythe stays in EXACTLY TWO hands held at rest across the body (upper grip about chest height, lower grip about hip height, the blade UP and still the tallest landmark, on the same side as in IMAGE 2); the HEAD LEVEL WITH THE CHIN FRACTIONALLY RAISED, eyes on the far horizon in the direction he faces. Standing up makes him TALLER on the canvas — that is expected; keep everything inside the canvas with margin, feet on the same ground line, same camera (crown and shoulder tops seen from above, feet foreshortened), same turn ({d}), same blade/horn/tome sides, same plate (flat pure #00ff00).\n"
+          f"Reference for the direction (unchanged): {row}\n\n{COMMON}\n\n"
+          f"One image_gen call; ONE retry only if he is still crouched or leaning, the sides or turn changed, the plate is not pure green, a skull appears anywhere, a third hand appears, or the head reads bowed AT ALL (hard fail) — name the reason. Copy the output from $CODEX_HOME/generated_images/... to out/n8_{d}.png with sha256. No code. No other files. No web.\n"
+          f"RETURN: the receipt (task_id \"{bid}\"): files = [out/n8_{d}.png with sha256]; images = the INTEGER COUNT of image_gen calls (1 or 2); calls_used; status DELIVERED / DELIVERED_WITH_CONCERNS — state explicitly: is he standing upright, head level, hands, plate colour, what else moved.")
+        refs = [{"path": str(MASTER), "role": "IMAGE 1 — APPROVED MASTER (S): identity truth; its crouch is NOT the target pose"},
+                {"path": str(src), "role": f"IMAGE 2 — the character turned to {d}: EDIT this image; change only the pose to a standing rest"}]
+        outs = [f"out/n8_{d}.png"]
     elif mode == 'remint':
         import json as _j
         sel=_j.load(open(B/'runs/C-6/p2_selection.json'))['selection'][d]
