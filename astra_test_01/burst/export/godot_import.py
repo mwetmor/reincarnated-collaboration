@@ -2790,7 +2790,7 @@ def _write_piece_burst_v2(out, kit, resource_root, prefix):
     legacy['effect']['pieces']['template'] = 'burst_v1'
     legacy['effect']['pieces'].pop('key_states', None)
     legacy['effect']['pieces'].pop('boil', None)
-    for opt in ('timing','ember_ending','interleave','stretch','core_residue','smoke'): legacy['effect']['pieces'].pop(opt, None)
+    for opt in ('timing','ember_ending','interleave','stretch','core_residue','smoke','flame_dance'): legacy['effect']['pieces'].pop(opt, None)
     if 'ember_ending' in config:
         legacy['effect']['pieces'].update(residue_s=.3,residue_fraction=.2)
     legacy['effect']['material'].pop('erode_noise', None)
@@ -2921,6 +2921,11 @@ def _write_piece_burst_v2(out, kit, resource_root, prefix):
         script_path = f'scripts/vfx/{prefix}_stretch.gd'
         scene = re.sub(r'res://scripts/vfx/piece_burst_[^"\n]+\.gd', 'res://'+script_path, scene)
         (out/script_path).write_text(script)
+    if 'flame_dance' in config:
+        script = _fl6_burst(out, kit, resource_root, runtime, script)
+        dance_script = 'scripts/vfx/'+prefix+'_dance.gd'
+        scene = re.sub(r'res://scripts/vfx/[^\"\n]+\.gd', 'res://'+dance_script, scene, count=1)
+        (out/dance_script).write_text(script)
     # Shared files must not depend on which kit was emitted last.
     (out/'scripts/vfx/piece_burst_v2.gd').write_text(PIECE_BURST_V2_SCRIPT)
     runtime_path.write_text(json.dumps(runtime,indent=2)+'\n')
@@ -3043,7 +3048,7 @@ def _painted_g1_config(kit):
     for i, state in enumerate(states):
         state['png'] = root+state['png']
         state['material'] = root+'materials/Travel_key_'+str(i)+'.tres'
-    return {'fire_layers': data['layers'] if 'cast' in data['layers'] else {}, 'palette': data['material']['palette'], 'bolt': ('res://scenes/vfx/g1_ice_projectile.tscn' if data.get('pieces', {}).get('template') == 'burst_v1r' else 'res://scenes/vfx/g1_fl4_projectile.tscn' if 'core' in data['layers'].get('travel', {}) else 'res://scenes/vfx/g1_painted_projectile.tscn'),
+    return {'fire_layers': data['layers'] if 'cast' in data['layers'] else {}, 'palette': data['material']['palette'], 'bolt': ('res://scenes/vfx/g1_ice_projectile.tscn' if data.get('pieces', {}).get('template') == 'burst_v1r' else 'res://scenes/vfx/g1_fl6_projectile.tscn' if 'flame_dance' in data['layers'].get('travel', {}) else 'res://scenes/vfx/g1_fl4_projectile.tscn' if 'core' in data['layers'].get('travel', {}) else 'res://scenes/vfx/g1_painted_projectile.tscn'),
             'range_px': data['skill_spec']['mechanics']['range_px'],
             'speed_px_s': data['skill_spec']['mechanics']['speed_px_s'],
             'spec_speed_px_s': data['skill_spec']['mechanics']['speed_px_s'],
@@ -3626,8 +3631,8 @@ def _write_ground_effects(out):
 def _g2_config(kit, ground_geometry=None):
     from export.effect_kit import tick_schedule_report
     d=kit['effect']; spec=d['skill_spec']; m=spec['mechanics']; g=d['g2']; root='res://vfx/'+kit['name']+'/'
-    return dict(name=kit['name'],grammar='G2',screen_px=True,flare=root+'flare.tres',
-                bolt='res://scenes/vfx/g2_thrown_field.tscn',range_px=m['range_px'],
+    return dict(**({'flame_dance':g['flame_dance']} if 'flame_dance' in g else {}),name=kit['name'],grammar='G2',screen_px=True,flare=root+'flare.tres',
+                bolt='res://scenes/vfx/g2_flame_dance.tscn' if 'flame_dance' in g else 'res://scenes/vfx/g2_thrown_field.tscn',range_px=m['range_px'],
                 apex_px=m['arc']['apex_px'],flight_s=m['arc']['flight_s'],radius_px=m['field']['radius_px'],
                 duration_s=m['field']['duration_s'],ticks=m['field']['tick_schedule_s'],
                 schedule=tick_schedule_report(m['field']['tick_schedule_s'],m['field'].get('tick_cv_min',.25)),
@@ -3724,6 +3729,12 @@ def _write_g2_kit(out, kit):
     write_vfx_material(out,root+'/materials/Body.tres',mat,root+'/derived/pulse_distance.png')
     from export.effect_kit import MATERIAL_BINDING_SCRIPT
     (out/f'scripts/vfx_{kit["name"]}_material.gd').write_text('extends RefCounted\n'+MATERIAL_BINDING_SCRIPT)
+    if 'flame_dance' in d['g2']:
+        _emit_flame_dance(out)
+        _write_g2_component(out)
+        (out/'scripts/vfx_g2_flame_dance.gd').write_text(_fl6_pool(G2_SCRIPT))
+        scene=(out/'scenes/vfx/g2_thrown_field.tscn').read_text()
+        (out/'scenes/vfx/g2_flame_dance.tscn').write_text(scene.replace('vfx_g2.gd','vfx_g2_flame_dance.gd'))
     return {'grammar':'G2','frames':sum(len(p['frames']) for p in d['phases'].values())}
 
 
@@ -5676,6 +5687,13 @@ def _write_fl4_travel(out, kit, resource_root):
     script += FLIGHT_LIGHT_SCRIPT + FL4B_CONTACT_SCRIPT
     script = _fl5_eruption_script(script)
     (out/'scripts/vfx_g1_fl4.gd').write_text(script)
+    if 'flame_dance' in opts:
+        _emit_flame_dance(out)
+        script = _fl6_travel(script)
+        (out/'scripts/vfx_g1_fl6.gd').write_text(script)
+        (out/'scenes/vfx/g1_fl6_projectile.tscn').write_text(scene.replace('vfx_g1_fl4.gd','vfx_g1_fl6.gd'))
+    if 'flame_dance' not in opts:
+        (out/'scripts/vfx_g1_fl4.gd').write_text(script)
     motes = FIRE_MOTES_SCRIPT.replace('res://scripts/vfx_fire_motes.gd','res://scripts/vfx_fire_motes_fl4.gd')
     motes = motes.replace('var band: int=2 if mode=="trail" else settings.bands[rng.randi_range(0,1)]','var band: int=settings.get("bands",[2,2])[rng.randi_range(0,1)] if mode=="trail" else settings.bands[rng.randi_range(0,1)]')
     (out/'scripts/vfx_fire_motes_fl4.gd').write_text(motes)
@@ -6032,3 +6050,205 @@ func _clock_fl5_ending(age: int) -> void:
 
 if __name__ == "__main__":
     main()
+
+
+# FL-6 shared layer controller. Resources are emitted only for opted-in kits.
+FLAME_DANCE_SCRIPT = r'''extends RefCounted
+var settings: Dictionary
+var seed_value: int
+var copies: Array = []
+var last_sample: Dictionary = {}
+var flickers: Dictionary = {}
+func setup(opts: Dictionary, cast_seed: int) -> void:
+    settings = opts
+    seed_value = (cast_seed + int(opts.seed_offset)) & 0x7fffffff
+func _u(layer: int, label: String) -> float:
+    return float((str(seed_value)+":"+str(layer)+":"+label).sha256_text().substr(0,8).hex_to_int())/4294967295.0
+func _raw(age: int, layer: int) -> Vector4:
+    var previous := Vector4.ZERO
+    var target := Vector4(_u(layer,"v0:0")*2-1,_u(layer,"v0:1")*2-1,_u(layer,"v0:2")*2-1,_u(layer,"v0:3")*2-1)
+    var start: int = 0
+    var step: int = 0
+    var frame: int = maxi(0,age)+int(_u(layer,"phase")*59)
+    var span: int
+    while true:
+        span = mini(int(settings.step_frames[1]),int(settings.step_frames[0])+int(_u(layer,"dt"+str(step))*(int(settings.step_frames[1])-int(settings.step_frames[0])+1)))
+        if frame < start+span: break
+        start += span
+        step += 1
+        previous = target
+        for k in range(4): target[k] = clampf(-.65*previous[k]+(_u(layer,"v"+str(step)+":"+str(k))*2-1),-1,1)
+    var t: float = float(frame-start)/float(span)
+    return previous.lerp(target,t*t*(3-2*t))
+func sample(age: int, layer: int) -> Vector4:
+    var value: Vector4 = _raw(age,2)
+    if layer == 3:
+        var front: Vector4 = _raw(age,3)
+        for k in range(4): value[k] *= -(.4+.6*absf(front[k]))
+    return value * Vector4(float(settings.jitter_px),float(settings.jitter_px),float(settings.jitter_deg),float(settings.jitter_scale))
+func flicker(age: int, ident: int) -> Vector2:
+    if not flickers.has(ident):
+        flickers[ident] = {"age":-1,"y":0.0,"previous":0.0,"hz":lerpf(float(settings.flicker_hz[0]),float(settings.flicker_hz[1]),_u(ident,"hz"))}
+    var state: Dictionary = flickers[ident]
+    while int(state.age)<age:
+        state.age += 1
+        var white: float = _u(ident,"flicker"+str(int(state.age)))*2-1
+        var value: float = 2*.94*cos(TAU*float(state.hz)/60)*float(state.y)-.94*.94*float(state.previous)+white
+        state.previous=state.y
+        state.y=value
+    var turbulent: float = tanh(float(state.y)*.28)
+    return Vector2(1+.08*turbulent,.925+.075*turbulent)
+func add_copy(source: Sprite2D, parent: Node2D, layer: int, whole_body: bool, core_texture: Texture2D = null) -> void:
+    var paint := Sprite2D.new()
+    paint.name = "FlameDanceL"+str(layer)+"_"+str(copies.size())
+    paint.texture = source.texture if core_texture == null else core_texture
+    paint.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR
+    paint.centered = source.centered
+    paint.offset = source.offset
+    paint.material = source.material.duplicate()
+    var shader := Shader.new()
+    var code: String = source.material.shader.code
+    var gate: String = "step(texture(TEXTURE, UV).r, 0.5)" if layer==2 else "step(0.5, texture(TEXTURE, UV).r)"
+    if core_texture != null:
+        code = code.replace("blend_mix", "blend_add")
+        gate = "1.0"
+    var end: int = code.rfind("}")
+    shader.code = code.substr(0,end)+"\n    COLOR.a *= "+gate+";\n"+code.substr(end)
+    paint.material.shader = shader
+    paint.z_index = -1 if layer == 2 else 1
+    parent.add_child(paint)
+    copies.append({"source":source,"paint":paint,"layer":layer,"whole_body":whole_body,"core":core_texture!=null})
+func update(age: int) -> void:
+    var back: Vector4 = sample(age,2)
+    var front: Vector4 = sample(age,3)
+    last_sample = {"age":age,"back":[back.x,back.y,back.z,back.w],"front":[front.x,front.y,front.z,front.w],"copies":copies.size()}
+    for pair in copies:
+        var source: Sprite2D = pair.source
+        var paint: Sprite2D = pair.paint
+        paint.visible = source.is_visible_in_tree()
+        paint.transform = paint.get_parent().global_transform.affine_inverse() * source.global_transform
+        var offset: Vector4 = back if int(pair.layer)==2 else front
+        var size: float = float(settings.back_scale) if int(pair.layer)==2 else float(settings.front_scale)
+        if pair.core:
+            paint.modulate = source.modulate
+            paint.modulate.a *= float(settings.tongue_core_alpha)
+        else:
+            var pivot: Vector2 = Vector2.ZERO if pair.whole_body else paint.position
+            paint.position = pivot + (paint.position-pivot).rotated(deg_to_rad(offset.z))*size*(1+offset.w)+Vector2(offset.x,offset.y)
+            paint.rotation += deg_to_rad(offset.z)
+            paint.scale *= size*(1+offset.w)
+            paint.modulate = source.modulate
+            if int(pair.layer)==3: paint.modulate.a *= float(settings.front_alpha)
+        for key in ["erode","dissolve","noise_uv_offset","outer_distance"]:
+            paint.material.set_shader_parameter(key,source.material.get_shader_parameter(key))
+func clear() -> void:
+    for pair in copies:
+        if is_instance_valid(pair.paint): pair.paint.free()
+    copies.clear()
+'''
+
+
+def _emit_flame_dance(out):
+    (out/'scripts/vfx_flame_dance.gd').write_text(FLAME_DANCE_SCRIPT)
+
+
+def _fl6_burst(out, kit, resource_root, runtime, script):
+    import numpy as np
+    from PIL import ImageFilter
+    opts = kit['effect']['pieces']['flame_dance']
+    runtime['flame_dance'] = opts
+    _emit_flame_dance(out)
+    # These are derived masks; the source primitive bytes are never touched.
+    textures = {}
+    for item in runtime['pieces']:
+        if not item.get('interleave'): continue
+        source = kit['root']/kit['effect']['pieces']['interleave']['library']/Path(item['mask']).name
+        with Image.open(source) as image: rgba=np.array(image.convert('RGBA'))
+        alpha=Image.fromarray(np.where(rgba[...,0]==255,rgba[...,3],0).astype(np.uint8)).filter(ImageFilter.GaussianBlur(4))
+        core=Image.new('RGBA',alpha.size,(255,255,255,0));core.putalpha(alpha)
+        relative=resource_root+'/pieces/dance_core_'+str(item['id'])+'.png'
+        core.save(out/relative);textures[str(item['id'])]='res://'+relative
+    runtime['dance_core_textures']=textures
+    script=script.replace('    tree_exiting.connect(_write_trace)', '    _ready_flame_dance()\n    tree_exiting.connect(_write_trace)')
+    script=script.replace('    _clock_anti_decal(age, residue_start, residue_end)', '    _clock_flame_dance(age)\n    _clock_anti_decal(age, residue_start, residue_end)')
+    script=script.replace('var count: int = int(config.interleave.count[0]) + _interleave_sample("count") % 3', 'var count: int = int(config.flame_dance.tongue_count[0]) + _interleave_sample("count") % (int(config.flame_dance.tongue_count[1])-int(config.flame_dance.tongue_count[0])+1)')
+    script=script.replace('float(config.core_radius_px)*.9*1.1','float(config.core_radius_px)*float(config.flame_dance.tongue_root_radius_factor)')
+    script=script.replace('1.2+.4*float(_interleave_sample("scale"+str(rank)))/4294967295.0','lerpf(float(config.flame_dance.tongue_scale[0]),float(config.flame_dance.tongue_scale[1]),float(_interleave_sample("scale"+str(rank)))/4294967295.0)')
+    script=script.replace('        for piece in pieces:\n            sources.append(piece.paint)', '        for piece in pieces:\n            if piece.record.get("interleave",false): continue\n            sources.append(piece.paint)')
+    return script + FL6_BURST_SCRIPT
+
+
+FL6_BURST_SCRIPT = r'''
+var flame_dance: RefCounted
+func _ready_flame_dance() -> void:
+    flame_dance = load("res://scripts/vfx_flame_dance.gd").new()
+    flame_dance.setup(config.flame_dance,int(config.seed))
+    for part in pieces:
+        if part.record.get("interleave",false):
+            part.axis.z_index = 1
+            if part.dark_axis != null: part.dark_axis.hide()
+            flame_dance.add_copy(part.paint,$Art,3,true,load(config.dance_core_textures[str(int(part.record.id))]))
+        else:
+            flame_dance.add_copy(part.paint,$Art,2,true)
+            flame_dance.add_copy(part.root,$Art,2,true)
+            if config.flame_dance.front_source == "inner_planes":
+                flame_dance.add_copy(part.paint,$Art,3,true)
+                flame_dance.add_copy(part.root,$Art,3,true)
+func _clock_flame_dance(age: int) -> void:
+    var offset: Vector4 = flame_dance.sample(age,3)
+    var live: int = 0
+    for part in pieces:
+        if not part.record.get("interleave",false): continue
+        var axis: Node2D = part.axis
+        axis.position = axis.position.rotated(deg_to_rad(offset.z))*(1+offset.w)+Vector2(offset.x,offset.y)
+        axis.rotation += deg_to_rad(offset.z)
+        var flicker: Vector2 = flame_dance.flicker(age,int(part.record.id))
+        part.node.scale *= (1+offset.w)*flicker.x
+        part.paint.modulate.a = flicker.y
+        if part.dark_axis != null: part.dark_axis.hide()
+        if axis.visible: live += 1
+    flame_dance.update(age)
+    trace[-1]["flame_dance"] = flame_dance.last_sample.duplicate(true)
+    trace[-1]["flame_dance"]["live_tongues"] = live
+'''
+
+
+def _fl6_travel(script):
+    script=script.replace('    _ready_flight_light()','    _ready_flight_light()\n    _ready_sheet_dance()')
+    script=script.replace('    _clock_flight_light(age)','    _clock_flight_light(age)\n    _clock_sheet_dance(age)',1)
+    script=script.replace('    if is_instance_valid(flight_core) and not active: _clock_flight_light(age_frames())','    if is_instance_valid(flight_core) and not active:\n        _clock_flight_light(age_frames())\n        _clock_sheet_dance(age_frames())')
+    return script + r'''
+var sheet_dance: RefCounted
+func _ready_sheet_dance() -> void:
+    if sheet_dance != null: sheet_dance.clear()
+    sheet_dance = load("res://scripts/vfx_flame_dance.gd").new()
+    sheet_dance.setup(config.fire_layers.travel.flame_dance,int(get_meta("flame_dance_seed",int(config.seed)^int(get_instance_id())^int(Engine.get_physics_frames())^int(randi()))))
+    sheet_dance.add_copy($Streak,self,2,false)
+    sheet_dance.add_copy($Streak,self,3,false)
+func _clock_sheet_dance(age: int) -> void:
+    if sheet_dance == null: return
+    sheet_dance.update(age)
+    if not fire_trace.is_empty(): fire_trace[-1]["flame_dance"] = sheet_dance.last_sample.duplicate(true)
+'''
+
+
+def _fl6_pool(script):
+    script=script.replace('    ground_visual.hide()','    _ready_lick_dance()\n    ground_visual.hide()',1)
+    script=script.replace('    trace.append({"age_frames":age,"lift_px":lift', '    _clock_lick_dance(maxi(0,land_age))\n    trace.append({"age_frames":age,"lift_px":lift')
+    return script + r'''
+var lick_dancers: Array = []
+func _ready_lick_dance() -> void:
+    for dancer in lick_dancers: dancer.clear()
+    lick_dancers.clear()
+    var cast_seed: int = int(get_meta("flame_dance_seed",int(config.seed)^int(get_instance_id())^int(Engine.get_physics_frames())^int(randi())))
+    var index: int = 0
+    for lick in ground_visual.get_node("Licks").get_children():
+        var dancer: RefCounted = load("res://scripts/vfx_flame_dance.gd").new()
+        dancer.setup(config.flame_dance,cast_seed+index*7919)
+        dancer.add_copy(lick,ground_visual,2,false)
+        dancer.add_copy(lick,ground_visual,3,false)
+        lick_dancers.append(dancer)
+        index += 1
+func _clock_lick_dance(age: int) -> void:
+    for dancer in lick_dancers: dancer.update(age)
+'''

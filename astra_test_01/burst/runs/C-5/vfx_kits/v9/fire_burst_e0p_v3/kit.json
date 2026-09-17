@@ -139,7 +139,7 @@
     "timing": {
       "expanded_age": 12,
       "erosion_age": 14,
-      "paint_end_age": 26
+      "paint_end_age": 30
     },
     "ember_ending": {
       "amount": 36,
@@ -196,6 +196,35 @@
         0.3,
         0.28
       ]
+    },
+    "flame_dance": {
+      "layers": 3,
+      "back_scale": 0.94,
+      "front_scale": 1.04,
+      "front_alpha": 0.85,
+      "front_source": "interleave",
+      "tongue_root_radius_factor": 1.25,
+      "tongue_count": [
+        6,
+        8
+      ],
+      "tongue_scale": [
+        1.3,
+        1.7
+      ],
+      "tongue_core_alpha": 0.5,
+      "jitter_px": 5,
+      "jitter_deg": 2.5,
+      "jitter_scale": 0.03,
+      "step_frames": [
+        2,
+        3
+      ],
+      "flicker_hz": [
+        3.3,
+        3.6
+      ],
+      "seed_offset": 7
     }
   },
   "distance_fields": {

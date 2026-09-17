@@ -192,6 +192,35 @@
         320
       ],
       "dissolve_s": 0.4
+    },
+    "flame_dance": {
+      "layers": 3,
+      "back_scale": 0.94,
+      "front_scale": 1.04,
+      "front_alpha": 0.85,
+      "front_source": "inner_planes",
+      "tongue_root_radius_factor": 1.25,
+      "tongue_count": [
+        6,
+        8
+      ],
+      "tongue_scale": [
+        1.3,
+        1.7
+      ],
+      "tongue_core_alpha": 0.5,
+      "jitter_px": 3,
+      "jitter_deg": 2.5,
+      "jitter_scale": 0.03,
+      "step_frames": [
+        3,
+        5
+      ],
+      "flicker_hz": [
+        3.3,
+        3.6
+      ],
+      "seed_offset": 7
     }
   }
 }

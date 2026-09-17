@@ -2735,3 +2735,50 @@ class FL5FieldTests(unittest.TestCase):
         for role in ('core_residue','smoke'):
             validate_fire_ending(role,d[role]);bad=copy.deepcopy(d[role]);bad['seconds']=-1
             with self.assertRaises(ValueError):validate_fire_ending(role,bad)
+
+
+class FL6FlameDanceValidationTests(unittest.TestCase):
+    def test_fields_and_known_bad_controls(self):
+        from export.effect_kit import FLAME_DANCE_DEFAULTS, validate_flame_dance
+        base=copy.deepcopy(FLAME_DANCE_DEFAULTS)
+        self.assertEqual(validate_flame_dance(base),base)
+        for key,bad in dict(layers=2,back_scale=1.1,front_scale=.9,front_alpha=1.1,
+                front_source='body',tongue_root_radius_factor=.9,tongue_count=[5,8],
+                tongue_scale=[1.7,1.3],tongue_core_alpha=-.1,jitter_px=float('nan'),
+                jitter_deg=True,jitter_scale=.1,step_frames=[1,3],
+                flicker_hz=[3.2,3.6],seed_offset=-1).items():
+            with self.subTest(field=key):
+                value=copy.deepcopy(base);value[key]=bad
+                with self.assertRaises(ValueError):validate_flame_dance(value)
+        for key in base:
+            value=copy.deepcopy(base);del value[key]
+            with self.assertRaises(ValueError):validate_flame_dance(value)
+        value=copy.deepcopy(base);value['unknown']=1
+        with self.assertRaises(ValueError):validate_flame_dance(value)
+
+    def test_seeded_bounded_opposition_and_nonperiodic_peaks(self):
+        from export.effect_kit import FLAME_DANCE_DEFAULTS, flame_dance_sample, flame_dance_autocorrelation
+        for steps in ([2,3],[3,5]):
+            config=dict(FLAME_DANCE_DEFAULTS,step_frames=steps)
+            for seed in (1,7,2026,9182):
+                rows=np.array([[flame_dance_sample(config,seed,f,l) for l in (2,3)] for f in range(60)])
+                self.assertTrue(np.all(np.abs(rows)<=np.array([5,5,2.5,.03])+1e-12))
+                self.assertTrue(np.all(rows[:,0,:]*rows[:,1,:]<=0))
+                self.assertTrue(np.all(np.any(rows!=0,axis=2)))
+                self.assertEqual(rows.tolist(),[[flame_dance_sample(config,seed,f,l) for l in (2,3)] for f in range(60)])
+                self.assertNotEqual(rows[14,0].tolist(),flame_dance_sample(config,seed+1,14,2))
+                for l in (0,1):
+                    self.assertLessEqual(flame_dance_autocorrelation(rows[:,l,0])['max_local_peak'],.5)
+        # A pulse train must be detected by the same instrument.
+        pulse=flame_dance_autocorrelation(np.sin(np.arange(60)*2*np.pi/10))
+        self.assertGreater(pulse['max_local_peak'],.5)
+
+    def test_only_explicit_bodies_opt_in_and_paint_tail(self):
+        burst=load_kit(ROOT/'runs/C-5/vfx_kits/v9/fire_burst_e0p_v3')
+        bolt=load_kit(ROOT/'runs/C-5/vfx_kits/v9/fire_bolt_e1_B')
+        pool=load_kit(ROOT/'runs/C-5/vfx_kits/v9/blackwater_cocktail_e3')
+        self.assertEqual(burst['pieces']['flame_dance']['front_source'],'interleave')
+        self.assertEqual(burst['pieces']['timing']['paint_end_age'],30)
+        self.assertEqual(burst['pieces']['key_states'],[])
+        self.assertEqual(bolt['layers']['travel']['flame_dance']['jitter_px'],4)
+        self.assertEqual(pool['g2']['flame_dance']['step_frames'],[3,5])

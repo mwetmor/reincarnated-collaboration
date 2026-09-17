@@ -1,0 +1,345 @@
+{
+  "task_id": "FL-6",
+  "image_calls": 0,
+  "catalogue_count": 18,
+  "export_exit": 0,
+  "headless_import_exit": 0,
+  "headless_trace_exit": 0,
+  "renderer_requested": "gl_compatibility",
+  "rendered_capture": false,
+  "applied_bodies": {
+    "burst": {
+      "python_engine_max_error": 6.393812013172351e-07,
+      "nonzero_fraction": 1.0,
+      "opposed_sign_fraction": 0.9411764705882353,
+      "orphan_count": 0,
+      "uniform_errors": 0,
+      "headless_cpu_update_ms": {
+        "median": 1.267,
+        "maximum": 1.535,
+        "sample_count": 31,
+        "note": "Scene/script update only. Headless dummy rendering does not measure GPU body draw cost."
+      },
+      "render_cost_ms": null,
+      "single_layer_render_cost_ms": null,
+      "render_cost_ratio": null,
+      "render_cost_ratio_threshold": 1.5,
+      "legibility_1080p": [
+        {
+          "age": 14,
+          "outside_area_fraction": null,
+          "tongues_at_least_60pct_outside": null
+        },
+        {
+          "age": 18,
+          "outside_area_fraction": null,
+          "tongues_at_least_60pct_outside": null
+        },
+        {
+          "age": 22,
+          "outside_area_fraction": null,
+          "tongues_at_least_60pct_outside": null
+        }
+      ]
+    },
+    "bolt": {
+      "python_engine_max_error": 5.591886771405541e-07,
+      "nonzero_fraction": 1.0,
+      "opposed_sign_fraction": 0.8888888888888888,
+      "orphan_count": 0,
+      "uniform_errors": 0,
+      "headless_cpu_update_ms": {
+        "median": 0.351,
+        "maximum": 0.434,
+        "sample_count": 21,
+        "note": "Scene/script update only. Headless dummy rendering does not measure GPU body draw cost."
+      },
+      "render_cost_ms": null,
+      "single_layer_render_cost_ms": null,
+      "render_cost_ratio": null,
+      "render_cost_ratio_threshold": 1.5,
+      "legibility_1080p": null
+    },
+    "pool": {
+      "python_engine_max_error": 3.619439796764823e-07,
+      "nonzero_fraction": 1.0,
+      "opposed_sign_fraction": 1.0,
+      "orphan_count": 0,
+      "uniform_errors": 0,
+      "acf": {
+        "back": {
+          "acf": [
+            1.0,
+            0.8364048023154026,
+            0.44893012195074433,
+            0.02465691968768348,
+            -0.2784185077156999,
+            -0.4040063182893826,
+            -0.3855497278162931,
+            -0.28918554627037363,
+            -0.1702622210571416,
+            -0.06144865518155803,
+            0.01857582153444262,
+            0.056272419376427484,
+            0.04566460934247831,
+            -0.004969120597706803,
+            -0.06964186253161878,
+            -0.11645976942244325,
+            -0.11825290336380562,
+            -0.06577417102972728,
+            0.015962909693301587,
+            0.08034129759896827,
+            0.09544056151650457,
+            0.06185298154250519,
+            0.006610564270899114,
+            -0.04505427500508076,
+            -0.08528864270334194,
+            -0.11566619352742631,
+            -0.1308597205120724,
+            -0.11473817179498409,
+            -0.060826915936539355,
+            0.010745120668439483,
+            0.0561962175810687,
+            0.05037512318296179,
+            0.012461387714028885,
+            -0.01563362286097225,
+            -0.0011700938514241194,
+            0.06133502731675612,
+            0.1441698081424059,
+            0.2070312774131919,
+            0.21991054899177997,
+            0.17463325293128307,
+            0.08678239773344992,
+            -0.008322533460530381,
+            -0.07453246033655693,
+            -0.1020694829695568,
+            -0.11009911733052381,
+            -0.12303249573047069,
+            -0.14480756528017516,
+            -0.1568302519971659,
+            -0.1388588828442563,
+            -0.08448278900897785,
+            -0.0073597838259983695,
+            0.06391987465525613,
+            0.10493181458096594,
+            0.10466351215457359,
+            0.07059178782507364,
+            0.022212785473468392,
+            -0.019561297581266478,
+            -0.03688625772926239,
+            -0.028915292376535843,
+            -0.011708295255192272
+          ],
+          "max_positive_lag": 0.8364048023154026,
+          "max_local_peak": 0.21991054899177997
+        },
+        "front": {
+          "acf": [
+            1.0,
+            0.812096247102839,
+            0.4112054995696535,
+            0.0007166006896445684,
+            -0.28645539190333547,
+            -0.4071347875746962,
+            -0.412960768251671,
+            -0.3399119670105684,
+            -0.2104800270980094,
+            -0.07320492011433097,
+            0.034537844179414405,
+            0.09141757234623987,
+            0.08566418469102227,
+            0.03821270772465828,
+            -0.013604717318815811,
+            -0.04641469526171953,
+            -0.05055479086679545,
+            -0.03139601719763896,
+            0.0035293560663274114,
+            0.04545766421159861,
+            0.061806821232164376,
+            0.02539949864811054,
+            -0.032340232750534895,
+            -0.0634595440162402,
+            -0.06346214176595082,
+            -0.04958765257354212,
+            -0.042901242811395936,
+            -0.03381734203268721,
+            0.0035503425056893174,
+            0.04613611380624847,
+            0.04493846138606601,
+            0.007855100421208346,
+            -0.05434081658465548,
+            -0.08791571688319424,
+            -0.05227074930176783,
+            0.029952485728124846,
+            0.11808216591342868,
+            0.1793291141492035,
+            0.187496777265763,
+            0.1489498884285737,
+            0.07522705029883131,
+            -0.014635896466067605,
+            -0.09302666217457808,
+            -0.1396394405278597,
+            -0.15046398591969237,
+            -0.1441351976622743,
+            -0.1400576905131779,
+            -0.13368189270191377,
+            -0.1098235886784625,
+            -0.05600137969427738,
+            0.026211891324510333,
+            0.10539173152592557,
+            0.1461061929941903,
+            0.13092505374431443,
+            0.07379849987452171,
+            0.011369284787008651,
+            -0.03238457080165507,
+            -0.04003201137904041,
+            -0.02634413517188989,
+            -0.01292417760684202
+          ],
+          "max_positive_lag": 0.812096247102839,
+          "max_local_peak": 0.187496777265763
+        }
+      },
+      "headless_cpu_update_ms": {
+        "median": 1.748,
+        "maximum": 113.004,
+        "sample_count": 151,
+        "note": "Scene/script update only. Headless dummy rendering does not measure GPU body draw cost."
+      },
+      "render_cost_ms": null,
+      "single_layer_render_cost_ms": null,
+      "render_cost_ratio": null,
+      "render_cost_ratio_threshold": 1.5,
+      "legibility_1080p": null
+    }
+  },
+  "unchanged_catalogue_kits": 15,
+  "all_source_primitives_byte_identical": true,
+  "paint_end_age": 30,
+  "spent_reference_age": 28,
+  "total_life_cap_frames": 114,
+  "byte_lock_review": "part-d.diff and part-d-export.diff; E3-r1 catalogue lock remains red",
+  "concerns": [
+    "1080p rendered legibility at ages 14, 18, 22 is UNEVALUABLE in this headless-only burst; conductor capture required.",
+    "GPU draw cost and <=1.5x single-layer ratio are UNEVALUABLE with headless dummy rendering; CPU update timings are reported separately.",
+    "Pool lag-one autocorrelation exceeds 0.5 (back 0.836405, front 0.812096). Local periodic peaks are below 0.5; the literal all-positive-lag interpretation is not satisfied.",
+    "Only the three explicitly authorized kit.json files were edited: fire_bolt_e1_A is byte-identical and does not opt in. The A/B application wording conflicts with the three-kit/15-unchanged constraint.",
+    "Godot macOS certificate lookup and editor-settings save errors occur despite import/trace exit 0. No runtime SCRIPT ERROR occurs in the FL-6 trace.",
+    "Full-suite remaining reds are named in tests.remaining_reds; existing A/B parity and shared-timing assertions conflict with the scoped three-kit opt-in, and environment/legacy checks remain unresolved."
+  ],
+  "tests": {
+    "fl6": {
+      "total": 7,
+      "errors": 0,
+      "failures": 0
+    },
+    "suite": {
+      "total": 266,
+      "errors": 7,
+      "failures": 18,
+      "skipped": 2
+    },
+    "remaining_reds": [
+      {
+        "test": "setUpClass (test_godot_import.BlackwaterLandingRuntimeTests)",
+        "detail": "Traceback (most recent call last):\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_godot_import.py\", line 2008, in setUpClass\n    geometry=json.loads((repo/'runs/C-5/cliffside_v38/parallax/walkable.json').read_text())\n                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/pathlib.py\", line 1028, in read_text\n    with self.open(mode='r', encoding=encoding, errors=errors) as f:\n         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/pathlib.py\", line 1014, in open\n    return io.open(self, mode, buffering, encoding, errors, newline)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nFileNotFoundError: [Errno 2] No such file or directory: '/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/cliffside_v38/parallax/walkable.json'\n"
+      },
+      {
+        "test": "setUpClass (test_godot_import.FieldDesignLapEmissionTests)",
+        "detail": "Traceback (most recent call last):\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_godot_import.py\", line 1419, in setUpClass\n    (cls.work/'headless.json').write_text(json.dumps(cls.logs,indent=2)+'\\n')\n  File \"/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/pathlib.py\", line 1048, in write_text\n    with self.open(mode='w', encoding=encoding, errors=errors, newline=newline) as f:\n         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/pathlib.py\", line 1014, in open\n    return io.open(self, mode, buffering, encoding, errors, newline)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/admin/astra-burst/runs/C-5/FL-6/out/run_tests.py\", line 37, in audit\n    raise PermissionError('FL6 write boundary: '+str(p))\nPermissionError: FL6 write boundary: /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/FL-4d/field-design/headless.json\n"
+      },
+      {
+        "test": "setUpClass (test_godot_import.RenderedLookTraceTests)",
+        "detail": "Traceback (most recent call last):\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_godot_import.py\", line 1701, in setUpClass\n    for i in range(count):Image.new('RGBA',(512,512),(40,80,120,255)).save(cells/f'{kind}_E_{i}.png')\n                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/PIL/Image.py\", line 2456, in save\n    fp = builtins.open(filename, \"w+b\")\n         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/admin/astra-burst/runs/C-5/FL-6/out/run_tests.py\", line 37, in audit\n    raise PermissionError('FL6 write boundary: '+str(p))\nPermissionError: FL6 write boundary: /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4x/cells/idle_E_0.png\n"
+      },
+      {
+        "test": "test_godot_import.TransformedResidueSeamTests.test_transformed_front_at_three_ages_has_no_straight_seam_over_12px",
+        "detail": "Traceback (most recent call last):\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_godot_import.py\", line 844, in test_transformed_front_at_three_ages_has_no_straight_seam_over_12px\n    report.write_text(json.dumps({'report_only': True, 'threshold_withdrawn': 12,\n  File \"/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/pathlib.py\", line 1048, in write_text\n    with self.open(mode='w', encoding=encoding, errors=errors, newline=newline) as f:\n         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/pathlib.py\", line 1014, in open\n    return io.open(self, mode, buffering, encoding, errors, newline)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/admin/astra-burst/runs/C-5/FL-6/out/run_tests.py\", line 37, in audit\n    raise PermissionError('FL6 write boundary: '+str(p))\nPermissionError: FL6 write boundary: /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4g/seam_measurements.json\n"
+      },
+      {
+        "test": "test_vfx_picker.CanonicalCapsuleSweepTests.test_emergence_fraction_order_and_temporarily_ignored_body",
+        "detail": "Traceback (most recent call last):\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_vfx_picker.py\", line 2012, in test_emergence_fraction_order_and_temporarily_ignored_body\n    probe.write_text(CAPSULE_SWEEP_PROBE)\n  File \"/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/pathlib.py\", line 1048, in write_text\n    with self.open(mode='w', encoding=encoding, errors=errors, newline=newline) as f:\n         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/pathlib.py\", line 1014, in open\n    return io.open(self, mode, buffering, encoding, errors, newline)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/admin/astra-burst/runs/C-5/FL-6/out/run_tests.py\", line 37, in audit\n    raise PermissionError('FL6 write boundary: '+str(p))\nPermissionError: FL6 write boundary: /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/FL-2c/reexport/capsule_sweep_test.gd\n"
+      },
+      {
+        "test": "test_vfx_picker.FrozenOrbPickerTests.test_headless_orb_clock_and_pool",
+        "detail": "Traceback (most recent call last):\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_vfx_picker.py\", line 1759, in test_headless_orb_clock_and_pool\n    (work/'orb_trace.json').write_text(json.dumps(trace,indent=2)+'\\n')\n  File \"/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/pathlib.py\", line 1048, in write_text\n    with self.open(mode='w', encoding=encoding, errors=errors, newline=newline) as f:\n         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/pathlib.py\", line 1014, in open\n    return io.open(self, mode, buffering, encoding, errors, newline)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/admin/astra-burst/runs/C-5/FL-6/out/run_tests.py\", line 37, in audit\n    raise PermissionError('FL6 write boundary: '+str(p))\nPermissionError: FL6 write boundary: /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4v/orb_trace.json\n"
+      },
+      {
+        "test": "test_vfx_picker.IceTreatmentPickerTests.test_headless_contact_shatter_residue_decal",
+        "detail": "Traceback (most recent call last):\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_vfx_picker.py\", line 1645, in test_headless_contact_shatter_residue_decal\n    (work/'e2_trace.json').write_text(json.dumps(report,indent=2)+'\\n')\n  File \"/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/pathlib.py\", line 1048, in write_text\n    with self.open(mode='w', encoding=encoding, errors=errors, newline=newline) as f:\n         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/pathlib.py\", line 1014, in open\n    return io.open(self, mode, buffering, encoding, errors, newline)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/admin/astra-burst/runs/C-5/FL-6/out/run_tests.py\", line 37, in audit\n    raise PermissionError('FL6 write boundary: '+str(p))\nPermissionError: FL6 write boundary: /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4x/e2_trace.json\n"
+      },
+      {
+        "test": "test_effect_kit.AntiDecalValidationTests.test_defaults_absent_and_real_fire_fields_load",
+        "detail": "Traceback (most recent call last):\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_effect_kit.py\", line 2545, in test_defaults_absent_and_real_fire_fields_load\n    self.assertEqual({k:state[k] for k in expected},expected)\nAssertionError: {'at_age': 24, 'hold_frames': 2} != {'at_age': 28, 'hold_frames': 2}\n- {'at_age': 24, 'hold_frames': 2}\n?             ^\n\n+ {'at_age': 28, 'hold_frames': 2}\n?             ^\n\n"
+      },
+      {
+        "test": "test_effect_kit.FL2FieldValidationTests.test_all_new_fields_validate_in_actual_catalogue",
+        "detail": "Traceback (most recent call last):\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_effect_kit.py\", line 2476, in test_all_new_fields_validate_in_actual_catalogue\n    self.assertEqual(data['pieces'][key], {'amount': 48, 'rect_bh': [1.8, 0.9], 'life_s': [1.0, 1.6], 'speed_px_s': [30, 90], 'scale': [0.15, 0.33], 'glow_radius_bh': 0.9, 'glow_alpha': 0.85, 'glow_s': 1.2, 'core_radius_bh': 0.45, 'core_s': 0.6} if kit['name']=='fire_burst_e0p_v2' and key=='ember_ending' else spec['pieces'][key])\nAssertionError: {'expanded_age': 12, 'erosion_age': 14, 'paint_end_age': 26} != {'expanded_age': 12, 'erosion_age': 14, 'paint_end_age': 30}\n- {'erosion_age': 14, 'expanded_age': 12, 'paint_end_age': 26}\n?                                                          ^^\n\n+ {'erosion_age': 14, 'expanded_age': 12, 'paint_end_age': 30}\n?                                                          ^^\n\n"
+      },
+      {
+        "test": "test_effect_kit.ProjectileArmValidationTests.test_both_arms_preserve_spec_and_quantised_primitives",
+        "detail": "Traceback (most recent call last):\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_effect_kit.py\", line 2014, in test_both_arms_preserve_spec_and_quantised_primitives\n    self.assertEqual(actual_spec, expected_spec)\nAssertionError: {'ski[2079 chars]e': 24, 'hold_frames': 2}}, 'residue_fraction'[655 chars]8}}}} != {'ski[2079 chars]e': 28, 'hold_frames': 2}}, 'residue_fraction'[655 chars]8}}}}\nDiff is 7787 characters long. Set self.maxDiff to None to see it.\n"
+      },
+      {
+        "test": "test_effect_kit.ProjectileArmValidationTests.test_empty_key_arms_have_identical_kit_files_except_name",
+        "detail": "Traceback (most recent call last):\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_effect_kit.py\", line 2055, in test_empty_key_arms_have_identical_kit_files_except_name\n    self.assertEqual(common(a), common(b))\nAssertionError: {Posi[13888 chars], \"flicker_frames\": 2, \"halo\": {\"alpha\": 0.3, [268938 chars]x82'} != {Posi[13888 chars], \"flame_dance\": {\"back_scale\": 0.94, \"flicker[269299 chars]x82'}\nDiff is 719837 characters long. Set self.maxDiff to None to see it.\n"
+      },
+      {
+        "test": "test_godot_import.BoltChainEmissionTests.test_current_catalogue_and_original_kits_unchanged",
+        "detail": "Traceback (most recent call last):\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_godot_import.py\", line 1380, in test_current_catalogue_and_original_kits_unchanged\n    self.assertEqual(actual,baseline)\nAssertionError: {'run[57143 chars]n': '01cdfab1649194b5b3dd0b834b2ba82f280a92204[41964 chars]adc'} != {'run[57143 chars]n': '315648fcef1d219972b05445774299ae5c3bf025a[29300 chars]afb'}\nDiff is 102664 characters long. Set self.maxDiff to None to see it.\n"
+      },
+      {
+        "test": "test_godot_import.GodotImportTests.test_headless_state_machine_input_map_gear_vfx_and_nearest_fallback",
+        "detail": "Traceback (most recent call last):\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_godot_import.py\", line 168, in test_headless_state_machine_input_map_gear_vfx_and_nearest_fallback\n    self.assertEqual(engine_errors, [], '\\n'.join(engine_errors))\nAssertionError: Lists differ: ['ERROR: Condition \"ret != noErr\" is true.[285 chars] \"\"'] != []\n\nFirst list contains 4 additional elements.\nFirst extra element 0:\n'ERROR: Condition \"ret != noErr\" is true. Returning: \"\"'\n\n+ []\n- ['ERROR: Condition \"ret != noErr\" is true. Returning: \"\"',\n-  \"ERROR: Cannot save file '/Users/admin/Library/Application \"\n-  \"Support/Godot/editor_settings-4.6.tres'.\",\n-  'ERROR: Error saving editor settings to /Users/admin/Library/Application '\n-  'Support/Godot/editor_settings-4.6.tres',\n-  'ERROR: Condition \"ret != noErr\" is true. Returning: \"\"'] : ERROR: Condition \"ret != noErr\" is true. Returning: \"\"\nERROR: Cannot save file '/Users/admin/Library/Application Support/Godot/editor_settings-4.6.tres'.\nERROR: Error saving editor settings to /Users/admin/Library/Application Support/Godot/editor_settings-4.6.tres\nERROR: Condition \"ret != noErr\" is true. Returning: \"\"\n"
+      },
+      {
+        "test": "test_godot_import.IceTreatmentImportTests.test_ten_existing_export_bytes_unchanged",
+        "detail": "Traceback (most recent call last):\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_godot_import.py\", line 1044, in test_ten_existing_export_bytes_unchanged\n    self.assertEqual(actual,baseline)\nAssertionError: {'CRE[746 chars]n': 'f4773975380e974a800a44e6a9100d9dba8efef84[116452 chars]30c'} != {'CRE[746 chars]n': '8103691797a8837451d34edb2c8d322b468448156[114842 chars]30c'}\nDiff is 120889 characters long. Set self.maxDiff to None to see it.\n"
+      },
+      {
+        "test": "test_godot_import.PieceStretchImportTests.test_v2_headless_import_and_seed_equal_rooted_clock",
+        "detail": "     [1] probe (res://stretch_probe.gd:36)\nERROR: band three not dissolved\n   at: push_error (core/variant/variant_utility.cpp:1024)\n   GDScript backtrace (most recent call first):\n       [0] need (res://stretch_probe.gd:6)\n       [1] probe (res://stretch_probe.gd:36)\nERROR: band three not dissolved\n   at: push_error (core/variant/variant_utility.cpp:1024)\n   GDScript backtrace (most recent call first):\n       [0] need (res://stretch_probe.gd:6)\n       [1] probe (res://stretch_probe.gd:36)\nERROR: band three not dissolved\n   at: push_error (core/variant/variant_utility.cpp:1024)\n   GDScript backtrace (most recent call first):\n       [0] need (res://stretch_probe.gd:6)\n       [1] probe (res://stretch_probe.gd:36)\nERROR: band three not dissolved\n   at: push_error (core/variant/variant_utility.cpp:1024)\n   GDScript backtrace (most recent call first):\n       [0] need (res://stretch_probe.gd:6)\n       [1] probe (res://stretch_probe.gd:36)\nERROR: band three not dissolved\n   at: push_error (core/variant/variant_utility.cpp:1024)\n   GDScript backtrace (most recent call first):\n       [0] need (res://stretch_probe.gd:6)\n       [1] probe (res://stretch_probe.gd:36)\nERROR: band three not dissolved\n   at: push_error (core/variant/variant_utility.cpp:1024)\n   GDScript backtrace (most recent call first):\n       [0] need (res://stretch_probe.gd:6)\n       [1] probe (res://stretch_probe.gd:36)\n\n"
+      },
+      {
+        "test": "test_godot_import.ThrownFieldCLIRegressionTests.test_full_exporter_current_catalogue",
+        "detail": "ts is not None else None\n                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/export/godot_import.py\", line 1393, in _write_vfx_kits\n    report = _write_vfx_kit(out, kit, base, cells, socket_data,\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/export/godot_import.py\", line 1061, in _write_vfx_kit\n    _write_authored_effect(out, kit, resource_root, prefix, counts, shared_projectile=shared_projectile)\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/export/godot_import.py\", line 1168, in _write_authored_effect\n    _write_painted_travel(out, kit, resource_root)\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/export/godot_import.py\", line 3142, in _write_painted_travel\n    if 'core' in data['layers'].get('travel', {}): _write_fl4_travel(out, kit, resource_root)\n                                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/export/godot_import.py\", line 5691, in _write_fl4_travel\n    _emit_flame_dance(out)\n    ^^^^^^^^^^^^^^^^^\nNameError: name '_emit_flame_dance' is not defined\n\n"
+      },
+      {
+        "test": "test_vfx_picker.AuthoredEffectPickerTests.test_headless_authored_cast_east_north_collision_timing_and_feedback_cleanup",
+        "detail": "Traceback (most recent call last):\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_vfx_picker.py\", line 520, in test_headless_authored_cast_east_north_collision_timing_and_feedback_cleanup\n    run_headless(self, self.project, 'effect_probe.gd')\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_vfx_picker.py\", line 121, in run_headless\n    test.assertEqual(engine_errors, [], '\\n'.join(engine_errors))\nAssertionError: Lists differ: ['ERROR: Condition \"ret != noErr\" is true.[285 chars] \"\"'] != []\n\nFirst list contains 4 additional elements.\nFirst extra element 0:\n'ERROR: Condition \"ret != noErr\" is true. Returning: \"\"'\n\n+ []\n- ['ERROR: Condition \"ret != noErr\" is true. Returning: \"\"',\n-  \"ERROR: Cannot save file '/Users/admin/Library/Application \"\n-  \"Support/Godot/editor_settings-4.6.tres'.\",\n-  'ERROR: Error saving editor settings to /Users/admin/Library/Application '\n-  'Support/Godot/editor_settings-4.6.tres',\n-  'ERROR: Condition \"ret != noErr\" is true. Returning: \"\"'] : ERROR: Condition \"ret != noErr\" is true. Returning: \"\"\nERROR: Cannot save file '/Users/admin/Library/Application Support/Godot/editor_settings-4.6.tres'.\nERROR: Error saving editor settings to /Users/admin/Library/Application Support/Godot/editor_settings-4.6.tres\nERROR: Condition \"ret != noErr\" is true. Returning: \"\"\n"
+      },
+      {
+        "test": "test_vfx_picker.G1ComponentTests.test_headless_first_cast_contact_cursor_pool_cancel_and_picker",
+        "detail": "Traceback (most recent call last):\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_vfx_picker.py\", line 951, in test_headless_first_cast_contact_cursor_pool_cancel_and_picker\n    run_headless(self, out, 'probe_vfx.gd')\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_vfx_picker.py\", line 121, in run_headless\n    test.assertEqual(engine_errors, [], '\\n'.join(engine_errors))\nAssertionError: Lists differ: ['ERROR: Condition \"ret != noErr\" is true.[285 chars] \"\"'] != []\n\nFirst list contains 4 additional elements.\nFirst extra element 0:\n'ERROR: Condition \"ret != noErr\" is true. Returning: \"\"'\n\n+ []\n- ['ERROR: Condition \"ret != noErr\" is true. Returning: \"\"',\n-  \"ERROR: Cannot save file '/Users/admin/Library/Application \"\n-  \"Support/Godot/editor_settings-4.6.tres'.\",\n-  'ERROR: Error saving editor settings to /Users/admin/Library/Application '\n-  'Support/Godot/editor_settings-4.6.tres',\n-  'ERROR: Condition \"ret != noErr\" is true. Returning: \"\"'] : ERROR: Condition \"ret != noErr\" is true. Returning: \"\"\nERROR: Cannot save file '/Users/admin/Library/Application Support/Godot/editor_settings-4.6.tres'.\nERROR: Error saving editor settings to /Users/admin/Library/Application Support/Godot/editor_settings-4.6.tres\nERROR: Condition \"ret != noErr\" is true. Returning: \"\"\n"
+      },
+      {
+        "test": "test_vfx_picker.G1ComponentTests.test_headless_pierce_contacts_labels_pool_and_phase_callbacks",
+        "detail": "Traceback (most recent call last):\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_vfx_picker.py\", line 1051, in test_headless_pierce_contacts_labels_pool_and_phase_callbacks\n    run_headless(self, fixture['project'], 'probe_pierce.gd')\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_vfx_picker.py\", line 121, in run_headless\n    test.assertEqual(engine_errors, [], '\\n'.join(engine_errors))\nAssertionError: Lists differ: ['ERROR: Condition \"ret != noErr\" is true.[285 chars] \"\"'] != []\n\nFirst list contains 4 additional elements.\nFirst extra element 0:\n'ERROR: Condition \"ret != noErr\" is true. Returning: \"\"'\n\n+ []\n- ['ERROR: Condition \"ret != noErr\" is true. Returning: \"\"',\n-  \"ERROR: Cannot save file '/Users/admin/Library/Application \"\n-  \"Support/Godot/editor_settings-4.6.tres'.\",\n-  'ERROR: Error saving editor settings to /Users/admin/Library/Application '\n-  'Support/Godot/editor_settings-4.6.tres',\n-  'ERROR: Condition \"ret != noErr\" is true. Returning: \"\"'] : ERROR: Condition \"ret != noErr\" is true. Returning: \"\"\nERROR: Cannot save file '/Users/admin/Library/Application Support/Godot/editor_settings-4.6.tres'.\nERROR: Error saving editor settings to /Users/admin/Library/Application Support/Godot/editor_settings-4.6.tres\nERROR: Condition \"ret != noErr\" is true. Returning: \"\"\n"
+      },
+      {
+        "test": "test_vfx_picker.LivingEmbersTests.test_headless_glow_sixty_samples_extrema_range_and_particle_properties",
+        "detail": "Traceback (most recent call last):\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_vfx_picker.py\", line 422, in test_headless_glow_sixty_samples_extrema_range_and_particle_properties\n    run_headless(self, out, 'glow_probe.gd')\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_vfx_picker.py\", line 121, in run_headless\n    test.assertEqual(engine_errors, [], '\\n'.join(engine_errors))\nAssertionError: Lists differ: ['ERROR: Condition \"ret != noErr\" is true.[285 chars] \"\"'] != []\n\nFirst list contains 4 additional elements.\nFirst extra element 0:\n'ERROR: Condition \"ret != noErr\" is true. Returning: \"\"'\n\n+ []\n- ['ERROR: Condition \"ret != noErr\" is true. Returning: \"\"',\n-  \"ERROR: Cannot save file '/Users/admin/Library/Application \"\n-  \"Support/Godot/editor_settings-4.6.tres'.\",\n-  'ERROR: Error saving editor settings to /Users/admin/Library/Application '\n-  'Support/Godot/editor_settings-4.6.tres',\n-  'ERROR: Condition \"ret != noErr\" is true. Returning: \"\"'] : ERROR: Condition \"ret != noErr\" is true. Returning: \"\"\nERROR: Cannot save file '/Users/admin/Library/Application Support/Godot/editor_settings-4.6.tres'.\nERROR: Error saving editor settings to /Users/admin/Library/Application Support/Godot/editor_settings-4.6.tres\nERROR: Condition \"ret != noErr\" is true. Returning: \"\"\n"
+      },
+      {
+        "test": "test_vfx_picker.ProjectileArmPickerTests.test_empty_key_exports_byte_identically_except_kit_name",
+        "detail": "Traceback (most recent call last):\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_vfx_picker.py\", line 1415, in test_empty_key_exports_byte_identically_except_kit_name\n    self.assertEqual(common(a), common(b))\nAssertionError: {Posi[1996 chars], \"flicker_frames\": 2, \"halo\": {\"alpha\": 0.3, [619831 chars]x82'} != {Posi[1996 chars], \"flame_dance\": {\"back_scale\": 0.94, \"flicker[620192 chars]x82'}\nDiff is 2072692 characters long. Set self.maxDiff to None to see it.\n"
+      },
+      {
+        "test": "test_vfx_picker.ProjectileArmPickerTests.test_headless_east_contact_range_tail_and_key_schedule",
+        "detail": "Traceback (most recent call last):\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_vfx_picker.py\", line 1429, in test_headless_east_contact_range_tail_and_key_schedule\n    self.assertEqual(proc.returncode,0,text)\nAssertionError: 1 != 0 : Godot Engine v4.6.3.stable.official.7d41c59c4 - https://godotengine.org\n\nE1_RUNTIME={\"bursts\":5,\"casts\":2,\"errors\":[\"upper speed clamp\",\"lower speed clamp\",\"range expiry has no contact burst\",\"upper speed clamp\",\"lower speed clamp\",\"range expiry has no contact burst\"]}\nERROR: Condition \"ret != noErr\" is true. Returning: \"\"\n   at: get_system_ca_certificates (platform/macos/os_macos.mm:1028)\nE1_ASSERTION: upper speed clamp\nE1_ASSERTION: lower speed clamp\nE1_ASSERTION: range expiry has no contact burst\nE1_ASSERTION: upper speed clamp\nE1_ASSERTION: lower speed clamp\nE1_ASSERTION: range expiry has no contact burst\n\n"
+      },
+      {
+        "test": "test_vfx_picker.TouchAimRuntimeTests.test_headless_overlay_forward_world_touch_and_mouse_probe",
+        "detail": "Traceback (most recent call last):\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_vfx_picker.py\", line 876, in test_headless_overlay_forward_world_touch_and_mouse_probe\n    run_headless(self, project, 'touch_aim_probe.gd')\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_vfx_picker.py\", line 121, in run_headless\n    test.assertEqual(engine_errors, [], '\\n'.join(engine_errors))\nAssertionError: Lists differ: ['ERROR: Condition \"ret != noErr\" is true.[285 chars] \"\"'] != []\n\nFirst list contains 4 additional elements.\nFirst extra element 0:\n'ERROR: Condition \"ret != noErr\" is true. Returning: \"\"'\n\n+ []\n- ['ERROR: Condition \"ret != noErr\" is true. Returning: \"\"',\n-  \"ERROR: Cannot save file '/Users/admin/Library/Application \"\n-  \"Support/Godot/editor_settings-4.6.tres'.\",\n-  'ERROR: Error saving editor settings to /Users/admin/Library/Application '\n-  'Support/Godot/editor_settings-4.6.tres',\n-  'ERROR: Condition \"ret != noErr\" is true. Returning: \"\"'] : ERROR: Condition \"ret != noErr\" is true. Returning: \"\"\nERROR: Cannot save file '/Users/admin/Library/Application Support/Godot/editor_settings-4.6.tres'.\nERROR: Error saving editor settings to /Users/admin/Library/Application Support/Godot/editor_settings-4.6.tres\nERROR: Condition \"ret != noErr\" is true. Returning: \"\"\n"
+      },
+      {
+        "test": "test_vfx_picker.TouchDeviceAimRuntimeTests.test_headless_device_forward_handled_overlay_and_mouse_probe",
+        "detail": "Traceback (most recent call last):\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_vfx_picker.py\", line 1194, in test_headless_device_forward_handled_overlay_and_mouse_probe\n    run_headless(self, project, 'touch_aim_probe.gd')\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_vfx_picker.py\", line 121, in run_headless\n    test.assertEqual(engine_errors, [], '\\n'.join(engine_errors))\nAssertionError: Lists differ: ['ERROR: Condition \"ret != noErr\" is true.[285 chars] \"\"'] != []\n\nFirst list contains 4 additional elements.\nFirst extra element 0:\n'ERROR: Condition \"ret != noErr\" is true. Returning: \"\"'\n\n+ []\n- ['ERROR: Condition \"ret != noErr\" is true. Returning: \"\"',\n-  \"ERROR: Cannot save file '/Users/admin/Library/Application \"\n-  \"Support/Godot/editor_settings-4.6.tres'.\",\n-  'ERROR: Error saving editor settings to /Users/admin/Library/Application '\n-  'Support/Godot/editor_settings-4.6.tres',\n-  'ERROR: Condition \"ret != noErr\" is true. Returning: \"\"'] : ERROR: Condition \"ret != noErr\" is true. Returning: \"\"\nERROR: Cannot save file '/Users/admin/Library/Application Support/Godot/editor_settings-4.6.tres'.\nERROR: Error saving editor settings to /Users/admin/Library/Application Support/Godot/editor_settings-4.6.tres\nERROR: Condition \"ret != noErr\" is true. Returning: \"\"\n"
+      },
+      {
+        "test": "test_vfx_picker.VfxPickerTests.test_headless_tab_twice_cast_scene_labels_and_inflight_kit_lock",
+        "detail": "Traceback (most recent call last):\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_vfx_picker.py\", line 281, in test_headless_tab_twice_cast_scene_labels_and_inflight_kit_lock\n    run_headless(self, out, 'picker_probe.gd')\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_vfx_picker.py\", line 121, in run_headless\n    test.assertEqual(engine_errors, [], '\\n'.join(engine_errors))\nAssertionError: Lists differ: ['ERROR: Condition \"ret != noErr\" is true.[285 chars] \"\"'] != []\n\nFirst list contains 4 additional elements.\nFirst extra element 0:\n'ERROR: Condition \"ret != noErr\" is true. Returning: \"\"'\n\n+ []\n- ['ERROR: Condition \"ret != noErr\" is true. Returning: \"\"',\n-  \"ERROR: Cannot save file '/Users/admin/Library/Application \"\n-  \"Support/Godot/editor_settings-4.6.tres'.\",\n-  'ERROR: Error saving editor settings to /Users/admin/Library/Application '\n-  'Support/Godot/editor_settings-4.6.tres',\n-  'ERROR: Condition \"ret != noErr\" is true. Returning: \"\"'] : ERROR: Condition \"ret != noErr\" is true. Returning: \"\"\nERROR: Cannot save file '/Users/admin/Library/Application Support/Godot/editor_settings-4.6.tres'.\nERROR: Error saving editor settings to /Users/admin/Library/Application Support/Godot/editor_settings-4.6.tres\nERROR: Condition \"ret != noErr\" is true. Returning: \"\"\n"
+      }
+    ]
+  }
+}

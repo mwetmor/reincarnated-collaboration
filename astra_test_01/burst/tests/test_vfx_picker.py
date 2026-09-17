@@ -2309,3 +2309,29 @@ func run() -> void:
     print("FL5C_DRAW_ORDER_COMPLETE")
     quit()
 '''
+
+
+class FL6FlameDanceRoutingTests(unittest.TestCase):
+    def test_private_routes_leave_legacy_components_untouched(self):
+        from export.godot_import import _g2_config, _painted_g1_config, _load_vfx_kit
+        bolt=dict(_load_vfx_kit(ROOT/'runs/C-5/vfx_kits/v9/fire_bolt_e1_B'),name='fire_bolt_e1_B')
+        self.assertEqual(_painted_g1_config(bolt)['bolt'],'res://scenes/vfx/g1_fl6_projectile.tscn')
+        import copy
+        legacy=copy.deepcopy(bolt);del legacy['effect']['layers']['travel']['flame_dance']
+        self.assertEqual(_painted_g1_config(legacy)['bolt'],'res://scenes/vfx/g1_fl4_projectile.tscn')
+        pool=dict(_load_vfx_kit(ROOT/'runs/C-5/vfx_kits/v9/blackwater_cocktail_e3'),name='blackwater_cocktail_e3')
+        self.assertEqual(_g2_config(pool)['bolt'],'res://scenes/vfx/g2_flame_dance.tscn')
+        legacy=copy.deepcopy(pool);del legacy['effect']['g2']['flame_dance']
+        self.assertNotIn('flame_dance',_g2_config(legacy))
+        self.assertEqual(_g2_config(legacy)['bolt'],'res://scenes/vfx/g2_thrown_field.tscn')
+
+
+class FL6SourceByteLocks(unittest.TestCase):
+    def test_fifteen_catalogue_kits_and_every_primitive_keep_pre_fl6_bytes(self):
+        expected=json.loads((ROOT/'fixtures/fl1b/FL6-source-assets.json').read_text())
+        exempt={f'runs/C-5/vfx_kits/v9/{n}/kit.json' for n in ('fire_burst_e0p_v3','fire_bolt_e1_B','blackwater_cocktail_e3')}
+        actual={p.relative_to(ROOT).as_posix():hashlib.sha256(p.read_bytes()).hexdigest()
+                for p in (ROOT/'runs/C-5/vfx_kits/v9').rglob('*') if p.is_file() and p.relative_to(ROOT).as_posix() not in exempt}
+        self.assertEqual(actual,expected)
+        names={k['name'] for k in _load_vfx_kits(ROOT/'runs/C-5/vfx_kits/kits_v9.json')}
+        self.assertEqual(sum(Path(k).name=='kit.json' and Path(k).parent.name in names for k in actual),15)

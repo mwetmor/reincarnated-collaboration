@@ -31,7 +31,7 @@ LAYER_KEYS = {
     'contact_light': {'lerp', 'frames'},
     'shimmer': {'amplitude_px', 'seconds'},
     'glow': {'alpha', 'scale', 'peak'}, 'floor_light': {'duration_s', 'radius_px', 'curve', 'tint', 'alpha'},
-    'cast': {'muzzle_puff', 'floor_light'}, 'travel': {'flicker_frames', 'trail', 'erode_noise', 'core', 'halo', 'boil', 'smear', 'eruption'},
+    'cast': {'muzzle_puff', 'floor_light'}, 'travel': {'flicker_frames', 'trail', 'erode_noise', 'core', 'halo', 'boil', 'smear', 'eruption', 'flame_dance'},
     'flash': {'duration_s', 'alpha', 'scale_from', 'scale_to'},
     'decal': {'file', 'duration_s'}, 'hitstop': {'duration_s', 'time_scale'},
     'shake': {'distance', 'duration_s'},
@@ -522,7 +522,7 @@ def interleave_gaps(record):
     return sorted(gaps, key=lambda g: (-g['width_deg'],g['start_deg']))
 
 
-def interleave_placement(seed, gaps, library):
+def interleave_placement(seed, gaps, library, flame_dance=None):
     """Port of the engine SHA-256 counter sampler (no stateful RNG).
 
     Normalize seed with int(seed) & 0x7fffffff, including JSON numeric floats.
@@ -536,7 +536,10 @@ def interleave_placement(seed, gaps, library):
     seed = int(seed) & 0x7fffffff
     def sample(label):
         return int(hashlib.sha256(f'{seed}:{label}'.encode('ascii')).hexdigest()[:8],16)
-    count = 5 + sample('count') % 3
+    if flame_dance is not None: validate_flame_dance(flame_dance)
+    bounds = flame_dance['tongue_count'] if flame_dance else [5,7]
+    scales = flame_dance['tongue_scale'] if flame_dance else [1.2,1.6]
+    count = bounds[0] + sample('count') % (bounds[1]-bounds[0]+1)
     selected = sorted(library, key=lambda p:(sample('pick'+str(int(p['id']))),p['id']))[:count]
     slots = [dict(g) for g in gaps]
     placed = []
@@ -550,16 +553,21 @@ def interleave_placement(seed, gaps, library):
         slots.extend([{'start_deg':gap['start_deg'],'width_deg':left},
                       {'start_deg':angle,'width_deg':gap['width_deg']-left}])
         placed.append({'id':item['id'],'gap_rank':rank,'angle_deg':angle,
-                       'jitter_deg':jitter,'scale':1.2+.4*sample('scale'+str(rank))/4294967295,
+                       'jitter_deg':jitter,'scale':scales[0]+(scales[1]-scales[0])*sample('scale'+str(rank))/4294967295,
                        'mirrored':bool(sample('mirror'+str(rank))%2),'speed_factor':.85})
     return placed
 
 def load_pieces(config, root, runtime=False):
     """Consume T4e schema 2 as delivered; never segment or recolour a shard."""
     root = Path(root).resolve()
-    _keys(config, {'source', 'template', 'root_drift', 'dissolve_order', 'erode_noise', 'key_states', 'embers', 'boil', 'timing', 'ember_ending', 'interleave', 'stretch', 'core_residue', 'smoke', *PIECES_DEFAULTS}, {'source', 'template'}, 'pieces')
+    _keys(config, {'source', 'template', 'root_drift', 'dissolve_order', 'erode_noise', 'key_states', 'embers', 'boil', 'timing', 'ember_ending', 'interleave', 'stretch', 'core_residue', 'smoke', 'flame_dance', *PIECES_DEFAULTS}, {'source', 'template'}, 'pieces')
     if config['template'] not in ('burst_v1', 'burst_v2', 'burst_v1r'):
         raise ValueError('pieces.template must be burst_v1, burst_v2 or burst_v1r')
+    if 'flame_dance' in config:
+        validate_flame_dance(config['flame_dance'])
+        if config['template'] != 'burst_v2': raise ValueError('flame_dance requires burst_v2')
+        if config['flame_dance']['front_source'] == 'interleave' and not config.get('interleave'):
+            raise ValueError('flame_dance interleave source requires a library')
     if 'stretch' in config:
         validate_piece_stretch(config['stretch'])
         if config['template'] != 'burst_v2': raise ValueError('pieces.stretch requires burst_v2')
@@ -1376,9 +1384,13 @@ def validate_thrown_field(data, root, runtime=False):
     if data['element'] == 'poison': _number(data.get('density'),0,1,'density')
     elif 'density' in data: raise ValueError('density is a separate poison layer only')
     g = data['g2']
-    _keys(g, {'flask','field_source','pulse','splash','seed','field_binding','roil_uv_per_s','dark_offset_px','dark_alpha'}, {'flask','field_source','pulse','splash','seed'}, 'g2')
+    _keys(g, {'flask','field_source','pulse','splash','seed','field_binding','roil_uv_per_s','dark_offset_px','dark_alpha','flame_dance'}, {'flask','field_source','pulse','splash','seed'}, 'g2')
     for key,high in [('roil_uv_per_s',.2),('dark_offset_px',12),('dark_alpha',1)]:
         _number(g.get(key,0),0,high,'g2.'+key)
+    if 'flame_dance' in g:
+        validate_flame_dance(g['flame_dance'])
+        if data['element'] != 'fire' or g['flame_dance']['front_source'] != 'inner_planes':
+            raise ValueError('g2.flame_dance requires fire inner_planes')
     binding = g.get('field_binding')
     if binding is not None:
         _keys(binding, {'kind','scale','pivot','dissolve_s'}, {'kind','scale','pivot','dissolve_s'}, 'field_binding')
@@ -1793,6 +1805,9 @@ def validate_motes(value, residue=False):
 def validate_fire_layer(name, value):
     keys=LAYER_KEYS[name]
     _keys(value,keys,set(),name)
+    if 'flame_dance' in value:
+        validate_flame_dance(value['flame_dance'])
+        if value['flame_dance']['front_source'] != 'inner_planes': raise ValueError('travel.flame_dance requires inner_planes')
     if name=='cast':
         for role,item in value.items():
             fields={'scale','frames'} if role=='muzzle_puff' else {'radius_bh','frames','alpha'}
@@ -1862,3 +1877,68 @@ def validate_fire_ending(role, value):
         if value['sheet'] != 'noise': raise ValueError('smoke.sheet must be noise')
         if not isinstance(value['tint'],list) or len(value['tint']) != 3: raise ValueError('smoke.tint requires RGB')
         for channel in value['tint']: _number(channel,0,1,'smoke.tint')
+
+
+# FL-6: opt-in only; no implicit metadata on legacy kits.
+FLAME_DANCE_DEFAULTS = dict(layers=3, back_scale=.94, front_scale=1.04,
+    front_alpha=.85, front_source='inner_planes', tongue_root_radius_factor=1.25,
+    tongue_count=[6,8], tongue_scale=[1.3,1.7], tongue_core_alpha=.5,
+    jitter_px=5, jitter_deg=2.5, jitter_scale=.03, step_frames=[2,3],
+    flicker_hz=[3.3,3.6], seed_offset=7)
+
+
+def validate_flame_dance(value):
+    _keys(value, set(FLAME_DANCE_DEFAULTS), set(FLAME_DANCE_DEFAULTS), 'flame_dance')
+    if value['front_source'] not in ('interleave','inner_planes'):
+        raise ValueError('flame_dance.front_source must be interleave or inner_planes')
+    ranges = dict(layers=(3,3,True), back_scale=(.8,1,False),
+        front_scale=(1,1.2,False), front_alpha=(0,1,False),
+        tongue_root_radius_factor=(1,2,False), tongue_core_alpha=(0,1,False),
+        jitter_px=(0,10,False), jitter_deg=(0,5,False), jitter_scale=(0,.08,False),
+        seed_offset=(0,2147483647,True))
+    for key,(lo,hi,integer) in ranges.items(): _number(value[key],lo,hi,'flame_dance.'+key,integer)
+    for key,lo,hi,integer in [('tongue_count',6,8,True),('tongue_scale',1.3,1.7,False),
+                             ('step_frames',2,5,True),('flicker_hz',3.3,3.6,False)]:
+        pair=value[key]
+        if not isinstance(pair,list) or len(pair)!=2: raise ValueError('flame_dance.'+key+' requires a pair')
+        for v in pair: _number(v,lo,hi,'flame_dance.'+key,integer)
+        if pair[0]>pair[1]: raise ValueError('flame_dance.'+key+' must ascend')
+    return value
+
+
+def flame_dance_sample(config, seed, age, layer):
+    """Counter-seeded bounded, mean-reverting walk; smoothstep between targets.
+
+    L3 has an independent clock and modulates the opposing L2 carrier. This
+    keeps opposition continuous through zero instead of snapping its sign.
+    """
+    validate_flame_dance(config)
+    seed=(int(seed)+int(config['seed_offset'])) & 0x7fffffff
+    def raw(which):
+        def u(label): return int(hashlib.sha256(f'{seed}:{which}:{label}'.encode()).hexdigest()[:8],16)/4294967295
+        previous=[0.]*4; target=[u('v0:'+str(k))*2-1 for k in range(4)]
+        start=0; step=0; frame=max(0,int(age))+int(u('phase')*59)
+        while True:
+            span=config['step_frames'][0]+int(u('dt'+str(step))*(config['step_frames'][1]-config['step_frames'][0]+1))
+            span=min(span,config['step_frames'][1])
+            if frame<start+span: break
+            start+=span;step+=1;previous=target
+            target=[max(-1,min(1,-.65*previous[k]+(u('v'+str(step)+':'+str(k))*2-1))) for k in range(4)]
+        t=(frame-start)/span;t=t*t*(3-2*t)
+        return [a+(b-a)*t for a,b in zip(previous,target)]
+    back=raw(2)
+    value=back if layer==2 else [-a*(.4+.6*abs(b)) for a,b in zip(back,raw(3))]
+    return [value[0]*config['jitter_px'],value[1]*config['jitter_px'],
+            value[2]*config['jitter_deg'],value[3]*config['jitter_scale']]
+
+
+def flame_dance_autocorrelation(values):
+    """Biased normalized ACF: include every positive lag, with no truncation.
+
+    Report local peaks separately from lag-one persistence; neither is hidden.
+    """
+    a=np.asarray(values,dtype=float);a=a-a.mean();den=float(a@a)
+    if den<=1e-15: return dict(acf=[1.]*len(a),max_positive_lag=1.,max_local_peak=1.)
+    acf=(np.correlate(a,a,'full')[len(a)-1:]/den).tolist()
+    peaks=[acf[i] for i in range(1,len(acf)-1) if acf[i]>acf[i-1] and acf[i]>=acf[i+1]]
+    return dict(acf=acf,max_positive_lag=max(acf[1:]),max_local_peak=max(peaks,default=0.))

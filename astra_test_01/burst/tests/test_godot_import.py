@@ -2286,3 +2286,34 @@ class FL5SocketAuditTests(unittest.TestCase):
             index=expected['release_index']
             self.assertEqual(actual['sockets'][index],expected['sockets'][index])
             self.assertNotEqual([0,0],expected['sockets'][index])
+
+
+class FL6FlameDanceEmissionTests(unittest.TestCase):
+    def test_shared_controller_filters_planes_and_tracks_source_lifetime(self):
+        from export.godot_import import FLAME_DANCE_SCRIPT, FL6_BURST_SCRIPT, _fl6_pool, G2_SCRIPT
+        self.assertIn('step(texture(TEXTURE, UV).r, 0.5)',FLAME_DANCE_SCRIPT)
+        self.assertIn('step(0.5, texture(TEXTURE, UV).r)',FLAME_DANCE_SCRIPT)
+        self.assertIn('paint.visible = source.is_visible_in_tree()',FLAME_DANCE_SCRIPT)
+        self.assertIn('paint.z_index = -1 if layer == 2 else 1',FLAME_DANCE_SCRIPT)
+        self.assertIn('source.material.get_shader_parameter(key)',FLAME_DANCE_SCRIPT)
+        self.assertIn('part.axis.z_index = 1',FL6_BURST_SCRIPT)
+        self.assertEqual(_fl6_pool(G2_SCRIPT).count('_clock_lick_dance(maxi(0,land_age))'),1)
+
+
+class FL6HeadlessTraceTests(unittest.TestCase):
+    def test_offsets_uniforms_seed_variation_and_layer_shutdown(self):
+        root=Path(__file__).resolve().parents[1]/'runs/C-5/t3/FL-6'
+        trace=json.loads((root/'runtime_trace.json').read_text())
+        rows=[r for r in trace['burst'] if 12<=r['age']<=28]
+        self.assertEqual(len(rows),17)
+        self.assertGreaterEqual(sum(any(v!=0 for v in r['back']) and any(v!=0 for v in r['front']) for r in rows)/17,.9)
+        self.assertGreaterEqual(sum(all(a*b<0 for a,b in zip(r['back'],r['front'])) for r in rows)/17,.7)
+        for rows in (trace['burst'],trace['bolt'],[x for r in trace['pool'] for x in r['licks']]):
+            for row in rows:
+                self.assertEqual(row['orphans'],0)
+                self.assertEqual(row['uniform_errors'],0)
+        self.assertTrue(all(r['visible_copies']==0 for r in trace['burst'] if r['age']>=30))
+        self.assertEqual(trace['bolt'][-1]['visible_copies'],0)
+        self.assertTrue(all(r['visible_copies']==0 for r in trace['pool'][-1]['licks']))
+        self.assertEqual(len({json.dumps(r['tongues'],sort_keys=True) for r in trace['seeds']}),len(trace['seeds']))
+        for row in trace['seeds']:self.assertIn(len(row['tongues']),range(6,9))
