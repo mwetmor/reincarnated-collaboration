@@ -16046,6 +16046,27 @@
       "veto_open": true,
       "ruling": "FL-4d DELIVERED_WITH_CONCERNS and ACCEPTED: all 18 stale tests re-encoded from the current fields (old→new→why table), runtime/specs/kits/fixtures unchanged, no regression found. Outside suite → freeze; expected floor = five standing + E3-r1.",
       "ts": "2026-09-16T20:54:06"
+    },
+    {
+      "id": "R-C5-122",
+      "class": "matt",
+      "veto_open": false,
+      "ruling": "MATT (2026-09-17, cliffside_v40 on the Mac): (1) speed of projectile and impact: LIKED. (2) Ending: bring back SOME of the painted/decal section with a matching white-hot glow; the embers are too large and too spread out; add a little smoky fog shrouding the embers and the white-hot glow as a small central painted decal subsides. (3) Projectile must emanate from the TIP OF THE STAFF (not behind / beside the character); the projectile may be a bit large; do not show the actual ball until it is about to land — it should ERUPT from the staff, expand into the ball, then impact. BUG: the impact only plays on a target dummy; elsewhere it is a bolt with no impact (the range fizzle, F-C5-22, is now wrong for Matt: a bolt landing on ground must impact). Question: are the interleaving flames in? — YES since v39 (FL-4b), subtle at 1080p; per-cast fill differs.",
+      "ts": "2026-09-16T20:56:03"
+    },
+    {
+      "id": "R-C5-124",
+      "class": "matt",
+      "veto_open": false,
+      "ruling": "MATT (2026-09-17): interleaving flames LOUDER — bigger tongues and more of them; FL-5 as briefed AGREED. FL-5 Part E: count 5-7, scale 1.2-1.6x, gaps <= 40 deg.",
+      "ts": "2026-09-16T21:00:10"
+    },
+    {
+      "id": "R-C5-123",
+      "class": "conductor",
+      "veto_open": true,
+      "ruling": "FREEZE after FL-4d: outside suite at the floor (five standing oracle reds + the E3-r1 catalogue lock) — everything else green. FL-5 fires (impact anywhere, staff-tip audit + eruption, decal + tighter embers + smoke, louder interleaves). C-6 may open in a second gandalf session under R-13 with the coordination rules recorded in the account.",
+      "ts": "2026-09-16T21:05:33"
     }
   ],
   "grok_calls": [],
@@ -16352,6 +16373,20 @@
       "kit": "fire_burst_e0p_v3",
       "note": "dissolve_order [[3],[2],[1,0]] leaves near-black contour last -> black flakes at f44. -> FL-4c: [[0],[1],[2],[3]] (contour, dark, mid, white last) so the burst ends white-hot into the embers.",
       "ts": "2026-09-16T19:30:25"
+    },
+    {
+      "id": "F-C5-39",
+      "kind": "defect (Matt)",
+      "kit": "fire_bolt_e1_B",
+      "note": "A fire bolt that reaches range without a target fizzles (FL-1a F-C5-22 ruling) — Matt: it must IMPACT where it lands. range_expiry burst for fire. -> FL-5 Part A.",
+      "ts": "2026-09-16T20:57:08"
+    },
+    {
+      "id": "F-C5-40",
+      "kind": "defect (Matt)",
+      "kit": "fire_bolt_e1_B",
+      "note": "Casts still appear to emanate from behind/beside the character (Matt, v40) and the ball is visible from frame 0. -> FL-5 Part B: socket audit with a marked sheet per direction; eruption ramp from the tip (0.25 -> 1.0 over 8 f, sheet from f3); head 1.0 BH.",
+      "ts": "2026-09-16T20:57:08"
     }
   ]
 }
