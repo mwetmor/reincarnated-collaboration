@@ -70,60 +70,42 @@
    ]
   },
   "W": {
-   "stands": "N9",
-   "path": "runs/C-6/artifacts/N9-grip-W-r1/n9_W_r1.png",
-   "trues": 12,
+   "stands": "N11",
+   "path": "runs/C-6/artifacts/N11-hold-W/n11_W.png",
+   "judge": "N11-jdg-01 (harvested \u2014 turn failed on the Codex usage limit after the file was written; provenance events.jsonl)",
+   "trues": 13,
    "flags": [
+    "eyes_blue",
     "camera_matches"
    ],
    "axes": {
     "1": 2,
-    "2": 4,
-    "3": 2,
-    "4": 3,
+    "2": 3,
+    "3": 3,
+    "4": 2,
     "5": 5
    },
-   "seen": "W",
-   "considered": [
-    [
-     "N8",
-     10
-    ],
-    [
-     "N9",
-     12
-    ]
-   ]
+   "seen": "W; left-facing profile"
   },
   "NW": {
-   "stands": "N8",
-   "path": "runs/C-6/artifacts/N8-stand-NW-r1/n8_NW_r1.png",
-   "trues": 10,
+   "stands": "N11",
+   "path": "runs/C-6/artifacts/N11-hold-NW/n11_NW.png",
+   "judge": "N11-jdg-01 (harvested \u2014 turn failed on the Codex usage limit after the file was written; provenance events.jsonl)",
+   "trues": 9,
    "flags": [
-    "grip_not_judged (N8 frame predates the grip pass; back view \u2014 grip mostly hidden)"
+    "tome_master_ornament",
+    "hands_in_front",
+    "scythe_held_out",
+    "standing_upright"
    ],
    "axes": {
     "1": 2,
-    "2": 4,
+    "2": 1,
     "3": 3,
-    "4": 5,
-    "5": 5
+    "4": 3,
+    "5": 4
    },
-   "seen": "NW",
-   "considered": [
-    [
-     "N8",
-     10
-    ],
-    [
-     "N9",
-     4
-    ],
-    [
-     "N9r1",
-     7
-    ]
-   ]
+   "seen": "NW; back three-quarter view toward upper-left"
   },
   "N": {
    "stands": "N8",
@@ -206,39 +188,29 @@
    ]
   },
   "SE": {
-   "stands": "N9r1",
-   "path": "runs/C-6/artifacts/N9-grip-SE-r1/n9_SE_r1.png",
-   "trues": 12,
+   "stands": "N11",
+   "path": "runs/C-6/artifacts/N11-hold-SE/n11_SE.png",
+   "judge": "N11-jdg-01 (harvested \u2014 turn failed on the Codex usage limit after the file was written; provenance events.jsonl)",
+   "trues": 14,
    "flags": [
     "camera_matches"
    ],
    "axes": {
-    "1": 3,
+    "1": 2,
     "2": 4,
     "3": 3,
-    "4": 5,
+    "4": 3,
     "5": 4
    },
-   "seen": "SE: front three-quarter toward screen-right",
-   "considered": [
-    [
-     "N8",
-     8
-    ],
-    [
-     "N9",
-     10
-    ],
-    [
-     "N9r1",
-     12
-    ]
-   ]
+   "seen": "SE; front three-quarter view toward screen-right"
   }
  },
  "controls": {
   "N8-jdg-02": "image 7 = mirrored NE claiming SW \u2014 caught (seen NW, mirrored, axis 4 = 1). [corrected 2026-09-17: an earlier line here mis-stated this control as the N8-jdg-01 one \u2014 the PACK caught the discrepancy]",
   "N9-jdg-01": "image 7 = mirrored W claiming E \u2014 caught",
-  "N9-jdg-02": "image 4 = mirrored N claiming SE \u2014 caught"
- }
+  "N9-jdg-02": "image 4 = mirrored N claiming SE \u2014 caught",
+  "N11-jdg-01": "image 4 = mirrored E claiming W \u2014 caught (mirrored=true, axis 4 = 1)"
+ },
+ "hold_rule": "R-C6-26: crescent hooks FORWARD in the facing direction; haft on the master diagonal held out in front (low hand near far hip, upper hand extended at shoulder height); never vertical, never against chest/neck; S as the master.",
+ "astra_halt": "H-C6-ASTRA-1: Codex usage limit until 2026-09-22 23:55 \u2014 no further seed edits possible; NW ships flagged."
 }

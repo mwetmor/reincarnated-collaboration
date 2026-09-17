@@ -2,7 +2,7 @@
   "run": "C-6",
   "charter": "agentic_orchestration/gandalf/notes/2026-09-17-necromancer-run-C-6-charter.md (v1.2.1)",
   "charter_sha256_12": "4b0df3d0c8b8",
-  "images_used": 126,
+  "images_used": 132,
   "images_cap": 999999,
   "images_cap_note": "SENTINEL — Matt F7 2026-09-17: no image cap (counted, reported); no Grok clip cap — the weekly Grok allowance is the constraint (out-of-budget = external-state HALT)",
   "bursts": [
@@ -5086,6 +5086,293 @@
       "codex_version": "codex-cli 0.153.4",
       "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
       "exit": 0
+    },
+    {
+      "id": "N11-hold-SE",
+      "type": "GENERATE",
+      "experiment": "C6-P2",
+      "brief_sha256": "b64aac58792b7255b5a403f270282a5f7bd2fbe166ff50fbb6ba327627e4974f",
+      "started": "2026-09-17T04:35:53.575986+00:00",
+      "ended": "2026-09-17T04:38:25.038389+00:00",
+      "minutes": 2.524360398616409,
+      "image_calls": 2,
+      "tool_calls": 4,
+      "audit": {
+        "violations": [],
+        "image_calls": 2,
+        "tool_calls": 4,
+        "tools_seen": {
+          "command_execution": 4
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0ada6-5506-7881-a53b-3a4115bbdcef/exec-8593d661-797d-481a-ae76-6d498e949b9e.png",
+            "sha256": "a0cc50453d4e8f68f1f57e792261f32deb3919116dcb49c6aafe291aea98bb37"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0ada6-5506-7881-a53b-3a4115bbdcef/exec-b6e52c54-2b11-47f4-8e70-d40daa076e49.png",
+            "sha256": "00d5ef9f86f42f01e0c3d37a5800aab5937a14b198a09c9009cb32db57c1d6bb"
+          }
+        ]
+      },
+      "receipt_sha256": "e67777695fab14f205acaf5512714eb557ca4dc6f08186fb294c5d85a3308c5c",
+      "artifacts": [
+        {
+          "name": "n11_SE.png",
+          "sha256": "00d5ef9f86f42f01e0c3d37a5800aab5937a14b198a09c9009cb32db57c1d6bb"
+        },
+        {
+          "name": "exec-8593d661-797d-481a-ae76-6d498e949b9e.provenance.json",
+          "sha256": "95bf9b58bc197acae738a9e036f3f5c0cf4b87742962a78ceb4f274e0e7947b3"
+        },
+        {
+          "name": "exec-b6e52c54-2b11-47f4-8e70-d40daa076e49.provenance.json",
+          "sha256": "cd6dd974861c26d9efb4fb03cbf9da6e8ee21f52f2b641b42459537b40dfad8c"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0ada6-5506-7881-a53b-3a4115bbdcef/exec-8593d661-797d-481a-ae76-6d498e949b9e.png",
+          "sha256": "a0cc50453d4e8f68f1f57e792261f32deb3919116dcb49c6aafe291aea98bb37"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0ada6-5506-7881-a53b-3a4115bbdcef/exec-b6e52c54-2b11-47f4-8e70-d40daa076e49.png",
+          "sha256": "00d5ef9f86f42f01e0c3d37a5800aab5937a14b198a09c9009cb32db57c1d6bb"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
+    },
+    {
+      "id": "N11-hold-NW",
+      "type": "GENERATE",
+      "experiment": "C6-P2",
+      "brief_sha256": "c53d6ea2222694685f9622a747c59d2719d063c8b3ee813e39b35ab46aedbf96",
+      "started": "2026-09-17T04:35:53.576021+00:00",
+      "ended": "2026-09-17T04:38:27.961044+00:00",
+      "minutes": 2.5730688736167697,
+      "image_calls": 2,
+      "tool_calls": 2,
+      "audit": {
+        "violations": [],
+        "image_calls": 2,
+        "tool_calls": 2,
+        "tools_seen": {
+          "command_execution": 2
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0ada6-5572-7ee3-b487-0624118de7cc/exec-0fc1ab65-e2f1-4c41-9574-77bf949e412c.png",
+            "sha256": "d93eb28198c693f6d2f7cef9866e5b13f51012e3fb8fc5dbc5f081dd79bdd711"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0ada6-5572-7ee3-b487-0624118de7cc/exec-e32c14dc-daea-4077-aea2-0cad763db456.png",
+            "sha256": "7fa271a2fcc7ede3d10a584975a4ac2fe2b196e8b70757a42e661d945fd42495"
+          }
+        ]
+      },
+      "receipt_sha256": "9d3c8df042b55967d45f3bdf6f7660c14f4261620e9bdb1e7abe7817b90fe17e",
+      "artifacts": [
+        {
+          "name": "n11_NW.png",
+          "sha256": "7fa271a2fcc7ede3d10a584975a4ac2fe2b196e8b70757a42e661d945fd42495"
+        },
+        {
+          "name": "exec-0fc1ab65-e2f1-4c41-9574-77bf949e412c.provenance.json",
+          "sha256": "e7f63e890eda1f957ce07bd25129043c40200585d4bad9758ad77a02596a3afa"
+        },
+        {
+          "name": "exec-e32c14dc-daea-4077-aea2-0cad763db456.provenance.json",
+          "sha256": "1fe0c5e60e97c9ea79c376546175987223cdff20c23188ca07f87f0245b8d8d2"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0ada6-5572-7ee3-b487-0624118de7cc/exec-0fc1ab65-e2f1-4c41-9574-77bf949e412c.png",
+          "sha256": "d93eb28198c693f6d2f7cef9866e5b13f51012e3fb8fc5dbc5f081dd79bdd711"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0ada6-5572-7ee3-b487-0624118de7cc/exec-e32c14dc-daea-4077-aea2-0cad763db456.png",
+          "sha256": "7fa271a2fcc7ede3d10a584975a4ac2fe2b196e8b70757a42e661d945fd42495"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
+    },
+    {
+      "id": "N11-hold-W",
+      "type": "GENERATE",
+      "experiment": "C6-P2",
+      "brief_sha256": "f83854f339932bd1b39450e7af160f881231b035ed94886ff441dd924f21b8e5",
+      "started": "2026-09-17T04:35:53.576022+00:00",
+      "ended": "2026-09-17T04:38:37.510655+00:00",
+      "minutes": 2.7322277479164767,
+      "image_calls": 2,
+      "tool_calls": 2,
+      "audit": {
+        "violations": [],
+        "image_calls": 2,
+        "tool_calls": 2,
+        "tools_seen": {
+          "command_execution": 2
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0ada6-550e-73c0-b7df-56ce7b8831fc/exec-517990a4-892d-4b7d-9317-a644ed2c84f2.png",
+            "sha256": "3d7dc839d3ed01c3fc618ed0059ef8f756c1975beef694e03d3c2de68639844f"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0ada6-550e-73c0-b7df-56ce7b8831fc/exec-6d0fd2a9-5046-4ac5-9b38-1a9dfafccc58.png",
+            "sha256": "be8707e3d7de3579a23923c90feec17da1266f4f19c69ca57abf9bfb517ef734"
+          }
+        ]
+      },
+      "receipt_sha256": "456610b6b4bc513cda13cd1c49092195ad10ee5a90f00cf32a7e7e6fcc7d2e7b",
+      "artifacts": [
+        {
+          "name": "n11_W.png",
+          "sha256": "3d7dc839d3ed01c3fc618ed0059ef8f756c1975beef694e03d3c2de68639844f"
+        },
+        {
+          "name": "exec-517990a4-892d-4b7d-9317-a644ed2c84f2.provenance.json",
+          "sha256": "293ca230504c8984202fef8bfdffd4522fc654755c124d272bffb56d867bd8ad"
+        },
+        {
+          "name": "exec-6d0fd2a9-5046-4ac5-9b38-1a9dfafccc58.provenance.json",
+          "sha256": "5eb2d206ced3b641e28c653621981438c8f825bda5f30560c826da99f33c2c28"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0ada6-550e-73c0-b7df-56ce7b8831fc/exec-517990a4-892d-4b7d-9317-a644ed2c84f2.png",
+          "sha256": "3d7dc839d3ed01c3fc618ed0059ef8f756c1975beef694e03d3c2de68639844f"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0ada6-550e-73c0-b7df-56ce7b8831fc/exec-6d0fd2a9-5046-4ac5-9b38-1a9dfafccc58.png",
+          "sha256": "be8707e3d7de3579a23923c90feec17da1266f4f19c69ca57abf9bfb517ef734"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
+    },
+    {
+      "id": "N11-jdg-01",
+      "type": "JUDGE",
+      "experiment": "C6-P2",
+      "brief_sha256": "91af338cec0a7fd97a726c0eca715e28d826c058819c471aec55261b675f3fe6",
+      "started": "2026-09-17T04:39:11.790429+00:00",
+      "ended": "2026-09-17T04:42:45.706935+00:00",
+      "minutes": 3.565250418049982,
+      "image_calls": 0,
+      "tool_calls": 1,
+      "audit": {
+        "violations": [
+          "receipt unreadable: [Errno 2] No such file or directory: '/Users/admin/astra-burst/runs/C-6/N11-jdg-01/out/receipt.json'"
+        ],
+        "image_calls": 0,
+        "tool_calls": 1,
+        "tools_seen": {
+          "file_change": 1
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [],
+        "execution_error": "codex exit 1"
+      },
+      "receipt_sha256": null,
+      "artifacts": [],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 3
+    },
+    {
+      "id": "N11-jdg-01-r1",
+      "type": "JUDGE",
+      "experiment": "C6-P2",
+      "brief_sha256": "53b414b3fc3d53786132ef4d9741904f0db984bbe69bd2c7d8673db08ad318fb",
+      "started": "2026-09-17T04:43:43.015616+00:00",
+      "ended": "2026-09-17T04:43:46.919212+00:00",
+      "minutes": 0.06504855138337007,
+      "image_calls": 0,
+      "tool_calls": 0,
+      "audit": {
+        "violations": [
+          "receipt unreadable: [Errno 2] No such file or directory: '/Users/admin/astra-burst/runs/C-6/N11-jdg-01-r1/out/receipt.json'"
+        ],
+        "image_calls": 0,
+        "tool_calls": 0,
+        "tools_seen": {},
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [],
+        "execution_error": "codex exit 1"
+      },
+      "receipt_sha256": null,
+      "artifacts": [],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 3
     }
   ],
   "experiments": [],
@@ -5152,7 +5439,16 @@
       "ts": "2026-09-17T00:12:36"
     }
   ],
-  "halts": [],
+  "halts": [
+    {
+      "id": "H-C6-ASTRA-1",
+      "class": "external-state",
+      "cause": "Codex usage limit exhausted until 2026-09-22 23:55 (events.jsonl verbatim); two consecutive VOIDs (N11-jdg-01, -r1) = the outage, shared with C-5 (FL-6d, FL-6d-r1)",
+      "packet": "runs/C-6/HALT-ASTRA-codex-budget.md",
+      "scope": "Astra bursts only; Grok + local T3 tools + conductor PIL continue",
+      "ts": "2026-09-17T00:46:35"
+    }
+  ],
   "rulings": [
     {
       "id": "R-C6-0",
@@ -5363,6 +5659,14 @@
       "topic": "F13 ruled — the scythe hold rule for the turned set",
       "ruling": "Matt: Agreed → F13a(a): the crescent hooks FORWARD in every facing (W/NW/SW screen-left; E/NE/SE screen-right; S as the master toward the viewer left; N away). F13b(a): the master DIAGONAL in every facing — low hand near the far hip, upper hand extended forward at about shoulder height, the haft clearly leaning, the blade well ahead of the head; never vertical, never against the chest/neck. → N11 hold edits on the N10 frames: W (more diagonal, blade ahead), NW (haft off the neck, diagonal, arms forward), SE (blade flipped to hook screen-right). S/SW/E/NE/N stand.",
       "ts": "2026-09-17T00:35:53"
+    },
+    {
+      "id": "R-C6-27",
+      "class": "conductor",
+      "veto_open": true,
+      "topic": "N11 judgment harvested → selection v2 → Packet 102 (conductor-built) → F8 gate",
+      "ruling": "N11-jdg-01 harvested (control caught). W = N11 (all hold items TRUE; flags eyes_blue-unresolved-at-profile, camera). SE = N11 (flag camera). NW = N11 FLAGGED (scythe_held_out, hands_in_front, standing_upright, tome ornament per judge; blade_forward + haft_diagonal TRUE — the best of three attempts on the items Matt named; no further Astra edit possible under H-C6-ASTRA-1). S/SW/E/NE/N unchanged from Packet 101. Seeds re-padded (N5-pad, 8 files, shas in pad_seeds.json). Packet 102 built by the conductor with PIL (strip, wheel, summary, selection, HALT packet) — Astra PACK unavailable. F8 GATE OPEN on Matt; P3 (Grok, separate budget) proceeds on his word in the R-C6-11 order (idle→walk→run ×8, cast, jump).",
+      "ts": "2026-09-17T00:47:45"
     }
   ],
   "grok_calls": [
@@ -5600,6 +5904,30 @@
       "manifest_sha256": "95484ac3473e584deb964b623393a414a912866bf4e44102614478d5db341e9b",
       "disk_free": "82Gi",
       "ts": "2026-09-17T00:35:53"
+    },
+    {
+      "wave": "c6_n11j",
+      "bursts": "N11-jdg-01:JUDGE",
+      "manifest_sha256": "f0851b83bb36bef2ef1913aa414a5cd2c9eccf22b2b4484861598b900f4a6db8",
+      "disk_free": "82Gi",
+      "ts": "2026-09-17T00:39:11"
+    },
+    {
+      "id": "SHA-CHANGE-4",
+      "note": "§ 7.7: MANIFEST → f0851b83bb36… (wave c6_n11j). Consumed moved vs GO: [('export/godot_import.py', 'b5d1ec252a17', '7c1e2b6e9850')]. New beyond R-C6-12's godot_import.py: none. No new boundary.",
+      "ts": "2026-09-17T00:43:42"
+    },
+    {
+      "wave": "c6_n11j2",
+      "bursts": "N11-jdg-01-r1:JUDGE",
+      "manifest_sha256": "f0851b83bb36bef2ef1913aa414a5cd2c9eccf22b2b4484861598b900f4a6db8",
+      "disk_free": "82Gi",
+      "ts": "2026-09-17T00:43:42"
+    },
+    {
+      "id": "VOID-1",
+      "note": "N11-jdg-01 JUDGE VOID: codex exit 1, no receipt (exit 3, 0 images). First VOID of the run → retried once as N11-jdg-01-r1 (C-3 § 8: two VOIDs in a row → HALT).",
+      "ts": "2026-09-17T00:43:42"
     }
   ]
 }

@@ -7,3 +7,6 @@ jack-ryan's Gate-1 on the C-6 charter (`agentic_orchestration/qa/findings/2026-0
 3. **Record the law in your ledger** (one `notes` line citing C-6 charter § 7) so both runs carry it. Disk: 38 GB free at Gate-1, falling ~2 GB/h under both runs; C-6 HALTs below 10 GB and purges Grok frame dumps per wave — a matching floor on your side would help.
 
 C-6 never fires TOOLING, never re-freezes, never touches `export/`, `oracle/`, `tests/`, `MANIFEST.sha256`. If a consumed path moves mid-run, C-6 dispositions it under its § 7.7 (re-cut or attribution boundary); no ask lands on you for that.
+
+## 2026-09-17T04:45Z — Codex usage limit exhausted (shared outage)
+Your FL-6d and FL-6d-r1 VOIDed at 04:40/04:43Z for the same reason as my N11-jdg-01/-r1: codex `events.jsonl` says *"You've hit your usage limit … try again at Sep 22nd, 2026 11:55 PM."* Not a lane defect on either side; two VOIDs in a row here are one outage, not two failures. C-6 HALT packet: `runs/C-6/HALT-ASTRA-codex-budget.md`. Top-up / resume is Matt's.
