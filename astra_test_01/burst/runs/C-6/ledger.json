@@ -2,7 +2,7 @@
   "run": "C-6",
   "charter": "agentic_orchestration/gandalf/notes/2026-09-17-necromancer-run-C-6-charter.md (v1.2.1)",
   "charter_sha256_12": "4b0df3d0c8b8",
-  "images_used": 70,
+  "images_used": 72,
   "images_cap": 999999,
   "images_cap_note": "SENTINEL — Matt F7 2026-09-17: no image cap (counted, reported); no Grok clip cap — the weekly Grok allowance is the constraint (out-of-budget = external-state HALT)",
   "bursts": [
@@ -2742,6 +2742,119 @@
       "codex_version": "codex-cli 0.153.4",
       "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
       "exit": 0
+    },
+    {
+      "id": "N7-turn-W-r1",
+      "type": "GENERATE",
+      "experiment": "C6-P2",
+      "brief_sha256": "2da9c48be46fc5887b81f4f4c39f09aceec63e02ad1bb56cd0ca5da14bf2ef9a",
+      "started": "2026-09-17T03:08:00.320565+00:00",
+      "ended": "2026-09-17T03:10:12.464071+00:00",
+      "minutes": 2.202427115966566,
+      "image_calls": 2,
+      "tool_calls": 2,
+      "audit": {
+        "violations": [],
+        "image_calls": 2,
+        "tool_calls": 2,
+        "tools_seen": {
+          "command_execution": 2
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0ad55-dbe2-7f52-b2ef-4f1eda783264/exec-bfdd4a94-4ef3-4ee2-b81e-829ea2525e3f.png",
+            "sha256": "0c9797b16321d106195045ba5607a308752032d721c8ced9d081e2e2b72e5dd1"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0ad55-dbe2-7f52-b2ef-4f1eda783264/exec-d3a7fe7d-b01a-4efd-83b0-2cb6e120c698.png",
+            "sha256": "6b1945cbd09ddaeecb82a0b1e9550c764648b2ae0b07bcb81092e1507c06a004"
+          }
+        ]
+      },
+      "receipt_sha256": "3ed3b146f82a4b3e2a1d25570ef53c9f0c2c43adff13394260b6a7ce64cf452d",
+      "artifacts": [
+        {
+          "name": "n7_W_r1.png",
+          "sha256": "0c9797b16321d106195045ba5607a308752032d721c8ced9d081e2e2b72e5dd1"
+        },
+        {
+          "name": "exec-bfdd4a94-4ef3-4ee2-b81e-829ea2525e3f.provenance.json",
+          "sha256": "a47d8ac5925707ac982fff6e8aa3e7382048b34e329bb63c851c1659f08a202c"
+        },
+        {
+          "name": "exec-d3a7fe7d-b01a-4efd-83b0-2cb6e120c698.provenance.json",
+          "sha256": "d23113097512ef60abd3f60ba2c67a0ef4e0a228661d1048e0ac8a8ec0502823"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0ad55-dbe2-7f52-b2ef-4f1eda783264/exec-bfdd4a94-4ef3-4ee2-b81e-829ea2525e3f.png",
+          "sha256": "0c9797b16321d106195045ba5607a308752032d721c8ced9d081e2e2b72e5dd1"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0ad55-dbe2-7f52-b2ef-4f1eda783264/exec-d3a7fe7d-b01a-4efd-83b0-2cb6e120c698.png",
+          "sha256": "6b1945cbd09ddaeecb82a0b1e9550c764648b2ae0b07bcb81092e1507c06a004"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
+    },
+    {
+      "id": "N7-jdg-01",
+      "type": "JUDGE",
+      "experiment": "C6-P2",
+      "brief_sha256": "69fffc653de5cb85fed4130933ff4e6b552bd2bce703d8870249c87017a161e7",
+      "started": "2026-09-17T03:06:51.227162+00:00",
+      "ended": "2026-09-17T03:12:59.085517+00:00",
+      "minutes": 6.131082777783255,
+      "image_calls": 0,
+      "tool_calls": 3,
+      "audit": {
+        "violations": [],
+        "image_calls": 0,
+        "tool_calls": 3,
+        "tools_seen": {
+          "file_change": 1,
+          "command_execution": 2
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": []
+      },
+      "receipt_sha256": "ec58296bddd4665b8a0fbb2e43618b8ccfdf3530cf628247ff36b0ee1904dcc8",
+      "artifacts": [
+        {
+          "name": "judgment.json",
+          "sha256": "8ac7ccac0a000b2c93d9b61dbb483d23da77757469978ebf13eb317caf6d5e80"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
     }
   ],
   "experiments": [],
@@ -2937,6 +3050,14 @@
       "topic": "The fighting crouch is a BATTLE idle (later lap) — out-of-battle idle/walk/run seeds are a STANDING REST",
       "ruling": "Matt (verbatim): Maybe we save that stance for the battle idle, later on. We should not use it as standing/walking (out of battle) idle. → The master pose (wide crouched fighting stance) is reserved for a future battle-idle set. C-6 P3 seeds — all eight directions INCLUDING S — must be a standing rest: upright, weight even, feet under the hips, the scythe held two-handed at rest, head level. The design master is unchanged (design master + future battle-idle seed); the S seed becomes a derived artefact (like N3 already was). Conductor method (veto-open, R-C6-18): N8 = EDIT-mode pose change on each direction best frame (keeps identity, camera, sides), then the checklist judge + a standing_upright boolean. S_walk_t1 stays a valid walk candidate (its settled stance IS the standing walk; CUT starts after the rise).",
       "ts": "2026-09-16T23:07:27"
+    },
+    {
+      "id": "R-C6-18",
+      "class": "conductor",
+      "veto_open": true,
+      "topic": "N7-jdg-01 read → N8 standing-rest pose edits on all eight",
+      "ruling": "N7-jdg-01: control caught (image 6 = mirrored SE claiming NW: mirrored, axis4=1). Camera now TRUE on SW/NW/N/NE/SE (the EDIT-mode camera re-draw works — the N3 method holds for turned frames); E still shallow. W-r1 plate fixed (green 0.906). Heads: S + SW tucked; NE pauldron shows a skull-like relief (new); eyes unresolved at 512 for S/SW/E (resolution artefact — S edits now use the 1254 master). Per R-C6-17 all eight seeds need the STANDING REST pose → N8-stand-<d> EDIT-mode pose change on each best frame (S from the full-res N3 master; W from W-r1; NE from N6) carrying the residual fixes (SW head+book; E camera; NE pauldron; S head). Judge next with standing_upright as a hard boolean.",
+      "ts": "2026-09-16T23:13:59"
     }
   ],
   "grok_calls": [
@@ -3054,6 +3175,13 @@
       "manifest_sha256": "0b5f3d82fbfeb94760c96ef35ee1f1e95b038b2e67b3921fde4147ee67b1a50c",
       "disk_free": "88Gi",
       "ts": "2026-09-16T23:08:00"
+    },
+    {
+      "wave": "c6_n8",
+      "bursts": "N8-stand-S:GENERATE N8-stand-SW:GENERATE N8-stand-W:GENERATE N8-stand-NW:GENERATE N8-stand-N:GENERATE N8-stand-NE:GENERATE N8-stand-E:GENERATE N8-stand-SE:GENERATE",
+      "manifest_sha256": "32f6cbcb95ff1c0d1612920aae0eac20904583749dc7d6fa26468f7c47517b18",
+      "disk_free": "88Gi",
+      "ts": "2026-09-16T23:13:59"
     }
   ]
 }
