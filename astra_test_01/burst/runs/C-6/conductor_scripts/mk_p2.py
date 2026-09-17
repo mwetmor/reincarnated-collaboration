@@ -114,6 +114,19 @@ for d in DIRS:
         refs = [{"path": str(MASTER), "role": "IMAGE 1 — APPROVED MASTER (S): identity truth; its crouch is NOT the target pose"},
                 {"path": str(src), "role": f"IMAGE 2 — the character turned to {d}: EDIT this image; change only the pose to a standing rest"}]
         outs = [f"out/n8_{d}.png"]
+    elif mode == 'gripedit':
+        import json as _j
+        srcs = _j.load(open(B/'runs/C-6/n9_sources.json')); src = B/srcs[d]; assert src.exists(), src
+        bid = f'N9-grip-{d}'
+        text = (f"GENERATE BURST {bid} — Necromancer standing rest, direction {d}: SCYTHE GRIP + BUCKLE fix in EDIT mode (Run C-6 P2 pass 6; owner review R-C6-21). task_id \"{bid}\".\n\n"
+          f"IMAGE 1 is the APPROVED MASTER (S). Read HOW HE HOLDS THE SCYTHE: it is HELD OUT IN FRONT of him, not propped on his body — the haft runs diagonally across the FRONT of the figure but stands AWAY from the chest; the UPPER hand is extended forward/outward at about shoulder height gripping the haft below the blade; the LOWER hand grips near the hip; the great crescent blade is UP and forward, the tallest landmark, clear of the head. Also read the BELT: a ROUND PLAIN SILVER DISC with a small leaf-like sigil, crisply drawn. IMAGE 2 is the same character turned to {d} in the standing rest — its camera, turn, sides, stance, head and identity are CORRECT and must be kept — but in IMAGE 2 the scythe is PROPPED against his chest in a relaxed pose (WRONG), and the belt buckle may have lost its detail.\n"
+          f"Use image_gen in EDIT MODE on IMAGE 2 and deliver ONE image identical to IMAGE 2 except: (1) the SCYTHE is HELD OUT IN FRONT as in IMAGE 1 — the upper hand extended forward/outward at shoulder height, the haft away from the chest, angled across the front, the lower hand at the hip, EXACTLY TWO hands, the blade UP on the same side as in IMAGE 2 and the tallest landmark; (2) the BELT BUCKLE is the round silver disc with its small leaf sigil, crisply drawn. Change nothing else: same standing rest (legs straight, feet under the hips), same camera, same turn, same head (LEVEL, chin fractionally raised, eyes on the horizon), same plate (flat pure #00ff00), nothing touching the canvas edge.\n"
+          f"Reference for the direction (unchanged): {row}\n\n{COMMON}\n\n"
+          f"One image_gen call; ONE retry only if the scythe is still propped against the body, the upper hand is not extended, a third hand appears, the buckle is blank or a skull, the stance or turn changed, or the head reads bowed AT ALL (hard fail) — name the reason. Copy the output from $CODEX_HOME/generated_images/... to out/n9_{d}.png with sha256. No code. No other files. No web.\n"
+          f"RETURN: the receipt (task_id \"{bid}\"): files = [out/n9_{d}.png with sha256]; images = the INTEGER COUNT of image_gen calls (1 or 2); calls_used; status DELIVERED / DELIVERED_WITH_CONCERNS — state explicitly: is the scythe held out in front (upper hand extended), buckle detail present, hands, head level, what else moved.")
+        refs = [{"path": str(A6/'N1-refs/necro_master_final_app.png'), "role": "IMAGE 1 — APPROVED MASTER at full resolution: HOW the scythe is held (out in front, upper hand extended) and the belt disc detail"},
+                {"path": str(src), "role": f"IMAGE 2 — the character turned to {d} in the standing rest: EDIT this image; fix only the scythe grip and the buckle"}]
+        outs = [f"out/n9_{d}.png"]
     elif mode == 'remint':
         import json as _j
         sel=_j.load(open(B/'runs/C-6/p2_selection.json'))['selection'][d]

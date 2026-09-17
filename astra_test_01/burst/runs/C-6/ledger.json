@@ -3980,6 +3980,14 @@
       "topic": "N8-jdg-02 read (CAMREF = standing S) → SW/SE stance edits; residuals named",
       "ruling": "Control caught (image 7 = mirrored NE claiming SW: seen NW, mirrored, axis4=1). Standing set vs the standing S: NW/N/NE CLEAN except scale (pad-normalized; non-predicate). W and E: camera FALSE only — the two profiles read near eye level (long shins, eye-height face); a known residual to show Matt on the packet (F8 gate), not silently accepted. S: head_level FALSE by the judge (chin tucks slightly) vs conductor eye level — Matt eye decides; flagged on the packet. SW-r1: the alignment edit introduced a stepped guarded stance (standing FALSE); SE-r1: alignment only partial + a spread stance. → N8-r2 EDIT fixes for SW and SE: keep the turn, straighten the stance (legs together, feet under hips, same ground level). Selection rule for P2 close: per direction the attempt with the most checklist TRUEs (scale excluded), tie → latest; anything still FALSE rides to the packet as a named flag.",
       "ts": "2026-09-16T23:39:00"
+    },
+    {
+      "id": "R-C6-21",
+      "class": "matt",
+      "veto_open": false,
+      "topic": "Matt eye on the N8 early-look sheet: scythe propped, buckle detail lost",
+      "ruling": "Matt (verbatim): A lot of the images in this packet have the scythe in more of a relaxed pose, propped up against the necromancers chest, but it needs to be held out in front like the originals. Also some of the images lost all detail in the belt buckle. → Conductor fault: the standedit brief said held at rest across the body (upper grip about chest height) — that IS the propped pose. Invariant restated from the master: the scythe is HELD OUT IN FRONT — the haft angled diagonally across the front of the body but AWAY from the chest, the upper hand extended forward/outward at about shoulder height, the lower hand at the hip, blade up and forward, the tallest landmark. Buckle: the round silver disc with its small leaf sigil must be clearly drawn. → N9 EDIT pass on all eight standing frames (grip + buckle only); judge gains scythe_held_out + buckle_detail as hard booleans.",
+      "ts": "2026-09-16T23:39:49"
     }
   ],
   "grok_calls": [
@@ -4132,6 +4140,18 @@
       "manifest_sha256": "4ac66774f3dc2af93d0536bff44f797b90399139522246dda178e9437e35745a",
       "disk_free": "85Gi",
       "ts": "2026-09-16T23:39:00"
+    },
+    {
+      "id": "SHA-CHANGE-3",
+      "note": "§ 7.7 check: MANIFEST → 4ac66774f3dc… (wave c6_n8r2). Consumed paths moved vs GO record: [('export/godot_import.py', 'b5d1ec252a17', '534696e0a517')]. Already dispositioned under R-C6-12 (godot_import.py; binds nothing until P5 pins its own sha).",
+      "ts": "2026-09-16T23:40:02"
+    },
+    {
+      "wave": "c6_n9a",
+      "bursts": "N9-grip-S:GENERATE N9-grip-W:GENERATE N9-grip-NW:GENERATE N9-grip-N:GENERATE N9-grip-NE:GENERATE N9-grip-E:GENERATE",
+      "manifest_sha256": "4ac66774f3dc2af93d0536bff44f797b90399139522246dda178e9437e35745a",
+      "disk_free": "85Gi",
+      "ts": "2026-09-16T23:40:19"
     }
   ]
 }
