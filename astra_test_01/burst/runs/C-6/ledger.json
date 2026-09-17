@@ -2,9 +2,9 @@
   "run": "C-6",
   "charter": "agentic_orchestration/gandalf/notes/2026-09-17-necromancer-run-C-6-charter.md (v1.2.1)",
   "charter_sha256_12": "4b0df3d0c8b8",
-  "images_used": 59,
+  "images_used": 60,
   "images_cap": 999999,
-  "images_cap_note": "SENTINEL — Matt F7 2026-09-17: no image cap (counted, reported); no Grok clip cap — the weekly Grok allowance is the constraint (out-of-budget = external-state HALT)",
+  "images_cap_note": "SENTINEL \u2014 Matt F7 2026-09-17: no image cap (counted, reported); no Grok clip cap \u2014 the weekly Grok allowance is the constraint (out-of-budget = external-state HALT)",
   "bursts": [
     {
       "id": "N1-master-cam-01",
@@ -2296,44 +2296,145 @@
       "codex_version": "codex-cli 0.153.4",
       "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
       "exit": 0
+    },
+    {
+      "id": "N6-jdg-01",
+      "type": "JUDGE",
+      "experiment": "C6-P2",
+      "brief_sha256": "957861f88ea8510ec4fd1cc513397b5894b5b0ef1543b4a50344509cc5232d35",
+      "started": "2026-09-17T02:55:15.680041+00:00",
+      "ended": "2026-09-17T03:01:13.426709+00:00",
+      "minutes": 5.963238149999719,
+      "image_calls": 0,
+      "tool_calls": 3,
+      "audit": {
+        "violations": [],
+        "image_calls": 0,
+        "tool_calls": 3,
+        "tools_seen": {
+          "file_change": 1,
+          "command_execution": 2
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": []
+      },
+      "receipt_sha256": "bff4fc6ebd3bb10674b0845b6be443e919eb4f656685d4ea8f2487e4e2134b37",
+      "artifacts": [
+        {
+          "name": "judgment.json",
+          "sha256": "3cbcbd6270fb4084269a285703bf1f486a192165766ec1d2d7c73c4ee0aa84c2"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
+    },
+    {
+      "id": "N7-turn-W",
+      "type": "GENERATE",
+      "experiment": "C6-P2",
+      "brief_sha256": "4eb62f424ae15c287cc4ae56e665da1a14c4e69d8969342eaceac0e451a18028",
+      "started": "2026-09-17T03:02:28.735723+00:00",
+      "ended": "2026-09-17T03:04:43.452578+00:00",
+      "minutes": 2.2453164840330526,
+      "image_calls": 1,
+      "tool_calls": 4,
+      "audit": {
+        "violations": [],
+        "image_calls": 1,
+        "tool_calls": 4,
+        "tools_seen": {
+          "command_execution": 4
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0ad50-cd15-7451-b4f3-0f68dade2dff/exec-5a757461-4278-4065-abcd-296ef84fcb9b.png",
+            "sha256": "fe78f05cbe2d8d76fe4ca7f27ae59d68d1865e273b61f14a2ebde00e712200a7"
+          }
+        ]
+      },
+      "receipt_sha256": "636f08098b15209d7a14830610fcb18a2df89477634a252f5b390a7a78304f6c",
+      "artifacts": [
+        {
+          "name": "n7_W.png",
+          "sha256": "fe78f05cbe2d8d76fe4ca7f27ae59d68d1865e273b61f14a2ebde00e712200a7"
+        },
+        {
+          "name": "exec-5a757461-4278-4065-abcd-296ef84fcb9b.provenance.json",
+          "sha256": "da5a1ea0a6ac19b2a3e051375ac7fe1fe29c9c0be05a2d435e443428b8733274"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0ad50-cd15-7451-b4f3-0f68dade2dff/exec-5a757461-4278-4065-abcd-296ef84fcb9b.png",
+          "sha256": "fe78f05cbe2d8d76fe4ca7f27ae59d68d1865e273b61f14a2ebde00e712200a7"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
     }
   ],
   "experiments": [],
   "milestones": [
     {
       "id": "M-C6-N1-SCENE",
-      "note": "N1-master-cam-02 (right-hand fist corrected) placed in cliffside_v21 as prop necro_master_still (3840,720) via CS-props-v21; Keeper walk-around + 4 stills captured → Desktop Packet 86; sent to Matt. C-6 STOPS here pending the master decision (no turnaround/loops until ruled).",
+      "note": "N1-master-cam-02 (right-hand fist corrected) placed in cliffside_v21 as prop necro_master_still (3840,720) via CS-props-v21; Keeper walk-around + 4 stills captured \u2192 Desktop Packet 86; sent to Matt. C-6 STOPS here pending the master decision (no turnaround/loops until ruled).",
       "ts": "2026-09-15T19:43:11"
     },
     {
       "id": "M-C6-N2-SCYTHE",
-      "note": "N2-master-scythe-01 DELIVERED_WITH_CONCERNS (2 image calls; sha c285c523…): scythe baked into the accepted master — haft through both existing fists (upper wrap in the raised right fist, lower wrap in the hip-level left fist), blade upper-left curving outward clear of the face, butt-spike lower-right above the ground line; figure feet line unchanged (y 1010), horn on his left shoulder; composite bbox h 897 px (blade adds ~190 px above the head). Conductor eye: PASS on every retry criterion. Awaiting Matt's eye (charter § 5 F5) + fork rulings F1–F4. C-6 charter DRAFT v0.1 filed.",
+      "note": "N2-master-scythe-01 DELIVERED_WITH_CONCERNS (2 image calls; sha c285c523\u2026): scythe baked into the accepted master \u2014 haft through both existing fists (upper wrap in the raised right fist, lower wrap in the hip-level left fist), blade upper-left curving outward clear of the face, butt-spike lower-right above the ground line; figure feet line unchanged (y 1010), horn on his left shoulder; composite bbox h 897 px (blade adds ~190 px above the head). Conductor eye: PASS on every retry criterion. Awaiting Matt's eye (charter \u00a7 5 F5) + fork rulings F1\u2013F4. C-6 charter DRAFT v0.1 filed.",
       "ts": "2026-09-15T20:06:17"
     },
     {
       "id": "M-C6-N2-R1",
-      "note": "N2-master-scythe-r1 DELIVERED (1 image call): real-scythe proportions — weapon 1.13× figure height overall, blade head narrower than the shoulders, tip ~90 px above the head; both fists on the wraps; figure unchanged. Model returned a TRANSPARENT (RGBA) plate instead of green — conductor composited a green-plate copy for the lane (necro_master_scythe_r1_green.png). Awaiting Matt's eye.",
+      "note": "N2-master-scythe-r1 DELIVERED (1 image call): real-scythe proportions \u2014 weapon 1.13\u00d7 figure height overall, blade head narrower than the shoulders, tip ~90 px above the head; both fists on the wraps; figure unchanged. Model returned a TRANSPARENT (RGBA) plate instead of green \u2014 conductor composited a green-plate copy for the lane (necro_master_scythe_r1_green.png). Awaiting Matt's eye.",
       "ts": "2026-09-15T20:12:25"
     },
     {
       "id": "M-C6-N2-R2",
-      "note": "N2-master-scythe-r2 DELIVERED (2 image calls) against a TOOLING-PLACED GUIDE (scythe_guide_r2.png: design keyed, scaled to haft 550 px = 0.78 H, rotated 56.5° onto the fist line, placed through both fists): straight haft, blade beside the right shoulder, butt-spike past the hip fist, composite bbox h 707 = figure height (nothing above the head), figure pixels unchanged. Lesson (Astra S1 § 2b confirmed on a character): size/angle/position are a tooling contract, not prose. Awaiting Matt's eye.",
+      "note": "N2-master-scythe-r2 DELIVERED (2 image calls) against a TOOLING-PLACED GUIDE (scythe_guide_r2.png: design keyed, scaled to haft 550 px = 0.78 H, rotated 56.5\u00b0 onto the fist line, placed through both fists): straight haft, blade beside the right shoulder, butt-spike past the hip fist, composite bbox h 707 = figure height (nothing above the head), figure pixels unchanged. Lesson (Astra S1 \u00a7 2b confirmed on a character): size/angle/position are a tooling contract, not prose. Awaiting Matt's eye.",
       "ts": "2026-09-15T20:31:14"
     },
     {
       "id": "M-C6-N3-CAM",
-      "note": "N3-final-cam-01 DELIVERED (2 image calls): Matt's FINAL master re-drawn from the 53° scene camera — identity, scythe (blade up-left), tome, horn intact; foreshortened feet, ground under the figure. Delivered at 1254² (figure 566 px head-to-feet, scythe above); conductor keys + scales by figure height to 146 px (13.5 %) for CS-props-v23 at path (2650,1950). Conductor eye: camera PASS. Awaiting Matt on the web build.",
+      "note": "N3-final-cam-01 DELIVERED (2 image calls): Matt's FINAL master re-drawn from the 53\u00b0 scene camera \u2014 identity, scythe (blade up-left), tome, horn intact; foreshortened feet, ground under the figure. Delivered at 1254\u00b2 (figure 566 px head-to-feet, scythe above); conductor keys + scales by figure height to 146 px (13.5 %) for CS-props-v23 at path (2650,1950). Conductor eye: camera PASS. Awaiting Matt on the web build.",
       "ts": "2026-09-15T23:06:09"
     },
     {
       "id": "M-C6-P0-FORKS",
       "class": "matt",
-      "note": "Matt 2026-09-17 ruled charter § 5: F1–F6 ACCEPT ALL as recommended — F1(a) all 5 animations, 40 cells; F2(a) Grok i2v for all clips (un-shelves Grok, Q78 b); F3(a) Keeper PROPOSED bands report-only, no in-run band minting; F4(a) separate staged project cliffside_v<N>-necro, web route on Matt word only; F5(a) scythe blade inner curve = cast release socket; F6(a) N3-final-cam-01 is the animation master, no further mint. F7 (added by conductor): Matt — NO image cap (V20 sentinel stays; counted, reported) and NO Grok clip cap: the constraint is the weekly Grok token allowance, unknown size, likely < the Keeper 71; a Grok out-of-budget reply is an external-state HALT on P3 (HALT packet, cells to date kept, resume on Matt word). Conductor ruling veto-open: P3 clip order idle→walk→run (8 dirs) → cast → jump so a partial week yields a walkable necro.",
+      "note": "Matt 2026-09-17 ruled charter \u00a7 5: F1\u2013F6 ACCEPT ALL as recommended \u2014 F1(a) all 5 animations, 40 cells; F2(a) Grok i2v for all clips (un-shelves Grok, Q78 b); F3(a) Keeper PROPOSED bands report-only, no in-run band minting; F4(a) separate staged project cliffside_v<N>-necro, web route on Matt word only; F5(a) scythe blade inner curve = cast release socket; F6(a) N3-final-cam-01 is the animation master, no further mint. F7 (added by conductor): Matt \u2014 NO image cap (V20 sentinel stays; counted, reported) and NO Grok clip cap: the constraint is the weekly Grok token allowance, unknown size, likely < the Keeper 71; a Grok out-of-budget reply is an external-state HALT on P3 (HALT packet, cells to date kept, resume on Matt word). Conductor ruling veto-open: P3 clip order idle\u2192walk\u2192run (8 dirs) \u2192 cast \u2192 jump so a partial week yields a walkable necro.",
       "ts": "2026-09-16T21:35:37"
     },
     {
       "id": "M-C6-P2-N5",
-      "note": "P2 pass 2 DONE: N5-turn ×7 delivered (14 images; run total 36). Conductor eye on the contact sheet: all seven facings carry the correct sides (blade = anatomical right; horn/tome = left; back views blade screen-right). Handed to N5-jdg-01 (hidden control = mirrored SE claiming SW): camera shallower in W/N/E; N/NW receipts flag ribcage relief + skull buckle on the BACK; NE tome exposed. Native 1254² outputs; 512/240 re-plate is conductor-side before P3 seeds.",
+      "note": "P2 pass 2 DONE: N5-turn \u00d77 delivered (14 images; run total 36). Conductor eye on the contact sheet: all seven facings carry the correct sides (blade = anatomical right; horn/tome = left; back views blade screen-right). Handed to N5-jdg-01 (hidden control = mirrored SE claiming SW): camera shallower in W/N/E; N/NW receipts flag ribcage relief + skull buckle on the BACK; NE tome exposed. Native 1254\u00b2 outputs; 512/240 re-plate is conductor-side before P3 seeds.",
       "ts": "2026-09-16T22:08:39"
     },
     {
@@ -2343,8 +2444,13 @@
     },
     {
       "id": "M-C6-P2-PACKET",
-      "note": "P2 CLOSED at the packet: N5p-turnaround DELIVERED_WITH_CONCERNS (0 images; concerns are presentation notes: S has no judge row by design (the master), green plates kept, preview scaling). Desktop: Astra Burst Review - 2026-09-17/Packet 100 - necro turnaround (C-6 P2) (review.html, strip, wheel, summary, p2_selection.json). F8 GATE: P3 (Grok) waits for Matt eye on Packet 100 or 24 h without a red flag; F9 (Grok liveness probe) still awaits Matt word — Grok held.",
+      "note": "P2 CLOSED at the packet: N5p-turnaround DELIVERED_WITH_CONCERNS (0 images; concerns are presentation notes: S has no judge row by design (the master), green plates kept, preview scaling). Desktop: Astra Burst Review - 2026-09-17/Packet 100 - necro turnaround (C-6 P2) (review.html, strip, wheel, summary, p2_selection.json). F8 GATE: P3 (Grok) waits for Matt eye on Packet 100 or 24 h without a red flag; F9 (Grok liveness probe) still awaits Matt word \u2014 Grok held.",
       "ts": "2026-09-16T22:28:22"
+    },
+    {
+      "id": "M-C6-GROK-1",
+      "note": "Grok WALK TEST on the S master seed (R-C6-14) \u2014 S_walk_t1: ok, 68 s wall, 768x1168 @ 24 fps, 145 frames, 6.04 s, sha c6befa17\u2026; no cost/balance line printed (as C-3). F9 ANSWERED: Grok is live. HEAD TEST (conductor eye on 25 sampled frames, head-crop grid): face level and forward for the entire clip \u2014 no tilt to the floor, no dip-and-return, no nod; the resting scowl holds. Matt eye requested to confirm. DEFECT: zoom-in opening \u2014 the figure grows ~1.4x between f0 and f12 then holds (camera-lock violation) \u2192 a CUT/CHECK matter in P4 (loop start after settle; G1 height report), not a re-generation. Prompt skeleton with the head-level-throughout lines (walk/run/gaze) is the one used.",
+      "ts": "2026-09-16T23:04:19"
     }
   ],
   "halts": [],
@@ -2354,49 +2460,49 @@
       "class": "matt",
       "veto_open": false,
       "ts": "2026-09-15T22:50:23Z",
-      "ruling": "Character 2 = end-game Necromancer. Matt: text-designed (Blizzard render = design read only, never attached); grip classes accepted (2H-polearm / 1H+off-hand / empty caster; weapons as socketed layers; scythe = a layer); STOP after the master until Matt decides it. Matt generated the DESIGN master in the ChatGPT app (first-party) — camera at eye level; Matt: \"take my image and prompt around it to reach the size / angle\" → N1-master-cam-01 re-mints at the scene camera with the Keeper rest frame as IMAGE 1."
+      "ruling": "Character 2 = end-game Necromancer. Matt: text-designed (Blizzard render = design read only, never attached); grip classes accepted (2H-polearm / 1H+off-hand / empty caster; weapons as socketed layers; scythe = a layer); STOP after the master until Matt decides it. Matt generated the DESIGN master in the ChatGPT app (first-party) \u2014 camera at eye level; Matt: \"take my image and prompt around it to reach the size / angle\" \u2192 N1-master-cam-01 re-mints at the scene camera with the Keeper rest frame as IMAGE 1."
     },
     {
       "id": "R-C6-1",
       "class": "matt",
       "veto_open": false,
-      "ruling": "Matt (verbatim): 'I like the Necro as master copy. I think we will need him to hold the scythe for now.' → N1-master-cam-02 ACCEPTED as the C-6 design master. Scythe: in-hand for the first animation set (the grip-class weapon-layer split stays as direction, deferred); composition method pending Matt's word on the conductor lean (bake the scythe into the master before the turnaround/loops, as the Keeper's staff is).",
+      "ruling": "Matt (verbatim): 'I like the Necro as master copy. I think we will need him to hold the scythe for now.' \u2192 N1-master-cam-02 ACCEPTED as the C-6 design master. Scythe: in-hand for the first animation set (the grip-class weapon-layer split stays as direction, deferred); composition method pending Matt's word on the conductor lean (bake the scythe into the master before the turnaround/loops, as the Keeper's staff is).",
       "ts": "2026-09-15T19:50:22"
     },
     {
       "id": "R-C6-2",
       "class": "matt",
       "veto_open": false,
-      "ruling": "Fork 1 — Matt: 'bake it in.' The scythe is composited into the accepted master (two-handed polearm grip) and that composite is the animation master for the turnaround + loops; the weapon-layer split stays as filed direction.",
+      "ruling": "Fork 1 \u2014 Matt: 'bake it in.' The scythe is composited into the accepted master (two-handed polearm grip) and that composite is the animation master for the turnaround + loops; the weapon-layer split stays as filed direction.",
       "ts": "2026-09-15T20:02:25"
     },
     {
       "id": "R-C6-3",
       "class": "matt",
       "veto_open": false,
-      "ruling": "Fork 2 — Matt: 'we won't need a following lap.. but maybe in the future.' The unarmed (empty-caster) master state + idle/walk set is NOT scheduled; parked as a future lap. C-6 scope = scythe-in-hand set only.",
+      "ruling": "Fork 2 \u2014 Matt: 'we won't need a following lap.. but maybe in the future.' The unarmed (empty-caster) master state + idle/walk set is NOT scheduled; parked as a future lap. C-6 scope = scythe-in-hand set only.",
       "ts": "2026-09-15T20:02:25"
     },
     {
       "id": "R-C6-4",
       "class": "matt",
       "veto_open": false,
-      "ruling": "N2-master-scythe-01 FAILS Matt's eye (charter F5): 'The scythe is completely the wrong size.. it needs to be fit down to size of a real scythe.' Conductor fault: the N2 brief specified haft ≈ figure height + blade above it (≈ 1.3× his height overall, blade ≈ 0.5× height). N2-r1 re-mints from the ORIGINAL master with real-scythe proportions: haft ≈ 0.85× figure height (≈ 600 px), blade chord ≈ 0.35× figure height (≈ 250 px), blade head no wider than his shoulders, tip no higher than one head above him.",
+      "ruling": "N2-master-scythe-01 FAILS Matt's eye (charter F5): 'The scythe is completely the wrong size.. it needs to be fit down to size of a real scythe.' Conductor fault: the N2 brief specified haft \u2248 figure height + blade above it (\u2248 1.3\u00d7 his height overall, blade \u2248 0.5\u00d7 height). N2-r1 re-mints from the ORIGINAL master with real-scythe proportions: haft \u2248 0.85\u00d7 figure height (\u2248 600 px), blade chord \u2248 0.35\u00d7 figure height (\u2248 250 px), blade head no wider than his shoulders, tip no higher than one head above him.",
       "ts": "2026-09-15T20:09:28"
     },
     {
       "id": "R-C6-5",
       "class": "matt",
       "veto_open": false,
-      "ruling": "Matt (2026-09-16): 'I landed on the final master version of the Necromancer' — a first-party app render (green plate, 1254², figure fills the canvas: standing three-quarter, both hands on the scythe haft, blade up-left above the head, tome at the left hip, horn on his left shoulder). This SUPERSEDES N1-master-cam-02 + N2-r2 as the design master. Filed: agentic_orchestration/gandalf/design-inputs/2026-09-16-c6-necromancer-app-master-FINAL.png; staged runs/C-6/artifacts/N1-refs/necro_master_final_app.png. Camera read (conductor): more frontal and lower than the 53° scene camera — the in-lane camera re-mint (N1-class) applies again before the turnaround; the scythe size is Matt's choice and is carried as drawn.",
+      "ruling": "Matt (2026-09-16): 'I landed on the final master version of the Necromancer' \u2014 a first-party app render (green plate, 1254\u00b2, figure fills the canvas: standing three-quarter, both hands on the scythe haft, blade up-left above the head, tome at the left hip, horn on his left shoulder). This SUPERSEDES N1-master-cam-02 + N2-r2 as the design master. Filed: agentic_orchestration/gandalf/design-inputs/2026-09-16-c6-necromancer-app-master-FINAL.png; staged runs/C-6/artifacts/N1-refs/necro_master_final_app.png. Camera read (conductor): more frontal and lower than the 53\u00b0 scene camera \u2014 the in-lane camera re-mint (N1-class) applies again before the turnaround; the scythe size is Matt's choice and is carried as drawn.",
       "ts": "2026-09-15T22:31:47"
     },
     {
       "id": "R-C6-6",
       "class": "conductor",
       "veto_open": true,
-      "topic": "GO — Run C-6 launched",
-      "ruling": "GO. jack-ryan Gate-1: BLOCK-narrow (e90b22c1) → v1.2 → re-check PASS-WITH-WARNS (5065f068; WARN-R1 seven-hit value sweep discharged in v1.2.1 before launch — grep far-tip|frozen|latest now returns only the three retirement statements). Charter v1.2.1 sha12 4b0df3d0c8b8. MANIFEST sha at launch 560e62056be16d96332d5d1709f8f46daa7951a22077eca44dd273a66053cdda (C-5-owned LIVE tree; per-wave sha in wave lines; § 7.7 disposition). Consumed paths: runs/C-6/consumed_shas_at_go.json (33 entries, jack-ryan re-hashed 0 mismatch). Pinned scene runs/C-5/cliffside_v40. images_cap SENTINEL (F7); Grok uncapped, ledgered, HALT on out-of-budget. F1–F7 ruled (M-C6-P0-FORKS). F8 (P2 sheet = GATE on P3) and F9 (Grok liveness probe) OPEN — Matt; conductor HOLDS Grok (F9) until his word and proceeds on F8(a) (a pause only). Disk free at GO 39Gi (floor 10 GB). P2 opens: N4-geo wave c6_n4 (7 GENERATE, detached, 01:59:17Z). RECORD DEFECT, owned: the wave launched ~1 min BEFORE this ruling landed — a zsh variable-expansion error silently skipped the ledger writes in the launch chain (exit not checked); the ruling text is unchanged from the intended one; nothing about the wave depended on it.",
+      "topic": "GO \u2014 Run C-6 launched",
+      "ruling": "GO. jack-ryan Gate-1: BLOCK-narrow (e90b22c1) \u2192 v1.2 \u2192 re-check PASS-WITH-WARNS (5065f068; WARN-R1 seven-hit value sweep discharged in v1.2.1 before launch \u2014 grep far-tip|frozen|latest now returns only the three retirement statements). Charter v1.2.1 sha12 4b0df3d0c8b8. MANIFEST sha at launch 560e62056be16d96332d5d1709f8f46daa7951a22077eca44dd273a66053cdda (C-5-owned LIVE tree; per-wave sha in wave lines; \u00a7 7.7 disposition). Consumed paths: runs/C-6/consumed_shas_at_go.json (33 entries, jack-ryan re-hashed 0 mismatch). Pinned scene runs/C-5/cliffside_v40. images_cap SENTINEL (F7); Grok uncapped, ledgered, HALT on out-of-budget. F1\u2013F7 ruled (M-C6-P0-FORKS). F8 (P2 sheet = GATE on P3) and F9 (Grok liveness probe) OPEN \u2014 Matt; conductor HOLDS Grok (F9) until his word and proceeds on F8(a) (a pause only). Disk free at GO 39Gi (floor 10 GB). P2 opens: N4-geo wave c6_n4 (7 GENERATE, detached, 01:59:17Z). RECORD DEFECT, owned: the wave launched ~1 min BEFORE this ruling landed \u2014 a zsh variable-expansion error silently skipped the ledger writes in the launch chain (exit not checked); the ruling text is unchanged from the intended one; nothing about the wave depended on it.",
       "ts": "2026-09-16T22:00:01"
     },
     {
@@ -2404,31 +2510,31 @@
       "class": "conductor",
       "veto_open": true,
       "topic": "P2 JUDGE N5-jdg-01 read + retry set",
-      "ruling": "Control CAUGHT (image 5 = mirrored SE claiming SW: mirrored=true, axis4=1). All seven candidates: seen_facing = claimed, mirrored=false, axis 4 = 4/5 (one deduction each). Retry ONCE (charter § 4 P2) for five: SW (head not level — a head-down seed propagates into every SW clip opening, the C-3 failure class), NW + N (front ribcage relief + skull buckle drawn on the BACK), NE (one grip visible; extra ornament), E (lower gauntlet off the haft — a one-handed seed contradicts the both-hands clip line, R-C6-2). W (blade broad-face) and SE (clean) stand. Retries use the current mint as IMAGE 2 with a per-direction CORRECTION clause. Selection after the retry: the better of the two per direction by a second JUDGE pass on the changed directions; a direction failing twice ships flagged (charter § 2 fallback).",
+      "ruling": "Control CAUGHT (image 5 = mirrored SE claiming SW: mirrored=true, axis4=1). All seven candidates: seen_facing = claimed, mirrored=false, axis 4 = 4/5 (one deduction each). Retry ONCE (charter \u00a7 4 P2) for five: SW (head not level \u2014 a head-down seed propagates into every SW clip opening, the C-3 failure class), NW + N (front ribcage relief + skull buckle drawn on the BACK), NE (one grip visible; extra ornament), E (lower gauntlet off the haft \u2014 a one-handed seed contradicts the both-hands clip line, R-C6-2). W (blade broad-face) and SE (clean) stand. Retries use the current mint as IMAGE 2 with a per-direction CORRECTION clause. Selection after the retry: the better of the two per direction by a second JUDGE pass on the changed directions; a direction failing twice ships flagged (charter \u00a7 2 fallback).",
       "ts": "2026-09-16T22:13:42"
     },
     {
       "id": "R-C6-8",
       "class": "conductor",
       "veto_open": true,
-      "topic": "P2 turnaround STANDS — selection",
-      "ruling": "N5-jdg-02: control CAUGHT again (image 4 = mirrored E-r1 claiming W: mirrored=true, axis4=1); all five retries read as claimed, no mirror, back_details_wrong=false, both hands on the haft. Selection by the R-C6-7 rule (runs/C-6/p2_selection.json): SW r1 (axis4 5) · W v1 (4) · NW r1 (5) · N r1 (4) · NE r1 (4; tome exposed — accepted, identity 3) · E r1 (4; blade broad-face) · SE v1 (5). NO flagged direction. P2 spend 34 images; run total 45. Grok seeds padded (N5-pad/, 1024×1536, figure 70 %, feet row 1428; pad_seeds.json carries source shas). PACK N5p-turnaround fired → Desktop packet 100 = the F8 contact-sheet GATE on P3. RECORD NOTE: first fire attempt failed at dry-run (tool_call_cap 30 > lane limit; exit 2 swallowed by a redirect) — same exit-check lesson as R-C6-6; ruling recorded on the successful fire.",
+      "topic": "P2 turnaround STANDS \u2014 selection",
+      "ruling": "N5-jdg-02: control CAUGHT again (image 4 = mirrored E-r1 claiming W: mirrored=true, axis4=1); all five retries read as claimed, no mirror, back_details_wrong=false, both hands on the haft. Selection by the R-C6-7 rule (runs/C-6/p2_selection.json): SW r1 (axis4 5) \u00b7 W v1 (4) \u00b7 NW r1 (5) \u00b7 N r1 (4) \u00b7 NE r1 (4; tome exposed \u2014 accepted, identity 3) \u00b7 E r1 (4; blade broad-face) \u00b7 SE v1 (5). NO flagged direction. P2 spend 34 images; run total 45. Grok seeds padded (N5-pad/, 1024\u00d71536, figure 70 %, feet row 1428; pad_seeds.json carries source shas). PACK N5p-turnaround fired \u2192 Desktop packet 100 = the F8 contact-sheet GATE on P3. RECORD NOTE: first fire attempt failed at dry-run (tool_call_cap 30 > lane limit; exit 2 swallowed by a redirect) \u2014 same exit-check lesson as R-C6-6; ruling recorded on the successful fire.",
       "ts": "2026-09-16T22:23:39"
     },
     {
       "id": "R-C6-9",
       "class": "matt",
       "veto_open": false,
-      "topic": "F8 GATE — Matt eye on Packet 100: NOT PASSED; identity + camera defects",
-      "ruling": "Matt (verbatim, 2026-09-17): W head tilted too far down and missing blue eyes; SW may not have blue eyes; SE head tilted a bit to the left instead of focused straight; S may have its head tilted a bit downwards; W, SW, E, SE have skulls on their belt buckles — incorrect; NW has his hands inhumanly behind his back; N gained a small skull on the shoulder — incorrect; E has a ghost hand coming out of the right side of his stomach to hold the scythe; SW, SE, NW, W added ornamentation on the book (Matt likes it but it must be the same — he recommends a red bloody/wax stamp or a keyhole, or both) and W-s variant is a skull again; E-s ribcage ornamentation is more bone and less steel than the rest; generally S has the correct angle/zoom/proportional size and the others are not set the same against the camera. → P3 does NOT open on this turnaround. Conductor: re-mint pass with an invariant checklist judge (rubric law).",
+      "topic": "F8 GATE \u2014 Matt eye on Packet 100: NOT PASSED; identity + camera defects",
+      "ruling": "Matt (verbatim, 2026-09-17): W head tilted too far down and missing blue eyes; SW may not have blue eyes; SE head tilted a bit to the left instead of focused straight; S may have its head tilted a bit downwards; W, SW, E, SE have skulls on their belt buckles \u2014 incorrect; NW has his hands inhumanly behind his back; N gained a small skull on the shoulder \u2014 incorrect; E has a ghost hand coming out of the right side of his stomach to hold the scythe; SW, SE, NW, W added ornamentation on the book (Matt likes it but it must be the same \u2014 he recommends a red bloody/wax stamp or a keyhole, or both) and W-s variant is a skull again; E-s ribcage ornamentation is more bone and less steel than the rest; generally S has the correct angle/zoom/proportional size and the others are not set the same against the camera. \u2192 P3 does NOT open on this turnaround. Conductor: re-mint pass with an invariant checklist judge (rubric law).",
       "ts": "2026-09-16T22:43:35"
     },
     {
       "id": "R-C6-10",
       "class": "conductor",
       "veto_open": true,
-      "topic": "Root cause of the F8 identity defects — conductor brief text, not model drift",
-      "ruling": "Master read at full res (necro_master_final_app.png): pale BLUE eyes; ROUND SILVER belt disc with a small leaf-like sigil (NO skull); SILVER-STEEL ribcage relief (metal, not bone); tome = dark leather, silver corner caps, RED RIBBON marker; no skull anywhere. My P2 IDENTITY line (mk_p2.py, inherited verbatim from the N3-final-cam-01 brief prose) said skull-and-bone buckle / cold eyes / bone-white ribcage → the skull buckles on W SW E SE, the bone ribcage on E and the lost blue eyes are conductor-induced. Second fault: the N5 judge scored identity as one axis with no invariant checklist (rubric law, pattern § 6.3) and passed frames with the wrong buckle at 4/5. Also mine: the facing table for N/NW/NE said the haft crosses his BACK — a two-handed grip is in FRONT of the body; from behind the haft is hidden by the torso except above the right shoulder and below the left hip, hands mostly hidden (→ NW inhuman hands). Remedy: N6 re-mint pass for all seven turned directions from an INVARIANTS list derived from the master image (never from prior brief prose), camera locked to IMAGE 1 (53° down: crown and shoulders seen from above, feet foreshortened), exactly two hands, head level and aligned with the body; judged by an invariant-checklist JUDGE (one boolean per Matt item) + the geometry axis + a mirrored control. Book ornament and S re-mint are Matt forks (F10/F11).",
+      "topic": "Root cause of the F8 identity defects \u2014 conductor brief text, not model drift",
+      "ruling": "Master read at full res (necro_master_final_app.png): pale BLUE eyes; ROUND SILVER belt disc with a small leaf-like sigil (NO skull); SILVER-STEEL ribcage relief (metal, not bone); tome = dark leather, silver corner caps, RED RIBBON marker; no skull anywhere. My P2 IDENTITY line (mk_p2.py, inherited verbatim from the N3-final-cam-01 brief prose) said skull-and-bone buckle / cold eyes / bone-white ribcage \u2192 the skull buckles on W SW E SE, the bone ribcage on E and the lost blue eyes are conductor-induced. Second fault: the N5 judge scored identity as one axis with no invariant checklist (rubric law, pattern \u00a7 6.3) and passed frames with the wrong buckle at 4/5. Also mine: the facing table for N/NW/NE said the haft crosses his BACK \u2014 a two-handed grip is in FRONT of the body; from behind the haft is hidden by the torso except above the right shoulder and below the left hip, hands mostly hidden (\u2192 NW inhuman hands). Remedy: N6 re-mint pass for all seven turned directions from an INVARIANTS list derived from the master image (never from prior brief prose), camera locked to IMAGE 1 (53\u00b0 down: crown and shoulders seen from above, feet foreshortened), exactly two hands, head level and aligned with the body; judged by an invariant-checklist JUDGE (one boolean per Matt item) + the geometry axis + a mirrored control. Book ornament and S re-mint are Matt forks (F10/F11).",
       "ts": "2026-09-16T22:44:47"
     },
     {
@@ -2436,30 +2542,64 @@
       "class": "matt",
       "veto_open": false,
       "topic": "F10/F11 ruled + the head-level mandate for Grok seeds",
-      "ruling": "Matt: F10 (b) — the master own ornament (silver corner caps + red ribbon marker) on every direction, no other emblem, S unchanged; F11 (a) — S stands as the master. Matt (verbatim intent): we had major issues with Grok pointing the head down during generated walking movies; we cannot afford Grok re-generating movies due to our images or prompts seeming to have heads bowed in any way. → HEAD-LEVEL MANDATE: every Grok seed still must read LEVEL or CHIN-UP at the 53° camera (at this camera a level head reads slightly bowed, so briefs ask for the chin fractionally raised, eyes on the far horizon); the checklist judge scores head_level as a hard boolean for all EIGHT seeds including S; a seed judged bowed is re-minted (or, for S, flagged to Matt) BEFORE any Grok call — never a Grok re-generation for a seed defect. Clip prompts keep the R-51 gaze line.",
+      "ruling": "Matt: F10 (b) \u2014 the master own ornament (silver corner caps + red ribbon marker) on every direction, no other emblem, S unchanged; F11 (a) \u2014 S stands as the master. Matt (verbatim intent): we had major issues with Grok pointing the head down during generated walking movies; we cannot afford Grok re-generating movies due to our images or prompts seeming to have heads bowed in any way. \u2192 HEAD-LEVEL MANDATE: every Grok seed still must read LEVEL or CHIN-UP at the 53\u00b0 camera (at this camera a level head reads slightly bowed, so briefs ask for the chin fractionally raised, eyes on the far horizon); the checklist judge scores head_level as a hard boolean for all EIGHT seeds including S; a seed judged bowed is re-minted (or, for S, flagged to Matt) BEFORE any Grok call \u2014 never a Grok re-generation for a seed defect. Clip prompts keep the R-51 gaze line.",
       "ts": "2026-09-16T22:50:31"
     },
     {
       "id": "R-C6-12",
       "class": "conductor",
       "veto_open": true,
-      "topic": "§ 7.7 disposition — export/godot_import.py moved (C-5 FL-5c, c98195ad)",
-      "ruling": "Consumed path export/godot_import.py moved b5d1ec25… → 790bba8f… under MANIFEST 4bfdf01c… (SHA-CHANGE-2). Disposition (b) attribution boundary, recorded: ZERO C-6 artefacts were produced against the prior exporter (P4/P5 not yet run), so no re-cut is owed and no cell carries a boundary. P5 pins the MANIFEST sha in force at P5 in predicate 4, re-reads the exporter socket schema then (FL-5b/5c added release_socket_rule + eight-direction tip sockets), and matrix.html shows one sha for the whole export. consumed_shas_at_go.json is NOT rewritten (it is the GO record); the P5 record lands in the ledger.",
+      "topic": "\u00a7 7.7 disposition \u2014 export/godot_import.py moved (C-5 FL-5c, c98195ad)",
+      "ruling": "Consumed path export/godot_import.py moved b5d1ec25\u2026 \u2192 790bba8f\u2026 under MANIFEST 4bfdf01c\u2026 (SHA-CHANGE-2). Disposition (b) attribution boundary, recorded: ZERO C-6 artefacts were produced against the prior exporter (P4/P5 not yet run), so no re-cut is owed and no cell carries a boundary. P5 pins the MANIFEST sha in force at P5 in predicate 4, re-reads the exporter socket schema then (FL-5b/5c added release_socket_rule + eight-direction tip sockets), and matrix.html shows one sha for the whole export. consumed_shas_at_go.json is NOT rewritten (it is the GO record); the P5 record lands in the ledger.",
       "ts": "2026-09-16T22:52:04"
     },
     {
       "id": "R-C6-13",
       "class": "matt",
       "veto_open": false,
-      "topic": "F12 — the camera is S (N3 master, 53°); the Keeper is the wrong camera",
-      "ruling": "Matt (verbatim): the keeper is the wrong camera by the way. → F12 ruled: the set camera is the N3 S master (53° down: crown and shoulder tops from above, feet foreshortened). F12(a) (re-mint S to the seven) is REJECTED; the seven turned frames must come up to S. LANE FINDING (DRIFT-CRITIC, recorded for Matt/C-7, not C-6 scope): the Keeper K2c turned frames — the cells in the scene today — are at near eye level while 00-system.md and the Keeper S master say 53°; the same flattening the necro showed, one character earlier, accepted unnoticed. Method for C-6: N7 = image_gen EDIT MODE on each N6 mint (the N3 method that changed camera on Matt master) with the S master as IMAGE 1 camera reference — camera re-draw, identity + sides kept, plus each direction remaining checklist fix. Fallback if EDIT does not move the camera: tooling-built geometry guides (a posed proxy rendered at 53° per direction via a conductor .gd probe under the heavy lock) — conductor tooling, not a lane TOOLING burst.",
+      "topic": "F12 \u2014 the camera is S (N3 master, 53\u00b0); the Keeper is the wrong camera",
+      "ruling": "Matt (verbatim): the keeper is the wrong camera by the way. \u2192 F12 ruled: the set camera is the N3 S master (53\u00b0 down: crown and shoulder tops from above, feet foreshortened). F12(a) (re-mint S to the seven) is REJECTED; the seven turned frames must come up to S. LANE FINDING (DRIFT-CRITIC, recorded for Matt/C-7, not C-6 scope): the Keeper K2c turned frames \u2014 the cells in the scene today \u2014 are at near eye level while 00-system.md and the Keeper S master say 53\u00b0; the same flattening the necro showed, one character earlier, accepted unnoticed. Method for C-6: N7 = image_gen EDIT MODE on each N6 mint (the N3 method that changed camera on Matt master) with the S master as IMAGE 1 camera reference \u2014 camera re-draw, identity + sides kept, plus each direction remaining checklist fix. Fallback if EDIT does not move the camera: tooling-built geometry guides (a posed proxy rendered at 53\u00b0 per direction via a conductor .gd probe under the heavy lock) \u2014 conductor tooling, not a lane TOOLING burst.",
       "ts": "2026-09-16T22:58:02"
+    },
+    {
+      "id": "R-C6-14",
+      "class": "matt",
+      "veto_open": false,
+      "topic": "F9 ruled by action \u2014 Grok walk test on the S master",
+      "ruling": "Matt (verbatim): try a walk video with the S master and see if we can have the character focused forwards during the entire walk. It is not so much that the head cannot be at that angle, but that the head cannot tilt down to look at the floor mid walk and then back up. \u2192 Grok un-held for ONE test clip: S_walk from the padded S seed (N5-pad/pad_S.png, 1024x1536). It doubles as the F9 liveness probe (a 402 = F7 HALT). Success criterion (Matt): the head stays facing forward for the entire clip \u2014 no tilt down to the floor and back up mid-walk; the resting head angle itself is acceptable. Prompt skeleton amended first: the C-3 walk/run line the head bobs down into each footfall replaced with the body rides up and down while the HEAD STAYS LEVEL AND FACING FORWARD for the entire clip; gaze line extended to first frame to last, never dips and comes back up. Readout: frame strip (every 6th frame) + a head-angle read by eye; result ledgered as grok_calls[0] + milestone.",
+      "ts": "2026-09-16T23:01:15"
+    },
+    {
+      "id": "R-C6-15",
+      "class": "conductor",
+      "veto_open": true,
+      "topic": "Checklist judge N6-jdg-01 read \u2192 N7 set",
+      "ruling": "Control caught (image 7 = mirrored W claiming E: mirrored=true, axis4=1). Identity fixes LANDED on all eight: no_skull_{buckle,shoulder,book} true everywhere; eyes_blue true wherever visible; hands_exactly_two true everywhere; ribcage_steel true where visible. Remaining: S head_level FALSE (chin tucked \u2014 the master itself; Matt Grok walk test R-C6-14 is the read); SW camera+scale+book emblem; W camera+scale; NW camera+head+book sigil; E camera+scale+head/body alignment; N book fittings; SE head level+aligned. NE CLEAN \u2014 stands. N7 fired: EDIT-mode camera re-draw (N3 method) for SW/W/NW/E carrying their fixes; targeted EDIT fixes for N/SE (camera already matches). Then N7-jdg (same checklist) on the six + NE + S.",
+      "ts": "2026-09-16T23:02:28"
     }
   ],
-  "grok_calls": [],
+  "grok_calls": [
+    {
+      "id": "G-S_walk_t1",
+      "cell": "S_walk",
+      "still": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-6/artifacts/N5-pad/pad_S.png",
+      "still_sha256": "5aad794de8c1c99874ff5cbd16524d46952bfc0ebe4f8f42589928aceec4335d",
+      "prompt_sha256": "de4a2e16a1293f92f621d3b9206f755a5194d4b40e80af68751eafbe94ad9fab",
+      "extra": "",
+      "clip": "runs/C-6/xvideo/in/S_walk_t1.mp4",
+      "clip_sha256": "c6befa179b0801e58ffa445392100e71d767864f795a0f14158dfc83e7a5f4fb",
+      "ok": true,
+      "rc": 0,
+      "wall_s": 68,
+      "probe": "768,1168,24/1,6.041667,145",
+      "printed": "",
+      "staged_mp4": "/Users/admin/astra-burst/grok/C-6/S_walk_t1/S_walk_t1.mp4",
+      "ts": "2026-09-16T23:02:25"
+    }
+  ],
   "notes": [
     {
-      "note": "Ledger opened; Grok shelved (Q78 b) until loops — un-shelve is Matt's.",
+      "note": "Ledger opened; Grok shelved (Q78 b) until loops \u2014 un-shelve is Matt's.",
       "ts": "2026-09-15T22:50:23Z"
     },
     {
@@ -2478,7 +2618,7 @@
     },
     {
       "id": "SHA-CHANGE-1",
-      "note": "§ 7.7 check: MANIFEST moved 560e6205… (wave c6_n4) → ff6d223d… (wave c6_n5), C-5 commit 51cf3839 (FL-5b sheet ruled). Consumed paths moved: NONE (all 22 tool entries match consumed_shas_at_go.json). Whole-tree change: SPEC.md only — noted, not dispositioned. No attribution boundary.",
+      "note": "\u00a7 7.7 check: MANIFEST moved 560e6205\u2026 (wave c6_n4) \u2192 ff6d223d\u2026 (wave c6_n5), C-5 commit 51cf3839 (FL-5b sheet ruled). Consumed paths moved: NONE (all 22 tool entries match consumed_shas_at_go.json). Whole-tree change: SPEC.md only \u2014 noted, not dispositioned. No attribution boundary.",
       "ts": "2026-09-16T22:05:15"
     },
     {
@@ -2518,7 +2658,7 @@
     },
     {
       "id": "SHA-CHANGE-2",
-      "note": "§ 7.7 check: MANIFEST → 4bfdf01c773d… (wave c6_n6). Consumed paths moved: [('export/godot_import.py', 'b5d1ec252a17', '790bba8f587c')]. Tree paths changed: []. ATTRIBUTION BOUNDARY — disposition required.",
+      "note": "\u00a7 7.7 check: MANIFEST \u2192 4bfdf01c773d\u2026 (wave c6_n6). Consumed paths moved: [('export/godot_import.py', 'b5d1ec252a17', '790bba8f587c')]. Tree paths changed: []. ATTRIBUTION BOUNDARY \u2014 disposition required.",
       "ts": "2026-09-16T22:51:31"
     },
     {
@@ -2530,8 +2670,15 @@
     },
     {
       "id": "CAM-FINDING-1",
-      "note": "Camera-anchor plan (N7: Keeper K2c frames as IMAGE 2 camera/scale/turn anchors) ABORTED before firing: side-by-side (scratch cam_compare.png) shows the Keeper K2c E/N frames are drawn at NEAR EYE LEVEL — the Keeper cells standing in the scene are shallower than the N6 necro mints, and the N3 necro S master is the steepest camera in the lane. Three prose passes (N4/N5/N6) did not move the seven turned mints to S; no in-lane image exists at S camera for turned views. Camera reconciliation is Matt fork F12 (design: what the set camera IS), not a conductor ruling. mk_p2.py anchor mode retained but unused.",
+      "note": "Camera-anchor plan (N7: Keeper K2c frames as IMAGE 2 camera/scale/turn anchors) ABORTED before firing: side-by-side (scratch cam_compare.png) shows the Keeper K2c E/N frames are drawn at NEAR EYE LEVEL \u2014 the Keeper cells standing in the scene are shallower than the N6 necro mints, and the N3 necro S master is the steepest camera in the lane. Three prose passes (N4/N5/N6) did not move the seven turned mints to S; no in-lane image exists at S camera for turned views. Camera reconciliation is Matt fork F12 (design: what the set camera IS), not a conductor ruling. mk_p2.py anchor mode retained but unused.",
       "ts": "2026-09-16T22:56:43"
+    },
+    {
+      "wave": "c6_n7",
+      "bursts": "N7-turn-SW:GENERATE N7-turn-W:GENERATE N7-turn-NW:GENERATE N7-turn-E:GENERATE N7-turn-N:GENERATE N7-turn-SE:GENERATE",
+      "manifest_sha256": "4bfdf01c773d67b4fadb6e4ccb5d8dea5dccb5c3a87b1648d6e77dff6313852b",
+      "disk_free": "88Gi",
+      "ts": "2026-09-16T23:02:28"
     }
   ]
 }
