@@ -1,0 +1,63 @@
+# Conductor brief generator for Run C-6 P2 (data, not lane code). Two passes per direction (charter § 3, § 4 P2):
+#   N4-geo-<d>  : GEOMETRY-ONLY draft of the necro turned to <d> (identity-preserve from the S master; K2-class; C-1 shape)
+#   N5-turn-<d> : IDENTITY mint from the S master with the N4 draft as geometry-only IMAGE 2 (K2c-class; C-3 shape)
+# usage: mk_p2.py geo | turn    (writes briefs/C-6/*.task.json and runs/C-6/n5_facing_table.json)
+import json, pathlib, sys
+B = pathlib.Path('/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst')
+A6 = B/'runs/C-6/artifacts'
+MASTER = A6/'N3-final-cam-01/necro_master_S_512.png'
+# Derivation (R-C3-1, right = front × up; R-C6-2 the scythe is baked in). Master faces S (the camera): the SCYTHE is on his
+# anatomical RIGHT (haft from low at his LEFT hip up past his RIGHT shoulder; the crescent blade above and screen-LEFT of his
+# head); the HORN rises from his LEFT shoulder (screen-right); the TOME hangs at his LEFT hip (screen-right). Turned toward
+# screen-RIGHT (SE/E/NE) he presents his RIGHT side: blade + haft-top NEAR, horn + tome FAR. Turned toward screen-LEFT (SW/W/NW)
+# he presents his LEFT side: horn + tome NEAR, the blade FAR (rising above the far shoulder). N: back to camera, blade over
+# screen-RIGHT, horn on screen-LEFT. NO MIRRORING.
+T = {
+ "derivation": "R-C3-1 (right = front × up) applied to the Necromancer: scythe = anatomical RIGHT (blade the tallest landmark, above his right shoulder); horn = anatomical LEFT shoulder; tome = anatomical LEFT hip. Screen-right facings show the blade side near; screen-left facings show the horn/tome side near.",
+ "table": {
+  "SW": "he is turned 45° toward SCREEN-LEFT from the S pose — body, chest AND head all face the viewer's LOWER-LEFT (the head turns WITH the body). His LEFT side is nearer the camera: the great bone HORN on his near LEFT shoulder stands on the SCREEN-RIGHT of his head, nearest the camera; the small dark TOME hangs at his near LEFT hip on the screen-right of his body. Both gauntlets hold the scythe haft, which runs from low at that near left hip diagonally up across the FRONT of his chest to his far RIGHT shoulder on the SCREEN-LEFT; the crescent BLADE rises above and beyond the far right shoulder on the screen-left, partly behind his head, its tip the highest point. Face visible in three-quarter view looking toward the screen's lower-left, head level.",
+  "W":  "full LEFT profile — he faces SCREEN-LEFT (nose, chest and sabaton toes point screen-left). His LEFT side is toward the camera: the HORN rises from the near left shoulder, silhouetted against the plate above and beside his head; the TOME hangs at his near left hip over the hip and thigh. The haft is held in both hands across the front of the body — the lower grip low at the near hip, the upper grip up before the chest — and continues up and BEHIND him to his far RIGHT shoulder; the BLADE rises above and behind the far shoulder on the screen-RIGHT side of his head, tip the highest point, the crescent turned edge-on or slightly toward the camera so it reads as a blade, never a flat plate. Face in left profile, head level, gaze level toward screen-left.",
+  "NW": "a BACK three-quarter view — he faces the viewer's UPPER-LEFT, turned 135° from the S pose, walking away from the camera toward screen-left. His BACK and his LEFT side are toward the camera: the HORN on his left shoulder stands on the SCREEN-LEFT, nearer the camera; the TOME hangs at his left hip on the screen-left; long bone-white hair falls down his back. The haft crosses his back from low at the left hip up to the far RIGHT shoulder on the SCREEN-RIGHT; the BLADE rises above the far right shoulder on the screen-right, its tip the highest point, hooking outward away from the head. Face NOT visible (at most the edge of the cheek); back of the cuirass and pauldrons seen.",
+  "N":  "a full BACK view — he faces directly AWAY from the camera (his back to the viewer). His RIGHT side is on the SCREEN-RIGHT: the haft rises up and to the screen-right behind his back, both fists on it, and the BLADE stands above his RIGHT shoulder on the SCREEN-RIGHT, tip the highest point. The HORN rises from his LEFT shoulder on the SCREEN-LEFT; the TOME at his left hip is on the screen-left. Long bone-white hair covers the upper back; back of the cuirass, both pauldrons and the split skirt seen from behind; the back of the head only, no face.",
+  "NE": "a BACK three-quarter view — he faces the viewer's UPPER-RIGHT, turned 135° from the S pose, walking away from the camera toward screen-right. His BACK and his RIGHT side are toward the camera: the scythe is on the NEAR side — both fists on the haft, which rises past his near RIGHT shoulder on the SCREEN-RIGHT, the BLADE above it on the screen-right, tip the highest point, hooking outward away from the head. The HORN on his far LEFT shoulder shows on the SCREEN-LEFT beyond his head; the TOME at the far left hip is mostly hidden. Face NOT visible; hair down the back.",
+  "E":  "full RIGHT profile — he faces SCREEN-RIGHT (nose, chest and sabaton toes point screen-right). His RIGHT side is toward the camera: the scythe is NEAR — the haft crosses in front of his body from low behind the far left hip up past his near RIGHT shoulder, both gauntlets gripping it, and the BLADE rises above his near right shoulder, highest point of the figure, the crescent readable as a blade (edge-on or turned slightly toward the camera), not a flat plate. The HORN on the far LEFT shoulder shows only as its curved tip beyond his head on the screen-left; the TOME at the far hip is hidden. Face in right profile, head level, gaze level toward screen-right.",
+  "SE": "he is turned 45° toward SCREEN-RIGHT from the S pose — body, chest and head all face the viewer's LOWER-RIGHT. His RIGHT side is nearer the camera: the haft is on the near side, rising from low at his far LEFT hip across the front of his chest up past his near RIGHT shoulder on the SCREEN-LEFT; the BLADE rises above and beyond the near right shoulder on the screen-left, tip the highest point, hooking outward away from the head. The HORN rises from his far LEFT shoulder on the SCREEN-RIGHT beyond his head; the TOME hangs at the far left hip on the screen-right, partly behind the body. Face visible in three-quarter view looking toward the screen's lower-right, head level."
+ }
+}
+(B/'runs/C-6').mkdir(exist_ok=True)
+json.dump(T, open(B/'runs/C-6/n5_facing_table.json','w'), indent=1, ensure_ascii=False)
+IDENTITY = ("Identity, unchanged from Image 1: a tall gaunt NECROMANCER, long straight bone-white hair to the shoulder blades, chalk-pale skin, cold eyes; a black cuirass with a bone-white ribcage relief over fine chain; ornate silver-edged pauldrons; ONE great curved bone HORN rising from HIS LEFT shoulder; a silver skull-and-bone belt buckle; a long split skirt of dark panels with silver trim; ridged steel greaves and pointed sabatons; a small dark leather TOME at HIS LEFT hip; a bone-and-silver WAR SCYTHE held in BOTH gauntleted hands — a straight dark haft with wrapped grips and a great ornate crescent blade of pale bone-steel at the top. No other objects, no glow, no magic effects, no cape. ")
+COMMON = ("The camera is fixed for every direction: an elevated three-quarter pinhole view from the front, ~53° above the ground plane; the character turns, the camera does not. "
+ "The light is fixed for every direction: a single key from SCREEN UPPER-LEFT that does NOT rotate with the character; deep cool ambient; readable shadows. "
+ "NO MIRRORING: this is the character turned, never a flipped image — the scythe stays on his ANATOMICAL RIGHT (blade above his right shoulder), the horn on his ANATOMICAL LEFT shoulder, the tome on his ANATOMICAL LEFT hip, whichever side of the screen those land on for the direction. "
+ "Same framing and standing height as Image 1: a 512×512 canvas, full body, the FIGURE 240 px from sabaton sole to crown (the blade rises above the crown and stays fully inside the canvas — nothing touches the canvas edge), feet on the ground line at y≈480, centred, standing rest pose (weight even, both hands on the haft, the blade up), on a flat uniform pure #00ff00 background covering the whole canvas — no shadow, no ground, no text, no checkerboard. "
+ + IDENTITY +
+ "Register: HAND-DRAWN painted 2D in the manner of a modern hand-animated action game — a confident dark contour line with visible taper, painted fills in clean flat planes inside the line, restrained texture, no gradient haze, no glow, no photographic rendering.")
+DIRS = ["SW","W","NW","N","NE","E","SE"]
+mode = sys.argv[1] if len(sys.argv)>1 else 'geo'
+for d in DIRS:
+    row = T['table'][d]
+    if mode == 'geo':
+        bid = f'N4-geo-{d}'
+        text = (f"GENERATE BURST {bid} — Necromancer GEOMETRY DRAFT, direction {d} (Run C-6 P2 pass 1: the body turn + item sides; a later pass re-mints identity). task_id \"{bid}\".\n\n"
+          f"Image 1 is the APPROVED IDENTITY MASTER (direction S, facing the camera). Deliver EXACTLY ONE image: the SAME character as Image 1, turned to direction {d}: {row}\n\n{COMMON}\n\n"
+          f"Priority for THIS burst is GEOMETRY — the turn, which side is near, where the blade, horn and tome land, the haft's crossing, the feet — over brushwork finish; but keep the identity and register as close as you can.\n"
+          f"One image_gen call; ONE retry only if the result is off-plate, has a baked checkerboard, is MIRRORED (blade over the wrong shoulder, horn on the wrong shoulder), faces the wrong way, is missing the scythe/horn/tome, or anything touches the canvas edge — name the reason. Copy the output from $CODEX_HOME/generated_images/... to out/n4_{d}.png with sha256. No code. No other files. No web.\n"
+          f"RETURN: the receipt (task_id \"{bid}\"): files = [out/n4_{d}.png with sha256]; images = the INTEGER COUNT of image_gen calls (1 or 2); calls_used; status DELIVERED / DELIVERED_WITH_CONCERNS with concerns listed honestly (name the near side and where the blade landed).")
+        refs = [{"path": str(MASTER), "role": "IMAGE 1 — APPROVED IDENTITY MASTER (direction S): identity, costume, scythe, proportions, camera and register to preserve"}]
+        outs = [f"out/n4_{d}.png"]
+    else:
+        bid = f'N5-turn-{d}'
+        geo = A6/f'N4-geo-{d}/n4_{d}.png'
+        assert geo.exists(), f'missing geometry draft {geo}'
+        text = (f"GENERATE BURST {bid} — Necromancer rest frame, direction {d} — the base for the {d} animation clips (Run C-6 P2 pass 2, the 8-direction turnaround; S = the master). task_id \"{bid}\".\n\n"
+          f"Image 1 is the APPROVED IDENTITY MASTER (direction S, facing the camera) — identity, face, hair, armour, scythe design, colours, proportions and painted register come ONLY from Image 1. Image 2 is a GEOMETRY-ONLY reference: an earlier draft of the same character turned to {d} — take from it ONLY the body turn, which side is near the camera, where the blade, horn and tome land, the haft's crossing and the foot placement; do NOT copy its face, its line quality or any drawing error.\n"
+          f"Deliver EXACTLY ONE image: the SAME character as Image 1, turned to direction {d}: {row}\n\n{COMMON}\n\n"
+          f"One image_gen call; ONE retry only if the result is off-plate, has a baked checkerboard, is MIRRORED (blade over the wrong shoulder, horn on the wrong shoulder), faces the wrong way, is missing the scythe/horn/tome, invents extra gear, or anything touches the canvas edge — name the reason. Copy the output from $CODEX_HOME/generated_images/... to out/n5_{d}.png with sha256. No code. No other files. No web.\n"
+          f"RETURN: the receipt (task_id \"{bid}\"): files = [out/n5_{d}.png with sha256]; images = the INTEGER COUNT of image_gen calls (1 or 2); calls_used; status DELIVERED / DELIVERED_WITH_CONCERNS with concerns listed honestly.")
+        refs = [{"path": str(MASTER), "role": "IMAGE 1 — APPROVED IDENTITY MASTER (direction S): identity, costume, scythe, proportions and register to preserve exactly"},
+                {"path": str(geo), "role": f"IMAGE 2 — GEOMETRY-ONLY reference for the {d} view (body turn + item sides) — do NOT copy its face, register or brushwork"}]
+        outs = [f"out/n5_{d}.png"]
+    task = {"text": text, "references": refs, "image_cap": 2, "minutes_cap": 15, "tool_call_cap": 20, "outputs": outs, "effort": "high", "add_dirs": [], "experiment": "C6-P2"}
+    json.dump(task, open(B/f'briefs/C-6/{bid}.task.json','w'), indent=1, ensure_ascii=False)
+    print(bid, len(text))
