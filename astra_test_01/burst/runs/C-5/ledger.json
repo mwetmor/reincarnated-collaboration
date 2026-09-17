@@ -16401,6 +16401,13 @@
       "kit": "fire_bolt_e1_B",
       "note": "Casts still appear to emanate from behind/beside the character (Matt, v40) and the ball is visible from frame 0. -> FL-5 Part B: socket audit with a marked sheet per direction; eruption ramp from the tip (0.25 -> 1.0 over 8 f, sheet from f3); head 1.0 BH.",
       "ts": "2026-09-16T20:57:08"
+    },
+    {
+      "id": "F-C5-41",
+      "kind": "defect (conductor eye on the FL-5 socket audit sheet)",
+      "kit": "sockets_v2 cast release",
+      "note": "The far-tip-along-facing rule picks the WRONG END of the staff in three directions: S lands on the belt/hands (staff points straight up; tip = the glowing top end), SW lands on the butt end behind the caster (tip = the upper-right starred end), W lands on the lower end (tip = the upper end). N/NE/NW/E/SE look right. The staff has a brass ferrule at the TIP end in every frame — that, not facing, identifies the tip. -> FL-5b: re-derive all eight by the ferrule rule with a marked sheet; expected S ~(242,121), SW ~(328,133), W ~(227,120) in cell px.",
+      "ts": "2026-09-16T21:34:45"
     }
   ]
 }
