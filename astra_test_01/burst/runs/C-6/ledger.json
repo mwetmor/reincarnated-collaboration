@@ -1758,6 +1758,61 @@
       "codex_version": "codex-cli 0.153.4",
       "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
       "exit": 0
+    },
+    {
+      "id": "N5p-turnaround",
+      "type": "PACK",
+      "experiment": "C6-P2",
+      "brief_sha256": "523ccf95e1f580d14358b3061afd8df0611b79997ef72ca4c5f92455ec219256",
+      "started": "2026-09-17T02:23:39.487424+00:00",
+      "ended": "2026-09-17T02:27:37.578430+00:00",
+      "minutes": 3.9682169673668493,
+      "image_calls": 0,
+      "tool_calls": 6,
+      "audit": {
+        "violations": [],
+        "image_calls": 0,
+        "tool_calls": 6,
+        "tools_seen": {
+          "command_execution": 6
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": []
+      },
+      "receipt_sha256": "375cc4bf7484c0b99dce256119aed97d9b29ced0f9e223ba5552c85ee782c85d",
+      "artifacts": [
+        {
+          "name": "review.html",
+          "sha256": "c939947d157e9bc4780fbe607f204744af4c3d64410e3bafbf0b26a35a6ef2ef"
+        },
+        {
+          "name": "summary.txt",
+          "sha256": "bdf9ff64d3114f116ff423e301a7136b28b8d4d02fe8dad16956e636e011973b"
+        },
+        {
+          "name": "turnaround_strip.png",
+          "sha256": "6c521cd545450494b94a0f4189fc974e18c32d65e762a2c29e91039da134312d"
+        },
+        {
+          "name": "wheel.png",
+          "sha256": "6fa635389ecbe270fe3989fd9bb381d9440a10d747bc3e566518a40f9e60a715"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
     }
   ],
   "experiments": [],
@@ -1802,6 +1857,11 @@
       "id": "M-C6-P2-R1",
       "note": "Retry wave c6_n5r1 DONE: SW/NW/N/NE/E r1 delivered (9 images; run total 45). Conductor eye on pairs: every named defect corrected (SW head level; NW/N/NE plain backs; E both gauntlets on the haft). Selection handed to N5-jdg-02 (control = mirrored E-r1 claiming W).",
       "ts": "2026-09-16T22:17:57"
+    },
+    {
+      "id": "M-C6-P2-PACKET",
+      "note": "P2 CLOSED at the packet: N5p-turnaround DELIVERED_WITH_CONCERNS (0 images; concerns are presentation notes: S has no judge row by design (the master), green plates kept, preview scaling). Desktop: Astra Burst Review - 2026-09-17/Packet 100 - necro turnaround (C-6 P2) (review.html, strip, wheel, summary, p2_selection.json). F8 GATE: P3 (Grok) waits for Matt eye on Packet 100 or 24 h without a red flag; F9 (Grok liveness probe) still awaits Matt word — Grok held.",
+      "ts": "2026-09-16T22:28:22"
     }
   ],
   "halts": [],
