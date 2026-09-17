@@ -4,14 +4,14 @@
 > **Why a new run (Matt 2026-09-17: "this run has been open for days"):** C-5 is at 124 rulings / 108 briefs / 41 packs and a compacted context; its exit predicate ("the six live in the web build, each recorded against sources") is not met and has changed shape — the sources are now MEASURED (Legolas 09-16 §§ 12–13) and Matt rules by taste per skill. A run that has proven its method and outgrown its charter closes; the next run inherits the substrate, not the conversation.
 
 ## 0. Intent (one sentence)
-Take **Blackwater Cocktail** through the fire DONE list on the rank-1 numbers, then **re-spec and rebuild the other four** (Frozen Orb, Poisonous Concoction, Lightning Blast, Zeus, Healing Hands — five; Blackwater is the sixth) from the audit tables so that all six are **live in `cliffside_v<N>` with Matt's eye on each**, on the same G1–G4 runtime C-5 built.
+Take **Blackwater Cocktail**, then **Lightning Blast**, then **Frozen Orb** through the fire DONE list on the audit's numbers (each rebuilt from its re-spec by E3-r1), then **PAUSE** for Matt before Zeus, Healing Hands and the Poisonous Concoction **combo** (R-C5-125) — all on the G1–G4 runtime C-5 built.
 
 ## 1. Bounded substrate (frozen at launch)
 | item | path | state |
 |---|---|---|
 | Runtime + exporter | `astra_test_01/burst/export/` at the C-5 close freeze (record sha in R-C7-1); G1 (capsule, eruption, ember ending, interleave), G2 (walkable landing, rank-1 Blackwater), G3, G4 | C-5 |
 | The 18 kits | `runs/C-5/vfx_kits/kits_v9.json` + `v9/*` | C-5 |
-| Six re-specs from the audit | the scratchpad drafts `e3_respec/*.json` + `RESPEC_TABLE.md` → **filed at launch to `runs/C-7/specs/`** (PConc gem-pure per R-C5-91; Healing Hands radius 220; FF-08 per Matt F4) | C-5 draft, unfiled |
+| Six re-specs from the audit | the scratchpad drafts `e3_respec/*.json` + `RESPEC_TABLE.md` → **filed at launch to `runs/C-7/specs/`** (**PConc = the full Occultist combo per R-C5-125**: fan burst + Profane-Bloom lobes at struck bodies + Plague Bearer field, each source-declared, nothing black; Healing Hands radius 220; FF-08 per Matt F4) | C-5 draft, unfiled |
 | Audit + measurements | `agentic_orchestration/legolas/research/2026-09-16-e3-deployment-footage/findings.md` (Tables A/B, § 12 frames, § 13 PConc combo); class-E clips on the Desktop | Legolas |
 | The fire DONE list (the acceptance template) | Q80 § Fire lane: (a) 8 directions clean · (b) touch aim forward · (c) light/particles/shader rounds · (d) hit response on the struck body · (e) key states/paintings bound · (f) Matt's eye | Matt 2026-09-16 |
 | Scene | `runs/C-5/cliffside_v<N>` (latest) with props v25 targets | C-5 |
@@ -20,18 +20,18 @@ Take **Blackwater Cocktail** through the fire DONE list on the rank-1 numbers, t
 ## 2. Decidable target-state
 1. Blackwater passes DONE (a)–(e) by trace + (f) Matt's word, in the scene.
 2. The five re-specs are filed with every number traced to Table B / § 12 or boxed HOUSE; **E3-r1** (TOOLING) builds what the exporter lacks (G1 cadence_kind + nova darts; G2 lobbed_burst mode + lick clock; G3 per-frame polyline + fork/rejoin + ball-hop mode with shadow; G4 one-shot dome at the cursor point); the catalogue lock re-baselined once, at E3-r1.
-3. Each of the five passes DONE (a)–(e) by trace and (f) by Matt's eye, one skill at a time, in the order Matt sets (fork F2).
+3. **Order RULED (R-C5-125): Blackwater → Lightning Blast → Frozen Orb → PAUSE** (Matt re-opens for Zeus, Healing Hands, Concoction). Each passes DONE (a)–(e) by trace and (f) by Matt's eye, one at a time.
 4. A web deploy per Matt's word at each (f).
 Fallbacks (veto-open): a skill that fails (f) twice after a taste-driven round → parked with the debt named; the run does not stall on one skill.
 
 ## 3. Sequence
-P0 launch (forks → Gate-1 → R-C7-1) · P1 Blackwater DONE (BL-2… on the fire template: eruption from the flask hand, impact/landing, pool life, tick response, (f)) · P2 E3-r1 (the re-spec TOOLING, serial, after Matt F4) · P3 per-skill laps in Matt's order, each: PACK → eight-direction + probe proof → Matt's eye → one taste round → (f) · P4 close: ledger, close-out, Gate-2, decisions-log proposal.
+P0 launch (forks → Gate-1 → R-C7-1) · P1 Blackwater DONE (BL-2… on the fire template: eruption from the flask hand, impact/landing, pool life, tick response, (f)) · P2 E3-r1 (the re-spec TOOLING, serial, after Matt F4) · P3 per-skill laps — Lightning Blast, then Frozen Orb, then PAUSE (R-C5-125) — each: PACK → eight-direction + probe proof → Matt's eye → one taste round → (f) · P4 close: ledger, close-out, Gate-2, decisions-log proposal.
 
 ## 4. Forks for Matt (one recommendation each)
 | # | fork | **recommendation** | alternatives |
 |---|---|---|---|
 | F1 | FF-08 (= Q80 F4) | **(a) house rule scoped to the painted layer; mechanics cadences follow the source metronomes** | (b) drop FF-08; (c) keep universal |
-| F2 | skill order after Blackwater | **(a) Frozen Orb → Lightning Blast → Zeus → Healing Hands → Concoction** (G1 first — most shared with fire; the two lightning together; the two rebuilds last) | (b) Matt's own order |
+| F2 | skill order | **RULED by Matt (R-C5-125): Blackwater → Lightning Blast → Frozen Orb → pause** | — |
 | F3 | Healing Hands radius | **(a) 220 px authored (matches the pre-1.4 dome), marked AUTHORED** | (b) wait for post-1.4 footage |
 | F4 | web cadence | **(a) one deploy per skill at (f)** | (b) one deploy at the end |
 
