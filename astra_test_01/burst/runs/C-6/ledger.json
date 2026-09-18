@@ -5839,6 +5839,40 @@
       "printed": "",
       "staged_mp4": "/Users/admin/astra-burst/grok/C-6/S_run/S_run.mp4",
       "ts": "2026-09-18T18:05:54"
+    },
+    {
+      "id": "G-SW_run",
+      "cell": "SW_run",
+      "still": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-6/artifacts/N5-pad/pad_SW.png",
+      "still_sha256": "899ec323e9b6a54f36cc594d51bb63585bbc355c5f0fcff68a6650a1b61c5411",
+      "prompt_sha256": "7ec02b1599096b9e7b500b4dcf4b7aad9414636b07bd774a3ca510218c35763e",
+      "extra": "",
+      "clip": "runs/C-6/xvideo/in/SW_run.mp4",
+      "clip_sha256": "49c77d8c48021f96144c13fe713e44bf2604257bb32070ddd358c74aac61865f",
+      "ok": true,
+      "rc": 0,
+      "wall_s": 74,
+      "probe": "768,1168,24/1,6.041667,145",
+      "printed": "",
+      "staged_mp4": "/Users/admin/astra-burst/grok/C-6/SW_run/SW_run.mp4",
+      "ts": "2026-09-18T18:07:08"
+    },
+    {
+      "id": "G-E_run",
+      "cell": "E_run",
+      "still": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-6/artifacts/N5-pad/pad_E.png",
+      "still_sha256": "f9a30544c2bfc4288e32a0dde755419aecd6b0d98d04c964238d99754f440f04",
+      "prompt_sha256": "f6a0987c86f8d2a080f566acb7ed6a73280f5ad366455357191e131f2fbaec50",
+      "extra": "",
+      "clip": "runs/C-6/xvideo/in/E_run.mp4",
+      "clip_sha256": "6c38b9ce4c752f9501a90b238ad3f449c4ead71f4e7c2a6f3e2573b864180bd1",
+      "ok": true,
+      "rc": 0,
+      "wall_s": 47,
+      "probe": "768,1168,24/1,6.041667,145",
+      "printed": "",
+      "staged_mp4": "/Users/admin/astra-burst/grok/C-6/E_run/E_run.mp4",
+      "ts": "2026-09-18T18:07:56"
     }
   ],
   "notes": [
@@ -6081,6 +6115,11 @@
       "id": "VOID-1",
       "note": "N11-jdg-01 JUDGE VOID: codex exit 1, no receipt (exit 3, 0 images). First VOID of the run → retried once as N11-jdg-01-r1 (C-3 § 8: two VOIDs in a row → HALT).",
       "ts": "2026-09-17T00:43:42"
+    },
+    {
+      "id": "P4-FALLBACK-S",
+      "note": "S_walk: no head-bob cycle on either S clip → charter fallback applied: re-cut with --sibling-stride-frames 32 (E period) → 12 frames, native 68..100, source=sibling, seam_mad 18.1, closure_mad 20.3 — FLAGGED prompted/sibling period (report, never verdict). SW_walk: sibling hint offered, tool kept its own autocorr period 72 (3.0 s) — flagged slow (C-3 W class). Wave 2 progress: S/SW/E idle + run ok (6/12).",
+      "ts": "2026-09-18T18:08:31"
     }
   ]
 }
