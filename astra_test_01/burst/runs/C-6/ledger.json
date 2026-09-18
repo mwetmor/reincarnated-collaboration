@@ -5706,6 +5706,14 @@
       "topic": "F17 ruled (a): MIRROR — 5 unique seeds + 3 flips; proceed with Grok",
       "ruling": "Matt (verbatim): Ok lets try A and work with grok. → The Necromancer out-of-battle set = 5 unique seeds (S, N, SW, E, and one of NW/NE) + 3 mirrored directions (SE←SW, W←E, NE←NW), flipped at the CELL level (frames + socket x) as a conductor data step. Conditions carried by the conductor: (1) a LAP DECISION for this character, not the canon default — the register card fixed key light and C-3 F3 no-mirroring stand; recognition record filed at P6; jack-ryan sees it at Gate-2; (2) Matt eye judges the flip in the scene at P5 (horn/tome/grip-hand side swap; upper-right lighting on flipped frames) — if it reads wrong in motion, the three flipped directions get unique seeds when Astra returns. Consequences: seed fixes owed drop to N + one of NW/NE (blocked on Astra, T25); Grok matrix 40 → 25 clips. P3 wave 2 now: S/SW/E × idle, run (6), then cast, jump (6) — 12 clips from the standing pads; walks in hand.",
       "ts": "2026-09-18T18:02:03"
+    },
+    {
+      "id": "R-C6-31",
+      "class": "conductor",
+      "veto_open": true,
+      "topic": "Idle size drift (S, SW) → one re-generate each with a size-lock line",
+      "ruling": "CHECK (frozen g1_height vs rest, report-only): S_idle g1 0.113, SW_idle 0.109 — the figure grows ~11 % across the cut cycle (bbox 820→884/895 px over the clip; visible on the strip); E_idle 0.024. A camera-lock violation in the IDLE loop pops at the 2-s seam on the most-seen cell. Not in the charter fallback list (head-down opening / no period / geometry) → conductor rules at the reasoning boundary: ONE re-generate each for S_idle and SW_idle with an appended size-lock line (figure stays exactly the same size and position first frame to last — no zoom, no drift); v1 clips kept as fallback; cut + CHECK both, the lower g1 stands, flagged if both > 0.05. Grok spend +2 (18 total). Heads: S/E idle level + forward on the strips.",
+      "ts": "2026-09-18T18:16:48"
     }
   ],
   "grok_calls": [
