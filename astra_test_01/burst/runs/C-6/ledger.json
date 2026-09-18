@@ -5751,6 +5751,14 @@
       "topic": "F18 ruled (a): resting scythe keeps the carry orientation",
       "ruling": "Matt: Agreed. Run it. → IDLE v3: blade UP (carry orientation kept), the butt spike PLANTED on the ground a little away from him, the haft leaning outward into his LEFT hand, the crescent hooking AWAY from him over empty ground; left-hand rest accepted (R-C6-34); size lock + no-new-objects + no blinking clauses stay. One S test (S_idle_p3, Grok 21) → Matt eye → then SW/E.",
       "ts": "2026-09-18T19:29:21"
+    },
+    {
+      "id": "R-C6-36",
+      "class": "matt",
+      "veto_open": false,
+      "topic": "Idle p3: good except eyes closed on the long breath + red streamer from the book",
+      "ruling": "Matt (verbatim): Its good except for two issues.. can we edit them out? 1) eyes closed during prolonged breath. 2) strange red stuff coming out of the top of the book. → Conductor read at 3x: lids lowered/closed roughly f48–f120 (3 s) — too long to exclude and still cut a 2-s open-eyed loop; the book streamer is a drawing error across the hold (paint-out = art transformation, forbidden). → ONE re-generate S_idle_p4 with the v3 prompt + two pinned clauses: EYES OPEN the entire clip (no blink, no closing, no lowering of the lids; the fixed glare of the master), and the tome red ribbon hangs SHORT and STILL — nothing flows, rises or streams from the book. Grok 22.",
+      "ts": "2026-09-18T19:39:46"
     }
   ],
   "grok_calls": [
@@ -6093,6 +6101,23 @@
       "printed": "",
       "staged_mp4": "/Users/admin/astra-burst/grok/C-6/S_idle_p2/S_idle_p2.mp4",
       "ts": "2026-09-18T19:15:48"
+    },
+    {
+      "id": "G-S_idle_p3",
+      "cell": "S_idle",
+      "still": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-6/artifacts/N5-pad/pad_S.png",
+      "still_sha256": "9541750a7b04cba619fd5c78b8f89ebdbcc9678e1ba98612d00fca994d4e0136",
+      "prompt_sha256": "fc0135b10d84447cc773011607826bf946ea8cbe3213c94036b007c2c4b580e8",
+      "extra": "",
+      "clip": "runs/C-6/xvideo/in/S_idle_p3.mp4",
+      "clip_sha256": "67013379d9d00358b9d1700d9aca0aacd2b04b705c1fec18b4f08779d7944d91",
+      "ok": true,
+      "rc": 0,
+      "wall_s": 60,
+      "probe": "768,1168,24/1,6.041667,145",
+      "printed": "",
+      "staged_mp4": "/Users/admin/astra-burst/grok/C-6/S_idle_p3/S_idle_p3.mp4",
+      "ts": "2026-09-18T19:30:22"
     }
   ],
   "notes": [
