@@ -5442,6 +5442,11 @@
       "id": "M-C6-P3-WALK-1",
       "note": "P3 wave 1 — WALK clips from the STANDING seeds: S_walk (147 s wall), SW_walk (82 s), E_walk (58 s); all ok, 768x1168 @ 24 fps, 145 frames; Grok live, no cost line; run grok_calls = 4. Head read (conductor eye on 13-frame strips): all three level + forward throughout; NO stance-transition opening (bbox height flat ~800-830 px across frames — the standing seeds removed the crouch rise). head_read.py head band was framing the blade (tallest landmark) — fixed to locate the crown in the body centre column. Clips sent to Matt (owner eye = instrument of record). Next Grok spend (idle/run for S/SW/E) on Matt word.",
       "ts": "2026-09-17T08:00:16"
+    },
+    {
+      "id": "M-C6-P4-HEADSTART",
+      "note": "P4 head start, conductor-driven with the FROZEN cut tool (oracle.video_cut, the exact C-3 P4c command; no Astra): E_walk → 12-frame cycle, period 32 native frames (1.33 s), confidence 0.47; SW_walk → period 72 (3.0 s — slow, C-3 flagged W at 2.8 s the same way), confidence 0.44; S_walk (standing seed) → NO cycle found (diagnostic_only, confidence 0.19; head-bob autocorrelation weak walking toward the camera) → charter fallback (prompted period, flagged) or the S_walk_t1 alternate — cutting t1 to compare. MANIFEST in force recorded on the wave line.",
+      "ts": "2026-09-18T18:06:03"
     }
   ],
   "halts": [
@@ -5766,6 +5771,74 @@
       "printed": "",
       "staged_mp4": "/Users/admin/astra-burst/grok/C-6/E_walk/E_walk.mp4",
       "ts": "2026-09-17T07:58:40"
+    },
+    {
+      "id": "G-S_idle",
+      "cell": "S_idle",
+      "still": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-6/artifacts/N5-pad/pad_S.png",
+      "still_sha256": "9541750a7b04cba619fd5c78b8f89ebdbcc9678e1ba98612d00fca994d4e0136",
+      "prompt_sha256": "b95b49d429a3181071f11d9674c8c634b6d948cf5e522fef09e505e86fdc522c",
+      "extra": "",
+      "clip": "runs/C-6/xvideo/in/S_idle.mp4",
+      "clip_sha256": "9fc1920da660a885794624adcf30d9a5fb65518bee34d34d60f012b5c38aa01d",
+      "ok": true,
+      "rc": 0,
+      "wall_s": 56,
+      "probe": "768,1168,24/1,6.041667,145",
+      "printed": "",
+      "staged_mp4": "/Users/admin/astra-burst/grok/C-6/S_idle/S_idle.mp4",
+      "ts": "2026-09-18T18:02:59"
+    },
+    {
+      "id": "G-SW_idle",
+      "cell": "SW_idle",
+      "still": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-6/artifacts/N5-pad/pad_SW.png",
+      "still_sha256": "899ec323e9b6a54f36cc594d51bb63585bbc355c5f0fcff68a6650a1b61c5411",
+      "prompt_sha256": "8c873cbf8e2ffbfad87224be4aeda1419dd497c3629d51029c4457d1863529f5",
+      "extra": "",
+      "clip": "runs/C-6/xvideo/in/SW_idle.mp4",
+      "clip_sha256": "b10604876325372140bcf46aadc2c9ef00c5d6d99b78a516ec2a0218ad916298",
+      "ok": true,
+      "rc": 0,
+      "wall_s": 59,
+      "probe": "768,1168,24/1,6.041667,145",
+      "printed": "",
+      "staged_mp4": "/Users/admin/astra-burst/grok/C-6/SW_idle/SW_idle.mp4",
+      "ts": "2026-09-18T18:03:58"
+    },
+    {
+      "id": "G-E_idle",
+      "cell": "E_idle",
+      "still": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-6/artifacts/N5-pad/pad_E.png",
+      "still_sha256": "f9a30544c2bfc4288e32a0dde755419aecd6b0d98d04c964238d99754f440f04",
+      "prompt_sha256": "f06edbe5ffffcb83c8ae4b7d3633a20e4c2419a5a52a2913823d05b0dfe3a804",
+      "extra": "",
+      "clip": "runs/C-6/xvideo/in/E_idle.mp4",
+      "clip_sha256": "c088527830b40026f5c9709fa8c0bdd1740f54b707e3569af26e2d7df9914418",
+      "ok": true,
+      "rc": 0,
+      "wall_s": 57,
+      "probe": "768,1168,24/1,6.041667,145",
+      "printed": "",
+      "staged_mp4": "/Users/admin/astra-burst/grok/C-6/E_idle/E_idle.mp4",
+      "ts": "2026-09-18T18:04:56"
+    },
+    {
+      "id": "G-S_run",
+      "cell": "S_run",
+      "still": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-6/artifacts/N5-pad/pad_S.png",
+      "still_sha256": "9541750a7b04cba619fd5c78b8f89ebdbcc9678e1ba98612d00fca994d4e0136",
+      "prompt_sha256": "2ebbd5eb40ba86d7d1497c82b68fd9ea2279755b74163cc254fbb4cb2c1b1279",
+      "extra": "",
+      "clip": "runs/C-6/xvideo/in/S_run.mp4",
+      "clip_sha256": "63cb5fb07778a7aca3af603203fcb5800db518b4c30190a3fac9ab0af7287498",
+      "ok": true,
+      "rc": 0,
+      "wall_s": 58,
+      "probe": "768,1168,24/1,6.041667,145",
+      "printed": "",
+      "staged_mp4": "/Users/admin/astra-burst/grok/C-6/S_run/S_run.mp4",
+      "ts": "2026-09-18T18:05:54"
     }
   ],
   "notes": [
