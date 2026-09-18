@@ -5735,6 +5735,22 @@
       "topic": "Planted-idle test S_idle_p1 — three defects; blade-down variant",
       "ruling": "Matt (verbatim): Three issues: 1) there is a strange orange bottle or something on top of the book. 2) the necromancer grows very much larger in the screen. 3) the scythe grows larger to fit on top of the necromancer.. lets having him set down the blade pointing away from him. → IDLE v2: he sets the BLADE on the ground, crescent resting with its point AWAY from him, the haft leaning up into his RIGHT hand (about waist–chest height); the scythe keeps its exact size; NO new objects (nothing on or near the book; no bottles/potions); camera LOCKED — figure exactly the same size and position first frame to last; breath only; no blinking. One more S test (S_idle_p2) before any other idle spend.",
       "ts": "2026-09-18T19:14:48"
+    },
+    {
+      "id": "R-C6-34",
+      "class": "matt",
+      "veto_open": false,
+      "topic": "Idle p2 read — hand swap ACCEPTED; scythe inverted + blade facing inward",
+      "ruling": "Matt (verbatim): Oh no! The scythe itself flipped upside down. Other than that it is good… but also the blade is still facing inwards… I do like the hand swap, to show a true idle by leaving any attack stance. → ACCEPTED: the idle plants the scythe in the LEFT hand at his left side (a true rest, out of the attack stance) — the hand swap is the design. DEFECTS: the scythe is inverted when set down (the blade end at the ground, the weapon turned over relative to the carry) and the crescent faces inward toward him rather than away. Conductor to inspect the grounded scythe at full res and write the fix; one more S test.",
+      "ts": "2026-09-18T19:18:17"
+    },
+    {
+      "id": "R-C6-35",
+      "class": "matt",
+      "veto_open": false,
+      "topic": "F18 ruled (a): resting scythe keeps the carry orientation",
+      "ruling": "Matt: Agreed. Run it. → IDLE v3: blade UP (carry orientation kept), the butt spike PLANTED on the ground a little away from him, the haft leaning outward into his LEFT hand, the crescent hooking AWAY from him over empty ground; left-hand rest accepted (R-C6-34); size lock + no-new-objects + no blinking clauses stay. One S test (S_idle_p3, Grok 21) → Matt eye → then SW/E.",
+      "ts": "2026-09-18T19:29:21"
     }
   ],
   "grok_calls": [
@@ -6060,6 +6076,23 @@
       "printed": "",
       "staged_mp4": "/Users/admin/astra-burst/grok/C-6/S_idle_p1/S_idle_p1.mp4",
       "ts": "2026-09-18T18:24:58"
+    },
+    {
+      "id": "G-S_idle_p2",
+      "cell": "S_idle",
+      "still": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-6/artifacts/N5-pad/pad_S.png",
+      "still_sha256": "9541750a7b04cba619fd5c78b8f89ebdbcc9678e1ba98612d00fca994d4e0136",
+      "prompt_sha256": "4ff3edaa670a92a782200e79665555efad7521abd9dbf9428d767f9cfd4e0540",
+      "extra": "",
+      "clip": "runs/C-6/xvideo/in/S_idle_p2.mp4",
+      "clip_sha256": "75ac75bbe305c75946bd6f6e29abd1bfe0d9545be85b8663fcc3428f2ff3129e",
+      "ok": true,
+      "rc": 0,
+      "wall_s": 60,
+      "probe": "768,1168,24/1,6.041667,145",
+      "printed": "",
+      "staged_mp4": "/Users/admin/astra-burst/grok/C-6/S_idle_p2/S_idle_p2.mp4",
+      "ts": "2026-09-18T19:15:48"
     }
   ],
   "notes": [
