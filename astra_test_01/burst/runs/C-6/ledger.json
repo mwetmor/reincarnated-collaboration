@@ -5472,6 +5472,11 @@
       "id": "M-C6-P5-EXPORT",
       "note": "P5 PACK export (conductor-run, the LIVE exporter pinned: MANIFEST f0851b83bb36bef2…, export/godot_import.py 7c1e2b6e9850fe85…, export/sockets.py 91c3ad6075057673…): --cells runs/C-6/cells (25 cells / 260 frames) --sockets runs/C-6/sockets_v2.json --parallax CS-parallax-in-v10 --vfx-kits kits_v9.json (as CS-pack-v40) --props runs/C-6/artifacts/CS-props-necro (v25 minus the necro master still: the necro IS the player). Staged: runs/C-6/cliffside_v40-necro/godot. First attempt failed on a conductor-added notes key in props.json (loader requires exactly the six legacy collections + optional glows/swarms) — removed. Missing directions (N/NE/NW) fall back to the nearest circular direction per the exporter docstring. Next: headless import proof + movement probe (8 walks + jump) + east-cast probe under the heavy lock.",
       "ts": "2026-09-18T20:26:44"
+    },
+    {
+      "id": "M-C6-P5-PROOF",
+      "note": "P5 headless proof under the heavy lock (Godot 4.6.3, project runs/C-6/cliffside_v40-necro/godot; exporter pinned 7c1e2b6e…): IMPORT 0 errors ✓. MOVEMENT (probe_move_c6.gd): all 8 input vectors move ~370 px with 0 frames off walkable; the 5 present directions play their own walk (S SW W E SE); NW/N/NE play the exporter nearest-direction fallback (walk_W, walk_W, walk_E) — no seeds yet (T25) — FLAGGED not failed; Space plays jump_SE then idle_SE ✓. EAST CAST (probe_events, KIT_CYCLES=9): fire_bolt_e1_B release at the blade socket → contact at 14 frames on body_index 5 → expire ✓. Predicate 4 holds for the 25-cell set with the 3-direction fallback flag; predicate 3 file consumed by the exporter (sockets loaded, 0 missing). Desktop: Packet 103 - necro PLAYABLE (README_scene, proof_summary, socket sheets, matrix_index, exporter.json). Matt P5 eye = the staged project on the Mac.",
+      "ts": "2026-09-18T20:29:20"
     }
   ],
   "halts": [
