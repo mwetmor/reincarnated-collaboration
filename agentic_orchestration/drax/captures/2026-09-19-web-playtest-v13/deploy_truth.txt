@@ -1,0 +1,229 @@
+DEPLOY TRUTH — CS-pack-web13 (cliffside from PACK v45; Blackwater A/B, runtime body vs
+video-spine flipbook body; 19 kits; props v25 targets; capsule collider; tip sockets;
+FL-6c dancing flames)
+drax, 2026-09-19
+
+STATUS          BUILT, STAGED, VERIFIED LOCALLY, COMMITTED — **HELD BEFORE PUSH.**
+                Nothing has been pushed. Per the web13 dispatch the push to
+                reincarnated-loadout fires only when gandalf relays Matt's word in the
+                dispatch's completion record. The conductor told Matt he would ask at
+                push time; this file exists so that ask is answerable without a rebuild.
+
+URL             https://reincarnated-loadout.vercel.app/playtest/cliffside/  (NOT YET SERVING v45)
+Dispatch        agentic_orchestration/drax/dispatches/2026-09-18-web13-cliffside-v45-blackwater-AB.md
+Authorization   Matt 2026-09-18, R-C7-5 in astra_test_01/burst/runs/C-7/ledger.json
+                — "(a) web13 as soon as v45 stages, before the A/B verdict, so the A/B
+                is played on the phone." Build+stage authorized; push gated on relay.
+Source          astra_test_01/burst/runs/C-7/artifacts/CS-pack-v45/godot  (C-7; READ-ONLY,
+                untouched — nothing under astra_test_01/burst/ was written this session)
+Proof gate      HONOURED, and checked before the build, not after. runs/C-7/t3/AB-v45/
+                exists and is populated: A_E / B_E / A_W / B_W sheets + realtime and
+                third_speed MP4s for all four, plus events_A_E.log, events_B_E.log,
+                import_v45.log. 16 files, timestamped 2026-09-18 23:49-2026-09-19 00:05.
+Build           reincarnated-godot/web/build_playtest.sh <src> cliffside
+                Godot 4.6.3.stable.official.7d41c59c4, gl_compatibility, threads OFF
+                PLAYWRIGHT_CORE set (local boot smoke test ran)
+Loadout commit  822a089f1ee6c93199b00623e10c6706080e697a   **COMMITTED, NOT PUSHED**
+                (main is ahead 1 of origin/main; exactly two files — see below)
+Godot commit    none this session. web/cliffside is a build-artifact mirror and is not
+                committed, same posture as web10/web11/web12. web12's build-script fix
+                (90ef2c5a, the license-fence exact-name boundary) is still COMMITTED NOT
+                PUSHED in reincarnated-godot; this dispatch again says nothing about that
+                repo and CLAUDE.md's standing pattern explicitly does not extend there.
+
+VERDICT ON THE BUILD: clean. 0 errors, 0 warnings, 0 invalid UID across import and
+export; both fences passed; local boot 0 pageerror and 0 Godot ERROR. The one runtime
+error that exists on arm B is PRE-EXISTING UPSTREAM and is reproduced faithfully — it is
+in gandalf's own artifact of record. See § THE ONE ERROR.
+
+══════════════════════════════════════════════════════════════════════════════════════
+== PCK IDENTITY — the web11 check, LOCAL half only (the live half cannot exist yet) ==
+══════════════════════════════════════════════════════════════════════════════════════
+LOCAL   ac513a0f06e572856c0cc34473a4287c747245192ecfafa53af3c30c47e6bb18  40677216 B
+        reincarnated-godot/web/cliffside/build/web/index.pck
+STAGED  ac513a0f06e572856c0cc34473a4287c747245192ecfafa53af3c30c47e6bb18  40677216 B
+        reincarnated-loadout/public/playtest/cliffside/index.pck
+        ⇒ MATCH. What is committed is what was built.
+
+LIVE    PENDING PUSH
+        After the push fires, fetch index.pck from production with curl, sha256 it
+        INDEPENDENTLY of the build, and record it here. It must equal ac513a0f… and it
+        must differ from web12's f7c5ff24…. Both halves or the check is not done.
+
+Differs from web12, as required:
+  web12 (currently live)      f7c5ff2496e5e50c43a394d1d0e9d913940df3523539ca7bcf257733bc265d75  39637352 B
+  web13 (this build)          ac513a0f06e572856c0cc34473a4287c747245192ecfafa53af3c30c47e6bb18  40677216 B
+  delta                       +1 039 864 B
+
+WHAT THE DELTA IS. One kit: vfx/blackwater_cocktail_e3_V/ — 145 greyscale RGBA spine
+frames (485x581, four-plane, coloured by the kit's palette material at runtime) under
+primitives/spine/, ~2.5 MB of PNG source, plus a g2_flipbook scene/script path and the
+G2 script's body_mode dispatch. 40677216 - 39637352 = 1039864 B, which is the frames
+after Godot's WebP-lossless ctex import, and it is the only thing that grew. Arm A
+(blackwater_cocktail_e3) and all seventeen other kits are byte-identical to v44
+(runs/C-7/t3/BL-2v/byte_identity.json). index.wasm (37700666 B) and index.js (315759 B)
+are byte-identical to web7-web12.
+
+index.html changed by exactly one line and it is the size stamp:
+  fileSizes {"index.pck":39637352,…} -> {"index.pck":40677216,…}
+Verified by reading the diff, not assumed from the file list.
+
+THE WEB11 LESSON, APPLIED. web/cliffside/.godot was moved OUT of the tree before the
+build — to a scratch dir OUTSIDE $DEST, because the README's "move it aside" still puts
+the backup where the next rsync --delete eats it (the web12 correction). The uid map was
+therefore rebuilt from nothing and could not carry a pre-rename path. Evidence it
+worked: import.log 0 ERROR / 0 WARNING / 0 "invalid UID" over 4318 lines; export.log the
+same over 3880 lines; the dangling-res:// fence passed; the license fence passed.
+(import2.log in build/logs is dated 2026-09-14 and is STALE — the NEEDS_IMPORT second
+pass did not fire this run. Checked its timestamp rather than reading its contents as
+though they were this build's.)
+
+══════════════════════════════════════════════════════════════════════════════════════
+== KIT ORDER — enumerated from the pack, not assumed from the dispatch ==
+══════════════════════════════════════════════════════════════════════════════════════
+The dispatch names "slot 12" (A) and "slot 19" (B). Those are 1-INDEXED picker slots.
+VFX_KITS in scripts/keeper.gd is 0-indexed, so:
+
+  picker slot 12  =  kit index 11  =  blackwater_cocktail_e3      (arm A, runtime body)
+  picker slot 19  =  kit index 18  =  blackwater_cocktail_e3_V    (arm B, video spine)
+
+Full order (0-18): frozen_orb, blackwater_cocktail, poisonous_concoction,
+lightning_blast, zeus_chain, healing_hands, fire_burst_e0p, fire_burst_e0p_v2,
+fire_bolt_e1_A, fire_bolt_e1_B, ice_bolt_e2, blackwater_cocktail_e3,
+poisonous_concoction_e3, lightning_blast_e3, zeus_chain_e3, healing_hands_e3,
+frozen_orb_e3, fire_burst_e0p_v3, blackwater_cocktail_e3_V.
+
+The scene starts on index 0 and Tab increments, so from a fresh boot: Tab x11 reaches
+arm A, and seven more Tabs (x18 total) reaches arm B. Confirmed on the HUD in both
+arms — the label reads "VFX: blackwater_cocktail_e3 (Tab)" and
+"VFX: blackwater_cocktail_e3_V (Tab)" in the captures.
+
+══════════════════════════════════════════════════════════════════════════════════════
+== LOCAL BOOT TEST ==
+══════════════════════════════════════════════════════════════════════════════════════
+build/smoke/local_01_boot.png .. local_05_keyboard_north.png, local_console.txt
+  booted=true, boot_ms=6530, 0 pageerror, 0 Godot ERROR.
+  200 text/javascript        315759    /playtest/cliffside/index.js
+  200 application/wasm       37700666  /playtest/cliffside/index.wasm
+  200 application/octet-stream 40677216 /playtest/cliffside/index.pck
+  Console: the two WebGL "GPU stall due to ReadPixels" perf warnings only — a
+  swiftshader artifact present since web6. Nothing else.
+
+══════════════════════════════════════════════════════════════════════════════════════
+== TOUCH CHECK ON PRODUCTION — THE SEVEN VERDICT LINES ==
+══════════════════════════════════════════════════════════════════════════════════════
+
+  A casts forward ...................................... PENDING PUSH
+  B frame 0 at the landing point ....................... PENDING PUSH
+  B pool boils (not a still) ........................... PENDING PUSH
+  B scorch persists after the pool dies ................ PENDING PUSH
+  three B scorches coexist after three casts ........... PENDING PUSH
+  smoke over the B pool ................................ PENDING PUSH
+  grey/unshaded pixels in either pool .................. PENDING PUSH
+
+These are PRODUCTION verdicts and production is still serving web12. They are not
+filled in from the local run: a verdict about what a player's phone shows is not
+answered by a build machine, and web12's own record is emphatic that an instrument
+answering a neighbouring question returns cleanly and returns the wrong answer.
+The local run below is advisory and is labelled as such.
+
+══════════════════════════════════════════════════════════════════════════════════════
+== LOCAL A/B RUN — ADVISORY, NOT THE VERDICT ==
+══════════════════════════════════════════════════════════════════════════════════════
+Harness  touch_cast_blackwater_AB.js (in this directory), adapted from web12's
+         touch_cast_firebolt_b.js. Phone-landscape 844x390 CSS px at dsf 2, hasTouch +
+         isMobile; the CAST is a genuine CDP Input.dispatchTouchEvent and THE MOUSE IS
+         NEVER MOVED, so keeper.gd's forward-aim touch branch is the live branch.
+         Facing is a 60 ms keyboard tap. Served from 127.0.0.1:8767 out of the STAGED
+         tree (reincarnated-loadout/public), i.e. the exact bytes that are committed.
+Captures localab_01_spawn.png .. localab_38_B_settle_5.png (38 frames), localab_console.txt.
+         Run: A selected and cast once; B selected and cast three times ~4 s apart, six
+         back-to-back screenshots per cast, then a six-frame settle series.
+Boot     booted=true, boot_ms=6055.
+
+What the local frames show — offered as an expectation for the production pass, not as
+its answer:
+  - Arm A (localab_04..09) fires and reads as a thin dark splash with embers at the
+    landing point east of the Keeper. Zero console errors on arm A.
+  - Arm B (localab_12..17) puts the bottle aloft at f0 and the field body down by f2:
+    a dark-red-rimmed ellipse with a pale interior and orange flame tongues, at the
+    landing point, changing frame to frame rather than holding a still.
+  - localab_32_B_after3 shows the pool gone and a large dark-maroon scorch remaining.
+  - localab_38_B_settle_5 (~15 s after the last cast) shows the scorch fully faded.
+
+  ⚑ THE PALE POOL INTERIOR IS NOT A BUILD DEFECT, AND I CHECKED RATHER THAN GUESSED.
+  Arm B's pool reads near-white in the middle, which is exactly the shape the "grey/
+  unshaded pixels" verdict line is hunting, and the spine frames are greyscale coloured
+  at runtime — so an unbound palette material would look like this. It is not that.
+  gandalf's own artifact of record, runs/C-7/t3/AB-v45/B_E_sheet.png, shows the SAME
+  pale-interior pool with the same dark-red rim and the same flame tongues, through the
+  same boil-then-collapse-to-scorch arc. The web build reproduces the proof. Whether
+  that pale interior is wanted is an A/B design question for the conductor and for
+  Matt's eye on the phone; it is not a question about these bytes.
+
+  ⚑ PROCEDURAL NOTE FOR THE PRODUCTION PASS — and it invalidates one verdict line if
+  ignored. My three B casts were fired from a standing position, so all three landed on
+  the SAME point and merged into ONE scorch. "three B scorches coexist after three
+  casts" therefore cannot be read off this local run at all, and would read NO for a
+  reason that has nothing to do with the kit. The production pass must MOVE THE KEEPER
+  BETWEEN CASTS so the three land apart. Same family as web12's f0-vs-f2 lesson: the
+  harness has to be shaped to the question, or it answers a different one cleanly.
+
+══════════════════════════════════════════════════════════════════════════════════════
+== THE ONE ERROR — upstream, pre-existing, reproduced faithfully, NOT mine to patch ==
+══════════════════════════════════════════════════════════════════════════════════════
+Arm B logs exactly three console errors in the local run — one per cast, none on arm A:
+
+  ERROR: Cannot open file 'res://vfx/blackwater_cocktail_e3_V/materials/Additive.tres'.
+     at: load (scene/resources/resource_format_text.cpp:1430)
+     GDScript backtrace: [0] _cast_frame_changed (res://scripts/keeper.gd:276)
+  ERROR: Failed loading resource: res://vfx/blackwater_cocktail_e3_V/materials/Additive.tres.
+
+CAUSE, located in the pack and not inferred. keeper.gd:276 is the cast_kit_index == 18
+branch and it hardcodes a load of the V kit's materials/Additive.tres for the muzzle
+FLARE. Every other e3 kit emits that file. The V kit does not — its materials/ holds
+only Body.tres, Field.tres, ending_smoke.gdshader and
+vfx_material_mix_unlit_order_fbc0ebc0c789_outside_in.gdshader. Verified in the SOURCE
+pack, so the file is absent upstream; it is not something the mirror dropped.
+
+IT IS IN THE ARTIFACT OF RECORD. runs/C-7/t3/AB-v45/events_B_E.log carries the identical
+pair of lines at the identical keeper.gd:276, and events_A_E.log carries none. So the
+defect predates this build, gandalf's accepted A/B proof was rendered with it present,
+and my pck reproduces the pack exactly. This deploy neither introduces it nor hides it.
+
+BLAST RADIUS is small and bounded: load() returns null, flare.material is left null, and
+the cast flare at the staff draws with the default material instead of the additive one.
+The flipbook FIELD BODY is unaffected — it uses Body.tres / Field.tres, which exist and
+load. That is consistent with the field body rendering correctly in both my local frames
+and gandalf's sheets.
+
+RAISED, NOT PATCHED. I do not author pack content and I do not write under
+astra_test_01/burst/. Routing this to gandalf as a C-7 finding. It is the same SHAPE as
+F-C7-1 (the V kit's config referencing an unemitted derived/field.png, dispatch only in
+the picker) — a second instance of "the V kit names an asset the emitter does not emit",
+which suggests the class is worth a sweep rather than another one-off fix.
+
+  ⚑ AND IT IS A FENCE GAP WORTH NAMING. The build's dangling-res:// fence passed, and it
+  was right to pass: it only walks .gdshader paths, because shaders were what bit web11.
+  A missing .tres is the same failure with a different extension and the fence is blind
+  to it. Widening it is not free — .tres paths in a pck include remapped and generated
+  ones, so a naive widening would fire false positives, which is the exact defect web12
+  had to correct in the license fence. Noted here as a known gap with a named cost
+  rather than widened in haste during a held deploy. The cheap interim check that DID
+  catch it is the one that caught it: run the kit and read the console.
+
+══════════════════════════════════════════════════════════════════════════════════════
+== WHAT IS STILL OWED, AFTER THE PUSH FIRES ==
+══════════════════════════════════════════════════════════════════════════════════════
+1. git -C ~/Games/reincarnated-loadout push origin main   (822a089; on relayed word ONLY)
+2. Production HTTP block: /playtest/cliffside/ and the slash-less path, index.html,
+   index.js, index.wasm, index.pck, the /playtest/ landing — status, content-type, length.
+3. LIVE pck sha: curl it down, sha256 it independently, record it above. Must equal
+   ac513a0f… and must differ from f7c5ff24….
+4. Live boot screenshot via boot_test.js …?touch=1 … live.
+5. The A/B touch pass on production and the seven verdict lines — MOVING BETWEEN THE
+   THREE B CASTS, per the procedural note above.
+6. Commit the capture set. This file and the dispatch completion record are committed
+   now because the dispatch named those two paths; the harness and the 38 local frames
+   in this directory are NOT yet committed and ride the post-push capture commit.
+7. reincarnated-loadout/AGENT_STATE.md -> v1.25.
