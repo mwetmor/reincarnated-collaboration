@@ -16,14 +16,15 @@
 
 ## Completion record
 
-**Executed:** drax, 2026-09-19. **Status: BUILT, STAGED, VERIFIED, COMMITTED — HELD BEFORE PUSH.**
+**Executed:** drax, 2026-09-19. **Status: COMPLETE. LIVE ON PRODUCTION AND CLEAN.**
+Built and staged under the hold, then pushed on gandalf's relay of Matt's word
+(**R-C7-10**, verbatim: *"Push. I want to test them"*) and verified against production.
 
 **Deploy truth:** `agentic_orchestration/drax/captures/2026-09-19-web-playtest-v13/deploy_truth.txt`
 
-**Nothing is pushed.** `reincarnated-loadout` `main` is **ahead 1** of `origin/main` and stays
-there. `reincarnated-godot` is untouched this session (its web12 build-script commit `90ef2c5a`
-is still committed-not-pushed, as web12 left it). The push fires only on gandalf's relay of
-Matt's word — **see § PUSH RELAY below, which is the line to fill in.**
+**Pushed `d8b8238..822a089` on `reincarnated-loadout` `main` — that repo only.**
+`reincarnated-godot` is untouched and unpushed (its web12 build-script commit `90ef2c5a`
+remains committed-not-pushed, as web12 left it; no dispatch has authorised a push there).
 
 **Proof gate honoured, checked BEFORE the build.** `runs/C-7/t3/AB-v45/` exists and is
 populated — A_E / B_E / A_W / B_W sheets, realtime + third_speed MP4s for all four,
@@ -34,7 +35,7 @@ was written.
 |---|---|---|
 | LOCAL `build/web/index.pck` | `ac513a0f06e572856c0cc34473a4287c747245192ecfafa53af3c30c47e6bb18` | 40677216 |
 | STAGED in the loadout commit | `ac513a0f…` (match) | 40677216 |
-| LIVE | **PENDING PUSH** | — |
+| LIVE, downloaded from production and hashed independently | `ac513a0f…` **(match)** | 40677216 |
 | web12, currently serving | `f7c5ff2496e5e50c43a394d1d0e9d913940df3523539ca7bcf257733bc265d75` | 39637352 |
 
 **Loadout commit:** `822a089f1ee6c93199b00623e10c6706080e697a` — exactly two files
@@ -52,11 +53,51 @@ is 0-indexed. **Slot 12 (A) = index 11 `blackwater_cocktail_e3`; slot 19 (B) = i
 `blackwater_cocktail_e3_V`.** From a fresh boot: Tab ×11 reaches A, Tab ×18 reaches B. HUD
 label confirms both.
 
-### The seven verdict lines — PENDING PUSH
+**Production:** all routes 200 with the right content types — `/playtest/cliffside/`,
+`index.html`, `index.js`, `index.wasm`, `index.pck`, the slash-less path and the
+`/playtest/` landing. Live boot `booted=true`, `boot_ms=6714`, 0 pageerror.
 
-Production is still serving web12, so all seven read `PENDING PUSH` in `deploy_truth.txt`.
-They are not back-filled from the local run: a verdict about what a phone shows is not
-answered by a build machine.
+### ⚑ THE SEVEN VERDICT LINES
+
+```
+A casts forward ....................................... FORWARD
+B frame 0 at the landing point ........................ YES
+B pool boils (not a still) ............................ YES
+B scorch persists after the pool dies ................. YES
+three B scorches coexist after three casts ............ YES  (contiguous — see below)
+smoke over the B pool ................................. NOT OBSERVED
+grey/unshaded pixels in either pool ................... NONE
+```
+
+Genuine CDP touch at phone-landscape 844x390 @dsf2, mouse never moved, against the live
+route. 42 frames plus a second 30-frame harness. Detail and measurements in
+`deploy_truth.txt`; the three that carry a caveat:
+
+**"three coexist" is YES but the scorches are CONTIGUOUS, not three tidy patches.**
+Connected components on the scorch mask: one cast = 1 blob 3975 px; after cast 2 = 1 blob
+5820 px; after cast 3 = 1 blob 8926 px (**2.25×** a single scorch). The union grows
+monotonically — earlier scorches are still on the ground when later ones land, which is the
+substance of the verdict — and `live_30_B_cast3_f2.png` shows two distinct scorch blobs on
+screen at once under the third cast's fresh pool. They merge because my three landing points
+were less than a pool width apart. **That is a property of my walk, not of the kit**, and I
+would rather say so than present the merge as three circles.
+
+**"smoke NOT OBSERVED" is measured, and the number nearly said the opposite.** The
+desaturated mid-value criterion reports 1500-1800 px during the pool's live phase — which
+reads exactly like a plume in a table. Painting that population back onto the frame
+(`zoom_smoke_population_highlighted_2x.png`) puts every pixel of it on the boundary where
+**tree foliage overlaps the pale pool**: antialiasing, not smoke. It disappears at t1800ms
+because the interior goes dark and the leaf/pool contrast ends. **The kit ships
+`ending_smoke.gdshader`, so a smoke pass exists in the pack and did not render here** —
+that is finding (2) below. I also covered the 1.5-4 s hole in the six-frame cadence with a
+second harness sampling every 300 ms for 9 s, rather than assuming the gap was empty.
+
+**"grey NONE" uses web12's split**, because saturation alone cannot separate a bright core
+from an unshaded index map. The elevated population is the BRIGHT band (≥235) — 28.1 % in
+the pool vs 0.2 % control — while the MID band (110-235), which is web11's actual defect
+signature, sits at 2.85 % against a 0.91 % control floor, and those residual pixels are the
+same foliage edge. The proof sheet shows the identical character against its own control
+(1.46 % bright vs 0.03 %; 0.72 % mid vs 0.56 %).
 
 ### ⚑ Two things the conductor needs before the production pass
 
@@ -94,16 +135,22 @@ read NO for a reason unrelated to the kit. **The production pass must move the K
 casts.** Same family as web12's f0-vs-f2 lesson: shape the harness to the question or it
 answers a different one cleanly.
 
-### PUSH RELAY — gandalf fills this in
+### PUSH RELAY
 
 ```
-Matt's word relayed:   [ PENDING ]   by: ________  on: ________
+Matt's word relayed:   R-C7-10, 2026-09-19 — "Push. I want to test them"   (via gandalf)
+Pushed:                d8b8238..822a089  reincarnated-loadout main
 ```
 
-On that word: push `822a089`, then close out `deploy_truth.txt` § WHAT IS STILL OWED —
-live pck sha (must equal `ac513a0f…`, must differ from `f7c5ff24…`), production HTTP block,
-live boot screenshot, the A/B touch pass and the seven verdict lines, the capture commit,
-and loadout `AGENT_STATE.md` v1.25.
+### Open for the conductor
 
-**Open ask for Matt:** none from the build. The pack renders as authored, including the one
-upstream flare-material error that the artifact of record also carries.
+1. **Arm B's `materials/Additive.tres`** — the V kit names it, the emitter does not emit it.
+   Second instance of the F-C7-1 shape, so worth a sweep rather than another one-off fix.
+   It is live on production exactly as it is in the artifact of record.
+2. **Arm B ships no smoke** on the web build although the kit carries `ending_smoke.gdshader`.
+   Absence measured across two harnesses.
+3. Also still open: the dangling-`res://` fence walks `.gdshader` only and is blind to a
+   missing `.tres`; widening it has a named false-positive cost and I did not rush it.
+
+**Open ask for Matt:** none from the build. It is on his phone and it renders as authored,
+including the one upstream flare-material error the artifact of record also carries.

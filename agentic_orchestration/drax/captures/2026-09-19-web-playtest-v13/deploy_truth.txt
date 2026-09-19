@@ -3,13 +3,11 @@ video-spine flipbook body; 19 kits; props v25 targets; capsule collider; tip soc
 FL-6c dancing flames)
 drax, 2026-09-19
 
-STATUS          BUILT, STAGED, VERIFIED LOCALLY, COMMITTED — **HELD BEFORE PUSH.**
-                Nothing has been pushed. Per the web13 dispatch the push to
-                reincarnated-loadout fires only when gandalf relays Matt's word in the
-                dispatch's completion record. The conductor told Matt he would ask at
-                push time; this file exists so that ask is answerable without a rebuild.
+STATUS          **LIVE ON PRODUCTION AND CLEAN.** Built, staged, verified, committed,
+                pushed on Matt's relayed word (R-C7-10, 2026-09-19, verbatim: "Push. I
+                want to test them"), and verified again against production.
 
-URL             https://reincarnated-loadout.vercel.app/playtest/cliffside/  (NOT YET SERVING v45)
+URL             https://reincarnated-loadout.vercel.app/playtest/cliffside/  (SERVING v45)
 Dispatch        agentic_orchestration/drax/dispatches/2026-09-18-web13-cliffside-v45-blackwater-AB.md
 Authorization   Matt 2026-09-18, R-C7-5 in astra_test_01/burst/runs/C-7/ledger.json
                 — "(a) web13 as soon as v45 stages, before the A/B verdict, so the A/B
@@ -23,8 +21,8 @@ Proof gate      HONOURED, and checked before the build, not after. runs/C-7/t3/A
 Build           reincarnated-godot/web/build_playtest.sh <src> cliffside
                 Godot 4.6.3.stable.official.7d41c59c4, gl_compatibility, threads OFF
                 PLAYWRIGHT_CORE set (local boot smoke test ran)
-Loadout commit  822a089f1ee6c93199b00623e10c6706080e697a   **COMMITTED, NOT PUSHED**
-                (main is ahead 1 of origin/main; exactly two files — see below)
+Loadout commit  822a089f1ee6c93199b00623e10c6706080e697a   **PUSHED** d8b8238..822a089 main
+                (exactly two files — see below; origin/main now level)
 Godot commit    none this session. web/cliffside is a build-artifact mirror and is not
                 committed, same posture as web10/web11/web12. web12's build-script fix
                 (90ef2c5a, the license-fence exact-name boundary) is still COMMITTED NOT
@@ -45,10 +43,10 @@ STAGED  ac513a0f06e572856c0cc34473a4287c747245192ecfafa53af3c30c47e6bb18  406772
         reincarnated-loadout/public/playtest/cliffside/index.pck
         ⇒ MATCH. What is committed is what was built.
 
-LIVE    PENDING PUSH
-        After the push fires, fetch index.pck from production with curl, sha256 it
-        INDEPENDENTLY of the build, and record it here. It must equal ac513a0f… and it
-        must differ from web12's f7c5ff24…. Both halves or the check is not done.
+LIVE    ac513a0f06e572856c0cc34473a4287c747245192ecfafa53af3c30c47e6bb18  40677216 B
+        downloaded from production with curl and hashed INDEPENDENTLY of the build
+        ⇒ MATCH. The bytes serving to a player are the bytes I built. Both halves of the
+        web11 check are done and both pass.
 
 Differs from web12, as required:
   web12 (currently live)      f7c5ff2496e5e50c43a394d1d0e9d913940df3523539ca7bcf257733bc265d75  39637352 B
@@ -113,22 +111,123 @@ build/smoke/local_01_boot.png .. local_05_keyboard_north.png, local_console.txt
 == TOUCH CHECK ON PRODUCTION — THE SEVEN VERDICT LINES ==
 ══════════════════════════════════════════════════════════════════════════════════════
 
-  A casts forward ...................................... PENDING PUSH
-  B frame 0 at the landing point ....................... PENDING PUSH
-  B pool boils (not a still) ........................... PENDING PUSH
-  B scorch persists after the pool dies ................ PENDING PUSH
-  three B scorches coexist after three casts ........... PENDING PUSH
-  smoke over the B pool ................................ PENDING PUSH
-  grey/unshaded pixels in either pool .................. PENDING PUSH
+  A casts forward ...................................... FORWARD
+  B frame 0 at the landing point ....................... YES
+  B pool boils (not a still) ........................... YES
+  B scorch persists after the pool dies ................ YES
+  three B scorches coexist after three casts ........... YES (contiguous — see note)
+  smoke over the B pool ................................ NOT OBSERVED
+  grey/unshaded pixels in either pool .................. NONE
 
-These are PRODUCTION verdicts and production is still serving web12. They are not
-filled in from the local run: a verdict about what a player's phone shows is not
-answered by a build machine, and web12's own record is emphatic that an instrument
-answering a neighbouring question returns cleanly and returns the wrong answer.
-The local run below is advisory and is labelled as such.
+Harness  touch_cast_blackwater_AB_prod.js (in this directory), run against
+         https://reincarnated-loadout.vercel.app/playtest/cliffside/?touch=1 — the live
+         route, not a local mirror. Phone-landscape 844x390 CSS px at dsf 2, hasTouch +
+         isMobile; the CAST is a genuine CDP Input.dispatchTouchEvent and THE MOUSE IS
+         NEVER MOVED, so keeper.gd's forward-aim touch branch is the branch under test.
+         42 frames: live_01_spawn.png .. live_42_B_settle_7.png, live_console.txt.
+         booted=true, boot_ms=6714.
+Second   smoke_window.js — a single arm-B cast sampled every 300 ms for 9 s
+harness  (smoke_01..smoke_32). It exists because the seven-verdict harness takes six
+         back-to-back frames (~0-1.5 s) then jumps to +4 s, and a smoke pass firing in
+         the 1.5-4 s gap would have been invisible to it. The gap is now covered
+         continuously rather than assumed empty.
+Kit      HUD confirms both arms: "VFX: blackwater_cocktail_e3 (Tab)" at Tab x11 and
+         "VFX: blackwater_cocktail_e3_V (Tab)" at Tab x18, matching the enumerated order.
+
+FORWARD. Arm A's splash lands east of the Keeper along facing (live_06_A_cast1_f2.png),
+at the crate-and-barrel cluster on the clearing's east edge, and nowhere else.
+
+YES (frame 0 at the landing point). live_13_B_cast1_f1.png catches the field body's first
+marks AT the landing point — small, at the impact site, not offset — and
+live_14_B_cast1_f2.png has the full ellipse centred on that same point. The body grows
+from the landing point outward; it does not pop in displaced and slide into place.
+
+YES (boils). Measured, not eyeballed. Over the dense window the pool's pixel population
+changes every sample from t300ms to t1500ms, then goes PERFECTLY STATIC from t1800ms
+(changed-vs-control pinned at 9.27 % for fifteen consecutive samples). That flat tail is
+the scorch, and its flatness is what makes the preceding variation meaningful: the same
+instrument that reads "still" on the scorch reads "changing" on the pool.
+
+YES (scorch persists after the pool dies). Same window: warm pixels hold ~19 600 steady
+from t1800ms through t6600ms with the pool gone, then drop to ~50 at t6900ms. So a single
+cast's scorch outlives its pool by roughly five seconds and then clears.
+
+YES, WITH A QUALIFICATION THAT MATTERS — the scorches accumulate, and they are
+CONTIGUOUS rather than three separate patches. Connected-component counts on the scorch
+mask: one cast = 1 blob, 3975 px; after cast 2 = 1 blob, 5820 px (1.46x); after cast 3 =
+1 blob, 8926 px (2.25x). The union grows monotonically with each cast, which is the
+substance of the verdict — earlier scorches are still on the ground when later ones land,
+they do not replace one another. live_30_B_cast3_f2.png shows it directly: two distinct
+scorch blobs on screen at once, plus the third cast's fresh pool above them.
+They merge into one connected mass because my three landing points were less than a pool
+width apart (the Keeper walked north ~700 ms between casts). A cleanly separated
+three-patch demonstration needs wider spacing; that is a property of my walk, not of the
+kit, and I am not going to dress the merge up as three tidy circles.
+
+NOT OBSERVED, and this one nearly went the other way. The desaturated mid-value criterion
+reports 1500-1800 px during the pool's live phase, which looks exactly like a smoke plume
+in a table. It is not smoke. Painting that population back onto the frame
+(zoom_smoke_population_highlighted_2x.png) puts every one of those pixels on the boundary
+where the TREE FOLIAGE overlaps the pale pool — antialiasing between dark leaves and a
+near-white interior. It vanishes at t1800ms for the same reason: the interior goes dark,
+so the leaf/pool contrast ends. No plume above the pool at any sample in either harness.
+The kit ships an ending_smoke.gdshader, so a smoke pass exists in the pack; it did not
+render in this build. Reporting the absence rather than the number, because the number
+was about to say the opposite.
+
+  ⚑ THE COUNT WAS RIGHT AND THE CONCLUSION WOULD HAVE BEEN WRONG. Fourth instance in this
+  project's record of one shape: an instrument that runs cleanly while answering a
+  neighbouring question. Looking at the pixels it selected cost one image and inverted
+  the verdict.
+
+NONE. Measured with web12's split, which exists because saturation alone cannot tell a
+bright core from an unshaded index map:
+
+  region                                   desat-MID (110-235)   desat-BRIGHT (>=235)
+  LIVE arm-B pool interior                        2.85 %              28.14 %
+  LIVE same box, no VFX (control)                 0.91 %               0.18 %
+  LIVE arm-A pool                                 0.29 %               0.24 %
+  PROOF SHEET B_E r2c0, pool at full              0.72 %               1.46 %
+  PROOF SHEET B_E r0c0, pre-cast control          0.56 %               0.03 %
+
+(The live percentages are larger than the sheet's because the live box is cropped tight
+on the pool and the sheet cell is a whole scene — compare each against ITS OWN control,
+not across columns.) The elevated population is the BRIGHT band in both, and the MID band
+— which is web11's actual defect signature — sits at or near the control floor in both.
+The pool's interior is deliberately near-white, not unshaded grey, and the remaining MID
+pixels are the foliage edge identified above. Mechanism agrees: a dangling shader
+announces itself in the console and there are none.
 
 ══════════════════════════════════════════════════════════════════════════════════════
-== LOCAL A/B RUN — ADVISORY, NOT THE VERDICT ==
+== PRODUCTION HTTP (plain GET, no -L) ==
+══════════════════════════════════════════════════════════════════════════════════════
+200  text/html; charset=utf-8               5994      .../playtest/cliffside/
+200  text/html; charset=utf-8               5994      .../playtest/cliffside/index.html
+200  application/javascript; charset=utf-8  315759    .../playtest/cliffside/index.js
+200  application/wasm                       37700666  .../playtest/cliffside/index.wasm
+200  application/octet-stream               40677216  .../playtest/cliffside/index.pck
+200  text/html; charset=utf-8               5994      .../playtest/cliffside  (slash-less)
+200  text/html; charset=utf-8               3043      .../playtest/           (landing)
+live GODOT_CONFIG fileSizes: {"index.pck":40677216,"index.wasm":37700666}
+
+LIVE BOOT  live_01_spawn.png (the A/B harness's first frame IS the live boot capture:
+  booted=true, boot_ms=6714, 0 pageerror). The scene renders: ravine, bridge, the
+  necromancer on the north-east lip, the touch overlay (MOVE / JUMP / CAST / VFX) and the
+  HUD. Console on production: the two WebGL "GPU stall due to ReadPixels" perf warnings
+  (a swiftshader artifact present since web6) and the three arm-B upstream errors in
+  § THE ONE ERROR. Nothing else.
+
+  ⚑ A FALSE ALARM I RAISED AGAINST MYSELF, recorded because it is the same shape as
+  everything else in this file. My first deploy poll reported `index.html 15 bytes` for
+  thirty consecutive attempts and I was on the edge of calling the deploy stalled. The
+  deploy was fine from the start. My poll URL had a DOUBLE SLASH
+  (.../cliffside//index.html), which Vercel answers with a 308 "Redirecting..." body of
+  exactly 15 bytes, and I was following no redirects. The instrument was broken, not the
+  deploy. `curl` without `-L` on a path you assembled by string-concatenating a trailing
+  slash is a check that can only ever return the redirect.
+
+══════════════════════════════════════════════════════════════════════════════════════
+== LOCAL A/B REHEARSAL — run BEFORE the push, kept for lineage ==
 ══════════════════════════════════════════════════════════════════════════════════════
 Harness  touch_cast_blackwater_AB.js (in this directory), adapted from web12's
          touch_cast_firebolt_b.js. Phone-landscape 844x390 CSS px at dsf 2, hasTouch +
@@ -213,17 +312,37 @@ which suggests the class is worth a sweep rather than another one-off fix.
   catch it is the one that caught it: run the kit and read the console.
 
 ══════════════════════════════════════════════════════════════════════════════════════
-== WHAT IS STILL OWED, AFTER THE PUSH FIRES ==
+== WHAT IS STILL OWED ==
 ══════════════════════════════════════════════════════════════════════════════════════
-1. git -C ~/Games/reincarnated-loadout push origin main   (822a089; on relayed word ONLY)
-2. Production HTTP block: /playtest/cliffside/ and the slash-less path, index.html,
-   index.js, index.wasm, index.pck, the /playtest/ landing — status, content-type, length.
-3. LIVE pck sha: curl it down, sha256 it independently, record it above. Must equal
-   ac513a0f… and must differ from f7c5ff24….
-4. Live boot screenshot via boot_test.js …?touch=1 … live.
-5. The A/B touch pass on production and the seven verdict lines — MOVING BETWEEN THE
-   THREE B CASTS, per the procedural note above.
-6. Commit the capture set. This file and the dispatch completion record are committed
-   now because the dispatch named those two paths; the harness and the 38 local frames
-   in this directory are NOT yet committed and ride the post-push capture commit.
-7. reincarnated-loadout/AGENT_STATE.md -> v1.25.
+DONE: push (d8b8238..822a089), production HTTP block, LIVE pck sha (matches), live boot
+capture, the A/B touch pass and all seven verdict lines.
+
+OPEN:
+1. **For gandalf / the C-7 pack** — the arm-B `materials/Additive.tres` reference that the
+   V kit does not emit (§ THE ONE ERROR). Second instance of the F-C7-1 shape. Not mine
+   to patch; it is live on production exactly as it is in the artifact of record.
+2. **For gandalf** — arm B ships no smoke on the web build although the kit carries
+   `ending_smoke.gdshader`. Absence measured across two harnesses, not assumed.
+3. reincarnated-loadout/AGENT_STATE.md -> v1.25.
+4. reincarnated-godot still holds web12's build-script fix `90ef2c5a` committed-not-pushed
+   (plus 17 older commits). No dispatch has ever authorised a push there.
+
+══════════════════════════════════════════════════════════════════════════════════════
+== WHAT OF THIS DIRECTORY IS COMMITTED, AND WHY NOT ALL OF IT ==
+══════════════════════════════════════════════════════════════════════════════════════
+The full capture set is 126 files / **256 MB** — four harness runs at phone-landscape
+dsf 2. web12 committed 35 files / 62 MB. Committing 256 MB of PNGs into the meta-repo to
+evidence one deploy is a cost nobody asked for, so this commit carries a CURATED set:
+
+  - this file and the dispatch completion record (the two paths the dispatch named)
+  - the three harnesses — touch_cast_blackwater_AB.js (local rehearsal),
+    touch_cast_blackwater_AB_prod.js (the seven verdicts),
+    smoke_window.js (the dense-cadence gap check). These are the instruments; without
+    them the verdicts are unreproducible.
+  - only the exhibits actually cited above, plus the console/touchflag logs.
+
+The remaining ~115 frames stay on disk, uncommitted. **Every verdict in this file is
+backed by a committed exhibit or a committed harness**, which is the property that
+matters; a document citing evidence that is not in the repo is a half-record, and so is
+a repo carrying a quarter-gigabyte of near-duplicate frames. If the full set is ever
+wanted, the harnesses regenerate it against the live route in about four minutes.
