@@ -12,9 +12,34 @@
       "veto_open": false,
       "ruling": "MATT (2026-09-18), pre-GO: try the VIDEO path on Blackwater as ONE end-to-end clip that is the SPINE of the effect — from CONTACT onward (shatter → bloom + ground ring → pool spreads → boils → dies → scorch), with the runtime gluing the rest around it (flask lob to the landing point → clip frame 0; the clip's last frame held 12 s as the scorch decal; ticks/victim tint/labels/floor light/dark duplicate/palette at runtime). Re-opens V15 (video = fallback only) for THIS trial as a parallel arm B beside the runtime Blackwater (arm A); judged E1-style, Matt's eye rules. Register enforced by: seed still = the register (P03 four-plane greyscale, first-frame pinned) + REGISTER CARD clauses in the prompt + posterise-to-four-planes / contour / O8 grain / P16 edge gates at the cut + JUDGE rubric axes 1 and 5 with a control. Gates pre-registered: plate stays green; final footprint 2.78 BH ± 15 %, aspect 0.58 ± 0.05, reached by 0.5 s then stable; single bloom peak; flicker 3.3–3.6 Hz; flame height ≤ 1/3 pool width; no scene cut; last 1 s static. Kill: two clips fail → runtime Blackwater proceeds unchanged. Oracles stay class-E measurement-only (Grok gets our still + prompt, never a source clip). Matt: 'Ok, go ahead'. Conductor defaults (veto-open): Grok via the C-3 CLI path (I drive, ledgered in grok_calls); ONE clip first, C-6's Grok queue unaffected by one call; bind = one TOOLING burst AFTER the fire lane clears.",
       "ts": "2026-09-18T21:27:27"
+    },
+    {
+      "id": "R-C7-0a",
+      "class": "conductor",
+      "veto_open": true,
+      "ruling": "BW_spine_01 (Grok i2v, 56 s, 960x960, 24 fps, 145 f) — THE SPINE READS end to end: flask -> white flash + straight streaks + expanding ground ring -> dark pool spreads from the flask -> low boiling flames -> die-down -> still burnt smudge with soft edges; contour + flat tones held for 145 frames (hand-drawn register), camera locked, single bloom peak at f4 (0.17 s), no scene cut (max mask jump 0.108 = the flash), tail static (0.0015). Gates as instrumented: plate 0.49 FAIL -> INSTRUMENT: the miss is a hue-green halo RGB (0.29,1.0,0.25) = keyable by hue (plate passes on a hue key; the halo is what a runtime floor light does and is discarded); footprint drift 0.35 FAIL -> INSTRUMENT: the dark mask counted the flames (drawn dark grey); pool-only band width 620 (1.0 s) -> 729 (2.0 s) -> 727 stable = spread finished ~1.5 s (asked 0.5), stable after; final smudge 702 px = 73 % of frame vs 67 % asked (+9 %, within 15 %); aspect ~0.52 flame-free (target 0.58, -0.06 marginal). REAL MISSES: flames up to 0.42 pool width (gate 0.33) and a tall-fire phase 1.5-3.5 s; flicker 1.7 Hz coherence 0.09 (source 3.3-3.6) -> retime 2x reaches 3.4 Hz but halves the burn window; white band absent after 1.5 s (no white-hot centre; 3 tones in the fire). Preview built (hue key -> luma -> 4 planes -> kit palette -> clearing crop at scene scale, uniform downscale 0.498; 1x + 2x) = Packet 105. Clip 2 = diagnosed repair BW_spine_r1 (no halo, spread by f12, flames < 1/4 width, ~5 Hz, white-hot centre) fired; the two-attempt discipline applied to Grok clips as to bursts.",
+      "ts": "2026-09-18T21:32:03"
     }
   ],
-  "grok_calls": [],
+  "grok_calls": [
+    {
+      "id": "G-BW_spine_01",
+      "cell": "BW_spine",
+      "still": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-7/artifacts/BW-video-seed/bw_seed_01.png",
+      "still_sha256": "697e30bd6d3890b2dbb49a6c4e9cb38077f768ad09d2ce1ff65cc2f375bb97cf",
+      "prompt_sha256": "7b2754fdccd19a8625ae137ea1a4a34eb03776c899b83bdf5fd9b9a40e17b295",
+      "extra": "",
+      "clip": "runs/C-7/xvideo/in/BW_spine_01.mp4",
+      "clip_sha256": "63bdd71485d3869a0b1f380c3defa1b2ca34086b3e8ae00db1ef3565a33190f4",
+      "ok": true,
+      "rc": 0,
+      "wall_s": 56,
+      "probe": "960,960,24/1,6.041667,145",
+      "printed": "",
+      "staged_mp4": "/Users/admin/astra-burst/grok/C-7/BW_spine_01/BW_spine_01.mp4",
+      "ts": "2026-09-18T21:29:04"
+    }
+  ],
   "run": "C-7",
   "charter": "agentic_orchestration/gandalf/notes/2026-09-17-vfx-run-C-7-charter.md",
   "charter_sha256_12": "4e8185d424d7",
