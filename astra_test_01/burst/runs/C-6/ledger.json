@@ -5457,6 +5457,21 @@
       "id": "M-C6-P4-ONESHOT",
       "note": "One-shot cells cut EXPLICITLY by the conductor on the frozen module (oneshot_cell.py; R-C3-17 lineage; tracker = topmost alpha = blade tip for cast, sole row + height for jump; conductor_derived + script sha in registration.json): S_cast [12,19,26,56,72,89,109,122]; SW_cast [12,38,64,86,100,114,132,143]; E_cast [12,28,45,66,73,80,89,95] (1 border-touch frame excluded); SW_jump [20,37,46,52,58,68,89,96]; E_jump [23,37,51,57,78,82,97,106] (20 border-touch frames — the jump leaves the plate top; keys moved to nearest valid — FLAGGED); S_jump: no six-sample settle → last valid frame as settle (FLAGGED; 8 border-touch frames). Frozen matte refuses border-touching frames (C-3 cast_S precedent) — handled per frame. Idle r1 (size-lock) g1: S 0.113→0.047, SW 0.109→0.084 — MOOT: idle redesigned (R-C6-32).",
       "ts": "2026-09-18T18:25:50"
+    },
+    {
+      "id": "M-C6-P3-IDLES",
+      "note": "IDLE column complete for the three approved seeds on the R-C6-37 skeleton: S_idle_p4, SW_idle_p4, E_idle_p4 (Grok 24 total). Cuts after the plant (--min-start-s 1.5): S g1 0.051 / g6c 2.88; SW g1 0.004 / g6c 0.68 / closure 13 (best cell of the run); E g1 0.111 = the POSE change vs native frame 0 (pre-plant held-out rest) — the post-plant size trace is FLAT (732 px every sampled frame), no drift. All CHECKs report-only. The 3 approved columns (S, SW, E) now have all 5 cells cut: 15 cells + fallbacks.",
+      "ts": "2026-09-18T20:18:06"
+    },
+    {
+      "id": "M-C6-P4-CELLS-25",
+      "note": "P4 assembly (assemble_c6.py, conductor; Astra-free): runs/C-6/cells/ = 25/40 COMPLETE — 15 unique (S, SW, E × idle/walk/run/cast/jump; frames + registration + numbers + checks + the frozen packet builder 1:1 and 2x MP4s) + 10 MIRRORED (SE←SW, W←E; horizontal flip of the registered frames, MP4s via review.encode.encode_loop at the builder parameters; registration carries mirror_of + the socket x-flip rule + the flipped-light flag). 15 INCOMPLETE: NE/NW/N — no approved seed (N12 hold edits blocked by the Codex limit, T25). matrix_index.json written. Flags carried per cell (S_walk sibling period; SW walk/run slow; S/E jump border-touch; E_cast 1 frame). 38 MB.",
+      "ts": "2026-09-18T20:22:04"
+    },
+    {
+      "id": "M-C6-P5-EXPORT",
+      "note": "P5 PACK export (conductor-run, the LIVE exporter pinned: MANIFEST f0851b83bb36bef2…, export/godot_import.py 7c1e2b6e9850fe85…, export/sockets.py 91c3ad6075057673…): --cells runs/C-6/cells (25 cells / 260 frames) --sockets runs/C-6/sockets_v2.json --parallax CS-parallax-in-v10 --vfx-kits kits_v9.json (as CS-pack-v40) --props runs/C-6/artifacts/CS-props-necro (v25 minus the necro master still: the necro IS the player). Staged: runs/C-6/cliffside_v40-necro/godot. First attempt failed on a conductor-added notes key in props.json (loader requires exactly the six legacy collections + optional glows/swarms) — removed. Missing directions (N/NE/NW) fall back to the nearest circular direction per the exporter docstring. Next: headless import proof + movement probe (8 walks + jump) + east-cast probe under the heavy lock.",
+      "ts": "2026-09-18T20:26:44"
     }
   ],
   "halts": [
@@ -5767,6 +5782,14 @@
       "topic": "IDLE APPROVED — S_idle_p4 (v3.1 skeleton) is the idle",
       "ruling": "Matt: Approved. → S_idle_p4 is the S idle candidate (planted scythe, left-hand rest, blade up, crescent away, eyes open, inert book, size locked). The v3.1 idle skeleton is the idle prompt for the run. Fire SW_idle + E_idle (2 clips, _p4 suffix for lineage); cut all three idles with the loop after the plant (--min-start-s ≈ 1.5 s); v1/r1/p1–p3 idles retired as candidates.",
       "ts": "2026-09-18T20:13:57"
+    },
+    {
+      "id": "R-C6-38",
+      "class": "conductor",
+      "veto_open": true,
+      "topic": "P5 sockets — blade-socket proposal + marked-sheet audit (predicate 3)",
+      "ruling": "runs/C-6/sockets_v2.json written in the exporter CURRENT schema v1 (version, canvas 512, cells.cast_<D>.{sockets[n=8], measurements, release_index, release_socket_rule}) for cast_S, cast_SW, cast_E (unique) and cast_SE, cast_W (mirrored: x = 511 - x of the source). Estimator (conductor script blade_sockets.py, conductor_derived + script sha in the file): the alpha pixel farthest from the hip point of the rest frame, feet excluded (bottom 15 %); this replaced topmost-alpha after the SW sheet showed frames 3–5 (the low forward sweep) landing on his HEAD, and a feet-exclusion after the S sheet showed frame 5 on a boot. Marked sheets (runs/C-6/artifacts/sockets-sheets/sockets_<D>.png) audited by conductor eye: S, SW, E — every frame on the blade tip, release frame 3 correct in all three; mirrored SE/W inherit. The FL-5 staff rules are not used. N/NE/NW: no cast cells yet — no rows (the exporter validates only exported cells).",
+      "ts": "2026-09-18T20:25:13"
     }
   ],
   "grok_calls": [
@@ -6160,6 +6183,23 @@
       "printed": "",
       "staged_mp4": "/Users/admin/astra-burst/grok/C-6/SW_idle_p4/SW_idle_p4.mp4",
       "ts": "2026-09-18T20:14:50"
+    },
+    {
+      "id": "G-E_idle_p4",
+      "cell": "E_idle",
+      "still": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-6/artifacts/N5-pad/pad_E.png",
+      "still_sha256": "f9a30544c2bfc4288e32a0dde755419aecd6b0d98d04c964238d99754f440f04",
+      "prompt_sha256": "19f14fbc9b4fcf4f28c40eb564cba4cacd6a0800f5a966819e808851757fbb7b",
+      "extra": "",
+      "clip": "runs/C-6/xvideo/in/E_idle_p4.mp4",
+      "clip_sha256": "5c7b480fac3cf3ca3ce8580fd6883436fe032b249e56f1650ccd4a3b168943a0",
+      "ok": true,
+      "rc": 0,
+      "wall_s": 59,
+      "probe": "768,1168,24/1,6.041667,145",
+      "printed": "",
+      "staged_mp4": "/Users/admin/astra-burst/grok/C-6/E_idle_p4/E_idle_p4.mp4",
+      "ts": "2026-09-18T20:15:49"
     }
   ],
   "notes": [
