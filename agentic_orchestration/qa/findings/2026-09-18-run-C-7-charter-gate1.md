@@ -157,3 +157,75 @@ Clip 1 failed (R-C7-0a, real misses named honestly). Clip 2's own ruling records
 **Precedent**
 - `/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/qa/findings/2026-09-15-run-C-5-charter-gate1.md`
 - `/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/qa/findings/2026-09-17-run-C-6-charter-gate1.md`
+
+---
+
+## 7. Re-check — 2026-09-18, after the conductor's discharge
+
+**Re-check verdict: PASS-WITH-WARNS.** All three BLOCKs are discharged at or above the minimal bar I named. **This charter is GO for P1 (BL-2v).** Nothing below blocks the launch; two items are new, one WARN is re-scoped rather than cleared, and one is deferred by design.
+
+**Target re-verified:** charter `419cc6c04e97` (55 lines, was `8892ada80395` / 45) · ledger `runs/C-7/ledger.json` now R-C7-0…**0f** + note `N-C7-instruments` · new `astra_test_01/burst/runs/FREEZE_NOTICES.md` · new `runs/C-7/conductor_scripts/heavy_lock.py`, `wave.sh`, `bw_cut.py` v3 (`09086010aeb4`, matches the note's sha — **verified by hand**).
+
+### 7.1 BLOCK discharges
+
+**BLOCK-A — DISCHARGED, above the bar.** § 7 exists and carries C-5 § 8's **seven clauses** (checked one-for-one against `2026-09-15-vfx-run-C-5-charter.md` § 8: two experiment FAILs · two VOIDs · JUDGE control twice · three rate-limit backoffs · any write outside `out/` · the 999999 sentinel · any medium or bar change **with** the no-re-scope clause), plus the § 2 fallback, plus the 10 GB disk floor, plus the line I asked for recording that the medium-change clause **fired at R-C7-0 and was discharged by Matt's word**. It also adds a clause I did not ask for and that is the right instinct — *"a JUDGE/A-B packet whose arm A trace is not byte-identical to BL-1a-r1's → stop and diagnose before Matt looks"* — which is BLOCK-B's evidence-parity concern made mechanical. The experiment definition is correctly localised to this run (an A/B arm or an E3 skill lap).
+
+**BLOCK-B — DISCHARGED, all three sentences.** § 2.1 now enumerates **four admissible verdicts** (A / B / **HYBRID** / NEITHER) and says what each means for the decisions-log proposal, with HYBRID named as a legitimate win for both routes rather than something to be discovered post-verdict. Evidence parity is discharged as **a recorded decision, not an accident** — the route I explicitly left open: arm A is not pre-packed, and the reason is given (R-C5-74, Matt's own *"the painted tar pool with licks and scorch LANDS — accepted as rendered"*; BL-1a-r1 changed numbers only), with *"if Matt asks for a taste round on A before ruling, it is granted before the verdict, not after."* That is a better discharge than the pre-pack I suggested, because it keeps the asymmetry visible to the person ruling. (a)–(e) are traced **for both arms before Matt looks**, with (a)/(b) explicitly *re-proved for a flipbook body, not assumed from arm A*.
+
+**BLOCK-C — DISCHARGED, and it went further than I asked.** R-C7-0f (conductor, veto-open) names both missed gates with their numbers and the 2.6× tolerance, names the other seven as passed, states that **R-C7-0c/0d are the commitment-boundary ratification** that disposes of the two-clip kill rule, and records the aspect miss as a bind-side conductor disposition. Beyond the minimum: the aspect was **actually re-measured** on the cut frames — scorch bbox 365 × 228 = **0.62, inside the 0.58 ± 0.05 band** — and is re-measured again on the bound flipbook at BL-2v. The STATUS line now reads *"it missed two of its nine pre-registered gates … and survives on R-C7-0c/0d, a commitment-boundary ratification, not on the gate sheet."* `grep` over the charter for *"passes its pre-registered gates"* returns nothing. R-C7-0b retains its original wording, which is correct append-only ledger practice — the correction is a row, not an erasure.
+
+### 7.2 WARN dispositions
+
+| # | status | note |
+|---|---|---|
+| WARN-1 | **OPEN — deferred by design, accepted** | Ledger `charter_sha256_12` is still `4e8185d424d7`; restamp is R-C7-1 at GO. **One clause to add:** the restamp target is **`419cc6c04e97`**, not the `8892ada80395` I reviewed — the document self-labels **v1.0 across two distinct shas**, so the attribution line should name all three (`4e8185d424d7` v0.1 → `8892ada80395` v1.0 as Gate-1'd → `419cc6c04e97` v1.0 as discharged), or the Gate-1 BLOCKs and R-C7-0f end up attributed to a sha that no longer resolves — the same #73 shape WARN-1 was raised for. |
+| WARN-2 | DISCHARGED | § 1 strikes F6-bis and marks it `RULED by Matt R-C5-125 … against the conductor's lean`. § 4 F2 carries the order ruling. |
+| WARN-3 | **OPEN — re-scoped, not cleared.** See 7.3. | The one-number rule removes the *conflict* but asserts a quantity-class that contradicts its source. |
+| WARN-4 | DISCHARGED | § 1 maps `Q80 F4 = charter F1` and `Q80 F5 = charter F3` explicitly; § 4's F1 row carries `(= Q80 F4)` inline. F3's row lacks the inline tag but the § 1 mapping is unambiguous. |
+| WARN-5 | DISCHARGED | STATUS names **V7 amended** for the trial (*"the clip ships as a flipbook field body"*) with V15 untouched **and the reason given** — arm B is a field, not a burst. Correct on both verdicts. |
+| WARN-6 | DISCHARGED | The class-E rule is a § 1 substrate row rather than § 5 — better placement than I proposed, since it sits with the pins a fresh conductor reads first. Carries the enforcement hook (`grok_calls[].still` must point under `runs/C-7/artifacts/`). |
+| WARN-7 | DISCHARGED, residual | Totals stated (`764 pass / 17 red / 3 error`). **Residual:** the enumeration sums to **21** (5 standing + 1 E3-r1 + 12 stale-value + 3 Blackwater) against *"20 named"* = 17 + 3. Inherited from R-C5-139's own wording, not introduced here. Resolve at C-7's first suite run; it will resolve itself the moment anyone diffs. |
+| WARN-8 | DISCHARGED, above the bar | § 1 gives a **cause** (receipt path absent after Matt's disk purge, `~/astra-burst/runs/C-5/FL-6d*` — not the build), not merely a disposition, and **re-owns the lap as BL-2w** after the A/B. |
+| WARN-9 | DISCHARGED | § 5 now states the half that binds C-7: `heavy_lock.py` over every TOOLING burst / suite / headless Godot, `c5_c7_*.log` naming so C-6's glob sees a C-7 WAVE START/DONE, and freeze announcement to `runs/FREEZE_NOTICES.md`. Both files verified present; `FREEZE_NOTICES.md` already carries its first row and cites C-6 § 7.7 by number. |
+| WARN-10 | DISCHARGED | R-C7-0f records the lineage **per version with what each version's numbers mean**: v1 = clip 1's `plate 0.49 / drift 0.35` as a green-key + flames-in-footprint **artefact** (so explicitly not comparable to clip 2's), v2 = hue key + pool-only footprint + `stable_from`, **both clips re-measured under v2**, v3 = the O1 fix. `bw_cut.py` sha12 `09086010aeb4` in `N-C7-instruments` matches the file on disk. The O1 defect is **fixed, not deferred** — better than the "owed before the next measured clip" I asked for. |
+| WARN-11 | DISCHARGED | § 5: **C-6 has right of way** with the reason (its lap is clip-bound, C-7's is not), C-7 self-caps at 6 for the Blackwater lap (2 used), an F5 lap sets its own cap when ruled, and an out-of-budget reply is an external-state HALT — wired into § 7's rate-limit clause. |
+| INFO-3 / INFO-4 | OPEN, non-blocking | § 4 still has no one-line fork-gating statement; (f) is not named a reserved ratification point. Both remain INFO. |
+
+### 7.3 WARN-3 re-scoped — the one-number rule fixes the conflict by changing 220's quantity-class, and the arithmetic does not survive it
+
+§ 1 now reads *"ONE number: 220 px = the measured pre-1.4 dome **diameter** 3.4 BH; Q80's '≈200' was a rounded radius guess and is withdrawn."* Q80 F5's own text reads *"a filled golden dome **3.4–3.6 BH wide** … the original **220 px radius** matched"*, and recommends *"1.5 BH radius (≈ 200 px)"*.
+
+Q80 is internally consistent **only** if 220 is a radius: a 3.4 BH-wide dome ⇒ 1 BH ≈ 440/3.4 ≈ **129 px** ⇒ a 1.5 BH radius ≈ **194 px ≈ "≈200"**. Under the charter's re-classification (220 px = 3.4 BH **diameter** ⇒ 1 BH ≈ 64.7 px), a 1.5 BH radius is ≈ **97 px**, and Q80's own "≈200 px" becomes not a rounded guess but arithmetically impossible. So the withdrawal rests on a reading that makes its source incoherent rather than imprecise. The stake is **2× the effect's on-screen size** (220 px wide vs 440 px wide), and § 4's fork row is still titled *"Healing Hands radius"* while § 1 defines the number as a diameter — the same ambiguity WARN-3 named, one level down.
+
+**Not blocking:** F3 gates Healing Hands, which sits behind the R-C5-125 PAUSE; P1 is untouched. **Discharge (one line, at R-C7-1 or when F3 goes to Matt):** state 220 px with its quantity-class **and** the BH-per-px scale it implies, and say which of the two readings of Q80 F5 the conductor is adopting. If 220 is a diameter, Q80's ≈200 needs re-deriving before Matt rules; if it is a radius, the two numbers are 194 vs 220 and the fork is live exactly as Q80 framed it.
+
+### 7.4 New this pass
+
+**WARN-12 (new) — a Matt word is quoted in the charter and is not in the ledger.** The title and STATUS line carry *"Fire lane: Matt cleared it 2026-09-18 (**"wasn't super happy with the result"** — see fork F5)"*. `grep -c "super happy"` over `runs/C-7/ledger.json` returns **0**; there is no `R-C7-0g` or equivalent. This is material, not cosmetic: R-C7-0's conductor default sets *"bind = one TOOLING burst AFTER the fire lane clears"*, so this word is **the precondition that releases P1**, and it is also the motivation for fork F5 — which § 4 still lists as open with a recommendation. Every other Matt word in this run is ledgered with its class (R-C7-0/0c/0d/0e), which is why this one stands out. Principle 4 (decisions-log as truth), #73. Note also that *"cleared"* does double duty — the lane's hold on the bind released, vs Matt being dissatisfied with v44's result; the ledger row should say which. **Discharge:** one `class: matt`, `veto_open: false` row carrying the verbatim word, its date, and what it released.
+
+**WARN-13 (new) — `wave.sh` hardcodes an ephemeral, session-scoped scratchpad path, and the conductor is by charter a different session.** Line 4 of `runs/C-7/conductor_scripts/wave.sh` pins `S=/private/tmp/claude-501/…/4e83a458-9b8a-45f0-8e0c-8487cc714a21/scratchpad`, and every wave log, `*_run.json` and `*_run.err` is written there. That directory is **per-session and reaped**; the charter's STATUS line hands the run to *"a fresh gandalf session"*, whose scratchpad has a different UUID. Committed TOOLING that points at the authoring session's private temp directory will either write into a dead session's tree or fail outright — and § 5 (2)'s `c5_c7_*.log` visibility to C-6 depends on those logs existing where C-6 looks. **Discharge:** derive `S` at runtime (`${CLAUDE_SCRATCHPAD:-...}`, or a run-owned `runs/C-7/logs/`), or state in § 5 that the conductor re-points line 4 at first use. One line either way; cheaper now than at the first wave.
+
+**INFO-R3 — § 7 is placed physically before § 6 in the file.** Cosmetic; noted only because a fresh conductor scanning for "the last section" will land on the C-5 close-out and may not scroll back up to the HALTs. Renumber or move when the charter is next touched.
+
+### 7.5 Re-check action summary
+
+**gandalf, at R-C7-1 (none blocking P1):**
+- [ ] WARN-1 — restamp `charter_sha256_12` to **`419cc6c04e97`**; attribution line names all three shas and which rulings were made under which.
+- [ ] WARN-12 — ledger the fire-lane Matt word as a `matt` row; say what it released.
+- [ ] WARN-13 — un-hardcode `wave.sh`'s scratchpad path (or record that the conductor re-points it).
+- [ ] WARN-3 — before F3 goes to Matt: 220 px with its quantity-class and implied BH scale, and which reading of Q80 F5 is adopted.
+- [ ] WARN-7 residual (21 vs 20) · INFO-3 fork-gating line · INFO-4 name (f) a reserved ratification point · INFO-R3 section order.
+
+**Matt — unchanged from § 5:** the four fork letters (F1/F3/F4/F5) and the Grok allowance, the latter now mitigated by C-7's self-declared right-of-way to C-6 and its 6-clip cap. **Read WARN-3 / § 7.3 before ruling F3.**
+
+**ADR-002:** all re-check items are charter wording, ledger record correction, and within-run conductor tooling — **mine to approve, and I approve them on execution.** No new ADR, no cross-seam schema change. The decisions-log proposal that follows a B or HYBRID verdict remains a Matt ratification routed to me for the entry, per § 2.1 as written.
+
+**Re-check verdict: PASS-WITH-WARNS — GO.** The three BLOCKs closed in one pass, two of them beyond the minimum: the aspect miss was re-measured rather than asserted, and the O1 instrument was fixed rather than merely owed. The remaining items are a deferred restamp, one unledgered Matt word, one path in a script, and a units question on a fork that sits behind a PAUSE.
+
+**Re-check references**
+- `/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/gandalf/notes/2026-09-17-vfx-run-C-7-charter.md` (`419cc6c04e97`, 55 lines)
+- `/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-7/ledger.json` (R-C7-0…0f; `N-C7-instruments`; `charter_sha256_12` still `4e8185d424d7`)
+- `/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/FREEZE_NOTICES.md`
+- `/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-7/conductor_scripts/heavy_lock.py` · `wave.sh` · `bw_cut.py` (`09086010aeb4`)
+- `/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/gandalf/notes/2026-09-15-vfx-run-C-5-charter.md` § 8 (seven clauses, checked one-for-one)
+- `/Users/admin/Games/reincarnated-collaboration/canonical/matt_decision_needed/2026-09-16-c5-e3-deployment-fit-zeus-healing-hands.md` F5 (the 220 / ≈200 arithmetic)
