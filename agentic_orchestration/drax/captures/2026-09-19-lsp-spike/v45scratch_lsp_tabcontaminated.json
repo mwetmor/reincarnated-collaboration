@@ -1,0 +1,1155 @@
+{
+  "project": "/private/tmp/claude-501/-Users-admin-Games-reincarnated-collaboration/4e83a458-9b8a-45f0-8e0c-8487cc714a21/scratchpad/lspspike/cliffside_v45_scratch",
+  "port": 6015,
+  "boot_seconds": 6.0,
+  "probeA": {
+    "rc": 0,
+    "stdout": "{}\n",
+    "stderr": "",
+    "seconds": 2.5
+  },
+  "probeB": {
+    "files_opened": 70,
+    "seconds": 51.8,
+    "files_with_diagnostics": 22,
+    "total_diagnostics": 68,
+    "by_severity": {
+      "2": 59,
+      "1": 9
+    },
+    "diagnostics": {
+      "probe_events.gd": [
+        {
+          "code": 14,
+          "message": "(INCOMPATIBLE_TERNARY): Values of the ternary operator are not mutually compatible.",
+          "range": {
+            "end": {
+              "character": 229,
+              "line": 32
+            },
+            "start": {
+              "character": 2,
+              "line": 32
+            }
+          },
+          "severity": 2,
+          "source": "gdscript"
+        }
+      ],
+      "scripts/keeper.gd": [
+        {
+          "code": -1,
+          "message": "Could not resolve script \"res://scripts/vfx_g2.gd\".",
+          "range": {
+            "end": {
+              "character": 45,
+              "line": 137
+            },
+            "start": {
+              "character": 0,
+              "line": 137
+            }
+          },
+          "severity": 1,
+          "source": "gdscript"
+        }
+      ],
+      "scripts/vfx/orb_nova.gd": [
+        {
+          "code": 8,
+          "message": "(SHADOWED_VARIABLE_BASE_CLASS): The local \"for\" iterator variable \"name\" is shadowing an already-declared property in the base class \"Node\".",
+          "range": {
+            "end": {
+              "character": 80,
+              "line": 4
+            },
+            "start": {
+              "character": 4,
+              "line": 4
+            }
+          },
+          "severity": 2,
+          "source": "gdscript"
+        }
+      ],
+      "scripts/vfx/piece_burst.gd": [
+        {
+          "code": 8,
+          "message": "(SHADOWED_VARIABLE_BASE_CLASS): The local \"for\" iterator variable \"name\" is shadowing an already-declared property in the base class \"Node\".",
+          "range": {
+            "end": {
+              "character": 37,
+              "line": 47
+            },
+            "start": {
+              "character": 4,
+              "line": 47
+            }
+          },
+          "severity": 2,
+          "source": "gdscript"
+        }
+      ],
+      "scripts/vfx/piece_burst_fl2.gd": [
+        {
+          "code": 8,
+          "message": "(SHADOWED_VARIABLE_BASE_CLASS): The local variable \"name\" is shadowing an already-declared property in the base class \"Node\".",
+          "range": {
+            "end": {
+              "character": 53,
+              "line": 12
+            },
+            "start": {
+              "character": 8,
+              "line": 12
+            }
+          },
+          "severity": 2,
+          "source": "gdscript"
+        },
+        {
+          "code": 8,
+          "message": "(SHADOWED_VARIABLE_BASE_CLASS): The local \"for\" iterator variable \"name\" is shadowing an already-declared property in the base class \"Node\".",
+          "range": {
+            "end": {
+              "character": 37,
+              "line": 35
+            },
+            "start": {
+              "character": 4,
+              "line": 35
+            }
+          },
+          "severity": 2,
+          "source": "gdscript"
+        },
+        {
+          "code": 9,
+          "message": "(SHADOWED_GLOBAL_IDENTIFIER): The variable \"ease\" has the same name as a built-in function.",
+          "range": {
+            "end": {
+              "character": 47,
+              "line": 71
+            },
+            "start": {
+              "character": 4,
+              "line": 71
+            }
+          },
+          "severity": 2,
+          "source": "gdscript"
+        }
+      ],
+      "scripts/vfx/piece_burst_fl3.gd": [
+        {
+          "code": 8,
+          "message": "(SHADOWED_VARIABLE_BASE_CLASS): The local variable \"name\" is shadowing an already-declared property in the base class \"Node\".",
+          "range": {
+            "end": {
+              "character": 53,
+              "line": 12
+            },
+            "start": {
+              "character": 8,
+              "line": 12
+            }
+          },
+          "severity": 2,
+          "source": "gdscript"
+        },
+        {
+          "code": 8,
+          "message": "(SHADOWED_VARIABLE_BASE_CLASS): The local \"for\" iterator variable \"name\" is shadowing an already-declared property in the base class \"Node\".",
+          "range": {
+            "end": {
+              "character": 37,
+              "line": 35
+            },
+            "start": {
+              "character": 4,
+              "line": 35
+            }
+          },
+          "severity": 2,
+          "source": "gdscript"
+        },
+        {
+          "code": 9,
+          "message": "(SHADOWED_GLOBAL_IDENTIFIER): The variable \"ease\" has the same name as a built-in function.",
+          "range": {
+            "end": {
+              "character": 47,
+              "line": 72
+            },
+            "start": {
+              "character": 4,
+              "line": 72
+            }
+          },
+          "severity": 2,
+          "source": "gdscript"
+        },
+        {
+          "code": 8,
+          "message": "(SHADOWED_VARIABLE_BASE_CLASS): The local variable \"material\" is shadowing an already-declared property in the base class \"CanvasItem\".",
+          "range": {
+            "end": {
+              "character": 83,
+              "line": 208
+            },
+            "start": {
+              "character": 12,
+              "line": 208
+            }
+          },
+          "severity": 2,
+          "source": "gdscript"
+        }
+      ],
+      "scripts/vfx/piece_burst_fl4.gd": [
+        {
+          "code": 8,
+          "message": "(SHADOWED_VARIABLE_BASE_CLASS): The local variable \"name\" is shadowing an already-declared property in the base class \"Node\".",
+          "range": {
+            "end": {
+              "character": 53,
+              "line": 12
+            },
+            "start": {
+              "character": 8,
+              "line": 12
+            }
+          },
+          "severity": 2,
+          "source": "gdscript"
+        },
+        {
+          "code": 8,
+          "message": "(SHADOWED_VARIABLE_BASE_CLASS): The local \"for\" iterator variable \"name\" is shadowing an already-declared property in the base class \"Node\".",
+          "range": {
+            "end": {
+              "character": 37,
+              "line": 35
+            },
+            "start": {
+              "character": 4,
+              "line": 35
+            }
+          },
+          "severity": 2,
+          "source": "gdscript"
+        },
+        {
+          "code": 9,
+          "message": "(SHADOWED_GLOBAL_IDENTIFIER): The variable \"ease\" has the same name as a built-in function.",
+          "range": {
+            "end": {
+              "character": 41,
+              "line": 80
+            },
+            "start": {
+              "character": 4,
+              "line": 80
+            }
+          },
+          "severity": 2,
+          "source": "gdscript"
+        },
+        {
+          "code": 8,
+          "message": "(SHADOWED_VARIABLE_BASE_CLASS): The local \"for\" iterator variable \"name\" is shadowing an already-declared property in the base class \"Node\".",
+          "range": {
+            "end": {
+              "character": 63,
+              "line": 146
+            },
+            "start": {
+              "character": 4,
+              "line": 146
+            }
+          },
+          "severity": 2,
+          "source": "gdscript"
+        },
+        {
+          "code": 8,
+          "message": "(SHADOWED_VARIABLE_BASE_CLASS): The local variable \"material\" is shadowing an already-declared property in the base class \"CanvasItem\".",
+          "range": {
+            "end": {
+              "character": 83,
+              "line": 242
+            },
+            "start": {
+              "character": 12,
+              "line": 242
+            }
+          },
+          "severity": 2,
+          "source": "gdscript"
+        },
+        {
+          "code": 38,
+          "message": "(CONFUSABLE_LOCAL_DECLARATION): The variable \"t\" is declared below in the parent block.",
+          "range": {
+            "end": {
+              "character": 52,
+              "line": 332
+            },
+            "start": {
+              "character": 8,
+              "line": 332
+            }
+          },
+          "severity": 2,
+          "source": "gdscript"
+        }
+      ],
+      "scripts/vfx/piece_burst_fl4b.gd": [
+        {
+          "code": 8,
+          "message": "(SHADOWED_VARIABLE_BASE_CLASS): The local variable \"name\" is shadowing an already-declared property in the base class \"Node\".",
+          "range": {
+            "end": {
+              "character": 53,
+              "line": 13
+            },
+            "start": {
+              "character": 8,
+              "line": 13
+            }
+          },
+          "severity": 2,
+          "source": "gdscript"
+        },
+        {
+          "code": 8,
+          "message": "(SHADOWED_VARIABLE_BASE_CLASS): The local \"for\" iterator variable \"name\" is shadowing an already-declared property in the base class \"Node\".",
+          "range": {
+            "end": {
+              "character": 37,
+              "line": 36
+            },
+            "start": {
+              "character": 4,
+              "line": 36
+            }
+          },
+          "severity": 2,
+          "source": "gdscript"
+        },
+        {
+          "code": 9,
+          "message": "(SHADOWED_GLOBAL_IDENTIFIER): The variable \"ease\" has the same name as a built-in function.",
+          "range": {
+            "end": {
+              "character": 41,
+              "line": 75
+            },
+            "start": {
+              "character": 4,
+              "line": 75
+            }
+          },
+          "severity": 2,
+          "source": "gdscript"
+        },
+        {
+          "code": 2,
+          "message": "(UNUSED_VARIABLE): The local variable \"residue_t\" is declared but never used in the block. If this is intended, prefix it with an underscore: \"_residue_t\".",
+          "range": {
+            "end": {
+              "character": 110,
+              "line": 102
+            },
+            "start": {
+              "character": 8,
+              "line": 102
+            }
+          },
+          "severity": 2,
+          "source": "gdscript"
+        },
+        {
+          "code": 8,
+          "message": "(SHADOWED_VARIABLE_BASE_CLASS): The local variable \"material\" is shadowing an already-declared property in the base class \"CanvasItem\".",
+          "range": {
+            "end": {
+              "character": 83,
+              "line": 218
+            },
+            "start": {
+              "character": 12,
+              "line": 218
+            }
+          },
+          "severity": 2,
+          "source": "gdscript"
+        },
+        {
+          "code": 38,
+          "message": "(CONFUSABLE_LOCAL_DECLARATION): The variable \"t\" is declared below in the parent block.",
+          "range": {
+            "end": {
+              "character": 52,
+              "line": 308
+            },
+            "start": {
+              "character": 8,
+              "line": 308
+            }
+          },
+          "severity": 2,
+          "source": "gdscript"
+        }
+      ],
+      "scripts/vfx/piece_burst_v1r.gd": [
+        {
+          "code": 8,
+          "message": "(SHADOWED_VARIABLE_BASE_CLASS): The local \"for\" iterator variable \"name\" is shadowing an already-declared property in the base class \"Node\".",
+          "range": {
+            "end": {
+              "character": 37,
+              "line": 26
+            },
+            "start": {
+              "character": 4,
+              "line": 26
+            }
+          },
+          "severity": 2,
+          "source": "gdscript"
+        }
+      ],
+      "scripts/vfx/piece_burst_v2.gd": [
+        {
+          "code": 8,
+          "message": "(SHADOWED_VARIABLE_BASE_CLASS): The local variable \"name\" is shadowing an already-declared property in the base class \"Node\".",
+          "range": {
+            "end": {
+              "character": 53,
+              "line": 12
+            },
+            "start": {
+              "character": 8,
+              "line": 12
+            }
+          },
+          "severity": 2,
+          "source": "gdscript"
+        },
+        {
+          "code": 8,
+          "message": "(SHADOWED_VARIABLE_BASE_CLASS): The local \"for\" iterator variable \"name\" is shadowing an already-declared property in the base class \"Node\".",
+          "range": {
+            "end": {
+              "character": 37,
+              "line": 35
+            },
+            "start": {
+              "character": 4,
+              "line": 35
+            }
+          },
+          "severity": 2,
+          "source": "gdscript"
+        },
+        {
+          "code": 9,
+          "message": "(SHADOWED_GLOBAL_IDENTIFIER): The variable \"ease\" has the same name as a built-in function.",
+          "range": {
+            "end": {
+              "character": 47,
+              "line": 66
+            },
+            "start": {
+              "character": 4,
+              "line": 66
+            }
+          },
+          "severity": 2,
+          "source": "gdscript"
+        }
+      ],
+      "scripts/vfx/piece_burst_v2_keys.gd": [
+        {
+          "code": 8,
+          "message": "(SHADOWED_VARIABLE_BASE_CLASS): The local variable \"name\" is shadowing an already-declared property in the base class \"Node\".",
+          "range": {
+            "end": {
+              "character": 53,
+              "line": 12
+            },
+            "start": {
+              "character": 8,
+              "line": 12
+            }
+          },
+          "severity": 2,
+          "source": "gdscript"
+        },
+        {
+          "code": 8,
+          "message": "(SHADOWED_VARIABLE_BASE_CLASS): The local \"for\" iterator variable \"name\" is shadowing an already-declared property in the base class \"Node\".",
+          "range": {
+            "end": {
+              "character": 37,
+              "line": 35
+            },
+            "start": {
+              "character": 4,
+              "line": 35
+            }
+          },
+          "severity": 2,
+          "source": "gdscript"
+        },
+        {
+          "code": 9,
+          "message": "(SHADOWED_GLOBAL_IDENTIFIER): The variable \"ease\" has the same name as a built-in function.",
+          "range": {
+            "end": {
+              "character": 47,
+              "line": 73
+            },
+            "start": {
+              "character": 4,
+              "line": 73
+            }
+          },
+          "severity": 2,
+          "source": "gdscript"
+        },
+        {
+          "code": 8,
+          "message": "(SHADOWED_VARIABLE_BASE_CLASS): The local \"for\" iterator variable \"name\" is shadowing an already-declared property in the base class \"Node\".",
+          "range": {
+            "end": {
+              "character": 63,
+              "line": 139
+            },
+            "start": {
+              "character": 4,
+              "line": 139
+            }
+          },
+          "severity": 2,
+          "source": "gdscript"
+        }
+      ],
+      "scripts/vfx/vfx_fire_burst_e0p_v3_dance.gd": [
+        {
+          "code": 8,
+          "message": "(SHADOWED_VARIABLE_BASE_CLASS): The local variable \"name\" is shadowing an already-declared property in the base class \"Node\".",
+          "range": {
+            "end": {
+              "character": 53,
+              "line": 13
+            },
+            "start": {
+              "character": 8,
+              "line": 13
+            }
+          },
+          "severity": 2,
+          "source": "gdscript"
+        },
+        {
+          "code": 8,
+          "message": "(SHADOWED_VARIABLE_BASE_CLASS): The local \"for\" iterator variable \"name\" is shadowing an already-declared property in the base class \"Node\".",
+          "range": {
+            "end": {
+              "character": 37,
+              "line": 36
+            },
+            "start": {
+              "character": 4,
+              "line": 36
+            }
+          },
+          "severity": 2,
+          "source": "gdscript"
+        },
+        {
+          "code": 9,
+          "message": "(SHADOWED_GLOBAL_IDENTIFIER): The variable \"ease\" has the same name as a built-in function.",
+          "range": {
+            "end": {
+              "character": 41,
+              "line": 76
+            },
+            "start": {
+              "character": 4,
+              "line": 76
+            }
+          },
+          "severity": 2,
+          "source": "gdscript"
+        },
+        {
+          "code": 2,
+          "message": "(UNUSED_VARIABLE): The local variable \"residue_t\" is declared but never used in the block. If this is intended, prefix it with an underscore: \"_residue_t\".",
+          "range": {
+            "end": {
+              "character": 110,
+              "line": 103
+            },
+            "start": {
+              "character": 8,
+              "line": 103
+            }
+          },
+          "severity": 2,
+          "source": "gdscript"
+        },
+        {
+          "code": 8,
+          "message": "(SHADOWED_VARIABLE_BASE_CLASS): The local variable \"material\" is shadowing an already-declared property in the base class \"CanvasItem\".",
+          "range": {
+            "end": {
+              "character": 83,
+              "line": 221
+            },
+            "start": {
+              "character": 12,
+              "line": 221
+            }
+          },
+          "severity": 2,
+          "source": "gdscript"
+        },
+        {
+          "code": 38,
+          "message": "(CONFUSABLE_LOCAL_DECLARATION): The variable \"t\" is declared below in the parent block.",
+          "range": {
+            "end": {
+              "character": 52,
+              "line": 311
+            },
+            "start": {
+              "character": 8,
+              "line": 311
+            }
+          },
+          "severity": 2,
+          "source": "gdscript"
+        }
+      ],
+      "scripts/vfx/vfx_fire_burst_e0p_v3_stretch.gd": [
+        {
+          "code": 8,
+          "message": "(SHADOWED_VARIABLE_BASE_CLASS): The local variable \"name\" is shadowing an already-declared property in the base class \"Node\".",
+          "range": {
+            "end": {
+              "character": 53,
+              "line": 13
+            },
+            "start": {
+              "character": 8,
+              "line": 13
+            }
+          },
+          "severity": 2,
+          "source": "gdscript"
+        },
+        {
+          "code": 8,
+          "message": "(SHADOWED_VARIABLE_BASE_CLASS): The local \"for\" iterator variable \"name\" is shadowing an already-declared property in the base class \"Node\".",
+          "range": {
+            "end": {
+              "character": 37,
+              "line": 36
+            },
+            "start": {
+              "character": 4,
+              "line": 36
+            }
+          },
+          "severity": 2,
+          "source": "gdscript"
+        },
+        {
+          "code": 9,
+          "message": "(SHADOWED_GLOBAL_IDENTIFIER): The variable \"ease\" has the same name as a built-in function.",
+          "range": {
+            "end": {
+              "character": 41,
+              "line": 75
+            },
+            "start": {
+              "character": 4,
+              "line": 75
+            }
+          },
+          "severity": 2,
+          "source": "gdscript"
+        },
+        {
+          "code": 2,
+          "message": "(UNUSED_VARIABLE): The local variable \"residue_t\" is declared but never used in the block. If this is intended, prefix it with an underscore: \"_residue_t\".",
+          "range": {
+            "end": {
+              "character": 110,
+              "line": 102
+            },
+            "start": {
+              "character": 8,
+              "line": 102
+            }
+          },
+          "severity": 2,
+          "source": "gdscript"
+        },
+        {
+          "code": 8,
+          "message": "(SHADOWED_VARIABLE_BASE_CLASS): The local variable \"material\" is shadowing an already-declared property in the base class \"CanvasItem\".",
+          "range": {
+            "end": {
+              "character": 83,
+              "line": 218
+            },
+            "start": {
+              "character": 12,
+              "line": 218
+            }
+          },
+          "severity": 2,
+          "source": "gdscript"
+        },
+        {
+          "code": 38,
+          "message": "(CONFUSABLE_LOCAL_DECLARATION): The variable \"t\" is declared below in the parent block.",
+          "range": {
+            "end": {
+              "character": 52,
+              "line": 308
+            },
+            "start": {
+              "character": 8,
+              "line": 308
+            }
+          },
+          "severity": 2,
+          "source": "gdscript"
+        }
+      ],
+      "scripts/vfx_fire_motes.gd": [
+        {
+          "code": 14,
+          "message": "(INCOMPATIBLE_TERNARY): Values of the ternary operator are not mutually compatible.",
+          "range": {
+            "end": {
+              "character": 162,
+              "line": 110
+            },
+            "start": {
+              "character": 8,
+              "line": 110
+            }
+          },
+          "severity": 2,
+          "source": "gdscript"
+        },
+        {
+          "code": 14,
+          "message": "(INCOMPATIBLE_TERNARY): Values of the ternary operator are not mutually compatible.",
+          "range": {
+            "end": {
+              "character": 162,
+              "line": 110
+            },
+            "start": {
+              "character": 8,
+              "line": 110
+            }
+          },
+          "severity": 2,
+          "source": "gdscript"
+        }
+      ],
+      "scripts/vfx_fire_motes_fl4.gd": [
+        {
+          "code": 14,
+          "message": "(INCOMPATIBLE_TERNARY): Values of the ternary operator are not mutually compatible.",
+          "range": {
+            "end": {
+              "character": 162,
+              "line": 110
+            },
+            "start": {
+              "character": 8,
+              "line": 110
+            }
+          },
+          "severity": 2,
+          "source": "gdscript"
+        },
+        {
+          "code": 14,
+          "message": "(INCOMPATIBLE_TERNARY): Values of the ternary operator are not mutually compatible.",
+          "range": {
+            "end": {
+              "character": 162,
+              "line": 110
+            },
+            "start": {
+              "character": 8,
+              "line": 110
+            }
+          },
+          "severity": 2,
+          "source": "gdscript"
+        }
+      ],
+      "scripts/vfx_g1_fl4.gd": [
+        {
+          "code": 30,
+          "message": "(INTEGER_DIVISION): Integer division. Decimal part will be discarded.",
+          "range": {
+            "end": {
+              "character": 89,
+              "line": 123
+            },
+            "start": {
+              "character": 4,
+              "line": 123
+            }
+          },
+          "severity": 2,
+          "source": "gdscript"
+        },
+        {
+          "code": 30,
+          "message": "(INTEGER_DIVISION): Integer division. Decimal part will be discarded.",
+          "range": {
+            "end": {
+              "character": 74,
+              "line": 153
+            },
+            "start": {
+              "character": 8,
+              "line": 153
+            }
+          },
+          "severity": 2,
+          "source": "gdscript"
+        }
+      ],
+      "scripts/vfx_g1_fl6.gd": [
+        {
+          "code": 30,
+          "message": "(INTEGER_DIVISION): Integer division. Decimal part will be discarded.",
+          "range": {
+            "end": {
+              "character": 89,
+              "line": 126
+            },
+            "start": {
+              "character": 4,
+              "line": 126
+            }
+          },
+          "severity": 2,
+          "source": "gdscript"
+        },
+        {
+          "code": 30,
+          "message": "(INTEGER_DIVISION): Integer division. Decimal part will be discarded.",
+          "range": {
+            "end": {
+              "character": 74,
+              "line": 156
+            },
+            "start": {
+              "character": 8,
+              "line": 156
+            }
+          },
+          "severity": 2,
+          "source": "gdscript"
+        }
+      ],
+      "scripts/vfx_g1_painted.gd": [
+        {
+          "code": 30,
+          "message": "(INTEGER_DIVISION): Integer division. Decimal part will be discarded.",
+          "range": {
+            "end": {
+              "character": 89,
+              "line": 121
+            },
+            "start": {
+              "character": 4,
+              "line": 121
+            }
+          },
+          "severity": 2,
+          "source": "gdscript"
+        },
+        {
+          "code": 30,
+          "message": "(INTEGER_DIVISION): Integer division. Decimal part will be discarded.",
+          "range": {
+            "end": {
+              "character": 74,
+              "line": 151
+            },
+            "start": {
+              "character": 8,
+              "line": 151
+            }
+          },
+          "severity": 2,
+          "source": "gdscript"
+        }
+      ],
+      "scripts/vfx_g2.gd": [
+        {
+          "code": -1,
+          "message": "Used tab character for indentation instead of space as used before in the file.",
+          "range": {
+            "end": {
+              "character": 42,
+              "line": 411
+            },
+            "start": {
+              "character": 0,
+              "line": 411
+            }
+          },
+          "severity": 1,
+          "source": "gdscript"
+        },
+        {
+          "code": -1,
+          "message": "Used tab character for indentation instead of space as used before in the file.",
+          "range": {
+            "end": {
+              "character": 25,
+              "line": 413
+            },
+            "start": {
+              "character": 1,
+              "line": 413
+            }
+          },
+          "severity": 1,
+          "source": "gdscript"
+        },
+        {
+          "code": -1,
+          "message": "Used tab character for indentation instead of space as used before in the file.",
+          "range": {
+            "end": {
+              "character": 33,
+              "line": 414
+            },
+            "start": {
+              "character": 1,
+              "line": 414
+            }
+          },
+          "severity": 1,
+          "source": "gdscript"
+        },
+        {
+          "code": -1,
+          "message": "Used tab character for indentation instead of space as used before in the file.",
+          "range": {
+            "end": {
+              "character": 42,
+              "line": 417
+            },
+            "start": {
+              "character": 0,
+              "line": 417
+            }
+          },
+          "severity": 1,
+          "source": "gdscript"
+        },
+        {
+          "code": -1,
+          "message": "Used tab character for indentation instead of space as used before in the file.",
+          "range": {
+            "end": {
+              "character": 33,
+              "line": 420
+            },
+            "start": {
+              "character": 1,
+              "line": 420
+            }
+          },
+          "severity": 1,
+          "source": "gdscript"
+        },
+        {
+          "code": -1,
+          "message": "Used tab character for indentation instead of space as used before in the file.",
+          "range": {
+            "end": {
+              "character": 33,
+              "line": 421
+            },
+            "start": {
+              "character": 1,
+              "line": 421
+            }
+          },
+          "severity": 1,
+          "source": "gdscript"
+        },
+        {
+          "code": -1,
+          "message": "Used tab character for indentation instead of space as used before in the file.",
+          "range": {
+            "end": {
+              "character": 34,
+              "line": 424
+            },
+            "start": {
+              "character": 0,
+              "line": 424
+            }
+          },
+          "severity": 1,
+          "source": "gdscript"
+        },
+        {
+          "code": -1,
+          "message": "Used tab character for indentation instead of space as used before in the file.",
+          "range": {
+            "end": {
+              "character": 34,
+              "line": 428
+            },
+            "start": {
+              "character": 0,
+              "line": 428
+            }
+          },
+          "severity": 1,
+          "source": "gdscript"
+        }
+      ],
+      "scripts/vfx_g2_flame_dance.gd": [
+        {
+          "code": 8,
+          "message": "(SHADOWED_VARIABLE_BASE_CLASS): The local function parameter \"material\" is shadowing an already-declared property in the base class \"CanvasItem\".",
+          "range": {
+            "end": {
+              "character": 74,
+              "line": 111
+            },
+            "start": {
+              "character": 0,
+              "line": 111
+            }
+          },
+          "severity": 2,
+          "source": "gdscript"
+        },
+        {
+          "code": 14,
+          "message": "(INCOMPATIBLE_TERNARY): Values of the ternary operator are not mutually compatible.",
+          "range": {
+            "end": {
+              "character": 329,
+              "line": 210
+            },
+            "start": {
+              "character": 4,
+              "line": 210
+            }
+          },
+          "severity": 2,
+          "source": "gdscript"
+        },
+        {
+          "code": 8,
+          "message": "(SHADOWED_VARIABLE_BASE_CLASS): The local \"for\" iterator variable \"name\" is shadowing an already-declared property in the base class \"Node\".",
+          "range": {
+            "end": {
+              "character": 42,
+              "line": 288
+            },
+            "start": {
+              "character": 4,
+              "line": 288
+            }
+          },
+          "severity": 2,
+          "source": "gdscript"
+        },
+        {
+          "code": 8,
+          "message": "(SHADOWED_VARIABLE_BASE_CLASS): The local \"for\" iterator variable \"name\" is shadowing an already-declared property in the base class \"Node\".",
+          "range": {
+            "end": {
+              "character": 54,
+              "line": 318
+            },
+            "start": {
+              "character": 4,
+              "line": 318
+            }
+          },
+          "severity": 2,
+          "source": "gdscript"
+        }
+      ],
+      "scripts/vfx_g2_flipbook.gd": [
+        {
+          "code": 8,
+          "message": "(SHADOWED_VARIABLE_BASE_CLASS): The local function parameter \"material\" is shadowing an already-declared property in the base class \"CanvasItem\".",
+          "range": {
+            "end": {
+              "character": 74,
+              "line": 102
+            },
+            "start": {
+              "character": 0,
+              "line": 102
+            }
+          },
+          "severity": 2,
+          "source": "gdscript"
+        },
+        {
+          "code": 14,
+          "message": "(INCOMPATIBLE_TERNARY): Values of the ternary operator are not mutually compatible.",
+          "range": {
+            "end": {
+              "character": 329,
+              "line": 158
+            },
+            "start": {
+              "character": 4,
+              "line": 158
+            }
+          },
+          "severity": 2,
+          "source": "gdscript"
+        }
+      ],
+      "scripts/vfx_g4.gd": [
+        {
+          "code": 8,
+          "message": "(SHADOWED_VARIABLE_BASE_CLASS): The local \"for\" iterator variable \"name\" is shadowing an already-declared property in the base class \"Node\".",
+          "range": {
+            "end": {
+              "character": 38,
+              "line": 85
+            },
+            "start": {
+              "character": 4,
+              "line": 85
+            }
+          },
+          "severity": 2,
+          "source": "gdscript"
+        }
+      ]
+    }
+  }
+}
