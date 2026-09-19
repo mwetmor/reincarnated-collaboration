@@ -1669,6 +1669,13 @@
       "veto_open": true,
       "ruling": "web13 LIVE at https://reincarnated-loadout.vercel.app/playtest/cliffside/ — the web11 check passes on the conductor's own independent fetch: live index.pck sha256 ac513a0f06e572856c0cc34473a4287c747245192ecfafa53af3c30c47e6bb18, 40,677,216 B == drax's local build (+1,039,864 B over web12 = the one V kit, 145 spine frames). Loadout commit 822a089 on origin/main (Matt push word R-C7-10). Picker: A = slot 12 (blackwater_cocktail_e3), B = slot 19 (blackwater_cocktail_e3_V). drax's production touch-check verdict lines pending in deploy_truth v13.",
       "ts": "2026-09-19T00:17:36"
+    },
+    {
+      "id": "R-C7-13",
+      "class": "conductor",
+      "veto_open": true,
+      "ruling": "web13 production touch check (drax, deploy_truth v13, capture harnesses on production): A casts forward FORWARD · B frame 0 at the landing point YES · B pool boils YES · B scorch persists YES · three B scorches coexist YES (contiguous — landing points under a pool-width apart, the walk not the kit) · smoke over the B pool NOT OBSERVED · grey/unshaded pixels NONE. DEFECT F-C7-3: the FL-5 smoke layer on arm B is emitted (shader ships; BL-2v trace reported smoke alpha .22 at 0.75 s) but INVISIBLE on production and in my own captures — Matt asked for smoke (R-C7-0e (3)); the .22-alpha grey-warm MIX sheet over cream flames does not read → BL-2w: raise contrast/alpha, verify by a pixel criterion drax's harness already defines (desaturated plume pixels off the foliage boundary), not by a node trace. drax also logged a fence gap: the dangling-res:// fence walks .gdshader only, blind to a missing .tres (F-C7-2's family) — BL-2w extends it. Unpushed by design: collaboration f4c131fa (deploy truth + record) and loadout 561268c (AGENT_STATE) ride the next conductor push.",
+      "ts": "2026-09-19T00:39:35"
     }
   ],
   "grok_calls": [
