@@ -64,9 +64,15 @@ test_transitive_diamond_slot_and_unrelated (test_deps_ledger.Tests.test_transiti
 test_idle_roundtrip_target_sine (test_dope_sheet.Tests.test_idle_roundtrip_target_sine) ... ok
 test_invalid_and_conflicts_not_repaired (test_dope_sheet.Tests.test_invalid_and_conflicts_not_repaired) ... ok
 test_walk_roundtrip_source_positions_and_amplitude (test_dope_sheet.Tests.test_walk_roundtrip_source_positions_and_amplitude) ... ok
+test_rootless_synthetic_and_primitive_length_without_alpha_reads (test_effect_kit.AntiDecalCapsuleFallbackTests.test_rootless_synthetic_and_primitive_length_without_alpha_reads) ... ok
+test_all_field_ranges_unknown_missing_boolean_and_nonfinite (test_effect_kit.AntiDecalValidationTests.test_all_field_ranges_unknown_missing_boolean_and_nonfinite) ... ok
+test_defaults_absent_and_real_fire_fields_load (test_effect_kit.AntiDecalValidationTests.test_defaults_absent_and_real_fire_fields_load) ... FAIL
 test_authored_ff08_contradiction_is_reported_and_asserted_without_repair (test_effect_kit.AuraLoopValidationTests.test_authored_ff08_contradiction_is_reported_and_asserted_without_repair) ... ok
 test_g4_build_roundtrip (test_effect_kit.AuraLoopValidationTests.test_g4_build_roundtrip) ... ok
 test_g4_explicit_grammar_support_and_original_coverage (test_effect_kit.AuraLoopValidationTests.test_g4_explicit_grammar_support_and_original_coverage) ... ok
+test_reject_loop_scale_clock_hash_order_and_conflicting_layers (test_effect_kit.BL2VFlipbookValidationTests.test_reject_loop_scale_clock_hash_order_and_conflicting_layers) ... ok
+test_source_sha12_and_four_plane_cells (test_effect_kit.BL2VFlipbookValidationTests.test_source_sha12_and_four_plane_cells) ... ok
+test_rank_one_spec_and_noise_band_known_bad_inputs (test_effect_kit.BlackwaterRankOneValidationTests.test_rank_one_spec_and_noise_band_known_bad_inputs) ... ok
 test_explicit_specs_alpha_indices_and_schedule (test_effect_kit.BoltChainValidationTests.test_explicit_specs_alpha_indices_and_schedule) ... ok
 test_generic_build_round_trip (test_effect_kit.BoltChainValidationTests.test_generic_build_round_trip) ... ok
 test_invalid_mechanics_material_and_metronome_rejected (test_effect_kit.BoltChainValidationTests.test_invalid_mechanics_material_and_metronome_rejected) ... ok
@@ -74,7 +80,10 @@ test_outside_in_tips_before_roots_and_legacy_unchanged (test_effect_kit.BurnBack
 test_real_schedule_compactness_and_hold_denominator (test_effect_kit.BurnBackMaterialTests.test_real_schedule_compactness_and_hold_denominator) ... ok
 test_cpu_replay_agrees_with_actual_headless_uniform_schedule (test_effect_kit.BurnBackResidueHoldTests.test_cpu_replay_agrees_with_actual_headless_uniform_schedule) ... ok
 test_literal_fraction_held_for_every_residue_age (test_effect_kit.BurnBackResidueHoldTests.test_literal_fraction_held_for_every_residue_age) ... ok
-test_entry_shape_and_shared_shard_union_and_zero_control (test_effect_kit.ContinuousResidueMaterialTests.test_entry_shape_and_shared_shard_union_and_zero_control) ... ok
+test_optional_radius_boundaries_bad_values_and_no_default_mutation (test_effect_kit.CanonicalCapsuleValidationTests.test_optional_radius_boundaries_bad_values_and_no_default_mutation) ... ok
+test_orb_child_radius_is_independent (test_effect_kit.CanonicalCapsuleValidationTests.test_orb_child_radius_is_independent) ... ok
+test_entry_shape_and_shared_shard_union_and_zero_control (test_effect_kit.ContinuousResidueMaterialTests.test_entry_shape_and_shared_shard_union_and_zero_control)
+FL-4: test the ragged burn-down cutoff, not a held painted residue. ... ok
 test_noise_deterministic_periodic_source_and_painted_weight (test_effect_kit.ContinuousResidueMaterialTests.test_noise_deterministic_periodic_source_and_painted_weight) ... ok
 test_seam_instrument_detects_known_bad_straight_cut (test_effect_kit.ContinuousResidueMaterialTests.test_seam_instrument_detects_known_bad_straight_cut) ... ok
 test_contour_and_fill_drop_together_without_changing_hue (test_effect_kit.DissolveOrderTests.test_contour_and_fill_drop_together_without_changing_hue) ... ok
@@ -90,11 +99,30 @@ test_missing_and_unknown_keys_at_all_schema_levels (test_effect_kit.EffectKitTes
 test_native_index_frames_alpha_and_dimensions (test_effect_kit.EffectKitTests.test_native_index_frames_alpha_and_dimensions) ... ok
 test_retired_pixel_scale_rejected_without_output (test_effect_kit.EffectKitTests.test_retired_pixel_scale_rejected_without_output) ... ok
 test_spriteframe_duration_extension_default_bytes_and_invalid_before_resource (test_effect_kit.EffectKitTests.test_spriteframe_duration_extension_default_bytes_and_invalid_before_resource) ... ok
+test_all_new_fields_validate_in_actual_catalogue (test_effect_kit.FL2FieldValidationTests.test_all_new_fields_validate_in_actual_catalogue)
+FL-4: catalogue membership and ember ending replace old kit count/residue hold. ... FAIL
+test_cast_travel_and_embers_boundaries_and_bad_values (test_effect_kit.FL2FieldValidationTests.test_cast_travel_and_embers_boundaries_and_bad_values) ... ok
+test_malformed_interleave_and_key_holds_rejected (test_effect_kit.FL4BInterleaveValidationTests.test_malformed_interleave_and_key_holds_rejected) ... ok
+test_round_two_projectile_alpha_and_declared_body_extents (test_effect_kit.FL4BInterleaveValidationTests.test_round_two_projectile_alpha_and_declared_body_extents) ... ok
+test_seeded_largest_gaps_coverage_and_reproducibility (test_effect_kit.FL4BInterleaveValidationTests.test_seeded_largest_gaps_coverage_and_reproducibility) ... ok
+test_ten_connected_rooted_tongues_and_unchanged_body (test_effect_kit.FL4BInterleaveValidationTests.test_ten_connected_rooted_tongues_and_unchanged_body) ... ok
+test_stretch_ranges_and_known_bad_values (test_effect_kit.FL4CStretchDissolveTests.test_stretch_ranges_and_known_bad_values) ... ok
+test_white_last_partition_and_float_seed_parity (test_effect_kit.FL4CStretchDissolveTests.test_white_last_partition_and_float_seed_parity) ... ok
+test_ending_ranges_and_mutually_exclusive_residue (test_effect_kit.FL4FieldValidationTests.test_ending_ranges_and_mutually_exclusive_residue) ... ok
+test_travel_opt_in_ranges_and_speed_consistency (test_effect_kit.FL4FieldValidationTests.test_travel_opt_in_ranges_and_speed_consistency) ... ok
+test_eruption_and_ending_fields_and_bad_controls (test_effect_kit.FL5FieldTests.test_eruption_and_ending_fields_and_bad_controls) ... ok
+test_all_three_explicit_kits_use_trimmed_controls (test_effect_kit.FL6CTongueTrimTests.test_all_three_explicit_kits_use_trimmed_controls) ... ok
+test_fields_and_known_bad_controls (test_effect_kit.FL6FlameDanceValidationTests.test_fields_and_known_bad_controls) ... ok
+test_only_explicit_bodies_opt_in_and_paint_tail (test_effect_kit.FL6FlameDanceValidationTests.test_only_explicit_bodies_opt_in_and_paint_tail) ... ok
+test_seeded_bounded_opposition_and_nonperiodic_peaks (test_effect_kit.FL6FlameDanceValidationTests.test_seeded_bounded_opposition_and_nonperiodic_peaks) ... ok
 test_poison_four_band_ramp_density_and_rebuild (test_effect_kit.FieldDesignLapTests.test_poison_four_band_ramp_density_and_rebuild) ... ok
 test_pool_dissolve_preserves_dark_planes_until_joint_release (test_effect_kit.FieldDesignLapTests.test_pool_dissolve_preserves_dark_planes_until_joint_release) ... ok
 test_pool_native_binding_alpha_and_dark_palette_planes (test_effect_kit.FieldDesignLapTests.test_pool_native_binding_alpha_and_dark_palette_planes) ... ok
-test_literal_spec_schedule_range_conflict_and_renamed_kit (test_effect_kit.FrozenOrbValidationTests.test_literal_spec_schedule_range_conflict_and_renamed_kit) ... FAIL
+test_range_expiry_enum_and_legacy_default (test_effect_kit.FireLaneRangeExpiryTests.test_range_expiry_enum_and_legacy_default) ... ok
+test_interval_choices_reject_invalid_values (test_effect_kit.FrozenOrbValidationTests.test_interval_choices_reject_invalid_values) ... ok
+test_literal_spec_schedule_range_conflict_and_renamed_kit (test_effect_kit.FrozenOrbValidationTests.test_literal_spec_schedule_range_conflict_and_renamed_kit) ... ok
 test_roundtrip (test_effect_kit.FrozenOrbValidationTests.test_roundtrip) ... ok
+test_seeded_choices_are_deterministic_and_seed_sensitive (test_effect_kit.FrozenOrbValidationTests.test_seeded_choices_are_deterministic_and_seed_sensitive) ... ok
 test_sixteen_groups_preserve_exact_source_union_and_primitive_alpha (test_effect_kit.FrozenOrbValidationTests.test_sixteen_groups_preserve_exact_source_union_and_primitive_alpha) ... ok
 test_bad_decal_template_duration_and_binding_rejected (test_effect_kit.IceTreatmentValidationTests.test_bad_decal_template_duration_and_binding_rejected) ... ok
 test_conductor_fire_travel_keys_are_emitter_owned (test_effect_kit.IceTreatmentValidationTests.test_conductor_fire_travel_keys_are_emitter_owned) ... ok
@@ -132,13 +160,17 @@ test_residue_and_band_and_hold_ranges_rejected (test_effect_kit.PieceStretchPhas
 test_seeded_factor_deterministic_order_independent_and_bounded (test_effect_kit.PieceStretchPhaseTests.test_seeded_factor_deterministic_order_independent_and_bounded) ... ok
 test_self_contained_mask_bytes_distance_and_runtime_validation (test_effect_kit.PieceStretchPhaseTests.test_self_contained_mask_bytes_distance_and_runtime_validation) ... ok
 test_stretch_seed_bounds_and_whole_body_distance (test_effect_kit.PieceStretchPhaseTests.test_stretch_seed_bounds_and_whole_body_distance) ... ok
-test_both_arms_preserve_spec_and_quantised_primitives (test_effect_kit.ProjectileArmValidationTests.test_both_arms_preserve_spec_and_quantised_primitives) ... ok
-test_empty_key_arms_have_identical_kit_files_except_name (test_effect_kit.ProjectileArmValidationTests.test_empty_key_arms_have_identical_kit_files_except_name) ... ok
+test_both_arms_preserve_spec_and_quantised_primitives (test_effect_kit.ProjectileArmValidationTests.test_both_arms_preserve_spec_and_quantised_primitives)
+FL-4b: current travel assets and mechanics; each arm owns its impact binding. ... FAIL
+test_empty_key_arms_have_identical_kit_files_except_name (test_effect_kit.ProjectileArmValidationTests.test_empty_key_arms_have_identical_kit_files_except_name)
+FL-4b: only name, travel keys, and impact_binding.kit differ; all other bytes match. ... FAIL
 test_two_explicit_key_paintings_validate_without_name_inference (test_effect_kit.ProjectileArmValidationTests.test_two_explicit_key_paintings_validate_without_name_inference) ... ok
 test_wrong_grammar_speed_binding_hold_count_and_indices_rejected (test_effect_kit.ProjectileArmValidationTests.test_wrong_grammar_speed_binding_hold_count_and_indices_rejected) ... ok
 test_kit_piece_material_scope_validation_and_precedence (test_effect_kit.RaggedResidueMaterialTests.test_kit_piece_material_scope_validation_and_precedence) ... ok
 test_noise_bounds_band_resistance_endpoints_and_dissolve (test_effect_kit.RaggedResidueMaterialTests.test_noise_bounds_band_resistance_endpoints_and_dissolve) ... ok
-test_t4e_entry_ragged_connected_and_zero_disc_control (test_effect_kit.RaggedResidueMaterialTests.test_t4e_entry_ragged_connected_and_zero_disc_control) ... ok
+test_t4e_entry_ragged_connected_and_zero_disc_control (test_effect_kit.RaggedResidueMaterialTests.test_t4e_entry_ragged_connected_and_zero_disc_control)
+FL-4: test the ragged burn-down cutoff, not a held painted residue. ... ok
+test_new_key_ranges_and_balanced_emission_seeds (test_effect_kit.RenderedLookValidationTests.test_new_key_ranges_and_balanced_emission_seeds) ... ok
 test_RED_dark_index_rendered_transparent_is_rejected (test_effect_kit.SharedVFXMaterialTests.test_RED_dark_index_rendered_transparent_is_rejected) ... ok
 test_RED_legacy_white_core_keep_validation_names_key (test_effect_kit.SharedVFXMaterialTests.test_RED_legacy_white_core_keep_validation_names_key) ... ok
 test_RED_material_failing_to_load_on_Compatibility_is_rejected (test_effect_kit.SharedVFXMaterialTests.test_RED_material_failing_to_load_on_Compatibility_is_rejected) ... ok
@@ -241,7 +273,9 @@ test_checkerboard_rejection (test_gates_matte.Tests.test_checkerboard_rejection)
 test_floor_and_particles (test_gates_matte.Tests.test_floor_and_particles) ... ok
 test_native_alpha_dark_interiors (test_gates_matte.Tests.test_native_alpha_dark_interiors) ... ok
 test_particle_safe_opt_in_and_green_plate (test_gates_matte.Tests.test_particle_safe_opt_in_and_green_plate) ... ok
-test_x1_floor_border_zero (test_gates_matte.Tests.test_x1_floor_border_zero) ... ok
+test_x1_floor_border_zero (test_gates_matte.Tests.test_x1_floor_border_zero) ... 
+  test_x1_floor_border_zero (test_gates_matte.Tests.test_x1_floor_border_zero) (prop='satchel') ... ERROR
+  test_x1_floor_border_zero (test_gates_matte.Tests.test_x1_floor_border_zero) (prop='staff_head') ... ERROR
 test_alias_forwards (test_gates_matte_edge.MatteEdgeTests.test_alias_forwards) ... ok
 test_alpha_byte_identical_all_options (test_gates_matte_edge.MatteEdgeTests.test_alpha_byte_identical_all_options) ... ok
 test_default_equals_explicit_legacy (test_gates_matte_edge.MatteEdgeTests.test_default_equals_explicit_legacy) ... ok
@@ -270,20 +304,63 @@ test_empty_sequence_not_silent_success (test_gates_run_gates.Tests.test_empty_se
 test_regression_comparator_detects_mutation (test_gates_run_gates.Tests.test_regression_comparator_detects_mutation) ... ok
 test_real_mirror_vs_idle (test_gates_silhouette64.Tests.test_real_mirror_vs_idle) ... ok
 test_swollen_bag_and_shift_alignment (test_gates_silhouette64.Tests.test_swollen_bag_and_shift_alignment) ... ok
+test_contact_composition_priority_easing_and_optional_dark_cleanup (test_godot_import.AntiDecalTraceTests.test_contact_composition_priority_easing_and_optional_dark_cleanup) ... ok
+test_core_additive_contact_expanded_spent_and_residue_release (test_godot_import.AntiDecalTraceTests.test_core_additive_contact_expanded_spent_and_residue_release)
+FL-4 replaces residue release with hidden paint, additive embers and afterglow. ... ok
+test_every_hold_frame_changes_actual_shader_uniforms (test_godot_import.AntiDecalTraceTests.test_every_hold_frame_changes_actual_shader_uniforms) ... ok
+test_shimmer_residue_only_bounded_fade_and_extent_report (test_godot_import.AntiDecalTraceTests.test_shimmer_residue_only_bounded_fade_and_extent_report)
+FL-4 has no painted residue: shimmer cannot draw; additive afterglow fades instead. ... ok
 test_named_nodes_and_separate_mix_add_materials (test_godot_import.AuraLoopEmissionTests.test_named_nodes_and_separate_mix_add_materials) ... ok
 test_owner_tracking_native_scale_sort_refresh_and_cleanup (test_godot_import.AuraLoopEmissionTests.test_owner_tracking_native_scale_sort_refresh_and_cleanup) ... ok
 test_pulses_petals_support_radius_and_release_clock (test_godot_import.AuraLoopEmissionTests.test_pulses_petals_support_radius_and_release_clock) ... ok
-test_current_catalogue_and_original_kits_unchanged (test_godot_import.BoltChainEmissionTests.test_current_catalogue_and_original_kits_unchanged) ... ok
+test_every_live_catalogue_config_resource_is_emitted (test_godot_import.BL2VBConfigResourceTests.test_every_live_catalogue_config_resource_is_emitted) ... ok
+test_guard_rejects_missing_nested_resource_for_any_kit (test_godot_import.BL2VBConfigResourceTests.test_guard_rejects_missing_nested_resource_for_any_kit) ... ok
+test_live_frame_clock_held_scorch_accumulation_ticks_and_layers (test_godot_import.BL2VFlipbookEmissionTests.test_live_frame_clock_held_scorch_accumulation_ticks_and_layers) ... ok
+test_native_nonlooping_spriteframes_palette_and_layer_emission (test_godot_import.BL2VFlipbookEmissionTests.test_native_nonlooping_spriteframes_palette_and_layer_emission) ... ok
+test_every_tick_stable_body_index_and_exactly_one_label (test_godot_import.BlackwaterLandingRuntimeTests.test_every_tick_stable_body_index_and_exactly_one_label) ... ok
+test_last_walkable_union_minus_blocked_minimum_and_fallback (test_godot_import.BlackwaterLandingRuntimeTests.test_last_walkable_union_minus_blocked_minimum_and_fallback) ... ok
+test_licks_have_independent_clock_and_scorch_envelope (test_godot_import.BlackwaterLandingRuntimeTests.test_licks_have_independent_clock_and_scorch_envelope) ... ok
+test_current_catalogue_and_original_kits_unchanged (test_godot_import.BoltChainEmissionTests.test_current_catalogue_and_original_kits_unchanged) ... FAIL
 test_named_nodes_additive_material_grey_and_explicit_dispatch (test_godot_import.BoltChainEmissionTests.test_named_nodes_additive_material_grey_and_explicit_dispatch) ... ok
 test_legacy_488_byte_table (test_godot_import.BurnBackExportTests.test_legacy_488_byte_table) ... ok
 test_real_clock_uniforms_screen_scale_and_release (test_godot_import.BurnBackExportTests.test_real_clock_uniforms_screen_scale_and_release) ... ok
 test_screen_px_picker_g1_and_socket_contract (test_godot_import.BurnBackExportTests.test_screen_px_picker_g1_and_socket_contract) ... ok
 test_default_zero_emits_no_texture_or_sampler (test_godot_import.ContinuousResidueImportTests.test_default_zero_emits_no_texture_or_sampler) ... ok
-test_whole_canvas_texture_shared_by_every_material_and_cpu_cutoff (test_godot_import.ContinuousResidueImportTests.test_whole_canvas_texture_shared_by_every_material_and_cpu_cutoff) ... ok
-test_both_flasks_three_flight_ages_global_layer_alpha_and_scale (test_godot_import.FieldDesignLapEmissionTests.test_both_flasks_three_flight_ages_global_layer_alpha_and_scale) ... ok
+test_whole_canvas_texture_shared_by_every_material_and_cpu_cutoff (test_godot_import.ContinuousResidueImportTests.test_whole_canvas_texture_shared_by_every_material_and_cpu_cutoff)
+FL-4: per-kit burn-down cutoff, shared noise, stretch and dissolve parity. ... ok
+test_capsule_metadata_has_no_painted_coverage_dependency (test_godot_import.FL2RuntimeEmissionTests.test_capsule_metadata_has_no_painted_coverage_dependency) ... ok
+test_emitted_opt_in_material_and_hitstop (test_godot_import.FL2RuntimeEmissionTests.test_emitted_opt_in_material_and_hitstop) ... ok
+test_real_scene_sweep_and_ground_anchor_trace (test_godot_import.FL2RuntimeEmissionTests.test_real_scene_sweep_and_ground_anchor_trace) ... ok
+setUpClass (test_godot_import.FL4BRuntimeTraceTests) ... skipped 'Set FL4B_TRACE to the executable FL-4b headless trace'
+setUpClass (test_godot_import.FL4CTraceTests) ... skipped 'Set FL4C_METRICS to measured headless trace metrics'
+test_48_living_embers_one_shot_lifetimes_and_deadline (test_godot_import.FL4TimingAndFlightTests.test_48_living_embers_one_shot_lifetimes_and_deadline) ... ok
+test_actual_trail_birth_rate_and_six_frame_smear (test_godot_import.FL4TimingAndFlightTests.test_actual_trail_birth_rate_and_six_frame_smear) ... ok
+test_both_arms_additive_core_pulse_trail_and_per_frame_uniforms (test_godot_import.FL4TimingAndFlightTests.test_both_arms_additive_core_pulse_trail_and_per_frame_uniforms) ... ok
+test_expanded_spent_and_absolute_painted_cutoff (test_godot_import.FL4TimingAndFlightTests.test_expanded_spent_and_absolute_painted_cutoff) ... ok
+test_glow_ease_out_flicker_and_white_hot_afterglow (test_godot_import.FL4TimingAndFlightTests.test_glow_ease_out_flicker_and_white_hot_afterglow) ... ok
+test_release_rows_equal_authoritative_tip_socket_data (test_godot_import.FL5SocketAuditTests.test_release_rows_equal_authoritative_tip_socket_data)
+FL-5c: sockets_v2.json is the law. Ferrule/facing endpoint searches ... ok
+test_full_texture_padding_keeps_pivot_and_auxiliary_uv_domain (test_godot_import.FL6CBoundsTests.test_full_texture_padding_keeps_pivot_and_auxiliary_uv_domain) ... ok
+test_padding_contains_swept_corners_for_extreme_controls (test_godot_import.FL6CBoundsTests.test_padding_contains_swept_corners_for_extreme_controls) ... ok
+test_shared_controller_filters_planes_and_tracks_source_lifetime (test_godot_import.FL6FlameDanceEmissionTests.test_shared_controller_filters_planes_and_tracks_source_lifetime) ... ok
+test_offsets_uniforms_seed_variation_and_layer_shutdown (test_godot_import.FL6HeadlessTraceTests.test_offsets_uniforms_seed_variation_and_layer_shutdown) ... ok
+test_full_cli_live_registry_emits_all_flame_dance_routes (test_godot_import.FL6LiveRegistryCLIRegressionTests.test_full_cli_live_registry_emits_all_flame_dance_routes) ... ok
+test_main_guard_follows_every_emitter_and_constant (test_godot_import.FL6LiveRegistryCLIRegressionTests.test_main_guard_follows_every_emitter_and_constant) ... ok
+test_both_flasks_three_flight_ages_global_layer_alpha_and_scale (test_godot_import.FieldDesignLapEmissionTests.test_both_flasks_three_flight_ages_global_layer_alpha_and_scale)
+BL-1a: preserve visible alpha/layer/native extent at kit-relative flight ages. ... ok
 test_cloud_breath_lobe_lifetime_layers_and_darker_decal (test_godot_import.FieldDesignLapEmissionTests.test_cloud_breath_lobe_lifetime_layers_and_darker_decal) ... ok
-test_emitted_tree_material_and_native_pool_anchors (test_godot_import.FieldDesignLapEmissionTests.test_emitted_tree_material_and_native_pool_anchors) ... ok
-test_pool_final_24_frames_dissolve_then_scorch_and_cleanup (test_godot_import.FieldDesignLapEmissionTests.test_pool_final_24_frames_dissolve_then_scorch_and_cleanup) ... ok
+test_emitted_tree_material_and_native_pool_anchors (test_godot_import.FieldDesignLapEmissionTests.test_emitted_tree_material_and_native_pool_anchors)
+BL-1a: native source anchors scale to the rank-specific field radius. ... ok
+test_pool_final_24_frames_dissolve_then_scorch_and_cleanup (test_godot_import.FieldDesignLapEmissionTests.test_pool_final_24_frames_dissolve_then_scorch_and_cleanup)
+BL-1a: derive dissolve, scorch and release ages from the current kit clocks. ... ok
+test_draw_order_boundary_nested_actors_and_pooled_reuse (test_godot_import.FireLaneHeadlessTests.test_draw_order_boundary_nested_actors_and_pooled_reuse) ... ok
+test_eight_direction_release_rear_and_body_clearance (test_godot_import.FireLaneHeadlessTests.test_eight_direction_release_rear_and_body_clearance)
+FL-5c: the data socket is the tip; rearward tolerance is 0.7 BH. ... ok
+test_fire_and_ice_burst_at_range_without_contact_response (test_godot_import.FireLaneHeadlessTests.test_fire_and_ice_burst_at_range_without_contact_response)
+FL-5 restored range impacts; a range burst never invents a contact. ... ok
+test_halo_texture_position_and_additive (test_godot_import.FireLaneHeadlessTests.test_halo_texture_position_and_additive) ... ok
+test_literal_halo_drawn_size_at_most_half_bh (test_godot_import.FireLaneHeadlessTests.test_literal_halo_drawn_size_at_most_half_bh)
+R-C5-81: 2 * 0.35 BH radius * 1.15 pulse = 0.805 BH diameter <= 0.85. ... ok
 test_g2_independent_field_palette_and_wrong_dependency_rejected (test_godot_import.FrozenOrbEmissionTests.test_g2_independent_field_palette_and_wrong_dependency_rejected) ... ok
 test_named_nodes_materials_and_explicit_config (test_godot_import.FrozenOrbEmissionTests.test_named_nodes_materials_and_explicit_config) ... ok
 test_all_fps_loops_resources_pivot_and_original_bytes (test_godot_import.GodotImportTests.test_all_fps_loops_resources_pivot_and_original_bytes) ... ok
@@ -295,11 +372,12 @@ test_headless_state_machine_input_map_gear_vfx_and_nearest_fallback (test_godot_
 test_missing_texture_and_undeclared_resource_rejected (test_godot_import.GodotImportTests.test_missing_texture_and_undeclared_resource_rejected) ... ok
 test_numeric_order_and_native_fps_ignored (test_godot_import.GodotImportTests.test_numeric_order_and_native_fps_ignored) ... ok
 test_cloud_density_reaches_shader_once_at_the_ground_point (test_godot_import.GroundVisibilityRegressionTests.test_cloud_density_reaches_shader_once_at_the_ground_point) ... ok
-test_flask_stays_visible_at_native_screen_extent_during_flight (test_godot_import.GroundVisibilityRegressionTests.test_flask_stays_visible_at_native_screen_extent_during_flight) ... ok
-test_ground_is_above_foreground_below_actors_and_owned_until_cancel (test_godot_import.GroundVisibilityRegressionTests.test_ground_is_above_foreground_below_actors_and_owned_until_cancel) ... FAIL
+test_flask_stays_visible_at_native_screen_extent_during_flight (test_godot_import.GroundVisibilityRegressionTests.test_flask_stays_visible_at_native_screen_extent_during_flight)
+BL-1a: sample three fractions of each kit's own flight, before landing. ... ok
+test_ground_is_above_foreground_below_actors_and_owned_until_cancel (test_godot_import.GroundVisibilityRegressionTests.test_ground_is_above_foreground_below_actors_and_owned_until_cancel) ... ok
 test_ice_picker_binding_shards_and_ground_crown (test_godot_import.GroundVisibilityRegressionTests.test_ice_picker_binding_shards_and_ground_crown) ... ok
 test_emitted_shards_origin_residue_and_ground_decal (test_godot_import.IceTreatmentImportTests.test_emitted_shards_origin_residue_and_ground_decal) ... ok
-test_ten_existing_export_bytes_unchanged (test_godot_import.IceTreatmentImportTests.test_ten_existing_export_bytes_unchanged) ... ok
+test_ten_existing_export_bytes_unchanged (test_godot_import.IceTreatmentImportTests.test_ten_existing_export_bytes_unchanged) ... FAIL
 test_headless_literal_age_swaps_returns_and_continuous_uniforms (test_godot_import.KeyStateSwapImportTests.test_headless_literal_age_swaps_returns_and_continuous_uniforms) ... ok
 test_key_resources_palette_and_native_canvas (test_godot_import.KeyStateSwapImportTests.test_key_resources_palette_and_native_canvas) ... ok
 test_grey_substitution_preserves_index_masks_for_identical_erosion (test_godot_import.PieceBurstImportTests.test_grey_substitution_preserves_index_masks_for_identical_erosion) ... ok
@@ -312,8 +390,15 @@ test_native_768_crop_backward_compatible_default (test_godot_import.PieceStretch
 test_v2_headless_import_and_seed_equal_rooted_clock (test_godot_import.PieceStretchImportTests.test_v2_headless_import_and_seed_equal_rooted_clock) ... ok
 test_missing_impact_dependency_rejected (test_godot_import.ProjectileTravelEmissionTests.test_missing_impact_dependency_rejected) ... ok
 test_node_tree_material_and_spec_driven_config (test_godot_import.ProjectileTravelEmissionTests.test_node_tree_material_and_spec_driven_config) ... ok
-test_exported_threshold_and_every_root_and_stretch_material_agree (test_godot_import.RaggedResidueImportTests.test_exported_threshold_and_every_root_and_stretch_material_agree) ... ok
+test_exported_threshold_and_every_root_and_stretch_material_agree (test_godot_import.RaggedResidueImportTests.test_exported_threshold_and_every_root_and_stretch_material_agree)
+FL-4: per-kit burn-down cutoff, shared noise, stretch and dissolve parity. ... ok
 test_piece_zero_overrides_material_noise_in_emitted_root (test_godot_import.RaggedResidueImportTests.test_piece_zero_overrides_material_noise_in_emitted_root) ... ok
+test_cloud_alpha_erosion_and_dark_offset (test_godot_import.RenderedLookTraceTests.test_cloud_alpha_erosion_and_dark_offset) ... ok
+test_nova_no_peak_no_decal_no_residue_monotonic_sixteen (test_godot_import.RenderedLookTraceTests.test_nova_no_peak_no_decal_no_residue_monotonic_sixteen) ... ok
+test_ring_radius_whole_loop (test_godot_import.RenderedLookTraceTests.test_ring_radius_whole_loop) ... ok
+test_seal_bbox_and_whole_loop_ring_radius (test_godot_import.RenderedLookTraceTests.test_seal_bbox_and_whole_loop_ring_radius) ... expected failure
+test_no_screen_texture_and_shared_noise_in_emitted_resources (test_godot_import.ShimmerSheetImportTests.test_no_screen_texture_and_shared_noise_in_emitted_resources) ... ok
+test_shimmer_alpha_clause_and_additive_known_bad_controls (test_godot_import.ShimmerSheetImportTests.test_shimmer_alpha_clause_and_additive_known_bad_controls) ... ok
 test_full_exporter_current_catalogue (test_godot_import.ThrownFieldCLIRegressionTests.test_full_exporter_current_catalogue)
 Exercise module execution, which must define G2 before calling main. ... ok
 test_g2_grey_retains_index_planes_and_glass_alpha (test_godot_import.ThrownFieldEmissionTests.test_g2_grey_retains_index_planes_and_glass_alpha) ... ok
@@ -513,6 +598,8 @@ test_in_place_files (test_run_burst.ModuleTests.test_in_place_files) ... ok
 test_incomplete_task_rejected (test_run_burst.ModuleTests.test_incomplete_task_rejected) ... ok
 test_profile_metadata (test_run_burst.ModuleTests.test_profile_metadata) ... ok
 test_wrapper_image_truth_and_tooling_in_place (test_run_burst.ModuleTests.test_wrapper_image_truth_and_tooling_in_place) ... ok
+test_forced_setup_error_and_skip_holders_rewrite_summary (test_run_t0c.SuiteSummaryTests.test_forced_setup_error_and_skip_holders_rewrite_summary) ... ok
+test_identifier_falls_back_to_string (test_run_t0c.SuiteSummaryTests.test_identifier_falls_back_to_string) ... ok
 test_25_polygons_48_vertices_within_five_seconds (test_scene_kit.FastRectangleTests.test_25_polygons_48_vertices_within_five_seconds) ... ok
 test_concave_l_with_blocked_hole (test_scene_kit.FastRectangleTests.test_concave_l_with_blocked_hole) ... ok
 test_fixture_grid_maximum_inset_and_measurements (test_scene_kit.FastRectangleTests.test_fixture_grid_maximum_inset_and_measurements) ... ok
@@ -619,8 +706,23 @@ test_corrupt_authored_metadata_rejected_before_project_output (test_vfx_picker.A
 test_headless_authored_cast_east_north_collision_timing_and_feedback_cleanup (test_vfx_picker.AuthoredEffectPickerTests.test_headless_authored_cast_east_north_collision_timing_and_feedback_cleanup) ... ok
 test_minimal_layers_and_optional_decal_fallback (test_vfx_picker.AuthoredEffectPickerTests.test_minimal_layers_and_optional_decal_fallback) ... ok
 test_mixed_catalogue_legacy_scenes_and_scripts_byte_identical (test_vfx_picker.AuthoredEffectPickerTests.test_mixed_catalogue_legacy_scenes_and_scripts_byte_identical) ... ok
+test_eighteen_original_kit_trees_are_byte_identical (test_vfx_picker.BL2VCatalogueTests.test_eighteen_original_kit_trees_are_byte_identical) ... ok
+test_second_kit_and_default_arm_a_clock_unchanged (test_vfx_picker.BL2VCatalogueTests.test_second_kit_and_default_arm_a_clock_unchanged) ... ok
 test_clock_trace_targets_delays_stretch_and_lifetime (test_vfx_picker.BoltChainPickerTests.test_clock_trace_targets_delays_stretch_and_lifetime) ... ok
 test_source_alpha_geometry_overlap_and_tip_registration (test_vfx_picker.BoltChainPickerTests.test_source_alpha_geometry_overlap_and_tip_registration) ... ok
+test_emergence_fraction_order_and_temporarily_ignored_body (test_vfx_picker.CanonicalCapsuleSweepTests.test_emergence_fraction_order_and_temporarily_ignored_body) ... ok
+test_eased_floor_and_exact_peak_hold (test_vfx_picker.FL2TraceContractTests.test_eased_floor_and_exact_peak_hold) ... ok
+test_flicker_and_cast_fade_clocks (test_vfx_picker.FL2TraceContractTests.test_flicker_and_cast_fade_clocks) ... ok
+test_motes_count_pool_and_every_lifetime (test_vfx_picker.FL2TraceContractTests.test_motes_count_pool_and_every_lifetime) ... ok
+test_eighteen_kits_new_b_binding_and_v2_comparison (test_vfx_picker.FL4BCatalogueTests.test_eighteen_kits_new_b_binding_and_v2_comparison) ... ok
+test_fifteen_kits_and_all_fire_art_match_pre_fl5_bytes (test_vfx_picker.FL4CByteLockTests.test_fifteen_kits_and_all_fire_art_match_pre_fl5_bytes) ... FAIL
+test_eruption_ramp_and_socket_tip_all_eight (test_vfx_picker.FL5HeadlessContractTests.test_eruption_ramp_and_socket_tip_all_eight) ... ok
+test_range_burst_and_shield_hit_response (test_vfx_picker.FL5HeadlessContractTests.test_range_burst_and_shield_hit_response) ... ok
+test_residue_smoke_embers_and_seed_parity (test_vfx_picker.FL5HeadlessContractTests.test_residue_smoke_embers_and_seed_parity) ... ok
+test_fifteen_kits_and_all_primitives_match_pre_fl6c_snapshot (test_vfx_picker.FL6CSourceByteLocks.test_fifteen_kits_and_all_primitives_match_pre_fl6c_snapshot) ... ok
+test_private_routes_leave_legacy_components_untouched (test_vfx_picker.FL6FlameDanceRoutingTests.test_private_routes_leave_legacy_components_untouched) ... ok
+test_fifteen_catalogue_kits_and_every_primitive_keep_pre_fl6_bytes (test_vfx_picker.FL6SourceByteLocks.test_fifteen_catalogue_kits_and_every_primitive_keep_pre_fl6_bytes) ... ok
+test_all_release_rows_keep_eight_tip_points_and_provenance (test_vfx_picker.FireLaneSocketSchemaTests.test_all_release_rows_keep_eight_tip_points_and_provenance) ... ok
 test_headless_orb_clock_and_pool (test_vfx_picker.FrozenOrbPickerTests.test_headless_orb_clock_and_pool) ... ok
 test_event_instrument_known_bad_delay_first_miss_unresolved_order (test_vfx_picker.G1ComponentTests.test_event_instrument_known_bad_delay_first_miss_unresolved_order) ... ok
 test_grey_all_body_rgb_128_exact_alpha_and_default_bytes (test_vfx_picker.G1ComponentTests.test_grey_all_body_rgb_128_exact_alpha_and_default_bytes) ... ok
@@ -632,7 +734,7 @@ test_pierce_instrument_known_bad_order_strike_duplicate_lifetime_and_class (test
 test_pierce_metadata_default_explicit_and_known_bad (test_vfx_picker.G1ComponentTests.test_pierce_metadata_default_explicit_and_known_bad) ... ok
 test_pierce_phase_classification_chain_field_shard (test_vfx_picker.G1ComponentTests.test_pierce_phase_classification_chain_field_shard) ... ok
 test_shared_component_no_legacy_bolts_and_cast_ready_gate (test_vfx_picker.G1ComponentTests.test_shared_component_no_legacy_bolts_and_cast_ready_gate) ... ok
-test_headless_contact_shatter_residue_decal (test_vfx_picker.IceTreatmentPickerTests.test_headless_contact_shatter_residue_decal) ... ERROR
+test_headless_contact_shatter_residue_decal (test_vfx_picker.IceTreatmentPickerTests.test_headless_contact_shatter_residue_decal) ... ok
 test_glow_boundary_values_and_particle_curve_growth_zero_endpoints (test_vfx_picker.LivingEmbersTests.test_glow_boundary_values_and_particle_curve_growth_zero_endpoints) ... ok
 test_glow_unknown_missing_numeric_texture_and_type_validation (test_vfx_picker.LivingEmbersTests.test_glow_unknown_missing_numeric_texture_and_type_validation) ... ok
 test_headless_glow_sixty_samples_extrema_range_and_particle_properties (test_vfx_picker.LivingEmbersTests.test_headless_glow_sixty_samples_extrema_range_and_particle_properties) ... ok
@@ -644,13 +746,14 @@ test_three_sine_normalisation_numerical_envelope_and_extrema (test_vfx_picker.Li
 test_two_glows_additive_script_position_scale_color_sort_and_particles (test_vfx_picker.LivingEmbersTests.test_two_glows_additive_script_position_scale_color_sort_and_particles) ... ok
 test_six_kits_and_v1_match_488_file_pre_t4j_hash_table (test_vfx_picker.PieceLap2ExportTests.test_six_kits_and_v1_match_488_file_pre_t4j_hash_table) ... ok
 test_v2_emits_drift_stretch_groups_and_stationary_residue (test_vfx_picker.PieceLap2ExportTests.test_v2_emits_drift_stretch_groups_and_stationary_residue) ... ok
-test_empty_key_exports_byte_identically_except_kit_name (test_vfx_picker.ProjectileArmPickerTests.test_empty_key_exports_byte_identically_except_kit_name) ... ok
-test_headless_east_contact_range_tail_and_key_schedule (test_vfx_picker.ProjectileArmPickerTests.test_headless_east_contact_range_tail_and_key_schedule) ... ok
-test_original_eight_export_byte_lock (test_vfx_picker.ProjectileArmPickerTests.test_original_eight_export_byte_lock) ... ok
+test_empty_key_exports_byte_identically_except_kit_name (test_vfx_picker.ProjectileArmPickerTests.test_empty_key_exports_byte_identically_except_kit_name)
+FL-4b: preserve export byte parity except keys, name, and explicit impact binding. ... FAIL
+test_headless_east_contact_range_tail_and_key_schedule (test_vfx_picker.ProjectileArmPickerTests.test_headless_east_contact_range_tail_and_key_schedule) ... FAIL
+test_original_eight_export_byte_lock (test_vfx_picker.ProjectileArmPickerTests.test_original_eight_export_byte_lock) ... FAIL
 test_tail_field_runs_from_tail_to_socket_and_grey_keeps_bands (test_vfx_picker.ProjectileArmPickerTests.test_tail_field_runs_from_tail_to_socket_and_grey_keeps_bands) ... ok
 test_headless_g2_trace_mechanics_and_scale_evidence (test_vfx_picker.ThrownFieldPickerTests.test_headless_g2_trace_mechanics_and_scale_evidence) ... ok
 test_thirteen_kits_registered_and_grammar_dispatch_explicit (test_vfx_picker.ThrownFieldPickerTests.test_thirteen_kits_registered_and_grammar_dispatch_explicit) ... ok
-test_headless_overlay_forward_world_touch_and_mouse_probe (test_vfx_picker.TouchAimRuntimeTests.test_headless_overlay_forward_world_touch_and_mouse_probe) ... ERROR
+test_headless_overlay_forward_world_touch_and_mouse_probe (test_vfx_picker.TouchAimRuntimeTests.test_headless_overlay_forward_world_touch_and_mouse_probe) ... ok
 test_headless_device_forward_handled_overlay_and_mouse_probe (test_vfx_picker.TouchDeviceAimRuntimeTests.test_headless_device_forward_handled_overlay_and_mouse_probe) ... ok
 test_catalogue_unknown_keys_shapes_identifiers_tints_and_empty_rejected (test_vfx_picker.VfxPickerTests.test_catalogue_unknown_keys_shapes_identifiers_tints_and_empty_rejected) ... ok
 test_cli_mutual_exclusion_requires_sockets_and_success (test_vfx_picker.VfxPickerTests.test_cli_mutual_exclusion_requires_sockets_and_success) ... ok
@@ -718,61 +821,95 @@ test_strict_white_thresholds (test_white_gate.WhiteGateTests.test_strict_white_t
 test_total_at_attributable_peak_and_first_tie (test_white_gate.WhiteGateTests.test_total_at_attributable_peak_and_first_tie) ... ok
 
 ======================================================================
-ERROR: test_headless_contact_shatter_residue_decal (test_vfx_picker.IceTreatmentPickerTests.test_headless_contact_shatter_residue_decal)
+ERROR: test_x1_floor_border_zero (test_gates_matte.Tests.test_x1_floor_border_zero) (prop='satchel')
 ----------------------------------------------------------------------
 Traceback (most recent call last):
-  File "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_vfx_picker.py", line 1598, in test_headless_contact_shatter_residue_decal
-    result=subprocess.run([GODOT,'--headless','--path',str(project),'--log-file',str(Path(tmp)/'engine.log'),*args],capture_output=True,text=True,timeout=60)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/subprocess.py", line 550, in run
-    stdout, stderr = process.communicate(input, timeout=timeout)
-                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/subprocess.py", line 1209, in communicate
-    stdout, stderr = self._communicate(input, endtime, timeout)
-                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/subprocess.py", line 2109, in _communicate
-    self._check_timeout(endtime, orig_timeout, stdout, stderr)
-  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/subprocess.py", line 1253, in _check_timeout
-    raise TimeoutExpired(
-subprocess.TimeoutExpired: Command '['/Applications/Godot.app/Contents/MacOS/Godot', '--headless', '--path', '/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4r/e2-clock-sxt_xcce/project', '--log-file', '/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4r/e2-clock-sxt_xcce/engine.log', '--script', 'res://e2_probe.gd']' timed out after 60 seconds
+  File "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_gates_matte.py", line 34, in test_x1_floor_border_zero
+    with self.subTest(prop=name), Image.open(X1_GENERATED/f'x1_{name}.png') as im:
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/PIL/Image.py", line 3277, in open
+    fp = builtins.open(filename, "rb")
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/Users/admin/astra-burst/runs/C-1/X1-gen-01/out/x1_satchel.png'
 
 ======================================================================
-ERROR: test_headless_overlay_forward_world_touch_and_mouse_probe (test_vfx_picker.TouchAimRuntimeTests.test_headless_overlay_forward_world_touch_and_mouse_probe)
+ERROR: test_x1_floor_border_zero (test_gates_matte.Tests.test_x1_floor_border_zero) (prop='staff_head')
 ----------------------------------------------------------------------
 Traceback (most recent call last):
-  File "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_vfx_picker.py", line 872, in test_headless_overlay_forward_world_touch_and_mouse_probe
-    run_headless(self, project, 'touch_aim_probe.gd')
-  File "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_vfx_picker.py", line 109, in run_headless
-    result = subprocess.run([GODOT, '--headless', '--log-file', str(project/'godot.log'),
-             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/subprocess.py", line 550, in run
-    stdout, stderr = process.communicate(input, timeout=timeout)
-                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/subprocess.py", line 1209, in communicate
-    stdout, stderr = self._communicate(input, endtime, timeout)
-                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/subprocess.py", line 2109, in _communicate
-    self._check_timeout(endtime, orig_timeout, stdout, stderr)
-  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/subprocess.py", line 1253, in _check_timeout
-    raise TimeoutExpired(
-subprocess.TimeoutExpired: Command '['/Applications/Godot.app/Contents/MacOS/Godot', '--headless', '--log-file', '/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4i/tmp/touch-aim-omlizq8u/project/godot.log', '--path', '/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4i/tmp/touch-aim-omlizq8u/project', '--script', 'res://touch_aim_probe.gd']' timed out after 60 seconds
+  File "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_gates_matte.py", line 34, in test_x1_floor_border_zero
+    with self.subTest(prop=name), Image.open(X1_GENERATED/f'x1_{name}.png') as im:
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/PIL/Image.py", line 3277, in open
+    fp = builtins.open(filename, "rb")
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/Users/admin/astra-burst/runs/C-1/X1-gen-01/out/x1_staff_head.png'
 
 ======================================================================
-FAIL: test_literal_spec_schedule_range_conflict_and_renamed_kit (test_effect_kit.FrozenOrbValidationTests.test_literal_spec_schedule_range_conflict_and_renamed_kit)
+FAIL: test_defaults_absent_and_real_fire_fields_load (test_effect_kit.AntiDecalValidationTests.test_defaults_absent_and_real_fire_fields_load)
 ----------------------------------------------------------------------
 Traceback (most recent call last):
-  File "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_effect_kit.py", line 2288, in test_literal_spec_schedule_range_conflict_and_renamed_kit
-    self.assertEqual(data['skill_spec'],json.loads((ROOT/'runs/C-5/specs/frozen_orb.json').read_text()))
-AssertionError: {'ski[239 chars]x': 640, 'speed_px_s': 420, 'count': 1, 'emiss[1106 chars]te'}} != {'ski[239 chars]x': 630, 'speed_px_s': 420, 'count': 1, 'emiss[1191 chars]gs'}}
-Diff is 4460 characters long. Set self.maxDiff to None to see it.
+  File "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_effect_kit.py", line 2545, in test_defaults_absent_and_real_fire_fields_load
+    self.assertEqual({k:state[k] for k in expected},expected)
+AssertionError: {'at_age': 24, 'hold_frames': 2} != {'at_age': 28, 'hold_frames': 2}
+- {'at_age': 24, 'hold_frames': 2}
+?             ^
+
++ {'at_age': 28, 'hold_frames': 2}
+?             ^
+
 
 ======================================================================
-FAIL: test_ground_is_above_foreground_below_actors_and_owned_until_cancel (test_godot_import.GroundVisibilityRegressionTests.test_ground_is_above_foreground_below_actors_and_owned_until_cancel)
+FAIL: test_all_new_fields_validate_in_actual_catalogue (test_effect_kit.FL2FieldValidationTests.test_all_new_fields_validate_in_actual_catalogue)
+FL-4: catalogue membership and ember ending replace old kit count/residue hold.
 ----------------------------------------------------------------------
 Traceback (most recent call last):
-  File "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_godot_import.py", line 1086, in test_ground_is_above_foreground_below_actors_and_owned_until_cancel
-    self.assertEqual(decal['visible_in_tree'], name == 'poisonous_concoction_e3')
-AssertionError: False != True
+  File "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_effect_kit.py", line 2476, in test_all_new_fields_validate_in_actual_catalogue
+    self.assertEqual(data['pieces'][key], {'amount': 48, 'rect_bh': [1.8, 0.9], 'life_s': [1.0, 1.6], 'speed_px_s': [30, 90], 'scale': [0.15, 0.33], 'glow_radius_bh': 0.9, 'glow_alpha': 0.85, 'glow_s': 1.2, 'core_radius_bh': 0.45, 'core_s': 0.6} if kit['name']=='fire_burst_e0p_v2' and key=='ember_ending' else spec['pieces'][key])
+AssertionError: {'expanded_age': 12, 'erosion_age': 14, 'paint_end_age': 26} != {'expanded_age': 12, 'erosion_age': 14, 'paint_end_age': 30}
+- {'erosion_age': 14, 'expanded_age': 12, 'paint_end_age': 26}
+?                                                          ^^
+
++ {'erosion_age': 14, 'expanded_age': 12, 'paint_end_age': 30}
+?                                                          ^^
+
+
+======================================================================
+FAIL: test_both_arms_preserve_spec_and_quantised_primitives (test_effect_kit.ProjectileArmValidationTests.test_both_arms_preserve_spec_and_quantised_primitives)
+FL-4b: current travel assets and mechanics; each arm owns its impact binding.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_effect_kit.py", line 2014, in test_both_arms_preserve_spec_and_quantised_primitives
+    self.assertEqual(actual_spec, expected_spec)
+AssertionError: {'ski[2079 chars]e': 24, 'hold_frames': 2}}, 'residue_fraction'[655 chars]8}}}} != {'ski[2079 chars]e': 28, 'hold_frames': 2}}, 'residue_fraction'[655 chars]8}}}}
+Diff is 7787 characters long. Set self.maxDiff to None to see it.
+
+======================================================================
+FAIL: test_empty_key_arms_have_identical_kit_files_except_name (test_effect_kit.ProjectileArmValidationTests.test_empty_key_arms_have_identical_kit_files_except_name)
+FL-4b: only name, travel keys, and impact_binding.kit differ; all other bytes match.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_effect_kit.py", line 2055, in test_empty_key_arms_have_identical_kit_files_except_name
+    self.assertEqual(common(a), common(b))
+AssertionError: {Posi[13888 chars], "flicker_frames": 2, "halo": {"alpha": 0.3, [268938 chars]x82'} != {Posi[13888 chars], "flame_dance": {"back_scale": 0.94, "flicker[269299 chars]x82'}
+Diff is 719837 characters long. Set self.maxDiff to None to see it.
+
+======================================================================
+FAIL: test_current_catalogue_and_original_kits_unchanged (test_godot_import.BoltChainEmissionTests.test_current_catalogue_and_original_kits_unchanged)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_godot_import.py", line 1380, in test_current_catalogue_and_original_kits_unchanged
+    self.assertEqual(actual,baseline)
+AssertionError: {'run[57143 chars]n': '01cdfab1649194b5b3dd0b834b2ba82f280a92204[64207 chars]36d'} != {'run[57143 chars]n': '315648fcef1d219972b05445774299ae5c3bf025a[29300 chars]afb'}
+Diff is 125746 characters long. Set self.maxDiff to None to see it.
+
+======================================================================
+FAIL: test_ten_existing_export_bytes_unchanged (test_godot_import.IceTreatmentImportTests.test_ten_existing_export_bytes_unchanged)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_godot_import.py", line 1044, in test_ten_existing_export_bytes_unchanged
+    self.assertEqual(actual,baseline)
+AssertionError: {'CRE[746 chars]n': 'f4773975380e974a800a44e6a9100d9dba8efef84[116671 chars]30c'} != {'CRE[746 chars]n': '8103691797a8837451d34edb2c8d322b468448156[114842 chars]30c'}
+Diff is 121114 characters long. Set self.maxDiff to None to see it.
 
 ======================================================================
 FAIL: test_synthetic_contract_and_grid (test_oracle_walk.Tests.test_synthetic_contract_and_grid)
@@ -816,7 +953,52 @@ Traceback (most recent call last):
     self.assertNotIn('rejected',peak)
 AssertionError: 'rejected' unexpectedly found in {'angular_support': 0.8333333333333334, 'center': [170.0, 253.0], 'hollow_score': 0.08333333333333333, 'inner_opposed_support': 0.08333333333333333, 'inside': False, 'lab_band_surround': 12.987929666149537, 'lab_center_band': 18.508563966712764, 'lab_center_surround': 30.467977867785994, 'lab_color_return': 0.0, 'radius': 8.0, 'rejected': 'not_annulus', 'score': 0.6366616733180586}
 
+======================================================================
+FAIL: test_fifteen_kits_and_all_fire_art_match_pre_fl5_bytes (test_vfx_picker.FL4CByteLockTests.test_fifteen_kits_and_all_fire_art_match_pre_fl5_bytes)
 ----------------------------------------------------------------------
-Ran 709 tests in 559.304s
+Traceback (most recent call last):
+  File "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_vfx_picker.py", line 2220, in test_fifteen_kits_and_all_fire_art_match_pre_fl5_bytes
+    self.assertEqual(actual,expected)
+AssertionError: {'run[13 chars]s/v9/migration_report.json': '219e80fe1d70e554[137632 chars]84d'} != {'run[13 chars]s/v9/blackwater_cocktail/CREDITS.txt': 'a0ad18[137632 chars]471'}
+Diff is 140882 characters long. Set self.maxDiff to None to see it.
 
-FAILED (failures=7, errors=2)
+======================================================================
+FAIL: test_empty_key_exports_byte_identically_except_kit_name (test_vfx_picker.ProjectileArmPickerTests.test_empty_key_exports_byte_identically_except_kit_name)
+FL-4b: preserve export byte parity except keys, name, and explicit impact binding.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_vfx_picker.py", line 1415, in test_empty_key_exports_byte_identically_except_kit_name
+    self.assertEqual(common(a), common(b))
+AssertionError: {Posi[1996 chars], "flicker_frames": 2, "halo": {"alpha": 0.3, [619831 chars]x82'} != {Posi[1996 chars], "flame_dance": {"back_scale": 0.94, "flicker[620617 chars]x82'}
+Diff is 2073471 characters long. Set self.maxDiff to None to see it.
+
+======================================================================
+FAIL: test_headless_east_contact_range_tail_and_key_schedule (test_vfx_picker.ProjectileArmPickerTests.test_headless_east_contact_range_tail_and_key_schedule)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_vfx_picker.py", line 1429, in test_headless_east_contact_range_tail_and_key_schedule
+    self.assertEqual(proc.returncode,0,text)
+AssertionError: 1 != 0 : Godot Engine v4.6.3.stable.official.7d41c59c4 - https://godotengine.org
+
+E1_RUNTIME={"bursts":5,"casts":2,"errors":["upper speed clamp","lower speed clamp","range expiry has no contact burst","upper speed clamp","lower speed clamp","range expiry has no contact burst"]}
+E1_ASSERTION: upper speed clamp
+E1_ASSERTION: lower speed clamp
+E1_ASSERTION: range expiry has no contact burst
+E1_ASSERTION: upper speed clamp
+E1_ASSERTION: lower speed clamp
+E1_ASSERTION: range expiry has no contact burst
+
+
+======================================================================
+FAIL: test_original_eight_export_byte_lock (test_vfx_picker.ProjectileArmPickerTests.test_original_eight_export_byte_lock)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_vfx_picker.py", line 1459, in test_original_eight_export_byte_lock
+    self.assertEqual(actual,json.loads(baseline.read_text()))
+AssertionError: {'CRE[3954 chars]d': '198ae6d27276bf819b0e51e931b487400120824de[126951 chars]30c'} != {'CRE[3954 chars]d': 'e2e05f7c61a0533d891d34e0d8973b7f429ce2ab9[126732 chars]30c'}
+Diff is 134837 characters long. Set self.maxDiff to None to see it.
+
+----------------------------------------------------------------------
+Ran 790 tests in 822.943s
+
+FAILED (failures=15, errors=2, skipped=2, expected failures=1)

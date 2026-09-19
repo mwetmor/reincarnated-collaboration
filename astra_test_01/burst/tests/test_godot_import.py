@@ -1146,7 +1146,7 @@ class GroundVisibilityRegressionTests(unittest.TestCase):
             result = subprocess.run([GODOT, '--headless', '--path', str(cls.project),
                 '--log-file', str(root/'engine.log'), *arguments],
                 capture_output=True, text=True, timeout=110)
-            if result.returncode or 'SCRIPT ERROR' in result.stdout+result.stderr:
+            if result.returncode or any(error in result.stdout+result.stderr for error in ('SCRIPT ERROR', 'Resource file not found')):
                 raise AssertionError(result.stdout+result.stderr)
         cls.trace = json.loads((cls.project/'visibility_trace.json').read_text())
 
@@ -2005,7 +2005,7 @@ class BlackwaterLandingRuntimeTests(unittest.TestCase):
         (project/'scripts/vfx_contact_label.gd').write_text(CONTACT_LABEL_SCRIPT)
         (project/'scripts/splash.gd').write_text('extends Node2D\nvar spell_scale: float = 1.0\nvar caster: Node2D\n')
         (project/'scenes/vfx_fire_burst_e0p_v2_impact.tscn').write_text('[gd_scene load_steps=2 format=3]\n[ext_resource type="Script" path="res://scripts/splash.gd" id="S"]\n[node name="Splash" type="Node2D"]\nscript = ExtResource("S")\n')
-        geometry=json.loads((repo/'runs/C-5/cliffside_v38/parallax/walkable.json').read_text())
+        geometry=json.loads((repo/'runs/C-5/artifacts/CS-parallax-in-v10/walkable.json').read_text())
         (project/'config.json').write_text(json.dumps(_g2_config(kit,geometry)))
         (project/'project.godot').write_text('config_version=5\n[application]\nconfig/name="BL1a regression"\n[rendering]\nrenderer/rendering_method="gl_compatibility"\n')
         (project/'probe.gd').write_text(BL1A_RUNTIME_PROBE)
@@ -2347,7 +2347,10 @@ class FL6LiveRegistryCLIRegressionTests(unittest.TestCase):
         root = Path(__file__).resolve().parents[1]
         catalogue = root/'runs/C-5/vfx_kits/kits_v9.json'
         expected = [kit['name'] for kit in json.loads(catalogue.read_text())['kits']]
-        self.assertEqual(len(expected), 18)
+        # BL-2v-19a: eighteen original entries plus the video-spine arm.
+        self.assertEqual(len(expected), 19)
+        self.assertEqual(len(set(expected)), 19)
+        self.assertEqual(expected[-1], 'blackwater_cocktail_e3_V')
         work = Path(__import__('os').environ.get('ASTRA_TOOLING_OUTPUT', str(root/'runs/C-5/t3/FL-6b')))
         work.mkdir(parents=True, exist_ok=True)
         with tempfile.TemporaryDirectory(prefix='fl6b-full-cli-', dir=work) as tmp:
@@ -2378,6 +2381,14 @@ class FL6LiveRegistryCLIRegressionTests(unittest.TestCase):
                     self.assertIn('res://'+script, (project/scene).read_text())
                     self.assertIn('res://scripts/vfx_flame_dance.gd',
                                   (project/script).read_text())
+            configs = exported_kit_configs(project)
+            spine = next(k for k in configs if k['name'] == 'blackwater_cocktail_e3_V')
+            self.assertEqual(spine['body_mode'], 'flipbook')
+            self.assertEqual(spine['bolt'], 'res://scenes/vfx/g2_flipbook.tscn')
+            self.assertNotIn('flame_dance', spine)
+            self.assertNotIn('res://scripts/vfx_flame_dance.gd',
+                             (project/'scripts/vfx_g2_flipbook.gd').read_text())
+            self.assertNotIn('vfx_g2_flipbook.gd', keeper)
             runtime = json.loads((project/'vfx/fire_burst_e0p_v3/pieces/burst_runtime.json').read_text())
             self.assertIn('flame_dance', runtime)
             self.assertTrue(runtime['dance_core_textures'])
@@ -2414,3 +2425,118 @@ class FL6CBoundsTests(unittest.TestCase):
         self.assertIn('source.offset + (Vector2.ZERO if source.centered else size*.5)',FLAME_DANCE_SCRIPT)
         self.assertIn('texture(distance_texture, dance_uv)',FLAME_DANCE_SCRIPT)
         self.assertIn('texture(erosion_noise_texture, dance_uv',FLAME_DANCE_SCRIPT)
+
+
+class BL2VFlipbookEmissionTests(unittest.TestCase):
+    def test_native_nonlooping_spriteframes_palette_and_layer_emission(self):
+        from export.godot_import import _load_vfx_kit,_write_g2_kit,_g2_config
+        repo=Path(__file__).resolve().parents[1]
+        work=repo/'runs/C-7/t3/BL-2v';work.mkdir(parents=True,exist_ok=True)
+        root=repo/'runs/C-7/vfx_kits/v9/blackwater_cocktail_e3_V'
+        kit=dict(_load_vfx_kit(root),name=root.name)
+        with tempfile.TemporaryDirectory(dir=work,prefix='unit-') as tmp:
+            out=Path(tmp);(out/'scripts').mkdir();(out/'scenes/vfx').mkdir(parents=True)
+            _write_g2_kit(out,kit)
+            frames=(out/'vfx'/root.name/'spine.tres').read_text()
+            self.assertEqual(frames.count('[ext_resource type="Texture2D"'),145)
+            self.assertIn('"speed": 24.0',frames);self.assertIn('"loop": false',frames)
+            config=_g2_config(kit)
+            self.assertEqual(config['ticks'],[.75,1.75,2.75]);self.assertEqual(config['duration_s'],4.)
+            self.assertEqual(config['residue_s'],12.);self.assertEqual(config['flight_s'],.4)
+            self.assertEqual(config['range_px'],520);self.assertEqual(config['radius_px'],181)
+            self.assertEqual(config['spine_config']['scale'],1)
+            script=(out/'scripts/vfx_g2_flipbook.gd').read_text()
+            self.assertNotIn('$Fragments',script);self.assertNotIn('load(config.splash)',script)
+            self.assertNotIn('get_node("Licks")',script);self.assertNotIn('get_node("DarkDuplicate")',script)
+            self.assertIn('spine_floor.z_index=-1',script);self.assertIn('spine_smoke.z_index=1',script)
+            mat=(out/'vfx'/root.name/'materials/Field.tres').read_text()
+            self.assertIn('shader_parameter/palette_3',mat)
+            self.assertIn('shader_parameter/erode = 0.0',mat)
+
+    def test_live_frame_clock_held_scorch_accumulation_ticks_and_layers(self):
+        repo=Path(__file__).resolve().parents[1]
+        data=json.loads((repo/'runs/C-7/t3/BL-2v/ab_trace.json').read_text())
+        rows={round(r['clip_s']*60):r for r in data['traces'][0]}
+        self.assertEqual(rows[0]['frame'],0);self.assertEqual(rows[180]['frame'],72)
+        self.assertEqual(rows[360]['frame'],144);self.assertFalse(rows[360]['playing'])
+        for tick,row in rows.items():
+            self.assertEqual(row['scale'],[1.,1.])
+            self.assertEqual(row['spine_anchor'],[4280.,640.])
+            self.assertLess(row['floor_z'],row['body_z']);self.assertLess(row['body_z'],row['smoke_z'])
+            if tick>=360:self.assertEqual(row['frame'],144)
+        samples={r['age']:r for r in data['samples']}
+        self.assertTrue(samples[1044]['alive']);self.assertFalse(samples[1110]['alive'])
+        self.assertEqual(rows[1020]['scorch_alpha'],1)
+        self.assertAlmostEqual(rows[1050]['scorch_alpha'],.5)
+        self.assertEqual(max(r['held_nodes'] for r in data['coexistence']),3)
+        self.assertEqual(len({r['node_id'] for r in data['casts']}),3)
+        for cast in data['casts']:
+            events=[e for e in data['events'] if e['effect_id']==cast['effect_id']]
+            self.assertEqual([e['scheduled_field_age_frames'] for e in events if e['event']=='tick'],[45,105,165])
+            body=[e for e in events if e.get('body_index')==5]
+            self.assertEqual([e['tick_index'] for e in body if e['event']=='victim_tint'],[0,1,2])
+            self.assertEqual(len([e for e in body if e['event']=='contact_label']),1)
+            self.assertFalse(any(e.get('body_index')==999 for e in events))
+        self.assertEqual(rows[44]['smoke_alpha'],0)
+        self.assertAlmostEqual(rows[45]['smoke_alpha'],.22,places=6)
+        self.assertAlmostEqual(rows[180]['smoke_y'],-49.5)
+        self.assertGreater(rows[276]['smoke_alpha'],rows[300]['smoke_alpha'])
+        self.assertEqual(rows[360]['smoke_alpha'],0)
+        self.assertGreater(rows[10]['floor_alpha'],rows[0]['floor_alpha'])
+        self.assertAlmostEqual(rows[270]['floor_alpha'],.15*.25,places=6)
+        self.assertEqual(rows[300]['floor_alpha'],0)
+
+
+def exported_kit_configs(project):
+    keeper = (project/'scripts/keeper.gd').read_text()
+    return json.loads(keeper.split('const VFX_KITS = ', 1)[1].splitlines()[0])
+
+
+def missing_config_resources(project, value, trail='config'):
+    """Walk all nested config values, independent of kit name or grammar."""
+    missing = []
+    if isinstance(value, dict):
+        for key, child in value.items():
+            missing.extend(missing_config_resources(project, child, trail+'.'+key))
+    elif isinstance(value, list):
+        for index, child in enumerate(value):
+            missing.extend(missing_config_resources(project, child, trail+f'[{index}]'))
+    elif isinstance(value, str) and value.startswith('res://'):
+        if not (project/value.removeprefix('res://')).is_file():
+            missing.append({'key': trail, 'resource': value})
+    return missing
+
+
+class BL2VBConfigResourceTests(unittest.TestCase):
+    def test_every_live_catalogue_config_resource_is_emitted(self):
+        import sys
+        root = Path(__file__).resolve().parents[1]
+        work = Path(__import__('os').environ.get('ASTRA_TOOLING_OUTPUT', str(TMP)))
+        work.mkdir(parents=True, exist_ok=True)
+        with tempfile.TemporaryDirectory(prefix='bl2vb-config-', dir=work) as tmp:
+            project = Path(tmp)/'project'
+            result = subprocess.run([sys.executable, '-B', '-m', 'export.godot_import',
+                                    *FL6B_EXPORT_ARGS, '--out', str(project)],
+                                   cwd=root, capture_output=True, text=True, timeout=180)
+            self.assertEqual(result.returncode, 0, result.stdout+result.stderr)
+            configs = exported_kit_configs(project)
+            self.assertEqual(len(configs), 19)
+            self.assertEqual(len({kit['name'] for kit in configs}), 19)
+            for kit in configs:
+                with self.subTest(kit=kit['name']):
+                    self.assertEqual(missing_config_resources(project, kit), [])
+            # Runtime JSON (including piece-burst configs) is also exported
+            # configuration, not just the picker's top-level kit entries.
+            for path in sorted((project/'vfx').rglob('*.json')):
+                with self.subTest(config=path.relative_to(project).as_posix()):
+                    self.assertEqual(missing_config_resources(project,
+                                     json.loads(path.read_text())), [])
+
+    def test_guard_rejects_missing_nested_resource_for_any_kit(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            project = Path(tmp)
+            (project/'present.tres').write_text('fixture')
+            config = {'arbitrary': [{'ok': 'res://present.tres'},
+                                     {'bad': 'res://absent.png'}]}
+            self.assertEqual(missing_config_resources(project, config),
+                             [{'key': 'config.arbitrary[1].bad', 'resource': 'res://absent.png'}])

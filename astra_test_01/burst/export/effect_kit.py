@@ -1384,7 +1384,8 @@ def validate_thrown_field(data, root, runtime=False):
     if data['element'] == 'poison': _number(data.get('density'),0,1,'density')
     elif 'density' in data: raise ValueError('density is a separate poison layer only')
     g = data['g2']
-    _keys(g, {'flask','field_source','pulse','splash','seed','field_binding','roil_uv_per_s','dark_offset_px','dark_alpha','flame_dance'}, {'flask','field_source','pulse','splash','seed'}, 'g2')
+    _keys(g, {'flask','field_source','pulse','splash','seed','field_binding','roil_uv_per_s','dark_offset_px','dark_alpha','flame_dance','field'}, {'flask','field_source','pulse','splash','seed'}, 'g2')
+    spine_assets = validate_field_flipbook(g['field'], data, root, runtime) if 'field' in g else {}
     for key,high in [('roil_uv_per_s',.2),('dark_offset_px',12),('dark_alpha',1)]:
         _number(g.get(key,0),0,high,'g2.'+key)
     if 'flame_dance' in g:
@@ -1430,6 +1431,7 @@ def validate_thrown_field(data, root, runtime=False):
         rgb = rgba[...,:3][rgba[...,3]>0]
         if not np.isin(rgb,[0,85,170,255]).all() or np.any(rgb[:,0]!=rgb[:,1]) or np.any(rgb[:,1]!=rgb[:,2]):
             raise ValueError('G2 indexed source indices must be greyscale 0/85/170/255')
+    assets.update(spine_assets)
     return assets
 
 
@@ -1484,6 +1486,10 @@ def _build_thrown_definition(data, root, out):
             file=f'{folder}/{folder}_{i:02d}.png';target=out/file;target.parent.mkdir(exist_ok=True)
             target.write_bytes(assets[frame['file']].read_bytes());frames.append(dict(frame,file=file))
         definition['frames']=frames;definition['sheet']=frames[0]['file']
+    if 'field' in metadata['g2']:
+        for file in metadata['g2']['field']['frames']:
+            target=out/file; target.parent.mkdir(parents=True,exist_ok=True)
+            target.write_bytes(assets[file].read_bytes())
     metadata.pop('distance_fields',None)
     metadata['material']=validate_material(metadata['material'])
     (out/'kit.json').write_text(json.dumps(metadata,indent=2)+'\n')
@@ -1942,3 +1948,48 @@ def flame_dance_autocorrelation(values):
     acf=(np.correlate(a,a,'full')[len(a)-1:]/den).tolist()
     peaks=[acf[i] for i in range(1,len(acf)-1) if acf[i]>acf[i-1] and acf[i]>=acf[i+1]]
     return dict(acf=acf,max_positive_lag=max(acf[1:]),max_local_peak=max(peaks,default=0.))
+
+
+# BL-2v: explicit, opt-in field body; legacy G2 validation is unchanged.
+def validate_field_flipbook(field, data, root, runtime=False):
+    import hashlib
+    keys = {'body_mode','frames','frame_sha12','fps','loop','scale','cell','pool_centre_px',
+            'timeline_s','scorch_frame','tick_schedule_s','smoke','floor_light'}
+    _keys(field, keys, keys, 'g2.field')
+    if field['body_mode'] != 'flipbook': raise ValueError('unknown field.body_mode')
+    if (field['fps'] != 24 or isinstance(field['fps'], bool) or field['loop'] is not False
+            or field['scale'] != 1.0 or isinstance(field['scale'],bool)
+            or field['cell'] != [485,581] or field['scorch_frame'] != 144):
+        raise ValueError('flipbook requires 145 native frames, 24 fps, 1x, non-looping')
+    if (field['tick_schedule_s'] != [0,1,2] or field['timeline_s'] !=
+            dict(contact=0.,flash_peak=.17,pool_stable=.75,steady_end=4.,dies_out=4.6,scorch_still_from=5.)):
+        raise ValueError('flipbook timeline/ticks disagree with the ruled clip clock')
+    if field['pool_centre_px'] != [247.7,343.5]: raise ValueError('flipbook anchor disagrees with cut manifest')
+    if (field['smoke'] != dict(alpha=.22,rise_px_s=22,end_s=6.,tint=[.35,.30,.28])
+            or field['floor_light'] != dict(peak_alpha=.35,steady_alpha=.15,end_s=5.)):
+        raise ValueError('flipbook runtime light/smoke recipe disagrees')
+    if (data['element'] != 'fire' or any(k in data['g2'] for k in ('field_binding','flame_dance'))
+            or data['material'].get('erode',0) != 0 or data['material'].get('dissolve',0) != 0
+            or set(data['skill_spec']['presentation']['enabled_layers']) != {'floor_light','victim_tint','hit_stop','contact_label'}):
+        raise ValueError('flipbook excludes painted pool, licks, dark duplicate, core and erosion')
+    if data['skill_spec']['presentation']['phase_envelope_s']['residue'] != 12.0:
+        raise ValueError('flipbook scorch must persist for 12 seconds')
+    paths = field['frames']; hashes = field['frame_sha12']
+    if (paths != [f'primitives/spine/bw_{i:03d}.png' for i in range(145)]
+            or not isinstance(hashes,list) or len(hashes) != 145):
+        raise ValueError('flipbook frame order/count or sha12 list invalid')
+    assets = {}
+    for file, expected in zip(paths, hashes):
+        path = _png(file,root,confined=runtime)
+        if not isinstance(expected,str) or not re.fullmatch('[0-9a-f]{12}',expected) or hashlib.sha256(path.read_bytes()).hexdigest()[:12] != expected:
+            raise ValueError('flipbook sha12 mismatch: '+file)
+        with Image.open(path) as im:
+            if im.mode != 'RGBA' or list(im.size) != field['cell']: raise ValueError('flipbook cell/mode mismatch')
+            rgba = np.asarray(im)
+        rgb = rgba[...,:3][rgba[...,3]>0]
+        if (not np.isin(rgba[...,3],[0,255]).all() or not len(rgb)
+                or not np.isin(rgb,[20,76,166,242]).all()
+                or np.any(rgb[:,0]!=rgb[:,1]) or np.any(rgb[:,1]!=rgb[:,2])):
+            raise ValueError('flipbook requires four greyscale value planes and hard alpha')
+        assets[file] = path
+    return assets

@@ -2791,3 +2791,33 @@ class FL6CTongueTrimTests(unittest.TestCase):
             owner=data['pieces'] if name=='fire_burst_e0p_v3' else data['g2'] if name=='blackwater_cocktail_e3' else data['layers']['travel']
             self.assertEqual(owner['flame_dance']['tongue_scale'],[1.1,1.4])
             self.assertEqual(owner['flame_dance']['tongue_root_radius_factor'],1.15)
+
+
+class BL2VFlipbookValidationTests(unittest.TestCase):
+    """BL-2v: source hashes are binding; reject malformed timing and mixed bodies."""
+    def test_source_sha12_and_four_plane_cells(self):
+        from export.effect_kit import validate_thrown_field
+        root=ROOT/'runs/C-7/vfx_kits/v9/blackwater_cocktail_e3_V'
+        data=json.loads((root/'kit.json').read_text())
+        assets=validate_thrown_field(data,root,True)
+        cut=json.loads((ROOT/'runs/C-7/artifacts/BW-video-r1/frames.json').read_text())
+        self.assertEqual(data['g2']['field']['frame_sha12'],cut['frame_sha12'])
+        self.assertEqual(data['g2']['field']['pool_centre_px'],cut['pool_centre_px'])
+        for file,sha in zip(data['g2']['field']['frames'],cut['frame_sha12']):
+            self.assertEqual(hashlib.sha256(assets[file].read_bytes()).hexdigest()[:12],sha)
+
+    def test_reject_loop_scale_clock_hash_order_and_conflicting_layers(self):
+        from export.effect_kit import validate_thrown_field
+        root=ROOT/'runs/C-7/vfx_kits/v9/blackwater_cocktail_e3_V'
+        source=json.loads((root/'kit.json').read_text())
+        for key,value in [('body_mode','unknown'),('loop',True),('scale',2),('scale',True),('fps',30),
+                          ('pool_centre_px',[248,344]),('tick_schedule_s',[0,.3,2]),
+                          ('frame_sha12',['0'*12]*145),('frames',list(reversed(source['g2']['field']['frames']))),
+                          ('smoke',dict(alpha=.5,rise_px_s=22,end_s=6,tint=[.35,.30,.28]))]:
+            bad=copy.deepcopy(source);bad['g2']['field'][key]=value
+            with self.subTest(key=key),self.assertRaises(ValueError): validate_thrown_field(bad,root,True)
+        for key in ('erode','dissolve'):
+            bad=copy.deepcopy(source);bad['material'][key]=.1
+            with self.subTest(key=key),self.assertRaises(ValueError): validate_thrown_field(bad,root,True)
+        bad=copy.deepcopy(source);bad['g2']['field_binding']={}
+        with self.assertRaises(ValueError):validate_thrown_field(bad,root,True)

@@ -1,0 +1,322 @@
+{
+  "task_id": "BL-2v-b",
+  "part_a": {
+    "probe_source_unchanged": true,
+    "catalogue_entries": 19,
+    "generic_g2_probe_completed": true,
+    "no_script_error_or_missing_resource": true,
+    "v_kit_observed": true,
+    "tests": [
+      {
+        "test": "test_godot_import.GroundVisibilityRegressionTests.test_cloud_density_reaches_shader_once_at_the_ground_point",
+        "ran": true,
+        "successful": true,
+        "skipped": false
+      },
+      {
+        "test": "test_godot_import.GroundVisibilityRegressionTests.test_flask_stays_visible_at_native_screen_extent_during_flight",
+        "ran": true,
+        "successful": true,
+        "skipped": false
+      },
+      {
+        "test": "test_godot_import.GroundVisibilityRegressionTests.test_ground_is_above_foreground_below_actors_and_owned_until_cancel",
+        "ran": true,
+        "successful": true,
+        "skipped": false
+      },
+      {
+        "test": "test_godot_import.GroundVisibilityRegressionTests.test_ice_picker_binding_shards_and_ground_crown",
+        "ran": true,
+        "successful": true,
+        "skipped": false
+      }
+    ]
+  },
+  "part_b": {
+    "kits": 19,
+    "missing_resources": [],
+    "tests": [
+      {
+        "test": "test_godot_import.BL2VBConfigResourceTests.test_every_live_catalogue_config_resource_is_emitted",
+        "ran": true,
+        "successful": true,
+        "skipped": false
+      },
+      {
+        "test": "test_godot_import.BL2VBConfigResourceTests.test_guard_rejects_missing_nested_resource_for_any_kit",
+        "ran": true,
+        "successful": true,
+        "skipped": false
+      }
+    ]
+  },
+  "part_c": {
+    "artifact": "runs/C-5/artifacts/CS-parallax-in-v10/walkable.json",
+    "tests": [
+      {
+        "test": "test_godot_import.BlackwaterLandingRuntimeTests.test_every_tick_stable_body_index_and_exactly_one_label",
+        "ran": true,
+        "successful": true,
+        "skipped": false
+      },
+      {
+        "test": "test_godot_import.BlackwaterLandingRuntimeTests.test_last_walkable_union_minus_blocked_minimum_and_fallback",
+        "ran": true,
+        "successful": true,
+        "skipped": false
+      },
+      {
+        "test": "test_godot_import.BlackwaterLandingRuntimeTests.test_licks_have_independent_clock_and_scorch_envelope",
+        "ran": true,
+        "successful": true,
+        "skipped": false
+      }
+    ]
+  },
+  "part_d": {
+    "per_lock_diffs": "lock_diffs.json",
+    "tests": [
+      {
+        "test": "test_godot_import.FL6LiveRegistryCLIRegressionTests.test_full_cli_live_registry_emits_all_flame_dance_routes",
+        "ran": true,
+        "successful": true,
+        "skipped": false
+      },
+      {
+        "test": "test_godot_import.FL6LiveRegistryCLIRegressionTests.test_main_guard_follows_every_emitter_and_constant",
+        "ran": true,
+        "successful": true,
+        "skipped": false
+      },
+      {
+        "test": "test_vfx_picker.FL4BCatalogueTests.test_eighteen_kits_new_b_binding_and_v2_comparison",
+        "ran": true,
+        "successful": true,
+        "skipped": false
+      }
+    ]
+  },
+  "part_e": {
+    "forced_setup_error_and_skip_writer_tests": [
+      {
+        "test": "test_run_t0c.SuiteSummaryTests.test_forced_setup_error_and_skip_holders_rewrite_summary",
+        "ran": true,
+        "successful": true,
+        "skipped": false
+      },
+      {
+        "test": "test_run_t0c.SuiteSummaryTests.test_identifier_falls_back_to_string",
+        "ran": true,
+        "successful": true,
+        "skipped": false
+      }
+    ],
+    "full_summary_rewritten": true,
+    "suite_exit_code": 1
+  },
+  "part_f": {
+    "reds": "reds.json",
+    "full_suite_runs": 1,
+    "tests_run": 782,
+    "failures": 27,
+    "errors": 9,
+    "skipped": [
+      [
+        "setUpClass (test_godot_import.FL4BRuntimeTraceTests)",
+        "Set FL4B_TRACE to the executable FL-4b headless trace"
+      ],
+      [
+        "setUpClass (test_godot_import.FL4CTraceTests)",
+        "Set FL4C_METRICS to measured headless trace metrics"
+      ]
+    ],
+    "new_reds": [
+      "test_godot_import.PieceStretchImportTests.test_v2_headless_import_and_seed_equal_rooted_clock"
+    ]
+  },
+  "export": {
+    "catalogue_entries": 19,
+    "exit_code": 0,
+    "headless_import_exit": 0,
+    "renderer": "gl_compatibility",
+    "script_errors": false,
+    "missing_resources": false
+  },
+  "byte_identity": {
+    "source_kits": {
+      "frozen_orb": true,
+      "blackwater_cocktail": true,
+      "poisonous_concoction": true,
+      "lightning_blast": true,
+      "zeus_chain": true,
+      "healing_hands": true,
+      "fire_burst_e0p": true,
+      "fire_burst_e0p_v2": true,
+      "fire_bolt_e1_A": true,
+      "fire_bolt_e1_B": true,
+      "ice_bolt_e2": true,
+      "blackwater_cocktail_e3": true,
+      "poisonous_concoction_e3": true,
+      "lightning_blast_e3": true,
+      "zeus_chain_e3": true,
+      "healing_hands_e3": true,
+      "frozen_orb_e3": true,
+      "fire_burst_e0p_v3": true,
+      "blackwater_cocktail_e3_V": true
+    },
+    "exported_kits": [
+      {
+        "kit": "frozen_orb",
+        "files": 57,
+        "equal": true,
+        "differences": []
+      },
+      {
+        "kit": "blackwater_cocktail",
+        "files": 59,
+        "equal": true,
+        "differences": []
+      },
+      {
+        "kit": "poisonous_concoction",
+        "files": 59,
+        "equal": true,
+        "differences": []
+      },
+      {
+        "kit": "lightning_blast",
+        "files": 59,
+        "equal": true,
+        "differences": []
+      },
+      {
+        "kit": "zeus_chain",
+        "files": 59,
+        "equal": true,
+        "differences": []
+      },
+      {
+        "kit": "healing_hands",
+        "files": 59,
+        "equal": true,
+        "differences": []
+      },
+      {
+        "kit": "fire_burst_e0p",
+        "files": 99,
+        "equal": true,
+        "differences": []
+      },
+      {
+        "kit": "fire_burst_e0p_v2",
+        "files": 166,
+        "equal": true,
+        "differences": []
+      },
+      {
+        "kit": "fire_bolt_e1_A",
+        "files": 37,
+        "equal": true,
+        "differences": []
+      },
+      {
+        "kit": "fire_bolt_e1_B",
+        "files": 32,
+        "equal": true,
+        "differences": []
+      },
+      {
+        "kit": "ice_bolt_e2",
+        "files": 110,
+        "equal": true,
+        "differences": []
+      },
+      {
+        "kit": "blackwater_cocktail_e3",
+        "files": 29,
+        "equal": true,
+        "differences": []
+      },
+      {
+        "kit": "poisonous_concoction_e3",
+        "files": 30,
+        "equal": true,
+        "differences": []
+      },
+      {
+        "kit": "lightning_blast_e3",
+        "files": 20,
+        "equal": true,
+        "differences": []
+      },
+      {
+        "kit": "zeus_chain_e3",
+        "files": 20,
+        "equal": true,
+        "differences": []
+      },
+      {
+        "kit": "healing_hands_e3",
+        "files": 24,
+        "equal": true,
+        "differences": []
+      },
+      {
+        "kit": "frozen_orb_e3",
+        "files": 90,
+        "equal": true,
+        "differences": []
+      },
+      {
+        "kit": "fire_burst_e0p_v3",
+        "files": 230,
+        "equal": true,
+        "differences": []
+      },
+      {
+        "kit": "blackwater_cocktail_e3_V",
+        "files": 165,
+        "equal": true,
+        "differences": []
+      }
+    ],
+    "all_18_originals_plus_v_unchanged": true
+  },
+  "ab_trace": {
+    "historical_arm_b_events_exact": false,
+    "historical_arm_b_frames_exact": true,
+    "same_scene_control": {
+      "same_scene_arm_b_events_exact": true,
+      "same_scene_arm_a_exact": true,
+      "same_scene_arm_b_frames_exact": true,
+      "historic_arm_b_event_count": 81,
+      "same_scene_before_arm_b_event_count": 60,
+      "current_arm_b_event_count": 60,
+      "historic_body_indices": [
+        5,
+        105
+      ],
+      "historic_arm_a_event_count": 65,
+      "before_body_indices": [
+        5
+      ],
+      "before_arm_a_event_count": 32,
+      "current_body_indices": [
+        5
+      ],
+      "current_arm_a_event_count": 32,
+      "historic_minus_body_105_equals_current": true,
+      "historic_arm_a_minus_body_105_equals_current": false,
+      "historic_arm_a_frames_equal": true
+    },
+    "timestamps_ignored": []
+  },
+  "concerns": [
+    "Historical BL-2v arm-B event equality is false: 81 historical events versus 60 on the current scene. The 21 historical-only events all belong to body_index 105. Old and new code on the same current scene produce exactly identical arm-A and arm-B events, including every age field; no field is ignored. The historical frame traces are identical. The literal historical acceptance clause remains unmet.",
+    "Scope-harness defect: relative os.remove/os.rmdir audit arguments were resolved against cwd rather than their dir_fd. The RenderedLookTraceTests cleanup reached the denied final rmdir of runs/C-5/t3/T4x/catalogue_project; files inside that historical export may already have been removed. No baseline of that unlisted directory is available, so the no-touch invariant cannot be certified. No out-of-scope restoration was attempted.",
+    "One NEW unresolved piece-stretch assertion failure is retained; all remaining rows are attributed individually in reds.json."
+  ],
+  "scope_invariants_certified": false,
+  "stale_value_decision": "The two supplied age mismatches remain named reds: the permitted SPEC rows do not attribute their precise numeric changes. No other inherited assertion was weakened."
+}

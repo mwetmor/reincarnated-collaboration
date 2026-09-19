@@ -1,0 +1,348 @@
+{
+  "tests_run": 782,
+  "failures": 27,
+  "errors": 9,
+  "skipped": [
+    [
+      "setUpClass (test_godot_import.FL4BRuntimeTraceTests)",
+      "Set FL4B_TRACE to the executable FL-4b headless trace"
+    ],
+    [
+      "setUpClass (test_godot_import.FL4CTraceTests)",
+      "Set FL4C_METRICS to measured headless trace metrics"
+    ]
+  ],
+  "expected_failures_note": "Existing expected-failure handling unchanged; see suite text.",
+  "execution": {
+    "command": "python3 -B tests/run_t0c.py",
+    "exit_code": 1,
+    "elapsed_s": 816.4626251249574,
+    "timed_out": false
+  },
+  "reds": [
+    {
+      "test": "test_effect_kit.AntiDecalValidationTests.test_defaults_absent_and_real_fire_fields_load",
+      "kind": "failure",
+      "classification": "inherited",
+      "owner": "C-5 FL-5/FL-6 stale-value or byte lock (FL-6d alignment)",
+      "seen_in_supplied_outside_log": true,
+      "reason": "Already red in the supplied outside-suite output. No inherited assertion or byte baseline was weakened. SPEC does not attribute the exact 24/28 or 26/30 age delta, so those encodings remain red.",
+      "traceback": "Traceback (most recent call last):\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_effect_kit.py\", line 2545, in test_defaults_absent_and_real_fire_fields_load\n    self.assertEqual({k:state[k] for k in expected},expected)\nAssertionError: {'at_age': 24, 'hold_frames': 2} != {'at_age': 28, 'hold_frames': 2}\n- {'at_age': 24, 'hold_frames': 2}\n?             ^\n\n+ {'at_age': 28, 'hold_frames': 2}\n?             ^\n\n"
+    },
+    {
+      "test": "test_effect_kit.FL2FieldValidationTests.test_all_new_fields_validate_in_actual_catalogue",
+      "kind": "failure",
+      "classification": "inherited",
+      "owner": "C-5 FL-5/FL-6 stale-value or byte lock (FL-6d alignment)",
+      "seen_in_supplied_outside_log": true,
+      "reason": "Already red in the supplied outside-suite output. No inherited assertion or byte baseline was weakened. SPEC does not attribute the exact 24/28 or 26/30 age delta, so those encodings remain red.",
+      "traceback": "Traceback (most recent call last):\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_effect_kit.py\", line 2476, in test_all_new_fields_validate_in_actual_catalogue\n    self.assertEqual(data['pieces'][key], {'amount': 48, 'rect_bh': [1.8, 0.9], 'life_s': [1.0, 1.6], 'speed_px_s': [30, 90], 'scale': [0.15, 0.33], 'glow_radius_bh': 0.9, 'glow_alpha': 0.85, 'glow_s': 1.2, 'core_radius_bh': 0.45, 'core_s': 0.6} if kit['name']=='fire_burst_e0p_v2' and key=='ember_ending' else spec['pieces'][key])\nAssertionError: {'expanded_age': 12, 'erosion_age': 14, 'paint_end_age': 26} != {'expanded_age': 12, 'erosion_age': 14, 'paint_end_age': 30}\n- {'erosion_age': 14, 'expanded_age': 12, 'paint_end_age': 26}\n?                                                          ^^\n\n+ {'erosion_age': 14, 'expanded_age': 12, 'paint_end_age': 30}\n?                                                          ^^\n\n"
+    },
+    {
+      "test": "test_effect_kit.ProjectileArmValidationTests.test_both_arms_preserve_spec_and_quantised_primitives",
+      "kind": "failure",
+      "classification": "inherited",
+      "owner": "C-5 FL-5/FL-6 stale-value or byte lock (FL-6d alignment)",
+      "seen_in_supplied_outside_log": true,
+      "reason": "Already red in the supplied outside-suite output. No inherited assertion or byte baseline was weakened. SPEC does not attribute the exact 24/28 or 26/30 age delta, so those encodings remain red.",
+      "traceback": "Traceback (most recent call last):\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_effect_kit.py\", line 2014, in test_both_arms_preserve_spec_and_quantised_primitives\n    self.assertEqual(actual_spec, expected_spec)\nAssertionError: {'ski[2079 chars]e': 24, 'hold_frames': 2}}, 'residue_fraction'[655 chars]8}}}} != {'ski[2079 chars]e': 28, 'hold_frames': 2}}, 'residue_fraction'[655 chars]8}}}}\nDiff is 7787 characters long. Set self.maxDiff to None to see it.\n"
+    },
+    {
+      "test": "test_effect_kit.ProjectileArmValidationTests.test_empty_key_arms_have_identical_kit_files_except_name",
+      "kind": "failure",
+      "classification": "inherited",
+      "owner": "C-5 FL-5/FL-6 stale-value or byte lock (FL-6d alignment)",
+      "seen_in_supplied_outside_log": true,
+      "reason": "Already red in the supplied outside-suite output. No inherited assertion or byte baseline was weakened. SPEC does not attribute the exact 24/28 or 26/30 age delta, so those encodings remain red.",
+      "traceback": "Traceback (most recent call last):\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_effect_kit.py\", line 2055, in test_empty_key_arms_have_identical_kit_files_except_name\n    self.assertEqual(common(a), common(b))\nAssertionError: {Posi[13888 chars], \"flicker_frames\": 2, \"halo\": {\"alpha\": 0.3, [268938 chars]x82'} != {Posi[13888 chars], \"flame_dance\": {\"back_scale\": 0.94, \"flicker[269299 chars]x82'}\nDiff is 719837 characters long. Set self.maxDiff to None to see it.\n"
+    },
+    {
+      "test": "test_godot_import.BoltChainEmissionTests.test_current_catalogue_and_original_kits_unchanged",
+      "kind": "failure",
+      "classification": "inherited",
+      "owner": "C-5 E3-r1 catalogue lock",
+      "seen_in_supplied_outside_log": true,
+      "reason": "Inherited catalogue/source byte-lock mismatch; baseline not re-encoded.",
+      "traceback": "Traceback (most recent call last):\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_godot_import.py\", line 1380, in test_current_catalogue_and_original_kits_unchanged\n    self.assertEqual(actual,baseline)\nAssertionError: {'run[57143 chars]n': '01cdfab1649194b5b3dd0b834b2ba82f280a92204[64207 chars]36d'} != {'run[57143 chars]n': '315648fcef1d219972b05445774299ae5c3bf025a[29300 chars]afb'}\nDiff is 125746 characters long. Set self.maxDiff to None to see it.\n"
+    },
+    {
+      "test": "test_godot_import.GodotImportTests.test_headless_state_machine_input_map_gear_vfx_and_nearest_fallback",
+      "kind": "failure",
+      "classification": "inherited",
+      "owner": "sandbox-only",
+      "seen_in_supplied_outside_log": true,
+      "reason": "Host/sandbox execution failure; preserved assertion and full diagnostic.",
+      "traceback": "Traceback (most recent call last):\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_godot_import.py\", line 168, in test_headless_state_machine_input_map_gear_vfx_and_nearest_fallback\n    self.assertEqual(engine_errors, [], '\\n'.join(engine_errors))\nAssertionError: Lists differ: ['ERROR: Condition \"ret != noErr\" is true.[285 chars] \"\"'] != []\n\nFirst list contains 4 additional elements.\nFirst extra element 0:\n'ERROR: Condition \"ret != noErr\" is true. Returning: \"\"'\n\n+ []\n- ['ERROR: Condition \"ret != noErr\" is true. Returning: \"\"',\n-  \"ERROR: Cannot save file '/Users/admin/Library/Application \"\n-  \"Support/Godot/editor_settings-4.6.tres'.\",\n-  'ERROR: Error saving editor settings to /Users/admin/Library/Application '\n-  'Support/Godot/editor_settings-4.6.tres',\n-  'ERROR: Condition \"ret != noErr\" is true. Returning: \"\"'] : ERROR: Condition \"ret != noErr\" is true. Returning: \"\"\nERROR: Cannot save file '/Users/admin/Library/Application Support/Godot/editor_settings-4.6.tres'.\nERROR: Error saving editor settings to /Users/admin/Library/Application Support/Godot/editor_settings-4.6.tres\nERROR: Condition \"ret != noErr\" is true. Returning: \"\"\n"
+    },
+    {
+      "test": "test_godot_import.IceTreatmentImportTests.test_ten_existing_export_bytes_unchanged",
+      "kind": "failure",
+      "classification": "inherited",
+      "owner": "C-5 FL-5/FL-6 stale-value or byte lock (FL-6d alignment)",
+      "seen_in_supplied_outside_log": true,
+      "reason": "Already red in the supplied outside-suite output. No inherited assertion or byte baseline was weakened. SPEC does not attribute the exact 24/28 or 26/30 age delta, so those encodings remain red.",
+      "traceback": "Traceback (most recent call last):\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_godot_import.py\", line 1044, in test_ten_existing_export_bytes_unchanged\n    self.assertEqual(actual,baseline)\nAssertionError: {'CRE[746 chars]n': 'f4773975380e974a800a44e6a9100d9dba8efef84[116671 chars]30c'} != {'CRE[746 chars]n': '8103691797a8837451d34edb2c8d322b468448156[114842 chars]30c'}\nDiff is 121114 characters long. Set self.maxDiff to None to see it.\n"
+    },
+    {
+      "test": "test_godot_import.PieceStretchImportTests.test_v2_headless_import_and_seed_equal_rooted_clock",
+      "kind": "failure",
+      "classification": "NEW",
+      "owner": "BL-2v-b observed; unresolved piece-stretch diagnostic",
+      "seen_in_supplied_outside_log": true,
+      "reason": "The supplied outside run recorded this test successful. This run exits 7 with repeated band-three-not-dissolved assertions. Piece-burst code and all exported kit files are unchanged by this patch, but causation has not been established. Left NEW rather than misclassified from incidental host warnings; no assertion weakened.",
+      "traceback": "Traceback (most recent call last):\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_godot_import.py\", line 454, in test_v2_headless_import_and_seed_equal_rooted_clock\n    self.assertEqual(proc.returncode,0,log)\nAssertionError: 7 != 0 : Godot Engine v4.6.3.stable.official.7d41c59c4 - https://godotengine.org\n\nERROR: Condition \"ret != noErr\" is true. Returning: \"\"\n   at: get_system_ca_certificates (platform/macos/os_macos.mm:1028)\nERROR: band three not dissolved\n   at: push_error (core/variant/variant_utility.cpp:1024)\n   GDScript backtrace (most recent call first):\n       [0] need (res://stretch_probe.gd:6)\n       [1] probe (res://stretch_probe.gd:36)\nERROR: band three not dissolved\n   at: push_error (core/variant/variant_utility.cpp:1024)\n   GDScript backtrace (most recent call first):\n       [0] need (res://stretch_probe.gd:6)\n       [1] probe (res://stretch_probe.gd:36)\nERROR: band three not dissolved\n   at: push_error (core/variant/variant_utility.cpp:1024)\n   GDScript backtrace (most recent call first):\n       [0] need (res://stretch_probe.gd:6)\n       [1] probe (res://stretch_probe.gd:36)\nERROR: band three not dissolved\n   at: push_error (core/variant/variant_utility.cpp:1024)\n   GDScript backtrace (most recent call first):\n       [0] need (res://stretch_probe.gd:6)\n       [1] probe (res://stretch_probe.gd:36)\nERROR: band three not dissolved\n   at: push_error (core/variant/variant_utility.cpp:1024)\n   GDScript backtrace (most recent call first):\n       [0] need (res://stretch_probe.gd:6)\n       [1] probe (res://stretch_probe.gd:36)\nERROR: band three not dissolved\n   at: push_error (core/variant/variant_utility.cpp:1024)\n   GDScript backtrace (most recent call first):\n       [0] need (res://stretch_probe.gd:6)\n       [1] probe (res://stretch_probe.gd:36)\nERROR: band three not dissolved\n   at: push_error (core/variant/variant_utility.cpp:1024)\n   GDScript backtrace (most recent call first):\n       [0] need (res://stretch_probe.gd:6)\n       [1] probe (res://stretch_probe.gd:36)\nERROR: band three not dissolved\n   at: push_error (core/variant/variant_utility.cpp:1024)\n   GDScript backtrace (most recent call first):\n       [0] need (res://stretch_probe.gd:6)\n       [1] probe (res://stretch_probe.gd:36)\nERROR: band three not dissolved\n   at: push_error (core/variant/variant_utility.cpp:1024)\n   GDScript backtrace (most recent call first):\n       [0] need (res://stretch_probe.gd:6)\n       [1] probe (res://stretch_probe.gd:36)\nERROR: band three not dissolved\n   at: push_error (core/variant/variant_utility.cpp:1024)\n   GDScript backtrace (most recent call first):\n       [0] need (res://stretch_probe.gd:6)\n       [1] probe (res://stretch_probe.gd:36)\nERROR: band three not dissolved\n   at: push_error (core/variant/variant_utility.cpp:1024)\n   GDScript backtrace (most recent call first):\n       [0] need (res://stretch_probe.gd:6)\n       [1] probe (res://stretch_probe.gd:36)\nERROR: band three not dissolved\n   at: push_error (core/variant/variant_utility.cpp:1024)\n   GDScript backtrace (most recent call first):\n       [0] need (res://stretch_probe.gd:6)\n       [1] probe (res://stretch_probe.gd:36)\nERROR: band three not dissolved\n   at: push_error (core/variant/variant_utility.cpp:1024)\n   GDScript backtrace (most recent call first):\n       [0] need (res://stretch_probe.gd:6)\n       [1] probe (res://stretch_probe.gd:36)\nERROR: band three not dissolved\n   at: push_error (core/variant/variant_utility.cpp:1024)\n   GDScript backtrace (most recent call first):\n       [0] need (res://stretch_probe.gd:6)\n       [1] probe (res://stretch_probe.gd:36)\nERROR: band three not dissolved\n   at: push_error (core/variant/variant_utility.cpp:1024)\n   GDScript backtrace (most recent call first):\n       [0] need (res://stretch_probe.gd:6)\n       [1] probe (res://stretch_probe.gd:36)\nERROR: band three not dissolved\n   at: push_error (core/variant/variant_utility.cpp:1024)\n   GDScript backtrace (most recent call first):\n       [0] need (res://stretch_probe.gd:6)\n       [1] probe (res://stretch_probe.gd:36)\nERROR: band three not dissolved\n   at: push_error (core/variant/variant_utility.cpp:1024)\n   GDScript backtrace (most recent call first):\n       [0] need (res://stretch_probe.gd:6)\n       [1] probe (res://stretch_probe.gd:36)\nERROR: band three not dissolved\n   at: push_error (core/variant/variant_utility.cpp:1024)\n   GDScript backtrace (most recent call first):\n       [0] need (res://stretch_probe.gd:6)\n       [1] probe (res://stretch_probe.gd:36)\nERROR: band three not dissolved\n   at: push_error (core/variant/variant_utility.cpp:1024)\n   GDScript backtrace (most recent call first):\n       [0] need (res://stretch_probe.gd:6)\n       [1] probe (res://stretch_probe.gd:36)\nERROR: band three not dissolved\n   at: push_error (core/variant/variant_utility.cpp:1024)\n   GDScript backtrace (most recent call first):\n       [0] need (res://stretch_probe.gd:6)\n       [1] probe (res://stretch_probe.gd:36)\nERROR: band three not dissolved\n   at: push_error (core/variant/variant_utility.cpp:1024)\n   GDScript backtrace (most recent call first):\n       [0] need (res://stretch_probe.gd:6)\n       [1] probe (res://stretch_probe.gd:36)\nERROR: band three not dissolved\n   at: push_error (core/variant/variant_utility.cpp:1024)\n   GDScript backtrace (most recent call first):\n       [0] need (res://stretch_probe.gd:6)\n       [1] probe (res://stretch_probe.gd:36)\nERROR: band three not dissolved\n   at: push_error (core/variant/variant_utility.cpp:1024)\n   GDScript backtrace (most recent call first):\n       [0] need (res://stretch_probe.gd:6)\n       [1] probe (res://stretch_probe.gd:36)\nERROR: band three not dissolved\n   at: push_error (core/variant/variant_utility.cpp:1024)\n   GDScript backtrace (most recent call first):\n       [0] need (res://stretch_probe.gd:6)\n       [1] probe (res://stretch_probe.gd:36)\nERROR: band three not dissolved\n   at: push_error (core/variant/variant_utility.cpp:1024)\n   GDScript backtrace (most recent call first):\n       [0] need (res://stretch_probe.gd:6)\n       [1] probe (res://stretch_probe.gd:36)\nERROR: band three not dissolved\n   at: push_error (core/variant/variant_utility.cpp:1024)\n   GDScript backtrace (most recent call first):\n       [0] need (res://stretch_probe.gd:6)\n       [1] probe (res://stretch_probe.gd:36)\nERROR: band three not dissolved\n   at: push_error (core/variant/variant_utility.cpp:1024)\n   GDScript backtrace (most recent call first):\n       [0] need (res://stretch_probe.gd:6)\n       [1] probe (res://stretch_probe.gd:36)\nERROR: band three not dissolved\n   at: push_error (core/variant/variant_utility.cpp:1024)\n   GDScript backtrace (most recent call first):\n       [0] need (res://stretch_probe.gd:6)\n       [1] probe (res://stretch_probe.gd:36)\nERROR: band three not dissolved\n   at: push_error (core/variant/variant_utility.cpp:1024)\n   GDScript backtrace (most recent call first):\n       [0] need (res://stretch_probe.gd:6)\n       [1] probe (res://stretch_probe.gd:36)\nERROR: band three not dissolved\n   at: push_error (core/variant/variant_utility.cpp:1024)\n   GDScript backtrace (most recent call first):\n       [0] need (res://stretch_probe.gd:6)\n       [1] probe (res://stretch_probe.gd:36)\nERROR: band three not dissolved\n   at: push_error (core/variant/variant_utility.cpp:1024)\n   GDScript backtrace (most recent call first):\n       [0] need (res://stretch_probe.gd:6)\n       [1] probe (res://stretch_probe.gd:36)\nERROR: band three not dissolved\n   at: push_error (core/variant/variant_utility.cpp:1024)\n   GDScript backtrace (most recent call first):\n       [0] need (res://stretch_probe.gd:6)\n       [1] probe (res://stretch_probe.gd:36)\nERROR: band three not dissolved\n   at: push_error (core/variant/variant_utility.cpp:1024)\n   GDScript backtrace (most recent call first):\n       [0] need (res://stretch_probe.gd:6)\n       [1] probe (res://stretch_probe.gd:36)\nERROR: band three not dissolved\n   at: push_error (core/variant/variant_utility.cpp:1024)\n   GDScript backtrace (most recent call first):\n       [0] need (res://stretch_probe.gd:6)\n       [1] probe (res://stretch_probe.gd:36)\nERROR: band three not dissolved\n   at: push_error (core/variant/variant_utility.cpp:1024)\n   GDScript backtrace (most recent call first):\n       [0] need (res://stretch_probe.gd:6)\n       [1] probe (res://stretch_probe.gd:36)\nERROR: band three not dissolved\n   at: push_error (core/variant/variant_utility.cpp:1024)\n   GDScript backtrace (most recent call first):\n       [0] need (res://stretch_probe.gd:6)\n       [1] probe (res://stretch_probe.gd:36)\n\n"
+    },
+    {
+      "test": "test_oracle_walk.Tests.test_synthetic_contract_and_grid",
+      "kind": "failure",
+      "classification": "inherited",
+      "owner": "five standing oracle reds (pre-C-5, retained throughout C-5)",
+      "seen_in_supplied_outside_log": true,
+      "reason": "Literal oracle assertions remain unchanged; same named failures in supplied outside-suite evidence.",
+      "traceback": "Traceback (most recent call last):\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_oracle_walk.py\", line 117, in test_synthetic_contract_and_grid\n    self.assertIsNotNone(a[key],key);self.assertAlmostEqual(a[key],b[key],delta=2,msg=key)\n                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 60 != 65 within 2 delta (5 difference) : head_ref_y\n"
+    },
+    {
+      "test": "test_oracles_motif.Tests.test_f04_outside_at_least_three",
+      "kind": "failure",
+      "classification": "inherited",
+      "owner": "five standing oracle reds (pre-C-5, retained throughout C-5)",
+      "seen_in_supplied_outside_log": true,
+      "reason": "Literal oracle assertions remain unchanged; same named failures in supplied outside-suite evidence.",
+      "traceback": "Traceback (most recent call last):\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_oracles_motif.py\", line 19, in test_f04_outside_at_least_three\n    self.assertGreaterEqual(metrics(row)['outside'],3)\nAssertionError: 2 not greater than or equal to 3\n"
+    },
+    {
+      "test": "test_oracles_motif.Tests.test_named_genuine_annuli_retained (center=[113, 201])",
+      "kind": "failure",
+      "classification": "inherited",
+      "owner": "five standing oracle reds (pre-C-5, retained throughout C-5)",
+      "seen_in_supplied_outside_log": false,
+      "reason": "Literal oracle assertions remain unchanged; same named failures in supplied outside-suite evidence.",
+      "traceback": "Traceback (most recent call last):\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_oracles_motif.py\", line 84, in test_named_genuine_annuli_retained\n    self.assertNotIn('rejected',peak)\nAssertionError: 'rejected' unexpectedly found in {'angular_support': 0.7708333333333334, 'center': [113.0, 201.0], 'hollow_score': 0.3125, 'inner_opposed_support': 0.3125, 'inside': False, 'lab_band_surround': 11.57642176150743, 'lab_center_band': 11.062059961818727, 'lab_center_surround': 22.610550201280017, 'lab_color_return': 0.0, 'radius': 30.0, 'rejected': 'not_annulus', 'score': 0.7074940354497125}\n"
+    },
+    {
+      "test": "test_oracles_motif.Tests.test_named_genuine_annuli_retained (center=[111, 311])",
+      "kind": "failure",
+      "classification": "inherited",
+      "owner": "five standing oracle reds (pre-C-5, retained throughout C-5)",
+      "seen_in_supplied_outside_log": false,
+      "reason": "Literal oracle assertions remain unchanged; same named failures in supplied outside-suite evidence.",
+      "traceback": "Traceback (most recent call last):\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_oracles_motif.py\", line 84, in test_named_genuine_annuli_retained\n    self.assertNotIn('rejected',peak)\nAssertionError: 'rejected' unexpectedly found in {'angular_support': 0.75, 'center': [111.0, 311.0], 'hollow_score': 0.16666666666666666, 'inner_opposed_support': 0.16666666666666666, 'inside': False, 'lab_band_surround': 21.229621366461696, 'lab_center_band': 18.63219308325294, 'lab_center_surround': 39.74946870785732, 'lab_color_return': 0.0, 'radius': 27.0, 'rejected': 'not_annulus', 'score': 0.5281963253811909}\n"
+    },
+    {
+      "test": "test_oracles_motif.Tests.test_named_genuine_annuli_retained (center=[170, 253])",
+      "kind": "failure",
+      "classification": "inherited",
+      "owner": "five standing oracle reds (pre-C-5, retained throughout C-5)",
+      "seen_in_supplied_outside_log": false,
+      "reason": "Literal oracle assertions remain unchanged; same named failures in supplied outside-suite evidence.",
+      "traceback": "Traceback (most recent call last):\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_oracles_motif.py\", line 84, in test_named_genuine_annuli_retained\n    self.assertNotIn('rejected',peak)\nAssertionError: 'rejected' unexpectedly found in {'angular_support': 0.8333333333333334, 'center': [170.0, 253.0], 'hollow_score': 0.08333333333333333, 'inner_opposed_support': 0.08333333333333333, 'inside': False, 'lab_band_surround': 12.987929666149537, 'lab_center_band': 18.508563966712764, 'lab_center_surround': 30.467977867785994, 'lab_color_return': 0.0, 'radius': 8.0, 'rejected': 'not_annulus', 'score': 0.6366616733180586}\n"
+    },
+    {
+      "test": "test_parallax_scene.ParallaxSceneTests.test_headless_cliffside_follow_camera_parallax_and_projectile_collision",
+      "kind": "failure",
+      "classification": "inherited",
+      "owner": "sandbox-only",
+      "seen_in_supplied_outside_log": true,
+      "reason": "Host/sandbox execution failure; preserved assertion and full diagnostic.",
+      "traceback": "Traceback (most recent call last):\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_parallax_scene.py\", line 375, in test_headless_cliffside_follow_camera_parallax_and_projectile_collision\n    self.assertEqual(errors, [], '\\n'.join(errors))\nAssertionError: Lists differ: ['ERROR: Condition \"ret != noErr\" is true.[285 chars] \"\"'] != []\n\nFirst list contains 4 additional elements.\nFirst extra element 0:\n'ERROR: Condition \"ret != noErr\" is true. Returning: \"\"'\n\n+ []\n- ['ERROR: Condition \"ret != noErr\" is true. Returning: \"\"',\n-  \"ERROR: Cannot save file '/Users/admin/Library/Application \"\n-  \"Support/Godot/editor_settings-4.6.tres'.\",\n-  'ERROR: Error saving editor settings to /Users/admin/Library/Application '\n-  'Support/Godot/editor_settings-4.6.tres',\n-  'ERROR: Condition \"ret != noErr\" is true. Returning: \"\"'] : ERROR: Condition \"ret != noErr\" is true. Returning: \"\"\nERROR: Cannot save file '/Users/admin/Library/Application Support/Godot/editor_settings-4.6.tres'.\nERROR: Error saving editor settings to /Users/admin/Library/Application Support/Godot/editor_settings-4.6.tres\nERROR: Condition \"ret != noErr\" is true. Returning: \"\"\n"
+    },
+    {
+      "test": "test_scene_kit.SceneKitTests.test_headless_tower_import_run_and_physics",
+      "kind": "failure",
+      "classification": "inherited",
+      "owner": "sandbox-only",
+      "seen_in_supplied_outside_log": true,
+      "reason": "Host/sandbox execution failure; preserved assertion and full diagnostic.",
+      "traceback": "Traceback (most recent call last):\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_scene_kit.py\", line 333, in test_headless_tower_import_run_and_physics\n    self.assertEqual(errors, [], '\\n'.join(errors))\nAssertionError: Lists differ: ['ERROR: Condition \"ret != noErr\" is true.[285 chars] \"\"'] != []\n\nFirst list contains 4 additional elements.\nFirst extra element 0:\n'ERROR: Condition \"ret != noErr\" is true. Returning: \"\"'\n\n+ []\n- ['ERROR: Condition \"ret != noErr\" is true. Returning: \"\"',\n-  \"ERROR: Cannot save file '/Users/admin/Library/Application \"\n-  \"Support/Godot/editor_settings-4.6.tres'.\",\n-  'ERROR: Error saving editor settings to /Users/admin/Library/Application '\n-  'Support/Godot/editor_settings-4.6.tres',\n-  'ERROR: Condition \"ret != noErr\" is true. Returning: \"\"'] : ERROR: Condition \"ret != noErr\" is true. Returning: \"\"\nERROR: Cannot save file '/Users/admin/Library/Application Support/Godot/editor_settings-4.6.tres'.\nERROR: Error saving editor settings to /Users/admin/Library/Application Support/Godot/editor_settings-4.6.tres\nERROR: Condition \"ret != noErr\" is true. Returning: \"\"\n"
+    },
+    {
+      "test": "test_sockets.SocketTests.test_headless_directional_release_and_resources",
+      "kind": "failure",
+      "classification": "inherited",
+      "owner": "sandbox-only",
+      "seen_in_supplied_outside_log": true,
+      "reason": "Host/sandbox execution failure; preserved assertion and full diagnostic.",
+      "traceback": "Traceback (most recent call last):\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_sockets.py\", line 169, in test_headless_directional_release_and_resources\n    self.assertEqual(engine_errors,[], '\\n'.join(engine_errors))\nAssertionError: Lists differ: ['ERROR: Condition \"ret != noErr\" is true.[285 chars] \"\"'] != []\n\nFirst list contains 4 additional elements.\nFirst extra element 0:\n'ERROR: Condition \"ret != noErr\" is true. Returning: \"\"'\n\n+ []\n- ['ERROR: Condition \"ret != noErr\" is true. Returning: \"\"',\n-  \"ERROR: Cannot save file '/Users/admin/Library/Application \"\n-  \"Support/Godot/editor_settings-4.6.tres'.\",\n-  'ERROR: Error saving editor settings to /Users/admin/Library/Application '\n-  'Support/Godot/editor_settings-4.6.tres',\n-  'ERROR: Condition \"ret != noErr\" is true. Returning: \"\"'] : ERROR: Condition \"ret != noErr\" is true. Returning: \"\"\nERROR: Cannot save file '/Users/admin/Library/Application Support/Godot/editor_settings-4.6.tres'.\nERROR: Error saving editor settings to /Users/admin/Library/Application Support/Godot/editor_settings-4.6.tres\nERROR: Condition \"ret != noErr\" is true. Returning: \"\"\n"
+    },
+    {
+      "test": "test_vfx_picker.AuthoredEffectPickerTests.test_headless_authored_cast_east_north_collision_timing_and_feedback_cleanup",
+      "kind": "failure",
+      "classification": "inherited",
+      "owner": "sandbox-only",
+      "seen_in_supplied_outside_log": true,
+      "reason": "Host/sandbox execution failure; preserved assertion and full diagnostic.",
+      "traceback": "Traceback (most recent call last):\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_vfx_picker.py\", line 520, in test_headless_authored_cast_east_north_collision_timing_and_feedback_cleanup\n    run_headless(self, self.project, 'effect_probe.gd')\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_vfx_picker.py\", line 121, in run_headless\n    test.assertEqual(engine_errors, [], '\\n'.join(engine_errors))\nAssertionError: Lists differ: ['ERROR: Condition \"ret != noErr\" is true.[285 chars] \"\"'] != []\n\nFirst list contains 4 additional elements.\nFirst extra element 0:\n'ERROR: Condition \"ret != noErr\" is true. Returning: \"\"'\n\n+ []\n- ['ERROR: Condition \"ret != noErr\" is true. Returning: \"\"',\n-  \"ERROR: Cannot save file '/Users/admin/Library/Application \"\n-  \"Support/Godot/editor_settings-4.6.tres'.\",\n-  'ERROR: Error saving editor settings to /Users/admin/Library/Application '\n-  'Support/Godot/editor_settings-4.6.tres',\n-  'ERROR: Condition \"ret != noErr\" is true. Returning: \"\"'] : ERROR: Condition \"ret != noErr\" is true. Returning: \"\"\nERROR: Cannot save file '/Users/admin/Library/Application Support/Godot/editor_settings-4.6.tres'.\nERROR: Error saving editor settings to /Users/admin/Library/Application Support/Godot/editor_settings-4.6.tres\nERROR: Condition \"ret != noErr\" is true. Returning: \"\"\n"
+    },
+    {
+      "test": "test_vfx_picker.FL4CByteLockTests.test_fifteen_kits_and_all_fire_art_match_pre_fl5_bytes",
+      "kind": "failure",
+      "classification": "inherited",
+      "owner": "C-5 FL-5/FL-6 stale-value or byte lock (FL-6d alignment)",
+      "seen_in_supplied_outside_log": true,
+      "reason": "Already red in the supplied outside-suite output. No inherited assertion or byte baseline was weakened. SPEC does not attribute the exact 24/28 or 26/30 age delta, so those encodings remain red.",
+      "traceback": "Traceback (most recent call last):\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_vfx_picker.py\", line 2220, in test_fifteen_kits_and_all_fire_art_match_pre_fl5_bytes\n    self.assertEqual(actual,expected)\nAssertionError: {'run[13 chars]s/v9/migration_report.json': '219e80fe1d70e554[137632 chars]84d'} != {'run[13 chars]s/v9/blackwater_cocktail/CREDITS.txt': 'a0ad18[137632 chars]471'}\nDiff is 140882 characters long. Set self.maxDiff to None to see it.\n"
+    },
+    {
+      "test": "test_vfx_picker.G1ComponentTests.test_headless_first_cast_contact_cursor_pool_cancel_and_picker",
+      "kind": "failure",
+      "classification": "inherited",
+      "owner": "sandbox-only",
+      "seen_in_supplied_outside_log": true,
+      "reason": "Host/sandbox execution failure; preserved assertion and full diagnostic.",
+      "traceback": "Traceback (most recent call last):\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_vfx_picker.py\", line 951, in test_headless_first_cast_contact_cursor_pool_cancel_and_picker\n    run_headless(self, out, 'probe_vfx.gd')\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_vfx_picker.py\", line 121, in run_headless\n    test.assertEqual(engine_errors, [], '\\n'.join(engine_errors))\nAssertionError: Lists differ: ['ERROR: Condition \"ret != noErr\" is true.[285 chars] \"\"'] != []\n\nFirst list contains 4 additional elements.\nFirst extra element 0:\n'ERROR: Condition \"ret != noErr\" is true. Returning: \"\"'\n\n+ []\n- ['ERROR: Condition \"ret != noErr\" is true. Returning: \"\"',\n-  \"ERROR: Cannot save file '/Users/admin/Library/Application \"\n-  \"Support/Godot/editor_settings-4.6.tres'.\",\n-  'ERROR: Error saving editor settings to /Users/admin/Library/Application '\n-  'Support/Godot/editor_settings-4.6.tres',\n-  'ERROR: Condition \"ret != noErr\" is true. Returning: \"\"'] : ERROR: Condition \"ret != noErr\" is true. Returning: \"\"\nERROR: Cannot save file '/Users/admin/Library/Application Support/Godot/editor_settings-4.6.tres'.\nERROR: Error saving editor settings to /Users/admin/Library/Application Support/Godot/editor_settings-4.6.tres\nERROR: Condition \"ret != noErr\" is true. Returning: \"\"\n"
+    },
+    {
+      "test": "test_vfx_picker.G1ComponentTests.test_headless_pierce_contacts_labels_pool_and_phase_callbacks",
+      "kind": "failure",
+      "classification": "inherited",
+      "owner": "sandbox-only",
+      "seen_in_supplied_outside_log": true,
+      "reason": "Host/sandbox execution failure; preserved assertion and full diagnostic.",
+      "traceback": "Traceback (most recent call last):\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_vfx_picker.py\", line 1051, in test_headless_pierce_contacts_labels_pool_and_phase_callbacks\n    run_headless(self, fixture['project'], 'probe_pierce.gd')\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_vfx_picker.py\", line 121, in run_headless\n    test.assertEqual(engine_errors, [], '\\n'.join(engine_errors))\nAssertionError: Lists differ: ['ERROR: Condition \"ret != noErr\" is true.[285 chars] \"\"'] != []\n\nFirst list contains 4 additional elements.\nFirst extra element 0:\n'ERROR: Condition \"ret != noErr\" is true. Returning: \"\"'\n\n+ []\n- ['ERROR: Condition \"ret != noErr\" is true. Returning: \"\"',\n-  \"ERROR: Cannot save file '/Users/admin/Library/Application \"\n-  \"Support/Godot/editor_settings-4.6.tres'.\",\n-  'ERROR: Error saving editor settings to /Users/admin/Library/Application '\n-  'Support/Godot/editor_settings-4.6.tres',\n-  'ERROR: Condition \"ret != noErr\" is true. Returning: \"\"'] : ERROR: Condition \"ret != noErr\" is true. Returning: \"\"\nERROR: Cannot save file '/Users/admin/Library/Application Support/Godot/editor_settings-4.6.tres'.\nERROR: Error saving editor settings to /Users/admin/Library/Application Support/Godot/editor_settings-4.6.tres\nERROR: Condition \"ret != noErr\" is true. Returning: \"\"\n"
+    },
+    {
+      "test": "test_vfx_picker.LivingEmbersTests.test_headless_glow_sixty_samples_extrema_range_and_particle_properties",
+      "kind": "failure",
+      "classification": "inherited",
+      "owner": "sandbox-only",
+      "seen_in_supplied_outside_log": true,
+      "reason": "Host/sandbox execution failure; preserved assertion and full diagnostic.",
+      "traceback": "Traceback (most recent call last):\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_vfx_picker.py\", line 422, in test_headless_glow_sixty_samples_extrema_range_and_particle_properties\n    run_headless(self, out, 'glow_probe.gd')\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_vfx_picker.py\", line 121, in run_headless\n    test.assertEqual(engine_errors, [], '\\n'.join(engine_errors))\nAssertionError: Lists differ: ['ERROR: Condition \"ret != noErr\" is true.[285 chars] \"\"'] != []\n\nFirst list contains 4 additional elements.\nFirst extra element 0:\n'ERROR: Condition \"ret != noErr\" is true. Returning: \"\"'\n\n+ []\n- ['ERROR: Condition \"ret != noErr\" is true. Returning: \"\"',\n-  \"ERROR: Cannot save file '/Users/admin/Library/Application \"\n-  \"Support/Godot/editor_settings-4.6.tres'.\",\n-  'ERROR: Error saving editor settings to /Users/admin/Library/Application '\n-  'Support/Godot/editor_settings-4.6.tres',\n-  'ERROR: Condition \"ret != noErr\" is true. Returning: \"\"'] : ERROR: Condition \"ret != noErr\" is true. Returning: \"\"\nERROR: Cannot save file '/Users/admin/Library/Application Support/Godot/editor_settings-4.6.tres'.\nERROR: Error saving editor settings to /Users/admin/Library/Application Support/Godot/editor_settings-4.6.tres\nERROR: Condition \"ret != noErr\" is true. Returning: \"\"\n"
+    },
+    {
+      "test": "test_vfx_picker.ProjectileArmPickerTests.test_empty_key_exports_byte_identically_except_kit_name",
+      "kind": "failure",
+      "classification": "inherited",
+      "owner": "C-5 FL-5/FL-6 stale-value or byte lock (FL-6d alignment)",
+      "seen_in_supplied_outside_log": true,
+      "reason": "Already red in the supplied outside-suite output. No inherited assertion or byte baseline was weakened. SPEC does not attribute the exact 24/28 or 26/30 age delta, so those encodings remain red.",
+      "traceback": "Traceback (most recent call last):\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_vfx_picker.py\", line 1415, in test_empty_key_exports_byte_identically_except_kit_name\n    self.assertEqual(common(a), common(b))\nAssertionError: {Posi[1996 chars], \"flicker_frames\": 2, \"halo\": {\"alpha\": 0.3, [619831 chars]x82'} != {Posi[1996 chars], \"flame_dance\": {\"back_scale\": 0.94, \"flicker[620617 chars]x82'}\nDiff is 2073471 characters long. Set self.maxDiff to None to see it.\n"
+    },
+    {
+      "test": "test_vfx_picker.ProjectileArmPickerTests.test_headless_east_contact_range_tail_and_key_schedule",
+      "kind": "failure",
+      "classification": "inherited",
+      "owner": "C-5 FL-5/FL-6 stale-value or byte lock (FL-6d alignment)",
+      "seen_in_supplied_outside_log": true,
+      "reason": "Already red in the supplied outside-suite output. No inherited assertion or byte baseline was weakened. SPEC does not attribute the exact 24/28 or 26/30 age delta, so those encodings remain red.",
+      "traceback": "Traceback (most recent call last):\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_vfx_picker.py\", line 1429, in test_headless_east_contact_range_tail_and_key_schedule\n    self.assertEqual(proc.returncode,0,text)\nAssertionError: 1 != 0 : Godot Engine v4.6.3.stable.official.7d41c59c4 - https://godotengine.org\n\nE1_RUNTIME={\"bursts\":5,\"casts\":2,\"errors\":[\"upper speed clamp\",\"lower speed clamp\",\"range expiry has no contact burst\",\"upper speed clamp\",\"lower speed clamp\",\"range expiry has no contact burst\"]}\nERROR: Condition \"ret != noErr\" is true. Returning: \"\"\n   at: get_system_ca_certificates (platform/macos/os_macos.mm:1028)\nE1_ASSERTION: upper speed clamp\nE1_ASSERTION: lower speed clamp\nE1_ASSERTION: range expiry has no contact burst\nE1_ASSERTION: upper speed clamp\nE1_ASSERTION: lower speed clamp\nE1_ASSERTION: range expiry has no contact burst\n\n"
+    },
+    {
+      "test": "test_vfx_picker.ProjectileArmPickerTests.test_original_eight_export_byte_lock",
+      "kind": "failure",
+      "classification": "inherited",
+      "owner": "C-5 FL-5/FL-6 stale-value or byte lock (FL-6d alignment)",
+      "seen_in_supplied_outside_log": true,
+      "reason": "Already red in the supplied outside-suite output. No inherited assertion or byte baseline was weakened. SPEC does not attribute the exact 24/28 or 26/30 age delta, so those encodings remain red.",
+      "traceback": "Traceback (most recent call last):\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_vfx_picker.py\", line 1459, in test_original_eight_export_byte_lock\n    self.assertEqual(actual,json.loads(baseline.read_text()))\nAssertionError: {'CRE[3954 chars]d': '198ae6d27276bf819b0e51e931b487400120824de[126951 chars]30c'} != {'CRE[3954 chars]d': 'e2e05f7c61a0533d891d34e0d8973b7f429ce2ab9[126732 chars]30c'}\nDiff is 134837 characters long. Set self.maxDiff to None to see it.\n"
+    },
+    {
+      "test": "test_vfx_picker.TouchAimRuntimeTests.test_headless_overlay_forward_world_touch_and_mouse_probe",
+      "kind": "failure",
+      "classification": "inherited",
+      "owner": "sandbox-only",
+      "seen_in_supplied_outside_log": true,
+      "reason": "Host/sandbox execution failure; preserved assertion and full diagnostic.",
+      "traceback": "Traceback (most recent call last):\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_vfx_picker.py\", line 876, in test_headless_overlay_forward_world_touch_and_mouse_probe\n    run_headless(self, project, 'touch_aim_probe.gd')\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_vfx_picker.py\", line 121, in run_headless\n    test.assertEqual(engine_errors, [], '\\n'.join(engine_errors))\nAssertionError: Lists differ: ['ERROR: Condition \"ret != noErr\" is true.[285 chars] \"\"'] != []\n\nFirst list contains 4 additional elements.\nFirst extra element 0:\n'ERROR: Condition \"ret != noErr\" is true. Returning: \"\"'\n\n+ []\n- ['ERROR: Condition \"ret != noErr\" is true. Returning: \"\"',\n-  \"ERROR: Cannot save file '/Users/admin/Library/Application \"\n-  \"Support/Godot/editor_settings-4.6.tres'.\",\n-  'ERROR: Error saving editor settings to /Users/admin/Library/Application '\n-  'Support/Godot/editor_settings-4.6.tres',\n-  'ERROR: Condition \"ret != noErr\" is true. Returning: \"\"'] : ERROR: Condition \"ret != noErr\" is true. Returning: \"\"\nERROR: Cannot save file '/Users/admin/Library/Application Support/Godot/editor_settings-4.6.tres'.\nERROR: Error saving editor settings to /Users/admin/Library/Application Support/Godot/editor_settings-4.6.tres\nERROR: Condition \"ret != noErr\" is true. Returning: \"\"\n"
+    },
+    {
+      "test": "test_vfx_picker.TouchDeviceAimRuntimeTests.test_headless_device_forward_handled_overlay_and_mouse_probe",
+      "kind": "failure",
+      "classification": "inherited",
+      "owner": "sandbox-only",
+      "seen_in_supplied_outside_log": true,
+      "reason": "Host/sandbox execution failure; preserved assertion and full diagnostic.",
+      "traceback": "Traceback (most recent call last):\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_vfx_picker.py\", line 1194, in test_headless_device_forward_handled_overlay_and_mouse_probe\n    run_headless(self, project, 'touch_aim_probe.gd')\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_vfx_picker.py\", line 121, in run_headless\n    test.assertEqual(engine_errors, [], '\\n'.join(engine_errors))\nAssertionError: Lists differ: ['ERROR: Condition \"ret != noErr\" is true.[285 chars] \"\"'] != []\n\nFirst list contains 4 additional elements.\nFirst extra element 0:\n'ERROR: Condition \"ret != noErr\" is true. Returning: \"\"'\n\n+ []\n- ['ERROR: Condition \"ret != noErr\" is true. Returning: \"\"',\n-  \"ERROR: Cannot save file '/Users/admin/Library/Application \"\n-  \"Support/Godot/editor_settings-4.6.tres'.\",\n-  'ERROR: Error saving editor settings to /Users/admin/Library/Application '\n-  'Support/Godot/editor_settings-4.6.tres',\n-  'ERROR: Condition \"ret != noErr\" is true. Returning: \"\"'] : ERROR: Condition \"ret != noErr\" is true. Returning: \"\"\nERROR: Cannot save file '/Users/admin/Library/Application Support/Godot/editor_settings-4.6.tres'.\nERROR: Error saving editor settings to /Users/admin/Library/Application Support/Godot/editor_settings-4.6.tres\nERROR: Condition \"ret != noErr\" is true. Returning: \"\"\n"
+    },
+    {
+      "test": "test_vfx_picker.VfxPickerTests.test_headless_tab_twice_cast_scene_labels_and_inflight_kit_lock",
+      "kind": "failure",
+      "classification": "inherited",
+      "owner": "sandbox-only",
+      "seen_in_supplied_outside_log": true,
+      "reason": "Host/sandbox execution failure; preserved assertion and full diagnostic.",
+      "traceback": "Traceback (most recent call last):\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_vfx_picker.py\", line 281, in test_headless_tab_twice_cast_scene_labels_and_inflight_kit_lock\n    run_headless(self, out, 'picker_probe.gd')\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_vfx_picker.py\", line 121, in run_headless\n    test.assertEqual(engine_errors, [], '\\n'.join(engine_errors))\nAssertionError: Lists differ: ['ERROR: Condition \"ret != noErr\" is true.[285 chars] \"\"'] != []\n\nFirst list contains 4 additional elements.\nFirst extra element 0:\n'ERROR: Condition \"ret != noErr\" is true. Returning: \"\"'\n\n+ []\n- ['ERROR: Condition \"ret != noErr\" is true. Returning: \"\"',\n-  \"ERROR: Cannot save file '/Users/admin/Library/Application \"\n-  \"Support/Godot/editor_settings-4.6.tres'.\",\n-  'ERROR: Error saving editor settings to /Users/admin/Library/Application '\n-  'Support/Godot/editor_settings-4.6.tres',\n-  'ERROR: Condition \"ret != noErr\" is true. Returning: \"\"'] : ERROR: Condition \"ret != noErr\" is true. Returning: \"\"\nERROR: Cannot save file '/Users/admin/Library/Application Support/Godot/editor_settings-4.6.tres'.\nERROR: Error saving editor settings to /Users/admin/Library/Application Support/Godot/editor_settings-4.6.tres\nERROR: Condition \"ret != noErr\" is true. Returning: \"\"\n"
+    },
+    {
+      "test": "test_gates_matte.Tests.test_x1_floor_border_zero (prop='satchel')",
+      "kind": "error",
+      "classification": "inherited",
+      "owner": "sandbox-only (C-1 X1 fixture availability; carried into C-5)",
+      "seen_in_supplied_outside_log": false,
+      "reason": "Both missing generated X1 fixtures were already errors in the supplied outside-suite evidence.",
+      "traceback": "Traceback (most recent call last):\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_gates_matte.py\", line 34, in test_x1_floor_border_zero\n    with self.subTest(prop=name), Image.open(X1_GENERATED/f'x1_{name}.png') as im:\n                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/PIL/Image.py\", line 3277, in open\n    fp = builtins.open(filename, \"rb\")\n         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nFileNotFoundError: [Errno 2] No such file or directory: '/Users/admin/astra-burst/runs/C-1/X1-gen-01/out/x1_satchel.png'\n"
+    },
+    {
+      "test": "test_gates_matte.Tests.test_x1_floor_border_zero (prop='staff_head')",
+      "kind": "error",
+      "classification": "inherited",
+      "owner": "sandbox-only (C-1 X1 fixture availability; carried into C-5)",
+      "seen_in_supplied_outside_log": false,
+      "reason": "Both missing generated X1 fixtures were already errors in the supplied outside-suite evidence.",
+      "traceback": "Traceback (most recent call last):\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_gates_matte.py\", line 34, in test_x1_floor_border_zero\n    with self.subTest(prop=name), Image.open(X1_GENERATED/f'x1_{name}.png') as im:\n                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/PIL/Image.py\", line 3277, in open\n    fp = builtins.open(filename, \"rb\")\n         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nFileNotFoundError: [Errno 2] No such file or directory: '/Users/admin/astra-burst/runs/C-1/X1-gen-01/out/x1_staff_head.png'\n"
+    },
+    {
+      "test": "setUpClass (test_godot_import.FieldDesignLapEmissionTests)",
+      "kind": "error",
+      "classification": "inherited",
+      "owner": "sandbox-only",
+      "seen_in_supplied_outside_log": false,
+      "reason": "The authorized suite attempted a mutation outside the burst output boundary; no test was skipped or weakened.",
+      "traceback": "Traceback (most recent call last):\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_godot_import.py\", line 1419, in setUpClass\n    (cls.work/'headless.json').write_text(json.dumps(cls.logs,indent=2)+'\\n')\n  File \"/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/pathlib.py\", line 1048, in write_text\n    with self.open(mode='w', encoding=encoding, errors=errors, newline=newline) as f:\n         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/pathlib.py\", line 1014, in open\n    return io.open(self, mode, buffering, encoding, errors, newline)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-7/t3/BL-2v-b/sitecustomize.py\", line 58, in guard\n    raise PermissionError('BL-2v-b output scope: '+str(path))\nPermissionError: BL-2v-b output scope: /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/FL-4d/field-design/headless.json\n"
+    },
+    {
+      "test": "setUpClass (test_godot_import.RenderedLookTraceTests)",
+      "kind": "error",
+      "classification": "inherited",
+      "owner": "sandbox-only",
+      "seen_in_supplied_outside_log": false,
+      "reason": "The authorized suite attempted a mutation outside the burst output boundary; no test was skipped or weakened.",
+      "traceback": "Traceback (most recent call last):\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_godot_import.py\", line 1698, in setUpClass\n    shutil.rmtree(cls.project)\n  File \"/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/shutil.py\", line 775, in rmtree\n    onexc(os.rmdir, path, err)\n  File \"/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/shutil.py\", line 773, in rmtree\n    os.rmdir(path, dir_fd=dir_fd)\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-7/t3/BL-2v-b/sitecustomize.py\", line 58, in guard\n    raise PermissionError('BL-2v-b output scope: '+str(path))\nPermissionError: BL-2v-b output scope: /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4x/catalogue_project\n"
+    },
+    {
+      "test": "test_godot_import.TransformedResidueSeamTests.test_transformed_front_at_three_ages_has_no_straight_seam_over_12px",
+      "kind": "error",
+      "classification": "inherited",
+      "owner": "sandbox-only",
+      "seen_in_supplied_outside_log": true,
+      "reason": "The authorized suite attempted a mutation outside the burst output boundary; no test was skipped or weakened.",
+      "traceback": "Traceback (most recent call last):\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_godot_import.py\", line 844, in test_transformed_front_at_three_ages_has_no_straight_seam_over_12px\n    report.write_text(json.dumps({'report_only': True, 'threshold_withdrawn': 12,\n  File \"/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/pathlib.py\", line 1048, in write_text\n    with self.open(mode='w', encoding=encoding, errors=errors, newline=newline) as f:\n         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/pathlib.py\", line 1014, in open\n    return io.open(self, mode, buffering, encoding, errors, newline)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-7/t3/BL-2v-b/sitecustomize.py\", line 58, in guard\n    raise PermissionError('BL-2v-b output scope: '+str(path))\nPermissionError: BL-2v-b output scope: /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4g/seam_measurements.json\n"
+    },
+    {
+      "test": "test_replay.BlendEnvelopeTests.test_native_crop_64px_body_512_and_768_and_class_replay",
+      "kind": "error",
+      "classification": "inherited",
+      "owner": "sandbox-only",
+      "seen_in_supplied_outside_log": true,
+      "reason": "Host/sandbox execution failure; preserved assertion and full diagnostic.",
+      "traceback": "Traceback (most recent call last):\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_replay.py\", line 326, in test_native_crop_64px_body_512_and_768_and_class_replay\n    output = self.render(project, f'crop_{size}', crop=(size,size))\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_replay.py\", line 313, in render\n    result = run_replay(project, self.root/name, effect='res://effect.tscn',\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/export/replay.py\", line 435, in run_replay\n    proc = subprocess.run(command, capture_output=True, text=True, timeout=timeout)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/subprocess.py\", line 548, in run\n    with Popen(*popenargs, **kwargs) as process:\n         ^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-7/t3/BL-2v-b/sitecustomize.py\", line 27, in __init__\n    if '--headless' not in args:raise PermissionError('BL-2v-b: Godot GUI prohibited')\n                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nPermissionError: BL-2v-b: Godot GUI prohibited\n"
+    },
+    {
+      "test": "test_vfx_picker.CanonicalCapsuleSweepTests.test_emergence_fraction_order_and_temporarily_ignored_body",
+      "kind": "error",
+      "classification": "inherited",
+      "owner": "sandbox-only",
+      "seen_in_supplied_outside_log": true,
+      "reason": "The authorized suite attempted a mutation outside the burst output boundary; no test was skipped or weakened.",
+      "traceback": "Traceback (most recent call last):\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_vfx_picker.py\", line 2012, in test_emergence_fraction_order_and_temporarily_ignored_body\n    probe.write_text(CAPSULE_SWEEP_PROBE)\n  File \"/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/pathlib.py\", line 1048, in write_text\n    with self.open(mode='w', encoding=encoding, errors=errors, newline=newline) as f:\n         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/pathlib.py\", line 1014, in open\n    return io.open(self, mode, buffering, encoding, errors, newline)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-7/t3/BL-2v-b/sitecustomize.py\", line 58, in guard\n    raise PermissionError('BL-2v-b output scope: '+str(path))\nPermissionError: BL-2v-b output scope: /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/FL-2c/reexport/capsule_sweep_test.gd\n"
+    },
+    {
+      "test": "test_vfx_picker.FrozenOrbPickerTests.test_headless_orb_clock_and_pool",
+      "kind": "error",
+      "classification": "inherited",
+      "owner": "sandbox-only",
+      "seen_in_supplied_outside_log": true,
+      "reason": "The authorized suite attempted a mutation outside the burst output boundary; no test was skipped or weakened.",
+      "traceback": "Traceback (most recent call last):\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_vfx_picker.py\", line 1759, in test_headless_orb_clock_and_pool\n    (work/'orb_trace.json').write_text(json.dumps(trace,indent=2)+'\\n')\n  File \"/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/pathlib.py\", line 1048, in write_text\n    with self.open(mode='w', encoding=encoding, errors=errors, newline=newline) as f:\n         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/pathlib.py\", line 1014, in open\n    return io.open(self, mode, buffering, encoding, errors, newline)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-7/t3/BL-2v-b/sitecustomize.py\", line 58, in guard\n    raise PermissionError('BL-2v-b output scope: '+str(path))\nPermissionError: BL-2v-b output scope: /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4v/orb_trace.json\n"
+    },
+    {
+      "test": "test_vfx_picker.IceTreatmentPickerTests.test_headless_contact_shatter_residue_decal",
+      "kind": "error",
+      "classification": "inherited",
+      "owner": "sandbox-only",
+      "seen_in_supplied_outside_log": true,
+      "reason": "The authorized suite attempted a mutation outside the burst output boundary; no test was skipped or weakened.",
+      "traceback": "Traceback (most recent call last):\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_vfx_picker.py\", line 1645, in test_headless_contact_shatter_residue_decal\n    (work/'e2_trace.json').write_text(json.dumps(report,indent=2)+'\\n')\n  File \"/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/pathlib.py\", line 1048, in write_text\n    with self.open(mode='w', encoding=encoding, errors=errors, newline=newline) as f:\n         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/pathlib.py\", line 1014, in open\n    return io.open(self, mode, buffering, encoding, errors, newline)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-7/t3/BL-2v-b/sitecustomize.py\", line 58, in guard\n    raise PermissionError('BL-2v-b output scope: '+str(path))\nPermissionError: BL-2v-b output scope: /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4x/e2_trace.json\n"
+    }
+  ]
+}

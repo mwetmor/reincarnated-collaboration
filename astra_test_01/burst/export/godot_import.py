@@ -3629,6 +3629,8 @@ def _write_ground_effects(out):
 
 # T4s. G2 emission is opt-in, leaving the eleven-kit G1 export untouched.
 def _g2_config(kit, ground_geometry=None):
+    if kit['effect']['g2'].get('field', {}).get('body_mode') == 'flipbook':
+        return _g2_flipbook_config(kit, ground_geometry)
     from export.effect_kit import tick_schedule_report
     d=kit['effect']; spec=d['skill_spec']; m=spec['mechanics']; g=d['g2']; root='res://vfx/'+kit['name']+'/'
     return dict(**({'flame_dance':g['flame_dance']} if 'flame_dance' in g else {}),name=kit['name'],grammar='G2',screen_px=True,flare=root+'flare.tres',
@@ -3680,6 +3682,8 @@ def _g2_lick_anchors(kit):
 
 
 def _write_g2_kit(out, kit):
+    if kit['effect']['g2'].get('field', {}).get('body_mode') == 'flipbook':
+        return _write_g2_flipbook(out, kit)
     import numpy as np
     from export.effect_kit import distance_field, write_vfx_material, erosion_noise_texture
     d=kit['effect']; root='vfx/'+kit['name']; dest=out/root
@@ -3840,7 +3844,11 @@ static func resolve_ground(origin: Vector2, facing: Vector2, cursor: Vector2, ra
 static func acquire(parent: Node2D, kit: Dictionary, origin: Vector2, destination: Dictionary, owner_node: Node2D = null, _art_scale: float = 1.0) -> Node2D:
     if kit.get("grammar","") != "G2" or destination.get("kind","") != "ground" or not destination.get("point") is Vector2 or not origin.is_finite() or not destination.point.is_finite():
         return null
-    var effect: Node2D = load("res://scenes/vfx/g2_thrown_field.tscn").instantiate()
+    # BL-2v-b: every caller enters through this single body-mode dispatch.
+    var scene_path: String = "res://scenes/vfx/g2_thrown_field.tscn"
+    if kit.get("body_mode", "") == "flipbook":
+        scene_path = "res://scenes/vfx/g2_flipbook.tscn"
+    var effect: Node2D = load(scene_path).instantiate()
     parent.add_child(effect)
     effect.release(kit,origin,destination,owner_node)
     return effect
@@ -6311,6 +6319,212 @@ func _ready_lick_dance() -> void:
         index += 1
 func _clock_lick_dance(age: int) -> void:
     for dancer in lick_dancers: dancer.update(age)
+'''
+
+
+
+# BL-2v. The legacy script stays byte-identical; only this opted-in body uses the clip.
+def _g2_flipbook_config(kit, ground_geometry=None):
+    from export.effect_kit import tick_schedule_report
+    d=kit['effect']; field=d['g2']['field']; root='res://vfx/'+kit['name']+'/'
+    legacy=dict(kit,effect={**d,'g2':{k:v for k,v in d['g2'].items() if k!='field'}})
+    result=_g2_config(legacy,ground_geometry)
+    # The spine has no painted-field/pulse/shatter resources. Field.tres is
+    # retained because _write_g2_flipbook emits it for the spine material.
+    for key in ('field', 'pulse', 'fragments', 'pulse_material',
+                'decal_material', 'additive_material', 'dark_material'):
+        result.pop(key)
+    ticks=[field['timeline_s']['pool_stable']+t for t in field['tick_schedule_s']]
+    result.update(body_mode='flipbook',bolt='res://scenes/vfx/g2_flipbook.tscn',
+                  spine=root+'spine.tres',spine_config=field,ticks=ticks,
+                  duration_s=field['timeline_s']['steady_end'],
+                  schedule=tick_schedule_report(field['tick_schedule_s'],.25),
+                  smoke_shader=root+'materials/ending_smoke.gdshader',
+                  smoke_texture=root+'derived/smoke_noise.png',floor_texture=root+'derived/floor.png',
+                  palette_2=d['material']['palette'][2],field_binding={},lick_anchors=[],splash='')
+    return result
+
+
+def _write_g2_flipbook(out, kit):
+    import numpy as np
+    from export.effect_kit import erosion_noise_texture, write_vfx_material, MATERIAL_BINDING_SCRIPT
+    d=kit['effect']; field=d['g2']['field']; root='vfx/'+kit['name']; dest=out/root
+    dest.mkdir(parents=True,exist_ok=True)
+    for path in kit['root'].rglob('*'):
+        if path.is_file():
+            target=dest/path.relative_to(kit['root']);target.parent.mkdir(parents=True,exist_ok=True);shutil.copyfile(path,target)
+    for phase,folder in [('cast','flare'),('travel','travel'),('impact','impact')]:
+        frames=d['phases'][phase]['frames']
+        write_spriteframes(out,root+'/'+folder+'.tres',{folder:([root+'/'+f['file'] for f in frames],1,False)},
+                           {folder:[f['hold_frames']/60 for f in frames]})
+    write_spriteframes(out,root+'/spine.tres',{'spine':([root+'/'+f for f in field['frames']],field['fps'],False)})
+    derived=dest/'derived';derived.mkdir(exist_ok=True)
+    # Same deterministic FL-5 noise and shader; no painted or additive flame copy.
+    with Image.open(dest/field['frames'][18]) as im: pixels=np.array(im)
+    Image.fromarray(erosion_noise_texture(pixels)).save(derived/'smoke_noise.png')
+    # FL-2 floor-light disc: soft radial coverage, palette-2 tint, quadratic ease.
+    y,x=np.indices((256,256));r=np.sqrt(((x-127.5)/127.5)**2+((y-127.5)/127.5)**2)
+    disc=np.full((256,256,4),255,dtype=np.uint8);disc[...,3]=np.rint(np.clip(1-r,0,1)**2*255).astype(np.uint8)
+    Image.fromarray(disc).save(derived/'floor.png')
+    # Erosion/dissolve remain zero. Uniform distance is unused by this body.
+    Image.new('RGBA',(1,1),(255,255,255,255)).save(derived/'distance.png')
+    mat=dict(d['material'],erode=0.,dissolve=0.,blend_mode='MIX')
+    for name in ('Field','Body'):
+        write_vfx_material(out,root+'/materials/'+name+'.tres',mat,root+'/derived/distance.png')
+    (dest/'materials/ending_smoke.gdshader').write_text(ENDING_SMOKE_SHADER)
+    (out/f'scripts/vfx_{kit["name"]}_material.gd').write_text('extends RefCounted\n'+MATERIAL_BINDING_SCRIPT)
+    _write_ground_effects(out)
+    (out/'scripts/vfx_g2_flipbook.gd').write_text(_g2_flipbook_script())
+    (out/'scenes/vfx/g2_flipbook.tscn').write_text('''[gd_scene load_steps=2 format=3]
+[ext_resource type="Script" path="res://scripts/vfx_g2_flipbook.gd" id="G2"]
+[node name="G2Flipbook" type="Node2D"]
+script = ExtResource("G2")
+texture_filter = 2
+z_as_relative = false
+z_index = 2
+[node name="Flask" type="Sprite2D" parent="."]
+[node name="Ground" type="Node2D" parent="."]
+''')
+    return {'grammar':'G2','body_mode':'flipbook','frames':145,'fps':24,'loop':False}
+
+
+def _g2_flipbook_script():
+    script=G2_SCRIPT
+    # Keep legacy direct callers working, but only generic G2 chooses a mode.
+    start=script.index('static func acquire(')
+    end=script.index('func _ready()',start)
+    signature=script[start:script.index('\n',start)]
+    script=script[:start]+signature+'\n    return load("res://scripts/vfx_g2.gd").acquire(parent,kit,origin,destination,owner_node,_art_scale)\n\n'+script[end:]
+    start=script.index('    _sprite(ground_visual.get_node("Field")')
+    end=script.index('    ground_visual.hide()',start)
+    script=script[:start]+'    _setup_spine()\n'+script[end:]
+    start=script.index('func _clock(age: int)')
+    end=script.index('func _tick(',start)
+    script=script[:start]+G2_FLIPBOOK_CLOCK+'\n'+script[end:]
+    script=script.replace('    if config.field_binding.is_empty():\n        for lick in ground_visual.get_node("Licks").get_children(): lick.set_meta("angle",rng.randf_range(0,TAU))\n','')
+    script=script.replace('actor.global_position.distance_to(ground_point)>float(config.radius_px)',
+                          'not _inside_pool(actor.global_position)')
+    script=script.replace('    for actor in actors:\n','    var hit: bool = false\n    for actor in actors:\n')
+    script=script.replace('        var body_index: int =','        hit = true\n        var body_index: int =')
+    marker='\nfunc _tint_clock('
+    script=script.replace(marker,'\n    if hit:\n        _strike_stop()\n        _record("hit_stop",{"tick_index":index})\n'+marker)
+    return script+G2_FLIPBOOK_LAYERS
+
+
+G2_FLIPBOOK_CLOCK = r'''func _clock(age: int) -> void:
+    var flight: int = ceili(float(config.flight_s)*60.0)
+    var land_age: int = age-flight
+    var seconds: float = float(land_age)/60.0
+    var opts: Dictionary = config.spine_config
+    var timeline: Dictionary = opts.timeline_s
+    var t: float = clampf(float(age)/flight,0.0,1.0)
+    var lift: float = 4.0*float(config.apex_px)*t*(1.0-t)
+    $Flask.global_position = cast_origin.lerp(ground_point,t)+Vector2(0,-lift)
+    $Flask.rotation = deg_to_rad(15.0)*sin(t*TAU)
+    $Flask.visible = land_age<0
+    if land_age>=0 and not landed:
+        landed = true
+        ground_visual.show()
+        spine.play("spine",1.0)
+        _record("contact",{"collision_age_frames":age,"contact_lag_frames":0,"phase":"ground","contact_frames":1,"frame":0,"spine_anchor":[spine.global_position.x,spine.global_position.y]})
+        _record("field_start")
+        _strike_stop()
+    # Seek to the one authoritative effect clock. Normal 1x animation fills
+    # render intervals between physics samples; the final frame is held.
+    var frame_time: float = maxf(0,seconds)*float(opts.fps)
+    var frame_index: int = mini(int(opts.scorch_frame),int(floor(frame_time+0.000001)))
+    spine.set_frame_and_progress(frame_index,frame_time-floor(frame_time))
+    var scorch_start: float = float(opts.scorch_frame)/float(opts.fps)
+    if seconds>=scorch_start:
+        spine.pause()
+        spine.set_frame_and_progress(int(opts.scorch_frame),0.0)
+    if seconds>=float(timeline.steady_end) and not field_ended:
+        field_ended=true
+        _record("field_end",{"tick_count":tick_index})
+    if seconds>=scorch_start and not scorch_started:
+        scorch_started=true
+        _record("decal_start",{"frame":spine.frame,"scorch_life_s":config.residue_s})
+    if land_age>=0 and seconds<=float(timeline.steady_end):
+        while tick_index<config.ticks.size() and land_age>=roundi(float(config.ticks[tick_index])*60.0):
+            _tick(tick_index,roundi(float(config.ticks[tick_index])*60.0))
+            tick_index+=1
+    var end_s: float = scorch_start+float(config.residue_s)
+    spine.modulate.a=clampf(end_s-seconds,0,1)
+    _clock_spine_layers(seconds)
+    _tint_clock(age)
+    trace.append({"age_frames":age,"clip_s":seconds,"frame":spine.frame,"spine_anchor":[spine.global_position.x,spine.global_position.y],"scale":[spine.scale.x,spine.scale.y],"ground_point":[ground_visual.global_position.x,ground_visual.global_position.y],"ground_z":ground_visual.z_index,"body_z":spine.z_index,"floor_z":spine_floor.z_index,"smoke_z":spine_smoke.z_index,"floor_alpha":spine_floor.modulate.a,"smoke_alpha":spine_smoke.modulate.a,"smoke_y":spine_smoke.position.y,"scorch_alive":scorch_started,"scorch_alpha":spine.modulate.a,"tick_count":tick_index,"playing":spine.is_playing()})
+    if seconds>=end_s:
+        _record("expire",{"clip_s":seconds,"frame":spine.frame})
+        active=false
+        _restore_tints()
+        queue_free()
+'''
+
+G2_FLIPBOOK_LAYERS = r'''
+var spine: AnimatedSprite2D
+var spine_floor: Sprite2D
+var spine_smoke: Sprite2D
+var scorch_started: bool = false
+func _inside_pool(feet: Vector2) -> bool:
+    var offset: Vector2 = (feet-ground_point)/Vector2(float(config.radius_px),float(config.radius_px)*float(config.ground_squash))
+    return offset.length_squared()<=1.0
+func _setup_spine() -> void:
+    var opts: Dictionary = config.spine_config
+    spine_floor=Sprite2D.new()
+    spine_floor.name="FloorLight"
+    spine_floor.texture=load(config.floor_texture)
+    spine_floor.scale=Vector2(float(config.radius_px)*2.5,float(config.radius_px)*2.5*float(config.ground_squash))/256.0
+    spine_floor.z_index=-1
+    var floor_mat := CanvasItemMaterial.new()
+    floor_mat.blend_mode=CanvasItemMaterial.BLEND_MODE_ADD
+    floor_mat.light_mode=CanvasItemMaterial.LIGHT_MODE_UNSHADED
+    spine_floor.material=floor_mat
+    spine_floor.modulate=Color(config.palette_2[0],config.palette_2[1],config.palette_2[2],0)
+    ground_visual.add_child(spine_floor)
+    spine=AnimatedSprite2D.new()
+    spine.name="FieldSpine"
+    spine.add_to_group("vfx_spine_scorches")
+    spine.sprite_frames=load(config.spine)
+    spine.animation="spine"
+    spine.speed_scale=1.0
+    spine.centered=false
+    spine.offset=-Vector2(opts.pool_centre_px[0],opts.pool_centre_px[1])
+    spine.scale=Vector2.ONE
+    spine.z_index=0
+    spine.material=load(config.material).duplicate()
+    ground_visual.add_child(spine)
+    spine_smoke=Sprite2D.new()
+    spine_smoke.name="EndingSmoke"
+    spine_smoke.texture=load(config.smoke_texture)
+    spine_smoke.scale=Vector2.ONE*362.0/float(spine_smoke.texture.get_width())
+    spine_smoke.z_index=1
+    var mat := ShaderMaterial.new()
+    mat.shader=load(config.smoke_shader)
+    mat.set_shader_parameter("smoke_tint",Color(opts.smoke.tint[0],opts.smoke.tint[1],opts.smoke.tint[2],1))
+    spine_smoke.material=mat
+    ground_visual.add_child(spine_smoke)
+    for node in [spine_floor,spine,spine_smoke]: node.texture_filter=CanvasItem.TEXTURE_FILTER_LINEAR
+func _clock_spine_layers(seconds: float) -> void:
+    var opts: Dictionary = config.spine_config
+    var timeline: Dictionary = opts.timeline_s
+    var alpha: float = 0.0
+    if seconds>=0 and seconds<float(opts.floor_light.end_s):
+        if seconds<=float(timeline.flash_peak):
+            alpha=lerpf(float(opts.floor_light.steady_alpha),float(opts.floor_light.peak_alpha),1.0-pow(1.0-seconds/float(timeline.flash_peak),3.0))
+        elif seconds<float(timeline.pool_stable):
+            alpha=float(opts.floor_light.steady_alpha)+(float(opts.floor_light.peak_alpha)-float(opts.floor_light.steady_alpha))*pow(1.0-(seconds-float(timeline.flash_peak))/(float(timeline.pool_stable)-float(timeline.flash_peak)),2.0)
+        elif seconds<=float(timeline.steady_end):
+            alpha=float(opts.floor_light.steady_alpha)
+        else:
+            alpha=float(opts.floor_light.steady_alpha)*pow((float(opts.floor_light.end_s)-seconds)/(float(opts.floor_light.end_s)-float(timeline.steady_end)),2.0)
+    spine_floor.modulate.a=alpha
+    spine_floor.visible=alpha>0
+    var smoke_alpha: float = 0.0
+    if seconds>=float(timeline.pool_stable) and seconds<float(opts.smoke.end_s):
+        smoke_alpha=float(opts.smoke.alpha)*clampf((float(opts.smoke.end_s)-seconds)/(float(opts.smoke.end_s)-float(timeline.dies_out)),0,1)
+    spine_smoke.modulate.a=smoke_alpha
+    spine_smoke.visible=smoke_alpha>0
+    spine_smoke.position=Vector2(0,-maxf(0,seconds-float(timeline.pool_stable))*float(opts.smoke.rise_px_s))
 '''
 
 

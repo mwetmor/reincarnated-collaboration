@@ -1,14 +1,30 @@
 {
-  "tests_run": 709,
-  "successful_tests": 700,
+  "tests_run": 790,
+  "successful_tests": 771,
   "failures": [
     {
-      "test": "test_effect_kit.FrozenOrbValidationTests.test_literal_spec_schedule_range_conflict_and_renamed_kit",
-      "traceback": "Traceback (most recent call last):\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_effect_kit.py\", line 2288, in test_literal_spec_schedule_range_conflict_and_renamed_kit\n    self.assertEqual(data['skill_spec'],json.loads((ROOT/'runs/C-5/specs/frozen_orb.json').read_text()))\nAssertionError: {'ski[239 chars]x': 640, 'speed_px_s': 420, 'count': 1, 'emiss[1106 chars]te'}} != {'ski[239 chars]x': 630, 'speed_px_s': 420, 'count': 1, 'emiss[1191 chars]gs'}}\nDiff is 4460 characters long. Set self.maxDiff to None to see it.\n"
+      "test": "test_effect_kit.AntiDecalValidationTests.test_defaults_absent_and_real_fire_fields_load",
+      "traceback": "Traceback (most recent call last):\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_effect_kit.py\", line 2545, in test_defaults_absent_and_real_fire_fields_load\n    self.assertEqual({k:state[k] for k in expected},expected)\nAssertionError: {'at_age': 24, 'hold_frames': 2} != {'at_age': 28, 'hold_frames': 2}\n- {'at_age': 24, 'hold_frames': 2}\n?             ^\n\n+ {'at_age': 28, 'hold_frames': 2}\n?             ^\n\n"
     },
     {
-      "test": "test_godot_import.GroundVisibilityRegressionTests.test_ground_is_above_foreground_below_actors_and_owned_until_cancel",
-      "traceback": "Traceback (most recent call last):\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_godot_import.py\", line 1086, in test_ground_is_above_foreground_below_actors_and_owned_until_cancel\n    self.assertEqual(decal['visible_in_tree'], name == 'poisonous_concoction_e3')\nAssertionError: False != True\n"
+      "test": "test_effect_kit.FL2FieldValidationTests.test_all_new_fields_validate_in_actual_catalogue",
+      "traceback": "Traceback (most recent call last):\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_effect_kit.py\", line 2476, in test_all_new_fields_validate_in_actual_catalogue\n    self.assertEqual(data['pieces'][key], {'amount': 48, 'rect_bh': [1.8, 0.9], 'life_s': [1.0, 1.6], 'speed_px_s': [30, 90], 'scale': [0.15, 0.33], 'glow_radius_bh': 0.9, 'glow_alpha': 0.85, 'glow_s': 1.2, 'core_radius_bh': 0.45, 'core_s': 0.6} if kit['name']=='fire_burst_e0p_v2' and key=='ember_ending' else spec['pieces'][key])\nAssertionError: {'expanded_age': 12, 'erosion_age': 14, 'paint_end_age': 26} != {'expanded_age': 12, 'erosion_age': 14, 'paint_end_age': 30}\n- {'erosion_age': 14, 'expanded_age': 12, 'paint_end_age': 26}\n?                                                          ^^\n\n+ {'erosion_age': 14, 'expanded_age': 12, 'paint_end_age': 30}\n?                                                          ^^\n\n"
+    },
+    {
+      "test": "test_effect_kit.ProjectileArmValidationTests.test_both_arms_preserve_spec_and_quantised_primitives",
+      "traceback": "Traceback (most recent call last):\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_effect_kit.py\", line 2014, in test_both_arms_preserve_spec_and_quantised_primitives\n    self.assertEqual(actual_spec, expected_spec)\nAssertionError: {'ski[2079 chars]e': 24, 'hold_frames': 2}}, 'residue_fraction'[655 chars]8}}}} != {'ski[2079 chars]e': 28, 'hold_frames': 2}}, 'residue_fraction'[655 chars]8}}}}\nDiff is 7787 characters long. Set self.maxDiff to None to see it.\n"
+    },
+    {
+      "test": "test_effect_kit.ProjectileArmValidationTests.test_empty_key_arms_have_identical_kit_files_except_name",
+      "traceback": "Traceback (most recent call last):\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_effect_kit.py\", line 2055, in test_empty_key_arms_have_identical_kit_files_except_name\n    self.assertEqual(common(a), common(b))\nAssertionError: {Posi[13888 chars], \"flicker_frames\": 2, \"halo\": {\"alpha\": 0.3, [268938 chars]x82'} != {Posi[13888 chars], \"flame_dance\": {\"back_scale\": 0.94, \"flicker[269299 chars]x82'}\nDiff is 719837 characters long. Set self.maxDiff to None to see it.\n"
+    },
+    {
+      "test": "test_godot_import.BoltChainEmissionTests.test_current_catalogue_and_original_kits_unchanged",
+      "traceback": "Traceback (most recent call last):\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_godot_import.py\", line 1380, in test_current_catalogue_and_original_kits_unchanged\n    self.assertEqual(actual,baseline)\nAssertionError: {'run[57143 chars]n': '01cdfab1649194b5b3dd0b834b2ba82f280a92204[64207 chars]36d'} != {'run[57143 chars]n': '315648fcef1d219972b05445774299ae5c3bf025a[29300 chars]afb'}\nDiff is 125746 characters long. Set self.maxDiff to None to see it.\n"
+    },
+    {
+      "test": "test_godot_import.IceTreatmentImportTests.test_ten_existing_export_bytes_unchanged",
+      "traceback": "Traceback (most recent call last):\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_godot_import.py\", line 1044, in test_ten_existing_export_bytes_unchanged\n    self.assertEqual(actual,baseline)\nAssertionError: {'CRE[746 chars]n': 'f4773975380e974a800a44e6a9100d9dba8efef84[116671 chars]30c'} != {'CRE[746 chars]n': '8103691797a8837451d34edb2c8d322b468448156[114842 chars]30c'}\nDiff is 121114 characters long. Set self.maxDiff to None to see it.\n"
     },
     {
       "test": "test_oracle_walk.Tests.test_synthetic_contract_and_grid",
@@ -29,20 +45,45 @@
     {
       "test": "test_oracles_motif.Tests.test_named_genuine_annuli_retained (center=[170, 253])",
       "traceback": "Traceback (most recent call last):\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_oracles_motif.py\", line 84, in test_named_genuine_annuli_retained\n    self.assertNotIn('rejected',peak)\nAssertionError: 'rejected' unexpectedly found in {'angular_support': 0.8333333333333334, 'center': [170.0, 253.0], 'hollow_score': 0.08333333333333333, 'inner_opposed_support': 0.08333333333333333, 'inside': False, 'lab_band_surround': 12.987929666149537, 'lab_center_band': 18.508563966712764, 'lab_center_surround': 30.467977867785994, 'lab_color_return': 0.0, 'radius': 8.0, 'rejected': 'not_annulus', 'score': 0.6366616733180586}\n"
+    },
+    {
+      "test": "test_vfx_picker.FL4CByteLockTests.test_fifteen_kits_and_all_fire_art_match_pre_fl5_bytes",
+      "traceback": "Traceback (most recent call last):\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_vfx_picker.py\", line 2220, in test_fifteen_kits_and_all_fire_art_match_pre_fl5_bytes\n    self.assertEqual(actual,expected)\nAssertionError: {'run[13 chars]s/v9/migration_report.json': '219e80fe1d70e554[137632 chars]84d'} != {'run[13 chars]s/v9/blackwater_cocktail/CREDITS.txt': 'a0ad18[137632 chars]471'}\nDiff is 140882 characters long. Set self.maxDiff to None to see it.\n"
+    },
+    {
+      "test": "test_vfx_picker.ProjectileArmPickerTests.test_empty_key_exports_byte_identically_except_kit_name",
+      "traceback": "Traceback (most recent call last):\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_vfx_picker.py\", line 1415, in test_empty_key_exports_byte_identically_except_kit_name\n    self.assertEqual(common(a), common(b))\nAssertionError: {Posi[1996 chars], \"flicker_frames\": 2, \"halo\": {\"alpha\": 0.3, [619831 chars]x82'} != {Posi[1996 chars], \"flame_dance\": {\"back_scale\": 0.94, \"flicker[620617 chars]x82'}\nDiff is 2073471 characters long. Set self.maxDiff to None to see it.\n"
+    },
+    {
+      "test": "test_vfx_picker.ProjectileArmPickerTests.test_headless_east_contact_range_tail_and_key_schedule",
+      "traceback": "Traceback (most recent call last):\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_vfx_picker.py\", line 1429, in test_headless_east_contact_range_tail_and_key_schedule\n    self.assertEqual(proc.returncode,0,text)\nAssertionError: 1 != 0 : Godot Engine v4.6.3.stable.official.7d41c59c4 - https://godotengine.org\n\nE1_RUNTIME={\"bursts\":5,\"casts\":2,\"errors\":[\"upper speed clamp\",\"lower speed clamp\",\"range expiry has no contact burst\",\"upper speed clamp\",\"lower speed clamp\",\"range expiry has no contact burst\"]}\nE1_ASSERTION: upper speed clamp\nE1_ASSERTION: lower speed clamp\nE1_ASSERTION: range expiry has no contact burst\nE1_ASSERTION: upper speed clamp\nE1_ASSERTION: lower speed clamp\nE1_ASSERTION: range expiry has no contact burst\n\n"
+    },
+    {
+      "test": "test_vfx_picker.ProjectileArmPickerTests.test_original_eight_export_byte_lock",
+      "traceback": "Traceback (most recent call last):\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_vfx_picker.py\", line 1459, in test_original_eight_export_byte_lock\n    self.assertEqual(actual,json.loads(baseline.read_text()))\nAssertionError: {'CRE[3954 chars]d': '198ae6d27276bf819b0e51e931b487400120824de[126951 chars]30c'} != {'CRE[3954 chars]d': 'e2e05f7c61a0533d891d34e0d8973b7f429ce2ab9[126732 chars]30c'}\nDiff is 134837 characters long. Set self.maxDiff to None to see it.\n"
     }
   ],
   "errors": [
     {
-      "test": "test_vfx_picker.IceTreatmentPickerTests.test_headless_contact_shatter_residue_decal",
-      "traceback": "Traceback (most recent call last):\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_vfx_picker.py\", line 1598, in test_headless_contact_shatter_residue_decal\n    result=subprocess.run([GODOT,'--headless','--path',str(project),'--log-file',str(Path(tmp)/'engine.log'),*args],capture_output=True,text=True,timeout=60)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/subprocess.py\", line 550, in run\n    stdout, stderr = process.communicate(input, timeout=timeout)\n                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/subprocess.py\", line 1209, in communicate\n    stdout, stderr = self._communicate(input, endtime, timeout)\n                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/subprocess.py\", line 2109, in _communicate\n    self._check_timeout(endtime, orig_timeout, stdout, stderr)\n  File \"/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/subprocess.py\", line 1253, in _check_timeout\n    raise TimeoutExpired(\nsubprocess.TimeoutExpired: Command '['/Applications/Godot.app/Contents/MacOS/Godot', '--headless', '--path', '/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4r/e2-clock-sxt_xcce/project', '--log-file', '/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4r/e2-clock-sxt_xcce/engine.log', '--script', 'res://e2_probe.gd']' timed out after 60 seconds\n"
+      "test": "test_gates_matte.Tests.test_x1_floor_border_zero (prop='satchel')",
+      "traceback": "Traceback (most recent call last):\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_gates_matte.py\", line 34, in test_x1_floor_border_zero\n    with self.subTest(prop=name), Image.open(X1_GENERATED/f'x1_{name}.png') as im:\n                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/PIL/Image.py\", line 3277, in open\n    fp = builtins.open(filename, \"rb\")\n         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nFileNotFoundError: [Errno 2] No such file or directory: '/Users/admin/astra-burst/runs/C-1/X1-gen-01/out/x1_satchel.png'\n"
     },
     {
-      "test": "test_vfx_picker.TouchAimRuntimeTests.test_headless_overlay_forward_world_touch_and_mouse_probe",
-      "traceback": "Traceback (most recent call last):\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_vfx_picker.py\", line 872, in test_headless_overlay_forward_world_touch_and_mouse_probe\n    run_headless(self, project, 'touch_aim_probe.gd')\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_vfx_picker.py\", line 109, in run_headless\n    result = subprocess.run([GODOT, '--headless', '--log-file', str(project/'godot.log'),\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/subprocess.py\", line 550, in run\n    stdout, stderr = process.communicate(input, timeout=timeout)\n                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/subprocess.py\", line 1209, in communicate\n    stdout, stderr = self._communicate(input, endtime, timeout)\n                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/subprocess.py\", line 2109, in _communicate\n    self._check_timeout(endtime, orig_timeout, stdout, stderr)\n  File \"/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/subprocess.py\", line 1253, in _check_timeout\n    raise TimeoutExpired(\nsubprocess.TimeoutExpired: Command '['/Applications/Godot.app/Contents/MacOS/Godot', '--headless', '--log-file', '/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4i/tmp/touch-aim-omlizq8u/project/godot.log', '--path', '/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-5/t3/T4i/tmp/touch-aim-omlizq8u/project', '--script', 'res://touch_aim_probe.gd']' timed out after 60 seconds\n"
+      "test": "test_gates_matte.Tests.test_x1_floor_border_zero (prop='staff_head')",
+      "traceback": "Traceback (most recent call last):\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_gates_matte.py\", line 34, in test_x1_floor_border_zero\n    with self.subTest(prop=name), Image.open(X1_GENERATED/f'x1_{name}.png') as im:\n                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/PIL/Image.py\", line 3277, in open\n    fp = builtins.open(filename, \"rb\")\n         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nFileNotFoundError: [Errno 2] No such file or directory: '/Users/admin/astra-burst/runs/C-1/X1-gen-01/out/x1_staff_head.png'\n"
     }
   ],
-  "skipped": [],
-  "elapsed_s": 562.9264396660001,
+  "skipped": [
+    [
+      "setUpClass (test_godot_import.FL4BRuntimeTraceTests)",
+      "Set FL4B_TRACE to the executable FL-4b headless trace"
+    ],
+    [
+      "setUpClass (test_godot_import.FL4CTraceTests)",
+      "Set FL4C_METRICS to measured headless trace metrics"
+    ]
+  ],
+  "elapsed_s": 826.4746963329962,
   "regression": {
     "tolerance": 0.001,
     "compared": 1880,

@@ -2193,15 +2193,21 @@ def fl4_trace(directory):
 class FL4BCatalogueTests(unittest.TestCase):
     def test_eighteen_kits_new_b_binding_and_v2_comparison(self):
         kits=_load_vfx_kits(ROOT/'runs/C-5/vfx_kits/kits_v9.json')
-        self.assertEqual(len(kits),18)
+        self.assertEqual(len(kits),19)
         names=[k['name'] for k in kits]
-        self.assertEqual(len(set(names)),18)
-        self.assertEqual(names[-1],'fire_burst_e0p_v3')
+        self.assertEqual(len(set(names)),19)
+        self.assertEqual(names[-2: ],['fire_burst_e0p_v3','blackwater_cocktail_e3_V'])
         by_name={k['name']:k['effect'] for k in kits}
         self.assertEqual(by_name['fire_bolt_e1_B']['impact_binding']['kit'],'fire_burst_e0p_v3')
         self.assertEqual(by_name['fire_bolt_e1_A']['impact_binding']['kit'],'fire_burst_e0p_v2')
         self.assertEqual(by_name['fire_burst_e0p_v3']['pieces']['key_states'],[])
         self.assertTrue(by_name['fire_burst_e0p_v2']['pieces']['key_states'])
+
+        # BL-2v-19b: the nineteenth entry is a spine, never a flame-dance arm.
+        spine = by_name['blackwater_cocktail_e3_V']
+        self.assertEqual(spine['skill_spec']['grammar'], 'G2')
+        self.assertEqual(spine['g2']['field']['body_mode'], 'flipbook')
+        self.assertNotIn('flame_dance', spine['g2'])
 
 
 class FL4CByteLockTests(unittest.TestCase):
@@ -2347,3 +2353,27 @@ class FL6CSourceByteLocks(unittest.TestCase):
         self.assertEqual(actual,expected)
         names={k['name'] for k in _load_vfx_kits(ROOT/'runs/C-5/vfx_kits/kits_v9.json')}
         self.assertEqual(sum(Path(k).name=='kit.json' and Path(k).parent.name in names for k in expected),15)
+
+
+class BL2VCatalogueTests(unittest.TestCase):
+    def test_second_kit_and_default_arm_a_clock_unchanged(self):
+        from export.godot_import import _g2_config
+        kits=_load_vfx_kits(ROOT/'runs/C-5/vfx_kits/kits_v9.json')
+        self.assertEqual(len(kits),19)
+        by_name={k['name']:k for k in kits}
+        a=_g2_config(by_name['blackwater_cocktail_e3'])
+        b=_g2_config(by_name['blackwater_cocktail_e3_V'])
+        self.assertNotIn('body_mode',a)
+        self.assertEqual(a['ticks'],[0,.3,.95,1.25,2])
+        self.assertEqual(b['body_mode'],'flipbook')
+        self.assertEqual(b['ticks'],[.75,1.75,2.75])
+        for key in ('flask_width','flight_s','range_px','apex_px','residue_s','radius_px'):
+            self.assertEqual(a[key],b[key])
+
+    def test_eighteen_original_kit_trees_are_byte_identical(self):
+        before=json.loads((ROOT/'runs/C-7/t3/BL-2v/kit_bytes_before.json').read_text())
+        cat=ROOT/'runs/C-5/vfx_kits/kits_v9.json'
+        for entry in json.loads(cat.read_text())['kits'][:18]:
+            root=(cat.parent/entry['dir']).resolve()
+            after={str(p.relative_to(root)):hashlib.sha256(p.read_bytes()).hexdigest() for p in root.rglob('*') if p.is_file()}
+            self.assertEqual(before[entry['name']],after,entry['name'])

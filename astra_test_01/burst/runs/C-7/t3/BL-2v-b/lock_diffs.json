@@ -1,0 +1,44 @@
+[
+  {
+    "lock": "BL-2v-19a",
+    "test": "FL6LiveRegistryCLIRegressionTests.test_full_cli_live_registry_emits_all_flame_dance_routes",
+    "changes": [
+      {
+        "old": "len(expected) == 18",
+        "new": "len(expected) == 19; len(set(expected)) == 19; final entry is blackwater_cocktail_e3_V",
+        "why": "BL-2v registers exactly one additional kit after the eighteen originals; cardinality and uniqueness remain exact."
+      },
+      {
+        "old": "No V-kit runtime role assertion",
+        "new": "V config body_mode == flipbook; bolt == res://scenes/vfx/g2_flipbook.tscn; no flame_dance config or script reference; picker has no direct flipbook-script call",
+        "why": "BL-2v owns the video spine; BL-2v-b moves the single dispatch into generic G2 without adding a flame-dance route."
+      }
+    ]
+  },
+  {
+    "lock": "BL-2v-19b",
+    "test": "FL4BCatalogueTests.test_eighteen_kits_new_b_binding_and_v2_comparison",
+    "changes": [
+      {
+        "old": "len(kits) == 18",
+        "new": "len(kits) == 19",
+        "why": "BL-2v adds blackwater_cocktail_e3_V to the eighteen original kits."
+      },
+      {
+        "old": "len(set(names)) == 18",
+        "new": "len(set(names)) == 19",
+        "why": "BL-2v adds a distinct named arm; duplicate entries remain rejected."
+      },
+      {
+        "old": "names[-1] == 'fire_burst_e0p_v3'",
+        "new": "names[-2:] == ['fire_burst_e0p_v3', 'blackwater_cocktail_e3_V']",
+        "why": "BL-2v appends V after v3; the original terminal kit and its relative order remain asserted."
+      },
+      {
+        "old": "No V-kit source role assertion",
+        "new": "V grammar == G2; g2.field.body_mode == flipbook; no g2.flame_dance",
+        "why": "BL-2v defines the new entry as the spine arm, with no flame-dance body."
+      }
+    ]
+  }
+]
