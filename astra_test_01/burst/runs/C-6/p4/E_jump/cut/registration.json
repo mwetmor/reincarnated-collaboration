@@ -1,0 +1,107 @@
+{
+ "kind": "jump",
+ "direction": "E",
+ "clip": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-6/xvideo/in/E_jump.mp4",
+ "clip_sha256": "0583e8e632df5548878bdb7b3129bb1771d68377ccbce25762a8c3afef7fe83c",
+ "method": "explicit one-shot (conductor keys, R-C3-17 lineage; blade-tip tracker)",
+ "indices_native": [
+  23,
+  37,
+  51,
+  57,
+  78,
+  82,
+  97,
+  106
+ ],
+ "keys": {
+  "onset": 23,
+  "crouch": 37,
+  "take_off": 51,
+  "apex": 78,
+  "touchdown": 87,
+  "landing_crouch": 97,
+  "gather": null,
+  "release": null,
+  "settle": 106
+ },
+ "transform": {
+  "scale": 0.2916160388821385,
+  "nominal_scale": 0.2916160388821385,
+  "translation_xy": [
+   144,
+   82
+  ],
+  "scaled_size": [
+   223,
+   340
+  ],
+  "source_sampling_box_xyxy": [
+   0.0,
+   0.0,
+   764.7041666666668,
+   1165.9166666666667
+  ],
+  "source_size": [
+   768,
+   1168
+  ],
+  "anchor_index": 0,
+  "anchor_native_bbox": [
+   132,
+   267,
+   637,
+   1090
+  ],
+  "canvas": [
+   512,
+   512
+  ],
+  "anchor_bbox": [
+   183,
+   160,
+   330,
+   400
+  ],
+  "anchor_H": 240,
+  "anchor_sole_row": 399,
+  "anchor_cx": 256.0,
+  "target_h": 240,
+  "sole_row": 399,
+  "cx": 255.5,
+  "one_transform_for_every_frame": true,
+  "upscaling": false,
+  "resampling": "PIL Lanczos; exact isotropic sampling box; integer unmasked paste",
+  "calibration": "closest nominal scale attaining raster height/centre, search +/-1 output px in .025 px steps"
+ },
+ "fps": 24.0,
+ "n_native": 145,
+ "invalid_native_indices": [
+  58,
+  59,
+  60,
+  61,
+  62,
+  63,
+  64,
+  65,
+  66,
+  67,
+  68,
+  69,
+  70,
+  71,
+  72,
+  73,
+  74,
+  75,
+  76,
+  77
+ ],
+ "flags": [
+  "20 native frames touch the frame border (blade/jump leaves the plate) \u2014 matte refused; excluded from the series",
+  "key frames moved to nearest valid: [23, 37, 51, 64, 78, 82, 97, 106] \u2192 [23, 37, 51, 57, 78, 82, 97, 106]"
+ ],
+ "conductor_derived": true,
+ "script_sha256": "0cb026ea16466d73becde14d1ea9eea27dbbabaeaa75457a84a9187f09c80035"
+}

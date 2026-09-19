@@ -1,0 +1,1145 @@
+{
+ "cell": "SW_jump",
+ "clip": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-6/xvideo/in/SW_jump.mp4",
+ "clip_sha256": "4be5f4cd4b6693390a07fa6d2eabb7d1d7cb20c43e1fdb2c43bac85d9849c551",
+ "tool_sha256": null,
+ "flags": [],
+ "cut": {
+  "period": null,
+  "selection": null,
+  "detection": null,
+  "splice": null,
+  "transform": {
+   "scale": 0.2917579075425791,
+   "nominal_scale": 0.291970802919708,
+   "translation_xy": [
+    144,
+    82
+   ],
+   "scaled_size": [
+    224,
+    340
+   ],
+   "source_sampling_box_xyxy": [
+    0.0,
+    0.0,
+    767.7598248723027,
+    1165.3497341811737
+   ],
+   "source_size": [
+    768,
+    1168
+   ],
+   "anchor_index": 0,
+   "anchor_native_bbox": [
+    60,
+    268,
+    708,
+    1090
+   ],
+   "canvas": [
+    512,
+    512
+   ],
+   "anchor_bbox": [
+    162,
+    160,
+    350,
+    400
+   ],
+   "anchor_H": 240,
+   "anchor_sole_row": 399,
+   "anchor_cx": 255.5,
+   "target_h": 240,
+   "sole_row": 399,
+   "cx": 255.5,
+   "one_transform_for_every_frame": true,
+   "upscaling": false,
+   "resampling": "PIL Lanczos; exact isotropic sampling box; integer unmasked paste",
+   "calibration": "closest nominal scale attaining raster height/centre, search +/-1 output px in .025 px steps"
+  },
+  "wall_seconds": null,
+  "indices_native": [
+   20,
+   37,
+   46,
+   52,
+   58,
+   68,
+   89,
+   96
+  ]
+ },
+ "results": [
+  {
+   "id": "bands_measure",
+   "subject": "SW_jump",
+   "passed": null,
+   "value": null,
+   "threshold": null,
+   "op": "<=",
+   "unit": "",
+   "evidence": [],
+   "notes": "EXC ValueError: kind must be idle or walk"
+  },
+  {
+   "id": "g6_seam",
+   "subject": "SW_jump",
+   "passed": null,
+   "value": 4.490805308024089,
+   "threshold": 2.000885009765625,
+   "op": "<=",
+   "unit": "rgb_mad",
+   "evidence": [],
+   "notes": "{\"definition\": \"literal minimum internal\", \"adjacent_and_seam\": [{\"canvas\": 5.2917633056640625, \"foreground_union\": 76.55228740135755}, {\"canvas\": 6.411825815836589, \"foreground_union\": 75.53915179842105}, {\"canvas\": 5.986061096191406, \"foreground_union\": 71.71892138939671}, {\"canvas\": 3.6397552490234375, \"foreground_union\": 55.476481190766904}, {\"canvas\": 3.330852508544922, \"foreground_union\": 53.822535905812735}, {\"canvas\": 6.675635019938151, \"foreground_union\": 71.07374164026751}, {\"canvas\": 2.000885009765625, \"foreground_union\": 36.261320428620806}, {\"canvas\": 4.490805308024089, \"foreground_union\": 68.75986605143781}]}"
+  },
+  {
+   "id": "g6b",
+   "subject": "SW_jump",
+   "passed": null,
+   "value": 4.490805308024089,
+   "threshold": 5.2917633056640625,
+   "op": "<=",
+   "unit": "rgb_mad",
+   "evidence": [],
+   "notes": "{\"definition\": \"median internal\", \"adjacent_and_seam\": [{\"canvas\": 5.2917633056640625, \"foreground_union\": 76.55228740135755}, {\"canvas\": 6.411825815836589, \"foreground_union\": 75.53915179842105}, {\"canvas\": 5.986061096191406, \"foreground_union\": 71.71892138939671}, {\"canvas\": 3.6397552490234375, \"foreground_union\": 55.476481190766904}, {\"canvas\": 3.330852508544922, \"foreground_union\": 53.822535905812735}, {\"canvas\": 6.675635019938151, \"foreground_union\": 71.07374164026751}, {\"canvas\": 2.000885009765625, \"foreground_union\": 36.261320428620806}, {\"canvas\": 4.490805308024089, \"foreground_union\": 68.75986605143781}]}"
+  },
+  {
+   "id": "g6c",
+   "subject": "SW_jump",
+   "passed": null,
+   "value": null,
+   "threshold": null,
+   "op": "<=",
+   "unit": "",
+   "evidence": [],
+   "notes": "UNEVALUABLE: walks only; idle uses G6b"
+  },
+  {
+   "id": "g1_size_stability",
+   "subject": "SW_jump",
+   "passed": null,
+   "value": 0.19999999999999996,
+   "threshold": null,
+   "op": "<=",
+   "unit": "fraction",
+   "evidence": [],
+   "notes": "[0.0417, 0.1333, 0.2, 0.0167, 0.1, 0.0917, 0.0417, 0.0333]"
+  },
+  {
+   "id": "head_pitch",
+   "subject": "clip",
+   "passed": null,
+   "value": {
+    "frames": [
+     {
+      "head_top_y": 170,
+      "head_h": 33,
+      "face_area": 584,
+      "head_area": 1298,
+      "face_fraction": 0.44992295839753466,
+      "face_centroid_y": 191.6832191780822,
+      "pitch_proxy": 0.6570672478206724,
+      "reason": null,
+      "index": 0,
+      "time_s": 0.0,
+      "delta": 0.006914879180908828,
+      "head_down": false,
+      "delta_reason": null
+     },
+     {
+      "head_top_y": 192,
+      "head_h": 30,
+      "face_area": 475,
+      "head_area": 1096,
+      "face_fraction": 0.4333941605839416,
+      "face_centroid_y": 212.08631578947367,
+      "pitch_proxy": 0.6695438596491228,
+      "reason": null,
+      "index": 1,
+      "time_s": 0.08333333333333333,
+      "delta": 0.01939149100935922,
+      "head_down": false,
+      "delta_reason": null
+     },
+     {
+      "head_top_y": 100,
+      "head_h": 41,
+      "face_area": 794,
+      "head_area": 2178,
+      "face_fraction": 0.36455463728191,
+      "face_centroid_y": 117.85390428211588,
+      "pitch_proxy": 0.4354610800516066,
+      "reason": null,
+      "index": 2,
+      "time_s": 0.16666666666666666,
+      "delta": -0.21469128858815695,
+      "head_down": false,
+      "delta_reason": null
+     },
+     {
+      "head_top_y": 82,
+      "head_h": 34,
+      "face_area": 991,
+      "head_area": 1882,
+      "face_fraction": 0.526567481402763,
+      "face_centroid_y": 96.15136226034309,
+      "pitch_proxy": 0.41621653706891437,
+      "reason": null,
+      "index": 3,
+      "time_s": 0.25,
+      "delta": -0.23393583157084918,
+      "head_down": false,
+      "delta_reason": null
+     },
+     {
+      "head_top_y": 88,
+      "head_h": 31,
+      "face_area": 951,
+      "head_area": 1717,
+      "face_fraction": 0.5538730343622598,
+      "face_centroid_y": 101.46267087276551,
+      "pitch_proxy": 0.434279705573081,
+      "reason": null,
+      "index": 4,
+      "time_s": 0.3333333333333333,
+      "delta": -0.21587266306668257,
+      "head_down": false,
+      "delta_reason": null
+     },
+     {
+      "head_top_y": 90,
+      "head_h": 31,
+      "face_area": 956,
+      "head_area": 1702,
+      "face_fraction": 0.5616921269095182,
+      "face_centroid_y": 104.11297071129707,
+      "pitch_proxy": 0.45525711971926036,
+      "reason": null,
+      "index": 5,
+      "time_s": 0.4166666666666667,
+      "delta": -0.1948952489205032,
+      "head_down": false,
+      "delta_reason": null
+     },
+     {
+      "head_top_y": 170,
+      "head_h": 33,
+      "face_area": 667,
+      "head_area": 1467,
+      "face_fraction": 0.4546693933197001,
+      "face_centroid_y": 191.8200899550225,
+      "pitch_proxy": 0.6612148471218936,
+      "reason": null,
+      "index": 6,
+      "time_s": 0.5,
+      "delta": 0.011062478482130045,
+      "head_down": false,
+      "delta_reason": null
+     },
+     {
+      "head_top_y": 168,
+      "head_h": 33,
+      "face_area": 689,
+      "head_area": 1538,
+      "face_fraction": 0.4479843953185956,
+      "face_centroid_y": 189.72423802612482,
+      "pitch_proxy": 0.6583102432159036,
+      "reason": null,
+      "index": 7,
+      "time_s": 0.5833333333333334,
+      "delta": 0.008157874576140034,
+      "head_down": false,
+      "delta_reason": null
+     }
+    ],
+    "rest": {
+     "head_top_y": 160,
+     "head_h": 34,
+     "face_area": 637,
+     "head_area": 1353,
+     "face_fraction": 0.4708056171470806,
+     "face_centroid_y": 182.10518053375196,
+     "pitch_proxy": 0.6501523686397636,
+     "reason": null
+    },
+    "skin_lab": [
+     70.87911687035304,
+     6.623373657072717,
+     8.828293981104618
+    ],
+    "first_second_mean_delta": -0.10173353861220671,
+    "first_second_evaluable_frames": 8,
+    "first_second_head_down": false,
+    "first_second_reason": null,
+    "calibration": {
+     "head_fraction": 0.14,
+     "skin_lab_tol": 20.0,
+     "hair_dark_L": 30.0,
+     "minimum_face_fraction": 0.02,
+     "head_down_delta": 0.05
+    }
+   },
+   "threshold": 0.05,
+   "op": "report",
+   "unit": "fraction_head_h",
+   "evidence": [],
+   "notes": "Colour-bin face-height proxy; no claim to an anatomical angle.\n\nProvisional calibration, fixed before real-clip evaluation: CIE76 tolerance\n20 Lab units, head top 14% of largest alpha component height, hair L<30,\nminimum visible face fraction .02; delta>.05 head heights marks head down.\nThe .05 threshold is one quarter of the specified synthetic .20 displacement,\nnot fitted to the real-clip window means. Upright rest selection is explicit."
+  },
+  {
+   "id": "coherence",
+   "subject": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-6/p4/SW_jump/cut/frames/jump/SW",
+   "passed": null,
+   "value": {
+    "head": {
+     "max_residual_mad": 47.831573486328125,
+     "raw_mad_at_max_residual": 52.79752731323242,
+     "max_raw_mad": 52.79752731323242,
+     "worst_pair": [
+      2,
+      3
+     ],
+     "bounds": [
+      156,
+      82,
+      347,
+      139
+     ],
+     "search_core": [
+      156,
+      82,
+      347,
+      139
+     ],
+     "classification": "redrawn",
+     "pairs": [
+      {
+       "pair": [
+        0,
+        1
+       ],
+       "raw_mad": 0.0,
+       "residual_mad": 0.0,
+       "translation_xy": [
+        0,
+        0
+       ],
+       "classification": "carried"
+      },
+      {
+       "pair": [
+        1,
+        2
+       ],
+       "raw_mad": 30.652429580688477,
+       "residual_mad": 28.424022674560547,
+       "translation_xy": [
+        0,
+        -6
+       ],
+       "classification": "redrawn"
+      },
+      {
+       "pair": [
+        2,
+        3
+       ],
+       "raw_mad": 52.79752731323242,
+       "residual_mad": 47.831573486328125,
+       "translation_xy": [
+        6,
+        -6
+       ],
+       "classification": "redrawn"
+      },
+      {
+       "pair": [
+        3,
+        4
+       ],
+       "raw_mad": 29.961360931396484,
+       "residual_mad": 7.927375316619873,
+       "translation_xy": [
+        3,
+        6
+       ],
+       "classification": "carried"
+      },
+      {
+       "pair": [
+        4,
+        5
+       ],
+       "raw_mad": 18.741832733154297,
+       "residual_mad": 3.749089241027832,
+       "translation_xy": [
+        0,
+        3
+       ],
+       "classification": "carried"
+      },
+      {
+       "pair": [
+        5,
+        6
+       ],
+       "raw_mad": 28.104957580566406,
+       "residual_mad": 28.104957580566406,
+       "translation_xy": [
+        0,
+        0
+       ],
+       "classification": "redrawn"
+      },
+      {
+       "pair": [
+        6,
+        7
+       ],
+       "raw_mad": 0.0,
+       "residual_mad": 0.0,
+       "translation_xy": [
+        0,
+        0
+       ],
+       "classification": "carried"
+      }
+     ]
+    },
+    "shoulders_chest": {
+     "max_residual_mad": 49.51375961303711,
+     "raw_mad_at_max_residual": 51.8686637878418,
+     "max_raw_mad": 51.8686637878418,
+     "worst_pair": [
+      5,
+      6
+     ],
+     "bounds": [
+      156,
+      139,
+      347,
+      225
+     ],
+     "search_core": [
+      156,
+      139,
+      347,
+      225
+     ],
+     "classification": "redrawn",
+     "pairs": [
+      {
+       "pair": [
+        0,
+        1
+       ],
+       "raw_mad": 26.033544540405273,
+       "residual_mad": 22.755712509155273,
+       "translation_xy": [
+        6,
+        6
+       ],
+       "classification": "redrawn"
+      },
+      {
+       "pair": [
+        1,
+        2
+       ],
+       "raw_mad": 33.02175521850586,
+       "residual_mad": 30.847375869750977,
+       "translation_xy": [
+        6,
+        -6
+       ],
+       "classification": "redrawn"
+      },
+      {
+       "pair": [
+        2,
+        3
+       ],
+       "raw_mad": 37.72748565673828,
+       "residual_mad": 33.45736312866211,
+       "translation_xy": [
+        -6,
+        -6
+       ],
+       "classification": "redrawn"
+      },
+      {
+       "pair": [
+        3,
+        4
+       ],
+       "raw_mad": 22.826839447021484,
+       "residual_mad": 19.377531051635742,
+       "translation_xy": [
+        -3,
+        1
+       ],
+       "classification": "redrawn"
+      },
+      {
+       "pair": [
+        4,
+        5
+       ],
+       "raw_mad": 26.56077766418457,
+       "residual_mad": 13.65461254119873,
+       "translation_xy": [
+        0,
+        4
+       ],
+       "classification": "redrawn"
+      },
+      {
+       "pair": [
+        5,
+        6
+       ],
+       "raw_mad": 51.8686637878418,
+       "residual_mad": 49.51375961303711,
+       "translation_xy": [
+        -6,
+        -6
+       ],
+       "classification": "redrawn"
+      },
+      {
+       "pair": [
+        6,
+        7
+       ],
+       "raw_mad": 12.536811828613281,
+       "residual_mad": 4.907341957092285,
+       "translation_xy": [
+        2,
+        -3
+       ],
+       "classification": "carried"
+      }
+     ]
+    },
+    "hips": {
+     "max_residual_mad": 50.188846588134766,
+     "raw_mad_at_max_residual": 63.41095733642578,
+     "max_raw_mad": 63.41095733642578,
+     "worst_pair": [
+      0,
+      1
+     ],
+     "bounds": [
+      156,
+      225,
+      347,
+      273
+     ],
+     "search_core": [
+      156,
+      225,
+      347,
+      273
+     ],
+     "classification": "redrawn",
+     "pairs": [
+      {
+       "pair": [
+        0,
+        1
+       ],
+       "raw_mad": 63.41095733642578,
+       "residual_mad": 50.188846588134766,
+       "translation_xy": [
+        4,
+        6
+       ],
+       "classification": "redrawn"
+      },
+      {
+       "pair": [
+        1,
+        2
+       ],
+       "raw_mad": 46.7856330871582,
+       "residual_mad": 42.69506072998047,
+       "translation_xy": [
+        6,
+        6
+       ],
+       "classification": "redrawn"
+      },
+      {
+       "pair": [
+        2,
+        3
+       ],
+       "raw_mad": 30.094640731811523,
+       "residual_mad": 28.273305892944336,
+       "translation_xy": [
+        3,
+        -6
+       ],
+       "classification": "redrawn"
+      },
+      {
+       "pair": [
+        3,
+        4
+       ],
+       "raw_mad": 26.216732025146484,
+       "residual_mad": 19.634634017944336,
+       "translation_xy": [
+        -1,
+        -6
+       ],
+       "classification": "redrawn"
+      },
+      {
+       "pair": [
+        4,
+        5
+       ],
+       "raw_mad": 23.783485412597656,
+       "residual_mad": 7.844786167144775,
+       "translation_xy": [
+        0,
+        4
+       ],
+       "classification": "carried"
+      },
+      {
+       "pair": [
+        5,
+        6
+       ],
+       "raw_mad": 35.88096237182617,
+       "residual_mad": 33.05122756958008,
+       "translation_xy": [
+        6,
+        -5
+       ],
+       "classification": "redrawn"
+      },
+      {
+       "pair": [
+        6,
+        7
+       ],
+       "raw_mad": 9.409285545349121,
+       "residual_mad": 4.816390514373779,
+       "translation_xy": [
+        1,
+        -2
+       ],
+       "classification": "redrawn"
+      }
+     ]
+    },
+    "legs": {
+     "max_residual_mad": 33.02434539794922,
+     "raw_mad_at_max_residual": 33.496036529541016,
+     "max_raw_mad": 33.496036529541016,
+     "worst_pair": [
+      1,
+      2
+     ],
+     "bounds": [
+      156,
+      273,
+      347,
+      352
+     ],
+     "search_core": [
+      156,
+      273,
+      347,
+      352
+     ],
+     "classification": "redrawn",
+     "pairs": [
+      {
+       "pair": [
+        0,
+        1
+       ],
+       "raw_mad": 28.832063674926758,
+       "residual_mad": 25.672035217285156,
+       "translation_xy": [
+        0,
+        6
+       ],
+       "classification": "redrawn"
+      },
+      {
+       "pair": [
+        1,
+        2
+       ],
+       "raw_mad": 33.496036529541016,
+       "residual_mad": 33.02434539794922,
+       "translation_xy": [
+        -6,
+        -3
+       ],
+       "classification": "redrawn"
+      },
+      {
+       "pair": [
+        2,
+        3
+       ],
+       "raw_mad": 19.63569450378418,
+       "residual_mad": 18.22583770751953,
+       "translation_xy": [
+        0,
+        6
+       ],
+       "classification": "redrawn"
+      },
+      {
+       "pair": [
+        3,
+        4
+       ],
+       "raw_mad": 7.3482890129089355,
+       "residual_mad": 5.852718353271484,
+       "translation_xy": [
+        -2,
+        -6
+       ],
+       "classification": "redrawn"
+      },
+      {
+       "pair": [
+        4,
+        5
+       ],
+       "raw_mad": 5.412861347198486,
+       "residual_mad": 1.8079837560653687,
+       "translation_xy": [
+        0,
+        4
+       ],
+       "classification": "carried"
+      },
+      {
+       "pair": [
+        5,
+        6
+       ],
+       "raw_mad": 31.019529342651367,
+       "residual_mad": 28.62230682373047,
+       "translation_xy": [
+        6,
+        6
+       ],
+       "classification": "redrawn"
+      },
+      {
+       "pair": [
+        6,
+        7
+       ],
+       "raw_mad": 13.453885078430176,
+       "residual_mad": 8.143062591552734,
+       "translation_xy": [
+        0,
+        -1
+       ],
+       "classification": "redrawn"
+      }
+     ]
+    },
+    "feet": {
+     "max_residual_mad": 18.649288177490234,
+     "raw_mad_at_max_residual": 19.63216209411621,
+     "max_raw_mad": 19.63216209411621,
+     "worst_pair": [
+      1,
+      2
+     ],
+     "bounds": [
+      156,
+      352,
+      347,
+      400
+     ],
+     "search_core": [
+      156,
+      352,
+      347,
+      400
+     ],
+     "classification": "redrawn",
+     "pairs": [
+      {
+       "pair": [
+        0,
+        1
+       ],
+       "raw_mad": 14.623764038085938,
+       "residual_mad": 14.623764038085938,
+       "translation_xy": [
+        0,
+        0
+       ],
+       "classification": "redrawn"
+      },
+      {
+       "pair": [
+        1,
+        2
+       ],
+       "raw_mad": 19.63216209411621,
+       "residual_mad": 18.649288177490234,
+       "translation_xy": [
+        -6,
+        -6
+       ],
+       "classification": "redrawn"
+      },
+      {
+       "pair": [
+        2,
+        3
+       ],
+       "raw_mad": 7.02286958694458,
+       "residual_mad": 7.02286958694458,
+       "translation_xy": [
+        0,
+        0
+       ],
+       "classification": "redrawn"
+      },
+      {
+       "pair": [
+        3,
+        4
+       ],
+       "raw_mad": 0.0,
+       "residual_mad": 0.0,
+       "translation_xy": [
+        0,
+        0
+       ],
+       "classification": "carried"
+      },
+      {
+       "pair": [
+        4,
+        5
+       ],
+       "raw_mad": 0.0,
+       "residual_mad": 0.0,
+       "translation_xy": [
+        0,
+        0
+       ],
+       "classification": "carried"
+      },
+      {
+       "pair": [
+        5,
+        6
+       ],
+       "raw_mad": 19.57115364074707,
+       "residual_mad": 16.82267951965332,
+       "translation_xy": [
+        -6,
+        6
+       ],
+       "classification": "redrawn"
+      },
+      {
+       "pair": [
+        6,
+        7
+       ],
+       "raw_mad": 5.708442211151123,
+       "residual_mad": 5.708442211151123,
+       "translation_xy": [
+        0,
+        0
+       ],
+       "classification": "redrawn"
+      }
+     ]
+    },
+    "arms_left": {
+     "max_residual_mad": 28.186981201171875,
+     "raw_mad_at_max_residual": 46.105308532714844,
+     "max_raw_mad": 46.105308532714844,
+     "worst_pair": [
+      0,
+      1
+     ],
+     "bounds": [
+      156,
+      139,
+      198,
+      273
+     ],
+     "search_core": [
+      156,
+      139,
+      198,
+      273
+     ],
+     "classification": "redrawn",
+     "pairs": [
+      {
+       "pair": [
+        0,
+        1
+       ],
+       "raw_mad": 46.105308532714844,
+       "residual_mad": 28.186981201171875,
+       "translation_xy": [
+        6,
+        6
+       ],
+       "classification": "redrawn"
+      },
+      {
+       "pair": [
+        1,
+        2
+       ],
+       "raw_mad": 26.209606170654297,
+       "residual_mad": 24.946399688720703,
+       "translation_xy": [
+        0,
+        6
+       ],
+       "classification": "redrawn"
+      },
+      {
+       "pair": [
+        2,
+        3
+       ],
+       "raw_mad": 2.297619104385376,
+       "residual_mad": 2.297619104385376,
+       "translation_xy": [
+        0,
+        0
+       ],
+       "classification": "redrawn"
+      },
+      {
+       "pair": [
+        3,
+        4
+       ],
+       "raw_mad": 0.0,
+       "residual_mad": 0.0,
+       "translation_xy": [
+        0,
+        0
+       ],
+       "classification": "carried"
+      },
+      {
+       "pair": [
+        4,
+        5
+       ],
+       "raw_mad": 0.0,
+       "residual_mad": 0.0,
+       "translation_xy": [
+        0,
+        0
+       ],
+       "classification": "carried"
+      },
+      {
+       "pair": [
+        5,
+        6
+       ],
+       "raw_mad": 23.4439697265625,
+       "residual_mad": 19.939943313598633,
+       "translation_xy": [
+        -6,
+        0
+       ],
+       "classification": "redrawn"
+      },
+      {
+       "pair": [
+        6,
+        7
+       ],
+       "raw_mad": 8.050640106201172,
+       "residual_mad": 3.4761905670166016,
+       "translation_xy": [
+        1,
+        -3
+       ],
+       "classification": "carried"
+      }
+     ]
+    },
+    "arms_right": {
+     "max_residual_mad": 24.484718322753906,
+     "raw_mad_at_max_residual": 24.861467361450195,
+     "max_raw_mad": 26.926557540893555,
+     "worst_pair": [
+      5,
+      6
+     ],
+     "bounds": [
+      305,
+      139,
+      347,
+      273
+     ],
+     "search_core": [
+      305,
+      139,
+      347,
+      273
+     ],
+     "classification": "redrawn",
+     "pairs": [
+      {
+       "pair": [
+        0,
+        1
+       ],
+       "raw_mad": 23.886934280395508,
+       "residual_mad": 21.041933059692383,
+       "translation_xy": [
+        -6,
+        6
+       ],
+       "classification": "redrawn"
+      },
+      {
+       "pair": [
+        1,
+        2
+       ],
+       "raw_mad": 13.18887710571289,
+       "residual_mad": 7.652866840362549,
+       "translation_xy": [
+        6,
+        5
+       ],
+       "classification": "redrawn"
+      },
+      {
+       "pair": [
+        2,
+        3
+       ],
+       "raw_mad": 26.926557540893555,
+       "residual_mad": 19.711088180541992,
+       "translation_xy": [
+        6,
+        6
+       ],
+       "classification": "redrawn"
+      },
+      {
+       "pair": [
+        3,
+        4
+       ],
+       "raw_mad": 22.689529418945312,
+       "residual_mad": 12.985074996948242,
+       "translation_xy": [
+        6,
+        -6
+       ],
+       "classification": "redrawn"
+      },
+      {
+       "pair": [
+        4,
+        5
+       ],
+       "raw_mad": 22.326641082763672,
+       "residual_mad": 12.945806503295898,
+       "translation_xy": [
+        0,
+        4
+       ],
+       "classification": "redrawn"
+      },
+      {
+       "pair": [
+        5,
+        6
+       ],
+       "raw_mad": 24.861467361450195,
+       "residual_mad": 24.484718322753906,
+       "translation_xy": [
+        -5,
+        -6
+       ],
+       "classification": "redrawn"
+      },
+      {
+       "pair": [
+        6,
+        7
+       ],
+       "raw_mad": 2.0348258018493652,
+       "residual_mad": 0.40339967608451843,
+       "translation_xy": [
+        4,
+        -3
+       ],
+       "classification": "carried"
+      }
+     ]
+    }
+   },
+   "threshold": {
+    "residual_ratio": 0.5,
+    "noise_mad": 1.0,
+    "search_radius_px": 6
+   },
+   "op": "report",
+   "unit": "rgb_mad",
+   "evidence": [],
+   "notes": "Report replaces LOCK/MOTION interpretation; worst consecutive residual, fixed support; no verdict."
+  },
+  {
+   "id": "rim_luma_excess_mean",
+   "subject": "SW_jump",
+   "passed": null,
+   "value": -33.8626452285404,
+   "threshold": null,
+   "op": "<=",
+   "unit": "",
+   "evidence": [],
+   "notes": "[-35.9074, -38.9068, -25.022, -35.7575, -35.215, -32.1755, -33.9058, -34.011]"
+  },
+  {
+   "id": "closure_first_last",
+   "subject": "SW_jump",
+   "passed": null,
+   "value": 85.27895483716406,
+   "threshold": null,
+   "op": "<=",
+   "unit": "rgb_mad",
+   "evidence": [],
+   "notes": ""
+  },
+  {
+   "id": "closure_last_rest",
+   "subject": "SW_jump",
+   "passed": null,
+   "value": 87.73529734146561,
+   "threshold": null,
+   "op": "<=",
+   "unit": "rgb_mad",
+   "evidence": [],
+   "notes": ""
+  }
+ ],
+ "concerns": []
+}
