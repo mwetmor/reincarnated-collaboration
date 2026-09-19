@@ -1648,6 +1648,27 @@
       "veto_open": true,
       "ruling": "PACK v45 (CS-pack-v45, exit 0, 3 calls) → cliffside_v45 staged (19 kits; headless import exit 0, 0 errors). Packet 106 = the A/B in the real scene: A_E / B_E (three casts ~4.5 s apart) + A_W / B_W (walkable clamp), real-time + third-speed MP4s + 16-frame sheets; both arms 0 SCRIPT ERROR / 0 missing resource in the headless event traces. Conductor eye (observations only; the verdict is Matt's): B — flask lobs, lands, the clip plays from contact at the landing point: spread → boiling white-cream flames over a dark-red pool → die-down → the burnt smudge held; the three casts share one landing point so the three scorches overlap into one (accumulation is proven by trace, not visible here — a west+east pair would show two); the pool body renders the palette's band-1 dark RED (0.38,0.055,0.025) rather than tar-black — a one-line palette note for Matt's eye, not a build defect; the flames read cream-heavy (band 3). A — fire-burst contact, a smaller darker tar pool with licks, burn-out, scorch; A's scorch also persists. Spine frames + raw clip backed up into the packet (disk-only substrate, R-C7-8 note). Sent to Matt's phone (R-C7-0c). web13 dispatch to drax fires now (build + stage + verify, push held for Matt's relayed word, R-C7-5).",
       "ts": "2026-09-19T00:06:50"
+    },
+    {
+      "id": "R-C7-10",
+      "class": "matt",
+      "veto_open": false,
+      "ruling": "MATT (2026-09-19): \"Push. I want to test them\" → web13 PUSH AUTHORIZED (reincarnated-loadout, public/playtest/cliffside = cliffside_v45, both Blackwater arms). Relayed to drax; the live pck sha must match the local build sha (the web11 check) and the seven production verdict lines recorded in deploy_truth v13.",
+      "ts": "2026-09-19T00:15:55"
+    },
+    {
+      "id": "R-C7-11",
+      "class": "conductor",
+      "veto_open": true,
+      "ruling": "DEFECT F-C7-2 (drax, web13 build; confirmed in my own events_B_E.log lines 4/8): arm B's keeper.gd:276 loads res://vfx/blackwater_cocktail_e3_V/materials/Additive.tres, which the V kit never emits (\"Cannot open file\" / \"Failed loading resource\") — the BL-2v-b res:// guard covered the KIT CONFIG, not keeper.gd's per-kit material load path; the same shape as F-C7-1 one level up. Non-fatal (no SCRIPT ERROR; captures and boot clean) → NOT blocking web13; owed to BL-2w with the alignment lap: emit the material (or make keeper.gd's load conditional on the kit's declared layers) AND extend the guard to every res:// the runtime scripts load per kit, not only config strings. Also from drax: the production three-scorch check needs the caster to MOVE between B casts (same landing point → overlapping scorches) — the dispatch's touch check amended accordingly.",
+      "ts": "2026-09-19T00:16:56"
+    },
+    {
+      "id": "R-C7-12",
+      "class": "conductor",
+      "veto_open": true,
+      "ruling": "web13 LIVE at https://reincarnated-loadout.vercel.app/playtest/cliffside/ — the web11 check passes on the conductor's own independent fetch: live index.pck sha256 ac513a0f06e572856c0cc34473a4287c747245192ecfafa53af3c30c47e6bb18, 40,677,216 B == drax's local build (+1,039,864 B over web12 = the one V kit, 145 spine frames). Loadout commit 822a089 on origin/main (Matt push word R-C7-10). Picker: A = slot 12 (blackwater_cocktail_e3), B = slot 19 (blackwater_cocktail_e3_V). drax's production touch-check verdict lines pending in deploy_truth v13.",
+      "ts": "2026-09-19T00:17:36"
     }
   ],
   "grok_calls": [
