@@ -13,27 +13,31 @@ rows=[]; masks=[]
 for i,f in enumerate(files):
     a = np.asarray(Image.open(f).convert('RGB')).astype(np.float32)/255
     r,g,b = a[...,0],a[...,1],a[...,2]
-    plate = (g>0.6)&(r<0.35)&(b<0.35)&((g-np.maximum(r,b))>0.3)     # green key
+    plate = (g>r+0.15)&(g>b+0.15)     # HUE key (R-C7-0a): a pale-green halo is plate, not subject
     subj = ~plate
     luma = 0.299*r+0.587*g+0.114*b
     band = np.abs(luma[...,None]-SEED_LEVELS[None,None,:]).argmin(-1)
     dark = subj & (band<=1); bright = subj & (band>=2); white = subj&(band==3)
-    ys,xs = np.where(dark)
+    ys,xs = np.where(subj)
     if len(xs)>50:
         x0,x1,y0,y1 = np.percentile(xs,1),np.percentile(xs,99),np.percentile(ys,1),np.percentile(ys,99)
-        bw,bh = x1-x0, y1-y0
+        low = ys > y1-0.35*(y1-y0)                      # pool band = bottom 35 % of the subject rows
+        px0,px1 = np.percentile(xs[low],1),np.percentile(xs[low],99)
+        bw,bh = px1-px0, (y1-y0)*0.35/0.5              # width from the pool band; height estimated from the band (ellipse lower half ~ 0.5 h)
+        bh = y1 - np.percentile(ys[low],1)             # crude: pool band height
     else: x0=x1=y0=y1=bw=bh=0
     fy,fx = np.where(bright); flame_top = (y0 - np.percentile(fy,1)) if len(fy)>50 else 0
     # chroma of subject (should be ~0: greyscale register)
     sat = (a.max(-1)-a.min(-1))[subj].mean() if subj.any() else 0
     rows.append(dict(i=i,t=round(i/fps,3),plate=float(plate.mean()),subj_px=int(subj.sum()),dark_px=int(dark.sum()),bright_px=int(bright.sum()),white_px=int(white.sum()),
-                     dark_w=float(bw),dark_h=float(bh),dark_aspect=float(bh/bw) if bw else 0,flame_above=float(flame_top),sat=float(sat),
+                     dark_w=float(bw),dark_h=float(bh),dark_aspect=float((2*bh)/bw) if bw else 0,light_share=float(((band[subj]>=2).sum())/max(1,subj.sum())),flame_above=float(flame_top),sat=float(sat),
                      bands=[int((band[subj]==k).sum()) for k in range(4)]))
     masks.append(subj)
 # derived gates
 bright=np.array([r['bright_px'] for r in rows]); white=np.array([r['white_px'] for r in rows]); dw=np.array([r['dark_w'] for r in rows]); plate=np.array([r['plate'] for r in rows])
 peak = int(white.argmax()); t_peak = peak/fps
-stable_from = next((i for i,r in enumerate(rows) if r['dark_w']>=0.6*dw.max()), None)
+final_w = float(np.median(dw[-int(fps):])) if n>fps else float(dw[-1])
+stable_from = next((i for i,r in enumerate(rows) if i>int(0.4*fps) and r['dark_w']>=0.9*final_w), None)   # after the flash; pool at 90 % of its final width
 steady = dw[stable_from: int(n*0.7)] if stable_from is not None else dw
 drift = float((steady.max()-steady.min())/steady.max()) if steady.size and steady.max() else 1.0
 # flicker: detrended autocorrelation of the bright-pixel count over the steady window
@@ -56,7 +60,9 @@ gates = dict(probe=probe, frames=n, fps=fps, size=[W,H],
   white_peak_frame=peak, white_peak_s=t_peak, single_peak=bool((white>0.8*white.max()).sum()<=int(fps*0.5)),
   flicker_hz=flick_hz, flicker_coherence=coherence, flame_height_over_pool_w=flame_ratio,
   max_mask_jump=float(max(cuts)) if cuts else None, tail_mean_jump=tail_static,
-  subject_sat_mean=float(np.mean([r['sat'] for r in rows])))
+  subject_sat_mean=float(np.mean([r['sat'] for r in rows])),
+  light_share_steady=float(np.median([r['light_share'] for r in rows[stable_from:int(n*0.7)]])) if stable_from is not None else None,
+  value_register_ok=bool(np.median([r['light_share'] for r in rows[stable_from:int(n*0.7)]])>=0.2) if stable_from is not None else None)
 json.dump(dict(gates=gates,rows=rows), open(out/'measure.json','w'), indent=1)
 # contact sheet: 24 frames evenly
 sel = np.linspace(0,n-1,24).astype(int); th=[Image.open(files[i]).resize((W//4,H//4)) for i in sel]

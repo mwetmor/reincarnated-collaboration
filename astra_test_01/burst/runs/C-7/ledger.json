@@ -19,6 +19,13 @@
       "veto_open": true,
       "ruling": "BW_spine_01 (Grok i2v, 56 s, 960x960, 24 fps, 145 f) — THE SPINE READS end to end: flask -> white flash + straight streaks + expanding ground ring -> dark pool spreads from the flask -> low boiling flames -> die-down -> still burnt smudge with soft edges; contour + flat tones held for 145 frames (hand-drawn register), camera locked, single bloom peak at f4 (0.17 s), no scene cut (max mask jump 0.108 = the flash), tail static (0.0015). Gates as instrumented: plate 0.49 FAIL -> INSTRUMENT: the miss is a hue-green halo RGB (0.29,1.0,0.25) = keyable by hue (plate passes on a hue key; the halo is what a runtime floor light does and is discarded); footprint drift 0.35 FAIL -> INSTRUMENT: the dark mask counted the flames (drawn dark grey); pool-only band width 620 (1.0 s) -> 729 (2.0 s) -> 727 stable = spread finished ~1.5 s (asked 0.5), stable after; final smudge 702 px = 73 % of frame vs 67 % asked (+9 %, within 15 %); aspect ~0.52 flame-free (target 0.58, -0.06 marginal). REAL MISSES: flames up to 0.42 pool width (gate 0.33) and a tall-fire phase 1.5-3.5 s; flicker 1.7 Hz coherence 0.09 (source 3.3-3.6) -> retime 2x reaches 3.4 Hz but halves the burn window; white band absent after 1.5 s (no white-hot centre; 3 tones in the fire). Preview built (hue key -> luma -> 4 planes -> kit palette -> clearing crop at scene scale, uniform downscale 0.498; 1x + 2x) = Packet 105. Clip 2 = diagnosed repair BW_spine_r1 (no halo, spread by f12, flames < 1/4 width, ~5 Hz, white-hot centre) fired; the two-attempt discipline applied to Grok clips as to bursts.",
       "ts": "2026-09-18T21:32:03"
+    },
+    {
+      "id": "R-C7-0b",
+      "class": "conductor",
+      "veto_open": true,
+      "ruling": "BW_spine_r1 (clip 2, the diagnosed repair; 56 s, 960x960, 24 fps, 145 f) — THE CANDIDATE. The value register is back: flames white/light-grey with a grey rim over a dark pool (light_share 0.71 vs 0.03 in clip 1); a clean spiky starburst flash at f4, ground ring, pool spread stable from 0.75 s, drift 0.107 (gate 0.15 PASS), final width 73 % of frame (asked 67 %, +9 % PASS), flames ≤ 0.12 pool width (PASS; conservative vs the source's ~1/3), no cut (0.027), tail static (0.000), plate hue-keyed 0.74 (a green halo persists on the plate despite the prompt — keyed away; it is the floor light the runtime draws anyway). MISSES: flicker 2.0 Hz coherence 0.04 (source 3.3–3.6) — a 1.3–2x retime at the bind reaches 2.6–4 Hz (Matt's eye on the 1x/2x previews); pool aspect 0.45 (target 0.58) — bind-side y-scale 1.29 on the sheet (flames become ~0.155 of width, still under 1/4) rather than a clip 3; single_peak FALSE is an instrument artefact (white pixels now include the flames; the flash peak is visible and single at f4 — the O1 instrument must measure the flash outside the pool). Preview (hue key → luma → 4 planes → kit palette → clearing crop, uniform downscale 0.514): reads as a burning tar pool in the scene. Packet 105 carries clip 1 + clip 2 raw, previews 1x/2x, sheets. Trial verdict (conductor, veto-open): the video-spine route PASSES its pre-registered gates on the second clip; arm B proceeds to the bind (BL-2v TOOLING, after the fire lane clears) for the side-by-side with the runtime Blackwater under Matt's eye. Grok: 2 clips used.",
+      "ts": "2026-09-18T21:35:58"
     }
   ],
   "grok_calls": [
@@ -38,6 +45,23 @@
       "printed": "",
       "staged_mp4": "/Users/admin/astra-burst/grok/C-7/BW_spine_01/BW_spine_01.mp4",
       "ts": "2026-09-18T21:29:04"
+    },
+    {
+      "id": "G-BW_spine_r1",
+      "cell": "BW_spine_r1",
+      "still": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-7/artifacts/BW-video-seed/bw_seed_01.png",
+      "still_sha256": "697e30bd6d3890b2dbb49a6c4e9cb38077f768ad09d2ce1ff65cc2f375bb97cf",
+      "prompt_sha256": "733d52de069c1edfdcd89627a30d424b2ee93bda6f99fe7e80eab3a5dcba5816",
+      "extra": "",
+      "clip": "runs/C-7/xvideo/in/BW_spine_r1.mp4",
+      "clip_sha256": "b3e13cde28f684b0f69232afca064f1ef87bb0c92a3a982f251eae6ee8fda2cf",
+      "ok": true,
+      "rc": 0,
+      "wall_s": 56,
+      "probe": "960,960,24/1,6.041667,145",
+      "printed": "",
+      "staged_mp4": "/Users/admin/astra-burst/grok/C-7/BW_spine_r1/BW_spine_r1.mp4",
+      "ts": "2026-09-18T21:32:41"
     }
   ],
   "run": "C-7",
