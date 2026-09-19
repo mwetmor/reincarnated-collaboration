@@ -1,10 +1,58 @@
 {
-  "bursts": [],
+  "bursts": [
+    {
+      "id": "BL-2v",
+      "type": "TOOLING",
+      "experiment": "P1-blackwater-AB",
+      "brief_sha256": "7045e6e843b855ce29bea4ec1eef54bd0c64e9b3a31242fce74535fa3ccac861",
+      "started": "2026-09-19T02:08:32.619085+00:00",
+      "ended": "2026-09-19T02:08:38.338700+00:00",
+      "minutes": 0.09530859026611628,
+      "image_calls": 0,
+      "tool_calls": 0,
+      "audit": {
+        "violations": [
+          "receipt unreadable: [Errno 2] No such file or directory: '/Users/admin/astra-burst/runs/C-7/BL-2v/out/receipt.json'"
+        ],
+        "image_calls": 0,
+        "tool_calls": 0,
+        "tools_seen": {},
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [],
+        "execution_error": "codex exit 1"
+      },
+      "receipt_sha256": null,
+      "artifacts": [],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 3
+    }
+  ],
   "images_used": 0,
   "images_cap": 999999,
   "experiments": {},
   "milestones": [],
-  "halts": [],
+  "halts": [
+    {
+      "id": "H-C7-1",
+      "class": "external-state",
+      "status": "OPEN — Matt decides",
+      "ruling": "BL-2v VOID exit 3 (0 tool calls, no receipt): codex events.jsonl = \"You have hit your usage limit … try again at Sep 22nd, 2026 11:55 PM\". The Astra (codex) allowance is EXHAUSTED until 2026-09-22 23:55. Same signature as C-5 FL-6d / FL-6d-r1 (both VOID exit 3 with empty out/) — my R-C7-1-era disposition (\"receipt path missing after the disk purge\") was WRONG: those were the first two hits of this limit; the run root was innocent. Resource HALT under charter § 7 (three backoffs / out-of-budget = external-state HALT). No further Astra burst fires until Matt rules: (a) route BL-2v to drax as a dispatch against the same brief (labour-source change — Q71 F7 \"100 % Astra labour\" is Matt's ruling, so this is his call); (b) wait to 09-22; (c) purchase credits.",
+      "ts": "2026-09-18T22:10:37"
+    }
+  ],
   "rulings": [
     {
       "id": "R-C7-0",
@@ -68,6 +116,13 @@
       "veto_open": true,
       "ruling": "GO — jack-ryan Gate-1 on charter v1.0 DISCHARGED (BLOCK → PASS-WITH-WARNS at re-check; qa/findings/2026-09-18-run-C-7-charter-gate1.md § 7, commit 976704be). Charter pin restamped to 99962fa74fe7 (R-C7-0…0g were ruled under v0.1 4e8185d424d7 / the v1.0 draft 8892ada80395 / the discharge 419cc6c04e97; v1.0 spans those shas — WARN-1). Substrate at launch: MANIFEST.sha256 f0851b83bb36 (post-FL-6c, R-C5-139; verified byte-for-byte by jack-ryan); staged scene cliffside_v44 (web12 live); 18 kits kits_v9; props v25; capsule collider; the six re-specs FILED to runs/C-7/specs/ from the reconciled v2 (PConc = the Occultist combo; pending_rulings map carries F1(a)/F3(a) defaults for a one-pass flip); arm B substrate = BW_spine_r1 cut frames + frames.json. Open WARNs carried: WARN-13 fixed (logs at ~/astra-burst/logs/C-7 + c5_c7_ mirror for C-6); WARN-3 fixed (220 = radius, 3.4 BH diameter, one quantity). Astra run root ~/astra-burst/runs/C-7 is created by the wrapper. P1 opens: BL-2v (TOOLING, under the heavy lock, detached).",
       "ts": "2026-09-18T22:06:25"
+    },
+    {
+      "id": "R-C7-2",
+      "class": "conductor",
+      "veto_open": true,
+      "ruling": "CORRECTION to the charter § 1 FL-6d disposition and R-C7-1: FL-6d / FL-6d-r1 VOIDs were the codex USAGE LIMIT (weekly allowance exhausted; reset 2026-09-22 23:55), not a missing run root. The C-5 \"two VOIDs in a row\" HALT condition therefore DID fire in C-5 on the true cause and was never taken to Matt — recorded here as the C-5 debt it is. BL-2v (C-7) is the third VOID of the same cause. Conductor recommendation for H-C7-1: (a) drax builds BL-2v against the identical brief + acceptance under the same freeze law (jack-ryan Gate-2 unchanged; no medium change; a labour-source change only, Matt's to grant) — Blackwater's A/B is one exporter change + one pack away and should not wait four days.",
+      "ts": "2026-09-18T22:10:37"
     }
   ],
   "grok_calls": [
