@@ -5759,6 +5759,14 @@
       "topic": "Idle p3: good except eyes closed on the long breath + red streamer from the book",
       "ruling": "Matt (verbatim): Its good except for two issues.. can we edit them out? 1) eyes closed during prolonged breath. 2) strange red stuff coming out of the top of the book. → Conductor read at 3x: lids lowered/closed roughly f48–f120 (3 s) — too long to exclude and still cut a 2-s open-eyed loop; the book streamer is a drawing error across the hold (paint-out = art transformation, forbidden). → ONE re-generate S_idle_p4 with the v3 prompt + two pinned clauses: EYES OPEN the entire clip (no blink, no closing, no lowering of the lids; the fixed glare of the master), and the tome red ribbon hangs SHORT and STILL — nothing flows, rises or streams from the book. Grok 22.",
       "ts": "2026-09-18T19:39:46"
+    },
+    {
+      "id": "R-C6-37",
+      "class": "matt",
+      "veto_open": false,
+      "topic": "IDLE APPROVED — S_idle_p4 (v3.1 skeleton) is the idle",
+      "ruling": "Matt: Approved. → S_idle_p4 is the S idle candidate (planted scythe, left-hand rest, blade up, crescent away, eyes open, inert book, size locked). The v3.1 idle skeleton is the idle prompt for the run. Fire SW_idle + E_idle (2 clips, _p4 suffix for lineage); cut all three idles with the loop after the plant (--min-start-s ≈ 1.5 s); v1/r1/p1–p3 idles retired as candidates.",
+      "ts": "2026-09-18T20:13:57"
     }
   ],
   "grok_calls": [
@@ -6118,6 +6126,40 @@
       "printed": "",
       "staged_mp4": "/Users/admin/astra-burst/grok/C-6/S_idle_p3/S_idle_p3.mp4",
       "ts": "2026-09-18T19:30:22"
+    },
+    {
+      "id": "G-S_idle_p4",
+      "cell": "S_idle",
+      "still": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-6/artifacts/N5-pad/pad_S.png",
+      "still_sha256": "9541750a7b04cba619fd5c78b8f89ebdbcc9678e1ba98612d00fca994d4e0136",
+      "prompt_sha256": "7dc76fa23904e021f11cef2a5aa39170ddfa4b8bcd0178f77dff6fdf9dcdbd13",
+      "extra": "",
+      "clip": "runs/C-6/xvideo/in/S_idle_p4.mp4",
+      "clip_sha256": "4774546b6efa2ecf499f3f99aab4671e02ee91a43b90f73c044301114441c36c",
+      "ok": true,
+      "rc": 0,
+      "wall_s": 58,
+      "probe": "768,1168,24/1,6.041667,145",
+      "printed": "",
+      "staged_mp4": "/Users/admin/astra-burst/grok/C-6/S_idle_p4/S_idle_p4.mp4",
+      "ts": "2026-09-18T19:40:44"
+    },
+    {
+      "id": "G-SW_idle_p4",
+      "cell": "SW_idle",
+      "still": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-6/artifacts/N5-pad/pad_SW.png",
+      "still_sha256": "899ec323e9b6a54f36cc594d51bb63585bbc355c5f0fcff68a6650a1b61c5411",
+      "prompt_sha256": "5a5467e9a09b5e3ec61c4a86164a7ff1b1ad85bb58e1f833a865d670b605c2ff",
+      "extra": "",
+      "clip": "runs/C-6/xvideo/in/SW_idle_p4.mp4",
+      "clip_sha256": "d9575f64e6ec359939463708125c5022a19ee236e84ea0f611da588d54c9d4d8",
+      "ok": true,
+      "rc": 0,
+      "wall_s": 51,
+      "probe": "768,1168,24/1,6.041667,145",
+      "printed": "",
+      "staged_mp4": "/Users/admin/astra-burst/grok/C-6/SW_idle_p4/SW_idle_p4.mp4",
+      "ts": "2026-09-18T20:14:50"
     }
   ],
   "notes": [
