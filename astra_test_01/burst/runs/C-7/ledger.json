@@ -26,6 +26,27 @@
       "veto_open": true,
       "ruling": "BW_spine_r1 (clip 2, the diagnosed repair; 56 s, 960x960, 24 fps, 145 f) — THE CANDIDATE. The value register is back: flames white/light-grey with a grey rim over a dark pool (light_share 0.71 vs 0.03 in clip 1); a clean spiky starburst flash at f4, ground ring, pool spread stable from 0.75 s, drift 0.107 (gate 0.15 PASS), final width 73 % of frame (asked 67 %, +9 % PASS), flames ≤ 0.12 pool width (PASS; conservative vs the source's ~1/3), no cut (0.027), tail static (0.000), plate hue-keyed 0.74 (a green halo persists on the plate despite the prompt — keyed away; it is the floor light the runtime draws anyway). MISSES: flicker 2.0 Hz coherence 0.04 (source 3.3–3.6) — a 1.3–2x retime at the bind reaches 2.6–4 Hz (Matt's eye on the 1x/2x previews); pool aspect 0.45 (target 0.58) — bind-side y-scale 1.29 on the sheet (flames become ~0.155 of width, still under 1/4) rather than a clip 3; single_peak FALSE is an instrument artefact (white pixels now include the flames; the flash peak is visible and single at f4 — the O1 instrument must measure the flash outside the pool). Preview (hue key → luma → 4 planes → kit palette → clearing crop, uniform downscale 0.514): reads as a burning tar pool in the scene. Packet 105 carries clip 1 + clip 2 raw, previews 1x/2x, sheets. Trial verdict (conductor, veto-open): the video-spine route PASSES its pre-registered gates on the second clip; arm B proceeds to the bind (BL-2v TOOLING, after the fire lane clears) for the side-by-side with the runtime Blackwater under Matt's eye. Grok: 2 clips used.",
       "ts": "2026-09-18T21:35:58"
+    },
+    {
+      "id": "R-C7-0c",
+      "class": "matt",
+      "veto_open": false,
+      "ruling": "MATT (2026-09-18) on Packet 105: \"clip two looks very good.\" Interface note (standing): share a mobile-openable version next time (SendUserFile to the phone), not only the Desktop packet.",
+      "ts": "2026-09-18T21:45:37"
+    },
+    {
+      "id": "R-C7-0d",
+      "class": "matt",
+      "veto_open": false,
+      "ruling": "MATT (2026-09-18): \"clip 2 at 1x looks best.\" → the bind plays the clip at NATIVE 24 fps (no 2x retime); the 2.0 Hz flicker is accepted by eye over the source's 3.3–3.6 Hz. Pool life at 1x: spread 0–0.75 s, steady burn ~0.75–4.0 s, die-down ~4.0–4.6 s, scorch still to 6.0 s; the runtime tick clock (rank-1 ticks at 0 / 1 / 2 s of pool life) maps onto the steady window; the 2.5-s rank-1 pool duration is a SPEC number the clip exceeds (3.25 s steady) — bind clause: cut the steady window to 2.5 s or carry the clip's own timing, Matt's eye at BL-2v.",
+      "ts": "2026-09-18T21:45:51"
+    },
+    {
+      "id": "R-C7-0e",
+      "class": "matt",
+      "veto_open": false,
+      "ruling": "MATT (2026-09-18) after the source video: (1) flame height is GOOD as in clip 2 — taller than the source, accepted as ours; (2) the source leaves CHARRED GROUND behind after each fire circle → the scorch persists per cast (decals ACCUMULATE across casts, 12 s each, never replace one another); (3) the source has a bit of SMOKE mixed in with the fire. Conductor disposition (veto-open): (2) = the clip's own last frame held as the decal, one per cast, additive across casts — bind clause for BL-2v; (3) smoke is a RUNTIME layer, not a clip element: a grey smoke tone in the clip would collide with the four-plane value ramp (grey → a fire band), and T4g holds that a flipbook carries one blend class — so BL-2v reuses the FL-5 smoke recipe (soft MIX grey-warm noise sheet, low alpha, rising) born at pool start, mixed through the flames, continuing through the die-down and thinning over the scorch.",
+      "ts": "2026-09-18T21:49:11"
     }
   ],
   "grok_calls": [
