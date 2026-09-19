@@ -1032,6 +1032,161 @@
       "codex_version": "codex-cli 0.153.4",
       "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
       "exit": 0
+    },
+    {
+      "id": "BL-2v-b",
+      "type": "TOOLING",
+      "experiment": "P1-blackwater-AB",
+      "brief_sha256": "8ab75e80fb1d5b17d95b22ff47b365358c5438f495c4ed9848bb34b93895c02f",
+      "started": "2026-09-19T03:03:37.992003+00:00",
+      "ended": "2026-09-19T03:28:32.288141+00:00",
+      "minutes": 24.904878206949796,
+      "image_calls": 0,
+      "tool_calls": 39,
+      "audit": {
+        "violations": [],
+        "image_calls": 0,
+        "tool_calls": 39,
+        "tools_seen": {
+          "command_execution": 39
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [],
+        "execution_error": "receipt reports unsuccessful execution"
+      },
+      "receipt_sha256": "9e68f319bc03a909345354818568d14a399055976320e5e8ea436d7b80e0e76d",
+      "artifacts": [],
+      "artifacts_in_place": [
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "export/godot_import.py",
+          "sha256": "0299dee3db4337e074e59059bd59961ca1ad6714714c0b360cc53d13d8c92bb5"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-7/t3/BL-2v-b/ab_trace.json",
+          "sha256": "54fea6277389dbcd843c5041db4fbc2379fddc9bf1a2f94ca0a73c245adc5c08"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-7/t3/BL-2v-b/ab_trace_before_on_current_scene.json",
+          "sha256": "640459ecaf9244fbe2707673b02fa3c1d966f90fd44596e66c14dfc5265332fb"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-7/t3/BL-2v-b/acceptance.json",
+          "sha256": "cd6361a30ad7a1ea51d2a43ec299ff13302b15116901b0892971f8a6ca6d8407"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-7/t3/BL-2v-b/byte_identity.json",
+          "sha256": "ac3535e72c897f1c60d6d3b4167f28bb14a0f8f799852a4aba7276e9eb7a79bb"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-7/t3/BL-2v-b/changes.diff",
+          "sha256": "161502d47c18cab7ba5cac9f230ce802844632cf5f34433917cdf0f19aa3ef2c"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-7/t3/BL-2v-b/historical_event_differences.json",
+          "sha256": "a2c77e0740ba8cc1d186549301543096e6d0ee942f19fb6aab61fcc1e6c2f30c"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-7/t3/BL-2v-b/lock_diffs.json",
+          "sha256": "7618a090674f2765f6707cc837014a9b726d433adfa4533398cdc72f219badbe"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-7/t3/BL-2v-b/reds.json",
+          "sha256": "763722f2ac9cacc50029b4199473ecbc32c81aa4d852087f98375e2e2b14f279"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-7/t3/BL-2v-b/source_before.json",
+          "sha256": "c2a20dc14dbb5e60540e4dc1a4b7636652332a49e4b1afd6e353fe4f8f53b7b5"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-7/t3/BL-2v-b/suite_execution.json",
+          "sha256": "f456cd3589855fd532f0ace692d44e4bc2e40f3a470c7f14b7c20a9928ab0e20"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-7/t3/BL-2v-b/suite_output_census.json",
+          "sha256": "af718c344a03d88f5864b227574064e1d83ca2355bda28b080e393f717f44e1c"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-7/t3/BL-2v-b/t0c_suite_output.txt",
+          "sha256": "86a3a7a2e0691eecb80140b8698e7ff8433ccf932718949fba741870d4bc74d7"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-7/t3/BL-2v-b/t0c_summary.json",
+          "sha256": "0c333c5e167be55802656cd5ac4fa7822fac295d512d80169ed1d55289cfb566"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-7/t3/BL-2v-b/trace_comparison.json",
+          "sha256": "d0308748ff8b2ec55b4cfa4a9bbed4d183cfddf57a031e87e6add0284fe0eb56"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-7/t3/BL-2v-b/verification_support.tar.gz",
+          "sha256": "a91c428b9c4b3a3d5eca70a39d410b9ded37aff0e904c29e8b306d36810f3853"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "tests/headless.json",
+          "sha256": "f26638e55cf8d38d9122b1339f8c9222fc99df1d89ce11be09f7351e415e114b"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "tests/run_t0c.py",
+          "sha256": "433a30d67e4ae6688545063b7cc03d444b8f005203a4a914deeae9bd2005419c"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "tests/t0c_suite_output.txt",
+          "sha256": "86a3a7a2e0691eecb80140b8698e7ff8433ccf932718949fba741870d4bc74d7"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "tests/t0c_summary.json",
+          "sha256": "0c333c5e167be55802656cd5ac4fa7822fac295d512d80169ed1d55289cfb566"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "tests/test_godot_import.py",
+          "sha256": "4726e3ff91f57341f461db8cdb2fa9225143b3702538c85b343029efaa1192f8"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "tests/test_run_t0c.py",
+          "sha256": "22f82496e36d432b3f9e5164129c9d30d632fac2ab154634f2ba3a642687bb6b"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "tests/test_vfx_picker.py",
+          "sha256": "0b19c8d98f5583f7b8afc58f1fb82685d7bcd553377c5b072d8d48f6c006dc09"
+        }
+      ],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 3
     }
   ],
   "images_used": 0,
@@ -1145,6 +1300,13 @@
       "veto_open": true,
       "ruling": "OUTSIDE SUITE after BL-2v-r1 (779 run / 17 FAIL / 4 ERROR; run_t0c summary writer crashed on an _ErrorHolder so t0c_summary.json is STALE — the suite output file is the record): DEFECT F-C7-1 — GroundVisibilityRegressionTests.setUpClass drives every G2 kit through the generic vfx_g2.gd path and crashes on blackwater_cocktail_e3_V: config references res://vfx/blackwater_cocktail_e3_V/derived/field.png (never emitted for a flipbook kit) → Resource file not found → get_image/set_shader_parameter/instantiate on null (vfx_g2.gd 113/163/231/285). BL-2v placed the flipbook dispatch in the PICKER only; any other caller gets a broken config. Arm B's own picker-path probes were clean — a latent broken reference is a defect regardless (the check that answers a different question is not the check). NOT freezing or packing on this tree. BL-2v-b fired (TOOLING, serial, under the lock): dispatch inside vfx_g2.gd acquire; a generic res:// resolution guard over all 19 kit configs; Blackwater runtime tests re-pointed to artifacts of record (the FL-6d job, three setUpClass errors today); the two 19-kit locks re-encoded with per-lock diffs; run_t0c.py summary fix; a classified reds.json (never weaken). New named red confirmed: the two count locks; the rest inherited pending the table.",
       "ts": "2026-09-18T23:02:39"
+    },
+    {
+      "id": "R-C7-7",
+      "class": "conductor",
+      "veto_open": true,
+      "ruling": "BL-2v-b returned FAILED honestly and is ACCEPTED IN FULL on its acceptance.json (27 min, 39 calls): Part A — the flipbook dispatch now lives in vfx_g2.gd acquire; the test's own VISIBILITY_PROBE (unchanged) runs the 19-kit project with no SCRIPT ERROR and no missing resource; all four GroundVisibilityRegressionTests RUN and pass (F-C7-1 CLOSED); Part B — generic guard: every res:// in every live kit config resolves (19 kits, 0 missing) + a negative test; Part C — the three BlackwaterLandingRuntimeTests re-pointed to the artifact of record and RUN (pass); Part D — the two 19-kit locks re-encoded with per-lock diffs (lock_diffs.json); Part E — run_t0c.py rewrites the summary on setUpClass errors (unit-tested). Its three concerns dispositioned: (1) \"possible deletion in runs/C-5/t3/T4x/catalogue_project\" — an UNTRACKED, regenerable T4x staged copy (R-C5-78), directory still present, zero tracked deletions attributable (the five runs/C-3 numbers.json D-rows pre-date this session); (2) arm-B event trace 81 → 60 vs BL-2v-r1's historical trace — PLACEMENT, not code: the historical run had a synthetic body 105 at the sandbox's hound spot, the current scene ticks the hound (body 5, field_centre, primary); the old and new code on the SAME scene produce byte-equal events; (3) reds: 35 inherited + PieceStretchImportTests.test_v2_headless_import_and_seed_equal_rooted_clock labelled NEW but flagged seen_in_supplied_outside_log = it was already red in the pre-burst outside run → FL-5/FL-6 stale-value family (band-3 dissolve order), inherited, NAMED. NOTE: the burst's sandbox suite overwrote tests/t0c_suite_output.txt — the pre-burst outside record survives only in ~/astra-burst/logs/C-7/suite_post_bl2v.log + this ledger; the outside suite is re-running now on the post-BL-2v-b tree under the lock and is the record for the freeze.",
+      "ts": "2026-09-18T23:31:21"
     }
   ],
   "grok_calls": [
