@@ -1,0 +1,298 @@
+{
+ "rule": "F17(a) mirror set: unique S, SW, E (+N, NW pending) ; mirrors SE\u2190SW, W\u2190E, NE\u2190NW",
+ "cells": {
+  "idle_S": {
+   "status": "COMPLETE",
+   "source_cut": "S_idle_p4",
+   "clip": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-6/xvideo/in/S_idle_p4.mp4",
+   "frames": 12,
+   "flags": [],
+   "packet_mp4": true,
+   "clip_sha256": "4774546b6efa2ecf499f3f99aab4671e02ee91a43b90f73c044301114441c36c"
+  },
+  "idle_SW": {
+   "status": "COMPLETE",
+   "source_cut": "SW_idle_p4",
+   "clip": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-6/xvideo/in/SW_idle_p4.mp4",
+   "frames": 12,
+   "flags": [],
+   "packet_mp4": true,
+   "clip_sha256": "d9575f64e6ec359939463708125c5022a19ee236e84ea0f611da588d54c9d4d8"
+  },
+  "idle_E": {
+   "status": "COMPLETE",
+   "source_cut": "E_idle_p4",
+   "clip": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-6/xvideo/in/E_idle_p4.mp4",
+   "frames": 12,
+   "flags": [],
+   "packet_mp4": true,
+   "clip_sha256": "5c7b480fac3cf3ca3ce8580fd6883436fe032b249e56f1650ccd4a3b168943a0"
+  },
+  "walk_S": {
+   "status": "COMPLETE",
+   "source_cut": "S_walk_sib",
+   "clip": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-6/xvideo/in/S_walk.mp4",
+   "frames": 12,
+   "flags": [
+    "period from sibling/prompted stride (charter fallback) \u2014 FLAGGED",
+    "period from E sibling stride (no head-bob cycle walking toward the camera) \u2014 FLAGGED"
+   ],
+   "packet_mp4": true,
+   "clip_sha256": "156e20a0fba08a1a47272c7d0a81781f4cabeb9fdebb75845751b0a46b336d03"
+  },
+  "walk_SW": {
+   "status": "COMPLETE",
+   "source_cut": "SW_walk",
+   "clip": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-6/xvideo/in/SW_walk.mp4",
+   "frames": 12,
+   "flags": [
+    "slow stride 3.0 s (C-3 W class) \u2014 FLAGGED"
+   ],
+   "packet_mp4": true,
+   "clip_sha256": "bdab8a78e4427cea342e06a8b5401af20777c70bd2abb642ecc160df48f71dcd"
+  },
+  "walk_E": {
+   "status": "COMPLETE",
+   "source_cut": "E_walk",
+   "clip": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-6/xvideo/in/E_walk.mp4",
+   "frames": 12,
+   "flags": [],
+   "packet_mp4": true,
+   "clip_sha256": "1bcc7d24b32312d981ea4974bd46ae274dbb627c106cb486508bfd9d61253a6a"
+  },
+  "run_S": {
+   "status": "COMPLETE",
+   "source_cut": "S_run",
+   "clip": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-6/xvideo/in/S_run.mp4",
+   "frames": 12,
+   "flags": [],
+   "packet_mp4": true,
+   "clip_sha256": "63cb5fb07778a7aca3af603203fcb5800db518b4c30190a3fac9ab0af7287498"
+  },
+  "run_SW": {
+   "status": "COMPLETE",
+   "source_cut": "SW_run",
+   "clip": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-6/xvideo/in/SW_run.mp4",
+   "frames": 12,
+   "flags": [
+    "slow 2.75 s \u2014 FLAGGED"
+   ],
+   "packet_mp4": true,
+   "clip_sha256": "49c77d8c48021f96144c13fe713e44bf2604257bb32070ddd358c74aac61865f"
+  },
+  "run_E": {
+   "status": "COMPLETE",
+   "source_cut": "E_run",
+   "clip": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-6/xvideo/in/E_run.mp4",
+   "frames": 12,
+   "flags": [],
+   "packet_mp4": true,
+   "clip_sha256": "6c38b9ce4c752f9501a90b238ad3f449c4ead71f4e7c2a6f3e2573b864180bd1"
+  },
+  "cast_S": {
+   "status": "COMPLETE",
+   "source_cut": "S_cast",
+   "clip": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-6/xvideo/in/S_cast.mp4",
+   "frames": 8,
+   "flags": [],
+   "packet_mp4": true,
+   "clip_sha256": "e50aeb614af813d7dd94290f4b7578010d210af19630a766b10c8fe6d771da18"
+  },
+  "cast_SW": {
+   "status": "COMPLETE",
+   "source_cut": "SW_cast",
+   "clip": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-6/xvideo/in/SW_cast.mp4",
+   "frames": 8,
+   "flags": [],
+   "packet_mp4": true,
+   "clip_sha256": "fc66d955206dd4903bbd8bad74f1875523a31fbc3c1a65340d2b26c80d72e405"
+  },
+  "cast_E": {
+   "status": "COMPLETE",
+   "source_cut": "E_cast",
+   "clip": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-6/xvideo/in/E_cast.mp4",
+   "frames": 8,
+   "flags": [
+    "1 border-touch frame excluded"
+   ],
+   "packet_mp4": true,
+   "clip_sha256": "b36e7f2fb9a49bf1d4c11ce3f3330e2f993f1002bbcdf4192e40dea0a8f40991"
+  },
+  "jump_S": {
+   "status": "COMPLETE",
+   "source_cut": "S_jump",
+   "clip": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-6/xvideo/in/S_jump.mp4",
+   "frames": 8,
+   "flags": [
+    "settle by last-valid-frame fallback; 8 border-touch frames excluded \u2014 FLAGGED"
+   ],
+   "packet_mp4": true,
+   "clip_sha256": "0791741a3176c1b7e4f430ed42e7e4dd6f71e968020710f0b18c79264b904ef2"
+  },
+  "jump_SW": {
+   "status": "COMPLETE",
+   "source_cut": "SW_jump",
+   "clip": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-6/xvideo/in/SW_jump.mp4",
+   "frames": 8,
+   "flags": [],
+   "packet_mp4": true,
+   "clip_sha256": "4be5f4cd4b6693390a07fa6d2eabb7d1d7cb20c43e1fdb2c43bac85d9849c551"
+  },
+  "jump_E": {
+   "status": "COMPLETE",
+   "source_cut": "E_jump",
+   "clip": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-6/xvideo/in/E_jump.mp4",
+   "frames": 8,
+   "flags": [
+    "20 border-touch frames (jump leaves the plate) excluded; keys moved to nearest valid \u2014 FLAGGED"
+   ],
+   "packet_mp4": true,
+   "clip_sha256": "0583e8e632df5548878bdb7b3129bb1771d68377ccbce25762a8c3afef7fe83c"
+  },
+  "idle_SE": {
+   "status": "COMPLETE",
+   "mirror_of": "idle_SW",
+   "frames": 12,
+   "flags": [
+    "MIRRORED cell (horn/tome/grip hand on the opposite side; key light flipped) \u2014 Matt P5 eye judges"
+   ]
+  },
+  "walk_SE": {
+   "status": "COMPLETE",
+   "mirror_of": "walk_SW",
+   "frames": 12,
+   "flags": [
+    "slow stride 3.0 s (C-3 W class) \u2014 FLAGGED",
+    "MIRRORED cell (horn/tome/grip hand on the opposite side; key light flipped) \u2014 Matt P5 eye judges"
+   ]
+  },
+  "run_SE": {
+   "status": "COMPLETE",
+   "mirror_of": "run_SW",
+   "frames": 12,
+   "flags": [
+    "slow 2.75 s \u2014 FLAGGED",
+    "MIRRORED cell (horn/tome/grip hand on the opposite side; key light flipped) \u2014 Matt P5 eye judges"
+   ]
+  },
+  "jump_SE": {
+   "status": "COMPLETE",
+   "mirror_of": "jump_SW",
+   "frames": 8,
+   "flags": [
+    "MIRRORED cell (horn/tome/grip hand on the opposite side; key light flipped) \u2014 Matt P5 eye judges"
+   ]
+  },
+  "cast_SE": {
+   "status": "COMPLETE",
+   "mirror_of": "cast_SW",
+   "frames": 8,
+   "flags": [
+    "MIRRORED cell (horn/tome/grip hand on the opposite side; key light flipped) \u2014 Matt P5 eye judges"
+   ]
+  },
+  "idle_W": {
+   "status": "COMPLETE",
+   "mirror_of": "idle_E",
+   "frames": 12,
+   "flags": [
+    "MIRRORED cell (horn/tome/grip hand on the opposite side; key light flipped) \u2014 Matt P5 eye judges"
+   ]
+  },
+  "walk_W": {
+   "status": "COMPLETE",
+   "mirror_of": "walk_E",
+   "frames": 12,
+   "flags": [
+    "MIRRORED cell (horn/tome/grip hand on the opposite side; key light flipped) \u2014 Matt P5 eye judges"
+   ]
+  },
+  "run_W": {
+   "status": "COMPLETE",
+   "mirror_of": "run_E",
+   "frames": 12,
+   "flags": [
+    "MIRRORED cell (horn/tome/grip hand on the opposite side; key light flipped) \u2014 Matt P5 eye judges"
+   ]
+  },
+  "jump_W": {
+   "status": "COMPLETE",
+   "mirror_of": "jump_E",
+   "frames": 8,
+   "flags": [
+    "20 border-touch frames (jump leaves the plate) excluded; keys moved to nearest valid \u2014 FLAGGED",
+    "MIRRORED cell (horn/tome/grip hand on the opposite side; key light flipped) \u2014 Matt P5 eye judges"
+   ]
+  },
+  "cast_W": {
+   "status": "COMPLETE",
+   "mirror_of": "cast_E",
+   "frames": 8,
+   "flags": [
+    "1 border-touch frame excluded",
+    "MIRRORED cell (horn/tome/grip hand on the opposite side; key light flipped) \u2014 Matt P5 eye judges"
+   ]
+  },
+  "idle_NE": {
+   "status": "INCOMPLETE",
+   "reason": "mirror source idle_NW not complete"
+  },
+  "walk_NE": {
+   "status": "INCOMPLETE",
+   "reason": "mirror source walk_NW not complete"
+  },
+  "run_NE": {
+   "status": "INCOMPLETE",
+   "reason": "mirror source run_NW not complete"
+  },
+  "jump_NE": {
+   "status": "INCOMPLETE",
+   "reason": "mirror source jump_NW not complete"
+  },
+  "cast_NE": {
+   "status": "INCOMPLETE",
+   "reason": "mirror source cast_NW not complete"
+  },
+  "idle_NW": {
+   "status": "INCOMPLETE",
+   "reason": "no approved seed for NW (N12 hold edits blocked by the Codex limit, T25)"
+  },
+  "walk_NW": {
+   "status": "INCOMPLETE",
+   "reason": "no approved seed for NW (N12 hold edits blocked by the Codex limit, T25)"
+  },
+  "run_NW": {
+   "status": "INCOMPLETE",
+   "reason": "no approved seed for NW (N12 hold edits blocked by the Codex limit, T25)"
+  },
+  "jump_NW": {
+   "status": "INCOMPLETE",
+   "reason": "no approved seed for NW (N12 hold edits blocked by the Codex limit, T25)"
+  },
+  "cast_NW": {
+   "status": "INCOMPLETE",
+   "reason": "no approved seed for NW (N12 hold edits blocked by the Codex limit, T25)"
+  },
+  "idle_N": {
+   "status": "INCOMPLETE",
+   "reason": "no approved seed for N (N12 hold edits blocked by the Codex limit, T25)"
+  },
+  "walk_N": {
+   "status": "INCOMPLETE",
+   "reason": "no approved seed for N (N12 hold edits blocked by the Codex limit, T25)"
+  },
+  "run_N": {
+   "status": "INCOMPLETE",
+   "reason": "no approved seed for N (N12 hold edits blocked by the Codex limit, T25)"
+  },
+  "jump_N": {
+   "status": "INCOMPLETE",
+   "reason": "no approved seed for N (N12 hold edits blocked by the Codex limit, T25)"
+  },
+  "cast_N": {
+   "status": "INCOMPLETE",
+   "reason": "no approved seed for N (N12 hold edits blocked by the Codex limit, T25)"
+  }
+ },
+ "complete": 25
+}
