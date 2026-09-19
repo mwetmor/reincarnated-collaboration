@@ -1690,6 +1690,13 @@
       "veto_open": false,
       "ruling": "MATT (2026-09-19): (1) Blackwater (arm A) — \"close but needs some more work still so a taste round is needed\" → DONE (f) NOT passed; BL-3 = one taste round on the runtime Blackwater, direction elicited from Matt (as fire FL-4, R-C5-109). (2) Reddit-thread adoptions 1–3 APPROVED: HOWTO.md for the lane (gandalf), godot-lsp-cli + gdlint pre-freeze spike (drax, under the heavy lock), one verify.sh entry point (gandalf). (3) F5 RULED — try the fire PROJECTILE as video, goal: \"a smoother transition from staff end point to impact graphics\" — i.e. the seam Matt sees is eruption → flying head sprite → burst as three different drawings; the video lap targets continuity of the fire body from the staff tip through impact. Conductor design proposal (fork FP-1) to follow; the lap is inserted after Blackwater's taste round per the charter order unless Matt says otherwise; Grok clips may be generated ahead (conductor calls, no TOOLING).",
       "ts": "2026-09-19T11:02:32"
+    },
+    {
+      "id": "R-C7-16",
+      "class": "conductor",
+      "veto_open": true,
+      "ruling": "drax LSP-gate spike (drax/notes/2026-09-19-godot-lsp-cli-gate-spike.md, f7859f77) — adoption 2 RESOLVED NEGATIVE: godot-lsp-cli `diagnostics --project` never sends didOpen, returns {} and exits 0 on any project (a gate that cannot fail); a didOpen sweep finds 1 error / 63 warnings on v45 but catches NEITHER defect shape that bit us (F-C7-1 null-instance down an untaken branch; F-C7-2 load() of a missing res:// — only the preload() form is flagged, which our kits do not emit); gdlint = 973 pure-style findings on v45, 0 semantic; the headless editor mints .uid files into whatever it scans. Ruling: do NOT wire godot-lsp-cli into verify.sh; gdlint advisory-only with the four style rules disabled; the F-C7-2 class is served by widening OUR dangling-res:// fence past .gdshader to cover load()/preload() targets in emitted scripts — folded into BL-2w. The spike paid for itself by preventing a gate that passes everything.",
+      "ts": "2026-09-19T11:24:29"
     }
   ],
   "grok_calls": [
