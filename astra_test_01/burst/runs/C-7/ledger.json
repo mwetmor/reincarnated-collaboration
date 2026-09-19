@@ -1131,6 +1131,20 @@
       "veto_open": true,
       "ruling": "BL-2v-r1 DELIVERED_WITH_CONCERNS (exit 0; 41 calls; 29 min) and ACCEPTED on its acceptance.json: Part A — 145 frames sha12-equal to frames.json, AnimatedSprite2D body at 24 fps non-looping through the four-band MIX ramp, frame-0 anchor error 0 px, scene emission true; Part B — held frame 144 from 6.0 s, alive at 17 s (alpha 1.0), 0.5 at 17.5, freed by 18.1; three casts → three distinct coexisting scorch nodes; Part C — ticks at 0.75/1.75/2.75 s, ellipse 362 x 210, hound (body 5) responds on all three, no response outside the ellipse, none after 4.0 s; Part D — z floor_light −1 / body 0 / smoke +1, smoke alpha .22 at 0.75 s → 0 at 6 s, floor light 0 by 5 s; disabled on the V kit: shatter, splash, painted pool, licks, dark duplicate, additive core, erosion; Part E — headless trace exit 0, frame 72 at 3 s, 144 at 6 s, same landing for all casts; the historical BL-1a-r1 trace comparison UNEVALUATED (path outside the read list — my omission; arm A source + runtime + all 18 exported kits byte-identical to the pre-burst baseline instead, which is the stronger fact); Part F — 19-kit catalogue export exit 0, both headless imports exit 0 on gl_compatibility, 6 new tests + 2 targeted green. Scoped-suite reds classified, none weakened: two 18-kit cardinality locks now read 19 (NEW named reds BL-2v-19a/19b, aligned in BL-2w); the empty-key A/B arms test = the pre-existing FL-6 flame_dance drift (inherited); four headless tests = the sandbox editor-settings write block (in-sandbox only — the outside suite decides). Untracked files under runs/C-5/vfx_kits/v9/ pre-date the burst (09-15/16 mtimes) — pre-existing kit inputs, not burst output. Next: outside suite under the heavy lock → freeze → restamp → FREEZE_NOTICES → PACK v45.",
       "ts": "2026-09-18T22:46:51"
+    },
+    {
+      "id": "R-C7-5",
+      "class": "matt",
+      "veto_open": false,
+      "ruling": "MATT (2026-09-18): load the finished Blackwater into the current cliff scene — (a) web13 deploys AS SOON AS cliffside_v45 stages (both Blackwater kits, A slot 12 / B slot 19 in the picker), BEFORE the A/B verdict, so the A/B is played on the phone; the deploy itself still fires on Matt's word at push time (standing rule). C-7 charter F4 (a) confirmed in effect for Blackwater.",
+      "ts": "2026-09-18T22:50:44"
+    },
+    {
+      "id": "R-C7-6",
+      "class": "conductor",
+      "veto_open": true,
+      "ruling": "OUTSIDE SUITE after BL-2v-r1 (779 run / 17 FAIL / 4 ERROR; run_t0c summary writer crashed on an _ErrorHolder so t0c_summary.json is STALE — the suite output file is the record): DEFECT F-C7-1 — GroundVisibilityRegressionTests.setUpClass drives every G2 kit through the generic vfx_g2.gd path and crashes on blackwater_cocktail_e3_V: config references res://vfx/blackwater_cocktail_e3_V/derived/field.png (never emitted for a flipbook kit) → Resource file not found → get_image/set_shader_parameter/instantiate on null (vfx_g2.gd 113/163/231/285). BL-2v placed the flipbook dispatch in the PICKER only; any other caller gets a broken config. Arm B's own picker-path probes were clean — a latent broken reference is a defect regardless (the check that answers a different question is not the check). NOT freezing or packing on this tree. BL-2v-b fired (TOOLING, serial, under the lock): dispatch inside vfx_g2.gd acquire; a generic res:// resolution guard over all 19 kit configs; Blackwater runtime tests re-pointed to artifacts of record (the FL-6d job, three setUpClass errors today); the two 19-kit locks re-encoded with per-lock diffs; run_t0c.py summary fix; a classified reds.json (never weaken). New named red confirmed: the two count locks; the rest inherited pending the table.",
+      "ts": "2026-09-18T23:02:39"
     }
   ],
   "grok_calls": [
