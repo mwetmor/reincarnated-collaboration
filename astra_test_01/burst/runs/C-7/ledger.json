@@ -54,6 +54,20 @@
       "veto_open": true,
       "ruling": "CORRECTION of R-C7-0b (jack-ryan Gate-1 BLOCK-C, 2026-09-18): clip 2 (BW_spine_r1) MISSED two of its nine pre-registered gates — aspect 0.45 vs 0.58 ± 0.05 (2.6x the tolerance) and flicker 2.0 Hz vs 3.3–3.6 Hz — and passed the other seven (plate, footprint drift, final width, flame height, single flash peak, no cut, static tail, value register). The two-clip kill rule is NOT what carried arm B forward: R-C7-0c (Matt: \"clip two looks very good\") and R-C7-0d (Matt: \"1x looks best\" — the 2.0 Hz flicker accepted by eye over the source) are the commitment-boundary ratification; the trial survives on Matt's eye, not on the gate sheet. The aspect miss is discharged BIND-SIDE by y_scale 1.281 in frames.json (a conductor disposition, veto-open) and is RE-MEASURED on the cut frames — scorch frame bbox 365 x 228 px = aspect 0.62, inside the 0.58 ± 0.05 band — and again on the bound flipbook at BL-2v, not assumed. Instrument lineage (WARN-10): bw_cut.py v1 (clip 1 numbers plate 0.49 / drift 0.35 = a green-key + flames-in-footprint artefact), v2 = hue key + pool-only footprint + stable_from at 90 % of final after 0.4 s (both clips re-measured; the numbers in R-C7-0b are v2), v3 = O1 flash measured outside the final scorch footprint (this ruling); shas recorded in notes.",
       "ts": "2026-09-18T22:01:36"
+    },
+    {
+      "id": "R-C7-0g",
+      "class": "matt",
+      "veto_open": false,
+      "ruling": "MATT (2026-09-18, verbatim): \"I did clear the fire lane, but wasn't super happy with the result, hence my exploration of video.. we may look to try the fire lane again with video as well after we finish blackwater.\" → the C-7 precondition (fire lane clear) is MET on Matt's word; C-5's fire stands at cliffside_v44 / web12 as best-so-far, not DONE (f); fork F5 (fire on video after Blackwater) registered. (Gate-1 re-check WARN-12.)",
+      "ts": "2026-09-18T22:06:25"
+    },
+    {
+      "id": "R-C7-1",
+      "class": "conductor",
+      "veto_open": true,
+      "ruling": "GO — jack-ryan Gate-1 on charter v1.0 DISCHARGED (BLOCK → PASS-WITH-WARNS at re-check; qa/findings/2026-09-18-run-C-7-charter-gate1.md § 7, commit 976704be). Charter pin restamped to 99962fa74fe7 (R-C7-0…0g were ruled under v0.1 4e8185d424d7 / the v1.0 draft 8892ada80395 / the discharge 419cc6c04e97; v1.0 spans those shas — WARN-1). Substrate at launch: MANIFEST.sha256 f0851b83bb36 (post-FL-6c, R-C5-139; verified byte-for-byte by jack-ryan); staged scene cliffside_v44 (web12 live); 18 kits kits_v9; props v25; capsule collider; the six re-specs FILED to runs/C-7/specs/ from the reconciled v2 (PConc = the Occultist combo; pending_rulings map carries F1(a)/F3(a) defaults for a one-pass flip); arm B substrate = BW_spine_r1 cut frames + frames.json. Open WARNs carried: WARN-13 fixed (logs at ~/astra-burst/logs/C-7 + c5_c7_ mirror for C-6); WARN-3 fixed (220 = radius, 3.4 BH diameter, one quantity). Astra run root ~/astra-burst/runs/C-7 is created by the wrapper. P1 opens: BL-2v (TOOLING, under the heavy lock, detached).",
+      "ts": "2026-09-18T22:06:25"
     }
   ],
   "grok_calls": [
@@ -94,7 +108,7 @@
   ],
   "run": "C-7",
   "charter": "agentic_orchestration/gandalf/notes/2026-09-17-vfx-run-C-7-charter.md",
-  "charter_sha256_12": "4e8185d424d7",
+  "charter_sha256_12": "99962fa74fe7",
   "images_cap_note": "SENTINEL 999999 — Matt V20 posture carried from C-5/C-6 (no image budget; counted, reported at every packet); run_burst.py integer-compares the field",
   "notes": [
     {

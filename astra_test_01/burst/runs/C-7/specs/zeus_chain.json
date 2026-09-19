@@ -1,0 +1,118 @@
+{
+ "skill_id": "zeus_chain",
+ "source_game": "Hades — Zeus Boon: Lightning Strike (chain lightning)",
+ "grammar": "G3",
+ "g3_mode": "travelling_ball_hop",
+ "visual_treatment_id": "lightning (Hades dialect: jewel-white core, additive sprite ball — NOT a drawn arc)",
+ "response_class": "strike per hop",
+ "scale": {
+  "px_per_bh": 130,
+  "note": "Hades BH is DERIVED from a VERIFIED+MEASURED anchor (Legolas §2); the ball figures are MEASURED off the clip's own 180 ± 15 px player anchor."
+ },
+ "mechanics": {
+  "origin_socket": "victim_location",
+  "trigger": "on-hit proc — fires from the STRUCK ENEMY when the player's Attack damages a foe (FirstHitOnly). NOTHING is drawn player→enemy; the melee swing is the only link.",
+  "aim_rule": "homing",
+  "instant": false,
+  "speed_px_s": 1408,
+  "range_px": 488,
+  "proc_cooldown_s": 0.167,
+  "ball_diameter_px": 48,
+  "ball_height_px": 31,
+  "ground_shadow": true,
+  "collision": {
+   "kind": "capsule",
+   "radius_bh": 0.25,
+   "kit_field": "collision_radius_bh",
+   "length": "ball diameter, swept along the travel direction",
+   "ahead_of_socket_gate": false,
+   "note": "R-C5-96's canonical capsule applies — a projectile exists. But the ≥0.25 BH ahead-of-release-socket gate does NOT: that clause exists to stop a FORWARD cast striking behind the caster, and this projectile spawns AT the victim and HOMES. The collider (0.25 BH radius) is deliberately slightly larger than the painted ball (0.37 BH diameter = 0.185 BH radius) — art is art, collision is fixed."
+  },
+  "chain": {
+   "count": 4,
+   "hop_range_px": 582,
+   "hop_delay_rule": "travel_time — there is NO delay field in the source; hop cadence is purely the ball's flight time between targets",
+   "hop_delay_s": [0.2, 0.2, 0.2, 0.2],
+   "hop_delay_cadence_kind": "derived_from_travel",
+   "hop_delay_cv_min": 0.25,
+   "target_order": "events (nearest) — MAY re-hit an already-hit foe",
+   "jump_damage_multiplier": 0.8,
+   "note": "count = 4 additional hops after the first contact. Damage compounds ×0.8 per hop (10 → 8 → 6.4 → 5.12 → 4.1). The ball PERSISTS after its jumps are spent, dying to range/fuse rather than vanishing."
+  },
+  "fuse_s": 0.3,
+  "ignores_terrain": true,
+  "termination": "range_or_fuse"
+ },
+ "presentation": {
+  "primitive_bindings": {
+   "travel_head": "solid round yellow SPRITE BALL with a white-hot core, 0.37 BH diameter, additive, with its own dynamic light — translating in a straight line, NOT a polyline between enemies",
+   "shadow": "a DRAWN dark ground shadow directly beneath the ball, ball centre sitting 0.24 BH above the shadow centre in screen space. REQUIRED — the shadow is what sells the ball as airborne.",
+   "trail": "a randomly chosen jagged black-and-yellow lightning-bolt sprite SHED BEHIND the ball and LAGGING, re-picked every ≈0.07 s — the trail follows the ball, it does not connect two enemies",
+   "impact per hop": "yellow-white SPIKY STARBURST, 5–8 radiating spikes, soft bloom, 0.47 s. No ring decal, no ground residue.",
+   "residue": "none"
+  },
+  "body_extents_bh": {
+   "ball_diameter": 0.37,
+   "ball_height_screen": 0.24,
+   "ball_height_world": 0.51,
+   "impact_flash": 0.55
+  },
+  "phase_envelope_s": {
+   "hop_delay_typical": 0.2,
+   "hop_travel_min": 0.13,
+   "hop_travel_max": 0.41,
+   "trail_shed_interval": 0.07,
+   "impact_flash": 0.47,
+   "total": 1.27,
+   "fuse": 0.3
+  },
+  "enabled_layers": [
+   "flash",
+   "halo",
+   "floor_light",
+   "victim_tint",
+   "hit_stop",
+   "contact_label"
+  ]
+ },
+ "pending_rulings": {
+  "mechanics.chain.hop_delay_s": "C-7 F1",
+  "mechanics.chain.hop_delay_cadence_kind": "C-7 F1",
+  "mechanics.chain.hop_delay_cv_min": "C-7 F1"
+ },
+ "exporter_needs": [
+  "G3 ball-hop mode — an additive sprite BALL that translates in a straight line between targets, homing, NOT a polyline drawn between endpoints. The current G3 primitive (P05 chain link ×N along a polyline) describes the wrong Zeus family (the SKY bolts)",
+  "G3 BALL SHADOW — a drawn dark ground shadow beneath the ball, ball centre 0.24 BH above the shadow centre in screen space. REQUIRED, not optional: it is what sells the ball as airborne, and no spec carried it before v1",
+  "G3 shed trail — a random jagged bolt sprite shed BEHIND the ball and lagging, re-picked every ≈0.07 s from a library; it must not connect two enemies",
+  "G3 travel-derived hop cadence — hop spacing computed from actual inter-target distance at 1408 px/s, not read from the authored hop_delay_s array; the array is a default pack spacing only",
+  "G3 projectile persistence past spent jumps — death by range/fuse, plus terrain ignoring and the ability to re-hit an already-hit foe",
+  "G3 capsule collision (R-C5-96) WITHOUT the ahead-of-socket gate for a victim-spawned homing projectile",
+  "exact-set mechanics._keys must admit trigger, proc_cooldown_s, ball_diameter_px, ball_height_px, ground_shadow, collision, fuse_s, ignores_terrain, chain.jump_damage_multiplier; and width_px must be REMOVABLE (there is no beam)"
+ ],
+ "provenance": {
+  "g3_mode travelling_ball_hop": "Legolas §8 (VERIFIED from PlayerProjectiles.sjson: Graphic = ProjectileLightningBall, Scale 0.45, Type HOMING) AND §12.1 row 6a MEASURED ON FRAMES, HIGH — \"TRAVELLING BALL — confirmed decisively\". The prior 'P05 chain link ×N along a jittered polyline' describes the WRONG Zeus family (the SKY bolts).",
+  "origin_socket victim_location / trigger": "Legolas §8 — ZeusWeaponTrait: OnDamageWeaponProperties { FirstHitOnly = true, FireFromVictimLocation = true } (VERIFIED)",
+  "no bolt from the player": "Legolas §8 / Table A — VERIFIED",
+  "instant false / speed_px_s 1408": "Legolas §8 — Speed = 1500 u/s = 10.83 BH/s (VERIFIED). §12.7 item 5: one partial frame-track gave ≈5.9 BH/s through a contaminated frame and is explicitly NOT offered as a correction — the data figure stands. Flagged so nobody re-derives it and thinks they have found a discrepancy.",
+  "chain.count 4": "Legolas §8 — NumJumps = 4 (VERIFIED)",
+  "chain.hop_range_px 582 (4.48 BH)": "Legolas §8 — JumpRange = 620 u (VERIFIED). Prior 260 px (2.0 BH) was less than half. NOTE the wiki's '520' is the wrong field — that is Range, the total travel budget.",
+  "range_px 488": "Legolas §8 — Range = 520 u = 3.76 BH (VERIFIED). Near-coincidence with the prior spec's 520 numeral; they are not the same quantity.",
+  "hop_delay_rule travel_time": "Legolas §8 — VERIFIED BY EXHAUSTION: every jump-related key across both projectile files was enumerated; NO JumpDelay / ChainDelay exists anywhere in the engine's vocabulary. Cadence is travel time: ~0.13 s @200 u, 0.20 s @300 u, 0.41 s @620 u. The prior authored [0.06, 0.11, 0.08, 0.13] (Σ 0.38 s) has no counterpart in the source and is roughly HALF the source's ~0.8 s for four hops.",
+  "hop_delay_s [0.2 ×4] / cadence_kind derived_from_travel": "DERIVED — the ~0.20 s typical travel time at 300 u, authored as the default pack spacing. The runtime should COMPUTE it from actual inter-target distance, not read this array. Authored per CHARTER F1 RECOMMENDATION (a): a mechanics cadence follows the source — and here the source's cadence is physics, which is even further from house jitter than a metronome is.",
+  "hop_delay_cv_min 0.25": "HOUSE — retained as a key so the exporter contract does not change shape; the authored cadence (CV = 0) does not satisfy it. The exporter must REPORT, not assert. The prior 'FF-08 metronome tripwire' provenance string was HOUSE mislabelled as source observation.",
+  "ball_diameter_px 48 (0.37 BH)": "Legolas §12.1 row 6b — MEASURED, MED (67 × 64 px against a 180 ± 15 px BH anchor)",
+  "ball_height_px 31 / ground_shadow true": "Legolas §12.1 row 6b — MEASURED: ball centre ≈43 px above its own shadow's centre = 0.24 BH screen space; world height 0.51 BH from OffsetZ 70 implies a camera-pitch factor ≈0.47, internally consistent. \"THE SHADOW IS DRAWN and is a build requirement.\" The pre-audit spec did not mention it.",
+  "collision capsule (no ahead-of-socket gate)": "R-C5-96 — the canonical capsule: radius 0.25 BH (kit field collision_radius_bh, default .25), swept along the direction, art retired from collision. The ruling's ahead-of-socket clause is scoped to forward casts from a release socket; this projectile spawns at the victim and homes, so the gate is explicitly disabled rather than silently dropped. NEW in v2 — the v1 draft carried no collider on a grammar that has a projectile body.",
+  "trail (shed jagged sprite, lagging)": "Legolas §8 (LightningPieceA–F re-picked every ≈0.07 s, VERIFIED) + §12.1 row 6a (MEASURED: shed BEHIND and lagging)",
+  "impact_flash 0.47 s + starburst form": "Legolas §8 — ProjectileLightningBallEnd, 28 frames @60 fps, Scale 0.55 (VERIFIED); form MEASURED at §12.1 row 6c (5–8 spikes, soft bloom, no ring, no residue)",
+  "jump_damage_multiplier 0.8": "Legolas §8 — JumpDamageMultiplier = 0.8, compounding (VERIFIED). ADD — not in the pre-audit spec.",
+  "proc_cooldown_s 0.167": "Legolas §8 — Cooldown = 0.167 s on the ChainLightning weapon → max ~6 procs/s (VERIFIED). ADD.",
+  "target_order may re-hit": "Legolas §8 — the Attack chain OMITS MultipleUnitCollisions = false, so it can ping-pong onto an already-hit foe (INFERRED from the omission, high confidence)",
+  "ignores_terrain / persists past jumps / fuse 0.3": "Legolas §8 — CheckObstacleImpact = false; ExpireWhenOutOfJumps omitted; Fuse 0.3 s (VERIFIED)",
+  "total 1.27 s": "DERIVED — 4 hops × 0.20 s travel = 0.80 s, plus the final 0.47 s impact flash. Prior 0.65 s could not hold the source cadence.",
+  "width_px REMOVED": "Legolas Table B §5 — N/A. There is no beam, so there is no width. The prior 30 px / 0.23 BH describes a primitive this skill does not use.",
+  "ff08": "CHARTER F1 / Q80 F4, PENDING — the source has NO hop-delay field at all; cadence is physics. Authored at recommendation (a). If Matt rules (c), flip only the three keys in pending_rulings — but note that imposing a CV floor here would mean jittering a TRAVEL TIME, i.e. making the ball fly at inconsistent speed, which is a different and worse thing than jittering a tick train. Flagged for the conductor.",
+  "version caveat": "Legolas §8 — the dump is Hades v1.0 (Aug 2020); retail is v1.38. The wiki independently corroborates bounce counts, ranges and spark speed, so no drift is evident, but that is corroboration, not a retail read.",
+  "v1_delta": "v1 (13:14) was right on every sourced number and already carried the required shadow. v2 adds the R-C5-96 capsule with its gate explicitly disabled, and names the F1(c) hazard specific to this skill (jittering a travel time is not jittering a cadence)."
+ }
+}

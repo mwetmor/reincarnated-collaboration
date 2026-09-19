@@ -1,0 +1,111 @@
+{
+ "skill_id": "lightning_blast",
+ "source_game": "Last Epoch — Mage: Lightning Blast",
+ "grammar": "G3",
+ "g3_mode": "instant_bolt",
+ "visual_treatment_id": "lightning",
+ "response_class": "strike",
+ "scale": {
+  "px_per_bh": 130,
+  "note": "LE BH = 1.8 m is INFERRED (Legolas §2); widths and life below are MEASURED off the clip's own 134 px player anchor."
+ },
+ "mechanics": {
+  "origin_socket": "cast_release",
+  "aim_rule": "target-tracking",
+  "instant": true,
+  "cast_time_s": 0.682,
+  "cooldown_s": 0.0,
+  "range_px": 505,
+  "width_px": 12,
+  "core_width_px": 5,
+  "requires_target": true,
+  "collision": null,
+  "collision_note": "R-C5-96's canonical capsule governs PROJECTILES. This skill is instant — no projectile body ever exists (bright-pixel count 24 → 2 866 in ONE 16.7 ms frame; there is no partial-extension frame). Contact is the target-search result, gated by requires_target. Recorded as an explicit null rather than an omission.",
+  "chain": {
+   "count": 1,
+   "count_rule": "0 on a cold cast; +1 per direct cast in the last 4 s; cap +2. Author default 1 — the un-chained single bolt exists only on the first cast after a ≥4 s pause.",
+   "count_min": 0,
+   "count_max": 2,
+   "hop_range_px": 468,
+   "hop_delay_s": 0.1,
+   "hop_delay_cadence_kind": "metronome",
+   "hop_delay_cv_min": 0.25
+  },
+  "termination": "instant"
+ },
+ "presentation": {
+  "polyline": {
+   "rerandomise_hz": 60,
+   "rerandomise_scope": "the WHOLE life of the bolt, onset to fade-out — the path differs frame-to-frame",
+   "onset": "fully formed in ≤1 frame; no sweep, no whip-out, no partial-extension frame exists",
+   "fork": {
+    "kind": "fork_and_rejoin",
+    "rejoins_trunk": true,
+    "filament_count": null,
+    "filament_count_note": "NOT MEASURED — §12.1 row 3 records that short filaments fork off and rejoin, but never counts them. Left null rather than invented; the exporter picks.",
+    "separate_endpoints": false,
+    "separate_endpoints_note": "ART ONLY. Gameplay forking to separate endpoints remains Divergence-node-only (§6) and must not be drawn as a second strike."
+   },
+   "strands_at_caster": [2, 3]
+  },
+  "primitive_bindings": {
+   "bolt": "P05 chain link (lightning) ×N along a polyline RE-RANDOMISED EVERY FRAME; hard core 0.02–0.05 BH inside a filament band 0.06–0.12 BH; short filaments FORK OFF AND REJOIN the trunk; 2–3 near-parallel strands at the caster end; up to 0.18 BH where two strands overlap",
+   "impact": "strike flash + 4 needle prongs radial",
+   "residue": "none (fade-out 0.07 s from full brightness to zero)"
+  },
+  "body_extents_bh": {
+   "bolt_core": 0.035,
+   "bolt_band": 0.09,
+   "bolt_band_max": 0.12,
+   "strand_overlap_max": 0.18,
+   "end_prongs": 0.6
+  },
+  "phase_envelope_s": {
+   "cast": 0.682,
+   "bolt_life": 0.15,
+   "fade_out": 0.07,
+   "total": 0.22,
+   "hop_delay": 0.1,
+   "afterimage": 0.07
+  },
+  "enabled_layers": [
+   "flash",
+   "halo",
+   "victim_tint",
+   "hit_stop",
+   "contact_label"
+  ]
+ },
+ "pending_rulings": {
+  "mechanics.chain.hop_delay_s": "C-7 F1",
+  "mechanics.chain.hop_delay_cadence_kind": "C-7 F1",
+  "mechanics.chain.hop_delay_cv_min": "C-7 F1"
+ },
+ "exporter_needs": [
+  "G3 per-frame polyline — the path must be re-randomised EVERY frame at 60 Hz for the bolt's whole life, not seeded once at spawn. This is a first-order look fact the current spec and exporter do not carry",
+  "G3 fork-and-rejoin — short filaments that branch off the trunk and REJOIN it, plus 2–3 near-parallel strands at the caster end, with no second endpoint and no second strike",
+  "G3 band-vs-core widths — a hard core (0.02–0.05 BH) inside a wider filament band (0.06–0.12 BH), with overlap reaching 0.18 BH where strands cross; one width value cannot express this",
+  "G3 hop cadence_kind on the chain hop delay so F1 flips in one pass; the report must never assert CV on a single authored hop",
+  "G3 afterimage must accept 0.07 s (the exporter's fixed 0.15 s afterimage contract is superseded by the measured fade)",
+  "exact-set mechanics._keys must admit cast_time_s, cooldown_s, requires_target, collision, collision_note, chain.count_rule / count_min / count_max"
+ ],
+ "provenance": {
+  "instant true": "Legolas §6 — four independent text lines, AND §12.1 row 2 CONFIRMED ON FRAMES at 60 fps: bright-pixel count 24 → 2 866 in one 16.7 ms frame; no partial-extension frame exists (MEASURED, HIGH)",
+  "polyline.rerandomise_hz 60": "Legolas §12.1 row 2 / §12.5 §4 — MEASURED, HIGH. \"This is a first-order look fact and the spec does not carry it.\" Promoted in v2 from a prose string to a structured key so the exporter can be built against it.",
+  "polyline.fork / strands_at_caster [2,3]": "Legolas §12.1 row 3 / §12.5 §4 — MEASURED (MED classification): short filaments fork off and REJOIN, 2–3 near-parallel strands at the caster end. Table B §4: \"CONFIRMED for art.\" NOTE: this is ART ONLY — gameplay forking to separate endpoints remains Divergence-node-only (§6), so the base skill still does not fork.",
+  "polyline.fork.filament_count null": "NOT MEASURED. §12.1 row 3 describes the behaviour and never counts the filaments. Left null rather than invented.",
+  "width_px 12 / core_width_px 5": "Legolas §12.1 row 3 — MEASURED, HIGH: hard core 3–6 px (0.02–0.05 BH), visible strand band incl. filaments 8–16 px (0.06–0.12 BH), up to 24 px where two strands overlap (0.18 BH). Authored at the band midpoint 0.09 BH. The prior 22 px was too wide for a strand and about right for the whole band.",
+  "bolt_life 0.15 + fade to 0.22": "Legolas §12.1 row 2 / §12.5 §4 — MEASURED: 0.150 s at full brightness, fading to zero by ≈0.22 s. Prior 0.12 s was UNKNOWN-sourced.",
+  "afterimage 0.07": "DERIVED from the MEASURED fade (0.15 s full → zero by 0.22 s). Supersedes the exporter's fixed 0.15 s afterimage contract.",
+  "chain.count 1 + count_rule": "Legolas §6 / Table B §4 — VERIFIED from EHG's own description: \"It chains to an additional enemy for each time it has been directly cast in the last 4 seconds, up to 2 times.\" The chain count is NOT a constant; the spec carries the rule alongside the author default.",
+  "chain.hop_delay_s 0.10 / cadence_kind metronome": "Legolas Table B §4 — INFERRED from the machine-data effect line \"Hit nearest enemies every 0.1 seconds in 7 meter radius\"; semantics undocumented (§10.5). Prior 0.05 s had no source. Authored per CHARTER F1 RECOMMENDATION (a): a mechanics cadence follows the source metronome.",
+  "chain.hop_delay_cv_min 0.25": "HOUSE — retained as a key so the exporter contract does not change shape. A single authored hop has no CV to evaluate; the exporter must REPORT, not assert, once count > 1.",
+  "chain.hop_range_px 468 (3.6 BH)": "Legolas Table B §4 — INFERRED at 6–7 m from LE's lightning-family hop distances (Static \"spread range: 7 meters\"; Arcane Current \"within 6 meters\") → 3.3–3.9 BH; authored at the midpoint. Prior 220 px (1.69 BH) was less than half.",
+  "range_px 505": "Legolas §6 — the target-search radius is 7 m = 3.89 BH (VERIFIED stat line). Prior 560 px was \"CONFIRMED as plausible\"; 505 is the sourced figure.",
+  "cast_time_s 0.682 / cooldown 0": "Legolas §6 — Base Speed 1.467/s, Cooldown 0 s (VERIFIED, EHG). ADD — the prior spec carried no cast rate.",
+  "requires_target true": "Legolas §6 — falls through to crates/barrels with no enemy; Focal Blast is the one node that fires forward from the player (VERIFIED)",
+  "collision null": "R-C5-96 — the canonical capsule governs projectiles; this skill has none. Stated explicitly so a later reader does not conclude the collider was forgotten. NEW in v2.",
+  "ff08": "CHARTER F1 / Q80 F4, PENDING — authored at recommendation (a): the hop cadence at source is a 0.10 s metronome; jitter is a HOUSE rule scoped to the painted layer. The painted-layer irregularity this skill DOES have — the per-frame polyline re-randomisation — is MEASURED SOURCE, not FF-08 house jitter, and is therefore NOT marked pending. If Matt rules (c), flip only the three keys in pending_rulings.",
+  "v1_delta": "v1 (13:13) carried the fork/rejoin and per-frame re-randomisation only as prose inside primitive_bindings.bolt. v2 promotes both to a structured presentation.polyline block the exporter can be built against, records the un-measured filament count as null, and adds the explicit collision null."
+ }
+}

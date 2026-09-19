@@ -1,0 +1,189 @@
+{
+ "skill_id": "poisonous_concoction",
+ "source_game": "Path of Exile — Poisonous Concoction, as played by a Witch → OCCULTIST (the combo, not the bare gem)",
+ "grammar": "G2",
+ "g2_mode": "lobbed_burst",
+ "visual_treatment_id": "poison",
+ "response_class": "material→burst (+ two declared partner components)",
+ "combo": {
+  "declared_by": "R-C5-125 (Matt 2026-09-17) — Poisonous Concoction IS to be built as the FULL COMBO skill. R-C5-91's gem-pure narrowing covered ONLY the invented dark puddle, which stays rescinded.",
+  "components": [
+   "vial_fan — the Poisonous Concoction gem itself, thrown as a fan of flasks (SOURCE: the gem + the build's GMP / Greater Volley supports)",
+   "profane_bloom_lobes — a DECLARED BORROW from the Occultist ascendancy notable Profane Bloom; fires at each STRUCK body, not at the landing point",
+   "plague_bearer_field — a DECLARED BORROW from the Plague Bearer skill; PLAYER-ANCHORED, periodic release, never a cast-point decal"
+  ],
+  "nothing_black": "There is no black ground anywhere in this file. R-C5-91 + R-C5-125: the remembered darkness is the MAP FLOOR (§13.4 F1: medRGB (39,27,10), meanY 32.4, 90% of the play area below Y=45); every build-borne element is a BRIGHT thing painted onto it."
+ },
+ "scale": {
+  "px_per_bh": 130,
+  "note": "PoE BH = 1.5–2.0 m (SECONDARY). Every figure below is MEASURED in BH off a clip's own player anchor — §12 rows at BH = 137 px, §13 rows at BH = 90 px (3.16) / 93 px (3.19) — and converted to the C-5 px space at 130 px/BH. No metre scale is used."
+ },
+ "mechanics": {
+  "origin_socket": "cast_release",
+  "aim_rule": "ground-locked",
+  "landing_clamp": "walkable_union",
+  "cast_time_s": 0.87,
+  "range_px": 480,
+  "arc": {
+   "apex_px": 62,
+   "flight_s": 0.55,
+   "entry_angle_deg": 27.5,
+   "shape": "shallow — a single tapered comet streak entering at 25–30° below horizontal; NO high overhead drop"
+  },
+  "can_hit_body_midflight": true,
+  "collision": {
+   "kind": "capsule",
+   "radius_bh": 0.25,
+   "length": "flask body length, oriented along the flight direction, swept from the release socket",
+   "ahead_of_socket_bh": 0.25,
+   "note": "R-C5-96 canonical capsule. It applies here and NOT to Blackwater because this flask is documented to collide with an enemy body mid-flight."
+  },
+  "vial_fan": {
+   "count": 5,
+   "count_source_range": [4, 5],
+   "landing_scatter_diameter_px": 325,
+   "cluster_diameter_px": 676,
+   "reads_as": "one overlapping cluster, not one bigger bloom",
+   "per_flask_burst": "burst (below), fired once per flask at its own landing point"
+  },
+  "burst": {
+   "kind": "instant_area_burst",
+   "hitbox_radius_px": 130,
+   "vfx_diameter_px": 351,
+   "onset_frames": 1,
+   "peak_s": 0.1,
+   "life_s": 0.32,
+   "ticks": null,
+   "duration_s": 0.0,
+   "colour_rgb": [78, 202, 29],
+   "edge_profile_px": {
+    "luma_90pct_radius": 4,
+    "luma_50pct_radius": 84,
+    "luma_10pct_radius": 182,
+    "hard_rim": false
+   }
+  },
+  "profane_bloom": {
+   "trigger": "struck_body",
+   "trigger_note": "R-C5-125 says \"struck/killed\". At source the trigger is a CURSED ENEMY'S DEATH; in the dummy scene nothing dies, so the build trigger is STRUCK. Where kills exist, the trigger should move to killed.",
+   "anchor": "the struck body's position — OFF the player and OFF the landing point",
+   "diameter_px": 208,
+   "growth_s": 0.07,
+   "life_s": 0.35,
+   "colour_rgb": [252, 72, 253],
+   "edge_profile_px": {
+    "core_90pct_radius": 39,
+    "luma_50pct_radius": 69,
+    "luma_10pct_radius": 116,
+    "hard_rim": false
+   },
+   "residue": null,
+   "cascade": "adjacent lobes MERGE — measured up to 4.8 × 3.7 BH across a pack. Emergent, not authored: do not draw a cascade body."
+  },
+  "plague_bearer_field": {
+   "anchor": "player",
+   "persistent_phase": {
+    "colour_rgb": [91, 152, 135],
+    "presence": "every frame while the buff is up — NOT once per cast",
+    "read": "a low desaturated teal aura, visibly NOT the vial's green"
+   },
+   "release": {
+    "period_s": 5.5,
+    "field_px": [715, 377],
+    "colour_rgb": [112, 165, 26],
+    "behaviour": "smears across the map with the player; it is the BED the vial bursts fire inside"
+   }
+  },
+  "residue": null,
+  "termination": "burst_end"
+ },
+ "presentation": {
+  "ground_squash": 0.72,
+  "dark_alpha": 0.5,
+  "dark_offset_px": 6,
+  "layering": "three separable colours in one frame: the teal/acid PLAGUE BEARER bed under the player · the acid-chartreuse VIAL cluster inside it · the fuchsia PROFANE BLOOM lobes outside it, at the bodies.",
+  "primitive_bindings": {
+   "projectile": "RGB flask (green glass), visually belt-attached at rest; in flight each of the 5 reads as a single tapered comet streak visible for only 2–4 frames",
+   "impact": "per flask — an instantaneous acid-green bloom: a VERTICAL GEYSER OF JAGGED GREEN PLUMES at the contact point PLUS long curved green WHIP-ARCS sweeping outward along the ground, with a bright yellow-green core at the hit point. Onset ≤1 frame, peak ≈0.10 s, back to background by 0.30–0.35 s. No hard rim: a plume-and-whip-arc silhouette, not a disc. Five of these overlapping is the cast.",
+   "profane_bloom_lobe": "a soft-cored FUCHSIA chaos nova born at each struck body: no rim, a 0.30 BH bright core fading over a further 0.59 BH, up in 0.07 s, gone in 0.35 s. DECLARED BORROW — Occultist's Profane Bloom, not a Poisonous Concoction source fact.",
+   "plague_bearer_field": "a persistent desaturated-teal player-anchored aura that periodically RELEASES into a large acid-shifted field beneath and around the player. DECLARED BORROW — the Plague Bearer skill, not a Poisonous Concoction source fact.",
+   "residue": "NONE — nothing is left on the ground by any of the three components. The dark puddle is RESCINDED (R-C5-91, upheld by R-C5-125).",
+   "field": "none from the vial — there is no cloud, no density layer, no roil"
+  },
+  "body_extents_bh": {
+   "flask": 0.35,
+   "burst_vfx_diameter_single": 2.7,
+   "burst_hitbox_diameter": 2.0,
+   "burst_cluster_diameter": 5.2,
+   "landing_scatter_diameter": 2.5,
+   "bloom_lobe_diameter": 1.6,
+   "plague_bearer_release": [5.5, 2.9]
+  },
+  "phase_envelope_s": {
+   "flight": 0.55,
+   "splash_hold_frames": 2,
+   "burst": 0.32,
+   "bloom_lobe": 0.35,
+   "plague_bearer_release": 5.5,
+   "residue": 0.0
+  },
+  "enabled_layers": [
+   "flash",
+   "halo",
+   "floor_light",
+   "dark_duplicate",
+   "victim_tint",
+   "hit_stop",
+   "contact_label"
+  ]
+ },
+ "pending_rulings": {},
+ "exporter_needs": [
+  "G2 lobbed_burst mode — a lobbed projectile that resolves to an INSTANT area burst with no field, no duration and no tick train (projectile_behaviour_only_explode)",
+  "G2 fan emission — N flasks from one cast, each with its own landing point scattered inside landing_scatter_diameter_px, each firing its own burst; the cluster extent is emergent, not drawn",
+  "G2 bloom-lobe-at-struck-body — a per-victim spawn point (struck now, killed where kills exist) that is neither the caster nor the landing point; N lobes alive at once with no cascade body",
+  "G2 player-anchored field — a persistent aura that tracks the player and periodically releases a larger field, independent of cast cadence",
+  "burst edge profile — a soft radial falloff authored by 90/50/10 % luma radii with NO rim primitive",
+  "residue must accept null on a G2 skill (currently a G2 field/decal is assumed)",
+  "G2 capsule collision in flight (R-C5-96) for a ground-locked lob that can still strike a body en route",
+  "exact-set mechanics._keys must admit vial_fan, profane_bloom, plague_bearer_field, collision, landing_clamp, can_hit_body_midflight, and a null residue"
+ ],
+ "provenance": {
+  "combo authority": "R-C5-125 (Matt 2026-09-17): the PConc fan burst (4–5 flasks, acid green, ~5 BH, 0.3 s) + Profane-Bloom fuchsia lobes at struck/killed bodies (1.4–1.8 BH, 0.35 s) + the Plague Bearer teal player-anchored field (5.5 × 2.9 BH, 5.5 s release) — each element declared with its source; nothing black on the ground. R-C5-91 (the dark puddle rescinded) STANDS and is not disturbed.",
+  "g2_mode lobbed_burst": "Legolas §5 GRAMMAR BREAK + Table B §3 — projectile_behaviour_only_explode = 1; the gem carries NO base_skill_effect_duration and NO DoT stat. It is a lobbed BURST, not a lobbed field (VERIFIED, two independent dumps).",
+  "vial_fan.count 5 / count_source_range [4,5]": "Legolas §13.1 — the build's PoB notes quote AoE breakpoints for Greater Multiple Projectiles (2 overlaps), Greater Volley (2–3, avg 2.8) and GMP + GV (4–5, AVG 4.5 OVERLAPS). §13.1 also records the one correction owed to §5: projectile count 1 is true of the BASE GEM and false of the BUILD. 5 is authored at the top of the measured 4–5 range; 4 is equally sourced — HOUSE within a measured band.",
+  "vial_fan.cluster_diameter_px 676 (5.2 BH)": "Legolas §13.4 A3 — MEASURED, HIGH: endgame cluster bbox 440–498 px at BH 90 → 4.9–5.5 BH. Authored at the midpoint 5.2 BH. §13.6: \"that fan, not a larger radius, is what makes an endgame cast look endgame.\"",
+  "vial_fan.landing_scatter_diameter_px 325 (2.5 BH)": "DERIVED — cluster 5.2 BH minus a single burst's 2.7 BH = 2.5 BH of centre-to-centre scatter. Shown so the exporter scatters landings rather than scaling one bloom.",
+  "burst.vfx_diameter_px 351 (2.7 BH)": "Legolas §13.4 A2 — MEASURED, HIGH: single cast bbox 237 × 250 px at BH 90 → 2.6 × 2.8 BH; authored at 2.7. NOTE the independent Act-3 control at §12.1 row 5b reads 3.45 × 2.95 BH full / 3.0 × 2.7 BH bright (BH 137). The two brackets are 2.6–3.45 BH; A2 is used because §13 is the combo reference R-C5-125 names. The v1 draft's 3.25 BH sat at the §12 midpoint.",
+  "burst.hitbox_radius_px 130": "Legolas Table A §3 — active_skill_base_area_of_effect_radius = 18 units = 1.8 m = 1.00 BH radius / 2.00 BH diameter (VERIFIED game data). The VFX is ≈1.35–1.7× the hitbox; this row is the DAMAGE, vfx_diameter_px is the LOOK.",
+  "burst.colour_rgb (78,202,29)": "Legolas §13.4 A1 — MEASURED, HIGH: acid chartreuse, blue channel nearly absent, distinct at a glance from the build's other green (C1). Corroborated at source by §5: visual_hit_effect_chaos_is_green = 1, an engine flag.",
+  "burst.onset_frames 1 / peak_s 0.10": "Legolas §13.4 A4 — MEASURED, HIGH: ≤1 frame (1/30 s) to a fully-formed bloom, peak ≈0.10 s, NO growth phase.",
+  "burst.life_s 0.32": "Legolas §13.4 A5 — MEASURED, HIGH: rise 0.10 s → background at 0.30–0.35 s, four casts (t = 22.9 / 24.8 / 25.4 / 27.6). Matches §12.1 row 5b exactly. Authored at the midpoint.",
+  "burst.edge_profile_px": "Legolas §13.4 A7 — MEASURED, MED: luma 90 % at r = 3 px, 50 % at r = 58 px, 10 % at r = 126 px against BH 90 → 0.033 / 0.644 / 1.40 BH radii → 4 / 84 / 182 px at 130 px/BH. Soft over ≈1.37 BH. \"There is no hard rim: it is a plume-and-whip-arc silhouette, not a disc.\"",
+  "burst form (vertical jagged plume geyser + curved ground whip-arcs)": "Legolas §12.5 §3 / §12.1 row 5b — MEASURED; supersedes the prior 'viscous lobes ×4'",
+  "burst residue null": "Legolas §13.4 A8 — MEASURED, HIGH: NONE. Green returns to the 0.7–2.2 k px player-aura baseline within 0.3 s of EVERY cast. Corroborated by §12.3's four-cast ascendancy-free control. R-C5-91 (Matt): \"The black circles are not part of poisonous concoction builds that I am seeing. Legolas is correct.\"",
+  "profane_bloom trigger + anchor": "Legolas §13.4 B2 — MEASURED, HIGH: at the position of each dead monster, off the player, scattered across the pack's footprint; NOT where the vial landed and NOT under the player. §13.2 rank 2 identifies it as the Occultist notable Profane Bloom. R-C5-125 authorises it as a component and words the trigger \"struck/killed\"; the dummy scene has no deaths, so STRUCK is the build trigger — recorded, not smuggled.",
+  "profane_bloom.diameter_px 208 (1.6 BH)": "Legolas §13.4 B3 — MEASURED, HIGH: single lobe 126–162 px → 1.4–1.8 BH; 10 %-luma radius 80 px → 1.8 BH diameter, consistent by two methods. Authored at the midpoint 1.6 BH. §13.7 item 4: this is a LOOK number — no game-data explosion radius was sought, and where a source gives both, VFX and hitbox differ.",
+  "profane_bloom.growth_s 0.07": "Legolas §13.4 B5 — MEASURED, MED: 126 → 162 px in 0.07 s, then decay. Effectively instant.",
+  "profane_bloom.life_s 0.35": "Legolas §13.4 B6 — MEASURED, HIGH: 0.30–0.40 s across three isolated events (34.70→35.03, 35.10→35.53, 35.60→35.93). Authored at the midpoint.",
+  "profane_bloom.colour_rgb (252,72,253)": "Legolas §13.4 B1 — MEASURED, HIGH: saturated fuchsia; on a meanY-33 floor this is the brightest thing on screen.",
+  "profane_bloom.edge_profile_px": "Legolas §13.4 B8 — MEASURED, MED: luma 90 % at r = 27 px, 50 % at 48 px, 10 % at 80 px against BH 90 → bright core 0.30 BH radius fading over a further 0.59 BH → 39 / 69 / 116 px at 130 px/BH. Very soft, NO rim.",
+  "profane_bloom.residue null": "Legolas §13.4 B9 — MEASURED, HIGH: NONE. Magenta falls below 100 px between cascades.",
+  "profane_bloom.cascade (not authored)": "Legolas §13.4 B4 — MEASURED: adjacent lobes merge up to 430 × 332 px → 4.8 × 3.7 BH. Recorded as emergent. §13.4 B7: recurrence every 0.45–0.50 s through a pack clear — that is a KILL RATE, not a cadence to author.",
+  "plague_bearer anchoring": "Legolas §13.4 C2 — MEASURED, HIGH: centred on the player in 100 % of frames sampled across 95 s and many terrains. §12.3 identified it independently: \"it is player-anchored, not ground-anchored… a cast-point decal cannot do that.\"",
+  "plague_bearer.persistent_phase.colour_rgb (91,152,135)": "Legolas §13.4 C1 — MEASURED, HIGH: desaturated teal, visibly NOT A1; baseline 2–7 k px, present in every frame.",
+  "plague_bearer.release.period_s 5.5": "Legolas §13.4 C3 — MEASURED, HIGH: plague value drains 1024.5K → 92.9K over t = 23.0 → 28.2 s (≈170 K/s), then exhausts and re-accumulates. A ≈5.5 s release.",
+  "plague_bearer.release.field_px [715,377] (5.5 × 2.9 BH)": "Legolas §13.4 C4 — MEASURED, HIGH: peak green 76 321 px, largest component 498 × 257 px at BH 90; colour shifts toward the acid end (112,165,26).",
+  "presentation.layering": "Legolas §13.4 C5 — MEASURED, MED: the release field is the BED; the vial bursts fire INSIDE it at ~0.6 s intervals; the Profane Bloom lobes fire OUTSIDE it at the corpses. Three greens/magentas separable by colour in a single frame.",
+  "arc.apex_px 62 / entry_angle_deg 27.5": "Legolas §12.1 row 5a — MEASURED-partial, MED: shallow comet-trail entry 25–30° below horizontal. apex DERIVED as range·tan(27.5°)/4. §12.7 item 4 and §13.7 item 3: the apex itself was NEVER tracked (1–2 px body), and the endgame fan clips are worse for this, not better. UNRESOLVED.",
+  "arc.flight_s 0.55": "Legolas Table B §3 — 6.6 m ÷ 12 m/s (DERIVED from VERIFIED speed 120 units/s)",
+  "range_px 480": "CONFIRMED as plausible (≈6.6 m); the engine hard cap is 15 m = 8.33 BH. The cursor clamp is UNKNOWN (§10.7). Carried forward unchanged. OPEN: R-C5-92's touch forward-cast default is 520 px and Blackwater carries it — whether PConc adopts it at build time is the conductor's call, not a source question.",
+  "landing_clamp walkable_union": "R-C5-112 — the G2 landing clamp is a lane fact for every ground-locked lob, not just Blackwater. Carried so a fan of five cannot scatter flasks into the void.",
+  "cast_time_s 0.87": "Legolas §5 — base attack time 1.0 s with attackSpeedMultiplier 15 (VERIFIED). Observed in-play cast cadence was median ≈0.6 s (§13.4 A6, MED) — that is player input rate under haste, not a spec field.",
+  "can_hit_body_midflight true / collision capsule": "Legolas §5 / Table A — SECONDARY, and it is the fact that argues against a high lob. Collider per R-C5-96 (radius 0.25 BH, swept from the release socket, target ≥0.25 BH ahead along the facing); gameplay collision must not depend on which pixels a painting covers.",
+  "REMOVED — residue / ground_puddle_decal / dark-olive puddle 2.5 BH / 4.0 s": "R-C5-91 (Matt) RESCINDED R-C5-80's house dark puddle, and R-C5-125 upheld the rescission while widening the skill to the combo. Three Occultist clips of the exact build Matt named contain NO black ground effect from any source (§13.0, §13.2). Profane Ground and flask-created caustic ground are ruled out AT SOURCE. The v1 draft still carried the puddle under R-C5-80; it is deleted here, not narrowed.",
+  "REMOVED — density_cloud / duration_s 2.0 / 5 ticks / rendered_cloud / density / erode_noise / roil_uv_per_s": "Legolas §0, Table B preamble and §12.5 — investment accumulating on a feature the source does not have. Four casts measured: no cloud, no residue, nothing to roil.",
+  "ff08": "CHARTER F1 / Q80 F4 — N/A at source and N/A here. A single instantaneous burst has no repeating cadence to jitter; the Profane Bloom recurrence (0.45–0.50 s) is a kill rate and the Plague Bearer release (5.5 s) is a resource window, neither a tick train. pending_rulings is deliberately EMPTY — there is nothing for F1 to flip in this file.",
+  "v1_delta": "v1 (13:12) was the GEM ALONE plus a HOUSE dark puddle under the then-live R-C5-80. v2 deletes the puddle and builds the three-component Occultist combo per R-C5-125, every component source-declared."
+ }
+}

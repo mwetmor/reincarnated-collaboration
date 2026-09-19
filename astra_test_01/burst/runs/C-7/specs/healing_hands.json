@@ -1,0 +1,85 @@
+{
+ "skill_id": "healing_hands",
+ "source_game": "Last Epoch — Paladin: Healing Hands",
+ "grammar": "G4",
+ "g4_mode": "one_shot_burst",
+ "visual_treatment_id": "holy",
+ "response_class": "support_burst",
+ "look_vintage": "PRE-1.4 — patch 1.4 'Shattered Omens' (2026-03-26) replaced the Healing Hands visual effect and describes nothing. Every figure in this file is pre-1.4 art.",
+ "scale": {
+  "px_per_bh": 130,
+  "note": "LE BH = 1.8 m is INFERRED (Legolas §2); the dome figures are MEASURED off the clip's own 119 ± 5 px player anchor."
+ },
+ "mechanics": {
+  "origin_socket": "cursor_ground",
+  "aim_rule": "ground-locked",
+  "cast_time_s": 0.682,
+  "cooldown_s": 0.0,
+  "radius_px": 220,
+  "radius_grade": "AUTHORED",
+  "duration_s": 0.4,
+  "pulse_schedule_s": [],
+  "pulse_cv_min": 0.25,
+  "stack": "refresh",
+  "damages_enemies": false,
+  "recipient_hot_s": 3.0,
+  "collision": null,
+  "collision_note": "No projectile exists — a one-shot burst placed at a cursor ground point. R-C5-96's capsule does not apply. Recorded as an explicit null rather than an omission.",
+  "termination": "burst_end"
+ },
+ "presentation": {
+  "onset": "1-frame onset (0 → 9 224 bright px in one frame at 30 fps); peak at 0.15 s; gone by 0.40 s",
+  "primitive_bindings": {
+   "burst body": "a FILLED golden-white DOME / HEMISPHERE of light rising from the ground at the cursor point: a bright hemispherical bubble with a HARD GLOWING RIM ARC at its top edge, filled with RISING FLAME-LIKE GOLDEN PLUMES. Not a ring, not a broken ring, no orbiting elements, no petals.",
+   "seal": "REMOVED — no glyph, seal, rune or ground decal appears in any of the 13 measured frames. The seal primitive stays in the alphabet for a future aura.",
+   "residue": "none"
+  },
+  "body_extents_bh": {
+   "dome_width": 3.4,
+   "dome_width_max": 3.6,
+   "dome_height": 2.0
+  },
+  "phase_envelope_s": {
+   "cast": 0.682,
+   "onset_frames": 1,
+   "peak": 0.15,
+   "burst": 0.4
+  },
+  "enabled_layers": [
+   "halo",
+   "floor_light",
+   "dark_duplicate"
+  ]
+ },
+ "pending_rulings": {
+  "mechanics.radius_px": "C-7 F3",
+  "presentation.primitive_bindings.seal": "Q80 F3"
+ },
+ "exporter_needs": [
+  "G4 one-shot dome AT THE CURSOR POINT — a single instantaneous burst placed on the ground where the player aimed, NOT a self-centred aura and NOT a loop. The pre-audit G4 (self aura loop, caster_root, owner-tracking, 4.0 s, six pulses) describes a skill that does not exist",
+  "G4 filled dome body — a hemisphere with a hard glowing rim arc and rising flame-like plumes; the broken-ring / orbiting-petal primitives are not used by this skill",
+  "G4 envelope 1-frame onset → 0.15 s peak → 0.40 s out, with the GAMEPLAY still instantaneous (the 0.40 s is a visual envelope, not a duration)",
+  "G4 pulse_schedule_s must accept an EMPTY list and no pulse primitive may be required",
+  "G4 seal must be OPTIONAL (removable) rather than a mandatory G4 element — pending Q80 F3",
+  "exact-set mechanics._keys must admit cast_time_s, cooldown_s, radius_grade, damages_enemies, recipient_hot_s, collision, collision_note"
+ ],
+ "provenance": {
+  "g4_mode one_shot_burst": "Legolas §0(a) + §7 — THE LARGEST CORRECTION IN THE COMMISSION. EHG's own text (VERIFIED): \"Heals all allies in a target area…\" Cooldown 0 s, instantaneous, no loop, no pulse train, no 4-second window. The prior 4.0 s / six-pulse / caster_root / owner-tracking model describes a skill that does not exist.",
+  "origin_socket cursor_ground / aim_rule ground-locked": "Legolas §7 — VERIFIED, and proven decisively by the existence of the Homeward node: \"If Healing Hands would not affect any allied players at the chosen target location, it is cast centered on you instead.\" A node granting 'cast centered on you' proves the base skill is not. Corroborated by Cleric's Hammer (\"around the target\") and Hand of Aurelus (\"around the target location\"). §12.2 records that the one measured cast landed 13 px from the player — that neither confirms nor refutes placement, and the Homeward proof stands unchanged.",
+  "radius_px 220 — AUTHORED, pending C-7 F3": "CHARTER F3 RECOMMENDATION (a): 220 px authored because it matches the measured pre-1.4 dome. Legolas §12.2 / §12.1 row 7 — MEASURED VFX dome 3.4–3.6 BH diameter (431 × 240 px peak, typical ≈400 px, against a 119 px BH anchor); 220 px = 3.4 BH diameter. THE 2026-09-16 NARROWING TO 160 px (2.46 BH) MOVED AWAY FROM THE FOOTAGE AND IS REVERTED. Three caveats travel with this number: (i) §10.6 — a community bug report claims LE's VFX radius does not equal its gameplay radius, so 3.4 BH is a VFX figure; (ii) EHG publishes NO gameplay radius at all (§9-B item 7, still open); (iii) ⚑ Q80 F5 recommends a DIFFERENT figure — 1.5 BH radius ≈ 200 px as a register choice. Charter F3 (later) says 220. The two differ by 20 px and by which quantity they name (220 px is a DIAMETER match at 3.4 BH; 200 px is a RADIUS at 1.5 BH = 3.0 BH diameter). 220 is authored here per the charter; the conductor must reconcile F3 and F5 in one ruling, not two.",
+  "radius_grade AUTHORED": "Marked per CHARTER F3 (a) — \"marked AUTHORED, not sourced\". The number matches a VFX measurement; no gameplay radius exists to source it against.",
+  "duration_s 0.4": "Legolas §12.1 row 7 / §12.5 §6 — MEASURED, HIGH: VFX life 0.40 s. The GAMEPLAY remains instantaneous; 0.40 s is the visual envelope only.",
+  "onset / peak 0.15": "Legolas §12.1 row 7 — MEASURED, HIGH: 1-frame onset, peak 29 400 bright px at ≈0.15 s, gone by 0.40 s",
+  "dome form": "Legolas §12.1 row 7 / §12.5 §6 — MEASURED, HIGH: filled golden-white dome with a hard rim arc and rising flame-like plumes. Supersedes both the prior 'P06 broken ring ×5 orbiting at the feet' AND the thin SECONDARY 'golden ring' reading in §7.",
+  "seal REMOVED — pending Q80 F3": "Q80 F3 RECOMMENDATION (a): drop the seal. Legolas §12.5 §6: \"no glyph, seal, rune or ground decal in any of the 13 frames\" (MEASURED); §7: no source describes a glyph, seal, hexagram or rune, and it is not under the caster. Removed here as REMOVED-pending-F3; Matt's ruling confirms (a) or restores it via (b) non-denominational sigil / (c) the hexagram. Charter §1 notes F3 is \"moot if Healing Hands has no seal\" — it is not fully moot: the painted hexagram asset exists and the ruling decides whether it survives in the alphabet for a future aura.",
+  "pulse_schedule_s [] / pulse_cv_min 0.25": "Legolas §7 / Table B §6 — CORRECT-TO(no pulses at all). pulse_cv_min is retained as a key so the exporter contract does not change shape; the source cadence is 'none'. The likely origin of the six-pulse model is named at §7: Unbroken Prayer (turns the skill CHANNELED at 4 casts/s — most manual-cast footage is this variant) and Judgement (a DIFFERENT Paladin skill leaving Consecrated Ground for 4 seconds at 0.32 s interval — the prior spec's model almost exactly).",
+  "damages_enemies false": "Legolas §7 — VERIFIED ×3: the base skill does NO damage; it requires the Searing Light node (\"Healing Hands NOW hits enemies…\")",
+  "recipient_hot_s 3.0 / stack refresh": "Legolas §7 — the '3 seconds' in the description is a non-stacking, refreshable heal-over-time BUFF ON THE RECIPIENTS, not a persisting ground area and not a pulse sequence (VERIFIED). The prior spec's 'stack: refresh' is CONFIRMED IN SPIRIT.",
+  "cast_time_s 0.682 / cooldown 0": "Legolas §7 — Base Speed 1.467/s, Cooldown: 0 seconds (VERIFIED, EHG). ADD.",
+  "collision null": "R-C5-96 — the canonical capsule governs projectiles; this skill has none. Stated explicitly so a later reader does not conclude the collider was forgotten. NEW in v2.",
+  "REMOVED — ring_orbit_period 2.6 s / petal_life 0.45 / P_holy_ray petals ×6": "Legolas §12.5 §6 — N/A. There is no ring and nothing orbits.",
+  "ff08": "CHARTER F1 / Q80 F4 — N/A at source and N/A here: a one-shot burst has no repeating cadence to jitter. pulse_cv_min is a vestigial key on an empty schedule and is deliberately NOT marked pending — there is nothing for F1 to flip.",
+  "open": "Q80 F5 / §9-B item 7 — the base GAMEPLAY radius is still unpublished (needs an in-game tooltip or a browser). And §9-B item 8 / §12.7 item 3: no post-2026-03-26 Paladin footage was found on either pass, so the CURRENT look is unmeasured. If E3 is chasing current Last Epoch rather than the register the spec was written from, this whole file is the wrong target — that is the conductor's call and it is recorded here, not buried.",
+  "v1_delta": "v1 (13:15) already reverted the radius and removed the seal. v2 grades the radius AUTHORED, adds the two pending_rulings marks (C-7 F3 · Q80 F3), surfaces the F3-vs-F5 numeric conflict, adds the explicit collision null, and writes the exporter_needs list."
+ }
+}

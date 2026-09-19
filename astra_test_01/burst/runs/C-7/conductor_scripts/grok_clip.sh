@@ -1,7 +1,7 @@
 #!/bin/zsh
 # Run C-7 conductor Grok i2v clip (C-2 shape): grok_clip.sh <cell e.g. S_idle> <still png> [suffix]
 B=/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst
-S=/private/tmp/claude-501/-Users-admin-Games-reincarnated-collaboration/4e83a458-9b8a-45f0-8e0c-8487cc714a21/scratchpad
+S=$HOME/astra-burst/logs/C-7
 CELL=$1; STILL=$2; SUF=${3:-}
 NAME="${CELL}${SUF}"
 PROMPT=$(python3 -c "import json,sys;print(json.load(open('$B/runs/C-7/xvideo/prompts.json'))['cells']['$CELL']['prompt'])")

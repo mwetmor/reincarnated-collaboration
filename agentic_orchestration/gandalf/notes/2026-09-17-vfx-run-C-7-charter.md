@@ -16,7 +16,7 @@ Take **Blackwater Cocktail** to DONE by an **A/B under Matt's eye — arm A the 
 | Audit + measurements | `agentic_orchestration/legolas/research/2026-09-16-e3-deployment-footage/findings.md` (Tables A/B, § 12 frames, § 13 PConc combo); class-E clips on the Desktop | Legolas |
 | The fire DONE list (the acceptance template) | Q80 § Fire lane: (a) 8 directions clean · (b) touch aim forward · (c) light/particles/shader rounds · (d) hit response on the struck body · (e) key states/paintings bound · (f) Matt's eye | Matt 2026-09-16 |
 | Scene | `runs/C-5/cliffside_v44` (FL-6c; web12 live) with props v25 targets | C-5 |
-| Open decisions inherited (Q80 numbering → this charter's) | Q80 F3 holy glyph (moot if Healing Hands has no seal; re-spec v2 removes it pending) · **Q80 F4 = charter F1 (FF-08 — gates P2/E3-r1, not P1)** · **Q80 F5 = charter F3 (Healing Hands radius — ONE number: 220 px = the measured pre-1.4 dome diameter 3.4 BH; Q80's "≈200" was a rounded radius guess and is withdrawn)** · ~~F6-bis~~ **RULED by Matt R-C5-125: Profane-Bloom lobes YES, against the conductor's lean; re-spec v2 implements it** | Matt |
+| Open decisions inherited (Q80 numbering → this charter's) | Q80 F3 holy glyph (moot if Healing Hands has no seal; re-spec v2 removes it pending) · **Q80 F4 = charter F1 (FF-08 — gates P2/E3-r1, not P1)** · **Q80 F5 = charter F3 (Healing Hands radius — ONE number, ONE quantity: `radius_px 220` = a 440-px / 3.4-BH DIAMETER, which is the measured pre-1.4 dome (§ 12.2); Q80's "≈200 px / 1.5 BH radius" is the same quantity rounded to 3.1 BH diameter and is withdrawn in favour of the measured 220 — Gate-1 re-check WARN-3)** · ~~F6-bis~~ **RULED by Matt R-C5-125: Profane-Bloom lobes YES, against the conductor's lean; re-spec v2 implements it** | Matt |
 | Sourcing class (standing rule) | Source footage is **class E — measurement only** (Matt 2026-09-12 (b); `canonical/matt_decision_needed/2026-08-25-youtube-frame-extraction-sourcing-class.md`): never a burst input, never a Grok input; Grok receives only our own seed still + the conductor's prompt (`grok_calls[].still` must point under `runs/C-7/artifacts/`) | Matt |
 
 ## 2. Decidable target-state
@@ -34,7 +34,7 @@ P0 launch (forks → Gate-1 → R-C7-1; **P0-v the video trial ran ahead of GO u
 |---|---|---|---|
 | F1 | FF-08 (= Q80 F4) | **(a) house rule scoped to the painted layer; mechanics cadences follow the source metronomes** | (b) drop FF-08; (c) keep universal |
 | F2 | skill order | **RULED by Matt (R-C5-125): Blackwater → Lightning Blast → Frozen Orb → pause** | — |
-| F3 | Healing Hands radius | **(a) 220 px authored (matches the pre-1.4 dome), marked AUTHORED** | (b) wait for post-1.4 footage |
+| F3 | Healing Hands radius | **(a) `radius_px` 220 (= 3.4 BH diameter, the measured pre-1.4 dome), marked AUTHORED** | (b) wait for post-1.4 footage |
 | F4 | web cadence | **(a) one deploy per skill at (f)** | (b) one deploy at the end |
 | **F5** *(new 2026-09-18)* | the fire lane again, on video | **(a) YES — after Blackwater's A/B verdict, a bounded lap: one clip from CONTACT (burst → white-hot core → embers → afterglow → small decal) as the impact spine, the projectile staying runtime (8 directions, eruption, capsule); judged beside v44 the same way** | (b) now, in parallel with Blackwater (two Grok streams + two binds; not recommended — one verdict first) · (c) not at all (v44 stands) |
 

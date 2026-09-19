@@ -1,0 +1,112 @@
+{
+ "skill_id": "blackwater_cocktail",
+ "source_game": "Grim Dawn — Demolitionist: Blackwater Cocktail",
+ "grammar": "G2",
+ "g2_mode": "lobbed_field",
+ "visual_treatment_id": "fire",
+ "response_class": "material→field",
+ "source_rank": 1,
+ "scale": {
+  "px_per_bh": 130,
+  "note": "Grim Dawn BH = 1.8 m is INFERRED (Legolas §2); every BH figure in this file inherits that grade. 130 px/BH ÷ 1.8 m/BH = 72.2 px/m — the conversion used by every metre-derived figure below."
+ },
+ "mechanics": {
+  "origin_socket": "cast_release",
+  "aim_rule": "ground-locked",
+  "range_px": 520,
+  "range_max_source_px": 1083,
+  "landing_clamp": "walkable_union",
+  "arc": {
+   "apex_px": 42,
+   "flight_s": 0.4,
+   "launch_angle_deg": 18.0,
+   "flight_scales_with_landing_distance": true
+  },
+  "bounce": false,
+  "collision": {
+   "in_flight": "none",
+   "note": "the flask is ground-locked and does not strike bodies in flight; the R-C5-96 canonical capsule is the FORWARD-CAST (G1) collider and does not apply here. Contrast poisonous_concoction, whose flask CAN hit a body mid-flight and therefore does carry a capsule."
+  },
+  "field": {
+   "radius_px": 181,
+   "duration_s": 2.5,
+   "tick_schedule_s": [
+    0.0,
+    1.0,
+    2.0
+   ],
+   "tick_cadence_kind": "metronome",
+   "tick_interval_s": 1.0,
+   "tick_cv_min": 0.25
+  },
+  "burn_dot_s": 3.0,
+  "termination": "field_expiry"
+ },
+ "presentation": {
+  "ground_squash": 0.58,
+  "lick_flicker_hz": [3.3, 3.6],
+  "lick_coherence": "low — turbulent flicker with a characteristic timescale, NOT a pulse train and NOT the 1 Hz damage tick",
+  "primitive_bindings": {
+   "projectile": "RGB flask (material, opaque dark glass, pale reflection) — NOT value-index. Source mesh is literally boozebottle_molotov01.msh held at R Hand.",
+   "impact": "flask shatter: white-hot bloom + radiating light streaks + an expanding pale elliptical GROUND RING (shockwave) resolving into flame. Body = fire_burst_e0p_v3 at 0.7 scale — the CURRENT fire vocabulary (interleave kit, count 5–7, gaps ≤40°) WITH the FL-5 ending: a small central white-core painted decal that subsides, tighter/smaller embers, and a little smoky fog shrouding them. 3 glass shards (RGB) RETAINED as HOUSE — footage could not resolve them.",
+   "field": "low, dense, BOILING DISC of orange-yellow flame with a white-hot centre, ragged orange fringe and SHORT TURBULENT TONGUES (not tall discrete licks), red-orange outer glow; ground-bound decal + particles (terrainOnly), 0.58 squash. Tongue flicker runs at its own 3.3–3.6 Hz turbulent rate, decoupled from the damage ticks.",
+   "residue": "scorch decal 12.0 s — an IRREGULAR DARK SMUDGE WITH SOFT EDGES, not a clean circle, with faint smoke wisps and a few residual flame licks; fade begins at 11.0 s, fade-in 0.1 s"
+  },
+  "body_extents_bh": {
+   "flask": 0.35,
+   "field_diameter": 2.78,
+   "residue_diameter": 3.2
+  },
+  "phase_envelope_s": {
+   "flight": 0.4,
+   "splash_hold_frames": 2,
+   "field": 2.5,
+   "residue": 12.0
+  },
+  "enabled_layers": [
+   "flash",
+   "halo",
+   "floor_light",
+   "dark_duplicate",
+   "victim_tint",
+   "hit_stop",
+   "contact_label"
+  ]
+ },
+ "pending_rulings": {
+  "mechanics.field.tick_schedule_s": "C-7 F1",
+  "mechanics.field.tick_cadence_kind": "C-7 F1",
+  "mechanics.field.tick_interval_s": "C-7 F1",
+  "mechanics.field.tick_cv_min": "C-7 F1"
+ },
+ "exporter_needs": [
+  "G2 lick clock — a lick_flicker_hz / lick_coherence particle channel INDEPENDENT of tick_schedule_s (the source runs two clocks: 1 Hz damage, 3.3–3.6 Hz turbulent flicker; the current pulse asset is driven off the tick schedule)",
+  "G2 cadence_kind on the field tick train (metronome | jittered) so F1 flips in one pass; tick_schedule_report must REPORT cadence CV, never assert it",
+  "G2 residue ≫ field — a 12.0 s decal against a 2.5 s pool, drawn as an IRREGULAR SOFT-EDGED SMUDGE, not a circle, with fadeAfter 11.0 s / fade-in 0.1 s",
+  "G2 landing clamp to the walkable union with flight time scaled to the actual clamped distance (already live per R-C5-112; carried here so the spec states it)",
+  "impact body re-pointed from fire_burst_e0p_v2 to fire_burst_e0p_v3 at 0.7 scale, inheriting the FL-5 ending (core_residue + smoke + tightened ember_ending) and the interleave library",
+  "exact-set mechanics._keys must admit source_rank, burn_dot_s, arc.launch_angle_deg, range_max_source_px, landing_clamp, collision, bounce, g2_mode"
+ ],
+ "provenance": {
+  "range_px 520": "HOUSE — the touch forward-cast default, R-C5-92 (no aim assist; drag-to-aim is the accepted direction) and the LANE convention already baked at R-C5-106/112. The source max (15 m = 8.33 BH = 1083 px, VERIFIED .arz, Legolas Table B §2) is preserved in range_max_source_px and is NOT lost.",
+  "arc.flight_s 0.40 / arc.apex_px 42": "DERIVED at the 520 px house range: flight = 520 ÷ (18 m/s × 72.2 px/m) = 0.400 s; apex = 520 · tan(18°) ÷ 4 = 42 px. launchAngle 18.0° is VERIFIED (.arz, Table B §2). At the source's own 1083 px these become 0.83 s / 88 px — that pair is the v1 draft's and is correct for the SOURCE range, not for the lane.",
+  "landing_clamp walkable_union": "R-C5-112 — BL-1a-r1: the G2 landing is clamped to the walkable union; all eight directions land walkable and flight is scaled with the clamped distance. F-C5-35 (pool in the sky / on the void) was the defect this closed. NEW in v2 — the v1 draft omitted a lane fact already in the build.",
+  "field.radius_px 181 / field_diameter 2.78 BH": "Legolas Table B §2 per-rank table — RANK 1: projectileExplosionRadius 2.5 m = 2.78 BH diameter (VERIFIED). Rank 12 = 6.44 BH, rank 22 = 7.11 BH; this spec declares RANK 1 (R-C5-106).",
+  "field.duration_s 2.5": "Legolas Table B §2 per-rank table — RANK 1 pool duration (VERIFIED .arz; the wiki's 4.0 s is a version behind)",
+  "tick_schedule_s [0,1,2] / tick_interval_s 1.0 / tick_cadence_kind metronome": "Legolas §4 + §0(b) + Table B §2 — targetInterval = 1000 ms, a flat 1 Hz metronome, CV = 0 (VERIFIED). Three ticks fit the 2.5 s rank-1 pool. Authored per CHARTER F1 RECOMMENDATION (a): mechanics cadences follow the source metronomes. The lane's live irregular schedule [0, .3, .95, 1.25, 2] is HOUSE FF-08 (R-C5-55/106) and is SUPERSEDED here pending F1.",
+  "tick_cv_min 0.25": "HOUSE — retained as a key so the exporter contract does not change shape, but under F1(a) the authored schedule does NOT satisfy it. The exporter must REPORT cadence CV, never assert it.",
+  "ff08": "CHARTER F1 / Q80 F4, PENDING — authored at recommendation (a): FF-08 is a HOUSE rule scoped to the PAINTED layer only; mechanics cadences follow the source metronome. For this file the painted-layer irregularity F1(a) governs lives in the KIT (fire_burst_e0p_v3 pieces.erode_noise / boil, ember timing), not in any key here. NOTE THE EXEMPTION: lick_flicker_hz is MEASURED SOURCE (§12.1 row 4b), not house jitter, and survives ANY F1 ruling — it is not marked pending. If Matt rules (c) keep-universal, flip only the four keys in pending_rulings back to the BL-1a irregular schedule.",
+  "burn_dot_s 3.0": "Legolas §4 — burn duration is a FLAT 3.0 s regardless of rank and is a DIFFERENT CLOCK from the pool duration (VERIFIED). The prior spec conflated the two.",
+  "bounce false": "HOUSE — the source flask IS a physics body that can bounce (physicsRestitution 1.0, physicsFriction 16.0, dedicated bounce sound, VERIFIED §4). We author a clean arc-and-shatter for E3-r1; declared deviation, re-openable.",
+  "collision.in_flight none": "R-C5-96 — the canonical capsule (radius 0.25 BH, swept from the release socket, target must lie ≥0.25 BH ahead along the facing) is the G1 FORWARD-CAST collider. Blackwater is ground-locked to a landing point and strikes nothing in flight, so no capsule is authored. Stated explicitly rather than left absent.",
+  "residue 12.0 s": "Legolas Table B §2 — decal life 12.0 s, fadeAfter 11.0 s, fadeIn 0.1 s (VERIFIED). The prior 1.0 s was off by >10×.",
+  "residue form + residue_diameter 3.2": "Legolas §12.1 row 4c — MEASURED, form MED / BH LOW (≈4.3 BH at that clip's unknown rank; scaled here to rank 1's 2.78 BH field × the same ~1.15 residue:field ratio → 3.2 BH, DERIVED)",
+  "field form (boiling disc, white-hot centre, short tongues)": "Legolas §12.1 row 4c — MEASURED, MED; ground decal + particles per §4 (terrainOnly = True; sphere.msh is an invisible collider)",
+  "lick_flicker_hz 3.3–3.6, low coherence": "Legolas §12.1 row 4b — MEASURED, MED: autocorrelation over 200 frames @60 fps gives a ≈0.28–0.30 s characteristic period at +0.10 to +0.25 coherence. Emphatically NOT the 1 Hz damage tick.",
+  "impact ground ring + bloom + streaks": "Legolas §12.1 row 4a — MEASURED (form)",
+  "impact body fire_burst_e0p_v3 + FL-5 ending": "R-C5-122 (Matt on cliffside_v40: bring back SOME of the painted/decal section with a matching white-hot glow; embers too large and too spread out; add a little smoky fog shrouding the embers; the white-hot glow as a small central painted decal that subsides) + R-C5-124 (FL-5 Part E: interleave count 5–7, scale 1.2–1.6×, gaps ≤40°). The v3 kit carries interleave.count [5,7], core_residue 0.6 BH / 0.5 s, smoke 0.8 BH / 0.9 s and the tightened ember_ending. The v1 draft still named fire_burst_e0p_v2 — that vocabulary is a lap behind.",
+  "3 glass shards": "HOUSE — STILL UNKNOWN at source. §12.5 / §12.7 item 1: footage tried at 1080p/60 and FAILED; the remaining route is the .pfx inside the packed .arc. Retained as a house choice, not a source fact.",
+  "material flask RGB": "03- § 2.3 material-glass gate; corroborated by the source mesh + potion-drop sound (Legolas §4)",
+  "v1_delta": "v1 (13:12) authored the SOURCE range (1083 px / 0.83 s / 88 px apex). v2 restores the LANE convention (520 px HOUSE + range_max_source_px), adds landing_clamp and collision, re-points the impact to the v3 fire vocabulary, and marks the FF-08 keys pending C-7 F1."
+ }
+}

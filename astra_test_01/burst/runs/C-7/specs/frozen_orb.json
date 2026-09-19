@@ -1,0 +1,122 @@
+{
+ "skill_id": "frozen_orb",
+ "source_game": "Diablo II — Sorceress Cold: Frozen Orb",
+ "grammar": "G1",
+ "visual_treatment_id": "ice",
+ "response_class": "strike",
+ "scale": {
+  "px_per_bh": 130,
+  "note": "C-5 px space; every BH figure below × 130. Matches the existing specs (hop_range_px 220 = 1.69 BH; range_px 560 = 4.31 BH)."
+ },
+ "mechanics": {
+  "origin_socket": "cast_release",
+  "aim_rule": "release-locked",
+  "cast_time_s": 1.0,
+  "range_px": 759,
+  "speed_px_s": 632,
+  "count": 1,
+  "emission": {
+   "child": "ice_bolt_mini",
+   "schedule": "every 2.4 frames at 60 Hz (source: 1 bolt per game frame at 25 fps = 25 Hz metronome), spiral, 3.37 per revolution",
+   "cadence_hz": 25.0,
+   "cadence_kind": "metronome",
+   "interval_frames_60hz": 2.4,
+   "emission_count_per_cast": 30,
+   "angle_step_deg": 106.875,
+   "child_speed_px_s": 1138,
+   "child_range_px": 1138,
+   "child_termination": "first_contact_or_range"
+  },
+  "expiry": {
+   "kind": "range_or_time",
+   "time_s": 1.2,
+   "on_expiry": "shard_burst 16 radial"
+  },
+  "termination": "expiry",
+  "pierce": -1,
+  "pierce_obstacles": false,
+  "collision": {
+   "kind": "capsule",
+   "radius_bh": 0.25,
+   "kit_field": "collision_radius_bh",
+   "length": "head length, oriented along the direction, swept from the release socket",
+   "ahead_of_socket_bh": 0.25,
+   "applies_to": [
+    "emission child bolts",
+    "the 16 expiry nova darts"
+   ],
+   "orb_body": "NO actor collider — the orb deals no damage and is a pure emitter; it stops at obstacles only (pierce_obstacles false)"
+  }
+ },
+ "presentation": {
+  "expiry_mode": "nova",
+  "expiry_core_bh": 0.8,
+  "expiry_decal": false,
+  "orb_spin_up_s": 0.21,
+  "primitive_bindings": {
+   "travel_head": "ice orb = P_ice_puff rotated (0.80 BH wide × 0.75 BH tall) + rim shards; reaches full extent in 0.21 s from spawn",
+   "child": "P_ice_shard (0.35 BH)",
+   "impact": "none — the orb itself deals no damage and has no impact body (D2 ships an unwired IceOrbExplode)",
+   "expiry": "16 discrete faceted ice DARTS (kite/arrowhead head + glowing tapered tail), 0.67 BH long × 0.12 BH wide, radiating from a bright core flash, hugging the ground plane — no expanding ring, no shockwave disc, no ground decal",
+   "residue": "none"
+  },
+  "body_extents_bh": {
+   "orb": 0.8,
+   "orb_height": 0.75,
+   "child": 0.35,
+   "expiry_dart_length": 0.67,
+   "expiry_dart_width": 0.12,
+   "expiry_spray_reach": 11.68
+  },
+  "phase_envelope_s": {
+   "cast": 1.0,
+   "travel": 1.2,
+   "child_life": 1.0,
+   "expiry_hold_frames": 2,
+   "residue": 0.0
+  },
+  "enabled_layers": [
+   "flash",
+   "halo",
+   "floor_light",
+   "dark_duplicate",
+   "victim_tint",
+   "hit_stop",
+   "contact_label"
+  ]
+ },
+ "pending_rulings": {
+  "mechanics.emission.cadence_kind": "C-7 F1",
+  "mechanics.emission.schedule": "C-7 F1",
+  "mechanics.emission.interval_frames_60hz": "C-7 F1"
+ },
+ "exporter_needs": [
+  "G1 cadence_kind — validate_orb / orb_schedule_report currently hard-require a literal emission.schedule string plus interval_frames_choices ≥ 2-distinct and interval_draw == 'balanced_shuffle'; both FORBID the source cadence. A metronome mode must exist behind cadence_kind",
+  "G1 fractional emission interval — 2.4 frames at 60 Hz must be representable; integer-only intervals cannot express a 25 Hz source on a 60 Hz clock",
+  "G1 angle_step_deg must accept 106.875 (currently pinned to the 137° HOUSE golden angle)",
+  "G1 nova darts — 16 faceted darts (kite head + tapered tail, 0.67 × 0.12 BH) radiating from a core flash, replacing burst_v1r pieces as the expiry body; no ring, no shockwave disc",
+  "G1 decal_s must accept 0.0 and pieces/decal must not be mandatory when expiry_mode == 'nova'",
+  "G1 capsule collider (R-C5-96) applied to the emitted child bolts and the nova darts, not to the orb body",
+  "exact-set mechanics._keys must admit cast_time_s, pierce_obstacles and collision"
+ ],
+ "provenance": {
+  "speed_px_s / range_px / expiry.time_s": "Legolas 2026-09-16 Table B §1 + §3 Q2 — Missiles.txt Vel=MaxVel=10 (constant, no decay), Range=30 frames @25 fps → 4.87 BH/s, 5.84 BH, 1.20 s (VERIFIED)",
+  "emission cadence": "Legolas §3 Q3 — Param1=1, one bolt per game frame at 25 fps = 25 Hz PERFECTLY REGULAR; 60 Hz mapping 60/25 = every 2.4 frames (DERIVED). Authored per CHARTER F1 RECOMMENDATION (a): a mechanics cadence follows the source metronome.",
+  "emission_count_per_cast 30": "DERIVED — 1.20 s orb life × 25 Hz = 30 bolts per cast.",
+  "angle_step_deg 106.875": "Legolas §3 Q3 — Param2=19 of a 64-unit circle = 106.875°, 3.37 bolts/revolution (VERIFIED). Was 137 (HOUSE golden-angle).",
+  "child_speed_px_s / child_range_px / child_life": "Legolas §3 Q2 travel-bolt row — Vel 18, Range 25 fr → 8.76 BH/s, 8.76 BH max, 1.00 s (VERIFIED). Bolts die on first contact, so 8.76 BH is a MAX not a typical.",
+  "orb body 0.80 × 0.75 BH, spin-up 0.21 s": "Legolas §12.1 row 1a — MEASURED, HIGH (alt_RPJK4SSFZ0c_full, 7 consecutive frames; BH anchor 228 px). The prior 0.9 BH was ~12 % high.",
+  "expiry nova form + dart 0.67 × 0.12 BH": "Legolas §12.1 row 1b — MEASURED, HIGH (form) / MED (dart dims); no ring, no decal",
+  "expiry_mode nova / expiry_decal false": "R-C5-74 F-C5-19 — and Legolas §3 Q1 CONFIRMS it is exactly what D2 does (AlwaysExplode=1, HitSubMissile1=frozenorbnova, 16 bolts; frozenorbexplode ships unwired)",
+  "expiry_spray_reach 11.68 BH": "Legolas Table B §1 — nova bolt Vel 24 → 11.68 BH max. The prior 'expiry_burst 3.0 BH' was not a body at all; it is 16 bolts spraying.",
+  "no impact body": "Legolas §3 Q1 / Table A — frozenorb carries no Skill field; it is a pure emitter (VERIFIED)",
+  "pierce -1 / pierce_obstacles false": "Matt R-C5 Packet-84 (skill pierce) + Legolas §3 / Table B §1 — CollideKill unset for actors, but the orb stops at obstacles (VERIFIED)",
+  "collision capsule": "R-C5-96 (conductor design ruling, veto-open) — the G1 collider is a CANONICAL CAPSULE: radius 0.25 BH (kit field collision_radius_bh, default .25), length = head length, oriented along the direction, swept from the release socket; a contact counts only if the target lies ≥0.25 BH ahead along the facing. Painted envelopes are retired from collision (Diablo II missile convention: fixed collision size, art is art). NEW in v2 — the v1 draft carried pierce but no collider, and G1 is precisely the grammar R-C5-96 governs. It binds the CHILD bolts and the nova darts; the orb body itself damages nothing.",
+  "cast_time_s 1.0": "Legolas §3 — delay=25 frames = 1.0 s cast delay, corroborated by purediablo (VERIFIED); castoverlay ice_cast_3 ≈0.60 s (DERIVED)",
+  "expiry_core_bh 0.8": "HOUSE — a bright core flash is MEASURED (§12.1 1b) but its extent is not; 0.8 BH carried forward unchanged from the prior spec",
+  "residue 0.0": "Legolas §12.5 §1 — no decal observed in the 0.3 s window; §12.5 notes this is NOT an exhaustive residue check, so residue stays formally UNKNOWN at source while the spec authors none. The prior P_ice_crown 0.6 s had no source and is removed.",
+  "bands": "E2 ice palette",
+  "ff08": "CHARTER F1 / Q80 F4, PENDING — authored at recommendation (a): the emission cadence is the source's 25 Hz metronome; jitter is a HOUSE rule scoped to the painted layer only. The prior 'every 2–4 frames (seeded balanced shuffle, FF-08)' was HOUSE mislabelled as source observation (Legolas §3 Q3: \"There is no jitter in the source. None.\"). If Matt rules (c), flip only the three keys in pending_rulings.",
+  "v1_delta": "v1 (13:12) was already right on every sourced number. v2 adds the R-C5-96 capsule collider (a G1 requirement the draft omitted), states emission_count_per_cast's derivation, and carries the F1 pending marks."
+ }
+}
