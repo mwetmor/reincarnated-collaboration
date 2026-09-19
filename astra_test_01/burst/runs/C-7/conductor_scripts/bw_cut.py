@@ -35,6 +35,11 @@ for i,f in enumerate(files):
     masks.append(subj)
 # derived gates
 bright=np.array([r['bright_px'] for r in rows]); white=np.array([r['white_px'] for r in rows]); dw=np.array([r['dark_w'] for r in rows]); plate=np.array([r['plate'] for r in rows])
+# O1 (WARN-10 fix): the flash is white OUTSIDE the final scorch footprint, so flames inside the pool cannot fake a peak
+final_alpha = masks[-1]; ys_,xs_ = np.where(final_alpha); fx0,fx1,fy0,fy1 = (np.percentile(xs_,1),np.percentile(xs_,99),np.percentile(ys_,1),np.percentile(ys_,99)) if len(xs_)>50 else (0,W,0,H)
+outside = np.ones((H,W),bool); outside[int(fy0):int(fy1),int(fx0):int(fx1)] = False
+flash = np.array([int(((np.asarray(Image.open(f).convert('L'))>230)&outside&m).sum()) for f,m in zip(files,masks)])
+white = flash
 peak = int(white.argmax()); t_peak = peak/fps
 final_w = float(np.median(dw[-int(fps):])) if n>fps else float(dw[-1])
 stable_from = next((i for i,r in enumerate(rows) if i>int(0.4*fps) and r['dark_w']>=0.9*final_w), None)   # after the flash; pool at 90 % of its final width
