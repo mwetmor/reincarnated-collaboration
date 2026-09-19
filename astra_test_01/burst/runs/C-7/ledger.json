@@ -5,7 +5,15 @@
   "experiments": {},
   "milestones": [],
   "halts": [],
-  "rulings": [],
+  "rulings": [
+    {
+      "id": "R-C7-0",
+      "class": "matt",
+      "veto_open": false,
+      "ruling": "MATT (2026-09-18), pre-GO: try the VIDEO path on Blackwater as ONE end-to-end clip that is the SPINE of the effect — from CONTACT onward (shatter → bloom + ground ring → pool spreads → boils → dies → scorch), with the runtime gluing the rest around it (flask lob to the landing point → clip frame 0; the clip's last frame held 12 s as the scorch decal; ticks/victim tint/labels/floor light/dark duplicate/palette at runtime). Re-opens V15 (video = fallback only) for THIS trial as a parallel arm B beside the runtime Blackwater (arm A); judged E1-style, Matt's eye rules. Register enforced by: seed still = the register (P03 four-plane greyscale, first-frame pinned) + REGISTER CARD clauses in the prompt + posterise-to-four-planes / contour / O8 grain / P16 edge gates at the cut + JUDGE rubric axes 1 and 5 with a control. Gates pre-registered: plate stays green; final footprint 2.78 BH ± 15 %, aspect 0.58 ± 0.05, reached by 0.5 s then stable; single bloom peak; flicker 3.3–3.6 Hz; flame height ≤ 1/3 pool width; no scene cut; last 1 s static. Kill: two clips fail → runtime Blackwater proceeds unchanged. Oracles stay class-E measurement-only (Grok gets our still + prompt, never a source clip). Matt: 'Ok, go ahead'. Conductor defaults (veto-open): Grok via the C-3 CLI path (I drive, ledgered in grok_calls); ONE clip first, C-6's Grok queue unaffected by one call; bind = one TOOLING burst AFTER the fire lane clears.",
+      "ts": "2026-09-18T21:27:27"
+    }
+  ],
   "grok_calls": [],
   "run": "C-7",
   "charter": "agentic_orchestration/gandalf/notes/2026-09-17-vfx-run-C-7-charter.md",
