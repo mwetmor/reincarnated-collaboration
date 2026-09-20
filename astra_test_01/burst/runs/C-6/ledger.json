@@ -6544,6 +6544,11 @@
       "id": "E1-STEP2-BPRIME",
       "note": "E1 arm B-prime RESULT: pixelated true-53° necro master → Grok walk: metric Δ +31.3 % (f0 2.288 → f60–84 3.005) vs painted control A +32.8 % — UPRIGHTED, indistinguishable from the control; strip confirms (taller, longer-legged by f12; Grok also smoothed the pixel blocks away). Same geometry + same crouch confound in both arms → for this figure STYLE made no difference. Retry still E1_pixel_warlord_S_r1 (16-bit overworld-sprite framing) DID come back elevated (helm top dominant, compressed torso, short legs) → image_gen can draw from above when framed as an overworld sprite; the first failure was prompt framing (53° ARPG camera), not capability. Arm B proper fired: E1W_walk from that still with an angle-never-changes clause.",
       "ts": "2026-09-20T16:04:00"
+    },
+    {
+      "id": "E1-IN-SCENE",
+      "note": "Matt asked to see the Warlord in the scene. E1W_walk: frozen matte refused the raw clip (figure touches the frame border, green fraction 0.88) → clip padded to 70 % on its own plate green (ffmpeg scale+pad, nearest; geometry untouched; PROBE cell, flagged) → frozen cut: 12 frames, period 24 (1.0 s), confidence 0.89 — the strongest cycle of the run. One-cell character (walk_S; exporter fallback for every other state/direction) exported to runs/C-6/cliffside_v40-warlord-probe/godot (exporter 7c1e2b6e…, empty sockets, props-necro). In-scene captures (real renderer, probe_walk_c6.gd, same route) running for BOTH the Warlord probe and the necro staging under the heavy lock.",
+      "ts": "2026-09-20T16:19:09"
     }
   ]
 }
