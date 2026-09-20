@@ -919,7 +919,12 @@ def main():
             "alpha_deg": ALPHA_DEG, "h_fig_m": H_FIG_M,
             "fraction_zoom_gd": FRACTION_ZOOM_GD,
             "fraction_zoom_house": FRACTION_ZOOM_HOUSE,
-            "u_window": list(U_WINDOW), "banner_aura_m": BANNER_AURA_M},
+            "u_window": list(U_WINDOW), "banner_aura_m": BANNER_AURA_M,
+            "banner_damage_mult": BANNER_DAMAGE_MULT,
+            "banner_damage_mult_superseded": BANNER_MULT_SUPERSEDED,
+            "banner_damage_mult_basis": "conductor ledger KP-7 (2026-09-20) — "
+                                        "banner_additive=True; +100 % onto a sheet "
+                                        "already at +3036 % physical"},
         "derived": {
             "u_registered": u, "u_basis": "conductor ledger KP-6 (2026-09-20)",
             "u_superseded_midpoint": U_SUPERSEDED_MIDPOINT, "ppm_zoom_gd": pg.ppm, "ppm_zoom_house": ph.ppm,
