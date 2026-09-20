@@ -15,9 +15,34 @@
       "ts": "2026-09-20T17:45:44"
     }
   ],
-  "grok_calls": [],
+  "grok_calls": [
+    {
+      "id": "G-SW_walk",
+      "cell": "SW_walk",
+      "still": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-8/artifacts/pad/pad_SW.png",
+      "still_sha256": "d9c29af02a9f51daa21e1acbb8a82b27d7846b7d0411be8dd5075a5c65692058",
+      "prompt_sha256": "63e8dadc466958178abe56486025d82abcdeff8cf2b098c24fc2614ad87f5da7",
+      "extra": "",
+      "clip": "runs/C-8/xvideo/in/SW_walk.mp4",
+      "clip_sha256": "d4fafba0ba4880cdcfbcbdb052ee7cec284c61ffdc2cbd9ae8d853e78bb1335c",
+      "ok": true,
+      "rc": 0,
+      "wall_s": 54,
+      "probe": "768,1168,24/1,6.041667,145",
+      "printed": "",
+      "staged_mp4": "/Users/admin/astra-burst/grok/C-8/SW_walk/SW_walk.mp4",
+      "ts": "2026-09-20T17:47:38"
+    }
+  ],
   "run": "C-8",
   "charter": "agentic_orchestration/gandalf/notes/2026-09-20-warlord-run-C-8-charter.md",
   "charter_sha256_12": null,
-  "images_cap_note": "SENTINEL — no image cap; Grok weekly allowance is the constraint (F7 posture carried from C-6)"
+  "images_cap_note": "SENTINEL — no image cap; Grok weekly allowance is the constraint (F7 posture carried from C-6)",
+  "notes": [
+    {
+      "id": "SPIN-RATE",
+      "note": "Attack (EoR spin) rate taken from the Godot 3D whirlwind VFX (reincarnated-godot/scripts/wwcr_whirlwind.gd, drax S2 clean-room mint 2026-08-24): OMEGA_DEG = 900 deg/s = 2.5 rev/s (period 0.40 s), SPIN_UP_S 0.70, SPIN_DOWN_S 0.80 — AUTHORED, not measured (mint note § 4.2: cadence absent corpus-wide; measurement aliased). Prompt: 2.5 full revolutions per second, one turn every 0.4 s, ~15 turns per 6-s clip, constant (no wind-up/down in the loop clip). Loop arithmetic for the future attack state: one revolution = 0.40 s = 8 frames at the exporter cast rate (20 fps) → the cut should target an 8-frame cycle at fps-out 20 (or 4 at 10); the wind-up/down live in the VFX (SPIN_UP/DOWN), not in the sprite loop.",
+      "ts": "2026-09-20T17:48:04"
+    }
+  ]
 }
