@@ -5795,6 +5795,14 @@
       "topic": "P5 sockets — blade-socket proposal + marked-sheet audit (predicate 3)",
       "ruling": "runs/C-6/sockets_v2.json written in the exporter CURRENT schema v1 (version, canvas 512, cells.cast_<D>.{sockets[n=8], measurements, release_index, release_socket_rule}) for cast_S, cast_SW, cast_E (unique) and cast_SE, cast_W (mirrored: x = 511 - x of the source). Estimator (conductor script blade_sockets.py, conductor_derived + script sha in the file): the alpha pixel farthest from the hip point of the rest frame, feet excluded (bottom 15 %); this replaced topmost-alpha after the SW sheet showed frames 3–5 (the low forward sweep) landing on his HEAD, and a feet-exclusion after the S sheet showed frame 5 on a boot. Marked sheets (runs/C-6/artifacts/sockets-sheets/sockets_<D>.png) audited by conductor eye: S, SW, E — every frame on the blade tip, release frame 3 correct in all three; mirrored SE/W inherit. The FL-5 staff rules are not used. N/NE/NW: no cast cells yet — no rows (the exporter validates only exported cells).",
       "ts": "2026-09-18T20:25:13"
+    },
+    {
+      "id": "R-C6-39",
+      "class": "matt",
+      "veto_open": false,
+      "topic": "E1 — angle-vs-style probe (pixel EoR Warlord) PRE-REGISTERED before any result",
+      "ruling": "Matt: before moving to full upright in the Keeper style, see how well Grok makes a 53-degree movie in other styles (pixel, anime); make it a pixel version of the EoR Warlord from Grim Dawn. → E1 arms: (A) CONTROL = S_walk_t1 (painted 53° Necromancer master seed; already paid). (B) PIXEL = a TEXT-DESIGNED pixel-art Warlord (heavy plate soldier-oathkeeper, one-handed weapon + large shield — described, never a Grim Dawn render attached; R-C6-0 rule) minted by Grok image_gen at the elevated ~53° ARPG camera on #00ff00, then Grok i2v with the C-6 walk skeleton. (C) anime — only if Matt supplies a still. READ, pinned now: STEP 1 the minted still — is it at the elevated camera (crown + shoulder tops from above, feet foreshortened)? if not, Grok image model cannot draw it either = finding. STEP 2 the clip — frame 0 vs frame 72 by Matt eye + one number (figure height ÷ shoulder width on the matte; rises when a figure is stood up): HOLDS = crown/shoulder tops still visible at f72 and the ratio moves < 10 %; UPRIGHTED otherwise. Confound declared: B differs from A in character and seed source as well as style, so B-HOLDS means pixel CAN hold the angle; B-UPRIGHTED + A-UPRIGHTED means the angle (not the style) is what Grok cannot hold. Style register stays LOCKED (style-register.md); E1 informs the camera canon only. Cost: 1 Grok image + 1 Grok clip.",
+      "ts": "2026-09-20T15:59:44"
     }
   ],
   "grok_calls": [
@@ -6205,6 +6213,18 @@
       "printed": "",
       "staged_mp4": "/Users/admin/astra-burst/grok/C-6/E_idle_p4/E_idle_p4.mp4",
       "ts": "2026-09-18T20:15:49"
+    },
+    {
+      "id": "GI-E1_pixel_warlord_S",
+      "kind": "image_gen",
+      "cell": "E1_pixel_warlord_S",
+      "ok": false,
+      "rc": 0,
+      "wall_s": 25,
+      "image": "",
+      "image_sha256": "",
+      "prompt_sha256": "2a18106eeb8f010e48f802d814798957bc36cb045e2a179a74e8259f45df53ee",
+      "ts": "2026-09-20T16:00:10"
     }
   ],
   "notes": [
@@ -6452,6 +6472,12 @@
       "id": "P4-FALLBACK-S",
       "note": "S_walk: no head-bob cycle on either S clip → charter fallback applied: re-cut with --sibling-stride-frames 32 (E period) → 12 frames, native 68..100, source=sibling, seam_mad 18.1, closure_mad 20.3 — FLAGGED prompted/sibling period (report, never verdict). SW_walk: sibling hint offered, tool kept its own autocorr period 72 (3.0 s) — flagged slow (C-3 W class). Wave 2 progress: S/SW/E idle + run ok (6/12).",
       "ts": "2026-09-18T18:08:31"
+    },
+    {
+      "id": "MATT-CAMERA-OBSERVATION",
+      "class": "matt",
+      "note": "Matt (verbatim, 2026-09-20): The keeper actually looks better than the Necromancer. […] the problem is that Astra and grok had ALOT of difficulty with the 53 degree angle. I am not sure if the keepers angle fits the scene better than the necromancers angle, but the keepers angle is consistent, and that matters more than anything as the necromancer cannot be well compared due to many different angles.. To be honest, once grok began to animate the motion of the astra PNGs, the angle changed because grok made it more upright, so I dont think we were ever really using the Astra 53 degree angle, which Astra was struggling with consistency on anyway. → Conductor reading: CONSISTENCY is the predicate; the pipeline has a native upright character angle (Grok converges to it; Astra cannot hold 53° — nine seed passes, camera_matches FALSE on nearly every turned frame); the N3 53° S seed is the manufactured outlier. Forks K0′/K1′/N1 put to Matt; canon consequence = a 00-system.md amendment (ground 53°, characters at the tool-native angle, gated by a set-consistency check) — recognition record, jack-ryan ratifies.",
+      "ts": "2026-09-20T15:23:22"
     }
   ]
 }
