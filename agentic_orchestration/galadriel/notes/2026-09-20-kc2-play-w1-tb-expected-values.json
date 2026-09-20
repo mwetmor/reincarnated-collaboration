@@ -1,0 +1,1483 @@
+{
+ "artifact": "KC2-PLAY \u00b7 T-B EXPECTED-VALUES TABLE",
+ "version": 1,
+ "date": "2026-09-20",
+ "author": "galadriel",
+ "run": "KC2-PLAY, Wave 1 (charter \u00a7 5, ledger KP-4)",
+ "authority": [
+  "agentic_orchestration/gandalf/notes/2026-09-20-kc2-play-run-charter.md",
+  "agentic_orchestration/gandalf/notes/2026-09-20-kc2-play-2d-retarget-spec.md \u00a7 6 + Corrigenda-Forward 1 and 2"
+ ],
+ "quoting_cap": "\u2691 HARNESS REFUSAL (charter \u00a7 4.4 / R2D-10 pattern). The T-B grader MUST NOT print a FIDELITY figure from this table while T-A is absent, STRUCTURAL-red, or coverage < 72/72 mapped. It prints RAW STATISTICS ONLY. Nothing in this file is a fidelity claim.",
+ "video_status": "THE REFERENT MP4 IS NOT ON THIS MACHINE (matt_to_do T30; ~/gd-scratch deleted 2026-09-17). Every row here is a RE-QUERY of committed measurement artifacts. No row required the video. Rows that WOULD require it are listed under `blocked_on_T30`.",
+ "denominators": {
+  "D-HP-FRAME": {
+   "name": "HP-trace frame denominator",
+   "definition": "ALL 10,861 rows of pm4q_hp_trace.csv, t in [683.0, 864.0], 60 fps, frames CONTIGUOUS (verified: every frame index increments by 1; dt in {0.0166, 0.0167} only).",
+   "n": 10861,
+   "span_s": 181.0,
+   "warning": "This is NOT the 182.65 s combat window used by the energy/motion instruments. It is 181.0 s and starts 0.90 s later. Any RATE computed on one window is not comparable to a rate computed on the other without restating the denominator."
+  },
+  "D-HP-INTERVAL": {
+   "name": "HP frame-to-frame interval denominator",
+   "definition": "The 10,860 ADJACENT-FRAME INTERVALS of D-HP-FRAME (n-1, not n). Lap Q's published 13.73% is reproduced on n-1; on n it is 13.728% \u2014 the two differ by 0.0013 pp and both print as 13.73%. The grader uses n-1.",
+   "n": 10860
+  },
+  "D-HP-LIVE-MAX": {
+   "name": "LIVE-MAX health denominator",
+   "definition": "A health threshold is applied against health_max AS READ AT THAT FRAME, i.e. 16,368 inside the D-Q1 episode and 20,005 elsewhere. THIS IS THE DENOMINATOR THAT REPRODUCES 42.84%.",
+   "critical": "Under the NOMINAL alternative (20,005 throughout) time-at-full is 39.76%, not 42.84% \u2014 a 3.08 pp gap created purely by denominator choice. The below-50% and below-33% rows are denominator-INSENSITIVE (both give 376 / 109 frames) because every deep excursion occurs at nominal health_max."
+  },
+  "D-HP-NOMINAL": {
+   "name": "NOMINAL health denominator",
+   "definition": "A health threshold is applied against the constant 20,005 for every frame. Shipped alongside D-HP-LIVE-MAX so the grader can see which rows move."
+  },
+  "D-COMBAT-182": {
+   "name": "combat window, badge instrument",
+   "definition": "t in [682.10, 864.75] = 182.65 s. Opens at the wave-151 badge flip (galadriel sitting-2 timeline), closes at the player-death instant (corrected to 864.75 in the 2026-08-08 follow-up). Ten waves, no prep, no post-death. ALL energy / motion / release / cast statistics use this window.",
+   "span_s": 182.65
+  },
+  "D-GOODCOV": {
+   "name": "good-coverage subset of D-COMBAT-182",
+   "definition": "The 20 Hz samples whose 60 Hz energy OCR coverage clears the accept gate. goodcov_fraction = 0.8577 of D-COMBAT-182. Channel uptime is computed ON THIS SUBSET, not on the full window.",
+   "goodcov_fraction": 0.8577,
+   "warning": "A recorder that computes uptime over ALL its own ticks is computing a DIFFERENT statistic from the 0.8375 it is being compared to. The grader must either (a) restrict to a coverage-matched subset or (b) declare the comparison as instrument-divergent (charter \u00a7 2, fifth attribution class)."
+  },
+  "D-CAST-VISIBLE": {
+   "name": "visible-slot cast denominator",
+   "definition": "Casts detected as per-slot skill-bar DIMMING on slots 2, 3 and L only. Slots 7 and R never dim (brightness varies < 3 units over 3,653 frames) and slot 4 carries a WHITE buff-duration numeral, not a cooldown \u2014 all three are excluded by construction. Every cast count is therefore a FLOOR, not an estimate."
+  }
+ },
+ "rows": [
+  {
+   "id": "TB-HP-01",
+   "statistic": "time at FULL health",
+   "value": {
+    "fraction": 0.428414,
+    "frames": 4653,
+    "under_nominal_denominator": 0.397569
+   },
+   "unit": "fraction of frames",
+   "uncertainty": {
+    "class": "OCR-read",
+    "basis": "PC-3 100.00% accepted; trace resolves to 1 HP / 1 frame",
+    "frame_quantisation_s": 0.0167,
+    "dominant_term": "DENOMINATOR CHOICE, not read error: 0.4284 (LIVE-MAX) vs 0.3976 (NOMINAL)"
+   },
+   "instrument": {
+    "lap": "KC2-PM4 Lap Q (legolas) \u2014 heal discriminator",
+    "artifact": "agentic_orchestration/legolas/notes/2026-08-14-kc2-pm4-lap-q-heal-discriminator/pm4q_hp_trace.csv",
+    "sha256": "5597e1a8c993fa183adc3f2310570e70e4da47b6c1f882ad62a96583f57090fa",
+    "note": "agentic_orchestration/legolas/notes/2026-08-14-kc2-pm4-lap-q-heal-discriminator/pm4q_findings.md",
+    "method": "HUD health-orb readout ROI x[520,780) y[996,1026), 60 fps, Apple Vision OCR; PC-3 100.00% accepted against the DECODED denominator",
+    "requery_instrument": "agentic_orchestration/galadriel/pipeline/kc2_hp_shape.py"
+   },
+   "denominator": [
+    "D-HP-FRAME",
+    "D-HP-LIVE-MAX"
+   ],
+   "reproduction": {
+    "published": 0.4284,
+    "published_as": "2D spec B-11 / Lap Q \u00a7 4.1 (4,653 of 10,861)",
+    "recomputed": 0.428414,
+    "status": "REPRODUCES EXACT"
+   },
+   "note": "hp >= health_max at that frame. Absolute form: hp == hp_max, with hp_max in {20,005; 16,368}."
+  },
+  {
+   "id": "TB-HP-02",
+   "statistic": "time below 90% health",
+   "value": {
+    "fraction": 0.212319,
+    "frames": 2306,
+    "under_nominal_denominator": 0.249793,
+    "seconds": 38.4333
+   },
+   "unit": "fraction of frames",
+   "uncertainty": {
+    "class": "OCR-read",
+    "basis": "PC-3 100.00%",
+    "denominator_sensitivity": "SENSITIVE \u2014 see D-HP-LIVE-MAX vs D-HP-NOMINAL"
+   },
+   "instrument": {
+    "lap": "KC2-PM4 Lap Q (legolas) \u2014 heal discriminator",
+    "artifact": "agentic_orchestration/legolas/notes/2026-08-14-kc2-pm4-lap-q-heal-discriminator/pm4q_hp_trace.csv",
+    "sha256": "5597e1a8c993fa183adc3f2310570e70e4da47b6c1f882ad62a96583f57090fa",
+    "note": "agentic_orchestration/legolas/notes/2026-08-14-kc2-pm4-lap-q-heal-discriminator/pm4q_findings.md",
+    "method": "HUD health-orb readout ROI x[520,780) y[996,1026), 60 fps, Apple Vision OCR; PC-3 100.00% accepted against the DECODED denominator",
+    "requery_instrument": "agentic_orchestration/galadriel/pipeline/kc2_hp_shape.py"
+   },
+   "denominator": [
+    "D-HP-FRAME",
+    "D-HP-LIVE-MAX"
+   ],
+   "reproduction": {
+    "published": null,
+    "published_as": "NOT PREVIOUSLY PUBLISHED \u2014 new this lap",
+    "recomputed": 0.212319,
+    "status": "NEW"
+   },
+   "note": "hp < threshold * health_max AT THAT FRAME (strict inequality)."
+  },
+  {
+   "id": "TB-HP-03",
+   "statistic": "time below 75% health",
+   "value": {
+    "fraction": 0.090231,
+    "frames": 980,
+    "under_nominal_denominator": 0.096492,
+    "seconds": 16.3333
+   },
+   "unit": "fraction of frames",
+   "uncertainty": {
+    "class": "OCR-read",
+    "basis": "PC-3 100.00%",
+    "denominator_sensitivity": "SENSITIVE \u2014 see D-HP-LIVE-MAX vs D-HP-NOMINAL"
+   },
+   "instrument": {
+    "lap": "KC2-PM4 Lap Q (legolas) \u2014 heal discriminator",
+    "artifact": "agentic_orchestration/legolas/notes/2026-08-14-kc2-pm4-lap-q-heal-discriminator/pm4q_hp_trace.csv",
+    "sha256": "5597e1a8c993fa183adc3f2310570e70e4da47b6c1f882ad62a96583f57090fa",
+    "note": "agentic_orchestration/legolas/notes/2026-08-14-kc2-pm4-lap-q-heal-discriminator/pm4q_findings.md",
+    "method": "HUD health-orb readout ROI x[520,780) y[996,1026), 60 fps, Apple Vision OCR; PC-3 100.00% accepted against the DECODED denominator",
+    "requery_instrument": "agentic_orchestration/galadriel/pipeline/kc2_hp_shape.py"
+   },
+   "denominator": [
+    "D-HP-FRAME",
+    "D-HP-LIVE-MAX"
+   ],
+   "reproduction": {
+    "published": null,
+    "published_as": "NOT PREVIOUSLY PUBLISHED \u2014 new this lap",
+    "recomputed": 0.090231,
+    "status": "NEW"
+   },
+   "note": "hp < threshold * health_max AT THAT FRAME (strict inequality)."
+  },
+  {
+   "id": "TB-HP-04",
+   "statistic": "time below 50% health",
+   "value": {
+    "fraction": 0.034619,
+    "frames": 376,
+    "under_nominal_denominator": 0.034619,
+    "seconds": 6.2667
+   },
+   "unit": "fraction of frames",
+   "uncertainty": {
+    "class": "OCR-read",
+    "basis": "PC-3 100.00%",
+    "denominator_sensitivity": "NONE \u2014 identical frame count under both denominators"
+   },
+   "instrument": {
+    "lap": "KC2-PM4 Lap Q (legolas) \u2014 heal discriminator",
+    "artifact": "agentic_orchestration/legolas/notes/2026-08-14-kc2-pm4-lap-q-heal-discriminator/pm4q_hp_trace.csv",
+    "sha256": "5597e1a8c993fa183adc3f2310570e70e4da47b6c1f882ad62a96583f57090fa",
+    "note": "agentic_orchestration/legolas/notes/2026-08-14-kc2-pm4-lap-q-heal-discriminator/pm4q_findings.md",
+    "method": "HUD health-orb readout ROI x[520,780) y[996,1026), 60 fps, Apple Vision OCR; PC-3 100.00% accepted against the DECODED denominator",
+    "requery_instrument": "agentic_orchestration/galadriel/pipeline/kc2_hp_shape.py"
+   },
+   "denominator": [
+    "D-HP-FRAME",
+    "D-HP-LIVE-MAX"
+   ],
+   "reproduction": {
+    "published": 0.0346,
+    "published_as": "2D spec B-12 / Lap Q \u00a7 4.1",
+    "recomputed": 0.034619,
+    "status": "REPRODUCES EXACT"
+   },
+   "note": "hp < threshold * health_max AT THAT FRAME (strict inequality)."
+  },
+  {
+   "id": "TB-HP-05",
+   "statistic": "time below 33% health",
+   "value": {
+    "fraction": 0.010036,
+    "frames": 109,
+    "under_nominal_denominator": 0.010036,
+    "seconds": 1.8167
+   },
+   "unit": "fraction of frames",
+   "uncertainty": {
+    "class": "OCR-read",
+    "basis": "PC-3 100.00%",
+    "denominator_sensitivity": "NONE \u2014 identical frame count under both denominators"
+   },
+   "instrument": {
+    "lap": "KC2-PM4 Lap Q (legolas) \u2014 heal discriminator",
+    "artifact": "agentic_orchestration/legolas/notes/2026-08-14-kc2-pm4-lap-q-heal-discriminator/pm4q_hp_trace.csv",
+    "sha256": "5597e1a8c993fa183adc3f2310570e70e4da47b6c1f882ad62a96583f57090fa",
+    "note": "agentic_orchestration/legolas/notes/2026-08-14-kc2-pm4-lap-q-heal-discriminator/pm4q_findings.md",
+    "method": "HUD health-orb readout ROI x[520,780) y[996,1026), 60 fps, Apple Vision OCR; PC-3 100.00% accepted against the DECODED denominator",
+    "requery_instrument": "agentic_orchestration/galadriel/pipeline/kc2_hp_shape.py"
+   },
+   "denominator": [
+    "D-HP-FRAME",
+    "D-HP-LIVE-MAX"
+   ],
+   "reproduction": {
+    "published": 0.01,
+    "published_as": "2D spec B-12 / Lap Q \u00a7 4.1",
+    "recomputed": 0.010036,
+    "status": "REPRODUCES EXACT"
+   },
+   "note": "hp < threshold * health_max AT THAT FRAME (strict inequality)."
+  },
+  {
+   "id": "TB-HP-06",
+   "statistic": "time below 25% health",
+   "value": {
+    "fraction": 0.0,
+    "frames": 0,
+    "under_nominal_denominator": 0.0,
+    "seconds": 0.0
+   },
+   "unit": "fraction of frames",
+   "uncertainty": {
+    "class": "OCR-read",
+    "basis": "PC-3 100.00%",
+    "denominator_sensitivity": "NONE \u2014 identical frame count under both denominators"
+   },
+   "instrument": {
+    "lap": "KC2-PM4 Lap Q (legolas) \u2014 heal discriminator",
+    "artifact": "agentic_orchestration/legolas/notes/2026-08-14-kc2-pm4-lap-q-heal-discriminator/pm4q_hp_trace.csv",
+    "sha256": "5597e1a8c993fa183adc3f2310570e70e4da47b6c1f882ad62a96583f57090fa",
+    "note": "agentic_orchestration/legolas/notes/2026-08-14-kc2-pm4-lap-q-heal-discriminator/pm4q_findings.md",
+    "method": "HUD health-orb readout ROI x[520,780) y[996,1026), 60 fps, Apple Vision OCR; PC-3 100.00% accepted against the DECODED denominator",
+    "requery_instrument": "agentic_orchestration/galadriel/pipeline/kc2_hp_shape.py"
+   },
+   "denominator": [
+    "D-HP-FRAME",
+    "D-HP-LIVE-MAX"
+   ],
+   "reproduction": {
+    "published": null,
+    "published_as": "NOT PREVIOUSLY PUBLISHED \u2014 new this lap",
+    "recomputed": 0.0,
+    "status": "NEW"
+   },
+   "note": "hp < threshold * health_max AT THAT FRAME (strict inequality)."
+  },
+  {
+   "id": "TB-HP-07",
+   "statistic": "frames showing an HP DECREASE",
+   "value": {
+    "fraction": 0.137293,
+    "count": 1491,
+    "increase_fraction": 0.354788,
+    "flat_fraction": 0.507919
+   },
+   "unit": "fraction of adjacent-frame intervals",
+   "uncertainty": {
+    "class": "OCR-read",
+    "denominator_ambiguity": "n-1 = 10,860 -> 0.137293; n = 10,861 -> 0.137280. Both print 13.73%. USE n-1."
+   },
+   "instrument": {
+    "lap": "KC2-PM4 Lap Q (legolas) \u2014 heal discriminator",
+    "artifact": "agentic_orchestration/legolas/notes/2026-08-14-kc2-pm4-lap-q-heal-discriminator/pm4q_hp_trace.csv",
+    "sha256": "5597e1a8c993fa183adc3f2310570e70e4da47b6c1f882ad62a96583f57090fa",
+    "note": "agentic_orchestration/legolas/notes/2026-08-14-kc2-pm4-lap-q-heal-discriminator/pm4q_findings.md",
+    "method": "HUD health-orb readout ROI x[520,780) y[996,1026), 60 fps, Apple Vision OCR; PC-3 100.00% accepted against the DECODED denominator",
+    "requery_instrument": "agentic_orchestration/galadriel/pipeline/kc2_hp_shape.py"
+   },
+   "denominator": [
+    "D-HP-INTERVAL"
+   ],
+   "reproduction": {
+    "published": 0.1373,
+    "published_as": "2D spec B-13 / Lap Q \u00a7 4.1 (1,491 frames)",
+    "recomputed": 0.137293,
+    "status": "REPRODUCES EXACT (count 1,491)"
+   },
+   "note": "hp[i] < hp[i-1]. Increase and flat shipped too so the grader can check the three sum to 1."
+  },
+  {
+   "id": "TB-HP-08",
+   "statistic": "HP minimum (absolute)",
+   "value": {
+    "hp": 5360,
+    "hp_max_at_that_frame": 20005,
+    "fraction_of_hp_max": 0.267933,
+    "t_s": 845.7667,
+    "wave": 160
+   },
+   "unit": "HP",
+   "uncertainty": {
+    "class": "OCR-read",
+    "basis": "single-frame extremum; 1 HP resolution"
+   },
+   "instrument": {
+    "lap": "KC2-PM4 Lap Q (legolas) \u2014 heal discriminator",
+    "artifact": "agentic_orchestration/legolas/notes/2026-08-14-kc2-pm4-lap-q-heal-discriminator/pm4q_hp_trace.csv",
+    "sha256": "5597e1a8c993fa183adc3f2310570e70e4da47b6c1f882ad62a96583f57090fa",
+    "note": "agentic_orchestration/legolas/notes/2026-08-14-kc2-pm4-lap-q-heal-discriminator/pm4q_findings.md",
+    "method": "HUD health-orb readout ROI x[520,780) y[996,1026), 60 fps, Apple Vision OCR; PC-3 100.00% accepted against the DECODED denominator",
+    "requery_instrument": "agentic_orchestration/galadriel/pipeline/kc2_hp_shape.py"
+   },
+   "denominator": [
+    "D-HP-FRAME"
+   ],
+   "reproduction": {
+    "published": 5360,
+    "published_as": "2D spec B-14 / Lap Q \u00a7 4.1 (5,360 of 20,005)",
+    "recomputed": 5360,
+    "status": "REPRODUCES EXACT"
+   },
+   "note": "ABSOLUTE hp and hp_max, never a bare fraction. He never reached 25% of max: the floor is 26.79%."
+  },
+  {
+   "id": "TB-HP-09",
+   "statistic": "health_max DROP episode (D-Q1)",
+   "value": {
+    "hp_max_during": 16368,
+    "hp_max_nominal": 20005,
+    "delta_hp": -3637,
+    "delta_pct": -18.1805,
+    "t_start": 713.3833,
+    "t_end": 721.6667,
+    "dur_s": 8.2834,
+    "waves_straddled": [
+     152,
+     153
+    ],
+    "episodes_in_fight": 1
+   },
+   "unit": "HP / s",
+   "uncertainty": {
+    "class": "boundary-frame",
+    "value_s": 0.0167,
+    "note": "t_end here is the FIRST frame back at nominal; Lap Q published 721.650 (the LAST frame at 16,368). One frame apart. Duration agrees: 8.2834 vs 8.283 s."
+   },
+   "instrument": {
+    "lap": "KC2-PM4 Lap Q (legolas) \u2014 heal discriminator",
+    "artifact": "agentic_orchestration/legolas/notes/2026-08-14-kc2-pm4-lap-q-heal-discriminator/pm4q_hp_trace.csv",
+    "sha256": "5597e1a8c993fa183adc3f2310570e70e4da47b6c1f882ad62a96583f57090fa",
+    "note": "agentic_orchestration/legolas/notes/2026-08-14-kc2-pm4-lap-q-heal-discriminator/pm4q_findings.md",
+    "method": "HUD health-orb readout ROI x[520,780) y[996,1026), 60 fps, Apple Vision OCR; PC-3 100.00% accepted against the DECODED denominator",
+    "requery_instrument": "agentic_orchestration/galadriel/pipeline/kc2_hp_shape.py"
+   },
+   "denominator": [
+    "D-HP-FRAME"
+   ],
+   "reproduction": {
+    "published": {
+     "delta_pct": -18.18,
+     "dur_s": 8.283,
+     "span": [
+      713.383,
+      721.65
+     ]
+    },
+    "published_as": "2D spec B-18 / Lap Q \u00a7 6 D-Q1",
+    "recomputed": {
+     "delta_pct": -18.1805,
+     "dur_s": 8.2834,
+     "span": [
+      713.3833,
+      721.6667
+     ]
+    },
+    "status": "REPRODUCES (end-frame convention differs by 1 frame; duration identical to 3 dp)"
+   },
+   "note": "PRE-REGISTERED KNOWN MODEL GAP: the sim holds health_max constant. The twin is EXPECTED to show zero such episodes. That difference is NOT a build defect and the grader must not score it as one."
+  },
+  {
+   "id": "TB-HP-10",
+   "statistic": "HP saw-tooth PERIOD and DEPTH (B-19)",
+   "value": {
+    "primary_prominence_hp": 500,
+    "primary": {
+     "n_teeth": 128,
+     "rate_per_s": 0.70712,
+     "period_s": {
+      "n": 128,
+      "min": 0.0667,
+      "p05": 0.15,
+      "p25": 0.2958,
+      "median": 0.7667,
+      "p75": 1.5458,
+      "p95": 5.8725,
+      "max": 13.65,
+      "mean": 1.3835
+     },
+     "depth_hp": {
+      "n": 128,
+      "min": 512,
+      "p05": 555.5,
+      "p25": 852.25,
+      "median": 1575.5,
+      "p75": 2948.0,
+      "p95": 6489.65,
+      "max": 13613,
+      "mean": 2355.5859
+     },
+     "depth_frac_of_hp_max": {
+      "n": 128,
+      "min": 0.0256,
+      "p05": 0.0278,
+      "p25": 0.0426,
+      "median": 0.0788,
+      "p75": 0.1511,
+      "p95": 0.338,
+      "max": 0.6805,
+      "mean": 0.1188
+     },
+     "fall_s": {
+      "n": 128,
+      "min": 0.0166,
+      "p05": 0.0167,
+      "p25": 0.05,
+      "median": 0.1,
+      "p75": 0.4417,
+      "p95": 1.7033,
+      "max": 5.6667,
+      "mean": 0.4299
+     },
+     "recover_s": {
+      "n": 128,
+      "min": 0.0167,
+      "p05": 0.05,
+      "p25": 0.15,
+      "median": 0.4584,
+      "p75": 0.9166,
+      "p95": 3.3192,
+      "max": 12.3667,
+      "mean": 0.9535
+     },
+     "fall_slope_hp_per_s": {
+      "n": 128,
+      "min": -377237.24,
+      "p05": -100559.443,
+      "p25": -34291.995,
+      "median": -14282.43,
+      "p75": -4926.375,
+      "p95": -947.368,
+      "max": -114.18,
+      "mean": -30458.957
+     },
+     "recovery_slope_hp_per_s": {
+      "n": 128,
+      "min": 71.33,
+      "p05": 389.5235,
+      "p25": 1924.82,
+      "median": 4307.92,
+      "p75": 9409.54,
+      "p95": 34063.361,
+      "max": 171100.0,
+      "mean": 10033.753
+     }
+    },
+    "sweep": {
+     "100": {
+      "n_teeth": 254,
+      "rate_per_s": 1.40319,
+      "period_median_s": 0.3,
+      "depth_median_hp": 563.0,
+      "depth_median_frac": 0.0281,
+      "recovery_slope_median_hp_per_s": 4171.455
+     },
+     "250": {
+      "n_teeth": 179,
+      "rate_per_s": 0.98886,
+      "period_median_s": 0.5166,
+      "depth_median_hp": 1029.0,
+      "depth_median_frac": 0.0514,
+      "recovery_slope_median_hp_per_s": 4322.51
+     },
+     "500": {
+      "n_teeth": 128,
+      "rate_per_s": 0.70712,
+      "period_median_s": 0.7667,
+      "depth_median_hp": 1575.5,
+      "depth_median_frac": 0.0788,
+      "recovery_slope_median_hp_per_s": 4307.92
+     },
+     "1000": {
+      "n_teeth": 81,
+      "rate_per_s": 0.44747,
+      "period_median_s": 1.05,
+      "depth_median_hp": 2279.0,
+      "depth_median_frac": 0.1139,
+      "recovery_slope_median_hp_per_s": 3365.84
+     },
+     "2000": {
+      "n_teeth": 43,
+      "rate_per_s": 0.23755,
+      "period_median_s": 2.45,
+      "depth_median_hp": 3553.0,
+      "depth_median_frac": 0.1776,
+      "recovery_slope_median_hp_per_s": 3097.5
+     }
+    }
+   },
+   "unit": "s / HP",
+   "uncertainty": {
+    "class": "RULE-DEPENDENT \u2014 the dominant uncertainty is the PROMINENCE GATE, not the read",
+    "swept": [
+     100,
+     250,
+     500,
+     1000,
+     2000
+    ],
+    "spread_across_sweep": "n_teeth 254 -> 43 (5.9x); median period 0.30 s -> 2.45 s (8.2x); median depth 563 -> 3,553 HP (6.3x). THE GATE IS THE MEASUREMENT.",
+    "why_500": "500 HP = 2.50% of nominal max \u2014 the smallest step that is unambiguously a hit or a leech tick rather than the +2/+3 HP/frame regeneration drip. It is DECLARED, not fitted: no arm of this lap was selected by comparing it to a sim."
+   },
+   "instrument": {
+    "lap": "KC2-PM4 Lap Q (legolas) \u2014 heal discriminator",
+    "artifact": "agentic_orchestration/legolas/notes/2026-08-14-kc2-pm4-lap-q-heal-discriminator/pm4q_hp_trace.csv",
+    "sha256": "5597e1a8c993fa183adc3f2310570e70e4da47b6c1f882ad62a96583f57090fa",
+    "note": "agentic_orchestration/legolas/notes/2026-08-14-kc2-pm4-lap-q-heal-discriminator/pm4q_findings.md",
+    "method": "HUD health-orb readout ROI x[520,780) y[996,1026), 60 fps, Apple Vision OCR; PC-3 100.00% accepted against the DECODED denominator",
+    "requery_instrument": "agentic_orchestration/galadriel/pipeline/kc2_hp_shape.py"
+   },
+   "denominator": [
+    "D-HP-FRAME",
+    "D-HP-LIVE-MAX"
+   ],
+   "reproduction": {
+    "published": null,
+    "published_as": "NOT PUBLISHED \u2014 2D spec B-19 declares it ABSENT; \u00a7 6.4 registers it as OQ-4, derivable by re-query",
+    "recomputed": "see primary/sweep",
+    "status": "NEW \u2014 this row discharges B-19 / OQ-4"
+   },
+   "note": "TOOTH RULE (the recorder must implement THIS, verbatim): alternating-extremum walk with an ABSOLUTE-HP prominence gate. Confirm a PEAK when hp falls `prom` below the running max since the last confirmed trough; confirm a TROUGH when hp rises `prom` above the running min since the last confirmed peak. A tooth is a confirmed (peak -> trough -> next peak) triple. depth_hp = peak.hp - trough.hp; depth_frac = depth_hp / hp_max AT THE PEAK; period_s = next_peak.t - peak.t. Reference implementation: galadriel/pipeline/kc2_hp_shape.py::teeth."
+  },
+  {
+   "id": "TB-HP-11",
+   "statistic": "deepest excursions below 50% health",
+   "value": {
+    "n_excursions": 8,
+    "excursions": [
+     {
+      "t_start": 845.7667,
+      "min_hp": 5360,
+      "t_min": 845.7667,
+      "wave": 160,
+      "hp_max": 20005,
+      "t_end": 845.7833,
+      "dur_s": 0.0166,
+      "min_frac_of_hp_max": 0.267933
+     },
+     {
+      "t_start": 859.1667,
+      "min_hp": 5839,
+      "t_min": 859.95,
+      "wave": 160,
+      "hp_max": 20005,
+      "t_end": 862.1167,
+      "dur_s": 2.95,
+      "min_frac_of_hp_max": 0.291877
+     },
+     {
+      "t_start": 847.6667,
+      "min_hp": 6392,
+      "t_min": 847.6667,
+      "wave": 160,
+      "hp_max": 20005,
+      "t_end": 848.1167,
+      "dur_s": 0.45,
+      "min_frac_of_hp_max": 0.31952
+     },
+     {
+      "t_start": 857.5833,
+      "min_hp": 6964,
+      "t_min": 857.75,
+      "wave": 160,
+      "hp_max": 20005,
+      "t_end": 858.8833,
+      "dur_s": 1.3,
+      "min_frac_of_hp_max": 0.348113
+     },
+     {
+      "t_start": 843.3833,
+      "min_hp": 7443,
+      "t_min": 843.3833,
+      "wave": 160,
+      "hp_max": 20005,
+      "t_end": 843.7333,
+      "dur_s": 0.35,
+      "min_frac_of_hp_max": 0.372057
+     },
+     {
+      "t_start": 833.0667,
+      "min_hp": 7818,
+      "t_min": 833.0667,
+      "wave": 159,
+      "hp_max": 20005,
+      "t_end": 833.7667,
+      "dur_s": 0.7,
+      "min_frac_of_hp_max": 0.390802
+     },
+     {
+      "t_start": 858.95,
+      "min_hp": 8142,
+      "t_min": 858.95,
+      "wave": 160,
+      "hp_max": 20005,
+      "t_end": 859.0167,
+      "dur_s": 0.0667,
+      "min_frac_of_hp_max": 0.406998
+     },
+     {
+      "t_start": 856.5167,
+      "min_hp": 9511,
+      "t_min": 856.5167,
+      "wave": 160,
+      "hp_max": 20005,
+      "t_end": 856.95,
+      "dur_s": 0.4333,
+      "min_frac_of_hp_max": 0.475431
+     }
+    ],
+    "all_in_waves": [
+     159,
+     160
+    ]
+   },
+   "unit": "HP / s",
+   "uncertainty": {
+    "class": "OCR-read + run segmentation",
+    "segmentation_rule": "maximal contiguous run of frames with hp < 0.50 * hp_max; a single frame qualifies. Runs are NOT merged across a recovery above the line."
+   },
+   "instrument": {
+    "lap": "KC2-PM4 Lap Q (legolas) \u2014 heal discriminator",
+    "artifact": "agentic_orchestration/legolas/notes/2026-08-14-kc2-pm4-lap-q-heal-discriminator/pm4q_hp_trace.csv",
+    "sha256": "5597e1a8c993fa183adc3f2310570e70e4da47b6c1f882ad62a96583f57090fa",
+    "note": "agentic_orchestration/legolas/notes/2026-08-14-kc2-pm4-lap-q-heal-discriminator/pm4q_findings.md",
+    "method": "HUD health-orb readout ROI x[520,780) y[996,1026), 60 fps, Apple Vision OCR; PC-3 100.00% accepted against the DECODED denominator",
+    "requery_instrument": "agentic_orchestration/galadriel/pipeline/kc2_hp_shape.py"
+   },
+   "denominator": [
+    "D-HP-FRAME",
+    "D-HP-LIVE-MAX"
+   ],
+   "reproduction": {
+    "published": null,
+    "published_as": "NOT PREVIOUSLY PUBLISHED \u2014 new this lap",
+    "recomputed": "8 excursions",
+    "status": "NEW"
+   },
+   "note": "\u2691 EVERY sub-half excursion in the fight is in wave 159 or 160. Waves 151-158 never go below half at all. The 'inversion moment' is not distributed across the fight; it is the last two waves."
+  },
+  {
+   "id": "TB-HP-12",
+   "statistic": "per-wave HP shape",
+   "value": {
+    "151": {
+     "frames": 936,
+     "dur_s_from_trace": 15.6,
+     "t_first": 683.0,
+     "t_last": 698.5833,
+     "hp_min": 11283,
+     "hp_max_observed": 20005,
+     "frac_at_full_live": 0.590812,
+     "frac_below_50_live": 0.0,
+     "frac_decrease": 0.052406,
+     "n_teeth_prom500": 5,
+     "median_depth_hp_prom500": 1118.0,
+     "median_period_s_prom500": 2.45
+    },
+    "152": {
+     "frames": 978,
+     "dur_s_from_trace": 16.3,
+     "t_first": 698.6,
+     "t_last": 714.8833,
+     "hp_min": 16368,
+     "hp_max_observed": 20005,
+     "frac_at_full_live": 0.780164,
+     "frac_below_50_live": 0.0,
+     "frac_decrease": 0.100307,
+     "n_teeth_prom500": 5,
+     "median_depth_hp_prom500": 1497.0,
+     "median_period_s_prom500": 0.8333
+    },
+    "153": {
+     "frames": 894,
+     "dur_s_from_trace": 14.9,
+     "t_first": 714.9,
+     "t_last": 729.7833,
+     "hp_min": 10923,
+     "hp_max_observed": 20005,
+     "frac_at_full_live": 0.565996,
+     "frac_below_50_live": 0.0,
+     "frac_decrease": 0.086226,
+     "n_teeth_prom500": 6,
+     "median_depth_hp_prom500": 2338.5,
+     "median_period_s_prom500": 0.925
+    },
+    "154": {
+     "frames": 852,
+     "dur_s_from_trace": 14.2,
+     "t_first": 729.8,
+     "t_last": 743.9833,
+     "hp_min": 14032,
+     "hp_max_observed": 20005,
+     "frac_at_full_live": 0.369718,
+     "frac_below_50_live": 0.0,
+     "frac_decrease": 0.220917,
+     "n_teeth_prom500": 12,
+     "median_depth_hp_prom500": 2550.5,
+     "median_period_s_prom500": 0.5584
+    },
+    "155": {
+     "frames": 972,
+     "dur_s_from_trace": 16.2,
+     "t_first": 744.0,
+     "t_last": 760.1833,
+     "hp_min": 15166,
+     "hp_max_observed": 20005,
+     "frac_at_full_live": 0.255144,
+     "frac_below_50_live": 0.0,
+     "frac_decrease": 0.212152,
+     "n_teeth_prom500": 6,
+     "median_depth_hp_prom500": 1141.0,
+     "median_period_s_prom500": 0.6
+    },
+    "156": {
+     "frames": 1212,
+     "dur_s_from_trace": 20.2,
+     "t_first": 760.2,
+     "t_last": 780.3833,
+     "hp_min": 15575,
+     "hp_max_observed": 20005,
+     "frac_at_full_live": 0.40429,
+     "frac_below_50_live": 0.0,
+     "frac_decrease": 0.188274,
+     "n_teeth_prom500": 17,
+     "median_depth_hp_prom500": 1489.0,
+     "median_period_s_prom500": 0.5
+    },
+    "157": {
+     "frames": 1158,
+     "dur_s_from_trace": 19.3,
+     "t_first": 780.4,
+     "t_last": 799.6833,
+     "hp_min": 17750,
+     "hp_max_observed": 20005,
+     "frac_at_full_live": 0.329879,
+     "frac_below_50_live": 0.0,
+     "frac_decrease": 0.160761,
+     "n_teeth_prom500": 30,
+     "median_depth_hp_prom500": 920.0,
+     "median_period_s_prom500": 0.4416
+    },
+    "158": {
+     "frames": 780,
+     "dur_s_from_trace": 13.0,
+     "t_first": 799.7,
+     "t_last": 812.6833,
+     "hp_min": 19326,
+     "hp_max_observed": 20005,
+     "frac_at_full_live": 0.862821,
+     "frac_below_50_live": 0.0,
+     "frac_decrease": 0.011553,
+     "n_teeth_prom500": 2,
+     "median_depth_hp_prom500": 666.5,
+     "median_period_s_prom500": 3.0416
+    },
+    "159": {
+     "frames": 1578,
+     "dur_s_from_trace": 26.3,
+     "t_first": 812.7,
+     "t_last": 838.9833,
+     "hp_min": 7818,
+     "hp_max_observed": 20005,
+     "frac_at_full_live": 0.328264,
+     "frac_below_50_live": 0.026616,
+     "frac_decrease": 0.104629,
+     "n_teeth_prom500": 17,
+     "median_depth_hp_prom500": 1954.0,
+     "median_period_s_prom500": 1.2667
+    },
+    "160": {
+     "frames": 1500,
+     "dur_s_from_trace": 25.0,
+     "t_first": 839.0,
+     "t_last": 863.9833,
+     "hp_min": 5360,
+     "hp_max_observed": 20005,
+     "frac_at_full_live": 0.136,
+     "frac_below_50_live": 0.222667,
+     "frac_decrease": 0.18946,
+     "n_teeth_prom500": 21,
+     "median_depth_hp_prom500": 3123.0,
+     "median_period_s_prom500": 0.9
+    }
+   },
+   "unit": "mixed",
+   "uncertainty": {
+    "class": "OCR-read",
+    "note": "wave labels are the trace's OWN wave column (H-2 boundary set), not the badge timeline. Frame 10860 (t=864.0) carries an EMPTY wave label in the source and is mapped to -1; it is excluded from this row and reported rather than dropped."
+   },
+   "instrument": {
+    "lap": "KC2-PM4 Lap Q (legolas) \u2014 heal discriminator",
+    "artifact": "agentic_orchestration/legolas/notes/2026-08-14-kc2-pm4-lap-q-heal-discriminator/pm4q_hp_trace.csv",
+    "sha256": "5597e1a8c993fa183adc3f2310570e70e4da47b6c1f882ad62a96583f57090fa",
+    "note": "agentic_orchestration/legolas/notes/2026-08-14-kc2-pm4-lap-q-heal-discriminator/pm4q_findings.md",
+    "method": "HUD health-orb readout ROI x[520,780) y[996,1026), 60 fps, Apple Vision OCR; PC-3 100.00% accepted against the DECODED denominator",
+    "requery_instrument": "agentic_orchestration/galadriel/pipeline/kc2_hp_shape.py"
+   },
+   "denominator": [
+    "D-HP-FRAME",
+    "D-HP-LIVE-MAX"
+   ],
+   "reproduction": {
+    "published": null,
+    "published_as": "NOT PREVIOUSLY PUBLISHED \u2014 new this lap",
+    "recomputed": "10 waves",
+    "status": "NEW"
+   },
+   "note": "n_teeth_prom500 / median depth / median period are at the PRIMARY gate only; the sweep is whole-fight."
+  },
+  {
+   "id": "TB-HP-13",
+   "statistic": "health regeneration (drip)",
+   "value": {
+    "measured_hp_per_s": 124.67,
+    "decoded_hp_per_s": 129.38,
+    "residual_pct": -3.64,
+    "contaminated_whole_trace_reading_hp_per_s": 178.4
+   },
+   "unit": "HP/s",
+   "uncertainty": {
+    "class": "subset-selection",
+    "n": 90,
+    "basis": "uncontaminated sub-33%-health subset (87 x +2 HP/frame); the only stretch free of sub-50 HP leech ticks"
+   },
+   "instrument": {
+    "lap": "KC2-PM4 Lap Q (legolas) \u2014 heal discriminator",
+    "artifact": "agentic_orchestration/legolas/notes/2026-08-14-kc2-pm4-lap-q-heal-discriminator/pm4q_hp_trace.csv",
+    "sha256": "5597e1a8c993fa183adc3f2310570e70e4da47b6c1f882ad62a96583f57090fa",
+    "note": "agentic_orchestration/legolas/notes/2026-08-14-kc2-pm4-lap-q-heal-discriminator/pm4q_findings.md",
+    "method": "HUD health-orb readout ROI x[520,780) y[996,1026), 60 fps, Apple Vision OCR; PC-3 100.00% accepted against the DECODED denominator",
+    "requery_instrument": "agentic_orchestration/galadriel/pipeline/kc2_hp_shape.py"
+   },
+   "denominator": [
+    "D-HP-FRAME"
+   ],
+   "reproduction": {
+    "published": 124.67,
+    "published_as": "2D spec B-17 / Lap Q \u00a7 4.2",
+    "recomputed": "CARRIED from Lap Q, not re-derived this lap",
+    "status": "CARRIED \u2014 not independently re-derived (the subset rule is Lap Q's and re-deriving it would change the instrument)"
+   },
+   "note": "\u2691 The naive whole-trace drip reads 178.40 HP/s and is CONTAMINATED. A grader that computes regeneration over the whole trace will get 178.40 and will be wrong. Menhir's Will (+120 hp/s below 33%) is MEASURED-ABSENT: below 33% the drip stays at 124.67, not 249.38."
+  },
+  {
+   "id": "TB-HP-14",
+   "statistic": "leech tick cadence and magnitude",
+   "value": {
+    "cadence_ticks_per_s": 11.408,
+    "mean_intertick_gap_frames": 5.259,
+    "decoded_bracket": [
+     11.387,
+     12.25
+    ],
+    "clean_median_hp": 820.8,
+    "clean_n": 67,
+    "all_median_hp": 782.8,
+    "all_n": 129
+   },
+   "unit": "ticks/s, HP",
+   "uncertainty": {
+    "class": "tick census",
+    "basis": "step >= 50 HP, deficit >= 3,000, step not on the cap; 'clean' = no HP decrease within +-2 frames"
+   },
+   "instrument": {
+    "lap": "KC2-PM4 Lap Q (legolas) \u2014 heal discriminator",
+    "artifact": "agentic_orchestration/legolas/notes/2026-08-14-kc2-pm4-lap-q-heal-discriminator/pm4q_hp_trace.csv",
+    "sha256": "5597e1a8c993fa183adc3f2310570e70e4da47b6c1f882ad62a96583f57090fa",
+    "note": "agentic_orchestration/legolas/notes/2026-08-14-kc2-pm4-lap-q-heal-discriminator/pm4q_findings.md",
+    "method": "HUD health-orb readout ROI x[520,780) y[996,1026), 60 fps, Apple Vision OCR; PC-3 100.00% accepted against the DECODED denominator",
+    "requery_instrument": "agentic_orchestration/galadriel/pipeline/kc2_hp_shape.py"
+   },
+   "denominator": [
+    "D-HP-FRAME"
+   ],
+   "reproduction": {
+    "published": {
+     "cadence": 11.408,
+     "clean_median": 820.8
+    },
+    "published_as": "2D spec B-15/B-16 / Lap Q \u00a7 4.2, \u00a7 5.2",
+    "recomputed": "CARRIED from Lap Q",
+    "status": "CARRIED"
+   },
+   "note": "U-P-N-1 = COUPLED. The per-body heal is an UPPER bound (N_bodies never observed at tick resolution)."
+  },
+  {
+   "id": "TB-CH-01",
+   "statistic": "channel uptime",
+   "value": {
+    "value": 0.8375,
+    "at_ge2_ticks": 0.8953,
+    "at_ge4_ticks": 0.753,
+    "zero_tick_fraction": 0.0795
+   },
+   "unit": "fraction of good-coverage samples",
+   "uncertainty": {
+    "class": "coverage + threshold",
+    "blind_residual": "6.2% of the window (13 gaps, 11.42 s, coverage 0.12-0.72) CARRIED, NOT CLOSED",
+    "threshold_sensitivity": "0.8953 (>=2 ticks) / 0.8375 (>=3) / 0.7530 (>=4) \u2014 a 0.142 spread on the tick-count gate alone. 0.838 is the >=3 arm.",
+    "goodcov_fraction": 0.8577
+   },
+   "instrument": {
+    "lap": "MD-B4app-2 (galadriel) \u2014 channel/move duty cycle",
+    "artifact": "agentic_orchestration/galadriel/captures/2026-08-25-md-b4app-2-channel/work/s2-channel-summary.json",
+    "sha256": "a7abeed09e73baae965ed416f8508a65c425d837f67c44996746cce395d08a14",
+    "note": "agentic_orchestration/galadriel/notes/2026-08-25-kc2-mc-md-b4app-2-channel-uptime.md",
+    "method": "HUD energy readout cur/max, glyph-atlas OCR at 60 Hz -> drain ticks; camera-pan registration at 20 Hz for motion"
+   },
+   "denominator": [
+    "D-COMBAT-182",
+    "D-GOODCOV"
+   ],
+   "reproduction": {
+    "published": 0.838,
+    "published_as": "2D spec B-1",
+    "recomputed": 0.8375,
+    "status": "REPRODUCES EXACT (0.8375)"
+   },
+   "note": "\u2691 The gamora seal note D-MPOL2-5 proves uptime == 1 - duty BY IDENTITY in the SIM (zero blind ticks). It is NOT an identity on the REFERENT, where the 6.2% blind residual makes the two independent. A band pair imported across those two populations is inconsistent by construction."
+  },
+  {
+   "id": "TB-CH-02",
+   "statistic": "P(channel | moving) and P(channel | stationary)",
+   "value": {
+    "P_channel_given_MOVING": 0.892,
+    "P_channel_given_STATIONARY": 0.7376,
+    "ratio_moving_over_stationary": 1.2093
+   },
+   "unit": "probability / ratio",
+   "uncertainty": {
+    "class": "conditional on the motion classifier",
+    "note": "the motion classifier is the 20 Hz camera-pan instrument whose frac_moving is the disputed quantity (TB-MV-01). The RATIO is the shippable form."
+   },
+   "instrument": {
+    "lap": "MD-B4app-2 (galadriel) \u2014 channel/move duty cycle",
+    "artifact": "agentic_orchestration/galadriel/captures/2026-08-25-md-b4app-2-channel/work/s2-channel-summary.json",
+    "sha256": "a7abeed09e73baae965ed416f8508a65c425d837f67c44996746cce395d08a14",
+    "note": "agentic_orchestration/galadriel/notes/2026-08-25-kc2-mc-md-b4app-2-channel-uptime.md",
+    "method": "HUD energy readout cur/max, glyph-atlas OCR at 60 Hz -> drain ticks; camera-pan registration at 20 Hz for motion"
+   },
+   "denominator": [
+    "D-COMBAT-182",
+    "D-GOODCOV"
+   ],
+   "reproduction": {
+    "published": {
+     "moving": 0.892,
+     "stationary": 0.7376
+    },
+    "published_as": "MD-B4app-2 top line; quoted in LIFT ledger L-88",
+    "recomputed": {
+     "moving": 0.892,
+     "stationary": 0.7376
+    },
+    "status": "REPRODUCES EXACT"
+   },
+   "note": "The referent CHANNELS THROUGH HIS MOVEMENT. Ordering (moving > stationary) is the structural row."
+  },
+  {
+   "id": "TB-RL-01",
+   "statistic": "release duty",
+   "value": {
+    "fraction": 0.10484,
+    "n_releases": 19,
+    "total_released_s": 19.149,
+    "mean_interval_s": 9.613,
+    "upper_if_blind_gaps_are_releases": 0.167
+   },
+   "unit": "fraction of combat time",
+   "uncertainty": {
+    "class": "floor-dependent",
+    "floor_sweep_T_REL": {
+     "0.25": {
+      "n_kept": 61,
+      "total_s": 33.52,
+      "duty": 0.18352
+     },
+     "0.30": {
+      "n_kept": 43,
+      "total_s": 28.67,
+      "duty": 0.15697
+     },
+     "0.40": {
+      "n_kept": 30,
+      "total_s": 24.07,
+      "duty": 0.13178
+     },
+     "0.50": {
+      "n_kept": 19,
+      "total_s": 19.15,
+      "duty": 0.10485
+     },
+     "0.75": {
+      "n_kept": 7,
+      "total_s": 12.0,
+      "duty": 0.0657
+     },
+     "1.00": {
+      "n_kept": 6,
+      "total_s": 11.13,
+      "duty": 0.06094
+     }
+    },
+    "note": "duty ranges 0.0609 (floor 1.00 s) to 0.1835 (floor 0.25 s) across the committed sweep \u2014 a 3.0x spread on the release-floor choice. 0.5 s is the primary."
+   },
+   "instrument": {
+    "lap": "MD-B4app-2b (galadriel) \u2014 energy release population",
+    "artifact": "agentic_orchestration/galadriel/captures/2026-08-25-md-b4app-2b-energy/work/s2-releases.json",
+    "sha256": "52c57d2cc905efad0b1a5e6e9793d89d49bb46d0570032a81f6bb52cdbf7a1d4",
+    "note": "agentic_orchestration/galadriel/notes/2026-08-25-kc2-mc-md-b4app-2b-energy-release.md",
+    "method": "gaps in the 60 Hz energy-drain tick train, floor T_REL = 0.5 s, coverage floor COV_MIN = 0.8"
+   },
+   "denominator": [
+    "D-COMBAT-182"
+   ],
+   "reproduction": {
+    "published": 0.105,
+    "published_as": "2D spec B-2 (~10.5%)",
+    "recomputed": 0.10484,
+    "status": "REPRODUCES (0.10484)"
+   },
+   "note": "A release is an ABSENCE of drain ticks. 41% of apparent releases at the 0.5 s floor were DISCARDED as OCR blind spots; the 6.2% blind residual is the ceiling on that repair."
+  },
+  {
+   "id": "TB-RL-02",
+   "statistic": "Type-A release (wave transition) \u2014 onset lag and duration",
+   "value": {
+    "onset_lag_median_s": 1.6,
+    "within_2s": "8 of 11",
+    "duration_median_s": 1.03,
+    "duration_IQR_s": [
+     0.62,
+     1.56
+    ],
+    "duration_max_s": 3.5,
+    "n": 11,
+    "fisher_p_A_vs_B_near_flip": 0.00336
+   },
+   "unit": "s",
+   "uncertainty": {
+    "class": "small-n order statistic",
+    "n": 11,
+    "note": "A-1: the model fires ONE Type-A per transition; the footage measures 1.1. PARKED, explicitly not fired (R-L88-3) \u2014 correcting it BECAUSE a band failed is band-rescue."
+   },
+   "instrument": {
+    "lap": "MD-B4app-2b (galadriel) \u2014 energy release population",
+    "artifact": "agentic_orchestration/galadriel/captures/2026-08-25-md-b4app-2b-energy/work/s2-releases.json",
+    "sha256": "52c57d2cc905efad0b1a5e6e9793d89d49bb46d0570032a81f6bb52cdbf7a1d4",
+    "note": "agentic_orchestration/galadriel/notes/2026-08-25-kc2-mc-md-b4app-2b-energy-release.md",
+    "method": "gaps in the 60 Hz energy-drain tick train, floor T_REL = 0.5 s, coverage floor COV_MIN = 0.8"
+   },
+   "denominator": [
+    "D-COMBAT-182"
+   ],
+   "reproduction": {
+    "published": {
+     "lag": 1.6,
+     "dur": 1.03,
+     "iqr": [
+      0.62,
+      1.56
+     ],
+     "max": 3.5
+    },
+    "published_as": "2D spec B-4/B-5",
+    "recomputed": "A/B label set re-derived from s2-releases.json: the 8 releases with s_since_wave_flip <= 2.0 s are {0.08, 0.35, 0.51, 0.53, 0.80, 1.60, 1.72, 1.78}, median of the 11-member Type-A lag set = 1.60, max duration 3.50 at t=744.55",
+    "status": "REPRODUCES"
+   },
+   "note": "Onset lag = t_on - (wave badge flip). Requires the BADGE timeline (D-COMBAT-182), not the trace's wave column: the two differ by up to 0.88 s at the window edges."
+  },
+  {
+   "id": "TB-RL-03",
+   "statistic": "Type-B release (cast) \u2014 duration",
+   "value": {
+    "duration_median_s": 0.6,
+    "duration_IQR_s": [
+     0.55,
+     0.63
+    ],
+    "range_s": [
+     0.53,
+     0.67
+    ],
+    "n": 8,
+    "implied_sigma_ms": 49
+   },
+   "unit": "s",
+   "uncertainty": {
+    "class": "small-n order statistic",
+    "n": 8,
+    "\u2691": "Gate-1 WARN-17 struck the 'a human cannot hold a 0.14 s spread' argument: that range over n=8 implies sigma ~49 ms, ordinary human reaction-time variance. What carries KP-1 is the WITHIN-SUBJECT CONTRAST against Type-A (IQR 0.62-1.56, max 3.50), not the tightness alone."
+   },
+   "instrument": {
+    "lap": "MD-B4app-2b (galadriel) \u2014 energy release population",
+    "artifact": "agentic_orchestration/galadriel/captures/2026-08-25-md-b4app-2b-energy/work/s2-releases.json",
+    "sha256": "52c57d2cc905efad0b1a5e6e9793d89d49bb46d0570032a81f6bb52cdbf7a1d4",
+    "note": "agentic_orchestration/galadriel/notes/2026-08-25-kc2-mc-md-b4app-2b-energy-release.md",
+    "method": "gaps in the 60 Hz energy-drain tick train, floor T_REL = 0.5 s, coverage floor COV_MIN = 0.8"
+   },
+   "denominator": [
+    "D-COMBAT-182"
+   ],
+   "reproduction": {
+    "published": {
+     "median": 0.6,
+     "iqr": [
+      0.55,
+      0.63
+     ],
+     "range": [
+      0.53,
+      0.67
+     ],
+     "n": 8
+    },
+    "published_as": "2D spec B-6",
+    "recomputed": "9 releases in s2-releases.json fall in [0.53, 0.67] with flip-lag > 2.0 s; 8 of them carry a cast attribution in MD-B4app-2c \u00a7 3 and are the Type-B set",
+    "status": "REPRODUCES \u2014 but the A/B LABELS require the 2c attribution table, not this JSON alone"
+   },
+   "note": "KP-1 (Matt-accepted at KP-2): Type-B AUTO-RESUMES while RMB is held; Type-A resumes on input only."
+  },
+  {
+   "id": "TB-CA-01",
+   "statistic": "cast rate",
+   "value": {
+    "published_value_per_s": 0.29,
+    "published_n": 53,
+    "corrected_value_per_s": 0.2956,
+    "corrected_n": 54,
+    "corrected_interval_s": 3.382,
+    "per_slot": {
+     "slot_2": 22,
+     "slot_3": 19,
+     "slot_L": 13
+    }
+   },
+   "unit": "casts/s",
+   "uncertainty": {
+    "class": "FLOOR, not an estimate",
+    "floors": "slots 7 and R are BLIND to both instruments; slot 4 is a buff timer, not a cast; a re-fire mid-cooldown is undetectable in principle. Three OCR-blind dim gaps carried."
+   },
+   "instrument": {
+    "lap": "MD-B4app-2c (galadriel) \u2014 per-slot interrupt attribution",
+    "note": "agentic_orchestration/galadriel/notes/2026-08-25-kc2-mc-md-b4app-2c-culprit.md",
+    "method": "20 Hz per-slot skill-bar dimming + eye-adjudicated cooldown numerals; energy 60 Hz for the silence timing"
+   },
+   "denominator": [
+    "D-COMBAT-182",
+    "D-CAST-VISIBLE"
+   ],
+   "reproduction": {
+    "published": 0.29,
+    "published_as": "2D spec B-3 (n = 53, one per 3.45 s)",
+    "recomputed": 0.2956,
+    "status": "\u2691 DOES NOT REPRODUCE AS PUBLISHED \u2014 1.9% high"
+   },
+   "note": "\u2691 THE 0.290 IS STALE BY ONE LAP. MD-B4app-2b \u00a7 5.3 counted 53 (22/19/12). MD-B4app-2c \u00a7 2 then eye-adjudicated a 7.20 s slot-L dim run against a 3.60 s modal cooldown and split it into TWO casts (eor_attrib.MERGED), moving slot L 12 -> 13 and the total 53 -> 54. Every downstream figure in 2c is on 54 (0.148 = 8/54). The 2D spec's B-3 quotes the pre-correction count. VALUE OF RECORD: 0.2957 /s, one per 3.383 s, n = 54."
+  },
+  {
+   "id": "TB-CA-02",
+   "statistic": "per-slot interrupt attribution",
+   "value": {
+    "by_slot": {
+     "slot_L": {
+      "casts": 13,
+      "interrupts": 5,
+      "P": 0.385,
+      "binomial_p": 0.00034
+     },
+     "slot_2": {
+      "casts": 22,
+      "interrupts": 3,
+      "P": 0.136,
+      "binomial_p": 0.104
+     },
+     "slot_3": {
+      "casts": 19,
+      "interrupts": 0,
+      "P": 0.0,
+      "max_silence_in_19_casts_s": 0.233
+     }
+    },
+    "aggregate": {
+     "casts": 54,
+     "interrupts": 8,
+     "P": 0.148,
+     "binomial_p": 0.0065
+    },
+    "orphans": 0
+   },
+   "unit": "P(interrupt | cast)",
+   "uncertainty": {
+    "class": "small-n per-slot",
+    "fisher_L_vs_rest_p": 0.0146,
+    "fisher_L_vs_slot3_p": 0.0064,
+    "fisher_L_vs_slot2_p": 0.103,
+    "\u2691": "THE AGGREGATE 0.15 IS A CANCELLATION, NOT A RATE. Against the duration-weighted null, slots 2 and L land in LONGER-than-random silences (p = 0.00019, 0.0070) and slot 3 in SHORTER ones (p = 4.9e-7); pooled they cancel to p = 0.286. The 0.15 is the arithmetic mean of a rule and its opposite: correct in aggregate, wrong for every individual skill."
+   },
+   "instrument": {
+    "lap": "MD-B4app-2c (galadriel) \u2014 per-slot interrupt attribution",
+    "note": "agentic_orchestration/galadriel/notes/2026-08-25-kc2-mc-md-b4app-2c-culprit.md",
+    "method": "20 Hz per-slot skill-bar dimming + eye-adjudicated cooldown numerals; energy 60 Hz for the silence timing"
+   },
+   "denominator": [
+    "D-COMBAT-182",
+    "D-CAST-VISIBLE"
+   ],
+   "reproduction": {
+    "published": {
+     "Blitz": 0.385,
+     "Vires": 0.136,
+     "WarCry": 0.0,
+     "RuneOfRush": "BLIND"
+    },
+    "published_as": "2D spec B-7",
+    "recomputed": {
+     "slot_L": 0.385,
+     "slot_2": 0.136,
+     "slot_3": 0.0
+    },
+    "status": "\u2691 NUMBERS REPRODUCE; THE SKILL NAMES DO NOT"
+   },
+   "note": "\u2691 SLOT-TO-SKILL IS NOT MEASURED. MD-B4app-2c \u00a7 0 and \u00a7 7 are explicit: 'No skill is named in this note and none should be quoted from it'; slots are SHAPE-CONSISTENT-NOT-IDENTIFIED (slot L = 'a figure mid-stride, ~3.6 s cooldown, shape-consistent with a charge skill and NOT identified'). The 2D spec's B-7 promotes slot L -> Blitz, slot 2 -> Vire's Might, slot 3 -> War Cry. THAT PROMOTION HAS NO INSTRUMENT BEHIND IT. Ship the row as SLOT-indexed, or ship the skill names stamped DECLARED-not-decoded as a divergence-register row. Rune of Rush is graded UNDETERMINED, never against 0 \u2014 that part is right."
+  },
+  {
+   "id": "TB-MV-01",
+   "statistic": "movement fraction \u2014 \u2691 RATIOS ONLY",
+   "value": {
+    "instrument_values": {
+     "LapH2_th60_gpx_s": 0.883,
+     "LapH2_th200_gpx_s": 0.757,
+     "LapH2_th400_gpx_s": 0.494,
+     "LapR_Schmitt_V_ON_100": 0.8342,
+     "LapR_Schmitt_V_ON_200": 0.7948,
+     "LapR_Schmitt_V_ON_400": 0.6233,
+     "LapU_video_decomposition": 0.705,
+     "MD_B4app_2_camera_pan_20Hz": 0.6265,
+     "MD_B4app_2_no_shake_guard": 0.6205
+    },
+    "spread_quoted_in_D_MPOL2_2": [
+     0.883,
+     0.705,
+     0.6265
+    ],
+    "spread_factor": 1.41,
+    "full_committed_spread": [
+     0.494,
+     0.883
+    ],
+    "full_spread_factor": 1.79,
+    "SHIPPABLE_FORM": "RATIOS ONLY \u2014 numerator and denominator from ONE instrument so the instrument cancels (D-MPOL2-2; R-L88-5)"
+   },
+   "unit": "fraction \u2014 DO NOT SHIP AS A LEVEL",
+   "uncertainty": {
+    "class": "INSTRUMENT DISAGREEMENT ABOUT THE REFERENT, not measurement error",
+    "note": "the disagreement is a THRESHOLD choice, not a fight property: within Lap H-2 alone the same fight reads 0.883 / 0.757 / 0.494 as the speed gate moves 60 -> 200 -> 400 gpx/s. Comparing a sim LEVEL to any one of these compares against a threshold choice."
+   },
+   "instrument": {
+    "instruments": [
+     {
+      "lap": "KC2-PM4 Lap H-2 (legolas) \u2014 video match / movement cadence",
+      "artifact": "agentic_orchestration/legolas/notes/2026-08-13-kc2-pm4-lap-h2-video-match/pm4h2_movement_cadence.csv",
+      "sha256": "1bfefb36926ed9a21faa175fb2d8cd2784cdce216abb547571c89f4220956156"
+     },
+     {
+      "lap": "KC2-PM4 Lap R (legolas) \u2014 locomotion + contact",
+      "note": "agentic_orchestration/legolas/notes/2026-08-14-kc2-pm4-lap-r-locomotion-contact/pm4r_findings.md"
+     },
+     {
+      "lap": "KC2-PM4 Lap U (legolas) \u2014 ramp decode",
+      "note": "agentic_orchestration/legolas/notes/2026-08-14-kc2-pm4-lap-u-ramp-decode/pm4u_findings.md"
+     },
+     {
+      "lap": "MD-B4app-2 (galadriel) \u2014 channel/move duty cycle",
+      "artifact": "agentic_orchestration/galadriel/captures/2026-08-25-md-b4app-2-channel/work/s2-channel-summary.json",
+      "sha256": "a7abeed09e73baae965ed416f8508a65c425d837f67c44996746cce395d08a14",
+      "note": "agentic_orchestration/galadriel/notes/2026-08-25-kc2-mc-md-b4app-2-channel-uptime.md",
+      "method": "HUD energy readout cur/max, glyph-atlas OCR at 60 Hz -> drain ticks; camera-pan registration at 20 Hz for motion"
+     }
+    ]
+   },
+   "denominator": [
+    "D-COMBAT-182 (galadriel) / t in [683.0, 864.0] (H-2, Lap R, Lap U)"
+   ],
+   "reproduction": {
+    "published": [
+     0.883,
+     0.705,
+     0.6265
+    ],
+    "published_as": "2D spec B-8 / gamora D-MPOL2-2 (engine simulation/AGENT_STATE.md)",
+    "recomputed": {
+     "0.883": "REPRODUCES EXACT \u2014 Lap H-2 pm4h2_movement_cadence.csv, row 'wave ALL', moving_frac_th60",
+     "0.6265": "REPRODUCES EXACT \u2014 s2-duty.json summary.frac_moving",
+     "0.705": "ATTRIBUTED, NOT RE-DERIVED \u2014 traced to Lap U via gamora's D-MPOL2-2; pm4u_findings.md publishes per-wave 'frames moving' 64.1-82.5% but no whole-fight 0.705 figure appears in the committed note text"
+    },
+    "status": "2 of 3 REPRODUCE EXACT; the third is attributed but its whole-fight reduction is not printed in its own lap note"
+   },
+   "note": "\u2691 AN ABSOLUTE MOVEMENT FIGURE IN A GREEN REPORT IS A DEFECT IN THE REPORT (2D spec B-8)."
+  },
+  {
+   "id": "TB-WV-01",
+   "statistic": "per-wave durations",
+   "value": {
+    "badge_instrument_s": {
+     "151": 16.28,
+     "152": 16.45,
+     "153": 14.79,
+     "154": 14.13,
+     "155": 16.33,
+     "156": 20.22,
+     "157": 19.13,
+     "158": 13.19,
+     "159": 26.25,
+     "160": 25.88
+    },
+    "trace_frame_grid_s": {
+     "151": 15.6,
+     "152": 16.3,
+     "153": 14.9,
+     "154": 14.2,
+     "155": 16.2,
+     "156": 20.2,
+     "157": 19.3,
+     "158": 13.0,
+     "159": 26.3,
+     "160": 25.0
+    },
+    "sum_badge_s": 182.65,
+    "sum_trace_s": 181.0,
+    "max_interior_disagreement_s": 0.19,
+    "edge_disagreement_s": {
+     "w151": 0.68,
+     "w160": 0.88
+    }
+   },
+   "unit": "s",
+   "uncertainty": {
+    "class": "boundary instrument",
+    "published_tolerance_s": 0.25,
+    "note": "waves 152-159 agree to <= 0.19 s, INSIDE the published +-0.25 s. Waves 151 and 160 disagree by 0.68 s and 0.88 s \u2014 NOT a boundary error: the two instruments cover DIFFERENT WINDOWS (badge 682.10-864.75 = 182.65 s; trace 683.0-864.0 = 181.0 s). The disagreement is entirely at the two ends."
+   },
+   "instrument": {
+    "instruments": [
+     {
+      "lap": "galadriel EoR sittings extraction (wave badge, sitting 2)",
+      "artifact": "agentic_orchestration/galadriel/captures/2026-08-25-md-b4app-2-channel/work/waves.json",
+      "sha256": "d1d889a3a3319d846e1d530aee6476c62864613dd23a07bca8205b80d9d60a95",
+      "note": "agentic_orchestration/galadriel/notes/2026-08-07-eor-sittings-extraction.md + \u20262026-08-08-eor-followup-extraction.md \u00a77.1"
+     },
+     {
+      "lap": "KC2-PM4 Lap H-2 (legolas) \u2014 video match / movement cadence",
+      "artifact": "agentic_orchestration/legolas/notes/2026-08-13-kc2-pm4-lap-h2-video-match/pm4h2_movement_cadence.csv",
+      "sha256": "1bfefb36926ed9a21faa175fb2d8cd2784cdce216abb547571c89f4220956156"
+     },
+     {
+      "lap": "KC2-PM4 Lap Q (legolas) \u2014 heal discriminator",
+      "artifact": "agentic_orchestration/legolas/notes/2026-08-14-kc2-pm4-lap-q-heal-discriminator/pm4q_hp_trace.csv",
+      "sha256": "5597e1a8c993fa183adc3f2310570e70e4da47b6c1f882ad62a96583f57090fa",
+      "note": "agentic_orchestration/legolas/notes/2026-08-14-kc2-pm4-lap-q-heal-discriminator/pm4q_findings.md",
+      "method": "HUD health-orb readout ROI x[520,780) y[996,1026), 60 fps, Apple Vision OCR; PC-3 100.00% accepted against the DECODED denominator",
+      "requery_instrument": "agentic_orchestration/galadriel/pipeline/kc2_hp_shape.py"
+     }
+    ]
+   },
+   "denominator": [
+    "D-COMBAT-182",
+    "D-HP-FRAME"
+   ],
+   "reproduction": {
+    "published": {
+     "w154": 14.2
+    },
+    "published_as": "2D spec B-9 (Lap R)",
+    "recomputed": {
+     "w154_trace": 14.2,
+     "w154_badge": 14.13
+    },
+    "status": "REPRODUCES on the trace grid; the badge instrument gives 14.13"
+   },
+   "note": "\u2691 The two windows differ by 1.65 s (0.90%). A RATE computed on 181.0 s is not comparable to one computed on 182.65 s without restating the denominator. The grader picks ONE and says which."
+  },
+  {
+   "id": "TB-WV-02",
+   "statistic": "terminal wave",
+   "value": {
+    "referent": 160,
+    "sealed_sim": {
+     "mean": 153.2,
+     "sigma": 2.32
+    }
+   },
+   "unit": "wave index",
+   "uncertainty": {
+    "class": "single observation, n = 1"
+   },
+   "instrument": {
+    "lap": "2D spec B-10 / M-POL-2 seal"
+   },
+   "denominator": [
+    "D-COMBAT-182"
+   ],
+   "reproduction": {
+    "published": 160,
+    "published_as": "2D spec B-10",
+    "recomputed": 160,
+    "status": "CARRIED"
+   },
+   "note": "\u2691 REPORT-ONLY BY CONSTRUCTION, NEVER A GATE (Matt-ruled)."
+  }
+ ],
+ "blocked_on_T30": [
+  {
+   "quantity": "Type-A / Type-B release re-classification under any changed rule",
+   "why": "the A/B labels come from the 20 Hz skill-bar dimming trace joined to the energy train; the joined per-release label table was not committed as a standalone artifact, only as a rendered table in MD-B4app-2c \u00a7 3",
+   "needed": "either the video (to re-run eor_attrib.py) OR a one-file commit of the 19-row labelled release table from the 2c work dir \u2014 the CHEAPER of the two and it needs no video. Routed as a request, not executed (out of this lap's brief)."
+  },
+  {
+   "quantity": "closing the 6.2% blind residual on channel uptime / release duty",
+   "why": "13 OCR-blind gaps (11.42 s) need re-reading at higher upscale from the frames",
+   "needed": "the video"
+  },
+  {
+   "quantity": "resolving frac_moving to a single instrument",
+   "why": "requires re-running all three segmenters on one common threshold definition",
+   "needed": "the video \u2014 AND a ruling on the threshold, which is a measurement-seat call, not an instrument problem. Ship RATIOS meanwhile (D-MPOL2-2)."
+  },
+  {
+   "quantity": "any T-C side-by-side",
+   "why": "T-C is GATED on the referent video by the 2D spec \u00a7 6.6 itself",
+   "needed": "the video"
+  },
+  {
+   "quantity": "N_bodies at leech-tick resolution (the per-body heal is an UPPER bound)",
+   "why": "U-Q-1; never independently observed",
+   "needed": "the video AND a per-body attributable damage stream, which pixels cannot provide"
+  }
+ ],
+ "figures_that_do_not_reproduce": [
+  {
+   "row": "TB-CA-01",
+   "published": "cast rate 0.290 /s, n = 53 (2D spec B-3)",
+   "of_record": "0.2957 /s, n = 54",
+   "cause": "the MD-B4app-2c MERGED correction (slot L 12 -> 13) landed AFTER 2b published 53; the spec quotes the pre-correction count"
+  },
+  {
+   "row": "TB-CA-02",
+   "published": "Blitz 0.385 / Vire's 0.136 / War Cry 0.000 (2D spec B-7)",
+   "of_record": "slot L 0.385 / slot 2 0.136 / slot 3 0.000",
+   "cause": "slot-to-skill identity is NOT measured; the measuring lap forbids quoting skill names from it. The numbers are right; the labels are a promotion with no instrument."
+  },
+  {
+   "row": "TB-MV-01",
+   "published": "frac_moving 0.705 (2D spec B-8, via D-MPOL2-2)",
+   "of_record": "attributed to Lap U; the whole-fight 0.705 reduction is not printed in pm4u_findings.md (which publishes 64.1-82.5% per wave)",
+   "cause": "figure reached the spec through a summary row, not through its own lap note. Not wrong \u2014 UNTRACEABLE at the resolution the denominator law requires."
+  }
+ ]
+}
