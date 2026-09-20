@@ -302,3 +302,188 @@ other **by sha at the W1 seal**. jack-ryan pre-reads **both** before any graded 
 *Widths derived from the sealed per-salt cells, never retyped from a summary. Sealed cells
 hash-verified and never re-run (K-7). No simulation executed. Pinned before any GDScript result
 exists; immutable once committed. — gamora (simulation seam), 2026-09-20.*
+
+---
+
+# ⚑ ADDENDUM 1 — 2026-09-20, answering the conductor's four W1 reads
+
+> **This is an APPEND, not an edit.** The body above is unchanged and stays the record of what was
+> pinned first (corrigenda-forward; WARN-16 — no graded run exists, so an amendment is legal, and
+> it is dated and reasoned rather than silent). Occasioned by the conductor's four READ-ONLY items
+> against the T-A prereg `gandalf/notes/2026-09-20-kc2-play-ta-prereg.md` (`5f2c27cf`), which I do
+> not edit. All four are reads of sealed JSON by key. **K-7 untouched; nothing executed.**
+
+## A1 · (1) THE COMPLEMENT CHECK — **they ARE complements, and the published duty is on a DIFFERENT DENOMINATOR**
+
+The conductor's arithmetic was exactly right, and it found a real defect.
+
+| salt | `D_constructed` | `n_player_ticks_observed` | `PRE_FIGHT` | `n_chan` | `n_released` | uptime | **duty (published)** | u + duty | **released / D** | **u + released/D** |
+|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|
+| 0 | 1084 | 1090 | 6 | 980 | 104 | 0.904059 | 0.095413 | 0.999472 | 0.095941 | **1.000000** |
+| 1 | 305 | 307 | 2 | 273 | 32 | 0.895082 | 0.104235 | 0.999316 | 0.104918 | **1.000000** |
+| 2 | 106 | 107 | 1 | 83 | 23 | 0.783019 | 0.214953 | 0.997972 | **0.216981** | **1.000000** |
+| 3 | 185 | 186 | 1 | 169 | 16 | 0.913514 | 0.086022 | 0.999535 | 0.086486 | **1.000000** |
+| 4 | 1103 | 1109 | 6 | 993 | 110 | 0.900272 | 0.099188 | 0.999460 | 0.099728 | **1.000000** |
+
+**Two identities, both asserted over all five salts and both holding exactly:**
+
+```
+n_player_ticks_observed  =  D_constructed + PRE_FIGHT          (5/5, asserted)
+n_channelling + n_released  =  D_constructed                   (5/5, asserted)
+∴  uptime + (n_released / D_constructed)  =  1.000000          (5/5, exact)
+```
+
+**The answer:** `uptime` and release duty **are complements — on the CONSTRUCTED denominator**. But
+the seal publishes `release_duty` under the key `⚑ release_duty_on_observed_ticks`, i.e. on
+`n_player_ticks_observed = D + PRE_FIGHT`. **Two denominators, one salt, one pair of statistics.**
+
+⚑ **The conductor's tell was exact and worth recording**: *"if they were complements the max duty
+would round to 0.216–0.217, never 0.215."* On `D` the max duty is **0.216981**. On `observed` it is
+**0.214953**. The published 0.215 is the observed-denominator figure. **A third-decimal
+disagreement was the visible end of a denominator mismatch** — which is the same class of defect
+this note's § 3 was written about, found a second time, in my own band table.
+
+### The restatement, and it changes B-7
+
+**All six denominator-sharing rows are restated to the CONSTRUCTED denominator `D`**, and B-7 moves:
+
+| row | construction, restated | mean | s (ddof=1) | half-width | **BAND** |
+|---|---|---:|---:|---:|---|
+| B-3 | `frac_moving` = `(CH_AND_MOVING + MOVING) / D` | 0.857462 | 0.013855 | 0.0243 | [0.8331, 0.8818] (unchanged) |
+| B-4 | uptime = `(CHANNELLING + CH_AND_MOVING) / D` | 0.879189 | 0.054181 | 0.0951 | [0.7840, 1.0] (unchanged) |
+| B-5a | `P(chan\|moving)` = `CH_AND_MOVING / (CH_AND_MOVING + MOVING)` | 0.907002 | 0.054094 | 0.0950 | [0.8120, 1.0] (unchanged) |
+| B-5b | `P(chan\|stationary)` = `CHANNELLING / (CHANNELLING + IDLE)` | 0.715784 | 0.073452 | 0.1290 | [0.5868, 0.8448] (unchanged) |
+| B-6 | plant ratio (window 5.0 s / fight-wide) | 1.284877 | 0.159280 | 0.2797 | [1.0052, 1.5646] (unchanged) |
+| **B-7** | **release duty ON `D`** = `n_released / D` — ⚑ **RESTATED** | **0.120811** | **0.054181** | **0.095141** | **[0.025670, 0.215952]** ⇒ clipped **[0.0, 0.215952]** |
+
+⚑ **B-7's old figures (mean 0.119962, s 0.053518, band [0.0, 0.2139]) were on the observed
+denominator and are superseded, named in place.** The width barely moves — but the *construction*
+is now the same one the other five rows use, and **the port is told which denominator to divide
+by.** That is the whole value: the width was never the risk, the denominator was.
+
+⚑ **A consistency check falls out of the restatement, and it is worth stating because it is free.**
+B-7's restated `s` is **0.054181 — byte-identical to B-4's (uptime's)**. It must be: `released/D ≡
+1 − uptime` exactly (§ A1's identity), and a constant minus a variable has the same variance. **The
+two rows are now provably one row with a sign flip**, which means B-4 and B-7 are **not independent
+evidence** and a T-A report must not count them twice. On the *observed* denominator that identity
+was broken and the two rows looked independent when they were not — a second, quieter cost of the
+denominator mismatch, and the one that would have inflated a fidelity verdict rather than failed it.
+
+*(Transcription note: I first published this row's `s` as 0.054061 and its band as [0.0259,
+0.2157]. Both were wrong — a transposed digit — and were caught by re-deriving the figures from the
+seal rather than trusting the line I had just written. Recorded rather than silently corrected,
+because this file's whole claim is that its numbers come from the cells.)*
+
+**B-3, B-4, B-5a, B-5b, B-6, B-7 are therefore GRADEABLE, not UNGRADEABLE** — the prereg's
+conditional is discharged in the affirmative. The construction is restated above and each row now
+carries its denominator explicitly.
+
+**Requirement on the runtime (drax), sharpened:** emit `D_constructed` **and** `PRE_FIGHT` **and**
+`n_ticks_released` **per salt**, so every rate can be reconstructed on either denominator and the
+grader cannot pick one by accident.
+
+## A2 · (2) E-7b — **EXACT**. The class is fixed, before any graded run exists.
+
+Read from the W1 walls seal (`7a992c81…`), `⚑ pools / per_arm`:
+
+| arm | `n_wall_clamps_player` | `n_wall_clamps_body` | `max_body_radius_m` | `n_avoidance_vetoes` | `n_pool_occupancy_ticks` |
+|---|---:|---:|---:|---:|---:|
+| `W1` | **0** | **0** | 43.404802385345796 | 2 | 0 |
+| `W1-NULL` | **0** | **0** | 43.404994665356945 | 0 | 0 |
+| `W1-PROBE` | **0** | **0** | 43.404994665356945 | 0 | 2 |
+| `W1-SENS` | **0** | **0** | 43.404802385345796 | 2 | 0 |
+
+> **E-7b is `EXACT`.** Both counters are **zero on every arm**. No reclassification to BAND; no
+> width is owed.
+
+**Why it is zero, which matters more than the zero:** `max_body_radius_m = 43.4048…` against
+`R_wall = 43.758085029822276` — a margin of **0.353 m (0.81 %)**. **The wall never binds.** So
+E-7b is not "the port clamped correctly"; it is *"the port never needed to clamp"*.
+
+⚑ **And that makes E-7b a pure falsifier in exactly one direction, extending the prereg's own E-7a
+reasoning.** Under the pack's **superseded box** `DS-SPAWN-SCATTER` the reachable radius is
+`35.758085 + 8.0·√2 = 47.072` m — **3.31 m ABOVE the wall, with certainty.** A port that implements
+the pack's emphatic *"NOT A DISC"* note **cannot** produce zero clamps. **Zero is therefore the
+signature of the correct spawn law**, and a non-zero clamp count on the port is a spawn-law defect
+reported as a wall statistic. The 0.81 % margin is what makes the test sharp: there is almost no
+room between "correct law, never clamps" and "wrong law, clamps constantly".
+
+⚑ **Carried caveat:** because the oracle's counters are structural zeros, **E-7b cannot certify
+that the port's wall WORKS** — only that the port does not exceed the wall. A port with no wall at
+all also scores zero. The wall's *existence* is checked by R2D geometry probes, not here, and the
+T-A report must say so rather than let a green E-7b read as a working wall.
+
+## A3 · (3) B-2 / B-10 / B-12 — **no key path exists. All three are UNGRADEABLE, declared.**
+
+| row | statistic | key path in `[M-POL2]` / `[W1W]` for the arm of record | class |
+|---|---|---|---|
+| **B-2** | per-wave `duration_s` | ⚑ **NONE.** The only `duration_s` keys in `[M-POL2]` are `ensemble/<arm>/<salt>/⚑ fold/parameters/typeA_duration_s_MEAN` and `typeB_duration_s_MEAN` — **channel-release parameters, not wave durations.** `[W1W]`'s `per_wave` keys sit under `⚑ arena` / `⚑ arena_per_salt` and carry **arena occupancy**, not durations. Per-salt cells carry `terminal_wave`, `terminal_reason`, `n_waves` — and no per-wave duration. | **UNGRADEABLE** |
+| **B-10** | arrival latency histogram, co-arrival census, `n_deferred / n_arrived / n_dropped_at_wave_end` | ⚑ **NONE.** `arrival`, `latency` and `n_deferred` are **absent from both seals**. They exist only in `[MECH]`, **a different arm.** Per the conductor's ruling, cross-arm grading measures a configuration difference — the one failure V0 exists to prevent. | **UNGRADEABLE** |
+| **B-12** | intake by wave and by damage family; leech healed per tick | ⚑ **NONE.** `intake`, `damage_family` and `leech` are absent from both seals. | **UNGRADEABLE** |
+
+**This confirms and generalises this note's own `W-1`**, which reached the same verdict for B-2
+independently, before the conductor's rule was written. ⚑ **B-10's internal half survives
+regardless**, exactly as the prereg says: the **seven-term** conservation identity (**E-2**) is
+run-internal and needs no oracle side. So the arrival machinery is still gated — on conservation,
+not on latency.
+
+**I do not manufacture widths for these three.** A width for an unpublished statistic is a fitted
+constant with a confidence interval drawn around it.
+
+## A4 · (4) ARM SET — V0 now configures all five arms
+
+Accepted and implemented. `V0` carries **five `V0-ARM-*` rows** — `M0`, `M-POL-2`,
+`M-POL-2-NULL`, `W1`, `W1-NULL` — each stated as a **DELTA against the base row set, never as a
+second full copy** (two full copies are two things that can disagree). Each carries its sealed
+terminal 5-vector. Landed in
+`src/reincarnated/simulation/output/kc2-lifted-rows-KC2PLAY-W1-v3p2-tier1-*.json`.
+
+⚑ **One correction the arm set forces on E-1 as written in § 1 above.** The W1 seal shows
+`W1-NULL` terminals `[156, 152, 151, 151, 156]` — **the `M-POL-2` vector, not `M0`'s
+`[155, 152, 155, 151, 152]`.** The two NULL arms are inert against **different parents**:
+`M-POL-2-NULL ≡ M0` (the channel fold disarmed) and `W1-NULL ≡ M-POL-2` (the arena fold disarmed).
+**E-1's three relations become four, and each names its own parent:**
+
+```
+E-1a   M-POL-2-NULL  ==  M0          (channel fold disarmed → the control)
+E-1b   W1-NULL       ==  M-POL-2     (arena fold disarmed → the build)   ⚑ NOT M0
+E-1c   M-POL-2       !=  M0
+E-1d   W1            !=  M-POL-2     (terminals [156,152,151,151,151] — salt 4 moves 156 → 151)
+```
+
+⚑ **E-1d is the one to watch, and it is this seam's carried miss `Q.10`:** `W1` differs from
+`M-POL-2` on **one salt only**, by **five waves**, on **two suppressed ticks** — and the fold is
+**exonerated**, because `W1-NULL` and `W1-PROBE` both reproduce the seal byte-exactly. A port that
+fails E-1d has not necessarily got the wall wrong; it may have got one tick wrong. **E-1d is
+`EXACT` on the RELATION (`!=`) and must never be graded on the magnitude of the difference.**
+
+## A5 · ⚑ A CONDUCTOR PREMISE I MUST CONTRADICT, WITH THE MEASUREMENT
+
+The routing message states: *"the register found THREE known-bad oracle limbs, not two (War Cry
+I8_LEGACY, Potion I4_EXCURSION_MAX, LifeMonitor POLL_AT_SLOT)"*, and *"ORACLE keeps auto-fire at
+θ 0.49."*
+
+**Two of those three are not in the cell of record, and θ is not 0.49.** V0's trace of the M-POL-2
+driver (math note `dfc0c4a3` § 1.2, committed before this message arrived):
+
+| limb | the premise | **the cell of record** | status |
+|---|---|---|---|
+| War Cry | `I8_LEGACY`, duration 5.0 (the retired invented literal) | **`WarCryLimb.COOLDOWN`, duration 7.5 s** | **NOT-IN-CELL-OF-RECORD** |
+| Potion | `I4_EXCURSION_MAX`, θ = 0.49 (measured-falsified 5/9) | **`PotionLimb.TRACE_CONSISTENT`, θ = 0.22972972972972974** | **NOT-IN-CELL-OF-RECORD** |
+| LifeMonitor | `POLL_AT_SLOT` | `sustain_procs_fold` **not passed** ⇒ repair limb not installed | ⚑ **LIVE — the one survivor** |
+
+`I8_LEGACY` and `I4_EXCURSION_MAX` are `load_kit()`'s **defaults**, and the driver **overrides
+both**. The premise traces to census (c-4), which read the module defaults; V0 is the row-set whose
+entire purpose is that `MODULE-DEFAULT` and `DRIVER-OF-RECORD` are different claims about the same
+value. **All three are carried in `V0` as `V0-KB-*` rows with their status**, so the register is
+complete and correct rather than merely three-long.
+
+**Consequence for V13 (Tier 2) — the instruction is accepted, with its number corrected.** V13 will
+carry the potion's **parameters** (800 flat + 25 % instant + 25 % HoT, cd 12.0 s, 1 charge)
+**cleanly separable from its θ policy**, exactly as asked, so PLAY can bind it to a manual key with
+auto-fire OFF. But the ORACLE arm's auto-fire θ is **0.2297**, not 0.49; θ = 0.49 is the falsified
+limb that the sealed cell does not run. **A PLAY-vs-ORACLE divergence row written against 0.49
+would describe a divergence from a configuration nobody graded.**
+
+**Routed to the conductor as a correction, not adjudicated here.** It changes a divergence-register
+row and the L4 "what this build does not do" page; both are the conductor's.
