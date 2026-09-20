@@ -6290,6 +6290,48 @@
       "ref_unsupported": 0,
       "prompt_sha256": "c53019bfd16122991e7237650c405e8c958ff5fc44fc24ea6257c44bfaf657b0",
       "ts": "2026-09-20T16:49:46"
+    },
+    {
+      "id": "GI-E1_pixel_warlord_N",
+      "kind": "image_gen_ref",
+      "cell": "E1_pixel_warlord_N",
+      "ok": true,
+      "rc": 0,
+      "wall_s": 23,
+      "image": "/Users/admin/astra-burst/grok/C-6/E1_pixel_warlord_N/E1_pixel_warlord_N.png",
+      "image_sha256": "58a5407446819994e858eb3df6e4f645aca7922a248820dcbebc3ccc5a1f45f7",
+      "ref": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-6/artifacts/E1/e1_pixel_warlord_S_r1.png",
+      "ref_unsupported": 0,
+      "prompt_sha256": "f2a1ea389cab9a28c0f332ac84010e8139b973dc8ed405a20e75aa92cba820e6",
+      "ts": "2026-09-20T17:08:00"
+    },
+    {
+      "id": "GI-E1_pixel_warlord_SE",
+      "kind": "image_gen_ref",
+      "cell": "E1_pixel_warlord_SE",
+      "ok": true,
+      "rc": 0,
+      "wall_s": 41,
+      "image": "/Users/admin/astra-burst/grok/C-6/E1_pixel_warlord_SE/E1_pixel_warlord_SE.png",
+      "image_sha256": "3e455c1ead355f48b26e546ee55d33c02aa960821d66364457eb69545fcb7c2c",
+      "ref": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-6/artifacts/E1/e1_pixel_warlord_S_r1.png",
+      "ref_unsupported": 0,
+      "prompt_sha256": "57d8220840182ff361fd25ebc101e37fcac93db0631eddac0e6413a7629bf753",
+      "ts": "2026-09-20T17:08:41"
+    },
+    {
+      "id": "GI-E1_pixel_warlord_NE",
+      "kind": "image_gen_ref",
+      "cell": "E1_pixel_warlord_NE",
+      "ok": true,
+      "rc": 0,
+      "wall_s": 26,
+      "image": "/Users/admin/astra-burst/grok/C-6/E1_pixel_warlord_NE/E1_pixel_warlord_NE.png",
+      "image_sha256": "e10e3c1c4912f8b3c22da8810a2ca048988cf80aabb6a9e6e299917871141b52",
+      "ref": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-6/artifacts/E1/e1_pixel_warlord_S_r1.png",
+      "ref_unsupported": 0,
+      "prompt_sha256": "5b5cb4e67317f509f99a872abf9b12af1fcf188c5d45d6321eb95174da1f1237",
+      "ts": "2026-09-20T17:09:08"
     }
   ],
   "notes": [
@@ -6568,6 +6610,16 @@
       "id": "OUTAGE-1",
       "note": "Mac lost power (Matt, accidental unplug) during the E1_pixel_warlord_E Grok still: call died with no output and no file (grok_stdout.txt empty) — whether it billed is unknown. Scratchpad wiped (regenerable working files only). Heavy lock file empty; no C-6 processes survived. All commits and ledger entries intact. Relaunched the E still.",
       "ts": "2026-09-20T16:49:19"
+    },
+    {
+      "id": "E1-REF-CARRY",
+      "note": "Grok image tool ACCEPTS a reference image (image-edit call): E1_pixel_warlord_E was edited from the S still — same knight (helm, crest band, shield device, mace, palette), turned east, elevated view kept. Identity carry across directions is available Grok-side without Astra. N/SE/NE stills firing sequentially from the same reference; one-frame PROBE cells (walk_<D> + idle_<D>, still padded to 70 % on its own plate, frozen matte + register) via still_cell.py; W/SW/NW by mirror; Keeper + Necromancer standing stills placed as props at (3560,700) and (3860,700) in CS-props-trio.",
+      "ts": "2026-09-20T16:51:27"
+    },
+    {
+      "id": "SHELL-4",
+      "note": "Fourth shell-quoting miss of the session: the N/SE/NE still chain was passed through zsh -c with prompts containing an apostrophe and parentheses → zsh no-match error, none of the three Grok calls fired (verified: no work dirs, log shows the error). Relaunched via a python driver (e1_turned_stills.py) — prompts are data, never shell text. Rule stands: no prompt text through the shell.",
+      "ts": "2026-09-20T17:09:09"
     }
   ]
 }
