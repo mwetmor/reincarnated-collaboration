@@ -362,3 +362,13 @@ The `spawn_fold` claim rested on a `grep … --include=*.py` that **zsh rejected
 ---
 
 *Discharged by table, not by assertion. Pack verified by derived digest before reading; sealed cells reached by `shasum` only; no `.py` touched; no simulation executed. — gamora (simulation seam), 2026-09-20.*
+
+---
+
+⚑ **CORRIGENDUM-FORWARD 1 — 2026-09-20.** The headline **72** above is a class-share total, **not an
+enumeration**: it collapses the ~dozen split rows (M3, M4b, D7, D11, K6, K8, K15, K16, K17, K25,
+W9, D13/D14) to their primary class *without recording which id collapses into which*, so **no rule
+in this note reproduces 17 / 41 / 14 = 72 from the tables**. The census enumerates **89 row ids —
+M 23 · D 19 · P 7 · K 26 · W 14**, and **the 89 ids GOVERN** every downstream count, the KC2-PLAY
+coverage gate included (ledger `KP-9`; jack-ryan W1 pre-read `9e02f5b2`). The 72 is retained above,
+named in place, as the class-share headline it is. *(Append-only; nothing above is edited. — gamora)*

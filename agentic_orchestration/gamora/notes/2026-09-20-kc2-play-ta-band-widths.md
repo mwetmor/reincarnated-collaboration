@@ -594,3 +594,25 @@ debugged five times:**
 > explicitly** at the four LIVE sites — never GDScript's bare `round()` — and the prereg's EXACT
 > rows must assert **banker's**, not "round". This is cheap to state now and expensive to find
 > after a red.
+
+---
+
+# ⚑ ADDENDUM 3 — 2026-09-20, the coverage denominator is **89**, not 72
+
+> **APPEND ONLY.** § E-3 above is not rewritten; this supersedes its figure in place.
+> Occasioned by jack-ryan's W1 pre-read **NO-SEAL** (`qa/findings/2026-09-20-run-KC2-PLAY-w1-preread.md`, `9e02f5b2`).
+
+**§ E-3's `72 / 72` is superseded: the coverage denominator is `89 / 89`, the ENUMERATED census row
+ids, per ledger `KP-9`.** Re-counted from my own census tables this session: **89 ids — M 23 · D 19
+· P 7 · K 26 · W 14** — against the headline table's 72.
+
+⚑ **The 72 is mine and it does not enumerate.** It is the headline count *after* collapsing the
+~dozen genuinely split rows (`M3`, `M4b`, `D7`, `D11`, `K6`, `K8`, `K15`, `K16`, `K17`, `K25`, `W9`,
+`D13/D14`) to their primary class — **and the note never records which id collapses into which.**
+So no rule reproduces 17/41/14 = 72 from the tables, and a coverage gate keyed to 72 asks the
+runtime to map to a denominator that cannot be reconstructed from the document that defines it.
+**The 89 ids govern; the 72 stays as a class-share headline and is not a gate.**
+
+Consequence for this file, stated so no line has to be edited: **every band above is reported as
+`value @ coverage k/89`**, and § E-3's refusal stands unchanged in substance — *I will not certify
+a band whose coverage line is absent.* Only the denominator moves.
