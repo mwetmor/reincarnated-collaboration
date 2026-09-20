@@ -52,10 +52,23 @@ imposed on the lane — it is the law the lane already draws under.
 
 ### The registered `u`
 
-**`u = 0.294535` m per native minimap px** — the **midpoint** of the window of record
-**`[0.22277, 0.3663]`** (R-L3-2 / D-W1-1). Both the value and the window are printed on the
-frame. The geometry file's own point estimate **0.1981 is EXCLUDED by that window and is
-not used** (WARN-8). `u` is a **registered runtime choice** per R-KP-0c, read from one symbol.
+**`u = 0.285` m per native minimap px — the REGISTERED choice, conductor ledger KP-6**
+(galadriel's W1 rider folded, 2026-09-20). It is **asserted in-window** at run time against
+the window of record **`[0.22277, 0.3663]`** (R-L3-2 / D-W1-1), and both the value and the
+window are printed on the frame. The geometry file's own point estimate **0.1981 is EXCLUDED
+by that window and is not used** (WARN-8). `u` is read from **one symbol**, so a later pin
+move is a one-line change and a camera re-gate — not a re-authoring (§ 1.4).
+
+> **Supersession, recorded rather than silent:** this mock's first cut used the window
+> **midpoint** `0.294535`, per the Wave-1 brief. KP-6 supersedes it. The midpoint is kept in
+> the script as `U_SUPERSEDED_MIDPOINT` so the change is legible.
+>
+> ⚠ **Provenance flag for the conductor:** drax received KP-6 in a message **addressed to
+> galadriel**, not in a dispatch to this seat. It is acted on because a ruling of record
+> governs whoever consumes it — but per the charter's own conflict rule (*"a posture
+> communicated to one session is not a posture the wave has"*), **u = 0.285 should be
+> ratified against the WAVE**, not only in the seat that received it. Every figure below that
+> depends on `u` moves with it.
 
 ## What is true on the frame, and what is not
 
@@ -79,11 +92,14 @@ centroid (the script raises if it does not); the zone radii as **labelled upper 
 
 ## The finding the frame makes visible
 
-**At `ZOOM-GD` with `u` at the window midpoint, the ring is 2.33 × the viewport wide and
-4.43 × tall; standing at the arena centroid, no wall is in frame at all.** At `ZOOM-HOUSE`
-it is 4.95 × and 9.39 ×. This is the § 1.3 consequence — *the arena does not fit on the
-screen, and should not* — arriving one notch larger than the spec's figures, because those
-were computed at `u = 0.1981` and this frame uses the registered window midpoint.
+**At `ZOOM-GD` with the registered `u = 0.285`, the ring is 2.26 × the viewport wide and
+4.29 × tall; standing at the arena centroid, no wall is in frame at all.** At `ZOOM-HOUSE`
+it is 4.79 × and 9.09 ×. This is the § 1.3 consequence — *the arena does not fit on the
+screen, and should not* — arriving larger than the spec's own figures (1.79 × / 3.37 ×,
+Corrigendum-Forward 2) because those were computed at the superseded `u = 0.1981`.
+
+Both figures are **printed on the frame by the script, re-derived from the formula at build**,
+never copied from this prose — so they move with `u` on their own.
 
 That is why each frame carries an **ARENA OVERVIEW** inset: the whole ring under the **same**
 § 1.1 projection law at a **declared** display scale, with the true `ZOOM-GD` viewport drawn

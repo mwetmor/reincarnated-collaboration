@@ -29,7 +29,8 @@ LAW OBSERVED
   GL-12   — an absence is DECLARED.  v3.1 carries NO monster body radius; the
             token radii are placeholders and the image says so.
   R-KP-0c — `u` is a registered runtime choice inside [0.22277, 0.3663]
-            (R-L3-2).  The window midpoint is used and BOTH are printed.
+            (R-L3-2).  The REGISTERED value is u = 0.285 (conductor ledger
+            KP-6); it is asserted in-window at run time and both are printed.
 
 Author: drax (presentation seam), run KC2-PLAY Wave 1, 2026-09-20.
 Usage:  python3 make_g_img_mock.py
@@ -71,6 +72,21 @@ VIEW_W, VIEW_H = 1920, 1080
 # metres per native minimap px.  The geometry file's own point estimate
 # 0.1981 is EXCLUDED by this window and is NOT used here (WARN-8).
 U_WINDOW = (0.22277, 0.3663)
+
+# ⚑ THE REGISTERED `u` — ledger KP-6, conductor, 2026-09-20: galadriel's W1
+# rider folded and **u = 0.285 ADOPTED as the registered runtime choice**.
+# This SUPERSEDES the window midpoint (0.294535) that this script used at its
+# first cut; the midpoint is retained below only as the superseded lineage
+# value so the change is legible rather than silent.
+#
+# ⚠ PROVENANCE NOTE, recorded because it matters: drax received KP-6 in a
+# conductor message ADDRESSED TO GALADRIEL, not in a dispatch to this seat.
+# It is acted on here because a ruling of record governs whoever consumes it —
+# but per the charter's own conflict rule ("a posture communicated to one
+# session is not a posture the wave has"), the conductor should ratify u=0.285
+# against the WAVE, not only in the seat that received it.
+U_REGISTERED = 0.285
+U_SUPERSEDED_MIDPOINT = (U_WINDOW[0] + U_WINDOW[1]) / 2.0
 
 # Charter R-KP-0f — the Vanguard Banner's aura.  MODEL-BOUND radius;
 # its PLACEMENT is DECLARED-not-decoded and is labelled as such on the frame.
@@ -781,8 +797,8 @@ def draw_legend(img, dr, proj, eor_r_m, in_frame):
         ("h_fig", "%.1f m  (the arena scale chain's own character height)" % proj.h_fig_m),
         ("alpha", "%.10f deg   sin %.6f  cos %.6f" % (proj.alpha_deg, proj.sin_a, proj.cos_a)),
         ("ppm", "%.3f px/m  = (fraction*1080)/(h_fig*cos alpha)" % proj.ppm),
-        ("u  REGISTERED", "%.6f m per native minimap px" % proj.u),
-        ("u  window", "[%.5f, %.4f]   midpoint used; 0.1981 EXCLUDED (R-L3-2)" % U_WINDOW),
+        ("u  REGISTERED", "%.6f m per native minimap px   (conductor ledger KP-6)" % proj.u),
+        ("u  window", "[%.5f, %.4f]   in-window; 0.1981 EXCLUDED (R-L3-2)" % U_WINDOW),
         ("EoR ring", "r %.1f m (pack)  ->  %.1f x %.1f px semi-axes" % (eor_r_m, sx, sy)),
         ("geometry", "crucible-arena-geometry-v1.json   sha %s" % GEOM_SHA256[:12]),
         ("pack", "kc2-model-pack v3.1   sha %s" % PACK_DIGEST[:12]),
@@ -856,9 +872,14 @@ def main():
           % (eor_r_m, player_kit["channel"]["radius_m"]["provenance"],
              player_kit["channel"]["radius_m"]["precedence"]))
 
-    u = (U_WINDOW[0] + U_WINDOW[1]) / 2.0                          # R-KP-0c
-    print("[r-kp-0c] u = %.6f m/native-px  (midpoint of [%.5f, %.4f])"
-          % (u, U_WINDOW[0], U_WINDOW[1]))
+    u = U_REGISTERED                                    # R-KP-0c + ledger KP-6
+    if not (U_WINDOW[0] <= u <= U_WINDOW[1]):
+        sys.exit("REGISTERED u=%.6f is OUTSIDE the window [%.5f, %.4f] (R-L3-2)"
+                 % (u, U_WINDOW[0], U_WINDOW[1]))
+    print("[kp-6]    u = %.6f m/native-px  REGISTERED (conductor, ledger KP-6)"
+          % u)
+    print("[r-kp-0c] window [%.5f, %.4f] — in-window OK; supersedes the "
+          "midpoint %.6f used at first cut" % (U_WINDOW + (U_SUPERSEDED_MIDPOINT,)))
 
     pg = Projection(FRACTION_ZOOM_GD, "ZOOM-GD", u)
     ph = Projection(FRACTION_ZOOM_HOUSE, "ZOOM-HOUSE", u)
@@ -881,7 +902,8 @@ def main():
             "fraction_zoom_house": FRACTION_ZOOM_HOUSE,
             "u_window": list(U_WINDOW), "banner_aura_m": BANNER_AURA_M},
         "derived": {
-            "u_registered": u, "ppm_zoom_gd": pg.ppm, "ppm_zoom_house": ph.ppm,
+            "u_registered": u, "u_basis": "conductor ledger KP-6 (2026-09-20)",
+            "u_superseded_midpoint": U_SUPERSEDED_MIDPOINT, "ppm_zoom_gd": pg.ppm, "ppm_zoom_house": ph.ppm,
             "figure_px_zoom_gd": pg.fig_px, "figure_px_zoom_house": ph.fig_px,
             "eor_radius_m_from_pack": eor_r_m,
             "eor_semi_axes_px_zoom_gd": list(pg.r_to_semiaxes(eor_r_m)),
