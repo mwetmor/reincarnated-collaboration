@@ -33,6 +33,11 @@
       "id": "M-C8-P4",
       "ts_note": "P4 assembly: 48/48 cells (idle/walk/run/jump/cast x 8 dirs = 40 + attack x 8 staged) — unique S/SW/E/NE/N, mirrors W<-E SE<-SW NW<-NE (F17a carried); attack cells encoded at their own fps (30 / 22.5); frozen encoder; no Astra packet builder (numbers.json empty — CHECK reports carried in checks.json)",
       "ts": "2026-09-20T18:39:07"
+    },
+    {
+      "id": "M-C8-P5-EXPORT",
+      "ts_note": "P5 export (frozen live exporter export/godot_import.py sha 0299dee3db4337e0…, export/sockets.py 91c3ad6075057673…; the exporter moved since C-6 P5 7c1e2b6e… — § 7.7 disposition (b): no C-8 artefact was produced against the prior exporter): --cells runs/C-8/cells (40 five-state cells / 416 frames; attack_* cells ignored by the exporter = STAGED) --sockets runs/C-8/sockets_v1.json --parallax CS-parallax-in-v10 --vfx-kits kits_v9.json --props CS-props-trio (Keeper + Necro stills). Staged: runs/C-8/cliffside_v40-warlord/godot. exit 0. Next: heavy-lock headless import proof + 8-dir movement + jump + east-cast probes.",
+      "ts": "2026-09-20T18:41:57"
     }
   ],
   "halts": [],
@@ -620,6 +625,11 @@
       "id": "P4-W4-W5-CUTS",
       "ts_note": "cast + jump one-shot cuts (oneshot_c8.py, far-point tracker; R-C3-17 lineage): S_cast onset16/gather41/release57/settle111 — tracker release caught the side wind-up, the SLAM toward camera is native 71 (mace-head glint, 112 px, centre (249,265) in the cell) → conductor socket OVERRIDE release_index 4 (sheet decides); SW_cast window capped at native 60 (CAST_END; Grok slammed twice) release 29; E_cast release 57 glint on the mace head; NE_cast (padded) release 81 raised mace with glint; N_cast (padded, CAST_START 36) release 46 reads as an OVERHEAD RAISE not a forward slam — FLAGGED for Matt eye; jumps S(pad) SW(pad) E NE N all resolve crouch/take_off/apex/touchdown/landing/settle; E_jump has four near-identical standing frames before the crouch (early onset; JUMP_START attempts lost the crouch) — kept, FLAGGED; frozen --kind cast unevaluable on this silhouette (key poses collapse; NE/N tool ValueError) — recorded, not fixed (§ 7.7 frozen)",
       "ts": "2026-09-20T18:36:42"
+    },
+    {
+      "id": "SOCKET-SHEETS",
+      "ts_note": "mace_sockets.py marked sheets read by the conductor eye: release sockets land on the mace head in all five unique casts — S (glint, frame 4, toward-camera thrust), SW (mace at lower-left, frame 3), E (glint, frame 3), NE (glint on the raised mace, frame 3), N (raised mace head, frame 3; the cast reads as an overhead raise); non-release rows carry far-point noise (helm/heel) — immaterial, the exporter takes the release socket; mirrors x=511-x",
+      "ts": "2026-09-20T18:41:57"
     }
   ]
 }
