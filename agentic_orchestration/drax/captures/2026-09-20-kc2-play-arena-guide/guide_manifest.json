@@ -42,31 +42,41 @@
       }
     ]
   },
-  "figure_height_conflict": {
+  "register_divergence": {
     "arena_h_fig_m": 1.9,
     "arena_figure_px_on_plate": 115.17475784708071,
     "cliffside_keeper_px_on_plate": 130.000000007451,
     "cliffside_keeper_frac_1080": 0.120370370377269,
     "cliffside_implied_h_fig_m": 2.1445671311252297,
     "ratio_cliffside_over_arena": 1.1287195426974892,
-    "note": "AT THE SAME PLATE SCALE the arena's figure of record (h_fig 1.9 m, KP-0e) is 115.175 px tall and the cliffside's own Keeper is 130.000 px. They cannot both be a 1.9 m body. Either the cliffside Keeper is a 2.1446 m figure, or the two scenes do not share a body scale. The guide cannot resolve this; a plate painted 'in the cliffside's exact register' inherits whichever is wrong."
+    "status": "RULED \u2014 KP-18 (a)",
+    "note": "RAISED by drax as a conflict; RULED by the conductor. `h_fig` 1.9 m STANDS (the ring/body and monster/body ratios are the feel). The cliffside's 130.000 px Keeper is a CLIFFSIDE CONVENTION, not a figure of record, and is NOT inherited \u2014 it is a register divergence row. The painter's scale figure for the arena is the Keeper cell at 115.175 px on the plate (`b1a_scale_figure.png`). Recorded so the 2.1446 m the cliffside implies can never be quietly re-quoted as a body height."
+  },
+  "wall_face_allowance": {
+    "status": "RULED \u2014 KP-18 (b); Matt G5 = INTERIOR NAVE",
+    "metres": 6.0,
+    "px_up_screen_at_plate": 363.70976162236013,
+    "class": "allowance (index 5)",
+    "rule": "the painting may raise north/east/west wall faces into `beyond` above the band. BOTTOM edge = the wall band's inner edge, FROZEN. TOP edge = FREE. South face stays low \u2014 enforced by the sweep direction (up-screen is north), not by a list of faces.",
+    "plate_px_claimed": 2975762,
+    "canvas_note": "the plate canvas was GROWN by 364 px on top to hold this. The first cut had a 96 px margin against a 363.7 px rise \u2014 it declared an allowance it had no room for."
   },
   "plate": {
     "file": "guide_plate_full.png",
     "world_rect": {
       "x_min_m": -30.887353929407958,
       "x_max_m": 32.312353929407955,
-      "y_min_m": -32.36632835518843,
-      "y_max_m": 51.46132835518843,
+      "y_min_m": -36.71211745083929,
+      "y_max_m": 51.27454658889971,
       "width_m": 63.19970785881591,
-      "height_m": 83.82765671037686,
+      "height_m": 87.986664039739,
       "centre_m": [
         0.7125000000000004,
-        9.5475
+        7.281214569030215
       ],
       "size_px": [
         6359,
-        6732
+        7066
       ],
       "axes": "+x = EAST, +y = SOUTH (minimap frame, no flip)"
     },
@@ -96,7 +106,7 @@
     "derivation": "RE-RENDERED at ZOOM-GD from the same geometry and the same draw routine \u2014 NOT a resample of guide_plate_full.png.",
     "equivalent_plate_px_rect": {
       "x": 1831.281781874493,
-      "y": 1881.215833811758,
+      "y": 2230.215833811759,
       "w": 2553.0564222129283,
       "h": 1436.094237494772,
       "note": "the painting comes back at 0.752040 x plate scale and must be UPSCALED 1.329717 x to land on the plate"
@@ -156,11 +166,20 @@
           0
         ],
         "hex": "#FFDC00"
+      },
+      "allowance": {
+        "index": 5,
+        "rgb": [
+          177,
+          13,
+          201
+        ],
+        "hex": "#B10DC9"
       }
     },
     "note": "flat index colours, NEAREST only. NOT the cliffside grey-room palette \u2014 #00FF00 is NOT void here; floor is #2ECC40. Do not key on the cliffside convention.",
     "frozen": "every edge in this mask is frozen for the paint-over.",
-    "enclosed_pocket_rule": "a fixed 2.00 m band does not fill a wall spur thicker than 4.00 m, so the spur's core first fell out as `beyond` \u2014 a black hole in the MIDDLE of a wall. Every `beyond` component that does not reach the outside world is reclassified `wall`. Enclosure is a GLOBAL fact, so the crop resolves its pockets AGAINST THE PLATE, not against its own border. Plate: 73909 square px sealed; crop: 28023 px.",
+    "enclosed_pocket_rule": "a fixed 2.00 m band does not fill a wall spur thicker than 4.00 m, so the spur's core first fell out as `beyond` \u2014 a black hole in the MIDDLE of a wall. Every `beyond` component that does not reach the outside world is reclassified `wall`. Enclosure is a GLOBAL fact, so the crop resolves its pockets AGAINST THE PLATE, not against its own border. Plate: 74173 square px sealed; crop: 28023 px.",
     "not_in_the_mask": [
       "the Vanguard Banner aura footprint",
       "the frame-origin cross",
@@ -177,7 +196,7 @@
       "screen_y_px_per_metre_south": 80.3076247646877,
       "up_screen_px_per_metre_elevation": 60.618293603726684
     },
-    "content": "island tops 1000 mm, island side faces ramp 0 -> 1000 mm, everything else 0. The wall band is 0 because it is drawn as a GROUND BAND, not an extruded wall \u2014 wall height is G5-dependent and is not authored.",
+    "content": "island tops 500 mm, island side faces ramp 0 -> 500 mm, everything else 0. The wall band is 0 because it is drawn as a GROUND BAND, not an extruded wall \u2014 wall height is G5-dependent and is not authored.",
     "honest_limit": "for THIS crop the map is identically zero: no island reaches the crop, and the wall that does reach it carries 0 elevation by construction (ground band, not extruded). So for the review crop this file adds nothing the id mask does not already carry. It is emitted for pipeline parity with the cliffside guide, and it stops being trivial the moment G5 rules interior and the wall acquires a height."
   },
   "declared_not_decoded": [
@@ -188,7 +207,7 @@
     },
     {
       "what": "island height",
-      "value_m": 1.0,
+      "value_m": 0.5,
       "why": "the geometry file carries 2-D polygons only. 1.0 m is dressing-neutral: plinth or rubble mound, same sort line."
     },
     {
@@ -279,9 +298,9 @@
           22.514999999999997
         ],
         "y_sort_line_world_y_m": 22.514999999999997,
-        "y_sort_line_plate_px_y": 4407.389124136088,
-        "declared_height_m": 1.0,
-        "top_face_offset_px_on_plate": 60.618293603726684,
+        "y_sort_line_plate_px_y": 4756.389124136089,
+        "declared_height_m": 0.5,
+        "top_face_offset_px_on_plate": 30.309146801863342,
         "in_review_crop": false
       },
       {
@@ -335,9 +354,9 @@
           24.224999999999998
         ],
         "y_sort_line_world_y_m": 24.224999999999998,
-        "y_sort_line_plate_px_y": 4544.715162483702,
-        "declared_height_m": 1.0,
-        "top_face_offset_px_on_plate": 60.618293603726684,
+        "y_sort_line_plate_px_y": 4893.715162483704,
+        "declared_height_m": 0.5,
+        "top_face_offset_px_on_plate": 30.309146801863342,
         "in_review_crop": false
       },
       {
@@ -375,9 +394,9 @@
           39.614999999999995
         ],
         "y_sort_line_world_y_m": 39.614999999999995,
-        "y_sort_line_plate_px_y": 5780.649507612246,
-        "declared_height_m": 1.0,
-        "top_face_offset_px_on_plate": 60.618293603726684,
+        "y_sort_line_plate_px_y": 6129.649507612248,
+        "declared_height_m": 0.5,
+        "top_face_offset_px_on_plate": 30.309146801863342,
         "in_review_crop": false
       },
       {
@@ -415,13 +434,13 @@
           39.044999999999995
         ],
         "y_sort_line_world_y_m": 39.044999999999995,
-        "y_sort_line_plate_px_y": 5734.874161496376,
-        "declared_height_m": 1.0,
-        "top_face_offset_px_on_plate": 60.618293603726684,
+        "y_sort_line_plate_px_y": 6083.874161496375,
+        "declared_height_m": 0.5,
+        "top_face_offset_px_on_plate": 30.309146801863342,
         "in_review_crop": false
       }
     ],
-    "island_y_sort_rule": "an island PAINTED INTO the plate cannot occlude an actor \u2014 it is z0 and actors are z2. If an island must occlude, it has to be cut as a separate y-sorted sprite in Actors with its sort line at the footprint's southernmost point (per island above). At a declared 1.0 m that occlusion is 60.6 px \u2014 decide before the paint, not after.",
+    "island_y_sort_rule": "an island PAINTED INTO the plate cannot occlude an actor \u2014 it is z0 and actors are z2. If an island must occlude, it has to be cut as a separate y-sorted sprite in Actors with its sort line at the footprint's southernmost point (per island above). At a declared 1.0 m that occlusion is 30.3 px \u2014 decide before the paint, not after.",
     "wall_band_collision": "NONE. The wall band is PAINT SURFACE ONLY. The runtime owns collision, at the measured ring polyline (the band's inner edge). Painting a wall does not make one.",
     "pools_collision": "NONE, and this is a hard rule: the zones are ENTERABLE DAMAGE FIELDS, never collide-blocking (geometry file green_zones.class_note, Matt attestation L-64).",
     "beyond_the_wall": "BLACK on this guide. It is the parallax layers' region (scroll 0.12 / 0.25 / 0.45 / 0.70) and is NOT painted into the plate.",
@@ -519,11 +538,11 @@
   },
   "outputs": {
     "guide_plate_full.png": {
-      "sha256": "52412d82710eabe1671e2baf46cb7581f6ac469e3cd61eebeedf3cab6154ce32",
-      "bytes": 525832,
+      "sha256": "1f9f2435277ce89ec5836074e630a7dcae2413e83fe28ee3ce188f54ca6e3075",
+      "bytes": 560552,
       "size_px": [
         6359,
-        6732
+        7066
       ]
     },
     "guide_review_crop_1920x1080.png": {
@@ -559,7 +578,7 @@
       ]
     },
     "PAINT_NOTES.md": {
-      "sha256": "0a258b4d64d4129909728a3dbbbcefcc692719a679c7c8cd828450920ae6e50d",
+      "sha256": "f37be9f795d3703ed969fb35c49d69ffb1f8a85b377cbe8674b8836568e07cb3",
       "bytes": 1797
     },
     "guide_manifest.json": {

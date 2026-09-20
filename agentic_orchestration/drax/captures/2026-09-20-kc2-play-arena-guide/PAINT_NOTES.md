@@ -1,6 +1,6 @@
 # PAINT_NOTES — arena grey-room guide (KP-B1a, ONE image, then HALT)
 
-1. FLOOR = #2ECC40 in `id_mask.png` (flat grey in the guide): the walkable arena plate. WALL = #FF4136: paint surface only, 2.00 m band, DECLARED thickness — the runtime owns collision at its inner edge. ISLAND = #0074D9 (raised 1.00 m, DECLARED). POOL = #FFDC00: enterable damage fields, NEVER walls. BEYOND = #000000: leave black, the parallax layers own it.
+1. FLOOR = #2ECC40 in `id_mask.png` (flat grey in the guide): the walkable arena plate. WALL = #FF4136: paint surface only, 2.00 m band, DECLARED thickness — the runtime owns collision at its inner edge. ISLAND = #0074D9 (raised 0.50 m, DECLARED). POOL = #FFDC00: enterable damage fields, NEVER walls. BEYOND = #000000: leave black, the parallax layers own it.
 
 2. MAY BE EMBELLISHED, freely and within the class: surface (stone, grit, cracks, stain, wear), rubble and debris that does not read as an obstacle, light and its falloff, the fire register of the reference. Paint the picture, not the diagram.
 
