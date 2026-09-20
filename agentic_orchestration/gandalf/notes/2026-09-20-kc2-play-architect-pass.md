@@ -108,3 +108,11 @@ The D-CP2-2 mechanism rule's *referent explanation* is a keybind fact: **RMB hel
 ---
 
 *Tracker-delta: game tracker SESSION-DELTA 2026-09-20; Q81 filed (Q66 cross-noted as folded into F1, row not struck — unruled); matt_to_do T30 filed. — gandalf, 2026-09-20.*
+
+---
+
+## 5 · P0-d — conductor recon, returned 2026-09-20 (evidence only)
+
+1. **Arena geometry is reachable:** `agentic_orchestration/galadriel/notes/crucible-arena-geometry-v1.json` exists on disk (sha256 derived at use, never retyped here).
+2. **⚑ R-L68-2 (the metre-scale pin) never landed.** It is cited at KC2-MC L-68 (born) and L-91 (spec delivery) and **in no later row of either the KC2-MC or the LIFT ledger.** The ring's scale is therefore still `DERIVED-WEAK` — u = 0.198 m/minimap-px, band [0.094, 0.366], a **1.7× spread** — and SKIRT § 7.1 / R-L91-5 made first-arena-frame-for-Matt's-eye gate on it. **For a playable this is not cosmetic:** arena size sets time-to-reach-spawn, kiting room and how often walls matter. The pin (register the Class-1 footprint against the final pursuit model's occupancy hull, 86.9 × 85.3 m) becomes a **KC2-PLAY P0 item for galadriel + gamora**, before the arena plate is authored.
+3. **⚑ The pack's `arena.json · containment.runtime_containment` still reads `policy: "SKIRT"`, `claim_class: "PRESENTATION-CHOICE-NOT-MODEL-TRUTH"`** — the pre-D-CP2-1 text. The runtime spec body was integrated to AUTHORED-WALLS (both layers); the v3.1 pack row was not. Spec and pack disagree; the ruling (D-CP2-1, Matt verbatim) governs. Routed into the **v3.2 pack-delta scope** (star-lord cut) alongside whatever P0-a returns; the builder is told to follow the ruling, not the row.
