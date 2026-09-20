@@ -137,6 +137,8 @@ Push to remote remains Matt-explicit-authorization per ADR-006 read-only-by-defa
 
 **Recorded here, and not only in the session that received it, because that is what my own conflict rule below requires.** A push posture communicated to one session is not a posture the wave has — the same defect the ruling below was written to close, one turn after writing it. If this pattern is later narrowed or revoked, **the revocation is recorded here too**, not merely spoken.
 
+⚑ **EXTENSION 2026-09-20 (Matt, Run KC2-PLAY launch sheet L1, verbatim "Agreed - accept all"):** for the duration of **Run KC2-PLAY** (charter `agentic_orchestration/gandalf/notes/2026-09-20-kc2-play-run-charter.md`), push-as-work-lands ALSO covers **`reincarnated-godot`** (the runtime lives there). Conductor gandalf releases per fold. Recorded here per this section's own rule (jack-ryan W1 pre-read INFO-3); KR to fold at next CLAUDE.md touch. `loadout`/`demo` remain fresh-ask.
+
 **Scope boundaries that survive this authorization:**
 - It covers **`reincarnated-collaboration` and `reincarnated-engine`** — the two repos this wave writes to. It does not silently extend to `reincarnated-godot`, `reincarnated-demo` or `reincarnated-loadout`; a push there is a fresh ask unless a dispatch says otherwise.
 - **The per-dispatch push clause still governs over it** per the conflict rule immediately below. A standing pattern is the wave's *default*, not an override of a narrower instruction.
