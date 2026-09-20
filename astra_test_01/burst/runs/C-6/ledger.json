@@ -6276,6 +6276,20 @@
       "printed": "",
       "staged_mp4": "/Users/admin/astra-burst/grok/C-6/E1W_walk/E1W_walk.mp4",
       "ts": "2026-09-20T16:04:51"
+    },
+    {
+      "id": "GI-E1_pixel_warlord_E",
+      "kind": "image_gen_ref",
+      "cell": "E1_pixel_warlord_E",
+      "ok": true,
+      "rc": 0,
+      "wall_s": 26,
+      "image": "/Users/admin/astra-burst/grok/C-6/E1_pixel_warlord_E/E1_pixel_warlord_E.png",
+      "image_sha256": "fbe48436f7d6a4762c9d53cba68a454c6ed9277015511102c245236f7e727193",
+      "ref": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-6/artifacts/E1/e1_pixel_warlord_S_r1.png",
+      "ref_unsupported": 0,
+      "prompt_sha256": "c53019bfd16122991e7237650c405e8c958ff5fc44fc24ea6257c44bfaf657b0",
+      "ts": "2026-09-20T16:49:46"
     }
   ],
   "notes": [
@@ -6549,6 +6563,11 @@
       "id": "E1-IN-SCENE",
       "note": "Matt asked to see the Warlord in the scene. E1W_walk: frozen matte refused the raw clip (figure touches the frame border, green fraction 0.88) → clip padded to 70 % on its own plate green (ffmpeg scale+pad, nearest; geometry untouched; PROBE cell, flagged) → frozen cut: 12 frames, period 24 (1.0 s), confidence 0.89 — the strongest cycle of the run. One-cell character (walk_S; exporter fallback for every other state/direction) exported to runs/C-6/cliffside_v40-warlord-probe/godot (exporter 7c1e2b6e…, empty sockets, props-necro). In-scene captures (real renderer, probe_walk_c6.gd, same route) running for BOTH the Warlord probe and the necro staging under the heavy lock.",
       "ts": "2026-09-20T16:19:09"
+    },
+    {
+      "id": "OUTAGE-1",
+      "note": "Mac lost power (Matt, accidental unplug) during the E1_pixel_warlord_E Grok still: call died with no output and no file (grok_stdout.txt empty) — whether it billed is unknown. Scratchpad wiped (regenerable working files only). Heavy lock file empty; no C-6 processes survived. All commits and ledger entries intact. Relaunched the E still.",
+      "ts": "2026-09-20T16:49:19"
     }
   ]
 }
