@@ -87,6 +87,14 @@ centroid (the script raises if it does not); the zone radii as **labelled upper 
   snapshot. Silhouette **heights** are pure art. → **routed to the conductor**, because
   **R2D-5 requires the token radius asserted against a pack value and v3.1 has none.**
 - **The Vanguard Banner's PLACEMENT** (its 8.0 m radius is model-bound) — R-KP-0f.
+
+> ⚑ **Banner magnitude corrected at ledger KP-7 — the frame shows ×1.0319, not ×2.0.**
+> Conductor, verbatim: *"the Vanguard Banner is ×1.0319, NOT ×2.0 (`banner_additive=True` is of
+> record; +100 % lands on a sheet already carrying +3036 % physical) … the feel case shrinks to
+> ≈ 3 % and **drax must not build ×2.0**."* The 8 m radius, MODEL-BOUND status, per-tick /
+> no-hysteresis behaviour and the § 4.4 probe row all **stand**; only the multiplier moved.
+> The superseded 2.0 is kept in source as `BANNER_MULT_SUPERSEDED` and named **on the frame**,
+> so the correction is legible and cannot be quietly re-quoted downstream.
 - Silhouette shapes, tints, HUD layout, ground dressing, dressed margin.
 - HP / energy figures are the 2D spec § 2.1 snapshot example, not a simulated state.
 

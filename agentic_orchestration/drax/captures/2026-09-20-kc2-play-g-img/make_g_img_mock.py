@@ -92,6 +92,18 @@ U_SUPERSEDED_MIDPOINT = (U_WINDOW[0] + U_WINDOW[1]) / 2.0
 # its PLACEMENT is DECLARED-not-decoded and is labelled as such on the frame.
 BANNER_AURA_M = 8.0
 
+# ⚑ MAGNITUDE CORRECTED AT LEDGER KP-7 (conductor, 2026-09-20), verbatim:
+# "the Vanguard Banner is x1.0319, NOT x2.0 (`banner_additive=True` is of
+#  record; +100 % lands on a sheet already carrying +3036 % physical) ...
+#  the feel case shrinks to ~3 % and DRAX MUST NOT BUILD x2.0."
+# The 8 m radius, MODEL-BOUND status, per-tick/no-hysteresis and the probe row
+# all STAND; only the multiplier moved.  The superseded 2.0 is kept beside it
+# so the correction is legible rather than silent, and so nothing downstream
+# can quietly re-quote it (figure hygiene: a corrected figure MOVES WITH ITS
+# DERIVATIONS, never gets re-quoted).
+BANNER_DAMAGE_MULT = 1.0319
+BANNER_MULT_SUPERSEDED = 2.0
+
 # Substrate pins.
 GEOM_SHA256 = "68d895d75702996473cfd654a9a834816d4be0421c4b5ad7a3d2a0cc5d40481f"
 PACK_DIGEST = "2c7fc61f6a6f4efa61e535ad504929e0c94c78e3e8ed9f14eaaa13dbaf1cf4a7"
@@ -588,11 +600,17 @@ def compose(preset_name, fraction, geom, eor_r_m, u, roster, out_path):
 
     byy = min(pcy + ey + 44, SKILL_BOX[1] - 52)
     text(dr, (pcx, byy),
-         "VANGUARD BANNER AURA · r = %.1f m · x2.0 player damage, per-tick, no hysteresis"
-         % BANNER_AURA_M, font(13, bold=True), C_BANNER, anchor="mt")
+         "VANGUARD BANNER AURA · r = %.1f m · x%.4f player damage, per-tick, no hysteresis"
+         % (BANNER_AURA_M, BANNER_DAMAGE_MULT), font(13, bold=True), C_BANNER,
+         anchor="mt")
     text(dr, (pcx, byy + 17),
          "radius MODEL-BOUND · PLACEMENT DECLARED-NOT-DECODED (charter R-KP-0f)",
          font(11), C_BANNER, anchor="mt")
+    text(dr, (pcx, byy + 32),
+         "magnitude corrected at ledger KP-7: NOT x%.1f — the +100%% is ADDITIVE "
+         "onto a sheet already at +3036%%, so the feel case is ~%.1f%%"
+         % (BANNER_MULT_SUPERSEDED, (BANNER_DAMAGE_MULT - 1.0) * 100.0),
+         font(11), C_MOCK, anchor="mt")
 
     # ---------------- overlays ----------------
     draw_overview(img, geom, proj)
@@ -744,7 +762,8 @@ def draw_hud(img, dr, proj):
     dr.rectangle([bx, by, bx + 40, by + 40], outline=C_BANNER, width=2)
     text(dr, (bx + 20, by + 20), "VB", font(15, bold=True), C_BANNER, anchor="mm")
     text(dr, (bx + 50, by + 5), "Vanguard Banner", font(12, bold=True), C_BANNER)
-    text(dr, (bx + 50, by + 22), "x2.0 damage — drops the instant you leave",
+    text(dr, (bx + 50, by + 22),
+         "x%.4f damage — drops the instant you leave" % BANNER_DAMAGE_MULT,
          font(10), C_DIM)
 
     globe(img, dr, 96, 980, 58, hp / hp_max, (186, 62, 62), "HEALTH",
