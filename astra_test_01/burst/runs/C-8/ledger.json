@@ -38,6 +38,11 @@
       "id": "M-C8-P5-EXPORT",
       "ts_note": "P5 export (frozen live exporter export/godot_import.py sha 0299dee3db4337e0…, export/sockets.py 91c3ad6075057673…; the exporter moved since C-6 P5 7c1e2b6e… — § 7.7 disposition (b): no C-8 artefact was produced against the prior exporter): --cells runs/C-8/cells (40 five-state cells / 416 frames; attack_* cells ignored by the exporter = STAGED) --sockets runs/C-8/sockets_v1.json --parallax CS-parallax-in-v10 --vfx-kits kits_v9.json --props CS-props-trio (Keeper + Necro stills). Staged: runs/C-8/cliffside_v40-warlord/godot. exit 0. Next: heavy-lock headless import proof + 8-dir movement + jump + east-cast probes.",
       "ts": "2026-09-20T18:41:57"
+    },
+    {
+      "id": "M-C8-P5-PROOF",
+      "ts_note": "headless proof under the heavy lock (run_p5_proof.sh, C-6 probes re-used): import exit 0 / 0 errors; movement probe 8/8 directions move ~370 px on walkable with the expected walk_<D> anim, 0 frames off-walkable; jump plays jump_SE→idle_SE; events probe: cast release + contact (fire_bolt_e1_B kit, VfxTarget_44 head, contact lag 0). Predicate 4 (8-dir movement + jump) MET; predicate 5 (cast contact) MET on the probe kit. Packet 104 built on the Desktop for Matt eye.",
+      "ts": "2026-09-20T18:43:33"
     }
   ],
   "halts": [],
