@@ -1,0 +1,401 @@
+{
+  "cells": [
+    "idle_E",
+    "idle_N",
+    "idle_NE",
+    "idle_NW",
+    "idle_S",
+    "idle_SE",
+    "idle_SW",
+    "idle_W",
+    "walk_E",
+    "walk_N",
+    "walk_NE",
+    "walk_NW",
+    "walk_S",
+    "walk_SE",
+    "walk_SW",
+    "walk_W"
+  ],
+  "frames": 32,
+  "texture_references": 1113,
+  "gear_cells": 0,
+  "vfx_animations": 0,
+  "parallax": {
+    "canvas_size": [
+      5376,
+      4096
+    ],
+    "tiles": [
+      {
+        "file": "tile_0_0.png",
+        "position": [
+          0,
+          0
+        ],
+        "size": [
+          4096,
+          4096
+        ]
+      },
+      {
+        "file": "tile_4096_0.png",
+        "position": [
+          4096,
+          0
+        ],
+        "size": [
+          1280,
+          4096
+        ]
+      }
+    ],
+    "tile_count": 2,
+    "tile_area_px2": 22020096,
+    "filtering": "nearest (texture_filter=1), no padding, no resampling",
+    "layers": [
+      {
+        "name": "sky",
+        "file": "layers/sky.png",
+        "scroll_scale": 0.12,
+        "position": [
+          0,
+          0.0
+        ],
+        "z": -40
+      },
+      {
+        "name": "far_ruins",
+        "file": "layers/far_ruins.png",
+        "scroll_scale": 0.25,
+        "position": [
+          0,
+          -416.0
+        ],
+        "z": -30
+      },
+      {
+        "name": "forest_valley",
+        "file": "layers/forest_valley.png",
+        "scroll_scale": 0.45,
+        "position": [
+          0,
+          537.0
+        ],
+        "z": -20
+      },
+      {
+        "name": "mist",
+        "file": "layers/mist.png",
+        "scroll_scale": 0.7,
+        "position": [
+          0,
+          568.0
+        ],
+        "z": -10
+      }
+    ],
+    "collision_polygons": 915,
+    "figure_height_px": 151,
+    "scale": 0.6291666666666667,
+    "walk_speed": 247,
+    "run_speed": 494,
+    "camera_offset": [
+      -2.0000000000000995,
+      -55.00000000000001
+    ],
+    "camera_anchor_px": [
+      962.0000000000001,
+      595.0
+    ],
+    "camera_limits": [
+      2,
+      55,
+      5378,
+      4151
+    ],
+    "wall_s": 9.636527375000242,
+    "props": {
+      "assets": 50,
+      "shadows": 0,
+      "instances": 50,
+      "overhead": 0,
+      "particles": 12,
+      "near": 1,
+      "glows": 7,
+      "swarms": 1,
+      "collision_polygons": 45,
+      "body_width_px": 133.38333333333333,
+      "body_height_px": 130,
+      "near_coverage": 0.11195024433585073,
+      "coverage_step_px": 64,
+      "opaque_alpha_min": 128
+    },
+    "near_coverage": 0.11195024433585073,
+    "movement": {
+      "walk_px_s": 247,
+      "run_px_s": 494,
+      "walk_anim_fps": 20.7,
+      "run_anim_fps": 14.5
+    },
+    "resource_references": 1864
+  },
+  "vfx_kits": {
+    "kits": [
+      {
+        "name": "frozen_orb",
+        "frames": {
+          "flare": 6,
+          "impact": 5,
+          "travel": 6,
+          "residual": 4
+        },
+        "socket_cells": 0,
+        "missing_sockets": 0,
+        "ambient_rectangle": null,
+        "ambient_rectangle_report": null,
+        "resource_references": 149
+      },
+      {
+        "name": "blackwater_cocktail",
+        "frames": {
+          "flare": 6,
+          "impact": 6,
+          "travel": 6,
+          "residual": 4
+        },
+        "socket_cells": 0,
+        "missing_sockets": 0,
+        "ambient_rectangle": null,
+        "ambient_rectangle_report": null,
+        "resource_references": 189
+      },
+      {
+        "name": "poisonous_concoction",
+        "frames": {
+          "flare": 6,
+          "impact": 6,
+          "travel": 6,
+          "residual": 4
+        },
+        "socket_cells": 0,
+        "missing_sockets": 0,
+        "ambient_rectangle": null,
+        "ambient_rectangle_report": null,
+        "resource_references": 229
+      },
+      {
+        "name": "lightning_blast",
+        "frames": {
+          "flare": 6,
+          "impact": 6,
+          "travel": 6,
+          "residual": 4
+        },
+        "socket_cells": 0,
+        "missing_sockets": 0,
+        "ambient_rectangle": null,
+        "ambient_rectangle_report": null,
+        "resource_references": 269
+      },
+      {
+        "name": "zeus_chain",
+        "frames": {
+          "flare": 6,
+          "impact": 6,
+          "travel": 6,
+          "residual": 4
+        },
+        "socket_cells": 0,
+        "missing_sockets": 0,
+        "ambient_rectangle": null,
+        "ambient_rectangle_report": null,
+        "resource_references": 309
+      },
+      {
+        "name": "healing_hands",
+        "frames": {
+          "flare": 6,
+          "impact": 6,
+          "travel": 6,
+          "residual": 4
+        },
+        "socket_cells": 0,
+        "missing_sockets": 0,
+        "ambient_rectangle": null,
+        "ambient_rectangle_report": null,
+        "resource_references": 349
+      },
+      {
+        "name": "fire_burst_e0p",
+        "frames": {
+          "flare": 1,
+          "impact": 1,
+          "travel": 1
+        },
+        "socket_cells": 0,
+        "missing_sockets": 0,
+        "ambient_rectangle": null,
+        "ambient_rectangle_report": null,
+        "resource_references": 536
+      },
+      {
+        "name": "fire_burst_e0p_v2",
+        "frames": {
+          "flare": 1,
+          "impact": 1,
+          "travel": 1
+        },
+        "socket_cells": 0,
+        "missing_sockets": 0,
+        "ambient_rectangle": null,
+        "ambient_rectangle_report": null,
+        "resource_references": 895
+      },
+      {
+        "name": "fire_bolt_e1_A",
+        "frames": {
+          "flare": 1,
+          "impact": 1,
+          "travel": 1
+        },
+        "socket_cells": 0,
+        "missing_sockets": 0,
+        "ambient_rectangle": null,
+        "ambient_rectangle_report": null,
+        "resource_references": 924
+      },
+      {
+        "name": "fire_bolt_e1_B",
+        "frames": {
+          "flare": 1,
+          "impact": 1,
+          "travel": 1
+        },
+        "socket_cells": 0,
+        "missing_sockets": 0,
+        "ambient_rectangle": null,
+        "ambient_rectangle_report": null,
+        "resource_references": 949
+      },
+      {
+        "name": "ice_bolt_e2",
+        "frames": {
+          "flare": 1,
+          "impact": 1,
+          "travel": 1
+        },
+        "socket_cells": 0,
+        "missing_sockets": 0,
+        "ambient_rectangle": null,
+        "ambient_rectangle_report": null,
+        "resource_references": 1161
+      },
+      {
+        "name": "blackwater_cocktail_e3",
+        "grammar": "G2",
+        "frames": 3
+      },
+      {
+        "name": "poisonous_concoction_e3",
+        "grammar": "G2",
+        "frames": 3
+      },
+      {
+        "name": "lightning_blast_e3",
+        "grammar": "G3",
+        "frames": 3,
+        "schedule": {
+          "delays_s": [
+            0.05
+          ],
+          "cumulative_s": [
+            0.05
+          ],
+          "interval_cv": null,
+          "minimum_cv": 0.25,
+          "cv_evaluable": false,
+          "count_semantics": "additional hops after initial contact"
+        }
+      },
+      {
+        "name": "zeus_chain_e3",
+        "grammar": "G3",
+        "frames": 3,
+        "schedule": {
+          "delays_s": [
+            0.06,
+            0.11,
+            0.08,
+            0.13
+          ],
+          "cumulative_s": [
+            0.06,
+            0.16999999999999998,
+            0.25,
+            0.38
+          ],
+          "interval_cv": 0.2834297266912897,
+          "minimum_cv": 0.25,
+          "cv_evaluable": true,
+          "count_semantics": "additional hops after initial contact"
+        }
+      },
+      {
+        "name": "healing_hands_e3",
+        "grammar": "G4",
+        "frames": 3,
+        "schedule": {
+          "intervals_s": [
+            0.45,
+            1.1500000000000001,
+            0.34999999999999987,
+            1.1500000000000001,
+            0.3500000000000001
+          ],
+          "interval_cv": 0.5468974569308176,
+          "minimum_cv": 0.25,
+          "ff08_satisfied": true,
+          "tick_count": 6
+        }
+      },
+      {
+        "name": "frozen_orb_e3",
+        "frames": {
+          "flare": 1,
+          "impact": 1,
+          "travel": 1
+        },
+        "socket_cells": 0,
+        "missing_sockets": 0,
+        "ambient_rectangle": null,
+        "ambient_rectangle_report": null,
+        "resource_references": 1349
+      },
+      {
+        "name": "fire_burst_e0p_v3",
+        "frames": {
+          "flare": 1,
+          "impact": 1,
+          "travel": 1
+        },
+        "socket_cells": 0,
+        "missing_sockets": 0,
+        "ambient_rectangle": null,
+        "ambient_rectangle_report": null,
+        "resource_references": 1711
+      },
+      {
+        "name": "blackwater_cocktail_e3_V",
+        "grammar": "G2",
+        "body_mode": "flipbook",
+        "frames": 145,
+        "fps": 24,
+        "loop": false
+      }
+    ],
+    "credits": "Effect frozen_orb (ice). Source assets supplied by the effect definition; no license is inferred.\nEffect blackwater_cocktail (fire). Source assets supplied by the effect definition; no license is inferred.\nEffect poisonous_concoction (poison). Source assets supplied by the effect definition; no license is inferred.\nEffect lightning_blast (lightning). Source assets supplied by the effect definition; no license is inferred.\nEffect zeus_chain (lightning). Source assets supplied by the effect definition; no license is inferred.\nEffect healing_hands (holy). Source assets supplied by the effect definition; no license is inferred.\nEffect fire_burst_e0p (fire). Source assets supplied by the effect definition; no license is inferred.\nEffect fire_burst_e0p_v2 (fire). Source assets supplied by the effect definition; no license is inferred.\nEffect fire_bolt_e1_A (fire). Source assets supplied by the effect definition; no license is inferred.\nEffect fire_bolt_e1_B (fire). Source assets supplied by the effect definition; no license is inferred.\nEffect ice_bolt_e2 (ice). Source assets supplied by the effect definition; no license is inferred.\nG2 blackwater_cocktail_e3: supplied painted primitives; derived shards/field, no new painting.\nG2 poisonous_concoction_e3: supplied painted primitives; derived shards/field, no new painting.\nG3: supplied lightning link, branch and prong drawings; four-band quantisation, original coverage alpha.\nG3: supplied lightning link, branch and prong drawings; four-band quantisation, original coverage alpha.\nG4: supplied holy ring, folded petal and interrupted seal; quantised index RGB, original alpha.\nEffect frozen_orb_e3 (ice). Source assets supplied by the effect definition; no license is inferred.\nEffect fire_burst_e0p_v2 (fire). Source assets supplied by the effect definition; no license is inferred.\nBlackwater arm B: BW_spine_r1 cut BW-video-r1; source frame bytes unchanged. R-C7-0/0b/0d/0e. Flask and palette from arm A. Runtime floor light and FL-5 smoke.\n",
+    "resource_references": 1864
+  },
+  "wall_s": 26.36093845900041
+}

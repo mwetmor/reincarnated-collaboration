@@ -1,7 +1,7 @@
 {
  "kind": "idle",
  "direction": "SE",
- "source_still": "runs/C-6/artifacts/E1/e1_pixel_warlord_SE.png",
+ "source_still": "runs/C-6/artifacts/E1/e1_pixel_warlord_SW.png",
  "still_sha256": "3e455c1ead355f48b26e546ee55d33c02aa960821d66364457eb69545fcb7c2c",
  "method": "PROBE one-frame cell from a still (padded to 0.70 on its own plate; frozen matte + register); no animation",
  "transform": {
@@ -56,5 +56,8 @@
  "conductor_derived": true,
  "flags": [
   "probe still cell \u2014 not animated"
- ]
+ ],
+ "mirrored": true,
+ "mirror_of": "idle_SW",
+ "note": "Grok still labelled SE faced lower-LEFT (Matt: SE/SW inverted) \u2192 re-labelled SW; SE is its mirror"
 }
