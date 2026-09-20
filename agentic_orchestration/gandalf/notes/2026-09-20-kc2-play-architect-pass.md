@@ -1,6 +1,6 @@
 # KC2-PLAY — ARCHITECT pass: from the EoR-warlord mechanistic twin to a playable Astra 2D scene
 
-> **STATUS:** CURRENT — open-questions gate for a run not yet chartered. **Author:** gandalf (`ARCHITECT`; SCENEWRIGHT + SPEC-AUTHOR lenses), 2026-09-20. **Trigger:** Matt — *"make that a fully playable sim that we can build out in an Astra 2D scene … I want to play the game and compare how accurately we can get it to my video."*
+> **STATUS:** CURRENT — open-questions gate **DRAINED 2026-09-20** (Q81 F1–F7 ruled as recommended); P0 audits fired; charter follows their return. **Author:** gandalf (`ARCHITECT`; SCENEWRIGHT + SPEC-AUTHOR lenses), 2026-09-20. **Trigger:** Matt — *"make that a fully playable sim that we can build out in an Astra 2D scene … I want to play the game and compare how accurately we can get it to my video."*
 > **Authority:** recommendation + gate only. No code, no dispatch fired. Forks are Matt's (Q81).
 > **Companion docs:** runtime spec SKIRT `2026-08-25-kc2-mc-w4-godot-runtime-spec.md` · twin-test F-5 `2026-08-25-kc2-mc-w4-twin-test-spec.md` · LIFT charter/ledger `2026-08-25-kc2-lift-run-charter.md` · post-close handoff `2026-09-07-kc2-lift-postclose-session-handoff.md` · burst lane `astra_test_01/burst/HOWTO.md` · C-7 account `2026-09-17-c7-account.md`.
 
@@ -93,7 +93,7 @@ The D-CP2-2 mechanism rule's *referent explanation* is a keybind fact: **RMB hel
 
 **GATED + TRACKED:** dodgeability semantics ← P0-a · v3.2 pack delta scope ← P0-a · exporter work ← P0-c · any metre figure on screen ← R-L68-2 confirmed · T-C ← video re-supplied (T30) · any quoted fidelity number ← T-A green.
 
-**OPEN → Matt (Q81; one recommendation each):**
+**~~OPEN → Matt (Q81)~~ ✓ ALL SEVEN RULED AS RECOMMENDED, 2026-09-20 (Matt verbatim: *"Agreed - accept all"*). The table below is now the ruling of record; F1 closes Q66 and runtime-spec OQ-3.**
 
 | # | Fork | Recommendation |
 |---|---|---|
