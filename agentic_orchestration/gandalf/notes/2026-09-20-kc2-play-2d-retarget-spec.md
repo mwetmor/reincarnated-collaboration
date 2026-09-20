@@ -434,3 +434,13 @@ The observation, stated with its assumptions because it is a re-derivation from 
 ---
 
 *Filed 2026-09-20 by gandalf (named sub-agent, `SPEC-AUTHOR`), **P0-b of run KC2-PLAY** (pre-charter). Delta spec: **governs over SKIRT § 7 and F-5 § 6.1 where they are 3D-shaped; everything else in both stands unamended by reference.** Forward supersession — superseded clauses named in place here; **neither August file edited.** **K-7 held:** no sentence describing the sealed referent is altered. **Law 3 held:** every constant in this document is either derived in the open from a cited value, or DECLARED as a presentation choice requiring a ledger row, or registered as an OPEN QUESTION. **No fitted constants.** No production code, no dispatch, no push.*
+
+
+---
+
+## ⚑ CORRIGENDUM-FORWARD 1 (2026-09-20, conductor; jack-ryan Gate-1 BLOCK-A + WARN-9/12 on the KC2-PLAY charter) — governs over the body; nothing above is rewritten
+
+1. **§ 1.2 / R2D-2 — the two `ppm` presets were computed at `h_fig = 2.0` while the text fixes `h_fig = 1.9`.** The worked line `86.616 / (1.9 × 0.602463) = 86.616 / 1.144680 = 71.885` is arithmetically false: `1.9 × 0.602462 = 1.144679` and `86.616 / 1.144679 = 75.668`; the printed 71.885 back-solves to `h_fig = 2.00000` exactly. **`h_fig = 1.9 m` STANDS** (OQ-2, conductor ruling KP-0e — the arena scale chain's own character height; the 5.3 % argument in § 1.2 is the reason). **Values of record: `ZOOM-GD` = 75.668 px/m · `ZOOM-HOUSE` = 160.394 px/m.** Zoom ratios against a 100.62 px/m plate: **0.752 / 1.594** (were 0.714 / 1.514). R2D-2 asserts the corrected pair. The lane-corroboration finding (the lane's px/m pair reproduces tan α) does not depend on `h_fig` and stands. Re-derived independently by the conductor before landing (`cos α = 0.6024624070853052`).
+   **Hit table (OP § 4.11 value-set sweep — `71.885` · `152.37x` · `0.714` · `1.514`, all KC2-PLAY surfaces):** this file L64, L65, L67, L69, L386 → **superseded by this block** (body left as lineage) · `2026-09-20-kc2-play-architect-pass.md` § 6.4 → **annotated forward in that file** · charter → no hit. Any § 1.3 figure derived from 71.885 is re-derived at build from the formula, never copied.
+2. **R2D-7's metre-readout gate** hung on `R-L68-2` landing; charter ruling R-KP-0c retired the hull as a pin target. **Re-based:** any metre readout drawn from the ring displays the registered `u` and its window `[0.22277, 0.3663]` beside it, until galadriel's rider returns.
+3. **Acceptance criteria are `R2D-1 … R2D-10`, closed at ten, in § 8** (the brief's "§ 7 / 1…n" was the brief's error; the charter cites § 8 / ten).
