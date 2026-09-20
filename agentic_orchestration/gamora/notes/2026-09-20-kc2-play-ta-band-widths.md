@@ -72,10 +72,16 @@ math note § V5 carries the citations; this row carries the consequence.
 **E-2 is `STRUCTURAL`:** a non-zero residual means damage is being created or destroyed, which is
 not a fidelity difference — it is a broken port.
 
-### E-3 · Coverage — **72 / 72, gate before grade**
+### E-3 · Coverage — ~~**72 / 72**~~ → ⚑ **89 / 89, gate before grade**
+
+> ⚑ **SUPERSEDED IN PLACE (WARN-6):** the denominator is ~~72~~ → **89**, the ENUMERATED census
+> row ids (M 23 · D 19 · P 7 · K 26 · W 14) — ledger **`KP-9`**, jack-ryan W1 pre-read `9e02f5b2`.
+> **See ADDENDUM 3 at the foot of this file** for why the 72 does not enumerate. Every band in
+> this file is reported as `value @ coverage k/89`. *Annotation in place; the original text
+> below is untouched.*
 
 Charter § 4.3. Not mine to compute, but it is `EXACT` and it **gates every band below**: a band
-reported without `@ coverage k/72` beside it is not a T-A result. I will not certify a band whose
+reported without `@ coverage k/`~~`72`~~`89` beside it is not a T-A result. I will not certify a band whose
 coverage line is absent.
 
 ### E-4 · The constructed denominator — **an identity, checkable**
