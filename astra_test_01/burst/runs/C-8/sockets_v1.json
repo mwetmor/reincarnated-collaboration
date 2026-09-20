@@ -1,0 +1,865 @@
+{
+ "version": 1,
+ "canvas": [
+  512,
+  512
+ ],
+ "cells": {
+  "cast_E": {
+   "sockets": [
+    [
+     233,
+     164
+    ],
+    [
+     170,
+     203
+    ],
+    [
+     187,
+     363
+    ],
+    [
+     360,
+     243
+    ],
+    [
+     169,
+     363
+    ],
+    [
+     169,
+     363
+    ],
+    [
+     170,
+     363
+    ],
+    [
+     235,
+     159
+    ]
+   ],
+   "measurements": [
+    {
+     "tip": [
+      233,
+      164
+     ],
+     "reason": "ok_farthest_from_hip_above_feet",
+     "method": "farthest_alpha_from_hip"
+    },
+    {
+     "tip": [
+      170,
+      203
+     ],
+     "reason": "ok_farthest_from_hip_above_feet",
+     "method": "farthest_alpha_from_hip"
+    },
+    {
+     "tip": [
+      187,
+      363
+     ],
+     "reason": "ok_farthest_from_hip_above_feet",
+     "method": "farthest_alpha_from_hip"
+    },
+    {
+     "tip": [
+      360,
+      243
+     ],
+     "reason": "mace-head glint centre (282 px) at the release frame",
+     "method": "glint_centre"
+    },
+    {
+     "tip": [
+      169,
+      363
+     ],
+     "reason": "ok_farthest_from_hip_above_feet",
+     "method": "farthest_alpha_from_hip"
+    },
+    {
+     "tip": [
+      169,
+      363
+     ],
+     "reason": "ok_farthest_from_hip_above_feet",
+     "method": "farthest_alpha_from_hip"
+    },
+    {
+     "tip": [
+      170,
+      363
+     ],
+     "reason": "ok_farthest_from_hip_above_feet",
+     "method": "farthest_alpha_from_hip"
+    },
+    {
+     "tip": [
+      235,
+      159
+     ],
+     "reason": "ok_farthest_from_hip_above_feet",
+     "method": "farthest_alpha_from_hip"
+    }
+   ],
+   "release_index": 3,
+   "release_socket_rule": "C-8 R-MACE (W3): release socket = mace head at the slam frame \u2014 the alpha pixel farthest from the hip point of the rest frame above the foot band (bottom 15 %); conductor-proposed, marked-sheet audited; S faces the camera so the thrust shortens on screen \u2014 its release frame and socket come from the mace-head GLINT (conductor override, P4-W4-W5-CUTS); mirrored cells take the source socket with x flipped (511 - x).",
+   "glint": {
+    "px": 282,
+    "centre": [
+     360,
+     243
+    ]
+   }
+  },
+  "cast_N": {
+   "sockets": [
+    [
+     185,
+     176
+    ],
+    [
+     180,
+     177
+    ],
+    [
+     170,
+     180
+    ],
+    [
+     345,
+     135
+    ],
+    [
+     151,
+     188
+    ],
+    [
+     151,
+     188
+    ],
+    [
+     150,
+     189
+    ],
+    [
+     149,
+     226
+    ]
+   ],
+   "measurements": [
+    {
+     "tip": [
+      185,
+      176
+     ],
+     "reason": "ok_farthest_from_hip_above_feet",
+     "method": "farthest_alpha_from_hip"
+    },
+    {
+     "tip": [
+      180,
+      177
+     ],
+     "reason": "ok_farthest_from_hip_above_feet",
+     "method": "farthest_alpha_from_hip"
+    },
+    {
+     "tip": [
+      170,
+      180
+     ],
+     "reason": "ok_farthest_from_hip_above_feet",
+     "method": "farthest_alpha_from_hip"
+    },
+    {
+     "tip": [
+      345,
+      135
+     ],
+     "reason": "ok_farthest_from_hip_above_feet",
+     "method": "farthest_alpha_from_hip"
+    },
+    {
+     "tip": [
+      151,
+      188
+     ],
+     "reason": "ok_farthest_from_hip_above_feet",
+     "method": "farthest_alpha_from_hip"
+    },
+    {
+     "tip": [
+      151,
+      188
+     ],
+     "reason": "ok_farthest_from_hip_above_feet",
+     "method": "farthest_alpha_from_hip"
+    },
+    {
+     "tip": [
+      150,
+      189
+     ],
+     "reason": "ok_farthest_from_hip_above_feet",
+     "method": "farthest_alpha_from_hip"
+    },
+    {
+     "tip": [
+      149,
+      226
+     ],
+     "reason": "ok_farthest_from_hip_above_feet",
+     "method": "farthest_alpha_from_hip"
+    }
+   ],
+   "release_index": 3,
+   "release_socket_rule": "C-8 R-MACE (W3): release socket = mace head at the slam frame \u2014 the alpha pixel farthest from the hip point of the rest frame above the foot band (bottom 15 %); conductor-proposed, marked-sheet audited; S faces the camera so the thrust shortens on screen \u2014 its release frame and socket come from the mace-head GLINT (conductor override, P4-W4-W5-CUTS); mirrored cells take the source socket with x flipped (511 - x)."
+  },
+  "cast_NE": {
+   "sockets": [
+    [
+     157,
+     201
+    ],
+    [
+     156,
+     195
+    ],
+    [
+     171,
+     189
+    ],
+    [
+     336,
+     152
+    ],
+    [
+     363,
+     161
+    ],
+    [
+     363,
+     161
+    ],
+    [
+     151,
+     207
+    ],
+    [
+     153,
+     214
+    ]
+   ],
+   "measurements": [
+    {
+     "tip": [
+      157,
+      201
+     ],
+     "reason": "ok_farthest_from_hip_above_feet",
+     "method": "farthest_alpha_from_hip"
+    },
+    {
+     "tip": [
+      156,
+      195
+     ],
+     "reason": "ok_farthest_from_hip_above_feet",
+     "method": "farthest_alpha_from_hip"
+    },
+    {
+     "tip": [
+      171,
+      189
+     ],
+     "reason": "ok_farthest_from_hip_above_feet",
+     "method": "farthest_alpha_from_hip"
+    },
+    {
+     "tip": [
+      336,
+      152
+     ],
+     "reason": "mace-head glint centre (342 px) at the release frame",
+     "method": "glint_centre"
+    },
+    {
+     "tip": [
+      363,
+      161
+     ],
+     "reason": "ok_farthest_from_hip_above_feet",
+     "method": "farthest_alpha_from_hip"
+    },
+    {
+     "tip": [
+      363,
+      161
+     ],
+     "reason": "ok_farthest_from_hip_above_feet",
+     "method": "farthest_alpha_from_hip"
+    },
+    {
+     "tip": [
+      151,
+      207
+     ],
+     "reason": "ok_farthest_from_hip_above_feet",
+     "method": "farthest_alpha_from_hip"
+    },
+    {
+     "tip": [
+      153,
+      214
+     ],
+     "reason": "ok_farthest_from_hip_above_feet",
+     "method": "farthest_alpha_from_hip"
+    }
+   ],
+   "release_index": 3,
+   "release_socket_rule": "C-8 R-MACE (W3): release socket = mace head at the slam frame \u2014 the alpha pixel farthest from the hip point of the rest frame above the foot band (bottom 15 %); conductor-proposed, marked-sheet audited; S faces the camera so the thrust shortens on screen \u2014 its release frame and socket come from the mace-head GLINT (conductor override, P4-W4-W5-CUTS); mirrored cells take the source socket with x flipped (511 - x).",
+   "glint": {
+    "px": 342,
+    "centre": [
+     336,
+     152
+    ]
+   }
+  },
+  "cast_S": {
+   "sockets": [
+    [
+     267,
+     165
+    ],
+    [
+     266,
+     166
+    ],
+    [
+     310,
+     362
+    ],
+    [
+     357,
+     356
+    ],
+    [
+     249,
+     265
+    ],
+    [
+     357,
+     354
+    ],
+    [
+     355,
+     355
+    ],
+    [
+     335,
+     362
+    ]
+   ],
+   "measurements": [
+    {
+     "tip": [
+      267,
+      165
+     ],
+     "reason": "ok_farthest_from_hip_above_feet",
+     "method": "farthest_alpha_from_hip"
+    },
+    {
+     "tip": [
+      266,
+      166
+     ],
+     "reason": "ok_farthest_from_hip_above_feet",
+     "method": "farthest_alpha_from_hip"
+    },
+    {
+     "tip": [
+      310,
+      362
+     ],
+     "reason": "ok_farthest_from_hip_above_feet",
+     "method": "farthest_alpha_from_hip"
+    },
+    {
+     "tip": [
+      357,
+      356
+     ],
+     "reason": "ok_farthest_from_hip_above_feet",
+     "method": "farthest_alpha_from_hip"
+    },
+    {
+     "tip": [
+      249,
+      265
+     ],
+     "reason": "mace-head glint centre (112 px) at the release frame",
+     "method": "glint_centre"
+    },
+    {
+     "tip": [
+      357,
+      354
+     ],
+     "reason": "ok_farthest_from_hip_above_feet",
+     "method": "farthest_alpha_from_hip"
+    },
+    {
+     "tip": [
+      355,
+      355
+     ],
+     "reason": "ok_farthest_from_hip_above_feet",
+     "method": "farthest_alpha_from_hip"
+    },
+    {
+     "tip": [
+      335,
+      362
+     ],
+     "reason": "ok_farthest_from_hip_above_feet",
+     "method": "farthest_alpha_from_hip"
+    }
+   ],
+   "release_index": 4,
+   "release_socket_rule": "C-8 R-MACE (W3): release socket = mace head at the slam frame \u2014 the alpha pixel farthest from the hip point of the rest frame above the foot band (bottom 15 %); conductor-proposed, marked-sheet audited; S faces the camera so the thrust shortens on screen \u2014 its release frame and socket come from the mace-head GLINT (conductor override, P4-W4-W5-CUTS); mirrored cells take the source socket with x flipped (511 - x).",
+   "glint": {
+    "px": 112,
+    "centre": [
+     249,
+     265
+    ]
+   }
+  },
+  "cast_SW": {
+   "sockets": [
+    [
+     157,
+     355
+    ],
+    [
+     160,
+     363
+    ],
+    [
+     157,
+     363
+    ],
+    [
+     143,
+     354
+    ],
+    [
+     262,
+     165
+    ],
+    [
+     262,
+     165
+    ],
+    [
+     262,
+     165
+    ],
+    [
+     262,
+     165
+    ]
+   ],
+   "measurements": [
+    {
+     "tip": [
+      157,
+      355
+     ],
+     "reason": "ok_farthest_from_hip_above_feet",
+     "method": "farthest_alpha_from_hip"
+    },
+    {
+     "tip": [
+      160,
+      363
+     ],
+     "reason": "ok_farthest_from_hip_above_feet",
+     "method": "farthest_alpha_from_hip"
+    },
+    {
+     "tip": [
+      157,
+      363
+     ],
+     "reason": "ok_farthest_from_hip_above_feet",
+     "method": "farthest_alpha_from_hip"
+    },
+    {
+     "tip": [
+      143,
+      354
+     ],
+     "reason": "ok_farthest_from_hip_above_feet",
+     "method": "farthest_alpha_from_hip"
+    },
+    {
+     "tip": [
+      262,
+      165
+     ],
+     "reason": "ok_farthest_from_hip_above_feet",
+     "method": "farthest_alpha_from_hip"
+    },
+    {
+     "tip": [
+      262,
+      165
+     ],
+     "reason": "ok_farthest_from_hip_above_feet",
+     "method": "farthest_alpha_from_hip"
+    },
+    {
+     "tip": [
+      262,
+      165
+     ],
+     "reason": "ok_farthest_from_hip_above_feet",
+     "method": "farthest_alpha_from_hip"
+    },
+    {
+     "tip": [
+      262,
+      165
+     ],
+     "reason": "ok_farthest_from_hip_above_feet",
+     "method": "farthest_alpha_from_hip"
+    }
+   ],
+   "release_index": 3,
+   "release_socket_rule": "C-8 R-MACE (W3): release socket = mace head at the slam frame \u2014 the alpha pixel farthest from the hip point of the rest frame above the foot band (bottom 15 %); conductor-proposed, marked-sheet audited; S faces the camera so the thrust shortens on screen \u2014 its release frame and socket come from the mace-head GLINT (conductor override, P4-W4-W5-CUTS); mirrored cells take the source socket with x flipped (511 - x)."
+  },
+  "cast_NW": {
+   "sockets": [
+    [
+     354,
+     201
+    ],
+    [
+     355,
+     195
+    ],
+    [
+     340,
+     189
+    ],
+    [
+     175,
+     152
+    ],
+    [
+     148,
+     161
+    ],
+    [
+     148,
+     161
+    ],
+    [
+     360,
+     207
+    ],
+    [
+     358,
+     214
+    ]
+   ],
+   "measurements": [
+    {
+     "tip": [
+      354,
+      201
+     ],
+     "reason": "ok_farthest_from_hip_above_feet (mirrored x)",
+     "method": "farthest_alpha_from_hip"
+    },
+    {
+     "tip": [
+      355,
+      195
+     ],
+     "reason": "ok_farthest_from_hip_above_feet (mirrored x)",
+     "method": "farthest_alpha_from_hip"
+    },
+    {
+     "tip": [
+      340,
+      189
+     ],
+     "reason": "ok_farthest_from_hip_above_feet (mirrored x)",
+     "method": "farthest_alpha_from_hip"
+    },
+    {
+     "tip": [
+      175,
+      152
+     ],
+     "reason": "mace-head glint centre (342 px) at the release frame (mirrored x)",
+     "method": "glint_centre"
+    },
+    {
+     "tip": [
+      148,
+      161
+     ],
+     "reason": "ok_farthest_from_hip_above_feet (mirrored x)",
+     "method": "farthest_alpha_from_hip"
+    },
+    {
+     "tip": [
+      148,
+      161
+     ],
+     "reason": "ok_farthest_from_hip_above_feet (mirrored x)",
+     "method": "farthest_alpha_from_hip"
+    },
+    {
+     "tip": [
+      360,
+      207
+     ],
+     "reason": "ok_farthest_from_hip_above_feet (mirrored x)",
+     "method": "farthest_alpha_from_hip"
+    },
+    {
+     "tip": [
+      358,
+      214
+     ],
+     "reason": "ok_farthest_from_hip_above_feet (mirrored x)",
+     "method": "farthest_alpha_from_hip"
+    }
+   ],
+   "release_index": 3,
+   "release_socket_rule": "C-8 R-MACE (W3): release socket = mace head at the slam frame \u2014 the alpha pixel farthest from the hip point of the rest frame above the foot band (bottom 15 %); conductor-proposed, marked-sheet audited; S faces the camera so the thrust shortens on screen \u2014 its release frame and socket come from the mace-head GLINT (conductor override, P4-W4-W5-CUTS); mirrored cells take the source socket with x flipped (511 - x). [mirror of cast_NE]"
+  },
+  "cast_SE": {
+   "sockets": [
+    [
+     354,
+     355
+    ],
+    [
+     351,
+     363
+    ],
+    [
+     354,
+     363
+    ],
+    [
+     368,
+     354
+    ],
+    [
+     249,
+     165
+    ],
+    [
+     249,
+     165
+    ],
+    [
+     249,
+     165
+    ],
+    [
+     249,
+     165
+    ]
+   ],
+   "measurements": [
+    {
+     "tip": [
+      354,
+      355
+     ],
+     "reason": "ok_farthest_from_hip_above_feet (mirrored x)",
+     "method": "farthest_alpha_from_hip"
+    },
+    {
+     "tip": [
+      351,
+      363
+     ],
+     "reason": "ok_farthest_from_hip_above_feet (mirrored x)",
+     "method": "farthest_alpha_from_hip"
+    },
+    {
+     "tip": [
+      354,
+      363
+     ],
+     "reason": "ok_farthest_from_hip_above_feet (mirrored x)",
+     "method": "farthest_alpha_from_hip"
+    },
+    {
+     "tip": [
+      368,
+      354
+     ],
+     "reason": "ok_farthest_from_hip_above_feet (mirrored x)",
+     "method": "farthest_alpha_from_hip"
+    },
+    {
+     "tip": [
+      249,
+      165
+     ],
+     "reason": "ok_farthest_from_hip_above_feet (mirrored x)",
+     "method": "farthest_alpha_from_hip"
+    },
+    {
+     "tip": [
+      249,
+      165
+     ],
+     "reason": "ok_farthest_from_hip_above_feet (mirrored x)",
+     "method": "farthest_alpha_from_hip"
+    },
+    {
+     "tip": [
+      249,
+      165
+     ],
+     "reason": "ok_farthest_from_hip_above_feet (mirrored x)",
+     "method": "farthest_alpha_from_hip"
+    },
+    {
+     "tip": [
+      249,
+      165
+     ],
+     "reason": "ok_farthest_from_hip_above_feet (mirrored x)",
+     "method": "farthest_alpha_from_hip"
+    }
+   ],
+   "release_index": 3,
+   "release_socket_rule": "C-8 R-MACE (W3): release socket = mace head at the slam frame \u2014 the alpha pixel farthest from the hip point of the rest frame above the foot band (bottom 15 %); conductor-proposed, marked-sheet audited; S faces the camera so the thrust shortens on screen \u2014 its release frame and socket come from the mace-head GLINT (conductor override, P4-W4-W5-CUTS); mirrored cells take the source socket with x flipped (511 - x). [mirror of cast_SW]"
+  },
+  "cast_W": {
+   "sockets": [
+    [
+     278,
+     164
+    ],
+    [
+     341,
+     203
+    ],
+    [
+     324,
+     363
+    ],
+    [
+     151,
+     243
+    ],
+    [
+     342,
+     363
+    ],
+    [
+     342,
+     363
+    ],
+    [
+     341,
+     363
+    ],
+    [
+     276,
+     159
+    ]
+   ],
+   "measurements": [
+    {
+     "tip": [
+      278,
+      164
+     ],
+     "reason": "ok_farthest_from_hip_above_feet (mirrored x)",
+     "method": "farthest_alpha_from_hip"
+    },
+    {
+     "tip": [
+      341,
+      203
+     ],
+     "reason": "ok_farthest_from_hip_above_feet (mirrored x)",
+     "method": "farthest_alpha_from_hip"
+    },
+    {
+     "tip": [
+      324,
+      363
+     ],
+     "reason": "ok_farthest_from_hip_above_feet (mirrored x)",
+     "method": "farthest_alpha_from_hip"
+    },
+    {
+     "tip": [
+      151,
+      243
+     ],
+     "reason": "mace-head glint centre (282 px) at the release frame (mirrored x)",
+     "method": "glint_centre"
+    },
+    {
+     "tip": [
+      342,
+      363
+     ],
+     "reason": "ok_farthest_from_hip_above_feet (mirrored x)",
+     "method": "farthest_alpha_from_hip"
+    },
+    {
+     "tip": [
+      342,
+      363
+     ],
+     "reason": "ok_farthest_from_hip_above_feet (mirrored x)",
+     "method": "farthest_alpha_from_hip"
+    },
+    {
+     "tip": [
+      341,
+      363
+     ],
+     "reason": "ok_farthest_from_hip_above_feet (mirrored x)",
+     "method": "farthest_alpha_from_hip"
+    },
+    {
+     "tip": [
+      276,
+      159
+     ],
+     "reason": "ok_farthest_from_hip_above_feet (mirrored x)",
+     "method": "farthest_alpha_from_hip"
+    }
+   ],
+   "release_index": 3,
+   "release_socket_rule": "C-8 R-MACE (W3): release socket = mace head at the slam frame \u2014 the alpha pixel farthest from the hip point of the rest frame above the foot band (bottom 15 %); conductor-proposed, marked-sheet audited; S faces the camera so the thrust shortens on screen \u2014 its release frame and socket come from the mace-head GLINT (conductor override, P4-W4-W5-CUTS); mirrored cells take the source socket with x flipped (511 - x). [mirror of cast_E]"
+  }
+ },
+ "notes": "C-8 R-MACE (W3): release socket = mace head at the slam frame \u2014 the alpha pixel farthest from the hip point of the rest frame above the foot band (bottom 15 %); conductor-proposed, marked-sheet audited; S faces the camera so the thrust shortens on screen \u2014 its release frame and socket come from the mace-head GLINT (conductor override, P4-W4-W5-CUTS); mirrored cells take the source socket with x flipped (511 - x).",
+ "conductor_derived": true,
+ "script_sha256": "9f8044797d4d9b4cc590c6855b89e4c36e3401d0be73a8e852034aaf06b0ce1c"
+}
