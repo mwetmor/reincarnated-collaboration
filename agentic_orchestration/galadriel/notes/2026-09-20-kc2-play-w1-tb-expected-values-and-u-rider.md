@@ -382,4 +382,42 @@ python3 agentic_orchestration/galadriel/pipeline/kc2_tb_expected.py /tmp/hp.json
 
 ---
 
+## ⚑ ADDENDUM, 2026-09-20 (same day) — the labelled release table, AND A CORRECTION AGAINST § 1.6 OF THIS NOTE
+
+**Authority:** conductor, ledger **`KP-6`** — W1 fold accepted (`u = 0.285` adopted; the three non-reproducing figures corrected forward; the **LIVE-MAX** denominator law adopted; **T24 promoted and re-spec'd** with the channelling clause) plus one authorized follow-on: *commit the 19-row labelled Type-A/B release table as a machine-readable file beside the T-B expected-values JSON, noting the sha of its source.*
+
+**Delivered:** `2026-09-20-kc2-play-w1-tb-release-labels.json` (beside this file).
+
+### ⚑ THE CORRECTION, FIRST, BECAUSE IT IS AGAINST ME
+
+**§ 1.6 of this note states that the labelled release table *"was never committed as a standalone artifact, only as a rendered table in `MD-B4app-2c` § 3."* THAT IS WRONG.**
+
+The artifact `agentic_orchestration/galadriel/captures/2026-08-25-md-b4app-2c-culprit/work/s2c-attrib.json` — **sha256 `ae741687f8f56eeab0678dbd761f17280fbf1ceeaef2a270263111fdfc01ee3b`** — was committed with the 2c lap on **2026-08-25** and carries the full 19-row `forward` list with a per-release `type` label, the attributed slot, the cast lag, and the slot's cooldown. **I asserted an absence without running `git ls-files` against the directory I was describing.** The block I reported to the conductor in § 1.6 and in my W1 return **was never live.**
+
+⚑ **This is the house's own recurring shape landing on me — an instrument (here, my reading of a lap's *note*) that stopped answering the question (what is in the lap's *work dir*) and returned cleanly anyway.** The 2c note's § 7 lists its pipeline and its evidence crops; it does not enumerate `work/s2c-attrib.json`, and I took the note's inventory for the commit's inventory. **A note is not a manifest.** Caught while executing the follow-on, in the first command; reported rather than quietly fixed.
+
+**Consequences, stated plainly:** (i) the follow-on file below is an **EXTRACT of an already-committed artifact**, not a rescue of a lost one; (ii) **§ 1.6's "Blocked on T30" table has one row too many** — re-classification was never blocked; the other four rows stand unchanged; (iii) the request I surfaced in § 3 item 8 is **withdrawn as unnecessary**.
+
+### What the file is
+
+A self-contained, grader-loadable join of the 2c `forward` labels with the 2b energy-side context — one row per release, carrying `type` · `attributed_slot` · `cast_lag_s` · `slot_cooldown_s` · `casts_inside_release` · `coverage` · `E_on/E_off` · `E_on_frac_ceiling` · `frac_moving` · `wave` · `s_since_wave_flip`. **The labelling rule is written out in the file** (T_REL 0.5 s, COV_MIN 0.8, ±0.25 s attribution window), including the clause that keeps the two "cast deep inside a Type-A release" cases (t = 754.833 at +0.767 s; t = 761.683 at +0.667 s) **Type-A by construction** — casts fired *during* a wave-transition pause, not causing it.
+
+⚑ **Slot-indexed only.** `MD-B4app-2c` § 7.1 governs: *"No skill is named in this note and none should be quoted from it."* The file carries that clause inline so a downstream reader cannot lose it — consistent with § 1.5(b) of this note.
+
+### Reproduction — everything checks
+
+| published | recomputed from the labelled table | status |
+|---|---|---|
+| B-5 Type-A: lag **1.60 s**, **8/11** within 2.0 s, dur **1.03 s**, IQR **0.62–1.56**, max **3.50**, n = 11 | lag **1.600**, **8/11**, dur **1.033**, IQR **0.6165–1.558**, max **3.500**, n = **11** | **REPRODUCES** |
+| B-6 Type-B: dur **0.60 s**, IQR **0.55–0.63**, range **0.53–0.67**, n = 8 | dur **0.600**, IQR **0.5458–0.6252**, range **0.533–0.667**, n = **8** | **REPRODUCES** |
+| `MD-B4app-2c`: 8 Type-B — **5 slot L, 3 slot 2, zero orphans** | **L 5 · slot 2 3 · slot 3 0 · orphans 0** | **REPRODUCES** |
+| B-2 release duty **≈ 10.5 %** | **0.10484** (19.149 s / 182.65 s) | **REPRODUCES** |
+| casts on visible slots | **54** (2: 22 · 3: 19 · L: 13) — the **corrected** count of § 1.5(a) | **REPRODUCES** |
+
+**And one figure this closes exactly.** Gate-1 **WARN-17** struck the *"a human cannot hold a 0.14 s spread"* argument on an implied σ of "~49 ms". The labelled population gives the real number: **σ = 48 ms (n = 8, population sd).** WARN-17's arithmetic was right and its strike stands — **what carries `KP-1` remains the within-subject contrast against Type-A (IQR 0.62–1.56, max 3.50), not the tightness of Type-B.**
+
+*Addendum filed by galadriel, 2026-09-20, under conductor authorization `KP-6`. One file. No push.*
+
+---
+
 *Filed by galadriel, run KC2-PLAY Wave 1, 2026-09-20. No production code. No pushes. Evidence-grade throughout; where the picture is ambiguous this note says so plainly.*

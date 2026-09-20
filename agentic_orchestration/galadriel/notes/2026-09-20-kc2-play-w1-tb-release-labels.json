@@ -1,0 +1,473 @@
+{
+ "artifact": "KC2-PLAY \u00b7 T-B companion \u2014 the 19-row LABELLED Type-A/B release table",
+ "version": 1,
+ "date": "2026-09-20",
+ "author": "galadriel",
+ "run": "KC2-PLAY, Wave 1 follow-on (conductor-authorized, ledger KP-6)",
+ "purpose": "Re-classification of Type-A / Type-B under any changed rule, WITHOUT the referent video (matt_to_do T30). Each row carries its type, its attributed SLOT, the cast lag that attributed it, and the energy-side context.",
+ "\u2691 correction_to_the_W1_note": "The W1 note \u00a7 1.6 states this table 'was never committed as a standalone artifact, only as a rendered table in MD-B4app-2c \u00a7 3'. THAT IS WRONG AND IS CORRECTED HERE. The source artifact `work/s2c-attrib.json` was committed with the 2c lap on 2026-08-25 and carries the full 19-row `forward` list with per-release `type` labels. The block the W1 note reported was therefore NEVER LIVE. This file is a self-contained, grader-loadable EXTRACT of an already-committed artifact, not a rescue of a lost one. Self-caught while executing the follow-on; reported rather than quietly fixed.",
+ "sources": [
+  {
+   "path": "agentic_orchestration/galadriel/captures/2026-08-25-md-b4app-2c-culprit/work/s2c-attrib.json",
+   "sha256": "ae741687f8f56eeab0678dbd761f17280fbf1ceeaef2a270263111fdfc01ee3b",
+   "role": "A/B labels + per-release slot attribution (MD-B4app-2c, `forward`)",
+   "note": "agentic_orchestration/galadriel/notes/2026-08-25-kc2-mc-md-b4app-2c-culprit.md"
+  },
+  {
+   "path": "agentic_orchestration/galadriel/captures/2026-08-25-md-b4app-2b-energy/work/s2-releases.json",
+   "sha256": "52c57d2cc905efad0b1a5e6e9793d89d49bb46d0570032a81f6bb52cdbf7a1d4",
+   "role": "the 19-release population + energy context (MD-B4app-2b)",
+   "note": "agentic_orchestration/galadriel/notes/2026-08-25-kc2-mc-md-b4app-2b-energy-release.md"
+  }
+ ],
+ "denominator": "D-COMBAT-182 \u2014 t in [682.10, 864.75] = 182.65 s (wave-151 badge flip -> player death)",
+ "labelling_rule": {
+  "T_REL_s": 0.5,
+  "COV_MIN": 0.8,
+  "attribution_window_s": 0.25,
+  "TYPE_B": "a release carrying a visible-slot cast onset within +-0.25 s of the release onset",
+  "TYPE_A": "a release carrying NO cast at +-0.25 s AND none at +-0.50 s. Two Type-A releases carry a cast DEEP INSIDE them (t=754.833 at +0.767 s; t=761.683 at +0.667 s) \u2014 casts fired DURING a wave-transition pause, not causing it. They remain Type-A by construction and `casts_inside_release` records them.",
+  "\u2691 slot_identity": "SLOT-INDEXED ONLY. MD-B4app-2c \u00a7 7.1: 'No skill is named in this note and none should be quoted from it.' Slots are SHAPE-CONSISTENT-NOT-IDENTIFIED. Any skill name attached downstream is DECLARED-not-decoded."
+ },
+ "summary": {
+  "n_releases": 19,
+  "n_typeA": 11,
+  "n_typeB": 8,
+  "typeB_by_slot": {
+   "L": 5,
+   "2": 3,
+   "3": 0
+  },
+  "orphans": 0,
+  "n_casts_visible_slots": 54,
+  "per_slot_casts": {
+   "2": 22,
+   "3": 19,
+   "L": 13
+  },
+  "typeA": {
+   "onset_lag_median_s": 1.6,
+   "within_2s": 8,
+   "dur_median_s": 1.033,
+   "dur_IQR_s": [
+    0.6165,
+    1.558
+   ],
+   "dur_max_s": 3.5
+  },
+  "typeB": {
+   "dur_median_s": 0.6,
+   "dur_IQR_s": [
+    0.5458,
+    0.6252
+   ],
+   "dur_range_s": [
+    0.533,
+    0.667
+   ],
+   "dur_stdev_s": 0.048
+  },
+  "total_released_s": 19.149,
+  "release_duty": 0.10484
+ },
+ "reproduction_check_vs_2D_spec": {
+  "B-5 Type-A lag 1.60 / dur 1.03 / IQR 0.62-1.56 / max 3.50 / n 11": "REPRODUCES",
+  "B-6 Type-B dur 0.60 / IQR 0.55-0.63 / range 0.53-0.67 / n 8": "REPRODUCES",
+  "MD-B4app-2c '5 of 8 are slot L, 3 are slot 2, zero orphans'": "REPRODUCES",
+  "B-2 release duty ~10.5%": "REPRODUCES (0.10484)"
+ },
+ "rows": [
+  {
+   "idx": 1,
+   "t_on": 701.4,
+   "t_off": 701.933,
+   "dur_s": 0.533,
+   "wave": 152,
+   "s_since_wave_flip": 3.02,
+   "type": "B",
+   "attributed_slot": "L",
+   "cast_lag_s": 0.0,
+   "slot_cooldown_s": 3.6,
+   "casts_inside_release": [
+    {
+     "slot": "L",
+     "lag_s": 0.0
+    }
+   ],
+   "coverage": 0.969,
+   "E_on": 1349.0,
+   "E_off": 1376.5,
+   "E_on_frac_ceiling": 0.8463,
+   "frac_moving": 0.0
+  },
+  {
+   "idx": 2,
+   "t_on": 714.2,
+   "t_off": 714.767,
+   "dur_s": 0.567,
+   "wave": 152,
+   "s_since_wave_flip": 15.82,
+   "type": "A",
+   "attributed_slot": null,
+   "cast_lag_s": null,
+   "slot_cooldown_s": null,
+   "casts_inside_release": [],
+   "coverage": 0.882,
+   "E_on": 1534.0,
+   "E_off": 1521.0,
+   "E_on_frac_ceiling": 0.9624,
+   "frac_moving": 0.25
+  },
+  {
+   "idx": 3,
+   "t_on": 730.133,
+   "t_off": 732.433,
+   "dur_s": 2.3,
+   "wave": 154,
+   "s_since_wave_flip": 0.51,
+   "type": "A",
+   "attributed_slot": null,
+   "cast_lag_s": null,
+   "slot_cooldown_s": null,
+   "casts_inside_release": [],
+   "coverage": 0.993,
+   "E_on": 1531.0,
+   "E_off": 1594.0,
+   "E_on_frac_ceiling": 0.9605,
+   "frac_moving": 0.08695652173913043
+  },
+  {
+   "idx": 4,
+   "t_on": 732.45,
+   "t_off": 733.067,
+   "dur_s": 0.617,
+   "wave": 154,
+   "s_since_wave_flip": 2.83,
+   "type": "B",
+   "attributed_slot": "L",
+   "cast_lag_s": 0.0,
+   "slot_cooldown_s": 3.6,
+   "casts_inside_release": [
+    {
+     "slot": "L",
+     "lag_s": 0.0
+    }
+   ],
+   "coverage": 1.027,
+   "E_on": 1559.0,
+   "E_off": 1594.0,
+   "E_on_frac_ceiling": 0.978,
+   "frac_moving": 0.5384615384615384
+  },
+  {
+   "idx": 5,
+   "t_on": 744.55,
+   "t_off": 748.05,
+   "dur_s": 3.5,
+   "wave": 155,
+   "s_since_wave_flip": 0.8,
+   "type": "A",
+   "attributed_slot": null,
+   "cast_lag_s": null,
+   "slot_cooldown_s": null,
+   "casts_inside_release": [
+    {
+     "slot": "L",
+     "lag_s": 3.5
+    }
+   ],
+   "coverage": 1.0,
+   "E_on": 1516.0,
+   "E_off": 1594.0,
+   "E_on_frac_ceiling": 0.9511,
+   "frac_moving": 0.3142857142857143
+  },
+  {
+   "idx": 6,
+   "t_on": 748.067,
+   "t_off": 748.733,
+   "dur_s": 0.667,
+   "wave": 155,
+   "s_since_wave_flip": 4.32,
+   "type": "B",
+   "attributed_slot": "L",
+   "cast_lag_s": -0.017,
+   "slot_cooldown_s": 3.65,
+   "casts_inside_release": [],
+   "coverage": 1.0,
+   "E_on": 1558.0,
+   "E_off": 1594.0,
+   "E_on_frac_ceiling": 0.9774,
+   "frac_moving": 0.6153846153846154
+  },
+  {
+   "idx": 7,
+   "t_on": 754.833,
+   "t_off": 756.317,
+   "dur_s": 1.483,
+   "wave": 155,
+   "s_since_wave_flip": 11.08,
+   "type": "A",
+   "attributed_slot": null,
+   "cast_lag_s": null,
+   "slot_cooldown_s": null,
+   "casts_inside_release": [
+    {
+     "slot": "L",
+     "lag_s": 0.767
+    }
+   ],
+   "coverage": 0.888,
+   "E_on": 1515.0,
+   "E_off": 1569.0,
+   "E_on_frac_ceiling": 0.9504,
+   "frac_moving": 0.8333333333333334
+  },
+  {
+   "idx": 8,
+   "t_on": 759.433,
+   "t_off": 760.3,
+   "dur_s": 0.867,
+   "wave": 155,
+   "s_since_wave_flip": 15.68,
+   "type": "A",
+   "attributed_slot": null,
+   "cast_lag_s": null,
+   "slot_cooldown_s": null,
+   "casts_inside_release": [],
+   "coverage": 0.846,
+   "E_on": 1448.0,
+   "E_off": 1564.5,
+   "E_on_frac_ceiling": 0.9084,
+   "frac_moving": 0.47058823529411764
+  },
+  {
+   "idx": 9,
+   "t_on": 761.683,
+   "t_off": 762.717,
+   "dur_s": 1.033,
+   "wave": 156,
+   "s_since_wave_flip": 1.6,
+   "type": "A",
+   "attributed_slot": null,
+   "cast_lag_s": null,
+   "slot_cooldown_s": null,
+   "casts_inside_release": [
+    {
+     "slot": "L",
+     "lag_s": 0.667
+    }
+   ],
+   "coverage": 1.0,
+   "E_on": 1594.0,
+   "E_off": 1582.0,
+   "E_on_frac_ceiling": 1.0,
+   "frac_moving": 0.6666666666666666
+  },
+  {
+   "idx": 10,
+   "t_on": 780.383,
+   "t_off": 782.017,
+   "dur_s": 1.633,
+   "wave": 157,
+   "s_since_wave_flip": 0.08,
+   "type": "A",
+   "attributed_slot": null,
+   "cast_lag_s": null,
+   "slot_cooldown_s": null,
+   "casts_inside_release": [],
+   "coverage": 0.847,
+   "E_on": 1469.5,
+   "E_off": 1576.5,
+   "E_on_frac_ceiling": 0.9219,
+   "frac_moving": 0.0
+  },
+  {
+   "idx": 11,
+   "t_on": 782.017,
+   "t_off": 782.617,
+   "dur_s": 0.6,
+   "wave": 157,
+   "s_since_wave_flip": 1.72,
+   "type": "A",
+   "attributed_slot": null,
+   "cast_lag_s": null,
+   "slot_cooldown_s": null,
+   "casts_inside_release": [],
+   "coverage": 0.972,
+   "E_on": 1587.0,
+   "E_off": 1594.0,
+   "E_on_frac_ceiling": 0.9956,
+   "frac_moving": 0.6666666666666666
+  },
+  {
+   "idx": 12,
+   "t_on": 797.65,
+   "t_off": 798.2,
+   "dur_s": 0.55,
+   "wave": 157,
+   "s_since_wave_flip": 17.35,
+   "type": "B",
+   "attributed_slot": "L",
+   "cast_lag_s": 0.0,
+   "slot_cooldown_s": 7.2,
+   "casts_inside_release": [
+    {
+     "slot": "L",
+     "lag_s": 0.0
+    }
+   ],
+   "coverage": 1.03,
+   "E_on": 1558.5,
+   "E_off": 1594.0,
+   "E_on_frac_ceiling": 0.9777,
+   "frac_moving": 0.5454545454545454
+  },
+  {
+   "idx": 13,
+   "t_on": 799.783,
+   "t_off": 800.417,
+   "dur_s": 0.633,
+   "wave": 158,
+   "s_since_wave_flip": 0.35,
+   "type": "A",
+   "attributed_slot": null,
+   "cast_lag_s": null,
+   "slot_cooldown_s": null,
+   "casts_inside_release": [],
+   "coverage": 0.868,
+   "E_on": 1501.0,
+   "E_off": 1594.0,
+   "E_on_frac_ceiling": 0.9417,
+   "frac_moving": 0.23076923076923078
+  },
+  {
+   "idx": 14,
+   "t_on": 803.217,
+   "t_off": 803.75,
+   "dur_s": 0.533,
+   "wave": 158,
+   "s_since_wave_flip": 3.79,
+   "type": "B",
+   "attributed_slot": "2",
+   "cast_lag_s": 0.233,
+   "slot_cooldown_s": 3.15,
+   "casts_inside_release": [
+    {
+     "slot": "2",
+     "lag_s": 0.233
+    }
+   ],
+   "coverage": 0.969,
+   "E_on": 1488.0,
+   "E_off": 1469.0,
+   "E_on_frac_ceiling": 0.9335,
+   "frac_moving": 1.0
+  },
+  {
+   "idx": 15,
+   "t_on": 805.7,
+   "t_off": 806.35,
+   "dur_s": 0.65,
+   "wave": 158,
+   "s_since_wave_flip": 6.27,
+   "type": "B",
+   "attributed_slot": "L",
+   "cast_lag_s": 0.0,
+   "slot_cooldown_s": 3.5,
+   "casts_inside_release": [
+    {
+     "slot": "L",
+     "lag_s": 0.0
+    }
+   ],
+   "coverage": 1.026,
+   "E_on": 1478.0,
+   "E_off": 1547.0,
+   "E_on_frac_ceiling": 0.9272,
+   "frac_moving": 1.0
+  },
+  {
+   "idx": 16,
+   "t_on": 820.2,
+   "t_off": 820.8,
+   "dur_s": 0.6,
+   "wave": 159,
+   "s_since_wave_flip": 7.58,
+   "type": "B",
+   "attributed_slot": "2",
+   "cast_lag_s": 0.0,
+   "slot_cooldown_s": 3.2,
+   "casts_inside_release": [
+    {
+     "slot": "2",
+     "lag_s": 0.0
+    }
+   ],
+   "coverage": 1.0,
+   "E_on": 1563.0,
+   "E_off": 1594.5,
+   "E_on_frac_ceiling": 0.9806,
+   "frac_moving": 1.0
+  },
+  {
+   "idx": 17,
+   "t_on": 839.4,
+   "t_off": 840.583,
+   "dur_s": 1.183,
+   "wave": 160,
+   "s_since_wave_flip": 0.53,
+   "type": "A",
+   "attributed_slot": null,
+   "cast_lag_s": null,
+   "slot_cooldown_s": null,
+   "casts_inside_release": [],
+   "coverage": 0.944,
+   "E_on": 1501.0,
+   "E_off": 1578.5,
+   "E_on_frac_ceiling": 0.9417,
+   "frac_moving": 0.0
+  },
+  {
+   "idx": 18,
+   "t_on": 840.65,
+   "t_off": 841.25,
+   "dur_s": 0.6,
+   "wave": 160,
+   "s_since_wave_flip": 1.78,
+   "type": "A",
+   "attributed_slot": null,
+   "cast_lag_s": null,
+   "slot_cooldown_s": null,
+   "casts_inside_release": [],
+   "coverage": 1.0,
+   "E_on": 1594.0,
+   "E_off": 1594.0,
+   "E_on_frac_ceiling": 1.0,
+   "frac_moving": 0.0
+  },
+  {
+   "idx": 19,
+   "t_on": 847.95,
+   "t_off": 848.55,
+   "dur_s": 0.6,
+   "wave": 160,
+   "s_since_wave_flip": 9.08,
+   "type": "B",
+   "attributed_slot": "2",
+   "cast_lag_s": 0.0,
+   "slot_cooldown_s": 3.15,
+   "casts_inside_release": [
+    {
+     "slot": "2",
+     "lag_s": 0.0
+    }
+   ],
+   "coverage": 1.028,
+   "E_on": 1589.0,
+   "E_off": 1594.0,
+   "E_on_frac_ceiling": 0.9969,
+   "frac_moving": 0.9166666666666666
+  }
+ ]
+}
