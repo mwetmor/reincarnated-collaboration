@@ -6225,6 +6225,35 @@
       "image_sha256": "",
       "prompt_sha256": "2a18106eeb8f010e48f802d814798957bc36cb045e2a179a74e8259f45df53ee",
       "ts": "2026-09-20T16:00:10"
+    },
+    {
+      "id": "GI-E1_pixel_warlord_S_r1",
+      "kind": "image_gen",
+      "cell": "E1_pixel_warlord_S_r1",
+      "ok": true,
+      "rc": 0,
+      "wall_s": 32,
+      "image": "/Users/admin/astra-burst/grok/C-6/E1_pixel_warlord_S_r1/E1_pixel_warlord_S_r1.png",
+      "image_sha256": "557b87a47970d7ace51287054a9bfa31ba0c3f95ef8d474358f2a8f944490d66",
+      "prompt_sha256": "2accb431f5d292baa56912225efe85f3651cca7393079b1ba2183e8b6eaffaa7",
+      "ts": "2026-09-20T16:02:36"
+    },
+    {
+      "id": "G-E1B_walk",
+      "cell": "E1B_walk",
+      "still": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-6/artifacts/E1/e1_pixel_necro53_seed.png",
+      "still_sha256": "883bfd842077602758ca63ba4710085157773e020425023b644ddde393f7e986",
+      "prompt_sha256": "0733185cb8f45689c8560e98abb589b700cc55c4549cb79aca93556f5740f3a2",
+      "extra": "",
+      "clip": "runs/C-6/xvideo/in/E1B_walk.mp4",
+      "clip_sha256": "ec744eab597b17eb7e9f1fc504fbc5ff3d63c911dd7f61e1595145e431356b08",
+      "ok": true,
+      "rc": 0,
+      "wall_s": 50,
+      "probe": "768,1168,24/1,6.041667,145",
+      "printed": "",
+      "staged_mp4": "/Users/admin/astra-burst/grok/C-6/E1B_walk/E1B_walk.mp4",
+      "ts": "2026-09-20T16:02:55"
     }
   ],
   "notes": [
@@ -6478,6 +6507,21 @@
       "class": "matt",
       "note": "Matt (verbatim, 2026-09-20): The keeper actually looks better than the Necromancer. […] the problem is that Astra and grok had ALOT of difficulty with the 53 degree angle. I am not sure if the keepers angle fits the scene better than the necromancers angle, but the keepers angle is consistent, and that matters more than anything as the necromancer cannot be well compared due to many different angles.. To be honest, once grok began to animate the motion of the astra PNGs, the angle changed because grok made it more upright, so I dont think we were ever really using the Astra 53 degree angle, which Astra was struggling with consistency on anyway. → Conductor reading: CONSISTENCY is the predicate; the pipeline has a native upright character angle (Grok converges to it; Astra cannot hold 53° — nine seed passes, camera_matches FALSE on nearly every turned frame); the N3 53° S seed is the manufactured outlier. Forks K0′/K1′/N1 put to Matt; canon consequence = a 00-system.md amendment (ground 53°, characters at the tool-native angle, gated by a set-consistency check) — recognition record, jack-ryan ratifies.",
       "ts": "2026-09-20T15:23:22"
+    },
+    {
+      "id": "E1-STILL-CORRECTION",
+      "note": "grok_calls GI-E1_pixel_warlord_S recorded ok=false — WRONG: the still was generated and saved (725044 B, sha 34fa85f1afc0b1f9…); the script's multi-extension ls glob hit zsh nomatch. Copied to runs/C-6/artifacts/E1/e1_pixel_warlord_S.png. Script to be fixed (explicit path).",
+      "ts": "2026-09-20T16:01:18"
+    },
+    {
+      "id": "E1-STEP1",
+      "note": "E1 step 1 (pre-registered read of the minted still): Grok image_gen drew the pixel Warlord at EYE LEVEL — visor front-on, pauldrons from the front, boots flat to the viewer; no crown/shoulder-top view despite an explicit 53° Diablo/Grim Dawn camera clause; plate came back dark green, not #00ff00. One retry fired with 16-bit overworld top-down language (E1_pixel_warlord_S_r1). Because an eye-level seed cannot test whether VIDEO holds an elevated angle, arm B-prime was added inside the approved probe: the TRUE-53° painted Necromancer master pixelated by the conductor with PIL (8-px blocks, 28-colour quantize, geometry identical to control arm A — only the style differs) → Grok i2v with the C-6 walk skeleton + a pixel-art and never-redrawn-more-upright clause (cell E1B_walk, not a production cell). Metric e1_metric.py v2 validated on a known-flat clip (standing S walk −3.1 %); control arm A reads +32.8 % (stood up; confounded by the crouch-to-walk rise).",
+      "ts": "2026-09-20T16:02:22"
+    },
+    {
+      "id": "E1-STEP2-BPRIME",
+      "note": "E1 arm B-prime RESULT: pixelated true-53° necro master → Grok walk: metric Δ +31.3 % (f0 2.288 → f60–84 3.005) vs painted control A +32.8 % — UPRIGHTED, indistinguishable from the control; strip confirms (taller, longer-legged by f12; Grok also smoothed the pixel blocks away). Same geometry + same crouch confound in both arms → for this figure STYLE made no difference. Retry still E1_pixel_warlord_S_r1 (16-bit overworld-sprite framing) DID come back elevated (helm top dominant, compressed torso, short legs) → image_gen can draw from above when framed as an overworld sprite; the first failure was prompt framing (53° ARPG camera), not capability. Arm B proper fired: E1W_walk from that still with an angle-never-changes clause.",
+      "ts": "2026-09-20T16:04:00"
     }
   ]
 }
