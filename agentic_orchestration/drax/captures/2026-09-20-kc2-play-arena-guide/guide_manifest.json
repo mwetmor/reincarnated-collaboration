@@ -1,0 +1,575 @@
+{
+  "generated": "2026-09-20",
+  "author": "drax (presentation seam), run KC2-PLAY Wave 1 addendum",
+  "gate": "charter ledger KP-12 \u2014 the grey-room guide burst KP-B1a paints over",
+  "burst_fired": false,
+  "godot_launched": false,
+  "new_art_minted": false,
+  "writes_under_astra_burst": false,
+  "generator": "make_arena_guide.py (imports make_g_img_mock.py for every projection constant and the Projection class)",
+  "px_per_m": {
+    "ppm_plate": 100.617553710938,
+    "ppm_plate_source": "agentic_orchestration/drax/captures/2026-09-13-cliffside-blockout/blockout_meta_v2.json :: ortho_canvas_v2.px_per_m_screen_x (R-C3-44)",
+    "ppm_zoom_gd": 75.66840334752658,
+    "ppm_zoom_house": 160.3943711855302,
+    "ratio_gd_over_plate": 0.7520397838821713,
+    "ratio_plate_over_gd": 1.3297168865692335,
+    "alpha_deg": 52.9535411256029,
+    "sin_alpha": 0.7981472596263048,
+    "cos_alpha": 0.6024624070853052,
+    "plate_px_per_metre_east": 100.617553710938,
+    "plate_px_per_metre_south_ground": 80.3076247646877,
+    "plate_px_per_metre_up_screen": 60.618293603726684,
+    "u_registered_m_per_native_px": 0.285,
+    "u_window": [
+      0.22277,
+      0.3663
+    ],
+    "h_fig_m": 1.9,
+    "plate_equivalent_figure_fraction": 0.1066432943028525,
+    "cliffside_plate_law_cross_check": [
+      {
+        "quantity": "ground depth  ppm*sin",
+        "derived": 80.3076247646877,
+        "authored": 80.3076247646877,
+        "delta": 0.0
+      },
+      {
+        "quantity": "vertical      ppm*cos",
+        "derived": 60.618293603726684,
+        "authored": 60.6182936037266,
+        "delta": 8.526512829121202e-14
+      }
+    ]
+  },
+  "figure_height_conflict": {
+    "arena_h_fig_m": 1.9,
+    "arena_figure_px_on_plate": 115.17475784708071,
+    "cliffside_keeper_px_on_plate": 130.000000007451,
+    "cliffside_keeper_frac_1080": 0.120370370377269,
+    "cliffside_implied_h_fig_m": 2.1445671311252297,
+    "ratio_cliffside_over_arena": 1.1287195426974892,
+    "note": "AT THE SAME PLATE SCALE the arena's figure of record (h_fig 1.9 m, KP-0e) is 115.175 px tall and the cliffside's own Keeper is 130.000 px. They cannot both be a 1.9 m body. Either the cliffside Keeper is a 2.1446 m figure, or the two scenes do not share a body scale. The guide cannot resolve this; a plate painted 'in the cliffside's exact register' inherits whichever is wrong."
+  },
+  "plate": {
+    "file": "guide_plate_full.png",
+    "world_rect": {
+      "x_min_m": -30.887353929407958,
+      "x_max_m": 32.312353929407955,
+      "y_min_m": -32.36632835518843,
+      "y_max_m": 51.46132835518843,
+      "width_m": 63.19970785881591,
+      "height_m": 83.82765671037686,
+      "centre_m": [
+        0.7125000000000004,
+        9.5475
+      ],
+      "size_px": [
+        6359,
+        6732
+      ],
+      "axes": "+x = EAST, +y = SOUTH (minimap frame, no flip)"
+    },
+    "margin_px": 96
+  },
+  "review_crop": {
+    "file": "guide_review_crop_1920x1080.png",
+    "preset": "ZOOM-GD",
+    "centre": "the frame origin = the north gate = native (0, 0) (geometry frame.origin; the mock labels this point 'north gate (frame origin)')",
+    "world_rect_m": {
+      "x_min_m": -12.686933482538986,
+      "x_max_m": 12.686933482538986,
+      "y_min_m": -8.94120727454413,
+      "y_max_m": 8.94120727454413,
+      "width_m": 25.373866965077973,
+      "height_m": 17.88241454908826,
+      "centre_m": [
+        0.0,
+        0.0
+      ],
+      "size_px": [
+        1920,
+        1080
+      ],
+      "axes": "+x = EAST, +y = SOUTH (minimap frame, no flip)"
+    },
+    "derivation": "RE-RENDERED at ZOOM-GD from the same geometry and the same draw routine \u2014 NOT a resample of guide_plate_full.png.",
+    "equivalent_plate_px_rect": {
+      "x": 1831.281781874493,
+      "y": 1881.215833811758,
+      "w": 2553.0564222129283,
+      "h": 1436.094237494772,
+      "note": "the painting comes back at 0.752040 x plate scale and must be UPSCALED 1.329717 x to land on the plate"
+    },
+    "classes_present": [
+      "floor",
+      "pool",
+      "wall"
+    ],
+    "depth_nonzero_px": 0,
+    "annotation_stamp": "3 cyan lines, bottom-left; floor underneath; paint over it"
+  },
+  "id_mask": {
+    "file": "id_mask.png",
+    "classes": {
+      "beyond": {
+        "index": 0,
+        "rgb": [
+          0,
+          0,
+          0
+        ],
+        "hex": "#000000"
+      },
+      "floor": {
+        "index": 1,
+        "rgb": [
+          46,
+          204,
+          64
+        ],
+        "hex": "#2ECC40"
+      },
+      "wall": {
+        "index": 2,
+        "rgb": [
+          255,
+          65,
+          54
+        ],
+        "hex": "#FF4136"
+      },
+      "island": {
+        "index": 3,
+        "rgb": [
+          0,
+          116,
+          217
+        ],
+        "hex": "#0074D9"
+      },
+      "pool": {
+        "index": 4,
+        "rgb": [
+          255,
+          220,
+          0
+        ],
+        "hex": "#FFDC00"
+      }
+    },
+    "note": "flat index colours, NEAREST only. NOT the cliffside grey-room palette \u2014 #00FF00 is NOT void here; floor is #2ECC40. Do not key on the cliffside convention.",
+    "frozen": "every edge in this mask is frozen for the paint-over.",
+    "enclosed_pocket_rule": "a fixed 2.00 m band does not fill a wall spur thicker than 4.00 m, so the spur's core first fell out as `beyond` \u2014 a black hole in the MIDDLE of a wall. Every `beyond` component that does not reach the outside world is reclassified `wall`. Enclosure is a GLOBAL fact, so the crop resolves its pockets AGAINST THE PLATE, not against its own border. Plate: 73909 square px sealed; crop: 28023 px.",
+    "not_in_the_mask": [
+      "the Vanguard Banner aura footprint",
+      "the frame-origin cross",
+      "the ring edge line",
+      "the island contact lines",
+      "all cyan text"
+    ]
+  },
+  "depth_mm": {
+    "file": "depth_mm.png",
+    "encoding": "uint16 PNG (I;16), value = MILLIMETRES OF ELEVATION above the arena floor plane",
+    "why_not_camera_distance": "the arena floor is ONE FLAT PLANE, so camera distance over it is an exact affine function of screen y and a map carries no information a constant does not. Elevation is the only non-trivial vertical fact, and at 53 deg oblique it is what displaces a surface up-screen: dy_px = h_m * ppm * cos(alpha).",
+    "floor_plane_affine": {
+      "screen_y_px_per_metre_south": 80.3076247646877,
+      "up_screen_px_per_metre_elevation": 60.618293603726684
+    },
+    "content": "island tops 1000 mm, island side faces ramp 0 -> 1000 mm, everything else 0. The wall band is 0 because it is drawn as a GROUND BAND, not an extruded wall \u2014 wall height is G5-dependent and is not authored.",
+    "honest_limit": "for THIS crop the map is identically zero: no island reaches the crop, and the wall that does reach it carries 0 elevation by construction (ground band, not extruded). So for the review crop this file adds nothing the id mask does not already carry. It is emitted for pipeline parity with the cliffside guide, and it stops being trivial the moment G5 rules interior and the wall acquires a height."
+  },
+  "declared_not_decoded": [
+    {
+      "what": "wall-band thickness",
+      "value_m": 2.0,
+      "why": "the minimap paints walkable floor only; nothing outside the hard boundary is measured. INNER edge = the measured ring (load-bearing). OUTER edge = free."
+    },
+    {
+      "what": "island height",
+      "value_m": 1.0,
+      "why": "the geometry file carries 2-D polygons only. 1.0 m is dressing-neutral: plinth or rubble mound, same sort line."
+    },
+    {
+      "what": "Vanguard Banner PLACEMENT",
+      "value_m": 8.0,
+      "why": "radius is model-bound (R-KP-0f); placement is not. Drawn at the frame origin so it is visible, NOT a claim."
+    },
+    {
+      "what": "pool extents",
+      "why": "green_zones.geometry_provenance = INTERIOR-POINT-MEASURED / EXTENT-UNMEASURED. Radii are UPPER BOUNDS and the discs are clipped to the floor polygon."
+    },
+    {
+      "what": "the cathedral reference bbox",
+      "value_px": [
+        300,
+        960,
+        900,
+        1400
+      ],
+      "why": "hand-chosen framing on a first-party painted layer."
+    }
+  ],
+  "scene_layer_conventions": {
+    "authority": "canonical/reap-die-rise-game/painted-2d-pipeline/scene-builder-workflow.md \u00a7 3 step 7 (T3l, R-C3-71)",
+    "z_order": "foreground tiles (z0) < Shadows z1 < Actors z2 (y-sorted) < Overhead z3 < near Parallax2D z4 (scroll > 1) < Air z5",
+    "the_painted_plate_is": "a FOREGROUND TILE at z0, below Shadows. It y-sorts against nothing.",
+    "islands": [
+      {
+        "id": "OB-1",
+        "footprint_vertices_m": [
+          [
+            -14.535,
+            9.975
+          ],
+          [
+            -13.395,
+            10.26
+          ],
+          [
+            -13.965,
+            11.4
+          ],
+          [
+            -13.395,
+            12.54
+          ],
+          [
+            -14.535,
+            13.965
+          ],
+          [
+            -14.25,
+            15.105
+          ],
+          [
+            -15.105,
+            17.955
+          ],
+          [
+            -13.965,
+            19.665
+          ],
+          [
+            -13.68,
+            22.23
+          ],
+          [
+            -15.39,
+            22.515
+          ],
+          [
+            -16.245,
+            19.665
+          ],
+          [
+            -16.245,
+            13.395
+          ],
+          [
+            -14.535,
+            9.975
+          ]
+        ],
+        "footprint_bbox_m": [
+          -16.244999999999997,
+          9.975,
+          -13.395,
+          22.514999999999997
+        ],
+        "y_sort_line_world_y_m": 22.514999999999997,
+        "y_sort_line_plate_px_y": 4407.389124136088,
+        "declared_height_m": 1.0,
+        "top_face_offset_px_on_plate": 60.618293603726684,
+        "in_review_crop": false
+      },
+      {
+        "id": "OB-2",
+        "footprint_vertices_m": [
+          [
+            15.105,
+            11.4
+          ],
+          [
+            16.245,
+            11.685
+          ],
+          [
+            17.1,
+            16.815
+          ],
+          [
+            15.96,
+            23.37
+          ],
+          [
+            14.535,
+            24.225
+          ],
+          [
+            13.965,
+            23.085
+          ],
+          [
+            15.675,
+            19.95
+          ],
+          [
+            15.39,
+            14.535
+          ],
+          [
+            14.535,
+            13.11
+          ],
+          [
+            15.105,
+            11.4
+          ]
+        ],
+        "footprint_bbox_m": [
+          13.964999999999998,
+          11.399999999999999,
+          17.099999999999998,
+          24.224999999999998
+        ],
+        "y_sort_line_world_y_m": 24.224999999999998,
+        "y_sort_line_plate_px_y": 4544.715162483702,
+        "declared_height_m": 1.0,
+        "top_face_offset_px_on_plate": 60.618293603726684,
+        "in_review_crop": false
+      },
+      {
+        "id": "OB-3",
+        "footprint_vertices_m": [
+          [
+            0.855,
+            37.62
+          ],
+          [
+            2.565,
+            37.62
+          ],
+          [
+            2.565,
+            39.045
+          ],
+          [
+            0.285,
+            39.615
+          ],
+          [
+            0.0,
+            38.19
+          ],
+          [
+            0.855,
+            37.62
+          ]
+        ],
+        "footprint_bbox_m": [
+          0.0,
+          37.62,
+          2.565,
+          39.614999999999995
+        ],
+        "y_sort_line_world_y_m": 39.614999999999995,
+        "y_sort_line_plate_px_y": 5780.649507612246,
+        "declared_height_m": 1.0,
+        "top_face_offset_px_on_plate": 60.618293603726684,
+        "in_review_crop": false
+      },
+      {
+        "id": "OB-4",
+        "footprint_vertices_m": [
+          [
+            -4.275,
+            36.195
+          ],
+          [
+            -3.42,
+            36.48
+          ],
+          [
+            -3.42,
+            38.475
+          ],
+          [
+            -3.99,
+            39.045
+          ],
+          [
+            -5.415,
+            37.905
+          ],
+          [
+            -4.275,
+            36.195
+          ]
+        ],
+        "footprint_bbox_m": [
+          -5.414999999999999,
+          36.195,
+          -3.42,
+          39.044999999999995
+        ],
+        "y_sort_line_world_y_m": 39.044999999999995,
+        "y_sort_line_plate_px_y": 5734.874161496376,
+        "declared_height_m": 1.0,
+        "top_face_offset_px_on_plate": 60.618293603726684,
+        "in_review_crop": false
+      }
+    ],
+    "island_y_sort_rule": "an island PAINTED INTO the plate cannot occlude an actor \u2014 it is z0 and actors are z2. If an island must occlude, it has to be cut as a separate y-sorted sprite in Actors with its sort line at the footprint's southernmost point (per island above). At a declared 1.0 m that occlusion is 60.6 px \u2014 decide before the paint, not after.",
+    "wall_band_collision": "NONE. The wall band is PAINT SURFACE ONLY. The runtime owns collision, at the measured ring polyline (the band's inner edge). Painting a wall does not make one.",
+    "pools_collision": "NONE, and this is a hard rule: the zones are ENTERABLE DAMAGE FIELDS, never collide-blocking (geometry file green_zones.class_note, Matt attestation L-64).",
+    "beyond_the_wall": "BLACK on this guide. It is the parallax layers' region (scroll 0.12 / 0.25 / 0.45 / 0.70) and is NOT painted into the plate.",
+    "pools_data": [
+      {
+        "id": "Z-614",
+        "centre_m": [
+          -18.525,
+          -4.275
+        ],
+        "radius_UPPER_BOUND_m": 11.741999999999999,
+        "radius_upper_bound_native_px": 41.2,
+        "clipped_to_floor": true,
+        "collision": "NONE \u2014 enterable damage field (geometry file green_zones.class_note)"
+      },
+      {
+        "id": "Z-618",
+        "centre_m": [
+          -19.095,
+          36.195
+        ],
+        "radius_UPPER_BOUND_m": 12.54,
+        "radius_upper_bound_native_px": 44.0,
+        "clipped_to_floor": true,
+        "collision": "NONE \u2014 enterable damage field (geometry file green_zones.class_note)"
+      },
+      {
+        "id": "Z-620",
+        "centre_m": [
+          -1.995,
+          43.32
+        ],
+        "radius_UPPER_BOUND_m": 13.622999999999998,
+        "radius_upper_bound_native_px": 47.8,
+        "clipped_to_floor": true,
+        "collision": "NONE \u2014 enterable damage field (geometry file green_zones.class_note)"
+      },
+      {
+        "id": "Z-622",
+        "centre_m": [
+          13.965,
+          28.215
+        ],
+        "radius_UPPER_BOUND_m": 6.640499999999999,
+        "radius_upper_bound_native_px": 23.3,
+        "clipped_to_floor": true,
+        "collision": "NONE \u2014 enterable damage field (geometry file green_zones.class_note)"
+      },
+      {
+        "id": "Z-623",
+        "centre_m": [
+          19.095,
+          38.475
+        ],
+        "radius_UPPER_BOUND_m": 14.819999999999999,
+        "radius_upper_bound_native_px": 52.0,
+        "clipped_to_floor": true,
+        "collision": "NONE \u2014 enterable damage field (geometry file green_zones.class_note)"
+      },
+      {
+        "id": "Z-626",
+        "centre_m": [
+          21.09,
+          -1.995
+        ],
+        "radius_UPPER_BOUND_m": 10.317,
+        "radius_upper_bound_native_px": 36.2,
+        "clipped_to_floor": true,
+        "collision": "NONE \u2014 enterable damage field (geometry file green_zones.class_note)"
+      }
+    ]
+  },
+  "cathedral_reference": {
+    "file": "ref_cathedral_far_ruins.png",
+    "source": "astra_test_01/burst/runs/C-7/cliffside_v45/parallax/layers/far_ruins.png",
+    "source_sha256": "9b4678c568aad67ed32837659d34fbffb0ac2751283d4c0cd8e7e5872f70a64a",
+    "source_size_px": [
+      2784,
+      1834
+    ],
+    "bbox_lrtb_native_px": [
+      300,
+      960,
+      900,
+      1400
+    ],
+    "cut_size_px": [
+      600,
+      440
+    ],
+    "resample": "NONE \u2014 verbatim native-resolution cut, RGBA, alpha 255 everywhere in this region",
+    "subject": "the lower-left burning gothic cathedral of the cliffside far_ruins layer (C-3 R-C3-72 / CS-cathedral), framed with both banner columns and its terrace",
+    "use": "FIRST-PARTY reference for the H1 register and the building's identity. Register only \u2014 it is a PARALLAX layer asset and its scale is not this plate's scale.",
+    "read_only": true
+  },
+  "outputs": {
+    "guide_plate_full.png": {
+      "sha256": "52412d82710eabe1671e2baf46cb7581f6ac469e3cd61eebeedf3cab6154ce32",
+      "bytes": 525832,
+      "size_px": [
+        6359,
+        6732
+      ]
+    },
+    "guide_review_crop_1920x1080.png": {
+      "sha256": "53fc13bc166ba5919553032d9f69571554ca788ab25fb7e1ec42c9b10dd8a8bb",
+      "bytes": 61839,
+      "size_px": [
+        1920,
+        1080
+      ]
+    },
+    "id_mask.png": {
+      "sha256": "0d53ea25fbd5c5eb5b3ec5e96bd9287dddaf4b83c69255920c1603896a89e43c",
+      "bytes": 16300,
+      "size_px": [
+        1920,
+        1080
+      ]
+    },
+    "depth_mm.png": {
+      "sha256": "a220ed903b2230b19b7af01b3516551385582d0b0bb65b13d8ceae631eacb1ca",
+      "bytes": 4100,
+      "size_px": [
+        1920,
+        1080
+      ]
+    },
+    "ref_cathedral_far_ruins.png": {
+      "sha256": "20b9210f5dd2bf15bc6535ca13ce3f7da93d3fddc2f2c33e3e133c002679f7ce",
+      "bytes": 470693,
+      "size_px": [
+        600,
+        440
+      ]
+    },
+    "PAINT_NOTES.md": {
+      "sha256": "0a258b4d64d4129909728a3dbbbcefcc692719a679c7c8cd828450920ae6e50d",
+      "bytes": 1797
+    },
+    "guide_manifest.json": {
+      "sha256": "SELF \u2014 a manifest cannot carry its own digest; hash the file on disk",
+      "bytes": null
+    }
+  },
+  "substrate": {
+    "arena_geometry_sha256": "68d895d75702996473cfd654a9a834816d4be0421c4b5ad7a3d2a0cc5d40481f",
+    "far_ruins_sha256": "9b4678c568aad67ed32837659d34fbffb0ac2751283d4c0cd8e7e5872f70a64a",
+    "blockout_meta": "agentic_orchestration/drax/captures/2026-09-13-cliffside-blockout/blockout_meta_v2.json"
+  }
+}
