@@ -5477,6 +5477,11 @@
       "id": "M-C6-P5-PROOF",
       "note": "P5 headless proof under the heavy lock (Godot 4.6.3, project runs/C-6/cliffside_v40-necro/godot; exporter pinned 7c1e2b6e…): IMPORT 0 errors ✓. MOVEMENT (probe_move_c6.gd): all 8 input vectors move ~370 px with 0 frames off walkable; the 5 present directions play their own walk (S SW W E SE); NW/N/NE play the exporter nearest-direction fallback (walk_W, walk_W, walk_E) — no seeds yet (T25) — FLAGGED not failed; Space plays jump_SE then idle_SE ✓. EAST CAST (probe_events, KIT_CYCLES=9): fire_bolt_e1_B release at the blade socket → contact at 14 frames on body_index 5 → expire ✓. Predicate 4 holds for the 25-cell set with the 3-direction fallback flag; predicate 3 file consumed by the exporter (sockets loaded, 0 missing). Desktop: Packet 103 - necro PLAYABLE (README_scene, proof_summary, socket sheets, matrix_index, exporter.json). Matt P5 eye = the staged project on the Mac.",
       "ts": "2026-09-18T20:29:20"
+    },
+    {
+      "id": "M-C6-E1-RESULT",
+      "note": "E1 angle-vs-style probe RESULT (R-C6-39; 2 Grok stills + 2 Grok clips; Grok calls now 28). (A) painted true-53° necro master → walk: UPRIGHTED (+32.8 % body-column ratio; crouch→walk rise confounds). (B-prime) the SAME master pixelated by PIL (geometry identical) → walk: UPRIGHTED +31.3 %, pixels smoothed — for a realistically-proportioned figure, STYLE made no difference. (B) Grok-minted pixel EoR Warlord: first still came back EYE LEVEL under a 53° ARPG-camera prompt; the retry framed as a 16-bit OVERWORLD SPRITE came back ELEVATED (helm-top dominant, compressed torso, short legs) → walk: HOLDS the elevated view on every sampled frame, silhouette aspect +0.9 %, bbox height 975→976 (no zoom — conductor zoom claim RETRACTED, it came from the invalid column metric). INSTRUMENT HONESTY: e1_metric v2 (height ÷ hip-run width) is INVALID for the Warlord (the tower shield merges into the hip run; read −74 %, not quoted as a result); whole-silhouette aspect is INVALID for the necro clips (the scythe dominates the bbox). Each number is quoted only on the silhouette it is valid for; eye reads agree with both. READING: Grok holds an elevated view when it is carried by STYLIZED OVERWORLD PROPORTIONS (a look with a strong training prior) and un-does it when it is true perspective foreshortening of a realistically-proportioned body. Pixel-vs-painted is NOT the variable; PROPORTION is the leading suspect (untested: a painted chibi-proportioned figure). Style register stays LOCKED; this informs the camera canon (K0-prime) only.",
+      "ts": "2026-09-20T16:06:14"
     }
   ],
   "halts": [
@@ -6254,6 +6259,23 @@
       "printed": "",
       "staged_mp4": "/Users/admin/astra-burst/grok/C-6/E1B_walk/E1B_walk.mp4",
       "ts": "2026-09-20T16:02:55"
+    },
+    {
+      "id": "G-E1W_walk",
+      "cell": "E1W_walk",
+      "still": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-6/artifacts/E1/e1_pixel_warlord_S_r1.png",
+      "still_sha256": "557b87a47970d7ace51287054a9bfa31ba0c3f95ef8d474358f2a8f944490d66",
+      "prompt_sha256": "5ac822ce7d704eb354a230c76bf3e7a5e09f0d0f598e3d04688bb06d85c3ec28",
+      "extra": "",
+      "clip": "runs/C-6/xvideo/in/E1W_walk.mp4",
+      "clip_sha256": "9040b515b5400f135a0848e19937026515b1c8ce08f93575256c65113ae36fe7",
+      "ok": true,
+      "rc": 0,
+      "wall_s": 51,
+      "probe": "768,1168,24/1,6.041667,145",
+      "printed": "",
+      "staged_mp4": "/Users/admin/astra-burst/grok/C-6/E1W_walk/E1W_walk.mp4",
+      "ts": "2026-09-20T16:04:51"
     }
   ],
   "notes": [
