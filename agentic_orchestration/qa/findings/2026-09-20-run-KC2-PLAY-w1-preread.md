@@ -163,3 +163,98 @@ Matt's verbatim asks (1) whether the art is re-used across both zooms and (2) fo
 - `/Users/admin/Games/reincarnated-engine/design/decisions/decisions-log.md` — swept for KC2-PLAY contradictions; **none found.** No committed-truth conflict; the charter's three declared live contradictions (stale `runtime_containment`, the (c-2) mitigation claim, the geometry file's `u`) are all dispositioned — (c-2) **RESOLVED** at KP-7.
 
 *Filed by jack-ryan, 2026-09-20, DESIGN-MODE Wave-1 pre-read, Run KC2-PLAY. Read-only but for this file. No production code, no push.*
+
+---
+
+# § RE-SEAL — 2026-09-20, same session
+
+**Reviewer:** jack-ryan · **Verdict:** ⚑ **SEAL-WITH-WARNS**
+**Discharge reviewed:** charter `9b7a8e08` (KP-16) · gamora Addendum 3 `16d1b6a7` · godot `49006be` · register **v0.2** `a987334b` + **v0.2.1** `e0664fb9` · prereg **v1.3** `66d2fc89` · ledger **KP-16…KP-20**
+**Counts:** **2 BLOCK DISCHARGED · 5 WARN DISCHARGED · 3 INFO** (2 closed, 1 carried) · **new: 1 WARN · 2 INFO** · **0 BLOCK outstanding**
+
+## ⚑ THE PREREG IS IMMUTABLE-AND-SOUND. IT MAY NOW BE USED TO GRADE.
+
+**v1.3 (`66d2fc89`) is the grading instrument.** v1.2/v1.1/v1.0 present and unedited; supersession forward with a complete change table; **no graded run exists against any version**, so v1.3 is legal under WARN-16. **P-1 can now go green** — 89/89 is the number in the prereg, in the charter's gate clause, in the charter's cap clause, in the governing width file's Addendum 3, and in the executable constant. The single threshold that a cap needs, it now has.
+
+## BLOCK-1 — **DISCHARGED.** Re-verified on disk, hostilely
+
+| surface | now reads | |
+|---|---|---|
+| charter § 4.3 `:57` | `All ~~72~~ **89** … counts sum to ~~72~~ **89** … value @ coverage **k/89**` | ✓ |
+| charter § 4.4 `:59` | ⚑ `coverage < **89/89**-mapped` — **the two-thresholds-for-one-cap defect is closed** | ✓ |
+| charter § 3 F1 `:49` · § 9 BLOCK-B `:143` | `~~72~~ **89**` | ✓ |
+| `kc2rt_coverage.gd:69` | `const CHARTER_DENOMINATOR := 89` | ✓ |
+| `TRANSCRIPT.md:81` | ⚑ `COVERAGE RED \| mapped 0/89 (**charter pins 89**) \| unmapped 89 \| **blockers 1**` — the denominator blocker is gone; the gate is RED **by design** at 0/89 (nothing mapped yet), which is the correct pre-W3 state | ✓ |
+| widths Addendum 3 | § E-3 `72/72 → 89/89`; **89 ids re-counted from her own tables: M 23 · D 19 · P 7 · K 26 · W 14** | ✓ |
+
+⚑ **gamora's corrigendum is the part worth keeping.** She did not merely accept 89 — she went back and found *why* 72 does not enumerate: it is the class-share headline taken **after collapsing ~a dozen genuinely split rows** (`M3`, `M4b`, `D7`, `D11`, `K6`, `K8`, `K15`, `K16`, `K17`, `K25`, `W9`, `D13/D14`) to a primary class, **and the note never records which id collapses into which.** *"The 72 is mine and it does not enumerate."* That converts KP-9 from a ruling-by-authority into a ruling-by-arithmetic, and it names the twelve ids so the claim is checkable. **drax escalated it, KP-9 ruled it, gamora proved it.** That is the gate working end to end.
+
+**Runtime sweep:** every remaining `72` in `kc2rt_coverage.gd` / `README.md` / `TRANSCRIPT.md` is **past-tense lineage** (*"demanded"*, *"pinned"*, *"retired at KP-9"*) or a line-number reference. **No live-tense coverage `72` survives** in prereg v1.3, register v0.2/v0.2.1, `kc2rt_coverage.gd`, or charter § 4. In v1.3 the digit-string `72` occurs only as Discipline `#72` and inside `47.072`.
+
+## BLOCK-2 + WARN-1 — **DISCHARGED.** All four pins re-derived by me, independently
+
+| pin | my `shasum -a 256` | matches | |
+|---|---|---|---|
+| widths (governing) | `1c971da9d5f1e1cb3385965e44c38a6a32d1d3f24fdd260757bea748b0d0a121` | P-a, prereg v1.3 + register v0.2/v0.2.1 | ✓ |
+| galadriel note | `8186202cc0c78ae9ef428c57164fac35bd1adb0e14ec5310c395783361653158` | P-b — **the `b3f175ff` state, the one DIV-04 and DIV-15 actually cite** | ✓ |
+| `…-expected-values.json` | `a8b85331764ba3fe90f45cf7cd6f1a25f6dc0dae4a7e7fa555c487f0b153ea0b` | P-c — **newly pinned** | ✓ |
+| `…-release-labels.json` | `15dace604c8d5bb4888223a8b25a07a038bae44431ebd194d682545c0f29c58a` | P-d — **newly pinned** | ✓ |
+
+⚑ **Deliberately NOT the pre-read's `6709cfe6…`, and the documents say why.** The register's P-a note reads: *"The pre-read named `6709cfe6…`; Addendum 3 has landed since, and pinning a superseded state is the very defect being closed — so this pins CURRENT and says so."* **That is the correct reading of my own finding against me** — a re-pin to the digest I quoted would have re-committed the defect in the act of discharging it. Taken, and right.
+
+**KP-20's standing rule (i) is the generalisation I would have proposed:** *a document that pins anything re-derives every pin it carries at each version — never carries one forward.* The defect was a **carry-forward, twice in one wave**; the rule closes the mechanism, not the instance.
+
+## WARN-3 — **DISCHARGED, and I reproduced the conformance test**
+
+*"Whitespace collapsed"* is gone, replaced by an eight-clause rule whose **clause 5** is exactly the separation I asked for: *"String values are emitted VERBATIM … NO whitespace collapse, NO trimming, NO case folding, and NO Unicode normalisation is applied at hash time. Normalisation is an **authoring** rule … never a **hashing** rule."*
+
+⚑ **I recomputed the worked example from its stated input, independently:**
+
+```
+bytes   : 497
+sha256  : bf648e51d14fc9313c4fce7774c5567628e1d3aca48d68c6a29d0d9225fe165e
+prefix  : [{"authority":"R-KP-0c","class":"DIVERGENCE","direction":"tighter: shorter time-to-contact","id":"DIV-01","ora…
+```
+
+**Byte length, digest and prefix all reproduce exactly.** An under-specified predicate has become a **mechanically falsifiable conformance test** — *"an implementation that does not reproduce `bf648e51…` from the input above is non-conforming."* That is a better discharge than the finding asked for.
+
+## WARN-5 · WARN-4 · WARN-2 — **DISCHARGED**
+
+- **W5** — § F.2a `:168-169`: *"No bare `round(` may appear on **THE PORT'S** threat path. The oracle's Python threat path **DOES** use `int(round(…))` at all four LIVE sites — and that is the point, not a contradiction."* The trap is now stated rather than merely avoided. ✓
+- **W4** — charter KP-12 `:122` now separates **what Matt SAID** (quoted) from **what the conductor INFERRED**, cites this finding, and names **KP-14 as the ratification**. The BLOCK-D boundary is restored. ✓
+- **W2** — charter L4 `:89`: `~~two oracle limbs are known-bad~~` **ONE — LifeMonitor `POLL_AT_SLOT`**, citing KP-7(ii). ✓
+- **INFO-1** closed (register v0.2.1 companions prereg v1.3). **INFO-2** closed as a *scheduled* event (register v0.2 `:125`, now 9 vs 25, firing at T-0). **INFO-3** carried — see below.
+
+## KP-19 / ART-LEADS-THE-BOUNDARY — reviewed, and **P-1 / T-A are untouched**
+
+**Matt's G1–G4 are recorded verbatim at KP-19 and not extended.** G4 *"Potion Key = 1"*, G2/G3 *"agreed on G2 and G3"*, and G1's full sentence including *"I would prefer to fit it around the art rather than have the art fit the edges."* KP-17 records the defaults offered — and records that **G4 had no default** (*"the potion stays unbound until Matt names the key"*), which is the right call and the right thing to have written down.
+
+**`DIV-16` is honestly stated — conspicuously so.** It names itself *"the largest single unquantified term in `PLAY`"*, classes the T-B expectation as **NAMED CONFOUND, DIRECTION UNBOUNDED**, says plainly that *"nobody can bound that before the painting exists"*, flags the compounding with `DIV-09`'s 1.32× window, and requires the mask's **area + max chord in the telemetry header beside every arena-sensitive row or the row is uninterpretable.** It also keeps `DIV-01` rather than collapsing it, so the inverted method stays on the record (OQ-3). ⚑ **This is a row that argues against its own convenience, which is what a register is for.**
+
+**T-A is untouched, verified three ways:** `DIV-16`'s ORACLE cell reads *"unchanged and untouched — CIRCLE `R_wall = 43.758085029822276 m` … **T-A grades this config and no other** (`TA-X-10`, `TA-X-11`)"*; no `DIV` row is graded by T-A **by construction** (v0.2.1 header); and **P-1 counts census row ids**, which no boundary ruling moves. `TA-X-10`/`TA-X-11` still assert against the sealed `[W1W]` circle. **The seal I am giving is not weakened by KP-19.**
+
+**The sha-registered-painting rule is honestly stated** — KP-20(ii): *"there is no frozen edge left to catch drift, so the sha is the edge."* Correct diagnosis of what G1 gave up and what replaces it.
+
+---
+
+## RESIDUAL — 1 WARN, 2 INFO. **None blocks the seal.**
+
+**WARN-6 (new) · The widths file's § E-3 still reads `72 / 72` at the point a reader looks it up.** `…ta-band-widths.md:75-78` is unchanged: *"Coverage — **72 / 72**, gate before grade … a band reported without `@ coverage k/72` beside it is not a T-A result."* Addendum 3 states it *"supersedes its figure **in place**"* — but it is filed at `:600`, **~525 lines below**, and **§ E-3 carries no marker.** The prereg pins this file *by sha* and calls it **governing**; a grader who looks the coverage rule up where it is stated finds 72 and no pointer.
+**Not blocking:** the correction is unambiguous, lives inside the pinned artifact, and both executable surfaces (prereg § B.2, `kc2rt_coverage.gd:69`) read 89.
+**Discharge (gamora, one line):** a strike-through pointer at § E-3 — ⚑ `SUPERSEDED BY ADDENDUM 3 → 89 / 89`. **This does not violate append-only:** the charter discharged four of its own stale numbers by exactly this method (`~~72~~ **89**`, `~~two~~ **ONE**`) — **annotation in place is not rewriting**, and it is what "supersedes in place" has to mean to be true.
+
+**INFO-4 (new) · Prereg v1.3's OQ-2 is stale by one minute.** It reads *"`kc2rt_coverage.gd:48` **still** holds `CHARTER_DENOMINATOR := 72` and the transcript prints `(charter pins 72)`"* — drax landed `:= 89` at `49006be` (17:15:57), **33 seconds before v1.3 committed** (17:16:30). Its recommendation (rename to `CENSUS_DENOMINATOR`, retire the branch) was **not** taken: drax kept the name at 89 and **re-aimed the branch to guard census drift** (`:49`, `:255-270`). That is a seam-owner's call on his own file and a defensible one — the branch still catches a real class of drift. Harmless; named so OQ-2 is not answered a second time against a premise that has already moved.
+
+**INFO-3 (carried) · L1's push-posture extension to `reincarnated-godot` is still recorded only in the charter.** `49006be` was pushed under it (KP-20). `CLAUDE.md`'s own rule is that a posture lives where the posture is recorded. Unchanged from the pre-read; for KR, not for this run.
+
+---
+
+## WHAT I RE-RAN FOR THIS SEAL
+
+All four pins re-hashed from disk (not read from any document) · charter / prereg v1.3 / register v0.2 + v0.2.1 / widths / `kc2rt_coverage.gd` / `README.md` / `TRANSCRIPT.md` swept for live-tense `72` · the transcript's gate line read literally · the canonicalisation worked example **recomputed from its stated input to 497 bytes and `bf648e51…`** · ledger KP-16…KP-20 read for Matt-verbatim fidelity and for any commitment boundary ruled without him (**none found** — KP-17/KP-19 are Matt's words; KP-18's figure-height ruling is a presentation choice inside the seam, registered as `DIV-17` and routed to T-C).
+
+**Both BLOCKs were, as filed, rulings that did not travel. They have now travelled — into four documents and one executable constant — and the two standing rules adopted at KP-20 close the mechanism rather than the instance.** The discharge also corrected my own finding where it had gone stale, which is the behaviour I would rather see than compliance.
+
+**⚑ SEAL GRANTED. Wave 1 is closed. T-A may be graded against prereg v1.3 once P-1 is green (89/89 mapped) and P-2 passes.** WARN-6 rides to W2; it is one line and it is not mine to write.
+
+*Re-seal filed by jack-ryan, 2026-09-20, Run KC2-PLAY. Read-only but for this file. No production code, no push.*
