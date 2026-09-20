@@ -23,6 +23,16 @@
       "id": "M-C8-W4",
       "ts_note": "wave 4 cast clips 5/5 ok (S SW E NE N, padded seeds); wave 5 jump x5 auto-chained and running; attack loops cut from 70%-padded clips: S/SW/E P=12 n=12 @30, NE/N P=18 n=9 @22.5; CHECK flags [] all five, g1 0.025-0.099",
       "ts": "2026-09-20T18:21:12"
+    },
+    {
+      "id": "M-C8-W5",
+      "ts_note": "wave 5 jump clips 5/5 ok (S SW E NE N, padded seeds) — all 30 Grok clips for C-8 generated (walk 5+2 re-gen, run 5+2 re-gen, idle 5, attack 5, cast 5, jump 5 = 34 calls); frozen --kind cast unevaluable on the shield-slam (key poses collapse to 12; NE/N raise a tool ValueError) → explicit conductor one-shot cut (R-C3-17 lineage) as in C-6",
+      "ts": "2026-09-20T18:24:55"
+    },
+    {
+      "id": "M-C8-P4",
+      "ts_note": "P4 assembly: 48/48 cells (idle/walk/run/jump/cast x 8 dirs = 40 + attack x 8 staged) — unique S/SW/E/NE/N, mirrors W<-E SE<-SW NW<-NE (F17a carried); attack cells encoded at their own fps (30 / 22.5); frozen encoder; no Astra packet builder (numbers.json empty — CHECK reports carried in checks.json)",
+      "ts": "2026-09-20T18:39:07"
     }
   ],
   "halts": [],
@@ -605,6 +615,11 @@
       "id": "SPIN-READ",
       "ts_note": "wave 3 eye+instrument read: all five clips SPIN in place, camera holds, helm level throughout (S heads grid), no wind-up problem; Grok did NOT hold the prompted 2.5 rev/s — helm gold-band facing sinusoid gives ~12 native frames/rev on S, SW, E (~2 rev/s) and ~18 on NE, N (~1.3 rev/s), irregular within a clip; Grok also baked translucent motion-blur rings around the figure (duplicates the Godot whirlwind VFX ring) — FLAGGED for Matt eye, not a cut defect; motion falls off in the last 1 s (recovery) despite the prompt — excluded by the cut window",
       "ts": "2026-09-20T18:17:23"
+    },
+    {
+      "id": "P4-W4-W5-CUTS",
+      "ts_note": "cast + jump one-shot cuts (oneshot_c8.py, far-point tracker; R-C3-17 lineage): S_cast onset16/gather41/release57/settle111 — tracker release caught the side wind-up, the SLAM toward camera is native 71 (mace-head glint, 112 px, centre (249,265) in the cell) → conductor socket OVERRIDE release_index 4 (sheet decides); SW_cast window capped at native 60 (CAST_END; Grok slammed twice) release 29; E_cast release 57 glint on the mace head; NE_cast (padded) release 81 raised mace with glint; N_cast (padded, CAST_START 36) release 46 reads as an OVERHEAD RAISE not a forward slam — FLAGGED for Matt eye; jumps S(pad) SW(pad) E NE N all resolve crouch/take_off/apex/touchdown/landing/settle; E_jump has four near-identical standing frames before the crouch (early onset; JUMP_START attempts lost the crouch) — kept, FLAGGED; frozen --kind cast unevaluable on this silhouette (key poses collapse; NE/N tool ValueError) — recorded, not fixed (§ 7.7 frozen)",
+      "ts": "2026-09-20T18:36:42"
     }
   ]
 }

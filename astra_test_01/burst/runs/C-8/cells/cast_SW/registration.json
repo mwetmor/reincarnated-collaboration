@@ -1,0 +1,86 @@
+{
+ "kind": "cast",
+ "direction": "SW",
+ "clip": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-8/xvideo/in/SW_cast.mp4",
+ "clip_sha256": "1d3f5ec4928cb8cc12bdc379d4380320fab627333cf03203f67ed95912ae163e",
+ "method": "explicit one-shot (conductor keys, R-C3-17 lineage; far-point tracker for the shield slam)",
+ "indices_native": [
+  14,
+  20,
+  26,
+  29,
+  37,
+  45,
+  54,
+  60
+ ],
+ "keys": {
+  "onset": 14,
+  "crouch": null,
+  "take_off": null,
+  "apex": null,
+  "touchdown": null,
+  "landing_crouch": null,
+  "gather": 26,
+  "release": 29,
+  "settle": 60
+ },
+ "transform": {
+  "scale": 0.29332317073170733,
+  "nominal_scale": 0.2926829268292683,
+  "translation_xy": [
+   143,
+   81
+  ],
+  "scaled_size": [
+   225,
+   342
+  ],
+  "source_sampling_box_xyxy": [
+   0.0,
+   0.0,
+   767.0720299345182,
+   1165.9494855004677
+  ],
+  "source_size": [
+   768,
+   1168
+  ],
+  "anchor_index": 0,
+  "anchor_native_bbox": [
+   54,
+   268,
+   716,
+   1088
+  ],
+  "canvas": [
+   512,
+   512
+  ],
+  "anchor_bbox": [
+   159,
+   160,
+   353,
+   400
+  ],
+  "anchor_H": 240,
+  "anchor_sole_row": 399,
+  "anchor_cx": 255.5,
+  "target_h": 240,
+  "sole_row": 399,
+  "cx": 255.5,
+  "one_transform_for_every_frame": true,
+  "upscaling": false,
+  "resampling": "PIL Lanczos; exact isotropic sampling box; integer unmasked paste",
+  "calibration": "closest nominal scale attaining raster height/centre, search +/-1 output px in .025 px steps"
+ },
+ "fps": 24.0,
+ "n_native": 145,
+ "invalid_native_indices": [],
+ "flags": [],
+ "conductor_derived": true,
+ "script_sha256": "3ab6c714dfddd32066dae5100426b796c6a847ab09c26826e004cd81cdad5d45",
+ "cell": "cast_SW",
+ "source_cut": "SW_cast",
+ "mirrored": false
+}

@@ -1,0 +1,434 @@
+{
+ "rule": "C-8: unique S, SW, E, NE, N; mirrors W\u2190E, SE\u2190SW, NW\u2190NE (F17a carried); attack = staged state (exporter extension pending)",
+ "cells": {
+  "idle_S": {
+   "status": "COMPLETE",
+   "source_cut": "S_idle",
+   "clip": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-8/xvideo/in/S_idle.mp4",
+   "frames": 12,
+   "flags": [],
+   "packet_mp4": false,
+   "clip_sha256": "89761917d89c811e2ad9ba1e9a95ee208c28e0d37aac53b7bf229736d7b37658"
+  },
+  "idle_SW": {
+   "status": "COMPLETE",
+   "source_cut": "SW_idle",
+   "clip": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-8/xvideo/in/SW_idle.mp4",
+   "frames": 12,
+   "flags": [],
+   "packet_mp4": false,
+   "clip_sha256": "892e38045686245de48f168a307f04fd00384e2145a6dd4a1d642611df07d803"
+  },
+  "idle_E": {
+   "status": "COMPLETE",
+   "source_cut": "E_idle",
+   "clip": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-8/xvideo/in/E_idle.mp4",
+   "frames": 12,
+   "flags": [],
+   "packet_mp4": false,
+   "clip_sha256": "ea544e4d0f7a01d6f414f4dda57865dd4c050ffd081d5ab722a57928bf81e339"
+  },
+  "idle_NE": {
+   "status": "COMPLETE",
+   "source_cut": "NE_idle_pad",
+   "clip": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-8/xvideo/in/NE_idle_pad.mp4",
+   "frames": 12,
+   "flags": [],
+   "packet_mp4": false,
+   "clip_sha256": "30b076a309d1ff4089dde5ce50c29267e411639d921029bc8a2d51fcb3593200"
+  },
+  "idle_N": {
+   "status": "COMPLETE",
+   "source_cut": "N_idle",
+   "clip": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-8/xvideo/in/N_idle.mp4",
+   "frames": 12,
+   "flags": [],
+   "packet_mp4": false,
+   "clip_sha256": "fc328cffede59a56b32db7839f5856a7c36cdb84784f2e35b78fdbb3e357b958"
+  },
+  "walk_S": {
+   "status": "COMPLETE",
+   "source_cut": "S_walk",
+   "clip": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-6/xvideo/in/E1W_walk_pad.mp4",
+   "frames": 12,
+   "flags": [
+    "E1 probe clip; padded 70 % before the cut"
+   ],
+   "packet_mp4": false,
+   "clip_sha256": "9cf410c054cb8d2b0af07646ae60fe2885b8fb6413ce2a980679ddb538579609"
+  },
+  "walk_SW": {
+   "status": "COMPLETE",
+   "source_cut": "SW_walk_pad",
+   "clip": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-8/xvideo/in/SW_walk_pad.mp4",
+   "frames": 12,
+   "flags": [
+    "2-s stride (slow) conf 0.99"
+   ],
+   "packet_mp4": false,
+   "clip_sha256": "f00cb43a2de93c2ada4b123292954d78f4969f2bb77bb309e7a1b1c9d2f8f06a"
+  },
+  "walk_E": {
+   "status": "COMPLETE",
+   "source_cut": "E_walk",
+   "clip": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-8/xvideo/in/E_walk.mp4",
+   "frames": 12,
+   "flags": [],
+   "packet_mp4": false,
+   "clip_sha256": "76b3173a3dff3cda3fa5812251b9e20f3801a6e48e152d2b38cdbd084d65686d"
+  },
+  "walk_NE": {
+   "status": "COMPLETE",
+   "source_cut": "NE_walk_p24",
+   "clip": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-8/xvideo/in/NE_walk.mp4",
+   "frames": 12,
+   "flags": [
+    "period FORCED to 24 frames (autocorr found only a 4-s stride) \u2014 FLAGGED"
+   ],
+   "packet_mp4": false,
+   "clip_sha256": "8ad62eeca8239d7d6b8098dc925872a12339e503f507bab6c7ecdb4e89ccef88"
+  },
+  "walk_N": {
+   "status": "COMPLETE",
+   "source_cut": "N_walk",
+   "clip": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-8/xvideo/in/N_walk.mp4",
+   "frames": 12,
+   "flags": [],
+   "packet_mp4": false,
+   "clip_sha256": "79b5efed4da0bf54249a006b4e6b6154d00466c623e033f184f19c06e011fad2"
+  },
+  "run_S": {
+   "status": "COMPLETE",
+   "source_cut": "S_run_pad",
+   "clip": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-8/xvideo/in/S_run_pad.mp4",
+   "frames": 12,
+   "flags": [],
+   "packet_mp4": false,
+   "clip_sha256": "b499beb7d1dd2896e2ab00923bfe1cec6c2cb5e1e310d20b9eaff8829232466e"
+  },
+  "run_SW": {
+   "status": "COMPLETE",
+   "source_cut": "SW_run_pad",
+   "clip": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-8/xvideo/in/SW_run_pad.mp4",
+   "frames": 12,
+   "flags": [],
+   "packet_mp4": false,
+   "clip_sha256": "cf37c9c8a8712c06010d3ec5f9e5bfb6fda004716b01fcaff2fcd8e5693012b0"
+  },
+  "run_E": {
+   "status": "COMPLETE",
+   "source_cut": "E_run_r1",
+   "clip": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-8/xvideo/in/E_run_r1.mp4",
+   "frames": 12,
+   "flags": [
+    "facing drift on both attempts (turns toward the camera mid-clip) \u2014 best candidate FLAGGED (R-C8-1)"
+   ],
+   "packet_mp4": false,
+   "clip_sha256": "02d4337893422a8648b9bf917476e5875cf796f06b166163ff9716be14452deb"
+  },
+  "run_NE": {
+   "status": "COMPLETE",
+   "source_cut": "NE_run_r1",
+   "clip": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-8/xvideo/in/NE_run_r1.mp4",
+   "frames": 12,
+   "flags": [
+    "facing wobble on both attempts \u2014 best candidate FLAGGED (R-C8-1)"
+   ],
+   "packet_mp4": false,
+   "clip_sha256": "78c762b4b4caf5e6af55abc4f8b87294cd4dcd886195dfa0ced03d64d56adce6"
+  },
+  "run_N": {
+   "status": "COMPLETE",
+   "source_cut": "N_run_pad",
+   "clip": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-8/xvideo/in/N_run_pad.mp4",
+   "frames": 12,
+   "flags": [],
+   "packet_mp4": false,
+   "clip_sha256": "213d867eb8b00a6a32fab5c948e1644f0bf0ab4506989b0917c95b8149067bc8"
+  },
+  "attack_S": {
+   "status": "COMPLETE",
+   "source_cut": "S_attack_pad",
+   "clip": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-8/xvideo/in/S_attack_pad.mp4",
+   "frames": 12,
+   "flags": [],
+   "packet_mp4": false,
+   "clip_sha256": "444ac445ecfafd6885836010046465bc6cc790150acc1fc0f653d309b338e47e"
+  },
+  "attack_SW": {
+   "status": "COMPLETE",
+   "source_cut": "SW_attack_pad",
+   "clip": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-8/xvideo/in/SW_attack_pad.mp4",
+   "frames": 12,
+   "flags": [],
+   "packet_mp4": false,
+   "clip_sha256": "77496762e3bff4a9646ddc1f3df73eaf5cc9ce3da2301f8a0c92b2ab93fd1255"
+  },
+  "attack_E": {
+   "status": "COMPLETE",
+   "source_cut": "E_attack_pad",
+   "clip": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-8/xvideo/in/E_attack_pad.mp4",
+   "frames": 12,
+   "flags": [],
+   "packet_mp4": false,
+   "clip_sha256": "d689e67e78a2fbded46c320928d62dd737b95a7e85d0f055d45498e0bcccbd12"
+  },
+  "attack_NE": {
+   "status": "COMPLETE",
+   "source_cut": "NE_attack_pad",
+   "clip": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-8/xvideo/in/NE_attack_pad.mp4",
+   "frames": 9,
+   "flags": [],
+   "packet_mp4": false,
+   "clip_sha256": "a9d4a7625237135ad49ea692bebb0aed1062982c178a9dccd2fa88ab9cc10dbb"
+  },
+  "attack_N": {
+   "status": "COMPLETE",
+   "source_cut": "N_attack_pad",
+   "clip": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-8/xvideo/in/N_attack_pad.mp4",
+   "frames": 9,
+   "flags": [],
+   "packet_mp4": false,
+   "clip_sha256": "f58f1f1ceb4be13f5f12e3344ed1d591ca19cb98560354a227bc090e8bbfc3df"
+  },
+  "cast_S": {
+   "status": "COMPLETE",
+   "source_cut": "S_cast",
+   "clip": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-8/xvideo/in/S_cast.mp4",
+   "frames": 8,
+   "flags": [],
+   "packet_mp4": false,
+   "clip_sha256": "36e9f1e880cfc207f69b6ac211cd276d4e7a7b618659244446d441fdaaa1fa75"
+  },
+  "cast_SW": {
+   "status": "COMPLETE",
+   "source_cut": "SW_cast",
+   "clip": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-8/xvideo/in/SW_cast.mp4",
+   "frames": 8,
+   "flags": [],
+   "packet_mp4": false,
+   "clip_sha256": "1d3f5ec4928cb8cc12bdc379d4380320fab627333cf03203f67ed95912ae163e"
+  },
+  "cast_E": {
+   "status": "COMPLETE",
+   "source_cut": "E_cast",
+   "clip": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-8/xvideo/in/E_cast.mp4",
+   "frames": 8,
+   "flags": [],
+   "packet_mp4": false,
+   "clip_sha256": "d85ed820ba02db6a1bcacb8034a06f35fe9521130915cd033f1f51c0f7fd3756"
+  },
+  "cast_NE": {
+   "status": "COMPLETE",
+   "source_cut": "NE_cast",
+   "clip": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-8/xvideo/in/NE_cast_pad.mp4",
+   "frames": 8,
+   "flags": [],
+   "packet_mp4": false,
+   "clip_sha256": "a05d58c5f74090df474ede55398d329d4d54982b92e86a3cc077259331ed1475"
+  },
+  "cast_N": {
+   "status": "COMPLETE",
+   "source_cut": "N_cast",
+   "clip": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-8/xvideo/in/N_cast_pad.mp4",
+   "frames": 8,
+   "flags": [],
+   "packet_mp4": false,
+   "clip_sha256": "ab9414d27f334fab98dd55a7ce652d406379196d2a86bdea8b4c265ddfdadc4e"
+  },
+  "jump_S": {
+   "status": "COMPLETE",
+   "source_cut": "S_jump",
+   "clip": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-8/xvideo/in/S_jump_pad.mp4",
+   "frames": 8,
+   "flags": [],
+   "packet_mp4": false,
+   "clip_sha256": "fe44bf7c95d79e740e955f50b81d0a5d5af841257ab284a046c964b9dbf7e95f"
+  },
+  "jump_SW": {
+   "status": "COMPLETE",
+   "source_cut": "SW_jump",
+   "clip": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-8/xvideo/in/SW_jump_pad.mp4",
+   "frames": 8,
+   "flags": [],
+   "packet_mp4": false,
+   "clip_sha256": "df63adff7d8e4bd3b0aaeac22a395e3fd3b4f6574d86fe9b0d6ebc9c75a49e85"
+  },
+  "jump_E": {
+   "status": "COMPLETE",
+   "source_cut": "E_jump",
+   "clip": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-8/xvideo/in/E_jump.mp4",
+   "frames": 8,
+   "flags": [],
+   "packet_mp4": false,
+   "clip_sha256": "5f70f35d804102da421e3ed2b0f5a3e97460eff3d3ea50ef610bf97f93c71d45"
+  },
+  "jump_NE": {
+   "status": "COMPLETE",
+   "source_cut": "NE_jump",
+   "clip": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-8/xvideo/in/NE_jump.mp4",
+   "frames": 8,
+   "flags": [],
+   "packet_mp4": false,
+   "clip_sha256": "31616cbb404632ecc356518ce25ae834872c14e78a84839d4884246cdf9b24d6"
+  },
+  "jump_N": {
+   "status": "COMPLETE",
+   "source_cut": "N_jump",
+   "clip": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-8/xvideo/in/N_jump.mp4",
+   "frames": 8,
+   "flags": [],
+   "packet_mp4": false,
+   "clip_sha256": "ca3f9399f3c6bc7b0677b79df1875b5e065798c4c716f8072ba003c107c68d96"
+  },
+  "idle_W": {
+   "status": "COMPLETE",
+   "mirror_of": "idle_E",
+   "frames": 12,
+   "flags": [
+    "MIRRORED cell (shield/mace hands swap sides; key light flipped) \u2014 Matt P5 eye judges"
+   ]
+  },
+  "walk_W": {
+   "status": "COMPLETE",
+   "mirror_of": "walk_E",
+   "frames": 12,
+   "flags": [
+    "MIRRORED cell (shield/mace hands swap sides; key light flipped) \u2014 Matt P5 eye judges"
+   ]
+  },
+  "run_W": {
+   "status": "COMPLETE",
+   "mirror_of": "run_E",
+   "frames": 12,
+   "flags": [
+    "facing drift on both attempts (turns toward the camera mid-clip) \u2014 best candidate FLAGGED (R-C8-1)",
+    "MIRRORED cell (shield/mace hands swap sides; key light flipped) \u2014 Matt P5 eye judges"
+   ]
+  },
+  "jump_W": {
+   "status": "COMPLETE",
+   "mirror_of": "jump_E",
+   "frames": 8,
+   "flags": [
+    "MIRRORED cell (shield/mace hands swap sides; key light flipped) \u2014 Matt P5 eye judges"
+   ]
+  },
+  "cast_W": {
+   "status": "COMPLETE",
+   "mirror_of": "cast_E",
+   "frames": 8,
+   "flags": [
+    "MIRRORED cell (shield/mace hands swap sides; key light flipped) \u2014 Matt P5 eye judges"
+   ]
+  },
+  "attack_W": {
+   "status": "COMPLETE",
+   "mirror_of": "attack_E",
+   "frames": 12,
+   "flags": [
+    "MIRRORED cell (shield/mace hands swap sides; key light flipped) \u2014 Matt P5 eye judges"
+   ]
+  },
+  "idle_SE": {
+   "status": "COMPLETE",
+   "mirror_of": "idle_SW",
+   "frames": 12,
+   "flags": [
+    "MIRRORED cell (shield/mace hands swap sides; key light flipped) \u2014 Matt P5 eye judges"
+   ]
+  },
+  "walk_SE": {
+   "status": "COMPLETE",
+   "mirror_of": "walk_SW",
+   "frames": 12,
+   "flags": [
+    "2-s stride (slow) conf 0.99",
+    "MIRRORED cell (shield/mace hands swap sides; key light flipped) \u2014 Matt P5 eye judges"
+   ]
+  },
+  "run_SE": {
+   "status": "COMPLETE",
+   "mirror_of": "run_SW",
+   "frames": 12,
+   "flags": [
+    "MIRRORED cell (shield/mace hands swap sides; key light flipped) \u2014 Matt P5 eye judges"
+   ]
+  },
+  "jump_SE": {
+   "status": "COMPLETE",
+   "mirror_of": "jump_SW",
+   "frames": 8,
+   "flags": [
+    "MIRRORED cell (shield/mace hands swap sides; key light flipped) \u2014 Matt P5 eye judges"
+   ]
+  },
+  "cast_SE": {
+   "status": "COMPLETE",
+   "mirror_of": "cast_SW",
+   "frames": 8,
+   "flags": [
+    "MIRRORED cell (shield/mace hands swap sides; key light flipped) \u2014 Matt P5 eye judges"
+   ]
+  },
+  "attack_SE": {
+   "status": "COMPLETE",
+   "mirror_of": "attack_SW",
+   "frames": 12,
+   "flags": [
+    "MIRRORED cell (shield/mace hands swap sides; key light flipped) \u2014 Matt P5 eye judges"
+   ]
+  },
+  "idle_NW": {
+   "status": "COMPLETE",
+   "mirror_of": "idle_NE",
+   "frames": 12,
+   "flags": [
+    "MIRRORED cell (shield/mace hands swap sides; key light flipped) \u2014 Matt P5 eye judges"
+   ]
+  },
+  "walk_NW": {
+   "status": "COMPLETE",
+   "mirror_of": "walk_NE",
+   "frames": 12,
+   "flags": [
+    "period FORCED to 24 frames (autocorr found only a 4-s stride) \u2014 FLAGGED",
+    "MIRRORED cell (shield/mace hands swap sides; key light flipped) \u2014 Matt P5 eye judges"
+   ]
+  },
+  "run_NW": {
+   "status": "COMPLETE",
+   "mirror_of": "run_NE",
+   "frames": 12,
+   "flags": [
+    "facing wobble on both attempts \u2014 best candidate FLAGGED (R-C8-1)",
+    "MIRRORED cell (shield/mace hands swap sides; key light flipped) \u2014 Matt P5 eye judges"
+   ]
+  },
+  "jump_NW": {
+   "status": "COMPLETE",
+   "mirror_of": "jump_NE",
+   "frames": 8,
+   "flags": [
+    "MIRRORED cell (shield/mace hands swap sides; key light flipped) \u2014 Matt P5 eye judges"
+   ]
+  },
+  "cast_NW": {
+   "status": "COMPLETE",
+   "mirror_of": "cast_NE",
+   "frames": 8,
+   "flags": [
+    "MIRRORED cell (shield/mace hands swap sides; key light flipped) \u2014 Matt P5 eye judges"
+   ]
+  },
+  "attack_NW": {
+   "status": "COMPLETE",
+   "mirror_of": "attack_NE",
+   "frames": 9,
+   "flags": [
+    "MIRRORED cell (shield/mace hands swap sides; key light flipped) \u2014 Matt P5 eye judges"
+   ]
+  }
+ },
+ "complete": 48
+}

@@ -1,0 +1,90 @@
+{
+ "kind": "jump",
+ "direction": "E",
+ "clip": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-8/xvideo/in/E_jump.mp4",
+ "clip_sha256": "5f70f35d804102da421e3ed2b0f5a3e97460eff3d3ea50ef610bf97f93c71d45",
+ "method": "explicit one-shot (conductor keys, R-C3-17 lineage; far-point tracker for the shield slam)",
+ "indices_native": [
+  16,
+  19,
+  20,
+  38,
+  55,
+  72,
+  92,
+  124
+ ],
+ "keys": {
+  "onset": 16,
+  "crouch": 19,
+  "take_off": 20,
+  "apex": 55,
+  "touchdown": 88,
+  "landing_crouch": 92,
+  "gather": null,
+  "release": null,
+  "settle": 124
+ },
+ "transform": {
+  "scale": 0.2920426829268293,
+  "nominal_scale": 0.2926829268292683,
+  "translation_xy": [
+   144,
+   82
+  ],
+  "scaled_size": [
+   224,
+   341
+  ],
+  "source_sampling_box_xyxy": [
+   0.0,
+   0.0,
+   767.0111702682952,
+   1167.6375404530745
+  ],
+  "source_size": [
+   768,
+   1168
+  ],
+  "anchor_index": 0,
+  "anchor_native_bbox": [
+   164,
+   268,
+   604,
+   1088
+  ],
+  "canvas": [
+   512,
+   512
+  ],
+  "anchor_bbox": [
+   192,
+   160,
+   320,
+   400
+  ],
+  "anchor_H": 240,
+  "anchor_sole_row": 399,
+  "anchor_cx": 255.5,
+  "target_h": 240,
+  "sole_row": 399,
+  "cx": 255.5,
+  "one_transform_for_every_frame": true,
+  "upscaling": false,
+  "resampling": "PIL Lanczos; exact isotropic sampling box; integer unmasked paste",
+  "calibration": "closest nominal scale attaining raster height/centre, search +/-1 output px in .025 px steps"
+ },
+ "fps": 24.0,
+ "n_native": 145,
+ "invalid_native_indices": [],
+ "flags": [
+  "MIRRORED cell (shield/mace hands swap sides; key light flipped) \u2014 Matt P5 eye judges"
+ ],
+ "conductor_derived": true,
+ "script_sha256": "34f0231463c086c505f8972a4dc0c0d0eddce33cf39b43c899218efbbcec4824",
+ "cell": "jump_W",
+ "source_cut": "E_jump",
+ "mirrored": true,
+ "mirror_of": "jump_E",
+ "mirror_rule": "R-C8-0 (F17a carried): horizontal flip of the registered frames; canvas 512 \u2192 x' = 511 - x for any socket; light key reads upper-RIGHT on this cell"
+}

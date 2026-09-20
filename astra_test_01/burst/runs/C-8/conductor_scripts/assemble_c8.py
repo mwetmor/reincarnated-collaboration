@@ -6,7 +6,7 @@ sys.path.insert(0, '/Users/admin/Games/reincarnated-collaboration/astra_test_01/
 from PIL import Image, ImageOps
 from review import encode
 B = pathlib.Path('/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst'); R = B/'runs/C-8'; P4 = R/'p4'; OUT = R/'cells'
-CUTS = {'S_idle':'S_idle','SW_idle':'SW_idle','E_idle':'E_idle','NE_idle':'NE_idle_pad','N_idle':'N_idle','S_walk':'S_walk','SW_walk':'SW_walk_pad','E_walk':'E_walk','NE_walk':'NE_walk_p24','N_walk':'N_walk','S_run':'S_run_pad','SW_run':'SW_run_pad','E_run':'E_run_r1','NE_run':'NE_run_r1','N_run':'N_run_pad','S_attack':'S_attack','SW_attack':'SW_attack','E_attack':'E_attack','NE_attack':'NE_attack','N_attack':'N_attack','S_cast':'S_cast','SW_cast':'SW_cast','E_cast':'E_cast','NE_cast':'NE_cast','N_cast':'N_cast','S_jump':'S_jump','SW_jump':'SW_jump','E_jump':'E_jump','NE_jump':'NE_jump','N_jump':'N_jump'}
+CUTS = {'S_idle':'S_idle','SW_idle':'SW_idle','E_idle':'E_idle','NE_idle':'NE_idle_pad','N_idle':'N_idle','S_walk':'S_walk','SW_walk':'SW_walk_pad','E_walk':'E_walk','NE_walk':'NE_walk_p24','N_walk':'N_walk','S_run':'S_run_pad','SW_run':'SW_run_pad','E_run':'E_run_r1','NE_run':'NE_run_r1','N_run':'N_run_pad','S_attack':'S_attack_pad','SW_attack':'SW_attack_pad','E_attack':'E_attack_pad','NE_attack':'NE_attack_pad','N_attack':'N_attack_pad','S_cast':'S_cast','SW_cast':'SW_cast','E_cast':'E_cast','NE_cast':'NE_cast','N_cast':'N_cast','S_jump':'S_jump','SW_jump':'SW_jump','E_jump':'E_jump','NE_jump':'NE_jump','N_jump':'N_jump'}
 MIRROR = {'W':'E', 'SE':'SW', 'NW':'NE'}
 ANIMS = ['idle','walk','run','jump','cast','attack']; DIRS = ['S','SW','W','NW','N','NE','E','SE']
 FLAGS = {'E_run':['facing drift on both attempts (turns toward the camera mid-clip) — best candidate FLAGGED (R-C8-1)'], 'NE_run':['facing wobble on both attempts — best candidate FLAGGED (R-C8-1)'], 'NE_walk':['period FORCED to 24 frames (autocorr found only a 4-s stride) — FLAGGED'], 'SW_walk':['2-s stride (slow) conf 0.99'], 'S_walk':['E1 probe clip; padded 70 % before the cut']}
@@ -25,11 +25,13 @@ def write_cell(cell, frames_dir_src, rest_src, reg, numbers, checks, mp4s, extra
         for src, name in mp4s: shutil.copyfile(src, dst/name)
     else:     # mirrored cell: encode the flipped frames with the frozen encoder, same parameters as the packet builder (12 fps, five repeats)
         frs = [Image.open(f) for f in sorted(glob.glob(str(dst/'frames'/a/d/'*.png')))]
-        encode.encode_loop(frs, 12, str(dst/f'{a}_{d}_1to1.mp4'), scale=1, loops=5); encode.encode_loop(frs, 12, str(dst/f'{a}_{d}_2x.mp4'), scale=2, resample='lanczos', loops=5)
+        fps = float(reg.get('fps_out') or 12)
+        encode.encode_loop(frs, fps, str(dst/f'{a}_{d}_1to1.mp4'), scale=1, loops=5); encode.encode_loop(frs, fps, str(dst/f'{a}_{d}_2x.mp4'), scale=2, resample='lanczos', loops=5)
     return dst
 for cell, cd in CUTS.items():
     d, a = cell.split('_'); cut = P4/cd/'cut'; pk = P4/cd/'packet'   # cut folders are <dir>_<anim>; cells are <anim>_<dir>
-    frames_src = cut/'frames'/a/d; rest_src = cut/'frames'/'rest'/d/f'rest_{d}.png'
+    fa = 'run' if a == 'attack' else a   # attack loops were cut with the frozen --kind run (one revolution, forced period) → frames live under run/
+    frames_src = cut/'frames'/fa/d; rest_src = cut/'frames'/'rest'/d/f'rest_{d}.png'
     if not frames_src.exists() or not list(frames_src.glob('*.png')): index[f'{a}_{d}'] = dict(status='INCOMPLETE', reason='no frames cut'); continue
     reg = json.load(open(cut/'registration.json')); checks = json.load(open(P4/cd/'checks.json')) if (P4/cd/'checks.json').exists() else {}
     numbers = json.load(open(pk/'numbers.json')) if (pk/'numbers.json').exists() else []
@@ -42,7 +44,7 @@ for d, src in MIRROR.items():
         scell = f'{a}_{src}'; cell = f'{a}_{d}'
         if index.get(scell, {}).get('status') != 'COMPLETE': index[cell] = dict(status='INCOMPLETE', reason=f'mirror source {scell} not complete'); continue
         sdir = OUT/scell; reg = json.load(open(sdir/'registration.json')); checks = json.load(open(sdir/'checks.json')); numbers = json.load(open(sdir/'numbers.json'))
-        extra = dict(cell=cell, mirrored=True, mirror_of=scell, mirror_rule='R-C8-0 (F17a carried): horizontal flip of the registered frames; canvas 512 → x\' = 511 - x for any socket; light key reads upper-RIGHT on this cell', flags=reg.get('flags', []) + ['MIRRORED cell (horn/tome/grip hand on the opposite side; key light flipped) — Matt P5 eye judges'])
+        extra = dict(cell=cell, mirrored=True, mirror_of=scell, mirror_rule='R-C8-0 (F17a carried): horizontal flip of the registered frames; canvas 512 → x\' = 511 - x for any socket; light key reads upper-RIGHT on this cell', flags=reg.get('flags', []) + ['MIRRORED cell (shield/mace hands swap sides; key light flipped) — Matt P5 eye judges'])
         dst = write_cell(cell, sdir/'frames'/a/src, sdir/'frames'/'rest'/src/f'rest_{src}.png', reg, numbers, checks, None, extra)
         index[cell] = dict(status='COMPLETE', mirror_of=scell, frames=len(list((dst/'frames'/a/d).glob('*.png'))), flags=extra['flags'])
 for d in DIRS:
