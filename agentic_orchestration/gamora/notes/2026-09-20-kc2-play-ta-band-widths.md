@@ -487,3 +487,110 @@ would describe a divergence from a configuration nobody graded.**
 
 **Routed to the conductor as a correction, not adjudicated here.** It changes a divergence-register
 row and the L4 "what this build does not do" page; both are the conductor's.
+
+---
+
+# ⚑ ADDENDUM 2 — 2026-09-20, the three pre-seal reads (prereg v1.1 `30111ac8`, § D concordance)
+
+> **APPEND ONLY.** Nothing above is rewritten; this file is cross-pinned in prereg v1.1 at
+> `a7984b79…`. All three are reads — sealed JSON by key, source by grep. **K-7 untouched; nothing
+> executed.**
+
+## B1 · (1) BOARD ROLL — **NO. `TA-X-23` is declared OUTSIDE T-A's REACH.**
+
+Swept both seals for roster/class keys (`roster`, `n_bodies`, `n_regular`, `hero`, `nemesis`,
+`champion`, `composition`, `n_spawn`):
+
+| seal | per-wave roster counts by class |
+|---|---|
+| `[M-POL2]` `ad61ad2a…` | ⚑ **ZERO matching keys.** Nothing. |
+| `[W1W]` `7a992c81…` | only `n_spawn_placements` / `n_spawn_outside_wall` / `n_spawn_within_half_m_of_wall` under `⚑ arena[_per_salt]` — **a placement TOTAL, not a class breakdown** |
+
+**There is no oracle side to grade against.** `TA-X-23` does not become EXACT; the board roll is
+**outside T-A's reach** and the report must say so. ⚑ And the conductor's own reason for refusing
+to invent the row is the right one and I second it: **`L-49` — the recorded composition VALIDATES,
+IT DOES NOT SPAWN.** Asserting the port's roll against `waves.json` `roster_counts` would assert
+against something **the sim does not reproduce either**, so a red would indict the port for the
+oracle's own behaviour.
+
+⚑ **What this leaves uncaught, stated plainly:** **12 of the 29 live draw sites are the board roll**
+(`wave_engine.py`, V9). It is the mechanism most likely to be rewritten from scratch in GDScript,
+its divergence shows up as **a different set of monsters** rather than a different number, and
+**T-A cannot see it at all.** `n_spawn_placements` is the nearest available proxy — a per-salt
+placement total, which would catch a gross count error and nothing about composition. Closing this
+properly is a **sibling that emits per-wave class counts**, not a T-A row.
+
+## B2 · (2) THE TWO OWED WIDTHS
+
+### `TA-B-09` — channel split — **GRADEABLE. It is the TIGHTEST band in the set.**
+
+`CHANNELLING / (CHANNELLING + CHANNELLING_AND_MOVING)`, from the per-salt `census` blocks (both
+components are published per salt, so the split exists):
+
+| salt | 0 | 1 | 2 | 3 | 4 |
+|---|---|---|---|---|---|
+| split | 0.115306 | 0.120879 | 0.120482 | 0.106509 | 0.113797 |
+
+> **mean 0.115395 · s 0.005863 · half-width 0.010295 · BAND [0.105100, 0.125689]**
+
+⚑ **`s = 0.005863` is less than half of `TA-B-03`'s 0.013855 — this is now the most discriminating
+BAND row T-A has**, and it is the one degree of freedom the four alive-state shares had left. § 4's
+power table is superseded on this point: **`TA-B-09` displaces `TA-B-03` at the top.** It survives
+the § 2.3 critique too — the split is a ratio *within* the channelling population, so the short-salt
+denominator problem bites it far less than it bites `TA-B-02`.
+
+### `TA-B-13` — `max_body_radius_m` — ⚑ **UNGRADEABLE AS A BAND. Declared now, before any graded run.**
+
+W1 per salt: `[43.404802385345796, 41.97652009526441, 41.97652009526441, 41.97652009526441,
+41.97652009526441]` — **two distinct values over five salts; four identical.**
+
+| | |
+|---|---|
+| mean / s / half-width | 42.262177 / 0.638747 / 1.121626 |
+| t-based band | [41.140550, 43.383803] |
+| ⚑ **the oracle's OWN observed maximum, 43.404802** | ⚑ **OUTSIDE IT** |
+
+**A band that rejects the oracle cannot grade a port.** Two reasons, and either alone is
+sufficient:
+
+1. **It is an EXTREME over hundreds of bodies, not a mean.** Maxima do not have symmetric
+   sampling distributions, and `t · s · √(2/5)` assumes one. The whole § 2.1 construction is the
+   wrong instrument for this statistic.
+2. **The per-salt sample is DEGENERATE** — 4 of 5 salts return the identical `41.97652009526441`,
+   which is a *structural* value (one particular body's spawn placement plus its own radius), not a
+   sampled draw. `s` here measures "did salt 0 happen to roll the one big body", not model variance.
+
+⚑ **And it is already covered, one-sidedly and exactly.** `TA-X-11` / `E-7a` assert
+`max_body_radius_m ≤ R_wall = 43.758085029822276` — which **holds on the oracle (43.404802, margin
+0.353 m / 0.81 %)** and which **the superseded box scatter cannot satisfy** (47.072 m, 3.31 m over).
+**So `TA-B-13` is dropped as a BAND and the one-sided EXACT bound carries its whole falsifying
+power.** Nothing is lost; a wrong instrument is removed.
+
+## B3 · (3) ROUNDING — ⚑ **PYTHON BUILT-IN `round` = BANKER'S. GDScript DOES NOT MATCH.**
+
+| | |
+|---|---|
+| the cadence law | `threat.py:1402` — `max(1, int(round(per / mult * self.ticks_per_s)))` |
+| which `round` | ⚑ **the Python BUILT-IN** — no `import numpy` anywhere on the threat / cadence / arrival modules, no `decimal`, no `math.floor(x+0.5)`. Built-in `round` on a float is **ROUND-HALF-TO-EVEN**. |
+| corroboration in the seal itself | the M-POL-2 fold's `⚑ quantisation_error` block states the rule in its own words: *"round-half-to-**EVEN** to the nearest whole tick (Python's `round`)"* |
+| ⚑ the hazard | **GDScript's `round()` rounds half AWAY FROM ZERO.** `round(2.5)` is **2** in Python and **3** in GDScript. An EXACT row asserting the wrong rule reds a correct port — and worse, a port that uses GDScript's `round()` desynchronises the **threat RNG stream** (V4-LAW-1: the period sets `is_opportunity`, which sets how many `choose_slot` calls draw). |
+
+**Every other half-sensitive site on these paths, so the port can be audited once rather than
+debugged five times:**
+
+| site | expression | half-case risk |
+|---|---|---|
+| `threat.py:1402` | swing period → ticks | ⚑ **LIVE — the cadence law** |
+| `threat.py:1522` | `max(1, int(round(s.delay_s × ticks_per_s)))` — first-cast gate | ⚑ LIVE |
+| `threat.py:1555` | `max(1, int(round(cd × ticks_per_s)))` — slot cooldown | ⚑ LIVE |
+| `threat.py:1867` | `tick + max(1, int(round(r.dot_duration_s × ticks_per_s)))` — DoT expiry | ⚑ LIVE |
+| `deferred_arrival.py:330` | `int(math.ceil(raw))` — **arrival tick** | **SAFE** — `CEIL` is the limb of record and is half-insensitive. (`:329`'s `round` is reachable only under `QuantLimb.ROUND`, **not of record**.) |
+| `dot_timeline.py:380` | `int(exact) if TRUNCATE_NTICKS else int(round(exact))` | guarded — **`TRUNCATE` is the decoded rule (`R-DOT-2` truncates, never rounds)** |
+| `control_application.py:591` | `max(0, int(exact) if TRUNCATE_BUCKETS else int(round(exact)))` | guarded, same shape |
+| `counterplay.py:212` | `int(round(x × BAR_PX))` | presentation quantisation only — not on a damage path |
+| `threat.py:1424` | `int(sha256(actor_id)[:8], 16) % period_ticks` | **not of record** — the `HASH` phase model; `ENGAGE` is of record (V0) |
+
+> **Recommendation to the conductor, one line:** the port must implement **round-half-to-even
+> explicitly** at the four LIVE sites — never GDScript's bare `round()` — and the prereg's EXACT
+> rows must assert **banker's**, not "round". This is cheap to state now and expensive to find
+> after a red.
