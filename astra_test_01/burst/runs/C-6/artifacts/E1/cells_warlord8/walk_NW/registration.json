@@ -1,0 +1,62 @@
+{
+ "kind": "walk",
+ "direction": "NW",
+ "source_still": "runs/C-6/artifacts/E1/e1_pixel_warlord_NE.png",
+ "still_sha256": "e10e3c1c4912f8b3c22da8810a2ca048988cf80aabb6a9e6e299917871141b52",
+ "method": "PROBE one-frame cell from a still (padded to 0.70 on its own plate; frozen matte + register); no animation",
+ "transform": {
+  "scale": 0.4425738007380074,
+  "nominal_scale": 0.44280442804428044,
+  "translation_xy": [
+   77,
+   18
+  ],
+  "scaled_size": [
+   339,
+   516
+  ],
+  "source_sampling_box_xyxy": [
+   0.0,
+   0.0,
+   765.9739447628973,
+   1165.9072433559145
+  ],
+  "source_size": [
+   768,
+   1168
+  ],
+  "anchor_index": 0,
+  "anchor_native_bbox": [
+   173,
+   321,
+   636,
+   863
+  ],
+  "canvas": [
+   512,
+   512
+  ],
+  "anchor_bbox": [
+   154,
+   160,
+   358,
+   400
+  ],
+  "anchor_H": 240,
+  "anchor_sole_row": 399,
+  "anchor_cx": 255.5,
+  "target_h": 240,
+  "sole_row": 399,
+  "cx": 255.5,
+  "one_transform_for_every_frame": true,
+  "upscaling": false,
+  "resampling": "PIL Lanczos; exact isotropic sampling box; integer unmasked paste",
+  "calibration": "closest nominal scale attaining raster height/centre, search +/-1 output px in .025 px steps"
+ },
+ "conductor_derived": true,
+ "flags": [
+  "probe still cell \u2014 not animated"
+ ],
+ "mirrored": true,
+ "mirror_of": "walk_NE"
+}
