@@ -1,9 +1,73 @@
 {
-  "bursts": [],
-  "images_used": 0,
+  "bursts": [
+    {
+      "id": "KP-B1a",
+      "type": "GENERATE",
+      "experiment": "KC2-PLAY-B1a-nave",
+      "brief_sha256": "b380d9fd5eabae213f444b3660cf01fab710b972cd12138e62d563e874e76c10",
+      "started": "2026-09-20T21:31:38.449885+00:00",
+      "ended": "2026-09-20T21:34:16.866680+00:00",
+      "minutes": 2.6402878263833296,
+      "image_calls": 1,
+      "tool_calls": 5,
+      "audit": {
+        "violations": [],
+        "image_calls": 1,
+        "tool_calls": 5,
+        "tools_seen": {
+          "command_execution": 5
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0c0bb-5f1f-7371-8ab8-e0f7561747e5/exec-27cc5ac9-a27b-49ac-ac23-ad6ff0a16a81.png",
+            "sha256": "68317e390fbae9675c00c8a2a293609f189c955577a4918bac18a1967730b9d3"
+          }
+        ]
+      },
+      "receipt_sha256": "405c81078594bb69677be71b2780d0dd430a686e6296db8119edbc8dfcef894a",
+      "artifacts": [
+        {
+          "name": "b1a_nave_01.png",
+          "sha256": "68317e390fbae9675c00c8a2a293609f189c955577a4918bac18a1967730b9d3"
+        },
+        {
+          "name": "exec-27cc5ac9-a27b-49ac-ac23-ad6ff0a16a81.provenance.json",
+          "sha256": "4567939f3e7b8e8542eaf2a789ff478f021899d69f1848a9a38a35465aa0293e"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0c0bb-5f1f-7371-8ab8-e0f7561747e5/exec-27cc5ac9-a27b-49ac-ac23-ad6ff0a16a81.png",
+          "sha256": "68317e390fbae9675c00c8a2a293609f189c955577a4918bac18a1967730b9d3"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
+    }
+  ],
+  "images_used": 1,
   "images_cap": 999999,
   "experiments": {},
-  "milestones": [],
+  "milestones": [
+    {
+      "id": "M-B1a-IMAGE",
+      "note": "KP-B1a DELIVERED_WITH_CONCERNS: 1 image_gen call, 5 tool calls, 0 violations, 2.6 min; sha 68317e39…; packet 002 + phone; HALT for Matt review per G-IMG/KP-12.",
+      "ts": "2026-09-20T17:45:45"
+    }
+  ],
   "halts": [],
   "rulings": [
     {
@@ -12,6 +76,13 @@
       "veto_open": true,
       "topic": "Lane home opened: runs/KC2-PLAY + briefs/KC2-PLAY per charter KP-19 (C-6-beside-C-7 pattern); references under runs/KC2-PLAY/artifacts/B1a-refs (5 files, shas in drax b1a_manifest.json); G-IMG satisfied KP-17; B1a = one image then HALT for Matt review.",
       "ts": "2026-09-20T17:31:30"
+    },
+    {
+      "id": "R-KP-B1",
+      "class": "conductor",
+      "veto_open": true,
+      "topic": "B1a self-reported concerns accepted as findings: (1) IMAGE 1 guide carried NO pool discs — CONDUCTOR BRIEF ERROR (pools live only in the id mask; the guide RGB is 3 colours) → pools in the painting are Astra-placed; (2) exterior green not exact #00ff00 (0.0% exact / 9.1% near) → mask-from-paint keys with a tolerance, drax to set; (3) scale/projection assessed visually only — R2D-5 probe is the check, not the painter.",
+      "ts": "2026-09-20T17:45:45"
     }
   ],
   "grok_calls": [],

@@ -262,3 +262,10 @@ Appended FORWARD — nothing above is rewritten; where this note conflicts with 
 *Integrated 2026-08-25 by gandalf (named sub-agent, `SPEC-AUTHOR`), **KC2 LIFT RUN Wave-2** (`2026-08-25-kc2-lift-run-charter.md` § 4). Scope of that pass: **D-CP2-1..3 only.** Forward supersession — nothing deleted, superseded readings named in place. **K-7 held**: no sealed-referent description altered. **No hard-coded pack digests** — the baton manifest governs (R-L91-3). No production code.*
 
 *Second integration pass 2026-08-25 by gandalf (named sub-agent, `SPEC-AUTHOR`), **KC2 LIFT RUN**, authorised at ledger **R-L5-4**. Scope of that pass: **R-L91-4..8 + R-L92-2 only** — no D-CP2 integration re-opened, no design content added beyond the rulings. Forward supersession throughout; superseded readings named in place, nothing deleted. **K-7 held.** **RT-OQ-3 (tick binding-class) deliberately untouched — it is Matt's, as `matt_decision_needed/` Q66.** No production code.*
+
+
+---
+
+## ⚑ CORRIGENDUM-FORWARD (2026-09-20, Run KC2-PLAY, ledger KP-23 — star-lord's v3.2 cut) — governs over § 1 step 2
+
+**§ 1 step 2 is STALE.** It reads `_schema_version: 2` / `pack_format: "kc2-model-pack/v2"`. The pack has carried **`_schema_version: 3` / `pack_format: "kc2-model-pack/v3"` since baton-v3.0** (KC2-LIFT), and baton-v3.2 (`9ab771ef…`, additive over v3.1 `2c7fc61f…`) keeps it. A loader built to the clause as written **fails closed on every valid pack**. The runtime's version gate reads: accept `3`, fail closed on anything else; a v2 consumer failing on a v3 pack remains correct behaviour. Also from the cut: **four fields keep their value and change their meaning under a `⚑ v3p2_superseded_by` marker** (`player_kit.channel.hit_test_model` = `"point"` → the 3.0 m uniform disc; `DS-SPAWN-SCATTER` = `uniform-box-per-axis` → `POLAR_UNIFORM_RHO`; the cast-interrupt `expr` → the D-CP2-2 conditional; `DS-TYPEB-RELEASE.p_per_tick` labelled a cancellation) — **the runtime reads the marker, never the field.** `ORACLE` is configured from `model/config_of_record.json` and no other member.
