@@ -30,6 +30,11 @@
 
 ## SESSION-DELTA LOG (latest governs all below)
 
+### SESSION-DELTA 2026-09-20 (later) — **RUN KC2-PLAY LAUNCHED** (gandalf, RUN-CONDUCTOR)
+- Q81 F1–F7 + launch sheet L1–L5 RULED by Matt; Q66 closed. P0 audits folded: census **72 behaviours = 17 in-pack / 41 Python-only / 14 absent** → **baton-v3.2** is Wave 1. Design: ONE runtime, TWO configs (`ORACLE` for port-fidelity T-A · `PLAY` for Matt), a DIVERGENCE REGISTER stamped into every telemetry file; coverage gate 72/72 before T-A; jack-ryan at the W1 prereg pre-read, the W3 T-A seal and the W4 handoff. Gate-1: BLOCK-narrow → discharged → **PASS-WITH-WARNS / GO** (`qa/findings/2026-09-20-run-KC2-PLAY-charter-gate1.md`).
+- **⚑ G-IMG (Matt-added):** no Astra burst fires until Matt has seen the first frame (a labelled geometry-true mock) and the plain-language burst plan.
+- Scene lives in its own tree `astra_test_01/kc2play/` (nothing under `burst/`; exporter consumed read-only at MANIFEST `059379a19782`); runtime at `reincarnated-godot/kc2_runtime/`. Run ends at the desktop-build handoff; T-B/T-C are HITL after it. Charter + ledger: `agentic_orchestration/gandalf/notes/2026-09-20-kc2-play-run-charter.md`.
+
 ### SESSION-DELTA 2026-09-20 — KC2-PLAY ARCHITECT PASS: the EoR-warlord mechanistic twin → a playable painted-2D scene (gandalf, ARCHITECT)
 - **Ask (Matt):** make the waves-150–160 EoR-warlord sim fully playable in an Astra 2D scene (2D character, placeholder monster animation, placeholder VFX) and compare live play to his GD video.
 - **What IS:** KC2 LIFT closed 2026-08-26 (baton-v3.1, engine `9fd60cee`); the pack self-declares NOT playability-complete (8 rows / 5 holes — monster AI transitions the largest; target-selection dissolves under a human pilot). `simulate_wave` is a ~4,400-line batch function — no live-input seam → playable = a GDScript runtime against the pack (SKIRT R-1…R-9), Python sim as oracle. No runtime exists (`kc2_baton.gd` is the v1 recording consumer, 3D, retired). SKIRT § 7 + twin-test § 6.1 are 3D-shaped → 2D re-target owed. The cliffside has no enemies, HP, HUD, channel state or arena.
