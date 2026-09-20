@@ -1,0 +1,23 @@
+{
+  "bursts": [],
+  "images_used": 0,
+  "images_cap": 999999,
+  "experiments": {},
+  "milestones": [],
+  "halts": [],
+  "rulings": [
+    {
+      "id": "R-KP-B0",
+      "class": "conductor",
+      "veto_open": true,
+      "topic": "Lane home opened: runs/KC2-PLAY + briefs/KC2-PLAY per charter KP-19 (C-6-beside-C-7 pattern); references under runs/KC2-PLAY/artifacts/B1a-refs (5 files, shas in drax b1a_manifest.json); G-IMG satisfied KP-17; B1a = one image then HALT for Matt review.",
+      "ts": "2026-09-20T17:31:30"
+    }
+  ],
+  "grok_calls": [],
+  "run": "KC2-PLAY",
+  "charter": "agentic_orchestration/gandalf/notes/2026-09-20-kc2-play-run-charter.md",
+  "charter_sha256_12": "aeb7f0699bf1",
+  "images_cap_note": "SENTINEL 999999 — Matt V20 posture carried from C-5/C-6 (no image budget; counted, reported at every packet); run_burst.py integer-compares the field",
+  "notes": []
+}
