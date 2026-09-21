@@ -1,0 +1,26 @@
+{
+ "text": "GENERATE BURST KP-B1f — THE FALLEN CROSS, revision 1: more broken, split down its centre, lying flat (Run KC2-PLAY; conductor gandalf; Matt: \"B - the cross. But probably even more broken; maybe a jagged crack down the center.\" It is now THE CENTRE OBJECT of the arena — the player stands and fights on it). task_id \"KP-B1f\".\n\nWHAT THIS IS. ONE 1536x1024 image: a single object on a flat pure #00ff00 background — nothing else painted, no floor, no shadow, no context. IMAGE 1 is the previous version of this same object and it is right in glass, colour, ornament and iconography: KEEP all of that. Two things change.\n\nCHANGE 1 — IT IS LYING FLAT ON THE FLOOR, seen from our fixed game camera: an elevated three-quarter view, 52.95 degrees down, north up-screen. IMAGE 1 drew it standing upright and facing us; that is wrong. Foreshorten it: 1 m across the screen = 100.6 px, 1 m up/down the screen = 80.3 px, so the cross is squashed vertically to about 0.8 of its width — a shape lying on the ground and seen from above and in front, not a shape hanging on a wall. Its long axis runs NORTH-SOUTH (up-down the screen), head of the cross toward the top. About 8 m tall, so roughly 640 px of screen height and 480 px across the arms. A 1.9 m person standing beside it would be 115 px tall (IMAGE 3).\n\nCHANGE 2 — IT IS MUCH MORE BROKEN. It fell from a great height onto stone. A JAGGED CRACK SPLITS IT DOWN THE CENTRE, running the length of the long axis — the two halves are shifted slightly apart and out of plane, one side sitting a little higher than the other where it landed on rubble. Sections of stone tracery are snapped clean through and displaced; one arm of the cross is broken off and lying at an angle, still attached by a twist of lead; whole panes are gone, leaving empty leadwork like a torn net; shattered glass is scattered in a wide field around it, drifts of it along the crack; long splinters of glass and lead stand up out of the break. Still: MOST of the glass that remains is INTACT and VIVID — deep ruby, cobalt, emerald, amber, violet, gold, with the knight-saint, the sun and the chains still readable in the leadwork. The break should hurt to look at BECAUSE the thing is beautiful. Fresh breaks: clean edges, pale stone inside the fractures, grit and dust beside them — this fell a week ago, not a century ago.\n\nLIGHT: the sun sets in the WEST (screen LEFT). A long gold sunset highlight rakes across the glass from the left; fire out of frame throws warm, flickering reflections that catch in the panes and in the standing splinters; the coloured glass glows where the light passes through it. This object is the most beautiful and the most violated thing in the room and the light should say both.\n\nREGISTER: HAND-DRAWN painted 2D as in IMAGE 2 (our own level): confident dark contour with visible taper and varying weight, painted fills in clean planes, restrained texture, readable silhouettes; not pixel art, not cel-shaded, not a 3D render, not photoreal. The glass may glow.\n\nPLATE RULE: everything that is not the cross and its scattered glass and stone is flat pure #00ff00 exactly — no shadow on the green, no floor, no haze. The object is cut out and placed on the painted floor later; its shadow and its flame-flicker are added by the scene.\n\nDELIVER exactly ONE 1536x1024 image_gen result. ONE retry only if: it is drawn upright or unforeshortened instead of lying flat under our camera, the centre crack is missing, the background is not flat #00ff00, the glass is dull, or the register drifts from IMAGE 2 — name the reason. Copy the output from $CODEX_HOME/generated_images/... to out/window_B2_cross_broken.png with sha256. No code. No other files. No web.\nRETURN: receipt task_id \"KP-B1f\"; images = the file with prompt, references and elapsed_s; calls_used = the TRUE number of image_gen calls; status; concerns listed honestly. Never PASS/FAIL.",
+ "references": [
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/KC2-PLAY/artifacts/B1e/window_B_cross.png",
+   "role": "IMAGE 1 — the previous cross: glass, colour, ornament and iconography are RIGHT; its upright pose and its light are what change"
+  },
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/KC2-PLAY/artifacts/B1a-refs/ref_cliffside_tile_crop.png",
+   "role": "IMAGE 2 — register exemplar: our painted level (match the hand)"
+  },
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/KC2-PLAY/artifacts/B1a-refs/b1a_scale_figure.png",
+   "role": "IMAGE 3 — scale figure: a 1.9 m person = 115 px (do not paint)"
+  }
+ ],
+ "image_cap": 2,
+ "minutes_cap": 15,
+ "tool_call_cap": 20,
+ "outputs": [
+  "out/window_B2_cross_broken.png"
+ ],
+ "effort": "high",
+ "add_dirs": [],
+ "experiment": "KC2-PLAY-B1f-cross-broken"
+}
