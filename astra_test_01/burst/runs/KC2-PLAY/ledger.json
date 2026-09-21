@@ -194,9 +194,106 @@
       "codex_version": "codex-cli 0.153.4",
       "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
       "exit": 0
+    },
+    {
+      "id": "KP-B1e",
+      "type": "GENERATE",
+      "experiment": "KC2-PLAY-B1e-window-hero",
+      "brief_sha256": "93ab8f72edba9f4f62a3111da417169ae27242107eef8092a707540540581288",
+      "started": "2026-09-21T00:17:39.771088+00:00",
+      "ended": "2026-09-21T00:22:33.559388+00:00",
+      "minutes": 4.8965235965166665,
+      "image_calls": 4,
+      "tool_calls": 2,
+      "audit": {
+        "violations": [],
+        "image_calls": 4,
+        "tool_calls": 2,
+        "tools_seen": {
+          "command_execution": 2
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0c153-57d6-7fe3-9906-2ba21d80c717/exec-149c6505-10af-4709-8c57-fc87e4953940.png",
+            "sha256": "cc69e8bbfd7edb1119a9138df79d84fab8e805526fdd4cd6c81c750390dfde1d"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0c153-57d6-7fe3-9906-2ba21d80c717/exec-327aa01f-e078-4f52-921b-5f42a5570327.png",
+            "sha256": "e2bd1fb8343d0e3ec915f3ef9ab7188cfdb5fc4fea6c603f7a831e805c12649a"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0c153-57d6-7fe3-9906-2ba21d80c717/exec-8685503b-4279-4e04-8090-73257641f617.png",
+            "sha256": "a0080367d138452d8e0d9724e9d23b5d113472424608e0747740c6966bfa9811"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0c153-57d6-7fe3-9906-2ba21d80c717/exec-dc8f311d-e125-4b46-b756-8a328b96aaea.png",
+            "sha256": "c7724962d7cbda94f5e54cba08fbd47108069a67988e185ce2ad87b059505011"
+          }
+        ]
+      },
+      "receipt_sha256": "7798506b52c889ccadaaf6196c47a978b68067034614572d68f61cf6cfb491f0",
+      "artifacts": [
+        {
+          "name": "window_A_rosette.png",
+          "sha256": "c7724962d7cbda94f5e54cba08fbd47108069a67988e185ce2ad87b059505011"
+        },
+        {
+          "name": "window_B_cross.png",
+          "sha256": "e2bd1fb8343d0e3ec915f3ef9ab7188cfdb5fc4fea6c603f7a831e805c12649a"
+        },
+        {
+          "name": "exec-149c6505-10af-4709-8c57-fc87e4953940.provenance.json",
+          "sha256": "7b75fac00eb232d0b5421fd615111b675f19aad27889555e14272f1bfd2d78fb"
+        },
+        {
+          "name": "exec-327aa01f-e078-4f52-921b-5f42a5570327.provenance.json",
+          "sha256": "b22a4d3f8b82056ade2f0464fe044b3e22ed35b4f419e8016c5279f3b1e177c3"
+        },
+        {
+          "name": "exec-8685503b-4279-4e04-8090-73257641f617.provenance.json",
+          "sha256": "063c910a7412891f8c21d9c9839500262e9b79aba1c6cbfb3c95e625466b473f"
+        },
+        {
+          "name": "exec-dc8f311d-e125-4b46-b756-8a328b96aaea.provenance.json",
+          "sha256": "c09ed2ceed9a1fa075c7a7156cb9567546be70a5bfc546cd2f6b002cfba3f1b1"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0c153-57d6-7fe3-9906-2ba21d80c717/exec-149c6505-10af-4709-8c57-fc87e4953940.png",
+          "sha256": "cc69e8bbfd7edb1119a9138df79d84fab8e805526fdd4cd6c81c750390dfde1d"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0c153-57d6-7fe3-9906-2ba21d80c717/exec-327aa01f-e078-4f52-921b-5f42a5570327.png",
+          "sha256": "e2bd1fb8343d0e3ec915f3ef9ab7188cfdb5fc4fea6c603f7a831e805c12649a"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0c153-57d6-7fe3-9906-2ba21d80c717/exec-8685503b-4279-4e04-8090-73257641f617.png",
+          "sha256": "a0080367d138452d8e0d9724e9d23b5d113472424608e0747740c6966bfa9811"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0c153-57d6-7fe3-9906-2ba21d80c717/exec-dc8f311d-e125-4b46-b756-8a328b96aaea.png",
+          "sha256": "c7724962d7cbda94f5e54cba08fbd47108069a67988e185ce2ad87b059505011"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
     }
   ],
-  "images_used": 5,
+  "images_used": 9,
   "images_cap": 999999,
   "experiments": {},
   "milestones": [
@@ -214,6 +311,11 @@
       "id": "M-B1c-IMAGE",
       "note": "KP-B1c DELIVERED_WITH_CONCERNS (2 calls, 0 violations): the bare establishing image of the whole arena + world; packet 004 + phone; structure ruling S1-S6 to Matt.",
       "ts": "2026-09-20T20:22:15"
+    },
+    {
+      "id": "M-B1e-WINDOW",
+      "note": "KP-B1e DELIVERED_WITH_CONCERNS (4 calls = 2 variants + retries, 0 violations): A rosette (flat, correct foreshortening) / B cross (upright — retry if picked); packet 005 + phone; Matt picks.",
+      "ts": "2026-09-20T20:23:03"
     }
   ],
   "halts": [],
