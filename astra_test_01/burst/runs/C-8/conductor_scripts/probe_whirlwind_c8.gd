@@ -52,33 +52,42 @@ func _initialize():
 	var far_arc = ww.get_node("WhirlwindFarArc")
 	var near_arc = ww.get_node("WhirlwindNearArc")
 
-	# ⚑ ROTATION SENSE. The ribbon must turn the way the CHARACTER turns, and
-	# this shipped backwards once -- both senses draw an identical-looking
-	# ellipse, so only the motion gives it away and only at playback speed.
+	# ⚑ ROTATION SENSE -- AND AN HONEST STATEMENT OF WHAT THIS CAN PROVE.
 	#
 	# CONVENTION (declared here so the next person cannot re-derive it wrong):
 	# bearings are screen-space with X RIGHT and Y DOWN, and a sweep point is
 	# (cos t * R, sin t * R * squash). Y down makes sin t > 0 the BOTTOM of the
 	# screen, so increasing t runs 0 RIGHT -> 90 BOTTOM -> 180 LEFT -> 270 TOP
-	# = CLOCKWISE to the viewer.
+	# = CLOCKWISE to the viewer; decreasing t is COUNTER-CLOCKWISE.
 	#
-	# THE CHARACTER'S SENSE, measured on the attack_S cells: the mace runs
-	# SCREEN-LEFT -> behind him / TOP -> SCREEN-RIGHT (frames 1..6: f1 front
-	# view with the mace out left, f4 mace hidden behind, f5-f6 back view with
-	# the mace out right), and independently the shield's horizontal centroid
-	# moves LEFT (+115 -> +68 -> +17 px off the body axis) through the frame
-	# where it is widest, i.e. face-on and nearest the camera -- and the
-	# tangent at the nearest point for increasing t is (-1, 0), LEFT.
-	# Both say CLOCKWISE, so the expected cross-product sign is POSITIVE.
+	# ⚑ WHAT THIS ASSERTION DOES NOT DO: it does not prove the ribbon agrees
+	# with the CHARACTER. `sense_check()` derives the geometry from
+	# revolution_deg and compares it against revolution_deg, so it passes at
+	# EITHER sign. It catches one thing only -- a desync between the drawn
+	# geometry and the declared constant, e.g. a hand-edit to `_ground()` or to
+	# the bearing maths that silently inverts one without the other.
+	#
+	# The art is what settles the sense, and the art has already changed sense
+	# once (warlord4 clockwise; warlord5 the same 16 frames played in REVERSE,
+	# counter-clockwise, per Matt's right-handed-swing ruling). The instrument
+	# for that is a measurement of the FRAMES -- the shield test recorded at
+	# SWEEP_REVOLUTION_DEG in whirlwind_patch.py -- not this probe. Re-run that
+	# whenever the art moves; this only guards the code against itself.
 	var sc = ww.sense_check()
-	check(int(sc[1]) == 1,
-		"ROTATION SENSE: ribbon turns %s, character turns CLOCKWISE (cross %+.1f)"
-		% ["ANTICLOCKWISE" if int(sc[1]) < 0 else "CLOCKWISE", float(sc[0])])
+	# NOTE: `%` binds tighter than `+` in GDScript, so the format array must be
+	# applied to the WHOLE concatenated string, not just its last fragment --
+	# otherwise this line raises "String formatting error: a number is
+	# required" every run, including the runs where the check passes, because
+	# the message is built eagerly as an argument.
 	check(int(sc[1]) == int(sc[2]),
-		"ROTATION SENSE: measured sense %d disagrees with revolution_deg's sign %d"
-		% [int(sc[1]), int(sc[2])])
-	print("WW sense cross %+.1f -> %s (expected CLOCKWISE, matching the character)"
-		% [float(sc[0]), "CLOCKWISE" if int(sc[1]) > 0 else "ANTICLOCKWISE"])
+		("ROTATION SENSE: drawn geometry is %s but revolution_deg's sign says %s"
+		+ " -- the geometry and the constant have desynced (cross %+.1f)")
+		% ["CCW" if int(sc[1]) < 0 else "CW", "CCW" if int(sc[2]) < 0 else "CW",
+			float(sc[0])])
+	print("WW sense cross %+.1f -> %s; revolution_deg sign says %s (agreement is all this proves)"
+		% [float(sc[0]),
+			"COUNTER-CLOCKWISE" if int(sc[1]) < 0 else "CLOCKWISE",
+			"COUNTER-CLOCKWISE" if int(sc[2]) < 0 else "CLOCKWISE"])
 
 	# ---- press and hold ----------------------------------------------------
 	Input.action_press("attack")
