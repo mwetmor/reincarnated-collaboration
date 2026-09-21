@@ -56,9 +56,78 @@
       "codex_version": "codex-cli 0.153.4",
       "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
       "exit": 0
+    },
+    {
+      "id": "KP-B1d",
+      "type": "GENERATE",
+      "experiment": "KC2-PLAY-B1d-nave-diablo-register",
+      "brief_sha256": "16b87b28b381012a8bbf57e0616a5c272cd4bfb05b99e63364e297dd8977e546",
+      "started": "2026-09-21T00:05:34.785331+00:00",
+      "ended": "2026-09-21T00:10:00.638469+00:00",
+      "minutes": 4.430919009033338,
+      "image_calls": 2,
+      "tool_calls": 2,
+      "audit": {
+        "violations": [],
+        "image_calls": 2,
+        "tool_calls": 2,
+        "tools_seen": {
+          "command_execution": 2
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0c148-4db5-7e51-9c00-0cc235df1b12/exec-c46057b9-02e9-473a-a380-430f8a19f674.png",
+            "sha256": "44507b509af190186c51555c8dce94d55acb3a863fe0568221d077883a52d491"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0c148-4db5-7e51-9c00-0cc235df1b12/exec-d3ee2832-7a5b-4a19-9b90-1a5a76f3685c.png",
+            "sha256": "7608370d15ce0754d6754c08330cab9d5ce7a4446a4c249ba1fe7eb8a9e77618"
+          }
+        ]
+      },
+      "receipt_sha256": "9703a438ae412b5d8263eb8a36579f1bf0a0c5c7f080b0047e08b4f5d7b45691",
+      "artifacts": [
+        {
+          "name": "b1d_nave_01.png",
+          "sha256": "7608370d15ce0754d6754c08330cab9d5ce7a4446a4c249ba1fe7eb8a9e77618"
+        },
+        {
+          "name": "exec-c46057b9-02e9-473a-a380-430f8a19f674.provenance.json",
+          "sha256": "1da88074cf9611917cce8fac1e622a81e77e704632f8574233d062900c297ddd"
+        },
+        {
+          "name": "exec-d3ee2832-7a5b-4a19-9b90-1a5a76f3685c.provenance.json",
+          "sha256": "cbbca1c5983abe6afbe0598e4db8bbe53e0465f5a5a2d578f69671768426b1e1"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0c148-4db5-7e51-9c00-0cc235df1b12/exec-c46057b9-02e9-473a-a380-430f8a19f674.png",
+          "sha256": "44507b509af190186c51555c8dce94d55acb3a863fe0568221d077883a52d491"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0c148-4db5-7e51-9c00-0cc235df1b12/exec-d3ee2832-7a5b-4a19-9b90-1a5a76f3685c.png",
+          "sha256": "7608370d15ce0754d6754c08330cab9d5ce7a4446a4c249ba1fe7eb8a9e77618"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
     }
   ],
-  "images_used": 1,
+  "images_used": 3,
   "images_cap": 999999,
   "experiments": {},
   "milestones": [
@@ -66,6 +135,11 @@
       "id": "M-B1a-IMAGE",
       "note": "KP-B1a DELIVERED_WITH_CONCERNS: 1 image_gen call, 5 tool calls, 0 violations, 2.6 min; sha 68317e39…; packet 002 + phone; HALT for Matt review per G-IMG/KP-12.",
       "ts": "2026-09-20T17:45:45"
+    },
+    {
+      "id": "M-B1d-IMAGE",
+      "note": "KP-B1d DELIVERED_WITH_CONCERNS: 2 image_gen calls (first request with 7 refs rejected by tool validation -> Astra reduced refs; then 1 gen + 1 retry within cap 2), 0 violations; packet 003 + phone; HALT for Matt review.",
+      "ts": "2026-09-20T20:10:39"
     }
   ],
   "halts": [],
@@ -90,6 +164,13 @@
       "veto_open": false,
       "topic": "Matt: prompt path stays as is (Astra rewrites); the domed temple = the Keepers domain (LE register), the cathedral = the D2/D4 register; B1a style right, identity + damage wrong; spiderweb cracks on every surface REJECTED (age, not war; not real; kills the beauty) -> crack law: damage as authored events, cracks only where the map draws them. B1d fired immediately as the new style/proof image.",
       "ts": "2026-09-20T20:05:26"
+    },
+    {
+      "id": "R-KP-B3",
+      "class": "conductor",
+      "veto_open": true,
+      "topic": "LANE FINDING F-KP-2: image_gen rejects >N references (7 rejected); briefs carry <=5 image references, or composite reference sheets. Crack-law CHECK instrument (per-tile junction count vs mask) owed to drax before B2 chunking; exterior green near-exact again -> keyed with tolerance.",
+      "ts": "2026-09-20T20:10:39"
     }
   ],
   "grok_calls": [],
