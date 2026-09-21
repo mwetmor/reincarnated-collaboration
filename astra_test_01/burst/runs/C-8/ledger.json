@@ -43,9 +43,24 @@
       "id": "M-C8-P5-PROOF",
       "ts_note": "headless proof under the heavy lock (run_p5_proof.sh, C-6 probes re-used): import exit 0 / 0 errors; movement probe 8/8 directions move ~370 px on walkable with the expected walk_<D> anim, 0 frames off-walkable; jump plays jump_SE→idle_SE; events probe: cast release + contact (fire_bolt_e1_B kit, VfxTarget_44 head, contact lag 0). Predicate 4 (8-dir movement + jump) MET; predicate 5 (cast contact) MET on the probe kit. Packet 104 built on the Desktop for Matt eye.",
       "ts": "2026-09-20T18:43:33"
+    },
+    {
+      "id": "M-C8-SW-FIX",
+      "ts_note": "R-C8-3 walk fix: SW re-cut with --period-frames 24 (autocorr had locked a two-stride 48 at conf 0.99 — the high confidence was the tell); SE follows as its mirror; re-assembled 48 cells; re-exported to runs/C-8/cliffside_v40-warlord2/godot (exit 0); heavy-lock proof: import 0 errors, 8/8 directions walk with the right anim and 0 frames off-walkable, jump + cast contact clean. cliffside_v40-warlord (the double-speed build) is superseded.",
+      "ts": "2026-09-20T20:34:38"
     }
   ],
-  "halts": [],
+  "halts": [
+    {
+      "id": "H-C8-GROK-BUDGET",
+      "cause": "API error (status 402 Payment Required): Grok Build usage balance exhausted",
+      "cell": "S_battle_seed_p1",
+      "packet": "runs/C-8/HALT-P6-grok-budget.md",
+      "blocks": "attack redesign seeds + clips (R-C8-3); battle idle",
+      "not_blocked": "attack port to cliffside (drax, plumbing is silhouette-agnostic); SW/SE walk fix landed",
+      "ts": "2026-09-20T20:34:38"
+    }
+  ],
   "rulings": [
     {
       "id": "R-C8-0",
@@ -70,6 +85,14 @@
       "topic": "Attack (EoR spin) cell = one revolution resampled; playback fps carries the 900 deg/s match",
       "ruling": "The whirlwind VFX rate (wwcr_whirlwind.gd OMEGA_DEG 900 = 2.5 rev/s) is met at PLAYBACK, not at generation: each attack cell samples exactly ONE native revolution (frozen oracle.video_cut --kind run --period-frames P, P from the facing read) and declares fps_out = n x 2.5 so one loop = 0.40 s. S/SW/E: P=12, n=12 @30 fps (stride 1, cleanest); NE/N: P=18, n=9 @22.5 fps (stride 2). Grok spin-rate deviation is therefore not a defect of the cell. Rings baked into the clip ship as-is and are flagged in the packet (Matt eye decides keep/strip; strip = a re-generate with a no-blur prompt, not an edit). Exporter has no attack state → cells STAGED (TOOLING, Astra-blocked, T25).",
       "ts": "2026-09-20T18:17:23"
+    },
+    {
+      "id": "R-C8-3",
+      "class": "matt_eye",
+      "veto_open": false,
+      "topic": "Packet 104 eye read — walkable scene PASS; SW/SE walk double speed; attack redesign; attack-in-scene question",
+      "ruling": "Matt: walkable scene looks good; SW and SE walk at double speed, everything else good. Cause: SW_walk autocorr (conf 0.99) locked onto a TWO-stride 48-frame period (S/E/N/NE = 24) → 12 frames spanned two strides at 12 fps. Fix: forced --period-frames 24 re-cut, re-assemble (SE mirror follows), re-export warlord2, re-proof. ATTACK REDESIGN (Matt, verbatim intent): 1H weapon held at the BASE of the haft for extended reach, swung OUT wide on purpose; BATTLE STANCE with slightly bent knees like a batter at the plate / a knight mid-swing — centre of gravity kept through a far swing; stance of utmost importance. Matt asks whether the attack can go into the cliffside scene after the updates → conductor answer: exporter (FPS dict, input map) + keeper.gd state machine have no attack state — tooling outside the C-8 no-tooling charter; fork to Matt.",
+      "ts": "2026-09-20T19:02:51"
     }
   ],
   "grok_calls": [
@@ -599,6 +622,20 @@
       "printed": "",
       "staged_mp4": "/Users/admin/astra-burst/grok/C-8/N_jump/N_jump.mp4",
       "ts": "2026-09-20T18:22:08"
+    },
+    {
+      "id": "GI-S_battle_seed_p1",
+      "kind": "image_gen_ref",
+      "cell": "S_battle_seed_p1",
+      "ok": false,
+      "rc": 1,
+      "wall_s": 3,
+      "image": "/Users/admin/astra-burst/grok/C-8/S_battle_seed_p1/S_battle_seed_p1.png",
+      "image_sha256": "",
+      "ref": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-6/artifacts/E1/e1_pixel_warlord_S_r1.png",
+      "ref_unsupported": 0,
+      "prompt_sha256": "ad6b63854a6ba3977edd12b887ff7e1707691f4c7d3d3c565419e260cbe024ac",
+      "ts": "2026-09-20T19:03:21"
     }
   ],
   "run": "C-8",

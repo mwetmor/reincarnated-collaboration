@@ -1,0 +1,14 @@
+import exit 0  errors: 0
+move exit 0
+DIR S moved 370.5029296875 frames_off_walkable 0 anims [&"walk_S"] expect walk_S
+DIR SW moved 370.495635986328 frames_off_walkable 0 anims [&"walk_SW"] expect walk_SW
+DIR W moved 370.5029296875 frames_off_walkable 0 anims [&"walk_W"] expect walk_W
+DIR NW moved 370.495635986328 frames_off_walkable 0 anims [&"walk_NW"] expect walk_NW
+DIR N moved 370.5029296875 frames_off_walkable 0 anims [&"walk_N"] expect walk_N
+DIR NE moved 370.495635986328 frames_off_walkable 0 anims [&"walk_NE"] expect walk_NE
+DIR E moved 370.5029296875 frames_off_walkable 0 anims [&"walk_E"] expect walk_E
+DIR SE moved 370.495635986328 frames_off_walkable 0 anims [&"walk_SE"] expect walk_SE
+JUMP anims [&"jump_SE", &"idle_SE"] expect jump_*
+events exit 0
+PROBE_EVENTS={"effects":[{"contacted_names":[],"events":[{"age_frames":0,"effect_id":1,"event":"release","kit":"fire_bolt_e1_B","target_kind":"cursor","target_point":[4288.2333984375,640.0]},{"age_frames":1,"body_index":3,"collision_age_frames":1,"contact_class":"primary","contact_distance_px":94.9732513427734,"contact_lag_frames":0,"effect_id":1,"event":"contact","kit":"fire_bolt_e1_B","phase":"head","position":[3915.36962890625,558.975219726562],"strike_response":true,"target_kind":"cursor","target_point":[4288.2333984375,640.0]},{"age_frames":1,"effect_id":1,"event":"expire","kit":"fire_bolt_e1_B","target_kind":"cursor","target_point":[4288.2333984375,640.0]}],"node":"G1Projectile","pos":[3915.36962890625,558.975219726562],"script":"res://scripts/vfx_g1_fl6.gd"}],"keeper_colliders":[{"class":"CharacterBody2D","groups":["vfx_actors"],"layer":1,"mask":1,"name":"Keeper"}],"targets":[{"layer":2,"name":"VfxTarget_41","pos":[4038.75,450.0]},{"layer":2,"name":"VfxTarget_42","pos":[4221.25,398.0]},{"layer":2,"name":"VfxTarget_43","pos":[4370.5068359375,494.873229980469]},{"layer":2,"name":"VfxTarget_44","pos":[3911.25,596.0]},{"layer":2,"name":"VfxTarget_45","pos":[4525.71826171875,650.507019042969]},{"layer":2,"name":"VfxTarget_46","pos":[4222.25,609.5]},{"layer":2,"name":"VfxTarget_47","pos":[4248.75,752.5]}],"walls":{"children":960,"class":"StaticBody2D","layer":1}}
+PROOF DONE

@@ -59,11 +59,11 @@
   },
   "walk_SW": {
    "status": "COMPLETE",
-   "source_cut": "SW_walk_pad",
+   "source_cut": "SW_walk_p24",
    "clip": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-8/xvideo/in/SW_walk_pad.mp4",
    "frames": 12,
    "flags": [
-    "2-s stride (slow) conf 0.99"
+    "period FORCED to 24 (autocorr locked on a two-stride 48; Matt eye: SW/SE walked double speed \u2014 R-C8-3)"
    ],
    "packet_mp4": false,
    "clip_sha256": "f00cb43a2de93c2ada4b123292954d78f4969f2bb77bb309e7a1b1c9d2f8f06a"
@@ -343,7 +343,7 @@
    "mirror_of": "walk_SW",
    "frames": 12,
    "flags": [
-    "2-s stride (slow) conf 0.99",
+    "period FORCED to 24 (autocorr locked on a two-stride 48; Matt eye: SW/SE walked double speed \u2014 R-C8-3)",
     "MIRRORED cell (shield/mace hands swap sides; key light flipped) \u2014 Matt P5 eye judges"
    ]
   },
