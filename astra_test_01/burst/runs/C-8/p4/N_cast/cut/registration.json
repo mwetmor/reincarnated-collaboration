@@ -1,46 +1,46 @@
 {
  "kind": "cast",
  "direction": "N",
- "clip": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-8/xvideo/in/N_cast_pad.mp4",
- "clip_sha256": "ab9414d27f334fab98dd55a7ce652d406379196d2a86bdea8b4c265ddfdadc4e",
+ "clip": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-8/xvideo/in/N_cast_r1.mp4",
+ "clip_sha256": "d776f3d6357a8f5244c789870f1386b606564171489bf687a46aa11f11bd9456",
  "method": "explicit one-shot (conductor keys, R-C3-17 lineage; far-point tracker for the shield slam)",
  "indices_native": [
-  42,
-  43,
-  44,
-  46,
-  58,
+  36,
+  37,
+  38,
+  65,
+  68,
   69,
-  83,
-  92
+  71,
+  73
  ],
  "keys": {
-  "onset": 42,
+  "onset": 36,
   "crouch": null,
   "take_off": null,
   "apex": null,
   "touchdown": null,
   "landing_crouch": null,
-  "gather": 42,
-  "release": 46,
-  "settle": 92
+  "gather": 36,
+  "release": 65,
+  "settle": 73
  },
  "transform": {
-  "scale": 0.41750871080139373,
-  "nominal_scale": 0.4181184668989547,
+  "scale": 0.29332317073170733,
+  "nominal_scale": 0.2926829268292683,
   "translation_xy": [
-   96,
-   9
+   143,
+   81
   ],
   "scaled_size": [
-   320,
-   487
+   225,
+   342
   ],
   "source_sampling_box_xyxy": [
    0.0,
    0.0,
-   766.4510744836219,
-   1166.442728979762
+   767.0720299345182,
+   1165.9494855004677
   ],
   "source_size": [
    768,
@@ -48,19 +48,19 @@
   ],
   "anchor_index": 0,
   "anchor_native_bbox": [
-   132,
-   362,
-   636,
-   936
+   24,
+   268,
+   744,
+   1088
   ],
   "canvas": [
    512,
    512
   ],
   "anchor_bbox": [
-   151,
+   150,
    160,
-   361,
+   362,
    400
   ],
   "anchor_H": 240,
@@ -76,10 +76,17 @@
  },
  "fps": 24.0,
  "n_native": 145,
- "invalid_native_indices": [],
+ "invalid_native_indices": [
+  26,
+  64,
+  66,
+  67
+ ],
  "flags": [
-  "onset search started at native 36 (CAST_START) \u2014 early far-point noise skipped"
+  "onset search started at native 36 (CAST_START) \u2014 early far-point noise skipped",
+  "4 native frames touch the frame border (blade/jump leaves the plate) \u2014 matte refused; excluded from the series",
+  "key frames moved to nearest valid: [36, 37, 38, 65, 67, 69, 71, 73] \u2192 [36, 37, 38, 65, 68, 69, 71, 73]"
  ],
  "conductor_derived": true,
- "script_sha256": "5525d1b274e033d48cc6f35ddca11cc0404a667f2ca5068883814c71a3637701"
+ "script_sha256": "34f0231463c086c505f8972a4dc0c0d0eddce33cf39b43c899218efbbcec4824"
 }

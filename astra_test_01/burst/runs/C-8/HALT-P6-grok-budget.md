@@ -16,3 +16,26 @@
 
 ## Resume condition
 Matt's word that the Grok Build balance is topped up (queued as a Matt-to-do alongside T25 Codex). No conductor retry.
+
+---
+
+## SECOND EXHAUSTION — 2026-09-21T01:33Z (`H-C8-GROK-BUDGET-2`)
+
+Matt topped up and said *finish the grok work*. The top-up bought **8 successful calls** before the balance went again:
+
+| # | call | result |
+|---|---|---|
+| 1 | `S_battle_p1` still | stance right; grip mid-haft, arm cocked (the two things Matt named, both missed) |
+| 2 | `S_battle_p2` still | overcorrected — floating barbell + duplicated mace |
+| 3 | `S_battle_p3` still | **APPROVED** — pommel grip, arm out, knees sunk, clean plate |
+| 4 | `N_cast_r1` clip | re-generate of the flagged overhead-raise cast; cut clean (release 65) |
+| 5 | `S_battle_spin` clip | stance held perfectly · **body never revolved** |
+| 6 | `S_battle_spin_r1` clip | revolved · legs straightened · zoomed |
+| 7 | `S_battle_spin_r2` clip | revolved · knees bent · scale stable · **blur gone** · mace raised beside the helm |
+| 8 | `S_battle_spin_r3` clip | arm locked out straight · spin rate collapsed · blur returned |
+
+Then all seven `S_battle_turn_*` stills refused in under 2 s each.
+
+**Reading: clips are the expensive unit.** Three stills and one re-generate plus four 6-second clips drained it. The turnaround-as-spin ruling (**R-C8-5**) is the cheap path forward — 7 stills, no clips — and it is queued and ready to fire unchanged.
+
+**Resume:** top up, then `python3 runs/C-8/conductor_scripts/turn_stills.py` (fires all seven; takes about five minutes).
