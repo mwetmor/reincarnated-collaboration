@@ -240,24 +240,69 @@ ATTACK_INPUT_LINE = (
 
 
 def patch_project_godot(project):
+    """Insert the `attack` action at the END of the [input] section.
+
+    ⚑ THIS IS ENTRY-AWARE, AND IT HAS TO BE. The first version anchored on
+    `^cast=.*$` and inserted the new line straight after it, which is correct
+    for the exporter's COMPACT one-line-per-action output -- and silently
+    corrupting once Godot has opened the project, because the editor rewrites
+    project.godot into its EXPANDED form:
+
+        cast={
+        "deadzone": 0.2,
+        "events": [Object(InputEventKey, ...)
+        ]
+        }
+
+    There `^cast=.*$` matches only `cast={`, so the attack line lands INSIDE
+    the cast dictionary and the whole file fails to parse ("Unexpected
+    identifier 'attack'", and then every attack sprite fails to load because
+    no loader is registered). Caught by re-running the patch on a project a
+    headless import had already touched -- i.e. by the exact repeatable-patch
+    workflow this script exists to support.
+
+    So: split the [input] section into ENTRIES (an entry runs from a `name=`
+    line to the next `name=` line or the next [section] header), drop any
+    entry named `attack` in whichever form it is written, and append ours.
+    """
     path = project / 'project.godot'
     if not path.is_file():
         fail(f'project.godot not found: {path}')
     text = path.read_text()
-    if '\n[input]\n' not in text:
+    lines = text.split('\n')
+
+    try:
+        start = next(i for i, ln in enumerate(lines) if ln.strip() == '[input]')
+    except StopIteration:
         fail('project.godot: no [input] section found -- unrecognized project shape')
-    cast_line_re = re.compile(r'^cast=.*$', re.MULTILINE)
-    if not cast_line_re.search(text):
-        fail('project.godot: no existing "cast=" input action found to anchor the '
-             'new "attack=" action next to -- unrecognized project shape')
+    end = len(lines)
+    for i in range(start + 1, len(lines)):
+        if lines[i].startswith('['):
+            end = i
+            break
 
-    # Idempotent: drop any existing attack= line (ours from a prior run, or
-    # anything else claiming that action name) before re-inserting canonically.
-    attack_line_re = re.compile(r'^attack=.*\n', re.MULTILINE)
-    text = attack_line_re.sub('', text)
+    entry_re = re.compile(r'^([A-Za-z_][A-Za-z0-9_]*)=')
+    names = [entry_re.match(ln).group(1) for ln in lines[start + 1:end]
+             if entry_re.match(ln)]
+    if 'cast' not in names:
+        fail('project.godot: the [input] section declares no "cast" action -- '
+             'unrecognized project shape, refusing to guess where the other '
+             'actions live')
 
-    text = cast_line_re.sub(lambda m: m.group(0) + '\n' + ATTACK_INPUT_LINE, text, count=1)
-    path.write_text(text)
+    # Rebuild the section without any `attack` entry, then append ours.
+    kept, dropping = [], False
+    for ln in lines[start + 1:end]:
+        m = entry_re.match(ln)
+        if m:
+            dropping = (m.group(1) == 'attack')
+        if not dropping:
+            kept.append(ln)
+    while kept and kept[-1].strip() == '':
+        kept.pop()
+    kept.append(ATTACK_INPUT_LINE)
+    kept.append('')
+
+    path.write_text('\n'.join(lines[:start + 1] + kept + lines[end:]))
 
 
 # ---------------------------------------------------------------------------
@@ -277,9 +322,39 @@ JUMP_CAST_GATE_ANCHOR = '''    if state == "jump" or state == "cast":
 
 ATTACK_HOLD_BLOCK = MARKER + '''
     if state == "attack":
-        velocity = Vector2.ZERO
         if not Input.is_action_pressed("attack"):
             state = "idle"
+            _play_state()
+            return
+        # PATCH(drax attack_patch A2): the whirlwind TRAVELS, at walk pace.
+        # run_modifier is deliberately IGNORED -- the spin costs you your
+        # sprint, which is the trade D2 Whirlwind and PoE Cyclone both make.
+        # No direction held leaves velocity zero, i.e. exactly the old gate.
+        # The animation does NOT change to walk: attack_<DIR> keeps playing and
+        # he translates while spinning. The attack frames were drawn feet-
+        # planted, so he foot-skates; that is known and accepted at 2.5 rev/s.
+        var spin_vector: Vector2 = Input.get_vector("move_left", "move_right", "move_up", "move_down")
+        var spin_facing: String = facing
+        if spin_vector.length_squared() > 0.0:
+            spin_facing = DIRECTIONS[posmod(roundi(spin_vector.angle() / (PI / 4.0)) + 6, 8)]
+        velocity = spin_vector * walk_speed
+        move_and_slide()
+        if spin_facing != facing:
+            # Phase-preserving cell switch. Every attack_<DIR> cell is the SAME
+            # eight stills rolled by the direction index (C-8 TURNAROUND-AS-
+            # SPIN), so carrying the frame by the index delta keeps the
+            # IDENTICAL still on screen and the revolution does not hitch when
+            # he turns. Without it _play_state() restarts at frame 0 and the
+            # spin jumps on every direction change -- which, now that he walks
+            # while spinning, is constantly.
+            var carry_frame: int = sprite.frame
+            var carry_progress: float = sprite.get_frame_progress()
+            var carry_delta: int = DIRECTIONS.find(facing) - DIRECTIONS.find(spin_facing)
+            facing = spin_facing
+            _play_state()
+            if sprite.sprite_frames.get_frame_count(sprite.animation) == 8:
+                sprite.set_frame_and_progress(posmod(carry_frame + carry_delta, 8), carry_progress)
+        else:
             _play_state()
         return
 '''
@@ -335,20 +410,51 @@ def patch_keeper_gd(project):
 # ---------------------------------------------------------------------------
 
 def main():
-    if len(sys.argv) != 2:
-        fail('usage: python3 attack_patch.py <path to exported godot dir>')
-    project = Path(sys.argv[1]).resolve()
+    args = [a for a in sys.argv[1:] if not a.startswith('--')]
+    flags = {a for a in sys.argv[1:] if a.startswith('--')}
+    unknown = flags - {'--controller-only'}
+    if unknown:
+        fail(f'unknown flag(s): {" ".join(sorted(unknown))}')
+    if len(args) != 1:
+        fail('usage: python3 attack_patch.py [--controller-only] <path to exported godot dir>')
+    project = Path(args[0]).resolve()
     if not project.is_dir():
         fail(f'not a directory: {project}')
 
-    cells = load_attack_cells()
-    print(f'attack_patch: loaded {len(cells)} attack cells from {CELLS_ROOT}')
-    for d in DIRECTIONS:
-        c = cells[d]
-        print(f'  attack_{d}: n={c["n"]} fps={c["fps"]} loop={c["n"] / c["fps"]:.3f}s')
+    # --controller-only: install the input action and the keeper.gd attack gate
+    # WITHOUT touching the animation art. For a project that already carries an
+    # `attack` state from a different source -- e.g. the warlord2 build, whose
+    # cells are a 12-frame/30 fps clip cut rather than the 8-still turnaround --
+    # where copying runs/C-8/cells over it would silently replace the very art
+    # the build exists to show.
+    if '--controller-only' in flags:
+        tres = project / 'frames' / 'keeper.tres'
+        if not tres.is_file():
+            fail(f'expected SpriteFrames resource not found: {tres}')
+        existing = parse_spriteframes(tres.read_text())
+        missing = [d for d in DIRECTIONS if f'attack_{d}' not in existing]
+        if missing:
+            fail(f'--controller-only given but frames/keeper.tres has no '
+                 f'attack_{{{",".join(missing)}}} animations -- there is no attack '
+                 f'art here to install a controller for')
+        for d in DIRECTIONS:
+            paths, fps, loop = existing[f'attack_{d}']
+            secs = len(paths) / fps
+            if not loop or abs(secs - 0.40) > 1e-6:
+                fail(f'attack_{d}: n/fps = {len(paths)}/{fps} = {secs:.6f}s loop={loop}, '
+                     f'expected a looping 0.40s -- the whirlwind revolution is one '
+                     f'animation loop')
+            print(f'  attack_{d}: n={len(paths)} fps={fps} loop={secs:.4f}s (kept as-is)')
+        print('attack_patch: --controller-only, animation art left untouched')
+    else:
+        cells = load_attack_cells()
+        print(f'attack_patch: loaded {len(cells)} attack cells from {CELLS_ROOT}')
+        for d in DIRECTIONS:
+            c = cells[d]
+            print(f'  attack_{d}: n={c["n"]} fps={c["fps"]} loop={c["n"] / c["fps"]:.3f}s')
 
-    added = patch_frames(project, cells)
-    print(f'attack_patch: wrote {project / "frames" / "keeper.tres"} with animations: {added}')
+        added = patch_frames(project, cells)
+        print(f'attack_patch: wrote {project / "frames" / "keeper.tres"} with animations: {added}')
 
     patch_project_godot(project)
     print(f'attack_patch: ensured "attack" input action (physical_keycode='
