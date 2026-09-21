@@ -146,39 +146,59 @@ SWEEP_BEARING0_DEG = 90.0   # bearing of the sweep at canonical frame 0
 #       theta INCREASING  ==  CLOCKWISE on screen  ==  +360 per revolution
 #       theta DECREASING  ==  ANTICLOCKWISE        ==  -360 per revolution
 #
-# THE CHARACTER'S SENSE, MEASURED ON THE warlord4 attack_S cells (16 frames,
-# one revolution -- the period was confirmed by circular self-difference: the
-# maximum dissimilarity sits at lag 8, i.e. half a turn, so the loop is exactly
-# one revolution and not 1.x of one):
+# ⚑ THIS VALUE HAS BEEN BOTH SIGNS, AND THE SECOND CHANGE WAS NOT A CORRECTION
+#   OF THE FIRST. READ THIS BEFORE "FIXING" IT BACK.
 #
-#   (a) DIRECT READ of frames 1-6. f1 is a front view (helm face-plate visible)
-#       with the mace extended SCREEN-LEFT and the shield on screen-right; by
-#       f2-f3 the shield has swung FACE-ON to the camera and the mace is
-#       receding upward-left; at f4 the mace is hidden behind the body; by
-#       f5-f6 we see his BACK (no face-plate, spine plating) with the shield
-#       edge-on at screen-LEFT and the mace out at SCREEN-RIGHT.
-#       So the mace runs LEFT -> behind/TOP -> RIGHT: 180 -> 270 -> 360.
-#       THETA INCREASING.
+# It shipped at -360, was changed to +360 on 2026-09-21 to match the warlord4
+# art, and is -360 again on warlord5. Nothing about the convention above
+# changed and no measurement was wrong: THE ART WAS DELIBERATELY REVERSED
+# BETWEEN THE TWO BUILDS, and this constant simply follows it.
 #
-#   (b) SHIELD TEST, automated and independent of the mace. The shield is
-#       widest when face-on, and face-on to the camera is its NEAREST point,
-#       theta = +90. Its horizontal centroid through that frame runs
-#       +115 px -> +68 -> +17 relative to the body axis: moving LEFT at
-#       -98 px across the pair. The tangent at theta = 90 for increasing theta
-#       is (-sin 90, cos 90) = (-1, 0) = LEFT. THETA INCREASING.
+# MATT'S RULING, 2026-09-21, which is the reason and will outlive the builds:
+# a RIGHT-HANDER turns COUNTER-CLOCKWISE. The forehand sweep starts on the
+# right and crosses to the left, and the body keeps turning left; right-handed
+# hammer and discus throwers rotate counter-clockwise seen from above. The
+# warlord4 art turned clockwise, which is effectively a repeated BACKHAND.
 #
-#   (c) The conductor's independent eye read of the same cells, which agrees.
+# ⚑ AND THE FIX WAS FRAME REVERSAL, NOT MIRRORING, WHICH IS THE WHOLE POINT.
+#   Reversing the 16-frame revolution flips the rotational sense and PRESERVES
+#   handedness. Mirroring would have done the opposite -- fixed the sense and
+#   swapped the hands -- which is a separate defect Matt is holding a decision
+#   on. Two transforms, both of which "fix the spin", and only one of which is
+#   correct: worth knowing which was used before reasoning about this file.
+#
+# VERIFIED ON warlord5's OWN BYTES rather than inferred from the note:
+#   * The 16 frames are warlord4's frames at indices [0, 15, 14, ... 1] --
+#     every step -1 mod 16, i.e. an exact reversal anchored at frame 0, with
+#     the identical image set (hash-for-hash).
+#   * SHIELD TEST, the same instrument run on warlord4 and independent of the
+#     mace: the shield is widest when FACE-ON, and face-on to the camera is its
+#     NEAREST point, theta = +90. Its horizontal centroid through that frame
+#     runs +17 px -> +68 -> +115 off the body axis: moving RIGHT, at +98 px
+#     across the pair -- the exact mirror of warlord4's -98. The tangent at
+#     theta = 90 for DECREASING theta is (+1, 0) = RIGHT.
+#     THETA DECREASING => COUNTER-CLOCKWISE => this constant is NEGATIVE.
+#   * Per-direction roll, derived from the bytes: S=0 SW=14 W=12 NW=10 N=8
+#     NE=6 E=4 SE=2, i.e. (-2k) mod 16 -- inverted from warlord4's +2k exactly
+#     as a reversal requires.
+#
+# ⚑ A NOTE ON WHAT `sense_check()` CAN AND CANNOT TELL YOU. It compares the
+#   drawn geometry against this constant, and both derive from this constant,
+#   so it CANNOT detect a disagreement with the CHARACTER -- it will pass at
+#   either sign. It catches a geometry/constant desync, nothing more. The only
+#   thing that ties this file to the art is a measurement of the ART, like the
+#   shield test above. Re-run that, not just the probe, whenever the art moves.
 #
 # ⚑ AN INSTRUMENT I BUILT AND THEN REJECTED, recorded so nobody rebuilds it:
-#   tracking the mace head by its cool teal glint returned a total sweep of
-#   -360 deg -- the opposite answer -- with cross-product votes at 5 against 6,
-#   i.e. a coin flip. It was catching the shield's green rim-light as often as
-#   the mace, and on f3 it placed the mace at the BOTTOM of the sweep when the
-#   mace is plainly upper-left. A tracker that is wrong half the time averages
-#   to noise and then reports the noise as a direction. The check ran; the
-#   check was not the check.
+#   tracking the mace head by its cool teal glint returned the opposite answer
+#   on warlord4 with cross-product votes at 5 against 6, i.e. a coin flip. It
+#   was catching the shield's green rim-light as often as the mace, and on one
+#   frame placed the mace at the BOTTOM of the sweep when it is plainly
+#   upper-left. A tracker that is wrong half the time averages to noise and
+#   then reports the noise as a direction. The check ran; the check was not
+#   the check.
 # ---------------------------------------------------------------------------
-SWEEP_REVOLUTION_DEG = +360.0
+SWEEP_REVOLUTION_DEG = -360.0
 
 # ---------------------------------------------------------------------------
 # GROUND_SQUASH -- the vertical foreshortening of a circle lying on the
@@ -965,11 +985,22 @@ func _wobble(theta_deg: float) -> float:
 ## camera. Walking theta upward therefore runs
 ##     0 RIGHT -> 90 BOTTOM -> 180 LEFT -> 270 TOP,
 ## which is CLOCKWISE to the viewer. So a POSITIVE `revolution_deg` spins the
-## ribbon clockwise on screen and a negative one anticlockwise. The character
-## in the current art turns clockwise (mace LEFT -> behind/TOP -> RIGHT; the
-## shield swings toward the camera first), so `revolution_deg` is +360. It
-## shipped once at -360 and the ribbon visibly counter-rotated against him.
-## `_probe_sense_ok()` asserts this at runtime so it cannot regress silently.
+## ribbon clockwise on screen and a NEGATIVE one counter-clockwise.
+##
+## ⚑ THE CURRENT ART TURNS COUNTER-CLOCKWISE, SO `revolution_deg` IS NEGATIVE,
+## AND THAT IS A RULING RATHER THAN A MEASUREMENT ARTEFACT. Matt, 2026-09-21:
+## a RIGHT-HANDER turns counter-clockwise -- the forehand sweep starts on the
+## right and crosses left and the body keeps turning left, the way right-handed
+## hammer and discus throwers rotate counter-clockwise seen from above. The
+## previous build turned clockwise, i.e. a repeated BACKHAND, and was fixed by
+## playing the 16-frame revolution in REVERSE (which flips the sense and keeps
+## the handedness) rather than by mirroring (which would flip the sense and
+## swap the hands -- a different, separately-held defect).
+##
+## So this constant has legitimately been both signs. Do not "restore" it from
+## memory: measure the ART (see the shield test documented at the constant) and
+## follow it. `sense_check()` only proves the geometry matches this constant --
+## it passes at either sign and can never tell you the art disagrees.
 func _ground(theta_deg: float, r: float) -> Vector2:
 	var a := deg_to_rad(theta_deg)
 	return Vector2(cos(a) * r, sin(a) * r * _squash + _wobble(theta_deg))

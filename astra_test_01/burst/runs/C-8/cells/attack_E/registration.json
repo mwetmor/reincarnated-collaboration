@@ -2231,10 +2231,11 @@
  ],
  "wall_seconds": 27.142574042001797,
  "loop": true,
- "phase_roll": 12,
- "method": "r4 clip (seed = pass-3 b0, prompt = r2 verbatim): ONE native revolution of 44 frames resampled to 16 at 40 fps = 0.400 s; phase-rolled 2 frames per 45 degrees",
+ "phase_roll": 3,
+ "sense": "counter-clockwise on screen",
+ "method": "r4 revolution played in REVERSE frame order (Matt 2026-09-21: a right-hander sweeps forehand and turns LEFT \u2014 right-handed hammer and discus throwers rotate counter-clockwise seen from above). Reversal flips the rotational sense while PRESERVING handedness; mirroring would have fixed the sense and broken the hands.",
  "flags": [
-  "16 frames vs the 8-frame turnaround: Matt eye 2026-09-21 \u2014 warlord3 better than warlord2 but too choppy; A carried 12 frames and true video in-betweens",
-  "temporal coherence restored \u2014 these are consecutive frames of one continuous take, not eight independent drawings"
+  "counter-clockwise; VFX revolution_deg must be NEGATIVE to match (drax runtime assertion enforces agreement)",
+  "phase offsets inverted with the reversal: roll = (15 - 2k) mod 16"
  ]
 }
