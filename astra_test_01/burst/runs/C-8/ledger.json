@@ -53,6 +53,11 @@
       "id": "M-C8-ATTACK-PORT",
       "ts_note": "Attack state ported into the cliffside scene (Matt authorized 2026-09-20; drax executed as a post-export patch, frozen exporter untouched). attack_patch.py: 8 attack_<DIR> animations into frames/keeper.tres (loop true; 12f@30 for S/SW/W/SE/E, 9f@22.5 for N/NE/NW — every one exactly 0.400 s = the 900 deg/s whirlwind rate), sprites/attack/<DIR>/ tree on the exporter convention, input action attack = F (physical_keycode 70), keeper.gd marker-guarded early-return gate. Idempotent (byte-identical on re-run), fails loudly. CONDUCTOR VERIFICATION (probe_attack_c8.gd, headless under the lock): 8/8 directions play the right attack cell, all 12/9 distinct frames, moved 0.0 px, cast+jump CANNOT interrupt mid-attack, returns to idle_<DIR> on release; 0 errors. Full re-proof after the patch: import 0 errors, 8/8 walks with 0 frames off-walkable, jump + cast contact — no regression. DRAX FINDING for the durable exporter item (T25): per-animation fps in keeper.tres is NOT the base FPS table — walk/run are overridden by --parallax movement-speed matching (20.7 / 14.5), so an exporter-native attack state must only assume base fps for the state it adds; project.godot [input] is tool-extended (vfx_cycle already present) so anchor-based insertion beats key-order assumptions.",
       "ts": "2026-09-20T20:45:24"
+    },
+    {
+      "id": "M-C8-REDESIGN",
+      "ts_note": "ATTACK REDESIGN LANDED (Matt order 2026-09-20; R-C8-3/4/5). Built as a TURNAROUND, not a clip: 11 conductor-gated stills generated, 8 kept, ordered by eye into one revolution (the mace orbits screen-left -> down -> right -> up while the body turns front -> away -> back -> front), registered with the frozen vc.register on a COMMON FIGURE HEIGHT, then PHASE-ROLLED into all eight direction cells. Every cell: 8 frames, loop true, 20 fps = 0.400 s per revolution = the 900 deg/s whirlwind rate. Registered height spread 0.004. Matt gets what he ordered: fist at the pommel, arm locked straight out at shoulder height (full reach), deep bent-knee batter stance held in every frame, and ZERO baked blur. Exported to runs/C-8/cliffside_v40-warlord3/godot + attack_patch applied. PROOF: import 0 errors; 8/8 walks 0 frames off-walkable; jump; cast contact; attack 8/8 plays the right cell, all 8 distinct frames, 0.0 px drift, uninterruptible by cast/jump, returns to idle. SUPERSEDES the four Grok spin clips and the -warlord2 build.",
+      "ts": "2026-09-20T21:48:17"
     }
   ],
   "halts": [
@@ -890,6 +895,146 @@
       "ref_unsupported": 0,
       "prompt_sha256": "b77f0164837f2bd70ca7cfa7bb0cef90104e7e36f293b8b1360ff8a7eeb518df",
       "ts": "2026-09-20T21:33:45"
+    },
+    {
+      "id": "GI-S_battle_turn_01",
+      "kind": "image_gen_ref",
+      "cell": "S_battle_turn_01",
+      "ok": true,
+      "rc": 0,
+      "wall_s": 32,
+      "image": "/Users/admin/astra-burst/grok/C-8/S_battle_turn_01/S_battle_turn_01.png",
+      "image_sha256": "46ce38fedfe0d5d941c9308274203f7c5e65eca7147b775ba1ea9fcd821af5ef",
+      "ref": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-8/artifacts/seeds/S_battle_p3.png",
+      "ref_unsupported": 0,
+      "prompt_sha256": "b9d5bad3576e1b6338b694405d4bb488a5a1c530835716366a3c55dacdcd8c5b",
+      "ts": "2026-09-20T21:37:16"
+    },
+    {
+      "id": "GI-S_battle_turn_02",
+      "kind": "image_gen_ref",
+      "cell": "S_battle_turn_02",
+      "ok": true,
+      "rc": 0,
+      "wall_s": 28,
+      "image": "/Users/admin/astra-burst/grok/C-8/S_battle_turn_02/S_battle_turn_02.png",
+      "image_sha256": "f76578021f6b076c08370720362a971d587192c2809060d755812a84c139724a",
+      "ref": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-8/artifacts/seeds/S_battle_p3.png",
+      "ref_unsupported": 0,
+      "prompt_sha256": "3c9077f41273d655e2fa355a4b931ec8b2decf8daa3d4eec74d4a45c226d1cdd",
+      "ts": "2026-09-20T21:37:44"
+    },
+    {
+      "id": "GI-S_battle_turn_03",
+      "kind": "image_gen_ref",
+      "cell": "S_battle_turn_03",
+      "ok": true,
+      "rc": 0,
+      "wall_s": 26,
+      "image": "/Users/admin/astra-burst/grok/C-8/S_battle_turn_03/S_battle_turn_03.png",
+      "image_sha256": "2883eee20ad4e0f4936b9ca663f9cbd1f1ec9accbf195b82b16630205e8060cb",
+      "ref": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-8/artifacts/seeds/S_battle_p3.png",
+      "ref_unsupported": 0,
+      "prompt_sha256": "d1b991df55492d1ffbfa959a60bc3b0e7a7aabb2d480aa8a6fcff7d560cd3284",
+      "ts": "2026-09-20T21:38:10"
+    },
+    {
+      "id": "GI-S_battle_turn_04",
+      "kind": "image_gen_ref",
+      "cell": "S_battle_turn_04",
+      "ok": true,
+      "rc": 0,
+      "wall_s": 31,
+      "image": "/Users/admin/astra-burst/grok/C-8/S_battle_turn_04/S_battle_turn_04.png",
+      "image_sha256": "273bfdaccce772184ff717da7b0dbca8e3aa399b942cc2aa194f1d174eb5e53c",
+      "ref": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-8/artifacts/seeds/S_battle_p3.png",
+      "ref_unsupported": 0,
+      "prompt_sha256": "407b181f0fc4df6a0cd92e8585398e54959474f1f1aad04d21bcc492b313c03e",
+      "ts": "2026-09-20T21:38:41"
+    },
+    {
+      "id": "GI-S_battle_turn_05",
+      "kind": "image_gen_ref",
+      "cell": "S_battle_turn_05",
+      "ok": true,
+      "rc": 0,
+      "wall_s": 25,
+      "image": "/Users/admin/astra-burst/grok/C-8/S_battle_turn_05/S_battle_turn_05.png",
+      "image_sha256": "7172c68239b9c86b657e1045c172ef6781d07aa380b85353517afafe9a05b223",
+      "ref": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-8/artifacts/seeds/S_battle_p3.png",
+      "ref_unsupported": 0,
+      "prompt_sha256": "065d0c9b5a8f0a2cf5a6aa68f58e848b83b385457d80691a9a0d43138881cb64",
+      "ts": "2026-09-20T21:39:06"
+    },
+    {
+      "id": "GI-S_battle_turn_06",
+      "kind": "image_gen_ref",
+      "cell": "S_battle_turn_06",
+      "ok": true,
+      "rc": 0,
+      "wall_s": 26,
+      "image": "/Users/admin/astra-burst/grok/C-8/S_battle_turn_06/S_battle_turn_06.png",
+      "image_sha256": "cd71e61d26688f61381d4735f550affa8181f9a8dcd5a061b55feda1f039859f",
+      "ref": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-8/artifacts/seeds/S_battle_p3.png",
+      "ref_unsupported": 0,
+      "prompt_sha256": "df069eca01a881be33d158c5e2374fc856467af300b3ffc77855ac55333a0ef5",
+      "ts": "2026-09-20T21:39:32"
+    },
+    {
+      "id": "GI-S_battle_turn_07",
+      "kind": "image_gen_ref",
+      "cell": "S_battle_turn_07",
+      "ok": true,
+      "rc": 0,
+      "wall_s": 29,
+      "image": "/Users/admin/astra-burst/grok/C-8/S_battle_turn_07/S_battle_turn_07.png",
+      "image_sha256": "3a3d39c6c793d94463bbdef6b50314de8d8b8ca809a3f716c03aeab994a7e8e6",
+      "ref": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-8/artifacts/seeds/S_battle_p3.png",
+      "ref_unsupported": 0,
+      "prompt_sha256": "b77f0164837f2bd70ca7cfa7bb0cef90104e7e36f293b8b1360ff8a7eeb518df",
+      "ts": "2026-09-20T21:40:02"
+    },
+    {
+      "id": "GI-S_battle_turn_08",
+      "kind": "image_gen_ref",
+      "cell": "S_battle_turn_08",
+      "ok": true,
+      "rc": 0,
+      "wall_s": 28,
+      "image": "/Users/admin/astra-burst/grok/C-8/S_battle_turn_08/S_battle_turn_08.png",
+      "image_sha256": "20b621221cc3714c83a1b32a33622cf81323a098ea1cbba937d7f38288301045",
+      "ref": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-8/artifacts/seeds/S_battle_p3.png",
+      "ref_unsupported": 0,
+      "prompt_sha256": "5d0ed67f72f36491703d0149934bf6a1c203e2bed1049073578553540d7dd83b",
+      "ts": "2026-09-20T21:42:41"
+    },
+    {
+      "id": "GI-S_battle_turn_09",
+      "kind": "image_gen_ref",
+      "cell": "S_battle_turn_09",
+      "ok": true,
+      "rc": 0,
+      "wall_s": 25,
+      "image": "/Users/admin/astra-burst/grok/C-8/S_battle_turn_09/S_battle_turn_09.png",
+      "image_sha256": "cdba5b36ccfe22f11ad02e55cd63dd0f27ee484adc3ae3d8e267404bea8e687a",
+      "ref": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-8/artifacts/seeds/S_battle_p3.png",
+      "ref_unsupported": 0,
+      "prompt_sha256": "dc396c2b3f3770272123bff8d07c3cc28fbcb5f1197e7c6941fb0e7f2d5cf1ae",
+      "ts": "2026-09-20T21:43:06"
+    },
+    {
+      "id": "GI-S_battle_turn_10",
+      "kind": "image_gen_ref",
+      "cell": "S_battle_turn_10",
+      "ok": true,
+      "rc": 0,
+      "wall_s": 33,
+      "image": "/Users/admin/astra-burst/grok/C-8/S_battle_turn_10/S_battle_turn_10.png",
+      "image_sha256": "34c97839b9e9abafdcd59f35e65df59c9ee4c636d0c6263570b24b9d425f27e3",
+      "ref": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-8/artifacts/seeds/S_battle_p3.png",
+      "ref_unsupported": 0,
+      "prompt_sha256": "c1771e33e3fdba3b600d016a2dd609946030a9a1b50b380b9d8192255cfef2ea",
+      "ts": "2026-09-20T21:43:39"
     }
   ],
   "run": "C-8",
@@ -936,6 +1081,11 @@
       "id": "REDESIGN-P2",
       "ts_note": "Spin passes 2 and 3. r1 (revolution made explicit): body revolves correctly front/side/back/side, BUT the legs straightened and the shot zoomed in. r2 (crouch restated as a permanent CHARACTER TRAIT — \"built in a deep squat, has no standing pose, helmet stays at the same low height\" — plus an explicit scale pin): revolution HOLDS, knees bent, scale stable (height spread 0.17 vs 0.25), and the BAKED BLUR ARCS ARE GONE — first clean-pixel spin of the run. Remaining miss: the mace arm RAISES beside the helm instead of holding out at full reach — the model prior for \"spinning with a mace\" is an overhead whirl, and prose loses to it. PATTERN ACROSS THREE PASSES: whichever attribute leads the prompt is the one that survives; the others relax. Identical anti-blur wording failed in r1 and succeeded in r2, so there is real sampling variance — a targeted single-clause edit is worth a re-roll. r3 = r2 verbatim with ONLY the arm clause sharpened (locked straight, horizontal, signpost, never above shoulder).",
       "ts": "2026-09-20T21:30:44"
+    },
+    {
+      "id": "REDESIGN-P3",
+      "ts_note": "Turnaround-as-spin, first set of 8 (R-C8-5): the TECHNIQUE WORKS — identity is superb across all eight independently generated stills, the deep stance holds in every one, the arm is locked out at full reach in 00/01/03/04, scale is consistent (figure height 516-581 px on ~550 median) and every frame is blur-free, which four clip passes never achieved. What does NOT work is ANGLE CONTROL BY DEGREES: \"turned 135 degrees\" does not land. The frames that came out exactly right (03, 04 = clean back views) are the ones described by WHAT THE CAMERA SEES (\"the back of his helmet\"), not by a number. Coverage: front x3 (00,01,07), quarter (02), back x2 (03,04), three-quarter-back (05) — nothing at either side profile. Frame 06 is a DEFECT: the fist is empty and pointing, with the mace head detached near his shoulder. Instrument note: mace screen-angle is NOT a phase estimator here — a horizontal arm under an elevated camera traces an ellipse, so screen angle clusters near 0 and 180; and the helm-band/visor proxies validated on the C-8 spin CLIPS do not separate on these stills (quoted nowhere). Eye is the instrument. Re-fired 08 (his right side), 09 (his left side, shield face-on), 10 (replaces 06) in camera-sees language.",
+      "ts": "2026-09-20T21:42:17"
     }
   ]
 }

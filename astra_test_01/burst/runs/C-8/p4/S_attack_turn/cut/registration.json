@@ -1,7 +1,7 @@
 {
  "kind": "attack",
- "direction": "W",
- "method": "TURNAROUND-AS-SPIN (R-C8-5) phase-rolled (R-C8-4): ONE conductor-gated revolution of eight stills serves all eight facings; this cell starts the loop at index 2",
+ "direction": "S",
+ "method": "TURNAROUND-AS-SPIN (R-C8-5): eight conductor-gated stills registered with the frozen vc.register",
  "source_stills": {
   "00": "/Users/admin/astra-burst/grok/C-8/S_battle_p3/S_battle_p3.png",
   "01": "/Users/admin/astra-burst/grok/C-8/S_battle_turn_01/S_battle_turn_01.png",
@@ -89,8 +89,7 @@
  "flags": [
   "frames 06 and 08 discarded: the \"arm foreshortened toward the camera\" wording made Grok draw an EMPTY POINTING HAND with the mace detached",
   "frame 09 (shield face-on) held in reserve \u2014 the chosen eight cover the orbit more evenly",
-  "angle spacing is eye-judged, not measured: degrees do not land in the prompt, camera-sees language does",
-  "phase assignment is BY CONSTRUCTION (index k = 45 deg from S), not independently verified \u2014 at 2.5 rev/s a 45 deg start-phase error lasts 44 ms"
+  "angle spacing is eye-judged, not measured: degrees do not land in the prompt, camera-sees language does"
  ],
  "normalisation": "common figure HEIGHT (30 % of canvas); width-normalisation was the size-pop bug \u2014 a foreshortened mace narrows the bbox and scaled that frame up",
  "registered_heights": [
@@ -102,6 +101,5 @@
   239,
   239,
   239
- ],
- "phase_roll": 2
+ ]
 }
