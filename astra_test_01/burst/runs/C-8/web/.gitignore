@@ -1,0 +1,19 @@
+# Build artifacts and evidence for the /play three-character cliffside trio.
+# ~1 GB of Godot projects, import caches and web exports. All of it is
+# REPRODUCIBLE from the tracked scripts in this directory plus the frozen
+# exporter, and the shipped result lives in reincarnated-loadout. Tracked here:
+# the scripts only.
+#
+#   build_char.sh       one character -> a Godot web export
+#   lossy_sprites.py    512 px lossy pass the 2048 px overlay threshold misses
+#   assemble_trio.py    three exports -> one shared-engine route
+#   mk_props_keeper.py  CS-props-trio -> trio-minus-the-played-character
+#   mk_portraits.py     select-screen portraits, cut from real exported frames
+#   verify_trio.js      headless-Chrome proof that it actually plays
+#
+build-*/
+stage-*/
+props/
+logs/
+verify-local/
+verify-prod/
