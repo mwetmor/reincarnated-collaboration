@@ -125,9 +125,78 @@
       "codex_version": "codex-cli 0.153.4",
       "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
       "exit": 0
+    },
+    {
+      "id": "KP-B1c",
+      "type": "GENERATE",
+      "experiment": "KC2-PLAY-B1c-establishing-bare",
+      "brief_sha256": "1a9bd47a302502a5225043fcf896fb56e28afbca11cbb4330b01c45bbb16c120",
+      "started": "2026-09-21T00:17:36.381967+00:00",
+      "ended": "2026-09-21T00:21:48.123482+00:00",
+      "minutes": 4.195737039583309,
+      "image_calls": 2,
+      "tool_calls": 5,
+      "audit": {
+        "violations": [],
+        "image_calls": 2,
+        "tool_calls": 5,
+        "tools_seen": {
+          "command_execution": 5
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0c153-4cf8-78f3-899c-de042e2dd002/exec-3c328e36-85a1-425a-b809-6965198a262d.png",
+            "sha256": "5ed20400c70a50aa0c2be388ce6c19632a468de2c3b9d5aef2c54ba9dcecf672"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0c153-4cf8-78f3-899c-de042e2dd002/exec-89faaed5-5998-459f-ad2b-66edfa499355.png",
+            "sha256": "72d8a71d41bcb9eb9bf52f5ec688948abb3bc8992cf42bd0556bb386dc149cb0"
+          }
+        ]
+      },
+      "receipt_sha256": "b7206c03af6b38b615fc3e9be980a69f97319f5af968ae5fc3791d5d4e5ad67f",
+      "artifacts": [
+        {
+          "name": "b1c_establishing_01.png",
+          "sha256": "5ed20400c70a50aa0c2be388ce6c19632a468de2c3b9d5aef2c54ba9dcecf672"
+        },
+        {
+          "name": "exec-3c328e36-85a1-425a-b809-6965198a262d.provenance.json",
+          "sha256": "a39614d6a055cb733e3265ba3b069015a68a07c85f1ea0918a129d3081a2f667"
+        },
+        {
+          "name": "exec-89faaed5-5998-459f-ad2b-66edfa499355.provenance.json",
+          "sha256": "bb978116d8a3672284156cfc630fa297cd80be2b28099c1f9e77740a14ff4b3c"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0c153-4cf8-78f3-899c-de042e2dd002/exec-3c328e36-85a1-425a-b809-6965198a262d.png",
+          "sha256": "5ed20400c70a50aa0c2be388ce6c19632a468de2c3b9d5aef2c54ba9dcecf672"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0c153-4cf8-78f3-899c-de042e2dd002/exec-89faaed5-5998-459f-ad2b-66edfa499355.png",
+          "sha256": "72d8a71d41bcb9eb9bf52f5ec688948abb3bc8992cf42bd0556bb386dc149cb0"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
     }
   ],
-  "images_used": 3,
+  "images_used": 5,
   "images_cap": 999999,
   "experiments": {},
   "milestones": [
@@ -140,6 +209,11 @@
       "id": "M-B1d-IMAGE",
       "note": "KP-B1d DELIVERED_WITH_CONCERNS: 2 image_gen calls (first request with 7 refs rejected by tool validation -> Astra reduced refs; then 1 gen + 1 retry within cap 2), 0 violations; packet 003 + phone; HALT for Matt review.",
       "ts": "2026-09-20T20:10:39"
+    },
+    {
+      "id": "M-B1c-IMAGE",
+      "note": "KP-B1c DELIVERED_WITH_CONCERNS (2 calls, 0 violations): the bare establishing image of the whole arena + world; packet 004 + phone; structure ruling S1-S6 to Matt.",
+      "ts": "2026-09-20T20:22:15"
     }
   ],
   "halts": [],
