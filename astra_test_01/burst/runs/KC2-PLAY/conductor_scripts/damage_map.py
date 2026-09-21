@@ -1,5 +1,10 @@
 #!/usr/bin/env python3
 """Conductor glue (not lane code): render a DAMAGE MAP for a chunk from an authored EVENT LIST (crack law § 3).
+
+!! E1 at [0,0] IS SUPERSEDED (crack-law corrigendum 2): [0,0] is the arena SPAWN, and this script put the
+!! demon-gate crater on the player's entry while the note said "~6 m south". Ruling: the blast is at the
+!! CROSSING and the player enters from the SOUTH FACADE. The event list below is B1d's record of what was
+!! painted; guide v2 re-authors it to the ruled layout after Matt's S1-S6.
 Deterministic (seeded). Outputs: <out>/b1d_damage_annot.png (guide + overlay + legend), <out>/b1d_damage_mask.png (class colours), <out>/b1d_events.json."""
 import json, math, random, sys
 from PIL import Image, ImageDraw, ImageFont
@@ -16,7 +21,10 @@ events = [
 ]
 im = Image.open(guide).convert("RGB"); W,H = im.size
 mask = Image.new("RGB",(W,H),(0,0,0)); md = ImageDraw.Draw(mask); ad = ImageDraw.Draw(im)
-C = {"crater":(120,0,120),"spall_ring":(200,80,200),"crack_line":(255,255,255),"impact_fracture":(255,200,0),"scorch":(60,60,60),"blast_scorch":(30,30,30),"soot_plume":(90,90,90),"debris":(0,160,255),"talus":(0,90,180)}
+C = {"crater":(120,0,120),"spall_ring":(200,80,200),"crack_line":(255,255,255),"impact_fracture":(255,200,0),"scorch":(60,60,60),"blast_scorch":(30,30,30),"soot_plume":(90,90,90),"debris":(0,160,255),"talus":(0,90,180),"settlement_crack":(0,255,255)}
+# settlement_crack (crack law rule 6: ONE long crack along a broken crypt vault's crown line) is a declared
+# class with a colour; a chunk with no crypt breach emits none. Added at corrigendum 1 (drax: the gate named
+# a class this generator never had).
 def P(m): x,y = m2px(m[0],m[1]); return (GATE[0]+x, GATE[1]+y)
 def ell(d, c, rx, ry, fill=None, outline=None, w=1): d.ellipse([c[0]-rx,c[1]-ry,c[0]+rx,c[1]+ry], fill=fill, outline=outline, width=w)
 for e in events:
