@@ -82,3 +82,12 @@ What to refuse: gore as texture (it reads as noise at this figure size and break
 | **F-S8** | The Banner object (×1.03 aura, 8 m) | **The Keeper's own standard planted on the dais steps** — the one banner still hanging right-side-out; its aura is a runtime light overlay, never painted |
 
 *Tracker-delta: game tracker SESSION-DELTA on Matt's rulings. — gandalf, 2026-09-20.*
+
+---
+
+## ⚑ CORRIGENDUM-FORWARD 2 (2026-09-20, Matt's B1d notes — ledger R-KP-B4) — governs over § 4 and § 5
+
+1. **BARE FIRST (process, the cliffside's own):** the plate is painted **open** — floor, walls and their faces, dais, piers, breaches, crypt openings, collapsed vault, the world beyond — with **no dressing** (no pews, statues, candles, bodies, bone piles, banners, gates, rubble props). Floor damage per the crack law is plate paint; everything else is a **later object** (§ 4 B6, dress-then-isolate) so the space is planned first. B1c (the establishing image) is painted bare; B2's chunks are painted bare.
+2. **THE FALLEN WINDOW IS A HERO OBJECT** (Matt: *"the best part"*): the great sun-window torn from the apse, lying flat, ~8 m across, **vibrant real-church stained glass** (ruby, cobalt, emerald, amber, violet, gold; a saint-knight, a sun, chains in the lead), tracery as an **ornate cross — in a circle (rosette) or free-standing** (B1e: two variants, Matt picks) — with the **sunset gleaming across it and flames reflected in the panes**: the most beautiful and most violated thing in the room. Isolated on green as a prop (its shadow is the scene's); its gleam and flame-reflection become a **glow layer** over the prop (T3q additive flicker) so the reflections *dance*. It sits on the nave axis south of the dais.
+3. **No exterior-courtyard iron gates or fences inside the nave** (B1d's were wrong); iron only where structural — vault chains, bound doors, portcullis on the crypt stairs.
+4. B1d's "pile under the right column" is struck; nothing like it is authored — every object in the dressing pass is named, sized and placed on purpose.
