@@ -57,6 +57,13 @@ python3 -B "$OVERLAY/apply_overlay.py" "$DEST" "$ROUTE" | grep -c '^lossy WebP' 
   | sed "s/^/  overlay lossy (>=2048px): /"
 python3 -B "$WEB/lossy_sprites.py" "$DEST"
 
+# Held WHIRLWIND touch button. Gated on the project declaring an `attack`
+# action, so it is STRUCTURALLY impossible to add to the Keeper/Necromancer
+# builds -- their F does nothing because the action does not exist, and a dead
+# button would read as a bug rather than as an absence. Must run AFTER the
+# overlay's second pass, which rewrites scripts/touch_controls.gd from source.
+python3 -B "$WEB/whirlwind_button_patch.py" "$DEST"
+
 echo "== [$CHAR] import (pass 2)"
 "$GODOT" --headless --path "$DEST" --import > "$LOG/import2.log" 2>&1
 

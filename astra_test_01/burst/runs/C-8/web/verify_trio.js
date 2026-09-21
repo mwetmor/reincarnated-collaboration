@@ -172,19 +172,47 @@ async function drawnFraction(page, shot) {
     // It also needs a noise floor. The idle animation alone repaints ~0.3% of
     // the frame, so a bare "> 1%" threshold cannot tell "attack fired" from
     // "character breathed". Measure the idle churn first and judge against it.
-    const shotRestA = (await page.screenshot()).toString('base64');
-    await sleep(700);
-    const shotRestB = (await page.screenshot()).toString('base64');
-    const idleNoise = await frameDiff(page, shotRestA, shotRestB);
+    // The floor is a MEDIAN of several consecutive-frame diffs, not one pair.
+    // A single sample is not a noise floor: idle churn depends on which frames
+    // of the breathing cycle happen to be caught, and it ranged 0.0019-0.0043
+    // across runs here. Taken as one sample it once drifted high enough to drag
+    // the threshold above a real, working whirlwind and fail the build. Same
+    // family as the tapped-F and the ranged-206 mistakes in this piece: the
+    // measurement was noisier than the thing being measured.
+    const idleShots = [];
+    for (let i = 0; i < 5; i++) {
+      idleShots.push((await page.screenshot()).toString('base64'));
+      await sleep(180);
+    }
+    const idleDiffs = [];
+    for (let i = 1; i < idleShots.length; i++) {
+      idleDiffs.push(await frameDiff(page, idleShots[i - 1], idleShots[i]));
+    }
+    idleDiffs.sort((a, b) => a - b);
+    const idleNoise = idleDiffs[Math.floor(idleDiffs.length / 2)];
 
-    const shotRest = (await page.screenshot()).toString('base64');
+    // Measure the HOLD the same way the idle floor is measured: consecutive
+    // frames, median. Comparing a SINGLE hold sample against a median idle was
+    // the second way this check went wrong -- the real separation is ~3.7x, and
+    // one noisy sample against a 4x gate failed a whirlwind that the dedicated
+    // suite (verify_whirlwind_touch.js) simultaneously proved was spinning.
+    // Like-for-like on both sides, or the ratio means nothing.
     await page.keyboard.down('KeyF');
-    await sleep(700);
-    const shotF = (await page.screenshot({ path: path.join(outdir, `${ch.id}_03_F_held.png`) })).toString('base64');
-    await sleep(500);
-    await page.screenshot({ path: path.join(outdir, `${ch.id}_03b_F_held_late.png`) });
+    await sleep(250);
+    const holdShots = [];
+    for (let i = 0; i < 5; i++) {
+      holdShots.push((await page.screenshot()).toString('base64'));
+      await sleep(180);
+    }
+    await page.screenshot({ path: path.join(outdir, `${ch.id}_03_F_held.png`) });
     await page.keyboard.up('KeyF');
-    const fDiff = await frameDiff(page, shotRest, shotF);
+    const holdDiffs = [];
+    for (let i = 1; i < holdShots.length; i++) {
+      holdDiffs.push(await frameDiff(page, holdShots[i - 1], holdShots[i]));
+    }
+    const holdSamples = [...holdDiffs];
+    holdDiffs.sort((a, b) => a - b);
+    const fDiff = holdDiffs[Math.floor(holdDiffs.length / 2)];
     const errorsAfterF = errors.length;
 
     // Still alive after F? Move again -- this is what "degrades gracefully"
@@ -222,16 +250,16 @@ async function drawnFraction(page, shot) {
       // (the whirlwind travels at walk pace, so the follow camera repaints a
       // lot). Keeper/necro: F is an UNMAPPED key in their builds -- no attack
       // action exists at all -- so the frame must stay within idle churn.
-      // The absolute floor is deliberately SMALL. The figure is ~95 px tall in
-      // a 1024x640 view, so even a whirlwind that repaints everything around
-      // the character touches only ~1-2% of the frame; a "surely 2%" floor
-      // rejected a working attack on the first run. The load-bearing test is
-      // the RATIO to that character's own idle churn, which separates cleanly:
-      // warlord ~10x noise, keeper/necro ~2-3x (i.e. idle churn and nothing
-      // else, which is exactly right -- F is not even a mapped action there).
+      // Both sides are now medians of consecutive-frame churn, so the ratio is
+      // meaningful. Measured separation, local and production: the warlord
+      // holds at ~3.5-4x his own idle floor, while the keeper and necromancer
+      // sit at ~1x (F is not a mapped action in their builds at all). The gate
+      // sits at 2.2x / 1.8x, between those, with margin on both sides. The
+      // small absolute floor stays because the figure is only ~95 px tall in a
+      // 1024x640 view -- even a full whirlwind repaints ~1.5% of the frame.
       fBehaved: ch.attacks
-        ? fDiff > Math.max(0.006, idleNoise * 4)
-        : fDiff <= Math.max(0.01, idleNoise * 3),
+        ? fDiff > Math.max(0.006, idleNoise * 2.2)
+        : fDiff <= Math.max(0.01, idleNoise * 1.8),
       noNewErrorsOnF: errorsAfterF === 0,
       aliveAfterF: move2Diff > 0.05,
       chipPresent: !!chip && chip.href === '/play' && chip.who === ch.label,
@@ -243,7 +271,7 @@ async function drawnFraction(page, shot) {
       step: `character ${ch.id}`, ok, checks,
       bootMs, packs, drawn: +drawn.toFixed(3),
       moveDiff: +moveDiff.toFixed(3), idleNoise: +idleNoise.toFixed(4),
-      fDiff: +fDiff.toFixed(3), move2Diff: +move2Diff.toFixed(3),
+      fDiff: +fDiff.toFixed(4), holdSamples: holdSamples.map((d) => +d.toFixed(4)), move2Diff: +move2Diff.toFixed(3),
       chip, missingAnimationLines: missingAnim.slice(0, 6), errors,
     });
     fs.writeFileSync(path.join(outdir, `${ch.id}_console.txt`), consoleLines.join('\n'));
