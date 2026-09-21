@@ -1,0 +1,26 @@
+{
+ "text": "GENERATE BURST KP-B1g — the fallen cross, PLATE FIX + foreshorten (Run KC2-PLAY; conductor gandalf). The previous pass got the ART right — Matt's centre crack, the broken arm, the vivid glass — and got the PLATE wrong: it painted a dark atmospheric backdrop with coloured light spill instead of a flat chroma plate, so the object cannot be cut out. task_id \"KP-B1g\".\n\nIMAGE 1 IS THE EDIT TARGET AND IT IS ALREADY CORRECT IN TWO WAYS YOU MUST NOT UNDO: (a) its background is FLAT PURE #00ff00 across the whole 1536x1024 canvas, and (b) the cross is already scaled and placed as it should be — about 642 px tall, centred. EDIT this image. Keep the canvas, keep the placement, keep the plate.\n\nTHE ONLY TWO CHANGES:\n 1 — FORESHORTEN IT ONTO THE GROUND. The cross must read as LYING FLAT on a stone floor seen by our fixed game camera: elevated three-quarter, 52.95 degrees down, north up-screen. Right now it still reads as an object facing the viewer. Re-draw the same object as if photographed from above-and-in-front: its long axis running away from us up the screen (north), the head of the cross at the TOP and slightly SMALLER/tighter than the foot, the arms sweeping left and right across the floor, every ornament and pane squashed vertically to about 0.8 of its width, the thickness of the stone tracery visible along its top edges the way a kerb is visible when you look down at it. It is a slab on the ground, not a picture on a wall. Its broken pieces lie ON the floor plane in the same projection.\n 2 — FINISH THE BREAKING. Keep the centre crack, the snapped-off arm, the missing panes and the scattered glass exactly as they are — they are right. Push them a little further: the two halves shifted slightly apart along the crack and one side sitting a little higher where it landed on rubble; a few long splinters of glass and twisted lead standing up out of the break and catching the light.\n\nKEEP, UNCHANGED: the vivid stained glass (ruby, cobalt, emerald, amber, violet, gold), the knight-saint split down the middle by the crack, the sun and the chains in the leadwork, the fleur ornament, the pale fresh stone inside every fracture, the hand-drawn painted register (confident dark contour with taper, clean painted planes, restrained texture; not pixel art, not cel-shaded, not a 3D render).\n\nTHE PLATE RULE, AND IT IS THE REASON THIS BURST EXISTS: every pixel that is not the cross, its broken pieces, its splinters or its scattered glass must be FLAT PURE #00ff00 — RGB exactly (0,255,0). NO glow, NO bloom, NO light spill, NO coloured haze, NO vignette, NO shadow anywhere on the green. The green is a chroma-key plate: the object gets cut out along that edge and placed on a painted floor, and the scene supplies its shadow and its firelight. An image whose background carries ANY glow or darkness is unusable no matter how good the object is. The glass may glow INSIDE its own panes only.\n\nDELIVER exactly ONE 1536x1024 image_gen result, EDIT mode on IMAGE 1. ONE retry only if the background is not flat pure #00ff00, or the cross still reads upright rather than lying on the ground — name which. Copy the output from $CODEX_HOME/generated_images/... to out/window_B3_cross_flat.png with sha256. No code. No other files. No web.\nRETURN: receipt task_id \"KP-B1g\"; images = the file with prompt, references and elapsed_s; calls_used = the TRUE number of image_gen calls; status; concerns listed honestly. Never PASS/FAIL.",
+ "references": [
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/KC2-PLAY/artifacts/B1a-refs/b1f_plate_target.png",
+   "role": "IMAGE 1 — EDIT TARGET: the cross at correct size, centred, on a FLAT PURE #00ff00 plate (keep the canvas, the placement and the plate)"
+  },
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/KC2-PLAY/artifacts/B1a-refs/ref_cliffside_tile_crop.png",
+   "role": "IMAGE 2 — register exemplar (match the hand); note how the floor is seen from above-and-in-front — that is the projection the cross must lie in"
+  },
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/KC2-PLAY/artifacts/B1a-refs/b1a_scale_figure.png",
+   "role": "IMAGE 3 — scale figure: a 1.9 m person = 115 px (do not paint)"
+  }
+ ],
+ "image_cap": 2,
+ "minutes_cap": 15,
+ "tool_call_cap": 20,
+ "outputs": [
+  "out/window_B3_cross_flat.png"
+ ],
+ "effort": "high",
+ "add_dirs": [],
+ "experiment": "KC2-PLAY-B1g-cross-plate-fix"
+}
