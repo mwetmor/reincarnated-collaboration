@@ -1,0 +1,278 @@
+{
+ "generated": "2026-09-20",
+ "author": "drax (presentation seam) \u2014 run KC2-PLAY W2 scene instruments",
+ "authority": "KP-19 (art leads the boundary) + KP-20 (the sha IS the edge)",
+ "label": "B1d",
+ "painting": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/KC2-PLAY/artifacts/B1d/b1d_nave_01.png",
+ "painting_sha256": "7608370d15ce0754d6754c08330cab9d5ce7a4446a4c249ba1fe7eb8a9e77618",
+ "painting_bytes": 2690898,
+ "painting_size_px": [
+  1536,
+  1024
+ ],
+ "id_mask": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/drax/captures/2026-09-20-kc2-play-arena-guide/b1a_id_1536x1024.png",
+ "id_mask_sha256": "5aa8a140ce9443ceb44c95322c4acefd50b662a678356802da52c41ee6d3aa95",
+ "plate": {
+  "px_per_m_east": 100.617553710938,
+  "px_per_m_south": 80.307624765,
+  "gate_px": [
+   768.0,
+   798.72
+  ]
+ },
+ "green_key": {
+  "rule": "keyed iff G - max(R,B) >= green_dom",
+  "green_dom": 120.0,
+  "exact_00ff00_pct": 0.0002,
+  "keyed_pct": 4.9535,
+  "plateau_pct_by_threshold": {
+   "40": 5.059,
+   "60": 5.0261,
+   "80": 4.9963,
+   "100": 4.974,
+   "120": 4.9535,
+   "150": 4.9231,
+   "180": 4.8883,
+   "200": 4.8578,
+   "220": 4.8016
+  },
+  "plateau_width_pp": 0.2012,
+  "keyed_rgb_ranges": {
+   "R": [
+    0,
+    97
+   ],
+   "G": [
+    125,
+    255
+   ],
+   "B": [
+    0,
+    72
+   ]
+  }
+ },
+ "parameters": {
+  "green_dom": 120.0,
+  "morph_m": 0.1,
+  "morph_se_px": [
+   10,
+   8
+  ],
+  "simplify_m": 0.05,
+  "hazard_key": {
+   "sat_min": 0.65,
+   "R_min": 225.0,
+   "G_minus_B_min": 50.0,
+   "luma_min": 150.0,
+   "close_m": 0.15,
+   "min_m2": 0.3
+  },
+  "pool_confirm_overlap_frac": 0.25
+ },
+ "component": {
+  "seed": "gate pixel",
+  "components_found": 1,
+  "gate_component_is_largest": true,
+  "pockets_filled_px": 0,
+  "walkable_px": 1464686,
+  "walkable_fraction_of_frame": 0.93122
+ },
+ "METRICS_FOR_THE_T_B_HEADER": {
+  "area_m2": 181.265,
+  "max_chord_m": 18.928,
+  "max_chord_endpoints_m": [
+   [
+    -6.992,
+    -9.516
+   ],
+   [
+    7.509,
+    2.65
+   ]
+  ],
+  "boundary_vertices": 64
+ },
+ "pools": [
+  {
+   "id": "pool_1",
+   "centre_m": [
+    -18.524,
+    -4.274
+   ],
+   "r_m": 11.736,
+   "centre_px": [
+    -1095.8,
+    455.5
+   ],
+   "rx_px": 1180.81,
+   "ry_px": 942.46,
+   "fit": "Kasa least-squares circle on non-frame boundary px, metric space",
+   "fit_resid_rms_m": 0.0027,
+   "fit_resid_max_m": 0.0051,
+   "suggested_px_in_chunk": 40800,
+   "suggested_m2_in_chunk": 5.049,
+   "in_chunk_extent_m": [
+    -7.633,
+    -6.788,
+    -8.651,
+    0.103
+   ],
+   "clipped_by_frame": true,
+   "painted_molten_overlap_frac": 0.0,
+   "decision": "UNMOVED \u2014 suggestion stands. UNCONFIRMED_BY_PAINT: painted molten covers 0.0 % of the suggested in-chunk area (< 25%). No position is invented."
+  }
+ ],
+ "painted_hazard_blobs": [
+  {
+   "id": 1,
+   "area_px": 2547,
+   "area_m2": 0.315,
+   "centroid_m": [
+    -0.521,
+    -9.4
+   ],
+   "r_equiv_m": 0.317
+  },
+  {
+   "id": 2,
+   "area_px": 3341,
+   "area_m2": 0.413,
+   "centroid_m": [
+    0.316,
+    -9.242
+   ],
+   "r_equiv_m": 0.363
+  },
+  {
+   "id": 19,
+   "area_px": 3654,
+   "area_m2": 0.452,
+   "centroid_m": [
+    -0.741,
+    -7.812
+   ],
+   "r_equiv_m": 0.379
+  },
+  {
+   "id": 54,
+   "area_px": 16585,
+   "area_m2": 2.053,
+   "centroid_m": [
+    -5.557,
+    -4.893
+   ],
+   "r_equiv_m": 0.808
+  },
+  {
+   "id": 113,
+   "area_px": 5402,
+   "area_m2": 0.669,
+   "centroid_m": [
+    5.353,
+    -3.51
+   ],
+   "r_equiv_m": 0.461
+  },
+  {
+   "id": 165,
+   "area_px": 3009,
+   "area_m2": 0.372,
+   "centroid_m": [
+    0.456,
+    -0.921
+   ],
+   "r_equiv_m": 0.344
+  },
+  {
+   "id": 182,
+   "area_px": 3982,
+   "area_m2": 0.493,
+   "centroid_m": [
+    -0.309,
+    -0.322
+   ],
+   "r_equiv_m": 0.396
+  }
+ ],
+ "painted_hazards_claimed_by_no_suggested_pool": [
+  {
+   "id": 1,
+   "area_px": 2547,
+   "area_m2": 0.315,
+   "centroid_m": [
+    -0.521,
+    -9.4
+   ],
+   "r_equiv_m": 0.317
+  },
+  {
+   "id": 2,
+   "area_px": 3341,
+   "area_m2": 0.413,
+   "centroid_m": [
+    0.316,
+    -9.242
+   ],
+   "r_equiv_m": 0.363
+  },
+  {
+   "id": 19,
+   "area_px": 3654,
+   "area_m2": 0.452,
+   "centroid_m": [
+    -0.741,
+    -7.812
+   ],
+   "r_equiv_m": 0.379
+  },
+  {
+   "id": 54,
+   "area_px": 16585,
+   "area_m2": 2.053,
+   "centroid_m": [
+    -5.557,
+    -4.893
+   ],
+   "r_equiv_m": 0.808
+  },
+  {
+   "id": 113,
+   "area_px": 5402,
+   "area_m2": 0.669,
+   "centroid_m": [
+    5.353,
+    -3.51
+   ],
+   "r_equiv_m": 0.461
+  },
+  {
+   "id": 165,
+   "area_px": 3009,
+   "area_m2": 0.372,
+   "centroid_m": [
+    0.456,
+    -0.921
+   ],
+   "r_equiv_m": 0.344
+  },
+  {
+   "id": 182,
+   "area_px": 3982,
+   "area_m2": 0.493,
+   "centroid_m": [
+    -0.309,
+    -0.322
+   ],
+   "r_equiv_m": 0.396
+  }
+ ],
+ "outputs": {
+  "walkable.json": "2e4c804d1d140e2ff0f3d7ebae341d488cbeb071d26780d7246890859f784b1c",
+  "boundary_overlay.png": "be8f9339db2cc522c919232be9ef24c69f0f2584928e9c18ebb169863208940d",
+  "walkable_mask.png": "86384da6c752c4ca1047c0a8d6705ce4d0695d750f1cad847522460bea8f04fd"
+ },
+ "caveats": [
+  "The boundary is ONLY as tight as the painter's green. Clause 1 of the instrument asks for flat #00FF00 OUTSIDE the nave; in this proof the green covers the far background only, so every near structure the painter drew INSIDE the frame (piers, arcade, rubble talus, breach debris) falls inside the derived walkable region. The derived area is therefore an UPPER BOUND on the playable floor, not the playable floor. Tightening it needs either more green from the painter or a second declared key for painted structure."
+ ]
+}
