@@ -1,0 +1,27 @@
+{
+ "text": "GENERATE BURST KP-B1e — THE FALLEN WINDOW: a hero object, isolated on flat #00ff00, TWO variants (Run KC2-PLAY; conductor gandalf; Matt: \"the best part — the panes of glass window that fell being a real church window … even more vibrant colors … an ornate cross shape (within a circle as before, or shaped like a cross without the circle) with the sunset gleaming off it or reflections of flames dancing through it, to convey the obscenity of the religious destruction\"). task_id \"KP-B1e\".\n\nWHAT THIS IS. Two 1536x1024 images, each ONE object on a flat pure #00ff00 background (nothing else painted — no floor, no shadow, no context): the great window of a crusading order's fortress-cathedral, torn from its apse and lying FLAT on the nave floor, seen from our fixed camera (elevated three-quarter, 52.95 degrees down, north up — so the fallen window is foreshortened: 1 m across the screen = 100.6 px, 1 m up the screen = 80.3 px; a circle on the floor reads as an ellipse 100.6 wide by 80.3 tall per metre). The window is about 8 m across (≈ 800 px wide, ≈ 640 px tall on screen). A 1.9 m person standing beside it would be 115 px tall (IMAGE 3) — the tracery bars are as thick as an arm, the panes as big as a hand to a head.\n VARIANT A (out/window_A_rosette.png): a great ROSE WINDOW — an ornate cross of stone tracery inside a circle, a sun-cross rosette, the order's sun-and-chain iconography in the tracery.\n VARIANT B (out/window_B_cross.png): the same glass and tracery as a free-standing ORNATE CROSS shape without the circle — a tall cross with flared, decorated arms.\n In both: the stone tracery is cracked and broken in a few places (it FELL), some panes shattered with shards scattered just beyond the frame, most panes INTACT — and the glass is the point: VIBRANT stained glass like a real artistic church window — deep ruby, cobalt, emerald, amber, violet, gold — with a saint-knight, a sun, and chains in the leaded design. The SUNSET from the WEST (screen left) gleams across the glass in a long gold highlight, and FLAMES out of frame are REFLECTED in the panes — warm firelight dancing in the coloured glass — so the window is at once the most beautiful and the most violated thing in the room. Fresh breaks: clean edges, pale stone inside the cracks.\n IMAGE 1 is the earlier painting's fallen window, which Matt liked: keep that idea and make it richer, larger, more vibrant, more ornate. IMAGE 2 is our register exemplar: HAND-DRAWN painted 2D — confident dark contour with visible taper and varying weight, painted fills in clean planes, restrained texture; not pixel art, not cel-shaded, not a 3D render. Match that hand; the glass may glow.\n\nPLATE RULE: everything that is not the window and its shards is flat pure #00ff00 exactly — no shadow on the green, no floor, no haze. The object will be cut out and placed on the painted floor later; its shadow is added by the scene.\n\nDELIVER exactly TWO image_gen results (one per variant). ONE retry per variant only if: the background is not flat #00ff00, the window is drawn standing or in perspective instead of lying flat under our camera, the glass is dull, or the register drifts from IMAGE 2 — name the reason. Copy the outputs from $CODEX_HOME/generated_images/... to out/window_A_rosette.png and out/window_B_cross.png with sha256. No code. No other files. No web.\nRETURN: receipt task_id \"KP-B1e\"; images = both files with prompt, references and elapsed_s; calls_used = the TRUE number of image_gen calls; status; concerns listed honestly. Never PASS/FAIL.",
+ "references": [
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/KC2-PLAY/artifacts/B1a-refs/ref_window_b1a_crop.png",
+   "role": "IMAGE 1 — the earlier fallen window Matt liked (idea to keep and enrich)"
+  },
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/KC2-PLAY/artifacts/B1a-refs/ref_cliffside_tile_crop.png",
+   "role": "IMAGE 2 — register exemplar (match the hand)"
+  },
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/KC2-PLAY/artifacts/B1a-refs/b1a_scale_figure.png",
+   "role": "IMAGE 3 — scale figure: a 1.9 m person = 115 px (do not paint)"
+  }
+ ],
+ "image_cap": 4,
+ "minutes_cap": 15,
+ "tool_call_cap": 20,
+ "outputs": [
+  "out/window_A_rosette.png",
+  "out/window_B_cross.png"
+ ],
+ "effort": "high",
+ "add_dirs": [],
+ "experiment": "KC2-PLAY-B1e-window-hero"
+}
