@@ -48,6 +48,11 @@
       "id": "M-C8-SW-FIX",
       "ts_note": "R-C8-3 walk fix: SW re-cut with --period-frames 24 (autocorr had locked a two-stride 48 at conf 0.99 — the high confidence was the tell); SE follows as its mirror; re-assembled 48 cells; re-exported to runs/C-8/cliffside_v40-warlord2/godot (exit 0); heavy-lock proof: import 0 errors, 8/8 directions walk with the right anim and 0 frames off-walkable, jump + cast contact clean. cliffside_v40-warlord (the double-speed build) is superseded.",
       "ts": "2026-09-20T20:34:38"
+    },
+    {
+      "id": "M-C8-ATTACK-PORT",
+      "ts_note": "Attack state ported into the cliffside scene (Matt authorized 2026-09-20; drax executed as a post-export patch, frozen exporter untouched). attack_patch.py: 8 attack_<DIR> animations into frames/keeper.tres (loop true; 12f@30 for S/SW/W/SE/E, 9f@22.5 for N/NE/NW — every one exactly 0.400 s = the 900 deg/s whirlwind rate), sprites/attack/<DIR>/ tree on the exporter convention, input action attack = F (physical_keycode 70), keeper.gd marker-guarded early-return gate. Idempotent (byte-identical on re-run), fails loudly. CONDUCTOR VERIFICATION (probe_attack_c8.gd, headless under the lock): 8/8 directions play the right attack cell, all 12/9 distinct frames, moved 0.0 px, cast+jump CANNOT interrupt mid-attack, returns to idle_<DIR> on release; 0 errors. Full re-proof after the patch: import 0 errors, 8/8 walks with 0 frames off-walkable, jump + cast contact — no regression. DRAX FINDING for the durable exporter item (T25): per-animation fps in keeper.tres is NOT the base FPS table — walk/run are overridden by --parallax movement-speed matching (20.7 / 14.5), so an exporter-native attack state must only assume base fps for the state it adds; project.godot [input] is tool-extended (vfx_cycle already present) so anchor-based insertion beats key-order assumptions.",
+      "ts": "2026-09-20T20:45:24"
     }
   ],
   "halts": [
