@@ -896,3 +896,78 @@ executed; `K-7` untouched; no width adjusted, no row reclassified, no production
 ⚑ **The finding is against my own instrument: zero of the six counted bands can discriminate a
 faithful port at this fight length, and the two reds that survive the confound are one divergence,
 not four.** The verdict of record — `STRUCTURAL @ coverage 89/89` — is unchanged.*
+
+---
+
+# ⚑ ADDENDUM 3 — 2026-09-21, **§ 7.2 IS CONFIRMED PER RECORD, AND ONE OF ITS SUPPORTS IS WITHDRAWN**
+
+> **APPEND ONLY.** The grade of record (`df2dc1188`) is not rewritten; the verdict —
+> `STRUCTURAL @ coverage 89/89` — is unchanged. Occasioned by legolas's decode lap,
+> `reincarnated-collaboration` `edc0f70db`:
+> `agentic_orchestration/legolas/research/2026-09-21-kc2-decode-lap-upstream/per_record_upstream_offense.json`
+> (sha256 `62cd379614ba39bfb9055d7297c14da6ceb9bb082c1ff311a150e5438ff1bdf6`, 466 rows).
+> ⚑ **The full v3.4 disposition is a math note committed ALONE in the engine (D4):**
+> `reincarnated-engine/src/reincarnated/simulation/math/kc2-play-v3p4-roster-basis-rebase-2026-09-21.md`.
+
+## C1 · ⚑ § 7.2 IS CONFIRMED — per record, against the substrate, with zero exceptions
+
+| | |
+|---|---:|
+| **confirmed present upstream** | ⚑ **338 of 338** |
+| **confirmed absent** | ⚑ **0** |
+| **undetermined** | ⚑ **0** |
+| slot rows available · of which offense-bearing | **1,618 · 1,339** |
+| granted-tree rows · of which attack-class | **3,992 · 1,149** |
+| OA/DA · swing timing · damage-reachable | **338 · 338 · 338** |
+| records with ≥ 1 filled attack slot | **337 of 338** *(the 338th is tree-borne)* |
+
+**Every figure above re-derived by me from the per-record rows, not read from the summary block; all seven agree.**
+
+⚑ **My § 7.2 reading — *"undone work, not absent data"* — is established at the per-record level, and Matt's testimony is confirmed against the substrate rather than merely corroborated by a coverage asymmetry.** The boundary is a **ROSTER BASIS**: the offensive tables enumerate the **baton** (one recorded run), the defensive tables the **pool**. I verified it by set equality this session — baton 169 ≡ timing-CSV 169, symmetric difference `0/0`; `|baton ∩ POOL-466| = 128`, the exact stop of every offensive table.
+
+## C2 · ⚑ AND ONE SUPPORT I PUT UNDER IT IS WITHDRAWN
+
+**§ 7.2 reads, as its third bullet:**
+
+> *"the offense decode measures its own shortfall INSIDE the set it did cover … **996 slots declared against 667 decoded (67.0 %), with 136 of 169 records decoding fewer slots than they declare.** ⚑ The extraction already knows it is one-third short on the records it did visit."*
+
+⚑ **WITHDRAWN. The arithmetic is exact; the inference is wrong.** `numAttackSlots` is **melee surround capacity**, not a skill count.
+
+**My own disproof, run this session — a contradiction needing no upstream read:**
+
+| test on `pm2_tg2_monster_timing.csv` | result |
+|---|---|
+| distinct values of `num_attack_slots` | **three: 4, 8, 12** — tracking `monster_classification` |
+| distinct values of `n_slots_decoded` | **nine: 0–8** |
+| ⚑ **records with `n_slots_decoded` > `num_attack_slots`** | ⚑ **13 of 169** |
+
+> ⚑ **A decoder cannot decode more skills than a skill count declares. Thirteen records do.** legolas's independent measurement agrees and goes further: on the covered 128, `decoded 506` against `upstream-filled 505`, and **records where decoded < upstream-filled = 0 of 128. There is no decode shortfall inside the covered set.**
+
+**What it costs:** one of four corroborations. ⚑ **The other three stand, and C1's per-record result replaces all of them at far greater strength — the conclusion is untouched and one of its legs was rotten.**
+
+⚑ **Fifth instance this run of one shape — the arithmetic correct, the REFERENT it ranged over the defect** (the σ over bodies · subtraction-for-intersection · `ANCHOR-169` implying it held the spawns · my `183.58` · and now a capacity field read as a count). ⚑ **I made it in the same paragraph in which I was naming that pattern in someone else's work.** The rule that catches it is my own — *name the population at the figure* — and **a field name is a population claim like any other.** legolas flagged it precisely because it was the support pointing his own way; **that is the standard and I did not meet it.**
+
+**It must not be carried into v3.4's cut, any prereg, or any report. It has already been relayed to Matt once.**
+
+## C3 · ⚑ SECOND SELF-CORRECTION OF THIS GRADE, AND WHAT THE PAIR MEANS
+
+| | claim | status |
+|---|---|---|
+| Addendum 1 § A3 | `E[bodies] = 183.58` | ⚑ **CONVICTED** — the pack gives 126.08; § 8 H3 **withdrawn**; the port exonerated |
+| Addendum 3 § C2 | *"the extraction knows it is one-third short"* | ⚑ **WITHDRAWN** — the port and the decoder both exonerated |
+
+⚑ **Both corrections run in the same direction: against my own instrument and in favour of the thing being graded.** Neither was found by the grader. One was found by the builder declining to fit toward my number; the other by the researcher testing the support that pointed his own way.
+
+> ⚑ **The reading I want on the record, because it is the useful one: a grade is not safe merely because its author is careful. It is safe when the people it grades are free to test its referents and are rewarded for doing so.** Both defects were in figures I derived, filed, pinned and cited — and **neither would have surfaced from inside the grading seat.**
+
+## C4 · WHAT MOVES IN THE GRADE, AND WHAT DOES NOT
+
+**Does not move:** the verdict (`STRUCTURAL @ 89/89`), all 24 EXACT-row outcomes, all 15 BAND rows, the four hypothesis dispositions as amended, and § 7.2's conclusion.
+
+**Moves:** § 7.2's third bullet is struck (above). ⚑ **And § 9's ceiling `C-b` is now on notice: it is a ceiling on a COVERAGE FRACTION, and after v3.4 that fraction is `1.0000` on every wave — the ceiling dissolves rather than being discharged.**
+
+⚑ **Flagged forward, because it is the largest consequence and it belongs in `v1.5` rather than here: v3.4 will BREAK `TA-X-25(b)` and `TA-X-25(c)`** — both are STRUCTURAL NON-ZEROS whose named mechanisms (*"6 of the 9 are rollable"*, *"POOL-466 contains 338 NO-DATA members"*) **go to zero**, making both rows **unpassable by a correct port**, and `TA-B-15` inverts with them. **The reasoning and the proposed restatement — accounting identities rather than sign assertions — are § 3 of the v3.4 math note.**
+
+---
+
+*Appended 2026-09-21 by gamora (simulation seam). Verification reads only; nothing executed; `K-7` untouched; no width adjusted, no row reclassified, no production code touched. ⚑ **Second withdrawal of one of my own figures in this document; both exonerate the port.** The verdict of record is unchanged.*
