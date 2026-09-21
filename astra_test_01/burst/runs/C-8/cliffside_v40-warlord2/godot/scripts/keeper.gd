@@ -13,6 +13,7 @@ var facing: String = "S"
 var state: String = "idle"
 var warned: Dictionary = {}
 var fallback_remaining: float = -1.0
+var whirlwind: Node2D
 
 func _ready() -> void:
     _load_directional_kit()
@@ -25,6 +26,11 @@ func _ready() -> void:
         frost_frames = load("res://vfx/frost_bolt.tres")
     sprite.animation_finished.connect(_animation_finished)
     _play_state()
+    # PATCH(drax whirlwind_patch): Eye of Reckoning whirlwind VFX
+    whirlwind = preload("res://scripts/whirlwind.gd").new()
+    whirlwind.name = "Whirlwind"
+    add_child(whirlwind)
+    whirlwind.bind(sprite)
 
 func _physics_process(delta: float) -> void:
     _update_cast_halo()
@@ -43,9 +49,41 @@ func _physics_process(delta: float) -> void:
         return
     # PATCH(drax attack_patch): attack state
     if state == "attack":
-        velocity = Vector2.ZERO
         if not Input.is_action_pressed("attack"):
             state = "idle"
+            if whirlwind != null:
+                whirlwind.end()
+            _play_state()
+            return
+        # PATCH(drax attack_patch A2): the whirlwind TRAVELS, at walk pace.
+        # run_modifier is deliberately IGNORED -- the spin costs you your
+        # sprint, which is the trade D2 Whirlwind and PoE Cyclone both make.
+        # No direction held leaves velocity zero, i.e. exactly the old gate.
+        # The animation does NOT change to walk: attack_<DIR> keeps playing and
+        # he translates while spinning. The attack frames were drawn feet-
+        # planted, so he foot-skates; that is known and accepted at 2.5 rev/s.
+        var spin_vector: Vector2 = Input.get_vector("move_left", "move_right", "move_up", "move_down")
+        var spin_facing: String = facing
+        if spin_vector.length_squared() > 0.0:
+            spin_facing = DIRECTIONS[posmod(roundi(spin_vector.angle() / (PI / 4.0)) + 6, 8)]
+        velocity = spin_vector * walk_speed
+        move_and_slide()
+        if spin_facing != facing:
+            # Phase-preserving cell switch. Every attack_<DIR> cell is the SAME
+            # eight stills rolled by the direction index (C-8 TURNAROUND-AS-
+            # SPIN), so carrying the frame by the index delta keeps the
+            # IDENTICAL still on screen and the revolution does not hitch when
+            # he turns. Without it _play_state() restarts at frame 0 and the
+            # spin jumps on every direction change -- which, now that he walks
+            # while spinning, is constantly.
+            var carry_frame: int = sprite.frame
+            var carry_progress: float = sprite.get_frame_progress()
+            var carry_delta: int = DIRECTIONS.find(facing) - DIRECTIONS.find(spin_facing)
+            facing = spin_facing
+            _play_state()
+            if sprite.sprite_frames.get_frame_count(sprite.animation) == 8:
+                sprite.set_frame_and_progress(posmod(carry_frame + carry_delta, 8), carry_progress)
+        else:
             _play_state()
         return
     var input_vector: Vector2 = Input.get_vector("move_left", "move_right", "move_up", "move_down")
@@ -69,6 +107,8 @@ func _physics_process(delta: float) -> void:
         state = "attack"
         velocity = Vector2.ZERO
         _play_state()
+        if whirlwind != null:
+            whirlwind.begin()
         return
     state = "idle" if input_vector == Vector2.ZERO else ("run" if Input.is_action_pressed("run_modifier") else "walk")
     velocity = input_vector * (run_speed if state == "run" else walk_speed)
