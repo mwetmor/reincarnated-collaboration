@@ -34,9 +34,9 @@ S), and the RADII stay as the conductor measured them. Where the ribbon and the
 drawn mace disagree, the ribbon is right; the art is being regenerated onto
 this band.
 
-NOTHING BELOW READS A MACE ROW. The only use left for vfx_fit.json's per-frame
-mace data is a reported X-only phase measurement that is NOT used -- see
-`report_phase_evidence`, which exists to show its own residual.
+NOTHING BELOW READS A MACE ROW to drive anything. The only use left for
+vfx_fit.json's per-frame mace data is `report_level_band_evidence`, which
+prints the height spread that justified the band and is never consumed.
 ---------------------------------------------------------------------------
 
 What it does:
@@ -121,12 +121,64 @@ HEAD_BOTTOM = 0.753       # chin / neck pinch
 # eight stills do not lie on a uniform sweep in X either. So the fit is
 # REPORTED and NOT USED, and the declared construction stands.
 #
-# This is the one constant to move if the regenerated frames want the ribbon
-# registered elsewhere. `report_phase_evidence` re-runs the fit on whatever
-# frames are present, so the evidence for moving it is printed every run.
+# This is the one constant to move if the art wants the ribbon registered
+# elsewhere. It is independent of the SIGN of the sweep, which is the separate
+# (and separately evidenced) constant immediately below.
 # ---------------------------------------------------------------------------
-SWEEP_BEARING0_DEG = 90.0   # bearing of the sweep at canonical still 0
-SWEEP_DEG_PER_STILL = -45.0  # negative = clockwise on screen
+SWEEP_BEARING0_DEG = 90.0   # bearing of the sweep at canonical frame 0
+
+# ---------------------------------------------------------------------------
+# ⚑ THE SIGN OF THE SWEEP. GET THIS BACKWARDS AND THE RIBBON COUNTER-ROTATES
+#   AGAINST THE CHARACTER, WHICH IS EXACTLY WHAT SHIPPED AND WHAT MATT CAUGHT.
+#
+# THE CONVENTION, STATED ONCE SO IT CANNOT BE RE-DERIVED WRONG. Bearings are
+# screen-space with X RIGHT and Y DOWN, and a point on the sweep sits at
+#
+#       ( cos(theta) * R ,  sin(theta) * R * GROUND_SQUASH )
+#
+# Because Y is DOWN, sin(theta) > 0 is the BOTTOM of the screen -- the side
+# NEAREST the camera. So walking theta upward goes
+#
+#       0 deg  RIGHT  ->  90 deg  BOTTOM  ->  180 deg  LEFT  ->  270 deg  TOP
+#
+# i.e. right -> down -> left -> up, which is CLOCKWISE to the viewer.
+#
+#       theta INCREASING  ==  CLOCKWISE on screen  ==  +360 per revolution
+#       theta DECREASING  ==  ANTICLOCKWISE        ==  -360 per revolution
+#
+# THE CHARACTER'S SENSE, MEASURED ON THE warlord4 attack_S cells (16 frames,
+# one revolution -- the period was confirmed by circular self-difference: the
+# maximum dissimilarity sits at lag 8, i.e. half a turn, so the loop is exactly
+# one revolution and not 1.x of one):
+#
+#   (a) DIRECT READ of frames 1-6. f1 is a front view (helm face-plate visible)
+#       with the mace extended SCREEN-LEFT and the shield on screen-right; by
+#       f2-f3 the shield has swung FACE-ON to the camera and the mace is
+#       receding upward-left; at f4 the mace is hidden behind the body; by
+#       f5-f6 we see his BACK (no face-plate, spine plating) with the shield
+#       edge-on at screen-LEFT and the mace out at SCREEN-RIGHT.
+#       So the mace runs LEFT -> behind/TOP -> RIGHT: 180 -> 270 -> 360.
+#       THETA INCREASING.
+#
+#   (b) SHIELD TEST, automated and independent of the mace. The shield is
+#       widest when face-on, and face-on to the camera is its NEAREST point,
+#       theta = +90. Its horizontal centroid through that frame runs
+#       +115 px -> +68 -> +17 relative to the body axis: moving LEFT at
+#       -98 px across the pair. The tangent at theta = 90 for increasing theta
+#       is (-sin 90, cos 90) = (-1, 0) = LEFT. THETA INCREASING.
+#
+#   (c) The conductor's independent eye read of the same cells, which agrees.
+#
+# ⚑ AN INSTRUMENT I BUILT AND THEN REJECTED, recorded so nobody rebuilds it:
+#   tracking the mace head by its cool teal glint returned a total sweep of
+#   -360 deg -- the opposite answer -- with cross-product votes at 5 against 6,
+#   i.e. a coin flip. It was catching the shield's green rim-light as often as
+#   the mace, and on f3 it placed the mace at the BOTTOM of the sweep when the
+#   mace is plainly upper-left. A tracker that is wrong half the time averages
+#   to noise and then reports the noise as a direction. The check ran; the
+#   check was not the check.
+# ---------------------------------------------------------------------------
+SWEEP_REVOLUTION_DEG = +360.0
 
 # ---------------------------------------------------------------------------
 # GROUND_SQUASH -- the vertical foreshortening of a circle lying on the
@@ -260,36 +312,28 @@ def check_band(fit):
     return (lo, hi, margin_lo, margin_hi, margin_lo * H, margin_hi * H)
 
 
-def report_phase_evidence(fit):
-    """The X-only phase fit. REPORTED, NEVER USED -- printed so that the
-    evidence for moving SWEEP_BEARING0_DEG is on screen every run, and so that
-    its residual is visible rather than assumed away. Uses mace X only; the
-    mace ROWS are the channel the conductor correction rules out."""
+def report_level_band_evidence(fit):
+    """The mace-head height spread that put the ribbon on a LEVEL BAND instead
+    of on the drawn weapon. REPORTED, NEVER USED -- printed every run so the
+    reason for the band is on screen rather than only in a comment.
+
+    ⚑ MEASURED ON vfx_fit.json's ART, WHICH IS NOT NECESSARILY THE ART BEING
+    PATCHED. The character frames have been re-cut twice since that file was
+    written; this number is the historical justification for the band, not a
+    measurement of the current build. Labelled as such rather than quietly
+    reprinted as if it were fresh.
+
+    (The X-only PHASE fit that used to live here has been deleted. It was tied
+    to an 8-frame still set that no longer exists, its residual was 32 % of
+    R_TRAIL -- i.e. it never constrained anything -- and leaving a stale
+    8-frame instrument in a 16-frame world only invites someone to trust it.)
+    """
     per = fit.get('per_frame')
-    if not per or len(per) != 8:
+    if not per:
         return None
-    cx = fit['body_centre'][0]
-    rt = fit['R_TRAIL_px']
-    # dx_k = R * cos(b0 + SWEEP_DEG_PER_STILL*k) -> linear in (cos b0, sin b0)
-    saa = sab = sbb = sxa = sxb = 0.0
-    for k in range(8):
-        ang = math.radians(SWEEP_DEG_PER_STILL * k)
-        a, b = rt * math.cos(ang), -rt * math.sin(ang)
-        x = per[k]['mace'][0] - cx
-        saa += a * a; sab += a * b; sbb += b * b; sxa += x * a; sxb += x * b
-    det = saa * sbb - sab * sab
-    if abs(det) < 1e-9:
-        return None
-    c = (sbb * sxa - sab * sxb) / det
-    s = (saa * sxb - sab * sxa) / det
-    b0 = math.degrees(math.atan2(s, c)) % 360.0
-    amp = math.hypot(c, s)
-    rms = math.sqrt(sum(
-        (per[k]['mace'][0] - cx - amp * rt * math.cos(
-            math.radians(b0 + SWEEP_DEG_PER_STILL * k))) ** 2 for k in range(8)) / 8.0)
-    heights = sorted((fit['sole_row'] - p['mace'][1]) / fit['figure_height'] for p in per)
-    return dict(bearing0=b0, amp=amp, rms_px=rms, rms_frac=rms / rt,
-                height_lo=heights[0], height_hi=heights[-1],
+    heights = sorted((fit['sole_row'] - p['mace'][1]) / fit['figure_height']
+                     for p in per)
+    return dict(n=len(per), height_lo=heights[0], height_hi=heights[-1],
                 height_spread=heights[-1] - heights[0])
 
 
@@ -302,10 +346,11 @@ def sha(path):
 
 
 def canonical_still_hashes():
-    """The eight stills of the C-8 revolution, in canonical order -- i.e.
-    attack_S frames 0..7. Still 0 is the phase anchor. Returns None when the
-    turnaround cells are simply not present, which is a legitimate state for a
-    clip-cut build rather than an error."""
+    """The canonical revolution's stills, in order -- i.e. attack_S frames
+    0..n-1, for whatever n that cell holds (8 in the first turnaround, 16 in
+    the re-shot one). Frame 0 is the phase anchor. Returns None when the cells
+    are simply not present, which is a legitimate state for a clip-cut build
+    rather than an error."""
     frames_dir = CELLS_ROOT / 'attack_S' / 'frames' / 'attack' / 'S'
     if not frames_dir.is_dir():
         return None
@@ -314,9 +359,9 @@ def canonical_still_hashes():
         m = re.fullmatch(r'attack_S_(\d+)\.png', p.name)
         if m:
             got[int(m.group(1))] = p
-    if sorted(got) != list(range(8)):
+    if not got or sorted(got) != list(range(len(got))):
         return None
-    return [sha(got[i]) for i in range(8)]
+    return [sha(got[i]) for i in range(len(got))]
 
 
 def derive_rolls(project, canon, counts):
@@ -337,8 +382,15 @@ def derive_rolls(project, canon, counts):
     shape, and the whole point of locking to the 0.400 s loop is that the same
     ribbon serves both. So this returns (rolls, mode) and says which it found.
     """
+    # ⚑ N IS NOT ASSUMED. The turnaround has been 8 frames at 20 fps and is now
+    # 16 at 40 (a re-shot continuous take, rolled 2 frames per 45 deg). The roll
+    # is derived in FRAMES against whatever the canonical sequence's length is
+    # and returned as a FRACTION OF A REVOLUTION, so the frame count drops out
+    # exactly as it does in the runtime phase lock.
+    n = len(canon) if canon else 0
     index = {h: i for i, h in enumerate(canon)} if canon else {}
-    turnaround = len(index) == 8 and all(counts[d] == 8 for d in DIRECTIONS)
+    uniform = n > 0 and all(counts[d] == n for d in DIRECTIONS)
+    turnaround = len(index) == n and uniform
     reason = ''
     if turnaround:
         rolls = {}
@@ -350,25 +402,25 @@ def derive_rolls(project, canon, counts):
                     m = re.fullmatch(rf'attack_{re.escape(d)}_(\d+)\.png', p.name)
                     if m:
                         got[int(m.group(1))] = p
-            if sorted(got) != list(range(8)):
-                turnaround, reason = False, f'sprites/attack/{d} is not frames 0..7'
+            if sorted(got) != list(range(n)):
+                turnaround, reason = False, f'sprites/attack/{d} is not frames 0..{n - 1}'
                 break
-            seq = [index.get(sha(got[k]), -1) for k in range(8)]
+            seq = [index.get(sha(got[k]), -1) for k in range(n)]
             if -1 in seq:
-                turnaround, reason = False, f'attack_{d} is not the canonical C-8 stills'
+                turnaround, reason = False, f'attack_{d} is not the canonical still set'
                 break
             roll = seq[0]
-            if seq != [(roll + k) % 8 for k in range(8)]:
-                fail(f'attack_{d} IS built from the canonical C-8 stills but is not a '
-                     f'clean rotation of them (still order {seq}) -- that is a corrupt '
+            if seq != [(roll + k) % n for k in range(n)]:
+                fail(f'attack_{d} IS built from the canonical stills but is not a '
+                     f'clean rotation of them (order {seq}) -- that is a corrupt '
                      f'turnaround, not a different art shape, and the phase offset '
                      f'cannot be derived')
-            rolls[d] = roll / 8.0
+            rolls[d] = roll / float(n)
         if turnaround:
-            return rolls, 'turnaround', ''
+            return rolls, 'turnaround', f'{n} frames/revolution'
     else:
-        reason = ('frame counts are not 8 across all directions'
-                  if len(index) == 8 else 'no canonical C-8 still set available')
+        reason = ('frame counts differ from the canonical set' if index
+                  else 'no canonical still set available')
     return {d: 0.0 for d in DIRECTIONS}, 'clip-cut', reason
 
 
@@ -398,7 +450,7 @@ def write_fit_resource(project, fit, rolls, band, counts, mode):
         'sweep_band': SWEEP_BAND,
         'sweep_wobble': SWEEP_WOBBLE,
         'bearing0_deg': SWEEP_BEARING0_DEG,
-        'revolution_deg': SWEEP_DEG_PER_STILL * 8.0,
+        'revolution_deg': SWEEP_REVOLUTION_DEG,
         'art_mode': mode,
         'guard': {
             'lower_body_top': LOWER_BODY_TOP,
@@ -468,10 +520,16 @@ WHIRLWIND_GD = r'''extends Node2D
 #    one layer is the defect this split exists to prevent.
 #
 # 3. OMEGA IS ENFORCED, NOT INTEGRATED. The source integrated OMEGA_DEG = 900
-#    (2.5 rev/s). The attack loop is 8 frames at 20 fps = 0.400 s, which is
+#    (2.5 rev/s). Every attack cell loops in exactly 0.400 s, which is
 #    2.5 rev/s EXACTLY. So the source's authored cadence and the animation's
 #    measured cadence already agree, and this file does not integrate a rate at
 #    all -- the sprite owns the phase and the ribbon reads it.
+#
+#    ⚑ THE FRAME COUNT IS NOT PART OF THAT AND MUST NEVER BECOME PART OF IT.
+#    The art has already shipped as 8 frames @ 20 fps (turnaround), 12 @ 30 and
+#    9 @ 22.5 (clip cut, differing BETWEEN DIRECTIONS in one build), and 16 @ 40
+#    (the re-shot continuous take). The phase below is a FRACTION of the loop,
+#    so all of them drive this file unchanged; only the 0.400 s is load-bearing.
 #
 # 4. THE RAMP GATES INTENSITY AND EXTENT ONLY, NEVER PHASE. In 3D `_w` drove
 #    the spin rate because the rig's rotation was code-driven. Here the mace is
@@ -687,6 +745,25 @@ func _arc_span_deg() -> float:
 	return _arc_span
 
 
+## ⚑ THE ROTATION SENSE, AS A RUNTIME ASSERTION RATHER THAN A COMMENT.
+##
+## Samples the apex a quarter-revolution apart and takes the 2D cross product
+## of the two offsets about the sweep centre. In a Y-DOWN frame a POSITIVE
+## cross product means the second sample is a quarter-turn CLOCKWISE of the
+## first (right -> down -> left -> up), which is the sense the character turns.
+##
+## Returns [cross, +1 clockwise / -1 anticlockwise, expected_sign]. A probe
+## asserts sign == expected; getting it backwards is the one defect in this
+## file that a reader cannot see by inspecting geometry, because both senses
+## draw an identical-looking ellipse and only the MOTION differs.
+func sense_check() -> Array:
+	var p0 := _ground(_theta_at(0.00), _r_trail)
+	var p1 := _ground(_theta_at(0.25), _r_trail)
+	var cross := p0.x * p1.y - p0.y * p1.x
+	return [cross, (1 if cross > 0.0 else -1),
+		(1 if _revolution_deg > 0.0 else -1)]
+
+
 ## The ribbon apex in node space.
 func apex_point() -> Vector2:
 	if _arc.is_empty():
@@ -835,11 +912,11 @@ func _set_visible(v: bool) -> void:
 # dropped frame or a time-scale change moves the sprite and the ribbon together
 # by construction.
 #
-# ⚑ AND BECAUSE IT IS A FRACTION, THE FRAME COUNT DROPS OUT. The turnaround
-#   build is 8 frames at 20 fps; the clip-cut build is 12 at 30 and 9 at 22.5
-#   for N/NE/NW -- different per BUILD and per DIRECTION. All of them loop in
-#   exactly 0.400 s, and that is the only thing this effect needs, which is why
-#   one ribbon drops onto either build with no code change.
+# ⚑ AND BECAUSE IT IS A FRACTION, THE FRAME COUNT DROPS OUT. Shipped so far:
+#   8 @ 20 fps (turnaround), 12 @ 30 and 9 @ 22.5 for N/NE/NW (clip cut --
+#   different per BUILD and per DIRECTION), and 16 @ 40 (the re-shot continuous
+#   take). All loop in exactly 0.400 s, and that is the only thing this effect
+#   needs, which is why one ribbon drops onto any of them with no code change.
 #
 # `roll_rev` is the direction's phase offset, in revolutions. It is non-zero
 # only for a turnaround build, where all eight facings are rotations of ONE
@@ -882,6 +959,17 @@ func _wobble(theta_deg: float) -> float:
 
 
 ## Screen offset of a point on the sweep plane. THE ELLIPSE, in one place.
+##
+## ⚑ THE SIGN CONVENTION LIVES HERE, AND EVERYTHING ELSE INHERITS IT. Y is
+## DOWN, so sin(theta) > 0 is the BOTTOM of the screen -- the side NEAREST the
+## camera. Walking theta upward therefore runs
+##     0 RIGHT -> 90 BOTTOM -> 180 LEFT -> 270 TOP,
+## which is CLOCKWISE to the viewer. So a POSITIVE `revolution_deg` spins the
+## ribbon clockwise on screen and a negative one anticlockwise. The character
+## in the current art turns clockwise (mace LEFT -> behind/TOP -> RIGHT; the
+## shield swings toward the camera first), so `revolution_deg` is +360. It
+## shipped once at -360 and the ribbon visibly counter-rotated against him.
+## `_probe_sense_ok()` asserts this at runtime so it cannot regress silently.
 func _ground(theta_deg: float, r: float) -> Vector2:
 	var a := deg_to_rad(theta_deg)
 	return Vector2(cos(a) * r, sin(a) * r * _squash + _wobble(theta_deg))
@@ -1264,30 +1352,28 @@ def main():
     print(f'  disjoint-band guard: {mlo:.4f} H ({mlo_px:.1f} px) above the hips, '
           f'{mhi:.4f} H ({mhi_px:.1f} px) below the chin -- both must be > 0')
 
-    ev = report_phase_evidence(fit)
+    ev = report_level_band_evidence(fit)
     if ev:
-        print(f'  mace-head height in the CURRENT frames: '
-              f'[{ev["height_lo"]:.3f}, {ev["height_hi"]:.3f}] H, spread '
-              f'{ev["height_spread"]:.3f} (reference band spread 0.195) '
-              f'-- NOT USED, see the header')
-        print(f'  X-only phase fit on the CURRENT frames: bearing0 '
-              f'{ev["bearing0"]:.2f} deg at residual RMS {ev["rms_px"]:.1f} px '
-              f'({100 * ev["rms_frac"]:.1f} % of R_TRAIL) -- REPORTED, NOT USED; '
-              f'declared construction {SWEEP_BEARING0_DEG:.1f} deg stands')
+        print(f'  why a band at all: mace-head height across vfx_fit.json\'s '
+              f'{ev["n"]} stills spans [{ev["height_lo"]:.3f}, {ev["height_hi"]:.3f}] H, '
+              f'spread {ev["height_spread"]:.3f} vs the reference band\'s 0.195 '
+              f'-- historical justification, NOT a measurement of this build')
 
     canon = canonical_still_hashes()
     rolls, mode, reason = derive_rolls(project, canon, counts)
     if mode == 'turnaround':
         print('whirlwind_patch: art mode TURNAROUND; per-direction phase offset '
               'derived by hash: '
-              + ' '.join(f'{d}={rolls[d] * 8:.0f}/8' for d in DIRECTIONS))
+              + ' '.join(f'{d}={rolls[d]:.4f}rev' for d in DIRECTIONS)
+              + f'   [{reason}]')
     else:
         print(f'whirlwind_patch: art mode CLIP-CUT ({reason}); each direction is its '
               f'own cut, so every phase offset is 0 -- per-direction frame counts '
               + ' '.join(f'{d}={counts[d]}' for d in DIRECTIONS))
-    print(f'whirlwind_patch: sweep {SWEEP_DEG_PER_STILL * 8.0:+.1f} deg/loop from '
-          f'{SWEEP_BEARING0_DEG:.1f} deg '
-          f'({abs(SWEEP_DEG_PER_STILL) * 8.0 / LOOP_SECONDS:.0f} deg/s), squash '
+    sense = 'CLOCKWISE on screen' if SWEEP_REVOLUTION_DEG > 0 else 'ANTICLOCKWISE on screen'
+    print(f'whirlwind_patch: sweep {SWEEP_REVOLUTION_DEG:+.1f} deg/loop from '
+          f'{SWEEP_BEARING0_DEG:.1f} deg = {sense} '
+          f'({abs(SWEEP_REVOLUTION_DEG) / LOOP_SECONDS:.0f} deg/s), squash '
           f'{GROUND_SQUASH}')
 
     write_fit_resource(project, fit, rolls, band, counts, mode)

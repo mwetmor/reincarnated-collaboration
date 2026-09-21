@@ -52,6 +52,34 @@ func _initialize():
 	var far_arc = ww.get_node("WhirlwindFarArc")
 	var near_arc = ww.get_node("WhirlwindNearArc")
 
+	# ⚑ ROTATION SENSE. The ribbon must turn the way the CHARACTER turns, and
+	# this shipped backwards once -- both senses draw an identical-looking
+	# ellipse, so only the motion gives it away and only at playback speed.
+	#
+	# CONVENTION (declared here so the next person cannot re-derive it wrong):
+	# bearings are screen-space with X RIGHT and Y DOWN, and a sweep point is
+	# (cos t * R, sin t * R * squash). Y down makes sin t > 0 the BOTTOM of the
+	# screen, so increasing t runs 0 RIGHT -> 90 BOTTOM -> 180 LEFT -> 270 TOP
+	# = CLOCKWISE to the viewer.
+	#
+	# THE CHARACTER'S SENSE, measured on the attack_S cells: the mace runs
+	# SCREEN-LEFT -> behind him / TOP -> SCREEN-RIGHT (frames 1..6: f1 front
+	# view with the mace out left, f4 mace hidden behind, f5-f6 back view with
+	# the mace out right), and independently the shield's horizontal centroid
+	# moves LEFT (+115 -> +68 -> +17 px off the body axis) through the frame
+	# where it is widest, i.e. face-on and nearest the camera -- and the
+	# tangent at the nearest point for increasing t is (-1, 0), LEFT.
+	# Both say CLOCKWISE, so the expected cross-product sign is POSITIVE.
+	var sc = ww.sense_check()
+	check(int(sc[1]) == 1,
+		"ROTATION SENSE: ribbon turns %s, character turns CLOCKWISE (cross %+.1f)"
+		% ["ANTICLOCKWISE" if int(sc[1]) < 0 else "CLOCKWISE", float(sc[0])])
+	check(int(sc[1]) == int(sc[2]),
+		"ROTATION SENSE: measured sense %d disagrees with revolution_deg's sign %d"
+		% [int(sc[1]), int(sc[2])])
+	print("WW sense cross %+.1f -> %s (expected CLOCKWISE, matching the character)"
+		% [float(sc[0]), "CLOCKWISE" if int(sc[1]) > 0 else "ANTICLOCKWISE"])
+
 	# ---- press and hold ----------------------------------------------------
 	Input.action_press("attack")
 	for f in 3:
