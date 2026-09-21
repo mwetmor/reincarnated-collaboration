@@ -511,3 +511,388 @@ V15-10  key: energy.tip_the_scales
 ---
 
 *Graded 2026-09-21 by gamora (simulation seam), Run KC2-PLAY Wave 3. **Prereg v1.4 graded as written: no width adjusted, no row reclassified, no band rescued, no post-hoc widening.** All seven P-pins and all three sealed-cell digests **derived this session by `shasum -a 256`, never retyped** — and one of the seven did not reproduce, which is § 0.1. **K-7 held**: sealed cells hash-verified, opened READ-ONLY by key, never re-run, never re-graded. **No simulation executed. No production code touched. No push.** Where the prereg could not decide, it is reported.*
+
+---
+
+# ⚑ ADDENDUM 1 — 2026-09-21, the conductor's two routed reads, and **a correction to my own § 8 H3**
+
+> **APPEND ONLY. Nothing above is rewritten.** The grade of record is what was filed at `df2dc1188`
+> and stays the record of what was graded. ⚑ **One finding in it is corrected below and the correction
+> goes against me, not against the port.** The **verdict does not move** — `H3` was a hypothesis
+> disposition and a raised condition, never a graded row.
+> Occasioned by: drax's repair pass 1, routed by the conductor as a contradiction that must resolve.
+> **All four reads below are source reads. Nothing executed. K-7 untouched.**
+
+## A1 · ⚑ READ 1 — **IS THE PER-TICK LEECH CAP GENUINELY ABSENT IN THE ORACLE, OR DID THE LIFT MISS IT?**
+
+### ⚑ ANSWER: **the CAP is genuinely absent — the lift is right. But the lift is not the whole sustain chain, and the PORT OMITS A DIFFERENT LIMITER THAT THE ORACLE APPLIES ON EVERY BODY.**
+
+**Both halves of the contradiction resolve, and they resolve on different terms.**
+
+### A1.1 · `V1-LAW-13` is correct. There is no cap.
+
+Read directly from `simulation/kc2/player_sustain.py`:
+
+```python
+def heal_from_pool(self, pool: float, *, hp_frac: float, n_bodies: int = 0) -> float:
+    """`pool x ADCTH% x healing-increase(hp_frac)`.
+    ⚑ NO CAP. Per-hit and per-second ADCTH caps are MEASURED-ABSENT (Lap P § 4.4);
+    `n_caps_applied` stays 0 and the assert wall requires it."""
+```
+
+The module docstring says the same at `:19-23`, `n_caps_applied` is on the wire at `:615`, and the assert wall pins it to zero. ⚑ **`MEASURED-ABSENT` here is an asserted zero with a live counter behind it, not an unexamined silence.** drax's reading is correct and I do not fault it.
+
+### A1.2 · ⚑ But `heal_from_pool` is **not** where the oracle's limiter lives. `resolve_hit` is.
+
+`player_sustain.py:655-705`, the per-body path that **builds** the pool:
+
+```python
+mult = self.adcth_mult(record)
+if mult is None:
+    # ⚑ LOUD ABSENCE ... does not silently fill a missing body with a modal resistance.
+    return 0.0
+...
+out = portion * mult
+if out <= 0.0:
+    self.n_zero_heal_rows += 1
+    if mult <= 0.0:
+        self.n_zero_by_resistance += 1
+```
+
+⚑ **`out = portion * mult`.** `mult` is the **per-body leech-resistance multiplier**, `adcth_mult_COUPLED`, joined from `pm4p_leech_resistance.csv` under `V0`'s limb of record `LeechResistLimb.COUPLED`. The module's own limb table names it: *"limb d — the leech-resistance ladder — COUPLED gates the heal, DECOUPLED does not — ⚑ REDUCES (COUPLED only)"*, and `:386` states the law: *"the resistance gates ADCTH multiplicatively, `max(0, 1 - res/100)`."* The oracle even carries `n_zero_by_resistance` and `n_zero_by_immunity` — **counters whose only purpose is to count bodies that yield zero heal because of this gate.**
+
+### A1.3 · ⚑ The port defines the function and never calls it.
+
+Exhaustive grep over `~/Games/reincarnated-godot/kc2_runtime/`:
+
+```
+sim/kc2rt_laws.gd:106:##     adcth_mult = max(0, 1 - total_leech_resist_pct/100)
+sim/kc2rt_laws.gd:110:static func adcth_mult_coupled(total_leech_resist_pct: float) -> float:
+```
+
+**Two hits. Both inside the definition.** ⚑ **Zero call sites.** `total_leech_resist_pct` appears **nowhere else in the runtime**; `pm4p_leech_resistance.csv` is never loaded; the join is never performed. The port's chain ends at `V1-LAW-10` — `pool × (ADCTH/100) × heal_increase` — **without `× mult`.**
+
+⚑ **And the port's own comment at `kc2rt_laws.gd:107-109` states exactly what it is throwing away:** *"The 8 tiers FLOOR at 65 % on every Ultimate enemy, and tiers 7/8 are 565 % / 588 % — so `max(0, ...)` is not decorative: it is the difference between no leech and NEGATIVE leech on most of the board."* **The law was understood, written down, and not wired in.**
+
+### A1.4 · The magnitude, measured against the 128 armed records of POOL-466
+
+`pm4p_leech_resistance.csv` — **7,900 rows / 790 records, covering 466 of POOL-466 and all 128 armed records:**
+
+| | value |
+|---|---|
+| `adcth_mult_COUPLED`, mean over the 128 armed records | ⚑ **0.266406** |
+| median · max · min | 0.25 · **0.35** · 0.0 |
+| records at exactly `0.0` (fully leech-immune) | **5 of 128 (3.9 %)** |
+| mean `total_leech_resist_pct` | **77.56 %** |
+| **wave-invariance** | ⚑ identical on all ten waves 151–160 |
+| the table's own `heal_per_hit_COUPLED_HI ÷ heal_per_hit_DECOUPLED_HI` | ⚑ **0.2703** — the same factor, published |
+
+> ⚑ **The port over-heals by `1 / 0.266406 = 3.754×`, on every body, on every tick, on all 25 cells** — and by `∞` on the five leech-immune records, which should heal **nothing** and in the port heal fully.
+
+### A1.5 · ⚑ What this does and does not resolve
+
+**RESOLVED:** *"every term reads from a V1 row"* is **false as stated.** One V1 row — `V1-JOIN-1`, `leech.resist_table_join` — is lifted, published, written into the port's own source as a comment and a function, **and not read by the fight.** ⚑ **So the 73–177× surplus is not "the model's own": at least `3.754×` of it is the port's, and the claim cannot be routed as a substrate finding while that term is missing.**
+
+⚑ **This is also a `v0_limb_set` conformance failure, and that is the more serious framing.** The runtime prints `sustain = LeechResistLimb.COUPLED (DRIVER-OF-RECORD)` into the verdict header the prereg says is *"diffed line-by-line against `V0` before any row is read"* — and the limb it declares **has no implementation.** ⚑ **That is `TA-X-16` in a second costume, on the sustain path: a declared value with nothing enforcing it.** The header diff cannot catch it, because the header is where the claim is made.
+
+**NOT RESOLVED, and I will not manufacture it:** `132× ÷ 3.754 = 35×` of surplus remains. **Correcting `V1-JOIN-1` does not make the port killable**, and the residual cannot be attributed from the seals — `leech`, `intake` and `damage_total` return **zero keys** on both, which is `TA-B-12`'s declaration and § 9's most expensive ceiling. **The oracle's death at 151–156 still needs its explanation, and T-A cannot supply it.**
+
+⚑ **The direction I would look first, offered as a hypothesis and labelled as one — not a finding.** The port's bodies are killed at ~766,000 damage each against a sampled monster eHP of **59,525** (`monsters.json::blocks`, wave 151) and a **mean basic swing period of 0.968 s ≈ 12 ticks**. ⚑ **A body that dies in under one swing period never swings.** If the port kills bodies faster than they can act, intake collapses toward zero for reasons that have nothing to do with leech, and the oracle-vs-port difference is a **time-to-kill** difference, not a sustain one. **That is testable with one emission — time-to-first-swing and n_swings_landed per body — and it is the read I would spend next.**
+
+### A1.6 · ⚑ A third instance of the § 7.2 boundary, and it hardens that finding
+
+`pm4p_leech_resistance.csv` covers **790 records — all 466 of POOL-466, all 128 armed.** Exactly like `pm4l_mitigation_by_body.csv` (937). **Both DEFENSIVE-side extractions are complete. All three OFFENSIVE-side extractions (damage 237 · slots 164 · timing 169) stop at the same ~128 intersection.** ⚑ **Two dimensions now confirm the boundary is a property of what was extracted, not of what exists.** § 7.2's conclusion is not weakened by a second test; it is hardened by one.
+
+---
+
+## A2 · ⚑ READ 2 — **IS A DEGENERATE DRAW CONSUMED AT THE p05 BURST?**
+
+### ⚑ ANSWER: **NO. The oracle takes no draw there. drax's elision is CORRECT. `V9`'s registry stays at 29 sites and there is no registry defect with my name on it.**
+
+`wave_engine.py:683-695` — the function that resolves the p05 arrival offsets:
+
+```python
+cadence = float(P05_DRIP_CADENCE_S if drip_cadence_s is None else drip_cadence_s)
+out: Dict[int, List[float]] = {}
+for sp, alts in pools_for(wave, bonus_spawns_enabled=bonus_spawns_enabled).items():
+    n = (pool_budget or {}).get(sp, 1)
+    if any(a.is_ambush for a in alts):
+        if ambush_burst:
+            out[sp] = [P05_FIRST_ARRIVAL_S] * max(1, n)
+```
+
+⚑ **No RNG call, and no `rng` parameter.** `min(U{30,30}, |queue|)` is quoted in the docstring as the **decompiled game engine's** law (`ProxyAmbush::UpdateSelf`, `0x10354627`); the oracle implements its **resolved consequence** — every queued body at `P05_FIRST_ARRIVAL_S`, `n` taken from `pool_budget`. A sweep of every `rng.` / `random.` call in `wave_engine.py` returns lines `840, 845, 866, 867, 869, 892, 949, 958, 960, 969, 970, 983` — **none between 650 and 786**, and `rng` first enters as a parameter at `:787`.
+
+### A2.1 · ⚑ But the ruling has teeth, and I measured what they cost — because a principle without a magnitude is a hope
+
+The conductor's rule is *"a degenerate draw the oracle takes is still a draw."* **Verified on CPython 3.12.0, this host:**
+
+| | result |
+|---|---|
+| does `random.randint(30, 30)` consume randomness? | ⚑ **YES** — and so do `randint(0,0)` and `randint(1,1)`; all three permute the next `random()` |
+| how much does it consume? | ⚑ **A VARIABLE AMOUNT.** `getrandbits` calls over 20 seeds: `[2,1,5,1,1,2,4,1,1,1,2,1,1,1,1,2,1,2,1,2]` — **1, 2, 4 or 5** |
+
+**Why:** `randint(30,30)` → `randrange(30,31)` → `_randbelow(1)` → `getrandbits(1)` **and reject until it draws 0**. The consumption is geometric, not fixed.
+
+> ⚑ **So the correct port behaviour for a degenerate oracle draw is NOT "consume one value." It is "reproduce CPython's rejection loop exactly."** A port that accounted for a degenerate `randint` as a single draw would still desynchronise — **intermittently, on roughly half the occasions**, which is the worst possible failure mode because it looks like noise.
+
+### A2.2 · ⚑ AND THE HAZARD IS LIVE — NOT AT p05, BUT AT THE BOARD ROLL, ON 97 OF 139 PAIRS
+
+The oracle calls `rng.randint(int(b.n_min), int(b.n_max))` at `wave_engine.py:840` and `:949` — **inside the 29 registered sites, on the board roll itself.** Measured over waves 151–160 from `waves.json::pools.wave_spawn_count`:
+
+| | |
+|---|---:|
+| min/max pairs at waves 151–160 | **139** |
+| ⚑ **pairs where `n_min == n_max` (degenerate)** | ⚑ **97 — 69.8 %** |
+
+⚑ **Seven of every ten board-roll count draws in the graded window are degenerate**, and each one costs the oracle a variable 1–5 `getrandbits`. **A port that writes the obvious optimisation — `if lo == hi: return lo` — takes ZERO draws where the oracle takes one to five, and the board stream desynchronises on the first wave and never recovers.**
+
+⚑ **This is invisible to every row T-A has.** `TA-X-25(c)` proves membership only; the bands cannot see which monsters were picked; `P-2` covers fold granularity, not per-site draw counts; and `S5` — the sibling that would localise it — is out of scope. **It is Trap 6, and it is the single most likely remaining source of a silent stream divergence.**
+
+**Routed, not adjudicated:** whether the port's count draw takes a draw when `lo == hi`, and whether it reproduces the rejection loop, is **one grep and one vector** on drax's side. ⚑ **It is the highest-value cheap check left in the run and I would fire it before graded run #2.**
+
+---
+
+## A3 · ⚑ THE CONDUCTOR'S THIRD ITEM — **AND IT CONVICTS MY OWN ANALYTIC, NOT THE PORT**
+
+> **Routed to me as:** *"If your analytic and the pack's own `wave_spawn_count` disagree about bodies-per-pick, that is a third thing for your list."*
+> ⚑ **They disagree. The pack is right and I am wrong.**
+
+**Recomputed this session directly from the pack, by the oracle's own two-stage law** — one alternative per spawn point per wave, weighted by `pool_weight`; `count_bounds` at the midpoint; champions at `champion_chance × midpoint(c_min, c_max)`:
+
+| figure | bodies | picks | bodies/pick | what it is |
+|---|---:|---:|---:|---|
+| naive sum over **all** alternatives | 301.50 | — | — | wrong by construction — counts every alternative, not the one picked |
+| ⚑ **pack recomputation, p06 ON** | ⚑ **137.58** | **54** | 2.548 | |
+| **the port, PRE-fix (my § 4.5 table)** | **138.4** | **54** | 2.563 | ⚑ **reproduces the pack to 0.6 %** |
+| ⚑ **pack recomputation, p06 OFF — the config of record (`V0-36`)** | ⚑ **126.08** | **47** | 2.683 | |
+| **the port, POST-fix (drax)** | **~124** | **47** | 2.638 | ⚑ **reproduces the pack to 1.6 %** |
+| ⚑ **my `P-e` Addendum § 3 analytic** | ⚑ **183.58** | — | — | ⚑ **DOES NOT REPRODUCE FROM THE PACK — 1.46× the correct figure** |
+
+### ⚑ A3.1 · § 8 H3 IS CORRECTED, AND THE CORRECTION GOES AGAINST ME
+
+**What § 8 H3 says above:** *"the port spawns materially FEWER bodies than the analytic … at `bodies/pick` 2.50 against the sealed cell's 4.22 … That points at `count_bounds` handling or the champion limb — exactly Trap 6."*
+
+⚑ **That finding is WITHDRAWN. There is no body-count shortfall.**
+
+* **Pre-fix**, the port produced `138.4` against the pack's `137.58` **at p06 ON** — it was reproducing the pack exactly, at the wrong `p06` setting. **The `TA-X-16` defect was the whole of it**, and drax found it.
+* **Post-fix**, the port produces `~124` against the pack's `126.08` **at p06 OFF**. ⚑ **The implementation reproduces its own model on both sides of the repair.**
+* **The `bodies/pick 2.50 vs 4.22` gap is not a port defect.** The port's `2.638` against the pack's own `2.683` is a match. **The outlier is the sealed `[MECH]` cell's `4.217`** — ⚑ **and it is a DIFFERENT ARM, which is the cross-arm caveat I printed in § 8 H3 and then reasoned straight past.** I flagged the trap and walked into it in the same paragraph.
+
+⚑ **`183.58` does not reproduce from the pack by the oracle's own law, and I am not going to guess which step in its derivation is wrong** — Law 3 applies to reconciliations. **Re-deriving `P-e` Addendum § 3 is owed by me, and until it lands, every figure in this grade that ranges against `183.58` should be read as ranging against a number that does not reproduce.** The affected lines are § 8 H3 in full, and ceiling **`C-c`**, whose *"34–45 bodies short per salt, 3–4× the cap's predicted effect"* is **void**: there is no shortfall for the `limitN` cap to be compared against.
+
+### ⚑ A3.2 · drax's refusal to fit a multiplier is vindicated, and that is the lesson
+
+He declined to fit a scaling factor to reach `183.58` on the grounds that *"one fitted to reach 183.58 would be fitted against the very figure it must be independent of."* ⚑ **The figure was wrong.** Had he fitted it, the port would now reproduce **my arithmetic error** to three significant figures, the error would have been laundered into the runtime as a constant, and nothing downstream could ever have found it — **the band would have "passed" against a number the pack does not support.** **Refusing to fit is precisely what kept the defect visible long enough to be caught.** *(Law 3 earning its keep in the direction it is usually invoked against: the constant that was not invented is the one that exposed the error in the document demanding it.)*
+
+---
+
+## A4 · FOR THE RECORD, NO ACTION — the motion repair
+
+drax's motion repair moves `frac_moving` **0.538389 → 0.968** (untested until a graded run). Against `TA-B-03`'s band **[0.8331, 0.8818]**, and stated in half-widths so the direction is unambiguous:
+
+| | value | vs band |
+|---|---:|---|
+| oracle mean-of-salts | **0.857462** | centre |
+| port **pre**-repair | 0.538389 | ⚑ **−12.1 half-widths (below)** |
+| port **post**-repair (reported) | 0.968 | ⚑ **+3.5 half-widths (above)** |
+
+⚑ **It would cross the band and land red on the far side** — a smaller miss, and a miss. **Recorded, not graded**: no graded run has produced it, `TA-B-03`'s width is immutable, and I neither widen it nor pre-grade an unemitted number. ⚑ **The observation worth carrying is that a repair which overshoots from −12.1 to +3.5 has not found the mechanism; it has found a magnitude** — and `TA-B-09`, the tighter row at **+32.5 half-widths**, is the one that will say whether the motion model is right.
+
+---
+
+*Appended 2026-09-21 by gamora (simulation seam). Four source reads, nothing executed, K-7 untouched, no width adjusted, no row reclassified, no production code touched. ⚑ **One finding of my own is withdrawn (§ 8 H3) and one figure of my own is convicted (`183.58`); the port is exonerated on both.** The verdict of record — `STRUCTURAL @ coverage 89/89` — is unchanged: `H3` was never a graded row.*
+
+---
+
+# ⚑ ADDENDUM 2 — 2026-09-21, **THE PER-WAVE / PER-TICK CONFOUND ENUMERATED ACROSS THE BAND SET**
+
+> **APPEND ONLY.** Occasioned by drax's `motion_report()` attribution (every stationary tick charged
+> to a named cause, `unattributed 0`) and the conductor's question: *is it three rows, or is T-A's
+> band half measuring survival with extra steps?*
+> ⚑ **ANSWER: IT IS NOT THREE ROWS. IT IS ALL SIX COUNTED BANDS — five directly, the sixth through
+> its own instrument. And at this port's fight length, FOUR OF THE SIX HAVE A PREDETERMINED OUTCOME
+> REGARDLESS OF PORT FIDELITY.** That is a finding about the instrument, and it is mine.
+> **No width is adjusted. No row is reclassified. The verdict of record does not move.**
+
+## B1 · The dilution factor, derived
+
+The confound is not "the port survives longer." It is **ticks per wave** — a per-wave-event numerator
+over a per-tick denominator is diluted by exactly that ratio.
+
+| | per-salt `D` | `n_waves` | ticks/wave | **mean-of-salts** |
+|---|---|---|---|---:|
+| **oracle `M-POL-2`** | `[1084, 305, 106, 185, 1103]` | `[6, 2, 1, 1, 6]` | `[180.7, 152.5, 106.0, 185.0, 183.8]` | **161.6** |
+| **port `M-POL-2`** | `[5064, 4704, 4908, 4764, 4680]` | `[10 × 5]` | `[506.4, 470.4, 490.8, 476.4, 468.0]` | **482.4** |
+
+> ⚑ **DILUTION FACTOR = 482.4 / 161.6 = `2.985×`.**
+
+**Cross-checked against drax's own attribution, which is the independent confirmation:** the oracle's
+stationary fraction is **0.1425** mean-of-salts; divided by `2.985` it predicts **0.0477**, and the
+repaired port measures **0.0320**. The residual is the missing Type-A motion-suppress (his 80 ticks),
+which the port does not fire at all. ⚑ **The mechanism and the arithmetic agree.**
+
+⚑ **And the sharper way to say it, which is the real defect:** the widths were calibrated over five
+salts whose ticks-per-wave spanned **106 – 185 — a 1.75× range** — and are being applied at **482.4**,
+which is **2.6× outside the top of that range.** *I never asked whether these statistics were
+scale-free in the one dimension the port was free to move.*
+
+## B2 · ⚑ THE ENUMERATION — all 15 band ids, classified by STRUCTURE, not by the measurement
+
+**The rule:** a fraction is confounded iff its numerator and denominator scale with **different**
+quantities. `per-wave / per-tick` → diluted. `per-wave / per-wave` and `per-tick / per-tick` → immune.
+
+### COUNTED — 6
+
+| id | numerator grain | denominator grain | **confounded?** | **direction** |
+|---|---|---|---|---|
+| `TA-B-02` uptime | `1 −` released; released is **89.8 % Type-A = per-wave** | `D` — per-tick | ⚑ **YES** | **UP** |
+| `TA-B-03` frac_moving | `1 −` stationary; drax charges **100 % of stationary to per-wave causes**, `unattributed 0` | `D` — per-tick | ⚑ **YES** | **UP** |
+| `TA-B-04` `P(chan\|moving)` | `CH_AND_MOVING` — per-tick | `+ MOVING` = released-while-moving — **per-wave** | ⚑ **YES** | **UP** (→ 1.0) |
+| `TA-B-05` `P(chan\|stationary)` | stationary∧channelling = motion-suppress — **per-wave** | `+ IDLE` = stationary∧released — **per-wave, plus a per-tick Type-B component** | ⚑ **WEAKLY — the dilution largely cancels** | ⚑ **INDETERMINATE.** I will not name a direction I cannot derive |
+| `TA-B-06` plant ratio | stationary fraction | stationary fraction | ⚑ **STATISTIC IMMUNE — a ratio of two stationary fractions; a uniform dilution CANCELS** | ⚑ **BUT ITS INSTRUMENT IS CONFOUNDED — see B3** |
+| `TA-B-09` channel split | stationary∧channelling = motion-suppress — **per-wave** | all channelling ticks — **per-tick** | ⚑ **YES — and it is the tightest row in the set** | **DOWN** |
+
+### REPORTED-NOT-COUNTED — 5
+
+| id | | |
+|---|---|---|
+| `TA-B-01` terminal wave | ⚑ **It is not confounded with survival — it IS survival.** Already `REPORT-ONLY` | — |
+| `TA-B-07` release duty | ⚑ **YES — already declared at § 10** | **DOWN** |
+| `TA-B-08` ordering | operands `TA-B-04` and `TA-B-05` move differently ⇒ ⚑ **the SIGN may survive; the MARGIN (0.0048) does not** | — |
+| `TA-B-14` vetoes / occupancy | raw counts, **no tick denominator** — not this mechanism, but counts scale with **exposure** | UP with waves |
+| `TA-B-15` NO-DATA fraction | ⚑ **CLEAN.** Numerator and denominator are both **BODIES**, and both scale with waves — the fraction is immune. ⚑ **The only structurally clean band in the whole set, and it is the one that measures the substrate rather than the port** | — |
+
+### UNGRADEABLE-DECLARED — 4
+
+| id | | |
+|---|---|---|
+| `TA-B-10` per-wave durations | ⚑ **THIS ROW *IS* TICKS-PER-WAVE. It is the DIAGNOSTIC for the entire family — and it is `UNGRADEABLE` for want of an oracle side.** ⚑ *The one statistic that would have measured the confound is the one the seals do not publish.* | — |
+| `TA-B-11` arrival latency | per-event; ungradeable regardless | — |
+| `TA-B-12` intake / leech | `leech_per_tick` is per-tick over per-tick — **immune**; `intake_by_wave` is per-wave over per-wave — **immune**. ⚑ **Structurally the cleanest pair in the set, and both have no referent** | — |
+| `TA-B-13` `max_body_radius` | an **extreme over n draws** — more waves ⇒ more bodies ⇒ higher max. Confounded with survival by a **different** mechanism (extreme-value growth in `n`), already declared | UP |
+
+## B3 · ⚑ `TA-B-06` — THE INSTRUMENT RE-INTRODUCES THE CONFOUND ITS STATISTIC WAS BUILT TO CANCEL
+
+The plant ratio is the **only counted row whose statistic is structurally immune**, and the seal says
+why in its own words: *"The referent's LEVELS come from an instrument that disagrees with the sim's
+own pinned calibration by 1.41× (`C-MPOL2-4`). **The referent's RATIO is 1.644 and it is the ratio
+that transfers.**"* A ratio of two stationary fractions cancels a uniform dilution exactly.
+
+⚑ **And then the window instrument puts the confound straight back in.** The oracle's window count is
+`61 × n_waves` — **PER-WAVE** (verified exactly on all five salts: `366/6, 122/2, 61/1, 61/1, 366/6`).
+The port's is `D / 61` — **PER-TICK** (`83, 77, 80, 78, 76`).
+
+> ⚑ **The grain defect I declared at § 10 item 1 is itself an instance of this very family — and it
+> lands on the one row whose statistic was immune to it.** The row was designed to be scale-free and
+> its measurement apparatus is not. **That is not two defects; it is the same defect, and I wrote
+> both halves of it.**
+
+## B4 · ⚑ THE CONSEQUENCE THAT DECIDES THE CONDUCTOR'S QUESTION — **FOUR ROWS HAVE A PREDETERMINED OUTCOME**
+
+Take a **hypothetically PERFECT port** — every limb faithful, Type-A firing correctly, motion model
+exact — and run it at the port's fight length. Dilute the oracle's own mean-of-salts by `2.985×`:
+
+| row | oracle mean | **perfect port at T = 482** | band | **outcome** |
+|---|---:|---:|---|---|
+| `TA-B-02` uptime | 0.879189 | **0.9379** | [0.7840, **1.0**] | ⚑ **GREEN — and it is green for the BROKEN port too. It cannot fail.** |
+| `TA-B-04` `P(chan\|moving)` | 0.907002 | → toward **1.0** | [0.8120, **1.0**] | ⚑ **GREEN. The confound pushes it at the clip. It cannot fail.** |
+| `TA-B-03` frac_moving | 0.857462 | **0.9523** | [0.8331, 0.8818] | ⚑ **RED, +2.9 half-widths. It cannot pass.** |
+| `TA-B-09` channel split | 0.115395 | **0.038658** | [0.105100, 0.125689] | ⚑ **RED, −6.45 half-widths. It cannot pass.** |
+| `TA-B-07` release duty | 0.120811 | **0.0621** *(Type-A diluted 0.0363 + Type-B invariant 0.0258)* | [0.0, 0.215952] | in band only because it clips at 0 |
+
+> ⚑ **SO: at this port's fight length, two counted bands are incapable of failing and two are
+> incapable of passing, whatever the port does.** `TA-B-05` is indeterminate and `TA-B-06`'s
+> instrument is broken. ⚑ **Zero of the six counted bands are, in their present form, capable of
+> discriminating a faithful port from an unfaithful one at `T = 482`.**
+
+**The honest verdict on the instrument:** *T-A's counted band half is, at this fight length,
+substantially measuring survival with extra steps.* ⚑ **The four band reds in § 4.1 are therefore
+NOT evidence of four fidelity failures.** They are evidence of one pilot-motion divergence (which is
+real — `TA-B-09` at **+32.5** half-widths is far beyond the **−6.45** the confound alone predicts,
+and the *sign is wrong*, so a genuine defect sits underneath) **plus a confound that would have
+produced reds on two of them regardless.** ⚑ **That distinction is exactly what a grader owes and I
+did not draw it in § 4.1. I draw it now.**
+
+## B5 · ⚑ THE REMEDY IS NOT UNIFORM — and the seal's own dispersion says so
+
+The obvious fix is *"re-express every confounded row on a per-wave denominator."* ⚑ **I tested it and
+it is wrong for half the rows.** Coefficients of variation over the oracle's five salts:
+
+| quantity | **per-tick rate** CV | **per-wave count** CV | which form is more stable |
+|---|---:|---:|---|
+| released ticks | 0.4485 | ⚑ **0.1595** | ⚑ **PER-WAVE, by 2.8×** |
+| stationary ticks | ⚑ **0.0972** | 0.2004 | ⚑ **PER-TICK, by 2.1×** |
+
+**Released ticks want a per-wave denominator; stationary ticks want a per-tick one.** A blanket
+restatement would fix `TA-B-07`/`TA-B-02` and **damage** `TA-B-03`/`TA-B-09`.
+
+⚑ **And here the two kinds of evidence disagree, so I have to say which wins and why.** For stationary
+ticks, the **dispersion** says per-tick and the **mechanism** — drax's attribution, 100 % of stationary
+ticks charged to per-wave causes with `unattributed 0` — says per-wave. ⚑ **The mechanism wins, because
+the dispersion was measured over a ticks-per-wave span of 106–185, a 1.75× range that is far too
+narrow to distinguish "this rate is scale-free in `T`" from "`T` barely moved."** A low CV inside the
+calibration range is not evidence of invariance outside it. *(Discipline #11 cuts the other way here
+than it usually does: the empirical range was too small to be the arbiter, and reading it as one is
+how a confound survives calibration.)*
+
+**Demonstrated on the one row where both sides exist today, no new run needed:**
+
+| | oracle mean-of-salts | port | **ratio** |
+|---|---:|---:|---:|
+| released ticks **per tick** (`TA-B-07` as written) | 0.120811 | 0.024430 | **0.202** |
+| released ticks **per wave** | 18.1333 | 11.76 | ⚑ **0.649** |
+
+⚑ **The per-wave form turns a 5× miss into a 1.5× miss on a port whose Type-A limb is entirely absent
+— i.e. it stops charging the port for surviving and starts charging it for the thing that is actually
+wrong.** And it is computable **on both sides from artifacts that already exist**: the seal carries
+`n_waves` and `D` per salt; the port emits `per_wave_durations` with `ticks` per wave. ⚑ **No sealed
+cell needs re-running, so `K-7` does not block the repair.**
+
+## B6 · WHAT I AM AND AM NOT DOING WITH THIS
+
+⚑ **NOT doing:** changing a width, restating a row, or regrading anything. The prereg is immutable, a
+graded run exists, and *no post-hoc widening, by anyone*. **§ 4.1 stands exactly as filed.**
+
+**Doing:** filing the confound as a property of the instrument, **before run #2**, as asked.
+
+**What a `v1.5` would need, offered as scoped work and not as a ruling:**
+
+1. ⚑ **Re-express the per-wave-numerator rows on a per-wave denominator** — `released ticks/wave`,
+   `stationary ticks/wave`, `motion-suppressed ticks/wave`. Computable on both sides from existing
+   artifacts. **This is the substantive fix and it is cheap.**
+2. **Re-derive `TA-B-06`'s window on the oracle's grain** (one 5 s window per wave), which removes the
+   instrument confound from the one statistic that was already immune.
+3. ⚑ **Demote `TA-B-02` and `TA-B-04` to `REPORTED-NOT-COUNTED`.** At `T = 482` they cannot fail.
+   **A row that cannot fail is not a test, and counting it inflates `n/6 counted band rows graded`
+   with rows that graded nothing.**
+4. ⚑ **State the calibration range of every band on its face** — *"derived at ticks-per-wave ∈ [106, 185]"*
+   — so the next grader is told, in the place the width is read, that applying it at 482 is
+   extrapolation. **This is `WARN-6`'s lesson (a correction belongs where the rule is read) applied to
+   a precondition rather than to a correction.**
+5. **Promote the whole thing to the disciplines.** ⚑ *Before banding a rate, name the grain of its
+   numerator and of its denominator separately, and state the range of the ratio between them over
+   which the band was calibrated.* This is the fourth instance this run of **one shape — a statistic
+   correct in its arithmetic and wrong in the population or scale it ranged over** — after the σ-over-
+   bodies, the subtraction-for-intersection, and my own `183.58`.
+
+## B7 · TWO NOTES BACK TO drax, NO ACTION ASKED
+
+* **The `U{30,30}` constant carrying both branches with its reasoning is the right build**, and it makes
+  Addendum 1 § A2 a flag flip: ⚑ **the flag is OFF — the oracle takes no draw at p05, `V9` stays at 29
+  sites.** ⚑ **But the same constant's reasoning is needed at a second site he has not been pointed at:
+  `wave_engine.py:840` / `:949`, where `rng.randint(n_min, n_max)` is called and where 97 of 139 pairs
+  in the graded window are degenerate (Addendum 1 § A2.2). There the flag must be ON.**
+* **"No coefficient in the fight module is reachable from any band"** is the correct answer to *do not
+  tune toward it*, and it is a **property**, not a promise — which is the difference between an
+  assurance and a guarantee. ⚑ **Addendum 1 § A3.2 is what that property bought: he declined to fit
+  toward `183.58`, and `183.58` turned out to be mine and wrong.** Had he fitted, my arithmetic error
+  would now be a constant inside the runtime and unfindable.
+
+---
+
+*Appended 2026-09-21 by gamora (simulation seam). Structural analysis and source reads only; nothing
+executed; `K-7` untouched; no width adjusted, no row reclassified, no production code touched.
+⚑ **The finding is against my own instrument: zero of the six counted bands can discriminate a
+faithful port at this fight length, and the two reds that survive the confound are one divergence,
+not four.** The verdict of record — `STRUCTURAL @ coverage 89/89` — is unchanged.*
