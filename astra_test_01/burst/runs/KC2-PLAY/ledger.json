@@ -360,9 +360,78 @@
       "codex_version": "codex-cli 0.153.4",
       "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
       "exit": 0
+    },
+    {
+      "id": "KP-B1g",
+      "type": "GENERATE",
+      "experiment": "KC2-PLAY-B1g-cross-plate-fix",
+      "brief_sha256": "4e1c840eee912fe34953a45f8a66609fec1769843f6f0748986fa61994c3d367",
+      "started": "2026-09-21T00:59:12.197142+00:00",
+      "ended": "2026-09-21T01:02:03.894476+00:00",
+      "minutes": 2.86136442153332,
+      "image_calls": 2,
+      "tool_calls": 2,
+      "audit": {
+        "violations": [],
+        "image_calls": 2,
+        "tool_calls": 2,
+        "tools_seen": {
+          "command_execution": 2
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0c179-6072-78f2-911e-29a75fa6b2fb/exec-d1ebdf3b-9041-4781-a286-3d3fc3673bb6.png",
+            "sha256": "beb1770a0b4d5db2d1cac9cb13092af8e03193c2d9f4ea43e91bc4fe4c7b41c0"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0c179-6072-78f2-911e-29a75fa6b2fb/exec-e0e52770-9c33-4dd8-a9a5-d226decf0adb.png",
+            "sha256": "1b17cf643fb5de356ca90adc3a5adf8dd78b5cc75c5b4237e77d14102a644b9d"
+          }
+        ]
+      },
+      "receipt_sha256": "3e4893299e28eee8fa2cc1ac44aeb9274caa0525d030e6ba23ba989c8450ecc6",
+      "artifacts": [
+        {
+          "name": "window_B3_cross_flat.png",
+          "sha256": "beb1770a0b4d5db2d1cac9cb13092af8e03193c2d9f4ea43e91bc4fe4c7b41c0"
+        },
+        {
+          "name": "exec-d1ebdf3b-9041-4781-a286-3d3fc3673bb6.provenance.json",
+          "sha256": "604c87f5da215a66884f7d98f8a2a9f4a6b9416ab0aa7e8a25bcb53240f5a6f2"
+        },
+        {
+          "name": "exec-e0e52770-9c33-4dd8-a9a5-d226decf0adb.provenance.json",
+          "sha256": "ddc318f769db27907319f3fb97980ceb6501043b29cad6e4c72e1358d6e5297d"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0c179-6072-78f2-911e-29a75fa6b2fb/exec-d1ebdf3b-9041-4781-a286-3d3fc3673bb6.png",
+          "sha256": "beb1770a0b4d5db2d1cac9cb13092af8e03193c2d9f4ea43e91bc4fe4c7b41c0"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0c179-6072-78f2-911e-29a75fa6b2fb/exec-e0e52770-9c33-4dd8-a9a5-d226decf0adb.png",
+          "sha256": "1b17cf643fb5de356ca90adc3a5adf8dd78b5cc75c5b4237e77d14102a644b9d"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
     }
   ],
-  "images_used": 11,
+  "images_used": 13,
   "images_cap": 999999,
   "experiments": {},
   "milestones": [
@@ -390,6 +459,11 @@
       "id": "M-B1f-ART",
       "note": "KP-B1f DELIVERED_WITH_CONCERNS (2 calls, 0 violations): the cross broken as Matt asked — centre crack through the knight-saint, arm snapped, glass vivid. PLATE FAILED (dark backdrop + light spill, not #00ff00) and not foreshortened; retry spent. KP-B1g fired: object cut out + composited on a flat green canvas as the EDIT target (the method that held the plate on B1a/B1d).",
       "ts": "2026-09-20T20:59:27"
+    },
+    {
+      "id": "M-B1g-PROP",
+      "note": "KP-B1g DELIVERED_WITH_CONCERNS (2 calls, 0 violations): plate CLEAN (86.8% keyed, flat plateau, 0 glow), object 801x643 px = 8 m as composited; the fallen cross is a usable production prop. Residual foreshortening fixable at placement (a scale factor, not a re-mint).",
+      "ts": "2026-09-20T21:02:55"
     }
   ],
   "halts": [],

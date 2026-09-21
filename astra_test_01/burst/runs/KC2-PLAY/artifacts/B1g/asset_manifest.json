@@ -1,0 +1,30 @@
+{
+ "asset": "fallen_cross_window",
+ "source_burst": "KP-B1g",
+ "sha256": "beb1770a0b4d5db2d1cac9cb13092af8e03193c2d9f4ea43e91bc4fe4c7b41c0",
+ "plate": {
+  "key_rule": "g_dom = G - max(R,B) >= 120",
+  "keyed_frac_pct": 86.831,
+  "exact_00ff00_pct": 0.0015,
+  "plateau_pct": {
+   "t40": 88.487,
+   "t80": 87.519,
+   "t120": 86.831,
+   "t200": 86.021
+  }
+ },
+ "object_px": {
+  "w": 801,
+  "h": 643
+ },
+ "world_m": {
+  "across_ew": 7.961,
+  "along_ns": 8.007,
+  "note": "h/PX_S is the SCREEN extent read back as metres along north-south; the object was composited at 8.00 m tall by construction"
+ },
+ "placement": {
+  "anchor": "arena centre = player_spawn (0,0); long axis NORTH-SOUTH, head of the cross NORTH",
+  "residual": "foreshortening is MODEST (Astra's own concern). Fixable at placement WITHOUT regeneration: the object was composited at a known scale, so an extra vertical squash is a scale factor, not a re-mint.",
+  "glow_layer": "sunset gleam + flame flicker ride as an ADDITIVE glow over the prop (T3q), never painted in"
+ }
+}
