@@ -93,6 +93,14 @@
       "topic": "Packet 104 eye read — walkable scene PASS; SW/SE walk double speed; attack redesign; attack-in-scene question",
       "ruling": "Matt: walkable scene looks good; SW and SE walk at double speed, everything else good. Cause: SW_walk autocorr (conf 0.99) locked onto a TWO-stride 48-frame period (S/E/N/NE = 24) → 12 frames spanned two strides at 12 fps. Fix: forced --period-frames 24 re-cut, re-assemble (SE mirror follows), re-export warlord2, re-proof. ATTACK REDESIGN (Matt, verbatim intent): 1H weapon held at the BASE of the haft for extended reach, swung OUT wide on purpose; BATTLE STANCE with slightly bent knees like a batter at the plate / a knight mid-swing — centre of gravity kept through a far swing; stance of utmost importance. Matt asks whether the attack can go into the cliffside scene after the updates → conductor answer: exporter (FPS dict, input map) + keeper.gd state machine have no attack state — tooling outside the C-8 no-tooling charter; fork to Matt.",
       "ts": "2026-09-20T19:02:51"
+    },
+    {
+      "id": "R-C8-4",
+      "class": "conductor",
+      "veto_open": true,
+      "topic": "PHASE-ROLL: one spin revolution can serve all eight direction cells",
+      "ruling": "A full 360-degree spin loop is direction-agnostic under a FIXED camera: over one revolution the figure cycles through every facing, so attack_S and attack_N differ only in which phase sits at frame 0. The cells loop, so phase is free — one approved 12-frame revolution can be rolled (numpy roll of the frame order) into all eight cells: 12 frames = 30 deg per frame, so N/E/S/W land exactly (3 frames apart) and the diagonals sit 15 deg off, invisible at 0.40 s per turn. CONSEQUENCES: (a) the redesign costs 1 seed + 1 clip instead of 5 + 5 — material under the Grok budget halt; (b) it makes the eight attack cells PERFECTLY consistent with each other, which is the property Matt ruled matters most (consistency over angle, 2026-09-20 camera observation); (c) the cost is that no direction gets a bespoke body lean. RECOMMENDATION: phase-roll. Matt rules at the first clip.",
+      "ts": "2026-09-20T20:36:24"
     }
   ],
   "grok_calls": [
