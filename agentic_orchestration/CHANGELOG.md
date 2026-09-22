@@ -1698,7 +1698,7 @@ Two NEW discipline candidates appended to `knight-rider/notes/2026-05-23-discipl
 2. Galadriel topology row added to AGENTS.md § 2 (10 entities); seam-map § 3 entry; Tier C+ row in authority tiers; updated status banner.
 3. Universal first-read pair (`canonical/00-ground-state.md` + `canonical/38-downstream-delivery-strategy-2026-05-23.md`) documented in AGENTS.md § 4 Tactic 1; on-demand-archive discipline encoded; aggregate read-budget target 10–15 min stated.
 4. Math-hotspot annotations applied at `canonical/story/hive-mind-protocol-weapon-library-import-2026-05-22.md` § 6.4 (P2 axis discovery) + § 6.5 (P3 clustering) + § 6.7 (P5 cohesion-judge sub-phase A), and at `canonical/story/hive-mind-protocol-qd-engine-rebuild-2026-05-21.md` § 6.6 (P5 cohesion-BC). Each annotation cites Discipline #18 and the design-call requirement.
-5. `canonical/00-ground-state.md` § 1 updated — discipline count corrected (19 → 20 disciplines including #18); math-seam-naming note added as CURRENT (integrated 2026-05-23) row.
+5. `canonical/00-ground-state.md` § 1 updated — discipline count corrected (19 → 20 including #18); math-seam-naming note added as CURRENT (integrated 2026-05-23) row.
 6. Discipline #18 (methodology-before-execution) integrated into `~/Games/reincarnated-engine/design/working-agreement/engineering-disciplines.md` as top-level entry between #17 and #19 (separate engine-repo commit per ADR-004 cross-repo coordination).
 
 **Blocker surfaced:** harness denied Edit on `.claude/agents/knight-rider.md` (and presumably the other 9 agent definition files). The structural binding of per-agent Phase-1 read lists into the agent .md files themselves was NOT applied this session. Functional equivalence is preserved by:

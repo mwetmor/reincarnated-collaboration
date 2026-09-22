@@ -36,7 +36,7 @@ version: 0.2.0
 
 ### The failure this section is a record of
 
-From 2026-05-23 to 2026-09-21 this section held a table of **twenty** disciplines, and the frontmatter `description` — *the text an agent sees in the skill listing without opening the file* — advertised "the 20 engineering disciplines." **The corpus reached #86.** Sixty-six disciplines were invisible through this surface for four months, including every one that governs instrument design, gate quality and attribution — the disciplines most likely to be wanted by an agent who loads a skill called *engineering-disciplines*.
+From 2026-05-23 to 2026-09-21 this section held a table of **twenty** disciplines, and the frontmatter `description` — *the text an agent sees in the skill listing without opening the file* — advertised **"the engineering-disciplines corpus."** **The corpus reached #86.** Sixty-six disciplines were invisible through this surface for four months, including every one that governs instrument design, gate quality and attribution — the disciplines most likely to be wanted by an agent who loads a skill called *engineering-disciplines*.
 
 **Nobody bypassed a rule. The rule was `§ 6`, and `§ 6` was the defect.** Its update protocol read *"a new discipline is ratified (add row to § 1 table)"* — making freshness depend on a manual edit that no ratification checklist ever referenced. It fired zero times in sixty-six opportunities. ⚑ **The protocol written to keep this file current is the reason it rotted.**
 

@@ -42,7 +42,7 @@ Read in order. Stop when sufficient for the work at hand; do not pre-load beyond
 3. **`canonical/current-to-end-state/current-to-end-state-engine.md`** — the engine delta tracker (build-vs-spec gaps for the operational-pipeline seam; replaces the retired `02-roadmap.md`). When your work closes a gap or opens a new one, surface a `Tracker-delta:` to gandalf/knight-rider, who own tracker writes (see `canonical-doc-format § 6`).
 4. **`canonical/reap-die-rise-engine/asset-pipeline-meshy-swap-2026-05-22.md`** — asset pipeline (Meshy / Control Rig / Unreal). Star-lord first-read per ground-state § 4. Load when any session touches export schema or output format — this doc governs what the downstream pipeline consumes from star-lord's seam.
 5. **`agentic_orchestration/drax/notes/loadout-analytics-suite-information-architecture-2026-05-18.md`** — loadout analytics info-arch. Star-lord first-read per ground-state § 4. Load when telemetry analysis, sidecar analyses, or analytics-suite work is in scope.
-6. **`~/Games/reincarnated-engine/design/working-agreement/engineering-disciplines.md`** — 20 disciplines. Especially #8 (schema validation at export boundaries), #9 (attribution clarity), #14 (internal-vs-generative schema separation at LLM prompt-construction sites), #18 (methodology-before-execution at P5), #19 (Agent tool is not for waiting).
+6. **`~/Games/reincarnated-engine/design/working-agreement/engineering-disciplines.md`** — the engineering-disciplines corpus. Especially #8 (schema validation at export boundaries), #9 (attribution clarity), #14 (internal-vs-generative schema separation at LLM prompt-construction sites), #18 (methodology-before-execution at P5), #19 (Agent tool is not for waiting).
 7. **`~/Games/reincarnated-engine/src/reincarnated/export/AGENT_STATE.md`** — star-lord's checkpoint file (covers export/, output/, telemetry/, llm/ seam state). Read this to pick up where the prior session left off. If the file is absent or stale, report status to Matt and await direction.
 8. **Task-specific docs** named in the invocation request — dispatch file, MIGRATION.md from upstream seams, telemetry schema reference, LLM call-map. Read only those needed; do NOT broad-walk the archive.
 
@@ -223,7 +223,7 @@ Refusing protects the work-product; carrying mis-framed work produces schema dri
 ## 5. Skills to install alongside this one
 
 ### Universal (every star-lord session)
-- `reincarnated-engineering-disciplines` (the 20 disciplines — especially #8, #9, #14, #18, #19)
+- `reincarnated-engineering-disciplines` (the engineering-disciplines corpus — especially #8, #9, #14, #18, #19)
 - `reincarnated-decision-log-format` (so star-lord can recognize when a schema or telemetry decision needs canonical capture via jack-ryan)
 
 ### Cross-cutting (load when relevant)

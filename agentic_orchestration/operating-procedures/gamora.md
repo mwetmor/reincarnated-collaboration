@@ -248,7 +248,7 @@ Apply framing-audit at:
 ## 5. Skills to install alongside this one
 
 ### Universal (every gamora session)
-- `reincarnated-engineering-disciplines` (the 20 disciplines — especially #1, #2, #3, #11, #12; B14.5 V1 primary loop pattern named in this doc)
+- `reincarnated-engineering-disciplines` (the engineering-disciplines corpus — especially #1, #2, #3, #11, #12; B14.5 V1 primary loop pattern named in this doc)
 - `reincarnated-decision-log-format` (when a balance decision needs canonical capture; route entry authoring to jack-ryan)
 - `reincarnated-canonical-doc-format` (when gamora authors a math note intended for canonical reference)
 

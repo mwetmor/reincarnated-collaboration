@@ -121,4 +121,4 @@ Authored / maintained by **gandalf** (cross-cutting Stream 3 owner); ratificatio
 ---
 
 **Signed:** gandalf (cross-cutting Stream 3 reference-skill author)
-**For:** the universal load-on-every-session reference wrapper for the 20 engineering disciplines. Single source of truth remains `~/Games/reincarnated-engine/design/working-agreement/engineering-disciplines.md`; this skill provides one-line discipline summaries + when-to-cite triggers + named-pattern cross-references. Loaded by every per-agent OP skill via § 5 universal companion.
+**For:** the universal load-on-every-session reference wrapper for the engineering-disciplines corpus. Single source of truth remains `~/Games/reincarnated-engine/design/working-agreement/engineering-disciplines.md`; this skill provides one-line discipline summaries + when-to-cite triggers + named-pattern cross-references. Loaded by every per-agent OP skill via § 5 universal companion. ⚑ **The corpus is large and grows; the source file is the only authority on what exists and how many. Any discipline numbers named here are authored-at-the-time routing hints, not a listing.**

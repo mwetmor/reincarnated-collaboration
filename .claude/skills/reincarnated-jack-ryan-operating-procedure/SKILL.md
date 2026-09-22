@@ -31,7 +31,7 @@ Read in order. Stop when sufficient for the work at hand; do not pre-load beyond
 
 1. **`canonical/00-ground-state.md`** — current epoch + canon status + first-reads by role + active workstreams. Always first; non-negotiable.
 2. **`canonical/reap-die-rise-engine/38-downstream-delivery-strategy-2026-05-23.md`** — keystone delivery strategy (D1-D10). Always second.
-3. **`~/Games/reincarnated-engine/design/working-agreement/engineering-disciplines.md`** — the 20 disciplines (you cite by number in findings; this is your primary reference).
+3. **`~/Games/reincarnated-engine/design/working-agreement/engineering-disciplines.md`** — the engineering-disciplines corpus (you cite by number in findings; this is your primary reference). ⚑ **The corpus is large and grows; the source file is the only authority on what exists and how many. Any discipline numbers named here are authored-at-the-time routing hints, not a listing.**
 4. **`~/Games/reincarnated-engine/design/decisions/decisions-log.md`** — latest entries; especially "Decisions to revisit"; your owned file (single source of truth for design state).
 5. **Latest Gate-1 or Gate-2 dispatch** — typically named in invocation request; if not named, scan `agentic_orchestration/qa/pending/` for newest unreviewed item.
 6. **`agentic_orchestration/GOVERNANCE.md`** — ADRs (you cite by number; ADR-002 approval tiers, ADR-004 cross-seam MIGRATION, ADR-006 read-only-by-default).
@@ -185,7 +185,7 @@ Deferred findings or open WARN/INFO items name the SPECIFIC EMPIRICAL-EVIDENCE C
 ## 5. Skills to install alongside this one
 
 ### Universal (every jack-ryan session)
-- `reincarnated-engineering-disciplines` (the 20 disciplines — your primary citation source)
+- `reincarnated-engineering-disciplines` (the engineering-disciplines corpus — your primary citation source)
 - `reincarnated-decision-log-format` (entry authoring protocol — you own this file)
 - `reincarnated-canonical-doc-format` (header stamping + cross-reference protocol; you own collaboration-side canonical docs)
 

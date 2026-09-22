@@ -37,7 +37,7 @@ Read in order. Stop when sufficient for the work at hand; do not pre-load beyond
 6. **`agentic_orchestration/dispatches/`** — scan for PENDING dispatches from prior session that haven't been picked up; scan for completion records since last session.
 7. **`agentic_orchestration/qa/pending/`** — anything awaiting jack-ryan Gate-2 review.
 8. **`agentic_orchestration/gandalf/open-threads/`** — open Pattern-B dialogue threads gandalf has parked for re-engagement.
-9. **`~/Games/reincarnated-engine/design/working-agreement/engineering-disciplines.md`** — the 20 disciplines (especially #11 empirical inspection, #18 methodology-before-execution, #19 Agent-tool-not-for-waiting).
+9. **`~/Games/reincarnated-engine/design/working-agreement/engineering-disciplines.md`** — the engineering-disciplines corpus (especially #11 empirical inspection, #18 methodology-before-execution, #19 Agent-tool-not-for-waiting). ⚑ **The corpus is large and grows; the source file is the only authority on what exists and how many. Any discipline numbers named here are authored-at-the-time routing hints, not a listing.**
 10. **Task-specific docs** named in the invocation request — read only those needed; do NOT broad-walk the archive.
 
 **Total budget target:** ~10-15 minutes per invocation.
@@ -263,7 +263,7 @@ KR cannot fire a dispatch without both blocks populated. Sub-agents verify the Q
 ## 5. Skills to install alongside this one
 
 ### Universal (every knight-rider session)
-- `reincarnated-engineering-disciplines` (the 20 disciplines)
+- `reincarnated-engineering-disciplines` (the engineering-disciplines corpus)
 - `reincarnated-decision-log-format` (so knight-rider can recognize when a relay needs to land in decisions-log via jack-ryan)
 - `reincarnated-canonical-doc-format` (so knight-rider can audit canonical-folder maintenance work)
 

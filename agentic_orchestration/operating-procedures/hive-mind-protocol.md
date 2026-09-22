@@ -518,7 +518,7 @@ Every hive-mind cycle has pre-flight checks specific to its scope. Universal che
 
 ### Universal in hive-mind state
 - **Per-agent OP skill** (always — the skill being composed on top of)
-- `reincarnated-engineering-disciplines` (the 20 disciplines; especially #11, #18, #19, #20)
+- `reincarnated-engineering-disciplines` (the engineering-disciplines corpus; especially #11, #18, #19, #20)
 - `reincarnated-decision-log-format` (cycle-completion ADR-style entries)
 - `reincarnated-canonical-doc-format` (protocol doc + recognition record authoring)
 
@@ -569,7 +569,7 @@ This is a cross-cutting work-mode skill — it evolves when:
 - `agentic_orchestration/gandalf/notes/2026-05-23-mathematical-seam-naming.md` — Mathematical Layer + math-hotspot living list (cross-referenced in § 7)
 
 ### Engineering disciplines
-- `~/Games/reincarnated-engine/design/working-agreement/engineering-disciplines.md` — 20 disciplines; load-bearing in hive-mind state especially #11 empirical inspection, #18 methodology-before-execution, #19 Agent-tool-not-for-waiting, #20 robots.txt + Claude-agent directive respect
+- `~/Games/reincarnated-engine/design/working-agreement/engineering-disciplines.md` — the engineering-disciplines corpus; load-bearing in hive-mind state especially #11 empirical inspection, #18 methodology-before-execution, #19 Agent-tool-not-for-waiting, #20 robots.txt + Claude-agent directive respect
 
 ### Decisions-log
 - `~/Games/reincarnated-engine/design/decisions/decisions-log.md` — temporal decisions log; cycle-completion entries land here

@@ -205,7 +205,7 @@ These compose with the decision-loop disciplines in this OP. Operational source 
 ## 5. Skills to install alongside this one
 
 ### Universal (every elrond session)
-- `reincarnated-engineering-disciplines` (the 20 disciplines — especially #11, #18, #20)
+- `reincarnated-engineering-disciplines` (the engineering-disciplines corpus — especially #11, #18, #20) ⚑ **The corpus is large and grows; the source file is the only authority on what exists and how many. Any discipline numbers named here are authored-at-the-time routing hints, not a listing.**
 - `reincarnated-canonical-doc-format` (when authoring diagnostic notes or schema-architecture recognition records)
 - `reincarnated-decision-log-format` (when an elrond verdict produces a decisions-log entry; jack-ryan owns the file; elrond provides substantive content)
 

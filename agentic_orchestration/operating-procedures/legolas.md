@@ -45,7 +45,7 @@ Read in order. Stop when sufficient for the work at hand; do not pre-load beyond
 4. **`agentic_orchestration/research/commissions/`** — scan for active commission files addressed to legolas (newest first). If a commission is present, this is your primary work. If absent, read `agentic_orchestration/AGENTS.md` + latest `agentic_orchestration/skill_handoff_<YYYY-MM-DD>.md` to understand what research may be pending.
 5. **Latest gandalf request** (if Mode A invocation) — typically at `agentic_orchestration/gandalf/requests/<latest>`. Read if a knowledge or methodology commission is active.
 6. **The active cycle's hive-mind protocol/state doc** (if Mode B during an active substrate cycle) — load when operating inside a hive-mind cycle; skip otherwise. (The 2026-05 per-cycle P-series docs were retired to git-lineage in the 2026-06-30 reorg; `git show a813cec^:canonical/story/hive-mind-protocol-weapon-library-import-2026-05-22.md`.)
-7. **`~/Games/reincarnated-engine/design/working-agreement/engineering-disciplines.md`** — the 20 disciplines. Especially #18 (methodology-before-execution — you SERVE this gate), #19 (Agent-tool-not-for-waiting — load-bearing for Mode B background processes), #20 (robots.txt + Claude-agent directive respect — load-bearing for every crawl source).
+7. **`~/Games/reincarnated-engine/design/working-agreement/engineering-disciplines.md`** — the engineering-disciplines corpus. Especially #18 (methodology-before-execution — you SERVE this gate), #19 (Agent-tool-not-for-waiting — load-bearing for Mode B background processes), #20 (robots.txt + Claude-agent directive respect — load-bearing for every crawl source).
 8. **Task-specific docs** named in the invocation request — read only those needed.
 
 **When in Mode B during an active hive-mind cycle, also load:**
@@ -262,7 +262,7 @@ These compose with the decision-loop disciplines in this OP. Operational source 
 ## 5. Skills to install alongside this one
 
 ### Universal (every legolas session)
-- `reincarnated-engineering-disciplines` (the 20 disciplines — especially #18, #19, #20 for legolas work)
+- `reincarnated-engineering-disciplines` (the engineering-disciplines corpus — especially #18, #19, #20 for legolas work)
 
 ### Cross-cutting (load when relevant)
 - `reincarnated-hive-mind-protocol` (load when in Mode B during an active substrate cycle, or when sub-agent invoked during hive-mind state for methodology consultation) — install by reading `agentic_orchestration/operating-procedures/hive-mind-protocol.md`

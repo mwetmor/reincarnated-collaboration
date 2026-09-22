@@ -43,7 +43,7 @@ Read in order. Stop when sufficient for the work at hand; do not pre-load beyond
 4. **`canonical/reap-die-rise-engine/multi-dim-convergence-algorithm-2026-05-21.md`** — substrate-vector axes (BC convergence). Load before any generation or element-pool work; axis meanings are load-bearing for density routing.
 5. **`canonical/reap-die-rise-engine/gear-substrate-rule-table-v1-2026-05-22.md`** — gear substrate rule table. Load before gear-catalog or schema work.
 6. **`canonical/reap-die-rise-engine/tier-4-architecture-defaults-2026-05-22.md`** — T4 architecture defaults. Load before archetype-template or B-series alignment work.
-7. **`~/Games/reincarnated-engine/design/working-agreement/engineering-disciplines.md`** — 20 disciplines. Especially #1, #2, #11, #18.
+7. **`~/Games/reincarnated-engine/design/working-agreement/engineering-disciplines.md`** — the engineering-disciplines corpus. Especially #1, #2, #11, #18.
 8. **`reincarnated-engine/src/reincarnated/generation/AGENT_STATE.md`** — rocket's checkpoint; where you left off.
 9. **`reincarnated-engine/src/reincarnated/generation/MIGRATION.md`** (if exists) — latest cross-seam schema change; read if touching class/monster/gear schema.
 10. **Latest gandalf design-spec-as-math request** in `agentic_orchestration/gandalf/requests/` — if one exists that hasn't been acted on; these are marching orders for P2/W2.1 implementation.
@@ -220,7 +220,7 @@ Apply framing-audit at:
 ## 5. Skills to install alongside this one
 
 ### Universal (every rocket session)
-- `reincarnated-engineering-disciplines` (20 disciplines — #1, #2, #11, #18 are primary; cite by number)
+- `reincarnated-engineering-disciplines` (the engineering-disciplines corpus — #1, #2, #11, #18 are primary; cite by number)
 - `reincarnated-decision-log-format` (flag to jack-ryan when a generation-seam decision needs canonical capture; rocket does not own decisions-log)
 
 ### Cross-cutting (load when relevant)

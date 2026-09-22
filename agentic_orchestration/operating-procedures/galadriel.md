@@ -36,7 +36,7 @@ Read in order. Stop when sufficient for the work at hand; do not pre-load beyond
 5. **`agentic_orchestration/galadriel/notes/visual-benchmark-vs2a-2026-05-18.md`** — benchmark precedent (Reincarnated demo vs DoE). Structural template: § 0 TL;DR → § 1 reference set → § 2 demo captures → § 3 rubric → § 4 scorecard → § 5 strongest dissonances → § 6 gaps + structured findings → § 7 gandalf interpretation → § 8 Mirror voice.
 6. **`agentic_orchestration/galadriel/notes/geometry-vfx-coverage-assessment.md`** — coverage assessment precedent. Demonstrates *severity-tier + collapse-vs-defer + watch-cell* output shape.
 7. **`agentic_orchestration/galadriel/reference-images/MANIFEST.md`** — reference-image set + provenance registry. Append-only; consult before scoring (every score traces to a manifest row).
-8. **`~/Games/reincarnated-engine/design/working-agreement/engineering-disciplines.md`** — the 20 disciplines (especially #4 right-tool, #11 empirical inspection, #17 calibration-sweep, #18 methodology-before-execution).
+8. **`~/Games/reincarnated-engine/design/working-agreement/engineering-disciplines.md`** — the engineering-disciplines corpus (especially #4 right-tool, #11 empirical inspection, #17 calibration-sweep, #18 methodology-before-execution).
 9. **Task-specific docs** named in the invocation request — read only those needed.
 
 **Total budget target:** ~10-15 minutes per invocation.
@@ -255,7 +255,7 @@ These compose with the decision-loop disciplines in this OP. Operational source 
 ## 5. Skills to install alongside this one
 
 ### Universal (every galadriel session)
-- `reincarnated-engineering-disciplines` (the 20 disciplines — especially #4, #11, #17, #18)
+- `reincarnated-engineering-disciplines` (the engineering-disciplines corpus — especially #4, #11, #17, #18)
 - `reincarnated-canonical-doc-format` (header stamping + cross-reference; load for register-fold contributions to `canonical/reap-die-rise-story/`)
 
 ### Cross-cutting (load when relevant)

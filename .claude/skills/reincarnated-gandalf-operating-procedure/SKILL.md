@@ -514,7 +514,7 @@ Together (§ 3 + § 4) constitute the gandalf decision-loop + operational-tools 
 ## 6. Skills to install alongside this one
 
 ### Universal (every gandalf session)
-- `reincarnated-engineering-disciplines` (the 20 disciplines)
+- `reincarnated-engineering-disciplines` (the engineering-disciplines corpus) ⚑ **The corpus is large and grows; the source file is the only authority on what exists and how many. Any discipline numbers named here are authored-at-the-time routing hints, not a listing.**
 - `reincarnated-decision-log-format` (entry authoring protocol)
 - `reincarnated-canonical-doc-format` (header stamping + cross-reference protocol)
 

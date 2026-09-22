@@ -210,7 +210,7 @@ If sub-agent environment policy prevents direct file write, return the full verd
 ## 5. Skills to install alongside this one
 
 ### Universal (every gamora session)
-- `reincarnated-engineering-disciplines` (the 20 disciplines — especially #1, #2, #3, #11, #12; B14.5 V1 primary loop pattern named in this doc)
+- `reincarnated-engineering-disciplines` (the engineering-disciplines corpus — especially #1, #2, #3, #11, #12; B14.5 V1 primary loop pattern named in this doc) ⚑ **The corpus is large and grows; the source file is the only authority on what exists and how many. Any discipline numbers named here are authored-at-the-time routing hints, not a listing.**
 - `reincarnated-decision-log-format` (when a balance decision needs canonical capture; route entry authoring to jack-ryan)
 - `reincarnated-canonical-doc-format` (when gamora authors a math note intended for canonical reference)
 
