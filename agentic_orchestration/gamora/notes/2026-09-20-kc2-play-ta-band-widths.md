@@ -622,3 +622,369 @@ runtime to map to a denominator that cannot be reconstructed from the document t
 Consequence for this file, stated so no line has to be edited: **every band above is reported as
 `value @ coverage k/89`**, and § E-3's refusal stands unchanged in substance — *I will not certify
 a band whose coverage line is absent.* Only the denominator moves.
+
+---
+
+# ⚑ ADDENDUM 4 — 2026-09-21 · THE WARRANTS
+
+> **APPEND ONLY. Nothing above is rewritten.** The body and Addenda 1–3 stay the record of what was
+> pinned, in the words they were pinned in. Precedent: this file's own Addenda 1, 2 and 3.
+> **Author:** gamora (simulation seam). **Occasioned by:** conductor gandalf's dispatch executing
+> `gamora/notes/2026-09-21-kc2-play-discrimination-audit.md`, ratified in full.
+> **Read-only throughout except this file.** No sealed cell re-run (**K-7 held** — `[M-POL2]`
+> re-opened READ-ONLY after `shasum` verification, as the body was). No code, no pack row, no prereg
+> row, no oracle value changed. No sub-agent wrote anything.
+
+## ⚑ A4.0 · WHAT THIS IS, AND THE RULE IT HAS TO ANSWER FIRST
+
+**This file's own header says: *"a change made after a graded run exists is a HALT."* A graded run
+exists** — run #1, v1.4, `STRUCTURAL @ coverage 89/89`, 2026-09-21. **So I have to say what this is
+before I say anything else.**
+
+**A WARRANT IS NOT A WIDTH.** Every sentence below states what an instrument *can and cannot
+decide*. **Not one adds an admissible region, removes one, moves a value, a width, a class, a
+verdict or a grade.** § 4 of the body — *"WHAT THESE BANDS CAN AND CANNOT DECIDE … a decisiveness
+class asserted without a number is a hope"* — **is the same kind of writing, for seven rows. This
+addendum extends it to the rest.**
+
+⚑ **AND I DO NOT GET TO RULE MY OWN CHANGE EXEMPT. That is precisely the move the immutability rule
+exists to prevent, and a seat that declares itself outside a rule it is subject to has repealed it.**
+So, stated as an obligation on the conductor rather than a conclusion of mine:
+
+1. **The disposition is gandalf's, not mine.** If he judges this HALT-class, it reverts as **one
+   commit** — the addendum is contiguous and touches nothing above it. *"An escalation overtaken by
+   events still requires a disposition; 'resolved by supersession' is a legitimate disposition and
+   takes one line; silence is not."*
+2. ⚑ **THE PIN MOVES, AND HERE IS ITS BEFORE-STATE, DERIVED THIS SESSION, NOT CARRIED.**
+   Prereg v1.5 pins `P-a = 7a5d4aa3305ed14748a903b60ebfe48ac1a186fdb951fb6b8608abba92406750`, and
+   `shasum -a 256` on this file **immediately before this append returned exactly that.** After the
+   append it is a different file and **v1.5's `P-a` pin is STALE — a `C1` cap condition if a graded
+   run were to meet it.**
+3. ⚑ **NO GRADED RUN CAN MEET IT, AND THAT IS DERIVED FROM THE PREREG, NOT ASSUMED.** Matt **F3**:
+   the last graded run is spent **after** the decode lap and drax's repairs. **F2**: re-base. v1.5
+   § H.4 cl. 2: *"the successor prereg (v2.0) is COMMITTED — alone, with every pin re-derived —
+   BEFORE the re-based cells are graded."* **The next graded run is post-decode, post-re-base, and
+   therefore post-v2.0, and v2.0 re-derives every pin it carries.** The movement is **harmless in
+   fact and declared anyway**, because a pin whose staleness is discovered by a cap trip is a pin
+   nobody declared.
+4. **The same movement is already owed.** `OQ-4` has me minting `TA-B-16…19`'s widths as *"a new P-a
+   addendum."* **That addendum will move this pin too.** This one does not pre-empt it: ⚑ **NO WIDTH
+   IS MINTED HERE. `TA-B-16…19`'s slots stay NAMED AND EMPTY**, and § A4.4 below says exactly what a
+   width for `TA-B-16` would have to be a width *of* before one can honestly exist.
+
+**What this addendum does NOT do, enumerated so nothing has to be inferred:** it mints no width ·
+regrades nothing · reclassifies nothing · **does not touch `TA-X-06`'s class, because `OQ-1` is with
+Matt and a document that moved it would moot the question instead of answering it** · does not read
+drax's seam, so **`TA-X-24` stays bounded exactly as the audit bounded it** · takes **no** upgrade it
+discovered (those are § A4.6, flagged and not taken).
+
+## ⚑ A4.1 · THE 17 T-A WARRANTS
+
+**One sentence per row, on the row, in the form the audit's own three model rows already carry
+(`TA-X-18` · `TA-X-16` · `TA-X-27`(b)): what the statistic throws away, and a materially different
+behaviour that produces the same number.** A **MIS-READ** row also states **what it DOES pin**,
+because those rows are misfiled, not worthless, and striking them would discard real evidence.
+
+⚑ **Law 3 held: every alternative named below is already measured somewhere in this corpus, or is
+the immediate neighbour of a failure this run has already had. I named none I could not point at.**
+
+### Group 1 — the rows this file itself certifies (§ 1 `E-1`…`E-4`, Addendum 1 `A2`)
+
+| row | ⚑ what the statistic THROWS AWAY | ⚑ a MATERIALLY DIFFERENT behaviour that satisfies it | verdict |
+|---|---|---|---|
+| **`TA-X-02`** coverage 89/89, zero unmapped *(this file's `E-3`)* | ⚑ **TRUTH.** It counts mappings; it checks none of them | ⚑ **census `M4`, mapped `IMPLEMENTED` with a note describing an implementation that did not exist.** 89/89 was green while one of the 89 was false. ⚑ **DOES PIN: COMPLETENESS** — that no census id is unclassified. Real, and a precondition. It is read as coverage of BEHAVIOUR and it is coverage of PAPERWORK | **MIS-READ** |
+| **`TA-X-03`** inertness A — `M-POL-2-NULL ≡ M0` *(`E-1a`)* | ⚑ **the possibility that BOTH arms are identically broken** | ⚑ **a port that never implements the channel fold at all** produces identical digests on both arms and passes perfectly. **Non-discriminating ALONE; discriminating IN COMPANY with `TA-X-05` — and the company is present** | **NON-DISC**, undeclared |
+| **`TA-X-04`** inertness B — `W1-NULL ≡ M-POL-2` *(`E-1b`)* | same | same — **and its partner is `TA-X-06`.** ⚑ **If `OQ-1` retires `TA-X-06`, this row is ORPHANED and a port with NO ARENA FOLD AT ALL passes every remaining `W1` EXACT row.** Not an argument to keep `TA-X-06`; **a price tag to read before ruling.** `OQ-1` is Matt's and this row's warrant is not a vote | **NON-DISC**, undeclared |
+| **`TA-X-05`** distinctness C — `M-POL-2 ≢ M0` *(`E-1c`)* | ⚑ **magnitude and direction ENTIRELY. It is ONE BIT** | ⚑ **a port whose fold is wrong in every particular still differs from `M0`.** It proves the fold EXISTS. It never says it is right | **NON-DISC**, undeclared |
+| **`TA-X-06`** distinctness D — `W1 ≢ M-POL-2` *(`E-1d`)* | ⚑ **everything, in the honest direction** — the row is unfalsifiable except by invention | ⚑ **the only route to green is inventing a veto rule nobody wrote**, and then the row is green about a fiction. ⚑ **DOES PIN: nothing `TA-X-04` does not.** Its entire mechanism is `n_avoidance_vetoes`, which the prereg classed **report-only, no width, no trigger rule**, seven lines away. ⚑ **`OQ-1` IS WITH MATT. NOT ACTED ON IN EITHER DIRECTION** | **MIS-READ** *(prereg-declared § F.2e)* |
+| **`TA-X-07`** conservation, 7 terms *(this file's `E-2`)* | ⚑ **THE ALLOCATION AMONG THE TERMS** | ⚑ **a port that drops 30 % of damage and books it as `voided` satisfies conservation exactly**, and the consequence is LIVE: ceiling `C-e` — the port is unkillable and this row was graded on a green identity. ⚑ **Second, sharper, and it is THIS FILE'S OWN `W-5`, still open:** the live assert-wall checks **SIX** of the seven, omitting `counterplay_absorbed`. **A term omitted from a conservation check is a free variable.** ⚑ **And v1.5 § F.2d repaired the TOLERANCE of a row whose defect is ALLOCATION** | **NON-DISC**, undeclared |
+| **`TA-X-08`** denominator partition identity *(this file's `E-4`)* | ⚑ **the partition's CONTENT** | ⚑ **a port that classifies every tick `IDLE`** satisfies both sub-identities exactly. ⚑ **DOES PIN: the denominator law** — and it is what resolved the `0.215`-vs-`0.217` tell, which was a real find | **NON-DISC**, undeclared |
+| **`TA-X-10`** containment supremum `max_body_radius_m ≤ 43.758085` *(`E-7a`)* | ⚑ **the whole admissible half** | ⚑ **a port that spawns every body at the anchor (`ρ = 0`) passes on every instance**, as does one whose bodies barely move. ⚑ **Its two-sided partner was `TA-B-13`, and THIS FILE RETIRED IT — Addendum 2 § B2, *"a band that rejects the oracle cannot grade a port."* The supremum has stood alone since, and this is the file where it was left alone.** ⚑ **Its falsifying power is REAL and ONE-SIDED, exactly as Addendum 1 § A2 derived:** the superseded box scatter reaches **47.072 m, 3.31 m over the wall**, so zero clamps is the **signature of the correct spawn law**. **It falsifies ONE NAMED WRONG LAW. It certifies no right one** | **NON-DISC**, undeclared |
+
+### Group 2 — the prereg's own EXACT rows
+
+| row | ⚑ what the statistic THROWS AWAY | ⚑ a MATERIALLY DIFFERENT behaviour that satisfies it | verdict |
+|---|---|---|---|
+| **`TA-X-13`** no player crit `== 0` | presence-vs-absence | ⚑ **a port with NO crit implementation scores zero identically to a correct crit limb at `LO`.** ⚑ **STRUCTURAL ZERO — § A4.2** | **NON-DISC**, undeclared |
+| **`TA-X-14`** the two DO-NOTs, both `== 0` | presence-vs-absence | ⚑ **a port with NO release mechanism satisfies both clauses**, and it is **ACTIVELY VACUOUS RIGHT NOW** — the port's Type-A limb is entirely absent, which § A4.4 below measures on the seal. ⚑ **STRUCTURAL ZERO** | **NON-DISC**, undeclared |
+| **`TA-X-17`** spawn offset `≤ 8.0` m, every body | the whole admissible half | ⚑ **a port that spawns every body AT the anchor (`ρ = 0`) passes on every instance.** **Non-discriminating ALONE; `TA-X-18` closes it and `TA-X-18` is present** | **NON-DISC**, undeclared |
+| **`TA-X-22`** flag-off release cause `== 0` | presence-vs-absence | ⚑ **a port with no interrupts limb scores zero.** ⚑ **STRUCTURAL ZERO** | **NON-DISC**, undeclared |
+| **`TA-X-24`** phase model `ENGAGE` — `sha256(actor_id) mod n` **never evaluated** | presence-vs-absence | ⚑ **as stated the assertion is a NEGATIVE, and a port with NO phase model also never evaluates the hash.** ⚑ **STRUCTURAL ZERO.** ⚑ **BOUNDED, DELIBERATELY: if the row carries an unstated POSITIVE limb in the runtime the verdict moves to DISCRIMINATING. I did not read drax's seam and the conductor routes that check** | **NON-DISC**, undeclared |
+| **`TA-X-25`** the NO-DATA path, 3 clauses | ⚑ **COMPOSITION** | ⚑ *"proves MEMBERSHIP, never COMPOSITION"* — the run traded a **per-salt discriminator** for a **per-arm one-bit presence test**, the trade was correct, **and the report must not print it as though the discriminator survived.** ⚑ **DOES PIN: per-arm presence, and clause (c)'s structural non-zero.** ⚑ Clause **(a)** `refused == 0` is separately a **STRUCTURAL ZERO** — a port with no refusal limb scores 0 — **declared, at ceiling `C-a`** | **MIS-READ** *(self-declared at `C-a`)* |
+| **`TA-X-26`** declared-JOIN conformance, 5 clauses | ⚑ **THE JOIN KEY** | ⚑ **a port that loads the CSV correctly and joins on `display_name` instead of `record` produces a PERMUTATION of multipliers across records — the right multiset, the wrong per-record assignment — and passes all five.** (a)–(d) never look at assignment; **(e) is a MEAN, and a mean is invariant under permutation.** ⚑ **Not invented: 210 of the 7,900 rows carry a comma inside `display_name`**, which already shifted the parse once and landed `0.0` = LEECH-IMMUNE at the multiplier's index. ⚑ **DOES PIN: load, sha, parse SHAPE, single call site, and the armed-set magnitude — all real, none of them assignment.** ⚑ **CLOSED AT § A4.3 with three spanning spot-checks.** ⚑ **And it gains a NINTH structural zero at § A4.2: clause (a)'s identity is satisfied by a port declaring ZERO joins** | **MIS-READ** |
+
+### Group 3 — the diagnostic side
+
+| row | ⚑ what the statistic THROWS AWAY | ⚑ a MATERIALLY DIFFERENT behaviour that satisfies it | verdict |
+|---|---|---|---|
+| **`TA-B-06`** plant ratio | ⚑ **nothing about the RATIO — the defect is that the two sides computed DIFFERENT STATISTICS** | ⚑ **the oracle's `n_window` is a TICK COUNT (61 per wave); the port's `n_windows` is a WINDOW COUNT (`D/61`). One name, two dimensions.** ⚑ **DOES PIN, on the oracle side: the ratio of two stationary rates, exactly, reproducing all five published values** — the width `[1.0052, 1.5646]` stands as the ORACLE-SIDE reference and a port value cannot be compared to it until the port emits the corrected construction. ⚑ **THE UNDER-SPECIFICATION IS MINE AND THIS FILE IS WHERE IT WAS AUTHORED — see § A4.5, where I ran the neighbour check on my own table** | **MIS-READ** *(prereg-declared § F.3a)* |
+| **`TA-B-16`** released ticks per wave | ⚑ **the COMPOSITION of its own numerator** | ⚑ **§ A4.4 — its numerator has TWO GRAINS, and the port's mixture is 100 % of the one that is NOT scale-free** | **NON-DISC**, undeclared |
+
+## ⚑ A4.2 · THE STRUCTURAL-ZERO CLASS, RUN AS A SET OPERATION OVER ALL 27 EXACT CLAUSE-ROWS
+
+**The prereg's § F.5 cl. 6 rule is right and needs no change.** Its remedy sentence — *"Stop
+re-discovering the class; make the report print it"* — is also right. **The membership list was
+short, and running the question ONCE over the whole set says by how much and, more usefully, WHY.**
+
+### ⚑ A4.2a · THE MEMBERSHIP TEST AND THE RULE DO NOT HAVE THE SAME EXTENSION — that is why the list kept coming up short
+
+| | |
+|---|---|
+| **the RULE** (§ F.5 cl. 6) | *"every EXACT row satisfied by an **ABSENCE** prints the absence"* — a **SEMANTIC** property |
+| **the membership TEST** as the corpus states it | *"for every EXACT row whose assertion is a **ZERO or a NEGATIVE**…"* — a **SYNTACTIC** property |
+
+⚑ **A ZERO IS ONE SHAPE OF SATISFIED-BY-ABSENCE. IT IS NOT THE ONLY ONE.** An **inertness equality**
+(`≡`) carries no zero anywhere and is satisfied perfectly by a port that implements nothing. A
+**one-sided bound** (`≤`) carries no zero and is satisfied by a port that produces nothing to bound.
+**Screening on the syntax finds the zeros and walks past the rest** — which is exactly the history:
+four found by syntax, four more found one at a time by reading, and the remainder never found at all.
+
+> ⚑ **THE MEMBERSHIP TEST, RESTATED TO MATCH ITS OWN RULE — and this is the only change the class
+> needs:**
+> **FOR EVERY EXACT ROW, ASK: DOES A PORT THAT LACKS THE MECHANISM THE ROW IS ABOUT SCORE THE SAME?**
+> **Not "is the assertion a zero." That question is about the sentence; this one is about the port.**
+
+### ⚑ A4.2b · THE FULL MEMBERSHIP — one pass, all 27 clause-rows, nothing sampled
+
+| # | clause-row | a port LACKING the mechanism scores… | member? | named where |
+|---:|---|---|:--:|---|
+| 1 | `TA-X-01` self-determinism | a port with no determinism produces **different** digests | ✗ | — |
+| 2 | `TA-X-02` coverage 89/89 + 0 unmapped | 0 mapped ≠ 89 — ⚑ **the zero is BOUND TO A POSITIVE** | ✗ | — |
+| 3 | ⚑ `TA-X-03` inertness A | **identical digests on both arms. PASSES** | ⚑ **✓** | ⚑ **NEW** |
+| 4 | ⚑ `TA-X-04` inertness B | **identical digests. PASSES** | ⚑ **✓** | ⚑ **NEW** |
+| 5 | `TA-X-05` distinctness C | no fold ⇒ no difference ⇒ **fails** | ✗ | — |
+| 6 | `TA-X-06` distinctness D | **fails** | ✗ | — |
+| 7 | ⚑ `TA-X-07` conservation → 0 | applies no damage ⇒ every term 0 ⇒ **residual 0. PASSES** — and v1.5's relative form and 4,500-term budget both pass at depth 0 too | ⚑ **✓** | ⚑ **NEW** |
+| 8 | ⚑ `TA-X-08` denominator identity | runs no ticks ⇒ `0 = 0 + 0` and `0 + 0 = 0`. **PASSES** | ⚑ **✓** | ⚑ **NEW** |
+| 9 | `TA-X-09` nine test vectors | **fails** without `math_rules` | ✗ | — |
+| 10 | ⚑ `TA-X-10` containment supremum `≤` | spawns at `ρ = 0` ⇒ **inside the bound. PASSES** | ⚑ **✓** | ⚑ **NEW** |
+| 11 | `TA-X-11` wall-clamp zeros | no wall ⇒ 0 | ✓ | prereg |
+| 12 | `TA-X-12` pool inertness `== 0.0` | aprons absent ⇒ 0 | ✓ | prereg |
+| 13 | ⚑ `TA-X-13` no player crit | no crit limb ⇒ 0 | ✓ | ⚑ audit |
+| 14 | ⚑ `TA-X-14` the two DO-NOTs | no release limb ⇒ 0, **and it is vacuous TODAY** | ✓ | ⚑ audit |
+| 15 | `TA-X-15(a)` p05 at tick 49 | **fails** — a measured positive | ✗ | — |
+| 16 | `TA-X-15(b)` no intra-point stagger | unrepresentable ⇒ satisfied | ✓ | prereg |
+| 17 | `TA-X-16` p06 OFF | ⚑ **zero BOUND TO a positive (47) AND to a COUNTER. The anti-structural-zero device** | ✗ | — |
+| 18 | ⚑ `TA-X-17` spawn offset `≤ 8.0` | no scatter ⇒ every body at the anchor ⇒ **PASSES** | ⚑ **✓** | ⚑ **NEW** |
+| 19 | `TA-X-18` scatter-law discriminator | **fails** — three alternatives, input chosen where they separate | ✗ | — |
+| 20 | `TA-X-19` arrival unconditionality | no arrival limb ⇒ vacuous | ✓ | prereg |
+| 21 | ⚑ `TA-X-21` quantisation + **zero bare `round(`** | no threat path ⇒ **zero bare `round(`. PASSES.** *(Its `CEIL` half's vacuity IS declared; the `zero bare round(` half is not)* | ⚑ **✓ PARTIAL** | ⚑ **NEW** |
+| 22 | ⚑ `TA-X-22` flag-off release cause | no interrupts limb ⇒ 0 | ✓ | ⚑ audit |
+| 23 | ⚑ `TA-X-24` phase model, as stated | no phase model ⇒ hash never evaluated | ✓ | ⚑ audit |
+| 24 | ⚑ `TA-X-25(a)` `refused == 0` | no refusal limb ⇒ 0 | ✓ | ⚑ **NEW as a member; the FACT is declared at `C-a`** |
+| 25 | ⚑ `TA-X-26(a)` join-audit identity | ⚑ **declares ZERO joins ⇒ `0 == 0 + 0`. PASSES** | ⚑ **✓** | ⚑ **NEW** |
+| 26 | `TA-X-27(a)` zero short-circuits | ⚑ **CLOSED IN COMPANY** — the scan *"censuses every draw-site call and refuses any it cannot classify"*, bound to clause (c)'s **29-site registry**. A port with no sites is caught by (c) | ✗ | — |
+| 27 | `TA-X-20` hit-test 2.99 / 3.01 | ⚑ **the negative is BOUND TO a positive on the same row.** No hit test ⇒ fails the hit limb | ✗ | — |
+
+> ⚑ **MEMBERSHIP: 17 of 27 clause-rows. The prereg's § F.5 cl. 6 names 4; the audit added 4; this
+> pass adds 9.** *(`TA-X-25(a)` is new as a class member and its underlying fact was already
+> declared at `C-a`, so the count of genuinely unannounced members is 8.)*
+
+### ⚑ A4.2c · THE REPAIR IS ONE SENTENCE AND THE CORPUS HAS INVENTED IT FOUR TIMES ALREADY
+
+**Every one of the 10 NON-members fails the test for one of exactly two reasons**, and the second is
+a device:
+
+| reason | rows |
+|---|---|
+| asserts a **POSITIVE** an absent mechanism cannot produce | `TA-X-01` · `TA-X-05` · `TA-X-06` · `TA-X-09` · `TA-X-15(a)` · `TA-X-18` |
+| ⚑ **BINDS ITS ZERO TO A POSITIVE ON THE SAME ROW** | `TA-X-02` (0 unmapped **+ 89 mapped**) · `TA-X-16` (0 p06 keys **+ 47 picks + a counter**) · `TA-X-20` (3.01 miss **+ 2.99 hit**) · `TA-X-27(a)` (0 short-circuits **+ a 29-site census that refuses what it cannot classify**) |
+
+> ⚑ **BIND EVERY ZERO TO A POSITIVE ON THE SAME ROW.** A zero says *the mechanism did not fire.* A
+> positive beside it says *the mechanism exists.* ⚑ **`TA-X-02`'s 89, `TA-X-16`'s counter,
+> `TA-X-20`'s hit limb and `TA-X-27(a)`'s registry census are FOUR INDEPENDENT INVENTIONS OF ONE
+> DEVICE, by different authors, at different times, and no document names them as the same thing.**
+> **The prereg's own remedy — *make the report print it* — makes the class VISIBLE. This makes it
+> SMALLER.** The two compose; neither replaces the other.
+
+⚑ **AND THE STRUCTURAL FINDING ABOUT THE `W1` ARM, WHICH IS WHY `OQ-1`'S PRICE IS WHAT IT IS.**
+`TA-X-04` (member), `TA-X-11` (member), `TA-X-12` (member) and `TA-X-24` (member) are four of the
+`W1`-facing EXACT rows, and the arm's only non-member is **`TA-X-06`** — the row `OQ-1` proposes to
+retire. **The `W1` arm's entire falsifying power currently rests on the one row most likely to be
+struck.** *(Reported. `OQ-1` is Matt's and nothing here rules it.)*
+
+## ⚑ A4.3 · `TA-X-26`'s JOIN KEY — three spanning spot-checks, derived against `P-i`
+
+**Derived this session** from `~/Games/reincarnated-engine/data/kc2/pm4p_leech_resistance.csv`
+(3,312,159 B; `P-i` = `cb6a008bde1e102573181968ab7f60958cd28fee07ff8736078fa092a80dd62e`), parsed with
+an RFC-4180 reader. **Every clause-(c) figure reproduces exactly, with no exceptions:** 7,900 data
+rows · 790 distinct `record` · **8** distinct `total_leech_resist_pct` `{65, 75, 83, 88, 105, 115,
+565, 588}` · **5** distinct `adcth_mult_COUPLED` `{0.0, 0.12, 0.17, 0.25, 0.35}` · all 790 records
+wave-invariant (0 violators) · **mean over all 790 = `0.252215`**, median `0.25`, max `0.35`, min
+`0.0`, **48** records at exactly `0.0`. ⚑ *Which independently reproduces the prereg's own § F.2a
+figures — a third derivation of them, by a third route.*
+
+### Why a MEAN cannot carry this row, stated as arithmetic rather than as an opinion
+
+**A permutation of the multiplier column across records preserves the MULTISET exactly. A mean is a
+function of the multiset alone. Therefore the mean is INVARIANT under every permutation** — and so
+are clause (c)'s counts, and so are (a), (b) and (d), which never look at assignment at all.
+⚑ **Five clauses, and the quantity they all commute with is the one the row exists to check.**
+
+### The three spot-checks — chosen to SPAN the tiers, because that is where a permutation shows
+
+| tier | `record` | `display_name` | `total_leech_resist_pct` | `adcth_mult_COUPLED` |
+|---|---|---|---:|---:|
+| **MAX** | `records/creatures/enemies/aetherialbloater_a01.dbr` | Aetherial Bloater | `65.0` | **`0.35`** |
+| **MEDIAN** | `records/creatures/enemies/devotion/aetherialphantom_h01.dbr` | **`Athraz, the Watcher`** | `75.0` | **`0.25`** |
+| **ZERO** *(leech-immune)* | `records/creatures/anomalies/aetheranomaly_01_summon.dbr` | Whirlwind | `565.0` | **`0.0`** |
+
+**Three named records, three different multipliers: any permutation that moves one of them off its
+value is caught.** Their per-tier populations are **255 / 367 / 48** of 790, so the three together
+also witness that the three largest tiers are populated at all — which a shifted parse disturbs.
+
+### ⚑ AND A FINDING THAT CHANGES WHAT THE SPOT-CHECKS ARE FOR
+
+**The 21 comma-bearing records live in only THREE of the five tiers — `0.12` (9), `0.17` (9), `0.25`
+(3) — and NONE at `0.35` or at `0.0`.** The reason is semantic and structural, not accidental:
+*"Name, the Title"* is the boss/nemesis naming convention, named bosses carry **higher** leech
+resistance, and higher resistance means **lower** coupled multiplier. The `0.35` and `0.0` tiers are
+unnamed trash and anomaly/summon entities. **They have no titles, so they have no commas.**
+
+> ⚑ **A TIER-SPANNING SPOT-CHECK AND AN RFC-4180 COMMA SPOT-CHECK ARE NOT THE SAME TEST AND CANNOT
+> BE SATISFIED BY THE SAME THREE RECORDS.** Two of the three above **cannot** be comma-bearing; that
+> is a property of the data. **A fourth, dedicated parse check is owed** — and `Galakros, the
+> Mountain` (`records/creatures/enemies/boss&quest/aetherialcolossus_galakros.dbr`, resist `83.0`,
+> multiplier **`0.17`**) is the natural one: **it is the record the tier gate already caught once,
+> it carries the quoted comma, and it covers the fifth tier the three spanning picks do not reach.**
+> *(`Galakros` sits at `0.17` and therefore cannot BE one of the three spanning picks — which is
+> itself the point: one record cannot serve two independent tests.)*
+
+**Routed as an observation, exactly as the audit routed it. The prereg is immutable and the clause is
+gandalf's to author.** The derivation is here so that authoring it costs a paste.
+
+## ⚑ A4.4 · `TA-B-16`'s TWO GRAINS — the numerator PARTITIONED, before any immunity claim
+
+**The prereg marks `TA-B-16` IMMUNE by construction: per-wave over per-wave. § C.6's mechanical test
+assumes the numerator has ONE grain.** ⚑ **The seal publishes the partition and it has two.**
+
+**Derived from `[M-POL2]` (`ad61ad2a…`, hash-verified, opened READ-ONLY, K-7 held), keys
+`⚑ fold/n_ticks_released_typeA` / `…_typeB` and `⚑ fold/⚑ typeA_wave_census`:**
+
+| salt | `n_waves` | released | **Type-A** | **Type-B** | A / wave | B / wave |
+|---:|---:|---:|---:|---:|---:|---:|
+| 0 | 6 | 104 | **96** | 8 | **16.000** | 1.333 |
+| 1 | 2 | 32 | **32** | 0 | **16.000** | 0.000 |
+| 2 | 1 | 23 | **16** | 7 | **16.000** | 7.000 |
+| 3 | 1 | 16 | **16** | 0 | **16.000** | 0.000 |
+| 4 | 6 | 110 | **96** | 14 | **16.000** | 2.333 |
+| **mean-of-salts** | | | | | ⚑ **16.0000** | ⚑ **2.1333** |
+
+**`16.0000 + 2.1333 = 18.1333` — which reproduces the published `TA-B-16` figure EXACTLY**, and is
+the check that the partition is the right one and not a decomposition chosen to be convenient.
+
+### The two grains, named separately as § C.6 requires
+
+| limb | mechanism | measured | grain | scale-free in `T`? |
+|---|---|---|---|---|
+| ⚑ **Type-A** | one release per wave transition; `typeA_duration_ticks = 16`, `n_typeA_fired == n_waves` on **5/5**, **zero skipped, zero lost to wave end** | ⚑ **`16 × n_waves`, EXACTLY, on every salt. `s = 0`, `CV = 0`** | ⚑ **per-WAVE** | ⚑ **YES — and not by measurement: by construction, and the construction is visible in the census** |
+| ⚑ **Type-B** | cast-triggered, Poisson-ish at `λ_B` per tick | `[1.333, 0, 7.000, 0, 2.333]`, mean **2.1333**, `s = 2.8925`, ⚑ **`CV = 1.356`** | ⚑ **per-TIME** | ⚑ **NO — its per-wave count scales with wave DURATION** |
+
+> ⚑ **A GRAIN IS A PROPERTY OF AN EVENT CLASS, NOT OF A COUNTER.** `TA-B-16`'s numerator is a
+> **MIXTURE**, and a mixture is scale-free only where the **composition** is held fixed.
+> ⚑ **`TA-B-19` measures ticks-per-wave. It cannot see a composition difference, and § C.6 names it
+> as the row that can falsify the immunity claim.** The row that could is a **per-wave release count
+> SPLIT BY TYPE** — ⚑ **and the ORACLE side of it has existed, per salt, in the sealed cell, since
+> August. The PORT side is what is missing, and its absence is the finding.**
+
+### ⚑ AND THE PART THAT WOULD HAVE READ AS PROGRESS FOREVER IF NOBODY WROTE IT DOWN
+
+**The port has NO Type-A limb** (§ F.3b). Its releases are **100 % Type-B**, over waves **2.985×
+longer**. So:
+
+| comparison | oracle | port | miss |
+|---|---:|---:|---|
+| released ticks **per tick** *(the original)* | `0.120811` | `0.024430` | **4.945×** |
+| released ticks **per wave** *(`TA-B-16`, as constructed)* | `18.1333` | `11.76` | **1.542×** |
+| ⚑ **like-for-like: a faithful port's expectation at `T = 482`** — Type-A `16.000` (immune) **+** Type-B `2.1333 × 2.985 = 6.368` (dilutes) | ⚑ **22.368** | `11.76` | ⚑ **1.902×** |
+
+> ⚑ **THE 5× → 1.5× IMPROVEMENT IS PARTLY THE NEW CONFOUND CANCELLING THE OLD, AND THE TRUE MISS IS
+> LARGER THAN EITHER HEADLINE.** The per-tick form **over-charged** the port (a per-wave numerator
+> over a per-tick denominator, inflated by 2.985× longer waves). The per-wave form removes that —
+> **and leaves a per-TIME component in the numerator which now scales UP on the port side**, where
+> the port's Type-B runs at `11.76 / 6.368 = 1.847×` the faithful expectation. **That inflation
+> pushes the port's total toward the oracle's and makes the miss look SMALLER.**
+> ⚑ **`1.542×` is neither the artefact nor the truth. It sits between two live errors of opposite
+> sign.** The prereg's own § C.6 warned that *"swapping one un-audited invariance claim for another
+> is how this defect would survive its own repair."* **It did.**
+
+⚑ **AND THIS IS WHY NO WIDTH IS MINTED FOR `TA-B-16` HERE.** `OQ-4` asks for one. **A width over a
+mixture whose composition differs between the two sides would be a width over an undefined
+quantity** — and the honest construction is **two rows, `TA-B-16a` (Type-A per wave) and `TA-B-16b`
+(Type-B per wave)**, of which the first has `s = 0` on the oracle and **needs no band at all** (it is
+an EXACT structural constant, `16 × n_waves`), and the second needs the port to emit a split it
+currently cannot. **Stating that is within a warrant's scope. Minting either is not, and authoring
+the row is gandalf's.**
+
+## ⚑ A4.5 · THE NEIGHBOUR CHECK, RUN ON MY OWN TABLE — and it returns exactly one row
+
+The conductor's standing instruction: *"when you write a warrant, check whether the row beside it
+needs the same one."* **Run against § 2.4 / Addendum 1's seven band rows, asking only: does the row
+state its statistic as a FORMULA, or as a LABEL?**
+
+| row | how the construction is written |
+|---|---|
+| `B-3` `frac_moving` | `(CH_AND_MOVING + MOVING) / D` — **formula** |
+| `B-4` uptime | `(CHANNELLING + CH_AND_MOVING) / D` — **formula** |
+| `B-5a` `P(chan\|moving)` | `CH_AND_MOVING / (CH_AND_MOVING + MOVING)` — **formula** |
+| `B-5b` `P(chan\|stationary)` | `CHANNELLING / (CHANNELLING + IDLE)` — **formula** |
+| ⚑ **`B-6` plant ratio** | ⚑ **`(window 5.0 s / fight-wide)` — A LABEL** |
+| `B-7` release duty | `n_released / D` — **formula** |
+| `B-1` terminal wave | a raw 5-vector; needs none |
+
+> ⚑ **SIX OF SEVEN CARRY A FORMULA. THE ONE THAT CARRIES A LABEL IS THE ONE THAT FAILED — and the
+> tell was visible in the shape of my own table, months before the port and the oracle computed two
+> different statistics under one name.** The under-specification was mine; I declared it at the
+> grade; **what I had not done was ask the same question of the six rows beside it.** The check costs
+> one pass over a table I wrote, and it is the only known remedy for this shape.
+
+## ⚑ A4.6 · FLAGGED SEPARATELY — upgrades found while writing warrants, and NOT TAKEN
+
+**A warrant that quietly repairs its row is not a warrant; it is a change with no review.** Each of
+these is cheap, none is in this addendum, and each is routed:
+
+| # | the upgrade | why it is not here |
+|---:|---|---|
+| **1** | ⚑ **`TA-X-26` clause (c) should assert the PER-TIER RECORD COUNTS — `0.0`→48, `0.12`→43, `0.17`→77, `0.25`→367, `0.35`→255** (derived, § A4.3). Far stronger than *"5 distinct values"*: a permutation preserves the vector, **but a SHIFTED PARSE does not** | a new assertion on an immutable row. **gandalf's** |
+| **2** | ⚑ **`TA-X-26` clause (a) needs a STRUCTURAL NON-ZERO** — `n_declared ≥ 1`, or better the declared join set's own cardinality. **As written, a port declaring no joins passes the identity `0 == 0 + 0`** (§ A4.2b row 25) | same |
+| **3** | ⚑ **`TA-X-04` needs a positive limb before `OQ-1` retires `TA-X-06`** — any observable the arena fold changes, or the `n_avoidance_vetoes` counter `TA-B-14` already reports | **Matt's**, via `OQ-1`. **Not acted on in either direction** |
+| **4** | **MO-4's observation window widens from wave 1 / 40 ticks to the declared 10-wave scope** — one argument | engine-side; a separate change, flagged in its own warrant |
+| **5** | ⚑ **`TA-B-16` splits into `16a` / `16b`** (§ A4.4) | authoring a row is the prereg's. **gandalf's** |
+
+## ⚑ A4.7 · THE SEVEN T-B WARRANTS — AUTHORED HERE, OWED TO `P-b`, AND I CANNOT FILE THEM MYSELF
+
+⚑ **A BOUNDARY I AM DECLARING RATHER THAN CROSSING.** The dispatch asks for the warrant **on the
+row**. For these seven the row lives in **`galadriel/notes/…-w1-tb-expected-values-and-u-rider.md`
+and its JSON** — **another seat's instrument, pinned into the prereg as `P-b` / `P-c` / `P-d`.**
+Writing into it would be a cross-seam edit of a sha-pinned artifact belonging to a seat live in this
+run, and **no dispatch authorized that.** So the sentences are written, and **the fold into `P-b` is
+galadriel's, routed through the conductor.** *(This is drax's `TA-X-06` handling, one seam over:
+declare the absence, name the consequence, route it, do not fill it.)*
+
+⚑ **A framing that must travel with all seven, because galadriel's own note usually ships it and
+nothing on the individual rows says so:** these are **non-discriminating ALONE and discriminating IN
+COMPANY**, and the company — `TB-HP-10`'s six order statistics and five-gate sweep, `TB-HP-11`'s
+localisation, `TB-HP-12`'s per-wave table — **is present in the same note.** *The rows are right; the
+READING is what fails.* galadriel says it herself: *"A twin that spreads its danger evenly across ten
+waves has the right aggregate and the wrong story."*
+
+| row | value | ⚑ THROWS AWAY | ⚑ a MATERIALLY DIFFERENT behaviour that satisfies it |
+|---|---:|---|---|
+| **`TB-HP-01`** time at full | `0.428414` | ⚑ **all time-structure** | a twin at full for the first 77.5 s and never again. ⚑ **And the row's dominant uncertainty is its own DENOMINATOR, not its read: `0.4284` (LIVE-MAX) vs `0.3976` (NOMINAL), a 3.08 pp gap with no fight in it** — galadriel states this; the row's warrant is that a comparison quoting one figure has not said which |
+| **`TB-HP-02` / `-03`** below 90 % / 75 % | `0.212319` / `0.090231` | same, **and both are denominator-SENSITIVE** | same. Rescued in company by `TB-HP-12`'s per-wave table |
+| **`TB-HP-04` / `-05`** below 50 % / 33 % | `0.034619` / `0.010036` | time-structure *(denominator-INSENSITIVE — a real strength, and it is stated)* | ⚑ **galadriel names the alternative herself.** ⚑ **And `TB-HP-11` FALSIFIES it on the referent: all 8 sub-half excursions are in waves 159–160; waves 151–158 never go below half at all** |
+| ⚑ **`TB-HP-06`** below 25 % | **`0` frames** | ⚑ **a ONE-SIDED BOUND — the whole admissible half** | ⚑ **THE PORT ALREADY SATISFIES IT AND IT IS THE RUN'S LARGEST KNOWN DIVERGENCE.** `terminal_reason = cleared` 25/25, HP never below **79.44 %** (ceiling `C-e`). ⚑ **AN UNKILLABLE TWIN PASSES THIS ROW.** Its two-sided partner exists — `TB-HP-08`'s floor at 26.79 % — **and is not bound to it** |
+| **`TB-HP-07`** frames decreasing | `0.137293` | **magnitude and clustering** | one huge hit/s vs many tiny hits/s at matched cadence. Rescued in company by `TB-HP-10`'s depth distribution. *(Its `n` vs `n−1` ambiguity is declared and both print 13.73 %; the row says to use `n−1`)* |
+| **`TB-HP-08`** HP minimum | `5,360` (26.79 %) | ⚑ **an EXTREME over n draws — the body of the distribution; and it scales with n** | any distribution whose worst single frame lands at 26.79 %. ⚑ **THE SAME CLASS AS `TA-B-13`, WHICH THIS FILE RETIRED AS UNGRADEABLE AT ADDENDUM 2 § B2 FOR EXACTLY THIS REASON — and nothing on `TB-HP-08`'s face says so.** *(It is not proposed for retirement: as an absolute floor beside `TB-HP-06`'s zero it is the two-sided partner that row lacks. It is proposed for LABELLING)* |
+| **`TB-HP-14`** leech cadence | `11.408 /s` in `[11.387, 12.250]` | bracket-membership throws away **where in the bracket** | ⚑ **the measured value lands `0.021` above the bracket's LOW EDGE on a `0.863`-wide bracket — a 2.4 % margin.** Inside-a-bracket reads as corroboration; **at the edge it is one small bias from being outside**, and nothing on the row's face says which. *(Its per-body heal limb is already declared an UPPER bound — correctly handled, and the contrast is the point)* |
+
+---
+
+*Addendum 4 filed 2026-09-21 by gamora (simulation seam), Run KC2-PLAY, executing the conductor's
+dispatch on the ratified discrimination audit. **APPEND ONLY; nothing above rewritten.** **NO WIDTH
+MINTED — `TA-B-16…19`'s slots stay named and empty, and § A4.4 states what a `TA-B-16` width would
+have to be a width OF before one can honestly exist.** **Nothing regraded, reclassified or widened;
+`TA-X-06` untouched because `OQ-1` is Matt's; `TA-X-24` left bounded because I did not read drax's
+seam.** **K-7 held** — `[M-POL2]` hash-verified and opened read-only, never re-run. **Law 3 held.**
+⚑ **THIS FILE'S SHA HAS MOVED: prereg v1.5's `P-a` pin `7a5d4aa3…` was verified current immediately
+before this append and is now STALE. v2.0 must re-derive it (§ A4.0 cl. 2–3).** No push.*
