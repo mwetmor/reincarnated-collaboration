@@ -55,10 +55,12 @@ def walk(label, rec, rank, depth=0):
         if isinstance(nxt,str) and nxt.endswith(".dbr"):
             walk(label, nxt, rank, depth+1)
 
+# ⚑ ALLOCATION PREDICATE. `devotionLevel` is NON-ZERO ON ALL 285 devotion records
+# in the file -- it is NOT the allocation flag. `level > 0` gives exactly 55,
+# which is what the bio block's `totalDevotionUnlocked` says. Using
+# max(level, devotionLevel) sums the WHOLE devotion tree.
 for s in res["blocks"]["character_skills"]["skills"]:
-    lv = s.get("level") or 0
-    dv = s.get("devotionLevel") or 0
-    r = max(lv, dv)
+    r = s.get("level") or 0
     if r <= 0: continue
     nm = s["name"]
     kind = "DEVOTION" if "/devotion/" in nm else "SKILL"

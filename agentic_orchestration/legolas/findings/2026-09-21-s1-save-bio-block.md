@@ -8,6 +8,25 @@
 
 ---
 
+> ## ⚑ AMENDED 2026-09-21, ONE HOUR AFTER FILING, FROM C-2's WORK
+>
+> **The attribute LEDGER in § 2.2 was wrong and is corrected in place. The MAPPING finding — the whole of §§ 1 and 3, which is what the commission asked — is untouched and stands.**
+>
+> My sweep used `max(level, devotionLevel) > 0` as the allocation predicate. ⚑ **`devotionLevel` is non-zero on all 285 devotion records in the file — the entire tree, taken or not.** The allocation flag is `level`, non-zero on exactly **55**, which is what the bio block's own `totalDevotionUnlocked = 55` says. The sweep therefore summed the whole devotion tree.
+>
+> | | as filed | **corrected** |
+> |---|---|---|
+> | total Spirit (flat) | 536 | **396** |
+> | `characterIntelligenceModifier` | +6 % | **0 % — no source at all** |
+> | total Physique / Cunning (flat) | 1037 / 1429 | **707 / 1219** |
+> | C-1 § 5.1 residual, recomputed | ~10.5 /s | **≈19.0 /s** |
+>
+> ⚑ **And the correction reverses a judgement I made against C-1.** § 4.2 flagged C-1's regen terms for re-audit on the strength of the bad sweep. **With the right predicate my sweep reproduces C-1's 63 % modifier EXACTLY, row for row, and its 19.7 flat exactly once C-1's correct total-rank read of Presence of Virtue is used in place of my allocated-rank one. THE FLAG IS RETRACTED; C-1 § 2.1 was right and I was not.**
+>
+> ⚑ **Same shape as § 5, in my own work rather than someone else's:** a real field with a plausible non-zero value on every row, read as an answer to a question it does not address, producing a ledger that looked entirely reasonable and was wrong by 42 %. **Nothing inside the ledger would ever have flagged it** — it was caught because C-2 asked a different question ("is there a second cost-reduction source?") that happened to turn on one node's allocation status. Full account: `2026-09-21-c2-per-cast-energy-costs.md` § 6.
+
+---
+
 ## HEADLINE
 
 ⚑ **THE MAPPING IS CORRECT. The field order is right, the offsets are right, and there is no v8 drift in this block. The character genuinely stored `physique 74 / cunning 858 / spirit 74`.**
@@ -16,12 +35,12 @@
 
 > `tagCharAttributeDescription01` — *"A cunning intellect improves your combat technique, increasing **physical**, pierce, bleed and internal trauma damage. Cunning also increases your … chances of landing melee and ranged attacks, and critically hitting enemies."*
 
-**Cunning is Grim Dawn's PHYSICAL-damage attribute**, first-named in the client's own list, and the sole attribute source of Offensive Ability (`tagCharStatsOADescription`). For a **physical** two-handed Eye-of-Reckoning Warlord, dumping attribute points into Cunning is not eccentric — it is the attribute that scales the build's damage and its hit/crit chance. Physique was never the binding constraint on his gear: ⚑ **his two mastery bars and his devotion tree supply 890 Physique before a single attribute point is spent** — 1013 with the base 50 and gear's 73 — against a computed weapon requirement of ≈474.
+**Cunning is Grim Dawn's PHYSICAL-damage attribute**, first-named in the client's own list, and the sole attribute source of Offensive Ability (`tagCharStatsOADescription`). For a **physical** two-handed Eye-of-Reckoning Warlord, dumping attribute points into Cunning is not eccentric — it is the attribute that scales the build's damage and its hit/crit chance. Physique was never the binding constraint on his gear: ⚑ **his two mastery bars and his devotion tree supply 560 Physique before a single attribute point is spent** — **683** with the base 50 and gear's 73 — against a computed weapon requirement of ≈474.
 
 **But S-1 was worth issuing anyway, because the probe surfaced three material errors — none of them in the mapping.**
 
 1. ⚑ **C-1 § 5.1 double-counted the base 50.** The bio's `74` is **already** `50 + 3 × 8`; C-1 added the base again.
-2. ⚑ **C-1 § 5.1 omitted the two mastery bars and the devotion tree**, which together contribute **+349 Intelligence** (194 + 155). Corrected total Spirit is **536 flat (568 after the +6 % modifier)**, not 237. ⚑ **The residual C-1 reported as 28.75 /s is roughly a third of that once the term is corrected** (§ 5.2).
+2. ⚑ **C-1 § 5.1 omitted the two mastery bars and the devotion tree**, which together contribute **+209 Intelligence** (194 from the bars, 15 from one devotion node). Corrected total Spirit is **396**, not 237, with **no percent modifier from any source**. ⚑ **The residual C-1 reported as 28.75 /s falls to ≈19.0 /s once the term is corrected** (§ 4.2).
 3. ⚑ **C-1 § 5.3's base-energy term `250 + 16 × 99 levels = 1834` is wrong.** `manaIncrement = 16` is charged **per attribute point spent in Spirit**, not per level. Verified exactly on nine independent saves at levels 1, 13 and 100. The character's stored base energy is **298**.
 
 ⚑ **And one methodological finding with reach beyond this commission: expansion archives OVERRIDE base, and first-hit archive ordering silently reads a STUB.** `_classtraining_class09.dbr` (the Oathkeeper mastery bar) is a **32-rank placeholder in `database.arz`** and the **live 100-rank record in `GDX2.arz`**. Read first-hit, it reports `+64 STR / +56 INT / +256 energy`; read correctly, `+250 / +125 / +650`. § 6.
@@ -47,7 +66,8 @@
 - `arcread.py` — copied unmodified from `research/scripts/gd_arc_reader_2026_07_26.py`
 - `probe1_bio_raw.py` — raw 32-bit word dump of the bio block, both interpretations, every sample
 - ⚑ `verify_bio.py` — **the control.** Tests the mapping against a closed form built entirely from the DBRs, over all samples, H1 vs H2
-- `ledger.py` — full attribute ledger (bio + skills + devotions + gear)
+- `ledger.py` — full attribute ledger (bio + skills + devotions + gear). ⚑ **Allocation predicate corrected to `level > 0` per the amendment banner; the file carries the reason inline so the trap is not re-entered**
+- `c2_ranks.py` — `+skill` bonus enumeration across all equipped items and affix chains (shared with C-2)
 - `tags.py`, `scan.py` — localization and full-database field scans
 
 ---
@@ -157,20 +177,34 @@ A second, smaller version signal, reported and not reconciled: the referent's th
 
 Summed from the save's own allocation, every row resolved to its record at its allocated rank, **with expansion-override precedence applied** (§ 6):
 
+⚑ **CORRECTED per the amendment banner — allocation predicate `level > 0`, 55 devotion nodes, not 285.**
+
 | source | Physique | Cunning | **Spirit** | Energy |
 |---|---|---|---|---|
 | bio block (base + 107 attribute points) | 74 | 858 | **74** | 298 |
 | Soldier mastery bar @ rank 46 (`_classtraining_class01.dbr`, `database.arz`) | +230 | +161 | **+69** | +460 |
 | ⚑ Oathkeeper mastery bar @ rank 50 (`_classtraining_class09.dbr`, **`GDX2.arz`**) | +250 | +125 | **+125** | +650 |
-| devotion tree (55 points) | +410 | +230 | **+155** | +1200 |
+| devotion — 55 allocated nodes | +80 | +20 | **+15** | +300 |
 | gear + affixes + components + augments | +73 | +55 | **+113** | +220 |
-| **flat total** | **1037** | **1429** | **536** | **2828** |
-| `…Modifier` (%) | +28 % | +6 % | **+6 %** | +4 % |
-| **after modifier** | **1327** | **1515** | **568** | **2941** |
+| **flat total** | **707** | **1219** | **396** | **1928** |
+| `…Modifier` (%) | +20 % | **0 %** | **0 %** | **0 %** |
+| **after modifier** | **848** | **1219** | **396** | **1928** |
 
-**Gear's `characterIntelligence` +113 decomposes as:** `a007b_ch_att_all_10` suffix +55 · `b_ar007_ar_f` prefix +38 · `compb_sealannihilation` +20. ⚑ **C-1's 113 was right. What was missing around it was everything else.**
+**Every row is itemised per record** in `ledger.py`'s output. Selected decompositions:
+- **Spirit +113 from gear** = `a007b_ch_att_all_10` suffix +55 · `b_ar007_ar_f` prefix +38 · `compb_sealannihilation` +20. ⚑ **C-1's 113 was right.**
+- **Spirit +15 from devotion** = `tier1_42b.dbr` (`GDX1.arz`), the single allocated node granting Intelligence.
+- **Physique +20 % modifier** = `playerclass01/passive1.dbr` @ r6 (+10 %) · `b_ar024_ar_f` prefix ×2 (+5 % each).
 
-⚑ **The energy-pool row is reported as a SWEEP, not as an audited ledger, and it does NOT close against the pack's `ENERGY_MAX = 2576 (MEASURED)`.** 2941 flat-after-modifier is **365 over**. The pack's own `MO_ENERGY_RESERVATION = 982.0` is a separate, downstream subtraction (`2576 − 982 = 1594`, the observed ceiling), so the gap is not the reservation. My sweep walks buff chains breadth-first and may credit a rank or a record the runtime does not; **I am not asserting a corrected 2576, and nothing downstream should take 2941 as a value.** The attribute columns, by contrast, are itemised per record above and each row is individually checkable.
+⚑ **The energy-pool row is a SWEEP, not an audited ledger, and it does NOT close against the pack's `ENERGY_MAX = 2576 (MEASURED)`.** Flat 1928, residual **648**. The pack's `MO_ENERGY_RESERVATION = 982.0` is a separate downstream subtraction (`2576 − 982 = 1594`, the observed ceiling), so the gap is not the reservation.
+
+⚑ **A near-miss I am naming as a near-miss and refusing to close.** The client states that Spirit gives energy (`+2` per point, per the Crate figure C-1 cites). Applying it to the Spirit **not already represented** by the bio's own `manaIncrement` term gives two candidate readings, and they bracket the measurement:
+
+```
+uncounted = 396 - 24  (the 24 Spirit from attribute points)  ->  1928 + 744 = 2672   (96 OVER)
+uncounted = 396 - 74  (the whole bio value, base included)   ->  1928 + 644 = 2572   (4 UNDER)
+```
+
+**Four short is not closure.** It is close enough to be tempting and that is precisely why it is reported as a bracket rather than as a derivation — the second reading has no justification other than that it lands nearer, which is the definition of the fit Law 3 forbids. **Both are given; neither is preferred; nothing downstream should take either as a value.**
 
 ---
 
@@ -203,7 +237,7 @@ melee2hStrengthEquation (GDX1) =
 itemLevel 84  ->  591.9   x attributeScalePercent 80 %  ->  ~473.5 Physique required
 ```
 
-The character carries **1037 flat / 1327 modified Physique**, decomposed: **50** base · **24** from his 3 attribute points · **480** from the two mastery bars · **410** from the devotion tree · **73** from gear. ⚑ **1013 of it — everything but the attribute points — is there with ZERO points in Physique, against a ≈474 requirement. He could have equipped this weapon twice over without spending one.** That is the mechanical fact gandalf's argument did not have: in Grim Dawn a level-100 dual-mastery character is gear-eligible on mastery-bar attributes alone, which frees the entire attribute budget for the damage stat.
+The character carries **707 flat / 848 modified Physique**, decomposed: **50** base · **24** from his 3 attribute points · **480** from the two mastery bars · **80** from the devotion tree · **73** from gear. ⚑ **683 of it — everything but the attribute points — is there with ZERO points in Physique, against a ≈474 requirement. He could have equipped this weapon without spending one.** That is the mechanical fact gandalf's argument did not have: in Grim Dawn a level-100 dual-mastery character is gear-eligible on mastery-bar attributes alone, which frees the entire attribute budget for the damage stat.
 
 *(The same equation file gives `chestStrengthEquation` ≈ 662 at itemLevel 94 before each piece's own `attributeScalePercent`; I did not compute per-piece scale factors because the weapon case already settles the question and doing so would add arithmetic without adding evidence.)*
 
@@ -252,30 +286,39 @@ The bio's **74 already contains the base 50**. Proven by the three level-1 saves
 
 **(b) C-1 § 5.1 — the omission, which is the big one.**
 
-The ledger counted **bio + gear** and stopped. It omitted the **two mastery bars (+194 Intelligence)** and the **devotion tree (+155 Intelligence)**. Corrected:
+The ledger counted **bio + gear** and stopped. It omitted the **two mastery bars (+194 Intelligence)** and **one allocated devotion node (+15)**. Corrected:
 
 | | C-1 | **S-1 corrected** |
 |---|---|---|
-| Spirit, flat | 237 | **536** |
-| Spirit, after `characterIntelligenceModifier` +6 % | — | **568** |
+| Spirit, flat | 237 | **396** |
+| `characterIntelligenceModifier` | — | ⚑ **0 % — no source on this character** |
 
-Re-running C-1 § 5.1's own arithmetic with **536** substituted for 237, and **changing nothing else**:
+Re-running C-1 § 5.1's own arithmetic with **396** substituted for 237, and **changing nothing else**:
 
 ```
-spirit flat      = 0.01   x 536      =   5.36     (C-1:  2.37)
-spirit percent   = 0.26 % x 536      =  139.4 %   (C-1: 61.62 %)
+spirit flat      = 0.01   x 396      =   3.96     (C-1:  2.37)
+spirit percent   = 0.26 % x 396      =  102.96 %  (C-1: 61.62 %)
 
-total = base_L100 + 5.36 + 19.7 x (1 + 0.63 + 1.394)
-      = base_L100 + 5.36 + 59.53
-      = base_L100 + 64.89
+total = base_L100 + 3.96 + 19.7 x (1 + 0.63 + 1.0296)
+      = base_L100 + 3.96 + 52.39
+      = base_L100 + 56.35
 
 MEASURED total (ceremony §D #511)     = 75.37 /s
-RESIDUAL                              = 10.48 /s      (C-1 reported 28.75 /s)
+RESIDUAL                              = 19.02 /s      (C-1 reported 28.75 /s)
 ```
 
-⚑ **The residual falls from 28.75 /s to ~10.5 /s on the single correction of one input.** With **568** (modifier applied) it falls further, to ~**6.5 /s**. I am **not** choosing between 536 and 568 — whether Grim Dawn's `characterIntelligenceModifier` multiplies the attribute before the regen formula consumes it is not established from any source I hold, and picking the one that closes better is exactly the fit Law 3 forbids. **Both are reported; neither is preferred.**
+With C-1 § 9.2's other variant (`spirit/400` = 0.25 %/pt) the residual is **19.80 /s**. **Both reported; neither preferred.**
 
-⚑ **And C-1's gear-and-skill flat term (19.7) and percent term (63 %) are themselves now suspect in the same direction** — my sweep finds `characterManaRegen` 30.3 flat and `characterManaRegenModifier` 118 % across the same allocation. I am **not** substituting those: my sweep is broad where C-1's enumeration was audited row-by-row, and a crude instrument must not overturn a careful one. **What I am asserting is the Spirit number, because it is itemised per record in § 2.2 and each row is individually checkable.** The regen flat/percent terms are flagged for a re-audit, not corrected here.
+⚑ **The residual falls from 28.75 /s to ≈19 /s on the correction of one input, and the back-solve target of ~690 Spirit remains far above the true 396.** That matters: C-1 § 5.2's refusal was right on the merits as well as procedurally — 396 is not 690 and no honest reading of this character's sheet gets there. **The refusal survives; only its stated reason does not.**
+
+⚑ **C-1's gear-and-skill flat term (19.7) and percent term (63 %) are INDEPENDENTLY CORROBORATED, row for row.** With the corrected predicate my sweep reads:
+
+| term | my sweep | C-1 | reconciliation |
+|---|---|---|---|
+| `characterManaRegenModifier` | **63.0 %** — Scales of Ulcama 33 + Jackal 10 + Arcane Spark 20 | **63.0 %**, same three rows | ⚑ **EXACT** |
+| `characterManaRegen` flat | 15.8 | 19.7 | ⚑ the whole difference is Presence of Virtue: I read it at **allocated** rank 12 (6.5), C-1 at **total** rank 18 (10.4). `15.8 + 3.9 = 19.7` — **exact**, and **C-1 has the right rank** |
+
+**An earlier draft of this section flagged those two terms for re-audit on the strength of the over-counted sweep. THE FLAG IS RETRACTED.** C-1 § 2.1 was right; my instrument was not.
 
 **(c) ⚑ C-1 § 5.2's stated REASON for refusing the 690 back-solve is factually wrong in both clauses.**
 
@@ -318,7 +361,7 @@ Both `research/scripts/gd_gdc_parse.py` and the g7 scratch parser are **correct 
 
 Oathkeeper did not exist before *Forgotten Gods*; the base archive carries a leftover placeholder under the live record's exact path. ⚑ **A first-hit reader returns the stub, silently, with no error** — and a naive `[rank-1]` index against a 32-entry array either throws (visible) or, with a `min()` clamp, **returns the wrong value cleanly** (invisible). My first ledger run did exactly that and understated the referent's Spirit by 69 and his energy by 394.
 
-**Fourth instance of the shape this run keeps meeting: an instrument that returns cleanly after it stopped answering the question.** The check ran; the check did not pass.
+**The shape this run keeps meeting: an instrument that returns cleanly after it stopped answering the question.** The check ran; the check did not pass. ⚑ **And it fired a SECOND time inside this same commission, in my own ledger rather than in someone else's tool** — `devotionLevel`, non-zero on every devotion record in the game, read as an allocation flag. See the amendment banner and `…-c2-per-cast-energy-costs.md` § 6.
 
 **Correct precedence** (implemented in `scratch/2026-09-21-s1-bio/arz.py`): `database.arz < GDX1.arz < GDX2.arz < GDX3.arz`, **last wins**; SurvivalMode archives layer above that only when the Crucible mod database is in play, and are opt-in rather than default.
 
@@ -332,9 +375,10 @@ Oathkeeper did not exist before *Forgotten Gods*; the base archive carries a lef
 |---|---|
 | Where the 8 excess attribute points come from | ⚑ **`searched-SOURCE-UNLOCATED`** — quest data absent from the depot; mechanism confirmed by client tags; 107 within a 103–107 band across three level-100 saves |
 | Whether `lifeIncrementIntelligence` changed 8 → 12 between the referent's two save vintages | **CONSISTENT-NOT-SOURCED** — the arithmetic closes exactly under that reading on 5 of 5 relevant samples; no patch note held |
-| Whether `characterIntelligenceModifier` (+6 %) multiplies Spirit *before* the regen formula consumes it | **UNRESOLVED.** 536 vs 568. Both reported; not chosen. The formula lives in `Game.dll`, still unmounted |
-| Whether the corrected pool ledger reproduces `ENERGY_MAX = 2576` | ⚑ **NO — sweep overshoots to 2941.** Reported as a sweep, not asserted. C-1's 2054 was built on a wrong base term; mine is built on an unaudited walk. **Neither is a ledger. This wants a dedicated audit, not a third estimate** |
-| Whether C-1's regen flat (19.7) and percent (63 %) terms are complete | **FLAGGED, NOT CORRECTED** — my sweep finds 30.3 / 118 % over the same allocation. A broad instrument must not overturn an audited one; routed back as a re-audit request |
+| The level-scaling of base energy regeneration (`base_L100`) | ⚑ **UNCHANGED from C-1: `searched-SOURCE-UNLOCATED`.** Formula lives in `Game.dll`; no PE binary on this host. Correcting Spirit narrows the residual to ≈19 /s but cannot close it |
+| Whether the corrected pool ledger reproduces `ENERGY_MAX = 2576` | ⚑ **NO.** Flat sweep 1928, residual 648; a Spirit-scaled term of the documented shape brackets the measurement at **2672 (+96)** and **2572 (−4)**. **Four short is not closure and I am not tuning to it.** Wants a dedicated audit, not a third estimate |
+| Whether `augmentAllLevel` / `augmentMasteryLevel` raise MASTERY-BAR ranks | **`CONVENTION-ASSUMED`** (GD convention says no; no source on this host states it either way). If it were true, § 2.2's attribute totals rise. Declared, not decided — see `…-c2-per-cast-energy-costs.md` § 1 |
+| Whether C-1's regen flat (19.7) and percent (63 %) terms are complete | ✅ **RESOLVED — CORROBORATED.** My corrected sweep reproduces the 63 % exactly and the 19.7 exactly once C-1's correct total-rank read of Presence of Virtue is used. An earlier draft's re-audit flag is **retracted** |
 
 ---
 
