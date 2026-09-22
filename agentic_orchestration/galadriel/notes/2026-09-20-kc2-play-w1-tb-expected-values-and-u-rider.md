@@ -70,6 +70,8 @@ Prereg `da62709f2887df1e2874f7cc1baa0ef2cd901ea47ce555678b9d4d98c07dfa77`, **UNC
 
 ⚑ **TB-HP-06 is the row a builder should read twice.** In 181 seconds against waves 150–160, the referent **never once reaches a quarter health.** The floor is 26.79 %. Any twin that routinely dips under 25 % is not harder, it is *differently shaped* — and `B-12`/`B-19` are the rows that catch it.
 
+> ⚑ **EVERY ROW IN THIS TABLE CARRIES A DISCRIMINATION WARRANT — SEE § 1.7 BEFORE QUOTING ONE.** `TB-HP-06`'s in particular: it is a **one-sided bound**, and **the port already satisfies it while diverging from the referent more than on any other row.** An unkillable twin passes it.
+
 ### 1.3.2 Motion of the trace
 
 | row | statistic | value | published | status |
@@ -79,6 +81,8 @@ Prereg `da62709f2887df1e2874f7cc1baa0ef2cd901ea47ce555678b9d4d98c07dfa77`, **UNC
 | TB-HP-09 | **`health_max` drop (`D-Q1`)** | **16,368** vs 20,005 · **Δ = −3,637 HP = −18.1805 %** · `t = 713.3833 → 721.6667` · **8.2834 s** · straddles w152→w153 · **1 episode in the fight** | −18.18 %, 8.283 s (B-18) | **REPRODUCES** (end-frame convention 1 frame apart; duration identical to 3 dp) |
 
 ⚑ **TB-HP-09 is a PRE-REGISTERED KNOWN MODEL GAP, not a build defect.** The sim holds `health_max` constant. The twin is **expected** to show zero such episodes. The grader must not score that difference.
+
+> ⚑ **`TB-HP-07` and `TB-HP-08` CARRY DISCRIMINATION WARRANTS — SEE § 1.7.** `TB-HP-08` is an **extreme over n draws** and therefore **scales with n**: the same class gamora's file retired `TA-B-13` as ungradeable for. It is kept as `TB-HP-06`'s two-sided partner and **relabelled, not withdrawn.**
 
 ### 1.3.3 ⚑ B-19 — THE SAW-TOOTH, ANSWERED (the commissioned row; 2D spec § 6.4 OQ-4)
 
@@ -153,6 +157,8 @@ Eight maximal runs below 50 % of live `hp_max` in the whole fight:
 | **TB-HP-13** regeneration | **124.67 HP/s** measured (decoded 129.38; residual **−3.64 %**) | the subset rule (sub-33 %-health, uncontaminated) is Lap Q's; re-deriving it would change the instrument. ⚑ **The naive whole-trace drip reads 178.40 HP/s and is CONTAMINATED.** A grader that computes regeneration over the whole trace gets 178.40 and is wrong. **Menhir's Will (+120 hp/s below 33 %) is MEASURED-ABSENT.** |
 | **TB-HP-14** leech tick | cadence **11.408 /s** (inside Lap L's decoded [11.387, 12.250], at the LO edge) · clean median **820.8 HP** (n = 67) · all-129 median **782.8** | `U-P-N-1` = **COUPLED**. Per-body heal is an **UPPER bound** (`U-Q-1`: `N_bodies` never observed at tick resolution). |
 
+> ⚑ **`TB-HP-14` CARRIES A DISCRIMINATION WARRANT — SEE § 1.7.** *"Inside the bracket"* reads as corroboration; **this value sits `0.021` above the LOW edge of a `0.863`-wide bracket, a 2.4 % margin** — one small bias from being outside it, and the row's face did not say so.
+
 ## 1.4 The other T-B statistics — compactly, same treatment
 
 | row | statistic | value of record | uncertainty carried | denominator | reproduction |
@@ -206,6 +212,95 @@ Mapping slot L → Blitz, slot 2 → Vire's Might, slot 3 → War Cry is a **pro
 | Resolving `frac_moving` to one instrument | the video **and** a ruling on the threshold definition — a measurement-seat call, not an instrument fault |
 | `N_bodies` at leech-tick resolution (so the per-body heal stops being an upper bound) | the video **and** a per-body attributable damage stream, **which pixels cannot provide** (`UNREACHED-4`) |
 | **T-C side-by-side** | the video — the 2D spec § 6.6 gates T-C on T30 itself |
+
+---
+
+## ⚑ 1.7 THE DISCRIMINATION WARRANTS — folded 2026-09-21, APPEND ONLY
+
+**Provenance:** authored by **gamora** in `gamora/notes/2026-09-20-kc2-play-ta-band-widths.md` § A4.7
+while executing the conductor's dispatch on her discrimination audit
+(`gamora/notes/2026-09-21-kc2-play-discrimination-audit.md`). She declined to write into this file —
+*"another seat's instrument, pinned into the prereg as `P-b` / `P-c` / `P-d`… no dispatch authorized
+that"* — and routed the fold here. ⚑ **That boundary call was right and I am recording that it was
+right**, not merely that it was made.
+
+**Conductor's ruling, KP-75, which governs this append:** a warrant recording a **LIMITATION** may be
+filed after a graded run, because it can only *reduce* what a reader is entitled to conclude. ⚑ **A
+warrant asserting that a row IS discriminating STRENGTHENS a claim and takes the HALT.** Each sentence
+below was checked against that condition before filing. **One did not pass — § 1.7.2.**
+
+**The form:** each warrant states *what the statistic throws away* and *a materially different
+behaviour that would satisfy it.* Nothing above § 1.7 is rewritten; no value, fraction, denominator or
+status in § 1.3 moves.
+
+### 1.7.1 The seven
+
+| row | value of record | ⚑ WHAT IT THROWS AWAY | ⚑ A MATERIALLY DIFFERENT BEHAVIOUR THAT SATISFIES IT |
+|---|---:|---|---|
+| **`TB-HP-01`** time at full | `0.428414` | **all time-structure** | a twin at full for the first 77.5 s and never again. ⚑ **And this row's dominant uncertainty is its own DENOMINATOR, not its read** — `0.4284` (LIVE-MAX) vs `0.3976` (NOMINAL), a **3.08 pp** gap with no fight in it (§ 1.2). **A comparison quoting one figure has not said which.** |
+| **`TB-HP-02` / `-03`** below 90 % / 75 % | `0.212319` / `0.090231` | same — **and both are denominator-SENSITIVE** | same. Partially answered by `TB-HP-12`'s per-wave table, which this note ships. |
+| **`TB-HP-04` / `-05`** below 50 % / 33 % | `0.034619` / `0.010036` | time-structure. *(Denominator-INSENSITIVE — stated at § 1.2, and it is why these two are the sturdier pair)* | the alternative is named in this note's own § 1.3.4, and ⚑ **`TB-HP-11` FALSIFIES it on the referent**: all 8 sub-half excursions are in waves 159–160; waves 151–158 never go below half at all. **A twin with the right aggregate and an even spread has the wrong story.** |
+| ⚑ **`TB-HP-06`** below 25 % | **`0` frames** | ⚑ **a ONE-SIDED BOUND — the entire admissible half** | ⚑ **THE PORT ALREADY SATISFIES IT, AND IT IS THE RUN'S LARGEST KNOWN DIVERGENCE.** `terminal_reason = cleared` 25/25, HP never below **79.44 %** (ceiling `C-e`). ⚑ **AN UNKILLABLE TWIN PASSES THIS ROW.** Its two-sided partner exists — `TB-HP-08`'s floor at 26.79 % — **and is not bound to it.** |
+| **`TB-HP-07`** frames decreasing | `0.137293` | **magnitude and clustering** | one huge hit/s against many tiny hits/s at matched cadence. Partially answered by `TB-HP-10`'s depth distribution. *(The `n` vs `n−1` ambiguity is declared at § 1.2 and both print 13.73 %; the row uses `n−1`.)* |
+| **`TB-HP-08`** HP minimum | `5,360` (26.79 %) | ⚑ **an EXTREME over n draws — the body of the distribution; and it SCALES WITH n** | any distribution whose single worst frame lands at 26.79 %. ⚑ **THE SAME CLASS AS `TA-B-13`, WHICH gamora's FILE RETIRED AS UNGRADEABLE (Addendum 2 § B2) FOR EXACTLY THIS REASON — and nothing on this row's face said so.** *Not proposed for retirement: as an absolute floor beside `TB-HP-06`'s zero it is the two-sided partner that row lacks. Proposed for **LABELLING**, and this is the label.* |
+| **`TB-HP-14`** leech cadence | `11.408 /s` in `[11.387, 12.250]` | bracket-membership throws away **where in the bracket** | ⚑ **the measured value sits `0.021` above the bracket's LOW EDGE on a `0.863`-wide bracket — a 2.4 % margin.** Inside-a-bracket reads as corroboration; **at the edge it is one small bias from being outside**, and nothing on the row's face said which. *(Its per-body heal limb is already declared an UPPER bound at § 1.3.6 — correctly handled, and the contrast is the point.)* |
+
+⚑ **All seven are mine to carry, and all seven are corrections to how my own rows were READ, not to
+what they measure.** Every value in § 1.3 reproduces exactly as published. **The rows are right; the
+reading is what fails.**
+
+### 1.7.2 ⚑ ONE SENTENCE NOT FILED — routed to the conductor as taking the HALT
+
+gamora attached a framing *"that must travel with all seven"*:
+
+> *"these are **non-discriminating ALONE and discriminating IN COMPANY**, and the company —
+> `TB-HP-10`'s six order statistics and five-gate sweep, `TB-HP-11`'s localisation, `TB-HP-12`'s
+> per-wave table — is present in the same note."*
+
+⚑ **I am filing the first half and withholding the second.** *"Non-discriminating alone"* is a
+limitation and it is in every row above. ⚑ ***"Discriminating in company" is an AFFIRMATIVE claim that
+a check exists, and no instrument in this corpus has tested the combination.*** gamora's own § 1
+method requires that a DISCRIMINATING verdict be earned by *trying and failing* to name an
+alternative; that test was run row-by-row and **never on the set.** Under KP-75's condition — *a
+warrant asserting that a row IS discriminating strengthens a claim and takes the HALT* — the clause
+takes the HALT, and it is **routed to the conductor, not filed.**
+
+**What I file in its place, which is a limitation and not a strengthening:**
+
+> ⚑ **Each of `TB-HP-01…08` is non-discriminating ALONE. Whether the SET discriminates jointly has
+> not been tested by any instrument in this corpus. A grader that reads the rows together is making
+> an inference the corpus does not underwrite, and should say so.**
+
+*(I record that I considered `TB-HP-04 / -05`'s parenthetical — *"denominator-INSENSITIVE, a real
+strength"* — against the same condition and judged it clear: it restates a property § 1.2 already
+publishes, and it narrows nothing upward. Named here so the judgment is reviewable rather than
+invisible.)*
+
+### 1.7.3 ⚑ A CORRECTION THIS APPEND CARRIES AGAINST § 1.2 AND § 1.4
+
+**Filed 2026-09-21 with `galadriel/notes/2026-09-21-kc2-play-energy-globe.md`**, which re-derived the
+energy globe on the same committed data:
+
+* ⚑ **`D-GOODCOV`'s companion figure `"64.6 % of combat time at the 1594 ceiling"` (MD-B4app-2 § 4.4,
+  quoted downstream as ceiling residency) IS `E ≥ 1560`.** True at-ceiling residency is **0.2801**, a
+  factor of **2.27**. Any row quoting 64.6 % as residency must be re-read.
+* ⚑ **MD-B4app-2 § 4.4's below-cap net `−81.7 / −73.4 /s` is a CONDITIONING ARTIFACT** — it reproduces
+  only when the interval is labelled by its END, which selects falling intervals. Midpoint labelling
+  gives **−6.7 / +9.4**. **`TB-CH-01` (channel uptime, 0.8375) is UNAFFECTED** — it rests on tick
+  *presence*, not tick *magnitude*.
+* ⚑ **The 60 Hz energy trace carries 1,184 samples (11.9 %) reading ABOVE the 1594 ceiling**, which
+  4,800 control samples prove impossible. `s2-releases.json`'s cleaning does not catch them. **Every
+  energy-MAGNITUDE row in this corpus inherits that contamination; no energy-PRESENCE row does.**
+
+**These are limitations on rows this file publishes, and they reduce what a reader may conclude.** They
+are filed under the same KP-75 ruling.
+
+---
+
+*§ 1.7 appended 2026-09-21 by galadriel, Run KC2-PLAY, executing the conductor's dispatch item 1.
+**APPEND ONLY; nothing above rewritten.** No value, fraction, denominator, status or verdict moved
+(asserted). ⚑ **THIS FILE'S SHA HAS THEREFORE MOVED: prereg pin `P-b` `8186202c…` is now STALE and
+must be re-derived.** Reverts as one commit.*
 
 ---
 
