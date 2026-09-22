@@ -52,9 +52,23 @@ A commission that cannot fail is not a commission. Each one states:
 
 The referent battle system is a **line in the sand**: a fully-provenanced baseline from which divergence becomes *deliberate* rather than accidental, and onto which other kits — and eventually other games — can be joined.
 
-**⚑ FAILURE MODE 1 — the referent becomes the target by gravity.** The moment a perfect referent exists there is enormous pull toward treating it as *correct* rather than as *known*. Grim Dawn's combat math is twelve years of accretion in the Diablo-2 lineage: conversion chains, resist-reduction stacking, flat-vs-percent ordering that even depth-seeking players find opaque. **What makes it an excellent REFERENT — real, complete, measurable — is not what would make it a good FOUNDATION.**
+**⚑ FAILURE MODE 1 — ~~the referent becomes the target by gravity~~ — OVERRULED BY MATT, 2026-09-21, WITHIN HOURS OF THIS NOTE BEING WRITTEN. Recorded in full because his ruling is correct and because my framing was argued from an example that cuts the other way.**
 
-*Matt has already named the guard* (**"decide to tweak it before joining other kits"**). The discipline that enforces it: **write down which parts we intend to KEEP and which we are only reproducing to prove we understood them — now, while the referent is being built, not after it is finished.** Precedent: Diablo III shipped an itemization faithful to a specification nobody had stress-tested against play — the fidelity was to the *spec*, not to the *experience*. Path of Exile's manifesto tradition exists precisely because GGG kept having to make its deliberateness explicit rather than let complexity read as intent.
+> *"I get your push back, but I would rather start from an opaque referent that we know players had fun playing, than a perfect concept piece where fun is unknown."*
+
+**He is right, and the asymmetry is the whole of it. FUN IS NOT DERIVABLE** — it is an empirical property of a system in play, reachable by no amount of reasoning from first principles. **Opacity is a debt that can be paid down later; UNFUN IS A REBUILD.** A messy system people love can be documented, refactored and re-exposed. A clean system that is dead cannot have fun added to it.
+
+⚑ **My own Diablo III citation was evidence FOR his position and I deployed it against him.** D3's launch itemization *was* the concept piece — smart drops, clean stat budgets, a designed economy — faithful to a specification, internally coherent, and joyless. The repair (Loot 2.0 / *Reaper of Souls*) moved **back toward** the messier, more opaque D2 behaviour already known to be fun. **I cited the failure of the approach I was recommending.**
+
+⚑ **And the sharper precedent, which should have led: GRIM DAWN IS ITSELF THE PRODUCT OF THIS EXACT STRATEGY.** Crate built it on Titan Quest's engine and feel — an opaque, known-fun referent — rather than from a fresh concept. Path of Exile did the same declaratively: GGG began from *"Diablo 2 but more"* and spent a decade writing manifestos explaining why they were **not** simplifying. Last Epoch took the opposite road — a genuinely novel, legible skill-specialization system — and has spent years climbing toward a feel the messy incumbents had on day one. **The referent Matt chose is a successful instance of the method he is proposing.**
+
+### What survives of the warning — smaller, and different in kind
+
+Not *"you will keep Grim Dawn's math."* Keeping it is the plan, and the plan is sound. The residue is one sentence:
+
+⚑ **A referent tells you THAT it was fun. It does not tell you WHY.** When a part must later change — for the join key, for a second kit, for this game's own identity — we will need to know which of the twelve-year accretions were load-bearing for *feel* and which were incidental, and the referent alone cannot say.
+
+**That is not an argument for legibility-first. It is an argument that the work Matt has already commissioned is the instrument that answers it.** Every decoded constant carrying a grade is a candidate lever whose effect can be tested; every honestly-declared absence is a place we know not to trust a tweak. ⚑ **So the Commission Rule does more than protect the join key — it is what converts *opaque but fun* into *opaque, fun, and STEERABLE*, without ever requiring anyone to guess which of the three they are holding.**
 
 **⚑ FAILURE MODE 2 — a join key needs a SCHEMA, not a correct instance.** We have one character, one build, one game. The join-key claim requires that the *abstractions* survive contact with a game that has no energy, or three resources, or cooldowns in place of a resource entirely. **The v3.x pack shape is Grim-Dawn-shaped**, and nothing has yet tested whether its concepts generalize or merely fit. That is the next architectural question, and it is better asked while the second kit is hypothetical than after it has been forced into a schema built for the first.
 
