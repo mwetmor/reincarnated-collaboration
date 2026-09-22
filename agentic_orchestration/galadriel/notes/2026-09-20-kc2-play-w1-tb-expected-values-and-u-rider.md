@@ -304,6 +304,56 @@ must be re-derived.** Reverts as one commit.*
 
 ---
 
+### ⚑ 1.7.4 A CORRECTION AGAINST § 1.7.3 — ITS THIRD BULLET IS WITHDRAWN BY ITS OWN AUTHOR
+
+**Appended 2026-09-21, later the same day, with `galadriel/notes/2026-09-21-kc2-play-energy-globe-reread.md`**
+— the conductor's re-read dispatch, executed on the sixteen energy-readout frames that ARE committed.
+**Append only; § 1.7.3 is left standing and is corrected here rather than edited.**
+
+⚑ **§ 1.7.3 bullet 3 says the 1,184 above-ceiling samples are readings "which 4,800 control samples
+prove impossible." THAT CLAUSE IS WITHDRAWN.** The frame at `t = 735.0` displays **1610**, and three
+independent readings agree on it: the hand read of 2026-08-25 (it is `atlas-spec.json` row 7 — **the
+glyph atlas's own training data, typed by me**), **Apple Vision at confidence 1.000** (the pinned
+reader that produced this file's own HP trace at 100.00 % acceptance), and the eye at ×12. A further
+**63.3 %** of the above-ceiling population sits at values no single glyph substitution can reach from
+`1594`. **The population is UNEXPLAINED, not impossible, and its real/artifact split is not
+determinable from committed pixels.**
+
+**What this does to the reader's entitlement — and it only ever reduces it:**
+
+* ⚑ **The limitation on energy-MAGNITUDE rows is NOT LIFTED. It is RE-NAMED AND ITS SIZE IS NOW KNOWN.**
+  Every drain tick splits exactly into a **SPEND** limb (fall below the ceiling) and a **SPILL** limb
+  (over-ceiling excess given back); `spend + spill = |ΔE|` with maximum residual **0.0** over 1,626
+  ticks. ⚑ **SPILL IS 39.4 % OF THE PUBLISHED GROSS, and it is not a cost under EITHER hypothesis** —
+  a real clamp costs nothing, a misread never had the energy. **`s2-releases.json`'s cleaning still does
+  not catch it.** The superseding gross figure is published in the re-read note, **not here**; this
+  bullet records only that any row inheriting the 2026-08-25 gross inherits a **39.4 % overstatement**.
+* ⚑ **A SECOND limitation on the below-cap net, beyond § 1.7.3 bullet 2's conditioning artifact: the net
+  is ALSO COVERAGE-FRAGILE.** Removing frames **uniformly at random** reproduces the effect of an OCR
+  margin gate to within **1.3 standard deviations at every gate ≥ 3**; a 28.7 % sample loss costs the
+  estimator **85 % of its adjacent pairs**. ⚑ **The published `−78 /s` is therefore reachable by two
+  independent WRONG routes — END-labelling and sample loss — and by no right one yet found. Any future
+  attempt to clean this trace harder will manufacture it again.**
+* **`TB-CH-01` (channel uptime, 0.8375) remains UNAFFECTED** by all of the above, for the reason
+  § 1.7.3 already gives: it rests on tick *presence*, not tick *magnitude*. Unchanged, and re-checked.
+* ⚑ **`T30` is re-priced, in the direction of being CHEAPER.** It has been carried as *"the MP4 is
+  gone."* It is on an **unmounted external volume** (`/Volumes/reincarnated/…`, absent from `/Volumes`)
+  with its identity pinned by **sha256 `4c60960d…4de8`** in legolas's `pm4q_digests.json` — so a
+  remounted copy is **verifiable**, and the reader is committed and compiles. **Mount, verify, re-read.**
+
+**NO FIGURE IN THIS FILE MOVES.** `eor_release.clean()` was versioned this lap to take a `marg_min`
+floor, **default 0.0, bit-identical to v1** — re-running `kc2_energy_shape.py` under v2 and diffing
+against the committed JSON gives **exactly two new census keys and no numeric change**. Verified by
+diff, not asserted.
+
+*§ 1.7.4 appended 2026-09-21 by galadriel, Run KC2-PLAY, executing the conductor's re-read dispatch.
+**APPEND ONLY; nothing above rewritten, § 1.7.3 included.** Every clause here records a LIMITATION or
+withdraws one of my own claims — it files under the same KP-75 ruling, and it asserts no row to be
+discriminating. **THIS FILE'S SHA HAS MOVED AGAIN; the new value is stated in the return.** Reverts as
+one commit.*
+
+---
+
 # PART 2 — THE `u` RIDER (`R-KP-0c`)
 
 ## 2.0 The question as the charter puts it

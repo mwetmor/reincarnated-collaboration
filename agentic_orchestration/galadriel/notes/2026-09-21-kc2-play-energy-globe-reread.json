@@ -1,0 +1,747 @@
+{
+ "instrument": "kc2_energy_reread.py",
+ "run": "KC2-PLAY",
+ "date": "2026-09-21",
+ "author": "galadriel",
+ "commission": "conductor dispatch 2026-09-21 -- re-read the energy globe with the HP globe's reader; do the eor_release.clean() marg gate as part of it",
+ "inputs": {
+  "captures/2026-08-25-md-b4app-2-channel/work/s2-energy-60hz.json": "8713bfec938d29297b23a5b45da5d05ef14b23f1decc4ff85c1b76a538ee5fbf",
+  "captures/2026-08-25-md-b4app-2-channel/work/s2-duty.json": "77cc64d983b4e80ccad969352cf6ad8507e69270f8c664d38188683593c984a4",
+  "captures/2026-08-25-md-b4app-2-channel/work/waves.json": "d1d889a3a3319d846e1d530aee6476c62864613dd23a07bca8205b80d9d60a95",
+  "captures/2026-08-25-md-b4app-2b-energy/work/s2-releases.json": "52c57d2cc905efad0b1a5e6e9793d89d49bb46d0570032a81f6bb52cdbf7a1d4",
+  "captures/2026-08-25-md-b4app-2-channel/work/energy-sheet.png": "762ba62053d6b4452ca73af6cb49770a1b7651b8a7b860fa693fffb5c8d5798a",
+  "captures/2026-08-25-md-b4app-2-channel/work/atlas-spec.json": "32ce234d111a0ca20aa9c55dfde4eff35400b64380659c0226a66291a4af1266",
+  "captures/2026-08-25-md-b4app-2b-energy/work/blind_702_strip.png": "d9f27a4b1dbd6c700acef2ec31bf5ef62368ceda45b50ab9afbadbdefec3d655"
+ },
+ "T30": {
+  "status": "BLOCKS THE FULL RE-READ",
+  "what_is_missing": "the source MP4; the per-frame crops were never committed",
+  "recorded_paths": [
+   "/Volumes/reincarnated/visual-artifacts/GD-matt-test/eor-test-2/video/eor-warlord-wave-150-160-2026-08-05 21-37-25.mp4  (the DOCUMENTED home; /Volumes/reincarnated is NOT MOUNTED -- the volume is absent, not the file)",
+   "/Users/admin/gd-scratch/eor-test-2/...  (the local copy legolas hash-verified 2026-09-10 and flagged must-survive-any-sweep; ~/gd-scratch no longer exists)"
+  ],
+  "identity_pinned": "sha256 4c60960d98e9d729e17469044dbe7b4341b253d7d36ba26fe09564d6056a4de8, 479,438,089 B (legolas pm4q_digests.json) -- so a remounted copy is VERIFIABLE, not merely plausible",
+  "correction_to_the_standing_account": "T30 has been carried as 'the MP4 is gone'. It is on an unmounted external volume with a pinned digest. That is a different ask of Matt."
+ },
+ "XR_cross_reader_control": {
+  "reader": {
+   "engine": "Apple Vision VNRecognizeTextRequest .accurate, usesLanguageCorrection=false, minimumTextHeight=0.004",
+   "source": "pipeline/ocr_vision.swift",
+   "source_sha256": "1a96036ddbdfe4d55e2be31f534e9a9661db152dc71d4c36e18c684ab8b94ec1",
+   "provenance": "byte-identical to legolas Lap Q method/ocr.swift (sha256 1a96036ddbdfe4d55e2be31f534e9a9661db152dc71d4c36e18c684ab8b94ec1, pinned in pm4q_digests.json) -- the reader that produced the 100.00 %-accepted HP trace"
+  },
+  "n_frames": 20,
+  "n_unlabelled_sheet_rows": 4,
+  "unlabelled_sheet_row_reads": [
+   1594,
+   1594,
+   1594,
+   1594
+  ],
+  "vision_vs_hand": {
+   "n": 16,
+   "n_agree": 16,
+   "disagreements": []
+  },
+  "atlas_vs_vision": {
+   "n_value_carrying": 15,
+   "n_agree": 12,
+   "n_atlas_wrong_value": 3,
+   "n_atlas_parse_fail": 5
+  },
+  "frames": [
+   {
+    "src": "energy-sheet.png row 0",
+    "t": 686.0,
+    "t_provenance": "atlas-spec.json (recorded)",
+    "hand_2026_08_25": 1466,
+    "apple_vision": 1466,
+    "atlas_t": 686.0,
+    "atlas_str": "1466/2576",
+    "atlas_cur": 1466,
+    "atlas_marg": 6.4,
+    "verdict": "AGREE"
+   },
+   {
+    "src": "energy-sheet.png row 1",
+    "t": 692.0,
+    "t_provenance": "atlas-spec.json (recorded)",
+    "hand_2026_08_25": 1314,
+    "apple_vision": 1314,
+    "atlas_t": 692.0,
+    "atlas_str": "1314/2576",
+    "atlas_cur": 1314,
+    "atlas_marg": 8.5,
+    "verdict": "AGREE"
+   },
+   {
+    "src": "energy-sheet.png row 2",
+    "t": 695.0,
+    "t_provenance": "atlas-spec.json (recorded)",
+    "hand_2026_08_25": 1370,
+    "apple_vision": 1370,
+    "atlas_t": 695.0,
+    "atlas_str": "13//0/2576",
+    "atlas_cur": null,
+    "atlas_marg": 10.7,
+    "verdict": "ATLAS-PARSE-FAIL"
+   },
+   {
+    "src": "energy-sheet.png row 3",
+    "t": 705.0,
+    "t_provenance": "atlas-spec.json (recorded)",
+    "hand_2026_08_25": 1376,
+    "apple_vision": 1376,
+    "atlas_t": 705.0,
+    "atlas_str": "1376/2576",
+    "atlas_cur": 1376,
+    "atlas_marg": 7.9,
+    "verdict": "AGREE"
+   },
+   {
+    "src": "energy-sheet.png row 4",
+    "t": 712.0,
+    "t_provenance": "atlas-spec.json (recorded)",
+    "hand_2026_08_25": 1509,
+    "apple_vision": 1509,
+    "atlas_t": 712.0,
+    "atlas_str": "1509/2576",
+    "atlas_cur": 1509,
+    "atlas_marg": 10.7,
+    "verdict": "AGREE"
+   },
+   {
+    "src": "energy-sheet.png row 5",
+    "t": 725.0,
+    "t_provenance": "atlas-spec.json (recorded)",
+    "hand_2026_08_25": 1594,
+    "apple_vision": 1594,
+    "atlas_t": 725.0,
+    "atlas_str": "1594/2576",
+    "atlas_cur": 1594,
+    "atlas_marg": 10.7,
+    "verdict": "AGREE"
+   },
+   {
+    "src": "energy-sheet.png row 6",
+    "t": 735.0,
+    "t_provenance": "atlas-spec.json (recorded)",
+    "hand_2026_08_25": 1610,
+    "apple_vision": 1610,
+    "atlas_t": 735.0,
+    "atlas_str": "1610/2576",
+    "atlas_cur": 1610,
+    "atlas_marg": 2.6,
+    "verdict": "AGREE"
+   },
+   {
+    "src": "energy-sheet.png row 10",
+    "t": 805.0,
+    "t_provenance": "atlas-spec.json (recorded)",
+    "hand_2026_08_25": 1541,
+    "apple_vision": 1541,
+    "atlas_t": 805.0,
+    "atlas_str": "1541/2576",
+    "atlas_cur": 1541,
+    "atlas_marg": 8.5,
+    "verdict": "AGREE"
+   },
+   {
+    "src": "energy-sheet.png row 11",
+    "t": 820.0,
+    "t_provenance": "atlas-spec.json (recorded)",
+    "hand_2026_08_25": 1588,
+    "apple_vision": 1588,
+    "atlas_t": 820.0,
+    "atlas_str": "1588/2576",
+    "atlas_cur": 1588,
+    "atlas_marg": 10.7,
+    "verdict": "AGREE"
+   },
+   {
+    "src": "energy-sheet.png row 13",
+    "t": 855.0,
+    "t_provenance": "atlas-spec.json (recorded)",
+    "hand_2026_08_25": 1591,
+    "apple_vision": 1591,
+    "atlas_t": 855.0,
+    "atlas_str": "1591/2576",
+    "atlas_cur": 1591,
+    "atlas_marg": 3.5,
+    "verdict": "AGREE"
+   },
+   {
+    "src": "blind_702_strip.png row 0",
+    "t": 702.05,
+    "t_provenance": "MD-B4app-2b \u00a7 1.3 (recorded)",
+    "hand_2026_08_25": 1399,
+    "apple_vision": 1399,
+    "atlas_t": 702.05,
+    "atlas_str": "1349/2476",
+    "atlas_cur": 1349,
+    "atlas_marg": 0.6,
+    "verdict": "ATLAS-WRONG-VALUE"
+   },
+   {
+    "src": "blind_702_strip.png row 1",
+    "t": 702.6,
+    "t_provenance": "MD-B4app-2b \u00a7 1.3 (recorded)",
+    "hand_2026_08_25": 1430,
+    "apple_vision": 1430,
+    "atlas_t": 702.6,
+    "atlas_str": "1/0/2576",
+    "atlas_cur": null,
+    "atlas_marg": 7.5,
+    "verdict": "ATLAS-PARSE-FAIL"
+   },
+   {
+    "src": "blind_702_strip.png row 2",
+    "t": 703.15,
+    "t_provenance": "MD-B4app-2b \u00a7 1.3 (recorded)",
+    "hand_2026_08_25": 1434,
+    "apple_vision": 1434,
+    "atlas_t": 703.15,
+    "atlas_str": "1/4/2576",
+    "atlas_cur": null,
+    "atlas_marg": 9.0,
+    "verdict": "ATLAS-PARSE-FAIL"
+   },
+   {
+    "src": "blind_702_strip.png row 3",
+    "t": 703.7,
+    "t_provenance": "MD-B4app-2b \u00a7 1.3 (recorded)",
+    "hand_2026_08_25": 1417,
+    "apple_vision": 1417,
+    "atlas_t": 703.7,
+    "atlas_str": "1417/2576",
+    "atlas_cur": 1417,
+    "atlas_marg": 0.1,
+    "verdict": "AGREE"
+   },
+   {
+    "src": "crop-energy-t690.png",
+    "t": 690.0,
+    "t_provenance": "filename",
+    "hand_2026_08_25": null,
+    "apple_vision": 1456,
+    "atlas_t": 690.0,
+    "atlas_str": "1456/2576",
+    "atlas_cur": 1456,
+    "atlas_marg": 2.5,
+    "verdict": "AGREE"
+   },
+   {
+    "src": "exc_688.18.png",
+    "t": 688.18,
+    "t_provenance": "filename + MD-B4app-2b \u00a7 1.1 table",
+    "hand_2026_08_25": 1497,
+    "apple_vision": 1497,
+    "atlas_t": 688.1833,
+    "atlas_str": "107/2576",
+    "atlas_cur": 107,
+    "atlas_marg": 3.0,
+    "verdict": "ATLAS-WRONG-VALUE"
+   },
+   {
+    "src": "exc_702.90.png",
+    "t": 702.9,
+    "t_provenance": "filename + MD-B4app-2b \u00a7 1.1 table",
+    "hand_2026_08_25": 1437,
+    "apple_vision": 1437,
+    "atlas_t": 702.9,
+    "atlas_str": "1/7/2576",
+    "atlas_cur": null,
+    "atlas_marg": 0.9,
+    "verdict": "ATLAS-PARSE-FAIL"
+   },
+   {
+    "src": "exc_703.90.png",
+    "t": 703.9,
+    "t_provenance": "filename",
+    "hand_2026_08_25": null,
+    "apple_vision": 1412,
+    "atlas_t": 703.9,
+    "atlas_str": "1412/2576",
+    "atlas_cur": 1412,
+    "atlas_marg": 8.6,
+    "verdict": "AGREE"
+   },
+   {
+    "src": "exc_780.66.png",
+    "t": 780.66,
+    "t_provenance": "filename",
+    "hand_2026_08_25": null,
+    "apple_vision": 1485,
+    "atlas_t": 780.6667,
+    "atlas_str": "105/2576",
+    "atlas_cur": 105,
+    "atlas_marg": 2.6,
+    "verdict": "ATLAS-WRONG-VALUE"
+   },
+   {
+    "src": "exc_836.90.png",
+    "t": 836.9,
+    "t_provenance": "filename",
+    "hand_2026_08_25": null,
+    "apple_vision": 1475,
+    "atlas_t": 836.9,
+    "atlas_str": "14/5/2576",
+    "atlas_cur": null,
+    "atlas_marg": 4.4,
+    "verdict": "ATLAS-PARSE-FAIL"
+   }
+  ]
+ },
+ "XR_marg_as_correctness_classifier": {
+  "note": "`marg` scored as a correctness classifier against Apple Vision on the committed labelled set. A gate that discards TRUE values is buying precision with recall, and the price is stated here rather than implied.",
+  "table": [
+   {
+    "marg_min": 0,
+    "kept": 20,
+    "kept_correct": 12,
+    "kept_WRONG_VALUE": 3,
+    "kept_parse_fail": 5,
+    "TRUE_VALUES_DISCARDED": 0,
+    "discarded_true_at": []
+   },
+   {
+    "marg_min": 2,
+    "kept": 17,
+    "kept_correct": 11,
+    "kept_WRONG_VALUE": 2,
+    "kept_parse_fail": 4,
+    "TRUE_VALUES_DISCARDED": 1,
+    "discarded_true_at": [
+     703.7
+    ]
+   },
+   {
+    "marg_min": 3,
+    "kept": 14,
+    "kept_correct": 9,
+    "kept_WRONG_VALUE": 1,
+    "kept_parse_fail": 4,
+    "TRUE_VALUES_DISCARDED": 3,
+    "discarded_true_at": [
+     690.0,
+     703.7,
+     735.0
+    ]
+   },
+   {
+    "marg_min": 4,
+    "kept": 12,
+    "kept_correct": 8,
+    "kept_WRONG_VALUE": 0,
+    "kept_parse_fail": 4,
+    "TRUE_VALUES_DISCARDED": 4,
+    "discarded_true_at": [
+     690.0,
+     703.7,
+     735.0,
+     855.0
+    ]
+   },
+   {
+    "marg_min": 5,
+    "kept": 11,
+    "kept_correct": 8,
+    "kept_WRONG_VALUE": 0,
+    "kept_parse_fail": 3,
+    "TRUE_VALUES_DISCARDED": 4,
+    "discarded_true_at": [
+     690.0,
+     703.7,
+     735.0,
+     855.0
+    ]
+   },
+   {
+    "marg_min": 7,
+    "kept": 10,
+    "kept_correct": 7,
+    "kept_WRONG_VALUE": 0,
+    "kept_parse_fail": 3,
+    "TRUE_VALUES_DISCARDED": 5,
+    "discarded_true_at": [
+     686.0,
+     690.0,
+     703.7,
+     735.0,
+     855.0
+    ]
+   },
+   {
+    "marg_min": 8,
+    "kept": 8,
+    "kept_correct": 6,
+    "kept_WRONG_VALUE": 0,
+    "kept_parse_fail": 2,
+    "TRUE_VALUES_DISCARDED": 6,
+    "discarded_true_at": [
+     686.0,
+     690.0,
+     703.7,
+     705.0,
+     735.0,
+     855.0
+    ]
+   }
+  ]
+ },
+ "CL_clamp_decomposition": {
+  "identity_check_max_abs_residual": 0.0,
+  "identity": "spend + spill == |dE| for every tick, exactly",
+  "n_ticks": 1626,
+  "SPEND": {
+   "sum": 18025.0,
+   "per_s_over_182_65": 98.7,
+   "per_s_over_161_0": 112.0
+  },
+  "SPILL": {
+   "sum": 11723.0,
+   "per_s_over_182_65": 64.2,
+   "per_s_over_161_0": 72.8,
+   "frac_of_published_gross": 0.3941
+  },
+  "TOTAL_as_published": {
+   "sum": 29748.0,
+   "per_s_over_182_65": 162.9,
+   "per_s_over_161_0": 184.8
+  },
+  "drop_all_above_ceiling_starts": {
+   "n_ticks": 1011,
+   "per_s_over_161_0": 104.1
+  },
+  "clamp_signature": {
+   "n_ticks_starting_above_ceiling": 615,
+   "frac_of_tick_count": 0.3782,
+   "frac_of_tick_mass": 0.4366,
+   "n_landing_EXACTLY_on_1594": 424,
+   "frac_landing_EXACTLY_on_1594": 0.6894,
+   "median_size_starting_above": -16.0,
+   "median_size_starting_at_or_below": -13.0,
+   "why_it_matters": "a fall that TERMINATES at the operating ceiling in 69 % of cases, with a characteristic size of -16 against the -13 of the below-ceiling population, is two different quantities sharing one tick rule"
+  }
+ },
+ "CL_above_ceiling_anatomy": {
+  "definition": "An above-ceiling read is REACHABLE if a single glyph substitution turns 1594 into it (1595-1599, 1694, 1794, 1894, 1994). Everything else needs two or three simultaneous substitutions, which the atlas's own error profile does not produce.",
+  "n_above_ceiling_raw": 1187,
+  "reachable_by_ONE_substitution": {
+   "n": 436,
+   "frac": 0.3673,
+   "median_marg": 9.0
+  },
+  "NOT_reachable_by_one_substitution": {
+   "n": 751,
+   "frac": 0.6327,
+   "median_marg": 3.6,
+   "top_values": [
+    [
+     1610,
+     80
+    ],
+    [
+     1614,
+     78
+    ],
+    [
+     1615,
+     50
+    ],
+    [
+     1608,
+     43
+    ],
+    [
+     1612,
+     41
+    ],
+    [
+     1605,
+     38
+    ],
+    [
+     1604,
+     36
+    ],
+    [
+     1606,
+     30
+    ],
+    [
+     1611,
+     29
+    ],
+    [
+     1609,
+     28
+    ],
+    [
+     1603,
+     26
+    ],
+    [
+     1619,
+     25
+    ]
+   ]
+  },
+  "median_marg_AT_1594": 10.4,
+  "excess_over_ceiling": {
+   "median": 12.0,
+   "p75": 20.0,
+   "p95": 35.7,
+   "max": 337.0,
+   "frac_within_21": 0.8526
+  }
+ },
+ "MG_margin_gate_sweep": {
+  "amendment": "eor_release.clean() v2 takes marg_min, DEFAULT 0.0. At the default it is bit-identical to v1: kc2_energy_shape.py re-run under v2 differs from the committed 2026-09-21 JSON in exactly two keys, both NEW census fields (marg_min: 0.0, margin_rejected: 0), and in no numeric value. Verified by diff, not asserted.",
+  "baseline_is": "marg_min = 0.0 (the pre-amendment value, first row of every table)",
+  "rows": [
+   {
+    "marg_min": 0.0,
+    "census": {
+     "max_gate_pass": 10360,
+     "marg_min": 0.0,
+     "margin_rejected": 0,
+     "neighbour_median_rejected": 315,
+     "roundtrip_excursion_rejected": 86,
+     "used": 9959
+    },
+    "ceiling_duty_eq_1594": 0.2801,
+    "occupancy_ge_1560": 0.6363,
+    "frac_above_ceiling": 0.1189,
+    "sawtooth_median_residency_s": 0.05,
+    "sawtooth_median_excursion_s": 0.05,
+    "sawtooth_period_s": 0.1,
+    "teeth20_n": 491,
+    "teeth20_median_period_s": 0.1167,
+    "teeth20_median_depth": 33.0,
+    "teeth20_median_recovery_slope": 620.0,
+    "gross_all_ticks_per_s_161": 184.8,
+    "gross_SPEND_per_s_161": 112.0,
+    "gross_drop_above_starts_per_s_161": 104.1,
+    "net_channel_active_below_cap": -3.13,
+    "offchannel_sampled_s": 4.9,
+    "offchannel_income": 105.72,
+    "offchannel_implied_u": 0.3035
+   },
+   {
+    "marg_min": 2.0,
+    "census": {
+     "max_gate_pass": 10360,
+     "marg_min": 2.0,
+     "margin_rejected": 807,
+     "neighbour_median_rejected": 229,
+     "roundtrip_excursion_rejected": 47,
+     "used": 9277
+    },
+    "ceiling_duty_eq_1594": 0.2983,
+    "occupancy_ge_1560": 0.6502,
+    "frac_above_ceiling": 0.1117,
+    "sawtooth_median_residency_s": 0.05,
+    "sawtooth_median_excursion_s": 0.05,
+    "sawtooth_period_s": 0.1,
+    "teeth20_n": 380,
+    "teeth20_median_period_s": 0.2,
+    "teeth20_median_depth": 33.0,
+    "teeth20_median_recovery_slope": 530.0,
+    "gross_all_ticks_per_s_161": 142.3,
+    "gross_SPEND_per_s_161": 86.6,
+    "gross_drop_above_starts_per_s_161": 80.0,
+    "net_channel_active_below_cap": -28.4,
+    "offchannel_sampled_s": 5.27,
+    "offchannel_income": 107.47,
+    "offchannel_implied_u": 0.321
+   },
+   {
+    "marg_min": 3.0,
+    "census": {
+     "max_gate_pass": 10360,
+     "marg_min": 3.0,
+     "margin_rejected": 1394,
+     "neighbour_median_rejected": 163,
+     "roundtrip_excursion_rejected": 14,
+     "used": 8789
+    },
+    "ceiling_duty_eq_1594": 0.3128,
+    "occupancy_ge_1560": 0.6597,
+    "frac_above_ceiling": 0.1002,
+    "sawtooth_median_residency_s": 0.05,
+    "sawtooth_median_excursion_s": 0.05,
+    "sawtooth_period_s": 0.1,
+    "teeth20_n": 291,
+    "teeth20_median_period_s": 0.3,
+    "teeth20_median_depth": 33.0,
+    "teeth20_median_recovery_slope": 449.8,
+    "gross_all_ticks_per_s_161": 113.3,
+    "gross_SPEND_per_s_161": 73.3,
+    "gross_drop_above_starts_per_s_161": 67.7,
+    "net_channel_active_below_cap": -29.8,
+    "offchannel_sampled_s": 5.8,
+    "offchannel_income": 89.83,
+    "offchannel_implied_u": 0.1446
+   },
+   {
+    "marg_min": 4.0,
+    "census": {
+     "max_gate_pass": 10360,
+     "marg_min": 4.0,
+     "margin_rejected": 1836,
+     "neighbour_median_rejected": 129,
+     "roundtrip_excursion_rejected": 2,
+     "used": 8393
+    },
+    "ceiling_duty_eq_1594": 0.3254,
+    "occupancy_ge_1560": 0.6675,
+    "frac_above_ceiling": 0.0875,
+    "sawtooth_median_residency_s": 0.05,
+    "sawtooth_median_excursion_s": 0.05,
+    "sawtooth_period_s": 0.1,
+    "teeth20_n": 215,
+    "teeth20_median_period_s": 0.5166,
+    "teeth20_median_depth": 36.0,
+    "teeth20_median_recovery_slope": 293.0,
+    "gross_all_ticks_per_s_161": 90.2,
+    "gross_SPEND_per_s_161": 66.2,
+    "gross_drop_above_starts_per_s_161": 62.0,
+    "net_channel_active_below_cap": -42.16,
+    "offchannel_sampled_s": 5.88,
+    "offchannel_income": 92.64,
+    "offchannel_implied_u": 0.1727
+   },
+   {
+    "marg_min": 5.0,
+    "census": {
+     "max_gate_pass": 10360,
+     "marg_min": 5.0,
+     "margin_rejected": 2404,
+     "neighbour_median_rejected": 94,
+     "roundtrip_excursion_rejected": 2,
+     "used": 7860
+    },
+    "ceiling_duty_eq_1594": 0.3402,
+    "occupancy_ge_1560": 0.6852,
+    "frac_above_ceiling": 0.0793,
+    "sawtooth_median_residency_s": 0.05,
+    "sawtooth_median_excursion_s": 0.0333,
+    "sawtooth_period_s": 0.0833,
+    "teeth20_n": 159,
+    "teeth20_median_period_s": 0.8,
+    "teeth20_median_depth": 38.0,
+    "teeth20_median_recovery_slope": 195.8,
+    "gross_all_ticks_per_s_161": 70.5,
+    "gross_SPEND_per_s_161": 56.9,
+    "gross_drop_above_starts_per_s_161": 52.8,
+    "net_channel_active_below_cap": -67.27,
+    "offchannel_sampled_s": 5.93,
+    "offchannel_income": 94.55,
+    "offchannel_implied_u": 0.1918
+   },
+   {
+    "marg_min": 7.0,
+    "census": {
+     "max_gate_pass": 10360,
+     "marg_min": 7.0,
+     "margin_rejected": 3222,
+     "neighbour_median_rejected": 34,
+     "roundtrip_excursion_rejected": 0,
+     "used": 7104
+    },
+    "ceiling_duty_eq_1594": 0.3505,
+    "occupancy_ge_1560": 0.6993,
+    "frac_above_ceiling": 0.0745,
+    "sawtooth_median_residency_s": 0.05,
+    "sawtooth_median_excursion_s": 0.0333,
+    "sawtooth_period_s": 0.0833,
+    "teeth20_n": 125,
+    "teeth20_median_period_s": 1.05,
+    "teeth20_median_depth": 41.0,
+    "teeth20_median_recovery_slope": 126.7,
+    "gross_all_ticks_per_s_161": 49.7,
+    "gross_SPEND_per_s_161": 42.2,
+    "gross_drop_above_starts_per_s_161": 38.7,
+    "net_channel_active_below_cap": -83.77,
+    "offchannel_sampled_s": 6.65,
+    "offchannel_income": 90.68,
+    "offchannel_implied_u": 0.1531
+   }
+  ]
+ },
+ "DC_decimation_control": {
+  "question": "does the marg gate CLEAN, or does it merely DELETE?",
+  "baseline_marg_0": {
+   "n_pairs": 2454,
+   "sampled_s": 40.9,
+   "n_ticks": 1626,
+   "net": -3.13
+  },
+  "control": "for each gate, the SAME NUMBER of frames is removed uniformly at random, 20 draws, seed 20260921. If the gated figure sits inside the random band, the gate explains nothing the deletion does not.",
+  "rows": [
+   {
+    "marg_min": 2.0,
+    "frames_removed_frac": 0.0685,
+    "GATED_net": -28.4,
+    "GATED_sampled_s": 28.07,
+    "GATED_n_pairs": 1684,
+    "RANDOM_net_mean": -10.65,
+    "RANDOM_net_sd": 6.25,
+    "gated_minus_random_in_sd": -2.84
+   },
+   {
+    "marg_min": 3.0,
+    "frames_removed_frac": 0.1175,
+    "GATED_net": -29.8,
+    "GATED_sampled_s": 22.35,
+    "GATED_n_pairs": 1341,
+    "RANDOM_net_mean": -23.36,
+    "RANDOM_net_sd": 10.12,
+    "gated_minus_random_in_sd": -0.64
+   },
+   {
+    "marg_min": 4.0,
+    "frames_removed_frac": 0.1572,
+    "GATED_net": -42.16,
+    "GATED_sampled_s": 17.43,
+    "GATED_n_pairs": 1046,
+    "RANDOM_net_mean": -32.42,
+    "RANDOM_net_sd": 11.83,
+    "gated_minus_random_in_sd": -0.82
+   },
+   {
+    "marg_min": 5.0,
+    "frames_removed_frac": 0.2108,
+    "GATED_net": -67.27,
+    "GATED_sampled_s": 11.97,
+    "GATED_n_pairs": 718,
+    "RANDOM_net_mean": -48.65,
+    "RANDOM_net_sd": 14.44,
+    "gated_minus_random_in_sd": -1.29
+   },
+   {
+    "marg_min": 7.0,
+    "frames_removed_frac": 0.2867,
+    "GATED_net": -83.77,
+    "GATED_sampled_s": 6.1,
+    "GATED_n_pairs": 366,
+    "RANDOM_net_mean": -71.25,
+    "RANDOM_net_sd": 24.77,
+    "gated_minus_random_in_sd": -0.51
+   }
+  ],
+  "isolating_arm_drop_only_above_ceiling": {
+   "n_pairs": 2308,
+   "sampled_s": 38.47,
+   "n_ticks": 1011,
+   "net": -18.59
+  },
+  "reading": "the estimator loses evidence far faster than it loses samples: two compounding losses -- an adjacent PAIR needs both its frames, and a channel-active WINDOW needs 3 surviving ticks. This lap measures that and does NOT claim to have isolated the full mechanism."
+ },
+ "MARGIN_IS_NOT_AN_INTENSITY_GATE": {
+  "hypothesis_tested": "that low margin marks frames where combat VFX crosses the HUD, so a margin gate would be a gate on combat intensity and any rate computed after it would be conditioned on the thing being measured",
+  "verdict": "REFUTED by the cheapest test, and recorded rather than quietly dropped",
+  "evidence": "a marg >= 4 gate keeps 84.1 % of channel-ACTIVE samples and 88.6 % of channel-IDLE samples; the channel-active share of the surviving trace moves 0.8094 -> 0.8110. The gate is close to intensity-blind."
+ }
+}

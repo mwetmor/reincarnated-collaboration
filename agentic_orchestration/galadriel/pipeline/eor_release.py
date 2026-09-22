@@ -44,6 +44,30 @@ EXC_DEP = 400            # energy; excursion depth from the flanking baseline
 EXC_RET = 200            # energy; how close the trace must return to call it a round trip
 EXC_MAX_S = 2.0          # s; longest excursion the filter will remove
 
+# --- cleaning, v2 (2026-09-21) ----------------------------------------------
+# MARGIN GATE.  Every row of the 60 Hz trace carries `marg`, the glyph
+# classifier's best-vs-second-best template margin, and v1 consulted it nowhere.
+# `clean()` now accepts a floor.
+#
+# ⚑ THE DEFAULT IS 0.0 AND THAT IS DELIBERATE: at the default this function is
+#   BIT-IDENTICAL to v1, so every figure already committed against it -- the
+#   MD-B4app-2b census (10360 -> 315 -> 86 -> 9959), `s2-releases.json`, and
+#   every energy row in `P-b` -- reproduces exactly and NOTHING silently moves.
+#   The gate is a parameter a caller must ASK for, swept and reported beside the
+#   ungated value, never applied behind a reader's back.
+#
+# ⚑ AND IT IS NOT A CORRECTNESS GATE.  Measured against Apple Vision on the 16
+#   committed energy-readout frames (`kc2_energy_reread.py`, 2026-09-21):
+#     * t = 735.0 reads 1610 at marg 2.6 and is CORRECT -- confirmed by the
+#       2026-08-25 hand read, by Apple Vision at confidence 1.000, and by eye.
+#     * t = 695.0 reads '13//0/2576' -- a PARSE FAILURE -- at marg 10.7, the
+#       top of the scale.
+#   A `marg >= 4` floor removes BOTH known-bad value reads on that set and
+#   ALSO removes THREE of the eleven known-good ones.  It buys precision in
+#   what survives and it pays for it in true values discarded.  Use it as a
+#   SENSITIVITY arm, and report the ungated arm next to it.
+MARG_MIN_DEFAULT = 0.0
+
 # --- ticks ------------------------------------------------------------------
 TICK_DE = -6.0           # MD-B4app-2 drain-tick definition (carried unchanged)
 TICK_DT = 0.030          # s; adjacent-frame guard (1/60 = 0.0167)
@@ -57,14 +81,25 @@ CEIL = 1594.0            # the reserved-adjusted operating ceiling, fixed by the
                          # MD-B4app-2 non-combat control (4,800 samples, all 1594)
 
 
-def clean(erows):
-    """max gate -> neighbour-median -> round-trip excursion. Returns t, e, census."""
+def clean(erows, marg_min=MARG_MIN_DEFAULT):
+    """max gate [-> margin gate] -> neighbour-median -> round-trip excursion.
+
+    Returns t, e, census.  `marg_min` defaults to 0.0, at which this function is
+    bit-identical to the v1 cleaning every committed figure was computed against.
+    The margin gate sits at the SAME stage as the max gate -- per-row acceptance,
+    before any neighbour statistic -- so that a row rejected for low confidence
+    cannot participate in its neighbours' medians.
+    """
     t, e = [], []
+    n_marg = 0
     for r in erows:
         if r.get("max") == MAX_GATE and r.get("cur") is not None and 0 <= r["cur"] <= MAX_GATE:
+            if marg_min > 0.0 and float(r.get("marg", 0.0)) < marg_min:
+                n_marg += 1
+                continue
             t.append(r["t"]); e.append(float(r["cur"]))
     t = np.array(t); e = np.array(e)
-    n_gate = len(e)
+    n_gate = len(e) + n_marg
 
     keep = np.ones(len(e), bool)
     for i in range(len(e)):
@@ -95,7 +130,8 @@ def clean(erows):
     n_exc = int(bad.sum())
     t, e = t[~bad], e[~bad]
 
-    return t, e, {"max_gate_pass": n_gate, "neighbour_median_rejected": n_nbr,
+    return t, e, {"max_gate_pass": n_gate, "marg_min": marg_min,
+                  "margin_rejected": n_marg, "neighbour_median_rejected": n_nbr,
                   "roundtrip_excursion_rejected": n_exc, "used": len(e)}
 
 
