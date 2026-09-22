@@ -1,0 +1,537 @@
+{
+ "instrument": "kc2_energy_shape.py",
+ "inputs": {
+  "captures/2026-08-25-md-b4app-2-channel/work/s2-energy-60hz.json": "8713bfec938d29297b23a5b45da5d05ef14b23f1decc4ff85c1b76a538ee5fbf",
+  "captures/2026-08-25-md-b4app-2-channel/work/s2-duty.json": "77cc64d983b4e80ccad969352cf6ad8507e69270f8c664d38188683593c984a4",
+  "captures/2026-08-25-md-b4app-2-channel/work/waves.json": "d1d889a3a3319d846e1d530aee6476c62864613dd23a07bca8205b80d9d60a95",
+  "captures/2026-08-25-md-b4app-2b-energy/work/s2-releases.json": "52c57d2cc905efad0b1a5e6e9793d89d49bb46d0570032a81f6bb52cdbf7a1d4"
+ },
+ "window_D_COMBAT_182": [
+  682.1,
+  864.75
+ ],
+ "window_s": 182.65,
+ "census": {
+  "max_gate_pass": 10360,
+  "neighbour_median_rejected": 315,
+  "roundtrip_excursion_rejected": 86,
+  "used": 9959
+ },
+ "census_note": "REPRODUCES EXACT against s2-releases.json's energy_census (10360 / 315 / 86 / 9959). The 2026-08-25 channel note's published '291 rejected, 10,069 used' is a DIFFERENT cleaning variant and does not reproduce; the release-instrument variant is adopted here because it is the one that ships with code.",
+ "E1_ceiling": {
+  "ceiling": 1594.0,
+  "control": {
+   "windows": [
+    [
+     600.0,
+     640.0
+    ],
+    [
+     880.0,
+     920.0
+    ]
+   ],
+   "n": 4800,
+   "distinct_values": [
+    1594
+   ],
+   "n_above_1594": 0,
+   "min_margin": 7.2,
+   "source": "ctrl-prep.json / ctrl-post.json, verified this lap"
+  },
+  "occupancy": {
+   "ge_1594": 0.399,
+   "ge_1590": 0.4155,
+   "ge_1580": 0.5464,
+   "ge_1570": 0.589,
+   "ge_1560": 0.6363,
+   "ge_1550": 0.6862,
+   "ge_1500": 0.8327,
+   "ge_1450": 0.8964,
+   "eq_1594_exact": 0.2801,
+   "gt_1594_IMPOSSIBLE": 0.1189,
+   "n_gt_1594": 1184,
+   "max_read": 1897.0
+  },
+  "margin_sweep": [
+   {
+    "marg_gate": 0,
+    "kept": 9959,
+    "kept_frac": 1.0,
+    "above_1594_kept": 1184,
+    "above_1594_frac_of_kept": 0.1189
+   },
+   {
+    "marg_gate": 2,
+    "kept": 9264,
+    "kept_frac": 0.9302,
+    "above_1594_kept": 1036,
+    "above_1594_frac_of_kept": 0.1118
+   },
+   {
+    "marg_gate": 3,
+    "kept": 8760,
+    "kept_frac": 0.8796,
+    "above_1594_kept": 882,
+    "above_1594_frac_of_kept": 0.1007
+   },
+   {
+    "marg_gate": 4,
+    "kept": 8362,
+    "kept_frac": 0.8396,
+    "above_1594_kept": 734,
+    "above_1594_frac_of_kept": 0.0878
+   },
+   {
+    "marg_gate": 5,
+    "kept": 7830,
+    "kept_frac": 0.7862,
+    "above_1594_kept": 623,
+    "above_1594_frac_of_kept": 0.0796
+   }
+  ],
+  "margin_median_at_1594": 10.45,
+  "margin_median_above_1594": 6.0,
+  "margin_median_below_1594": 8.9
+ },
+ "E2_teeth": {
+  "rule": "see teeth() docstring -- alternating-extremum walk, ABSOLUTE energy prominence",
+  "primary_gate": 20,
+  "primary_gate_justification": "20 energy = 1.4x the modal single drain tick (-14) and 1.25% of the 1594 ceiling: the smallest step that is unambiguously more than ONE tick. DECLARED, not fitted -- no arm of this lap was selected against a sim.",
+  "order_statistics_at_primary": {
+   "period_s": {
+    "n": 491,
+    "min": 0.0333,
+    "p25": 0.1,
+    "median": 0.1167,
+    "p75": 0.3917,
+    "p95": 1.4,
+    "max": 4.1667
+   },
+   "depth": {
+    "n": 491,
+    "min": 20.0,
+    "p25": 25.0,
+    "median": 33.0,
+    "p75": 55.5,
+    "p95": 120.5,
+    "max": 452.0
+   },
+   "depth_frac_of_ceiling": {
+    "n": 491,
+    "min": 0.0125,
+    "p25": 0.0157,
+    "median": 0.0207,
+    "p75": 0.0348,
+    "p95": 0.0756,
+    "max": 0.2836
+   },
+   "fall_s": {
+    "n": 491,
+    "min": 0.0166,
+    "p25": 0.05,
+    "median": 0.0833,
+    "p75": 0.15,
+    "p95": 0.9166,
+    "max": 3.7833
+   },
+   "recover_s": {
+    "n": 491,
+    "min": 0.0166,
+    "p25": 0.0333,
+    "median": 0.05,
+    "p75": 0.15,
+    "p95": 0.7166,
+    "max": 3.4667
+   },
+   "fall_slope": {
+    "n": 491,
+    "min": -6107.78,
+    "p25": -780.0,
+    "median": -431.65,
+    "p75": -239.81,
+    "p95": -79.455,
+    "max": -19.73
+   },
+   "recovery_slope": {
+    "n": 491,
+    "min": 23.94,
+    "p25": 299.92,
+    "median": 620.0,
+    "p75": 1204.82,
+    "p95": 2215.57,
+    "max": 12095.81
+   }
+  },
+  "prominence_sweep": [
+   {
+    "prom": 5,
+    "n_teeth": 1291,
+    "rate_per_s": 7.0682,
+    "median_period_s": 0.1,
+    "median_depth": 16.0,
+    "median_recovery_slope": 320.0,
+    "median_fall_slope": -480.48
+   },
+   {
+    "prom": 10,
+    "n_teeth": 899,
+    "rate_per_s": 4.922,
+    "median_period_s": 0.1,
+    "median_depth": 21.0,
+    "median_recovery_slope": 480.0,
+    "median_fall_slope": -420.42
+   },
+   {
+    "prom": 20,
+    "n_teeth": 491,
+    "rate_per_s": 2.6882,
+    "median_period_s": 0.1167,
+    "median_depth": 33.0,
+    "median_recovery_slope": 620.0,
+    "median_fall_slope": -431.65
+   },
+   {
+    "prom": 40,
+    "n_teeth": 142,
+    "rate_per_s": 0.7774,
+    "median_period_s": 1.0416,
+    "median_depth": 91.0,
+    "median_recovery_slope": 234.455,
+    "median_fall_slope": -333.44
+   },
+   {
+    "prom": 80,
+    "n_teeth": 75,
+    "rate_per_s": 0.4106,
+    "median_period_s": 2.05,
+    "median_depth": 121.0,
+    "median_recovery_slope": 227.61,
+    "median_fall_slope": -156.43
+   }
+  ]
+ },
+ "E2b_gate_free_sawtooth": {
+  "definition": "A CEILING RESIDENCY is a maximal run of adjacent surviving frames reading E == 1594 exactly. An EXCURSION is a maximal run of adjacent surviving frames reading E != 1594. No prominence gate, no threshold, no free parameter. `depth` of an excursion = 1594 - min(E) over it.",
+  "duty": {
+   "frac_samples_at_exact_ceiling": 0.2801,
+   "frac_samples_off_ceiling": 0.7199,
+   "frac_samples_ABOVE_ceiling_IMPOSSIBLE": 0.1189,
+   "published_2026_08_25": "'64.6 % of combat time is spent at the 1594 ceiling'",
+   "what_64_6_actually_is": "E >= 1560, which this lap reproduces at 0.6363"
+  },
+  "n_ceiling_residencies": 736,
+  "n_excursions": 1062,
+  "ceiling_residency_s": {
+   "n": 736,
+   "min": 0.0167,
+   "p25": 0.0333,
+   "median": 0.05,
+   "p75": 0.0667,
+   "p95": 0.1,
+   "max": 3.6167
+  },
+  "excursion_s": {
+   "n": 1062,
+   "min": 0.0167,
+   "p25": 0.0167,
+   "median": 0.05,
+   "p75": 0.1,
+   "p95": 0.4667,
+   "max": 3.0333
+  },
+  "excursion_depth_ALL_incl_impossible": {
+   "n": 1062,
+   "min": -95.0,
+   "p25": -1.0,
+   "median": 13.0,
+   "p75": 68.0,
+   "p95": 243.0,
+   "max": 484.0
+  },
+  "excursion_depth_positive_only": {
+   "n": 701,
+   "min": 1.0,
+   "p25": 13.0,
+   "median": 30.0,
+   "p75": 125.0,
+   "p95": 280.0,
+   "max": 484.0
+  },
+  "excursion_s_positive_depth_only": {
+   "n": 701,
+   "min": 0.0167,
+   "p25": 0.05,
+   "median": 0.0833,
+   "p75": 0.1833,
+   "p95": 0.5667,
+   "max": 3.0333
+  },
+  "period_s_residency_plus_excursion": {
+   "median_sum": 0.1
+  }
+ },
+ "E2c_where_the_band_lands": {
+  "band": [
+   86,
+   117
+  ],
+  "n_positive_depth_excursions": 701,
+  "pct_rank_of_86": 68.5,
+  "pct_rank_of_117": 74.5,
+  "n_excursions_inside_band": 42,
+  "frac_excursions_inside_band": 0.0599,
+  "band_at_footage_net_gives_s": [
+   0.88,
+   1.4
+  ],
+  "n_excursions_in_that_duration_window": 12,
+  "frac_excursions_in_that_duration_window": 0.0171,
+  "excursion_duration_p99_s": 1.0
+ },
+ "E3_net_conditioning": {
+  "law": "A rate over intervals selected by a LEVEL is conditioned on the SLOPE that reached the level. END-labelling selects falling intervals; START-labelling selects rising ones. The default of record is MIDPOINT.",
+  "default": "label_at_MIDPOINT",
+  "published_2026_08_25_sect_4_4": {
+   "below_cap_STATIONARY": -81.7,
+   "below_cap_MOVING": -73.4,
+   "at_cap_STATIONARY": 31.4,
+   "at_cap_MOVING": 33.6,
+   "reproduces_as": "label_at_END"
+  },
+  "table": {
+   "label_at_END": {
+    "at_cap_ge_1560__STATIONARY": {
+     "n_pairs": 2115,
+     "net_dEdt": 38.89
+    },
+    "at_cap_ge_1560__MOVING": {
+     "n_pairs": 4115,
+     "net_dEdt": 29.89
+    },
+    "at_cap_ge_1560__ALL": {
+     "n_pairs": 6233,
+     "net_dEdt": 32.93
+    },
+    "below_cap_lt_1560__STATIONARY": {
+     "n_pairs": 1387,
+     "net_dEdt": -80.51
+    },
+    "below_cap_lt_1560__MOVING": {
+     "n_pairs": 1962,
+     "net_dEdt": -69.08
+    },
+    "below_cap_lt_1560__ALL": {
+     "n_pairs": 3349,
+     "net_dEdt": -73.81
+    }
+   },
+   "label_at_START": {
+    "at_cap_ge_1560__STATIONARY": {
+     "n_pairs": 2111,
+     "net_dEdt": -56.56
+    },
+    "at_cap_ge_1560__MOVING": {
+     "n_pairs": 4113,
+     "net_dEdt": -40.15
+    },
+    "at_cap_ge_1560__ALL": {
+     "n_pairs": 6227,
+     "net_dEdt": -45.69
+    },
+    "below_cap_lt_1560__STATIONARY": {
+     "n_pairs": 1391,
+     "net_dEdt": 64.7
+    },
+    "below_cap_lt_1560__MOVING": {
+     "n_pairs": 1964,
+     "net_dEdt": 77.69
+    },
+    "below_cap_lt_1560__ALL": {
+     "n_pairs": 3355,
+     "net_dEdt": 72.3
+    }
+   },
+   "label_at_MIDPOINT": {
+    "at_cap_ge_1560__STATIONARY": {
+     "n_pairs": 2108,
+     "net_dEdt": -9.51
+    },
+    "at_cap_ge_1560__MOVING": {
+     "n_pairs": 4119,
+     "net_dEdt": -7.5
+    },
+    "at_cap_ge_1560__ALL": {
+     "n_pairs": 6230,
+     "net_dEdt": -8.18
+    },
+    "below_cap_lt_1560__STATIONARY": {
+     "n_pairs": 1394,
+     "net_dEdt": -6.71
+    },
+    "below_cap_lt_1560__MOVING": {
+     "n_pairs": 1958,
+     "net_dEdt": 9.38
+    },
+    "below_cap_lt_1560__ALL": {
+     "n_pairs": 3352,
+     "net_dEdt": 2.68
+    }
+   }
+  }
+ },
+ "E3b_net_by_channel_state": {
+  "note": "Conditioned on TICK DENSITY (an independent observable) and on a LEVEL taken at the interval MIDPOINT. This is the estimator that does not select on its own answer.",
+  "table": {
+   "channel_active_ge3__below_cap_lt_1560": {
+    "n_pairs": 2454,
+    "sampled_s": 40.9,
+    "net_dEdt": -3.13
+   },
+   "channel_active_ge3__at_cap_ge_1560": {
+    "n_pairs": 5350,
+    "sampled_s": 89.17,
+    "net_dEdt": -11.53
+   },
+   "channel_idle_lt3__below_cap_lt_1560": {
+    "n_pairs": 898,
+    "sampled_s": 14.97,
+    "net_dEdt": 18.57
+   },
+   "channel_idle_lt3__at_cap_ge_1560": {
+    "n_pairs": 880,
+    "sampled_s": 14.67,
+    "net_dEdt": 12.2
+   }
+  }
+ },
+ "E4_refill": {
+  "per_release_dEdt_all_19": {
+   "n": 19,
+   "min": -35.6,
+   "p25": 10.0,
+   "median": 51.6,
+   "p75": 65.0,
+   "p95": 135.64,
+   "max": 146.8
+  },
+  "per_release_dEdt_unclipped_only": {
+   "n": 9,
+   "min": -35.6,
+   "p25": -11.6,
+   "median": 51.6,
+   "p75": 65.5,
+   "p95": 123.12,
+   "max": 134.4
+  },
+  "n_releases_clipped_at_ceiling": 10,
+  "tooth_recovery_slope_primary": {
+   "n": 491,
+   "min": 23.94,
+   "p25": 299.92,
+   "median": 620.0,
+   "p75": 1204.82,
+   "p95": 2215.57,
+   "max": 12095.81
+  }
+ },
+ "E5_drain": {
+  "tick_rule": "dE <= -6.0 across frames with dt <= 0.030 s",
+  "tick_size_at_cap": {
+   "n": 1170,
+   "min": -413.0,
+   "p25": -20.0,
+   "median": -14.0,
+   "p75": -12.0,
+   "p95": -8.0,
+   "max": -6.0
+  },
+  "tick_size_below_cap": {
+   "n": 456,
+   "min": -214.0,
+   "p25": -14.0,
+   "median": -13.0,
+   "p75": -12.0,
+   "p95": -7.0,
+   "max": -6.0
+  },
+  "partition_reproduction": {
+   "at_cap_median_tick": -14.0,
+   "below_cap_median_tick": -13.0,
+   "published_sect_4_4": {
+    "at_cap": -14.0,
+    "below_cap": -13.0
+   },
+   "status": "REPRODUCES EXACT"
+  },
+  "gross_drain_bracket": {
+   "all_ticks_AS_PUBLISHED": {
+    "n_ticks": 1626,
+    "sum_abs_dE": 29748.0,
+    "per_s_over_D_COMBAT_182": 162.9,
+    "per_s_over_161s_classified": 184.8
+   },
+   "ticks_not_starting_above_1594": {
+    "n_ticks": 1011,
+    "sum_abs_dE": 16759.0,
+    "per_s_over_D_COMBAT_182": 91.8,
+    "per_s_over_161s_classified": 104.1
+   }
+  },
+  "contamination": {
+   "n_ticks_starting_above_1594": 615,
+   "frac_of_tick_count": 0.3782,
+   "frac_of_tick_MASS": 0.4366,
+   "n_landing_exactly_on_1594": 424
+  },
+  "departures_from_exact_ceiling": {
+   "n": 319,
+   "size_distribution": {
+    "n": 319,
+    "min": -93.0,
+    "p25": -14.0,
+    "median": -13.0,
+    "p75": -12.0,
+    "p95": -9.0,
+    "max": -6.0
+   }
+  }
+ },
+ "E6_direct_u": {
+  "law": "off channel, income = regen + 100*u; regen = 75.37 (DECODED, unconditional, C-1 \u00a7 1)",
+  "population": "adjacent-frame pairs inside a 0.5 s window carrying ZERO drain ticks, with the interval MIDPOINT below 1560 so the read is unclipped",
+  "margin_sweep": {
+   "marg_ge_0": {
+    "n_pairs": 294,
+    "sampled_s": 4.9,
+    "income_dEdt": 105.72,
+    "implied_u": 0.3035
+   },
+   "marg_ge_2": {
+    "n_pairs": 247,
+    "sampled_s": 4.12,
+    "income_dEdt": 105.67,
+    "implied_u": 0.303
+   },
+   "marg_ge_3": {
+    "n_pairs": 217,
+    "sampled_s": 3.62,
+    "income_dEdt": 80.74,
+    "implied_u": 0.0537
+   },
+   "marg_ge_4": {
+    "n_pairs": 193,
+    "sampled_s": 3.22,
+    "income_dEdt": 82.39,
+    "implied_u": 0.0702
+   },
+   "marg_ge_5": {
+    "n_pairs": 143,
+    "sampled_s": 2.38,
+    "income_dEdt": 71.76,
+    "implied_u": -0.0361
+   }
+  },
+  "why_this_bypasses_the_fork": "gross drain does not appear. The 176.4-vs-190 fork is a fork in gross; an interval with no drain has no gross term."
+ }
+}
