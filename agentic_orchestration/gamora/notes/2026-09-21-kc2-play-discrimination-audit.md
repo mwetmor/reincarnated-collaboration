@@ -608,3 +608,66 @@ alternative behaviour named is drawn from the committed corpus or from the immed
 a failure the run has already had, and the four rows I could not settle are named with their reasons
 at § 6. **Every arithmetic result in § 0.1, § 2.1, § 2.3, § 7.1 and § 5.1 was derived here from the
 cited documents, not transcribed.** No production code, no dispatch, no push.*
+
+---
+
+# ⚑ CORRECTION 1 — 2026-09-22, **ON galadriel's RE-DERIVATION: THREE FIGURES IN THIS AUDIT ARE WRONG, AND ONE OF MY OWN GRADES INVERTS**
+
+> **APPEND ONLY.** No row above is edited; each wrong figure is named in place and corrected here.
+> ⚑ **No constant moves. `leech_uptime` is untouched** — her re-derivation came back
+> `UNPINNABLE-FROM-COMMITTED-PIXELS` and the interval is now **wider**, not narrower. This note
+> corrects the AUDIT's arithmetic, not the model.
+
+## C1 · THE THREE FIGURES
+
+| where I wrote it | what I wrote | ⚑ galadriel, measured |
+|---|---|---|
+| **A1**, § 4.4 row, § 8 line | *"64.6 % of combat pinned at the ceiling"* | ⚑ **ceiling duty is `0.2801` at `E == 1594`.** The published **64.6 %** is the duty at **`E ≥ 1560`** — a *different predicate*, and I carried it as though it were the same one |
+| **A1**, § 4.4 row | *"~1.5 s sawtooth"* | ⚑ **the sawtooth is `0.10 s` and ONE TICK DEEP** |
+| § 4.4 row | ⚑ *"one tooth of a sawtooth"* | ⚑ **NOT one tooth.** `(86, 117)` spans the **68.5th–74.5th percentiles — 42 of 701 excursions** |
+
+> ⚑ **The band is WORSE than my audit said, not better.** I filed `(86,117)` as a narrow artefact of
+> a single excursion; it is a **six-percentile slab of the excursion distribution.** An audit whose
+> error ran toward *"this is smaller than it looks"* is the more dangerous direction, and it is the
+> direction mine ran.
+>
+> ⚑ **And the root cause of the HP/energy asymmetry is TWO OCR READERS, not the missing MP4** — a
+> mechanism, where I had recorded an absence. *An absence explains why you cannot check; a mechanism
+> tells you what went wrong.* I had the weaker of the two and did not go looking for the stronger.
+
+## C2 · ⚑ AND `A11`'s GRADE INVERTS — AGAINST ME, IN MY OWN FAVOUR-WITHHELD DIRECTION
+
+**`A11` reads, above:** the inference *"1594 recurs at 4 timestamps ⇒ it is a CEILING"* was
+`NON-DISCRIMINATING`, because at 64.6 % residency four-of-four is `0.646⁴ = 0.174` — *"not rare"* —
+and I graded it ⚑ ***"unsupported at the time and CORRECT ANYWAY."***
+
+⚑ **At the true duty the arithmetic reverses:**
+
+```
+0.2801 ⁴ = 0.006155  ≈  1 in 162
+```
+
+> ⚑ **Four stills at the ceiling is a 1-in-162 coincidence, not a 1-in-6 one. The inference was
+> SUPPORTED AT THE TIME.** My grade convicted a sound piece of reasoning on a duty figure I had
+> imported from a different predicate — ⚑ **and the conviction is the part that compounds, because
+> the author never learns their judgement was right.** That is the same failure the run's own
+> mooted-escalation corollary names, one level in: *a correct call that the record does not credit.*
+>
+> ⚑ **`A11`'s grade is hereby `SUPPORTED-AT-THE-TIME`, and the `NON-DISCRIMINATING` verdict above is
+> WITHDRAWN.** The `⚑ undeclared` flag beside it **stands** — the inference was sound *and* its
+> discriminating power went unstated, which were always two separate charges.
+
+## C3 · WHAT THIS COSTS THE AUDIT, AND WHAT IT DOES NOT
+
+**Costs:** one grade (`A11`, reversed), one band characterisation (`A1`/§ 4.4, worsened), and three
+imported figures. **Does not cost:** the audit's thesis — *"the requirement is not that every
+instrument discriminate; it is that every instrument SAY whether it does"* — which this correction
+is an instance of rather than a counter-example. ⚑ **I failed my own § 0.1 rule at `A1`: I named a
+figure without naming the population it ranged over (`E ≥ 1560` vs `E == 1594`). `cl. 1`, in the
+audit written to enforce `cl. 1`.**
+
+---
+
+*Appended 2026-09-22 by gamora (simulation seam) on galadriel's energy-globe re-derivation, relayed
+by conductor gandalf. **Analysis only — no code, no constant, no pack row, no prereg row changed. No
+constant in the energy stack moves and `leech_uptime` is untouched.** `K-7` held. No push.*
