@@ -60,8 +60,10 @@ const H1_ACTOR_PREFIXES := ["Prop_", "Glow_", "Swarm_"]
 
 # %s is the run coverage (built in _ready from frames/knight_fit.json, so it cannot go
 # stale if the missing direction is later filled) and %s is the E-facing rig/Grok mode.
-const HUD_B := "STYLE  B — Illuminated (knight; %s, cast/jump→idle)   E-facing: %s        T = style      Shift = run      G = E rig/Grok      Esc = quit"
+const HUD_B := "STYLE  B — Illuminated (knight; %s, cast/jump = idle)   E-facing: %s        T = style      Shift = run      G = E rig/Grok      Esc = quit"
 const HUD_A := "STYLE  A — H1 (Keeper; props, particles, glows)        T = style      Esc = quit"
+const HUD_FONT_SIZE := 26
+const HUD_HEIGHT := 72.0
 
 var _sprites: Array[Sprite2D] = []      # tiles then layers, in the order above
 var _tex_a: Array[Texture2D] = []
@@ -140,7 +142,7 @@ func _read_run_coverage() -> void:
 	if lack.is_empty():
 		_run_note = "run painted 8/8"
 	else:
-		_run_note = "run painted %d/8, %s→walk" % [have.size(), ", ".join(lack)]
+		_run_note = "run painted %d/8, %s -> walk" % [have.size(), ", ".join(lack)]
 
 
 func _load_layer_offsets() -> void:
@@ -280,13 +282,20 @@ func _build_hud() -> void:
 	panel.color = Color(0, 0, 0, 0.45)
 	# bottom of the screen: the Keeper's own VFX-kit readout already owns the top-left
 	panel.set_anchors_and_offsets_preset(Control.PRESET_BOTTOM_WIDE)
-	panel.offset_top = -34.0
+	panel.offset_top = -HUD_HEIGHT
 	panel.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	canvas.add_child(panel)
 	_label = Label.new()
 	_label.set_anchors_and_offsets_preset(Control.PRESET_BOTTOM_WIDE)
-	_label.offset_top = -28.0
+	_label.offset_top = -HUD_HEIGHT + 6.0
 	_label.offset_left = 18.0
+	_label.offset_right = -18.0
+	# 1920x1080 is the design viewport, but the web build scales that whole canvas down
+	# to the phone's landscape width (~800 CSS px -> ~0.42x), so the default 16 px label
+	# lands at ~7 px on a handset. 26 px reads at both sizes; the line is long enough to
+	# need wrapping at the bigger size, hence the two-line panel.
+	_label.add_theme_font_size_override("font_size", HUD_FONT_SIZE)
+	_label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	_label.add_theme_color_override("font_color", Color(1, 0.96, 0.86))
 	_label.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	canvas.add_child(_label)

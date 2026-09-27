@@ -1,0 +1,25 @@
+{
+  "note": "C-9 A/B cliffside. Both style sets ship (A plates+layers AND B plates+layers), so the parallax art is doubled against the A-only cliffside route and the pck needs the squeeze applied where it costs nothing to look at. Lossy goes on the big opaque/semi-opaque painted art; every character cell stays lossless because its alpha edge is the whole read at 0.42x phone scale. Below 2048 px the saving is measured per file, not assumed: a sparse flipbook can cost MORE as lossy WebP than as PNG.",
+  "lossless_prefixes": [
+    "sprites/",
+    "sprites_knight/",
+    "sprites_figures/",
+    "sprites_rig_E/"
+  ],
+  "lossy": [
+    {
+      "prefix": "parallax/",
+      "quality": 0.88
+    },
+    {
+      "prefix": "props/",
+      "quality": 0.9
+    },
+    {
+      "prefix": "vfx/",
+      "quality": 0.9
+    }
+  ],
+  "lossy_min_px": 256,
+  "min_saving": 0.25
+}

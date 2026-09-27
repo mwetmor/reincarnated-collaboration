@@ -43,6 +43,27 @@
    "stride_native_frames": 60,
    "fps_source": 24.0
   },
+  "run_W": {
+   "frames": [
+    "runs/C-9/p7/W_run_p48/frames/run/W/run_W_00.png",
+    "runs/C-9/p7/W_run_p48/frames/run/W/run_W_01.png",
+    "runs/C-9/p7/W_run_p48/frames/run/W/run_W_02.png",
+    "runs/C-9/p7/W_run_p48/frames/run/W/run_W_03.png",
+    "runs/C-9/p7/W_run_p48/frames/run/W/run_W_04.png",
+    "runs/C-9/p7/W_run_p48/frames/run/W/run_W_05.png",
+    "runs/C-9/p7/W_run_p48/frames/run/W/run_W_06.png",
+    "runs/C-9/p7/W_run_p48/frames/run/W/run_W_07.png",
+    "runs/C-9/p7/W_run_p48/frames/run/W/run_W_08.png",
+    "runs/C-9/p7/W_run_p48/frames/run/W/run_W_09.png",
+    "runs/C-9/p7/W_run_p48/frames/run/W/run_W_10.png",
+    "runs/C-9/p7/W_run_p48/frames/run/W/run_W_11.png"
+   ],
+   "rest": [
+    "runs/C-9/p7/W_run_p48/frames/rest/W/rest_W.png"
+   ],
+   "stride_native_frames": 48,
+   "fps_source": 24.0
+  },
   "run_NW": {
    "frames": [
     "runs/C-9/p7/NW_run/frames/run/NW/run_NW_00.png",
@@ -149,12 +170,11 @@
    "fps_source": 24.0
   }
  },
- "missing_directions": [
-  "W"
- ],
+ "missing_directions": [],
  "per_direction": {
   "S": "S_run  period 32 frames (head_bob_autocorr, confidence 0.76)",
   "SW": "SW_run  period 60 frames (head_bob_autocorr, confidence 0.49)",
+  "W": "W_run_p48  period 48 frames (forced, confidence 0.69)",
   "NW": "NW_run  period 40 frames (head_bob_autocorr, confidence 0.44)",
   "N": "N_run  period 36 frames (head_bob_autocorr, confidence 0.65)",
   "NE": "NE_run  period 20 frames (head_bob_autocorr, confidence 0.31)",

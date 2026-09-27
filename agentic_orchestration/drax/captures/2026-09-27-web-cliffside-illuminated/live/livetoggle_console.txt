@@ -1,0 +1,33 @@
+booted=true
+CHANGED  T (style B -> A)
+CHANGED  T (style A -> B)
+CHANGED  G (E rig <-> Grok)
+--- console
+[warning] [.WebGL-0x134000cd200]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels
+[log] Godot Engine v4.6.3.stable.official.7d41c59c4 - https://godotengine.org
+[log] OpenGL API OpenGL ES 3.0 (WebGL 2.0 (OpenGL ES 3.0 Chromium)) - Compatibility - Using Device: WebKit - WebKit WebGL
+[log] Build configuration: Emscripten 4.0.20, single-threaded, no GDExtension support.
+[log] touch_controls: 6 buttons
+[error] WARNING: No Bone2D children of node leg_n_ft. Cannot calculate bone length or angle reliably.
+[error] Using transform rotation for bone angle.
+[error]    at: calculate_length_and_rotation (scene/2d/skeleton_2d.cpp:447)
+[error] WARNING: No Bone2D children of node leg_f_ft. Cannot calculate bone length or angle reliably.
+[error] Using transform rotation for bone angle.
+[error]    at: calculate_length_and_rotation (scene/2d/skeleton_2d.cpp:447)
+[error] WARNING: No Bone2D children of node head. Cannot calculate bone length or angle reliably.
+[error] Using transform rotation for bone angle.
+[error]    at: calculate_length_and_rotation (scene/2d/skeleton_2d.cpp:447)
+[error] WARNING: No Bone2D children of node skirt_b. Cannot calculate bone length or angle reliably.
+[error] Using transform rotation for bone angle.
+[error]    at: calculate_length_and_rotation (scene/2d/skeleton_2d.cpp:447)
+[error] WARNING: No Bone2D children of node skirt_f. Cannot calculate bone length or angle reliably.
+[error] Using transform rotation for bone angle.
+[error]    at: calculate_length_and_rotation (scene/2d/skeleton_2d.cpp:447)
+[error] WARNING: No Bone2D children of node hand. Cannot calculate bone length or angle reliably.
+[error] Using transform rotation for bone angle.
+[error]    at: calculate_length_and_rotation (scene/2d/skeleton_2d.cpp:447)
+[error] WARNING: No Bone2D children of node hand_f. Cannot calculate bone length or angle reliably.
+[error] Using transform rotation for bone angle.
+[error]    at: calculate_length_and_rotation (scene/2d/skeleton_2d.cpp:447)
+[log] style_toggle: ready  sprites=6  h1_nodes=61  knight=true  b_figures=2
+[warning] [.WebGL-0x134000e1600]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels (this message will no longer repeat)

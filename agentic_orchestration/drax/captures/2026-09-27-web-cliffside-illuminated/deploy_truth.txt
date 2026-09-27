@@ -1,0 +1,237 @@
+DEPLOY TRUTH — /playtest/cliffside-illuminated/   (drax, 2026-09-27, Run C-9, ledger R-C9-39)
+==============================================================================================
+
+LIVE URL   https://reincarnated-loadout.vercel.app/playtest/cliffside-illuminated/
+           (?touch=1 forces the on-screen controls on a desktop browser)
+
+Matt's ask: publish the cliffside A/B build WITHOUT overriding the current cliffside,
+with a toggle between the two cliffsides. The build's T key already was that toggle;
+this deploy makes T reachable from a phone and puts the build on its own route.
+
+
+1. WHAT SHIPPED
+---------------
+One Godot web export carrying BOTH paintings of the same scene:
+
+  style A   the H1 cliffside — Keeper, props, particles, glows
+  style B   the Illuminated repaint — knight with a pollaxe (Grok cells, 8/8 walk,
+            8/8 idle and now 8/8 RUN), the 2D rig on the E facing, angel and demon
+            on the slope, the new burning-far/forest sky
+
+  T  swaps A <-> B in place        G  swaps the E-facing knight rig <-> Grok cells
+  It opens on B.
+
+Source project: astra_test_01/burst/runs/C-9/cliffside_B
+Route source:   reincarnated-godot/web/cliffside-illuminated/   (committed, NOT pushed)
+Staged to:      reincarnated-loadout/public/playtest/cliffside-illuminated/
+
+
+2. HASHES — LOCAL vs LIVE
+-------------------------
+The live pck was downloaded from production with curl and hashed independently of the
+staged copy; both halves of the web11 check, and they match.
+
+  index.pck
+    LOCAL  5c19ebdc6fc43c8253ca57ed0522e9e200551a98af3b4aaa1429d45d3bcc9aa8   68,243,988 B
+    LIVE   5c19ebdc6fc43c8253ca57ed0522e9e200551a98af3b4aaa1429d45d3bcc9aa8   68,243,988 B   MATCH
+
+  index.wasm  26b61ce95247012ab3dca3ff51e96d1cdbff44ee91a8c20a83e150afca83f1b6   37,700,666 B
+              — byte-identical to the wasm the /playtest/cliffside/ route already serves.
+  index.js    e3f56ee40e6f84371053db06692cfac15e2c8659547b11c6b2dfa1996dabd981
+  index.html  8d003bb6c631d40a45876ebee8ceebc23f99ba314af9bdc2caeaa19268ec6aae
+
+First load is pck 68.2 MB + wasm 37.7 MB ~= 105 MB. The landing card says so, and says Wi-Fi.
+
+
+3. THE OLD ROUTE IS UNTOUCHED — MEASURED, NOT ASSERTED
+-------------------------------------------------------
+  git -C reincarnated-loadout status --porcelain -- public/playtest/cliffside
+    -> EMPTY, before and after the commit.
+  The commit is `git commit --only` over two named paths; `git show --stat HEAD`
+  lists 10 files, none of them under public/playtest/cliffside/.
+
+Live hashes of that route, downloaded from production AFTER this deploy, equal the
+pre-deploy local hashes exactly:
+
+  keeper.pck   3eadb152cb76135ddbc06a895dad39b007e8935e2eda53dbbed0aecbe4cc778a   31,228,456 B
+  necro.pck    8b7f474f8e01cf901187cedbd26f1d905cc518ed7f0eca2e7532bbb2b7c58004   30,324,628 B
+  warlord.pck  e9e344fddad7b62bb6f8eea6a1fa848de12ec1c073c6a163b2ce5a2d938e0d02   35,983,828 B
+  index.html   c6a917f6c2b5ad09ed109fe033751ed804c308fa48ee4f8b6d9d739172f19ad7
+  index.wasm   26b61ce95247012ab3dca3ff51e96d1cdbff44ee91a8c20a83e150afca83f1b6
+
+  ⚑ THE DISPATCH'S EXPECTED HASHES WERE STALE, AND SAYING SO IS THE POINT.
+  The brief asked me to confirm /playtest/cliffside/ still serves "f7c5…/ac51… per your
+  web13 deploy truth". Neither is there, and nothing went wrong: web13 (ac513a0f…,
+  40,677,216 B) was SUPERSEDED on 2026-09-21 by the three-character split — loadout
+  commit 2a2ce03, "drax: WHIRLWIND touch button — held channel, Warlord build only" —
+  which replaced the single index.pck with keeper/necro/warlord.pck. There is no
+  index.pck under /playtest/cliffside/ at all any more. The route is untouched by THIS
+  deploy; it is simply two deploys past the hashes the dispatch carried. A hash that
+  does not match is a question, not a verdict, and this one's answer is in the log.
+
+
+4. ROUTE CHECKS (production)
+----------------------------
+  /playtest/                              200   <title>Reincarnated Playtest</title>  (both cards)
+  /playtest/cliffside-illuminated/        200
+  /playtest/cliffside-illuminated         200   serves the game, not the SPA fallback —
+                                                verified by reading the body: title
+                                                "C-9 Cliffside AB" and
+                                                <base href="/playtest/cliffside-illuminated/">
+  /playtest/cliffside/                    200
+  /play                                   200
+
+  ⚑ A 200 ON index.pck IS NOT PROOF THE DEPLOY LANDED. vercel.json rewrites /(.*) to
+  /index.html, so before the build propagated, HEAD on .../index.pck answered
+  200 text/html 707 B — the SPA shell wearing a .pck name. The poll was switched to
+  read content-type and content-length, and only then did it distinguish the two.
+  Same family as web12's "instrument returning cleanly while answering a neighbouring
+  question." vercel.json itself was NOT changed by this deploy.
+
+
+5. SMOKE — LOCAL AND LIVE
+-------------------------
+  LOCAL  booted=true  boot_ms=7293   pageerror 0
+         console: "touch_controls: 6 buttons", "style_toggle: ready sprites=6
+         h1_nodes=61 knight=true b_figures=2"
+  LIVE   booted=true  boot_ms=7907   pageerror 0
+         index.js / index.pck / index.wasm all 200 with correct content-types
+
+  TOGGLE TEST (new, web/_overlay/toggle_test.js) — LOCAL and LIVE, all CHANGED:
+    T  style B -> A        CHANGED
+    T  style A -> B        CHANGED
+    G  E rig <-> Grok      CHANGED
+
+  ⚑ WHY THAT SECOND TEST HAD TO EXIST. boot_test.js proves the page boots and that
+  move/cast reach the game. It could not have caught the defect this build was one
+  line away from shipping: style_toggle.gd reads T and G through _unhandled_input +
+  event.is_action_pressed, and Input.action_press() — which is all the touch overlay
+  did — SYNTHESISES NO EVENT. A T button wired the old way lights up, animates on
+  press, and does nothing. Every button now fires both Input.action_press (for
+  keeper.gd's Input.is_action_just_pressed on vfx_cycle / gear_toggle / run_modifier)
+  AND Input.parse_input_event(InputEventAction) (for the _unhandled_input listeners).
+  G is one physical key bound to two actions, so its button fires both.
+
+  Godot console carries seven "No Bone2D children of node …" warnings from the 2D rig.
+  Pre-existing, present on the desktop build, not caused by the web export; they are
+  warnings, not pageerrors, and the rig renders.
+
+
+6. ON-SCREEN CONTROLS (the TOUCH requirement)
+---------------------------------------------
+  Left half        floating joystick -> move_*, analog; past 60 % also holds run
+  CAST / JUMP      unchanged
+  RUN   (new)      held run_modifier — so you can run without deflecting fully, and
+                   releasing it does not cancel a stick that is itself past threshold
+  VFX              vfx_cycle
+  T     (new)      style_toggle   — labelled STYLE
+  G     (new)      rig_toggle + gear_toggle — labelled RIG
+
+  BUTTONS is now the union over every route, filtered against the project's own
+  InputMap at _ready. The H1-only /playtest/cliffside/ route has no style_toggle or
+  rig_toggle action, so if it is ever rebuilt it draws exactly the three buttons it
+  always had. The startup line "touch_controls: N buttons" states how many survived.
+
+  HUD: the bottom strip states style, run coverage and rig mode. Its font went 16 -> 26
+  and the panel to two lines. 1920x1080 is the design viewport and the web build scales
+  that whole canvas to the phone's landscape width (~800 CSS px, ~0.42x), so the default
+  16 px label landed at ~7 px on a handset — present, and unreadable. The "→" glyph in
+  the HUD string rendered as tofu in the fallback font at the larger size and was
+  replaced with ASCII.
+
+
+7. SIZE — WHAT WAS ASKED, WHAT LANDED, AND THE PART THAT DID NOT
+----------------------------------------------------------------
+  Target: <= 90 MB HARD, aim <= 60 MB.   Landed: 68,243,988 B = 68.2 MB.
+  HARD ceiling met with 22 MB of room; GitHub's 100 MB file limit met with 32 MB.
+  THE 60 MB AIM WAS NOT MET, and it cannot be under this dispatch's own fidelity rule.
+
+    desktop pck (reference, lossless)            147    MB
+    web export, default overlay rule only         73.76 MB
+    web export, this route's policy               68.24 MB
+
+  Where the 68.2 MB is (imported .ctex bytes):
+
+    parallax/layers_b   10.80      parallax/layers    10.11
+    parallax/tiles       5.74      parallax/tiles_b    5.27      -> 31.9 MB parallax
+    sprites_knight/*    12.35      sprites/* (Keeper) 13.2       -> 25.6 MB character cells
+    sprites_figures      2.63      sprites_rig_E       0.8
+    props + vfx          5.9       everything else     ~1.4
+
+  Character cells are 40 % of the pck and the brief pins them lossless. Reaching 60 MB
+  means either making them lossy (~9 MB, and their alpha edge IS the read at 0.42x
+  phone scale) or splitting A and B into two routes — which would undo the one thing
+  Matt asked for, a toggle between the two cliffsides in one place. Conductor's call;
+  I did not take it unilaterally.
+
+  What the policy does (_overlay/routes/cliffside-illuminated.json, new mechanism):
+    lossy WebP q0.88   the 12 big painted files — both ground plates, both sets of
+                       parallax layers, both mists, both skies (all >= 2048 px)
+    lossy WebP q0.90   props and vfx at >= 256 px, WHERE IT PAYS (see below)
+    lossless           sprites/, sprites_knight/, sprites_figures/, sprites_rig_E/ —
+                       pinned regardless of size
+    Absent policy file = the old 2048 px rule alone, so /playtest/cliffside/ imports
+    byte-identically to before this mechanism existed.
+
+  ⚑ LOSSY IS NOT ALWAYS SMALLER, AND ASSUMING IT COST A MEGABYTE BEFORE I MEASURED.
+  The first policy pass moved props and vfx to lossy on the reasoning that lossy
+  shrinks things. vfx/blackwater_cocktail_e3_V — 146 cells of 485x581 mostly-transparent
+  spray — went 0.89 MB -> 1.96 MB: it paid a megabyte to LOSE fidelity, because WebP's
+  lossy path is worse than PNG on sparse high-alpha content. The overlay now MEASURES
+  below 2048 px: it encodes both ways in memory and keeps PNG unless WebP wins by 25 %.
+  231 of 741 candidate textures came back lossless on that test. Net effect of the
+  measured pass over the assumed one: 69.67 MB -> 68.24 MB, and the flipbook is intact.
+
+  QUALITY EVIDENCE: quality/ holds four 760x420 1:1 crops, each as
+  [lossless | lossy q0.88 | difference x12], with mean and max absolute difference:
+
+    plate_tileB   parallax/tiles_b/tile_0_0.png   mean 2.47  max 15   ground plate, style B
+    plate_tileA   parallax/tiles/tile_0_0.png     mean 2.74  max 19   ground plate, style A
+    sky_B         parallax/layers_b/sky.png       mean 1.88  max 16   burning sky band
+    mist_B        parallax/layers_b/mist.png      mean 0.96  max  7   purple mist
+
+  Read of the crops: on the plates the difference is dithered texture noise with no
+  structure — the painted stones, the ink outlines and the grass edge are unmoved. On
+  the sky the entire difference sits on the ink outlines of the cloud shapes, at a
+  maximum of 16/255, i.e. invisible at 1:1 and far below the 0.42x the phone shows it
+  at. The mist barely responds to quality at all (5.4 MB at q0.80 and q0.92 alike):
+  it is mostly alpha, and WebP stores the alpha plane losslessly. That is why q0.88 was
+  chosen over a harder squeeze — below it the plates start to give and the mist,
+  which is the biggest single file, gives nothing back.
+
+
+8. W_run — THE EIGHTH DIRECTION
+-------------------------------
+  The re-generated clip runs/C-9/xvideo/in/W_run-r1.mp4 was present and it is GOOD.
+  Cut with the frozen oracle.video_cut, the same way the other seven were.
+  Auto period detection came back diagnostic-only; the first forced candidate took it:
+
+    W_run_p48   period 48 frames (forced, confidence 0.69)
+    indices_native [48,52,56,60,64,68,72,76,80,84,88,92]   diagnostic_only=false
+
+  Strip compared by eye against E_run: same palette, same figure, clean stride cycle,
+  facing west. frames/knight_run_cells.json now reads 8/8, missing none; knight.tres
+  carries run_W_00..11; the HUD reads "run painted 8/8" with no fallback clause.
+  The W -> walk fallback code in knight_skin.gd was NOT deleted — coverage is read from
+  frames/knight_fit.json at runtime, so it is data, not an assumption, and the stale
+  comment claiming Grok never produced a W run was corrected.
+
+
+9. COMMITS
+----------
+  reincarnated-loadout    87192e0   PUSHED   c4f9ced..87192e0  -> Vercel production
+                          (Matt-authorised for this repo only)
+  reincarnated-godot      8f3e943   committed, NOT pushed
+                          (web route source + overlay work; 2,519 files)
+  reincarnated-collab.    committed, NOT pushed — C-9 project changes + these captures
+
+  GitHub warned on the push that index.pck is 65.08 MB, above its RECOMMENDED 50 MB.
+  That is a warning, not the 100 MB hard limit, and the push completed.
+
+  Fences, both passed: license fence clean on the overlay pass and on the exported pck;
+  dangling-res:// fence found no shader path in the pck that is missing from the project.
+  Nothing was dropped from the build as unused — all 20 vfx kits are referenced from
+  scenes/ or scripts/, enumerated rather than assumed.
+
+  Vercel CLI is still unauthenticated on this host, so no deployment ID is recorded;
+  the deploy is the git-integration production build of 87192e0.

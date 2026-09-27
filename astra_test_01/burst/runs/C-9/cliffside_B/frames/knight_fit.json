@@ -17,12 +17,12 @@
   }
  },
  "knight": {
-  "figure_h_src_px": 198.6086956521739,
-  "scale": 0.7563291283566842,
+  "figure_h_src_px": 198.33333333333334,
+  "scale": 0.7573792016806722,
   "figure_h_canvas_px": 150.21354166666666,
   "offset": [
-   -254.13278836834877,
-   -395.4782608695652
+   -255.26547470105572,
+   -395.6666666666667
   ],
   "per_cell": {
    "walk_S": {
@@ -64,6 +64,11 @@
     "head": 203,
     "sole": 398,
     "figure_h": 196
+   },
+   "run_W": {
+    "head": 209,
+    "sole": 400,
+    "figure_h": 192
    },
    "walk_NW": {
     "head": 195,
@@ -182,6 +187,7 @@
   "run_SW": 21.75,
   "walk_W": 20.7,
   "idle_W": 6.0,
+  "run_W": 21.75,
   "walk_NW": 20.7,
   "idle_NW": 6.0,
   "run_NW": 21.75,
@@ -207,6 +213,7 @@
   "run_SW": "matched to keeper run_SW (0.5517 s/stride); painted stride was 60 native frames = 2.500 s (4.800 fps), 4.53x slower than her",
   "walk_W": "matched to keeper walk_W (0.5797 s/stride); painted stride was 92 native frames = 3.833 s (3.130 fps), 6.61x slower than her",
   "idle_W": "breath 48 native frames = 2.0 s",
+  "run_W": "matched to keeper run_W (0.5517 s/stride); painted stride was 48 native frames = 2.000 s (6.000 fps), 3.62x slower than her",
   "walk_NW": "matched to keeper walk_NW (0.5797 s/stride); painted stride was 70 native frames = 2.917 s (4.114 fps), 5.03x slower than her",
   "idle_NW": "breath 48 native frames = 2.0 s",
   "run_NW": "matched to keeper run_NW (0.5517 s/stride); painted stride was 40 native frames = 1.667 s (7.200 fps), 3.02x slower than her",
@@ -236,15 +243,14 @@
  "run_directions": [
   "S",
   "SW",
+  "W",
   "NW",
   "N",
   "NE",
   "E",
   "SE"
  ],
- "run_missing_directions": [
-  "W"
- ],
+ "run_missing_directions": [],
  "state_map_b": {
   "walk": "walk",
   "idle": "idle",

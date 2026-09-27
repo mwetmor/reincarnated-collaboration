@@ -48,10 +48,11 @@ const STATE_MAP := {
 	"jump": "idle",
 }
 # When a cell for the mapped state does not exist for this facing, fall back ALONG THE
-# STATE, never along the direction: a missing run_W becomes walk_W, not run_NW. Grok
-# never produced a W run clip (p7_run.log: "CLIP W_run ok=false"), so W is the live
-# case, and a knight whose W run is some other direction's pixels would be a lie that
-# looks like a feature.
+# STATE, never along the direction: a missing run_W would become walk_W, not run_NW --
+# a knight whose W run is some other direction's pixels would be a lie that looks like
+# a feature. As of 2026-09-27 the run is painted 8/8 (W re-generated as W_run-r1.mp4
+# and cut at forced period 48), so nothing takes this path today; it stays because the
+# coverage is data, read from frames/knight_fit.json, not an assumption in code.
 const FALLBACK := {"run": ["walk", "idle"], "walk": ["idle"], "idle": []}
 const DIRECTIONS := ["S", "SW", "W", "NW", "N", "NE", "E", "SE"]
 
