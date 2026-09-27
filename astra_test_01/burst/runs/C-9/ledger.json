@@ -12808,6 +12808,14 @@
       "topic": "Painter bake-off: Sol vs Astra before the cathedral paint; the grey box resumes",
       "ruling": "Matt asked whether to use ChatGPT 6 Sol (newer, more efficient, not the flagship) for the cathedral work, and agreed to the conductor plan: (1) the grey box resumes now (it is model-agnostic Godot geometry); (2) a bake-off, Sol vs Astra, on briefs with known answers, measured by existing instruments: RP-E under-layer edit (registration IoU, tone, hand), one cliffside chunk outpaint (join DP error, guide boundaries), then one cathedral establishing pass once the grey box exists (Matt eye). Sol must first be verified available in the Codex CLI, with its image tool identified. If Sol >= Astra it paints the cathedral; the cliffside stays Astra. A painter change is a declared run variable, never drift.",
       "ts": "2026-09-27T19:53:29"
+    },
+    {
+      "id": "R-C9-49a",
+      "class": "conductor",
+      "veto_open": true,
+      "topic": "Bake-off blocked: no GPT-6 Sol in Codex on this account",
+      "ruling": "Verified 2026-09-27. The Codex CLI 0.153.4 models list (models_cache fetched 21:31Z today) offers gpt-6-astra, gpt-reserve, gpt-5.6-sol (described as Older coding model for complex work), gpt-5.6-terra, gpt-5.6-luna, gpt-5.5 and codex-auto-review. There is no GPT-6 Sol. A direct probe with -m gpt-6-sol returns 400 not supported when using Codex with a ChatGPT account, the identical error a nonsense model id returns (control), so the probe cannot distinguish a model that is not rolled out from one that does not exist. The only Sol reachable (gpt-5.6-sol) is older than Astra, not newer; a bake-off against it would not test what Matt asked. Held for Matt: where the model appears (the ChatGPT app vs Codex), and whether to re-check when Codex lists it. The grey box proceeds regardless.",
+      "ts": "2026-09-27T19:54:25"
     }
   ],
   "grok_calls": [
