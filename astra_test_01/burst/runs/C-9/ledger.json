@@ -639,6 +639,11 @@
       "id": "M-C9-M2-PACKET",
       "ts_note": "drax P2-prime DELIVERED, stopped at M2 (collab 3f9ae23c, godot 2499a113 AGENT_STATE only; no push). Canvas 7776x7522 = 77.3x93.7 m; arena at u=0.285; plate-scale law cross-checked. Review: runs/C-9/greyroom/M2_review_cathedral_greyroom.png (committed copy under agentic_orchestration/drax/captures/2026-09-26-c9-cathedral-greyroom/ because astra_test_01/.gitignore ignores *.png). drax forks for Matt: (1) rot extent k=0.5345 (23.5% of floor, six discs disjoint) vs raw upper bound 46.9% overlapping; (2) plate scale 60 chunks/arm vs ZOOM-GD ~35/arm; (3) vault + choir screen on Overhead z3; (4) depth = elevation above floor. Contradictions surfaced: DoT bounds overlap despite six DISTINCT zones; dispatch 130 px Keeper scale superseded by KP-18 h_fig 1.9 m for this arena (drax adopted plate scale, manifest carries both); Antwerp pier forest cannot stand on measured walkable floor (arcade pushed to the ring); north corridor mapped-never-walked treated as walkable (spawn entry). Conductor DRIFT-CRITIC: accepted; design note -- reads as a choir ring more than a nave; cathedral identity must come from walls/stalls/tracery/overhead vault in paint. AWAITING MATT M2.",
       "ts": "2026-09-26T23:14:44"
+    },
+    {
+      "id": "M-C9-M1-RULED",
+      "ts_note": "M1 closed: GO / WARM / ACCENTS (R-C9-8). P4 (knight turnaround) and P5 (cliffside B) cleared; P6 (cathedral) waits on Matt parked sitting S1/S4/S5 (R-C9-7).",
+      "ts": "2026-09-26T23:54:30"
     }
   ],
   "halts": [],
@@ -707,6 +712,22 @@
       "topic": "CORRECTION 2: the full KC2-PLAY cathedral design governs, incl. the spawn/entrance design; S1/S4/S5 stay parked with Matt",
       "ruling": "Matt: \"you are missing an entire session of work ... one spawn would be flame, another blue flames of enemies coming from beneath, two more walled areas where enemies descend from above.. the goal being to decide how to build the arena based on the needs of the art.\" R-C9-6 read only the KC2-PLAY charter rows; the design lives in gandalf/notes/2026-09-20-kc2-play-cathedral-reframe-and-crack-law.md (Diablo-register militant-faith cathedral, RECENT desecration; crack law as a PRINCIPLE in the prompt (CF-3); entrances are hazards + ONE-WAY broken stairs: real-fire entrance (p05 ambush), BLUE FIRE crypt mouths from beneath, west siege breach + north chancel breach + east gallery stair where enemies come down; FUNNEL TO THE MIDDLE (CF-4); player enters from the SOUTH facade (CF-2)) and gandalf/notes/2026-09-20-kc2-play-arena-scene-plan.md (layers beyond the walls; sunset from the west; BARE FIRST; the fallen stained-glass window/cross as hero object; the Keepers domed temple stays in the far layer). Per skill_handoff_2026-09-24 § 3, Matt deliberately PARKED the cathedral art on S1 (arena layout) / S4 (the six pools) / S5 (the world beyond the walls) for a sitting. RULING: C-9 adopts that design whole for the cathedral A/B (only the rendering register differs in arm B); C-9 does not re-open or pre-empt S1/S4/S5; cathedral paint (P6) waits on that sitting. Recorded as conductor failure F-C9-5 (a second, deeper slate-freshness miss in one session).",
       "ts": "2026-09-26T23:41:41"
+    },
+    {
+      "id": "R-C9-8",
+      "class": "matt",
+      "veto_open": false,
+      "topic": "M1 RULED: GO, WARM line, ACCENTS",
+      "ruling": "Matt verbatim: \"Yes to both.\" (answering: outline = warm brown if the painted-book line matters more than crispness; accents = yes). Read as GO + WARM + ACCENTS; the conductor states the reading back to Matt. The judge preferred INK narrowly (23/24 vs 22/23); Matt chose WARM for manuscript fidelity. Anchors of record: scene S1-warm_a (judge 22), knight K1-warm_a (judge 23). Register card -> v1.1 (conductor data edit): LINE fixed to WARM; ACCENTS clause added (~10-20% rich colour in small places, never on the walkable floor). Carry-forwards: knight camera to top-down 53 deg at M3; P5 briefs carry the accent budget.",
+      "ts": "2026-09-26T23:54:30"
+    },
+    {
+      "id": "R-C9-9",
+      "class": "matt",
+      "veto_open": false,
+      "topic": "M1 line corrected: INK (dark FFT outline); supersedes the WARM half of R-C9-8",
+      "ruling": "Matt verbatim: \"No, dark FFT outline\" (correcting the conductor read-back of \"Yes to both\"). M1 = GO / INK / ACCENTS. Anchors of record: scene S1-ink_b (judge 23), knight K1-ink_a (judge 24) -- the judge top picks. Register card -> v1.2: LINE = dark sepia-to-near-black pen line; ACCENTS clause stands.",
+      "ts": "2026-09-26T23:54:50"
     }
   ],
   "grok_calls": [],

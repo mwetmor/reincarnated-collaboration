@@ -1,7 +1,7 @@
 ## Register card (Run C-9: ILLUMINATED ARCHIVE, challenger register; conductor-owned data, sha-pinned per burst)
 
 ```
-REGISTER CARD — Run C-9 — ILLUMINATED v1.0 (Matt rulings R-C9-0) — do not reinterpret; every line is a constraint
+REGISTER CARD — Run C-9 — ILLUMINATED v1.2 (Matt rulings R-C9-0, R-C9-8, R-C9-9) — do not reinterpret; every line is a constraint
 MERGE: every image joins two sources. SUBJECT, COMPOSITION, ICONOGRAPHY and PALETTE come from late-medieval
   and early-Renaissance illuminated manuscripts (Books of Hours, chronicles, romances, c. 1400–1530), as
   shown in the attached reference pages. RENDERING comes from hand-painted watercolor-and-ink character
@@ -19,8 +19,11 @@ PALETTE: the manuscripts' mineral hues at a MODERATE value: lapis blue, vermilio
   ochre, madder, lead white, warm stone greys. Rich colour sits on ACCENTS (a tabard, a banner, a sky
   band, a roof); large surfaces stay calm and pale. Burnished gold only on sacred or preserved objects.
   No neon, no saturated fills across large areas, no large areas of black.
+  ACCENTS (Matt M1, R-C9-8): as on a manuscript page, roughly a tenth to a fifth of every image carries
+  rich colour in small places (flowers, banners, clothing, a lapis sky band, gold); never on the walkable floor.
 VALUE: highlights pale cream; the darkest marks are the ink line and hatching, not filled shadow areas.
-LINE: as specified in the TASK (two line arms are under test: INK and WARM).
+LINE (Matt M1, R-C9-9): a crisp DARK sepia-to-near-black pen line, the dark outline of hand-painted
+  tactics-RPG character illustration; the darkest marks in the image are this line and its hatching.
 LIGHT: soft, even daylight from SCREEN UPPER-LEFT; no dramatic lighting, no cast shadows on figure
   frames, no baked darkness. Night and drama are the engine's job, never the painting's.
 SCENES: the walkable ground is the BRIGHTEST and CALMEST region of the image — large pale surfaces,
