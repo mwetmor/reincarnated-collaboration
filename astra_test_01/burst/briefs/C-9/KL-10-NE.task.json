@@ -1,0 +1,22 @@
+{
+ "text": "GENERATE BURST KL-10-NE \u2014 Run C-9 P4, M3 consistency fix (Matt: helm, NE tabard pattern, S stance). task_id \"KL-10-NE\".\n\nUse image_gen in EDIT mode on IMAGE 1 (the knight, painted in the hand of a c. 1530 Flemish manuscript, background flat green). Change ONLY the heraldry on the back of his BLUE TABARD: lay it out exactly as on the tabard back in IMAGE 2 \u2014 the same gold cross-crosslets and the same gold diagonal bands in the same places and proportions, seen from this slightly turned angle. Same blue, same gold, same loose cloth and side flaps.\nKeep EVERYTHING ELSE exactly as it is: his helm, armour, legs, pose, direction, the pollaxe in his right hand, size and framing, flat pure #00ff00 background. Paint in EXACTLY the same hand (line, red-brown hatching, uneven washes, gouache-like steel). For this step the REGISTER CARD above is satisfied BY THE IMAGES: do not re-render or restyle.\n\nOne image_gen EDIT call. ONE retry only if the tabard heraldry still differs from IMAGE 2's layout, anything else changed, or the background is not flat green \u2014 name the reason. Copy the output to out/KL-10-NE.png with sha256. No code. No other files. No web.\nRETURN: receipt task_id \"KL-10-NE\"; images = the file with prompt, references (role + path) and elapsed_s; calls_used = the TRUE number of image_gen calls; status; concerns. Never PASS/FAIL.",
+ "references": [
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/KL-7-NE/KL-7-NE.png",
+   "role": "IMAGE 1 \u2014 THE IMAGE TO EDIT (back three-quarter view facing upper-right; fix only the tabard)"
+  },
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/KL-7-N/KL-7-N.png",
+   "role": "IMAGE 2 \u2014 the same knight from directly behind: the correct layout of the heraldry on the BACK of his tabard"
+  }
+ ],
+ "image_cap": 2,
+ "minutes_cap": 15,
+ "tool_call_cap": 20,
+ "outputs": [
+  "out/KL-10-NE.png"
+ ],
+ "effort": "high",
+ "add_dirs": [],
+ "experiment": "P4-turnaround-ladder"
+}

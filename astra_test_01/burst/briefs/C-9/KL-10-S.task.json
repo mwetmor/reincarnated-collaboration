@@ -1,0 +1,22 @@
+{
+ "text": "GENERATE BURST KL-10-S \u2014 Run C-9 P4, M3 consistency fix (Matt: helm, NE tabard pattern, S stance). task_id \"KL-10-S\".\n\nUse image_gen in EDIT mode on IMAGE 1 (the knight, painted in the hand of a c. 1530 Flemish manuscript, background flat green). Change ONLY his LEGS and FEET: he is standing in a stride (one leg forward, one foot pointing down the screen). Put him in the same calm REST STANCE as IMAGE 2: both feet planted on the ground about shoulder-width apart, knees nearly straight, weight even, toes pointing toward the viewer and slightly outward; the pollaxe butt still resting on the ground beside his right foot.\nKeep EVERYTHING ELSE exactly as it is: his helm, torso, arms, tabard and heraldry, the pollaxe in his right hand, his direction (facing the viewer), size and framing, flat pure #00ff00 background. Paint in EXACTLY the same hand (line, red-brown hatching, uneven washes, gouache-like steel). For this step the REGISTER CARD above is satisfied BY THE IMAGES: do not re-render or restyle.\n\nOne image_gen EDIT call. ONE retry only if he is still in a stride, anything above the waist changed, or the background is not flat green \u2014 name the reason. Copy the output to out/KL-10-S.png with sha256. No code. No other files. No web.\nRETURN: receipt task_id \"KL-10-S\"; images = the file with prompt, references (role + path) and elapsed_s; calls_used = the TRUE number of image_gen calls; status; concerns. Never PASS/FAIL.",
+ "references": [
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/KL-9-S/KL-9-S.png",
+   "role": "IMAGE 1 \u2014 THE IMAGE TO EDIT (facing the viewer; fix only the legs)"
+  },
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/KL-6-SE/KL-6-SE.png",
+   "role": "IMAGE 2 \u2014 the same knight's REST STANCE, lower-right diagonal (legs and feet reference)"
+  }
+ ],
+ "image_cap": 2,
+ "minutes_cap": 15,
+ "tool_call_cap": 20,
+ "outputs": [
+  "out/KL-10-S.png"
+ ],
+ "effort": "high",
+ "add_dirs": [],
+ "experiment": "P4-turnaround-ladder"
+}

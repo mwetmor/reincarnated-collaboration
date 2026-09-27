@@ -1,0 +1,22 @@
+{
+ "text": "GENERATE BURST KL-9-SW \u2014 Run C-9 P4, M3 helm VISOR consistency (Matt: \"Nope, the first 3 are still different..\"), direction SW. task_id \"KL-9-SW\".\n\nUse image_gen in EDIT mode on IMAGE 1 (the knight, painted in the hand of a c. 1530 Flemish manuscript, background flat green). Replace ONLY his HELM so that it is the same helm as in the other directions: he is facing the viewer's lower-left: the helm must match IMAGE 2's helm exactly \u2014 the same rounded skull and the same ROUNDED, close-fitting visor with a single row of small holes along its edge. NOT a pointed or beak-shaped visor.\nPaint it in EXACTLY the same hand as the rest of IMAGE 1 (same red-brown pen hatching on pale steel). Keep EVERYTHING ELSE exactly as it is: body, direction, pose, gorget, tabard and heraldry, the pollaxe in his right hand, framing, flat pure #00ff00 background. For this step the REGISTER CARD above is satisfied BY THE IMAGES: do not re-render or restyle.\n\nOne image_gen EDIT call. ONE retry only if the visor is still pointed/beak-shaped or otherwise unlike the reference helm, anything else changed, or the background is not flat green \u2014 name the reason. Copy the output to out/KL-9-SW.png with sha256. No code. No other files. No web.\nRETURN: receipt task_id \"KL-9-SW\"; images = the file with prompt, references (role + path) and elapsed_s; calls_used = the TRUE number of image_gen calls; status; concerns. Never PASS/FAIL.",
+ "references": [
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/KL-8-SW/KL-8-SW.png",
+   "role": "IMAGE 1 \u2014 THE IMAGE TO EDIT (replace only the helm; direction SW)"
+  },
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/inputs/helmref_SE_mirrored_for_SW.png",
+   "role": "IMAGE 2 \u2014 HELM REFERENCE ONLY: the same knight's helm seen from exactly this diagonal (a mirror of his lower-right view). Copy ONLY the helm; ignore the body, tabard, heraldry and pollaxe in this image."
+  }
+ ],
+ "image_cap": 2,
+ "minutes_cap": 15,
+ "tool_call_cap": 20,
+ "outputs": [
+  "out/KL-9-SW.png"
+ ],
+ "effort": "high",
+ "add_dirs": [],
+ "experiment": "P4-turnaround-ladder"
+}
