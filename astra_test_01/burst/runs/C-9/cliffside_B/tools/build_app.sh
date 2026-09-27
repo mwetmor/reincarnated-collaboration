@@ -28,7 +28,7 @@ HEAVY_LOCK=${HEAVY_LOCK:-$HOME/Games/reincarnated-collaboration/astra_test_01/bu
 DEST=$(dirname "$SRC")/cliffside_B_app
 APP="$DEST/build/$NAME.app"
 LOG="$DEST/build/logs"
-STAGE=${STAGE:-"$HOME/Desktop/Astra Burst Review - 2026-09-26/C-9 cliffside AB"}
+STAGE=${STAGE:-"$HOME/Desktop/Astra Burst Review - 2026-09-26/C-9 cliffside AB v2"}
 
 [ -f "$SRC/project.godot" ] || { echo "no project.godot in $SRC" >&2; exit 2; }
 [ -x "$GODOT" ] || { echo "Godot not found at $GODOT" >&2; exit 2; }
@@ -178,8 +178,9 @@ else ck 1 "pck present in Contents/Resources"; fi
 BID=$(/usr/libexec/PlistBuddy -c "Print :CFBundleIdentifier" "$PLIST" 2>/dev/null || echo "")
 if [ "$BID" = "$BUNDLE_ID" ]; then ck 0 "CFBundleIdentifier == $BUNDLE_ID"; else ck 1 "CFBundleIdentifier (got '$BID')"; fi
 
-# Both texture registers must actually be inside the pck. A build that exports
-# cleanly with only the A set would toggle to a blank plate and say nothing.
+# Both texture registers AND both player sprites must actually be inside the pck. A
+# build that exports cleanly with only the A set would toggle to a blank plate, or to
+# an invisible player, and say nothing.
 if [ -n "$PCK" ] && [ -f "$PCK" ]; then
   MISSING=0
   for p in parallax/tiles/tile_0_0.png parallax/tiles/tile_4096_0.png \
@@ -187,11 +188,32 @@ if [ -n "$PCK" ] && [ -f "$PCK" ]; then
            parallax/layers/sky.png parallax/layers/far_ruins.png \
            parallax/layers/forest_valley.png parallax/layers/mist.png \
            parallax/layers_b/sky.png parallax/layers_b/far_ruins.png \
-           parallax/layers_b/forest_valley.png parallax/layers_b/mist.png; do
-    grep -a -q "res://$p" "$PCK" || { echo "   missing from pck: res://$p" >&2; MISSING=1; }
+           parallax/layers_b/forest_valley.png parallax/layers_b/mist.png \
+           parallax/layers_b/offsets.json \
+           frames/keeper.tres frames/knight.tres; do
+    # NOTE: grep the BARE path, not "res://$p". An IMPORTED resource (a .png, a .tres)
+    # appears in the pck's string table as "res://<path>", but a plain INCLUDED file --
+    # every .json here -- appears as "<path>" with no scheme. Checking for "res://$p"
+    # therefore reports a JSON that is present and loadable as MISSING. It did exactly
+    # that for parallax/layers_b/offsets.json on 2026-09-27: the check ran, returned
+    # cleanly, and returned the wrong answer, because the instrument did not match the
+    # domain. The bare path matches both encodings and is still unique per file.
+    grep -a -q "$p" "$PCK" || { echo "   missing from pck: $p" >&2; MISSING=1; }
   done
-  if [ "$MISSING" -eq 0 ]; then ck 0 "all 12 A+B textures referenced in the pck"
-  else ck 1 "all 12 A+B textures referenced in the pck"; fi
+  if [ "$MISSING" -eq 0 ]; then ck 0 "A+B textures, layer offsets and both SpriteFrames in the pck"
+  else ck 1 "A+B textures, layer offsets and both SpriteFrames in the pck"; fi
+
+  # all 16 knight cells x 12 frames, no mirroring: 192 sprite pngs must be present
+  KN=0
+  for d in S SW W NW N NE E SE; do
+    for st in walk idle; do
+      for i in 00 01 02 03 04 05 06 07 08 09 10 11; do
+        grep -a -q "sprites_knight/$st/$d/${st}_${d}_${i}.png" "$PCK" && KN=$((KN+1))
+      done
+    done
+  done
+  if [ "$KN" -eq 192 ]; then ck 0 "all 192 knight frames in the pck (16 cells x 12)"
+  else ck 1 "knight frames in the pck: $KN/192"; fi
 fi
 
 xattr -dr com.apple.quarantine "$APP" 2>/dev/null || true

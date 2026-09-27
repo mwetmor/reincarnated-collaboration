@@ -1,8 +1,10 @@
-[gd_scene load_steps=97 format=3]
+[gd_scene load_steps=99 format=3]
 
 [ext_resource type="Script" path="res://scripts/keeper.gd" id="Keeper"]
 [ext_resource type="Script" path="res://scripts/style_toggle.gd" id="StyleToggle"]
 [ext_resource type="SpriteFrames" path="res://frames/keeper.tres" id="Frames"]
+[ext_resource type="SpriteFrames" path="res://frames/knight.tres" id="KnightFrames"]
+[ext_resource type="Script" path="res://scripts/knight_skin.gd" id="KnightSkin"]
 [ext_resource type="Texture2D" path="res://parallax/shadow.png" id="Shadow"]
 [ext_resource type="Texture2D" path="res://parallax/layers/sky.png" id="Layer0"]
 [ext_resource type="Texture2D" path="res://parallax/layers/far_ruins.png" id="Layer1"]
@@ -3182,6 +3184,15 @@ sprite_frames = ExtResource("Frames")
 centered = false
 offset = Vector2(-256, -400)
 scale = Vector2(0.629166666667, 0.629166666667)
+
+[node name="KnightSprite" type="AnimatedSprite2D" parent="Actors/Keeper"]
+sprite_frames = ExtResource("KnightFrames")
+animation = &"idle_S"
+autoplay = "idle_S"
+centered = false
+offset = Vector2(-256.511341085, -395.1875)
+scale = Vector2(0.727646583914, 0.727646583914)
+script = ExtResource("KnightSkin")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Actors/Keeper"]
 shape = SubResource("Feet")

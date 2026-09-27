@@ -1,0 +1,98 @@
+{
+ "note": "Measured, not applied. walk_px_s is unchanged.",
+ "walk_px_s": 247.0,
+ "knight_sprite_scale": 0.7276465839136138,
+ "knight_figure_h_canvas_px": 150.21354166666666,
+ "method": "C-9: does the knight's foot slide at the scene's walk speed, and by how much?\n\nwalk_px_s is NOT changed by this tool or by the build -- this only measures and\nreports.  Writes frames/knight_foot_slide.json and prints the table.\n\nTHE QUESTION.  Each walk cell is 12 frames sampled across ONE stride of a 24 fps clip\nwhose stride is `stride_native_frames` long, and the build plays it at that clip's own\ntiming (fps = 12*24/stride_native_frames).  One loop therefore takes\nstride_native_frames/24 seconds, during which the body travels\n\n    body_travel = walk_px_s * stride_native_frames / 24          [canvas px]\n\nFor the feet to look planted, the PAINTING's stride must cover the same ground.\n\nMEASURING THE PAINTED STRIDE.  In an in-place locomotion cycle a planted foot moves\nBACKWARD relative to the body by exactly the ground distance covered while it is down,\nso the two feet are furthest apart, along the travel direction, at full stride.  So:\n\n    step  = max over the 12 frames of the feet's extent along the travel direction\n    stride = 2 * step                                   (a cycle is two steps)\n\nmeasured in source pixels on the foot band (the bottom 18% of the body silhouette,\nafter the 1x11 horizontal opening that deletes the halberd shaft), then multiplied by\nthe knight's sprite scale to reach canvas pixels.\n\n    slide_ratio = body_travel / painted_stride\n\n1.0 = planted.  Above 1.0 the feet skate forward under a body that is outrunning them.\n\nCAVEAT, stated because the numbers are not equally trustworthy per direction: the\ncells are painted in a 3/4 view, so a stride toward or away from camera (N, S) is\nFORESHORTENED in the picture plane and measures shorter than the ground distance it\nrepresents.  The N and S ratios are therefore UPPER bounds; W and E, painted in true\nprofile, are the honest ones.  Every direction is reported, with the profile pair\nflagged, rather than silently correcting for a foreshortening factor nobody measured.",
+ "verdict": "YES -- the feet slide visibly in every direction. The painted strides are stately (1.8-3.8 s per stride) while walk_px_s asks for a brisk game walk, so the body outruns the painting by 3.7x-11.9x (3.7x-4.7x on the two true-profile cells, which are the trustworthy pair).",
+ "per_direction": {
+  "S": {
+   "stride_native_frames": 64,
+   "playback_fps": 4.5,
+   "stride_period_s": 2.6667,
+   "body_travel_px_per_stride": 658.7,
+   "painted_stride_px": 55.3,
+   "foot_slide_px_per_stride": 603.4,
+   "slide_ratio": 11.91,
+   "fps_that_would_plant_the_feet": 53.6,
+   "profile_view": false
+  },
+  "SW": {
+   "stride_native_frames": 80,
+   "playback_fps": 3.6,
+   "stride_period_s": 3.3333,
+   "body_travel_px_per_stride": 823.3,
+   "painted_stride_px": 135.8,
+   "foot_slide_px_per_stride": 687.5,
+   "slide_ratio": 6.06,
+   "fps_that_would_plant_the_feet": 21.82,
+   "profile_view": false
+  },
+  "W": {
+   "stride_native_frames": 92,
+   "playback_fps": 3.1304,
+   "stride_period_s": 3.8333,
+   "body_travel_px_per_stride": 946.8,
+   "painted_stride_px": 202.3,
+   "foot_slide_px_per_stride": 744.5,
+   "slide_ratio": 4.68,
+   "fps_that_would_plant_the_feet": 14.65,
+   "profile_view": true
+  },
+  "NW": {
+   "stride_native_frames": 70,
+   "playback_fps": 4.1143,
+   "stride_period_s": 2.9167,
+   "body_travel_px_per_stride": 720.4,
+   "painted_stride_px": 116.3,
+   "foot_slide_px_per_stride": 604.1,
+   "slide_ratio": 6.2,
+   "fps_that_would_plant_the_feet": 25.49,
+   "profile_view": false
+  },
+  "N": {
+   "stride_native_frames": 44,
+   "playback_fps": 6.5455,
+   "stride_period_s": 1.8333,
+   "body_travel_px_per_stride": 452.8,
+   "painted_stride_px": 58.2,
+   "foot_slide_px_per_stride": 394.6,
+   "slide_ratio": 7.78,
+   "fps_that_would_plant_the_feet": 50.92,
+   "profile_view": false
+  },
+  "NE": {
+   "stride_native_frames": 64,
+   "playback_fps": 4.5,
+   "stride_period_s": 2.6667,
+   "body_travel_px_per_stride": 658.7,
+   "painted_stride_px": 125.5,
+   "foot_slide_px_per_stride": 533.1,
+   "slide_ratio": 5.25,
+   "fps_that_would_plant_the_feet": 23.61,
+   "profile_view": false
+  },
+  "E": {
+   "stride_native_frames": 64,
+   "playback_fps": 4.5,
+   "stride_period_s": 2.6667,
+   "body_travel_px_per_stride": 658.7,
+   "painted_stride_px": 177.5,
+   "foot_slide_px_per_stride": 481.1,
+   "slide_ratio": 3.71,
+   "fps_that_would_plant_the_feet": 16.69,
+   "profile_view": true
+  },
+  "SE": {
+   "stride_native_frames": 70,
+   "playback_fps": 4.1143,
+   "stride_period_s": 2.9167,
+   "body_travel_px_per_stride": 720.4,
+   "painted_stride_px": 135.8,
+   "foot_slide_px_per_stride": 584.6,
+   "slide_ratio": 5.3,
+   "fps_that_would_plant_the_feet": 21.82,
+   "profile_view": false
+  }
+ }
+}

@@ -1,0 +1,153 @@
+{
+ "note": "C-9 knight-as-player fit for style B. Written by tools/build_knight_frames.py.",
+ "keeper": {
+  "figure_h_src_px": 238.75,
+  "scale": 0.6291666666666667,
+  "figure_h_canvas_px": 150.21354166666666,
+  "pivot_y_src_px": 400.0,
+  "per_direction_figure_h": {
+   "S": 239,
+   "SW": 239,
+   "W": 239,
+   "NW": 237,
+   "N": 237,
+   "NE": 239,
+   "E": 240,
+   "SE": 240
+  }
+ },
+ "knight": {
+  "figure_h_src_px": 206.4375,
+  "scale": 0.7276465839136138,
+  "figure_h_canvas_px": 150.21354166666666,
+  "offset": [
+   -256.51134108456966,
+   -395.1875
+  ],
+  "per_cell": {
+   "walk_S": {
+    "head": 194,
+    "sole": 390,
+    "figure_h": 197
+   },
+   "idle_S": {
+    "head": 202,
+    "sole": 393,
+    "figure_h": 192
+   },
+   "walk_SW": {
+    "head": 183,
+    "sole": 401,
+    "figure_h": 219
+   },
+   "idle_SW": {
+    "head": 190,
+    "sole": 396,
+    "figure_h": 207
+   },
+   "walk_W": {
+    "head": 182,
+    "sole": 400,
+    "figure_h": 219
+   },
+   "idle_W": {
+    "head": 191,
+    "sole": 398,
+    "figure_h": 208
+   },
+   "walk_NW": {
+    "head": 183,
+    "sole": 392,
+    "figure_h": 210
+   },
+   "idle_NW": {
+    "head": 189,
+    "sole": 398,
+    "figure_h": 210
+   },
+   "walk_N": {
+    "head": 195,
+    "sole": 388,
+    "figure_h": 194
+   },
+   "idle_N": {
+    "head": 201,
+    "sole": 394,
+    "figure_h": 194
+   },
+   "walk_NE": {
+    "head": 184,
+    "sole": 399,
+    "figure_h": 216
+   },
+   "idle_NE": {
+    "head": 189,
+    "sole": 399,
+    "figure_h": 211
+   },
+   "walk_E": {
+    "head": 184,
+    "sole": 393,
+    "figure_h": 210
+   },
+   "idle_E": {
+    "head": 188,
+    "sole": 396,
+    "figure_h": 209
+   },
+   "walk_SE": {
+    "head": 181,
+    "sole": 391,
+    "figure_h": 211
+   },
+   "idle_SE": {
+    "head": 200,
+    "sole": 395,
+    "figure_h": 196
+   }
+  }
+ },
+ "animation_fps": {
+  "walk_S": 4.5,
+  "idle_S": 6.0,
+  "walk_SW": 3.6,
+  "idle_SW": 6.0,
+  "walk_W": 3.130435,
+  "idle_W": 6.0,
+  "walk_NW": 4.114286,
+  "idle_NW": 6.0,
+  "walk_N": 6.545455,
+  "idle_N": 6.0,
+  "walk_NE": 4.5,
+  "idle_NE": 6.0,
+  "walk_E": 4.5,
+  "idle_E": 6.0,
+  "walk_SE": 4.114286,
+  "idle_SE": 6.0
+ },
+ "animation_note": {
+  "walk_S": "stride 64 native frames @ 24 fps = 2.667 s",
+  "idle_S": "breath 48 native frames = 2.0 s",
+  "walk_SW": "stride 80 native frames @ 24 fps = 3.333 s",
+  "idle_SW": "breath 48 native frames = 2.0 s",
+  "walk_W": "stride 92 native frames @ 24 fps = 3.833 s",
+  "idle_W": "breath 48 native frames = 2.0 s",
+  "walk_NW": "stride 70 native frames @ 24 fps = 2.917 s",
+  "idle_NW": "breath 48 native frames = 2.0 s",
+  "walk_N": "stride 44 native frames @ 24 fps = 1.833 s",
+  "idle_N": "breath 48 native frames = 2.0 s",
+  "walk_NE": "stride 64 native frames @ 24 fps = 2.667 s",
+  "idle_NE": "breath 48 native frames = 2.0 s",
+  "walk_E": "stride 64 native frames @ 24 fps = 2.667 s",
+  "idle_E": "breath 48 native frames = 2.0 s",
+  "walk_SE": "stride 70 native frames @ 24 fps = 2.917 s",
+  "idle_SE": "breath 48 native frames = 2.0 s"
+ },
+ "state_map_b": {
+  "walk": "walk",
+  "idle": "idle",
+  "run": "walk",
+  "cast": "idle",
+  "jump": "idle"
+ }
+}
