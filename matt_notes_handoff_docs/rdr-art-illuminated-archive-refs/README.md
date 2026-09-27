@@ -11,8 +11,8 @@
 |---|---|---|
 | **B character** | Getty Ms. 114, fol. 129v, the **right-hand knight** (blue tabard with gold crosses, closed armet). **Skirt removed:** the tabard ends at the hip, with plate legs as on the right-hand knight of fol. 123. **Weapon: poleaxe.** | `character/` |
 | **A character** | The Keeper (existing, H1 register). The EoR Warlord is dropped. | n/a |
-| **Cathedral look** | Belles Heures, Office of the Dead choir (Met 54.1.1a,b; images DP274537 and DP224804) | `cathedral-look/` |
-| Cathedral look, alternate | Spinola Hours fol. 185 (Getty, Flemish, about 1510–20): use it for one Flemish hand across character and scene | `cathedral-look-alt/` |
+| **Cathedral style** | Belles Heures, Office of the Dead choir (Met 54.1.1a,b; images DP274537 and DP224804). Matt: the best register. | `cathedral-look/` |
+| **Cathedral architecture** | Spinola Hours fol. 185 (Getty, Flemish, about 1510–20). **Architecture only:** the vaulted ceiling, the height and the details (tomb, tall windows, tower outside). Not a style source. | `cathedral-look-alt/` |
 | **Cathedral building** | Antwerp, Cathedral of Our Lady: transept plus ambulatory with radiating chapels, laid over the Crucible arena footprint | `cathedral-plan/` |
 | **Cliffside scenery** | *Très Riches Heures* calendar (Limbourg, the same hand as the choir) plus Belles Heures landscapes | `cliffside-horizon/` |
 | Cliffside landmark: cathedral | TRH June, the Sainte-Chapelle | |
