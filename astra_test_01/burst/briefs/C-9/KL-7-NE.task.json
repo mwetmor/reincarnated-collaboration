@@ -1,0 +1,18 @@
+{
+ "text": "GENERATE BURST KL-7-NE \u2014 Run C-9 P4, M3 alignment fix (Matt: \"some of the head positions and feet positions don't quite match\"), direction NE. task_id \"KL-7-NE\".\n\nUse image_gen in EDIT mode on IMAGE 1 (the knight, painted in the hand of a c. 1530 Flemish manuscript, background flat green). Fix ONE thing \u2014 his FEET: he is seen from behind facing the screen's UPPER-RIGHT, but his feet point toward the lower-right. Redraw ONLY his lower legs and feet so both sabatons point AWAY toward the upper-right, heels toward the viewer, consistent with his body.\nPaint the corrected part in EXACTLY the same hand: same line, hatching, uneven washes, gouache-like steel with small dark pits. Keep EVERYTHING ELSE exactly as it is: the rest of the body, the tabard and heraldry, the pollaxe (in his right hand), the size, position, framing and the flat pure #00ff00 background. For this step the REGISTER CARD above is satisfied BY IMAGE 1: do not re-render or restyle.\n\nOne image_gen EDIT call. ONE retry only if the named part is still wrong, anything else changed, or the background is not flat green \u2014 name the reason. Copy the output to out/KL-7-NE.png with sha256. No code. No other files. No web.\nRETURN: receipt task_id \"KL-7-NE\"; images = the file with prompt, references (role + path) and elapsed_s; calls_used = the TRUE number of image_gen calls; status; concerns. Never PASS/FAIL.",
+ "references": [
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/KL-5-NE/KL-5-NE.png",
+   "role": "IMAGE 1 \u2014 THE IMAGE TO EDIT (fix only the named part; direction NE)"
+  }
+ ],
+ "image_cap": 2,
+ "minutes_cap": 15,
+ "tool_call_cap": 20,
+ "outputs": [
+  "out/KL-7-NE.png"
+ ],
+ "effort": "high",
+ "add_dirs": [],
+ "experiment": "P4-turnaround-ladder"
+}

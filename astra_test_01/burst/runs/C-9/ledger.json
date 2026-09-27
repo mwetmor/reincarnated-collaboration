@@ -5123,9 +5123,265 @@
       "codex_version": "codex-cli 0.153.4",
       "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
       "exit": 0
+    },
+    {
+      "id": "KL-7-S",
+      "type": "GENERATE",
+      "experiment": "P4-turnaround-ladder",
+      "register_card": {
+        "path": "runs/C-9/REGISTER_CARD.md",
+        "sha256": "63d25d89a36a91cf772e04f2cd3bf6468105046dbdfdee0ac3ad6e6ecf44245b"
+      },
+      "brief_sha256": "31ed41797b939c3cbb124ebb55e49095d156d8df296081b641390558ae53a87c",
+      "started": "2026-09-27T08:23:54.806892+00:00",
+      "ended": "2026-09-27T08:25:26.220704+00:00",
+      "minutes": 1.5235572027833162,
+      "image_calls": 1,
+      "tool_calls": 2,
+      "audit": {
+        "violations": [],
+        "image_calls": 1,
+        "tool_calls": 2,
+        "tools_seen": {
+          "command_execution": 2
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0e1f6-b161-7d51-ac81-aa82f86130a8/exec-bc058c67-990c-4548-945c-fa93badfb2df.png",
+            "sha256": "50928ee633c149302fce26129da9b3945d1e451a6d6d3d3a0e9de74398c0499b"
+          }
+        ]
+      },
+      "receipt_sha256": "6237c01ed31b5947fcb470b857557d116c383fcf454b89534923ac1fb6164e71",
+      "artifacts": [
+        {
+          "name": "KL-7-S.png",
+          "sha256": "50928ee633c149302fce26129da9b3945d1e451a6d6d3d3a0e9de74398c0499b"
+        },
+        {
+          "name": "exec-bc058c67-990c-4548-945c-fa93badfb2df.provenance.json",
+          "sha256": "9dd100b48f64a2f2620853b5d81803663e43b47b363fa722cd407b4b97f449bb"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0e1f6-b161-7d51-ac81-aa82f86130a8/exec-bc058c67-990c-4548-945c-fa93badfb2df.png",
+          "sha256": "50928ee633c149302fce26129da9b3945d1e451a6d6d3d3a0e9de74398c0499b"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
+    },
+    {
+      "id": "KL-7-NW",
+      "type": "GENERATE",
+      "experiment": "P4-turnaround-ladder",
+      "register_card": {
+        "path": "runs/C-9/REGISTER_CARD.md",
+        "sha256": "63d25d89a36a91cf772e04f2cd3bf6468105046dbdfdee0ac3ad6e6ecf44245b"
+      },
+      "brief_sha256": "b13baafd6c208d712a8747cc7d9b7b59726bb00716bd701e648ccb174ba61b4d",
+      "started": "2026-09-27T08:23:54.806895+00:00",
+      "ended": "2026-09-27T08:25:34.852117+00:00",
+      "minutes": 1.6674123638833407,
+      "image_calls": 1,
+      "tool_calls": 2,
+      "audit": {
+        "violations": [],
+        "image_calls": 1,
+        "tool_calls": 2,
+        "tools_seen": {
+          "command_execution": 2
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0e1f6-b14a-7520-a5e3-5aa1b32e3112/exec-f24a1999-2986-4f41-b48a-5732e8e026c3.png",
+            "sha256": "a6dca9522eae6b4557c7146a0d3d52b00a8ba1856ba67fdc9a3831ca6629b3c3"
+          }
+        ]
+      },
+      "receipt_sha256": "dc52da147513b8cdd1fdb897914315ad23bf9fcb26e7b1c1679832640e990881",
+      "artifacts": [
+        {
+          "name": "KL-7-NW.png",
+          "sha256": "a6dca9522eae6b4557c7146a0d3d52b00a8ba1856ba67fdc9a3831ca6629b3c3"
+        },
+        {
+          "name": "exec-f24a1999-2986-4f41-b48a-5732e8e026c3.provenance.json",
+          "sha256": "952328e19e33a4a62249a6a5bee29314ebdd8ae6bdb2aca5ce9c27caf3522ae8"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0e1f6-b14a-7520-a5e3-5aa1b32e3112/exec-f24a1999-2986-4f41-b48a-5732e8e026c3.png",
+          "sha256": "a6dca9522eae6b4557c7146a0d3d52b00a8ba1856ba67fdc9a3831ca6629b3c3"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
+    },
+    {
+      "id": "KL-7-NE",
+      "type": "GENERATE",
+      "experiment": "P4-turnaround-ladder",
+      "register_card": {
+        "path": "runs/C-9/REGISTER_CARD.md",
+        "sha256": "63d25d89a36a91cf772e04f2cd3bf6468105046dbdfdee0ac3ad6e6ecf44245b"
+      },
+      "brief_sha256": "ccca3c8251ebe46127fe7fe29303d071b4437a938f6dbed0873724d209101946",
+      "started": "2026-09-27T08:23:54.806892+00:00",
+      "ended": "2026-09-27T08:25:36.194252+00:00",
+      "minutes": 1.6897822951500225,
+      "image_calls": 1,
+      "tool_calls": 2,
+      "audit": {
+        "violations": [],
+        "image_calls": 1,
+        "tool_calls": 2,
+        "tools_seen": {
+          "command_execution": 2
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0e1f6-b1c3-7592-b8bd-ccf86cc8369a/exec-c2bc6987-b788-4a51-9386-ad5643775eb3.png",
+            "sha256": "21406684c39c5e56a928e44b29da05c7a659078ffbe769435740ec910cb8f30e"
+          }
+        ]
+      },
+      "receipt_sha256": "4d783fd48c9b6366b818faa675f0dfa1093433401d9c3488537875ab71a13ca6",
+      "artifacts": [
+        {
+          "name": "KL-7-NE.png",
+          "sha256": "21406684c39c5e56a928e44b29da05c7a659078ffbe769435740ec910cb8f30e"
+        },
+        {
+          "name": "exec-c2bc6987-b788-4a51-9386-ad5643775eb3.provenance.json",
+          "sha256": "0fa666696fd39d5fab9e3b399cf6fc355522bfbb0d55c1eea66cd6568d339190"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0e1f6-b1c3-7592-b8bd-ccf86cc8369a/exec-c2bc6987-b788-4a51-9386-ad5643775eb3.png",
+          "sha256": "21406684c39c5e56a928e44b29da05c7a659078ffbe769435740ec910cb8f30e"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
+    },
+    {
+      "id": "KL-7-N",
+      "type": "GENERATE",
+      "experiment": "P4-turnaround-ladder",
+      "register_card": {
+        "path": "runs/C-9/REGISTER_CARD.md",
+        "sha256": "63d25d89a36a91cf772e04f2cd3bf6468105046dbdfdee0ac3ad6e6ecf44245b"
+      },
+      "brief_sha256": "036a4fcbfe7d2fe438264dcd9a798c542ba0d76dc3949be418bc46ba5de25d96",
+      "started": "2026-09-27T08:23:54.806892+00:00",
+      "ended": "2026-09-27T08:26:18.010312+00:00",
+      "minutes": 2.3867171659834034,
+      "image_calls": 2,
+      "tool_calls": 2,
+      "audit": {
+        "violations": [],
+        "image_calls": 2,
+        "tool_calls": 2,
+        "tools_seen": {
+          "command_execution": 2
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0e1f6-b17c-7d03-80ec-37f3441f3b64/exec-3a001058-322c-4804-b1e6-d6a622e8aafc.png",
+            "sha256": "421ae452b97acec80d751c4c41c0501b58a1d5becf56691ad35165cadf7a251f"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0e1f6-b17c-7d03-80ec-37f3441f3b64/exec-44d8b1d6-34c4-49af-9490-28db71ec3459.png",
+            "sha256": "0a419262943d290447109f7fd54d8a659d7d57f2c09448fd0c9d61c29b0f4e00"
+          }
+        ]
+      },
+      "receipt_sha256": "7c69abed1dd25cec392db50fe97aed42d785e366fca3c69bb2951b07d06852ae",
+      "artifacts": [
+        {
+          "name": "KL-7-N.png",
+          "sha256": "0a419262943d290447109f7fd54d8a659d7d57f2c09448fd0c9d61c29b0f4e00"
+        },
+        {
+          "name": "exec-3a001058-322c-4804-b1e6-d6a622e8aafc.provenance.json",
+          "sha256": "0555b6af633375d9a7dbdf0f297a1e00d3abe287ca578aee81b630a83d7dca86"
+        },
+        {
+          "name": "exec-44d8b1d6-34c4-49af-9490-28db71ec3459.provenance.json",
+          "sha256": "e0f59fae2fa236742f9ab755233329283f13229b1b9005fff7e346bb1ee5b41f"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0e1f6-b17c-7d03-80ec-37f3441f3b64/exec-3a001058-322c-4804-b1e6-d6a622e8aafc.png",
+          "sha256": "421ae452b97acec80d751c4c41c0501b58a1d5becf56691ad35165cadf7a251f"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0e1f6-b17c-7d03-80ec-37f3441f3b64/exec-44d8b1d6-34c4-49af-9490-28db71ec3459.png",
+          "sha256": "0a419262943d290447109f7fd54d8a659d7d57f2c09448fd0c9d61c29b0f4e00"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
     }
   ],
-  "images_used": 136,
+  "images_used": 141,
   "images_cap": 400,
   "experiments": {},
   "milestones": [
@@ -5178,6 +5434,16 @@
       "id": "M-C9-M4-CLIFF",
       "ts_note": "Cliffside B layered preview built (plate 17/17 + sky/far/forest/mist, forest-0_0 keying repaired: top-quarter green 0.81). Static stack is evidence only (in-game placement = scroll/sim_view). Sent to Matt as M4 (cliffside half; the cathedral half waits on the parked S1/S4/S5 sitting). Remaining for the playable cliffside: dressing props + near layer + PACK/Godot (drax) + the knight motion (Grok top-up).",
       "ts": "2026-09-27T01:18:54"
+    },
+    {
+      "id": "M-C9-M3-ALIGNED",
+      "ts_note": "KL-7 fixes 4/4 exit 0: S helm now faces the camera; N and NE feet now point away (heels to viewer); NW rear foot fixed, front foot angled left (consistent with facing upper-left). Turnaround of record: S=KL-7-S, SW=KL-6-SW, W=KL-5-W, NW=KL-7-NW, N=KL-7-N, NE=KL-7-NE, E=KL-5-E, SE=KL-6-SE. Matt: dressing props follow the original C-3 process; walk the scene BEFORE spending on objects (props deferred until after the walk).",
+      "ts": "2026-09-27T04:27:19"
+    },
+    {
+      "id": "M-C9-WALKABLE",
+      "ts_note": "drax delivered the walkable cliffside A/B (collab a70e840c, no push): ~/Desktop/Astra Burst Review - 2026-09-26/C-9 cliffside AB/C-9 Cliffside AB.app (universal, unsigned, quarantine cleared). T toggles 6 textures (2 tiles + 4 layers) in place; 61 H1-register nodes (49 props, 7 glows, swarm, particles, near, shadows, overhead) hidden in B. Probe 17/17 (0 errors; Keeper 247 px/60 frames in 4 dirs, both styles); the .app launched for real and the T keypress verified in the binary. drax forks: measured green-key ramp; layers stretched to H1 sizes (sky/forest ~1.6x vertical -- repaint at H1 aspect if redone); B mist alpha capped 220; HUD moved to bottom. Conductor caveat for Matt: A has props, B is bare until dressing (deferred by Matt until after the walk). AWAITING MATT WALK.",
+      "ts": "2026-09-27T04:38:34"
     }
   ],
   "halts": [],
@@ -5310,6 +5576,14 @@
       "topic": "Parallax 16/16 painted; keying defect found by eye in forest 0_0-r1",
       "ruling": "p5L driver done: 16/16 panels (forest-0_0 needed its retry). DRIFT-CRITIC on the layered preview: L9-forest-0_0-r1 passed the wrapper audit (exit 0) but left black/dark gradient above the treeline instead of flat #00ff00 -> it would not key. The audit does not test keying: conductor check owed per keyed panel (green-above-silhouette fraction). Repair: L9-forest-0_0-fix (EDIT, above-treeline -> #00ff00 only). The bottom black band in the static preview is a preview artifact (layers do not cover the canvas without scroll placement).",
       "ts": "2026-09-27T01:15:19"
+    },
+    {
+      "id": "R-C9-16",
+      "class": "matt",
+      "veto_open": false,
+      "topic": "M3 alignment + walkability + Grok",
+      "ruling": "Matt verbatim: \"Regarding M4, can I walk it yet and see the motion/parralax? Regarding M3, some of the head positions and feet positions don’t quite match.. is that ok? Grok has fully available credits.\" Conductor audit: S helm turned screen-right (body faces camera; S reads like SE); N/NW/NE feet point toward the viewer in back views. Fixes fired: KL-7-{S (helm faces camera), N, NW, NE (feet point away)} by targeted EDIT. drax dispatched (named agent) for a local walkable cliffside A/B with a T style toggle (B = C-9 plate + parallax; H1 props hidden in B; Keeper as the walker). Grok credits available -> P7 motion unblocked after M3.",
+      "ts": "2026-09-27T04:23:54"
     }
   ],
   "grok_calls": [],
