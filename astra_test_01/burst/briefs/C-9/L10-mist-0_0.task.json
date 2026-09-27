@@ -1,0 +1,22 @@
+{
+ "text": "GENERATE BURST L10-mist-0_0 — Run C-9 P5 parallax panel, the FIRST panel of its layer (Matt R-C9-21). task_id \"L10-mist-0_0\".\n\nThis image is one panel (upper-left (thin wisps)) of a 2x2 grid of 1536x1024 panels (neighbours overlap by 256 px) that together form ONE continuous painted parallax background layer for a 2D game scene seen past a cliff edge. The whole layer is the MIST layer: soft drifting banks of pale mist painted as LIGHT on a PURE BLACK background (black = fully transparent in the game, brighter = more opaque mist): cream, peach and pale lavender washes with soft, uneven watercolor edges, lit by the sunset. Thin and wispy in the upper half, thickening into low banks toward the bottom; no two banks alike. No land, no trees, no sky colour on the black.\nIMAGE 1 is a flat black placeholder canvas of the right size; paint the whole panel. Deliver ONE LANDSCAPE 1536x1024 image of this panel.\nSTYLE: the REGISTER CARD above; line, hatching and washes matched to IMAGE 2 (the approved painted style of this level), the pen line lighter and thinner with distance. No characters, creatures, text, UI, border or vignette.\n\nOne image_gen call. ONE retry only if a painted strip was altered, a join remains, the layer contains a cliff rim/characters/text, or (keyed layers) the area above the silhouette is not flat pure #00ff00 — name the reason. Copy the output from $CODEX_HOME/generated_images/... to out/L10-mist-0_0.png with sha256. No code. No other files. No web.\nRETURN: receipt task_id \"L10-mist-0_0\"; images = the file with prompt, references and elapsed_s; calls_used = the TRUE number of image_gen calls; status; concerns. Never PASS/FAIL.",
+ "references": [
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/CS9-guides/L10-mist-0_0_canvas.png",
+   "role": "IMAGE 1 — the canvas to EDIT (painted neighbour strips + placeholder)"
+  },
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/S1-ink/S1-ink_b.png",
+   "role": "IMAGE 2 — the approved painted STYLE of this level (line, hatching, washes; not its layout)"
+  }
+ ],
+ "image_cap": 2,
+ "minutes_cap": 15,
+ "tool_call_cap": 20,
+ "outputs": [
+  "out/L10-mist-0_0.png"
+ ],
+ "effort": "high",
+ "add_dirs": [],
+ "experiment": "P5-parallax-L10"
+}

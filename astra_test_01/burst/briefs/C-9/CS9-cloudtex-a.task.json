@@ -1,0 +1,22 @@
+{
+ "text": "GENERATE BURST CS9-cloudtex-a \u2014 Run C-9 P5, the CLOUD-BANK TEXTURE for the cliffside canyon (Matt R-C9-21: \"implement the clouds from the prior cliffside scene \u2014 the opaque ones which were purpose built to explain the cliff's detail and which were made to look like real clouds\"). task_id \"CS9-cloudtex-a\".\n\nPaint ONE 1536x1024 image ENTIRELY filled, edge to edge, with a dense, opaque bank of billowing valley cumulus seen from above at a high three-quarter angle, lit by a warm SUNSET from the UPPER-LEFT: rose-peach and warm cream on the lit billow tops, soft lavender and dusky violet in the shadowed hollows between billows, a few thin wisps. They must READ AS REAL CLOUDS \u2014 believable volume, soft light and shadow, natural irregular billows \u2014 rendered in our register (the REGISTER CARD above): a hand-painted watercolor-and-ink look with soft uneven washes and a fine, light pen line only where a billow edge needs it; never flat cartoon puffs, never a photograph. IMAGE 1 is GEOMETRY-ONLY: the approved cloud bank from the earlier scene \u2014 match its cloud forms, billow scale and density, NOT its style or colours. IMAGE 2 is our painted style (line and washes only; not its content).\nCONSTRAINTS: no sky, no ground, no rock, no trees, no horizon, no empty gaps \u2014 clouds fill 100 % of the frame; billows roughly uniform in scale across the frame (each billow head about 120-260 px wide), no single dominant feature, NO two billows alike; the LEFT and RIGHT edges must tile seamlessly; even overall brightness top to bottom (no vignette, no gradient to dark). No characters, text, UI, border.\n\nOne image_gen call. ONE retry only if the frame is not fully filled with clouds, a sky/horizon/ground appears, the clouds read as flat cartoon puffs, or the left/right edges clearly do not tile \u2014 name the reason. Copy the output to out/cloudtex_a.png with sha256. No code. No other files. No web.\nRETURN: receipt task_id \"CS9-cloudtex-a\"; images = the file with prompt, references and elapsed_s; calls_used = the TRUE number of image_gen calls; status; concerns. Never PASS/FAIL.",
+ "references": [
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/CS-cloudtex-a/cloudtex_a.png",
+   "role": "IMAGE 1 \u2014 GEOMETRY-ONLY: the approved cloud bank (forms, billow scale, density); a different style \u2014 copy nothing else"
+  },
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/S1-ink/S1-ink_b.png",
+   "role": "IMAGE 2 \u2014 our painted style (line and washes only; not its content)"
+  }
+ ],
+ "image_cap": 2,
+ "minutes_cap": 15,
+ "tool_call_cap": 20,
+ "outputs": [
+  "out/cloudtex_a.png"
+ ],
+ "effort": "high",
+ "add_dirs": [],
+ "experiment": "P5-cloudband"
+}

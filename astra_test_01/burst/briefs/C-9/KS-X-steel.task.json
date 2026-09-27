@@ -1,0 +1,23 @@
+{
+ "text": "GENERATE BURST KS-X-steel \u2014 Run C-9 P4, ONE steel repaint for the whole sheet (Matt R-C9-22). task_id \"KS-X-steel\".\n\nUse image_gen in EDIT mode on IMAGE 1: a sheet of 4 slots holding the SAME knight facing the viewer (S), the lower-left (SW), screen-left (W) and away to the upper-left (NW). His plate armour is painted too PALE, flat and uniformly SPECKLED. Repaint ONLY THE STEEL of all four figures, identically, in the painter's hand shown in IMAGE 2 (the same knight earlier in the process, from a c. 1530 Flemish manuscript): deep, dark gouache modelling on the plate \u2014 strong darks in the recesses and under each plate edge, bright highlights on the curves, cool blue-grey and warm grey mixed, a confident dark contour, and small IRREGULAR marks and imperfections (NOT an even speckle). Apply the SAME treatment to every figure so they stay a matched set.\nKeep EVERYTHING ELSE EXACTLY as it is: every figure's pose, direction, outline and proportions; the helm SHAPE (rounded skull, smooth rounded visor with one row of holes \u2014 only its steel is repainted); the knee wings and plate shapes; the blue tabard, gold heraldry, side flaps and red lining (untouched); the pollaxe; positions on the sheet; flat pure #00ff00 background. For this step the REGISTER CARD above is satisfied BY THE IMAGES: this is a steel repaint, not a restyle.\n\nTwo image_gen EDIT calls: variants a and b. ONE retry per variant only if any figure's pose/direction/outline/helm shape/tabard changed, the steel is still pale and evenly speckled, the figures no longer match each other, or the background is not flat green \u2014 name the reason. Copy outputs to out/KS-X-steel_a.png and out/KS-X-steel_b.png with sha256. No code. No other files. No web.\nRETURN: receipt task_id \"KS-X-steel\"; images = the files with prompt, references (role + path) and elapsed_s; calls_used = the TRUE number of image_gen calls; status; concerns. Never PASS/FAIL.",
+ "references": [
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/inputs/sheetX_S_SW_W_NW.png",
+   "role": "IMAGE 1 \u2014 THE SHEET TO EDIT (repaint only the steel, identically on all four)"
+  },
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/KL-2-repose/KL-2-repose_a.png",
+   "role": "IMAGE 2 \u2014 the painter's hand for the steel (dark gouache modelling, irregular marks)"
+  }
+ ],
+ "image_cap": 4,
+ "minutes_cap": 15,
+ "tool_call_cap": 20,
+ "outputs": [
+  "out/KS-X-steel_a.png",
+  "out/KS-X-steel_b.png"
+ ],
+ "effort": "high",
+ "add_dirs": [],
+ "experiment": "P4-turnaround-sheet"
+}
