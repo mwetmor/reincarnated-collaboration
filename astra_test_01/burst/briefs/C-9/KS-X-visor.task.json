@@ -1,0 +1,23 @@
+{
+ "text": "GENERATE BURST KS-X-visor \u2014 Run C-9 P4, M3 last fix (Matt: \"the helm flap is too small in South\"). task_id \"KS-X-visor\".\n\nUse image_gen in EDIT mode on IMAGE 1: a sheet of 4 slots of the same knight. Change ONLY the HELM VISOR of the figure in SLOT 1 (leftmost, facing the viewer): it is too small \u2014 a thin band. Make it the full-size visor that the other figures on this sheet wear (slots 2-4, and IMAGE 2's front-diagonal view): a large, smooth, rounded visor plate covering the whole face from brow to chin, projecting slightly forward, crossed by a single row of small round holes, with the same dark gouache steel. The skull above it stays as it is.\nKeep EVERYTHING ELSE EXACTLY as it is: slots 2-4 untouched; slot 1's body, tabard, heraldry, pollaxe, pose; positions; flat pure #00ff00 background. For this step the REGISTER CARD above is satisfied BY THE IMAGES: do not restyle.\n\nTwo image_gen EDIT calls: variants a and b. ONE retry per variant only if slot 1's visor is still small, anything outside slot 1's visor changed, or the background is not flat green \u2014 name the reason. Copy outputs to out/KS-X-visor_a.png and out/KS-X-visor_b.png with sha256. No code. No other files. No web.\nRETURN: receipt task_id \"KS-X-visor\"; images = the files with prompt, references (role + path) and elapsed_s; calls_used = the TRUE number of image_gen calls; status; concerns. Never PASS/FAIL.",
+ "references": [
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/KS-X-steel/KS-X-steel_a.png",
+   "role": "IMAGE 1 \u2014 THE SHEET TO EDIT (change only slot 1's visor)"
+  },
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/KS-Y-steel/KS-Y-steel_a.png",
+   "role": "IMAGE 2 \u2014 the same knight; slot 4 (lower-right diagonal) shows the full-size visor"
+  }
+ ],
+ "image_cap": 4,
+ "minutes_cap": 15,
+ "tool_call_cap": 20,
+ "outputs": [
+  "out/KS-X-visor_a.png",
+  "out/KS-X-visor_b.png"
+ ],
+ "effort": "high",
+ "add_dirs": [],
+ "experiment": "P4-turnaround-sheet"
+}

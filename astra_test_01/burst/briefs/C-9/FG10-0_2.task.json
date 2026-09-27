@@ -1,0 +1,22 @@
+{
+ "text": "GENERATE BURST FG10-0_2 — Run C-9 P5, forest layer panel 0_2 by OUTPAINTING over a layout guide (Matt R-C9-21: nothing may repeat). task_id \"FG10-0_2\".\n\nIMAGE 1 is the canvas to EDIT (1536x1024): its TOP 256 rows; its top-right 256x256 corner are ALREADY PAINTED (real pixels from neighbouring panels); in the rest, the flat colours are a LAYOUT GUIDE: DARK GREEN = dense manuscript forest seen from high above and far away (tiny tree crowns, a few pixels to about 20 px across, dabs of green with some ochre and red-brown, dark trunks); LIGHT OLIVE = an open meadow or field (each a different shape, tiny flowers); LIGHT BLUE line = the ONE river, catching the sunset (paint it exactly where the line runs, same width); ORANGE disc in a DARK ring = a forest FIRE — orange flames, burnt black ground around it, a column of smoke drifting up (paint a fire ONLY where a disc is, at that size); PURE GREEN #00ff00 = empty sky above the treeline (keep it flat pure #00ff00, with a clean treetop edge).\nUse image_gen in EDIT mode on IMAGE 1: keep the painted strips as they are and replace every flat guide colour with painting that CONTINUES them seamlessly (no visible join). Follow the guide EXACTLY: no river, fire, meadow or clearing anywhere the guide does not put one; NOTHING repeats — no two clumps, meadows or fires alike. STYLE: the REGISTER CARD above; IMAGE 2 shows the painted look and tree scale to match (NOT its layout — it has extra rivers and fires that must NOT appear here). No characters, text, UI, border.\n\nOne image_gen EDIT call. ONE retry only if a painted strip was altered, a join remains, a river/fire appears where the guide has none, the sky area is not flat pure #00ff00, or guide colours remain unpainted — name the reason. Copy the output to out/FG10-0_2.png with sha256. No code. No other files. No web.\nRETURN: receipt task_id \"FG10-0_2\"; images = the file with prompt, references and elapsed_s; calls_used = the TRUE number of image_gen calls; status; concerns. Never PASS/FAIL.",
+ "references": [
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/CS9-guides/FG10-0_2_canvas.png",
+   "role": "IMAGE 1 — the canvas to EDIT (painted neighbour strips + layout guide)"
+  },
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/L10-forest-1_1/L10-forest-1_1.png",
+   "role": "IMAGE 2 — painted look and tree scale ONLY (not its layout: its extra rivers and fires must not appear)"
+  }
+ ],
+ "image_cap": 2,
+ "minutes_cap": 15,
+ "tool_call_cap": 20,
+ "outputs": [
+  "out/FG10-0_2.png"
+ ],
+ "effort": "high",
+ "add_dirs": [],
+ "experiment": "P5-forest-guided"
+}

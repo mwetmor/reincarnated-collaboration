@@ -7835,9 +7835,963 @@
       "codex_version": "codex-cli 0.153.4",
       "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
       "exit": 0
+    },
+    {
+      "id": "L10-forest-1_1",
+      "type": "GENERATE",
+      "experiment": "P5-parallax-L10",
+      "register_card": {
+        "path": "runs/C-9/REGISTER_CARD.md",
+        "sha256": "6c1ebc7531e5be7e3a54079d86f4cbd30ec9af06fa71c0e62ab070f49116a98a"
+      },
+      "brief_sha256": "4859846be0a24ff2d88cbfbc97125af9352147a755bcf1dc06ae64d9b77d974d",
+      "started": "2026-09-27T13:11:41.907705+00:00",
+      "ended": "2026-09-27T13:14:24.391343+00:00",
+      "minutes": 2.708027893749992,
+      "image_calls": 1,
+      "tool_calls": 4,
+      "audit": {
+        "violations": [],
+        "image_calls": 1,
+        "tool_calls": 4,
+        "tools_seen": {
+          "command_execution": 4
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0e2fe-267c-7a10-9d51-f3860f357a91/exec-5a55982b-74a6-47bf-b8d8-14c5b1da2845.png",
+            "sha256": "71907f0225bd526ebb790a0e49f48ee4bfd5b91bb6f05b45ddc78d0437bd78da"
+          }
+        ]
+      },
+      "receipt_sha256": "efc72cdbc8f9ec2317ea3c849041faf81b553e51a00b174e6429691f5785d07e",
+      "artifacts": [
+        {
+          "name": "L10-forest-1_1.png",
+          "sha256": "71907f0225bd526ebb790a0e49f48ee4bfd5b91bb6f05b45ddc78d0437bd78da"
+        },
+        {
+          "name": "exec-5a55982b-74a6-47bf-b8d8-14c5b1da2845.provenance.json",
+          "sha256": "5afcbf9bbff25a7d9a6976bfdb607f38221c6ccbed9d5a78c6fc51941deba483"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0e2fe-267c-7a10-9d51-f3860f357a91/exec-5a55982b-74a6-47bf-b8d8-14c5b1da2845.png",
+          "sha256": "71907f0225bd526ebb790a0e49f48ee4bfd5b91bb6f05b45ddc78d0437bd78da"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
+    },
+    {
+      "id": "L10-forest-0_2",
+      "type": "GENERATE",
+      "experiment": "P5-parallax-L10",
+      "register_card": {
+        "path": "runs/C-9/REGISTER_CARD.md",
+        "sha256": "6c1ebc7531e5be7e3a54079d86f4cbd30ec9af06fa71c0e62ab070f49116a98a"
+      },
+      "brief_sha256": "c940dfc604000b757ade41b5444f8918f18e88ce1d7f5508ed9f59586ba978ed",
+      "started": "2026-09-27T13:14:26.119094+00:00",
+      "ended": "2026-09-27T13:16:55.264028+00:00",
+      "minutes": 2.485718465266594,
+      "image_calls": 1,
+      "tool_calls": 2,
+      "audit": {
+        "violations": [],
+        "image_calls": 1,
+        "tool_calls": 2,
+        "tools_seen": {
+          "command_execution": 2
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0e300-a7f4-7cc1-962b-d267b653abb8/exec-1f43503b-2ccc-43d7-a785-e52bad021d24.png",
+            "sha256": "f6f946ae6ff64441d4001e2f7ed4e6a9cbfb6c9ebfb401572c60eca3f5bc6418"
+          }
+        ]
+      },
+      "receipt_sha256": "6573a448d7f31aa6b9a27c985c073032e384919bde5b3c4c3a6b54de7ccad548",
+      "artifacts": [
+        {
+          "name": "L10-forest-0_2.png",
+          "sha256": "f6f946ae6ff64441d4001e2f7ed4e6a9cbfb6c9ebfb401572c60eca3f5bc6418"
+        },
+        {
+          "name": "exec-1f43503b-2ccc-43d7-a785-e52bad021d24.provenance.json",
+          "sha256": "3b11309d5b5eb4f8eb50d8e551b55c9318d8e17f4e73e65702bba2e767fa3664"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0e300-a7f4-7cc1-962b-d267b653abb8/exec-1f43503b-2ccc-43d7-a785-e52bad021d24.png",
+          "sha256": "f6f946ae6ff64441d4001e2f7ed4e6a9cbfb6c9ebfb401572c60eca3f5bc6418"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
+    },
+    {
+      "id": "L10-forest-2_1",
+      "type": "GENERATE",
+      "experiment": "P5-parallax-L10",
+      "register_card": {
+        "path": "runs/C-9/REGISTER_CARD.md",
+        "sha256": "6c1ebc7531e5be7e3a54079d86f4cbd30ec9af06fa71c0e62ab070f49116a98a"
+      },
+      "brief_sha256": "581bc8dc5f78a9271a39be9080dc926dbfcb06bc3c9a0c986c421d3ba96cf659",
+      "started": "2026-09-27T13:14:26.119094+00:00",
+      "ended": "2026-09-27T13:17:06.655596+00:00",
+      "minutes": 2.6755758777833156,
+      "image_calls": 1,
+      "tool_calls": 2,
+      "audit": {
+        "violations": [],
+        "image_calls": 1,
+        "tool_calls": 2,
+        "tools_seen": {
+          "command_execution": 2
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0e300-a7f2-7bb0-872c-e71f95b35872/exec-41561b30-f07b-4106-a0a3-d777a9161710.png",
+            "sha256": "b555a9c2fd7d7fbfc6cf3ef0ff8638741bec7522037f04f094b7a889f7d00abe"
+          }
+        ]
+      },
+      "receipt_sha256": "cb16128a2904c10553596d347ca0ed34bb3c9e7590e1ab93f202abcbc3e03f70",
+      "artifacts": [
+        {
+          "name": "L10-forest-2_1.png",
+          "sha256": "b555a9c2fd7d7fbfc6cf3ef0ff8638741bec7522037f04f094b7a889f7d00abe"
+        },
+        {
+          "name": "exec-41561b30-f07b-4106-a0a3-d777a9161710.provenance.json",
+          "sha256": "1fa636143c16de913aa39ae00dc4a88bf49c956c94f43efabc3f981e5d946440"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0e300-a7f2-7bb0-872c-e71f95b35872/exec-41561b30-f07b-4106-a0a3-d777a9161710.png",
+          "sha256": "b555a9c2fd7d7fbfc6cf3ef0ff8638741bec7522037f04f094b7a889f7d00abe"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
+    },
+    {
+      "id": "L10-forest-1_2",
+      "type": "GENERATE",
+      "experiment": "P5-parallax-L10",
+      "register_card": {
+        "path": "runs/C-9/REGISTER_CARD.md",
+        "sha256": "6c1ebc7531e5be7e3a54079d86f4cbd30ec9af06fa71c0e62ab070f49116a98a"
+      },
+      "brief_sha256": "260883b181bfbd92f90ff64c870bd70150282b42d7b2ec502b0c8c1d43fb0778",
+      "started": "2026-09-27T13:17:07.867655+00:00",
+      "ended": "2026-09-27T13:19:44.961944+00:00",
+      "minutes": 2.618206942366669,
+      "image_calls": 1,
+      "tool_calls": 5,
+      "audit": {
+        "violations": [],
+        "image_calls": 1,
+        "tool_calls": 5,
+        "tools_seen": {
+          "command_execution": 5
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0e303-1fc7-7c63-a93b-ac0b64d31cc3/exec-29a77ba0-d906-4d0e-8107-f2f816c711c7.png",
+            "sha256": "451a404e7c271f31cc07122506aee244a808538026b3ed3841364f1b0000fb3a"
+          }
+        ]
+      },
+      "receipt_sha256": "2c254e34ffc80b69b7afd92ea2d737f28eae0c02b745bf5352279aab661affd9",
+      "artifacts": [
+        {
+          "name": "L10-forest-1_2.png",
+          "sha256": "451a404e7c271f31cc07122506aee244a808538026b3ed3841364f1b0000fb3a"
+        },
+        {
+          "name": "exec-29a77ba0-d906-4d0e-8107-f2f816c711c7.provenance.json",
+          "sha256": "9352bf0b90e324055986f04c8a0376010ae2ce26d97434d815f45afd84519b53"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0e303-1fc7-7c63-a93b-ac0b64d31cc3/exec-29a77ba0-d906-4d0e-8107-f2f816c711c7.png",
+          "sha256": "451a404e7c271f31cc07122506aee244a808538026b3ed3841364f1b0000fb3a"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
+    },
+    {
+      "id": "L10-forest-2_2",
+      "type": "GENERATE",
+      "experiment": "P5-parallax-L10",
+      "register_card": {
+        "path": "runs/C-9/REGISTER_CARD.md",
+        "sha256": "6c1ebc7531e5be7e3a54079d86f4cbd30ec9af06fa71c0e62ab070f49116a98a"
+      },
+      "brief_sha256": "036a5bdee69691de809a613d05c5f2abc2380c21302e668eaac4ac4460ab44e1",
+      "started": "2026-09-27T13:19:46.026706+00:00",
+      "ended": "2026-09-27T13:22:07.490582+00:00",
+      "minutes": 2.357705292366639,
+      "image_calls": 1,
+      "tool_calls": 2,
+      "audit": {
+        "violations": [],
+        "image_calls": 1,
+        "tool_calls": 2,
+        "tools_seen": {
+          "command_execution": 2
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0e305-8987-7d81-ace2-e1c0e2253866/exec-2a23e677-9cf8-4d65-ad94-0e519fb38735.png",
+            "sha256": "81211197783b529d057ed0bf7227354ad6ddf63992b668c809e8eef704959c49"
+          }
+        ]
+      },
+      "receipt_sha256": "d56b76104f27c93abfb71ef971fa642029b8cf3273ff180ef6936afdc9eb24b4",
+      "artifacts": [
+        {
+          "name": "L10-forest-2_2.png",
+          "sha256": "81211197783b529d057ed0bf7227354ad6ddf63992b668c809e8eef704959c49"
+        },
+        {
+          "name": "exec-2a23e677-9cf8-4d65-ad94-0e519fb38735.provenance.json",
+          "sha256": "114b57e234f6b816c5f50f33907be757dd375ec230f7d32f9a4aa7b315f5102b"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0e305-8987-7d81-ace2-e1c0e2253866/exec-2a23e677-9cf8-4d65-ad94-0e519fb38735.png",
+          "sha256": "81211197783b529d057ed0bf7227354ad6ddf63992b668c809e8eef704959c49"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
+    },
+    {
+      "id": "KS-X-visor",
+      "type": "GENERATE",
+      "experiment": "P4-turnaround-sheet",
+      "register_card": {
+        "path": "runs/C-9/REGISTER_CARD.md",
+        "sha256": "6c1ebc7531e5be7e3a54079d86f4cbd30ec9af06fa71c0e62ab070f49116a98a"
+      },
+      "brief_sha256": "5e69f9f174f36399cde084068b036c90c2c5cfe962f82d3414a6239f6763abaf",
+      "started": "2026-09-27T13:19:39.529691+00:00",
+      "ended": "2026-09-27T13:24:25.452086+00:00",
+      "minutes": 4.765319448616598,
+      "image_calls": 4,
+      "tool_calls": 5,
+      "audit": {
+        "violations": [],
+        "image_calls": 4,
+        "tool_calls": 5,
+        "tools_seen": {
+          "command_execution": 5
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0e305-702b-7f01-97f0-51db80def745/exec-09f12d0a-3a26-46fc-a945-240804cf0dfe.png",
+            "sha256": "3e13a42694d81e6800cbbe14496e55bd4f940be0ffb325de69b3f41b31d3d410"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0e305-702b-7f01-97f0-51db80def745/exec-13f4e54e-6cd6-446e-9b76-9506ed5184df.png",
+            "sha256": "cf6de0b21bc3c25eab391233df288d2e061bef233c64bb5be4556f121e0ee01f"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0e305-702b-7f01-97f0-51db80def745/exec-665915fc-c866-46f6-84db-b5d0f5fcc699.png",
+            "sha256": "b7ff09cc3c78f85f98024c493de4d89cafbcd7d12657607696abec5dc15af352"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0e305-702b-7f01-97f0-51db80def745/exec-942ec6b7-d9f0-4692-9d0c-1be59377da3b.png",
+            "sha256": "17581ff89056b75ac24b60ccd670ac1f4320089adf4f559fd0e0fcced65df247"
+          }
+        ]
+      },
+      "receipt_sha256": "21a6bf27b5e0c9cda7c25e0cfec7c12377649945f52cdf016bf164f1b4e20c06",
+      "artifacts": [
+        {
+          "name": "KS-X-visor_a.png",
+          "sha256": "b7ff09cc3c78f85f98024c493de4d89cafbcd7d12657607696abec5dc15af352"
+        },
+        {
+          "name": "KS-X-visor_b.png",
+          "sha256": "3e13a42694d81e6800cbbe14496e55bd4f940be0ffb325de69b3f41b31d3d410"
+        },
+        {
+          "name": "exec-09f12d0a-3a26-46fc-a945-240804cf0dfe.provenance.json",
+          "sha256": "51c5c593926773b710dc57154288ac7b1c28037043734a01889803f4b6f54561"
+        },
+        {
+          "name": "exec-13f4e54e-6cd6-446e-9b76-9506ed5184df.provenance.json",
+          "sha256": "571cb443578e87dc29eb21d90417f18481e0792b42693d99876c27ba9a4d653d"
+        },
+        {
+          "name": "exec-665915fc-c866-46f6-84db-b5d0f5fcc699.provenance.json",
+          "sha256": "acd8c340ae25bd0ba8e4a012e7dbb1e576149e2bc07ac3662ee1c6f0f7cc5602"
+        },
+        {
+          "name": "exec-942ec6b7-d9f0-4692-9d0c-1be59377da3b.provenance.json",
+          "sha256": "ad232d062e65fdc9b32726eaf692ae2f9026c24c4dcee2b6d7dbdb29c1b910d9"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0e305-702b-7f01-97f0-51db80def745/exec-09f12d0a-3a26-46fc-a945-240804cf0dfe.png",
+          "sha256": "3e13a42694d81e6800cbbe14496e55bd4f940be0ffb325de69b3f41b31d3d410"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0e305-702b-7f01-97f0-51db80def745/exec-13f4e54e-6cd6-446e-9b76-9506ed5184df.png",
+          "sha256": "cf6de0b21bc3c25eab391233df288d2e061bef233c64bb5be4556f121e0ee01f"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0e305-702b-7f01-97f0-51db80def745/exec-665915fc-c866-46f6-84db-b5d0f5fcc699.png",
+          "sha256": "b7ff09cc3c78f85f98024c493de4d89cafbcd7d12657607696abec5dc15af352"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0e305-702b-7f01-97f0-51db80def745/exec-942ec6b7-d9f0-4692-9d0c-1be59377da3b.png",
+          "sha256": "17581ff89056b75ac24b60ccd670ac1f4320089adf4f559fd0e0fcced65df247"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
+    },
+    {
+      "id": "L10fix-far-LL",
+      "type": "GENERATE",
+      "experiment": "P5-parallax-L10",
+      "register_card": {
+        "path": "runs/C-9/REGISTER_CARD.md",
+        "sha256": "6c1ebc7531e5be7e3a54079d86f4cbd30ec9af06fa71c0e62ab070f49116a98a"
+      },
+      "brief_sha256": "13bc18bbfadc9484cbe812a090c22c5057c18a058ee1744678dedcfba5209889",
+      "started": "2026-09-27T13:27:27.133748+00:00",
+      "ended": "2026-09-27T13:29:56.093424+00:00",
+      "minutes": 2.4826295610999902,
+      "image_calls": 2,
+      "tool_calls": 3,
+      "audit": {
+        "violations": [],
+        "image_calls": 2,
+        "tool_calls": 3,
+        "tools_seen": {
+          "command_execution": 3
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0e30c-938d-7d13-b063-59a0b6100394/exec-4a02135d-ea16-456f-9ab4-ce6d77a6a7fa.png",
+            "sha256": "3c67cdf84f5904c78281f56951589f7269a6d8a8c04cd0273c1255fc7e4e9f0c"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0e30c-938d-7d13-b063-59a0b6100394/exec-e545c5cb-d0d8-4cfc-b581-1208ba405722.png",
+            "sha256": "af25b922ad34149e79d4f1ca158c340a6ae8f7df349649dcf08150c8ef10cdf5"
+          }
+        ]
+      },
+      "receipt_sha256": "2db1f7828e0428901deed8ab8f7f0da352022190e1a0053c9e7dfb3979db9f0b",
+      "artifacts": [
+        {
+          "name": "L10fix-far-LL.png",
+          "sha256": "af25b922ad34149e79d4f1ca158c340a6ae8f7df349649dcf08150c8ef10cdf5"
+        },
+        {
+          "name": "exec-4a02135d-ea16-456f-9ab4-ce6d77a6a7fa.provenance.json",
+          "sha256": "c736ffeb9283bc6ca43404be2c23b8b75583b00727ce789527d499e1bae1bd90"
+        },
+        {
+          "name": "exec-e545c5cb-d0d8-4cfc-b581-1208ba405722.provenance.json",
+          "sha256": "f22539770e1ec441605426c008c92e29525dafb77c7b3fc02ce2f262919d55ad"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0e30c-938d-7d13-b063-59a0b6100394/exec-4a02135d-ea16-456f-9ab4-ce6d77a6a7fa.png",
+          "sha256": "3c67cdf84f5904c78281f56951589f7269a6d8a8c04cd0273c1255fc7e4e9f0c"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0e30c-938d-7d13-b063-59a0b6100394/exec-e545c5cb-d0d8-4cfc-b581-1208ba405722.png",
+          "sha256": "af25b922ad34149e79d4f1ca158c340a6ae8f7df349649dcf08150c8ef10cdf5"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
+    },
+    {
+      "id": "L10fix-far-LR",
+      "type": "GENERATE",
+      "experiment": "P5-parallax-L10",
+      "register_card": {
+        "path": "runs/C-9/REGISTER_CARD.md",
+        "sha256": "6c1ebc7531e5be7e3a54079d86f4cbd30ec9af06fa71c0e62ab070f49116a98a"
+      },
+      "brief_sha256": "9dae9180c3e04eccaa4b9ace1cd00208e0a9ac9bdb6d224cd1af42b5a82e56b9",
+      "started": "2026-09-27T13:27:27.133747+00:00",
+      "ended": "2026-09-27T13:30:09.432990+00:00",
+      "minutes": 2.704951875000067,
+      "image_calls": 2,
+      "tool_calls": 2,
+      "audit": {
+        "violations": [],
+        "image_calls": 2,
+        "tool_calls": 2,
+        "tools_seen": {
+          "command_execution": 2
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0e30c-938d-7782-8aee-36f8c39d16e8/exec-63f26906-63ea-4cc7-93b7-fbf827a03063.png",
+            "sha256": "06af6fef339080973697c88addca5a5a2561ab7796b20f49ae79cd683532b90b"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0e30c-938d-7782-8aee-36f8c39d16e8/exec-a7c451bf-7b16-494c-8fd1-86e39224afd0.png",
+            "sha256": "4500b0645244dd58c836e7f2329e63b19b219059f6f7f9ae8b57dbc62bafc111"
+          }
+        ]
+      },
+      "receipt_sha256": "30e4ed5530aad2a546c6b05f52b19ad5bb2b725c996b7c2e37218338739e2690",
+      "artifacts": [
+        {
+          "name": "L10fix-far-LR.png",
+          "sha256": "06af6fef339080973697c88addca5a5a2561ab7796b20f49ae79cd683532b90b"
+        },
+        {
+          "name": "exec-63f26906-63ea-4cc7-93b7-fbf827a03063.provenance.json",
+          "sha256": "5f799147e11fd9d3a5410b57e77939da4faf71c26fa32ea467c787230bc9ef9b"
+        },
+        {
+          "name": "exec-a7c451bf-7b16-494c-8fd1-86e39224afd0.provenance.json",
+          "sha256": "ef8e5ec516be3ba228b71d9d70ff17bffa4197014059b64a68f863312f6134b2"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0e30c-938d-7782-8aee-36f8c39d16e8/exec-63f26906-63ea-4cc7-93b7-fbf827a03063.png",
+          "sha256": "06af6fef339080973697c88addca5a5a2561ab7796b20f49ae79cd683532b90b"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0e30c-938d-7782-8aee-36f8c39d16e8/exec-a7c451bf-7b16-494c-8fd1-86e39224afd0.png",
+          "sha256": "4500b0645244dd58c836e7f2329e63b19b219059f6f7f9ae8b57dbc62bafc111"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
+    },
+    {
+      "id": "L10-sky-single",
+      "type": "GENERATE",
+      "experiment": "P5-parallax-L10",
+      "register_card": {
+        "path": "runs/C-9/REGISTER_CARD.md",
+        "sha256": "6c1ebc7531e5be7e3a54079d86f4cbd30ec9af06fa71c0e62ab070f49116a98a"
+      },
+      "brief_sha256": "f0443f7c9d2e48bd0a33979130d0f116bb2a670c90d7bbe91d57a027d2a823dd",
+      "started": "2026-09-27T13:27:27.133747+00:00",
+      "ended": "2026-09-27T13:30:15.435944+00:00",
+      "minutes": 2.805000842366644,
+      "image_calls": 2,
+      "tool_calls": 3,
+      "audit": {
+        "violations": [],
+        "image_calls": 2,
+        "tool_calls": 3,
+        "tools_seen": {
+          "command_execution": 3
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0e30c-938d-7582-ae58-435e9db73cb2/exec-34ff5a51-165b-4346-a523-4f2adec92291.png",
+            "sha256": "0b7087c271d6afd89006f6ec0f38b68a7fd8662cf66bbabe5bbfef38fae08926"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0e30c-938d-7582-ae58-435e9db73cb2/exec-7d80c41b-2f49-489d-b609-fec8f271048e.png",
+            "sha256": "fa326c28d85c0bf9830a7182c4125c29530b44c1c815dd98a41cef3e70716c60"
+          }
+        ]
+      },
+      "receipt_sha256": "fad62285c56b5ecd0b5411f7e43c2977ed4905ae4534d7875faddd0212fe1035",
+      "artifacts": [
+        {
+          "name": "L10-sky-single.png",
+          "sha256": "fa326c28d85c0bf9830a7182c4125c29530b44c1c815dd98a41cef3e70716c60"
+        },
+        {
+          "name": "exec-34ff5a51-165b-4346-a523-4f2adec92291.provenance.json",
+          "sha256": "be285a7be5f44bed856312a72ed1460ec4174b0922812f2007d21bff35f5c8bc"
+        },
+        {
+          "name": "exec-7d80c41b-2f49-489d-b609-fec8f271048e.provenance.json",
+          "sha256": "c2c8dbd074fece8f46c648fc003b45f5cb83d57b4aeb4d6f25d35e7ab5be101a"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0e30c-938d-7582-ae58-435e9db73cb2/exec-34ff5a51-165b-4346-a523-4f2adec92291.png",
+          "sha256": "0b7087c271d6afd89006f6ec0f38b68a7fd8662cf66bbabe5bbfef38fae08926"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0e30c-938d-7582-ae58-435e9db73cb2/exec-7d80c41b-2f49-489d-b609-fec8f271048e.png",
+          "sha256": "fa326c28d85c0bf9830a7182c4125c29530b44c1c815dd98a41cef3e70716c60"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
+    },
+    {
+      "id": "FG10-0_0",
+      "type": "GENERATE",
+      "experiment": "P5-forest-guided",
+      "register_card": {
+        "path": "runs/C-9/REGISTER_CARD.md",
+        "sha256": "6c1ebc7531e5be7e3a54079d86f4cbd30ec9af06fa71c0e62ab070f49116a98a"
+      },
+      "brief_sha256": "c15afe879a16cdcbc5cc229f476934e57e1c7dd56750157ad7d45d6480cb750f",
+      "started": "2026-09-27T13:32:08.308303+00:00",
+      "ended": "2026-09-27T13:35:32.939519+00:00",
+      "minutes": 3.410480920833288,
+      "image_calls": 2,
+      "tool_calls": 4,
+      "audit": {
+        "violations": [],
+        "image_calls": 2,
+        "tool_calls": 4,
+        "tools_seen": {
+          "command_execution": 4
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0e310-ddd2-70c1-827f-617c3d63fa06/exec-a5b73970-8d40-4da7-b69f-4394f64b1c4d.png",
+            "sha256": "18e0f83c18cf98d100a9b107fd1de2f7f5b5639bb561fd210d70107d9acf1187"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0e310-ddd2-70c1-827f-617c3d63fa06/exec-b064920b-d009-43d5-a45f-55d5582d330b.png",
+            "sha256": "fc2fdcf27d09bdbe074ddc4bbacfb8878136a1c2af4da44e5ef2a357a93e374b"
+          }
+        ]
+      },
+      "receipt_sha256": "4e10ea0a071c485fe0f72387e36ab59b2b988105413ae8bc31b1010c98bd2223",
+      "artifacts": [
+        {
+          "name": "FG10-0_0.png",
+          "sha256": "18e0f83c18cf98d100a9b107fd1de2f7f5b5639bb561fd210d70107d9acf1187"
+        },
+        {
+          "name": "exec-a5b73970-8d40-4da7-b69f-4394f64b1c4d.provenance.json",
+          "sha256": "f38f10433a5c78b82665986f40b26a7f77b2dcddcc5de4d659cd45a264ac267e"
+        },
+        {
+          "name": "exec-b064920b-d009-43d5-a45f-55d5582d330b.provenance.json",
+          "sha256": "6f2ef842b6fdda67818d7307229e59257341009b1194863ed532ea1ac1b7a80b"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0e310-ddd2-70c1-827f-617c3d63fa06/exec-a5b73970-8d40-4da7-b69f-4394f64b1c4d.png",
+          "sha256": "18e0f83c18cf98d100a9b107fd1de2f7f5b5639bb561fd210d70107d9acf1187"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0e310-ddd2-70c1-827f-617c3d63fa06/exec-b064920b-d009-43d5-a45f-55d5582d330b.png",
+          "sha256": "fc2fdcf27d09bdbe074ddc4bbacfb8878136a1c2af4da44e5ef2a357a93e374b"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
+    },
+    {
+      "id": "FG10-1_0",
+      "type": "GENERATE",
+      "experiment": "P5-forest-guided",
+      "register_card": {
+        "path": "runs/C-9/REGISTER_CARD.md",
+        "sha256": "6c1ebc7531e5be7e3a54079d86f4cbd30ec9af06fa71c0e62ab070f49116a98a"
+      },
+      "brief_sha256": "562ece3a1f79da14620a6d7f7b346314be6a273a10b19dbb6f4bd260afeba2cb",
+      "started": "2026-09-27T13:35:34.377581+00:00",
+      "ended": "2026-09-27T13:38:04.183833+00:00",
+      "minutes": 2.496727802083357,
+      "image_calls": 1,
+      "tool_calls": 2,
+      "audit": {
+        "violations": [],
+        "image_calls": 1,
+        "tool_calls": 2,
+        "tools_seen": {
+          "command_execution": 2
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0e314-029a-7323-a7e8-41da43dbd275/exec-236afdcc-626d-49f9-b917-6aa178bc8af2.png",
+            "sha256": "a7ef4b6403bc14b456511ecd17e233896df30dc52489a2e59c8ca8cceb46e5d1"
+          }
+        ]
+      },
+      "receipt_sha256": "e15547ddadb30c51b8cfc925476b65022ebdb0446c419f25fa81ade0611b8f9e",
+      "artifacts": [
+        {
+          "name": "FG10-1_0.png",
+          "sha256": "a7ef4b6403bc14b456511ecd17e233896df30dc52489a2e59c8ca8cceb46e5d1"
+        },
+        {
+          "name": "exec-236afdcc-626d-49f9-b917-6aa178bc8af2.provenance.json",
+          "sha256": "106215bb401c821573b4184a490af6522520711c86fbd026119d240a7a9d4e06"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0e314-029a-7323-a7e8-41da43dbd275/exec-236afdcc-626d-49f9-b917-6aa178bc8af2.png",
+          "sha256": "a7ef4b6403bc14b456511ecd17e233896df30dc52489a2e59c8ca8cceb46e5d1"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
+    },
+    {
+      "id": "FG10-2_0",
+      "type": "GENERATE",
+      "experiment": "P5-forest-guided",
+      "register_card": {
+        "path": "runs/C-9/REGISTER_CARD.md",
+        "sha256": "6c1ebc7531e5be7e3a54079d86f4cbd30ec9af06fa71c0e62ab070f49116a98a"
+      },
+      "brief_sha256": "4449c625aa1a684d39063db6d4d16637efea272c8143c3b2cd595ecf6811ea25",
+      "started": "2026-09-27T13:38:06.445441+00:00",
+      "ended": "2026-09-27T13:40:38.595730+00:00",
+      "minutes": 2.5359147395834345,
+      "image_calls": 1,
+      "tool_calls": 2,
+      "audit": {
+        "violations": [],
+        "image_calls": 1,
+        "tool_calls": 2,
+        "tools_seen": {
+          "command_execution": 2
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0e316-541d-75c3-a0eb-3418cb13868a/exec-57df1b6d-d428-481f-acc5-466b1738bf32.png",
+            "sha256": "0d13c399b31f8c34d04729eeb8075708bd7d64b311d442271aea12464833f543"
+          }
+        ]
+      },
+      "receipt_sha256": "e16b627cb73fdf055e972a4437f2375229cb76284d546bb183354888f3d6ecee",
+      "artifacts": [
+        {
+          "name": "FG10-2_0.png",
+          "sha256": "0d13c399b31f8c34d04729eeb8075708bd7d64b311d442271aea12464833f543"
+        },
+        {
+          "name": "exec-57df1b6d-d428-481f-acc5-466b1738bf32.provenance.json",
+          "sha256": "ecc4b7dbb3042dbbb38dd9db8ed0f31a0c0c98b6bd96d0a2a927c30daedf8686"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0e316-541d-75c3-a0eb-3418cb13868a/exec-57df1b6d-d428-481f-acc5-466b1738bf32.png",
+          "sha256": "0d13c399b31f8c34d04729eeb8075708bd7d64b311d442271aea12464833f543"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
+    },
+    {
+      "id": "FG10-0_1",
+      "type": "GENERATE",
+      "experiment": "P5-forest-guided",
+      "register_card": {
+        "path": "runs/C-9/REGISTER_CARD.md",
+        "sha256": "6c1ebc7531e5be7e3a54079d86f4cbd30ec9af06fa71c0e62ab070f49116a98a"
+      },
+      "brief_sha256": "8a12e3f21f738abbdbf15f7db2969312c78bedd132e08589dde9394398400549",
+      "started": "2026-09-27T13:38:06.445442+00:00",
+      "ended": "2026-09-27T13:40:45.452679+00:00",
+      "minutes": 2.6501804319500177,
+      "image_calls": 1,
+      "tool_calls": 4,
+      "audit": {
+        "violations": [],
+        "image_calls": 1,
+        "tool_calls": 4,
+        "tools_seen": {
+          "command_execution": 4
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0e316-541e-7fa3-b708-cae7089664b3/exec-0191be26-73fb-45dd-b529-9deb6f121cb2.png",
+            "sha256": "f688ae5d7269c582984151faba3622c5a2d9c88952f3f310b2b1f7dcd0d2ddc2"
+          }
+        ]
+      },
+      "receipt_sha256": "9507008a1e2049ba5521d727a1c3658bf1735fb262d1c8ceb3d90251cf3af48b",
+      "artifacts": [
+        {
+          "name": "FG10-0_1.png",
+          "sha256": "f688ae5d7269c582984151faba3622c5a2d9c88952f3f310b2b1f7dcd0d2ddc2"
+        },
+        {
+          "name": "exec-0191be26-73fb-45dd-b529-9deb6f121cb2.provenance.json",
+          "sha256": "a1da93f60040f6645f31fd0eeaf6263f8db9acdcd9384232a9322fae2e92ffdd"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0e316-541e-7fa3-b708-cae7089664b3/exec-0191be26-73fb-45dd-b529-9deb6f121cb2.png",
+          "sha256": "f688ae5d7269c582984151faba3622c5a2d9c88952f3f310b2b1f7dcd0d2ddc2"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
+    },
+    {
+      "id": "FG10-1_1",
+      "type": "GENERATE",
+      "experiment": "P5-forest-guided",
+      "register_card": {
+        "path": "runs/C-9/REGISTER_CARD.md",
+        "sha256": "6c1ebc7531e5be7e3a54079d86f4cbd30ec9af06fa71c0e62ab070f49116a98a"
+      },
+      "brief_sha256": "f218b3090f4b636b900c3f756e29f6d6d8b2f493a74dc902c86bff8ba5f435ec",
+      "started": "2026-09-27T13:40:47.144472+00:00",
+      "ended": "2026-09-27T13:44:28.696462+00:00",
+      "minutes": 3.692499054866615,
+      "image_calls": 2,
+      "tool_calls": 4,
+      "audit": {
+        "violations": [],
+        "image_calls": 2,
+        "tool_calls": 4,
+        "tools_seen": {
+          "command_execution": 4
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0e318-c7ce-78b3-b87f-7f17234df44a/exec-3d699c5d-bdc0-47d5-9af9-6ddac4a64760.png",
+            "sha256": "0f21660ed1b9e47c0101644caa47775eeebcfa09921bcc1f28e76e270a28de04"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0e318-c7ce-78b3-b87f-7f17234df44a/exec-53d1db3d-2cfc-412b-81f1-8f0290b2a426.png",
+            "sha256": "c27ec89f0b5b13581fe45a9e3911556742f9c001aa8991277859900277561e59"
+          }
+        ]
+      },
+      "receipt_sha256": "4227cc5cefa1af65126f1205ea68d418e091de964792ca44485e529fa5e885be",
+      "artifacts": [
+        {
+          "name": "FG10-1_1.png",
+          "sha256": "0f21660ed1b9e47c0101644caa47775eeebcfa09921bcc1f28e76e270a28de04"
+        },
+        {
+          "name": "exec-3d699c5d-bdc0-47d5-9af9-6ddac4a64760.provenance.json",
+          "sha256": "f671b70cfdfe76b4dc496068e216f95e03d3a0b7bcbe23a0a181915662481d4e"
+        },
+        {
+          "name": "exec-53d1db3d-2cfc-412b-81f1-8f0290b2a426.provenance.json",
+          "sha256": "2c5f326ee0600e9e76708999fc396172f0a413a2ae9fdd7405355fa4fe2f5938"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0e318-c7ce-78b3-b87f-7f17234df44a/exec-3d699c5d-bdc0-47d5-9af9-6ddac4a64760.png",
+          "sha256": "0f21660ed1b9e47c0101644caa47775eeebcfa09921bcc1f28e76e270a28de04"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0e318-c7ce-78b3-b87f-7f17234df44a/exec-53d1db3d-2cfc-412b-81f1-8f0290b2a426.png",
+          "sha256": "c27ec89f0b5b13581fe45a9e3911556742f9c001aa8991277859900277561e59"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
     }
   ],
-  "images_used": 205,
+  "images_used": 227,
   "images_cap": 400,
   "experiments": {},
   "milestones": [
@@ -7925,6 +8879,21 @@
       "id": "M-C9-M3-STEEL",
       "ts_note": "KS-Y-SE (SE filled, variant a) + KS-X-steel/KS-Y-steel exit 0: ONE steel repaint per sheet restored dark gouache modelling on all 8 while consistency held (one helm, one knee design, one tabard). Astra self-report: residual regular speckle remains, brushwork less bold than KL-2. Turnaround of record = runs/C-9/artifacts/KS-final-turnaround.png (X-a slots S,SW,W,NW; Y-a slots N,NE,E,SE). Sent to Matt for M3.",
       "ts": "2026-09-27T09:13:17"
+    },
+    {
+      "id": "M-C9-P7-PROBE",
+      "ts_note": "Grok probe S_idle + S_walk ok (768x1168, 24 fps, 145 frames, ~52 s each). Camera from above HELD (no uprighting, unlike the C-8 E1 prior for realistic 53-deg figures); identity and painted hand held; walk stride clear. Idle grows slightly late in the clip -> cut from the early window. Remaining 14 clips fired, 4 at a time.",
+      "ts": "2026-09-27T09:28:03"
+    },
+    {
+      "id": "M-C9-P7-CUTS",
+      "ts_note": "16/16 clips ok; 16 cuts (walk: frozen video_cut; E needed --period-frames 64 (96-frame autocorr stride exceeded the window); idle: explicit even-sampling cut p7_idle_cut.py because frozen autocorr locked a 0.25 s chest flicker). Walk periods vary 44-96 native frames by direction -> feet-speed mismatch risk in game (C-3 R-C3-80 precedent), flagged for Matt. Cross-frame helm audit (all 16 cells x 3 frames): N_idle helm reshaped (brim), SE_idle + SE_walk visor became a toothed grille -> re-rolled with an explicit helm clause (-r1).",
+      "ts": "2026-09-27T09:40:06"
+    },
+    {
+      "id": "M-C9-M5-PACKET",
+      "ts_note": "M5 packet: 8-dir idle+walk MP4 (Desktop + phone). N_idle fixed by re-roll (-r1). SE_idle + SE_walk: visor holes animate into a toothed grille on both attempts although the seed visor is correct (pareidolia) -> two-attempt rule -> Matt fork. Walk periods vary by direction (44-96 native frames) -> feet-speed risk -> Matt fork. Imperfection three-way test not yet run (needs an approved cell set).",
+      "ts": "2026-09-27T09:43:15"
     }
   ],
   "halts": [],
@@ -8113,9 +9082,357 @@
       "topic": "Knight: steel repaint per sheet + SE fix APPROVED",
       "ruling": "Matt verbatim: \"Agreed on your two proposals for the 8 character images by the way.\" Plan: conductor re-composes two 4-slot sheets from the best KS slots at one common figure height (X = S, SW, W, NW; Y = N, NE, E, empty); SE filled on sheet Y by EDIT; then ONE steel-repaint EDIT per sheet (dark gouache steel per KL-2-repose), applied to all figures at once.",
       "ts": "2026-09-27T09:01:25"
+    },
+    {
+      "id": "R-C9-23",
+      "class": "matt",
+      "veto_open": false,
+      "topic": "M3 APPROVED (S visor fix) + P7 motion GO",
+      "ruling": "Matt verbatim: \"Regarding M3, the helm flap is too small in South. Other than that we are glad for grok.\" M3 approved subject to KS-X-visor (slot-1 visor to full size). P7 Grok motion authorized (credits available per Matt).",
+      "ts": "2026-09-27T09:19:39"
+    },
+    {
+      "id": "R-C9-24",
+      "class": "conductor",
+      "veto_open": true,
+      "topic": "M3 closed; P7 probe first",
+      "ruling": "KS-X-visor_a chosen (S visor full-size; skull untouched; b added a seam). Turnaround of record = KS-X-visor_a (S,SW,W,NW) + KS-Y-steel_a (N,NE,E,SE). Seeds: runs/C-9/artifacts/seeds/seed_<D>.png (1024x1536, figure 70% height, pure green). P7 PROBE before the full 16: S_idle + S_walk (C-8 E1 finding: realistically proportioned 53-deg figures may be uprighted by Grok). Prompts runs/C-9/xvideo/prompts.json.",
+      "ts": "2026-09-27T09:25:15"
+    },
+    {
+      "id": "R-C9-25",
+      "class": "matt",
+      "veto_open": false,
+      "topic": "Knight into the cliffside",
+      "ruling": "Matt verbatim: \"Bring him into the cliffside scene so I can see him walk\". drax dispatched: knight replaces the Keeper in style B (8 unique directions, no mirroring; scale matched to the Keeper; walk fps per direction from each clip own stride so feet match the painting; foot-slide reported per direction), B art updated (cloud-band plate CS9-band, single sunset sky, far layer with duplicates removed, guided forest FG10 if complete, mist), aspect-preserving layers. SE visor fork and walk-timing fork remain open with Matt; the build uses the current cells so he can judge them in motion.",
+      "ts": "2026-09-27T09:45:26"
     }
   ],
-  "grok_calls": [],
+  "grok_calls": [
+    {
+      "id": "G-S_walk",
+      "cell": "S_walk",
+      "still": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/seeds/seed_S.png",
+      "still_sha256": "f04a20aff7434cc497013c597053d2b81fe827560a523bcd9d1af3c2c54b9706",
+      "prompt_sha256": "61df57626cfd1213d22155b016a1e62c3c369d6218fc5b3e128c49dfdc6c1629",
+      "extra": "",
+      "clip": "runs/C-9/xvideo/in/S_walk.mp4",
+      "clip_sha256": "3c035c06769c1cae07e1b7ae4f2c34f5dcc4c6cc7f7ee83455887fe52f76d299",
+      "ok": true,
+      "rc": 0,
+      "wall_s": 51,
+      "probe": "768,1168,24/1,6.041667,145",
+      "printed": "",
+      "staged_mp4": "/Users/admin/astra-burst/grok/C-9/S_walk/S_walk.mp4",
+      "ts": "2026-09-27T09:26:07"
+    },
+    {
+      "id": "G-S_idle",
+      "cell": "S_idle",
+      "still": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/seeds/seed_S.png",
+      "still_sha256": "f04a20aff7434cc497013c597053d2b81fe827560a523bcd9d1af3c2c54b9706",
+      "prompt_sha256": "796f0fd4d22a973a20536862eacd8879cb9d18c56ed6a3199d03fe78d5be77e6",
+      "extra": "",
+      "clip": "runs/C-9/xvideo/in/S_idle.mp4",
+      "clip_sha256": "7dc0d138a6f1e810549841ded8f286d479e869e62a033cb8a563b03fe38abc8f",
+      "ok": true,
+      "rc": 0,
+      "wall_s": 54,
+      "probe": "768,1168,24/1,6.041667,145",
+      "printed": "",
+      "staged_mp4": "/Users/admin/astra-burst/grok/C-9/S_idle/S_idle.mp4",
+      "ts": "2026-09-27T09:26:09"
+    },
+    {
+      "id": "G-W_walk",
+      "cell": "W_walk",
+      "still": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/seeds/seed_W.png",
+      "still_sha256": "54dd23944dd71258ed423ff95b4796a9290f0df26e2da3357bd7ed253ff64819",
+      "prompt_sha256": "a07048b78e373f064353e75685f1c7bbc593bd2f857b489efd7d9316a71234fd",
+      "extra": "",
+      "clip": "runs/C-9/xvideo/in/W_walk.mp4",
+      "clip_sha256": "20dac6a5f8a488d0c62a4b8717ed71104d3018bee5c8d496ab4566fde61b9de2",
+      "ok": true,
+      "rc": 0,
+      "wall_s": 51,
+      "probe": "768,1168,24/1,6.041667,145",
+      "printed": "",
+      "staged_mp4": "/Users/admin/astra-burst/grok/C-9/W_walk/W_walk.mp4",
+      "ts": "2026-09-27T09:28:54"
+    },
+    {
+      "id": "G-W_idle",
+      "cell": "W_idle",
+      "still": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/seeds/seed_W.png",
+      "still_sha256": "54dd23944dd71258ed423ff95b4796a9290f0df26e2da3357bd7ed253ff64819",
+      "prompt_sha256": "c99933159b535ded868d1817551ab91847204982aeb92524a2afdb38b5e3829c",
+      "extra": "",
+      "clip": "runs/C-9/xvideo/in/W_idle.mp4",
+      "clip_sha256": "61f0fbe6c372d7b25ded7813a8bc25198f61d121984f81c063c9603888d82a84",
+      "ok": true,
+      "rc": 0,
+      "wall_s": 54,
+      "probe": "768,1168,24/1,6.041667,145",
+      "printed": "",
+      "staged_mp4": "/Users/admin/astra-burst/grok/C-9/W_idle/W_idle.mp4",
+      "ts": "2026-09-27T09:28:58"
+    },
+    {
+      "id": "G-SW_idle",
+      "cell": "SW_idle",
+      "still": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/seeds/seed_SW.png",
+      "still_sha256": "7b738fe0c0c25d67ff131d811df85b198798693ea71202bd2dfdfc9592912c5f",
+      "prompt_sha256": "5c88c647edba8059a537e55cc719296141bb4cfec453f5a55bfb70767b9932f6",
+      "extra": "",
+      "clip": "runs/C-9/xvideo/in/SW_idle.mp4",
+      "clip_sha256": "ef4ff40c8f32c9e803b368acc20cbf309bbd69ba810ca16f9ad732bee2b12eb3",
+      "ok": true,
+      "rc": 0,
+      "wall_s": 55,
+      "probe": "768,1168,24/1,6.041667,145",
+      "printed": "",
+      "staged_mp4": "/Users/admin/astra-burst/grok/C-9/SW_idle/SW_idle.mp4",
+      "ts": "2026-09-27T09:28:58"
+    },
+    {
+      "id": "G-SW_walk",
+      "cell": "SW_walk",
+      "still": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/seeds/seed_SW.png",
+      "still_sha256": "7b738fe0c0c25d67ff131d811df85b198798693ea71202bd2dfdfc9592912c5f",
+      "prompt_sha256": "fd731ade762d3e9f049ba9ce4fb83fa327799830812dbd8f6536cdf6cbcf54e7",
+      "extra": "",
+      "clip": "runs/C-9/xvideo/in/SW_walk.mp4",
+      "clip_sha256": "a53568fd4cd0efa4c43453f0344717f1903180005d9c22316991a6b06fd76b44",
+      "ok": true,
+      "rc": 0,
+      "wall_s": 58,
+      "probe": "768,1168,24/1,6.041667,145",
+      "printed": "",
+      "staged_mp4": "/Users/admin/astra-burst/grok/C-9/SW_walk/SW_walk.mp4",
+      "ts": "2026-09-27T09:29:01"
+    },
+    {
+      "id": "G-N_walk",
+      "cell": "N_walk",
+      "still": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/seeds/seed_N.png",
+      "still_sha256": "56b528a4c3627ff8210b71e4bf4b78e37111e7f862c862549728a8e3d2765a21",
+      "prompt_sha256": "111c1fa18e1b06f7ba15778fe3c1c8e29a850c94e376a3fbcb1914dcfd909d17",
+      "extra": "",
+      "clip": "runs/C-9/xvideo/in/N_walk.mp4",
+      "clip_sha256": "3ccd54e030d25f20c26bad72e8ec52aaa12e04a13bf88f4b092cb199bd0b1903",
+      "ok": true,
+      "rc": 0,
+      "wall_s": 54,
+      "probe": "768,1168,24/1,6.041667,145",
+      "printed": "",
+      "staged_mp4": "/Users/admin/astra-burst/grok/C-9/N_walk/N_walk.mp4",
+      "ts": "2026-09-27T09:29:55"
+    },
+    {
+      "id": "G-NW_walk",
+      "cell": "NW_walk",
+      "still": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/seeds/seed_NW.png",
+      "still_sha256": "c33f96d4466508f00b6cdafb3616dd61c0ee55066f0f9d20f6fecf171075bf42",
+      "prompt_sha256": "3ebdae09067db8e0daf65368df781022f8a2dd7bab9bb69f4393410984f598bf",
+      "extra": "",
+      "clip": "runs/C-9/xvideo/in/NW_walk.mp4",
+      "clip_sha256": "7a01a2c06143031c76cdef8cb4ab7de0454043be543083987580a731d226539c",
+      "ok": true,
+      "rc": 0,
+      "wall_s": 57,
+      "probe": "768,1168,24/1,6.041667,145",
+      "printed": "",
+      "staged_mp4": "/Users/admin/astra-burst/grok/C-9/NW_walk/NW_walk.mp4",
+      "ts": "2026-09-27T09:29:58"
+    },
+    {
+      "id": "G-N_idle",
+      "cell": "N_idle",
+      "still": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/seeds/seed_N.png",
+      "still_sha256": "56b528a4c3627ff8210b71e4bf4b78e37111e7f862c862549728a8e3d2765a21",
+      "prompt_sha256": "c9b5524445b1b46e0b7e4412856196c08222711c0318bffc1638ac80eefaa015",
+      "extra": "",
+      "clip": "runs/C-9/xvideo/in/N_idle.mp4",
+      "clip_sha256": "415e234918347116ae55f7292833c74299e6395f371e7046c8fc082b1e5f37af",
+      "ok": true,
+      "rc": 0,
+      "wall_s": 60,
+      "probe": "768,1168,24/1,6.041667,145",
+      "printed": "",
+      "staged_mp4": "/Users/admin/astra-burst/grok/C-9/N_idle/N_idle.mp4",
+      "ts": "2026-09-27T09:30:01"
+    },
+    {
+      "id": "G-NW_idle",
+      "cell": "NW_idle",
+      "still": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/seeds/seed_NW.png",
+      "still_sha256": "c33f96d4466508f00b6cdafb3616dd61c0ee55066f0f9d20f6fecf171075bf42",
+      "prompt_sha256": "29969144d10a3373936da10866e6d07887b548ca422a9440938fdc99797ad5a6",
+      "extra": "",
+      "clip": "runs/C-9/xvideo/in/NW_idle.mp4",
+      "clip_sha256": "584c33a61e8a76f97223b0c70cee1881502e4812415f518c1238eefc66869dce",
+      "ok": true,
+      "rc": 0,
+      "wall_s": 77,
+      "probe": "768,1168,24/1,6.041667,145",
+      "printed": "",
+      "staged_mp4": "/Users/admin/astra-burst/grok/C-9/NW_idle/NW_idle.mp4",
+      "ts": "2026-09-27T09:30:18"
+    },
+    {
+      "id": "G-E_walk",
+      "cell": "E_walk",
+      "still": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/seeds/seed_E.png",
+      "still_sha256": "1d7f7c2ead257146cc9494f69b641246d521c7dceea6f2aee9f283eca48855f3",
+      "prompt_sha256": "6b97fdda8d9b6622b5843075bf032dcfef05d1190c62203340257afff46a05a6",
+      "extra": "",
+      "clip": "runs/C-9/xvideo/in/E_walk.mp4",
+      "clip_sha256": "ffceee6445f288f393a1c08157a2a65fda202818d4791f1a1e88608d64bfe735",
+      "ok": true,
+      "rc": 0,
+      "wall_s": 54,
+      "probe": "768,1168,24/1,6.041667,145",
+      "printed": "",
+      "staged_mp4": "/Users/admin/astra-burst/grok/C-9/E_walk/E_walk.mp4",
+      "ts": "2026-09-27T09:31:13"
+    },
+    {
+      "id": "G-E_idle",
+      "cell": "E_idle",
+      "still": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/seeds/seed_E.png",
+      "still_sha256": "1d7f7c2ead257146cc9494f69b641246d521c7dceea6f2aee9f283eca48855f3",
+      "prompt_sha256": "3f0eb21068f0273cab4276d4d71e2b5be5aaffe1a9f9a9e056c72f6c5971bf32",
+      "extra": "",
+      "clip": "runs/C-9/xvideo/in/E_idle.mp4",
+      "clip_sha256": "f18faefdbb20b63180f92b209324f3dc023ab843009aaf3d07f0c94cc7ee2d9d",
+      "ok": true,
+      "rc": 0,
+      "wall_s": 55,
+      "probe": "768,1168,24/1,6.041667,145",
+      "printed": "",
+      "staged_mp4": "/Users/admin/astra-burst/grok/C-9/E_idle/E_idle.mp4",
+      "ts": "2026-09-27T09:31:13"
+    },
+    {
+      "id": "G-NE_idle",
+      "cell": "NE_idle",
+      "still": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/seeds/seed_NE.png",
+      "still_sha256": "22bba79c3f4d6072947eac89da1f7b07824154e258971257cc52d2672b4ca94f",
+      "prompt_sha256": "6f4abd7260071022e622a6ea06ef9e6e10ef9f28fb2a033eb03671afa24624e4",
+      "extra": "",
+      "clip": "runs/C-9/xvideo/in/NE_idle.mp4",
+      "clip_sha256": "795ffa62b22c74762f77007024230084e85e8e425dd2f0f9475443190c79ff15",
+      "ok": true,
+      "rc": 0,
+      "wall_s": 58,
+      "probe": "768,1168,24/1,6.041667,145",
+      "printed": "",
+      "staged_mp4": "/Users/admin/astra-burst/grok/C-9/NE_idle/NE_idle.mp4",
+      "ts": "2026-09-27T09:31:16"
+    },
+    {
+      "id": "G-NE_walk",
+      "cell": "NE_walk",
+      "still": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/seeds/seed_NE.png",
+      "still_sha256": "22bba79c3f4d6072947eac89da1f7b07824154e258971257cc52d2672b4ca94f",
+      "prompt_sha256": "7c9c8ea684f88bb4ee63e06c39162e373b7873144ce8b4cd2c9863f5c9539d32",
+      "extra": "",
+      "clip": "runs/C-9/xvideo/in/NE_walk.mp4",
+      "clip_sha256": "4f78e287a067a443c516eeaa0cc2049198bb504de9178cb1037f8c55642310a6",
+      "ok": true,
+      "rc": 0,
+      "wall_s": 58,
+      "probe": "768,1168,24/1,6.041667,145",
+      "printed": "",
+      "staged_mp4": "/Users/admin/astra-burst/grok/C-9/NE_walk/NE_walk.mp4",
+      "ts": "2026-09-27T09:31:16"
+    },
+    {
+      "id": "G-SE_idle",
+      "cell": "SE_idle",
+      "still": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/seeds/seed_SE.png",
+      "still_sha256": "c1a4c8006dbc4afacb0b15d42aa9089883e07273eb2f3cc05bbde1f409879285",
+      "prompt_sha256": "7a900cef66cb384c6aea52df62822bb2aadc1883a7446c2e005663830c138a11",
+      "extra": "",
+      "clip": "runs/C-9/xvideo/in/SE_idle.mp4",
+      "clip_sha256": "83f5bac89ec5035a7b42e634b9b0f15a76db6c094fff46e21a84dcffe5dedca4",
+      "ok": true,
+      "rc": 0,
+      "wall_s": 54,
+      "probe": "768,1168,24/1,6.041667,145",
+      "printed": "",
+      "staged_mp4": "/Users/admin/astra-burst/grok/C-9/SE_idle/SE_idle.mp4",
+      "ts": "2026-09-27T09:32:10"
+    },
+    {
+      "id": "G-SE_walk",
+      "cell": "SE_walk",
+      "still": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/seeds/seed_SE.png",
+      "still_sha256": "c1a4c8006dbc4afacb0b15d42aa9089883e07273eb2f3cc05bbde1f409879285",
+      "prompt_sha256": "92de0491ce9d5964b62f1d49c1fd4735a841df2bc63dbff78b92d25e3188b88f",
+      "extra": "",
+      "clip": "runs/C-9/xvideo/in/SE_walk.mp4",
+      "clip_sha256": "76a62d569a09ed4665861d7e095d8a4849aa477317b6664e21e8a0517b3f1f96",
+      "ok": true,
+      "rc": 0,
+      "wall_s": 68,
+      "probe": "768,1168,24/1,6.041667,145",
+      "printed": "",
+      "staged_mp4": "/Users/admin/astra-burst/grok/C-9/SE_walk/SE_walk.mp4",
+      "ts": "2026-09-27T09:32:25"
+    },
+    {
+      "id": "G-SE_walk-r1",
+      "cell": "SE_walk",
+      "still": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/seeds/seed_SE.png",
+      "still_sha256": "c1a4c8006dbc4afacb0b15d42aa9089883e07273eb2f3cc05bbde1f409879285",
+      "prompt_sha256": "b58ce0cf333adec2b8b625d9989c12e8112953a34e2755250bdc6860fd1344f4",
+      "extra": "THE HELM NEVER CHANGES SHAPE: a smooth rounded helmet skull; its visor is a smooth rounded plate with ONE row of small round holes — never a grille, never slots, never teeth, never a brim; from behind only the smooth rounded back of the helmet shows.",
+      "clip": "runs/C-9/xvideo/in/SE_walk-r1.mp4",
+      "clip_sha256": "3b0e6556e719f51b1c28575e9ad89deb1558898b34b1acbe6605b50ae7a8da32",
+      "ok": true,
+      "rc": 0,
+      "wall_s": 57,
+      "probe": "768,1168,24/1,6.041667,145",
+      "printed": "",
+      "staged_mp4": "/Users/admin/astra-burst/grok/C-9/SE_walk-r1/SE_walk-r1.mp4",
+      "ts": "2026-09-27T09:41:05"
+    },
+    {
+      "id": "G-N_idle-r1",
+      "cell": "N_idle",
+      "still": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/seeds/seed_N.png",
+      "still_sha256": "56b528a4c3627ff8210b71e4bf4b78e37111e7f862c862549728a8e3d2765a21",
+      "prompt_sha256": "81acf1303865cc6b026b89d10c08de64997c91962f9d056f72e7f20b3780ef77",
+      "extra": "THE HELM NEVER CHANGES SHAPE: a smooth rounded helmet skull; its visor is a smooth rounded plate with ONE row of small round holes — never a grille, never slots, never teeth, never a brim; from behind only the smooth rounded back of the helmet shows.",
+      "clip": "runs/C-9/xvideo/in/N_idle-r1.mp4",
+      "clip_sha256": "c3e7dc2a89fb2cc990a985037059158fda971df7c717d65463f06440b82f3be6",
+      "ok": true,
+      "rc": 0,
+      "wall_s": 57,
+      "probe": "768,1168,24/1,6.041667,145",
+      "printed": "",
+      "staged_mp4": "/Users/admin/astra-burst/grok/C-9/N_idle-r1/N_idle-r1.mp4",
+      "ts": "2026-09-27T09:41:05"
+    },
+    {
+      "id": "G-SE_idle-r1",
+      "cell": "SE_idle",
+      "still": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/seeds/seed_SE.png",
+      "still_sha256": "c1a4c8006dbc4afacb0b15d42aa9089883e07273eb2f3cc05bbde1f409879285",
+      "prompt_sha256": "918db5a9ba94c210dac6b22c42d5a967439d7456935dce60c741a177d73ddf03",
+      "extra": "THE HELM NEVER CHANGES SHAPE: a smooth rounded helmet skull; its visor is a smooth rounded plate with ONE row of small round holes — never a grille, never slots, never teeth, never a brim; from behind only the smooth rounded back of the helmet shows.",
+      "clip": "runs/C-9/xvideo/in/SE_idle-r1.mp4",
+      "clip_sha256": "4a16d5803e977690aa56931819b0144ad5a7ed847b89a61c80d3a9bb5bfaafa1",
+      "ok": true,
+      "rc": 0,
+      "wall_s": 61,
+      "probe": "768,1168,24/1,6.041667,145",
+      "printed": "",
+      "staged_mp4": "/Users/admin/astra-burst/grok/C-9/SE_idle-r1/SE_idle-r1.mp4",
+      "ts": "2026-09-27T09:41:08"
+    }
+  ],
   "run": "C-9",
   "charter": "agentic_orchestration/gandalf/notes/2026-09-26-illuminated-archive-run-C-9-charter.md",
   "charter_sha256_12": "ba0700e71807",

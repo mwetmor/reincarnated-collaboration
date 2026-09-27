@@ -1,0 +1,18 @@
+{
+ "text": "GENERATE BURST L10-sky-single \u2014 Run C-9 P5, the SUNSET SKY painted as ONE image (Matt R-C9-21: sunset, and NOTHING may repeat). task_id \"L10-sky-single\".\n\nPaint ONE landscape 1536x1024 image: the sunset sky, the farthest backdrop of a game scene, in the palette and painted hand of IMAGE 1 (keep its colours, cloud style and pen-and-wash handling). Exactly ONE sun: a small pale-gold disc sitting LOW near the LEFT edge, half-veiled by cloud, with the brightest gold glow around it. A warm band of gold, apricot and rose along the LOWER third, rising through violet to a dusky blue-violet at the TOP. Long, thin, stylised clouds lit rose and gold from below \u2014 every cloud a DIFFERENT shape and size, NO regular rows or stripes of cloud. Exactly TWO columns of dark smoke rising from below the RIGHT half of the bottom edge (from a burning valley out of frame): one large and billowing, one thinner and farther away, different shapes, leaning slightly with the wind, NOT parallel diagonal bands. NO land, NO stars, NOT a night sky, no text, no border.\n\nOne image_gen call. ONE retry only if there is more than one sun, the smoke columns repeat or run as parallel stripes, the clouds form repeated rows, or it reads as a night sky \u2014 name the reason. Copy the output to out/L10-sky-single.png with sha256. No code. No other files. No web.\nRETURN: receipt task_id \"L10-sky-single\"; images = the file with prompt, references (role + path) and elapsed_s; calls_used = the TRUE number of image_gen calls; status; concerns. Never PASS/FAIL.",
+ "references": [
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/L10-sky-0_1/L10-sky-0_1.png",
+   "role": "IMAGE 1 \u2014 palette and painted hand of the sky (NOT its layout; its sun/plume layout is what is being fixed)"
+  }
+ ],
+ "image_cap": 2,
+ "minutes_cap": 15,
+ "tool_call_cap": 20,
+ "outputs": [
+  "out/L10-sky-single.png"
+ ],
+ "effort": "high",
+ "add_dirs": [],
+ "experiment": "P5-parallax-L10"
+}
