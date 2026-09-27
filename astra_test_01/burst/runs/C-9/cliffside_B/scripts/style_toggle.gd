@@ -58,8 +58,8 @@ const H1_BRANCHES := ["Shadows", "Overhead", "Near_0", "Air"]
 # Children of Actors/ with these name prefixes are H1-register dressing too.
 const H1_ACTOR_PREFIXES := ["Prop_", "Glow_", "Swarm_"]
 
-const HUD_B := "STYLE  B — Illuminated (knight; run→walk, cast/jump→idle)        T = switch style      Esc = quit"
-const HUD_A := "STYLE  A — H1 (Keeper; props, particles, glows)        T = switch style      Esc = quit"
+const HUD_B := "STYLE  B — Illuminated (knight; run→walk, cast/jump→idle)   E-facing: %s        T = style      G = E rig/Grok      Esc = quit"
+const HUD_A := "STYLE  A — H1 (Keeper; props, particles, glows)        T = style      Esc = quit"
 
 var _sprites: Array[Sprite2D] = []      # tiles then layers, in the order above
 var _tex_a: Array[Texture2D] = []
@@ -132,8 +132,37 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed(&"style_toggle"):
 		toggle()
 		get_viewport().set_input_as_handled()
+	elif event.is_action_pressed(&"rig_toggle"):
+		toggle_rig()
+		get_viewport().set_input_as_handled()
 	elif event.is_action_pressed(&"quit_game"):
 		get_tree().quit()
+
+
+# RIG PROBE (R-C9-34).  G swaps the E-facing knight between the 2D puppet rig cut from
+# the painted still and the Grok-generated E cells, in place, so the two can be watched
+# on the same spot.  Returns the mode now in force.  Only E changes; the other seven
+# directions are Grok cells either way, and the HUD says which mode is live so a rig
+# frame is never read as a painted one (and vice versa).
+func toggle_rig() -> String:
+	if _knight_sprite != null and _knight_sprite.has_method("set_use_rig"):
+		_knight_sprite.call("set_use_rig", not bool(_knight_sprite.get("use_rig")))
+	_refresh_hud()
+	return rig_mode()
+
+
+func rig_mode() -> String:
+	if _knight_sprite == null or not _knight_sprite.has_method("rig_available"):
+		return "GROK (no rig)"
+	if not bool(_knight_sprite.call("rig_available")):
+		return "GROK (no rig)"
+	return "RIG" if bool(_knight_sprite.get("use_rig")) else "GROK"
+
+
+func _refresh_hud() -> void:
+	if _label == null:
+		return
+	_label.text = (HUD_B % rig_mode()) if _style_b else HUD_A
 
 
 # Returns the number of textures swapped, so the headless probe can count them.
@@ -164,8 +193,7 @@ func _apply(to_b: bool) -> int:
 			_knight_sprite.call("sync_now")
 	for n in _h1_nodes:
 		n.visible = not to_b
-	if _label != null:
-		_label.text = HUD_B if to_b else HUD_A
+	_refresh_hud()
 	return swapped
 
 

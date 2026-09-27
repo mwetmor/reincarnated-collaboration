@@ -29,6 +29,17 @@ extends AnimatedSprite2D
 # cast/jump -> idle.  style_toggle.gd states this on the HUD line so nobody reads a
 # mapped state as a painted one.
 
+# RIG PROBE (R-C9-34).  When the knight faces E he can be drawn two ways: the Grok
+# walk_E/idle_E cells, or the 2D puppet rig cut from the painted still
+# (scenes/knight_rig_E.tscn, mounted as our child "Rig").  G swaps between them in
+# place.  Only E is affected; the other seven directions are always Grok cells.
+#
+# The swap hides this AnimatedSprite2D's OWN drawing with self_modulate.a = 0 rather
+# than with `visible`, because `visible` would take the rig -- our child -- down with
+# it.  self_modulate touches this node and not its children, which is exactly the
+# distinction needed here.
+const RIG_DIRECTION := "E"
+
 const STATE_MAP := {
 	"walk": "walk",
 	"run": "walk",
@@ -40,6 +51,9 @@ const DIRECTIONS := ["S", "SW", "W", "NW", "N", "NE", "E", "SE"]
 
 var _keeper: Node = null
 var _missing: Dictionary = {}
+var _rig: Node2D = null
+var use_rig: bool = true          # the probe ships with the rig ON for E
+var _rig_showing: bool = false
 
 
 func _ready() -> void:
@@ -48,6 +62,9 @@ func _ready() -> void:
 		push_error("knight_skin: parent is not the Keeper (no state/facing)")
 		_keeper = null
 		return
+	_rig = get_node_or_null(^"Rig") as Node2D
+	if _rig == null:
+		push_warning("knight_skin: no Rig child; E will always use the Grok cells")
 	sync_now()
 
 
@@ -75,6 +92,37 @@ func sync_now() -> void:
 			return
 	if animation != want or not is_playing():
 		play(want)
+	_apply_rig(kind, facing)
+
+
+# Show the rig instead of the Grok cells when we are facing E and the probe is on.
+func _apply_rig(kind: String, facing: String) -> void:
+	var on: bool = use_rig and facing == RIG_DIRECTION and _rig != null
+	if on:
+		_rig.visible = true
+		_rig.call("play_state", kind)
+	elif _rig != null:
+		_rig.visible = false
+	if on != _rig_showing:
+		_rig_showing = on
+		self_modulate.a = 0.0 if on else 1.0
+
+
+func set_use_rig(v: bool) -> void:
+	use_rig = v
+	sync_now()
+
+
+func rig_available() -> bool:
+	return _rig != null
+
+
+func rig_showing() -> bool:
+	return _rig_showing
+
+
+func rig_node() -> Node2D:
+	return _rig
 
 
 # --- introspection for tools/probe_ab.gd ---------------------------------------

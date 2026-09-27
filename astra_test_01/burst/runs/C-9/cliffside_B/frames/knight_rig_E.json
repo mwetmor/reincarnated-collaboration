@@ -1,0 +1,388 @@
+{
+ "note": "C-9 probe R-C9-34: 2D puppet rig of the E knight, cut from seed_E.png.",
+ "seed": {
+  "crown": 414,
+  "sole": 1286,
+  "figure_h_px": 872
+ },
+ "ref_cell_idle_E": {
+  "crown": 201,
+  "sole": 395,
+  "figure_h_px": 194.0,
+  "foot_band_cx": 265.07239819004525
+ },
+ "transform": {
+  "seed_to_cell": 0.22247706422018348,
+  "node_scale": 0.7276465839136138,
+  "pivot_cell": [
+   256.51134108456966,
+   395.1875
+  ],
+  "sprite_scale": 0.6871467702229466,
+  "png_texels_per_seed_px": 0.3237693515578924,
+  "texels_per_canvas_px": 2.0,
+  "ref_foot_cx_cell": 265.07239819004525,
+  "seed_foot_cx": 538.022118742724
+ },
+ "joints_seed": {
+  "neck": [
+   437,
+   574
+  ],
+  "torso": [
+   437,
+   782
+  ],
+  "hip": [
+   438,
+   830
+  ],
+  "shoulder": [
+   455,
+   632
+  ],
+  "elbow": [
+   492,
+   712
+  ],
+  "grip": [
+   585,
+   676
+  ],
+  "knee": [
+   420,
+   1012
+  ],
+  "ankle": [
+   408,
+   1215
+  ],
+  "skirt_back": [
+   400,
+   756
+  ],
+  "skirt_front": [
+   468,
+   776
+  ]
+ },
+ "joints_rig": {
+  "neck": [
+   -13.914047293708435,
+   -158.40366972477065
+  ],
+  "torso": [
+   -13.914047293708435,
+   -112.12844036697247
+  ],
+  "hip": [
+   -13.691570229488253,
+   -101.44954128440367
+  ],
+  "shoulder": [
+   -9.909460137745132,
+   -145.5
+  ],
+  "elbow": [
+   -1.6778087615983441,
+   -127.70183486238533
+  ],
+  "grip": [
+   19.01255821087872,
+   -135.71100917431193
+  ],
+  "knee": [
+   -17.696157385451556,
+   -60.95871559633027
+  ],
+  "ankle": [
+   -20.365882156093758,
+   -15.795871559633028
+  ],
+  "skirt_back": [
+   -22.145698669855225,
+   -117.91284403669725
+  ],
+  "skirt_front": [
+   -7.017258302882748,
+   -113.46330275229357
+  ]
+ },
+ "far_side": {
+  "offset_seed_px": [
+   10,
+   -32
+  ],
+  "offset_rig_px": [
+   2.2247706422018347,
+   -7.1192660550458715
+  ],
+  "darken": 0.85
+ },
+ "parts": {
+  "arm_far_lo": {
+   "seed_rect": [
+    461,
+    645,
+    575,
+    753
+   ],
+   "png_size": [
+    37,
+    35
+   ],
+   "centre_rig": [
+    4.106594908126427,
+    -130.5940366972477
+   ]
+  },
+  "arm_near_lo": {
+   "seed_rect": [
+    461,
+    645,
+    575,
+    753
+   ],
+   "png_size": [
+    37,
+    35
+   ],
+   "centre_rig": [
+    4.106594908126427,
+    -130.5940366972477
+   ]
+  },
+  "hand_far": {
+   "seed_rect": [
+    550,
+    616,
+    629,
+    731
+   ],
+   "png_size": [
+    26,
+    37
+   ],
+   "centre_rig": [
+    20.013704999869546,
+    -136.2672018348624
+   ]
+  },
+  "hand_pollaxe": {
+   "seed_rect": [
+    486,
+    230,
+    701,
+    1305
+   ],
+   "png_size": [
+    70,
+    348
+   ],
+   "centre_rig": [
+    20.90361325675028,
+    -115.35435779816514
+   ]
+  },
+  "head": {
+   "seed_rect": [
+    359,
+    411,
+    540,
+    585
+   ],
+   "png_size": [
+    59,
+    56
+   ],
+   "centre_rig": [
+    -11.133083990956141,
+    -175.3119266055046
+   ]
+  },
+  "leg_far_foot": {
+   "seed_rect": [
+    386,
+    1197,
+    552,
+    1285
+   ],
+   "png_size": [
+    54,
+    28
+   ],
+   "centre_rig": [
+    -6.794781238662564,
+    -10.011467889908257
+   ]
+  },
+  "leg_far_shin": {
+   "seed_rect": [
+    371,
+    1049,
+    473,
+    1211
+   ],
+   "png_size": [
+    33,
+    52
+   ],
+   "centre_rig": [
+    -17.251203257011188,
+    -34.706422018348626
+   ]
+  },
+  "leg_far_thigh": {
+   "seed_rect": [
+    371,
+    801,
+    512,
+    1065
+   ],
+   "png_size": [
+    46,
+    85
+   ],
+   "centre_rig": [
+    -12.912900504717609,
+    -78.53440366972477
+   ]
+  },
+  "leg_near_foot": {
+   "seed_rect": [
+    386,
+    1197,
+    552,
+    1285
+   ],
+   "png_size": [
+    54,
+    28
+   ],
+   "centre_rig": [
+    -6.794781238662564,
+    -10.011467889908257
+   ]
+  },
+  "leg_near_shin": {
+   "seed_rect": [
+    371,
+    1049,
+    473,
+    1211
+   ],
+   "png_size": [
+    33,
+    52
+   ],
+   "centre_rig": [
+    -17.251203257011188,
+    -34.706422018348626
+   ]
+  },
+  "leg_near_thigh": {
+   "seed_rect": [
+    371,
+    801,
+    512,
+    1065
+   ],
+   "png_size": [
+    46,
+    85
+   ],
+   "centre_rig": [
+    -12.912900504717609,
+    -78.53440366972477
+   ]
+  },
+  "skirt_back": {
+   "seed_rect": [
+    323,
+    747,
+    444,
+    994
+   ],
+   "png_size": [
+    39,
+    80
+   ],
+   "centre_rig": [
+    -25.81657022948825,
+    -92.43922018348624
+   ]
+  },
+  "skirt_front": {
+   "seed_rect": [
+    446,
+    756,
+    558,
+    992
+   ],
+   "png_size": [
+    36,
+    76
+   ],
+   "centre_rig": [
+    0.5469618806034902,
+    -91.66055045871559
+   ]
+  },
+  "torso": {
+   "seed_rect": [
+    347,
+    581,
+    572,
+    839
+   ],
+   "png_size": [
+    73,
+    84
+   ],
+   "centre_rig": [
+    -8.908313348754309,
+    -128.14678899082568
+   ]
+  }
+ },
+ "fills": {
+  "leg_near_thigh": "top band cloned 34 rows upward -- the cuisse's hip end is under the tabard hem in the still",
+  "arm_near_lo": "couter end cloned 14 rows upward -- the upper arm is behind the surcoat in the still",
+  "leg_far_thigh": "copy of leg_near_thigh, value x0.85 (symmetric harness; far side in shade)",
+  "leg_far_shin": "copy of leg_near_shin, value x0.85 (symmetric harness; far side in shade)",
+  "leg_far_foot": "copy of leg_near_foot, value x0.85 (symmetric harness; far side in shade)",
+  "arm_far_lo": "copy of arm_near_lo, value x0.85",
+  "hand_far": "gauntlet band y618-728 with the pollaxe shaft column x572-616 removed and the hole closed by tiling the fist's own plate from x558-572 across it; value x0.85"
+ },
+ "stopped": [],
+ "dropped_px": 11548,
+ "walk": {
+  "stride_seconds": 0.57971,
+  "walk_px_s_canvas": 247.0,
+  "walk_px_s_rig": 339.4505044901356,
+  "body_travel_per_stride_canvas_px": 143.18837,
+  "step_length_canvas_px": 71.594185,
+  "ankle_sweep_rig_px": 98.39142597898824,
+  "ankle_sweep_canvas_px": 71.59418499999998,
+  "thigh_len_rig": 40.68837282555854,
+  "shin_len_rig": 45.241683344389614,
+  "ankle_height_rig": 15.795871559633028,
+  "hip_height_painted_rig": 101.44954128440367,
+  "hip_height_nominal_rig": 93.44954128440367,
+  "hip_bob_rig_px": 15.409452777676009,
+  "hip_bob_canvas_px": 11.212635673654095,
+  "frames_hip_clamped_by_reach": 11,
+  "samples": 32,
+  "stance_fraction": 0.5,
+  "tabard": {
+   "model": "baked lagged+damped pendulum from the near thigh",
+   "lag_s": 0.1,
+   "hem_deg_front": 6.0,
+   "hem_deg_back": 4.0
+  }
+ },
+ "idle": {
+  "seconds": 2.0,
+  "samples": 24
+ }
+}

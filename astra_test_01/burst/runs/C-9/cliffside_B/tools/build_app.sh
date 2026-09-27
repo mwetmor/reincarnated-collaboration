@@ -190,7 +190,8 @@ if [ -n "$PCK" ] && [ -f "$PCK" ]; then
            parallax/layers_b/sky.png parallax/layers_b/far_ruins.png \
            parallax/layers_b/forest_valley.png parallax/layers_b/mist.png \
            parallax/layers_b/offsets.json \
-           frames/keeper.tres frames/knight.tres; do
+           frames/keeper.tres frames/knight.tres \
+           scenes/knight_rig_E.tscn frames/knight_rig_E.json; do
     # NOTE: grep the BARE path, not "res://$p". An IMPORTED resource (a .png, a .tres)
     # appears in the pck's string table as "res://<path>", but a plain INCLUDED file --
     # every .json here -- appears as "<path>" with no scheme. Checking for "res://$p"
@@ -214,6 +215,18 @@ if [ -n "$PCK" ] && [ -f "$PCK" ]; then
   done
   if [ "$KN" -eq 192 ]; then ck 0 "all 192 knight frames in the pck (16 cells x 12)"
   else ck 1 "knight frames in the pck: $KN/192"; fi
+
+  # R-C9-34: all 14 rig parts. A rig that exports with 13 of them toggles to a knight
+  # missing a leg and says nothing, so count them rather than trusting the scene.
+  RG=0
+  for p in arm_far_lo arm_near_lo hand_far hand_pollaxe head \
+           leg_far_foot leg_far_shin leg_far_thigh \
+           leg_near_foot leg_near_shin leg_near_thigh \
+           skirt_back skirt_front torso; do
+    grep -a -q "sprites_rig_E/$p.png" "$PCK" && RG=$((RG+1))
+  done
+  if [ "$RG" -eq 14 ]; then ck 0 "all 14 knight-rig parts in the pck"
+  else ck 1 "knight-rig parts in the pck: $RG/14"; fi
 fi
 
 xattr -dr com.apple.quarantine "$APP" 2>/dev/null || true

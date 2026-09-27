@@ -1,6 +1,7 @@
-[gd_scene load_steps=99 format=3]
+[gd_scene load_steps=100 format=3]
 
 [ext_resource type="Script" path="res://scripts/keeper.gd" id="Keeper"]
+[ext_resource type="PackedScene" path="res://scenes/knight_rig_E.tscn" id="KnightRig"]
 [ext_resource type="Script" path="res://scripts/style_toggle.gd" id="StyleToggle"]
 [ext_resource type="SpriteFrames" path="res://frames/keeper.tres" id="Frames"]
 [ext_resource type="SpriteFrames" path="res://frames/knight.tres" id="KnightFrames"]
@@ -3193,6 +3194,9 @@ centered = false
 offset = Vector2(-256.511341085, -395.1875)
 scale = Vector2(0.727646583914, 0.727646583914)
 script = ExtResource("KnightSkin")
+
+[node name="Rig" parent="Actors/Keeper/KnightSprite" instance=ExtResource("KnightRig")]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Actors/Keeper"]
 shape = SubResource("Feet")

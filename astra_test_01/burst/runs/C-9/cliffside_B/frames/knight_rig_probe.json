@@ -1,0 +1,68 @@
+{
+ "bones": 17,
+ "fails": 0,
+ "foot_slide": {
+  "body_travel_px": 581.847900390625,
+  "grok_E_slide_px_per_stride": 34.4,
+  "grok_E_slide_ratio": 0.81,
+  "stance_runs": [
+   {
+    "body_expected_px": 69.9833333333333,
+    "body_moved_px": 69.98388671875,
+    "foot_world_x_range_px": 0.11376953125,
+    "samples": 18,
+    "t_from": 0.0,
+    "t_to": 0.283333333333333,
+    "valid": true
+   },
+   {
+    "body_expected_px": 69.9833333333333,
+    "body_moved_px": 69.98388671875,
+    "foot_world_x_range_px": 0.03955078125,
+    "samples": 18,
+    "t_from": 0.00362332661946629,
+    "t_to": 0.2869566599528,
+    "valid": true
+   },
+   {
+    "body_expected_px": 65.8666666666667,
+    "body_moved_px": 65.8671875,
+    "foot_world_x_range_px": 0.125,
+    "samples": 17,
+    "t_from": 0.0072466532389327,
+    "t_to": 0.273913319905599,
+    "valid": true
+   },
+   {
+    "body_expected_px": 65.8666666666667,
+    "body_moved_px": 65.8671875,
+    "foot_world_x_range_px": 0.1630859375,
+    "samples": 17,
+    "t_from": 0.0108699798583991,
+    "t_to": 0.277536646525066,
+    "valid": true
+   },
+   {
+    "body_expected_px": 65.8666666666667,
+    "body_moved_px": 5.510009765625,
+    "foot_world_x_range_px": 60.40771484375,
+    "samples": 17,
+    "t_from": 0.0144933064778655,
+    "t_to": 0.281159973144532,
+    "valid": false
+   }
+  ],
+  "stride_travel_px": 143.188371658325,
+  "worst_stance_drift_canvas_px": 0.1630859375
+ },
+ "grok_walk_stride_s": 0.579710144927536,
+ "registration": {
+  "d_foot_cx_px": 11.1734619140625,
+  "d_height_px": 0.12109375,
+  "d_sole_px": 0.1494140625,
+  "grok_height_px": 141.163330078125,
+  "rig_height_px": 141.284423828125
+ },
+ "sprites": 14,
+ "walk_length_s": 0.579710006713867
+}
