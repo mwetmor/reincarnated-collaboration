@@ -20,7 +20,7 @@
 | Cliffside landmark: Keeper's domain | TRH September, Saumur (tower castle); Belles Heures DP274540 as a same-book alternative | |
 | Grassland / valley / forest | TRH June (meadow), March (valley and roads), August (hills and river), May (forest); Belles Heures DP253017 (forest), DP274542 (meadow) | |
 
-| **FFT style target (LOOK-ONLY)** | Yoshida FFT character page, supplied by Matt. **Copyrighted: never attach it to Astra or any generator.** Used only for human comparison and for the numbers in `metrics-2026-09-26.md`. | `look-only-never-attach/` |
+| **FFT style target (LOOK-ONLY)** | **Primary:** five *Final Fantasy Tactics: The Ivalice Chronicles* Steam frames (`fft-tic-steam-*`). **Secondary:** the FFT *Advance*-era composite page. All supplied by Matt. **Copyrighted: never attach any of them to Astra or any generator.** Used only for human comparison and for the numbers in `metrics-2026-09-26.md`. | `look-only-never-attach/` |
 
 Every ledger row carries `attach_to_generator`. Only rows marked `true` may be passed to a burst.
 
