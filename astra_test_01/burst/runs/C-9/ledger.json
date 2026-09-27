@@ -12800,6 +12800,14 @@
       "topic": "B mist: thick and low like A",
       "ruling": "Matt verbatim: \"Go with a\" (option a: make the B mist thick and low like A). Currently B mist is tinted purple and capped at 220/255 alpha; its 50%-coverage row sits about 250 px above A (bridge A 975 / B 715; plateau A 614 / B 368). Fix, no Astra: match A mist density profile and bank row at both cameras (alpha curve and cap, vertical placement), keeping the purple tint of the register card PARALLAX LIGHT line. drax, bundled with R-C9-47.",
       "ts": "2026-09-27T17:52:58"
+    },
+    {
+      "id": "R-C9-49",
+      "class": "matt",
+      "veto_open": false,
+      "topic": "Painter bake-off: Sol vs Astra before the cathedral paint; the grey box resumes",
+      "ruling": "Matt asked whether to use ChatGPT 6 Sol (newer, more efficient, not the flagship) for the cathedral work, and agreed to the conductor plan: (1) the grey box resumes now (it is model-agnostic Godot geometry); (2) a bake-off, Sol vs Astra, on briefs with known answers, measured by existing instruments: RP-E under-layer edit (registration IoU, tone, hand), one cliffside chunk outpaint (join DP error, guide boundaries), then one cathedral establishing pass once the grey box exists (Matt eye). Sol must first be verified available in the Codex CLI, with its image tool identified. If Sol >= Astra it paints the cathedral; the cliffside stays Astra. A painter change is a declared run variable, never drift.",
+      "ts": "2026-09-27T19:53:29"
     }
   ],
   "grok_calls": [
