@@ -11406,6 +11406,11 @@
       "id": "M-C9-V3",
       "ts_note": "drax v3 (2596ca53a) + run (3a2a717d2), no push: new background with known-background unmix (far smoke fringe +41.2 -> +2.9 green excess, 14x; a hard key would have deleted 55% of far smoke and 100% of forest smoke); tower reads at the bridge, the cathedral cannot share the 1920 frame (landmarks span 2041 layer px) -> visible east of the bridge, or move it ~700 px left in the far art (Matt call); crown-rule fix: knight had been scaled to include his axe (206.4 -> 198.6 src px, scale 0.7276 -> 0.7563); angel + demon stills in B (collision disabled in A). Grok run 7/8 (W_run 429 rate limit -> re-fired alone); rig run E with flight phase, two-handed pollaxe, plant drift 2.94 px (walk 0.10). Thigh range reduced 84.9 -> 75.4 deg (swing lift 11 -> 4 px); floor ~70 deg at this step length unless the step shortens (which reintroduces slide). Cathedral establishing CA-est-A/B delivered (2 each).",
       "ts": "2026-09-27T14:37:00"
+    },
+    {
+      "id": "M-C9-WEB",
+      "ts_note": "LIVE: https://reincarnated-loadout.vercel.app/playtest/cliffside-illuminated/ (loadout c4f9ced..3a6f12a pushed on Matt R-C9-39; conductor re-verified: page 200, index.pck 200 application/octet-stream 68,243,988 B). pck 147 -> 68.2 MB (q0.88 WebP on the 12 big painted files; characters lossless; 60 MB aim unmet without lossy characters or splitting A/B). Touch buttons RUN / STYLE(T) / RIG(G) with a real toggle test (Input.action_press synthesises no event -- would have shipped dead buttons). Run 8/8 (W_run-r1 cut, forced period 48). Old /playtest/cliffside/ untouched (its three pcks re-hashed live). godot 8f3e943 + collab 4a6e1a17b committed, not pushed.",
+      "ts": "2026-09-27T15:26:42"
     }
   ],
   "halts": [],
@@ -11722,6 +11727,14 @@
       "topic": "Complete the walk+run comparison in the full scene; cathedral work in parallel; angel+demon in scene",
       "ruling": "Matt (spoken, paraphrase of a long message): asks whether the adjusted scene is done, whether walk AND run are complete with the new visors, which rig joints move; wants a full comparative animation (walk, run; Grok vs rig) set in the complete scene (objects/trees excluded), then back to the cathedral, with cathedral work in parallel now; angel and demon must be in the scene when he walks by. Actions: Grok RUN clips x8 (none existed: run was mapped to walk); drax adds rig RUN for E + Grok run cells after the v3 rebuild; cathedral: two BARE establishing images (A = H1 register, B = Illuminated) of the ruled KC2-PLAY design as material for the parked S1/S4/S5 sitting (they do not pre-decide it).",
       "ts": "2026-09-27T14:07:46"
+    },
+    {
+      "id": "R-C9-39",
+      "class": "matt",
+      "veto_open": false,
+      "topic": "Publish the A/B cliffside to Vercel as a NEW route; push authorized for this deploy",
+      "ruling": "Matt verbatim: \"Can you publish it to a vercel link (and not override the current cliffside)? Or even better have a toggle between the two cliffsides?\" The build already toggles the two cliffsides (T). Route: /playtest/cliffside-illuminated/ on reincarnated-loadout (current /playtest/cliffside/ untouched) + a landing card. PUSH AUTHORIZED for this deploy: reincarnated-loadout main only (Matt explicit request); reincarnated-godot not pushed. Constraint found: desktop pck 147 MB > GitHub 100 MB per-file limit -> web build must compress textures (target <= 90 MB hard, aim <= 60 MB).",
+      "ts": "2026-09-27T14:56:21"
     }
   ],
   "grok_calls": [
@@ -12285,6 +12298,23 @@
       "printed": "",
       "staged_mp4": "/Users/admin/astra-burst/grok/C-9/E_run/E_run.mp4",
       "ts": "2026-09-27T14:09:51"
+    },
+    {
+      "id": "G-W_run-r1",
+      "cell": "W_run",
+      "still": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/seeds/seed_W.png",
+      "still_sha256": "54dd23944dd71258ed423ff95b4796a9290f0df26e2da3357bd7ed253ff64819",
+      "prompt_sha256": "a63620df36289feda7e577931b0b7abb839fcdbb80586d10af7bcf1c8b09e52a",
+      "extra": "",
+      "clip": "runs/C-9/xvideo/in/W_run-r1.mp4",
+      "clip_sha256": "6d76a3351324c9ba5db3e1336bb750a9a68127ea37fbbbd71d634d5c8076e1ab",
+      "ok": true,
+      "rc": 0,
+      "wall_s": 56,
+      "probe": "768,1168,24/1,6.041667,145",
+      "printed": "",
+      "staged_mp4": "/Users/admin/astra-burst/grok/C-9/W_run-r1/W_run-r1.mp4",
+      "ts": "2026-09-27T14:37:29"
     }
   ],
   "run": "C-9",
