@@ -1,0 +1,27 @@
+{
+ "text": "GENERATE BURST K1-warm \u2014 Run C-9 style gate, CHARACTER arm (WARM line). The REGISTER CARD above governs style. task_id \"K1-warm\".\n\nDeliver SQUARE 1024x1024 character master frames: ONE full-body armoured knight, the knight in IMAGE 1, standing at rest.\nIDENTITY (from IMAGE 1): full plate armour in blue-grey steel; a closed rounded helm with its visor down; a BLUE TABARD over the breastplate bearing gold heraldry (gold cross-crosslets and gold diagonal bands, as in IMAGE 1); a POLEAXE (long haft, axe blade with a hammer and top spike). CHANGE from IMAGE 1: NO pleated skirt below the tabard. The tabard ends at the hip and the thighs and legs show full plate armour, exactly as the knight in IMAGE 2 wears it (take only that garment cut from IMAGE 2, not its white tabard or its colours).\nPOSE AND CAMERA: a calm idle stance, weight on the back foot, the poleaxe held upright with its butt resting on the ground beside the front foot. He faces DOWN-RIGHT (toward the lower-right of the image, south-east). The view is a fixed game camera looking DOWN at about 53 degrees: the top of the helm and the tops of the shoulders are clearly visible, the torso is slightly shortened, the feet are seen from above. Orthographic: no perspective distortion. Full figure, feet at the bottom centre, the figure fills about 70 % of the frame height.\nBACKGROUND: flat uniform pure #00ff00, nothing else: no ground, no shadow, no vignette, no border, no text.\nREFERENCES: IMAGE 1 = the character (armour, heraldry, helm, poleaxe, proportions). IMAGE 2 = garment cut only (no skirt). IMAGE 3 shows the painted SURFACE of a manuscript (wash, pigment, vellum): match that surface quality in the rendering. Do not copy any reference's pose, fence, ground, background or flat perspective.\nLINE ARM = WARM: a warm brown iron-gall ink line, never darker than a deep brown; softer and lighter than black ink; hatching in the same brown.\n\nMake TWO image_gen calls, one per variant (a, b), with the same instructions (variants differ only by chance). ONE retry per variant only if a hard rule is visibly broken \u2014 name the reason. Copy the outputs from $CODEX_HOME/generated_images/... to out/K1-warm_a.png, out/K1-warm_b.png with sha256. No code. No other files. No web.\nRETURN: receipt task_id \"K1-warm\"; images = the files with prompt, references (role + path) and elapsed_s; calls_used = the TRUE number of image_gen calls; status; concerns. Never PASS/FAIL.",
+ "references": [
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/inputs/knight_f129v_right.png",
+   "role": "IMAGE 1 \u2014 THE CHARACTER (identity, armour, heraldry, poleaxe)"
+  },
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/inputs/knight_f123_right_noskirt.png",
+   "role": "IMAGE 2 \u2014 garment cut only: tabard to the hip, plate legs (no skirt)"
+  },
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/inputs/texture_patch_2_stall_robe.png",
+   "role": "IMAGE 3 \u2014 the painted surface of a manuscript; surface quality only"
+  }
+ ],
+ "image_cap": 4,
+ "minutes_cap": 15,
+ "tool_call_cap": 20,
+ "outputs": [
+  "out/K1-warm_a.png",
+  "out/K1-warm_b.png"
+ ],
+ "effort": "high",
+ "add_dirs": [],
+ "experiment": "M1-style-gate"
+}

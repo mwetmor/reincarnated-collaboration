@@ -21,6 +21,11 @@ ROOT = Path(__file__).resolve().parents[1]
 WORK_ROOT = Path.home() / 'astra-burst' / 'runs'
 
 
+def register_card_for(run) -> Path:
+    card = ROOT / 'runs' / run / 'REGISTER_CARD.md'
+    return card if card.is_file() else ROOT / 'REGISTER_CARD.md'
+
+
 def validate_task(task, type):
     expected = {'text': str, 'references': list, 'image_cap': int, 'minutes_cap': int,
                 'tool_call_cap': int, 'outputs': list, 'effort': str, 'add_dirs': list}
@@ -144,13 +149,22 @@ def run(args):
     task = json.loads(Path(args.task).read_text())
     validate_task(task, args.type)
     prepared = prepare_task(task)
-    brief = render_brief.render(prepared, args.type)
+    card_path = register_card_for(args.run)
+    uses_run_card = card_path != ROOT / 'REGISTER_CARD.md'
+    if uses_run_card:
+        brief = render_brief.render(prepared, args.type, card_path=card_path)
+    else:
+        brief = render_brief.render(prepared, args.type)
     workdir = WORK_ROOT / args.run / args.burst_id
     cmd = build_command(workdir, prepared, brief)
     if args.dry_run:
+        if uses_run_card:
+            print(f'REGISTER_CARD: {card_path.relative_to(ROOT)}')
         print(brief)
         print('\nCOMMAND\n' + shlex.join(cmd) + ' </dev/null > events.jsonl 2> stderr.txt')
         return 0
+    register_card = dict(path=str(card_path.relative_to(ROOT)),
+                         sha256=ledger.sha256(card_path) if card_path.is_file() else None)
     if workdir.exists():
         raise ValueError('workdir already exists; use a fresh burst id')
     current_path = ROOT / 'runs' / args.run / 'ledger.json'
@@ -225,6 +239,7 @@ def run(args):
         shutil.copytree(out, target)
     receipt_path = out / 'receipt.json'
     ledger.append(args.run, dict(id=args.burst_id, type=args.type, experiment=task.get('experiment'),
+                  register_card=register_card,
                   brief_sha256=hashlib.sha256(brief.encode()).hexdigest(), started=started, ended=ended,
                   minutes=minutes, image_calls=result['image_calls'], tool_calls=result['tool_calls'],
                   audit=result, receipt_sha256=ledger.sha256(receipt_path) if receipt_path.is_file() else None,

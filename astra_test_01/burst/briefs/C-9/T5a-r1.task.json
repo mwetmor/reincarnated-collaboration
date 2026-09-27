@@ -1,0 +1,17 @@
+{
+ "text": "TOOLING BURST T5a-r1 \u2014 diagnosed retry of T5a (Run C-9, P1; two-attempt rule). task_id \"T5a-r1\".\n\nDEFECT (conductor-diagnosed from the outside suite, runs/C-9/evidence/suite_post_T5a.txt): T5a added, in lane/run_burst.py run(),\n    register_card = dict(path=str(card_path.relative_to(ROOT)), sha256=ledger.sha256(card_path))\nunconditionally. The wrapper tests (tests/test_lane.py LaneTests.test_wrapper_roundtrip_error_timeout_and_void, 4 subtests; tests/test_run_burst.py ModuleTests.test_wrapper_image_truth_and_tooling_in_place, 3 subtests) patch run_burst.ROOT to a temporary fixture repo that has no REGISTER_CARD.md (they mock render_brief), so ledger.sha256 raises FileNotFoundError: 7 new ERRORs versus the C-7 freeze (15 F / 2 E before; 15 F / 9 E after).\n\nRead ONLY: SPEC.md \u00a7 7 rows \"T5a\" and \"T5a-r1\"; BURST_RULES.md (TOOLING row); lane/run_burst.py; lane/ledger.py; tests/test_lane.py (around line 180\u2013215); tests/test_run_burst.py (around line 90\u2013125); tests/test_render_brief.py; runs/C-9/evidence/suite_post_T5a.txt (the 7 new ERROR blocks). Nothing else. No web, no agents, no images, no pip. stdlib only.\n\nFIX (minimal): in run(), record register_card with sha256 = ledger.sha256(card_path) when card_path.is_file(), else None (path still recorded). Do NOT change the wrapper tests, the fixtures, render_brief.py, or any root contract. Do not touch anything under runs/ (write your acceptance and notes into out/ only).\n\nACCEPTANCE (write out/acceptance.json with command + result each):\n- python3 -S -B -m unittest tests.test_render_brief tests.test_lane tests.test_run_burst -v : the 7 previously-erroring subtests no longer ERROR; report every FAIL/ERROR that remains in these three modules and whether it appears in runs/C-9/evidence/reds_post_T5a.txt minus the 7 (i.e. inherited).\n- python3 lane/run_burst.py --run C-7 --burst-id PRE-T5a-probe --type TOOLING --task briefs/C-7/BL-2v-b.task.json --dry-run : stdout still byte-identical to runs/C-9/evidence/pre_T5a_dryrun_C7_BL-2v-b.txt (cmp).\n- Do NOT run the full outside suite (the conductor runs it after you).\nWrite out/notes.md (what changed, why, lines). Return out/files.json with sha256 of every changed file.\nRETURN: receipt task_id \"T5a-r1\"; images = []; calls_used = 0; status; concerns. Never PASS/FAIL.",
+ "references": [],
+ "image_cap": 0,
+ "minutes_cap": 40,
+ "tool_call_cap": 60,
+ "outputs": [
+  "out/files.json",
+  "out/acceptance.json",
+  "out/notes.md"
+ ],
+ "effort": "high",
+ "add_dirs": [
+  "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst"
+ ],
+ "experiment": "P1-T5a"
+}

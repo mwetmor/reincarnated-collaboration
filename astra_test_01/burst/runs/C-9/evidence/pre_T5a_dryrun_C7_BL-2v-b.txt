@@ -1,0 +1,420 @@
+## 2. Register card (FROZEN for the run; extracted verbatim into `astra_test_01/burst/REGISTER_CARD.md` by T0)
+
+```
+REGISTER CARD — Run C-1 — v1.1 (H1 re-freeze, C-2 step 3; R-23 / R-29) — do not reinterpret; every line is a constraint
+STYLE (H1 — ruled R-23; supersedes v1.0 STYLE in pixels, never in identity text): HAND-DRAWN painted 2D
+  in the manner of a modern hand-animated action game — a confident dark contour line drawn by hand
+  with visible taper and varying weight, painted fills in clean planes inside the line, restrained
+  texture; the line carries the pose. Every frame should look like one frame of hand-drawn animation,
+  not a rendered illustration. Not pixel art. Not cel-shaded. F04 CLARITY keepers: clean material
+  planes, restrained surface texture, readable small silhouettes, no conspicuous brush/pixel grain.
+  Environmental richness and local light-spill on floors/walls in the F03 manner.
+  Exhibits of the ruled register (EVIDENCE, never generation references — the register is text-carried):
+  runs/C-1/artifacts/K4-gen-H1/k4_H1_{1,2}.png (figure), K6-male-H1/k6_male_H1_{1,2}.png (in-world),
+  K7-H1-foundry/k7_H1_foundry.png + K7-H1-aery/k7_H1_aery.png (rooms, dialect). VFX edge language:
+  run_03/evidence/vfx_style_match.png.
+SCREEN (R-23): the default screen is the ARPG-language world — elevated ~45° camera, cold key, warm
+  accents only — in the classic isometric-ARPG band. Hades-language framing (steep ~60° arena, bold
+  ground pattern, jewel-toned light) is a LEVEL DIALECT inside H1, never the default. On-screen
+  character height 17 % of 1080p (corpus centre). SCALE is a post-process, never a prompt instruction.
+LIGHT: single key from SCREEN UPPER-LEFT, fixed for every frame of every direction; the light
+  never rotates with the character. Deep cool low-value ambient; readable shadows, never pure
+  black. Slight rim on the key-facing silhouette edge. Spell light is the ONLY warm/saturated
+  source and appears only on cast frames. NO floor shadows in sprite frames.
+CAMERA: projection C (Godot-informed elevated three-quarter; constants in
+  astra_test_01/design/experiments/E01/projection-candidates.json → "C"). All 8 directions are
+  the same camera with the CHARACTER rotated. Directions in this order: S SW W NW N NE E SE.
+  NO MIRRORING. Weapon stays in the same anatomical hand in every direction.
+CANVAS: every delivered frame 512×512, feet pivot at (256,400), S-idle standing height ≈ 240 px.
+  Generation happens on 2×2 sheets (1254² native → 627-px cells); frames are registered
+  by uniform downscale + translation only (no per-frame scale, no upscaling — ever).
+PLATE: all generated art on flat pure #00ff00; matting is done by frozen tools, never in-prompt.
+FACTION F04 — Keepers of Hours: ceremonial armor, arcane instruments, deliberate ornamental
+  geometry; monumental stonework, fractured observatories. Blue / ivory / brass. No source-game
+  names, no copied characters.
+FORBIDDEN in prompts: "Diablo", "Last Epoch", any studio/franchise/character name; "pixel art";
+  "3D render"; "cel shaded".
+```
+
+**Two pre-registered instrument refinements (no bar lowered; both reported):**
+- **G2** reports two quantities: the *root anchor* (atlas pivot, ±4 px literal gate) and the *planted-sole contact* trajectory (run_02's own recommendation). The literal gate stays literal.
+- **G6b** is registered beside the literal G6: seam MAD ≤ *median* internal adjacent-pair MAD. **G6 (literal) remains the recorded brief gate; G6b is a second instrument.** Whether G6b becomes the shipping bar is **Matt's ruling at the first-loop milestone** — not the conductor's, and never a rescue of a failing candidate.
+
+
+## 4. Typed bursts — the rules (extracted verbatim into `astra_test_01/burst/BURST_RULES.md` by T0)
+
+**Every burst:** a fresh `codex exec` (`--ephemeral`, profile `astra-burst`, `-C` a workdir **outside the repo** — `~/astra-burst/runs/<run>/<burst>/` — so no `AGENTS.md`/`CLAUDE.md` context loads; measured boot ≈ 19K tokens), `-s workspace-write` scoped to that workdir, `</dev/null`, `--json` event stream captured, `--output-schema receipt.schema.json -o receipt.json`. **Receipt field semantics (v1.2, 2026-09-12 — X1-chk-02 VOID):** `calls_used` = the number of `image_gen` calls made, and NOTHING else — it is 0 for every burst type except GENERATE and LABEL (tool/command counts are censused by the wrapper, never self-reported); the wrapper VOIDs any receipt whose `calls_used` disagrees with the `generated_images/` truth source. **Hard caps (v1.1):** GENERATE / CHECK / JUDGE / TRANSCRIBE / LABEL / ANNOTATE / PACK ≤ 15 min wall, ≤ 20 tool calls; **TOOLING ≤ 40 min, ≤ 60 tool calls** (T0-a measured 7.4 min / 10 calls for the smallest module); image calls per type below. Prompt = REGISTER CARD + BURST RULES + TASK + REFERENCES (`-i`, roles named) + RETURN (schema). Forbidden in every burst: `web__run`, `collaboration.*`, reading anything outside the workdir and the frozen tools path (Codex's own loaded skills — `$CODEX_HOME/skills/.system/` and the agent-skills path `~/.agents/skills/` — are permitted and expected reads — X1 F-4, 2026-09-11; K1-pack-01, 2026-09-12), writing anything outside `out/`, creating or modifying code (TOOLING excepted), declaring PASS/FAIL (only the conductor's gates and the JUDGE rubric produce verdicts, and JUDGE produces *scores*).
+
+| Type | May | May not | Image cap | Output |
+|---|---|---|---|---|
+| **TOOLING** (T0, once; re-run only by a new TOOLING burst) | write code under `astra_test_01/burst/tools/` (via `--add-dir`); run self-tests | generate images; touch anything else in the repo | 0 | tools + `tools/MANIFEST.sha256` + self-test JSON; **conductor DRIFT-CRITIC review, then FROZEN** |
+
+**Wrapper audit after every burst (deterministic, conductor-side, written by T0):** event-stream census (image calls, tool names, write paths) · receipt schema valid · every listed file exists with matching sha256 · no forbidden tool · caps respected. Any violation → the burst is **VOID** (not FAIL): rerun once with the violation named; a second VOID → HALT.
+
+**Concurrency (Matt ruling 2026-09-12, ledger R-13): non-TOOLING bursts (GENERATE / CHECK / JUDGE / TRANSCRIBE / LABEL / ANNOTATE / PACK) may run in PARALLEL WAVES — default wave size 4, larger permitted for a homogeneous wave (the subscription has the headroom); TOOLING bursts stay SERIAL and never overlap any other burst (they write into the shared frozen tree); a wave RESERVES its image caps against the ledger before launch (images_used + Σ caps ≤ run cap); every burst keeps its own workdir, thread-scoped image truth and locked ledger append. The rate-limit HALT rule (three consecutive backoffs) is unchanged.**
+
+**Two-attempt rule with scope guard:** inside an experiment, one diagnosed retry per burst. A second failure returns to the conductor, who may change *method within the hypothesis* (guide, reference set, generate→edit-canvas, chaining) and registers it in the ledger — **never medium** (no rigs, meshes, renderers, textures-on-geometry). Medium changes are Matt's.
+
+
+TASK
+{
+  "image_cap": 0,
+  "minutes_cap": 40,
+  "outputs": [
+    "out/files.json"
+  ],
+  "text": "TOOLING BURST BL-2v-b — arm B hardening: flipbook dispatch inside the generic G2 path · config hygiene · test alignment (Run C-7, P1; conductor R-C7-6 on defect F-C7-1 found by the outside suite after BL-2v-r1). task_id \"BL-2v-b\".\n\nRead ONLY, in this order:\n1. /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/SPEC.md — § 0, § 1, § 7 rows T4s-r2 (GroundVisibility), BL-1a, FL-1b (byte-lock re-baseline rule), FL-6d (tests read artifacts of record), BL-2v (your previous contract) and the new row \"BL-2v-b — arm B hardening\" (this contract).\n2. /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/BURST_RULES.md (the TOOLING row).\n3. export/godot_import.py (G2: `_g2_config`, `_g2_flipbook_config` ~6325, `_write_g2_flipbook` ~6341, `_g2_flipbook_script` ~6384, the picker `directional` dispatch ~1461, G2_SCRIPT), export/effect_kit.py, runs/C-7/vfx_kits/v9/blackwater_cocktail_e3_V/kit.json, runs/C-5/vfx_kits/kits_v9.json, tests/test_godot_import.py (GroundVisibilityRegressionTests ~1125–1160 incl. VISIBILITY_PROBE + VISIBILITY_WORLD; BlackwaterLandingRuntimeTests; FL6LiveRegistryCLIRegressionTests.test_full_cli_live_registry_emits_all_flame_dance_routes), tests/test_vfx_picker.py (FL4BCatalogueTests.test_eighteen_kits_new_b_binding_and_v2_comparison), tests/run_t0c.py, tests/t0c_suite_output.txt (the outside-suite run after BL-2v-r1: 779 run / 17 FAIL / 4 ERROR — READ the FAIL/ERROR blocks), runs/C-5/artifacts/CS-parallax-in-v10/walkable.json (artifact of record), runs/C-7/t3/BL-2v/ (your previous outputs, READ ONLY).\nDo not read anything else. No web. No agents. No image generation. No pip install. stdlib + Pillow + numpy + scipy ONLY; Godot for headless import/trace only.\n\nDEFECT F-C7-1 (from tests/t0c_suite_output.txt, GroundVisibilityRegressionTests.setUpClass): the test's probe drives every G2 kit through the GENERIC path (`res://scripts/vfx_g2.gd` acquire → release → _sprite → _clock). For blackwater_cocktail_e3_V that path loads `res://vfx/blackwater_cocktail_e3_V/derived/field.png` (never emitted for a flipbook kit) → \"Resource file not found\", then `get_image` on null (vfx_g2.gd:113/163), `set_shader_parameter` on null (:285) and `instantiate` on null (:231). BL-2v put the flipbook dispatch only in the PICKER's `directional` script, so any other caller of G2.acquire gets a config referencing files that do not exist.\n\nPART A — DISPATCH INSIDE THE GENERIC SCRIPT. `vfx_g2.gd` (G2_SCRIPT) `acquire(...)` itself routes `kit.body_mode == \"flipbook\"` to the flipbook implementation (call into `vfx_g2_flipbook.gd`, or fold the flipbook body into G2_SCRIPT behind the mode switch — your call, one implementation, no duplicated clock/tick code); `release`/`_clock`/`_sprite` never run the painted-pool path for a flipbook kit. The picker's string-replacement dispatch from BL-2v is REMOVED (one dispatch point, in the script). Trace clause: the test's own VISIBILITY_PROBE (unchanged) runs on a project built with kits_v9.json and reports NO \"SCRIPT ERROR\" and NO \"Resource file not found\" — GroundVisibilityRegressionTests.setUpClass completes and its tests run.\nPART B — CONFIG HYGIENE. `_g2_flipbook_config` emits ONLY keys whose res:// targets exist after export (no `field`, `fragments`, `pulse`, `Field.tres`/`Pulse.tres` unless written); a NEW test walks every exported kit config in the live catalogue export (19 kits) and asserts every `res://` string resolves to an emitted file — a generic guard, not a V-kit special case.\nPART C — BLACKWATER TESTS READ ARTIFACTS OF RECORD (SPEC row FL-6d, N-C5-STAGED-FIXTURES): BlackwaterLandingRuntimeTests (and any other test) reading `runs/C-5/cliffside_v38/...` is re-pointed to `runs/C-5/artifacts/CS-parallax-in-v10/walkable.json` / the current export — same assertions, never weakened; they must RUN (the three error at setUpClass today).\nPART D — THE TWO 19-KIT LOCKS (BL-2v-19a/b): FL6LiveRegistryCLIRegressionTests.test_full_cli_live_registry_emits_all_flame_dance_routes and FL4BCatalogueTests.test_eighteen_kits_new_b_binding_and_v2_comparison re-encoded from the current catalogue (19 entries; the V kit named and its role asserted — flipbook, no flame_dance route), with a per-lock old→new→why line attributing every changed assertion to BL-2v (the FL-1b rule). Never a literal that would pass on 18 or 20.\nPART E — tests/run_t0c.py: the summary writer crashes on `unittest.loader._ErrorHolder` (setUpClass errors) with \"Object of type _ErrorHolder is not JSON serializable\" and leaves t0c_summary.json STALE — serialise `t.id()`/`str(t)` for holders so the summary is always rewritten; the runner's exit code and t0c_suite_output.txt unchanged.\nPART F — RED TABLE, never weaken: run the full outside suite ONCE in your sandbox at the end (python3 -B tests/run_t0c.py; ≤ 15 min) and write runs/C-7/t3/BL-2v-b/reds.json: every remaining FAIL/ERROR with a classification — inherited (name the C-5 lap that owns it: five standing oracle reds, E3-r1 catalogue lock, FL-5/FL-6 stale-value, sandbox-only) or NEW (yours — fix it or say why not). Two FL-5/FL-6 stale-value examples seen today: test_defaults_absent_and_real_fire_fields_load (at_age 24 vs 28) and test_all_new_fields_validate_in_actual_catalogue (paint_end_age 26 vs 30) — these are FL-5 stale encodings; re-encode from the current fields ONLY if you can attribute the change to a named FL-5/FL-6 clause in SPEC.md; otherwise leave red and NAMED.\nACCEPTANCE (runs/C-7/t3/BL-2v-b/acceptance.json): Part A probe clause (VISIBILITY_PROBE clean on the 19-kit project); Part B new guard green on 19 kits; Part C the Blackwater runtime tests RUN (pass/fail listed, never skipped); Part D per-lock diffs; Part E a summary written despite a forced setUpClass error (unit test of the writer); Part F reds.json; 19-kit export exit 0; headless import exit 0 (gl_compatibility); ALL 18 original kits + the V kit's frames byte-identical; arm B's ab_trace.json re-run (probe_ab.gd from BL-2v) byte-identical on every event field except timestamps.\nDO NOT touch: lane/, bible/, briefs/, SPEC.md, BURST_RULES.md, REGISTER_CARD.md, JUDGE_RUBRIC.md, MANIFEST.sha256, receipt.schema.json, transcribe.schema.json, oracle/, export/replay.py, any kit's primitives/frames, anything under runs/ except runs/C-7/t3/BL-2v-b/ and runs/C-7/vfx_kits/v9/blackwater_cocktail_e3_V/kit.json (config only, if a key must move); fixtures/ only for a new fixture of your own. Do not run the Godot editor GUI. Do not deploy. Confine Godot logs to runs/C-7/t3/BL-2v-b/.\nRETURN: the receipt (task_id \"BL-2v-b\"): files = every changed path with sha256; images = 0 (INTEGER); calls_used; status DELIVERED / DELIVERED_WITH_CONCERNS / FAILED with concerns listed honestly.",
+  "tool_call_cap": 60
+}
+REFERENCES
+
+RETURN
+{
+  "type": "object",
+  "properties": {
+    "task_id": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "DELIVERED",
+        "DELIVERED_WITH_CONCERNS",
+        "FAILED"
+      ]
+    },
+    "images": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "path": {
+            "type": "string"
+          },
+          "sha256": {
+            "type": "string"
+          },
+          "prompt": {
+            "type": "string"
+          },
+          "references": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "role": {
+                  "type": "string"
+                },
+                "path": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "role",
+                "path"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "elapsed_s": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "name",
+          "path",
+          "sha256",
+          "prompt",
+          "references",
+          "elapsed_s"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "calls_used": {
+      "type": "integer"
+    },
+    "retries": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "reason": {
+            "type": "string"
+          },
+          "change": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "reason",
+          "change"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "self_report": {
+      "type": "object",
+      "properties": {
+        "obeyed_invariants": {
+          "type": "boolean"
+        },
+        "concerns": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "obeyed_invariants",
+        "concerns"
+      ],
+      "additionalProperties": false
+    },
+    "files": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "path": {
+            "type": "string"
+          },
+          "sha256": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "path",
+          "sha256"
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  "required": [
+    "task_id",
+    "status",
+    "images",
+    "calls_used",
+    "retries",
+    "self_report",
+    "files"
+  ],
+  "additionalProperties": false
+}
+
+
+COMMAND
+codex exec --ignore-user-config -p astra-burst -C /Users/admin/astra-burst/runs/C-7/PRE-T5a-probe -s workspace-write --ephemeral --skip-git-repo-check -c 'model_reasoning_effort="high"' --add-dir /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst --output-schema /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/receipt.schema.json -o out/receipt.json --json '## 2. Register card (FROZEN for the run; extracted verbatim into `astra_test_01/burst/REGISTER_CARD.md` by T0)
+
+```
+REGISTER CARD — Run C-1 — v1.1 (H1 re-freeze, C-2 step 3; R-23 / R-29) — do not reinterpret; every line is a constraint
+STYLE (H1 — ruled R-23; supersedes v1.0 STYLE in pixels, never in identity text): HAND-DRAWN painted 2D
+  in the manner of a modern hand-animated action game — a confident dark contour line drawn by hand
+  with visible taper and varying weight, painted fills in clean planes inside the line, restrained
+  texture; the line carries the pose. Every frame should look like one frame of hand-drawn animation,
+  not a rendered illustration. Not pixel art. Not cel-shaded. F04 CLARITY keepers: clean material
+  planes, restrained surface texture, readable small silhouettes, no conspicuous brush/pixel grain.
+  Environmental richness and local light-spill on floors/walls in the F03 manner.
+  Exhibits of the ruled register (EVIDENCE, never generation references — the register is text-carried):
+  runs/C-1/artifacts/K4-gen-H1/k4_H1_{1,2}.png (figure), K6-male-H1/k6_male_H1_{1,2}.png (in-world),
+  K7-H1-foundry/k7_H1_foundry.png + K7-H1-aery/k7_H1_aery.png (rooms, dialect). VFX edge language:
+  run_03/evidence/vfx_style_match.png.
+SCREEN (R-23): the default screen is the ARPG-language world — elevated ~45° camera, cold key, warm
+  accents only — in the classic isometric-ARPG band. Hades-language framing (steep ~60° arena, bold
+  ground pattern, jewel-toned light) is a LEVEL DIALECT inside H1, never the default. On-screen
+  character height 17 % of 1080p (corpus centre). SCALE is a post-process, never a prompt instruction.
+LIGHT: single key from SCREEN UPPER-LEFT, fixed for every frame of every direction; the light
+  never rotates with the character. Deep cool low-value ambient; readable shadows, never pure
+  black. Slight rim on the key-facing silhouette edge. Spell light is the ONLY warm/saturated
+  source and appears only on cast frames. NO floor shadows in sprite frames.
+CAMERA: projection C (Godot-informed elevated three-quarter; constants in
+  astra_test_01/design/experiments/E01/projection-candidates.json → "C"). All 8 directions are
+  the same camera with the CHARACTER rotated. Directions in this order: S SW W NW N NE E SE.
+  NO MIRRORING. Weapon stays in the same anatomical hand in every direction.
+CANVAS: every delivered frame 512×512, feet pivot at (256,400), S-idle standing height ≈ 240 px.
+  Generation happens on 2×2 sheets (1254² native → 627-px cells); frames are registered
+  by uniform downscale + translation only (no per-frame scale, no upscaling — ever).
+PLATE: all generated art on flat pure #00ff00; matting is done by frozen tools, never in-prompt.
+FACTION F04 — Keepers of Hours: ceremonial armor, arcane instruments, deliberate ornamental
+  geometry; monumental stonework, fractured observatories. Blue / ivory / brass. No source-game
+  names, no copied characters.
+FORBIDDEN in prompts: "Diablo", "Last Epoch", any studio/franchise/character name; "pixel art";
+  "3D render"; "cel shaded".
+```
+
+**Two pre-registered instrument refinements (no bar lowered; both reported):**
+- **G2** reports two quantities: the *root anchor* (atlas pivot, ±4 px literal gate) and the *planted-sole contact* trajectory (run_02'"'"'s own recommendation). The literal gate stays literal.
+- **G6b** is registered beside the literal G6: seam MAD ≤ *median* internal adjacent-pair MAD. **G6 (literal) remains the recorded brief gate; G6b is a second instrument.** Whether G6b becomes the shipping bar is **Matt'"'"'s ruling at the first-loop milestone** — not the conductor'"'"'s, and never a rescue of a failing candidate.
+
+
+## 4. Typed bursts — the rules (extracted verbatim into `astra_test_01/burst/BURST_RULES.md` by T0)
+
+**Every burst:** a fresh `codex exec` (`--ephemeral`, profile `astra-burst`, `-C` a workdir **outside the repo** — `~/astra-burst/runs/<run>/<burst>/` — so no `AGENTS.md`/`CLAUDE.md` context loads; measured boot ≈ 19K tokens), `-s workspace-write` scoped to that workdir, `</dev/null`, `--json` event stream captured, `--output-schema receipt.schema.json -o receipt.json`. **Receipt field semantics (v1.2, 2026-09-12 — X1-chk-02 VOID):** `calls_used` = the number of `image_gen` calls made, and NOTHING else — it is 0 for every burst type except GENERATE and LABEL (tool/command counts are censused by the wrapper, never self-reported); the wrapper VOIDs any receipt whose `calls_used` disagrees with the `generated_images/` truth source. **Hard caps (v1.1):** GENERATE / CHECK / JUDGE / TRANSCRIBE / LABEL / ANNOTATE / PACK ≤ 15 min wall, ≤ 20 tool calls; **TOOLING ≤ 40 min, ≤ 60 tool calls** (T0-a measured 7.4 min / 10 calls for the smallest module); image calls per type below. Prompt = REGISTER CARD + BURST RULES + TASK + REFERENCES (`-i`, roles named) + RETURN (schema). Forbidden in every burst: `web__run`, `collaboration.*`, reading anything outside the workdir and the frozen tools path (Codex'"'"'s own loaded skills — `$CODEX_HOME/skills/.system/` and the agent-skills path `~/.agents/skills/` — are permitted and expected reads — X1 F-4, 2026-09-11; K1-pack-01, 2026-09-12), writing anything outside `out/`, creating or modifying code (TOOLING excepted), declaring PASS/FAIL (only the conductor'"'"'s gates and the JUDGE rubric produce verdicts, and JUDGE produces *scores*).
+
+| Type | May | May not | Image cap | Output |
+|---|---|---|---|---|
+| **TOOLING** (T0, once; re-run only by a new TOOLING burst) | write code under `astra_test_01/burst/tools/` (via `--add-dir`); run self-tests | generate images; touch anything else in the repo | 0 | tools + `tools/MANIFEST.sha256` + self-test JSON; **conductor DRIFT-CRITIC review, then FROZEN** |
+
+**Wrapper audit after every burst (deterministic, conductor-side, written by T0):** event-stream census (image calls, tool names, write paths) · receipt schema valid · every listed file exists with matching sha256 · no forbidden tool · caps respected. Any violation → the burst is **VOID** (not FAIL): rerun once with the violation named; a second VOID → HALT.
+
+**Concurrency (Matt ruling 2026-09-12, ledger R-13): non-TOOLING bursts (GENERATE / CHECK / JUDGE / TRANSCRIBE / LABEL / ANNOTATE / PACK) may run in PARALLEL WAVES — default wave size 4, larger permitted for a homogeneous wave (the subscription has the headroom); TOOLING bursts stay SERIAL and never overlap any other burst (they write into the shared frozen tree); a wave RESERVES its image caps against the ledger before launch (images_used + Σ caps ≤ run cap); every burst keeps its own workdir, thread-scoped image truth and locked ledger append. The rate-limit HALT rule (three consecutive backoffs) is unchanged.**
+
+**Two-attempt rule with scope guard:** inside an experiment, one diagnosed retry per burst. A second failure returns to the conductor, who may change *method within the hypothesis* (guide, reference set, generate→edit-canvas, chaining) and registers it in the ledger — **never medium** (no rigs, meshes, renderers, textures-on-geometry). Medium changes are Matt'"'"'s.
+
+
+TASK
+{
+  "image_cap": 0,
+  "minutes_cap": 40,
+  "outputs": [
+    "out/files.json"
+  ],
+  "text": "TOOLING BURST BL-2v-b — arm B hardening: flipbook dispatch inside the generic G2 path · config hygiene · test alignment (Run C-7, P1; conductor R-C7-6 on defect F-C7-1 found by the outside suite after BL-2v-r1). task_id \"BL-2v-b\".\n\nRead ONLY, in this order:\n1. /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/SPEC.md — § 0, § 1, § 7 rows T4s-r2 (GroundVisibility), BL-1a, FL-1b (byte-lock re-baseline rule), FL-6d (tests read artifacts of record), BL-2v (your previous contract) and the new row \"BL-2v-b — arm B hardening\" (this contract).\n2. /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/BURST_RULES.md (the TOOLING row).\n3. export/godot_import.py (G2: `_g2_config`, `_g2_flipbook_config` ~6325, `_write_g2_flipbook` ~6341, `_g2_flipbook_script` ~6384, the picker `directional` dispatch ~1461, G2_SCRIPT), export/effect_kit.py, runs/C-7/vfx_kits/v9/blackwater_cocktail_e3_V/kit.json, runs/C-5/vfx_kits/kits_v9.json, tests/test_godot_import.py (GroundVisibilityRegressionTests ~1125–1160 incl. VISIBILITY_PROBE + VISIBILITY_WORLD; BlackwaterLandingRuntimeTests; FL6LiveRegistryCLIRegressionTests.test_full_cli_live_registry_emits_all_flame_dance_routes), tests/test_vfx_picker.py (FL4BCatalogueTests.test_eighteen_kits_new_b_binding_and_v2_comparison), tests/run_t0c.py, tests/t0c_suite_output.txt (the outside-suite run after BL-2v-r1: 779 run / 17 FAIL / 4 ERROR — READ the FAIL/ERROR blocks), runs/C-5/artifacts/CS-parallax-in-v10/walkable.json (artifact of record), runs/C-7/t3/BL-2v/ (your previous outputs, READ ONLY).\nDo not read anything else. No web. No agents. No image generation. No pip install. stdlib + Pillow + numpy + scipy ONLY; Godot for headless import/trace only.\n\nDEFECT F-C7-1 (from tests/t0c_suite_output.txt, GroundVisibilityRegressionTests.setUpClass): the test'"'"'s probe drives every G2 kit through the GENERIC path (`res://scripts/vfx_g2.gd` acquire → release → _sprite → _clock). For blackwater_cocktail_e3_V that path loads `res://vfx/blackwater_cocktail_e3_V/derived/field.png` (never emitted for a flipbook kit) → \"Resource file not found\", then `get_image` on null (vfx_g2.gd:113/163), `set_shader_parameter` on null (:285) and `instantiate` on null (:231). BL-2v put the flipbook dispatch only in the PICKER'"'"'s `directional` script, so any other caller of G2.acquire gets a config referencing files that do not exist.\n\nPART A — DISPATCH INSIDE THE GENERIC SCRIPT. `vfx_g2.gd` (G2_SCRIPT) `acquire(...)` itself routes `kit.body_mode == \"flipbook\"` to the flipbook implementation (call into `vfx_g2_flipbook.gd`, or fold the flipbook body into G2_SCRIPT behind the mode switch — your call, one implementation, no duplicated clock/tick code); `release`/`_clock`/`_sprite` never run the painted-pool path for a flipbook kit. The picker'"'"'s string-replacement dispatch from BL-2v is REMOVED (one dispatch point, in the script). Trace clause: the test'"'"'s own VISIBILITY_PROBE (unchanged) runs on a project built with kits_v9.json and reports NO \"SCRIPT ERROR\" and NO \"Resource file not found\" — GroundVisibilityRegressionTests.setUpClass completes and its tests run.\nPART B — CONFIG HYGIENE. `_g2_flipbook_config` emits ONLY keys whose res:// targets exist after export (no `field`, `fragments`, `pulse`, `Field.tres`/`Pulse.tres` unless written); a NEW test walks every exported kit config in the live catalogue export (19 kits) and asserts every `res://` string resolves to an emitted file — a generic guard, not a V-kit special case.\nPART C — BLACKWATER TESTS READ ARTIFACTS OF RECORD (SPEC row FL-6d, N-C5-STAGED-FIXTURES): BlackwaterLandingRuntimeTests (and any other test) reading `runs/C-5/cliffside_v38/...` is re-pointed to `runs/C-5/artifacts/CS-parallax-in-v10/walkable.json` / the current export — same assertions, never weakened; they must RUN (the three error at setUpClass today).\nPART D — THE TWO 19-KIT LOCKS (BL-2v-19a/b): FL6LiveRegistryCLIRegressionTests.test_full_cli_live_registry_emits_all_flame_dance_routes and FL4BCatalogueTests.test_eighteen_kits_new_b_binding_and_v2_comparison re-encoded from the current catalogue (19 entries; the V kit named and its role asserted — flipbook, no flame_dance route), with a per-lock old→new→why line attributing every changed assertion to BL-2v (the FL-1b rule). Never a literal that would pass on 18 or 20.\nPART E — tests/run_t0c.py: the summary writer crashes on `unittest.loader._ErrorHolder` (setUpClass errors) with \"Object of type _ErrorHolder is not JSON serializable\" and leaves t0c_summary.json STALE — serialise `t.id()`/`str(t)` for holders so the summary is always rewritten; the runner'"'"'s exit code and t0c_suite_output.txt unchanged.\nPART F — RED TABLE, never weaken: run the full outside suite ONCE in your sandbox at the end (python3 -B tests/run_t0c.py; ≤ 15 min) and write runs/C-7/t3/BL-2v-b/reds.json: every remaining FAIL/ERROR with a classification — inherited (name the C-5 lap that owns it: five standing oracle reds, E3-r1 catalogue lock, FL-5/FL-6 stale-value, sandbox-only) or NEW (yours — fix it or say why not). Two FL-5/FL-6 stale-value examples seen today: test_defaults_absent_and_real_fire_fields_load (at_age 24 vs 28) and test_all_new_fields_validate_in_actual_catalogue (paint_end_age 26 vs 30) — these are FL-5 stale encodings; re-encode from the current fields ONLY if you can attribute the change to a named FL-5/FL-6 clause in SPEC.md; otherwise leave red and NAMED.\nACCEPTANCE (runs/C-7/t3/BL-2v-b/acceptance.json): Part A probe clause (VISIBILITY_PROBE clean on the 19-kit project); Part B new guard green on 19 kits; Part C the Blackwater runtime tests RUN (pass/fail listed, never skipped); Part D per-lock diffs; Part E a summary written despite a forced setUpClass error (unit test of the writer); Part F reds.json; 19-kit export exit 0; headless import exit 0 (gl_compatibility); ALL 18 original kits + the V kit'"'"'s frames byte-identical; arm B'"'"'s ab_trace.json re-run (probe_ab.gd from BL-2v) byte-identical on every event field except timestamps.\nDO NOT touch: lane/, bible/, briefs/, SPEC.md, BURST_RULES.md, REGISTER_CARD.md, JUDGE_RUBRIC.md, MANIFEST.sha256, receipt.schema.json, transcribe.schema.json, oracle/, export/replay.py, any kit'"'"'s primitives/frames, anything under runs/ except runs/C-7/t3/BL-2v-b/ and runs/C-7/vfx_kits/v9/blackwater_cocktail_e3_V/kit.json (config only, if a key must move); fixtures/ only for a new fixture of your own. Do not run the Godot editor GUI. Do not deploy. Confine Godot logs to runs/C-7/t3/BL-2v-b/.\nRETURN: the receipt (task_id \"BL-2v-b\"): files = every changed path with sha256; images = 0 (INTEGER); calls_used; status DELIVERED / DELIVERED_WITH_CONCERNS / FAILED with concerns listed honestly.",
+  "tool_call_cap": 60
+}
+REFERENCES
+
+RETURN
+{
+  "type": "object",
+  "properties": {
+    "task_id": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "DELIVERED",
+        "DELIVERED_WITH_CONCERNS",
+        "FAILED"
+      ]
+    },
+    "images": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "path": {
+            "type": "string"
+          },
+          "sha256": {
+            "type": "string"
+          },
+          "prompt": {
+            "type": "string"
+          },
+          "references": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "role": {
+                  "type": "string"
+                },
+                "path": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "role",
+                "path"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "elapsed_s": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "name",
+          "path",
+          "sha256",
+          "prompt",
+          "references",
+          "elapsed_s"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "calls_used": {
+      "type": "integer"
+    },
+    "retries": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "reason": {
+            "type": "string"
+          },
+          "change": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "reason",
+          "change"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "self_report": {
+      "type": "object",
+      "properties": {
+        "obeyed_invariants": {
+          "type": "boolean"
+        },
+        "concerns": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "obeyed_invariants",
+        "concerns"
+      ],
+      "additionalProperties": false
+    },
+    "files": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "path": {
+            "type": "string"
+          },
+          "sha256": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "path",
+          "sha256"
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  "required": [
+    "task_id",
+    "status",
+    "images",
+    "calls_used",
+    "retries",
+    "self_report",
+    "files"
+  ],
+  "additionalProperties": false
+}
+' </dev/null > events.jsonl 2> stderr.txt

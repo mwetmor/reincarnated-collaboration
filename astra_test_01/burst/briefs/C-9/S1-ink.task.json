@@ -1,0 +1,31 @@
+{
+ "text": "GENERATE BURST S1-ink \u2014 Run C-9 style gate, SCENE arm (INK line). The REGISTER CARD above governs style. task_id \"S1-ink\".\n\nDeliver LANDSCAPE 1536x1024 paintings that follow IMAGE 1 exactly. IMAGE 1 is a flat-shaded GEOMETRY GUIDE of one section of a game level seen from a fixed high three-quarter camera in ORTHOGRAPHIC projection (no perspective: parallel lines stay parallel and things near the top of the image are NOT smaller). Its colours mean: TAN = a packed-earth path on the cliff top; LIGHT GREY band = the grassy, rocky verge along the rim; DARK GREY/BROWN large plane = the vertical CLIFF FACE dropping from the rim toward the viewer; the small dark block = a boulder outcrop; PURE GREEN #00ff00 = EMPTY VOID (a separate background will show there).\nHARD RULES: keep every boundary exactly where IMAGE 1 puts it: the rim line, the path edges, the cliff face's outline and its lower cut edge, the boulder's footprint. Paint EVERY pixel that is green in IMAGE 1 as flat uniform pure #00ff00 (nothing painted there: no sky, no fog, no rocks); paint every non-green pixel as scenery. End the rock cleanly where it meets the green (a slightly ragged edge within a few pixels is fine).\nWHAT TO PAINT, as a page of a late-medieval Book of Hours would show it, rendered by hand in ink and watercolor: the path is PALE beaten earth, the brightest and calmest area in the image (a few pebbles and faint ruts only); the verge has manuscript-style grass tufts, tiny flowers and small stones along the lip; the cliff face is stylised stacked rock ledges and faceted blocks in warm ochre and grey, modelled with pen hatching and a second wash, a few roots and tufts; the boulder is a stacked manuscript rock with a little green. Scale: a person standing here is 176 px tall; one path width is several person-widths.\nREFERENCES: IMAGE 2 and IMAGE 3 are manuscript calendar pages: take their PALETTE and their WAY OF PAINTING rock, grass, earth and paths. Ignore their layout, figures, buildings, sky, text and borders. IMAGE 4 shows the painted SURFACE of a manuscript (wash, pigment, vellum): match that surface quality. None of the references sets the geometry; IMAGE 1 does.\nLINE ARM = INK: a crisp dark sepia-to-near-black pen line; the darkest marks in the image are this line and its hatching.\nNo characters, no creatures, no text, no UI, no border, no vignette.\n\nMake TWO image_gen calls, one per variant (a, b), with the same instructions (variants differ only by chance). ONE retry per variant only if a hard rule is visibly broken \u2014 name the reason. Copy the outputs from $CODEX_HOME/generated_images/... to out/S1-ink_a.png, out/S1-ink_b.png with sha256. No code. No other files. No web.\nRETURN: receipt task_id \"S1-ink\"; images = the files with prompt, references (role + path) and elapsed_s; calls_used = the TRUE number of image_gen calls; status; concerns. Never PASS/FAIL.",
+ "references": [
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/CS-guides/chunk_A_guide.png",
+   "role": "IMAGE 1 \u2014 GEOMETRY GUIDE (exact boundaries; green = void)"
+  },
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/refs/trh-07-july-bridge.jpg",
+   "role": "IMAGE 2 \u2014 manuscript page: palette + how rock, grass, earth are painted (not its layout or content)"
+  },
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/refs/trh-03-march-valley.jpg",
+   "role": "IMAGE 3 \u2014 manuscript page: palette + how paths and fields are painted (not its layout or content)"
+  },
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/inputs/texture_patch_1_stone_floor.png",
+   "role": "IMAGE 4 \u2014 the painted surface of a manuscript (wash, pigment, vellum); surface quality only"
+  }
+ ],
+ "image_cap": 4,
+ "minutes_cap": 15,
+ "tool_call_cap": 20,
+ "outputs": [
+  "out/S1-ink_a.png",
+  "out/S1-ink_b.png"
+ ],
+ "effort": "high",
+ "add_dirs": [],
+ "experiment": "M1-style-gate"
+}

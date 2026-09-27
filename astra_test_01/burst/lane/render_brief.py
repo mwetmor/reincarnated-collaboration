@@ -6,7 +6,7 @@ ROOT = Path(__file__).resolve().parents[1]
 TYPES = ('TOOLING', 'GENERATE', 'CHECK', 'JUDGE', 'TRANSCRIBE', 'LABEL', 'ANNOTATE', 'PACK')
 
 
-def render(task: dict, type: str) -> str:
+def render(task: dict, type: str, card_path=None) -> str:
     if type not in TYPES:
         raise ValueError(f'unknown burst type: {type}')
     rules = (ROOT / 'BURST_RULES.md').read_text()
@@ -20,6 +20,7 @@ def render(task: dict, type: str) -> str:
                   'image_cap': task['image_cap'], 'minutes_cap': task['minutes_cap'],
                   'tool_call_cap': task['tool_call_cap']}
     refs = '\n'.join(f"Image {i}: {ref['role']} — {ref['path']}" for i, ref in enumerate(task['references'], 1))
-    return ((ROOT / 'REGISTER_CARD.md').read_text() + '\n' + selected + '\nTASK\n' +
+    card = ROOT / 'REGISTER_CARD.md' if card_path is None else Path(card_path)
+    return (card.read_text() + '\n' + selected + '\nTASK\n' +
             json.dumps(task_block, sort_keys=True, ensure_ascii=False, indent=2) +
             '\nREFERENCES\n' + refs + '\nRETURN\n' + (ROOT / 'receipt.schema.json').read_text())

@@ -1,0 +1,208 @@
+{
+  "bursts": [
+    {
+      "id": "T5a",
+      "type": "TOOLING",
+      "experiment": "P1-T5a",
+      "brief_sha256": "7b25cde351b8a5aa063ed0c31ca934b0036cf51b0819a11a837fe3e55ec8e693",
+      "started": "2026-09-27T01:55:45.113892+00:00",
+      "ended": "2026-09-27T01:59:20.213610+00:00",
+      "minutes": 3.5849326041666547,
+      "image_calls": 0,
+      "tool_calls": 10,
+      "audit": {
+        "violations": [],
+        "image_calls": 0,
+        "tool_calls": 10,
+        "tools_seen": {
+          "command_execution": 8,
+          "file_change": 2
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": []
+      },
+      "receipt_sha256": "f16dbd573fb8c30f787d4b48052f3763fb40b11883328fcee9adf44dbb7b749e",
+      "artifacts": [
+        {
+          "name": "acceptance.json",
+          "sha256": "30717cd0d8fc00c44b6555a4c9e2fa18c98c74b1c9842b3ff99af824ff0002e5"
+        },
+        {
+          "name": "files.json",
+          "sha256": "11ce09b94cf13d2489cb940ffa86a4c61ecab901851722b20f0843450f3282c2"
+        },
+        {
+          "name": "notes.md",
+          "sha256": "abba201f604546360bb001ce76353e6d3512966e69c609235d092ab6b2275444"
+        }
+      ],
+      "artifacts_in_place": [
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "lane/render_brief.py",
+          "sha256": "a7b9ad109b27994418cd9dbf53e7c52bc42fdf6bfb3480cc077803306abd3220"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "lane/run_burst.py",
+          "sha256": "f705edc1205df0aa2c40aca177a37eabf31cedd1bc064c50ae969ebfba5f0fd4"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "tests/test_render_brief.py",
+          "sha256": "6b1eddc2535dd1e94e5b13ee1f26c9b97c9f8bd89623b1ee020ce8798c9ac682"
+        }
+      ],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
+    },
+    {
+      "id": "T5a-r1",
+      "type": "TOOLING",
+      "experiment": "P1-T5a",
+      "register_card": {
+        "path": "runs/C-9/REGISTER_CARD.md",
+        "sha256": "86a0f02dd28515ba72f94a413cb9b70cd5647924c783cbbba0d7847383d24ad7"
+      },
+      "brief_sha256": "8683a29171dd085670b18442a27d11174f6050ab7b203adca870b1eae5b24cd0",
+      "started": "2026-09-27T02:17:49.992869+00:00",
+      "ended": "2026-09-27T02:19:43.770501+00:00",
+      "minutes": 1.8962629062499825,
+      "image_calls": 0,
+      "tool_calls": 11,
+      "audit": {
+        "violations": [],
+        "image_calls": 0,
+        "tool_calls": 11,
+        "tools_seen": {
+          "command_execution": 10,
+          "file_change": 1
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": []
+      },
+      "receipt_sha256": "6dc56d43593b834437225207cc17b71d7e051bedcdd59e63a8b1a27b555a6187",
+      "artifacts": [
+        {
+          "name": "acceptance.json",
+          "sha256": "6dce6faba309005f39a21c20776d90e30eb327168123ce942540ebf7a7939596"
+        },
+        {
+          "name": "dryrun_C7_BL-2v-b.txt",
+          "sha256": "91cd95ba8ad75118bd7ce422d7a295a49568e87f2d3ee355ae3224ed59dc0f4e"
+        },
+        {
+          "name": "dryrun_stderr.txt",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "name": "files.json",
+          "sha256": "fb1cab2a3581be43238d28aa629860639b4be4487a9e5d4016938d69e67ebdc8"
+        },
+        {
+          "name": "notes.md",
+          "sha256": "1868f53599cb6a525b6e9afa25ceaa85d2d8d17141e6e7c2c9cf3533075059fb"
+        },
+        {
+          "name": "unittest.txt",
+          "sha256": "cd627a55e9600604c900ab72099e1d8e210209693b8bdf45dc2f675fe0bbbab5"
+        }
+      ],
+      "artifacts_in_place": [
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "lane/run_burst.py",
+          "sha256": "2d6607679807ea4f9e076bb78d0bd6e777634fd62ddb2809b5e91e528e75e966"
+        }
+      ],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
+    }
+  ],
+  "images_used": 0,
+  "images_cap": 400,
+  "experiments": {},
+  "milestones": [],
+  "halts": [],
+  "rulings": [
+    {
+      "id": "R-C9-0",
+      "class": "matt",
+      "veto_open": false,
+      "topic": "C-9 launch + rulings drained live 2026-09-26",
+      "ruling": "Matt verbatim: \"Ok, go.\" then \"you are a run conductor.. please design the run and conduct it. Add appropriate Matt gates\". Carried rulings (refs README): merge rule (painted book = subject/composition/iconography/palette; FFT watercolor = rendering; characters AND scenes); A = Keeper, B = Lalaing knight fol.129v right-hand, skirt removed, poleaxe; EoR Warlord dropped; cathedral style = Belles Heures choir, architecture = Spinola f.185, building = Antwerp on the Crucible footprint; cliffside scenery = TRH calendar + Belles Heures; FFT refs LOOK-ONLY (FFT carried in text); first A/B without Matt Astra images (fallback arm); brief amendments: rich colour at moderate value, hatching permitted as a variable, designed imperfection, #00ff00 plate.",
+      "source": "agentic_orchestration/gandalf/notes/2026-09-26-illuminated-archive-run-C-9-charter.md § 2",
+      "ts": "2026-09-26T21:51:52"
+    },
+    {
+      "id": "R-C9-1",
+      "class": "conductor",
+      "veto_open": true,
+      "topic": "H-C7-1 treated as stale for C-9",
+      "ruling": "Codex usage-limit HALT H-C7-1 (reset date Sep 22) is contradicted by KC2-PLAY KP-B1e/f/g GENERATE exit 0 on 2026-09-21. C-9 treats it as stale; T5a is the live check. Disposition of H-C7-1 itself stays Matt's (C-7 ledger).",
+      "ts": "2026-09-26T21:51:52"
+    },
+    {
+      "id": "R-C9-2",
+      "class": "conductor",
+      "veto_open": true,
+      "topic": "T5a review (DRIFT-CRITIC vs my own contract)",
+      "ruling": "T5a exit 0, 3.6 min, 10 tool calls, 0 violations; diff touches exactly lane/render_brief.py (+1), lane/run_burst.py (+14), tests/test_render_brief.py (+48). Contract met: default render unchanged; run card chosen only by runs/<run>/REGISTER_CARD.md; register_card {path, sha256} ledgered in every case. Conductor-verified: C-7 BL-2v-b dry-run byte-identical to the pre-T5a capture (cmp); C-9 dry-run opens with the C-9 card. FINDING F-C9-1 (conductor framing defect): the T5a brief both asked for runs/C-9/t3/T5a outputs and forbade writing under runs/; Astra flagged the contradiction and staged acceptance/notes in out/ (now runs/C-9/artifacts/T5a/). Its call was correct. FINDING F-C9-2 (environment, inherited): python3 -B -m unittest tests.test_render_brief fails to import with site enabled (a site-packages tests module shadows); -S works; the suite runner discovers by path and is unaffected. FINDING F-C9-3: lane ref_provenance only admits references under runs/<run>/artifacts (etc.); C-9 inputs + TRH pages restaged to runs/C-9/artifacts/{inputs,refs}/ (refs_guard matches by sha, so provenance to attach:true ledger rows is preserved). Freeze pending the outside suite.",
+      "ts": "2026-09-26T22:02:02"
+    },
+    {
+      "id": "R-C9-3",
+      "class": "conductor",
+      "veto_open": true,
+      "topic": "T5a regression -> diagnosed retry T5a-r1",
+      "ruling": "Outside suite post-T5a: 793 run, 15 F / 9 E (C-7 freeze: 15 F / 2 E). 7 new ERRORs, all in the wrapper tests, one cause: register_card sha taken unconditionally; the tests patch ROOT to a card-less fixture repo. Two-attempt rule: one diagnosed retry T5a-r1 (method within the hypothesis; fix = sha only when the card exists). Tests may NOT be edited to hide it. Evidence: runs/C-9/evidence/{suite_post_T5a.txt, reds_post_T5a.txt}.",
+      "ts": "2026-09-26T22:16:34"
+    },
+    {
+      "id": "R-C9-4",
+      "class": "conductor",
+      "veto_open": true,
+      "topic": "T5a-r1 review",
+      "ruling": "T5a-r1 exit 0, 1.9 min, 0 violations; one-line fix at lane/run_burst.py:166-167 (sha only when the card file exists; path always recorded). Three wrapper modules 19 tests 0 F / 0 E; C-7 dry-run byte-identical (cmp). Astra self-reported a read-scope deviation (broad rg displayed out-of-scope SPEC/BURST_RULES lines; no edits) -- recorded, no action: honest receipt, harmless effect. Freeze gated on the full outside suite matching the C-7 red list.",
+      "ts": "2026-09-26T22:21:32"
+    },
+    {
+      "id": "R-C9-5",
+      "class": "conductor",
+      "veto_open": true,
+      "topic": "FREEZE after T5a/T5a-r1",
+      "ruling": "MANIFEST 059379a19782 -> 8cefe5a98bbc (269 rows; changed: lane/render_brief.py, lane/run_burst.py, SPEC.md, tests/test_render_brief.py). shasum -c all OK; check_sync 10/10. Outside suite 15 F / 2 E == C-7 freeze list (runs/C-9/evidence/reds_post_T5a_r1.txt). FREEZE_NOTICES row appended. P1 CLOSED; P2 style-gate wave cleared to fire.",
+      "ts": "2026-09-26T22:35:50"
+    }
+  ],
+  "grok_calls": [],
+  "run": "C-9",
+  "charter": "agentic_orchestration/gandalf/notes/2026-09-26-illuminated-archive-run-C-9-charter.md",
+  "charter_sha256_12": "ba0700e71807",
+  "images_cap_note": "C-9 run cap 400 (charter § 4); M1 sub-cap 16 enforced by the conductor",
+  "notes": []
+}
