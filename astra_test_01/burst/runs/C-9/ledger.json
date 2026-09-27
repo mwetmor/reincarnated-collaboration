@@ -12673,6 +12673,14 @@
       "topic": "Rig: blend the idle-to-walk height step",
       "ruling": "Matt verbatim: \"Regarding idle and walking, I agree with (b) short blend of the two.\" The idle keeps the painted standing height; a short transition blends the hip height (idle 0 to walk crouch 10.3 rig px, and back) on starting and stopping, so there is no pop. drax, bundled with the R-C9-41/42 rebuild.",
       "ts": "2026-09-27T17:10:10"
+    },
+    {
+      "id": "R-C9-47",
+      "class": "matt",
+      "veto_open": false,
+      "topic": "Rig: a dark gap still shows at the hip; paint the hidden under-layers",
+      "ruling": "Matt verbatim: \"The rig seems improved but there is still a gap of black area between the lower thigh and upper thigh/hips (cant really see the upper thigh so unsure).\" Diagnosis (conductor, from the drax slow-mo AFTER frames): no armour was ever painted under the tabard. The R-C9-40 plug (body_backdrop x0.68, luma 75 vs thigh 96, plus a flat clone-up fill) is opaque, so the transparency probe passed it, but it reads as a black hole. Fix: Astra EDIT RP-E on seed_E (sha 1d7f7c2e, seed unchanged), same registration: (a) tabard removed, with fauld, mail skirt and both thighs whole; (b) also the near leg removed, so the far leg is complete. drax cuts the thighs and hip from these, lays the seed tabard flaps over them, retires the backdrop plug, and adds a probe for dark plugs as well as transparent ones.",
+      "ts": "2026-09-27T17:26:09"
     }
   ],
   "grok_calls": [
