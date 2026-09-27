@@ -1,0 +1,2514 @@
+{
+ "generated": "2026-09-26",
+ "author": "drax (presentation seam)",
+ "run": "C-9",
+ "phase": "P2' \u2014 cathedral grey room on the Crucible arena",
+ "gate": "M2 \u2014 Matt approves this grey room BEFORE any cathedral paint (R-C3-55a)",
+ "dispatch": "agentic_orchestration/dispatches/2026-09-26-drax-c9-cathedral-greyroom.md",
+ "generator": "make_cathedral_greyroom.py",
+ "burst_fired": false,
+ "godot_launched": false,
+ "new_art_minted": false,
+ "painting_started": false,
+ "camera": {
+  "yaw_deg": 47.0,
+  "pitch_alpha_deg": 52.9535411256029,
+  "projection": "orthographic; +x EAST -> +px right, +y SOUTH -> +px down x sin(alpha); elevation displaces UP-SCREEN by h*ppm*cos(alpha)",
+  "px_per_m_east": 100.617553710938,
+  "px_per_m_south_ground": 80.3076247646877,
+  "px_per_m_up_screen": 60.618293603726684,
+  "m_per_px_east": 0.009938623660766773,
+  "m_per_px_south_ground": 0.012452117752581234,
+  "ppm_source": "agentic_orchestration/drax/captures/2026-09-13-cliffside-blockout/blockout_meta_v2.json :: ortho_canvas_v2.px_per_m_screen_x (R-C3-44)",
+  "plate_law_cross_check": "PASSED (both ruled px/m figures fall out of alpha to < 1e-6)"
+ },
+ "scale_figures": {
+  "u_m_per_native_px": 0.285,
+  "u_source": "KC2-PLAY charter KP-6, ratified KP-9",
+  "geometry_file_own_scale_IGNORED": 0.1981,
+  "why_ignored": "DERIVED-WEAK, superseded (Gate-1 WARN-8 / dispatch required reading 4).",
+  "keeper_130px_convention": 130.0,
+  "keeper_130px_implies_body_m": 2.144567131002313,
+  "kc2_h_fig_m": 1.9,
+  "kc2_h_fig_px_on_this_plate": 115.17475784708071,
+  "note": "the dispatch names 'Keeper scale 130 px at 1080p'. That 130 px is the CLIFFSIDE convention and implies a 2.1446 m body; KC2-PLAY KP-18 (a) already ruled that h_fig = 1.9 m stands for this arena and that 130 px is NOT inherited. This canvas adopts the ratified PLATE SCALE (which is what '130 px at 1080p' pins) and carries BOTH figures rather than silently picking one."
+ },
+ "canvas": {
+  "x_min_m": -37.92999999999999,
+  "x_max_m": 39.355,
+  "y_min_m": -35.785,
+  "y_max_m": 57.879999999999995,
+  "width_m": 77.285,
+  "height_m": 93.66499999999999,
+  "size_px": [
+   7776,
+   7522
+  ],
+  "square_size_px": [
+   7776,
+   9424
+  ],
+  "axes": "+x = EAST, +y = SOUTH (minimap frame, no flip)"
+ },
+ "arena": {
+  "bbox_m": [
+   -27.929999999999996,
+   -28.784999999999997,
+   29.354999999999997,
+   47.879999999999995
+  ],
+  "extent_m": [
+   57.285,
+   76.66499999999999
+  ],
+  "walkable_area_m2": 2354.3412243939315,
+  "geometry_file": "agentic_orchestration/galadriel/notes/crucible-arena-geometry-v1.json",
+  "geometry_sha256": "68d895d75702996473cfd654a9a834816d4be0421c4b5ad7a3d2a0cc5d40481f"
+ },
+ "derived_from_geometry": {
+  "y_join_m": 1.136986899748564,
+  "y_join_rule": "northernmost row whose widest single run of floor >= 0.75 x the arena's widest run",
+  "screen_passage_x_m": [
+   -3.144817187316285,
+   9.984104668556618
+  ],
+  "central_vessel_width_m": 13.128921855872903,
+  "bay_m": 6.564460927936452,
+  "bay_actual_m": 6.52158452991626,
+  "n_bays": 69,
+  "ring_length_m": 449.98933256422197,
+  "choir_band_y_m": [
+   9.975,
+   24.224999999999998
+  ],
+  "choir_band_rule": "the y-extent of OB-1 and OB-2, the two long thin islands the mapping calls choir stalls",
+  "sanctuary_rule": "south floor within one bay of OB-3 u OB-4"
+ },
+ "declared_not_measured": [
+  {
+   "what": "surround_west",
+   "value": 10.0,
+   "unit": "m",
+   "why": "aisle + outer wall + the first of the west chapels; the rest runs off the canvas edge (brief S 4 full-bleed)."
+  },
+  {
+   "what": "surround_east",
+   "value": 10.0,
+   "unit": "m",
+   "why": "as west."
+  },
+  {
+   "what": "surround_north",
+   "value": 7.0,
+   "unit": "m",
+   "why": "the back wall exits the TOP edge (brief S 4), so it needs less room than the sides: it is cut, not framed."
+  },
+  {
+   "what": "surround_south",
+   "value": 10.0,
+   "unit": "m",
+   "why": "the apse end: the radiating chapels need the most depth."
+  },
+  {
+   "what": "dado_band",
+   "value": 1.2,
+   "unit": "m",
+   "why": "the choir-screen / parapet band standing ON the measured ring line. It is WHY the ring is a boundary: a 0.9 m parapet, not an invisible wall. INNER edge = the measured ring and is load-bearing; outer edge is free."
+  },
+  {
+   "what": "aisle_width",
+   "value": 4.5,
+   "unit": "m",
+   "why": "the aisle beyond the arcade. Dead space: the brief's preferred home for vignette seams."
+  },
+  {
+   "what": "aisle_wall",
+   "value": 1.5,
+   "unit": "m",
+   "why": "the masonry skin between aisle and chapels."
+  },
+  {
+   "what": "chapel_half_depth",
+   "value": 2.5,
+   "unit": "m",
+   "why": "radiating / side chapels, every other bay."
+  },
+  {
+   "what": "pier_width",
+   "value": 1.6,
+   "unit": "m",
+   "why": "arcade pier, square in plan, standing just outside the dado."
+  },
+  {
+   "what": "near_cut_height",
+   "value": 0.9,
+   "unit": "m",
+   "why": "D2-style knee/waist break. Every camera-facing element is cut here so it never occludes play space."
+  },
+  {
+   "what": "wall_rise",
+   "value": 6.0,
+   "unit": "m",
+   "why": "how far masonry rises up-screen before the canvas or the cut takes it. REUSED, not invented: it is the wall-face elevation allowance already ruled for THIS arena at KC2-PLAY KP-18 (b)."
+  },
+  {
+   "what": "choir_stall_height",
+   "value": 1.2,
+   "unit": "m",
+   "why": "a stall back."
+  },
+  {
+   "what": "altar_height",
+   "value": 1.0,
+   "unit": "m",
+   "why": "altar block."
+  },
+  {
+   "what": "tomb_height",
+   "value": 0.9,
+   "unit": "m",
+   "why": "table tomb."
+  },
+  {
+   "what": "lantern_radius",
+   "value": 9.0,
+   "unit": "m",
+   "why": "ANNOTATION ONLY, no footprint, no class. Marks where the light falls so the crossing is the brightest and calmest floor (brief S 4)."
+  },
+  {
+   "what": "bay_ratio",
+   "value": 0.5,
+   "unit": "-",
+   "why": "bay length / central-vessel width. Read as a PROPORTION off the Antwerp plan (square aisle bays, the standard Gothic double-bay relation). No metre figure is imported from the plan -- it has no scale bar."
+  }
+ ],
+ "mapping": [
+  [
+   "North corridor + red door (spawn)",
+   "Entry through the choir screen into the crossing",
+   "screen_passage",
+   "the ring north of y_join, inside the passage's own measured x-extent"
+  ],
+  [
+   "Central oval",
+   "The crossing under the lantern: brightest floor",
+   "crossing",
+   "floor from y_join to the choir band"
+  ],
+  [
+   "NW / NE lobes",
+   "The transept arms",
+   "transept_w / transept_e",
+   "floor north of y_join, outside the passage's x-extent"
+  ],
+  [
+   "Two long thin E/W interior walls",
+   "Choir stalls",
+   "choir_stall",
+   "OB-1 (west), OB-2 (east), verbatim polygons"
+  ],
+  [
+   "SW / S / SE lobes + the two small S islands",
+   "Ambulatory chapels; the altar and a tomb",
+   "ambulatory_floor / sanctuary_floor / altar / tomb",
+   "floor south of the choir band; OB-3 = altar, OB-4 = tomb"
+  ],
+  [
+   "Six green DoT zones",
+   "Rot-soaked chapel floor. ENTERABLE.",
+   "rot_zone",
+   "walkable; never collision, never a pit"
+  ]
+ ],
+ "id_mask": {
+  "file": "id_mask.png",
+  "encoding": "flat index colours, NEAREST only",
+  "classes": [
+   {
+    "index": 0,
+    "name": "outer_wall",
+    "rgb": [
+     17,
+     17,
+     17
+    ],
+    "walkable": false,
+    "guide_grey": [
+     58,
+     58,
+     62
+    ],
+    "px": 19824154,
+    "centroid_px": [
+     3816.037814022228,
+     3228.6411140167697
+    ],
+    "area_m2": 2453.376084480071
+   },
+   {
+    "index": 1,
+    "name": "aisle_floor",
+    "rgb": [
+     0,
+     116,
+     217
+    ],
+    "walkable": false,
+    "guide_grey": [
+     130,
+     130,
+     134
+    ],
+    "px": 7030993,
+    "centroid_px": [
+     4040.6278582555833,
+     3708.0392833558503
+    ],
+    "area_m2": 870.1339828346161
+   },
+   {
+    "index": 2,
+    "name": "chapel_floor",
+    "rgb": [
+     0,
+     190,
+     200
+    ],
+    "walkable": false,
+    "guide_grey": [
+     112,
+     112,
+     118
+    ],
+    "px": 2327076,
+    "centroid_px": [
+     3778.5048146257363,
+     4045.128962698253
+    ],
+    "area_m2": 287.99174003428067
+   },
+   {
+    "index": 3,
+    "name": "arcade_pier",
+    "rgb": [
+     255,
+     65,
+     54
+    ],
+    "walkable": false,
+    "guide_grey": [
+     80,
+     80,
+     86
+    ],
+    "px": 1024412,
+    "centroid_px": [
+     3877.274466718469,
+     3846.5375913206794
+    ],
+    "area_m2": 126.77806586119127
+   },
+   {
+    "index": 4,
+    "name": "arcade_dado",
+    "rgb": [
+     255,
+     133,
+     27
+    ],
+    "walkable": false,
+    "guide_grey": [
+     96,
+     96,
+     102
+    ],
+    "px": 2975695,
+    "centroid_px": [
+     3953.499452732891,
+     3705.3856934262417
+    ],
+    "area_m2": 368.2628246182371
+   },
+   {
+    "index": 5,
+    "name": "screen_passage",
+    "rgb": [
+     61,
+     153,
+     112
+    ],
+    "walkable": true,
+    "guide_grey": [
+     203,
+     203,
+     199
+    ],
+    "px": 2082403,
+    "centroid_px": [
+     4134.992318969959,
+     1666.6494079196007
+    ],
+    "area_m2": 257.71176507454254
+   },
+   {
+    "index": 6,
+    "name": "crossing",
+    "rgb": [
+     46,
+     204,
+     64
+    ],
+    "walkable": true,
+    "guide_grey": [
+     228,
+     228,
+     222
+    ],
+    "px": 2844586,
+    "centroid_px": [
+     4027.941008638867,
+     3307.527569565483
+    ],
+    "area_m2": 352.0371796267738
+   },
+   {
+    "index": 7,
+    "name": "transept_w",
+    "rgb": [
+     1,
+     255,
+     112
+    ],
+    "walkable": true,
+    "guide_grey": [
+     210,
+     210,
+     205
+    ],
+    "px": 843554,
+    "centroid_px": [
+     2888.0600246101612,
+     2379.064474829116
+    ],
+    "area_m2": 104.39563824854778
+   },
+   {
+    "index": 8,
+    "name": "transept_e",
+    "rgb": [
+     127,
+     219,
+     255
+    ],
+    "walkable": true,
+    "guide_grey": [
+     210,
+     210,
+     205
+    ],
+    "px": 516030,
+    "centroid_px": [
+     5245.561709590527,
+     2330.319369028932
+    ],
+    "area_m2": 63.86227936255191
+   },
+   {
+    "index": 9,
+    "name": "choir_floor",
+    "rgb": [
+     255,
+     220,
+     0
+    ],
+    "walkable": true,
+    "guide_grey": [
+     214,
+     214,
+     209
+    ],
+    "px": 4474187,
+    "centroid_px": [
+     3881.119551552047,
+     4248.478811457813
+    ],
+    "area_m2": 553.7115673784432
+   },
+   {
+    "index": 10,
+    "name": "sanctuary_floor",
+    "rgb": [
+     240,
+     18,
+     190
+    ],
+    "walkable": true,
+    "guide_grey": [
+     208,
+     208,
+     203
+    ],
+    "px": 952771,
+    "centroid_px": [
+     3686.641108933836,
+     5681.353156214872
+    ],
+    "area_m2": 117.91199691982627
+   },
+   {
+    "index": 11,
+    "name": "ambulatory_floor",
+    "rgb": [
+     177,
+     13,
+     201
+    ],
+    "walkable": true,
+    "guide_grey": [
+     197,
+     197,
+     193
+    ],
+    "px": 2317504,
+    "centroid_px": [
+     3627.7672931740353,
+     5261.08120978432
+    ],
+    "area_m2": 286.8071388714445
+   },
+   {
+    "index": 12,
+    "name": "choir_stall",
+    "rgb": [
+     133,
+     20,
+     75
+    ],
+    "walkable": false,
+    "guide_grey": [
+     118,
+     112,
+     100
+    ],
+    "px": 323241,
+    "centroid_px": [
+     3700.330381975059,
+     4237.406526399807
+    ],
+    "area_m2": 40.00330803137539
+   },
+   {
+    "index": 13,
+    "name": "altar",
+    "rgb": [
+     255,
+     255,
+     255
+    ],
+    "walkable": false,
+    "guide_grey": [
+     140,
+     136,
+     128
+    ],
+    "px": 32677,
+    "centroid_px": [
+     3948.7356856504575,
+     5966.097591578175
+    ],
+    "area_m2": 4.044004617425554
+   },
+   {
+    "index": 14,
+    "name": "tomb",
+    "rgb": [
+     170,
+     170,
+     170
+    ],
+    "walkable": false,
+    "guide_grey": [
+     126,
+     122,
+     116
+    ],
+    "px": 29473,
+    "centroid_px": [
+     3393.978488786347,
+     5893.666270824144
+    ],
+    "area_m2": 3.647487470985199
+   },
+   {
+    "index": 15,
+    "name": "rot_zone",
+    "rgb": [
+     0,
+     255,
+     0
+    ],
+    "walkable": true,
+    "guide_grey": [
+     168,
+     172,
+     150
+    ],
+    "px": 4274498,
+    "centroid_px": [
+     3960.965711997058,
+     4846.908866725403
+    ],
+    "area_m2": 528.9986733536217
+   },
+   {
+    "index": 16,
+    "name": "wall_face",
+    "rgb": [
+     85,
+     85,
+     85
+    ],
+    "walkable": false,
+    "guide_grey": [
+     44,
+     44,
+     48
+    ],
+    "px": 6617818,
+    "centroid_px": [
+     3920.143849981973,
+     4584.6554796460105
+    ],
+    "area_m2": 819.0007206684196
+   }
+  ],
+  "full_bleed": "TRUE \u2014 every pixel carries a class. There is no void, no border and no #00ff00 plate in this mask: the cathedral interior has no sky (brief S 4)."
+ },
+ "depth_mm": {
+  "file": "depth_mm.png",
+  "encoding": "uint16 PNG (I;16); value = MILLIMETRES OF ELEVATION above the arena floor plane",
+  "convention_source": "the KC2-PLAY arena guide (2026-09-20-kc2-play-arena-guide), which declared this divergence from the cliffside's 'mm below local rim'",
+  "why_not_below_rim": "the cliffside's rim datum does not exist here: this interior has no void and no pit, so there is nothing to be below.",
+  "content": {
+   "floor + rot": 0,
+   "arcade_dado": 900,
+   "tomb": 900,
+   "altar": 1000,
+   "choir_stall": 1200,
+   "wall_face": "ramps 0 -> the element's height"
+  },
+  "max_mm": 6000
+ },
+ "walkable_mask": {
+  "file": "walkable_mask.png",
+  "rule": "white = the measured arena floor minus the four interior obstructions. The six rot zones ARE walkable. Aisles, chapels, piers and the dado are NOT.",
+  "clip_px": 24,
+  "clip_authority": "R-C3-58",
+  "clipped_px": 0,
+  "clip_note": "the floor never reaches the canvas edge (a >= 7 m surround of cathedral fabric stands between them), so the clip removes 0 px and is a formality here.",
+  "walkable_px": 19023917
+ },
+ "dot_zones": {
+  "count": 6,
+  "class_note": "ENTERABLE DAMAGE FIELDS, NOT WALLS. The Godot arena must NOT collide-block these. Matt attestation (L-64): the character can enter but takes a severe and immediate DoT tick; element suspected poison (Matt's own hedge).",
+  "geometry_provenance": "INTERIOR-POINT-MEASURED / EXTENT-UNMEASURED",
+  "derivation": "DISC = the MEASURED interior point, radius = the file's radius_upper_bound_px x u, clipped to the walkable floor. The radius is an UPPER BOUND, not a measurement (green_zones.why_no_polygons: the ground map M is unrecoverable from the 21 stations), so the disc is an upper bound too. No outline was traced and none is claimed.",
+  "FINDING_ROUTED_TO_M2": "at the raw upper bounds the six discs cover 46.9 % of the walkable floor and OVERLAP each other. That contradicts the geometry file's own finding that six MUTUALLY DISTINCT zones are demonstrated, and it contradicts brief S 4 ('walkable = brightest and calmest'). An upper bound is not an estimate: painting to it over-paints by construction.",
+  "primary_mask": "dot_zone_mask.png",
+  "primary_rule": "the upper-bound radii scaled by k_disjoint. This is what guide.png and id_mask.png carry. DRAX'S CALL, not a measurement; M2 may overrule it in either direction.",
+  "primary_floor_fraction": 0.2347,
+  "k_disjoint": 0.5345182416334159,
+  "k_disjoint_rule": "the largest uniform scale on the upper-bound radii at which all six discs stay pairwise disjoint -- i.e. the largest value consistent with BOTH the radii and the six-distinct-zones finding. DERIVED from the interior points, not chosen. Binding pair: Z-622 / Z-623.",
+  "envelope_mask": "dot_zone_mask_upper_bound.png",
+  "envelope_rule": "the raw upper-bound discs, clipped to the floor. Not a claim that the rot reaches this far -- a claim that it goes no further. Drawn on the guide as a dashed green line, never filled.",
+  "envelope_floor_fraction": 0.4691,
+  "zones": [
+   {
+    "id": "Z-614",
+    "witness_shot": 614,
+    "interior_point_native_px": [
+     -65.0,
+     -15.0
+    ],
+    "interior_point_m": [
+     -18.525,
+     -4.2749999999999995
+    ],
+    "radius_upper_bound_native_px": 41.2,
+    "radius_upper_bound_m": 11.741999999999999,
+    "radius_upper_bound_plate_px": 1181.451315673834,
+    "radius_disjoint_m": 6.276313193259568
+   },
+   {
+    "id": "Z-618",
+    "witness_shot": 618,
+    "interior_point_native_px": [
+     -67.0,
+     127.0
+    ],
+    "interior_point_m": [
+     -19.095,
+     36.195
+    ],
+    "radius_upper_bound_native_px": 44.0,
+    "radius_upper_bound_m": 12.54,
+    "radius_upper_bound_plate_px": 1261.7441235351623,
+    "radius_disjoint_m": 6.702858750083035
+   },
+   {
+    "id": "Z-620",
+    "witness_shot": 620,
+    "interior_point_native_px": [
+     -7.0,
+     152.0
+    ],
+    "interior_point_m": [
+     -1.9949999999999999,
+     43.31999999999999
+    ],
+    "radius_upper_bound_native_px": 47.8,
+    "radius_upper_bound_m": 13.622999999999998,
+    "radius_upper_bound_plate_px": 1370.712934204108,
+    "radius_disjoint_m": 7.281742005772023
+   },
+   {
+    "id": "Z-622",
+    "witness_shot": 622,
+    "interior_point_native_px": [
+     49.0,
+     99.0
+    ],
+    "interior_point_m": [
+     13.964999999999998,
+     28.214999999999996
+    ],
+    "radius_upper_bound_native_px": 23.3,
+    "radius_upper_bound_m": 6.640499999999999,
+    "radius_upper_bound_plate_px": 668.1508654174837,
+    "radius_disjoint_m": 3.549468383566698
+   },
+   {
+    "id": "Z-623",
+    "witness_shot": 623,
+    "interior_point_native_px": [
+     67.0,
+     135.0
+    ],
+    "interior_point_m": [
+     19.095,
+     38.474999999999994
+    ],
+    "radius_upper_bound_native_px": 52.0,
+    "radius_upper_bound_m": 14.819999999999999,
+    "radius_upper_bound_plate_px": 1491.152145996101,
+    "radius_disjoint_m": 7.921560341007223
+   },
+   {
+    "id": "Z-626",
+    "witness_shot": 626,
+    "interior_point_native_px": [
+     74.0,
+     -7.0
+    ],
+    "interior_point_m": [
+     21.09,
+     -1.9949999999999999
+    ],
+    "radius_upper_bound_native_px": 36.2,
+    "radius_upper_bound_m": 10.317,
+    "radius_upper_bound_plate_px": 1038.0713016357474,
+    "radius_disjoint_m": 5.514624698931952
+   }
+  ]
+ },
+ "near_side_and_back_walls": {
+  "rise_m": 6.0,
+  "rise_px_up_screen": 364,
+  "near_cut_m": 0.9,
+  "near_cut_px_up_screen": 55,
+  "rule": "a masonry element is CUT to the near-cut height iff walkable floor lies within the rise distance NORTH of it \u2014 i.e. iff raising it would occlude play space. Up-screen is north, so the near (south) side cuts itself and the back (north) walls rise and exit the top edge. No list of faces appears anywhere in the generator.",
+  "cut_low_px": 718384
+ },
+ "overhead_layer_declared_not_built": [
+  {
+   "what": "the vault",
+   "why": "Antwerp's vault is far above the 6 m rise; at 60.6 px/m up-screen a true vault springing would cover the northern half of the plate. The vault belongs on the Overhead layer (z3, scene-builder-workflow S 3 step 7 / T3l), not on this plate. NOT built here."
+  },
+  {
+   "what": "the choir screen across the entry",
+   "why": "a screen with a doorway would punch a hole in the walkable mask. It is painted as an ARCH OVER the passage on the Overhead layer, with no footprint. Annotated on the guide, not classed."
+  }
+ ],
+ "chunk_grid": {
+  "chunk_px": [
+   1536,
+   1024
+  ],
+  "overlap_px": [
+   256,
+   256
+  ],
+  "step_px": [
+   1280,
+   768
+  ],
+  "grid": [
+   10,
+   6
+  ],
+  "n_chunks": 60,
+  "origin_offset_px": [
+   -160,
+   -400
+  ],
+  "origin_rule": "chosen by search over 16-px offsets to MINIMISE the walkable floor lying under chunk seams (brief S 4 'seams hide in dead space'). The search is CONSTRAINED to the minimal grid: it may not buy a better seam with an extra row or column, because that is 10 more paint calls per style arm.",
+  "seam_on_walkable_px": 77763,
+  "seam_on_walkable_px_at_offset_zero": 80939,
+  "keep_rule": "ALL \u2014 the canvas is full-bleed, every chunk carries architecture.",
+  "chunks": [
+   {
+    "chunk": "cath_0_0",
+    "index": [
+     0,
+     0
+    ],
+    "origin_px": [
+     -160,
+     -400
+    ],
+    "size_px": [
+     1536,
+     1024
+    ],
+    "on_canvas_rect_px": [
+     0,
+     0,
+     1376,
+     624
+    ],
+    "walkable_fraction": 0.0,
+    "world_rect_m": {
+     "x_min": -39.520179785722675,
+     "x_max": -24.254453842784912,
+     "y_min": -40.76584710103249,
+     "y_max": -28.014878522389306
+    }
+   },
+   {
+    "chunk": "cath_0_1",
+    "index": [
+     0,
+     1
+    ],
+    "origin_px": [
+     1120,
+     -400
+    ],
+    "size_px": [
+     1536,
+     1024
+    ],
+    "on_canvas_rect_px": [
+     1120,
+     0,
+     1536,
+     624
+    ],
+    "walkable_fraction": 0.0,
+    "world_rect_m": {
+     "x_min": -26.798741499941208,
+     "x_max": -11.533015557003445,
+     "y_min": -40.76584710103249,
+     "y_max": -28.014878522389306
+    }
+   },
+   {
+    "chunk": "cath_0_2",
+    "index": [
+     0,
+     2
+    ],
+    "origin_px": [
+     2400,
+     -400
+    ],
+    "size_px": [
+     1536,
+     1024
+    ],
+    "on_canvas_rect_px": [
+     2400,
+     0,
+     1536,
+     624
+    ],
+    "walkable_fraction": 0.0087,
+    "world_rect_m": {
+     "x_min": -14.077303214159738,
+     "x_max": 1.1884227287780291,
+     "y_min": -40.76584710103249,
+     "y_max": -28.014878522389306
+    }
+   },
+   {
+    "chunk": "cath_0_3",
+    "index": [
+     0,
+     3
+    ],
+    "origin_px": [
+     3680,
+     -400
+    ],
+    "size_px": [
+     1536,
+     1024
+    ],
+    "on_canvas_rect_px": [
+     3680,
+     0,
+     1536,
+     624
+    ],
+    "walkable_fraction": 0.0199,
+    "world_rect_m": {
+     "x_min": -1.355864928378267,
+     "x_max": 13.909861014559496,
+     "y_min": -40.76584710103249,
+     "y_max": -28.014878522389306
+    }
+   },
+   {
+    "chunk": "cath_0_4",
+    "index": [
+     0,
+     4
+    ],
+    "origin_px": [
+     4960,
+     -400
+    ],
+    "size_px": [
+     1536,
+     1024
+    ],
+    "on_canvas_rect_px": [
+     4960,
+     0,
+     1536,
+     624
+    ],
+    "walkable_fraction": 0.0,
+    "world_rect_m": {
+     "x_min": 11.3655733574032,
+     "x_max": 26.63129930034097,
+     "y_min": -40.76584710103249,
+     "y_max": -28.014878522389306
+    }
+   },
+   {
+    "chunk": "cath_0_5",
+    "index": [
+     0,
+     5
+    ],
+    "origin_px": [
+     6240,
+     -400
+    ],
+    "size_px": [
+     1536,
+     1024
+    ],
+    "on_canvas_rect_px": [
+     6240,
+     0,
+     1536,
+     624
+    ],
+    "walkable_fraction": 0.0,
+    "world_rect_m": {
+     "x_min": 24.087011643184674,
+     "x_max": 39.35273758612243,
+     "y_min": -40.76584710103249,
+     "y_max": -28.014878522389306
+    }
+   },
+   {
+    "chunk": "cath_1_0",
+    "index": [
+     1,
+     0
+    ],
+    "origin_px": [
+     -160,
+     368
+    ],
+    "size_px": [
+     1536,
+     1024
+    ],
+    "on_canvas_rect_px": [
+     0,
+     368,
+     1376,
+     1024
+    ],
+    "walkable_fraction": 0.0,
+    "world_rect_m": {
+     "x_min": -39.520179785722675,
+     "x_max": -24.254453842784912,
+     "y_min": -31.202620667050102,
+     "y_max": -18.45165208840692
+    }
+   },
+   {
+    "chunk": "cath_1_1",
+    "index": [
+     1,
+     1
+    ],
+    "origin_px": [
+     1120,
+     368
+    ],
+    "size_px": [
+     1536,
+     1024
+    ],
+    "on_canvas_rect_px": [
+     1120,
+     368,
+     1536,
+     1024
+    ],
+    "walkable_fraction": 0.0,
+    "world_rect_m": {
+     "x_min": -26.798741499941208,
+     "x_max": -11.533015557003445,
+     "y_min": -31.202620667050102,
+     "y_max": -18.45165208840692
+    }
+   },
+   {
+    "chunk": "cath_1_2",
+    "index": [
+     1,
+     2
+    ],
+    "origin_px": [
+     2400,
+     368
+    ],
+    "size_px": [
+     1536,
+     1024
+    ],
+    "on_canvas_rect_px": [
+     2400,
+     368,
+     1536,
+     1024
+    ],
+    "walkable_fraction": 0.1944,
+    "world_rect_m": {
+     "x_min": -14.077303214159738,
+     "x_max": 1.1884227287780291,
+     "y_min": -31.202620667050102,
+     "y_max": -18.45165208840692
+    }
+   },
+   {
+    "chunk": "cath_1_3",
+    "index": [
+     1,
+     3
+    ],
+    "origin_px": [
+     3680,
+     368
+    ],
+    "size_px": [
+     1536,
+     1024
+    ],
+    "on_canvas_rect_px": [
+     3680,
+     368,
+     1536,
+     1024
+    ],
+    "walkable_fraction": 0.5392,
+    "world_rect_m": {
+     "x_min": -1.355864928378267,
+     "x_max": 13.909861014559496,
+     "y_min": -31.202620667050102,
+     "y_max": -18.45165208840692
+    }
+   },
+   {
+    "chunk": "cath_1_4",
+    "index": [
+     1,
+     4
+    ],
+    "origin_px": [
+     4960,
+     368
+    ],
+    "size_px": [
+     1536,
+     1024
+    ],
+    "on_canvas_rect_px": [
+     4960,
+     368,
+     1536,
+     1024
+    ],
+    "walkable_fraction": 0.0,
+    "world_rect_m": {
+     "x_min": 11.3655733574032,
+     "x_max": 26.63129930034097,
+     "y_min": -31.202620667050102,
+     "y_max": -18.45165208840692
+    }
+   },
+   {
+    "chunk": "cath_1_5",
+    "index": [
+     1,
+     5
+    ],
+    "origin_px": [
+     6240,
+     368
+    ],
+    "size_px": [
+     1536,
+     1024
+    ],
+    "on_canvas_rect_px": [
+     6240,
+     368,
+     1536,
+     1024
+    ],
+    "walkable_fraction": 0.0,
+    "world_rect_m": {
+     "x_min": 24.087011643184674,
+     "x_max": 39.35273758612243,
+     "y_min": -31.202620667050102,
+     "y_max": -18.45165208840692
+    }
+   },
+   {
+    "chunk": "cath_2_0",
+    "index": [
+     2,
+     0
+    ],
+    "origin_px": [
+     -160,
+     1136
+    ],
+    "size_px": [
+     1536,
+     1024
+    ],
+    "on_canvas_rect_px": [
+     0,
+     1136,
+     1376,
+     1024
+    ],
+    "walkable_fraction": 0.0,
+    "world_rect_m": {
+     "x_min": -39.520179785722675,
+     "x_max": -24.254453842784912,
+     "y_min": -21.639394233067716,
+     "y_max": -8.888425654424534
+    }
+   },
+   {
+    "chunk": "cath_2_1",
+    "index": [
+     2,
+     1
+    ],
+    "origin_px": [
+     1120,
+     1136
+    ],
+    "size_px": [
+     1536,
+     1024
+    ],
+    "on_canvas_rect_px": [
+     1120,
+     1136,
+     1536,
+     1024
+    ],
+    "walkable_fraction": 0.0329,
+    "world_rect_m": {
+     "x_min": -26.798741499941208,
+     "x_max": -11.533015557003445,
+     "y_min": -21.639394233067716,
+     "y_max": -8.888425654424534
+    }
+   },
+   {
+    "chunk": "cath_2_2",
+    "index": [
+     2,
+     2
+    ],
+    "origin_px": [
+     2400,
+     1136
+    ],
+    "size_px": [
+     1536,
+     1024
+    ],
+    "on_canvas_rect_px": [
+     2400,
+     1136,
+     1536,
+     1024
+    ],
+    "walkable_fraction": 0.3464,
+    "world_rect_m": {
+     "x_min": -14.077303214159738,
+     "x_max": 1.1884227287780291,
+     "y_min": -21.639394233067716,
+     "y_max": -8.888425654424534
+    }
+   },
+   {
+    "chunk": "cath_2_3",
+    "index": [
+     2,
+     3
+    ],
+    "origin_px": [
+     3680,
+     1136
+    ],
+    "size_px": [
+     1536,
+     1024
+    ],
+    "on_canvas_rect_px": [
+     3680,
+     1136,
+     1536,
+     1024
+    ],
+    "walkable_fraction": 0.5895,
+    "world_rect_m": {
+     "x_min": -1.355864928378267,
+     "x_max": 13.909861014559496,
+     "y_min": -21.639394233067716,
+     "y_max": -8.888425654424534
+    }
+   },
+   {
+    "chunk": "cath_2_4",
+    "index": [
+     2,
+     4
+    ],
+    "origin_px": [
+     4960,
+     1136
+    ],
+    "size_px": [
+     1536,
+     1024
+    ],
+    "on_canvas_rect_px": [
+     4960,
+     1136,
+     1536,
+     1024
+    ],
+    "walkable_fraction": 0.0707,
+    "world_rect_m": {
+     "x_min": 11.3655733574032,
+     "x_max": 26.63129930034097,
+     "y_min": -21.639394233067716,
+     "y_max": -8.888425654424534
+    }
+   },
+   {
+    "chunk": "cath_2_5",
+    "index": [
+     2,
+     5
+    ],
+    "origin_px": [
+     6240,
+     1136
+    ],
+    "size_px": [
+     1536,
+     1024
+    ],
+    "on_canvas_rect_px": [
+     6240,
+     1136,
+     1536,
+     1024
+    ],
+    "walkable_fraction": 0.0,
+    "world_rect_m": {
+     "x_min": 24.087011643184674,
+     "x_max": 39.35273758612243,
+     "y_min": -21.639394233067716,
+     "y_max": -8.888425654424534
+    }
+   },
+   {
+    "chunk": "cath_3_0",
+    "index": [
+     3,
+     0
+    ],
+    "origin_px": [
+     -160,
+     1904
+    ],
+    "size_px": [
+     1536,
+     1024
+    ],
+    "on_canvas_rect_px": [
+     0,
+     1904,
+     1376,
+     1024
+    ],
+    "walkable_fraction": 0.0064,
+    "world_rect_m": {
+     "x_min": -39.520179785722675,
+     "x_max": -24.254453842784912,
+     "y_min": -12.07616779908533,
+     "y_max": 0.6748007795578559
+    }
+   },
+   {
+    "chunk": "cath_3_1",
+    "index": [
+     3,
+     1
+    ],
+    "origin_px": [
+     1120,
+     1904
+    ],
+    "size_px": [
+     1536,
+     1024
+    ],
+    "on_canvas_rect_px": [
+     1120,
+     1904,
+     1536,
+     1024
+    ],
+    "walkable_fraction": 0.5224,
+    "world_rect_m": {
+     "x_min": -26.798741499941208,
+     "x_max": -11.533015557003445,
+     "y_min": -12.07616779908533,
+     "y_max": 0.6748007795578559
+    }
+   },
+   {
+    "chunk": "cath_3_2",
+    "index": [
+     3,
+     2
+    ],
+    "origin_px": [
+     2400,
+     1904
+    ],
+    "size_px": [
+     1536,
+     1024
+    ],
+    "on_canvas_rect_px": [
+     2400,
+     1904,
+     1536,
+     1024
+    ],
+    "walkable_fraction": 0.6694,
+    "world_rect_m": {
+     "x_min": -14.077303214159738,
+     "x_max": 1.1884227287780291,
+     "y_min": -12.07616779908533,
+     "y_max": 0.6748007795578559
+    }
+   },
+   {
+    "chunk": "cath_3_3",
+    "index": [
+     3,
+     3
+    ],
+    "origin_px": [
+     3680,
+     1904
+    ],
+    "size_px": [
+     1536,
+     1024
+    ],
+    "on_canvas_rect_px": [
+     3680,
+     1904,
+     1536,
+     1024
+    ],
+    "walkable_fraction": 0.6536,
+    "world_rect_m": {
+     "x_min": -1.355864928378267,
+     "x_max": 13.909861014559496,
+     "y_min": -12.07616779908533,
+     "y_max": 0.6748007795578559
+    }
+   },
+   {
+    "chunk": "cath_3_4",
+    "index": [
+     3,
+     4
+    ],
+    "origin_px": [
+     4960,
+     1904
+    ],
+    "size_px": [
+     1536,
+     1024
+    ],
+    "on_canvas_rect_px": [
+     4960,
+     1904,
+     1536,
+     1024
+    ],
+    "walkable_fraction": 0.5831,
+    "world_rect_m": {
+     "x_min": 11.3655733574032,
+     "x_max": 26.63129930034097,
+     "y_min": -12.07616779908533,
+     "y_max": 0.6748007795578559
+    }
+   },
+   {
+    "chunk": "cath_3_5",
+    "index": [
+     3,
+     5
+    ],
+    "origin_px": [
+     6240,
+     1904
+    ],
+    "size_px": [
+     1536,
+     1024
+    ],
+    "on_canvas_rect_px": [
+     6240,
+     1904,
+     1536,
+     1024
+    ],
+    "walkable_fraction": 0.0439,
+    "world_rect_m": {
+     "x_min": 24.087011643184674,
+     "x_max": 39.35273758612243,
+     "y_min": -12.07616779908533,
+     "y_max": 0.6748007795578559
+    }
+   },
+   {
+    "chunk": "cath_4_0",
+    "index": [
+     4,
+     0
+    ],
+    "origin_px": [
+     -160,
+     2672
+    ],
+    "size_px": [
+     1536,
+     1024
+    ],
+    "on_canvas_rect_px": [
+     0,
+     2672,
+     1376,
+     1024
+    ],
+    "walkable_fraction": 0.0225,
+    "world_rect_m": {
+     "x_min": -39.520179785722675,
+     "x_max": -24.254453842784912,
+     "y_min": -2.5129413651029395,
+     "y_max": 10.238027213540242
+    }
+   },
+   {
+    "chunk": "cath_4_1",
+    "index": [
+     4,
+     1
+    ],
+    "origin_px": [
+     1120,
+     2672
+    ],
+    "size_px": [
+     1536,
+     1024
+    ],
+    "on_canvas_rect_px": [
+     1120,
+     2672,
+     1536,
+     1024
+    ],
+    "walkable_fraction": 0.5961,
+    "world_rect_m": {
+     "x_min": -26.798741499941208,
+     "x_max": -11.533015557003445,
+     "y_min": -2.5129413651029395,
+     "y_max": 10.238027213540242
+    }
+   },
+   {
+    "chunk": "cath_4_2",
+    "index": [
+     4,
+     2
+    ],
+    "origin_px": [
+     2400,
+     2672
+    ],
+    "size_px": [
+     1536,
+     1024
+    ],
+    "on_canvas_rect_px": [
+     2400,
+     2672,
+     1536,
+     1024
+    ],
+    "walkable_fraction": 0.9373,
+    "world_rect_m": {
+     "x_min": -14.077303214159738,
+     "x_max": 1.1884227287780291,
+     "y_min": -2.5129413651029395,
+     "y_max": 10.238027213540242
+    }
+   },
+   {
+    "chunk": "cath_4_3",
+    "index": [
+     4,
+     3
+    ],
+    "origin_px": [
+     3680,
+     2672
+    ],
+    "size_px": [
+     1536,
+     1024
+    ],
+    "on_canvas_rect_px": [
+     3680,
+     2672,
+     1536,
+     1024
+    ],
+    "walkable_fraction": 0.9018,
+    "world_rect_m": {
+     "x_min": -1.355864928378267,
+     "x_max": 13.909861014559496,
+     "y_min": -2.5129413651029395,
+     "y_max": 10.238027213540242
+    }
+   },
+   {
+    "chunk": "cath_4_4",
+    "index": [
+     4,
+     4
+    ],
+    "origin_px": [
+     4960,
+     2672
+    ],
+    "size_px": [
+     1536,
+     1024
+    ],
+    "on_canvas_rect_px": [
+     4960,
+     2672,
+     1536,
+     1024
+    ],
+    "walkable_fraction": 0.7585,
+    "world_rect_m": {
+     "x_min": 11.3655733574032,
+     "x_max": 26.63129930034097,
+     "y_min": -2.5129413651029395,
+     "y_max": 10.238027213540242
+    }
+   },
+   {
+    "chunk": "cath_4_5",
+    "index": [
+     4,
+     5
+    ],
+    "origin_px": [
+     6240,
+     2672
+    ],
+    "size_px": [
+     1536,
+     1024
+    ],
+    "on_canvas_rect_px": [
+     6240,
+     2672,
+     1536,
+     1024
+    ],
+    "walkable_fraction": 0.1644,
+    "world_rect_m": {
+     "x_min": 24.087011643184674,
+     "x_max": 39.35273758612243,
+     "y_min": -2.5129413651029395,
+     "y_max": 10.238027213540242
+    }
+   },
+   {
+    "chunk": "cath_5_0",
+    "index": [
+     5,
+     0
+    ],
+    "origin_px": [
+     -160,
+     3440
+    ],
+    "size_px": [
+     1536,
+     1024
+    ],
+    "on_canvas_rect_px": [
+     0,
+     3440,
+     1376,
+     1024
+    ],
+    "walkable_fraction": 0.0,
+    "world_rect_m": {
+     "x_min": -39.520179785722675,
+     "x_max": -24.254453842784912,
+     "y_min": 7.050285068879447,
+     "y_max": 19.80125364752263
+    }
+   },
+   {
+    "chunk": "cath_5_1",
+    "index": [
+     5,
+     1
+    ],
+    "origin_px": [
+     1120,
+     3440
+    ],
+    "size_px": [
+     1536,
+     1024
+    ],
+    "on_canvas_rect_px": [
+     1120,
+     3440,
+     1536,
+     1024
+    ],
+    "walkable_fraction": 0.5084,
+    "world_rect_m": {
+     "x_min": -26.798741499941208,
+     "x_max": -11.533015557003445,
+     "y_min": 7.050285068879447,
+     "y_max": 19.80125364752263
+    }
+   },
+   {
+    "chunk": "cath_5_2",
+    "index": [
+     5,
+     2
+    ],
+    "origin_px": [
+     2400,
+     3440
+    ],
+    "size_px": [
+     1536,
+     1024
+    ],
+    "on_canvas_rect_px": [
+     2400,
+     3440,
+     1536,
+     1024
+    ],
+    "walkable_fraction": 0.9933,
+    "world_rect_m": {
+     "x_min": -14.077303214159738,
+     "x_max": 1.1884227287780291,
+     "y_min": 7.050285068879447,
+     "y_max": 19.80125364752263
+    }
+   },
+   {
+    "chunk": "cath_5_3",
+    "index": [
+     5,
+     3
+    ],
+    "origin_px": [
+     3680,
+     3440
+    ],
+    "size_px": [
+     1536,
+     1024
+    ],
+    "on_canvas_rect_px": [
+     3680,
+     3440,
+     1536,
+     1024
+    ],
+    "walkable_fraction": 1.0,
+    "world_rect_m": {
+     "x_min": -1.355864928378267,
+     "x_max": 13.909861014559496,
+     "y_min": 7.050285068879447,
+     "y_max": 19.80125364752263
+    }
+   },
+   {
+    "chunk": "cath_5_4",
+    "index": [
+     5,
+     4
+    ],
+    "origin_px": [
+     4960,
+     3440
+    ],
+    "size_px": [
+     1536,
+     1024
+    ],
+    "on_canvas_rect_px": [
+     4960,
+     3440,
+     1536,
+     1024
+    ],
+    "walkable_fraction": 0.5813,
+    "world_rect_m": {
+     "x_min": 11.3655733574032,
+     "x_max": 26.63129930034097,
+     "y_min": 7.050285068879447,
+     "y_max": 19.80125364752263
+    }
+   },
+   {
+    "chunk": "cath_5_5",
+    "index": [
+     5,
+     5
+    ],
+    "origin_px": [
+     6240,
+     3440
+    ],
+    "size_px": [
+     1536,
+     1024
+    ],
+    "on_canvas_rect_px": [
+     6240,
+     3440,
+     1536,
+     1024
+    ],
+    "walkable_fraction": 0.0,
+    "world_rect_m": {
+     "x_min": 24.087011643184674,
+     "x_max": 39.35273758612243,
+     "y_min": 7.050285068879447,
+     "y_max": 19.80125364752263
+    }
+   },
+   {
+    "chunk": "cath_6_0",
+    "index": [
+     6,
+     0
+    ],
+    "origin_px": [
+     -160,
+     4208
+    ],
+    "size_px": [
+     1536,
+     1024
+    ],
+    "on_canvas_rect_px": [
+     0,
+     4208,
+     1376,
+     1024
+    ],
+    "walkable_fraction": 0.0251,
+    "world_rect_m": {
+     "x_min": -39.520179785722675,
+     "x_max": -24.254453842784912,
+     "y_min": 16.613511502861833,
+     "y_max": 29.364480081505008
+    }
+   },
+   {
+    "chunk": "cath_6_1",
+    "index": [
+     6,
+     1
+    ],
+    "origin_px": [
+     1120,
+     4208
+    ],
+    "size_px": [
+     1536,
+     1024
+    ],
+    "on_canvas_rect_px": [
+     1120,
+     4208,
+     1536,
+     1024
+    ],
+    "walkable_fraction": 0.5305,
+    "world_rect_m": {
+     "x_min": -26.798741499941208,
+     "x_max": -11.533015557003445,
+     "y_min": 16.613511502861833,
+     "y_max": 29.364480081505008
+    }
+   },
+   {
+    "chunk": "cath_6_2",
+    "index": [
+     6,
+     2
+    ],
+    "origin_px": [
+     2400,
+     4208
+    ],
+    "size_px": [
+     1536,
+     1024
+    ],
+    "on_canvas_rect_px": [
+     2400,
+     4208,
+     1536,
+     1024
+    ],
+    "walkable_fraction": 0.9965,
+    "world_rect_m": {
+     "x_min": -14.077303214159738,
+     "x_max": 1.1884227287780291,
+     "y_min": 16.613511502861833,
+     "y_max": 29.364480081505008
+    }
+   },
+   {
+    "chunk": "cath_6_3",
+    "index": [
+     6,
+     3
+    ],
+    "origin_px": [
+     3680,
+     4208
+    ],
+    "size_px": [
+     1536,
+     1024
+    ],
+    "on_canvas_rect_px": [
+     3680,
+     4208,
+     1536,
+     1024
+    ],
+    "walkable_fraction": 1.0,
+    "world_rect_m": {
+     "x_min": -1.355864928378267,
+     "x_max": 13.909861014559496,
+     "y_min": 16.613511502861833,
+     "y_max": 29.364480081505008
+    }
+   },
+   {
+    "chunk": "cath_6_4",
+    "index": [
+     6,
+     4
+    ],
+    "origin_px": [
+     4960,
+     4208
+    ],
+    "size_px": [
+     1536,
+     1024
+    ],
+    "on_canvas_rect_px": [
+     4960,
+     4208,
+     1536,
+     1024
+    ],
+    "walkable_fraction": 0.5664,
+    "world_rect_m": {
+     "x_min": 11.3655733574032,
+     "x_max": 26.63129930034097,
+     "y_min": 16.613511502861833,
+     "y_max": 29.364480081505008
+    }
+   },
+   {
+    "chunk": "cath_6_5",
+    "index": [
+     6,
+     5
+    ],
+    "origin_px": [
+     6240,
+     4208
+    ],
+    "size_px": [
+     1536,
+     1024
+    ],
+    "on_canvas_rect_px": [
+     6240,
+     4208,
+     1536,
+     1024
+    ],
+    "walkable_fraction": 0.0,
+    "world_rect_m": {
+     "x_min": 24.087011643184674,
+     "x_max": 39.35273758612243,
+     "y_min": 16.613511502861833,
+     "y_max": 29.364480081505008
+    }
+   },
+   {
+    "chunk": "cath_7_0",
+    "index": [
+     7,
+     0
+    ],
+    "origin_px": [
+     -160,
+     4976
+    ],
+    "size_px": [
+     1536,
+     1024
+    ],
+    "on_canvas_rect_px": [
+     0,
+     4976,
+     1376,
+     1024
+    ],
+    "walkable_fraction": 0.0839,
+    "world_rect_m": {
+     "x_min": -39.520179785722675,
+     "x_max": -24.254453842784912,
+     "y_min": 26.17673793684422,
+     "y_max": 38.9277065154874
+    }
+   },
+   {
+    "chunk": "cath_7_1",
+    "index": [
+     7,
+     1
+    ],
+    "origin_px": [
+     1120,
+     4976
+    ],
+    "size_px": [
+     1536,
+     1024
+    ],
+    "on_canvas_rect_px": [
+     1120,
+     4976,
+     1536,
+     1024
+    ],
+    "walkable_fraction": 0.7286,
+    "world_rect_m": {
+     "x_min": -26.798741499941208,
+     "x_max": -11.533015557003445,
+     "y_min": 26.17673793684422,
+     "y_max": 38.9277065154874
+    }
+   },
+   {
+    "chunk": "cath_7_2",
+    "index": [
+     7,
+     2
+    ],
+    "origin_px": [
+     2400,
+     4976
+    ],
+    "size_px": [
+     1536,
+     1024
+    ],
+    "on_canvas_rect_px": [
+     2400,
+     4976,
+     1536,
+     1024
+    ],
+    "walkable_fraction": 0.8458,
+    "world_rect_m": {
+     "x_min": -14.077303214159738,
+     "x_max": 1.1884227287780291,
+     "y_min": 26.17673793684422,
+     "y_max": 38.9277065154874
+    }
+   },
+   {
+    "chunk": "cath_7_3",
+    "index": [
+     7,
+     3
+    ],
+    "origin_px": [
+     3680,
+     4976
+    ],
+    "size_px": [
+     1536,
+     1024
+    ],
+    "on_canvas_rect_px": [
+     3680,
+     4976,
+     1536,
+     1024
+    ],
+    "walkable_fraction": 0.876,
+    "world_rect_m": {
+     "x_min": -1.355864928378267,
+     "x_max": 13.909861014559496,
+     "y_min": 26.17673793684422,
+     "y_max": 38.9277065154874
+    }
+   },
+   {
+    "chunk": "cath_7_4",
+    "index": [
+     7,
+     4
+    ],
+    "origin_px": [
+     4960,
+     4976
+    ],
+    "size_px": [
+     1536,
+     1024
+    ],
+    "on_canvas_rect_px": [
+     4960,
+     4976,
+     1536,
+     1024
+    ],
+    "walkable_fraction": 0.6859,
+    "world_rect_m": {
+     "x_min": 11.3655733574032,
+     "x_max": 26.63129930034097,
+     "y_min": 26.17673793684422,
+     "y_max": 38.9277065154874
+    }
+   },
+   {
+    "chunk": "cath_7_5",
+    "index": [
+     7,
+     5
+    ],
+    "origin_px": [
+     6240,
+     4976
+    ],
+    "size_px": [
+     1536,
+     1024
+    ],
+    "on_canvas_rect_px": [
+     6240,
+     4976,
+     1536,
+     1024
+    ],
+    "walkable_fraction": 0.0478,
+    "world_rect_m": {
+     "x_min": 24.087011643184674,
+     "x_max": 39.35273758612243,
+     "y_min": 26.17673793684422,
+     "y_max": 38.9277065154874
+    }
+   },
+   {
+    "chunk": "cath_8_0",
+    "index": [
+     8,
+     0
+    ],
+    "origin_px": [
+     -160,
+     5744
+    ],
+    "size_px": [
+     1536,
+     1024
+    ],
+    "on_canvas_rect_px": [
+     0,
+     5744,
+     1376,
+     1024
+    ],
+    "walkable_fraction": 0.0,
+    "world_rect_m": {
+     "x_min": -39.520179785722675,
+     "x_max": -24.254453842784912,
+     "y_min": 35.73996437082661,
+     "y_max": 48.490932949469794
+    }
+   },
+   {
+    "chunk": "cath_8_1",
+    "index": [
+     8,
+     1
+    ],
+    "origin_px": [
+     1120,
+     5744
+    ],
+    "size_px": [
+     1536,
+     1024
+    ],
+    "on_canvas_rect_px": [
+     1120,
+     5744,
+     1536,
+     1024
+    ],
+    "walkable_fraction": 0.2334,
+    "world_rect_m": {
+     "x_min": -26.798741499941208,
+     "x_max": -11.533015557003445,
+     "y_min": 35.73996437082661,
+     "y_max": 48.490932949469794
+    }
+   },
+   {
+    "chunk": "cath_8_2",
+    "index": [
+     8,
+     2
+    ],
+    "origin_px": [
+     2400,
+     5744
+    ],
+    "size_px": [
+     1536,
+     1024
+    ],
+    "on_canvas_rect_px": [
+     2400,
+     5744,
+     1536,
+     1024
+    ],
+    "walkable_fraction": 0.6713,
+    "world_rect_m": {
+     "x_min": -14.077303214159738,
+     "x_max": 1.1884227287780291,
+     "y_min": 35.73996437082661,
+     "y_max": 48.490932949469794
+    }
+   },
+   {
+    "chunk": "cath_8_3",
+    "index": [
+     8,
+     3
+    ],
+    "origin_px": [
+     3680,
+     5744
+    ],
+    "size_px": [
+     1536,
+     1024
+    ],
+    "on_canvas_rect_px": [
+     3680,
+     5744,
+     1536,
+     1024
+    ],
+    "walkable_fraction": 0.6266,
+    "world_rect_m": {
+     "x_min": -1.355864928378267,
+     "x_max": 13.909861014559496,
+     "y_min": 35.73996437082661,
+     "y_max": 48.490932949469794
+    }
+   },
+   {
+    "chunk": "cath_8_4",
+    "index": [
+     8,
+     4
+    ],
+    "origin_px": [
+     4960,
+     5744
+    ],
+    "size_px": [
+     1536,
+     1024
+    ],
+    "on_canvas_rect_px": [
+     4960,
+     5744,
+     1536,
+     1024
+    ],
+    "walkable_fraction": 0.3848,
+    "world_rect_m": {
+     "x_min": 11.3655733574032,
+     "x_max": 26.63129930034097,
+     "y_min": 35.73996437082661,
+     "y_max": 48.490932949469794
+    }
+   },
+   {
+    "chunk": "cath_8_5",
+    "index": [
+     8,
+     5
+    ],
+    "origin_px": [
+     6240,
+     5744
+    ],
+    "size_px": [
+     1536,
+     1024
+    ],
+    "on_canvas_rect_px": [
+     6240,
+     5744,
+     1536,
+     1024
+    ],
+    "walkable_fraction": 0.0004,
+    "world_rect_m": {
+     "x_min": 24.087011643184674,
+     "x_max": 39.35273758612243,
+     "y_min": 35.73996437082661,
+     "y_max": 48.490932949469794
+    }
+   },
+   {
+    "chunk": "cath_9_0",
+    "index": [
+     9,
+     0
+    ],
+    "origin_px": [
+     -160,
+     6512
+    ],
+    "size_px": [
+     1536,
+     1024
+    ],
+    "on_canvas_rect_px": [
+     0,
+     6512,
+     1376,
+     1010
+    ],
+    "walkable_fraction": 0.0,
+    "world_rect_m": {
+     "x_min": -39.520179785722675,
+     "x_max": -24.254453842784912,
+     "y_min": 45.30319080480899,
+     "y_max": 58.05415938345217
+    }
+   },
+   {
+    "chunk": "cath_9_1",
+    "index": [
+     9,
+     1
+    ],
+    "origin_px": [
+     1120,
+     6512
+    ],
+    "size_px": [
+     1536,
+     1024
+    ],
+    "on_canvas_rect_px": [
+     1120,
+     6512,
+     1536,
+     1010
+    ],
+    "walkable_fraction": 0.0,
+    "world_rect_m": {
+     "x_min": -26.798741499941208,
+     "x_max": -11.533015557003445,
+     "y_min": 45.30319080480899,
+     "y_max": 58.05415938345217
+    }
+   },
+   {
+    "chunk": "cath_9_2",
+    "index": [
+     9,
+     2
+    ],
+    "origin_px": [
+     2400,
+     6512
+    ],
+    "size_px": [
+     1536,
+     1024
+    ],
+    "on_canvas_rect_px": [
+     2400,
+     6512,
+     1536,
+     1010
+    ],
+    "walkable_fraction": 0.0877,
+    "world_rect_m": {
+     "x_min": -14.077303214159738,
+     "x_max": 1.1884227287780291,
+     "y_min": 45.30319080480899,
+     "y_max": 58.05415938345217
+    }
+   },
+   {
+    "chunk": "cath_9_3",
+    "index": [
+     9,
+     3
+    ],
+    "origin_px": [
+     3680,
+     6512
+    ],
+    "size_px": [
+     1536,
+     1024
+    ],
+    "on_canvas_rect_px": [
+     3680,
+     6512,
+     1536,
+     1010
+    ],
+    "walkable_fraction": 0.0793,
+    "world_rect_m": {
+     "x_min": -1.355864928378267,
+     "x_max": 13.909861014559496,
+     "y_min": 45.30319080480899,
+     "y_max": 58.05415938345217
+    }
+   },
+   {
+    "chunk": "cath_9_4",
+    "index": [
+     9,
+     4
+    ],
+    "origin_px": [
+     4960,
+     6512
+    ],
+    "size_px": [
+     1536,
+     1024
+    ],
+    "on_canvas_rect_px": [
+     4960,
+     6512,
+     1536,
+     1010
+    ],
+    "walkable_fraction": 0.0,
+    "world_rect_m": {
+     "x_min": 11.3655733574032,
+     "x_max": 26.63129930034097,
+     "y_min": 45.30319080480899,
+     "y_max": 58.05415938345217
+    }
+   },
+   {
+    "chunk": "cath_9_5",
+    "index": [
+     9,
+     5
+    ],
+    "origin_px": [
+     6240,
+     6512
+    ],
+    "size_px": [
+     1536,
+     1024
+    ],
+    "on_canvas_rect_px": [
+     6240,
+     6512,
+     1536,
+     1010
+    ],
+    "walkable_fraction": 0.0,
+    "world_rect_m": {
+     "x_min": 24.087011643184674,
+     "x_max": 39.35273758612243,
+     "y_min": 45.30319080480899,
+     "y_max": 58.05415938345217
+    }
+   }
+  ]
+ },
+ "outputs": {
+  "id_mask.png": {
+   "file": "id_mask.png",
+   "sha256": "5b71db8302e1d195a1b169f1ad424f2870a5f3f3d2611769a2a358199c9fe840",
+   "bytes": 577630,
+   "size_px": [
+    7776,
+    7522
+   ]
+  },
+  "depth_mm.png": {
+   "file": "depth_mm.png",
+   "sha256": "cda457bd0610b53abbb96d62b6f9954b5a6956af25b215bbf7a68f1ee2d58384",
+   "bytes": 635486,
+   "size_px": [
+    7776,
+    7522
+   ]
+  },
+  "walkable_mask.png": {
+   "file": "walkable_mask.png",
+   "sha256": "907d113bed95255a3f203e57032e97d757e393607adba3e84ed707958d353a86",
+   "bytes": 130473,
+   "size_px": [
+    7776,
+    7522
+   ]
+  },
+  "dot_zone_mask.png": {
+   "file": "dot_zone_mask.png",
+   "sha256": "48f69d273c4a715b2a86167b1e39e9d1b5a55c599959c53f2e991bfbc1550a92",
+   "bytes": 91088,
+   "size_px": [
+    7776,
+    7522
+   ]
+  },
+  "dot_zone_mask_upper_bound.png": {
+   "file": "dot_zone_mask_upper_bound.png",
+   "sha256": "32ee73b04fddca1ff0880a0193571d074a4c91666e861a4973c07165a15fc96b",
+   "bytes": 114103,
+   "size_px": [
+    7776,
+    7522
+   ]
+  },
+  "guide.png": {
+   "file": "guide.png",
+   "sha256": "7abc528676eaf9e321ea626bc449101528d261fd409368317ce2c25b8221aad3",
+   "bytes": 839786,
+   "size_px": [
+    7776,
+    7522
+   ]
+  }
+ },
+ "substrate": {
+  "arena_geometry_sha256": "68d895d75702996473cfd654a9a834816d4be0421c4b5ad7a3d2a0cc5d40481f",
+  "blockout_meta": "agentic_orchestration/drax/captures/2026-09-13-cliffside-blockout/blockout_meta_v2.json",
+  "g_img_mock": "agentic_orchestration/drax/captures/2026-09-20-kc2-play-g-img/make_g_img_mock.py",
+  "antwerp_plan": "matt_notes_handoff_docs/rdr-art-illuminated-archive-refs/cathedral-plan/antwerp-cathedral-grundriss.jpg",
+  "vault_reference": "matt_notes_handoff_docs/rdr-art-illuminated-archive-refs/cathedral-look-alt/spinola-hours-f185-office-of-the-dead.jpg"
+ }
+}
