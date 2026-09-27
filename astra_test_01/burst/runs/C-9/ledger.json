@@ -6000,9 +6000,211 @@
       "codex_version": "codex-cli 0.153.4",
       "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
       "exit": 0
+    },
+    {
+      "id": "KS-B",
+      "type": "GENERATE",
+      "experiment": "P4-turnaround-sheet",
+      "register_card": {
+        "path": "runs/C-9/REGISTER_CARD.md",
+        "sha256": "63d25d89a36a91cf772e04f2cd3bf6468105046dbdfdee0ac3ad6e6ecf44245b"
+      },
+      "brief_sha256": "167f6837a85c110e3f0aca1af3a7584466865025e81058f268da47b504dfb74e",
+      "started": "2026-09-27T12:42:04.684785+00:00",
+      "ended": "2026-09-27T12:48:00.059966+00:00",
+      "minutes": 5.922834736799996,
+      "image_calls": 4,
+      "tool_calls": 2,
+      "audit": {
+        "violations": [],
+        "image_calls": 4,
+        "tool_calls": 2,
+        "tools_seen": {
+          "command_execution": 2
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0e2e3-0c85-7050-bda7-fdac55d82310/exec-15090c98-b695-4cbd-944d-b449ad89ea8d.png",
+            "sha256": "30664e925db9f931f5f4b6a44c2b24f5c02c8365879572b0fdf33c62bfae7174"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0e2e3-0c85-7050-bda7-fdac55d82310/exec-a1847110-2178-47f3-911b-2ddb830b987b.png",
+            "sha256": "ab2b9701782963bd8d4af4cd404e24d0bf2323c7fe3f464d6631d38933d96347"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0e2e3-0c85-7050-bda7-fdac55d82310/exec-defd831c-67f5-48b7-831b-e7613ef7c86a.png",
+            "sha256": "4266b52aa4be49288e8f5247f758789c504650c6a461d7ecf1f3080a4d26cffd"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0e2e3-0c85-7050-bda7-fdac55d82310/exec-f665f14b-6621-43ee-b51d-55601fc71323.png",
+            "sha256": "17f82d63f39aaee740cebc561ca6db5b41bdb7f34ced1f9f7b5a8d5646233709"
+          }
+        ]
+      },
+      "receipt_sha256": "78fc70ebe3109d11ae786c2167641a1483f542046027c902ad4ade34c2600172",
+      "artifacts": [
+        {
+          "name": "KS-B_a.png",
+          "sha256": "ab2b9701782963bd8d4af4cd404e24d0bf2323c7fe3f464d6631d38933d96347"
+        },
+        {
+          "name": "KS-B_b.png",
+          "sha256": "17f82d63f39aaee740cebc561ca6db5b41bdb7f34ced1f9f7b5a8d5646233709"
+        },
+        {
+          "name": "exec-15090c98-b695-4cbd-944d-b449ad89ea8d.provenance.json",
+          "sha256": "0ff36dc57385014d8bf290dc3d36fe68ab11e2ee0a63f5223da306e0523c502f"
+        },
+        {
+          "name": "exec-a1847110-2178-47f3-911b-2ddb830b987b.provenance.json",
+          "sha256": "0d14389e672d521a2c996bd3231cb96206e6d8b5aa2d5b5c3234b5392cd7333b"
+        },
+        {
+          "name": "exec-defd831c-67f5-48b7-831b-e7613ef7c86a.provenance.json",
+          "sha256": "49883109ac3572be3b6b841df54332ed2bc29e166049ae839639f689823648b8"
+        },
+        {
+          "name": "exec-f665f14b-6621-43ee-b51d-55601fc71323.provenance.json",
+          "sha256": "c297894378bcce762815a200cd258640a748598ceca47d5b10d08e969f30808d"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0e2e3-0c85-7050-bda7-fdac55d82310/exec-15090c98-b695-4cbd-944d-b449ad89ea8d.png",
+          "sha256": "30664e925db9f931f5f4b6a44c2b24f5c02c8365879572b0fdf33c62bfae7174"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0e2e3-0c85-7050-bda7-fdac55d82310/exec-a1847110-2178-47f3-911b-2ddb830b987b.png",
+          "sha256": "ab2b9701782963bd8d4af4cd404e24d0bf2323c7fe3f464d6631d38933d96347"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0e2e3-0c85-7050-bda7-fdac55d82310/exec-defd831c-67f5-48b7-831b-e7613ef7c86a.png",
+          "sha256": "4266b52aa4be49288e8f5247f758789c504650c6a461d7ecf1f3080a4d26cffd"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0e2e3-0c85-7050-bda7-fdac55d82310/exec-f665f14b-6621-43ee-b51d-55601fc71323.png",
+          "sha256": "17f82d63f39aaee740cebc561ca6db5b41bdb7f34ced1f9f7b5a8d5646233709"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
+    },
+    {
+      "id": "KS-A",
+      "type": "GENERATE",
+      "experiment": "P4-turnaround-sheet",
+      "register_card": {
+        "path": "runs/C-9/REGISTER_CARD.md",
+        "sha256": "63d25d89a36a91cf772e04f2cd3bf6468105046dbdfdee0ac3ad6e6ecf44245b"
+      },
+      "brief_sha256": "8c598e4091e2afffe9fa5bbebccd7b7e744b68b7da8db78c32a3ebce1b7430b3",
+      "started": "2026-09-27T12:42:04.684786+00:00",
+      "ended": "2026-09-27T12:48:05.084554+00:00",
+      "minutes": 6.006563011816615,
+      "image_calls": 4,
+      "tool_calls": 2,
+      "audit": {
+        "violations": [],
+        "image_calls": 4,
+        "tool_calls": 2,
+        "tools_seen": {
+          "command_execution": 2
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0e2e3-0c34-77a1-ad17-af766d8b07c3/exec-691fa89f-6411-4c53-831f-404228a970ec.png",
+            "sha256": "46c90f37da74f5309f44f3ff4b7bda511ce6ff04b606aa0cd7e617d2ea4f5f92"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0e2e3-0c34-77a1-ad17-af766d8b07c3/exec-7f0540e9-8269-4187-bee0-222b88e8a634.png",
+            "sha256": "99a52939faf6bfdbe3737f7bf85b8e6daee8fbf942718522855b3c7a2d3abbcd"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0e2e3-0c34-77a1-ad17-af766d8b07c3/exec-92f727f2-9e4e-4c0c-928f-a26bf6f51203.png",
+            "sha256": "d9b145b48797ea29723e8dd428a3af4dcc9efee25e0b67dfc9f779bb12c22ad8"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0e2e3-0c34-77a1-ad17-af766d8b07c3/exec-bd697b53-0469-4643-9a3e-a7a0d55c9f30.png",
+            "sha256": "bdcac4eb20dbad009200c5cf00d4dde8cfbec65b67ead4b695a62b8d7961952d"
+          }
+        ]
+      },
+      "receipt_sha256": "d50cf09ff4e67340a4ef60f89e99b0d4fb2e3b70c6367e8d5a797f53aba79bec",
+      "artifacts": [
+        {
+          "name": "KS-A_a.png",
+          "sha256": "bdcac4eb20dbad009200c5cf00d4dde8cfbec65b67ead4b695a62b8d7961952d"
+        },
+        {
+          "name": "KS-A_b.png",
+          "sha256": "d9b145b48797ea29723e8dd428a3af4dcc9efee25e0b67dfc9f779bb12c22ad8"
+        },
+        {
+          "name": "exec-691fa89f-6411-4c53-831f-404228a970ec.provenance.json",
+          "sha256": "b4a5645bb703c2c3931fcea3084a9cd4c5b78114948179086b60288e92d7a1be"
+        },
+        {
+          "name": "exec-7f0540e9-8269-4187-bee0-222b88e8a634.provenance.json",
+          "sha256": "f96a110ff797fd1acc0681276c56f8607977623062b28673608c95e74df707da"
+        },
+        {
+          "name": "exec-92f727f2-9e4e-4c0c-928f-a26bf6f51203.provenance.json",
+          "sha256": "c3d2098240d790687fb09f4db8c845b28e8a1d2b86de6bf2d647613d9b7e1ea0"
+        },
+        {
+          "name": "exec-bd697b53-0469-4643-9a3e-a7a0d55c9f30.provenance.json",
+          "sha256": "27b1f6031f1b46d4c0eb85029bcef5d40f04d27b737a70367b11139b4cd08653"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0e2e3-0c34-77a1-ad17-af766d8b07c3/exec-691fa89f-6411-4c53-831f-404228a970ec.png",
+          "sha256": "46c90f37da74f5309f44f3ff4b7bda511ce6ff04b606aa0cd7e617d2ea4f5f92"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0e2e3-0c34-77a1-ad17-af766d8b07c3/exec-7f0540e9-8269-4187-bee0-222b88e8a634.png",
+          "sha256": "99a52939faf6bfdbe3737f7bf85b8e6daee8fbf942718522855b3c7a2d3abbcd"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0e2e3-0c34-77a1-ad17-af766d8b07c3/exec-92f727f2-9e4e-4c0c-928f-a26bf6f51203.png",
+          "sha256": "d9b145b48797ea29723e8dd428a3af4dcc9efee25e0b67dfc9f779bb12c22ad8"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0e2e3-0c34-77a1-ad17-af766d8b07c3/exec-bd697b53-0469-4643-9a3e-a7a0d55c9f30.png",
+          "sha256": "bdcac4eb20dbad009200c5cf00d4dde8cfbec65b67ead4b695a62b8d7961952d"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
     }
   ],
-  "images_used": 156,
+  "images_used": 164,
   "images_cap": 400,
   "experiments": {},
   "milestones": [
@@ -6075,6 +6277,11 @@
       "id": "M-C9-M3-CONSISTENT",
       "ts_note": "KL-10 3/3 exit 0: SW rebuilt from KL-9-W (rounded visor, no beak); S legs to the planted rest stance; NE tabard back matches N. Turnaround of record: S=KL-10-S, SW=KL-10-SW, W=KL-9-W, NW=KL-7-NW, N=KL-7-N, NE=KL-10-NE, E=KL-5-E, SE=KL-6-SE. Conductor lesson (recorded): Matt caught four per-frame consistency defects in succession (heads/feet, helm colour, visor shape, NE tabard, S stance) that a by-eye pass missed. Before any further per-frame set reaches Matt (motion cells), run a structured cross-frame consistency check (helm design, tabard layout, stance, pollaxe hand) -- a TRANSCRIBE/JUDGE checklist batch plus a side-by-side crop sheet per feature.",
       "ts": "2026-09-27T08:29:27"
+    },
+    {
+      "id": "M-C9-SHEETS",
+      "ts_note": "KS-A/KS-B exit 0 (8 images). One-sheet method SOLVES cross-view consistency (helm, knee wings, tabard, stance identical across slots and across both sheets, anchored on KL-5-E). Direction errors per variant (A-a W wrong; A-b NW wrong; B-a SE wrong; B-b SE left hand) -> best-of assembled: S/SW/NW from A-a, W from A-b, N/NE from B-a, E anchor, SE uncertain. Unsolved: steel is pale and uniformly speckled in every view (inherited from the pale KL-5-E anchor); the painter dark gouache modelling (KL-2) is not recovered. Proposal to Matt: one uniform steel-repaint EDIT per whole sheet (one hop, applied identically to every figure, so consistency holds) + a single SE fix.",
+      "ts": "2026-09-27T08:49:21"
     }
   ],
   "halts": [],
@@ -6239,6 +6446,14 @@
       "topic": "KL-9 result + NE tabard + S stance",
       "ruling": "Matt verbatim: \"Also, NE’s tabard slightly differs from the rest in it’s pattern\" and \"And South’s stance/gait slightly differs.. this may confuse from during video gen\". KL-9: W and S helms now correct (rounded visor, one row of holes); SW did NOT take (still a beak visor). Wave KL-10: SW re-derived from KL-9-W turned 45 deg toward the viewer (the method that worked before, now from a correct-helm source); S legs only to the planted rest stance (ref SE); NE tabard back only to the N layout.",
       "ts": "2026-09-27T08:26:30"
+    },
+    {
+      "id": "R-C9-20",
+      "class": "matt",
+      "veto_open": false,
+      "topic": "Per-frame patching abandoned; one-sheet turnaround",
+      "ruling": "Matt verbatim: \"S and SW still have completely different helmets. Also the backs and sides of the knees differ from picture to picture. It also seems that South lost a lot of the detail/imperfections from the painting across the picture.\" Conductor diagnosis: per-frame EDIT patching does not converge (each direction is an independent repaint, so small parts vary) and chained edits erode the hand (S = 8 hops: steel went pale and uniformly speckled; the fine-detail metric ROSE 36->54, i.e. edits replace soft irregular washes with crisp regular marks -- the metric measures sharpness, not the irregularity Matt means; his eye governs). METHOD CHANGE: one-sheet turnaround -- sheet A (anchor E + S, SW, W, NW) and sheet B (anchor E + N, NE, SE), KL-5-E pasted untouched in slot 1, each new view one hop from it, explicit helm/knee/tabard/stance spec, KL-2-repose as the hand reference.",
+      "ts": "2026-09-27T08:42:04"
     }
   ],
   "grok_calls": [],

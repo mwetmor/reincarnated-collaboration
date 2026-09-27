@@ -1,0 +1,23 @@
+{
+ "text": "GENERATE BURST KS-B \u2014 Run C-9 P4, ONE-SHEET TURNAROUND (Matt: \"S and SW still have completely different helmets. Also the backs and sides of the knees differ from picture to picture. It also seems that South lost a lot of the detail/imperfections\"). task_id \"KS-B\".\n\nUse image_gen in EDIT mode on IMAGE 1: a 1536x1024 sheet divided into 4 equal vertical slots. SLOT 1 (leftmost) already holds the knight, facing screen-right, painted in the hand of a c. 1530 Flemish manuscript \u2014 KEEP SLOT 1 EXACTLY AS IT IS. The other slots are flat green: paint the SAME knight in each, standing on the same baseline, the same height as slot 1:\n- slot 2: facing directly AWAY from the viewer, his back to us (north)\n- slot 3: facing AWAY toward the upper-right, back three-quarter (north-east)\n- slot 4: facing the viewer's LOWER-RIGHT at 45 degrees (south-east)\n\nTHE KNIGHT (identical in every slot): full plate armour; ONE helm design \u2014 an armet with a ROUNDED SKULL painted with red-brown pen hatching over steel, and a smooth ROUNDED close-fitting VISOR crossed by a single row of small round holes (from the front the visor is a smooth curved plate with that one row of holes; in profile it is the rounded curve seen in slot 1); a flared gorget collar; EVERY knee cop has the same small fan-shaped wing on the OUTER side of the knee, and the same hinged plates behind the knee; a BLUE TABARD ending at the hip, with short open side flaps, red lining, and gold heraldry: gold cross-crosslets and gold diagonal bands \u2014 the same layout on the back as on the front; plate thighs, no skirt; the POLLAXE (flared axe blade with a little brass, hammer back, top spike) always in his ANATOMICAL RIGHT hand, upright, butt on the ground beside his foot. REST STANCE in every slot: both feet planted about shoulder-width apart, knees nearly straight, weight even, left arm relaxed.\nTHE HAND (all new figures): EXACTLY the painted hand of slot 1 and IMAGE 2 \u2014 a c. 1530 Flemish manuscript painter: dark, deep gouache-like modelling on the steel with strong darks and bright highlights (NOT pale steel covered in uniform speckle), uneven blue wash on the tabard, confident dark contour, small irregular imperfections. For this step the REGISTER CARD above is satisfied BY THE IMAGES: do not re-render, smooth or restyle.\nCAMERA: the same elevated game view as slot 1, looking down; the camera never moves between slots, only the knight turns. Light: soft, from screen upper-left, in every slot. NO MIRRORING (he is turned, never flipped).\nIMAGE 2 is the knight earlier in the process, before repeated edits: it shows the depth of painted steel to match. Background: every pixel outside the figures stays flat pure #00ff00; figures do not overlap or touch the slot edges.\n\nTwo image_gen EDIT calls: variants a and b, same instructions. ONE retry per variant only if slot 1 changed, any helm/knee/tabard/stance differs between slots, a direction is wrong, the steel is pale and speckled instead of deeply painted, or the background is not flat green \u2014 name the reason. Copy outputs to out/KS-B_a.png and out/KS-B_b.png with sha256. No code. No other files. No web.\nRETURN: receipt task_id \"KS-B\"; images = the files with prompt, references (role + path) and elapsed_s; calls_used = the TRUE number of image_gen calls; status; concerns. Never PASS/FAIL.",
+ "references": [
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/inputs/sheet_B_canvas.png",
+   "role": "IMAGE 1 \u2014 THE SHEET TO EDIT (slot 1 = the knight, keep it; fill the other slots)"
+  },
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/KL-2-repose/KL-2-repose_a.png",
+   "role": "IMAGE 2 \u2014 the knight before repeated edits: the depth of painted steel and the painter's hand to match"
+  }
+ ],
+ "image_cap": 4,
+ "minutes_cap": 15,
+ "tool_call_cap": 20,
+ "outputs": [
+  "out/KS-B_a.png",
+  "out/KS-B_b.png"
+ ],
+ "effort": "high",
+ "add_dirs": [],
+ "experiment": "P4-turnaround-sheet"
+}
