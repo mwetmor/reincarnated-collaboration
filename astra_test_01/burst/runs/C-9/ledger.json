@@ -691,6 +691,14 @@
       "topic": "FREEZE after T5a/T5a-r1",
       "ruling": "MANIFEST 059379a19782 -> 8cefe5a98bbc (269 rows; changed: lane/render_brief.py, lane/run_burst.py, SPEC.md, tests/test_render_brief.py). shasum -c all OK; check_sync 10/10. Outside suite 15 F / 2 E == C-7 freeze list (runs/C-9/evidence/reds_post_T5a_r1.txt). FREEZE_NOTICES row appended. P1 CLOSED; P2 style-gate wave cleared to fire.",
       "ts": "2026-09-26T22:35:50"
+    },
+    {
+      "id": "R-C9-6",
+      "class": "conductor",
+      "veto_open": true,
+      "topic": "CORRECTION: C-9 cathedral = the KC2-PLAY burning nave; drax Antwerp grey room superseded; M2 collapses",
+      "ruling": "Matt: \"I think we already covered all of these in the prior arena/cathedral work.\" He is right. FINDING F-C9-4 (conductor, slate-freshness failure, OP § 4.10 guardrail 3): the C-9 dispatch re-derived a cathedral layout for the Crucible arena without reading KC2-PLAY, where Matt had already ruled it: KP-14 interior burning Gothic nave (ring = nave walls, islands = fallen pillar bases, pools = something burning through the floor); KP-18 h_fig 1.9 m, cathedral as wall faces; KP-19 ART LEADS THE BOUNDARY (mask-from-paint; ring is a suggestion); KP-28/29 fallen glass cross centre, crater off-centre, crypt spawns with blue fire, hazard aprons. RULING: C-9 cathedral substrate = the KC2-PLAY nave design and its arena guide (drax 9c947ffe / KC2-PLAY guide lineage), painted in BOTH registers for the A/B; C-9 writes only its own run dir, never KC2-PLAY. drax C-9 grey room (3f9ae23c) is SUPERSEDED, kept as record (his contradictions list stands as evidence). M2 as posed is WITHDRAWN: its four forks are answered by KP-14/18/19 (rot/pools = KC2-PLAY pools; 1.9 m = KP-18a; boundary = art-led); only the chunk scale remains, and it follows KC2-PLAY method when the cathedral paint is scheduled.",
+      "ts": "2026-09-26T23:24:05"
     }
   ],
   "grok_calls": [],

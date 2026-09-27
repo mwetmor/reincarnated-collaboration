@@ -16,7 +16,7 @@ Answer: **does Matt prefer the Illuminated Archive register to H1 in play?** Ill
 | References, ledger, rules | `matt_notes_handoff_docs/rdr-art-illuminated-archive-refs/` (`README.md`, `ledger.jsonl`, `metrics-2026-09-26.md`) |
 | **Attach guard** | only ledger rows with `attach_to_generator: true` may enter a brief, workdir or `-i`. Enforced mechanically by `runs/C-9/conductor_scripts/refs_guard.py` before every wave. |
 | A-side substrate (H1) | cliffside: `runs/C-3/artifacts/CS-chunk-A/chunk_A.png` and the shipped cliffside build; character: the Keeper |
-| Scene geometry | cliffside: `runs/C-3/artifacts/CS-guides/chunk_A_guide.png` and the v4 grey room; cathedral: drax's grey room on the Crucible arena (`galadriel/notes/crucible-arena-geometry-v1.json`, `u = 0.285`) |
+| Scene geometry | cliffside: `runs/C-3/artifacts/CS-guides/chunk_A_guide.png` and the v4 grey room; **cathedral: the KC2-PLAY burning nave** (R-C9-6; Matt's KC2-PLAY rulings KP-14 / KP-18 / KP-19 / KP-28 / KP-29 govern, including "art leads the boundary"; its arena guide lineage from drax `9c947ffe`). drax's C-9 Antwerp grey room (`3f9ae23c`) is superseded and kept as record. |
 | Camera | ratified GD `player_lock` (yaw 47°, pitch 52.95°), orthographic canvas; Keeper at 12.5 % of 1080p = 130 px |
 | Run register card | `runs/C-9/REGISTER_CARD.md` (conductor-owned data, sha-pinned per burst in the ledger) |
 
@@ -39,7 +39,7 @@ Answer: **does Matt prefer the Illuminated Archive register to H1 in play?** Ill
 | **P3** evaluation | CHECK (O1 palette + the C-9 tone metrics) + JUDGE (separate instance, C-9 rubric, hidden control = `chunk_A` must fail painted-book fidelity) | Astra + conductor | — |
 | **M1** ⛔ | **STYLE GATE.** Packet: merged chunk vs `chunk_A`, knight vs Keeper, at game scale and full size, with numbers. **Matt rules:** GO (and picks the line arm) / ITERATE / ADD-ASTRA-ARM | **Matt** | nothing past M1 fires without it |
 | **P2′** (parallel) | cathedral grey room on the Crucible arena | drax (named agent) | — |
-| **M2** ⛔ | **GREY ROOM.** Matt approves the cathedral grey room before any cathedral paint (R-C3-55a) | **Matt** | |
+| **M2** | ~~GREY ROOM~~ **Withdrawn (R-C9-6):** the cathedral follows the KC2-PLAY nave rulings; no new layout to approve | — | |
 | **P4** | knight turnaround (masters per direction) | Astra | — |
 | **M3** ⛔ | **TURNAROUND.** Includes the mirroring question: the H1 card forbids mirroring; C-8 mirrored | **Matt** | |
 | **P5** | cliffside B full re-derivation: chunks from the M1 anchor, parallax from the TRH landmarks, dressing | Astra | — |
