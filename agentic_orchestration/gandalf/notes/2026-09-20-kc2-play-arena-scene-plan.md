@@ -91,3 +91,30 @@ What to refuse: gore as texture (it reads as noise at this figure size and break
 2. **THE FALLEN WINDOW IS A HERO OBJECT** (Matt: *"the best part"*): the great sun-window torn from the apse, lying flat, ~8 m across, **vibrant real-church stained glass** (ruby, cobalt, emerald, amber, violet, gold; a saint-knight, a sun, chains in the lead), tracery as an **ornate cross — in a circle (rosette) or free-standing** (B1e: two variants, Matt picks) — with the **sunset gleaming across it and flames reflected in the panes**: the most beautiful and most violated thing in the room. Isolated on green as a prop (its shadow is the scene's); its gleam and flame-reflection become a **glow layer** over the prop (T3q additive flicker) so the reflections *dance*. It sits on the nave axis south of the dais.
 3. **No exterior-courtyard iron gates or fences inside the nave** (B1d's were wrong); iron only where structural — vault chains, bound doors, portcullis on the crypt stairs.
 4. B1d's "pile under the right column" is struck; nothing like it is authored — every object in the dressing pass is named, sized and placed on purpose.
+
+---
+
+## ⚑ CORRIGENDUM-FORWARD 3 (2026-09-27, Matt, Run C-9 ledger R-C9-43) — the arena is INDOORS; governs over § 3 and F-S1/F-S5 where they conflict
+
+**Matt, verbatim:** *"I want the cathedral arena scenes to feel like they're indoors by having two sides of the cathedral extend above the camera. Just like the original grey box idea from Claude on mobile."* and, answering the near-side fork, *"A for the arena's near side. Agreed. Also, [from the arena] we should see more cathedral rooms beyond the arena. The high windows (some second, all 3rd floor) should see the outside world (trees/horizon/sky)."*
+
+Source convention: `matt_notes_handoff_docs/rdr-art-illuminated-archive-brief.md` § 4 (full-bleed crop · back walls exit the frame, tops never painted · near side cut low or dissolved).
+
+1. **The two FAR walls rise out of the top of the frame.** They are the two walls whose inner faces point at the camera. At our scale (130 px person, about 72 px/m), any wall over about 18 m exceeds a 1080 frame, and a true-scale nave (30 to 37 m) never fits. So the walls are painted to the plate's top edge, and the camera clamp keeps their crowns off-screen at every position.
+2. **The NEAR side is (a) CUT LOW: broken off at knee height, Diablo 2-style** (Matt: "A"). Nothing full-height stands between the camera and the floor. The option (b) full-height wall that dissolves around the player is reserved for set pieces only.
+3. **The ceiling closes the space.** § 3's overhead/near layer (vault ribs, the hanging wheel, chains) runs over the player. Rising walls plus that ceiling layer are what make it read as a room, not a courtyard.
+4. **The rooms beyond the arena are seen through ground-level arches.** The arcades open onto the side aisles, the chapels and the transept. These are more cathedral rooms, painted in the plate as UNWALKABLE dead space (the walkable mask decides; seams hide there). They are sized as real rooms so a later map can open them. The east transept (F-S5 "East") becomes one of these interior rooms, seen through the arches.
+5. **Windows on the upper floors show the outside world** (trees, horizon, sky):
+   - **3rd floor (clerestory): ALL of them.** Their glass is blown out by the fire and the tracery stands open.
+   - **2nd floor (triforium gallery): SOME bays** open through a broken outer wall to the outside. The others stay as dark gallery passages. **Those dark galleries are where the "descend from above" spawns come from** (the walled descent areas of the spawn design).
+   - **Mechanism:** each see-through opening is a HOLE in the plate's alpha. The existing Parallax2D stack (sky, far, forest, mist) shows through it, so the view beyond moves with correct depth as the camera scrolls, for free.
+   - The stack is offset per scene (the per-style offset mechanism built in C-9) so the HORIZON crosses the window band: the 3rd floor sees horizon and sky, and the open 2nd-floor bays see treetops and the horizon.
+   - The view is the same burning world as the cliffside (sunset, the burning forest band, the Keepers' tower). Nothing repeats.
+6. **Consequence for F-S1 (sunset). Conductor recommendation, veto-open:** with the far walls standing, the WEST wall is a far wall. It is **BREACHED, not fallen**. The sunset enters through its open clerestory, its broken gallery bays and the breaches, as gold shafts raking across the nave floor toward the lower right. It keeps the register card's upper-left key, and shafts from high windows read as MORE indoor than an open side would.
+7. **Build (the cliffside's own method, unchanged):**
+   - a 3D grey box of the nave (the rising far walls with three floors of openings, the cut-low near side, the arcades to the rooms beyond), rendered from the game camera into guide, depth and walkable-mask images;
+   - Astra paints the chunks over it, bare first (Corrigendum 2 § 1);
+   - window holes are keyed #00ff00 in the guide, so they come out as alpha.
+   - The layout itself (room size, spawn pools, which bays open) still waits for Matt's arena sitting (S1/S4/S5).
+
+*— gandalf, RUN-CONDUCTOR, 2026-09-27.*
