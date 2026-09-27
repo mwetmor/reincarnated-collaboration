@@ -1,0 +1,22 @@
+{
+ "text": "GENERATE BURST GD11F-0_1 — Run C-9 P5, FAR layer panel 0_1 over a conductor LAYOUT GUIDE (Matt R-C9-29). task_id \"GD11F-0_1\".\n\nIMAGE 1 is the canvas to EDIT (1536x1024): its TOP 256 rows; its top-right 256x256 corner are ALREADY PAINTED (real pixels from neighbouring panels); in the rest, the flat colours are a LAYOUT GUIDE, seen from far away and high above: PURE GREEN #00ff00 = empty sky (keep it flat pure #00ff00, with a clean edge along the land and the two buildings); PALE BLUE-GREY band = the farthest mountain ranges, deep in haze; PURPLE bands = middle ranges of ridges; DARK BROWN / DARK OLIVE = nearer steep slopes, spurs and gorges with dark woods; GREY wedge = a jagged rocky crag (each different); LIGHT ORANGE line = the ONE river, catching the sunset (paint it exactly there); ORANGE disc in a DARK ring = a FIRE (burning woods or scrub) with a column of dark smoke (only where a disc is, at that size); CYAN shape = THE KEEPERS' CASTLE: ONE GIANT tall stone castle-keep with one soaring slender tower, pointed roof, arcane and ancient, BURNING — flames at its upper windows, a huge column of smoke — filling the whole cyan shape; MAGENTA shape = THE CATHEDRAL: ONE GIANT Gothic cathedral with a colossal spire, flying buttresses and a rose window, BURNING through its roof, a huge column of smoke — filling the whole magenta shape. These two are the ONLY buildings in the whole layer.\nUse image_gen in EDIT mode on IMAGE 1: keep the painted strips as they are and replace every flat guide colour with painting that CONTINUES them seamlessly (no visible join). Follow the guide EXACTLY: no river, fire, crag or building anywhere the guide does not put one; NOTHING repeats. LIGHT AND MOOD (Matt): DARK sunset mood — the sun is low at screen-LEFT: warm gold and orange rim light on slopes that face left, deep violet-indigo shadow everywhere else, a purple-violet smoky haze that thickens with distance and veils the farther ground; fires glow orange and throw dark smoke drifting to the right. Rich, deep mineral colour (indigo, violet, rose, ochre-gold, deep green), never pastel. STYLE: the REGISTER CARD above; IMAGE 2 sets the mood, darkness and painted hand to match (NOT its layout). No towns, no villages, no houses, no characters, text, UI or border.\n\nOne image_gen EDIT call. ONE retry only if a painted strip was altered, a join remains, anything appears that the guide does not put there (an extra landmark, fire, river or any town), the sky area is not flat pure #00ff00, or guide colours remain unpainted — name the reason. Copy the output to out/GD11F-0_1.png with sha256. No code. No other files. No web.\nRETURN: receipt task_id \"GD11F-0_1\"; images = the file with prompt, references and elapsed_s; calls_used = the TRUE number of image_gen calls; status; concerns. Never PASS/FAIL.",
+ "references": [
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/CS9-guides/GD11F-0_1_canvas.png",
+   "role": "IMAGE 1 — the canvas to EDIT (painted neighbour strips + layout guide)"
+  },
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/MOOD-far/MOOD-far_a.png",
+   "role": "IMAGE 2 — the approved DARK SUNSET MOOD and painted hand (Matt); NOT its layout, NOT its villages or tower"
+  }
+ ],
+ "image_cap": 2,
+ "minutes_cap": 15,
+ "tool_call_cap": 20,
+ "outputs": [
+  "out/GD11F-0_1.png"
+ ],
+ "effort": "high",
+ "add_dirs": [],
+ "experiment": "P5-far-guided"
+}

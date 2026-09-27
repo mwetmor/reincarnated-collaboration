@@ -1,0 +1,27 @@
+{
+ "text": "GENERATE BURST KV-S2 \u2014 Run C-9 P7, S visor, second method (Matt: the S attempts failed). task_id \"KV-S2\".\n\nUse image_gen in EDIT mode on IMAGE 1 (the knight facing STRAIGHT TOWARD THE VIEWER, south). IMAGE 2 is the SAME knight turned 45 degrees to the viewer's lower-right; IMAGE 3 is the SAME knight turned 45 degrees to the viewer's lower-left. Both helms in IMAGES 2 and 3 are APPROVED. Replace ONLY the helm in IMAGE 1 with that SAME helm seen from exactly halfway between IMAGES 2 and 3 \u2014 straight from the front. It must look like the same object: take its skull shape, its visor shape and how far the visor projects, its sight slit, its breathing holes, its steel colour and its painted marks from IMAGES 2 and 3, and show them from the front, symmetric left to right. Do NOT invent a different helm design.\nPaint it in EXACTLY the same hand. Keep EVERYTHING ELSE in IMAGE 1 exactly as it is: body, pose, gorget, tabard and heraldry, pollaxe in his right hand, size, position, flat pure #00ff00 background. For this step the REGISTER CARD above is satisfied BY THE IMAGES: do not restyle.\n\nTwo image_gen EDIT calls: variants a and b. ONE retry per variant only if the helm is not recognisably the helm of IMAGES 2 and 3 seen from the front, anything besides the helm changed, or the background is not flat green \u2014 name the reason. Copy outputs to out/KV-S2_a.png and out/KV-S2_b.png with sha256. No code. No other files. No web.\nRETURN: receipt task_id \"KV-S2\"; images = the files with prompt, references (role + path) and elapsed_s; calls_used = the TRUE number of image_gen calls; status; concerns. Never PASS/FAIL.",
+ "references": [
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/inputs/seedv1_S.png",
+   "role": "IMAGE 1 \u2014 THE IMAGE TO EDIT (replace only the helm; facing the viewer)"
+  },
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/inputs/seedv1_SE.png",
+   "role": "IMAGE 2 \u2014 APPROVED helm, lower-right diagonal"
+  },
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/inputs/seedv2_SW.png",
+   "role": "IMAGE 3 \u2014 APPROVED helm, lower-left diagonal"
+  }
+ ],
+ "image_cap": 4,
+ "minutes_cap": 15,
+ "tool_call_cap": 20,
+ "outputs": [
+  "out/KV-S2_a.png",
+  "out/KV-S2_b.png"
+ ],
+ "effort": "high",
+ "add_dirs": [],
+ "experiment": "P7-visor-match"
+}

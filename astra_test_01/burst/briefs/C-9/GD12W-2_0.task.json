@@ -1,0 +1,26 @@
+{
+ "text": "GENERATE BURST GD12W-2_0 — Run C-9 P5, FOREST layer (burning band) panel 2_0 over a conductor LAYOUT GUIDE (Matt R-C9-29). task_id \"GD12W-2_0\".\n\nIMAGE 1 is the canvas to EDIT (1536x1024): its LEFT 256 columns are ALREADY PAINTED (real pixels from neighbouring panels); in the rest, the flat colours are a LAYOUT GUIDE, the valley seen from high above and far away: DARK GREEN (upper part) = untouched dense manuscript forest AHEAD of the fire, tiny tree crowns a few px to about 20 px across, deep greens in shadow; ORANGE = a WIDE BAND OF BURNING FOREST stretching the whole width of the layer — a wall of fire advancing UP the screen, its ragged FRONT EDGE (the top edge of the orange) eating into the green forest, flames rising from standing trees, thick dark smoke rolling up and drifting right; the FLAMES ARE GLITCHED: they are painted flames in the manuscript hand, but broken by digital corruption — blocky rectangular fragments tearing off the flame tips, horizontal slices of the fire shifted sideways, thin horizontal tear lines, and edges split into offset cyan and magenta fringes, while the fire's core stays orange-gold; every stretch of the front is different; DARK GREY-BROWN (lower part) = the scorched land BEHIND the fire: blackened trunks, ash, smouldering glitched embers, grey smoke; LIGHT BLUE line = the ONE river, catching the sunset and the firelight, crossing the band; PURE GREEN #00ff00 = empty sky above the treeline (keep it flat pure #00ff00, clean treetop edge).\nUse image_gen in EDIT mode on IMAGE 1: keep the painted strips as they are and replace every flat guide colour with painting that CONTINUES them seamlessly (no visible join). Follow the guide EXACTLY: no river or fire anywhere the guide does not put one; the fire front never repeats — no two stretches alike. LIGHT AND MOOD (Matt): DARK sunset mood — the sun is low at screen-LEFT: warm gold and orange rim light on slopes that face left, deep violet-indigo shadow everywhere else, a purple-violet smoky haze that thickens with distance and veils the farther ground; fires glow orange and throw dark smoke drifting to the right. Rich, deep mineral colour (indigo, violet, rose, ochre-gold, deep green), never pastel. STYLE: the REGISTER CARD above; IMAGE 2 sets the mood, darkness and painted hand to match (NOT its layout). No towns, no villages, no houses, no characters, text, UI or border.\n\nOne image_gen EDIT call. ONE retry only if a painted strip was altered, a join remains, anything appears that the guide does not put there (an extra landmark, fire, river or any town), the sky area is not flat pure #00ff00, or guide colours remain unpainted — name the reason. Copy the output to out/GD12W-2_0.png with sha256. No code. No other files. No web.\nRETURN: receipt task_id \"GD12W-2_0\"; images = the file with prompt, references and elapsed_s; calls_used = the TRUE number of image_gen calls; status; concerns. Never PASS/FAIL.",
+ "references": [
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/CS9-guides/GD12W-2_0_canvas.png",
+   "role": "IMAGE 1 — the canvas to EDIT (painted neighbour strips + layout guide)"
+  },
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/MOOD-far/MOOD-far_a.png",
+   "role": "IMAGE 2 — the approved DARK SUNSET MOOD and painted hand (Matt); NOT its layout"
+  },
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/FG10-1_1/FG10-1_1.png",
+   "role": "IMAGE 3 — tree scale and forest painting ONLY (not its layout or its lighter mood)"
+  }
+ ],
+ "image_cap": 2,
+ "minutes_cap": 15,
+ "tool_call_cap": 20,
+ "outputs": [
+  "out/GD12W-2_0.png"
+ ],
+ "effort": "high",
+ "add_dirs": [],
+ "experiment": "P5-forest-guided-band"
+}

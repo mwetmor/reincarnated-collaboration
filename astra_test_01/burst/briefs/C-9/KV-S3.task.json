@@ -1,0 +1,31 @@
+{
+ "text": "GENERATE BURST KV-S3 \u2014 Run C-9 P7, S gorget fix (Matt: \"the neck line lost its width and upturn\"). task_id \"KV-S3\".\n\nUse image_gen in EDIT mode on IMAGE 1 (the knight facing the viewer). Change ONLY his GORGET \u2014 the steel collar between the helm and the shoulders. It has become narrow and flat. Make it the gorget of IMAGE 2 (the same knight, same view, before): a WIDE steel collar that spreads out over the tops of the shoulders and whose upper rim FLARES OUTWARD and UPWARD in a pronounced upturned lip around the base of the helm, like a funnel, as also seen in IMAGES 3 and 4 from the diagonals.\nKeep the HELM AND VISOR EXACTLY as in IMAGE 1 (they are approved; do not touch them). Keep everything else exactly: body, pose, tabard and heraldry, pollaxe in his right hand, size, position, flat pure #00ff00 background; same painted hand. For this step the REGISTER CARD above is satisfied BY THE IMAGES: do not restyle.\n\nTwo image_gen EDIT calls: variants a and b. ONE retry per variant only if the gorget is still narrow or flat, the helm or visor changed, anything else changed, or the background is not flat green \u2014 name the reason. Copy outputs to out/KV-S3_a.png and out/KV-S3_b.png with sha256. No code. No other files. No web.\nRETURN: receipt task_id \"KV-S3\"; images = the files with prompt, references (role + path) and elapsed_s; calls_used = the TRUE number of image_gen calls; status; concerns. Never PASS/FAIL.",
+ "references": [
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/inputs/seed_S2b.png",
+   "role": "IMAGE 1 \u2014 THE IMAGE TO EDIT (change only the gorget; helm and visor approved)"
+  },
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/inputs/seedv1_S.png",
+   "role": "IMAGE 2 \u2014 the gorget to restore (same knight, same view): wide, flared, upturned"
+  },
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/inputs/seedv1_SE.png",
+   "role": "IMAGE 3 \u2014 the gorget from the lower-right diagonal"
+  },
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/inputs/seedv2_SW.png",
+   "role": "IMAGE 4 \u2014 the gorget from the lower-left diagonal"
+  }
+ ],
+ "image_cap": 4,
+ "minutes_cap": 15,
+ "tool_call_cap": 20,
+ "outputs": [
+  "out/KV-S3_a.png",
+  "out/KV-S3_b.png"
+ ],
+ "effort": "high",
+ "add_dirs": [],
+ "experiment": "P7-visor-match"
+}
