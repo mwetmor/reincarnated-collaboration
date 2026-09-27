@@ -1,0 +1,26 @@
+{
+ "text": "GENERATE BURST L9-far-1_0 — Run C-9 P5 parallax panel by OUTPAINTING (Matt R-C9-13). task_id \"L9-far-1_0\".\n\nThis image is one panel (upper-right (mostly green; the crag and the cathedral spire rise into the bottom of this panel)) of a 2x2 grid of 1536x1024 panels (neighbours overlap by 256 px) that together form ONE continuous painted parallax background layer for a 2D game scene seen past a cliff edge. The whole layer is the FAR layer, painted as a Book of Hours calendar landscape: a wide distant VALLEY with a winding river, rolling hills in soft greens and ochres turning blue-grey with distance. On a hill toward the LEFT stands the Keepers' DOMED TEMPLE — a pale stone round temple with a shallow dome and a ring of columns, intact and serene, a touch of gold on the dome. Far to the RIGHT, on a steep rocky crag, a Gothic CATHEDRAL with a tall spire and a rose window, a thin column of grey smoke rising from its roof. The LAND's top silhouette (hilltops, the temple, the crag and the cathedral spire) sits at about 38–48 % of the full layer's height; EVERYTHING ABOVE that silhouette is flat pure #00ff00 (the sky layer shows there); below it the land is fully painted down to the bottom edge, hazier and simpler toward the bottom.\nIMAGE 1 is the canvas to EDIT: its LEFT 256 columns are ALREADY PAINTED (real pixels from neighbouring panels); the rest is flat mid-grey placeholder. Use image_gen in EDIT mode on IMAGE 1 and deliver ONE 1536x1024 image: keep the painted strips as they are and replace the placeholder with painting that CONTINUES them seamlessly (no visible join), following the layer description for this panel's position — any flat pure #00ff00 in the painted strips continues as flat pure #00ff00.\nSTYLE: the REGISTER CARD above; line, hatching and washes matched to IMAGE 2 (the approved painted style of this level), the pen line lighter and thinner with distance. IMAGE 3 is a manuscript page: take from it how a Book of Hours paints this kind of subject (palette, simplification, the way distance is painted); not its layout, figures or text. No characters, creatures, text, UI, border or vignette.\n\nOne image_gen call. ONE retry only if a painted strip was altered, a join remains, the layer contains a cliff rim/characters/text, or (keyed layers) the area above the silhouette is not flat pure #00ff00 — name the reason. Copy the output from $CODEX_HOME/generated_images/... to out/L9-far-1_0.png with sha256. No code. No other files. No web.\nRETURN: receipt task_id \"L9-far-1_0\"; images = the file with prompt, references and elapsed_s; calls_used = the TRUE number of image_gen calls; status; concerns. Never PASS/FAIL.",
+ "references": [
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/CS9-guides/L9-far-1_0_canvas.png",
+   "role": "IMAGE 1 — the canvas to EDIT (painted neighbour strips + placeholder)"
+  },
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/S1-ink/S1-ink_b.png",
+   "role": "IMAGE 2 — the approved painted STYLE of this level (line, hatching, washes; not its layout)"
+  },
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/refs/trh-09-september-saumur.jpg",
+   "role": "IMAGE 3 — manuscript page: how this subject is painted (not its layout, figures or text)"
+  }
+ ],
+ "image_cap": 2,
+ "minutes_cap": 15,
+ "tool_call_cap": 20,
+ "outputs": [
+  "out/L9-far-1_0.png"
+ ],
+ "effort": "high",
+ "add_dirs": [],
+ "experiment": "P5-parallax"
+}

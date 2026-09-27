@@ -1,0 +1,18 @@
+{
+ "text": "GENERATE BURST L9-forest-0_0-fix \u2014 Run C-9 P5 parallax repair (conductor-found keying defect in L9-forest-0_0-r1). task_id \"L9-forest-0_0-fix\".\n\nUse image_gen in EDIT mode on IMAGE 1, one panel of a painted forest parallax layer. ABOVE the line of treetops, part of the image is BLACK or a dark gradient; that whole area must be flat uniform pure #00ff00 (the sky layer shows through there in the game). Change ONLY that: every pixel above the treetop silhouette becomes flat pure #00ff00, with a clean edge along the treetops. Keep the trees, river, meadows and every painted pixel below the treetops EXACTLY as they are; do not repaint, restyle or move anything. For this step the REGISTER CARD above is satisfied BY IMAGE 1.\n\nOne image_gen EDIT call. ONE retry only if any area above the treetops is not flat pure #00ff00 or the painted forest changed \u2014 name the reason. Copy the output to out/L9-forest-0_0.png with sha256. No code. No other files. No web.\nRETURN: receipt task_id \"L9-forest-0_0-fix\"; images = the file with prompt, references (role + path) and elapsed_s; calls_used = the TRUE number of image_gen calls; status; concerns. Never PASS/FAIL.",
+ "references": [
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/L9-forest-0_0-r1/L9-forest-0_0.png",
+   "role": "IMAGE 1 \u2014 THE IMAGE TO EDIT (fix only the area above the treetops)"
+  }
+ ],
+ "image_cap": 2,
+ "minutes_cap": 15,
+ "tool_call_cap": 20,
+ "outputs": [
+  "out/L9-forest-0_0.png"
+ ],
+ "effort": "high",
+ "add_dirs": [],
+ "experiment": "P5-parallax"
+}

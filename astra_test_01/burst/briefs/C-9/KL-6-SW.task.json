@@ -1,0 +1,22 @@
+{
+ "text": "GENERATE BURST KL-6-SW \u2014 Run C-9 P4, direction SW, METHOD CHANGE after two under-rotated attempts (start from the side view W and turn back 45 degrees). task_id \"KL-6-SW\".\n\nUse image_gen in EDIT mode on IMAGE 1 (the approved knight seen in a true SIDE VIEW facing W, painted in the hand of a c. 1530 Flemish manuscript, background flat green). KEEP THE PAINTER'S HAND exactly: line, hatching, uneven washes, gouache-like steel with its small dark pits, worn pigment; the blue tabard with gold cross-crosslets and gold bands, loose cloth, short open side flaps, red lining; the helm; the plate; the pollaxe. IMAGE 2 is the same knight facing the viewer: use it for how his FRONT and tabard heraldry look. For this step the REGISTER CARD above is satisfied BY THE IMAGES: do not re-render, smooth, sharpen or restyle.\n\nChange ONLY the direction: turn him HALFWAY back toward the viewer: from the pure side view (facing screen-left) rotate him 45 degrees toward the camera, so he faces diagonally down-left \u2014 we see his chest and tabard front at an angle, his left shoulder nearer the viewer. His whole body turns together (feet, hips, chest, helm) so that he faces the viewer's LOWER-LEFT, a true 45-degree diagonal \u2014 halfway between IMAGE 1 and IMAGE 2. The camera does not move; the light does not move (soft, from screen upper-left). NO MIRRORING: the pollaxe stays in his ANATOMICAL RIGHT hand, upright, butt on the ground. Same rest pose, size and framing; full body, feet visible, centred; flat uniform pure #00ff00 background.\n\nOne image_gen EDIT call. ONE retry only if he is not at a clear 45-degree diagonal toward the viewer's LOWER-LEFT, the pollaxe changed hands, the knight was restyled, or the background is not flat green \u2014 name the reason. Copy the output to out/KL-6-SW.png with sha256. No code. No other files. No web.\nRETURN: receipt task_id \"KL-6-SW\"; images = the file with prompt, references (role + path) and elapsed_s; calls_used = the TRUE number of image_gen calls; status; concerns. Never PASS/FAIL.",
+ "references": [
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/KL-5-W/KL-5-W.png",
+   "role": "IMAGE 1 \u2014 THE IMAGE TO EDIT (the knight, side view W)"
+  },
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/KL-3b-pollaxe/KL-3b-pollaxe_a.png",
+   "role": "IMAGE 2 \u2014 the same knight facing the viewer (his front and heraldry)"
+  }
+ ],
+ "image_cap": 2,
+ "minutes_cap": 15,
+ "tool_call_cap": 20,
+ "outputs": [
+  "out/KL-6-SW.png"
+ ],
+ "effort": "high",
+ "add_dirs": [],
+ "experiment": "P4-turnaround-ladder"
+}
