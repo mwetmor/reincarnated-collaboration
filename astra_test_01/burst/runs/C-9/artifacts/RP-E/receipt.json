@@ -1,0 +1,69 @@
+{
+  "task_id": "RP-E",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "RP-E_a",
+      "path": "out/RP-E_a.png",
+      "sha256": "5f1fab6fa7620fcfb3bf568672fb076ec8e115e9b4b4f3c9e02bd1807ab144ff",
+      "prompt": "Use case: precise-object-edit. Image 1 is the ORIGINAL EDIT TARGET; image 2 is only an armour-completion guide from an earlier attempt. Correct that attempt's unwanted background texture and changes to protected original paint. Work on image 1. Output a 1024 x 1536 image with original canvas registration. Remove ONLY ALL tabard cloth: blue shoulder/torso cloth, both hanging heraldic flaps and red lining. Fill only the removed cloth regions with steel shoulder and breastplate, lower breastplate, overlapping steel fauld at waist, short hip mail skirt and complete rounded steel cuisses joining hips continuously to existing knees. Image 2 shows the desired armour completion. No gap between hips and thighs. Preserve the ORIGINAL image 1 helmet, gorget, arms, hands, entire pollaxe, knees, greaves and both feet WITHOUT REPAINTING OR MOVING THEM: preserve their original colours, marks, contours and coordinates. Do not clean up or brighten original steel. Match original ink hatching and uneven watercolor only inside new armour. Keep the original pose and position exactly. The empty background must be completely uniform solid RGB(0,255,0), pure #00ff00 everywhere outside the figure and weapon: absolutely NO grain, mottling, watercolor wash, shading, texture or variations in the green. This is a tightly localized removal and inpainting task, preserve all other pixels. No new objects or shadows. One image.",
+      "references": [
+        {
+          "role": "Original edit target",
+          "path": "in/01_seed_E_v1.png"
+        },
+        {
+          "role": "Armour-completion guide, initial attempt of a",
+          "path": "/Users/admin/.codex/generated_images/01a0e4c3-2fba-71b2-ae2c-c863d21f22c8/exec-631ed2df-30c1-46e8-8313-49c28127ade4.png"
+        }
+      ],
+      "elapsed_s": 36.636
+    },
+    {
+      "name": "RP-E_b",
+      "path": "out/RP-E_b.png",
+      "sha256": "5de7cfb7d9b11f3c62b287d7b9de07495e9f0121a7bf8c84e409dd34a2756003",
+      "prompt": "Use case: precise-object-edit. Image 1 is the edit target: tabard-free knight with two legs. Image 2 guides ONLY which leg to remove and how to complete the far leg. Make image 1 into a single-far-leg puppet under-layer. Remove the foreground near leg from hip down, including its spiky knee wing and its lowest foot. Paint the revealed far leg continuously from hip through steel thigh, knee and shin into the existing higher far foot pointing right. Preserve the higher foot's original contours and position. Preserve ALL pixels of image 1 above the hips and the entire pollaxe: no changes to helm, gorget, arms, hands, breastplate, fauld, mail skirt or weapon. Preserve exact canvas registration and 1024 x 1536 dimensions. Crucial correction to image 2: the green background must be perfectly FLAT SOLID #00FF00 RGB 0,255,0, like a solid digital colour key fill. No green texture whatsoever, no noise, no grain, no soft clouds, no tonal variation anywhere outside the knight and weapon. Remove all background mottling. Match the existing painted steel only within newly revealed leg areas. No cloth, no hole or gap between hip and thigh, no added shadow. Output one image.",
+      "references": [
+        {
+          "role": "Tabard-free edit target",
+          "path": "out/RP-E_a.png"
+        },
+        {
+          "role": "Far-leg completion guide, initial attempt of b",
+          "path": "/Users/admin/.codex/generated_images/01a0e4c3-2fba-71b2-ae2c-c863d21f22c8/exec-332627a7-ea68-47c3-854e-54a54051e360.png"
+        }
+      ],
+      "elapsed_s": 35.746
+    }
+  ],
+  "calls_used": 4,
+  "retries": [
+    {
+      "reason": "Image a introduced background mottling and repainted protected details.",
+      "change": "Retried using the original seed as edit target, with explicit pixel-preservation and uniform-green instructions."
+    },
+    {
+      "reason": "Image b retained background mottling and changed protected paint.",
+      "change": "Retried from image a with stricter protected-region preservation and solid RGB background instructions."
+    }
+  ],
+  "self_report": {
+    "obeyed_invariants": false,
+    "concerns": [
+      "Both outputs are 1024×1536, but protected details were repainted; exact pixel registration and preservation were not achieved.",
+      "Visible background mottling remains despite retries; uniform pure #00ff00 was not achieved.",
+      "Tabard removal and continuous armoured leg completion are present. Both permitted retries are exhausted."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/RP-E_a.png",
+      "sha256": "5f1fab6fa7620fcfb3bf568672fb076ec8e115e9b4b4f3c9e02bd1807ab144ff"
+    },
+    {
+      "path": "out/RP-E_b.png",
+      "sha256": "5de7cfb7d9b11f3c62b287d7b9de07495e9f0121a7bf8c84e409dd34a2756003"
+    }
+  ]
+}
