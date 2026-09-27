@@ -42,11 +42,17 @@ const RIG_DIRECTION := "E"
 
 const STATE_MAP := {
 	"walk": "walk",
-	"run": "walk",
+	"run": "run",
 	"idle": "idle",
 	"cast": "idle",
 	"jump": "idle",
 }
+# When a cell for the mapped state does not exist for this facing, fall back ALONG THE
+# STATE, never along the direction: a missing run_W becomes walk_W, not run_NW. Grok
+# never produced a W run clip (p7_run.log: "CLIP W_run ok=false"), so W is the live
+# case, and a knight whose W run is some other direction's pixels would be a lie that
+# looks like a feature.
+const FALLBACK := {"run": ["walk", "idle"], "walk": ["idle"], "idle": []}
 const DIRECTIONS := ["S", "SW", "W", "NW", "N", "NE", "E", "SE"]
 
 var _keeper: Node = null
@@ -83,12 +89,20 @@ func sync_now() -> void:
 		facing = "S"
 	var want: String = kind + "_" + facing
 	if not sprite_frames.has_animation(want):
-		# No mirroring is used -- all 8 directions are painted -- so this is a real gap.
+		# No mirroring is used -- every painted direction is its own art -- so this is a
+		# real gap, reported once.
 		if not _missing.has(want):
 			_missing[want] = true
-			push_warning("knight_skin: no animation '%s'" % want)
-		want = "idle_" + facing
-		if not sprite_frames.has_animation(want):
+			push_warning("knight_skin: no animation '%s'; falling back along the state" % want)
+		var found := false
+		for alt in FALLBACK.get(kind, []):
+			var cand: String = String(alt) + "_" + facing
+			if sprite_frames.has_animation(cand):
+				want = cand
+				kind = String(alt)
+				found = true
+				break
+		if not found:
 			return
 	if animation != want or not is_playing():
 		play(want)

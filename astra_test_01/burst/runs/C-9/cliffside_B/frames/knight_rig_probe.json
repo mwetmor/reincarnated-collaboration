@@ -27,7 +27,7 @@
    {
     "body_expected_px": 65.8666666666667,
     "body_moved_px": 65.8671875,
-    "foot_world_x_range_px": 0.077880859375,
+    "foot_world_x_range_px": 0.078125,
     "samples": 17,
     "t_from": 0.0072466532389327,
     "t_to": 0.273913319905599,
@@ -36,7 +36,7 @@
    {
     "body_expected_px": 65.8666666666667,
     "body_moved_px": 65.8671875,
-    "foot_world_x_range_px": 0.102294921875,
+    "foot_world_x_range_px": 0.10205078125,
     "samples": 17,
     "t_from": 0.0108699798583991,
     "t_to": 0.277536646525066,
@@ -53,15 +53,59 @@
    }
   ],
   "stride_travel_px": 143.188371658325,
-  "worst_stance_drift_canvas_px": 0.102294921875
+  "worst_stance_drift_canvas_px": 0.10205078125
  },
  "grok_walk_stride_s": 0.579710144927536,
  "registration": {
-  "d_foot_cx_px": 11.613037109375,
-  "d_height_px": 0.54541015625,
-  "d_sole_px": 0.495849609375,
-  "grok_height_px": 146.7158203125,
-  "rig_height_px": 147.26123046875
+  "d_foot_cx_px": 11.6142578125,
+  "d_height_px": 0.548095703125,
+  "d_sole_px": 0.288818359375,
+  "grok_height_px": 146.727783203125,
+  "rig_height_px": 147.27587890625
+ },
+ "run": {
+  "clip_length_s": 0.551720023155212,
+  "flight_fraction": 0.4,
+  "samples_playing_run": 150,
+  "stance_fraction": 0.3,
+  "stance_runs": [
+   {
+    "body_expected_px": 74.1,
+    "body_moved_px": 74.1005859375,
+    "foot_world_x_range_px": 0.06591796875,
+    "samples": 10,
+    "valid": true
+   },
+   {
+    "body_expected_px": 74.1,
+    "body_moved_px": 74.1005859375,
+    "foot_world_x_range_px": 2.943115234375,
+    "samples": 10,
+    "valid": true
+   },
+   {
+    "body_expected_px": 74.1,
+    "body_moved_px": 21.9677734375,
+    "foot_world_x_range_px": 50.494140625,
+    "samples": 10,
+    "valid": false
+   },
+   {
+    "body_expected_px": 74.1,
+    "body_moved_px": 0.0,
+    "foot_world_x_range_px": 73.6748046875,
+    "samples": 10,
+    "valid": false
+   },
+   {
+    "body_expected_px": 74.1,
+    "body_moved_px": 0.0,
+    "foot_world_x_range_px": 74.143310546875,
+    "samples": 10,
+    "valid": false
+   }
+  ],
+  "worst_stance_drift_canvas_px": 2.943115234375
  },
  "sprites": 14,
  "walk_length_s": 0.579710006713867

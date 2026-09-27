@@ -57,6 +57,11 @@ func _initialize():
 	for i in 6:
 		await process_frame
 
+	# REC_RUN=1 holds the run modifier for the whole loop, so the same octagon shows the
+	# knight's painted RUN cells instead of his walk cells.
+	var running := OS.get_environment("REC_RUN") == "1"
+	if running:
+		Input.action_press("run_modifier")
 	var n := 0
 	for leg in LEGS:
 		for a in leg[0]:
@@ -75,6 +80,8 @@ func _initialize():
 			% [leg[1], keeper.facing, str(keeper.global_position), knight.animation])
 		await physics_frame
 
+	if running:
+		Input.action_release("run_modifier")
 	print("record: %d frames -> %s   end %s   DRIFT %.2f px"
 		% [n, out, str(keeper.global_position), start.distance_to(keeper.global_position)])
 	quit()

@@ -25,6 +25,7 @@ would be listed in "stopped" and left undone rather than invented.
 """
 import json
 import math
+import re
 from pathlib import Path
 
 import numpy as np
@@ -67,6 +68,34 @@ FAR_DARKEN = 0.85      # the far side of a symmetric harness, 15% down in value
 # So the rig uses a pelvis-width depth offset instead: 32 seed px, ~3.5% of his height.
 FAR_OFFSET_SEED = (10, -32)
 RES = 2.0              # texels per canvas pixel in the part PNGs
+
+# SWING-FOOT CLEARANCE, rig px. This is the single biggest lever on how high the knight
+# picks his knees up, and the first value (11.0) was chosen by eye and was far too big:
+# 11 px on a 194 px figure is 5.7% of his height, where a walking human clears the
+# ground by about 1.5%. The THIGH bone -- hip to knee -- is what a viewer reads as
+# "marching", and the keyed thigh range came out at 84.9 deg against a human walk's
+# 40-50. (Checked for angle wrap first: the largest step between adjacent keys is
+# 19.4 deg, and a 2*pi wrap would show ~360, so it was real geometry, not atan2.)
+SWING_LIFT = 4.0
+
+# --- RUN -------------------------------------------------------------------
+# The scene runs at 494 canvas px/s on the Keeper's 0.5517 s run stride, which is a
+# step of 0.91 of this knight's figure height. There is no way to cover that with a
+# foot on the ground throughout, so the run has a real FLIGHT phase: each foot is
+# planted RUN_STANCE of the cycle and the remaining 1 - 2*RUN_STANCE is air. 0.30
+# keeps the planted ankle's sweep inside the leg's reach without folding the knight
+# into a crouch -- at 0.34 the hip has to drop 25 rig px (13% of his height) to stay
+# in reach, at 0.30 it is 19.
+RUN_STANCE = 0.30
+RUN_LIFT = 10.0          # knees higher than the walk's 4.0, per the brief
+RUN_LEAN_DEG = 7.0       # forward lean, +ve leans east (screen-clockwise, y down)
+# The haft carried sloped across the body, head up and back over the near shoulder.
+RUN_POLLAXE_DEG = 34.0
+# ... and the far hand brought ACROSS onto the shaft for a two-handed carry. These are
+# rotations of the painted far-arm plate only; nothing new is drawn.
+RUN_FAR_ARM_BASE = {"arm_f_up": math.radians(-42.0),
+                    "arm_f_lo": math.radians(64.0),
+                    "hand_f": math.radians(12.0)}
 
 
 # ---------------------------------------------------------------------------
@@ -253,6 +282,23 @@ def darken(arr, f=FAR_DARKEN):
 
 
 # ---------------------------------------------------------------------------
+def keeper_run_stride(proj):
+    """The Keeper's RUN stride in seconds, read from frames/keeper.tres.
+
+    Read rather than hardcoded for the same reason the walk cadence is: if her run is
+    ever re-tuned the knight follows it. Matches EVERY animation block and then filters
+    by name -- restricting the name inside the pattern lets the non-greedy body run
+    across the blocks that do not match and absorb their frames.
+    """
+    text = (proj / "frames" / "keeper.tres").read_text()
+    body = text[text.index("[resource]"):]
+    pattern = r'\{"frames": \[(.*?)\], "loop": \w+, "name": &"([^"]+)", "speed": ([0-9.]+)\}'
+    for frames, name, speed in re.findall(pattern, body, re.S):
+        if name == "run_E":
+            return frames.count("ExtResource") / float(speed)
+    raise SystemExit("keeper.tres: no run_E animation")
+
+
 def two_bone_ik(hip, ankle, l1, l2, knee_front=True):
     """Solve knee position for a 2-bone chain.  Returns (knee, reachable)."""
     dx, dy = ankle[0] - hip[0], ankle[1] - hip[1]
@@ -287,6 +333,9 @@ def main():
     pivot = [-v for v in fit["knight"]["offset"]]   # (256.511, 395.1875) cell px
     walk_px_s = float(slide["walk_px_s"])           # 247 canvas px/s
     stride_T = float(fit["keeper_walk_stride_seconds"]["E"])   # 0.57971 s
+    run_px_s = float(json.loads((PROJ / "parallax" / "parallax.json").read_text())
+                     ["movement"]["run_px_s"])                 # 494 canvas px/s
+    run_T = keeper_run_stride(PROJ)                            # 0.55172 s, read not assumed
 
     # REGISTRATION.  The rig must be the same knight, the same size, standing on the
     # same spot as the Grok E cells -- otherwise pressing G would show a size or
@@ -383,21 +432,16 @@ def main():
     sheet.save(OUT_SPR / "contact.png")
 
     # =====================================================================
-    # THE WALK.  Solved, not drawn: the planted ankle is DRIVEN backward at exactly
-    # the scene's walk speed, and the leg angles come from 2-bone IK against it.  The
-    # foot cannot slide, because sliding is not representable in this parameterisation.
+    # THE GAITS.  Solved, not drawn: the planted ankle is DRIVEN backward at exactly
+    # the scene's own speed for that gait, and the leg angles come from 2-bone IK
+    # against it.  The foot cannot slide, because sliding is not representable in this
+    # parameterisation.  WALK and RUN differ only in their parameters.
     # =====================================================================
-    v_rig = walk_px_s / node_scale                   # canvas px/s -> rig px/s
-    travel = v_rig * stride_T                        # rig px per stride
-    half_step = travel / 4.0                         # ankle sweep is +hs .. -hs
     l1 = math.dist(Jr["hip"], Jr["knee"])
     l2 = math.dist(Jr["knee"], Jr["ankle"])
     Lmax = (l1 + l2) * 0.998
     ankle_h = -Jr["ankle"][1]                        # ankle height above the ground
     hip_h_paint = -Jr["hip"][1]
-    # a deliberate armoured walk carries the knees soft: 8 rig px below the painted
-    # standing height.  Idle keeps the painted height exactly.
-    hip_h_nom = hip_h_paint - 8.0
 
     # THE FAR ARM.  The only arm the painter drew is the near one, bent, gripping the
     # haft.  The far arm is that same plate, darkened, and it must not be left in the
@@ -419,114 +463,172 @@ def main():
         "hand": 0.0,
     }
 
-    N = 32
-    ts = [stride_T * i / N for i in range(N + 1)]
+    def author_gait(px_s, stride_T, stance_frac, swing_lift, nominal_drop,
+                    lean_deg, tabard_deg_front, tabard_deg_back, arm_near_deg,
+                    arm_far_deg, pollaxe_deg, far_arm_base, lag_s, N=32):
+        """Solve one gait. Returns (times, tracks, hip_positions, stats).
 
-    def ankle_traj(phase, ground_y, x_off):
-        """phase in [0,1).  0 .. 0.5 = stance (PLANTED), 0.5 .. 1 = swing.
-
-        The sweep is centred on the hip's own x, so mid-stance puts the ankle directly
-        under the hip.  During stance the ankle's x is a straight line in time at
-        exactly -walk_px_s: the plant is not approximated, it is the parameterisation.
+        stance_frac is the fraction of the cycle ONE foot is planted.  0.5 is a walk
+        with no double support; below 0.5 the two stances no longer fill the cycle and
+        the difference is FLIGHT -- which is what makes a run possible at all here.
+        The scene's run speed is 494 px/s against a 0.5517 s stride, so a step is
+        0.91 of this knight's figure height: there is no way to cover that with a foot
+        on the ground the whole time, and no amount of animation polish substitutes for
+        the flight phase.  During flight no leg constrains the hip, so the hip rises to
+        its nominal height on its own -- the run's bounce is the same derived quantity
+        the walk's much smaller bob is, not a curve laid on top.
         """
-        cx = Jr["hip"][0] + x_off
-        if phase < 0.5:
-            u = phase / 0.5
-            return (cx + half_step - 2.0 * half_step * u, ground_y - ankle_h), True
-        u = (phase - 0.5) / 0.5
-        e = u * u * (3 - 2 * u)                       # smoothstep: stiff, no overshoot
-        lift = math.sin(math.pi * u) ** 1.4 * 11.0
-        return (cx - half_step + 2.0 * half_step * e, ground_y - ankle_h - lift), False
+        v_rig = px_s / node_scale                    # canvas px/s -> rig px/s
+        half_step = v_rig * stride_T * stance_frac / 2.0
+        hip_h_nom = hip_h_paint - nominal_drop
+        lean = math.radians(lean_deg)
+        ts = [stride_T * i / N for i in range(N + 1)]
 
-    frames = []
-    clamped = 0
-    for t in ts:
-        ph = (t / stride_T) % 1.0
-        a_n, st_n = ankle_traj(ph, 0.0, 0.0)
-        a_f, st_f = ankle_traj((ph + 0.5) % 1.0, far_off[1], far_off[0])
-        # hip height: as high as nominal, but never higher than the supporting leg can
-        # reach.  This is the bob -- derived from the plant, not invented on top of it.
-        # The hip sits at the nominal height unless the SUPPORTING leg cannot reach the
-        # ankle from there.  Solving hh out of |hip - ankle| <= Lmax, with the far leg's
-        # own ground line folded in via goff:
-        #     hh <= sqrt(Lmax^2 - dx^2) - (ankle_y - goff)
-        # So the bob is DERIVED FROM THE PLANT, never added on top of it.
-        hh = hip_h_nom
-        for (a, st, goff, xoff) in ((a_n, st_n, 0.0, 0.0), (a_f, st_f, far_off[1], far_off[0])):
-            if not st:
-                continue
-            dx = abs(a[0] - (Jr["hip"][0] + xoff))
-            hh = min(hh, math.sqrt(max(Lmax * Lmax - dx * dx, 1.0)) - (a[1] - goff))
-        if hh < hip_h_nom - 1e-6:
-            clamped += 1
-        hip = (Jr["hip"][0], -hh)
-        hip_f = (hip[0] + far_off[0], hip[1] + far_off[1])
+        def ankle_traj(phase, ground_y, x_off):
+            """0 .. stance_frac = PLANTED; the rest is swing (and flight, if any).
 
-        k_n, ok_n = two_bone_ik(hip, a_n, l1, l2)
-        k_f, ok_f = two_bone_ik(hip_f, a_f, l1, l2)
+            The sweep is centred on the hip's own x, so mid-stance puts the ankle under
+            the hip.  While planted the ankle's x is a straight line in time at exactly
+            -px_s: the plant is not approximated, it IS the parameterisation.
+            """
+            cx = Jr["hip"][0] + x_off
+            if phase < stance_frac:
+                u = phase / stance_frac
+                return (cx + half_step - 2.0 * half_step * u, ground_y - ankle_h), True
+            u = (phase - stance_frac) / (1.0 - stance_frac)
+            e = u * u * (3 - 2 * u)                  # smoothstep: stiff, no overshoot
+            lift = math.sin(math.pi * u) ** 1.4 * swing_lift
+            return (cx - half_step + 2.0 * half_step * e, ground_y - ankle_h - lift), False
 
-        # torso counter-rotation and shoulder sway, in the stiff register
-        w = 2.0 * math.pi * ph
-        torso_d = math.radians(1.6) * math.sin(w)
-        head_d = -0.55 * torso_d
-        arm_near_d = math.radians(2.0) * math.sin(w + math.pi)
-        arm_far_d = math.radians(7.0) * math.sin(w)
-        frames.append(dict(t=t, ph=ph, hip=hip, hip_f=hip_f, a_n=a_n, a_f=a_f,
-                           k_n=k_n, k_f=k_f, torso=torso_d, head=head_d,
-                           arm_n=arm_near_d, arm_f=arm_far_d,
-                           reach_ok=(ok_n and ok_f)))
+        frames = []
+        clamped = 0
+        for tt in ts:
+            ph = (tt / stride_T) % 1.0
+            a_n, st_n = ankle_traj(ph, 0.0, 0.0)
+            a_f, st_f = ankle_traj((ph + 0.5) % 1.0, far_off[1], far_off[0])
+            # The hip sits at the nominal height unless the SUPPORTING leg cannot reach
+            # its ankle from there.  Solving hh out of |hip - ankle| <= Lmax, with the
+            # far leg's own ground line folded in via goff:
+            #     hh <= sqrt(Lmax^2 - dx^2) - (ankle_y - goff)
+            # So the bob/bounce is DERIVED FROM THE PLANT, never added on top of it.
+            hh = hip_h_nom
+            for (a, st, goff, xoff) in ((a_n, st_n, 0.0, 0.0),
+                                        (a_f, st_f, far_off[1], far_off[0])):
+                if not st:
+                    continue
+                dx = abs(a[0] - (Jr["hip"][0] + xoff))
+                hh = min(hh, math.sqrt(max(Lmax * Lmax - dx * dx, 1.0)) - (a[1] - goff))
+            if hh < hip_h_nom - 1e-6:
+                clamped += 1
+            hip = (Jr["hip"][0], -hh)
+            hip_f = (hip[0] + far_off[0], hip[1] + far_off[1])
+            k_n, ok_n = two_bone_ik(hip, a_n, l1, l2)
+            k_f, ok_f = two_bone_ik(hip_f, a_f, l1, l2)
+            w = 2.0 * math.pi * ph
+            frames.append(dict(t=tt, ph=ph, hip=hip, hip_f=hip_f, a_n=a_n, a_f=a_f,
+                               k_n=k_n, k_f=k_f,
+                               torso=lean + math.radians(1.6) * math.sin(w),
+                               head=-0.55 * math.radians(1.6) * math.sin(w) - lean * 0.5,
+                               arm_n=math.radians(arm_near_deg) * math.sin(w + math.pi),
+                               arm_f=math.radians(arm_far_deg) * math.sin(w),
+                               reach_ok=(ok_n and ok_f)))
 
-    # TABARD.  Conductor's physics spec: rigid above the belt; below it a damped
-    # pendulum from the hip line, lagging 0.08-0.12 s, 4-8 deg at the hem, one slow
-    # settle per stride, never upward.  Implemented as a BAKED lag: the near thigh's
-    # world angle, delayed 0.10 s around the loop, three-tap smoothed (the damping),
-    # scaled to a 6 deg hem swing.  Baked rather than sprung so the movie and the
-    # foot-slide measurement are reproducible frame for frame.
-    LAG = 0.10
-    thigh_w = [ang(f["hip"], f["k_n"]) - rest["thigh"] for f in frames[:-1]]
-    def lagged(i):
-        x = (i - LAG / stride_T * N) % N
-        i0, i1 = int(math.floor(x)) % N, int(math.ceil(x)) % N
-        fr = x - math.floor(x)
-        return thigh_w[i0] * (1 - fr) + thigh_w[i1] * fr
-    raw = [lagged(i) for i in range(N)]
-    damp = [(raw[(i - 1) % N] + 2 * raw[i] + raw[(i + 1) % N]) / 4.0 for i in range(N)]
-    peak = max(abs(v) for v in damp) or 1.0
-    for i, f in enumerate(frames):
-        v = damp[i % N] / peak
-        f["skirt_f"] = math.radians(6.0) * v
-        f["skirt_b"] = math.radians(4.0) * v
+        # THE TABARD.  Conductor's physics spec: rigid above the belt; below it a damped
+        # pendulum from the hip line, lagging 0.08-0.12 s, one settle per stride, never
+        # upward.  Implemented as a BAKED lag: the near thigh's world angle, delayed
+        # around the loop, three-tap smoothed (that is the damping), scaled to the hem
+        # swing.  Baked rather than sprung so the movies and the foot-slide measurement
+        # are reproducible frame for frame.
+        thigh_w = [ang(f["hip"], f["k_n"]) - rest["thigh"] for f in frames[:-1]]
 
-    # ---------------- bone tracks ----------------
-    def local_tracks(fr):
-        """world deltas -> local bone rotations (2D: world = parent world + local)."""
-        d = {}
-        d["torso"] = fr["torso"]
-        d["head"] = fr["head"] - fr["torso"]
-        d["skirt_b"] = fr["skirt_b"] - fr["torso"]
-        d["skirt_f"] = fr["skirt_f"] - fr["torso"]
-        d["arm_n_up"] = fr["arm_n"] - fr["torso"]
-        d["arm_n_lo"] = 0.0
-        d["hand"] = -fr["arm_n"]          # the pollaxe stays upright, as a carried haft does
-        d["arm_f_up"] = fr["arm_f"] - fr["torso"] + FAR_ARM_BASE["arm_f_up"]
-        d["arm_f_lo"] = FAR_ARM_BASE["arm_f_lo"]
-        d["hand_f"] = -fr["arm_f"] + FAR_ARM_BASE["hand_f"]
-        for tag, hipp, kn, an in (("n", fr["hip"], fr["k_n"], fr["a_n"]),
-                                  ("f", fr["hip_f"], fr["k_f"], fr["a_f"])):
-            th = ang(hipp, kn) - rest["thigh"]
-            sh = ang(kn, an) - rest["shin"]
-            d["leg_%s_th" % tag] = th
-            d["leg_%s_sh" % tag] = sh - th
-            d["leg_%s_ft" % tag] = -sh      # sabaton stays flat to the ground: stiff
-        return d
+        def lagged(i):
+            x = (i - lag_s / stride_T * N) % N
+            i0, i1 = int(math.floor(x)) % N, int(math.ceil(x)) % N
+            fr = x - math.floor(x)
+            return thigh_w[i0] * (1 - fr) + thigh_w[i1] * fr
 
-    walk_tracks = {k: [] for k in local_tracks(frames[0])}
-    hip_pos = []
-    for fr in frames:
-        lt = local_tracks(fr)
-        for k, v in lt.items():
-            walk_tracks[k].append(v)
-        hip_pos.append((fr["hip"][0] - Jr["hip"][0], fr["hip"][1] - Jr["hip"][1]))
+        raw = [lagged(i) for i in range(N)]
+        damp = [(raw[(i - 1) % N] + 2 * raw[i] + raw[(i + 1) % N]) / 4.0 for i in range(N)]
+        peak = max(abs(v) for v in damp) or 1.0
+        for i, f in enumerate(frames):
+            v = damp[i % N] / peak
+            f["skirt_f"] = math.radians(tabard_deg_front) * v
+            f["skirt_b"] = math.radians(tabard_deg_back) * v
+
+        pollaxe = math.radians(pollaxe_deg)
+
+        def local_tracks(fr):
+            """world deltas -> local bone rotations (2D: world = parent world + local)."""
+            d = {}
+            d["torso"] = fr["torso"]
+            d["head"] = fr["head"] - fr["torso"]
+            d["skirt_b"] = fr["skirt_b"] - fr["torso"]
+            d["skirt_f"] = fr["skirt_f"] - fr["torso"]
+            d["arm_n_up"] = fr["arm_n"] - fr["torso"]
+            d["arm_n_lo"] = 0.0
+            # the haft holds its carried angle in WORLD space, as a carried haft does:
+            # 0 = upright, and the run carries it sloped across the body
+            d["hand"] = pollaxe - fr["arm_n"]
+            d["arm_f_up"] = fr["arm_f"] - fr["torso"] + far_arm_base["arm_f_up"]
+            d["arm_f_lo"] = far_arm_base["arm_f_lo"]
+            d["hand_f"] = -fr["arm_f"] + far_arm_base["hand_f"]
+            for tag, hipp, kn, an in (("n", fr["hip"], fr["k_n"], fr["a_n"]),
+                                      ("f", fr["hip_f"], fr["k_f"], fr["a_f"])):
+                th = ang(hipp, kn) - rest["thigh"]
+                sh = ang(kn, an) - rest["shin"]
+                d["leg_%s_th" % tag] = th
+                d["leg_%s_sh" % tag] = sh - th
+                d["leg_%s_ft" % tag] = -sh   # sabaton stays flat to the ground: stiff
+            return d
+
+        tracks = {k: [] for k in local_tracks(frames[0])}
+        hip_positions = []
+        for fr in frames:
+            for k, v in local_tracks(fr).items():
+                tracks[k].append(v)
+            hip_positions.append((fr["hip"][0] - Jr["hip"][0], fr["hip"][1] - Jr["hip"][1]))
+
+        lo = min(q[1] for q in hip_positions)
+        hi = max(q[1] for q in hip_positions)
+        th_rng = math.degrees(max(tracks["leg_n_th"]) - min(tracks["leg_n_th"]))
+        stats = {
+            "px_s_canvas": px_s, "px_s_rig": v_rig, "stride_seconds": stride_T,
+            "stance_fraction": stance_frac,
+            "flight_fraction": round(max(0.0, 1.0 - 2.0 * stance_frac), 4),
+            "body_travel_per_stride_canvas_px": px_s * stride_T,
+            "step_length_canvas_px": px_s * stride_T / 2.0,
+            "step_length_figure_heights": round(px_s * stride_T / 2.0 / (target_h * node_scale), 3),
+            "ankle_sweep_rig_px": 2 * half_step,
+            "ankle_sweep_canvas_px": 2 * half_step * node_scale,
+            "swing_lift_rig_px": swing_lift,
+            "hip_height_painted_rig": hip_h_paint, "hip_height_nominal_rig": hip_h_nom,
+            "hip_travel_rig_px": round(hi - lo, 3),
+            "hip_travel_canvas_px": round((hi - lo) * node_scale, 3),
+            "frames_hip_clamped_by_reach": clamped, "samples": N,
+            "forward_lean_deg": lean_deg, "pollaxe_carry_deg": pollaxe_deg,
+            "thigh_rotation_range_deg": round(th_rng, 2),
+            "tabard": {"model": "baked lagged+damped pendulum from the near thigh",
+                       "lag_s": lag_s, "hem_deg_front": tabard_deg_front,
+                       "hem_deg_back": tabard_deg_back},
+        }
+        return ts, tracks, hip_positions, stats
+
+    ts, walk_tracks, hip_pos, walk_stats = author_gait(
+        px_s=walk_px_s, stride_T=stride_T, stance_frac=0.5, swing_lift=SWING_LIFT,
+        nominal_drop=8.0, lean_deg=0.0, tabard_deg_front=6.0, tabard_deg_back=4.0,
+        arm_near_deg=2.0, arm_far_deg=7.0, pollaxe_deg=0.0,
+        far_arm_base=FAR_ARM_BASE, lag_s=0.10)
+
+    run_ts, run_tracks, run_hip_pos, run_stats = author_gait(
+        px_s=run_px_s, stride_T=run_T, stance_frac=RUN_STANCE, swing_lift=RUN_LIFT,
+        nominal_drop=4.0, lean_deg=RUN_LEAN_DEG, tabard_deg_front=11.0,
+        tabard_deg_back=8.0, arm_near_deg=1.5, arm_far_deg=4.0,
+        pollaxe_deg=RUN_POLLAXE_DEG, far_arm_base=RUN_FAR_ARM_BASE, lag_s=0.08,
+        # 48 keys, not the walk's 32. The run's stance is only 0.165 s -- ten physics
+        # frames -- and the leg angles are nonlinear in time, so linear interpolation
+        # between 32 keys left up to 4.8 canvas px of apparent slide inside a stance
+        # that is exact by construction. More keys, less interpolation error.
+        N=48)
 
     # ---------------- idle: 2.0 s breath, feet fixed ----------------
     IDLE_T, NI = 2.0, 24
@@ -665,10 +767,12 @@ def main():
         return out
 
     L += anim("walk", stride_T, ts, walk_tracks, hip_pos) + [""]
+    L += anim("run", run_T, run_ts, run_tracks, run_hip_pos) + [""]
     L += anim("idle", IDLE_T, idle_times, idle_tracks, idle_hip) + [""]
     L.append('[sub_resource type="AnimationLibrary" id="AnimationLibrary_rig"]')
     L.append('_data = {')
     L.append('"idle": SubResource("Animation_idle"),')
+    L.append('"run": SubResource("Animation_run"),')
     L.append('"walk": SubResource("Animation_walk")')
     L.append('}')
     L.append("")
@@ -712,7 +816,6 @@ def main():
     OUT_SCN.write_text("\n".join(L))
 
     # ---------------- report ----------------
-    max_bob = max(abs(p[1]) for p in hip_pos)
     rep = {
         "note": "C-9 probe R-C9-34: 2D puppet rig of the E knight, cut from seed_E.png.",
         "seed": {"crown": crown, "sole": sole, "figure_h_px": sole - crown},
@@ -727,33 +830,28 @@ def main():
                      "darken": FAR_DARKEN},
         "parts": meta, "fills": fills, "stopped": [],
         "dropped_px": dropped,
-        "walk": {
-            "stride_seconds": stride_T, "walk_px_s_canvas": walk_px_s,
-            "walk_px_s_rig": v_rig,
-            "body_travel_per_stride_canvas_px": walk_px_s * stride_T,
-            "step_length_canvas_px": walk_px_s * stride_T / 2.0,
-            "ankle_sweep_rig_px": 2 * half_step,
-            "ankle_sweep_canvas_px": 2 * half_step * node_scale,
-            "thigh_len_rig": l1, "shin_len_rig": l2,
-            "ankle_height_rig": ankle_h,
-            "hip_height_painted_rig": hip_h_paint, "hip_height_nominal_rig": hip_h_nom,
-            "hip_bob_rig_px": max_bob, "hip_bob_canvas_px": max_bob * node_scale,
-            "frames_hip_clamped_by_reach": clamped, "samples": N,
-            "stance_fraction": 0.5,
-            "tabard": {"model": "baked lagged+damped pendulum from the near thigh",
-                       "lag_s": LAG, "hem_deg_front": 6.0, "hem_deg_back": 4.0},
-        },
+        "walk": walk_stats,
+        "run": run_stats,
         "idle": {"seconds": IDLE_T, "samples": NI},
     }
     OUT_JSON.write_text(json.dumps(rep, indent=1))
     print("rig scale seed->cell %.6f   sprite_scale %.5f" % (s, sprite_scale))
     print("figure height in cell px %.2f (target %.2f)" % ((sole - crown) * s, target_h))
-    print("step length %.2f canvas px   ankle sweep %.2f canvas px"
-          % (walk_px_s * stride_T / 2.0, 2 * half_step * node_scale))
-    print("thigh %.2f  shin %.2f  ankle_h %.2f  hip_h %.2f (painted %.2f) rig px"
-          % (l1, l2, ankle_h, hip_h_nom, hip_h_paint))
-    print("hip bob %.2f rig px = %.2f canvas px;  reach-clamped frames %d/%d"
-          % (max_bob, max_bob * node_scale, clamped, N + 1))
+    print("thigh %.2f  shin %.2f  ankle_h %.2f rig px  (painted hip height %.2f)"
+          % (l1, l2, ankle_h, hip_h_paint))
+    for nm, s in (("walk", walk_stats), ("run", run_stats)):
+        print("  %-4s %6.1f px/s  stride %.4f s  stance %.2f  flight %.2f"
+              % (nm, s["px_s_canvas"], s["stride_seconds"], s["stance_fraction"],
+                 s["flight_fraction"]))
+        print("       step %6.2f canvas px (%.2f figure heights)  ankle sweep %6.2f canvas px"
+              % (s["step_length_canvas_px"], s["step_length_figure_heights"],
+                 s["ankle_sweep_canvas_px"]))
+        print("       hip travel %5.2f rig / %5.2f canvas px   reach-clamped %d/%d   "
+              "thigh range %5.1f deg   lean %.0f deg   haft %.0f deg"
+              % (s["hip_travel_rig_px"], s["hip_travel_canvas_px"],
+                 s["frames_hip_clamped_by_reach"], s["samples"] + 1,
+                 s["thigh_rotation_range_deg"], s["forward_lean_deg"],
+                 s["pollaxe_carry_deg"]))
     print("wrote", OUT_SCN, OUT_JSON)
 
 

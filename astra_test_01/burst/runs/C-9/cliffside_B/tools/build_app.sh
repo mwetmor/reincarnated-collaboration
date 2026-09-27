@@ -205,8 +205,18 @@ if [ -n "$PCK" ] && [ -f "$PCK" ]; then
   if [ "$MISSING" -eq 0 ]; then ck 0 "A+B textures, layer offsets and both SpriteFrames in the pck"
   else ck 1 "A+B textures, layer offsets and both SpriteFrames in the pck"; fi
 
-  # all 16 knight cells x 12 frames, no mirroring: 192 sprite pngs must be present
+  # Every knight cell x 12 frames, no mirroring. The RUN cells exist only for the
+  # directions Grok delivered a clip for, so the expected count is read from
+  # frames/knight_fit.json's own declaration rather than hardcoded -- a hardcoded 192
+  # would pass while silently shipping no run at all.
+  RUN_DIRS=$(python3 -c "import json;print(' '.join(json.load(open('$DEST/frames/knight_fit.json'))['run_directions']))")
+  WANT_KN=$(python3 -c "print(16*12 + len('$RUN_DIRS'.split())*12)")
   KN=0
+  for d in $RUN_DIRS; do
+    for i in 00 01 02 03 04 05 06 07 08 09 10 11; do
+      grep -a -q "sprites_knight/run/$d/run_${d}_${i}.png" "$PCK" && KN=$((KN+1))
+    done
+  done
   for d in S SW W NW N NE E SE; do
     for st in walk idle; do
       for i in 00 01 02 03 04 05 06 07 08 09 10 11; do
@@ -214,8 +224,9 @@ if [ -n "$PCK" ] && [ -f "$PCK" ]; then
       done
     done
   done
-  if [ "$KN" -eq 192 ]; then ck 0 "all 192 knight frames in the pck (16 cells x 12)"
-  else ck 1 "knight frames in the pck: $KN/192"; fi
+  if [ "$KN" -eq "$WANT_KN" ]; then
+    ck 0 "all $WANT_KN knight frames in the pck (16 walk/idle + $(echo $RUN_DIRS | wc -w | tr -d ' ') run cells x 12)"
+  else ck 1 "knight frames in the pck: $KN/$WANT_KN"; fi
 
   # R-C9-34: all 14 rig parts. A rig that exports with 13 of them toggles to a knight
   # missing a leg and says nothing, so count them rather than trusting the scene.

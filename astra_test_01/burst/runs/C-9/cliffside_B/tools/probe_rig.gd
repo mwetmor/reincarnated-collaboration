@@ -213,6 +213,70 @@ func _initialize():
 		"stride_travel_px": stride_travel,
 		"grok_E_slide_px_per_stride": 34.4, "grok_E_slide_ratio": 0.81}
 
+	# --- 6. the RUN, same measurement at run speed ------------------------
+	print("[rig run: foot slide at run speed, and flight]")
+	var rstats: Dictionary = fitj["run"]
+	var rlen: float = anim.get_animation("run").length
+	var rstance: float = float(rstats["stance_fraction"])
+	_check(absf(rlen - float(rstats["stride_seconds"])) < 0.002,
+		"rig run clip is one Keeper RUN stride (%.4f s)" % rlen)
+	keeper.velocity = Vector2.ZERO
+	keeper.global_position = Vector2(2450, 2100)
+	await physics_frame
+	var rs: Array = []
+	Input.action_press("move_right")
+	Input.action_press("run_modifier")
+	for f in 150:
+		await physics_frame
+		await process_frame
+		rs.append([anim.current_animation_position, rig.call("near_foot_global").x,
+				   keeper.global_position.x, String(anim.current_animation)])
+	Input.action_release("run_modifier")
+	Input.action_release("move_right")
+	await physics_frame
+	var played_run := 0
+	for s in rs:
+		if String(s[3]) == "run":
+			played_run += 1
+	_check(played_run > rs.size() / 2,
+		"the rig plays its RUN clip while the Keeper runs (%d/%d samples)" % [played_run, rs.size()])
+	var rruns: Array = []
+	var rcur: Array = []
+	for s in rs:
+		if String(s[3]) == "run" and float(s[0]) < rlen * rstance:
+			rcur.append(s)
+		else:
+			if rcur.size() > 3:
+				rruns.append(rcur)
+			rcur = []
+	if rcur.size() > 3:
+		rruns.append(rcur)
+	var rworst := 0.0
+	var rper: Array = []
+	for r in rruns:
+		var lo2 := INF
+		var hi2 := -INF
+		for s in r:
+			lo2 = minf(lo2, float(s[1]))
+			hi2 = maxf(hi2, float(s[1]))
+		var dt2: float = float(r[r.size() - 1][0]) - float(r[0][0])
+		var moved2: float = float(r[r.size() - 1][2]) - float(r[0][2])
+		var want2: float = 494.0 * dt2
+		var valid2: bool = dt2 > rlen * rstance * 0.5 and want2 > 1.0 and absf(moved2 - want2) < 0.12 * want2
+		rper.append({"samples": r.size(), "foot_world_x_range_px": hi2 - lo2,
+					 "body_moved_px": moved2, "body_expected_px": want2, "valid": valid2})
+		if valid2:
+			rworst = maxf(rworst, hi2 - lo2)
+		print("    run stance: %2d samples  t %.3f..%.3f  body %+6.1f (want %+6.1f)  foot moved %6.2f px  %s"
+			% [r.size(), r[0][0], r[r.size() - 1][0], moved2, want2, hi2 - lo2,
+			   "measured" if valid2 else "SKIPPED (body not at run speed)"])
+	print("    WORST planted-foot movement in any RUN stance: %.2f canvas px" % rworst)
+	_check(rworst < 8.0, "planted foot holds its world position at RUN speed too (%.2f px)" % rworst)
+	report["run"] = {"clip_length_s": rlen, "stance_fraction": rstance,
+					 "flight_fraction": rstats["flight_fraction"],
+					 "worst_stance_drift_canvas_px": rworst, "stance_runs": rper,
+					 "samples_playing_run": played_run}
+
 	report["fails"] = fails
 	var f := FileAccess.open("res://frames/knight_rig_probe.json", FileAccess.WRITE)
 	f.store_string(JSON.stringify(report, " "))

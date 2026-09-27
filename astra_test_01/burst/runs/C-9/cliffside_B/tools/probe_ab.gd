@@ -157,18 +157,49 @@ func _initialize():
 	# --- 1b. the knight's 16 cells all exist, no mirroring --------------
 	print("[knight cells]")
 	var sf: SpriteFrames = knight.sprite_frames
+	var keeper_sf: SpriteFrames = keeper_spr.sprite_frames
 	var missing := []
 	for d in ["S", "SW", "W", "NW", "N", "NE", "E", "SE"]:
 		for kind in ["walk", "idle"]:
 			var nm: String = String(kind) + "_" + String(d)
 			if not sf.has_animation(nm) or sf.get_frame_count(nm) != 12:
 				missing.append(nm)
-	_check(missing.is_empty(), "all 16 knight cells present with 12 frames each%s"
+	_check(missing.is_empty(), "all 16 knight walk/idle cells present with 12 frames each%s"
 		% ("" if missing.is_empty() else " (missing/short: " + str(missing) + ")"))
+
+	# RUN cells: 7 of 8 -- Grok produced no W run clip. The probe asserts the DECLARED
+	# coverage matches the SpriteFrames, rather than a hardcoded 8, so the day W lands
+	# the check follows it instead of having to be remembered.
+	var fitj = JSON.parse_string(FileAccess.get_file_as_string("res://frames/knight_fit.json"))
+	var run_have: Array = fitj.get("run_directions", [])
+	var run_lack: Array = fitj.get("run_missing_directions", [])
+	var run_bad: Array = []
+	_check(run_have.size() > 0, "knight_fit declares painted run directions (%d)" % run_have.size())
+	for d in run_have:
+		var rn: String = "run_" + String(d)
+		if not sf.has_animation(rn) or sf.get_frame_count(rn) != 12:
+			run_bad.append(rn)
+	for d2 in run_lack:
+		if sf.has_animation("run_" + String(d2)):
+			run_bad.append("run_%s exists but is declared missing" % String(d2))
+	_check(run_bad.is_empty(), "run cells match the declared coverage (%d painted, missing %s)%s"
+		% [run_have.size(), str(run_lack), ("" if run_bad.is_empty() else " -- " + str(run_bad))])
+	var run_tempo: Array = []
+	for d3 in run_have:
+		var rn2: String = "run_" + String(d3)
+		var k_run: float = keeper_sf.get_frame_count(rn2) / keeper_sf.get_animation_speed(rn2)
+		var n_run: float = sf.get_frame_count(rn2) / sf.get_animation_speed(rn2)
+		if absf(n_run - k_run) > 0.005:
+			run_tempo.append("%s knight %.4fs vs keeper %.4fs" % [d3, n_run, k_run])
+	_check(run_tempo.is_empty(), "knight run stride matches the Keeper's in every painted direction%s"
+		% ("" if run_tempo.is_empty() else " -- " + str(run_tempo)))
+	# and the fallback is along the STATE, not the direction
+	for d4 in run_lack:
+		_check(sf.has_animation("walk_" + String(d4)),
+			"the un-painted run direction %s has a walk_%s to fall back to" % [String(d4), String(d4)])
 	# The knight's walk must run at the KEEPER's cadence, not the clips' painted one.
 	# A stale frames/knight.tres would still load, still animate, and still look wrong
 	# in exactly the way Matt reported -- so assert the tempo, not just the presence.
-	var keeper_sf: SpriteFrames = keeper_spr.sprite_frames
 	var tempo_bad := []
 	for d in ["S", "SW", "W", "NW", "N", "NE", "E", "SE"]:
 		var kn: String = "walk_" + String(d)

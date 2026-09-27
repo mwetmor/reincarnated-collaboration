@@ -82,5 +82,39 @@ func _initialize():
 			"in A, G changes nothing -- gear_toggle has no advanced frames in this build")
 	await _key(84)      # back to B
 
+	print("[Shift = run]")
+	# Shift is project.godot's run_modifier. The claim is that it now reaches the
+	# knight's OWN painted run cells rather than the old run->walk mapping.
+	Input.action_press("move_right")
+	for f in 16:
+		await physics_frame
+		await process_frame
+	_check(String(knight.animation) == "walk_E",
+		"walking east plays walk_E (%s)" % knight.animation)
+	Input.action_press("run_modifier")
+	for f in 16:
+		await physics_frame
+		await process_frame
+	_check(String(keeper.state) == "run", "Keeper state is run (%s)" % keeper.state)
+	_check(String(knight.animation) == "run_E",
+		"Shift plays the knight's painted run_E, not walk_E (%s)" % knight.animation)
+	Input.action_release("run_modifier")
+	Input.action_release("move_right")
+	await physics_frame
+	await process_frame
+	# and the un-painted direction falls back along the STATE
+	Input.action_press("move_left")
+	Input.action_press("run_modifier")
+	for f in 20:
+		await physics_frame
+		await process_frame
+	_check(String(keeper.facing) == "W", "facing W (%s)" % keeper.facing)
+	_check(String(knight.animation) == "walk_W",
+		"W has no painted run, so it falls back to walk_W -- not to another direction (%s)"
+		% knight.animation)
+	Input.action_release("run_modifier")
+	Input.action_release("move_left")
+	await physics_frame
+
 	print("=== key probe: %s (%d failures) ===" % ["PASS" if fails == 0 else "FAIL", fails])
 	quit(1 if fails > 0 else 0)

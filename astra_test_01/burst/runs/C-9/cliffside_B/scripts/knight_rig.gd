@@ -20,12 +20,16 @@ extends Node2D
 # crown to sole, so pressing G changes the MOTION and nothing else -- no size change,
 # no sideways shunt.  (frames/knight_rig_E.json records the measurements.)
 #
-# TIMING.  walk is exactly one Keeper stride, 0.5797 s, and the planted foot's screen
-# x is a straight line in time at the scene's own walk speed -- the plant is the
-# parameterisation, not an approximation of one.  idle is the same 2.0 s breath the
-# Grok idle cells use.
+# TIMING.  walk is exactly one Keeper stride (0.5797 s) and run is exactly one Keeper
+# RUN stride (0.5517 s), both read from frames/keeper.tres rather than assumed.  In both
+# the planted foot's screen x is a straight line in time at that gait's own speed -- the
+# plant is the parameterisation, not an approximation of one.  The run has a real FLIGHT
+# phase (40% of the cycle with neither foot down), because the scene's run step is 0.93
+# of this knight's figure height and no amount of polish covers that with a foot on the
+# ground.  idle is the same 2.0 s breath the Grok idle cells use.
 
 const WALK := "walk"
+const RUN := "run"
 const IDLE := "idle"
 
 @onready var _anim: AnimationPlayer = $Anim
@@ -46,7 +50,7 @@ func _ready() -> void:
 func play_state(kind: String) -> void:
 	if _anim == null:
 		return
-	var want: String = WALK if kind == WALK else IDLE
+	var want: String = kind if _anim.has_animation(kind) else IDLE
 	if _current == want and _anim.is_playing():
 		return
 	_current = want

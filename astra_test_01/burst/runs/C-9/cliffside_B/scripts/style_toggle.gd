@@ -58,7 +58,9 @@ const H1_BRANCHES := ["Shadows", "Overhead", "Near_0", "Air"]
 # Children of Actors/ with these name prefixes are H1-register dressing too.
 const H1_ACTOR_PREFIXES := ["Prop_", "Glow_", "Swarm_"]
 
-const HUD_B := "STYLE  B — Illuminated (knight; run→walk, cast/jump→idle)   E-facing: %s        T = style      G = E rig/Grok      Esc = quit"
+# %s is the run coverage (built in _ready from frames/knight_fit.json, so it cannot go
+# stale if the missing direction is later filled) and %s is the E-facing rig/Grok mode.
+const HUD_B := "STYLE  B — Illuminated (knight; %s, cast/jump→idle)   E-facing: %s        T = style      Shift = run      G = E rig/Grok      Esc = quit"
 const HUD_A := "STYLE  A — H1 (Keeper; props, particles, glows)        T = style      Esc = quit"
 
 var _sprites: Array[Sprite2D] = []      # tiles then layers, in the order above
@@ -70,6 +72,7 @@ var _h1_nodes: Array[CanvasItem] = []
 var _keeper_sprite: CanvasItem = null
 var _knight_sprite: CanvasItem = null
 var _figures: Array = []          # the B-only still figures (angel, demon)
+var _run_note: String = "run painted"
 var _style_b: bool = true
 var _label: Label
 
@@ -117,10 +120,27 @@ func _ready() -> void:
 	if _knight_sprite == null:
 		push_error("style_toggle: Keeper/KnightSprite not found")
 
+	_read_run_coverage()
 	_build_hud()
 	_apply(true)
 	print("style_toggle: ready  sprites=%d  h1_nodes=%d  knight=%s  b_figures=%d"
 		% [_sprites.size(), _h1_nodes.size(), str(_knight_sprite != null), _figures.size()])
+
+
+# The knight's run is painted per direction and Grok did not deliver one for every
+# direction, so the HUD states the coverage rather than implying it is complete.
+func _read_run_coverage() -> void:
+	if not FileAccess.file_exists("res://frames/knight_fit.json"):
+		return
+	var parsed = JSON.parse_string(FileAccess.get_file_as_string("res://frames/knight_fit.json"))
+	if not (parsed is Dictionary):
+		return
+	var have: Array = parsed.get("run_directions", [])
+	var lack: Array = parsed.get("run_missing_directions", [])
+	if lack.is_empty():
+		_run_note = "run painted 8/8"
+	else:
+		_run_note = "run painted %d/8, %s→walk" % [have.size(), ", ".join(lack)]
 
 
 func _load_layer_offsets() -> void:
@@ -174,7 +194,7 @@ func rig_mode() -> String:
 func _refresh_hud() -> void:
 	if _label == null:
 		return
-	_label.text = (HUD_B % rig_mode()) if _style_b else HUD_A
+	_label.text = (HUD_B % [_run_note, rig_mode()]) if _style_b else HUD_A
 
 
 # Returns the number of textures swapped, so the headless probe can count them.

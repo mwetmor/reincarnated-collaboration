@@ -72,6 +72,7 @@ from scipy import ndimage
 PROJ = Path(__file__).resolve().parent.parent
 RUNS_ROOT = PROJ.parents[2]                      # .../burst
 MANIFEST = PROJ.parent / "artifacts" / "knight_cells_manifest.json"
+RUN_MANIFEST = PROJ / "frames" / "knight_run_cells.json"
 OUT_SPRITES = PROJ / "sprites_knight"
 OUT_FRAMES = PROJ / "frames"
 
@@ -96,6 +97,24 @@ def _widest_run(row):
             s = x
         p = x
     return max(best, p - s + 1)
+
+
+def keeper_cadence(prefix):
+    """-> {direction: seconds per <prefix> stride}, read from the Keeper's SpriteFrames.
+
+    Same rule and the same trap as the walk below: match EVERY animation block and then
+    filter by name. Restricting the name inside the pattern lets the non-greedy body run
+    across the blocks that do not match and absorb their frames.
+    """
+    text = (PROJ / KEEPER_TRES).read_text()
+    body = text[text.index("[resource]"):]
+    out = {}
+    pattern = r'\{"frames": \[(.*?)\], "loop": \w+, "name": &"([^"]+)", "speed": ([0-9.]+)\}'
+    for frames, name, speed in re.findall(pattern, body, re.S):
+        if not name.startswith(prefix + "_"):
+            continue
+        out[name[len(prefix) + 1:]] = frames.count("ExtResource") / float(speed)
+    return out
 
 
 def keeper_walk_cadence():
@@ -174,8 +193,21 @@ def measure(path, report=None):
 
 def main():
     man = json.loads(MANIFEST.read_text())
-    cells = man["cells"]
+    cells = dict(man["cells"])
+    # RUN cells live in this project's own manifest -- the conductor's is read-only for
+    # this seam and carries walk + idle only. Merged here so one builder still emits one
+    # SpriteFrames.
+    run_man = {}
+    if RUN_MANIFEST.exists():
+        run_man = json.loads(RUN_MANIFEST.read_text())
+        cells.update(run_man["cells"])
     keeper_stride = keeper_walk_cadence()
+    keeper_run = keeper_cadence("run")
+    run_dirs = [d for d in DIRS if ("run_%s" % d) in cells]
+    print("run cells present for %d/%d directions: %s%s"
+          % (len(run_dirs), len(DIRS), " ".join(run_dirs),
+             ("   MISSING " + " ".join(run_man.get("missing_directions", [])))
+             if run_man.get("missing_directions") else ""))
     print("keeper walk cadence (read from %s):" % KEEPER_TRES)
     for d in DIRS:
         print(f"  walk_{d:<3} {keeper_stride[d]:.4f} s per 12-frame stride "
@@ -193,7 +225,9 @@ def main():
     # ---- measure the knight ------------------------------------------------
     knight_h, knight_sole, knight_cx, per_cell = [], [], [], {}
     for d in DIRS:
-        for st in ("walk", "idle"):
+        for st in ("walk", "idle", "run"):
+            if f"{st}_{d}" not in cells:
+                continue
             rest = RUNS_ROOT / cells[f"{st}_{d}"]["rest"][0]
             h, s, cx = measure(rest, crown_report)
             knight_h.append(s - h + 1)
@@ -231,7 +265,9 @@ def main():
     copied = 0
     anims = []
     for d in DIRS:
-        for st in ("walk", "idle"):
+        for st in ("walk", "idle", "run"):
+            if f"{st}_{d}" not in cells:
+                continue
             cell = cells[f"{st}_{d}"]
             dest = OUT_SPRITES / st / d
             dest.mkdir(parents=True, exist_ok=True)
@@ -246,11 +282,12 @@ def main():
                 copied += 1
             shutil.copyfile(RUNS_ROOT / cell["rest"][0], OUT_SPRITES / "rest" / f"{st}_{d}.png")
             copied += 1
-            if st == "walk":
+            if st in ("walk", "run"):
+                cadence = keeper_stride if st == "walk" else keeper_run
                 nf = int(cell["stride_native_frames"])
                 painted_fps = 12.0 * cell.get("fps_source", 24) / nf
-                fps = 12.0 / keeper_stride[d]          # match the Keeper, not the clip
-                note = (f"matched to keeper walk_{d} ({keeper_stride[d]:.4f} s/stride); "
+                fps = 12.0 / cadence[d]                # match the Keeper, not the clip
+                note = (f"matched to keeper {st}_{d} ({cadence[d]:.4f} s/stride); "
                         f"painted stride was {nf} native frames = {nf / 24.0:.3f} s "
                         f"({painted_fps:.3f} fps), {fps / painted_fps:.2f}x slower than her")
             else:
@@ -298,8 +335,15 @@ def main():
                                  for d in DIRS},
         "animation_fps": {a["name"]: round(a["fps"], 6) for a in anims},
         "animation_note": {a["name"]: a["note"] for a in anims},
-        "state_map_b": {"walk": "walk", "idle": "idle", "run": "walk",
+        "keeper_run_stride_seconds": {d: round(keeper_run[d], 6) for d in keeper_run},
+        "run_directions": run_dirs,
+        "run_missing_directions": run_man.get("missing_directions", []),
+        "state_map_b": {"walk": "walk", "idle": "idle", "run": "run",
                         "cast": "idle", "jump": "idle"},
+        "state_map_note": ("run now maps to the knight's own painted run cells. "
+                           "Directions in run_missing_directions have none and fall "
+                           "back to walk_<D> at runtime (scripts/knight_skin.gd), "
+                           "never to another direction's pixels."),
     }
     (OUT_FRAMES / "knight_fit.json").write_text(json.dumps(fit, indent=1))
     print(f"wrote {OUT_FRAMES / 'knight_fit.json'}")

@@ -17,12 +17,12 @@
   }
  },
  "knight": {
-  "figure_h_src_px": 198.625,
-  "scale": 0.7562670442626389,
+  "figure_h_src_px": 198.6086956521739,
+  "scale": 0.7563291283566842,
   "figure_h_canvas_px": 150.21354166666666,
   "offset": [
-   -256.00394236896113,
-   -395.75
+   -254.13278836834877,
+   -395.4782608695652
   ],
   "per_cell": {
    "walk_S": {
@@ -35,6 +35,11 @@
     "sole": 395,
     "figure_h": 195
    },
+   "run_S": {
+    "head": 199,
+    "sole": 385,
+    "figure_h": 187
+   },
    "walk_SW": {
     "head": 194,
     "sole": 402,
@@ -44,6 +49,11 @@
     "head": 198,
     "sole": 396,
     "figure_h": 199
+   },
+   "run_SW": {
+    "head": 193,
+    "sole": 394,
+    "figure_h": 202
    },
    "walk_W": {
     "head": 195,
@@ -65,6 +75,11 @@
     "sole": 398,
     "figure_h": 198
    },
+   "run_NW": {
+    "head": 192,
+    "sole": 398,
+    "figure_h": 207
+   },
    "walk_N": {
     "head": 195,
     "sole": 388,
@@ -74,6 +89,11 @@
     "head": 201,
     "sole": 394,
     "figure_h": 194
+   },
+   "run_N": {
+    "head": 197,
+    "sole": 394,
+    "figure_h": 198
    },
    "walk_NE": {
     "head": 198,
@@ -85,6 +105,11 @@
     "sole": 399,
     "figure_h": 198
    },
+   "run_NE": {
+    "head": 197,
+    "sole": 401,
+    "figure_h": 205
+   },
    "walk_E": {
     "head": 197,
     "sole": 393,
@@ -95,6 +120,11 @@
     "sole": 396,
     "figure_h": 196
    },
+   "run_E": {
+    "head": 200,
+    "sole": 397,
+    "figure_h": 198
+   },
    "walk_SE": {
     "head": 190,
     "sole": 391,
@@ -104,6 +134,11 @@
     "head": 200,
     "sole": 395,
     "figure_h": 196
+   },
+   "run_SE": {
+    "head": 203,
+    "sole": 395,
+    "figure_h": 193
    }
   }
  },
@@ -141,44 +176,81 @@
  "animation_fps": {
   "walk_S": 20.7,
   "idle_S": 6.0,
+  "run_S": 21.75,
   "walk_SW": 20.7,
   "idle_SW": 6.0,
+  "run_SW": 21.75,
   "walk_W": 20.7,
   "idle_W": 6.0,
   "walk_NW": 20.7,
   "idle_NW": 6.0,
+  "run_NW": 21.75,
   "walk_N": 20.7,
   "idle_N": 6.0,
+  "run_N": 21.75,
   "walk_NE": 20.7,
   "idle_NE": 6.0,
+  "run_NE": 21.75,
   "walk_E": 20.7,
   "idle_E": 6.0,
+  "run_E": 21.75,
   "walk_SE": 20.7,
-  "idle_SE": 6.0
+  "idle_SE": 6.0,
+  "run_SE": 21.75
  },
  "animation_note": {
   "walk_S": "matched to keeper walk_S (0.5797 s/stride); painted stride was 66 native frames = 2.750 s (4.364 fps), 4.74x slower than her",
   "idle_S": "breath 48 native frames = 2.0 s",
+  "run_S": "matched to keeper run_S (0.5517 s/stride); painted stride was 32 native frames = 1.333 s (9.000 fps), 2.42x slower than her",
   "walk_SW": "matched to keeper walk_SW (0.5797 s/stride); painted stride was 66 native frames = 2.750 s (4.364 fps), 4.74x slower than her",
   "idle_SW": "breath 48 native frames = 2.0 s",
+  "run_SW": "matched to keeper run_SW (0.5517 s/stride); painted stride was 60 native frames = 2.500 s (4.800 fps), 4.53x slower than her",
   "walk_W": "matched to keeper walk_W (0.5797 s/stride); painted stride was 92 native frames = 3.833 s (3.130 fps), 6.61x slower than her",
   "idle_W": "breath 48 native frames = 2.0 s",
   "walk_NW": "matched to keeper walk_NW (0.5797 s/stride); painted stride was 70 native frames = 2.917 s (4.114 fps), 5.03x slower than her",
   "idle_NW": "breath 48 native frames = 2.0 s",
+  "run_NW": "matched to keeper run_NW (0.5517 s/stride); painted stride was 40 native frames = 1.667 s (7.200 fps), 3.02x slower than her",
   "walk_N": "matched to keeper walk_N (0.5797 s/stride); painted stride was 44 native frames = 1.833 s (6.545 fps), 3.16x slower than her",
   "idle_N": "breath 48 native frames = 2.0 s",
+  "run_N": "matched to keeper run_N (0.5517 s/stride); painted stride was 36 native frames = 1.500 s (8.000 fps), 2.72x slower than her",
   "walk_NE": "matched to keeper walk_NE (0.5797 s/stride); painted stride was 64 native frames = 2.667 s (4.500 fps), 4.60x slower than her",
   "idle_NE": "breath 48 native frames = 2.0 s",
+  "run_NE": "matched to keeper run_NE (0.5517 s/stride); painted stride was 20 native frames = 0.833 s (14.400 fps), 1.51x slower than her",
   "walk_E": "matched to keeper walk_E (0.5797 s/stride); painted stride was 64 native frames = 2.667 s (4.500 fps), 4.60x slower than her",
   "idle_E": "breath 48 native frames = 2.0 s",
+  "run_E": "matched to keeper run_E (0.5517 s/stride); painted stride was 26 native frames = 1.083 s (11.077 fps), 1.96x slower than her",
   "walk_SE": "matched to keeper walk_SE (0.5797 s/stride); painted stride was 70 native frames = 2.917 s (4.114 fps), 5.03x slower than her",
-  "idle_SE": "breath 48 native frames = 2.0 s"
+  "idle_SE": "breath 48 native frames = 2.0 s",
+  "run_SE": "matched to keeper run_SE (0.5517 s/stride); painted stride was 24 native frames = 1.000 s (12.000 fps), 1.81x slower than her"
  },
+ "keeper_run_stride_seconds": {
+  "E": 0.551724,
+  "N": 0.551724,
+  "NE": 0.551724,
+  "NW": 0.551724,
+  "S": 0.551724,
+  "SE": 0.551724,
+  "SW": 0.551724,
+  "W": 0.551724
+ },
+ "run_directions": [
+  "S",
+  "SW",
+  "NW",
+  "N",
+  "NE",
+  "E",
+  "SE"
+ ],
+ "run_missing_directions": [
+  "W"
+ ],
  "state_map_b": {
   "walk": "walk",
   "idle": "idle",
-  "run": "walk",
+  "run": "run",
   "cast": "idle",
   "jump": "idle"
- }
+ },
+ "state_map_note": "run now maps to the knight's own painted run cells. Directions in run_missing_directions have none and fall back to walk_<D> at runtime (scripts/knight_skin.gd), never to another direction's pixels."
 }

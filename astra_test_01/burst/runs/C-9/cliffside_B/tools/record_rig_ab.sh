@@ -14,14 +14,14 @@ GODOT=${GODOT:-/Applications/Godot.app/Contents/MacOS/Godot}
 HEAVY_LOCK=${HEAVY_LOCK:-$HOME/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-7/conductor_scripts/heavy_lock.py}
 FRAMES=${REC_FRAMES:-$(mktemp -d "${TMPDIR:-/tmp}/c9_rig_ab.XXXXXX")}
 
-echo "== frames -> $FRAMES  (2x${WALK}s walk + 2x${IDLE}s idle @ ${FPS}fps)"
+echo "== frames -> $FRAMES  (2x${WALK}s walk + 2x${WALK}s run + 2x${IDLE}s idle @ ${FPS}fps)"
 rm -f "$FRAMES"/f_*.jpg
 REC_OUT="$FRAMES" REC_FPS="$FPS" REC_WALK="$WALK" REC_IDLE="$IDLE" \
   python3 "$HEAVY_LOCK" C-9 -- "$GODOT" --path "$SRC" \
     --resolution 1920x1080 --fixed-fps "$FPS" --script tools/record_rig_ab.gd
 
 N=$(ls "$FRAMES"/f_*.jpg 2>/dev/null | wc -l | tr -d ' ')
-WANT=$(python3 -c "print(2*round($WALK*$FPS)+2*round($IDLE*$FPS))")
+WANT=$(python3 -c "print(4*round($WALK*$FPS)+2*round($IDLE*$FPS))")
 echo "== captured $N frames (want $WANT)"
 [ "$N" = "$WANT" ] || { echo "FAIL: frame count $N != $WANT" >&2; exit 4; }
 
@@ -30,7 +30,7 @@ ffmpeg -y -loglevel error -framerate "$FPS" -i "$FRAMES/f_%04d.jpg" \
   -c:v libx264 -pix_fmt yuv420p -crf 18 -movflags +faststart "$MP4"
 DUR=$(ffprobe -v error -show_entries format=duration -of csv=p=0 "$MP4")
 echo "== $MP4   $(du -h "$MP4" | cut -f1)   ${DUR}s"
-python3 - "$DUR" "$(python3 -c "print(2*$WALK+2*$IDLE)")" <<'PY'
+python3 - "$DUR" "$(python3 -c "print(4*$WALK+2*$IDLE)")" <<'PY'
 import sys
 got, want = float(sys.argv[1]), float(sys.argv[2])
 if abs(got - want) > 0.4:

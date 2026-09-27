@@ -46,11 +46,13 @@ func _initialize():
 
 	var wf := int(round(walk_s * fps))
 	var idf := int(round(idle_s * fps))
-	print("record_rig_ab: style %s   %d fps   walk %d frames   idle %d frames   total %d"
-		% [scene.style_name(), fps, wf, idf, 2 * wf + 2 * idf])
+	print("record_rig_ab: style %s   %d fps   move %d frames   idle %d frames   total %d"
+		% [scene.style_name(), fps, wf, idf, 4 * wf + 2 * idf])
 
 	var n := 0
+	# Matt's full comparison: the same spot, four times over, walk then run.
 	for leg in [["GROK", "walk", wf], ["RIG", "walk", wf],
+				["GROK", "run", wf], ["RIG", "run", wf],
 				["GROK", "idle", idf], ["RIG", "idle", idf]]:
 		_set_mode(scene, knight, String(leg[0]))
 		keeper.velocity = Vector2.ZERO
@@ -60,8 +62,11 @@ func _initialize():
 		# settle, uncaptured, so the first saved frame is not a half-built one
 		for i in 6:
 			await process_frame
-		if String(leg[1]) == "walk":
+		var moving: bool = String(leg[1]) != "idle"
+		if moving:
 			Input.action_press("move_right")
+		if String(leg[1]) == "run":
+			Input.action_press("run_modifier")
 		for f in int(leg[2]):
 			await process_frame
 			await RenderingServer.frame_post_draw
@@ -70,7 +75,9 @@ func _initialize():
 				img.resize(1920, 1080, Image.INTERPOLATE_LANCZOS)
 			img.save_jpg(out + "/f_%04d.jpg" % n, 0.92)
 			n += 1
-		if String(leg[1]) == "walk":
+		if String(leg[1]) == "run":
+			Input.action_release("run_modifier")
+		if moving:
 			Input.action_release("move_right")
 		await physics_frame
 		print("  %-4s %-4s -> facing %s   knight cell %s   rig %s   at %s"
