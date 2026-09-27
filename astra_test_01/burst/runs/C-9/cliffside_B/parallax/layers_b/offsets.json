@@ -2,13 +2,13 @@
  "note": "per-style vertical offset for the B parallax layer sprites; A is always 0. Written by tools/build_b_assets.py.",
  "offsets": {
   "sky": -115.0,
-  "far_ruins": 626.0,
+  "far_ruins": 25.0,
   "forest_valley": 310.0,
   "mist": 490.0
  },
  "offsets_x": {
   "sky": 0.0,
-  "far_ruins": 160.0,
+  "far_ruins": 0.0,
   "forest_valley": 0.0,
   "mist": 0.0
  },
@@ -20,22 +20,22 @@
     7.0
    ],
    "d_backing": 0.9529,
-   "plate_px_fraction": 0.3035,
-   "plate_leak_before_floor": 0.4541,
-   "plate_leak_after_floor": 0.0071,
+   "plate_px_fraction": 0.375,
+   "plate_leak_before_floor": 0.0,
+   "plate_leak_after_floor": 0.0,
    "alpha_floor": 0.06,
-   "forced_opaque_below_plate_px": 6248,
-   "smoke_band_px": 84440,
-   "naive_band_px": 97381,
-   "smoke_over_plate_px": 92395,
+   "forced_opaque_below_plate_px": 2206,
+   "smoke_band_px": 1894,
+   "naive_band_px": 3769,
+   "smoke_over_plate_px": 1894,
    "fringe_residual_over_sky_255": {
-    "hard_key_mean": 41.16,
-    "hard_key_p99": 146.0,
-    "unmix_mean": 2.9,
-    "unmix_p99": 35.37,
-    "measured_over": "semi-transparent smoke over the plate (partial alpha AND above the plate boundary), 92395 px",
-    "improvement_x": 14.19,
-    "smoke_a_hard_key_would_delete_pct": 54.69
+    "hard_key_mean": 0.91,
+    "hard_key_p99": 0.0,
+    "unmix_mean": 13.84,
+    "unmix_p99": 66.8,
+    "measured_over": "semi-transparent smoke over the plate (partial alpha AND above the plate boundary), 1894 px",
+    "improvement_x": 0.07,
+    "smoke_a_hard_key_would_delete_pct": 99.52
    }
   },
   "forest_valley": {
@@ -46,19 +46,19 @@
    ],
    "d_backing": 0.949,
    "plate_px_fraction": 0.1006,
-   "plate_leak_before_floor": 0.3258,
-   "plate_leak_after_floor": 0.0022,
+   "plate_leak_before_floor": 0.3259,
+   "plate_leak_after_floor": 0.0024,
    "alpha_floor": 0.06,
-   "forced_opaque_below_plate_px": 31839,
-   "smoke_band_px": 4493,
-   "naive_band_px": 16242,
-   "smoke_over_plate_px": 10468,
+   "forced_opaque_below_plate_px": 16997,
+   "smoke_band_px": 3414,
+   "naive_band_px": 13693,
+   "smoke_over_plate_px": 9453,
    "fringe_residual_over_sky_255": {
     "hard_key_mean": 0.0,
     "hard_key_p99": 0.0,
-    "unmix_mean": -0.45,
-    "unmix_p99": 17.73,
-    "measured_over": "semi-transparent smoke over the plate (partial alpha AND above the plate boundary), 10468 px",
+    "unmix_mean": -0.63,
+    "unmix_p99": 16.87,
+    "measured_over": "semi-transparent smoke over the plate (partial alpha AND above the plate boundary), 9453 px",
     "improvement_x": "n/a (unmix residual ~0)",
     "smoke_a_hard_key_would_delete_pct": 100.0
    }

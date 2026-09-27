@@ -1,0 +1,117 @@
+{
+ "note": "C-9 R-C9-41: on-screen rows of each parallax layer, measured by rendering it alone (tools/shot_bridge.gd SHOT_ONLY) rather than derived from the Parallax2D scroll maths. 1920x1080.",
+ "cameras": {
+  "bridge": {
+   "camera_px": [
+    2700,
+    1500
+   ],
+   "layers": {
+    "far_ruins": {
+     "A": {
+      "first_row": 0,
+      "solid_row": 48
+     },
+     "B": {
+      "first_row": 7,
+      "solid_row": 42
+     },
+     "delta_solid_B_minus_A": -6,
+     "delta_first_B_minus_A": 7
+    },
+    "forest_valley": {
+     "A": {
+      "first_row": 23,
+      "solid_row": 667
+     },
+     "B": {
+      "first_row": 23,
+      "solid_row": 661
+     },
+     "delta_solid_B_minus_A": -6,
+     "delta_first_B_minus_A": 0
+    },
+    "sky": {
+     "A": {
+      "first_row": 0,
+      "solid_row": 0
+     },
+     "B": {
+      "first_row": 0,
+      "solid_row": 0
+     },
+     "delta_solid_B_minus_A": 0,
+     "delta_first_B_minus_A": 0
+    },
+    "mist": {
+     "A": {
+      "first_row": 23,
+      "solid_row": 975
+     },
+     "B": {
+      "first_row": 23,
+      "solid_row": 715
+     },
+     "delta_solid_B_minus_A": -260,
+     "delta_first_B_minus_A": 0
+    }
+   }
+  },
+  "plateau": {
+   "camera_px": [
+    2200,
+    2000
+   ],
+   "layers": {
+    "far_ruins": {
+     "A": {
+      "first_row": 0,
+      "solid_row": 0
+     },
+     "B": {
+      "first_row": 0,
+      "solid_row": 0
+     },
+     "delta_solid_B_minus_A": 0,
+     "delta_first_B_minus_A": 0
+    },
+    "forest_valley": {
+     "A": {
+      "first_row": 23,
+      "solid_row": 438
+     },
+     "B": {
+      "first_row": 23,
+      "solid_row": 436
+     },
+     "delta_solid_B_minus_A": -2,
+     "delta_first_B_minus_A": 0
+    },
+    "sky": {
+     "A": {
+      "first_row": 0,
+      "solid_row": 0
+     },
+     "B": {
+      "first_row": 0,
+      "solid_row": 0
+     },
+     "delta_solid_B_minus_A": 0,
+     "delta_first_B_minus_A": 0
+    },
+    "mist": {
+     "A": {
+      "first_row": 0,
+      "solid_row": 614
+     },
+     "B": {
+      "first_row": 23,
+      "solid_row": 368
+     },
+     "delta_solid_B_minus_A": -246,
+     "delta_first_B_minus_A": 23
+    }
+   }
+  }
+ }
+}

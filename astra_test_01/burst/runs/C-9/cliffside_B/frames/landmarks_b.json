@@ -1,0 +1,72 @@
+{
+ "note": "C-9 R-C9-42: the two far-layer landmarks as sprites. Layer-local coordinates; y is stated as a distance below the far layer's horizon row (690), which build_b_assets.py aligns between A and B.",
+ "horizon_layer_y": 690.0,
+ "landmarks": {
+  "cathedral": {
+   "source": "L12_sprite_cathedral.png",
+   "scale": 0.75949,
+   "building_w_source_px": 395.0,
+   "building_w_layer_px": 300.0,
+   "building_h_layer_px": 404.8,
+   "layer_position": [
+    461.01,
+    850.41
+   ],
+   "masonry_base_layer_y": 1278.0,
+   "masonry_base_below_horizon": 588.0,
+   "spire_layer_y": 873.2,
+   "spire_above_horizon": -183.2,
+   "feather_foot_layer_y": 1326.6,
+   "centre_layer_x": 630.0,
+   "z_index_relative": 3,
+   "measured": {
+    "base_row": 563,
+    "spire_row": 30,
+    "centre_col": 222.5,
+    "building_w": 395.0,
+    "component_x": [
+     0,
+     523
+    ],
+    "feather_bottom_row": 627,
+    "size": [
+     824,
+     650
+    ]
+   }
+  },
+  "tower": {
+   "source": "L12_sprite_tower.png",
+   "scale": 0.35172,
+   "building_w_source_px": 290.0,
+   "building_w_layer_px": 102.0,
+   "building_h_layer_px": 178.0,
+   "layer_position": [
+    1241.97,
+    687.91
+   ],
+   "masonry_base_layer_y": 900.0,
+   "masonry_base_below_horizon": 210.0,
+   "spire_layer_y": 722.0,
+   "spire_above_horizon": -32.0,
+   "feather_foot_layer_y": 922.5,
+   "centre_layer_x": 1300.0,
+   "z_index_relative": 2,
+   "measured": {
+    "base_row": 603,
+    "spire_row": 97,
+    "centre_col": 165.0,
+    "building_w": 290.0,
+    "component_x": [
+     18,
+     416
+    ],
+    "feather_bottom_row": 667,
+    "size": [
+     710,
+     720
+    ]
+   }
+  }
+ }
+}

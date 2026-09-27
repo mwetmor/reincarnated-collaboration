@@ -105,7 +105,13 @@ func _initialize():
 	# 8 cell px short with his sole 5 px off the ground -- which is a correct reading
 	# of a lifted foot and a crouched hip, and the wrong answer to "is he registered".
 	print("[registration: G must change the motion and nothing else]")
+	# R-C9-46 put a 0.18 s cross-fade on every clip change, so "play idle then measure"
+	# now measures a BLEND of idle and whatever was running. Wait it out first -- this
+	# is the shipped behaviour, so the probe waits for it rather than bypassing it.
 	rig.call("play_state", "idle")
+	for i in int(ceil(float(rig.call("blend_seconds")) * 60.0)) + 6:
+		await physics_frame
+		await process_frame
 	rig.call("seek", 0.0)
 	await process_frame
 	var fit_txt: String = FileAccess.get_file_as_string("res://frames/knight_rig_E.json")
@@ -166,10 +172,17 @@ func _initialize():
 	Input.action_release("move_right")
 	await physics_frame
 
-	# stance is the first half of the clip; collect contiguous runs of it
+	# stance is the first half of the clip; collect contiguous runs of it.
+	# The first samples are thrown away: the body is still accelerating AND the clip is
+	# still cross-fading out of idle (R-C9-46), and a stance measured through a blend is
+	# a true reading of a pose that is half another clip.
 	var runs: Array = []
 	var cur: Array = []
-	for s in samples:
+	var skip := int(ceil(float(rig.call("blend_seconds")) * 60.0)) + 10
+	for si in range(samples.size()):
+		if si < skip:
+			continue
+		var s = samples[si]
 		if float(s[0]) < wl * 0.5:
 			cur.append(s)
 		else:
@@ -250,7 +263,11 @@ func _initialize():
 		"the rig plays its RUN clip while the Keeper runs (%d/%d samples)" % [played_run, rs.size()])
 	var rruns: Array = []
 	var rcur: Array = []
-	for s in rs:
+	var rskip := int(ceil(float(rig.call("blend_seconds")) * 60.0)) + 10
+	for si2 in range(rs.size()):
+		if si2 < rskip:
+			continue
+		var s = rs[si2]
 		if String(s[3]) == "run" and float(s[0]) < rlen * rstance:
 			rcur.append(s)
 		else:
@@ -387,6 +404,70 @@ func _initialize():
 		report["contact_slide_" + gait] = {"planted_steps": n2, "worst_px": worst2,
 			"authored_slide_rig_px": fitj[gait]["heel_toe"]["contact_slide_rig_px"]}
 	anim.play("idle")
+
+	# --- 9. IDLE <-> WALK/RUN HAS NO POP (R-C9-46) ------------------------
+	# idle stands at the painted hip height; the walk crouches 10.3 rig px because the
+	# leg cannot take this step at full height. Switching clips used to move the whole
+	# knight in ONE frame. The bar is the walk's own bob: if the hip moves no faster
+	# during the transition than it does while he is walking, there is nothing there a
+	# player can pick out as a switch. Both sides are measured HERE, in the same run,
+	# rather than read from the build -- a bar read from a file is a bar that can go
+	# stale against the clip it is judging.
+	print("[idle <-> walk/run: the hip eases, it does not pop]")
+	keeper.velocity = Vector2.ZERO
+	keeper.global_position = Vector2(2450, 2100)
+	await physics_frame
+
+	var bob := {}
+	for gait in ["walk", "run"]:
+		anim.play(gait)
+		anim.pause()
+		var prev_y := 0.0
+		var worst_bob := 0.0
+		var gl: float = anim.get_animation(gait).length
+		var steps := int(round(gl * 60.0))
+		for i in range(steps + 1):
+			anim.seek(gl * float(i) / float(steps), true)
+			var y: float = rig.call("hip_y_global")
+			if i > 0:
+				worst_bob = maxf(worst_bob, absf(y - prev_y))
+			prev_y = y
+		bob[gait] = worst_bob
+		print("    %-4s own bob: %.4f px per 1/60 s (the bar)" % [gait, worst_bob])
+
+	for gait in ["walk", "run"]:
+		var act := "move_right"
+		anim.play("idle")
+		for i in 20:
+			await physics_frame
+			await process_frame
+		var ys: Array = []
+		Input.action_press(act)
+		if gait == "run":
+			Input.action_press("run_modifier")
+		for i in 40:
+			await physics_frame
+			await process_frame
+			ys.append(float(rig.call("hip_y_global")) - keeper.global_position.y)
+		Input.action_release(act)
+		if gait == "run":
+			Input.action_release("run_modifier")
+		for i in 40:
+			await physics_frame
+			await process_frame
+			ys.append(float(rig.call("hip_y_global")) - keeper.global_position.y)
+		var wstep := 0.0
+		for i in range(1, ys.size()):
+			wstep = maxf(wstep, absf(float(ys[i]) - float(ys[i - 1])))
+		var bar: float = float(bob[gait])
+		print("    idle<->%-4s worst hip step %.4f px per frame   (bar %.4f, blend %.2f s)"
+			% [gait, wstep, bar, float(rig.call("blend_seconds"))])
+		_check(wstep <= bar,
+			"idle<->%s hip moves no faster than the %s's own bob (%.4f <= %.4f)"
+			% [gait, gait, wstep, bar])
+		report["blend_" + gait] = {"worst_px_per_frame": wstep, "walk_bob_bar_px": bar,
+			"blend_seconds": float(rig.call("blend_seconds"))}
+	rig.call("play_state", "idle")
 
 	report["fails"] = fails
 	var f := FileAccess.open("res://frames/knight_rig_probe.json", FileAccess.WRITE)

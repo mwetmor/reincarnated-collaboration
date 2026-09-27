@@ -53,6 +53,12 @@ const LAYER_B := [
 const LAYER_KEYS := ["sky", "far_ruins", "forest_valley", "mist"]
 const OFFSETS_JSON := "res://parallax/layers_b/offsets.json"
 
+# The two B-only far-layer landmarks (R-C9-42), children of Layer_far_ruins. They carry
+# no collision -- they are background a mile away -- so `visible` is the whole of it,
+# unlike the still figures below, which have to take a StaticBody2D down with them.
+const B_LANDMARK_PARENT := "Layer_far_ruins"
+const B_LANDMARK_PREFIX := "Landmark_"
+
 # Whole subtrees of H1-register dressing, hidden in B.
 const H1_BRANCHES := ["Shadows", "Overhead", "Near_0", "Air"]
 # Children of Actors/ with these name prefixes are H1-register dressing too.
@@ -74,6 +80,7 @@ var _h1_nodes: Array[CanvasItem] = []
 var _keeper_sprite: CanvasItem = null
 var _knight_sprite: CanvasItem = null
 var _figures: Array = []          # the B-only still figures (angel, demon)
+var _landmarks: Array[CanvasItem] = []   # the B-only far landmarks (cathedral, tower)
 var _run_note: String = "run painted"
 var _style_b: bool = true
 var _label: Label
@@ -106,6 +113,13 @@ func _ready() -> void:
 					_h1_nodes.append(child as CanvasItem)
 					break
 
+	_landmarks.clear()
+	var lm_parent := get_node_or_null(NodePath(B_LANDMARK_PARENT))
+	if lm_parent != null:
+		for child in lm_parent.get_children():
+			if child is CanvasItem and String(child.name).begins_with(B_LANDMARK_PREFIX):
+				_landmarks.append(child as CanvasItem)
+
 	_figures.clear()
 	var actors_root := get_node_or_null(^"Actors")
 	if actors_root != null:
@@ -125,8 +139,9 @@ func _ready() -> void:
 	_read_run_coverage()
 	_build_hud()
 	_apply(true)
-	print("style_toggle: ready  sprites=%d  h1_nodes=%d  knight=%s  b_figures=%d"
-		% [_sprites.size(), _h1_nodes.size(), str(_knight_sprite != null), _figures.size()])
+	print("style_toggle: ready  sprites=%d  h1_nodes=%d  knight=%s  b_figures=%d  b_landmarks=%d"
+		% [_sprites.size(), _h1_nodes.size(), str(_knight_sprite != null), _figures.size(),
+		   _landmarks.size()])
 
 
 # The knight's run is painted per direction and Grok did not deliver one for every
@@ -228,6 +243,8 @@ func _apply(to_b: bool) -> int:
 			_knight_sprite.call("sync_now")
 	for n in _h1_nodes:
 		n.visible = not to_b
+	for n in _landmarks:
+		n.visible = to_b
 	# The B-only still figures. They take their COLLISION down with them, not just
 	# their sprite: a hidden StaticBody2D still blocks, and the Keeper would walk into
 	# an invisible angel in style A.
@@ -251,6 +268,18 @@ func layer_offsets() -> Array[float]:
 
 func layer_offsets_x() -> Array[float]:
 	return _layer_dx
+
+
+func landmark_count() -> int:
+	return _landmarks.size()
+
+
+func active_landmark_count() -> int:
+	var n := 0
+	for l in _landmarks:
+		if l.visible:
+			n += 1
+	return n
 
 
 func figure_count() -> int:

@@ -5,16 +5,20 @@ Reads the painted B art from runs/C-9/artifacts/ (READ-ONLY, conductor-owned) an
 writes Godot-ready PNGs into this project's parallax/tiles_b/ and parallax/layers_b/,
 plus parallax/layers_b/offsets.json.
 
-  plate   CS9-band/foreground.png        5376x4096 RGBA, STRAIGHT ALPHA, already
-          matted (ground + rock + the ported sunset cloud band under the cliffs).
+  plate   CS9-band5/foreground.png       5376x4096 RGBA, STRAIGHT ALPHA, already
+          matted (ground + rock + the ORIGINAL C-3 cloud band under the cliffs --
+          band3 is deterministic, so the cloud pixels match H1's; band6 was fired in
+          error and was already rejected in C-3 as R-C3-82).
           NO green key -- it arrives with its own alpha.  Split on the H1 tile grid:
              tiles_b/tile_0_0.png    (0,0,4096,4096)
              tiles_b/tile_4096_0.png (4096,0,1280,4096)
   sky     CS9-assembly/L11_layer_sky.png          opaque, no key (darker sunset)
-  far     CS9-assembly/L11_layer_far.png          burning tower left, burning cathedral
-                                                  right; #00ff00 above the land -> UNMIX
-  forest  CS9-assembly/L11_layer_forest.png       full-width burning band; #00ff00 above
-                                                  the treeline -> UNMIX
+  far     CS9-assembly/L12_layer_far.png          hills only -- the tower and cathedral
+                                                  are REMOVED from the layer and placed
+                                                  as sprites instead (R-C9-42); #00ff00
+                                                  above the land -> UNMIX
+  forest  CS9-assembly/L12_layer_forest.png       full-width burning band, 9 de-glitch
+                                                  edits; #00ff00 above the treeline -> UNMIX
   mist    CS9-assembly/L10_layer_mist.png         light on black -> alpha=luminance,
                                                   capped 220/255, TINTED purple
 
@@ -83,7 +87,7 @@ Image.MAX_IMAGE_PIXELS = None
 PROJ = Path(__file__).resolve().parent.parent
 ART = PROJ.parent / "artifacts"
 SRC = ART / "CS9-assembly"
-BAND = ART / "CS9-band"
+BAND = ART / "CS9-band5"
 A_LAYERS = PROJ / "parallax" / "layers"
 OUT_TILES = PROJ / "parallax" / "tiles_b"
 OUT_LAYERS = PROJ / "parallax" / "layers_b"
@@ -93,42 +97,29 @@ MIST_TINT = np.array([150, 95, 170], np.float32) / 255.0
 MIST_ALPHA_CAP = 220 / 255.0
 
 # Horizontal placement of the B layers, in layer pixels, applied by style_toggle.gd the
-# same way the vertical offsets are. Only far_ruins needs one: its two landmarks (the
-# burning tower and the burning cathedral) have to be BOTH on screen and BOTH on the
-# skyline when the knight is at the bridge's west landing, and the value below is
-# measured from a capture there rather than derived -- see tools/place_far_layer.py.
-LAYER_DX = {"sky": 0.0, "far_ruins": 160.0, "forest_valley": 0.0, "mist": 0.0}
+# same way the vertical offsets are.  NONE of them needs one any more.
+#
+# It used to: far_ruins carried +160 x and a +626 y OVERRIDE, because the two giant
+# landmarks painted INTO that layer stood 500-580 px above its ridge and the horizon
+# rule put them off the top of the screen.  Matt's read of the result was that the
+# horizon was "far too large" -- which it was: the override was sized for the
+# landmarks, not for the land, and it dragged the whole ridge 598 px down the frame.
+#
+# R-C9-42 removes the cause instead of the symptom. The landmarks are cut OUT of the
+# layer (CS9-assembly/L12_layer_far.png is the same painting with the tower and the
+# cathedral removed and the hills continued behind them) and placed as two separate
+# sprites, staggered in depth the way A's far layer staggers its own -- see
+# tools/place_landmarks_b.py. With nothing tall left in it, the far layer is a layer of
+# anonymous hills again and the plain horizon rule is exactly right for it: B's far
+# ridge lands on the row A's far ridge occupies.
+LAYER_DX = {"sky": 0.0, "far_ruins": 0.0, "forest_valley": 0.0, "mist": 0.0}
+LAYER_DY_OVERRIDE = {}
 
-# FAR LAYER FRAMING, and why it does not use the horizon rule.
-#
-# The horizon rule lands the B ridge on the row the H1 ridge occupied (offset +28), and
-# that is right for a layer of anonymous hills.  This one carries two GIANT landmarks
-# that stand 583 px (the burning tower) and 501 px (the burning cathedral) ABOVE that
-# ridge, and at +28 the ridge sits on screen row 42 at the bridge -- so both of them are
-# off the top of the screen and the brief's whole point is invisible.  Measured at the
-# bridge's west landing (2700, 1500), capture in tools/shot_bridge.gd:
-#
-#   far ridge, horizon rule      screen row  42      landmarks at -541 and -459
-#   forest goes solid at         screen row 662      (sparse treetops from row 23)
-#   far ridge, this override     screen row 640      landmarks at   57 and  139
-#
-# 640 puts the ridge just above the forest's solid line, so the two landmarks stand on
-# the skyline with a thin band of far hills under them and the forest closing in below.
-#
-# HORIZONTALLY they do not both fit: the two masonry silhouettes span layer x 354..2394,
-# 2041 px, against a 1920 viewport. +160 centres the pair a little left of centre so the
-# TOWER -- the narrower of the two, 283 px against the cathedral's 405 -- clears the left
-# edge intact, and the 121 px of overflow is taken off the cathedral's nave, away from
-# its spire. Both are recognisable; neither is whole. Stated rather than hidden.
-LAYER_DY_OVERRIDE = {"far_ruins": 626.0}
-
-# Dropping the far layer 598 px brings its own TOP EDGE down into the frame, and the
-# painted smoke plumes run right off that edge -- so the plume stopped dead along a
-# straight horizontal line in open sky, which reads as a rectangle of slightly lighter
-# grey. It is the art's edge, not a compositing bug, and the layer cannot be moved back
-# up without losing the landmarks it was moved down for. So the top rows are faded to
-# transparent: the plume dissolves into the sky instead of being guillotined.
-TOP_FADE_PX = {"far_ruins": 150}
+# No layer's own top edge is in frame any more either, so the top-row fade that hid the
+# guillotined plume is gone with the override that made it necessary. Kept as an empty
+# dict rather than deleted: the mechanism is sound and the next layer that has to be
+# dropped will want it.
+TOP_FADE_PX = {}
 
 # FG10 forest: 3x3 grid of 1536x1024 panels at step 1280x768 over 4096x2560
 FG10_GRID = (3, 3)
@@ -273,7 +264,7 @@ def main():
     report = {}
 
     # ---- plate: already matted, no key ------------------------------------
-    print("plate: CS9-band/foreground.png (straight alpha, no key)")
+    print("plate: CS9-band5/foreground.png (original C-3 clouds; straight alpha, no key)")
     plate = Image.open(BAND / "foreground.png").convert("RGBA")
     assert plate.size == (5376, 4096), f"plate is {plate.size}, expected (5376, 4096)"
     for name, x0, x1 in (("tile_0_0.png", 0, 4096), ("tile_4096_0.png", 4096, 5376)):
@@ -288,10 +279,10 @@ def main():
     sky_src = Image.open(SRC / "L11_layer_sky.png").convert("RGB")
     jobs = [
         ("sky.png", sky_src, "L11_layer_sky.png", "opaque"),
-        ("far_ruins.png", Image.open(SRC / "L11_layer_far.png").convert("RGB"),
-         "L11_layer_far.png", "unmix"),
-        ("forest_valley.png", Image.open(SRC / "L11_layer_forest.png").convert("RGB"),
-         "L11_layer_forest.png", "unmix"),
+        ("far_ruins.png", Image.open(SRC / "L12_layer_far.png").convert("RGB"),
+         "L12_layer_far.png", "unmix"),
+        ("forest_valley.png", Image.open(SRC / "L12_layer_forest.png").convert("RGB"),
+         "L12_layer_forest.png", "unmix"),
         ("mist.png", Image.open(SRC / "L10_layer_mist.png").convert("RGB"),
          "L10_layer_mist.png (tinted %s)" % list(map(int, MIST_TINT * 255)), "mist"),
     ]

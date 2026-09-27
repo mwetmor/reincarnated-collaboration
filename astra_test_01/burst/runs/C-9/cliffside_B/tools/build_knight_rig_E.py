@@ -79,6 +79,11 @@ RES = 2.0              # texels per canvas pixel in the part PNGs
 # 19.4 deg, and a 2*pi wrap would show ~360, so it was real geometry, not atan2.)
 SWING_LIFT = 4.0
 
+# Width of the hip-height smoothing window, as a fraction of the cycle. 6% is two keys
+# either side at the walk's 32 -- enough to carry the hip across a stance handover, far
+# too short to flatten the bob the plant derives.
+HIP_SMOOTH_FRAC = 0.06
+
 # --- THE JOINT FILLS (R-C9-40) ---------------------------------------------
 # HIP_CAP_SEED is the radius, in seed px, of the disc each thigh carries at its hip
 # socket.  It is not an eyeballed number: tools/render_rig_E.py rasterises the shipped
@@ -983,6 +988,7 @@ def main():
             return (x + shift, y), phi, False
 
         frames = []
+        hip_limit = []
         contact_keys = []
         clamped = 0
         min_clear = 1e9
@@ -1007,15 +1013,24 @@ def main():
             # far leg's own ground line folded in via goff:
             #     hh <= sqrt(Lmax^2 - dx^2) - (ankle_y - goff)
             # So the bob/bounce is DERIVED FROM THE PLANT, never added on top of it.
+            # BOTH LEGS, ALWAYS -- not just the planted one.  Restricting the reach
+            # clamp to the supporting leg makes the binding constraint CHANGE IDENTITY
+            # in a single frame at each stance handover, and because the two legs stand
+            # on ground lines 7.1 rig px apart (the depth offset) the two constraints do
+            # not agree there: the hip stepped 2.32 rig px -- the whole bob -- in one
+            # physics frame, twice per stride.  A swinging leg's foot is lifted and near
+            # the body, so its constraint is slack and does not bind; including it costs
+            # nothing and makes the handover continuous, because at the moment of
+            # handover the outgoing and incoming constraints are both evaluated and the
+            # min passes smoothly from one to the other.
             hh = hip_h_nom
             for (a, st, goff, xoff) in ((a_n, st_n, 0.0, 0.0),
                                         (a_f, st_f, far_off[1], far_off[0])):
-                if not st:
-                    continue
                 dx = abs(a[0] - (Jr["hip"][0] + xoff))
                 hh = min(hh, math.sqrt(max(Lmax * Lmax - dx * dx, 1.0)) - (a[1] - goff))
             if hh < hip_h_nom - 1e-6:
                 clamped += 1
+            hip_limit.append(hh)
             hip = (Jr["hip"][0], -hh)
             hip_f = (hip[0] + far_off[0], hip[1] + far_off[1])
             k_n, ok_n = two_bone_ik(hip, a_n, l1, l2)
@@ -1028,6 +1043,41 @@ def main():
                                arm_n=math.radians(arm_near_deg) * math.sin(w + math.pi),
                                arm_f=math.radians(arm_far_deg) * math.sin(w),
                                reach_ok=(ok_n and ok_f)))
+
+        # THE HIP'S BOB SNAPPED, and it had to be fixed before anything could be
+        # asserted against it.  The reach clamp is evaluated against whichever leg is
+        # planted, and the two legs stand on ground lines 7.1 rig px apart (the depth
+        # offset), so at each stance handover the binding constraint changes in one
+        # frame and the hip stepped 2.12 rig px -- nearly the whole 2.32 px bob, in a
+        # single physics frame, twice per stride.  Measured, not suspected.
+        #
+        # Smoothing the height outright is NOT safe: the clamp is what keeps the
+        # planted foot within the leg's reach, and a hip smoothed UPWARD past it would
+        # lift the foot off the ground -- trading a visible snap for an invisible
+        # float.  So the smoothing is applied and then the limit is re-imposed:
+        # hh = min(smoothed, limit).  The curve follows the limit's lower envelope
+        # exactly where the leg is at full stretch, and rises smoothly instead of
+        # stepping where the constraint hands over.  Reach is still guaranteed by
+        # construction, because the last operation is the constraint itself.
+        if hip_limit:
+            M = len(hip_limit) - 1                      # the last key repeats the first
+            k = max(1, int(round(HIP_SMOOTH_FRAC * M)))
+            sm = []
+            for i in range(M):
+                w = [hip_limit[(i + q) % M] for q in range(-k, k + 1)]
+                sm.append(sum(w) / len(w))
+            sm.append(sm[0])
+            hip_snap_before = max(abs(hip_limit[i + 1] - hip_limit[i]) for i in range(M))
+            for i, f in enumerate(frames):
+                hh2 = min(sm[i], hip_limit[i])
+                f["hip"] = (f["hip"][0], -hh2)
+                f["hip_f"] = (f["hip"][0] + far_off[0], -hh2 + far_off[1])
+                f["k_n"], _ok = two_bone_ik(f["hip"], f["a_n"], l1, l2)
+                f["k_f"], _ok2 = two_bone_ik(f["hip_f"], f["a_f"], l1, l2)
+            hip_snap_after = max(abs(frames[i + 1]["hip"][1] - frames[i]["hip"][1])
+                                 for i in range(M))
+        else:
+            hip_snap_before = hip_snap_after = 0.0
 
         # THE TABARD.  Conductor's physics spec: rigid above the belt; below it a damped
         # pendulum from the hip line, lagging 0.08-0.12 s, one settle per stride, never
@@ -1161,6 +1211,8 @@ def main():
             "crouch_rig_px": round(max(q[1] for q in hip_positions), 3),
             "crouch_canvas_px": round(max(q[1] for q in hip_positions) * node_scale, 3),
             "hip_min_height_rig_px": round(hip_h_paint - max(q[1] for q in hip_positions), 3),
+            "hip_snap_max_per_key_rig_px_before_smoothing": round(hip_snap_before, 4),
+            "hip_snap_max_per_key_rig_px": round(hip_snap_after, 4),
             "hip_travel_rig_px": round(hi - lo, 3),
             "hip_travel_canvas_px": round((hi - lo) * node_scale, 3),
             "frames_hip_clamped_by_reach": clamped, "samples": N,

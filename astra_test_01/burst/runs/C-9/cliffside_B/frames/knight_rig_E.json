@@ -618,13 +618,15 @@
   "crouch_rig_px": 10.324,
   "crouch_canvas_px": 7.819,
   "hip_min_height_rig_px": 91.126,
+  "hip_snap_max_per_key_rig_px_before_smoothing": 1.934,
+  "hip_snap_max_per_key_rig_px": 1.6964,
   "hip_travel_rig_px": 2.324,
   "hip_travel_canvas_px": 1.76,
-  "frames_hip_clamped_by_reach": 11,
+  "frames_hip_clamped_by_reach": 13,
   "samples": 32,
   "forward_lean_deg": 0.0,
   "pollaxe_carry_deg": 0.0,
-  "thigh_rotation_range_deg": 63.78,
+  "thigh_rotation_range_deg": 62.92,
   "tabard": {
    "model": "baked lagged+damped pendulum from the near thigh",
    "lag_s": 0.1,
@@ -966,13 +968,15 @@
   "crouch_rig_px": 9.964,
   "crouch_canvas_px": 7.547,
   "hip_min_height_rig_px": 91.485,
+  "hip_snap_max_per_key_rig_px_before_smoothing": 3.6819,
+  "hip_snap_max_per_key_rig_px": 3.2428,
   "hip_travel_rig_px": 5.964,
   "hip_travel_canvas_px": 4.517,
-  "frames_hip_clamped_by_reach": 11,
+  "frames_hip_clamped_by_reach": 29,
   "samples": 48,
   "forward_lean_deg": 7.0,
   "pollaxe_carry_deg": 34.0,
-  "thigh_rotation_range_deg": 91.19,
+  "thigh_rotation_range_deg": 88.94,
   "tabard": {
    "model": "baked lagged+damped pendulum from the near thigh",
    "lag_s": 0.08,
@@ -990,7 +994,7 @@
    "side": "n",
    "joint": "knee",
    "deg": [
-    2.44,
+    9.52,
     66.3
    ],
    "envelope": [
@@ -1004,7 +1008,7 @@
    "joint": "ankle",
    "deg": [
     -56.95,
-    1.56
+    -1.09
    ],
    "envelope": [
     -66.0,
@@ -1016,7 +1020,7 @@
    "side": "f",
    "joint": "knee",
    "deg": [
-    2.44,
+    9.52,
     66.3
    ],
    "envelope": [
@@ -1030,7 +1034,7 @@
    "joint": "ankle",
    "deg": [
     -56.95,
-    1.56
+    -1.09
    ],
    "envelope": [
     -66.0,
@@ -1042,7 +1046,7 @@
    "side": "n",
    "joint": "knee",
    "deg": [
-    2.44,
+    9.52,
     78.68
    ],
    "envelope": [
@@ -1055,8 +1059,8 @@
    "side": "n",
    "joint": "ankle",
    "deg": [
-    -48.96,
-    22.82
+    -49.37,
+    20.56
    ],
    "envelope": [
     -66.0,
@@ -1068,7 +1072,7 @@
    "side": "f",
    "joint": "knee",
    "deg": [
-    2.44,
+    9.52,
     78.68
    ],
    "envelope": [
@@ -1081,8 +1085,8 @@
    "side": "f",
    "joint": "ankle",
    "deg": [
-    -48.96,
-    22.82
+    -49.37,
+    20.56
    ],
    "envelope": [
     -66.0,

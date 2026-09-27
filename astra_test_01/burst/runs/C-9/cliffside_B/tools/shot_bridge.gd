@@ -35,6 +35,23 @@ func _initialize():
 					if c is CanvasItem and String(c.name) != "Keeper":
 						c.visible = false
 
+	# SHOT_ONLY means "measure this layer", and the HUD is a full-width panel at the top
+	# of the frame. Left up, it is non-background on row 0 and every coverage measure
+	# returns 0 for every layer -- which is what happened, cleanly, twice.
+	if only != "":
+		for c in scene.get_children():
+			if c is CanvasLayer:
+				(c as CanvasLayer).visible = false
+
+	# SHOT_HIDE=<name prefix>: hide matching nodes anywhere in the scene, so a feature's
+	# own screen box can be measured as the DIFFERENCE between a frame with it and a
+	# frame without it, rather than computed from the parallax scroll and hoped for.
+	var hide := OS.get_environment("SHOT_HIDE")
+	if hide != "":
+		for n in scene.find_children("*", "CanvasItem", true, false):
+			if String(n.name).begins_with(hide):
+				(n as CanvasItem).visible = false
+
 	var face := OS.get_environment("SHOT_FACE")
 	if face != "":
 		Input.action_press(face)

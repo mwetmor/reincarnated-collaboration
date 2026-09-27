@@ -1,4 +1,14 @@
 {
+ "blend_run": {
+  "blend_seconds": 0.18,
+  "walk_bob_bar_px": 2.7845458984375,
+  "worst_px_per_frame": 2.3839111328125
+ },
+ "blend_walk": {
+  "blend_seconds": 0.18,
+  "walk_bob_bar_px": 1.1727294921875,
+  "worst_px_per_frame": 1.0341796875
+ },
  "bones": 17,
  "contact_slide_run": {
   "authored_slide_rig_px": 0.0,
@@ -8,7 +18,7 @@
  "contact_slide_walk": {
   "authored_slide_rig_px": 0.0,
   "planted_steps": 15,
-  "worst_px": 0.00639511095062861
+  "worst_px": 0.00688339220062861
  },
  "fails": 0,
  "foot_slide": {
@@ -19,16 +29,7 @@
    {
     "body_expected_px": 69.9833333333333,
     "body_moved_px": 69.98388671875,
-    "foot_world_x_range_px": 10.477783203125,
-    "samples": 18,
-    "t_from": 0.0,
-    "t_to": 0.283333333333333,
-    "valid": true
-   },
-   {
-    "body_expected_px": 69.9833333333333,
-    "body_moved_px": 69.98388671875,
-    "foot_world_x_range_px": 10.830322265625,
+    "foot_world_x_range_px": 10.87060546875,
     "samples": 18,
     "t_from": 0.00362332661946629,
     "t_to": 0.2869566599528,
@@ -37,7 +38,7 @@
    {
     "body_expected_px": 65.8666666666667,
     "body_moved_px": 65.8671875,
-    "foot_world_x_range_px": 9.570068359375,
+    "foot_world_x_range_px": 9.60009765625,
     "samples": 17,
     "t_from": 0.0072466532389327,
     "t_to": 0.273913319905599,
@@ -46,7 +47,7 @@
    {
     "body_expected_px": 65.8666666666667,
     "body_moved_px": 65.8671875,
-    "foot_world_x_range_px": 9.81494140625,
+    "foot_world_x_range_px": 9.87841796875,
     "samples": 17,
     "t_from": 0.0108699798583991,
     "t_to": 0.277536646525066,
@@ -55,7 +56,7 @@
    {
     "body_expected_px": 65.8666666666667,
     "body_moved_px": 5.510009765625,
-    "foot_world_x_range_px": 50.431640625,
+    "foot_world_x_range_px": 50.35595703125,
     "samples": 17,
     "t_from": 0.0144933064778655,
     "t_to": 0.281159973144532,
@@ -63,7 +64,7 @@
    }
   ],
   "stride_travel_px": 143.188371658325,
-  "worst_stance_drift_canvas_px": 10.830322265625
+  "worst_stance_drift_canvas_px": 10.87060546875
  },
  "grok_walk_stride_s": 0.579710144927536,
  "hip_disc_far": {
@@ -92,40 +93,33 @@
    {
     "body_expected_px": 74.1,
     "body_moved_px": 74.1005859375,
-    "foot_world_x_range_px": 8.74658203125,
-    "samples": 10,
-    "valid": true
-   },
-   {
-    "body_expected_px": 74.1,
-    "body_moved_px": 74.1005859375,
-    "foot_world_x_range_px": 11.63427734375,
+    "foot_world_x_range_px": 11.222900390625,
     "samples": 10,
     "valid": true
    },
    {
     "body_expected_px": 74.1,
     "body_moved_px": 21.9677734375,
-    "foot_world_x_range_px": 41.87255859375,
+    "foot_world_x_range_px": 42.0966796875,
     "samples": 10,
     "valid": false
    },
    {
     "body_expected_px": 74.1,
     "body_moved_px": 0.0,
-    "foot_world_x_range_px": 63.9638671875,
+    "foot_world_x_range_px": 64.0205078125,
     "samples": 10,
     "valid": false
    },
    {
     "body_expected_px": 74.1,
     "body_moved_px": 0.0,
-    "foot_world_x_range_px": 64.36328125,
+    "foot_world_x_range_px": 64.3671875,
     "samples": 10,
     "valid": false
    }
   ],
-  "worst_stance_drift_canvas_px": 11.63427734375
+  "worst_stance_drift_canvas_px": 11.222900390625
  },
  "sprites": 15,
  "walk_length_s": 0.579710006713867

@@ -28,6 +28,20 @@ extends Node2D
 # of this knight's figure height and no amount of polish covers that with a foot on the
 # ground.  idle is the same 2.0 s breath the Grok idle cells use.
 
+# IDLE <-> WALK/RUN BLEND (R-C9-46, Matt).  idle stands at the painted hip height and
+# the walk carries a 10.3 rig px crouch -- the leg is simply not long enough to take
+# this build's step at full height -- so switching clips POPPED the knight up or down
+# in one frame.  AnimationPlayer.play(name, blend) cross-fades every track, so the hip
+# eases between the two instead of stepping, and the legs ease with it.
+#
+# 0.18 s is not chosen by feel.  The floor is set by the assertion the brief asks for:
+# the hip's per-frame change during the transition must stay under the walk's OWN
+# per-frame bob, which is 1.551 rig px at 60 Hz, so the crouch of 10.324 needs at least
+# 0.111 s.  0.18 gives a 1.6x margin at 0.956 rig px per frame, and it is still well
+# short of the Keeper's step (0.29 s), so he settles within one step rather than
+# visibly winding up.  Both numbers are re-measured by tools/probe_rig.gd.
+const BLEND_SECONDS := 0.18
+
 const WALK := "walk"
 const RUN := "run"
 const IDLE := "idle"
@@ -54,7 +68,7 @@ func play_state(kind: String) -> void:
 	if _current == want and _anim.is_playing():
 		return
 	_current = want
-	_anim.play(want)
+	_anim.play(want, BLEND_SECONDS)
 
 
 func current_animation() -> String:
@@ -89,6 +103,17 @@ func hip_global() -> Vector2:
 func seek(t: float) -> void:
 	if _anim != null:
 		_anim.seek(t, true)
+
+
+func blend_seconds() -> float:
+	return BLEND_SECONDS
+
+
+# The hip bone's world position, for the transition probe: what pops is the HIP, and a
+# bone's global position is the thing that either steps or eases.
+func hip_y_global() -> float:
+	var b := _skel.get_node_or_null(^"hip")
+	return 0.0 if b == null else (b as Node2D).global_position.y
 
 
 func bone_count() -> int:

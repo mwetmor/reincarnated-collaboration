@@ -1,0 +1,65 @@
+{
+ "note": "C-9 R-C9-41/42: on-screen boxes of the two far-layer landmark sprites, measured by capturing with and without each one. 1920x1080.",
+ "cameras": {
+  "bridge": {
+   "camera_px": [
+    2700,
+    1500
+   ],
+   "landmarks": {
+    "cathedral": {
+     "screen_box_x0y0x1y1": [
+      27,
+      215,
+      641,
+      667
+     ]
+    },
+    "tower": {
+     "screen_box_x0y0x1y1": [
+      807,
+      46,
+      1053,
+      278
+     ]
+    }
+   },
+   "both_hidden_box": [
+    27,
+    46,
+    1053,
+    667
+   ]
+  },
+  "plateau": {
+   "camera_px": [
+    2200,
+    2000
+   ],
+   "landmarks": {
+    "cathedral": {
+     "screen_box_x0y0x1y1": [
+      178,
+      90,
+      755,
+      445
+     ]
+    },
+    "tower": {
+     "screen_box_x0y0x1y1": [
+      941,
+      0,
+      1024,
+      142
+     ]
+    }
+   },
+   "both_hidden_box": [
+    178,
+    0,
+    1024,
+    445
+   ]
+  }
+ }
+}
