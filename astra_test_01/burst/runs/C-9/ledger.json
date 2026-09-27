@@ -11044,9 +11044,211 @@
       "codex_version": "codex-cli 0.153.4",
       "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
       "exit": 0
+    },
+    {
+      "id": "CA-est-A",
+      "type": "GENERATE",
+      "experiment": "P6-cathedral-establishing",
+      "register_card": {
+        "path": "runs/C-9/REGISTER_CARD.md",
+        "sha256": "1977d4ba2bdfb7cbd133f9c45675b00647ed6452f389d6a5c21b069580f21a3e"
+      },
+      "brief_sha256": "a735c8b3176e6be66681dc5f7f6d7d6350f71609df01314b02da8b09d9f3f399",
+      "started": "2026-09-27T18:08:14.630402+00:00",
+      "ended": "2026-09-27T18:14:59.147863+00:00",
+      "minutes": 6.741914608333415,
+      "image_calls": 4,
+      "tool_calls": 6,
+      "audit": {
+        "violations": [],
+        "image_calls": 4,
+        "tool_calls": 6,
+        "tools_seen": {
+          "command_execution": 6
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0e40d-aa88-7942-8172-600819e38ce8/exec-4047e73a-e7eb-4a9c-aa5f-dd4fafedb608.png",
+            "sha256": "eb5c40c5b46c19b0c088e7236ad5ba049a1c8b7a7a53144320d48a008a98898d"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0e40d-aa88-7942-8172-600819e38ce8/exec-675146ca-0b4c-4f8c-b99d-84beefed4bbd.png",
+            "sha256": "c24d83c312d6c9ced4cf91f7296351cd8f66edc74c1fc1908196fe93c2914caa"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0e40d-aa88-7942-8172-600819e38ce8/exec-a66ebeda-881d-4076-93c1-c431dae8b9b2.png",
+            "sha256": "0af7d22bbfc3a1de00934bf59107186351e22359af624c0db95a1f5953bec3a4"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0e40d-aa88-7942-8172-600819e38ce8/exec-f3806f77-8a2d-4dc8-8214-c31e3a1fbeaf.png",
+            "sha256": "516e935204c91b960655fc25970a770407e450c0d65a4655190debb08bdfca3c"
+          }
+        ]
+      },
+      "receipt_sha256": "85c4c4ec323f45e9e2d3b09251715b31ea58383f3ed30c82ac08954faafe2798",
+      "artifacts": [
+        {
+          "name": "CA-est-A_a.png",
+          "sha256": "0af7d22bbfc3a1de00934bf59107186351e22359af624c0db95a1f5953bec3a4"
+        },
+        {
+          "name": "CA-est-A_b.png",
+          "sha256": "eb5c40c5b46c19b0c088e7236ad5ba049a1c8b7a7a53144320d48a008a98898d"
+        },
+        {
+          "name": "exec-4047e73a-e7eb-4a9c-aa5f-dd4fafedb608.provenance.json",
+          "sha256": "6a64dd3e8708065f2730d7a853c672669916c44d86e24a08a7b2d0a14223088e"
+        },
+        {
+          "name": "exec-675146ca-0b4c-4f8c-b99d-84beefed4bbd.provenance.json",
+          "sha256": "2ac28855001a0ad4467a747b06672a7b801a7900dc2165850266e4f356883ed2"
+        },
+        {
+          "name": "exec-a66ebeda-881d-4076-93c1-c431dae8b9b2.provenance.json",
+          "sha256": "ecf2c44f981b7d722c80339ce9611361beebc21cd74295a7b42267e8932e673d"
+        },
+        {
+          "name": "exec-f3806f77-8a2d-4dc8-8214-c31e3a1fbeaf.provenance.json",
+          "sha256": "d2d85762fa627f8434b27f070dc24917f17ccad798c7a34f31a741745c069e3f"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0e40d-aa88-7942-8172-600819e38ce8/exec-4047e73a-e7eb-4a9c-aa5f-dd4fafedb608.png",
+          "sha256": "eb5c40c5b46c19b0c088e7236ad5ba049a1c8b7a7a53144320d48a008a98898d"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0e40d-aa88-7942-8172-600819e38ce8/exec-675146ca-0b4c-4f8c-b99d-84beefed4bbd.png",
+          "sha256": "c24d83c312d6c9ced4cf91f7296351cd8f66edc74c1fc1908196fe93c2914caa"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0e40d-aa88-7942-8172-600819e38ce8/exec-a66ebeda-881d-4076-93c1-c431dae8b9b2.png",
+          "sha256": "0af7d22bbfc3a1de00934bf59107186351e22359af624c0db95a1f5953bec3a4"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0e40d-aa88-7942-8172-600819e38ce8/exec-f3806f77-8a2d-4dc8-8214-c31e3a1fbeaf.png",
+          "sha256": "516e935204c91b960655fc25970a770407e450c0d65a4655190debb08bdfca3c"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
+    },
+    {
+      "id": "CA-est-B",
+      "type": "GENERATE",
+      "experiment": "P6-cathedral-establishing",
+      "register_card": {
+        "path": "runs/C-9/REGISTER_CARD.md",
+        "sha256": "1977d4ba2bdfb7cbd133f9c45675b00647ed6452f389d6a5c21b069580f21a3e"
+      },
+      "brief_sha256": "ef6f8d1ba80bf0464c6dcc6a60b21a45e7eb7235d29f2ad4ba7b227fab6c1173",
+      "started": "2026-09-27T18:08:14.630403+00:00",
+      "ended": "2026-09-27T18:15:29.849701+00:00",
+      "minutes": 7.253608334733387,
+      "image_calls": 4,
+      "tool_calls": 3,
+      "audit": {
+        "violations": [],
+        "image_calls": 4,
+        "tool_calls": 3,
+        "tools_seen": {
+          "command_execution": 3
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0e40d-a9e9-74a2-970a-f103364c6320/exec-3818dba6-d096-4ba4-b5dd-854004cc727f.png",
+            "sha256": "a47da873988a148a794258e96d718c2f15d35298e6488f0aa16357196fce9fd9"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0e40d-a9e9-74a2-970a-f103364c6320/exec-547bea10-c0df-4a69-965a-4b0d5f0f4e44.png",
+            "sha256": "4390a9048359a7959a25c51f6be6528fb7e3a51c364abeaaf2eac765223f7e0f"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0e40d-a9e9-74a2-970a-f103364c6320/exec-830708a9-5c93-4057-a0d9-559b7d04b4ec.png",
+            "sha256": "fed8c2f766287c30b143100eb784a8e36fc7b8da4757bc9d7993b335194fe967"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0e40d-a9e9-74a2-970a-f103364c6320/exec-8d9751dd-2445-4016-9c6c-54c376e5e5f4.png",
+            "sha256": "be283a9a73b1607e6319f1d6050895396e4bdf18421845618244e6d5f758d737"
+          }
+        ]
+      },
+      "receipt_sha256": "ffed81d5a8e3489372ca18e6a3eb68c4a5c2694d4c963febd57e4dcc28171f6e",
+      "artifacts": [
+        {
+          "name": "CA-est-B_a.png",
+          "sha256": "be283a9a73b1607e6319f1d6050895396e4bdf18421845618244e6d5f758d737"
+        },
+        {
+          "name": "CA-est-B_b.png",
+          "sha256": "fed8c2f766287c30b143100eb784a8e36fc7b8da4757bc9d7993b335194fe967"
+        },
+        {
+          "name": "exec-3818dba6-d096-4ba4-b5dd-854004cc727f.provenance.json",
+          "sha256": "0c88b9726f512b10c0f1a775b460d996bd79639c4849d125cb70aabed9fcd3c0"
+        },
+        {
+          "name": "exec-547bea10-c0df-4a69-965a-4b0d5f0f4e44.provenance.json",
+          "sha256": "b494a7e5a491776c1ec58f7369661e367820f610fdc66c1a0892cee9de099624"
+        },
+        {
+          "name": "exec-830708a9-5c93-4057-a0d9-559b7d04b4ec.provenance.json",
+          "sha256": "5a58bd5c8c81a6082489510f74f5048f7b1831b21cfa4d951fba292cffd00202"
+        },
+        {
+          "name": "exec-8d9751dd-2445-4016-9c6c-54c376e5e5f4.provenance.json",
+          "sha256": "18970b527633d0c46dea77345ad90cb05522f5a1684ec6cc71620f2f7b266d59"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0e40d-a9e9-74a2-970a-f103364c6320/exec-3818dba6-d096-4ba4-b5dd-854004cc727f.png",
+          "sha256": "a47da873988a148a794258e96d718c2f15d35298e6488f0aa16357196fce9fd9"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0e40d-a9e9-74a2-970a-f103364c6320/exec-547bea10-c0df-4a69-965a-4b0d5f0f4e44.png",
+          "sha256": "4390a9048359a7959a25c51f6be6528fb7e3a51c364abeaaf2eac765223f7e0f"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0e40d-a9e9-74a2-970a-f103364c6320/exec-830708a9-5c93-4057-a0d9-559b7d04b4ec.png",
+          "sha256": "fed8c2f766287c30b143100eb784a8e36fc7b8da4757bc9d7993b335194fe967"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0e40d-a9e9-74a2-970a-f103364c6320/exec-8d9751dd-2445-4016-9c6c-54c376e5e5f4.png",
+          "sha256": "be283a9a73b1607e6319f1d6050895396e4bdf18421845618244e6d5f758d737"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
     }
   ],
-  "images_used": 294,
+  "images_used": 302,
   "images_cap": 400,
   "experiments": {},
   "milestones": [
@@ -11199,6 +11401,11 @@
       "id": "M-C9-RIG-E",
       "ts_note": "drax rig probe DELIVERED (collab 690412fe, no push): 14 parts cut inside the painted lame overlaps, all fills mechanical (no generative AI, none stopped), Skeleton2D 17 bones + 14 rigid sprites (no mesh deform -- plate slides, does not bend), walk IK-planted at exactly walk_px_s (rig foot slide 0.04-0.16 px/stance vs Grok E 34 px/stride), Keeper cadence, tabard baked lagged pendulum per R-C9-36; G toggles E rig/Grok in the shipped app. Compromise: soft knees + 2.8% bob to reach a 71.6 px step at 247 px/s; near upper arm has no painted pixels (bone only). drax findings routed: build_knight_frames crown rule measures the E cells ~7% tall (blade readmitted) -> knight_fit heights; Godot int-valued animation keys blend in integer space. Awaiting Matt comparison verdict.",
       "ts": "2026-09-27T13:42:23"
+    },
+    {
+      "id": "M-C9-V3",
+      "ts_note": "drax v3 (2596ca53a) + run (3a2a717d2), no push: new background with known-background unmix (far smoke fringe +41.2 -> +2.9 green excess, 14x; a hard key would have deleted 55% of far smoke and 100% of forest smoke); tower reads at the bridge, the cathedral cannot share the 1920 frame (landmarks span 2041 layer px) -> visible east of the bridge, or move it ~700 px left in the far art (Matt call); crown-rule fix: knight had been scaled to include his axe (206.4 -> 198.6 src px, scale 0.7276 -> 0.7563); angel + demon stills in B (collision disabled in A). Grok run 7/8 (W_run 429 rate limit -> re-fired alone); rig run E with flight phase, two-handed pollaxe, plant drift 2.94 px (walk 0.10). Thigh range reduced 84.9 -> 75.4 deg (swing lift 11 -> 4 px); floor ~70 deg at this step length unless the step shortens (which reintroduces slide). Cathedral establishing CA-est-A/B delivered (2 each).",
+      "ts": "2026-09-27T14:37:00"
     }
   ],
   "halts": [],
@@ -11959,6 +12166,125 @@
       "printed": "",
       "staged_mp4": "",
       "ts": "2026-09-27T14:08:06"
+    },
+    {
+      "id": "G-S_run",
+      "cell": "S_run",
+      "still": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/seeds/seed_S_v2.png",
+      "still_sha256": "c09f9cd51baf0b8c0f198dd3dc4965f7df6e831921aa13a723aa9f8f62f9f8a4",
+      "prompt_sha256": "ca263c2b4acc63bf883edfd8f603341be3a6b028b8940c3746e3d4b4736b591f",
+      "extra": "",
+      "clip": "runs/C-9/xvideo/in/S_run.mp4",
+      "clip_sha256": "d23b886c003f15e1a8e5820fa43dd46488668bedef7acd33d99a0847c200f105",
+      "ok": true,
+      "rc": 0,
+      "wall_s": 57,
+      "probe": "768,1168,24/1,6.041667,145",
+      "printed": "",
+      "staged_mp4": "/Users/admin/astra-burst/grok/C-9/S_run/S_run.mp4",
+      "ts": "2026-09-27T14:08:44"
+    },
+    {
+      "id": "G-NW_run",
+      "cell": "NW_run",
+      "still": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/seeds/seed_NW.png",
+      "still_sha256": "c33f96d4466508f00b6cdafb3616dd61c0ee55066f0f9d20f6fecf171075bf42",
+      "prompt_sha256": "e6660b2af7af42aac656219b09c24d41ae183d5b78a579b9a7481689ef79e957",
+      "extra": "",
+      "clip": "runs/C-9/xvideo/in/NW_run.mp4",
+      "clip_sha256": "376a49183e5ed70b07b47d5bb7fdf1465205e2780ca33d046f0943a170234c58",
+      "ok": true,
+      "rc": 0,
+      "wall_s": 58,
+      "probe": "768,1168,24/1,6.041667,145",
+      "printed": "",
+      "staged_mp4": "/Users/admin/astra-burst/grok/C-9/NW_run/NW_run.mp4",
+      "ts": "2026-09-27T14:08:44"
+    },
+    {
+      "id": "G-SW_run",
+      "cell": "SW_run",
+      "still": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/seeds/seed_SW_v2.png",
+      "still_sha256": "5766928d2919f37a9f9ea47fe0bcd34fb4600e28da96b6198c363d1183a3ecae",
+      "prompt_sha256": "21a16ad6ae21de98e103b69c12ce23707422e4fcdc92e0228c4af40ca948039c",
+      "extra": "",
+      "clip": "runs/C-9/xvideo/in/SW_run.mp4",
+      "clip_sha256": "9aaaa202fe34105a27d3ff238d442b69588b73ab3495878ac7204f8688d7ee4b",
+      "ok": true,
+      "rc": 0,
+      "wall_s": 62,
+      "probe": "768,1168,24/1,6.041667,145",
+      "printed": "",
+      "staged_mp4": "/Users/admin/astra-burst/grok/C-9/SW_run/SW_run.mp4",
+      "ts": "2026-09-27T14:08:49"
+    },
+    {
+      "id": "G-NE_run",
+      "cell": "NE_run",
+      "still": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/seeds/seed_NE.png",
+      "still_sha256": "22bba79c3f4d6072947eac89da1f7b07824154e258971257cc52d2672b4ca94f",
+      "prompt_sha256": "0f427aae860225003e9d91988ecaceddf1e618f916b75170a83fb7e5f0332106",
+      "extra": "",
+      "clip": "runs/C-9/xvideo/in/NE_run.mp4",
+      "clip_sha256": "a8ef101db219981c530a316cc31aedee5eff853fbc3c93ec0794a9526cda2219",
+      "ok": true,
+      "rc": 0,
+      "wall_s": 51,
+      "probe": "768,1168,24/1,6.041667,145",
+      "printed": "",
+      "staged_mp4": "/Users/admin/astra-burst/grok/C-9/NE_run/NE_run.mp4",
+      "ts": "2026-09-27T14:09:41"
+    },
+    {
+      "id": "G-SE_run",
+      "cell": "SE_run",
+      "still": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/seeds/seed_SE.png",
+      "still_sha256": "c1a4c8006dbc4afacb0b15d42aa9089883e07273eb2f3cc05bbde1f409879285",
+      "prompt_sha256": "a17b67d35acf5b448ef319f2d29fc975f5926d096f63e9ec151fe2fa080b4056",
+      "extra": "",
+      "clip": "runs/C-9/xvideo/in/SE_run.mp4",
+      "clip_sha256": "b9a9765f4c035b5b3583f6075f9ec09ffe6483112178e269143f51972bf408c9",
+      "ok": true,
+      "rc": 0,
+      "wall_s": 56,
+      "probe": "768,1168,24/1,6.041667,145",
+      "printed": "",
+      "staged_mp4": "/Users/admin/astra-burst/grok/C-9/SE_run/SE_run.mp4",
+      "ts": "2026-09-27T14:09:45"
+    },
+    {
+      "id": "G-N_run",
+      "cell": "N_run",
+      "still": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/seeds/seed_N.png",
+      "still_sha256": "56b528a4c3627ff8210b71e4bf4b78e37111e7f862c862549728a8e3d2765a21",
+      "prompt_sha256": "71d62a162953a17e04a2439c0cd5c557bbb34b7d2080d2fb6f50e9a2755b0702",
+      "extra": "",
+      "clip": "runs/C-9/xvideo/in/N_run.mp4",
+      "clip_sha256": "f126b416b3ecc9ea7057677f8291a527b5f004c07a337cb96466afad97da9217",
+      "ok": true,
+      "rc": 0,
+      "wall_s": 60,
+      "probe": "768,1168,24/1,6.041667,145",
+      "printed": "",
+      "staged_mp4": "/Users/admin/astra-burst/grok/C-9/N_run/N_run.mp4",
+      "ts": "2026-09-27T14:09:49"
+    },
+    {
+      "id": "G-E_run",
+      "cell": "E_run",
+      "still": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/seeds/seed_E.png",
+      "still_sha256": "1d7f7c2ead257146cc9494f69b641246d521c7dceea6f2aee9f283eca48855f3",
+      "prompt_sha256": "fe63e5ff17200b3fec7fee28b486ebdd23f4e4249763d9768c4fca21a9fb8ade",
+      "extra": "",
+      "clip": "runs/C-9/xvideo/in/E_run.mp4",
+      "clip_sha256": "1315c145c1ad447fb046e6028d85f50b9140b9bf791b5b5bafb18dbd78bd9db6",
+      "ok": true,
+      "rc": 0,
+      "wall_s": 62,
+      "probe": "768,1168,24/1,6.041667,145",
+      "printed": "",
+      "staged_mp4": "/Users/admin/astra-burst/grok/C-9/E_run/E_run.mp4",
+      "ts": "2026-09-27T14:09:51"
     }
   ],
   "run": "C-9",
