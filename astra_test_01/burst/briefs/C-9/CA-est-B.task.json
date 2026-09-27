@@ -1,0 +1,27 @@
+{
+ "text": "GENERATE BURST CA-est-B \u2014 Run C-9 cathedral ESTABLISHING IMAGE, register arm B (Illuminated) (Matt R-C9-38: cathedral work in parallel; material for his sitting on arena layout / pools / world beyond the walls). task_id \"CA-est-B\".\n\nOne 1536x1024 painted OVERVIEW of the ENTIRE arena and its surroundings, composed as our fixed game camera would see it if it could pull back: elevated three-quarter view, about 53 degrees down, north is screen-up, parallel projection (no vanishing point). IMAGE 1 is the geometry guide of the whole floor plate at this scale; the outline is a SUGGESTION \u2014 the art decides where walls and structures go; keep the overall footprint, the islands and pools roughly where the guide puts them.\nTHE BUILDING (identity by qualities, never names): a fortress-cathedral of a crusading order that held a border against hell and lost it THIS WEEK: mass before grace \u2014 enormous piers, Romanesque weight with gothic verticals, cold grey-white and black dressed stone, iron only where structural. A faith of the SUN and the CHAIN. Its floor is smooth and beautiful; the violence is local and legible (cracks follow joints, only where something fell or blew).\nTHE LAYOUT (north = up, as ruled): the player ENTERS from the SOUTH through the shattered fa\u00e7ade, up the road from the crag. The long NAVE runs north with arcades of piers left and right; TRANSEPTS east and west; the CHANCEL and raised dais at the north end. The demon-gate BLAST crater is at the CROSSING, mid-nave, between the player and the altar, a little OFF-CENTRE; the exact CENTRE of the floor stays clear and smooth (a great fallen stained-glass window will lie there later as an object). The arena is a FUNNEL TO THE MIDDLE: every entrance is a ONE-WAY broken stair or breach the monsters leap and the player cannot cross, with a HAZARD APRON on the playable side: (1) EAST \u2014 a crater into the crypt with COLD BLUE FIRE at its mouth, and a broken GALLERY STAIR above it where enemies come DOWN from an upper level; (2) WEST \u2014 the wall breached from outside by siege, the sunset flooding in; (3) NORTH \u2014 the chancel breached; (4) one FIRE entrance where real orange fire burns across the threshold (the near ambush). The order's fire is WARM; what comes from below is COLD \u2014 the only saturated cold is demonic. The four islands in the guide are bases of fallen piers; the six hatched discs are pools of burning pitch seeping through broken flagstones.\nBARE SCENE RULE: paint ONLY architecture, ground and the world beyond the walls \u2014 no furniture, pews, statues, candles, bodies, banners, gates or rubble props (added later as objects).\nBEYOND THE WALLS: through the west breach and the broken apse, the valley at sunset, the burning forest, and far off the Keepers' tower.\nSTYLE: IGNORE the register card's manuscript clauses for this arm ONLY in favour of the level's EXISTING hand-drawn painted register shown in IMAGE 2 (a painted chunk of this same interior: confident dark contour, painted planes, restrained texture) \u2014 match it exactly; keep the card's camera, plate and forbidden-names rules.\nNo characters, no text, no UI, no border.\n\nTwo image_gen calls: variants a and b. ONE retry per variant only if the camera is not the elevated overview, the entrances/crater/centre are missing or misplaced, props appear, or text appears \u2014 name the reason. Copy outputs to out/CA-est-B_a.png and out/CA-est-B_b.png with sha256. No code. No other files. No web.\nRETURN: receipt task_id \"CA-est-B\"; images = the files with prompt, references (role + path) and elapsed_s; calls_used = the TRUE number of image_gen calls; status; concerns. Never PASS/FAIL.",
+ "references": [
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/inputs/cath_overview_guide.png",
+   "role": "IMAGE 1 \u2014 geometry guide of the whole floor plate (outline = suggestion)"
+  },
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/S1-ink/S1-ink_b.png",
+   "role": "IMAGE 2 \u2014 this level's approved painted-book hand (line, hatching, washes)"
+  },
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/MOOD-far/MOOD-far_a.png",
+   "role": "IMAGE 3 \u2014 the approved dark sunset mood and purple haze (colour only)"
+  }
+ ],
+ "image_cap": 4,
+ "minutes_cap": 15,
+ "tool_call_cap": 20,
+ "outputs": [
+  "out/CA-est-B_a.png",
+  "out/CA-est-B_b.png"
+ ],
+ "effort": "high",
+ "add_dirs": [],
+ "experiment": "P6-cathedral-establishing"
+}
