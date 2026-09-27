@@ -115,6 +115,19 @@ MIST_ALPHA_CAP = 220 / 255.0
 LAYER_DX = {"sky": 0.0, "far_ruins": 0.0, "forest_valley": 0.0, "mist": 0.0}
 LAYER_DY_OVERRIDE = {}
 
+# MIST: a MEASURED screen trim on top of the horizon rule (R-C9-48).
+#
+# The horizon rule matches the row where coverage crosses 50 % OF THE LAYER'S WIDTH.
+# For the far layer and the forest that is the same row you see, because a ridge and a
+# treeline run the full width at roughly one height.  A mist bank does not: its density
+# varies across the layer, and the screen only ever shows 1920 of its 4340 columns, so
+# the screen's half-coverage row is not the layer's.  With the density matched the rule
+# put B 96 px BELOW A at the bridge and 83 below at the plateau -- consistent, which is
+# what says it is an offset and not a shape problem.  This is that offset, measured on
+# screen by tools/measure_horizon.py rather than derived, and it cannot be folded into
+# the rule because the rule has no way to know which columns are on screen.
+LAYER_DY_TRIM = {"mist": -90.0}
+
 # No layer's own top edge is in frame any more either, so the top-row fade that hid the
 # guillotined plume is gone with the override that made it necessary. Kept as an empty
 # dict rather than deleted: the mechanism is sound and the next layer that has to be
@@ -315,7 +328,29 @@ def main():
             # density map; taking colour from it as well would carry the greyscale
             # through and the tint would not read.
             lum = 0.2126 * rgb[..., 0] + 0.7152 * rgb[..., 1] + 0.0722 * rgb[..., 2]
-            alpha = np.minimum(lum, MIST_ALPHA_CAP)
+            # R-C9-48, Matt: make B's mist "thick and low like A's".  A flat cap
+            # (min(lum, 0.863)) matched A's PEAK and nothing else: B came out at mean
+            # alpha 0.443 against A's 0.341 and its median 0.518 against 0.333, so the
+            # bank was denser all the way up and crossed half-coverage 10 % of the
+            # layer's height higher -- 260 screen px above A's at the bridge.  Matching
+            # one number of a distribution is not matching the distribution.
+            #
+            # So the whole ALPHA HISTOGRAM is matched onto A's: every quantile of B's
+            # density is mapped to the same quantile of A's.  That is "the same kind of
+            # bank" stated exactly -- same mean, same median, same falloff, same peak --
+            # rather than the same ceiling.  The tint is untouched (register card
+            # PARALLAX LIGHT); only how much of it you see changes.
+            a_alpha = np.asarray(Image.open(A_LAYERS / role))[..., 3].astype(np.float32) / 255.0
+            qs = np.linspace(0.0, 1.0, 512)
+            alpha = np.interp(lum, np.quantile(lum.ravel()[::17], qs),
+                              np.quantile(a_alpha.ravel()[::17], qs)).astype(np.float32)
+            keystats["mist_density"] = {
+                "method": "alpha histogram matched onto the H1 mist, 512 quantiles",
+                "B_mean_before": round(float(np.minimum(lum, MIST_ALPHA_CAP).mean()), 4),
+                "B_mean_after": round(float(alpha.mean()), 4),
+                "A_mean": round(float(a_alpha.mean()), 4),
+                "B_p50_after": round(float(np.percentile(alpha, 50)), 4),
+                "A_p50": round(float(np.percentile(a_alpha, 50)), 4)}
             colour = np.broadcast_to(MIST_TINT, rgb.shape).copy()
             rgba = np.dstack([colour, alpha])
             rgba[alpha <= 0.0, :3] = 0.0
@@ -346,6 +381,9 @@ def main():
             dy = ha - hb
             rule = f"horizon A row {ha} <- B row {hb}"
         key = role.replace(".png", "")
+        if key in LAYER_DY_TRIM:
+            dy += LAYER_DY_TRIM[key]
+            rule += "  [%+.0f measured screen trim -- see LAYER_DY_TRIM]" % LAYER_DY_TRIM[key]
         if key in LAYER_DY_OVERRIDE:
             dy = LAYER_DY_OVERRIDE[key]
             rule += "  [OVERRIDDEN to %+.0f for landmark framing -- see LAYER_DY_OVERRIDE]" % dy

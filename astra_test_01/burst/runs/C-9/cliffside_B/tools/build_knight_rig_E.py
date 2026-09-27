@@ -34,6 +34,13 @@ from scipy import ndimage
 
 PROJ = Path(__file__).resolve().parent.parent
 SEED = PROJ.parent / "artifacts" / "seeds" / "seed_E.png"
+# RP-E (R-C9-47): the same figure REPAINTED WITHOUT THE TABARD, so the armour that was
+# only ever hidden under it exists as paint instead of as a fill.
+#   a = no tabard: fauld, mail skirt, both cuisses whole from hip to knee
+#   b = the same with the near leg removed, so the far leg is complete
+# Registered to the seed: IoU 0.986 on the helm and 0.991 on the greaves.
+RP_A = PROJ.parent / "artifacts" / "RP-E" / "RP-E_a.png"
+RP_B = PROJ.parent / "artifacts" / "RP-E" / "RP-E_b.png"
 OUT_SPR = PROJ / "sprites_rig_E"
 OUT_SCN = PROJ / "scenes" / "knight_rig_E.tscn"
 OUT_JSON = PROJ / "frames" / "knight_rig_E.json"
@@ -83,6 +90,21 @@ SWING_LIFT = 4.0
 # either side at the walk's 32 -- enough to carry the hip across a stance handover, far
 # too short to flatten the bob the plant derives.
 HIP_SMOOTH_FRAC = 0.06
+
+# THE FAULD, in seed rows.  In RP-E_a the fauld's lames and the mail skirt under them
+# span the WHOLE hip -- every row from 760 to 1020 is a single contiguous run of armour,
+# with no gap between the legs anywhere in the painted pose -- and the mail's hem falls
+# at row 895-900, where the cuisse takes over.  So the piece is cut at the hem: above it
+# is body, below it is leg.
+FAULD_ROWS = (768, 900)
+# Measured luma offsets of each repaint against the seed, on the regions where all three
+# show the SAME object.  a: +2.55 on the helm, +2.49 on the greaves -- two independent
+# regions agreeing, so it is a uniform exposure difference and not local drift.  b: +4.73
+# on the helm.  b's greave number (+15.34) is NOT a tone measurement and is not used: the
+# masks there intersect b's FAR leg with the seed's NEAR leg (IoU 0.52), so it compares
+# two different objects and returns a number anyway.
+RP_A_TONE = -2.5
+RP_B_TONE = -4.7
 
 # --- THE JOINT FILLS (R-C9-40) ---------------------------------------------
 # HIP_CAP_SEED is the radius, in seed px, of the disc each thigh carries at its hip
@@ -308,7 +330,7 @@ def clone_up(arr, rows, band=4):
     return out
 
 
-def hip_cap(arr, hip, radius, band=6, look=70):
+def hip_cap(arr, hip, radius, src=None, src_rows=None, band=6, look=70):
     """Grow the cuisse's hidden upper end into a SOLID DISC CENTRED ON THE HIP SOCKET.
 
     THE BUG THIS FIXES (Matt, R-C9-40): "the legs detach at the thigh from the body and
@@ -338,10 +360,20 @@ def hip_cap(arr, hip, radius, band=6, look=70):
     if len(ys) == 0:
         return arr, 0
     top = int(ys[0])
-    widths = cover[top:top + look].sum(1)
-    best = top + int(np.argmax(widths))
-    src = arr[best:best + band].copy()
-    src_cols = np.nonzero(cover[best:best + band].any(0))[0]
+    if src is None:
+        widths = cover[top:top + look].sum(1)
+        best = top + int(np.argmax(widths))
+        srcband = arr[best:best + band].copy()
+        src_cols = np.nonzero(cover[best:best + band].any(0))[0]
+    else:
+        # R-C9-47: paint the cap from the REPAINT'S OWN CUISSE, a few rows below the
+        # mail hem, instead of from the seed's tabard-occluded sliver. A cuisse top
+        # should be painted from cuisse; the old source was the 17 px of plate that
+        # happened to show between the two tabard flaps, which is why the fill read as
+        # a flat grey slab the moment anything moved off it.
+        a, b = src_rows
+        srcband = src[a:a + band].copy()
+        src_cols = np.nonzero(src[a:a + band, :, 3].max(0) > 8)[0]
     xlo, xhi = int(src_cols.min()), int(src_cols.max())
 
     hx, hy = int(round(hip[0])), int(round(hip[1]))
@@ -364,9 +396,16 @@ def hip_cap(arr, hip, radius, band=6, look=70):
     out = arr.copy()
     tys, txs = np.nonzero(fill)
     cx = np.clip(txs, xlo, xhi)
-    out[tys, txs] = src[(hy - tys) % band, cx]
+    out[tys, txs] = srcband[(hy - tys) % band, cx]
     out[tys, txs, 3] = 255.0
     return out, int(fill.sum())
+
+
+def tone_shift(rgba, d):
+    """Shift a repaint's luma onto the seed's, measured not guessed (see RP_A_TONE)."""
+    out = rgba.astype(np.float32).copy()
+    out[..., :3] = np.clip(out[..., :3] + d, 0, 255)
+    return out
 
 
 def paint_from_seed(arr, rgba, mask):
@@ -592,6 +631,8 @@ def ang(p, q):
 # ---------------------------------------------------------------------------
 def main():
     rgba = key_plate(SEED)
+    rp_a = tone_shift(key_plate(RP_A), RP_A_TONE)
+    rp_b = tone_shift(key_plate(RP_B), RP_B_TONE)
     fit = json.loads(FIT_JSON.read_text())
     slide = json.loads(SLIDE_JSON.read_text())
 
@@ -673,12 +714,20 @@ def main():
 
     bare_thigh = parts["leg_near_thigh"]
     far_hip = (J["hip"][0] + FAR_OFFSET_SEED[0], J["hip"][1] + FAR_OFFSET_SEED[1])
-    parts["leg_near_thigh"], n_near = hip_cap(bare_thigh, J["hip"], HIP_CAP_SEED)
-    far_thigh, n_far = hip_cap(bare_thigh, far_hip, HIP_CAP_SEED)
+    # the cuisse band each cap is painted from: just under the mail hem, where RP-E
+    # shows clean plate that the tabard used to hide
+    CUISSE_SRC = (FAULD_ROWS[1] + 8, FAULD_ROWS[1] + 14)
+    parts["leg_near_thigh"], n_near = hip_cap(bare_thigh, J["hip"], HIP_CAP_SEED,
+                                              src=rp_a, src_rows=CUISSE_SRC)
+    far_thigh, n_far = hip_cap(bare_thigh, far_hip, HIP_CAP_SEED,
+                               src=rp_b, src_rows=CUISSE_SRC)
     fills["leg_near_thigh"] = (
         "hip end grown into a SOLID DISC of radius %d seed px centred on the hip socket "
-        "%s (%d px filled), painted from the cuisse's own widest plate band, tiled "
-        "vertically and clamped to the nearest column with plate. A disc centred on the "
+        "%s (%d px filled), painted from RP-E_a's OWN CUISSE just under the mail hem, "
+        "tiled vertically and clamped to the nearest column with plate. A cuisse top is "
+        "painted from cuisse; the old source was the 17 px of plate that happened to show "
+        "between the two tabard flaps, which is why the fill read as a flat grey slab. "
+        "A disc centred on the "
         "pivot is invariant under rotation about it, so the socket stays covered at every "
         "angle of the walk and the run -- this replaces a rectangular clone_up whose "
         "corners swung clear of the socket and let the thigh read as detached."
@@ -723,33 +772,40 @@ def main():
         if "leg_far_thigh" in gapfill:
             far_thigh, n_ft = paint_from_seed(far_thigh, rgba, gapfill["leg_far_thigh"])
             fills["leg_far_thigh_measured"] = "%d px, measured as above on the far side" % n_ft
-    # THE BACKDROP.  One rigid plate on the hip bone, drawn behind every other part, so
-    # the slot between the two tabard flaps and the space between the legs are never
-    # empty.  Its shape is the measured hip region (harvest_gaps.py) unioned with the
-    # slot itself, clipped to what the tabard hangs over; its pixels are the still's own
-    # at those coordinates -- which there is the inside of the surcoat and the top of
-    # the thighs -- put a third down in value, because what you are seeing through a gap
-    # in a man's clothing is in shadow. Nothing is invented and nothing of him is hidden:
-    # it is the LAST thing drawn under, so it can only ever appear where there was a hole.
-    bd = np.zeros(P["torso"].shape, bool)
-    if "body_backdrop" in gapfill:
-        bd |= gapfill["body_backdrop"]
-    yy0, xx0 = np.mgrid[0:bd.shape[0], 0:bd.shape[1]]
-    bd |= (xx0 >= 424) & (xx0 <= 470) & (yy0 >= 836) & (yy0 <= 995)
-    bd &= (yy0 >= 800) & (yy0 <= 1005) & (xx0 >= 356) & (xx0 <= 545)
-    backdrop = np.zeros_like(parts["torso"])
-    bys, bxs = np.nonzero(bd & (rgba[..., 3] > 128))
-    backdrop[bys, bxs] = rgba[bys, bxs].astype(np.float32)
-    backdrop[bys, bxs, 3] = 255.0
-    parts["body_backdrop"] = darken(backdrop, 0.68)
-    fills["body_backdrop"] = (
-        "NEW PART. %d px on the hip bone at the bottom of the z order: the measured hip "
-        "region plus the slot between the tabard flaps (x424-470, y836-995), seed rows "
-        "%d..%d, painted with the still's own pixels and darkened x0.68. The torso plate "
-        "stops 22 px below the hip and the tabard is two separate hanging flaps, so "
-        "below the belt the only thing between the flaps was the legs themselves -- part "
-        "them and the background showed through the knight."
-        % (len(bys), bys.min() if len(bys) else 0, bys.max() if len(bys) else 0))
+    # THE FAULD (R-C9-47).  Matt, on the live build: "there is still a gap of black area
+    # between the lower thigh and upper thigh/hips."  He was right and my own hip probe
+    # said 0, because the probe counts TRANSPARENT pixels and what was there was an
+    # OPAQUE DARK PLUG -- the x0.68 backdrop at mean luma 75 against the thigh's 96, plus
+    # the flat grey slab of the cloned fill.  A dark plug passes a transparency test and
+    # reads to a player as a hole.  Eighth instrument on the list, and the first one a
+    # player found before I did.
+    #
+    # The real defect was never geometry.  There was NO PAINTED ARMOUR under the tabard,
+    # so anything put in that slot was invented, and an invented fill is either the wrong
+    # colour or the wrong shape.  RP-E repaints the figure without the tabard, so the
+    # fauld and the mail skirt now EXIST as paint: one piece, cut at the mail's hem,
+    # carried on the hip bone and drawn IN FRONT of both thighs and behind the tabard
+    # flaps -- exactly the job the tabard does in the still.  It is the painter's own
+    # armour at the seed's own tone, so there is nothing left to read as a hole.
+    #
+    # It replaces body_backdrop outright.  That part was darkened to x0.68 precisely
+    # BECAUSE it was a guess -- shadow was the only way to make an invented shape
+    # defensible. With real paint there is nothing to hide and no reason to dim it.
+    fa = rp_a[..., 3] > 128
+    yyf, xxf = np.mgrid[0:fa.shape[0], 0:fa.shape[1]]
+    fauld_m = fa & (yyf >= FAULD_ROWS[0]) & (yyf < FAULD_ROWS[1]) & (xxf < 545)
+    fauld_m = drop_specks(fauld_m)
+    parts["hip_fauld"] = materialise(rp_a, fauld_m)
+    fy, fx = np.nonzero(fauld_m)
+    fills["hip_fauld"] = (
+        "NEW PART, replacing body_backdrop. %d px of the fauld and mail skirt cut from "
+        "RP-E_a (the figure repainted with the tabard removed), seed rows %d..%d, cut at "
+        "the mail's hem where the cuisse takes over; tone-matched to the seed by %+.1f "
+        "luma, measured on the helm and the greaves. Carried on the hip bone, drawn in "
+        "front of both thighs and behind the tabard flaps. In RP-E_a every row from 760 "
+        "to 1020 is a single contiguous run of armour -- there is no gap between the legs "
+        "anywhere in the painted pose -- so this needs no invented fill and none is used."
+        % (len(fy), FAULD_ROWS[0], FAULD_ROWS[1], RP_A_TONE))
 
     far_shin = parts["leg_near_shin"]
     if "leg_far_shin" in gapfill:
@@ -1323,16 +1379,18 @@ def main():
 
     # part -> (bone, z).  Painter's order, far side first.
     SPRITES = [
-        # the backdrop is first and lowest: it can only ever be seen through a hole
-        ("body_backdrop", "hip", -1),
         ("leg_far_foot", "leg_f_ft", 0), ("leg_far_shin", "leg_f_sh", 1),
         ("leg_far_thigh", "leg_f_th", 2),
         ("hand_far", "hand_f", 3), ("arm_far_lo", "arm_f_lo", 4),
         ("leg_near_foot", "leg_n_ft", 5), ("leg_near_shin", "leg_n_sh", 6),
         ("leg_near_thigh", "leg_n_th", 7),
-        ("skirt_back", "skirt_b", 8), ("skirt_front", "skirt_f", 9),
-        ("torso", "torso", 10), ("head", "head", 11),
-        ("arm_near_lo", "arm_n_lo", 12), ("hand_pollaxe", "hand", 13),
+        # the fauld rides the HIP and is drawn in FRONT of both thighs -- that is the
+        # whole point. Behind them (where the backdrop sat) the thigh's own cap draws
+        # over it and the grey slab is back.
+        ("hip_fauld", "hip", 8),
+        ("skirt_back", "skirt_b", 9), ("skirt_front", "skirt_f", 10),
+        ("torso", "torso", 11), ("head", "head", 12),
+        ("arm_near_lo", "arm_n_lo", 13), ("hand_pollaxe", "hand", 14),
     ]
 
     def fmt(v):
@@ -1481,6 +1539,50 @@ def main():
         "ankle_disc_seed_px": ANKLE_DISC_SEED,
         "sole_tangent_deg_heel_to_toe": [sole_deg[0], sole_deg[-1]],
     }
+    # NO PART MAY BE DARKER THAN THE PAINTING IT CAME FROM (R-C9-47).
+    #
+    # This is the assertion the conductor asked for, stated so that it cannot be
+    # satisfied by a plug and cannot be tripped by real paint.  A render-time "is this
+    # pixel dark?" test cannot tell the two apart -- the mail skirt IS dark, and a
+    # threshold that catches a x0.68 backdrop at luma 75 also catches painted mail at
+    # 71.  So the test is not "is it dark", it is "is it darker THAN THE SOURCE SAYS":
+    # every part's opaque pixels are compared with the source painting's own pixels at
+    # the same coordinates.  A darkening of any kind shows up immediately; a legitimately
+    # dark piece of armour cannot, because the source is dark there too.
+    #
+    # The far-side copies are the one exception and they are declared, not excused:
+    # they are x0.85 by design (a symmetric harness seen in shade) and are checked
+    # against that factor rather than against 1.0.
+    def _lum(a):
+        return 0.2126 * a[..., 0] + 0.7152 * a[..., 1] + 0.0722 * a[..., 2]
+
+    SOURCES = {"hip_fauld": rp_a}
+    tone = {}
+    worst_dark = None
+    for nm, arr in sorted(parts.items()):
+        src = SOURCES.get(nm, rgba)
+        m = (arr[..., 3] > 200) & (src[..., 3] > 200)
+        if m.sum() < 200:
+            continue
+        got, want = float(_lum(arr)[m].mean()), float(_lum(src.astype(np.float32))[m].mean())
+        expect = FAR_DARKEN if nm.startswith(("leg_far", "arm_far", "hand_far")) else 1.0
+        ratio = got / max(want, 1e-6) / expect
+        tone[nm] = {"luma": round(got, 2), "source_luma": round(want, 2),
+                    "declared_factor": expect, "ratio_vs_declared": round(ratio, 4)}
+        if worst_dark is None or ratio < worst_dark[1]:
+            worst_dark = (nm, ratio)
+    print("tone vs source (1.00 = exactly as painted; far side declared x%.2f):" % FAR_DARKEN)
+    for nm, t in sorted(tone.items(), key=lambda kv: kv[1]["ratio_vs_declared"]):
+        print("   %-16s %6.2f vs %6.2f  x%.2f declared  ->  %.3f"
+              % (nm, t["luma"], t["source_luma"], t["declared_factor"], t["ratio_vs_declared"]))
+    if worst_dark and worst_dark[1] < 0.93:
+        raise SystemExit(
+            "PART DARKER THAN ITS SOURCE: %s at %.3f of the painting's own luma. A part "
+            "drawn darker than the paint it was cut from is a PLUG -- it fills the "
+            "silhouette and still reads as a hole (R-C9-47). Declare the factor or "
+            "remove the darkening." % worst_dark)
+    rep["tone_vs_source"] = tone
+
     OUT_JSON.write_text(json.dumps(rep, indent=1))
     print("rig scale seed->cell %.6f   sprite_scale %.5f" % (s, sprite_scale))
     print("figure height in cell px %.2f (target %.2f)" % ((sole - crown) * s, target_h))

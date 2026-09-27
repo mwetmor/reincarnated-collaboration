@@ -1,14 +1,14 @@
 [gd_scene load_steps=19 format=3]
 
-[ext_resource type="Texture2D" path="res://sprites_rig_E/body_backdrop.png" id="1_body_backdrop"]
-[ext_resource type="Texture2D" path="res://sprites_rig_E/leg_far_foot.png" id="2_leg_far_foot"]
-[ext_resource type="Texture2D" path="res://sprites_rig_E/leg_far_shin.png" id="3_leg_far_shin"]
-[ext_resource type="Texture2D" path="res://sprites_rig_E/leg_far_thigh.png" id="4_leg_far_thigh"]
-[ext_resource type="Texture2D" path="res://sprites_rig_E/hand_far.png" id="5_hand_far"]
-[ext_resource type="Texture2D" path="res://sprites_rig_E/arm_far_lo.png" id="6_arm_far_lo"]
-[ext_resource type="Texture2D" path="res://sprites_rig_E/leg_near_foot.png" id="7_leg_near_foot"]
-[ext_resource type="Texture2D" path="res://sprites_rig_E/leg_near_shin.png" id="8_leg_near_shin"]
-[ext_resource type="Texture2D" path="res://sprites_rig_E/leg_near_thigh.png" id="9_leg_near_thigh"]
+[ext_resource type="Texture2D" path="res://sprites_rig_E/leg_far_foot.png" id="1_leg_far_foot"]
+[ext_resource type="Texture2D" path="res://sprites_rig_E/leg_far_shin.png" id="2_leg_far_shin"]
+[ext_resource type="Texture2D" path="res://sprites_rig_E/leg_far_thigh.png" id="3_leg_far_thigh"]
+[ext_resource type="Texture2D" path="res://sprites_rig_E/hand_far.png" id="4_hand_far"]
+[ext_resource type="Texture2D" path="res://sprites_rig_E/arm_far_lo.png" id="5_arm_far_lo"]
+[ext_resource type="Texture2D" path="res://sprites_rig_E/leg_near_foot.png" id="6_leg_near_foot"]
+[ext_resource type="Texture2D" path="res://sprites_rig_E/leg_near_shin.png" id="7_leg_near_shin"]
+[ext_resource type="Texture2D" path="res://sprites_rig_E/leg_near_thigh.png" id="8_leg_near_thigh"]
+[ext_resource type="Texture2D" path="res://sprites_rig_E/hip_fauld.png" id="9_hip_fauld"]
 [ext_resource type="Texture2D" path="res://sprites_rig_E/skirt_back.png" id="10_skirt_back"]
 [ext_resource type="Texture2D" path="res://sprites_rig_E/skirt_front.png" id="11_skirt_front"]
 [ext_resource type="Texture2D" path="res://sprites_rig_E/torso.png" id="12_torso"]
@@ -724,92 +724,92 @@ rest = Transform2D(1, 0, 0, 1, 8.23165, 17.79817)
 position = Vector2(20.69037, -8.00917)
 rest = Transform2D(1, 0, 0, 1, 20.69037, -8.00917)
 
-[node name="S_body_backdrop" type="Sprite2D" parent="Skel/hip"]
-z_index = -1
-position = Vector2(-2.44725, 19.13303)
-scale = Vector2(0.66017, 0.66017)
-texture = ExtResource("1_body_backdrop")
-
 [node name="S_leg_far_foot" type="Sprite2D" parent="Skel/hip/leg_f_th/leg_f_sh/leg_f_ft"]
 z_index = 0
 position = Vector2(11.34633, 11.12385)
 scale = Vector2(0.66017, 0.66017)
-texture = ExtResource("2_leg_far_foot")
+texture = ExtResource("1_leg_far_foot")
 
 [node name="S_leg_far_shin" type="Sprite2D" parent="Skel/hip/leg_f_th/leg_f_sh"]
 z_index = 1
 position = Vector2(-1.77982, 31.4805)
 scale = Vector2(0.66017, 0.66017)
-texture = ExtResource("3_leg_far_shin")
+texture = ExtResource("2_leg_far_shin")
 
 [node name="S_leg_far_thigh" type="Sprite2D" parent="Skel/hip/leg_f_th"]
 z_index = 2
 position = Vector2(-1.4461, 25.47362)
 scale = Vector2(0.66017, 0.66017)
-texture = ExtResource("4_leg_far_thigh")
+texture = ExtResource("3_leg_far_thigh")
 
 [node name="S_hand_far" type="Sprite2D" parent="Skel/hip/torso/arm_f_up/arm_f_lo/hand_f"]
 z_index = 3
 position = Vector2(2.33601, -0.55619)
 scale = Vector2(0.66017, 0.66017)
-texture = ExtResource("5_hand_far")
+texture = ExtResource("4_hand_far")
 
 [node name="S_arm_far_lo" type="Sprite2D" parent="Skel/hip/torso/arm_f_up/arm_f_lo"]
 z_index = 4
 position = Vector2(7.11927, -2.8922)
 scale = Vector2(0.66017, 0.66017)
-texture = ExtResource("6_arm_far_lo")
+texture = ExtResource("5_arm_far_lo")
 
 [node name="S_leg_near_foot" type="Sprite2D" parent="Skel/hip/leg_n_th/leg_n_sh/leg_n_ft"]
 z_index = 5
 position = Vector2(13.5711, 4.00459)
 scale = Vector2(0.66017, 0.66017)
-texture = ExtResource("7_leg_near_foot")
+texture = ExtResource("6_leg_near_foot")
 
 [node name="S_leg_near_shin" type="Sprite2D" parent="Skel/hip/leg_n_th/leg_n_sh"]
 z_index = 6
 position = Vector2(0.44495, 24.36124)
 scale = Vector2(0.66017, 0.66017)
-texture = ExtResource("8_leg_near_shin")
+texture = ExtResource("7_leg_near_shin")
 
 [node name="S_leg_near_thigh" type="Sprite2D" parent="Skel/hip/leg_n_th"]
 z_index = 7
 position = Vector2(0.55619, 21.91399)
 scale = Vector2(0.66017, 0.66017)
-texture = ExtResource("9_leg_near_thigh")
+texture = ExtResource("8_leg_near_thigh")
+
+[node name="S_hip_fauld" type="Sprite2D" parent="Skel/hip"]
+z_index = 8
+position = Vector2(1.11239, 0.88991)
+scale = Vector2(0.66017, 0.66017)
+texture = ExtResource("9_hip_fauld")
 
 [node name="S_skirt_back" type="Sprite2D" parent="Skel/hip/torso/skirt_b"]
-z_index = 8
+z_index = 9
 position = Vector2(-3.67087, 25.47362)
 scale = Vector2(0.66017, 0.66017)
 texture = ExtResource("10_skirt_back")
 
 [node name="S_skirt_front" type="Sprite2D" parent="Skel/hip/torso/skirt_f"]
-z_index = 9
+z_index = 10
 position = Vector2(7.56422, 21.80275)
 scale = Vector2(0.66017, 0.66017)
 texture = ExtResource("11_skirt_front")
 
 [node name="S_torso" type="Sprite2D" parent="Skel/hip/torso"]
-z_index = 10
+z_index = 11
 position = Vector2(5.00573, -16.01835)
 scale = Vector2(0.66017, 0.66017)
 texture = ExtResource("12_torso")
 
 [node name="S_head" type="Sprite2D" parent="Skel/hip/torso/head"]
-z_index = 11
+z_index = 12
 position = Vector2(2.78096, -16.90826)
 scale = Vector2(0.66017, 0.66017)
 texture = ExtResource("13_head")
 
 [node name="S_arm_near_lo" type="Sprite2D" parent="Skel/hip/torso/arm_n_up/arm_n_lo"]
-z_index = 12
+z_index = 13
 position = Vector2(5.7844, -2.8922)
 scale = Vector2(0.66017, 0.66017)
 texture = ExtResource("14_arm_near_lo")
 
 [node name="S_hand_pollaxe" type="Sprite2D" parent="Skel/hip/torso/arm_n_up/arm_n_lo/hand"]
-z_index = 13
+z_index = 14
 position = Vector2(1.89106, 20.35665)
 scale = Vector2(0.66017, 0.66017)
 texture = ExtResource("15_hand_pollaxe")

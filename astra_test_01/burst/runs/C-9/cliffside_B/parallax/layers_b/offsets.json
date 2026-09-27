@@ -4,7 +4,7 @@
   "sky": -115.0,
   "far_ruins": 25.0,
   "forest_valley": 310.0,
-  "mist": 490.0
+  "mist": 341.0
  },
  "offsets_x": {
   "sky": 0.0,
@@ -63,6 +63,14 @@
     "smoke_a_hard_key_would_delete_pct": 100.0
    }
   },
+  "mist_density": {
+   "method": "alpha histogram matched onto the H1 mist, 512 quantiles",
+   "B_mean_before": 0.4431,
+   "B_mean_after": 0.341,
+   "A_mean": 0.341,
+   "B_p50_after": 0.3359,
+   "A_p50": 0.3333
+  },
   "mist": {
    "tint_rgb_255": [
     150,
@@ -70,7 +78,7 @@
     170
    ],
    "alpha_cap_255": 220,
-   "alpha_mean": 0.4431
+   "alpha_mean": 0.341
   }
  }
 }

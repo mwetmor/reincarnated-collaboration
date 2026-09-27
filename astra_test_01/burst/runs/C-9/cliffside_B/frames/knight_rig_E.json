@@ -152,22 +152,6 @@
     -130.5940366972477
    ]
   },
-  "body_backdrop": {
-   "seed_rect": [
-    383,
-    836,
-    471,
-    996
-   ],
-   "png_size": [
-    30,
-    54
-   ],
-   "centre_rig": [
-    -14.89295155239633,
-    -82.31651376146789
-   ]
-  },
   "hand_far": {
    "seed_rect": [
     550,
@@ -214,6 +198,22 @@
    "centre_rig": [
     -9.8872176074422,
     -175.3119266055046
+   ]
+  },
+  "hip_fauld": {
+   "seed_rect": [
+    339,
+    766,
+    547,
+    902
+   ],
+   "png_size": [
+    70,
+    46
+   ],
+   "centre_rig": [
+    -11.333318524873391,
+    -100.55963302752293
    ]
   },
   "leg_far_foot": {
@@ -364,13 +364,13 @@
  "fills": {
   "leg_joint_discs": "solid discs from the still's own pixels on BOTH plates of each leg joint: knee r=34 seed px (7 px into the cuisse, 3625 into the greave), ankle r=34 (2019 into the greave, 657 into the sabaton). Matching discs about a shared pivot cannot be separated by a rotation about it.",
   "leg_near_thigh_knee": "cuisse extended over the greave by 298 px (seed rows 995..1064) -- the union, over the knee's -6..+88 deg working range, of the pixels the poleyn seam leaves bare; painted with the still's own pixels at those coordinates.",
-  "leg_near_thigh": "hip end grown into a SOLID DISC of radius 38 seed px centred on the hip socket (438, 830) (6009 px filled), painted from the cuisse's own widest plate band, tiled vertically and clamped to the nearest column with plate. A disc centred on the pivot is invariant under rotation about it, so the socket stays covered at every angle of the walk and the run -- this replaces a rectangular clone_up whose corners swung clear of the socket and let the thigh read as detached.",
+  "leg_near_thigh": "hip end grown into a SOLID DISC of radius 38 seed px centred on the hip socket (438, 830) (6009 px filled), painted from RP-E_a's OWN CUISSE just under the mail hem, tiled vertically and clamped to the nearest column with plate. A cuisse top is painted from cuisse; the old source was the 17 px of plate that happened to show between the two tabard flaps, which is why the fill read as a flat grey slab. A disc centred on the pivot is invariant under rotation about it, so the socket stays covered at every angle of the walk and the run -- this replaces a rectangular clone_up whose corners swung clear of the socket and let the thigh read as detached.",
   "arm_near_lo": "couter end cloned 14 rows upward -- the upper arm is behind the surcoat in the still",
   "leg_near_shin": "greave extended over the instep by 140 px -- the union, over the sabaton's whole -66..+32 deg working range, of the pixels that the shin/sabaton seam leaves bare; seed rows 1160..1214. Painted with the STILL'S OWN pixels at those coordinates (the instep, un-moved), so at the painted angle the extension is invisible.",
   "leg_near_thigh_measured": "549 px added where the RENDERED rig actually opened an enclosed hole at this joint, over every frame of walk, run and idle (tools/harvest_gaps.py); painted with the still's own pixels.",
   "leg_near_shin_measured": "1786 px added where the RENDERED rig actually opened an enclosed hole at this joint, over every frame of walk, run and idle (tools/harvest_gaps.py); painted with the still's own pixels.",
   "leg_far_thigh_measured": "413 px, measured as above on the far side",
-  "body_backdrop": "NEW PART. 9939 px on the hip bone at the bottom of the z order: the measured hip region plus the slot between the tabard flaps (x424-470, y836-995), seed rows 836..995, painted with the still's own pixels and darkened x0.68. The torso plate stops 22 px below the hip and the tabard is two separate hanging flaps, so below the belt the only thing between the flaps was the legs themselves -- part them and the background showed through the knight.",
+  "hip_fauld": "NEW PART, replacing body_backdrop. 23942 px of the fauld and mail skirt cut from RP-E_a (the figure repainted with the tabard removed), seed rows 768..900, cut at the mail's hem where the cuisse takes over; tone-matched to the seed by -2.5 luma, measured on the helm and the greaves. Carried on the hip bone, drawn in front of both thighs and behind the tabard flaps. In RP-E_a every row from 760 to 1020 is a single contiguous run of armour -- there is no gap between the legs anywhere in the painted pose -- so this needs no invented fill and none is used.",
   "leg_far_shin_measured": "880 px, measured as above on the far side",
   "leg_far_thigh": "copy of leg_near_thigh, value x0.85 (symmetric harness; far side in shade); hip disc re-centred on the far socket (448, 798)",
   "leg_far_shin": "copy of leg_near_shin, value x0.85 (symmetric harness; far side in shade)",
@@ -1100,5 +1100,97 @@
  "sole_tangent_deg_heel_to_toe": [
   -51.17,
   38.74
- ]
+ ],
+ "tone_vs_source": {
+  "arm_far_lo": {
+   "luma": 90.35,
+   "source_luma": 107.11,
+   "declared_factor": 0.85,
+   "ratio_vs_declared": 0.9924
+  },
+  "arm_near_lo": {
+   "luma": 106.29,
+   "source_luma": 107.11,
+   "declared_factor": 1.0,
+   "ratio_vs_declared": 0.9924
+  },
+  "hand_far": {
+   "luma": 80.33,
+   "source_luma": 90.92,
+   "declared_factor": 0.85,
+   "ratio_vs_declared": 1.0395
+  },
+  "hand_pollaxe": {
+   "luma": 107.8,
+   "source_luma": 107.8,
+   "declared_factor": 1.0,
+   "ratio_vs_declared": 1.0
+  },
+  "head": {
+   "luma": 90.03,
+   "source_luma": 90.03,
+   "declared_factor": 1.0,
+   "ratio_vs_declared": 1.0
+  },
+  "hip_fauld": {
+   "luma": 93.31,
+   "source_luma": 93.31,
+   "declared_factor": 1.0,
+   "ratio_vs_declared": 1.0
+  },
+  "leg_far_foot": {
+   "luma": 96.3,
+   "source_luma": 113.3,
+   "declared_factor": 0.85,
+   "ratio_vs_declared": 1.0
+  },
+  "leg_far_shin": {
+   "luma": 88.53,
+   "source_luma": 104.15,
+   "declared_factor": 0.85,
+   "ratio_vs_declared": 1.0
+  },
+  "leg_far_thigh": {
+   "luma": 93.05,
+   "source_luma": 99.64,
+   "declared_factor": 0.85,
+   "ratio_vs_declared": 1.0987
+  },
+  "leg_near_foot": {
+   "luma": 113.3,
+   "source_luma": 113.3,
+   "declared_factor": 1.0,
+   "ratio_vs_declared": 1.0
+  },
+  "leg_near_shin": {
+   "luma": 107.65,
+   "source_luma": 107.65,
+   "declared_factor": 1.0,
+   "ratio_vs_declared": 1.0
+  },
+  "leg_near_thigh": {
+   "luma": 108.97,
+   "source_luma": 97.57,
+   "declared_factor": 1.0,
+   "ratio_vs_declared": 1.1168
+  },
+  "skirt_back": {
+   "luma": 77.13,
+   "source_luma": 77.13,
+   "declared_factor": 1.0,
+   "ratio_vs_declared": 1.0
+  },
+  "skirt_front": {
+   "luma": 99.85,
+   "source_luma": 99.85,
+   "declared_factor": 1.0,
+   "ratio_vs_declared": 1.0
+  },
+  "torso": {
+   "luma": 89.43,
+   "source_luma": 89.43,
+   "declared_factor": 1.0,
+   "ratio_vs_declared": 1.0
+  }
+ }
 }

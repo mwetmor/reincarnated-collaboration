@@ -269,6 +269,48 @@ def limb_axes(rig, poses, side):
             ("foot", ankle, foot)]
 
 
+def dark_plug(rgb, alpha, joint, u, zoom, origin, R, half_w=4.0, ref_frac=0.55):
+    """Longest run across a joint that is OPAQUE but much DARKER than the plate around
+    it -- a plug, which passes a transparency test and reads to a player as a hole.
+
+    R-C9-47, and the reason this exists: the hip read as "a gap of black area between the
+    lower thigh and upper thigh/hips" on the live build while joint_gap() reported 0.00.
+    Both were correct. The slot between the tabard flaps was filled -- with a x0.68
+    backdrop at mean luma 75 against the thigh's 96, and a flat grey cloned slab. Nothing
+    there was transparent and nothing there looked like armour. A measure that only asks
+    "is it drawn?" cannot tell the difference between covering a hole and painting one.
+
+    The reference is the plate the joint ACTUALLY has, not a constant: the median luma of
+    the opaque pixels in the same disc. A pixel counts as a plug when it falls below
+    ref_frac of that -- so this scales with the figure, the register and the lighting,
+    and it cannot be satisfied by making the whole knight darker.
+    """
+    H, W = alpha.shape
+    lum = 0.2126 * rgb[..., 0] + 0.7152 * rgb[..., 1] + 0.0722 * rgb[..., 2]
+    yy, xx = np.mgrid[0:H, 0:W]
+    cx = origin[0] + joint[0] * zoom
+    cy = origin[1] + joint[1] * zoom
+    near = alpha & (((xx - cx) ** 2 + (yy - cy) ** 2) <= (R * zoom) ** 2)
+    if near.sum() < 50:
+        return 0.0, 0.0
+    ref = float(np.median(lum[near]))
+    thr = ref * ref_frac
+    perp = np.array([-u[1], u[0]])
+    worst = 0.0
+    n = int(2 * R * zoom)
+    for k in range(int(-half_w), int(half_w) + 1):
+        run = best = 0
+        for i in range(n + 1):
+            q = joint + u * (-R + 2 * R * i / n) + perp * k
+            px = int(origin[0] + q[0] * zoom)
+            py = int(origin[1] + q[1] * zoom)
+            bad = (0 <= px < W and 0 <= py < H and alpha[py, px] and lum[py, px] < thr)
+            run = run + 1 if bad else 0
+            best = max(best, run)
+        worst = max(worst, best * 2 * R / n)
+    return worst, ref
+
+
 def joint_gap(alpha, joint, u, zoom, origin, R=9.0, half_w=4.0, want_pts=False):
     """Largest BOUNDED transparent run across a joint, in rig px.
 
@@ -369,6 +411,8 @@ def probe(rig, zoom=3.0, n_walk=64, n_run=64, verbose=True):
                    for s in ("hip", "knee", "ankle")]
         ax_worst = {k: 0.0 for k in ax_keys}
         ax_at = {k: None for k in ax_keys}
+        dk_worst = {k: 0.0 for k in ax_keys}
+        dk_ref = {k: 0.0 for k in ax_keys}
         for i in range(N):
             t = L * i / N
             canvas, mk = rig.render(clip, t, zoom=zoom, origin=origin)
@@ -395,6 +439,9 @@ def probe(rig, zoom=3.0, n_walk=64, n_run=64, verbose=True):
                     k = "%s_%s" % (seg, sd)
                     if g > ax_worst[k]:
                         ax_worst[k], ax_at[k] = g, round(t, 4)
+                    dg, dref = dark_plug(canvas[..., :3], alpha, jp, u, zoom, origin, r)
+                    if dg > dk_worst[k]:
+                        dk_worst[k], dk_ref[k] = dg, dref
             for k, bone in JOINT_BONES.items():
                 jx = origin[0] + poses[bone][0, 2] * zoom
                 jy = origin[1] + poses[bone][1, 2] * zoom
@@ -406,6 +453,8 @@ def probe(rig, zoom=3.0, n_walk=64, n_run=64, verbose=True):
         rep[clip] = {"zoom": zoom, "samples": N, "joint_radius_rig_px": JOINT_R,
                      "joint_gap_rig_px": {k: round(v, 2) for k, v in ax_worst.items()},
                      "joint_gap_worst_at_s": ax_at,
+                     "dark_plug_rig_px": {k: round(v, 2) for k, v in dk_worst.items()},
+                     "dark_plug_reference_luma": {k: round(v * 255, 1) for k, v in dk_ref.items()},
                      "max_hole_extent_canvas_px": worst,
                      "max_hole_extent_rig_px": {k: round(v / zoom, 2) for k, v in worst.items()},
                      "hole_area_px": worst_px, "worst_at_s": worst_at}
@@ -419,6 +468,11 @@ def probe(rig, zoom=3.0, n_walk=64, n_run=64, verbose=True):
                      worst["hip_near"] / zoom, worst["hip_far"] / zoom,
                      worst["knee_near"] / zoom, worst["knee_far"] / zoom,
                      worst["ankle_near"] / zoom, worst["ankle_far"] / zoom))
+            print("        DARK PLUG rig px:  hip n/f %5.2f %5.2f | knee n/f %5.2f %5.2f"
+                  " | ankle n/f %5.2f %5.2f"
+                  % (dk_worst["hip_near"], dk_worst["hip_far"],
+                     dk_worst["knee_near"], dk_worst["knee_far"],
+                     dk_worst["ankle_near"], dk_worst["ankle_far"]))
     return rep
 
 

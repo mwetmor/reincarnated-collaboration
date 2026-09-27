@@ -47,29 +47,42 @@ def main():
     ap.add_argument("--out", required=True)
     ap.add_argument("--zoom", type=float, default=3.4)
     ap.add_argument("--loops", type=int, default=3)
+    ap.add_argument("--clips", nargs="*", default=["walk", "run"])
+    ap.add_argument("--crop", help="x0,y0,x1,y1 in panel px -- e.g. the hip only")
+    ap.add_argument("--panel", default="340,520", help="W,H of each panel in px")
+    ap.add_argument("--origin", default="150,452",
+                    help="x,y of the rig's ORIGIN (its foot pivot) inside the panel; the "
+                         "ground line is drawn at y. At a high zoom the figure is taller "
+                         "than the panel, so a hip crop needs the ground pushed below it.")
+    ap.add_argument("--labels", nargs=2, default=["BEFORE", "AFTER"])
+    ap.add_argument("--subs", nargs=2,
+                    default=["flat sabaton, rectangular hip fill",
+                             "heel-toe roll, disc hip + backdrop"])
     a = ap.parse_args()
 
     old, new = Rig(Path(a.old)), Rig(Path(a.new))
-    W, H = 340, 520
-    origin = (150, 452)
+    W, H = [int(v) for v in a.panel.split(",")]
+    origin = tuple(int(v) for v in a.origin.split(","))
     tmp = Path(tempfile.mkdtemp(prefix="c9_rigcmp_"))
     n = 0
-    for clip in ("walk", "run"):
+    for clip in a.clips:
         L = new.anims[clip]["length"]
         total = int(round(L * SLOW * FPS)) * a.loops
         for i in range(total):
             t = (i / float(FPS) / SLOW) % L
             po = panel(old, clip, t % old.anims[clip]["length"], a.zoom, (W, H), origin,
-                       "BEFORE  —  E %s" % clip.upper(),
-                       "flat sabaton, rectangular hip fill")
+                       "%s  —  E %s" % (a.labels[0], clip.upper()), a.subs[0])
             pn = panel(new, clip, t, a.zoom, (W, H), origin,
-                       "AFTER  —  E %s" % clip.upper(),
-                       "heel-toe roll, disc hip + backdrop")
-            im = Image.new("RGB", (W * 2 + 6, H + 26), (16, 18, 24))
+                       "%s  —  E %s" % (a.labels[1], clip.upper()), a.subs[1])
+            if a.crop:
+                cx0, cy0, cx1, cy1 = [int(v) for v in a.crop.split(",")]
+                po, pn = po.crop((cx0, cy0, cx1, cy1)), pn.crop((cx0, cy0, cx1, cy1))
+            pw, ph = po.size
+            im = Image.new("RGB", (pw * 2 + 6, ph + 26), (16, 18, 24))
             im.paste(po, (0, 0))
-            im.paste(pn, (W + 6, 0))
+            im.paste(pn, (pw + 6, 0))
             d = ImageDraw.Draw(im)
-            d.text((8, H + 8), "1/3 speed   t = %.3f s of %.4f s   (%s)"
+            d.text((8, ph + 8), "1/3 speed   t = %.3f s of %.4f s   (%s)"
                    % (t, L, "one Keeper stride"), fill=(150, 165, 195))
             im.save(tmp / ("f_%05d.png" % n))
             n += 1
