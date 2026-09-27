@@ -1,0 +1,42 @@
+{
+ "text": "JUDGE BURST J1-scene \u2014 Run C-9 M1 style gate. task_id \"J1-scene\". You are a separate instance: you have not seen any prompt, receipt, check or prior judgment, and must not look for one.\n\nCandidates are paintings of the same section of a game level, each painted over the same GEOMETRY GUIDE (flat colours: tan = path, light grey = verge, dark = cliff face, pure green = empty void).\nImage 1 = candidate P; Image 2 = candidate Q; Image 3 = candidate R; Image 4 = candidate S; Image 5 = candidate T; Image 6 = the GEOMETRY GUIDE (axis 3); Image 7 = the MANUSCRIPT anchor (axes 1\u20132: palette, way of painting).\nScore each candidate on axes 1\u20135 (integers 1\u20135) with ONE-LINE reasons each: 1 PAINTED-BOOK FIDELITY \u2014 does the subject, palette and iconography read as a page of a late-medieval illuminated manuscript brought to life (compare the manuscript anchor)? \u00b7 2 WATERCOLOR-AND-INK HAND \u2014 pen-and-ink contour, hand-drawn hatching, transparent washes laid unevenly (pooling, granulation, blooms), pale paper-like highlights; NOT a digital painting, render or airbrushed gradient \u00b7 3 OBEDIENCE \u2014 boundaries match the geometry guide (rim line, path edges, cliff face outline and lower cut edge, boulder footprint); green void left flat pure green \u00b7 4 GAME READABILITY \u2014 the walkable path is the BRIGHTEST and CALMEST region; a small figure would read clearly on it \u00b7 5 CAMERA \u2014 fixed high three-quarter ORTHOGRAPHIC view as the guide sets it. Judge every candidate independently; do not assume any is a control; do not guess which image generator or register produced any image. Write out/judgment.json: {\"task_id\":..., \"candidates\": {\"<label>\": {\"axes\": [a1,a2,a3,a4,a5], \"reasons\": [5 one-line strings], \"notes\": \"<one line>\"}}, \"ranking\": [labels best\u2192worst]}. view_image only. No image generation, no code, no web, no other files. RETURN: receipt task_id; images = []; calls_used = 0; status; concerns. Never PASS/FAIL.",
+ "references": [
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/S1-ink/S1-ink_a.png",
+   "role": "IMAGE 1 \u2014 candidate P"
+  },
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/CS-chunk-A/chunk_A.png",
+   "role": "IMAGE 2 \u2014 candidate Q"
+  },
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/S1-warm/S1-warm_a.png",
+   "role": "IMAGE 3 \u2014 candidate R"
+  },
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/S1-ink/S1-ink_b.png",
+   "role": "IMAGE 4 \u2014 candidate S"
+  },
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/S1-warm/S1-warm_b.png",
+   "role": "IMAGE 5 \u2014 candidate T"
+  },
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/CS-guides/chunk_A_guide.png",
+   "role": "IMAGE 6 \u2014 the GEOMETRY GUIDE (axis 3)"
+  },
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/refs/trh-07-july-bridge.jpg",
+   "role": "IMAGE 7 \u2014 the MANUSCRIPT anchor (axes 1\u20132: palette, way of painting)"
+  }
+ ],
+ "image_cap": 0,
+ "minutes_cap": 15,
+ "tool_call_cap": 20,
+ "outputs": [
+  "out/judgment.json"
+ ],
+ "effort": "high",
+ "add_dirs": [],
+ "experiment": "M1-style-gate"
+}

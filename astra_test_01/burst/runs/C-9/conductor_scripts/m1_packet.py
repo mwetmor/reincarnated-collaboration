@@ -55,7 +55,7 @@ def game_view(chunk_path, fig_path, name):
     p = OUT / name; ch.save(p); return p.name
 
 rows, pairs = [], []
-cands = sorted(ART.glob('S1-*/out/*.png')) + sorted(ART.glob('K1-*/out/*.png'))
+cands = sorted(ART.glob('S1-*/S1-*.png')) + sorted(ART.glob('K1-*/K1-*.png'))
 imgs = [('A chunk_A (H1)', A_CHUNK), ('A Keeper SE (H1)', A_KEEPER)] + [(p.stem, p) for p in cands]
 for label, p in imgs:
     rows.append(dict(label=label, path=str(p), sha12=hashlib.sha256(p.read_bytes()).hexdigest()[:12], **metrics(p)))
