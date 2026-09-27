@@ -16,11 +16,14 @@ extends AnimatedSprite2D
 #                     registered rest frames -- pinned to the body origin, same as the
 #                     Keeper's own (-256, -400)
 #
-# TIMING is carried by the SpriteFrames resource, not by this script: each walk_<D>
-# animation has its own `speed` (12 * 24 / stride_native_frames), because the painted
-# stride period differs per direction (44..92 native frames at 24 fps).  Idle is 6 fps
-# (12 frames over the 2.0 s breath).  speed_scale stays at 1.0 so the clip plays at its
-# own painted timing.
+# TIMING is carried by the SpriteFrames resource, not by this script, and since
+# 2026-09-27 it MATCHES THE KEEPER rather than the painting: tools/build_knight_frames.py
+# reads her walk cadence out of frames/keeper.tres (12 frames at 20.7 fps = 0.5797 s per
+# stride, the same in all eight directions) and gives every knight walk_<D> that stride
+# duration.  The clips' own painted timing was 3.130-6.545 fps -- 3.2x to 6.6x slower
+# than the character standing beside him in the other register, which is what Matt saw
+# when he played v2 ("about half time motion of the keeper"; it was worse than half).
+# Idle is unchanged at 6 fps (12 frames over the 2.0 s breath).  speed_scale stays 1.0.
 #
 # STATE MAP.  The knight has walk and idle cells only.  For B: run -> walk, and
 # cast/jump -> idle.  style_toggle.gd states this on the HUD line so nobody reads a

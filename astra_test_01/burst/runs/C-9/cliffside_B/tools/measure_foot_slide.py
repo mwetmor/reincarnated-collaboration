@@ -4,12 +4,14 @@
 walk_px_s is NOT changed by this tool or by the build -- this only measures and
 reports.  Writes frames/knight_foot_slide.json and prints the table.
 
-THE QUESTION.  Each walk cell is 12 frames sampled across ONE stride of a 24 fps clip
-whose stride is `stride_native_frames` long, and the build plays it at that clip's own
-timing (fps = 12*24/stride_native_frames).  One loop therefore takes
-stride_native_frames/24 seconds, during which the body travels
+THE QUESTION.  Each walk cell is 12 frames covering ONE stride.  The playback fps is
+READ FROM THE BUILD (frames/knight_fit.json, written by tools/build_knight_frames.py),
+never re-derived here -- since 2026-09-27 the build matches the KEEPER's walk cadence
+(20.7 fps, 0.5797 s per stride) rather than the clip's painted timing, and an
+instrument that re-derived the retired painted fps would report the slide of a build
+that no longer exists.  One loop takes 12/fps seconds, during which the body travels
 
-    body_travel = walk_px_s * stride_native_frames / 24          [canvas px]
+    body_travel = walk_px_s * 12 / playback_fps                  [canvas px]
 
 For the feet to look planted, the PAINTING's stride must cover the same ground.
 
@@ -79,16 +81,17 @@ def main():
                       ["movement"]["walk_px_s"])
 
     print(f"knight sprite scale {scale:.6f}   walk_px_s {walk_px_s:.0f} (NOT changed)")
+    print(f"walk cadence source: {fit.get('walk_cadence_source', 'clip-native')}")
     print(f"{'dir':<4}{'stride_nf':>10}{'fps':>8}{'period_s':>10}"
           f"{'body_travel':>12}{'painted_stride':>15}{'slide_px':>10}{'ratio':>8}"
           f"{'no-slide fps':>14}")
     rows = {}
+    built_fps = fit["animation_fps"]
     for d in DIRS:
         cell = man["cells"]["walk_" + d]
         nf = int(cell["stride_native_frames"])
-        src_fps = float(cell.get("fps_source", 24))
-        fps = 12.0 * src_fps / nf
-        period = nf / src_fps
+        fps = float(built_fps["walk_" + d])        # what the build actually plays
+        period = 12.0 / fps
         travel = walk_px_s * period
         vx, vy = SCREEN_DIR[d]
         norm = math.hypot(vx, vy)
@@ -125,13 +128,13 @@ def main():
 
     ratios = [r["slide_ratio"] for r in rows.values()]
     prof = [r["slide_ratio"] for d, r in rows.items() if r["profile_view"]]
-    verdict = ("YES -- the feet slide visibly in every direction. The painted strides are "
-               "stately (%.1f-%.1f s per stride) while walk_px_s asks for a brisk game "
-               "walk, so the body outruns the painting by %.1fx-%.1fx (%.1fx-%.1fx on the "
-               "two true-profile cells, which are the trustworthy pair)."
-               % (min(r["stride_period_s"] for r in rows.values()),
-                  max(r["stride_period_s"] for r in rows.values()),
-                  min(ratios), max(ratios), min(prof), max(prof)))
+    worst = max(abs(math.log(r)) for r in ratios)
+    verdict = ("slide ratios %.2fx-%.2fx overall, %.2fx-%.2fx on the two true-profile "
+               "cells (the trustworthy pair). 1.00 = planted; above 1 the feet skate "
+               "forward, below 1 they drag back. Stride period %.3f s in every "
+               "direction. Worst |log ratio| %.2f."
+               % (min(ratios), max(ratios), min(prof), max(prof),
+                  rows[DIRS[0]]["stride_period_s"], worst))
     print("\nverdict:", verdict)
     OUT.write_text(json.dumps({
         "note": "Measured, not applied. walk_px_s is unchanged.",

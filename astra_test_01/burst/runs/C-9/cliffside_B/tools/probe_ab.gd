@@ -165,6 +165,20 @@ func _initialize():
 				missing.append(nm)
 	_check(missing.is_empty(), "all 16 knight cells present with 12 frames each%s"
 		% ("" if missing.is_empty() else " (missing/short: " + str(missing) + ")"))
+	# The knight's walk must run at the KEEPER's cadence, not the clips' painted one.
+	# A stale frames/knight.tres would still load, still animate, and still look wrong
+	# in exactly the way Matt reported -- so assert the tempo, not just the presence.
+	var keeper_sf: SpriteFrames = keeper_spr.sprite_frames
+	var tempo_bad := []
+	for d in ["S", "SW", "W", "NW", "N", "NE", "E", "SE"]:
+		var kn: String = "walk_" + String(d)
+		var k_stride: float = keeper_sf.get_frame_count(kn) / keeper_sf.get_animation_speed(kn)
+		var n_stride: float = sf.get_frame_count(kn) / sf.get_animation_speed(kn)
+		if absf(n_stride - k_stride) > 0.005:
+			tempo_bad.append("%s knight %.4fs vs keeper %.4fs" % [d, n_stride, k_stride])
+	_check(tempo_bad.is_empty(),
+		"knight walk stride matches the Keeper's in all 8 directions%s"
+		% ("" if tempo_bad.is_empty() else " -- " + str(tempo_bad)))
 	for d in ["S", "SW", "W", "NW", "N", "NE", "E", "SE"]:
 		print("    walk_%-3s %6.3f fps    idle_%-3s %6.3f fps"
 			% [d, sf.get_animation_speed("walk_" + d), d, sf.get_animation_speed("idle_" + d)])

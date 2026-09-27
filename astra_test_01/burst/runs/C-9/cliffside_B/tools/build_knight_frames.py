@@ -32,17 +32,35 @@ MEASUREMENT.  "Figure height" = helm/head crown -> sole, in source pixels:
 
   Keeper: 8 idle cells, frame 0.   Knight: all 16 rest frames.
 
-WALK TIMING.  The cells are 12 frames sampled across ONE stride of a 24 fps source
-clip whose stride is stride_native_frames long, and that period differs per direction
-(44..92 native frames).  Each walk_<D> animation therefore gets its own speed
+WALK TIMING -- MATCHED TO THE KEEPER (changed 2026-09-27 on Matt's play note:
+"the knight's steps are too slow -- seemingly about half time motion of the keeper").
 
-    fps_D = 12 * 24 / stride_native_frames_D
+The knight's walk cadence is now read from the KEEPER'S OWN SpriteFrames in this build
+(frames/keeper.tres) rather than derived from the source clips.  Her walk is 12 frames
+at 20.7 fps -- 0.5797 s per stride -- and identical in all eight directions, so each
+knight walk_<D> gets
 
-so one loop takes exactly the stride the painter painted.  Idle is 12 frames over the
-2.0 s breath (48 native frames) = 6 fps.  The knight has no run/cast/jump cells; the
-scene maps run -> walk and cast/jump -> idle for style B and says so on the HUD.
+    fps_D = 12 / keeper_walk_stride_seconds_D
+
+which lands on the same 20.7 fps.  This is read, not hardcoded: if her cadence is ever
+re-tuned, or ever differs per direction, the knight follows it.
+
+WHAT THIS DELIBERATELY DISCARDS.  The previous build played each cell at its own
+painted timing, fps_D = 12*24/stride_native_frames (3.130 W .. 6.545 N), so the
+footfalls matched the painting.  Those clips are cinematic: 1.83 s to 3.83 s per
+stride, against the Keeper's 0.58 s.  That is 3.2x to 6.6x slower than the character
+standing beside him in the other register, which is what Matt saw.  Matching her
+cadence is a 3.2x-6.6x speed-up and it FLATTENS the per-direction differences the
+painter put in -- every direction now plays at one rate because hers does.  The
+manifest's stride_native_frames is still recorded per cell in knight_fit.json so the
+painted timing is recoverable; it no longer drives playback.
+
+Idle is unchanged: 12 frames over the 2.0 s breath = 6 fps.  The knight has no
+run/cast/jump cells; the scene maps run -> walk and cast/jump -> idle for style B and
+says so on the HUD.
 """
 import json
+import re
 import shutil
 import sys
 from pathlib import Path
@@ -61,6 +79,7 @@ DIRS = ["S", "SW", "W", "NW", "N", "NE", "E", "SE"]
 KEEPER_SCALE = 0.6291666666666667                # scenes/cliffside.tscn
 KEEPER_PIVOT_Y = 400.0                           # offset=(-256,-400)
 IDLE_SECONDS = 2.0
+KEEPER_TRES = "frames/keeper.tres"            # the walk cadence the knight must match
 OPEN_W = 11                                      # horizontal opening: kills the shaft
 SOLE_MIN_RUN = 12                                # a foot is wide; a ferrule is not
 
@@ -77,6 +96,34 @@ def _widest_run(row):
             s = x
         p = x
     return max(best, p - s + 1)
+
+
+def keeper_walk_cadence():
+    """-> {direction: seconds per walk stride}, read from the Keeper's SpriteFrames.
+
+    The knight must move at the tempo of the character he stands in for, not at the
+    tempo of the clip he was painted from, so this is READ from the build rather than
+    hardcoded -- re-tune her and he follows.
+    """
+    text = (PROJ / KEEPER_TRES).read_text()
+    body = text[text.index("[resource]"):]
+    out = {}
+    # Match EVERY animation block, then filter by name. Restricting the name inside the
+    # pattern lets the non-greedy .*? run across the blocks that do not match, so a
+    # walk_<D> preceded by run_<D>/idle_<D> absorbs their frames: walk_E came out as 332
+    # frames / 16.04 s / 0.748 fps instead of 12 / 0.580 s / 20.7. It did not error -- it
+    # returned a number, for seven of eight directions correctly, and would have shipped
+    # a walk_E taking sixteen seconds per stride.
+    pattern = r'\{"frames": \[(.*?)\], "loop": \w+, "name": &"([^"]+)", "speed": ([0-9.]+)\}'
+    for frames, name, speed in re.findall(pattern, body, re.S):
+        if not name.startswith("walk_"):
+            continue
+        n = frames.count("ExtResource")
+        out[name[5:]] = n / float(speed)
+    missing = [d for d in DIRS if d not in out]
+    if missing:
+        raise SystemExit(f"{KEEPER_TRES}: no walk animation for {missing}")
+    return out
 
 
 def measure(path):
@@ -101,6 +148,11 @@ def measure(path):
 def main():
     man = json.loads(MANIFEST.read_text())
     cells = man["cells"]
+    keeper_stride = keeper_walk_cadence()
+    print("keeper walk cadence (read from %s):" % KEEPER_TRES)
+    for d in DIRS:
+        print(f"  walk_{d:<3} {keeper_stride[d]:.4f} s per 12-frame stride "
+              f"= {12.0 / keeper_stride[d]:.3f} fps")
 
     # ---- measure the Keeper ------------------------------------------------
     keeper_h = []
@@ -157,8 +209,11 @@ def main():
             copied += 1
             if st == "walk":
                 nf = int(cell["stride_native_frames"])
-                fps = 12.0 * cell.get("fps_source", 24) / nf
-                note = f"stride {nf} native frames @ {cell.get('fps_source', 24)} fps = {nf / 24.0:.3f} s"
+                painted_fps = 12.0 * cell.get("fps_source", 24) / nf
+                fps = 12.0 / keeper_stride[d]          # match the Keeper, not the clip
+                note = (f"matched to keeper walk_{d} ({keeper_stride[d]:.4f} s/stride); "
+                        f"painted stride was {nf} native frames = {nf / 24.0:.3f} s "
+                        f"({painted_fps:.3f} fps), {fps / painted_fps:.2f}x slower than her")
             else:
                 fps = 12.0 / IDLE_SECONDS
                 note = f"breath {cell.get('breath_native_frames', 48)} native frames = {IDLE_SECONDS:.1f} s"
@@ -192,6 +247,16 @@ def main():
         "knight": {"figure_h_src_px": knight_src, "scale": scale,
                    "figure_h_canvas_px": knight_src * scale,
                    "offset": [-pivot_x, -pivot_y], "per_cell": per_cell},
+        "keeper_walk_stride_seconds": {d: round(keeper_stride[d], 6) for d in DIRS},
+        "walk_cadence_source": ("frames/keeper.tres -- the knight matches the Keeper's "
+                                "walk stride duration, NOT his own clips' painted timing "
+                                "(changed 2026-09-27; see the module docstring)"),
+        "painted_walk_fps_superseded": {
+            f"walk_{d}": round(12.0 * cells[f"walk_{d}"].get("fps_source", 24)
+                               / int(cells[f"walk_{d}"]["stride_native_frames"]), 6)
+            for d in DIRS},
+        "stride_native_frames": {f"walk_{d}": int(cells[f"walk_{d}"]["stride_native_frames"])
+                                 for d in DIRS},
         "animation_fps": {a["name"]: round(a["fps"], 6) for a in anims},
         "animation_note": {a["name"]: a["note"] for a in anims},
         "state_map_b": {"walk": "walk", "idle": "idle", "run": "walk",
