@@ -2,7 +2,7 @@
 
 **Date:** 2026-09-26 · **For:** the painted-book A/B test (companion to `../rdr-art-illuminated-archive-brief.md`)
 **Register:** medieval painted book (tempera and gold on vellum), merged with FFT-style watercolor.
-**The split (Matt 2026-09-26):** FFT watercolor was only ever a portrait and cinematic register; it never painted a world. **Characters** = FFT watercolor merged with the painted book's line and palette. **World (scenes)** = the painted-book pages alone. They were never places either; they are the view into history. No oil paintings and no engravings are used as references: the generator copies the medium it is shown.
+**The merge (Matt 2026-09-26, corrected):** painted-book **characters and scenes** are both merged with FFT watercolor. Neither source has ever lived in a game: FFT watercolor was only portraits and cinematics, and the painted-book pages were never places. **The painted book supplies the subject, composition, iconography and palette; FFT watercolor supplies the rendering** (wash handling, pale highs, ink and hatching, uneven wash). This applies to the knight and to the cathedral and cliffside alike. No oil paintings and no engravings are used as references: the generator copies the medium it is shown.
 
 `ledger.jsonl` holds one row per image: source, object ID, image URL, licence, retrieval time, local file, pixel size and sha256. Each licence was checked at harvest: Getty pages show the Open Content Program marker, Met objects return `isPublicDomain: true` from the collection API, and Commons files carry `Public domain`.
 
