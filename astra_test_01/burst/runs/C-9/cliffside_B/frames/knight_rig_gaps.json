@@ -1,0 +1,161 @@
+{
+ "walk": {
+  "zoom": 3.0,
+  "samples": 64,
+  "joint_radius_rig_px": 22.0,
+  "joint_gap_rig_px": {
+   "hip_near": 1.0,
+   "knee_near": 0.33,
+   "ankle_near": 5.0,
+   "hip_far": 0.0,
+   "knee_far": 0.0,
+   "ankle_far": 4.67
+  },
+  "joint_gap_worst_at_s": {
+   "hip_near": 0.2899,
+   "knee_near": 0.0725,
+   "ankle_near": 0.462,
+   "hip_far": null,
+   "knee_far": null,
+   "ankle_far": 0.3986
+  },
+  "max_hole_extent_canvas_px": {
+   "hip_near": 8,
+   "hip_far": 18,
+   "knee_near": 34,
+   "knee_far": 44,
+   "ankle_near": 87,
+   "ankle_far": 82
+  },
+  "max_hole_extent_rig_px": {
+   "hip_near": 2.67,
+   "hip_far": 6.0,
+   "knee_near": 11.33,
+   "knee_far": 14.67,
+   "ankle_near": 29.0,
+   "ankle_far": 27.33
+  },
+  "hole_area_px": {
+   "hip_near": 47,
+   "hip_far": 118,
+   "knee_near": 826,
+   "knee_far": 443,
+   "ankle_near": 3580,
+   "ankle_far": 2124
+  },
+  "worst_at_s": {
+   "hip_near": 0.3714,
+   "hip_far": 0.0996,
+   "knee_near": 0.1902,
+   "knee_far": 0.1902,
+   "ankle_near": 0.471,
+   "ankle_far": 0.1812
+  }
+ },
+ "run": {
+  "zoom": 3.0,
+  "samples": 64,
+  "joint_radius_rig_px": 22.0,
+  "joint_gap_rig_px": {
+   "hip_near": 1.0,
+   "knee_near": 1.33,
+   "ankle_near": 5.33,
+   "hip_far": 1.0,
+   "knee_far": 0.0,
+   "ankle_far": 5.0
+  },
+  "joint_gap_worst_at_s": {
+   "hip_near": 0.1379,
+   "knee_near": 0.2931,
+   "ankle_near": 0.0431,
+   "hip_far": 0.1638,
+   "knee_far": null,
+   "ankle_far": 0.1121
+  },
+  "max_hole_extent_canvas_px": {
+   "hip_near": 15,
+   "hip_far": 31,
+   "knee_near": 31,
+   "knee_far": 82,
+   "ankle_near": 25,
+   "ankle_far": 68
+  },
+  "max_hole_extent_rig_px": {
+   "hip_near": 5.0,
+   "hip_far": 10.33,
+   "knee_near": 10.33,
+   "knee_far": 27.33,
+   "ankle_near": 8.33,
+   "ankle_far": 22.67
+  },
+  "hole_area_px": {
+   "hip_near": 86,
+   "hip_far": 418,
+   "knee_near": 276,
+   "knee_far": 1010,
+   "ankle_near": 266,
+   "ankle_far": 1824
+  },
+  "worst_at_s": {
+   "hip_near": 0.2672,
+   "hip_far": 0.0776,
+   "knee_near": 0.0172,
+   "knee_far": 0.0172,
+   "ankle_near": 0.319,
+   "ankle_far": 0.319
+  }
+ },
+ "idle": {
+  "zoom": 3.0,
+  "samples": 12,
+  "joint_radius_rig_px": 22.0,
+  "joint_gap_rig_px": {
+   "hip_near": 0.33,
+   "knee_near": 0.0,
+   "ankle_near": 0.0,
+   "hip_far": 0.0,
+   "knee_far": 0.0,
+   "ankle_far": 0.0
+  },
+  "joint_gap_worst_at_s": {
+   "hip_near": 0.5,
+   "knee_near": null,
+   "ankle_near": null,
+   "hip_far": null,
+   "knee_far": null,
+   "ankle_far": null
+  },
+  "max_hole_extent_canvas_px": {
+   "hip_near": 0,
+   "hip_far": 2,
+   "knee_near": 2,
+   "knee_far": 2,
+   "ankle_near": 4,
+   "ankle_far": 4
+  },
+  "max_hole_extent_rig_px": {
+   "hip_near": 0.0,
+   "hip_far": 0.67,
+   "knee_near": 0.67,
+   "knee_far": 0.67,
+   "ankle_near": 1.33,
+   "ankle_far": 1.33
+  },
+  "hole_area_px": {
+   "hip_near": 0,
+   "hip_far": 22,
+   "knee_near": 5,
+   "knee_far": 6,
+   "ankle_near": 22,
+   "ankle_far": 22
+  },
+  "worst_at_s": {
+   "hip_near": null,
+   "hip_far": 1.5,
+   "knee_near": 1.1667,
+   "knee_far": 1.1667,
+   "ankle_near": 0.0,
+   "ankle_far": 0.0
+  }
+ }
+}

@@ -47,7 +47,7 @@ func _initialize():
 	print("    bones %d   sprites %d   animations %s"
 		% [skel.get_bone_count(), sprites.size(), str(anim.get_animation_list())])
 	_check(skel.get_bone_count() == 17, "17 bones (got %d)" % skel.get_bone_count())
-	_check(sprites.size() == 14, "14 part sprites (got %d)" % sprites.size())
+	_check(sprites.size() == 15, "15 part sprites (got %d)" % sprites.size())
 	_check(anim.has_animation("walk") and anim.has_animation("idle"), "walk + idle clips present")
 	var wl := anim.get_animation("walk").length
 	var kf: SpriteFrames = knight.sprite_frames
@@ -207,7 +207,15 @@ func _initialize():
 		% [body_travel, samples.size(), stride_travel])
 	print("    WORST planted-foot movement in any stance: %.2f canvas px" % worst)
 	print("    Grok E, measured by tools/measure_foot_slide.py: 34.4 px per stride (ratio 0.81)")
-	_check(worst < 6.0, "planted foot holds its world position within 6 px (%.2f)" % worst)
+	# The ankle is not the plant any more -- see section 8. During stance it rolls
+	# forward over the sole and rises at toe-off, by an amount the build states, so
+	# the honest assertion is that it moves by THAT and not by zero. Asserting zero
+	# here would fail a correct heel-toe and pass a foot that slides backwards.
+	var want_ankle: float = float(fitj["walk"]["heel_toe"]["ankle_stance_world_travel_canvas_px"])
+	print("    authored ankle travel during stance: %.2f canvas px (it rolls; the PLANT is checked in section 8)" % want_ankle)
+	_check(absf(worst - want_ankle) < 3.5,
+		"the ankle travels the authored roll, %.2f px, not zero and not free (%.2f)"
+		% [want_ankle, worst])
 	report["foot_slide"] = {"worst_stance_drift_canvas_px": worst,
 		"stance_runs": per_run, "body_travel_px": body_travel,
 		"stride_travel_px": stride_travel,
@@ -271,11 +279,114 @@ func _initialize():
 			% [r.size(), r[0][0], r[r.size() - 1][0], moved2, want2, hi2 - lo2,
 			   "measured" if valid2 else "SKIPPED (body not at run speed)"])
 	print("    WORST planted-foot movement in any RUN stance: %.2f canvas px" % rworst)
-	_check(rworst < 8.0, "planted foot holds its world position at RUN speed too (%.2f px)" % rworst)
+	var want_ankle_r: float = float(fitj["run"]["heel_toe"]["ankle_stance_world_travel_canvas_px"])
+	print("    authored ankle travel during RUN stance: %.2f canvas px" % want_ankle_r)
+	_check(absf(rworst - want_ankle_r) < 4.0,
+		"the ankle travels the authored roll at run speed, %.2f px (%.2f)"
+		% [want_ankle_r, rworst])
 	report["run"] = {"clip_length_s": rlen, "stance_fraction": rstance,
 					 "flight_fraction": rstats["flight_fraction"],
 					 "worst_stance_drift_canvas_px": rworst, "stance_runs": rper,
 					 "samples_playing_run": played_run}
+
+	# --- 7. HIP COVERAGE (R-C9-40) ---------------------------------------
+	# Matt: "the legs detach at the thigh from the body and move as ghosts."  The fix is
+	# that each thigh plate carries a SOLID DISC centred on its own hip socket, because a
+	# disc centred on a pivot is the one shape a rotation about that pivot cannot move --
+	# so the socket stays covered at every angle, not merely at the angles someone
+	# sampled.  That is an invariant of the TEXTURE, so it is checked on the texture, in
+	# Godot, on the thing that actually ships: walk the hip bone's position into the
+	# thigh sprite's own texel space and read the alpha of the disc around it.
+	#
+	# Checking a rendered frame instead would only ever say "no gap at these frames".
+	# This says the gap cannot open.
+	print("[hip coverage: the thigh's disc about its own socket]")
+	var capr: float = float(fitj["hip_cap_seed_px"]) * float(fitj["transform"]["png_texels_per_seed_px"])
+	for side in ["near", "far"]:
+		var bone_path := "Skel/hip/leg_%s_th" % ("n" if side == "near" else "f")
+		var bone: Node2D = rig.get_node(NodePath(bone_path))
+		var spr: Sprite2D = bone.get_node(NodePath("S_leg_%s_thigh" % side))
+		var img: Image = spr.texture.get_image()
+		# hip socket -> texel space: the sprite is centred on the bone's frame
+		# The socket is the BONE's origin, so it is Vector2.ZERO in the bone's frame.
+		# The sprite is a child of that bone, centred, so the inverse of the sprite's
+		# own transform takes the socket into sprite-local px and adding half the
+		# texture puts it in texels.
+		var c := Vector2(img.get_width(), img.get_height()) * 0.5
+		var tex_hip: Vector2 = c + spr.transform.affine_inverse() * Vector2.ZERO
+		var bad := 0
+		var tested := 0
+		var r := int(capr) - 2
+		for ddy in range(-r, r + 1):
+			for ddx in range(-r, r + 1):
+				if ddx * ddx + ddy * ddy > r * r:
+					continue
+				var px := int(round(tex_hip.x)) + ddx
+				var py := int(round(tex_hip.y)) + ddy
+				tested += 1
+				if px < 0 or py < 0 or px >= img.get_width() or py >= img.get_height():
+					bad += 1
+				elif img.get_pixel(px, py).a < 0.5:
+					bad += 1
+		print("    %-4s thigh: socket at texel (%.1f, %.1f), disc r=%d, %d/%d texels bare"
+			% [side, tex_hip.x, tex_hip.y, r, bad, tested])
+		_check(bad == 0, "%s thigh is SOLID over the whole hip disc (%d bare of %d)"
+			% [side, bad, tested])
+		report["hip_disc_" + side] = {"radius_texels": r, "bare": bad, "tested": tested}
+
+	# --- 8. CONTACT SLIDE, not ankle slide (R-C9-40) ----------------------
+	# The foot now rolls heel to toe, so the ankle is NOT the thing that has to hold
+	# still -- it rises 13 rig px over the rolling forefoot at toe-off, and that is the
+	# gait working, not the foot slipping.  What must hold still is the point that is
+	# TOUCHING.  build_knight_rig_E.py records it per keyed frame in the foot bone's own
+	# frame; this walks it through the live bone chain, so it measures the composition
+	# of the rig -- keys, hierarchy, interpolation, physics tick -- rather than the
+	# equation the keys were written from.
+	print("[contact-point slide: the point actually touching the ground]")
+	var node_sc: float = float(fitj["transform"]["node_scale"])
+	for gait in ["walk", "run"]:
+		var keys: Array = fitj[gait]["heel_toe"]["contact_local_rig_px"]
+		var clen: float = anim.get_animation(gait).length
+		var bone2: Node2D = rig.get_node(^"Skel/hip/leg_n_th/leg_n_sh/leg_n_ft")
+		# PAUSE before scrubbing. The clip runs on the PHYSICS callback, so a seek
+		# followed by an await lets the player advance before the transform is read,
+		# and the sample belongs to a different time than the key it is compared with.
+		anim.play(gait)
+		anim.pause()
+		var prev := Vector2.ZERO
+		var have := false
+		var worst2 := 0.0
+		var n2 := 0
+		for i in keys.size():
+			var k: Array = keys[i]
+			if int(k[2]) == 0:
+				have = false
+				continue
+			anim.seek(clen * float(i) / float(keys.size() - 1), true)
+			var world: Vector2 = bone2.global_transform * Vector2(float(k[0]), float(k[1]))
+			# the body is standing still while we scrub, so in a correct rig the contact
+			# point walks backward at exactly the gait's speed; consecutive keys are
+			# compared against that, not against zero
+			# The contact does NOT simply run backward at the gait speed: it rolls
+			# FORWARD along the sole while the body carries it back, so the expected
+			# step is (roll - travel), not -travel. The builder writes the expected
+			# rig-local x per key and this compares against that, so the probe checks
+			# the rig's COMPOSITION rather than re-deriving the gait's own equation.
+			var want: float = 0.0
+			if i > 0 and int((keys[i - 1] as Array)[2]) == 1:
+				want = (float(k[3]) - float((keys[i - 1] as Array)[3])) * node_sc
+			if have:
+				worst2 = maxf(worst2, absf((world.x - prev.x) - want))
+				n2 += 1
+			prev = world
+			have = true
+		print("    %-4s %d planted key steps, worst departure from the exact roll: %.3f canvas px"
+			% [gait, n2, worst2])
+		_check(worst2 < 2.0, "%s contact point rolls at exactly the gait speed (%.3f px)"
+			% [gait, worst2])
+		report["contact_slide_" + gait] = {"planted_steps": n2, "worst_px": worst2,
+			"authored_slide_rig_px": fitj[gait]["heel_toe"]["contact_slide_rig_px"]}
+	anim.play("idle")
 
 	report["fails"] = fails
 	var f := FileAccess.open("res://frames/knight_rig_probe.json", FileAccess.WRITE)

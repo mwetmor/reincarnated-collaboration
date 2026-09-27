@@ -228,17 +228,26 @@ if [ -n "$PCK" ] && [ -f "$PCK" ]; then
     ck 0 "all $WANT_KN knight frames in the pck (16 walk/idle + $(echo $RUN_DIRS | wc -w | tr -d ' ') run cells x 12)"
   else ck 1 "knight frames in the pck: $KN/$WANT_KN"; fi
 
-  # R-C9-34: all 14 rig parts. A rig that exports with 13 of them toggles to a knight
-  # missing a leg and says nothing, so count them rather than trusting the scene.
+  # R-C9-34: every rig part. A rig that exports with one part missing toggles to a
+  # knight missing a leg and says nothing, so count them rather than trusting the scene.
+  #
+  # The list is READ FROM THE SCENE, not written here. It was a hardcoded 14 until
+  # R-C9-40 added a fifteenth part (body_backdrop, the piece that closes the gap
+  # between the tabard flaps) -- and the check went on reporting "all 14 knight-rig
+  # parts in the pck", green, while saying nothing at all about the one part the whole
+  # fix depends on. A check that enumerates what it expects stops matching the thing it
+  # checks the first time the thing grows.
+  PARTS=$(grep -o 'sprites_rig_E/[a-z_]*\.png' "$DEST/scenes/knight_rig_E.tscn" \
+          | sed 's|sprites_rig_E/||; s|\.png$||' | sort -u)
+  WANT_RG=$(echo "$PARTS" | wc -w | tr -d ' ')
   RG=0
-  for p in arm_far_lo arm_near_lo hand_far hand_pollaxe head \
-           leg_far_foot leg_far_shin leg_far_thigh \
-           leg_near_foot leg_near_shin leg_near_thigh \
-           skirt_back skirt_front torso; do
-    grep -a -q "sprites_rig_E/$p.png" "$PCK" && RG=$((RG+1))
+  MISSING_RG=""
+  for p in $PARTS; do
+    if grep -a -q "sprites_rig_E/$p.png" "$PCK"; then RG=$((RG+1));
+    else MISSING_RG="$MISSING_RG $p"; fi
   done
-  if [ "$RG" -eq 14 ]; then ck 0 "all 14 knight-rig parts in the pck"
-  else ck 1 "knight-rig parts in the pck: $RG/14"; fi
+  if [ "$RG" -eq "$WANT_RG" ]; then ck 0 "all $WANT_RG knight-rig parts in the pck"
+  else ck 1 "knight-rig parts in the pck: $RG/$WANT_RG (missing:$MISSING_RG)"; fi
 fi
 
 xattr -dr com.apple.quarantine "$APP" 2>/dev/null || true

@@ -39,6 +39,7 @@ OUT_SCN = PROJ / "scenes" / "knight_rig_E.tscn"
 OUT_JSON = PROJ / "frames" / "knight_rig_E.json"
 FIT_JSON = PROJ / "frames" / "knight_fit.json"
 SLIDE_JSON = PROJ / "frames" / "knight_foot_slide.json"
+GAPFILL = PROJ / "frames" / "knight_rig_gapfill.npz"
 
 # ---------------------------------------------------------------------------
 # JOINTS, in seed_E.png pixels, read off the painting.
@@ -77,6 +78,29 @@ RES = 2.0              # texels per canvas pixel in the part PNGs
 # 40-50. (Checked for angle wrap first: the largest step between adjacent keys is
 # 19.4 deg, and a 2*pi wrap would show ~360, so it was real geometry, not atan2.)
 SWING_LIFT = 4.0
+
+# --- THE JOINT FILLS (R-C9-40) ---------------------------------------------
+# HIP_CAP_SEED is the radius, in seed px, of the disc each thigh carries at its hip
+# socket.  It is not an eyeballed number: tools/render_rig_E.py rasterises the shipped
+# scene and reports the largest ENCLOSED HOLE within 22 rig px of each joint, over
+# every frame of every clip, and this is the smallest radius that drives all four leg
+# joints to 0 in walk, run and idle.  38 seed px is 8.5 rig px on a 194 px figure --
+# a cuisse top, and it lives behind the tabard and the torso, so it is only ever seen
+# in the slot between the two hanging flaps, which is exactly where the gap opened.
+HIP_CAP_SEED = 38
+# The sabaton's working range, used to measure what the greave must cover.  Slightly
+# wider than the gaits actually reach, so retuning the roll cannot silently outrun the
+# fill that was built for it.
+ANKLE_PHI_RANGE = (-66.0, 32.0)
+KNEE_PHI_RANGE = (-6.0, 88.0)
+# Disc radii, seed px, for the knee and ankle bosses. Sized by the render probe, not by
+# eye: these are the smallest that drive every leg joint's enclosed-hole measure to 0.
+KNEE_DISC_SEED = 34
+ANKLE_DISC_SEED = 34
+# Both are ENVELOPES the plates are cut to cover, not measurements of the gaits.  main()
+# asserts afterwards that every keyed frame of every clip lies inside them and stops the
+# build if not -- so retuning a gait cannot quietly outrun the fill that was built for
+# the old one.  That failure would be invisible in every number this script prints.
 
 # --- RUN -------------------------------------------------------------------
 # The scene runs at 494 canvas px/s on the Keeper's 0.5517 s run stride, which is a
@@ -257,6 +281,10 @@ def clone_up(arr, rows, band=4):
     almost all of the cuisse, so the topmost row is a narrow sliver and cloning it grew
     a spike instead of a hip.  The widest row in the first 60 is the plate at its full
     width, which is what is actually hidden under the hem.
+
+    STILL USED for the arm (whose shoulder end is a short, nearly-unrotated stub).  It
+    is NOT used for the thigh any more -- see hip_cap() for why a rectangle is the
+    wrong shape at a joint that swings 75 deg.
     """
     cover = (arr[..., 3] > 8)
     ys = np.nonzero(cover.any(1))[0]
@@ -273,6 +301,239 @@ def clone_up(arr, rows, band=4):
             break
         out[y] = src[(i - 1) % band]
     return out
+
+
+def hip_cap(arr, hip, radius, band=6, look=70):
+    """Grow the cuisse's hidden upper end into a SOLID DISC CENTRED ON THE HIP SOCKET.
+
+    THE BUG THIS FIXES (Matt, R-C9-40): "the legs detach at the thigh from the body and
+    move as ghosts."  The thigh's hip end is under the tabard in the still, so it has to
+    be filled.  clone_up() filled it by extruding the plate's widest row straight up --
+    a RECTANGLE.  A rectangle rotated about a point inside it sweeps its corners away
+    from the socket, and the thigh swings 75 deg in the walk and 99 deg in the run, so
+    at the stride extremes the fill rotated clear of the hip and daylight opened between
+    the tabard hem and the cuisse.  The thigh then read as a separate floating piece --
+    a leg walking along beside the knight rather than under him.
+
+    A DISC CENTRED ON THE PIVOT IS THE ONE SHAPE A ROTATION ABOUT THAT PIVOT CANNOT
+    MOVE.  Whatever angle the thigh reaches, the same pixels cover the socket, so the
+    join cannot open -- not "does not, at the angles we sampled", but cannot, for the
+    same reason a wheel's hub stays put.  The radius is not guessed: it is measured by
+    tools/render_rig_E.py, which rasterises the shipped scene and reports the largest
+    enclosed hole at each joint.
+
+    The fill is MECHANICAL.  The disc (and the vertical bridge from the disc down to
+    the plate's own top, so no slit is left between them) is painted from the cuisse's
+    own widest plate band, tiled vertically and clamped horizontally to the nearest
+    column that has plate.  No pixel is invented; every one is the painter's.
+    """
+    H, W = arr.shape[:2]
+    cover = arr[..., 3] > 8
+    ys = np.nonzero(cover.any(1))[0]
+    if len(ys) == 0:
+        return arr, 0
+    top = int(ys[0])
+    widths = cover[top:top + look].sum(1)
+    best = top + int(np.argmax(widths))
+    src = arr[best:best + band].copy()
+    src_cols = np.nonzero(cover[best:best + band].any(0))[0]
+    xlo, xhi = int(src_cols.min()), int(src_cols.max())
+
+    hx, hy = int(round(hip[0])), int(round(hip[1]))
+    yy, xx = np.mgrid[0:H, 0:W]
+    disc = ((xx - hx) ** 2 + (yy - hy) ** 2) <= radius * radius
+    # bridge: in every column the disc touches, close the run between the disc's
+    # bottom and the plate's own topmost pixel, so cap and plate are one solid piece
+    fill = disc.copy()
+    for x in range(max(0, hx - radius), min(W, hx + radius + 1)):
+        dcol = np.nonzero(disc[:, x])[0]
+        if len(dcol) == 0:
+            continue
+        pcol = np.nonzero(cover[:, x])[0]
+        if len(pcol) == 0:
+            continue
+        a, b = int(dcol[-1]), int(pcol[0])
+        if b > a:
+            fill[a:b + 1, x] = True
+    fill &= ~cover
+    out = arr.copy()
+    tys, txs = np.nonzero(fill)
+    cx = np.clip(txs, xlo, xhi)
+    out[tys, txs] = src[(hy - tys) % band, cx]
+    out[tys, txs, 3] = 255.0
+    return out, int(fill.sum())
+
+
+def paint_from_seed(arr, rgba, mask):
+    """Add a measured region to a plate, painted with the still's own pixels there.
+
+    Only where the still is actually opaque: the harvest maps rendered canvas pixels
+    back through a bone, and a couple of px of rounding at the silhouette's edge would
+    otherwise pull background in and leave a fringe of keyed green on the plate.
+    """
+    new = mask & (arr[..., 3] <= 8) & (rgba[..., 3] > 128)
+    out = arr.copy()
+    ys, xs = np.nonzero(new)
+    out[ys, xs] = rgba[ys, xs].astype(np.float32)
+    out[ys, xs, 3] = 255.0
+    return out, int(new.sum())
+
+
+def joint_disc(arr, rgba, joint, radius):
+    """Fill a SOLID DISC centred on a joint, from the still's own pixels there.
+
+    Give BOTH plates of a joint the same disc about the same pivot and the join cannot
+    open inside that radius, whatever the relative angle: a disc centred on a pivot is
+    the one shape a rotation about that pivot leaves where it was, so the parent's disc
+    and the child's disc occupy the same ground at every frame.  Under the still the
+    knee, the ankle and the hip are all solid armour, so the disc is painted with the
+    seed's own pixels at those coordinates -- at the painted pose it lies exactly on
+    what it covers and cannot be seen; it only shows as the plate that was already
+    there, once the limb has swung off it.
+    """
+    H, W = arr.shape[:2]
+    jx, jy = int(round(joint[0])), int(round(joint[1]))
+    yy, xx = np.mgrid[0:H, 0:W]
+    disc = ((xx - jx) ** 2 + (yy - jy) ** 2) <= radius * radius
+    new = disc & (arr[..., 3] <= 8) & (rgba[..., 3] > 128)
+    out = arr.copy()
+    ys, xs = np.nonzero(new)
+    out[ys, xs] = rgba[ys, xs].astype(np.float32)
+    out[ys, xs, 3] = 255.0
+    return out, int(new.sum())
+
+
+def joint_cover(front_arr, rgba, front_mask, back_mask, joint, phi_range,
+                window=110, steps=21):
+    """Grow the FRONT plate of a joint by exactly what the BACK plate's swing exposes.
+
+    Plate armour overlaps in one direction -- cuisse over poleyn over greave over
+    sabaton -- so at every joint one plate is in front and it is that one's job to hide
+    the seam.  In the still the overlap is only as deep as the painter needed for a
+    standing figure: 11 seed px at the knee, and at the ankle a straight cut 62 px wide
+    with the pivot at one END of it.  That is enough for a pose and nowhere near enough
+    for a 100 deg knee bend or an articulating foot, so daylight opens behind the joint
+    and the limb below it reads as a separate piece.
+
+    So: rotate the back plate about the joint through its whole working range and, at
+    each angle, collect the ENCLOSED background -- background with figure on every side.
+    Their union is precisely the region the front plate has to own; nothing more is
+    added, and the measurement is redone whenever the range changes.
+
+    The fill takes the STILL'S OWN pixels at those coordinates -- that region is solid
+    armour in the painting -- so at the painted angle the extension lies pixel for pixel
+    on what it covers and cannot be seen.  It only ever appears as the plate that was
+    always there, once the limb has swung off it.
+    """
+    H, W = front_mask.shape
+    ax, ay = joint
+    need = np.zeros((H, W), bool)
+    yy, xx = np.mgrid[0:H, 0:W]
+    near = ((xx - ax) ** 2 + (yy - ay) ** 2) <= window * window
+    for i in range(steps):
+        phi = math.radians(phi_range[0] + (phi_range[1] - phi_range[0]) * i / (steps - 1.0))
+        c, s = math.cos(-phi), math.sin(-phi)          # inverse rotation for sampling
+        sx = c * (xx - ax) - s * (yy - ay) + ax
+        sy = s * (xx - ax) + c * (yy - ay) + ay
+        ix = np.clip(np.round(sx).astype(np.int32), 0, W - 1)
+        iy = np.clip(np.round(sy).astype(np.int32), 0, H - 1)
+        union = front_mask | back_mask[iy, ix]
+        lab, _ = ndimage.label(~union)
+        border = set(np.unique(lab[0])) | set(np.unique(lab[-1])) | \
+            set(np.unique(lab[:, 0])) | set(np.unique(lab[:, -1]))
+        border.discard(0)
+        holes = (~union) & ~np.isin(lab, list(border))
+        need |= holes & near
+    need = ndimage.binary_closing(need, np.ones((7, 7), bool))
+    need = ndimage.binary_dilation(need, np.ones((3, 3), bool)) & ~front_mask
+    out = front_arr.copy()
+    ys, xs = np.nonzero(need)
+    if len(ys) == 0:
+        return out, 0, (0, 0)
+    out[ys, xs] = rgba[ys, xs].astype(np.float32)
+    out[ys, xs, 3] = 255.0
+    return out, int(need.sum()), (int(ys.min()), int(ys.max()))
+
+
+def lower_hull(mask):
+    """The sabaton's SOLE, as the lower convex hull of its silhouette, heel to toe.
+
+    This is where the heel-toe angles come from.  They are not chosen: the painter drew
+    this sabaton with a rounded heel, a rockered sole and a long poulaine beak, and the
+    angles a foot must pass through to roll over that shape ARE the shape's own tangent
+    angles.  Reading them off the hull means the roll cannot drive the sole through the
+    ground or lift it off, because the ground is the hull's own tangent line.
+
+    Screen y is down, so "lower" is MAXIMUM y and the hull is the chain that bulges
+    downward; concave dents in the painted outline (the notch between heel and instep)
+    are skipped, which is correct -- a dent never touches the ground.
+    """
+    ys, xs = np.nonzero(mask)
+    pts = {}
+    for x, y in zip(xs, ys):
+        if x not in pts or y > pts[x]:
+            pts[x] = y
+    P = sorted(pts.items())
+    hull = []
+    for p in P:
+        while len(hull) >= 2:
+            (x1, y1), (x2, y2) = hull[-2], hull[-1]
+            # keep p if (hull[-2] -> hull[-1] -> p) turns downward (convex from below)
+            if (x2 - x1) * (p[1] - y1) - (y2 - y1) * (p[0] - x1) >= 0:
+                hull.pop()
+            else:
+                break
+        hull.append(p)
+    return [(float(x), float(y)) for x, y in hull]
+
+
+def resample_hull(hull, ankle, scale, n=96, smooth=9):
+    """Hull -> (arc lengths, ankle-relative rig-px points, smoothed tangent angles).
+
+    The tangent is smoothed because the hull of a PIXEL mask is a staircase of short
+    segments whose angles jump; an unsmoothed tangent makes the foot flick between
+    facets mid-stance.  The smoothing window is a fraction of the sole, so the roll
+    reads as a rocker rather than as a polygon.
+    """
+    P = [((x - ankle[0]) * scale, (y - ankle[1]) * scale) for x, y in hull]
+    seg = [math.dist(P[i], P[i + 1]) for i in range(len(P) - 1)]
+    cum = [0.0]
+    for s in seg:
+        cum.append(cum[-1] + s)
+    total = cum[-1]
+    out_s = [total * i / (n - 1) for i in range(n)]
+    out_p, out_t = [], []
+    for s in out_s:
+        j = min(max(np.searchsorted(cum, s) - 1, 0), len(seg) - 1)
+        f = (s - cum[j]) / max(seg[j], 1e-9)
+        out_p.append((P[j][0] + (P[j + 1][0] - P[j][0]) * f,
+                      P[j][1] + (P[j + 1][1] - P[j][1]) * f))
+        out_t.append(math.atan2(P[j + 1][1] - P[j][1], P[j + 1][0] - P[j][0]))
+    k = max(1, smooth)
+    sm = [sum(out_t[max(0, i - k):min(n, i + k + 1)]) /
+          len(out_t[max(0, i - k):min(n, i + k + 1)]) for i in range(n)]
+    return out_s, out_p, sm
+
+
+def hull_at(S, Pts, Tan, s):
+    """Linear lookup of (contact point, tangent angle) at arc length s."""
+    s = min(max(s, S[0]), S[-1])
+    i = min(max(int(np.searchsorted(S, s)) - 1, 0), len(S) - 2)
+    f = (s - S[i]) / max(S[i + 1] - S[i], 1e-9)
+    p = (Pts[i][0] + (Pts[i + 1][0] - Pts[i][0]) * f,
+         Pts[i][1] + (Pts[i + 1][1] - Pts[i][1]) * f)
+    return p, Tan[i] + (Tan[i + 1] - Tan[i]) * f
+
+
+def rot(p, a):
+    c, s = math.cos(a), math.sin(a)
+    return (p[0] * c - p[1] * s, p[0] * s + p[1] * c)
+
+
+def foot_low(Pts, phi):
+    """Lowest (max y) point of the rotated sole, ankle-relative.  Used to keep the
+    swinging foot out of the ground and to check the planted one does not sink."""
+    return max(rot(p, phi)[1] for p in Pts)
 
 
 def darken(arr, f=FAR_DARKEN):
@@ -368,16 +629,135 @@ def main():
                  "hand_pollaxe", "leg_near_thigh", "leg_near_shin", "leg_near_foot"]:
         parts[name] = materialise(rgba, P[name])
 
-    parts["leg_near_thigh"] = clone_up(parts["leg_near_thigh"], 34)
-    fills["leg_near_thigh"] = ("top band cloned 34 rows upward -- the cuisse's hip end is "
-                               "under the tabard hem in the still")
+    # THE HIP JOIN.  Each thigh gets a solid disc centred on ITS OWN hip socket -- the
+    # near one on J["hip"], the far one on the hip offset into depth -- because the far
+    # thigh is the same plate hung on a bone 32 seed px up and 10 forward, and capping
+    # it at the near socket would leave its own socket a third of a cap-radius bare.
+    # THE KNEE.  The poleyn is in front of the greave, so the poleyn owns the bend.  In
+    # the still the cuisse overlaps the greave by 11 seed px -- fine for a man standing,
+    # not remotely enough for the 100 deg knee the run reaches, where the back of the
+    # bend opened a triangle of daylight big enough to cut the shin off from the thigh.
+    # Matching discs on both sides of the knee and the ankle.  The joint_cover fills
+    # below then add whatever the swing exposes OUTSIDE those radii.
+    disc_n = {}
+    parts["leg_near_thigh"], disc_n["thigh_knee"] = joint_disc(
+        parts["leg_near_thigh"], rgba, J["knee"], KNEE_DISC_SEED)
+    parts["leg_near_shin"], disc_n["shin_knee"] = joint_disc(
+        parts["leg_near_shin"], rgba, J["knee"], KNEE_DISC_SEED)
+    parts["leg_near_shin"], disc_n["shin_ankle"] = joint_disc(
+        parts["leg_near_shin"], rgba, J["ankle"], ANKLE_DISC_SEED)
+    parts["leg_near_foot"], disc_n["foot_ankle"] = joint_disc(
+        parts["leg_near_foot"], rgba, J["ankle"], ANKLE_DISC_SEED)
+    fills["leg_joint_discs"] = (
+        "solid discs from the still's own pixels on BOTH plates of each leg joint: "
+        "knee r=%d seed px (%d px into the cuisse, %d into the greave), ankle r=%d "
+        "(%d into the greave, %d into the sabaton). Matching discs about a shared pivot "
+        "cannot be separated by a rotation about it."
+        % (KNEE_DISC_SEED, disc_n["thigh_knee"], disc_n["shin_knee"], ANKLE_DISC_SEED,
+           disc_n["shin_ankle"], disc_n["foot_ankle"]))
+
+    knee_back = P["leg_near_shin"] | P["leg_near_foot"]
+    parts["leg_near_thigh"], n_knee, knee_box = joint_cover(
+        parts["leg_near_thigh"], rgba, P["leg_near_thigh"], knee_back,
+        J["knee"], KNEE_PHI_RANGE, window=150)
+    fills["leg_near_thigh_knee"] = (
+        "cuisse extended over the greave by %d px (seed rows %d..%d) -- the union, over "
+        "the knee's %+.0f..%+.0f deg working range, of the pixels the poleyn seam leaves "
+        "bare; painted with the still's own pixels at those coordinates."
+        % (n_knee, knee_box[0], knee_box[1], KNEE_PHI_RANGE[0], KNEE_PHI_RANGE[1]))
+
+    bare_thigh = parts["leg_near_thigh"]
+    far_hip = (J["hip"][0] + FAR_OFFSET_SEED[0], J["hip"][1] + FAR_OFFSET_SEED[1])
+    parts["leg_near_thigh"], n_near = hip_cap(bare_thigh, J["hip"], HIP_CAP_SEED)
+    far_thigh, n_far = hip_cap(bare_thigh, far_hip, HIP_CAP_SEED)
+    fills["leg_near_thigh"] = (
+        "hip end grown into a SOLID DISC of radius %d seed px centred on the hip socket "
+        "%s (%d px filled), painted from the cuisse's own widest plate band, tiled "
+        "vertically and clamped to the nearest column with plate. A disc centred on the "
+        "pivot is invariant under rotation about it, so the socket stays covered at every "
+        "angle of the walk and the run -- this replaces a rectangular clone_up whose "
+        "corners swung clear of the socket and let the thigh read as detached."
+        % (HIP_CAP_SEED, J["hip"], n_near))
     parts["arm_near_lo"] = clone_up(parts["arm_near_lo"], 14)
     fills["arm_near_lo"] = ("couter end cloned 14 rows upward -- the upper arm is behind "
                             "the surcoat in the still")
-    for a, b in [("leg_near_thigh", "leg_far_thigh"), ("leg_near_shin", "leg_far_shin"),
-                 ("leg_near_foot", "leg_far_foot")]:
-        parts[b] = darken(parts[a])
-        fills[b] = "copy of %s, value x%.2f (symmetric harness; far side in shade)" % (a, FAR_DARKEN)
+
+    # THE ANKLE JOIN.  The shin/sabaton cut is a straight line 62 seed px wide with the
+    # ankle pivot at its BACK end, so once the foot articulates (it did not before) the
+    # forward end of that cut swings up to 26 px clear of the greave.  The greave is the
+    # piece in front (cuisse over poleyn over greave over sabaton), so the greave is what
+    # must cover it.  The extension is not guessed: the foot is rotated through its whole
+    # working range and the pixels that go bare are collected.
+    parts["leg_near_shin"], n_ank, ank_box = joint_cover(
+        parts["leg_near_shin"], rgba, P["leg_near_shin"], P["leg_near_foot"],
+        J["ankle"], ANKLE_PHI_RANGE)
+    fills["leg_near_shin"] = (
+        "greave extended over the instep by %d px -- the union, over the sabaton's whole "
+        "%+.0f..%+.0f deg working range, of the pixels that the shin/sabaton seam leaves "
+        "bare; seed rows %d..%d. Painted with the STILL'S OWN pixels at those coordinates "
+        "(the instep, un-moved), so at the painted angle the extension is invisible."
+        % (n_ank, ANKLE_PHI_RANGE[0], ANKLE_PHI_RANGE[1], ank_box[0], ank_box[1]))
+
+    # THE MEASURED FILL.  tools/harvest_gaps.py rasterises the shipped scene, finds the
+    # background that ends up ENCLOSED by figure -- which is what "the leg has come away
+    # from the body" is, in pixels -- and maps each such pixel back through its bone into
+    # these seed coordinates.  Everything above is a model of where a cutout leg ought to
+    # come apart; this is where it does.  Build, harvest, build again: the loop ends when
+    # the harvest is empty, and frames/knight_rig_gapfill.npz is the record of it.
+    gapfill = {}
+    if GAPFILL.exists():
+        gapfill = dict(np.load(GAPFILL))
+        for nm, keyed in (("leg_near_thigh", "leg_near_thigh"),
+                          ("leg_near_shin", "leg_near_shin")):
+            if keyed in gapfill:
+                parts[nm], n = paint_from_seed(parts[nm], rgba, gapfill[keyed])
+                fills[nm + "_measured"] = (
+                    "%d px added where the RENDERED rig actually opened an enclosed hole "
+                    "at this joint, over every frame of walk, run and idle "
+                    "(tools/harvest_gaps.py); painted with the still's own pixels." % n)
+        if "leg_far_thigh" in gapfill:
+            far_thigh, n_ft = paint_from_seed(far_thigh, rgba, gapfill["leg_far_thigh"])
+            fills["leg_far_thigh_measured"] = "%d px, measured as above on the far side" % n_ft
+    # THE BACKDROP.  One rigid plate on the hip bone, drawn behind every other part, so
+    # the slot between the two tabard flaps and the space between the legs are never
+    # empty.  Its shape is the measured hip region (harvest_gaps.py) unioned with the
+    # slot itself, clipped to what the tabard hangs over; its pixels are the still's own
+    # at those coordinates -- which there is the inside of the surcoat and the top of
+    # the thighs -- put a third down in value, because what you are seeing through a gap
+    # in a man's clothing is in shadow. Nothing is invented and nothing of him is hidden:
+    # it is the LAST thing drawn under, so it can only ever appear where there was a hole.
+    bd = np.zeros(P["torso"].shape, bool)
+    if "body_backdrop" in gapfill:
+        bd |= gapfill["body_backdrop"]
+    yy0, xx0 = np.mgrid[0:bd.shape[0], 0:bd.shape[1]]
+    bd |= (xx0 >= 424) & (xx0 <= 470) & (yy0 >= 836) & (yy0 <= 995)
+    bd &= (yy0 >= 800) & (yy0 <= 1005) & (xx0 >= 356) & (xx0 <= 545)
+    backdrop = np.zeros_like(parts["torso"])
+    bys, bxs = np.nonzero(bd & (rgba[..., 3] > 128))
+    backdrop[bys, bxs] = rgba[bys, bxs].astype(np.float32)
+    backdrop[bys, bxs, 3] = 255.0
+    parts["body_backdrop"] = darken(backdrop, 0.68)
+    fills["body_backdrop"] = (
+        "NEW PART. %d px on the hip bone at the bottom of the z order: the measured hip "
+        "region plus the slot between the tabard flaps (x424-470, y836-995), seed rows "
+        "%d..%d, painted with the still's own pixels and darkened x0.68. The torso plate "
+        "stops 22 px below the hip and the tabard is two separate hanging flaps, so "
+        "below the belt the only thing between the flaps was the legs themselves -- part "
+        "them and the background showed through the knight."
+        % (len(bys), bys.min() if len(bys) else 0, bys.max() if len(bys) else 0))
+
+    far_shin = parts["leg_near_shin"]
+    if "leg_far_shin" in gapfill:
+        far_shin, n_fs = paint_from_seed(far_shin, rgba, gapfill["leg_far_shin"])
+        fills["leg_far_shin_measured"] = "%d px, measured as above on the far side" % n_fs
+
+    for a, b, src in [("leg_near_thigh", "leg_far_thigh", far_thigh),
+                      ("leg_near_shin", "leg_far_shin", far_shin),
+                      ("leg_near_foot", "leg_far_foot", parts["leg_near_foot"])]:
+        parts[b] = darken(src)
+        fills[b] = "copy of %s, value x%.2f (symmetric harness; far side in shade)%s" % (
+            a, FAR_DARKEN,
+            "; hip disc re-centred on the far socket %s" % (far_hip,) if b.endswith("thigh") else "")
     parts["arm_far_lo"] = darken(parts["arm_near_lo"])
     fills["arm_far_lo"] = "copy of arm_near_lo, value x%.2f" % FAR_DARKEN
 
@@ -443,6 +823,17 @@ def main():
     ankle_h = -Jr["ankle"][1]                        # ankle height above the ground
     hip_h_paint = -Jr["hip"][1]
 
+    # THE SOLE.  The sabaton's lower convex hull, ankle-relative, in rig px: the curve
+    # the foot rolls on.  Everything about the heel-toe -- its angles, its timing, the
+    # fact that it neither sinks nor floats -- comes off this one measurement.
+    # read off the FINAL sabaton, not the cut mask: the ankle disc changes the silhouette
+    # a little at the heel, and a sole line taken before the fill would be a sole line
+    # the drawn foot does not have -- a few px of sink at heel strike, invisible to
+    # every number here and visible on screen.
+    SOLE_S, SOLE_P, SOLE_T = resample_hull(
+        lower_hull(parts["leg_near_foot"][..., 3] > 128), J["ankle"], s)
+    sole_deg = [round(math.degrees(-t), 2) for t in SOLE_T]
+
     # THE FAR ARM.  The only arm the painter drew is the near one, bent, gripping the
     # haft.  The far arm is that same plate, darkened, and it must not be left in the
     # gripping pose -- it holds nothing.  These constant offsets swing it down so it
@@ -463,9 +854,22 @@ def main():
         "hand": 0.0,
     }
 
+    def s_at_phi(phi_deg):
+        """Arc length along the sole whose (smoothed) tangent puts the foot at this
+        angle.  phi is measured from the PAINTED pose, which is the pose whose rockered
+        forefoot is flat on the ground -- so -18 really is 'toe up 18 degrees off flat'
+        and +30 really is 'toe down 30', the way the brief states them."""
+        want = -math.radians(phi_deg)
+        best, bs = None, 1e9
+        for s, t in zip(SOLE_S, SOLE_T):
+            if abs(t - want) < bs:
+                bs, best = abs(t - want), s
+        return best
+
     def author_gait(px_s, stride_T, stance_frac, swing_lift, nominal_drop,
                     lean_deg, tabard_deg_front, tabard_deg_back, arm_near_deg,
-                    arm_far_deg, pollaxe_deg, far_arm_base, lag_s, N=32):
+                    arm_far_deg, pollaxe_deg, far_arm_base, lag_s,
+                    roll_phi=(-18.0, 30.0), swing_clear=2.0, N=32):
         """Solve one gait. Returns (times, tracks, hip_positions, stats).
 
         stance_frac is the fraction of the cycle ONE foot is planted.  0.5 is a walk
@@ -479,33 +883,125 @@ def main():
         the walk's much smaller bob is, not a curve laid on top.
         """
         v_rig = px_s / node_scale                    # canvas px/s -> rig px/s
-        half_step = v_rig * stride_T * stance_frac / 2.0
+        travel = v_rig * stride_T * stance_frac      # body travel during one stance
         hip_h_nom = hip_h_paint - nominal_drop
         lean = math.radians(lean_deg)
         ts = [stride_T * i / N for i in range(N + 1)]
 
-        def ankle_traj(phase, ground_y, x_off):
-            """0 .. stance_frac = PLANTED; the rest is swing (and flight, if any).
+        # --- HEEL-TOE, AS A ROLL ---------------------------------------------
+        # Matt: "the feet should not be flat -- they need to move up and down."  The
+        # old rig held the sabaton at a fixed world angle for the whole cycle
+        # (d["leg_ft"] = -sh), so the foot was a rigid paddle that never articulated.
+        #
+        # The fix is not a rotation curve laid on top of the old ankle path.  The foot
+        # ROLLS over its own sole: the contact walks forward along the sabaton's lower
+        # convex hull from heel to beak, the foot's angle at every instant is whatever
+        # makes the hull TANGENT at the contact lie flat on the ground, and the ankle
+        # is then placed by that contact rather than driven directly.  Three things
+        # follow for free, none of them tuned:
+        #   * the heel-toe angles are the painted sabaton's own tangent angles;
+        #   * the sole can neither sink into the ground nor float above it, because
+        #     the ground IS the tangent line;
+        #   * NO SLIP.  Rolling without slipping means the ground distance covered
+        #     equals the arc length rolled, so the material point at the contact has
+        #     zero world velocity -- which is the same guarantee the old ankle-pinned
+        #     parameterisation gave, made at the point that is actually touching.
+        # The previous attempt at heel-toe was rejected because pivoting over the toe
+        # made the reach worse.  It does the opposite here: the ankle RISES over the
+        # rolling forefoot in late stance (+11 rig px at toe-off), which is reach the
+        # leg gets back, and the roll itself carries A of the step, so the ankle's own
+        # rig-local sweep shrinks from `travel` to `travel - A`.
+        s0, s1 = s_at_phi(roll_phi[0]), s_at_phi(roll_phi[1])
+        A_roll = s1 - s0
 
-            The sweep is centred on the hip's own x, so mid-stance puts the ankle under
-            the hip.  While planted the ankle's x is a straight line in time at exactly
-            -px_s: the plant is not approximated, it IS the parameterisation.
-            """
-            cx = Jr["hip"][0] + x_off
+        def stance_pose(u, ground_y):
+            """u in [0,1] across the stance.  Returns (ankle, phi, contact)."""
+            sg = s0 + (s1 - s0) * u
+            c, tau = hull_at(SOLE_S, SOLE_P, SOLE_T, sg)
+            phi = -tau
+            r = rot(c, phi)
+            # contact's rig-local x: it rolls forward by (sg - s0) in WORLD while the
+            # body moves forward by travel*u, so in the body's frame it goes backward
+            # by (travel*u - (sg - s0)).
+            cxr = (sg - s0) - travel * u
+            return (cxr - r[0], ground_y - r[1]), phi, (cxr, ground_y)
+
+        # WHERE THE STEP SITS UNDER THE BODY.  The old rig centred the ankle's sweep on
+        # the hip's x, which is the obvious choice and is not the best one once the foot
+        # articulates: the two ends of the stance are no longer equally expensive.  At
+        # heel strike the ankle is LOW (8.9 rig px above the ground, because this
+        # sabaton's heel sits close under the ankle), so reaching forward costs the leg
+        # a lot of its length; at toe-off the ankle has risen to 27.5, so reaching
+        # backward is nearly free.  A symmetric sweep therefore spends the leg's reach
+        # on the expensive end and wastes it on the cheap one, and the hip has to drop
+        # to pay for it.
+        #
+        # So the placement is SOLVED, not centred: scan the fore-aft offset and keep the
+        # one that maximises the lowest height the supporting leg allows -- i.e. the one
+        # that makes the crouch as small as this leg length and this step length permit.
+        # Bounded to a quarter of the sweep, because past that the knight stops looking
+        # like he is walking through his step and starts looking like he is shuffling
+        # behind it.
+        _xs = [stance_pose(i / 24.0, 0.0)[0][0] for i in range(25)]
+        _mid = (min(_xs) + max(_xs)) / 2.0
+        _span = max(_xs) - min(_xs)
+
+        def _min_hh(rc):
+            m = 1e9
+            for i in range(41):
+                a, _phi, _c = stance_pose(i / 40.0, 0.0)
+                dx = a[0] + (Jr["hip"][0] - rc) - Jr["hip"][0]
+                m = min(m, math.sqrt(max(Lmax * Lmax - dx * dx, 1.0)) - a[1])
+            return m
+
+        _cands = [_mid + k * _span * 0.01 for k in range(-25, 26)]
+        roll_centre = max(_cands, key=_min_hh)
+        plant_bias = roll_centre - _mid
+
+        def ankle_traj(phase, ground_y, x_off):
+            """0 .. stance_frac = PLANTED (rolling); the rest is swing/flight."""
+            shift = Jr["hip"][0] + x_off - roll_centre
             if phase < stance_frac:
                 u = phase / stance_frac
-                return (cx + half_step - 2.0 * half_step * u, ground_y - ankle_h), True
+                a, phi, _ = stance_pose(u, ground_y)
+                return (a[0] + shift, a[1]), phi, True
             u = (phase - stance_frac) / (1.0 - stance_frac)
-            e = u * u * (3 - 2 * u)                  # smoothstep: stiff, no overshoot
+            a1, phi1, _ = stance_pose(1.0, ground_y)     # toe-off
+            a0, phi0, _ = stance_pose(0.0, ground_y)     # next heel strike
+            e = u * u * (3 - 2 * u)
+            # the toe comes up EARLY in the swing (it has to clear), then the foot is
+            # carried at the landing angle -- so the angle curve finishes at 55% and
+            # holds, rather than easing across the whole swing.
+            q = min(1.0, u / 0.55)
+            phi = phi1 + (phi0 - phi1) * (q * q * (3 - 2 * q))
+            x = a1[0] + (a0[0] - a1[0]) * e
             lift = math.sin(math.pi * u) ** 1.4 * swing_lift
-            return (cx - half_step + 2.0 * half_step * e, ground_y - ankle_h - lift), False
+            y = a1[1] + (a0[1] - a1[1]) * e - lift
+            # and the swinging sole must not scrape: the foot's own lowest point,
+            # at THIS angle, is what has to clear the ground -- not the ankle.
+            y = min(y, ground_y - swing_clear - foot_low(SOLE_P, phi))
+            return (x + shift, y), phi, False
 
         frames = []
+        contact_keys = []
         clamped = 0
+        min_clear = 1e9
         for tt in ts:
             ph = (tt / stride_T) % 1.0
-            a_n, st_n = ankle_traj(ph, 0.0, 0.0)
-            a_f, st_f = ankle_traj((ph + 0.5) % 1.0, far_off[1], far_off[0])
+            a_n, phi_n, st_n = ankle_traj(ph, 0.0, 0.0)
+            a_f, phi_f, st_f = ankle_traj((ph + 0.5) % 1.0, far_off[1], far_off[0])
+            for a, phi, gy, st in ((a_n, phi_n, 0.0, st_n), (a_f, phi_f, far_off[1], st_f)):
+                if not st:
+                    min_clear = min(min_clear, gy - (a[1] + foot_low(SOLE_P, phi)))
+            ph_n = ph
+            if ph_n < stance_frac:
+                _u = ph_n / stance_frac
+                _sg = s0 + (s1 - s0) * _u
+                _c, _tau = hull_at(SOLE_S, SOLE_P, SOLE_T, _sg)
+                _cx = (_sg - s0) - travel * _u + (Jr["hip"][0] - roll_centre)
+                contact_keys.append([round(_c[0], 4), round(_c[1], 4), 1, round(_cx, 4)])
+            else:
+                contact_keys.append([0.0, 0.0, 0, 0.0])
             # The hip sits at the nominal height unless the SUPPORTING leg cannot reach
             # its ankle from there.  Solving hh out of |hip - ankle| <= Lmax, with the
             # far leg's own ground line folded in via goff:
@@ -526,7 +1022,7 @@ def main():
             k_f, ok_f = two_bone_ik(hip_f, a_f, l1, l2)
             w = 2.0 * math.pi * ph
             frames.append(dict(t=tt, ph=ph, hip=hip, hip_f=hip_f, a_n=a_n, a_f=a_f,
-                               k_n=k_n, k_f=k_f,
+                               k_n=k_n, k_f=k_f, phi_n=phi_n, phi_f=phi_f,
                                torso=lean + math.radians(1.6) * math.sin(w),
                                head=-0.55 * math.radians(1.6) * math.sin(w) - lean * 0.5,
                                arm_n=math.radians(arm_near_deg) * math.sin(w + math.pi),
@@ -572,13 +1068,17 @@ def main():
             d["arm_f_up"] = fr["arm_f"] - fr["torso"] + far_arm_base["arm_f_up"]
             d["arm_f_lo"] = far_arm_base["arm_f_lo"]
             d["hand_f"] = -fr["arm_f"] + far_arm_base["hand_f"]
-            for tag, hipp, kn, an in (("n", fr["hip"], fr["k_n"], fr["a_n"]),
-                                      ("f", fr["hip_f"], fr["k_f"], fr["a_f"])):
+            for tag, hipp, kn, an, phi in (
+                    ("n", fr["hip"], fr["k_n"], fr["a_n"], fr["phi_n"]),
+                    ("f", fr["hip_f"], fr["k_f"], fr["a_f"], fr["phi_f"])):
                 th = ang(hipp, kn) - rest["thigh"]
                 sh = ang(kn, an) - rest["shin"]
                 d["leg_%s_th" % tag] = th
                 d["leg_%s_sh" % tag] = sh - th
-                d["leg_%s_ft" % tag] = -sh   # sabaton stays flat to the ground: stiff
+                # the sabaton's WORLD angle is phi (0 = the painted pose), so its
+                # local rotation is phi minus the shin's world angle.  The old rig
+                # wrote -sh here, which held the foot world-flat all cycle: a paddle.
+                d["leg_%s_ft" % tag] = phi - sh
             return d
 
         tracks = {k: [] for k in local_tracks(frames[0])}
@@ -591,6 +1091,23 @@ def main():
         lo = min(q[1] for q in hip_positions)
         hi = max(q[1] for q in hip_positions)
         th_rng = math.degrees(max(tracks["leg_n_th"]) - min(tracks["leg_n_th"]))
+        a_xs = [f["a_n"][0] for f in frames]
+        phis = [f["phi_n"] for f in frames]
+        # contact slide: the designated contact point's rig-local x must be the exact
+        # straight line the roll defines.  Re-derived here from the FRAMES rather than
+        # from the equation that produced them, so an error in the composition of
+        # rotation and translation would show up as a nonzero residual.
+        slide = 0.0
+        for i in range(N + 1):
+            ph = (ts[i] / stride_T) % 1.0
+            if ph >= stance_frac:
+                continue
+            u = ph / stance_frac
+            sg = s0 + (s1 - s0) * u
+            c, tau = hull_at(SOLE_S, SOLE_P, SOLE_T, sg)
+            r = rot(c, -tau)
+            want = (sg - s0) - travel * u + (Jr["hip"][0] - roll_centre)
+            slide = max(slide, abs((frames[i]["a_n"][0] + r[0]) - want))
         stats = {
             "px_s_canvas": px_s, "px_s_rig": v_rig, "stride_seconds": stride_T,
             "stance_fraction": stance_frac,
@@ -598,10 +1115,52 @@ def main():
             "body_travel_per_stride_canvas_px": px_s * stride_T,
             "step_length_canvas_px": px_s * stride_T / 2.0,
             "step_length_figure_heights": round(px_s * stride_T / 2.0 / (target_h * node_scale), 3),
-            "ankle_sweep_rig_px": 2 * half_step,
-            "ankle_sweep_canvas_px": 2 * half_step * node_scale,
+            "ankle_sweep_rig_px": round(max(a_xs) - min(a_xs), 3),
+            "ankle_sweep_canvas_px": round((max(a_xs) - min(a_xs)) * node_scale, 3),
+            "body_travel_per_stance_rig_px": round(travel, 3),
+            "sole_roll_rig_px": round(A_roll, 3),
+            "sole_roll_fraction_of_stance_travel": round(A_roll / travel, 4),
+            "plant_bias_rig_px": round(plant_bias, 3),
+            "plant_bias_note": "fore-aft offset of the stance from a sweep centred on "
+                               "the hip; solved to maximise the supporting leg's lowest "
+                               "allowed hip height (-ve = the step sits further back)",
+            "heel_toe": {
+                "phi_heel_strike_deg": round(math.degrees(stance_pose(0.0, 0.0)[1]), 2),
+                "phi_toe_off_deg": round(math.degrees(stance_pose(1.0, 0.0)[1]), 2),
+                "phi_min_deg": round(math.degrees(min(phis)), 2),
+                "phi_max_deg": round(math.degrees(max(phis)), 2),
+                "ankle_height_heel_strike_rig_px": round(-stance_pose(0.0, 0.0)[0][1], 2),
+                "ankle_height_mid_stance_rig_px": round(-stance_pose(0.5, 0.0)[0][1], 2),
+                "ankle_height_toe_off_rig_px": round(-stance_pose(1.0, 0.0)[0][1], 2),
+                "ankle_rise_at_toe_off_rig_px":
+                    round(-stance_pose(1.0, 0.0)[0][1] + stance_pose(0.5, 0.0)[0][1], 2),
+                "min_swing_ground_clearance_rig_px": round(min_clear, 3),
+                "contact_slide_rig_px": round(slide, 5),
+                "contact_local_rig_px": contact_keys,
+                "ankle_stance_world_travel_canvas_px": round(
+                    (lambda w: max(w) - min(w))(
+                        [f["a_n"][0] * node_scale + px_s * stride_T * (f["ph"] % 1.0)
+                         for f in frames if (f["ph"] % 1.0) < stance_frac]), 3),
+                "ankle_travel_note":
+                    "the ANKLE is no longer world-fixed during stance and must not be "
+                    "asserted to be: the foot rolls, so the ankle travels forward over "
+                    "it by about the sole's arc and rises 13 rig px at toe-off. That is "
+                    "the gait working. The planted-point test is contact_local_rig_px.",
+                "contact_local_note":
+                    "per keyed frame: [x, y, planted] in the NEAR FOOT BONE's own frame "
+                    "(origin = the ankle, rest orientation), plus its EXPECTED rig-local x. "
+                    "While planted this point is "
+                    "the one touching the ground, so its WORLD x is what must not move -- "
+                    "not the ankle's. tools/probe_rig.gd transforms it through the live "
+                    "bone chain and measures it in Godot.",
+                "note": "phi is the sabaton's WORLD angle, 0 = the painted pose "
+                        "(forefoot flat); -ve = toe up, +ve = toe down",
+            },
             "swing_lift_rig_px": swing_lift,
             "hip_height_painted_rig": hip_h_paint, "hip_height_nominal_rig": hip_h_nom,
+            "crouch_rig_px": round(max(q[1] for q in hip_positions), 3),
+            "crouch_canvas_px": round(max(q[1] for q in hip_positions) * node_scale, 3),
+            "hip_min_height_rig_px": round(hip_h_paint - max(q[1] for q in hip_positions), 3),
             "hip_travel_rig_px": round(hi - lo, 3),
             "hip_travel_canvas_px": round((hi - lo) * node_scale, 3),
             "frames_hip_clamped_by_reach": clamped, "samples": N,
@@ -617,18 +1176,47 @@ def main():
         px_s=walk_px_s, stride_T=stride_T, stance_frac=0.5, swing_lift=SWING_LIFT,
         nominal_drop=8.0, lean_deg=0.0, tabard_deg_front=6.0, tabard_deg_back=4.0,
         arm_near_deg=2.0, arm_far_deg=7.0, pollaxe_deg=0.0,
-        far_arm_base=FAR_ARM_BASE, lag_s=0.10)
+        far_arm_base=FAR_ARM_BASE, lag_s=0.10,
+        # heel strike toe-up 18 deg, toe-off toe-down 30 -- the brief's band, and both
+        # are angles this sabaton's own sole actually reaches (its hull runs -51..+38).
+        roll_phi=(-18.0, 30.0), swing_clear=1.6)
 
     run_ts, run_tracks, run_hip_pos, run_stats = author_gait(
         px_s=run_px_s, stride_T=run_T, stance_frac=RUN_STANCE, swing_lift=RUN_LIFT,
         nominal_drop=4.0, lean_deg=RUN_LEAN_DEG, tabard_deg_front=11.0,
         tabard_deg_back=8.0, arm_near_deg=1.5, arm_far_deg=4.0,
         pollaxe_deg=RUN_POLLAXE_DEG, far_arm_base=RUN_FAR_ARM_BASE, lag_s=0.08,
+        # A jog lands on the FOREFOOT, so the run rolls only the front of the sole:
+        # it picks the ground up at -4 deg (all but flat) rather than on the heel, and
+        # pushes off harder, to +34.
+        roll_phi=(-4.0, 34.0), swing_clear=2.4,
         # 48 keys, not the walk's 32. The run's stance is only 0.165 s -- ten physics
         # frames -- and the leg angles are nonlinear in time, so linear interpolation
         # between 32 keys left up to 4.8 canvas px of apparent slide inside a stance
         # that is exact by construction. More keys, less interpolation error.
         N=48)
+
+    # The plates were cut to cover a stated envelope of joint angles.  Check the gaits
+    # actually stayed inside it; a gait that leaves it is covered by nothing and would
+    # show up only as a hole on screen.
+    env = []
+    for nm, tr in (("walk", walk_tracks), ("run", run_tracks)):
+        for tag in ("n", "f"):
+            for jn, key, rng in (("knee", "leg_%s_sh" % tag, KNEE_PHI_RANGE),
+                                 ("ankle", "leg_%s_ft" % tag, ANKLE_PHI_RANGE)):
+                lo = math.degrees(min(tr[key]))
+                hi = math.degrees(max(tr[key]))
+                env.append({"clip": nm, "side": tag, "joint": jn,
+                            "deg": [round(lo, 2), round(hi, 2)], "envelope": list(rng)})
+    bad = [e for e in env if e["deg"][0] < e["envelope"][0] - 0.5
+           or e["deg"][1] > e["envelope"][1] + 0.5]
+    if bad:
+        for e in bad:
+            print("  ENVELOPE  %-4s %s %-5s reaches %7.2f..%7.2f deg, cut for %s"
+                  % (e["clip"], e["side"], e["joint"], e["deg"][0], e["deg"][1],
+                     e["envelope"]))
+        raise SystemExit("joint angles outside the envelope the plates were cut for "
+                         "-- widen the constant and rebuild")
 
     # ---------------- idle: 2.0 s breath, feet fixed ----------------
     IDLE_T, NI = 2.0, 24
@@ -683,6 +1271,8 @@ def main():
 
     # part -> (bone, z).  Painter's order, far side first.
     SPRITES = [
+        # the backdrop is first and lowest: it can only ever be seen through a hole
+        ("body_backdrop", "hip", -1),
         ("leg_far_foot", "leg_f_ft", 0), ("leg_far_shin", "leg_f_sh", 1),
         ("leg_far_thigh", "leg_f_th", 2),
         ("hand_far", "hand_f", 3), ("arm_far_lo", "arm_f_lo", 4),
@@ -833,6 +1423,11 @@ def main():
         "walk": walk_stats,
         "run": run_stats,
         "idle": {"seconds": IDLE_T, "samples": NI},
+        "joint_envelope": env,
+        "hip_cap_seed_px": HIP_CAP_SEED,
+        "knee_disc_seed_px": KNEE_DISC_SEED,
+        "ankle_disc_seed_px": ANKLE_DISC_SEED,
+        "sole_tangent_deg_heel_to_toe": [sole_deg[0], sole_deg[-1]],
     }
     OUT_JSON.write_text(json.dumps(rep, indent=1))
     print("rig scale seed->cell %.6f   sprite_scale %.5f" % (s, sprite_scale))

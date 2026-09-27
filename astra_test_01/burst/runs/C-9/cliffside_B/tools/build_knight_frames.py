@@ -201,6 +201,17 @@ def main():
     if RUN_MANIFEST.exists():
         run_man = json.loads(RUN_MANIFEST.read_text())
         cells.update(run_man["cells"])
+    census_path = OUT_FRAMES / "knight_stride_census.json"
+    census = {}
+    if census_path.exists():
+        census = json.loads(census_path.read_text())["cells"]
+        two = sorted(k for k, v in census.items() if v["strides_in_loop"] > 1)
+        print("stride census (tools/measure_strides.py): %d of %d cells hold more than "
+              "one stride and are slowed to match: %s"
+              % (len(two), len(census), " ".join(two) or "(none)"))
+    else:
+        print("NO STRIDE CENSUS at %s -- every loop assumed to hold one stride"
+              % census_path)
     keeper_stride = keeper_walk_cadence()
     keeper_run = keeper_cadence("run")
     run_dirs = [d for d in DIRS if ("run_%s" % d) in cells]
@@ -286,10 +297,17 @@ def main():
                 cadence = keeper_stride if st == "walk" else keeper_run
                 nf = int(cell["stride_native_frames"])
                 painted_fps = 12.0 * cell.get("fps_source", 24) / nf
-                fps = 12.0 / cadence[d]                # match the Keeper, not the clip
-                note = (f"matched to keeper {st}_{d} ({cadence[d]:.4f} s/stride); "
+                # HOW MANY STRIDES THE LOOP ACTUALLY HOLDS (R-C9-40, Matt: "some of the
+                # walks and runs are too fast, roughly double").  fps = 12 / stride
+                # assumes one stride per loop; where the cut caught two, the knight took
+                # four steps in the time the Keeper took two.  Measured per cell by
+                # tools/measure_strides.py -- read, never assumed, and 1 if unmeasured.
+                k = int(census.get(f"{st}_{d}", {}).get("strides_in_loop", 1))
+                fps = 12.0 / (k * cadence[d])
+                note = (f"{k} stride(s) per 12-frame loop (measured); matched to keeper "
+                        f"{st}_{d} ({cadence[d]:.4f} s/stride) -> {fps:.3f} fps; "
                         f"painted stride was {nf} native frames = {nf / 24.0:.3f} s "
-                        f"({painted_fps:.3f} fps), {fps / painted_fps:.2f}x slower than her")
+                        f"({painted_fps:.3f} fps)")
             else:
                 fps = 12.0 / IDLE_SECONDS
                 note = f"breath {cell.get('breath_native_frames', 48)} native frames = {IDLE_SECONDS:.1f} s"
@@ -334,6 +352,10 @@ def main():
         "stride_native_frames": {f"walk_{d}": int(cells[f"walk_{d}"]["stride_native_frames"])
                                  for d in DIRS},
         "animation_fps": {a["name"]: round(a["fps"], 6) for a in anims},
+        "strides_per_loop": {k: v["strides_in_loop"] for k, v in sorted(census.items())},
+        "strides_per_loop_source": ("frames/knight_stride_census.json -- whole-frame "
+                                    "self-similarity at half-loop, cross-checked "
+                                    "against the foot signal's parity"),
         "animation_note": {a["name"]: a["note"] for a in anims},
         "keeper_run_stride_seconds": {d: round(keeper_run[d], 6) for d in keeper_run},
         "run_directions": run_dirs,
