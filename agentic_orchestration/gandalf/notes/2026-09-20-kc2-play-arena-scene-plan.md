@@ -118,3 +118,25 @@ Source convention: `matt_notes_handoff_docs/rdr-art-illuminated-archive-brief.md
    - The layout itself (room size, spawn pools, which bays open) still waits for Matt's arena sitting (S1/S4/S5).
 
 *— gandalf, RUN-CONDUCTOR, 2026-09-27.*
+
+---
+
+## ⚑ CORRIGENDUM-FORWARD 4 (2026-09-27, Matt's arena sitting — C-9 ledger R-C9-45) — closes S1 / S4 / S5; governs over the establishing images CA-est-A/B
+
+**The establishing images keep LAYOUT authority only.** Their roofless open crown on the crag is superseded by the indoor ruling (Corrigendum 3). Matt took all four recommendations.
+
+1. **CAMERA: diagonal, from the SOUTH-EAST looking NORTH-WEST.** Only walls that face the camera can rise out of frame, and a north-up camera gives just one. With the diagonal camera:
+   - **Rising walls:** NORTH (the apse, the hanging knight-saint, the empty cross mount) and WEST (the top breached for the sunset, R-C9-44), which keeps the card's upper-left key.
+   - **Cut low at knee height:** SOUTH (the façade, the road entry) and EAST (the blue-fire crypt, which stays a hole in the floor).
+   - ⚑ **Consequence:** the east "gallery stair above the crypt" cannot stand on a cut-low wall. The **descend-from-above spawns move to the dark triforium galleries of the NORTH and WEST walls** (Corrigendum 3 § 5). The divergence row for the gallery-stair entrance is re-keyed accordingly (arrival timing unchanged).
+2. **S1 LAYOUT: CRUCIFORM, crater at the CROSSING.** Ratifies the parked veto-open ruling (Crack-law doc, Corrigendum 2 § 1). The sequence: road in through the south façade → north up the nave → the demon-gate crater at the crossing → dais and apse. The transept arms are among the "rooms beyond" seen through the arcades. Room size is still solved from encounter math (brief § 3), not from pictures.
+3. **S4 POOLS: the APRONS plus a FEW pools.** Every entrance keeps its hazard apron. Of the six measured pools, only those that do NOT coincide with an entrance survive, painted as spilled burning pitch on the nave floor; the floor stays mostly calm and readable. Registering the measured pools against the entrances is the UNTESTED item (Crack-law doc, Corrigendum 4 § 6); that registration now decides the count. Anything dropped is a divergence row, never silent.
+4. **S5 THE VIEW OUT (through the windows of Corrigendum 3 § 5):**
+   - **WEST windows:** the low sun over the burning forest band, with the Keepers' tower on the horizon.
+   - **NORTH windows:** the valley, the river and the cliff with its bridge (where the player came from).
+   - It is the same world as the cliffside, and nothing repeats.
+   - **Rooms beyond (ground arches):** the west aisle and chapels, the transept arms, and the ambulatory behind the apse.
+
+**Next in the build:** a 3D grey box of the nave from this camera (the cliffside method) → guide, depth and walkable-mask images → an Astra establishing pass over the grey box (bare first) → Matt gate → chunks.
+
+*— gandalf, RUN-CONDUCTOR, 2026-09-27.*
