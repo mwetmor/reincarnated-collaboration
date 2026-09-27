@@ -1,0 +1,23 @@
+{
+ "text": "GENERATE BURST KS-SE-slit \u2014 Run C-9 P7, SE visor redesign (Matt: \"repaint the SE visor\"; the animation turned its row of round holes into teeth). task_id \"KS-SE-slit\".\n\nUse image_gen in EDIT mode on IMAGE 1 (the knight facing the viewer's lower-right, painted in the hand of a c. 1530 Flemish manuscript, background flat green). Change ONLY the VISOR of his helm: remove the row of small round holes entirely and give the visor ONE narrow HORIZONTAL EYE-SLIT \u2014 a single dark sight slot running across the visor at eye level, like a real armet's sight, with the smooth rounded steel above and below it. No round holes, no dots, no teeth, no grille, no vertical bars. The helm's shape, size, rounded skull and dark gouache steel stay exactly as they are; IMAGE 2 (his side view) shows the same helm.\nKeep EVERYTHING ELSE EXACTLY as it is: body, pose, direction, tabard and heraldry, pollaxe in his right hand, size, position, flat pure #00ff00 background. For this step the REGISTER CARD above is satisfied BY IMAGE 1: do not restyle.\n\nTwo image_gen EDIT calls: variants a and b. ONE retry per variant only if any holes/dots/teeth remain on the visor, the slit is missing, anything else changed, or the background is not flat green \u2014 name the reason. Copy outputs to out/KS-SE-slit_a.png and out/KS-SE-slit_b.png with sha256. No code. No other files. No web.\nRETURN: receipt task_id \"KS-SE-slit\"; images = the files with prompt, references (role + path) and elapsed_s; calls_used = the TRUE number of image_gen calls; status; concerns. Never PASS/FAIL.",
+ "references": [
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/inputs/seed_SE_v1.png",
+   "role": "IMAGE 1 \u2014 THE IMAGE TO EDIT (change only the visor)"
+  },
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/inputs/seed_E_v1.png",
+   "role": "IMAGE 2 \u2014 the same knight, side view: the same helm"
+  }
+ ],
+ "image_cap": 4,
+ "minutes_cap": 15,
+ "tool_call_cap": 20,
+ "outputs": [
+  "out/KS-SE-slit_a.png",
+  "out/KS-SE-slit_b.png"
+ ],
+ "effort": "high",
+ "add_dirs": [],
+ "experiment": "P7-SE-visor"
+}

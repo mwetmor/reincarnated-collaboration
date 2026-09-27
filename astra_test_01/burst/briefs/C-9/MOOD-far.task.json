@@ -1,0 +1,23 @@
+{
+ "text": "GENERATE BURST MOOD-far \u2014 Run C-9 P5 background MOOD TEST (Matt: \"too few fires, and the background land is too flat. It should be darker due to the horizon's sunset effect and it should have a purple smoky haze ... it all seems too plain\"). task_id \"MOOD-far\".\n\nUse image_gen in EDIT mode on IMAGE 1, a window of a far-landscape parallax layer (a valley seen from high above and far away, with a river; flat pure #00ff00 above the horizon = sky, keep it). Repaint the LAND to fix four things, keeping the painted manuscript hand of the REGISTER CARD above:\n1. RELIEF: the land is too flat. Give it real depth: steep ridges and spurs, a few rocky crags, deep valleys and gorges between them, layered ranges receding toward the horizon, each farther range paler and more violet.\n2. SUNSET LIGHT: the sun is setting at the LEFT, low. West-facing slopes catch warm gold and orange rim light; everything else falls into deep, rich violet and blue-purple shadow. Overall DARKER than now, with strong contrast between lit ridges and shadowed valleys; the river reflects the orange sky.\n3. FIRE: MANY separate fires across the land (eight to twelve), every one a different size and shape \u2014 small burning villages, burning woods on slopes, a burning farm \u2014 each with its own column of dark smoke drifting to the right; NO two alike.\n4. PURPLE SMOKY HAZE: a purple-violet smoke haze hangs over the valleys and thickens with distance, veiling the far ranges; smoke from the fires feeds it.\nRich, deep mineral colour (violet, indigo, rose, ochre-gold, deep green), not pastel. NOTHING repeats. Keep the flat pure #00ff00 sky area above the horizon exactly as it is.\n\nTwo image_gen EDIT calls: variants a and b. ONE retry per variant only if the land is still flat and pale, there are fewer than eight fires, repetition appears, or the #00ff00 sky area was painted over \u2014 name the reason. Copy outputs to out/MOOD-far_a.png and out/MOOD-far_b.png with sha256. No code. No other files. No web.\nRETURN: receipt task_id \"MOOD-far\"; images = the files with prompt, references (role + path) and elapsed_s; calls_used = the TRUE number of image_gen calls; status; concerns. Never PASS/FAIL.",
+ "references": [
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/inputs/mood_far_window.png",
+   "role": "IMAGE 1 \u2014 THE IMAGE TO EDIT (far land window; keep the #00ff00 sky area)"
+  },
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/L10-sky-single/L10-sky-single.png",
+   "role": "IMAGE 2 \u2014 the sunset sky this land sits under (light direction and colour only)"
+  }
+ ],
+ "image_cap": 4,
+ "minutes_cap": 15,
+ "tool_call_cap": 20,
+ "outputs": [
+  "out/MOOD-far_a.png",
+  "out/MOOD-far_b.png"
+ ],
+ "effort": "high",
+ "add_dirs": [],
+ "experiment": "P5-mood"
+}
