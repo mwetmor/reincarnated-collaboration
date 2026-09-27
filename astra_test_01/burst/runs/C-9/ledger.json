@@ -634,6 +634,11 @@
       "id": "M-C9-M1-PACKET",
       "ts_note": "M1 style-gate packet built: ~/Desktop/Astra Burst Review - 2026-09-26/C-9 M1 style gate (open review.html). 4 GENERATE bursts exit 0 (15 images, run 15/400); judges J1-scene + J1-knight exit 0, controls failed as required (chunk_A 2/2 on axes 1-2; Keeper 1/2) -> batches valid. Top: S1-ink_b 23/25, K1-ink_a 24/25; ink arm wins both. Scene IoU 0.989-0.9994 (chunk_A 0.990). Conductor recommendation GO/INK with carry-forwards: scene accent budget (<1% C*>40 vs manuscript 10-20%), knight camera nearer eye level than 53 deg (judge scored 4; conductor dissents; enforce at M3). AWAITING MATT M1.",
       "ts": "2026-09-26T23:13:26"
+    },
+    {
+      "id": "M-C9-M2-PACKET",
+      "ts_note": "drax P2-prime DELIVERED, stopped at M2 (collab 3f9ae23c, godot 2499a113 AGENT_STATE only; no push). Canvas 7776x7522 = 77.3x93.7 m; arena at u=0.285; plate-scale law cross-checked. Review: runs/C-9/greyroom/M2_review_cathedral_greyroom.png (committed copy under agentic_orchestration/drax/captures/2026-09-26-c9-cathedral-greyroom/ because astra_test_01/.gitignore ignores *.png). drax forks for Matt: (1) rot extent k=0.5345 (23.5% of floor, six discs disjoint) vs raw upper bound 46.9% overlapping; (2) plate scale 60 chunks/arm vs ZOOM-GD ~35/arm; (3) vault + choir screen on Overhead z3; (4) depth = elevation above floor. Contradictions surfaced: DoT bounds overlap despite six DISTINCT zones; dispatch 130 px Keeper scale superseded by KP-18 h_fig 1.9 m for this arena (drax adopted plate scale, manifest carries both); Antwerp pier forest cannot stand on measured walkable floor (arcade pushed to the ring); north corridor mapped-never-walked treated as walkable (spawn entry). Conductor DRIFT-CRITIC: accepted; design note -- reads as a choir ring more than a nave; cathedral identity must come from walls/stalls/tracery/overhead vault in paint. AWAITING MATT M2.",
+      "ts": "2026-09-26T23:14:44"
     }
   ],
   "halts": [],
