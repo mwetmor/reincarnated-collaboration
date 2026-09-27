@@ -1,6 +1,9 @@
-[gd_scene load_steps=100 format=3]
+[gd_scene load_steps=105 format=3]
 
 [ext_resource type="Script" path="res://scripts/keeper.gd" id="Keeper"]
+[ext_resource type="Script" path="res://scripts/still_figure.gd" id="StillFigure"]
+[ext_resource type="Texture2D" path="res://sprites_figures/angel.png" id="TexAngel"]
+[ext_resource type="Texture2D" path="res://sprites_figures/demon.png" id="TexDemon"]
 [ext_resource type="PackedScene" path="res://scenes/knight_rig_E.tscn" id="KnightRig"]
 [ext_resource type="Script" path="res://scripts/style_toggle.gd" id="StyleToggle"]
 [ext_resource type="SpriteFrames" path="res://frames/keeper.tres" id="Frames"]
@@ -174,6 +177,12 @@ _data = [Vector2(0, 1), 0.0, -0.4, 0, 0, Vector2(1, 0.6), -0.4, 0.0, 0, 0]
 point_count = 2
 [sub_resource type="ConvexPolygonShape2D" id="Feet"]
 points = PackedVector2Array(16.61, 0, 16.2908435075, 1.17834554498, 15.345639035, 2.31140793149, 13.8107102603, 3.35564420744, 11.7450436355, 4.27092495837, 9.22802157046, 5.02207645831, 6.35637181158, 5.58023237637, 3.24045024869, 5.92394309364, 1.01706916669e-15, 6.04, -3.24045024869, 5.92394309364, -6.35637181158, 5.58023237637, -9.22802157046, 5.02207645831, -11.7450436355, 4.27092495837, -13.8107102603, 3.35564420744, -15.345639035, 2.31140793149, -16.2908435075, 1.17834554498, -16.61, 7.39686666685e-16, -16.2908435075, -1.17834554498, -15.345639035, -2.31140793149, -13.8107102603, -3.35564420744, -11.7450436355, -4.27092495837, -9.22802157046, -5.02207645831, -6.35637181158, -5.58023237637, -3.24045024869, -5.92394309364, -3.05120750008e-15, -6.04, 3.24045024869, -5.92394309364, 6.35637181158, -5.58023237637, 9.22802157046, -5.02207645831, 11.7450436355, -4.27092495837, 13.8107102603, -3.35564420744, 15.345639035, -2.31140793149, 16.2908435075, -1.17834554498)
+
+[sub_resource type="ConvexPolygonShape2D" id="Feet_Angel"]
+points = PackedVector2Array(16.523000, 0.000000, 16.205515, 1.172298, 15.265262, 2.299545, 13.738372, 3.338422, 11.683525, 4.249005, 9.179687, 4.996301, 6.323078, 5.551592, 3.223477, 5.893539, 0.000000, 6.009000, -3.223477, 5.893539, -6.323078, 5.551592, -9.179687, 4.996301, -11.683525, 4.249005, -13.738372, 3.338422, -15.265262, 2.299545, -16.205515, 1.172298, -16.523000, 0.000000, -16.205515, -1.172298, -15.265262, -2.299545, -13.738372, -3.338422, -11.683525, -4.249005, -9.179687, -4.996301, -6.323078, -5.551592, -3.223477, -5.893539, -0.000000, -6.009000, 3.223477, -5.893539, 6.323078, -5.551592, 9.179687, -4.996301, 11.683525, -4.249005, 13.738372, -3.338422, 15.265262, -2.299545, 16.205515, -1.172298)
+
+[sub_resource type="ConvexPolygonShape2D" id="Feet_Demon"]
+points = PackedVector2Array(19.002000, 0.000000, 18.636882, 1.348074, 17.555559, 2.644343, 15.799586, 3.838990, 13.436443, 4.886108, 10.556946, 5.745455, 7.271751, 6.384008, 3.707106, 6.777226, 0.000000, 6.910000, -3.707106, 6.777226, -7.271751, 6.384008, -10.556946, 5.745455, -13.436443, 4.886108, -15.799586, 3.838990, -17.555559, 2.644343, -18.636882, 1.348074, -19.002000, 0.000000, -18.636882, -1.348074, -17.555559, -2.644343, -15.799586, -3.838990, -13.436443, -4.886108, -10.556946, -5.745455, -7.271751, -6.384008, -3.707106, -6.777226, -0.000000, -6.910000, 3.707106, -6.777226, 7.271751, -6.384008, 10.556946, -5.745455, 13.436443, -4.886108, 15.799586, -3.838990, 17.555559, -2.644343, 18.636882, -1.348074)
 
 [node name="Cliffside" type="Node2D"]
 script = ExtResource("StyleToggle")
@@ -3191,8 +3200,8 @@ sprite_frames = ExtResource("KnightFrames")
 animation = &"idle_S"
 autoplay = "idle_S"
 centered = false
-offset = Vector2(-256.511341085, -395.1875)
-scale = Vector2(0.727646583914, 0.727646583914)
+offset = Vector2(-256.003942369, -395.750000000)
+scale = Vector2(0.756267044263, 0.756267044263)
 script = ExtResource("KnightSkin")
 
 [node name="Rig" parent="Actors/Keeper/KnightSprite" instance=ExtResource("KnightRig")]
@@ -4096,3 +4105,38 @@ color_ramp = SubResource("PropsGradient11")
 angular_velocity_min = -120
 angular_velocity_max = 120
 scale_amount_curve = SubResource("PropsScale11")
+
+; --- C-9 v3 still figures (written by tools/place_figures_b.py) ---
+[node name="Angel" type="StaticBody2D" parent="Actors"]
+position = Vector2(2585.0000, 1440.0000)
+collision_layer = 1
+collision_mask = 0
+script = ExtResource("StillFigure")
+figure_name = "angel"
+
+[node name="Sprite2D" type="Sprite2D" parent="Actors/Angel"]
+centered = false
+offset = Vector2(-457.2772, -1383.0000)
+scale = Vector2(0.111599957, 0.111599957)
+texture = ExtResource("TexAngel")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Actors/Angel"]
+shape = SubResource("Feet_Angel")
+
+[node name="Demon" type="StaticBody2D" parent="Actors"]
+position = Vector2(2880.0000, 1420.0000)
+collision_layer = 1
+collision_mask = 0
+script = ExtResource("StillFigure")
+figure_name = "demon"
+
+[node name="Sprite2D" type="Sprite2D" parent="Actors/Demon"]
+centered = false
+offset = Vector2(-597.3600, -1227.0000)
+scale = Vector2(0.140786938, 0.140786938)
+texture = ExtResource("TexDemon")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Actors/Demon"]
+shape = SubResource("Feet_Demon")
+
+; --- end C-9 v3 still figures ---

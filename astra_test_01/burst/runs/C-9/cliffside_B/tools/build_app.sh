@@ -191,7 +191,8 @@ if [ -n "$PCK" ] && [ -f "$PCK" ]; then
            parallax/layers_b/forest_valley.png parallax/layers_b/mist.png \
            parallax/layers_b/offsets.json \
            frames/keeper.tres frames/knight.tres \
-           scenes/knight_rig_E.tscn frames/knight_rig_E.json; do
+           scenes/knight_rig_E.tscn frames/knight_rig_E.json \
+           sprites_figures/angel.png sprites_figures/demon.png frames/figures_b.json; do
     # NOTE: grep the BARE path, not "res://$p". An IMPORTED resource (a .png, a .tres)
     # appears in the pck's string table as "res://<path>", but a plain INCLUDED file --
     # every .json here -- appears as "<path>" with no scheme. Checking for "res://$p"

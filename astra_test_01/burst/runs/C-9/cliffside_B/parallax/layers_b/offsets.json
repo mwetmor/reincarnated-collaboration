@@ -2,9 +2,75 @@
  "note": "per-style vertical offset for the B parallax layer sprites; A is always 0. Written by tools/build_b_assets.py.",
  "offsets": {
   "sky": -115.0,
-  "far_ruins": 54.0,
-  "forest_valley": 296.0,
+  "far_ruins": 626.0,
+  "forest_valley": 310.0,
   "mist": 490.0
  },
- "forest_source": "FG10 3x3 assembled (9 panels)"
+ "offsets_x": {
+  "sky": 0.0,
+  "far_ruins": 160.0,
+  "forest_valley": 0.0,
+  "mist": 0.0
+ },
+ "unmix": {
+  "far_ruins": {
+   "backing_rgb_255": [
+    3.0,
+    250.0,
+    7.0
+   ],
+   "d_backing": 0.9529,
+   "plate_px_fraction": 0.3035,
+   "plate_leak_before_floor": 0.4541,
+   "plate_leak_after_floor": 0.0071,
+   "alpha_floor": 0.06,
+   "forced_opaque_below_plate_px": 6248,
+   "smoke_band_px": 84440,
+   "naive_band_px": 97381,
+   "smoke_over_plate_px": 92395,
+   "fringe_residual_over_sky_255": {
+    "hard_key_mean": 41.16,
+    "hard_key_p99": 146.0,
+    "unmix_mean": 2.9,
+    "unmix_p99": 35.37,
+    "measured_over": "semi-transparent smoke over the plate (partial alpha AND above the plate boundary), 92395 px",
+    "improvement_x": 14.19,
+    "smoke_a_hard_key_would_delete_pct": 54.69
+   }
+  },
+  "forest_valley": {
+   "backing_rgb_255": [
+    3.0,
+    250.0,
+    8.0
+   ],
+   "d_backing": 0.949,
+   "plate_px_fraction": 0.1006,
+   "plate_leak_before_floor": 0.3258,
+   "plate_leak_after_floor": 0.0022,
+   "alpha_floor": 0.06,
+   "forced_opaque_below_plate_px": 31839,
+   "smoke_band_px": 4493,
+   "naive_band_px": 16242,
+   "smoke_over_plate_px": 10468,
+   "fringe_residual_over_sky_255": {
+    "hard_key_mean": 0.0,
+    "hard_key_p99": 0.0,
+    "unmix_mean": -0.45,
+    "unmix_p99": 17.73,
+    "measured_over": "semi-transparent smoke over the plate (partial alpha AND above the plate boundary), 10468 px",
+    "improvement_x": "n/a (unmix residual ~0)",
+    "smoke_a_hard_key_would_delete_pct": 100.0
+   }
+  },
+  "mist": {
+   "tint_rgb_255": [
+    150,
+    95,
+    170
+   ],
+   "alpha_cap_255": 220,
+   "alpha_mean": 0.4431
+  }
+ }
 }

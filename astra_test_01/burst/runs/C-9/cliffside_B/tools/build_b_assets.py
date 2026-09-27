@@ -10,12 +10,13 @@ plus parallax/layers_b/offsets.json.
           NO green key -- it arrives with its own alpha.  Split on the H1 tile grid:
              tiles_b/tile_0_0.png    (0,0,4096,4096)
              tiles_b/tile_4096_0.png (4096,0,1280,4096)
-  sky     CS9-assembly/L10_layer_sky_single.png   opaque, no key
-  far     CS9-assembly/L10_layer_far_fixed.png    #00ff00 above the horizon -> key
-  forest  CS9-assembly/FG10 panels (3x3, assembled here) or L10_layer_forest.png
-                                                  #00ff00 above the treeline -> key
+  sky     CS9-assembly/L11_layer_sky.png          opaque, no key (darker sunset)
+  far     CS9-assembly/L11_layer_far.png          burning tower left, burning cathedral
+                                                  right; #00ff00 above the land -> UNMIX
+  forest  CS9-assembly/L11_layer_forest.png       full-width burning band; #00ff00 above
+                                                  the treeline -> UNMIX
   mist    CS9-assembly/L10_layer_mist.png         light on black -> alpha=luminance,
-                                                  capped at the H1 mist's own 220/255
+                                                  capped 220/255, TINTED purple
 
 ASPECT, NOT STRETCH.  The previous build resized every B layer to the H1 layer's exact
 pixel size, which stretched sky and forest ~1.6x vertically because the painted art has
@@ -34,9 +35,41 @@ edge is where the land begins, and both registers' skies are full-bleed sunsets.
 B sky and B far/forest/mist end up a superset or a near-superset of the H1 span in the
 direction that matters, and the plate (z=0) covers anything short at the bottom.
 
-Green key: greenness d = G - max(R,B); ramp opaque at d<=0.08, transparent at d>=0.25,
-which sits in the empty gap of the measured bimodal distribution and keeps the painted
-antialiased fringe as partial alpha rather than a hard cut.
+KEY -> UNMIX (v3).  The L11 far and forest layers have SEMI-TRANSPARENT SMOKE painted
+over the plate, and a key -- any key, hard or ramped -- is the wrong operation for it.
+A key only ever chooses an alpha; it leaves the pixel's COLOUR as painted, and a
+half-transparent smoke pixel painted over green IS half green.  Composited over the
+sunset behind it, that smoke carries a measured +48.7/255 mean green excess on the far
+layer and +58.1 on the forest: a green halo around every plume.
+
+So v3 UNMIXES instead.  For a pixel P = a*F + (1-a)*G over a known backing G:
+
+    a = 1 - d(P)/d(G)          d(x) = x_g - max(x_r, x_b)     [assumes d(F) ~ 0]
+    F = (P - (1-a)*G) / a
+
+Three things this needs that the obvious version gets wrong, all of them measured:
+
+ 1. G IS NOT #00ff00.  The painted plate arrives at RGB (3, 250, 7), d = 0.9529, not
+    1.0.  Assume pure green and every plate pixel solves to a = 1 - 0.93 = 0.07 -- a
+    7% green HAZE over the whole sky, not a fringe.  G is measured per layer as the
+    median of the plate population (d > 0.8) and reported.
+
+ 2. THE PLATE STILL LEAKS.  Even against the measured G, 45% of plate pixels come out
+    at a > 0.01 (max 0.156) because the plate itself is compression-noisy.  A small
+    alpha floor (0.06, rescaled so the smoke is not clipped with it) takes that to
+    0.7% and the max to 0.103.
+
+ 3. GREEN PAINT IS NOT PLATE.  Foliage painted at d = 0.2 solves to a = 0.79 -- the
+    unmix would make the painter's own trees translucent and then despill the green
+    out of them.  The plate is above the land by construction in both layers, so
+    everything strictly below a column's LOWEST plate row is forced opaque, and
+    despill is applied only where a < 0.98.  Fully opaque paint is returned untouched.
+
+RESIDUAL, honestly measured.  The obvious check -- green excess of the unmixed
+foreground -- reads 0.00 and always will: a = 1 - d/d(G) forces d(F) = 0 algebraically,
+so that instrument is measuring its own arithmetic.  What is reported instead is the
+green excess the layer ADDS to the composite over the sky behind it, across the smoke
+band, which is what a player can actually see.
 """
 import json
 import sys
@@ -55,9 +88,47 @@ A_LAYERS = PROJ / "parallax" / "layers"
 OUT_TILES = PROJ / "parallax" / "tiles_b"
 OUT_LAYERS = PROJ / "parallax" / "layers_b"
 
-KEY_LO, KEY_HI = 0.08, 0.25
-DESPILL_AT = 0.02
+ALPHA_FLOOR = 0.06          # kills plate compression noise; see the docstring
+MIST_TINT = np.array([150, 95, 170], np.float32) / 255.0
 MIST_ALPHA_CAP = 220 / 255.0
+
+# Horizontal placement of the B layers, in layer pixels, applied by style_toggle.gd the
+# same way the vertical offsets are. Only far_ruins needs one: its two landmarks (the
+# burning tower and the burning cathedral) have to be BOTH on screen and BOTH on the
+# skyline when the knight is at the bridge's west landing, and the value below is
+# measured from a capture there rather than derived -- see tools/place_far_layer.py.
+LAYER_DX = {"sky": 0.0, "far_ruins": 160.0, "forest_valley": 0.0, "mist": 0.0}
+
+# FAR LAYER FRAMING, and why it does not use the horizon rule.
+#
+# The horizon rule lands the B ridge on the row the H1 ridge occupied (offset +28), and
+# that is right for a layer of anonymous hills.  This one carries two GIANT landmarks
+# that stand 583 px (the burning tower) and 501 px (the burning cathedral) ABOVE that
+# ridge, and at +28 the ridge sits on screen row 42 at the bridge -- so both of them are
+# off the top of the screen and the brief's whole point is invisible.  Measured at the
+# bridge's west landing (2700, 1500), capture in tools/shot_bridge.gd:
+#
+#   far ridge, horizon rule      screen row  42      landmarks at -541 and -459
+#   forest goes solid at         screen row 662      (sparse treetops from row 23)
+#   far ridge, this override     screen row 640      landmarks at   57 and  139
+#
+# 640 puts the ridge just above the forest's solid line, so the two landmarks stand on
+# the skyline with a thin band of far hills under them and the forest closing in below.
+#
+# HORIZONTALLY they do not both fit: the two masonry silhouettes span layer x 354..2394,
+# 2041 px, against a 1920 viewport. +160 centres the pair a little left of centre so the
+# TOWER -- the narrower of the two, 283 px against the cathedral's 405 -- clears the left
+# edge intact, and the 121 px of overflow is taken off the cathedral's nave, away from
+# its spire. Both are recognisable; neither is whole. Stated rather than hidden.
+LAYER_DY_OVERRIDE = {"far_ruins": 626.0}
+
+# Dropping the far layer 598 px brings its own TOP EDGE down into the frame, and the
+# painted smoke plumes run right off that edge -- so the plume stopped dead along a
+# straight horizontal line in open sky, which reads as a rectangle of slightly lighter
+# grey. It is the art's edge, not a compositing bug, and the layer cannot be moved back
+# up without losing the landmarks it was moved down for. So the top rows are faded to
+# transparent: the plume dissolves into the sky instead of being guillotined.
+TOP_FADE_PX = {"far_ruins": 150}
 
 # FG10 forest: 3x3 grid of 1536x1024 panels at step 1280x768 over 4096x2560
 FG10_GRID = (3, 3)
@@ -70,16 +141,92 @@ def load_rgb(p):
     return np.asarray(Image.open(p).convert("RGB")).astype(np.float32) / 255.0
 
 
-def green_key(rgb):
-    r, g, b = rgb[..., 0], rgb[..., 1], rgb[..., 2]
-    d = g - np.maximum(r, b)
-    alpha = np.clip((KEY_HI - d) / (KEY_HI - KEY_LO), 0.0, 1.0)
-    out = rgb.copy()
-    spill = d > DESPILL_AT
-    out[..., 1] = np.where(spill, np.maximum(r, b) + np.minimum(d, DESPILL_AT), g)
-    rgba = np.dstack([out, alpha])
+def _gx(c):
+    """green excess: how much greener than the redder of red/blue."""
+    return c[..., 1] - np.maximum(c[..., 0], c[..., 2])
+
+
+def green_unmix(rgb, sky_for_residual=None):
+    """-> (rgba, stats).  See the module docstring for why this is not a key."""
+    d = _gx(rgb)
+    plate = d > 0.8
+    if plate.sum() < 1000:
+        raise SystemExit("green_unmix: no plate population found (%d px)" % plate.sum())
+    G = np.median(rgb[plate], axis=0)
+    d_bg = float(G[1] - max(G[0], G[2]))
+
+    a0 = np.clip(1.0 - d / d_bg, 0.0, 1.0)
+    leak_before = float((a0[plate] > 0.01).mean())
+    alpha = np.clip((a0 - ALPHA_FLOOR) / (1.0 - ALPHA_FLOOR), 0.0, 1.0)
+    leak_after = float((alpha[plate] > 0.01).mean())
+
+    # the plate is ABOVE the land in both of these layers, so nothing below a column's
+    # lowest plate row can be backing -- force it opaque before anything else reads it
+    clear = d > 0.5 * d_bg
+    H = rgb.shape[0]
+    rows = np.arange(H)[:, None]
+    lowest = np.where(clear.any(0), (H - 1) - clear[::-1].argmax(0), -1)
+    below = rows > lowest[None, :]
+    forced = int((below & (alpha < 0.999)).sum())
+    alpha = np.where(below, 1.0, alpha)
+
+    a = np.maximum(alpha, 1e-4)[..., None]
+    F = np.clip((rgb - (1.0 - a) * G) / a, 0.0, 1.0)
+    mixed = alpha < 0.98
+    mx = np.maximum(F[..., 0], F[..., 2])
+    F[..., 1] = np.where(mixed & (F[..., 1] > mx), mx, F[..., 1])
+    F = np.where((alpha >= 0.999)[..., None], rgb, F)      # opaque paint, untouched
+
+    band = (alpha > 0.05) & (alpha < 0.95)
+    # THE POPULATION TO MEASURE ON is semi-transparent smoke OVER THE PLATE, and it took
+    # three tries to name it. Over the GUARDED band the hard key scores +0.00 and the
+    # "improvement" is 0.0x -- the guard has already removed every pixel the key would
+    # have damaged, and the instrument congratulates itself on a population it emptied.
+    # Over the NAIVE band the unmix scores +36.29 against the key's +36.50 -- that band
+    # is full of the painter's own green foliage, which the unmix correctly returns
+    # untouched and the metric then charges it for. Both numbers are arithmetically
+    # right and neither answers the question. The smoke over the plate is the
+    # intersection: partial by the naive alpha, and above the plate boundary.
+    naive_band = (a0 > 0.05) & (a0 < 0.95)
+    stats = {"backing_rgb_255": [round(float(v) * 255, 2) for v in G],
+             "d_backing": round(d_bg, 4),
+             "plate_px_fraction": round(float(plate.mean()), 4),
+             "plate_leak_before_floor": round(leak_before, 4),
+             "plate_leak_after_floor": round(leak_after, 4),
+             "alpha_floor": ALPHA_FLOOR,
+             "forced_opaque_below_plate_px": forced,
+             "smoke_band_px": int(band.sum()),
+             "naive_band_px": int(naive_band.sum()),
+             "smoke_over_plate_px": int((naive_band & ~below).sum())}
+    stats_band = naive_band & ~below
+    if sky_for_residual is not None and stats_band.sum():
+        bg = np.asarray(sky_for_residual.resize((rgb.shape[1], rgb.shape[0]),
+                                                Image.LANCZOS).convert("RGB"))
+        bg = bg.astype(np.float32) / 255.0
+        comp = a * F + (1.0 - a) * bg
+        hard = (d < d_bg * 0.5).astype(np.float32)[..., None]
+        comph = hard * rgb + (1.0 - hard) * bg
+        ru = (_gx(comp) - _gx(bg))[stats_band]
+        rh = (_gx(comph) - _gx(bg))[stats_band]
+        stats["fringe_residual_over_sky_255"] = {
+            "hard_key_mean": round(float(rh.mean()) * 255, 2),
+            "hard_key_p99": round(float(np.percentile(rh, 99)) * 255, 2),
+            "unmix_mean": round(float(ru.mean()) * 255, 2),
+            "unmix_p99": round(float(np.percentile(ru, 99)) * 255, 2),
+            "measured_over": "semi-transparent smoke over the plate (partial alpha AND above the plate boundary), %d px" % int(stats_band.sum()),
+            "improvement_x": (round(float(rh.mean() / ru.mean()), 2)
+                              if ru.mean() > 0.002 else "n/a (unmix residual ~0)"),
+            # A key has TWO ways to be wrong and green excess only sees one of them.
+            # Where the smoke is thin (a < 0.5) a hard key does not fringe it, it
+            # DELETES it -- and a deleted plume scores a perfect 0.00 residual. The
+            # forest reads "hard key +0.00" for exactly this reason, so the omission is
+            # counted separately rather than left to look like a pass.
+            "smoke_a_hard_key_would_delete_pct": round(
+                100.0 * float((hard[..., 0][stats_band] < 0.5).mean()), 2),
+        }
+    rgba = np.dstack([F, alpha])
     rgba[alpha <= 0.0, :3] = 0.0
-    return rgba
+    return rgba, stats
 
 
 def to_img(rgba):
@@ -137,40 +284,59 @@ def main():
               f"alpha0 {(a <= 0).mean():.3f}  alpha1 {(a >= 254).mean():.3f}")
     del plate
 
-    # ---- forest source -----------------------------------------------------
-    fg10, info = assemble_fg10()
-    if fg10 is not None:
-        forest_src, forest_note = fg10, f"FG10 3x3 assembled ({len(info)} panels)"
-    else:
-        forest_src, forest_note = Image.open(SRC / "L10_layer_forest.png").convert("RGB"), \
-            f"L10_layer_forest.png FALLBACK (FG10 incomplete: missing {', '.join(info)})"
-    print("forest source:", forest_note)
-    report["forest_source"] = forest_note
-
     # ---- parallax layers ---------------------------------------------------
+    sky_src = Image.open(SRC / "L11_layer_sky.png").convert("RGB")
     jobs = [
-        ("sky.png", Image.open(SRC / "L10_layer_sky_single.png").convert("RGB"),
-         "L10_layer_sky_single.png", "opaque"),
-        ("far_ruins.png", Image.open(SRC / "L10_layer_far_fixed.png").convert("RGB"),
-         "L10_layer_far_fixed.png", "key"),
-        ("forest_valley.png", forest_src, forest_note, "key"),
+        ("sky.png", sky_src, "L11_layer_sky.png", "opaque"),
+        ("far_ruins.png", Image.open(SRC / "L11_layer_far.png").convert("RGB"),
+         "L11_layer_far.png", "unmix"),
+        ("forest_valley.png", Image.open(SRC / "L11_layer_forest.png").convert("RGB"),
+         "L11_layer_forest.png", "unmix"),
         ("mist.png", Image.open(SRC / "L10_layer_mist.png").convert("RGB"),
-         "L10_layer_mist.png", "mist"),
+         "L10_layer_mist.png (tinted %s)" % list(map(int, MIST_TINT * 255)), "mist"),
     ]
-    offsets = {}
+    offsets, offsets_x, keystats = {}, {}, {}
     print("layers (scaled to the H1 WIDTH, aspect preserved):")
     for role, src_img, src_name, mode in jobs:
         rgb = np.asarray(src_img).astype(np.float32) / 255.0
         if mode == "opaque":
             rgba = np.dstack([rgb, np.ones(rgb.shape[:2], np.float32)])
-        elif mode == "key":
-            rgba = green_key(rgb)
+        elif mode == "unmix":
+            rgba, st = green_unmix(rgb, sky_for_residual=sky_src)
+            keystats[role.replace(".png", "")] = st
+            print("  %s unmix: backing %s d=%.4f  plate leak %.2f%%->%.2f%%  "
+                  "band %d px  forced-opaque %d px"
+                  % (role, st["backing_rgb_255"], st["d_backing"],
+                     100 * st["plate_leak_before_floor"], 100 * st["plate_leak_after_floor"],
+                     st["smoke_band_px"], st["forced_opaque_below_plate_px"]))
+            fr = st.get("fringe_residual_over_sky_255")
+            if fr:
+                print("      FRINGE RESIDUAL over the sky behind it (0-255, smoke band): "
+                      "hard key %+.2f mean / %+.2f p99   ->   unmix %+.2f / %+.2f   (%s)"
+                      % (fr["hard_key_mean"], fr["hard_key_p99"],
+                         fr["unmix_mean"], fr["unmix_p99"], str(fr["improvement_x"])))
+                print("      a hard key would DELETE %.1f%% of that smoke outright "
+                      "(thin plume, alpha < 0.5) -- invisible to the residual above"
+                      % fr["smoke_a_hard_key_would_delete_pct"])
         else:
+            # purple mist: DENSITY from the painting's luminance, COLOUR from the tint.
+            # The painting is light-on-black, so luminance is exactly the mist's own
+            # density map; taking colour from it as well would carry the greyscale
+            # through and the tint would not read.
             lum = 0.2126 * rgb[..., 0] + 0.7152 * rgb[..., 1] + 0.0722 * rgb[..., 2]
             alpha = np.minimum(lum, MIST_ALPHA_CAP)
-            colour = rgb / np.maximum(lum, 1.0 / 255.0)[..., None]
-            rgba = np.dstack([np.clip(colour, 0, 1), alpha])
+            colour = np.broadcast_to(MIST_TINT, rgb.shape).copy()
+            rgba = np.dstack([colour, alpha])
             rgba[alpha <= 0.0, :3] = 0.0
+            keystats["mist"] = {"tint_rgb_255": [int(v) for v in MIST_TINT * 255],
+                                "alpha_cap_255": int(round(MIST_ALPHA_CAP * 255)),
+                                "alpha_mean": round(float(alpha.mean()), 4)}
+        fade = TOP_FADE_PX.get(role.replace(".png", ""), 0)
+        if fade:
+            ramp = np.clip(np.arange(rgba.shape[0], dtype=np.float32) / float(fade), 0, 1)
+            rgba[..., 3] *= ramp[:, None]
+            print("  %s: top %d rows faded out (the layer's own edge is on screen after "
+                  "the framing override)" % (role, fade))
         img = to_img(rgba)
         del rgb, rgba
 
@@ -188,17 +354,23 @@ def main():
         else:
             dy = ha - hb
             rule = f"horizon A row {ha} <- B row {hb}"
-        offsets[role.replace(".png", "")] = float(dy)
+        key = role.replace(".png", "")
+        if key in LAYER_DY_OVERRIDE:
+            dy = LAYER_DY_OVERRIDE[key]
+            rule += "  [OVERRIDDEN to %+.0f for landmark framing -- see LAYER_DY_OVERRIDE]" % dy
+        offsets[key] = float(dy)
+        offsets_x[role.replace(".png", "")] = float(LAYER_DX.get(role.replace(".png", ""), 0.0))
         print(f"  {role:<18} {src_name}")
         print(f"      {sw}x{sh} -> {tw}x{th}   (H1 {aw}x{ah}, aspect kept, "
               f"{'taller' if th > ah else 'shorter'} by {abs(th - ah)})")
-        print(f"      {rule}  ->  B sprite y offset {dy:+.0f}")
+        print(f"      {rule}  ->  B sprite offset ({offsets_x[role.replace('.png','')]:+.0f}, {dy:+.0f})")
         del img, a_img
 
     (OUT_LAYERS / "offsets.json").write_text(json.dumps(
         {"note": "per-style vertical offset for the B parallax layer sprites; "
                  "A is always 0. Written by tools/build_b_assets.py.",
-         "offsets": offsets, **report}, indent=1))
+         "offsets": offsets, "offsets_x": offsets_x,
+         "unmix": keystats, **report}, indent=1))
     print("wrote", OUT_LAYERS / "offsets.json")
     print("done ->", OUT_TILES, OUT_LAYERS)
 

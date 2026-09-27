@@ -65,9 +65,11 @@ var _sprites: Array[Sprite2D] = []      # tiles then layers, in the order above
 var _tex_a: Array[Texture2D] = []
 var _tex_b: Array[Texture2D] = []
 var _layer_dy: Array[float] = []        # B vertical offset per LAYER_NODES entry
+var _layer_dx: Array[float] = []        # B horizontal offset (far_ruins framing)
 var _h1_nodes: Array[CanvasItem] = []
 var _keeper_sprite: CanvasItem = null
 var _knight_sprite: CanvasItem = null
+var _figures: Array = []          # the B-only still figures (angel, demon)
 var _style_b: bool = true
 var _label: Label
 
@@ -99,6 +101,13 @@ func _ready() -> void:
 					_h1_nodes.append(child as CanvasItem)
 					break
 
+	_figures.clear()
+	var actors_root := get_node_or_null(^"Actors")
+	if actors_root != null:
+		for child in actors_root.get_children():
+			if child.has_method("set_active") and child.has_method("is_active"):
+				_figures.append(child)
+
 	var keeper := find_child("Keeper", true, false)
 	if keeper != null:
 		_keeper_sprite = keeper.get_node_or_null(^"AnimatedSprite2D") as CanvasItem
@@ -110,22 +119,25 @@ func _ready() -> void:
 
 	_build_hud()
 	_apply(true)
-	print("style_toggle: ready  sprites=%d  h1_nodes=%d  knight=%s"
-		% [_sprites.size(), _h1_nodes.size(), str(_knight_sprite != null)])
+	print("style_toggle: ready  sprites=%d  h1_nodes=%d  knight=%s  b_figures=%d"
+		% [_sprites.size(), _h1_nodes.size(), str(_knight_sprite != null), _figures.size()])
 
 
 func _load_layer_offsets() -> void:
 	var dy := {}
+	var dx := {}
 	if FileAccess.file_exists(OFFSETS_JSON):
 		var parsed = JSON.parse_string(FileAccess.get_file_as_string(OFFSETS_JSON))
 		if parsed is Dictionary and parsed.has("offsets"):
 			dy = parsed["offsets"]
+			dx = parsed.get("offsets_x", {})
 		else:
 			push_error("style_toggle: %s has no 'offsets'" % OFFSETS_JSON)
 	else:
 		push_error("style_toggle: %s missing; B layers will sit at 0" % OFFSETS_JSON)
 	for key in LAYER_KEYS:
 		_layer_dy.append(float(dy.get(key, 0.0)))
+		_layer_dx.append(float(dx.get(key, 0.0)))
 
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -185,6 +197,7 @@ func _apply(to_b: bool) -> int:
 		var idx := TILE_NODES.size() + i
 		if idx < _sprites.size():
 			_sprites[idx].position.y = _layer_dy[i] if to_b else 0.0
+			_sprites[idx].position.x = _layer_dx[i] if to_b else 0.0
 	if _keeper_sprite != null:
 		_keeper_sprite.visible = not to_b
 	if _knight_sprite != null:
@@ -193,6 +206,11 @@ func _apply(to_b: bool) -> int:
 			_knight_sprite.call("sync_now")
 	for n in _h1_nodes:
 		n.visible = not to_b
+	# The B-only still figures. They take their COLLISION down with them, not just
+	# their sprite: a hidden StaticBody2D still blocks, and the Keeper would walk into
+	# an invisible angel in style A.
+	for f in _figures:
+		f.call("set_active", to_b)
 	_refresh_hud()
 	return swapped
 
@@ -207,6 +225,22 @@ func hidden_h1_node_count() -> int:
 
 func layer_offsets() -> Array[float]:
 	return _layer_dy
+
+
+func layer_offsets_x() -> Array[float]:
+	return _layer_dx
+
+
+func figure_count() -> int:
+	return _figures.size()
+
+
+func active_figure_count() -> int:
+	var n := 0
+	for f in _figures:
+		if bool(f.call("is_active")):
+			n += 1
+	return n
 
 
 func player_sprite_name() -> String:

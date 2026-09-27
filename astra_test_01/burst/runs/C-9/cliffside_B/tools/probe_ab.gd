@@ -201,6 +201,41 @@ func _initialize():
 	_check(String(knight.animation).begins_with("idle_"),
 		"knight returns to idle when input stops (%s)" % knight.animation)
 
+	# --- 2b. v3: the B-only still figures --------------------------------
+	print("[v3 still figures: angel + demon]")
+	_check(scene.figure_count() == 2, "2 still figures found (got %d)" % scene.figure_count())
+	_check(scene.active_figure_count() == 2,
+		"both are ACTIVE in B -- drawn and collidable (%d)" % scene.active_figure_count())
+	var angel = scene.get_node_or_null(^"Actors/Angel")
+	var demon = scene.get_node_or_null(^"Actors/Demon")
+	_check(angel != null and demon != null, "Actors/Angel and Actors/Demon present")
+	if angel != null and demon != null:
+		# They must be SIBLINGS of the Keeper under the y-sorted Actors node. In a
+		# wrapper they would sort as one unit and both flip in front of the knight
+		# together, which is not what y-sorted means.
+		_check(angel.get_parent() == keeper.get_parent(),
+			"figures are siblings of the Keeper under the y-sorted Actors node")
+		for f in [angel, demon]:
+			var sh = f.get_node_or_null(^"CollisionShape2D")
+			_check(sh != null and not sh.disabled,
+				"%s carries live feet collision in B" % f.name)
+			_check(f.collision_layer == 1,
+				"%s is on the layer the Keeper's mask reads (%d)" % [f.name, f.collision_layer])
+		print("    angel at %s   demon at %s" % [str(angel.global_position), str(demon.global_position)])
+
+	# --- 2c. v3: the B layers carry an x offset as well as a y offset ----
+	var want_dx: Array = scene.layer_offsets_x()
+	var got_dx := []
+	for i in range(2, SPRITES.size()):
+		var s2 = scene.get_node_or_null(NodePath(SPRITES[i]))
+		got_dx.append(0.0 if s2 == null else s2.position.x)
+	print("    layer x offsets: want %s  got %s" % [str(want_dx), str(got_dx)])
+	var dx_ok := true
+	for i in want_dx.size():
+		if absf(float(got_dx[i]) - float(want_dx[i])) > 0.01:
+			dx_ok = false
+	_check(dx_ok, "all 4 B layer sprites carry their offsets.json x offset")
+
 	# --- 3. toggle to A --------------------------------------------------
 	print("[toggle -> A]")
 	var swapped: int = scene.toggle()
@@ -220,6 +255,14 @@ func _initialize():
 	vh = _hidden_count(scene)
 	print("    H1 dressing nodes: visible %d, hidden %d" % [vh[0], vh[1]])
 	_check(vh[1] == 0 and vh[0] > 0, "all %d H1-register nodes visible in A" % vh[0])
+	_check(scene.active_figure_count() == 0,
+		"both still figures are INACTIVE in A (%d active)" % scene.active_figure_count())
+	if angel != null:
+		var ash = angel.get_node_or_null(^"CollisionShape2D")
+		await physics_frame        # set_deferred lands on the next frame
+		_check(ash != null and ash.disabled,
+			"the angel's COLLISION is disabled in A too -- hiding a StaticBody2D does "
+			+ "not stop it blocking, and an invisible wall is worse than a visible one")
 
 	# --- 4. movement in A ------------------------------------------------
 	print("[Keeper walks in A]")
@@ -244,6 +287,9 @@ func _initialize():
 	_check(dy_ok, "B layer offsets restored (%s)" % str(got_dy))
 	vh = _hidden_count(scene)
 	_check(vh[0] == 0, "H1-register nodes hidden again (%d hidden)" % vh[1])
+	await physics_frame
+	_check(scene.active_figure_count() == 2,
+		"both still figures active again in B (%d)" % scene.active_figure_count())
 
 	print("=== probe result: %s (%d failures) ===" % ["PASS" if fails == 0 else "FAIL", fails])
 	quit(1 if fails > 0 else 0)

@@ -17,53 +17,53 @@
   }
  },
  "knight": {
-  "figure_h_src_px": 206.4375,
-  "scale": 0.7276465839136138,
+  "figure_h_src_px": 198.625,
+  "scale": 0.7562670442626389,
   "figure_h_canvas_px": 150.21354166666666,
   "offset": [
-   -256.51134108456966,
-   -395.1875
+   -256.00394236896113,
+   -395.75
   ],
   "per_cell": {
    "walk_S": {
-    "head": 194,
-    "sole": 390,
-    "figure_h": 197
+    "head": 199,
+    "sole": 396,
+    "figure_h": 198
    },
    "idle_S": {
-    "head": 202,
-    "sole": 393,
-    "figure_h": 192
+    "head": 201,
+    "sole": 395,
+    "figure_h": 195
    },
    "walk_SW": {
-    "head": 183,
-    "sole": 401,
-    "figure_h": 219
+    "head": 194,
+    "sole": 402,
+    "figure_h": 209
    },
    "idle_SW": {
-    "head": 190,
+    "head": 198,
     "sole": 396,
-    "figure_h": 207
+    "figure_h": 199
    },
    "walk_W": {
-    "head": 182,
+    "head": 195,
     "sole": 400,
-    "figure_h": 219
+    "figure_h": 206
    },
    "idle_W": {
-    "head": 191,
+    "head": 203,
     "sole": 398,
-    "figure_h": 208
+    "figure_h": 196
    },
    "walk_NW": {
-    "head": 183,
+    "head": 195,
     "sole": 392,
-    "figure_h": 210
+    "figure_h": 198
    },
    "idle_NW": {
-    "head": 189,
+    "head": 201,
     "sole": 398,
-    "figure_h": 210
+    "figure_h": 198
    },
    "walk_N": {
     "head": 195,
@@ -76,29 +76,29 @@
     "figure_h": 194
    },
    "walk_NE": {
-    "head": 184,
+    "head": 198,
     "sole": 399,
-    "figure_h": 216
+    "figure_h": 202
    },
    "idle_NE": {
-    "head": 189,
+    "head": 202,
     "sole": 399,
-    "figure_h": 211
+    "figure_h": 198
    },
    "walk_E": {
-    "head": 184,
+    "head": 197,
     "sole": 393,
-    "figure_h": 210
+    "figure_h": 197
    },
    "idle_E": {
-    "head": 188,
+    "head": 201,
     "sole": 396,
-    "figure_h": 209
+    "figure_h": 196
    },
    "walk_SE": {
-    "head": 181,
+    "head": 190,
     "sole": 391,
-    "figure_h": 211
+    "figure_h": 202
    },
    "idle_SE": {
     "head": 200,
@@ -119,8 +119,8 @@
  },
  "walk_cadence_source": "frames/keeper.tres -- the knight matches the Keeper's walk stride duration, NOT his own clips' painted timing (changed 2026-09-27; see the module docstring)",
  "painted_walk_fps_superseded": {
-  "walk_S": 4.5,
-  "walk_SW": 3.6,
+  "walk_S": 4.363636,
+  "walk_SW": 4.363636,
   "walk_W": 3.130435,
   "walk_NW": 4.114286,
   "walk_N": 6.545455,
@@ -129,8 +129,8 @@
   "walk_SE": 4.114286
  },
  "stride_native_frames": {
-  "walk_S": 64,
-  "walk_SW": 80,
+  "walk_S": 66,
+  "walk_SW": 66,
   "walk_W": 92,
   "walk_NW": 70,
   "walk_N": 44,
@@ -157,9 +157,9 @@
   "idle_SE": 6.0
  },
  "animation_note": {
-  "walk_S": "matched to keeper walk_S (0.5797 s/stride); painted stride was 64 native frames = 2.667 s (4.500 fps), 4.60x slower than her",
+  "walk_S": "matched to keeper walk_S (0.5797 s/stride); painted stride was 66 native frames = 2.750 s (4.364 fps), 4.74x slower than her",
   "idle_S": "breath 48 native frames = 2.0 s",
-  "walk_SW": "matched to keeper walk_SW (0.5797 s/stride); painted stride was 80 native frames = 3.333 s (3.600 fps), 5.75x slower than her",
+  "walk_SW": "matched to keeper walk_SW (0.5797 s/stride); painted stride was 66 native frames = 2.750 s (4.364 fps), 4.74x slower than her",
   "idle_SW": "breath 48 native frames = 2.0 s",
   "walk_W": "matched to keeper walk_W (0.5797 s/stride); painted stride was 92 native frames = 3.833 s (3.130 fps), 6.61x slower than her",
   "idle_W": "breath 48 native frames = 2.0 s",

@@ -126,8 +126,24 @@ def keeper_walk_cadence():
     return out
 
 
-def measure(path):
-    """-> (head_row, sole_row, body_centre_x) in source pixels."""
+def measure(path, report=None):
+    """-> (head_row, sole_row, body_centre_x) in source pixels.
+
+    CROWN RULE, corrected 2026-09-27.  The 1xN horizontal opening deletes the pollaxe
+    SHAFT and, in doing so, correctly disconnects the AXE BLADE from the figure.  The
+    old rule then READMITTED the blade: it kept every component at least 5% of the
+    largest, and the blade clears that easily.  For idle_E it returned head row 188 --
+    the top of the axe blade -- where the helm crowns at 201, and every E-ish cell came
+    out ~7% too tall.  The check ran, returned cleanly, and returned the wrong answer,
+    because "the largest component and everything comparable to it" is not the same
+    claim as "the figure".
+
+    The 5% clause was there for a real reason -- a leg that splits off at the crotch
+    must still count towards the body's centre -- so it is kept, with the one
+    qualification that closes the defect: a component may join the body only if it
+    starts BELOW the body's own crown.  A split leg does; a blade held over the helm
+    does not.  The crown itself is read from the largest component alone.
+    """
     a = np.asarray(Image.open(path).convert("RGBA"))[..., 3] > 8
     opened = ndimage.binary_opening(a, structure=np.ones((1, OPEN_W), bool))
     lab, n = ndimage.label(opened)
@@ -135,13 +151,24 @@ def measure(path):
         ys = np.nonzero(a.sum(1))[0]
         return int(ys.min()), int(ys.max()), a.shape[1] / 2.0
     sizes = ndimage.sum(opened, lab, range(1, n + 1))
-    keep = [i + 1 for i, s in enumerate(sizes) if s >= 0.05 * sizes.max()]
+    main = int(np.argmax(sizes)) + 1
+    head = int(np.nonzero(lab == main)[0].min())
+    keep = [main]
+    for i, s in enumerate(sizes):
+        tag = i + 1
+        if tag == main or s < 0.05 * sizes.max():
+            continue
+        if int(np.nonzero(lab == tag)[0].min()) > head:
+            keep.append(tag)
     body = np.isin(lab, keep)
-    ys, xs = np.nonzero(body)
-    head = int(ys.min())
-    cx = float(xs.mean())
+    cx = float(np.nonzero(body)[1].mean())
     w = np.array([_widest_run(a[y]) for y in range(a.shape[0])])
     sole = int(np.nonzero(w >= SOLE_MIN_RUN)[0].max())
+    if report is not None:
+        old_keep = [i + 1 for i, s in enumerate(sizes) if s >= 0.05 * sizes.max()]
+        old_head = int(np.nonzero(np.isin(lab, old_keep))[0].min())
+        report.append((path.name if hasattr(path, "name") else str(path),
+                       old_head, head, sole))
     return head, sole, cx
 
 
@@ -156,8 +183,9 @@ def main():
 
     # ---- measure the Keeper ------------------------------------------------
     keeper_h = []
+    crown_report = []
     for d in DIRS:
-        h, s, _ = measure(PROJ / "sprites" / "idle" / d / f"idle_{d}_00.png")
+        h, s, _ = measure(PROJ / "sprites" / "idle" / d / f"idle_{d}_00.png", crown_report)
         keeper_h.append(s - h + 1)
     keeper_src = float(np.mean(keeper_h))
     keeper_canvas = keeper_src * KEEPER_SCALE
@@ -167,7 +195,7 @@ def main():
     for d in DIRS:
         for st in ("walk", "idle"):
             rest = RUNS_ROOT / cells[f"{st}_{d}"]["rest"][0]
-            h, s, cx = measure(rest)
+            h, s, cx = measure(rest, crown_report)
             knight_h.append(s - h + 1)
             knight_sole.append(s)
             knight_cx.append(cx)
@@ -176,6 +204,17 @@ def main():
     scale = keeper_canvas / knight_src
     pivot_y = float(np.mean(knight_sole))
     pivot_x = float(np.mean(knight_cx))
+
+    moved = [r for r in crown_report if r[1] != r[2]]
+    print("crown rule (largest component only, + >=5%% components starting below it):")
+    print("  %d of %d measured frames had a component ABOVE the figure readmitted by the"
+          % (len(moved), len(crown_report)))
+    print("  old >=5%% clause -- the pollaxe blade.  old head -> new head (sole, height):")
+    for name, oh, nh, so in moved:
+        print("    %-16s %3d -> %3d   sole %3d   height %3d -> %3d"
+              % (name, oh, nh, so, so - oh + 1, so - nh + 1))
+    if not moved:
+        print("    (none)")
 
     print("scale law")
     print(f"  keeper figure height  {keeper_src:7.2f} src px  x {KEEPER_SCALE:.6f}"
