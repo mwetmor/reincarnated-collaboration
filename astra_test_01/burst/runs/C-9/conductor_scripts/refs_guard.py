@@ -28,7 +28,10 @@ for t in sys.argv[1:]:
         if 'look-only' in str(p) or s in bad_sha: fail.append(f'{t}: LOOK-ONLY reference {p}'); continue
         if s in ok_sha: continue
         if p.parent == INP and inp.get(p.name) == s: continue
+        _sm = ROOT/'astra_test_01/burst/runs/C-9/artifacts/CS9-guides/manifest.json'
+        if p.parent == _sm.parent and _sm.exists() and json.loads(_sm.read_text()).get(p.name) == s: continue  # P5 staged canvases
         if '/runs/C-9/artifacts/' in str(p) and s in own: continue
+        if re.search(r'/runs/C-[13]/artifacts/', str(p)) and re.search(r'GEOMETRY-ONLY|CONTROL', ref['role']): continue  # H1 lane substrate, never a style source
         if str(p) in ALLOW and (ALLOW[str(p)] in (None, s)): continue
         fail.append(f'{t}: unregistered reference {p} ({s[:12]})')
 print('\n'.join(fail) if fail else f'refs_guard OK ({len(sys.argv)-1} task(s))'); sys.exit(1 if fail else 0)

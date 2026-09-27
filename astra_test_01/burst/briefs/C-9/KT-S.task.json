@@ -1,0 +1,23 @@
+{
+ "text": "GENERATE BURST KT-S \u2014 Run C-9 P4, the knight's MASTER frame at the game camera (direction S). The REGISTER CARD above governs style. task_id \"KT-S\".\n\nImage 1 is the APPROVED STYLE AND IDENTITY SOURCE: this knight, painted in our register. Identity, armour, heraldry, helm, poleaxe, proportions and the painted hand come ONLY from Image 1. Image 2 is a GEOMETRY-ONLY reference: a different character, painted in a DIFFERENT style, standing at exactly our game camera and facing direction S. Copy from Image 2 ONLY the camera angle (how far we look down on the figure), how much of the top of the head and the tops of the shoulders show, how the torso and legs are foreshortened, the standing rest pose, and the framing and figure height on the canvas. Do NOT copy her face, hair, costume, colours, line or brushwork.\n\nDeliver the knight from Image 1, turned to face STRAIGHT TOWARD THE VIEWER (direction S), at the camera of Image 2: an elevated three-quarter view looking DOWN at about 53 degrees \u2014 the top of the helm and the tops of the pauldrons clearly visible, the torso slightly shortened, the feet seen from above. The camera is fixed; the character turns, the camera does not. Standing rest pose: weight even, the POLEAXE held upright in his RIGHT hand (on the screen-left of his body when he faces the viewer), its butt resting on the ground beside his right foot; left arm relaxed. Identity, unchanged from Image 1: full plate armour in blue-grey steel; a closed rounded helm, visor down; a BLUE TABARD over the breastplate bearing GOLD cross-crosslets and GOLD diagonal bands exactly as in Image 1, ending at the hip; NO skirt; full plate on thighs and legs; the poleaxe as in Image 1 (axe blade, hammer back, top spike, wooden haft). Portrait canvas 1024x1536, full body, feet fully visible and centred, same figure height on the canvas as Image 2; flat uniform pure #00ff00 background over the whole canvas; no ground, no floor shadow, no border, no text. Do not matte.\n\nMake TWO image_gen calls, variants a and b, same instructions. ONE retry per variant only if the camera is visibly eye-level, the identity changed, or the background is not flat green \u2014 name the reason. Copy outputs to out/KT-S_a.png and out/KT-S_b.png with sha256. No code. No other files. No web.\nRETURN: receipt task_id \"KT-S\"; images = the files with prompt, references (role + path) and elapsed_s; calls_used = the TRUE number of image_gen calls; status; concerns. Never PASS/FAIL.",
+ "references": [
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/K1-ink/K1-ink_a.png",
+   "role": "IMAGE 1 \u2014 APPROVED STYLE + IDENTITY SOURCE (the knight, our register)"
+  },
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K1p-gen-01/k1p_master_C.png",
+   "role": "IMAGE 2 \u2014 GEOMETRY-ONLY: camera angle, foreshortening, rest pose, framing (a different character in a different style; copy nothing else)"
+  }
+ ],
+ "image_cap": 4,
+ "minutes_cap": 15,
+ "tool_call_cap": 20,
+ "outputs": [
+  "out/KT-S_a.png",
+  "out/KT-S_b.png"
+ ],
+ "effort": "high",
+ "add_dirs": [],
+ "experiment": "P4-turnaround"
+}
