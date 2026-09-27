@@ -1,0 +1,19 @@
+{
+ "text": "GENERATE BURST DM-1-copy \u2014 Run C-9 P4, FIDELITY LADDER step 1: COPY (Matt R-C9-29: put the angel and demon in the scene). task_id \"DM-1-copy\".\n\nTHIS IS A COPY, NOT A NEW PAINTING. Use image_gen in EDIT mode on IMAGE 1. Keep the ORIGINAL PAINTER'S HAND: the exact line, the brushwork, the gold, the worn pigment, every small imperfection. For this step the REGISTER CARD above is satisfied BY THE SOURCE ITSELF: do NOT re-render, re-line, smooth, clean up, sharpen or restyle anything.\n\nChange ONLY this: a horned, fanged, scaly demon from a Flemish manuscript is partly hidden by a white text-scroll ribbon wrapping across his body and cut off by the page's gold frame at the right, with smoke and fire behind him. REMOVE the white scroll ribbon, the lettering, the gold frame line, the smoke, the flames and the background; COMPLETE the parts of his body the scroll and frame hid \u2014 his scaly torso, arms with clawed hands, legs with clawed feet and a long scaly tail \u2014 in exactly the same hand (dark scaly hide with red and gold highlights), so the whole demon stands complete. Keep his horned head, face, fangs and every painted detail exactly. Replace everything that is not the figure with flat uniform pure #00ff00. Keep the figure's proportions, colours and pose exactly; the full figure, head to feet, must be inside the frame.\n\nTwo image_gen EDIT calls: variants a and b. ONE retry per variant only if the figure was redrawn or restyled rather than preserved, part of the figure is missing, or the background is not flat green \u2014 name the reason. Copy outputs to out/DM-1-copy_a.png and out/DM-1-copy_b.png with sha256. No code. No other files. No web.\nRETURN: receipt task_id \"DM-1-copy\"; images = the files with prompt, references (role + path) and elapsed_s; calls_used = the TRUE number of image_gen calls; status; concerns. Never PASS/FAIL.",
+ "references": [
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/inputs/demon_spinola_src.jpg",
+   "role": "IMAGE 1 \u2014 THE SOURCE TO EDIT (preserve the painter's hand exactly)"
+  }
+ ],
+ "image_cap": 4,
+ "minutes_cap": 15,
+ "tool_call_cap": 20,
+ "outputs": [
+  "out/DM-1-copy_a.png",
+  "out/DM-1-copy_b.png"
+ ],
+ "effort": "high",
+ "add_dirs": [],
+ "experiment": "P4-angel-demon-ladder"
+}

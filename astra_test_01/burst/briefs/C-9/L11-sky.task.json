@@ -1,0 +1,22 @@
+{
+ "text": "GENERATE BURST L11-sky \u2014 Run C-9 P5, the SUNSET SKY, deeper and darker (Matt R-C9-29: darker mood; the sky scored plainer than the approved scene). task_id \"L11-sky\".\n\nPaint ONE landscape 1536x1024 image: the sunset sky, the farthest backdrop of a game scene, in the painted hand of IMAGE 1 but DEEPER and DARKER, matching the mood of IMAGE 2. Exactly ONE sun: a small molten-gold disc LOW near the LEFT edge, half-sunk behind a cloud bank, with an intense gold-orange glow around it. A narrow burning band of gold, orange and crimson along the LOWER quarter; above it the sky darkens quickly through rose and deep magenta into rich violet and a deep indigo at the TOP. Layered, heavy clouds of many DIFFERENT shapes and sizes, their undersides lit crimson and gold, their tops in deep violet shadow; a purple smoky haze in the lower sky. Exactly TWO immense columns of dark smoke rising from below the RIGHT half of the bottom edge (a burning cathedral and a burning castle out of frame), different shapes, lit orange from below, leaning with the wind \u2014 NOT parallel stripes. NO land, NO stars, no text, no border. Rich, deep colour \u2014 never pastel.\n\nOne image_gen call. ONE retry only if there is more than one sun, the smoke columns are parallel stripes or repeat, the clouds form repeated rows, or it reads pastel/pale \u2014 name the reason. Copy the output to out/L11-sky.png with sha256. No code. No other files. No web.\nRETURN: receipt task_id \"L11-sky\"; images = the file with prompt, references (role + path) and elapsed_s; calls_used = the TRUE number of image_gen calls; status; concerns. Never PASS/FAIL.",
+ "references": [
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/L10-sky-single/L10-sky-single.png",
+   "role": "IMAGE 1 \u2014 the current sky: painted hand only (to be made deeper and darker)"
+  },
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/MOOD-far/MOOD-far_a.png",
+   "role": "IMAGE 2 \u2014 the approved dark sunset mood (Matt); colour and darkness only"
+  }
+ ],
+ "image_cap": 2,
+ "minutes_cap": 15,
+ "tool_call_cap": 20,
+ "outputs": [
+  "out/L11-sky.png"
+ ],
+ "effort": "high",
+ "add_dirs": [],
+ "experiment": "P5-sky-v2"
+}
