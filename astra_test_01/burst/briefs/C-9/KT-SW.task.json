@@ -1,0 +1,22 @@
+{
+ "text": "GENERATE BURST KT-SW \u2014 Run C-9 P4, the knight's turnaround, direction SW. The REGISTER CARD above governs style. task_id \"KT-SW\".\n\nImage 1 is the APPROVED MASTER (direction S): identity, armour, heraldry, helm, poleaxe, proportions, figure height, framing and the painted hand come ONLY from Image 1. Image 2 is a GEOMETRY-ONLY reference: a different character, in a DIFFERENT style, already turned to direction SW at exactly our camera. Copy from Image 2 ONLY the body turn, the camera angle, and which side of the body the RIGHT-HAND item lands on: the knight's POLEAXE goes exactly where her STAFF is (both are held in the anatomical RIGHT hand). Do NOT copy her face, hair, costume, colours, line or brushwork.\n\nDeliver EXACTLY the knight of Image 1, turned 45 degrees toward SCREEN-LEFT from facing the viewer: body, chest and helm face the viewer's LOWER-LEFT. The camera is fixed for every direction (elevated three-quarter, looking down as in Image 1); the character turns, the camera does not. The light is fixed for every direction: soft even light from SCREEN UPPER-LEFT that does NOT rotate with the character. NO MIRRORING: this is the knight turned, never a flipped image \u2014 the poleaxe stays in his ANATOMICAL RIGHT hand whichever side it lands on screen; the tabard's gold heraldry keeps its own orientation (a back view shows the same gold cross-crosslets and bands on the tabard's back). Same standing rest pose, same figure height and framing as Image 1: full body, feet fully visible, centred; portrait canvas 1024x1536; flat uniform pure #00ff00 background over the whole canvas; no ground, no floor shadow, no border, no text. Do not matte.\n\nOne image_gen call. ONE retry only if the turn is wrong, the poleaxe changed hands, the identity changed, or the background is not flat green \u2014 name the reason. Copy the output to out/KT-SW.png with sha256. No code. No other files. No web.\nRETURN: receipt task_id \"KT-SW\"; images = the file with prompt, references (role + path) and elapsed_s; calls_used = the TRUE number of image_gen calls; status; concerns. Never PASS/FAIL.",
+ "references": [
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/KT-S/KT-S_b.png",
+   "role": "IMAGE 1 \u2014 APPROVED MASTER (direction S): identity, register, framing"
+  },
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/K2c-gen-SW/k2c_SW.png",
+   "role": "IMAGE 2 \u2014 GEOMETRY-ONLY: body turn to SW, camera, and the right-hand item side (a different character in a different style; copy nothing else)"
+  }
+ ],
+ "image_cap": 2,
+ "minutes_cap": 15,
+ "tool_call_cap": 20,
+ "outputs": [
+  "out/KT-SW.png"
+ ],
+ "effort": "high",
+ "add_dirs": [],
+ "experiment": "P4-turnaround"
+}

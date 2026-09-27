@@ -1,0 +1,26 @@
+{
+ "text": "GENERATE BURST CS9-1_1 — Run C-9 P5, cliffside chunk 1_1 by OUTPAINTING (the C-3 v4.1 grid; Matt M1 R-C9-8/9). task_id \"CS9-1_1\".\n\nIMAGE 1 is the canvas to EDIT (1536x1024). In it, a 256x256 corner square (from a diagonal neighbour) are ALREADY PAINTED — real finished pixels from neighbouring chunks. Everything else in IMAGE 1 is a flat-shaded ORTHOGRAPHIC GEOMETRY GUIDE: OLIVE GREEN = grassy ground on the cliff top (manuscript grass tufts, moss, small flowers, bare rock patches; NO boulders, NO props); TAN = a worn pale beaten-earth path/clearing inside the grass, the BRIGHTEST and CALMEST area (a few pebbles and faint ruts only), its edges soft, earth breaking into grass; LIGHT GREY band = the rocky verge right at the rim; GREY planes (dark grey with lighter ribs) = cliff faces dropping toward the viewer: stylised stacked manuscript rock, faceted blocks in warm ochre and grey modelled with pen hatching and a second wash, continuous all the way down to where they meet the green, slightly hazier toward their lowest part, no ledge or bottom edge drawn; BROWN planks + posts = a wooden bridge deck; MAGENTA plank = one loose bridge plank (a cracked, loose plank); PURE GREEN #00ff00 = empty void.\nUse image_gen in EDIT mode on IMAGE 1 and deliver ONE 1536x1024 image in which: (a) the painted strip(s) stay as they are; (b) every flat guide area is replaced by painting that CONTINUES the painted strip(s) seamlessly (same colours, line, hatching, washes, stones, grass, rock) so no join is visible; no straight line may appear at the inner edge of a painted strip; (c) every guide boundary stays exactly where it is; (d) every green pixel stays flat pure #00ff00.\nOrthographic view: no perspective shrinking toward the top. Scale: a person standing here is 130 px tall. STYLE: the REGISTER CARD above, matched to IMAGE 2 (the approved painted style of this level: same line, hatching, washes and palette). ACCENTS: as on a manuscript page (IMAGE 3 shows how), put rich colour in small places OFF the path: clusters of wildflowers (vermilion, lapis, white, gold) in the grass and along the verge, a little verdigris moss and ochre lichen on the rock; the path itself stays calm and pale. No characters, creatures, text, UI, border or vignette.\n\nOne image_gen call. ONE retry only if a painted strip was altered, a boundary moved, the green was painted over, or a join line remains — name the reason. Copy the output from $CODEX_HOME/generated_images/... to out/chunk_1_1.png with sha256. No code. No other files. No web.\nRETURN: receipt task_id \"CS9-1_1\"; images = the file with prompt, references and elapsed_s; calls_used = the TRUE number of image_gen calls; status; concerns. Never PASS/FAIL.",
+ "references": [
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/CS9-guides/chunk_1_1_canvas.png",
+   "role": "IMAGE 1 — the canvas to EDIT (painted strips + geometry guide)"
+  },
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/S1-ink/S1-ink_b.png",
+   "role": "IMAGE 2 — the approved painted STYLE of this level (Matt M1: GO / INK / ACCENTS)"
+  },
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/refs/trh-07-july-bridge.jpg",
+   "role": "IMAGE 3 — manuscript page: how rich colour sits in small places (accents only; not its layout or content)"
+  }
+ ],
+ "image_cap": 2,
+ "minutes_cap": 15,
+ "tool_call_cap": 20,
+ "outputs": [
+  "out/chunk_1_1.png"
+ ],
+ "effort": "high",
+ "add_dirs": [],
+ "experiment": "P5-cliffside"
+}

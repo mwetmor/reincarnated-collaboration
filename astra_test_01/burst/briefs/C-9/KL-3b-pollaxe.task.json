@@ -1,0 +1,23 @@
+{
+ "text": "GENERATE BURST KL-3b-pollaxe \u2014 Run C-9 P4, FIDELITY LADDER fix: the pollaxe head (Matt: \"it looks like the re-pose kept the hand atop the polearm maybe instead of the axe head\"). task_id \"KL-3b-pollaxe\".\n\nUse image_gen in EDIT mode on IMAGE 1. In the original manuscript the knight gripped the pole near its top, and the copy kept that gauntlet as a rounded knob at the TOP OF THE POLE with a small crescent blade stuck to it. That is wrong: it is a leftover hand, not a weapon head.\n\nChange ONLY the top of the pole: remove the rounded knob and the crescent, and give the pole a proper POLLAXE HEAD shaped like the weapon in IMAGE 2 \u2014 a flared axe blade on one side, a short hammer/beak on the other, a long top spike, and steel side-straps (langets) running down the haft. IMAGE 2 is a PHOTOGRAPH used for SHAPE ONLY: paint the head in the SAME manuscript hand as the rest of IMAGE 1 (the same line, gouache-like steel, uneven wash, a little brass/gold on the blade), never photographic. The head sits above his helm; his right hand stays on the haft where it is now.\nKeep EVERYTHING ELSE exactly as in IMAGE 1: the knight, his pose, the view, the tabard, the heraldry, the armour, the painter's hand, the flat pure #00ff00 background. For this step the REGISTER CARD above is satisfied BY IMAGE 1: do not re-render or restyle anything.\n\nTwo image_gen EDIT calls: variants a and b. ONE retry per variant only if anything besides the pole top changed, the head still looks like a hand or knob, or the head looks photographic \u2014 name the reason. Copy outputs to out/KL-3b-pollaxe_a.png and out/KL-3b-pollaxe_b.png with sha256. No code. No other files. No web.\nRETURN: receipt task_id \"KL-3b-pollaxe\"; images = the files with prompt, references (role + path) and elapsed_s; calls_used = the TRUE number of image_gen calls; status; concerns. Never PASS/FAIL.",
+ "references": [
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/KL-3-turn/KL-3-turn_a.png",
+   "role": "IMAGE 1 \u2014 THE IMAGE TO EDIT (step 3 turn; change only the pole top)"
+  },
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/inputs/met_26713_pollaxe_burgundy_1470.jpg",
+   "role": "IMAGE 2 \u2014 SHAPE-ONLY: a real Burgundian pollaxe, c. 1470 (photograph; paint it in the manuscript hand)"
+  }
+ ],
+ "image_cap": 4,
+ "minutes_cap": 15,
+ "tool_call_cap": 20,
+ "outputs": [
+  "out/KL-3b-pollaxe_a.png",
+  "out/KL-3b-pollaxe_b.png"
+ ],
+ "effort": "high",
+ "add_dirs": [],
+ "experiment": "P4-fidelity-ladder"
+}

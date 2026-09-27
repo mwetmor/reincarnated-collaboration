@@ -1,0 +1,23 @@
+{
+ "text": "GENERATE BURST KL-2-repose \u2014 Run C-9 P4, FIDELITY LADDER step 2: RE-POSE. task_id \"KL-2-repose\".\n\nUse image_gen in EDIT mode on IMAGE 1 (step 1: a knight copied from a c. 1530 Flemish manuscript, background already flat green). KEEP THE ORIGINAL PAINTER'S HAND exactly: the same line, hatching, uneven washes, gouache-like steel, worn pigment and small imperfections; the same blue tabard with its gold cross-crosslets and gold bands, its loose cloth and short open side flaps, the red lining, the helm, the plate armour. IMAGE 2 is the original manuscript miniature: use it to match the painter's hand and colours wherever you have to paint something new. For this step the REGISTER CARD above is satisfied BY THE SOURCE: do NOT re-render, smooth, clean up, sharpen or restyle.\n\nChange ONLY the POSE, and only as far as needed: he stands at REST, body still turned as it is now (seen from behind at three-quarter, as in IMAGE 1), both feet planted, weight on the back foot, legs no longer lunging; his poleaxe held UPRIGHT in his right hand, its butt resting on the ground beside his front foot, the head (the small axe blade with its spike, exactly as painted in IMAGE 1) at the top above his helm; his left arm relaxed at his side. Keep his size, proportions and camera angle as in IMAGE 1. Full body, feet fully visible; flat uniform pure #00ff00 background; nothing else.\n\nTwo image_gen EDIT calls: variants a and b, same instructions. ONE retry per variant only if the knight was restyled rather than preserved, the tabard lost its loose cloth-and-flaps cut, or the background is not flat green \u2014 name the reason. Copy outputs to out/KL-2-repose_a.png and out/KL-2-repose_b.png with sha256. No code. No other files. No web.\nRETURN: receipt task_id \"KL-2-repose\"; images = the files with prompt, references (role + path) and elapsed_s; calls_used = the TRUE number of image_gen calls; status; concerns. Never PASS/FAIL.",
+ "references": [
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/KL-1-copy/KL-1-copy_a.png",
+   "role": "IMAGE 1 \u2014 THE IMAGE TO EDIT (step 1 copy; preserve the painter's hand)"
+  },
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/inputs/knight_f129v_context.jpg",
+   "role": "IMAGE 2 \u2014 the original manuscript miniature: the painter's hand and colours (not its pose, fence or background)"
+  }
+ ],
+ "image_cap": 4,
+ "minutes_cap": 15,
+ "tool_call_cap": 20,
+ "outputs": [
+  "out/KL-2-repose_a.png",
+  "out/KL-2-repose_b.png"
+ ],
+ "effort": "high",
+ "add_dirs": [],
+ "experiment": "P4-fidelity-ladder"
+}

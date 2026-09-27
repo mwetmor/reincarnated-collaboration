@@ -1,0 +1,22 @@
+{
+ "text": "GENERATE BURST KL-4-SE \u2014 Run C-9 P4, the knight's turnaround by EDIT from the approved ladder frame, direction SE. task_id \"KL-4-SE\".\n\nUse image_gen in EDIT mode on IMAGE 1 (a knight painted in the hand of a c. 1530 Flemish manuscript, at the game camera, background flat green). KEEP THE PAINTER'S HAND exactly: the same line, hatching, uneven washes, gouache-like steel with its small dark pits, worn pigment and imperfections; the blue tabard with gold cross-crosslets and gold bands, loose cloth, short open side flaps and red lining; the helm; the plate armour; the pollaxe (flared axe blade with a little brass, hammer back, top spike). IMAGE 2 is the original manuscript miniature: match its hand wherever the turn reveals something new. For this step the REGISTER CARD above is satisfied BY IMAGE 1: do not re-render, smooth, sharpen or restyle.\n\nChange ONLY the direction he faces: show him facing the viewer's LOWER-RIGHT (turned 45 degrees to screen-right from facing the viewer). The CAMERA DOES NOT MOVE: the same elevated view looking down as in IMAGE 1 (top of the helm and shoulder tops visible). The light does not move: soft, from screen upper-left. NO MIRRORING: he is turned, never flipped \u2014 the pollaxe stays in his ANATOMICAL RIGHT hand, upright, butt on the ground beside his front foot, whichever side it lands on screen; the tabard's gold heraldry keeps its own layout (its back carries the same gold cross-crosslets and bands). Same rest pose, same size, proportions and framing as IMAGE 1; full body, feet fully visible, centred; flat uniform pure #00ff00 background; nothing else.\n\nOne image_gen EDIT call. ONE retry only if the direction is wrong, the pollaxe changed hands, the knight was restyled, or the background is not flat green \u2014 name the reason. Copy the output to out/KL-4-SE.png with sha256. No code. No other files. No web.\nRETURN: receipt task_id \"KL-4-SE\"; images = the file with prompt, references (role + path) and elapsed_s; calls_used = the TRUE number of image_gen calls; status; concerns. Never PASS/FAIL.",
+ "references": [
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/KL-3b-pollaxe/KL-3b-pollaxe_a.png",
+   "role": "IMAGE 1 \u2014 THE IMAGE TO EDIT (approved ladder frame; preserve the painter's hand)"
+  },
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/inputs/knight_f129v_context.jpg",
+   "role": "IMAGE 2 \u2014 the original manuscript miniature: the painter's hand (not its pose, fence or background)"
+  }
+ ],
+ "image_cap": 2,
+ "minutes_cap": 15,
+ "tool_call_cap": 20,
+ "outputs": [
+  "out/KL-4-SE.png"
+ ],
+ "effort": "high",
+ "add_dirs": [],
+ "experiment": "P4-turnaround-ladder"
+}

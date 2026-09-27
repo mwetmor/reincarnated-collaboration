@@ -1,0 +1,23 @@
+{
+ "text": "GENERATE BURST KL-3-turn \u2014 Run C-9 P4, FIDELITY LADDER step 3: TURN to the game view. task_id \"KL-3-turn\".\n\nUse image_gen in EDIT mode on IMAGE 1 (step 2: a knight from a c. 1530 Flemish manuscript, re-posed at rest, background flat green). KEEP THE ORIGINAL PAINTER'S HAND exactly: the same line, hatching, uneven washes, gouache-like steel, worn pigment and small imperfections; the same blue tabard with its gold cross-crosslets and gold bands, loose cloth and short open side flaps, the red lining, the helm, the plate armour, the poleaxe. IMAGE 2 is the original manuscript miniature: match the painter's hand and colours wherever you must paint something the turn reveals. For this step the REGISTER CARD above is satisfied BY THE SOURCE: do NOT re-render, smooth, clean up, sharpen or restyle.\n\nChange ONLY the viewing direction: turn him so he FACES THE VIEWER'S LOWER-RIGHT (toward the camera and to screen-right), and show him from a GAME CAMERA looking DOWN on him from about 53 degrees above the ground: the top of the helm and the tops of the shoulders clearly visible, the torso slightly shortened, the feet seen from above; no perspective distortion. Same rest pose: poleaxe upright in his RIGHT hand, butt on the ground beside his front foot, head above his helm; left arm relaxed. The tabard's front shows the same gold heraldry as its back. Same size and proportions. Full body, feet fully visible, centred; flat uniform pure #00ff00 background; nothing else.\n\nTwo image_gen EDIT calls: variants a and b, same instructions. ONE retry per variant only if the knight was restyled rather than preserved, he does not face the lower-right, the view is not from above, or the background is not flat green \u2014 name the reason. Copy outputs to out/KL-3-turn_a.png and out/KL-3-turn_b.png with sha256. No code. No other files. No web.\nRETURN: receipt task_id \"KL-3-turn\"; images = the files with prompt, references (role + path) and elapsed_s; calls_used = the TRUE number of image_gen calls; status; concerns. Never PASS/FAIL.",
+ "references": [
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/KL-2-repose/KL-2-repose_a.png",
+   "role": "IMAGE 1 \u2014 THE IMAGE TO EDIT (step 2 re-pose; preserve the painter's hand)"
+  },
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/inputs/knight_f129v_context.jpg",
+   "role": "IMAGE 2 \u2014 the original manuscript miniature: the painter's hand and colours (not its pose, fence or background)"
+  }
+ ],
+ "image_cap": 4,
+ "minutes_cap": 15,
+ "tool_call_cap": 20,
+ "outputs": [
+  "out/KL-3-turn_a.png",
+  "out/KL-3-turn_b.png"
+ ],
+ "effort": "high",
+ "add_dirs": [],
+ "experiment": "P4-fidelity-ladder"
+}
