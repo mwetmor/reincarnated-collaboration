@@ -1,0 +1,26 @@
+{
+ "text": "GENERATE BURST KL-8-S \u2014 Run C-9 P4, M3 helm consistency (Matt: \"Helmet still differs in the first 3 pics vs the last 5\"), direction S. task_id \"KL-8-S\".\n\nUse image_gen in EDIT mode on IMAGE 1 (the knight, painted in the hand of a c. 1530 Flemish manuscript, background flat green). Its HELM is the wrong design: a grey steel helm with a large projecting visor full of breathing holes. Replace ONLY the helm (and the gorget collar just below it, only where needed) with the knight's TRUE helm, shown in IMAGE 2 (front-diagonal view) and IMAGE 3 (side view): a ROUNDED SKULL painted with the SAME red-brown pen hatching over pale steel, and a LOW, close-fitting visor edged by a single row of small round holes \u2014 no projecting beak, no grille, no big pierced face-plate. Draw that same helm turned to match this frame's direction: facing the viewer (visor toward us, centred). Same size and position on the body as the current helm.\nPaint it in EXACTLY the same hand as the rest of IMAGE 1. Keep EVERYTHING ELSE exactly as it is: body, pose, direction, tabard and heraldry, pollaxe (right hand), framing, flat pure #00ff00 background. For this step the REGISTER CARD above is satisfied BY THE IMAGES: do not re-render or restyle.\n\nOne image_gen EDIT call. ONE retry only if the helm still differs in design, colour or hatching from IMAGES 2\u20133, anything else changed, or the background is not flat green \u2014 name the reason. Copy the output to out/KL-8-S.png with sha256. No code. No other files. No web.\nRETURN: receipt task_id \"KL-8-S\"; images = the file with prompt, references (role + path) and elapsed_s; calls_used = the TRUE number of image_gen calls; status; concerns. Never PASS/FAIL.",
+ "references": [
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/KL-7-S/KL-7-S.png",
+   "role": "IMAGE 1 \u2014 THE IMAGE TO EDIT (replace only the helm; direction S)"
+  },
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/KL-6-SE/KL-6-SE.png",
+   "role": "IMAGE 2 \u2014 the knight's TRUE helm, front-diagonal view (design, colour, hatching)"
+  },
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/KL-5-E/KL-5-E.png",
+   "role": "IMAGE 3 \u2014 the knight's TRUE helm, side view (design, colour, hatching)"
+  }
+ ],
+ "image_cap": 2,
+ "minutes_cap": 15,
+ "tool_call_cap": 20,
+ "outputs": [
+  "out/KL-8-S.png"
+ ],
+ "effort": "high",
+ "add_dirs": [],
+ "experiment": "P4-turnaround-ladder"
+}
