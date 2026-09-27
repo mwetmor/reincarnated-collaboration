@@ -1,0 +1,22 @@
+{
+ "text": "GENERATE BURST CS9-far12-rm-tower — Run C-9, far parallax layer: REMOVE one landmark so it can be placed elsewhere (Matt R-C9-41). task_id \"CS9-far12-rm-tower\".\n\nIMAGE 1 is a 1536x1024 crop of a finished painted FAR parallax layer: distant rolling hills and forest under a low sunset, with FLAT PURE #00ff00 above the land (a keying plate; the sky is a separate layer). Use image_gen in EDIT mode on IMAGE 1 and deliver ONE 1536x1024 image that is IMAGE 1 with the tall burning Gothic TOWER-CASTLE (its spire, its keep, the square side turret, its crenellated wall) standing on a hill at the LEFT of the image, together with ALL of its flames and its whole plume of dark smoke drifting to the upper right REMOVED. Where it stood: continue the distant hills, the wooded slopes and the far ridge line exactly as they are painted beside it (same colours, same line, same hatching, same scale), the ridge running on naturally with no gap and no new landmark; everywhere above the land, including where the building and smoke were, is flat pure #00ff00. EVERYTHING ELSE in IMAGE 1 stays exactly as it is: every other hill, tree, rock, river, fire and plume, pixel for pixel; do not repaint, restyle, recolour, sharpen or move anything else. No new building, fire, figure, text, border or vignette.\nSTYLE: the REGISTER CARD above; IMAGE 2 only as the approved painted style of this level (not its content).\n\nOne image_gen call. ONE retry only if any part of the building or its smoke remains, a new landmark appeared, the area above the land is not flat pure #00ff00, or the rest of the image was visibly altered — name the reason. Copy the output from $CODEX_HOME/generated_images/... to out/CS9-far12-rm-tower.png with sha256. No code. No other files. No web.\nRETURN: receipt task_id \"CS9-far12-rm-tower\"; images = the file with prompt, references and elapsed_s; calls_used = the TRUE number of image_gen calls; status; concerns. Never PASS/FAIL.",
+ "references": [
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/CS9-guides/far12_rm_tower_canvas.png",
+   "role": "IMAGE 1 — the canvas to EDIT (C-9 far layer crop)"
+  },
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/S1-ink/S1-ink_b.png",
+   "role": "IMAGE 2 — the approved painted STYLE of this level (not its content)"
+  }
+ ],
+ "image_cap": 2,
+ "minutes_cap": 15,
+ "tool_call_cap": 20,
+ "outputs": [
+  "out/CS9-far12-rm-tower.png"
+ ],
+ "effort": "high",
+ "add_dirs": [],
+ "experiment": "P5-far12"
+}

@@ -1,0 +1,14 @@
+CS9-band6 — measured report; no verdict.
+Foreground: 5376x4096 RGBA, straight alpha; six original edge tiles.
+DEEP >13000 alpha <0.95: 0.
+Exposed underside count: 0.
+depth <=9000 mean absolute RGBA difference: 0.000000/255; TOP identical.
+VOID in R translucent share (0.05,0.95): 27.674369%.
+Haze FINAL mean: 2.381539/255; blurred signed p95: 9.849198/255.
+Haze FINAL blurred absolute p95: 10.037784/255.
+Haze band5 mean: 6.029258/255; blurred signed p95: 17.377968/255.
+Haze band5 blurred absolute p95: 17.500797/255.
+Per-tile gain and inside/outside edit fractions: checks.json.
+Four band4 crops, two columns x four rows; backgrounds #3a3f4a and forest visible-pixel median [46, 37, 44].
+Concerns: blurred haze p95 exceeds 8/255; visible straight tile-boundary transitions remain (detail rows 2–3).
+Image-generation calls: 0; processing elapsed 36.3s.

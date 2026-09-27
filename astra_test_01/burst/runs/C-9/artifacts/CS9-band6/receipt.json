@@ -1,0 +1,36 @@
+{
+  "task_id": "CS9-band6",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [],
+  "calls_used": 0,
+  "retries": [],
+  "self_report": {
+    "obeyed_invariants": true,
+    "concerns": [
+      "Haze improved versus band5, but blurred signed p95 remains 9.85/255, above the 8/255 target.",
+      "Visible straight tile-boundary transitions remain in detail crops 2 and 3."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/foreground.png",
+      "sha256": "786eca579cfa7c5eb4ea33dd40c574c234072bf9fc327afa0ca364af9943ac77"
+    },
+    {
+      "path": "out/foreground_preview_1344x1024.png",
+      "sha256": "c8c0e686ca4c8de135e67425fb60b0d50ec28735e7e2514bae540f9f8d79dc97"
+    },
+    {
+      "path": "out/edge_detail_crops.png",
+      "sha256": "06002b6aad33836d64ad054a62f35815fd0359e472985ba3b84872918d69b5ab"
+    },
+    {
+      "path": "out/checks.json",
+      "sha256": "4b16161de82da46da988d5c99c5162544f534a3488dd3353d36b82fe6cc34b62"
+    },
+    {
+      "path": "out/summary.txt",
+      "sha256": "f03fbdb8c5f4f595547fdeeca16a021f34c4c089d5b85c57934475e3aa02241f"
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "task_id": "CS9-band5",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [],
+  "calls_used": 0,
+  "retries": [],
+  "self_report": {
+    "obeyed_invariants": true,
+    "concerns": [
+      "Straight vertical tonal transition visible in the third detail crop near tile boundary x=4224; retained for conductor review."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/foreground.png",
+      "sha256": "6f4644578bf5174e3256e3b6b7ffccd03e52a1bc833a03561f649d04d2e7cf6a"
+    },
+    {
+      "path": "out/foreground_preview_1344x1024.png",
+      "sha256": "91e7090717d2e390976090c9ed26fc36642b4e6b029a49c36a600cb055af1f32"
+    },
+    {
+      "path": "out/edge_detail_crops.png",
+      "sha256": "9f0c4c8b4888bbc444dc6f356a44c2d9eaeed7dae818589f5f1e99d55f9e93b6"
+    },
+    {
+      "path": "out/checks.json",
+      "sha256": "184f5193a79b31e2e2a99ee191a0e74cfaef437d66b8709e7ac6f41b351117f5"
+    },
+    {
+      "path": "out/summary.txt",
+      "sha256": "51c68155787b7cfa17e996d51e22ea127e3b06c30f2e70830a2e7a0aff92469c"
+    }
+  ]
+}

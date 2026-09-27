@@ -1,0 +1,38 @@
+{
+  "task_id": "FX12-0_2",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "FX12-0_2.png",
+      "path": "out/FX12-0_2.png",
+      "sha256": "50784f9aed08dc11341c2160cf52d694c0c97b10fc2ce3f2b07c3484afc9e907",
+      "prompt": "Use case: precise-object-edit. Edit IMAGE 1, the burning forest canvas, and return ONE 1536x1024 PNG. IMAGE 2 is only the approved watercolor-and-ink rendering reference, never its content or colors. Make a surgical localized correction to IMAGE 1: remove EVERY digital-glitch artifact from the fire, including rectangular fragments, horizontally displaced slices, thin straight horizontal scan/tear lines, stair-step flame edges, and cyan/magenta fringes. Particularly repair the conspicuous bright horizontal bars in the upper-left and left-center burning forest and along the top. Repaint these exact spots as ordinary organic hand-painted fire: irregular curving licking orange-gold tongues with darker red edges, ragged and naturally tapered, painted with the same pen line and watercolor wash as surrounding flames. Embers are small round dots. Keep the fire exactly where it is, equally big and wide, with the same front edge, same burning area and density. Preserve EVERYTHING ELSE exactly: all trees, branches, smoke shapes, scorched terrain, rocks, hills, composition, crop, texture, sharpness and colors. Preserve any river or pure #00ff00 region if present in the source crop; do not invent or add regions absent from this crop. Do not restyle, recolor, sharpen, move or regenerate the landscape. No text, figures, buildings, border or vignette. Rendering constraint for the repaired flame patches: hand-painted watercolor and ink illustration in the manner of 1990s tactics role-playing character illustration, crisp dark sepia-to-near-black slightly wavering contours, fine hand hatching, uneven transparent washes with pooling, granulation and softly blooming pigment; no digital gradients or lens effects. Manuscript mineral accents of vermilion, yellow ochre and madder; retain the existing warm fire and violet smoky parallax palette and sunset lighting unchanged. This is an edit of the first image, not a new scene or a style transfer. The only changed pixels should be the glitch artifacts replaced by organic flames.",
+      "references": [
+        {
+          "role": "edit target",
+          "path": "in/01_fx12_0_2_canvas.png"
+        },
+        {
+          "role": "approved painted style only",
+          "path": "in/02_S1-ink_b.png"
+        }
+      ],
+      "elapsed_s": 39.137
+    }
+  ],
+  "calls_used": 1,
+  "retries": [],
+  "self_report": {
+    "obeyed_invariants": false,
+    "concerns": [
+      "Fire glitch bars appear removed and composition preserved, but fine surface texture varies slightly outside the repaired flames; exact preservation was not achieved.",
+      "The supplied crop contains no visible river or green region; neither was added."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/FX12-0_2.png",
+      "sha256": "50784f9aed08dc11341c2160cf52d694c0c97b10fc2ce3f2b07c3484afc9e907"
+    }
+  ]
+}

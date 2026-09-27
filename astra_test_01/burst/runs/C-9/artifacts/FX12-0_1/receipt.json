@@ -1,0 +1,38 @@
+{
+  "task_id": "FX12-0_1",
+  "status": "DELIVERED",
+  "images": [
+    {
+      "name": "FX12-0_1.png",
+      "path": "out/FX12-0_1.png",
+      "sha256": "c0a632522ba7614e090f0fe3215fb82db7739588cba4545f67027c6fb00b09e5",
+      "prompt": "Use case: precise-object-edit. EDIT IMAGE 1, the burning-forest canvas, and deliver exactly ONE 1536x1024 PNG. IMAGE 2 is only a reference for hand-painted ink and watercolor technique, never its content or its overall brightness. This is a surgical repair of fire artifacts, not a restyling.\nRepaint EVERY digital-glitch artifact in IMAGE 1 as ordinary hand-painted fire in exactly the same place: remove the blocky rectangular fragments at flame tips, horizontally displaced slices, thin horizontal tears and scan lines, stair-stepped flame edges, and cyan/magenta fringes. Replace these with soft licking tongues of orange-gold flame with darker red edges, ragged, organic, curved, rising from the same trees, matching the existing pen line and watercolor wash. Embers are small round warm dots. Search the entire canvas, including the top middle, upper right, left middle, center, lower center, and bottom left. No straight horizontal fire bars or angular rectangular flame tips may remain.\nINVARIANTS: preserve the fire's size, width, distribution, front edge and burning area. Keep EVERYTHING ELSE exactly as in IMAGE 1: every individual tree and its location, every smoke plume and internal contour, scorched foreground, hills, all original colors, texture, camera, crop and lighting. Preserve any river or flat pure #00ff00 if present in the actual crop; do not add absent features. Do not move, simplify, sharpen, recolor, recompose or repaint non-fire content. No text, figures, buildings, border or vignette. Do not import any road, cliff or green area from IMAGE 2.\nRegister constraints for repaired marks: one hand-painted illustration merging late-medieval and early-Renaissance illuminated manuscript visual language, circa 1400–1530, with 1990s tactics role-playing watercolor-and-ink illustration technique. Crisp dark sepia-to-near-black, slightly wavering variable-weight pen contours and hand-drawn fine hatching. Uneven transparent watercolor washes, pooling at edges, granulation and soft pigment blooms; a darker second wash and hatching for shade, never airbrushed gradients. Preserve pale cream paper highlights where present. Moderate mineral hues: lapis, vermilion, verdigris, ochre, madder, lead white and warm stone grays; darkest marks are ink and hatching. No glossy highlights, lens effects or digital gradients. Preserve the existing darker parallax lighting, warm light from screen-left and violet-indigo smoke shadows. Saturated warmth permitted in fire. Elevated three-quarter orthographic view. No duplicated trees, smoke, rocks or fire motifs, and no settlements. The sole requested change is removal of fire glitches while preserving the original painting.",
+      "references": [
+        {
+          "role": "edit target",
+          "path": "in/01_fx12_0_1_canvas.png"
+        },
+        {
+          "role": "approved painted style only",
+          "path": "in/02_S1-ink_b.png"
+        }
+      ],
+      "elapsed_s": 38.522
+    }
+  ],
+  "calls_used": 1,
+  "retries": [],
+  "self_report": {
+    "obeyed_invariants": true,
+    "concerns": [
+      "Preservation assessed visually; exact pixel identity outside the repaired flames was not verified.",
+      "The supplied crop contains no visible river or green above-treeline area; neither was added."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/FX12-0_1.png",
+      "sha256": "c0a632522ba7614e090f0fe3215fb82db7739588cba4545f67027c6fb00b09e5"
+    }
+  ]
+}

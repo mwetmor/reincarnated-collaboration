@@ -1,0 +1,37 @@
+{
+  "task_id": "FX12-2_0",
+  "status": "DELIVERED",
+  "images": [
+    {
+      "name": "FX12-2_0.png",
+      "path": "out/FX12-2_0.png",
+      "sha256": "02d005d68ebd023c35744eda053b4d80c8d1c045a9279fbc401c1b62b3ccd500",
+      "prompt": "Use case: precise-object-edit. EDIT IMAGE 1, the forest canvas, and deliver exactly ONE 1536x1024 PNG. IMAGE 2 is supporting painted STYLE only, never content. Remove ONLY the digital glitch artifacts in the existing fire at the lower right and bottom edge of IMAGE 1: replace every blocky rectangular flame fragment, sideways-shifted horizontal fire slice, horizontal tear/scan line, stepped flame edge, and cyan/magenta fringe with ordinary hand-painted fire. Paint soft licking orange-gold tongues with darker red edges, ragged organic curves and tapered tips, in the same pen line and watercolor wash as the existing illustration. Embers must be small round luminous orange dots rather than rectangles. Keep fire in precisely its existing location, same total size and width, same front edge and burning area, including fire cropped by the bottom and right boundaries. Preserve EVERYTHING ELSE exactly: every individual tree and rock, all smoke contours and colors, hills, scorched land and river if present, composition, framing, texture, sharpness, colors, and flat pure #00ff00 above the unchanged treeline. Do not add anything absent. Do not restyle or recolor the forest using IMAGE 2. This is a tightly localized flame repair, not a new painting. No text, figures, buildings, border, or vignette. Rendering register for repaired flame only: medieval/early Renaissance manuscript mineral hues merged with hand-painted watercolor-and-ink tactics role-playing illustration; crisp dark sepia pen contours with slight natural variation, fine hand hatching where appropriate, uneven transparent washes with edge pooling and granulation. Preserve existing sunset-lit parallax palette with deep violet-indigo forest shadows and purple smoky haze. Saturated warmth is restricted to existing fire. No lighting effects, digital gradients, or sharpening. All non-fire pixels should remain as in IMAGE 1.",
+      "references": [
+        {
+          "role": "edit target",
+          "path": "in/01_fx12_2_0_canvas.png"
+        },
+        {
+          "role": "painted style only",
+          "path": "in/02_S1-ink_b.png"
+        }
+      ],
+      "elapsed_s": 35.253
+    }
+  ],
+  "calls_used": 1,
+  "retries": [],
+  "self_report": {
+    "obeyed_invariants": true,
+    "concerns": [
+      "Preservation outside the fire was assessed visually; pixel-exact identity was not verified."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/FX12-2_0.png",
+      "sha256": "02d005d68ebd023c35744eda053b4d80c8d1c045a9279fbc401c1b62b3ccd500"
+    }
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "task_id": "CS9-far12-rm-cath",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "CS9-far12-rm-cath.png",
+      "path": "out/CS9-far12-rm-cath.png",
+      "sha256": "5e39b2d6a5e07cbf07b7b712b12911cb0cbde860729b4060262bed47cf2b2388",
+      "prompt": "Use case: precise-object-edit. Correct the background of IMAGE 1, the previous edited result. Output exactly one 1536x1024 PNG. IMAGE 2 is the original source canvas, supplied to preserve the exact landscape. IMAGE 3 is approved painted style only, not content. IMAGE 1 correctly removed the cathedral and ALL of its associated flames and smoke, and continued the hills in that location, but incorrectly replaced the pure green background with a dark sky. Replace EVERY pixel of that dark sky above the land silhouette with fully opaque flat pure GREEN RGB(0,255,0), HEX #00FF00. A solid chroma key green fill, uniform from the top edge down to the land skyline. No gradient, no haze or purple glow above the skyline, no black, no transparency, no sky illustration or sunset band. The whole approximately upper two-thirds must be bright flat pure #00ff00 as in IMAGE 2. Keep the cathedral completely removed. Keep its entire plume completely removed. Retain the seamless hills where the cathedral stood in IMAGE 1. Preserve all other landscape pixels from IMAGE 2 exactly, including all existing hills, trees, rocks, orange winding river, two bottom forest fires and their separate smoke plumes. Do not repaint, restyle, recolor, sharpen, move, crop or resize the landscape. Only the former cathedral footprint may have replacement hills; everything outside that footprint and former cathedral smoke must match the original IMAGE 2 pixel for pixel. No new landmark, building, fire, figure, text, border or vignette. Maintain the existing manuscript-derived watercolor-and-ink terrain, dark wavering pen outlines, hatching, violet-indigo shadows and warm sun-facing slopes. This is a technical chroma-key background correction. The image MUST have solid pure #00ff00 above all land. IMAGE 3 must not cause any style or palette change.",
+      "references": [
+        {
+          "role": "Retry edit target: first generated result",
+          "path": "/Users/admin/.codex/generated_images/01a0e468-6d75-72c1-bdcd-ce49c07dd6e1/exec-2ddc84ae-77c8-4663-9557-1aaf1ab6718f.png"
+        },
+        {
+          "role": "Original canvas and preservation reference",
+          "path": "in/01_far12_rm_cath_canvas.png"
+        },
+        {
+          "role": "Approved painted style only",
+          "path": "in/02_S1-ink_b.png"
+        }
+      ],
+      "elapsed_s": 32.244
+    }
+  ],
+  "calls_used": 2,
+  "retries": [
+    {
+      "reason": "First output replaced the green keying background with a dark sky.",
+      "change": "Requested flat opaque #00ff00 above the land while retaining cathedral removal and preserving original terrain."
+    }
+  ],
+  "self_report": {
+    "obeyed_invariants": false,
+    "concerns": [
+      "Cathedral, associated flames and smoke are visually removed; output dimensions are 1536x1024.",
+      "Surrounding terrain shows subtle redrawing, so pixel-for-pixel preservation was not achieved.",
+      "Background appears uniformly green; exact #00ff00 values were not independently measured."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/CS9-far12-rm-cath.png",
+      "sha256": "5e39b2d6a5e07cbf07b7b712b12911cb0cbde860729b4060262bed47cf2b2388"
+    }
+  ]
+}

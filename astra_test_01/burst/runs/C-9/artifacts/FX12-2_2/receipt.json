@@ -1,0 +1,38 @@
+{
+  "task_id": "FX12-2_2",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "FX12-2_2.png",
+      "path": "out/FX12-2_2.png",
+      "sha256": "e222f5fea6f68a5c20e7b20689dca6093d9978c41cd2ba4b51b4547e8b3bf9e3",
+      "prompt": "Use case: precise-object-edit. EDIT IMAGE 1, the supplied finished burning-forest parallax canvas. IMAGE 2 is only a supporting reference for hand-painted ink and watercolor technique, never its content or overall pale palette. Deliver exactly one 1536x1024 image with the identical framing and composition of IMAGE 1. Change ONLY digital-glitch artifacts within the existing fire: repaint blocky rectangular flame-tip fragments, sideways displaced horizontal fire slices, horizontal tear/scan lines, stair-stepped flame contours, and cyan/magenta fringes as ordinary hand-painted flames in precisely the same places. Use soft licking orange-gold tongues with darker red edges, organic ragged tapered contours, and small round ember dots. Preserve the exact extent, size, front edge and distribution of all burning areas; do not enlarge, shrink, relocate or remove fire. Keep EVERYTHING ELSE exactly as in IMAGE 1: every standing tree, fallen trunk, smoke curl, rock, scorched ground detail, river contour and reflection, hills, colors, linework, texture, contrast and framing. Preserve any existing pure #00ff00 background exactly; do not introduce a green area where none exists in this crop. Do not restyle, recolor, sharpen or move anything. The replacement fire must match the existing crisp dark sepia-to-near-black wavering pen contour and hand-laid watercolor washes, with uneven pooling, granulation and softly blooming pigment. Maintain the manuscript-derived stylized landscape and elevated three-quarter orthographic view, the existing warm sunset lighting and violet smoke, and the hand-painted 1990s tactical role-playing illustration rendering. No new glow effects, rim lighting, lens effects, digital gradients or filled dark shadows. No text, figures, buildings, border or vignette. This is a minimal local repair of the fire only, not a repaint of the landscape.",
+      "references": [
+        {
+          "role": "edit target",
+          "path": "in/01_fx12_2_2_canvas.png"
+        },
+        {
+          "role": "painted style only",
+          "path": "in/02_S1-ink_b.png"
+        }
+      ],
+      "elapsed_s": 38.47
+    }
+  ],
+  "calls_used": 1,
+  "retries": [],
+  "self_report": {
+    "obeyed_invariants": true,
+    "concerns": [
+      "The supplied canvas contains no visible #00ff00 region above a treeline; none was added.",
+      "Visual inspection shows organic flames and preserved landscape composition; pixel-exact preservation outside the fire was not verified."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/FX12-2_2.png",
+      "sha256": "e222f5fea6f68a5c20e7b20689dca6093d9978c41cd2ba4b51b4547e8b3bf9e3"
+    }
+  ]
+}

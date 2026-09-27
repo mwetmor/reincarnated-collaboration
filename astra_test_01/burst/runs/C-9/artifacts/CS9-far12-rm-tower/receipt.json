@@ -1,0 +1,37 @@
+{
+  "task_id": "CS9-far12-rm-tower",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "CS9-far12-rm-tower.png",
+      "path": "out/CS9-far12-rm-tower.png",
+      "sha256": "856cbba2722a07b8e495f2c62e4c1cc6801697629f837ea6b4dfae6f33a05d2e",
+      "prompt": "Use case: precise-object-edit. Edit IMAGE 1; output ONE 1536x1024 PNG with identical framing. IMAGE 1 is the finished far parallax canvas and must be preserved. IMAGE 2 is a supporting approved watercolor-and-ink style reference only, never content to insert. Remove ONLY the tall burning Gothic tower-castle on the left: its spire, entire keep, square side turret, crenellated wall, all its flames, and its ENTIRE dark smoke plume extending diagonally to the upper right and top edge, including every faint smoke wisp. Where this architecture obscured land, continue the existing distant hills, wooded slopes and far ridge seamlessly at the same scale, colors, line and hatching, with no gap and no new landmark. Everywhere above the land, including all former building and smoke areas, must be perfectly flat solid pure RGB(0,255,0), #00ff00. The sky is a separate layer, so do not paint a sky. Preserve EVERYTHING ELSE in IMAGE 1 exactly pixel for pixel: every other hill, tree, rock, distant river at right, both forest fires and their separate smoke plumes in the bottom portion, all terrain and its texture. Do not repaint, restyle, recolor, sharpen, shift, resize or reframe anything outside the removed landmark and its smoke. No new buildings, landmarks, fires, figures, text, borders or vignettes. Match the existing local brushwork in the tiny reconstructed land region: manuscript-derived landscape, hand-painted watercolor and dark sepia-to-near-black wavering pen contours and hand hatching, uneven transparent pooled and granulated washes, no digital gradients. Mineral lapis, verdigris, ochre, madder, warm stone gray; dark violet-indigo parallax shadows and purple distance haze, existing low sunset light from screen-left; saturated warm only in existing fire. No duplicated tree clump, hill, rock or plume. Keep the existing composition and elevated three-quarter orthographic view. This is surgical removal from IMAGE 1, not a new illustration or a style transfer.",
+      "references": [
+        {
+          "role": "edit target",
+          "path": "in/01_far12_rm_tower_canvas.png"
+        },
+        {
+          "role": "approved painted style only",
+          "path": "in/02_S1-ink_b.png"
+        }
+      ],
+      "elapsed_s": 39.375
+    }
+  ],
+  "calls_used": 1,
+  "retries": [],
+  "self_report": {
+    "obeyed_invariants": true,
+    "concerns": [
+      "Visual inspection shows complete tower and associated smoke removal. Exact pixel preservation outside the edit and uniformly pure #00ff00 were not quantitatively verified."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/CS9-far12-rm-tower.png",
+      "sha256": "856cbba2722a07b8e495f2c62e4c1cc6801697629f837ea6b4dfae6f33a05d2e"
+    }
+  ]
+}

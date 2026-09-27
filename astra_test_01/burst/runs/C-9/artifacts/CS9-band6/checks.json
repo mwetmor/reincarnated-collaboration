@@ -1,0 +1,384 @@
+{
+  "task_id": "CS9-band6",
+  "canvas_px": [
+    5376,
+    4096
+  ],
+  "method": {
+    "cloud0": "a0 >= 0.5 AND (VOID OR (DEEP AND depth > 8000)); exact supplied mask, no added colour classifier",
+    "rockvis_pixels": 10864092,
+    "EDGE0": "cloud0 within Euclidean 2 px of VOID with BASE alpha < 0.5",
+    "region": "within Euclidean 150 px of EDGE0 AND (VOID OR cloud0), excluding depth <= 9000",
+    "weight": "1 through 60 px; 1-smoothstep(60,150,d) through 150 px",
+    "overlap": "normalize tile weights by sum to average candidate premultiplied composites; each candidate retains spatial BASE-to-edit fade w (equivalent to normalized edited targets plus common radial fade)",
+    "matte": "disc radius 24 grey-dilation of edited max channel restricted to BASE opaque interior >=30px; sample on support and nearest-neighbour extend; black <=6/255 removed",
+    "tone": "sigma40 normalized Gaussian convolution on BASE opaque interior >=30px with edited alpha >=0.95; per-channel ratio nearest-extended from valid pixels and clipped [0.8,1.25]",
+    "deep_composite": "lerp premultiplied BASE and edited-over-BASE, unpremultiply by blended over alpha, then apply specified max(a0,lerp(a0,ae,w)) alpha",
+    "forced_edge_alpha_byte": 243,
+    "haze": "Rec.709-weighted stored RGB /255; signed FINAL-BASE; sigma25 Gaussian of full difference field, measured on shared cloud0 interior >=60px within union R; both signed and absolute p95 provided",
+    "forced_alpha_scope": "global DEEP as explicitly requested; all other pixels outside tile union remain BASE"
+  },
+  "mask_counts": {
+    "cloud0": 2017505,
+    "edge0": 25939,
+    "R_union": 1993290,
+    "overlapping_contributions_beyond_first": 888069
+  },
+  "a_deep_gt13000_alpha_below095_count": 0,
+  "b_exposed_underside_count": 0,
+  "c_depth_le9000_mean_abs_RGBA_difference_8bit": 0.0,
+  "c_depth_le9000_per_channel_mean_abs_difference_8bit": [
+    0.0,
+    0.0,
+    0.0,
+    0.0
+  ],
+  "c_TOP_mean_abs_RGBA_difference_8bit": 0.0,
+  "c_depth_le9000_changed_pixels": 0,
+  "d_tiles": [
+    {
+      "id": "2688_768",
+      "x": 2688,
+      "y": 768,
+      "edge0_pixels": 2237,
+      "region_pixels": 271265,
+      "outside_region_pixels": 1301599,
+      "fraction_changed_gt30_inside_R": 0.09720384126223434,
+      "fraction_changed_gt30_outside_R": 0.05005381841872958,
+      "change_metric": "max absolute RGB channel difference, 8-bit levels",
+      "matte_reference_pixels": 206857,
+      "tone_reference_pixels": 135756,
+      "mean_abs_gain_minus_one_before_clipping": 0.02613295055925846,
+      "mean_abs_gain_minus_one_before_clipping_valid_only": 0.018918277695775032,
+      "mean_abs_gain_minus_one_per_channel_before_clipping": [
+        0.02740379422903061,
+        0.018127979710698128,
+        0.032903242856264114
+      ],
+      "gain_clip_fraction": 0.0
+    },
+    {
+      "id": "2688_1536",
+      "x": 2688,
+      "y": 1536,
+      "edge0_pixels": 6655,
+      "region_pixels": 560571,
+      "outside_region_pixels": 1012293,
+      "fraction_changed_gt30_inside_R": 0.23555624532842406,
+      "fraction_changed_gt30_outside_R": 0.09556620464628324,
+      "change_metric": "max absolute RGB channel difference, 8-bit levels",
+      "matte_reference_pixels": 456999,
+      "tone_reference_pixels": 294530,
+      "mean_abs_gain_minus_one_before_clipping": 0.06577914208173752,
+      "mean_abs_gain_minus_one_before_clipping_valid_only": 0.021537456661462784,
+      "mean_abs_gain_minus_one_per_channel_before_clipping": [
+        0.08011510968208313,
+        0.06421027332544327,
+        0.05251665040850639
+      ],
+      "gain_clip_fraction": 0.07692591349283855
+    },
+    {
+      "id": "2688_2304",
+      "x": 2688,
+      "y": 2304,
+      "edge0_pixels": 4842,
+      "region_pixels": 632325,
+      "outside_region_pixels": 940539,
+      "fraction_changed_gt30_inside_R": 0.22306092594789073,
+      "fraction_changed_gt30_outside_R": 0.07612656147166678,
+      "change_metric": "max absolute RGB channel difference, 8-bit levels",
+      "matte_reference_pixels": 300392,
+      "tone_reference_pixels": 179857,
+      "mean_abs_gain_minus_one_before_clipping": 0.05624934658408165,
+      "mean_abs_gain_minus_one_before_clipping_valid_only": 0.022390620782971382,
+      "mean_abs_gain_minus_one_per_channel_before_clipping": [
+        0.06730446219444275,
+        0.07842039316892624,
+        0.022935988381505013
+      ],
+      "gain_clip_fraction": 0.03242916531032986
+    },
+    {
+      "id": "3840_2304",
+      "x": 3840,
+      "y": 2304,
+      "edge0_pixels": 8222,
+      "region_pixels": 752205,
+      "outside_region_pixels": 820659,
+      "fraction_changed_gt30_inside_R": 0.27240712305820886,
+      "fraction_changed_gt30_outside_R": 0.003729929239793873,
+      "change_metric": "max absolute RGB channel difference, 8-bit levels",
+      "matte_reference_pixels": 880601,
+      "tone_reference_pixels": 555502,
+      "mean_abs_gain_minus_one_before_clipping": 0.03968856856226921,
+      "mean_abs_gain_minus_one_before_clipping_valid_only": 0.01946105994284153,
+      "mean_abs_gain_minus_one_per_channel_before_clipping": [
+        0.0367496982216835,
+        0.04152616113424301,
+        0.04084974154829979
+      ],
+      "gain_clip_fraction": 0.03370030721028646
+    },
+    {
+      "id": "2688_3072",
+      "x": 2688,
+      "y": 3072,
+      "edge0_pixels": 2323,
+      "region_pixels": 273483,
+      "outside_region_pixels": 1299381,
+      "fraction_changed_gt30_inside_R": 0.2328042328042328,
+      "fraction_changed_gt30_outside_R": 0.05733730137657854,
+      "change_metric": "max absolute RGB channel difference, 8-bit levels",
+      "matte_reference_pixels": 17659,
+      "tone_reference_pixels": 12451,
+      "mean_abs_gain_minus_one_before_clipping": 0.09029357135295868,
+      "mean_abs_gain_minus_one_before_clipping_valid_only": 0.05664866417646408,
+      "mean_abs_gain_minus_one_per_channel_before_clipping": [
+        0.10042654722929001,
+        0.11076933890581131,
+        0.059536293148994446
+      ],
+      "gain_clip_fraction": 0.02109506395128038
+    },
+    {
+      "id": "3840_3072",
+      "x": 3840,
+      "y": 3072,
+      "edge0_pixels": 3151,
+      "region_pixels": 391510,
+      "outside_region_pixels": 1181354,
+      "fraction_changed_gt30_inside_R": 0.16420270235753875,
+      "fraction_changed_gt30_outside_R": 4.994269287614043e-05,
+      "change_metric": "max absolute RGB channel difference, 8-bit levels",
+      "matte_reference_pixels": 100045,
+      "tone_reference_pixels": 65376,
+      "mean_abs_gain_minus_one_before_clipping": 0.011161266826093197,
+      "mean_abs_gain_minus_one_before_clipping_valid_only": 0.0056859091855585575,
+      "mean_abs_gain_minus_one_per_channel_before_clipping": [
+        0.009058010764420033,
+        0.008368718437850475,
+        0.016307460144162178
+      ],
+      "gain_clip_fraction": 0.0
+    }
+  ],
+  "e_VOID_R_alpha": {
+    "pixel_count": 1780420,
+    "histogram_edges": [
+      0,
+      0.001,
+      0.05,
+      0.25,
+      0.5,
+      0.75,
+      0.95,
+      0.999,
+      1.000001
+    ],
+    "histogram_counts": [
+      712129,
+      52929,
+      63186,
+      90524,
+      77220,
+      261790,
+      202933,
+      319709
+    ],
+    "histogram_shares": [
+      0.39997809505622267,
+      0.029728378697161342,
+      0.03548937891059413,
+      0.050844182833264064,
+      0.04337178867907572,
+      0.14703833926826254,
+      0.11398040911694993,
+      0.17956942743846957
+    ],
+    "translucent_share_005_to095": 0.27674368969119645,
+    "translucent_count_005_to095": 492720
+  },
+  "f_HAZE": {
+    "final": {
+      "pixel_count": 425707,
+      "mean_luminance_difference": 0.009339367039501667,
+      "mean_luminance_difference_8bit": 2.3815386295318604,
+      "p95_blurred_signed_difference": 0.03862430900335312,
+      "p95_blurred_signed_difference_8bit": 9.849198341369629,
+      "p95_blurred_absolute_difference": 0.03936385735869408,
+      "p95_blurred_absolute_difference_8bit": 10.0377836227417
+    },
+    "band5_comparison": {
+      "pixel_count": 425707,
+      "mean_luminance_difference": 0.02364414930343628,
+      "mean_luminance_difference_8bit": 6.0292582511901855,
+      "p95_blurred_signed_difference": 0.0681488960981369,
+      "p95_blurred_signed_difference_8bit": 17.377967834472656,
+      "p95_blurred_absolute_difference": 0.06863057613372803,
+      "p95_blurred_absolute_difference_8bit": 17.500797271728516
+    },
+    "targets": {
+      "absolute_mean_lt": 0.011764705882352941,
+      "p95_blurred_lt": 0.03137254901960784
+    }
+  },
+  "forced_corrections": {
+    "deep_gt15000_alpha_to_one": 0,
+    "deep_near_lowalpha_void_alpha_to095": 0,
+    "outside_R_union_changed_pixels": 0
+  },
+  "concerns": [
+    "Blurred signed haze p95 is 9.849198/255 and absolute p95 is 10.037784/255, exceeding the requested 8/255 target; mean is 2.381539/255.",
+    "Visual inspection shows straight tile-boundary transitions in the detail sheet, especially crop rows 2 and 3; reported without changing the prescribed method."
+  ],
+  "edge_detail_crops": [
+    {
+      "bbox": [
+        3348,
+        1899,
+        3988,
+        2539
+      ],
+      "centre": [
+        3668,
+        2219
+      ]
+    },
+    {
+      "bbox": [
+        4564,
+        2830,
+        5204,
+        3470
+      ],
+      "centre": [
+        4884,
+        3150
+      ]
+    },
+    {
+      "bbox": [
+        3923,
+        2539,
+        4563,
+        3179
+      ],
+      "centre": [
+        4243,
+        2859
+      ]
+    },
+    {
+      "bbox": [
+        2871,
+        1213,
+        3511,
+        1853
+      ],
+      "centre": [
+        3191,
+        1533
+      ]
+    }
+  ],
+  "edge_detail_crop_source": "band4 checks edge_detail_crops (identical centres and boxes)",
+  "edge_detail_backgrounds": [
+    [
+      58,
+      63,
+      74
+    ],
+    [
+      46,
+      37,
+      44
+    ]
+  ],
+  "forest_median_method": "per-channel median of nonzero-alpha forest pixels, excluding transparent padding",
+  "forest_all_pixels_median_rgb": [
+    33,
+    27,
+    34
+  ],
+  "inputs": [
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/CS9-band-orig/foreground.png",
+      "sha256": "889db573c37aed5c0bfcd22722bdc075c25f086b24ec6b28709d9c7ad58076ce"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/CS-guides-v4/ortho_canvas_v4_depth_mm.png",
+      "sha256": "c010559381ba2a9fb4a0e5c06a7d09ce154fbe2e8a3f420bec84296b8ce8f77f"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/CS-edge-canvases/edge_tiles.json",
+      "sha256": "cead4c2c3d68215b9f0a9c9779c7df905cad85c04586e31fae81d8f5b1dddc14"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/CS-asm-fg-v4-band5/foreground.png",
+      "sha256": "93e55f408e08886de05d3b986ce027cffda369b21b2853395dd3f8601dadcc09"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/CS-asm-fg-v4-band4/checks.json",
+      "sha256": "6d358e102f6860695df19bf2160dc816bd3a5a59bbcdef485a897b6039718b76"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/CS-asm-layers/layers/forest_valley.png",
+      "sha256": "7d8f6d4fde6b21347d0481c1ef1ebec99ca7259c14f11ded9707914071dc2bc8"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/CS-edge-canvases/edge_2688_768_canvas.png",
+      "sha256": "102bd93436ab2ed44d8a8743b00889d1b64619cd1914e31fa9223147d53a0ff9"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/CS-edge-2688_768/edge_2688_768.png",
+      "sha256": "d76f7d11aae15494bde4b1f39f1be22f56dafd014eac204f0becce9a4003b3d9"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/CS-edge-canvases/edge_2688_1536_canvas.png",
+      "sha256": "96fc3bc36d58f7ad8a3cae5126b34fef3c266f971e3ce2ccf6911424618b896a"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/CS-edge-2688_1536/edge_2688_1536.png",
+      "sha256": "ff1b1114f8b375c187d619baab36abb34d38c24509b9a0f76edfbde72af9105f"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/CS-edge-canvases/edge_2688_2304_canvas.png",
+      "sha256": "ba366fc74810e95a890e6aca288134a43003f103348da2ebd0a7aed5ce048047"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/CS-edge-2688_2304/edge_2688_2304.png",
+      "sha256": "014d09c64cac9b37085db7366c1427d7f331c44afa254048ed9c559aecd9b327"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/CS-edge-canvases/edge_3840_2304_canvas.png",
+      "sha256": "99c01f6efa86a826c87f3da0343ec54c700da6e8f00cbb7b7f0323c7db55d8f0"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/CS-edge-3840_2304/edge_3840_2304.png",
+      "sha256": "5cace7f6059da8f18c1422731a364035480a6e4caf0970d4be38eeb105ee17ee"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/CS-edge-canvases/edge_2688_3072_canvas.png",
+      "sha256": "dc920e33c68d09f77ad61f8c6a2abaf8e867aaf67005bd46207160110a3f69dd"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/CS-edge-2688_3072/edge_2688_3072.png",
+      "sha256": "d052bed14fb2d7c1ae070be5eb1115a6c22feee827c966fa0c1cf03ea9bb9bb2"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/CS-edge-canvases/edge_3840_3072_canvas.png",
+      "sha256": "aa8a06005ed9cd67f1b45d54c03ba37f24955a2ae67727bbd77538b6cc91c9a5"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/CS-edge-3840_3072/edge_3840_3072.png",
+      "sha256": "d0a050ce62a7e38adb010d8909c3768e6d6101cca45940632de45fa0a558923c"
+    }
+  ],
+  "elapsed_s": 36.315,
+  "visual_review": {
+    "preview_inspected": true,
+    "detail_sheet_inspected": true,
+    "observation": "Translucent edge wisps are visible on both backgrounds; some straight tile-boundary transitions remain, especially rows 2 and 3."
+  }
+}

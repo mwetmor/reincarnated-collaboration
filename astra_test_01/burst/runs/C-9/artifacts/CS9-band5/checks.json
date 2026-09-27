@@ -1,0 +1,312 @@
+{
+  "task_id": "CS9-band5",
+  "canvas_px": [
+    5376,
+    4096
+  ],
+  "output_mode": "RGBA straight alpha",
+  "method": {
+    "cloud0": "a0 >= 0.5 AND (VOID OR (DEEP AND depth > 8000)); explicit task formula used without additional color heuristic",
+    "edge0": "cloud0 within Euclidean distance <=2 of VOID with BASE alpha <0.5",
+    "region": "distance to global EDGE0 <=220, restricted to VOID or cloud0 and depth >9000; clipped per tile",
+    "feather": "Euclidean distance from first interior boundary pixel, (EDT(padded R)-1)/40 clipped 0..1",
+    "overlap": "where >1 positive tile weights, w_i = raw_i / sum(raw); single contributor retains raw feather",
+    "reference_Fm": "disc radius 24 maximum of edited m restricted to BASE cloud0 opaque core (a0>=0.99 and cloud0 EDT>=30); nearest core value extended to all pixels",
+    "deep_rgb": "premultiplied interpolation of BASE and edited-over-BASE, divided by interpolated over alpha; output coverage is separately max(a0, lerp(a0,alpha_e,w))",
+    "force": "all DEEP >15000 alpha=1; DEEP within 3px of low-alpha VOID raised to >=0.95 and RGB from nearest cloud0 pixel with final alpha>=0.95; TOP copied exactly",
+    "change_measure": "max absolute RGB channel difference >30, on 0..255 scale",
+    "forest_median": "per-channel median RGB across every forest image pixel; alpha ignored"
+  },
+  "input_sha256": [
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/CS9-band-orig/foreground.png",
+      "sha256": "889db573c37aed5c0bfcd22722bdc075c25f086b24ec6b28709d9c7ad58076ce"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/CS-guides-v4/ortho_canvas_v4_depth_mm.png",
+      "sha256": "c010559381ba2a9fb4a0e5c06a7d09ce154fbe2e8a3f420bec84296b8ce8f77f"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/CS-edge-canvases/edge_tiles.json",
+      "sha256": "cead4c2c3d68215b9f0a9c9779c7df905cad85c04586e31fae81d8f5b1dddc14"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/CS-edge-canvases/edge_2688_768_canvas.png",
+      "sha256": "102bd93436ab2ed44d8a8743b00889d1b64619cd1914e31fa9223147d53a0ff9"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/CS-edge-2688_768/edge_2688_768.png",
+      "sha256": "d76f7d11aae15494bde4b1f39f1be22f56dafd014eac204f0becce9a4003b3d9"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/CS-edge-canvases/edge_2688_1536_canvas.png",
+      "sha256": "96fc3bc36d58f7ad8a3cae5126b34fef3c266f971e3ce2ccf6911424618b896a"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/CS-edge-2688_1536/edge_2688_1536.png",
+      "sha256": "ff1b1114f8b375c187d619baab36abb34d38c24509b9a0f76edfbde72af9105f"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/CS-edge-canvases/edge_2688_2304_canvas.png",
+      "sha256": "ba366fc74810e95a890e6aca288134a43003f103348da2ebd0a7aed5ce048047"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/CS-edge-2688_2304/edge_2688_2304.png",
+      "sha256": "014d09c64cac9b37085db7366c1427d7f331c44afa254048ed9c559aecd9b327"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/CS-edge-canvases/edge_3840_2304_canvas.png",
+      "sha256": "99c01f6efa86a826c87f3da0343ec54c700da6e8f00cbb7b7f0323c7db55d8f0"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/CS-edge-3840_2304/edge_3840_2304.png",
+      "sha256": "5cace7f6059da8f18c1422731a364035480a6e4caf0970d4be38eeb105ee17ee"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/CS-edge-canvases/edge_2688_3072_canvas.png",
+      "sha256": "dc920e33c68d09f77ad61f8c6a2abaf8e867aaf67005bd46207160110a3f69dd"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/CS-edge-2688_3072/edge_2688_3072.png",
+      "sha256": "d052bed14fb2d7c1ae070be5eb1115a6c22feee827c966fa0c1cf03ea9bb9bb2"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/CS-edge-canvases/edge_3840_3072_canvas.png",
+      "sha256": "aa8a06005ed9cd67f1b45d54c03ba37f24955a2ae67727bbd77538b6cc91c9a5"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/CS-edge-3840_3072/edge_3840_3072.png",
+      "sha256": "d0a050ce62a7e38adb010d8909c3768e6d6101cca45940632de45fa0a558923c"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/CS-asm-layers/layers/forest_valley.png",
+      "sha256": "7d8f6d4fde6b21347d0481c1ef1ebec99ca7259c14f11ded9707914071dc2bc8"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/CS-asm-fg-v4-band4/checks.json",
+      "sha256": "6d358e102f6860695df19bf2160dc816bd3a5a59bbcdef485a897b6039718b76"
+    }
+  ],
+  "counts": {
+    "cloud0": 2017505,
+    "EDGE0": 25939,
+    "union_R": 2667046,
+    "positive_weight_pixels": 2653770,
+    "overlap_positive_weights": 960035,
+    "forced_deep_opaque": 0,
+    "forced_underside_rim": 0
+  },
+  "a_deep_gt13000_alpha_below_095": {
+    "count": 0,
+    "target": 0
+  },
+  "b_exposed_underside": {
+    "count": 0,
+    "target": 0
+  },
+  "c_protected_rgba_mean_absolute_difference": {
+    "depth_le9000": 0.0,
+    "TOP": 0.0,
+    "target": 0,
+    "changed_protected_pixels": 0
+  },
+  "d_tiles": [
+    {
+      "id": "2688_768",
+      "x": 2688,
+      "y": 768,
+      "region_pixels": 366708,
+      "edge0_pixels": 2237,
+      "opaque_interior_anchor_pixels": 206857,
+      "changed_in_R_fraction": 0.07218004515854576,
+      "changed_outside_R_fraction": 0.05393083481738681,
+      "changed_in_R_pixels": 26469,
+      "changed_outside_R_pixels": 65049,
+      "outside_R_pixels": 1206156,
+      "Fm_min_max": [
+        0.545098066329956,
+        1.0
+      ]
+    },
+    {
+      "id": "2688_1536",
+      "x": 2688,
+      "y": 1536,
+      "region_pixels": 716999,
+      "edge0_pixels": 6655,
+      "opaque_interior_anchor_pixels": 456999,
+      "changed_in_R_fraction": 0.18575200244351806,
+      "changed_outside_R_fraction": 0.11170336443247475,
+      "changed_in_R_pixels": 133184,
+      "changed_outside_R_pixels": 95603,
+      "outside_R_pixels": 855865,
+      "Fm_min_max": [
+        0.43921568989753723,
+        1.0
+      ]
+    },
+    {
+      "id": "2688_2304",
+      "x": 2688,
+      "y": 2304,
+      "region_pixels": 874863,
+      "edge0_pixels": 4842,
+      "opaque_interior_anchor_pixels": 300392,
+      "changed_in_R_fraction": 0.16275119647304778,
+      "changed_outside_R_fraction": 0.1006617469029414,
+      "changed_in_R_pixels": 142385,
+      "changed_outside_R_pixels": 70262,
+      "outside_R_pixels": 698001,
+      "Fm_min_max": [
+        0.5176470875740051,
+        1.0
+      ]
+    },
+    {
+      "id": "3840_2304",
+      "x": 3840,
+      "y": 2304,
+      "region_pixels": 978984,
+      "edge0_pixels": 8222,
+      "opaque_interior_anchor_pixels": 880601,
+      "changed_in_R_fraction": 0.21052335891087087,
+      "changed_outside_R_fraction": 0.003145416582474574,
+      "changed_in_R_pixels": 206099,
+      "changed_outside_R_pixels": 1868,
+      "outside_R_pixels": 593880,
+      "Fm_min_max": [
+        0.47058823704719543,
+        1.0
+      ]
+    },
+    {
+      "id": "2688_3072",
+      "x": 2688,
+      "y": 3072,
+      "region_pixels": 379889,
+      "edge0_pixels": 2323,
+      "opaque_interior_anchor_pixels": 17659,
+      "changed_in_R_fraction": 0.1675963241894343,
+      "changed_outside_R_fraction": 0.0624514344391123,
+      "changed_in_R_pixels": 63668,
+      "changed_outside_R_pixels": 74503,
+      "outside_R_pixels": 1192975,
+      "Fm_min_max": [
+        0.6901960968971252,
+        1.0
+      ]
+    },
+    {
+      "id": "3840_3072",
+      "x": 3840,
+      "y": 3072,
+      "region_pixels": 551345,
+      "edge0_pixels": 3151,
+      "opaque_interior_anchor_pixels": 100045,
+      "changed_in_R_fraction": 0.11662570622749821,
+      "changed_outside_R_fraction": 4.4052044063791276e-05,
+      "changed_in_R_pixels": 64301,
+      "changed_outside_R_pixels": 45,
+      "outside_R_pixels": 1021519,
+      "Fm_min_max": [
+        0.7098039388656616,
+        1.0
+      ]
+    }
+  ],
+  "e_void_R_alpha": {
+    "pixels": 2192491,
+    "bin_edges": [
+      0,
+      0.05,
+      0.25,
+      0.5,
+      0.75,
+      0.95,
+      1.000001
+    ],
+    "bin_counts": [
+      1124432,
+      68164,
+      91619,
+      83630,
+      289308,
+      535338
+    ],
+    "bin_shares": [
+      0.5128559250642306,
+      0.03108975133763377,
+      0.04178762877475894,
+      0.03814382818447145,
+      0.1319540194235689,
+      0.24416884721533635
+    ],
+    "share_strictly_between_005_and_095": 0.24297522772043306
+  },
+  "outside_R_changed_pixels": 0,
+  "outside_R_changes_except_force": 0,
+  "edge_detail_crops": [
+    {
+      "bbox": [
+        3348,
+        1899,
+        3988,
+        2539
+      ],
+      "void_edge_pixels": 4525
+    },
+    {
+      "bbox": [
+        4564,
+        2830,
+        5204,
+        3470
+      ],
+      "void_edge_pixels": 4102
+    },
+    {
+      "bbox": [
+        3923,
+        2539,
+        4563,
+        3179
+      ],
+      "void_edge_pixels": 3343
+    },
+    {
+      "bbox": [
+        2871,
+        1213,
+        3511,
+        1853
+      ],
+      "void_edge_pixels": 1713
+    }
+  ],
+  "edge_detail_crop_source": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-3/artifacts/CS-asm-fg-v4-band4/checks.json",
+  "edge_detail_backgrounds": [
+    [
+      58,
+      63,
+      74
+    ],
+    [
+      33,
+      27,
+      34
+    ]
+  ],
+  "edge_detail_layout": "2 columns x 4 rows; left #3a3f4a, right forest median",
+  "elapsed_s": 35.417,
+  "concerns": [
+    "Visual review: a straight vertical tonal transition is visible in the third edge-detail crop near level x=4224, a tile boundary; retained for conductor review."
+  ],
+  "visual_review": {
+    "preview_inspected": true,
+    "edge_detail_grid_inspected": true,
+    "observations": [
+      "Visual review: a straight vertical tonal transition is visible in the third edge-detail crop near level x=4224, a tile boundary; retained for conductor review."
+    ],
+    "image_unchanged_after_review": true
+  }
+}

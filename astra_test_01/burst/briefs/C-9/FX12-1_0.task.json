@@ -1,0 +1,22 @@
+{
+ "text": "GENERATE BURST FX12-1_0 — Run C-9, burning-forest parallax layer: REMOVE THE GLITCH EFFECT from the fire (Matt R-C9-42). task_id \"FX12-1_0\".\n\nIMAGE 1 is a 1536x1024 crop of a finished painted parallax layer: a valley forest seen from far above, a wide band of forest fire, scorched land behind it, one river, flat pure #00ff00 above the treeline. The flames were painted with a DIGITAL-GLITCH treatment that is now rejected: blocky rectangular fragments at the flame tips, horizontal slices of fire shifted sideways, thin horizontal tear or scan lines, stepped/stair-cased flame edges, and cyan or magenta fringes. Use image_gen in EDIT mode on IMAGE 1 and deliver ONE 1536x1024 image that is IMAGE 1 with EVERY such glitch artefact repainted as ORDINARY hand-painted flame in the same place: soft licking tongues of orange-gold fire with a darker red edge, ragged and organic, rising from the trees, in the same line and wash as the rest of the image; embers as small round glowing dots. Keep the fire where it is, as big and as wide as it is (same front edge, same burning area), and keep EVERYTHING ELSE exactly as it is: every tree, the smoke, the scorched land, the river, the hills, the colours, the #00ff00 above the treeline. Do not restyle, recolour, sharpen or move anything. No text, figures, buildings, border or vignette.\nSTYLE: the REGISTER CARD above; IMAGE 2 only as the approved painted style of this level (not its content).\n\nOne image_gen call. ONE retry only if glitch artefacts clearly remain, the fire shrank or moved, or the rest of the image was visibly altered — name the reason. Copy the output from $CODEX_HOME/generated_images/... to out/FX12-1_0.png with sha256. No code. No other files. No web.\nRETURN: receipt task_id \"FX12-1_0\"; images = the file with prompt, references and elapsed_s; calls_used = the TRUE number of image_gen calls; status; concerns. Never PASS/FAIL.",
+ "references": [
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/CS9-guides/fx12_1_0_canvas.png",
+   "role": "IMAGE 1 — the canvas to EDIT (C-9 forest layer crop)"
+  },
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/S1-ink/S1-ink_b.png",
+   "role": "IMAGE 2 — the approved painted STYLE of this level (not its content)"
+  }
+ ],
+ "image_cap": 2,
+ "minutes_cap": 15,
+ "tool_call_cap": 20,
+ "outputs": [
+  "out/FX12-1_0.png"
+ ],
+ "effort": "high",
+ "add_dirs": [],
+ "experiment": "P5-forest-deglitch"
+}

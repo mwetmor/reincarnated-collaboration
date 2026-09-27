@@ -1,0 +1,35 @@
+{
+  "task_id": "FX12-1_1",
+  "status": "DELIVERED",
+  "images": [
+    {
+      "name": "FX12-1_1.png",
+      "path": "out/FX12-1_1.png",
+      "sha256": "102caea8312ef74929b21b3167cfb66e48802f72366740b5acaab73586a808b6",
+      "prompt": "Use case: precise-object-edit. Edit IMAGE 1, the burning forest canvas, and deliver one 1536x1024 PNG. IMAGE 2 is only a supporting reference for hand-painted pen-and-watercolor technique; do not import its content or change the canvas's style or colors. Remove EVERY digital glitch artifact from the fire in IMAGE 1: rectangular flame-tip fragments, horizontally shifted slices, thin horizontal tears and scan lines, staircase edges, cyan and magenta fringes. Repaint those artifacts in their exact places as ordinary organic flames: ragged, softly licking orange-gold tongues with darker red edges, drawn in the same ink line and uneven watercolor wash as the existing painting. Replace horizontal bars with curved tapering flame tongues; embers are tiny round dots. Keep the same fire size, width, height, burning area, front edge and placement. Preserve EVERYTHING ELSE exactly: all individual trees, smoke and its contours, scorched ground, river and banks, hills, existing colors, composition, framing and image dimensions. Preserve any existing pure #00ff00 area; do not add a new green area to this crop. Do not restyle, recolor, sharpen, move or redraw unaffected material. No text, people, buildings, borders or vignette. The illustration's register combines late-medieval and early-Renaissance illuminated-manuscript subjects and mineral palette with hand-painted 1990s tactics role-playing character illustration technique: wavering dark sepia-to-near-black pen contours, hand-drawn fine hatching, transparent uneven watercolor washes, pooling, granulation, soft blooms and slight wash overrun. Preserve the original darker parallax sunset lighting, purple smoky haze, violet-indigo shade and warm screen-left sunlight. Saturated warm belongs only to the existing fire. No added lighting effects, airbrushed gradients, glossy highlights, repeated motifs or added objects. This is a localized fire repair, not a new interpretation.",
+      "references": [
+        {
+          "role": "IMAGE 1 — canvas to edit",
+          "path": "in/01_fx12_1_1_canvas.png"
+        },
+        {
+          "role": "IMAGE 2 — approved painted style only",
+          "path": "in/02_S1-ink_b.png"
+        }
+      ],
+      "elapsed_s": 36.457
+    }
+  ],
+  "calls_used": 1,
+  "retries": [],
+  "self_report": {
+    "obeyed_invariants": true,
+    "concerns": []
+  },
+  "files": [
+    {
+      "path": "out/FX12-1_1.png",
+      "sha256": "102caea8312ef74929b21b3167cfb66e48802f72366740b5acaab73586a808b6"
+    }
+  ]
+}

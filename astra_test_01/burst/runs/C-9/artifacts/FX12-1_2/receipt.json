@@ -1,0 +1,38 @@
+{
+  "task_id": "FX12-1_2",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "FX12-1_2.png",
+      "path": "out/FX12-1_2.png",
+      "sha256": "91a2f5511cb8c00e4a7845d9e3563ad0a6fcccd0cd45d3f53d4e895f8096a563",
+      "prompt": "Use case: precise-object-edit. Edit IMAGE 1, the supplied burning-forest parallax crop, and output ONE 1536x1024 PNG. IMAGE 2 is supporting painted style reference ONLY, never content or a request to restyle the canvas. Change ONLY digital-glitch artifacts in the existing fire: repaint blocky rectangular flame-tip fragments, sideways-shifted horizontal fire slices, thin horizontal tear/scan lines, stepped flame edges and cyan/magenta fringes as ordinary hand-painted fire IN THE SAME PLACES. Flames must be small organic ragged licking orange-gold tongues with darker red edges, matching the surrounding pen line and watercolor wash. Embers are small round luminous painted dots. Preserve exactly the current fire footprint, size, width, front edge and burning area. Do not enlarge, shrink, move or add fires. Preserve EVERYTHING ELSE exactly as IMAGE 1: every tree and stump, fallen trunk, stone, smoke wisp, scorched land, river and its banks and reflections, hills, colors, composition, framing and detail. Preserve any existing pure #00ff00 region; do not invent a treeline or green background absent from this crop. Do not restyle, recolor, sharpen, relight or move anything. No text, figures, buildings, border or vignette. REGISTER rendering for the edited fire: hand-painted watercolor-and-ink illustration of the kind made for 1990s tactics role-playing games; late-medieval and early-Renaissance illuminated manuscript mineral hues. Crisp dark sepia-to-near-black wavering pen contour, hand-drawn fine hatching, transparent uneven watercolor washes with pooled edges, granulation and soft pigment blooms; pale paper highlights, darker second wash for shadow. No airbrushed gradients or optical effects. Parallax background retains its existing dark violet-indigo sunset lighting and purple smoky haze, warm screen-left illumination; saturated warmth only in fire and existing sunset. All register requirements are subordinate in this localized edit to keeping the supplied painting unchanged outside the fire artifacts. The requested result is the original painting with only its glitch-like flame marks repaired.",
+      "references": [
+        {
+          "role": "edit target",
+          "path": "in/01_fx12_1_2_canvas.png"
+        },
+        {
+          "role": "painted style only",
+          "path": "in/02_S1-ink_b.png"
+        }
+      ],
+      "elapsed_s": 41.746
+    }
+  ],
+  "calls_used": 1,
+  "retries": [],
+  "self_report": {
+    "obeyed_invariants": true,
+    "concerns": [
+      "The supplied crop contains no visible green region above a treeline; none was added.",
+      "Surrounding composition appears preserved visually; exact pixel preservation outside the fire was not verified."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/FX12-1_2.png",
+      "sha256": "91a2f5511cb8c00e4a7845d9e3563ad0a6fcccd0cd45d3f53d4e895f8096a563"
+    }
+  ]
+}

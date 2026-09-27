@@ -1,0 +1,35 @@
+{
+  "task_id": "FX12-2_1",
+  "status": "DELIVERED",
+  "images": [
+    {
+      "name": "FX12-2_1.png",
+      "path": "out/FX12-2_1.png",
+      "sha256": "c6d5d5e941d12f6e181dc490cc78a066d99dc99752c8e92ea768ca41c68b0d72",
+      "prompt": "Use case: precise-object-edit. EDIT IMAGE 1, the burning-forest canvas, and return ONE 1536x1024 PNG. IMAGE 2 is supporting painted-medium reference only, never its content. Change ONLY the digital glitch artifacts in the fire on IMAGE 1. Repaint every blocky rectangular flame fragment, horizontally displaced flame slice, horizontal tear or scan line, stepped flame edge, and cyan or magenta fringe as ordinary organic hand-painted flames in exactly the same locations. Use ragged, curving, soft licking tongues of orange-gold fire with darker red edges, rising among the trees, matching the existing ink and wash. Replace rectangular sparks with small round ember dots. Preserve the full original width, height, intensity and footprint of every burning area and the exact fire front; do not shrink, shift, suppress or expand the fire. Preserve EVERYTHING outside those fire artifacts exactly: every individual tree and branch, smoke shape, scorched ground, hills, rocks, original colors, texture, lighting, framing and camera. Preserve any river or pure #00ff00 area if present; do not invent absent content or extend this crop. No global restyling, recoloring, sharpening or relighting. No text, figures, buildings, border or vignette. Rendering for the repainted portions: manuscript-inspired mineral hues, hand-painted watercolor and crisp dark sepia pen contours of 1990s tactics role-playing character illustration, slightly wavering variable line weight and fine hand hatching. Uneven transparent washes that pool at edges and granulate, with natural soft watercolor pigment blooms; no airbrushed gradients, lens effects or digital effects. Respect the existing darker parallax palette of warm accents and violet-indigo smoke; saturated warmth belongs to fire. IMAGE 1 is the authoritative composition and color source. IMAGE 2 only illustrates the approved hand-painted medium and must not change the canvas style or introduce its road, cliff, flowers or green corners. Surgical fire-artifact cleanup only.",
+      "references": [
+        {
+          "role": "edit target",
+          "path": "in/01_fx12_2_1_canvas.png"
+        },
+        {
+          "role": "approved painted style only",
+          "path": "in/02_S1-ink_b.png"
+        }
+      ],
+      "elapsed_s": 38.893
+    }
+  ],
+  "calls_used": 1,
+  "retries": [],
+  "self_report": {
+    "obeyed_invariants": true,
+    "concerns": []
+  },
+  "files": [
+    {
+      "path": "out/FX12-2_1.png",
+      "sha256": "c6d5d5e941d12f6e181dc490cc78a066d99dc99752c8e92ea768ca41c68b0d72"
+    }
+  ]
+}

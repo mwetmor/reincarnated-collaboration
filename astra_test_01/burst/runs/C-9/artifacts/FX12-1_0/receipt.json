@@ -1,0 +1,37 @@
+{
+  "task_id": "FX12-1_0",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "FX12-1_0.png",
+      "path": "out/FX12-1_0.png",
+      "sha256": "3dea252497859836342ac426be49dbf706228016cc4218fe910ab34530b82432",
+      "prompt": "Use case: precise-object-edit. Edit IMAGE 1 only. Deliver one 1536x1024 PNG. IMAGE 1 is the finished forest parallax canvas and is the absolute authority for all content, positions, colors and detail. IMAGE 2 is supporting hand-painted line-and-wash style reference only, never its content. Remove EVERY digital glitch artifact from the existing orange-gold fire along the bottom-left and bottom-center of IMAGE 1: repaint rectangular fragments at flame tips, sideways-shifted horizontal fire slices, thin horizontal scan/tear lines, stair-stepped edges, and cyan/magenta fringes into ordinary organic hand-painted flames. Replace them in precisely the same places with soft licking orange-gold tongues, darker red edges, ragged curved organic silhouettes rising among the same trees. Embers are small round bright dots. Maintain exactly the same fire footprint, height, width, front edge and burning area, including cropped fire along the bottom and left edges. Do not shrink, relocate or enlarge the fire. Preserve ALL non-fire pixels as exactly as possible: every tree, all smoke curls and smoke silhouettes, scorched land, the river, hills, treeline, colors, darkness, texture and the flat pure #00ff00 area above the treeline. No restyling, recoloring, sharpening, moving, reframing or adding anything. Preserve original fixed elevated three-quarter orthographic view. No text, figures, buildings, border or vignette. Rendering for the repaired flame areas: hand-painted watercolor and ink illustration, slightly wavering dark sepia-to-near-black contour of variable weight, fine hand hatching, uneven transparent washes with pooling, granulation and soft natural wash blooms; no airbrush gradients or lens effects. The existing late-medieval/early-Renaissance manuscript mineral palette and sunset-lit forest are locked; preserve warm left-facing slopes, violet-indigo shadows and purple smoky haze. Saturated warm colors only in the existing fire. The task is a tiny surgical repair of flame-edge artifacts, not a repaint of the scene.",
+      "references": [
+        {
+          "role": "edit target",
+          "path": "in/01_fx12_1_0_canvas.png"
+        },
+        {
+          "role": "painted style only",
+          "path": "in/02_S1-ink_b.png"
+        }
+      ],
+      "elapsed_s": 34.871
+    }
+  ],
+  "calls_used": 1,
+  "retries": [],
+  "self_report": {
+    "obeyed_invariants": true,
+    "concerns": [
+      "No obvious glitch artifacts remain on visual inspection. Exact pixel preservation outside the fire and exact #00ff00 fidelity were not independently verified."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/FX12-1_0.png",
+      "sha256": "3dea252497859836342ac426be49dbf706228016cc4218fe910ab34530b82432"
+    }
+  ]
+}

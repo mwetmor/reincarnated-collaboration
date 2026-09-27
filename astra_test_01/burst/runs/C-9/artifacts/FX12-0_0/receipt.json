@@ -1,0 +1,37 @@
+{
+  "task_id": "FX12-0_0",
+  "status": "DELIVERED",
+  "images": [
+    {
+      "name": "FX12-0_0.png",
+      "path": "out/FX12-0_0.png",
+      "sha256": "dd82f69701f5546d2094cae4d45438db90bf7b65464018fcf0c5d86c30d3033f",
+      "prompt": "Use case: precise-object-edit. EDIT IMAGE 1, the supplied 1536x1024 burning-forest parallax canvas. Produce one image at exactly 1536x1024. IMAGE 2 is only supporting approved watercolor-and-ink style, never its content. Make a strictly localized repair of EVERY digital-glitch artifact in the flames: replace all rectangular fire fragments, sideways-shifted horizontal flame slices, thin horizontal tears and scan lines, stepped stair-case edges, cyan and magenta fringes with ordinary organic hand-painted flames in exactly the same places. Paint soft licking, ragged curved tongues of orange-gold fire with darker red edges, matching the existing pen contours and watercolor washes. Embers are small round luminous orange dots, never bars. Preserve the fire's full size, width, height, coverage, burning area and front edge; do not shrink, relocate or simplify the fire. Preserve EVERYTHING outside those flame artifacts exactly: every tree, tree arrangement, all smoke curls and plumes, scorched land, any river, all hills and rocks, all colors and detail, framing and elevated three-quarter orthographic camera. Preserve the flat pure #00ff00 above the treeline, its boundary and exact shape. No restyling, recoloring, sharpening or moving anything. No added text, figures, buildings, border or vignette. Rendering of repaired areas must match hand-painted watercolor-and-ink character illustration of 1990s tactics role-playing games with late-medieval and early-Renaissance illuminated manuscript mineral hues: slightly wavering dark sepia-to-near-black pen contours and fine hand hatching, uneven transparent washes that pool at edges, granulate and bloom softly. Preserve existing sunset lighting from screen-left, gold sun-facing slopes, violet-indigo shaded forest and purple smoke haze. Saturated warm color is allowed for fire only; no lens effects or digital gradients. This is a surgical glitch-removal edit, not a new scene: keep all unedited pixels and original details as faithfully as possible.",
+      "references": [
+        {
+          "role": "edit target",
+          "path": "in/01_fx12_0_0_canvas.png"
+        },
+        {
+          "role": "approved painted style only",
+          "path": "in/02_S1-ink_b.png"
+        }
+      ],
+      "elapsed_s": 45.197
+    }
+  ],
+  "calls_used": 1,
+  "retries": [],
+  "self_report": {
+    "obeyed_invariants": true,
+    "concerns": [
+      "Preservation assessed visually; exact pixel equality outside repaired flames was not verified."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/FX12-0_0.png",
+      "sha256": "dd82f69701f5546d2094cae4d45438db90bf7b65464018fcf0c5d86c30d3033f"
+    }
+  ]
+}
