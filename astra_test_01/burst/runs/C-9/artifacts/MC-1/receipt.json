@@ -1,0 +1,78 @@
+{
+  "task_id": "MC-1",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "MC-1_a",
+      "path": "out/MC-1_a.png",
+      "sha256": "433f21f90f0fab42223a7e492bef2a912e9073efaafc994b2de05914a358a550",
+      "prompt": "Edit this creature turnaround sheet. Mandatory correction: replace the ENTIRE dark background and every halo with a completely uniform opaque vivid chroma green, exact RGB (0,255,0), hexadecimal #00ff00. This green must fill all canvas edges, every empty region and every gap between legs, toes and tail. No dark background, gradients, haze, glow, shadow, vignette or transparency anywhere in the background. Preserve all four creature drawings, their human faces, watercolor-and-ink hand, markings, view directions, neutral planted pose and 2x2 layout. Top left front, top right profile facing right, bottom left rear, bottom right profile facing left. Four visible legs in both side views. Keep 1536x1024 canvas. No text, labels, borders, ground or additional objects.",
+      "references": [
+        {
+          "role": "Original creature design reference",
+          "path": "in/01_manticore_rochester_src.jpg"
+        },
+        {
+          "role": "Original painted-hand and finish reference",
+          "path": "in/02_KA-1_a.png"
+        },
+        {
+          "role": "Retry edit target: initial variant a",
+          "path": "/Users/admin/.codex/generated_images/01a0e9d8-c4d2-79d3-91a3-488ded97d420/exec-e268008d-60de-428e-a292-076e5cf26a44.png"
+        }
+      ],
+      "elapsed_s": 22.432
+    },
+    {
+      "name": "MC-1_b",
+      "path": "out/MC-1_b.png",
+      "sha256": "6c86fbda302be1cf161bbe173734c778b3684e1af74dd6ef5ea032aa16051eb7",
+      "prompt": "Edit this creature turnaround sheet. Mandatory correction: replace the ENTIRE dark background and every halo with a completely uniform opaque vivid chroma green, exact RGB (0,255,0), hexadecimal #00ff00. This green must fill all canvas edges, every empty region and every gap between legs, toes and tail. No dark background, gradients, haze, glow, shadow, vignette or transparency anywhere in the background. Preserve all four creature drawings, their human faces, watercolor-and-ink hand, markings, view directions, neutral planted pose and 2x2 layout. Top left front, top right profile facing right, bottom left rear, bottom right profile facing left. Four visible legs in both side views. Keep 1536x1024 canvas. No text, labels, borders, ground or additional objects.",
+      "references": [
+        {
+          "role": "Original creature design reference",
+          "path": "in/01_manticore_rochester_src.jpg"
+        },
+        {
+          "role": "Original painted-hand and finish reference",
+          "path": "in/02_KA-1_a.png"
+        },
+        {
+          "role": "Retry edit target: initial variant b",
+          "path": "/Users/admin/.codex/generated_images/01a0e9d8-c4d2-79d3-91a3-488ded97d420/exec-a43b7013-6c6c-4321-9d34-187697e62ae7.png"
+        }
+      ],
+      "elapsed_s": 46.986
+    }
+  ],
+  "calls_used": 4,
+  "retries": [
+    {
+      "reason": "Variant a had a dark gradient background instead of flat green.",
+      "change": "Edited the background to opaque chroma green while preserving the four creature views."
+    },
+    {
+      "reason": "Variant b had a dark gradient background instead of flat green.",
+      "change": "Edited the background to opaque chroma green while preserving the four creature views."
+    }
+  ],
+  "self_report": {
+    "obeyed_invariants": false,
+    "concerns": [
+      "Both PNGs are confirmed 1536x1024; exact background RGB uniformity was not measured.",
+      "Tails curve downward rather than extending completely straight; hind legs retain bent hocks.",
+      "Variant b has partial foreleg overlap in side views.",
+      "Quarter centering and paw baseline alignment are approximate."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/MC-1_a.png",
+      "sha256": "433f21f90f0fab42223a7e492bef2a912e9073efaafc994b2de05914a358a550"
+    },
+    {
+      "path": "out/MC-1_b.png",
+      "sha256": "6c86fbda302be1cf161bbe173734c778b3684e1af74dd6ef5ea032aa16051eb7"
+    }
+  ]
+}
