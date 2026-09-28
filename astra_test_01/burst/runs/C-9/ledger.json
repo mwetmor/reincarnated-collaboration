@@ -15399,7 +15399,14 @@
       "note": "Matt: \"Is the keeper larger?\" Yes: the integration scene patcher had copied the Keeper's cell scale (0.629) onto the knight's cells (a comment asserted the difference away). Each skin now derives its scale from its own cells (sprite 0.751, 3D 0.755). size_probe (player-view capture differenced against a skins-hidden frame, props split by row width, validated against 238.75): Keeper / sprites / 3D = 150.0 / 150.0 / 151.1 px at S, 148.9 / 150.0 / 148.9 at E, all within 2 px. Live: keeper.pck 3f12d0e2 (loadout 182f570 pushed under R-C9-61). Camera: 110.556 (camera.json) and 117.5 are one camera in two conventions (117.5 x cos 19.77 = 110.57); the standing contract between seams is a declared PIXEL target (199 px crown-to-sole at ground row 398), fitted on the armed idle median over 8 azimuths. T1K-walk-r1 (plate-first re-fire): both variants kept the plate; b IoU 0.934. T1 walk and idle now have every painted input."
     }
   ],
-  "halts": [],
+  "halts": [
+    {
+      "id": "H-C9-1",
+      "ts": "2026-09-28T22:45:45Z",
+      "kind": "cap reached (charter section 5)",
+      "detail": "Run image cap 400 (charter section 4) reached: images_used 414 / cap 400. Wave t2paintB (T2P-run-E, T2P-run-SE, T2K-walk, T2K-idle, T2P-idle-SE-r1) refused by the lane with 'insufficient run image budget'; no burst ran, nothing was spent. Overrun of 14: the lane's check (images_used + image_cap > images_cap at burst start) does not reserve budget for bursts already in flight, so parallel bursts in one wave each saw the same pre-wave count (a lane defect, to go to jack-ryan). Spend since the pipeline review (R-C9-60 onward): about 70 images (T1 sheets 8, T2 sheet 4, T1 paint 16, T1 keys 12, T2 paint 14, and others). Remaining to finish T1 and T2 (run and attack E/SE, run/attack keys for both, T2 walk/idle keys, T2 idle-SE re-fire): about 80 images plus about 20 retry buffer. Conductor proposal to Matt: raise the C-9 run cap 400 -> 550. Until ruled: no Astra bursts; non-image work continues (knight walk/idle EbSynth plus assembly, integration, the matte)."
+    }
+  ],
   "rulings": [
     {
       "id": "R-C9-0",
