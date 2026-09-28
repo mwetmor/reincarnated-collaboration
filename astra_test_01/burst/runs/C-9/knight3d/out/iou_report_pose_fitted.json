@@ -1,0 +1,388 @@
+{
+ "note": "C-9 knight3d M-a silhouette IoU, full resolution (1024x1536). The pollaxe and the matte-cut ambiguity band are excluded from BOTH masks.",
+ "theta_elevation_deg": 19.765049365787767,
+ "variant": "pose_fitted",
+ "views": {
+  "S": {
+   "iou": 0.9022228617413038,
+   "band_iou": {
+    "helm_head": {
+     "iou": 0.7838067166845302,
+     "proxy_only_px": 1589,
+     "still_only_px": 3252
+    },
+    "torso_arms": {
+     "iou": 0.957498719840959,
+     "proxy_only_px": 1938,
+     "still_only_px": 884
+    },
+    "tabard_fauld": {
+     "iou": 0.9117836160070946,
+     "proxy_only_px": 3427,
+     "still_only_px": 552
+    },
+    "legs": {
+     "iou": 0.902223888055972,
+     "proxy_only_px": 2870,
+     "still_only_px": 1043
+    },
+    "feet": {
+     "iou": 0.8216955847087036,
+     "proxy_only_px": 1703,
+     "still_only_px": 825
+    }
+   },
+   "alpha": 4.5,
+   "nominal_alpha": 0,
+   "alpha_residual": 4.5,
+   "scale_px_per_m": 500.8803381342348,
+   "proxy_only_px": 11813,
+   "still_only_px": 6534,
+   "excluded_px": 66913,
+   "pose_delta": {
+    "leg_L_pitch": 1.0,
+    "leg_R_pitch": 6.0,
+    "leg_R_splay": 1.5,
+    "knee_L_pitch": 2.5,
+    "knee_R_pitch": 6.0,
+    "foot_L_yaw": 1.5,
+    "foot_R_yaw": 4.5,
+    "arm_L_pitch": 1.0,
+    "fore_L_pitch": -3.5
+   }
+  },
+  "SE": {
+   "iou": 0.892767826797137,
+   "band_iou": {
+    "helm_head": {
+     "iou": 0.9007399386392348,
+     "proxy_only_px": 1311,
+     "still_only_px": 889
+    },
+    "torso_arms": {
+     "iou": 0.9622438124955677,
+     "proxy_only_px": 1702,
+     "still_only_px": 960
+    },
+    "tabard_fauld": {
+     "iou": 0.8790355103686881,
+     "proxy_only_px": 1839,
+     "still_only_px": 3860
+    },
+    "legs": {
+     "iou": 0.8616617824513015,
+     "proxy_only_px": 2068,
+     "still_only_px": 4352
+    },
+    "feet": {
+     "iou": 0.6424029451137885,
+     "proxy_only_px": 864,
+     "still_only_px": 3410
+    }
+   },
+   "alpha": 34.5,
+   "nominal_alpha": 45,
+   "alpha_residual": -10.5,
+   "scale_px_per_m": 481.887444121251,
+   "proxy_only_px": 7725,
+   "still_only_px": 13414,
+   "excluded_px": 55934,
+   "pose_delta": {
+    "leg_L_pitch": 6.0,
+    "leg_L_splay": -1.0,
+    "knee_L_pitch": -8.5,
+    "knee_R_pitch": -1.5,
+    "foot_L_yaw": 9.5,
+    "foot_R_yaw": -3.5,
+    "arm_L_roll": 7.5,
+    "fore_L_pitch": 3.5
+   }
+  },
+  "E": {
+   "iou": 0.8924079658685048,
+   "band_iou": {
+    "helm_head": {
+     "iou": 0.8900452289992535,
+     "proxy_only_px": 895,
+     "still_only_px": 1609
+    },
+    "torso_arms": {
+     "iou": 0.9354354671682482,
+     "proxy_only_px": 1466,
+     "still_only_px": 1589
+    },
+    "tabard_fauld": {
+     "iou": 0.9158676442940402,
+     "proxy_only_px": 434,
+     "still_only_px": 2251
+    },
+    "legs": {
+     "iou": 0.8351448676864118,
+     "proxy_only_px": 2537,
+     "still_only_px": 2453
+    },
+    "feet": {
+     "iou": 0.808997955010225,
+     "proxy_only_px": 966,
+     "still_only_px": 1369
+    }
+   },
+   "alpha": 90.5,
+   "nominal_alpha": 90,
+   "alpha_residual": 0.5,
+   "scale_px_per_m": 479.82140564924725,
+   "proxy_only_px": 6263,
+   "still_only_px": 9221,
+   "excluded_px": 60354,
+   "pose_delta": {
+    "leg_L_pitch": 6.0,
+    "leg_L_splay": -9.5,
+    "leg_R_splay": -1.0,
+    "knee_L_pitch": -8.5,
+    "knee_R_pitch": 2.5,
+    "foot_L_yaw": 7.5,
+    "foot_R_yaw": -3.5,
+    "arm_L_roll": 1.5,
+    "grip_x": -0.0375,
+    "grip_y": 0.0075,
+    "grip_z": 0.015
+   }
+  },
+  "NE": {
+   "iou": 0.8756208824067255,
+   "band_iou": {
+    "helm_head": {
+     "iou": 0.7339731285988483,
+     "proxy_only_px": 1332,
+     "still_only_px": 4905
+    },
+    "torso_arms": {
+     "iou": 0.9215276804484933,
+     "proxy_only_px": 2583,
+     "still_only_px": 3016
+    },
+    "tabard_fauld": {
+     "iou": 0.9080347144456887,
+     "proxy_only_px": 3126,
+     "still_only_px": 816
+    },
+    "legs": {
+     "iou": 0.8657313775998978,
+     "proxy_only_px": 3336,
+     "still_only_px": 2971
+    },
+    "feet": {
+     "iou": 0.8281359401087952,
+     "proxy_only_px": 1983,
+     "still_only_px": 1208
+    }
+   },
+   "alpha": 143.5,
+   "nominal_alpha": 135,
+   "alpha_residual": 8.5,
+   "scale_px_per_m": 494.15842894655094,
+   "proxy_only_px": 12293,
+   "still_only_px": 12873,
+   "excluded_px": 54905,
+   "pose_delta": {
+    "leg_L_pitch": -1.0,
+    "leg_L_splay": -1.0,
+    "knee_L_pitch": -5.0,
+    "foot_L_yaw": -6.0,
+    "foot_R_yaw": -8.5,
+    "grip_x": 0.0225,
+    "grip_y": 0.0225,
+    "grip_z": -0.0525
+   }
+  },
+  "N": {
+   "iou": 0.9095565143377066,
+   "band_iou": {
+    "helm_head": {
+     "iou": 0.8752227281726391,
+     "proxy_only_px": 1206,
+     "still_only_px": 1315
+    },
+    "torso_arms": {
+     "iou": 0.9623292062632681,
+     "proxy_only_px": 997,
+     "still_only_px": 1647
+    },
+    "tabard_fauld": {
+     "iou": 0.9042348314378966,
+     "proxy_only_px": 3055,
+     "still_only_px": 1669
+    },
+    "legs": {
+     "iou": 0.886223515109413,
+     "proxy_only_px": 3285,
+     "still_only_px": 1956
+    },
+    "feet": {
+     "iou": 0.8213920163766633,
+     "proxy_only_px": 2127,
+     "still_only_px": 1363
+    }
+   },
+   "alpha": 187.5,
+   "nominal_alpha": 180,
+   "alpha_residual": 7.5,
+   "scale_px_per_m": 515.8732476450567,
+   "proxy_only_px": 10556,
+   "still_only_px": 7933,
+   "excluded_px": 57465,
+   "pose_delta": {
+    "leg_R_pitch": -1.0,
+    "knee_L_pitch": 2.5,
+    "foot_L_yaw": -3.5,
+    "foot_R_yaw": -8.5,
+    "arm_L_pitch": 1.0,
+    "arm_L_roll": 9.5,
+    "fore_L_pitch": -8.5,
+    "grip_x": 0.03,
+    "grip_y": -0.03
+   }
+  },
+  "NW": {
+   "iou": 0.8946915060719172,
+   "band_iou": {
+    "helm_head": {
+     "iou": 0.836880056278579,
+     "proxy_only_px": 789,
+     "still_only_px": 2921
+    },
+    "torso_arms": {
+     "iou": 0.9456744998463554,
+     "proxy_only_px": 112,
+     "still_only_px": 3247
+    },
+    "tabard_fauld": {
+     "iou": 0.8951014465526959,
+     "proxy_only_px": 3608,
+     "still_only_px": 859
+    },
+    "legs": {
+     "iou": 0.8816729374556955,
+     "proxy_only_px": 3449,
+     "still_only_px": 891
+    },
+    "feet": {
+     "iou": 0.7977805178791615,
+     "proxy_only_px": 2153,
+     "still_only_px": 799
+    }
+   },
+   "alpha": 228.0,
+   "nominal_alpha": 225,
+   "alpha_residual": 3.0,
+   "scale_px_per_m": 502.05156737585685,
+   "proxy_only_px": 10067,
+   "still_only_px": 8638,
+   "excluded_px": 65485,
+   "pose_delta": {
+    "leg_R_pitch": -6.0,
+    "leg_L_splay": 6.0,
+    "leg_R_splay": -2.5,
+    "knee_L_pitch": 8.5,
+    "knee_R_pitch": -3.5,
+    "foot_R_yaw": -6.0,
+    "arm_L_roll": -4.5,
+    "fore_L_pitch": -6.0,
+    "grip_x": -0.0375
+   }
+  },
+  "W": {
+   "iou": 0.8761371831142175,
+   "band_iou": {
+    "helm_head": {
+     "iou": 0.8488010657193605,
+     "proxy_only_px": 2184,
+     "still_only_px": 1221
+    },
+    "torso_arms": {
+     "iou": 0.9061839433000373,
+     "proxy_only_px": 3167,
+     "still_only_px": 1360
+    },
+    "tabard_fauld": {
+     "iou": 0.8816970356268697,
+     "proxy_only_px": 3384,
+     "still_only_px": 531
+    },
+    "legs": {
+     "iou": 0.9053081421502475,
+     "proxy_only_px": 1153,
+     "still_only_px": 1373
+    },
+    "feet": {
+     "iou": 0.751064869771664,
+     "proxy_only_px": 1026,
+     "still_only_px": 2539
+    }
+   },
+   "alpha": 274.5,
+   "nominal_alpha": 270,
+   "alpha_residual": 4.5,
+   "scale_px_per_m": 483.6022851058344,
+   "proxy_only_px": 10874,
+   "still_only_px": 6989,
+   "excluded_px": 47895,
+   "pose_delta": {
+    "leg_L_pitch": -1.0,
+    "knee_L_pitch": 4.5,
+    "knee_R_pitch": -2.5,
+    "foot_L_yaw": 7.0,
+    "foot_R_yaw": 8.5,
+    "arm_L_pitch": 8.5,
+    "arm_L_roll": -6.0,
+    "fore_L_pitch": 6.0,
+    "grip_x": -0.0375,
+    "grip_z": 0.0075
+   }
+  },
+  "SW": {
+   "iou": 0.8927668489811541,
+   "band_iou": {
+    "helm_head": {
+     "iou": 0.8652206236060699,
+     "proxy_only_px": 1775,
+     "still_only_px": 1307
+    },
+    "torso_arms": {
+     "iou": 0.9467671152720889,
+     "proxy_only_px": 2643,
+     "still_only_px": 996
+    },
+    "tabard_fauld": {
+     "iou": 0.9398466725165104,
+     "proxy_only_px": 1082,
+     "still_only_px": 1523
+    },
+    "legs": {
+     "iou": 0.7900182940772925,
+     "proxy_only_px": 2672,
+     "still_only_px": 8347
+    },
+    "feet": {
+     "iou": 0.9147299246674147,
+     "proxy_only_px": 552,
+     "still_only_px": 512
+    }
+   },
+   "alpha": 327.0,
+   "nominal_alpha": 315,
+   "alpha_residual": 12.0,
+   "scale_px_per_m": 501.96992662776216,
+   "proxy_only_px": 8657,
+   "still_only_px": 12635,
+   "excluded_px": 55349,
+   "pose_delta": {
+    "leg_R_splay": 1.0,
+    "knee_R_pitch": -8.5,
+    "foot_L_yaw": -3.5,
+    "foot_R_yaw": 8.5
+   }
+  }
+ },
+ "mean_iou": 0.8920214486648332
+}

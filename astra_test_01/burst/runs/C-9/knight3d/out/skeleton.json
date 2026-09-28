@@ -1,0 +1,305 @@
+{
+ "note": "C-9 knight3d M-a: fitted knight proxy, standard humanoid skeleton.",
+ "skeleton_standard": "Mixamo humanoid (bone names as emitted by Mixamo without the 'mixamorig:' namespace); any Mixamo/Rigify humanoid clip retargets onto it.",
+ "rigify_map": {
+  "Hips": "spine",
+  "Spine": "spine.001",
+  "Spine1": "spine.002",
+  "Spine2": "spine.003",
+  "Neck": "spine.004",
+  "Head": "spine.006",
+  "LeftShoulder": "shoulder.L",
+  "LeftArm": "upper_arm.L",
+  "LeftForeArm": "forearm.L",
+  "LeftHand": "hand.L",
+  "RightShoulder": "shoulder.R",
+  "RightArm": "upper_arm.R",
+  "RightForeArm": "forearm.R",
+  "RightHand": "hand.R",
+  "LeftUpLeg": "thigh.L",
+  "LeftLeg": "shin.L",
+  "LeftFoot": "foot.L",
+  "LeftToeBase": "toe.L",
+  "RightUpLeg": "thigh.R",
+  "RightLeg": "shin.R",
+  "RightFoot": "foot.R",
+  "RightToeBase": "toe.R"
+ },
+ "non_standard_bones": {
+  "TAB_F_01..03 / TAB_B_01..03": "tabard pendulum below the waist (R-C9-36); above the waist the tabard is weighted 1.0 to Hips and is RIGID",
+  "SKIRT_F/B/L/R": "mail-skirt quadrant links",
+  "SOCK_WeaponMain": "weapon parent socket on the main (right) hand",
+  "SOCK_WeaponGripFar": "far-hand grip socket up the haft; the off hand IK-locks to it so it cannot drift (Matt defect 3)",
+  "SOCK_OffHand": "off-hand attachment"
+ },
+ "bones": [
+  "Hips",
+  "Spine",
+  "Spine1",
+  "Spine2",
+  "Neck",
+  "Head",
+  "LeftShoulder",
+  "LeftArm",
+  "LeftForeArm",
+  "LeftHand",
+  "SOCK_OffHand",
+  "RightShoulder",
+  "RightArm",
+  "RightForeArm",
+  "RightHand",
+  "SOCK_WeaponMain",
+  "SOCK_WeaponGripFar",
+  "LeftUpLeg",
+  "LeftLeg",
+  "LeftFoot",
+  "LeftToeBase",
+  "RightUpLeg",
+  "RightLeg",
+  "RightFoot",
+  "RightToeBase",
+  "TAB_F_01",
+  "TAB_F_02",
+  "TAB_F_03",
+  "TAB_B_01",
+  "TAB_B_02",
+  "TAB_B_03",
+  "SKIRT_F",
+  "SKIRT_B",
+  "SKIRT_L",
+  "SKIRT_R"
+ ],
+ "rigid_pieces": {
+  "helm": "Head",
+  "visor": "Head",
+  "gorget": "Neck",
+  "breastplate": "Spine2",
+  "waist_plate": "Spine",
+  "fauld": "Hips",
+  "pauldron_L": "LeftArm",
+  "rerebrace_L": "LeftArm",
+  "couter_L": "LeftForeArm",
+  "vambrace_L": "LeftForeArm",
+  "gauntlet_L": "LeftHand",
+  "cuisse_L": "LeftUpLeg",
+  "poleyn_L": "LeftLeg",
+  "greave_L": "LeftLeg",
+  "sabaton_L": "LeftFoot",
+  "sabaton_toe_L": "LeftToeBase",
+  "pauldron_R": "RightArm",
+  "rerebrace_R": "RightArm",
+  "couter_R": "RightForeArm",
+  "vambrace_R": "RightForeArm",
+  "gauntlet_R": "RightHand",
+  "cuisse_R": "RightUpLeg",
+  "poleyn_R": "RightLeg",
+  "greave_R": "RightLeg",
+  "sabaton_R": "RightFoot",
+  "sabaton_toe_R": "RightToeBase"
+ },
+ "deforming_pieces": [
+  "mail_skirt",
+  "tabard_front",
+  "tabard_back"
+ ],
+ "joints": {
+  "Hips": [
+   0.0,
+   0.0,
+   0.9251
+  ],
+  "Spine": [
+   0.0,
+   0.0,
+   1.0151
+  ],
+  "Spine1": [
+   0.0,
+   0.0,
+   1.1619
+  ],
+  "Spine2": [
+   0.0,
+   0.0,
+   1.2759
+  ],
+  "Neck": [
+   0.0,
+   0.0,
+   1.405
+  ],
+  "Head": [
+   0.0,
+   0.0,
+   1.47
+  ],
+  "HeadTop_End": [
+   0.0,
+   0.0,
+   1.8
+  ],
+  "LeftShoulder": [
+   -0.045,
+   0.0,
+   1.395
+  ],
+  "LeftArm": [
+   -0.2086,
+   0.0,
+   1.35
+  ],
+  "LeftForeArm": [
+   -0.2485,
+   0.0685,
+   1.0498
+  ],
+  "LeftHand": [
+   -0.2951,
+   0.1487,
+   0.7951
+  ],
+  "LeftHandEnd": [
+   -0.3149,
+   0.1827,
+   0.6871
+  ],
+  "LeftUpLeg": [
+   -0.1423,
+   0.0,
+   0.9251
+  ],
+  "LeftLeg": [
+   -0.1641,
+   -0.0145,
+   0.4056
+  ],
+  "LeftFoot": [
+   -0.1757,
+   -0.0222,
+   0.1295
+  ],
+  "LeftToeBase": [
+   -0.2524,
+   0.1197,
+   0.0549
+  ],
+  "LeftToe_End": [
+   -0.2919,
+   0.1927,
+   0.0355
+  ],
+  "RightShoulder": [
+   0.045,
+   0.0,
+   1.395
+  ],
+  "RightArm": [
+   0.2086,
+   0.0,
+   1.35
+  ],
+  "RightForeArm": [
+   0.2339,
+   0.1032,
+   1.0583
+  ],
+  "RightHand": [
+   0.1413,
+   0.2639,
+   1.2559
+  ],
+  "RightHandEnd": [
+   0.1019,
+   0.3321,
+   1.3397
+  ],
+  "RightUpLeg": [
+   0.1423,
+   0.0,
+   0.9251
+  ],
+  "RightLeg": [
+   0.2002,
+   -0.0218,
+   0.4087
+  ],
+  "RightFoot": [
+   0.231,
+   -0.0334,
+   0.1341
+  ],
+  "RightToeBase": [
+   0.2788,
+   0.1208,
+   0.0595
+  ],
+  "RightToe_End": [
+   0.3033,
+   0.2,
+   0.0401
+  ]
+ },
+ "params": {
+  "z_crown": 1.8,
+  "z_neck": 1.47,
+  "z_shoulder": 1.35,
+  "z_elbow": 1.185,
+  "z_waist": 1.161888,
+  "z_hip": 0.925130976,
+  "z_knee": 0.4049725075,
+  "z_ankle": 0.12847999999999998,
+  "helm_rx": 0.13138271999999998,
+  "helm_ry": 0.1734251904,
+  "helm_rz": 0.1622576592,
+  "helm_y": 0.014276361673728,
+  "visor_r": 0.08441058634657432,
+  "visor_y": 0.108390744,
+  "gorget_r": 0.1565661597696,
+  "gorget_h": 0.085,
+  "chest_rx": 0.26276543999999996,
+  "chest_ry": 0.18255283200000003,
+  "chest_rz": 0.28461646079999997,
+  "waist_rx": 0.152,
+  "waist_ry": 0.12544,
+  "fauld_r_top": 0.1991115,
+  "fauld_r_bot": 0.16627287600000001,
+  "fauld_z_bot": 1.0248448,
+  "skirt_r_top": 0.21829500000000002,
+  "skirt_r_bot": 0.232848,
+  "skirt_z_bot": 0.6958145039999999,
+  "tabard_half_w": 0.2309051304,
+  "tabard_y": 0.15,
+  "tabard_z_bot": 0.7392000000000001,
+  "tabard_t": 0.017036799999999998,
+  "shoulder_x": 0.2085726956544,
+  "pauldron_r": 0.057726573132799996,
+  "uparm_r": 0.08308461791131731,
+  "forearm_r": 0.08920471883710464,
+  "gauntlet_r": 0.044566644469282414,
+  "arm_len_upper": 0.310464,
+  "arm_len_fore": 0.27104000000000006,
+  "hip_x": 0.14230823039999999,
+  "thigh_r": 0.12446784,
+  "shin_r": 0.09219840000000001,
+  "poleyn_r": 0.1100245918464,
+  "foot_len": 0.2942034479999999,
+  "foot_w": 0.12139763328000001,
+  "foot_h": 0.10773383040000001,
+  "toe_frac": 0.2818711866432,
+  "foot_heel_back": 0.1695172248,
+  "arm_L_pitch": 14.8,
+  "arm_L_roll": 30.199999999999996,
+  "fore_L_pitch": 5.199999999999999,
+  "grip_x": 0.14126650429622611,
+  "grip_y": 0.2639333259607968,
+  "grip_z": 1.2558524999999998,
+  "leg_L_pitch": -1.6,
+  "leg_L_splay": -2.4,
+  "foot_L_yaw": 28.4,
+  "leg_R_pitch": -2.4,
+  "leg_R_splay": -6.4,
+  "foot_R_yaw": -17.200000000000003,
+  "knee_L_pitch": 0.0,
+  "knee_R_pitch": 0.0
+ }
+}

@@ -1,0 +1,312 @@
+{
+ "note": "C-9 knight3d M-a silhouette IoU, full resolution (1024x1536). The pollaxe and the matte-cut ambiguity band are excluded from BOTH masks.",
+ "theta_elevation_deg": 19.765049365787767,
+ "variant": "canonical",
+ "views": {
+  "S": {
+   "iou": 0.8825614606411659,
+   "band_iou": {
+    "helm_head": {
+     "iou": 0.7600492206726825,
+     "proxy_only_px": 1139,
+     "still_only_px": 4126
+    },
+    "torso_arms": {
+     "iou": 0.9558459588338263,
+     "proxy_only_px": 1808,
+     "still_only_px": 1118
+    },
+    "tabard_fauld": {
+     "iou": 0.9124599094943104,
+     "proxy_only_px": 3844,
+     "still_only_px": 141
+    },
+    "legs": {
+     "iou": 0.8491295461820689,
+     "proxy_only_px": 3461,
+     "still_only_px": 2666
+    },
+    "feet": {
+     "iou": 0.7219653179190751,
+     "proxy_only_px": 1365,
+     "still_only_px": 2483
+    }
+   },
+   "alpha": 1.5,
+   "nominal_alpha": 0,
+   "alpha_residual": 1.5,
+   "scale_px_per_m": 498.36415208931595,
+   "proxy_only_px": 11487,
+   "still_only_px": 10511,
+   "excluded_px": 66913,
+   "pose_delta": {}
+  },
+  "SE": {
+   "iou": 0.8791645002599688,
+   "band_iou": {
+    "helm_head": {
+     "iou": 0.8309402300839028,
+     "proxy_only_px": 2269,
+     "still_only_px": 1640
+    },
+    "torso_arms": {
+     "iou": 0.9467699314067244,
+     "proxy_only_px": 2341,
+     "still_only_px": 1446
+    },
+    "tabard_fauld": {
+     "iou": 0.8938148926683228,
+     "proxy_only_px": 1823,
+     "still_only_px": 3178
+    },
+    "legs": {
+     "iou": 0.8581508723913788,
+     "proxy_only_px": 2428,
+     "still_only_px": 4206
+    },
+    "feet": {
+     "iou": 0.616197730452355,
+     "proxy_only_px": 1778,
+     "still_only_px": 3160
+    }
+   },
+   "alpha": 33.5,
+   "nominal_alpha": 45,
+   "alpha_residual": -11.5,
+   "scale_px_per_m": 485.69158511933637,
+   "proxy_only_px": 10616,
+   "still_only_px": 13554,
+   "excluded_px": 55934,
+   "pose_delta": {}
+  },
+  "E": {
+   "iou": 0.864552282474752,
+   "band_iou": {
+    "helm_head": {
+     "iou": 0.8919901337141374,
+     "proxy_only_px": 1231,
+     "still_only_px": 1265
+    },
+    "torso_arms": {
+     "iou": 0.9165724337228295,
+     "proxy_only_px": 1903,
+     "still_only_px": 2081
+    },
+    "tabard_fauld": {
+     "iou": 0.9099244207657043,
+     "proxy_only_px": 804,
+     "still_only_px": 2104
+    },
+    "legs": {
+     "iou": 0.7655792276964047,
+     "proxy_only_px": 2308,
+     "still_only_px": 4734
+    },
+    "feet": {
+     "iou": 0.7312882472932685,
+     "proxy_only_px": 1487,
+     "still_only_px": 1938
+    }
+   },
+   "alpha": 87.5,
+   "nominal_alpha": 90,
+   "alpha_residual": -2.5,
+   "scale_px_per_m": 475.9849931592279,
+   "proxy_only_px": 7608,
+   "still_only_px": 12067,
+   "excluded_px": 60354,
+   "pose_delta": {}
+  },
+  "NE": {
+   "iou": 0.8641303288434923,
+   "band_iou": {
+    "helm_head": {
+     "iou": 0.7811553985872856,
+     "proxy_only_px": 1671,
+     "still_only_px": 3534
+    },
+    "torso_arms": {
+     "iou": 0.9055481713917702,
+     "proxy_only_px": 4212,
+     "still_only_px": 2681
+    },
+    "tabard_fauld": {
+     "iou": 0.9110819917633844,
+     "proxy_only_px": 2998,
+     "still_only_px": 802
+    },
+    "legs": {
+     "iou": 0.8269572769758882,
+     "proxy_only_px": 4721,
+     "still_only_px": 3647
+    },
+    "feet": {
+     "iou": 0.7948633519920975,
+     "proxy_only_px": 1638,
+     "still_only_px": 2100
+    }
+   },
+   "alpha": 144.5,
+   "nominal_alpha": 135,
+   "alpha_residual": 9.5,
+   "scale_px_per_m": 500.33693611464514,
+   "proxy_only_px": 15164,
+   "still_only_px": 12717,
+   "excluded_px": 54905,
+   "pose_delta": {}
+  },
+  "N": {
+   "iou": 0.9016366252835435,
+   "band_iou": {
+    "helm_head": {
+     "iou": 0.88285116587581,
+     "proxy_only_px": 601,
+     "still_only_px": 1695
+    },
+    "torso_arms": {
+     "iou": 0.9511086411308709,
+     "proxy_only_px": 986,
+     "still_only_px": 2445
+    },
+    "tabard_fauld": {
+     "iou": 0.8942730380983394,
+     "proxy_only_px": 2862,
+     "still_only_px": 2333
+    },
+    "legs": {
+     "iou": 0.8789608846064053,
+     "proxy_only_px": 4338,
+     "still_only_px": 1365
+    },
+    "feet": {
+     "iou": 0.8149043303121853,
+     "proxy_only_px": 2447,
+     "still_only_px": 1229
+    }
+   },
+   "alpha": 182.0,
+   "nominal_alpha": 180,
+   "alpha_residual": 2.0,
+   "scale_px_per_m": 515.9330004941172,
+   "proxy_only_px": 11125,
+   "still_only_px": 9039,
+   "excluded_px": 57465,
+   "pose_delta": {}
+  },
+  "NW": {
+   "iou": 0.854873046657304,
+   "band_iou": {
+    "helm_head": {
+     "iou": 0.71024,
+     "proxy_only_px": 3045,
+     "still_only_px": 4199
+    },
+    "torso_arms": {
+     "iou": 0.892339911397503,
+     "proxy_only_px": 356,
+     "still_only_px": 6327
+    },
+    "tabard_fauld": {
+     "iou": 0.8982868096322032,
+     "proxy_only_px": 2759,
+     "still_only_px": 1486
+    },
+    "legs": {
+     "iou": 0.8566607745460388,
+     "proxy_only_px": 4109,
+     "still_only_px": 1243
+    },
+    "feet": {
+     "iou": 0.8108509584777535,
+     "proxy_only_px": 1692,
+     "still_only_px": 982
+    }
+   },
+   "alpha": 223.0,
+   "nominal_alpha": 225,
+   "alpha_residual": -2.0,
+   "scale_px_per_m": 495.28413958861535,
+   "proxy_only_px": 11882,
+   "still_only_px": 14159,
+   "excluded_px": 65485,
+   "pose_delta": {}
+  },
+  "W": {
+   "iou": 0.862640777494724,
+   "band_iou": {
+    "helm_head": {
+     "iou": 0.8220904680956922,
+     "proxy_only_px": 3783,
+     "still_only_px": 508
+    },
+    "torso_arms": {
+     "iou": 0.9062974914125117,
+     "proxy_only_px": 2948,
+     "still_only_px": 1553
+    },
+    "tabard_fauld": {
+     "iou": 0.878801703163017,
+     "proxy_only_px": 3171,
+     "still_only_px": 814
+    },
+    "legs": {
+     "iou": 0.8531980941380306,
+     "proxy_only_px": 2181,
+     "still_only_px": 1886
+    },
+    "feet": {
+     "iou": 0.7819564908289492,
+     "proxy_only_px": 771,
+     "still_only_px": 2296
+    }
+   },
+   "alpha": 273.0,
+   "nominal_alpha": 270,
+   "alpha_residual": 3.0,
+   "scale_px_per_m": 490.29596992829505,
+   "proxy_only_px": 13077,
+   "still_only_px": 7035,
+   "excluded_px": 47895,
+   "pose_delta": {}
+  },
+  "SW": {
+   "iou": 0.8822884390970183,
+   "band_iou": {
+    "helm_head": {
+     "iou": 0.8713832039520113,
+     "proxy_only_px": 1580,
+     "still_only_px": 1336
+    },
+    "torso_arms": {
+     "iou": 0.9447746518146729,
+     "proxy_only_px": 2422,
+     "still_only_px": 1341
+    },
+    "tabard_fauld": {
+     "iou": 0.9337517594665067,
+     "proxy_only_px": 1113,
+     "still_only_px": 1758
+    },
+    "legs": {
+     "iou": 0.7743233288631169,
+     "proxy_only_px": 3139,
+     "still_only_px": 8809
+    },
+    "feet": {
+     "iou": 0.8374644774234291,
+     "proxy_only_px": 742,
+     "still_only_px": 1317
+    }
+   },
+   "alpha": 324.0,
+   "nominal_alpha": 315,
+   "alpha_residual": 9.0,
+   "scale_px_per_m": 501.3396120384302,
+   "proxy_only_px": 8907,
+   "still_only_px": 14495,
+   "excluded_px": 55349,
+   "pose_delta": {}
+  }
+ },
+ "mean_iou": 0.8739809325939961
+}

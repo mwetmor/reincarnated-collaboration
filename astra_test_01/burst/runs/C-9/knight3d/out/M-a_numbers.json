@@ -1,0 +1,382 @@
+{
+ "note": "C-9 knight3d GATE M-a: the fitted orthographic camera and the fitted knight body, measured against the eight approved stills. Silhouette IoU excludes the pollaxe and the matte-cut ambiguity band from BOTH masks.",
+ "inputs": {
+  "stills": {
+   "N": "seed_N.png",
+   "NE": "seed_NE.png",
+   "E": "seed_E.png",
+   "SE": "seed_SE.png",
+   "S": "seed_S_v2.png",
+   "SW": "seed_SW_v2.png",
+   "W": "seed_W.png",
+   "NW": "seed_NW.png"
+  },
+  "still_size_px": [
+   1024,
+   1536
+  ],
+  "figure_height_px_per_view": {
+   "S": 896,
+   "SE": 900,
+   "E": 878,
+   "NE": 892,
+   "N": 909,
+   "NW": 892,
+   "W": 881,
+   "SW": 906
+  },
+  "E_joint_marks_source": "cliffside_B/frames/knight_rig_E.json (probe R-C9-34)"
+ },
+ "camera": {
+  "projection": "orthographic",
+  "elevation_theta_deg": 19.765049365787767,
+  "elevation_source": "02b_elevation_probe.py, ground-contact least squares over the six views that resolve two feet",
+  "elevation_leave_one_out_deg": [
+   18.2,
+   23.1
+  ],
+  "elevation_independent_confirmation": "the silhouette IoU of the FITTED body peaks at theta=20 deg (pass 5 sweep), i.e. the two instruments agree; on the DEFAULT body the same sweep was flat (0.651 at 0 deg to 0.684 at 35 deg) and would have put the camera at 35 deg.",
+  "theta_sensitivity_mean_iou": {
+   "0": 0.8600093094870609,
+   "5": 0.8652780641055219,
+   "10": 0.8689678787109192,
+   "15": 0.8739146408358821,
+   "20": 0.8782312780007592,
+   "25": 0.8746056459508713,
+   "30": 0.8636916376869923,
+   "35": 0.8443507901310421,
+   "40": 0.8208183894054248
+  },
+  "azimuth_convention": "alpha about +Z; screen right r=(-cos a, sin a, 0); screen up u=(-sin t sin a, -sin t cos a, cos t). Nominal S 0, SE 45, E 90, NE 135, N 180, NW 225, W 270, SW 315.",
+  "per_view": {
+   "S": {
+    "alpha_fitted_deg": 1.5,
+    "alpha_nominal_deg": 0,
+    "alpha_residual_deg": 1.5,
+    "scale_px_per_m": 498.36415208931595,
+    "origin_px": [
+     539.713372078632,
+     1264.0622040381131
+    ]
+   },
+   "SE": {
+    "alpha_fitted_deg": 33.5,
+    "alpha_nominal_deg": 45,
+    "alpha_residual_deg": -11.5,
+    "scale_px_per_m": 485.69158511933637,
+    "origin_px": [
+     529.2878580981373,
+     1228.093319970781
+    ]
+   },
+   "E": {
+    "alpha_fitted_deg": 87.5,
+    "alpha_nominal_deg": 90,
+    "alpha_residual_deg": -2.5,
+    "scale_px_per_m": 475.9849931592279,
+    "origin_px": [
+     445.71304261846046,
+     1222.5121081522148
+    ]
+   },
+   "NE": {
+    "alpha_fitted_deg": 144.5,
+    "alpha_nominal_deg": 135,
+    "alpha_residual_deg": 9.5,
+    "scale_px_per_m": 500.33693611464514,
+    "origin_px": [
+     461.9661574785482,
+     1270.0870228406957
+    ]
+   },
+   "N": {
+    "alpha_fitted_deg": 182.0,
+    "alpha_nominal_deg": 180,
+    "alpha_residual_deg": 2.0,
+    "scale_px_per_m": 515.9330004941172,
+    "origin_px": [
+     497.2313724076558,
+     1290.4320442308078
+    ]
+   },
+   "NW": {
+    "alpha_fitted_deg": 223.0,
+    "alpha_nominal_deg": 225,
+    "alpha_residual_deg": -2.0,
+    "scale_px_per_m": 495.28413958861535,
+    "origin_px": [
+     503.02334551169724,
+     1260.0901503982927
+    ]
+   },
+   "W": {
+    "alpha_fitted_deg": 273.0,
+    "alpha_nominal_deg": 270,
+    "alpha_residual_deg": 3.0,
+    "scale_px_per_m": 490.29596992829505,
+    "origin_px": [
+     560.3607845397298,
+     1250.642149119888
+    ]
+   },
+   "SW": {
+    "alpha_fitted_deg": 324.0,
+    "alpha_nominal_deg": 315,
+    "alpha_residual_deg": 9.0,
+    "scale_px_per_m": 501.3396120384302,
+    "origin_px": [
+     554.5239758601755,
+     1251.8505816133252
+    ]
+   }
+  },
+  "azimuth_residual_range_deg": [
+   -11.5,
+   9.5
+  ],
+  "scale_spread_pct": 8.063726489478485,
+  "scale_mean_px_per_m": 495.4037985664979,
+  "figure_height_m": 1.8
+ },
+ "iou": {
+  "headline": "one body, one rest pose, camera only per view",
+  "blender_mesh_vs_still": {
+   "S": 0.8808177933697344,
+   "SE": 0.873847758708888,
+   "E": 0.8599621594000746,
+   "NE": 0.8629368300959227,
+   "N": 0.9010887518447209,
+   "NW": 0.8524503148449242,
+   "W": 0.8564302159850894,
+   "SW": 0.8806379443566267
+  },
+  "blender_mesh_vs_still_mean": 0.8710214710757477,
+  "analytic_proxy_vs_still_mean": 0.8739809325939961,
+  "blender_mesh_vs_analytic_proxy_mean": 0.9871675355189389,
+  "band_iou_mean": {
+   "helm_head": 0.8188374776226902,
+   "torso_arms": 0.9274071488888387,
+   "tabard_fauld": 0.9040493156314735,
+   "legs": 0.8328700006749166,
+   "feet": 0.7636863630873891
+  },
+  "pose_fitted_mean": 0.8947959661523331,
+  "pose_fitted_note": "per-view leg/arm/grip deltas allowed; the GAIN over the canonical fit is the part of the residual that is the stills DISAGREEING, not the body being wrong."
+ },
+ "disagreements": {
+  "pollaxe_no_single_grip_point": {
+   "grip_point_over_H": [
+    0.2262424411834145,
+    0.09483340751619654
+   ],
+   "rms_residual_over_H": 0.056605175540182684,
+   "per_view": {
+    "S": {
+     "alpha": 1.5,
+     "measured": -0.19113751834797288,
+     "predicted": -0.22368246434294103,
+     "residual": -0.032544945994968155
+    },
+    "SE": {
+     "alpha": 33.5,
+     "measured": -0.19407985064699493,
+     "predicted": -0.13631829900135517,
+     "residual": 0.05776155164563976
+    },
+    "E": {
+     "alpha": 87.5,
+     "measured": 0.16920312189126893,
+     "predicted": 0.08487459044514513,
+     "residual": -0.0843285314461238
+    },
+    "NE": {
+     "alpha": 144.5,
+     "measured": 0.21662375303301254,
+     "predicted": 0.23925752232302994,
+     "residual": 0.022633769290017397
+    },
+    "N": {
+     "alpha": 182.0,
+     "measured": 0.1982031358219155,
+     "predicted": 0.2227949822082133,
+     "residual": 0.0245918463862978
+    },
+    "NW": {
+     "alpha": 223.0,
+     "measured": 0.19210984751812768,
+     "predicted": 0.10078701841766301,
+     "residual": -0.09132282910046467
+    },
+    "W": {
+     "alpha": 273.0,
+     "measured": -0.1557991137749438,
+     "predicted": -0.10654405612916225,
+     "residual": 0.049255057645781544
+    },
+    "SW": {
+     "alpha": 324.0,
+     "measured": -0.19141186003661015,
+     "predicted": -0.23877565812891932,
+     "residual": -0.04736379809230917
+    }
+   }
+  },
+  "ground_contact_stance": {
+   "theta_deg": 19.765049365787767,
+   "stance_lateral_over_Hb": -0.24590202425483945,
+   "stance_foreaft_over_Hb": 0.0035403033691033658,
+   "rms_residual_over_H": 0.02532541601646788,
+   "views_used": [
+    "S",
+    "SE",
+    "NE",
+    "N",
+    "NW",
+    "SW"
+   ]
+  },
+  "per_view_pose_delta": {
+   "S": {
+    "leg_L_pitch": 1.0,
+    "leg_R_pitch": 8.5,
+    "leg_R_splay": 1.0,
+    "foot_L_yaw": -2.5,
+    "foot_R_yaw": 3.5,
+    "arm_L_roll": 1.5,
+    "fore_L_pitch": -6.0
+   },
+   "SE": {
+    "leg_R_splay": -1.0,
+    "knee_L_pitch": 7.0,
+    "knee_R_pitch": 1.0,
+    "foot_L_yaw": 9.5,
+    "foot_R_yaw": -1.0,
+    "arm_L_roll": -1.5
+   },
+   "E": {
+    "leg_L_splay": -6.0,
+    "knee_L_pitch": 5.0,
+    "foot_R_yaw": -4.5,
+    "arm_L_pitch": -6.0,
+    "fore_L_pitch": 8.5,
+    "grip_x": -0.045
+   },
+   "NE": {
+    "leg_L_pitch": -1.5,
+    "leg_L_splay": -1.0,
+    "knee_L_pitch": -2.5,
+    "knee_R_pitch": 2.5,
+    "foot_L_yaw": -8.5,
+    "foot_R_yaw": -4.5,
+    "arm_L_roll": -2.5,
+    "grip_y": 0.015,
+    "grip_z": -0.0525
+   },
+   "N": {
+    "leg_R_pitch": -1.0,
+    "knee_L_pitch": 2.5,
+    "knee_R_pitch": -1.0,
+    "foot_R_yaw": -3.5,
+    "arm_L_pitch": 2.5,
+    "arm_L_roll": 8.5,
+    "fore_L_pitch": -8.5,
+    "grip_x": -0.0075,
+    "grip_y": -0.045,
+    "grip_z": -0.045
+   },
+   "NW": {
+    "leg_L_pitch": -6.0,
+    "leg_R_pitch": -6.0,
+    "leg_L_splay": 1.0,
+    "leg_R_splay": -1.0,
+    "knee_L_pitch": 7.0,
+    "knee_R_pitch": 1.0,
+    "foot_L_yaw": 6.0,
+    "foot_R_yaw": -7.5,
+    "arm_L_roll": 9.5,
+    "fore_L_pitch": -7.0
+   },
+   "W": {
+    "leg_L_pitch": -1.0,
+    "leg_R_splay": 2.5,
+    "foot_L_yaw": 1.0,
+    "foot_R_yaw": 3.5,
+    "arm_L_pitch": 6.0,
+    "arm_L_roll": -1.0,
+    "grip_x": -0.0225,
+    "grip_z": -0.03
+   },
+   "SW": {
+    "leg_R_splay": 1.0,
+    "knee_R_pitch": -9.5,
+    "foot_L_yaw": -3.5,
+    "foot_R_yaw": 7.0,
+    "arm_L_roll": 2.5,
+    "grip_x": -0.03
+   }
+  }
+ },
+ "body_params": {
+  "z_crown": 1.8,
+  "z_neck": 1.47,
+  "z_shoulder": 1.35,
+  "z_elbow": 1.185,
+  "z_waist": 1.161888,
+  "z_hip": 0.925130976,
+  "z_knee": 0.4049725075,
+  "z_ankle": 0.12847999999999998,
+  "helm_rx": 0.13138271999999998,
+  "helm_ry": 0.1734251904,
+  "helm_rz": 0.1622576592,
+  "helm_y": 0.014276361673728,
+  "visor_r": 0.08441058634657432,
+  "visor_y": 0.108390744,
+  "gorget_r": 0.1565661597696,
+  "gorget_h": 0.085,
+  "chest_rx": 0.26276543999999996,
+  "chest_ry": 0.18255283200000003,
+  "chest_rz": 0.28461646079999997,
+  "waist_rx": 0.152,
+  "waist_ry": 0.12544,
+  "fauld_r_top": 0.1991115,
+  "fauld_r_bot": 0.16627287600000001,
+  "fauld_z_bot": 1.0248448,
+  "skirt_r_top": 0.21829500000000002,
+  "skirt_r_bot": 0.232848,
+  "skirt_z_bot": 0.6958145039999999,
+  "tabard_half_w": 0.2309051304,
+  "tabard_y": 0.15,
+  "tabard_z_bot": 0.7392000000000001,
+  "tabard_t": 0.017036799999999998,
+  "shoulder_x": 0.2085726956544,
+  "pauldron_r": 0.057726573132799996,
+  "uparm_r": 0.08308461791131731,
+  "forearm_r": 0.08920471883710464,
+  "gauntlet_r": 0.044566644469282414,
+  "arm_len_upper": 0.310464,
+  "arm_len_fore": 0.27104000000000006,
+  "hip_x": 0.14230823039999999,
+  "thigh_r": 0.12446784,
+  "shin_r": 0.09219840000000001,
+  "poleyn_r": 0.1100245918464,
+  "foot_len": 0.2942034479999999,
+  "foot_w": 0.12139763328000001,
+  "foot_h": 0.10773383040000001,
+  "toe_frac": 0.2818711866432,
+  "foot_heel_back": 0.1695172248,
+  "arm_L_pitch": 14.8,
+  "arm_L_roll": 30.199999999999996,
+  "fore_L_pitch": 5.199999999999999,
+  "grip_x": 0.14126650429622611,
+  "grip_y": 0.2639333259607968,
+  "grip_z": 1.2558524999999998,
+  "leg_L_pitch": -1.6,
+  "leg_L_splay": -2.4,
+  "foot_L_yaw": 28.4,
+  "leg_R_pitch": -2.4,
+  "leg_R_splay": -6.4,
+  "foot_R_yaw": -17.200000000000003,
+  "knee_L_pitch": 0.0,
+  "knee_R_pitch": 0.0
+ }
+}
