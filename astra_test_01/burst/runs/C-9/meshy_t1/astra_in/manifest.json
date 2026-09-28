@@ -1,0 +1,141 @@
+{
+ "note": "C-9 meshy_t1 step 5: build the Astra paint canvases and their layout JSONs.",
+ "cell_px": 512,
+ "grid": [
+  4,
+  3
+ ],
+ "plate": "#00ff00",
+ "full_paint_dirs": [
+  "E",
+  "SE"
+ ],
+ "sheets": [
+  {
+   "file": "meshy_walk_E.png",
+   "kind": "full",
+   "state": "walk",
+   "dir": "E",
+   "part": 0,
+   "cells": 12
+  },
+  {
+   "file": "meshy_walk_SE.png",
+   "kind": "full",
+   "state": "walk",
+   "dir": "SE",
+   "part": 0,
+   "cells": 12
+  },
+  {
+   "file": "meshy_run_E.png",
+   "kind": "full",
+   "state": "run",
+   "dir": "E",
+   "part": 0,
+   "cells": 8
+  },
+  {
+   "file": "meshy_run_SE.png",
+   "kind": "full",
+   "state": "run",
+   "dir": "SE",
+   "part": 0,
+   "cells": 8
+  },
+  {
+   "file": "meshy_idle_E.png",
+   "kind": "full",
+   "state": "idle",
+   "dir": "E",
+   "part": 0,
+   "cells": 12
+  },
+  {
+   "file": "meshy_idle_SE.png",
+   "kind": "full",
+   "state": "idle",
+   "dir": "SE",
+   "part": 0,
+   "cells": 12
+  },
+  {
+   "file": "meshy_attack_E_p0.png",
+   "kind": "full",
+   "state": "attack",
+   "dir": "E",
+   "part": 0,
+   "cells": 12
+  },
+  {
+   "file": "meshy_attack_E_p1.png",
+   "kind": "full",
+   "state": "attack",
+   "dir": "E",
+   "part": 1,
+   "cells": 12
+  },
+  {
+   "file": "meshy_attack_E_p2.png",
+   "kind": "full",
+   "state": "attack",
+   "dir": "E",
+   "part": 2,
+   "cells": 12
+  },
+  {
+   "file": "meshy_attack_SE_p0.png",
+   "kind": "full",
+   "state": "attack",
+   "dir": "SE",
+   "part": 0,
+   "cells": 12
+  },
+  {
+   "file": "meshy_attack_SE_p1.png",
+   "kind": "full",
+   "state": "attack",
+   "dir": "SE",
+   "part": 1,
+   "cells": 12
+  },
+  {
+   "file": "meshy_attack_SE_p2.png",
+   "kind": "full",
+   "state": "attack",
+   "dir": "SE",
+   "part": 2,
+   "cells": 12
+  },
+  {
+   "file": "meshy_keys_p0.png",
+   "kind": "keys",
+   "part": 0,
+   "cells": 12
+  },
+  {
+   "file": "meshy_keys_p1.png",
+   "kind": "keys",
+   "part": 1,
+   "cells": 12
+  },
+  {
+   "file": "meshy_keys_p2.png",
+   "kind": "keys",
+   "part": 2,
+   "cells": 12
+  },
+  {
+   "file": "meshy_keys_p3.png",
+   "kind": "keys",
+   "part": 3,
+   "cells": 12
+  }
+ ],
+ "totals": {
+  "sheets": 16,
+  "full": 12,
+  "key": 4,
+  "key_cells": 48
+ }
+}

@@ -1,0 +1,132 @@
+{
+ "name": "run",
+ "source": "run.glb",
+ "fps": 24,
+ "skinned_meshes": [
+  "char1"
+ ],
+ "ignored_unskinned": [
+  "Icosphere"
+ ],
+ "role_map": {
+  "hips": "Hips",
+  "spine": "Spine",
+  "head": "Head",
+  "neck": "neck",
+  "l_upleg": "LeftUpLeg",
+  "r_upleg": "RightUpLeg",
+  "l_leg": "LeftLeg",
+  "r_leg": "RightLeg",
+  "l_foot": "LeftFoot",
+  "r_foot": "RightFoot",
+  "l_toe": "LeftToeBase",
+  "r_toe": "RightToeBase",
+  "l_hand": "LeftHand",
+  "r_hand": "RightHand",
+  "l_arm": "LeftArm",
+  "r_arm": "RightArm",
+  "l_fore": "LeftForeArm",
+  "r_fore": "RightForeArm"
+ },
+ "unmapped_bones": [
+  "Spine02",
+  "Spine01",
+  "LeftShoulder",
+  "RightShoulder",
+  "head_end",
+  "headfront"
+ ],
+ "action": "Armature|running|baselayer",
+ "frame_range": [
+  0,
+  16
+ ],
+ "n_frames": 17,
+ "last_frame_duplicates_first": true,
+ "cycle_frames": 16,
+ "cycle_period_s": 0.66667,
+ "character_height_m": 1.7852,
+ "char_lowest_z": [
+  -0.03205,
+  -0.0422,
+  0.00297,
+  0.03327,
+  0.03549,
+  0.00343,
+  -0.04155,
+  -0.03523,
+  -0.03889,
+  0.00109,
+  0.05392,
+  0.03094,
+  0.03782,
+  -0.03843,
+  -0.03902,
+  -0.03455,
+  -0.03205
+ ],
+ "root_linear_drift": {
+  "x": {
+   "per_frame": 0.00040330113737510647,
+   "over_cycle": 0.0064528181980017035
+  },
+  "y": {
+   "per_frame": 0.0002447367886477378,
+   "over_cycle": 0.0039157886183638045
+  }
+ },
+ "root_drift_over_cycle_m": 0.00755,
+ "in_place_already": true,
+ "stance": {
+  "LeftToeBase": {
+   "frames": 4,
+   "fraction": 0.25,
+   "disp_m": [
+    0.0017,
+    0.6071
+   ]
+  },
+  "RightToeBase": {
+   "frames": 4,
+   "fraction": 0.25,
+   "disp_m": [
+    -0.0041,
+    0.6169
+   ]
+  }
+ },
+ "foot_speeds_m_s": {
+  "LeftToeBase": 4.8572,
+  "RightToeBase": 4.9355
+ },
+ "clip_ground_speed_m_s": 4.8964,
+ "clip_stride_m": 3.2642,
+ "game": {
+  "px_s": 494.0,
+  "period_s": 0.5517,
+  "frames": 8,
+  "speed_m_s": 5.9196,
+  "stride_m": 3.2658
+ },
+ "verdict": {
+  "time_scale_to_game_cadence": 1.2084,
+  "speed_after_time_scale_m_s": 5.9167,
+  "speed_ratio_game_over_clip": 1.209,
+  "residual_slide_if_timescaled": 0.0005,
+  "px_s_that_would_plant_the_feet": 493.8
+ },
+ "resample": {
+  "n": 8,
+  "frames": [
+   0.0,
+   2.0,
+   4.0,
+   6.0,
+   8.0,
+   10.0,
+   12.0,
+   14.0
+  ],
+  "out_fps": 14.5006
+ }
+}

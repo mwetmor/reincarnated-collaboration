@@ -1,0 +1,222 @@
+{
+ "state": "run",
+ "source": "run.glb",
+ "frame": 512,
+ "px_per_m": 110.1852,
+ "sole_y": 398.0,
+ "character_height_m": 1.8,
+ "elevation_deg": 19.77,
+ "facing_yaw_corrected_deg": 179.738,
+ "facing_source": "given",
+ "aim_z": 1.2248,
+ "azimuths": {
+  "S": 0,
+  "SE": 45,
+  "E": 90,
+  "NE": 135,
+  "N": 180,
+  "NW": 225,
+  "W": 270,
+  "SW": 315
+ },
+ "dirs": [
+  "S",
+  "SE",
+  "E",
+  "NE",
+  "N",
+  "NW",
+  "W",
+  "SW"
+ ],
+ "frames": 8,
+ "fps": 14.5006,
+ "carry_pose": true,
+ "weapon": "socket_pollaxe.json",
+ "carry": {
+  "mode": "chest-parented carry",
+  "chest_bone": "Spine",
+  "grip_world": [
+   0.3395,
+   0.4271,
+   1.26
+  ],
+  "yaw_deg": 160.0
+ },
+ "guides": {
+  "bind_bbox_lo": [
+   -0.50074,
+   -0.18161,
+   0.0
+  ],
+  "bind_bbox_span": [
+   1.00147,
+   0.36322,
+   1.8
+  ],
+  "bone_colours": {
+   "Hips": [
+    0.7,
+    0.105,
+    0.105
+   ],
+   "LeftUpLeg": [
+    0.3063,
+    1.0,
+    0.075
+   ],
+   "LeftLeg": [
+    0.0,
+    0.35,
+    0.7
+   ],
+   "LeftFoot": [
+    1.0,
+    0.15,
+    0.7875
+   ],
+   "LeftToeBase": [
+    0.7,
+    0.7,
+    0.0525
+   ],
+   "RightUpLeg": [
+    0.0,
+    1.0,
+    0.75
+   ],
+   "RightLeg": [
+    0.4025,
+    0.105,
+    0.7
+   ],
+   "RightFoot": [
+    1.0,
+    0.3063,
+    0.075
+   ],
+   "RightToeBase": [
+    0.0,
+    0.7,
+    0.0
+   ],
+   "Spine02": [
+    0.15,
+    0.3625,
+    1.0
+   ],
+   "Spine01": [
+    0.7,
+    0.0525,
+    0.3763
+   ],
+   "Spine": [
+    0.75,
+    1.0,
+    0.0
+   ],
+   "LeftShoulder": [
+    0.105,
+    0.7,
+    0.7
+   ],
+   "LeftArm": [
+    0.7688,
+    0.075,
+    1.0
+   ],
+   "LeftForeArm": [
+    0.7,
+    0.35,
+    0.0
+   ],
+   "LeftHand": [
+    0.15,
+    1.0,
+    0.3625
+   ],
+   "RightShoulder": [
+    0.0525,
+    0.0525,
+    0.7
+   ],
+   "RightArm": [
+    1.0,
+    0.0,
+    0.25
+   ],
+   "RightForeArm": [
+    0.4025,
+    0.7,
+    0.105
+   ],
+   "RightHand": [
+    0.075,
+    0.7688,
+    1.0
+   ],
+   "neck": [
+    0.7,
+    0.0,
+    0.7
+   ],
+   "Head": [
+    1.0,
+    0.7875,
+    0.15
+   ],
+   "head_end": [
+    0.0525,
+    0.7,
+    0.3763
+   ],
+   "headfront": [
+    0.25,
+    0.0,
+    1.0
+   ]
+  }
+ },
+ "passes": {
+  "colour": {
+   "S": "out/run/colour/S",
+   "SE": "out/run/colour/SE",
+   "E": "out/run/colour/E",
+   "NE": "out/run/colour/NE",
+   "N": "out/run/colour/N",
+   "NW": "out/run/colour/NW",
+   "W": "out/run/colour/W",
+   "SW": "out/run/colour/SW"
+  },
+  "weapon": {
+   "S": "out/run/weapon/S",
+   "SE": "out/run/weapon/SE",
+   "E": "out/run/weapon/E",
+   "NE": "out/run/weapon/NE",
+   "N": "out/run/weapon/N",
+   "NW": "out/run/weapon/NW",
+   "W": "out/run/weapon/W",
+   "SW": "out/run/weapon/SW"
+  },
+  "pos": {
+   "S": "out/run/guides_pos/S",
+   "SE": "out/run/guides_pos/SE",
+   "E": "out/run/guides_pos/E",
+   "NE": "out/run/guides_pos/NE",
+   "N": "out/run/guides_pos/N",
+   "NW": "out/run/guides_pos/NW",
+   "W": "out/run/guides_pos/W",
+   "SW": "out/run/guides_pos/SW"
+  },
+  "part": {
+   "S": "out/run/guides_part/S",
+   "SE": "out/run/guides_part/SE",
+   "E": "out/run/guides_part/E",
+   "NE": "out/run/guides_part/NE",
+   "N": "out/run/guides_part/N",
+   "NW": "out/run/guides_part/NW",
+   "W": "out/run/guides_part/W",
+   "SW": "out/run/guides_part/SW"
+  }
+ }
+}
